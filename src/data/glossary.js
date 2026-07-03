@@ -2010,6 +2010,38 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "genuine-Phi autocorrelation MOMENT LADDER M_0..M_4 and the moment-indexed leading form R_n(a) ~ (a^n/n!) M_n",
+    category: "numerical",
+    definition:
+      "imp-3469 measured a single rung of the degree-2 (absolute) bridge-mass Taylor structure: " +
+      "B_2(a) ~ (a^2/2) M_2, where M_2 = int tau^2 A(tau) d(tau) is the fixed second moment of the " +
+      "genuine-Phi autocorrelation A(tau) = int Phi(s) Phi(s + tau) ds (imp-2686). imp-3481 extends " +
+      "this to a full moment-indexed LADDER by expanding both A-weighted generating masses C(a) = " +
+      "int cosh(a tau) A(tau) d(tau) = sum a^{2j}/(2j)! M_{2j} and S(a) = int sinh(a tau) A(tau) " +
+      "d(tau) = sum a^{2j+1}/(2j+1)! M_{2j+1} in a and peeling successive Taylor terms: R_0(a) = C(a), " +
+      "R_1(a) = S(a), R_2(a) = C(a) - M_0 (the imp-3469 bridge mass B_2), R_3(a) = S(a) - a M_1, " +
+      "R_4(a) = C(a) - M_0 - (a^2/2) M_2. Each remainder satisfies R_n(a) = (a^n/n!) M_n + O(a^{n+2}), " +
+      "so every moment M_n (n = 0..4) is exactly the leading small-a coefficient of the n-th " +
+      "remainder. MEASURED (NPHI = 10, imp-3469 Simpson grid): M_0 ~ 7.675e-4, M_1 ~ 4.518e-5, " +
+      "M_2 ~ 4.537e-6 (reproduces the imp-3469 anchor to full precision), M_3 ~ 6.029e-7, " +
+      "M_4 ~ 9.625e-8 -- positive and roughly geometrically decreasing. At the imp-3469 base a = 0.5 " +
+      "every remainder matches its leading form (a^n/n!) M_n to < 1e-3 relative, and halving a " +
+      "(0.5 -> 0.25 -> 0.125) quarters each residual (order-a^2 convergence), confirming the leading " +
+      "form is genuine rather than a coincidental fit." +
+      "\n\nHONEST SCOPE: measurement/derivation of the moment ladder and its Taylor structure only. " +
+      "Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT, and the degree-2 face carries no feasibility " +
+      "ratio at all (D_2 = 0 identically). The operator-level K_a >= 0 off-diagonal endpoint-Hankel " +
+      "positivity (imp-3066) remains the lone RH obstruction, UNTOUCHED. No RH verdict, no QED. " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3481 (autocorrelation moment ladder extending the imp-3469 M_2 rung to n=0..4), 2026",
+    relatedTerms: [
+      "Second genuine-Phi autocorrelation moment M_2 and the degree-2 leading form B_2(a) ~ (a^2/2) M_2",
+      "genuine-Phi autocorrelation A(tau) (imp-2686)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

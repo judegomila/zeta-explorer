@@ -194,6 +194,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp3656-triple-skew-toeplitz-gap-ladder',
   '/viz-imp3657-sigma-crossover-tc-closedform-pin',
   '/viz-imp3658-planted-replica-argmax-drift',
+  '/viz-imp3677-skew-toeplitz-krylov-depth-vs-N-law',
   '/viz-imp3695-feature-foldin-floor-ladder',
   '/viz-imp3696-matched-pair-krylov-depth-sweep',
   '/viz-imp3697-a-weight-decay-crosscheck',

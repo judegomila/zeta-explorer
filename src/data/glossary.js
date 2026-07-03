@@ -2556,6 +2556,41 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "SHARPENED xi*_inf quadrature residual band 1e-6 -> 1e-9 (imp-3551)",
+    category: "numerical",
+    definition:
+      "imp-3548 confirmed xi*_inf ~ 12.0666876 is quadrature-scheme-invariant (an order-10 composite " +
+      "Gauss-Legendre rule and a composite trapezoid + its own 1/N^2 Richardson limit agree with the " +
+      "imp-3523 midpoint-extrapolated value), but explicitly declined to sharpen the residual band, " +
+      "which stayed quoted at imp-3523s CONSERVATIVE 1e-6 even though its own converged Gauss-Legendre " +
+      "tail moved by under 1e-8. imp-3551 closes that gap: it recomputes the extrapolation-free " +
+      "composite 5-point Gauss-Legendre ladder (N = 45, 90, 180, 360, 720) with no extrapolation model " +
+      "at all, and MEASURES the converged-tail bit-stability directly. The located root is already " +
+      "12.0666876106 at N=90 and settles to 12.0666876100 by N=180, holding bit-stable thereafter " +
+      "(deep tail N>=180 stable to under 5e-13); the converged-tail spread over N>=90 is ~6.5e-10, " +
+      "dominated by the single N=90->180 settling step. The SHARPENED band is defined as the smallest " +
+      "power-of-ten strictly ABOVE the measured spread: sharpenedBand = 10^ceil(log10(tailSpread)) = " +
+      "1e-9 -- 1000x tighter than the imp-3523/imp-3548 conservative 1e-6. This tightened claim is " +
+      "corroborated, not merely asserted: the independent composite trapezoid + Richardson limit " +
+      "agrees with the Gauss-Legendre limit to ~1e-15, and both routes sit only ~4e-11 from the " +
+      "imp-3523 8-figure headline 12.06668761 -- every independent discrepancy lands strictly inside " +
+      "the sharpened 1e-9 band." +
+      "\n\nHONEST SCOPE: measurement/certification only -- this sharpens the QUADRATURE-CONVERGENCE " +
+      "residual band for the FIXED (NPHI=10, U=6) model that imp-3523 quoted, from 1e-6 to 1e-9. It " +
+      "does NOT re-derive an analytic error bound, does NOT quantify the fixed NPHI/U truncation or " +
+      "domain systematics (constant across the ladder, cancelling in the spread), and does NOT give " +
+      "xi* a closed form -- the imp-3470 stationarity equation stays transcendental. RH-EQUIVALENT; " +
+      "the operator-level off-diagonal endpoint-Hankel obstruction K_a >= 0 (imp-3066) remains " +
+      "UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3551 (SHARPENED xi*_inf quadrature residual band, tightening the imp-3523/imp-3548 conservative 1e-6 band to a measured 1e-9 via an extrapolation-free Gauss-Legendre convergence study), 2026",
+    relatedTerms: [
+      "PSD peak-slope maximizer xi* = 12.0870439 (transcendental root of P2(xi) = 0) (imp-3470)",
+      "far-tail xi* replica-hiding grid threshold N_replica~764 (imp-3582)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

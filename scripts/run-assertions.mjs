@@ -3445,6 +3445,32 @@ const DATA_MODULES = [
   // Import-light (baked rows; zeros table consumed only by the offline
   // generator script). RH-free; PT Lambda<=0.2 stays SOTA. 13 assertions.
   '/src/data/imp-3725-fmb-plateau-domination-lemma.js',
+  // imp-3847: near-degeneracy margin audit of the imp-3725 enclosure. Measures
+  // Dmin/H (nearest frozen shrunk distance over the min gap) across all 10
+  // plateaus (20.54 worst at plateau 1, up to 121.29) and the worst-case
+  // distance to the two theta_N walls: ~352x to the vacuousness wall (Psi<8)
+  // and ~3.52x to the binding self-consistency wall (theta>=thetaBar=0.99,
+  // Psi<=0.08). Dmin/H, max Psi and min theta all peak at plateau 1, so
+  // Dmin/H is a faithful monotone proxy for the retardation risk imp-3729
+  // named. Import-light (derives live from the imp-3725 baked rows).
+  // Measurement only; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED.
+  // 7 assertions.
+  '/src/data/imp-3847-near-degeneracy-margin.js',
+  // imp-3846: toolkit-side companion to imp-3727 for the K4 entropy-solution
+  // route to G6a_shock_lipschitz. Walks the classical caustic-regularity
+  // toolkit tool-by-tool (T1 Oleinik one-sided E-condition, T2 Lax/Dafermos
+  // shock-set structure, T3 Hopf-Lax value-function representation, T4 Arnold
+  // fold/cusp classification, T5 Bec-Khanin Lagrangian-map framework), records
+  // which imp-3727 hypotheses each tool produces/requires and whether the
+  // imp-3642 discrete RK4 flow discharges them. Refines the imp-3727 flat
+  // availability tally into an H2-rooted dependency chain: all four absent
+  // tools (T1-T4) share the single unwritten prerequisite H2 (convex-flux
+  // certification of the free-Burgers hydrodynamic limit); only T5 has a
+  // partial (discrete Lagrangian-map) input, downstream of that chain.
+  // Import-light (pure literals). Literature-anchored scoping only; K4 stays
+  // WHOLLY NEW, G6a OPEN; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED.
+  // 5 assertions.
+  '/src/data/imp-3846-g6a-k4-caustic-regularity-toolkit-assessment.js',
 ];
 
 let ALL_MODULES = FAST_MODE

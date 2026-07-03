@@ -171,6 +171,7 @@ const EXPLICIT_VIZ_ROUTES = new Set([
 // rather than fail the build; delete a route from this set once it gets a
 // visualizations-index.js entry so the hard check covers it again.
 const EXEMPT_FROM_INDEX = new Set([
+  '/viz-imp3256-vhs-crossval',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

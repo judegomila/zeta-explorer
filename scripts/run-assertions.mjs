@@ -2983,6 +2983,19 @@ const DATA_MODULES = [
   // a*T_A<=0.125). Stress-test only, imp-3066 untouched, no QED, PT Lambda<=0.2
   // SOTA. 8 assertions.
   '/src/data/imp-3490-degree2-exponent-wide-k-ladder.js',
+  // imp-3501 (proof): DERIVES the imp-3481 moment-indexed leading form
+  // R_n(a)=(a^n/n!)M_n analytically for EVERY n=0..4, extending the imp-3488 n=2
+  // case. Uniform convergence of the cosh/sinh series on the compact support
+  // [0,T_A] lets integration against A commute with the sum, giving C(a)=sum
+  // a^{2j}/(2j)! M_{2j}, S(a)=sum a^{2j+1}/(2j+1)! M_{2j+1}; peeling sub-order-n
+  // terms leaves R_n=sum_{m>=n, m==n(mod 2)} a^m/m! M_m, so leading (a^n/n!)M_n and
+  // residual (a^{n+2}/(n+2)!)M_{n+2}+O(a^{n+4}). Certified vs imp-3481 on
+  // a in {0.5,0.25,0.125}: derived leading form == imp-3481 leadingForm bit-for-bit,
+  // moment series reproduce C,S to <1e-10, derived two-term expansion matches every
+  // measured remainder to <1e-5 (vs single-term <1e-3), and one-term residual over
+  // derived next tail ->1 (<1e-3), tightening as a halves. Derivation/certification
+  // only, imp-3066 untouched, no QED, PT Lambda<=0.2 SOTA. 7 assertions.
+  '/src/data/imp-3501-moment-ladder-general-derivation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

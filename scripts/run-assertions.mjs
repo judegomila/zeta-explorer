@@ -3199,6 +3199,24 @@ const DATA_MODULES = [
   // rho(m) tables; monotonicity/exponent arithmetic self-checks. Measurement only,
   // imp-3066 untouched, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 7 assertions.
   '/src/data/imp-3575-skew-toeplitz-gap-N1600-krylov-reconverge.js',
+  // imp-3602 (numerical): MEASURES the SECOND skew-Toeplitz gap sigma_2=lambda_5/lambda_1
+  // (third-pair/first-pair Gram Ritz-value ratio) across N=160..2000 to test whether the
+  // imp-3555/imp-3575 -2 section-gap heuristic governs the FULL leading spectrum, not
+  // only the first gap rho=lambda_3/lambda_1. IT DOES. Reusing the identical
+  // imp-3505/imp-3575/imp-3596 assembly and full-reorthogonalization Lanczos top-6 Ritz
+  // extraction at converged Krylov depth m=min(N,440) (every rung LOCKS vs the m=400
+  // sub-block <2e-14; first-gap -log rho reproduces the imp-3555/imp-3575 baked ladder
+  // <3e-13), the second gap converges to the SAME -2 heuristic: local log-log exponent
+  // of -log sigma_2 climbs monotonically -1.9551 (160->240) -> -1.9948 (1600->2000),
+  // indistinguishable from the first-gap exponents (<2e-3 apart); global fit q_2=-1.9813
+  // (R^2=0.99999) vs q_1=-1.9811 (R^2=0.99999). The two gaps share ONE power law with a
+  // FIXED amplitude ratio -log sigma_2/-log rho ~ constant (2.6691->2.6667, mean 2.6671,
+  // tending to 8/3 -- the signature of a common N^-2 law with pair-index amplitude a_j
+  // proportional to j^2-1, a_3/a_2=8/3). lambda_5=lambda_6 pairing holds <2e-14 (<1.1e-11
+  // at N=2000), matching the imp-3596 dense certification, so lambda_5 is a genuine
+  // third-pair level. Baked import-light literals; exponent/ratio arithmetic self-checks.
+  // Measurement only, imp-3066 untouched, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 7 assertions.
+  '/src/data/imp-3602-skew-toeplitz-second-gap-exponent.js',
   // imp-3556 (numerical): ROOT-SOLVES the imp-3529 post-peak sigma(N) threshold
   // crossings (sigma<0.9,0.75,0.5,0.25,0.1,0.01) to residual <1e-9 on the exact
   // imp-3220/imp-3406/imp-3463 sub-terms (no ladder read-off): sigma<0.9 at N=2.572e7,
@@ -3295,6 +3313,20 @@ const DATA_MODULES = [
   // (reuses effectiveHeightForN + C_C_PINNED). Measurement/derivation only, imp-3066 K_a>=0
   // positivity UNTOUCHED, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 6 assertions.
   '/src/data/imp-3599-flow-gap-nextorder-correction.js',
+  // imp-3603 (accuracy): CROSS-VALIDATES the imp-3576 inner-A(tau) composite-Simpson
+  // truncation constants K_n^inner (M_0..M_4) against a genuinely INDEPENDENT
+  // higher-order Gauss-Legendre inner reference (GL-24/100 panels, vs the imp-3576
+  // GL-16/200) plus a fully Simpson-free GL OUTER moment leg, to rule out a
+  // quadrature self-reference artifact. The two GL inner references agree to 2e-17 on
+  // every outer node (imp-3576 reference was converged); refitting against GL-24 on the
+  // matched Simpson outer grid reproduces the imp-3576 GL-16 constants to 6.5e-8 and the
+  // published 6.88e-2/2.45e-2/5.51e-3/1.28e-3/3.14e-4 ladder to 0.30%; the Simpson-free
+  // GL-outer refit returns the same ladder to 2e-7. Observed order 3.9992..4.0007,
+  // monotone ~4x decay (ratios 2.80..4.45, K_0/K_4~219). So the clean O(h^4) decay is a
+  // genuine leading-order Simpson signal, not a Simpson-vs-Simpson self-reference
+  // artifact. Cross-validation only, imp-3066 untouched, RH-equivalent, no QED, PT
+  // Lambda<=0.2 SOTA. 8 assertions.
+  '/src/data/imp-3603-inner-truncation-gauss-legendre-crossval.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -2879,6 +2879,39 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "moment-remainder tail exponent ladder extended to n=7,8: C_7=M_9/(72 M_7), C_8=M_10/(90 M_8) (imp-3618)",
+    category: "numerical",
+    definition:
+      "imp-3581 derived the closed p=2 moment-remainder tail exponent and the fit-bias law " +
+      "p_fit=2+D_n cov(a^2,ln a)/var(ln a) for the same-parity remainder series R_n(a)=sum_{m>=n,step2} " +
+      "a^m/m! M_m, and imp-3600 certified it at rungs n=5,6 (C_5=M_7/(42 M_5), C_6=M_8/(56 M_6)). imp-3618 " +
+      "EXTENDS the certified ladder to the next rungs n=7 (odd sinh R_7) and n=8 (even cosh R_8), measuring " +
+      "the A-weighted moments M_11..M_14 on the SAME NM=1600 [0,T_A] Simpson reference. The general closed " +
+      "leading coefficient C_n=M_(n+2)/((n+1)(n+2)M_n) reduces to C_7=M_9/(72 M_7)~8.25809e-4 ((8)(9)=72) and " +
+      "C_8=M_10/(90 M_8)~7.39567e-4 ((9)(10)=90), with next-order D_7~-1.5787e-4, D_8~-1.3198e-4. The predicted " +
+      "p_fit reproduces the ACTUAL least-squares log-log slope to ~1e-9 at both new rungs (odd: fitted " +
+      "1.99999536 vs predicted 1.99999536, slopeModelErr~3.9e-10, |p-2|~4.64e-6; even: fitted 1.99999214 vs " +
+      "predicted 1.99999214, slopeModelErr~6.6e-10, |p-2|~7.86e-6), independently confirmed by r_n(a)/a^2 -> " +
+      "C_n (deepest rung matches C_7 to 6.0e-10, C_8 to 3.2e-8). So the exponent stays EXACTLY 2 at n=7,8 and " +
+      "the sub-2 fitted read-out remains the derived O(a^2) curvature bias, not exponent drift. Both new rungs " +
+      "continue the monotone same-parity |p_fit-2| trend (odd n=3,5,7: 1.16e-5,6.99e-6,4.64e-6; even n=4,6,8: " +
+      "1.80e-5,1.14e-5,7.86e-6), tracking the shrinking |D_n|." +
+      "\n\nHONEST SCOPE: measurement/derivation only -- extends the certified rung set (to n=7,8) of a " +
+      "fixed-weight Taylor-remainder decay ORDER and its leading coefficient; establishes NO operator " +
+      "positivity. Mass-feasibility remains NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a >= 0 " +
+      "off-diagonal endpoint-Hankel positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3618 (extends the imp-3581/imp-3600 closed moment-remainder tail exponent ladder to rungs n=7,8, certifying the fit-bias law reproduces the actual least-squares slope to ~1e-9 at both), 2026",
+    relatedTerms: [
+      "imp-3600 remainder-tail exponent ladder n=5,6 (imp-3600)",
+      "imp-3581 closed C_n/D_n derivation and fit-bias law, n=3,4 (imp-3581)",
+      "imp-3553 cancellation-free odd R_3 fit p=1.99999 (imp-3553)",
+      "imp-3526 cancellation-free even R_4 fit (imp-3526)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

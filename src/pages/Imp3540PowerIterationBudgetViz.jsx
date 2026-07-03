@@ -204,6 +204,10 @@ export default function Imp3540PowerIterationBudgetViz() {
         <Link to="/viz-imp3467-closed-form-c" style={{ color: '#7c3aed' }}>
           Closed-Form C-Assembly (imp-3467)
         </Link>
+        {' | '}
+        <Link to="/viz-imp3564-power-iteration-closed-form" style={{ color: '#7c3aed' }}>
+          Closed-Form K&middot;N^2 Fit (imp-3564)
+        </Link>
       </div>
     </div>
   );

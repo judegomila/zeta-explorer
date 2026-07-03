@@ -179,6 +179,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp3542-degree-d-miss-factor',
   '/viz-imp3543-xistar-robustness',
   '/viz-imp3563-quadrature-straddle',
+  '/viz-imp3564-power-iteration-closed-form',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

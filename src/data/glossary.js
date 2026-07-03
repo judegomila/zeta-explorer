@@ -3866,6 +3866,35 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3711 post-peak sigma(N) half-life landmark: strictly monotone decay past N_max ~ 9.22e5, sqrt-law tail, half-life at N ~ 4.04e9",
+    category: "numerical",
+    definition:
+      "imp-3406 pinned the interior MAXIMUM of the GUE-conditional share sigma(N) = E_coll(N)/E(N) " +
+      "at N_max ~ 9.219e5 (sigma_max ~ 0.949429) and predicted -- analytically only -- monotone decay " +
+      "past it as the constant truncation floor E_trunc outlives the vanishing E_coll ~ sqrt(log T0/N). " +
+      "imp-3711 continues that curve at N in {1.5e6, 2e6, 5e6, 1e7} (the 5e6 rung is NEW, absent from " +
+      "the imp-3406 decade ladder), confirming sigma falls strictly: 0.948635, 0.947368, 0.938717, " +
+      "0.926562. The decay SHAPE is gentle near the peak (log-log slope d ln sigma/d ln N ~ -0.023 at " +
+      "1e7, where E_coll/E_trunc ~ 15.6) and steepens toward the sqrt-law asymptote -1/2 as E_coll " +
+      "drops through the fixed floor E_trunc = 3.06e-5 (~-0.30 at 1e10, ~-0.45 at 1e12, ~-0.48 at " +
+      "1e15) -- so the deep tail is a slow 1/sqrt(N) power law, not exponential. A new landmark, the " +
+      "PEAK HALF-LIFE, is located by bisection: sigma first falls to sigma_max/2 ~ 0.474715 near " +
+      "N_half ~ 4.04e9 (~3.64 decades above N_max), distinct from the imp-3406 absolute-0.5 crossing " +
+      "at N ~ 3.27e9, which measures the fixed 0.5 level rather than halving from the peak." +
+      "\n\nHONEST SCOPE: MODEL-ONLY continuation of the imp-3406 analytic curve -- the true empirical " +
+      "E_coll(N) needs an O(N^2) Dyson/spectral run, infeasible past N ~ 10^5 on the active pool " +
+      "(imp-1082), so none of these rungs are freshly-measured spectral rows. No positivity, no " +
+      "bridge closure, no RH claim, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3711 (continuing the imp-3406 sigma(N) ladder past its 10^6 endpoint, adding the 5e6 rung, characterizing the sqrt-law decay shape, and locating the peak half-life at N ~ 4.04e9), 2026",
+    relatedTerms: [
+      "sigma(N) N-shape (interior min ~97.8, interior max ~9.22e5) (imp-3406)",
+      "sigma(N) machine-precision landmark ladder L1-L5 (imp-3444)",
+      "GUE-conditional share argmin (imp-3323)",
+      "empirical E_coll O(N^2) native-backend infeasibility note (imp-1082)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

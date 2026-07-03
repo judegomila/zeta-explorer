@@ -52,6 +52,8 @@
  * @see sg1c-theta-trap-theorems (imp-3021 SG1C_R2T2_ASYM_RESIDUAL structured family)
  */
 
+import { SG1C_R2T2_ASYM_RESIDUAL } from './sg1c-theta-trap-theorems.js';
+
 // Shared log-gas force machinery (identical convention to sg1c-theta-trap-theorems).
 function force(x) {
   const N = x.length, F = new Array(N).fill(0);
@@ -161,6 +163,23 @@ export const SG1C_ASYM_GLOBAL_INFIMUM_RECONCILE = {
   globalConstantBracket: [B_ONSET, 0.9027902227683418], // OPEN; lower end is the imp-3021 family, upper the imp-3170 class
   theoremCConstant: 0.72,
   basinMarginConfigB: B_ONSET - 0.72,             // 0.1816 > 0
+  // imp-3294 reconciliation: the sg1c-theta-trap-theorems lemmaR2T2 prose "~0.9016 tune"
+  // and this ledger STRUCTURED_INF = 0.9015828375 are the SAME onset computation, NOT two
+  // distinct structured floors. Both are the imp-3021 Config-B minimal-spacing half-lattice
+  // deterministic tune: byte-identical force + dRhoIso machinery, identical cfg generator
+  // (left neighbour at -1, right lattice first-gap h + spacing sp floored at rho, m=16), and
+  // identical grid (h in [0.93,1.50], sp in [0.93,1.30] step 0.01), bisected to the smooth
+  // drho/ds zero. The theta-trap SG1C_R2T2_ASYM_RESIDUAL.tunedAsymInf equals B_ONSET to
+  // double precision; "~0.9016" is merely its 4-sig-fig rounding. The single exact value the
+  // ledger should carry is B_ONSET = 0.9015828375.
+  thetaTrapProseReconciliation: {
+    ticket: 'imp-3294',
+    thetaTrapProseValue: SG1C_R2T2_ASYM_RESIDUAL.tunedAsymInf, // the lemmaR2T2 "~0.9016" tune
+    ledgerStructuredInf: B_ONSET,                              // 0.9015828375
+    sameComputation: Math.abs(SG1C_R2T2_ASYM_RESIDUAL.tunedAsymInf - B_ONSET) < 1e-9,
+    exactValueForLedger: B_ONSET,
+    note: 'SAME computation (imp-3021 Config-B minimal-spacing half-lattice tune), not two floors; "~0.9016" is the rounding of 0.9015828375.',
+  },
   verdict:
     'c_asym = 0.90279 is CLASS-SPECIFIC, NOT the global asymmetric infimum: it prices only the opposite-UNIT-lattice '
     + 'subclass (spacing d_1=1, the benign choice). The imp-3021 structured family keeps the opposite lattice at the '
@@ -207,6 +226,14 @@ export const SG1C_ASYM_GLOBAL_INFIMUM_RECONCILE_ASSERTIONS = [
     description: 'the exact gap c_asym - B_onset = 1.207e-3 > 0 and Config B is the configuration attaining the lower onset',
     holds: () => GAP > 0 && Math.abs(GAP - 1.2074e-3) < 1e-6
       && /configB/.test(SG1C_ASYM_GLOBAL_INFIMUM_RECONCILE.lowerOnsetAttainedBy),
+  },
+  {
+    id: 'sg1c-reconcile-thetatrap-prose-is-same-computation',
+    description: 'imp-3294: the sg1c-theta-trap-theorems lemmaR2T2 "~0.9016 tune" (SG1C_R2T2_ASYM_RESIDUAL.tunedAsymInf) is the SAME computation as this ledger STRUCTURED_INF = 0.9015828375 = B_ONSET (bit-equal to double precision), NOT a second distinct structured floor -- so the single exact value the ledger carries is 0.9015828375',
+    holds: () => Math.abs(SG1C_R2T2_ASYM_RESIDUAL.tunedAsymInf - B_ONSET) < 1e-9
+      && Math.abs(B_ONSET - 0.9015828375) < 1e-6
+      && SG1C_ASYM_GLOBAL_INFIMUM_RECONCILE.thetaTrapProseReconciliation.sameComputation === true
+      && SG1C_ASYM_GLOBAL_INFIMUM_RECONCILE.thetaTrapProseReconciliation.exactValueForLedger === B_ONSET,
   },
   {
     id: 'sg1c-reconcile-basin-and-sota-honest',

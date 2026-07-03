@@ -2884,6 +2884,42 @@ export const glossary = [
     link: "/closure-routes",
   },
   {
+    term: "m-fold aliasing replica ladder N_m = N_replica/m: floors 764/382/255, sup_m N_m = N_1 (imp-3601)",
+    category: "numerical",
+    definition:
+      "imp-3582 derived the first-order (m=1) replica-hiding floor N_replica~764 and noted -- but did " +
+      "not measure -- that higher-order aliasing images fold in only at smaller N, so the k=1 floor " +
+      "'is the binding one.' imp-3601 DERIVES and MEASURES that whole claim. Sampling periodizes the " +
+      "spectrum with period omega_s=2 xi_Nyq, so a baseband source at xi_true produces the full image " +
+      "set {2 m xi_Nyq +/- xi_true : m=1,2,3,...}; the m=1 minus image is the imp-3582 first replica " +
+      "and the m=2 minus image 4 xi_Nyq-xi_true is the SECOND fold (the fold of the first replica). " +
+      "The m-th fold lands in the scanned band (0,xi_max] only for the loosest in-band source " +
+      "xi_true=xi_max, giving the m-floor N <= N_m = xi_max U/(m pi) = N_replica/m. These floors " +
+      "DECREASE monotonically in m: the first replica (m=1, N_replica~763.94, ceil 764) is the " +
+      "LARGEST and therefore binding; the second fold sits at N_2=1200/pi~381.97 (ceil 382), the " +
+      "third at N_3~254.65 (ceil 255), the fourth at N_4~190.99. So sup_m N_m = N_1 = N_replica -- no " +
+      "higher fold ever raises the imp-3582/imp-3558 replica-free floor. As a bonus drift check, an " +
+      "m-fold replica moves 2 m xi_Nyq per panel doubling, so the second fold shifts ~17593 across " +
+      "the imp-3558 ladder 1200->9600 -- exactly 2x the ~8797 first-replica contrast -- meaning the " +
+      "argmax-drift-0 discriminator unmasks a higher-order replica even more decisively than a " +
+      "first-order one. The smallest imp-3558 rung N=1200 clears the second-fold floor by ~3.14x and " +
+      "the first-replica floor by ~1.57x, so all four rungs sit above EVERY fold threshold." +
+      "\n\nHONEST SCOPE: derivation/certification only, confirming the imp-3582 'k=1 is binding' remark " +
+      "by measuring the full alias-image ladder, not a new closed form (the imp-3470 stationarity " +
+      "equation stays transcendental) and not an extension of the finite-domain (0,400] measurement. " +
+      "RH-EQUIVALENT necessary-but-not-sufficient; the imp-3066 off-diagonal endpoint-Hankel K_a >= 0 " +
+      "magnitude is the lone obstruction, UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= " +
+      "0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3601 (second-fold and general m-fold aliasing replica threshold ladder N_m=N_replica/m, certifying sup_m N_m=N_1~764 stays binding and no higher fold raises the imp-3582 floor), 2026",
+    relatedTerms: [
+      "analytic replica-hiding grid threshold N_replica = xi_max U/pi ~ 764 (imp-3582)",
+      "far-tail xi* band-max grid ladder: four grid-invariant rungs to N=9600, xi_Nyq~5027 (imp-3558)",
+      "sub-floor replica fold-in caveat: feature-specific floor N_fold, peak-count decisiveness (imp-3647)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
+  {
     term: "moment-remainder tail exponent ladder extended to n=5,6: C_5=M_7/(42 M_5), C_6=M_8/(56 M_6) (imp-3600)",
     category: "numerical",
     definition:

@@ -2602,6 +2602,17 @@ const DATA_MODULES = [
   // already unconditional). Throws on import if the U-shape, capstone reproduction, or
   // widest-at-ceiling structure breaks. Assessment only; no positivity; no QED; PT 0.2 SOTA.
   '/src/data/imp-3220-en-bridge-fidelity-frontier.js',
+  // imp-3406: EXTRAPOLATES the high-N (right) branch of the imp-3220 U-shaped conditional
+  // share sigma(N)=E_coll/E(N) past the sampled 10^6 ceiling, reusing the identical imp-3220
+  // sub-terms. Finding: the right arm TURNS OVER -- sigma has an interior MAXIMUM at N_max
+  // ~9.22e5 (sigma_max~0.94943), only 2.1e-5 above the decade-ladder 10^6 value, so "widest
+  // at 10^6" is a flat-cap sampling artifact of the ladder endpoint. Beyond the peak sigma
+  // decays monotonically to 0 (through 0.9117 near 1.8e7, 0.5 near 3.3e9) because E_coll ~
+  // sqrt(log T0/N) vanishes while the constant truncation floor E_trunc=3.06e-5 persists;
+  // the share neither keeps widening nor plateaus below 1 -- the empirical-vs-analytic gap
+  // has essentially peaked at the assembly ceiling. Throws on import if the interior max,
+  // flat-cap gap, past-ceiling decrease, or decay-to-0 breaks. Assessment only; no QED; PT SOTA.
+  '/src/data/imp-3406-sigma-highN-extrapolation.js',
   // imp-3324: MEASURES how load-bearing the C_H=1/8 ansatz is for the imp-3220 widest-gap
   // conditional share sigma(10^6)~0.949. Reuses the identical imp-3220 sub-terms, parametrizes
   // E_coll linearly in C_H (R=E_trunc+E_flow fixed), and finds sigma=E_coll/(R+E_coll) is a

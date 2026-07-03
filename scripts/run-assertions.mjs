@@ -2603,6 +2603,17 @@ const DATA_MODULES = [
   // toward 1), so the "94.9% rests on the ansatz" headline is robust. Throws on import if the
   // derivative/numeric cross-check or bracket robustness breaks. Assessment only; no QED; PT SOTA.
   '/src/data/imp-3324-sigma-CH-sensitivity.js',
+  // imp-3387: ASSESSES the downstream question imp-3324 F3 set aside -- does the ABSOLUTE
+  // E(10^6) bridge budget under the imp-2643 audited C_H=0.127 (vs 1/8) still leave the
+  // finite-height bound within the imp-452 L_pt~0.121 < PT 0.2 SOTA? Recomputes E(N)=
+  // E_trunc+E_flow+E_coll with the exact imp-3220 sub-terms. Finding: E_coll rises only
+  // 1.6% (ratio 0.127/0.125=1.016), NOT the 1.7x the ticket states -- that 1.7x is the PT
+  // MARGIN factor (0.2/0.12), a different quantity. L_pt moves 0.12070->0.12072 (unchanged
+  // to three figures), margin to PT stays ~0.0793; at N*=10^6 L_pt is E_trunc_pt-dominated
+  // (~93%) with E_coll only ~1.2%, so the margin is NOT eroded -- and even a hypothetical
+  // genuine 1.7x E_coll gives L_pt~0.1217 < 0.2. Throws on import if the premise correction,
+  // margin preservation, or budget reproduction breaks. Assessment only; no QED; PT 0.2 SOTA.
+  '/src/data/imp-3387-CH-audited-absolute-EN-margin.js',
   // imp-3276: quantifies the per-N safety MARGIN of the PATH-1 leading-order
   // predicates E1 (rho_{J*(N)} non-decreasing) and E2 (tau_c_est non-increasing)
   // over the full Odlyzko sweep N in {2..10^6}, upgrading the roadmap ZERO-violations

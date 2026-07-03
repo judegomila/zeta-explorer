@@ -2173,6 +2173,40 @@ export const glossary = [
     link: "/closure-routes",
   },
   {
+    term: "NPHI >= 3 bit-invariance of the genuine-Phi autocorrelation support (imp-3508)",
+    category: "numerical",
+    definition:
+      "imp-3482 certified D_2 = 0 identically by measuring, at the SINGLE de Bruijn-Newman kernel " +
+      "truncation NPHI = 10, a hard genuine-Phi autocorrelation A(tau) underflow point (tau ~ 1.368) " +
+      "and showing the degree-2 crossover tauStar = arcsinh(1)/a (1.7627 at a = 0.5, 2.2034 at a = 0.4) " +
+      "sits strictly beyond it with margins 1.185460 and 1.626147. imp-3508 asks whether those numbers " +
+      "are NPHI = 10 artifacts by recomputing the whole pipeline -- A(0), the 1e-12 support endpoint, " +
+      "the hard underflow point, and both margins -- across the ladder NPHI = {6, 8, 10, 12, 16}. " +
+      "RESULT: every one of those quantities is BIT-FOR-BIT IDENTICAL across the whole ladder. The " +
+      "n >= 4 de Bruijn-Newman bands carry weight exp(-pi n^2 e^{4u}) that underflows below machine " +
+      "epsilon over the entire s >= 0 autocorrelation domain, so adding them changes A(tau) by less " +
+      "than one ULP. A small-NPHI probe {1, 2, 3, 4} locates the stabilization onset: NPHI = 1 and " +
+      "NPHI = 2 still differ from the stable value (A(0) = 1.045694e-2 at NPHI = 1 vs the stable " +
+      "1.047207e-2), but from NPHI = 3 upward A(0) = 0.01047206596649 is bit-identical -- the support " +
+      "is set entirely by the n = 1, 2, 3 bands. Because the support endpoint is NPHI-invariant and " +
+      "tauStar is NPHI-independent by construction, the imp-3482 underflow point and the imp-3469 " +
+      "degree-2 strict-separation margin are therefore truncation-invariant to the last bit for " +
+      "NPHI >= 3: no attainable dBN truncation can push tauStar inside the A support, so D_2 = 0 " +
+      "identically holds NPHI-robustly, not merely at NPHI = 10." +
+      "\n\nHONEST SCOPE: measurement/certification only, at the RH-equivalent scale class. This " +
+      "certifies the NPHI-robustness of a support-separation FACT; it establishes NO operator " +
+      "positivity, and the degree-2 face carries no feasibility ratio at all (D_2 = 0). The " +
+      "off-diagonal endpoint-Hankel obstruction K_a >= 0 (imp-3066) remains UNTOUCHED. No RH verdict, " +
+      "no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3508 (NPHI-ladder robustness certification of the imp-3482 underflow point and imp-3469 degree-2 margin), 2026",
+    relatedTerms: [
+      "closed-form degree-2 miss factor 1 - 1/k^3 (imp-3488)",
+      "genuine-Phi autocorrelation MOMENT LADDER M_0..M_4 (imp-3481)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
+  {
     term: "imp-3485 U=20 residual floor is a Lanczos Krylov-truncation deficit, not power under-convergence (imp-3505)",
     category: "numerical",
     definition:

@@ -3980,6 +3980,51 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3727 K4 entropy-solution regularity scoping: the six hypotheses a Burgers/CM caustic-map route to G6a Hoelder-1/2 would need",
+    category: "proof",
+    definition:
+      "imp-3714 enumerated candidate K4 -- a direct Burgers / Calogero-Moser entropy-solution " +
+      "Hoelder-1/2 regularity bound on the collision-time field tau_c(x) -- as the ONE " +
+      "G6a_shock_lipschitz construction that dodges both imp-3671 obstructions (S1 wrong type, S2 " +
+      "wrong scale) without reading an existing mesoscopic field, but flagged it WHOLLY NEW. imp-3727 " +
+      "scopes what K4 would actually require: the continuum limit of the attractive Dyson / CM flow " +
+      "dx_k/ds = -2 sum_j 1/(x_k - x_j) obeys the complex inviscid Burgers equation " +
+      "partial_s m + m partial_z m = 0 (Biane/Voiculescu free-probability form), whose real-line " +
+      "reduction is a genuinely-nonlinear scalar conservation law; tau_c(x) is exactly its first-" +
+      "crossing (caustic-envelope) functional, so a spatial-regularity estimate on tau_c(x) is a " +
+      "shock-formation/caustic-map regularity estimate in the classical Lax/Oleinik/Kruzhkov sense, " +
+      "with the 1/2 exponent tied to the square-root opening of a generic fold (A_2) caustic (an A_3 " +
+      "cusp would give a different exponent)." +
+      "\n\nSix hypotheses an argument yielding C_Lip would need: H1 conservation-law/Hamilton-Jacobi " +
+      "structure for tau_c, H2 genuine nonlinearity (convex flux), H3 entropy admissibility " +
+      "(Lax/Kruzhkov), H4 the Oleinik one-sided/semiconcavity BV bound, H5 fold caustic-type control " +
+      "fixing the 1/2 exponent, and H6 characteristic-speed/Rankine-Hugoniot control. Checked against " +
+      "the imp-3642 CM-flow machinery: only H6 is PARTIAL (the RK4 integrator computes discrete " +
+      "characteristic speeds, but no continuum Lipschitz shock-speed bound is derived), H2 is LATENT " +
+      "(the complex-Burgers hydrodynamic limit is standard but unwritten/uncertified in the repo), " +
+      "and H1, H3, H4, H5 are ABSENT. Crucially the repo's only existing one-sided estimate, the " +
+      "imp-2520 Lemma B Gronwall floor, is exactly the mesoscopic mechanism K4 is defined to BYPASS, " +
+      "so it cannot be recycled to discharge H4." +
+      "\n\nSo the gap between repo ingredients and an admissible C_Lip certificate along K4 is " +
+      "essentially the whole Burgers/CM entropy-solution regularity theory (Oleinik/Kruzhkov/Hopf-Lax " +
+      "semiconcavity plus Arnold fold-caustic classification); imp-3642 contributes only the discrete " +
+      "characteristic map. K4 is confirmed WHOLLY NEW, consistent with the imp-3714 verdict, and " +
+      "G6a_shock_lipschitz stays OPEN." +
+      "\n\nHONEST SCOPE: literature-anchored hypothesis scoping/derivation only -- no estimate " +
+      "shipped, no positivity, no bridge closure, no RH claim, NO QED. imp-3066 off-diagonal " +
+      "endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the " +
+      "rigorous SOTA.",
+    firstUsed: "imp-3727 (scoping the six hypotheses H1-H6 a Burgers/CM entropy-solution regularity argument for tau_c(x) would require, and finding only H6 partial and H2 latent against the imp-3642 CM-flow machinery, with H1/H3/H4/H5 wholly absent), 2026",
+    relatedTerms: [
+      "imp-3714 G6a_shock_lipschitz modulus candidates K1-K4: consolidated status table (imp-3714)",
+      "imp-3671 G6a_shock_lipschitz structural-silence verdict: S1 wrong type, S2 wrong scale (imp-3671)",
+      "imp-3708 y2-adapted flow depth s(y) ~ y^2 as the REQ-ii escape (imp-3708)",
+      "backward-flow-stability-gronwall Lemma B/C, the one-sided floor K4 must bypass (imp-2520)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

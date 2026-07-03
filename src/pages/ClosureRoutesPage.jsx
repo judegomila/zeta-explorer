@@ -4417,6 +4417,71 @@ function CaptureRatioShearGramClusterSummaryPanel() {
   );
 }
 
+// ── imp-3415: full 16-cell tabulation of the imp-3351 (a, U)-grid min-eig=-||Gshear||
+// cell-independence result — every cell agrees to |ratio-1| < 9e-16 with reduced trace 0.
+function Imp3351CellIndependenceTable() {
+  const m = IMP3351_SHEAR_GRAM_SYMMETRIC_SPECTRUM_AU_GRID.measured;
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #a78bfa', background: 'rgba(167,139,250,0.04)' }}>
+      <h3 style={{ color: '#a78bfa', marginTop: 0 }}>
+        16-cell tabulation: min eig(i G<sub>shear</sub>) = &minus;||G<sub>shear</sub>|| across the imp-3085 (a, U) grid (imp-3415)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        The imp-3351 sweep measures the symmetric-about-0 spectrum identity at every cell of
+        A_GRID &times; U_GRID = {'{0.5, 0.3, 0.2, 0.1}'} &times; {'{4, 6, 8, 10}'} (N&thinsp;=&thinsp;240 fixed).
+        Two independent routes &mdash; the analytic rank-2 magnitude &mu; and the power-iteration
+        operator norm ||G<sub>shear</sub>|| &mdash; agree to machine precision at all {m.cells.length} cells,
+        and the reduced-block trace is exactly 0 at every cell (the +/&minus;&mu; pairing forced by
+        the hollow antisymmetry).
+      </p>
+      <div style={{ overflowX: 'auto', margin: '12px 0' }}>
+        <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: 12 }}>
+          <thead>
+            <tr>
+              <th style={{ textAlign: 'right', padding: '4px 8px', color: '#c4b5fd', borderBottom: '1px solid rgba(167,139,250,0.3)', fontFamily: mono }}>a</th>
+              <th style={{ textAlign: 'right', padding: '4px 8px', color: '#c4b5fd', borderBottom: '1px solid rgba(167,139,250,0.3)', fontFamily: mono }}>U</th>
+              <th style={{ textAlign: 'right', padding: '4px 8px', color: '#c4b5fd', borderBottom: '1px solid rgba(167,139,250,0.3)', fontFamily: mono }}>&mu;</th>
+              <th style={{ textAlign: 'right', padding: '4px 8px', color: '#c4b5fd', borderBottom: '1px solid rgba(167,139,250,0.3)', fontFamily: mono }}>||G<sub>shear</sub>||</th>
+              <th style={{ textAlign: 'right', padding: '4px 8px', color: '#c4b5fd', borderBottom: '1px solid rgba(167,139,250,0.3)', fontFamily: mono }}>trace</th>
+              <th style={{ textAlign: 'right', padding: '4px 8px', color: '#c4b5fd', borderBottom: '1px solid rgba(167,139,250,0.3)', fontFamily: mono }}>|ratio&minus;1|</th>
+            </tr>
+          </thead>
+          <tbody>
+            {m.cells.map((c) => (
+              <tr key={`${c.a}-${c.U}`}>
+                <td style={{ padding: '4px 8px', textAlign: 'right', color: 'var(--text-secondary)', fontFamily: mono }}>{c.a}</td>
+                <td style={{ padding: '4px 8px', textAlign: 'right', color: 'var(--text-secondary)', fontFamily: mono }}>{c.U}</td>
+                <td style={{ padding: '4px 8px', textAlign: 'right', color: 'var(--text-secondary)', fontFamily: mono }}>{c.mu.toExponential(6)}</td>
+                <td style={{ padding: '4px 8px', textAlign: 'right', color: 'var(--text-secondary)', fontFamily: mono }}>{c.normGshear.toExponential(6)}</td>
+                <td style={{ padding: '4px 8px', textAlign: 'right', color: 'var(--text-secondary)', fontFamily: mono }}>{c.reducedTrace}</td>
+                <td style={{ padding: '4px 8px', textAlign: 'right', color: c.ratioMinEigDev < 9e-16 ? '#4ade80' : '#f87171', fontFamily: mono }}>
+                  {c.ratioMinEigDev.toExponential(2)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
+          CELL-INDEPENDENT STRUCTURAL IDENTITY &mdash; NO RH VERDICT
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          Max |ratio&minus;1| over all {m.cells.length} cells is {m.maxRatioDev.toExponential(1)}, and the trace is 0 at
+          every cell &mdash; the symmetric-about-0 spectrum is an algebraic consequence of the rank-2 hollow
+          antisymmetry Gshear&nbsp;=&nbsp;pq<sup>T</sup>&thinsp;&minus;&thinsp;qp<sup>T</sup>, independent of (a, U, &Phi;).
+          This is a structural diagnostic, not a positivity result; the imp-3066 off-diagonal endpoint-Hankel
+          residual is untouched. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3351-shear-gram-symmetric-spectrum-aU-grid.js; parent: imp-3252; same grid: imp-3103.
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3354: termwise Phi>=0 structure viz (imp-3257) — Phi_NPHI(u) with the per-term
 // sign-flip thresholds u_n* marked; u_1* (rightmost, worst) sits strictly left of [0,U],
 // so the headline domain lies entirely in the termwise-positive region.
@@ -5556,6 +5621,7 @@ export default function ClosureRoutesPage() {
         Capture-Ratio &amp; Shear-Gram Cluster Roundup (imp-3413)
       </h2>
       <CaptureRatioShearGramClusterSummaryPanel />
+      <Imp3351CellIndependenceTable />
 
       {/* ─── imp-3066: off-diagonal endpoint-Hankel obstruction ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

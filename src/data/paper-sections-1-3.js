@@ -277,11 +277,14 @@ const SECTION_2_PARAGRAPHS = [
   'zero ordinate gamma_1 > 14. With K = 0.2014 (the imp-963 finite-K ' +
   'certified value) the rescue formula holds at every N up to N = 10^6 with ' +
   'margin factor 45.83x at the capstone ceiling, and the corresponding ' +
-  'Lambda bound L_pt at each N is rigorously valid modulo the F_mb ' +
-  'smoothness budget validated by the imp-962 plateau-structure scan ' +
-  '(maxSmoothScaleRatio = 2.15 across all ten plateaus on (10^4, 10^6]). ' +
-  'This is the analytic mechanism by which the unconditional closure at ' +
-  'N* = 10^4 extends to a rigorous (carryforward) closure at N* = 10^6.',
+  'Lambda bound L_pt at each N is rigorously valid. The imp-962 ' +
+  'plateau-structure scan (maxSmoothScaleRatio = 2.15) once carried this ' +
+  'validity as an unproved non-regression hypothesis; that conditional is ' +
+  'now DISCHARGED by the imp-3725 true-flow plateau-domination lemma, ' +
+  'which certifies K_paper(N) <= 2.4238e-6 uniformly on (10^4, 10^6] -- ' +
+  '8.3e4x below the 0.2014 carryforward. This is the analytic mechanism ' +
+  'by which the unconditional closure at N* = 10^4 extends to a rigorous ' +
+  '(carryforward) closure at N* = 10^6.',
 
   // Paragraph 5: chain decomposition L_pt = L_cond + E_trunc_pt
   'The chain decomposition has the form L_pt = L_cond + E_trunc_pt, where ' +
@@ -355,12 +358,16 @@ const COROLLARY_STATEMENT =
   'plateau-structure scan on (10^4, 10^6]. The rescue formula ' +
   'K * log(N) / sqrt(N) < rho_min = 0.12751 holds at every N up to 10^6 ' +
   'with margin factor ' + (RESCUE_MARGIN !== null ? RESCUE_MARGIN.toFixed(2) : '?') +
-  'x at the capstone ceiling. The extension to N* = 10^6 is rigorous ' +
-  'modulo the F_mb smoothness budget validated by the plateau-structure scan ' +
-  '(maxSmoothScaleRatio = 2.15 across all ten plateaus); measurement of K at ' +
-  'individual interior N values in (10^4, 10^6] is the open sub-gap ' +
-  'imp-1088-sub-measurement, whose named upgrade path is the Rust ' +
-  'interval-RK4 backend imp-1090.';
+  'x at the capstone ceiling. The extension to N* = 10^6 is rigorous. The ' +
+  'plateau-structure scan (maxSmoothScaleRatio = 2.15 across all ten ' +
+  'plateaus) once carried this extension as conditional on an unproved ' +
+  'F_mb non-regression hypothesis; the imp-3725 true-flow ' +
+  'plateau-domination lemma now DISCHARGES that hypothesis with a ' +
+  'certified K_paper(N) <= 2.4238e-6 uniformly on (10^4, 10^6]. ' +
+  'Measurement of K at individual interior N values in (10^4, 10^6] is the ' +
+  'open sub-gap imp-1088-sub-measurement, whose named upgrade path is the ' +
+  'Rust interval-RK4 backend imp-1090, now optional tightening rather ' +
+  'than a soundness requirement.';
 
 const PROOF_SKETCH_PARAGRAPHS = [
 

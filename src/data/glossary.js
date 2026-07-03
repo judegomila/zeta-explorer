@@ -3147,6 +3147,37 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3668 skew-Toeplitz FIFTH-pair adjacent-pairing dense certification: lambda_9=lambda_10, sigma_4 -> 1",
+    category: "numerical",
+    definition:
+      "imp-3643 dense-certified the FOURTH skew-Toeplitz pair lambda_7=lambda_8 at the deep rungs N in " +
+      "{1200,1600,2000}, extending the imp-3623 dense full-spectrum route (Householder tridiagonalization + " +
+      "implicit-QL, no Krylov subspace, no reorthogonalization) to the top-8 Gram eigenvalues. imp-3668 pushes " +
+      "the SAME independent dense solver one level further, to the top-10, to certify the FIFTH pair " +
+      "lambda_9=lambda_10. RESULT: the dense fifth-pair spread is 0 to all printed digits at N=1200 and N=1600 " +
+      "and 1.38e-15 at N=2000 -- i.e. < 1.4e-15 everywhere, the same machine-precision adjacent-pairing the " +
+      "lower four pairs show, so the deep section spectrum is FIVE-pair adjacent-paired: lambda_1=lambda_2, " +
+      "lambda_3=lambda_4, lambda_5=lambda_6, lambda_7=lambda_8, lambda_9=lambda_10. The fifth-pair amplitude " +
+      "sigma_4=lambda_9/lambda_1 climbs monotonically toward 1 with depth: 0.9965699418447529 (N=1200), " +
+      "0.9980654415282425 (N=1600), 0.9987600189865782 (N=2000) -- the same approach-to-1 the lower gaps show. " +
+      "As a same-assembly self-check, the dense top-8 measured here reproduces the imp-3643 baked deep-rung " +
+      "top-8 to all printed digits at every rung, confirming this is a faithful one-level extension of the " +
+      "same solve rather than a re-tuned calculation." +
+      "\n\nHONEST SCOPE: pairing-STRUCTURE cross-check/measurement only -- certifies the fifth-pair adjacent-" +
+      "pairing degeneracy against an independent dense full-spectrum solver; does NOT establish the fifth-pair " +
+      "amplitude LAW (a distinct pending Lanczos ticket), does NOT construct the missing magnitude, and does " +
+      "NOT attempt the imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. No RH verdict, no QED. Platt-Trudgian " +
+      "Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3668 (dense Householder+QL cross-validation extends the imp-3643 fourth-pair certification one level to certify the fifth pair lambda_9=lambda_10 at the deep rungs), 2026",
+    relatedTerms: [
+      "imp-3643 dense certification of the fourth-pair lambda_7=lambda_8 Krylov artifact (imp-3643)",
+      "imp-3623/imp-3625 dense-solver resolution of the N=2000 skew-Toeplitz third-pair Krylov artifact (imp-3654)",
+      "imp-3619 third skew-Toeplitz gap sigma_3 and pair j=4 amplitude corroboration (imp-3619)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

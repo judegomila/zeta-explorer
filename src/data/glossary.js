@@ -4068,6 +4068,38 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3735 moment-ratio correction eps_n = Q_n/tau*(n)^2 - 1: Laplace-variance decay order",
+    category: "numerical",
+    definition:
+      "The imp-3646 closed moment-ratio coefficients satisfy C_n^saddle = tau*(n)^2/((n+1)(n+2)), " +
+      "with tau*(n) the exact root of n = 4 pi tau* e^{4 tau*}, while the true Simpson-quadrature " +
+      "moment ratio Q_n differs from this saddle value by a correction eps_n = Q_n/tau*(n)^2 - 1. " +
+      "imp-3735 measured eps_n across n = 6..80 and tested it against three candidate decay laws: " +
+      "the slow 16/(ln n)^2, the faster c/n, and the Laplace-variance order 1/(n(1+4 tau*(n))). Both " +
+      "16/(ln n)^2 and c/n were REJECTED as poor fits; the data instead sits strictly between them, " +
+      "consistent with the Laplace-variance order -- the reduced factor eps_n * n * (1 + 4 tau*(n)) " +
+      "drifts toward 1 as n grows rather than settling immediately, so the local exponent " +
+      "p(n) = -d ln eps_n/d ln n is UNBOUNDED rather than converging to a fixed power. This " +
+      "unbounded local exponent is the same underlying drift that produces the imp-3713 finite-n " +
+      "exact-saddle-ratio R_n crossing 1 at a finite n* rather than approaching it monotonically as " +
+      "a clean power-law tail: eps_n changes sign near n ~ 149 (eps_148 = +7.60e-6, eps_149 = " +
+      "-3.46e-6 at inner-quadrature convergence, imp-3849), directly tracking the location where " +
+      "R_n dips below 1." +
+      "\n\nHONEST SCOPE: measurement/characterization of a mass-feasibility diagnostic's finite-n " +
+      "correction-term decay order only; establishes no operator positivity. RH-equivalent, " +
+      "necessary-but-not-sufficient; the off-diagonal endpoint-Hankel obstruction K_a >= 0 " +
+      "(imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the " +
+      "rigorous SOTA.",
+    firstUsed: "imp-3735 (measuring the eps_n = Q_n/tau*(n)^2 - 1 moment-ratio correction across n=6..80, rejecting both the slow 16/(ln n)^2 and faster c/n decay laws in favor of the intermediate Laplace-variance order 1/(n(1+4 tau*)), and identifying the unbounded local exponent that drives the imp-3713 finite-n saddle-ratio crossing), 2026",
+    relatedTerms: [
+      "imp-3646 remainder-tail moment-ratio asymptotics: LOG-DIVERGENT C_n ~ (ln n)^2/(16 n^2) (imp-3646)",
+      "imp-3713 exact-saddle ratio finite-n overshoot: R_n crosses 1 at n* ~ 226 (imp-3713)",
+      "imp-3849 inner-quadrature-converged crossing n*=215.231 and eps_n sign-change near n~149 (imp-3849)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

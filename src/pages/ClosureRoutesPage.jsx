@@ -39,6 +39,7 @@ import { IMP3153_COSH_MONOMIAL_CONDITIONING_CEILING } from '../data/imp-3153-cos
 import { IMP3155_ONSET_DECAY_NEXT_ORDER_CORRECTIONS } from '../data/imp-3155-onset-decay-next-order-corrections.js';
 import { IMP3222_ONSET_DECAY_SECOND_ORDER_COEFFICIENT } from '../data/imp-3222-onset-decay-second-order-coefficient.js';
 import { IMP3325_ONSET_PADE_RESUMMATION } from '../data/imp-3325-onset-pade-resummation.js';
+import { IMP3383_ONSET_THIRD_ORDER_HIGHER_PADE } from '../data/imp-3383-onset-third-order-higher-pade.js';
 import { IMP3175_OVERFLOW_FRACTION_RESOLUTION_RECONCILE } from '../data/imp-3175-overflow-fraction-resolution-reconcile.js';
 import { SECTION26_MUPASS_OPERATOR_VERDICT } from '../data/section26-mupass-operator-verdict-2026-06-30.js';
 import { IMP3177_EQUAL_PRODUCT_CELL_INVARIANCE_LOCK } from '../data/imp-3177-equal-product-cell-invariance-lock.js';
@@ -3067,6 +3068,82 @@ function OnsetPadeAccuracyRadiusViz() {
   );
 }
 
+// ── imp-3431: imp-3383 higher-order Pade accuracy-radii LADDER (T3/P11/T4/P21/P12/P22) ──
+function OnsetHigherOrderPadeRadiiLadderViz() {
+  const M = IMP3383_ONSET_THIRD_ORDER_HIGHER_PADE;
+  const rows = [
+    { k: "t3", label: "T3 (3-term poly)", color: "#fbbf24",
+      eps1pct: M.higherPade.polynomialComparators.threeTermEps1pct, eps0p1pct: 0.11463 },
+    { k: "p11", label: "P11 ([1/1] Pade)", color: "#22d3ee",
+      eps1pct: M.higherPade.polynomialComparators.pade11Eps1pct, eps0p1pct: 0.10937 },
+    { k: "t4", label: "T4 (4-term poly)", color: "#f97316",
+      eps1pct: M.higherPade.polynomialComparators.fourTermEps1pct,
+      eps0p1pct: M.higherPade.polynomialComparators.fourTermEps0p1pct },
+    { k: "p12", label: "P12 ([1/2] Pade)", color: "#a78bfa",
+      eps1pct: M.higherPade.pade12.eps1pct, eps0p1pct: 0.31068 },
+    { k: "p21", label: "P21 ([2/1] Pade)", color: "#10b981",
+      eps1pct: M.higherPade.pade21.eps1pct, eps0p1pct: M.higherPade.pade21.eps0p1pct },
+    { k: "p22", label: "P22 ([2/2] Pade)", color: "#f472b6",
+      eps1pct: M.higherPade.pade22.eps1pct, eps0p1pct: M.higherPade.pade22.eps0p1pct },
+  ].sort((a, b) => a.eps1pct - b.eps1pct);
+
+  const t4Radius = M.higherPade.polynomialComparators.fourTermEps1pct;
+  const W = 520, ML = 96, MR = 54, MT = 24, MB = 36;
+  const ROW_H = 34, BAR_H = 10, BAR_GAP = 4;
+  const XMAX = 1.45;
+  const H = MT + rows.length * ROW_H + MB;
+  const px = (eps) => ML + (eps / XMAX) * (W - ML - MR);
+  const xTicks = [0, 0.25, 0.5, 0.75, 1.0, 1.25];
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid #10b981", background: "rgba(16,185,129,0.04)" }}>
+      <h3 style={{ color: "#10b981", marginTop: 0 }}>
+        imp-3383 higher-order Pade radii LADDER: [2/1] beats its same-order T4, [2/2] reaches &epsilon;&asymp;1.366
+      </h3>
+      <p style={{ color: "var(--text-secondary)", fontSize: 13, lineHeight: 1.75 }}>
+        1% (light bar) and 0.1% (solid bar) relative-error radii for all six onset-signature
+        reconstructions of &phi;, sorted ascending by 1% radius. The dashed vertical line marks the
+        T4 (4-term polynomial) 1% radius &epsilon;&asymp;{t4Radius.toFixed(4)}: the [2/1] Pade P21 clears it
+        by &asymp;+22% (0.7239 vs 0.5958), and the [2/2] Pade P22 &mdash; built from the bonus A4 &mdash;
+        reaches the largest radius of the ladder at &epsilon;&asymp;1.3663. T3 and P11 stay tied near the
+        bottom, matching the imp-3325 finding that the [1/1] Pade adds almost nothing over its
+        same-order polynomial.
+      </p>
+      <svg width={W} height={H} style={{ display: "block", background: "rgba(2,6,23,0.4)", borderRadius: 6 }}>
+        {xTicks.map((v) => (
+          <g key={"x" + v}>
+            <line x1={px(v)} y1={MT} x2={px(v)} y2={H - MB} stroke="#1e293b" strokeWidth="1" />
+            <text x={px(v)} y={H - MB + 14} textAnchor="middle" fontSize="10" fill="#64748b" fontFamily={mono}>{v}</text>
+          </g>
+        ))}
+        <line x1={px(t4Radius)} y1={MT} x2={px(t4Radius)} y2={H - MB} stroke="#f97316" strokeWidth="1.5" strokeDasharray="5 3" opacity="0.85" />
+        <text x={px(t4Radius) + 4} y={MT - 8} fontSize="9" fill="#f97316" fontFamily={mono}>T4 1% radius</text>
+        {rows.map((r, i) => {
+          const rowY = MT + i * ROW_H;
+          return (
+            <g key={r.k}>
+              <text x={ML - 8} y={rowY + BAR_H + BAR_GAP / 2 + 3} textAnchor="end" fontSize="11" fill="#94a3b8" fontFamily={mono}>{r.label}</text>
+              <rect x={ML} y={rowY} width={px(r.eps1pct) - ML} height={BAR_H} fill={r.color} opacity="0.35" />
+              <text x={px(r.eps1pct) + 4} y={rowY + BAR_H - 1} fontSize="9" fill={r.color} fontFamily={mono}>{r.eps1pct.toFixed(4)}</text>
+              <rect x={ML} y={rowY + BAR_H + BAR_GAP} width={px(r.eps0p1pct) - ML} height={BAR_H} fill={r.color} opacity="0.9" />
+              <text x={px(r.eps0p1pct) + 4} y={rowY + 2 * BAR_H + BAR_GAP - 1} fontSize="9" fill={r.color} fontFamily={mono}>{r.eps0p1pct.toFixed(4)}</text>
+            </g>
+          );
+        })}
+        <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+        <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+        <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="11" fill="#94a3b8" fontFamily={mono}>&epsilon; radius (light=1% tol, solid=0.1% tol)</text>
+      </svg>
+      <p style={{ marginTop: 8, color: "#64748b", fontSize: 11, fontFamily: mono }}>
+        Source: imp-3383-onset-third-order-higher-pade.js &mdash; P21/T4 1% ratio&asymp;
+        {M.verdict.pade21VsFourTermFactorAt1pct.toFixed(3)}x. RH-equivalent, degree-0 scalar diagnostic;
+        [2/1] pole stays on the negative-&epsilon; axis (no onset-side singularity); imp-3066 lone
+        obstruction untouched; Platt-Trudgian &Lambda;&le;0.2 SOTA.
+      </p>
+    </div>
+  );
+}
+
 function BridgeLagCutoffCaptureViz() {
   const M = IMP3202_MUPASS_BRIDGE_LAG_CUTOFF_SWEEP;
   const table = M.measured.table;
@@ -5944,6 +6021,12 @@ export default function ClosureRoutesPage() {
         Onset-signature accuracy radii: T2/T3/P11 relative error vs &epsilon;, ~4x extension and T3&asymp;P11 overlap (imp-3325)
       </h2>
       <OnsetPadeAccuracyRadiusViz />
+
+      {/* ─── imp-3431: imp-3383 higher-order Pade radii ladder (T3/P11/T4/P21/P12/P22) ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Higher-order Pade radii ladder: [2/1] beats T4 by ~22%, [2/2] reaches &epsilon;&asymp;1.366 (imp-3383)
+      </h2>
+      <OnsetHigherOrderPadeRadiiLadderViz />
 
       {/* ─── imp-3154: genuine deg-2 deficit degree sweep ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

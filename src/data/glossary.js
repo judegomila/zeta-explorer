@@ -4218,6 +4218,42 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3848 next-order saddle correction: f_ppp(tau*) sign change drives L_n through 1, no asymptote",
+    category: "numerical",
+    definition:
+      "The imp-3735 reduced moment-ratio drift factor L_n = eps_n * n(1+4 tau*) crosses 1 across " +
+      "n=10..80 (2.064 -> 0.567) even though the leading Laplace-variance order pins L_n -> 1 at " +
+      "leading order. imp-3848 computes the NEXT-ORDER saddle corrections that explain this drift. " +
+      "Writing the moment ratio Q_n = <tau^2> under the density proportional to exp(f(tau)), " +
+      "f = n ln tau + ln A(tau), with the imp-3665 model ln A ~ -pi e^{4 tau} and the saddle relation " +
+      "4 pi e^{4 tau*} = n/tau*, the closed-form third and fourth tau-derivatives at the saddle are " +
+      "f_ppp(tau*) = (2n/tau*^3)(1 - 8 tau*^2) and f_pppp(tau*) = -6n/tau*^4 - 64 n/tau*. The " +
+      "skewness/kurtosis expansion gives L_n = 1 + C1 + C2 + C3, C1 = f_ppp sigma^2 tau* (sigma^2 = " +
+      "-1/f_pp)." +
+      "\n\nf_ppp(tau*) changes sign exactly at tau* = 1/sqrt(8) ~ 0.35355 (n ~ 18): C1 is POSITIVE " +
+      "below and NEGATIVE above this crossing, sending L_n through 1 in the direction imp-3735 " +
+      "measured. C1 does NOT settle back to 0 as n grows -- because C1 = (f_ppp sigma^3)(tau*/sigma) " +
+      "and the amplification tau*/sigma = 2 sqrt(n tau*) outpaces the shrinking dimensionless skewness " +
+      "f_ppp sigma^3, C1 grows without bound toward -4 tau* (0.400 at n=10 -> -1.077 at n=80). The " +
+      "corrected series therefore predicts CONTINUED DESCENT of L_n below 1, not a plateau at 1 -- " +
+      "though at this single-next-order truncation the prediction OVERSHOOTS (crossing 1 near n~15 " +
+      "vs the measured n~48), so the result is direction-confirming, not a quantitative pin; the " +
+      "dimensionless skewness and kurtosis both stay under 0.2 throughout, so the underlying Laplace " +
+      "expansion itself remains valid at these n." +
+      "\n\nHONEST SCOPE: measurement/characterization of a next-order saddle correction only; " +
+      "establishes no operator positivity. RH-equivalent, necessary-but-not-sufficient; the " +
+      "off-diagonal endpoint-Hankel obstruction K_a >= 0 (imp-3066) is UNTOUCHED. No RH verdict, " +
+      "no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3848 (deriving the closed-form third/fourth-derivative saddle corrections to the imp-3735 moment-ratio drift factor L_n, showing the f_ppp sign change at tau*=1/sqrt(8) drives the measured crossing through 1 and the reconstructed C1 grows without bound toward -4 tau*, predicting continued descent rather than a plateau), 2026",
+    relatedTerms: [
+      "imp-3735 moment-ratio correction eps_n = Q_n/tau*(n)^2 - 1: Laplace-variance decay order (imp-3735)",
+      "imp-3646 remainder-tail moment-ratio asymptotics: LOG-DIVERGENT C_n ~ (ln n)^2/(16 n^2) (imp-3646)",
+      "imp-3713 exact-saddle ratio finite-n overshoot: R_n crosses 1 at n* ~ 226 (imp-3713)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -187,7 +187,17 @@ export const LAMBDA_BOUNDS = [
       'overclaimed; the honest grade is conditional on the F_mb ' +
       'non-regression hypothesis (dependency-matrix leaf ' +
       'cond-fmb-nonregression-above-1e4, added by imp-2522). Upgrades ' +
-      'back to rigorous when the imp-1090 interval-RK4 measurements land.',
+      'back to rigorous when the imp-1090 interval-RK4 measurements land. ' +
+      'HONEST STATUS (imp-3744, 2026-07-03): the F_mb non-regression leg ' +
+      'itself is now DISCHARGED -- imp-3725 proved a true-flow two-sided ' +
+      'enclosure of t_c(N) per H_raw-plateau, certifying K_paper <= 2.4238e-6 ' +
+      'uniformly on [1e4, 1e6] and retiring the imp-962 maxSmoothScaleRatio ' +
+      '= 2.15 heuristic slack. This is a real-analysis lemma only -- no GUE ' +
+      'input, no local law, and it does NOT close Step 4 (the Polymath15 ' +
+      'bridge / open sub-gap G6a_shock_lipschitz remains OPEN) and does NOT ' +
+      'make RH follow unconditionally. Residual conditioning of this bound ' +
+      'now rests on the OTHER legs (see cond-CH); the discharge only retires ' +
+      'the F_mb-specific slack, not the whole conditional.',
   },
 ];
 

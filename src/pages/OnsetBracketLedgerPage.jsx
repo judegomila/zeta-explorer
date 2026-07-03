@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import { SG1C_ASYM_ONSET_BRACKET_LEDGER } from '../data/sg1c-asym-onset-bracket-ledger-2026-06-30.js';
+import { SG1C_CGLO_LOWER_BOUND } from '../data/sg1c-cglo-lower-bound-2026-07-02.js';
 
 const STATUS_COLOR = {
   'closed-form-exact':       { bg: '#052e16', border: '#166534', text: '#86efac', badge: 'exact' },
@@ -110,6 +111,35 @@ export default function OnsetBracketLedgerPage() {
         </div>
         <div style={{ marginTop: 8, color: '#f87171', fontSize: 12 }}>
           {ledger.globalConstantStatus}
+        </div>
+      </div>
+
+      {/* Proven lower bound (imp-3236) — the first rigorous nontrivial lower bound on c_glob */}
+      <div style={{
+        background: '#052e16', border: '1px solid #166534', borderRadius: 8,
+        padding: '16px 20px', marginBottom: 24,
+      }}>
+        <div style={{ color: '#86efac', fontWeight: 700, fontSize: 15, marginBottom: 10 }}>
+          Proven Lower Bound (imp-3236): c_glob ≥ {SG1C_CGLO_LOWER_BOUND.cLo.toFixed(10)}
+        </div>
+        <div style={{ color: '#94a3b8', fontSize: 13, lineHeight: '1.6', marginBottom: 8 }}>
+          First rigorous nontrivial lower bound. Exact force-difference rate{' '}
+          drho/ds = −2[2/ρ + (1−ρ)/(1+ρ) − 2ρ + Σ Tₘ]; right particles destabilise, left stabilise,
+          |Tₘ| decreasing in |yₘ|, so the densest one-sided right half-lattice (yₖ = 1+kρ) is the worst
+          admissible config. The telescoping majorant S_dest ≤ (1+ρ)/(2+ρ) makes the rate strictly
+          negative — isolation self-improves — for all ρ &lt; c_lo = {SG1C_CGLO_LOWER_BOUND.cLo.toFixed(7)}
+          {' '}(the root of f(ρ) = 2/ρ + (1−ρ)/(1+ρ) − 2ρ − (1+ρ)/(2+ρ)).
+        </div>
+        <div style={{ color: '#86efac', fontSize: 13 }}>
+          The open interval collapses to c_glob ∈ ({SG1C_CGLO_LOWER_BOUND.cLo.toFixed(7)},{' '}
+          {SG1C_CGLO_LOWER_BOUND.locatedCeiling.toFixed(7)}] — proven lower bound to tightest located
+          ceiling c_half. Exceeds the Theorem-C basin reference 0.72 by{' '}
+          {SG1C_CGLO_LOWER_BOUND.exceedsBasinBy.toFixed(4)}.
+        </div>
+        <div style={{ marginTop: 8, color: '#64748b', fontSize: 12 }}>
+          HONEST: does NOT close c_glob — the gap ({SG1C_CGLO_LOWER_BOUND.cLo.toFixed(5)},{' '}
+          {SG1C_CGLO_LOWER_BOUND.locatedCeiling.toFixed(5)}] stays OPEN. Basin-conditional C_Lip
+          unaffected; PT Λ ≤ 0.2 remains the rigorous SOTA. No QED for c_glob itself.
         </div>
       </div>
 

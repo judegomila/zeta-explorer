@@ -11,6 +11,10 @@
  * Reference literals are baked from the imp-3663 measured/matchedAnchors, fits, and
  * imp3645Bracket fields (self-computing at import) -- no re-derivation here.
  *
+ * VERIFIED (imp-3721): all baked literals above re-checked against a live import of
+ * imp-3663 -- anchors, fit slopes/intercepts/RMS, pred3200, and the imp-3645 bracket
+ * reproduce bit-for-bit (reldiff 0). No drift.
+ *
  * @see imp-3663-matched-pair-krylov-depth-sweep.js (source module: anchors, fits, bracket)
  * @see imp-3645-skew-toeplitz-krylov-depth-vs-N-law.js (the undiscriminated two-point bracket)
  *

@@ -10,6 +10,10 @@
  * Reference literals are baked from the imp-3668 measured.rungs table (self-computing
  * at import) -- no re-derivation here.
  *
+ * VERIFIED (imp-3721): sigma4 values and full denseTop10 arrays match a live imp-3668
+ * import exactly at all three rungs (N=1200/1600/2000). IMP3698_WORST_FIFTH_PAIR=1.38e-15
+ * is a rounded display of the source's exact 1.3755221148908734e-15 -- consistent.
+ *
  * @see imp-3668-skew-toeplitz-fifth-pair-dense-crossval.js (source module: denseTop10, sigma4Ladder, verdict)
  *
  * Ticket: imp-3698 (ux, low). Presentation only, RH-equivalent; imp-3066

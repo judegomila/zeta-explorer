@@ -23,6 +23,10 @@
  * @see imp-3665-a-weight-superexp-decay-crosscheck.js (source module: rungs, ratios, verdict)
  * @see imp-3716-a-weight-ratio-crossing-nonexistence.js (REFUTES the ratio<1 rungs baked below; converged values)
  *
+ * VERIFIED (imp-3721): tau=0.5/1.0 rungs match the live imp-3665 rungs to ~1e-6/1e-7
+ * relative (display rounding only); tau=1.5/2.0 rungs match imp-3736's convergedNegLnA
+ * exactly (reldiff 0). No drift beyond the RE-BAKE NOTE above.
+ *
  * Ticket: imp-3697 (ux, low). Presentation only, RH-equivalent; imp-3066
  * untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
  */

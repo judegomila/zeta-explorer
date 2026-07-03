@@ -9,6 +9,10 @@
  * Reference literals are baked from the imp-3670 measured.rungs table (self-computing
  * at import) -- no re-derivation here.
  *
+ * VERIFIED (imp-3721): all 16 rungs (n=3..18) match a live imp-3670 import to <=3.4e-5
+ * relative (5-decimal display rounding vs full float precision -- expected, immaterial).
+ * IMP3699_LAW_ERR_MAX=2e-9 is a documented ceiling; source's actual max is 1.1047e-9.
+ *
  * @see imp-3670-fit-bias-decay-rate-vs-lnsq.js (source module: rungs, ratios, verdict)
  *
  * Ticket: imp-3699 (ux, low). Presentation only, RH-equivalent; imp-3066

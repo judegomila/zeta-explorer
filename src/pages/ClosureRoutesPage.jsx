@@ -36,6 +36,7 @@ import { asymOnsetDrho, SG1C_ASYM_ISOLATION_CLOSED_FORM } from '../data/sg1c-asy
 import { IMP3146_RESIDUAL_GAP_LIMIT_AU_GRID } from '../data/imp-3146-residual-gap-limit-aU-grid.js';
 import { IMP3153_COSH_MONOMIAL_CONDITIONING_CEILING } from '../data/imp-3153-cosh-monomial-conditioning-ceiling.js';
 import { IMP3155_ONSET_DECAY_NEXT_ORDER_CORRECTIONS } from '../data/imp-3155-onset-decay-next-order-corrections.js';
+import { IMP3222_ONSET_DECAY_SECOND_ORDER_COEFFICIENT } from '../data/imp-3222-onset-decay-second-order-coefficient.js';
 import { IMP3175_OVERFLOW_FRACTION_RESOLUTION_RECONCILE } from '../data/imp-3175-overflow-fraction-resolution-reconcile.js';
 import { SECTION26_MUPASS_OPERATOR_VERDICT } from '../data/section26-mupass-operator-verdict-2026-06-30.js';
 import { IMP3177_EQUAL_PRODUCT_CELL_INVARIANCE_LOCK } from '../data/imp-3177-equal-product-cell-invariance-lock.js';
@@ -2458,6 +2459,14 @@ function NextOrderConvergenceCorrectionViz() {
         Source: imp-3155-onset-decay-next-order-corrections.js &mdash;
         A1={_D.onsetCorrection.anchor.toFixed(6)}, D0={_D.decayCorrection.constAnchor.toFixed(6)},
         s0=arcsinh(1)={S0.toFixed(6)}, C={C.toFixed(6)}, K={K.toFixed(6)}.
+      </p>
+      <p style={{ marginTop: 6, color: "#64748b", fontSize: 11, fontFamily: mono }}>
+        imp-3222 second-order: onset A<sub>2</sub>=&minus;(2&#8730;2&minus;1)/(6(1&minus;arcsinh1))&minus;1/36
+        ={IMP3222_ONSET_DECAY_SECOND_ORDER_COEFFICIENT.onsetSecondOrder.anchor.toFixed(6)} (negative, bends
+        phi&epsilon;<sup>2</sup>/C back below); large-s B(s)=4s<sup>2</sup>+{IMP3222_ONSET_DECAY_SECOND_ORDER_COEFFICIENT.decaySecondOrder.coefS1.toFixed(5)}s
+        {IMP3222_ONSET_DECAY_SECOND_ORDER_COEFFICIENT.decaySecondOrder.coefS0.toFixed(5)} (quadratic prefactor).
+        imp-3155 two-term law ~1%-accurate for &epsilon;&lt;~{IMP3222_ONSET_DECAY_SECOND_ORDER_COEFFICIENT.accuracyRadius.onsetEps1pct.toFixed(4)} (onset)
+        and s&gt;~{IMP3222_ONSET_DECAY_SECOND_ORDER_COEFFICIENT.accuracyRadius.decayS1pct.toFixed(3)} (decay).
       </p>
     </div>
   );

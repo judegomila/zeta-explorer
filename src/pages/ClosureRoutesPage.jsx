@@ -80,6 +80,7 @@ import { IMP3384_INTERIOR_CROSSOVER_BELOW_HORIZON } from '../data/imp-3384-inter
 import { IMP3404_SHEAR_GRAM_FULL_SPECTRUM_CELL_INDEPENDENCE } from '../data/imp-3404-shear-gram-full-spectrum-cell-independence.js';
 import { IMP3409_CAPTURE_RATIO_SINH_RESIDUAL_ORDER } from '../data/imp-3409-capture-ratio-sinh-residual-order.js';
 import { IMP3403_LEADING_ORDER_RESIDUAL_NPHI_SCALING } from '../data/imp-3403-leading-order-residual-nphi-scaling.js';
+import { IMP3442_SINH_RESIDUAL_COEFFICIENT_U_SCALING } from '../data/imp-3442-sinh-residual-coefficient-U-scaling.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -5130,6 +5131,150 @@ function SinhResidualVanishingRateViz() {
   );
 }
 
+// ── imp-3476: imp-3442 O(a^2) sinh-coefficient c(U) U-scaling -- log-log c(U) vs U (slope q ~ -0.96)
+// overlaid (normalized to U=4) with the linear ratio r_lin(U) (slope q_lin ~ -0.94), plus a second
+// panel of c(U)*U (near-constant) vs c(U)*U^2 (growing), diagnosing the shared 1/U scaling.
+function CofUScalingViz() {
+  const M = IMP3442_SINH_RESIDUAL_COEFFICIENT_U_SCALING.measured;
+  const uGrid = M.uGrid;
+  const cOfU = M.cOfU;
+  const rLinOfU = M.rLinOfU;
+  const cTimesU = M.cTimesU;
+  const cTimesU2 = M.cTimesU2;
+  const q = M.cScalingExponent;
+  const qR2 = M.cScalingR2;
+  const qLin = M.rLinScalingExponent;
+  const qLinR2 = M.rLinScalingR2;
+
+  // Panel 1: log-log, both series normalized to 1 at U = uGrid[0] so their slopes (q, q_lin) overlay directly.
+  const lnU = uGrid.map((u) => Math.log(u / uGrid[0]));
+  const lnC = cOfU.map((c) => Math.log(c / cOfU[0]));
+  const lnRLin = rLinOfU.map((r) => Math.log(r / rLinOfU[0]));
+
+  const W = 640, H = 300, ML = 68, MR = 24, MT = 22, MB = 44;
+  const xMin = Math.min(...lnU), xMax = Math.max(...lnU);
+  const yAll = [...lnC, ...lnRLin];
+  const yMin = Math.min(...yAll), yMax = Math.max(...yAll);
+  const yPad = (yMax - yMin) * 0.12;
+  const yLo = yMin - yPad, yHi = yMax + yPad;
+  const px = (x) => ML + ((x - xMin) / (xMax - xMin)) * (W - ML - MR);
+  const py = (y) => H - MB - ((y - yLo) / (yHi - yLo)) * (H - MT - MB);
+  const cPath = lnU.map((x, i) => `${i === 0 ? 'M' : 'L'} ${px(x).toFixed(1)} ${py(lnC[i]).toFixed(1)}`).join(' ');
+  const rLinPath = lnU.map((x, i) => `${i === 0 ? 'M' : 'L'} ${px(x).toFixed(1)} ${py(lnRLin[i]).toFixed(1)}`).join(' ');
+  const qLine = `M ${px(xMin).toFixed(1)} ${py(q * xMin).toFixed(1)} L ${px(xMax).toFixed(1)} ${py(q * xMax).toFixed(1)}`;
+
+  // Panel 2: c(U)*U (near-constant) vs c(U)*U^2 (growing), plotted on a shared log y-axis vs U (linear x).
+  const W2 = 640, H2 = 190, ML2 = 68, MR2 = 24, MT2 = 16, MB2 = 36;
+  const xMin2 = uGrid[0], xMax2 = uGrid[uGrid.length - 1];
+  const lnCU = cTimesU.map((v) => Math.log(v));
+  const lnCU2 = cTimesU2.map((v) => Math.log(v));
+  const yAll2 = [...lnCU, ...lnCU2];
+  const yLo2 = Math.min(...yAll2), yHi2 = Math.max(...yAll2);
+  const yPad2 = (yHi2 - yLo2) * 0.1;
+  const px2 = (x) => ML2 + ((x - xMin2) / (xMax2 - xMin2)) * (W2 - ML2 - MR2);
+  const py2 = (y) => H2 - MB2 - ((y - (yLo2 - yPad2)) / ((yHi2 + yPad2) - (yLo2 - yPad2))) * (H2 - MT2 - MB2);
+  const cuPath = uGrid.map((u, i) => `${i === 0 ? 'M' : 'L'} ${px2(u).toFixed(1)} ${py2(lnCU[i]).toFixed(1)}`).join(' ');
+  const cu2Path = uGrid.map((u, i) => `${i === 0 ? 'M' : 'L'} ${px2(u).toFixed(1)} ${py2(lnCU2[i]).toFixed(1)}`).join(' ');
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #f59e0b', background: 'rgba(245,158,11,0.04)' }}>
+      <h3 style={{ color: '#f59e0b', marginTop: 0 }}>
+        O(a&sup2;) Sinh-Coefficient c(U) Inherits the 1/U Capture Law (imp-3442)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        Mapped across the extended imp-3240 U-grid {'{'}4,6,8,10,12,16,20{'}'}, the imp-3409 O(a&sup2;) sinh-drift
+        coefficient <span style={{ fontFamily: mono }}>c(U)</span> decreases monotonically (
+        {cOfU[0].toExponential(2)} at U={uGrid[0]} &rarr; {cOfU[cOfU.length - 1].toExponential(2)} at U={uGrid[uGrid.length - 1]})
+        and tracks a near-1/U power law: <strong style={{ color: '#fbbf24' }}>q = {q.toFixed(3)}</strong> (R&sup2; = {qR2.toFixed(4)}),
+        essentially the same slope as the linear capture ratio <span style={{ fontFamily: mono }}>r_lin(U)</span>,{' '}
+        <strong style={{ color: '#fbbf24' }}>q_lin = {qLin.toFixed(3)}</strong> (R&sup2; = {qLinR2.toFixed(4)}).
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}
+          role="img" aria-label="log-log plot of c(U) and r_lin(U), both normalized to U=4, overlaid to compare their scaling exponents">
+          {[yLo, (yLo + yHi) / 2, yHi].map((y, i) => (
+            <g key={`y${i}`}>
+              <line x1={ML} y1={py(y)} x2={W - MR} y2={py(y)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(y) + 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>{y.toFixed(2)}</text>
+            </g>
+          ))}
+          {uGrid.map((u, i) => (
+            <text key={`x${u}`} x={px(lnU[i])} y={H - MB + 18} textAnchor="middle" fontSize="9" fill="#64748b" fontFamily={mono}>{u}</text>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}>ln(U / {uGrid[0]})</text>
+          <text x={20} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}
+            transform={`rotate(-90 20 ${(MT + H - MB) / 2})`}>ln(value / value at U={uGrid[0]})</text>
+
+          <path d={qLine} fill="none" stroke="#64748b" strokeWidth="1.25" strokeDasharray="1 3" />
+          <path d={cPath} fill="none" stroke="#f59e0b" strokeWidth="2" />
+          <path d={rLinPath} fill="none" stroke="#38bdf8" strokeWidth="2" strokeDasharray="4 3" />
+          {lnU.map((x, i) => (
+            <circle key={`c${i}`} cx={px(x)} cy={py(lnC[i])} r="4" fill="#f59e0b" fillOpacity="0.85" stroke="#fbbf24" strokeWidth="1">
+              <title>{`U=${uGrid[i]}  c(U)=${cOfU[i].toExponential(4)}`}</title>
+            </circle>
+          ))}
+          {lnU.map((x, i) => (
+            <circle key={`r${i}`} cx={px(x)} cy={py(lnRLin[i])} r="4" fill="#38bdf8" fillOpacity="0.85" stroke="#7dd3fc" strokeWidth="1">
+              <title>{`U=${uGrid[i]}  r_lin(U)=${rLinOfU[i].toExponential(4)}`}</title>
+            </circle>
+          ))}
+          <text x={W - MR - 4} y={MT + 12} textAnchor="end" fontSize="10" fill="#94a3b8" fontFamily={mono}>
+            &#9679; c(U) (q={q.toFixed(3)})  &#9675; r_lin(U) (q_lin={qLin.toFixed(3)})
+          </text>
+        </svg>
+      </div>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 12, marginTop: 10, marginBottom: 4 }}>
+        c(U)&middot;U stays near-constant (&#8776;{(cTimesU.reduce((a, b) => a + b, 0) / cTimesU.length).toExponential(2)}) while
+        c(U)&middot;U&sup2; grows monotonically, confirming the exponent sits near &minus;1, not &minus;2:
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W2} height={H2} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}
+          role="img" aria-label="c(U) times U staying near-constant versus c(U) times U squared growing monotonically">
+          {[yLo2 - yPad2, (yLo2 + yHi2) / 2, yHi2 + yPad2].map((y, i) => (
+            <text key={`y2${i}`} x={ML2 - 8} y={py2(y) + 4} textAnchor="end" fontSize="9" fill="#64748b" fontFamily={mono}>{Math.exp(y).toExponential(1)}</text>
+          ))}
+          <line x1={ML2} y1={MT2} x2={ML2} y2={H2 - MB2} stroke="#334155" strokeWidth="1" />
+          <line x1={ML2} y1={H2 - MB2} x2={W2 - MR2} y2={H2 - MB2} stroke="#334155" strokeWidth="1" />
+          {uGrid.map((u) => (
+            <text key={`x2${u}`} x={px2(u)} y={H2 - MB2 + 14} textAnchor="middle" fontSize="9" fill="#64748b" fontFamily={mono}>{u}</text>
+          ))}
+          <path d={cuPath} fill="none" stroke="#f59e0b" strokeWidth="2" />
+          <path d={cu2Path} fill="none" stroke="#a78bfa" strokeWidth="2" strokeDasharray="4 3" />
+          {uGrid.map((u, i) => (
+            <circle key={`cu${i}`} cx={px2(u)} cy={py2(lnCU[i])} r="3.5" fill="#f59e0b" fillOpacity="0.85" stroke="#fbbf24" strokeWidth="1">
+              <title>{`U=${u}  c(U)*U=${cTimesU[i].toExponential(4)}`}</title>
+            </circle>
+          ))}
+          {uGrid.map((u, i) => (
+            <circle key={`cu2${i}`} cx={px2(u)} cy={py2(lnCU2[i])} r="3.5" fill="#a78bfa" fillOpacity="0.85" stroke="#c4b5fd" strokeWidth="1">
+              <title>{`U=${u}  c(U)*U^2=${cTimesU2[i].toExponential(4)}`}</title>
+            </circle>
+          ))}
+          <text x={W2 - MR2 - 4} y={MT2 + 12} textAnchor="end" fontSize="10" fill="#94a3b8" fontFamily={mono}>
+            &#9679; c(U)&middot;U (flat)  &#9675; c(U)&middot;U&sup2; (rising)
+          </text>
+        </svg>
+      </div>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
+          MEASUREMENT ONLY &mdash; NO RH VERDICT
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          q &#8776; {q.toFixed(3)} and q_lin &#8776; {qLin.toFixed(3)} are fitted numerically over a 7-point U-grid, not
+          derived symbolically; the O(a&sup2;) rate itself stays pinned (p(U) = 2.000 at every cutoff). Diagnostic
+          only; the imp-3066 off-diagonal endpoint-Hankel magnitude remains the lone obstruction. Platt&ndash;Trudgian
+          &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3442-sinh-residual-coefficient-U-scaling.js &mdash; parent: imp-3409; capture-law source: imp-3240.
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3413: roundup of the imp-334x/335x capture-ratio & shear-Gram cluster verdicts,
 // closing on the single shared imp-3066 obstruction none of them touch.
 function CaptureRatioShearGramClusterSummaryPanel() {
@@ -6650,6 +6795,12 @@ export default function ClosureRoutesPage() {
         Sinh-Residual Vanishing Rate: e(a) = r(a) &minus; r_lin &#8764; O(a&sup2;) (imp-3409)
       </h2>
       <SinhResidualVanishingRateViz />
+
+      {/* ─── imp-3476: imp-3442 O(a^2) sinh-coefficient c(U) U-scaling vs the r_lin(U) capture law ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        O(a&sup2;) Sinh-Coefficient c(U) Inherits the 1/U Capture Law (imp-3442)
+      </h2>
+      <CofUScalingViz />
 
       {/* ─── imp-3411: imp-3347 leftmost-zero drift vs ln(NPHI), left-margin-below-u1* overlay ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

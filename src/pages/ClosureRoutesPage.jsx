@@ -78,6 +78,7 @@ import { IMP3382_RAWDIAGONAL_R_DEGREE_GROWTH_LAW } from '../data/imp-3382-rawdia
 import { IMP3384_INTERIOR_CROSSOVER_BELOW_HORIZON } from '../data/imp-3384-interior-crossover-below-horizon.js';
 import { IMP3404_SHEAR_GRAM_FULL_SPECTRUM_CELL_INDEPENDENCE } from '../data/imp-3404-shear-gram-full-spectrum-cell-independence.js';
 import { IMP3409_CAPTURE_RATIO_SINH_RESIDUAL_ORDER } from '../data/imp-3409-capture-ratio-sinh-residual-order.js';
+import { IMP3403_LEADING_ORDER_RESIDUAL_NPHI_SCALING } from '../data/imp-3403-leading-order-residual-nphi-scaling.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -5560,6 +5561,179 @@ function LeftmostZeroDriftVsLnNphiViz() {
   );
 }
 
+// ── imp-3457: viz of the imp-3403 leftmost-zero residual shrink law — log|residual|
+// vs ln(NPHI) at slope -0.982 with residual*NPHI -> -1/2, alongside the
+// Faulhaber-vs-Gaussian-curvature decomposition (Faulhaber dominant ~102.3%,
+// curvature subdominant +O(1/N^2)) across NPHI in {10..1280}.
+function Imp3403ResidualShrinkLawViz() {
+  const M = IMP3403_LEADING_ORDER_RESIDUAL_NPHI_SCALING.measured;
+  const cells = M.cells;
+
+  // Panel 1: log-log plot of |residual| vs NPHI with the module's own OLS fit line.
+  const W = 640, H = 280, ML = 68, MR = 24, MT = 20, MB = 42;
+  const lnN = cells.map((c) => Math.log(c.nphi));
+  const lnR = cells.map((c) => Math.log(Math.abs(c.residual)));
+  const xMin = Math.min(...lnN), xMax = Math.max(...lnN);
+  const yMin = Math.min(...lnR), yMax = Math.max(...lnR);
+  const yPad = (yMax - yMin) * 0.12;
+  const yLo = yMin - yPad, yHi = yMax + yPad;
+  const px = (x) => ML + ((x - xMin) / (xMax - xMin)) * (W - ML - MR);
+  const py = (y) => H - MB - ((y - yLo) / (yHi - yLo)) * (H - MT - MB);
+  const fitPath = `M ${px(xMin).toFixed(1)} ${py(M.logLogIntercept + M.logLogSlope * xMin).toFixed(1)} ` +
+    `L ${px(xMax).toFixed(1)} ${py(M.logLogIntercept + M.logLogSlope * xMax).toFixed(1)}`;
+  const dataPath = lnN.map((x, i) => `${i === 0 ? 'M' : 'L'} ${px(x).toFixed(1)} ${py(lnR[i]).toFixed(1)}`).join(' ');
+
+  // Panel 2: residual * NPHI climbing monotonically toward the clean limit -1/2.
+  const W2 = 640, H2 = 170, ML2 = 68, MR2 = 24, MT2 = 16, MB2 = 36;
+  const rtn = M.residualTimesNphiSeq;
+  const yLo2 = Math.min(...rtn, -0.5) - 0.01;
+  const yHi2 = Math.max(...rtn) + 0.01;
+  const px2 = (x) => ML2 + ((x - xMin) / (xMax - xMin)) * (W2 - ML2 - MR2);
+  const py2 = (y) => H2 - MB2 - ((y - yLo2) / (yHi2 - yLo2)) * (H2 - MT2 - MB2);
+  const rtnPath = lnN.map((x, i) => `${i === 0 ? 'M' : 'L'} ${px2(x).toFixed(1)} ${py2(rtn[i]).toFixed(1)}`).join(' ');
+
+  // Panel 3: Faulhaber-vs-Gaussian-curvature decomposition — per-NPHI magnitude bars on
+  // a log10 y-axis, showing the Faulhaber piece dominating and the Gaussian piece as a
+  // steeper-decaying (O(1/N^2)) subdominant term of opposite sign.
+  const W3 = 640, H3 = 200, ML3 = 68, MR3 = 24, MT3 = 16, MB3 = 40;
+  const log10 = Math.log10;
+  const faulMag = cells.map((c) => log10(Math.abs(c.faulhaberResidual)));
+  const gaussMag = cells.map((c) => log10(Math.abs(c.gaussianCurvaturePiece)));
+  const yMin3 = Math.min(...faulMag, ...gaussMag) - 0.4;
+  const yMax3 = Math.max(...faulMag, ...gaussMag) + 0.4;
+  const bandW = (W3 - ML3 - MR3) / cells.length;
+  const py3 = (y) => H3 - MB3 - ((y - yMin3) / (yMax3 - yMin3)) * (H3 - MT3 - MB3);
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #22d3ee', background: 'rgba(34,211,238,0.04)' }}>
+      <h3 style={{ color: '#22d3ee', marginTop: 0 }}>
+        Leftmost-Zero Residual Shrink Law: O(1/NPHI), Faulhaber-Dominant Decomposition (imp-3403 / imp-3457)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        The imp-3347 leadingOrderResidual (measured leftmost zero minus the elementary closed form) shrinks as an{' '}
+        <strong style={{ color: '#67e8f9' }}>O(1/NPHI)</strong> power law: the log-log slope is{' '}
+        <strong style={{ color: '#67e8f9' }}>{M.logLogSlope.toFixed(5)}</strong> (R&sup2; = {M.logLogRSquared.toFixed(5)}),
+        and the sharper diagnostic residual&times;NPHI climbs monotonically toward the clean limit{' '}
+        <strong style={{ color: '#67e8f9' }}>&minus;1/2</strong>, reaching {M.residualTimesNphiTailLimit.toFixed(5)} at
+        NPHI&thinsp;=&thinsp;{cells[cells.length - 1].nphi}. Decomposing the residual shows the{' '}
+        <strong style={{ color: '#fbbf24' }}>Faulhaber finite-N power-sum correction</strong> alone reproduces{' '}
+        {(M.faulhaberFractionAtN10 * 100).toFixed(1)}% of the full residual at N=10, while the genuine{' '}
+        <strong style={{ color: '#5eead4' }}>Gaussian-curvature</strong> piece is subdominant
+        (+O(1/NPHI&sup2;), only {(M.gaussianFractionAtN10 * 100).toFixed(1)}% at N=10, opposite sign).
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}
+          role="img" aria-label="log-log plot of the imp-3403 residual vs NPHI with the O(1/NPHI) fit line">
+          {[yLo, (yLo + yHi) / 2, yHi].map((y, i) => (
+            <g key={`y${i}`}>
+              <line x1={ML} y1={py(y)} x2={W - MR} y2={py(y)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(y) + 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>{y.toFixed(2)}</text>
+            </g>
+          ))}
+          {cells.map((c) => (
+            <text key={`x${c.nphi}`} x={px(Math.log(c.nphi))} y={H - MB + 18} textAnchor="middle" fontSize="9" fill="#64748b" fontFamily={mono}>
+              {c.nphi}
+            </text>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <text x={(ML + W - MR) / 2} y={H - 4} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}>ln(NPHI)</text>
+          <text x={20} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}
+            transform={`rotate(-90 20 ${(MT + H - MB) / 2})`}>ln|residual|</text>
+          <path d={fitPath} fill="none" stroke="#22d3ee" strokeWidth="2" strokeDasharray="1 3" />
+          <path d={dataPath} fill="none" stroke="#22d3ee" strokeWidth="1" strokeOpacity="0.4" />
+          {lnN.map((x, i) => (
+            <circle key={i} cx={px(x)} cy={py(lnR[i])} r="4.5" fill="#22d3ee" fillOpacity="0.85" stroke="#67e8f9" strokeWidth="1">
+              <title>{`NPHI=${cells[i].nphi}  residual=${cells[i].residual.toExponential(4)}`}</title>
+            </circle>
+          ))}
+          <text x={W - MR - 4} y={MT + 12} textAnchor="end" fontSize="10" fill="#94a3b8" fontFamily={mono}>
+            &#8212; OLS fit (slope={M.logLogSlope.toFixed(3)})
+          </text>
+        </svg>
+      </div>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 12, marginTop: 10, marginBottom: 4 }}>
+        residual&times;NPHI converges monotonically to the clean limit &minus;1/2:
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W2} height={H2} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}
+          role="img" aria-label="residual times NPHI converging monotonically to minus one half">
+          <line x1={ML2} y1={py2(-0.5)} x2={W2 - MR2} y2={py2(-0.5)} stroke="#14b8a6" strokeWidth="1" strokeDasharray="2 3" strokeOpacity="0.7" />
+          <text x={W2 - MR2 - 4} y={py2(-0.5) - 5} textAnchor="end" fontSize="9" fill="#5eead4" fontFamily={mono}>&minus;1/2 (clean limit)</text>
+          {[yLo2, yHi2].map((y, i) => (
+            <text key={`y2${i}`} x={ML2 - 8} y={py2(y) + 4} textAnchor="end" fontSize="9" fill="#64748b" fontFamily={mono}>{y.toFixed(3)}</text>
+          ))}
+          <line x1={ML2} y1={MT2} x2={ML2} y2={H2 - MB2} stroke="#334155" strokeWidth="1" />
+          <line x1={ML2} y1={H2 - MB2} x2={W2 - MR2} y2={H2 - MB2} stroke="#334155" strokeWidth="1" />
+          {cells.map((c) => (
+            <text key={`x2${c.nphi}`} x={px2(Math.log(c.nphi))} y={H2 - MB2 + 14} textAnchor="middle" fontSize="9" fill="#64748b" fontFamily={mono}>
+              {c.nphi}
+            </text>
+          ))}
+          <path d={rtnPath} fill="none" stroke="#22d3ee" strokeWidth="1.5" />
+          {lnN.map((x, i) => (
+            <circle key={i} cx={px2(x)} cy={py2(rtn[i])} r="3.5" fill="#22d3ee" fillOpacity="0.9" stroke="#67e8f9" strokeWidth="1">
+              <title>{`NPHI=${cells[i].nphi}  residual*NPHI=${rtn[i].toFixed(6)}`}</title>
+            </circle>
+          ))}
+        </svg>
+      </div>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 12, marginTop: 12, marginBottom: 4 }}>
+        Faulhaber (dominant, ~1/N) vs Gaussian-curvature (subdominant, ~1/N&sup2;) magnitudes per NPHI, log&#8209;10 scale:
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W3} height={H3} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}
+          role="img" aria-label="bar chart comparing the Faulhaber and Gaussian curvature magnitudes per NPHI on a log scale">
+          {[yMin3, (yMin3 + yMax3) / 2, yMax3].map((y, i) => (
+            <g key={`y3${i}`}>
+              <line x1={ML3} y1={py3(y)} x2={W3 - MR3} y2={py3(y)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML3 - 8} y={py3(y) + 4} textAnchor="end" fontSize="9" fill="#64748b" fontFamily={mono}>{`1e${y.toFixed(1)}`}</text>
+            </g>
+          ))}
+          <line x1={ML3} y1={MT3} x2={ML3} y2={H3 - MB3} stroke="#334155" strokeWidth="1" />
+          <line x1={ML3} y1={H3 - MB3} x2={W3 - MR3} y2={H3 - MB3} stroke="#334155" strokeWidth="1" />
+          {cells.map((c, i) => {
+            const bandX = ML3 + i * bandW;
+            const barW = bandW * 0.32;
+            const fx = bandX + bandW * 0.18;
+            const gx = bandX + bandW * 0.54;
+            return (
+              <g key={c.nphi}>
+                <rect x={fx} y={py3(faulMag[i])} width={barW} height={H3 - MB3 - py3(faulMag[i])} fill="#f59e0b" fillOpacity="0.85">
+                  <title>{`NPHI=${c.nphi}  faulhaberResidual=${c.faulhaberResidual.toExponential(4)}`}</title>
+                </rect>
+                <rect x={gx} y={py3(gaussMag[i])} width={barW} height={H3 - MB3 - py3(gaussMag[i])} fill="#5eead4" fillOpacity="0.85">
+                  <title>{`NPHI=${c.nphi}  gaussianCurvaturePiece=${c.gaussianCurvaturePiece.toExponential(4)}`}</title>
+                </rect>
+                <text x={bandX + bandW / 2} y={H3 - MB3 + 14} textAnchor="middle" fontSize="9" fill="#64748b" fontFamily={mono}>{c.nphi}</text>
+              </g>
+            );
+          })}
+          <text x={(ML3 + W3 - MR3) / 2} y={H3 - 4} textAnchor="middle" fontSize="11" fill="#94a3b8" fontFamily={mono}>NPHI</text>
+          <text x={W3 - MR3 - 4} y={MT3 + 10} textAnchor="end" fontSize="10" fill="#fbbf24" fontFamily={mono}>&#9632; Faulhaber (dominant)</text>
+          <text x={W3 - MR3 - 4} y={MT3 + 22} textAnchor="end" fontSize="10" fill="#5eead4" fontFamily={mono}>&#9632; Gaussian curvature (subdominant)</text>
+        </svg>
+      </div>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
+          MEASUREMENT ONLY &mdash; NO RH VERDICT
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          This refines (does not overturn) the imp-3347/imp-3402 attribution of the leadingOrderResidual to
+          &quot;Gaussian curvature&quot;: the leading O(1/N) shrink is the neglected Faulhaber finite-N power-sum
+          correction, and the Gaussian curvature enters only at the subdominant +O(1/NPHI&sup2;) order. The
+          leftmost zero is a truncation artifact receding to &minus;&infin; (the untruncated &Phi; is positive on
+          all of R); the imp-3066 off-diagonal endpoint-Hankel obstruction remains untouched.
+          Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3403-leading-order-residual-nphi-scaling.js; parent: imp-3347; refines: imp-3402.
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3196: residual-gap convergence RATE (log-log, power-law vs geometric) ──
 function ResidualGapConvergenceRateViz() {
   const M = IMP3196_RESIDUAL_GAP_CONVERGENCE_RATE;
@@ -6394,6 +6568,12 @@ export default function ClosureRoutesPage() {
         Leftmost Truncation-Zero Drift vs ln(NPHI) (imp-3347)
       </h2>
       <LeftmostZeroDriftVsLnNphiViz />
+
+      {/* ─── imp-3457: imp-3403 residual shrink law (O(1/NPHI)) + Faulhaber-vs-Gaussian decomposition ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Leftmost-Zero Residual Shrink Law &amp; Faulhaber-Dominant Decomposition (imp-3403)
+      </h2>
+      <Imp3403ResidualShrinkLawViz />
 
       {/* ─── imp-3065: independent quadrature cross-check ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

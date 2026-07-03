@@ -3484,6 +3484,12 @@ const DATA_MODULES = [
   // imp-3725 and imp-3728 baked rows). Derivation only; imp-3066 untouched;
   // PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-3854-thetabar-insensitivity-derivation.js',
+  // imp-3479: shared sigma(N) sub-term helper consolidating the byte-identical
+  // parts(N)/bridgeRow formula duplicated inline across imp-3220/imp-3323/
+  // imp-3406/imp-3443/imp-3444/imp-3446. Consolidation assessment only -- the
+  // six existing modules keep their own inline copy; this helper is for future
+  // sigma(N) tickets to import instead of re-typing the formula. 3 assertions.
+  '/src/data/sigma-n-subterms.js',
 ];
 
 let ALL_MODULES = FAST_MODE

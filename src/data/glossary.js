@@ -3210,6 +3210,32 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "completion degree (section-26 nu > mu overflow)",
+    category: "numerical",
+    definition:
+      "The homogeneity degree of the measure the section-26 shear density nu(tau) and passive " +
+      "diagonal density mu(tau) carry when their overflow region {tau : nu(tau) > mu(tau)} is " +
+      "measured. DEGREE-2 (absolute occupation measure): nu and mu keep their raw Phi^2-weighted " +
+      "magnitude, which is super-exponentially concentrated at small lag inside the crossover " +
+      "tau_star = arcsinh(1)/a, so only ~0.209 of tau registers overflow (the imp-3175 " +
+      "resolution-converged fraction). DEGREE-0 (scale-invariant normalized-spectral measure, the " +
+      "RH-equivalent class): the normalized-R comparison Gpass^{-1/2} Gshear Gpass^{-1/2} quotients " +
+      "the Phi^2 scale out, so the comparison reduces to bare shear sinh(a tau) vs bare diagonal 1, " +
+      "raising the overflow fraction to ~0.64 (the verdict spectral figure; the geometric bare-crossover " +
+      "proxy (U - tau_star)/U ~0.706 upper-bounds it). imp-3253 shows 0.209 and 0.64 are NOT distinct " +
+      "objects -- they are the SAME nu > mu overflow event measured at two different completion " +
+      "degrees, and the fraction rises monotonically as the degree is stripped from 2 toward 0. " +
+      "A reader must not read 0.209 as a degree-0 number or 0.64 as a degree-2 number.",
+    firstUsed: "imp-3253 (degree-2 vs degree-0 reconciliation of the two section-26 overflow headlines), 2026",
+    relatedTerms: [
+      "imp-3253 overflow-degree reconciliation (imp-3253)",
+      "imp-3175 overflow-fraction resolution reconcile (imp-3175)",
+      "imp-2686 mupass construction (imp-2686)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

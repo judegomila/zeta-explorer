@@ -167,6 +167,7 @@ const Imp3380PathOneRecordStepMarginViz = lazy(() => import('./pages/Imp3380Path
 const Imp3631MfoldAliasingThresholdLadderViz = lazy(() => import('./pages/Imp3631MfoldAliasingThresholdLadderViz.jsx'));
 const Imp3635FlowFactorBandViz = lazy(() => import('./pages/Imp3635FlowFactorBandViz.jsx'));
 const Imp3672DirectDysonFlowCrosscheckViz = lazy(() => import('./pages/Imp3672DirectDysonFlowCrosscheckViz.jsx'));
+const Imp3675DenseLanczosPairSpreadCrossoverViz = lazy(() => import('./pages/Imp3675DenseLanczosPairSpreadCrossoverViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -778,6 +779,7 @@ function AppShell() {
           <Route path="/viz-imp3631-mfold-aliasing-threshold-ladder" element={<Imp3631MfoldAliasingThresholdLadderViz />} />
           <Route path="/viz-imp3635-flow-factor-band" element={<Imp3635FlowFactorBandViz />} />
           <Route path="/viz-imp3672-direct-dyson-flow-crosscheck" element={<Imp3672DirectDysonFlowCrosscheckViz />} />
+          <Route path="/viz-imp3675-dense-lanczos-pair-spread-crossover" element={<Imp3675DenseLanczosPairSpreadCrossoverViz />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
           <Route path="/papers" element={<PapersListPage />} />

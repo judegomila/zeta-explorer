@@ -1174,6 +1174,35 @@ export const glossary = [
     ],
     link: '/closure-routes',
   },
+  {
+    term: "IEEE-754 kernel underflow horizon (de Bruijn-Newman Phi)",
+    category: "numerical",
+    definition:
+      "The lag u at which the n=1 term of the kernel Phi(u) = sum_n (2 pi^2 n^4 e^{9u} - 3 pi n^2 " +
+      "e^{5u}) exp(-pi n^2 e^{4u}) first drops below the smallest positive IEEE-754 double " +
+      "(2^-1074) and is rounded to exactly 0.0. Solving pi X - ln(2 pi^2 X) = ln(1/2^-1074) for " +
+      "X = e^{4u} gives the closed form u_horizon = (1/4) ln(X) ~ 1.367 -- a fixed point of the " +
+      "double-precision representation, not a zero or root of Phi itself. " +
+      "\n\nWHY IT MATTERS: imp-3199's raw overflow-panel sweep measured a support length ~1.2535 " +
+      "for the interval [tau_1, tau_2] where |Phi| exceeds a numerical panel threshold, and read " +
+      "tau_2 ~1.366 as a genuine Phi-autocorrelation crossover. imp-3216 showed tau_2 instead " +
+      "PINS to this underflow horizon: it stays ~constant as the truncation window U grows " +
+      "(measured support shrinks like 1/U while the true fraction (U - tau_1)/U rises to 1), " +
+      "and the closed form above reproduces the bisection-measured horizon to within 0.01. " +
+      "\n\nHONEST SCOPE: only tau_1 ~0.111 (the genuine nu/mu crossover) carries mathematical " +
+      "content; lag-length diagnostics that treat tau_2 or the raw ~1.2535 measure as a Phi " +
+      "structural feature are reporting arithmetic bookkeeping of double-precision underflow, " +
+      "not a property of Phi. Sites built on the raw imp-3199 measurement should re-point to the " +
+      "imp-3216 closed form (see imp-3315 consumer audit).",
+    firstUsed: "imp-3216 (closed-form derivation), imp-3316 (glossary entry), 2026",
+    relatedTerms: [
+      "overflow-support-length (imp-3199)",
+      "kernel Phi(u)",
+      "underflow-horizon lock (imp-3312)",
+      "nu/mu crossover",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

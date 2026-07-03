@@ -149,6 +149,7 @@ const Imp3613ReplicaFoldInGeometryViz = lazy(() => import('./pages/Imp3613Replic
 const Imp3614SigmaCrossoverFloorInvarianceViz = lazy(() => import('./pages/Imp3614SigmaCrossoverFloorInvarianceViz.jsx'));
 const Imp3627FlowGapNextorderViz = lazy(() => import('./pages/Imp3627FlowGapNextorderViz.jsx'));
 const Imp3655FlowGapResidualLadderViz = lazy(() => import('./pages/Imp3655FlowGapResidualLadderViz.jsx'));
+const Imp3633TwinSkewToeplitzGapLadderViz = lazy(() => import('./pages/Imp3633TwinSkewToeplitzGapLadderViz.jsx'));
 const Imp3656TripleSkewToeplitzGapLadderViz = lazy(() => import('./pages/Imp3656TripleSkewToeplitzGapLadderViz.jsx'));
 const Imp3657SigmaCrossoverTcClosedformPinViz = lazy(() => import('./pages/Imp3657SigmaCrossoverTcClosedformPinViz.jsx'));
 const Imp3658PlantedReplicaArgmaxDriftViz = lazy(() => import('./pages/Imp3658PlantedReplicaArgmaxDriftViz.jsx'));
@@ -757,6 +758,7 @@ function AppShell() {
           <Route path="/viz-imp3614-sigma-crossover-floor-invariance" element={<Imp3614SigmaCrossoverFloorInvarianceViz />} />
           <Route path="/viz-imp3627-flow-gap-nextorder" element={<Imp3627FlowGapNextorderViz />} />
           <Route path="/viz-imp3655-flow-gap-residual-ladder" element={<Imp3655FlowGapResidualLadderViz />} />
+          <Route path="/viz-imp3633-twin-skew-toeplitz-gap-ladder" element={<Imp3633TwinSkewToeplitzGapLadderViz />} />
           <Route path="/viz-imp3656-triple-skew-toeplitz-gap-ladder" element={<Imp3656TripleSkewToeplitzGapLadderViz />} />
           <Route path="/viz-imp3657-sigma-crossover-tc-closedform-pin" element={<Imp3657SigmaCrossoverTcClosedformPinViz />} />
           <Route path="/viz-imp3658-planted-replica-argmax-drift" element={<Imp3658PlantedReplicaArgmaxDriftViz />} />

@@ -76,6 +76,7 @@ import { IMP3256_VHS_CROSSVAL } from '../data/imp-3256-vhs-crossval.js';
 import { IMP3309_TWO_TAIL_UNDERFLOW_HORIZONS } from '../data/imp-3309-two-tail-underflow-horizons.js';
 import { IMP3382_RAWDIAGONAL_R_DEGREE_GROWTH_LAW } from '../data/imp-3382-rawdiagonal-R-degree-growth-law.js';
 import { IMP3384_INTERIOR_CROSSOVER_BELOW_HORIZON } from '../data/imp-3384-interior-crossover-below-horizon.js';
+import { IMP3404_SHEAR_GRAM_FULL_SPECTRUM_CELL_INDEPENDENCE } from '../data/imp-3404-shear-gram-full-spectrum-cell-independence.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -5064,6 +5065,116 @@ function Imp3351CellIndependenceTable() {
   );
 }
 
+// ── imp-3455: viz of the imp-3404 DEGENERATE rank-2 full spectrum — the {+mu,-mu}
+// extremal pair carries the ENTIRE Frobenius energy (rankTwoEnergyResidual < 1e-12) with
+// N-2 exact zeros, at every one of the 16 (a, U) cells.
+function Imp3404FullSpectrumViz() {
+  const m = IMP3404_SHEAR_GRAM_FULL_SPECTRUM_CELL_INDEPENDENCE.measured;
+  const cells = m.cells;
+
+  // Panel A: schematic normalized spectrum { +1, 0, ..., 0, -1 } (N = 240, only the two
+  // extremes are nonzero — drawn as spikes against a flat zero baseline).
+  const NSPEC = 240;
+  const WA = 620;
+  const HA = 150;
+  const MLA = 40;
+  const MRA = 16;
+  const MTA = 14;
+  const MBA = 26;
+  const plotWA = WA - MLA - MRA;
+  const plotHA = HA - MTA - MBA;
+  const pxA = (i) => MLA + (i / (NSPEC - 1)) * plotWA;
+  const pyA = (v) => MTA + plotHA * (1 - (v + 1) / 2);
+  const zeroLineA = pyA(0);
+
+  // Panel B: per-cell bar chart of -log10(rankTwoEnergyResidual), i.e. how many digits of
+  // machine precision separate the measured energy split from the exact rank-2 identity.
+  const WB = 620;
+  const HB = 210;
+  const MLB = 40;
+  const MRB = 16;
+  const MTB = 14;
+  const MBB = 46;
+  const plotWB = WB - MLB - MRB;
+  const plotHB = HB - MTB - MBB;
+  const digitsOf = (c) => (c.rankTwoEnergyResidual > 0 ? -Math.log10(c.rankTwoEnergyResidual) : 16);
+  const maxDigits = Math.max(16, ...cells.map(digitsOf));
+  const barGroupW = plotWB / cells.length;
+  const barW = Math.min(24, barGroupW - 6);
+  const pyB = (d) => MTB + plotHB * (1 - d / maxDigits);
+  const thresholdY = pyB(12); // the 1e-12 gate cited in the imp-3404 ticket
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #f472b6', background: 'rgba(244,114,182,0.04)' }}>
+      <h3 style={{ color: '#f472b6', marginTop: 0 }}>
+        Degenerate rank-2 full spectrum: {'{'}+&mu;, -&mu;{'}'} carry ALL the Frobenius energy across 16 cells (imp-3455 / imp-3404)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        G<sub>shear</sub>&nbsp;=&nbsp;pq<sup>T</sup>&thinsp;&minus;&thinsp;qp<sup>T</sup> is rank-2 real antisymmetric,
+        so i&thinsp;G<sub>shear</sub> has spectrum {'{'}+&mu;, -&mu;, 0, &hellip;, 0{'}'} with N&thinsp;&minus;&thinsp;2&nbsp;=&nbsp;{NSPEC - 2} exact
+        zeros at N&thinsp;=&nbsp;{NSPEC}. The schematic below shows the normalized spectrum collapsing to two spikes on a flat
+        zero baseline; the bar chart shows rankTwoEnergyResidual&nbsp;=&nbsp;|&thinsp;||G<sub>shear</sub>||<sub>F</sub><sup>2</sup>/(2&mu;<sup>2</sup>)&thinsp;&minus;&thinsp;1&thinsp;|
+        expressed in correct digits (&minus;log<sub>10</sub>), at every one of the {cells.length} (a, U) cells &mdash; all comfortably clear
+        the dashed 1e&minus;12 gate (pink).
+      </p>
+      <div style={{ overflowX: 'auto', marginTop: 10 }}>
+        <svg width={WA} height={HA} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          <line x1={MLA} y1={zeroLineA} x2={WA - MRA} y2={zeroLineA} stroke="#334155" strokeWidth="1" />
+          <text x={MLA - 6} y={pyA(1) + 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>+1</text>
+          <text x={MLA - 6} y={zeroLineA + 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>0</text>
+          <text x={MLA - 6} y={pyA(-1) + 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>-1</text>
+          <line x1={pxA(0)} y1={zeroLineA} x2={pxA(0)} y2={pyA(1)} stroke="#4ade80" strokeWidth="3" />
+          <circle cx={pxA(0)} cy={pyA(1)} r="3.5" fill="#4ade80" />
+          <line x1={pxA(NSPEC - 1)} y1={zeroLineA} x2={pxA(NSPEC - 1)} y2={pyA(-1)} stroke="#f87171" strokeWidth="3" />
+          <circle cx={pxA(NSPEC - 1)} cy={pyA(-1)} r="3.5" fill="#f87171" />
+          <text x={(pxA(1) + pxA(NSPEC - 2)) / 2} y={zeroLineA - 8} textAnchor="middle" fontSize="10" fill="#94a3b8" fontFamily={mono}>
+            N&minus;2 = {NSPEC - 2} exact zeros
+          </text>
+        </svg>
+      </div>
+      <div style={{ overflowX: 'auto', marginTop: 14 }}>
+        <svg width={WB} height={HB} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          <line x1={MLB} y1={MTB} x2={MLB} y2={HB - MBB} stroke="#334155" strokeWidth="1" />
+          <line x1={MLB} y1={HB - MBB} x2={WB - MRB} y2={HB - MBB} stroke="#334155" strokeWidth="1" />
+          <line x1={MLB} y1={thresholdY} x2={WB - MRB} y2={thresholdY} stroke="#f472b6" strokeWidth="1" strokeDasharray="4 3" opacity="0.7" />
+          <text x={WB - MRB} y={thresholdY - 4} textAnchor="end" fontSize="9" fill="#f472b6" fontFamily={mono}>1e-12 gate</text>
+          {cells.map((c, i) => {
+            const d = digitsOf(c);
+            const cx = MLB + (i + 0.5) * barGroupW;
+            const yTop = pyB(d);
+            const h = (HB - MBB) - yTop;
+            return (
+              <g key={`c${c.a}-${c.U}`}>
+                <rect x={cx - barW / 2} y={yTop} width={barW} height={h} fill="#f472b6" opacity="0.82" rx="2">
+                  <title>{`a=${c.a} U=${c.U} rankTwoEnergyResidual=${c.rankTwoEnergyResidual.toExponential(2)} (${d.toFixed(1)} digits)`}</title>
+                </rect>
+                <text x={cx} y={HB - MBB + 12} textAnchor="middle" fontSize="8" fill="#64748b" fontFamily={mono} transform={`rotate(-40 ${cx} ${HB - MBB + 12})`}>
+                  {c.a},{c.U}
+                </text>
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
+          STRUCTURAL DIAGNOSTIC ONLY &mdash; NO RH VERDICT
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          Max rankTwoEnergyResidual over all {cells.length} cells is {m.maxRankTwoEnergyResidual.toExponential(1)}, and the extremal-energy
+          fraction 2&mu;<sup>2</sup>/||G<sub>shear</sub>||<sub>F</sub><sup>2</sup> is 1 to within {m.maxExtremalEnergyFractionDev.toExponential(1)}
+          at every cell &mdash; the two extremes carry the ENTIRE spectral energy, so there are no intermediate eigenvalues to vary
+          from cell to cell. This strengthens imp-3351 (extremal identity only) to the whole spectrum, but changes nothing about the
+          binding imp-3066 off-diagonal endpoint-Hankel residual. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3404-shear-gram-full-spectrum-cell-independence.js; extends: imp-3351; cross-validated: imp-3448.
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3354: termwise Phi>=0 structure viz (imp-3257) — Phi_NPHI(u) with the per-term
 // sign-flip thresholds u_n* marked; u_1* (rightmost, worst) sits strictly left of [0,U],
 // so the headline domain lies entirely in the termwise-positive region.
@@ -6219,6 +6330,7 @@ export default function ClosureRoutesPage() {
       </h2>
       <CaptureRatioShearGramClusterSummaryPanel />
       <Imp3351CellIndependenceTable />
+      <Imp3404FullSpectrumViz />
 
       {/* ─── imp-3066: off-diagonal endpoint-Hankel obstruction ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

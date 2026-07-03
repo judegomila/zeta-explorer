@@ -1705,6 +1705,38 @@ export const glossary = [
     link: "/closure-routes",
   },
   {
+    term: "Gaussian-curvature coefficient closed form 5/(14 pi) (imp-3441)",
+    category: "numerical",
+    definition:
+      "imp-3403 left the SUBDOMINANT piece of the leftmost-zero residual -- (residual - residual_faulh) " +
+      "* N^2 -> ~0.114, opposite in sign to the dominant -1/(2N) Faulhaber term -- as a measured but " +
+      "undertived constant. imp-3441 derives it in closed form. Writing x = e^{2u}, the truncated de " +
+      "Bruijn-Newman kernel vanishes at x = 3A/(2 pi B) with the Gaussian-weighted moments " +
+      "A = sum n^2 exp(-pi n^2 x^2), B = sum n^4 exp(-pi n^2 x^2). At the leftmost-zero scale " +
+      "x ~ 5/(2 pi N^2) every Gaussian argument pi n^2 x^2 -> 0, so the curvature expansion " +
+      "exp(-pi n^2 x^2) = 1 - pi n^2 x^2 + O(x^4 n^4) is valid, giving u_0 - u_0_faulh = (1/2) ln(x/x_f) " +
+      "~ (1/2) pi x^2 (S6/S4 - S4/S2) against the Faulhaber-zero x_f = 3 S2/(2 pi S4). With the leading " +
+      "power sums S2 ~ N^3/3, S4 ~ N^5/5, S6 ~ N^7/7 the moment-ratio step gives " +
+      "S6/S4 - S4/S2 -> (5/7 - 3/5) N^2 = (4/35) N^2, and pi x^2 -> 25/(4 pi N^4), so the pieces compose " +
+      "to (u_0 - u_0_faulh) * N^2 -> (1/2)(25/(4 pi))(4/35) = 5/(14 pi) = 0.1136821022, matching the " +
+      "imp-3403 measured ~0.114 and reproducing its opposite-sign observation (5/(14 pi) > 0). A " +
+      "self-computing NPHI ladder {10..5120} confirms the O(1/N) finite-N approach: piece * N^2 climbs " +
+      "monotonically from 0.102313 (N=10) to 0.113660 (N=5120), tracking the model 5/(14 pi)(1 - 1/N) " +
+      "to O(1/N^2), with the ratio to the closed form rising from 0.89999 to 0.99980." +
+      "\n\nHONEST SCOPE: derivation/measurement only, pinning the coefficient of a truncation artifact " +
+      "(the untruncated de Bruijn-Newman Phi is positive on all of R). Leaves the imp-3197/imp-3257 " +
+      "[0, U] window and the binding imp-3066 off-diagonal endpoint-Hankel K_a >= 0 operator-norm " +
+      "obstruction entirely untouched. RH-equivalent; no positivity, no reduction, no RH verdict, NO " +
+      "QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3441 (Gaussian-curvature coefficient closed form 5/(14 pi)), 2026",
+    relatedTerms: [
+      "Faulhaber-dominant leftmost-zero residual (residual*NPHI -> -1/2) (imp-3403)",
+      "leftmost genuine zero u_0(NPHI) (imp-3347)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
+  {
     term: "General lambda-scaling law (B(a/k,kU) = k*B(a,U), D_0(a/k,kU) = k*D_0(a,U))",
     category: "numerical",
     definition:

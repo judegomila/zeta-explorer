@@ -208,6 +208,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp3629-remainder-tail-coeff-ladder',
   '/viz-imp3631-mfold-aliasing-threshold-ladder',
   '/viz-imp3633-twin-skew-toeplitz-gap-ladder',
+  '/viz-imp3635-flow-factor-band',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

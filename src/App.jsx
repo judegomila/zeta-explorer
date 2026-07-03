@@ -165,6 +165,7 @@ const Imp3376KShellOnsetLadderViz = lazy(() => import('./pages/Imp3376KShellOnse
 const Imp3377RescueBudgetHeightMapViz = lazy(() => import('./pages/Imp3377RescueBudgetHeightMapViz.jsx'));
 const Imp3380PathOneRecordStepMarginViz = lazy(() => import('./pages/Imp3380PathOneRecordStepMarginViz.jsx'));
 const Imp3631MfoldAliasingThresholdLadderViz = lazy(() => import('./pages/Imp3631MfoldAliasingThresholdLadderViz.jsx'));
+const Imp3635FlowFactorBandViz = lazy(() => import('./pages/Imp3635FlowFactorBandViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -774,6 +775,7 @@ function AppShell() {
           <Route path="/viz-imp3377-rescue-budget-height-map" element={<Imp3377RescueBudgetHeightMapViz />} />
           <Route path="/viz-imp3380-path1-record-step-margin" element={<Imp3380PathOneRecordStepMarginViz />} />
           <Route path="/viz-imp3631-mfold-aliasing-threshold-ladder" element={<Imp3631MfoldAliasingThresholdLadderViz />} />
+          <Route path="/viz-imp3635-flow-factor-band" element={<Imp3635FlowFactorBandViz />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
           <Route path="/papers" element={<PapersListPage />} />

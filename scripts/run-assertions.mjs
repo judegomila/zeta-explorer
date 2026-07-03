@@ -3313,6 +3313,20 @@ const DATA_MODULES = [
   // (reuses effectiveHeightForN + C_C_PINNED). Measurement/derivation only, imp-3066 K_a>=0
   // positivity UNTOUCHED, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 6 assertions.
   '/src/data/imp-3599-flow-gap-nextorder-correction.js',
+  // imp-3604 (numerical): RE-ROOT-SOLVES the imp-3580 sigma=1/2 half-decay N_half and the
+  // E_coll=E_trunc crossover N_x across the half-to-double E_trunc floor grid with the Gronwall
+  // multiplier swept over the RIGOROUS bracket [1, exp(2.37e-4)=1.000237 (imp-3580 C_G=1),
+  // exp(4.74e-4)=1.000474 (imp-2644 C_G=2)], to measure how much of the imp-3580 coincidence is a
+  // frozen-constant artifact. (F1) N_x and x(N_x)=E_coll/E_trunc=1.000000 are byte-identical under
+  // all three multipliers at every floor -- E_flow does NOT enter the E_coll=E_trunc equation, so
+  // the exact floor-invariance is STRUCTURAL, 0% a frozen artifact. (F2) The N_half/N_x band stays
+  // [0.99313,0.99772] ~0.996 across the whole bracket, the frozen sub-node reproducing imp-3580
+  // (0.996019, N_x=3.280294e9). (F3) The max frozen-Gronwall artifact is < 1e-5 on the ratio (max
+  // per-floor swing ~3e-6, max N_half rel swing ~3.3e-6) and exactly 0 on the crossover, since
+  // E_flow(N_x)~1.7e-8..2.0e-7 is 0.1%..0.3% of E_trunc while the bracket spans only [1,1.000474].
+  // Import-light (reuses effectiveHeightForN + C_C_PINNED). Measurement/certification only, imp-3066
+  // K_a>=0 positivity UNTOUCHED, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 6 assertions.
+  '/src/data/imp-3604-sigma-crossover-flow-factor-invariance.js',
   // imp-3603 (accuracy): CROSS-VALIDATES the imp-3576 inner-A(tau) composite-Simpson
   // truncation constants K_n^inner (M_0..M_4) against a genuinely INDEPENDENT
   // higher-order Gauss-Legendre inner reference (GL-24/100 panels, vs the imp-3576

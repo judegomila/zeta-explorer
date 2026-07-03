@@ -2613,6 +2613,17 @@ const DATA_MODULES = [
   // has essentially peaked at the assembly ceiling. Throws on import if the interior max,
   // flat-cap gap, past-ceiling decrease, or decay-to-0 breaks. Assessment only; no QED; PT SOTA.
   '/src/data/imp-3406-sigma-highN-extrapolation.js',
+  // imp-3443: MEASURES the sensitivity of the imp-3406 turnover point N_max ~ 9.22e5 to
+  // the imp-2631 truncation floor E_trunc = 3.06e-5. Re-runs the identical imp-3406
+  // ternary search over E_trunc in [0.5, 2.0] x 3.06e-5 with the same imp-3220 sub-terms.
+  // Finding: N_max is STRONGLY, monotone-decreasingly sensitive -- it falls from ~2.36e6
+  // (half floor) through the baseline ~9.22e5 to ~3.50e5 (double floor), a 6.7x swing over
+  // a 4x floor range, following a near power law N_max ~ (1/E_trunc)^1.376 (R^2 ~ 0.99992)
+  // with local derivative dN_max/dE_trunc ~ -4.14e10 (elasticity ~ -1.37 matching the fit
+  // slope). So the imp-3406 turnover is a floor-value artifact, not a robust landmark.
+  // Throws on import if the baseline reproduction, monotonicity, swing, power-law fit, or
+  // elasticity-vs-slope consistency breaks. Measurement only; no QED; PT 0.2 SOTA.
+  '/src/data/imp-3443-nmax-etrunc-sensitivity.js',
   // imp-3324: MEASURES how load-bearing the C_H=1/8 ansatz is for the imp-3220 widest-gap
   // conditional share sigma(10^6)~0.949. Reuses the identical imp-3220 sub-terms, parametrizes
   // E_coll linearly in C_H (R=E_trunc+E_flow fixed), and finds sigma=E_coll/(R+E_coll) is a

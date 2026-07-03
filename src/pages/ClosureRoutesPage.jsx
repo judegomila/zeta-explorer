@@ -46,6 +46,10 @@ import { IMP3197_MUPASS_BRIDGE_SIGN_PHI_ONLY } from '../data/imp-3197-mupass-bri
 import { IMP3240_MUPASS_CAPTURE_RATIO_AU_GRID } from '../data/imp-3240-mupass-capture-ratio-aU-grid.js';
 import { IMP3346_CAPTURE_RATIO_C_CONSTANT_DERIVATION } from '../data/imp-3346-capture-ratio-C-constant-derivation.js';
 import { IMP3350_CAPTURE_RATIO_LINEAR_SHEAR_LIMIT } from '../data/imp-3350-capture-ratio-linear-shear-limit.js';
+import { IMP3343_SHEAR_GRAM_OPNORM_EQUALS_VOLTERRA_HS_IDENTITY } from '../data/imp-3343-shear-gram-opnorm-equals-volterra-hs-identity.js';
+import { IMP3344_SHEAR_GRAM_VERDICT_SCALE_FACTOR } from '../data/imp-3344-shear-gram-verdict-scale-factor.js';
+import { IMP3345_VHS_RICHARDSON_LIMIT } from '../data/imp-3345-vhs-richardson-limit.js';
+import { IMP3351_SHEAR_GRAM_SYMMETRIC_SPECTRUM_AU_GRID } from '../data/imp-3351-shear-gram-symmetric-spectrum-aU-grid.js';
 import { IMP3199_OVERFLOW_FRACTION_CELL_SWEEP } from '../data/imp-3199-overflow-fraction-cell-sweep.js';
 import { IMP3216_OVERFLOW_SUPPORT_LENGTH_CLOSED_FORM } from '../data/imp-3216-overflow-support-length-closed-form.js';
 import { IMP3196_RESIDUAL_GAP_CONVERGENCE_RATE } from '../data/imp-3196-residual-gap-convergence-rate.js';
@@ -4317,6 +4321,101 @@ function SinhToLinearShearLimitViz() {
   );
 }
 
+// ── imp-3413: roundup of the imp-334x/335x capture-ratio & shear-Gram cluster verdicts,
+// closing on the single shared imp-3066 obstruction none of them touch.
+function CaptureRatioShearGramClusterSummaryPanel() {
+  const m3343 = IMP3343_SHEAR_GRAM_OPNORM_EQUALS_VOLTERRA_HS_IDENTITY.measured;
+  const m3344 = IMP3344_SHEAR_GRAM_VERDICT_SCALE_FACTOR.measured;
+  const m3345 = IMP3345_VHS_RICHARDSON_LIMIT;
+  const m3351 = IMP3351_SHEAR_GRAM_SYMMETRIC_SPECTRUM_AU_GRID.measured;
+
+  const rows = [
+    {
+      id: 'imp-3343',
+      note: '||Gshear||_op equals the Volterra Hilbert-Schmidt norm ||V||_HS EXACTLY, by a rank-2 ' +
+        `hollow-antisymmetry identity (max deviation ${m3343.maxRatioDev.toExponential(1)}, continuum limit ` +
+        `${m3343.continuumLimit.toExponential(4)}) -- not a ~0.2% leading-order accident.`,
+    },
+    {
+      id: 'imp-3344',
+      note: `section26-mupass verdict "~${m3344.verdictMagnitude.toExponential(1)}" is the operator magnitude ` +
+        `with the midpoint quadrature weight H = U/N (${m3344.atWorkflowGrid.H}) counted TWICE at N=240; the ` +
+        'physical single-weight norm converges to ~1.896e-4.',
+    },
+    {
+      id: 'imp-3345',
+      note: 'Richardson h->0 extrapolation confirms the 3-sig-fig headline 1.90e-4 is resolution-stable; the ' +
+        `sharper continuum value is ${m3345.richardsonLevel1[m3345.richardsonLevel1.length - 1].toExponential(4)}.`,
+    },
+    {
+      id: 'imp-3346',
+      note: 'the capture-ratio constant is a true finite limit C_inf ~ 0.1751; the imp-3240 fixed-N rise ' +
+        'was a resolution artifact, not genuine growth.',
+    },
+    {
+      id: 'imp-3347',
+      note: 'the truncation leftmost zero drifts to -infinity as ln(NPHI) grows, while Phi stays strictly ' +
+        'positive far to the left of u1*.',
+    },
+    {
+      id: 'imp-3350',
+      note: 'the sinh-shear a->0 capture-ratio limit equals the exactly-linear-shear ratio to within 5e-15.',
+    },
+    {
+      id: 'imp-3351',
+      note: 'min eig(i Gshear) = -||Gshear|| (the symmetric-about-0 spectrum) extends to all ' +
+        `${m3351.cells.length} cells of the a x U grid (max deviation ${m3351.maxRatioDev.toExponential(1)}), ` +
+        'not only the genuine-Phi cell -- a cell-independent structural identity.',
+    },
+  ];
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #a78bfa', background: 'rgba(167,139,250,0.04)' }}>
+      <h3 style={{ color: '#a78bfa', marginTop: 0 }}>
+        Capture-Ratio &amp; Shear-Gram Cluster Roundup: seven diagnostics, one shared obstruction (imp-3413)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        The imp-334x/335x cluster reconciles a set of published capture-ratio and shear-Gram measurements against
+        one another &mdash; resolving apparent discrepancies as resolution artifacts, quadrature-weight conventions,
+        or straightforward algebraic identities of the rank-2 hollow-antisymmetric structure Gshear = p q&#7488; &minus; q p&#7488;.
+      </p>
+      <div style={{ overflowX: 'auto', margin: '12px 0' }}>
+        <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: 12 }}>
+          <thead>
+            <tr>
+              <th style={{ textAlign: 'left', padding: '4px 8px', color: '#c4b5fd', borderBottom: '1px solid rgba(167,139,250,0.3)', fontFamily: mono }}>Ticket</th>
+              <th style={{ textAlign: 'left', padding: '4px 8px', color: '#c4b5fd', borderBottom: '1px solid rgba(167,139,250,0.3)' }}>Verdict</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr key={r.id}>
+                <td style={{ padding: '5px 8px', color: '#a78bfa', fontFamily: mono, verticalAlign: 'top', whiteSpace: 'nowrap' }}>{r.id}</td>
+                <td style={{ padding: '5px 8px', color: 'var(--text-secondary)', lineHeight: 1.6 }}>{r.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.3)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#f87171', letterSpacing: '0.06em', marginBottom: 4 }}>
+          SHARED OBSTRUCTION &mdash; NO RH VERDICT
+        </div>
+        <p style={{ color: '#cbd5e1', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          Every diagnostic above is a reconciliation, convergence check, or algebraic identity at the scalar /
+          rank-2 level. None of them touch the off-diagonal endpoint-Hankel operator contraction
+          K&#x2090;&thinsp;&#x2265;&thinsp;0 (imp-3066), which remains the single irreducible RH-equivalent
+          residual across the entire cluster. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the
+          rigorous SOTA; NO QED.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Sources: imp-3343/3344/3345/3346/3347/3350/3351; shared obstruction: imp-3066-offdiagonal-hankel-obstruction.js.
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3354: termwise Phi>=0 structure viz (imp-3257) — Phi_NPHI(u) with the per-term
 // sign-flip thresholds u_n* marked; u_1* (rightmost, worst) sits strictly left of [0,U],
 // so the headline domain lies entirely in the termwise-positive region.
@@ -5439,6 +5538,12 @@ export default function ClosureRoutesPage() {
           Source: imp-3065-residual-deficit-quadrature-2026-06-30.js
         </p>
       </div>
+
+      {/* ─── imp-3413: capture-ratio & shear-Gram cluster roundup ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Capture-Ratio &amp; Shear-Gram Cluster Roundup (imp-3413)
+      </h2>
+      <CaptureRatioShearGramClusterSummaryPanel />
 
       {/* ─── imp-3066: off-diagonal endpoint-Hankel obstruction ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

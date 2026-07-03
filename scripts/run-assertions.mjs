@@ -2244,6 +2244,22 @@ const DATA_MODULES = [
   // (resid(2) ~ 5.20e-3, resid(10) ~ 3.15e-4). Empirical least-squares rate, NOT a proved
   // asymptotic order; representative diagnostic; RH-equivalent; no positivity; PT 0.2 SOTA.
   '/src/data/imp-3196-residual-gap-convergence-rate.js',
+  // imp-3223: Richardson / power-law EXTRAPOLATES the imp-3196 residual resid(DEG) = G(s) - gap(DEG)
+  // toward DEG -> inf at each equal-s cell (s = 0.8, 1.2, 2.0, 3.0; a = 0.5, U = 2s), using the
+  // imp-3196 fitted algebraic exponent p, because the direct rebuild is capped at DEG <= 10 by the
+  // imp-3104 / imp-3153 cosh-monomial Gram conditioning ceiling. Rebuilds the SAME R_orth = L H L^T
+  // gap sweep, then two-point-Richardson-extrapolates the gap sequence with p to the most-converged
+  // pair (DEG = 8, 10), giving an extrapolated residual limit resid(inf) = G(s) - gap(inf) with an
+  // honest band = max(per-pair Richardson spread, leave-one-degree-out jackknife of the p-fit).
+  // MEASURED: |resid(inf)|/G(s) is at the ~1e-3 level (max ~4.3e-3 at s=0.8, down to ~5e-4) and below
+  // half the DEG=10 residual at every cell, within ONE band of 0. The DIRECT swept gaps approach G(s)
+  // FROM BELOW (imp-3177) while the Richardson extrapolate marginally OVERSHOOTS G(s) by less than the
+  // band, so G(s) is BRACKETED and the residual limit is consistent with 0 -- the gap extrapolates to
+  // the analytic limit G(s) = tanh(s) - tanh(s/2) within the band, extending imp-3177 past the DEG<=10
+  // ceiling. Throws on import if any limit is not tiny, not within band, or the from-below inputs drift.
+  // EMPIRICAL EXTRAPOLATION, NOT a proved limit or order; RH-equivalent; no positivity; imp-3066
+  // endpoint-Hankel step untouched; PT Lambda <= 0.2 stays SOTA. No QED.
+  '/src/data/imp-3223-residual-gap-richardson-extrapolation.js',
   // imp-3154: classifies the imp-3144 GENUINE degree-2 (absolute) occupation deficit
   // (recorded 9.28e-9, overflow on 19.4% of tau at the genuine Phi NPHI=10, a=0.5, U=6)
   // vs monomial truncation degree DEG in {2,4,6,8,10}, mirroring the imp-3125 scalar-gap

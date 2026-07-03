@@ -628,7 +628,11 @@ export const OPEN_GAPS = [
       'R = Gpass^{-1/2} Gshear Gpass^{-1/2} strictly below 1, but Gshear is a genuine off-diagonal ' +
       'endpoint-Hankel form: the contraction ‖R‖ ≤ 1 (equivalently K_a ≥ 0) additionally needs the ' +
       'off-diagonal cross-terms bounded. Cited as the lone obstruction in the imp-3346 / imp-3347 / ' +
-      'imp-3350 / imp-3351 honestCaveats; consolidated here into one named gap by imp-3401. ' +
+      'imp-3350 / imp-3351 honestCaveats; consolidated here into one named gap by imp-3401. The later ' +
+      'capture-ratio C_inf extrapolation cluster (imp-3407 / imp-3440 / imp-3445 / imp-3461) is purely ' +
+      'diagnostic numerics on the 1/U scaling of the capture ratio and, per its own honestCaveats, ' +
+      'leaves this SAME K_a ≥ 0 magnitude untouched — imp-3416 confirms it remains the single ' +
+      'irreducible RH-equivalent residual across that entire cluster, not a new or narrower gap. ' +
       'Assessment only; PT Lambda ≤ 0.2 stays SOTA; NO RH verdict.',
     statement:
       'K_a ≥ 0, i.e. the de-homogenized R = Gpass^{-1/2} Gshear Gpass^{-1/2} is a contraction ' +

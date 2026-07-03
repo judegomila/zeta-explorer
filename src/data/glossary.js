@@ -3895,6 +3895,59 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3746 verification-provenance catalog: which deep-rung baked-literal families carry an INDEPENDENT reproduction vs remain single-source",
+    category: "numerical",
+    definition:
+      "A cluster of tickets re-derived deep-rung baked literals through a STRUCTURALLY DIFFERENT " +
+      "method than the one that first baked them, guarding against a transcription slip, an " +
+      "offline-drift stale copy, or a solver-convergence bug before downstream tickets build on " +
+      "those numbers. This entry catalogs which baked-literal families now clear that bar." +
+      "\n\nDUAL-SOURCE (independently reproduced): (1) imp-3643's baked deep-rung dense top-8 Gram " +
+      "eigenvalues (fourth-pair lambda_7=lambda_8, N=1200/1600/2000) -- imp-3669 re-typed the " +
+      "imp-3505 Ttilde assembly from scratch and extracted the top-8 by STURM-SEQUENCE BISECTION " +
+      "on the (shared) Householder tridiagonal, an eigenvalue-EXTRACTION routine entirely different " +
+      "from imp-3643's EISPACK implicit-QL. Worst relative deviation 1.77e-15 across all three " +
+      "rungs (machine precision), and the independent third-gap sigma_3=lambda_7/lambda_1 agrees " +
+      "with the imp-3619 Lanczos value to worst 3.38e-14, below imp-3643's own XVAL_TOL=1e-13: " +
+      "CONFIRMED, no transcription or drift. (2) imp-3668's baked deep-rung dense top-10 Gram " +
+      "eigenvalues (fifth-pair lambda_9=lambda_10, same three rungs) -- imp-3692 extended the " +
+      "identical Sturm-bisection lever two spectrum levels: worst top-10 relative deviation is " +
+      "again 1.77e-15 (the first eight entries per rung are the same literals), and the independent " +
+      "fifth-pair spread |lambda_9-lambda_10|/lambda_9 is <4e-16 at every rung (0 at N=1200/2000, " +
+      "3.93e-16 at N=1600) against a 1e-14 pairing tolerance: CONFIRMED. (3) imp-3665's baked " +
+      "log-domain A-weight decay exponents -ln A(tau) at tau in {0.5,1,1.5,2}, including the " +
+      "extreme rungs A(1.5)~1e-550 and A(2)~1e-4067 -- imp-3709 reproduced them via a factored " +
+      "(no max-subtraction) ln Phi kernel plus 10-point Gauss-Legendre on power-graded panels, in " +
+      "place of imp-3665's log-sum-exp kernel and uniform composite Simpson. The -4067/-550 " +
+      "EXPONENT ORDERS are confirmed exactly; the small-tau rungs match to <1e-5 relative; the two " +
+      "extreme rungs initially differed by ~5.3e-4/2.8e-4 relative, diagnosed as imp-3665's own " +
+      "uniform grid under-resolving the razor-sharp near-s=0 peak rather than a method disagreement " +
+      "(imp-3736 later Richardson-refined imp-3665's own Simpson onto the graded-GL limit, " +
+      "converging both paths to -ln A(1.5)=1267.7886 and -ln A(2)=9365.3190)." +
+      "\n\nSINGLE-SOURCE (no independent reproduction path applied yet): imp-3623/imp-3625's baked " +
+      "deep-rung dense top-6 (third-pair lambda_5=lambda_6) has only been cross-validated against " +
+      "the ORIGINAL imp-3602 Lanczos/Krylov solve, not re-extracted by an independent Sturm-" +
+      "bisection route; imp-3688's baked deep-rung dense top-12 (sixth-pair lambda_11=lambda_12) " +
+      "rests on the dense Householder+QL solve alone, with no Sturm-bisection or other structurally-" +
+      "distinct cross-check yet. Both are direct candidates for the same independent-verify pattern " +
+      "imp-3669/imp-3692 already applied one and two pairs below them." +
+      "\n\nHONEST SCOPE: a provenance/status catalog only -- records which baked-literal families " +
+      "have a second, structurally-distinct reproduction path and to what tolerance, so downstream " +
+      "tickets can see verification coverage at a glance. No new derivation, no re-solve, and no " +
+      "operator positivity; the off-diagonal endpoint-Hankel obstruction K_a >= 0 (imp-3066) is " +
+      "UNTOUCHED. RH-EQUIVALENT; no RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the " +
+      "rigorous SOTA.",
+    firstUsed: "imp-3746 (cataloguing the imp-3669 Sturm-bisection third-gap, imp-3709 graded-Gauss-Legendre A-weight, and imp-3692 Sturm-bisection fifth-pair independent reproductions against the still-single-source imp-3623/imp-3625 third-pair and imp-3688 sixth-pair dense literals), 2026",
+    relatedTerms: [
+      "imp-3643 dense-solver certifies skew-Toeplitz FOURTH pair lambda_7=lambda_8; N=2000 imp-3619 loss is a Krylov artifact (imp-3643)",
+      "imp-3668 skew-Toeplitz FIFTH-pair adjacent-pairing dense certification: lambda_9=lambda_10, sigma_4 -> 1 (imp-3668)",
+      "imp-3665 A-weight super-exponential decay confirmation: exp(-pi e^{4 tau}), no hard support endpoint (imp-3665)",
+      "imp-3623/imp-3625 dense-solver resolution of the N=2000 skew-Toeplitz third-pair Krylov artifact (imp-3654)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

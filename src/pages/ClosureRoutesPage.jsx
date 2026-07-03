@@ -32,6 +32,7 @@ import { IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION } from '../data/imp-3066-offdiag
 import { IMP3125_ORTHOGONALIZED_RESIDUAL_GAP_DEGREE_SWEEP } from '../data/imp-3125-orthogonalized-residual-gap-degree-sweep.js';
 import { IMP3102_ORTHOGONALIZED_GAP_AU_GRID } from '../data/imp-3102-orthogonalized-gap-aU-grid.js';
 import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx';
+import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { asymOnsetDrho, SG1C_ASYM_ISOLATION_CLOSED_FORM } from '../data/sg1c-asym-isolation-closed-form-2026-06-30.js';
 import { IMP3146_RESIDUAL_GAP_LIMIT_AU_GRID } from '../data/imp-3146-residual-gap-limit-aU-grid.js';
 import { IMP3153_COSH_MONOMIAL_CONDITIONING_CEILING } from '../data/imp-3153-cosh-monomial-conditioning-ceiling.js';
@@ -4933,6 +4934,17 @@ export default function ClosureRoutesPage() {
           {R.title} — {R.paperRef}
         </p>
       </div>
+
+      <HonestCeilingBanner
+        variant="RH-EQUIVALENT"
+        title="No RH verdict here; the rigorous unconditional floor is Platt-Trudgian Λ ≤ 0.2"
+        body={
+          'This capture-ratio / shear-Gram cluster (imp-3346, imp-3351, imp-3400, imp-3404, imp-3406, and neighbors) is ' +
+          'numerical exploration, not a bound. Passive-Gram reduction collapses the diagonal-only Hankel numbers ' +
+          'dramatically, but the imp-3066 off-diagonal endpoint-Hankel operator step remains the lone unresolved ' +
+          'obstruction across the whole cluster.'
+        }
+      />
 
       <DownstreamVerdictCallout />
 

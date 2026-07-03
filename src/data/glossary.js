@@ -1187,6 +1187,42 @@ export const glossary = [
     link: '/closure-routes',
   },
   {
+    term: "section26-mupass residual = K_a >= 0 (RH-equivalent, not a reduction)",
+    category: "proof-status",
+    definition:
+      "The 2026-06-30 section26-mupass operator verdict's final characterization of what " +
+      "remains open after both surviving construction routes (mass-feasibility and " +
+      "scalar/diagonal passive cores) are closed. The endpoint-bridge sign-positivity " +
+      "derived from Phi ALONE (not from |Gshear|'s own spectrum) IS the no-ghost " +
+      "positivity Gpass >= Gshear, equivalently ||R|| <= 1, equivalently the operator " +
+      "inequality K_a >= 0 for the full bridge kernel K_a = Gpass - Gshear. This is an " +
+      "INFORMATION-PRESERVING RESTATEMENT of RH-equivalence, not progress toward it: the " +
+      "residual is exactly as hard as the operator-positivity condition itself, so the " +
+      "verdict is correctly read as RH-EQUIVALENT and explicitly NOT a reduction below RH. " +
+      "\n\nTHE DEGREE-0 MASS-BUDGET PROXY IS CIRCULAR: separately from the deg-2 " +
+      "occupation-deficit mass-feasibility argument (see mass-feasibility vs " +
+      "operator-positivity), the section26-mupass verdict also runs a degree-0 " +
+      "(scale-invariant) mass-budget comparison -- the cosh-completion bridge mass " +
+      "B = sinh(aU)/a - U ~ 14.04 against the raw degree-0 deficit mass D_0 ~ 13.07 " +
+      "(B/D = 1.074, locked by imp-3267). This comparison is CIRCULAR: its budget proxy " +
+      "IS ||V||, the Volterra operator norm that is itself the RH-equivalent quantity " +
+      "under study, so a favorable B/D ratio cannot certify anything beyond what ||V|| " +
+      "already encodes -- it restates the target, it does not independently bound it. " +
+      "\n\nCONSEQUENCE: neither the deg-2 mass-feasibility margin nor the degree-0 B/D " +
+      "ratio touches the binding requirement. Both are necessary-but-not-sufficient " +
+      "mass checks; the sole surviving obstruction across the whole section26-mupass " +
+      "cluster is the single operator-positivity statement K_a >= 0, RH-equivalent, " +
+      "untouched. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; no QED.",
+    firstUsed: "imp-3397 (section26-mupass residual glossary), 2026",
+    relatedTerms: [
+      "mass-feasibility vs operator-positivity",
+      "partial-isometry tautology (||R||=1.0000 exact)",
+      "hollow antisymmetric shear Gram (Gshear)",
+      "section-26 mupass operator verdict",
+    ],
+    link: '/closure-routes',
+  },
+  {
     term: "Theorem-B minimal-gap sharp threshold (Theta_b)",
     category: "constant",
     definition:

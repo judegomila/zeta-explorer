@@ -416,6 +416,156 @@ export const SG1C_R2T2_SHELL_K2_CLOSEDFORM = (() => {
   };
 })();
 
+// imp-3292: does the ~0.943 Lemma R2-T random-scan multi-body worsening-onset infimum
+// (attained "only near a uniform lattice") admit a structured/closed-form derivation the
+// way imp-3170 closed the asymmetric R->infinity class at c_asym = 0.9027902227683418?
+// We replace the 3e6-config RANDOM scan by a DETERMINISTIC structured sweep of the exact
+// near-uniform-lattice family: p unit-spaced neighbours on the left, the tracked compressed
+// pair {0, rho} (globally minimal, rho<1), q unit-spaced neighbours on the right. For each
+// (p,q) we bisect the worsening onset (rho where dRhoIso.drho crosses 0+) on the SAME generic
+// force flow the scan used. FINDING: the family onset is monotone in the asymmetry, NOT
+// pinned at 0.943. The SYMMETRIC part p=q RISES with lattice size toward 1 (p=q=1 reproduces
+// c* = sqrt(2+sqrt(3))-1 ~ 0.93185, p=q=2 ~0.98129, p=q>=3 -> ~1), so every balanced
+// near-uniform config sits ABOVE 0.943. The MAXIMALLY ASYMMETRIC extreme p=1, q -> infinity
+// (a single lone neighbour at distance 1 plus a long opposite unit lattice) DECREASES to
+// ~0.90429, i.e. into the imp-3170 c_asym class (~0.903), a full ~0.039 BELOW 0.943. So the
+// deterministic family infimum is ~0.904 (the c_asym-class limit), NOT 0.943. CONCLUSION:
+// 0.943 admits NO closed form of its OWN -- it is a random-scan SAMPLING ARTIFACT (a uniform
+// random sampler concentrates on balanced/symmetric uniform configs, whose onset is >= c* and
+// climbs toward 1, so the lowest a random 7-body sample reaches is ~0.943, well above the
+// asymmetric structural floor). The genuine structured onset of the near-uniform-lattice
+// family is already CLOSED by the imp-3170 asymmetric class c_asym as its p=1, q->infinity
+// limit; 0.943 is subsumed, not a new constant. This mirrors imp-3170s own lesson that the
+// random-scan numbers sit ABOVE the true smooth onsets. HONEST: this explains/retires the
+// 0.943 log entry as a scan artifact and locates the family onset in the c_asym class; it is
+// NOT a proof of the GLOBAL infimum -- c_glob stays OPEN and bracketed near ~(0.898, 0.903),
+// and Theorem C 0.72 keeps its ~0.18 margin below all of these. No RH claim.
+export const SG1C_NEARUNIF_ONSET_ASSESSMENT = (() => {
+  const cStar = Math.sqrt(2 + Math.sqrt(3)) - 1; // symmetric single-shell K=1 closed form
+  const cAsym = 0.9027902227683418;              // imp-3170 asymmetric R->inf closed-form onset
+  // p unit-spaced left neighbours, compressed pair {0, rho}, q unit-spaced right neighbours
+  const cfg = (rho, p, q) => {
+    const x = [];
+    for (let k = p; k >= 1; k--) x.push(-k);
+    x.push(0);
+    x.push(rho);
+    for (let k = 1; k <= q; k++) x.push(rho + k);
+    return { x, i: p };
+  };
+  const onset = (p, q) => {
+    let lo = 0.5, hi = 0.99999;
+    for (let it = 0; it < 200; it++) {
+      const m = (lo + hi) / 2;
+      const { x, i } = cfg(m, p, q);
+      if (dRhoIso(x, i).drho > 0) hi = m; else lo = m;
+    }
+    return (lo + hi) / 2;
+  };
+  const symmetric = [1, 2, 3, 4].map((k) => ({ shell: k, onset: onset(k, k) }));
+  const asymmetric = [1, 2, 4, 8, 16, 64].map((q) => ({ q, onset: onset(1, q) }));
+  const famInfimum = asymmetric[asymmetric.length - 1].onset; // p=1, q large asymptote
+  return {
+    randomScanInf: 0.943,        // the Lemma R2-T 3e6-config number under assessment
+    symK1ClosedForm: cStar,      // p=q=1 reproduces c* to <1e-7
+    cAsymClass: cAsym,           // imp-3170 closed-form onset of the p=1,q->inf limit class
+    symmetric,                   // p=q onsets: rise with size toward 1 (all above 0.943)
+    asymmetric,                  // p=1, q growing: descend toward the c_asym class
+    familyDeterministicInfimum: famInfimum,          // ~0.90429, the asymmetric extreme
+    infimumBelowRandomScan: 0.943 - famInfimum,      // ~0.039, structured beats random
+    verdict: 'ARTIFACT',         // 0.943 is a random-scan sampling artifact, no closed form of its own
+    assessment:
+      'A DETERMINISTIC structured sweep of the near-uniform-lattice family (p left / q right '
+      + 'unit-spaced neighbours around the compressed pair) shows the ~0.943 Lemma R2-T '
+      + 'random-scan infimum is NOT a structural family onset. Balanced configs (p=q) reproduce '
+      + 'c* = sqrt(2+sqrt(3))-1 ~ 0.93185 at p=q=1 and RISE toward 1 with lattice size, so all '
+      + 'sit ABOVE 0.943; the maximally asymmetric extreme (p=1, q -> infinity: one lone '
+      + 'neighbour plus a long opposite unit lattice) DESCENDS to ~0.90429, into the imp-3170 '
+      + 'c_asym ~ 0.90279 class, ~0.039 below 0.943. Hence 0.943 admits no closed form of its '
+      + 'own -- it is a random-scan SAMPLING ARTIFACT (uniform sampling concentrates on '
+      + 'balanced uniform configs whose onset climbs toward 1), and the genuine structured onset '
+      + 'of the near-uniform-lattice family is already CLOSED as the imp-3170 c_asym class, its '
+      + 'p=1,q->infinity limit. The global constant c_glob stays OPEN (~0.898..0.903); Theorem C '
+      + '0.72 keeps its ~0.18 margin. No RH claim.',
+  };
+})();
+
+// imp-3290: EXACT symmetric single-shell K-shell isolation rate for GENERAL K, and the
+// K -> infinity limit. imp-3008 measured the K=1..6 worsening onsets numerically via the
+// generic force flow dRhoIso, and imp-3046 closed K=2 as an irreducible quintic. Here we
+// build the CLOSED analytic rate drho/ds for arbitrary shell count K on the symmetric
+// 2K+2-body config {-(rho/2+K..1), -rho/2, rho/2, rho/2+1..K} (spacing 1, tracked central
+// pair g=rho, d_1=1 so rho_iso=rho). By reflection antisymmetry the right-centre force is
+//   F_C = -2 S_C,  S_C = 1/rho - H_K + sum_{k=1..K} 1/(rho+k),
+// and the nearest right-shell neighbour force is
+//   F_N = -2 S_N,  S_N = 1 - H_{K-1} + sum_{j=1..K+1} 1/(rho+j),
+// giving the EXACT rate (d_1=1)  drho/ds = 2 G(rho,K),  G = rho(S_N - S_C) - 2 S_C.
+// G reproduces the module dRhoIso.drho to machine precision (certified below), and the
+// worsening onset is the unique (0,1) root of G. K=1 recovers c*=sqrt(2+sqrt(3))-1 and the
+// K=2 root matches the imp-3046 quintic. As K -> infinity the sums telescope: S_C -> 1/rho -
+// (psi(rho+1)+gamma), S_N -> 1 - (psi(rho+1)+gamma), so S_N - S_C -> 1 - 1/rho and the limit
+// onset condition rho(1-1/rho) = 2[1/rho - (psi(rho+1)+gamma)] has its root EXACTLY at rho=1
+// (since psi(2)+gamma = H_1 = 1 by telescoping): the infinite symmetric shell RECOVERS the
+// single-neighbour threshold c=1. So within the symmetric K-shell family the onset rises
+// MONOTONICALLY from c*=0.93185 (K=1, the WORST) toward 1, verifying Lemma R2-T2. HONEST:
+// symmetric sub-family only; the GLOBAL asymmetric c_glob stays OPEN (~0.898..0.943) and
+// this makes NO RH claim.
+export const SG1C_R2T2_KSHELL_GENERAL = (() => {
+  const cStarClosed = Math.sqrt(2 + Math.sqrt(3)) - 1; // 0.93185165...
+  const H = (n) => { let s = 0; for (let k = 1; k <= n; k++) s += 1 / k; return s; };
+  const S_C = (rho, K) => { let s = 1 / rho - H(K); for (let k = 1; k <= K; k++) s += 1 / (rho + k); return s; };
+  const S_N = (rho, K) => { let s = 1 - H(K - 1); for (let j = 1; j <= K + 1; j++) s += 1 / (rho + j); return s; };
+  // exact isolation-ratio rate on the symmetric single-shell config: drho/ds = 2 G(rho,K)
+  const G = (rho, K) => rho * (S_N(rho, K) - S_C(rho, K)) - 2 * S_C(rho, K);
+  // worsening onset = the unique (0,1) root of G (G < 0 improving below, > 0 worsening above)
+  const onset = (K) => {
+    let lo = 0.5, hi = 1 - 1e-11;
+    for (let it = 0; it < 300; it++) { const m = (lo + hi) / 2; if (G(m, K) > 0) hi = m; else lo = m; }
+    return (lo + hi) / 2;
+  };
+  // certify the analytic rate: 2 G equals the generic module flow dRhoIso.drho on this config
+  const shellCfg = (rho, K) => {
+    const a = [];
+    for (let k = K; k >= 1; k--) a.push(-(rho / 2 + k));
+    a.push(-rho / 2); a.push(rho / 2);
+    for (let k = 1; k <= K; k++) a.push(rho / 2 + k);
+    return a; // tracked central pair at index K
+  };
+  let maxRateErrVsFlow = 0;
+  for (const K of [1, 2, 3, 4, 5, 6]) for (const rho of [0.6, 0.75, 0.9]) {
+    const analytic = 2 * G(rho, K);
+    const flow = dRhoIso(shellCfg(rho, K), K).drho;
+    maxRateErrVsFlow = Math.max(maxRateErrVsFlow, Math.abs(analytic - flow));
+  }
+  const shells = [1, 2, 3, 4, 5, 6, 8, 12, 20, 40].map((K) => {
+    const o = onset(K);
+    return { shellCount: K, onset: o, deltaFromCStar: o - cStarClosed, deltaFrom1: 1 - o };
+  });
+  const monotoneRise = shells.every((s, idx) => idx === 0 || s.onset > shells[idx - 1].onset);
+  // K -> infinity limit condition residual at rho=1: psi(2)+gamma telescopes to H_1 = 1
+  const psiPlusGammaAt1 = 1; // sum_{k>=1}[1/k - 1/(1+k)] = 1 (telescoping)
+  const limitResidualAt1 = 1 * (1 - 1 / 1) - 2 * (1 / 1 - psiPlusGammaAt1); // = 0 exactly
+  return {
+    cStarClosed,
+    exactRate: 'drho/ds = 2 G(rho,K), G = rho(S_N - S_C) - 2 S_C; S_C = 1/rho - H_K + sum_{k=1..K} 1/(rho+k); S_N = 1 - H_{K-1} + sum_{j=1..K+1} 1/(rho+j)',
+    maxRateErrVsFlow,                    // ~2.7e-15: analytic rate reproduces dRhoIso to machine precision
+    shells,
+    k1MatchesCStar: Math.abs(shells[0].onset - cStarClosed), // ~0: K=1 recovers the closed form c*
+    k2Root: shells[1].onset,             // ~0.98129377, matches the imp-3046 quintic root
+    monotoneRise,                        // onset strictly rises with K toward 1
+    onsetAtK40: shells[shells.length - 1].onset, // ~0.9999932, approaching 1 (1-onset ~ 6.8e-6)
+    limitCondition: 'K->inf: rho(1 - 1/rho) = 2[1/rho - (psi(rho+1)+gamma)]; unique (0,1)-closure root is EXACTLY rho=1 since psi(2)+gamma = H_1 = 1 (telescoping)',
+    limitResidualAt1,                    // = 0: single-neighbour c=1 recovered in the K->inf limit
+    verdict:
+      'The symmetric single-shell family has an EXACT closed rate drho/ds = 2 G(rho,K) for every K '
+      + '(reproducing the generic dRhoIso flow to machine precision, maxRateErr ~2.7e-15). Its worsening '
+      + 'onset rises MONOTONICALLY from c* = sqrt(2+sqrt(3))-1 ~ 0.93185 at K=1 (the WORST symmetric case) '
+      + 'toward 1, and the K -> infinity limit condition has its root EXACTLY at rho=1 (psi(2)+gamma = 1 by '
+      + 'telescoping) -- the infinite shell RECOVERS the single-neighbour threshold c=1. This confirms the '
+      + 'Lemma R2-T2 assertion. HONEST: symmetric sub-family only; the global asymmetric c_glob stays OPEN '
+      + 'in ~(0.898, 0.943) and this makes NO RH claim.',
+  };
+})();
+
 // imp-3238: does the EXACT Lemma-1/Lemma-2 dynamics yield a SHARPER per-pair
 // collision-time bound than Corollary A1 t_c <= g_min(0)^2 / 6 on the measured
 // real-zero rows? A1 gets its constant 6 from the STATIC cap Theta <= 1/4 fed into

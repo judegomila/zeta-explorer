@@ -68,6 +68,19 @@
  *   pair j = 4. Does NOT construct the missing magnitude and does NOT attempt the
  *   imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. NO RH verdict, NO QED. Platt-Trudgian
  *   Lambda <= 0.2 remains the rigorous SOTA.
+ *
+ *   HONEST-STATUS CORRECTION (imp-3643): this module's N=2000 lambda_7=lambda_8 spread
+ *   (pair78 ~= 3.99e-11, ~2e5 LARGER than the < 4e-14 spread at every shallower rung) is
+ *   NOT a genuine near-degeneracy splitting -- imp-3643 dense-cross-validated the deep
+ *   rungs (N=1200/1600/2000) with an independent Householder-tridiagonalize + implicit-QL
+ *   full-spectrum solver (no Krylov subspace, so it cannot host a Lanczos ghost) and found
+ *   the dense N=2000 lambda_7=lambda_8 spread is 1.96e-16 -- machine precision. So the
+ *   imp-3619 N=2000 pair78 growth is a Lanczos m=440 reorthogonalization artifact of THIS
+ *   module's eigensolver, not a real feature of the section spectrum. lambda7IsGenuinePairLevel
+ *   below is still TRUE (the 5e-11 threshold tolerates the artifact), and lambda_7 remains a
+ *   genuine fourth-pair level -- only the reported ~4e-11 magnitude at N=2000 should not be
+ *   read as a meaningful near-splitting.
+ *   @see imp-3643-skew-toeplitz-third-gap-dense-crossval.js (the dense cross-validation)
  */
 
 const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
@@ -318,6 +331,12 @@ export const IMP3619_SKEW_TOEPLITZ_THIRD_GAP_EXPONENT = Object.freeze({
       'through pair j = 4 only, and is offered as a candidate law, NOT a derived one.',
     didNotAttemptPositivity: true,
     sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    imp3643Correction:
+      'CORRECTION (imp-3643): the N=2000 lambda_7=lambda_8 spread reported here (pair78 ~ 3.99e-11, ~2e5 larger ' +
+      'than every shallower rung) is a Lanczos m=440 reorthogonalization artifact, NOT a genuine near-degeneracy ' +
+      'splitting -- an independent dense full-spectrum solver (no Krylov subspace) finds the true N=2000 spread is ' +
+      '1.96e-16, machine precision. lambda_7 is still a genuine fourth-pair level; only the ~4e-11 magnitude at ' +
+      'N=2000 must not be read as a real splitting.',
   }),
 });
 
@@ -367,6 +386,14 @@ export const IMP3619_SKEW_TOEPLITZ_THIRD_GAP_EXPONENT_ASSERTIONS = [
     why: 'The classified verdict must be the confirming full-leading-spectrum result, not indeterminate; a flip means ' +
       'the third-gap convergence, the exponent match, the j^2-1 amplitude ratios, or the pairing failed.',
     holds: () => verdict.startsWith('THIRD-GAP-lambda_7/lambda_1-ALSO-CONVERGES-TO-THE--2-HEURISTIC'),
+  },
+  {
+    id: 'imp3619-imp3643-correction-note-present',
+    why: 'The N=2000 pair78 growth must be flagged as a Lanczos reorthogonalization artifact per the imp-3643 dense ' +
+      'cross-validation, not left readable as a genuine near-degeneracy splitting.',
+    holds: () => typeof IMP3619_SKEW_TOEPLITZ_THIRD_GAP_EXPONENT.honestCaveat.imp3643Correction === 'string' &&
+      /imp-3643/.test(IMP3619_SKEW_TOEPLITZ_THIRD_GAP_EXPONENT.honestCaveat.imp3643Correction) &&
+      /artifact/.test(IMP3619_SKEW_TOEPLITZ_THIRD_GAP_EXPONENT.honestCaveat.imp3643Correction),
   },
   {
     id: 'imp3619-honest-assessment-no-qed',

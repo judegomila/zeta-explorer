@@ -65,8 +65,9 @@ for (let N = N_MIN + 1; N <= N_MAX; N++) {
 }
 plateaus[plateaus.length - 1].endN = N_MAX;
 
-// imp-3728 feasible-window upper endpoints thetaBarStar (per plateau).
-const THETA_BAR_STAR = {
+// imp-3728 feasible-window upper endpoints thetaBarStar (KNOWN reference for the
+// 3 originally-sampled plateaus; used to cross-check the recomputed values below).
+const THETA_BAR_STAR_REF = {
   0: 0.99822707, 4: 0.99883762, 9: 0.9998958,
 };
 
@@ -109,13 +110,33 @@ function fdDpsi(p, T, hRel) {
   return (plus - minus) / (2 * h);
 }
 
-const TARGET_PLATEAUS = [0, 4, 9];
+// imp-3890: locate the feasible-window upper endpoint thetaBar* per plateau as the
+// unique fixed point theta_N(thetaBar*) = thetaBar* (imp-3728), so the LEMMA-3854
+// verification can run on ALL 10 imp-3725 plateaus, not just the 3 pre-sampled ones.
+// theta_N(thetaBar) = 1 - Psi_N(T)/8 with T = H^2/(8 thetaBar); f(tb) = theta_N - tb
+// is decreasing, feasible = f >= 0, so bisect for the largest feasible tb.
+function thetaBarStarOf(p) {
+  const g = (tb) => (1 - evalAt(p, (p.H * p.H) / (8 * tb)).psi / 8) - tb;
+  let lo = 0.5, hi = 0.999999;
+  if (g(lo) < 0) return lo;      // should not happen on these plateaus
+  if (g(hi) >= 0) return hi;     // wall above search window: clamp
+  for (let it = 0; it < 80; it++) {
+    const mid = 0.5 * (lo + hi);
+    if (g(mid) >= 0) lo = mid; else hi = mid;
+  }
+  return lo;
+}
+
+// imp-3890: extend from the 3 pre-sampled plateaus [0,4,9] to ALL imp-3725 plateaus.
+const TARGET_PLATEAUS = plateaus.map((_, i) => i);
 const rel = (x, y) => Math.abs(x - y) / Math.max(Math.abs(x), Math.abs(y), 1e-300);
 
 const out = [];
 for (const pi of TARGET_PLATEAUS) {
   const p = plateaus[pi];
-  const tbStar = THETA_BAR_STAR[pi];
+  const tbStar = thetaBarStarOf(p);
+  const tbStarRef = THETA_BAR_STAR_REF[pi];
+  const tbStarRelToRef = tbStarRef !== undefined ? rel(tbStar, tbStarRef) : null;
   // sweep thetaBar across the feasible window [0.99, thetaBarStar]
   const sweep = [];
   const K = 5;
@@ -139,7 +160,7 @@ for (const pi of TARGET_PLATEAUS) {
       underBound: dpsi <= bound,
     });
   }
-  out.push({ plateauIndex: pi, startN: p.startN, endN: p.endN, H: p.H, a: p.a, thetaBarStar: tbStar, sweep });
+  out.push({ plateauIndex: pi, startN: p.startN, endN: p.endN, H: p.H, a: p.a, thetaBarStar: tbStar, thetaBarStarRef: tbStarRef, thetaBarStarRelToRef: tbStarRelToRef, sweep });
 }
 
 // Cross-check: direct Psi at thetaBar=0.99, N=endN vs imp-3725 baked psiEnd.
@@ -148,12 +169,15 @@ const PSI_END_BAKED = { 0: 0.0141836457, 4: 0.00929912307, 9: 8.33562277e-4 };
 console.log('=== imp-3874 LEMMA-3854 finite-difference verification ===\n');
 for (const r of out) {
   const base = r.sweep[0];
+  const refStr = r.thetaBarStarRef !== undefined
+    ? ` (ref=${r.thetaBarStarRef} rel=${r.thetaBarStarRelToRef.toExponential(3)})` : '';
   console.log(
-    `plateau ${r.plateauIndex} [${r.startN},${r.endN}] H=${r.H.toFixed(8)} a=${r.a} thetaBarStar=${r.thetaBarStar}`,
+    `plateau ${r.plateauIndex} [${r.startN},${r.endN}] H=${r.H.toFixed(8)} a=${r.a} thetaBarStar=${r.thetaBarStar.toFixed(8)}${refStr}`,
   );
-  console.log(
-    `  psi(thetaBar=0.99)=${base.psi.toExponential(8)}  baked psiEnd=${PSI_END_BAKED[r.plateauIndex].toExponential(8)}  rel=${rel(base.psi, PSI_END_BAKED[r.plateauIndex]).toExponential(3)}`,
-  );
+  const baked = PSI_END_BAKED[r.plateauIndex];
+  const bakedStr = baked !== undefined
+    ? `  baked psiEnd=${baked.toExponential(8)}  rel=${rel(base.psi, baked).toExponential(3)}` : '  (no baked psiEnd reference)';
+  console.log(`  psi(thetaBar=0.99)=${base.psi.toExponential(8)}${bakedStr}`);
   for (const s of r.sweep) {
     console.log(
       `  tb=${s.thetaBar.toFixed(8)} psi=${s.psi.toExponential(6)} smin=${s.smin.toFixed(8)} ` +
@@ -179,9 +203,12 @@ const baked = out.map((r) => {
     endN: r.endN,
     H: +r.H.toFixed(8),
     a: r.a,
-    thetaBarStar: r.thetaBarStar,
+    thetaBarStar: +r.thetaBarStar.toFixed(8),
+    thetaBarStarRelToRef: r.thetaBarStarRelToRef !== null && r.thetaBarStarRelToRef !== undefined
+      ? +r.thetaBarStarRelToRef.toExponential(4) : null,
     psiBase: +base.psi.toExponential(8),
-    psiBaseRelToBaked: +rel(base.psi, PSI_END_BAKED[r.plateauIndex]).toExponential(4),
+    psiBaseRelToBaked: PSI_END_BAKED[r.plateauIndex] !== undefined
+      ? +rel(base.psi, PSI_END_BAKED[r.plateauIndex]).toExponential(4) : null,
     sminBase: +base.smin.toFixed(8),
     dpsiAnalyticBase: +base.dpsiAnalytic.toExponential(8),
     dpsiFDBase: +base.dpsiFD.toExponential(8),

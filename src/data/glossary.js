@@ -1084,6 +1084,37 @@ export const glossary = [
       "partial-isometry tautology (||R||=1.0000 exact)",
       "mass-feasibility vs operator-positivity",
       "asym-onset ledger rigor-status taxonomy",
+      "rank-2 shear-Gram spectral reduction (Gshear = p q^T - q p^T)",
+    ],
+    link: '/spectral-attack',
+  },
+  {
+    term: "rank-2 shear-Gram spectral reduction (Gshear = p q^T - q p^T)",
+    category: 'numerical',
+    definition:
+      "The exact spectral structure behind the hollow antisymmetric shear Gram, obtained by " +
+      "expanding sinh(a(v-u)) = sinh(av)cosh(au) - cosh(av)sinh(au). Writing " +
+      "p_i = Phi_i cosh(a u_i) and q_i = Phi_i sinh(a u_i), the kernel becomes " +
+      "Gshear = p q^T - q p^T -- a RANK-2 REAL ANTISYMMETRIC matrix, regardless of grid size N. " +
+      "\n\nEXACT EIGENVALUES: on the 2D span{p, q}, the reduced 2x2 block has TRACE " +
+      "<q,p> - <p,q> = 0 (identically, for any p, q) and DETERMINANT " +
+      "|p|^2 |q|^2 - <p,q>^2 = mu^2 (a Cauchy-Schwarz-type quantity). A traceless 2x2 block with " +
+      "determinant mu^2 has eigenvalues +/- i mu, so the Hermitian operator i*Gshear has exactly " +
+      "two nonzero eigenvalues +/- mu, and every other direction (orthogonal to span{p,q}) is in " +
+      "the kernel. Hence min eig(Gshear) = -mu = -||Gshear|| EXACTLY -- not a fine-resolution " +
+      "limit, but an algebraic identity that holds at every N. imp-3252 confirms this numerically " +
+      "via two independent routes (analytic rank-2 mu vs. power-iteration operator norm), agreeing " +
+      "to ~1e-15 at every rung of the N in {160..800} ladder, with reduced-block trace 0 to machine " +
+      "precision. " +
+      "\n\nWHY IT FORCES THE PARTIAL-ISOMETRY TAUTOLOGY: because the +/- mu pairing is forced by " +
+      "the rank-2 antisymmetric structure (not by any resolution or construction choice), the " +
+      "Gpass = |Gshear| ansatz attaining ||R|| = 1.0000 is likewise forced -- it is a tautology of " +
+      "the polar decomposition, holding identically rather than as a numerical coincidence.",
+    firstUsed: "imp-3252 (shear-Gram min-eig symmetric-spectrum N-scaling), 2026",
+    relatedTerms: [
+      "hollow antisymmetric shear Gram (Gshear)",
+      "partial-isometry tautology (||R||=1.0000 exact)",
+      "section-26 mupass operator verdict",
     ],
     link: '/spectral-attack',
   },

@@ -2436,6 +2436,18 @@ const DATA_MODULES = [
   // Throws on import if the ratio departs from 1 at any N or the routes disagree. Diagnostic; RH-equivalent; imp-3066
   // endpoint-Hankel obstruction untouched; no QED; PT 0.2 SOTA.
   '/src/data/imp-3252-shear-gram-mineig-symmetric-spectrum-n-scaling.js',
+  // imp-3351: VERIFIES the imp-3252 exact rank-2 antisymmetric identity min eig(i Gshear) = -||Gshear|| (symmetric-
+  // about-0 spectrum) EXTENDS to EVERY cell of the imp-3085 grid A_GRID x U_GRID = {0.5,0.3,0.2,0.1}x{4,6,8,10}, not
+  // just the genuine Phi cell. At fixed N=240, for each of the 16 cells Gshear = p q^T - q p^T is rank-2 REAL
+  // ANTISYMMETRIC (p=Phi cosh(a t), q=Phi sinh(a t)), so i Gshear has nonzero eigenvalues +/- mu and min eig = -mu =
+  // -||Gshear||. FINDING: |min eig/(-||Gshear||) - 1| < ~1e-13 at EVERY cell (the ratio is 1 to machine precision
+  // across the whole grid), reduced-block trace 0 to machine precision, and analytic rank-2 mu agrees with power-
+  // iteration ||Gshear|| to ~machine precision (two independent routes) at every cell. CONFIRMS the imp-3252 verdict is
+  // CELL-INDEPENDENT: the symmetric-about-0 spectrum (and the Gpass=|Gshear| partial-isometry ||R||=1.0000 tautology)
+  // is forced purely by the hollow rank-2 antisymmetry independent of (a,U,Phi). Throws on import if the ratio departs
+  // from 1 at any cell or the routes disagree. Diagnostic; RH-equivalent; imp-3066 endpoint-Hankel obstruction
+  // untouched; no QED; PT 0.2 SOTA.
+  '/src/data/imp-3351-shear-gram-symmetric-spectrum-aU-grid.js',
   // imp-3343: DECIDES whether the imp-3252 continuum shear-Gram OPERATOR norm ||Gshear||_op (H mu, ~1.796e-4 ->
   // ~1.896e-4) and the imp-3256/imp-1267 Volterra HILBERT-SCHMIDT norm ||V||_HS (~1.9003e-4) coincide or the near-
   // equality is a leading-order accident. VERDICT: EXACT structural identity, NOT an accident. Gshear = p q^T - q p^T
@@ -2493,6 +2505,15 @@ const DATA_MODULES = [
   // C~0.178 (r*U in [0.178,0.181]); position-concentration share 1-r~1-C/U rises toward 1 as the window widens.
   // Throws on import if the ratio gains an a/aU dependence or leaves the 1/U band. Diagnostic; RH-equivalent; no QED; PT 0.2 SOTA.
   '/src/data/imp-3240-mupass-capture-ratio-aU-grid.js',
+  // imp-3350: MEASURES the a->0 limit of that SAME capture ratio r=||T||/||Gshear|| at fixed U and CERTIFIES it
+  // equals the EXACTLY-LINEAR-shear ratio (sinh(a(v-u)) replaced by its leading term (v-u)). FINDING: YES to
+  // machine precision -- the a^2-Richardson sinh limit r_star=0.0296645199 equals the linear ratio r_lin at U=6
+  // to ~1e-12 (raw a=0.01 within 1.6e-9), same at U=8 (0.0223367161) and U=10 (0.0180106555) to <5e-15. The linear
+  // kernel Glin=Phi(u)Phi(v)(v-u)=p q^T - q p^T is exact rank-2 skew, so ||Glin||=sqrt(Q0 Q2 - Q1^2), Q_k=sum u_i^k Phi_i^2
+  // (matches power iteration to ~1e-10). The common shear weight a cancels identically, so the ~3% capture is a PURE-Phi
+  // position-concentration ratio FREE of a -- exactly the linear-shear limit where imp-3346 located C. Throws on import
+  // if the sinh limit and linear ratio diverge or the rank-2 closed form fails. Diagnostic; RH-equivalent; no QED; PT 0.2 SOTA.
+  '/src/data/imp-3350-capture-ratio-linear-shear-limit.js',
   // imp-3219: MEASURES the imp-3202 capture(c)>1 overshoot that the coarse 14-point cutoff grid could
   // not resolve. Sweeps the same genuine Phi cell (NPHI=10,a=0.5,U=6,N=200) on the FINE lag grid (one
   // integer lag step H=U/N=0.03 per sample) and locates the transient rise of the dominant singular

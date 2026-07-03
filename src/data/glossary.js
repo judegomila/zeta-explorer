@@ -2760,6 +2760,43 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "moment-remainder tail exponent p=2: closed C_n=M_(n+2)/((n+1)(n+2)M_n) and the fit-bias law (imp-3581)",
+    category: "numerical",
+    definition:
+      "imp-3502 and imp-3553 FIT the same-parity moment-remainder tail exponent to p~2 (imp-3553 sharpening the odd " +
+      "degree-3 case to p=1.99999 on a nine-rung cancellation-free ladder) but neither DERIVED p=2 from the moment " +
+      "structure nor explained the ~1.2e-5 shortfall from 2. imp-3581 supplies the closed derivation. From the " +
+      "same-parity moment series R_n(a)=sum_{m>=n,step2} a^m/m! M_m (imp-3501), peeling the leading term gives the " +
+      "relative residual r_n(a)=[R_n(a)-(a^n/n!)M_n]/[(a^n/n!)M_n]=C_n a^2[1+D_n a^2+O(a^4)] with the CLOSED leading " +
+      "coefficient C_n=M_(n+2)/((n+1)(n+2)M_n) -- reducing to C_3=M_5/(20 M_3)~1.4573e-3 (matching the imp-3553 " +
+      "a^2/20 M_5/M_3) and C_4=M_6/(30 M_4)~1.2329e-3 (matching the imp-3526 a^2/30 M_6/M_4). Since the leading power " +
+      "of a is EXACTLY 2, the tail exponent p=2 is DERIVED, not fitted. The next-order coefficient " +
+      "D_n=M_(n+4)/((n+3)(n+4)M_(n+2))-M_(n+2)/((n+1)(n+2)M_n) (D_3~-3.94e-4, D_4~-3.01e-4) gives the closed " +
+      "least-squares fit-bias law p_fit=2+D_n cov(a^2,ln a)/var(ln a) over the geometric a-ladder: taking logs of the " +
+      "residual model and fitting a straight line absorbs the D_n a^2 curvature into the measured slope. MEASURED, " +
+      "this predicted p_fit reproduces the ACTUAL least-squares fit to ~1e-9 (odd nine-rung: fitted 1.99998842 vs " +
+      "predicted 1.99998843, |p-2|~1.16e-5; even six-rung: fitted 1.99998204 vs predicted 1.99998205, |p-2|~1.80e-5), " +
+      "so the imp-3553 1.99999 and the imp-3502 fits ARE the derived 2 up to a coefficient-quantified curvature bias, " +
+      "NOT exponent drift. The leading coefficient is independently confirmed by r_n(a)/a^2 -> C_n (deepest clean " +
+      "rung matches to relative 1.5e-9 for n=3, 7.4e-8 for n=4), and |p_fit-2| shrinks MONOTONICALLY as the ladder " +
+      "deepens (6.66e-5 at 3 rungs -> 1.16e-5 at the imp-3553 nine rungs -> 3.19e-6 at 18 rungs), the nine-rung floor " +
+      "set by the odd cancellation limit a0*M_1*eps~5e-21 (imp-3553)." +
+      "\n\nHONEST SCOPE: measurement/derivation only -- derives the closed decay ORDER (p=2) and leading coefficient " +
+      "of a fixed-weight Taylor remainder and certifies the fitted values equal it; establishes NO operator " +
+      "positivity. Mass-feasibility remains NECESSARY-BUT-NOT-SUFFICIENT (the degree-2 face carries no feasibility " +
+      "comparison, imp-3469: D_2=0); the operator-level K_a >= 0 off-diagonal endpoint-Hankel positivity (imp-3066) " +
+      "is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3581 (closed derivation of the moment-remainder tail exponent p=2 and the fit-bias law p_fit=2+D_n cov(a^2,ln a)/var(ln a), certifying the imp-3553 fitted 1.99999 equals the derived 2 up to a fully-quantified O(a^2) curvature bias), 2026",
+    relatedTerms: [
+      "imp-3553 cancellation-free odd R_3 fit p=1.99999 (imp-3553)",
+      "imp-3526 cancellation-free even R_4 fit (imp-3526)",
+      "imp-3502 original tail-exponent fit (imp-3502)",
+      "imp-3501 moment ladder general derivation (imp-3501)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

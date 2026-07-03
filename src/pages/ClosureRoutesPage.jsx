@@ -52,6 +52,7 @@ import { IMP3104_ORTHOGONALIZED_OPNORM_DEGREE_SWEEP } from '../data/imp-3104-ort
 import { IMP3288_ANALYTIC_CEILING_LEMMA } from '../data/imp-3288-analytic-ceiling-lemma.js';
 import { IMP3106_EXCESS_FRACTION_INTEGRABILITY } from '../data/imp-3106-excess-fraction-integrability.js';
 import { REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126 } from '../data/imp-3126-regular-mass-vs-c-shock-coincidence.js';
+import { IMP3220_EN_BRIDGE_FIDELITY_FRONTIER } from '../data/imp-3220-en-bridge-fidelity-frontier.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -572,6 +573,94 @@ function AnalyticCeilingConcentratingFamilyPanel() {
       </div>
       <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: 'var(--font-mono)' }}>
         Source: imp-3288-analytic-ceiling-lemma.js &mdash; a={L.a}, U={L.U}, concentrating ladder &delta;&isin;[{ladder[n - 1].delta},{ladder[0].delta}].
+      </p>
+    </div>
+  );
+}
+
+// ── imp-3220 GUE-conditional share sigma(N) U-shape across the assembly range ──
+// Shows sigma(N) = E_coll/E(N) dipping to a minimum near N~100 then rising to its
+// widest value at the N*=10^6 assembly ceiling, with the E_coll/E_flow ratio
+// overlaid on a second (right) axis -- the mechanism behind the rising right arm.
+function ConditionalShareUShapePanel() {
+  const F = IMP3220_EN_BRIDGE_FIDELITY_FRONTIER;
+  const table = F.table;
+  const n = table.length;
+
+  const W = 660, H = 280, ML = 56, MR = 60, MT = 26, MB = 44;
+  const shareMin = 0.8, shareMax = 1.0;
+  const ratioMin = 0, ratioMax = 35;
+  const px = (i) => ML + (i / (n - 1)) * (W - ML - MR);
+  const pyShare = (v) => H - MB - ((v - shareMin) / (shareMax - shareMin)) * (H - MT - MB);
+  const pyRatio = (v) => H - MB - ((v - ratioMin) / (ratioMax - ratioMin)) * (H - MT - MB);
+
+  const sharePath = table.map((row, i) => `${i === 0 ? 'M' : 'L'} ${px(i)} ${pyShare(row.conditionalShare)}`).join(' ');
+  const ratioPath = table.map((row, i) => `${i === 0 ? 'M' : 'L'} ${px(i)} ${pyRatio(row.E_coll_over_E_flow)}`).join(' ');
+
+  const shareTicks = [0.8, 0.85, 0.9, 0.95, 1.0];
+  const ratioTicks = [0, 10, 20, 30];
+
+  const minIdx = table.findIndex((r) => r.N === F.narrowestGap.N);
+  const maxIdx = table.findIndex((r) => r.N === F.widestGap.N);
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #a78bfa', background: 'rgba(167,139,250,0.04)' }}>
+      <h3 style={{ color: '#a78bfa', marginTop: 0, fontSize: 14 }}>
+        GUE-conditional share &sigma;(N) is U-shaped across the assembly range, widest at N*=10<sup>6</sup> (imp-3220)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+        &sigma;(N) = E<sub>coll</sub>(N)/E(N), the fraction of the bridge budget E(N) resting on the GUE-conditional
+        C<sub>H</sub>, dips to a minimum &asymp;{F.narrowestGap.conditionalShare.toFixed(3)} near N&asymp;{F.narrowestGap.N} then
+        rises monotonically to its widest value &asymp;{F.widestGap.conditionalShare.toFixed(3)} at the
+        N*={F.widestGap.N.toExponential(0).replace('e+', 'e')} assembly ceiling &mdash; exactly where PATH 1 pushed the
+        unconditional empirical E1/E2 floor. The overlaid E<sub>coll</sub>/E<sub>flow</sub> ratio (dashed, right axis) grows
+        &asymp;{Math.round(table[n - 1].E_coll_over_E_flow)}&times; toward that ceiling, the mechanism behind the rising right arm.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {shareTicks.map((v) => (
+            <g key={`ls${v}`}>
+              <line x1={ML} y1={pyShare(v)} x2={W - MR} y2={pyShare(v)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={pyShare(v) + 4} textAnchor="end" fontSize="11" fill="#a78bfa" fontFamily={mono}>{v.toFixed(2)}</text>
+            </g>
+          ))}
+          {ratioTicks.map((v) => (
+            <text key={`rs${v}`} x={W - MR + 10} y={pyRatio(v) + 4} textAnchor="start" fontSize="11" fill="#f59e0b" fontFamily={mono}>{v}</text>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          {/* sigma(N) U-curve, left axis */}
+          <path d={sharePath} fill="none" stroke="#a78bfa" strokeWidth="2.5" />
+          {table.map((row, i) => (
+            <circle key={`sp${i}`} cx={px(i)} cy={pyShare(row.conditionalShare)} r={i === minIdx || i === maxIdx ? 4.5 : 3} fill="#a78bfa">
+              <title>{`N=${row.N}, sigma=${row.conditionalShare}`}</title>
+            </circle>
+          ))}
+          {/* E_coll/E_flow ratio, right axis, dashed */}
+          <path d={ratioPath} fill="none" stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="5 3" />
+          {table.map((row, i) => (
+            <circle key={`rp${i}`} cx={px(i)} cy={pyRatio(row.E_coll_over_E_flow)} r="2.5" fill="#f59e0b">
+              <title>{`N=${row.N}, E_coll/E_flow=${row.E_coll_over_E_flow}`}</title>
+            </circle>
+          ))}
+          {table.map((row, i) => (
+            <text key={`xl${i}`} x={px(i)} y={H - MB + 16} textAnchor="middle" fontSize="9" fill="#64748b" fontFamily={mono}>
+              {row.N >= 1000 ? row.N.toExponential(0).replace('e+', 'e') : row.N}
+            </text>
+          ))}
+          <text x={ML} y={16} textAnchor="start" fontSize="10" fill="#a78bfa" fontFamily={mono}>&sigma;(N) (left)</text>
+          <text x={W - MR} y={16} textAnchor="end" fontSize="10" fill="#f59e0b" fontFamily={mono}>E_coll/E_flow (right)</text>
+        </svg>
+      </div>
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+        <strong style={{ color: '#f87171' }}>Honest scope (imp-3220):</strong>{' '}
+        ASSESSMENT ONLY: E<sub>coll</sub> is the sole GUE-conditional sub-term (C<sub>H</sub> = 1/8 ansatz, the
+        C<sub>mb</sub>&thinsp;&le;&thinsp;1 conditional of imp-486); E<sub>flow</sub> and E<sub>trunc</sub> are already
+        unconditionally rigorous. No positivity, no bridge closure, no RH claim, NO QED. Platt&ndash;Trudgian
+        &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+      </div>
+      <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3220-en-bridge-fidelity-frontier.js &mdash; N&isin;{'{2..10'}<sup>6</sup>{'}'}, dual-axis (&sigma;(N) left, E_coll/E_flow right).
       </p>
     </div>
   );
@@ -4477,6 +4566,8 @@ export default function ClosureRoutesPage() {
       </div>
 
       <AnalyticCeilingConcentratingFamilyPanel />
+
+      <ConditionalShareUShapePanel />
 
       {/* ─── imp-3106: excess fraction integrability ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

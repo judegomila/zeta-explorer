@@ -45,6 +45,8 @@ import { SECTION26_MUPASS_OPERATOR_VERDICT } from '../data/section26-mupass-oper
 import { IMP3177_EQUAL_PRODUCT_CELL_INVARIANCE_LOCK } from '../data/imp-3177-equal-product-cell-invariance-lock.js';
 import { IMP3202_MUPASS_BRIDGE_LAG_CUTOFF_SWEEP } from '../data/imp-3202-mupass-bridge-lag-cutoff-sweep.js';
 import { IMP3197_MUPASS_BRIDGE_SIGN_PHI_ONLY } from '../data/imp-3197-mupass-bridge-sign-phi-only.js';
+import { IMP3310_MUPASS_PASSIVE_CORE_ASSEMBLY_RECIPE } from '../data/imp-3310-mupass-passive-core-assembly-recipe.js';
+import { IMP3385_MUPASS_SMOOTH_CORE_FAMILY_SEARCH } from '../data/imp-3385-mupass-smooth-core-family-search.js';
 import { IMP3240_MUPASS_CAPTURE_RATIO_AU_GRID } from '../data/imp-3240-mupass-capture-ratio-aU-grid.js';
 import { IMP3346_CAPTURE_RATIO_C_CONSTANT_DERIVATION } from '../data/imp-3346-capture-ratio-C-constant-derivation.js';
 import { IMP3350_CAPTURE_RATIO_LINEAR_SHEAR_LIMIT } from '../data/imp-3350-capture-ratio-linear-shear-limit.js';
@@ -3289,6 +3291,126 @@ function BridgeLagCutoffCaptureViz() {
   );
 }
 
+function SmoothCoreLagContrastCeilingViz() {
+  const fejer = IMP3310_MUPASS_PASSIVE_CORE_ASSEMBLY_RECIPE.measured;
+  const smooth = IMP3385_MUPASS_SMOOTH_CORE_FAMILY_SEARCH.measured;
+  const sweep = fejer.sweep;
+  const verdictRatio = fejer.verdictRatio;
+  const wRatioMatch = fejer.wRatioMatch;
+  const gaussCeiling = smooth.gauss.maxAnchorRatio;
+  const expCeiling = smooth.exp.maxAnchorRatio;
+
+  const svgW = 520, svgH = 220, padL = 48, padR = 14, padT = 16, padB = 34;
+  const chartW = svgW - padL - padR;
+  const chartH = svgH - padT - padB;
+
+  const xMin = Math.log10(0.02), xMax = Math.log10(80);
+  const yMin = 1.0, yMax = 1.34;
+  const xScale = (w) => padL + ((Math.log10(w) - xMin) / (xMax - xMin)) * chartW;
+  const yScale = (v) => padT + chartH * (1 - (v - yMin) / (yMax - yMin));
+
+  const polyline = sweep.map((r) => `${xScale(r.w).toFixed(1)},${yScale(r.ratio).toFixed(1)}`).join(' ');
+  const xTicks = [0.02, 0.1, 1, 10, 80];
+  const yTicks = [1.0, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3];
+
+  return (
+    <div className="card" style={{ marginTop: 18, borderLeft: '3px solid #a78bfa', background: 'rgba(167,139,250,0.03)' }}>
+      <h3 style={{ color: '#a78bfa', marginTop: 0, fontSize: 15 }}>
+        Smooth-Core Lag-Contrast Ceiling vs Additive-Fejer Crossing (imp-3385)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
+        The additive-Fejer family (imp-3310, purple curve) sweeps its intrinsic
+        lag&thinsp;&le;&thinsp;0.2 / lag&thinsp;&le;&thinsp;0.40 ratio through the section26-mupass verdict
+        ratio 0.876/0.711&thinsp;=&thinsp;{verdictRatio.toFixed(4)} (dashed gold line) at
+        w*&thinsp;&asymp;&thinsp;{wRatioMatch.toFixed(2)}. The smooth Gaussian and exponential
+        near-diagonal families (imp-3385) never get that far: their ratio{' '}
+        <strong style={{ color: '#e2e8f0' }}>saturates below the verdict</strong> at flat
+        ceilings of {gaussCeiling.toFixed(4)} (Gaussian) and {expCeiling.toFixed(4)} (exponential),
+        strictly worse than the additive-Fejer crossing.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
+          {yTicks.map((v) => (
+            <line key={v} x1={padL} y1={yScale(v)} x2={svgW - padR} y2={yScale(v)}
+              stroke="#1e293b" strokeWidth={1} />
+          ))}
+
+          {/* verdict ratio line */}
+          <line x1={padL} y1={yScale(verdictRatio)} x2={svgW - padR} y2={yScale(verdictRatio)}
+            stroke="#fbbf24" strokeWidth={1.5} strokeDasharray="5 3" />
+          <text x={padL + 4} y={yScale(verdictRatio) - 3} fill="#fbbf24" fontSize={9}>
+            verdict ratio {verdictRatio.toFixed(4)}
+          </text>
+
+          {/* smooth-family ceilings: flat lines, both below verdict */}
+          <line x1={padL} y1={yScale(gaussCeiling)} x2={svgW - padR} y2={yScale(gaussCeiling)}
+            stroke="#34d399" strokeWidth={1.5} strokeDasharray="3 3" />
+          <text x={svgW - padR - 4} y={yScale(gaussCeiling) - 3} fill="#34d399" fontSize={8} textAnchor="end">
+            Gaussian ceiling {gaussCeiling.toFixed(4)}
+          </text>
+          <line x1={padL} y1={yScale(expCeiling)} x2={svgW - padR} y2={yScale(expCeiling)}
+            stroke="#f472b6" strokeWidth={1.5} strokeDasharray="3 3" />
+          <text x={svgW - padR - 4} y={yScale(expCeiling) + 11} fill="#f472b6" fontSize={8} textAnchor="end">
+            exponential ceiling {expCeiling.toFixed(4)}
+          </text>
+
+          {/* w* crossing marker */}
+          <line x1={xScale(wRatioMatch)} y1={padT} x2={xScale(wRatioMatch)} y2={padT + chartH}
+            stroke="#a78bfa" strokeWidth={1.5} strokeDasharray="6 3" />
+          <text x={xScale(wRatioMatch) + 3} y={padT + 12} fill="#a78bfa" fontSize={8}>
+            w*&asymp;{wRatioMatch.toFixed(2)}
+          </text>
+
+          {/* additive-Fejer ratio curve */}
+          <polyline points={polyline} fill="none" stroke="#a78bfa" strokeWidth={2} />
+          {sweep.map((r) => (
+            <circle key={r.w} cx={xScale(r.w)} cy={yScale(r.ratio)} r={3} fill="#a78bfa" />
+          ))}
+
+          <line x1={padL} y1={padT} x2={padL} y2={padT + chartH} stroke="#475569" strokeWidth={1.5} />
+          <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH} stroke="#475569" strokeWidth={1.5} />
+
+          {yTicks.map((v) => (
+            <text key={v} x={padL - 4} y={yScale(v) + 3.5} fill="#64748b" fontSize={9} textAnchor="end">
+              {v.toFixed(2)}
+            </text>
+          ))}
+          {xTicks.map((v) => (
+            <text key={v} x={xScale(v)} y={padT + chartH + 12} fill="#64748b" fontSize={9} textAnchor="middle">
+              {v}
+            </text>
+          ))}
+
+          <text x={padL + chartW / 2} y={svgH - 2} fill="#64748b" fontSize={10} textAnchor="middle">
+            bridge weight w (log scale)
+          </text>
+          <text x={10} y={padT + chartH / 2} fill="#64748b" fontSize={10} textAnchor="middle"
+            transform={`rotate(-90 10 ${padT + chartH / 2})`}>
+            lag-0.2 / lag-0.40 ratio
+          </text>
+        </svg>
+      </div>
+      <div style={{
+        marginTop: 10, padding: '10px 12px', borderRadius: 6,
+        background: 'rgba(239,68,68,0.06)', border: '2px solid rgba(239,68,68,0.35)',
+        fontSize: 12, color: '#94a3b8', lineHeight: 1.65,
+      }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#f87171', letterSpacing: '0.06em', marginBottom: 6 }}>
+          RULED OUT (imp-3385): SMOOTH FAMILY CANNOT EVEN REACH THE ADDITIVE-FEJER CROSSING
+        </div>
+        <div style={{ fontSize: 11.5, color: '#cbd5e1' }}>
+          The additive-Fejer family (purple) at least sweeps through the verdict ratio at
+          w*&thinsp;&asymp;&thinsp;{wRatioMatch.toFixed(2)}, though not at the verdict magnitudes. The smooth
+          Gaussian/exponential family never gets that far: its lag-contrast ratio is capped
+          well below verdict for every weight and length scale sampled, sharpening the search
+          toward a sharper-than-smooth lag structure. Measurement only, RH-equivalent, no
+          positivity attempted; Platt-Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains SOTA.
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function OverflowFractionResolutionSweepViz() {
   const M = IMP3175_OVERFLOW_FRACTION_RESOLUTION_RECONCILE;
   const sweep = M.measured.sweep; // [{N, overflowFraction}, ...]
@@ -5872,6 +5994,12 @@ export default function ClosureRoutesPage() {
         Bridge Lag-Cutoff Capture Curve (imp-3202)
       </h2>
       <BridgeLagCutoffCaptureViz />
+
+      {/* ─── imp-3435: imp-3385 smooth-core lag-contrast ceiling vs additive-Fejer crossing ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Smooth-Core Lag-Contrast Ceiling vs Additive-Fejer Crossing (imp-3385)
+      </h2>
+      <SmoothCoreLagContrastCeilingViz />
 
       {/* ─── imp-3197: sign-vs-magnitude decomposition ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

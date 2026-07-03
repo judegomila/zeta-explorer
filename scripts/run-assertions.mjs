@@ -2804,6 +2804,17 @@ const DATA_MODULES = [
   // band width is a precision-INVARIANT ratio: arithmetic bookkeeping, not Phi
   // structure. No positivity, imp-3066 untouched, no QED, PT Lambda<=0.2 SOTA. 7 asserts.
   '/src/data/imp-3389-horizon-gap-precision-invariance.js',
+  // imp-3421 (numerical): RE-FITS the imp-3382 geometric slope of log10
+  // lambda_min(Gpass(D)) (~ -3.846 per degree on the single base cell) across
+  // one-axis (a, U, NPHI) sweeps on the same pre-floor window D in {1,2,3}. The
+  // per-degree factor is NOT a universal density-shape constant: INVARIANT to
+  // the shear weight a (a shifts only the intercept -4.53 -> -4.05) and to the
+  // Phi truncation NPHI, but DRIFTS logarithmically with the lag cutoff U
+  // (slope(U) ~ -2.25 - 0.89 ln U, R^2>0.999). So the -3.846 is U=6-specific --
+  // a basis-interval / support-ratio property, sharpening the imp-3382
+  // mechanism. No positivity, imp-3066 untouched, no QED, PT Lambda<=0.2 SOTA.
+  // 7 assertions.
+  '/src/data/imp-3421-lambda-min-slope-cell-universality.js',
 ];
 
 let ALL_MODULES = FAST_MODE

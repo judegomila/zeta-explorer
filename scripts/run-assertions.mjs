@@ -2467,6 +2467,15 @@ const DATA_MODULES = [
   // Throws on import if the occupation is not strongly concentrated, the flat ratio leaves [0,0.05), or
   // the measures are not N-stable. Diagnostic; RH-equivalent; imp-3066 lone obstruction; no QED; PT 0.2 SOTA.
   '/src/data/imp-3221-mupass-position-concentration-measure.js',
+  // imp-3327: SWEEPS a and U to classify the two single-cell imp-3221 numbers. Result: they are
+  // structurally OPPOSITE. C = N/PR is pure occupation geometry (never touches the operator), so it is
+  // a-INDEPENDENT to machine precision and obeys C = U / L* with L* = PR*h the near-invariant Phi^2
+  // participation length -- "64x" is just the U = 6 value of a clean near-linear law, not a universal
+  // constant. The flat-occupation ratio ||Gshear||/||Gflat|| collapses SUPER-EXPONENTIALLY in both a and U
+  // (~e^{-aU} from the sinh corner blow-up of Gflat), so "0.011" is entirely cell-specific with no closed
+  // form. Throws on import if C is not a-independent, C is not near-linear in U, or the ratio is not a
+  // monotone super-exponential collapse. Diagnostic; RH-equivalent; imp-3066 lone obstruction; no QED; PT 0.2 SOTA.
+  '/src/data/imp-3327-mupass-concentration-au-sweep.js',
   // imp-3220: TABULATES the E(N) bridge-constant fidelity across the assembly range
   // N* in {2..10^6} (imp-2643/imp-2715 only evaluate the single point N*=1e4), reusing
   // the identical E(N)=E_trunc+E_flow+E_coll sub-term formulas (same effectiveHeightForN,
@@ -2597,6 +2606,18 @@ const DATA_MODULES = [
   // half-lattice regime (imp-3236/3237/3270, ceiling c_half~0.8980). Sub-family result only; c_glob
   // stays OPEN in (0.86566,0.89802]; PT Lambda<=0.2 SOTA. 6 self-executing assertions.
   '/src/data/sg1c-asym-onset-lattice-spacing-sweep-2026-07-02.js',
+  // imp-3326 (proof): ASSESSES whether the imp-3288 scalar-core L2 ceiling
+  // Q(f)<=tanh(a*U)<1 extends to the rank-2 MATRIX passive core (imp-3214).
+  // Dichotomy. READING 1 (faithful, same symmetric sinh/cosh forms compressed to
+  // the rank-2 span span{p,q}): the matrix generalized Rayleigh supremum
+  // lambda_max(A,B)<=tanh(a*U) RIGOROUSLY (each trial vector is an L2 function) and
+  // lands strictly below (~0.0545 on this span) -- the ceiling EXTENDS, never
+  // exceeded. READING 2 (imp-3214 antisymmetric Wronskian normalized by its OWN
+  // polar core |Gshear|): ||R||=1.0000 exactly, strictly EXCEEDING tanh(3)~0.99505
+  // but only via the partial-isometry tautology (Gshear has zero numerical range on
+  // real trial functions). Neither exceeds the trivial norm 1; K_a>=0 (imp-3066
+  // endpoint-Hankel) untouched; RH-equivalent; no QED; PT Lambda<=0.2 SOTA. 5 asserts.
+  '/src/data/imp-3326-matrix-core-ceiling-extension-assessment.js',
 ];
 
 let ALL_MODULES = FAST_MODE

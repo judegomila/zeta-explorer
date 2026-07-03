@@ -74,6 +74,33 @@ function bisectRoot(fn, lo, hi) {
 }
 const C_ASYM = bisectRoot(asymUnitLatticeDrho, 0.5, 0.9999); // 0.9027902227683418
 
+// ---- imp-3291: independent high-precision digamma certification of c_asym.
+// The digamma above shifts only to x >= 6 and truncates the Bernoulli tail at the
+// 1/252 term; that leaves a ~7.8e-9 error in psi, which propagates into the root.
+// Re-evaluate the same rate zero with a DISTINCT digamma: deep recurrence shift to
+// x >= 50 plus an extended Bernoulli tail through B16, using
+//   psi(x) ~ ln x - 1/(2x) - sum_{n>=1} B_{2n}/(2n x^{2n}),
+//   B2=1/6, B4=-1/30, B6=1/42, B8=-1/30, B10=5/66, B12=-691/2730, B14=7/6, B16=-3617/510.
+const BERNOULLI_2N = [1 / 6, -1 / 30, 1 / 42, -1 / 30, 5 / 66, -691 / 2730, 7 / 6, -3617 / 510];
+function digammaHP(x) {
+  let r = 0;
+  while (x < 50) { r -= 1 / x; x += 1; }
+  const x2 = x * x;
+  let xp = x2;
+  r += Math.log(x) - 1 / (2 * x);
+  for (let n = 1; n <= BERNOULLI_2N.length; n++) { r -= BERNOULLI_2N[n - 1] / (2 * n * xp); xp *= x2; }
+  return r;
+}
+function asymUnitLatticeDrhoHP(g) { return digammaHP(g + 1) + GAMMA + 2 * g - 2 / g - 1 / (g + 1); }
+const C_ASYM_HP = bisectRoot(asymUnitLatticeDrhoHP, 0.5, 0.9999); // 0.9027902226245005 (converged)
+// FINDING: the independent HP digamma agrees with the ledger root only to ~10 sig
+// figs. The quoted 0.9027902227683418 is therefore certified only through its first
+// 10 digits (0.902790222); digits 11-16 (...7683418) are a shift-to-6 truncation
+// artifact -- the true continuation is ...6245005 (root error ~1.44e-10). Harmless
+// for the bracket role: 1.44e-10 is ~7 orders below the ~1.2e-3 open-bracket width.
+const C_ASYM_ROOT_ERROR = Math.abs(C_ASYM - C_ASYM_HP); // ~1.44e-10
+const C_ASYM_CERTIFIED_DIGITS = 10; // sig figs that survive the independent HP cross-check
+
 // Certified-numerical infimum of the imp-3021 / imp-3172 Config-B structured family
 // (minimal-spacing half-lattice + lone far neighbour). A genuine smooth drho/ds zero,
 // selector stable -- recorded as a literal from sg1c-asym-global-infimum-reconcile.
@@ -154,6 +181,20 @@ export const SG1C_ASYM_ONSET_BRACKET_LEDGER = {
     },
   ],
   closedFormAnchors: { singleNeighbour: C_SINGLE, symmetricKShell: C_STAR, asymUnitLatticeRinf: C_ASYM },
+  // imp-3291: independent high-precision digamma certification of the c_asym literal.
+  casymDigitCertification: {
+    quoted: 0.9027902227683418,
+    ledgerDigammaRoot: C_ASYM,          // reproduces the quoted literal (shift-to-6 digamma)
+    independentHpRoot: C_ASYM_HP,       // 0.9027902226245005 (shift-to-50 + Bernoulli tail through B16)
+    rootError: C_ASYM_ROOT_ERROR,       // ~1.44e-10 between the two independent evaluations
+    certifiedSigDigits: C_ASYM_CERTIFIED_DIGITS, // only 10 digits survive the cross-check
+    finding:
+      'The independent HP digamma agrees with the ledger root to ~10 sig figs only. The quoted '
+      + '0.9027902227683418 is certified through 0.902790222; digits 11-16 (...7683418) are a '
+      + 'shift-to-6 digamma truncation artifact -- the true converged continuation is ...6245005. '
+      + 'The ~1.44e-10 root error is ~7 orders below the ~1.2e-3 open-bracket width, so the '
+      + 'constant stays fit-for-purpose as a bracket bound. Accuracy certification only, NO QED.',
+  },
   openBracket: [STRUCTURED_INF, C_ASYM], // ~(0.9016, 0.9028); c_glob is conjectured here, proven only <= 0.9016
   basinConstant: BASIN, // 0.72 (Theorem-C); load-bearing lower reference, below every onset
   basinMargin: STRUCTURED_INF - BASIN, // 0.1816 > 0.18: the >0.18 basin margin made explicit
@@ -184,6 +225,14 @@ export const SG1C_ASYM_ONSET_BRACKET_LEDGER_ASSERTIONS = [
     id: 'sg1c-ledger-casym-transcendental-anchor',
     description: 'c_asym ~ 0.9027902227683418 is the digamma-rate zero (psi(g+1)+gamma+2g-2/g-1/(g+1)=0)',
     holds: () => Math.abs(C_ASYM - 0.9027902227683418) < 1e-9 && Math.abs(asymUnitLatticeDrho(C_ASYM)) < 1e-9,
+  },
+  {
+    id: 'sg1c-ledger-casym-independent-hp-digamma-cross-check',
+    description: 'imp-3291: an independent high-precision digamma (shift-to-50 + Bernoulli tail through B16) reproduces the c_asym root to ~10 sig figs; the quoted 16-digit literal is certified only through 0.902790222, digits 11-16 being a shift-to-6 truncation artifact (true continuation ...6245005), root error ~1.44e-10 << the ~1.2e-3 bracket width',
+    holds: () => Math.abs(C_ASYM_HP - 0.9027902226245005) < 1e-13
+      && C_ASYM_ROOT_ERROR > 1e-11 && C_ASYM_ROOT_ERROR < 1e-9
+      && C_ASYM_CERTIFIED_DIGITS === 10
+      && Math.abs(asymUnitLatticeDrhoHP(C_ASYM_HP)) < 1e-12,
   },
   {
     id: 'sg1c-ledger-chain-is-monotone-ordered',

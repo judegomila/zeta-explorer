@@ -70,6 +70,7 @@ import { IMP3257_BRIDGE_SIGN_PHI_NONNEG_STRUCTURAL } from '../data/imp-3257-brid
 import { IMP3347_PHI_LEFTMOST_ZERO_VS_NPHI } from '../data/imp-3347-phi-leftmost-zero-vs-nphi.js';
 import { IMP3256_VHS_CROSSVAL } from '../data/imp-3256-vhs-crossval.js';
 import { IMP3309_TWO_TAIL_UNDERFLOW_HORIZONS } from '../data/imp-3309-two-tail-underflow-horizons.js';
+import { IMP3382_RAWDIAGONAL_R_DEGREE_GROWTH_LAW } from '../data/imp-3382-rawdiagonal-R-degree-growth-law.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -4154,6 +4155,127 @@ function CaptureRatioVsUViz() {
   );
 }
 
+// ── imp-3430: imp-3382 conditioning-vs-well-posed divergence ──
+// Two synchronized panels: (left) log10 lambda_min(Gpass(D)) decaying LINEARLY
+// in degree D on the pre-floor reliable rungs D in {1,2,3}, with the fitted
+// geometric-decay line extrapolated; (right) the regularized well-posed
+// ||R||(D) staying O(1) across the same degree ladder, while the raw
+// (unregularized) ||R|| the verdict recorded diverges toward ~1e272 at
+// degree 100 purely from inverting the ill-conditioned Gpass(D). All values
+// are READ from the imp-3382 module export.
+function RawDiagonalRDegreeGrowthLawViz() {
+  const M = IMP3382_RAWDIAGONAL_R_DEGREE_GROWTH_LAW;
+  const rows = M.rows;
+  const reliableRows = rows.filter((r) => !r.lambdaMinBelowDoubleFloor);
+  const floorRows = rows.filter((r) => r.lambdaMinBelowDoubleFloor);
+  const { fitIntercept, fitSlope, fitR2 } = M.growthLaw;
+
+  const W = 680, H = 320, ML = 60, MR = 24, MT = 22, MB = 44;
+
+  // Left panel: log10 lambda_min(Gpass(D)) vs D.
+  const dMax = 22, logMin = -22, logMax = -4;
+  const px1 = (d) => ML + (d / dMax) * (W - ML - MR);
+  const py1 = (v) => H - MB - ((v - logMin) / (logMax - logMin)) * (H - MT - MB);
+  const dTicks = [0, 5, 10, 15, 20];
+  const logTicks = [-4, -8, -12, -16, -20];
+  const fitPts1 = [];
+  for (let d = 0; d <= dMax; d += 0.5) fitPts1.push([px1(d), py1(fitIntercept + fitSlope * d)]);
+  const fitPath1 = fitPts1.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(' ');
+
+  // Right panel: regularized well-posed ||R||(D) vs D.
+  const rMax = 2.2;
+  const px2 = (d) => ML + (d / dMax) * (W - ML - MR);
+  const py2 = (v) => H - MB - (v / rMax) * (H - MT - MB);
+  const rTicks = [0, 0.5, 1, 1.5, 2];
+  const wellPosedPath = rows
+    .map((r, i) => `${i === 0 ? 'M' : 'L'} ${px2(r.degree).toFixed(1)} ${py2(r.normRregularized).toFixed(1)}`)
+    .join(' ');
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #ef4444', background: 'rgba(239,68,68,0.04)' }}>
+      <h3 style={{ color: '#ef4444', marginTop: 0 }}>
+        Conditioning collapse of the raw diagonal Gpass(D) vs the well-posed ||R||(D) plateau (imp-3382)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        The raw physical-diagonal moment matrix Gpass(D) is GEOMETRICALLY ill-conditioned:{' '}
+        <span style={{ fontFamily: mono }}>log10 &#955;<sub>min</sub>(Gpass) &#8776; {fitIntercept.toFixed(2)} + {fitSlope.toFixed(3)}&middot;D</span>{' '}
+        (R&sup2; &#8776; {fitR2.toFixed(4)} on the pre-floor reliable degrees D&thinsp;&isin;&thinsp;{'{'}1,2,3{'}'}),
+        extrapolating to cond(Gpass(100))&thinsp;&#126;&thinsp;10<sup>{M.growthLaw.extrapCond100Log10.toFixed(0)}</sup> &mdash;
+        which is why the verdict&apos;s raw <span style={{ fontFamily: mono }}>||R||</span> reaches{' '}
+        <strong>&#126;{M.recordedAnchors.degree100LegendreR.toExponential(0)}</strong> at degree 100. The{' '}
+        <em>regularized</em> pseudo-inverse ||R||(D), by contrast, stays O(1) across the whole degree
+        ladder &mdash; the divergence lives entirely in the raw inversion, not the operator.
+      </p>
+      <div style={{ display: 'flex', gap: 18, flexWrap: 'wrap' }}>
+        <div style={{ overflowX: 'auto' }}>
+          <div style={{ fontSize: 11, color: '#94a3b8', fontFamily: mono, marginBottom: 4 }}>log10 &#955;<sub>min</sub>(Gpass(D)) vs degree D</div>
+          <svg width={W / 2 + ML} height={H} style={{ display: 'block', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+            {logTicks.map((v) => (
+              <g key={`l${v}`}>
+                <line x1={ML} y1={py1(v)} x2={W / 2 + ML - MR} y2={py1(v)} stroke="#1e293b" strokeWidth="1" />
+                <text x={ML - 8} y={py1(v) + 4} textAnchor="end" fontSize="11" fill="#64748b" fontFamily={mono}>{v}</text>
+              </g>
+            ))}
+            {dTicks.filter((d) => d <= dMax / 2 + 2).map((d) => (
+              <text key={`d${d}`} x={px1(d)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#64748b" fontFamily={mono}>{d}</text>
+            ))}
+            <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+            <line x1={ML} y1={H - MB} x2={W / 2 + ML - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+            <path d={fitPath1} fill="none" stroke="#475569" strokeWidth="1.5" strokeDasharray="4 3" />
+            {reliableRows.map((r) => (
+              <circle key={`rel${r.degree}`} cx={px1(r.degree)} cy={py1(Math.log10(r.lambdaMinGpass))} r="5" fill="#ef4444" fillOpacity="0.75" stroke="#ef4444" strokeWidth="1.2">
+                <title>{`D=${r.degree}: lambda_min=${r.lambdaMinGpass.toExponential(3)} (pre-floor, reliable)`}</title>
+              </circle>
+            ))}
+            {floorRows.filter((r) => r.degree <= dMax / 2 + 2).map((r) => (
+              <circle key={`fl${r.degree}`} cx={px1(r.degree)} cy={py1(Math.log10(r.lambdaMinGpass))} r="4" fill="none" stroke="#64748b" strokeWidth="1.2" strokeDasharray="2 2">
+                <title>{`D=${r.degree}: lambda_min=${r.lambdaMinGpass.toExponential(3)} (precision-floored, NOT reliable)`}</title>
+              </circle>
+            ))}
+          </svg>
+        </div>
+        <div style={{ overflowX: 'auto' }}>
+          <div style={{ fontSize: 11, color: '#94a3b8', fontFamily: mono, marginBottom: 4 }}>regularized well-posed ||R||(D) vs degree D</div>
+          <svg width={W / 2 + ML} height={H} style={{ display: 'block', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+            {rTicks.map((v) => (
+              <g key={`r${v}`}>
+                <line x1={ML} y1={py2(v)} x2={W / 2 + ML - MR} y2={py2(v)} stroke="#1e293b" strokeWidth="1" />
+                <text x={ML - 8} y={py2(v) + 4} textAnchor="end" fontSize="11" fill="#64748b" fontFamily={mono}>{v.toFixed(1)}</text>
+              </g>
+            ))}
+            {dTicks.map((d) => (
+              <text key={`d2${d}`} x={px2(d)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#64748b" fontFamily={mono}>{d}</text>
+            ))}
+            <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+            <line x1={ML} y1={H - MB} x2={W / 2 + ML - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+            <path d={wellPosedPath} fill="none" stroke="#10b981" strokeWidth="2" />
+            {rows.map((r) => (
+              <circle key={`wp${r.degree}`} cx={px2(r.degree)} cy={py2(r.normRregularized)} r="4.5" fill="#10b981" fillOpacity="0.8" stroke="#10b981" strokeWidth="1.2">
+                <title>{`D=${r.degree}: regularized ||R||=${r.normRregularized.toFixed(4)}`}</title>
+              </circle>
+            ))}
+          </svg>
+        </div>
+      </div>
+
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
+          MEASUREMENT / DIAGNOSTIC ONLY &mdash; NO RH VERDICT
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          The hollow degree markers (D&thinsp;&ge;&thinsp;4) are IEEE-754 double precision-floored, not
+          reliable decay data &mdash; the geometric law is fit only on D&thinsp;&isin;&thinsp;{'{'}1,2,3{'}'}
+          and extrapolated. RH-EQUIVALENT diagnostic; the off-diagonal endpoint-Hankel step (imp-3066)
+          remains the lone obstruction, untouched. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3382-rawdiagonal-R-degree-growth-law.js &mdash; a=0.5, U=6, NPHI=10.
+      </p>
+    </div>
+  );
+}
+
 function CInfFixedResolutionConvergenceViz() {
   const M = IMP3346_CAPTURE_RATIO_C_CONSTANT_DERIVATION.measured;
   const uLadder = M.uLadder;
@@ -5519,6 +5641,12 @@ export default function ClosureRoutesPage() {
         Capture Ratio vs Lag Window U (imp-3358)
       </h2>
       <CaptureRatioVsUViz />
+
+      {/* ─── imp-3430: imp-3382 conditioning-vs-well-posed divergence ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Raw-Diagonal Conditioning Collapse vs Well-Posed ||R|| Plateau (imp-3382)
+      </h2>
+      <RawDiagonalRDegreeGrowthLawViz />
 
       {/* ─── imp-3410: fixed-resolution r*U convergence to C_inf (imp-3346) ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

@@ -201,6 +201,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp3700-mesoscopic-shock-scale-separation',
   '/viz-imp3374-overflow-degree',
   '/viz-imp3375-interloper-margin',
+  '/viz-imp3376-kshell-onset-ladder',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

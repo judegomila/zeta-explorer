@@ -158,6 +158,7 @@ const Imp3699FitBiasDecayViz = lazy(() => import('./pages/Imp3699FitBiasDecayViz
 const Imp3700MesoscopicShockScaleSeparationViz = lazy(() => import('./pages/Imp3700MesoscopicShockScaleSeparationViz.jsx'));
 const Imp3374OverflowDegreeViz = lazy(() => import('./pages/Imp3374OverflowDegreeViz.jsx'));
 const Imp3375InterloperMarginViz = lazy(() => import('./pages/Imp3375InterloperMarginViz.jsx'));
+const Imp3376KShellOnsetLadderViz = lazy(() => import('./pages/Imp3376KShellOnsetLadderViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -760,6 +761,7 @@ function AppShell() {
           <Route path="/viz-imp3700-mesoscopic-shock-scale-separation" element={<Imp3700MesoscopicShockScaleSeparationViz />} />
           <Route path="/viz-imp3374-overflow-degree" element={<Imp3374OverflowDegreeViz />} />
           <Route path="/viz-imp3375-interloper-margin" element={<Imp3375InterloperMarginViz />} />
+          <Route path="/viz-imp3376-kshell-onset-ladder" element={<Imp3376KShellOnsetLadderViz />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
           <Route path="/papers" element={<PapersListPage />} />

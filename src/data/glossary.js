@@ -2074,6 +2074,39 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "PSD peak-slope maximizer xi* = 12.0870439: U-invariance and global uniqueness (imp-3489, imp-3483)",
+    category: "numerical",
+    definition:
+      "imp-3470 located xi* = 12.0870439, the root of the PSD curvature P2(xi) = 0 where the power-spectrum " +
+      "slope |d/dxi |Phihat(xi)|^2| peaks, by bisecting a SINGLE bracket on the short {U=6, U=8} ladder and " +
+      "described it as 'stable across the U ladder (spread ~0)'. Two follow-ups close the remaining gaps. " +
+      "imp-3489 re-solves P2(xi) = 0 on the FULL imp-3240 capture-ratio grid U_GRID = {4, 6, 8, 10} and finds " +
+      "xi* = 12.08704387272693 on EVERY window -- BIT-IDENTICAL, so the drift max_U xi* - min_U xi* is EXACTLY " +
+      "0, not merely small. This exact (not approximate) invariance follows because the de Bruijn-Newman " +
+      "kernel Phi has COMPACT EFFECTIVE SUPPORT (its Gaussian tail underflows to 0 by u ~ 1.4, inside the " +
+      "shortest U = 4 window), so every window U >= 4 captures the entire nonzero Phi and the fixed panel " +
+      "width H = 1/60 places identical quadrature nodes in every window. imp-3483 separately certifies that " +
+      "xi* is the UNIQUE GLOBAL maximizer of the peak-slope objective sup_xi |P1(xi)|, not merely a local " +
+      "stationary point: scanning P2(xi) across the full domain [0, 120] on a fine grid and bisecting every " +
+      "sign change finds EXACTLY ONE root, with the flanking sign pattern (P2 < 0 below, P2 > 0 above) showing " +
+      "|P1(xi)| is UNIMODAL, and an independent grid argmax of |P1| lands on the same xi*. Together the two " +
+      "certifications upgrade the imp-3470 'stable' claim to xi* being a FIXED, U-independent, globally unique " +
+      "transcendental number -- the sup behind C_inf ~ 0.1751." +
+      "\n\nHONEST SCOPE: certification/measurement only. Neither result gives xi* an elementary closed form -- " +
+      "the stationarity equation P2(xi) = 0 stays transcendental (imp-3470). C_inf ~ 0.1751 remains a determined " +
+      "number requiring transcendental evaluation. This characterizes the numerator norm of the capture ratio; " +
+      "it does NOT construct the missing magnitude or attempt the K_a >= 0 positivity. The off-diagonal " +
+      "endpoint-Hankel obstruction (imp-3066) remains the lone RH obstruction, UNTOUCHED. No RH verdict, no " +
+      "QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3489 and imp-3483 (U-independence certification and global-uniqueness certification of xi* = 12.0870439), 2026",
+    relatedTerms: [
+      "PSD peak-slope maximizer xi* = 12.0870439 (transcendental root of P2(xi) = 0) (imp-3470)",
+      "closed-form degree-2 miss factor 1 - 1/k^3 (imp-3488)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

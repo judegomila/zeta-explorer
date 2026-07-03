@@ -2890,6 +2890,16 @@ const DATA_MODULES = [
   // monotonically to ratio 0.9998, tracking 5/(14 pi)(1-1/N) to O(1/N^2).
   // Derivation only, imp-3066 untouched, no QED, PT Lambda<=0.2 SOTA. 7 assertions.
   '/src/data/imp-3441-gaussian-curvature-coefficient-closed-form.js',
+  // imp-3468 (accuracy): DERIVES the O(1/N^2) SUBLEADING coefficient b of the
+  // imp-3441 finite-N approach to C = 5/(14 pi): piece*N^2 = C(1 - 1/N + b/N^2)
+  // with the CLOSED FORM b = -3/4 + 130/(63 pi) = -0.09317008. Carrying the next
+  // Faulhaber orders through the zero y = 9 A^2/(4 pi B^2), three O(1/N^2) sources
+  // compose: the exact-Faulhaber first term (-3/4), the zero self-consistency
+  // y=y_0 exp(4 piece) (+90/(63 pi) = 4C), and the second curvature term
+  // (y^2/4)Q with q0=256/11025 (+40/(63 pi)). A high-precision self-computing
+  // ladder (fixed-point solve, -expm1/log1p, Richardson) certifies it to < 1e-5.
+  // Derivation only, imp-3066 untouched, no QED, PT Lambda<=0.2 SOTA. 8 assertions.
+  '/src/data/imp-3468-gaussian-curvature-subleading-coefficient.js',
 ];
 
 let ALL_MODULES = FAST_MODE

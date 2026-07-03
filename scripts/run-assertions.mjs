@@ -3217,6 +3217,40 @@ const DATA_MODULES = [
   // third-pair level. Baked import-light literals; exponent/ratio arithmetic self-checks.
   // Measurement only, imp-3066 untouched, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 7 assertions.
   '/src/data/imp-3602-skew-toeplitz-second-gap-exponent.js',
+  // imp-3625 (numerical): ASSESSES whether the imp-3602 lambda_5=lambda_6 third-pair
+  // degeneracy LOSS at deep N (2e-14 -> 1.01e-11 between N=1200 and N=2000, at Krylov depth
+  // m=440) is a Lanczos KRYLOV reorthogonalization limit. IT IS. Re-running the identical
+  // imp-3505/imp-3575/imp-3602 assembly at N=2000 with a single full-reorthogonalization
+  // Lanczos to m=640 and reading top-6 Gram Ritz at m in {440,480,560,640}: at m=440
+  // pair56=|sigma_5-sigma_6|/sigma_5=1.0102e-11 reproduces the imp-3602 baked value to 6 sig
+  // figs, but m=480 CONTRACTS it ~1667x to 6.06e-15 and it stays at the <2e-14 machine floor
+  // for all deeper depths -- NOT flooring at 1.01e-11, so the third pair is genuinely
+  // degenerate and the m=440 value was Krylov-under-resolved (the imp-3575 pattern one gap /
+  // one rung deeper: lambda_3 locked at m>=280 for N=1600, lambda_5=lambda_6 at m>=480 for
+  // N=2000). sigma_2=lambda_5/lambda_1 is INVARIANT across m=440..640 to ~2e-14, so the
+  // imp-3602 second-gap value and its q_2=-1.9813 exponent are unaffected. Baked import-light
+  // Ritz literals; pair56/sigma_2 arithmetic self-checks. Measurement only, imp-3066
+  // untouched, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 6 assertions.
+  '/src/data/imp-3625-skew-toeplitz-pair56-krylov-depth.js',
+  // imp-3623 (accuracy): DENSE-SOLVER cross-validates the imp-3602 SECOND skew-Toeplitz gap
+  // sigma_2=lambda_5/lambda_1 at the DEEP rungs N in {1200,1600,2000} against an INDEPENDENT
+  // dense full-spectrum eigensolver (Householder tridiagonalization + implicit-QL: all
+  // eigenvalues, NO Krylov subspace, NO reorthogonalization), certifying lambda_5 is a
+  // genuine THIRD-pair level and that the imp-3602 lambda_5=lambda_6 degeneracy LOSS at
+  // N=2000 (from <2e-14 to ~1.01e-11) is a Lanczos Krylov reorthogonalization ARTIFACT, not
+  // a genuine splitting. imp-3596 dense-solved only reduced sections (N<=80, cyclic Jacobi,
+  // first gap only); cyclic Jacobi is O(N^3)/sweep and infeasible at N=2000, so this uses
+  // the Householder+QL dense route (reproduces the imp-3596 cyclic-Jacobi top-6 at the
+  // shared N=80 to 2.29e-14), the N=2000 dense solve running offline in ~36 s. RESULT: (1)
+  // dense sigma_2 reproduces the imp-3602 Lanczos value to <2.1e-14 at every deep rung
+  // (1.18e-14/8.44e-15/2.03e-14); (2) dense spectrum adjacent-paired to <1.2e-15 at every
+  // rung, and CRUCIALLY the dense lambda_5=lambda_6 spread at N=2000 is 1.18e-15 (machine
+  // precision) vs the imp-3602 Lanczos 1.01e-11 (~10^4 larger) -- so the N=2000 loss is a
+  // Krylov artifact; (3) the same dense solve recovers the imp-3575 converged first gap rho
+  // at N=1600 (0.9997579854030993 vs 0.9997579854030878, rel 1.15e-14). Deep-rung dense
+  // top-6 measured offline and baked; ratios/pairing self-check. Cross-validation only,
+  // imp-3066 untouched, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 7 assertions.
+  '/src/data/imp-3623-skew-toeplitz-second-gap-dense-crossval.js',
   // imp-3556 (numerical): ROOT-SOLVES the imp-3529 post-peak sigma(N) threshold
   // crossings (sigma<0.9,0.75,0.5,0.25,0.1,0.01) to residual <1e-9 on the exact
   // imp-3220/imp-3406/imp-3463 sub-terms (no ladder read-off): sigma<0.9 at N=2.572e7,

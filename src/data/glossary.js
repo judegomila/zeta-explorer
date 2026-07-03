@@ -3480,6 +3480,41 @@ export const glossary = [
     link: "/closure-routes",
   },
   {
+    term: "imp-3714 REQ-i/REQ-ii coupling: why the joint G6a modulus requirement-set is not two independent knobs",
+    category: "proof",
+    definition:
+      "Distinct from the K1-K4 consolidated status table, this entry isolates imp-3714's COUPLING " +
+      "argument for why an admissible G6a_shock_lipschitz Hoelder-1/2 modulus object cannot satisfy its " +
+      "two requirements separately. REQ-i (two-point x-difference dependence, from the imp-3693 S1 " +
+      "obstruction) demands an x-RESOLVED object; the per-gap field g_k = gamma_{k+1} - gamma_k is the " +
+      "MINIMAL repo object clearing it. REQ-ii (nearest-pair-scale non-vacuous Gronwall floor, from the " +
+      "imp-3708 S2 obstruction) demands the Lemma B floor exp(-2 s / y^2) stay bounded away from 0 " +
+      "exactly where tau_c is defined, at g_k -> 0, y -> 0. The COUPLING: the only right-type object " +
+      "clearing REQ-i, g_k, defines its collision time tau_c(k) at exactly that vacuous scale -- so " +
+      "clearing REQ-i FORCES evaluation at the very scale where imp-3708 showed a fixed flow depth " +
+      "collapses as floor_meso^{k^2}. REQ-ii is therefore NOT a free second knob to satisfy on a " +
+      "different object; it must be secured on the SAME object, at the SAME scale, via a per-pair " +
+      "y2-adapted depth s(y) ~ y^2 pinning 2 s(y) / y^2 = E_meso uniformly. This is why the four K1-K4 " +
+      "candidates were scored jointly rather than independently: K1/K2/K4 build the adapted depth (or a " +
+      "depth-free entropy route) directly into the x-resolved object, while K3 fails precisely because " +
+      "its two-point structure carries no flow-depth argument to secure at the coupled scale. " +
+      "REPO-INGREDIENT STATUS at a glance: g_k (imp-322/imp-325) and the CM/Dyson RK4 flow (imp-3642) " +
+      "are IN REPO; the per-pair y2-adapted depth reparameterization (imp-3708's named sub-gap, derived " +
+      "in flow form by imp-3726) and any two-point pair-separation extension are NEW for K1/K2; K4 needs " +
+      "an entirely new entropy-solution regularity estimate. No candidate is fully in-repo. Concept-only; " +
+      "no construction shipped, no positivity, no bridge closure, no RH claim, NO QED. imp-3066 " +
+      "off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains " +
+      "the rigorous SOTA.",
+    firstUsed: "imp-3714 (REQUIREMENTS_COUPLED derivation and couplingReason), 2026",
+    relatedTerms: [
+      "imp-3714 G6a_shock_lipschitz modulus candidates K1-K4: consolidated status table (imp-3714)",
+      "imp-3693 per-gap field g_k as the minimal right-type REQ-i object (imp-3693)",
+      "imp-3708 y2-adapted flow depth s(y) ~ y^2 as the REQ-ii escape (imp-3708)",
+      "imp-3726 self-similar depth reparameterization s_k = c g_k^2 (imp-3726)",
+    ],
+    link: "/closure-routes",
+  },
+  {
     term: "Rescue Gate / Rescue Budget K_max(N) (imp-486)",
     category: "numerical",
     definition:

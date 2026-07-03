@@ -2618,6 +2618,30 @@ const DATA_MODULES = [
   // real trial functions). Neither exceeds the trivial norm 1; K_a>=0 (imp-3066
   // endpoint-Hankel) untouched; RH-equivalent; no QED; PT Lambda<=0.2 SOTA. 5 asserts.
   '/src/data/imp-3326-matrix-core-ceiling-extension-assessment.js',
+  // imp-3330 (accuracy): ASSESSES whether the imp-3218 residual 1.675% gap between
+  // R=12.7769 and 4pi=12.5664 closes under a higher-sig-fig recompute of the offline
+  // D_3144=9.28e-9. VERDICT: it does NOT. The 3-sig-fig rounding of the literal moves R
+  // by only +/-0.054% (~31x smaller than the gap); the D_3144 giving R=4pi exactly is
+  // 9.4355e-9, outside the recorded value 2nd sig fig; and the in-repo D_3154 is itself
+  // grid-pinned (grows with N). So the residual is a GENUINE grid/endpoint convention
+  // mismatch, NOT finite precision -- sharpening the imp-3218 caveat which conflated
+  // rounding (~0.05%) with grid convention (~1.7%). Diagnostic/RH-equivalent; imp-3066
+  // endpoint-Hankel untouched; no QED; PT Lambda<=0.2 SOTA. 7 self-executing assertions.
+  '/src/data/imp-3330-deg2-normalization-residual-assessment.js',
+  // imp-3331 (proof): ASSESSES whether the imp-3288 operator-order corollary
+  // (P-H)>=(1-tanh(a*U))P lifts to a rigorous per-N deficit feeding the imp-3066
+  // endpoint-Hankel step. VERDICT: the lift EXISTS but against the WRONG norm.
+  // Compressing H=sinh*, P=cosh* onto the imp-3066 monomial span gives shear Gram A
+  // and FULL passive Gram B; since c^T A c<=tanh(a*U) c^T B c for all c, the Loewner
+  // deficit tanh(a*U)B-A is PSD (min eig +3.8e-6 at DEG=4, ->0+ as DEG grows, the
+  // imp-3288 sharpness signature). BUT imp-3066 normalizes against the passive
+  // DIAGONAL D=diag(B), and D<=B is FALSE in Loewner order, so tanh(a*U)D-A is
+  // INDEFINITE (min eig ~-33.6) and ||R||=||D^{-1/2}A D^{-1/2}||~4.6 >> tanh(3). The
+  // scalar ceiling is NECESSARY (pins the full-Gram Rayleigh sup, = imp-3326 Reading 1)
+  // but NOT SUFFICIENT -- structurally DISCONNECTED from the endpoint-Hankel obstruction,
+  // which lives one normalization removed. Does NOT touch K_a>=0; no reduction; no RH
+  // verdict; PT Lambda<=0.2 SOTA. 6 self-executing assertions.
+  '/src/data/imp-3331-ceiling-lift-per-n-deficit-assessment.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -1522,6 +1522,45 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "section26-mupass ruled-out passive-core family ladder (band / additive-Fejer / smooth / sharp-compact)",
+    category: "method",
+    definition:
+      "The search for a scalar/near-diagonal passive core reproducing the section26-mupass " +
+      "verdict pair (||R_c|| = 0.876 at lag <= 0.2, 0.711 at lag <= 0.40, scale-free ratio " +
+      "1.2321) has moved through four candidate families, each ruled out for a distinct reason: " +
+      "\n\n(1) BAND-TRUNCATED symbol (imp-3310 finding A): a box truncation in lag is not even " +
+      "PD -- its Fourier symbol is the (indefinite) Dirichlet kernel, so Cholesky fails and the " +
+      "evaluator cannot be applied at all. " +
+      "\n\n(2) ADDITIVE-FEJER core (imp-3310 finding B): manifestly PD (Fejer symbol is a sum " +
+      "of squares) and reaches the target RATIO 1.2321 at a weight w* ~ 3.94, but not the " +
+      "absolute pair -- at w* the individual magnitudes miss 0.876/0.711, so ratio-match and " +
+      "magnitude-match are mutually incompatible in this one-parameter family. " +
+      "\n\n(3) SMOOTH Gaussian/exponential core (imp-3385): the intrinsic lag-0.2/lag-0.40 " +
+      "contrast ratio is structurally capped at ~1.01-1.03 regardless of width, far below " +
+      "1.2321 -- smooth decay is too flat to supply the needed contrast at all. " +
+      "\n\n(4) SHARP-COMPACT Wendland core (imp-3427): hard compact support closes most of the " +
+      "contrast-ratio gap left by (3), climbing from ~1.035 (smooth) to ~1.218 (Wendland-C2), " +
+      "within ~1.2% of the verdict ratio 1.2321 -- confirming that a hard lag cutoff, not " +
+      "smoothness, supplies contrast. But the near-verdict ratio is attained only where BOTH " +
+      "magnitudes have collapsed to ~0.06, nowhere near the verdict's 0.876/0.711 -- so ratio " +
+      "and magnitude decouple again, just as in family (2)." +
+      "\n\nThe surviving residual across all four rulings: a milder, shape-tuned core with far " +
+      "stronger lag-cutoff sensitivity than smooth decay supplies, yet gentler than a hard " +
+      "compact edge, remains unconstructed. " +
+      "\n\nHonest scope: diagnostic/constructive-constraint only -- no family in this ladder " +
+      "reproduces the absolute verdict pair, and none bears on the endpoint-Hankel operator-norm " +
+      "step (imp-3066), the lone obstruction. RH-equivalent; no QED; Platt-Trudgian Lambda <= 0.2 " +
+      "stays SOTA.",
+    firstUsed: "imp-3310 / imp-3385 / imp-3427 (mupass passive-core family search), 2026",
+    relatedTerms: [
+      "lag-band (box) truncation destroys Toeplitz positive-definiteness; Fejer stays PD",
+      "Toeplitz surrogate operator-norm capture ratio",
+      "Gshear operator norm (||Gshear||)",
+      "kernel Phi(u)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -1619,6 +1619,36 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "Wiener-Khinchin numerator-norm identity (||Ttilde|| = a sup_xi |d/dxi |Phihat(xi)|^2|)",
+    category: "method",
+    definition:
+      "imp-3400 gives a CLOSED FORM for the fixed capture-ratio numerator norm ||Ttilde|| behind the " +
+      "imp-3346 constant C_inf ~ 0.1751, which imp-3346 had left with no closed form. In the a -> 0 " +
+      "linear-shear limit, the numerator operator is the lag-stationary convolution kernel " +
+      "Ttilde(u,v) = a(v-u) R(|v-u|), where R is the Phi autocorrelation, so its operator norm equals " +
+      "the sup of its (odd, purely imaginary) Fourier symbol. Multiplying R by the lag t under the sine " +
+      "transform is exactly the xi-derivative of the cosine transform of R, and by Wiener-Khinchin that " +
+      "cosine transform is the Phi power spectral density Rhat(xi) = |Phihat(xi)|^2. The result: " +
+      "||Ttilde|| = a * sup_xi |d/dxi |Phihat(xi)|^2|, i.e. a times the PEAK SLOPE of the Phi power " +
+      "spectrum, attained at a fixed frequency xi* ~ 12.05 stable across the window U. Numerically " +
+      "certified by power-iterating Ttilde directly and comparing to the spectral-slope sup: the ratio " +
+      "converges to 1 as U grows. Because Phihat is the transform of the truncated de Bruijn-Newman " +
+      "kernel with no elementary maximizer, C_inf ~ 0.1751 stays a determined transcendental number -- " +
+      "the identity is exact and symbolic, but its value is not elementary." +
+      "\n\nHONEST SCOPE: closes the imp-3346 numerator-norm caveat with an exact operator identity, but " +
+      "resolves it into a sharper obstruction (transcendence of the dBN spectral peak), not a proof. " +
+      "The imp-3066 off-diagonal endpoint-Hankel K_a >= 0 magnitude remains the lone RH obstruction, " +
+      "UNTOUCHED. No QED.",
+    firstUsed: "imp-3400 (Ttilde spectral-slope closed form), 2026",
+    relatedTerms: [
+      "capture ratio C_inf (imp-3346)",
+      "linear-shear limit (imp-3350)",
+      "Phi position concentration (imp-3221)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

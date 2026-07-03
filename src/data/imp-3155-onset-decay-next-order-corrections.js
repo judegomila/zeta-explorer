@@ -26,10 +26,13 @@
  *
  *   LARGE-s (s -> inf).  Factoring F = (1/2)e^s[1 - 2(s+sqrt2-arcsinh1)e^{-s} +
  *   e^{-2s}] and G = K0[1 - (1/K0)e^{-s}] with K0 = sqrt2 - arcsinh1 = K/2,
- *       phi(s) = K e^{-s} [1 + (2 s + 2 K0 - 1/K0) e^{-s} + O(s e^{-2s})].
+ *       phi(s) = K e^{-s} [1 + (2 s + 2 K0 - 1/K0) e^{-s} + O(s^2 e^{-2s})].
  *   So the imp-3112 decay signature phi(s) e^s / K -> 1 converges with a
  *   correction (2 s + D0) e^{-s}, an exponentially small term with a
  *   LINEAR-in-s prefactor (slope 2) and constant part D0 = 2 K0 - 1/K0 ~ -0.81106.
+ *   NOTE (imp-3222): the dropped next term is NOT O(s e^{-2s}) -- imp-3222 shows
+ *   its prefactor B(s) = 4 s^2 + (8 K0 - 2/K0) s + (4 K0^2 - 3) is QUADRATIC in s,
+ *   so O(s^2 e^{-2s}) is the correct order label for this module's own truncation.
  *
  *   Both coefficients are recomputed in closed form, cross-checked against the
  *   published anchors, AND verified by an independent finite-eps / finite-s
@@ -45,6 +48,8 @@
  *
  *   @see imp-3112-onset-decay-constant-locks.js (imp-3112: the two leading constants C, K)
  *   @see imp-3064-deficit-excess-fraction-grid.js (imp-3064: the a*U scale invariant + phi)
+ *   @see imp-3222-onset-decay-second-order-coefficient.js (imp-3222: the corrected
+ *     QUADRATIC-in-s O(s^2 e^{-2s}) prefactor B(s) this module's O(s e^{-2s}) label understated)
  *
  *   Ticket: imp-3155 (numerical, medium).
  */
@@ -98,7 +103,7 @@ export const IMP3155_ONSET_DECAY_NEXT_ORDER_CORRECTIONS = Object.freeze({
     'phi(s0+eps) = (C/eps^2)[1 + A1 eps + O(eps^2)] with the next-order coefficient ' +
     'A1 = (sqrt2-1)/(1-arcsinh1) - sqrt2/6 ~ 3.25605, so the onset signature ' +
     'phi eps^2/C -> 1 converges LINEARLY in eps. Large-s: phi(s) = K e^{-s}[1 + ' +
-    '(2 s + D0) e^{-s} + O(s e^{-2s})] with slope 2 and constant part ' +
+    '(2 s + D0) e^{-s} + O(s^2 e^{-2s})] with slope 2 and constant part ' +
     'D0 = 2 K0 - 1/K0 ~ -0.81106 (K0 = sqrt2-arcsinh1 = K/2), so the decay ' +
     'signature phi e^s/K -> 1 converges with an exponentially small, ' +
     'linear-in-s correction. Both coefficients are closed-form, anchored, and ' +
@@ -115,7 +120,7 @@ export const IMP3155_ONSET_DECAY_NEXT_ORDER_CORRECTIONS = Object.freeze({
     empiricalAtEps1em4: onsetSlopeEmpirical(1e-4),
   }),
   decayCorrection: Object.freeze({
-    law: 'phi(s) = K e^{-s} [1 + (2 s + D0) e^{-s} + O(s e^{-2s})]',
+    law: 'phi(s) = K e^{-s} [1 + (2 s + D0) e^{-s} + O(s^2 e^{-2s})]',
     slopeSymbol: '2 (coefficient of s)',
     constSymbol: 'D0',
     constClosedForm: '2*(sqrt(2)-arcsinh(1)) - 1/(sqrt(2)-arcsinh(1))',
@@ -123,6 +128,7 @@ export const IMP3155_ONSET_DECAY_NEXT_ORDER_CORRECTIONS = Object.freeze({
     constValue: DECAY_NEXT_ORDER_CONST,
     constAnchor: DECAY_NEXT_ORDER_CONST_ANCHOR,
     convergence: 'exponential e^{-s} with a linear-in-s prefactor (signature phi e^s/K -> 1)',
+    droppedTermOrder: 'O(s^2 e^{-2s}); imp-3222 derives its QUADRATIC-in-s prefactor B(s)',
     empiricalAtS16: decayConstEmpirical(16),
   }),
 

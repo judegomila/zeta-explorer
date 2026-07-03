@@ -68,6 +68,7 @@ import { REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126 } from '../data/imp-3126-re
 import { IMP3220_EN_BRIDGE_FIDELITY_FRONTIER } from '../data/imp-3220-en-bridge-fidelity-frontier.js';
 import { IMP3406_SIGMA_HIGHN_EXTRAPOLATION } from '../data/imp-3406-sigma-highN-extrapolation.js';
 import { IMP3443_NMAX_ETRUNC_SENSITIVITY } from '../data/imp-3443-nmax-etrunc-sensitivity.js';
+import { IMP3445_C_INF_THIRD_EXTRAPOLATION_WYNN } from '../data/imp-3445-C-inf-third-extrapolation-wynn.js';
 import { IMP3324_SIGMA_CH_SENSITIVITY } from '../data/imp-3324-sigma-CH-sensitivity.js';
 import { IMP3219_MUPASS_BRIDGE_OVERSHOOT_KNEE } from '../data/imp-3219-mupass-bridge-overshoot-knee.js';
 import { IMP3255_BRIDGE_RATIO_CLOSED_FORM } from '../data/imp-3255-bridge-ratio-closed-form.js';
@@ -891,6 +892,110 @@ function NmaxEtruncSensitivityPanel() {
       <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
         Source: imp-3443-nmax-etrunc-sensitivity.js &mdash; E_trunc&isin;[0.5,2.0]&times;3.06e-5 (9-point grid),
         log-log axes, fit slope &asymp;{slope.toFixed(3)}, R&sup2;&asymp;{sens.power_fit_R2.toFixed(5)}.
+      </p>
+    </div>
+  );
+}
+
+// ── imp-3445: four-point C_inf extrapolation ladder -- r*U vs 1/U, three accelerators at 1/U=0 ──
+// Extends the imp-3407 three-point ladder by one rung (top cell N=1350) and runs Wynn epsilon on
+// the resulting four r*U values. The sequence decreases monotonically from above toward C_inf; the
+// panel plots that ladder against 1/U and marks where the Aitken, quadratic-Richardson, and Wynn
+// top-triple accelerators land at 1/U=0, shading the imp-3407 band between the Aitken/quadratic pair.
+function CInfThirdExtrapolationLadderPanel() {
+  const F = IMP3445_C_INF_THIRD_EXTRAPOLATION_WYNN;
+  const m = F.measured;
+  const invU = m.uLadder.map((U) => 1 / U);
+  const rU = m.rU;
+  const bandLo = m.imp3407BandLo; // Aitken accelerator
+  const bandHi = m.imp3407BandHi; // quadratic Richardson accelerator
+  const wynnTarget = m.thirdEstimate; // Wynn top-triple accelerator
+
+  const W = 620, H = 260, ML = 60, MR = 20, MT = 26, MB = 40;
+  const xMin = 0, xMax = Math.max(...invU) * 1.08;
+  const yMin = Math.min(bandLo, bandHi, wynnTarget, ...rU) - 0.0004;
+  const yMax = Math.max(bandLo, bandHi, wynnTarget, ...rU) + 0.0004;
+  const px = (x) => ML + ((x - xMin) / (xMax - xMin)) * (W - ML - MR);
+  const py = (y) => H - MB - ((y - yMin) / (yMax - yMin)) * (H - MT - MB);
+
+  const xTicks = [0, ...invU.map((v) => Number(v.toFixed(3)))].filter((v, i, a) => a.indexOf(v) === i);
+  const yTicks = [0.1750, 0.1755, 0.1760, 0.1765, 0.1770].filter((v) => v >= yMin && v <= yMax);
+
+  const ladderPath = invU
+    .map((x, i) => `${i === 0 ? 'M' : 'L'} ${px(x).toFixed(1)} ${py(rU[i]).toFixed(1)}`)
+    .join(' ');
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #34d399', background: 'rgba(52,211,153,0.04)' }}>
+      <h3 style={{ color: '#34d399', marginTop: 0, fontSize: 14 }}>
+        Four-point C<sub>inf</sub> extrapolation ladder: r&middot;U &rarr; {wynnTarget.toFixed(5)} (Wynn top triple), imp-3407 band shaded (imp-3445)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+        Extending the imp-3407 geometric ladder by one rung (N up to {Math.max(...m.nLadder)}), the r&middot;U
+        sequence still decreases monotonically from above: {rU.map((v) => v.toFixed(6)).join(' → ')}. At
+        1/U=0 the Aitken accelerator lands at {bandLo.toFixed(7)}, the quadratic Richardson accelerator at{' '}
+        {bandHi.toFixed(7)}, and the new Wynn top-triple estimate at {wynnTarget.toFixed(7)} &mdash; {
+          m.insideImp3407Band ? 'inside' : 'just above'
+        } the shaded imp-3407 band.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {yTicks.map((v) => (
+            <g key={`yt${v}`}>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill="#34d399" fontFamily={mono}>{v.toFixed(4)}</text>
+            </g>
+          ))}
+          {xTicks.map((v) => (
+            <g key={`xt${v}`}>
+              <line x1={px(v)} y1={MT} x2={px(v)} y2={H - MB} stroke="#1e293b" strokeWidth="1" />
+              <text x={px(v)} y={H - MB + 16} textAnchor="middle" fontSize="9" fill="#64748b" fontFamily={mono}>{v.toFixed(3)}</text>
+            </g>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <text x={ML - 44} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill="#94a3b8" fontFamily={mono} transform={`rotate(-90 ${ML - 44} ${(MT + H - MB) / 2})`}>
+            r&middot;U
+          </text>
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="10" fill="#94a3b8" fontFamily={mono}>
+            1/U
+          </text>
+
+          {/* imp-3407 band shading, Aitken (low) to quadratic (high) */}
+          <rect x={ML} y={py(bandHi)} width={W - ML - MR} height={Math.max(1, py(bandLo) - py(bandHi))} fill="rgba(167,139,250,0.14)" />
+
+          <path d={ladderPath} fill="none" stroke="#34d399" strokeWidth="1.6" />
+          {invU.map((x, i) => (
+            <circle key={`p${i}`} cx={px(x)} cy={py(rU[i])} r={3.2} fill="#34d399">
+              <title>{`U=${m.uLadder[i]}, N=${m.nLadder[i]}, r*U=${rU[i]}`}</title>
+            </circle>
+          ))}
+
+          {/* three accelerator targets at 1/U = 0 */}
+          <circle cx={px(0)} cy={py(bandLo)} r={4} fill="#f87171">
+            <title>{`Aitken = ${bandLo}`}</title>
+          </circle>
+          <circle cx={px(0)} cy={py(bandHi)} r={4} fill="#c4b5fd">
+            <title>{`quadratic Richardson = ${bandHi}`}</title>
+          </circle>
+          <circle cx={px(0)} cy={py(wynnTarget)} r={4} fill="#fde68a">
+            <title>{`Wynn top triple = ${wynnTarget}`}</title>
+          </circle>
+          <text x={px(0) + 8} y={py(bandLo) + 3} fontSize="9" fill="#f87171" fontFamily={mono}>Aitken</text>
+          <text x={px(0) + 8} y={py(bandHi) + 3} fontSize="9" fill="#c4b5fd" fontFamily={mono}>quadratic</text>
+          <text x={px(0) + 8} y={py(wynnTarget) - 6} fontSize="9" fill="#fde68a" fontFamily={mono}>Wynn top triple</text>
+        </svg>
+      </div>
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(52,211,153,0.07)', border: '1px solid rgba(52,211,153,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+        <strong style={{ color: '#34d399' }}>Honest scope (imp-3445):</strong>{' '}
+        The Wynn top-triple estimate lands {m.gapAboveBand > 0 ? `${m.gapAboveBand.toExponential(2)} above` : 'inside'} the
+        imp-3407 band top, so the three-route min-max span ({m.threeRouteSpan.toExponential(2)}) did NOT tighten versus
+        the prior two-route spread ({m.priorSpread.toExponential(2)}). Certification only &mdash; no closed form, no
+        positivity, no RH claim, NO QED. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+      </div>
+      <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3445-C-inf-third-extrapolation-wynn.js &mdash; U&isin;{'{'}10,15,22.5,33.75{'}'}, h=0.025,
+        N&isin;{'{'}400,600,900,1350{'}'}, Wynn epsilon eps_2 on the top triple.
       </p>
     </div>
   );
@@ -7363,6 +7468,8 @@ export default function ClosureRoutesPage() {
       <SigmaNShapeExtrapolationPanel />
 
       <NmaxEtruncSensitivityPanel />
+
+      <CInfThirdExtrapolationLadderPanel />
 
       <SigmaCHSaturationPanel />
 

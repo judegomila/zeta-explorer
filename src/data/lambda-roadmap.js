@@ -144,7 +144,7 @@ export const LAMBDA_BOUNDS = [
   },
   {
     id: 'our-finite-N-1e4-via-imp-440',
-    label: 'Λ(1e4) ≤ 0.02 rigorous unconditional (measured)',
+    label: 'Λ(1e4) ≤ 0.02 — finite-N ESTIMATE, C_H-gated (not a rigorous PT beat)',
     kind: 'upper-rigorous-finite-N',
     value: 0.02,
     status: 'rigorous-measured',
@@ -155,7 +155,15 @@ export const LAMBDA_BOUNDS = [
       'with margin factor ~10x. The 6-link rigor chain (V2 fit + measured C_mb ' +
       'from imp-963 + E_trunc_pt from imp-447 + imp-459 + E_flow from imp-398 + ' +
       'E_coll from imp-399 + rho_min from imp-469) is DISCHARGED at N = 1e4 ' +
-      'without any GUE assumption. Lean 4 formalisation of the composition ' +
+      'without any GUE assumption. ⚠ CORRECTION (2026-07-03, systematic wall-map + ' +
+      'anti-overclaim guard): the "rigorous unconditional at finite N" framing is ' +
+      'C_H-GATED and is therefore an ESTIMATE, not an unconditional beat. The dominant ' +
+      'E_coll term rests on the shock modulus C_H = C_shock*C_Lip/4 whose N-uniform ' +
+      'bound is RH-HARD (imp-2640 Gronwall discharge NEGATIVE; ch-wall-frontier-verdict-' +
+      '2026-06-26 RH-HARD-CONFIRMED), and the "measured" C_mb / |t_c_proj| is an OLS fit ' +
+      '(imp-2632), not a rigorous N-uniform upper bound. Platt-Trudgian Λ ≤ 0.2 remains ' +
+      'the rigorous SOTA; compare the honestly-labelled conditional-carryforward sibling ' +
+      'below. Lean 4 formalisation of the composition ' +
       'shipped by imp-1084 (lean/LambdaAttack/FiniteHeightBeat.lean, zero ' +
       'tactic-position sorrys; 6 upstream-link axioms encode JS-side claims). ' +
       'Paper appendix C (imp-1081) + abstract rewrite (imp-1083) + sections 1-3 ' +

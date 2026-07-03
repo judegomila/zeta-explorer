@@ -2754,6 +2754,15 @@ const DATA_MODULES = [
   // wiring. Audit-only, no mass-import; the audit module itself is light + wired
   // here so its own consistency tripwires fire. PT Lambda<=0.2 SOTA. 8 asserts.
   '/src/data/imp-3369-unwired-assertion-coverage-audit.js',
+  // imp-3382 (numerical): MEASURES the growth law of the raw physical-diagonal
+  // passive-core ||R||(D) vs Legendre degree D on the base cell. lambda_min of
+  // the raw-diagonal moment matrix Gpass(D) decays GEOMETRICALLY (log10 ~ -4.31
+  // - 3.85 D, R^2~0.9999), extrapolating to cond(100)~10^385 -- so the recorded
+  // ~1e272 at degree-100 is a conditioning/precision signature, NOT a bounded
+  // operator norm (the well-posed regularized ||R|| plateaus O(1)). Confirms the
+  // raw diagonal is not a valid asymptotic passive core (Sec.27 renorm). No
+  // positivity, imp-3066 untouched, no QED, PT Lambda<=0.2 SOTA. 8 assertions.
+  '/src/data/imp-3382-rawdiagonal-R-degree-growth-law.js',
 ];
 
 let ALL_MODULES = FAST_MODE

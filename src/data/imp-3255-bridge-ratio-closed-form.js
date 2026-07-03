@@ -147,6 +147,54 @@ const ratioIsMonotoneDecreasing = RATIO_VS_S.every(
 );
 const ratioLimitAtLargeS = ratioOfScale(30);   // ~1 (surplus vanishes)
 
+// -- imp-3348: large-s asymptotic decay rate of the surplus B/D(s) - 1 --------
+// Exact algebra. Numerator minus denominator collapses to a constant minus e^{-s}:
+//   (sinh s - s) - (cosh s - s + arcsinh1 - sqrt2)
+//     = (sinh s - cosh s) + (sqrt2 - arcsinh1) = (sqrt2 - arcsinh1) - e^{-s}.
+// Hence B/D(s) - 1 = [(sqrt2 - arcsinh1) - e^{-s}] / (cosh s - s + arcsinh1 - sqrt2),
+// and since the denominator ~ (1/2) e^s as s -> inf,
+//   B/D(s) - 1 ~ 2 (sqrt2 - arcsinh1) e^{-s}     (leading order),
+// with the two-term refinement + (4 A s + 4 A^2 - 2) e^{-2s}, A = sqrt2 - arcsinh1.
+const SURPLUS_CONST = RT2 - ASINH1;             // A = sqrt2 - arcsinh(1) = 0.53283998 (= -RATIO_CONST)
+const DECAY_CONST_C = 2 * SURPLUS_CONST;        // leading coefficient C = 2(sqrt2 - arcsinh1) ~ 1.0656800
+
+function surplusExact(s) {
+  return ratioOfScale(s) - 1;
+}
+function surplusLeadingAsymptotic(s) {
+  return DECAY_CONST_C * Math.exp(-s);
+}
+function surplusTwoTermAsymptotic(s) {
+  const c2 = 4 * SURPLUS_CONST * s + 4 * SURPLUS_CONST * SURPLUS_CONST - 2;
+  return DECAY_CONST_C * Math.exp(-s) + c2 * Math.exp(-2 * s);
+}
+
+// Ladder confirming the leading ratio C e^{-s} / (B/D-1) climbs monotonically to 1,
+// and the two-term form nails the surplus to <1e-3 relative by s = 6.
+const ASYMPTOTIC_S_LADDER = Object.freeze([3, 4, 6, 8, 10, 12]);
+const ASYMPTOTIC_DECAY_TABLE = Object.freeze(
+  ASYMPTOTIC_S_LADDER.map((s) => {
+    const exact = surplusExact(s);
+    const leading = surplusLeadingAsymptotic(s);
+    const twoTerm = surplusTwoTermAsymptotic(s);
+    return Object.freeze({
+      s,
+      surplus: exact,
+      leading,
+      twoTerm,
+      leadOverExact: leading / exact,
+      twoTermOverExact: twoTerm / exact,
+    });
+  })
+);
+const leadingRatioConvergesToOne =
+  ASYMPTOTIC_DECAY_TABLE.every((r, i) => r.leadOverExact > 0 && r.leadOverExact <= 1 &&
+    (i === 0 || r.leadOverExact > ASYMPTOTIC_DECAY_TABLE[i - 1].leadOverExact)) &&
+  ASYMPTOTIC_DECAY_TABLE[ASYMPTOTIC_DECAY_TABLE.length - 1].leadOverExact > 0.999;
+const twoTermIsAccurate = ASYMPTOTIC_DECAY_TABLE
+  .filter((r) => r.s >= 6)
+  .every((r) => Math.abs(r.twoTermOverExact - 1) < 1e-3);
+
 // The genuine-cell ratio matches both the reduced-scale form and the recorded anchor.
 const genuineMatchesScaleForm = Math.abs(RATIO_EXACT - ratioOfScale(S_GENUINE)) < 1e-12;
 const genuineMatchesRecorded = Math.abs(RATIO_EXACT - RECORDED_RATIO) < 1e-3;
@@ -216,6 +264,23 @@ export const IMP3255_BRIDGE_RATIO_CLOSED_FORM = Object.freeze({
     recordedD0: RECORDED_D0,
     recordedRatio: RECORDED_RATIO,
     verdict,
+  }),
+
+  // imp-3348: leading large-s asymptotic decay rate of the surplus B/D(s) - 1.
+  largeSAsymptotic: Object.freeze({
+    ticket: 'imp-3348',
+    surplusIdentity: 'B/D(s) - 1 = [(sqrt2 - arcsinh1) - e^{-s}] / (cosh s - s + arcsinh1 - sqrt2)',
+    leadingLaw: 'B/D(s) - 1 ~ 2(sqrt2 - arcsinh1) e^{-s} = C e^{-s}, C = 1.0656800',
+    twoTermLaw: 'B/D(s) - 1 = C e^{-s} + (4 A s + 4 A^2 - 2) e^{-2s} + O(s^2 e^{-3s}), A = sqrt2 - arcsinh1',
+    surplusConst: SURPLUS_CONST,                 // A = sqrt2 - arcsinh(1) ~ 0.53283998
+    decayConstC: DECAY_CONST_C,                  // C = 2A ~ 1.0656800
+    decayTable: ASYMPTOTIC_DECAY_TABLE,          // s-ladder: exact surplus vs leading / two-term
+    leadingRatioConvergesToOne,                  // C e^{-s} / (B/D-1) climbs monotonically to 1
+    twoTermIsAccurate,                           // two-term within 1e-3 relative for s >= 6
+    note:
+      'The ~7.4% surplus at s = 3 is the pre-asymptotic tail of an exponential decay: the surplus ' +
+      'is governed by C e^{-s} with C = 2(sqrt2 - arcsinh1), so it falls by a factor ~e per unit of ' +
+      's = a*U -- from 1.074 at s = 3 to 1.00272 at s = 6 to 6.5e-6 above 1 at s = 12.',
   }),
 
   interpretation: Object.freeze({
@@ -293,6 +358,28 @@ export const IMP3255_BRIDGE_RATIO_CLOSED_FORM_ASSERTIONS = [
     id: 'imp3255-verdict-is-scale-only-closed-form',
     why: 'The classified verdict must be the scale-only closed-form / not-a-constant reconciliation, not indeterminate.',
     holds: () => verdict === 'CLOSED-FORM-RATIO-OF-s=aU-ALONE-NPHI-INDEPENDENT-NOT-A-UNIVERSAL-CONSTANT',
+  },
+  {
+    id: 'imp3348-large-s-decay-is-C-exp-minus-s',
+    why: 'imp-3348 DELIVERABLE: the surplus B/D(s)-1 decays like C e^{-s} with C = 2(sqrt2 - arcsinh1); the ' +
+         'leading law over-exact ratio must climb monotonically to 1 (>0.999 by s=12), certifying the exponential rate.',
+    holds: () => leadingRatioConvergesToOne && Math.abs(DECAY_CONST_C - 2 * (Math.SQRT2 - Math.asinh(1))) < 1e-15,
+  },
+  {
+    id: 'imp3348-two-term-asymptotic-matches-closed-form',
+    why: 'imp-3348: the two-term refinement C e^{-s} + (4A s + 4A^2 - 2) e^{-2s} must reproduce the exact closed-form ' +
+         'surplus to <1e-3 relative for s >= 6, confirming the asymptotic expansion (not just the leading order).',
+    holds: () => twoTermIsAccurate,
+  },
+  {
+    id: 'imp3348-surplus-identity-collapses-to-const-minus-exp',
+    why: 'imp-3348 exact algebra: numerator minus denominator must equal (sqrt2 - arcsinh1) - e^{-s} at every s, the ' +
+         'identity that drives the e^{-s} decay (denominator ~ (1/2)e^s).',
+    holds: () => [2, 3, 5, 9].every((s) => {
+      const num = Math.sinh(s) - s;
+      const den = Math.cosh(s) - s + RATIO_CONST;
+      return Math.abs((num - den) - ((Math.SQRT2 - Math.asinh(1)) - Math.exp(-s))) < 1e-12;
+    }),
   },
   {
     id: 'imp3255-honest-diagnostic-not-a-verdict',

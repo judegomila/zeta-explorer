@@ -1357,6 +1357,41 @@ export const glossary = [
     ],
     link: '/closure-routes',
   },
+  {
+    term: "lag-band (box) truncation destroys Toeplitz positive-definiteness; Fejer stays PD",
+    category: 'method',
+    definition:
+      "imp-3310 finding (A): zeroing a positive Toeplitz kernel outside a lag band |u-v| <= " +
+      "cutoff -- a BOX truncation in lag -- is not a valid passive core, even though the " +
+      "untruncated kernel is PD everywhere. Measured directly: Cholesky factorization of the " +
+      "box-truncated Phi-weighted cosh bridge symbol FAILS (a negative pivot appears) at both " +
+      "test cutoffs (lag <= 0.2 and lag <= 0.4), so C^{-1/2} does not exist and the symmetric-" +
+      "normalization evaluator cannot even be applied." +
+      "\n\nWhy: a box truncation is equivalent to multiplying the kernel's Fourier symbol by the " +
+      "Dirichlet kernel (the transform of a rectangular lag window), which is NOT nonnegative -- " +
+      "it oscillates and goes negative between its main lobes. Convolving a positive spectral " +
+      "density with an indefinite window can produce a spectrum that dips negative, and a " +
+      "kernel with a negative-somewhere spectrum is not positive-definite. The FEJER " +
+      "(triangular) lag window used instead is the Cesaro-averaged, hence squared-magnitude, " +
+      "transform of the Dirichlet kernel -- its Fourier symbol is a sum of squares, so it is " +
+      "manifestly nonnegative everywhere, and convolving with a nonnegative window preserves a " +
+      "nonnegative (hence PD) spectrum. This is the classical Fejer-vs-Dirichlet PD distinction, " +
+      "here forcing the imp-3310 core-assembly recipe away from any naive box-truncated bridge " +
+      "and toward a triangular (or otherwise manifestly PSD) near-diagonal weight." +
+      "\n\nHonest scope: this rules out one entire recipe class (box truncation) but does not by " +
+      "itself construct the exact out-of-repo assembly recipe -- the admissible Fejer-dominated " +
+      "family matches the verdict's qualitative SHAPE but not its absolute scalars (see imp-3310). " +
+      "Diagnostic/constructive-constraint only; RH-equivalent; no QED; Platt-Trudgian Lambda <= 0.2 " +
+      "stays SOTA.",
+    firstUsed: "imp-3310 (mupass-passive-core-assembly-recipe, finding A), 2026",
+    relatedTerms: [
+      'bridge-kernel sign-free / magnitude-binding split',
+      'Toeplitz surrogate operator-norm capture ratio',
+      'Gshear operator norm (||Gshear||)',
+      'kernel Phi(u)',
+    ],
+    link: '/closure-routes',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

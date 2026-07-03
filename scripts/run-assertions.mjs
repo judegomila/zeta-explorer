@@ -2436,6 +2436,18 @@ const DATA_MODULES = [
   // Throws on import if the ratio departs from 1 at any N or the routes disagree. Diagnostic; RH-equivalent; imp-3066
   // endpoint-Hankel obstruction untouched; no QED; PT 0.2 SOTA.
   '/src/data/imp-3252-shear-gram-mineig-symmetric-spectrum-n-scaling.js',
+  // imp-3343: DECIDES whether the imp-3252 continuum shear-Gram OPERATOR norm ||Gshear||_op (H mu, ~1.796e-4 ->
+  // ~1.896e-4) and the imp-3256/imp-1267 Volterra HILBERT-SCHMIDT norm ||V||_HS (~1.9003e-4) coincide or the near-
+  // equality is a leading-order accident. VERDICT: EXACT structural identity, NOT an accident. Gshear = p q^T - q p^T
+  // is rank-2 antisymmetric with equal singular pair {mu,mu}, so ||Gshear||_HS = sqrt(2) ||Gshear||_op = sqrt(2) mu;
+  // the integrand is even in (v-u) and vanishes on the diagonal, so the lower-triangular Volterra restriction carries
+  // exactly half the HS mass, ||V||_HS^2 = (1/2)||Gshear||_HS^2 = mu^2 -- the sqrt(2) inflation cancels the 1/sqrt(2)
+  // half-mass, ||V||_HS = mu = ||Gshear||_op. On a shared midpoint ladder N in {160..2000} the two are bit-identical
+  // (|ratio-1| < ~1e-14) at EVERY resolution; N=1200 (h=5e-3) reproduces the imp-1267 anchor 1.8984785338e-4. The
+  // published ~0.2% gap is a resolution mismatch (N<=800 vs N<=8000), not a norm difference; shared limit in the
+  // imp-3267 band [1.895e-4,1.905e-4]. Throws on import if the norms depart at any N. Diagnostic; RH-equivalent;
+  // imp-3066 endpoint-Hankel obstruction untouched; no QED; PT 0.2 SOTA.
+  '/src/data/imp-3343-shear-gram-opnorm-equals-volterra-hs-identity.js',
   // imp-3240: (a,U)-cell dependence of that SAME capture ratio r=||T||/||Gshear|| across the imp-3085 grid
   // {0.5,0.3,0.2,0.1}x{4,6,8,10} at N=240. FINDING: the ~3% deficit is a function of U ALONE (to <1 part in
   // 1e3) -- essentially a-INDEPENDENT and NOT a function of the product s=a*U (the OPPOSITE of the imp-3085

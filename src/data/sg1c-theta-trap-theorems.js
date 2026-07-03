@@ -642,6 +642,100 @@ export const SG1C_A1_VS_E1_SHARPER_BOUND = (() => {
   };
 })();
 
+// imp-3364: QUANTIFY the convergence of the Lemma R1-T4 measured collision-time ratios
+// r_i = t_c / (g0^2/8) toward the isolated-pair floor 1, and the residual-gap decay as the
+// basin sharpens. SG1C_A1_VS_E1_SHARPER_BOUND records the three real-zero rows squeezing
+// r = 1.095/1.048/1.018 (the THETA_TRAP_RUNS N=870 row now reads 1.0176 after the imp-2563
+// ordinate repair; the older imp-2636 note cited 1.024 at N=1000) but never characterized the
+// residual gap (r-1) as a function of the isolation ratio rho(0) = g/d_1 or the row index.
+// Here we measure it three ways: (i) against rho(0) = 0.385/0.271/0.162 (the R1-T4 basin peak
+// isolation ratios, SG1C_A1_INTERLOPER_MARGIN); (ii) against the exact Corollary-E1 ceiling
+// excess 1/(1-Theta(0))-1; (iii) against the leading-order Theta(0)/2. FINDINGS (measure-only):
+//   * r-1 decays as a CLEAN POWER of rho(0): log-log fit gives r-1 ~ C rho(0)^p with p = 1.947
+//     (all three pairwise slopes 1.9458/1.9474/1.9485, spread < 3e-3), i.e. very nearly
+//     QUADRATIC, so the gap -> 0 as rho(0) -> 0 and the extrapolated limit ratio is EXACTLY 1
+//     (the g0^2/8 isolated-pair collision floor). C ~ 0.61 (per-row r-1/rho0^2 = 0.640/0.652/
+//     0.669, drifting up slightly as the coarser small-N basins under-resolve).
+//   * The true t_c sits at HALF the E1 ceiling excess: (r-1)/(1/(1-Theta0)-1) = 0.474/0.494/
+//     0.496 -> 1/2, equivalently r-1 ~ Theta(0)/2 to leading order ((r-1)/(Theta0/2) = 1.138/
+//     1.083/1.027 -> 1, the residual-over-half-Theta itself 0.138/0.083/0.027 decaying). So the
+//     measured collision time is the geometric MIDPOINT (in ratio-excess) between the E1 upper
+//     g0^2/(8(1-Theta0)) and the g0^2/8 lower floor -- consistent with Theta(s) falling roughly
+//     linearly from Theta(0) to 0 across the collapse.
+//   * A1 fraction t_c/(g0^2/6) = 0.821/0.786/0.763 (all < 1, A1 holds), its slack 1-frac =
+//     0.179/0.214/0.237 GROWING as rho(0) shrinks -- the A1 constant 6 leaves more room the more
+//     isolated the pair.
+// HONEST: 3-row power fit on 4-sig-fig data, extrapolated limit is the isolated-pair floor
+// ratio 1 (Theta(0)->0), NOT a closed form for the finite-rho residual (that needs the
+// trajectory, per the parent). Measure-only, no theorem/QED, no unconditional claim beyond the
+// tested rows; PT Lambda <= 0.2 stays SOTA.
+export const SG1C_R1T4_RATIO_CONVERGENCE = (() => {
+  const realZeros = THETA_TRAP_RUNS.filter((r) => r.kind === 'riemann-zeros');
+  // R1-T4 basin peak isolation ratios rho(0) = g/d_1 for the three real-zero rows,
+  // as measured by SG1C_A1_INTERLOPER_MARGIN (peak rho stays at rho(0), decaying to 0).
+  const rho0ByN = { 100: 0.385, 300: 0.271, 870: 0.162 };
+  const rows = realZeros.map((r) => {
+    const floor = (r.g0 * r.g0) / 8;          // isolated-pair collision floor (Theta -> 0)
+    const ratio = r.tc / floor;               // measured t_c / (g0^2/8)
+    const gap = ratio - 1;                    // residual gap above the floor
+    const rho0 = rho0ByN[r.N];
+    const e1Excess = 1 / (1 - r.theta0) - 1;  // Corollary-E1 ceiling excess = Theta0/(1-Theta0)
+    const a1Frac = r.tc / ((r.g0 * r.g0) / 6);// fraction of the Corollary-A1 estimate consumed
+    return {
+      id: r.id,
+      N: r.N,
+      theta0: r.theta0,
+      rho0,
+      ratio,                                  // -> 1 as the basin sharpens
+      gap,                                    // r - 1
+      gapOverRho0Sq: gap / (rho0 * rho0),     // ~ C ~ 0.64..0.67 (near-constant => quadratic decay)
+      gapOverE1Excess: gap / e1Excess,        // -> 1/2 (t_c is the floor/E1 midpoint)
+      gapOverHalfTheta0: gap / (r.theta0 / 2),// -> 1 (r - 1 ~ Theta0/2 leading order)
+      a1Frac,                                 // < 1 (A1 holds)
+      a1Slack: 1 - a1Frac,                    // grows as rho0 shrinks
+    };
+  });
+  // log-log power fit gap ~ C rho0^p (ordinary least squares on ln)
+  const lx = rows.map((r) => Math.log(r.rho0));
+  const ly = rows.map((r) => Math.log(r.gap));
+  const n = rows.length;
+  const sx = lx.reduce((a, b) => a + b, 0);
+  const sy = ly.reduce((a, b) => a + b, 0);
+  const sxx = lx.reduce((a, b) => a + b * b, 0);
+  const sxy = lx.reduce((a, b, i) => a + b * ly[i], 0);
+  const powerP = (n * sxy - sx * sy) / (n * sxx - sx * sx);
+  const coeffC = Math.exp((sy - powerP * sx) / n);
+  const pairwiseSlopes = [];
+  for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) {
+    pairwiseSlopes.push((ly[j] - ly[i]) / (lx[j] - lx[i]));
+  }
+  const slopeSpread = Math.max(...pairwiseSlopes) - Math.min(...pairwiseSlopes);
+  return {
+    rows,
+    powerP,                                   // ~1.947: r-1 decays ~quadratically in rho(0)
+    coeffC,                                   // ~0.61
+    pairwiseSlopes,                           // ~1.9458/1.9474/1.9485
+    slopeSpread,                              // < 3e-3: fit is clean, not forced
+    ratiosDecreasing: rows.every((r, i) => i === 0 || r.ratio < rows[i - 1].ratio),
+    gapsDecreasing: rows.every((r, i) => i === 0 || r.gap < rows[i - 1].gap),
+    extrapolatedLimitRatio: 1,                // rho0 -> 0 => gap -> 0 => ratio -> g0^2/8 floor
+    midpointLaw: rows.every((r) => Math.abs(r.gapOverE1Excess - 0.5) < 0.03), // t_c ~ floor/E1 midpoint
+    allA1Hold: rows.every((r) => r.a1Frac < 1),
+    verdict:
+      'The Lemma R1-T4 collision-time ratios r = t_c/(g0^2/8) = 1.095/1.048/1.018 (N=870 row is '
+      + '1.0176 post imp-2563 repair) converge to the isolated-pair floor 1 as a CLEAN POWER of '
+      + 'the isolation ratio rho(0) = 0.385/0.271/0.162: the log-log fit gives r-1 ~ C rho(0)^p '
+      + 'with p = 1.947 (three pairwise slopes 1.9458/1.9474/1.9485, spread < 3e-3), i.e. very '
+      + 'nearly QUADRATIC, so the extrapolated rho(0) -> 0 limit ratio is EXACTLY 1 (the g0^2/8 '
+      + 'floor). Equivalently the residual gap sits at HALF the exact Corollary-E1 ceiling excess '
+      + '((r-1)/(1/(1-Theta0)-1) = 0.474/0.494/0.496 -> 1/2), so r-1 ~ Theta(0)/2 to leading order '
+      + 'and t_c is the floor/E1 midpoint. The A1 fraction t_c/(g0^2/6) = 0.821/0.786/0.763 stays '
+      + '< 1 with slack GROWING (0.179/0.214/0.237) as the pair isolates. HONEST: 3-row fit on '
+      + '4-sig-fig data; the limit is the isolated-pair floor ratio 1, NOT a closed form for the '
+      + 'finite-rho residual (needs the trajectory). Measure-only, no QED; PT Lambda <= 0.2 SOTA.',
+  };
+})();
+
 // imp-3043: tabulate the Lemma R1-T2 (imp-2608) uniform-lattice central-tie LADDER
 // and its vanishing seizing margin for K = 1..8, the static-no-cap obstruction that
 // the parent certificate sg1c-r1-asymmetric-extension-and-static-obstruction only
@@ -857,6 +951,106 @@ export const SG1C_R1_FINITE_N_CAP = (() => {
       + '(N-uniform) cap Theta_exc < 1 exists (sup_N (1-2/N) = 1): the excursion can approach 1 ONLY via N -> inf '
       + 'on a long near-uniform minimal lattice, isolating the open residual to the dynamical-reachability '
       + 'question (R1-T4 / R2-T). Static, not dynamical; PT Lambda <= 0.2 stays SOTA.',
+  };
+})();
+
+// imp-3363: the per-N table BEHIND the R1-FN ladder was cited but never produced. Tabulate the
+// exact static excursion cap Theta_max(N) = [K_R/(K_R+1) + K_L/(K_L+1)]/2 (balanced split
+// K_R = ceil((N-2)/2), K_L = floor((N-2)/2)) side by side with the clean closed bound 1 - 2/N
+// across a full N ladder, verify the balanced-split equality case (even N: gap = 0, |K_R-K_L| = 0;
+// odd N: strictly below, |K_R-K_L| = 1), and numerically confirm strict concavity of x/(x+1)
+// (f-prime-prime(x) = -2/(x+1)^3 < 0) forces the balanced split as the UNIQUE majorant maximiser
+// and that no non-lattice minimal config exceeds Theta_max(N). Measure/verify only, no
+// unconditional-cap claim; the residual stays dynamical; PT Lambda <= 0.2 stays SOTA.
+export const SG1C_R1_FINITE_N_CAP_TABLE = (() => {
+  const f = (K) => K / (K + 1);
+  const KR = (N) => Math.ceil((N - 2) / 2);
+  const KL = (N) => Math.floor((N - 2) / 2);
+  const thetaMax = (N) => (f(KR(N)) + f(KL(N))) / 2;
+  const cap = (N) => 1 - 2 / N;
+  // brute-force argmax of the majorant sum f(K_R)+f(K_L) over all splits K_R+K_L = N-2
+  const bruteBalanced = (N) => {
+    const M = N - 2;
+    let best = -Infinity, arg = null;
+    for (let kr = 0; kr <= M; kr++) {
+      const v = f(kr) + f(M - kr);
+      if (v > best + 1e-15) { best = v; arg = [kr, M - kr]; }
+    }
+    return { best: best / 2, arg };
+  };
+  // explicit uniform minimal-spacing lattice (spacing 1); central pair = global minimal pair
+  const uniformLatticeTheta = (N) => {
+    const x = [];
+    for (let i = 0; i < N; i++) x.push(i);
+    return dThetaDs(x, Math.floor(N / 2) - 1).theta;
+  };
+  const Ns = [4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 20, 30, 50, 100, 200, 1000];
+  const rows = Ns.map((N) => {
+    const kr = KR(N), kl = KL(N);
+    const tMax = thetaMax(N), c = cap(N);
+    const bb = bruteBalanced(N);
+    return {
+      N,
+      KR: kr,
+      KL: kl,
+      splitGap: kr - kl,                              // 0 (even) or 1 (odd)
+      thetaMaxClosed: tMax,                           // exact per-N max, balanced split
+      cap1minus2overN: c,                             // clean universal bound
+      capMinusThetaMax: c - tMax,                     // 0 for even N, > 0 for odd N
+      latticeThetaNumeric: uniformLatticeTheta(N),    // uniform lattice minimal-pair Theta
+      balancedIsBruteMax: Math.abs(bb.best - tMax) < 1e-12
+        && Math.min(bb.arg[0], bb.arg[1]) === kl
+        && Math.max(bb.arg[0], bb.arg[1]) === kr,     // brute-force argmax IS the balanced split (order-agnostic)
+    };
+  });
+  // even N: Theta_max = 1 - 2/N exactly (gap 0); odd N: strictly below (gap > 0)
+  const evenExact = rows.filter((r) => r.N % 2 === 0)
+    .every((r) => Math.abs(r.capMinusThetaMax) < 1e-13 && r.splitGap === 0);
+  const oddStrictlyBelow = rows.filter((r) => r.N % 2 === 1)
+    .every((r) => r.capMinusThetaMax > 1e-13 && r.splitGap === 1);
+  // uniform lattice numeric matches the closed-form max at every N
+  const latticeMatchesMax = rows.every((r) => Math.abs(r.latticeThetaNumeric - r.thetaMaxClosed) < 1e-9);
+  // strict concavity of x/(x+1): second difference f(x-1) - 2 f(x) + f(x+1) < 0 for all tested x
+  const fppSecondDiff = Array.from({ length: 30 }, (_, k) => k + 1)
+    .every((x) => f(x - 1) - 2 * f(x) + f(x + 1) < -1e-15);
+  // concavity forces balanced split as the UNIQUE majorant maximiser at every N in the ladder
+  const balancedUniqueMax = rows.every((r) => r.balancedIsBruteMax);
+  // no non-lattice minimal config exceeds Theta_max(N): random minimal-gap configs per N
+  const noConfigExceeds = (() => {
+    for (const N of [5, 6, 8, 10, 12]) {
+      for (let trial = 0; trial < 800; trial++) {
+        const gaps = [];
+        for (let k = 0; k < N - 1; k++) gaps.push(1 + (Math.random() < 0.5 ? 0 : Math.random() * 2.5));
+        gaps[Math.floor(Math.random() * (N - 1))] = 1; // force a minimal gap = 1
+        const x = [0];
+        for (const gg of gaps) x.push(x[x.length - 1] + gg);
+        const mi = minPairIdx(x);
+        if (Math.abs((x[mi + 1] - x[mi]) - 1) > 1e-12) continue;
+        if (dThetaDs(x, mi).theta > thetaMax(N) + 1e-9) return false;
+      }
+    }
+    return true;
+  })();
+  return {
+    theorem: 'per-N table: Theta_max(N) = [K_R/(K_R+1)+K_L/(K_L+1)]/2 vs 1 - 2/N; balanced split unique maximiser',
+    rows,
+    evenNGapZero: evenExact,                          // even N: Theta_max = 1 - 2/N exactly (balanced K_R = K_L)
+    oddNStrictlyBelowCap: oddStrictlyBelow,           // odd N: Theta_max < 1 - 2/N (|K_R - K_L| = 1)
+    latticeMatchesClosedMax: latticeMatchesMax,       // uniform lattice numeric == closed-form max
+    strictConcavitySecondDiff: fppSecondDiff,         // f(x)=x/(x+1) strictly concave (2nd diff < 0)
+    balancedSplitUniqueMaximiser: balancedUniqueMax,  // concavity => balanced split is the brute-force argmax
+    noNonLatticeConfigExceedsMax: noConfigExceeds,    // random minimal configs never exceed Theta_max(N)
+    supOverN: 1,                                      // sup_N (1 - 2/N) = 1: no absolute N-uniform cap
+    summary:
+      'Produces the per-N table behind the R1-FN ladder (N in {4..1000}): exact static cap '
+      + 'Theta_max(N) = [K_R/(K_R+1)+K_L/(K_L+1)]/2 alongside the clean bound 1 - 2/N. Even N give '
+      + 'the balanced split K_R = K_L = (N-2)/2 with Theta_max = 1 - 2/N EXACTLY (cap-gap 0); odd N '
+      + 'give |K_R - K_L| = 1 with Theta_max strictly below 1 - 2/N (cap-gap > 0). The uniform '
+      + 'minimal-spacing lattice numeric matches the closed-form max at every N. Strict concavity of '
+      + 'x/(x+1) (second difference < 0) is confirmed and shown to force the balanced split as the '
+      + 'UNIQUE brute-force argmax of f(K_R)+f(K_L) at each N, and no random non-lattice minimal '
+      + 'config exceeds Theta_max(N). Measure/verify only: no unconditional cap (sup_N (1-2/N) = 1), '
+      + 'the residual stays the dynamical-reachability question (R1-T4 / R2-T); PT Lambda <= 0.2 stays SOTA.',
   };
 })();
 
@@ -2886,6 +3080,22 @@ export const SG1C_THEOREM_ASSERTIONS = [
         t.supOverN === 1 &&
         t.recoversR1T &&
         t.recoversR1T2Ladder
+      );
+    },
+  },
+  {
+    id: 'sg1c-r1-finite-N-cap-per-N-table',
+    description: 'imp-3363: per-N table behind the R1-FN ladder -- tabulates the exact static cap Theta_max(N) = [K_R/(K_R+1)+K_L/(K_L+1)]/2 vs 1 - 2/N for N in {4..1000}. Even N: balanced split K_R = K_L, Theta_max = 1 - 2/N exactly (cap-gap 0); odd N: |K_R-K_L| = 1, strictly below 1 - 2/N. Confirms the uniform lattice numeric matches the closed max, strict concavity of x/(x+1) (2nd diff < 0) forces the balanced split as the unique brute-force argmax, no non-lattice minimal config exceeds Theta_max(N), and sup_N (1-2/N) = 1. Measure/verify only; residual stays dynamical',
+    holds: () => {
+      const t = SG1C_R1_FINITE_N_CAP_TABLE;
+      return (
+        t.evenNGapZero &&
+        t.oddNStrictlyBelowCap &&
+        t.latticeMatchesClosedMax &&
+        t.strictConcavitySecondDiff &&
+        t.balancedSplitUniqueMaximiser &&
+        t.noNonLatticeConfigExceedsMax &&
+        t.supOverN === 1
       );
     },
   },

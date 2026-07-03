@@ -3511,6 +3511,43 @@ export const glossary = [
       "off-diagonal endpoint-Hankel obstruction (imp-3066)",
     ],
   },
+  {
+    term: "sigma-crossover flow-factor invariance: x(N_x)=1 is 0% a frozen-Gronwall artifact, N_half/N_x band Gronwall-insensitive <1e-5 (imp-3604)",
+    category: "numerical",
+    definition:
+      "imp-3580 froze the Gronwall amplification at the interior value exp(2.37e-4) (the imp-2644 A1 " +
+      "worst-case trap, C_G=1) while root-solving the sigma=1/2 <=> E_coll=E_trunc crossover coincidence " +
+      "across the imp-3443 floor grid. imp-3604 asks how much of that reported floor-invariance is an " +
+      "artifact of freezing the multiplier, by re-root-solving BOTH N_half (sigma=1/2) and N_x " +
+      "(E_coll=E_trunc) at the RIGOROUS flow-factor bracket endpoints Gronwall in [1, exp(4.74e-4)] -- " +
+      "the full admissible range once C_G is allowed to range over [1,2] (imp-2644) and the large-N flow " +
+      "law drives the exponent toward its N->infinity vanishing limit of 0. (1) The crossover itself is " +
+      "FLOW-FACTOR-FREE BY CONSTRUCTION: N_x is defined by E_coll(N)=E_trunc, an equation E_flow never " +
+      "enters, so x(N_x)=1.000000 and N_x come out byte-identical under Gronwall=1, exp(2.37e-4), and " +
+      "exp(4.74e-4) at every floor -- the imp-3580 exact floor-invariance is 0% a frozen-constant " +
+      "artifact; it is a structural property of the crossover definition. (2) N_half DOES see E_flow " +
+      "and so moves with the flow factor, but because E_flow(N_x) is only 0.1%-0.3% of E_trunc at the " +
+      "crossover scale while the whole bracket spans just [1, 1.000474], the N_half/N_x ratio band stays " +
+      "[0.99313, 0.99772] ~ 0.996 to every published digit under all three flow factors, with the frozen " +
+      "sub-node reproducing imp-3580 exactly (ratio 0.996019, N_x=3.280294e9). (3) The maximum possible " +
+      "frozen-Gronwall artifact -- the full endpoint swing of any admissible N-dependent flow factor -- " +
+      "is therefore exactly 0 on the crossover and < 1e-5 on the ratio (max per-floor swing ~3e-6, max " +
+      "N_half relative swing ~3.3e-6), so the imp-3580 conclusions are robust to replacing the frozen " +
+      "constant with any physically-admissible N-varying flow law." +
+      "\n\nHONEST SCOPE: measurement/certification only (400-iter bisection roots, residual < 1e-9) -- a " +
+      "conditional-share diagnostic, NOT an RH bound. No positivity, no bridge closure, no RH claim, no " +
+      "QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity remains UNTOUCHED. " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3604 (re-root-solving the imp-3580 sigma-crossover floor-invariance across a rigorous N-varying flow-factor bracket [1, exp(4.74e-4)] in place of the frozen exp(2.37e-4), showing the x(N_x)=1 coincidence is 0% a frozen-constant artifact and the ~0.996 N_half/N_x band shifts by less than 1e-5), 2026",
+    relatedTerms: [
+      "sigma=1/2 <=> E_coll=E_trunc crossover coincidence (imp-3580)",
+      "imp-3599 exact flow-gap identity (imp-3599)",
+      "imp-2644 A1 Theta-trap C_G in [1,2] (imp-2644)",
+      "imp-398 E_flow C_F prefactor and backward-flow t_c(N) law (imp-398)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

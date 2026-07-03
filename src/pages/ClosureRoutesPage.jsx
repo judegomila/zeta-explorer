@@ -89,6 +89,7 @@ import { IMP3442_SINH_RESIDUAL_COEFFICIENT_U_SCALING } from '../data/imp-3442-si
 import { IMP3469_DEGREE2_BRIDGE_MASS_SCALING, AUTOCORR_WEIGHT_PROFILE } from '../data/imp-3469-degree2-bridge-mass-scaling.js';
 import { IMP3470_TTILDE_SPECTRAL_PEAK_XISTAR_OBSTRUCTION } from '../data/imp-3470-Ttilde-spectral-peak-xistar-obstruction.js';
 import { IMP3481_AUTOCORRELATION_MOMENT_LADDER } from '../data/imp-3481-autocorrelation-moment-ladder.js';
+import { IMP3485_TTILDE_INDEPENDENT_OPERATOR_NORM_CROSSVAL } from '../data/imp-3485-Ttilde-independent-operator-norm-crossval.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -1464,6 +1465,126 @@ function MomentLadderResidualPanel() {
       </div>
       <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
         Source: imp-3481-autocorrelation-moment-ladder.js &mdash; NPHI=10, T_A=6, a&isin;{'{'}0.5,0.25,0.125{'}'}.
+      </p>
+    </div>
+  );
+}
+
+// ── imp-3485: independent-solver per-U capture-constant convergence ── The imp-3467
+// power-iteration capture constant C is cross-validated here by a structurally independent
+// Lanczos/Jacobi operator-norm route. The independent-route C_direct(U) rises monotonically
+// across the full imp-3240 U-grid toward the closed-form C=0.1751370 from below, with the
+// per-U relative agreement |C_direct/C_closed-1| tightening in lockstep.
+function CaptureConstantIndependentNormConvergencePanel() {
+  const F = IMP3485_TTILDE_INDEPENDENT_OPERATOR_NORM_CROSSVAL;
+  const m = F.measured;
+  const uGrid = F.construction.uGrid;
+  const cDirect = m.cLanczosValues;
+  const cClosed = m.cClosedMean;
+  const agreements = m.cAgreements;
+
+  // -- Chart A: C_direct(U) ladder converging up toward the closed-form line --------------
+  const W = 620, H = 240, ML = 64, MR = 20, MT = 26, MB = 34;
+  const uMin = 0, uMax = Math.max(...uGrid) * 1.08;
+  const yMin = Math.min(...cDirect, cClosed) - 0.0006;
+  const yMax = Math.max(...cDirect, cClosed) + 0.0004;
+  const px = (u) => ML + ((u - uMin) / (uMax - uMin)) * (W - ML - MR);
+  const py = (v) => H - MB - ((v - yMin) / (yMax - yMin)) * (H - MT - MB);
+  const uTicks = uGrid;
+  const yTicks = [0.1745, 0.1748, 0.1751, 0.1754].filter((v) => v >= yMin && v <= yMax);
+  const ladderPath = uGrid.map((u, i) => `${i === 0 ? 'M' : 'L'} ${px(u).toFixed(1)} ${py(cDirect[i]).toFixed(1)}`).join(' ');
+
+  // -- Chart B: per-U relative agreement (log-y), tightening toward 0 ---------------------
+  const Wb = 620, Hb = 160, MLb = 64, MRb = 20, MTb = 20, MBb = 34;
+  const aMin = 1e-4, aMax = 1e-2;
+  const pxB = (u) => MLb + ((u - uMin) / (uMax - uMin)) * (Wb - MLb - MRb);
+  const pyB = (v) => Hb - MBb - ((Math.log10(Math.max(v, aMin)) - Math.log10(aMin)) / (Math.log10(aMax) - Math.log10(aMin))) * (Hb - MTb - MBb);
+  const agreementPath = uGrid.map((u, i) => `${i === 0 ? 'M' : 'L'} ${pxB(u).toFixed(1)} ${pyB(agreements[i]).toFixed(1)}`).join(' ');
+  const aTicks = [1e-4, 1e-3, 1e-2];
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #f472b6', background: 'rgba(244,114,182,0.04)' }}>
+      <h3 style={{ color: '#f472b6', marginTop: 0, fontSize: 14 }}>
+        Independent-solver capture-constant convergence: C<sub>direct</sub>(U) &rarr; C={cClosed.toFixed(7)} (imp-3485)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+        Recomputing the imp-3467 numerator operator norm with a structurally independent Lanczos/Jacobi
+        eigensolver, the assembled capture constant C<sub>direct</sub> rises monotonically from{' '}
+        {cDirect[0].toFixed(6)} (U={uGrid[0]}) to {cDirect[cDirect.length - 1].toFixed(6)} (U=
+        {uGrid[uGrid.length - 1]}), sitting below the closed-form C={cClosed.toFixed(7)} on every cell
+        (Szego finite-section deficit) and converging up toward it. The per-U relative agreement
+        |C<sub>direct</sub>/C<sub>closed</sub>&minus;1| tightens from {(agreements[0] * 100).toFixed(2)}%
+        (U={uGrid[0]}) to {(agreements[agreements.length - 1] * 100).toFixed(3)}% (U=
+        {uGrid[uGrid.length - 1]}) in lockstep.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {yTicks.map((v) => (
+            <g key={`yt${v}`}>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>{v.toFixed(4)}</text>
+            </g>
+          ))}
+          {uTicks.map((u) => (
+            <g key={`xt${u}`}>
+              <line x1={px(u)} y1={MT} x2={px(u)} y2={H - MB} stroke="#1e293b" strokeWidth="1" />
+              <text x={px(u)} y={H - MB + 16} textAnchor="middle" fontSize="9" fill="#64748b" fontFamily={mono}>U={u}</text>
+            </g>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <text x={ML - 48} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill="#94a3b8" fontFamily={mono} transform={`rotate(-90 ${ML - 48} ${(MT + H - MB) / 2})`}>
+            C
+          </text>
+
+          <line x1={ML} y1={py(cClosed)} x2={W - MR} y2={py(cClosed)} stroke="#fde68a" strokeWidth="1.2" strokeDasharray="4 3" />
+          <text x={W - MR - 4} y={py(cClosed) - 6} textAnchor="end" fontSize="10" fill="#fde68a" fontFamily={mono}>closed form C={cClosed.toFixed(7)}</text>
+
+          <path d={ladderPath} fill="none" stroke="#f472b6" strokeWidth="1.6" />
+          {uGrid.map((u, i) => (
+            <circle key={`p${i}`} cx={px(u)} cy={py(cDirect[i])} r={3.2} fill="#f472b6">
+              <title>{`U=${u}: C_direct=${cDirect[i].toFixed(6)}, agreement=${(agreements[i] * 100).toFixed(3)}%`}</title>
+            </circle>
+          ))}
+        </svg>
+      </div>
+      <div style={{ overflowX: 'auto', marginTop: 6 }}>
+        <svg width={Wb} height={Hb} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {aTicks.map((v) => (
+            <g key={`ybt${v}`}>
+              <line x1={MLb} y1={pyB(v)} x2={Wb - MRb} y2={pyB(v)} stroke="#1e293b" strokeWidth="1" />
+              <text x={MLb - 8} y={pyB(v) + 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>{(v * 100).toFixed(2)}%</text>
+            </g>
+          ))}
+          {uTicks.map((u) => (
+            <g key={`xbt${u}`}>
+              <line x1={pxB(u)} y1={MTb} x2={pxB(u)} y2={Hb - MBb} stroke="#1e293b" strokeWidth="1" />
+              <text x={pxB(u)} y={Hb - MBb + 16} textAnchor="middle" fontSize="9" fill="#64748b" fontFamily={mono}>U={u}</text>
+            </g>
+          ))}
+          <line x1={MLb} y1={MTb} x2={MLb} y2={Hb - MBb} stroke="#334155" strokeWidth="1" />
+          <line x1={MLb} y1={Hb - MBb} x2={Wb - MRb} y2={Hb - MBb} stroke="#334155" strokeWidth="1" />
+          <text x={MLb - 48} y={(MTb + Hb - MBb) / 2} textAnchor="middle" fontSize="10" fill="#94a3b8" fontFamily={mono} transform={`rotate(-90 ${MLb - 48} ${(MTb + Hb - MBb) / 2})`}>
+            agreement (log)
+          </text>
+          <path d={agreementPath} fill="none" stroke="#c4b5fd" strokeWidth="1.6" />
+          {uGrid.map((u, i) => (
+            <circle key={`ap${i}`} cx={pxB(u)} cy={pyB(agreements[i])} r={3} fill="#c4b5fd">
+              <title>{`U=${u}: |C_direct/C_closed-1|=${(agreements[i] * 100).toFixed(3)}%`}</title>
+            </circle>
+          ))}
+        </svg>
+      </div>
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(244,114,182,0.07)', border: '1px solid rgba(244,114,182,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+        <strong style={{ color: '#f472b6' }}>Honest scope (imp-3485):</strong>{' '}
+        Cross-validation only &mdash; an independent Krylov/Jacobi operator-norm recomputation confirms the
+        imp-3467 assembled C is not a power-iteration artifact. Does NOT construct the missing magnitude and
+        does NOT attempt the imp-3066 K<sub>a</sub>&nbsp;&ge;&nbsp;0 positivity; RH-EQUIVALENT, no RH verdict,
+        no QED. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+      </div>
+      <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3485-Ttilde-independent-operator-norm-crossval.js &mdash; U&isin;{'{'}4,6,8,10,12,16,20{'}'},
+        H0=0.025, Lanczos dim 80.
       </p>
     </div>
   );
@@ -8063,6 +8184,8 @@ export default function ClosureRoutesPage() {
       <AutocorrWeightSupportPanel />
 
       <MomentLadderResidualPanel />
+
+      <CaptureConstantIndependentNormConvergencePanel />
 
       <PSDPeakSlopeStationarityPanel />
 

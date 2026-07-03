@@ -2333,6 +2333,17 @@ const DATA_MODULES = [
   // Throws on import if the ratio is non-monotone, drifts out of band, or the norms stop growing.
   // Diagnostic; RH-equivalent; imp-3066 endpoint-Hankel obstruction untouched; no QED; PT 0.2 SOTA.
   '/src/data/imp-3215-mupass-capture-ratio-n-scaling.js',
+  // imp-3252: tau-grid-resolution scaling of the SAME hollow antisymmetric shear Gram's MINIMUM EIGENVALUE at the
+  // genuine cell (NPHI=10,a=0.5,U=6), N in {160,240,320,480,640,800}. Gshear = p q^T - q p^T (p=Phi cosh, q=Phi sinh)
+  // is rank-2 REAL ANTISYMMETRIC, so i Gshear has nonzero eigenvalues +/- mu and min eig = -mu = -||Gshear|| IDENTICALLY.
+  // FINDING: |min eig/(-||Gshear||) - 1| < ~2e-15 at EVERY rung (the verdict's symmetric-spectrum/partial-isometry
+  // consistency is an EXACT structural identity of the hollow antisymmetry, NOT a limit-only convergence); analytic mu
+  // and power-iteration ||Gshear|| agree to ~1e-15 (two independent routes). Unscaled mu grows ~linearly in N (4.79e-3
+  // to 2.53e-2, the 1/H=N/U factor, matching imp-3215), while quadrature-scaled H mu converges to a finite continuum
+  // norm ~1.897e-4; the verdict "~-4.8e-6" shares the 4.8 leading mantissa of the coarsest rung up to a scale factor.
+  // Throws on import if the ratio departs from 1 at any N or the routes disagree. Diagnostic; RH-equivalent; imp-3066
+  // endpoint-Hankel obstruction untouched; no QED; PT 0.2 SOTA.
+  '/src/data/imp-3252-shear-gram-mineig-symmetric-spectrum-n-scaling.js',
   // imp-3240: (a,U)-cell dependence of that SAME capture ratio r=||T||/||Gshear|| across the imp-3085 grid
   // {0.5,0.3,0.2,0.1}x{4,6,8,10} at N=240. FINDING: the ~3% deficit is a function of U ALONE (to <1 part in
   // 1e3) -- essentially a-INDEPENDENT and NOT a function of the product s=a*U (the OPPOSITE of the imp-3085

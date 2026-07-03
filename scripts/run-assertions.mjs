@@ -3298,6 +3298,19 @@ const DATA_MODULES = [
   // Measurement/derivation only, imp-3066 untouched, RH-equivalent, no QED, PT 0.2 SOTA.
   // 9 assertions.
   '/src/data/imp-3600-remainder-tail-exponent-ladder-n56.js',
+  // imp-3624 (numerical): MEASURES the a-window sensitivity of the imp-3581/imp-3600
+  // fit-bias law p_fit=2+D_n cov(a^2,ln a)/var(ln a), certified there only on the fixed
+  // a-ladders. Across six a-windows (varied lo/hi endpoints and rung counts; covVar
+  // factor ~0.00286..0.05957, a ~20x range) for n=3..6, reusing the SAME NM=1600 [0,T_A]
+  // Simpson moments (no new moment computation), the fitted least-squares exponent MOVES
+  // by up to 2.23e-5 (n=3) between windows while slopeModelErr=|p_fit-fitted| stays at the
+  // imp-3600 ~1e-9 level (global max 2.34e-9 across all 24 (n,window) cells). The extracted
+  // (fitted-2)/covVar recovers the closed D_n to <=1.08e-4 relative at every window, so D_n
+  // is window-invariant and the read-out drift IS exactly the cov(a^2,ln a)/var(ln a) term,
+  // not an unmodeled effect -- the closed law tracks the slope as the a-window is varied,
+  // confirming the tail exponent is EXACTLY 2 window by window. Measurement only, imp-3066
+  // K_a>=0 positivity UNTOUCHED, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 8 assertions.
+  '/src/data/imp-3624-fit-bias-a-window-sensitivity.js',
   // imp-3599 (numerical): DERIVES the next-order O((E_flow/E_trunc)^2) correction to the
   // imp-3580 flow-gap law gap ~ 2 E_flow(N_x)/E_trunc. Dividing the two root conditions gives
   // the EXACT identity gap = 1 - (L_half/L_x)/(1+eta)^2 (eta=E_flow(N_half)/E_trunc), which
@@ -3355,6 +3368,22 @@ const DATA_MODULES = [
   // artifact. Cross-validation only, imp-3066 untouched, RH-equivalent, no QED, PT
   // Lambda<=0.2 SOTA. 8 assertions.
   '/src/data/imp-3603-inner-truncation-gauss-legendre-crossval.js',
+  // imp-3622 (numerical): NUMERICALLY CONFIRMS the imp-3601 argmax-drift-0 discriminator against
+  // PLANTED higher-order aliasing replicas by MEASURING the m-fold replica shift 2 m xi_Nyq per
+  // panel doubling. imp-3601 asserted (without measuring) the 2 m xi_Nyq per-doubling drift; this
+  // plants a synthetic feature at xi_true=250 (sampled cosine on the imp-3558 midpoint nodes) whose
+  // periodogram is a Dirichlet comb peaking exactly at the imp-3601 image set {xi_true+2k xi_Nyq,
+  // 2 m xi_Nyq-xi_true}, and locates the first- (m=1) and second-fold (m=2) images by local fine
+  // scan at N in {1200,2400,4800,9600}. Measured images reproduce 2 m xi_Nyq-xi_true to <1e-6: first
+  // fold [1006.64,2263.27,4776.55,9803.10] moving 2 xi_Nyq per doubling (across-ladder ~8796.46,
+  // matches imp-3601 ~8797); second fold [2263.27,4776.55,9803.10,19856.19] moving 4 xi_Nyq per
+  // doubling (across-ladder ~17592.92, exactly 2x, matches ~17593). The genuine in-band feature
+  // keeps its argmax pinned at 250 at every rung (in-band drift 0) while both replicas sit above
+  // xi_max=400 for every N>=1200 (smallest ~1006.64>400) -- no fold lands in-band. The 0-vs-~8797/
+  // ~17593 drift split IS the imp-3558 argmax-drift-0 discriminator, now confirmed on a planted
+  // feature. Measurement/certification only, imp-3066 K_a>=0 positivity UNTOUCHED, RH-equivalent,
+  // no QED, PT Lambda<=0.2 SOTA. 9 assertions.
+  '/src/data/imp-3622-planted-replica-argmax-drift.js',
 ];
 
 let ALL_MODULES = FAST_MODE

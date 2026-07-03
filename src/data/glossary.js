@@ -3288,6 +3288,37 @@ export const glossary = [
     link: "/closure-routes",
   },
   {
+    term: "imp-3643 dense-solver certifies skew-Toeplitz FOURTH pair lambda_7=lambda_8; N=2000 imp-3619 loss is a Krylov artifact",
+    category: "numerical",
+    definition:
+      "imp-3619 read the third skew-Toeplitz gap sigma_3=lambda_7/lambda_1 off a full-reorthogonalization " +
+      "Lanczos at Krylov depth m=min(N,440), reporting the lambda_7=lambda_8 pair degenerate to relative < 4e-14 " +
+      "through N=1600 but DEGRADING to ~3.99e-11 at the deepest rung N=2000 -- leaving open whether that N=2000 " +
+      "loss was a genuine near-degeneracy splitting or a Lanczos artifact, since imp-3623 had dense-certified only " +
+      "the SECOND gap (top-6 spectrum). imp-3643 extends the SAME independent dense full-spectrum route imp-3623 " +
+      "used (Householder tridiagonalization + implicit-QL, no Krylov subspace, no reorthogonalization) to the " +
+      "top-8 Gram eigenvalues at the deep rungs N in {1200,1600,2000}. RESULT: (1) the dense sigma_3 reproduces " +
+      "the imp-3619 Lanczos value to relative < 3.5e-14 at every deep rung (1.00e-15 at N=2000), so the imp-3619 " +
+      "deepest sigma_3=0.9992248404950668 is a faithful reading, not a Lanczos-specific number; (2) CRUCIALLY, the " +
+      "dense lambda_7=lambda_8 spread at N=2000 is 1.96e-16 -- machine precision -- while the imp-3619 Lanczos " +
+      "spread there was 3.99e-11 (~2e5 larger), so the N=2000 degeneracy loss is a Lanczos m=440 reorthogonalization " +
+      "artifact, NOT a genuine splitting: lambda_7 is a genuine FOURTH-pair level at N=2000. The dense spectrum is " +
+      "four-pair adjacent-paired to < 2.2e-15 at every deep rung, and the dense top-6 reproduces the imp-3623 baked " +
+      "deep top-6 to all printed digits (same-solver self-check)." +
+      "\n\nHONEST SCOPE: dense cross-validation/measurement only -- certifies the imp-3619 deep sigma_3 and the " +
+      "fourth-pair pairing against an independent solver; does NOT construct the missing magnitude and does NOT " +
+      "attempt the imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 " +
+      "remains the rigorous SOTA.",
+    firstUsed: "imp-3643 (dense Householder+QL cross-validation extends the imp-3623 second-gap certification two levels to certify the fourth pair lambda_7=lambda_8, resolving the imp-3619 N=2000 loss as a Krylov artifact), 2026",
+    relatedTerms: [
+      "imp-3619 third skew-Toeplitz gap sigma_3 and pair j=4 amplitude corroboration (imp-3619)",
+      "imp-3623/imp-3625 dense-solver resolution of the N=2000 skew-Toeplitz third-pair Krylov artifact (imp-3654)",
+      "imp-3668 dense certification of the fifth-pair lambda_9=lambda_10 (imp-3668)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
+  {
     term: "imp-3668 skew-Toeplitz FIFTH-pair adjacent-pairing dense certification: lambda_9=lambda_10, sigma_4 -> 1",
     category: "numerical",
     definition:

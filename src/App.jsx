@@ -145,6 +145,7 @@ const Imp3589CoshOverestimationFactorViz = lazy(() => import('./pages/Imp3589Cos
 const Imp3611SkewToeplitzKrylovGapLadderViz = lazy(() => import('./pages/Imp3611SkewToeplitzKrylovGapLadderViz.jsx'));
 const Imp3612FitBiasDepthSweepViz = lazy(() => import('./pages/Imp3612FitBiasDepthSweepViz.jsx'));
 const Imp3613ReplicaFoldInGeometryViz = lazy(() => import('./pages/Imp3613ReplicaFoldInGeometryViz.jsx'));
+const Imp3614SigmaCrossoverFloorInvarianceViz = lazy(() => import('./pages/Imp3614SigmaCrossoverFloorInvarianceViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -734,6 +735,7 @@ function AppShell() {
           <Route path="/viz-imp3611-skew-toeplitz-krylov-gap-ladder" element={<Imp3611SkewToeplitzKrylovGapLadderViz />} />
           <Route path="/viz-imp3612-fit-bias-depth-sweep" element={<Imp3612FitBiasDepthSweepViz />} />
           <Route path="/viz-imp3613-replica-fold-in-geometry" element={<Imp3613ReplicaFoldInGeometryViz />} />
+          <Route path="/viz-imp3614-sigma-crossover-floor-invariance" element={<Imp3614SigmaCrossoverFloorInvarianceViz />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
           <Route path="/papers" element={<PapersListPage />} />

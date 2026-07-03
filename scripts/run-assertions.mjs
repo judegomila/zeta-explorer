@@ -2815,6 +2815,16 @@ const DATA_MODULES = [
   // mechanism. No positivity, imp-3066 untouched, no QED, PT Lambda<=0.2 SOTA.
   // 7 assertions.
   '/src/data/imp-3421-lambda-min-slope-cell-universality.js',
+  // imp-3441 (numerical): PINS the imp-3403 SUBDOMINANT Gaussian-curvature
+  // coefficient (residual - residual_faulh)*N^2 -> ~0.114 to the CLOSED FORM
+  // 5/(14 pi) = 0.1136821. Writing x=e^{2u}, the truncated kernel zero x=3A/(2 pi B)
+  // with the leading curvature term exp(-pi n^2 x^2)=1-pi n^2 x^2 gives
+  // u_0 - u_0_faulh ~ (1/2) pi x^2 (S6/S4 - S4/S2); with S2~N^3/3, S4~N^5/5,
+  // S6~N^7/7 the ratio -> (4/35)N^2 and pi x^2 -> 25/(4 pi N^4), composing to
+  // (1/2)(25/(4 pi))(4/35) = 5/(14 pi). Self-computing ladder {10..5120} climbs
+  // monotonically to ratio 0.9998, tracking 5/(14 pi)(1-1/N) to O(1/N^2).
+  // Derivation only, imp-3066 untouched, no QED, PT Lambda<=0.2 SOTA. 7 assertions.
+  '/src/data/imp-3441-gaussian-curvature-coefficient-closed-form.js',
 ];
 
 let ALL_MODULES = FAST_MODE

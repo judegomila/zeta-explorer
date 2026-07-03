@@ -3265,6 +3265,49 @@ export const glossary = [
     ],
     link: "/spectral-attack",
   },
+  {
+    term: "imp-3714 G6a_shock_lipschitz modulus candidates K1-K4: consolidated status table",
+    category: "proof",
+    definition:
+      "imp-3671 ruled the mesoscopic density floor V0 STRUCTURALLY SILENT on the open Step-4 " +
+      "Polymath15-bridge sub-gap G6a_shock_lipschitz via two independent obstructions -- (S1) wrong " +
+      "TYPE (no x-difference structure) and (S2) wrong SCALE (Gronwall-vacuous at the nearest-pair " +
+      "limit). imp-3714 derived the JOINT requirement-set any admissible Hoelder-1/2 modulus object " +
+      "must clear -- REQ-i two-point x-difference dependence (S1, imp-3693: the per-gap field " +
+      "g_k = gamma_{k+1} - gamma_k is the minimal right-type object) AND REQ-ii a nearest-pair-scale " +
+      "non-vacuous Gronwall floor (S2, imp-3708: needs a per-pair y2-adapted flow depth " +
+      "s(y) ~ y^2) -- and enumerated four candidate constructions:" +
+      "\n\n(K1) per-pair collision-time two-point correlation field off g_k, with per-pair depth " +
+      "~ gap^2. Satisfies BOTH requirements by construction; needs the imp-3726 self-similar depth " +
+      "reparameterization s_k = c g_k^2 (DERIVED, with residual gaps N1 heterogeneous-depth " +
+      "contraction, N2 per-site adaptive integrator, N3 two-point extension still new)." +
+      "\n(K2) scale-covariant collision-time field running the imp-3642 RK4 flow with per-site depth " +
+      "s_k ~ g_k^2. Also satisfies BOTH; needs the SAME imp-3726 reparameterization as K1." +
+      "\n(K3) equal-time two-point gap structure function S_2(r) = mean of (g_{k+r} - g_k)^2. " +
+      "imp-3734 MEASURED it: clears REQ-i (a genuine two-point profile with a clean level-repulsion " +
+      "anti-correlation at r=1 and a decorrelation plateau at 2*var) but FAILS REQ-ii -- it is purely " +
+      "equal-time and attaches no flow depth, confirming the imp-3714 near-miss classification " +
+      "empirically." +
+      "\n(K4) direct Burgers / CM entropy-solution Hoelder-1/2 regularity bound on tau_c(x), bypassing " +
+      "the mesoscopic Gronwall floor entirely. imp-3727 scoped it against the literature: it is the " +
+      "ONE route dodging both S1 and S2 by construction, but the repo's only one-sided estimate " +
+      "(the Lemma B Gronwall floor) is exactly the mechanism K4 must avoid recycling, so the gap " +
+      "between repo ingredients and an admissible C_Lip certificate is essentially the WHOLE " +
+      "Burgers/CM entropy-solution regularity theory; confirmed WHOLLY NEW." +
+      "\n\nSo three candidates (K1, K2, K4) remain consistent with both requirements and one (K3) is " +
+      "ruled out; none is fully present in the repo, and G6a_shock_lipschitz stays OPEN." +
+      "\n\nHONEST SCOPE: consolidated status/reference only -- no positivity, no bridge closure, no RH " +
+      "claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3714 (deriving the joint REQ-i/REQ-ii requirement-set and enumerating K1-K4), 2026",
+    relatedTerms: [
+      "imp-3671 G6a_shock_lipschitz structural-silence verdict (imp-3671)",
+      "imp-3726 self-similar y2-adapted flow-depth schedule s_k = c g_k^2 (imp-3726)",
+      "imp-3734 equal-time gap structure function S_2(r) measurement (imp-3734)",
+      "imp-3727 K4 entropy-solution regularity scoping (imp-3727)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

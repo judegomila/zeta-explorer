@@ -1,8 +1,19 @@
 /**
  * @module polymath15-lemma52-shock-holder
  * @fileoverview Polymath15 Lemma 5.2 direct port — Holder-1/2 modulus of the
- * first-collision time functional at the Burgers shock. Closes G6a_shock_lipschitz
- * (the Holder-1/2 sub-gap of imp-345), establishing E(N) → 0 unconditionally.
+ * first-collision time functional at the Burgers shock. Establishes the Holder-1/2
+ * EXPONENT of G6a_shock_lipschitz (the sub-gap of imp-345). The exponent is closed;
+ * the N-uniform leading CONSTANT C_H is NOT.
+ *
+ * ⚠ CORRECTION (2026-07-02, from the max-fanout Fable-5 whole-corpus audit): earlier
+ * revisions of this header claimed "E(N) → 0 UNCONDITIONALLY". That is SUPERSEDED and
+ * WRONG. imp-366 closes only the Holder-1/2 EXPONENT; the leading constant
+ * C_H = C_shock*C_Lip/4 is RH-HARD (imp-2640 Gronwall discharge NEGATIVE;
+ * ch-wall-frontier-verdict-2026-06-26 RH-HARD-CONFIRMED). So E(N) → 0 is GATED on the
+ * RH-hard C_H, NOT unconditional. This module's own constants block already flags
+ * C_H_HOLDER.isRigorous = false; the "unconditional" prose contradicted it. The
+ * status:'closed' field below means EXPONENT-closed ONLY. Platt-Trudgian Lambda <= 0.2
+ * remains the rigorous SOTA.
  *
  * **Exports:**
  *  - `G6A_SHOCK_LIPSCHITZ_CLOSURE` — structured proof record for sub-gap G6a:
@@ -30,10 +41,10 @@
  * imp-366: Polymath15 Lemma 5.2 direct port — Holder-1/2 modulus of the
  * first-collision time functional at the Burgers shock.
  *
- * Closes G6a_shock_lipschitz, the single remaining open sub-gap in imp-345
- * (lambda-polymath15-bridge.js), thereby making the full E(N) decomposition
- * in that file rigorous (modulo symbolic constants) and establishing
- * E(N) → 0 UNCONDITIONALLY.
+ * Closes the Holder-1/2 EXPONENT of G6a_shock_lipschitz in imp-345
+ * (lambda-polymath15-bridge.js). This makes the E(N) decomposition rigorous ONLY
+ * modulo the leading constant C_H -- which is RH-HARD (imp-2640 NEGATIVE), so
+ * E(N) → 0 is GATED on C_H, NOT unconditional (see the CORRECTION above).
  *
  * Citation
  * --------
@@ -338,10 +349,14 @@ export const G6A_SHOCK_LIPSCHITZ_CLOSURE = {
     },
   },
   consequence:
-    'E_coll(N) <= C_C * (log(gamma_N) / N)^{1/2} → 0 at rate O((log N / N)^{1/2}). ' +
-    'Combined with the imp-345 bounds E_trunc and E_flow (both O(log N / N^kappa)), ' +
-    'the full error bound E(N) → 0 is now UNCONDITIONAL, closing G6_polymath15_bridge ' +
-    'and establishing |Lambda - (-t_c(N))| <= E(N) → 0 without any open conjecture.',
+    'E_coll(N) <= C_C * (log(gamma_N) / N)^{1/2} → 0 at rate O((log N / N)^{1/2}) -- ' +
+    'this RATE (the Holder-1/2 exponent) is rigorous. But the leading constant C_H is ' +
+    'RH-HARD (imp-2640 Gronwall discharge NEGATIVE; ch-wall-frontier-verdict-2026-06-26 ' +
+    'RH-HARD-CONFIRMED), so E(N) → 0 is GATED on C_H, NOT unconditional. CORRECTED ' +
+    '2026-07-02: the prior "E(N) → 0 UNCONDITIONAL ... without any open conjecture" was an ' +
+    'overclaim contradicting this module\'s own C_H_HOLDER.isRigorous=false. The bridge ' +
+    'upgrades to Lambda <= E(N) ONLY once C_H is made N-uniform; Platt-Trudgian Lambda <= 0.2 ' +
+    'remains the rigorous SOTA.',
   ecollAtLadder: LADDER_ROWS,
   allRowsFinitePositive: ALL_ROWS_FINITE,
   rowsStrictlyDecreasing: ROWS_STRICTLY_DECREASING,

@@ -3087,6 +3087,21 @@ const DATA_MODULES = [
   // both hold; recomputed M_0..M_6 anchor to imp-3481 bit-for-bit. Measurement/
   // certification, imp-3066 untouched, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 8 assertions.
   '/src/data/imp-3546-moment-tail-bound-tightness.js',
+  // imp-3545 (numerical): MEASURES the imp-3530-EXTRAPOLATED power-iteration
+  // budget-to-1e-9 at the untested section sizes N=1000/1200/1600 and tests them
+  // against the imp-3530 closed predictor budget(N)~K N^2 (gap decay -log rho=A N^q,
+  // q~-1.97). Reusing the identical imp-3530/imp-3505 skew-Toeplitz assembly and
+  // power iteration against a converged Lanczos reference (m=200 vs m=240 agree
+  // <1.2e-14), the measured budgets are 9780/14123/25385: monotone and every rung
+  // above the N=800 ~6250, confirming the a-priori N^2 climb. The K N^2 predictor
+  // gives 10572/15147/26716, so measured sits just below at rel dev -7.49/-6.76/
+  // -4.98% (ratio 0.925/0.932/0.950 climbing toward 1) -- far tighter than the
+  // factor-of-2 the imp-3530 ladder fit held to. Top Gram pair stays degenerate
+  // (split<5e-4) so the rate is rho=lambda_3/lambda_1; per-N direct rho is mildly
+  // non-monotone so the smooth N^2 agreement rests on the fitted power law. Baked
+  // offline literals (N=1600 ~25k O(N^2) matvecs, import-light). Measurement only,
+  // imp-3066 untouched, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 8 assertions.
+  '/src/data/imp-3545-power-iteration-budget-measured-N1000-1600.js',
 ];
 
 let ALL_MODULES = FAST_MODE

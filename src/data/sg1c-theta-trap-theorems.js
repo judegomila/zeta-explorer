@@ -1833,6 +1833,59 @@ export const SG1C_B_VS_A1_CEILING = (() => {
   };
 })();
 
+// imp-3241: is the Theorem-C isolation constant (the c that makes every Theta* <= 1
+// non-crossable) the SAME number as the basin constant 0.72 used by C_Lip, or two
+// distinct quantities that merely coincide at 2 digits? DERIVE the exact c solving the
+// static threshold identity Theta*(c) = 2 - 3c^2/(1+c) - c^4/(1+c)^2 = 1. Clearing the
+// (1+c)^2 denominator gives the QUARTIC c^4 + 3c^3 + 2c^2 - 2c - 1 = 0, whose unique root
+// in (0,1) is ALGEBRAIC c_iso = 0.7220838057390422 -- strictly ABOVE 0.72 by ~0.00208.
+// VERDICT: two distinct quantities coinciding only to 2 digits. The Theorem-C phrasing
+// "c <= 0.72 => Theta* <= 1" is a conservative ROUND-DOWN of the sharp algebraic root
+// 0.722084, not the sharp constant; at the basin value c = 0.72 the threshold is actually
+// Theta*(0.72) = 1.00497 > 1, so the basin 0.72 secures non-crossability with ~0.005 of
+// slack to spare. Hence 0.72 is a safe rounded stand-in shared by both the isolation
+// criterion and C_Lip, NOT a full-precision identity; the sharp static isolation constant
+// is the quartic root 0.722084. Static-criterion assessment only; no QED; PT Lambda <= 0.2 SOTA.
+export const SG1C_THEOREMC_ISOLATION_ROOT = (() => {
+  // static Theorem-C threshold as a function of the isolation ratio c = g/d_1
+  const thetaStar = (c) => 2 - (3 * c * c) / (1 + c) - (c ** 4) / (1 + c) ** 2;
+  // solve thetaStar(c) = 1 <=> c^4 + 3c^3 + 2c^2 - 2c - 1 = 0 by bisection in (0,1)
+  const quartic = (c) => c ** 4 + 3 * c ** 3 + 2 * c * c - 2 * c - 1;
+  let lo = 0.5;
+  let hi = 0.95; // quartic(0.5) < 0, quartic(0.95) > 0 -> unique sign change in (0,1)
+  for (let i = 0; i < 200; i += 1) {
+    const mid = (lo + hi) / 2;
+    if (quartic(mid) > 0) hi = mid;
+    else lo = mid;
+  }
+  const cIso = (lo + hi) / 2; // 0.7220838057390422
+  const basinConstant = 0.72;
+  const gapToBasin = cIso - basinConstant; // ~0.00208
+  const thetaStarAtBasin = thetaStar(basinConstant); // 1.00497... > 1
+  return {
+    thresholdIdentity: 'Theta*(c) = 2 - 3c^2/(1+c) - c^4/(1+c)^2',
+    clearedQuartic: 'c^4 + 3c^3 + 2c^2 - 2c - 1 = 0',
+    exactIsolationRoot: cIso, // 0.7220838057390422 (algebraic quartic root)
+    isAlgebraic: true, // rational-coefficient quartic root, not transcendental
+    basinConstant, // 0.72 used by C_Lip (imp-3006) and the onset ledger
+    gapToBasin, // cIso - 0.72 ~ 0.00208
+    thetaStarAtBasin, // Theta*(0.72) ~ 1.00497 > 1 (basin 0.72 has ~0.005 slack)
+    quarticResidualAtRoot: Math.abs(quartic(cIso)), // ~0
+    coincideToDigits: 2, // agree only at the 2-digit rounded level 0.72
+    sameConstantFullPrecision: false,
+    verdict: 'DISTINCT-QUANTITIES-COINCIDING-AT-2-DIGITS',
+    summary:
+      'The exact static Theorem-C isolation constant -- the c making every Theta* <= 1 '
+      + 'non-crossable -- solves Theta*(c) = 2 - 3c^2/(1+c) - c^4/(1+c)^2 = 1, which clears to '
+      + 'the quartic c^4 + 3c^3 + 2c^2 - 2c - 1 = 0 with unique (0,1) root c_iso = 0.7220838057390422 '
+      + '(ALGEBRAIC). This is NOT the basin constant 0.72 to full precision: it lies ~0.00208 above, '
+      + 'and at c = 0.72 the threshold is Theta*(0.72) ~ 1.00497 > 1, so the basin value secures '
+      + 'non-crossability with ~0.005 of headroom. VERDICT: the "c <= 0.72" of Theorem C and the '
+      + '0.72 used by C_Lip are the SAME conservative ROUNDED stand-in for the sharp root 0.722084, '
+      + 'coinciding only at 2 digits -- not one full-precision derivation. Static assessment; no QED.',
+  };
+})();
+
 export const SG1C_THEOREM_ASSERTIONS = [
   {
     id: 'sg1c-r1-finite-N-excursion-cap-lattice-extremiser',

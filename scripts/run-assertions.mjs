@@ -2333,6 +2333,15 @@ const DATA_MODULES = [
   // Throws on import if the ratio is non-monotone, drifts out of band, or the norms stop growing.
   // Diagnostic; RH-equivalent; imp-3066 endpoint-Hankel obstruction untouched; no QED; PT 0.2 SOTA.
   '/src/data/imp-3215-mupass-capture-ratio-n-scaling.js',
+  // imp-3240: (a,U)-cell dependence of that SAME capture ratio r=||T||/||Gshear|| across the imp-3085 grid
+  // {0.5,0.3,0.2,0.1}x{4,6,8,10} at N=240. FINDING: the ~3% deficit is a function of U ALONE (to <1 part in
+  // 1e3) -- essentially a-INDEPENDENT and NOT a function of the product s=a*U (the OPPOSITE of the imp-3085
+  // off-diagonal gap, which is an exact function of s=a*U): equal-product cells (0.5,6) and (0.3,10) give
+  // r=0.02967 vs 0.01801. The leading a factor of sinh(a Delta) cancels between ||T|| and ||Gshear||, leaving
+  // only a vanishing O(a^2) sinh-nonlinearity (~4e-6 drift over a in [0.05,0.5] at U=6). CLOSED FORM: r~C/U with
+  // C~0.178 (r*U in [0.178,0.181]); position-concentration share 1-r~1-C/U rises toward 1 as the window widens.
+  // Throws on import if the ratio gains an a/aU dependence or leaves the 1/U band. Diagnostic; RH-equivalent; no QED; PT 0.2 SOTA.
+  '/src/data/imp-3240-mupass-capture-ratio-aU-grid.js',
   // imp-3219: MEASURES the imp-3202 capture(c)>1 overshoot that the coarse 14-point cutoff grid could
   // not resolve. Sweeps the same genuine Phi cell (NPHI=10,a=0.5,U=6,N=200) on the FINE lag grid (one
   // integer lag step H=U/N=0.03 per sample) and locates the transient rise of the dominant singular

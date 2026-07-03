@@ -11,6 +11,9 @@
  * at import) -- no re-derivation here.
  *
  * @see imp-3665-a-weight-superexp-decay-crosscheck.js (source module: rungs, ratios, verdict)
+ *
+ * Ticket: imp-3697 (ux, low). Presentation only, RH-equivalent; imp-3066
+ * untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
  */
 
 export const IMP3697_RUNGS = [

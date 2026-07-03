@@ -11,6 +11,9 @@
  * at import) -- no re-derivation here.
  *
  * @see imp-3668-skew-toeplitz-fifth-pair-dense-crossval.js (source module: denseTop10, sigma4Ladder, verdict)
+ *
+ * Ticket: imp-3698 (ux, low). Presentation only, RH-equivalent; imp-3066
+ * untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
  */
 
 export const IMP3698_RUNGS = [

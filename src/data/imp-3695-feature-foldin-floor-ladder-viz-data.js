@@ -12,6 +12,9 @@
  * @see imp-3666-feature-foldin-floor-ladder.js (source module: rungCells, slope/intercept fit)
  * @see imp-3647-below-floor-replica-foldin-margin.js (parent: single-feature floor at xi_true=250)
  * @see imp-3582-replica-hiding-grid-threshold.js (generic worst-case floor N_replica ~ 764)
+ *
+ * Ticket: imp-3695 (ux, low). Presentation only, RH-equivalent; imp-3066
+ * untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
  */
 
 export const IMP3695_XI_MAX = 400;

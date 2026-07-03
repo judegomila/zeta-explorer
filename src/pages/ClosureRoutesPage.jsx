@@ -57,6 +57,7 @@ import { IMP3220_EN_BRIDGE_FIDELITY_FRONTIER } from '../data/imp-3220-en-bridge-
 import { IMP3219_MUPASS_BRIDGE_OVERSHOOT_KNEE } from '../data/imp-3219-mupass-bridge-overshoot-knee.js';
 import { IMP3255_BRIDGE_RATIO_CLOSED_FORM } from '../data/imp-3255-bridge-ratio-closed-form.js';
 import { IMP3257_BRIDGE_SIGN_PHI_NONNEG_STRUCTURAL } from '../data/imp-3257-bridge-sign-phi-nonneg-structural.js';
+import { IMP3256_VHS_CROSSVAL } from '../data/imp-3256-vhs-crossval.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -4361,7 +4362,7 @@ export default function ClosureRoutesPage() {
               <tr style={{ borderBottom: '1px solid #1e293b' }}>
                 <td style={{ padding: '4px 8px', color: '#cbd5e1' }}>deg-2 vs &#x2016;V&#x2016;<sub>HS</sub></td>
                 <td style={{ padding: '4px 8px', color: '#f87171', fontFamily: mono }}>9.28e-9</td>
-                <td style={{ padding: '4px 8px', color: '#34d399', fontFamily: mono }}>1.90e-4</td>
+                <td style={{ padding: '4px 8px', color: '#34d399', fontFamily: mono }}>{IMP3256_VHS_CROSSVAL.convergedValue_h_to_zero.toExponential(4)}</td>
                 <td style={{ padding: '4px 8px', color: '#fbbf24' }}>~20000&times;</td>
               </tr>
               <tr>
@@ -4377,7 +4378,9 @@ export default function ClosureRoutesPage() {
             Mass-feasibility kills the impossibility option but does <strong>not</strong> close the
             operator-level K&#x2090;&thinsp;&#x2265;&thinsp;0 residual. The budget proxy &#x2016;V&#x2016;<sub>HS</sub> is
             itself the RH-equivalent quantity; the deg-0 B/D comparison is additionally circular.
-            Construction is mass-feasible, NOT independently constructible.
+            Construction is mass-feasible, NOT independently constructible. Per imp-3256, the
+            &#x2016;V&#x2016;<sub>HS</sub> value above is the same-object h&#x2192;0 converged norm, not a
+            second independent measurement corroborating the verdict.
           </div>
           {/* imp-3234: normalization-convention reconciliation note */}
           <div style={{ marginTop: 7, padding: '6px 10px', borderRadius: 4, background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>

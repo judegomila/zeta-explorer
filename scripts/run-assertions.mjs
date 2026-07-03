@@ -2351,6 +2351,18 @@ const DATA_MODULES = [
   // support length back to a genuine Phi-autocorrelation length. Lock only; no QED; PT
   // Lambda <= 0.2 stays SOTA.
   '/src/data/imp-3312-underflow-horizon-lock.js',
+  // imp-3309: DERIVES both IEEE-754 double underflow horizons that bound the section-26 overflow
+  // region (imp-3216 finding E2 left the mu horizon and band at measured values). nu carries a
+  // single-Phi tail (2 pi^2 X exp(-pi X), X = e^{4u}), mu a Phi^2 tail (4 pi^4 X^2 exp(-2 pi X));
+  // each underflows to 0.0 when its magnitude drops below 2^-1074, i.e. pi X - ln(2 pi^2 X) = L
+  // for nu and 2 pi X - ln(4 pi^4 X^2) = L for mu, L = ln(2^1074) ~ 744.44. Fixed-point solving
+  // gives tau_nu = 1.36980 and tau_mu = 1.19886, matching the measured largest-representable-lag
+  // horizons (1.36721, 1.19906) to 2.6e-3 and 2.0e-4. Because the mu exponent is exactly TWICE the
+  // nu exponent, X_mu ~ X_nu/2 and the band width tau_nu - tau_mu = 0.17094 ~ (1/4)ln2, so mu
+  // underflows FIRST leaving (1.199, 1.370) where nu > 0 = mu -- arithmetic bookkeeping, not
+  // Phi-autocorrelation structure. Throws on import if either horizon, the ordering, or the band
+  // breaks. Diagnostic; confirms imp-3216 E2; necessary-not-sufficient; no positivity; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-3309-two-tail-underflow-horizons.js',
   // imp-3253: reconciles the TWO section-26 overflow numbers a reader meets in the verdict --
   // the degree-2 resolution-converged overflow-support fraction ~0.209 of tau (imp-3175) and the
   // degree-0 (RH-equivalent) spectral overflow ~64% of tau. VERDICT: they are the SAME nu > mu

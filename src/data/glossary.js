@@ -2656,6 +2656,41 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "Inner-A(tau) composite-Simpson truncation constant K_n^inner: clean O(h^4), monotone, tail-redistribution hypothesis falsified (imp-3576)",
+    category: "numerical",
+    definition:
+      "imp-3547 reported the inner-fraction ladder over M_0..M_3 (0.911/0.963/0.903/0.955) as NON-MONOTONE " +
+      "without deriving the underlying inner-truncation constant or explaining the pattern. imp-3576 isolates " +
+      "the O(h^4) inner-A(tau) composite-Simpson truncation constant K_n^inner directly via a Richardson " +
+      "inner-panel h-ladder (innerN 300->2400, outer moment grid held at the imp-3547-converged NM=1600, " +
+      "inner error measured against a GL-exact inner reference). RESULT: the inner residual is clean O(h^4) at " +
+      "every moment (observed order -> 4.000, K_n stable to <0.3% across the ladder) and K_n^inner is STRICTLY " +
+      "MONOTONE DECREASING -- 6.88e-2, 2.45e-2, 5.51e-3, 1.28e-3, 3.14e-4 for M_0..M_4, a ~4x-per-rung decay -- " +
+      "not non-monotone. The inner error density C(tau) is concentrated at the tau~0 overlap peak (|C(0)|~1.6) " +
+      "and collapses to numerical zero by tau>=1 (C(1)~3e-68), because the two Phi(s), Phi(s+tau) factors only " +
+      "overlap for small tau; the tau^n moment weight therefore moves mass AWAY from the curvature, " +
+      "monotonically shrinking K_n^inner -- the exact opposite of the hypothesis that tau^n redistributes mass " +
+      "toward a high-curvature tail, which is thereby FALSIFIED. The imp-3547 fractions are still reproduced " +
+      "(<5e-3), because innerFraction = 1 - |sInner-ref|/|sBase-ref| cancels the |M_n| normalization and reduces " +
+      "to a ratio of absolute residuals: its numerator (inner error removed) is the monotone K_n^inner h^4, but " +
+      "its NON-MONOTONE parity alternation (even rungs M_0,M_2 near 0.90-0.91; odd rungs M_1,M_3 near " +
+      "0.955-0.963) is carried entirely by the leftover |sInner-ref| term -- the OUTER moment-grid Simpson " +
+      "residual plus GL-reference residual -- and is DECOUPLED from the inner truncation constant. So the " +
+      "imp-3547 non-monotonicity is an outer-residual parity effect, not evidence of tail redistribution." +
+      "\n\nHONEST SCOPE: certification/measurement only -- derives and characterizes a quadrature truncation " +
+      "constant and explains an observed non-monotone fraction ladder; does NOT construct new structure and " +
+      "does NOT attempt the imp-3066 K_a >= 0 off-diagonal endpoint-Hankel positivity, which remains " +
+      "UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3576 (Richardson-ladder derivation of the O(h^4) inner-A(tau) Simpson truncation constant K_n^inner, showing it is monotone decreasing and falsifying the imp-3547 tail-redistribution hypothesis by localizing the non-monotonicity to the outer-residual ratio), 2026",
+    relatedTerms: [
+      "imp-3547 lower-moment Simpson residual localization and inner-fraction ladder (imp-3547)",
+      "imp-3528 degree-4 moment Simpson refinement (imp-3528)",
+      "imp-3481 moment ladder recipe (NPHI=10 A(tau) construction)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

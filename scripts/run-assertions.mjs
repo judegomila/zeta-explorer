@@ -3267,6 +3267,34 @@ const DATA_MODULES = [
   // cancellation limit a0*M_1*eps~5e-21. Measurement/derivation only, imp-3066
   // untouched, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 10 assertions.
   '/src/data/imp-3581-remainder-tail-exponent-derivation.js',
+  // imp-3600 (numerical): EXTENDS the imp-3581 closed p=2 exponent-derivation ladder
+  // to the higher rungs n=5 (odd sinh R_5) and n=6 (even cosh R_6). Measures M_7,M_8
+  // (and M_9,M_10 for the next-order brackets) on the same NM=1600 [0,T_A] Simpson
+  // reference, computes the closed C_5=M_7/(42 M_5)~1.06348e-3, C_6=M_8/(56 M_6)
+  // ~9.31428e-4 and D_5~-2.3767e-4, D_6~-1.9186e-4, and certifies the fit-bias law
+  // p_fit=2+D_n cov(a^2,ln a)/var(ln a) reproduces the actual least-squares slope to
+  // ~1e-9 at both (odd fitted 1.99999301 vs pred 1.99999302, slopeModelErr~6.4e-10,
+  // |p-2|~6.99e-6; even 1.99998857 vs pred 1.99998857, slopeModelErr~1.1e-9, |p-2|
+  // ~1.14e-5). r_n(a)/a^2->C_n matches to 9.1e-10 (n=5), 4.7e-8 (n=6), so the exponent
+  // is EXACTLY 2 at n=5,6 and the sub-2 read-out is the derived O(a^2) curvature bias.
+  // Measurement/derivation only, imp-3066 untouched, RH-equivalent, no QED, PT 0.2 SOTA.
+  // 9 assertions.
+  '/src/data/imp-3600-remainder-tail-exponent-ladder-n56.js',
+  // imp-3599 (numerical): DERIVES the next-order O((E_flow/E_trunc)^2) correction to the
+  // imp-3580 flow-gap law gap ~ 2 E_flow(N_x)/E_trunc. Dividing the two root conditions gives
+  // the EXACT identity gap = 1 - (L_half/L_x)/(1+eta)^2 (eta=E_flow(N_half)/E_trunc), which
+  // reproduces the imp-3580 root-solved N_half/N_x gap to ~1e-14 at every half-to-double floor
+  // node -- the closed object the leading law approximated by dropping the L_half/L_x log-ratio.
+  // Expanding to O(eps^2) with the local log-log slopes lambda=d lnL/d lnN (the sqrt(N) log-drift
+  // of L=log T0) and mu=d lnE_flow/d lnN at N_x gives gap = 2 eps(1+lambda) - (4 mu+4 lambda+3)
+  // eps^2, dominated by the log-drift term 2 lambda eps (lambda ~ 1/L ~ 0.043..0.048). Re-root-
+  // solving both crossings per floor (400-iter bisection, residual <1e-9, reproducing imp-3580)
+  // shows the next-order model shrinks the ~0.01-0.03pp leading-law residual by ~20x (0.00983 ->
+  // 0.00045, 0.03376 -> 0.00192 pp), closing ~94-95% uniformly across f in {0.5..2}. HONEST
+  // SUB-GAP imp-3599-nextorder-residual-tail: a ~5% O(eps^3)/curvature tail survives. Import-light
+  // (reuses effectiveHeightForN + C_C_PINNED). Measurement/derivation only, imp-3066 K_a>=0
+  // positivity UNTOUCHED, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 6 assertions.
+  '/src/data/imp-3599-flow-gap-nextorder-correction.js',
 ];
 
 let ALL_MODULES = FAST_MODE

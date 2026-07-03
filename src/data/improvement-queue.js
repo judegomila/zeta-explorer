@@ -37495,7 +37495,7 @@ export const IMPROVEMENT_QUEUE = [
     category: 'numerical',
     priority: 'medium',
     status: 'in-progress-subagent',
-    inflightTaskId: 'api-pool-w2-1783068391719',
+    inflightTaskId: 'api-pool-w4-1783068513186',
     proofSection: 'S-frontier',
     description: "imp-3530 fit the imp-3505 power-iteration budget ladder (N=160->520 ... N=800->~6250) to the closed form budget(N)=C*log(1/eps)/(-log rho(N)) with C~0.32 and -log rho(N)=A*N^q (q~-1.97), giving budget~K*N^2, and PREDICTED N=1000/1200 continue the monotone N^2 climb but never MEASURED them. Reuse the identical imp-3505/imp-3530 skew-Toeplitz assembly and Lanczos routine to measure the true 1e-9 budget at N=1000 and N=1200 and report the relative error vs the K*N^2 extrapolation. Measurement only; RH-equivalent; imp-3066 K_a>=0 untouched; NO QED.",
     rationale: 'Frontier scout: imp-3530 finding (3) extrapolated budget~K*N^2 to N=1000/1200 a priori but never measured those rungs',

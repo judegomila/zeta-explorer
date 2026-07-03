@@ -1981,6 +1981,35 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "critical capture-decay exponent k_c = 0.1966894 (imp-3486)",
+    category: "numerical",
+    definition:
+      "imp-3465 found that the imp-3406 interior MAXIMUM of the GUE-conditional share " +
+      "sigma(N) -- equivalently the interior MINIMUM of g(N) = (E_trunc+E_flow)/E_coll -- " +
+      "survives only when the imp-2631 truncation floor E_trunc(T0;k) = 3.06e-5*(T_PT/T0)^k " +
+      "decays slowly enough, and stated 'any k > 0 kills it' from a coarse grid whose smallest " +
+      "positive sample was k = 0.2. imp-3486 LOCATES the exact threshold: two structurally " +
+      "independent locators (bisecting the imp-3465 scan-grid classifyShape INTERIOR-to-BOUNDARY-LO " +
+      "transition, and bisecting the smooth condition that the interior stationary min value of " +
+      "g equals g at the N=1e2 window boundary) agree to ~8 significant digits on " +
+      "k_c = 0.1966894. The interior min persists for 0 <= k < k_c and is gone above it. The " +
+      "COLLAPSE MECHANISM is a boundary HANDOVER, not a saddle-node: at k_c the interior " +
+      "stationary point of g still exists (N ~ 2.5e3), but its value is overtaken by the " +
+      "amplified low-N floor, so the global minimum hands off to the N = 1e2 window boundary. " +
+      "This sharpens imp-3465s verdict rather than contradicting it: k_c sits strictly between " +
+      "the straddling grid samples k=0 and k=0.2, and strictly below the large-N limit-flip " +
+      "exponent k* = 1/2. Because the collapse is a boundary handover, k_c is a threshold FOR " +
+      "the imp-3465 diagnostic window (N=1e2), not a window-free structural constant. " +
+      "Measurement only; RH-equivalent; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    firstUsed: "imp-3486 (critical capture-decay exponent k_c location and handover mechanism), 2026",
+    relatedTerms: [
+      "height-dependent n_max FLOOR mechanism (imp-3465)",
+      "sigma(N) N-shape (interior min ~97.8, interior max ~9.22e5) (imp-3406)",
+      "truncation floor E_trunc (imp-2631)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -72,6 +72,7 @@ import { IMP3347_PHI_LEFTMOST_ZERO_VS_NPHI } from '../data/imp-3347-phi-leftmost
 import { IMP3256_VHS_CROSSVAL } from '../data/imp-3256-vhs-crossval.js';
 import { IMP3309_TWO_TAIL_UNDERFLOW_HORIZONS } from '../data/imp-3309-two-tail-underflow-horizons.js';
 import { IMP3382_RAWDIAGONAL_R_DEGREE_GROWTH_LAW } from '../data/imp-3382-rawdiagonal-R-degree-growth-law.js';
+import { IMP3384_INTERIOR_CROSSOVER_BELOW_HORIZON } from '../data/imp-3384-interior-crossover-below-horizon.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -3917,6 +3918,168 @@ function TwoTailUnderflowHorizonsViz() {
   );
 }
 
+// ── imp-3434: imp-3384 nu/mu ratio divergence toward the section-26 horizon --
+// past the genuine lower crossover tau_1 ~ 0.111 the ratio nu/mu never re-closes,
+// it climbs explosively (min ~2.08 just above tau_1, past ~1e150 near tau_mu)
+// until mu itself underflows to 0 at the imp-3309 horizon tau_mu ~ 1.199. ──
+function NuMuRatioDivergenceViz() {
+  const M = IMP3384_INTERIOR_CROSSOVER_BELOW_HORIZON.measured;
+  const tauMu = M.tauMuHorizon;
+  const tauNu = M.tauNuHorizon;
+  const tau1 = M.finestRow.crossovers[0].tau;
+
+  // Base cell (a=0.5, U=6, NPHI=10), N=12800 -- one rung of the imp-3384 N-ladder.
+  const CELL = { a: 0.5, U: 6, NPHI: 10 };
+  const N = 12800;
+  const phiKernel = (u, NPHI) => {
+    let s = 0;
+    const e4 = Math.exp(4 * u);
+    const e2 = Math.exp(2 * u);
+    for (let n = 1; n <= NPHI; n++) {
+      const n2 = n * n;
+      const n4 = n2 * n2;
+      s += (2 * Math.PI * Math.PI * n4 * e4 - 3 * Math.PI * n2 * e2) * Math.exp(-Math.PI * n2 * e4);
+    }
+    return s;
+  };
+  const H = CELL.U / N;
+  const phi = new Array(N);
+  const ch = new Array(N);
+  const sh = new Array(N);
+  for (let i = 0; i < N; i++) {
+    const u = (i + 0.5) * H;
+    phi[i] = phiKernel(u, CELL.NPHI);
+    ch[i] = Math.cosh(CELL.a * u);
+    sh[i] = Math.sinh(CELL.a * u);
+  }
+  const pastCosh = new Array(N);
+  const pastSinh = new Array(N);
+  let ac = 0, asum = 0;
+  for (let k = 0; k < N; k++) {
+    ac += phi[k] * ch[k];
+    asum += phi[k] * sh[k];
+    pastCosh[k] = ac;
+    pastSinh[k] = asum;
+  }
+  const futSinh = new Array(N);
+  const futCosh = new Array(N);
+  const muSuffix = new Array(N);
+  let fs = 0, fc = 0, ms = 0;
+  for (let k = N - 1; k >= 0; k--) {
+    futSinh[k] = fs;
+    futCosh[k] = fc;
+    fs += phi[k] * sh[k];
+    fc += phi[k] * ch[k];
+    ms += phi[k] * phi[k] * Math.sinh(2 * CELL.a * (k + 0.5) * H);
+    muSuffix[k] = ms;
+  }
+
+  const curve = [];
+  for (let k = 0; k < N; k++) {
+    const tau = (k + 0.5) * H;
+    if (tau < 0.05 || tau > tauMu - 0.001) continue;
+    const nu = H * H * (futSinh[k] * pastCosh[k] - futCosh[k] * pastSinh[k]);
+    const mu = (H / (2 * Math.PI)) * muSuffix[k];
+    if (mu <= 0) continue;
+    const ratio = nu / mu;
+    if (!isFinite(ratio) || ratio <= 0) continue;
+    curve.push([tau, Math.log10(ratio)]);
+  }
+
+  const W = 520, VH = 300;
+  const p = { t: 26, r: 20, b: 46, l: 56 };
+  const cW = W - p.l - p.r;
+  const cH = VH - p.t - p.b;
+  const tMin = 0.05, tMax = 1.42;
+  const logMax = curve.reduce((m, c) => Math.max(m, c[1]), 0);
+  const yMin = -1, yMax = Math.ceil(logMax / 10) * 10;
+  const xS = (t) => p.l + ((t - tMin) / (tMax - tMin)) * cW;
+  const yS = (v) => p.t + (1 - (Math.min(Math.max(v, yMin), yMax) - yMin) / (yMax - yMin)) * cH;
+
+  const path = curve.map((c, i) => `${i === 0 ? 'M' : 'L'}${xS(c[0]).toFixed(1)} ${yS(c[1]).toFixed(1)}`).join(' ');
+  const tTicks = [0.1, 0.3, 0.5, 0.7, 0.9, 1.1, 1.3];
+  const yTicks = [];
+  for (let v = 0; v <= yMax; v += 50) yTicks.push(v);
+
+  return (
+    <div className="card" style={{ marginTop: 14, borderLeft: '3px solid #fbbf24', background: 'rgba(251,191,36,0.03)' }}>
+      <h3 style={{ color: '#fbbf24', marginTop: 0, fontSize: 15 }}>
+        nu/mu Ratio Divergence Toward the Section-26 Horizon (imp-3434 / imp-3384)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
+        Plotted is log<sub>10</sub>(nu/mu) at the base cell (a=0.5, U=6, NPHI=10, N=12800) against lag &tau;. Below
+        the genuine lower crossover &tau;<sub>1</sub>&thinsp;&asymp;&thinsp;{tau1.toFixed(3)} (green dot, ratio=1) mu
+        exceeds nu; just above it the ratio is already &asymp;&thinsp;{M.ratio.minRatio.toFixed(2)}, and it never
+        re-closes &mdash; it climbs to &asymp;&thinsp;{M.ratio.ratioNearHorizon.toExponential(2)} near the mu
+        underflow horizon &tau;<sub>mu</sub>&thinsp;&asymp;&thinsp;{tauMu.toFixed(3)} (purple dashed), where mu
+        underflows to exactly 0.0 in double precision. Past it lies the imp-3309 band up to the nu underflow horizon
+        &tau;<sub>nu</sub>&thinsp;&asymp;&thinsp;{tauNu.toFixed(3)} (teal dashed), where nu also underflows. The
+        overflow region {'{tau : nu > mu}'} is entirely horizon-bounded above &mdash; there is no genuine interior
+        re-crossover (imp-3384 verdict).
+      </p>
+      <svg width={W} height={VH} style={{ display: 'block' }}>
+        {yTicks.map((v) => (
+          <line key={v} x1={p.l} x2={p.l + cW} y1={yS(v)} y2={yS(v)} stroke="#1e293b" strokeWidth={1} />
+        ))}
+        {tTicks.map((t) => (
+          <line key={t} x1={xS(t)} x2={xS(t)} y1={p.t} y2={p.t + cH} stroke="#1e293b" strokeWidth={1} />
+        ))}
+        {/* nu/mu ratio curve */}
+        <path d={path} fill="none" stroke="#fbbf24" strokeWidth={1.8} />
+        {/* ratio = 1 baseline */}
+        <line x1={p.l} x2={p.l + cW} y1={yS(0)} y2={yS(0)} stroke="#475569" strokeWidth={1} strokeDasharray="2,3" />
+        {/* tau_1 lower crossover marker */}
+        <circle cx={xS(tau1)} cy={yS(0)} r={3.5} fill="#4ade80" stroke="#0f172a" strokeWidth={1} />
+        <text x={xS(tau1)} y={yS(0) - 8} fill="#4ade80" fontSize={9} textAnchor="middle">
+          &tau;<tspan dy="2" fontSize={7}>1</tspan><tspan dy="-2">&thinsp;{tau1.toFixed(3)}</tspan>
+        </text>
+        {/* tau_mu horizon */}
+        <line x1={xS(tauMu)} x2={xS(tauMu)} y1={p.t} y2={p.t + cH} stroke="#a78bfa" strokeWidth={1.2} strokeDasharray="5,3" />
+        <text x={xS(tauMu)} y={p.t + cH + 14} fill="#a78bfa" fontSize={9} textAnchor="middle">
+          &tau;<tspan dy="2" fontSize={7}>mu</tspan><tspan dy="-2">&thinsp;{tauMu.toFixed(3)}</tspan>
+        </text>
+        {/* tau_nu horizon */}
+        <line x1={xS(tauNu)} x2={xS(tauNu)} y1={p.t} y2={p.t + cH} stroke="#2dd4bf" strokeWidth={1.2} strokeDasharray="5,3" />
+        <text x={xS(tauNu)} y={p.t + cH + 26} fill="#2dd4bf" fontSize={9} textAnchor="middle">
+          &tau;<tspan dy="2" fontSize={7}>nu</tspan><tspan dy="-2">&thinsp;{tauNu.toFixed(3)}</tspan>
+        </text>
+        {/* mu-underflow band (mu = 0 exactly, ratio undefined) */}
+        <rect x={xS(tauMu)} y={p.t} width={xS(tauNu) - xS(tauMu)} height={cH} fill="#a78bfa" fillOpacity="0.05" />
+        {/* Axes */}
+        <line x1={p.l} x2={p.l + cW} y1={p.t + cH} y2={p.t + cH} stroke="#475569" strokeWidth={1} />
+        <line x1={p.l} x2={p.l} y1={p.t} y2={p.t + cH} stroke="#475569" strokeWidth={1} />
+        {tTicks.map((t) => (
+          <g key={t}>
+            <line x1={xS(t)} x2={xS(t)} y1={p.t + cH} y2={p.t + cH + 4} stroke="#475569" />
+            <text x={xS(t)} y={p.t + cH + 14} fill="#94a3b8" fontSize={9} textAnchor="middle">{t.toFixed(1)}</text>
+          </g>
+        ))}
+        {yTicks.map((v) => (
+          <g key={v}>
+            <line x1={p.l - 4} x2={p.l} y1={yS(v)} y2={yS(v)} stroke="#475569" />
+            <text x={p.l - 7} y={yS(v) + 4} fill="#94a3b8" fontSize={9} textAnchor="end">{v === 0 ? '1' : `1e${v}`}</text>
+          </g>
+        ))}
+        <text x={p.l + cW / 2} y={VH - 5} fill="#64748b" fontSize={10} textAnchor="middle">lag &tau;</text>
+        <text
+          x={12} y={p.t + cH / 2} fill="#64748b" fontSize={10} textAnchor="middle"
+          transform={`rotate(-90, 12, ${p.t + cH / 2})`}
+        >nu / mu</text>
+      </svg>
+      <div style={{ display: 'flex', gap: 14, marginTop: 6, flexWrap: 'wrap' }}>
+        <span style={{ color: '#fbbf24', fontSize: 11 }}>&#8212;&#8212; nu/mu (log scale)</span>
+        <span style={{ color: '#4ade80', fontSize: 11 }}>&#9679; &tau;<sub>1</sub> genuine lower crossover</span>
+        <span style={{ color: '#a78bfa', fontSize: 11 }}>&#8212; &#8212; &tau;<sub>mu</sub> mu-underflow horizon</span>
+        <span style={{ color: '#2dd4bf', fontSize: 11 }}>&#8212; &#8212; &tau;<sub>nu</sub> nu-underflow horizon</span>
+      </div>
+      <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3384-interior-crossover-below-horizon.js &mdash; DIAGNOSTIC; overflow-support geometry only;
+        NOT a reduction; Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains SOTA.
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3197: sign-vs-magnitude decomposition of K_a >= 0 bridge obstruction ──
 // Shows that the SIGN half is FREE (Phi-only, 100% magnitude-weighted agreement,
 // zero mismatch mass) while the MAGNITUDE half is the whole residual: the
@@ -5694,6 +5857,9 @@ export default function ClosureRoutesPage() {
 
       {/* ─── imp-3395: two-tail underflow horizons (Phi vs Phi^2 crossing the subnormal line) viz ─── */}
       <TwoTailUnderflowHorizonsViz />
+
+      {/* ─── imp-3434: imp-3384 nu/mu ratio divergence toward the section-26 horizon viz ─── */}
+      <NuMuRatioDivergenceViz />
 
       {/* ─── imp-3250: U-sweep overflow fraction viz ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

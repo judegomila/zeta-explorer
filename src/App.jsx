@@ -131,6 +131,7 @@ const CShockNumericalCoincidencePage = lazy(() => import('./pages/CShockNumerica
 const Imp3256CrossvalPage = lazy(() => import('./pages/Imp3256CrossvalPage.jsx'));
 const Imp3252ScaledMuPage = lazy(() => import('./pages/Imp3252ScaledMuPage.jsx'));
 const Imp3467ClosedFormCViz = lazy(() => import('./pages/Imp3467ClosedFormCViz.jsx'));
+const Imp3540PowerIterationBudgetViz = lazy(() => import('./pages/Imp3540PowerIterationBudgetViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -706,6 +707,7 @@ function AppShell() {
           <Route path="/viz-imp3256-vhs-crossval" element={<Imp3256CrossvalPage />} />
           <Route path="/viz-imp3252-scaled-mu" element={<Imp3252ScaledMuPage />} />
           <Route path="/viz-imp3467-closed-form-c" element={<Imp3467ClosedFormCViz />} />
+          <Route path="/viz-imp3540-power-iteration-budget" element={<Imp3540PowerIterationBudgetViz />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
           <Route path="/papers" element={<PapersListPage />} />

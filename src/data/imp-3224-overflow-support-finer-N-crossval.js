@@ -350,7 +350,10 @@ export const IMP3224_OVERFLOW_SUPPORT_FINER_N_CROSSVAL = Object.freeze({
       '~1.2552 is the double-precision snapshot of a quantity whose upper limit is an arithmetic artifact. What this ' +
       'module certifies is narrower and still true: that snapshot is itself N-CONVERGED and cell-invariant off the ' +
       'base grid (the contraction test rules out a finite-resolution coincidence in the READING), NOT that ~1.2552 ' +
-      'is the mathematically correct overflow length -- the corrected region is [tau_1, U] with fraction -> 1 as U grows.',
+      'is the mathematically correct overflow length -- the corrected region is [tau_1, U] with fraction -> 1 as U grows. ' +
+      'HONEST-STATUS BANNER: this N-converged, cell-invariant ~1.2552 is an interval whose upper endpoint is the ' +
+      'imp-3216 IEEE-754 kernel underflow horizon, NOT a genuine Phi-autocorrelation length -- N-convergence and ' +
+      'off-grid cell-invariance certify the READING is stable, they do not promote it to a Phi-autocorrelation length.',
     addressesOverflowSupportOnlyNotAbsoluteDeficitMagnitude:
       'This module cross-validates the overflow-SUPPORT measure |{nu > mu}| N-convergence and off-grid ' +
       'cell-invariance only. The absolute deg-2 deficit magnitude (a separate quantity carrying the offline ' +

@@ -3831,6 +3831,41 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3715 fifth-pair Gram-spread rounding-floor model: worstPairSpread(N) sits at a few-ULP floor, not linear N*eps accumulation",
+    category: "numerical",
+    definition:
+      "imp-3668 dense-certified the fifth adjacent Gram pair lambda_9 = lambda_10 at the deep rungs " +
+      "N in {1200, 1600, 2000} via the independent Householder tred1 + implicit-QL tql1 route (all " +
+      "eigenvalues, no Krylov, no reorthogonalization), tabulating worstPairSpread(N) = " +
+      "|lambda_9 - lambda_10| / lambda_9 = 0, 0, 1.38e-15 across the three rungs -- but not its scaling " +
+      "law. imp-3715 re-baked the three literals (import-light, arithmetic only) and tested two rounding " +
+      "envelopes: (A) an N-INDEPENDENT few-ULP backward-error floor, spread ~ c_ulp * eps, versus " +
+      "(B) a LINEAR-ACCUMULATION budget, spread ~ N * eps. RESULT: model (B) is decisively FALSIFIED -- " +
+      "at N=2000 the linear budget N*eps = 4.44e-13 is ~323x the measured 1.38e-15 (using only 0.31% of " +
+      "the budget), and N*eps already crosses the PAIR_TOL = 1e-14 degeneracy threshold at N ~ 45, so a " +
+      "spread that tracked N*eps could not be degenerate to < 1.4e-15 at N=2000 -- yet it is. The " +
+      "measured worst spread is only 6.20 ULP relative (1.38e-15 / eps = 6.195), the last-digit rounding " +
+      "of the implicit-QL eigensolver on a genuinely degenerate pair -- the model (A) few-ULP floor, " +
+      "N-independent. Extrapolating the floor (conservatively 10*eps ~ 2.22e-15) to the deeper rungs " +
+      "N = 2400 / 2800 keeps the spread ~1e-15, an order of magnitude below PAIR_TOL, so the " +
+      "double-precision solve is projected adequate there with no extended/quad-precision solve needed." +
+      "\n\nHONEST SCOPE: a scaling MEASUREMENT and threat ASSESSMENT on a coarse 3-rung sample (two " +
+      "rungs exactly 0) -- decisive against the linear model but not a resolved growth exponent; the " +
+      "N=2400/2800 figures are a floor-model bound, not a fresh dense solve at those rungs. Distinct " +
+      "from the imp-3692 independent Sturm-bisection verify of the same literals. Establishes no " +
+      "fifth-pair amplitude law and attempts no operator positivity. RH-equivalent, necessary-but-not-" +
+      "sufficient; the off-diagonal endpoint-Hankel obstruction K_a >= 0 (imp-3066) is UNTOUCHED. No " +
+      "RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3715 (measuring the imp-3668 fifth-pair Gram-spread scaling across N=1200/1600/2000, falsifying the linear N*eps model, and projecting the few-ULP floor safe at N=2400/2800), 2026",
+    relatedTerms: [
+      "imp-3668 dense fifth-pair Gram degeneracy cross-validation (imp-3668)",
+      "imp-3692 independent Sturm-bisection verify of the fifth-pair literals (imp-3692)",
+      "imp-3688 sixth-pair dense certification whose margin this assessment informs (imp-3688)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

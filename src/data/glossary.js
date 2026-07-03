@@ -4176,6 +4176,48 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3849 inner-quadrature-converged exact-saddle ratio: crossing moves to n*=215.231, well deepens ~5x to r_min=-5.845e-4 at n~500",
+    category: "numerical",
+    definition:
+      "imp-3731 pinned the exact-saddle ratio R_n = |D_n|/|D_n^saddle| crossing at n* = 225.5427323 " +
+      "\"grid-stable to ~1e-9\" and a shallow sub-unity well (r_min = -1.12857e-4 at n = 276), but its " +
+      "grid-convergence self-check varied only the OUTER moment-panel count (NM: 3200 -> 6400) while " +
+      "holding the INNER autocorrelation A(tau) quadrature FIXED at [0,7] with 1200 Simpson panels. " +
+      "imp-3735 had already shown that at large n it is the INNER resolution, not the outer moment " +
+      "grid, that limits the moment-ratio correction eps_n -- so imp-3731's \"~1e-9\" stability was " +
+      "measured along the axis the answer is insensitive to." +
+      "\n\nimp-3849 CONVERGED the inner A(tau) quadrature (4800 panels on [0,2], cross-checked against " +
+      "7200, agreeing to ~8e-8) while reproducing the imp-3731 coarse-inner configuration alongside it " +
+      "as an artifact probe (recovering imp-3731's r_226 = -2.314e-6 exactly). The converged inner " +
+      "quadrature drives r_226 to -8.738e-5, a ~38x larger magnitude, which moves the crossing DOWN " +
+      "~10 rungs to n* = 215.231 (r_215 = +2.030e-6, r_216 = -6.749e-6) -- so the imp-3731 crossing " +
+      "was an inner-resolution artifact, not a converged value. The sub-unity well is also ~5x DEEPER " +
+      "and ~2x further out: it bottoms at r_min = -5.845e-4 (R_n ~ 0.99942) on a broad plateau near " +
+      "n = 500 (r_490 = -5.843e-4, r_500 = -5.845e-4, r_510 = -5.843e-4), not the imp-3731 r_min = " +
+      "-1.13e-4 at n = 276. Past the well, R_n climbs slowly back toward 1 from below (r_500 = " +
+      "-5.845e-4 -> r_620 = -5.686e-4), and the underlying eps_n = Q_n/tau*(n)^2 - 1 correction (imp-" +
+      "3735) is shown to CHANGE SIGN near n = 149 (eps_148 = +7.60e-6, eps_149 = -3.46e-6), going " +
+      "negative out to eps_300 = -5.05e-4 -- the eps-weighted step in D_n that drives the deeper " +
+      "converged well. Cross-checks R_3 = 3.64422 (imp-3670/imp-3685), R_40 = 1.02440 (imp-3685 baked " +
+      "1.02438), eps_40 = 9.994e-3 (imp-3735 converged 9.995e-3) tie the ladder to certified modules." +
+      "\n\nHONEST SCOPE: measurement only, at the RH-equivalent scale class -- pins the CONVERGED shape " +
+      "of a moment-ratio convergence diagnostic and establishes no operator positivity. The reported " +
+      "values are grid-CONVERGENCE stable (inner 4800 vs 7200 panels agree to ~8e-8), but the shared " +
+      "finite NPHI=10 kernel truncation and Simpson order remain a residual floor of this model, not a " +
+      "certified error bound. imp-3731 assertions are LEFT INTACT: this is a corrected re-reading at " +
+      "higher inner resolution, alongside it, not an edit of it. Mass-feasibility is necessary-but-not-" +
+      "sufficient; the off-diagonal endpoint-Hankel obstruction K_a >= 0 (imp-3066) is UNTOUCHED. No RH " +
+      "verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3849 (converging the inner A(tau) quadrature of the imp-3731 exact-saddle ratio measurement, moving the crossing to n*=215.231, deepening the well ~5x to r_min=-5.845e-4 at n~500, and locating the eps_n sign-change at n~149), 2026",
+    relatedTerms: [
+      "imp-3713 exact-saddle ratio finite-n overshoot: R_n crosses 1 and dips BELOW at n* ~ 226 (imp-3713)",
+      "imp-3731 Neumaier-compensated crossing pin n*=225.5427323 and shallow-well recovery (imp-3731)",
+      "imp-3735 moment-ratio correction eps_n = Q_n/tau*(n)^2 - 1: Laplace-variance decay order (imp-3735)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

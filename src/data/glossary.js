@@ -1951,6 +1951,36 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "height-dependent n_max FLOOR mechanism (imp-3465)",
+    category: "numerical",
+    definition:
+      "CAVEAT sharpening imp-3443: the imp-3406 sigma(N) interior MAX at N_max ~ 9.22e5 is the " +
+      "interior MIN of g = (E_trunc+E_flow)/E_coll, which exists because the FIXED imp-2631 " +
+      "truncation floor E_trunc = 3.06e-5 makes the far arm E_trunc/E_coll ~ N^{1/2} strongly " +
+      "increasing while E_flow/E_coll falls -- the two balance at an interior N. imp-3465 makes " +
+      "the floor HEIGHT-DEPENDENT, E_trunc = E_trunc(T0) with T0 = effectiveHeightForN(N), across " +
+      "a power family E_trunc ~ T0^{-k} and a quasi-constant log family. The constant control " +
+      "(k=0) reproduces the imp-3406 turnover exactly, but EVERY positive power exponent DISSOLVES " +
+      "it: with E_coll ~ N^{-1/2}, the far arm becomes E_trunc/E_coll ~ N^{k-1/2}, so any k>0 " +
+      "flattens or inverts that arm and the PT-calibrated floor is amplified at low N -- the " +
+      "interior minimum of g never forms, and sigma(N) is instead MONOTONE (decreasing for " +
+      "k < k* = 1/2, increasing toward 1 for k > k*, exactly E_coll's N-decay rate). The " +
+      "physically-motivated fixed-strip Ingham sigma=3/4 floor (k=0.4, matching imp-2631's own " +
+      "3*T0^{-0.4}) is one such case: it DISSOLVES the turnover, leaving no interior maximum. " +
+      "Only a logarithmically-slow (quasi-constant) floor preserves an interior max, landing " +
+      "modestly below the fixed baseline. So the n_max landmark is set by the BOUNDARY, not an " +
+      "interior stationary point, once the floor decays with height as physically expected -- " +
+      "the imp-3406/imp-3443 turnover is a constant-floor artifact, not a genuine feature of the " +
+      "GUE-conditional share.",
+    firstUsed: "imp-3465 (height-dependent truncation-floor n_max collapse mechanism), 2026",
+    relatedTerms: [
+      "sigma(N) N-shape (interior min ~97.8, interior max ~9.22e5) (imp-3406)",
+      "sigma(N) interior-MAX floor-value artifact (imp-3443)",
+      "truncation floor E_trunc (imp-2631)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

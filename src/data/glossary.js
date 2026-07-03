@@ -1492,6 +1492,36 @@ export const glossary = [
     relatedTerms: ['onset quadratic-pole divergence', 'envelope crossover handoff (s_cross1)'],
     link: '/closure-routes',
   },
+  {
+    term: "section-26 overflow-region geometry: [tau_1 genuine, horizon arithmetic] with no interior re-crossover",
+    category: "numerical",
+    definition:
+      "imp-3384 finding: the section-26 overflow region has exactly ONE genuine mathematical " +
+      "endpoint -- the lower crossover tau_1 ~0.111 where mu > nu flips to nu > mu (imp-3216, " +
+      "imp-3307) -- and NO second interior crossover back to nu < mu anywhere below the " +
+      "underflow horizons. Scanning every sign change of (nu - mu) strictly below the imp-3309 " +
+      "mu horizon tau_mu ~1.199 finds exactly one flip at every truncation and grid resolution: " +
+      "at tau_1 the gap only WIDENS afterward (min(nu/mu) ~2.08 just above tau_1, rising to " +
+      "~1.6e148 near tau_mu), so nu never re-approaches mu from above." +
+      "\n\nWHY: nu carries a single-Phi tail ~exp(-pi X) while mu carries a Phi^2 tail " +
+      "~exp(-2 pi X) (X = e^{4u}), so their ratio nu/mu ~ exp(pi X) diverges MONOTONICALLY once " +
+      "past tau_1 -- there is no mechanism for it to turn back toward 1. The region can " +
+      "therefore only close from above by arithmetic underflow of the two densities at their " +
+      "separate IEEE-754 horizons (mu first, at tau_mu ~1.199; nu second, at tau_nu ~1.370), " +
+      "never by a second genuine crossover." +
+      "\n\nHONEST SCOPE: this closes the open question left by imp-3216/imp-3309 (whether a " +
+      "second interior crossover could exist) but re-derives no absolute deficit magnitude " +
+      "and proves no positivity. Diagnostic only, necessary-but-not-sufficient at operator " +
+      "order -- the off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone " +
+      "obstruction. No RH verdict; Platt-Trudgian Lambda <= 0.2 stays SOTA.",
+    firstUsed: "imp-3384 (interior-crossover-below-horizon scan), 2026",
+    relatedTerms: [
+      "two-tail underflow horizons (tau_mu, tau_nu) and the (1/4)ln2 band",
+      "IEEE-754 kernel underflow horizon (de Bruijn-Newman Phi)",
+      "kernel Phi(u)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

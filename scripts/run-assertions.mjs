@@ -2900,6 +2900,16 @@ const DATA_MODULES = [
   // ladder (fixed-point solve, -expm1/log1p, Richardson) certifies it to < 1e-5.
   // Derivation only, imp-3066 untouched, no QED, PT Lambda<=0.2 SOTA. 8 assertions.
   '/src/data/imp-3468-gaussian-curvature-subleading-coefficient.js',
+  // imp-3481 (numerical): computes the full genuine-Phi autocorrelation MOMENT
+  // LADDER M_0..M_4 = int tau^n A(tau)d(tau) and shows each moment is the leading
+  // small-a coefficient (a^n/n!)M_n of a successive Taylor remainder of the
+  // A-weighted degree-2 masses (C(a)=int cosh(a tau)A d(tau)=sum a^{2j}/(2j)! M_{2j},
+  // S(a)=sum a^{2j+1}/(2j+1)! M_{2j+1}). At the imp-3469 base a=0.5 every remainder
+  // R_n reproduces (a^n/n!)M_n to <1e-3, and halving a quarters each residual
+  // (order a^2), so the single imp-3469 B_2(a)~(a^2/2)M_2 is the n=2 rung of a full
+  // ladder (M_2 reproduced as anchor). Measurement/derivation only, imp-3066
+  // untouched, no QED, PT Lambda<=0.2 SOTA. 7 assertions.
+  '/src/data/imp-3481-autocorrelation-moment-ladder.js',
 ];
 
 let ALL_MODULES = FAST_MODE

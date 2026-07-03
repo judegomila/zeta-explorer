@@ -206,6 +206,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp3377-rescue-budget-height-map',
   '/viz-imp3380-path1-record-step-margin',
   '/viz-imp3629-remainder-tail-coeff-ladder',
+  '/viz-imp3631-mfold-aliasing-threshold-ladder',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

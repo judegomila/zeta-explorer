@@ -3498,6 +3498,16 @@ const DATA_MODULES = [
   // crossing was an inner-A(tau)-quadrature artifact independent of the rule. Measurement;
   // imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED; imp-3849/imp-3731 left intact. 10 assertions.
   '/src/data/imp-3868-saddle-crossing-gauss-legendre-cross-solver.js',
+  // imp-3871: EXTENDS the imp-3848 saddle expansion of L_n = eps_n*n(1+4 tau*) to the fifth/sixth-
+  // derivative corrections C4 = tau* f^(5) sigma^4/4 and C5 = f^(6) sigma^6/8 (f^(5) = 24n/tau*^5 -
+  // 256 n/tau*, f^(6) = -120n/tau*^6 - 1024 n/tau*) and tests whether higher-order Laplace terms
+  // reconcile the imp-3848 overshoot. Result: C4, C5 SHRINK (refuting the growing-cancellation
+  // conjecture); adding them moves the L_n=1 crossing only 17.13 -> 18.34, converging onto the
+  // fully-resummed model-exact crossing 18.38 (exact tau^n exp(-pi e^{4 tau}) quadrature). Since the
+  // exact model resummation still crosses far below the measured n~48.58, the overshoot is a MODEL-
+  // FIDELITY gap (super-exponential surrogate vs real A(tau)), not a truncation artifact.
+  // imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 8 assertions.
+  '/src/data/imp-3871-saddle-correction-fifth-sixth-derivative.js',
   // imp-3479: shared sigma(N) sub-term helper consolidating the byte-identical
   // parts(N)/bridgeRow formula duplicated inline across imp-3220/imp-3323/
   // imp-3406/imp-3443/imp-3444/imp-3446. Consolidation assessment only -- the

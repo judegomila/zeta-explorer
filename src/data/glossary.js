@@ -1704,6 +1704,35 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "General lambda-scaling law (B(a/k,kU) = k*B(a,U), D_0(a/k,kU) = k*D_0(a,U))",
+    category: "numerical",
+    definition:
+      "imp-3349 measured a single two-point identity, B(0.25,12) = 2*B(0.5,6) (and the same for " +
+      "D_0) -- the k = 2 case. imp-3405 extends this to a WHOLE ladder of scale factors k in " +
+      "{2, 3, 4, 6, 8}, run from two independent base cells (0.5,6), s = 3 and (0.4,10), s = 4, " +
+      "each rung evaluated by direct composite-Simpson quadrature of the raw integrands " +
+      "cosh(a tau) - 1 and sinh(a tau) - 1 (no antiderivative). Across every rung the scaled " +
+      "masses match k times the base masses (e.g. base B(0.5,6) = 14.0357, and B(0.0625,48) at " +
+      "k = 8 lands on 8*14.0357 = 112.286) to ~1e-15 relative, while s = a*U -- hence the ratio " +
+      "B/D_0 = 1.07392 -- stays fixed along the whole ladder. This is the direct numerical face " +
+      "of the imp-3255 closed form: at fixed s = a*U, B(a,U) = (sinh s - s)/a and D_0(a,U) = " +
+      "(cosh s - s + arcsinh(1) - sqrt2)/a, so replacing a -> a/k and U -> kU multiplies the " +
+      "shared 1/a prefactor by k exactly while sinh s - s and cosh s - s + arcsinh(1) - sqrt2 " +
+      "are untouched." +
+      "\n\nHONEST SCOPE: numerical certification of the scaling-law structure only. " +
+      "Mass-feasibility B > D_0 kills the impossibility option but is NECESSARY-BUT-NOT-SUFFICIENT " +
+      "-- the degree-0 budget proxy is circular (its budget IS ||V||). The operator-level " +
+      "K_a >= 0 off-diagonal endpoint-Hankel positivity (imp-3066) remains the lone RH obstruction, " +
+      "UNTOUCHED. No RH verdict, no QED; Platt-Trudgian Lambda <= 0.2 stays SOTA.",
+    firstUsed: "imp-3405 (general k-ladder lambda-scaling law), 2026",
+    relatedTerms: [
+      "two-point mass-scale identity (imp-3349)",
+      "bridge-ratio closed form B/D(s) (imp-3255)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

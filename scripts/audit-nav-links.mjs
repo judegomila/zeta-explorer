@@ -172,6 +172,7 @@ const EXPLICIT_VIZ_ROUTES = new Set([
 // visualizations-index.js entry so the hard check covers it again.
 const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp3256-vhs-crossval',
+  '/viz-imp3252-scaled-mu',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

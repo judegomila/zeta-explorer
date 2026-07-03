@@ -181,6 +181,10 @@ export default function Imp3256CrossvalPage() {
         <Link to="/viz-volterra-norm-curve" style={{ color: '#7c3aed' }}>
           Volterra Operator Norm vs HS Bound (imp-1292)
         </Link>
+        {', '}
+        <Link to="/viz-imp3252-scaled-mu" style={{ color: '#7c3aed' }}>
+          Shear-Gram Continuum Magnitude &amp; Symmetric-Spectrum Identity (imp-3252)
+        </Link>
       </div>
     </div>
   );

@@ -129,6 +129,7 @@ const Section26ConditioningArtifactPage = lazy(() => import('./pages/Section26Co
 const ExcessFractionPhiPage = lazy(() => import('./pages/ExcessFractionPhiPage.jsx'));
 const CShockNumericalCoincidencePage = lazy(() => import('./pages/CShockNumericalCoincidencePage.jsx'));
 const Imp3256CrossvalPage = lazy(() => import('./pages/Imp3256CrossvalPage.jsx'));
+const Imp3252ScaledMuPage = lazy(() => import('./pages/Imp3252ScaledMuPage.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -702,6 +703,7 @@ function AppShell() {
           <Route path="/excess-fraction-phi" element={<ExcessFractionPhiPage />} />
           <Route path="/c-shock-numerical-coincidence" element={<CShockNumericalCoincidencePage />} />
           <Route path="/viz-imp3256-vhs-crossval" element={<Imp3256CrossvalPage />} />
+          <Route path="/viz-imp3252-scaled-mu" element={<Imp3252ScaledMuPage />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
           <Route path="/papers" element={<PapersListPage />} />

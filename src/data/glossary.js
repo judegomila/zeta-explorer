@@ -1293,6 +1293,40 @@ export const glossary = [
     link: "/closure-routes",
   },
   {
+    term: "two-tail underflow horizons (tau_mu, tau_nu) and the (1/4)ln2 band",
+    category: "numerical",
+    definition:
+      "imp-3216 showed the section-26 overflow region [tau_1, tau_2] ends by arithmetic " +
+      "underflow of the kernel rather than a genuine crossover. imp-3309 shows there are " +
+      "actually TWO such underflow horizons, one per density, because the two densities " +
+      "carry different tails in X = e^{4u}: nu(tau) carries a single-Phi tail " +
+      "~2 pi^2 X exp(-pi X), while mu(tau) carries a Phi^2 tail ~4 pi^4 X^2 exp(-2 pi X). " +
+      "Each underflows to exactly 0.0 once its magnitude drops below the smallest positive " +
+      "IEEE-754 subnormal 2^-1074, giving two closed-form fixed points of the same threshold " +
+      "L = ln(2^1074) ~ 744.44: pi X - ln(2 pi^2 X) = L for tau_nu ~ 1.370, and " +
+      "2 pi X - ln(4 pi^4 X^2) = L for tau_mu ~ 1.199. Both reproduce their measured " +
+      "bisection horizons to within ~3e-3." +
+      "\n\nBAND-WIDTH FINGERPRINT: because the mu exponent (2 pi X) is exactly TWICE the nu " +
+      "exponent (pi X), X_mu ~ X_nu/2 to leading order, so tau_nu - tau_mu ~ (1/4) ln 2 ~ " +
+      "0.1733 -- matching the exact band width 0.17094. mu therefore underflows FIRST, " +
+      "leaving a band (tau_mu, tau_nu) where nu > 0 = mu, exactly as imp-3216's decisive " +
+      "check required. The (1/4)ln2 gap is a direct fingerprint of the tail-exponent ratio " +
+      "(2 vs 1), not of any Phi-autocorrelation length." +
+      "\n\nHONEST SCOPE: DIAGNOSTIC only, confirming imp-3216 finding E2 in closed form for " +
+      "both horizons. It re-derives no absolute deficit magnitude and proves no positivity; " +
+      "a nonzero overflow fraction is necessary-but-not-sufficient at operator order, and the " +
+      "off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone obstruction. " +
+      "No RH verdict; Platt-Trudgian Lambda <= 0.2 stays SOTA.",
+    firstUsed: "imp-3309 (closed-form derivation of both horizons), 2026",
+    relatedTerms: [
+      "IEEE-754 kernel underflow horizon (de Bruijn-Newman Phi)",
+      "overflow-support-length (imp-3199)",
+      "underflow-horizon lock (imp-3312)",
+      "kernel Phi(u)",
+    ],
+    link: "/closure-routes",
+  },
+  {
     term: "termwise structural nonnegativity of Phi (last flip u_1*)",
     category: 'proof-status',
     definition:

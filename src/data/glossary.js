@@ -2943,6 +2943,40 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "sigma-crossover flow factor PINNED via the imp-398 closed form t_c(N)~1/log gamma_N (imp-3620)",
+    category: "numerical",
+    definition:
+      "imp-3604 bounded the sigma=1/2 half-decay scale N_half and the E_coll=E_trunc crossover scale N_x " +
+      "under the WHOLE Gronwall flow-factor bracket [1, exp(2*2.37e-4)=1.000474] (from the A1 Theta-trap " +
+      "worst case |t_c| <= g_min^2/6 = 2.37e-4 and C_G in [1,2]), without committing to a specific t_c(N) " +
+      "closed form -- leaving the N_half/N_x band [0.99313, 0.99772] a bracket. imp-3620 derives the flow " +
+      "factor at the crossover scale from the NAMED imp-398 backward-flow-stability law t_c(N) ~ 1/log gamma_N, " +
+      "giving the closed form t_c(N) = 2.37e-4 * log(gamma_{N*})/log(gamma_N) (N* = 1e4 anchor). At the " +
+      "baseline crossover N_x = 3.280294e9 the height log gamma_{N_x} = 20.8576 is 2.27x the anchor log " +
+      "gamma_{N*} = 9.1981, shrinking the collision time to t_c(N_x) = 1.0452e-4 (0.441x the anchor worst " +
+      "case) and pinning the flow factor to exp(1*t_c(N_x)) = 1.0001045 (C_G=1) .. exp(2*t_c(N_x)) = " +
+      "1.0002091 (C_G=2) -- only 22.05%..44.09% of the imp-3604 bracket, and strictly BELOW the imp-3580 " +
+      "frozen value 1.000237, so the frozen node over-states the crossover-scale amplification by ~2.27x " +
+      "by never applying the 1/log gamma_N shrink. Re-root-solving both crossings with this N-varying " +
+      "closed form collapses the imp-3604 per-floor sub-bracket to a single pinned value: the N_half/N_x " +
+      "band stays [0.99313, 0.99772] ~ 0.996 (f=1 reproducing imp-3580/imp-3604 at 0.996019 to the last " +
+      "digit) but now with only ~2e-7..8e-7 residual C_G spread, versus the imp-3604 ~3e-6 flat-bracket " +
+      "spread -- confirming imp-3604 was pessimistic at its endpoints." +
+      "\n\nHONEST SCOPE: derivation/measurement only -- pins a Gronwall flow-factor sub-bracket using a " +
+      "named closed-form collision-time law; establishes NO operator positivity. Mass-feasibility remains " +
+      "NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a >= 0 off-diagonal endpoint-Hankel positivity " +
+      "(imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3620 (derives the crossover-scale Gronwall flow factor from the imp-398 t_c(N)~1/log gamma_N closed form, pinning the imp-3604 flat flow-factor bracket to a single per-floor N_half/N_x value with ~4e-7 residual C_G spread), 2026",
+    relatedTerms: [
+      "imp-3604 sigma-crossover flow-factor bracket invariance [1,1.000474] (imp-3604)",
+      "imp-3580 frozen-Gronwall floor invariance, ratio 0.996019 (imp-3580)",
+      "imp-2644 A1 Theta-trap discharge, |t_c| <= g_min^2/6 = 2.37e-4, C_G in [1,2] (imp-2644)",
+      "imp-398 backward-flow-stability law, t_c(N) ~ 1/log gamma_N",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

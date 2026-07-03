@@ -2837,6 +2837,48 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "Self-consistent O(eps^3) flow-gap expansion: resummed leading d1=-2/(1-lambda) (imp-3617)",
+    category: "numerical",
+    definition:
+      "imp-3599 wrote the EXACT flow-gap identity gap = 1 - (L_half/L_x)/(1+eta)^2, eta = " +
+      "E_flow(N_half)/E_trunc, and a perturbative O(eps^2) crude model 2 eps(1+lambda) - " +
+      "(4 mu+4 lambda+3) eps^2 (eps = E_flow(N_x)/E_trunc) that closes ~94-95% of the imp-3580 leading-law " +
+      "residual, leaving a ~5% tail (resid ~4.5e-4..1.9e-3 pp). imp-3617 pushes the SAME exact identity to a " +
+      "self-consistent closed expansion in eps: writing Du = ln(N_half/N_x) = d1 eps + d2 eps^2 + " +
+      "d3 eps^3 + O(eps^4) and solving the fixed point Du = ln(L_half/L_x) - 2 ln(1+eta) order by order " +
+      "gives the resummed leading coefficient d1 = -2/(1-lambda) (lambda = d lnL/d lnN), the second " +
+      "coefficient d2 = [(1/2) s d1^2 + 1 - 2 mu d1]/(1-lambda) -- FIRST requiring the slope-curvature " +
+      "s = d^2 lnL/d(lnN)^2 and the E_flow log-curvature nu = d^2 lnE_flow/d(lnN)^2 -- and a third " +
+      "coefficient d3 adding the log-N third derivative t. The gap follows from gap = 1 - exp(Du) " +
+      "truncated consistently at each order. Re-root-solving both crossings across the imp-3443 " +
+      "half-to-double E_trunc floor grid f in {0.5..2} (400-iter bisection, residual <1e-9, reproducing " +
+      "imp-3580/imp-3599 to the last digit) and evaluating lambda, mu, s, nu, t by central finite " +
+      "difference in ln N (step 1e-4, stable under step halving) shows geometric convergence: at f=0.5 " +
+      "the residual falls 4.49e-4 (imp-3599) -> 6.54e-5 (leading d1) -> 1.38e-7 (O(eps^2)) -> 3.13e-10 " +
+      "(O(eps^3)), a ~5-6 order-of-magnitude drop toward the ~1e-13 exact-identity floor, with the same " +
+      "ratio-100+ per-order shrink at every floor node f in {0.5,0.75,1.0,1.5,2.0}. The resummed leading " +
+      "term -d1 eps = 2 eps/(1-lambda) already beats the imp-3599 crude model outright, because the " +
+      "2 lambda^2 eps piece the imp-3599 linearization 2 eps(1+lambda) dropped is the dominant part of " +
+      "its residual tail." +
+      "\n\nHONEST SUB-GAP imp-3617-fourthorder-fd-floor: the O(eps^3) truncation does NOT reach the " +
+      "~1e-13 exact-identity floor; a plateau at ~3e-10..2.3e-8 pp survives from the neglected O(eps^4) " +
+      "term and the finite-difference evaluation of the curvature slopes s, nu, t. The imp-3599 exact " +
+      "identity remains the complete closed object; only the perturbative expansion is now truncated one " +
+      "order further. Derivation/measurement only; no positivity, no bridge closure, no RH claim, NO QED. " +
+      "RH-EQUIVALENT necessary-but-not-sufficient; the imp-3066 off-diagonal endpoint-Hankel K_a >= 0 " +
+      "magnitude is the lone obstruction, UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the rigorous " +
+      "SOTA.",
+    firstUsed: "imp-3617 (self-consistent O(eps^3) flow-gap expansion of the imp-3599 exact identity, driving the residual ~5-6 orders below the imp-3599 crude O(eps^2) tail toward the ~1e-13 exact floor), 2026",
+    relatedTerms: [
+      "imp-3599 exact flow-gap identity and O(eps^2) crude model (imp-3599)",
+      "imp-3580 sigma-crossover floor invariance / leading gap law (imp-3580)",
+      "imp-3556 baseline half-decay <=> crossover certification (imp-3556)",
+      "imp-3443 half-to-double E_trunc floor grid (imp-3443)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

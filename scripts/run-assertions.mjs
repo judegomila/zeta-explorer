@@ -2175,6 +2175,19 @@ const DATA_MODULES = [
   // ~1e-5; equal-product cells coincide to machine precision. Representative diagnostic; no RH
   // verdict; positivity not attempted; PT 0.2 SOTA.
   '/src/data/imp-3146-residual-gap-limit-aU-grid.js',
+  // imp-3293: CERTIFIES the imp-3125 closed form tanh(s)-tanh(s/2), s=a*U, is the
+  // DEG-to-infinity limit of the numerical orthogonalized gap CELL-WIDE (imp-3125 swept
+  // DEG only at a=0.5,U=6; imp-3146 evaluated the limit at a single DEG=4 per cell). Here
+  // the DEG sweep {2,4,6,8,10} is run at FIVE trustworthy cells at varied (a,U) straddling
+  // the golden maximum s*=arccosh(phi) (s in {0.5,s*,1.5,2,3}); per cell the constant
+  // -direction floor R_orth_00=(cosh s-1)/sinh s=tanh(s/2) is EXACT to ~1e-12, the operator
+  // norm respects tanh(s), and the Aitken DEG-to-infinity extrapolant of ||R_orth||-R_orth_00
+  // lands on tanh(s)-tanh(s/2) to ~3e-3 (distance shrinks ~10x-16x). Two honest boundaries:
+  // (A) the max-diagonal argmax is the constant direction only broadly -- at small s=0.5 a
+  // boundary monomial edges ~1e-5 above it, so the clean invariant is the CONSTANT-direction
+  // gap; (B) at s=5 the DEG=10 cosh-Gram is ill-conditioned and the op-norm OVERSHOOTS its
+  // ceiling tanh(5) (that cell EXCLUDED). Representative diagnostic; no RH verdict; PT 0.2 SOTA.
+  '/src/data/imp-3293-orthogonalized-gap-closed-form-cross-cell.js',
   // imp-3176: CROSS-MODULE tripwire locking the imp-3146 golden-ratio landmark.
   // Re-derives the maximizer of G(s)=tanh(s)-tanh(s/2) from an INDEPENDENT Newton
   // solve of the stationarity condition G prime(s)=sech^2(s)-(1/2)sech^2(s/2)=0
@@ -2510,6 +2523,16 @@ const DATA_MODULES = [
   // two imp-3200 families, NOT the global infimum; c_glob stays OPEN with c_half the tightest located
   // ceiling; basin margin > 0.17; PT Lambda<=0.2 SOTA. 7 self-executing assertions.
   '/src/data/sg1c-asym-onset-third-integrator-scan-2026-07-02.js',
+  // imp-3295: is the UNIT opposite-lattice the WORST spacing within the imp-3170 R->inf asymmetric
+  // class? Generalizes the closed-form CM-flow rate to arbitrary opposite-lattice spacing L
+  // (drho/ds(g;L) = (g-1)/(g+1)-2/g+2g + (1/L)[psi(g/L+1)+gamma] - (g/L)[psi((g+1)/L+1)-psi(g/L+1)]),
+  // pins two closed-form endpoints c(1)=c_asym=0.90279 (imp-3170 anchor) and c(L->inf)=1 exactly
+  // (single-neighbour recovery), and shows the onset c(L) is STRICTLY MONOTONE INCREASING on the
+  // admissible L>=1 (dc/dL(1)~+0.173). So the sub-family infimum over L>=1 is at L=1: the unit lattice
+  // IS the worst spacing, NO larger L lowers the onset. The L<1 descent lands in the separate denser
+  // half-lattice regime (imp-3236/3237/3270, ceiling c_half~0.8980). Sub-family result only; c_glob
+  // stays OPEN in (0.86566,0.89802]; PT Lambda<=0.2 SOTA. 6 self-executing assertions.
+  '/src/data/sg1c-asym-onset-lattice-spacing-sweep-2026-07-02.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -544,6 +544,29 @@ export const SG1C_R2T2_KSHELL_GENERAL = (() => {
   // K -> infinity limit condition residual at rho=1: psi(2)+gamma telescopes to H_1 = 1
   const psiPlusGammaAt1 = 1; // sum_{k>=1}[1/k - 1/(1+k)] = 1 (telescoping)
   const limitResidualAt1 = 1 * (1 - 1 / 1) - 2 * (1 / 1 - psiPlusGammaAt1); // = 0 exactly
+  // imp-3370: LEADING-ORDER asymptotic of the onset approach to 1. The imp-3290 ladder only
+  // eyeballed 1-onset shrinking "~1/K"; the exact telescoping shows the decay is in fact CUBIC.
+  // Split G(rho,K) = g0(rho) + C(rho,K): g0(rho) = rho - 1 - 2/rho + 2(psi(rho+1)+gamma) is the
+  // K->inf limit function (g0(1)=0), and C is the finite-K correction. Its clean form is
+  //   S_N - S_C = 1 - 1/rho + 1/K + 1/(rho+K+1),  S_C = 1/rho - (psi(rho+1)+gamma) + delta_C,
+  //   delta_C(rho,K) = sum_{k>K} rho/(k(rho+k)),  so C = rho/K + rho/(rho+K+1) - 2 delta_C.
+  // AT rho=1 the correction telescopes EXACTLY (delta_C(1,K) = sum_{k>K} 1/(k(k+1)) = 1/(K+1)):
+  //   C(1,K) = 1/K + 1/(K+2) - 2/(K+1) = 2/[K(K+1)(K+2)].
+  // The leading rho/K terms cancel (2/K - 2/K) and the 1/K^2 terms cancel too, leaving C = O(1/K^3).
+  // Since g0(1)=0 and g0'(1) = 1 + 2/rho^2 + 2 psi'(rho+1) at rho=1 = 1 + 2 + 2 psi'(2) = 1 + pi^2/3,
+  // solving g0(1-eps) + C(1,K) = 0 gives 1 - onset(K) = C(1,K)/g0'(1) + O(K^-6), i.e.
+  //   1 - onset(K) = [2/(K(K+1)(K+2))]/(1 + pi^2/3),  leading term A/K^3 with
+  //   A = 2/(1 + pi^2/3) = 6/(3 + pi^2) = 0.4662147967... . So the ladder decays as 1/K^3, NOT 1/K.
+  const gPrimeAt1 = 1 + Math.PI * Math.PI / 3;         // g0'(1) = 1 + 2 + 2 psi'(2) = 1 + pi^2/3
+  const leadingCoefA = 2 / gPrimeAt1;                   // = 6/(3+pi^2) ~ 0.46621480
+  const Ccorr = (K) => 2 / (K * (K + 1) * (K + 2));     // EXACT finite-K correction; equals G(1,K)
+  const CcorrExactMaxErr = Math.max(...[1, 3, 10, 50].map((K) => Math.abs(G(1, K) - Ccorr(K))));
+  const asympCheck = shells.map((s) => {
+    const predExact = Ccorr(s.shellCount) / gPrimeAt1;  // leading law with exact telescoped correction
+    const predA = leadingCoefA / (s.shellCount ** 3);   // bare A/K^3 leading term
+    return { shellCount: s.shellCount, eps: s.deltaFrom1, predExact, predA, ratioExact: s.deltaFrom1 / predExact, epsTimesK3: s.deltaFrom1 * s.shellCount ** 3 };
+  });
+  const asympRatioAtK40 = asympCheck[asympCheck.length - 1].ratioExact; // ~1.0: predicted eps matches K=40 onset
   return {
     cStarClosed,
     exactRate: 'drho/ds = 2 G(rho,K), G = rho(S_N - S_C) - 2 S_C; S_C = 1/rho - H_K + sum_{k=1..K} 1/(rho+k); S_N = 1 - H_{K-1} + sum_{j=1..K+1} 1/(rho+j)',
@@ -555,14 +578,23 @@ export const SG1C_R2T2_KSHELL_GENERAL = (() => {
     onsetAtK40: shells[shells.length - 1].onset, // ~0.9999932, approaching 1 (1-onset ~ 6.8e-6)
     limitCondition: 'K->inf: rho(1 - 1/rho) = 2[1/rho - (psi(rho+1)+gamma)]; unique (0,1)-closure root is EXACTLY rho=1 since psi(2)+gamma = H_1 = 1 (telescoping)',
     limitResidualAt1,                    // = 0: single-neighbour c=1 recovered in the K->inf limit
+    asymptoticDecayLaw: '1 - onset(K) ~ A/K^3 (CUBIC, not the eyeballed 1/K); A = 2/(1+pi^2/3) = 6/(3+pi^2) ~ 0.46621480. Exact: 1-onset(K) = [2/(K(K+1)(K+2))]/(1+pi^2/3) + O(K^-6)',
+    leadingCoefA,                        // 0.46621479674..., = 6/(3+pi^2)
+    onsetCorrectionExact: 'C(1,K) = 1/K + 1/(K+2) - 2/(K+1) = 2/[K(K+1)(K+2)] (delta_C telescopes to 1/(K+1)); equals G(1,K) since g0(1)=0',
+    CcorrExactMaxErr,                    // ~0: closed-form correction reproduces G(1,K) to machine precision
+    asympCheck,                          // per-K eps vs predExact and A/K^3; ratioExact -> 1, epsTimesK3 -> A
+    asympRatioAtK40,                     // ~1.0: predicted eps matches the tabulated K=40 onset
     verdict:
       'The symmetric single-shell family has an EXACT closed rate drho/ds = 2 G(rho,K) for every K '
       + '(reproducing the generic dRhoIso flow to machine precision, maxRateErr ~2.7e-15). Its worsening '
       + 'onset rises MONOTONICALLY from c* = sqrt(2+sqrt(3))-1 ~ 0.93185 at K=1 (the WORST symmetric case) '
       + 'toward 1, and the K -> infinity limit condition has its root EXACTLY at rho=1 (psi(2)+gamma = 1 by '
       + 'telescoping) -- the infinite shell RECOVERS the single-neighbour threshold c=1. This confirms the '
-      + 'Lemma R2-T2 assertion. HONEST: symmetric sub-family only; the global asymmetric c_glob stays OPEN '
-      + 'in ~(0.898, 0.943) and this makes NO RH claim.',
+      + 'Lemma R2-T2 assertion. imp-3370 now DERIVES the approach rate: the finite-K correction telescopes '
+      + 'exactly to C(1,K) = 2/[K(K+1)(K+2)], so 1 - onset(K) = C(1,K)/g0prime(1) + O(K^-6) with g0prime(1) = 1 + pi^2/3, '
+      + 'giving the CUBIC leading law 1 - onset(K) ~ A/K^3, A = 6/(3+pi^2) ~ 0.46621480 (NOT the eyeballed ~1/K); '
+      + 'the predicted eps matches the tabulated K=1..40 onsets, ratioExact -> 1. HONEST: symmetric sub-family only; '
+      + 'the global asymmetric c_glob stays OPEN in ~(0.898, 0.943) and this makes NO RH claim.',
   };
 })();
 

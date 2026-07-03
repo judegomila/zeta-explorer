@@ -607,9 +607,7 @@ export default function HomePage() {
   // of truth (PAPER_AUDIT_DASHBOARD) so they cannot drift as new conjectures
   // are entered or re-verdicted. Previously these were hardcoded as "13/13".
   const paperTotal = PAPER_AUDIT_DASHBOARD.totalCount;
-  const paperAudited = PAPER_AUDIT_DASHBOARD.auditedCount;
   const paperSubsumedRH = PAPER_AUDIT_DASHBOARD.statusCounts['SUBSUMED-BY-RH'];
-  const paperNonRH = paperTotal - paperSubsumedRH;
 
   return (
     <div className="page">
@@ -666,41 +664,6 @@ export default function HomePage() {
             background: 'rgba(245,158,11,0.12)', color: '#f59e0b',
             textDecoration: 'none', border: '1px solid rgba(245,158,11,0.3)',
           }}>RH Proof State</Link>
-        </div>
-      </div>
-
-      {/* ── Paper Audit Milestone ── */}
-      <div style={{
-        marginTop: 32, marginBottom: 24, padding: '24px 28px',
-        background: 'linear-gradient(135deg, rgba(16,185,129,0.08), rgba(6,182,212,0.06))',
-        border: '2px solid rgba(16,185,129,0.4)',
-        borderRadius: 12, textAlign: 'center',
-      }}>
-        <div style={{ fontSize: 12, color: '#10b981', fontWeight: 700, letterSpacing: '0.08em', marginBottom: 10 }}>
-          MILESTONE
-        </div>
-        <h2 style={{ fontSize: 32, fontWeight: 900, color: '#10b981', margin: '8px 0 12px', fontFamily: 'var(--font-mono)' }}>
-          {paperAudited}/{paperTotal} Paper Conjectures Audited
-        </h2>
-        <p style={{ fontSize: 14, color: '#6ee7b7', lineHeight: 1.6, maxWidth: 600, margin: '0 auto 16px' }}>
-          Complete audit of the foundational paper — all {paperTotal} conjectures reviewed, verified, or subsumed.
-          {' '}{paperSubsumedRH} resolved by RH equivalence; {paperNonRH} carry independent or partial verdicts.
-        </p>
-        <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginTop: 14 }}>
-          <Link to="/paper" style={{
-            display: 'inline-block', padding: '8px 18px', borderRadius: 6,
-            background: 'rgba(16,185,129,0.15)', color: '#10b981', fontSize: 12,
-            fontWeight: 600, textDecoration: 'none', border: '1px solid rgba(16,185,129,0.5)',
-          }}>
-            View Audit Report
-          </Link>
-          <Link to="/gap-closing" style={{
-            display: 'inline-block', padding: '8px 18px', borderRadius: 6,
-            background: 'rgba(6,182,212,0.15)', color: '#06b6d4', fontSize: 12,
-            fontWeight: 600, textDecoration: 'none', border: '1px solid rgba(6,182,212,0.5)',
-          }}>
-            Open Gaps
-          </Link>
         </div>
       </div>
 

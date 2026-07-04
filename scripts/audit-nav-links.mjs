@@ -260,6 +260,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33609-graded-mapped-cc-abscissa-artifact',
   '/viz-imp33611-band-crossing-floor-bisection',
   '/viz-imp33613-band-crossing-cross-solver-node-budget',
+  '/viz-imp33628-etrunc-ecoll-crossover',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

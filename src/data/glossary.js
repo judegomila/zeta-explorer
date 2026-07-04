@@ -6409,6 +6409,39 @@ export const glossary = [
     ],
     link: "/viz-imp33607-sigma-postpeak-decay",
   },
+  {
+    term: "imp-33580 uniform-abscissa-artifact verdict: the imp-33560 climbing Clenshaw-Curtis deep-tail budget is a fixed-node-placement artifact, not a solver-family property -- grading, not the rule, carries the flat-budget edge",
+    category: "numerical",
+    definition:
+      "imp-33560 found the deep-tail Clenshaw-Curtis single-grid node budget for A(tau*) CLIMBS with " +
+      "depth -- ~257 nodes at n=350/375 rising to ~513 at n=400 -- while the imp-33539 graded-GL rule " +
+      "stays FLAT at ~200 nodes across the same rungs, and it ATTRIBUTED the CC climb to its fixed " +
+      "Chebyshev-Lobatto abscissae x_k=cos(pi k/N) not tracking the sharpening saddle peak, without " +
+      "testing that attribution directly.\n\n" +
+      "imp-33580 tests it: it re-runs the identical CC single-grid A(tau*) sweep after composing the " +
+      "SAME origin-concentrating coordinate map the graded-GL rule uses (s=hi*t^4, t=(1+x)/2, grade 4) " +
+      "onto the Chebyshev-Lobatto nodes and standard cosine weights, at n in {350,375,400}. FINDING: " +
+      "the unmapped (linear) CC control reproduces the imp-33560 climb verbatim (257/257/513 nodes), " +
+      "but the graded-mapped CC budget FLATTENS to ~97-129 nodes -- its worst case (129) sits below the " +
+      "unmapped floor (257), and at the deepest rung n=400 the map cuts the budget ~3.98x (513 -> 129). " +
+      "Since abscissa placement is the ONLY change between control and test, the imp-33560 depth-climb " +
+      "is confirmed to be a UNIFORM-ABSCISSA ARTIFACT, not intrinsic to Clenshaw-Curtis: the flat-budget " +
+      "edge previously credited to the graded-GL RULE is really the ORIGIN-CONCENTRATING GRADING, and it " +
+      "is portable to any solver family that adopts the same coordinate map.\n\n" +
+      "HONEST SCOPE: cross-solver measurement only, not a bound. Min-node budgets are jittery " +
+      "arithmetic-floor lattice quantities (libm exp/pow/cos variation can shift the exact 97/129/257/513 " +
+      "counts); the robust reading is the qualitative flat-vs-climb separation. Changes no bound, patches " +
+      "no literal (imp-3685/imp-3849/imp-33213/imp-33316/imp-33539/imp-33560 intact); imp-3066 K_a>=0 " +
+      "untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+    firstUsed: "imp-33580 (composing the imp-33539 origin-concentrating grading map onto the imp-33560 Clenshaw-Curtis deep-tail single-grid sweep at n in {350,375,400}, testing whether the CC climbing node budget is an abscissa artifact), 2026",
+    relatedTerms: [
+      "imp-33560 climbing CC single-grid deep-tail budget, the attribution this module tests directly (imp-33560)",
+      "imp-33539 origin-concentrating graded-GL flat ~200-node minimum, the source of the coordinate map (imp-33539)",
+      "imp-33316 <64 ULP A_log band, the target every rung here is measured against (imp-33316)",
+      "imp-33609 viz page overlaying the unmapped CC control against the graded-mapped CC test (imp-33609)",
+    ],
+    link: "/viz-imp33609-graded-mapped-cc-abscissa-artifact",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

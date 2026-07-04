@@ -3774,6 +3774,17 @@ const DATA_MODULES = [
   // robust reading is the bracket not the exact node; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED.
   // 8 assertions.
   '/src/data/imp-33627-saturation-budget-crossover.js',
+  // imp-33789: MAPS the imp-33765 DECOUPLED pass/shear-rate grid ||R||(s_a, s_b) (PASS form
+  // cosh at rate s_b, SHEAR form sinh at rate s_a; the admissible imp-3066 kernel is the
+  // diagonal slice s_a = s_b) and LOCATES, per shear rate s_a, the crossing pass rate s_b*
+  // where the Perron norm ||R|| = 1. The s_a = 3 row reproduces the three imp-33765 anchor
+  // points (20.94 at s_b=1, 4.617014 at the coupled anchor s_b=3, 0.338 at s_b=6). RESULT:
+  // every crossing OVERSHOOTS (s_b* > s_a) and the coupled anchor stays 3.02..4.91 > 1, so
+  // s_b <= s_a never softens below unity; the overshoot ratio s_b* over s_a shrinks
+  // monotonically 2.526 (s_a=1) -> 1.592 (s_a=3) -> 1.216 (s_a=8), approaching but never
+  // reaching parity. Diagnostic device (breaks the exponential shear, per imp-33765); no RH
+  // verdict; K_a>=0 not attempted; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-33789-decoupled-rate-grid.js',
 ];
 
 let ALL_MODULES = FAST_MODE

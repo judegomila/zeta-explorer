@@ -251,6 +251,64 @@ export const EPS_FIELD_ROBUST_BOOTSTRAP = {
   rigorousBeat: false,
 };
 
+// ── imp-33224: eps_true certificate — exact field-difference reduction ────────
+// Sub-gap imp-3933-sub-eps-certificate asks for a DETERMINISTIC field-Lipschitz
+// constant eps_true for the true xi backward-heat-flow field vs the window-Dyson
+// field. The crux (proved below, verified in-build) is that every out-of-window,
+// mirror, or smooth-background zero y contributes to the omitted field on
+// particle k the term e_k = -2/(x_k - y), whose local difference telescopes:
+//     e_{l+1} - e_l = -2/(x_{l+1}-y) + 2/(x_l-y)
+//                   = 2 (x_{l+1}-x_l) / ((x_l-y)(x_{l+1}-y))
+//                   = 2 g_l / ((x_l-y)(x_{l+1}-y)),        g_l = x_{l+1}-x_l.
+// Hence the field-Lipschitz contribution of the full omitted set is the
+// CONVERGENT deterministic initial-data functional
+//     eps_true(l) <= 2 * sum_{y not in window} 1/|(x_l-y)(x_{l+1}-y)|,
+// the SAME 1/((x-y1)(x-y2)) kernel as Psi(T,eps) (which sums in-window j). This
+// turns the module estimate into a reduction; per-channel closure stays OPEN.
+//
+// Far-zero tail decay: if gap l sits k mean-spacings delta below the window top,
+// the m-th omitted zero above is at distance ~(k+m-1)delta from x_{l+1}, so by
+// the telescoping sum_{m>=1} 1/((k+m-1)(k+m)) = 1/k,
+//     eps_far(l) <= (2/delta^2) * (1/k) = 2/(delta^2 k),   delta = 2pi/log(gamma/2pi).
+// At the top edge (k=1, delta~0.65) this is ~4.7 (matching the module O(10)
+// window-edge estimate); it decays like 1/k into the interior (~O(1e-3) near the
+// record pair), which is exactly why the per-gap eps_l variant kills the edge
+// sensitivity: only O(1/delta) top gaps carry a large eps.
+export const EPS_TRUE_DECOMPOSITION = Object.freeze({
+  ticket: 'imp-33224',
+  parent: 'imp-3933',
+  subGap: 'imp-3933-sub-eps-certificate',
+  date: '2026-07-03',
+  verdict:
+    'PARTIAL — structural reduction, NOT the full theorem: the true-vs-window field-Lipschitz constant is REDUCED '
+    + 'to a convergent deterministic initial-data functional of the SAME 1/((x-y1)(x-y2)) kernel as Psi; the binding '
+    + 'channel (top-edge far zeros) is identified and bounded; per-channel closure and the per-gap eps_l profile stay OPEN.',
+  fieldDifferenceIdentity:
+    'e_{l+1} - e_l = 2 g_l / ((x_l-y)(x_{l+1}-y)) for any omitted/mirror/background zero y with e_k = -2/(x_k-y); '
+    + 'field-Lipschitz contribution = 2/|(x_l-y)(x_{l+1}-y)| (exact, verified in-build)',
+  reduction:
+    'eps_true(l) <= 2 * sum_{y not in window} 1/|(x_l-y)(x_{l+1}-y)| + (mirror + smooth-background + spectator terms) — '
+    + 'a CONVERGENT deterministic initial-data functional, same kernel as Psi(T,eps); a reduction, not an estimate.',
+  channels: [
+    { id: 'far-above (RvM tail)', form: '2 sum_{y > window top} 1/((x_l-y)(x_{l+1}-y)); dominated by nearest omitted zero, decays 1/k into interior', status: 'bounded' },
+    { id: 'far-below', form: '2 sum_{y < window bottom} 1/((x_l-y)(x_{l+1}-y)); symmetric telescoping tail', status: 'bounded' },
+    { id: 'mirror-pairing', form: 'functional-equation mirror zeros at -gamma; contribution 2/((x_l+y)(x_{l+1}+y)) far from window, sign to be resolved', status: 'open' },
+    { id: 'spectator conjugate-pair / realness', form: 'off-critical-line spectators enter as conjugate pairs; realness handling of e_k not yet certified', status: 'open' },
+  ],
+  bindingChannel:
+    'far-above top-edge zeros: the nearest omitted zero sits ~one mean spacing delta = 2pi/log(gamma/2pi) above the '
+    + 'window top, giving the O(10) spike; interior gaps see only the smoothly-varying tail (O(1e-3) near the record pair). '
+    + 'This is precisely why the per-gap eps_l variant (record pair sees eps_a = O(1e-3)) removes the edge sensitivity.',
+  tailBound:
+    'gap l at depth k mean-spacings below the top: eps_far(l) <= (2/delta^2)(1/k) = 2/(delta^2 k), by the telescoping '
+    + 'sum_{m>=1} 1/((k+m-1)(k+m)) = 1/k; ~4.7 at k=1 (delta~0.65), decaying 1/k so only O(1/delta) top gaps carry large eps.',
+  openResidual:
+    'FULL closure STILL needs: (i) the two-sided (above + below) tail constants summed on the ACTUAL Odlyzko ordinates '
+    + 'per plateau; (ii) the mirror / functional-equation pairing sign; (iii) spectator conjugate-pair realness handling; '
+    + '(iv) the per-gap eps_l certification feeding the imp-3933 bootstrap in place of the uniform eps. STAYS OPEN.',
+  rigorousBeat: false,
+});
+
 // ── Build-time assertions ─────────────────────────────────────────────────────
 
 const REL = (x, y) => Math.abs(x - y) / Math.max(Math.abs(x), Math.abs(y), 1e-300);
@@ -352,6 +410,39 @@ export const EPS_FIELD_ROBUST_BOOTSTRAP_ASSERTIONS = [
       && EPS_FIELD_ROBUST_BOOTSTRAP.rigorousBeat === false
       && /Lambda <= 0.2 REMAINS the rigorous SOTA/.test(EPS_FIELD_ROBUST_BOOTSTRAP.honest)
       && /NO false QED/.test(EPS_FIELD_ROBUST_BOOTSTRAP.honest),
+  },
+  {
+    id: 'imp33224-field-difference-identity-exact',
+    description:
+      'imp-33224: the omitted-zero field-difference identity e_{l+1}-e_l = 2 g_l/((x_l-y)(x_{l+1}-y)) reproduces the '
+      + 'direct field difference -2/(x_{l+1}-y)+2/(x_l-y) to machine precision across a grid of (x_l, g_l, y) spanning '
+      + 'near/far and interior/edge configurations — the exact reduction underlying the eps_true certificate',
+    holds: () => {
+      const cases = [[0, 1, 5], [10, 0.03, 10.9], [100, 0.5, -3], [0, 0.0377, 0.09], [54600, 0.02, 54601.3]];
+      return cases.every(([xl, gl, y]) => {
+        const xr = xl + gl;
+        const direct = -2 / (xr - y) + 2 / (xl - y);
+        const identity = 2 * gl / ((xl - y) * (xr - y));
+        return Math.abs(direct - identity) < 1e-9 * (1 + Math.abs(direct));
+      });
+    },
+  },
+  {
+    id: 'imp33224-tail-bound-decays-subgap-open',
+    description:
+      'imp-33224: the far-zero tail bound eps_far(k) <= 2/(delta^2 k) is finite/positive, strictly decreasing in the '
+      + 'interior depth k (only O(1/delta) top gaps carry a large eps), ~O(few) at the top edge; and the honesty gate '
+      + 'holds — reduction not theorem, sub-gap imp-3933-sub-eps-certificate STILL OPEN, no rigorous beat claimed',
+    holds: () => {
+      const delta = (2 * Math.PI) / Math.log(1e5 / (2 * Math.PI));
+      const b = (k) => 2 / (delta * delta * k);
+      const subGap = EPS_FIELD_ROBUST_BOOTSTRAP.openSubGaps.find((s) => s.id === 'imp-3933-sub-eps-certificate');
+      return b(1) > b(2) && b(2) > b(10) && b(10) > 0 && b(1) < 100
+        && EPS_TRUE_DECOMPOSITION.rigorousBeat === false
+        && /STAYS OPEN/.test(EPS_TRUE_DECOMPOSITION.openResidual)
+        && /reduction, NOT the full theorem/.test(EPS_TRUE_DECOMPOSITION.verdict)
+        && subGap && subGap.status === 'open';
+    },
   },
 ];
 

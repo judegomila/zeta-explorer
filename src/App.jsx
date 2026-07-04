@@ -237,6 +237,7 @@ const Imp33715GapVsHeightIndependenceViz = lazy(() => import('./pages/Imp33715Ga
 const Imp33716PeakMinusTroughAmplitudeViz = lazy(() => import('./pages/Imp33716PeakMinusTroughAmplitudeViz.jsx'));
 const Imp33717EnvelopeHeightExtensionViz = lazy(() => import('./pages/Imp33717EnvelopeHeightExtensionViz.jsx'));
 const Imp33718InterPeakGapSequenceViz = lazy(() => import('./pages/Imp33718InterPeakGapSequenceViz.jsx'));
+const Imp33675DenseNodeBudgetJitterViz = lazy(() => import('./pages/Imp33675DenseNodeBudgetJitterViz.jsx'));
 const Imp33589HeightCollapsingEnvelopeCeilingViz = lazy(() => import('./pages/Imp33589HeightCollapsingEnvelopeCeilingViz.jsx'));
 const Imp33595DeepTailCohortIndexPage = lazy(() => import('./pages/Imp33595DeepTailCohortIndexPage.jsx'));
 const Imp33617DeepTailCrossSolverCohortIndexPage = lazy(() => import('./pages/Imp33617DeepTailCrossSolverCohortIndexPage.jsx'));
@@ -909,6 +910,7 @@ function AppShell() {
           <Route path="/viz-imp33716-peak-minus-trough-amplitude" element={<Imp33716PeakMinusTroughAmplitudeViz />} />
           <Route path="/viz-imp33717-envelope-height-extension" element={<Imp33717EnvelopeHeightExtensionViz />} />
           <Route path="/viz-imp33718-interpeak-gap-sequence" element={<Imp33718InterPeakGapSequenceViz />} />
+          <Route path="/viz-imp33675-dense-node-budget-jitter" element={<Imp33675DenseNodeBudgetJitterViz />} />
           <Route path="/viz-imp33589-height-collapsing-envelope-ceiling" element={<Imp33589HeightCollapsingEnvelopeCeilingViz />} />
           <Route path="/viz-imp33595-deep-tail-cohort-index" element={<Imp33595DeepTailCohortIndexPage />} />
           <Route path="/viz-imp33617-deep-tail-cross-solver-cohort-index" element={<Imp33617DeepTailCrossSolverCohortIndexPage />} />

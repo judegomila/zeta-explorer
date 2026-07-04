@@ -3686,6 +3686,21 @@ const DATA_MODULES = [
   // artifact and BOUNDS the imp-33539 flat minimum to the in-band rungs. Measurement only; jittery
   // lattice floor; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 9 assertions.
   '/src/data/imp-33557-band-crossing-min-budget.js',
+  // imp-33560: EXTENDS the imp-33536 baseline-relative cross-solver finding from R_40 to the DEEP-TAIL
+  // A(tau) weight. For each deeper deep-tail rung n in {350,375,400} the deep-tail
+  // A(tau*) = int_0^7 phiKernel(s)phiKernel(s+tau*) ds is scored on a SINGLE Clenshaw-Curtis grid
+  // (Chebyshev-Lobatto nodes + CC weights, independent of both the imp-33275 Simpson ladder and the
+  // graded-GL rule) across even-N nodes 17..2049 vs the imp-33213 A_log target, and the smallest CC
+  // grid clearing the imp-33316 <64 ULP floor band is located. A single CC grid DOES reach the floor
+  // -- at ~257 nodes (n=350/375) and ~513 nodes (n=400) -- node-COMPETITIVE (~1.28-2.56x, all <4x)
+  // with the imp-33539 FLAT ~200-node graded min, so the ~186x (37205/200) is BASELINE-RELATIVE (it
+  // reflects the weak uniform Richardson ladder, not an intrinsic graded advantage), exactly as
+  // imp-33536 found for R_40. The one genuine graded edge: the ~200-node graded budget is FLAT while
+  // CC climbs with depth (~257->~513) as the peak sharpens -- a mild ~1.3-2.6x real win, not ~186x.
+  // VERDICT BASELINE-RELATIVE-EXTENDS-TO-THE-DEEP-TAIL. Measurement only; jittery lattice floor;
+  // imp-33537/imp-33557 bound the <64 band at n>=510; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED.
+  // 7 assertions.
+  '/src/data/imp-33560-deep-tail-graded-vs-cc-cross-solver-node-budget.js',
 ];
 
 let ALL_MODULES = FAST_MODE

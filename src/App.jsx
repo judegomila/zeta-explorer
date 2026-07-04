@@ -218,6 +218,7 @@ const Imp33609GradedMappedCcAbscissaArtifactViz = lazy(() => import('./pages/Imp
 const Imp33611BandCrossingFloorBisectionViz = lazy(() => import('./pages/Imp33611BandCrossingFloorBisectionViz.jsx'));
 const Imp33613BandCrossingCrossSolverNodeBudgetViz = lazy(() => import('./pages/Imp33613BandCrossingCrossSolverNodeBudgetViz.jsx'));
 const Imp33628EtruncEcollCrossoverViz = lazy(() => import('./pages/Imp33628EtruncEcollCrossoverViz.jsx'));
+const Imp33629WideRangeBandCrossingEnvelopeViz = lazy(() => import('./pages/Imp33629WideRangeBandCrossingEnvelopeViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -868,6 +869,7 @@ function AppShell() {
           <Route path="/viz-imp33611-band-crossing-floor-bisection" element={<Imp33611BandCrossingFloorBisectionViz />} />
           <Route path="/viz-imp33613-band-crossing-cross-solver-node-budget" element={<Imp33613BandCrossingCrossSolverNodeBudgetViz />} />
           <Route path="/viz-imp33628-etrunc-ecoll-crossover" element={<Imp33628EtruncEcollCrossoverViz />} />
+          <Route path="/viz-imp33629-wide-range-band-crossing-envelope" element={<Imp33629WideRangeBandCrossingEnvelopeViz />} />
           <Route path="/viz-imp33219-a-weight-two-route-reproduction" element={<Imp33219AWeightTwoRouteReproductionViz />} />
           <Route path="/viz-imp33246-eps-crossval" element={<Imp33246EpsCrossvalViz />} />
           <Route path="/viz-imp33257-node-budget-full-window-ulp" element={<Imp33257NodeBudgetFullWindowUlpViz />} />

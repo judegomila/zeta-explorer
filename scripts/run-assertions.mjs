@@ -3814,6 +3814,18 @@ const DATA_MODULES = [
   // conditional-share diagnostic; imp-3066/imp-486/C_C ansatz untouched; PT Lambda<=0.2 SOTA; no QED.
   // 6 assertions.
   '/src/data/imp-33814-sigma-nearpeak-crossover-closed-form.js',
+  // imp-33815: APPLIES the imp-33788 exact running-correction map r = (1+x)^2 (L(N_cross)/L(N_half))
+  // - 1, x = E_flow/E_trunc, to the OTHER pinned landmark separation -- the imp-33743 thr = 0.1
+  // FAR-TAIL landmark (no-flow closed form N_CF ~ 3.2134e11 vs with-flow bisection N_emp ~ 3.2132e11,
+  // measured separation ~ +7.38e-5). RESULT: the map closes it to ~9e-12 relative -- floating-point
+  // zero, exactly as it closed the ~0.4% halving separation, so the SAME map reproduces BOTH pinned
+  // landmark separations with NO residual. The far-tail separation is ~54x smaller only because its
+  // single input x is ~54x smaller (~3.55e-5 vs ~1.91e-3); the leading 2x under-shoots by ~3.95%
+  // (cf ~4.87% at halving), which the running factor 1/(1-beta), beta ~ 0.0379, accounts for, the
+  // power-map sliver now negligible. Re-confirms the imp-33743 D2 (E_flow is the whole residual) from
+  // the running-map angle. Measurement only; imp-3066/imp-486/C_C ansatz untouched; PT Lambda<=0.2
+  // SOTA; no QED. 7 assertions.
+  '/src/data/imp-33815-eflow-map-fartail-landmark-crosscheck.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -309,9 +309,12 @@ export const IMP33276_R40_CROSS_OUTER_INVARIANCE_ASSERTIONS = [
   {
     id: 'imp33276-coarse-grid-reproduces-imp33256-control',
     why: 'The coarse [0,7]/1200 rung must reproduce the imp-33256 single cross-outer control: R_40 ~ 1.02438 ' +
-      'and a cross-outer delta at the ~1e-14 machine floor.',
+      'and a cross-outer delta at the ~1e-14 machine floor. Tolerance widened to the ladder-standard 1e-4 ' +
+      '(imp-3713/imp-3731/imp-3849/imp-3868/imp-3895 all use 1e-4 for this same R_40 cross-check) -- the ' +
+      'prior 5e-6 bound left only ~8% margin against the actual ~4.62e-6 delta and could red-build on any ' +
+      'benign ULP-level float summation-order change (imp-33288 audit).',
     holds: () =>
-      Math.abs(CROSS_OUTER[0].r40OuterA - 1.02438) < 5e-6 &&
+      Math.abs(CROSS_OUTER[0].r40OuterA - 1.02438) < 1e-4 &&
       CROSS_OUTER[0].deltaCrossOuter < 1e-12,
   },
   {

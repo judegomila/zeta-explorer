@@ -8469,6 +8469,37 @@ export const glossary = [
       'imp-486 C_mb GUE-conditional dependency, untouched by this measurement-only diagnostic (imp-486)',
     ],
   },
+  {
+    term: 'imp-33844 HUMP-PEAK-CLOSED-FORM verdict: the M3 saturation-curvature hump peak equals p_ecoll^2 ln10/8, attained at sigma=1/2',
+    category: 'numerical',
+    definition:
+      'imp-33809 located the global M3 intra-decade saturation-curvature hump amplitude peak ' +
+      'NUMERICALLY at the k = 9 E_coll = E_trunc crossover decade (~6.4758e-2), the one attribution ' +
+      'left standing after the imp-33810 M2 refutation, but reported the peak only as a tabulated ' +
+      'number. imp-33844 derives whether that peak admits a CLOSED FORM from the inherited ' +
+      'sigma = E_coll / (E_trunc + E_flow + E_coll) component model.\n\n' +
+      'RESULT: writing sigma as a LOGISTIC function of ln(E_coll/E_trunc), the hump (the gap between ' +
+      'the endpoint-local sigma decay-exponent and the decade-OLS one) is to leading order the ' +
+      'curvature term hump(k) ~ (1/2) p_ecoll^2 sigma (1 - sigma) ln 10, MAXIMIZED where the logistic ' +
+      'curvature sigma(1-sigma) peaks -- at sigma = 1/2, which by the component model is EXACTLY the ' +
+      'E_coll = E_trunc crossover (bisection reproduces N ~ 3.2803e9, sigma ~ 0.49953), analytically ' +
+      'explaining why imp-33809 found the hump argmax at k = 9. The leading closed form ' +
+      'CF0 = ln 10 / 32 ~ 7.19558e-2 overshoots the measured peak by +11.12%; restoring the measured ' +
+      'collision exponent p_ecoll ~ 0.47724 (the imp-33620/imp-33727 log T0 drift below 1/2) tightens ' +
+      'it to p_ecoll^2 ln 10 / 8 ~ 6.55527e-2, a +1.23% residual -- a ~9x tightening, the same ' +
+      'leading-then-correction pattern imp-33723 used for the crossover N itself.\n\n' +
+      'HONEST SCOPE: derivation/measurement only, on the inherited imp-3220/imp-3406 extrapolation, ' +
+      'NOT a rigorous asymptotic. C_mb stays GUE-conditional (imp-486); the C_C 1/8 ansatz ' +
+      '(imp-2642/imp-2643) is untouched; changes no bound; establishes no operator positivity; ' +
+      'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33844 (deriving the imp-33809 M3 hump-peak closed form as the logistic curvature maximum of sigma at the E_coll=E_trunc crossover), 2026',
+    relatedTerms: [
+      'imp-33809 M3 hump peak located numerically at k=9, the tabulated measurement this closed-forms (imp-33809)',
+      'imp-33810 M2 refutation leaving M3 the one attribution standing (imp-33810)',
+      'imp-33723 closed-form Banach crossover N ~ 3.2803e9, the same leading-then-correction pattern (imp-33723)',
+      'imp-3444 E_coll = E_trunc crossover landmark, the sigma=1/2 point where the hump peaks (imp-3444)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

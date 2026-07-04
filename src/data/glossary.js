@@ -7244,6 +7244,50 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33681 amplitude-grows-weakly-positive-but-below-the-peak-growth verdict: the peak-minus-trough envelope AMPLITUDE across [400,1200] rises slower than the peak heights alone, refuting the flat-troughs-imply-faster-amplitude premise",
+    category: "numerical",
+    definition:
+      "imp-33660 fit the sixteen band-clearing cluster-peak envelope HEIGHTS over [400,1200] (weak " +
+      "positive slope ~+0.067 ULP/rung, R^2~0.33) and imp-33662 fit the fifteen inter-cluster TROUGH " +
+      "floors over the same window (flat, slope ~+0.013 ULP/rung, R^2~0.04), but neither module " +
+      "differenced the two into the peak-to-trough AMPLITUDE, so it stayed unclear whether the " +
+      "amplitude -- the depth of the envelope swing, not just its peak -- grows, and whether flat " +
+      "troughs would make that amplitude growth EXCEED the peak-height growth.\n\n" +
+      "imp-33681 composes the two parent modules (re-using their already-computed floorUlp(n) scans, " +
+      "no new scan) by pairing each of the sixteen cluster peaks with the mean of its bracketing " +
+      "trough floor(s), forming amp_i = peakHeight_i - localTroughFloor_i, then fits amp-vs-n and " +
+      "decomposes the resulting slope against the two parent slopes (amp = peak - floor implies " +
+      "b_amp ~ b_peak - b_floor).\n\n" +
+      "VERDICT: AMPLITUDE-GROWS-WEAKLY-POSITIVE-BUT-BELOW-THE-PEAK-GROWTH. The sixteen amplitudes " +
+      "~[43.6,37.1,30.0,42.3,24.9,22.1,17.2,27.4,38.2,41.9,55.6,41.8,27.5,25.5,91.0,91.9] ULP (mean " +
+      "~41.1, sd ~21.3, min ~17.2 at n~807, max ~91.9 at n~1198) DO grow -- linear slope ~+0.054 " +
+      "ULP/rung, cutting residual RMS from ~21.3 (null) to ~18.4, an ~14% reduction -- but that slope " +
+      "sits BELOW the imp-33660 peak-height slope ~+0.067 by almost exactly the imp-33662 trough slope " +
+      "~+0.013, so the decomposition b_amp ~ b_peak - b_floor holds to ~0.001 ULP/rung. The troughs are " +
+      "not exactly flat -- they carry a small positive slope -- so subtracting a slightly-rising floor " +
+      "pulls the amplitude slope DOWN below the peak slope; only a genuinely DECLINING floor would push " +
+      "amplitude growth above peak growth. This REFUTES the premise that flat troughs imply faster " +
+      "amplitude growth. The fit is weak (R^2~0.25, below the peak fit's ~0.33) and carried by the same " +
+      "two tallest imp-33638 tail clusters (~91 ULP at n~1126,1198); the first fourteen amplitudes sit " +
+      "flat in a ~17..56 ULP band, so the amplitude inherits the peaks' weak positive character rather " +
+      "than revealing an independent amplification.\n\n" +
+      "HONEST SCOPE: measurement only, not a bound. Consistent with the imp-33249/imp-33537/imp-33557/" +
+      "imp-33599/imp-33621/imp-33638/imp-33660/imp-33662 latticeJitter caveat -- exact amplitudes, " +
+      "slope, and R^2 can shift under cross-platform libm variation, but the qualitative reading " +
+      "(amplitude weakly grows but stays below the peak growth, tail-outlier-driven) is robust; " +
+      "NPHI=10 truncation inherited; changes no bound, patches no literal; mass-feasibility " +
+      "necessary-but-not-sufficient; imp-3066 K_a>=0 untouched; Platt-Trudgian Lambda<=0.2 remains the " +
+      "rigorous SOTA; NO QED.",
+    firstUsed: "imp-33681 (differencing the imp-33660 sixteen cluster-peak heights against the imp-33662 fifteen inter-cluster trough floors to form the [400,1200] peak-to-trough amplitude series), 2026",
+    relatedTerms: [
+      "imp-33660 height-grows-weakly-positive-growth-class-unresolved verdict, the peak-height series this differences (imp-33660)",
+      "imp-33662 trough-floor-flat-not-rising verdict, the trough-floor series this differences (imp-33662)",
+      "imp-33682 gap-and-height-independent-no-correlation verdict, a companion cross-series measurement on the same sixteen peaks (imp-33682)",
+      "imp-33213 A_log log-domain target used to score floorUlp(n) at every rung (imp-33213)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

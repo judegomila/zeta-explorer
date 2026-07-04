@@ -8079,6 +8079,46 @@ export const glossary = [
       'imp-33640 RECOVERY-GRADE-DRIFT-NOT-PREDICTED-BY-ENVELOPE-SPIKE-HEIGHT finding, another correlation test against the same nine-cluster envelope structure (imp-33640)',
     ],
   },
+  {
+    term: 'imp-33640 RECOVERY-GRADE-DRIFT-NOT-PREDICTED-BY-ENVELOPE-SPIKE-HEIGHT verdict: the imp-33622 grade 4/6/4 recovery-grade drift across the three imp-33599 cluster peaks n=526/596/634 does NOT track cluster peak-envelope height -- it is a near-tautological exact-rung lattice-jitter property instead',
+    category: 'numerical',
+    definition:
+      'imp-33622 found the imp-33600 grade-6 band recovery is NOT rung-uniform: the recovery grade (lowest ' +
+      'g in {4,5,6,8} whose graded-GL floor at budgets >= 200 nodes enters the imp-33316 <64 ULP band) drifts ' +
+      '4/6/4 across the three imp-33599 cluster peaks n=526/596/634, and CONJECTURED this tracks the imp-33621 ' +
+      'finding that the middle cluster is the tallest floorUlp spike.\n\n' +
+      'imp-33640 tests that quantitatively at each anchor rung, comparing the recovery grade against two ' +
+      'distinct readings of "spike height": reading A, the imp-33599/imp-33621 +/-5 rolling-max ENVELOPE of ' +
+      'grade-4 floorUlp over [n-5,n+5], and reading B, the grade-4 floorUlp at the EXACT rung. MEASURED: under ' +
+      'reading A the peak heights DECREASE ~76.08/65.30/64.06 ULP, so the TALLEST cluster is n=526 -- yet n=526 ' +
+      'has the LOWEST recovery grade (4) while the shorter middle rung n=596 (~65.30) has the HIGHEST (6): ' +
+      'Pearson r of recovery grade vs envelope height is NEGATIVE (~-0.42). Only reading B (~25.85/65.30/10.67, ' +
+      'tallest at n=596 where it pokes above 64) predicts strongly (~+0.96), but that is NEAR-TAUTOLOGICAL -- ' +
+      'the recovery grade is 4 exactly when the grade-4 exact-rung floor is in band, so B predicting the grade ' +
+      'restates the definition.\n\n' +
+      'VERDICT: RECOVERY-GRADE-DRIFT-NOT-PREDICTED-BY-ENVELOPE-SPIKE-HEIGHT. imp-33622s "tracks the tallest ' +
+      'floorUlp spike" conjecture holds ONLY under the exact-rung reading and FAILS under the imp-33621 ' +
+      'published +/-5 rolling-max ENVELOPE reading, where the FIRST cluster n=526 is tallest, not the middle. ' +
+      'The 4/6/4 drift is a rung-local lattice-jitter property -- whether the grade-4 arithmetic floor at the ' +
+      'exact rung happens to poke above 64 -- not a cluster-peak-amplitude law. The follow-up imp-33663 module ' +
+      'extended this test to all sixteen imp-33621/imp-33638 cluster peaks and found the same pattern holds ' +
+      'more starkly: fifteen of sixteen peaks recover at grade 4, the exact-rung reading is a PERFECT tautology, ' +
+      'and the envelope reading is essentially uncorrelated (r~+0.06).\n\n' +
+      'HONEST SCOPE: measurement only, at the RH-equivalent scale class. floorUlp(n) is a jittery arithmetic-' +
+      'floor lattice quantity (imp-33249/imp-33277/imp-33296/imp-33537/imp-33557/imp-33579/imp-33599/imp-33621 ' +
+      'latticeJitterCaveat): correlation over only three cluster peaks means the robust reading is the SIGN ' +
+      '(tallest envelope has the lowest recovery grade), not the exact coefficient. Changes no bound, patches ' +
+      'no literal; mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 sign-positivity untouched; ' +
+      'Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33640 (correlating the imp-33622 grade 4/6/4 recovery-grade drift across the three imp-33599 cluster peaks n=526/596/634 against cluster-envelope and exact-rung floorUlp height readings), 2026',
+    relatedTerms: [
+      'imp-33622 grade 4/6/4 recovery-grade drift, the conjecture this module tests (imp-33622)',
+      'imp-33621 TAIL-RE-INTENSIFICATION verdict, source of the +/-5 rolling-max envelope reading this module tests against (imp-33621)',
+      'imp-33599 wide-range band-crossing envelope law, source of the three anchor cluster peaks n=526/596/634 (imp-33599)',
+      'imp-33663 sixteen-peak extension of this same correlation test, confirming the exact-rung tautology and envelope failure on a larger sample (imp-33663)',
+      'imp-33639 SPACING-IRREGULAR-NOT-QUASI-PERIODIC verdict, another measurement against the same nine-cluster envelope structure (imp-33639)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

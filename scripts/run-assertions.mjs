@@ -3651,6 +3651,16 @@ const DATA_MODULES = [
   // only; jittery lattice floor; imp-33537 bounds the <64 band at n>=510; imp-3066 untouched;
   // PT Lambda<=0.2 SOTA; no QED. 8 assertions.
   '/src/data/imp-33539-graded-plateau-deeper-tail-min-budget.js',
+  // imp-33555: DERIVES the depth-growth LAW of the imp-33537 deep-tail plateau jitter envelope by
+  // least-squares fitting the imp-33537 worst-window ULP series (~50.2 at n=300, ~37.5 at n=397,
+  // ~79.1 at n=510, ~74.0 at n=596; identical imp-33295 grade4/400p=4000-node plateau vs imp-33213
+  // A_log) to LINEAR/POWER/LOG laws. Finds a WEAK POSITIVE trend (linear slope ~0.12 ULP/rung, power
+  // exponent p~0.8, chord deepest/shallowest >1) but NO clean law: best R^2 ~0.6, because the series
+  // is NON-MONOTONE (the W1 window n~397 DIPS below the shallower W0 n~300). VERDICT
+  // WEAK-NON-MONOTONE-DEPTH-TREND -- the envelope is a depth-growing band ceiling (~77 ULP central
+  // trend at the deepest rung, ~79 ULP empirical), not a fittable power law. Measurement only; thin
+  // jittery 4-point basis; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 9 assertions.
+  '/src/data/imp-33555-deep-tail-jitter-envelope-growth-law.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -7027,6 +7027,40 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33557 flat-minimum-is-band-conditional verdict: the imp-33539 flat ~200-node graded-plateau minimum only reaches the imp-33316 <64 ULP band where the band itself holds",
+    category: "numerical",
+    definition:
+      "imp-33539 swept the graded-GL grade-4 plateau node budget (panels 10..400, 100..4000 nodes) and " +
+      "found the PEAK-RESOLUTION WALL stays flat at ~200 nodes across the deep-tail rungs it tested, " +
+      "reading this as a universal fixed-budget win over the uniform ladder's climbing grid.\n\n" +
+      "imp-33557 re-runs the identical graded-GL sweep at three widely-spaced band-crossing rungs -- " +
+      "n=495 (well inside the imp-33316 <64 ULP A_log band), n=510 (the band edge), and n=596 (where the " +
+      "band fails) -- and finds the ~200-node WALL stays flat at all three, but the ARITHMETIC FLOOR that " +
+      "wall reaches does not: ~24.2 ULP at n=495 (200 nodes clears the band cleanly), climbing to ~61.4 " +
+      "ULP at n=510 (~500 nodes needed, edge case), and ~65.3 ULP at n=596 (no graded budget up to 4000 " +
+      "nodes ever enters the band). So the minimum budget that reaches the <64 ULP band is 200 nodes " +
+      "in-band, destabilises toward ~500 at the edge, and is UNDEFINED where the band fails.\n\n" +
+      "VERDICT: FLAT-MINIMUM-IS-BAND-CONDITIONAL. The imp-33539 flat-~200-node reading is real but only " +
+      "as a resolution-wall property, not a band-clearing guarantee -- whether 200 nodes actually lands " +
+      "inside the imp-33316 band depends on which rung n is being evaluated. This CONFIRMS the imp-33537 " +
+      "correction of the <64 ULP band as a coarse-grid, depth-growing-jitter artifact rather than a fixed " +
+      "constant, and BOUNDS the imp-33539 flat-minimum reading to in-band rungs.\n\n" +
+      "HONEST SCOPE: measurement only, not a bound. floorUlp(n) is a jittery arithmetic-floor lattice " +
+      "quantity (libm exp/pow/cos variation can shift the exact 200/500/Infinity node counts and ULP " +
+      "values, but not the qualitative in-band/edge/fails separation); NPHI=10 truncation inherited; " +
+      "changes no bound, patches no literal (imp-33316/imp-33537/imp-33539/imp-33213 intact); imp-3066 " +
+      "K_a>=0 untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+    firstUsed: "imp-33557 (sweeping the imp-33539 graded-GL grade-4 node budget at the imp-33316 band-crossing rungs n in {495,510,596}, finding the flat ~200-node resolution wall is band-conditional -- in-band at n=495, edge at n=510, undefined at n=596), 2026",
+    relatedTerms: [
+      "imp-33539 flat ~200-node graded-plateau minimum, the resolution-wall reading this bounds to in-band rungs (imp-33539)",
+      "imp-33537 depth-growing deep-tail plateau jitter envelope, the correction this confirms (imp-33537)",
+      "imp-33316 <64 ULP A_log band, the target every rung here is measured against (imp-33316)",
+      "imp-33579 crossing-is-an-envelope-not-a-rung verdict, densifying this three-rung sample (imp-33579)",
+      "imp-33577 cross-solver-refutes-the-arithmetic-floor verdict, refining the n=596 failure to a rule artifact (imp-33577)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

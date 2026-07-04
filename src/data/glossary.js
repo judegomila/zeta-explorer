@@ -6055,6 +6055,47 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33278 height-sweep of the modulation Nyquist bandwidth floor U = pi M_sc / T0",
+    category: "numerical",
+    definition:
+      "imp-33251 independently reproduced the imp-33233 modulation Nyquist bandwidth floor " +
+      "U >= pi M_sc / T0 = 12.945907... at the SINGLE Platt-Trudgian 2021 benchmark height " +
+      "T0 = 3000175332800, noting structurally that U should track pi times the mean Riemann-von " +
+      "Mangoldt zero density, (1/2)log(T0/2pi), but never SWEPT T0 to confirm the floor reappears " +
+      "at that order rather than shrinking. imp-33278 performs that sweep across a geometric " +
+      "ladder T0 in [1e4, 1e13], taking M_sc to be the Riemann-von Mangoldt main-term zero count " +
+      "N(T0) at each height (the same proxy imp-33251 validated to < 1 zero at the benchmark), " +
+      "with the benchmark rung additionally recomputed from the real Platt-Trudgian M_sc = " +
+      "12363153437138.\n\n" +
+      "THREE FINDINGS. (1) U(T0) is strictly increasing and grows logarithmically, from 3.19 at " +
+      "T0 = 1e4 to 13.55 at T0 = 1e13 -- the escape-hatch bandwidth floor reappears at the same " +
+      "order at every swept height rather than shrinking toward zero. (2) The offset " +
+      "U - (1/2)log(T0/2pi) converges to EXACTLY -1/2, not as a fit but analytically from " +
+      "N(T)/T = (1/2pi)log(T/2pi) - 1/(2pi) + 7/(8T), so U = halfLog - 1/2 + O(1/T); the measured " +
+      "offset lands on -0.5000 to four places for T0 >= 1e7, with the 7 pi/(8 T0) tail visible " +
+      "only at T0 = 1e4 (-0.4997). (3) The ratio U/halfLog = 1 - 1/log(T0/2pi) rises monotonically " +
+      "toward 1 from below (0.864 at 1e4 -> 0.963 at the benchmark -> 0.964 at 1e13): the -1/2 " +
+      "offset is a shrinking fraction of the growing (1/2)log term. The anchor rung reproduces the " +
+      "imp-33251 headline 12.945907390... to full double precision whether M_sc is the RvM proxy " +
+      "or the real Platt-Trudgian constant, tying the swept ladder to the one measured height.\n\n" +
+      "HONEST SCOPE: MEASUREMENT ONLY, pure arithmetic sweep of classical formulas -- no new " +
+      "theorem, no operator positivity. Away from the single anchor, M_sc is the RvM main-term " +
+      "count (S(T) and O(1/T) omitted), so each swept U carries the same O(1/M_sc) proxy error " +
+      "imp-33251 measured, though the growth-order conclusion is insensitive to it. NO QED on " +
+      "Conjecture 22.1: the imp-33233 residual sub-gap (algebraic-complexity per-evaluation lower " +
+      "bound + small-height regime) remains open. imp-3932 partial-falsification stands; imp-3066 " +
+      "K_a >= 0 UNTOUCHED; the imp-1210 novelty verdict is unchanged; Polymath15 Lambda <= 0.2 " +
+      "remains the rigorous SOTA de Bruijn-Newman bound.",
+    firstUsed: "imp-33278 (sweeping the imp-33251/imp-33233 modulation Nyquist bandwidth floor U = pi M_sc/T0 across heights T0 in [1e4,1e13], confirming it tracks (1/2)log(T0/2pi) with an offset converging to exactly -1/2 rather than shrinking), 2026",
+    relatedTerms: [
+      "imp-33251 independent Nyquist-floor re-derivation from the raw Platt-Trudgian inputs (imp-33251)",
+      "imp-33233 quantitative pinning of the modulation/window escape hatch (imp-33233)",
+      "imp-3932 falsification of the strong global reading of Conjecture 22.1 (imp-3932)",
+      "imp-1210 novelty audit of Conjecture 22.1 against Odlyzko-Schonhage (imp-1210)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

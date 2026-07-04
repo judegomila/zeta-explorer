@@ -7801,6 +7801,43 @@ export const glossary = [
       'imp-3406 sigma-highN-extrapolation, the interior-maximum component model this ladder inherits without re-derivation (imp-3406)',
     ],
   },
+  {
+    term: 'imp-33745 H0-provenance DISTINCT-BUT-ORTHOGONAL verdict: the G6a H0 (Lemma-5.2 Holder-1/2 provenance) rung is a genuinely distinct, independently-dischargeable obligation, NOT foldable into H3/H4',
+    category: 'proof',
+    definition:
+      'imp-33706 organizes the G6a_shock_lipschitz open-residual catalogue as a Stieltjes boundary ' +
+      'tower indexed by derivative order k, with N-growth weight (2 pi / N)^{1/4 + k/2} at the reading ' +
+      'strip eps = sqrt(2 pi/N): the k = 0 value-level SELECTION member (N-exponent 1/4), the k = 1 H4 ' +
+      'fold-reading (3/4), and the k = 2 H3 curvature (5/4). It folds the k = 0 selection member INTO ' +
+      'H3/H4, leaving four open catalogue rows H0, H3, H4, H5 with H4 (strip-height-uniformity) ' +
+      'load-bearing. That left H0 (provenance of the Lemma-5.2-type Holder-1/2 blow-up modulus) open ' +
+      'and unexamined against the fold.\n\n' +
+      'imp-33745 SCOPES whether H0 can be discharged independently of H3/H4. H0 carries no derivative ' +
+      'order k and no N-growth exponent -- it is not a Stieltjes boundary-value quantity at all, so it ' +
+      'is not a member of the analytic derivative tower the imp-33668 selection-fold operates within; ' +
+      'the fold therefore has ZERO bearing on H0. H0 discharge is instead a DOCUMENT-VERIFICATION act ' +
+      '(confirm the reconstructed hypothesis list against the arXiv source), sharing no inputs with the ' +
+      'H3/H4 strip-height-uniformity curvature bound -- as directly witnessed by imp-33637, which already ' +
+      'ran the H0 channel in isolation and returned a double mis-citation (wrong arXiv id 1802.05390, no ' +
+      'Lemma 5.2 in the correct paper 1904.12438), upgrading H0 to citation-error WITHOUT touching H3 or ' +
+      'H4 at all. imp-394 discharges the k = 0 value term pointwise (Privalov-Sokhotski boundary value) ' +
+      'but says nothing about provenance, so it does not discharge H0 either.\n\n' +
+      'VERDICT: DISTINCT-BUT-ORTHOGONAL. H0 is a genuinely distinct standing obligation on its own ' +
+      'provenance axis, independently dischargeable of H3/H4, yet NOT on the analytic load path of the ' +
+      'per-N Holder-1/2 bound -- a correct citation would still leave H3/H4/H5 open on the repo own ' +
+      'analysis. The open catalogue stays four rows (H0, H3, H4, H5); H0 remains open as its own ' +
+      'obligation.\n\n' +
+      'HONEST SCOPE: bookkeeping / assessment only, at the frontier-direction level, not rigorous. ' +
+      'G6a_shock_lipschitz stays OPEN; no positivity; imp-3066 K_a>=0 off-diagonal endpoint-Hankel sign ' +
+      'positivity UNTOUCHED; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33745 (scoping the imp-33706 open-residual-tower H0 rung for independence from H3/H4), 2026',
+    relatedTerms: [
+      'imp-33706 selection-catalogue-count-scoping, the open-residual analytic tower {1/4, 3/4, 5/4} and the k = 0 selection-fold into H3/H4 (imp-33706)',
+      'imp-33603 lemma52-port-scoping, the H0..H5 catalogue that names H0 the provenance rung and H4 the load-bearing residual (imp-33603)',
+      'imp-33637 h0-provenance-verification, the isolated H0 channel that returned a double mis-citation without moving H3/H4 (imp-33637)',
+      'imp-33668 part-b-selection-residual-scoping, the SUBSUMED-BY-H3/H4 verdict on the k = 0 selection member (imp-33668)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

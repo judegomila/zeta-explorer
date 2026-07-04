@@ -8119,6 +8119,46 @@ export const glossary = [
       'imp-33639 SPACING-IRREGULAR-NOT-QUASI-PERIODIC verdict, another measurement against the same nine-cluster envelope structure (imp-33639)',
     ],
   },
+  {
+    term: 'imp-33641 GRADE-6-n=596-RE-EXIT-IS-JITTER-NOT-ANTI-CONVERGENCE verdict: the imp-33630 grade-6 200->300-node ULP re-exit (~34 -> ~100 ULP) is a single-panel lattice-jitter spike, not genuine anti-convergence',
+    category: 'numerical',
+    definition:
+      'imp-33630 surfaced a strongly non-monotone grade-6 node-budget row at the imp-33577 graded-GL-failing rung ' +
+      'n=596: ulpByNodes = [33.96, 100.13, 57.47, 61.82, 71.40, 78.36] over the imp-33539 coarse budgets ' +
+      '{200,300,500,1000,2000,4000} inner GL-10 nodes. The 200-node sample clears the imp-33316 &lt; 64 ULP band ' +
+      '(~34) but the 300-node sample BOUNCES back OUT (~100) before settling near the band edge. imp-33600 flagged ' +
+      'this as jittery, but the coarse two-point {200,300} ladder could not distinguish a single-panel lattice-' +
+      'jitter spike from a genuine grade-6 anti-convergence where the floor systematically rises through this region.\n\n' +
+      'imp-33641 re-runs the identical direct graded-GL A_direct(tau*) plateau (grade 6, GL-10 per panel) on EVERY ' +
+      'integer panel P in [15,60] = 150..600 inner nodes at n=596, vs the imp-33213 independent log-domain target ' +
+      'A_log. MEASURED, over the resolved region (panels &gt;= 18, i.e. &gt;= 180 nodes, off the unresolved ~e3-ULP ' +
+      'inner-peak spike): the coarse 200/300-node samples reproduce (~34.0 / ~100.1 ULP); the TRUE dense floor is ' +
+      '~6.1 ULP at 180 nodes -- well inside the band and BELOW the coarse 200-node sample; the 300-node value ' +
+      '(~100.1) is only ~1.40x its local [270,330]-node median (~71.4), and both immediate integer neighbours ' +
+      '(290n ~59.2, 310n ~74.0) sit far below it, so the spike does not persist even one panel to either side; and ' +
+      'the resolved-region ULP-vs-node correlation is WEAK (Pearson r ~ +0.30, r^2 ~ 0.09, OLS slope ~ +0.044 ' +
+      'ULP/node) rather than the strong monotone rise a genuine anti-convergence would show.\n\n' +
+      'VERDICT: GRADE-6-n=596-RE-EXIT-IS-A-DENSE-LADDER-LATTICE-JITTER-ARTIFACT-NOT-ANTI-CONVERGENCE. The 200->300-' +
+      'node bounce is a single-panel jitter spike over a jittery ~50-100 ULP band whose true floor sits well inside ' +
+      'the band; the ULP-vs-node trend is only weakly positive, so there is no genuine grade-6 anti-convergence. ' +
+      'HONEST NUANCE: a weak secondary upward drift IS present (windowed(3) floor edges ~55.8 -&gt; ~63.8 across the ' +
+      'region) -- the mild imp-33621/imp-33638 grade-6 lattice-floor coarsening near the middle cluster -- but it ' +
+      'rides on dominant jitter and does not push the windowed floor out of band.\n\n' +
+      'HONEST SCOPE: accuracy/rule-design measurement only, at the RH-equivalent scale class. floorUlp(n) is a ' +
+      'jittery arithmetic-floor lattice quantity (imp-33249/imp-33277/imp-33296/imp-33537/imp-33605 ' +
+      'latticeJitterCaveat): the exact per-panel ULP and floor location can shift under cross-platform libm exp/pow ' +
+      'variation, so the robust reading is the qualitative separation (single-panel spike, in-band floor, weak ' +
+      'trend), not the exact ULP or node count. Changes no bound, patches no literal; mass-feasibility necessary-' +
+      'but-not-sufficient; imp-3066 K_a&gt;=0 sign-positivity untouched; Platt-Trudgian Lambda&lt;=0.2 remains the ' +
+      'rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33641 (densifying the imp-33630 grade-6 n=596 coarse {200,300,...}-node budget row to every integer panel P in [15,60] to test whether the 200->300-node ULP re-exit is lattice jitter or genuine anti-convergence), 2026',
+    relatedTerms: [
+      'imp-33630 grade-vs-node-budget viz-data, source of the coarse {200,300}-node bounce this module densifies (imp-33630)',
+      'imp-33600 band-crossing grade-vs-node driver, source of the direct graded-GL A_direct(tau*) plateau rule this module re-runs (imp-33600)',
+      'imp-33605 dense-vs-coarse graded-mapped-CC abscissa jitter precedent, the earlier warning this module confirms for the grade-6 row (imp-33605)',
+      'imp-33213 moment-weight vs dual-path A cross-validation, source of the independent log-domain A_log target this module scores against (imp-33213)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

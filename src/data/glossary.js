@@ -6847,6 +6847,48 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33539 flat ~200-node graded-plateau minimum budget: the imp-33316 ~9.3x graded-vs-uniform ratio holds (and understates) as the saddle peak sharpens",
+    category: "numerical",
+    definition:
+      "imp-33316 carried the imp-33295 CONSERVATIVE graded plateau rule (grade 4, 400 panels = 4000 " +
+      "inner Gauss-Legendre nodes) into the deep saddle tail n in {90..500} at a FIXED node budget and " +
+      "reported PLATEAU-HOLDS / UNIFORM-FAILS against the 37205-node uniform Richardson ladder, but it " +
+      "never measured the MINIMUM graded budget the imp-33275 A_log floor band actually requires -- so " +
+      "it could not say whether the ~9.3x nominal ratio (37205/4000) is a genuine fixed-budget win or " +
+      "whether the required budget silently climbs as the saddle peak sharpens further.\n\n" +
+      "imp-33539 sweeps the graded plateau node budget (panels P in {10,...,400} = 100..4000 nodes) at " +
+      "the DEEPER deep-tail rungs n in {350,375,400} and locates, per rung, the smallest budget whose " +
+      "residual vs the imp-33213 A_log target falls inside the imp-33316 widened <64 ULP band. FINDING: " +
+      "that minimum is FLAT at ~200 nodes across all three deeper rungs -- it does NOT grow as the peak " +
+      "sharpens. The resolution wall below it is equally flat (~150 nodes sits at ~800 ULP out of band, " +
+      "collapsing to ~2e6..6e6 ULP at 100 nodes). The graded panels a_j = 7(j/panels)^4 auto-concentrate " +
+      "toward the origin peak, so the same node count keeps resolving an ever-sharper saddle without " +
+      "adding nodes -- the opposite of the uniform ladder's fixed grid, which diverges (imp-33316).\n\n" +
+      "VERDICT: FIXED-BUDGET-WIN-HOLDS. Because the required minimum is flat at ~200 nodes, the imp-33316 " +
+      "FIXED 4000-node plateau carries ~20x headroom over the true minimum, and its ~9.3x nominal ratio " +
+      "HOLDS as a genuine fixed-budget win -- indeed the true minimum-budget saving is ~186x (37205/200), " +
+      "so the conservative ~9.3x ratio UNDERSTATES the win rather than needing to climb.\n\n" +
+      "HONEST SCOPE: accuracy/rule-design measurement only, at the RH-equivalent scale class; changes no " +
+      "bound, patches no literal (imp-33316/imp-33295/imp-33213 intact); NPHI=10 truncation inherited. " +
+      "The worst-window ULP is a jittery arithmetic-floor lattice property (imp-33249/imp-33277/ " +
+      "imp-33296 latticeJitterCaveat). imp-33537 showed the imp-33316 <64 ULP band is a coarse-grid " +
+      "artifact the fixed plateau crosses at n~510,596; the deeper rungs measured here (n in {350,375,400}) " +
+      "sit firmly inside the band, so the minimum-budget reading is unaffected, but the <64 band is NOT " +
+      "claimed to hold at every deep rung. Mass-feasibility is necessary-but-not-sufficient; the " +
+      "operator-level K_a >= 0 sign-positivity (imp-3066) remains UNTOUCHED. No RH verdict, no QED. " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33539 (sweeping the graded plateau node budget at the deeper deep-tail rungs n in {350,375,400} to locate the minimum budget reaching the imp-33275 A_log floor band, finding it flat at ~200 nodes and that the imp-33316 ~9.3x ratio understates a true ~186x minimum-budget saving), 2026",
+    relatedTerms: [
+      "imp-33316 fixed 4000-node graded plateau deep-tail measurement, the budget this sweeps for a true minimum (imp-33316)",
+      "imp-33537 depth-growing deep-tail plateau jitter envelope, bounding where the <64 ULP band this targets stays valid (imp-33537)",
+      "imp-33295 shallow-rung graded-vs-uniform node budget saving, the rule this extends to the deeper tail (imp-33295)",
+      "imp-33213 log-domain A_log cross-validation target, the reference every rung here is scored against (imp-33213)",
+      "imp-33557 band-crossing three-rung graded minimum, cross-checking this flat ~200-node reading (imp-33557)",
+      "imp-33580 graded-mapped Clenshaw-Curtis abscissa artifact, composing this origin-concentrating grading onto CC (imp-33580)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

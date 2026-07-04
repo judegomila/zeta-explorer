@@ -3732,6 +3732,21 @@ const DATA_MODULES = [
   // jittery lattice floor; imp-33537/imp-33557 bound the <64 band at n>=510; imp-3066 untouched;
   // PT Lambda<=0.2 SOTA; no QED. 8 assertions.
   '/src/data/imp-33580-graded-mapped-cc-abscissa-artifact.js',
+  // imp-33600: ISOLATES grade-vs-node-count as the imp-33577 band-crossing artifact driver. At the
+  // imp-33577 graded-GL-FAILING rung n=596 it SWEEPS the graded-GL grade in {4,5,6,8} while HOLDING the
+  // imp-33539 node-budget ladder (100..4000 nodes) AND the graded-GL rule family FIXED, scoring the direct
+  // A_direct(tau*) = int_0^7 phiKernel(s)phiKernel(s+tau*) ds plateau vs the imp-33213 A_log target, and
+  // measures whether raising the origin-concentration grade ALONE enters the imp-33316 <64 ULP band where
+  // grade-4 floored at ~65 ULP with minInBandNodes=Infinity. RESULT: it does. grade-4 reproduces the
+  // imp-33557 failure (floor ~65 ULP, Infinity) and grade-5 stays out (~69 ULP), but grade-6 clears the band
+  // at 200 nodes (floor ~34 ULP, well inside) and grade-8 at 300 nodes (~59 ULP). So the n=596 failure is NOT
+  // a graded-GL-rule-family artifact but a grade-4/5 UNDER-CONCENTRATION artifact -- the driver imp-33577
+  // could not separate is the GRADE (deep-tail origin concentration), not the node count and not the rule
+  // family: bumping grade-4 to grade-6 at the SAME budget recovers the band without switching to CC,
+  // refining the imp-33577 cross-solver reading and matching the imp-33580 grading-carries-the-edge finding.
+  // VERDICT GRADE-ALONE-RECOVERS-THE-BAND. Measurement only; jittery lattice floor; imp-3066 untouched;
+  // PT Lambda<=0.2 SOTA; no QED. 9 assertions.
+  '/src/data/imp-33600-band-crossing-grade-vs-node-driver.js',
 ];
 
 let ALL_MODULES = FAST_MODE

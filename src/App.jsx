@@ -190,6 +190,7 @@ const Imp3927ThreeSolverCrossingViz = lazy(() => import('./pages/Imp3927ThreeSol
 const Imp3928InviscidWindowEdgeBlocksizeViz = lazy(() => import('./pages/Imp3928InviscidWindowEdgeBlocksizeViz.jsx'));
 const Imp3929HorizonElasticitySharpeningViz = lazy(() => import('./pages/Imp3929HorizonElasticitySharpeningViz.jsx'));
 const Imp33214SaddleRatioDeepTailRecoveryViz = lazy(() => import('./pages/Imp33214SaddleRatioDeepTailRecoveryViz.jsx'));
+const Imp33217FifthPairSpreadUlpFloorLadderViz = lazy(() => import('./pages/Imp33217FifthPairSpreadUlpFloorLadderViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -824,6 +825,7 @@ function AppShell() {
           <Route path="/viz-imp3928-inviscid-window-edge-blocksize" element={<Imp3928InviscidWindowEdgeBlocksizeViz />} />
           <Route path="/viz-imp3929-horizon-elasticity-sharpening" element={<Imp3929HorizonElasticitySharpeningViz />} />
           <Route path="/viz-imp33214-saddle-ratio-deep-tail-recovery" element={<Imp33214SaddleRatioDeepTailRecoveryViz />} />
+          <Route path="/viz-imp33217-fifth-pair-spread-ulp-floor-ladder" element={<Imp33217FifthPairSpreadUlpFloorLadderViz />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
           <Route path="/papers" element={<PapersListPage />} />

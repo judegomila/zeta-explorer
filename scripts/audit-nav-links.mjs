@@ -243,6 +243,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33257-node-budget-full-window-ulp',
   '/viz-imp33261-saddle-window-direct-vs-log-a',
   '/viz-imp33264-fifth-pair-spread-ladder-n2800-extended',
+  '/viz-imp33266-g6a-k4-toolkit-status-map',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

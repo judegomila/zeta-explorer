@@ -278,6 +278,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33716-peak-minus-trough-amplitude',
   '/viz-imp33717-envelope-height-extension',
   '/viz-imp33718-interpeak-gap-sequence',
+  '/viz-imp33591-deep-tail-cross-solver-node-budget',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

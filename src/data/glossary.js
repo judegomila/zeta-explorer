@@ -6970,6 +6970,50 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33534 double-double reference-precision libm single-hit fragility: the grade6/171p sub-1-ULP margin does not survive, but the band does",
+    category: "numerical",
+    definition:
+      "imp-33314 perturbed only the exp/log EVALUATION ORDER (four equally-valid accumulation orders under " +
+      "ONE libm) as a portable proxy for cross-platform libm variation, finding a ~1.34 ULP proxy shift that " +
+      "exceeds the ~0.24 ULP headroom the imp-33249 grade6/171p single hit (worst-in-window 0.76 ULP) has " +
+      "below the strict <1 ULP bar -- but stamped an explicit honesty caveat that the reorderings are NOT a " +
+      "survey of real libms, leaving the single-hit fragility UNQUANTIFIED against an actual reference-" +
+      "precision libm. imp-33534 closes that gap by recomputing the IDENTICAL grade6/171p full-window " +
+      "graded-GL log-sum-exp of -ln A(tau) with every exp and log evaluated in DOUBLE-DOUBLE (~106-bit) " +
+      "arithmetic -- a genuine reference precision ~53 bits above the double libm, built in-repo from " +
+      "Dekker/Knuth error-free transforms (twoSum, twoProd), a range-reduced Taylor ddExp and a one-Newton-" +
+      "step ddLog -- pinning -ln A(tau) to ~1e-21 absolute, so |double - reference| / ULP is the ACTUAL " +
+      "floating-point error of the double single-hit value, measured against a real higher-precision libm " +
+      "rather than a same-precision reordering.\n\n" +
+      "TWO FINDINGS. (1) THE SINGLE-HIT MARGIN DOES NOT SURVIVE: across tau in {0.5..6} the double-libm " +
+      "grade6/171p value differs from the double-double reference by at most ~0.947 ULP (an isolated " +
+      "lattice hit at tau=2.5, a secondary ~0.705 at tau=5, machine-exact 0.000 ULP at the other ten taus) " +
+      "-- this EXCEEDS the ~0.24 ULP single-hit headroom by ~4x, so a genuinely higher-precision libm can " +
+      "move the single-hit value by more than its margin below the bar, exactly the imp-33296/imp-33249 " +
+      "latticeJitterCaveat now quantified against a real reference libm; yet the measured ~0.947 ULP stays " +
+      "BELOW the strict 1 ULP bar AND below the imp-33314 ~1.34 ULP reorder proxy, so the reorder proxy was " +
+      "CONSERVATIVE -- the true double-vs-reference error is smaller than the proxy suggested but still " +
+      "larger than the single-hit headroom. (2) THE BAND SURVIVES: the imp-33296 band (ceiling ~5 ULP, " +
+      "~4.3 ULP width) keeps ~4.5x headroom over this 0.947 ULP contamination and hits only 2 of 12 taus " +
+      "as isolated lattice events, so the shippable band and its pass-fraction reading are unaffected, " +
+      "confirming the imp-33296/imp-33314 recommendation to quote the BAND and pass-fraction rather than a " +
+      "single panel count.\n\n" +
+      "HONEST SCOPE: ACCURACY MEASUREMENT ONLY, RH-equivalent scale class. The double-double libm is a " +
+      "reference-precision SURROGATE for a correctly-rounded libm (~106-bit vs 53-bit), not a survey of " +
+      "real platform libms either, but it is a genuine higher-precision recompute rather than a same-" +
+      "precision reordering, so it upgrades the imp-33314 proxy to a measured error. It establishes NO " +
+      "operator positivity and NO new bound. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the " +
+      "operator-level K_a >= 0 sign-positivity (imp-3066) is UNTOUCHED. NPHI=10 truncation inherited. No " +
+      "RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33534 (recomputing the imp-33249/imp-33296 grade6/171p min-node single-hit -ln A(tau) log-sum-exp under a ~106-bit double-double reference-precision libm, finding the single-hit sub-1-ULP margin does not survive but the imp-33296 band does), 2026",
+    relatedTerms: [
+      "imp-33314 same-precision exp/log evaluation-order proxy for libm sensitivity (imp-33314)",
+      "imp-33296 min-node graded-GL lattice-jitter characterization, source of the band this confirms (imp-33296)",
+      "imp-33249 full-window graded-GL <1 ULP node budget, the single hit this stress-tests (imp-33249)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

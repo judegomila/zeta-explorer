@@ -176,7 +176,7 @@ const SURVEY_ALTERNATIVES = Object.freeze([
   Object.freeze({
     id: 'polymath15-2018',
     name: 'Polymath15 / Tao 2018 (current, baseline)',
-    citation: 'Tao et al., arXiv:1802.05390v3, Lemma 5.2',
+    citation: 'Tao et al., arXiv:1904.12438, Lemma 5.2',
     objectBound: 'Holder-1/2 modulus of tau_c on N-particle Dyson beta=2 empirical measures',
     constant: 'C_H = 1/8 (after imp-395 pin-down)',
     constantNumeric: 1.0 / 8.0,

@@ -215,7 +215,7 @@
  *   - Whitham, "Linear and Nonlinear Waves", Wiley 1974, Section 2.7
  *     ("Kinematic-Wave Cusp"), especially equations (2.48)-(2.50).
  *   - Polymath15 / Tao, "Effective approximation of the Riemann zeta
- *     function", arXiv:1802.05390v3, Lemma 5.2.
+ *     function", arXiv:1904.12438, Lemma 5.2.
  *   - Villani, "Topics in Optimal Transportation", AMS GSM 58, Ch 7.3.
  *   - Evans, "Partial Differential Equations", 2nd ed., Section 3.4.
  */

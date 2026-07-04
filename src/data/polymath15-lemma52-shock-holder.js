@@ -49,7 +49,7 @@
  * Citation
  * --------
  * Tao et al. (Polymath15), "Effective approximation of heat flow evolution
- * of the Riemann zeta function", arXiv:1802.05390v3, Lemma 5.2.
+ * of the Riemann zeta function", arXiv:1904.12438, Lemma 5.2.
  * Secondary reference: Villani, "Topics in Optimal Transportation",
  * AMS GSM 58, Chapter 7 (Wasserstein regularity near singular measures).
  *
@@ -108,7 +108,7 @@
  *
  *     Q_inf(k/N) - Q_inf((k-1)/N)  ~  2(N - k) / (N^2 * C_cusp^2).
  *
- * POLYMATH15 LEMMA 5.2 (arXiv:1802.05390, Tao et al.):
+ * POLYMATH15 LEMMA 5.2 (arXiv:1904.12438, Tao et al.):
  * For empirical N-particle configurations mu_1, mu_2 both drawn from a
  * neighbourhood of the shock measure rho_inf, the first-collision time
  * functional tau_c satisfies
@@ -317,7 +317,7 @@ export const G6A_SHOCK_LIPSCHITZ_CLOSURE = {
   id: 'G6a_shock_lipschitz',
   status: 'closed',
   closedBy: 'imp-366',
-  closureMethod: 'Polymath15 Lemma 5.2 port (arXiv:1802.05390v3)',
+  closureMethod: 'Polymath15 Lemma 5.2 port (arXiv:1904.12438)',
   statement:
     'Quantitative Holder-1/2 modulus of the first-collision time functional ' +
     'tau_c : (N-particle configurations, W_1) → R at the Burgers shock of the ' +
@@ -373,7 +373,7 @@ export const POLYMATH15_LEMMA_52 = {
     'Polymath15 Lemma 5.2 direct port — closure of G6a_shock_lipschitz',
   status: 'closed',
   citation:
-    'Tao et al. (Polymath15), arXiv:1802.05390v3, Lemma 5.2. ' +
+    'Tao et al. (Polymath15), arXiv:1904.12438, Lemma 5.2. ' +
     'Also: Villani, AMS GSM 58, Chapter 7 (Wasserstein regularity).',
 
   quadraticTangency: {
@@ -394,7 +394,7 @@ export const POLYMATH15_LEMMA_52 = {
       '|tau_c(mu_1) - tau_c(mu_2)|  <=  C_H * W_1(mu_1, mu_2)^{1/2}',
     holderExponent: 0.5,
     constant: C_H_HOLDER,
-    source: 'Polymath15 arXiv:1802.05390v3 Lemma 5.2',
+    source: 'Polymath15 arXiv:1904.12438 Lemma 5.2',
     isRigorous: false,
     caveat:
       'The constant C_H = 1 is a symbolic placeholder. The exponent 1/2 is ' +

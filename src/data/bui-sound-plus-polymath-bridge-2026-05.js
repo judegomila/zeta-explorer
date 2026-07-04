@@ -528,7 +528,7 @@ export const BS_PLUS_POLYMATH_HYBRID = Object.freeze({
   // Provenance for the assertion suite to consume.
   citations: Object.freeze([
     'Bui-Sound 2008 J. London Math. Soc. 78, 755-770 (the imp-1107 survey route 2 plus imp-1123 partial rigorous port)',
-    'Polymath15 / Tao et al. 2019 arXiv:1802.05390v3 Lemma 3.3 (truncation), 4.1 (flow), 5.2 (collision Holder)',
+    'Polymath15 / Tao et al. 2019 arXiv:1904.12438 Lemma 3.3 (truncation), 4.1 (flow), 5.2 (collision Holder)',
     'imp-397 (polymath15-constant-C-T.js): C_T = (3L-6)/(2L), bounded by 3/2; refinement candidate openWork = RvM/derivative subgap',
     'imp-398 (polymath15-constant-C-F.js): C_F = (log(T_0/2pi)+1)/(2pi); refinement candidate openWork = bulk approximation T^2 vs (T-gamma_{k*})^2',
     'imp-399 (polymath15-constant-C-C.js): C_C = (1/8)*sqrt(3*pi); refinement candidate openWork = Selberg sieve constant C_Selberg = 3',

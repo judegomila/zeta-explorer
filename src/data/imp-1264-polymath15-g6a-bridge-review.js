@@ -96,7 +96,7 @@
  *
  * HONEST RESIDUAL (the "still-conditional" part of the conditional)
  * -----------------------------------------------------------------
- *   The Polymath15 Lemma 5.2 proof in arXiv:1802.05390v3 carries SYMBOLIC
+ *   The Polymath15 Lemma 5.2 proof in arXiv:1904.12438 carries SYMBOLIC
  *   constants C_T, C_F, C_C (order unity by the auxiliary lemmas) but
  *   does not pin them to fully numerical values. imp-395 pins C_C = 1/8
  *   via the quadratic tangency formula (rigorous Dyson constant
@@ -204,7 +204,7 @@ const E_COLL_SUBDOMINANT_AT_LARGE_N = (() => {
 const ROUTE_A_DIRECT_POLYMATH15 = Object.freeze({
   routeId: 'a-direct-polymath15-lemma-5.2',
   description:
-    'Direct citation of Polymath15 Lemma 5.2 (Tao et al., arXiv:1802.05390v3), ' +
+    'Direct citation of Polymath15 Lemma 5.2 (Tao et al., arXiv:1904.12438), ' +
     'with the Holder-1/2 exponent FORCED by the fold catastrophe at a simple ' +
     'Burgers shock (Whitham 1974, Sec 2.7). Sub-gaps G6a-sub-hyperbolic ' +
     '(Privalov-Sokhotski real-boundary fold, imp-394) and G6a-sub-constant ' +
@@ -215,9 +215,9 @@ const ROUTE_A_DIRECT_POLYMATH15 = Object.freeze({
   effectiveLipschitzConstant: C_C_EFFECTIVE,
   honestResidual:
     'Polymath15 Lemma 5.2 itself is cited, not re-proved in-house. Standard ' +
-    'mathematical practice; the proof is in arXiv:1802.05390v3 Appendix.',
+    'mathematical practice; the proof is in arXiv:1904.12438 Appendix.',
   citationStack: [
-    'Tao et al. Polymath15 (arXiv:1802.05390v3), Lemma 5.2: Holder-1/2 modulus.',
+    'Tao et al. Polymath15 (arXiv:1904.12438), Lemma 5.2: Holder-1/2 modulus.',
     'Whitham 1974 Sec 2.7 (Linear and Nonlinear Waves): fold catastrophe.',
     'Privalov-Sokhotski theorem (Privalov 1956 + Sokhotski 1873): boundary extension.',
     'Dyson two-particle ODE d(g_min)/dt = -4/g_min (beta=2 repulsion): tangency.',
@@ -314,7 +314,7 @@ export const IMP_1264_POLYMATH15_G6A_BRIDGE_REVIEW = Object.freeze({
       'function class (W_1-Lipschitz functionals of empirical measures near ' +
       'the shock). The exponent 1/2 is FORCED by the fold catastrophe; ' +
       'changing it would imply a different shock structure.',
-    citation: 'Polymath15 (Tao et al.), arXiv:1802.05390v3, Lemma 5.2.',
+    citation: 'Polymath15 (Tao et al.), arXiv:1904.12438, Lemma 5.2.',
   },
 
   routes: {

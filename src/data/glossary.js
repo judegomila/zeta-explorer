@@ -6560,7 +6560,7 @@ export const glossary = [
     category: "proof",
     definition:
       "imp-33603 scopes the roadmap Step-4 nextStep -- closing G6a_shock_lipschitz by a direct port of " +
-      "Polymath15 Lemma 5.2 (arXiv:1802.05390v3) -- against five structural hypotheses any Lemma-5.2-" +
+      "Polymath15 Lemma 5.2 (arXiv:1904.12438) -- against five structural hypotheses any Lemma-5.2-" +
       "type Hoelder-1/2 blow-up modulus requires: H1 smoothness away from the fold, H2 a non-degenerate " +
       "(simple) fold forcing exponent exactly 1/2, H3 a curvature lower bound UNIFORM in N, H4 " +
       "perturbation control on a strip {Im z >= y_N^sharp} staying above the fold, H5 a Riemann-Hilbert " +

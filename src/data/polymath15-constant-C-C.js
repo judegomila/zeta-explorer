@@ -107,7 +107,7 @@
  *   C_H = 1/C_collision = 1/8 via quadratic tangency regularization.
  * imp-341 (lambda-intercept-burgers-uniformity.js): C_KH = pi * C_Selberg = 3*pi.
  * imp-345 (lambda-polymath15-bridge.js): E_coll as one of three error terms.
- * Tao et al. (Polymath15), arXiv:1802.05390v3, Lemma 5.2 (Holder modulus).
+ * Tao et al. (Polymath15), arXiv:1904.12438, Lemma 5.2 (Holder modulus).
  */
 
 import { C_H_REGULARIZED, G6A_SUB_CONSTANT_CLOSURE } from './g6a-sub-constant-value.js';

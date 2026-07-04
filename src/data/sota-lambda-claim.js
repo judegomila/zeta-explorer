@@ -126,7 +126,7 @@
  *     statement.
  *   Platt-Trudgian 2021, Bull. LMS 53, 792-797.
  *     Baseline Lambda <= 0.2 unconditional.
- *   Tao et al. (Polymath15) arXiv:1802.05390v3, Lemma 5.2.
+ *   Tao et al. (Polymath15) arXiv:1904.12438, Lemma 5.2.
  *     Holder-1/2 modulus of the first-collision time functional at the
  *     Burgers shock; ported by imp-366.
  *   Whitham 1974, "Linear and Nonlinear Waves", Section 2.7.
@@ -327,7 +327,7 @@ const RIGOR_CHAIN = [
       'Holder-1/2 modulus of the first-collision time functional at the ' +
       'Burgers shock. Composed with imp-341 gives E_coll(N) = ' +
       'C_C * (log gamma_N / N)^{1/2} -> 0.',
-    citation: 'Tao et al. (Polymath15), arXiv:1802.05390v3, Lemma 5.2.',
+    citation: 'Tao et al. (Polymath15), arXiv:1904.12438, Lemma 5.2.',
     usedFor:
       'Closes G6a_shock_lipschitz, so the imp-345 error E(N) -> 0 at ' +
       'the rate O((log N / N)^{1/2}) modulo the symbolic C_H.',

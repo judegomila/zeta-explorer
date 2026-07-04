@@ -72,7 +72,7 @@
  * ----------
  * imp-366 (polymath15-lemma52-shock-holder.js): Holder-1/2 modulus proof.
  * imp-395 (g6a-sub-constant-value.js): C_H = 1/8 pinned via quadratic tangency.
- * Tao et al. (Polymath15), arXiv:1802.05390v3, Lemma 5.2.
+ * Tao et al. (Polymath15), arXiv:1904.12438, Lemma 5.2.
  */
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';

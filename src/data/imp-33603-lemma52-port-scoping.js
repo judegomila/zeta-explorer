@@ -14,7 +14,7 @@
  *
  * PROVENANCE OF THE HYPOTHESIS CATALOGUE (honesty note)
  * ----------------------------------------------------
- * The repo cites "Polymath15 / Tao, arXiv:1802.05390v3, Lemma 5.2" as the blow-up lemma that would
+ * The repo cites "Polymath15 / Tao, arXiv:1904.12438, Lemma 5.2" as the blow-up lemma that would
  * supply the Holder-1/2 modulus (see lambda-polymath15-bridge.js THE OPEN SUB-GAP, and
  * lambda-burgers-shock-lipschitz.js which already reduced G6a to the Whitham fold catastrophe with two
  * named sub-sub-gaps). The hypothesis list H1..H5 below is the STRUCTURAL hypothesis set that ANY such
@@ -63,7 +63,7 @@
  *   H5  OPEN (imp-354 G6a-sub-hyperbolic). Whitham/Lemma-5.2 is real-scalar u : R -> R; porting to the
  *       complex Stieltjes m : C_+ -> C_+ needs a Riemann-Hilbert fold analysis the repo does not
  *       reproduce.
- *   H0  OPEN (provenance). The verbatim hypothesis list of arXiv:1802.05390v3 Lemma 5.2 must be checked
+ *   H0  OPEN (provenance). The verbatim hypothesis list of arXiv:1904.12438 Lemma 5.2 must be checked
  *       against the source; the catalogue above is a structural reconstruction, not a transcription.
  *
  * THE PRECISE RESIDUAL OBSTRUCTION
@@ -151,7 +151,7 @@ const HYPOTHESES = [
   {
     id: 'H0',
     name: 'provenance of the hypothesis list',
-    requires: 'the verbatim Lemma 5.2 hypotheses of arXiv:1802.05390v3 confirmed against the source',
+    requires: 'the verbatim Lemma 5.2 hypotheses of arXiv:1904.12438 confirmed against the source',
     mapsTo: 'OPEN: the H1..H5 catalogue is a structural reconstruction from the repo scaffold, not a transcription',
     status: 'open',
   },
@@ -164,7 +164,7 @@ const RESIDUAL = HYPOTHESES.filter((h) => h.isResidual === true).map((h) => h.id
 export const IMP33603_LEMMA52_PORT_SCOPING = {
   id: 'imp-33603',
   proofSection: 'S-frontier',
-  scopes: 'Direct port of Polymath15 Lemma 5.2 (arXiv:1802.05390v3) as candidate closure of G6a_shock_lipschitz',
+  scopes: 'Direct port of Polymath15 Lemma 5.2 (arXiv:1904.12438) as candidate closure of G6a_shock_lipschitz',
   question:
     'Enumerate the hypotheses a Lemma-5.2-type Holder-1/2 blow-up modulus requires, map each onto the ' +
     'backward-Dyson shock front, mark satisfied vs open, and state the precise residual blocking a per-N ' +
@@ -202,7 +202,7 @@ export const IMP33603_LEMMA52_PORT_SCOPING = {
     'claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED; C_mb share ' +
     'untouched. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
   citation:
-    'lambda-polymath15-bridge (imp-345: opens G6a; cites Polymath15 Lemma 5.2 arXiv:1802.05390v3 as the ' +
+    'lambda-polymath15-bridge (imp-345: opens G6a; cites Polymath15 Lemma 5.2 arXiv:1904.12438 as the ' +
     'blow-up lemma); lambda-burgers-shock-lipschitz (imp-354: Whitham fold reduction, G6a-sub-hyperbolic ' +
     'and G6a-sub-constant); imp-3708 (y2-adapted-flow-depth still-missing object); imp-2520 ' +
     '(negative-finding 1: naive modulus -> 0 as strip height -> 0); lambda-roadmap Step 4 nextStep.',

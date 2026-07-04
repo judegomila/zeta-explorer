@@ -64,7 +64,7 @@
  *   - the numerically fitted CDF-increment exponent equals 1/2;
  *   - the density-to-CDF exponent law 1 - beta = 1/2 holds.
  *
- * Depends on nothing heavy. Cites: Tao et al. (Polymath15), arXiv:1802.05390v3,
+ * Depends on nothing heavy. Cites: Tao et al. (Polymath15), arXiv:1904.12438,
  * Lemma 5.2; Villani, AMS GSM 58, Ch. 7.
  */
 

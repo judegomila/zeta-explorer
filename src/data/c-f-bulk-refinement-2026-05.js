@@ -90,7 +90,7 @@ import { POLYMATH15_CONSTANT_C_F } from './polymath15-constant-C-F.js';
 const IMP_398_ID = 'imp-398';
 const IMP_322_ID = 'imp-322';
 const IMP_345_ID = 'imp-345';
-const POLYMATH15_PAPER_ID = 'polymath15-arxiv-1802.05390v3';
+const POLYMATH15_PAPER_ID = 'polymath15-arxiv-1904.12438';
 const RIEMANN_VON_MANGOLDT_REF = 'von Mangoldt 1905 / Riemann 1859 zero count formula';
 
 // -- Numeric helpers --------------------------------------------------------
@@ -453,7 +453,7 @@ export const C_F_BULK_REFINEMENT = Object.freeze({
     'imp-345 (lambda-polymath15-bridge.js) -- E_flow formula and C_F role.',
     'imp-1127 (bui-sound-plus-polymath-bridge-2026-05.js) -- consumer of the ' +
       'hypothetical 1.05x, now flagged as phantom by this audit.',
-    'Polymath15 / Tao et al. 2019 arXiv:1802.05390v3 Lemma 4.X bulk ' +
+    'Polymath15 / Tao et al. 2019 arXiv:1904.12438 Lemma 4.X bulk ' +
       'approximation argument.',
     'Riemann 1859 / von Mangoldt 1905 zero density formula.',
   ]),

@@ -14,7 +14,7 @@
  * codebase. Re-proving either is genuine research-grade analysis, not a
  * transcription exercise. The Lambda <= 3.06e-5 bound therefore stays
  * rigorous at the RATE level but CITATION-CONDITIONAL on Polymath15
- * Lemma 5.2 (arXiv:1802.05390v3); imp-2332 does NOT remove that conditional.
+ * Lemma 5.2 (arXiv:1904.12438); imp-2332 does NOT remove that conditional.
  *
  * This module's contribution is to (a) reconcile the status inconsistency
  * across the G6a files, (b) name the precise residual obstructions so a
@@ -256,7 +256,7 @@ export const IMP_2332_G6A_SELF_CONTAINMENT_ASSESSMENT = Object.freeze({
   consequenceForHeadline: {
     bound: 'Lambda <= 3.06e-5 (imp-1261)',
     rateLevel: 'rigorous (E_coll(N) -> 0 at O((log N / N)^{1/2}))',
-    conditional: 'citation-conditional on Polymath15 Lemma 5.2 (arXiv:1802.05390v3)',
+    conditional: 'citation-conditional on Polymath15 Lemma 5.2 (arXiv:1904.12438)',
     honestPublicLabel: 'unconditional modulo Polymath15 Lemma 5.2 (NOT fully self-contained)',
     establishedNoAsteriskSOTA: 'Platt-Trudgian Lambda <= 0.2 (unchanged)',
   },

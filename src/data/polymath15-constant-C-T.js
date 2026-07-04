@@ -111,7 +111,7 @@
  *   Quarterly Journal of Mathematics, 8(1), pp. 255-266.
  *   Zero-density theorem: N(sigma, T) <= T^{3(1-sigma)/(2-sigma)}.
  * Polymath15 / Tao et al. (2019). "Effective approximation of heat flow
- *   evolution of the Riemann zeta function", arXiv:1802.05390v3, Lemma 3.3.
+ *   evolution of the Riemann zeta function", arXiv:1904.12438, Lemma 3.3.
  *   (Truncation error bound for H_t^{(N)} vs H_t.)
  */
 
@@ -314,7 +314,7 @@ export const POLYMATH15_CONSTANT_C_T = {
   ladderRows: LADDER_ROWS,
 
   derivationProvenance: [
-    "Polymath15 Lemma 3.3 (arXiv:1802.05390v3): each off-line zero rho_j with " +
+    "Polymath15 Lemma 3.3 (arXiv:1904.12438): each off-line zero rho_j with " +
       "Im(rho_j) > T_0 contributes at most 2/Im(rho_j) to |H_t(z) - H_t^{(N)}(z)| " +
       "for z real.",
     "Ingham 1940 zero-density: N(sigma, T) <= T^{3(1-sigma)/(2-sigma)}, so " +

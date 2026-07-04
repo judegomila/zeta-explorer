@@ -177,7 +177,7 @@
  *     |Λ  −  (− t_c(N))|  ≤  E(N)    with  E(N) → 0
  *
  * is in place. The Polymath15 framework of Tao and collaborators
- * (arXiv:1802.05390, "Effective approximation of heat flow evolution of
+ * (arXiv:1904.12438, "Effective approximation of heat flow evolution of
  * the Riemann zeta function", and Sec. 2 of the Polymath15 paper) already
  * contains the ingredients; imp-345 ports the quantitative skeleton into
  * this codebase and propagates the imp-317 Guth-Maynard tail bound as
@@ -490,7 +490,7 @@ const G6A_SHOCK_LIPSCHITZ = {
   status: 'closed',
   closedBy: 'imp-366 (polymath15-lemma52-shock-holder.js)',
   closedVia:
-    'Direct port of Polymath15 Lemma 5.2 (arXiv:1802.05390v3). The ' +
+    'Direct port of Polymath15 Lemma 5.2 (arXiv:1904.12438). The ' +
     'quadratic-tangency formula d(g_min^2)/dt = -8 from the two-particle ' +
     'Dyson ODE, combined with the Gronwall Lipschitz bound on the gap ' +
     'functional and the Holder-1/2 scaling of g_min at the Burgers cusp ' +
@@ -504,7 +504,7 @@ const G6A_SHOCK_LIPSCHITZ = {
   closedBlockerFor: 'G6_polymath15_bridge (coordinated flip: imp-387)',
   citationsUsed: [
     'Polymath15 (Tao et al.) "Effective approximation of the Riemann ' +
-      'zeta function", arXiv:1802.05390v3, Lemma 5.2.',
+      'zeta function", arXiv:1904.12438, Lemma 5.2.',
     'Villani, "Topics in Optimal Transportation", AMS GSM 58, Chapter 7.3.',
   ],
 };

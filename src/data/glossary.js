@@ -8405,6 +8405,38 @@ export const glossary = [
       'imp-33681 amplitude-grows-weakly-positive-but-below-the-peak-growth verdict, the amplitude-series companion measurement (imp-33681)',
     ],
   },
+  {
+    term: 'imp-33845 FIXED-3/2-ONSET verdict: (C_ren - C_PS) ~ (4/3) eps^{3/2} is a fixed-rate asymptotic onset, not a power-law drift',
+    category: 'numerical',
+    definition:
+      'imp-33845 sharpens the imp-33794 onset-not-drift reading for the H4 fold-reading renormalized ' +
+      'amplitude C_ren(eps) = eps^{3/2} |m_prime(i eps)| on a finer 3-rungs-per-decade eps = ' +
+      'y_N^sharp = sqrt(2 pi / N) ladder over N in {1e3 .. 1e7}. imp-33794 only measured the tail ' +
+      'slope of C_ren itself (d log C_ren / d log N -> ~ -2e-5) and inferred onset-not-drift from a ' +
+      'near-zero slope; it never measured the approach RATE of the gap g(eps) = C_ren(eps) - C_PS to ' +
+      'the Privalov-Sokhotski constant C_PS = pi/sqrt(2) (imp-33646).\n\n' +
+      'RESULT: the local gap exponent p(eps) = d log g / d log eps settles MONOTONE to a FIXED onset ' +
+      'rate of exactly 3/2 (1.48839 at N = 2e3, tightening to 1.50000 at N = 1e7), and the fitted ' +
+      'amplitude A = g(eps) / eps^{3/2} tightens monotone to the constant 4/3 (1.322633 at N = 1e3 to ' +
+      '1.333332 at N = 1e7). So the small-N excess above C_PS closes as a clean power law ' +
+      'C_ren - C_PS ~ (4/3) eps^{3/2} -- the SAME 3/2 renormalization exponent that defines C_ren -- ' +
+      'i.e. |m_prime(i eps)| ~ C_PS eps^{-3/2} + 4/3, a constant (eps^0) subleading correction. This ' +
+      'is a fixed-rate asymptotic ONSET, not a power-law DRIFT.\n\n' +
+      'HONEST SCOPE: measurement-only, on a finite ladder. This is CONSISTENT WITH but does NOT ' +
+      'DISCHARGE the H4 strip-height fold-reading bound (imp-33766): the uniform bound needs the ' +
+      'ANALYTIC tracking of C_ren through the fold-modulus back-conversion, not a fitted onset rate at ' +
+      'finite N, and it says nothing about the coupled H3 curvature rung (N-exponent 5/4, imp-33786) ' +
+      'that jointly governs the discharge. G6a_shock_lipschitz STAYS OPEN. No positivity; imp-3066 ' +
+      'off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; Platt-Trudgian Lambda <= 0.2 remains the ' +
+      'rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33845 (characterizing the imp-33794 C_ren(N) approach-rate to C_PS on a finer eps ladder, measuring the gap exponent to a fixed 3/2 onset rate with 4/3 amplitude), 2026',
+    relatedTerms: [
+      'imp-33794 C_ren finite-window measurement, the coarser tail-slope reading this sharpens (imp-33794)',
+      'imp-33646 H4 Privalov-Sokhotski fold-reading constant C_PS = pi/sqrt(2), the limit the gap approaches (imp-33646)',
+      'imp-33766 H4 independent-discharge scoping, the finite-window condition this is consistent-with but does not discharge (imp-33766)',
+      'imp-33786 H3 joint-curvature input scoping, the coupled N-exponent 5/4 rung that jointly governs the discharge (imp-33786)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -69,6 +69,7 @@ import { IMP3106_EXCESS_FRACTION_INTEGRABILITY } from '../data/imp-3106-excess-f
 import { REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126 } from '../data/imp-3126-regular-mass-vs-c-shock-coincidence.js';
 import { IMP3220_EN_BRIDGE_FIDELITY_FRONTIER } from '../data/imp-3220-en-bridge-fidelity-frontier.js';
 import { IMP_33772_ETRUNC_BASELINE_COHORT_PROVENANCE } from '../data/imp-33772-etrunc-baseline-cohort-provenance-tabulation.js';
+import { IMP_33818_ETRUNC_NAME_COLLISION_CROSSCHECK } from '../data/imp-33818-etrunc-name-collision-crosscheck.js';
 import { IMP3406_SIGMA_HIGHN_EXTRAPOLATION } from '../data/imp-3406-sigma-highN-extrapolation.js';
 import { IMP3711_SIGMA_POSTPEAK_CONTINUATION } from '../data/imp-3711-sigma-postpeak-continuation.js';
 import { IMP3443_NMAX_ETRUNC_SENSITIVITY } from '../data/imp-3443-nmax-etrunc-sensitivity.js';
@@ -722,10 +723,14 @@ function ConditionalShareUShapePanel() {
         Two DISTINCT quantities share the name &ldquo;E<sub>trunc</sub>&rdquo;: the fixed-strip
         truncation floor tabulated here (&asymp;{IMP_33772_ETRUNC_BASELINE_COHORT_PROVENANCE.baselineValue.toExponential(2)},
         rooted in {IMP_33772_ETRUNC_BASELINE_COHORT_PROVENANCE.provenanceRoot} and pinned identically across the
-        sigma(N)-decay cohort) versus a SEPARATE &asymp;0.137 lambda-bound truncation contribution on a different
+        sigma(N)-decay cohort) versus a SEPARATE &asymp;{IMP_33818_ETRUNC_NAME_COLLISION_CROSSCHECK.lambdaBoundValue.value} lambda-bound truncation contribution on a different
         route/height (imp-2625, gamma=10<sup>13</sup>). The &sigma;(N) surface above uses only the
         {' '}{IMP_33772_ETRUNC_BASELINE_COHORT_PROVENANCE.baselineValue.toExponential(2)} fixed-strip value; the two
-        must not be conflated.
+        must not be conflated. <strong style={{ color: '#38bdf8' }}>Executable guard (imp-33818):</strong>{' '}
+        the two same-named quantities are pinned {IMP_33818_ETRUNC_NAME_COLLISION_CROSSCHECK.decadesApart} decades apart
+        (ratio &asymp;{IMP_33818_ETRUNC_NAME_COLLISION_CROSSCHECK.ratio}&times;), and a build-time tripwire confirms all
+        {' '}{IMP_33818_ETRUNC_NAME_COLLISION_CROSSCHECK.sigmaBridgeConsumers.length} sigma(N)-bridge consumers declare the
+        fixed-strip value and none substitutes the lambda-bound one.
       </div>
       <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
         Source: imp-3220-en-bridge-fidelity-frontier.js &mdash; N&isin;{'{2..10'}<sup>6</sup>{'}'}, dual-axis (&sigma;(N) left, E_coll/E_flow right).

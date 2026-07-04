@@ -4898,6 +4898,45 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3869 deep-tail exact-saddle ratio recovery: R_n stays below 1 through n=1424, climbing back toward it with no second well",
+    category: "numerical",
+    definition:
+      "imp-3849 converged the inner A(tau) quadrature of the exact-saddle ratio R_n = |D_n|/|D_n^saddle| " +
+      "and found a broad sub-unity well bottoming at r_min = -5.845e-4 near n = 500, with R_n climbing " +
+      "slowly back toward 1 past the well but measured only out to n = 624. imp-3869 extended the " +
+      "identical NPHI=10 kernel and inner-converged A(tau) quadrature (4800 panels on [0,2], self-" +
+      "checked against 7200) from n = 624 to n = 1424 to see whether that recovery completes, reverses, " +
+      "or develops a second feature." +
+      "\n\nFOUR findings: (1) R_n stays BELOW 1 across the whole extended range and recovers toward 1 " +
+      "MONOTONICALLY from below -- no second sign change and no second well, the imp-3849 n=500 well " +
+      "remains the sole excursion. (2) The recovery does not complete by n = 1424: r_1424 = -3.828e-4, " +
+      "only ~35% of the way back from the well minimum -5.845e-4 to 0, so this is a slow tail rather " +
+      "than a fast return. (3) The only second feature is a shoulder in the recovery RATE (an " +
+      "inflection of dr/dn) near n ~ 790, where the rate accelerates out of the well, peaks at roughly " +
+      "2.71e-7 per rung, then decelerates monotonically -- a rate feature, not a value feature. (4) The " +
+      "recovery tracks the imp-3735 Laplace-variance tail |eps_n| -> 0: eps_n stays negative and decays " +
+      "(peak magnitude eps_350 = -5.144e-4, eps_1424 = -2.656e-4) with r_n/eps_n nearly constant at " +
+      "1.29-1.44, so the eps-weighted step in D_n vanishing is what drags the ratio back toward 1. The " +
+      "feature cascade reads: |eps|-peak near n ~ 350 -> well minimum at n = 500 -> recovery-rate " +
+      "shoulder near n ~ 790, all inside one sub-unity excursion." +
+      "\n\nHONEST SCOPE: measurement only, at the RH-equivalent scale class. Grid-stable to ~4.95e-7 in " +
+      "the tail (looser than imp-3849's ~8e-8 up to n=624, worsening toward the A(tau) support edge). " +
+      "A later re-measurement (imp-33230) extended this ladder further and found the recovery does not " +
+      "simply asymptote to 1 along the naive 4/(n ln n) law -- see imp-33211/imp-33230 for the rate " +
+      "fit and the P_r crossing of 1 near n ~ 1457; this entry documents the imp-3869 n<=1424 reading " +
+      "only. No operator positivity established; the off-diagonal endpoint-Hankel obstruction K_a >= 0 " +
+      "(imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the " +
+      "rigorous SOTA.",
+    firstUsed: "imp-3869 (extending the imp-3849 inner-converged exact-saddle ratio ladder from n=624 to n=1424, finding R_n stays below 1 and recovers monotonically with a single recovery-rate shoulder near n~790, tracking the imp-3735 |eps_n|->0 Laplace tail), 2026",
+    relatedTerms: [
+      "imp-3849 inner-quadrature-converged exact-saddle ratio: crossing moves to n*=215.231, well deepens ~5x to r_min=-5.845e-4 at n~500 (imp-3849)",
+      "imp-3735 moment-ratio correction eps_n = Q_n/tau*(n)^2 - 1: Laplace-variance decay order (imp-3735)",
+      "imp-33211 recovery-rate fit against the 4/(n ln n) law and the P_r crossing of 1 (imp-33211)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/viz-imp33214-saddle-ratio-deep-tail-recovery",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

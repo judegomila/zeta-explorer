@@ -5324,6 +5324,44 @@ export const glossary = [
     ],
     link: "/viz-imp33243-recovery-rate-fit",
   },
+  {
+    term: "imp-33210 direct-route reproduction of the imp-3844 subleading A-weight coefficient B via a structurally-distinct log-sum-exp completed-Riemann kernel",
+    category: "numerical",
+    definition:
+      "imp-3867 reproduced the LEADING imp-3844 A-weight constant c_inf = -ln((pi/2) Phi(0)) via a " +
+      "fully independent direct completed-Riemann summation, but for the SUBLEADING coefficient " +
+      "B = 3/(2 pi) = 0.477464829275686 it fell back on the imp-3844 collapsed Laplace form (Gauss-" +
+      "Laguerre on A(tau) = e^{-T} int_0^inf e^{-T t} H_tau(t) dt), which still reuses the imp-3844 " +
+      "n=1-tail collapse and t = e^{4s}-1 substitution -- so B rested, at bottom, on one analytic " +
+      "path. imp-33210 closes that gap: it evaluates ln Phi(u) DIRECTLY as a per-term log-sum-exp " +
+      "over the completed-Riemann terms, ln Phi(u) = logsumexp_n [ln(2 pi^2 n^4 e^{4u} - 3 pi n^2 " +
+      "e^{2u}) - pi n^2 e^{4u}], with every term carrying its OWN e^{-pi n^2 e^{4u}} weight (no " +
+      "common e^{-pi e^{4u}} factored out, unlike the imp-3709/imp-3844 factored-log form), then " +
+      "forms A(tau) = int_0^inf Phi(s) Phi(s+tau) ds as the FULL two-factor product with ALL n " +
+      "retained in both factors -- no analytic n=1-tail truncation of Phi(s+tau) and no t-" +
+      "substitution collapse, leaving the Watson concentration entirely to the numerics. " +
+      "Richardson-extrapolating the single-point coefficient b(tau) = (c(tau) - c_inf)/e^{-2 tau} " +
+      "over the clean window [3, 3.5] recovers B = 0.477463967 (< 1e-6 from 3/(2 pi)), and a " +
+      "disjoint window [3.25, 3.75] gives 0.477461899 (< 3e-6), with the single-point ladder " +
+      "approaching B from the imp-3844 side as tau grows. Because this route shares none of the " +
+      "imp-3844 analytic machinery -- no factored kernel, no n=1-tail truncation, no t-substitution, " +
+      "no Gauss-Laguerre-on-the-collapsed-weight -- B = 3/(2 pi) is confirmed NOT a single-path " +
+      "artifact, the last piece imp-3867 left resting on one route." +
+      "\n\nHONEST SCOPE: reproduction/cross-check only, RH-equivalent, necessary-but-not-sufficient. " +
+      "This is an independent NUMERICAL re-derivation of a diagnostic subleading coefficient; it does " +
+      "NOT re-derive the Watson expansion symbolically and does NOT bound the all-orders " +
+      "O(e^{-4 tau}) tail (sg-3844-watson-tail stays open). Establishes NO operator positivity; the " +
+      "off-diagonal endpoint-Hankel K_a &gt;= 0 step (imp-3066) is UNTOUCHED. No RH verdict, no QED. " +
+      "Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33210 (direct-route reproduction of the imp-3844 subleading A-weight coefficient B via a structurally-distinct per-term log-sum-exp completed-Riemann kernel and full two-factor autocorrelation, extending imp-3867 from the leading c_inf to B), 2026",
+    relatedTerms: [
+      "imp-3844 closed-form derivation of the A-weight correction limit: c_inf, B (imp-3844)",
+      "imp-3867 independent structurally-distinct reproduction of c_inf and B via a direct completed-Riemann kernel path (imp-3867)",
+      "sg-3844-watson-tail: the still-open rigorous all-orders O(e^{-4 tau}) remainder bound (imp-3844)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

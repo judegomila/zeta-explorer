@@ -4479,6 +4479,48 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3870 smin/Dmin slack REFUTATION: imp-3854's 'nearest zero is also the tightest gap, so smin~=Dmin' note is FALSE",
+    category: "numerical",
+    definition:
+      "imp-3854 STEP-4 confirmed its O((H/Dmin)^2) thetaBar-elasticity prediction " +
+      "against imp-3728 to a factor predictionRatio in [0.79, 1.56], crediting the " +
+      "residual to smin/Dmin < 1 slack on the note that on the imp-3725 plateaus " +
+      "the nearest zero is also the tightest individual shrunk gap, so smin ~= " +
+      "Dmin. imp-3870 scanned the FULL endN system on all 10 plateaus for the " +
+      "smallest individual shrunk gap smin and its offset from the record pair, " +
+      "and REFUTES that note outright." +
+      "\n\nTWO measurements. (1) smin/Dmin is UNIFORMLY TINY -- 0.0053 (plateau 9) " +
+      "to 0.0224 (plateau 4), so (Dmin/smin)^2 ranges 1987x to 35493x; smin is " +
+      "NOWHERE ~= Dmin. (2) The tightest individual gap ALWAYS sits FAR from the " +
+      "record pair -- offsets from -259521 (plateau 7) to +418135 (plateau 9), " +
+      "NEVER adjacent (|offset| = 1) on any plateau: the nearest zero is the " +
+      "LARGEST-Dmin direction, and the tightest gap is a distant tail gap with " +
+      "negligible 1/D_j^2 weight. Substituting the rigorous (H/smin)^2 for the " +
+      "imp-3854 (H/Dmin)^2 would inflate the predicted relative K change by " +
+      "(Dmin/smin)^2, so the smin/Dmin-slack hypothesis overshoots the measured " +
+      "near-1 predictionRatio by 3-4 orders of magnitude, and smin/Dmin << 1 " +
+      "holds on every plateau regardless of predictionRatio sign -- so smin/Dmin " +
+      "slack does not correlate with predictionRatio and cannot be the residual " +
+      "mechanism. CORRECTED PICTURE: the elasticity is dominated by the nearest-" +
+      "neighbour Psi term, whose path-local smin equals Dmin, so (H/Dmin)^2 is " +
+      "the sharp effective constant; the global (H/smin)^2 bound is a valid but " +
+      "hugely loose over-bound charging every path with the far tail's tiny gap " +
+      "(imp-3898 later derived the path-local majorant behind this). This " +
+      "corrects an imp-3854 CHARACTERIZATION, not an inequality: LEMMA 3854 " +
+      "(0 <= dPsi_N/dT <= (8/smin^2)Psi_N) stays a valid over-bound, and imp-3894 " +
+      "went on to show the residual is ~99% the (H/Dmin)^2 proxy-accuracy factor " +
+      "plus only a uniform ~1% endpoint-concavity slack. Measurement only; " +
+      "imp-3066 untouched; Platt-Trudgian Lambda<=0.2 remains SOTA; NO QED.",
+    firstUsed: "imp-3870 (scanning all 10 imp-3725 plateaus for the smallest individual shrunk gap smin and its offset from the record pair, refuting the imp-3854 smin~=Dmin note and relocating its predictionRatio residual to endpoint-concavity/dominant-term structure), 2026",
+    relatedTerms: [
+      "imp-3854 thetaBar double-inertness: d theta_N/d thetaBar = O((H/Dmin)^2 (1-theta_N)), so the certified K_paper elasticity is thetaBar-robust to its fifth significant figure (imp-3854)",
+      "imp-3898 path-local horizon-elasticity bound sharpening the global (8/smin^2) ceiling via the nearest-cumulative distance Dmin (imp-3898)",
+      "imp-3894 decomposes the imp-3854 predictionRatio residual into a ~99% (H/Dmin)^2 proxy-accuracy factor and a uniform ~1% endpoint-concavity slack (imp-3894)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

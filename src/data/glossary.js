@@ -4601,6 +4601,37 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3893 moment-fidelity tilt T_n = Q_n^true/Q_n^model: a sub-3% multiplicative tilt leveraged into the additive drift offset delta_n that closes the imp-3871 model-fidelity gap",
+    category: "numerical",
+    definition:
+      "imp-3871 localized the ~30-unit L_n=1 crossing gap (surrogate n~18.4 vs measured n~48.6) " +
+      "as a MODEL-FIDELITY mismatch between the imp-3665 super-exponential surrogate weight " +
+      "A(tau) ~ exp(-pi e^{4 tau}) and the real Phi-autocorrelation A(tau), but never quantified " +
+      "how the two weightings differ moment-by-moment. imp-3893 does exactly that, defining the " +
+      "moment-ratio TILT T_n = Q_n^true/Q_n^model = (M_(n+2)^true/M_n^true)/(M_(n+2)^model/M_n^model)." +
+      "\n\nTHREE findings. (1) The weighting discrepancy is a SUB-3% multiplicative tilt that SHRINKS " +
+      "monotonically: T_n runs from 1.0313 at n=10 down to 1.0023 at n=80 -- the true and surrogate " +
+      "moment ratios Q_n agree to better than 3% everywhere. (2) That tiny tilt is LEVERAGED by the " +
+      "eps_n = Q_n/tau*^2 - 1 near-cancellation (a difference of two nearly-equal quantities) into an " +
+      "additive drift offset delta_n = (T_n - 1) n(1+4 tau*) ~ 0.65-0.71, which supplies 94% (n=10) " +
+      "rising to 99.8% (n=50) of the entire L_n^true - L_n^model discrepancy. (3) That ~0.7 offset " +
+      "shifts the L_n=1 crossing by the full ~30 units, from the surrogate n~18.38 to the measured " +
+      "n~48.58, reproducing the imp-3871 anchors exactly. Since delta_n is a property of the WEIGHT " +
+      "(true A vs surrogate), not of the saddle expansion order, no number of Laplace terms can " +
+      "produce it -- confirming and quantifying imp-3871." +
+      "\n\nHONEST SCOPE: measurement/characterization only, RH-equivalent scale class; establishes NO " +
+      "operator positivity. Mass-feasibility is necessary-but-not-sufficient; the operator-level " +
+      "K_a >= 0 sign-positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian " +
+      "Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3893 (quantifying the imp-3871 model-fidelity gap moment-by-moment as a sub-3% multiplicative moment-ratio tilt T_n leveraged by the eps_n near-cancellation into an additive drift offset that supplies 94-99.8% of the crossing gap and moves the L_n=1 crossing from n~18.4 to n~48.6), 2026",
+    relatedTerms: [
+      "imp-3871 fifth/sixth-derivative saddle corrections: C4,C5 SHRINK (refuting imp-3848), and the residual L_n=1 crossing gap (n~18.4 vs n~48.6) is a MODEL-FIDELITY gap, not a truncation artifact (imp-3871)",
+      "imp-3735 moment-ratio correction eps_n = Q_n/tau*(n)^2 - 1: Laplace-variance decay order (imp-3735)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

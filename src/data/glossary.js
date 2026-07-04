@@ -6596,6 +6596,39 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33315 far-tail-law vs interior-max reconciliation: the imp-33291 (-1/2,+1/2) power pair and the imp-3406 U-shape peak are COMPLEMENTARY, disjoint halves of the sigma(N) shape",
+    category: "numerical",
+    definition:
+      "imp-33291 confirmed the far-tail law sigma_ft(N) = E_coll/(E_trunc+E_coll) ~ (C_C/E_trunc) " +
+      "sqrt(log T0/N) as a joint (-1/2,+1/2) power pair valid far past the E_coll=E_trunc crossover " +
+      "N_cross~3.280e9 (imp-3444). imp-3406 separately pinned the sigma(N) U-shape interior MAXIMUM at " +
+      "N_max~9.219e5 (sigma_max~0.949429). The two results were never connected; imp-33315 derives " +
+      "the closed-form far-tail asymptotic and tests whether it reproduces the interior-max location.\n\n" +
+      "It does NOT. The far-tail law drops the super-poly E_flow term, keeping only R_ft=E_trunc/E_coll, " +
+      "which is monotone INCREASING in N (E_coll~sqrt(log T0/N) falls), so sigma_ft is monotone " +
+      "DECREASING with no interior maximum -- its ternary argmax pins to the lower bracket endpoint. " +
+      "The true peak is instead an interior MINIMUM of R=(E_trunc+E_flow)/E_coll, a balance the super-" +
+      "poly-decaying E_flow term drives: at N_max the flow term E_flow~4.68e-5 EXCEEDS the truncation " +
+      "floor E_trunc=3.06e-5 (ratio~1.53), the opposite of the far-tail regime where E_flow is " +
+      "negligible. Forced to evaluate at the true peak, the far-tail law OVERSHOOTS: sigma_ft(N_max)~" +
+      "0.97939 vs sigma_full(N_max)~0.94943, an overshoot of ~3.0e-2. The peak sits ~3.55 decades BELOW " +
+      "the crossover N_cross~3.280e9 where the (-1/2,+1/2) small-share tail first becomes valid -- the " +
+      "far tail and the interior max live in disjoint regimes, complementary halves of the N-shape " +
+      "rather than two views of one law.\n\n" +
+      "HONEST SCOPE: derivation/measurement only, a conditional-share diagnostic, NOT an RH bound. C_C " +
+      "is GUE-conditional per imp-486; changes no bound; imp-3066 off-diagonal endpoint-Hankel K_a>=0 " +
+      "positivity UNTOUCHED; no positivity, no bridge closure, no RH claim, NO QED. Platt-Trudgian " +
+      "Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33315 (deriving the closed-form imp-33291 far-tail asymptotic and measuring its residual against the imp-3406 interior-max reconciliation, finding the joint power pair cannot reproduce the peak location and overshoots the peak value by ~3.0e-2, 3.55 decades off-regime), 2026",
+    relatedTerms: [
+      "imp-33291 far-tail sigma(N) two-regressor fit recovering the (-1/2,+1/2) power pair (imp-33291)",
+      "sigma(N) N-shape (interior min ~97.8, interior max ~9.22e5) (imp-3406)",
+      "imp-3444 E_coll=E_trunc crossover N_cross~3.280e9 anchoring the far-tail regime (imp-3444)",
+      "imp-33540 two-power decomposition of the imp-33315 overshoot into slope vs sqrt(log T0) contributions (imp-33540)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -6478,6 +6478,46 @@ export const glossary = [
     ],
     link: "/viz-imp33611-band-crossing-floor-bisection",
   },
+  {
+    term: "imp-33577 cross-solver-refutes-the-arithmetic-floor verdict: the imp-33316 <64 ULP A_log band is a real Clenshaw-Curtis-reachable object at the deep rung n=596 -- the imp-33557 graded failure there is a grade-4 resolution artifact, not an arithmetic property of A(tau*)",
+    category: "numerical",
+    definition:
+      "imp-33557 swept the graded-GL grade-4 node budget at the band-crossing rungs n in {495,510,596} " +
+      "and found the flat ~200-node minimum is band-conditional: a clean 200 nodes at n=495 (HOLDS), " +
+      "~500 at n=510 (EDGE), and INFINITY at n=596 -- no graded budget up to 4000 nodes ever entered the " +
+      "imp-33316 <64 ULP A_log band there. It read the n=596 failure as a rule-invariant depth-growing " +
+      "arithmetic-jitter floor, but tested only the graded-GL grade-4 rule.\n\n" +
+      "imp-33577 cross-solves the question with an INDEPENDENT Clenshaw-Curtis single grid (Chebyshev-" +
+      "Lobatto nodes 17..8193 mapped to [0,7], standard CC cosine weights) at the same three rungs, " +
+      "scored in ULP against the same imp-33213 log-domain A_log target. FINDING: CC clears the band at " +
+      "ALL THREE rungs INCLUDING n=596 -- 513/513/385 nodes with floors ~14.7/~1.6/~0.87 ULP -- reaching " +
+      "sub-ULP agreement at tau*=0.971924, exactly the rung where the graded-GL ladder floored at ~65 " +
+      "ULP and never entered the band. Since both solvers are scored against the SAME log-domain target, " +
+      "the ~65-vs-~0.87 ULP gap at n=596 is a QUADRATURE-RULE property (graded-GL grade-4 endpoint under-" +
+      "resolution vs CC endpoint clustering), not an arithmetic property of A(tau*).\n\n" +
+      "VERDICT: CROSS-SOLVER-REFUTES-THE-ARITHMETIC-FLOOR-READING-AT-n=596. This CONFIRMS the imp-33557 " +
+      "graded measurement verbatim (200/~500/Infinity) but REFINES its interpretation: the <64 ULP band " +
+      "is genuinely reachable at n=596 with the right rule -- what fails there is the graded-GL grade-4 " +
+      "rule on the <=4000-node ladder, not A(tau*) itself. Adding nodes DOES rescue the deep rung, with " +
+      "the right quadrature family.\n\n" +
+      "HONEST SCOPE: accuracy/rule-design cross-solver measurement only, not a bound. The min-node counts " +
+      "and floors are jittery arithmetic-floor lattice quantities (both ladders bounce non-monotonically " +
+      "near the floor; libm exp/pow/cos variation can shift the exact 385/513 counts); the robust reading " +
+      "is the qualitative smallest-clearing-grid separation, not the precise node counts. Changes no " +
+      "bound, patches no literal (imp-3685/imp-3849/imp-33213/imp-33316/imp-33539/imp-33557 intact); " +
+      "NPHI=10 truncation inherited; mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 " +
+      "untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+    firstUsed: "imp-33577 (independent Clenshaw-Curtis single-grid cross-solve of the imp-33557 band-crossing rungs n in {495,510,596}, finding CC clears the <64 ULP band at all three including n=596 where the graded-GL grade-4 ladder failed), 2026",
+    relatedTerms: [
+      "imp-33557 band-crossing three-rung graded minimum, the measurement this cross-solves (imp-33557)",
+      "imp-33560 in-band deep-tail CC cross-solver, the sibling test this extends to the band-crossing rungs (imp-33560)",
+      "imp-33316 <64 ULP A_log band, the threshold both solvers are scored against (imp-33316)",
+      "imp-33213 log-domain A_log target, the common reference both the CC and graded integrals are scored against (imp-33213)",
+      "imp-33600 grade-vs-node-count isolation, testing whether raising the graded-GL grade alone recovers the band at n=596 (imp-33600)",
+      "imp-33613 viz page overlaying the CC vs graded-GL nodes-to-band across the band-crossing rungs (imp-33613)",
+    ],
+    link: "/viz-imp33613-band-crossing-cross-solver-node-budget",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

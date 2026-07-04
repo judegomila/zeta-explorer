@@ -7626,6 +7626,38 @@ export const glossary = [
       'imp-3444 E_coll=E_trunc crossover landmark, the sigma=1/2 halving twin these far-tail landmarks are measured against (imp-3444)',
     ],
   },
+  {
+    term: 'imp-33706 NO-COUNT-CHANGE / MILDEST-MEMBER-DROPPABLE: formalizing the imp-33668 SUBSUMED-BY-H3/H4 verdict leaves the G6a catalogue at six rows, four open',
+    category: 'proof',
+    definition:
+      'The imp-33603 catalogue enumerates six G6a_shock_lipschitz obligations H0..H5 (Lemma-5.2-type ' +
+      'Holder-1/2 blow-up modulus provenance): H1/H2 satisfied, H0/H3/H4/H5 open, with H4 ' +
+      '(strip-height-uniformity) the load-bearing residual. imp-33668 found the part-(b) real-critical-value ' +
+      'SELECTION residual -- the k = 0 (zeroth-derivative, value-level) member of the same Stieltjes ' +
+      'boundary tower whose k = 1 (H4 fold-reading m_prime, N-exponent 3/4) and k = 2 (H3 curvature ' +
+      'm_prime_prime, N-exponent 5/4) members ARE catalogued -- is NOT a distinct fourth obligation ' +
+      '(isDistinctFourthObligation = false), SUBSUMED-BY-H3/H4. imp-33706 asks whether FORMALIZING that ' +
+      'verdict changes the catalogue count. It does not: the selection was never a seventh row to begin ' +
+      'with, so folding it into H3/H4 is a within-row NOTE (discharged-conditional-on-H3/H4), not the ' +
+      'removal of a row, and it does not discharge H3 or H4 either -- so both the total (6) and the open ' +
+      'count (4: H0, H3, H4, H5) hold at delta zero. Separately, imp-33706 checks whether the mildest tower ' +
+      'rung (k = 0, N-exponent 1/4 = 1/4 + k/2) can leave the open-residual list without weakening the ' +
+      'H3/H4 uniformity obligation: since that obligation is governed by the LARGEST exponent and ' +
+      'max{1/4, 3/4, 5/4} = max{3/4, 5/4} = 5/4, deleting the smallest exponent leaves the governing weight ' +
+      '(and the load-bearing H4 residual) untouched -- MILDEST-MEMBER-DROPPABLE, with the value term ' +
+      'separately discharged pointwise by imp-394.\n\n' +
+      'HONEST SCOPE: bookkeeping / assessment only, NOT rigorous. G6a_shock_lipschitz stays OPEN; ' +
+      'imp-3066 K_a>=0 sign-positivity UNTOUCHED; C_mb share untouched; Platt-Trudgian Lambda<=0.2 remains ' +
+      'the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33706 (scoping whether formalizing the imp-33668 SUBSUMED-BY-H3/H4 selection verdict reduces the imp-33603 H0..H5 catalogue count, and whether the k=0 mildest tower member is droppable), 2026',
+    relatedTerms: [
+      'imp-33668 part-(b) selection-residual scoping, the SUBSUMED-BY-H3/H4 verdict this module formalizes (imp-33668)',
+      'imp-33603 Lemma-5.2 port H0..H5 obligation catalogue, the six-row ground truth reconciled here (imp-33603)',
+      'imp-33646 H4 Privalov-Sokhotski fold-reading constant, the k=1 tower member at N-exponent 3/4 (imp-33646)',
+      'imp-33645 H3 curvature divergence, the k=2 governing tower member at N-exponent 5/4 (imp-33645)',
+      'g6a-sub-hyperbolic-closure (imp-394), the pointwise Holder-1/2 boundary-value discharge of the k=0 value term (imp-394)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -246,6 +246,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33266-g6a-k4-toolkit-status-map',
   '/viz-imp33267-a-weight-dual-path-tau25-30',
   '/viz-imp33284-r40-inner-quadrature-ladder',
+  '/viz-imp33285-watson-bracket-direct-vs-reform-dd-ladder',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

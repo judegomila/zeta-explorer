@@ -6889,6 +6889,47 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33538 tau-uniform conservative-envelope constant E ~= 10.78 ULP: the named height-uniform lattice-jitter ceiling, binding at tau=8, with per-height slack margins",
+    category: "numerical",
+    definition:
+      "imp-33312 showed the imp-33296 min-node graded-GL lattice-jitter band COLLAPSES with height " +
+      "(live at tau in {7,8}, vanishing to sub-1 ULP at tau in {9,10}) and noted the tau-uniform " +
+      "worst-case is a CONSERVATIVE ENVELOPE, but carried it only as a plain unnamed max (~11 ULP, " +
+      "qualitatively set by the low heights) with no measurement of how far inside the envelope the " +
+      "collapsed high-tau rungs actually sit.\n\n" +
+      "imp-33538 reads the imp-33312 measured per-height band ceilings (no requadrature) and derives " +
+      "the envelope as the explicit named constant E = max over tau in {7,8,9,10} of maxUlp(tau) = " +
+      "10.7793 ULP, BINDING (attained) at tau=8 -- by construction this single number upper-bounds the " +
+      "worst-in-window residual at every height in the surveyed band. It then reports the per-rung " +
+      "conservativeness margin E - maxUlp(tau): tau=8 sits ON the envelope (margin 0.000 ULP, the " +
+      "binding rung), tau=7 is nearly tight (margin ~0.132 ULP, ~1.01x its own ceiling, slack ~1.2%), " +
+      "while the collapsed high heights are hugely slack -- tau=9 clears it by ~10.114 ULP (~93.8% " +
+      "slack, envelope ~16.21x its ceiling) and tau=10 by the full ~10.779 ULP (~100% slack, envelope " +
+      "bottomlessly deep there). imp-33558 later confirmed no lower height tau in {5,6} raises the " +
+      "binding constant (tau=5 ~3.52, tau=6 ~4.13 ULP, both well inside), and imp-33559 found the " +
+      "binding height survives under a ~106-bit double-double reference libm, though the named " +
+      "constant itself is a double-libm artifact that shifts down to E_ref ~= 10.212 ULP there.\n\n" +
+      "So the height-uniform ceiling used elsewhere as a single conservative bound is now a NAMED " +
+      "quantity with an explicit per-rung margin -- tight only at the two low heights (tau in {7,8}) " +
+      "that set it, and a vast over-estimate at tau >= 9, expressing the imp-33312 collapse-with-height " +
+      "finding as a quantitative slack fraction rather than a qualitative description.\n\n" +
+      "HONEST SCOPE: accuracy measurement/rule-design audit only, at the RH-equivalent scale class; " +
+      "names a quadrature node-budget ceiling and its slack used inside a mass-feasibility diagnostic; " +
+      "mass-feasibility is necessary-but-not-sufficient; establishes no operator positivity and no new " +
+      "bound; NPHI=10 truncation, fixed-neighbourhood, and cross-platform libm caveats are inherited " +
+      "from imp-33312. The operator-level K_a >= 0 sign-positivity (imp-3066) remains UNTOUCHED. No RH " +
+      "verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33538 (deriving the imp-33312 tau-uniform conservative envelope as the explicit named constant E = max_tau maxUlp(tau) ~= 10.78 ULP, binding at tau=8, and measuring the per-height conservativeness margin at every surveyed height), 2026",
+    relatedTerms: [
+      "imp-33312 tau-uniform lattice-jitter band collapse with height, the source measurement this envelope names (imp-33312)",
+      "imp-33296 min-node graded-GL lattice-jitter band, the underlying per-height quadrature ceiling (imp-33296)",
+      "imp-33558 low-height envelope extension tau in {5,6}, confirming no lower height raises the binding constant (imp-33558)",
+      "imp-33559 reference-libm envelope recomputation, showing the binding height survives but the named constant shifts under double-double (imp-33559)",
+      "imp-33581 double-double self-error sweep, bounding the reference libm's own truncation floor behind imp-33559 (imp-33581)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

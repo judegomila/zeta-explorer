@@ -3661,6 +3661,19 @@ const DATA_MODULES = [
   // trend at the deepest rung, ~79 ULP empirical), not a fittable power law. Measurement only; thin
   // jittery 4-point basis; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 9 assertions.
   '/src/data/imp-33555-deep-tail-jitter-envelope-growth-law.js',
+  // imp-33556: CROSS-SOLVER assessment of whether the imp-33537 deep-tail strict-bar spike RECURRENCE
+  // is graded-GL-specific or intrinsic. The SAME four dense width-31 integer windows {300,395,495,595}
+  // are rescored against the IDENTICAL imp-33213 A_log target, but the imp-33295 direct graded-GL
+  // plateau is replaced by the imp-33536 INDEPENDENT Clenshaw-Curtis inner rule (Chebyshev-Lobatto
+  // nodes + CC weights, innerHi=2/N=2048). The CC solver INDEPENDENTLY reproduces the recurrence-and-
+  // intensification: strict-bar (>30 ULP) exceedances recur at every deep window (11,10,19,16/31), the
+  // above-bar fraction climbs from ~1/3 at n=300 to more than half at n~495/595, and the worst-window
+  // jitter grows ~52 to ~90 (n=510)/~77 (n=605) ULP, crossing the imp-33316 64-ULP band at n~495/595
+  // (5 and 3 rungs, wider than the graded 2 and 1). Exact per-rung ULP shifts (jitter caveat) but the
+  // structure is solver-invariant. VERDICT RECURRENCE-IS-INTRINSIC -- an arithmetic-floor jitter
+  // envelope of A(tau*(n)), not a graded-GL lattice artifact; CONFIRMS (not overturns) imp-33537.
+  // Measurement only; jittery lattice floor; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 10 assertions.
+  '/src/data/imp-33556-deep-tail-spike-recurrence-cc-cross-solver.js',
 ];
 
 let ALL_MODULES = FAST_MODE

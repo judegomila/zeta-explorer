@@ -991,6 +991,13 @@ export const LAMBDA_ROADMAP = {
     'and drops below 0.1 only at N ~ 3.21e11 — the empirical-vs-analytic conditional ' +
     'gap keeps shrinking well past 10^6, but gradually; this is a quantified decay-' +
     'rate refinement only and changes no bound (C_mb remains GUE-conditional, imp-486). ' +
+    'CHARACTERIZED (imp-33701): differencing the imp-33582 six-decade exponent ladder ' +
+    'shows it is monotone in VALUE but its ramp velocity (first difference) RISES then ' +
+    'FALLS — an S-shaped (sigmoid) approach to the 1/2 asymptote, not a straight or ' +
+    'ever-steepening climb — with the ramp acceleration (second difference) changing ' +
+    'sign convex-to-concave EXACTLY ONCE, a single knee landing in the [1e10,1e11] ' +
+    'decade, steepest over the two-decade [1e9,1e11] plateau. Curvature diagnostic ' +
+    'only; changes no bound (C_mb remains GUE-conditional, imp-486). ' +
     'REFINED (imp-33723/imp-33721): two independent follow-ups sharpen the N ~ 3.27e9 ' +
     'halving landmark. imp-33723 derives the neighboring imp-3444 E_coll=E_trunc ' +
     'crossover in CLOSED FORM as a Banach fixed point N_cross = (C_C/E_trunc)^2 * ' +

@@ -6338,6 +6338,41 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33291 far-tail sigma(N) two-regressor fit: the (-1/2,+1/2) JOINT power pair in (ln N, ln log T0), recovered to the arithmetic floor by sliding the window past the crossover",
+    category: "numerical",
+    definition:
+      "The imp-3463 leading far-tail form for the conditional share sigma(N)=E_coll/(E_trunc+E_flow+E_coll) " +
+      "is sigma ~ (C_C/E_trunc) sqrt(log T0/N), which carries TWO powers at once: N^(-1/2) and " +
+      "(log T0)^(+1/2). The imp-33255/imp-33274 line of work fit only a SINGLE ln N slope to this " +
+      "regime, and imp-33274 found that slope converging monotonely toward 1/2 from below as the fit " +
+      "window slides past the imp-3444 crossover N_cross~3.280e9 -- but a single-slope fit cannot see " +
+      "the second power; it folds the slow sqrt(log T0) half-power into its slope and residual drift.\n\n" +
+      "imp-33291 replaces the single-regressor fit with a two-predictor OLS ln sigma = a + b1 ln N + " +
+      "b2 ln(log T0), run on the SAME imp-33274 sliding windows (fixed 12-decade span, start slid " +
+      "0,3,6,12,24,48 decades past N_cross, 4 points/decade). FINDING: the recovered coefficients " +
+      "converge from (-0.6026, +4.42) at the crossover anchor onto the analytic pair (b1,b2)->" +
+      "(-1/2,+1/2) -- both gaps shrink monotonely to the arithmetic floor (|b1+1/2|~2e-13, " +
+      "|b2-1/2|~3e-11) by 24-48 decades past the crossover -- confirming the far tail is a genuine " +
+      "JOINT (-1/2,+1/2) power law, not a single N^(-1/2) law with drift. The reason the single-slope " +
+      "fit could not see the second power: in every sliding window ln N and ln(log T0) are " +
+      "~0.994-0.9997 collinear (log T0 is a slow, near-monotone function of N over the swept range), " +
+      "so the +1/2 ln(log T0) coefficient is almost entirely absorbable into the ln N slope -- exactly " +
+      "how the half-power hid inside the imp-33274 single fit's residual drift.\n\n" +
+      "HONEST SCOPE: measurement/fit only, a conditional-share diagnostic, NOT an RH bound. C_C is " +
+      "GUE-conditional (imp-486), untouched. Changes no bound; imp-3066 K_a>=0 untouched; the imp-3932 " +
+      "partial-falsification result stands; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; " +
+      "NO QED.",
+    firstUsed: "imp-33291 (two-regressor OLS ln sigma = a + b1 ln N + b2 ln(log T0) on the imp-33274 sliding far-tail windows, recovering the analytic (-1/2,+1/2) power pair and isolating the sqrt(log T0) half-power the single-slope fit folded into residual drift), 2026",
+    relatedTerms: [
+      "imp-33274 sliding-start post-crossover sigma(N) decay exponent, the single-slope precursor this two-regressor fit supersedes (imp-33274)",
+      "imp-3463 leading far-tail form sigma ~ (C_C/E_trunc) sqrt(log T0/N) this fit confirms as a joint two-power law (imp-3463)",
+      "imp-33315 far-tail-law vs interior-max reconciliation, testing whether this law reproduces the imp-3406 peak (imp-33315)",
+      "imp-33540 two-power decomposition of the imp-33315 overshoot into slope vs sqrt(log T0) contributions (imp-33540)",
+      "imp-3444 crossover N_cross~3.280e9 anchoring every sliding window (imp-3444)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

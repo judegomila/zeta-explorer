@@ -3612,6 +3612,15 @@ const DATA_MODULES = [
   // ln(log T0) moves only ~0.46 vs ~8.18 for ln N (the imp-33291 collinearity). Measurement/decomposition
   // only; C_C GUE-conditional (imp-486); imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-33540-sigma-fartail-overshoot-two-power-decomposition.js',
+  // imp-33553: MEASURES how the imp-33540 far-tail two-power slope:sqrt(log T0) dominance ratio evolves
+  // across a reference-N ladder from the imp-3406 interior max (N~9.22e5) to the imp-3444 crossover
+  // (N~3.28e9). The ~18:1 dominance does NOT approach parity -- it INTENSIFIES: the crossover-anchored
+  // chord ratio rises monotonically ~17.97 (peak, reproducing imp-33540) -> ~21.53 (top rung), the local
+  // ratio 1/|d ln L/d ln N| rises ~14.50 -> ~22.02, and the +1/2 sqrt(log T0) half-power fraction SHRINKS
+  // in magnitude (~-5.89% -> ~-4.87%) because L=log T0 grows and the log-of-a-log decelerates (imp-33291
+  // collinearity tightens off-regime). Scout hypothesis refuted. Measurement only; C_C GUE-conditional
+  // (imp-486); imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-33553-sigma-fartail-slope-sqrt-dominance-ladder.js',
   // imp-33537: ASSESSES whether the isolated imp-33316 n=300 deep-tail PLATEAU strict-bar spike is
   // a one-off by re-scoring the IDENTICAL imp-33295 conservative grade4/400p=4000-node graded plateau
   // against the imp-33213 A_log target on FOUR dense width-31 integer windows centred on

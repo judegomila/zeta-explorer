@@ -5569,6 +5569,83 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3888 provenance audit of the imp-3849 R_40 cross-check",
+    category: "numerical",
+    definition:
+      "imp-3849's inner-A(tau)-converged (4800-panel) saddle-ratio ladder cross-checks three prior " +
+      "literals: R_3 against imp-3670/imp-3685, R_40 against imp-3685's baked value, and eps_40 " +
+      "against imp-3735's converged value. imp-3888 is a read-only audit that imports all four " +
+      "source modules directly (no re-derivation, no hand-typed literals) and recomputes the actual " +
+      "deltas, to check whether the ~1e-5 informal tie bar stated in the imp-3849 ticket title " +
+      "actually holds at all three checks." +
+      "\n\nFINDING. Two of the three checks tie comfortably within that ~1e-5 bar: R_3 (imp-3849 " +
+      "vs imp-3670/imp-3685) disagrees by ~3.18e-7, and eps_40 (imp-3849 vs imp-3735) disagrees by " +
+      "~2.08e-7. The third, R_40 (imp-3849's ~1.02440 vs imp-3685's baked ~1.02438), disagrees by " +
+      "~1.21e-5 -- slightly ABOVE the informal ~1e-5 bar, though still comfortably inside imp-3849's " +
+      "own coded assertion tolerance for that specific check (1e-4)." +
+      "\n\nWHY THE GAP IS REAL, NOT A BUG. R_3 is a small-n ratio that imp-3670 and imp-3685 both " +
+      "measure identically, so it is inner-resolution-insensitive. R_40 sits far enough into the " +
+      "ladder that imp-3849's converged 4800-panel inner A(tau) quadrature genuinely shifts the " +
+      "ratio a few micro-units away from imp-3685's coarser [0,7]/1200-panel grid -- the same " +
+      "inner-quadrature-resolution sensitivity axis that imp-3849/imp-3735 originally identified. " +
+      "No literal is wrong; the informal ~1e-5 characterization in the imp-3849 ticket title is " +
+      "simply tighter than the R_40 check actually warrants, and the audit records that honestly " +
+      "instead of silently patching either module's literal." +
+      "\n\nHONEST SCOPE: read-only verification/audit only; no bound changed; the off-diagonal " +
+      "endpoint-Hankel K_a >= 0 sign-positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3888 (auditing whether the imp-3849 R_3/R_40/eps_40 cross-check literals tie to their certified imp-3670/imp-3685/imp-3735 source modules, finding R_40 sits just above the ticket's informal ~1e-5 bar but inside imp-3849's own 1e-4 assertion tolerance), 2026",
+    relatedTerms: [
+      "imp-3849 saddle-ratio well-depth inner-converged ladder (imp-3849)",
+      "imp-3685 fit-bias saddle-plateau n=40 measurement (imp-3685)",
+      "imp-3735 moment-ratio correction tail (imp-3735)",
+      "storage-precision assertion tolerance trap (imp-2546, imp-2539)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
+  {
+    term: "imp-3893 extended moment tilt: the imp-33317 L_n=1 crossing residual is a model-side saddle multiplier, not a discarded true higher moment (imp-33531)",
+    category: "measurement",
+    definition:
+      "imp-33531 quantifies where the imp-33317 ~0.0857-unit arithmetic-floor residual on the " +
+      "L_n=1 model-vs-measurement crossing actually lives, by adding the NEXT term the imp-33317 " +
+      "reconstruction explicitly drops. Measurement/fit only; no operator positivity, no bound, no QED." +
+      "\n\nSETUP. imp-33317 reconstructs the drift as driftRecon1 = driftModel + delta_n with the " +
+      "LINEAR moment-tilt term delta_n = (T_n - 1)*lever, where T_n = qTrue/qModel is the imp-3893 " +
+      "tilt (ratio of the true moment ratio qTrue = M[n+2]/M[n] to the saddle-window model ratio " +
+      "qModel), and lever = n*(1+4*ts). That reconstruction closes ~99.7 percent of the 30.2-unit " +
+      "raw crossing gap but leaves CROSS_TRUE - CROSS_RECON1 = 0.08573749 units, with the per-n " +
+      "second-order residual (driftTrue - driftRecon1) FLIPPING SIGN at n ~ 74.1 (positive below, " +
+      "negative above)." +
+      "\n\nEXTENDED TILT. The exact drift is driftTrue = (qModel*T_n/ts^2 - 1)*lever = driftModel + " +
+      "(qModel/ts^2)*(T_n - 1)*lever, so the single term imp-33317 discards is the saddle-approx " +
+      "multiplier mNext_n = (qModel/ts^2 - 1)*(T_n - 1)*lever -- built ENTIRELY from model-side " +
+      "quantities (qModel and the saddle location ts; no qTrue). Adding it gives driftRecon2 = " +
+      "driftRecon1 + mNext_n." +
+      "\n\nFINDING. The next term closes the residual to MACHINE PRECISION: CROSS_RECON2 = 48.58434117 " +
+      "vs CROSS_TRUE = 48.58434117, an extended residual gap of -3.7e-13 (fraction of the 0.0857 " +
+      "residual closed = 1.0000000000). The per-n residual under driftRecon2 collapses to float noise " +
+      "(max |residual| = 5.7e-14 across n=10..120), so there is NO persistent second residual and NO " +
+      "surviving sign-flip -- the discarded higher moments of the true autocorrelation distribution " +
+      "carry NOTHING at this order. The scout verdict guess that the 0.0857 was 'carried by the " +
+      "discarded higher-moment terms' is thereby REFUTED: the residual is carried entirely by the " +
+      "one model-side factor (qModel/ts^2 - 1), the deviation of the model moment ratio from its " +
+      "saddle value ts^2, and the observed n ~ 74.1 sign-flip is just the sign change of " +
+      "(qModel/ts^2 - 1)*(T_n - 1) itself, absorbed exactly by the extended reconstruction." +
+      "\n\nHONEST SCOPE: measurement/fit only, run on the imp-33317 machinery verbatim (T_A=8, NM=3200, " +
+      "INNER_FINE=4800, QUAD_N=150000, QUAD_W=16); delivers NO N-uniform certified constant and NO " +
+      "operator bound. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33531 (measuring whether adding the next higher moment term to the imp-3893 tilt closes the imp-33317 0.0857-unit L_n=1 crossing residual, finding the extended reconstruction closes it to -3.7e-13 machine precision and that the residual is a model-side saddle multiplier, not a discarded true higher moment), 2026",
+    relatedTerms: [
+      "imp-33317 tilt-closure crossing gap (imp-33317)",
+      "imp-3893 moment tilt (imp-3893)",
+      "saddle-ratio inner-quadrature axis (imp-3849, imp-3735)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

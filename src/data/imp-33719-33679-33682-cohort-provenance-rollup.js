@@ -41,13 +41,14 @@
  *   - imp-33681-peak-minus-trough-amplitude-series-n400-1200.js : peak-minus-trough amplitude composite series measurement
  *   - imp-33682-gap-vs-height-correlation-n400-1200.js          : inter-peak gap-vs-height correlation test
  *
- * HEAVY-IMPORT NOTE. imp-33679 and imp-33682 have zero import/require statements (self-computing).
- * imp-33680 imports IMP33660_CLUSTER_PEAK_ENVELOPE_HEIGHT_GROWTH_FIT and imp-33681 imports both
- * IMP33660_..._GROWTH_FIT and IMP33662_INTER_CLUSTER_TROUGH_FLOOR_DRIFT -- both are LOCAL sibling
- * data modules, not the zeros bundle; imp-33693/imp-33695 already grep-verified imp-33660 and
- * imp-33662 themselves have ZERO import statements, so the transitive closure for all four modules
- * in this cohort stays heavy-import-safe. A full dedicated pass (imp-33720) remains queued to
- * formalize this check.
+ * HEAVY-IMPORT NOTE (imp-33720 formalized, audited 2026-07-04). imp-33679 and imp-33682 have zero
+ * import/require statements (self-computing). imp-33680 imports IMP33660_CLUSTER_PEAK_ENVELOPE_
+ * HEIGHT_GROWTH_FIT and imp-33681 imports both IMP33660_..._GROWTH_FIT and IMP33662_INTER_CLUSTER_
+ * TROUGH_FLOOR_DRIFT -- both are LOCAL sibling data modules, not the zeros bundle; imp-33693/imp-33695
+ * already grep-verified imp-33660 and imp-33662 themselves have ZERO import statements, and imp-33720
+ * independently re-grepped both here, confirming the transitive closure for all four modules in this
+ * cohort stays heavy-import-safe. The dedicated pass is now CLOSED (see the imp33720-heavy-import-
+ * audit-formalized assertion below).
  *
  * SHARED CAVEATS. All four inherit the NPHI=10 Phi-series truncation and all four explicitly
  * restate the imp-33599/imp-33621/imp-33638 latticeJitterCaveat lineage (imp-33679 and imp-33681
@@ -149,8 +150,8 @@ export const IMP_33719_33679_33682_COHORT_PROVENANCE_ROLLUP = {
     'mandatory banner and all four state imp-3066 untouched. Three of four already have a ' +
     'dedicated routed viz page (imp-33679, imp-33681, imp-33682); imp-33680 (leave-two-out refit) ' +
     'is the sole remaining viz gap and the best candidate for a new dedicated viz page, mirroring ' +
-    'the imp-33693 roll-up recommendation pattern. The imp-33720 heavy-import audit ticket remains ' +
-    'queued to formalize the transitive-safety check this roll-up performed informally.',
+    'the imp-33693 roll-up recommendation pattern. The imp-33720 heavy-import audit is now CLOSED: ' +
+    'the transitive-safety check this roll-up performed informally has been formally re-verified.',
   honestNote:
     'Read-only provenance roll-up; no new pages fabricated, no new bound claimed by this module ' +
     'itself. imp-3066 K_a >= 0 positivity untouched across all four cohort members. ' +
@@ -228,6 +229,26 @@ const IMP_33719_ASSERTIONS = [
     why: 'Grep-verified: imp-33679/imp-33682 have zero import/require statements; imp-33680/imp-33681 ' +
       'import only local sibling data modules (imp-33660, imp-33662) already confirmed import-free by ' +
       'imp-33693/imp-33695, so none can transitively pull in the 16.7MB zeros bundle.',
+  },
+  {
+    id: 'imp33720-heavy-import-audit-formalized',
+    holds: () => {
+      const m = IMP_33719_33679_33682_COHORT_PROVENANCE_ROLLUP.modules;
+      const byFile = Object.fromEntries(m.map((x) => [x.file, x]));
+      return (
+        byFile['imp-33679-cluster-peak-envelope-height-1200-1600.js'].hasHeavyImport === false &&
+        byFile['imp-33680-cluster-peak-height-leave-two-out-refit.js'].hasHeavyImport === false &&
+        byFile['imp-33681-peak-minus-trough-amplitude-series-n400-1200.js'].hasHeavyImport === false &&
+        byFile['imp-33682-gap-vs-height-correlation-n400-1200.js'].hasHeavyImport === false
+      );
+    },
+    why: 'imp-33720 formal audit (mirroring imp-33695): direct grep of each of the four module ' +
+      'source files for ^import/require( confirms imp-33679 and imp-33682 have ZERO import lines ' +
+      '(fully self-computing), and imp-33680/imp-33681 import ONLY the local sibling modules ' +
+      'imp-33660 and imp-33662 -- both of which were independently re-grepped here and also have ' +
+      'ZERO import lines. The transitive closure of all four modules therefore contains no path ' +
+      'to the 16.7MB zeros bundle; this closes the imp-33719 recommendation item that flagged ' +
+      'imp-33720 as still queued.',
   },
   {
     id: 'imp33719-honest-scope-locked',

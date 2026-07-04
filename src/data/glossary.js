@@ -8437,6 +8437,38 @@ export const glossary = [
       'imp-33786 H3 joint-curvature input scoping, the coupled N-exponent 5/4 rung that jointly governs the discharge (imp-33786)',
     ],
   },
+  {
+    term: 'imp-33816 LOGARITHMIC-ASYMPTOTE-APPROACH verdict: the sigma(N) exponent shortfall to 1/2 decays only as ~1/(2 log T0)',
+    category: 'numerical',
+    definition:
+      'imp-33582 mapped the sigma(N) = E_coll / (E_trunc + E_flow + E_coll) post-peak LOCAL decay ' +
+      'exponent p(N) = -d ln sigma / d ln N ramping from ~0.0105 in the first post-peak decade toward ' +
+      'the imp-3463 far-tail 1/2 asymptote, reaching a per-decade OLS value of ~0.4310 over ' +
+      '[1e11,1e12], but stopped there without saying how far the exponent still has to run. imp-33816 ' +
+      'extends the identical inherited model (E_coll = C_C_PINNED sqrt(log T0 / N), E_flow the ' +
+      'Gronwall-bounded imp-398 term, E_trunc = 3.06e-5 fixed) past 1e12 and measures the approach ' +
+      'RATE to 1/2.\n\n' +
+      'RESULT: the ramp DECELERATES past 1e12 -- [1e12,1e13] = 0.4646, [1e15,1e16] = 0.4851, ' +
+      '[1e18,1e19] = 0.4880 -- with the per-decade GAIN collapsing (the first decade past 1e12 closes ' +
+      '~3.4e-2 of the remaining gap, the sixth barely ~1e-3). The exact shortfall obeys the closed-form ' +
+      'law gap(N) = 1/2 - p(N) ~ 1/(2 log T0(N)), validated directly (ratio gap/(0.5/log T0) -> 1.00 ' +
+      'across N = 1e44..1e200): closing the gap by a factor of 10 costs ~10x in log T0, i.e. the ' +
+      'approach is LOGARITHMIC, not polynomial. Consequently p first comes within 1% of 1/2 ' +
+      '(p >= 0.495) only at N ~ 1e44 -- about 32 decades past the imp-33582 1e12 stopping point, where ' +
+      'log T0 ~ 99 -- and within 0.1% (p >= 0.4995) only at N ~ 1e434 (log T0 ~ 1000), which lies ' +
+      'beyond IEEE-double range and is reported from the gap law rather than evaluated directly.\n\n' +
+      'HONEST SCOPE: measurement/fit only, on the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
+      'rigorous asymptotic. The empirical-vs-analytic conditional gap closes but glacially. C_mb stays ' +
+      'GUE-conditional (imp-486); changes no bound; establishes no operator positivity; imp-3066 ' +
+      'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33816 (extending the imp-33582 sigma(N) post-peak local exponent past its 1e12 stopping point, measuring the approach rate to the imp-3463 far-tail 1/2 asymptote), 2026',
+    relatedTerms: [
+      'imp-33582 per-decade ramp 0.0105 -> 0.4310 by [1e11,1e12], the coarser stopping point this extends (imp-33582)',
+      'imp-3463 far-tail leading form, the 1/2 asymptote the exponent approaches from below (imp-3463)',
+      'imp-3529 LOCAL pointwise exponent p(N), the same quantity this measures the approach rate of (imp-3529)',
+      'imp-486 C_mb GUE-conditional dependency, untouched by this measurement-only diagnostic (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

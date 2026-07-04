@@ -6700,6 +6700,40 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33309 sup_j B_j realised-elasticity growth-fit feasibility: max B_j is NON-MONOTONE across the 10 imp-3725 plateaus and every candidate growth fit is poor (best R^2 ~0.40), leaving the relocated imp-33250 dg2 obstruction OPEN both ways",
+    category: "numerical",
+    definition:
+      "imp-33290 proved the realised-gap-aware swap 8/s_min(j)^2 -> 8*B_j (B_j = P_j/D_j) is still a " +
+      "valid upper bound and collapses the certified ratio R_maj onto the K_real floor, but relocated " +
+      "N-uniform certification onto sup_{N,j} B_j -- exactly the imp-33250 residual dg2. imp-33290 only " +
+      "flagged the two endpoint values (max B_j 2.10 at plateau 0, 6.45 at plateau 5); it never " +
+      "tabulated or fit the full 10-plateau growth. imp-33309 does so.\n\n" +
+      "THE DATA: max_j B_j per imp-3725 plateau (thetaBar=0.99) of [1e4,1e6]: [2.0959, 2.1965, 2.7439, " +
+      "4.6691, 2.7013, 6.4537, 3.7228, 4.1845, 4.0866, 4.9938] over endN [18859 .. 1000000].\n\n" +
+      "THE DECISIVE QUALITATIVE FACT: the global maximum (6.4537) sits at plateau 5 (endN ~95248), NOT " +
+      "at the endpoint plateau 9 (endN = 1e6, max B_j = 4.9938 only). The sequence rises then DIPS after " +
+      "its peak -- a genuine monotone-in-N growth law forbids such a dip, so the ~1.72 decades of N in " +
+      "[1e4,1e6] do not exhibit a clean growth law at all.\n\n" +
+      "THE FITS (least squares, R^2 live): linear vs plateau idx R^2~0.40; log vs ln(endN) R^2~0.27; " +
+      "power (log-log) exponent alpha~0.190, R^2~0.39; sub-log vs ln(ln N) R^2~0.28. Every candidate fit " +
+      "is poor (best R^2 ~0.40) and the power-law exponent is tiny (max B_j only roughly doubles over " +
+      "1.72 decades of N); the residual scatter dwarfs the trend.\n\n" +
+      "VERDICT: the measurement cannot distinguish a slow unbounded drift from a bounded lattice " +
+      "fluctuation over this window. sup_{N,j} B_j (= imp-33250 dg2) is neither certified bounded (no " +
+      "finite table pins it; it climbed to 6.45) nor demonstrated unbounded (the endpoint dips below the " +
+      "peak and no growth law fits) -- the obstruction stays OPEN both ways.\n\n" +
+      "HONEST SCOPE: measurement + curve-fit on the 10 plateaus of [1e4,1e6]. maxBj/endN baked from the " +
+      "imp-33290 sweep; the four fits and their R^2 re-derived LIVE. No new Lambda bound; imp-3910 " +
+      "C <= 54.56 stands; imp-3066 K_a >= 0 UNTOUCHED; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.",
+    firstUsed: "imp-33309 (tabulating and fitting the growth law of sup_j B_j across all 10 imp-3725 plateaus of [1e4,1e6], finding it non-monotone with every candidate fit poor, so the relocated imp-33250 obstruction stays open both ways), 2026",
+    relatedTerms: [
+      "imp-33290 far-term tighter-majorant feasibility verdict, source of the relocated sup_{N,j} B_j obstruction (imp-33290)",
+      "imp-33250 tail-weight ratio N-uniformity assessment, the residual dg2 this growth-fit characterizes (imp-33250)",
+      "imp-33269 all-plateaus majorant ratio scan, source of the realisedScan aggregates (imp-33269)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

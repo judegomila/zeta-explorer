@@ -203,6 +203,7 @@ const Imp33221ModelFidelityCrossingGapViz = lazy(() => import('./pages/Imp33221M
 const Imp33237EpsFieldRobustTransferModulusViz = lazy(() => import('./pages/Imp33237EpsFieldRobustTransferModulusViz.jsx'));
 const Imp33241WatsonMajorantRhoRatioLadderViz = lazy(() => import('./pages/Imp33241WatsonMajorantRhoRatioLadderViz.jsx'));
 const Imp33243RecoveryRateFitViz = lazy(() => import('./pages/Imp33243RecoveryRateFitViz.jsx'));
+const Imp33323MinNodeLatticeJitterBandViz = lazy(() => import('./pages/Imp33323MinNodeLatticeJitterBandViz.jsx'));
 const Imp33266ToolkitStatusMapViz = lazy(() => import('./pages/Imp33266ToolkitStatusMapViz.jsx'));
 const Imp33267AWeightDualPathTau25To30Viz = lazy(() => import('./pages/Imp33267AWeightDualPathTau25To30Viz.jsx'));
 const Imp33284R40InnerQuadratureLadderViz = lazy(() => import('./pages/Imp33284R40InnerQuadratureLadderViz.jsx'));
@@ -862,6 +863,7 @@ function AppShell() {
           <Route path="/viz-imp33237-eps-field-robust-transfer-modulus" element={<Imp33237EpsFieldRobustTransferModulusViz />} />
           <Route path="/viz-imp33241-watson-majorant-rho-ratio-ladder" element={<Imp33241WatsonMajorantRhoRatioLadderViz />} />
           <Route path="/viz-imp33243-recovery-rate-fit" element={<Imp33243RecoveryRateFitViz />} />
+          <Route path="/viz-imp33323-min-node-lattice-jitter-band" element={<Imp33323MinNodeLatticeJitterBandViz />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
           <Route path="/papers" element={<PapersListPage />} />

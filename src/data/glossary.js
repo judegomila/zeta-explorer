@@ -5865,6 +5865,48 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33272 extended-precision cross-check of the imp-33253 Wilkinson floor: the fp64 spread sits AT the derived floor while double-double collapses it ~15-16 orders",
+    category: "numerical",
+    definition:
+      "imp-33253 derived the fifth-pair Gram degeneracy spread worstPairSpread(N) as the backward error " +
+      "of the symmetric eigensolver on an EXACTLY degenerate pair, bounded by worstPairSpread <= " +
+      "2*p(n)*kappa_pair*u, but that derivation was compared only against DOUBLE-precision measurements. " +
+      "If the floor really is backward error rather than a genuine gap, the falsifiable prediction is that " +
+      "recomputing the SAME matrix in HIGHER precision must drive the measured spread far below the " +
+      "double-precision floor -- the floor must MOVE with the working precision. imp-33272 tests exactly " +
+      "this: it reconstructs a genuine 10x10 symmetric matrix carrying the actual imp-3668 N=2000 fifth-pair " +
+      "spectrum with the fifth pair set EXACTLY degenerate, rotates it by a fixed deterministic orthogonal " +
+      "Q = H(v1)*H(v2) (integer-Householder product, no random/transcendentals) to form S = Q*diag(lambda)*Q^T " +
+      "in full double-double, then solves the SAME S with a cyclic Jacobi eigensolver in both plain fp64 and " +
+      "double-double precision. RESULT: (1) the fp64 spread sits AT the derived few-ULP floor (9.83e-16 " +
+      "relative = 4.43 ULP, inside the c<=1 Wilkinson envelope, versus the derived ceiling n*kappa_pair=10.01 " +
+      "ULP), matching the order the imp-3668 tred1+tql1 route and the imp-33253 derivation give; (2) solving " +
+      "the IDENTICAL matrix in double-double COLLAPSES the spread by ~15-16 orders of magnitude, to 3.27e-32 " +
+      "relative -- confirming the double-precision spread is genuinely rounding error that moves with the " +
+      "working precision, not a real pair gap; (3) a double-double self-check ((1+1e-20)-1 recovered as " +
+      "~1e-20, lost as 0 in fp64) certifies the extended arithmetic is genuinely more accurate, so the " +
+      "collapse in (2) is a real precision effect and not a test artefact.\n\n" +
+      "HONEST SCOPE: measurement / cross-check of the derived floor's MECHANISM only. The reconstructed " +
+      "matrix carries the actual baked fifth-pair spectrum (same kappa_pair), but the eigenvector rotation " +
+      "Q is a fixed deterministic SURROGATE, not the actual Gram eigenvectors -- so the test confirms the " +
+      "mechanism and order of magnitude (double-precision spread = backward-error floor; extended precision " +
+      "removes it) and does NOT pin the exact per-rung realized constant c in [0.088, 0.884], which " +
+      "imp-33253 already flagged as empirical. (The follow-up imp-33289 later measured c with the ACTUAL " +
+      "Gram eigenvectors instead of this surrogate, finding an overlapping range [0.133, 1.417].) Re-runs " +
+      "no N x N offline dense solve, re-certifies no pairing, establishes no sigma_4 amplitude law, adds no " +
+      "new Lambda bound. imp-3066 K_a >= 0 UNTOUCHED. RH-EQUIVALENT. No RH verdict, no QED. Platt-Trudgian " +
+      "Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33272 (cross-checking the imp-33253 derived Wilkinson kappa*u fifth-pair floor against an independent extended-precision double-double eigensolve of the identical near-degenerate pair matrix, confirming the floor moves with working precision as predicted), 2026",
+    relatedTerms: [
+      "imp-33253 Wilkinson kappa*u fifth-pair condition-number floor derivation (imp-33253)",
+      "imp-3668 dense fifth-pair Gram degeneracy cross-validation (imp-3668)",
+      "imp-33231 fifth-pair Gram-spread N=2800 rung: order-of-magnitude dip (imp-33231)",
+      "imp-33289 genuine-eigenvector fifth-pair realized-c measurement (imp-33289)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

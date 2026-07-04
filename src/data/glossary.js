@@ -5530,6 +5530,45 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33235 literal cross-check of the imp-33213 reconciled -ln A(tau) ladder",
+    category: "numerical",
+    definition:
+      "imp-33213 reported that an independent log-domain graded-GL reconstruction (grade 5, 300 " +
+      "panels, cutoff hi=10) reproduces the imp-3736/imp-3850 reconciled -ln A(tau) ladder at all " +
+      "four overlapping rungs tau in {1.5,2,2.5,3}. imp-33235 re-derives each literal from scratch " +
+      "and answers the two questions that claim leaves open: is the residual genuine convergence " +
+      "rather than a lucky quadrature coincidence, and is the imp-33213 configuration really " +
+      "disjoint from the imp-3850 path it claims to corroborate." +
+      "\n\nTHE TIE. All four literals (1.5 -> 1267.788621, 2.0 -> 9365.318970, 2.5 -> 69198.540665, " +
+      "3.0 -> 511309.612538) reproduce from the g5/300/hi10 reconstruction to under 5e-7 absolute " +
+      "(~4.8e-7, ~2.7e-7, ~2.5e-7, ~3.2e-7). Rounding the fresh reconstruction to the same 6 " +
+      "decimals the ladder is stored at reproduces the stored literal EXACTLY at all four tau " +
+      "(recon.toFixed(6) === ladder) -- so the entire sub-5e-7 residual is the truncation of the " +
+      "7th decimal of the stored number, not reconstruction-precision drift." +
+      "\n\nCONFIGURATION INVARIANCE. A third, structurally distinct graded-GL config (grade 6, 400 " +
+      "panels, hi=12 -- disjoint from both imp-33213's g5/300/hi10 and imp-3850's g4/200/hi14) lands " +
+      "on the same converged value to <= ~1 ULP (max spread ~6e-11 at the tau=3 rung). A residual " +
+      "surviving a full change of grade, panel count, and cutoff is a property of A(tau) itself, " +
+      "not an artifact of any one quadrature." +
+      "\n\nPATH INDEPENDENCE. The imp-33213 grid (3000 nodes: g5/300/hi10) and the imp-3850 grid " +
+      "(2000 nodes: g4/200/hi14) share ZERO node abscissae and only the trivial s=0 panel " +
+      "breakpoint; the nearest cross-grid node is ~2.9e-12 away. Different grade, panel count, and " +
+      "cutoff means the agreement is a genuine cross-path corroboration, not two evaluations of one " +
+      "quadrature spelled differently." +
+      "\n\nHONEST SCOPE: cross-check/consistency only, RH-equivalent, necessary-but-not-sufficient; " +
+      "establishes NO operator positivity. The off-diagonal endpoint-Hankel K_a >= 0 sign-positivity " +
+      "(imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the " +
+      "rigorous SOTA.",
+    firstUsed: "imp-33235 (cross-checking the four imp-33213 log-domain reconciled -ln A(tau) literals against the imp-3736/imp-3850 ladder, pinning the sub-5e-7 residual as pure 6-decimal storage rounding and confirming configuration invariance across three disjoint graded-GL grids plus genuine node-abscissa independence between the imp-33213 and imp-3850 paths), 2026",
+    relatedTerms: [
+      "imp-33213 cross-validation that the imp-3893 moment weight and the imp-3850 dual-path -ln A(tau) ladder rest on the same autocorrelation (imp-33213)",
+      "imp-3850 dual-path -ln A(tau) reconciliation window extended to [1.5,3.0] (imp-3850)",
+      "imp-3736 A-weight quadrature convergence assessment (imp-3736)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

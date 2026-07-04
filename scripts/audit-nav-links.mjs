@@ -263,6 +263,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33628-etrunc-ecoll-crossover',
   '/viz-imp33629-wide-range-band-crossing-envelope',
   '/viz-imp33630-grade-vs-node-budget',
+  '/viz-imp33547-tilt-closure-offset-fraction',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

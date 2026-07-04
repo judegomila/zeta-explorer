@@ -222,6 +222,7 @@ const Imp33611BandCrossingFloorBisectionViz = lazy(() => import('./pages/Imp3361
 const Imp33613BandCrossingCrossSolverNodeBudgetViz = lazy(() => import('./pages/Imp33613BandCrossingCrossSolverNodeBudgetViz.jsx'));
 const Imp33628EtruncEcollCrossoverViz = lazy(() => import('./pages/Imp33628EtruncEcollCrossoverViz.jsx'));
 const Imp33629WideRangeBandCrossingEnvelopeViz = lazy(() => import('./pages/Imp33629WideRangeBandCrossingEnvelopeViz.jsx'));
+const Imp33656MergedBandClearingOverviewViz = lazy(() => import('./pages/Imp33656MergedBandClearingOverviewViz.jsx'));
 const Imp33630GradeVsNodeBudgetViz = lazy(() => import('./pages/Imp33630GradeVsNodeBudgetViz.jsx'));
 const Imp33547TiltClosureOffsetFractionViz = lazy(() => import('./pages/Imp33547TiltClosureOffsetFractionViz.jsx'));
 const Imp33548GradedPlateauDeepTailNodeBudgetViz = lazy(() => import('./pages/Imp33548GradedPlateauDeepTailNodeBudgetViz.jsx'));
@@ -893,6 +894,7 @@ function AppShell() {
           <Route path="/viz-imp33613-band-crossing-cross-solver-node-budget" element={<Imp33613BandCrossingCrossSolverNodeBudgetViz />} />
           <Route path="/viz-imp33628-etrunc-ecoll-crossover" element={<Imp33628EtruncEcollCrossoverViz />} />
           <Route path="/viz-imp33629-wide-range-band-crossing-envelope" element={<Imp33629WideRangeBandCrossingEnvelopeViz />} />
+          <Route path="/viz-imp33656-merged-band-clearing-overview" element={<Imp33656MergedBandClearingOverviewViz />} />
           <Route path="/viz-imp33630-grade-vs-node-budget" element={<Imp33630GradeVsNodeBudgetViz />} />
           <Route path="/viz-imp33547-tilt-closure-offset-fraction" element={<Imp33547TiltClosureOffsetFractionViz />} />
           <Route path="/viz-imp33548-graded-plateau-deep-tail-node-budget" element={<Imp33548GradedPlateauDeepTailNodeBudgetViz />} />

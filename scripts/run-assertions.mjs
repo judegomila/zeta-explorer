@@ -3603,6 +3603,28 @@ const DATA_MODULES = [
   // law to ~2e-9 past the crossover. Derivation/measurement only; imp-3066 untouched;
   // PT Lambda<=0.2 SOTA; no QED. 7 assertions.
   '/src/data/imp-33533-sigma-two-regime-crossover-blend.js',
+  // imp-33537: ASSESSES whether the isolated imp-33316 n=300 deep-tail PLATEAU strict-bar spike is
+  // a one-off by re-scoring the IDENTICAL imp-33295 conservative grade4/400p=4000-node graded plateau
+  // against the imp-33213 A_log target on FOUR dense width-31 integer windows centred on
+  // {300,395,495,595}. The n=300 spike is NOT a one-off: strict-bar (>30 ULP) exceedances RECUR at
+  // every deeper window and INTENSIFY with depth (6/31 at n=300 to 16-17/31 at n~495/595), a dense
+  // scan even dissolves the imp-33316 isolated reading of n=300 (run of 2, not a lone spike), and the
+  // worst-window jitter grows from ~50 ULP to ~79 (n=510) and ~74 (n=596) -- CROSSING the imp-33316
+  // widened 64-ULP band the coarse grid never hit. Corrects the imp-33316 constant <64 ULP band as a
+  // coarse-grid artifact; relative PLATEAU-HOLDS/UNIFORM-FAILS unaffected. Measurement only; jittery
+  // lattice floor; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 9 assertions.
+  '/src/data/imp-33537-deep-tail-plateau-spike-recurrence.js',
+  // imp-33539: SWEEPS the imp-33316 graded plateau node budget at the DEEPER deep-tail rungs
+  // n in {350,375,400} to test whether the ~9.3x graded-vs-uniform ratio HOLDS or the budget must
+  // GROW as the saddle peak sharpens. The required MINIMUM budget reaching the imp-33275 A_log
+  // floor band is FLAT at ~200 nodes across all three rungs (resolution wall flat at ~150 nodes /
+  // ~800 ULP, collapsing to ~e6 ULP at 100 nodes) -- it does NOT grow. So the imp-33316 FIXED
+  // 4000-node plateau carries ~20x headroom and its ~9.3x ratio HOLDS as a genuine fixed-budget win
+  // (true minimum saving ~186x UNDERSTATES it); the graded panels a_j=7(j/panels)^4 auto-concentrate
+  // to track the sharpening peak without adding nodes. VERDICT FIXED-BUDGET-WIN-HOLDS. Measurement
+  // only; jittery lattice floor; imp-33537 bounds the <64 band at n>=510; imp-3066 untouched;
+  // PT Lambda<=0.2 SOTA; no QED. 8 assertions.
+  '/src/data/imp-33539-graded-plateau-deeper-tail-min-budget.js',
 ];
 
 let ALL_MODULES = FAST_MODE

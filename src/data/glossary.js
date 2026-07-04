@@ -5831,6 +5831,40 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33255 sigma(N) post-peak effective decay exponent: window-dependent OLS fit and the imp-3529 local-drift caveat",
+    category: "numerical",
+    definition:
+      "imp-3406 established that the conditional share sigma(N) = E_coll/(E_trunc+E_flow+E_coll) decays " +
+      "monotonically past its interior maximum (N~9.22e5), and imp-3529 measured the LOCAL pointwise " +
+      "exponent p(N) = -dln(sigma)/dln(N) climbing 0 -> 1/2 with no single post-peak power law, leaving " +
+      "the roadmap's single-number regime summary unfit. imp-33255 fits ONE decay-rate exponent restricted " +
+      "to the specific regime past the imp-3444 E_coll=E_trunc crossover (N_cross~3.28e9, sigma~1/2), where " +
+      "the constant truncation floor E_trunc outlives the vanishing GUE-conditional E_coll so sigma ~ " +
+      "(C_C/E_trunc)*sqrt(logT0/N). An OLS regression of ln(sigma) on ln(N) over windows anchored at " +
+      "N_cross with growing span M gives an effective exponent p_eff(M) that itself DRIFTS with the window: " +
+      "0.390 (3 decades), 0.444 (6), 0.473 (12), 0.486 (24), climbing toward but never certifying the " +
+      "imp-3463 far-tail 1/2 asymptote, with R^2 rising 0.9935 -> 0.9998 as the window widens. The " +
+      "pre-crossover E_coll-dominant arm (interior peak to crossover) fits far worse, p_eff~0.070 at " +
+      "R^2~0.84, confirming a single exponent is only sensible once E_trunc dominates.\n\n" +
+      "HONEST SCOPE: the reported p_eff is a WINDOW-DEPENDENT, crossover-anchored fit, not a certified " +
+      "asymptotic exponent -- the imp-3529 local-exponent drift is still visible in how p_eff moves as the " +
+      "fit window grows, exactly the caveat imp-33255 flagged. (The follow-up imp-33274 later showed the " +
+      "drift is a crossover-ramp anchoring artefact: SLIDING the window start past N_cross rather than " +
+      "widening it from N_cross makes p_eff converge monotonically to 1/2 from below, gap 2.68e-2 -> " +
+      "3.48e-3, but that is a separate, later module.) Measurement/fit only; conditional-share diagnostic, " +
+      "NOT an RH bound; C_mb GUE-conditional (imp-486) untouched; imp-3066 K_a >= 0 untouched; RH-EQUIVALENT. " +
+      "No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33255 (fitting a single OLS decay exponent to the E_trunc-outlives-E_coll post-peak regime of sigma(N), anchored at the imp-3444 crossover, finding the exponent window-dependent per the imp-3529 local-drift caveat), 2026",
+    relatedTerms: [
+      "imp-3529 post-peak conditional-share decay: local exponent p(N) climbing 0 -> 1/2 (imp-3529)",
+      "imp-3444 E_coll=E_trunc crossover (imp-3444)",
+      "imp-3463 far-tail sqrt(logT0/N) asymptotic form (imp-3463)",
+      "imp-3406 interior maximum of sigma(N) (imp-3406)",
+      "imp-33274 sliding-window resolution: p_eff converges monotonically to 1/2 (imp-33274)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

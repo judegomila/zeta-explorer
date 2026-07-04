@@ -7925,6 +7925,39 @@ export const glossary = [
       'imp-33582 sigma-postpeak nearpeak threshold decay, the published perDecadeLadder cross-checked against (imp-33582)',
     ],
   },
+  {
+    term: 'imp-33725 G7 a-SCALING verdict: NO nontrivial favorable a-window softens K_a >= 0 -- a and U act only through s = a*U',
+    category: 'proof',
+    definition:
+      'imp-33704 tabulated the U-scaling of the imp-3066 G7 off-diagonal endpoint-Hankel operator/diagonal ' +
+      'gap (the ~3.626 obstruction at a = 0.5, U = 6) but left the shear weight a itself unswept. imp-33725 ' +
+      'sweeps a in {0.0625,0.125,0.25,0.5,1,2,4} at FIXED U = 6 on the same representative degree-4 ' +
+      'monomial truncation, substituting tau = U*x to confirm every metric of R depends on s = a*U alone -- ' +
+      'so the a ladder at fixed U = 6 IS the s ladder s = 6a, the SAME one-parameter curve imp-33704 traced ' +
+      'by sweeping U at fixed a = 0.5.\n\n' +
+      'FINDINGS: the operator/diagonal gap ||R|| - max diag(R) GROWS MONOTONICALLY with a -- 0.999 ' +
+      '(a=0.0625) -> 3.626 (a=0.5, the roadmap G7 anchor) -> 3.985 (a=4). As a -> inf (s -> inf) every ' +
+      'R_jk -> 1, so R tends to the all-ones 5x5 matrix J with Perron eigenvalue DEG+1 = 5, the IDENTICAL ' +
+      'truncation-size-fixed ceiling imp-33704 derived for U -> inf. As a -> 0 (s -> 0) sinh(a*tau) -> 0 ' +
+      'while cosh(a*tau) -> 1, so every R_jk -> 0 and the gap vanishes linearly -- but only because the ' +
+      'shear form itself is switched off, a TRIVIAL relief, not a genuine positivity window.\n\n' +
+      'VERDICT: there is NO nontrivial favorable a-window that softens the K_a >= 0 barrier. The gap is ' +
+      'strictly monotone in a between a trivial zero-shear soft end and a saturating all-ones hard end. ' +
+      'Combined with imp-33704: neither a nor U individually is a lever on the G7 obstruction -- both act ' +
+      'only through the product s = a*U, and the obstruction grows monotonically in s toward the ' +
+      'truncation-size-fixed ceiling.\n\n' +
+      'HONEST SCOPE: structural/diagnostic on the SAME representative monomial truncation as imp-3066 / ' +
+      'imp-33704, NOT the section-26 Gram; ||R|| carries NO RH verdict; imp-3066 / imp-33704 / G7 are ' +
+      'UNTOUCHED as a proof; the K_a >= 0 positivity step is NOT attempted; Platt-Trudgian Lambda <= 0.2 ' +
+      'remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33725 (sweeping the shear weight a at fixed U = 6 across the imp-3066 representative degree-4 truncation to derive whether any a-window softens the G7 K_a >= 0 obstruction), 2026',
+    relatedTerms: [
+      'imp-33704 G7 obstruction U-scaling, the complementary U ladder at fixed a = 0.5 tracing the same s = a*U curve (imp-33704)',
+      'imp-3066 off-diagonal endpoint-Hankel obstruction, the single-cell (a=0.5, U=6) G7 magnitude both ladders reproduce (imp-3066)',
+      'imp-3107 de-homogenized off-diagonal a-U grid, the observation that off-diag entries track s = a*U underlying both scale reductions (imp-3107)',
+      'section26-mupass residual = K_a >= 0 (RH-equivalent, not a reduction), the operator-positivity condition this a-window search fails to relieve',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

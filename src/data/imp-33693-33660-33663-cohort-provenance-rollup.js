@@ -28,13 +28,17 @@
  * untouched, Platt-Trudgian Lambda <= 0.2 SOTA) and for the Polymath15 G6a/H2 bridge status line;
  * shared-caveat coverage (NPHI=10 Phi-series truncation, the imp-33249/imp-33296/imp-33599/
  * imp-33621/imp-33638 latticeJitterCaveat) and glossary/viz-page coverage were cross-checked
- * against src/data/glossary.js and src/pages.
+ * against src/data/glossary.js and src/pages. imp-33695 additionally grepped each module's
+ * `^import`/`require(` lines to audit heavy-import safety (the 16.7MB zeros bundle hangs
+ * vite ssrLoadModule / npm-run-assert when transitively pulled into an assertion module).
  *
  * RESULT (audited 2026-07-04). All four modules carry the full honest banner and all four state
  * imp-3066 K_a >= 0 untouched. None of the four references the Polymath15 G6a_shock_lipschitz/H2
  * bridge -- this cohort is entirely within the A(tau)-kernel band-clearing cluster-envelope
  * frontier, disjoint from the G6a inviscid-window material, so "not referenced" is correct for
- * all four.
+ * all four. HEAVY-IMPORT AUDIT (imp-33695): all four modules have ZERO import/require
+ * statements -- each self-computes its floorUlp(n) scan and bakes its literals entirely from
+ * inline arithmetic at import time, so none can transitively pull in the zeros bundle.
  *   - imp-33660-cluster-peak-envelope-height-growth-fit.js               : peak-envelope height growth-law fit
  *   - imp-33661-cluster-peak-spacing-periodicity-extended-n400-1200.js   : extended spacing-periodicity irregularity confirmation
  *   - imp-33662-inter-cluster-trough-floor-drift-n400-1200.js            : inter-cluster trough-floor flatness measurement
@@ -81,6 +85,7 @@ export const IMP_33693_33660_33663_COHORT_PROVENANCE_ROLLUP = {
       hasLatticeJitterCaveat: true,
       hasGlossaryTerm: true,
       hasRoutedVizPage: false,
+      hasHeavyImport: false,
     },
     {
       file: 'imp-33661-cluster-peak-spacing-periodicity-extended-n400-1200.js',
@@ -93,6 +98,7 @@ export const IMP_33693_33660_33663_COHORT_PROVENANCE_ROLLUP = {
       hasLatticeJitterCaveat: true,
       hasGlossaryTerm: true,
       hasRoutedVizPage: false,
+      hasHeavyImport: false,
     },
     {
       file: 'imp-33662-inter-cluster-trough-floor-drift-n400-1200.js',
@@ -105,6 +111,7 @@ export const IMP_33693_33660_33663_COHORT_PROVENANCE_ROLLUP = {
       hasLatticeJitterCaveat: true,
       hasGlossaryTerm: true,
       hasRoutedVizPage: false,
+      hasHeavyImport: false,
     },
     {
       file: 'imp-33663-recovery-grade-vs-spike-height-sixteen-peaks.js',
@@ -117,6 +124,7 @@ export const IMP_33693_33660_33663_COHORT_PROVENANCE_ROLLUP = {
       hasLatticeJitterCaveat: true,
       hasGlossaryTerm: true,
       hasRoutedVizPage: false,
+      hasHeavyImport: false,
     },
   ],
   evidenceClassCounts: {
@@ -130,6 +138,7 @@ export const IMP_33693_33660_33663_COHORT_PROVENANCE_ROLLUP = {
   latticeJitterCaveatCount: 4,
   glossaryCoveredCount: 4,
   routedVizPageCount: 0,
+  heavyImportSafeCount: 4,
   recommendation:
     'No action needed on the honest-banner side -- all four modules already carry the full ' +
     'mandatory banner and all four state imp-3066 untouched. All four lack a dedicated routed ' +
@@ -203,6 +212,16 @@ const IMP_33693_ASSERTIONS = [
     },
     why: 'Grep-verified: all four modules have a dedicated headline glossary term; none of the ' +
       'four have a dedicated routed viz page.',
+  },
+  {
+    id: 'imp33693-imp33695-all-four-heavy-import-safe',
+    holds: () => {
+      const m = IMP_33693_33660_33663_COHORT_PROVENANCE_ROLLUP.modules;
+      const safe = m.filter((x) => x.hasHeavyImport === false).length;
+      return safe === 4 && safe === IMP_33693_33660_33663_COHORT_PROVENANCE_ROLLUP.heavyImportSafeCount;
+    },
+    why: 'imp-33695 grep-verified: all four modules have zero import/require statements, so none ' +
+      'can transitively pull in the 16.7MB zeros bundle that hangs vite ssrLoadModule / npm-run-assert.',
   },
   {
     id: 'imp33693-honest-scope-locked',

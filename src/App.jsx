@@ -188,6 +188,7 @@ const Imp3904TwoSolverCrossingViz = lazy(() => import('./pages/Imp3904TwoSolverC
 const Imp3906DpsiSensitivityViz = lazy(() => import('./pages/Imp3906DpsiSensitivityViz.jsx'));
 const Imp3927ThreeSolverCrossingViz = lazy(() => import('./pages/Imp3927ThreeSolverCrossingViz.jsx'));
 const Imp3928InviscidWindowEdgeBlocksizeViz = lazy(() => import('./pages/Imp3928InviscidWindowEdgeBlocksizeViz.jsx'));
+const Imp3929HorizonElasticitySharpeningViz = lazy(() => import('./pages/Imp3929HorizonElasticitySharpeningViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -820,6 +821,7 @@ function AppShell() {
           <Route path="/viz-imp3906-dpsi-sensitivity" element={<Imp3906DpsiSensitivityViz />} />
           <Route path="/viz-imp3927-three-solver-crossing" element={<Imp3927ThreeSolverCrossingViz />} />
           <Route path="/viz-imp3928-inviscid-window-edge-blocksize" element={<Imp3928InviscidWindowEdgeBlocksizeViz />} />
+          <Route path="/viz-imp3929-horizon-elasticity-sharpening" element={<Imp3929HorizonElasticitySharpeningViz />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
           <Route path="/papers" element={<PapersListPage />} />

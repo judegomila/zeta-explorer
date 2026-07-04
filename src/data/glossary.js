@@ -4752,6 +4752,49 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3897 peak-scaled substitution-Simpson precision floor: import-time -ln A(tau) self-computation holds to ~1 ULP through tau=6, the tau~4 breakdown belongs to a fixed-panel companion rule",
+    category: "numerical",
+    definition:
+      "imp-3873 reproduced the offline -ln A(tau) literals at tau in {2.5, 3.0} self-computingly " +
+      "via a peak-scaled substitution s=sigma*x, sigma=1/(4 pi e^{4 tau}), which keeps the " +
+      "collapsing A(tau)=int Phi(s)Phi(s+tau)ds peak O(1)-wide in x at every tau so a uniform " +
+      "Simpson mesh (n<=8000) resolves it regardless of how far sigma shrinks. imp-3897 pushes " +
+      "that scheme up to the imp-3730 cancellation floor tau=6 to LOCATE where import-time double " +
+      "precision breaks down. FINDING: it does not. Against a peak-adequately-refined graded-GL " +
+      "reference (hi=14, panels=400, grade=5) the substitution-Simpson tracks -ln A to <=1.41 ULP " +
+      "of the magnitude at EVERY tau in {3.5, 4.0, 4.5, 5.0, 5.5, 6.0}, with its domain-invariance " +
+      "(Xmax in {40, 80, 120}) and its n=4000->8000 refinement rung both staying at a few ULP. " +
+      "Because -ln A ~ pi e^{4 tau} grows geometrically (3.78e6 at tau=3.5 to 8.32e10 at tau=6.0), " +
+      "its absolute representation floor ulp(V)=|V|*2^-52 rises with it (8.4e-10 to 1.85e-5) -- " +
+      "that rising floor, not any quadrature error, is what the substitution-Simpson saturates at." +
+      "\n\nWHAT ACTUALLY BREAKS is the imp-3873 FIXED graded-GL companion (hi=14, panels=200, " +
+      "grade=4): its gap to the substitution-Simpson jumps 1.2 ULP (tau=4.0) -> 1854 ULP (4.5) -> " +
+      "9534 ULP (5.0) -> ~1.8e6 ULP (6.0). The onset is set by the fixed rule's innermost " +
+      "power-panel width w_inner = hi*(1/panels)^grade = 8.75e-9 falling below the collapsing peak " +
+      "scale sigma(tau): the crossover sigma(tau*)=w_inner solves to tau* ~ 4.006, matching the " +
+      "observed 4.0->4.5 edge exactly. Refining the reference to grade-5/400 panels (w_inner=8.75e-11) " +
+      "restores <=1.41-ULP agreement at the very tau where the fixed rule diverged by >1e3-1e6 ULP, " +
+      "proving the divergence is fixed-rule under-resolution of the peak, NOT a double-precision " +
+      "failure -- because the substitution-Simpson's node placement tracks sigma(tau) analytically " +
+      "while a fixed node budget is blind to it. The genuine absolute double-precision floor " +
+      "ulp(V)=|V|*2^-52=1 (V ~ 2^52, pi e^{4 tau} ~ 4.5e15) lands at tau ~ 8.73, well beyond the " +
+      "tau~6 cancellation floor that actually bounds the clean window." +
+      "\n\nHONEST SCOPE: an accuracy/provenance MEASUREMENT of a floating-point floor for a fixed " +
+      "autocorrelation weight used inside a mass-feasibility diagnostic, at the RH-equivalent scale " +
+      "class -- it establishes NO operator positivity. Mass-feasibility remains " +
+      "necessary-but-not-sufficient; the operator-level K_a>=0 sign-positivity (imp-3066 " +
+      "off-diagonal endpoint-Hankel step) stays the lone obstruction, UNTOUCHED. No RH verdict, " +
+      "NO QED; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3897 (pushing the imp-3873 peak-scaled substitution-Simpson -ln A self-computation from tau=3.0 to the imp-3730 cancellation floor tau=6.0 to locate where import-time double precision breaks down, and diagnosing the apparent tau~4 breakdown as a fixed graded-GL companion rule's innermost-panel under-resolution rather than a precision floor), 2026",
+    relatedTerms: [
+      "imp-3873 offline-literal-independent reproduction -- the tau in {2.5, 3.0} substitution-Simpson scheme this extends to tau=6",
+      "imp-3850 dual-path tau in {2.5, 3.0} reconciliation -- the offline-literal source",
+      "imp-3709 log-domain independent reproduction -- the graded-GL reference path",
+      "imp-3730 cancellation floor / imp-3866 Watson-tail reducibility -- the tau~6 ceiling that actually bounds the clean window (well short of the tau~8.73 genuine precision floor)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

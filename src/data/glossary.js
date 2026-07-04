@@ -7868,6 +7868,35 @@ export const glossary = [
       'imp-33745 H0-provenance DISTINCT-BUT-ORTHOGONAL verdict, a sibling frontier derivation from the same imp-33706/imp-33721 cohort (imp-33745)',
     ],
   },
+  {
+    term: 'imp-33743 far-tail crossover CLOSED FORM: N_cross(thr) generalizes the halving fixed point, residual ~54x tighter deep in the tail',
+    category: 'numerical',
+    definition:
+      'imp-33723 pinned the sigma = 1/2 halving crossover in closed form, N_cross = (C_C/E_trunc)^2 ' +
+      'log T0(N), but left the imp-33582 sigma < 0.1 far-tail landmark (~3.2132e11) as a bisected root ' +
+      'only. imp-33743 extends the closed form to any threshold thr via the balance ' +
+      'E_coll = E_trunc * thr/(1-thr), giving the fixed point ' +
+      'N_cross(thr) = (C_C(1-thr)/(E_trunc thr))^2 log T0(N_cross) -- the halving amplitude K scaled ' +
+      'by ((1-thr)/thr)^2, so thr = 1/2 recovers imp-33723 and thr = 1/10 gives 81 * K ~ 1.2739e10.\n\n' +
+      'FINDINGS: (D1) the fixed point at thr = 0.1 converges to N_cross ~ 3.2134e11, matching the ' +
+      'imp-33582 sub-0.1 bisection (~3.2132e11) to ~7.4e-5 relative, with an even stronger contraction ' +
+      'than the halving landmark (|g_prime| ~ 0.038 vs ~0.045, since T0 is larger deep in the tail); ' +
+      '(D2) the closed-form-vs-empirical residual (~7.4e-5) is ~54x TIGHTER than the ~0.4% halving ' +
+      'residual, because the neglected Gronwall flow term E_flow ~ log T0/T0 decays down the tail: ' +
+      'E_flow/E_trunc falls from ~1.91e-3 at the halving landmark to ~3.55e-5 at the far tail, the same ' +
+      '~54x drop (residual ~ 2 * E_flow/E_trunc). Restoring E_flow in the threshold balance reproduces ' +
+      'the bisection landmark to ~1.3e-15, confirming the entire ~7.4e-5 gap is the flow term plus a ' +
+      '~2.8e-6 log T0 drift, with NO discretization contribution.\n\n' +
+      'HONEST SCOPE: derivation/measurement only, a conditional-share diagnostic inheriting the ' +
+      'imp-3220/imp-3406 extrapolation (not a rigorous asymptotic); C_mb stays GUE-conditional per ' +
+      'imp-486; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; imp-3066 ' +
+      'K_a >= 0 UNTOUCHED; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33743 (extending the imp-33723 closed-form crossover from the sigma = 1/2 halving landmark to the imp-33582 sigma < 0.1 far-tail landmark), 2026',
+    relatedTerms: [
+      'imp-33723 sigma = 1/2 halving crossover CLOSED FORM, the thr = 1/2 special case this generalizes (imp-33723)',
+      'imp-33744 sigma-inflection CLOSED FORM, a sibling closed-form derivation from the same sigma-decay cohort (imp-33744)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

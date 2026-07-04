@@ -7768,6 +7768,39 @@ export const glossary = [
       'imp-33316 < 64 ULP A_log band, the threshold each grade/rung floor is scored against (imp-33316)',
     ],
   },
+  {
+    term: 'imp-33620 sigma-decay 1e15 extension: the separated E_coll local exponent approaches -1/2 MONOTONELY FROM ABOVE with no overshoot through N=1e15 (residual still ~0.0152), and sigma = E_coll/E(N) falls below 0.01 at N ~ 4.62e13',
+    category: 'numerical',
+    definition:
+      'imp-33602 separates sigma(N) = E_coll/(E_trunc+E_flow+E_coll) into its N-independent flat ' +
+      'truncation floor E_trunc and its GUE-conditional collapse term E_coll ~ C_C sqrt(log T0/N), and ' +
+      'imp-33582 tabulates this identical inherited imp-3220/imp-3406 component model across N in ' +
+      '{1e6..1e12}, reporting the E_coll local exponent d log E_coll/d log N ramping from ~-0.468 toward ' +
+      '-1/2 and sigma < 0.1 at N ~ 3.21e11 -- but stops short of locating sigma < 0.01 or resolving ' +
+      'whether the exponent eventually crosses -1/2.\n\n' +
+      'imp-33620 extends the IDENTICAL component model three more decades to N=1e15 with no re-derivation. ' +
+      'MEASURED: (M1) the local exponent keeps descending monotonely in magnitude across the new decades ' +
+      '-0.4810 (1e11->1e12), -0.4825, -0.4837, -0.4848 (1e14->1e15) -- still strictly ABOVE -1/2 at 1e15, ' +
+      'residual shrunk from ~0.019 to ~0.0152, with NO crossover or overshoot as the slow log T0(N) factor ' +
+      'saturates; (M2) E_coll/E_trunc falls by ~1/sqrt(10) per decade, reaching ~0.23% of the flat E_trunc ' +
+      'floor by N=1e15, so the denominator is overwhelmingly the fixed truncation floor there; (M3) sigma ' +
+      'crosses 0.01 at N ~ 4.624e13 (log10 N ~ 13.665), located by bisection between the 1e13 (sigma ' +
+      '~0.0207) and 1e14 (sigma ~0.0069) rungs -- ~2.16 decades past the imp-33582 sigma < 0.1 landmark ' +
+      '(N ~ 3.21e11), matching the ~2.2-decade spacing between the earlier landmarks.\n\n' +
+      'VERDICT: MONOTONE-FROM-ABOVE, not overshoot -- E_coll approaches N^{-1/2} from above without ever ' +
+      'reaching it on the tested range, and the new sigma < 0.01 threshold slots into the same landmark ' +
+      'spacing as sigma > 0.9 (~2.57e7), sigma = 0.5 (~3.27e9), and sigma < 0.1 (~3.21e11).\n\n' +
+      'HONEST SCOPE: measurement only, on the inherited imp-3220/imp-3406 extrapolation; changes no bound; ' +
+      'C_mb remains GUE-conditional per imp-486; imp-3066 K_a>=0 sign-positivity untouched; Platt-Trudgian ' +
+      'Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33620 (extending the imp-33602/imp-33582 separated E_trunc/E_coll ladder three decades past 1e12 to N=1e15), 2026',
+    relatedTerms: [
+      'imp-33582 sigma-postpeak-nearpeak-threshold-decay, the sigma<0.1 @ ~3.21e11 landmark this extends to sigma<0.01 (imp-33582)',
+      'imp-33602 etrunc-ecoll-component-ladder, the separated 1e6..1e12 ladder this reuses verbatim as its head decades (imp-33602)',
+      'imp-3444 sigma-nshape-landmark-ladder, the E_coll = E_trunc crossover N ~ 3.28e9 landmark in the same sigma sequence (imp-3444)',
+      'imp-3406 sigma-highN-extrapolation, the interior-maximum component model this ladder inherits without re-derivation (imp-3406)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

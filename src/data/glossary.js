@@ -4352,6 +4352,47 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33225 per-gap eps'_l refinement: the imp-3933 field-robust certificate decouples so ONLY the record-pair value eps'_a binds, removing the window-top-edge O(10) eps' sensitivity",
+    category: "proof",
+    definition:
+      "imp-3933 carried a SINGLE uniform eps' through the imp-3725 plateau-domination proof for " +
+      "the perturbed-field class dx_k/dt = F_k^Dyson + e_k, |e_{l+1}-e_l| <= eps'_l g_l, and " +
+      "certified all 10 plateaus of [1e4,1e6] up to eps'=20 (epsMax floor 22.9) -- but the " +
+      "window-top-edge gaps, which need eps'_l = O(10), cleared the uniform certificate only " +
+      "marginally. imp-33225 formalises and re-runs the PER-GAP variant imp-3933 named as the " +
+      "recommended closure route (proof verbatim identical). Reading the derivation term by term, " +
+      "eps' enters in exactly two places and they DECOUPLE by gap index: (A) the RECORD-PAIR " +
+      "direct term 2 g_a (e_{a+1}-e_a) <= 2 eps'_a H^2 sees ONLY the record-pair value eps'_a; " +
+      "(B) every OTHER gap enters only through its shrunk comparison gap s_l(T,eps'_l) inside the " +
+      "retardation sum Psi = 4 H^2 SUM 1/D_j^2, which is near-inert because the horizon T = " +
+      "H^2/(8 thetaBar) ~ 1e-4 makes 2 eps'_l T << 1 for eps'_l = O(10). Hence " +
+      "theta({eps'_l}) = 1 - (Psi(T,{eps'_l}) + 2 eps'_a H^2)/8 carries eps'_a ALONE in the " +
+      "binding term; the O(10) edge values live only inside near-inert Psi." +
+      "\n\nThe offline compute (scripts/imp-33225-per-gap-eps-refinement-compute.mjs) certifies this " +
+      "CONSERVATIVELY -- it feeds EVERY non-record gap the large edge value eps'=20 inside Psi " +
+      "(maximal shrink) and only the record pair the module estimate eps'_a = 1e-3 in the direct " +
+      "term. All 10 plateaus certify at thetaBar=0.99 with the whole per-gap budget costing a " +
+      "theta deficit of at most 1.83e-5 versus the pristine eps'=0 base (vs the uniform eps'=20 " +
+      "deficit ~6.3e-3, so ~340x less binding). The record-pair budget eps'_a_max ranges 22.9 " +
+      "(plateau 1) up to 1216.7 (plateau 9), a >=2.29e4x headroom over the estimated eps'_a; the " +
+      "far-gap Psi ceiling eps'Edge_ceil (largest edge value still certifying, Psi non-degenerate) " +
+      "ranges 3.99e3 up to the 5e5 scan cap, a >=399x headroom over the O(10) window-edge " +
+      "requirement. The window-top-edge O(10) eps' sensitivity is thus removed from the binding " +
+      "constraint entirely: it can no longer degrade the certificate short of ~400x its actual " +
+      "size. The ACTUAL per-gap eps'_l values (O(1e-3) near record pair, O(10) at edge) still await " +
+      "the deterministic field-error certificate imp-3933-sub-eps-certificate; no new Lambda bound, " +
+      "Platt-Trudgian Lambda <= 0.2 remains SOTA, NO QED.",
+    firstUsed: "imp-33225 (formalising and re-certifying the per-gap eps'_l variant of the imp-3933 field-robust bootstrap: the record-pair direct term and the near-inert retardation sum Psi decouple, so only eps'_a binds; all 10 plateaus certify with record-pair budget >=22.9 and far-gap ceiling >=3.99e3), 2026",
+    relatedTerms: [
+      "imp-3933 field-channel reroute: the C_Lip/C_H wall is bypassed in the vector-FIELD-error channel with deterministic N-uniform transfer modulus 3H^4/64 (imp-3933)",
+      "imp-3933-sub-eps-certificate: the still-open deterministic eps'_true derivation supplying the per-gap eps'_l values (imp-3933)",
+      "imp-3725 F_mb plateau-domination bootstrap lemma the field-robust and per-gap variants are built on top of (imp-3725)",
+      "imp-3854 thetaBar double-inertness: the same tiny-horizon smallness that makes Psi near-inert in eps'_l (imp-3854)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -5362,6 +5362,44 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33212 NPHI-truncation stability of the imp-3849 exact-saddle features",
+    category: "numerical",
+    definition:
+      "imp-3849 converged the inner autocorrelation A(tau) quadrature (inner [0,2], 4800 panels, " +
+      "self-checked vs 7200 to ~8e-8) and located three exact-saddle-ratio features: the unity " +
+      "crossing n* = 215.23124075, the eps_n = Q_n/tau*(n)^2 - 1 sign-change at n = 149, and a " +
+      "sub-unity well bottoming at r_min = -5.845e-4 near n = 500. But imp-3849's own caveat named " +
+      "one thing still unvaried: the de Bruijn-Newman completed-Riemann kernel truncation NPHI = 10 " +
+      "(Phi(u) = sum_{n=1}^{NPHI} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) e^{-pi n^2 e^{4u}}), inherited " +
+      "fixed by imp-3868 (Gauss-Legendre) and imp-3895 (Clenshaw-Curtis) alike. imp-33212 re-ran the " +
+      "IDENTICAL imp-3849 pipeline at NPHI in {10, 14, 18} -- the only free parameter -- and found the " +
+      "located features BIT-IDENTICAL across all three truncations: n* = 215.23124075, the eps sign-" +
+      "change at n = 149, r_min = -5.8450e-4 at n = 500, and the cross-check r_226 = -8.7382e-5. The " +
+      "whole-ladder maxima max_n |delta r_n| and max_n |delta eps_n| between successive NPHI are " +
+      "EXACTLY 0.0 for both 10->14 and 14->18, because the added n = 11..18 kernel terms carry weight " +
+      "~e^{-121 pi} ~ 1e-165 and smaller on the A(tau) support (u < ~1.37), underflowing the double-" +
+      "precision round-off floor. So NPHI = 10 was NOT in fact a limiting residual floor for these " +
+      "features -- the true floor stays the ~8e-8 inner-quadrature grid-convergence level imp-3849 " +
+      "already reported, three-plus orders below the feature magnitudes. This complements imp-3918 " +
+      "(quadrature-RULE independence across Simpson / Gauss-Legendre / Clenshaw-Curtis) by showing the " +
+      "same features are also kernel-TRUNCATION independent." +
+      "\n\nHONEST SCOPE: measurement only, RH-equivalent, model-systematic not a certified error bound. " +
+      "This retires exactly ONE residual-floor question imp-3849 flagged; it establishes NO operator " +
+      "positivity. Mass-feasibility is necessary-but-not-sufficient; the operator-level K_a &gt;= 0 " +
+      "sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) remains UNTOUCHED. Platt-Trudgian " +
+      "Lambda &lt;= 0.2 remains the rigorous SOTA. No RH verdict, no QED. imp-3849 / imp-3868 / imp-3895 " +
+      "/ imp-3918 assertions are left intact -- this is a sensitivity measurement alongside them.",
+    firstUsed: "imp-33212 (NPHI-truncation-stability sweep of the imp-3849 inner-converged exact-saddle features, showing NPHI=10 was not a limiting residual floor), 2026",
+    relatedTerms: [
+      "imp-3849 inner-converged exact-saddle features: n*, eps sign-change, well min (imp-3849)",
+      "imp-3918 three-solver eps sign-change cross-validation (imp-3918)",
+      "imp-3868 Gauss-Legendre second solver (imp-3868)",
+      "imp-3895 Clenshaw-Curtis third solver (imp-3895)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

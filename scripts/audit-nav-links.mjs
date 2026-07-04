@@ -253,6 +253,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33302-sliding-start-exponent-ladder',
   '/viz-imp33304-r40-two-axis-separation',
   '/viz-imp33323-min-node-lattice-jitter-band',
+  '/viz-imp33324-graded-vs-uniform-node-budget',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

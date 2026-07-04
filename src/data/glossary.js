@@ -5193,6 +5193,61 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33207 attractive-mean-field literature gapmap (sg-3891-attractive-mean-field-convergence): why no singular-kernel propagation-of-chaos theorem covers the attractive Calogero-Moser sign",
+    category: "proof",
+    definition:
+      "imp-3891 split the G6a K4 dependency root H2 into a WRITTEN algebraic half " +
+      "H2a and an OPEN analytic half H2b -- the empirical-measure mean-field " +
+      "CONVERGENCE THEOREM for the ATTRACTIVE singular -2/(x_k-x_j) Calogero-Moser " +
+      "kernel of the imp-3642 Dyson flow -- naming it sg-3891-attractive-mean-" +
+      "field-convergence behind three obstructions (O1 singular attractive kernel, " +
+      "O2 finite-time collision shock, O3 uncertified vanishing viscosity). imp-" +
+      "33207 scopes that sub-gap against the propagation-of-chaos literature. It " +
+      "catalogues six singular-kernel mean-field theorems and the repulsion-" +
+      "supplied ingredient each depends on: L1 Sznitman classical PoC needs a " +
+      "globally Lipschitz kernel (the 1/x kernel is not even locally bounded, so " +
+      "this touches neither sign); L2 Rogers-Shi/Cepa-Lepingle/Chan repulsive " +
+      "Dyson-Calogero-Moser gets its limit from an a-priori NO-COLLISION estimate " +
+      "(Bessel comparison) that the attractive sign makes FALSE -- collisions " +
+      "occur in finite time; L3 Osada's Dirichlet-form/martingale approach needs " +
+      "the repulsive potential to keep the reference Gibbs measure locally " +
+      "integrable near coincidences, which the attractive sign destroys; L4 " +
+      "Serfaty/Duerinckx modulated-energy Gronwalls a functional E >= 0 that is " +
+      "coercive only for a positive-definite (repulsive) kernel g -- the " +
+      "attractive sign flips g and E loses both its lower bound and coercivity. " +
+      "(The module also lists L5 Jabin-Wang relative entropy and L6 Fournier-" +
+      "Jourdain 2D vortex, whose good-sign/divergence-free ingredients likewise " +
+      "fail at this sign.) Common thread: every route buys its limit with a " +
+      "REPULSION-supplied ingredient, and the attractive sign removes exactly " +
+      "that ingredient in each case -- so NO existing theorem covers the " +
+      "attractive kernel and the obstruction is STRUCTURAL, not constant-" +
+      "sharpening." +
+      "\n\nWHAT A RIGOROUS ATTRACTIVE LIMIT WOULD ADDITIONALLY NEED: R1 a " +
+      "controlled-collision estimate up to the collision time tau_c (repulsive " +
+      "proofs get no-collision for free); R2 a new coercive Lyapunov functional " +
+      "replacing the non-coercive log/Riesz modulated energy; R3 a shock-" +
+      "consistent entropy-solution notion of convergence through the caustic, " +
+      "which couples H2b to the downstream G6a K4 T1-T4 toolkit so it cannot be " +
+      "closed in isolation; R4 uniform microscopic vanishing-viscosity control " +
+      "m_zz -> 0 as y -> 0 (imp-3891's O3, only measured on y_star/d in [2,8] so " +
+      "far)." +
+      "\n\nNUMERICAL CORROBORATION (necessary, not sufficient): the SAME jittered " +
+      "seed lattice run under both velocity signs shows the min nearest-neighbour " +
+      "gap collapsing (0.5506 -> 0.4491) and the log-gas Lyapunov functional " +
+      "L = sum log|x_j-x_k| descending (132.09 -> 129.71) under attraction, " +
+      "versus the gap spreading (-> 0.6246) and L ascending (-> 134.23) under " +
+      "repulsion -- the exact L4 modulated-energy dichotomy made concrete.",
+    firstUsed: "imp-33207 (literature-scope assessment of the imp-3891 sub-gap sg-3891-attractive-mean-field-convergence)",
+    relatedTerms: [
+      "imp-3891 names H2b / sg-3891-attractive-mean-field-convergence and its three obstructions O1-O3 (imp-3891)",
+      "imp-3872 the exact finite-N identity m_s = 2 m m_z + m_zz feeding R4 (imp-3872)",
+      "imp-3846 names H2 the G6a K4 dependency root and its T1-T4 entropy-solution toolkit (imp-3846)",
+      "imp-3642 the attractive Calogero-Moser RK4 flow whose seed lattice is reused (imp-3642)",
+      "imp-3727 the entropy-solution regularity scoping R3 points to (imp-3727)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

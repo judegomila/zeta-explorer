@@ -3570,6 +3570,16 @@ const DATA_MODULES = [
   // (~40 ULP), not sub-1-ULP. Measurement only; no literal patched; imp-3685/imp-3849 intact;
   // imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-33292-r40-inner-richardson-extrapolation.js',
+  // imp-33294: PROPAGATE the omitted S(T) argument count to the imp-33278
+  // modulation Nyquist bandwidth floor U = pi M_sc/T0. The S(T)-induced shift in
+  // U is exactly dU_S = pi S(T)/T; evaluated with the Trudgian (2014) worst-case
+  // |S(T)| bound and the Selberg-CLT RMS typical size, it is O(log T / T),
+  // at most 1.283e-3 at T0=1e4 and 2.11e-12 at 1e13. The -1/2 offset and the
+  // (1/2)log(T0/2pi) growth order both SURVIVE (worst shift <= 2.57e-3 of 1/2).
+  // The 7 pi/(8 T) tail is bracketed: worst-case S shift exceeds it at every
+  // height, RMS shift stays below it. Measurement only; imp-3066 untouched;
+  // PT Lambda<=0.2 SOTA; no QED. 4 assertions.
+  '/src/data/imp-33294-modulation-nyquist-st-correction.js',
 ];
 
 let ALL_MODULES = FAST_MODE

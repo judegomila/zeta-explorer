@@ -3580,6 +3580,18 @@ const DATA_MODULES = [
   // height, RMS shift stays below it. Measurement only; imp-3066 untouched;
   // PT Lambda<=0.2 SOTA; no QED. 4 assertions.
   '/src/data/imp-33294-modulation-nyquist-st-correction.js',
+  // imp-33308: CARRIES the imp-33295 graded-cheaper node saving from the SCALAR A(tau) to
+  // the FULL R_40 = |D_40|/|D_40^saddle| moment-ratio object. The imp-33292 R_40 machinery
+  // (outer T_A=2, NM=3200; D_40=C_42-C_40; moments to M_44) is reused verbatim and ONLY the
+  // inner A(tau) quadrature is swapped: (U) uniform Simpson on the imp-33292 ladder N=400..12800
+  // + repeated Richardson (25206 inner nodes) vs (G) the imp-33295 graded-GL rule. A single
+  // graded grid reaches the imp-33292 converged R_40 ~40 ULP floor band (measured ~23.4 ULP from
+  // the extrapolant) at ~80 inner nodes (~315x fewer) and at 400 nodes with a robust plateau rule
+  // (~63x fewer); a single uniform grid misses the floor even at 25601 nodes (~2197 ULP). The
+  // converged target 1.024396695031357 reproduces the imp-33292 1.02439669503136 to ~13 ULP.
+  // Measurement only; no literal patched; imp-3685/imp-3849/imp-33292 intact; ratio-cancellation
+  // floor not sub-1-ULP; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 8 assertions.
+  '/src/data/imp-33308-graded-inner-grid-r40-node-budget.js',
 ];
 
 let ALL_MODULES = FAST_MODE

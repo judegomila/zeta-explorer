@@ -3956,7 +3956,18 @@ export const glossary = [
       "extreme rungs initially differed by ~5.3e-4/2.8e-4 relative, diagnosed as imp-3665's own " +
       "uniform grid under-resolving the razor-sharp near-s=0 peak rather than a method disagreement " +
       "(imp-3736 later Richardson-refined imp-3665's own Simpson onto the graded-GL limit, " +
-      "converging both paths to -ln A(1.5)=1267.7886 and -ln A(2)=9365.3190)." +
+      "converging both paths to -ln A(1.5)=1267.7886 and -ln A(2)=9365.3190). (4) imp-3730's baked " +
+      "A-weight subleading-correction limit c_inf ~ 0.3543, originally only a numeric extrapolation " +
+      "from the last clean rungs c(5)/c(5.5) -- imp-3844 UPGRADED this from single-source numeric " +
+      "extrapolation to an INDEPENDENT closed-form analytic derivation, c_inf = pi - ln(pi/2) - " +
+      "ln(acc0) = -ln((pi/2)Phi(0)) = 0.35429228409357, with the geometric-approach coefficient " +
+      "B = 3/(2 pi) = 0.477465 matching the imp-3730 measured e^{-1} step ratio exactly: CONFIRMED, " +
+      "the extrapolated floor is not a curve-fitting artifact. (5) imp-3850 gave the imp-3730 " +
+      "c(2.5)/c(3.0) rungs a dual-path anchor: pushing the uniform log-Simpson mesh to n=2.56e7 " +
+      "(tau=2.5) and n=2.048e8 (tau=3.0), both offline-verified literals, climbs monotonically onto " +
+      "the graded-GL limit -ln A(2.5)=69198.540665 and -ln A(3.0)=511309.612538, rel ~1e-11 at both " +
+      "rungs, extending the imp-3736 dual-path reconciliation window from [1.5,2.0] to [1.5,3.0]: " +
+      "CONFIRMED, c(2.5)=+0.357539 and c(3.0)=+0.355480 no longer rest on the graded-GL path alone." +
       "\n\nSINGLE-SOURCE (no independent reproduction path applied yet): imp-3623/imp-3625's baked " +
       "deep-rung dense top-6 (third-pair lambda_5=lambda_6) has only been cross-validated against " +
       "the ORIGINAL imp-3602 Lanczos/Krylov solve, not re-extracted by an independent Sturm-" +
@@ -3976,6 +3987,8 @@ export const glossary = [
       "imp-3668 skew-Toeplitz FIFTH-pair adjacent-pairing dense certification: lambda_9=lambda_10, sigma_4 -> 1 (imp-3668)",
       "imp-3665 A-weight super-exponential decay confirmation: exp(-pi e^{4 tau}), no hard support endpoint (imp-3665)",
       "imp-3623/imp-3625 dense-solver resolution of the N=2000 skew-Toeplitz third-pair Krylov artifact (imp-3654)",
+      "imp-3844 closed-form derivation of c_inf and B = 3/(2 pi), upgrading imp-3730 from numeric extrapolation to independent analytic derivation (imp-3844)",
+      "imp-3850 dual-path -ln A(tau) reconciliation extended to tau in {2.5,3.0}, anchoring c(2.5)/c(3.0) (imp-3850)",
       "off-diagonal endpoint-Hankel obstruction (imp-3066)",
     ],
     link: "/closure-routes",

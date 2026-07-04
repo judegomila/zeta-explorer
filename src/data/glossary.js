@@ -5400,6 +5400,48 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33232 refutation: imp-3919 crossover tau*>=6 is necessary but not sufficient",
+    category: "numerical",
+    definition:
+      "imp-3919 derived the fixed-companion crossover tau*(panels,grade) = [grade*ln(panels) - " +
+      "ln(4 pi hi)]/4 for the graded-GL A-weight quadrature, inverted it to size a minimal node " +
+      "budget per grade {grade3:16704p, grade4:1470p, grade5:342p, grade6:130p, grade7:65p, " +
+      "grade8:39p} so the innermost panel clears the peak sigma(6) = 1/(4 pi e^24) = 3.00e-12, and " +
+      "validated the budget at a SINGLE point: tau=6, grade5 -> 0.83 ULP. It generalized that one " +
+      "measurement to a headline ~2-order node-budget collapse (167040 -> 390 nodes) across the " +
+      "grade sweep. imp-33232 independently regenerated the crossover and budget table exactly, " +
+      "then ran EVERY tabulated minimal rule across the FULL clean window tau in [0.5,6] (12-point " +
+      "grid) against a converged sigma-tracking substitution-Simpson reference (Xmax=120, " +
+      "n=80000, well past imp-3919's own n<=8000/Xmax=40 rule, which is converged only near tau=6). " +
+      "Result: only the shallow rows grade3..5 (panels>=342) honour <~1-ULP-class accuracy through " +
+      "the window (few-ULP worst-case, sub-ULP at tau=6). The steep-grade node-savings rows " +
+      "grade6/grade7/grade8 (130/65/39 panels) FAIL at tau=6 by ~157/~3548/~15400 ULP -- monotone " +
+      "WORSE with grade -- despite tau*(panels,grade) all exceeding 6. Root cause: tau*>=6 only " +
+      "forces the INNERMOST panel below the peak; consecutive graded panel widths jump by " +
+      "~2^grade near the origin, so at grade8 the second panel is already ~256x the peak scale and " +
+      "only ONE sub-peak GL-10 panel exists to resolve the collapsing peak, which cannot reach 1 " +
+      "ULP. imp-33232 confirmed the breakdown is intrinsic, not a reference artifact, via a " +
+      "substitution-independent cross-check: the grade8 minimal rule (39p) disagrees with a " +
+      "16x-finer same-grade rule (624p) at tau=6 by ~1.5e4 ULP, while grade5 (342p) agrees with " +
+      "an 8x-finer counterpart (2736p) to ~1.3 ULP. So imp-3919's node-savings collapse across the " +
+      "grade sweep does not hold at fixed full-window accuracy -- the usable budget bottoms out " +
+      "around panels~342 (grade<=5)." +
+      "\n\nHONEST SCOPE: accuracy measurement / rule-design audit only, RH-equivalent, necessary-" +
+      "but-not-sufficient. This audits a QUADRATURE node budget, not a mathematical floor -- it says " +
+      "nothing about the imp-3730 cancellation floor near tau~6, which remains the binding limit on " +
+      "the clean window. Establishes NO operator positivity; the off-diagonal endpoint-Hankel " +
+      "K_a &gt;= 0 step (imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda " +
+      "&lt;= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33232 (independently verifying the imp-3919 fixed graded-GL crossover and minimal node-budget table across the full clean window tau in [0.5,6], not just the single tau=6 endpoint imp-3919 measured, and refuting the headline node-savings collapse for the steep-grade rows), 2026",
+    relatedTerms: [
+      "imp-3919 fixed-companion crossover and minimal graded-GL node budget (imp-3919)",
+      "imp-3897 single-endpoint substitution-Simpson precision floor tau*~4.006 (imp-3897)",
+      "imp-3730 cancellation floor near tau~6 on the clean window (imp-3730)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

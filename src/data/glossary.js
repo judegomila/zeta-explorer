@@ -5646,6 +5646,44 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33231 fifth-pair Gram-spread N=2800 rung: order-of-magnitude DIP is decisive positive evidence for the N-independent few-ULP floor",
+    category: "numerical",
+    definition:
+      "imp-33209 resolved the N=2400 rung of the imp-3668/imp-3715/imp-3851 fifth-pair Gram degeneracy " +
+      "spread ladder worstPairSpread(N) = |lambda_9 - lambda_10| / lambda_9, leaving N=2800 an explicit " +
+      "floor-model BOUND. imp-33231 re-ran the identical dense solve (Gram S = T^T T, Householder tred1 + " +
+      "implicit-QL tql1 for ALL eigenvalues, no Krylov subspace, no reorthogonalization; NPHI=10, H0=0.025, " +
+      "midpoint) at N=2800, reproducing the N=2000 and N=2200 cross-check rungs EXACTLY. RESULT: (1) " +
+      "worstPairSpread(2800) = 1.963790e-16 = 0.884 ULP -- a genuine nonzero fifth data point that falls " +
+      "~10x BELOW the N=2400 rung (8.846 ULP), back down to the N=1800 level. A growth law spread ~ N^p " +
+      "with p > 0 cannot produce an order-of-magnitude FALL as N increases, so this rung is decisive " +
+      "positive evidence for the N-independent few-ULP backward-error floor already argued for on " +
+      "exponent-inconsistency grounds in imp-3851. (2) With five nonzero rungs the successive local " +
+      "exponents span p(1800->2000)=18.47, p(2000->2200)=3.74, p(2200->2400)=-0.002, p(2400->2800)=-14.94 " +
+      "-- from strongly positive to strongly negative -- ruling out any coherent power law even more " +
+      "sharply than the three-rung sample did. All five rungs (0.885, 6.195, 8.848, 8.846, 0.884 ULP) sit " +
+      "below the conservative 10-ULP backward-error floor. (3) The linear N*eps model stays falsified " +
+      "(N=2800 uses only 3.16e-4 of its rounding budget). (4) The fifth-pair amplitude sigma_4 = " +
+      "lambda_9/lambda_1 keeps climbing monotonically toward 1 (0.99937 at N=2800), unrelated to the " +
+      "spread floor's non-growth.\n\nHONEST SCOPE: measurement only, adding one resolved rung to a five-" +
+      "point sample; does NOT pin a resolved growth exponent (N-dependence is consistent with zero, not " +
+      "measured to be exactly zero), does NOT re-certify the pairing (imp-3668), does NOT establish the " +
+      "sigma_4 amplitude law, and does NOT attempt the imp-3066 K_a >= 0 positivity. imp-33253 later " +
+      "derives the 10-ULP line itself from the fifth-pair condition number kappa_pair via the Wilkinson " +
+      "backward-error bound, showing the floor and its non-growth both FOLLOW from kappa*u rather than " +
+      "being asserted. RH-EQUIVALENT. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the " +
+      "rigorous SOTA.",
+    firstUsed: "imp-33231 (resolving the N=2800 dense full-spectrum fifth-pair Gram-degeneracy rung the imp-33209/imp-3851 floor-model bound had left open, finding an order-of-magnitude dip back to the N=1800 level), 2026",
+    relatedTerms: [
+      "imp-3851 fourth fifth-pair Gram-spread rung (imp-3851)",
+      "imp-33209 fifth fifth-pair Gram-spread rung, N=2400 (imp-33209)",
+      "imp-33253 Wilkinson kappa*u fifth-pair condition-number floor derivation (imp-33253)",
+      "imp-3668 dense fifth-pair Gram degeneracy cross-validation (imp-3668)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/viz-imp33264-fifth-pair-spread-ladder-n2800-extended",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

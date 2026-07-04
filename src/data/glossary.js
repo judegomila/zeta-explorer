@@ -4839,6 +4839,54 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3899 caustic-stress resolvent-flux identity survival: m_s = 2 m m_z + m_zz holds to < 1e-12 residual up to 0.99 of the pre-collision budget",
+    category: "numerical",
+    definition:
+      "imp-3872 verified the exact finite-N resolvent-flux identity " +
+      "m_s = 2 m m_z + m_zz (m_s from the ACTUAL imp-3642 RK4 attractive " +
+      "Calogero-Moser velocities, m/m_z/m_zz from the analytic resolvent " +
+      "m(z,s) = sum_k 1/(z - x_k(s))) to a max relative residual < 1e-12, but " +
+      "only over HALF the pre-collision shock budget on a block of M = 161. " +
+      "The caustic (collision) time is exactly where the G6a K4 regularity " +
+      "question lives, so imp-3899 STRESS-TESTS the identity where imp-3872 " +
+      "stopped: it pushes the flow to 0.99 of the full pre-collision budget " +
+      "1/(2 V0) and to larger blocks (M = 161, 241, 321), sampling the " +
+      "resolvent on the mesoscopic strip z = x + i y_star (y_star = 4 d) at " +
+      "five budget fractions approaching collision (0.50, 0.75, 0.90, 0.95, " +
+      "0.99)." +
+      "\n\nWHY IT MUST HOLD ALGEBRAICALLY: with f_k = 1/(z - x_k), " +
+      "m = sum f_k, m_z = -sum f_k^2, m_zz = 2 sum f_k^3 and the attractive " +
+      "velocity xdot_k = -2 sum_{j!=k} 1/(x_k - x_j), the finite-N field obeys " +
+      "m_s = sum_k xdot_k f_k^2 = 2 m m_z + m_zz EXACTLY for ANY particle " +
+      "configuration -- a pure algebraic identity independent of RK4 " +
+      "integration accuracy. What the caustic CAN degrade is floating-point " +
+      "conditioning: as the minimum inter-particle gap g_min collapses the " +
+      "velocities develop O(1/g_min) magnitudes and catastrophic " +
+      "cancellation, which could inflate the measured residual even though " +
+      "the resolvent itself stays well-conditioned on the fixed y_star > 0 " +
+      "strip." +
+      "\n\nRESULT: the identity SURVIVES the caustic -- the max relative " +
+      "residual stays < 1e-12 across every block size and every near-caustic " +
+      "slice, even as the tightest inter-particle gap collapses to " +
+      "g_min/d well below the seed spacing. The near-collision velocity " +
+      "blow-up does not inflate the residual in double precision. This is a " +
+      "self-consistency check that the discrete flux is read correctly, NOT " +
+      "a certificate: it does not prove the mean-field/hydrodynamic limit " +
+      "exists, does not certify convex-flux H2, and reads m on a mesoscopic " +
+      "strip rather than the microscopic y->0 continuum. H2 stays UNWRITTEN " +
+      "as a certificate, the K4 route stays WHOLLY NEW and " +
+      "G6a_shock_lipschitz stays OPEN. imp-3066 off-diagonal endpoint-Hankel " +
+      "K_a>=0 positivity UNTOUCHED; Platt-Trudgian Lambda<=0.2 remains the " +
+      "rigorous SOTA; NO QED.",
+    firstUsed: "imp-3899 (stress-testing the imp-3872 exact finite-N resolvent-flux identity near the caustic and at larger block sizes, finding it survives the near-collision velocity blow-up in double precision), 2026",
+    relatedTerms: [
+      "imp-3872 the P1 exact finite-N flux identity verification this extends to the caustic",
+      "imp-3642 the attractive Calogero-Moser RK4 flow whose seed and integrator are reused",
+      "imp-3846 names H2 the dependency-chain root; the caustic is exactly where K4 regularity lives",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

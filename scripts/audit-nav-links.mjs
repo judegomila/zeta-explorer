@@ -277,6 +277,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33715-gap-vs-height-independence',
   '/viz-imp33716-peak-minus-trough-amplitude',
   '/viz-imp33717-envelope-height-extension',
+  '/viz-imp33718-interpeak-gap-sequence',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

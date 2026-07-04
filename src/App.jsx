@@ -185,6 +185,7 @@ const Imp3884ThetabarElasticityViz = lazy(() => import('./pages/Imp3884ThetabarE
 const Imp3900H2FluxConvexityViz = lazy(() => import('./pages/Imp3900H2FluxConvexityViz.jsx'));
 const Imp3903SminDminSlackViz = lazy(() => import('./pages/Imp3903SminDminSlackViz.jsx'));
 const Imp3904TwoSolverCrossingViz = lazy(() => import('./pages/Imp3904TwoSolverCrossingViz.jsx'));
+const Imp3906DpsiSensitivityViz = lazy(() => import('./pages/Imp3906DpsiSensitivityViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -814,6 +815,7 @@ function AppShell() {
           <Route path="/viz-imp3900-h2-flux-convexity" element={<Imp3900H2FluxConvexityViz />} />
           <Route path="/viz-imp3903-smin-dmin-slack" element={<Imp3903SminDminSlackViz />} />
           <Route path="/viz-imp3904-two-solver-crossing" element={<Imp3904TwoSolverCrossingViz />} />
+          <Route path="/viz-imp3906-dpsi-sensitivity" element={<Imp3906DpsiSensitivityViz />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
           <Route path="/papers" element={<PapersListPage />} />

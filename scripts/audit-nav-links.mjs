@@ -288,6 +288,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33830-sigma-decay-landmark-ladder',
   '/viz-imp33831-eflow-resid-ratio-ladder',
   '/viz-imp33832-saturation-curvature-hump-vs-k',
+  '/viz-imp33833-decoupled-rate-heatmap',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

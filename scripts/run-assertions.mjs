@@ -3826,6 +3826,16 @@ const DATA_MODULES = [
   // the running-map angle. Measurement only; imp-3066/imp-486/C_C ansatz untouched; PT Lambda<=0.2
   // SOTA; no QED. 7 assertions.
   '/src/data/imp-33815-eflow-map-fartail-landmark-crosscheck.js',
+  // imp-33857: CROSS-VALIDATES the imp-33844 closed-form hump peak (p_ecoll^2 ln10/8 at sigma=1/2, the
+  // E_coll=E_trunc crossover, placed at decade k=9) against the imp-33843/imp-33810 widening-fit
+  // denominator over the SAME k=6..11 ladder. Both code paths compute ONE curvature quantity
+  // resid_exp(k)=p_ecoll(1-sigma_hi)-p_sigma: at k=9 they agree to 6 sig figs (~6.4758e-2) and the
+  // integer-decade argmax is k=9 in BOTH, so the k-location residual on the shared ladder is EXACTLY 0.
+  // The finer quarter-decade grid nudges the argmax to k=8.75 (-0.25 decade) and the continuous
+  // curvature-max crossover sits at k_cross~9.52 (+0.52 above the k=9 label) -- the same
+  // discrete-vs-continuous offset imp-33844 D2 booked. Cross-validation only; imp-486/C_C ansatz
+  // untouched; PT Lambda<=0.2 SOTA; no QED. 4 assertions. (transitively exercises imp-33810/imp-33844.)
+  '/src/data/imp-33857-hump-peak-widening-crossvalidation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

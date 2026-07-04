@@ -231,18 +231,23 @@ function readPending() {
 }
 
 function claimId() {
-  // Propose max(existing queue id, index.nextImprovementId) + 1, so we never
-  // collide with an already-seeded ticket even when the index lags. The claim
-  // log (claim-ticket-id) then guards against concurrent in-flight claims.
+  // Propose maxId + 1 from the queue file's own imp-NNNN ids. The claim log
+  // (claim-ticket-id) then guards against concurrent in-flight claims.
+  //
+  // imp-33785: index.nextImprovementId is NOT usable here -- it is the next
+  // plain-integer id for src/data/improvements.js log entries, a completely
+  // separate counter from the imp-NNNN ticket ids in improvement-queue.js.
+  // The two namespaces diverged long ago (improvements.js entries currently
+  // run ~5000 behind the imp-NNNN counter), so mixing them via Math.max was
+  // never a valid staleness guard -- it happened to be harmless only because
+  // maxId + 1 has so far always exceeded nextImprovementId.
   let maxId = 0;
   try {
     const text = readFileSync(QUEUE, 'utf8');
     const re = /id:\s*'imp-(\d+)'/g; let m;
     while ((m = re.exec(text))) maxId = Math.max(maxId, parseInt(m[1], 10));
   } catch (_) {}
-  let idxNext = 1;
-  try { idxNext = JSON.parse(readFileSync(INDEX, 'utf8')).nextImprovementId ?? 1; } catch (_) {}
-  const proposed = Math.max(maxId + 1, idxNext);
+  const proposed = maxId + 1;
   const out = execFileSync('node', [join(ROOT, 'scripts/claim-ticket-id.mjs'), String(proposed)], { cwd: ROOT }).toString().trim();
   const m = out.match(/imp-\d+/);
   if (!m) throw new Error(`claim-ticket-id returned unexpected: ${out}`);

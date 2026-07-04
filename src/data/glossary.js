@@ -1710,6 +1710,7 @@ export const glossary = [
       "E(N) bridge-constant frontier (imp-3220)",
       "GUE-conditional share argmin (imp-3323)",
       "truncation floor E_trunc (imp-2631)",
+      "imp-33582 accelerating (not fixed-rate) sigma(N) post-peak decay: per-decade exponent ramps ~0.0105 -> ~0.4310 toward the far-tail 1/2, halving exactly at the imp-3444 crossover -- the newest quantified decay-rate refinement past this peak (imp-33582)",
     ],
     link: "/closure-routes",
   },

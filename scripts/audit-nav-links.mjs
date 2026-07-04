@@ -251,6 +251,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33298-fifth-pair-precision-collapse',
   '/viz-imp33300-majorant-overcharge-plateau-split',
   '/viz-imp33302-sliding-start-exponent-ladder',
+  '/viz-imp33304-r40-two-axis-separation',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

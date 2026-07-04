@@ -206,6 +206,7 @@ const Imp33243RecoveryRateFitViz = lazy(() => import('./pages/Imp33243RecoveryRa
 const Imp33266ToolkitStatusMapViz = lazy(() => import('./pages/Imp33266ToolkitStatusMapViz.jsx'));
 const Imp33267AWeightDualPathTau25To30Viz = lazy(() => import('./pages/Imp33267AWeightDualPathTau25To30Viz.jsx'));
 const Imp33284R40InnerQuadratureLadderViz = lazy(() => import('./pages/Imp33284R40InnerQuadratureLadderViz.jsx'));
+const Imp33304R40TwoAxisSeparationViz = lazy(() => import('./pages/Imp33304R40TwoAxisSeparationViz.jsx'));
 const Imp33285WatsonBracketDirectVsReformDdLadderViz = lazy(() => import('./pages/Imp33285WatsonBracketDirectVsReformDdLadderViz.jsx'));
 const Imp33286RealisedVsCertifiedTailWeightRatioViz = lazy(() => import('./pages/Imp33286RealisedVsCertifiedTailWeightRatioViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
@@ -850,6 +851,7 @@ function AppShell() {
           <Route path="/viz-imp33266-g6a-k4-toolkit-status-map" element={<Imp33266ToolkitStatusMapViz />} />
           <Route path="/viz-imp33267-a-weight-dual-path-tau25-30" element={<Imp33267AWeightDualPathTau25To30Viz />} />
           <Route path="/viz-imp33284-r40-inner-quadrature-ladder" element={<Imp33284R40InnerQuadratureLadderViz />} />
+          <Route path="/viz-imp33304-r40-two-axis-separation" element={<Imp33304R40TwoAxisSeparationViz />} />
           <Route path="/viz-imp33285-watson-bracket-direct-vs-reform-dd-ladder" element={<Imp33285WatsonBracketDirectVsReformDdLadderViz />} />
           <Route path="/viz-imp33286-realised-vs-certified-tail-weight-ratio" element={<Imp33286RealisedVsCertifiedTailWeightRatioViz />} />
           <Route path="/viz-imp33219-a-weight-two-route-reproduction" element={<Imp33219AWeightTwoRouteReproductionViz />} />

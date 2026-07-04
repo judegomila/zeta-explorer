@@ -6056,6 +6056,44 @@ export const glossary = [
     link: "/closure-routes",
   },
   {
+    term: "imp-33296 min-node graded-GL lattice-jitter characterization: strict <1 ULP is a ~12% lattice event, the robust budget is a grade-independent ~[0.7,5] ULP arithmetic-floor band",
+    category: "numerical",
+    definition:
+      "imp-33249 located the minimal graded Gauss-Legendre (panels, grade) budget holding worst-in-window " +
+      "<1 ULP for -ln A(tau) through tau<=6, naming the grade6/171-panel hit (0.76 ULP) as the min-node " +
+      "floor, and imp-33277 extended the measurement to tau in {7,8}; both stamped the exact panel count " +
+      "with a latticeJitterCaveat -- neighbouring panel counts bounce above the bar -- but neither " +
+      "quantified it. imp-33296 scans the fully-resolved neighbourhood (tau*>6.2, excluding the under-" +
+      "resolution cliff) around each min-node family -- grade6 in [155,235] panels (containing the 171p " +
+      "hit) and grade5 in [560,680] panels -- at the imp-33277 +/-2-panel lattice granularity, scoring " +
+      "worst-in-window against the reused imp-33249 adaptive cluster gold (worst 0.826 ULP).\n\n" +
+      "TWO FINDINGS. (1) The strict <1 ULP bar is a MINORITY lattice event: only ~12% of the +/-2-panel " +
+      "counts clear it (grade6 12.2%, grade5 11.5%), and the longest run of consecutive passing panel " +
+      "counts is 1 (grade6) / 2 (grade5) -- the imp-33249 grade6/171p hit (0.763 ULP) does NOT survive a " +
+      "+/-2-panel perturbation, with its immediate 169p/173p neighbours bouncing to 2.11/2.29 ULP. The " +
+      "single min-node hit is a genuine lattice coincidence, now quantified. (2) What IS robust is the " +
+      "BAND: over the whole resolved neighbourhood worst-in-window stays in [0.67,4.96] ULP (mean ~1.9, " +
+      "median ~1.8, p90 3.30), and BOTH grades share the same band -- a grade-independent signature, " +
+      "meaning it is a round-off log-sum-exp floor rather than quadrature error. So the honest " +
+      "perturbation-stable budget is the stated few-ULP band (any resolved rule -- tau*>=6.2, grade6 " +
+      "panels >~150 or grade5 >~400 -- gives worst-in-window <= ~5 ULP, typically ~1.8), NOT the fragile " +
+      "<1 ULP single hit, which is a ~12% event broken by its own next +/-2 panels.\n\n" +
+      "HONEST SCOPE: refines but does not contradict the imp-33249 min-node hit (171p is the band FLOOR, " +
+      "the ceiling is the shippable guarantee). Accuracy/rule-design measurement only, RH-equivalent scale " +
+      "class; cross-platform libm variation is caveated (later quantified by imp-33314/imp-33534); mass-" +
+      "feasibility is necessary-but-not-sufficient; NPHI=10 truncation inherited; imp-3066 K_a >= 0 " +
+      "operator positivity remains UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains " +
+      "the rigorous SOTA.",
+    firstUsed: "imp-33296 (converting the imp-33249/imp-33277 latticeJitterCaveat from a stated caveat into a quantified statistic via a +/-2-panel neighbourhood scan), 2026",
+    relatedTerms: [
+      "imp-33249 full-window graded-GL <1 ULP node budget (imp-33249)",
+      "imp-33277 tau in {7,8} extension of the -ln A(tau) graded-GL node budget (imp-33277)",
+      "imp-33312 tau-uniform jitter-band collapse (imp-33312)",
+      "imp-33534 double-double reference-precision libm single-hit error (imp-33534)",
+    ],
+    link: "/closure-routes",
+  },
+  {
     term: "imp-33278 height-sweep of the modulation Nyquist bandwidth floor U = pi M_sc / T0",
     category: "numerical",
     definition:

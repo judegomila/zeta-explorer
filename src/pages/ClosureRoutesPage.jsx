@@ -68,6 +68,7 @@ import { IMP3288_ANALYTIC_CEILING_LEMMA } from '../data/imp-3288-analytic-ceilin
 import { IMP3106_EXCESS_FRACTION_INTEGRABILITY } from '../data/imp-3106-excess-fraction-integrability.js';
 import { REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126 } from '../data/imp-3126-regular-mass-vs-c-shock-coincidence.js';
 import { IMP3220_EN_BRIDGE_FIDELITY_FRONTIER } from '../data/imp-3220-en-bridge-fidelity-frontier.js';
+import { IMP_33772_ETRUNC_BASELINE_COHORT_PROVENANCE } from '../data/imp-33772-etrunc-baseline-cohort-provenance-tabulation.js';
 import { IMP3406_SIGMA_HIGHN_EXTRAPOLATION } from '../data/imp-3406-sigma-highN-extrapolation.js';
 import { IMP3711_SIGMA_POSTPEAK_CONTINUATION } from '../data/imp-3711-sigma-postpeak-continuation.js';
 import { IMP3443_NMAX_ETRUNC_SENSITIVITY } from '../data/imp-3443-nmax-etrunc-sensitivity.js';
@@ -715,6 +716,16 @@ function ConditionalShareUShapePanel() {
         C<sub>H</sub>, so a 16&times; bracket [0.0625,&thinsp;1.0] swings E<sub>coll</sub> 16&times;) but NOT for the
         <em> conditional share</em> &sigma;(N) plotted above, which saturates toward 1 and stays within
         [0.904,&thinsp;0.993] over that same bracket. The two roles must not be conflated.
+      </div>
+      <div style={{ marginTop: 6, padding: '6px 10px', borderRadius: 4, background: 'rgba(56,189,248,0.05)', border: '1px solid rgba(56,189,248,0.18)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+        <strong style={{ color: '#38bdf8' }}>E<sub>trunc</sub> name-collision caveat (imp-33772):</strong>{' '}
+        Two DISTINCT quantities share the name &ldquo;E<sub>trunc</sub>&rdquo;: the fixed-strip
+        truncation floor tabulated here (&asymp;{IMP_33772_ETRUNC_BASELINE_COHORT_PROVENANCE.baselineValue.toExponential(2)},
+        rooted in {IMP_33772_ETRUNC_BASELINE_COHORT_PROVENANCE.provenanceRoot} and pinned identically across the
+        sigma(N)-decay cohort) versus a SEPARATE &asymp;0.137 lambda-bound truncation contribution on a different
+        route/height (imp-2625, gamma=10<sup>13</sup>). The &sigma;(N) surface above uses only the
+        {' '}{IMP_33772_ETRUNC_BASELINE_COHORT_PROVENANCE.baselineValue.toExponential(2)} fixed-strip value; the two
+        must not be conflated.
       </div>
       <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
         Source: imp-3220-en-bridge-fidelity-frontier.js &mdash; N&isin;{'{2..10'}<sup>6</sup>{'}'}, dual-axis (&sigma;(N) left, E_coll/E_flow right).

@@ -981,7 +981,16 @@ export const LAMBDA_ROADMAP = {
     '10^6 landing just 2.1e-5 below it on the downslope. Past the peak sigma decays monotonically ' +
     'toward 0 as the constant truncation floor E_trunc outlives the vanishing GUE-conditional E_coll, ' +
     'so the empirical-vs-analytic conditional gap does NOT keep growing past the range PATH 1 covered ' +
-    '— it has already essentially peaked at 10^6.',
+    '— it has already essentially peaked at 10^6. QUANTIFIED (imp-33582): a finer ' +
+    'post-peak grid (N in {1e6..1e12}) confirms the decay past the N ~ 9.22e5 peak is ' +
+    'monotonic but NOT fixed-rate — the local decay exponent ramps from ~0.0105 in the ' +
+    'first post-peak decade toward the far-tail 1/2 asymptote (~0.4310 by [1e11,1e12]) ' +
+    'as the constant truncation floor E_trunc only slowly overtakes the vanishing GUE-' +
+    'conditional E_coll. Concretely sigma stays above 0.9 until N ~ 2.57e7, halves at ' +
+    'N ~ 3.27e9 (matching the independent imp-3444 E_coll=E_trunc crossover to ~0.4%), ' +
+    'and drops below 0.1 only at N ~ 3.21e11 — the empirical-vs-analytic conditional ' +
+    'gap keeps shrinking well past 10^6, but gradually; this is a quantified decay-' +
+    'rate refinement only and changes no bound (C_mb remains GUE-conditional, imp-486).',
   bounds: LAMBDA_BOUNDS,
   chain: LAMBDA_CHAIN_STEPS,
   verification: VERIFICATION_EFFORTS,

@@ -216,6 +216,7 @@ const Imp33286RealisedVsCertifiedTailWeightRatioViz = lazy(() => import('./pages
 const Imp33607SigmaPostpeakDecayViz = lazy(() => import('./pages/Imp33607SigmaPostpeakDecayViz.jsx'));
 const Imp33609GradedMappedCcAbscissaArtifactViz = lazy(() => import('./pages/Imp33609GradedMappedCcAbscissaArtifactViz.jsx'));
 const Imp33611BandCrossingFloorBisectionViz = lazy(() => import('./pages/Imp33611BandCrossingFloorBisectionViz.jsx'));
+const Imp33613BandCrossingCrossSolverNodeBudgetViz = lazy(() => import('./pages/Imp33613BandCrossingCrossSolverNodeBudgetViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -864,6 +865,7 @@ function AppShell() {
           <Route path="/viz-imp33607-sigma-postpeak-decay" element={<Imp33607SigmaPostpeakDecayViz />} />
           <Route path="/viz-imp33609-graded-mapped-cc-abscissa-artifact" element={<Imp33609GradedMappedCcAbscissaArtifactViz />} />
           <Route path="/viz-imp33611-band-crossing-floor-bisection" element={<Imp33611BandCrossingFloorBisectionViz />} />
+          <Route path="/viz-imp33613-band-crossing-cross-solver-node-budget" element={<Imp33613BandCrossingCrossSolverNodeBudgetViz />} />
           <Route path="/viz-imp33219-a-weight-two-route-reproduction" element={<Imp33219AWeightTwoRouteReproductionViz />} />
           <Route path="/viz-imp33246-eps-crossval" element={<Imp33246EpsCrossvalViz />} />
           <Route path="/viz-imp33257-node-budget-full-window-ulp" element={<Imp33257NodeBudgetFullWindowUlpViz />} />

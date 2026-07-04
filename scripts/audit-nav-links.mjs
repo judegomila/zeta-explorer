@@ -221,6 +221,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp3863-gap-structure-function-s2',
   '/viz-imp3864-fmb-small-n-enclosure',
   '/viz-imp3880-saddle-ratio-inner-converged',
+  '/viz-imp3881-eps-sign-change',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

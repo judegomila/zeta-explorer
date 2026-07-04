@@ -243,6 +243,7 @@ const Imp33589HeightCollapsingEnvelopeCeilingViz = lazy(() => import('./pages/Im
 const Imp33595DeepTailCohortIndexPage = lazy(() => import('./pages/Imp33595DeepTailCohortIndexPage.jsx'));
 const Imp33617DeepTailCrossSolverCohortIndexPage = lazy(() => import('./pages/Imp33617DeepTailCrossSolverCohortIndexPage.jsx'));
 const Imp33830SigmaDecayLandmarkLadderViz = lazy(() => import('./pages/Imp33830SigmaDecayLandmarkLadderViz.jsx'));
+const Imp33831EflowResidRatioLadderViz = lazy(() => import('./pages/Imp33831EflowResidRatioLadderViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1015,6 +1016,7 @@ function AppShell() {
           <Route path="/riemann-siegel-z" element={<RiemannSiegelZPage />} />
           <Route path="/voronin-universality" element={<VoroninUniversalityPage />} />
           <Route path="/viz-imp33830-sigma-decay-landmark-ladder" element={<Imp33830SigmaDecayLandmarkLadderViz />} />
+          <Route path="/viz-imp33831-eflow-resid-ratio-ladder" element={<Imp33831EflowResidRatioLadderViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

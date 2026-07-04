@@ -5442,6 +5442,58 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33233 quantitative pinning of the modulation/window escape hatch (Conjecture 22.1)",
+    category: "numerical",
+    definition:
+      "imp-3932 rigorously falsified the STRONG GLOBAL reading of Conjecture 22.1 for the paper's " +
+      "own eq (20)-(21) frozen-ladder proxy (single Gaussian width times an even polynomial, or any " +
+      "finite REAL-width Gaussian mixture) at the Platt-Trudgian 2021 benchmark, forcing a stored " +
+      "coefficient dimension D >= M_sc + 1 = 12,363,153,437,139 against a 691,008-term Riemann-Siegel " +
+      "main sum. It then NAMED the surviving obstructions, chief among them the windowed/MODULATED " +
+      "proxy escape hatch, fenced off only qualitatively as \"= Odlyzko-Schonhage band-limited " +
+      "interpolation, PARTIALLY-RELATED not novel\" with no quantitative bound. imp-33233 pins that " +
+      "class boundary quantitatively in two regimes. (A) SINGLE-WIDTH modulation " +
+      "Phi_fr(u) = e^{-alpha u^2} Sigma_c P_c(u^2) cos(t_c u) does NOT escape: multiplying Xi_fr(t) " +
+      "by the entire, zero-free factor E(t) = e^{+t^2/(4 alpha)} (preserves the real zero set exactly) " +
+      "turns it into a Polya-Szego exponential polynomial with distinct real exponents +/- t_c/(2 " +
+      "alpha), so Polya-Szego Part V Problem 75 (L2 of imp-3932) still caps the real-zero count at " +
+      "2 Sigma_c (2 K_c + 1) - 1, forcing D > M_sc/2 -- at the benchmark, D >= ceil(M_sc/2) = " +
+      "6,181,576,718,569 stored coefficients, still exceeding the Riemann-Siegel main sum by a " +
+      "factor > 8.9e6. Modulation with one width weakens the imp-3932 bound by at most 2x; it is not " +
+      "an escape. (B) MULTI-WIDTH / genuinely windowed modulation cannot be cleared by a single " +
+      "Gaussian multiplier, so L2 does not apply directly; but a proxy effectively supported in " +
+      "|u| <= U is entire of exponential type <= U (Paley-Wiener), and the classical exponential-type " +
+      "zero-density theorem (Levinson Gap and Density Theorems; Titchmarsh 8.71) bounds its real " +
+      "zeros on (0, T0] by (U/pi) T0 (1 + o(1)). Certifying M_sc sign changes forces " +
+      "U >= pi M_sc / T0 ~ 12.95 (order (1/2) log(T0/2pi), BOUNDED), and Whittaker-Kotelnikov-Shannon " +
+      "sampling at spacing pi/U then needs (U/pi) T0 ~ M_sc real samples -- the storage/data " +
+      "dimension reappears at the same ~M_sc order, and the representation IS Odlyzko-Schonhage " +
+      "band-limited interpolation (published SOTA). NET VERDICT: the modulation/window class " +
+      "boundary does NOT admit an equal-runtime certified-remainder advantage over Platt-Trudgian " +
+      "2021 in either regime; imp-3932 surviving reading (i) stands, now quantitatively pinned " +
+      "rather than merely fenced off. The genuinely open residue is narrowed to exactly two named " +
+      "obstructions outside this machinery: (1) an algebraic-complexity RUNTIME-MODEL question -- " +
+      "whether an exotic short straight-line program can evaluate the specific ~M_sc-coefficient " +
+      "object in << M_sc operations (Paterson-Stockmeyer's O(sqrt(n)) nonscalar-mult bound does not " +
+      "shrink the storage/sample read, and no unconditional per-evaluation lower bound is known); " +
+      "and (2) the small fixed-height constant regime, open and benchmarkable but not the reading " +
+      "the imp-1210 audit anchored to the Platt-Trudgian height." +
+      "\n\nHONEST SCOPE: the single-width reduction is fully rigorous (E(t) is entire and nowhere " +
+      "zero); the multi-width bound is rigorous for a compactly-supported window and a soft " +
+      "effective-support bound for a Gaussian window, at the level of the eq (22) tail truncation " +
+      "already carried by the paper. NO false QED: Conjecture 22.1 in full generality is NOT " +
+      "resolved, and the named residual (runtime-model + small-height regime) is not hidden. " +
+      "Independent of the de Bruijn-Newman constant; Polymath15 Lambda &lt;= 0.2 remains SOTA and " +
+      "is untouched. The imp-1210 novelty verdict is unchanged.",
+    firstUsed: "imp-33233 (quantitatively pinning the imp-3932 windowed/modulated proxy escape hatch for Conjecture 22.1 via a Polya-Szego zero-free-multiplier reduction for single-width modulation and a Paley-Wiener/Nyquist bound for multi-width/windowed modulation), 2026",
+    relatedTerms: [
+      "imp-3932 falsification of the strong global reading of Conjecture 22.1 (imp-3932)",
+      "imp-1210 novelty audit of Conjecture 22.1 against Odlyzko-Schonhage (imp-1210)",
+      "imp-1258 Volterra-norm two-way collapse (imp-1258)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

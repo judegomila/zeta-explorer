@@ -3761,6 +3761,19 @@ const DATA_MODULES = [
   // floor; imp-33537/imp-33557 bound the <64 band at n>=510; imp-3066 untouched; PT Lambda<=0.2 SOTA;
   // no QED. 8 assertions.
   '/src/data/imp-33605-graded-mapped-cc-jitter-band.js',
+  // imp-33627: MEASURES the per-rung saturation budget nodes_sat(n) the imp-33583 max(Q(nodes),floor(n))
+  // separation model posits but only INHERITS as the flat ~200-node imp-33557 wall. Reading the imp-33557
+  // band-crossing grade-4 node-budget ladder UNCHANGED (n in {495,510,596}, nodes 100..4000, ULP vs the
+  // imp-33213 A_log target), for each rung it reads floor(n) from the saturated tail, fits the decreasing
+  // quadrature branch Q(nodes) by log-log OLS over the pre-saturation budgets (ULP > 3x floor; power-law
+  // exponent p ~ 21), and LOCATES the crossover nodes_sat where Q(nodes_sat) = floor(n). RESULT: the
+  // measured crossover is ~186 nodes (186.4/180.7/192.5 at n=495/510/596), FLAT within <7% (max/min ~1.07),
+  // inside the [150,200] bracket at every rung and just BELOW the imp-33583 ~200-node inherited wall (200 is
+  // the first LADDER budget already at/past saturation). Quantifies the crossover imp-33583 posited but never
+  // located. VERDICT SATURATION-BUDGET-CROSSOVER-MEASURED-FLAT. Measurement only; jittery lattice floor;
+  // robust reading is the bracket not the exact node; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED.
+  // 8 assertions.
+  '/src/data/imp-33627-saturation-budget-crossover.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -3747,6 +3747,20 @@ const DATA_MODULES = [
   // VERDICT GRADE-ALONE-RECOVERS-THE-BAND. Measurement only; jittery lattice floor; imp-3066 untouched;
   // PT Lambda<=0.2 SOTA; no QED. 9 assertions.
   '/src/data/imp-33600-band-crossing-grade-vs-node-driver.js',
+  // imp-33605: QUANTIFIES the lattice-jitter non-monotonicity the imp-33580 latticeJitterCaveat named
+  // but did not measure. imp-33580 read the graded-mapped CC deep-tail floor on a COARSE even-N ladder
+  // as ~97-129 nodes (129/97/129 at n=350/375/400) and flagged that both residual ladders bounce across
+  // the imp-33316 <64 ULP bar near the floor. This runs a DENSE even-N scan (every even N in [40,300]) of
+  // the same graded-mapped CC residual vs the imp-33213 A_log target at each rung. RESULT: (1) the dense
+  // floor is LOWER than the coarse read (99/91/101 nodes) -- the coarse number overshot the true minimum;
+  // (2) the near-floor region is genuinely non-monotone -- at n=375 the residual dips in-band at N=90
+  // (~16 ULP) then bounces back out to ~360 ULP at N=92, and even N graze the 64-ULP bar up to N~166 at
+  // n=350/375; (3) the flat-budget edge SURVIVES -- even the worst stable-floor (169 nodes) stays far
+  // below the imp-33560 unmapped floor (257), so the saving is a BAND (~91-169 nodes), not a single count.
+  // VERDICT FLAT-BUDGET-FLOOR-IS-A-JITTER-BAND-NOT-A-SINGLE-NODE-COUNT. Measurement only; jittery lattice
+  // floor; imp-33537/imp-33557 bound the <64 band at n>=510; imp-3066 untouched; PT Lambda<=0.2 SOTA;
+  // no QED. 8 assertions.
+  '/src/data/imp-33605-graded-mapped-cc-jitter-band.js',
 ];
 
 let ALL_MODULES = FAST_MODE

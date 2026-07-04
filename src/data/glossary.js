@@ -5140,6 +5140,59 @@ export const glossary = [
     ],
     link: "/viz-imp33217-fifth-pair-spread-ulp-floor-ladder",
   },
+  {
+    term: "imp-3932 coefficient-dimension obstruction to Conjecture 22.1 (twin-ladder usefulness): a rigorous exponential-polynomial zero-count cap falsifying the strong global reading at the Platt-Trudgian 2021 benchmark",
+    category: "proof",
+    definition:
+      "Conjecture 22.1 of twin_ladder_consolidated_v52.pdf claims a frozen-ladder " +
+      "proxy Phi_fr(u) = Sum_j e^{-alpha_j u^2} P_j(u^2) (eq 20-21, coefficient " +
+      "dimension D = Sum_j (K_j+1)) can beat a named classical baseline on " +
+      "certified remainder at equal runtime. imp-3932 proves a four-lemma chain " +
+      "that caps how much sign information any such proxy can certify. L1 " +
+      "(Fourier closure): the Fourier transform of Phi_fr is Xi_fr(t) = " +
+      "Sum_j e^{-t^2/(4 alpha_j)} Q_j(t), Q_j even of degree <= 2 K_j (each " +
+      "t-derivative of a Gaussian-times-polynomial stays Gaussian-times-polynomial, " +
+      "degree +1). L2 (classical, Polya-Szego Part V Problem 75, Rolle-induction " +
+      "proof reproduced): an exponential polynomial with N distinct real exponents " +
+      "and total coefficient count D has at most D-1 real zeros. L3 (sign-change " +
+      "cap, via x = t^2): Xi_fr has at most D-1 sign changes on (0, infinity), a " +
+      "SHARP cap (a single Gaussian times Hermite H_{2K} attains it). L4 (sign " +
+      "transfer, IVT): if the frozen ladder certifies M alternating-sign nodes of " +
+      "Xi at which its remainder stays below |Xi|, then D >= M+1." +
+      "\n\nBENCHMARK COROLLARY: Platt-Trudgian 2021 verified M_sc = " +
+      "12,363,153,437,138 sign changes of Xi up to height T0 = 3,000,175,332,800. " +
+      "The hypothesis-free TASK FORM (certifying all M_sc sign changes) forces " +
+      "D >= M_sc+1 = 12,363,153,437,139 stored coefficients, versus a " +
+      "691,008-term Riemann-Siegel main sum at the same height -- equal runtime " +
+      "fails by a factor > 1.789e7 under any per-coefficient-cost evaluation " +
+      "model, plus an intrinsic Xi-scale precision floor of pi*T0/(4 ln 2) ~ " +
+      "3.40e12 bits. The COMPARISON FORM needed an adversarial-referee repair " +
+      "(a bare remainder comparison does not force a node sign change; a 2x " +
+      "margin hypothesis restores it)." +
+      "\n\nNAMED OBSTRUCTIONS keeping this a PARTIAL, not full, falsification: " +
+      "(1) no unconditional runtime lower bound excludes an exotic short " +
+      "straight-line evaluation of this specific coefficient family " +
+      "(Paterson-Stockmeyer only gives an O(sqrt D) upper bound on generic " +
+      "evaluation cost); (2) windowed/MODULATED proxies fall outside the real-" +
+      "distinct-exponent hypothesis L2 needs, but imp-33233/imp-33251/imp-33278 " +
+      "show this escape reconstructs the Odlyzko-Schonhage band-limited-" +
+      "interpolation Nyquist floor at the SAME ~M_sc order (single-width weakens " +
+      "the bound by at most 2x; multi-width/windowed reappears as a bandwidth " +
+      "floor U = pi*M_sc/T0 that tracks (1/2)log(T0/2pi) - 1/2 exactly, verified " +
+      "against the Riemann-von Mangoldt count and the omitted S(T) term); (3) at " +
+      "small fixed heights the conjecture reduces to open constant-chasing. NO " +
+      "Lambda bound is claimed; Platt-Trudgian Lambda <= 0.2 remains SOTA; imp-3066 " +
+      "is untouched; NO false QED on Conjecture 22.1 in full generality.",
+    firstUsed: "imp-3932 (coefficient-dimension obstruction to Conjecture 22.1, the sole never-pushed INDEPENDENT-NOVEL v52 conjecture per the imp-1210 audit, adversarially refereed with the comparison-form repair), 2026",
+    relatedTerms: [
+      "imp-33233 modulation-band-limit assessment: shows the windowed/MODULATED escape hatch does not clear an equal-runtime advantage (imp-33233)",
+      "imp-33251 independent Nyquist-floor re-derivation from the raw Platt-Trudgian inputs (imp-33251)",
+      "imp-33278 height sweep confirming the Nyquist bandwidth floor tracks (1/2)log(T0/2pi) - 1/2, not a shrinking representation (imp-33278)",
+      "imp-33294 propagation of the omitted S(T) term through the Nyquist floor offset (imp-33294)",
+      "imp-1210 literature audit: the source of the INDEPENDENT-NOVEL grading for Conjecture 22.1 (imp-1210)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

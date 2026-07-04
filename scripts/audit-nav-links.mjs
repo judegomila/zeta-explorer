@@ -285,6 +285,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33591-deep-tail-cross-solver-node-budget',
   '/viz-imp33594-envelope-under-reference-libm',
   '/viz-imp33617-deep-tail-cross-solver-cohort-index',
+  '/viz-imp33830-sigma-decay-landmark-ladder',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

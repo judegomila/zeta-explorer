@@ -3560,6 +3560,16 @@ const DATA_MODULES = [
   // control confirms the drift is inner, not outer (same R_40 to ~1e-15). Measurement
   // only; no literal patched; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 9 assertions.
   '/src/data/imp-33256-r40-inner-quadrature-sweep.js',
+  // imp-33292: COLLAPSE the imp-33276-confirmed inner-resolution R_40 drift with repeated
+  // Richardson extrapolation on the INNER A(tau) Simpson grid. At the outer-invariant grid
+  // (T_A=2, NM=3200) the raw R_40 climbs ~6.98e-6 across the [0,2] doubling ladder N=400..12800
+  // (the imp-3888/imp-33256 inner O(h^4) drift; ~1.208e-5 from the coarse [0,7]/1200 anchor).
+  // The imp-33252 even-power tableau (p=4,6,8,...) collapses the per-column spread to ~1e-14
+  // (~44 ULP), a ~7.3e8x reduction, yielding a ladder-independent converged R_40~1.0243966950314
+  // (two doubling ladders agree to ~45 ULP). Floor is the D_40=C_42-C_40 ratio-cancellation
+  // (~40 ULP), not sub-1-ULP. Measurement only; no literal patched; imp-3685/imp-3849 intact;
+  // imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-33292-r40-inner-richardson-extrapolation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

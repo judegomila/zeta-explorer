@@ -3836,6 +3836,16 @@ const DATA_MODULES = [
   // discrete-vs-continuous offset imp-33844 D2 booked. Cross-validation only; imp-486/C_C ansatz
   // untouched; PT Lambda<=0.2 SOTA; no QED. 4 assertions. (transitively exercises imp-33810/imp-33844.)
   '/src/data/imp-33857-hump-peak-widening-crossvalidation.js',
+  // imp-33875 (meta): AUDIT of whether the imp-33843/imp-33844/imp-33845
+  // *_ASSERTIONS arrays are registered in THIS runner, mirroring the imp-3369 /
+  // imp-33806 unwired-assertion-coverage audits. FINDING: none of the three are
+  // registered -- their combined 15 assertions are dormant. The wired
+  // imp-33857 cross-validator numerically exercises the same imp-33844
+  // quantities but does not import imp-33844's own module, so its assertions
+  // still never fire. All three are import-free (no heavy-bundle risk), so
+  // they are safe, mechanical follow-up-wiring candidates; not wired here
+  // (audit-only). PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-33875-33843-33844-33845-runner-wiring-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

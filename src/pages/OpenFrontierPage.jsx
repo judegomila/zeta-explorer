@@ -82,6 +82,13 @@ const RESIDUALS = [
       'Closing G6a fully would require either a direct port of Polymath15 Lemma 5.2 ' +
       'or one of the parallel routes (imp-368+369+336 Route A, or imp-342+337 Route C). ' +
       'All three remain open.',
+      'Honest-status note (imp-33637): the "Polymath15 Lemma 5.2" label above is under ' +
+      'correction. imp-33637 found that arXiv:1904.12438 (the corrected, real Polymath15 ' +
+      'paper id) contains only a Lemma 5.1 in Section 5 — no Lemma 5.2 matching this ' +
+      'Hölder-1/2 subject exists in the actual paper. imp-33649 traced the fold-catastrophe ' +
+      'exponent instead to Whitham, Linear and Nonlinear Waves (1974). This citation ' +
+      'correction changes no math or verdict here: G6a_shock_lipschitz stays OPEN (PARTIAL) ' +
+      'exactly as stated above, independent of the citation error.',
     ],
     links: [
       { to: '/rh-dag', label: 'Proof DAG (G6a node)' },

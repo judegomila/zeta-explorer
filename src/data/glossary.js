@@ -4666,6 +4666,50 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3895 three-solver quadrature cross-confirmation: composite Simpson, 5-point Gauss-Legendre and Clenshaw-Curtis agree on the exact-saddle crossing n*=215.23",
+    category: "numerical",
+    definition:
+      "imp-3849 located the exact-saddle ratio ladder R_n=|D_n|/|D_n^saddle| crossing " +
+      "unity at n*=215.231 using composite Neumaier-compensated Simpson (order-4 " +
+      "Newton-Cotes, equispaced nodes). imp-3868 reproduced it with composite 5-point " +
+      "Gauss-Legendre (degree-9 exact, interior Gauss abscissae, O(h^10)) -- a different " +
+      "order and node set. imp-3895 adds a THIRD, structurally distinct rule: composite " +
+      "Clenshaw-Curtis, whose Chebyshev-extrema nodes cluster toward the panel ends " +
+      "(unlike both prior rules) and whose error is governed by Chebyshev-coefficient " +
+      "decay rather than a single O(h^p) Taylor exponent. The CC weights are " +
+      "self-computed at load time (not transcribed) and validated in-module: monomial " +
+      "exactness x^p, p=0..8, to <1e-13 and weight sum exactly 2." +
+      "\n\nThe same NPHI=10 de Bruijn-Newman kernel and the same D_n/Q_n/saddle algebra " +
+      "run through Clenshaw-Curtis give crossing n*=215.23246 (imp-3868 GL: 215.23246, " +
+      "agreeing to ~6e-8 of a rung; imp-3849 Simpson: 215.231), r_226=-8.73698e-5 " +
+      "(agreeing with GL to ~8e-13), the eps_n sign-change at n=149, and the well " +
+      "minimum r_min=-5.844e-4 at n=500. Across all rungs the three rules agree to " +
+      "~1e-6 (CC-vs-GL r_226 to ~1e-12) -- far below the ~6.7e-6-per-rung crossing " +
+      "feature and the ~5.8e-4 well -- and the CC result is itself node-converged to " +
+      "~4e-10 (360/240 vs 480/360 panels). Since Simpson (equispaced Newton-Cotes), " +
+      "Gauss-Legendre (interior Gauss abscissae) and Clenshaw-Curtis (clustered " +
+      "Chebyshev extrema) share no node placement, weight pattern or error mechanism, " +
+      "the crossing cannot be an artifact of any single rule family. This also confirms " +
+      "the imp-3731 inner=1200 crossing at 225.54 (r_226=-2.314e-6, ~38x smaller) was an " +
+      "inner-A(tau)-quadrature-RESOLUTION artifact, independent of rule family." +
+      "\n\nHONEST SCOPE: measurement/characterization only, RH-equivalent scale class; " +
+      "retires the quadrature-order-artifact worry, not the shared NPHI=10 " +
+      "kernel-truncation floor -- all three solvers share that truncation, so this " +
+      "pins the crossing to the truncated-kernel model, not to a certified error bound. " +
+      "Mass-feasibility is necessary-but-not-sufficient; the operator-level K_a>=0 " +
+      "sign-positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian " +
+      "Lambda<=0.2 remains the rigorous SOTA. imp-3849, imp-3868 and imp-3731 " +
+      "assertions are LEFT INTACT.",
+    firstUsed: "imp-3895 (re-deriving the imp-3849/imp-3868 exact-saddle crossing and eps_n sign-change through a third, structurally-distinct quadrature rule family -- composite Clenshaw-Curtis with Chebyshev-extrema nodes -- to retire the quadrature-order-artifact worry), 2026",
+    relatedTerms: [
+      "imp-3849 saddle-ratio well-depth inner-converged crossing n*=215.2 (composite Simpson)",
+      "imp-3868 saddle-crossing Gauss-Legendre cross-solver confirmation of n*=215.23246",
+      "imp-3731 saddle-ratio crossing extended-precision 225.54 -- shown to be an inner-quadrature-resolution artifact",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

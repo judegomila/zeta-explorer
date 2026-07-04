@@ -3674,6 +3674,18 @@ const DATA_MODULES = [
   // envelope of A(tau*(n)), not a graded-GL lattice artifact; CONFIRMS (not overturns) imp-33537.
   // Measurement only; jittery lattice floor; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 10 assertions.
   '/src/data/imp-33556-deep-tail-spike-recurrence-cc-cross-solver.js',
+  // imp-33557: SWEEPS the imp-33539 graded-plateau MINIMUM node budget at the imp-33537 BAND-CROSSING
+  // rungs n in {495,510,596} to test whether the flat ~200-node minimum HOLDS where the imp-33316
+  // widened <64 ULP band FAILS. It does NOT. The peak-RESOLUTION wall stays flat (residual collapses
+  // off the ~e7 spike at ~200 nodes at all three rungs), but the arithmetic FLOOR ~200 nodes reaches
+  // CLIMBS with depth (~24 ULP at n=495 in band -> ~61 at n=510 band edge -> ~65 at n=596 band fails),
+  // tracking the imp-33537/imp-33555 depth-growing jitter envelope. So the minimum budget reaching the
+  // band is BAND-CONDITIONAL: a clean 200 nodes at n=495, ~500 at n=510, UNDEFINED at n=596 where NO
+  // budget up to 4000 nodes reaches the band -- adding nodes cannot rescue a floor set by the jitter
+  // envelope. VERDICT FLAT-MINIMUM-IS-BAND-CONDITIONAL -- CONFIRMS the imp-33537 <64 band coarse-grid
+  // artifact and BOUNDS the imp-33539 flat minimum to the in-band rungs. Measurement only; jittery
+  // lattice floor; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 9 assertions.
+  '/src/data/imp-33557-band-crossing-min-budget.js',
 ];
 
 let ALL_MODULES = FAST_MODE

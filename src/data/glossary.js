@@ -7487,6 +7487,47 @@ export const glossary = [
       'imp-33622 grade-recovery rung-uniformity, testing whether the grade-6 recovery holds across the other band-crossing clusters (imp-33622)',
     ],
   },
+  {
+    term: 'imp-33599 NO-MONOTONE-WIDE-RANGE-BAND-CROSSING verdict: extended to the wide window n in [400,700], the graded-GL floorUlp(n) band clearing is a set of three disjoint isolated clusters, each subsiding back below 64 ULP, not a locatable threshold rung',
+    category: 'numerical',
+    definition:
+      'imp-33579 densely scanned floorUlp(n) -- the graded-GL grade-4 plateau smallest residual at budgets ' +
+      '>= 200 nodes vs the imp-33213 A_log target -- over the NARROW imp-33557 bracket n in [510,596] and ' +
+      'found the band crossing is not a locatable rung: the +/-5 rolling-max envelope slope over that bracket ' +
+      'is slightly NEGATIVE (~ -0.12 ULP/rung), so the depth climb is an envelope phenomenon, not a rung-by-' +
+      'rung threshold. imp-33579 never scanned below n=495 or above n=596, leaving open whether a WIDER window ' +
+      'reveals a genuine monotone-stable crossing.\n\n' +
+      'imp-33599 extends the IDENTICAL dense every-integer scan (grade 4, budgets >= 200 nodes, imp-33316 < 64 ' +
+      'ULP band) to the wide window n in [400,700] with a +/-5 collar. MEASURED: no rung n* has env(m) >= 64 ' +
+      'for ALL m >= n* in the window -- there is no smallest n at which the envelope monotonely and stably ' +
+      'clears 64 ULP. Instead the band-clearing region is THREE DISJOINT isolated clusters: [526,545] (peak ' +
+      '~76.1 ULP at n~526, the imp-33579 n~531 raw spike envelope-widened), [591,601] (peak ~65.3, the ' +
+      'imp-33557 n=596 fail rung), and [634,644] (peak ~64.1, a third barely-clearing cluster). Between and ' +
+      'around these the envelope drops well below the band (dips to ~11 ULP in-window). The overall wide-' +
+      'range growth law is weakly POSITIVE (least-squares slope ~ +0.10 ULP/rung over [400,700], r^2 ~ 0.30) ' +
+      'but jitter-dominated: sub-slopes are ~ +0.36 into [400,510], ~ -0.12 over [510,596] (REPRODUCING the ' +
+      'imp-33579 narrow-bracket negative slope), and ~ +0.01 over the decaying tail [596,700].\n\n' +
+      'VERDICT: NO-MONOTONE-WIDE-RANGE-BAND-CROSSING. Even at wide range the imp-33579 "envelope, not a ' +
+      'bisectable rung" finding sharpens further: the band clearing is a clustered-spike phenomenon at ALL ' +
+      'scales examined, never a monotone rung threshold. The n~531 spike imp-33579 isolated is simply the ' +
+      'tallest of three clusters, not a threshold onset -- two further isolated clusters clear the band above ' +
+      'it and the envelope subsides below 64 between and beyond all three.\n\n' +
+      'HONEST SCOPE: accuracy/rule-design measurement only, at the RH-equivalent scale class. floorUlp(n) is a ' +
+      'jittery arithmetic-floor lattice quantity (imp-33249/imp-33277/imp-33296/imp-33537/imp-33557/imp-33579 ' +
+      'latticeJitterCaveat): the exact cluster edges and peak ULP can shift with cross-platform libm exp/pow ' +
+      'variation, so the robust reading is the qualitative structure -- three disjoint clusters riding a weak ' +
+      'positive jitter trend, no monotone threshold -- not the exact per-rung ULP. Changes no bound, patches ' +
+      'no literal; mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 sign-positivity untouched; ' +
+      'Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33599 (dense every-integer floorUlp(n) scan extending the imp-33579 narrow [510,596] bracket to the wide window n in [400,700], grade 4, budgets >= 200 nodes), 2026',
+    relatedTerms: [
+      'imp-33579 crossing-is-an-envelope-not-a-rung verdict, the narrow-bracket finding this wide-range scan extends (imp-33579)',
+      'imp-33557 band-crossing three-rung sample, the source bracket [510,596] this widens to [400,700] (imp-33557)',
+      'imp-33316 < 64 ULP A_log band, the threshold the wide-range envelope clusters are scored against (imp-33316)',
+      'imp-33621 tail-re-intensification finding, showing the clustering does NOT subside past n=644 (imp-33621)',
+      'imp-33639 SPACING-IRREGULAR-NOT-QUASI-PERIODIC verdict, fitting the inter-peak spacing of these clusters (imp-33639)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -248,6 +248,7 @@ const Imp33832SaturationCurvatureHumpVsKViz = lazy(() => import('./pages/Imp3383
 const Imp33833DecoupledRateHeatmapViz = lazy(() => import('./pages/Imp33833DecoupledRateHeatmapViz.jsx'));
 const Imp33731SigmaRampCurvatureViz = lazy(() => import('./pages/Imp33731SigmaRampCurvatureViz.jsx'));
 const Imp33677ClusterPeakGapSequenceViz = lazy(() => import('./pages/Imp33677ClusterPeakGapSequenceViz.jsx'));
+const Imp33864CrenGapOnsetLadderViz = lazy(() => import('./pages/Imp33864CrenGapOnsetLadderViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1025,6 +1026,7 @@ function AppShell() {
           <Route path="/viz-imp33833-decoupled-rate-heatmap" element={<Imp33833DecoupledRateHeatmapViz />} />
           <Route path="/viz-imp33731-sigma-ramp-curvature" element={<Imp33731SigmaRampCurvatureViz />} />
           <Route path="/viz-imp33677-cluster-peak-gap-sequence" element={<Imp33677ClusterPeakGapSequenceViz />} />
+          <Route path="/viz-imp33864-cren-gap-onset-ladder" element={<Imp33864CrenGapOnsetLadderViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

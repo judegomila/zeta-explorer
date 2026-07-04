@@ -3785,6 +3785,13 @@ const DATA_MODULES = [
   // reaching parity. Diagnostic device (breaks the exponential shear, per imp-33765); no RH
   // verdict; K_a>=0 not attempted; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-33789-decoupled-rate-grid.js',
+  // imp-33813: FITS the imp-33789 ||R||=1 crossing locus s_b*(s_a) with an ADDITIVE-OFFSET closed
+  // form s_b*(s_a) = s_a + c. Full-grid c ~ 1.7159 (max abs resid ~ 0.190 at the s_a=1 head); the
+  // gap saturates on the tail s_a>=2 to c ~ 1.7539 with a ~7x tighter fit (max abs ~ 0.026). The
+  // ratio s_b*/s_a = 1 + c/s_a -> 1 explains the imp-33789 asymptotic-parity trend; locus strictly
+  // increasing, gap saturating. Curve fit of the decoupled diagnostic only; no RH verdict; imp-3066/
+  // imp-33765/imp-33789/G7 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-33813-crossing-locus-fit.js',
   // imp-33791: TABULATES the imp-33765 truncation-size DEG saturation of the COUPLED (admissible
   // s_a = s_b = s) Perron norm ||R||(s) toward the all-ones ceiling DEG+1, and LOCATES s_90(DEG),
   // the s-scale where ||R|| first reaches 90% of DEG+1, across DEG in {2..8}. RESULT: the ceiling

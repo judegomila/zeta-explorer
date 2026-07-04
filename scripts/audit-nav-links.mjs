@@ -267,6 +267,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33548-graded-plateau-deep-tail-node-budget',
   '/viz-imp33549-sigma-fartail-vs-interior-max',
   '/viz-imp33550-max-bj-realised-elasticity',
+  '/viz-imp33570-sigma-fartail-slope-sqrt-fraction',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

@@ -6373,6 +6373,42 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33582 accelerating (not fixed-rate) sigma(N) post-peak decay: per-decade exponent ramps ~0.0105 -> ~0.4310 toward the far-tail 1/2, halving exactly at the imp-3444 crossover",
+    category: "numerical",
+    definition:
+      "The imp-3406 reconciliation reports the conditional share sigma(N)=E_coll/(E_trunc+E_flow+E_coll) " +
+      "has an interior maximum at N ~ 9.22e5 (sigma_max ~ 0.9494) and states it \"decays monotonically " +
+      "toward 0 past the peak\" once the constant E_trunc floor outlives the vanishing sqrt(1/N) E_coll " +
+      "term -- but never quantifies HOW FAST that decay runs past the 10^6 PATH-1 ceiling.\n\n" +
+      "imp-33582 fills that gap on a finer post-peak grid N in {1e6..1e12}, log-spaced, using the " +
+      "identical inherited imp-3220/imp-3406 sub-terms (no re-derivation). It measures the per-decade " +
+      "OLS local exponent p_local = -slope(ln sigma vs ln N) over each successive decade [10^k,10^(k+1)] " +
+      "for k=6..11. FINDING: the decay is NOT fixed-rate -- the exponent starts nearly flat at ~0.0105 " +
+      "in the first post-peak decade [1e6,1e7] (sigma 0.9494 -> 0.9266) and climbs monotonely decade by " +
+      "decade -- ~0.0105 -> ~0.0447 -> ~0.1176 -> ~0.2360 -> ~0.3561 -> ~0.4310 -- approaching the " +
+      "imp-3463 far-tail asymptote 1/2 from below. Threshold crossings on the downslope land late: sigma " +
+      "stays above 0.9 until N ~ 2.57e7, above 0.5 until N ~ 3.27e9, above 0.1 until N ~ 3.21e11 -- the " +
+      "share is still ~0.95 at the 10^6 ceiling and takes ~3.4 decades to halve. The 0.5 crossing lands " +
+      "at N ~ 3.27e9, matching the independent imp-3444 E_coll = E_trunc crossover N ~ 3.280e9 to ~0.4%, " +
+      "an internal consistency check that the near-peak grid and the far-tail crossover ladder share " +
+      "one model. In short: the empirical-vs-analytic conditional-share gap the 10^6 ceiling left open " +
+      "does NOT keep growing indefinitely at a constant pace -- it shrinks gradually then accelerates, " +
+      "smoothly, across six decades toward the known far-tail exponent.\n\n" +
+      "HONEST SCOPE: measurement/fit only, a conditional-share diagnostic, NOT an RH bound. The " +
+      "component model is the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; " +
+      "C_mb is GUE-conditional (imp-486), untouched; changes no bound; imp-3066 K_a>=0 untouched; " +
+      "Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+    firstUsed: "imp-33582 (per-decade OLS local exponent ladder and threshold-crossing bisection on the imp-3406 sigma(N) post-peak downslope, N in {1e6..1e12}, showing the decay accelerates toward the imp-3463 1/2 asymptote and halves exactly at the imp-3444 crossover), 2026",
+    relatedTerms: [
+      "imp-3406 interior maximum sigma_max ~ 0.9494 at N ~ 9.22e5, the peak this ladder measures past (imp-3406)",
+      "imp-3463 far-tail leading form, exponent -> 1/2 from below, the asymptote the per-decade ladder ramps toward (imp-3463)",
+      "imp-3444 E_coll = E_trunc crossover N ~ 3.280e9, matched by the sigma=1/2 threshold crossing (imp-3444)",
+      "imp-33274 far-tail sliding-window single-slope exponent p_eff -> 1/2, the complementary far-regime measurement (imp-33274)",
+      "imp-3529 local pointwise decay exponent p(N), the pointwise precursor to this per-decade ladder (imp-3529)",
+    ],
+    link: "/viz-imp33607-sigma-postpeak-decay",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -6805,6 +6805,48 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33537 depth-growing deep-tail plateau jitter envelope: the imp-33316 constant <64 ULP deep-band reading is a coarse-grid artifact",
+    category: "numerical",
+    definition:
+      "imp-33316 carried the imp-33295 conservative grade4/400p=4000-node graded plateau into the deep " +
+      "saddle tail n in {90..500} on a COARSE grid (one integer sampled near each rung) and read the " +
+      "plateau as staying inside a widened <64 ULP band at every deep rung, with one isolated n=300 " +
+      "spike (~50 ULP) exceeding the stricter 30-ULP bar.\n\n" +
+      "imp-33537 re-scores the IDENTICAL plateau rule on four DENSE width-31 integer windows centred on " +
+      "{300,395,495,595} against the imp-33213 log-domain A_log target. FINDING: the n=300 spike is NOT " +
+      "a one-off -- strict-bar (>30 ULP) exceedances RECUR at every deeper window and INTENSIFY with " +
+      "depth. The dense scan even dissolves the imp-33316 isolated-single-rung reading of n=300 itself " +
+      "(the width-31 reference window already carries 6/31 above-bar rungs and a run of 2), and deeper " +
+      "the exceedances thicken into dense clusters at n~495 and n~595 (16-17/31 rungs, runs of five to " +
+      "seven consecutive above-bar rungs, e.g. n=493..499). The worst-window jitter itself grows from " +
+      "~50 ULP at n=300 to ~79 ULP (n=510) and ~74 ULP (n=596), CROSSING the imp-33316 widened 64-ULP " +
+      "deep band that the coarse grid never sampled.\n\n" +
+      "VERDICT: SPIKES-RECUR-AND-INTENSIFY. This corrects the imp-33316 constant <64 ULP-at-every-deep-" +
+      "rung reading as a coarse-grid artifact: the plateau band must be treated as a DEPTH-GROWING " +
+      "jitter envelope, not a fixed constant. It does NOT overturn the imp-33316 PLATEAU-HOLDS / " +
+      "UNIFORM-FAILS headline in relative terms -- at these rungs the uniform Richardson ladder sits at " +
+      "~1e5..1e6 ULP, so the plateau at ~74-79 ULP is still 3-4 orders of magnitude closer -- only the " +
+      "absolute constant-band claim fails to survive densification.\n\n" +
+      "HONEST SCOPE: accuracy/rule-design measurement only, at the RH-equivalent scale class; changes no " +
+      "bound, patches no literal (imp-33316/imp-33295/imp-33213 intact); NPHI=10 truncation inherited. " +
+      "The worst-window ULP is a jittery arithmetic-floor lattice property (imp-33249/imp-33277/ " +
+      "imp-33296 latticeJitterCaveat): the exact per-rung ULP and precise 64-ULP crossing rungs can " +
+      "shift under cross-platform libm exp/pow variation, so the robust reading is the qualitative " +
+      "recurrence-and-intensification with depth, not the exact per-rung ULP. Mass-feasibility is " +
+      "necessary-but-not-sufficient; the operator-level K_a >= 0 sign-positivity (imp-3066) remains " +
+      "UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33537 (dense width-31 integer scan of the imp-33295 conservative graded plateau across four deep-tail windows centred on {300,395,495,595}, finding strict-bar exceedances recur and intensify with depth, crossing the imp-33316 widened 64-ULP band at n=510 and n=596), 2026",
+    relatedTerms: [
+      "imp-33316 <64 ULP A_log band, the coarse-grid reading this densifies and corrects (imp-33316)",
+      "imp-33295 conservative grade4/400p graded plateau rule, carried unchanged (imp-33295)",
+      "imp-33296 min-node graded-GL lattice-jitter band, the source of the latticeJitterCaveat (imp-33296)",
+      "imp-33213 log-domain A_log target, the reference every rung here is scored against (imp-33213)",
+      "imp-33557 band-crossing three-rung graded minimum, extending this depth-growing envelope to node budgets (imp-33557)",
+      "imp-33579 crossing-is-an-envelope-not-a-rung verdict, sharpening this into a non-monotone lattice quantity (imp-33579)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -1002,6 +1002,19 @@ export const LAMBDA_ROADMAP = {
     'whole-decade [1e10,1e11] bracket to N* ~ 3.38e9 — itself only ~3.3% above the ' +
     'same halving landmark. Both refinements are derivation/measurement only and ' +
     'change no bound. ' +
+    'EXTENDED (imp-33743/imp-33744): two further closed-form derivations build on ' +
+    'both landmarks. imp-33743 generalizes the imp-33723 fixed point to the ' +
+    'sigma<0.1 far-tail landmark, solving E_coll = E_trunc*thr/(1-thr) at thr=0.1 ' +
+    'via N_cross(thr) = (C_C(1-thr)/(E_trunc*thr))^2 * log T0(N_cross); the ' +
+    'resulting closed-form-vs-empirical residual (~7.4e-5 at N ~ 3.21e11) is ' +
+    '~54x TIGHTER than the ~0.4% halving residual, the gap traced to the ' +
+    'vanishing E_flow term deep in the tail. imp-33744 derives the imp-33721 ' +
+    'inflection-vs-halving near-coincidence in closed form as sigma_infl = ' +
+    '1/2 - g’/(2g^2), reaching EXACTLY 1/2 only in the pure power-law limit; ' +
+    'the measured ~3.3% offset is instead the log-factor running — a structural ' +
+    'E_coll term, not the E_flow term implicated in the far-tail residual. Both ' +
+    'are derivations/measurements only and change no bound (C_mb remains ' +
+    'GUE-conditional, imp-486). ' +
     'HONEST STATUS (imp-33660..imp-33682 lattice-floor cohort): the band-clearing floorUlp(n) ' +
     'peak/trough/gap/amplitude series measured across the shared [400,1200]/[1200,1600] cluster ' +
     'sample is measurement-only and weak-positive at best, with every apparent height or slope ' +

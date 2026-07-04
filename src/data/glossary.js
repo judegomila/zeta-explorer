@@ -5322,7 +5322,7 @@ export const glossary = [
       "imp-33230 extends the ladder past n=1424 and finds P_r crosses 1 at n~1457, the imp-33211 below-1 reading was a finite-window artifact (imp-33230)",
       "off-diagonal endpoint-Hankel obstruction (imp-3066)",
     ],
-    link: "/viz-imp33214-saddle-ratio-deep-tail-recovery",
+    link: "/viz-imp33243-recovery-rate-fit",
   },
 ];
 

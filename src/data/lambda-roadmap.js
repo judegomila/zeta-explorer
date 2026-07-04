@@ -1009,6 +1009,20 @@ export const LAMBDA_ROADMAP = {
     'whole-decade [1e10,1e11] bracket to N* ~ 3.38e9 — itself only ~3.3% above the ' +
     'same halving landmark. Both refinements are derivation/measurement only and ' +
     'change no bound. ' +
+    'ASSESSED (imp-33848): the imp-33796 ordering N_half < N_cross (the sigma=0.5 ' +
+    'halving landmark below the E_coll=E_trunc crossover) is provably STRICT in ' +
+    'closed form within the component model, not merely at the recomputed ' +
+    '~3.267e9 < ~3.280e9 values. With sigma(N) = E_coll/(E_coll+E_trunc+E_flow), ' +
+    'the crossover condition E_coll = E_trunc forces sigma(N_cross) = ' +
+    '1/(2 + E_flow/E_trunc), which is strictly below 1/2 whenever the Gronwall ' +
+    'E_flow term (imp-398) is strictly positive; combined with sigma strictly ' +
+    'decreasing past the N ~ 9.22e5 peak (established above) this gives ' +
+    'sigma(N_cross) < 1/2 = sigma(N_half) => N_half < N_cross. The strictness ' +
+    'thus reduces to two closed-form conditions -- E_flow(N_cross) > 0 and sigma ' +
+    'monotone on [N_half, N_cross] -- both holding in the model, and the ~0.4% ' +
+    'numerical gap is exactly the E_flow/E_trunc surplus 1/2 - sigma(N_cross). ' +
+    'Derivation within the extrapolation component model only -- NOT rigorous, ' +
+    'imp-3066 untouched, changes no bound (C_mb GUE-conditional, imp-486), NO QED. ' +
     'EXTENDED (imp-33743/imp-33744): two further closed-form derivations build on ' +
     'both landmarks. imp-33743 generalizes the imp-33723 fixed point to the ' +
     'sigma<0.1 far-tail landmark, solving E_coll = E_trunc*thr/(1-thr) at thr=0.1 ' +

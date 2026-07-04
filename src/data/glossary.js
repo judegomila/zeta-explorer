@@ -7131,6 +7131,43 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33662 trough-floor-flat-not-rising verdict: the fifteen inter-cluster trough floors of the [400,1200] band-clearing envelope stay flat while the sixteen cluster peaks weakly rise",
+    category: "numerical",
+    definition:
+      "imp-33660 fit the sixteen band-clearing cluster-peak envelope HEIGHTS over [400,1200], finding a " +
+      "weak positive linear slope (~+0.067 ULP/rung, R^2~0.33) carried mostly by the two tallest imp-33638 " +
+      "tail clusters; imp-33638 separately noted the re-intensifying tail still DIPS to an env-min ~17 ULP " +
+      "between clusters, but neither module tabulated the inter-cluster TROUGH floor itself, so it stayed " +
+      "unclear whether the whole envelope was drifting upward or only the peaks.\n\n" +
+      "imp-33662 re-derives the identical grade-4 floorUlp(n) +/-5 rolling-max envelope scan over the " +
+      "combined [400,1200] window (tau*=saddleTau(n), imp-33213 A_log target, panels {20,30,50,100,200,400}, " +
+      "env>=64 marks a cluster) used by imp-33660/imp-33661, extracts the LOCAL MINIMUM envelope in each of " +
+      "the fifteen gaps between the sixteen cluster peaks, and fits trough-vs-n.\n\n" +
+      "VERDICT: TROUGH-FLOOR-FLAT-NOT-RISING. The fifteen inter-cluster troughs (n~557..1181) have depths " +
+      "~[32.4,24.0,44.1,28.0,56.9,33.0,61.6,30.0,30.5,43.0,17.1,42.9,31.6,62.1,43.2] ULP -- mean ~38.7, sd " +
+      "~13.0, min ~17.1 at n~1010, max ~62.1. Fitting troughEnv vs n gives slope ~+0.013 ULP/rung with " +
+      "R^2~0.04, statistically flat; the first-half mean ~40.0 sits marginally ABOVE the second-half ~37.5, " +
+      "so the between-cluster baseline does not rise as the tail peaks re-intensify. The trough slope is " +
+      "~5x smaller than the imp-33660 peak-HEIGHT slope, isolating the weak positive growth to the PEAKS " +
+      "alone -- the whole floor does not degrade. The deepest single trough (~17.1 ULP at n~1010) recovers " +
+      "the imp-33638 env-min reading, but the +/-5 rolling-max envelope lifts most other troughs well above " +
+      "it, so ~17 ULP is the floor of the jitter band, not a persistent ~17 ULP baseline.\n\n" +
+      "HONEST SCOPE: measurement only, not a bound. Consistent with the imp-33249/imp-33537/imp-33557/" +
+      "imp-33599/imp-33621/imp-33638/imp-33660 latticeJitter caveat -- exact trough rungs, depths, slope, " +
+      "and R^2 can shift under cross-platform libm variation, but the qualitative reading (flat trough, " +
+      "growth peak-only) is robust; NPHI=10 truncation inherited; changes no bound, patches no literal; " +
+      "mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 untouched; Platt-Trudgian Lambda<=0.2 " +
+      "remains the rigorous SOTA; NO QED.",
+    firstUsed: "imp-33662 (tabulating the inter-cluster trough floor of the imp-33660/imp-33661 sixteen-peak [400,1200] band-clearing envelope, finding it flat while the peaks weakly rise), 2026",
+    relatedTerms: [
+      "imp-33660 height-grows-weakly-positive-growth-class-unresolved verdict, whose peak-only growth this isolates (imp-33660)",
+      "imp-33661 spacing-irregular-CV-persists-on-sixteen-peaks verdict, the companion spacing fit on the same sixteen peaks (imp-33661)",
+      "imp-33638 seven-cluster [900,1200] tail extension, the source of the ~17 ULP env-min this reconciles (imp-33638)",
+      "imp-33213 A_log log-domain target used to score floorUlp(n) at every rung (imp-33213)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

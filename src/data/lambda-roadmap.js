@@ -1047,7 +1047,17 @@ export const LAMBDA_ROADMAP = {
     'peak/trough/gap/amplitude series measured across the shared [400,1200]/[1200,1600] cluster ' +
     'sample is measurement-only and weak-positive at best, with every apparent height or slope ' +
     'trend traced to a two-point (two-outlier) artifact rather than a genuine growth law; this ' +
-    'cohort changes no bound and is closed as a dead-end diagnostic thread.',
+    'cohort changes no bound and is closed as a dead-end diagnostic thread. ' +
+    'COHORT (imp-33843/imp-33844/imp-33845): three further imp-3220/imp-3406-model refinements. ' +
+    'imp-33843 fits the imp-33810 ~918x eflow_attr/resid_exp head-to-tail widening across the ' +
+    'k=6..11 ladder and finds a log-linear (not power-law) form in k, RMSE ~0.116. imp-33844 ' +
+    'derives the imp-33809 M3 saturation-curvature hump peak in closed form at the k=9 ' +
+    'E_coll=E_trunc crossover as p_ecoll^2 ln10/8 (restoring the p_ecoll factor tightens the ' +
+    'leading ln10/32 overshoot from +11.12% to +1.23%). imp-33845 sharpens the imp-33794 ' +
+    'C_ren -> C_PS=pi/sqrt(2) approach into a fixed onset exponent, (C_ren - C_PS) ~ (4/3) ' +
+    'eps^{3/2}, settling from 1.48839 (N=2e3) to 1.50000 (N=1e7). All three are ' +
+    'derivation/measurement only within the extrapolation component model, change no bound, ' +
+    'do NOT discharge H4, and C_mb remains GUE-conditional (imp-486); NO QED.',
   bounds: LAMBDA_BOUNDS,
   chain: LAMBDA_CHAIN_STEPS,
   verification: VERIFICATION_EFFORTS,

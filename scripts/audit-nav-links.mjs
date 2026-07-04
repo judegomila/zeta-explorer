@@ -270,6 +270,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33570-sigma-fartail-slope-sqrt-fraction',
   '/viz-imp33571-deep-tail-jitter-envelope',
   '/viz-imp33572-tau-uniform-envelope',
+  '/viz-imp33573-r40-cross-solver-node-budget',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

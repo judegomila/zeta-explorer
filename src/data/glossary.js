@@ -3968,6 +3968,16 @@ export const glossary = [
       "the graded-GL limit -ln A(2.5)=69198.540665 and -ln A(3.0)=511309.612538, rel ~1e-11 at both " +
       "rungs, extending the imp-3736 dual-path reconciliation window from [1.5,2.0] to [1.5,3.0]: " +
       "CONFIRMED, c(2.5)=+0.357539 and c(3.0)=+0.355480 no longer rest on the graded-GL path alone." +
+      "\n\nTRIPLE-SOURCE (upgraded past dual-source): (6) imp-3849's exact-saddle ratio ladder " +
+      "R_n=|D_n|/|D_n^saddle| crossing unity at n*=215.231, located via composite Neumaier-" +
+      "compensated Simpson -- imp-3868 first reproduced it with composite 5-point Gauss-Legendre " +
+      "(n*=215.23246, agreeing to ~6e-8 of a rung), then imp-3895 added a THIRD, structurally " +
+      "distinct rule, composite Clenshaw-Curtis on self-computed Chebyshev-extrema nodes, which " +
+      "shares no node placement, weight pattern or error mechanism with either prior rule and " +
+      "again lands on n*=215.23246 with r_226=-8.73698e-5 (agreeing with GL to ~8e-13): CONFIRMED, " +
+      "this crossing is now the first family in this catalog upgraded from dual-source to " +
+      "TRIPLE-source, retiring the quadrature-order/rule-family-artifact worry entirely (the " +
+      "shared NPHI=10 kernel-truncation floor remains common to all three and is untouched)." +
       "\n\nSINGLE-SOURCE (no independent reproduction path applied yet): imp-3623/imp-3625's baked " +
       "deep-rung dense top-6 (third-pair lambda_5=lambda_6) has only been cross-validated against " +
       "the ORIGINAL imp-3602 Lanczos/Krylov solve, not re-extracted by an independent Sturm-" +
@@ -3981,7 +3991,7 @@ export const glossary = [
       "operator positivity; the off-diagonal endpoint-Hankel obstruction K_a >= 0 (imp-3066) is " +
       "UNTOUCHED. RH-EQUIVALENT; no RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the " +
       "rigorous SOTA.",
-    firstUsed: "imp-3746 (cataloguing the imp-3669 Sturm-bisection third-gap, imp-3709 graded-Gauss-Legendre A-weight, and imp-3692 Sturm-bisection fifth-pair independent reproductions against the still-single-source imp-3623/imp-3625 third-pair and imp-3688 sixth-pair dense literals), 2026",
+    firstUsed: "imp-3746 (cataloguing the imp-3669 Sturm-bisection third-gap, imp-3709 graded-Gauss-Legendre A-weight, and imp-3692 Sturm-bisection fifth-pair independent reproductions against the still-single-source imp-3623/imp-3625 third-pair and imp-3688 sixth-pair dense literals; imp-3930 later added imp-3895's Clenshaw-Curtis rule as a THIRD independent reproduction of the imp-3849/imp-3868 exact-saddle R_n crossing, the catalog's first triple-source upgrade), 2026",
     relatedTerms: [
       "imp-3643 dense-solver certifies skew-Toeplitz FOURTH pair lambda_7=lambda_8; N=2000 imp-3619 loss is a Krylov artifact (imp-3643)",
       "imp-3668 skew-Toeplitz FIFTH-pair adjacent-pairing dense certification: lambda_9=lambda_10, sigma_4 -> 1 (imp-3668)",
@@ -3989,6 +3999,7 @@ export const glossary = [
       "imp-3623/imp-3625 dense-solver resolution of the N=2000 skew-Toeplitz third-pair Krylov artifact (imp-3654)",
       "imp-3844 closed-form derivation of c_inf and B = 3/(2 pi), upgrading imp-3730 from numeric extrapolation to independent analytic derivation (imp-3844)",
       "imp-3850 dual-path -ln A(tau) reconciliation extended to tau in {2.5,3.0}, anchoring c(2.5)/c(3.0) (imp-3850)",
+      "imp-3895 THIRD independent quadrature reproduction (Clenshaw-Curtis) of the imp-3849/imp-3868 exact-saddle R_n crossing, upgrading it to triple-source (imp-3895)",
       "off-diagonal endpoint-Hankel obstruction (imp-3066)",
     ],
     link: "/closure-routes",

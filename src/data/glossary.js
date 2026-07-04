@@ -4795,6 +4795,50 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3898 path-local horizon-elasticity majorant: e_j <= 8/s_min(j)^2 sharpens the global 8/smin^2 ceiling to a tight 8/Dmin^2 nearest-term proxy",
+    category: "numerical",
+    definition:
+      "imp-3874(e) verified the imp-3854 global-smin elasticity ceiling " +
+      "0<=dPsi_N/dT<=(8/smin^2)Psi_N but found it 2000x-34000x loose; imp-3870 " +
+      "traced the sharp effective scale to the nearest-neighbour Psi term " +
+      "(j=a+-1), whose single-gap path has path-local minimum equal to Dmin, " +
+      "giving effective constant (H/Dmin)^2. imp-3898 derives the mathematics " +
+      "behind that observation directly: (1) a rigorous PER-TERM path-local " +
+      "majorant e_j = d ln t_j/dT = 8 P_j/D_j <= 8/s_min(j)^2, where s_min(j) " +
+      "is the minimum gap on term j's own path (proof: P_j<=m_j/s_min(j), " +
+      "D_j>=m_j*s_min(j)), uniformly SHARPER than the global e_j<=8/smin^2 " +
+      "since s_min(j)>=smin, and TIGHT at 8/Dmin^2 on the nearest single-gap " +
+      "term; (2) the exact Psi-weighted-average identity " +
+      "(dPsi/dT)/Psi = sum_j w_j e_j with w_j=(1/D_j^2)/(sum 1/D_k^2), which " +
+      "concentrates weight on the nearest terms." +
+      "\n\nimp-3898 then CERTIFIES live against the imp-3874 finite-difference " +
+      "data that the Dmin effective constant 8/Dmin^2 (7.71/17.61/16.72 on " +
+      "plateaus 0/4/9) reproduces the realised elasticity logSens " +
+      "(8.06/14.56/17.45) to a factor sharpRatio in [0.83,1.05] -- a " +
+      "2000x-35000x sharpening of the global 8/smin^2 ceiling (2279x-34004x " +
+      "above realised)." +
+      "\n\nHONEST LIMIT: 8/Dmin^2 is a sharp PROXY, not a certified upper " +
+      "bound -- the realised elasticity EXCEEDS it by ~4.4-4.5% on plateaus " +
+      "0 and 9, because far terms with small path-local gaps carry " +
+      "above-Dmin elasticity at tiny weight. The certified object is the " +
+      "weighted path-local majorant (dPsi/dT)/Psi <= 8 sum_j w_j/s_min(j)^2, " +
+      "whose collapse to an explicit unconditional C/Dmin^2 needs the " +
+      "per-term tail-weight profile -- named as the OPEN sub-gap " +
+      "imp-3898-sub-tail-weight-constant (later closed numerically by " +
+      "imp-3910 at C<=54.56, and cross-validated term-by-term by imp-3917). " +
+      "LEMMA 3854 stays a valid over-bound; RH-free necessary-but-not-sufficient " +
+      "measurement; imp-3066 off-diagonal endpoint-Hankel K_a>=0 UNTOUCHED; " +
+      "Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+    firstUsed: "imp-3898 (deriving the rigorous per-term path-local horizon-elasticity majorant and its sharp Dmin proxy, sharpening imp-3854/imp-3870/imp-3874), 2026",
+    relatedTerms: [
+      "imp-3870 refutation that smin~=Dmin -- the nearest-neighbour path-local scale this majorant formalizes",
+      "imp-3874 finite-difference certification of the global 8/smin^2 ceiling this sharpens",
+      "imp-3910 numerical collapse of the imp-3898-sub-tail-weight-constant sub-gap to C<=54.56",
+      "imp-3917 per-term cross-validation of the e_j<=8/s_min(j)^2 majorant against measured finite-difference elasticity",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

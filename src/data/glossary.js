@@ -7733,6 +7733,41 @@ export const glossary = [
       'imp-33622 recovery-grade-not-rung-uniform finding, correlating recovery grade against these same cluster peaks (imp-33622)',
     ],
   },
+  {
+    term: 'imp-33622 RECOVERY-GRADE-NOT-RUNG-UNIFORM verdict: the imp-33600 grade-6 band recovery at n=596 does NOT generalize -- at the flanking imp-33599 cluster peaks n=526 and n=634 grade-4 already clears the band, so the recovery grade drifts 4/6/4, not rung-uniformly 6',
+    category: 'numerical',
+    definition:
+      'imp-33600 swept the origin-concentration GRADE g in {4,5,6,8} at the SINGLE rung n=596 (the middle of the ' +
+      'three imp-33599 band-clearing cluster peaks n~526/596/634) and found grade-4/5 fail to reach the imp-33316 ' +
+      '< 64 ULP band (floor ~65/~69 ULP, minInBandNodes Infinity) while grade-6 recovers it at 200 nodes. This left ' +
+      'open whether "grade-6 recovers the band" is a property of cluster peaks generally, or specific to n=596.\n\n' +
+      'imp-33622 re-runs the IDENTICAL grade sweep {4,5,6,8} across the identical imp-33539 node-budget ladder at ' +
+      'the two FLANKING cluster peaks n=526 and n=634 (with n=596 reproduced verbatim as the anchor). MEASURED: at ' +
+      'n=596, grade-4 floors ~65.3 ULP and grade-5 ~68.8 ULP (both minInBandNodes Infinity), grade-6 floors ~34.0 ' +
+      'ULP (200 nodes) -- reproducing imp-33600. But at n=526 grade-4 ALREADY floors ~25.9 ULP at 200 nodes, and at ' +
+      'n=634 grade-4 already floors ~10.7 ULP at 200 nodes -- both well inside the band, with no grade bump needed ' +
+      'at all. The recovery grade (the lowest grade whose floor enters the band) is therefore 4 at n=526, 6 at ' +
+      'n=596, and 4 at n=634.\n\n' +
+      'VERDICT: RECOVERY-GRADE-NOT-RUNG-UNIFORM. The grade-6 requirement imp-33600 diagnosed is a rung-LOCAL ' +
+      'artifact of the middle cluster peak n=596 -- consistent with imp-33621, which found n~591..601 the TALLEST ' +
+      'of the three floorUlp spikes, where grade-4 under-concentration bites hardest. The grade axis remains the ' +
+      'driver of the imp-33577 band-crossing behavior, but the driving THRESHOLD is depth-dependent, not a ' +
+      'cluster-peak-uniform law.\n\n' +
+      'HONEST SCOPE: accuracy/rule-design measurement only, at the RH-equivalent scale class. The per-grade/' +
+      'per-budget ULP is a jittery arithmetic-floor lattice property (imp-33249/imp-33537/imp-33599/imp-33621 ' +
+      'latticeJitterCaveat): the exact floors and recovery grades can shift with cross-platform libm exp/pow ' +
+      'variation, so the robust reading is the qualitative separation -- grade-4 clears at n=526/634 but fails at ' +
+      'n=596 -- not the exact per-budget ULP. Changes no bound, patches no literal; mass-feasibility ' +
+      'necessary-but-not-sufficient; imp-3066 K_a>=0 sign-positivity untouched; Platt-Trudgian Lambda<=0.2 remains ' +
+      'the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33622 (extending the imp-33600 single-rung n=596 grade sweep {4,5,6,8} to the flanking imp-33599 cluster peaks n=526 and n=634), 2026',
+    relatedTerms: [
+      'imp-33600 GRADE-ALONE-RECOVERS-THE-BAND verdict, the single-rung n=596 finding this extends to the flanking cluster peaks (imp-33600)',
+      'imp-33599 NO-MONOTONE-WIDE-RANGE-BAND-CROSSING verdict, the source of the three cluster peaks n~526/596/634 scored here (imp-33599)',
+      'imp-33621 TAIL-RE-INTENSIFICATION verdict, which found the middle cluster n~591..601 the tallest floorUlp spike, explaining why grade-4 fails only there (imp-33621)',
+      'imp-33316 < 64 ULP A_log band, the threshold each grade/rung floor is scored against (imp-33316)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

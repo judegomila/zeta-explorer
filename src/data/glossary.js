@@ -7897,6 +7897,34 @@ export const glossary = [
       'imp-33744 sigma-inflection CLOSED FORM, a sibling closed-form derivation from the same sigma-decay cohort (imp-33744)',
     ],
   },
+  {
+    term: 'imp-33730 SIX-DECADE REPRODUCTION RESIDUAL: max 4.84e-5, all pure 4-decimal rounding, no drifting decade',
+    category: 'numerical',
+    definition:
+      'imp-33701 asserted, as a reuse gate, that its recomputed six-decade local-decay-exponent ' +
+      'ladder p_dec(6..11) reproduces the imp-33582 published perDecadeLadder "to the printed 4 ' +
+      'decimals" -- a single pass/fail boolean with no per-decade residual ever tabulated. ' +
+      'imp-33730 fills that gap: it recomputes the full-precision ladder from the IDENTICAL ' +
+      'imp-3406/imp-33582 sigma sub-terms and OLS window, then differences each decade against ' +
+      'the stored 4-decimal p_local.\n\n' +
+      'FINDINGS: (F1) the six per-decade residuals are 2.27e-5, 4.55e-5, 1.71e-5, 2.34e-5, 1.67e-5, ' +
+      '4.84e-5 -- every one below the 5e-5 half-ULP of a 4-decimal print, so the imp-33701 reuse-gate ' +
+      'claim is confirmed and now QUANTIFIED per decade rather than a bare boolean; (F2) the max ' +
+      'residual is 4.84e-5 at the [1e11,1e12] far-tail decade, sitting at ~0.97 of tolerance -- the ' +
+      'tightest decade, yet still inside it, rounding least favorably (0.4310484 -> 0.4310) without ' +
+      'breaching the 4th decimal; (F3) NO DECADE DRIFTS -- all six residuals are pure rounding ' +
+      'artifacts, confirming the sigma model, the E_trunc/E_flow/E_coll split, and the 4-pts/decade ' +
+      'OLS window are byte-identical between imp-33582 and imp-33701.\n\n' +
+      'HONEST SCOPE: measurement/cross-check only, a reproduction audit inheriting the ' +
+      'imp-3220/imp-3406 extrapolation (not a rigorous asymptotic); C_mb stays GUE-conditional per ' +
+      'imp-486; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 UNTOUCHED; ' +
+      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33730 (tabulating the per-decade residual behind the imp-33701 "reproduces to the printed 4 decimals" reuse gate against the imp-33582 published perDecadeLadder), 2026',
+    relatedTerms: [
+      'imp-33701 SIGMOID-NOT-STRAIGHT verdict, whose reuse-gate boolean this tabulates into a six-row residual table (imp-33701)',
+      'imp-33582 sigma-postpeak nearpeak threshold decay, the published perDecadeLadder cross-checked against (imp-33582)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -7424,6 +7424,34 @@ export const glossary = [
       'imp-33312 tau-uniform jitter band, the per-height ceilings recomputed here (imp-33312)',
     ],
   },
+  {
+    term: 'Deep-Tail Baseline-Relative Extension (imp-33560)',
+    category: 'numerical',
+    definition:
+      'Extends the imp-33536 baseline-relative cross-solver finding from the R_40 moment weight to the ' +
+      'DEEP-TAIL A(tau) weight: is the imp-33539 ~9.3x nominal / ~186x true-minimum deep-tail graded-vs-' +
+      'uniform node saving an intrinsic graded advantage, or an artifact of the weak imp-33275 uniform ' +
+      'Richardson baseline? Scoring a SINGLE Clenshaw-Curtis grid (Chebyshev-Lobatto nodes, cosine weights, ' +
+      'independent of both the Simpson family and the graded-GL rule) against the imp-33213 A_log target at ' +
+      'the deeper rungs n in {350,375,400} finds the CC single grid reaches the imp-33316 < 64 ULP floor ' +
+      'band at ~257 nodes (n=350/375) and ~513 nodes (n=400) -- node-competitive (~1.28-2.56x, all < 4x) ' +
+      'with the imp-33539 FLAT ~200-node graded min. So the ~186x figure is BASELINE-RELATIVE, reflecting ' +
+      'the weak uniform ladder rather than an intrinsic graded win, exactly as imp-33536 found for R_40. ' +
+      'The one genuine graded edge that survives: the graded ~200-node budget stays FLAT across the deeper ' +
+      'rungs while the CC single-grid budget CLIMBS with depth (~257 -> ~513) as the saddle peak sharpens -- ' +
+      'a mild ~1.3-2.6x real advantage, not the claimed ~9.3x / ~186x.\n\n' +
+      'ACCURACY/RULE-DESIGN CROSS-SOLVER MEASUREMENT ONLY, RH-equivalent: changes no bound, patches no ' +
+      'literal (imp-3685/imp-3849/imp-33213/imp-33316/imp-33539 all intact); mass-feasibility remains ' +
+      'necessary-but-not-sufficient; the operator-level K_a>=0 sign-positivity (imp-3066) is UNTOUCHED; no ' +
+      'RH verdict, no QED; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-33560 (extending the imp-33536 R_40 baseline-relative cross-solver finding to the deep-tail A(tau) weight at n in {350,375,400}), 2026',
+    relatedTerms: [
+      'imp-33536 R_40 graded-vs-CC cross-solver node budget, the baseline-relative finding this extends (imp-33536)',
+      'imp-33539 deep-tail graded-plateau minimum node budget, the ~9.3x/~186x saving this reassesses (imp-33539)',
+      'imp-33316 graded-plateau deep-tail node budget, the fixed-budget measurement and < 64 ULP band (imp-33316)',
+      'imp-33213 moment-weight vs dual-path A cross-validation, the log-domain A_log target (imp-33213)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

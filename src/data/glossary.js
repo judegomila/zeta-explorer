@@ -4465,6 +4465,40 @@ export const glossary = [
     link: "/closure-routes",
   },
   {
+    term: "imp-3867 independent reproduction of the imp-3844 A-weight closed-form constants via a structurally-distinct direct completed-Riemann kernel evaluation",
+    category: "numerical",
+    definition:
+      "imp-3844 derived c_inf = -ln((pi/2) Phi(0)) = 0.35429228409357 and B = 3/(2 pi) = 0.477465 " +
+      "through the imp-3709 FACTORED-LOG kernel form, which pulls a common e^{-pi e^{4u}} out of " +
+      "every term and shifts the exponent to (n^2-1) before summing. imp-3867 checks both constants " +
+      "along two STRUCTURALLY DISTINCT routes that avoid this factoring. Route (1), for c_inf: sum " +
+      "the completed-Riemann kernel DIRECTLY at u=0, Phi(0) = sum_n (2 pi^2 n^4 - 3 pi n^2) " +
+      "e^{-pi n^2}, with every term carrying its OWN e^{-pi n^2} weight rather than the shared " +
+      "e^{-pi(n^2-1)} factor -- this reproduces Phi(0) = 0.44669690046712 to < 1e-14 of the " +
+      "factored value, and an NPHI-truncation sweep (N = 1..15) shows the sum is fully converged by " +
+      "N = 3, so c_inf is not an NPHI=10 artifact. Route (2), for B: integrate the imp-3844 " +
+      "collapsed Laplace form A(tau) = e^{-T} int_0^inf e^{-T t} H_tau(t) dt (T = pi e^{4 tau}) with " +
+      "a Gauss-LAGUERRE rule instead of the imp-3844 graded Gauss-Legendre-in-s quadrature; the " +
+      "measured approach coefficient (c(tau) - c_inf)/e^{-2 tau} converges monotonically to " +
+      "3/(2 pi) from above (0.4791 at tau=3 -> 0.477466 at tau=6), and the [6,7] finite difference " +
+      "recovers B to < 5e-6. Both constants survive structurally distinct evaluation, confirming " +
+      "the imp-3844 closed form is not a single-path numerical artifact." +
+      "\n\nHONEST SCOPE: reproduction/cross-check only, RH-equivalent, necessary-but-not-sufficient. " +
+      "Route (1) is a fully independent re-summation of the kernel boundary value; route (2) still " +
+      "relies on the imp-3844 n=1-tail approximation and t = e^{4s}-1 substitution, and does NOT " +
+      "bound the all-orders O(e^{-4 tau}) tail (sg-3844-watson-tail stays open). Establishes NO " +
+      "operator positivity; the off-diagonal endpoint-Hankel K_a &gt;= 0 step (imp-3066) is " +
+      "UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3867 (independent structurally-distinct reproduction of the imp-3844 A-weight closed-form constants c_inf and B via a direct completed-Riemann kernel evaluation and a Gauss-Laguerre collapsed-Laplace quadrature), 2026",
+    relatedTerms: [
+      "imp-3844 closed-form derivation of the A-weight correction limit: c_inf, B (imp-3844)",
+      "imp-33210 direct-route reproduction extending imp-3867 from the leading c_inf to the subleading B (imp-33210)",
+      "sg-3844-watson-tail: the still-open rigorous all-orders O(e^{-4 tau}) remainder bound (imp-3844)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
+  {
     term: "imp-3871 fifth/sixth-derivative saddle corrections: C4,C5 SHRINK (refuting imp-3848), and the residual L_n=1 crossing gap (n~18.4 vs n~48.6) is a MODEL-FIDELITY gap, not a truncation artifact",
     category: "numerical",
     definition:

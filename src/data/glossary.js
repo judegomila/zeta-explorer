@@ -8307,6 +8307,39 @@ export const glossary = [
       'imp-3444 sigma-N-shape landmark ladder, pinning the E_coll = E_trunc crossover N ~ 3.280e9 where the residual hump peaks (imp-3444)',
     ],
   },
+  {
+    term: 'imp-33771 INFLECTION-CLOSED-FORM-REPRODUCES-D2-KNEE: the closed-form sigma-inflection lands within ~1.5% of the direct D2 zero, a genuine two-notion O(1/t^2) separation',
+    category: 'numerical',
+    definition:
+      'imp-33744 derived the sigma(N) = E_coll/(E_trunc+E_flow+E_coll) ramp inflection in closed form as ' +
+      'sigma_infl = 1/2 - g_prime/(2 g^2), but never cross-validated it against the imp-33721 NUMERICALLY ' +
+      'located exponent-ramp acceleration (D2) zero-crossing knee at N* ~ 3.38e9. imp-33771 reproduces the ' +
+      'imp-33721 sub-decade D2-zero locator verbatim (one sign change, log10 N*_D2 ~ 9.529), inverts the ' +
+      'imp-33744 closed-form sigma_cf ~ 0.4979 through the monotone sigma(N) to N*_cf ~ 3.33e9, and finds ' +
+      'the two agree to ~1.5% in N (log10 gap ~ 0.007) -- the SAME sub-decade, ~1.4 orders of magnitude ' +
+      'tighter than the imp-33701 whole-decade [1e10,1e11] bracket the coarse ladder had reported: the ' +
+      'closed form reproduces the located knee, not a distant landmark. The residual log10 gap EXCEEDS the ' +
+      'imp-33721 grid-robustness window (+/- 0.001), so it is not numerical noise but a genuine, ' +
+      'resolvable two-notion separation -- the closed form targets the SIGMOID inflection ' +
+      '(d2 sigma/dt2 = 0, sigma_cf ~ 0.4979) while imp-33721 locates the EXPONENT-RAMP D2 zero ' +
+      '(d2 p/dt2 = 0, sigma ~ 0.4961), the two collapsing to sigma = 1/2 only in the pure-power limit and ' +
+      'here separated by ~0.0018 in sigma. Both sit just above the imp-33582 halving landmark ' +
+      '(N ~ 3.267e9), ordered halving < cf < D2-knee all within ~2% -- consistent with the imp-33744 ' +
+      'picture that the running log-factor displaces every inflection notion above sigma = 1/2 by an ' +
+      'O(1/t^2) amount, the notion-to-notion residual smaller still. A continuous fine-difference D2 ' +
+      'zero corroborates the sub-decade locator to < 1%, ruling out a grid artifact.\n\n' +
+      'HONEST SCOPE: measurement/cross-validation only, NOT rigorous. The component model is the ' +
+      'inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; C_mb stays GUE-conditional ' +
+      '(imp-486); changes no bound; establishes no operator positivity; imp-3066 K_a>=0 sign-positivity ' +
+      'untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33771 (cross-validating the imp-33744 closed-form sigma-inflection against the imp-33721 direct sub-decade D2-zero knee, finding ~1.5% agreement in N and a genuine two-notion residual), 2026',
+    relatedTerms: [
+      'imp-33744 closed-form sigma-inflection sigma_infl = 1/2 - g_prime/(2 g^2), the analytic value inverted to an N location here (imp-33744)',
+      'imp-33721 sub-decade D2-zero knee relocation, the direct numerical knee this module cross-validates against (imp-33721)',
+      'imp-33582 accelerating sigma(N) post-peak decay and sigma=1/2 halving landmark, the third rung the ordering halving<cf<D2-knee is measured against (imp-33582)',
+      'imp-33701 SIGMOID-NOT-STRAIGHT whole-decade sigma-ramp knee, the coarse bracket the refined knee is ~1.4 orders of magnitude tighter than (imp-33701)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

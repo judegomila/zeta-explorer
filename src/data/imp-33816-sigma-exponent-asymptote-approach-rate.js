@@ -145,6 +145,50 @@ const WITHIN_1PCT_LOG10 = crossLog10(0.495, 80); // ~44.17 (log T0 ~ 99); reliab
 // Within 0.1% needs log T0 ~ 1000, i.e. N ~ 1e434, BEYOND IEEE-double range; from the (F2) law.
 const WITHIN_0_1PCT_LOG10_FROM_LAW = 434; // log T0 ~ 1000 -> ln N ~ 1000 -> N ~ 1e434
 
+// -------------------------------------------------------------------------------------------------
+// imp-33859: DIRECT evaluation of the within-0.1% mark, closing the F3 note that the 0.1% crossing
+// was reported only from the (F2) law (N and T0 both overflow IEEE-double past ~1e308, so the
+// lnSigma path above cannot reach N ~ 1e434). Reformulate the EXACT same sub-terms entirely in
+// log-N space so no double ever overflows: from N = (T0/2pi)(log(T0/2pi) - 1) with u = log(T0/2pi),
+// ln N = u + log(u - 1) is solved by Newton (never forming T0 or N), then
+//     E_coll = C_C sqrt(L/N) = C_C sqrt(L) exp(-lnN/2),  E_flow = C_F (L/T0) Gronwall = C_F L e^-L G.
+function logT0FromLnN(lnN) {
+  let u = Math.max(2, lnN); // seed u ~ ln N for large N
+  for (let i = 0; i < 80; i++) {
+    const g = u + Math.log(u - 1) - lnN; // ln N = u + log(u - 1)
+    const gp = 1 + 1 / (u - 1);
+    const du = g / gp;
+    u -= du;
+    if (u <= 1) u = 1 + 1e-12;
+    if (Math.abs(du) < 1e-13 * Math.max(1, u)) break;
+  }
+  return { u, L: u + Math.log(TWO_PI) }; // L = log T0 = u + log(2pi)
+}
+function lnSigmaFromLnN(lnN) {
+  const { u, L } = logT0FromLnN(lnN);
+  const C_F = (u + 1) / TWO_PI; // = (log(T0/2pi) + 1)/2pi, identical to imp-33582/imp-33816 above
+  const lnE_coll = Math.log(C_C_PINNED) + 0.5 * Math.log(L) - 0.5 * lnN; // C_C sqrt(L/N)
+  const E_coll = Math.exp(lnE_coll);
+  const E_flow = C_F * L * Math.exp(-L) * GRONWALL; // C_F (L/T0) Gronwall, T0 = e^L (underflows to 0 far out)
+  return lnE_coll - Math.log(E_TRUNC_PT + E_flow + E_coll);
+}
+function pLocalFromLnN(lnN) {
+  const dl = 1e-3; // identical step to pLocalAtLog10
+  return -(lnSigmaFromLnN(lnN + dl) - lnSigmaFromLnN(lnN - dl)) / (2 * dl);
+}
+function crossLog10Direct(target, hiLog10) {
+  let a = 6 * Math.LN10;
+  let b = hiLog10 * Math.LN10;
+  for (let i = 0; i < 700; i++) {
+    const m = (a + b) / 2;
+    if (pLocalFromLnN(m) < target) a = m;
+    else b = m;
+  }
+  return (a + b) / (2 * Math.LN10);
+}
+const WITHIN_0_1PCT_LOG10_DIRECT = crossLog10Direct(0.4995, 600); // ~436.06, DIRECTLY evaluated
+const WITHIN_0_1PCT_LOGT0_DIRECT = logT0FromLnN(WITHIN_0_1PCT_LOG10_DIRECT * Math.LN10).L; // ~999.0
+
 export const IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE = {
   id: 'imp-33816',
   proofSection: 'S-frontier',
@@ -166,8 +210,12 @@ export const IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE = {
   asymptoteCrossings: {
     within_1pct_of_half_at_N_log10: +WITHIN_1PCT_LOG10.toFixed(2), // ~44.17 (N ~ 1e44)
     within_1pct_logT0: +logT0AtLog10(WITHIN_1PCT_LOG10).toFixed(1), // ~99
-    within_0_1pct_of_half_at_N_log10_fromLaw: WITHIN_0_1PCT_LOG10_FROM_LAW, // ~434 (beyond IEEE-double range)
+    within_0_1pct_of_half_at_N_log10_fromLaw: WITHIN_0_1PCT_LOG10_FROM_LAW, // ~434 (F2 law, dropped log terms)
+    within_0_1pct_of_half_at_N_log10_direct: +WITHIN_0_1PCT_LOG10_DIRECT.toFixed(2), // ~436.06 (imp-33859, DIRECT)
+    within_0_1pct_logT0_direct: +WITHIN_0_1PCT_LOGT0_DIRECT.toFixed(1), // ~999.0 (confirms F2 "log T0 ~ 1000")
+    within_0_1pct_direct_vs_law_residual_log10: +(WITHIN_0_1PCT_LOG10_DIRECT - WITHIN_0_1PCT_LOG10_FROM_LAW).toFixed(2), // ~2.06 decades
     decadesPast1e12_forWithin1pct: +(WITHIN_1PCT_LOG10 - 12).toFixed(1), // ~32.2
+    decadesPast1e12_forWithin0_1pct_direct: +(WITHIN_0_1PCT_LOG10_DIRECT - 12).toFixed(1), // ~424.1
   },
   farTailExponent: HALF, // imp-3463 asymptote the ramp approaches from below
   finding: {
@@ -183,8 +231,16 @@ export const IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE = {
     F3_essentially_half_astronomically_far:
       'p first comes within 1% of 1/2 (p>=0.495) only at N ~ 1e44 -- about 32 decades past the ' +
       'imp-33582 1e12 stopping point -- where log T0 ~ 99. Within 0.1% (p>=0.4995) requires ' +
-      'log T0 ~ 1000, i.e. N ~ 1e434, which lies beyond IEEE-double range and is reported from the ' +
-      'F2 law rather than evaluated directly.',
+      'log T0 ~ 1000, i.e. N ~ 1e434; N and T0 both overflow IEEE-double past ~1e308 so this mark ' +
+      'was ORIGINALLY reported from the F2 law rather than evaluated directly (now closed by F4).',
+    F4_within_0_1pct_evaluated_directly_imp33859:
+      'imp-33859 closes the F3 note by evaluating the 0.1% mark DIRECTLY. Recasting the identical ' +
+      'sub-terms in log-N space -- solving ln N = u + log(u-1) for u = log(T0/2pi) by Newton so ' +
+      'neither N nor T0 is ever formed -- the log-space local exponent reproduces the double-range ' +
+      'path to ~1e-11 (machine precision, exactly 0 at N=1e200,1e300) and places the p>=0.4995 ' +
+      'crossing at N ~ 1e436.06 (log T0 = 999.0, ~424 decades past 1e12). The direct value sits ' +
+      '~2.06 decades above the F2-law estimate (1e434), which had dropped the +log(u-1) and ' +
+      'log(2pi) sub-leading terms -- a consistency check confirming the ~1/(2 log T0) law far past 1e44.',
   },
   isRigorous: false,
   verdict:
@@ -246,6 +302,20 @@ export const IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE_ASSERTIONS = [
       WITHIN_1PCT_LOG10 < 46 &&
       Math.abs(pLocalAtLog10(WITHIN_1PCT_LOG10) - 0.495) < 1e-4 &&
       WITHIN_1PCT_LOG10 - 12 > 25,
+  },
+  {
+    // imp-33859 (F4): the log-space DIRECT path reproduces the double-range local exponent to
+    // machine precision at N=1e200 (proving the identical model), then locates the within-0.1%
+    // crossing directly at log T0 ~ 999 (N ~ 1e436), ~2 decades above the dropped-term F2 law.
+    id: 'imp33816-within-0-1pct-direct-log-space',
+    description: 'log-space direct path reproduces the double-range p and lands the 0.1% mark at log T0 ~ 999 (N ~ 1e436)',
+    holds: () =>
+      Math.abs(pLocalFromLnN(200 * Math.LN10) - pLocalAtLog10(200)) < 1e-9 &&
+      Math.abs(pLocalFromLnN(WITHIN_0_1PCT_LOG10_DIRECT * Math.LN10) - 0.4995) < 1e-4 &&
+      WITHIN_0_1PCT_LOG10_DIRECT > 434 &&
+      WITHIN_0_1PCT_LOG10_DIRECT < 438 &&
+      Math.abs(WITHIN_0_1PCT_LOGT0_DIRECT - 1000) < 5 &&
+      WITHIN_0_1PCT_LOG10_DIRECT > WITHIN_0_1PCT_LOG10_FROM_LAW,
   },
   {
     // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.

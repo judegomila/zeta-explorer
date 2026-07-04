@@ -7452,6 +7452,41 @@ export const glossary = [
       'imp-33213 moment-weight vs dual-path A cross-validation, the log-domain A_log target (imp-33213)',
     ],
   },
+  {
+    term: 'imp-33600 GRADE-ALONE-RECOVERS-THE-BAND verdict: at the imp-33577 graded-GL-failing rung n=596, raising the graded-GL origin-concentration GRADE alone (holding the rule family and node budget fixed) recovers the imp-33316 < 64 ULP A_log band',
+    category: 'numerical',
+    definition:
+      'imp-33577 cross-solved the imp-33557 n=596 graded-GL grade-4 failure (floor ~65 ULP, minInBandNodes ' +
+      'Infinity) with an independent Clenshaw-Curtis single grid and cleared the imp-33316 < 64 ULP band ' +
+      'sub-ULP, concluding the failure was a rule-design artifact -- but CC differs from graded-GL in TWO ' +
+      'ways at once, the rule family (endpoint-clustering abscissae) AND the effective origin concentration. ' +
+      'imp-33577 never separated which of the two actually drives the recovery.\n\n' +
+      'imp-33600 holds the graded-GL rule family FIXED and sweeps only the origin-concentration grade ' +
+      '(a_j = 7*(j/panels)^grade) in {4,5,6,8} across the imp-33539 node-budget ladder at n=596. MEASURED: ' +
+      'grade 4 reproduces the imp-33557 failure (floorUlp ~65.3, minInBandNodes Infinity); grade 5 also ' +
+      'stays out of band (floorUlp ~68.8, Infinity); grade 6 ENTERS the band at a node-competitive 200 ' +
+      'nodes (floorUlp ~34.0); grade 8 enters at 300 nodes (floorUlp ~59.2).\n\n' +
+      'VERDICT: GRADE-ALONE-RECOVERS-THE-BAND. The driver the imp-33577 cross-solve could not separate is ' +
+      'the origin-concentration GRADE, not the node count and not the quadrature rule family -- bumping ' +
+      'grade-4 to grade-6 at the SAME budget re-enters the band without switching to Clenshaw-Curtis. This ' +
+      'REFINES imp-33577: the recovery is not intrinsic to the CC rule family, it is a grade-4/5 under-' +
+      'concentration artifact that any sufficiently origin-concentrated graded-GL grade also fixes.\n\n' +
+      'HONEST SCOPE: accuracy/rule-design measurement only, at the RH-equivalent scale class. The per-' +
+      'grade/per-budget ULP is a jittery arithmetic-floor lattice quantity (grade-6 dips to ~34 ULP at 200 ' +
+      'nodes but bounces to ~100 at 300); the robust reading is the qualitative grade-4/5-fail-vs-grade-6/8-' +
+      'clear separation, not the exact ULP. Changes no bound, patches no literal (imp-3685/imp-3849/' +
+      'imp-33213/imp-33316/imp-33539/imp-33557/imp-33577 intact); NPHI=10 truncation inherited; mass-' +
+      'feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 sign-positivity untouched; Platt-Trudgian ' +
+      'Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33600 (grade-vs-node-count isolation at the imp-33577 graded-GL-failing rung n=596, sweeping the graded-GL origin-concentration grade in {4,5,6,8} at fixed node budget), 2026',
+    relatedTerms: [
+      'imp-33577 cross-solver-refutes-the-arithmetic-floor verdict, the CC-vs-graded finding this isolates the driver of (imp-33577)',
+      'imp-33557 band-crossing three-rung sample, the grade-4 n=596 Infinity floor this reproduces (imp-33557)',
+      'imp-33316 < 64 ULP A_log band, the threshold both the CC and graded-GL sweeps are scored against (imp-33316)',
+      'imp-33539 deep-tail graded-plateau node-budget ladder, the fixed budget this grade sweep is run across (imp-33539)',
+      'imp-33622 grade-recovery rung-uniformity, testing whether the grade-6 recovery holds across the other band-crossing clusters (imp-33622)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

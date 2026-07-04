@@ -7365,6 +7365,47 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33667 cross-method crossover agreement: two graded-GL onset measurements that never cross-referenced each other agree on WHERE the saturation crossover sits at n=596, but not on the floor HEIGHT",
+    category: "numerical",
+    definition:
+      "At the shared graded-GL-failing rung n=596, two prior modules each independently pin an onset " +
+      "node budget by a DIFFERENT method, and neither cross-references the other:\n\n" +
+      "  - imp-33641 -- the DENSE-PANEL FLOOR ARGMIN. Scoring the direct grade-6 A_direct(tau*) plateau " +
+      "on every integer panel P in [15,60] (150..600 nodes) against the imp-33213 log-domain target, the " +
+      "true dense floor bottoms out at ~180 nodes, ~6.1 ULP.\n" +
+      "  - imp-33627 -- the Q-vs-floor BRANCH CROSSOVER. Fitting the decreasing grade-4 quadrature branch " +
+      "Q(nodes) from the imp-33557 ladder (100..4000 nodes) by log-log OLS and solving Q(nodes_sat) = " +
+      "floor(n), the crossover lands at nodes_sat ~192.5, inside the [150,200] bracket, floor ~65.3 ULP.\n\n" +
+      "imp-33667 reads both published measurements UNCHANGED and cross-validates them: both modules share " +
+      "the rung n=596 AND the saddle tau* = root of n = 4 pi tau* e^{4 tau*} EXACTLY (agree to < 1e-12), so " +
+      "the comparison is between two genuinely independent METHODS at the identical Laplace root, not an " +
+      "artefact of a shared rung or saddle.\n\n" +
+      "VERDICT: TWO-METHOD-ONSET-NODE-AGREES-IN-[150,200]-FLOOR-HEIGHT-DOES-NOT. The onset NODE locations " +
+      "agree to within ~7% (~180 vs ~192.5, ratio ~1.069, diff ~12.5 nodes) and BOTH land inside the shared " +
+      "[150,200] region -- a genuine cross-method corroboration of a ~180..193-node graded-GL saturation " +
+      "onset at n=596, found by two methods that were never designed to check each other.\n\n" +
+      "HONEST NUANCE (mandatory). The agreement is a NODE-LOCATION agreement, NOT a floor-HEIGHT agreement: " +
+      "the two floor heights differ ~10.7x (~6.1 vs ~65.3 ULP) because the methods run at different grades " +
+      "(6 vs 4) -- grade 6 resolves the sharpening saddle deeper than grade 4, so the height mismatch is " +
+      "expected, not a defect. The two onset notions are also conceptually distinct (argmin-of-the-floor vs " +
+      "where-the-descending-branch-meets-the-floor), so exact numerical coincidence was never expected -- " +
+      "the ~7% spread is consistent with that conceptual gap. Both readings sit on a jittery few-ULP " +
+      "arithmetic-floor lattice (imp-33249/imp-33277/imp-33296/imp-33537/imp-33605 latticeJitterCaveat), so " +
+      "the robust takeaway is the shared [150,200] REGION, not the exact ~180/~192.5 node counts.\n\n" +
+      "ACCURACY/RULE-DESIGN CROSS-CHECK ONLY, RH-equivalent: reads two published diagnostics unchanged, " +
+      "runs no new saddle sweep, changes no bound, patches no literal; mass-feasibility remains " +
+      "necessary-but-not-sufficient; the operator-level K_a>=0 sign-positivity (imp-3066) is UNTOUCHED; no " +
+      "RH verdict; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+    firstUsed: "imp-33667 (cross-validating the imp-33641 dense grade-6 floor argmin against the imp-33627 grade-4 Q-vs-floor crossover at the shared rung n=596), 2026",
+    relatedTerms: [
+      "imp-33641 grade-6 dense-panel node-budget non-monotonicity, the floor-argmin method this cross-validates (imp-33641)",
+      "imp-33627 saturation-budget crossover, the Q-vs-floor branch-crossover method this cross-validates (imp-33627)",
+      "imp-33557 band-crossing minimum node budget, the grade-4 ladder imp-33627 fits (imp-33557)",
+      "imp-33316 graded-plateau deep-tail node budget, the shared [150,200]-adjacent onset region (imp-33316)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -794,9 +794,99 @@ export const C_H_DISCRIMINANT_REGULARIZATION_IMP2672 = (() => {
   };
 })();
 
+// ── imp-33649: what did the fold-catastrophe Holder-1/2 argument actually cite? ──
+//
+// imp-33637 established that the label "Polymath15 Lemma 5.2, arXiv:1904.12438" (this
+// module's own `citation` and `holderModulus.source` fields above) points at a lemma
+// that does not exist -- the real paper's Section 5 has only Lemma 5.1 (elementary
+// estimates, unrelated subject matter). This ticket searches for what the argument was
+// actually meant to cite, rather than leaving the mis-citation unaddressed.
+//
+// FINDING, split by which half of the argument is which:
+//
+// (a) THE FOLD-CATASTROPHE EXPONENT (Holder-1/2, forced by a vanishing-first-derivative /
+//     nonzero-second-derivative critical point) IS a real, correctly-identifiable result:
+//     Whitham, "Linear and Nonlinear Waves" (Wiley, 1974), Section 2.7 ("Kinematic-Wave
+//     Cusp"). lambda-burgers-shock-lipschitz.js (imp-354) already cites this correctly and
+//     independently of the Polymath15 label -- its Steps 1-4 (shock-time functional
+//     t_shock(z_0) = -1/u_0_prime(z_0), the quadratic fold expansion, and the square-root
+//     inversion) reproduce exactly the classical Whitham cusp argument. So for the
+//     REAL-SCALAR exponent-1/2 half of the story, the correct citation was available in
+//     the repo all along, just not cross-linked from this file.
+//
+// (b) THE W_1-CUSP-DENSITY SYNTHESIS in THIS file (imp-366) is a different, larger claim:
+//     it combines the Dyson two-particle quadratic-tangency ODE with a Wasserstein-W_1
+//     cusp-density Holder scaling g_min ~ C_shock * W_1^{1/2} to get a gap-vs-W_1 modulus.
+//     No lemma of this specific shape (empirical-measure W_1 to first-collision-time,
+//     Holder-1/2) appears in arXiv:1904.12438 -- Section 5 there is unrelated elementary
+//     estimates, and no other section states a W_1-to-tau_c modulus. This half is REPO-
+//     ORIGINATED: a synthesis of the classical Whitham exponent (a) with a generic
+//     optimal-transport-style W_1 regularity heuristic (in the spirit of Villani, AMS GSM
+//     58 Ch. 7, already listed as this file's own "secondary reference"), not a port of
+//     any single external theorem.
+//
+// CONCLUSION: the "Polymath15 Lemma 5.2" citation on this file's `citation` and
+// `holderModulus.source` fields is an INCORRECT ATTRIBUTION for both halves -- (a) has a
+// correct external citation elsewhere in the repo (Whitham 1974 Sec 2.7, imp-354) that
+// this file does not point to, and (b) has no matching external source at all and should
+// be labelled repo-originated. This does not change G6a_shock_lipschitz status, C_H
+// rigor, or any numeric constant above -- attribution/scoping only, NO QED.
+export const IMP33649_FOLD_CATASTROPHE_SOURCE_FINDING = {
+  ticket: 'imp-33649',
+  question:
+    'Now that imp-33637 showed "Polymath15 Lemma 5.2" does not exist, what was the ' +
+    'shock/fold-catastrophe Holder-1/2 blow-up-modulus argument actually meant to cite?',
+  exponentHalf: {
+    subject: 'the real-scalar fold-catastrophe exponent 1/2 (Steps 1-4 of imp-354)',
+    correctSource: 'Whitham, "Linear and Nonlinear Waves", Wiley 1974, Section 2.7 (Kinematic-Wave Cusp)',
+    alreadyCitedCorrectlyIn: 'lambda-burgers-shock-lipschitz.js (imp-354)',
+    verdict: 'externally-sourced-elsewhere-in-repo',
+  },
+  wasersteinSynthesisHalf: {
+    subject: 'the W_1-cusp-density gap modulus g_min ~ C_shock * W_1^{1/2} (Steps 1-3 of this file, imp-366)',
+    matchInPolymath15: false,
+    reason:
+      'arXiv:1904.12438 Section 5 has only Lemma 5.1 (elementary estimates); no section of ' +
+      'the paper states a W_1-to-first-collision-time Holder modulus of this shape',
+    verdict: 'repo-originated-synthesis-of-whitham-plus-villani-style-W1-heuristic',
+  },
+  affectsG6aStatus: false,
+  affectsCHRigor: false,
+  isRigorous: false,
+  verdict:
+    'The "Polymath15 Lemma 5.2" citation on this file is an incorrect attribution for BOTH ' +
+    'halves of the argument: the fold-catastrophe exponent 1/2 correctly traces to Whitham ' +
+    '1974 Sec 2.7 (already cited by lambda-burgers-shock-lipschitz.js/imp-354, just not ' +
+    'cross-linked here), and the W_1-cusp-density synthesis specific to this file has no ' +
+    'matching Polymath15 lemma and should be labelled repo-originated. Attribution/scoping ' +
+    'only; G6a_shock_lipschitz status and C_H rigor are UNTOUCHED; NO QED.',
+};
+
 // ── Build-time assertions ──────────────────────────────────────────────────────
 
 export const POLYMATH15_LEMMA_52_ASSERTIONS = [
+  {
+    id: 'imp33649-fold-catastrophe-source-finding-honest',
+    holds: () => {
+      const f = IMP33649_FOLD_CATASTROPHE_SOURCE_FINDING;
+      return (
+        f.affectsG6aStatus === false &&
+        f.affectsCHRigor === false &&
+        f.isRigorous === false &&
+        f.exponentHalf.verdict === 'externally-sourced-elsewhere-in-repo' &&
+        f.wasersteinSynthesisHalf.matchInPolymath15 === false &&
+        /NO QED/.test(f.verdict) &&
+        /UNTOUCHED/.test(f.verdict)
+      );
+    },
+    why:
+      'imp-33649 tripwire: the source-identification finding must record that the fold- ' +
+      'catastrophe exponent has a correct external citation elsewhere in the repo ' +
+      '(Whitham 1974 Sec 2.7, imp-354) while the W_1-cusp-density synthesis specific to ' +
+      'this file has no matching Polymath15 lemma and is repo-originated, and that ' +
+      'neither half changes G6a status or C_H rigor. Blocks a future edit from silently ' +
+      'reasserting "Polymath15 Lemma 5.2" as the confirmed source of either half.',
+  },
   {
     id: 'imp2672-discriminant-regularizes-collision-no-beat',
     holds: () => {

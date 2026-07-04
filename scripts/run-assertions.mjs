@@ -3717,6 +3717,21 @@ const DATA_MODULES = [
   // minInBandNodes (200/~500/Infinity) verbatim but refines its interpretation. Measurement only;
   // jittery lattice floor; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 8 assertions.
   '/src/data/imp-33577-band-crossing-cross-solver-node-budget.js',
+  // imp-33580: TESTS the imp-33560 attribution that its climbing Clenshaw-Curtis single-grid deep-tail
+  // budget (~257 nodes at n=350/375 rising to ~513 at n=400) comes from the fixed Chebyshev-Lobatto
+  // abscissae not tracking the sharpening saddle. It re-runs the identical CC A(tau*) sweep after
+  // composing the imp-33539 origin-concentrating map s = hi t^4 (t = (1+x)/2) onto the SAME
+  // Chebyshev-Lobatto nodes and CC cosine weights, across even-N nodes 17..2049 vs the imp-33213 A_log
+  // target, and locates the smallest grid clearing the imp-33316 <64 ULP band for both the unmapped
+  // control and the graded-mapped rule. The unmapped control reproduces the imp-33560 climb
+  // (257/257/513 nodes); the graded-mapped CC budget FLATTENS to ~97-129 nodes across all three rungs
+  // -- worst budget (129) below the unmapped floor (257), and at n=400 the map cuts the budget ~4x
+  // (513->129). So the imp-33560 depth-climb is a UNIFORM-ABSCISSA ARTIFACT, not intrinsic to CC:
+  // grading (the coordinate map), not the solver family, carries the flat-budget edge; the imp-33560
+  // attribution is CONFIRMED. VERDICT CLIMBING-BUDGET-IS-A-UNIFORM-ABSCISSA-ARTIFACT. Measurement only;
+  // jittery lattice floor; imp-33537/imp-33557 bound the <64 band at n>=510; imp-3066 untouched;
+  // PT Lambda<=0.2 SOTA; no QED. 8 assertions.
+  '/src/data/imp-33580-graded-mapped-cc-abscissa-artifact.js',
 ];
 
 let ALL_MODULES = FAST_MODE

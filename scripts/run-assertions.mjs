@@ -3592,6 +3592,17 @@ const DATA_MODULES = [
   // Measurement only; no literal patched; imp-3685/imp-3849/imp-33292 intact; ratio-cancellation
   // floor not sub-1-ULP; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 8 assertions.
   '/src/data/imp-33308-graded-inner-grid-r40-node-budget.js',
+  // imp-33533: DERIVES a two-regime crossover interpolation bridging the imp-33291 far-tail
+  // sigma law and the imp-3406 interior max that imp-33315 proved disjoint. A logistic-in-ln-N
+  // switch s(N)=1/(1+exp(-(ln N-ln N_cross)/delta)) centered at the imp-3444 crossover
+  // N_cross~3.28e9 re-weights the exact E_flow term the far-tail law drops by g=1-s, so
+  // sigma_blend->sigma_full in the interior (peak retained) and ->sigma_ft past the crossover.
+  // The blend residual at the peak is the closed form s(N_max)*overshoot; since the peak sits
+  // ~3.55 decades inside the crossover s(N_max) is exponentially small, closing the ~3.0e-2
+  // far-tail overshoot to ~8.2e-6 (delta=1, a ~3670x reduction) while recovering the far-tail
+  // law to ~2e-9 past the crossover. Derivation/measurement only; imp-3066 untouched;
+  // PT Lambda<=0.2 SOTA; no QED. 7 assertions.
+  '/src/data/imp-33533-sigma-two-regime-crossover-blend.js',
 ];
 
 let ALL_MODULES = FAST_MODE

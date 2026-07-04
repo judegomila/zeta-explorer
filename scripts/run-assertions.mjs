@@ -3701,6 +3701,22 @@ const DATA_MODULES = [
   // imp-33537/imp-33557 bound the <64 band at n>=510; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED.
   // 7 assertions.
   '/src/data/imp-33560-deep-tail-graded-vs-cc-cross-solver-node-budget.js',
+  // imp-33577: EXTENDS the imp-33560 single-grid Clenshaw-Curtis cross-solver from the IN-BAND rungs
+  // n in {350,375,400} to the imp-33557 BAND-CROSSING rungs n in {495,510,596}, where the graded-GL
+  // minInBandNodes is band-conditional (200 at n=495, ~500 at n=510, INFINITY at n=596). For each rung
+  // the deep-tail A(tau*) = int_0^7 phiKernel(s)phiKernel(s+tau*) ds is scored on a SINGLE CC grid
+  // (Chebyshev-Lobatto nodes + CC weights) across even-N nodes 17..8193 vs the imp-33213 A_log target,
+  // and the smallest CC grid clearing the imp-33316 <64 ULP band is located. The independent strong
+  // solver does NOT fail at n=596: CC clears the band at ALL THREE band-crossing rungs (513/513/385
+  // nodes; CC floor ~14.7/~1.6/~0.87 ULP), reaching SUB-ULP agreement with the log-domain target at
+  // n=596 where the graded-GL grade-4 ladder floored at ~65 ULP and never entered the band. So the
+  // imp-33557 n=596 graded failure is a GRADED-RULE (grade-4) resolution artifact, NOT a rule-invariant
+  // arithmetic-jitter floor -- both direct-domain integrals are scored vs the SAME log target, so the
+  // ~65-vs-~0.87-ULP gap is due to the quadrature rule, not an arithmetic property of A(tau*). VERDICT
+  // CROSS-SOLVER-REFUTES-THE-ARITHMETIC-FLOOR-READING-AT-n=596; reproduces the imp-33557 graded
+  // minInBandNodes (200/~500/Infinity) verbatim but refines its interpretation. Measurement only;
+  // jittery lattice floor; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 8 assertions.
+  '/src/data/imp-33577-band-crossing-cross-solver-node-budget.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -8232,6 +8232,42 @@ export const glossary = [
     ],
     link: '/closure-routes',
   },
+  {
+    term: 'imp-33787 G7-PERRON-NO-UNIFORM-FLOOR verdict: ||R(s=a*U)|| sweeps the OPEN window (0, DEG+1), open at both ends -- no uniform positive lower bound exists over the admissible half-line',
+    category: 'proof',
+    definition:
+      'imp-33765 fixed the HIGH end of the G7 obstruction curve: ||R(s)|| is monotone in the single ' +
+      'parameter s = a*U and saturates UP to the all-ones ceiling DEG+1 as s -&gt; inf. It never asked the ' +
+      'dual LOW-end question a K_a&gt;=0 attempt would actually need -- does the same monotone structure ' +
+      'force ||R(s)|| to stay ABOVE some positive floor over all admissible s &gt; 0? imp-33787 derives the ' +
+      'small-s asymptotic: as s -&gt; 0+ the odd shear form h_jk(s) = int_0^1 sinh(s*x) x^{j+k} dx ~ ' +
+      's/(j+k+2) vanishes LINEARLY while the even pass form d_j(s) -&gt; 1/(2j+1) stays positive, so every ' +
+      'R_jk(s) -&gt; 0 and ||R(s)|| = C1*s + O(s^3) with C1 = ||M|| ~ 3.6401763947 the Perron norm of the ' +
+      'leading matrix M_jk = sqrt((2j+1)(2k+1))/(j+k+2) (numerically confirmed: ||R(s)||/s reproduces C1 ' +
+      'to eight digits at s=1e-4, and ||R(1e-6)|| ~ 3.64e-6).\n\n' +
+      'VERDICT: since the admissible s = a*U ranges over the OPEN half-line (0, inf) and ||R(s)|| is ' +
+      'monotone increasing, inf_{s&gt;0} ||R(s)|| = 0, NOT ATTAINED -- approached only in the DEGENERATE ' +
+      's -&gt; 0 limit where the shear sinh(a*tau) itself is switched off. The two-sided window over ' +
+      'admissible s is therefore the OPEN interval (0, DEG+1): open at BOTH ends, so ||R(s)|| passes ' +
+      'continuously through every value in that interval, including crossing below unity for small s ' +
+      '(the finite crossing s* &gt; 0 the imp-33789 contour probes). No uniform positive lower bound holds ' +
+      'anywhere on the admissible half-line.\n\n' +
+      'INTERPRETATION FOR K_a&gt;=0: a positivity attempt that needed the shear obstruction to never relax ' +
+      'would require inf_{s&gt;0} ||R(s)|| &gt; 0. This module rules that route out over the kernel alone -- ' +
+      'the lower bound would have to come from an INDEPENDENT argument pinning the admissible a*U away ' +
+      'from 0 (named residual GAP-G7-SMIN), not from the kernel structure itself.\n\n' +
+      'HONEST SCOPE: structural/diagnostic on the SAME representative degree-4 monomial truncation as ' +
+      'imp-3066 / imp-33704 / imp-33725 / imp-33765, NOT the section-26 Gram; ||R|| carries NO RH verdict; ' +
+      'K_a&gt;=0 positivity step is NOT attempted; imp-3066 / imp-33765 / G7 are UNTOUCHED as a proof; ' +
+      'Platt-Trudgian Lambda&lt;=0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33787 (assessing whether the imp-33765 s = a*U one-dimensionality plus monotone-in-s Perron structure yields a rigorous positive lower bound inf_{s&gt;0} ||R(s)|| -- the dual of the imp-33765 ceiling question), 2026',
+    relatedTerms: [
+      'imp-33765 G7 obstruction one-dimensionality in s, the derived monotone ceiling curve this module dualises to the low end (imp-33765)',
+      'imp-33725 G7 a-scaling verdict, the a ladder tracing the same s = a*U curve toward the saturating ceiling (imp-33725)',
+      'imp-33789 decoupled pass/shear-rate ||R||=1 crossing grid, the finite crossing s* this open-window verdict implies exists (imp-33789)',
+      'imp-3066 off-diagonal endpoint-Hankel obstruction, the single-cell G7 magnitude this lower-bound assessment leaves untouched (imp-3066)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

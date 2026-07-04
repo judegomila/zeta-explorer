@@ -6662,6 +6662,44 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33312 tau-uniform jitter-band collapse: the imp-33296 min-node lattice-jitter band is NOT tau-uniform, it is live at low heights and collapses as tau climbs, so the only tau-uniform statement is a conservative envelope, not a constant band",
+    category: "numerical",
+    definition:
+      "imp-33296 quantified the graded-GL min-node lattice-jitter caveat at ONE height family, finding " +
+      "a grade-independent arithmetic-floor band worst-in-window in ~[0.7,5] ULP (mean ~1.9), with only " +
+      "~12% of +/-2 lattice panel counts clearing the strict &lt;1 ULP bar. imp-33312 reruns the SAME " +
+      "fixed resolved-region grade6 neighbourhood jitter scan across the four heights tau in {7,8,9,10} " +
+      "to test whether that band is tau-uniform.\n\n" +
+      "IT IS NOT. At the LOW heights the jitter stays live: tau=7 passes ~46% of lattice counts with a " +
+      "band ceiling ~10.7 ULP (mean ~2.5), tau=8 passes only ~7% with a ceiling ~10.8 ULP (mean ~4.4) -- " +
+      "both WORSE than the imp-33296 single-family reading. By tau in {9,10} the jitter has VANISHED: " +
+      "worst-in-window collapses to &lt;= ~0.67 ULP, all 41 lattice counts pass (100% pass-fraction, " +
+      "longest passing run 41), mean ~0.15 then ~0.00. So the imp-33296 ~12% pass-fraction and ~[0.7,5] " +
+      "ULP band are height-SPECIFIC (low-tau) readings, not tau-uniform constants -- confirming the " +
+      "imp-33313 pi e^{4tau} ULP-scaling mechanism drives this too: as tau climbs, one ULP of the answer " +
+      "grows like the peak scale pi e^{4tau}, so the roughly-fixed absolute quadrature error falls ever " +
+      "further below it and the relative jitter collapses toward zero.\n\n" +
+      "WHAT IS tau-uniform, THEN: not the band itself, but a CONSERVATIVE ENVELOPE -- the low-height " +
+      "ceiling (~10.8 ULP, set by tau=8) upper-bounds worst-in-window at every height tau in {7..10}, " +
+      "tight at low heights and hugely slack (collapsing to ~0) at tau &gt;= 9. The honest, portable rule " +
+      "is therefore \"any resolved grade6 rule has worst-in-window &lt;= ~11 ULP at all heights tau in " +
+      "{7..10}\", a height-uniform UPPER bound set by the lowest heights, not the tau-constant few-ULP " +
+      "band an unqualified reading of imp-33296 would suggest.\n\n" +
+      "HONEST SCOPE: accuracy/rule-design measurement only, at the RH-equivalent scale class. It measures " +
+      "height-dependence of a quadrature node-budget jitter for a fixed autocorrelation weight inside a " +
+      "mass-feasibility diagnostic; it establishes NO operator positivity. Mass-feasibility is necessary-" +
+      "but-not-sufficient; the operator-level K_a &gt;= 0 sign-positivity (imp-3066) is UNTOUCHED. No RH " +
+      "verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33312 (measuring whether the imp-33296 min-node graded-GL lattice-jitter band is tau-independent across tau in {7,8,9,10}, finding the band collapses with height and only a conservative low-height ceiling is tau-uniform), 2026",
+    relatedTerms: [
+      "imp-33296 min-node graded-GL lattice-jitter characterization (imp-33296)",
+      "imp-33293 tau in {9,10} crossover-tau* saturation (imp-33293)",
+      "imp-33313 crossover-tau* saturation at tau in {11,12}, confirming the pi e^{4tau} ULP-scaling mechanism (imp-33313)",
+      "imp-33277 tau in {7,8} extension of the -ln A(tau) graded-GL node budget (imp-33277)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

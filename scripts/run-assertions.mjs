@@ -3498,6 +3498,14 @@ const DATA_MODULES = [
   // crossing was an inner-A(tau)-quadrature artifact independent of the rule. Measurement;
   // imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED; imp-3849/imp-3731 left intact. 10 assertions.
   '/src/data/imp-3868-saddle-crossing-gauss-legendre-cross-solver.js',
+  // imp-3885: read-only provenance/honest-status note reconciling the imp-3731 inner=1200
+  // exact-saddle crossing (n*=225.54, well -1.13e-4 at n=276) against the imp-3849 inner-
+  // converged crossing (n*=215.231, well -5.845e-4 at n~500), cross-checked by importing both
+  // source modules' own exported numbers (no duplicated literals). Flags that the two pending
+  // downstream tickets it names (imp-3740, imp-3862) have SINCE shipped already carrying the
+  // corrected/inline provenance, so no edit to either is needed. Audit only; imp-3066 untouched;
+  // PT Lambda<=0.2 SOTA; no QED; imp-3731/imp-3849 left intact. 7 assertions.
+  '/src/data/imp-3885-saddle-crossing-reconciliation-honest-status.js',
   // imp-3871: EXTENDS the imp-3848 saddle expansion of L_n = eps_n*n(1+4 tau*) to the fifth/sixth-
   // derivative corrections C4 = tau* f^(5) sigma^4/4 and C5 = f^(6) sigma^6/8 (f^(5) = 24n/tau*^5 -
   // 256 n/tau*, f^(6) = -120n/tau*^6 - 1024 n/tau*) and tests whether higher-order Laplace terms

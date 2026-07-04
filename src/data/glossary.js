@@ -6835,7 +6835,12 @@ export const glossary = [
       "shift under cross-platform libm exp/pow variation, so the robust reading is the qualitative " +
       "recurrence-and-intensification with depth, not the exact per-rung ULP. Mass-feasibility is " +
       "necessary-but-not-sufficient; the operator-level K_a >= 0 sign-positivity (imp-3066) remains " +
-      "UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.\n\n" +
+      "AUDIT (imp-33576): swept every glossary entry and viz page citing the imp-33316 <64 ULP band " +
+      "(imp-33548/33571/33609/33611/33613/33629/33630 and the glossary entries above) for a restated " +
+      "constant-band-at-every-deep-rung claim that omits this correction. Found none -- each either " +
+      "cites this depth-growing-envelope finding directly or uses the 64-ULP value only as a neutral " +
+      "axis/threshold label, not a universality claim. No page or glossary text needed patching.",
     firstUsed: "imp-33537 (dense width-31 integer scan of the imp-33295 conservative graded plateau across four deep-tail windows centred on {300,395,495,595}, finding strict-bar exceedances recur and intensify with depth, crossing the imp-33316 widened 64-ULP band at n=510 and n=596), 2026",
     relatedTerms: [
       "imp-33316 <64 ULP A_log band, the coarse-grid reading this densifies and corrects (imp-33316)",

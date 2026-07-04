@@ -7528,6 +7528,39 @@ export const glossary = [
       'imp-33639 SPACING-IRREGULAR-NOT-QUASI-PERIODIC verdict, fitting the inter-peak spacing of these clusters (imp-33639)',
     ],
   },
+  {
+    term: 'imp-33723 CLOSED-FORM crossover: the imp-3444 E_coll=E_trunc landmark as a Banach fixed point',
+    category: 'numerical',
+    definition:
+      'imp-33601/imp-3444 located the imp-33582 sigma(N) = 1/2 halving landmark\'s partner -- the ' +
+      'E_coll(N) = E_trunc crossover -- only by downslope BISECTION. imp-33723 supplies the missing ' +
+      'CLOSED FORM: squaring E_coll = C_C_PINNED*sqrt(log T0/N) = E_trunc and solving for N gives the ' +
+      'fixed-point equation N_cross = (C_C_PINNED/E_trunc)^2 * log T0(N_cross), pinned amplitude ' +
+      'K ~ 1.5727e8. Because log T0(N) (the Riemann-von Mangoldt inverse height) grows only ' +
+      'logarithmically, the map g(N) = K*log T0(N) is a STRONG CONTRACTION: measured ' +
+      '|g_prime(N_cross)| ~ 4.54e-2 << 1, so the fixed point is unique and Banach iteration converges ' +
+      'geometrically (~5 steps) to N_cross ~ 3.280294e9, matching the imp-3444/imp-33601 bisected ' +
+      'landmark to ~1.7e-15 relative. A single-shot leading evaluation (freezing the slow log T0 factor ' +
+      'at one coarse seed) already lands within ~0.2%. Re-measuring the ~0.4% residual to the imp-33582 ' +
+      'empirical halving point N_half ~ 3.267235e9 FROM this closed-form value (not a bisected bracket) ' +
+      'reproduces the identical (N_cross - N_half)/N_cross ~ 3.98e-3 offset, re-confirming the imp-33601 ' +
+      'attribution to the Gronwall flow term E_flow (via the exact identity sigma = 1/2 <=> ' +
+      'E_coll = E_trunc + E_flow, with E_flow/E_trunc ~ 1.91e-3) plus a tiny (~1.8e-4) second-order ' +
+      'log T0(N) drift -- confirming the gap carries NO discretization component, since the closed-form ' +
+      'root is bisection-independent.\n\n' +
+      'HONEST SCOPE: derivation/measurement only, NOT rigorous. The component model is the inherited ' +
+      'imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; C_mb stays GUE-conditional (imp-486); ' +
+      'the C_C 1/8 ansatz (imp-2642/imp-2643) is untouched; changes no bound; establishes no operator ' +
+      'positivity; imp-3066 K_a>=0 sign-positivity untouched; Platt-Trudgian Lambda<=0.2 remains the ' +
+      'rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33723 (deriving the imp-3444 E_coll=E_trunc crossover as a Banach-contracting fixed point N_cross = (C_C_PINNED/E_trunc)^2 log T0(N_cross), reproducing bisection to ~1.7e-15 and re-measuring the imp-33582 halving offset from the closed-form value), 2026',
+    relatedTerms: [
+      'imp-3444 E_coll=E_trunc crossover landmark, the bisected root this module re-derives in closed form (imp-3444)',
+      'imp-33601 exact identity sigma=1/2 <=> E_coll=E_trunc+E_flow, the offset attribution this module re-confirms (imp-33601)',
+      'imp-33582 accelerating sigma(N) post-peak decay, source of the empirical N_half halving landmark (imp-33582)',
+      'sigma(N) machine-precision landmark ladder L1-L5 (imp-3444)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

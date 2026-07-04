@@ -10,6 +10,7 @@ import { SG1C_ASYM_ISOLATION_CLOSED_FORM } from '../data/sg1c-asym-isolation-clo
 import { SG1C_MINGAP_SELECTOR_DISCONTINUITY } from '../data/sg1c-mingap-selector-discontinuity-2026-06-30.js';
 import { SG1C_ASYM_ONSET_BRACKET_LEDGER } from '../data/sg1c-asym-onset-bracket-ledger-2026-06-30.js';
 import { SG1C_ASYM_ONSET_INDEPENDENT_INTEGRATOR } from '../data/sg1c-asym-onset-independent-integrator-2026-06-30.js';
+import { IMP33787_G7_PERRON_LOWER_BOUND } from '../data/imp-33787-g7-perron-lower-bound.js';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 
 // Theorem constants from sg1c-theta-trap-theorems (Theorem A / Corollary A1 / Theorem B)
@@ -1332,6 +1333,32 @@ function ConditioningCollapseBars() {
           RH verdict; positivity was not attempted; this is not a proof or reduction. Platt-Trudgian
           &Lambda;&nbsp;&le;&nbsp;0.2 remains the rigorous SOTA.
         </div>
+      </div>
+    </div>
+  );
+}
+
+// imp-33829: honest-status banner for the imp-33787 G7 Perron-lower-bound feasibility verdict --
+// the off-diagonal endpoint-Hankel obstruction surfaced just above (imp-3086) has NO uniform
+// positive floor over the admissible s = a*U half-line, so a K_a >= 0 argument cannot draw its
+// positivity from the kernel alone.
+function G7PerronFloorHonestBanner() {
+  const g = IMP33787_G7_PERRON_LOWER_BOUND;
+  return (
+    <div style={{ background: 'rgba(239,68,68,0.08)', border: '2px solid rgba(239,68,68,0.4)', borderRadius: 8, padding: '10px 14px', marginTop: 12 }}>
+      <div style={{ color: '#ef4444', fontWeight: 700, fontSize: 12, marginBottom: 6 }}>
+        OPEN: no uniform positive &#8214;R&#8214; floor exists over the admissible s&#8201;=&#8201;a&middot;U half-line (imp-33787)
+      </div>
+      <div style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.75 }}>
+        The imp-33765 one-dimensionality result fixed the <strong style={{ color: '#e2e8f0' }}>ceiling</strong> end
+        of the off-diagonal endpoint-Hankel obstruction above. Its dual, the{' '}
+        <strong style={{ color: '#e2e8f0' }}>floor</strong> question, is <strong style={{ color: '#f87171' }}>negative</strong>:
+        as s&#8201;&rarr;&#8201;0+ the shear form vanishes linearly while the pass form stays positive, so &#8214;R(s)&#8214;&#8201;=&#8201;C1&middot;s&#8201;+&#8201;O(s&sup3;) with C1&#8201;&asymp;&#8201;{g.measured.leadingPerronCoefficientC1.toFixed(4)}, and
+        inf<sub>s&gt;0</sub>&#8214;R(s)&#8214;&#8201;=&#8201;0, approached only in the degenerate s&#8201;&rarr;&#8201;0 limit. Because s&#8201;=&#8201;a&middot;U ranges over
+        the <em>open</em> admissible half-line, <strong style={{ color: '#fbbf24' }}>no uniform positive floor exists to certify
+        a K_a&#8201;&ge;&#8201;0 argument from the kernel alone</strong> &mdash; that route must instead independently pin
+        a&middot;U away from 0 (residual GAP-G7-SMIN, still open). Diagnostic on the same representative truncation;
+        no RH verdict; Platt-Trudgian &Lambda;&#8201;&le;&#8201;0.2 remains the rigorous SOTA.
       </div>
     </div>
   );
@@ -2718,6 +2745,9 @@ export default function SpectralAttackPage() {
 
       {/* ─── Conditioning Collapse before/after bars (imp-3116 surfaces imp-3086) ─── */}
       <ConditioningCollapseBars />
+
+      {/* ─── G7 Perron-lower-bound honest-status banner (imp-33829 surfaces imp-33787) ─── */}
+      <G7PerronFloorHonestBanner />
 
       {/* ─── Isolation-Ratio rho Landmarks Number Line (imp-3099) ─── */}
       <IsolationRatioLandmarksNumberLine />

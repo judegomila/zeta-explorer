@@ -263,6 +263,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33628-etrunc-ecoll-crossover',
   '/viz-imp33629-wide-range-band-crossing-envelope',
   '/viz-imp33656-merged-band-clearing-overview',
+  '/viz-imp33676-full-range-band-clearing-overview',
   '/viz-imp33630-grade-vs-node-budget',
   '/viz-imp33547-tilt-closure-offset-fraction',
   '/viz-imp33548-graded-plateau-deep-tail-node-budget',

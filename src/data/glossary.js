@@ -5248,6 +5248,46 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33208 two-regime numerical verification of the imp-3892 pinned Watson majorant |rho(tau)| <= K0 e^{-4 tau}",
+    category: "numerical",
+    definition:
+      "imp-3892 pinned the sole external constant of the imp-3866 three-remainder Watson " +
+      "decomposition of sg-3844-watson-tail to a closed leading coefficient K_lead = " +
+      "2 phi'(0)/Phi(0) = -3.4120570431 and a certified majorant K0 = 3.46, but that pin was " +
+      "only checked against the three imp-3866 window points {2.5, 3, 3.5}. imp-33208 extends the " +
+      "direct measurement of the realised bracket remainder ratio rhoRatio(tau) = rho(tau) e^{4 tau} " +
+      "-- where bracket(tau) = exp(ln A_n1(tau) + T - ln(Phi(0)/4)) = 2 pi - 3 e^{-2 tau} + rho(tau) " +
+      "-- to the full grid tau in {1.5, 2, 2.5, 3, 3.5, 4, 5, 6}, using the same imp-3709/imp-3850 " +
+      "peak-adapted graded Gauss-Legendre -ln A(tau) ladder (HI=14, PANELS=1600, GRADE=6)." +
+      "\n\nTHE RESULT IS TWO REGIMES. (A) RELIABILITY WINDOW tau in [1.5, 3.5]: the direct " +
+      "reconstruction sits far above its own additive cancellation floor, and rhoRatio climbs " +
+      "monotonically toward K_lead (-3.305, -3.373, -3.398, -3.407, -3.406 at tau=1.5..3.5), " +
+      "staying strictly below the K0=3.46 majorant at every rung and reproducing the closed " +
+      "two-term model K_lead + K6 e^{-2 tau} (K6 = +2.1066020628) within each per-tau floor -- " +
+      "the tau=3.5 dip of ~8e-4 below tau=3.0 marks the floor onset, not a genuine reversal. (B) " +
+      "FLOOR-SWAMPED WINDOW tau in {4, 5, 6}: bracket reconstructs an O(1) quantity from " +
+      "ln A_n1 ~ -T, whose float representation carries absolute resolution ~ T * 2^{-52}, so the " +
+      "induced noise on rhoRatio (~2 pi^2 e^{8 tau} eps) crosses the ~3.41 signal between tau=4 " +
+      "and tau=5, making the apparent |rhoRatio| > K0 there the KNOWN imp-3730 additive " +
+      "cancellation floor rather than a majorant violation -- the same closed two-term model " +
+      "governs this window instead (residual sg-33208-high-tau-cancellation-floor, later closed " +
+      "by direct double-double measurement in imp-33248)." +
+      "\n\nVERDICT: the imp-3892 majorant is CONFIRMED directly on tau in [1.5, 3.5]; beyond that " +
+      "the direct route cannot certify the bound numerically and the closed model takes over." +
+      "\n\nHONEST SCOPE: measurement/verification only, certifying a bound literal, not RH; " +
+      "NPHI=10 kernel truncation upstream; operator positivity -- the off-diagonal endpoint-Hankel " +
+      "obstruction K_a >= 0 (imp-3066) -- UNTOUCHED; necessary-but-not-sufficient; no QED. " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33208 (numerically verifying the imp-3892 pinned Watson majorant across the full tau in {1.5,...,6} grid on the imp-3850 graded-GL -ln A ladder), 2026",
+    relatedTerms: [
+      "imp-3892 Watson majorant constant: closed pin K_lead=-3.4120570431, K0=3.46 (imp-3892)",
+      "imp-3866 Watson-tail bound assessment: three-remainder reduction of sg-3844-watson-tail (imp-3866)",
+      "imp-33223 honest-status note: sg-3844-watson-tail is now REDUCED-AND-PINNED (imp-3866 -> imp-3892), not open",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

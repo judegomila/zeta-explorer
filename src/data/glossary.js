@@ -5721,6 +5721,41 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33256 R_40 inner-quadrature ~1e-5 tie-bar: monotone O(h^4) Simpson convergence, drift is inner not outer",
+    category: "numerical",
+    definition:
+      "imp-3888 found the R_40 = |D_40|/|D_40^saddle| cross-check between the imp-3685 baked literal " +
+      "and the imp-3849 inner-converged literal disagrees by ~1.21e-5 -- slightly ABOVE the informal " +
+      "~1e-5 tie bar but well inside imp-3849's own 1e-4 assertion tolerance -- and attributed the " +
+      "gap to the inner A(tau) quadrature upgrade WITHOUT tabulating R_40 against inner panel count. " +
+      "imp-33256 fills that gap: holding the OUTER moment grid FIXED at the imp-3849 converged " +
+      "(T_A=2, NM=3200), it sweeps the INNER A(tau) Simpson resolution from the imp-3685 coarse " +
+      "[0,7]/1200 (h_inner ~5.83e-3) up to [0,2]/7200 (h_inner ~2.78e-4). RESULT: the ~1.21e-5 delta " +
+      "is genuine, MONOTONE inner-resolution drift, not a bug -- R_40 climbs 1.02438462 (coarse) to " +
+      "1.02439670 (converged) with classic O(h^4) Simpson convergence (delta 3.32e-5 -> 1.95e-9 as h " +
+      "shrinks). The informal ~1e-5 tie bar is crossed at h_inner ~5.5e-3 (~360 panels on [0,2]), " +
+      "between [0,2]/350 (delta 1.124e-5, above bar) and [0,2]/400 (delta 6.98e-6, below bar): the " +
+      "imp-3685 coarse grid is the ONLY sweep rung above the bar purely because it is the coarsest " +
+      "inner grid in the family, and the smallest refinement already ties within 1e-5. A CROSS-OUTER " +
+      "control (the same coarse inner grid [0,7]/1200 evaluated under both the imp-3849 outer " +
+      "(T_A=2, NM=3200) and the imp-3685 native outer (T_A=6, NM=1600)) gives R_40 identical to " +
+      "~1e-15, confirming the whole ~1.21e-5 spread is carried by the inner A(tau) resolution and " +
+      "not the outer moment grid -- the imp-3735 lesson that the outer panels are the insensitive " +
+      "axis.\n\nHONEST SCOPE: measurement only; no literal is patched and imp-3685/imp-3849 are left " +
+      "intact. Reported values are grid-CONVERGENCE stable, not certified error bounds -- the shared " +
+      "finite NPHI = 10 kernel truncation and Simpson order remain the residual floor. Establishes no " +
+      "operator positivity; the off-diagonal endpoint-Hankel K_a >= 0 step (imp-3066) is UNTOUCHED. " +
+      "No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33256 (sweeping the imp-3888 R_40 inner-quadrature residual against inner panel count, isolating the drift to the inner A(tau) axis via a cross-outer control), 2026",
+    relatedTerms: [
+      "imp-3888 cross-check provenance audit naming the un-tabulated ~1.21e-5 R_40 residual (imp-3888)",
+      "imp-3849 saddle-ratio well-depth inner-converged reference grid (imp-3849)",
+      "imp-3735 moment-ratio correction tail: outer moment grid is the insensitive axis (imp-3735)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

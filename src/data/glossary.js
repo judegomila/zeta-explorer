@@ -5494,6 +5494,42 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33234 saddle-window completion of the imp-33213 direct-vs-log A(tau) cross-check",
+    category: "numerical",
+    definition:
+      "imp-33213 could cross-tabulate the imp-3893 direct Phi(s)Phi(s+tau) autocorrelation kernel " +
+      "against the imp-3850 log-domain graded-GL A(tau) only at tau in {1.5,2,2.5,3}, because the " +
+      "direct double-precision kernel underflows to exactly 0 once pi e^{4u} > ~709 (u > 1.367) -- " +
+      "so the comparison never touched tau below the underflow edge, which is precisely where the " +
+      "imp-3893 moments draw their support (the saddle window tau*(n) for n=10..80, spanning " +
+      "tau* in [0.2701,0.5933])." +
+      "\n\nimp-33234 fills that gap. Below u~1.37 BOTH machineries are representable: at each saddle " +
+      "rung tau*(n), the direct kernel (int_0^7 phiKernel(s)phiKernel(s+tau) ds, inner Simpson) and " +
+      "the log-domain value A_log=exp(-negLnA) (imp-33213's independent grade-5/300-panel graded-GL) " +
+      "agree to worst 5.21e-7 relative at n=80 (A~1.3e-15), tightening to 2.51e-9 at n=10. The residual " +
+      "is finite direct-Simpson resolution, not a kernel mismatch: at the hardest rung n=80 it falls " +
+      "2.01e-3 -> 1.32e-4 -> 8.32e-6 -> 5.21e-7 -> 3.26e-8 over inner N=1200..19200, with ratios " +
+      "15.3, 15.8, 16.0, 16.0 -- the textbook O(h^4) Simpson signature -- converging the direct form " +
+      "onto the log-domain value." +
+      "\n\nThis closes the imp-33213 below-underflow-edge gap: the two A(tau) machineries coincide " +
+      "both above the underflow edge (log-domain only) and below it (both representable), on the " +
+      "exact window the moment weight is actually built from. imp-33252 later Richardson-extrapolated " +
+      "the n=80 rung to confirm the residual continues to vanish to the double-precision floor rather " +
+      "than bottoming out." +
+      "\n\nHONEST SCOPE: cross-validation/consistency only, RH-equivalent, necessary-but-not-sufficient; " +
+      "establishes NO operator positivity. The off-diagonal endpoint-Hankel K_a >= 0 sign-positivity " +
+      "(imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the " +
+      "rigorous SOTA.",
+    firstUsed: "imp-33234 (extending the imp-33213 direct-vs-log A(tau) cross-validation below the tau~1.37 direct-underflow edge into the saddle window tau*(n) in [0.27,0.59] for n=10..80, where both machineries are representable and agree to <1e-6 relative per rung, the direct form converging to the log value at the Simpson O(h^4) rate), 2026",
+    relatedTerms: [
+      "imp-33213 cross-validation that the imp-3893 moment weight and the imp-3850 dual-path -ln A(tau) ladder rest on the same autocorrelation (imp-33213)",
+      "imp-3893 moment-fidelity tilt T_n quantifying the imp-3871 model-fidelity gap (imp-3893)",
+      "imp-3850 dual-path -ln A(tau) reconciliation window extended to [1.5,3.0] (imp-3850)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

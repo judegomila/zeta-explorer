@@ -4632,6 +4632,40 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3894 predictionRatio decomposition: concavityFactor x proxyAccuracyFactor, closing the imp-3870-sub-concavity-fit sub-gap",
+    category: "numerical",
+    definition:
+      "imp-3870 refuted the imp-3854 smin/Dmin attribution and relocated the " +
+      "predictionRatio residual (measured in [0.79, 1.56] across the 10 imp-3725 " +
+      "plateaus) to 'endpoint concavity + dominant-term structure', but left it a " +
+      "characterization rather than a quantitative model (the named-open sub-gap " +
+      "imp-3870-sub-concavity-fit). imp-3894 directly MEASURES both pieces and " +
+      "decomposes predictionRatio EXACTLY as concavityFactor * proxyAccuracyFactor." +
+      "\n\nconcavityFactor = deltaLnFmb / (eExactLeft * excursion) is the ratio of " +
+      "the EXACT finite log change in F_mb over the feasible window to the left-" +
+      "endpoint linear estimate; it is 0.9901-0.9928 on ALL 10 plateaus (<=1, since " +
+      "theta_N is concave), a UNIFORM one-sided downward slack of at most ~1% -- " +
+      "real, but an order of magnitude too small to be the [0.79,1.56] residual. " +
+      "proxyAccuracyFactor = eExactLeft / kElasticityPerUnit compares the EXACT " +
+      "left-endpoint elasticity to the (H/Dmin)^2 proxy imp-3854 used; it straddles " +
+      "1 (0.798-1.602) and its sign matches sign(predictionRatio-1) on EVERY " +
+      "plateau. So the residual's SIGN and nearly all of its magnitude are carried " +
+      "by dominant-term proxy accuracy (imp-3870's other named driver), not by " +
+      "concavity (which never flips sign) and not by smin/Dmin (imp-3870's " +
+      "refuted hypothesis). reconstructed = concavityFactor * proxyAccuracyFactor " +
+      "reproduces the imp-3854 predictionRatio on every plateau to within imp-3728 " +
+      "improveFactor rounding. Measurement only; closes imp-3870-sub-concavity-fit " +
+      "by decomposition, not elimination; no imp-3854 inequality is touched; " +
+      "imp-3066 untouched; Platt-Trudgian Lambda<=0.2 remains SOTA; NO QED.",
+    firstUsed: "imp-3894 (directly measuring the endpoint-concavity slack per imp-3725 plateau and decomposing the imp-3854/imp-3870 predictionRatio residual into concavityFactor x proxyAccuracyFactor), 2026",
+    relatedTerms: [
+      "imp-3870 smin/Dmin slack REFUTATION: imp-3854's 'nearest zero is also the tightest gap, so smin~=Dmin' note is FALSE (imp-3870)",
+      "imp-3854 thetaBar double-inertness: d theta_N/d thetaBar = O((H/Dmin)^2 (1-theta_N)), so the certified K_paper elasticity is thetaBar-robust to its fifth significant figure (imp-3854)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

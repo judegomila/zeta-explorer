@@ -7095,6 +7095,42 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33661 spacing-irregular-CV-persists-on-sixteen-peaks verdict: doubling the imp-33639 cluster-peak sample to sixteen peaks over [400,1200] does not reveal a quasi-period",
+    category: "numerical",
+    definition:
+      "imp-33639 fit the inter-peak SPACING of only the nine [400,900] band-clearing cluster peaks, finding " +
+      "an irregular gap coefficient of variation CV ~0.46 with no linear-in-index or sqrt(n)-scaled spacing " +
+      "law fitting; imp-33638 then added seven more tail clusters over [900,1200], leaving the doubled " +
+      "sixteen-peak spacing unfit.\n\n" +
+      "imp-33661 re-derives all sixteen band-clearing cluster peaks off the identical grade-4 " +
+      "budgets>=200-node floorUlp(n) scan over the combined [400,1200] window (peak rungs ~526,591,634,709," +
+      "735,754,807,824,874,962,998,1038,1072,1104,1126,1198) and re-fits the same three candidate spacing " +
+      "models (arithmetic progression in peak index, linear-in-index gap ramp, sqrt(n)-scaled gap) plus the " +
+      "gap coefficient-of-variation persistence test.\n\n" +
+      "VERDICT: SPACING-IRREGULAR-CV-PERSISTS-ON-SIXTEEN-PEAKS. The fifteen inter-peak gaps [65,43,75,26,19," +
+      "53,17,50,88,36,40,34,32,22,72] rungs have CV ~0.47 (mean ~44.8, sd ~21.2), essentially UNCHANGED from " +
+      "the imp-33639 nine-peak CV ~0.46, while the gap RANGE WIDENS from 17..75 to 17..88 rungs. The peaks " +
+      "still sit on a rough arithmetic progression (period ~43.1 rungs, R^2~0.99 vs index, but residual RMS " +
+      "~17.3 rungs is ~40% of the period), and neither the linear-in-index (R^2~0.01) nor the sqrt(n)-scaled " +
+      "(R^2~0.02) spacing law fits -- both WEAKER than at nine peaks. Doubling the sample does not average " +
+      "the scatter down toward an emerging period; it CONFIRMS the imp-33639 irregular reading.\n\n" +
+      "HONEST SCOPE: measurement only, not a bound. floorUlp(n) is a jittery arithmetic-floor lattice " +
+      "quantity (imp-33249/imp-33277/imp-33296/imp-33537/imp-33557/imp-33579/imp-33599/imp-33621/imp-33638/" +
+      "imp-33639 latticeJitterCaveat) -- the exact peak rungs, gaps, period, residual RMS, CV, and spacing-law " +
+      "R^2 can shift under cross-platform libm variation, but the qualitative conclusion (no fixed period, " +
+      "spacing irregular, CV persists under a doubled sample) is robust; NPHI=10 truncation inherited; " +
+      "changes no bound, patches no literal; mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 " +
+      "untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+    firstUsed: "imp-33661 (re-fitting the imp-33639 cluster-peak spacing periodicity across the extended sixteen-cluster set over [400,1200], finding the gap CV persists at ~0.47 with no growth law resolving a quasi-period), 2026",
+    relatedTerms: [
+      "imp-33639 nine-peak cluster spacing fit over [400,900], whose CV~0.46 reading this extends and confirms (imp-33639)",
+      "imp-33638 seven-cluster [900,1200] tail extension, the source of the seven added peaks (imp-33638)",
+      "imp-33660 height-grows-weakly-positive-growth-class-unresolved verdict, the companion height fit on the same sixteen peaks (imp-33660)",
+      "imp-33599 nine-cluster [400,900] band-clearing scan, the origin of the floorUlp(n) cluster-detection rule (imp-33599)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

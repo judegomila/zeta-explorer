@@ -5985,6 +5985,38 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33275 rung-uniformity of the imp-33252 Richardson saddle-A limit: the endpoint agreement is typical, not rung-specific",
+    category: "numerical",
+    definition:
+      "imp-33252 applied repeated Richardson extrapolation (even-power tableau, p = 4,6,8,...) to the " +
+      "direct uniform-Simpson autocorrelation ladder A_direct(tau*; N) at a SINGLE saddle rung, the hardest " +
+      "one (n=80, tau* ~ 0.5933), finding the extrapolated limit agrees with the INDEPENDENT imp-33213 log-" +
+      "domain A_log to ~10.88 ULP -- collapsing the imp-33234 finite-N residual by ~1.35e7. But that left " +
+      "open whether the arithmetic-floor agreement was special to the endpoint rung or held generally. " +
+      "imp-33275 applies the IDENTICAL Richardson tableau at EVERY saddle-support rung tau*(n), n in " +
+      "{10,20,...,80}, and measures each extrapolant's residual against A_log.\n\n" +
+      "RESULT: every one of the eight rungs Richardson-extrapolates onto A_log at the double-precision " +
+      "floor -- worst residual ~4.8e-15 relative / ~21.6 ULP at n=50, best ~4.1 ULP at n=20, all eight rungs " +
+      "below ~22 ULP and below 5e-15 relative. The n=80 endpoint imp-33252 reported (10.88 ULP) sits in the " +
+      "middle of this band -- neither the tightest nor the loosest rung. VERDICT: RUNG-UNIFORM. The direct " +
+      "Phi(s)Phi(s+tau) autocorrelation and the factored log-domain graded-GL reconstruction coincide to " +
+      "machine precision across the ENTIRE saddle-support window, not merely at the one rung imp-33252 " +
+      "tested.\n\n" +
+      "HONEST SCOPE: cross-validation/consistency only, at the RH-equivalent scale class -- confirms two " +
+      "evaluations of a fixed autocorrelation weight A(tau) agree at the extrapolated limit across all saddle " +
+      "rungs, establishes NO operator positivity. Mass-feasibility is necessary-but-not-sufficient; the " +
+      "operator-level K_a >= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) remains " +
+      "UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33275 (extending the imp-33252 endpoint-only repeated-Richardson saddle-A extrapolation to all eight saddle-support rungs tau*(10..80), finding the arithmetic-floor agreement with the log-domain A_log holds at every rung and the endpoint result was typical), 2026",
+    relatedTerms: [
+      "imp-33252 Richardson-extrapolated saddle-A endpoint agreement (imp-33252)",
+      "imp-33234 saddle-window direct-vs-log A cross-validation (imp-33234)",
+      "imp-33213 log-domain A_log moment weight (imp-33213)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

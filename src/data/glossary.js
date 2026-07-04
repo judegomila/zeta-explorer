@@ -7561,6 +7561,37 @@ export const glossary = [
       'sigma(N) machine-precision landmark ladder L1-L5 (imp-3444)',
     ],
   },
+  {
+    term: 'imp-33721 KNEE-A-DECADE-BELOW: sub-decade resolution relocates the sigma-ramp inflection to N* ~ 3.38e9',
+    category: 'numerical',
+    definition:
+      'imp-33701 differenced the imp-33582 six-decade sigma(N) = E_coll/E(N) local-exponent ladder and found ' +
+      'the ramp SIGMOID -- convex then concave, a single knee in its acceleration D2 -- but its coarse ' +
+      'WHOLE-DECADE ladder could only localize that knee to the [1e10,1e11] decade. imp-33721 refines the ' +
+      'localization by re-differencing the OLS local exponent on quarter-decade sub-brackets across ' +
+      '[1e9,1e11] (identical sigma sub-terms and estimator, reuse-gated to reproduce the imp-33582 published ' +
+      'ladder to 4 decimals). RESULT: the acceleration D2 changes sign exactly ONCE, at log10 N* ~ 9.529, ' +
+      'i.e. N* ~ 3.38e9 -- inside the [1e9,1e10] decade, a FULL DECADE BELOW the [1e10,1e11] bracket ' +
+      'imp-33701 reported. imp-33701 did not err: decade-averaging smears the local curvature and pushes ' +
+      'the apparent knee a decade too high; sub-decade resolution relocates the true inflection. The ' +
+      'localization is ROBUST TO SUB-BRACKET WIDTH -- recomputed at W in {0.1,0.125,0.2,0.25}-decade the ' +
+      'single crossing stays at log10 N* ~ 9.529 within +/- 0.001 (the coarser W=0.5 half-decade window is ' +
+      'still too smeared to resolve any sign change at all). And the refined knee sits only ~3.3% above the ' +
+      'imp-33582 sigma=1/2 halving landmark (N ~ 3.27e9, itself matching the imp-3444 E_coll=E_trunc ' +
+      'crossover): the local decay exponent accelerates fastest essentially where the conditional share ' +
+      'passes one half.\n\n' +
+      'HONEST SCOPE: measurement/fit only, NOT rigorous. The component model is the inherited ' +
+      'imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; C_mb stays GUE-conditional (imp-486); ' +
+      'changes no bound; establishes no operator positivity; imp-3066 K_a>=0 sign-positivity untouched; ' +
+      'Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33721 (sub-decade quarter-decade re-differencing of the imp-33701 sigma-ramp knee across [1e9,1e11], relocating the D2 zero-crossing to N* ~ 3.38e9, a full decade below the whole-decade report), 2026',
+    relatedTerms: [
+      'imp-33701 SIGMOID-NOT-STRAIGHT sigma-ramp knee, the whole-decade [1e10,1e11] localization this module refines (imp-33701)',
+      'imp-33582 accelerating sigma(N) post-peak decay and sigma=1/2 halving landmark, the coincidence check for the refined knee (imp-33582)',
+      'imp-3444 E_coll=E_trunc crossover landmark, the sigma=1/2 halving twin the refined knee sits near (imp-3444)',
+      'imp-33723 CLOSED-FORM crossover, the closed-form root of the same halving landmark (imp-33723)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

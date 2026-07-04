@@ -1015,6 +1015,13 @@ export const LAMBDA_ROADMAP = {
     'E_coll term, not the E_flow term implicated in the far-tail residual. Both ' +
     'are derivations/measurements only and change no bound (C_mb remains ' +
     'GUE-conditional, imp-486). ' +
+    'EXTENDED (imp-33620): a finer post-peak ladder pushed to N = 1e15 confirms the ' +
+    'separated E_coll local exponent keeps approaching the far-tail -1/2 asymptote ' +
+    'MONOTONICALLY FROM ABOVE with NO overshoot (-0.4810 at N ~ 1e12 -> -0.4848 at ' +
+    'N ~ 1e15, residual to -1/2 still ~0.0152 as log T0(N) saturates), and sigma ' +
+    'first drops below 0.01 at N ~ 4.62e13 — ~2.16 decades past the imp-33582 ' +
+    'sigma<0.1 landmark above. This is a further decay-rate refinement only and ' +
+    'changes no bound (C_mb remains GUE-conditional, imp-486). ' +
     'HONEST STATUS (imp-33660..imp-33682 lattice-floor cohort): the band-clearing floorUlp(n) ' +
     'peak/trough/gap/amplitude series measured across the shared [400,1200]/[1200,1600] cluster ' +
     'sample is measurement-only and weak-positive at best, with every apparent height or slope ' +

@@ -7168,6 +7168,46 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33663 exact-rung-tautology-persists-envelope-still-fails verdict: quadrupling the recovery-grade-vs-spike-height sample to sixteen cluster peaks does not rescue cluster spike height as a predictor",
+    category: "numerical",
+    definition:
+      "imp-33640 correlated the recovery grade (lowest g in {4,5,6,8} whose graded-GL floor at " +
+      "budgets>=200 nodes clears the imp-33316 <64 ULP band) against two candidate predictors -- the " +
+      "+/-5 rolling-max cluster ENVELOPE (reading A) and the grade-4 floor at the EXACT rung (reading B) " +
+      "-- on only three cluster peaks {526,596,634}, finding reading A a weak negative (Pearson r~-0.42) " +
+      "and reading B a strong positive (r~+0.96) with the sign carried entirely by three points.\n\n" +
+      "imp-33663 re-derives the identical recovery-grade measurement (tau*=saddleTau(n), imp-33213 A_log " +
+      "target, graded-GL floor scan over g in {4,5,6,8}) across the full imp-33621/imp-33638 sixteen-cluster " +
+      "[400,1200] sample (rungs 526,591,634,709,735,754,807,824,874,962,998,1038,1072,1104,1126,1198) and " +
+      "re-correlates against both reading A and reading B.\n\n" +
+      "VERDICT: EXACT-RUNG-TAUTOLOGY-PERSISTS-ENVELOPE-STILL-FAILS-ON-SIXTEEN-PEAKS. The recovery grade is " +
+      "nearly constant -- fifteen of sixteen peaks recover at grade 4, with the lone exception n=998 at grade " +
+      "5 exactly matching the unique rung whose grade-4 exact-rung floor (~70.4 ULP) pokes above 64, so " +
+      "reading B's tautology (recoveryGrade==4 iff grade-4 exact-rung floor<64) still holds but weakens " +
+      "(r~+0.63, down from the three-point r~+0.96 since one outlier now carries it). The cluster-envelope " +
+      "reading A still fails (r~+0.06, essentially zero), and the failure is starker than at three points: " +
+      "the two TALLEST envelope clusters n=1126 (~143.6 ULP) and n=1198 (~135.0) both carry the LOWEST " +
+      "recovery grade (4), while the lone grade-5 rung n=998 has only a middling envelope (~85.6, fifth of " +
+      "sixteen). Quadrupling the sample does not rescue cluster spike height as a predictor; the recovery " +
+      "grade steps exactly where the exact-rung floor crosses 64, a rung-local lattice-jitter property, not " +
+      "a cluster-peak-amplitude law.\n\n" +
+      "HONEST SCOPE: measurement only, not a bound. Consistent with the imp-33249/imp-33537/imp-33557/" +
+      "imp-33599/imp-33621/imp-33638/imp-33660/imp-33661/imp-33662 latticeJitter caveat -- exact grades, " +
+      "correlation coefficients, and the single grade-5 exception can shift under cross-platform libm " +
+      "variation, but the qualitative reading (exact-rung tautology holds, envelope-height still fails to " +
+      "predict) is robust; NPHI=10 truncation inherited; changes no bound, patches no literal; " +
+      "mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 untouched; Platt-Trudgian Lambda<=0.2 " +
+      "remains the rigorous SOTA; NO QED.",
+    firstUsed: "imp-33663 (extending the imp-33640 recovery-grade-vs-spike-height correlation from three cluster peaks to the full sixteen-peak [400,1200] sample, finding the exact-rung tautology persists while the envelope-height reading still fails), 2026",
+    relatedTerms: [
+      "imp-33660 height-grows-weakly-positive-growth-class-unresolved verdict, the envelope-height series whose predictive failure this confirms (imp-33660)",
+      "imp-33661 spacing-irregular-CV-persists-on-sixteen-peaks verdict, the companion spacing fit on the same sixteen peaks (imp-33661)",
+      "imp-33662 trough-floor-flat-not-rising verdict, the companion trough-floor fit on the same sixteen peaks (imp-33662)",
+      "imp-33213 A_log log-domain target used to score the graded-GL floor at every rung (imp-33213)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -8159,6 +8159,46 @@ export const glossary = [
       'imp-33213 moment-weight vs dual-path A cross-validation, source of the independent log-domain A_log target this module scores against (imp-33213)',
     ],
   },
+  {
+    term: 'imp-33642 4x-CROSSING-IS-BINARY-LATTICE-JITTER verdict: the imp-33623 Clenshaw-Curtis-vs-graded 4x node-competitiveness crossing is a 513&lt;-&gt;1025-node lattice toggle, not a stable threshold',
+    category: 'numerical',
+    definition:
+      'imp-33623 found the Clenshaw-Curtis-vs-graded min-node ratio first crosses 4x at n=500 (~5.125x) but flagged the ' +
+      'crossing as jittery/non-monotone and CONDITIONAL at n=510 (the imp-33539 flat 200-node graded floor itself leaves ' +
+      'the imp-33316 &lt;64 ULP band there) -- sampling only three rungs {500,510,525} left it unclear whether the ' +
+      'crossing and its conditional flag are typical or rare.\n\n' +
+      'imp-33642 re-runs the identical cross-solver test (smallest even-N Clenshaw-Curtis single grid clearing the ' +
+      '&lt;64 ULP A_log band vs the flat 200-node graded-GL min, tau*=saddleTau(n)) at EVERY integer rung in [490,530] ' +
+      '(41 rungs). MEASURED: (1) the 4x crossing is a BINARY 513&lt;-&gt;1025-node LATTICE TOGGLE holding at only 16/41 ' +
+      '(~39%) rungs, non-monotone across the whole region -- CC min-N is dominated by {512,1024} (&gt;=80% of rungs): ' +
+      'when the N=512 grid clears the band the ratio is ~2.565x (no cross), when it falls out CC jumps to N=1024 and ' +
+      'the ratio is ~5.125x (cross), with rare off-toggle hits N=384 (~1.925x) and N=768 (~3.845x). (2) The graded ' +
+      '200-node floor leaves the &lt;64 band at only 7/41 (~17%) rungs (n in {493,494,505,506,510,524,530}, imp-33557 ' +
+      'scattered) but those mostly do NOT cross 4x. (3) So only 1/16 (~6.3%) of the crossings is CONDITIONAL (n=494) ' +
+      'and ~94% sit on a band-clear graded reference -- DOWNGRADING the imp-33623 n=510 conditional flag to a near-' +
+      'unique edge case rather than a pervasive hazard.\n\n' +
+      'VERDICT 4x-CROSSING-IS-BINARY-LATTICE-JITTER-HOLDS-AT-~39%-NON-MONOTONE-AND-ALMOST-ALWAYS-UNCONDITIONAL. ' +
+      'The 4x threshold is not a stable competitiveness law but a 512/1024-node lattice toggle that fires at a minority ' +
+      'of rungs, and its rare CONDITIONAL co-occurrence with an out-of-band graded floor (imp-33623 n=510) is a near-' +
+      'unique edge case in the mid-tail rather than the typical picture. The follow-up imp-33665 extended this same ' +
+      'scan to the imp-33638 re-intensifying deep-tail window [960,1000] and found BOTH the crossing frequency ' +
+      '(~39% -&gt; ~76%) and the conditional fraction (~6.3% -&gt; 100%) rise sharply as the graded floor degrades, so ' +
+      'the mid-tail near-uniqueness found here does NOT extend to the deep tail.\n\n' +
+      'HONEST SCOPE: grid-design cross-solver measurement only, at the RH-equivalent scale class. CC min-node budgets ' +
+      'are single lattice hits on a jittery arithmetic floor (imp-33249/imp-33277/imp-33296/imp-33537/imp-33557/' +
+      'imp-33579/imp-33599/imp-33621 latticeJitterCaveat): the robust reading is the ~39% crossing FREQUENCY and ~6% ' +
+      'CONDITIONAL fraction, not the exact per-rung 513/1025 counts. Changes no bound, patches no literal (imp-3685/' +
+      'imp-3849/imp-33213/imp-33316/imp-33539/imp-33557/imp-33560/imp-33584/imp-33623 intact); NPHI=10 truncation ' +
+      'inherited; mass-feasibility necessary-but-not-sufficient; imp-3066 K_a&gt;=0 sign-positivity untouched; ' +
+      'Platt-Trudgian Lambda&lt;=0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33642 (dense per-rung scan across n in [490,530] of the imp-33623 Clenshaw-Curtis-vs-graded 4x node-competitiveness crossing, tabulating per-rung hold-vs-conditional status and the graded-floor band-clear fraction), 2026',
+    relatedTerms: [
+      'imp-33623 first-observed CC-vs-graded 4x node-competitiveness crossing, the conjecture this module densifies (imp-33623)',
+      'imp-33665 deep-tail extension of this same scan, finding both fractions rise sharply as the graded floor degrades (imp-33665)',
+      'imp-33557 scattered graded-floor out-of-band rungs, the source of the mid-tail band-clear fraction this module measures (imp-33557)',
+      'imp-33316 &lt;64 ULP band, the accuracy threshold both the CC grid and the graded floor are tested against (imp-33316)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

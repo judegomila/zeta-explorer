@@ -273,6 +273,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33573-r40-cross-solver-node-budget',
   '/viz-imp33587-band-crossing-floor-climb',
   '/viz-imp33589-height-collapsing-envelope-ceiling',
+  '/viz-imp33595-deep-tail-cohort-index',
   '/viz-imp33694-inter-cluster-trough-floor',
   '/viz-imp33715-gap-vs-height-independence',
   '/viz-imp33716-peak-minus-trough-amplitude',

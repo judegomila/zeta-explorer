@@ -237,6 +237,7 @@ const Imp33716PeakMinusTroughAmplitudeViz = lazy(() => import('./pages/Imp33716P
 const Imp33717EnvelopeHeightExtensionViz = lazy(() => import('./pages/Imp33717EnvelopeHeightExtensionViz.jsx'));
 const Imp33718InterPeakGapSequenceViz = lazy(() => import('./pages/Imp33718InterPeakGapSequenceViz.jsx'));
 const Imp33589HeightCollapsingEnvelopeCeilingViz = lazy(() => import('./pages/Imp33589HeightCollapsingEnvelopeCeilingViz.jsx'));
+const Imp33595DeepTailCohortIndexPage = lazy(() => import('./pages/Imp33595DeepTailCohortIndexPage.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -906,6 +907,7 @@ function AppShell() {
           <Route path="/viz-imp33717-envelope-height-extension" element={<Imp33717EnvelopeHeightExtensionViz />} />
           <Route path="/viz-imp33718-interpeak-gap-sequence" element={<Imp33718InterPeakGapSequenceViz />} />
           <Route path="/viz-imp33589-height-collapsing-envelope-ceiling" element={<Imp33589HeightCollapsingEnvelopeCeilingViz />} />
+          <Route path="/viz-imp33595-deep-tail-cohort-index" element={<Imp33595DeepTailCohortIndexPage />} />
           <Route path="/viz-imp33219-a-weight-two-route-reproduction" element={<Imp33219AWeightTwoRouteReproductionViz />} />
           <Route path="/viz-imp33246-eps-crossval" element={<Imp33246EpsCrossvalViz />} />
           <Route path="/viz-imp33257-node-budget-full-window-ulp" element={<Imp33257NodeBudgetFullWindowUlpViz />} />

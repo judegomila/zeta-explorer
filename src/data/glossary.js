@@ -4978,6 +4978,46 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3851 fourth fifth-pair Gram-spread rung (N=2200): inconsistent local exponents decisively rule out a coherent power law",
+    category: "numerical",
+    definition:
+      "imp-3733 had only TWO nonzero points on the imp-3668/imp-3715 fifth-pair Gram degeneracy spread " +
+      "ladder worstPairSpread(N) = |lambda_9 - lambda_10| / lambda_9 (0.885 ULP at N=1800, 6.195 ULP at " +
+      "N=2000) -- enough to reject an absurd N^18.47 power-law fit but not enough to check exponent " +
+      "CONSISTENCY, since two points always define exactly one power law. imp-3851 re-ran the identical " +
+      "imp-3643/imp-3668 dense solve (explicit Gram S = T^T T, Householder tred1 + implicit-QL tql1 for " +
+      "ALL eigenvalues, no Krylov subspace, no reorthogonalization) at the intermediate rung N=2200. " +
+      "RESULT: (1) worstPairSpread(2200) = 1.964592e-15 = 8.848 ULP -- a genuine nonzero FOURTH data " +
+      "point, with the route reproducing the N=2000 rung EXACTLY on cross-check (pair910=1.375522e-15); " +
+      "the ladder 0, 0, 1.97e-16, 1.38e-15, 1.96e-15 stays monotone non-decreasing at this stage. (2) With " +
+      "THREE nonzero points the successive local power-law exponents are INCONSISTENT: " +
+      "p(1800->2000) = 18.47 but p(2000->2200) = 3.74, a factor ~4.9 apart. A genuine power law " +
+      "spread ~ N^p gives the SAME exponent between any pair of rungs; two wildly different local " +
+      "exponents cannot come from one coherent growth law -- this is the signature of discrete last-digit " +
+      "ULP quantization jitter between floor-level values, not a resolved N-dependence. All three " +
+      "nonzero rungs (0.885, 6.195, 8.848 ULP) sit below the conservative 10-ULP backward-error floor, " +
+      "making the N-INDEPENDENT few-ULP-floor model the consistent description. (3) The linear N*eps " +
+      "model stays falsified on the resolved sample (N=2200 uses only 4.02e-3 of its 4.885e-13 budget)." +
+      "\n\nHONEST SCOPE: a measurement adding ONE resolved nonzero rung, turning two nonzero points into " +
+      "three -- enough to check exponent consistency (and decisively rule out a coherent power law via " +
+      "the 18.47-vs-3.74 mismatch) but still not enough to pin a resolved growth exponent to few-percent " +
+      "accuracy: the N-dependence is consistent with zero, not measured to be exactly zero. Does NOT " +
+      "re-certify the pairing (imp-3668), does NOT establish the fifth-pair amplitude law sigma_4, and " +
+      "does NOT attempt the imp-3066 K_a >= 0 positivity. The imp-33209/imp-33231 later rungs (N=2400, " +
+      "N=2800) extend this same ladder and find it DIPS rather than grows, strengthening the floor " +
+      "reading. RH-EQUIVALENT. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous " +
+      "SOTA.",
+    firstUsed: "imp-3851 (adding the N=2200 resolved dense fifth-pair rung to the imp-3733 sample and discriminating the few-ULP floor from residual growth via exponent inconsistency), 2026",
+    relatedTerms: [
+      "imp-3668 dense fifth-pair Gram degeneracy cross-validation (imp-3668)",
+      "imp-3715 fifth-pair Gram-spread rounding-floor model (imp-3715)",
+      "imp-3733 two-nonzero-point fifth-pair spread sample (imp-3733)",
+      "imp-33209/imp-33231 later rungs (N=2400, N=2800) showing the ladder dips rather than grows",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/viz-imp33217-fifth-pair-spread-ulp-floor-ladder",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

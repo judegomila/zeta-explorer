@@ -6869,6 +6869,12 @@ export const glossary = [
       "FIXED 4000-node plateau carries ~20x headroom over the true minimum, and its ~9.3x nominal ratio " +
       "HOLDS as a genuine fixed-budget win -- indeed the true minimum-budget saving is ~186x (37205/200), " +
       "so the conservative ~9.3x ratio UNDERSTATES the win rather than needing to climb.\n\n" +
+      "BASELINE-RELATIVE CAVEAT: as with the analogous imp-33308 ~63x R_40 figure (see the imp-33536 " +
+      "verdict), this ~186x/~9.3x saving is measured against the uniform Simpson/Richardson ladder " +
+      "(imp-33316), not against a strong independent solver -- imp-33536 found the R_40 ~63x figure is " +
+      "baseline-relative, not an intrinsic graded advantage over Clenshaw-Curtis. Whether the same " +
+      "reframing applies to this deep-tail A(tau) figure is NOT settled by this ticket (see the pending " +
+      "imp-33560/imp-33592 cross-solver check).\n\n" +
       "HONEST SCOPE: accuracy/rule-design measurement only, at the RH-equivalent scale class; changes no " +
       "bound, patches no literal (imp-33316/imp-33295/imp-33213 intact); NPHI=10 truncation inherited. " +
       "The worst-window ULP is a jittery arithmetic-floor lattice property (imp-33249/imp-33277/ " +
@@ -6886,6 +6892,8 @@ export const glossary = [
       "imp-33213 log-domain A_log cross-validation target, the reference every rung here is scored against (imp-33213)",
       "imp-33557 band-crossing three-rung graded minimum, cross-checking this flat ~200-node reading (imp-33557)",
       "imp-33580 graded-mapped Clenshaw-Curtis abscissa artifact, composing this origin-concentrating grading onto CC (imp-33580)",
+      "imp-33536 baseline-relative graded-saving verdict, showing the analogous R_40 ~63x figure is baseline-relative not intrinsic (imp-33536)",
+      "imp-33560 deep-tail graded-vs-cc cross-solver node budget, the pending cross-solver check for this ~186x/~9.3x figure (imp-33560)",
     ],
     link: "/closure-routes",
   },

@@ -3550,6 +3550,16 @@ const DATA_MODULES = [
   // through the imp-3933 field channel, replacing the C_H * W_1^{1/2} E_coll leg
   // by E_field = W(eps'_true) <= 5.17e-7; new binding leg = E_trunc (ansatz). 4 assertions.
   '/src/data/imp-33226-bracket-field-channel-rearchitecture.js',
+  // imp-33256: TABULATE the imp-3888 R_40 = |D_40|/|D_40^saddle| inner-quadrature
+  // sensitivity that imp-3888 named but never swept. Holding the outer moment grid
+  // fixed (T_A=2, NM=3200), the inner A(tau) Simpson resolution is swept from the
+  // imp-3685 coarse [0,7]/1200 to the imp-3849 converged [0,2]/4800; R_40 drifts
+  // monotone up to the converged value (coarse 1.02438462 -> converged 1.02439670,
+  // delta ~1.208e-5 reproducing imp-3888) with O(h^4) Simpson convergence, crossing
+  // the informal ~1e-5 bar at h_inner ~ 5.5e-3 (~360 panels on [0,2]). A cross-outer
+  // control confirms the drift is inner, not outer (same R_40 to ~1e-15). Measurement
+  // only; no literal patched; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 9 assertions.
+  '/src/data/imp-33256-r40-inner-quadrature-sweep.js',
 ];
 
 let ALL_MODULES = FAST_MODE

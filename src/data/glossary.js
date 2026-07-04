@@ -4459,6 +4459,61 @@ export const glossary = [
     link: "/closure-routes",
   },
   {
+    term: "imp-3933 eps'-field-robust plateau-domination bootstrap: a deterministic N-uniform collision-time transfer modulus in the vector-FIELD-error channel, rerouting the C_Lip breach point around the still-divergent W_1-channel",
+    category: "proof",
+    definition:
+      "The C_Lip wall (C_H = C_shock*C_Lip/4) is PROVABLY closed in the W_1 channel " +
+      "three ways (ch-wall-frontier verdicts, untouched here). imp-3933 reroutes the " +
+      "perturbation CHANNEL instead: extend the imp-3725 gap-domination bootstrap from " +
+      "the pure backward-Dyson field to any perturbed flow dx_k/dt = F_k^Dyson + e_k " +
+      "satisfying the field-Lipschitz local-difference bound |e_{l+1}-e_l| <= eps' g_l " +
+      "on every adjacent gap, SAME zero-table initial data as the unperturbed model. " +
+      "Carrying eps' through the exact gap identity d(g_l^2)/dt = -8 + 4 g_l^2 " +
+      "sum 1/((x_j-x_l)(x_j-x_{l+1})) + 2 g_l(e_{l+1}-e_l) gives two comparison-ODE " +
+      "brackets: (LOWER) d(g^2)/dt >= -8 - 2 eps' g^2 has the exact solution " +
+      "u(t) = g0^2 e^{-2 eps' t} - (4/eps')(1-e^{-2 eps' t}), strictly increasing in " +
+      "g0, so t_c >= tLo(eps') = ln(1 + eps' H^2/4)/(2 eps'); (UPPER, retardation " +
+      "bootstrap at thetaBar=0.99, horizon T = H^2/(8 thetaBar)) freezing the same " +
+      "comparison solution at T gives t_c <= tHi(eps') = H^2/(8 theta(eps')), " +
+      "theta(eps') = 1 - (Psi(T,eps') + 2 eps' H^2)/8 — all INITIAL-DATA functionals " +
+      "of the zero table: no Gronwall flow-Jacobian, no W_1 modulus, no GUE/PCC input " +
+      "anywhere. Any two flows in the class (the finite-N Dyson model at eps'=0 and " +
+      "the true xi backward-heat-flow zero motion, once its eps'_true is certified) " +
+      "share the SAME bracket from the SAME initial data, so " +
+      "|t_c^true - t_c^model| <= W(eps') = tHi(eps') - tLo(eps'), with " +
+      "dW/deps' ~ 3 H^4/64 matched to <0.5% on every plateau — the deterministic, " +
+      "N-uniform 'C_Lip' the model-to-true transfer actually needs. Certified at " +
+      "thetaBar=0.99 on all 10 H_raw plateaus of [1e4,1e6] for eps' up to 20 " +
+      "(epsMax floor 22.9 at plateau 1, rising to 1216.6 at plateau 9); at eps'=1 " +
+      "the full transfer width W(1) <= 5.17e-7 on every plateau — ~1.8e5x tighter " +
+      "than the C_H-route W_1-Holder E_coll placeholder 0.0913 at N*=1e4." +
+      "\n\nHONEST SCOPE: two sub-gaps stay OPEN and named — " +
+      "imp-3933-sub-eps-certificate (a rigorous DETERMINISTIC eps'_true for the true " +
+      "xi-flow vs the window-Dyson field, via mirror-zero pairing, RvM tail of " +
+      "above-window zeros, and far-zero displacement control over the tiny horizon " +
+      "T <= 1.8e-4; estimated O(1e-3) near the record pair but O(10) at the " +
+      "window-top edge, addressed only PARTIALLY so far by imp-33224's exact " +
+      "telescoping-kernel reduction and imp-33228's realised-proxy measurement, and " +
+      "resolved from the BINDING-constraint side by imp-33225's per-gap decoupling) " +
+      "and imp-3933-sub-bracket-rearchitecture (restate the E(N) collision-time " +
+      "bridge so the model-to-true transfer routes through this field channel in " +
+      "place of the C_H*W_1^{1/2} leg of E_coll — done by imp-33226, which found the " +
+      "new binding leg reverts to E_trunc). The eps'=0 column reproduces the imp-3725 " +
+      "enclosures exactly (cross-pinned). This is NOT a Lambda bound: the W_1-channel " +
+      "C_Lip verdicts (RH-HARD-CONFIRMED) are NOT overturned, weakened, or bypassed " +
+      "IN THAT CHANNEL, and Platt-Trudgian Lambda <= 0.2 REMAINS the rigorous SOTA. " +
+      "NO false QED.",
+    firstUsed: "imp-3933 (eps'-field-robust plateau-domination bootstrap: a deterministic N-uniform collision-time transfer modulus in the vector-field-error channel, certified on all 10 plateaus of [1e4,1e6], rerouting the C_Lip breach point around the still-divergent W_1-channel), 2026",
+    relatedTerms: [
+      "imp-3725 F_mb plateau-domination bootstrap lemma this bootstrap is the eps'-perturbed generalisation of (imp-3725)",
+      "imp-33225 per-gap eps'_l refinement: removes the window-top-edge O(10) eps' sensitivity from the binding constraint (imp-33225)",
+      "imp-3933-sub-eps-certificate: the still-open deterministic eps'_true derivation for the true xi-flow field-Lipschitz constant (imp-3933)",
+      "imp-3933-sub-bracket-rearchitecture: routing the E(N) chain's model-to-true transfer through this field channel (imp-3933)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
+  {
     term: "imp-3844 closed-form derivation of the A-weight correction limit: c_inf = -ln((pi/2)Phi(0)) and the approach coefficient B = 3/(2 pi)",
     category: "proof",
     definition:

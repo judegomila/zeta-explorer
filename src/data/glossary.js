@@ -7209,6 +7209,41 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33682 gap-and-height-independent-no-correlation verdict: the imp-33661 fifteen inter-peak gaps and the imp-33660 sixteen cluster-peak heights at the shared [400,1200] peaks share no detectable common lattice driver",
+    category: "numerical",
+    definition:
+      "imp-33660 fit the sixteen band-clearing cluster-peak envelope HEIGHTS over [400,1200] (weak positive " +
+      "slope, growth class unresolved) and imp-33661 fit the fifteen inter-peak GAPS over the same set " +
+      "(irregular, CV~0.47, no quasi-period), but neither module aligned the two sequences at the shared " +
+      "peaks to test whether a wider gap predicts a taller peak.\n\n" +
+      "imp-33682 re-derives the identical sixteen cluster peaks off the same grade-4 budgets>=200-node " +
+      "floorUlp(n) scan over [400,1200], aligns each of the fifteen gaps with its adjacent peak height(s) " +
+      "under four alignments (LEFT, RIGHT, MEAN -- the primary -- and MAX of the two bounding heights), and " +
+      "computes Pearson r, Pearson R^2, and Spearman rho for each alignment.\n\n" +
+      "VERDICT: GAP-AND-HEIGHT-INDEPENDENT-NO-CORRELATION. Every alignment gives a negligible, weakly-" +
+      "positive association: Pearson |r| <= ~0.30 (LEFT ~0.30, RIGHT ~0.065, MEAN ~0.19, MAX ~0.083), R^2 " +
+      "<= ~0.088, Spearman |rho| <= ~0.18; the primary mean-adjacent-height alignment gives r~+0.19, " +
+      "R^2~0.035 -- at most ~9% of the variance explained. Decisively, the TALLEST peak (n~1126, h~143.6 " +
+      "ULP) sits at a NARROW 22-rung inbound gap, well below the ~44.8-rung mean -- the direct opposite of " +
+      "\"taller peaks at wider spacings\". Taller peaks do NOT sit at wider spacings, so the imp-33661 " +
+      "spacing irregularity and the imp-33660 weak height growth do not share a detectable common lattice " +
+      "driver at this sample: they are independent arithmetic-floor phenomena.\n\n" +
+      "HONEST SCOPE: measurement only, not a bound. Fifteen paired points is a small sample -- even the sign " +
+      "of the weak positive correlation is not robust, only the qualitative negligible-correlation reading " +
+      "is. Consistent with the imp-33249/imp-33537/imp-33557/imp-33599/imp-33621/imp-33638/imp-33639/" +
+      "imp-33660/imp-33661 latticeJitter caveat; NPHI=10 truncation inherited; changes no bound, patches no " +
+      "literal; mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 untouched; Platt-Trudgian " +
+      "Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+    firstUsed: "imp-33682 (correlating the imp-33661 fifteen inter-peak gaps against the imp-33660 sixteen cluster-peak heights at the shared [400,1200] peaks, finding them independent), 2026",
+    relatedTerms: [
+      "imp-33660 height-grows-weakly-positive-growth-class-unresolved verdict, the height series this correlates (imp-33660)",
+      "imp-33661 spacing-irregular-CV-persists-on-sixteen-peaks verdict, the gap series this correlates (imp-33661)",
+      "imp-33663 exact-rung-tautology-persists-envelope-still-fails verdict, a companion cross-check on the same sixteen peaks (imp-33663)",
+      "imp-33213 A_log log-domain target used to score the graded-GL floor at every rung (imp-33213)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

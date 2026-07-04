@@ -290,6 +290,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33832-saturation-curvature-hump-vs-k',
   '/viz-imp33833-decoupled-rate-heatmap',
   '/viz-imp33677-cluster-peak-gap-sequence',
+  '/viz-imp33731-sigma-ramp-curvature',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

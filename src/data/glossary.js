@@ -4406,6 +4406,45 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3844 closed-form derivation of the A-weight correction limit: c_inf = -ln((pi/2)Phi(0)) and the approach coefficient B = 3/(2 pi)",
+    category: "proof",
+    definition:
+      "imp-3730 could only numerically extrapolate the subleading correction limit c_inf = " +
+      "lim_{tau->inf} [-ln A(tau) - pi e^{4 tau}] (A(tau) = int_0^inf Phi(s) Phi(s+tau) ds, Phi " +
+      "the NPHI=10 completed-Riemann kernel) to ~0.354291. imp-3844 DERIVES it in closed form via " +
+      "a Watson/Laplace endpoint expansion at s=0. Writing Phi(u) = e^{-pi e^{4u}} acc(u) in the " +
+      "imp-3709 factored-log form, every n>=2 term of acc(s+tau) carries " +
+      "e^{-pi(n^2-1)e^{4(s+tau)}} <= e^{-3 pi e^{4 tau}} -> 0 super-exponentially, so only the n=1 " +
+      "tail survives for tau large. The substitution t = e^{4s}-1 turns the s=0 boundary peak into " +
+      "a pure e^{-T t} weight (T = pi e^{4 tau}), collapsing the tau-dependence to Watsons lemma: " +
+      "A(tau) = e^{-T} (Phi(0)/4) [2 pi - 3 e^{-2 tau} + O(e^{-4 tau})]. Hence " +
+      "c(tau) = -ln((pi/2) Phi(0)) + (3/(2 pi)) e^{-2 tau} + O(e^{-4 tau}), giving the CLOSED FORM " +
+      "c_inf = -ln((pi/2) Phi(0)) = pi - ln(pi/2) - ln(acc0), acc0 = e^{pi} Phi(0) = " +
+      "sum_{n>=1} (2 pi^2 n^4 - 3 pi n^2) e^{-pi(n^2-1)}, numerically 0.35429228409357 (matching " +
+      "imp-3730s 0.354291 extrapolation), and the approach coefficient B = 3/(2 pi) = 0.477465 -- " +
+      "previously only FIT by imp-3730 -- now DERIVED as the ratio of the -3 e^{-2 tau} sub-term to " +
+      "the 2 pi leading term inside the bracket. The prediction c_inf + B e^{-2 tau} matches the " +
+      "measured ladder to O(1e-8) at tau = 4..4.5, and the empirical step-ratio -> e^{-1} is now " +
+      "explained exactly (e^{-2*0.5} = e^{-1})." +
+      "\n\nHONEST SCOPE: analytic asymptotics (Watson/Laplace endpoint expansion) cross-checked " +
+      "numerically, RH-equivalent, necessary-but-not-sufficient; establishes NO operator " +
+      "positivity, the off-diagonal endpoint-Hankel K_a >= 0 step (imp-3066) is UNTOUCHED. Only " +
+      "the leading term (c_inf) and first subleading coefficient (B) are derived and confirmed; " +
+      "the all-orders O(e^{-4 tau}) tail bound is left open as sg-3844-watson-tail. This is a " +
+      "derivation of a diagnostic limit, not a theorem about zeros: no RH verdict, no QED. " +
+      "Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3844 (Watson/Laplace endpoint-expansion derivation of the imp-3730 A-weight correction limit c_inf and approach coefficient B in closed form, resolving them from fitted numerics to exact constants), 2026",
+    relatedTerms: [
+      "imp-3730 A-weight subleading correction limit c_inf ~ 0.3543: the numerical extrapolation this closed form derives exactly (imp-3730)",
+      "imp-3709 peak-adapted graded Gauss-Legendre log-domain factored kernel form reused in the derivation (imp-3709)",
+      "sg-3844-watson-tail: the still-open rigorous all-orders O(e^{-4 tau}) remainder bound (imp-3844)",
+      "imp-3850 dual-path -ln A(tau) reconciliation extended to tau in {2.5,3.0} (imp-3850)",
+      "imp-3867 independent structurally-distinct reproduction of c_inf and B via a direct completed-Riemann kernel path (imp-3867)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

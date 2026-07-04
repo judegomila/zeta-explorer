@@ -72,6 +72,7 @@ import { IMP_33772_ETRUNC_BASELINE_COHORT_PROVENANCE } from '../data/imp-33772-e
 import { IMP_33818_ETRUNC_NAME_COLLISION_CROSSCHECK } from '../data/imp-33818-etrunc-name-collision-crosscheck.js';
 import { IMP3406_SIGMA_HIGHN_EXTRAPOLATION } from '../data/imp-3406-sigma-highN-extrapolation.js';
 import { IMP3711_SIGMA_POSTPEAK_CONTINUATION } from '../data/imp-3711-sigma-postpeak-continuation.js';
+import { IMP33701_SIGMA_POSTPEAK_RAMP_CURVATURE_INFLECTION } from '../data/imp-33701-sigma-postpeak-ramp-curvature-inflection.js';
 import { IMP3443_NMAX_ETRUNC_SENSITIVITY } from '../data/imp-3443-nmax-etrunc-sensitivity.js';
 import { IMP3486_CRITICAL_DECAY_EXPONENT } from '../data/imp-3486-critical-decay-exponent.js';
 import { effectiveHeightForN } from '../data/lambda-rh-height-mapping.js';
@@ -827,6 +828,14 @@ function SigmaNShapeExtrapolationPanel() {
         ASSESSMENT/extrapolation only, reusing the identical imp-3220 sub-term formulas &mdash; no re-derivation.
         No positivity, no bridge closure, no RH claim, NO QED. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2
         remains the rigorous SOTA.
+      </div>
+      <div style={{ marginTop: 6, padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+        <strong style={{ color: '#f87171' }}>Component-model caveat (imp-33701):</strong>{' '}
+        Every curvature/decay reading off this &sigma;(N) surface &mdash; including the
+        post-peak ramp-curvature inflection at [1e10,1e11] &mdash; reuses the identical
+        E<sub>coll</sub>/E<sub>flow</sub>/E<sub>trunc</sub> sub-terms inherited from the
+        imp-3220/imp-3406 model. That model is an{' '}
+        <strong>EXTRAPOLATION, not a rigorous asymptotic</strong>: {IMP33701_SIGMA_POSTPEAK_RAMP_CURVATURE_INFLECTION.verdict.match(/The component model[^.]*\./)?.[0]}
       </div>
       <p style={{ marginTop: 10, color: '#94a3b8', fontSize: 11.5, lineHeight: 1.65, padding: '6px 10px', borderRadius: 4, background: 'rgba(56,189,248,0.05)', border: '1px solid rgba(56,189,248,0.18)' }}>
         <strong style={{ color: '#38bdf8' }}>Post-peak continuation (imp-3711):</strong>{' '}

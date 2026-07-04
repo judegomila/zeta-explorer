@@ -53,7 +53,7 @@ function PrecisionCollapseChart() {
 
       {IMP33298_BARS.map((r, i) => {
         const x = padL + i * (cW / IMP33298_BARS.length) + 20;
-        const barUlps = Math.max(r.ulps, 0.02); // floor bar to a hairline so the dd collapse is visible
+        const barUlps = Math.max(r.chartUlps, 0.02); // floor bar to a hairline so the dd collapse is visible
         const y = yS(barUlps);
         const h = padT + cH - y;
         return (

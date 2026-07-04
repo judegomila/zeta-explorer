@@ -23,17 +23,21 @@ export const IMP33298_COLLAPSE_ORDERS = 16; // round(log10(collapseRatio)), coll
 // -- baked from imp-33272/imp-33253 (derived Wilkinson n*kappa_pair floor at the N=2000 rung) --
 export const IMP33298_WILKINSON_FLOOR_ULPS = 10.012415; // n=10, kappa_pair ~ 1.001242
 
+// chartUlps places both bars on ONE shared axis: fp64 machine-epsilon units. For the
+// dd bar this is deliberately NOT double-double's own ULP (which would sit at O(1) in
+// dd's ~1e-32 epsilon and defeat the point of the chart) -- it is spreadDDRel expressed
+// in fp64-ULP units, so the collapse across working precisions is visible on one scale.
 export const IMP33298_BARS = Object.freeze([
   Object.freeze({
     key: 'fp64',
     label: 'fp64 Jacobi',
-    ulps: IMP33298_SPREAD_FP64_ULPS,
+    chartUlps: IMP33298_SPREAD_FP64_ULPS,
     rel: IMP33298_SPREAD_FP64_REL,
   }),
   Object.freeze({
     key: 'dd',
     label: 'double-double Jacobi',
-    ulps: IMP33298_SPREAD_DD_REL / 2.220446049250313e-16,
+    chartUlps: IMP33298_SPREAD_DD_REL / 2.220446049250313e-16,
     rel: IMP33298_SPREAD_DD_REL,
   }),
 ]);

@@ -237,6 +237,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33219-a-weight-two-route-reproduction',
   '/viz-imp33221-model-fidelity-crossing-gap',
   '/viz-imp33237-eps-field-robust-transfer-modulus',
+  '/viz-imp33241-watson-majorant-rho-ratio-ladder',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

@@ -8199,6 +8199,39 @@ export const glossary = [
       'imp-33316 &lt;64 ULP band, the accuracy threshold both the CC grid and the graded floor are tested against (imp-33316)',
     ],
   },
+  {
+    term: 'Saturation-Budget Crossover Measured Flat (imp-33627)',
+    category: 'numerical',
+    definition:
+      'The imp-33583 R(n, nodes) ~ max( Q(nodes), floor(n) ) separation model POSITS a per-rung saturation ' +
+      'budget nodes_sat(n) where the decreasing quadrature branch Q(nodes) meets the flat arithmetic floor ' +
+      'floor(n), but only INHERITED it as a constant (the imp-33557 ~200-node peak-resolution wall) -- it ' +
+      'never located the crossover directly. imp-33627 measures it: for each imp-33557 band-crossing rung ' +
+      'n in {495,510,596}, it fits the pre-saturation budgets (ULP &gt; 3x floor) by a log-log OLS power-law ' +
+      'descent (exponent p ~ 21) and solves Q(nodes_sat) = floor(n).\n\n' +
+      'MEASURED: nodes_sat(n) ~ 186 nodes (180.7..192.5), flat within &lt; 7% (max/min ~ 1.07) across the ' +
+      'three rungs, and landing inside the [150,200] bracket at every rung -- just BELOW the imp-33557 ' +
+      '~200-node wall, exactly as expected since 200 is the first LADDER budget already at/past saturation ' +
+      'while the true crossover falls between the last pre-saturation budget (150) and that first saturated ' +
+      'one (200).\n\n' +
+      'VERDICT: SATURATION-BUDGET-CROSSOVER-MEASURED-FLAT. This QUANTIFIES the imp-33583 crossover as a direct ' +
+      'measurement rather than an inherited wall.\n\n' +
+      'HONEST SCOPE: numerical-behaviour measurement only, RH-equivalent. The branch is fit from only the two ' +
+      'ladder budgets {100,150} above the 3x-floor threshold, and the few-ULP floor is a jittery arithmetic-' +
+      'lattice property (imp-33249/imp-33277/imp-33296/imp-33537 latticeJitterCaveat); the robust reading is the ' +
+      'crossover BRACKET [150,200], not the exact ~186 node count. The follow-up imp-33666 later found this flat ' +
+      'reading does NOT survive into the deep tail. Changes no bound, patches no literal; mass-feasibility ' +
+      'necessary-but-not-sufficient; imp-3066 K_a&gt;=0 sign-positivity untouched; Platt-Trudgian Lambda&lt;=0.2 ' +
+      'remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33627 (measuring the imp-33583 Q(nodes)-vs-floor(n) saturation-budget crossover directly at the imp-33557 band-crossing rungs n in {495,510,596}), 2026',
+    relatedTerms: [
+      'imp-33583 node-budget-vs-arithmetic-floor separation model, the crossover this module quantifies (imp-33583)',
+      'imp-33557 band-crossing minimum node budget, the measured ladder this crossover is fit from (imp-33557)',
+      'imp-33667 cross-validation of this crossover against the imp-33641 dense grade-6 floor argmin at n=596 (imp-33667)',
+      'imp-33666 deep-tail extension finding the flat ~186 crossover does NOT survive past the mid-tail (imp-33666)',
+    ],
+    link: '/closure-routes',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

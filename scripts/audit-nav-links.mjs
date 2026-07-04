@@ -241,6 +241,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33243-recovery-rate-fit',
   '/viz-imp33246-eps-crossval',
   '/viz-imp33257-node-budget-full-window-ulp',
+  '/viz-imp33261-saddle-window-direct-vs-log-a',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

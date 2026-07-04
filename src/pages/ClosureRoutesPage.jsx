@@ -73,6 +73,7 @@ import { IMP_33818_ETRUNC_NAME_COLLISION_CROSSCHECK } from '../data/imp-33818-et
 import { IMP3406_SIGMA_HIGHN_EXTRAPOLATION } from '../data/imp-3406-sigma-highN-extrapolation.js';
 import { IMP3711_SIGMA_POSTPEAK_CONTINUATION } from '../data/imp-3711-sigma-postpeak-continuation.js';
 import { IMP33701_SIGMA_POSTPEAK_RAMP_CURVATURE_INFLECTION } from '../data/imp-33701-sigma-postpeak-ramp-curvature-inflection.js';
+import { IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE } from '../data/imp-33816-sigma-exponent-asymptote-approach-rate.js';
 import { IMP3443_NMAX_ETRUNC_SENSITIVITY } from '../data/imp-3443-nmax-etrunc-sensitivity.js';
 import { IMP3486_CRITICAL_DECAY_EXPONENT } from '../data/imp-3486-critical-decay-exponent.js';
 import { effectiveHeightForN } from '../data/lambda-rh-height-mapping.js';
@@ -836,6 +837,17 @@ function SigmaNShapeExtrapolationPanel() {
         E<sub>coll</sub>/E<sub>flow</sub>/E<sub>trunc</sub> sub-terms inherited from the
         imp-3220/imp-3406 model. That model is an{' '}
         <strong>EXTRAPOLATION, not a rigorous asymptotic</strong>: {IMP33701_SIGMA_POSTPEAK_RAMP_CURVATURE_INFLECTION.verdict.match(/The component model[^.]*\./)?.[0]}
+      </div>
+      <div style={{ marginTop: 6, padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+        <strong style={{ color: '#f87171' }}>Asymptote approach rate (imp-33816):</strong>{' '}
+        Reading a "1/2 decay exponent" off this &sigma;(N) surface glosses over how far out that asymptote
+        actually is. The exact local-exponent shortfall gap(N)&nbsp;=&nbsp;&frac12;&thinsp;&minus;&thinsp;p(N)
+        closes only as &sim;1/(2&thinsp;log&thinsp;T<sub>0</sub>) &mdash; logarithmically, not polynomially &mdash;
+        so p first comes within 1% of &frac12; only at N&thinsp;&sim;&thinsp;{IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE.asymptoteCrossings.within_1pct_of_half_at_N_log10 && `1e${IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE.asymptoteCrossings.within_1pct_of_half_at_N_log10.toFixed(0)}`}
+        (&asymp;{IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE.asymptoteCrossings.decadesPast1e12_forWithin1pct} decades past the imp-33582 1e12 stopping point) and
+        within 0.1% only at N&thinsp;&sim;&thinsp;1e{IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE.asymptoteCrossings.within_0_1pct_of_half_at_N_log10_direct.toFixed(0)}. A glacial-but-monotone
+        close: measurement/fit only, changes no bound, C<sub>mb</sub> stays GUE-conditional (imp-486), imp-3066
+        K<sub>a</sub>&nbsp;&ge;&nbsp;0 untouched, NO QED.
       </div>
       <p style={{ marginTop: 10, color: '#94a3b8', fontSize: 11.5, lineHeight: 1.65, padding: '6px 10px', borderRadius: 4, background: 'rgba(56,189,248,0.05)', border: '1px solid rgba(56,189,248,0.18)' }}>
         <strong style={{ color: '#38bdf8' }}>Post-peak continuation (imp-3711):</strong>{' '}

@@ -226,6 +226,7 @@ const Imp33549SigmaFarTailVsInteriorMaxViz = lazy(() => import('./pages/Imp33549
 const Imp33550MaxBjRealisedElasticityViz = lazy(() => import('./pages/Imp33550MaxBjRealisedElasticityViz.jsx'));
 const Imp33570SigmaFarTailSlopeSqrtFractionViz = lazy(() => import('./pages/Imp33570SigmaFarTailSlopeSqrtFractionViz.jsx'));
 const Imp33571DeepTailJitterEnvelopeViz = lazy(() => import('./pages/Imp33571DeepTailJitterEnvelopeViz.jsx'));
+const Imp33572TauUniformEnvelopeViz = lazy(() => import('./pages/Imp33572TauUniformEnvelopeViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -884,6 +885,7 @@ function AppShell() {
           <Route path="/viz-imp33550-max-bj-realised-elasticity" element={<Imp33550MaxBjRealisedElasticityViz />} />
           <Route path="/viz-imp33570-sigma-fartail-slope-sqrt-fraction" element={<Imp33570SigmaFarTailSlopeSqrtFractionViz />} />
           <Route path="/viz-imp33571-deep-tail-jitter-envelope" element={<Imp33571DeepTailJitterEnvelopeViz />} />
+          <Route path="/viz-imp33572-tau-uniform-envelope" element={<Imp33572TauUniformEnvelopeViz />} />
           <Route path="/viz-imp33219-a-weight-two-route-reproduction" element={<Imp33219AWeightTwoRouteReproductionViz />} />
           <Route path="/viz-imp33246-eps-crossval" element={<Imp33246EpsCrossvalViz />} />
           <Route path="/viz-imp33257-node-budget-full-window-ulp" element={<Imp33257NodeBudgetFullWindowUlpViz />} />

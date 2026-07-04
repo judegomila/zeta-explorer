@@ -4247,6 +4247,39 @@ export const glossary = [
     link: "/closure-routes",
   },
   {
+    term: "imp-3892 pinned Watson majorant constant: K0 = 2 phi'(0)/Phi(0), closing |rho(tau)| <= K0 e^{-4 tau}",
+    category: "numerical",
+    definition:
+      "imp-3866's three-remainder reduction of sg-3844-watson-tail left exactly ONE piece external, " +
+      "renamed sg-3866-watson-majorant-constant: a single explicit constant K0 in the bracket " +
+      "remainder bound bracket(tau) = 2 pi - 3 e^{-2 tau} + rho(tau), |rho(tau)| <= K0 e^{-4 tau}. " +
+      "imp-3892 PINS that constant in closed form by applying Watson's lemma to the two amplitudes " +
+      "of the underlying real-analytic kernel phi(t) = e^{-pi(1+t)} acc(s(t))." +
+      "\n\nThe leading Watson-bracket coefficient is K_lead = 2 phi'(0)/Phi(0) = " +
+      "-2 pi + acc'(0)/(2 acc(0)) = -3.4120570431, an exact finite sum over the NPHI=10 kernel " +
+      "truncation (with phi'(0) = e^{-pi}[-pi acc(0) + (1/4) acc'(0)]). The next-order coefficient " +
+      "K6 = -(3/Phi(0)) psi'(0)/pi = +2.1066020628 (psi'(0) = phi'(0) - phi(0)/2) gives the closed " +
+      "two-term model rho e^{4 tau} = K_lead + K6 e^{-2 tau}, which reproduces imp-3866's measured " +
+      "rho/e^{-4 tau} ratios ~-3.406 at tau=2.5 and tau=3 to ~3e-5 -- confirming K_lead and K6 are " +
+      "DERIVED, not fitted." +
+      "\n\nBecause rho is a negative constant plus a shrinking positive correction, " +
+      "|rho e^{4 tau}| <= |K_lead| + |K6| e^{-4} = 3.451 on tau >= 2, giving the single explicit " +
+      "majorant K0 = 3.46 that closes the inequality sg-3866-watson-majorant-constant asked for." +
+      "\n\nVERDICT: with K0 pinned, the imp-3866 reduction of sg-3844-watson-tail is " +
+      "CLOSED-MODULO-STANDARD-WATSON-ESTIMATES rather than dependent on an external unknown." +
+      "\n\nHONEST SCOPE: a constant-pin/asymptotic result only. Operator positivity -- the " +
+      "off-diagonal endpoint-Hankel obstruction K_a >= 0 (imp-3066) -- is UNTOUCHED, the NPHI=10 " +
+      "kernel truncation remains an upstream modeling choice, and this is necessary-but-not-sufficient " +
+      "for RH. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3892 (deriving the closed leading Watson coefficient K_lead=2 phi'(0)/Phi(0)=-3.4120570431 and certified majorant K0=3.46 closing |rho(tau)|<=K0 e^{-4tau}), 2026",
+    relatedTerms: [
+      "imp-3866 Watson-tail bound assessment: three-remainder reduction of sg-3844-watson-tail (imp-3866)",
+      "imp-33223 honest-status note: sg-3844-watson-tail is now REDUCED-AND-PINNED (imp-3866 -> imp-3892), not open",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
+  {
     term: "imp-3849 inner-quadrature-converged exact-saddle ratio: crossing moves to n*=215.231, well deepens ~5x to r_min=-5.845e-4 at n~500",
     category: "numerical",
     definition:

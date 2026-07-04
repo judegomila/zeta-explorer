@@ -7658,6 +7658,43 @@ export const glossary = [
       'g6a-sub-hyperbolic-closure (imp-394), the pointwise Holder-1/2 boundary-value discharge of the k=0 value term (imp-394)',
     ],
   },
+  {
+    term: 'imp-33637 Polymath15 "Lemma 5.2" mis-citation: DOUBLE mis-citation -- wrong arXiv id (1802.05390) and a nonexistent lemma in the true paper (1904.12438)',
+    category: 'proof',
+    definition:
+      'The G6a_shock_lipschitz catalogue (imp-33603) enumerated five structural hypotheses (H1..H5) ' +
+      'reconstructed from the repo scaffold for a Lemma-5.2-type Hoelder-1/2 blow-up modulus, leaving ' +
+      'H0 (provenance -- do these match the published lemma verbatim?) OPEN. imp-33637 checked H0 ' +
+      'directly against the arXiv source and found the long-standing citation "Polymath15 Lemma 5.2, ' +
+      'arXiv:1802.05390v3" is wrong on BOTH counts: (1) WRONG PAPER -- arXiv:1802.05390 is an unrelated ' +
+      'paper on asymptotic stability of a 1-D compressible Navier-Stokes-Cahn-Hilliard system, not a ' +
+      'Polymath15 / de Bruijn-Newman paper at all; the real Polymath15 paper ("Effective approximation ' +
+      'of heat flow evolution of the Riemann xi function, and a new upper bound for the de Bruijn-Newman ' +
+      'constant") is arXiv:1904.12438. (2) NONEXISTENT LEMMA -- even under the corrected id, Section 5 ' +
+      '(titled Elementary estimates) of arXiv:1904.12438 contains exactly one numbered lemma, Lemma 5.1, ' +
+      'a set of elementary numerical monotonicity/decay bounds with no connection to fold catastrophe, ' +
+      'Hoelder-1/2 modulus, curvature bounds, perturbation-strip control, or Riemann-Hilbert transcription; ' +
+      'there is no Lemma 5.2 anywhere in the paper.\n\n' +
+      'CONSEQUENCE: the H0 verbatim check cannot be performed as originally posed, so all five of H1..H5 ' +
+      'stay classified as repo-side structural inferences with ZERO verified matches to any published ' +
+      'Polymath15 lemma. This UPGRADES H0 from "provenance unconfirmed" to "citation identified as ' +
+      'incorrect" -- a stronger negative finding, not a resolution. Follow-ups split the remaining work: ' +
+      'imp-33648 mechanically corrected the arXiv id across the 15 live modules that carried it; imp-33649 ' +
+      'traced the fold-catastrophe argument to its real sources (Whitham 1974 Section 2.7 for the 1/2 ' +
+      'exponent, a repo-originated W_1 synthesis for the cusp-density modulus -- no external Lemma 5.2 ' +
+      'backing either half).\n\n' +
+      'HONEST SCOPE: verification/provenance-audit only. G6a_shock_lipschitz stays OPEN regardless of ' +
+      'this citation finding; the H4 strip-height-uniformity residual (imp-33603) is unaffected; no ' +
+      'positivity, no bridge closure, no RH claim, NO QED; imp-3066 off-diagonal endpoint-Hankel ' +
+      'K_a >= 0 UNTOUCHED; C_mb share untouched; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-33637 (verifying the imp-33603 H0 provenance residual against the arXiv source and finding a double mis-citation: wrong paper id and a nonexistent Lemma 5.2), 2026',
+    relatedTerms: [
+      'imp-33603 G6a Lemma-5.2 port residual, the H1..H5 catalogue whose H0 provenance gap this finding closes negatively (imp-33603)',
+      'imp-33648 mechanical arXiv-id correction, 1802.05390 -> 1904.12438 across 15 live modules (imp-33648)',
+      'imp-33649 fold-catastrophe source identification, tracing the argument to Whitham 1974 and a repo-originated W_1 synthesis (imp-33649)',
+      'g6a-sub-hyperbolic-closure (imp-394), the pointwise Holder-1/2 boundary-value discharge unaffected by this citation finding (imp-394)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

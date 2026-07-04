@@ -990,7 +990,12 @@ export const LAMBDA_ROADMAP = {
     'N ~ 3.27e9 (matching the independent imp-3444 E_coll=E_trunc crossover to ~0.4%), ' +
     'and drops below 0.1 only at N ~ 3.21e11 — the empirical-vs-analytic conditional ' +
     'gap keeps shrinking well past 10^6, but gradually; this is a quantified decay-' +
-    'rate refinement only and changes no bound (C_mb remains GUE-conditional, imp-486).',
+    'rate refinement only and changes no bound (C_mb remains GUE-conditional, imp-486). ' +
+    'HONEST STATUS (imp-33660..imp-33682 lattice-floor cohort): the band-clearing floorUlp(n) ' +
+    'peak/trough/gap/amplitude series measured across the shared [400,1200]/[1200,1600] cluster ' +
+    'sample is measurement-only and weak-positive at best, with every apparent height or slope ' +
+    'trend traced to a two-point (two-outlier) artifact rather than a genuine growth law; this ' +
+    'cohort changes no bound and is closed as a dead-end diagnostic thread.',
   bounds: LAMBDA_BOUNDS,
   chain: LAMBDA_CHAIN_STEPS,
   verification: VERIFICATION_EFFORTS,

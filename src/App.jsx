@@ -202,6 +202,7 @@ const Imp33241WatsonMajorantRhoRatioLadderViz = lazy(() => import('./pages/Imp33
 const Imp33243RecoveryRateFitViz = lazy(() => import('./pages/Imp33243RecoveryRateFitViz.jsx'));
 const Imp33266ToolkitStatusMapViz = lazy(() => import('./pages/Imp33266ToolkitStatusMapViz.jsx'));
 const Imp33267AWeightDualPathTau25To30Viz = lazy(() => import('./pages/Imp33267AWeightDualPathTau25To30Viz.jsx'));
+const Imp33284R40InnerQuadratureLadderViz = lazy(() => import('./pages/Imp33284R40InnerQuadratureLadderViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -840,6 +841,7 @@ function AppShell() {
           <Route path="/viz-imp33264-fifth-pair-spread-ladder-n2800-extended" element={<Imp33264FifthPairSpreadLadderN2800ExtendedViz />} />
           <Route path="/viz-imp33266-g6a-k4-toolkit-status-map" element={<Imp33266ToolkitStatusMapViz />} />
           <Route path="/viz-imp33267-a-weight-dual-path-tau25-30" element={<Imp33267AWeightDualPathTau25To30Viz />} />
+          <Route path="/viz-imp33284-r40-inner-quadrature-ladder" element={<Imp33284R40InnerQuadratureLadderViz />} />
           <Route path="/viz-imp33219-a-weight-two-route-reproduction" element={<Imp33219AWeightTwoRouteReproductionViz />} />
           <Route path="/viz-imp33246-eps-crossval" element={<Imp33246EpsCrossvalViz />} />
           <Route path="/viz-imp33257-node-budget-full-window-ulp" element={<Imp33257NodeBudgetFullWindowUlpViz />} />

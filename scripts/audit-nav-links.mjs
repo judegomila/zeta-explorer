@@ -226,6 +226,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp3883-a-weight-simpson-climb',
   '/viz-imp3884-thetabar-elasticity',
   '/viz-imp3900-h2-flux-convexity',
+  '/viz-imp3903-smin-dmin-slack',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

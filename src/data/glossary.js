@@ -8372,6 +8372,39 @@ export const glossary = [
       'imp-3406 sigma-highN-extrapolation, the interior MAX N ~ 9.22e5 upstream of this post-peak ramp (imp-3406)',
     ],
   },
+  {
+    term: 'imp-33660..imp-33682 lattice-floor cohort DEAD-END closure: the band-clearing floorUlp(n) peak/trough/gap/amplitude series is measurement-only, every apparent trend traced to a two-point artifact',
+    category: 'meta',
+    definition:
+      'imp-33660 through imp-33682 form a single cohort measuring the shared grade-4 ' +
+      'budgets>=200-node band-clearing floorUlp(n) cluster sample over [400,1200] (later ' +
+      'extended to [1200,1600]): sixteen cluster-peak heights (imp-33660), fifteen inter-peak ' +
+      'gaps (imp-33661), inter-cluster trough floors (imp-33662), the peak-minus-trough ' +
+      'amplitude envelope (imp-33681), and cross-series correlations between them (imp-33682), ' +
+      'plus robustness refits (imp-33680) and a fresh-window extension (imp-33679).\n\n' +
+      'VERDICT: DEAD-END. Every apparent height, slope, or amplitude trend in the cohort traces ' +
+      'to the same two-point artifact -- the two tallest imp-33638 tail clusters (~143.6 ULP at ' +
+      'n~1126, ~135.0 at n~1198). imp-33680 showed that excluding just those two collapses the ' +
+      'imp-33660 height slope from ~+0.067 to ~+0.008 ULP/rung (~1/9 survival) and its R^2 from ' +
+      '~0.33 to ~0.047; the remaining fourteen peaks sit in a flat ~64..86 ULP band. imp-33661 ' +
+      'found the inter-peak gap CV persists at ~0.47 with no quasi-period. imp-33662 found the ' +
+      'trough floor stays flat while only the peaks weakly rise. imp-33682 found gaps and ' +
+      'heights share no detectable common lattice driver. No independent height, spacing, or ' +
+      'amplitude law survives leave-two-out scrutiny.\n\n' +
+      'HONEST SCOPE: measurement-only, not a bound. This cohort changes no bound and is CLOSED ' +
+      'as a dead-end diagnostic thread on the shared arithmetic-floor lattice-jitter statistic ' +
+      '(imp-33249/imp-33537/imp-33557/imp-33599/imp-33621/imp-33638/imp-33660/imp-33661/' +
+      'imp-33662/imp-33680/imp-33681/imp-33682 latticeJitter caveat); C_mb remains ' +
+      'GUE-conditional (imp-486); imp-3066 K_a>=0 untouched; Platt-Trudgian Lambda<=0.2 remains ' +
+      'the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33736 (recording the imp-33660..imp-33682 lattice-floor cohort as a closed dead-end diagnostic thread, per the currentStatus honest-status note), 2026',
+    relatedTerms: [
+      'imp-33660 height-grows-weakly-positive-growth-class-unresolved verdict, the cohort-opening height fit later shown to be a two-point artifact (imp-33660)',
+      'imp-33680 slope-collapses-trend-is-a-two-point-artifact verdict, the leave-two-out refit that identifies the artifact (imp-33680)',
+      'imp-33682 gap-and-height-independent-no-correlation verdict, the cross-series correlation closing the cohort (imp-33682)',
+      'imp-33681 amplitude-grows-weakly-positive-but-below-the-peak-growth verdict, the amplitude-series companion measurement (imp-33681)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

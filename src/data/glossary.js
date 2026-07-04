@@ -8042,6 +8042,43 @@ export const glossary = [
       'imp-33639 SPACING-IRREGULAR-NOT-QUASI-PERIODIC finding, measuring the inter-peak gaps across the combined sixteen-cluster set this module contributes seven peaks to (imp-33639)',
     ],
   },
+  {
+    term: 'imp-33639 SPACING-IRREGULAR-NOT-QUASI-PERIODIC verdict: the nine imp-33599 + imp-33621 band-clearing cluster peaks sit on a rough ~41-rung arithmetic-progression envelope but the inter-peak gaps scatter 17-75 rungs (CV~0.46), fitting neither a linear-in-index nor a sqrt(n)-scaled spacing law',
+    category: 'numerical',
+    definition:
+      'imp-33621 located nine disjoint band-clearing clusters across the combined [400,900] window -- three ' +
+      'from the imp-33599 [400,700] scan (peaks ~526,591,634) and six from the imp-33621 [700,900] tail ' +
+      'extension (peaks ~709,735,754,807,824,874) -- but never fit a spacing law across the combined set, ' +
+      'leaving open whether the peaks recur on a quasi-periodic lattice or are irregular jitter-driven spikes.\n\n' +
+      'imp-33639 re-derives the nine peaks off the SAME grade-4 budgets >= 200-node floorUlp(n) scan (one ' +
+      'combined [400,900] window, +/-5 rolling-max envelope, env>=64 marks a cluster) and fits three candidate ' +
+      'spacing models. MEASURED: (A) an arithmetic progression peakN_i = A + B*i gives a period B ~ 41.4 rungs ' +
+      'with R^2 ~ 0.976 vs index -- but that high R^2 is largely an artefact of a monotone sequence spanning ' +
+      '~350 rungs, since the residual RMS about that progression is ~16.8 rungs, ~40% of the period. (B) The ' +
+      'inter-peak gaps themselves are [65,43,75,26,19,53,17,50] rungs: mean ~43.5, sd ~20.0, coefficient of ' +
+      'variation CV ~ 0.46 (a > 4x spread from 17 to 75 rungs). (C) Neither a linear-in-index spacing ramp ' +
+      '(R^2 ~ 0.18) nor a sqrt(n)-scaled spacing law (R^2 ~ 0.21) explains that gap variation.\n\n' +
+      'VERDICT: SPACING-IRREGULAR-NOT-QUASI-PERIODIC. The nine cluster peaks sit on only a ROUGH constant-' +
+      'spacing envelope (large residual, ~40% of the period) while the actual inter-peak gaps scatter with ' +
+      'CV ~ 0.46 and fit no smooth growth or contraction law in n. There is no clean period: the band-clearing ' +
+      'clustered-spike structure recurs on no fixed lattice, sharpening the imp-33599/imp-33621/imp-33557/' +
+      'imp-33537 latticeJitterCaveat -- any tail band-clearing claim is bounded by an irregularly-recurring ' +
+      'cluster envelope, not a periodic onset lattice.\n\n' +
+      'HONEST SCOPE: accuracy/rule-design measurement only, at the RH-equivalent scale class. floorUlp(n) is a ' +
+      'jittery arithmetic-floor lattice quantity (imp-33249/imp-33277/imp-33296/imp-33537/imp-33557/imp-33579/' +
+      'imp-33599/imp-33621 latticeJitterCaveat): the exact per-rung ULP bounces and cross-platform libm exp/pow ' +
+      'variation can shift the exact peak rungs, gaps, and hence every fit coefficient -- the robust reading is ' +
+      'the qualitative conclusion (no fixed period, spacing irregular), not the exact R^2 or period value. ' +
+      'Changes no bound, patches no literal; mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 ' +
+      'sign-positivity untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33639 (fitting the combined imp-33599 [400,700] + imp-33621 [700,900] nine band-clearing cluster peaks to arithmetic-progression, linear-in-index, and sqrt(n)-scaled spacing models), 2026',
+    relatedTerms: [
+      'imp-33621 TAIL-RE-INTENSIFICATION verdict, source of six of the nine peaks this module fits a spacing law to (imp-33621)',
+      'imp-33599 wide-range band-crossing envelope law, source of the first three of the nine peaks (imp-33599)',
+      'imp-33638 NO-GLOBAL-CEILING-ENVELOPE-RE-INTENSIFIES-AND-ROUGHLY-DOUBLES verdict, the [900,1200] tail extension whose seven further peaks this spacing fit does not yet include (imp-33638)',
+      'imp-33640 RECOVERY-GRADE-DRIFT-NOT-PREDICTED-BY-ENVELOPE-SPIKE-HEIGHT finding, another correlation test against the same nine-cluster envelope structure (imp-33640)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

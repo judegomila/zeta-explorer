@@ -4937,6 +4937,47 @@ export const glossary = [
     ],
     link: "/viz-imp33214-saddle-ratio-deep-tail-recovery",
   },
+  {
+    term: "imp-3891 H2a/H2b split: the G6a K4 H2 root divides into a written algebraic limit and an open mean-field convergence theorem",
+    category: "proof-status",
+    definition:
+      "imp-3872 empirically probed the imp-3846 dependency-chain root H2 (uniformly convex flux of the " +
+      "hydrodynamic limit of the imp-3642 attractive Calogero-Moser flow) and found the exact finite-N flux " +
+      "gradient single-signed (kappa=2, F''(m)=-2) but left H2 UNWRITTEN as a certificate. imp-3891 splits the " +
+      "monolithic root H2 into two named sub-pieces of different status." +
+      "\n\nH2a -- the continuum complex-inviscid-Burgers limit m_s + F(m)_z = 0, F(m) = -m^2, F'(m) = -2 m, " +
+      "F''(m) = -2 (uniformly convex) -- is WRITTEN, algebraically exact. It follows from the finite-N " +
+      "resolvent field m(z,s) = sum_k 1/(z-x_k(s)) obeying the EXACT identity m_s = 2 m m_z + m_zz (no large-N " +
+      "limit needed), with the inviscid law recovered by the FORMAL vanishing-viscosity reduction m_zz -> 0. It " +
+      "is the attractive-sign twin of the Menon-Pego / Biane repulsive complex-Burgers log-gas limit m_s = " +
+      "-2 m m_z. Two ingredients are corroborated numerically: the seed-lattice resolvent m_M(z) converges to " +
+      "the closed form (pi/d) cot(pi z/d) as the block grows (monotone, ~15x error drop over M=41->641), and " +
+      "the exact identity holds to <1e-12 relative residual with kappa=2.000000000 along a short RK4 flow." +
+      "\n\nH2b -- the empirical-measure mean-field CONVERGENCE THEOREM, that mu_M = (1/M) sum delta_{x_k(s)} " +
+      "converges uniformly on a time interval to a measure solving m_s = 2 m m_z -- stays OPEN, named the " +
+      "sub-gap sg-3891-attractive-mean-field-convergence, behind three obstructions: (O1) the singular " +
+      "ATTRACTIVE kernel -2/(x_k-x_j) is neither Lipschitz nor repulsive, so standard singular-kernel " +
+      "propagation-of-chaos results (Rogers-Shi/Chan/Cepa-Lepingle) that rely on repulsion to keep particles " +
+      "apart do not apply off the shelf; (O2) the attractive flow drives finite-time collisions and the " +
+      "inviscid limit shocks at exactly that caustic time tau_c, so any convergence theorem holds at best on " +
+      "[0, tau_c) and breaks precisely where the downstream entropy-solution tools T1-T4 are needed; (O3) the " +
+      "m_zz -> 0 vanishing viscosity used to derive H2a itself is only measured (imp-3872) on the mesoscopic " +
+      "window y_star/d in [2, 8], uncontrolled at the microscopic y -> 0 continuum where the mean-field limit " +
+      "lives." +
+      "\n\nHONEST SCOPE: scoping/derivation only, RH-equivalent scale class -- establishes no operator " +
+      "positivity, no bridge closure, no RH claim, NO QED. K4 stays WHOLLY NEW, G6a_shock_lipschitz stays " +
+      "OPEN. The off-diagonal endpoint-Hankel obstruction K_a>=0 (imp-3066) is UNTOUCHED. Platt-Trudgian " +
+      "Lambda<=0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3891 (writing the H2a continuum complex-inviscid-Burgers limit of the imp-3642 attractive-CM flow and scoping the open H2b empirical-measure mean-field convergence theorem behind three named obstructions), 2026",
+    relatedTerms: [
+      "imp-3872 discrete-flux convexity probe -- the empirical kappa=2 result whose unwritten certificate H2a/H2b splits",
+      "imp-3846 G6a K4 caustic-regularity toolkit assessment -- names H2 the dependency-chain root",
+      "imp-3896 logarithmic inviscid-window widening -- measures how far the O3 m_zz->0 window extends",
+      "imp-33207 literature gap-map for the H2b sub-gap sg-3891-attractive-mean-field-convergence",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

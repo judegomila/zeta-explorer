@@ -8001,6 +8001,47 @@ export const glossary = [
       'section26-mupass residual = K_a >= 0 (RH-equivalent, not a reduction), the operator-positivity condition this a-window search fails to relieve',
     ],
   },
+  {
+    term: 'imp-33638 NO-GLOBAL-CEILING-ENVELOPE-RE-INTENSIFIES-AND-ROUGHLY-DOUBLES verdict: extending the imp-33621 dense grade-4 >=200-node floorUlp(n) band-clearing scan from [700,900] into [900,1200] finds the envelope keeps climbing, NOT capping at the imp-33621 ~78 ULP level',
+    category: 'numerical',
+    definition:
+      'imp-33621 scanned floorUlp(n) (the graded-GL grade-4 plateau smallest residual at budgets >= 200 ' +
+      'nodes vs the imp-33213 A_log target, +/-5 rolling-max envelope, env>=64 marks a band-clearing ' +
+      'cluster) over the tail n in [700,900] and found the imp-33599 [400,700] peak downtrend REVERSED: ' +
+      'six further disjoint clusters appeared whose tallest (~78.4 ULP at n~709) EXCEEDED the [400,700] ' +
+      'max. imp-33621 left OPEN whether that re-intensification is bounded by a global envelope ceiling ' +
+      'somewhere above n=900, or keeps climbing indefinitely.\n\n' +
+      'imp-33638 re-runs the IDENTICAL scan over the deeper window n in [900,1200]. MEASURED: SEVEN further ' +
+      'disjoint clusters appear -- [962,972] (~78.6 at n~962), [979,1008] (~85.6 at n~998), [1028,1048] ' +
+      '(~71.8 at n~1038), [1072,1082] (~64.7 at n~1072), [1104,1114] (~72.3 at n~1104), [1116,1180] ' +
+      '(~143.6 at n~1126, ~1.83x the [700,900] tail max), and [1184,1200] (~135.1 at n~1198, still rising ' +
+      'at the window edge). The [900,1200] envelope MAXIMUM (~143.6 ULP) is nearly DOUBLE both the ' +
+      'imp-33621 [700,900] max (~78.4) and the [400,700] max (~76.1). The [900,1200] trend is now clearly ' +
+      'positive (~+0.23 ULP/rung, r^2~0.41), steeper than the flat [700,900] trend; the combined [700,1200] ' +
+      'trend stays weakly positive and jitter-dominated (~+0.10 ULP/rung, r^2~0.30). The envelope still ' +
+      'dips to an env-min ~17 ULP between clusters, so this is the SAME clustered-spike structure, not a ' +
+      'persistent failure region -- and since the terminal cluster is still rising at n=1198, any ceiling, ' +
+      'if one exists, lies beyond n=1200.\n\n' +
+      'VERDICT: NO-GLOBAL-CEILING-ENVELOPE-RE-INTENSIFIES-AND-ROUGHLY-DOUBLES. Extending the identical ' +
+      'dense scan into [900,1200] finds NEITHER a ceiling at the imp-33621 ~78 ULP level NOR subsidence ' +
+      'below the imp-33316 <64 ULP band: the clustered-spike phenomenon is a PERSISTENT, RE-INTENSIFYING ' +
+      'tail effect, sharpening the imp-33599/imp-33621 latticeJitterCaveat that any tail band-clearing ' +
+      'claim is bounded by an as-yet-unlocated (and rising) cluster envelope, not a fixed threshold.\n\n' +
+      'HONEST SCOPE: accuracy/rule-design measurement only, at the RH-equivalent scale class. floorUlp(n) ' +
+      'is a jittery arithmetic-floor lattice quantity (imp-33249/imp-33277/imp-33296/imp-33537/imp-33557/' +
+      'imp-33579/imp-33599/imp-33621 latticeJitterCaveat): exact cluster edges, peak ULP, and trend slopes ' +
+      'can shift with cross-platform libm exp/pow variation, so the robust reading is the qualitative ' +
+      'structure, not the exact per-rung values. Changes no bound, patches no literal; mass-feasibility ' +
+      'necessary-but-not-sufficient; imp-3066 K_a>=0 sign-positivity untouched; Platt-Trudgian Lambda<=0.2 ' +
+      'remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33638 (extending the imp-33621 dense every-integer floorUlp(n) band-clearing scan from the tail n in [700,900] into the deeper window n in [900,1200], grade 4, budgets >= 200 nodes), 2026',
+    relatedTerms: [
+      'imp-33621 TAIL-RE-INTENSIFICATION verdict, the [700,900] scan this module extends into [900,1200] (imp-33621)',
+      'imp-33316 < 64 ULP A_log band, the threshold every cluster in this scan is scored against (imp-33316)',
+      'imp-33656 merged [400,900] band-clearing overview viz, which does not yet include this [900,1200] tail extension (imp-33656)',
+      'imp-33639 SPACING-IRREGULAR-NOT-QUASI-PERIODIC finding, measuring the inter-peak gaps across the combined sixteen-cluster set this module contributes seven peaks to (imp-33639)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

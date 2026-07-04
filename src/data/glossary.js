@@ -7839,6 +7839,49 @@ export const glossary = [
     ],
   },
   {
+    term: 'imp-33764 H0-provenance SOURCE assessment: NO external primary source supplies the Holder-1/2 blow-up modulus verbatim -- Polymath15 1904.12438, the de Bruijn-Newman literature, and Rodgers-Tao all MISS it; H0 is a repo-originated in-repo synthesis, orthogonal to H3/H4',
+    category: 'proof',
+    definition:
+      'imp-33745 declared H0 (the Lemma-5.2-type Holder-1/2 blow-up modulus provenance) a genuinely ' +
+      'DISTINCT, independently-dischargeable G6a_shock_lipschitz obligation but named no concrete ' +
+      'replacement source; imp-33637 had already shown the standing "Polymath15 Lemma 5.2" citation is a ' +
+      'DOUBLE mis-citation (wrong arXiv id 1802.05390, no Lemma 5.2 in the true paper 1904.12438). ' +
+      'imp-33764 ASSESSES which primary sources could supply the H0 provenance independently of the ' +
+      'H3/H4 derivative tower.\n\n' +
+      'CANDIDATE SOURCES SURVEYED:\n' +
+      '(S1) Polymath15 alternatives within arXiv:1904.12438 -- Section 5 (Elementary estimates) carries ' +
+      'only Lemma 5.1 (numerical monotonicity/decay bounds); the papers dynamics estimates (heat-flow ' +
+      'evolution of the Riemann xi function) control H_t zero motion via Newtonian / backward-heat ' +
+      'bounds, NOT a fold-catastrophe Holder-1/2 cusp modulus. No lemma anywhere states ' +
+      'g_min ~ C_shock * W_1^{1/2}. MISS.\n' +
+      '(S2) de Bruijn-Newman literature (de Bruijn 1950, Newman 1976, Csordas-Norfolk-Varga, Ki-Kim-Lee) ' +
+      '-- concerns real-zero / entire-function bounds on the Lambda constant and monotone heat-flow zero ' +
+      'repulsion, not a Wasserstein-cusp blow-up modulus for a Calogero-Moser-type shock. MISS.\n' +
+      '(S3) Rodgers-Tao (arXiv:1801.05914, "The de Bruijn-Newman constant is non-negative") -- supplies ' +
+      'the zero-repulsion / eigenvalue-dynamics apparatus and the Lambda >= 0 lower bound, but its ' +
+      'dynamical estimates are Dyson-Brownian-flow spacing bounds, not a Holder-1/2 fold modulus with a ' +
+      'published cusp constant. MISS.\n\n' +
+      'VERDICT: NO external primary source discharges H0. The 1/2 fold exponent traces (imp-33649) to ' +
+      'Whitham 1974 Section 2.7 generic-fold theory -- a GENERAL PDE fact, not a zeta-specific published ' +
+      'lemma -- and the cusp-density W_1 synthesis is repo-originated. So H0 is not a "cite the published ' +
+      'lemma" act at all: it is an INTERNAL synthesis obligation that must be PROVED in-repo (compose ' +
+      'generic fold theory with the repo W_1 density control), not sourced by citation. This CONFIRMS ' +
+      'the imp-33745 DISTINCT-BUT-ORTHOGONAL verdict from the source side: surveying external sources ' +
+      'touched neither the H3 curvature nor the H4 strip-height-uniformity row, so H0 shares no input ' +
+      'with the derivative tower and remains open as its own in-repo obligation.\n\n' +
+      'HONEST SCOPE: source-assessment / scoping only, at the frontier-direction level -- not a proof and ' +
+      'not a literature-exhaustive survey. G6a_shock_lipschitz stays OPEN; the H0/H3/H4/H5 catalogue is ' +
+      'unchanged (still four open rows); no positivity; imp-3066 K_a >= 0 off-diagonal endpoint-Hankel ' +
+      'positivity UNTOUCHED; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33764 (assessing whether an alternative primary source can supply the H0 Holder-1/2 blow-up modulus provenance independently of Polymath15 Lemma 5.2), 2026',
+    relatedTerms: [
+      'imp-33745 H0-provenance DISTINCT-BUT-ORTHOGONAL verdict, the sibling scoping this source survey confirms from the citation side (imp-33745)',
+      'imp-33637 h0-provenance-verification, the double mis-citation finding that opened the replacement-source question (imp-33637)',
+      'imp-33649 fold-catastrophe source identification, tracing the 1/2 exponent to Whitham 1974 and the cusp modulus to a repo-originated W_1 synthesis (imp-33649)',
+      'imp-33603 lemma52-port-scoping, the H0..H5 catalogue whose provenance rung this survey leaves as an in-repo obligation (imp-33603)',
+    ],
+  },
+  {
     term: 'imp-33744 sigma-inflection CLOSED FORM: sigma_infl = 1/2 - g_prime/(2 g^2), exact 1/2 only in the pure power law',
     category: 'numerical',
     definition:

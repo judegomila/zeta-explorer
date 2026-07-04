@@ -8268,6 +8268,45 @@ export const glossary = [
       'imp-3066 off-diagonal endpoint-Hankel obstruction, the single-cell G7 magnitude this lower-bound assessment leaves untouched (imp-3066)',
     ],
   },
+  {
+    term: 'imp-33773 SUB-LEADING-RESIDUAL-IS-CURVATURE-NOT-EFLOW verdict: the p_sigma/p_ecoll offset residual below the (1-sigma) masking model is intra-decade saturation curvature (peaks at k=9), not the near-peak E_flow term',
+    category: 'numerical',
+    definition:
+      'imp-33727 aligned the separated-E_coll exponent ladder (p_ecoll) against the full-sigma OLS ' +
+      'exponent ladder (p_sigma) on decades k = 6..11, reported the offset p_ecoll - p_sigma as a ' +
+      'monotone-closing ramp toward 1/2, and attributed the SUB-LEADING residual below the leading ' +
+      '(1 - sigma) masking model to &quot;the near-peak E_flow term, which decays out&quot; -- but never ' +
+      'measured that residual against the actual E_flow contribution. imp-33773 recomputes both ladders ' +
+      'from the identical inherited imp-3220/imp-3406 parts() and tests the attribution quantitatively.\n\n' +
+      '(M1) The offset reproduces exactly: {0.4574, 0.4270, 0.3571, 0.2412, 0.1232, 0.0500}, byte-matching ' +
+      'the imp-33727 ladder and shrinking strictly monotonically toward the tail.\n\n' +
+      '(M2) THE E_FLOW ATTRIBUTION FAILS. The residual below the (1 - sigma) masking model is ' +
+      'resid_exp = {2.39e-2, 3.29e-2, 5.49e-2, 6.48e-2, 4.51e-2, 2.09e-2} -- a mid-range HUMP peaking at ' +
+      'k=9 -- while the actual E_flow term (E_flow/E_N)*|d ln E_flow/d ln N| = {1.12e-2, 4.71e-3, 1.60e-3, ' +
+      '3.96e-4, 7.23e-5, 1.08e-5} is MONOTONE-DECAYING and peaks at k=6. They disagree in shape (hump vs ' +
+      'monotone, argmax k=9 vs k=6) and magnitude (E_flow is 2.1x too small near the peak, ~1900x too ' +
+      'small in the tail).\n\n' +
+      '(M3) THE RESIDUAL IS INTRA-DECADE SATURATION CURVATURE, NOT E_FLOW. p_sigma is an OLS slope over ' +
+      'the whole decade while p_ecoll*(1 - sigma_hi) evaluates the masking factor only at the decade ' +
+      'upper endpoint; sigma varies fastest across the E_coll = E_trunc crossover decade (k=9, ' +
+      'N ~ 3.28e9, sigma 0.6367 -&gt; 0.3697 over [1e9,1e10]), so the endpoint (1 - sigma_hi) most ' +
+      'understates the decade-averaged (1 - sigma) exactly there -- which is why the residual peaks at ' +
+      'the crossover (k=9) and not where E_flow is largest (k=6).\n\n' +
+      'VERDICT: SUB-LEADING-RESIDUAL-IS-CURVATURE-NOT-EFLOW. The leading (1 - sigma) masking picture ' +
+      'stands and the offset ladder byte-matches; only the sub-leading E_flow sub-attribution is ' +
+      'corrected.\n\n' +
+      'HONEST SCOPE: measurement/attribution only, RH-equivalent, NOT rigorous. The component model is ' +
+      'the inherited imp-3220/imp-3406 extrapolation, not a fresh asymptotic; the C_mb GUE-conditional ' +
+      'per imp-486 is untouched; changes no bound; establishes no operator positivity; imp-3066 K_a&gt;=0 ' +
+      'untouched; no RH verdict; Platt-Trudgian Lambda&lt;=0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33773 (testing the imp-33727 E_flow attribution of the sub-leading p_sigma/p_ecoll offset residual against the actual E_flow contribution), 2026',
+    relatedTerms: [
+      'imp-33727 sigma-E_coll exponent-ladder cross-validation, the offset ladder and E_flow attribution this module tests (imp-33727)',
+      'imp-33730 full-sigma exponent-ladder reproduction, the p_sigma ladder reused verbatim here (imp-33730)',
+      'imp-33620 separated-E_coll exponent-ladder 1e15 extension, the source of the p_ecoll ladder (imp-33620)',
+      'imp-3444 sigma-N-shape landmark ladder, pinning the E_coll = E_trunc crossover N ~ 3.280e9 where the residual hump peaks (imp-3444)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

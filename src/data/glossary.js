@@ -6247,6 +6247,51 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33290 far-term tighter-majorant feasibility verdict: the realised-gap-aware bound 8*B_j (B_j=P_j/D_j) provably still upper-bounds the elasticity and collapses the certified ratio R_maj onto the K_real floor, but its N-uniform certification relocates onto sup_{N,j} B_j = the imp-33250 residual dg2",
+    category: "numerical",
+    definition:
+      "imp-33273 quantified an 84.70% far-term over-charge in the certified majorant ratio R_maj " +
+      "(imp-3898/imp-3917's per-term bound e_j <= 8/s_min(j)^2 collapses every length-m_j path " +
+      "prefix to its single smallest shrunk gap). imp-33290 asks whether a TIGHTER, still-valid " +
+      "per-term bound can close that over-charge: swap 8/s_min(j)^2 for the realised-gap-aware " +
+      "bound 8*B_j, where B_j := P_j/D_j is the ratio of the prefix sums P_j = sum_{l<=j} 1/s_l " +
+      "and D_j = sum_{l<=j} s_l.\n\n" +
+      "TWO EXACT FACTS, machine-verified on all 10 imp-3725 plateaus of [1e4,1e6]: (1) the swap is " +
+      "PROVABLY STILL A VALID UPPER BOUND -- term-by-term B_j <= 1/s_min(j)^2 by the AM-HM/" +
+      "Chebyshev-sum inequality (m_j terms each s_l >= s_min gives P_j <= m_j/s_min and " +
+      "D_j >= m_j*s_min), and the offline 1e-9 FP-slack guard never tripped; (2) it COLLAPSES " +
+      "R_maj ONTO THE K_real FLOOR EXACTLY, because 8*B_j is identically the imp-33269 realised " +
+      "elasticity kernel, so the tightened ratio R_tight is identically K_real -- endpoint " +
+      "R_maj 6.82 -> R_tight 1.044 (84.70% of the certified ratio removed), and across all 10 " +
+      "plateaus R_tight collapses into the flat [0.80, 1.60] K_real band while R_maj spans " +
+      "[1.81, 11.08].\n\n" +
+      "THE OBSTRUCTION RELOCATES RATHER THAN CLOSES: the whole point of collapsing to s_min was " +
+      "to reach the single closed form 8/Dmin^2 whose plateau value certifies N-uniformly. B_j is " +
+      "instead a running ratio of prefix sums that must be re-evaluated per plateau/per N, so " +
+      "certifying 8*B_j N-uniformly reduces to bounding sup_{N,j} B_j -- and that supremum IS the " +
+      "realised elasticity itself, i.e. exactly the imp-33250 residual dg2 (the O(1)-but-" +
+      "uncertified K_real). The measured max B_j already grows across plateaus (2.10 at plateau 0 " +
+      "up to 6.45 at plateau 5), so no finite table pins it.\n\n" +
+      "VERDICT: the far-term over-charge IS arithmetically removable by a provable tighter bound " +
+      "(feasible), but this does NOT by itself yield an N-uniform certified tail constant " +
+      "(infeasible as a standalone route) -- the open residual is merely relocated onto the " +
+      "already-open imp-33250 obstruction, not resolved.\n\n" +
+      "HONEST SCOPE: measurement + derivation on the 10 plateaus of [1e4,1e6]; R_tight is " +
+      "re-derived LIVE from the imp-33269 baked realisedScan (R_tight == K_real to 1e-5), maxBj " +
+      "is baked from the offline term-by-term guard sweep. No new Lambda bound; imp-3910 " +
+      "C <= 54.56 stands; imp-3066 K_a >= 0 UNTOUCHED; Platt-Trudgian Lambda <= 0.2 remains SOTA; " +
+      "NO QED.",
+    firstUsed: "imp-33290 (feasibility assessment of the realised-gap-aware per-term majorant swap 8/s_min(j)^2 -> 8*B_j, showing it collapses R_maj onto the K_real floor while relocating N-uniform certification onto sup B_j), 2026",
+    relatedTerms: [
+      "imp-33273 quantified the 84.70% far-term majorant over-charge this assessment removes (imp-33273)",
+      "imp-33269 all-plateaus majorant ratio scan, source of the realisedScan/Dmin aggregates (imp-33269)",
+      "imp-33250 tail-weight ratio N-uniformity assessment, the residual dg2 the obstruction relocates to (imp-33250)",
+      "imp-33309 sup_j B_j realised-elasticity growth-fit feasibility (imp-33309)",
+      "imp-3917 per-term majorant cross-validation (imp-3917)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

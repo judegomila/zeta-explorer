@@ -4445,6 +4445,40 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3871 fifth/sixth-derivative saddle corrections: C4,C5 SHRINK (refuting imp-3848), and the residual L_n=1 crossing gap (n~18.4 vs n~48.6) is a MODEL-FIDELITY gap, not a truncation artifact",
+    category: "numerical",
+    definition:
+      "imp-3848 truncated the saddle expansion of the reduced moment-ratio drift L_n = eps_n * " +
+      "n(1+4 tau*) at third/fourth order (1 + C1 + C2 + C3) and found it OVERSHOOTS, crossing 1 " +
+      "near n~15-17 rather than the measured n~48, conjecturing that growing higher-order Laplace " +
+      "terms must partially cancel to close the gap. imp-3871 extends the closed-form derivatives " +
+      "f^(k)(tau*) = n(-1)^(k-1)(k-1)!/tau*^k - 4^k P (P = pi e^{4 tau*}) to the fifth and sixth " +
+      "order, giving C4 = tau* f^(5) sigma^4/4 and C5 = f^(6) sigma^6/8." +
+      "\n\nTHREE findings. (1) C4, C5 SHRINK monotonically over n=10..60 (C4: 0.1307 -> 0.0007; " +
+      "|C5|: 0.0169 -> 0.0002) -- REFUTING the imp-3848 growing-but-cancelling conjecture; the " +
+      "saddle series is well-behaved and rapidly convergent, not a delicate cancellation. " +
+      "(2) Adding C4, C5 moves the predicted crossing only from n~17.13 to n~18.34, CONVERGING " +
+      "onto the fully-resummed model-integrand crossing n~18.38 obtained by exact saddle-centred " +
+      "Simpson quadrature of tau^n exp(-pi e^{4 tau}) (grid-converged to ~1e-4; extended series " +
+      "and exact model agree to ~4e-4 at n=18) -- the series has effectively converged by five " +
+      "terms, leaving no room for higher terms to move the crossing further. (3) Since even the " +
+      "EXACT model resummation crosses 1 near n~18.4 while the MEASURED L_n (built from the real " +
+      "Phi-autocorrelation A(tau), reproducing the imp-3735 anchors) crosses near n~48.6, the " +
+      "~30-unit gap is a MODEL-FIDELITY gap between the imp-3665 super-exponential surrogate " +
+      "A(tau) ~ exp(-pi e^{4 tau}) and the real A(tau) -- NOT a truncation-order artifact. No " +
+      "number of saddle terms can repair a model mismatch; the honest next step is a better " +
+      "A(tau) surrogate, not more terms (imp-3893 later quantified this gap moment-by-moment as " +
+      "a sub-3% multiplicative tilt T_n).",
+    firstUsed: "imp-3871 (extending the imp-3848 saddle expansion to fifth/sixth-derivative corrections C4,C5, showing they shrink rather than grow, converge the truncated series onto the exact model-integrand crossing n~18.4, and localizing the remaining gap to the measured n~48.6 as a model-fidelity mismatch rather than a truncation artifact), 2026",
+    relatedTerms: [
+      "imp-3848 next-order saddle correction: f_ppp(tau*) sign change drives L_n through 1, no asymptote (imp-3848)",
+      "imp-3735 moment-ratio correction eps_n = Q_n/tau*(n)^2 - 1: Laplace-variance decay order (imp-3735)",
+      "imp-3893 quantifies the imp-3871 model-fidelity gap as a sub-3% moment-ratio tilt T_n (imp-3893)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

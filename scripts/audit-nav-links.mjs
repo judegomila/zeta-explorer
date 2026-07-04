@@ -268,6 +268,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33549-sigma-fartail-vs-interior-max',
   '/viz-imp33550-max-bj-realised-elasticity',
   '/viz-imp33570-sigma-fartail-slope-sqrt-fraction',
+  '/viz-imp33571-deep-tail-jitter-envelope',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

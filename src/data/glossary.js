@@ -4521,6 +4521,40 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3873 three-path -ln A(tau) provenance: uniform-Simpson, graded Gauss-Legendre and peak-scaled substitution-Simpson all land on -ln A(2.5)=69198.540665 and -ln A(3.0)=511309.612538",
+    category: "numerical",
+    definition:
+      "imp-3850 extended the imp-3736 uniform-log-Simpson-vs-graded-Gauss-Legendre reconciliation of " +
+      "A(tau) = int_0^inf Phi(s) Phi(s+tau) ds to tau in {2.5, 3.0}, but its uniform-Simpson anchors " +
+      "there (-ln A(2.5)=69198.54066317 at n=2.56e7, -ln A(3.0)=511309.61253717 at n=2.048e8) were " +
+      "OFFLINE-VERIFIED LITERALS, not self-computing at import: the near-s=0 peak width " +
+      "1/(4 pi e^{4 tau}) collapses to ~5e-6 / ~6e-7, so a uniform [0,12] mesh needs those huge n " +
+      "to seat enough nodes under the peak." +
+      "\n\nimp-3873 closes that provenance gap with a THIRD, structurally independent, " +
+      "SELF-COMPUTING quadrature: a peak-scaled substitution s = sigma*x, sigma = 1/(4 pi e^{4 tau}) " +
+      "the analytic peak width, so A(tau) = sigma * int_0^Xmax g(sigma x) dx and a uniform mesh in x " +
+      "resolves the rescaled O(1)-wide peak with only n<=8000 nodes -- neither the graded-GL " +
+      "power-panel rule nor the uniform-[0,12] mesh. It climbs MONOTONICALLY from below (n=500 gap " +
+      "~-2.3e-7 -> n=8000 gap ~-1.5e-11) onto the graded-GL limit, agreeing with it to <1e-9 " +
+      "absolute and with the offline uniform-Simpson literals to within their documented ~1e-6 " +
+      "absolute / ~1e-11 relative residual, and is domain-invariant (Xmax in {40,80,120} agree " +
+      "<1e-9). All three structurally distinct paths -- uniform-Simpson (n=2.56e7/2.048e8), graded " +
+      "Gauss-Legendre, and peak-scaled substitution-Simpson (n<=8000) -- now land on the same " +
+      "-ln A(2.5)=69198.540665 and -ln A(3.0)=511309.612538, confirming the uniform-mesh shortfall " +
+      "was pure under-resolution of the collapsing peak, not bias." +
+      "\n\nACCURACY/PROVENANCE REPRODUCTION only, RH-equivalent, necessary-but-not-sufficient; the " +
+      "off-diagonal endpoint-Hankel obstruction K_a >= 0 (imp-3066) is UNTOUCHED. No RH verdict, " +
+      "no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3873 (closing the imp-3850 offline-verified-literal provenance gap by reproducing its uniform-Simpson anchors at tau in {2.5,3.0} with a third, structurally independent, self-computing peak-scaled substitution Simpson, converging all three paths onto -ln A(2.5)=69198.540665 and -ln A(3.0)=511309.612538), 2026",
+    relatedTerms: [
+      "imp-3850 dual-path -ln A(tau) reconciliation window extended to [1.5,3.0]: c(2.5)=+0.357539 and c(3.0)=+0.355480 gain an independent second-path anchor (imp-3850)",
+      "imp-3736 honest-status note: the imp-3665-vs-imp-3709 -ln A(2) gap is ENTIRELY grid-convergence residual, not a method disagreement (imp-3736)",
+      "imp-3730 A-weight subleading correction limit c_inf ~ 0.3543: the third-of-a-log-unit floor above the leading pi e^{4 tau} decay (imp-3730)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

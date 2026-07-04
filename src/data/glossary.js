@@ -7592,6 +7592,40 @@ export const glossary = [
       'imp-33723 CLOSED-FORM crossover, the closed-form root of the same halving landmark (imp-33723)',
     ],
   },
+  {
+    term: 'imp-33708 FAR-TAIL-FLOOR-SENSITIVITY-STEEPER-THAN-PEAK: the sigma=0.5/sigma<0.1 landmarks scale N ~ E_trunc^(-2.0)',
+    category: 'numerical',
+    definition:
+      'imp-33684 measured how the E_trunc truncation-floor MODEL FORM (a 0.5x..5x rescaling of the ' +
+      'imp-2631 fixed-strip constant) moves the imp-33582 INTERIOR PEAK of sigma(N) = ' +
+      'E_coll/(E_trunc+E_flow+E_coll), finding a softened power law N_max ~ E_trunc^(-1.375) because ' +
+      'E_flow ~ 4.7e-5 is comparable to E_trunc there. imp-33708 runs the IDENTICAL floor swap on the ' +
+      'two FAR-TAIL landmarks instead -- the sigma=0.5 halving point (baseline N ~ 3.267e9) and the ' +
+      'sigma<0.1 crossing (baseline N ~ 3.213e11), both reproducing imp-33582 exactly at factor 1.0. ' +
+      'Deep in the tail E_flow is negligible (E_flow/E_trunc ~ 1.9e-3 at sigma=0.5, ~3.5e-5 at ' +
+      'sigma<0.1), so each crossing is pure E_trunc-vs-E_coll balance: E_coll = E_trunc*thr/(1-thr) ' +
+      'with E_coll ~ N^(-1/2) forces the CLEAN dimensional N ~ E_trunc^(-2). The measured exponents ' +
+      '-- ~-2.099 (sigma=0.5) and ~-2.079 (sigma<0.1) -- confirm it, STEEPER (more floor-sensitive) ' +
+      'than the imp-33684 peak because the tail balance drops the E_flow softening term the peak ' +
+      'still carries. A +/-10% floor perturbation moves each landmark by ~+21%/-18% (~0.18-0.19 ' +
+      'decades), and a 10x floor sweep spans ~2.1 decades of N -- the opposite direction from the ' +
+      'imp-33606/imp-33647 E_coll sub-leading-term swap, whose band SHRINKS into the tail: floor-form ' +
+      'sensitivity grows with depth while sub-leading-form sensitivity shrinks. But the QUALITATIVE ' +
+      'milestones stay robust -- for every positive constant floor both crossings still exist and stay ' +
+      'ordered (halving precedes sub-0.1), since a constant E_trunc always outlives the vanishing ' +
+      'E_coll. Verdict: ROBUST QUALITATIVELY, FRAGILE QUANTITATIVELY, and MORE fragile than the peak.\n\n' +
+      'HONEST SCOPE: measurement/sensitivity only, NOT rigorous. The component model is the inherited ' +
+      'imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; C_mb stays GUE-conditional (imp-486); ' +
+      'changes no bound; establishes no operator positivity; imp-3066 K_a>=0 sign-positivity untouched; ' +
+      'Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33708 (E_trunc floor-model-form sensitivity sweep of the imp-33582 far-tail sigma=0.5 and sigma<0.1 landmarks, measuring the clean dimensional N ~ E_trunc^(-2.0) scaling and contrasting it with the imp-33684 interior-peak ~E_trunc^(-1.375)), 2026',
+    relatedTerms: [
+      'imp-33582 accelerating sigma(N) post-peak decay, source of the two far-tail landmarks perturbed here (imp-33582)',
+      'imp-33684 interior-peak E_trunc floor-model sensitivity, the SAME floor swap applied to the peak instead of the tail, exponent ~-1.375 (imp-33684)',
+      'imp-33606 / imp-33647 E_coll sub-leading-term model swap on these landmarks, the opposite-direction axis whose band shrinks with depth (imp-33606)',
+      'imp-3444 E_coll=E_trunc crossover landmark, the sigma=1/2 halving twin these far-tail landmarks are measured against (imp-3444)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

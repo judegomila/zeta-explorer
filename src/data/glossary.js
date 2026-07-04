@@ -5756,6 +5756,41 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33248 double-double Watson-bracket divergence: the analytic reformulation, not extended precision, recovers the high-tau signal",
+    category: "numerical",
+    definition:
+      "imp-33229 assessed that EXTENDED PRECISION was the lever needed to push the imp-3730 Watson-" +
+      "majorant bracket ladder rhoRatio(tau) = exp(lnAn1 + T - ln(Phi0/4)) past its tau~3.5 additive-" +
+      "cancellation floor, but never ran the extended-precision ladder. imp-33248 runs it and finds a " +
+      "sharper story: the DIRECT single-double route (subtracting T = pi e^{4 tau} from lnAn1 ~ -T + " +
+      "O(1)) is a catastrophic cancellation that blows up with tau -- rhoRatio(4,5,6) = -3.53, -389, " +
+      "-2.31e6, all far past the K0=3.46 gate. A CANCELLATION-FREE reconstruction that folds the -T " +
+      "subtraction ANALYTICALLY per quadrature node (E_j = smooth_j + pi*huge_j with huge_j = -e^{4s} " +
+      "- e^{4 tau} expm1(4s), so no large cancellation ever forms) recovers a finite, small rhoRatio " +
+      "at every tau, agreeing with the imp-3892 closed two-term model K_lead + K6 e^{-2 tau} " +
+      "(K_lead=-3.4120570431) to ~5.9e-8 (tau=4), ~5.0e-6 (tau=5), ~1.0e-4 (tau=6). THE KEY REFINEMENT " +
+      "of imp-33229: once that reformulation is applied, plain double and double-double (Dekker/Knuth " +
+      "twoSum/twoProd, u_dd=2^-106) accumulation are BIT-IDENTICAL at tau=4 and tau=5 -- extended " +
+      "precision is a NON-lever there. Only at tau=6 does double-double add anything, and even then " +
+      "just a ~7.06e-5 tail correction (tightening |B-model| from 1.72e-4 to 1.02e-4). So the operative " +
+      "lever recovering the signal past the cancellation floor is the ANALYTIC REFORMULATION, with " +
+      "extended precision serving only as a marginal tau=6 tail cleanup, not the primary mechanism " +
+      "imp-33229 proposed.\n\nHONEST SCOPE: measurement/reconstruction only; establishes no operator " +
+      "positivity and certifies no bound. rhoRatio stays under the imp-3730 K0=3.46 gate at every tau " +
+      "in {4,5,6} (|.| in [3.4114,3.4120]). The shared NPHI=10 Phi-series truncation is inherited by " +
+      "both routes and by the closed-model constants, so agreement does not certify the exact analytic " +
+      "limit. The off-diagonal endpoint-Hankel K_a >= 0 step (imp-3066) is UNTOUCHED. No RH verdict, " +
+      "no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33248 (running the imp-33229-predicted extended-precision ladder at tau in {4,5,6} and isolating the reformulation, not the precision, as the actual lever), 2026",
+    relatedTerms: [
+      "imp-33229 extended-precision onset assessment predicting the double-double lever (imp-33229)",
+      "imp-3730 Watson-majorant bracket tau~3.5 additive-cancellation floor (imp-3730)",
+      "imp-3892 closed two-term rhoRatio model K_lead + K6 e^{-2 tau} (imp-3892)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

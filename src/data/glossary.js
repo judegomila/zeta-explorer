@@ -7323,6 +7323,48 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33679 height-saturates-at-high-plateau verdict: extending the imp-33660 cluster-peak envelope-height fit into a fresh [1200,1600] window resolves GROWTH-CLASS-UNRESOLVED toward saturation, not persistent growth or reversion",
+    category: "numerical",
+    definition:
+      "imp-33660 fit the sixteen [400,1200] band-clearing cluster-peak envelope HEIGHTS to four candidate " +
+      "laws and returned HEIGHT-GROWS-WEAKLY-POSITIVE-GROWTH-CLASS-UNRESOLVED: a weak positive linear slope " +
+      "(~+0.067 ULP/rung, R^2~0.33) carried almost entirely by the two tallest imp-33638 tail clusters " +
+      "(~143.6 ULP at n~1126, ~135.0 at n~1198), with the remaining fourteen peaks sitting flat in a " +
+      "~64..86 ULP band. Two hypotheses were left undecided: (a) the height keeps growing past n=1200, or " +
+      "(b) the two tall clusters are outliers and the height reverts to the flat early band.\n\n" +
+      "imp-33679 extends the IDENTICAL grade-4 budgets >=200-node floorUlp(n) scan rule into a fresh " +
+      "[1200,1600] window past the imp-33638 n=1200 sample edge -- rungs the imp-33660 fit never reached -- " +
+      "and refits height-vs-n on the new peaks.\n\n" +
+      "VERDICT: HEIGHT-SATURATES-AT-HIGH-PLATEAU-NEITHER-REVERTS-NOR-KEEPS-GROWING. The fresh window yields " +
+      "FOUR new band-clearing cluster peaks at n~1230,1324,1433,1599 with heights [140.1,144.2,143.3,146.5] " +
+      "ULP, all tightly banded (mean ~143.5, sd ~2.3). This rejects BOTH open hypotheses: the height does " +
+      "NOT revert to the ~64..86 ULP early band (every fresh peak sits above 140 ULP, ~2x that band), and it " +
+      "does NOT keep growing at the ~+0.067 ULP/rung [400,1200] rate (the within-window slope collapses to " +
+      "~+0.015, ~4.5x smaller, a total predicted rise of only ~6 ULP against the ~2.3-ULP peak sd). The two " +
+      "tallest imp-33638 tail clusters were the ONSET of this elevated plateau, not two-point outliers -- " +
+      "exactly why the imp-33660 fit read them as an unclassifiable weak trend. Band-clearing is now " +
+      "NEAR-CONTINUOUS (~98.3% of the 401 fresh rungs clear env>=64), so the discrete clustered-spike " +
+      "structure of [400,1200] has given way to a broad elevated floor. The non-constant growth-law R^2 " +
+      "rise to ~0.79..0.80 but on a trivial ~2.3-ULP spread carry no meaningful signal, so the growth CLASS " +
+      "itself stays unresolved -- now because the height is flat/saturated rather than a weak two-outlier " +
+      "trend.\n\n" +
+      "HONEST SCOPE: measurement only, not a bound. This is a jittery arithmetic-floor lattice property " +
+      "(imp-33249/imp-33537/imp-33557/imp-33599/imp-33621/imp-33638/imp-33660 latticeJitterCaveat): the " +
+      "exact plateau heights, the ~+0.015 within-window slope, and the ~143.5 ULP mean can shift under " +
+      "cross-platform libm variation, but the qualitative reading -- saturation at a high plateau, neither " +
+      "reversion nor persistent growth -- is robust. NPHI=10 truncation inherited; changes no bound, patches " +
+      "no literal; mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 untouched; " +
+      "Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+    firstUsed: "imp-33679 (extending the imp-33660 [400,1200] cluster-peak envelope-height fit into a fresh [1200,1600] window past the imp-33638 sample edge), 2026",
+    relatedTerms: [
+      "imp-33660 height-grows-weakly-positive-growth-class-unresolved verdict, the [400,1200] fit this extends past its sample edge (imp-33660)",
+      "imp-33638 band-clearing tail re-intensification, the source of the two tallest clusters now read as the plateau onset (imp-33638)",
+      "imp-33680 slope-collapses-trend-is-a-two-point-artifact verdict, a companion leave-two-out robustness check on the same [400,1200] fit (imp-33680)",
+      "imp-33681 amplitude-grows-weakly-positive-but-below-the-peak-growth verdict, a companion measurement on the same sixteen peaks (imp-33681)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

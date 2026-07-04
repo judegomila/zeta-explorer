@@ -4563,6 +4563,44 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3866 Watson-tail reducibility: sg-3844-watson-tail splits into three standard remainders (R1)+(R2)+(R3)",
+    category: "numerical",
+    definition:
+      "imp-3844 derived the LEADING Watson terms of the A-weight correction c(tau) - (c_inf + " +
+      "B e^{-2 tau}) but left the rigorous all-orders O(e^{-4 tau}) tail bound external, named " +
+      "sg-3844-watson-tail. This module shows the tail is REDUCIBLE, not an unknown: it splits into " +
+      "three standard analytic-Watson remainder sources." +
+      "\n\n(R1) DROPPED n>=2 TAIL: every n>=2 term of the shifted kernel Phi(s+tau) carries relative " +
+      "size e^{-2T} (T = pi e^{4 tau}) against the leading n=1 term -- super-exponentially small, " +
+      "measured as machine zero (< 1e-12) across the clean window tau in {2.5, 3, 3.5}." +
+      "\n\n(R2) WATSON ENDPOINT REMAINDER: the slow amplitude phi(t) = e^{-pi(1+t)} acc(s(t)), " +
+      "s(t) = (1/4) ln(1+t), is real-analytic on (-1, inf) with its nearest singularity at the " +
+      "branch point t=-1, giving radius-1 Cauchy estimates |phi^(N)(0)/N!| <= M(r)/r^N (r<1) plus " +
+      "e^{-pi t} far-tail decay. A split int_0^delta + int_delta^inf then yields bracket(tau) = " +
+      "2 pi - 3 e^{-2 tau} + rho(tau) with |rho(tau)| <= K0 e^{-4 tau}. Measured rho(tau)/e^{-4 tau} " +
+      "sits at a tau-independent constant ~ -3.406, confirming the remainder is genuinely O(e^{-4 tau})." +
+      "\n\n(R3) THE -ln PROPAGATION: c(tau) = -ln((pi/2) Phi(0)) - ln(1+x), x = -(3/(2 pi)) e^{-2 tau} " +
+      "+ rho/(2 pi); the elementary remainder |ln(1+x) - x| <= x^2/(2(1-|x|)) turns (R2) into " +
+      "c(tau) - (c_inf + B e^{-2 tau}) = -rho/(2 pi) + (9/(8 pi^2)) e^{-4 tau} + O(e^{-6 tau}). Measured " +
+      "[c(tau) - (c_inf + B e^{-2 tau})]/e^{-4 tau} ~ 0.657 matches this closed prediction to " +
+      "O(e^{-2 tau}), direct evidence the derived order and constant are correct, not fitted." +
+      "\n\nWHAT STAYS EXTERNAL: only the single explicit numeric K0 -- the radius-1 Cauchy majorant " +
+      "M(r) at an optimised r<1 combined with the int_delta^inf split constant -- renamed " +
+      "sg-3866-watson-majorant-constant. That is a finite majorant computation, not a missing " +
+      "structural idea; imp-3892 later pinned it in closed form (K0 = 3.46)." +
+      "\n\nHONEST SCOPE: an assessment with numerical corroboration, not a proof; mass-feasibility is " +
+      "necessary-but-not-sufficient and the operator-level positivity obstruction K_a >= 0 " +
+      "(imp-3066) is UNTOUCHED. NPHI=10 kernel truncation is an upstream modeling choice. No RH " +
+      "verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3866 (assessing whether sg-3844-watson-tail is certifiable, and reducing it to three standard Watson-lemma remainder estimates corroborated numerically on the clean tau in {2.5,3,3.5} window), 2026",
+    relatedTerms: [
+      "imp-3844 A-weight correction limit closed form: c_inf, B (imp-3844)",
+      "imp-33223 honest-status note: sg-3844-watson-tail is now REDUCED-AND-PINNED (imp-3866 -> imp-3892), not open",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

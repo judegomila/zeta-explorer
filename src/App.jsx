@@ -194,6 +194,7 @@ const Imp33217FifthPairSpreadUlpFloorLadderViz = lazy(() => import('./pages/Imp3
 const Imp33264FifthPairSpreadLadderN2800ExtendedViz = lazy(() => import('./pages/Imp33264FifthPairSpreadLadderN2800ExtendedViz.jsx'));
 const Imp33298FifthPairPrecisionCollapseViz = lazy(() => import('./pages/Imp33298FifthPairPrecisionCollapseViz.jsx'));
 const Imp33300MajorantOverchargePlateauViz = lazy(() => import('./pages/Imp33300MajorantOverchargePlateauViz.jsx'));
+const Imp33302SlidingStartExponentLadderViz = lazy(() => import('./pages/Imp33302SlidingStartExponentLadderViz.jsx'));
 const Imp33219AWeightTwoRouteReproductionViz = lazy(() => import('./pages/Imp33219AWeightTwoRouteReproductionViz.jsx'));
 const Imp33246EpsCrossvalViz = lazy(() => import('./pages/Imp33246EpsCrossvalViz.jsx'));
 const Imp33257NodeBudgetFullWindowUlpViz = lazy(() => import('./pages/Imp33257NodeBudgetFullWindowUlpViz.jsx'));
@@ -845,6 +846,7 @@ function AppShell() {
           <Route path="/viz-imp33264-fifth-pair-spread-ladder-n2800-extended" element={<Imp33264FifthPairSpreadLadderN2800ExtendedViz />} />
           <Route path="/viz-imp33298-fifth-pair-precision-collapse" element={<Imp33298FifthPairPrecisionCollapseViz />} />
           <Route path="/viz-imp33300-majorant-overcharge-plateau-split" element={<Imp33300MajorantOverchargePlateauViz />} />
+          <Route path="/viz-imp33302-sliding-start-exponent-ladder" element={<Imp33302SlidingStartExponentLadderViz />} />
           <Route path="/viz-imp33266-g6a-k4-toolkit-status-map" element={<Imp33266ToolkitStatusMapViz />} />
           <Route path="/viz-imp33267-a-weight-dual-path-tau25-30" element={<Imp33267AWeightDualPathTau25To30Viz />} />
           <Route path="/viz-imp33284-r40-inner-quadrature-ladder" element={<Imp33284R40InnerQuadratureLadderViz />} />

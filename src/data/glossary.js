@@ -5684,6 +5684,43 @@ export const glossary = [
     ],
     link: "/viz-imp33264-fifth-pair-spread-ladder-n2800-extended",
   },
+  {
+    term: "imp-33250 realised-vs-certified tail-weight separation: K_real~1.05 N-flat vs R_maj rising to 6.82 at plateau 9",
+    category: "numerical",
+    definition:
+      "imp-3898 measured the realised path-local tail-weight elasticity ratio R_real = " +
+      "(dPsi/dT)/Psi over the nearest-term proxy 8/Dmin^2, and imp-3910 separately certified the " +
+      "weighted majorant collapse constant C = M*Dmin^2 (R_maj = M/(8/Dmin^2) = C/8), but neither " +
+      "tabulated the two ratios against N together. imp-33250 consolidated both LIVE on the shared " +
+      "imp-3725 plateaus 0/4/9 (endN 18859/87761/1.0e6, a 53x N-span): R_real = 1.045/0.827/1.044 " +
+      "is N-FLAT at O(1)~1 with no growth trend (the endpoint plateau 9 value sits between the two " +
+      "lower-N values), so a finite N-uniform K_real~1.05 is empirically supported, though the bare " +
+      "nearest-term proxy does NOT uniformly majorize R_real (it exceeds 1 by ~4.4-4.5% on plateaus " +
+      "0 and 9, |R_real-1|<=0.173 overall). By contrast the certified majorant ratio R_maj = " +
+      "3.95/1.81/6.82 (C = 31.59/14.51/54.56) dominates R_real on every plateau but is NON-monotone " +
+      "and attains its sample MAXIMUM exactly at the largest-N plateau 9, leaving the N->infinity " +
+      "sup un-certified from only 3 samples -- an endpoint-of-sample maximum is precisely the shape " +
+      "a sparse scan cannot rule out as an artifact. Two coupled obstructions were named to close " +
+      "this: only 3 of the 10 imp-3725 plateaus were scanned (imp-3917-sub-all-plateaus), and the " +
+      "per-term majorant substitution e_j<=8/s_min(j)^2 over-charges far terms with wide path-gap " +
+      "spread (imp-3910 residual). Both were later resolved: imp-33269 scanned all 10 plateaus and " +
+      "found R_maj TURNS OVER (interior max 11.08 at plateau 5, endpoint 9 dips to 6.82, so the " +
+      "imp-33250 endpoint max was a sparse-sampling artifact, not monotone growth), and imp-33273 " +
+      "showed the plateau-9 R_maj=6.82 is 84.70% far-term over-charge and only 15.30% (K_real=1.044) " +
+      "genuine realised tail.\n\nHONEST SCOPE: measurement/assessment only, no new offline scan " +
+      "beyond the shared plateaus, does NOT certify an N-uniform tail constant (bounded on the " +
+      "sample only), does NOT tighten the imp-3910 C<=54.56 bound. Establishes no operator " +
+      "positivity; the off-diagonal endpoint-Hankel K_a >= 0 step (imp-3066) is UNTOUCHED. No RH " +
+      "verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33250 (consolidating the imp-3898 realised tail-weight ratio and imp-3910 certified majorant ratio against N on the shared imp-3725 plateaus, finding the realised ratio N-flat while the majorant attains its sample max at the largest-N plateau), 2026",
+    relatedTerms: [
+      "imp-3898 path-local horizon-elasticity majorant (imp-3898)",
+      "imp-33269 all-plateaus majorant-ratio scan: R_maj turns over, interior max 11.08 (imp-33269)",
+      "imp-33273 majorant over-charge decomposition: 84.70% of plateau-9 R_maj is over-charge (imp-33273)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

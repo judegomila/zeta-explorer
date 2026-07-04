@@ -7406,6 +7406,24 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: 'Reference-Precision Envelope Reconciliation (imp-33559)',
+    category: 'numerical',
+    definition:
+      'Recomputing the imp-33538 named ~10.78 ULP tau-uniform jitter-band envelope constant with every ' +
+      'exp/log evaluated in a ~106-bit double-double reference libm (imp-33534) instead of double precision: ' +
+      'the binding height stays tau=8, but the constant itself shifts DOWN to E_ref ~= 10.212 ULP, ~0.567 ULP ' +
+      '(~5.3%) below the fp64-named ~10.779 ULP. The ~10.78 figure is therefore a double-libm round-off ' +
+      'artifact inflating the genuine quadrature-jitter ceiling; since E_ref < E the shipped fp64 envelope ' +
+      'remains a valid, slightly conservative (~5% loose) upper bound, never breached by the reference-' +
+      'precision recomputation.',
+    firstUsed: 'imp-33559 (reconciling the imp-33538 envelope constant against the imp-33534 reference-precision libm), 2026',
+    relatedTerms: [
+      'imp-33538 named ~10.78 ULP tau-uniform envelope, the constant this reconciles (imp-33538)',
+      'imp-33534 ~106-bit double-double reference-precision libm, the recomputation basis (imp-33534)',
+      'imp-33312 tau-uniform jitter band, the per-height ceilings recomputed here (imp-33312)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

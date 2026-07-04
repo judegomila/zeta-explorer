@@ -6930,6 +6930,46 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33536 baseline-relative graded-saving verdict: the ~63x R_40 node saving reflects the weak Simpson baseline, not an intrinsic graded advantage over Clenshaw-Curtis",
+    category: "numerical",
+    definition:
+      "imp-33308 carried the imp-33295 graded-cheaper scalar A(tau) node saving through the full imp-33292 " +
+      "R_40 moment-ratio machinery and reported the graded plateau reaching the converged floor at ~63x " +
+      "fewer nodes than the finest single UNIFORM (Simpson) grid, which never reaches the floor at all -- " +
+      "but that comparison only ever measured graded-vs-Simpson, so it could not say whether ~63x reflects " +
+      "a genuine graded-rule advantage or merely how weak the Simpson baseline is.\n\n" +
+      "imp-33536 places the same imp-33292 R_40 = D_40 = C_42 - C_40 machinery on an INDEPENDENT " +
+      "Clenshaw-Curtis cross-solver inner grid (Chebyshev-Lobatto nodes + CC weights, sharing nothing " +
+      "with the Simpson family or Gauss-Legendre). FINDING: (1) a fine CC grid reproduces the imp-33292 " +
+      "converged R_40 to ~52 ULP -- the floor is cross-solver-invariant, not a Simpson artifact; (2) the " +
+      "imp-33308 graded plateau (grade3/40panels=400 nodes) AND its min-node hit (grade3/8panels=80 " +
+      "nodes) both reach that independent CC floor at ~15.6 ULP, inside the ~40-ULP D_40 ratio-" +
+      "cancellation band, so the floor residual CARRIES under a cross-solver; (3) the ~63x saving DOES " +
+      "carry when measured against the 25206-node Simpson ladder; BUT (4) a single CC grid alone reaches " +
+      "the floor at only ~69 nodes -- node-COMPETITIVE with the ~80-node graded minimum (ratio ~1.16x), " +
+      "not ~63x more expensive.\n\n" +
+      "VERDICT: BASELINE-RELATIVE-NOT-INTRINSIC. The ~63x headline is real against the Simpson ladder it " +
+      "was measured against, but grading is NOT ~63x cheaper than a strong independent solver -- the " +
+      "Clenshaw-Curtis cross-solver closes almost all of that gap on its own. imp-33560 later confirmed " +
+      "the same baseline-relative pattern extends from R_40 to the deep-tail A(tau) weight.\n\n" +
+      "HONEST SCOPE: accuracy/rule-design measurement only, at the RH-equivalent scale class; changes no " +
+      "bound and patches no literal (imp-3685/imp-3849 and the imp-33292 converged value are left intact). " +
+      "The min-node graded and CC budgets are jittery arithmetic-floor lattice properties (the imp-33249/" +
+      "imp-33277/imp-33296 latticeJitterCaveat), so the robust reading is the qualitative baseline-" +
+      "relative ordering, not the exact node counts. Mass-feasibility is necessary-but-not-sufficient; " +
+      "the operator-level K_a >= 0 sign-positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33536 (verifying the imp-33308 ~63x graded-vs-uniform R_40 node saving on an independent Clenshaw-Curtis cross-solver inner grid, finding the converged floor carries cross-solver but that a single CC grid alone is node-competitive with the graded minimum -- the ~63x saving is baseline-relative to the weak Simpson ladder, not an intrinsic graded advantage), 2026",
+    relatedTerms: [
+      "imp-33308 graded-inner-grid R_40 node-budget carry-through, the ~63x saving this re-scores against an independent solver (imp-33308)",
+      "imp-33292 R_40 uniform Richardson ladder and converged floor, the reference this cross-solver reproduces (imp-33292)",
+      "imp-33295 graded-inner-grid A(tau) node-budget saving, the scalar-level saving imp-33308 carried through (imp-33295)",
+      "imp-33296 min-node graded-GL lattice-jitter characterization, source of the jitter caveat on the exact node counts (imp-33296)",
+      "imp-33560 baseline-relative-extends-to-the-deep-tail verdict, the same finding re-measured on the deep-tail A(tau) weight (imp-33560)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

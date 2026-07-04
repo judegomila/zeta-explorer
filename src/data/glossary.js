@@ -6176,6 +6176,41 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33293 tau in {9,10} crossover-tau* SATURATION: the graded-GL min-node budget for -ln A(tau) stops widening near tau*~6.95 because one ULP loosens exactly as the inverse peak scale grows",
+    category: "numerical",
+    definition:
+      "imp-33277 measured the imp-33249 grade<=5/342p floor widening across tau in {7,8} and left the " +
+      "widening a jittery per-tau lattice property, assuming the crossover keeps demanding a tau* ABOVE " +
+      "tau so the node budget must keep growing. imp-33293 extends the measurement to tau in {9,10} to " +
+      "test that assumption.\n\n" +
+      "TWO FINDINGS. (1) The min-node sub-1.5-ULP lattice hit lands at the SAME quadrature resolution " +
+      "tau*~6.95 at BOTH tau=9 and tau=10 (grade6/2430 GL nodes at each height; grade5/~7.4k; " +
+      "grade4/~38k) -- the crossover tau* does NOT track tau, it SATURATES, so the node budget stays " +
+      "essentially CONSTANT across tau in {9,10} rather than widening further. The crossover MARGIN " +
+      "tau*-tau consequently grows linearly NEGATIVE (-2.04 at tau=9, -3.04 at tau=10, slope ~-1), the " +
+      "opposite of the tau*-above-tau widening imp-33277 assumed. (2) MECHANISM: -ln A(tau) equals the " +
+      "analytic peak height pi e^{4tau} to 6+ digits (ratio 1.000000), so one ULP of the answer is " +
+      "EPS pi e^{4tau} -- it loosens exactly as the inverse peak scale 1/sigma(tau) grows. The RELATIVE " +
+      "accuracy bar therefore loosens like e^{4tau}, so a FIXED-resolution quadrature (fixed tau*~6.95) " +
+      "keeps clearing the loosening bar as tau climbs; the imp-33277 budget-must-widen reading was a " +
+      "tau in {7,8} transient. grade6 stays cheapest (2430<7350<38440 nodes) and the imp-33277 SD-vs-DD " +
+      "bit-identity extends (0 ULP at tau in {9,10}, since -ln A carries no subtractive cancellation).\n\n" +
+      "HONEST SCOPE: accuracy/rule-design measurement only, at the RH-equivalent scale class; the exact " +
+      "min-node panel count remains a jittery arithmetic-floor lattice property (the imp-33249/imp-33277 " +
+      "latticeJitterCaveat, later quantified by imp-33296), so the robust reading is the saturation " +
+      "direction and the grade-ordering, not the precise panel count. Mass-feasibility is necessary-but-" +
+      "not-sufficient; operator positivity (imp-3066 K_a >= 0) is UNTOUCHED. No RH verdict, no QED. " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33293 (extending the imp-33277 tau in {7,8} graded-GL <1 ULP node-budget measurement for -ln A(tau) to tau in {9,10}, finding the crossover tau* saturates near ~6.95 instead of tracking tau), 2026",
+    relatedTerms: [
+      "imp-33277 tau in {7,8} extension of the -ln A(tau) graded-GL node budget (imp-33277)",
+      "imp-33249 full-window graded-GL <1 ULP node budget (imp-33249)",
+      "imp-33296 min-node graded-GL lattice-jitter characterization (imp-33296)",
+      "imp-33313 crossover-tau* saturation at tau in {11,12} (imp-33313)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

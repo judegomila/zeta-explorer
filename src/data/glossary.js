@@ -7695,6 +7695,44 @@ export const glossary = [
       'g6a-sub-hyperbolic-closure (imp-394), the pointwise Holder-1/2 boundary-value discharge unaffected by this citation finding (imp-394)',
     ],
   },
+  {
+    term: 'imp-33621 TAIL-RE-INTENSIFICATION verdict: the imp-33599 three-cluster peak DOWNTREND (76.08 -> 65.30 -> 64.06 ULP) is a LOCAL feature, not a global decay law -- the tail n in [700,900] shows six further disjoint clusters whose tallest (~78.4 ULP at n~709) EXCEEDS the [400,700] max',
+    category: 'numerical',
+    definition:
+      'imp-33599 densely scanned floorUlp(n) over n in [400,700] (the graded-GL grade-4 plateau smallest ' +
+      'residual at budgets >= 200 nodes vs the imp-33213 A_log target) and found the band clearing is ' +
+      'THREE DISJOINT isolated clusters at n~526/591/634 with a peak DOWNTREND (76.08 -> 65.30 -> 64.06 ' +
+      'ULP), suggestive of a possibly-subsiding envelope. imp-33599 never scanned past n=700, leaving open ' +
+      'whether that downtrend continues (global decay) or is a local feature of the sampled window.\n\n' +
+      'imp-33621 extends the IDENTICAL dense every-integer scan (same rule: tau*=saddleTau(n), imp-33213 ' +
+      'A_log target, panels {20,30,50,100,200,400}, +/-5 rolling-max envelope, env>=64 marks a cluster) ' +
+      'into the tail n in [700,900]. MEASURED: the clustered-spike structure persists (envelope still dips ' +
+      'to ~28 ULP between clusters) but the downtrend does NOT continue -- SIX further disjoint clusters ' +
+      'appear: [708,719] (peak ~78.4 at n~709), [735,745] (~67.3), [754,764] (~67.1), [807,817] (~64.5), ' +
+      '[824,834] (~73.2), and [874,884] (~68.4). The tail max (~78.4 ULP) EXCEEDS the [400,700] max (~76.1 ' +
+      'at n~526), reversing the apparent downtrend. The tail-window trend alone is flat (~-0.02 ULP/rung, ' +
+      'r^2~0.01, jitter-dominated); the combined [400,900] trend is weakly positive (~+0.05 ULP/rung, ' +
+      'r^2~0.23).\n\n' +
+      'VERDICT: TAIL-RE-INTENSIFICATION -- the imp-33599 peak downtrend across its three sampled clusters ' +
+      'was a LOCAL feature of that window, not evidence of a global decay law toward subsidence below the ' +
+      'imp-33316 <64 ULP band. Sharpens the imp-33599/imp-33579/imp-33557/imp-33537 latticeJitterCaveat: ' +
+      'the clustered-spike phenomenon keeps recurring at least through n=900, with no sign yet of the ' +
+      'envelope permanently clearing the band. (imp-33638 later extends this further to n in [900,1200] and ' +
+      'finds the envelope keeps re-intensifying and roughly doubles.)\n\n' +
+      'HONEST SCOPE: accuracy/rule-design measurement only, at the RH-equivalent scale class. floorUlp(n) ' +
+      'is a jittery arithmetic-floor lattice quantity: the exact cluster edges and peak ULP can shift with ' +
+      'cross-platform libm exp/pow variation, so the robust reading is the qualitative re-intensification ' +
+      '-- not a monotone subsidence -- not the exact per-rung ULP. Changes no bound, patches no literal; ' +
+      'mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 sign-positivity untouched; ' +
+      'Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33621 (dense every-integer floorUlp(n) scan extending the imp-33599 [400,700] three-cluster downtrend into the tail n in [700,900], grade 4, budgets >= 200 nodes), 2026',
+    relatedTerms: [
+      'imp-33599 NO-MONOTONE-WIDE-RANGE-BAND-CROSSING verdict, the three-cluster downtrend this tail scan finds to be a local feature of (imp-33599)',
+      'imp-33316 < 64 ULP A_log band, the threshold the tail-window clusters are scored against (imp-33316)',
+      'imp-33638 NO-GLOBAL-CEILING-ENVELOPE-RE-INTENSIFIES-AND-ROUGHLY-DOUBLES verdict, extending this tail re-intensification into n in [900,1200] (imp-33638)',
+      'imp-33622 recovery-grade-not-rung-uniform finding, correlating recovery grade against these same cluster peaks (imp-33622)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

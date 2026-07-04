@@ -6018,6 +6018,52 @@ export const glossary = [
     link: "/closure-routes",
   },
   {
+    term: "imp-33327 graded-quadrature node-budget cohort index: cross-links for the -ln A(tau) graded-GL / graded-inner-grid family (imp-33249, imp-33277, imp-33293, imp-33295, imp-33296)",
+    category: "meta",
+    definition:
+      "Five tightly-coupled modules share one kernel (the saddle-window autocorrelation weight A(tau) " +
+      "and its log-domain form -ln A(tau)) and one recurring caveat, but were scattered across the " +
+      "glossary with no single index. This entry is that index -- one paragraph per module, plus the " +
+      "shared verdicts they all inherit.\n\n" +
+      "imp-33249 -- full-window graded-GL <1 ULP node budget. Locates the minimal graded Gauss-Legendre " +
+      "(panels, grade) budget holding worst-in-window <1 ULP for -ln A(tau) through tau<=6, naming the " +
+      "grade6/171-panel hit (0.76 ULP) as the min-node floor and flagging the panel-count result as " +
+      "lattice-jitter-sensitive.\n\n" +
+      "imp-33277 -- tau in {7,8} extension. Extends the tau<=6 measurement upward, finding single-double " +
+      "and double-double bit-identical results and a grade<=5/342-panel floor that WIDENS above tau=6, " +
+      "under the same lattice-jitter caveat.\n\n" +
+      "imp-33293 -- tau in {9,10} SATURATION. Tests whether the widening from imp-33277 continues; finds " +
+      "instead that the crossover tau* saturates near ~6.95 and stops tracking tau, because one ULP of " +
+      "the answer loosens as fast as the analytic peak height pi e^{4tau} grows -- so the imp-33277 " +
+      "widening was a transient of the tau in {7,8} window, not the long-run law.\n\n" +
+      "imp-33295 -- graded-vs-uniform inner grid VERDICT. Asks whether the graded-GL node saving measured " +
+      "in the log-domain -ln A(tau) also applies to the DIRECT linear-domain A(tau) quadrature underneath " +
+      "the imp-33275/imp-33276 uniform-Richardson route; finds GRADED-CHEAPER, reaching the same few-ULP " +
+      "floor at ~9x-300x fewer nodes than the 37205-node uniform ladder.\n\n" +
+      "imp-33296 -- lattice-jitter QUANTIFIED. Converts the imp-33249/imp-33277 lattice-jitter caveat from " +
+      "a stated caveat into a measured statistic: the strict <1 ULP bar is a ~12% lattice event that does " +
+      "NOT survive a +/-2-panel perturbation, while the robust, perturbation-stable reading is a grade-" +
+      "independent ~[0.7,5] ULP arithmetic-floor band.\n\n" +
+      "SHARED VERDICTS. (1) tau*~6.95 saturation (imp-33293) is the load-bearing fact that keeps the " +
+      "whole cohort's node budgets bounded rather than growing without limit. (2) GRADED-CHEAPER " +
+      "(imp-33295) is why the cohort exists -- grading pays for itself. (3) latticeJitterCaveat applies to " +
+      "every exact panel count in imp-33249/imp-33277/imp-33293, and is quantified (not just asserted) " +
+      "only by imp-33296. All five modules are accuracy/rule-design measurement only, at the RH-" +
+      "equivalent scale class; mass-feasibility is necessary-but-not-sufficient; NPHI=10 truncation is " +
+      "inherited; operator positivity (imp-3066 K_a >= 0) is UNTOUCHED. No RH verdict, no QED. Platt-" +
+      "Trudgian Lambda <= 0.2 remains the rigorous SOTA throughout.",
+    firstUsed: "imp-33327 (consolidating the imp-33249/33277/33293/33295/33296 graded-quadrature node-" +
+      "budget cohort into one cross-linked index), 2026",
+    relatedTerms: [
+      "imp-33249 full-window graded-GL <1 ULP node budget (imp-33249)",
+      "imp-33277 tau in {7,8} extension of the -ln A(tau) graded-GL node budget (imp-33277)",
+      "imp-33293 tau in {9,10} crossover-tau* saturation (imp-33293)",
+      "imp-33295 graded-vs-uniform inner A(tau) node-budget verdict (imp-33295)",
+      "imp-33296 min-node graded-GL lattice-jitter characterization (imp-33296)",
+    ],
+    link: "/closure-routes",
+  },
+  {
     term: "imp-33277 tau in {7,8} extension of the -ln A(tau) graded-GL node budget: single-double and double-double are bit-identical, and the grade<=5/342p floor widens above tau=6",
     category: "numerical",
     definition:

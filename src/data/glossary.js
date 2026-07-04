@@ -4065,7 +4065,14 @@ export const glossary = [
       "/ imp-3727) and G6a_shock_lipschitz stays OPEN." +
       "\n\nHONEST SCOPE: literature-anchored scoping/derivation only -- no estimate shipped, no " +
       "positivity, no bridge closure, no RH claim, NO QED. imp-3066 off-diagonal endpoint-Hankel " +
-      "K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA." +
+      "\n\nSTATUS UPDATE (imp-3872): the H2 root named here is no longer merely 'latent' -- imp-3872 " +
+      "empirically PROBES it, sampling kappa = (m_s - m_zz)/(m m_z) at 325 (height, time, z) points " +
+      "along the imp-3642 RK4 flow and finding it single-signed at exactly 2 (the discrete analog of a " +
+      "uniformly convex flux) with zero sign changes. That is still NOT a certificate: it does not " +
+      "construct the continuum complex-inviscid-Burgers limit or prove it exists, so H2 stays UNWRITTEN " +
+      "as a proof input and every one of T1-T4 above remains undischarged. The K4 route stays WHOLLY " +
+      "NEW and G6a_shock_lipschitz stays OPEN.",
     firstUsed: "imp-3846 (walking the classical caustic-regularity toolkit tool-by-tool and refining the imp-3727 flat availability tally into a dependency chain rooted at H2), 2026",
     relatedTerms: [
       "imp-3727 K4 entropy-solution regularity scoping: the six hypotheses a Burgers/CM caustic-map route to G6a Hoelder-1/2 would need (imp-3727)",
@@ -4073,6 +4080,7 @@ export const glossary = [
       "imp-3671 G6a_shock_lipschitz structural-silence verdict: S1 wrong type, S2 wrong scale (imp-3671)",
       "backward-flow-stability-gronwall Lemma B/C, the one-sided floor K4 must bypass (imp-2520)",
       "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+      "imp-3872 H2 discrete-flux convexity probe: kappa = 2 everywhere, viscosity shrinks ~518x (imp-3872)",
     ],
     link: "/closure-routes",
   },

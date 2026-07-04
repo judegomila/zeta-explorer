@@ -255,6 +255,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33323-min-node-lattice-jitter-band',
   '/viz-imp33324-graded-vs-uniform-node-budget',
   '/viz-imp33325-far-term-tighter-majorant',
+  '/viz-imp33326-genuine-eigenvector-fifth-pair-realized-c-ladder',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

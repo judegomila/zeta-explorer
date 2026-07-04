@@ -206,6 +206,7 @@ const Imp33243RecoveryRateFitViz = lazy(() => import('./pages/Imp33243RecoveryRa
 const Imp33323MinNodeLatticeJitterBandViz = lazy(() => import('./pages/Imp33323MinNodeLatticeJitterBandViz.jsx'));
 const Imp33324GradedVsUniformNodeBudgetViz = lazy(() => import('./pages/Imp33324GradedVsUniformNodeBudgetViz.jsx'));
 const Imp33325FarTermTighterMajorantViz = lazy(() => import('./pages/Imp33325FarTermTighterMajorantViz.jsx'));
+const Imp33326GenuineEigenvectorFifthPairRealizedCLadderViz = lazy(() => import('./pages/Imp33326GenuineEigenvectorFifthPairRealizedCLadderViz.jsx'));
 const Imp33266ToolkitStatusMapViz = lazy(() => import('./pages/Imp33266ToolkitStatusMapViz.jsx'));
 const Imp33267AWeightDualPathTau25To30Viz = lazy(() => import('./pages/Imp33267AWeightDualPathTau25To30Viz.jsx'));
 const Imp33284R40InnerQuadratureLadderViz = lazy(() => import('./pages/Imp33284R40InnerQuadratureLadderViz.jsx'));
@@ -868,6 +869,7 @@ function AppShell() {
           <Route path="/viz-imp33323-min-node-lattice-jitter-band" element={<Imp33323MinNodeLatticeJitterBandViz />} />
           <Route path="/viz-imp33324-graded-vs-uniform-node-budget" element={<Imp33324GradedVsUniformNodeBudgetViz />} />
           <Route path="/viz-imp33325-far-term-tighter-majorant" element={<Imp33325FarTermTighterMajorantViz />} />
+          <Route path="/viz-imp33326-genuine-eigenvector-fifth-pair-realized-c-ladder" element={<Imp33326GenuineEigenvectorFifthPairRealizedCLadderViz />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
           <Route path="/papers" element={<PapersListPage />} />

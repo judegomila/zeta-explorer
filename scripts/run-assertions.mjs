@@ -3603,6 +3603,15 @@ const DATA_MODULES = [
   // law to ~2e-9 past the crossover. Derivation/measurement only; imp-3066 untouched;
   // PT Lambda<=0.2 SOTA; no QED. 7 assertions.
   '/src/data/imp-33533-sigma-two-regime-crossover-blend.js',
+  // imp-33540: DECOMPOSES the imp-33315 ~3.0e-2 far-tail-law overshoot at the imp-3406 interior max
+  // (N~9.22e5) across the two powers of the imp-33291 far-tail form E_coll=C_C*N^(-1/2)*(log T0)^(+1/2).
+  // The overshoot factors exactly as OS=sigma_ft*sigma_full*(E_flow/E_coll) (identity gap ~1e-17), the
+  // two-power form entering only as 1/E_coll. Splitting the two-power log-factor across the 3.55-decade
+  // off-regime span [imp-3444 crossover N~3.28e9 -> peak], the -1/2 ln N slope carries ~+4.089 (~106%)
+  // and the +1/2 sqrt(log T0) coefficient ~-0.228 (~-6%, opposite sign): an ~18:1 dominance, since
+  // ln(log T0) moves only ~0.46 vs ~8.18 for ln N (the imp-33291 collinearity). Measurement/decomposition
+  // only; C_C GUE-conditional (imp-486); imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-33540-sigma-fartail-overshoot-two-power-decomposition.js',
   // imp-33537: ASSESSES whether the isolated imp-33316 n=300 deep-tail PLATEAU strict-bar spike is
   // a one-off by re-scoring the IDENTICAL imp-33295 conservative grade4/400p=4000-node graded plateau
   // against the imp-33213 A_log target on FOUR dense width-31 integer windows centred on

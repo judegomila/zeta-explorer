@@ -6630,6 +6630,37 @@ export const glossary = [
     link: "/closure-routes",
   },
   {
+    term: "imp-33540 closed-form far-tail overshoot decomposition: the imp-33315 ~3.0e-2 overshoot factors exactly as sigma_ft*sigma_full*(E_flow/E_coll), and its two-power ~18:1 slope-vs-sqrt(log T0) split is dominated by the N^(-1/2) power",
+    category: "numerical",
+    definition:
+      "imp-33315 measured that the far-tail sigma law, forced to the imp-3406 interior max (N_max~9.22e5), " +
+      "OVERSHOOTS the true peak by ~3.0e-2 (0.97939 vs 0.94943) while sitting ~3.55 decades below the " +
+      "imp-3444 crossover N_cross~3.280e9 the law is built for, reporting the overshoot as a single scalar. " +
+      "imp-33540 decomposes it two ways.\n\n" +
+      "FIRST, the overshoot has an exact closed-form product: OS = sigma_ft - sigma_full = " +
+      "sigma_ft*sigma_full*(E_flow/E_coll), reproducing the imp-33315 ~3.0e-2 figure to the arithmetic " +
+      "floor (identity gap ~1e-17). The imp-33291 two-power far-tail form E_coll = C_C*N^(-1/2)*(log " +
+      "T0)^(+1/2) enters the overshoot ONLY through its reciprocal, 1/E_coll.\n\n" +
+      "SECOND, splitting the two-power log-factor S(N) = -(1/2) ln N + (1/2) ln(log T0) additively across " +
+      "the 3.55-decade off-regime span from the crossover back to the peak: Delta S_slope ~ +4.089 (the " +
+      "-1/2 ln N power, ~106% of the total move) vs Delta S_sqrt ~ -0.228 (the +1/2 sqrt(log T0) " +
+      "coefficient, ~-6%, opposite sign) -- an ~18:1 dominance. ln(log T0) moves only ~0.455 over the span " +
+      "vs ~8.18 for ln N, the same slow log-of-a-log near-collinearity imp-33291 found. So although the " +
+      "far-tail law is a genuine joint (-1/2,+1/2) power pair, its off-regime residual at the interior max " +
+      "is carried almost entirely by the N^(-1/2) slope, not the sqrt(log T0) half-power.\n\n" +
+      "HONEST SCOPE: measurement/decomposition only, a conditional-share diagnostic, NOT an RH bound. C_C " +
+      "is GUE-conditional per imp-486; changes no bound; imp-3066 K_a>=0 untouched; no positivity, no " +
+      "bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33540 (decomposing the imp-33315 far-tail-law overshoot into a closed-form product identity and an additive two-power log-factor split, finding an ~18:1 dominance of the N^(-1/2) slope over the sqrt(log T0) half-power), 2026",
+    relatedTerms: [
+      "imp-33315 far-tail-law vs interior-max reconciliation deriving the ~3.0e-2 overshoot decomposed here (imp-33315)",
+      "imp-33291 far-tail sigma(N) two-regressor fit recovering the (-1/2,+1/2) joint power pair (imp-33291)",
+      "imp-3406 sigma(N) N-shape interior maximum N_max~9.22e5 (imp-3406)",
+      "imp-3444 E_coll=E_trunc crossover N_cross~3.280e9 anchoring the far-tail regime (imp-3444)",
+    ],
+    link: "/closure-routes",
+  },
+  {
     term: "imp-33313 crossover-tau* saturation at tau in {11,12}: the graded-GL min-node budget for -ln A(tau) stays plateaued near ~6.95 deeper, confirming the imp-33293 saturation is not a tau in {9,10} coincidence",
     category: "numerical",
     definition:

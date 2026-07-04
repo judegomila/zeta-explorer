@@ -257,6 +257,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33325-far-term-tighter-majorant',
   '/viz-imp33326-genuine-eigenvector-fifth-pair-realized-c-ladder',
   '/viz-imp33607-sigma-postpeak-decay',
+  '/viz-imp33609-graded-mapped-cc-abscissa-artifact',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

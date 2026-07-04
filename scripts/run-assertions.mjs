@@ -3802,6 +3802,18 @@ const DATA_MODULES = [
   // qualitatively. Diagnostic; no RH verdict; K_a>=0 not attempted; imp-3066 untouched;
   // PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-33791-deg-ceiling-saturation.js',
+  // imp-33814: DERIVES the missing THIRD roadmap-landmark closed form -- the sigma = 0.9 NEAR-PEAK
+  // threshold (currentStatus N ~ 2.57e7) -- via the same imp-33723/imp-33743 E_coll = E_trunc*thr/
+  // (1-thr) fixed point at thr = 0.9. Amplitude K_thr = K_halving/81 (the exact mirror of the
+  // imp-33743 thr=0.1 factor 81); the map is a contraction (|g_prime| ~ 0.056) with leading root
+  // N_cross ~ 3.205e7. RESULT: the leading closed form sits ~20% ABOVE the imp-33582 bisection
+  // (N ~ 2.5724e7) -- a residual ~50x LOOSER than the ~0.4% halving and ~2670x looser than the
+  // ~7.4e-5 far tail, INVERTING the ordering (fartail << halving << near-peak) because E_flow/E_trunc
+  // rises to ~0.109 near the peak (T0 smaller). Restoring E_flow closes the gap to ~5.5e-15,
+  // completing the trio and establishing a monotone residual law. Derivation/measurement only;
+  // conditional-share diagnostic; imp-3066/imp-486/C_C ansatz untouched; PT Lambda<=0.2 SOTA; no QED.
+  // 6 assertions.
+  '/src/data/imp-33814-sigma-nearpeak-crossover-closed-form.js',
 ];
 
 let ALL_MODULES = FAST_MODE

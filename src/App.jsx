@@ -191,6 +191,7 @@ const Imp3928InviscidWindowEdgeBlocksizeViz = lazy(() => import('./pages/Imp3928
 const Imp3929HorizonElasticitySharpeningViz = lazy(() => import('./pages/Imp3929HorizonElasticitySharpeningViz.jsx'));
 const Imp33214SaddleRatioDeepTailRecoveryViz = lazy(() => import('./pages/Imp33214SaddleRatioDeepTailRecoveryViz.jsx'));
 const Imp33217FifthPairSpreadUlpFloorLadderViz = lazy(() => import('./pages/Imp33217FifthPairSpreadUlpFloorLadderViz.jsx'));
+const Imp33264FifthPairSpreadLadderN2800ExtendedViz = lazy(() => import('./pages/Imp33264FifthPairSpreadLadderN2800ExtendedViz.jsx'));
 const Imp33219AWeightTwoRouteReproductionViz = lazy(() => import('./pages/Imp33219AWeightTwoRouteReproductionViz.jsx'));
 const Imp33246EpsCrossvalViz = lazy(() => import('./pages/Imp33246EpsCrossvalViz.jsx'));
 const Imp33257NodeBudgetFullWindowUlpViz = lazy(() => import('./pages/Imp33257NodeBudgetFullWindowUlpViz.jsx'));
@@ -834,6 +835,7 @@ function AppShell() {
           <Route path="/viz-imp3929-horizon-elasticity-sharpening" element={<Imp3929HorizonElasticitySharpeningViz />} />
           <Route path="/viz-imp33214-saddle-ratio-deep-tail-recovery" element={<Imp33214SaddleRatioDeepTailRecoveryViz />} />
           <Route path="/viz-imp33217-fifth-pair-spread-ulp-floor-ladder" element={<Imp33217FifthPairSpreadUlpFloorLadderViz />} />
+          <Route path="/viz-imp33264-fifth-pair-spread-ladder-n2800-extended" element={<Imp33264FifthPairSpreadLadderN2800ExtendedViz />} />
           <Route path="/viz-imp33219-a-weight-two-route-reproduction" element={<Imp33219AWeightTwoRouteReproductionViz />} />
           <Route path="/viz-imp33246-eps-crossval" element={<Imp33246EpsCrossvalViz />} />
           <Route path="/viz-imp33257-node-budget-full-window-ulp" element={<Imp33257NodeBudgetFullWindowUlpViz />} />

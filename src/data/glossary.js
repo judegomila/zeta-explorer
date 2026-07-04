@@ -5907,6 +5907,48 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33273 majorant over-charge decomposition: R_maj = K_real (genuine) + far-term over-charge, 84.70% of plateau-9 R_maj is over-charge",
+    category: "numerical",
+    definition:
+      "imp-33250 named an obstruction residual: the per-term majorant substitution e_j = " +
+      "8*P_j/D_j <= 8/s_min(j)^2 (imp-3898/imp-3917) OVER-CHARGES far terms whose gap path is " +
+      "wide (many gaps, s_min << D_j), and that over-charge -- not genuine tail growth -- is " +
+      "what lifts the imp-3910 certified majorant ratio R_maj well above the realised ratio " +
+      "K_real ~ 1. imp-33250 never quantified the split. imp-33273 does so EXACTLY, by live " +
+      "arithmetic on the already-scanned imp-33269 aggregates (no new offline scan): both the " +
+      "majorant weighted average M and the realised weighted average `realised` share the same " +
+      "Dmin^2/8 collapse scaling, so R_maj = M*Dmin^2/8 splits with NO cross term into " +
+      "R_maj = K_real + (M-realised)*Dmin^2/8, i.e. genuine realised tail contribution plus " +
+      "far-term majorant over-charge, and the scaling-free over-charge fraction is f_oc = " +
+      "1 - realised/M. RESULT: at the largest-N endpoint (plateau 9, R_maj = 6.82), f_oc = " +
+      "84.70% -- only 15.30% (K_real = 1.044) is genuine, the other +5.776 is far-term " +
+      "over-charge (mean far-term slack M/realised = 6.53x). Across all 10 imp-3725 plateaus " +
+      "f_oc stays large and O(1)-bounded in [54.4%, 87.1%] (min plateau 4, max plateau 5), " +
+      "while the genuine part K_real is O(1) in [0.80, 1.60] on EVERY plateau and never grows " +
+      "with N -- so the entire N-variation of R_maj (1.81..11.08, per imp-33269) is far-term " +
+      "majorant over-charge, not tail growth. Per imp-3917's per-term profile, the majorant is " +
+      "tight (zero slack) only at the 1-2 nearest single-gap terms, so the genuine K_real ~ 1 " +
+      "floor is carried by those nearest terms and the entire over-charge is carried by the " +
+      "far, wide-path-gap-spread terms -- resolving the imp-33250 residual #2 picture.\n\n" +
+      "HONEST SCOPE: measurement / exact reframing of the imp-33269 scan only (genuineRMaj " +
+      "reproduces the imp-33269 baked K_real to full precision, confirming faithfulness); no " +
+      "new offline scan, no certified N-uniform constant, no tightening of imp-3910's C <= " +
+      "54.56. The over-charge is the PRICE of the rigorous 8/s_min^2 substitution that makes " +
+      "the tail weight certifiable at all -- quantified here, not removed. The N->infinity " +
+      "split remains un-certified from a finite 10-plateau measurement. Establishes no " +
+      "operator positivity; the off-diagonal endpoint-Hankel K_a >= 0 step (imp-3066) is " +
+      "UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33273 (decomposing the imp-3910 certified majorant ratio into genuine realised tail contribution plus far-term majorant over-charge via exact live reframing of the imp-33269 aggregates, quantifying the imp-33250 residual #2), 2026",
+    relatedTerms: [
+      "imp-33250 realised-vs-certified tail-weight separation (imp-33250)",
+      "imp-33269 all-plateaus majorant-ratio scan: R_maj turns over, interior max 11.08 (imp-33269)",
+      "imp-3917 per-term majorant cross-validation: only nearest terms saturate (imp-3917)",
+      "imp-3910 tail-weight constant certification (imp-3910)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

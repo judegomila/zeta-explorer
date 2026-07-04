@@ -6017,6 +6017,44 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33277 tau in {7,8} extension of the -ln A(tau) graded-GL node budget: single-double and double-double are bit-identical, and the grade<=5/342p floor widens above tau=6",
+    category: "numerical",
+    definition:
+      "imp-33249 located the minimal graded Gauss-Legendre (panels, grade) budget holding worst-in-window " +
+      "<1 ULP for -ln A(tau) through tau<=6 and named grade<=5/342p as the empirical floor, capping the " +
+      "window there because the imp-33208/imp-33248 Watson-majorant bracket blows up in single-double " +
+      "above tau~4 and needs the imp-33248 double-double (Dekker/Knuth twoSum) log-sum-exp route to " +
+      "recover. imp-33277 extends the -ln A(tau) node-budget measurement to tau in {7,8}, running every " +
+      "candidate rule in BOTH single-double and double-double arithmetic.\n\n" +
+      "TWO FINDINGS. (1) The double-double route is UNNECESSARY for -ln A(tau) itself: single-double and " +
+      "double-double are BIT-IDENTICAL (0.000 ULP) at every (tau, grade, panels) probed through tau=8, " +
+      "because the -ln A log-sum-exp sums exp(t - mx) >= 0 with no difference of near-equal magnitudes -- " +
+      "it carries no subtractive cancellation for extended precision to recover. (double-double only " +
+      "helped the separate Watson-bracket ladder, which subtracts two magnitudes ~pi e^{4 tau}.) (2) The " +
+      "imp-33249 grade<=5/342p floor does NOT hold above tau=6: grade5/342p exactly resolves the tau=6 " +
+      "peak (tau*(342,5)=6.00), so above tau=6 its innermost panel no longer clears the peak scale " +
+      "sigma(tau)=1/(4 pi e^{4 tau}) and it fails -- worst gap 4.84 ULP at tau=7, 625 ULP at tau=8. The " +
+      "binding requirement (innermost-panel width a few-fold below sigma(tau)) is unchanged; only the " +
+      "target peak moved, so the node budget must WIDEN with tau. grade6 stays the cheapest family " +
+      "(grade6/348p hits ~0 ULP at tau=7, grade6/600p hits 0.57 ULP at tau=8), preserving the imp-33249 " +
+      "steeper-grades-cheaper ordering.\n\n" +
+      "HONEST SCOPE: this is a peak-resolution effect, not an arithmetic breakdown -- the SD-vs-DD bit-" +
+      "identity across all of tau in {0..8} rules out cancellation as the cause. Measurement/rule-design " +
+      "only; NPHI=10 Phi-series truncation inherited upstream; the exact panel counts are jittery lattice " +
+      "hits later characterized by imp-33296's latticeJitterCaveat, so the robust reading is the widening " +
+      "direction and the grade-ordering, not the precise panel count. Mass-feasibility is necessary-but-" +
+      "not-sufficient; operator positivity (imp-3066 K_a >= 0) is UNTOUCHED. No RH verdict, no QED. " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33277 (extending the imp-33249 full-window graded-GL <1 ULP node budget for -ln A(tau) to tau in {7,8} in both single-double and double-double arithmetic, finding SD/DD bit-identity and a floor that widens above tau=6), 2026",
+    relatedTerms: [
+      "imp-33249 full-window graded-GL <1 ULP node budget (imp-33249)",
+      "imp-33248 double-double Watson-bracket divergence (imp-33248)",
+      "imp-33293 tau in {9,10} crossover-tau* saturation (imp-33293)",
+      "imp-33296 min-node lattice-jitter band (imp-33296)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

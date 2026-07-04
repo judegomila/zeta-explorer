@@ -4710,6 +4710,48 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3896 logarithmic inviscid-window widening: the clean coarse-graining edge grows only ~log M, capping the hydrodynamic separation of scales",
+    category: "numerical",
+    definition:
+      "imp-3872 found the finite-N viscosity fraction visc(y_star)=|m_zz|/|2 m m_z| " +
+      "of the imp-3642 attractive-CM resolvent m(z)=sum_k 1/(z-x_k) shrinking ~500x " +
+      "across the coarse-graining sweep y_star/d=2->8, but flagged that the finite " +
+      "block edge (M=161) bounded the clean inviscid window to y_star/d in [2, 8]. " +
+      "imp-3896 measures how that window widens as the block grows: sweeping " +
+      "M=161, 321, 641, 1281 at the imp-3642 anchor height, the clean-window UPPER " +
+      "EDGE (argmin over integer multipliers of visc(mult*d)) goes 8 -> 10 -> 11 -> " +
+      "13 while the visc floor deepens 4.37e-4 -> 1.05e-5. The widening is " +
+      "monotone but only LOGARITHMIC: doubling M lifts the edge by only ~1.5 d, so " +
+      "edge/(M/2) FALLS from 9.9% to 2.0% -- the finite block edge recedes far " +
+      "slower than the block grows, capping the hydrodynamic separation of scales " +
+      "at ~log M. Brute particle-count growth cannot push the inviscid window to " +
+      "the microscopic y->0 continuum." +
+      "\n\nimp-3896 also checks whether the ~500x (2d->8d) shrinkage law persists " +
+      "beyond the imp-3642 ladder (log gamma>20.86): the ratio visc(2d)/visc(8d) " +
+      "measures 518.2x at the anchor, the crossover, and four heights beyond it " +
+      "(log gamma=22, 25, 28, 32), identical to <1e-9 relative spread. This is " +
+      "because at the s=0 seed the block is an exact rescaling by d (m~1/d, " +
+      "mz~1/d^2, mzz~1/d^3), so visc depends only on the dimensionless multiplier " +
+      "y_star/d -- the ~500x law is exactly SCALE-FREE, and the extra heights add " +
+      "no independent evidence at s=0 since genuine height dependence lives only " +
+      "in the s>0 RK4 flow imp-3872 already sampled." +
+      "\n\nHONEST SCOPE: a scale-sizing MEASUREMENT, not a certificate -- it does " +
+      "not widen the window to y->0, does not certify the m_zz->0 vanishing " +
+      "viscosity, and does not write H2. H2 stays UNWRITTEN, the K4 route stays " +
+      "WHOLLY NEW (consistent with imp-3714/3727/3846/3872/3891), and " +
+      "G6a_shock_lipschitz stays OPEN. No positivity, no bridge closure, no RH " +
+      "claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a>=0 UNTOUCHED; " +
+      "Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3896 (measuring how the imp-3872 clean inviscid window widens with block size M>161 and whether the ~500x m_zz viscosity-fraction shrinkage persists at heights beyond the imp-3642 ladder), 2026",
+    relatedTerms: [
+      "imp-3872 discrete-flux convexity probe -- the [2, 8] clean inviscid window and ~500x m_zz shrinkage this extends",
+      "imp-3914 log-fit of the imp-3896 window edge and particle-budget extrapolation",
+      "imp-3891 H2a continuum inviscid-Burgers limit written, H2b mean-field convergence OPEN",
+      "imp-3642 sigma-crossover attractive-CM seed, spacing d and block reused",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -3785,6 +3785,16 @@ const DATA_MODULES = [
   // reaching parity. Diagnostic device (breaks the exponential shear, per imp-33765); no RH
   // verdict; K_a>=0 not attempted; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-33789-decoupled-rate-grid.js',
+  // imp-33791: TABULATES the imp-33765 truncation-size DEG saturation of the COUPLED (admissible
+  // s_a = s_b = s) Perron norm ||R||(s) toward the all-ones ceiling DEG+1, and LOCATES s_90(DEG),
+  // the s-scale where ||R|| first reaches 90% of DEG+1, across DEG in {2..8}. RESULT: the ceiling
+  // rises LINEARLY with DEG while s_90 is essentially FLAT -- band [2.5584, 2.6058], spread ~2.2%,
+  // a shallow minimum near DEG=4, NEITHER growing nor shrinking. So enlarging the truncation lifts
+  // the ceiling but does not move where (in s) the obstruction saturates -- the curve rescales
+  // vertically, quantifying the ceiling-vs-curve separation imp-33765 (2)(iii) asserts
+  // qualitatively. Diagnostic; no RH verdict; K_a>=0 not attempted; imp-3066 untouched;
+  // PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-33791-deg-ceiling-saturation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

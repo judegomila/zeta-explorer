@@ -6629,6 +6629,39 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33313 crossover-tau* saturation at tau in {11,12}: the graded-GL min-node budget for -ln A(tau) stays plateaued near ~6.95 deeper, confirming the imp-33293 saturation is not a tau in {9,10} coincidence",
+    category: "numerical",
+    definition:
+      "imp-33293 found the graded-GL min-node sub-1.5-ULP crossover tau* for -ln A(tau) SATURATES near " +
+      "~6.95 across tau in {9,10} instead of tracking tau, leaving open whether that was a two-point " +
+      "coincidence. imp-33313 extends the same measurement to tau in {11,12}.\n\n" +
+      "TWO FINDINGS. (1) The min-node lattice hit lands at the SAME resolution tau*~6.947 at BOTH tau=11 " +
+      "and tau=12, at the IDENTICAL panel budget imp-33293 measured at tau in {9,10} (grade6/243 panels = " +
+      "2430 GL nodes, grade5/729 panels = 7290, grade4/3787 panels = 37870, at each height) -- the crossover " +
+      "tau* still does not track tau, and the const-budget reading is confirmed NOT a tau in {9,10} " +
+      "coincidence. The crossover margin tau*-tau continues linearly negative (-4.05 at tau=11, -5.05 at " +
+      "tau=12, slope ~-1). (2) The driving mechanism holds deeper too: -ln A(tau) equals the analytic peak " +
+      "height pi e^{4tau} to 9+ digits (peakRatio 1.000000000), so one ULP loosens the relative accuracy bar " +
+      "exactly as e^{4tau} grows, and a fixed-resolution rule keeps clearing it. grade6 stays the cheapest " +
+      "family (2430 < 7290 < 37870 nodes), a 15%-narrower rule fails at every reported hit (~32 ULP), and " +
+      "single-double vs the imp-33248 double-double log-sum-exp stay bit-identical (0 ULP), since -ln A " +
+      "carries no subtractive cancellation.\n\n" +
+      "HONEST SCOPE: accuracy/rule-design measurement only, at the RH-equivalent scale class; a ULP-scaling " +
+      "effect, not an arithmetic breakdown. The exact min-node panel count remains a jittery arithmetic-" +
+      "floor lattice property (the imp-33249/imp-33277 latticeJitterCaveat), so the robust reading is the " +
+      "flat crossover tau*, the tau-invariant grade6 budget and the linear margin law, not the precise panel " +
+      "count. Mass-feasibility is necessary-but-not-sufficient; operator positivity (imp-3066 K_a >= 0) is " +
+      "UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33313 (extending the imp-33293 tau in {9,10} graded-GL <1.5 ULP node-budget saturation test for -ln A(tau) to tau in {11,12}, confirming the ~6.95 crossover plateau and the const grade6/2430-node budget persist deeper), 2026",
+    relatedTerms: [
+      "imp-33293 tau in {9,10} crossover-tau* saturation (imp-33293)",
+      "imp-33277 tau in {7,8} extension of the -ln A(tau) graded-GL node budget (imp-33277)",
+      "imp-33249 full-window graded-GL <1 ULP node budget (imp-33249)",
+      "imp-33296 min-node graded-GL lattice-jitter characterization (imp-33296)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

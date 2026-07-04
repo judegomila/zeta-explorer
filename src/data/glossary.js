@@ -5791,6 +5791,46 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33253 Wilkinson kappa*u fifth-pair condition-number floor: the measured pair-gap spread is the sum of two backward-error eigenvalue errors",
+    category: "numerical",
+    definition:
+      "imp-33231 read the fifth-pair Gram degeneracy spread worstPairSpread(N) = |lambda_9 - lambda_10| " +
+      "/ lambda_9 (the imp-3668 dense tred1+tql1 solve of the FIXED 10x10 Gram S = T^T T) as an " +
+      "N-independent few-ULP floor sitting below a conservative 10-ULP line, but that line was only " +
+      "asserted. imp-33253 DERIVES it from Wilkinson backward-error theory: the symmetric eigensolver " +
+      "returns the exact eigenvalues of a perturbed S + E with ||E||_2 <= p(n)*u*lambda_1, so by Weyl " +
+      "each eigenvalue's absolute error is bounded by the same quantity. The fifth pair is EXACTLY " +
+      "degenerate in the pairing structure (lambda_9 = lambda_10), so its true spread is zero and the " +
+      "WHOLE measured spread is the sum of the two eigenvalues' backward errors, |lambdaHat_9 - " +
+      "lambdaHat_10| <= 2*p(n)*u*lambda_1, giving the relative floor worstPairSpread <= 2*p(n)*kappa_pair*u " +
+      "with kappa_pair = lambda_1/lambda_9 = 1/sigma_4 the fifth-Gram-pair condition number. Because the " +
+      "eigensolver always sees the SAME 10x10 matrix regardless of N (N is only the quadrature " +
+      "resolution assembling T), p(n)=p(10) is fixed and the predicted ceiling n*kappa_pair depends on N " +
+      "only through the tiny kappa_pair drift -- the structural reason the floor is N-independent. " +
+      "RESULTS: kappa_pair = 1.00153..1.00063 (N=1800..2800, within 0.16% of 1) makes the predicted " +
+      "ceiling n*kappa_pair = 10.006..10.015 ULP, IDENTIFYING the conservative 10-ULP line as exactly " +
+      "this Wilkinson floor with effective constant p_eff=1; all five measured rungs (0.885, 6.195, " +
+      "8.848, 8.846, 0.884 ULP) realize a backward-error constant c = worstPairSpread/(n*kappa_pair*u) " +
+      "in [0.088, 0.884], strictly inside the worst-case envelope c<=1 (mean ~0.51); and kappa_pair " +
+      "falls monotonically as sigma_4 climbs toward 1, so the predicted ceiling never rises with N -- " +
+      "consistent with the imp-33231 order-of-magnitude dip and inconsistent with any growth law.\n\n" +
+      "HONEST SCOPE: derivation + measurement only. It derives the UPPER bound, the N-independence, and " +
+      "the order of magnitude, but does NOT predict the per-rung value -- the realized constant c in " +
+      "[0.088, 0.884] is the empirical QL convergence quality, not derived from first principles. Adds " +
+      "no new Lambda bound, does not re-certify the pairing (imp-3668), does not establish the sigma_4 " +
+      "amplitude law, and does not attempt the imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. No RH " +
+      "verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33253 (deriving the imp-33231 fifth-pair Gram-spread few-ULP floor from the fifth-Gram-pair condition number via Wilkinson backward-error theory for the fixed 10x10 Gram eigensolve, showing all five measured rungs sit inside the c<=1 worst-case envelope), 2026",
+    relatedTerms: [
+      "imp-33231 fifth-pair Gram-spread N=2800 rung: order-of-magnitude dip (imp-33231)",
+      "imp-33209 fourth fifth-pair Gram-spread rung, N=2400 (imp-33209)",
+      "imp-3668 dense fifth-pair Gram degeneracy cross-validation (imp-3668)",
+      "imp-33272 extended-precision cross-check of the Wilkinson floor: double-double collapse to ~1e-31 (imp-33272)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

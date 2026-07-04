@@ -228,7 +228,11 @@ export default function Imp33676FullRangeBandClearingOverviewViz() {
         already-verified scans (imp-33599/imp-33629, imp-33621, and imp-33638); no new computation.
         It changes no bound and patches no literal. Mass-feasibility is necessary-but-not-sufficient;
         the operator-level positivity (imp-3066 K_a &ge; 0) is UNTOUCHED. No global envelope ceiling
-        is located within [900,1200] -- the climb may continue beyond n=1200. RH-equivalent, NO QED.
+        is located within [900,1200] -- the climb may continue beyond n=1200. The imp-33638
+        re-intensification itself (envelope climbing to ~{IMP33676_DEEP_ENV_MAX.toFixed(1)} ULP) is a
+        JITTER-DRIVEN grid-accuracy phenomenon of the arithmetic-floor lattice (per-rung ULP bounces
+        and libm exp/pow variation), not a fixed or certified growth law -- only the qualitative,
+        persistent re-intensifying clustered-spike structure is robust. RH-equivalent, NO QED.
         Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
       </div>
     </div>

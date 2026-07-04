@@ -193,6 +193,7 @@ const Imp33214SaddleRatioDeepTailRecoveryViz = lazy(() => import('./pages/Imp332
 const Imp33217FifthPairSpreadUlpFloorLadderViz = lazy(() => import('./pages/Imp33217FifthPairSpreadUlpFloorLadderViz.jsx'));
 const Imp33219AWeightTwoRouteReproductionViz = lazy(() => import('./pages/Imp33219AWeightTwoRouteReproductionViz.jsx'));
 const Imp33221ModelFidelityCrossingGapViz = lazy(() => import('./pages/Imp33221ModelFidelityCrossingGapViz.jsx'));
+const Imp33237EpsFieldRobustTransferModulusViz = lazy(() => import('./pages/Imp33237EpsFieldRobustTransferModulusViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -830,6 +831,7 @@ function AppShell() {
           <Route path="/viz-imp33217-fifth-pair-spread-ulp-floor-ladder" element={<Imp33217FifthPairSpreadUlpFloorLadderViz />} />
           <Route path="/viz-imp33219-a-weight-two-route-reproduction" element={<Imp33219AWeightTwoRouteReproductionViz />} />
           <Route path="/viz-imp33221-model-fidelity-crossing-gap" element={<Imp33221ModelFidelityCrossingGapViz />} />
+          <Route path="/viz-imp33237-eps-field-robust-transfer-modulus" element={<Imp33237EpsFieldRobustTransferModulusViz />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
           <Route path="/papers" element={<PapersListPage />} />

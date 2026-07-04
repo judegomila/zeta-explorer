@@ -8500,6 +8500,34 @@ export const glossary = [
       'imp-3444 E_coll = E_trunc crossover landmark, the sigma=1/2 point where the hump peaks (imp-3444)',
     ],
   },
+  {
+    term: 'imp-33818 E_TRUNC-NAME-COLLISION disambiguation guard: two decades-apart quantities share the name E_trunc',
+    category: 'numerical',
+    definition:
+      'imp-33772 recorded, as PROSE only, that two different numbers travel under the same name ' +
+      '"E_trunc". One is the N-INDEPENDENT fixed-strip sigma(N)-bridge truncation floor E_trunc = ' +
+      '3.06e-5 (imp-2631 root, pinned identically across the sigma-decay cohort in imp-33582/imp-33620/' +
+      'imp-33708/imp-33723). The other is a SEPARATE lambda-bound truncation contribution ' +
+      'E_trunc(T0) = C_T . T0^{-kappa_T} . log T0 ~ 0.137 that lives in imp-2625 on a different route/' +
+      'height (gamma = 1e13). Nothing stopped a future sigma(N) = E_coll/(E_trunc + E_flow + E_coll) ' +
+      'consumer from substituting the 0.137 value for the 3.06e-5 floor, an error of ~3.65 decades.\n\n' +
+      'RESULT: imp-33818 formalizes the guard as a build-time cross-check reading BOTH magnitudes from ' +
+      'their live source records (no hard-coded literals), confirming bridge floor = 3.06e-5, ' +
+      'lambda-bound value = 0.136823, ratio ~ 4471x, log10 separation ~ 3.650 decades -- and verifying ' +
+      'all four imp-33772-tabulated sigma(N)-bridge consumer modules declare the 3.06e-5 fixed-strip ' +
+      'value, none the 0.137 lambda-bound value. Any future drift that collapses the separation, or any ' +
+      'consumer that adopts the 0.137 value, trips the tripwire.\n\n' +
+      'HONEST SCOPE: executable naming/accuracy guard only, pins no new bound. C_mb stays ' +
+      'GUE-conditional (imp-486); establishes no operator positivity; imp-3066 K_a >= 0 untouched; no ' +
+      'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33818 (formalizing the imp-33772 prose E_trunc distinct-quantity caveat as an executable cross-check pinning the 3.06e-5 bridge floor against the separate ~0.137 lambda-bound value), 2026',
+    relatedTerms: [
+      'imp-33772 prose caveat tabulating the four sigma(N)-bridge consumers this guard cross-checks (imp-33772)',
+      'imp-2631 root of the N-independent 3.06e-5 fixed-strip sigma(N)-bridge floor (imp-2631)',
+      'imp-2625 root of the SEPARATE ~0.137 lambda-bound E_trunc(T0) at gamma=1e13 (imp-2625)',
+      'imp-3444 sigma(N) = E_coll/(E_trunc + E_flow + E_coll) bridge model where a conflation would land (imp-3444)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

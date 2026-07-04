@@ -6518,6 +6518,43 @@ export const glossary = [
     ],
     link: "/viz-imp33613-band-crossing-cross-solver-node-budget",
   },
+  {
+    term: "imp-33317 moment-tilt crossing-gap closure: the imp-3893 tilt closes the L_n=1 model-vs-measurement crossing gap to a ~0.0857-unit arithmetic-floor residual (offsetFractionOfGap CROSSES 1, second-order residual FLIPS SIGN)",
+    category: "measurement",
+    definition:
+      "imp-33317 extends the imp-33221 grid (n=10..80) to n=10..120 (step 5) and asks whether the " +
+      "imp-3893 moment-ratio tilt T_n = Q_n^true/Q_n^model fully accounts for the ~30.2-unit " +
+      "imp-3871/imp-3893 model-fidelity L_n=1 crossing gap between the exact resummed super-" +
+      "exponential surrogate (crosses at n~18.38) and the real Phi-autocorrelation measurement " +
+      "(crosses at n~48.58). Measurement/fit only; no operator positivity, no bound, no QED." +
+      "\n\nTHREE READINGS. (1) offsetFractionOfGap = delta_n/(L_n^true - L_n^model), with delta_n = " +
+      "(T_n-1)*n*(1+4*tau*) the additive drift offset from the tilt, does NOT asymptote to exactly " +
+      "1 -- it CROSSES 1 at n~74.1 and mildly OVERSHOOTS (1.00023 at n=80, 1.00086 at n=120), because " +
+      "the second-order residual (L_n^true - L_n^model) - delta_n FLIPS SIGN near n~74, running +4.29e-2 " +
+      "at n=10 through zero to -4.92e-4 at n=120 (the tilt first UNDER-accounts, then slightly OVER-" +
+      "accounts, for the L_n gap). (2) Despite that sign flip, the tilt closes the L_n=1 CROSSING " +
+      "itself almost exactly: reconstructing the drift as surrogate + delta_n alone (dropping the " +
+      "second-order eps_n^model*(T_n-1) leverage term) locates the crossing at n~48.499 versus the " +
+      "true n~48.584 -- 99.716% of the 30.204-unit crossing shift, leaving only a 0.0857-unit " +
+      "arithmetic-floor residual. (3) So the model-vs-measurement discrepancy closes ALMOST ENTIRELY " +
+      "via the sub-3% tilt, down to a small SIGNED second-order residual -- not to a clean zero. " +
+      "(imp-33531 later showed that residual is a model-side saddle multiplier, closable to machine " +
+      "precision by adding the discarded next term -- see the imp-3893 extended moment tilt entry.)" +
+      "\n\nHONEST SCOPE: closure extrapolation of a fixed-weight moment-ratio drift decomposition; " +
+      "establishes NO operator positivity. Necessary-but-not-sufficient at the RH-equivalent scale " +
+      "class. NPHI=10 kernel truncation inherited; grid-convergence stability only. Off-diagonal " +
+      "endpoint-Hankel K_a >= 0 positivity (imp-3066) UNTOUCHED. No RH verdict, no QED. " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33317 (measuring on a finer/deeper n=10..120 grid whether the imp-3893 moment tilt closes the ~30.2-unit imp-3871 model-fidelity L_n=1 crossing gap, finding it closes 99.716% of the shift to a 0.0857-unit residual while offsetFractionOfGap crosses 1 at n~74.1 rather than asymptoting to it), 2026",
+    relatedTerms: [
+      "imp-3893 moment-fidelity tilt T_n (imp-3893)",
+      "imp-3893 extended moment tilt: model-side saddle multiplier (imp-33531)",
+      "imp-33221 model-fidelity crossing gap baseline (imp-33221)",
+      "imp-3871 saddle-correction model-fidelity gap (imp-3871)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

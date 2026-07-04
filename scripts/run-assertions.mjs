@@ -3826,6 +3826,18 @@ const DATA_MODULES = [
   // the running-map angle. Measurement only; imp-3066/imp-486/C_C ansatz untouched; PT Lambda<=0.2
   // SOTA; no QED. 7 assertions.
   '/src/data/imp-33815-eflow-map-fartail-landmark-crosscheck.js',
+  // imp-33860: DERIVES the missing DEEP-tail closed form -- the imp-33620 sigma < 0.01 landmark
+  // (currentStatus N ~ 4.62e13, previously bisected only) -- via the same imp-33723/imp-33743
+  // E_coll = E_trunc*thr/(1-thr) fixed point at thr = 0.01. Amplitude K_thr = 9801 * K_halving
+  // (the exact mirror of the imp-33743 thr=0.1 factor 81); the map is a strong contraction
+  // (|g_prime| ~ 0.032, tighter than the thr=0.1 0.038) with fixed point N_cross ~ 4.6244e13.
+  // RESULT: the leading closed form matches the imp-33620 bisection to ~8.8e-7 -- ~84x TIGHTER
+  // than the ~7.4e-5 thr=0.1 far-tail residual, so the residual KEEPS tightening monotonically
+  // down the tail because E_flow/E_trunc falls to ~4.26e-7. Restoring E_flow closes the gap to
+  // ~5e-16, confirming the offset is entirely the flow term. Derivation/measurement only;
+  // conditional-share diagnostic; imp-3066/imp-486/C_C ansatz untouched; PT Lambda<=0.2 SOTA; no QED.
+  // 6 assertions.
+  '/src/data/imp-33860-sigma-deeptail-001-crossover-closed-form.js',
   // imp-33857: CROSS-VALIDATES the imp-33844 closed-form hump peak (p_ecoll^2 ln10/8 at sigma=1/2, the
   // E_coll=E_trunc crossover, placed at decade k=9) against the imp-33843/imp-33810 widening-fit
   // denominator over the SAME k=6..11 ladder. Both code paths compute ONE curvature quantity

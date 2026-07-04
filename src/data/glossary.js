@@ -5288,6 +5288,42 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33211 deep-tail recovery-rate fit: |r_n| tracks 4/(n ln n) from below with no floor detected (later found to be a finite-window artifact)",
+    category: "numerical",
+    definition:
+      "imp-3869 extended the imp-3849 inner-converged exact-saddle ratio ladder R_n = |D_n|/|D_n^saddle| " +
+      "to n = 1424 and found R_n climbing monotonically back toward 1 from below, but never fitted the " +
+      "decay RATE of r_n = R_n - 1 against the imp-3735 closed-form Laplace-variance law |eps_n| ~ " +
+      "1/(n(1+4 tau*)) ~ 4/(n ln n). imp-33211 reuses the identical NPHI=10 kernel and inner-converged " +
+      "A(tau) quadrature (4800 panels on [0,2], self-checked vs 7200) to fit that rate on n in [624, 1424]." +
+      "\n\nFOUR findings: (1) |r_n| decays monotonically but SLOWER than 4/(n ln n) over the window: " +
+      "L_r = |r_n| n (1+4 tau*) climbs 1.744 -> 3.048 and the local decay exponent p_r stays below 1 " +
+      "(0.348 at n=720 -> 0.609 at n=1300), climbing toward the ~1 the law predicts asymptotically. " +
+      "(2) The 4/(n ln n) curve reads as a tightening upper envelope approached FROM BELOW: P_r = " +
+      "|r_n| (n ln n)/4 is monotone increasing and stays strictly below 1 across the whole tail (0.570 " +
+      "at n=624 -> 0.990 at n=1424). (3) |r_n| and |eps_n| decay in lockstep, r_n/eps_n staying in " +
+      "[1.292, 1.441], refining imp-3735's n<=80 reading. (4) BOUND AS MEASURED: no sub-unity floor is " +
+      "detected at n=1424 -- |r_n| strictly decreasing with a positive, climbing local exponent -- so the " +
+      "n<=1424 tail read as consistent with R_n -> 1 from below by extrapolation, though a floor could " +
+      "not be rigorously excluded by finite-n measurement alone." +
+      "\n\nHONEST SCOPE: measurement/fit only, at the RH-equivalent scale class; grid-stable to ~4.95e-7 " +
+      "in the tail. The reaches-1-from-below reading was explicitly flagged as an extrapolation, not a " +
+      "certified limit -- and that caveat proved essential: imp-33230 extended the identical ladder past " +
+      "n=1424 and found P_r CROSSES 1 at n~1457, immediately above where imp-33211 stopped, so the " +
+      "below-1 reading was a finite-window artifact of stopping one step short, not a genuine asymptote. " +
+      "No operator positivity established; the off-diagonal endpoint-Hankel obstruction K_a >= 0 " +
+      "(imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the " +
+      "rigorous SOTA.",
+    firstUsed: "imp-33211 (fitting the imp-3869 deep-tail exact-saddle ratio recovery rate against the imp-3735 Laplace-variance law 4/(n ln n) on n in [624,1424], finding P_r climbing to 0.990 with no floor detected as measured), 2026",
+    relatedTerms: [
+      "imp-3869 deep-tail exact-saddle ratio recovery: R_n stays below 1 through n=1424 (imp-3869)",
+      "imp-3735 moment-ratio correction eps_n = Q_n/tau*(n)^2 - 1: Laplace-variance decay order (imp-3735)",
+      "imp-33230 extends the ladder past n=1424 and finds P_r crosses 1 at n~1457, the imp-33211 below-1 reading was a finite-window artifact (imp-33230)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/viz-imp33214-saddle-ratio-deep-tail-recovery",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

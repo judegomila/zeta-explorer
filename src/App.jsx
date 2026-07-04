@@ -229,6 +229,7 @@ const Imp33570SigmaFarTailSlopeSqrtFractionViz = lazy(() => import('./pages/Imp3
 const Imp33571DeepTailJitterEnvelopeViz = lazy(() => import('./pages/Imp33571DeepTailJitterEnvelopeViz.jsx'));
 const Imp33572TauUniformEnvelopeViz = lazy(() => import('./pages/Imp33572TauUniformEnvelopeViz.jsx'));
 const Imp33573R40CrossSolverNodeBudgetViz = lazy(() => import('./pages/Imp33573R40CrossSolverNodeBudgetViz.jsx'));
+const Imp33694InterClusterTroughFloorViz = lazy(() => import('./pages/Imp33694InterClusterTroughFloorViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -890,6 +891,7 @@ function AppShell() {
           <Route path="/viz-imp33571-deep-tail-jitter-envelope" element={<Imp33571DeepTailJitterEnvelopeViz />} />
           <Route path="/viz-imp33572-tau-uniform-envelope" element={<Imp33572TauUniformEnvelopeViz />} />
           <Route path="/viz-imp33573-r40-cross-solver-node-budget" element={<Imp33573R40CrossSolverNodeBudgetViz />} />
+          <Route path="/viz-imp33694-inter-cluster-trough-floor" element={<Imp33694InterClusterTroughFloorViz />} />
           <Route path="/viz-imp33219-a-weight-two-route-reproduction" element={<Imp33219AWeightTwoRouteReproductionViz />} />
           <Route path="/viz-imp33246-eps-crossval" element={<Imp33246EpsCrossvalViz />} />
           <Route path="/viz-imp33257-node-budget-full-window-ulp" element={<Imp33257NodeBudgetFullWindowUlpViz />} />

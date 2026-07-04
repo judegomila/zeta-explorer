@@ -272,6 +272,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33572-tau-uniform-envelope',
   '/viz-imp33573-r40-cross-solver-node-budget',
   '/viz-imp33587-band-crossing-floor-climb',
+  '/viz-imp33694-inter-cluster-trough-floor',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

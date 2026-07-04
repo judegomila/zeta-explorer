@@ -5866,6 +5866,42 @@ export const glossary = [
     link: "/closure-routes",
   },
   {
+    term: "imp-33274 sliding-start post-crossover sigma(N) decay exponent: window-dependence resolved as a crossover-ramp anchoring artefact",
+    category: "numerical",
+    definition:
+      "imp-33255 fit a single OLS decay exponent p_eff to the post-peak conditional share sigma(N) = " +
+      "E_coll/(E_trunc+E_flow+E_coll) past the imp-3444 E_coll=E_trunc crossover (N_cross~3.28e9), always " +
+      "ANCHORING the fit window's start at N_cross and growing its span -- and found p_eff window-dependent " +
+      "(0.390 at 3 decades, up to 0.486 at 24), never certifying the imp-3463 far-tail 1/2 asymptote. That " +
+      "left it unclear whether the drift was genuine tail behaviour (per the imp-3529 local-exponent-drift " +
+      "caveat) or an artefact of always anchoring at the crossover. imp-33274 removes the anchor: it holds " +
+      "the fit span FIXED at 12 decades and instead SLIDES the window START to N_cross*10^s for offsets " +
+      "s = 0, 3, 6, 12, 24, 48 decades past the crossover, excluding progressively more of the just-past-" +
+      "crossover ramp.\n\n" +
+      "FINDING: as the start slides later, p_eff climbs MONOTONICALLY toward 1/2 from below -- 0.4732 at " +
+      "s=0 (reproducing imp-33255's 12-decade 0.473 exactly, confirming identical underlying model), then " +
+      "0.4873, 0.4895, 0.4919, 0.4944, 0.4965 at s=48 -- with the gap 1/2-p_eff shrinking monotonically " +
+      "2.68e-2 -> 3.48e-3 and R^2 improving 0.99894 -> 0.9999999 (max log-residual collapsing 4.9e-1 -> " +
+      "1.6e-3), i.e. a single power law to numerical precision once the ramp is excluded. The FIRST 3-decade " +
+      "slide alone lifts p_eff by 1.4e-2 -- more than the entire remaining 45-decade slide combined (9.3e-3) " +
+      "-- pinning imp-33255's window-dependence squarely on the crossover ramp rather than genuine far-tail " +
+      "drift.\n\n" +
+      "HONEST SCOPE: this resolves WHERE imp-33255's window-dependence came from (a ramp-anchoring artefact, " +
+      "not unresolved imp-3529 drift), it does not newly derive or certify the 1/2 exponent -- that asymptote " +
+      "is imp-3463's. Measurement/fit only; conditional-share diagnostic, NOT an RH bound; C_mb GUE-" +
+      "conditional (imp-486) untouched; imp-3066 K_a >= 0 untouched; RH-EQUIVALENT. No RH verdict, no QED. " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33274 (sliding the imp-33255 post-crossover OLS fit window start past N_cross at fixed 12-decade span, showing p_eff converges monotonically to the imp-3463 1/2 asymptote and localizing imp-33255's window-dependence to the crossover ramp), 2026",
+    relatedTerms: [
+      "imp-33255 sigma(N) post-peak effective decay exponent: window-dependent OLS fit (imp-33255)",
+      "imp-3529 post-peak conditional-share decay: local exponent p(N) climbing 0 -> 1/2 (imp-3529)",
+      "imp-3444 E_coll=E_trunc crossover (imp-3444)",
+      "imp-3463 far-tail sqrt(logT0/N) asymptotic form (imp-3463)",
+      "imp-33291 two-regressor far-tail fit recovering the (-1/2,+1/2) power pair (imp-33291)",
+    ],
+    link: "/closure-routes",
+  },
+  {
     term: "imp-33272 extended-precision cross-check of the imp-33253 Wilkinson floor: the fp64 spread sits AT the derived floor while double-double collapses it ~15-16 orders",
     category: "numerical",
     definition:

@@ -231,6 +231,7 @@ const Imp33572TauUniformEnvelopeViz = lazy(() => import('./pages/Imp33572TauUnif
 const Imp33573R40CrossSolverNodeBudgetViz = lazy(() => import('./pages/Imp33573R40CrossSolverNodeBudgetViz.jsx'));
 const Imp33694InterClusterTroughFloorViz = lazy(() => import('./pages/Imp33694InterClusterTroughFloorViz.jsx'));
 const Imp33715GapVsHeightIndependenceViz = lazy(() => import('./pages/Imp33715GapVsHeightIndependenceViz.jsx'));
+const Imp33716PeakMinusTroughAmplitudeViz = lazy(() => import('./pages/Imp33716PeakMinusTroughAmplitudeViz.jsx'));
 const Imp33589HeightCollapsingEnvelopeCeilingViz = lazy(() => import('./pages/Imp33589HeightCollapsingEnvelopeCeilingViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
@@ -895,6 +896,7 @@ function AppShell() {
           <Route path="/viz-imp33573-r40-cross-solver-node-budget" element={<Imp33573R40CrossSolverNodeBudgetViz />} />
           <Route path="/viz-imp33694-inter-cluster-trough-floor" element={<Imp33694InterClusterTroughFloorViz />} />
           <Route path="/viz-imp33715-gap-vs-height-independence" element={<Imp33715GapVsHeightIndependenceViz />} />
+          <Route path="/viz-imp33716-peak-minus-trough-amplitude" element={<Imp33716PeakMinusTroughAmplitudeViz />} />
           <Route path="/viz-imp33589-height-collapsing-envelope-ceiling" element={<Imp33589HeightCollapsingEnvelopeCeilingViz />} />
           <Route path="/viz-imp33219-a-weight-two-route-reproduction" element={<Imp33219AWeightTwoRouteReproductionViz />} />
           <Route path="/viz-imp33246-eps-crossval" element={<Imp33246EpsCrossvalViz />} />

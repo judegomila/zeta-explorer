@@ -6134,6 +6134,48 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33295 graded-vs-uniform inner A(tau) node-budget verdict: GRADED-CHEAPER",
+    category: "numerical",
+    definition:
+      "imp-33275 (rung-uniform repeated Richardson to a few-ULP floor) and imp-33276 (R_40 inner O(h^4) " +
+      "drift) both drive the saddle-window autocorrelation weight A(tau) = int_0^inf Phi(s)Phi(s+tau) ds " +
+      "onto the double-precision arithmetic floor using a UNIFORM inner composite-Simpson grid, refined by " +
+      "brute panel doubling (inner N = 1200,2400,4800,9600,19200) through a 5-rung Richardson tableau -- a " +
+      "37205-node total budget. The imp-33249/imp-33277 graded-GL work already showed grading nodes toward " +
+      "the peak reaches &lt;1 ULP at far fewer nodes for the LOG-domain -ln A(tau) weight; whether the same " +
+      "saving carries to the DIRECT linear-domain A(tau) quadrature underneath imp-33275/imp-33276 was " +
+      "unmeasured. imp-33295 evaluates A_direct(tau*) at each saddle rung n in {10,20,...,80} two ways: the " +
+      "imp-33275 uniform-Richardson route (37205 nodes) versus a graded-GL rule (panels a_j = 7(j/panels)^" +
+      "grade, 10-node Gauss-Legendre per panel) on the strictly-positive linear integrand, scoring both " +
+      "against the imp-33213 independent log-domain target.\n\n" +
+      "HEADLINE. The graded grid reaches the SAME few-ULP floor band at MATERIALLY FEWER nodes. The " +
+      "aggressive min-node graded lattice hit lands in the band (worst 27.27 ULP at n=70, comparable to " +
+      "the uniform ladder's worst 21.55 ULP) at just 120-140 inner nodes -- a ~266-310x saving against the " +
+      "37205-node uniform ladder. Even a robust, non-fragile fixed plateau rule (grade4/400 panels = 4000 " +
+      "nodes, worst 21.01 ULP) reaches the floor at ~9.3x fewer nodes. A single uniform Simpson grid does " +
+      "NOT reach this floor even at millions of nodes -- it needs the whole Richardson tableau, whereas " +
+      "grading reaches the floor directly at a single fixed rule. Because imp-33275 (A_log) and imp-33276 " +
+      "(R_40) both attribute their floor/drift to the shared INNER A(tau) resolution, the node-saving " +
+      "principle carries to the R_40 moment-ratio machinery underneath it (later confirmed directly by " +
+      "imp-33308).\n\n" +
+      "HONEST SCOPE: ACCURACY/RULE-DESIGN MEASUREMENT ONLY, RH-equivalent scale class; changes no bound, " +
+      "patches no literal, establishes no operator positivity. The min-node graded budget is a JITTERY " +
+      "arithmetic-floor lattice property (the imp-33249/imp-33277 latticeJitterCaveat, later quantified by " +
+      "imp-33296) -- neighbouring panel counts bounce above/below the bar, so the robust reading is the " +
+      "~9.3x plateau saving and the graded-is-cheaper ORDERING, not the exact 120-140 node counts. NPHI=10 " +
+      "truncation inherited; mass-feasibility NECESSARY-BUT-NOT-SUFFICIENT; imp-3066 K_a >= 0 operator " +
+      "positivity remains UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the " +
+      "rigorous SOTA.",
+    firstUsed: "imp-33295 (measuring whether a graded inner quadrature grid reaches the imp-33275 A_log double-precision arithmetic floor at materially fewer inner nodes than the imp-33275/imp-33276 uniform-Simpson ladder), 2026",
+    relatedTerms: [
+      "imp-33275 rung-uniform repeated Richardson to the A_log double-precision floor (imp-33275)",
+      "imp-33249 full-window graded-GL <1 ULP node budget (imp-33249)",
+      "imp-33296 min-node graded-GL lattice-jitter characterization (imp-33296)",
+      "imp-33308 graded-cheaper saving carried through the full R_40 moment machinery (imp-33308)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

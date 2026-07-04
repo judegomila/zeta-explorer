@@ -6442,6 +6442,42 @@ export const glossary = [
     ],
     link: "/viz-imp33609-graded-mapped-cc-abscissa-artifact",
   },
+  {
+    term: "imp-33579 crossing-is-an-envelope-not-a-rung verdict: the deep-tail graded-plateau band crossing has no single threshold rung n* -- floorUlp(n) is a jittery non-monotone lattice quantity",
+    category: "numerical",
+    definition:
+      "imp-33557 measured the graded ~200-node plateau floor at three widely-spaced band-crossing rungs " +
+      "(n=495 ~24.2 ULP IN band, n=510 ~61.4 ULP EDGE, n=596 ~65.3 ULP FAILS the imp-33316 <64 ULP " +
+      "A_log band) and read the floor as climbing with depth and crossing the band somewhere in " +
+      "n in [510,596] -- but never located the crossing rung itself.\n\n" +
+      "imp-33579 bisects that bracket with a dense every-integer scan of floorUlp(n) (the graded-GL " +
+      "grade-4 plateau smallest residual at budgets >=200 nodes, panels {20,30,50,100,200,400}) over a " +
+      "collared range [505,601]. FINDING BISECTION-ILL-POSED: floorUlp(n) is NOT a monotone step but a " +
+      "jittery, non-monotone arithmetic-floor lattice quantity. The first raw integer rung clearing 64 " +
+      "ULP is n~531 (floor ~76 ULP), but 63 of the 65 rungs above it up to n=596 are still IN band -- " +
+      "the floor dips back to ~0 ULP at n=518, 552, and 595 -- so n~531 is one isolated jitter spike, " +
+      "not a threshold: no single rung n* separates an all-in-band region below from an all-out-of-band " +
+      "region above. The robust +/-5 rolling-max envelope first reaches 64 ULP at n~526, yet even the " +
+      "envelope's own least-squares slope over [510,596] is slightly NEGATIVE (~-0.12 ULP/rung). So the " +
+      "imp-33557 depth-climb (~24 ULP at n=495 -> ~65 at n=596) is a WIDE-RANGE (n=495..596) envelope " +
+      "phenomenon, never a rung-by-rung threshold inside the narrow band -- the crossing is defined only " +
+      "to the envelope over a wide n range, not to a single locatable rung.\n\n" +
+      "HONEST SCOPE: this CONFIRMS and SHARPENS the imp-33557/imp-33537 lattice-jitter caveat. " +
+      "Measurement only, not a bound; floorUlp(n) is a jittery arithmetic-floor lattice property (cross-" +
+      "platform libm exp/pow variation can shift the exact n~531/n~526 crossings and the ULP values, " +
+      "but not the qualitative non-monotone-envelope structure); NPHI=10 truncation inherited; changes " +
+      "no bound, patches no literal (imp-33557/imp-33537/imp-33316/imp-33213 intact); imp-3066 K_a>=0 " +
+      "untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+    firstUsed: "imp-33579 (dense every-integer bisection of floorUlp(n) over the imp-33557 band-crossing bracket [510,596], finding the crossing is a non-monotone envelope phenomenon, not a locatable rung), 2026",
+    relatedTerms: [
+      "imp-33557 band-crossing three-rung sample, the measurement this bisection densifies (imp-33557)",
+      "imp-33537 depth-growing deep-tail jitter envelope, the lattice-jitter property this sharpens (imp-33537)",
+      "imp-33316 <64 ULP A_log band, the threshold floorUlp(n) is bisected against (imp-33316)",
+      "imp-33611 viz page plotting the dense floorUlp(n) scan with the rolling-max envelope overlay (imp-33611)",
+      "imp-33599 wide-range [400,700] extension, finding the band-clearing region is disjoint isolated clusters (imp-33599)",
+    ],
+    link: "/viz-imp33611-band-crossing-floor-bisection",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

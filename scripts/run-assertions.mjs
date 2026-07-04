@@ -3529,6 +3529,10 @@ const DATA_MODULES = [
   // (the C_Lip breach-point reroute); 7 assertions incl. the imp-3725 eps'=0
   // cross-pin and the 3H^4/64 field-modulus law.
   '/src/data/imp-3933-eps-field-robust-bootstrap.js',
+  // imp-33226: re-architect the E(N) bridge so the model-to-true transfer routes
+  // through the imp-3933 field channel, replacing the C_H * W_1^{1/2} E_coll leg
+  // by E_field = W(eps'_true) <= 5.17e-7; new binding leg = E_trunc (ansatz). 4 assertions.
+  '/src/data/imp-33226-bracket-field-channel-rearchitecture.js',
 ];
 
 let ALL_MODULES = FAST_MODE

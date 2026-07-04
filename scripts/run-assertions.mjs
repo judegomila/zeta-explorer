@@ -3506,6 +3506,15 @@ const DATA_MODULES = [
   // corrected/inline provenance, so no edit to either is needed. Audit only; imp-3066 untouched;
   // PT Lambda<=0.2 SOTA; no QED; imp-3731/imp-3849 left intact. 7 assertions.
   '/src/data/imp-3885-saddle-crossing-reconciliation-honest-status.js',
+  // imp-3888: read-only provenance audit verifying the imp-3849 cross-check literals
+  // (R_3=3.64422, R_40=1.02440, eps_40=9.994e-3) tie to their certified source modules
+  // (imp-3670/imp-3685/imp-3735), importing every module's own exported numbers (no
+  // hand-typed literals). FINDING: R_3 (delta ~3.18e-7) and eps_40 (delta ~2.08e-7) tie
+  // well within the ~1e-5 bar; R_40 (delta ~1.21e-5) is slightly ABOVE that informal bar
+  // but comfortably inside imp-3849's own coded 1e-4 assertion tolerance for that check --
+  // real inner-quadrature-resolution drift at n=40, not a literal error. Reported, not
+  // silently patched. Audit only; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 4 assertions.
+  '/src/data/imp-3888-cross-check-provenance-audit.js',
   // imp-3871: EXTENDS the imp-3848 saddle expansion of L_n = eps_n*n(1+4 tau*) to the fifth/sixth-
   // derivative corrections C4 = tau* f^(5) sigma^4/4 and C5 = f^(6) sigma^6/8 (f^(5) = 24n/tau*^5 -
   // 256 n/tau*, f^(6) = -120n/tau*^6 - 1024 n/tau*) and tests whether higher-order Laplace terms

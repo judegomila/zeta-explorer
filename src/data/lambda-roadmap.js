@@ -991,6 +991,17 @@ export const LAMBDA_ROADMAP = {
     'and drops below 0.1 only at N ~ 3.21e11 — the empirical-vs-analytic conditional ' +
     'gap keeps shrinking well past 10^6, but gradually; this is a quantified decay-' +
     'rate refinement only and changes no bound (C_mb remains GUE-conditional, imp-486). ' +
+    'REFINED (imp-33723/imp-33721): two independent follow-ups sharpen the N ~ 3.27e9 ' +
+    'halving landmark. imp-33723 derives the neighboring imp-3444 E_coll=E_trunc ' +
+    'crossover in CLOSED FORM as a Banach fixed point N_cross = (C_C/E_trunc)^2 * ' +
+    'log T0(N_cross) ~ 3.280294e9, matching the original bisection value to ~1.7e-15 ' +
+    'relative and confirming the ~0.4% gap to the halving landmark carries no ' +
+    'discretization error (it is the Gronwall E_flow term, per imp-33601). imp-33721 ' +
+    'separately re-differences the sigma(N) decay-exponent ramp on sub-decade brackets ' +
+    'and relocates the imp-33701 sigmoid inflection knee a full decade down, from the ' +
+    'whole-decade [1e10,1e11] bracket to N* ~ 3.38e9 — itself only ~3.3% above the ' +
+    'same halving landmark. Both refinements are derivation/measurement only and ' +
+    'change no bound. ' +
     'HONEST STATUS (imp-33660..imp-33682 lattice-floor cohort): the band-clearing floorUlp(n) ' +
     'peak/trough/gap/amplitude series measured across the shared [400,1200]/[1200,1600] cluster ' +
     'sample is measurement-only and weak-positive at best, with every apparent height or slope ' +

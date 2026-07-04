@@ -7061,6 +7061,40 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33660 height-grows-weakly-positive-growth-class-unresolved verdict: the sixteen band-clearing cluster-peak envelope heights over [400,1200] trend up but no growth law is decisively selected",
+    category: "numerical",
+    definition:
+      "imp-33639 fit the nine [400,900] cluster-peak SPACING (irregular, CV ~0.46) but never fit the " +
+      "peak-envelope HEIGHT growth; imp-33638 then added seven more clusters in [900,1200] with the " +
+      "envelope roughly doubling (~76 to ~143 ULP), leaving sixteen cluster peaks over [400,1200] with " +
+      "no growth-law fit of their height.\n\n" +
+      "imp-33660 re-derives the sixteen peaks off the identical grade-4 budgets>=200-node floorUlp(n) " +
+      "scan (tau*=saddleTau(n), imp-33213 A_log target, panels {20,30,50,100,200,400}, +-5 rolling-max " +
+      "envelope, env>=64 marks a cluster), extracts the peak-env HEIGHT per cluster -- [76.1,65.3,64.1," +
+      "78.4,67.3,67.1,64.5,73.2,68.4,78.6,85.6,71.8,64.7,72.3,143.6,135.0] ULP (mean ~79.7, sd ~23.3) -- " +
+      "and fits height-vs-n to constant/linear/sqrt(n)/log growth laws.\n\n" +
+      "VERDICT: HEIGHT-GROWS-WEAKLY-POSITIVE-GROWTH-CLASS-UNRESOLVED. The height does grow -- the " +
+      "linear model has a positive slope ~+0.067 ULP/rung and cuts residual RMS from ~23.3 (null) to " +
+      "~19.1, an ~18% reduction -- but every candidate law fits WEAKLY (linear R^2~0.33, sqrt R^2~0.30, " +
+      "log R^2~0.27) with the three non-constant R^2 within ~0.06 of one another, so no growth class -- " +
+      "and in particular no strictly sub-linear class, since sqrt/log do not out-score linear -- is " +
+      "decisively selected. The positive trend is carried almost entirely by the two tallest imp-33638 " +
+      "tail clusters (~143.6 ULP at n~1126, ~135.0 at n~1198); the first fourteen peaks sit in a flat " +
+      "~64..86 ULP band.\n\n" +
+      "HONEST SCOPE: measurement only, not a bound. Consistent with the imp-33599/imp-33621/imp-33638/" +
+      "imp-33639 latticeJitter caveat -- the clustered-spike heights are jitter-driven, so the exact fit " +
+      "coefficients are not robust; NPHI=10 truncation inherited; changes no bound, patches no literal; " +
+      "imp-3066 K_a>=0 untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+    firstUsed: "imp-33660 (fitting the imp-33599/imp-33621/imp-33638 sixteen band-clearing cluster-peak envelope heights over [400,1200] to growth laws, finding a weak positive trend with no growth class decisively selected), 2026",
+    relatedTerms: [
+      "imp-33639 cluster-peak spacing periodicity fit, which left the height growth unmeasured (imp-33639)",
+      "imp-33638 seven-cluster [900,1200] extension whose two tallest peaks carry this trend (imp-33638)",
+      "imp-33599 nine-cluster [400,900] band-clearing scan, the source of the first fourteen peaks (imp-33599)",
+      "imp-33213 A_log log-domain target used to score floorUlp(n) at every rung (imp-33213)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

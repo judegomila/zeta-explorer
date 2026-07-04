@@ -8340,6 +8340,38 @@ export const glossary = [
       'imp-33701 SIGMOID-NOT-STRAIGHT whole-decade sigma-ramp knee, the coarse bracket the refined knee is ~1.4 orders of magnitude tighter than (imp-33701)',
     ],
   },
+  {
+    term: 'imp-33701 SIGMOID-NOT-STRAIGHT: the sigma(N) decay-exponent ramp is monotone but S-shaped, with one knee in [1e10,1e11]',
+    category: 'numerical',
+    definition:
+      'imp-33582 reported that the imp-3406 sigma(N) = E_coll/E(N) per-decade LOCAL decay ' +
+      'exponent climbs monotonely across six decades (N in {1e6..1e12}) from ~0.0105 toward the ' +
+      'imp-3463 far-tail 1/2 asymptote, calling the approach "smooth" -- but never measured the ' +
+      'ramp CURVATURE. imp-33701 forms the discrete first difference (ramp velocity D1, decade ' +
+      'to decade) and second difference (ramp acceleration D2) of the IDENTICAL imp-33582 ' +
+      'exponent ladder (reuse-gated to reproduce its published perDecadeLadder to 4 decimals). ' +
+      'RESULT: the ladder p_dec = 0.0105, 0.0447, 0.1176, 0.2360, 0.3561, 0.4310 is monotone in ' +
+      'value, but its velocity D1 = 0.0343, 0.0729, 0.1184, 0.1201, 0.0749 RISES then FALLS -- ' +
+      'the ramp accelerates through the first four decades and decelerates in the last, an ' +
+      'S-shape (sigmoid) rather than a straight or ever-steepening climb. The acceleration ' +
+      'D2 = +0.0386, +0.0455, +0.0017, -0.0452 is positive for three steps then turns negative ' +
+      'exactly ONCE, placing a single knee (convex -> concave inflection) in the [1e10,1e11] ' +
+      'decade; the near-zero D2 (~+0.0017) at the preceding [1e9,1e10] step marks the flat top ' +
+      'of the velocity curve. The steepest single decade-to-decade gain (D1 ~ 0.1201) is the ' +
+      '[1e9,1e10] -> [1e10,1e11] transition, only ~0.0017 above its predecessor -- a two-decade ' +
+      'plateau peaking there, not a sharp spike.\n\n' +
+      'HONEST SCOPE: measurement/fit only, NOT rigorous. The component model is the inherited ' +
+      'imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; C_mb stays GUE-conditional ' +
+      '(imp-486); changes no bound; establishes no operator positivity; imp-3066 K_a>=0 ' +
+      'sign-positivity untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33701 (differencing the imp-33582 six-decade sigma(N) local-exponent ladder to resolve its curvature, finding a monotone-value but SIGMOID-shaped ramp with exactly one D2-sign-change knee in [1e10,1e11]), 2026',
+    relatedTerms: [
+      'imp-33582 accelerating sigma(N) post-peak decay, the six-decade exponent ladder whose curvature this differences (imp-33582)',
+      'imp-33721 KNEE-A-DECADE-BELOW, the sub-decade re-differencing that relocates this whole-decade knee to N* ~ 3.38e9 (imp-33721)',
+      'imp-3463 sigma(N) far-tail leading form, the 1/2 asymptote the ramp saturates toward (imp-3463)',
+      'imp-3406 sigma-highN-extrapolation, the interior MAX N ~ 9.22e5 upstream of this post-peak ramp (imp-3406)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

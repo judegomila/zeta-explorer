@@ -7288,6 +7288,41 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33680 slope-collapses-trend-is-a-two-point-artifact verdict: excluding the two tallest imp-33638 tail clusters collapses the imp-33660 cluster-peak height slope from ~+0.067 to ~+0.008 ULP/rung",
+    category: "numerical",
+    definition:
+      "imp-33660 fit the sixteen band-clearing cluster-peak envelope HEIGHTS over [400,1200] and returned a " +
+      "weak positive linear slope (~+0.067 ULP/rung, R^2~0.33, residual RMS ~19.1 vs ~23.3 null), noting -- but " +
+      "never MEASURING -- that the trend looked concentrated in the two tallest imp-33638 tail clusters " +
+      "(~143.6 ULP at n~1126, ~135.0 at n~1198), with the remaining fourteen sitting in a flat ~64..86 ULP band.\n\n" +
+      "imp-33680 performs exactly that robustness test: it takes the EXACT sixteen peaks imp-33660 computed " +
+      "(imported from its frozen export, no re-derivation drift), drops the two tallest, and refits " +
+      "constant/linear/sqrt/log on the remaining fourteen.\n\n" +
+      "VERDICT: SLOPE-COLLAPSES-TREND-IS-A-TWO-POINT-ARTIFACT. Removing the two tallest tail clusters collapses " +
+      "the linear slope from ~+0.0668 to ~+0.0077 ULP/rung (~1/9 survival), the linear R^2 from ~0.33 to ~0.047 " +
+      "(~86% collapse), and the residual-RMS reduction over null from ~18% to ~2.4% (leave-two-out RMS ~6.15 vs " +
+      "the fourteen-peak sd ~6.30). The height dispersion itself collapses from sd ~23.3 (sixteen) to sd ~6.30 " +
+      "(fourteen) -- the remaining fourteen ARE the flat ~64..86 ULP band (mean ~71.2). The concave sqrt/log laws " +
+      "also collapse to R^2~0.044/0.041, so no sub-linear law rescues the trend. The imp-33660 weak-positive " +
+      "height trend is NOT genuinely distributed across the sixteen peaks -- it is carried entirely by the two " +
+      "tallest imp-33638 tail clusters.\n\n" +
+      "HONEST SCOPE: measurement only, not a bound. This is a leave-two-out robustness refit of a jittery " +
+      "arithmetic-floor lattice statistic; the exact slope, R^2, and residual RMS can shift under cross-platform " +
+      "libm variation, but the qualitative reading -- the trend collapses when the two tallest are removed, so " +
+      "it is a two-point artifact -- is robust. Consistent with the imp-33249/imp-33537/imp-33557/imp-33599/" +
+      "imp-33621/imp-33638/imp-33660/imp-33662 latticeJitter caveat; NPHI=10 truncation inherited; changes no " +
+      "bound, patches no literal; mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 untouched; " +
+      "Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+    firstUsed: "imp-33680 (leave-two-out refit of the imp-33660 sixteen cluster-peak heights excluding the two tallest imp-33638 tail clusters, finding the trend collapses), 2026",
+    relatedTerms: [
+      "imp-33660 height-grows-weakly-positive-growth-class-unresolved verdict, the full-sixteen fit this refits robustly (imp-33660)",
+      "imp-33638 band-clearing tail re-intensification, the source of the two tallest dropped clusters (imp-33638)",
+      "imp-33681 amplitude-grows-weakly-positive-but-below-the-peak-growth verdict, a companion measurement on the same sixteen peaks (imp-33681)",
+      "imp-33682 gap-and-height-independent-no-correlation verdict, a companion cross-series measurement on the same sixteen peaks (imp-33682)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

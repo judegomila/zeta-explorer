@@ -7838,6 +7838,36 @@ export const glossary = [
       'imp-33668 part-b-selection-residual-scoping, the SUBSUMED-BY-H3/H4 verdict on the k = 0 selection member (imp-33668)',
     ],
   },
+  {
+    term: 'imp-33744 sigma-inflection CLOSED FORM: sigma_infl = 1/2 - g_prime/(2 g^2), exact 1/2 only in the pure power law',
+    category: 'numerical',
+    definition:
+      'imp-33721 relocated the sub-decade sigma-ramp inflection knee to N* ~ 3.38e9, sitting ~3.3% above ' +
+      'the imp-33582 sigma = 1/2 halving landmark, but left the coincidence undecided between exact ' +
+      'algebra and numerical accident. imp-33744 derives the answer: in the E_flow-negligible balance ' +
+      'sigma = r/(1+r) with r = E_coll/E_trunc, sigma obeys the logistic flow d sigma/dt = -g(t) sigma ' +
+      '(1-sigma) (t = ln N, g = -d ln r/d ln N the local decay exponent of the ratio), whose sigmoid ' +
+      'inflection has the CLOSED FORM sigma_infl = 1/2 - g_prime/(2 g^2).\n\n' +
+      'FINDINGS: (F1) for a pure power law E_coll ~ N^{-1/2} (g == 1/2 constant, g_prime = 0) the ' +
+      'inflection lands at sigma = 0.50000000 EXACTLY -- the halving coincidence is ALGEBRAIC, not ' +
+      'numerical luck; (F2) the real E_coll carries the slowly-running log factor L = log T0(N), so g ' +
+      'runs (g_prime ~ 1/(2t^2) > 0) and the inflection shifts to sigma_infl = 1/2 - 1/(t-1)^2 ~ 0.4977, ' +
+      'matching the measured E_flow-off value 0.4979 to 5 decimals -- the ~1.8%-of-halving offset is a ' +
+      'structural term of E_coll OWN log-factor, NOT the Gronwall E_flow term; (F3) restoring E_flow adds ' +
+      'only a same-order (~0.003) secondary shift of the same sign, reproducing the full imp-33721 ~3.3% ' +
+      'knee offset near N ~ 3.38e9 -- so the D2-zero-crossing inflection condition does not force ' +
+      'sigma = 1/2, it forces sigma = 1/2 - 1/(t-1)^2 + O(E_flow) -> 1/2, with the log-factor curvature ' +
+      'dominant and E_flow subdominant.\n\n' +
+      'HONEST SCOPE: derivation/measurement only, a conditional-share curvature diagnostic inheriting the ' +
+      'imp-3220/imp-3406 extrapolation (not a rigorous asymptotic); C_mb stays GUE-conditional per ' +
+      'imp-486; changes no bound; imp-3066 K_a >= 0 UNTOUCHED; Platt-Trudgian Lambda <= 0.2 remains the ' +
+      'rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33744 (deriving whether the imp-33721 sigma-ramp inflection knee algebraically coincides with the sigma = 1/2 halving point), 2026',
+    relatedTerms: [
+      'imp-33721 KNEE-A-DECADE-BELOW, the sub-decade relocation of the sigma-ramp inflection to N* ~ 3.38e9 whose ~3.3% halving offset this closed form explains (imp-33721)',
+      'imp-33745 H0-provenance DISTINCT-BUT-ORTHOGONAL verdict, a sibling frontier derivation from the same imp-33706/imp-33721 cohort (imp-33745)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

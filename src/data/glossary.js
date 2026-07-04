@@ -6211,6 +6211,42 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33292 repeated-Richardson collapse of the imp-3888 inner-resolution R_40 drift: the ~1.21e-5 inner O(h^4) residual collapses ~9 orders to the ~40 ULP D_40 ratio-cancellation floor, yielding a ladder-independent converged R_40 ~1.0243966950314",
+    category: "numerical",
+    definition:
+      "imp-3888 flagged an un-tabulated ~1.21e-5 residual between the imp-3685 coarse [0,7]/1200 R_40 " +
+      "literal and the imp-3849 native [0,2]/4800 value; imp-33256 isolated that residual to the INNER " +
+      "A(tau) Simpson resolution of the full R_40=|D_40|/|D_40^saddle| moment-ratio machinery (outer grid " +
+      "invariant to ~1e-14), and imp-33252/imp-33275 showed the same inner Simpson error is a clean " +
+      "even-power O(h^4,h^6,h^8,...) expansion amenable to Richardson extrapolation. imp-33292 closes the " +
+      "loop by applying the imp-33252 repeated-Richardson tableau directly to the inner grid of the FULL " +
+      "R_40 machinery (held at the outer-invariant T_A=2, NM=3200 setting).\n\n" +
+      "FINDING: on a fixed [0,2] doubling ladder N=400..12800 the raw R_40 climbs ~6.98e-6 (~1.208e-5 " +
+      "from the imp-3685 coarse anchor, reproducing imp-3888 verbatim), while the Richardson tableau " +
+      "per-column spread collapses L0 ~6.98e-6 -> L1 ~6.63e-8 -> L2 ~3.46e-11 -> L3 ~1e-14 -- roughly 9 " +
+      "orders of magnitude (~7.3e8x) in three extrapolation columns, landing on the ~40 ULP double-" +
+      "precision machinery floor (at magnitude ~1.024). A second, offset doubling ladder (600..9600) " +
+      "extrapolates to the SAME value; the two independently-seeded ladders agree to ~1e-14 (~45 ULP), " +
+      "certifying a ladder-INDEPENDENT converged R_40 ~1.0243966950314. So the ~1.21e-5 imp-3888 residual " +
+      "is a REMOVABLE inner-quadrature artefact, not a genuine model ambiguity.\n\n" +
+      "HONEST SCOPE: the converged value plateaus at the ~40 ULP arithmetic floor of the D_40=C_42-C_40 " +
+      "ratio-cancellation, NOT literally sub-1-ULP like the scalar A(tau) weight -- R_40 inherits a wider " +
+      "cancellation floor because it is built from a subtracted moment difference. The imp-3685/imp-3849 " +
+      "baked literals are left untouched (imp-33310 separately assessed, and imp-33530 separately minted, " +
+      "the converged value as a new stored field). Measurement/rule-design only, at the RH-equivalent " +
+      "NPHI=10 truncated-kernel scale; operator positivity (imp-3066 K_a >= 0) is UNTOUCHED. No RH " +
+      "verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33292 (applying the imp-33252 repeated-Richardson tableau to the inner A(tau) Simpson grid of the full R_40 moment-ratio machinery, collapsing the imp-3888/imp-33256 inner-resolution drift to a ladder-independent converged value), 2026",
+    relatedTerms: [
+      "imp-3888 provenance audit of the imp-3849 R_40 cross-check (imp-3888)",
+      "imp-33256 R_40 inner-quadrature ~1e-5 tie-bar isolating the drift to the inner axis (imp-33256)",
+      "imp-33310 converged-R_40 stored-literal feasibility assessment (imp-33310)",
+      "imp-33530 converged-R_40 literal mint (imp-33530)",
+      "imp-33308 graded-inner-grid node-budget saving carried to the full R_40 machinery (imp-33308)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

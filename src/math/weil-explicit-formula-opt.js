@@ -10,8 +10,14 @@
  *   - γ ranges over imaginary parts of non-trivial ζ-zeros ρ = 1/2 + iγ
  *     (γ real iff RH; assumed here since we use known zeros)
  *   - Λ(n) is the von Mangoldt function (log p if n=p^k, else 0)
- *   - A[h] is the ARCHIMEDEAN TERM:
- *       A[h] = (1/2π)·∫h(r)·Re(Γ'/Γ(1/4 + ir/2)) dr - log(π)·h(0)
+ *   - A[h] is the ARCHIMEDEAN TERM. This module uses the BOMBIERI
+ *     normalization throughout (matching archimedeanTerm() below); the
+ *     log π contribution is a spread integral, NOT an Iwaniec–Kowalski
+ *     point term −log(π)·h(0):
+ *       A[h] = h(i/2) + (1/2π)·∫h(r)·Re(Γ'/Γ(1/4 + ir/2)) dr
+ *                     − (log π)/(2π)·∫h(r) dr
+ *     (imp-901-sub-docstring-convention-mismatch: resolved — all three
+ *      doc sites in this file now state the single implemented convention.)
  *
  * The formula CONNECTS ζ-zeros ↔ primes. Choice of test function h
  * controls what information is extracted:
@@ -199,7 +205,7 @@ export function weilExplicitFormulaTest() {
       name: 'Weil Explicit Formula with Test Function Optimization',
       formula: 'Σ_γ h(γ) = A[h] - 2·Σ_n Λ(n)/√n · ĥ(log n)',
       testFunction: 'h_σ(r) = exp(-r²/(2σ²))  Fourier: ĥ_σ(u) = σ√(2π)·exp(-σ²u²/2)',
-      archimedean: 'A[h] = (1/(2π))·∫h(r)·Re(ψ(1/4+ir/2)) dr - log(π)·h(0)',
+      archimedean: 'A[h] = h(i/2) + (1/(2π))·∫h(r)·Re(ψ(1/4+ir/2)) dr − (log π)/(2π)·∫h(r) dr  [Bombieri convention, matches code]',
     },
 
     zeros_computed: zeros.length,

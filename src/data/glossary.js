@@ -6555,6 +6555,47 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33603 G6a Lemma-5.2 port residual: the missing input is a strip-height-UNIFORM RvM fold curvature lower bound (H3), the SAME still-missing object as G6a::y2-adapted-flow-depth (imp-3708)",
+    category: "proof",
+    definition:
+      "imp-33603 scopes the roadmap Step-4 nextStep -- closing G6a_shock_lipschitz by a direct port of " +
+      "Polymath15 Lemma 5.2 (arXiv:1802.05390v3) -- against five structural hypotheses any Lemma-5.2-" +
+      "type Hoelder-1/2 blow-up modulus requires: H1 smoothness away from the fold, H2 a non-degenerate " +
+      "(simple) fold forcing exponent exactly 1/2, H3 a curvature lower bound UNIFORM in N, H4 " +
+      "perturbation control on a strip {Im z >= y_N^sharp} staying above the fold, H5 a Riemann-Hilbert " +
+      "transcription of the real-scalar u : R -> R lemma to the complex Stieltjes m : C_+ -> C_+ " +
+      "setting (plus H0, provenance of the hypothesis catalogue itself against the arXiv source).\n\n" +
+      "H1 and H2 are SATISFIED: the port discharges smoothness away from the shock and the non-" +
+      "degenerate RvM fold that pins the exponent at exactly 1/2. H3, H4, H5, H0 stay OPEN. The " +
+      "PRECISE residual is H4: perturbation control is only demonstrable on the strip " +
+      "y_N^sharp = sqrt(2 pi / N) -> 0 as N -> infinity, so the reading strip DESCENDS onto the " +
+      "y -> 0+ boundary shock exactly where H3 (uniform curvature) fails -- the RvM fold curvature " +
+      "diverges there (imp-354 G6a-sub-constant), so C_W = sqrt(2/|u_0''|) is only symbolic positive, " +
+      "not uniform. H3 and H4 are therefore in DIRECT CONFLICT on this front: the perturbation control " +
+      "H4 demands forces the strip precisely into the regime where H3 fails.\n\n" +
+      "This residual is NOT a new object: it is the SAME still-missing input already named downstream " +
+      "as G6a_shock_lipschitz::y2-adapted-flow-depth (imp-3708) -- a self-similar depth s(y) ~ y^2 " +
+      "pinning the contraction floor away from 0 at the nearest-pair front. imp-33618 later treats the " +
+      "strip height y as a free variable and confirms no fixed y*(N) bounded away from 0 can hold both " +
+      "H3 and H4 while still reading the actual near-collision front: a fixed y* > 0 gives a finite " +
+      "N-uniform C_W(y*) but sits orders above the front y_N^sharp for large N, reading the smooth " +
+      "region instead of the shock.\n\n" +
+      "VERDICT: Lemma 5.2 supplies the fold BLOW-UP (H1, H2) but not the strip-height UNIFORMITY the " +
+      "y_N^sharp -> 0 front demands -- the port is NECESSARY but NOT SUFFICIENT to close G6a. HONEST " +
+      "SCOPE: assessment / literature-scoping only, no positivity, no bridge closure, no RH claim, NO " +
+      "QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED; C_mb share untouched; " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33603 (scoping the direct port of Polymath15 Lemma 5.2 as candidate closure of G6a_shock_lipschitz, enumerating H1..H5 + H0 and isolating H4 strip-height-uniformity as the precise residual, identical to the imp-3708 y2-adapted-flow-depth still-missing object), 2026",
+    relatedTerms: [
+      "imp-3708 y2-adapted flow depth s(y) ~ y^2, the same still-missing object named from the imp-345/imp-354 side (imp-3708)",
+      "imp-3727 K4 entropy-solution regularity scoping, the sibling six-hypothesis catalogue for the Burgers/CM route (imp-3727)",
+      "imp-2520 negative-finding 1: naive modulus -> 0 as strip height -> 0 (imp-2520)",
+      "imp-33618 H3/H4 strip-height trade-off: no fixed y*(N) bounded away from 0 holds both (imp-33618)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

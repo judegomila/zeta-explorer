@@ -72,6 +72,16 @@ export const IMP33781_ATTRIBUTION =
   '(g_prime ~ 1/(2 t^2) > 0), NOT the Gronwall E_flow term -- E_flow only adds a same-order ' +
   'secondary shift (imp-33744 F2/F3).';
 
+// imp-33780: honest-status caveat banner for this viz surface -- the sigma = 1/2 halving
+// coincidence is NOT exact; a future rendering page should surface this text directly.
+export const IMP33781_CAVEAT_BANNER =
+  'HONEST STATUS: the sigma = 1/2 halving landmark is NOT an exact inflection coincidence. ' +
+  `The E_flow-negligible closed form places the inflection at sigma ~= ${IMP33781_CLOSED_FORM_MARKER.sigma} ` +
+  `(N ~+${(IMP33781_CLOSED_FORM_MARKER.offsetAboveHalving * 100).toFixed(1)}% above halving), and once E_flow ` +
+  `is restored the full exponent-ramp knee (imp-33721) widens that to ~${IMP33781_FULL_MODEL_OFFSET_PCT}% above ` +
+  'halving. Derivation only: isRigorous false, no QED; RH-equivalent K_a >= 0 sign-positivity ' +
+  'untouched; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.';
+
 export const IMP33781_SIGMA_INFLECTION_CLOSED_FORM_VIZ_DATA_ASSERTIONS = [
   {
     id: 'imp33781-curve-is-monotone-decreasing',
@@ -99,6 +109,11 @@ export const IMP33781_SIGMA_INFLECTION_CLOSED_FORM_VIZ_DATA_ASSERTIONS = [
     holds: () =>
       IMP33744_SIGMA_INFLECTION_VS_HALF_CLOSED_FORM.isRigorous === false &&
       /NO QED/.test(IMP33744_SIGMA_INFLECTION_VS_HALF_CLOSED_FORM.verdict),
+  },
+  {
+    id: 'imp33780-caveat-banner-flags-non-exact-halving',
+    description: 'the caveat banner explicitly states the sigma = 1/2 halving coincidence is NOT exact',
+    holds: () => /NOT an exact/.test(IMP33781_CAVEAT_BANNER) && /HONEST STATUS/.test(IMP33781_CAVEAT_BANNER),
   },
 ];
 

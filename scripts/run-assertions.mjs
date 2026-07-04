@@ -3621,6 +3621,14 @@ const DATA_MODULES = [
   // collinearity tightens off-regime). Scout hypothesis refuted. Measurement only; C_C GUE-conditional
   // (imp-486); imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-33553-sigma-fartail-slope-sqrt-dominance-ladder.js',
+  // imp-33554: CROSS-VALIDATES the imp-33540 F1 closed-form overshoot identity OS=sigma_ft-sigma_full=
+  // sigma_ft*sigma_full*(E_flow/E_coll) at double-double (~106-bit, Dekker/Knuth twoSum/twoProd as in
+  // imp-33534/imp-33248). Recomputing both sides at the imp-3406 peak (N~9.22e5) from the identical fp64
+  // sub-terms collapses |OS_direct-OS_closed| from ~1.73e-17 (fp64) to ~3.85e-33 (dd), a ~4.5e15 reduction
+  // that tracks the working-precision unit roundoff -- so the ~1e-17 agreement is the fp64 cancellation
+  // floor, NOT the true identity floor: the identity is EXACT (true floor 0). Cross-validation/diagnostic
+  // only; C_C GUE-conditional (imp-486); imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-33554-overshoot-identity-double-double-crossval.js',
   // imp-33537: ASSESSES whether the isolated imp-33316 n=300 deep-tail PLATEAU strict-bar spike is
   // a one-off by re-scoring the IDENTICAL imp-33295 conservative grade4/400p=4000-node graded plateau
   // against the imp-33213 A_log target on FOUR dense width-31 integer windows centred on

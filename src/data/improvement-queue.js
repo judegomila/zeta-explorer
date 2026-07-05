@@ -49065,13 +49065,15 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Consistency check of the hump-peak decade label across consumers: imp-33857 X2 reports the M3 curvature-hump argmax lands on the integer decade k=9 (0.064758) while the quarter-decade grid reads k=8.75 (0.065245); verify the roadmap currentStatus and any consumer doc/viz cite the k=9 integer-decade peak label consistently and flag stale text citing a different peak decade',
     category: 'content',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S-frontier',
     description: "imp-33844/imp-33857 fix the M3 saturation-curvature hump peak at the integer decade k=9 (the E_coll=E_trunc crossover), with a -0.25-decade grid offset to k=8.75 and a +0.52-decade continuous crossover at k_cross~9.516. Sweep the roadmap currentStatus text and any consumer docs/viz banners that reference the hump-peak or curvature-knee decade, and verify they consistently cite the k=9 integer-decade label (not a stale [1e10,1e11] or other decade from the earlier imp-33701 sigmoid-knee framing), flagging any text that conflates the D2 discrete-vs-continuous offsets. Content/docs consistency only; no bound changes; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.",
     rationale: 'Frontier scout: imp-33857 X2 pins the hump peak at integer decade k=9 with grid/continuous offsets; consumer docs may still cite the earlier imp-33701 [1e10,1e11] knee decade',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'sonnet-4-6',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
 ];
 

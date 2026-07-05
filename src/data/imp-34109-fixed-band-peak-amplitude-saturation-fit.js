@@ -76,6 +76,8 @@
  *
  * @see imp-34196-fixed-band-peak-increment-minimum-subwindow-refine (refines this module's F1 increment
  *   minimum to sub-window resolution on a halved 0.25 kEnd grid)
+ * @see imp-34169-fixed-band-peak-extended-decade-surrogate-zero (continues this module's sweep one further
+ *   decade, kEnd = 20..26, and finds the surrogate this module's OLS depends on has a hard right edge)
  * @see imp-34040-fixed-band-drift-saturation-decade (the kEnd = 14..17 sweep this continues; machinery reused)
  * @see imp-34047-argmax-rung-creep-descent-law (the argmax-creep law; F3 is an independent argmax observation)
  * @see imp-34108-endpoint-peak-saturating-ceiling-extrapolation (the peak = a - b/kEnd ceiling form reused)

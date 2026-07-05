@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import {
   IMP34237_FIXED_BAND_PEAK_ROWS,
@@ -322,7 +323,11 @@ export default function Imp34237FixedBandPeakReaccelAndSurrogatePoleViz() {
         that gap -- it moves kEnd* FURTHER away (to &asymp; 20.72) because the expansion parameter
         e&middot;D is O(1) at a full-decade window, so the Taylor-in-D series does not converge and
         the true crossing has no window-width limit. Cross-linked here for context only; no bound
-        or claim on this page changes.
+        or claim on this page changes. See the{' '}
+        <Link to="/viz-imp34281-m2-ceiling-cohort-index" style={{ color: '#94a3b8' }}>
+          full M2-ceiling cohort index
+        </Link>{' '}
+        for the other viz surfaces sharing this ceiling.
       </div>
     </div>
   );

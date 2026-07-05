@@ -8562,6 +8562,33 @@ export const glossary = [
     ],
   },
   {
+    term: 'imp-33861 E_TRUNC-NAME-COLLISION guard extended cohort-wide: 85 sigma(N)-bridge modules, zero conflations',
+    category: 'numerical',
+    definition:
+      'imp-33818 formalized the E_trunc name-collision guard, but only checked it against the FOUR ' +
+      'sigma(N)-bridge consumers imp-33772 tabulated (imp-33582/imp-33620/imp-33708/imp-33723). imp-33861 ' +
+      'extends the same guard cohort-wide: a repository-wide grep enumerated every top-level ' +
+      '`const E_TRUNC[_A-Z]* = 3.06e-5` declaration in src/data, filtered out the four already-covered ' +
+      'consumers and the distinct lambda-bound / EN-route modules (whose E_trunc is the Ingham anchor, ' +
+      'not the sigma-bridge floor), leaving 81 additional sigma(N)-decay modules.\n\n' +
+      'RESULT: all 81 additional modules declare the identical N-independent fixed-strip bridge floor ' +
+      'E_trunc = 3.06e-5 (imp-2631 root); NONE substitutes the separate ~0.137 lambda-bound value ' +
+      'E_trunc(T0) = C_T . T0^{-kappa_T} . log T0 that lives in imp-2625 at gamma = 1e13, ~3.650 decades ' +
+      'away (ratio ~4471x). Combined with the imp-33818 four, total coverage is 85 sigma(N)-bridge ' +
+      'modules, all reading their magnitudes live from their source records (no hard-coded literals), so ' +
+      'a future drift that collapsed the separation would trip the tripwire.\n\n' +
+      'HONEST SCOPE: executable coverage-extension guard only, pins no new bound. C_mb stays ' +
+      'GUE-conditional (imp-486); imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33861 (extending the imp-33818 four-consumer E_trunc name-collision guard cohort-wide across 81 additional sigma(N)-decay modules, confirming all 85 total declare the 3.06e-5 fixed-strip floor and none conflate it with the separate ~0.137 lambda-bound value), 2026',
+    relatedTerms: [
+      'imp-33818 the four-consumer E_TRUNC-NAME-COLLISION guard this module extends cohort-wide (imp-33818)',
+      'imp-2631 root of the N-independent 3.06e-5 fixed-strip sigma(N)-bridge floor (imp-2631)',
+      'imp-2625 root of the SEPARATE ~0.137 lambda-bound E_trunc(T0) at gamma=1e13 (imp-2625)',
+      'imp-33772 the original four-module tabulation this cohort-wide sweep builds on (imp-33772)',
+    ],
+  },
+  {
     term: 'imp-33854 log-saturation object g(N) = (1/2) d ln(log T0)/d ln N, unifying gap_sigma and gap_ecoll',
     category: 'numerical',
     definition:

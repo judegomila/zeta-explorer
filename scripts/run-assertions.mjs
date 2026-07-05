@@ -3967,6 +3967,20 @@ const DATA_MODULES = [
   // now fire. Import-light (effectiveHeightForN/C_C_PINNED chain only, no
   // heavy bundle). PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-33782-residual-contrast-viz-data.js',
+  // imp-33924 (numerical): BUILDS a 2D robustness map of the imp-33853 onset
+  // jointly over the imp-33882 cusp exponent alpha and the imp-33883 evaluation
+  // angle theta. FINDING: both magnitude tiers FACTORIZE and are theta-independent
+  // for every alpha -- the leading-amplitude modulus is |A| = pi alpha/cos(pi alpha/2)
+  // (quadrature theta-spread ~1e-8 across the grid) and the eps^0 onset coefficient
+  // is the tail 2/(alpha+1) (reconstructed at eps=1e-4, imag -> 0) -- so there is NO
+  // alpha-theta interaction in either magnitude tier; the SOLE joint coupling is the
+  // complex phase, whose theta-winding rate -(1+alpha) is alpha-dependent (= -3/2 at
+  // alpha=1/2). The (1/2, pi/2) anchor recovers the imp-33853 triple (4/3, C_PS,
+  // phase-zero). A(alpha,theta) is quadrature-cross-checked across the whole grid to
+  // < 1e-6. Import-free (pure math, no heavy bundle). Derivation/measurement only;
+  // does NOT discharge H4; G6a STAYS OPEN; imp-3066 untouched; NO QED; PT Lambda<=0.2
+  // SOTA. 6 assertions.
+  '/src/data/imp-33924-joint-cusp-angle-onset-robustness-map.js',
 ];
 
 let ALL_MODULES = FAST_MODE

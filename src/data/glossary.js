@@ -9222,6 +9222,40 @@ export const glossary = [
       'imp-486 C_mb GUE-conditional share, left untouched by this measurement (imp-486)',
     ],
   },
+  {
+    term: 'imp-33941 endpoint-peak growth-form MODEL-SELECTION decision',
+    category: 'accuracy',
+    definition:
+      'imp-33917 fit the imp-33810 boundary-locked endpoint residual peak (over the 9-window kEnd=11..13 ' +
+      'sweep) with TWO descriptive forms -- linear (R2~0.9813) and concave log (R2~0.9872) -- and called ' +
+      'log "marginally better" without ever formally DECIDING which form the peak follows. imp-33941 ' +
+      'closes that gap by scoring both OLS fits, reused VERBATIM (same 9 endpoint peaks, kEnd=11.00..13.00 ' +
+      'step 0.25), against four formal model-selection criteria: Gaussian-MLE AIC, BIC, AICc, and residual ' +
+      'RMSE.\n\n' +
+      'RESULT: the concave log form peak = a + b*ln(kEnd) is favored by EVERY criterion -- RSS_log ' +
+      '5.794e-4 < RSS_lin 8.439e-4, RMSE 8.02e-3 vs 9.68e-3, AIC -55.32 vs -51.93, BIC -54.72 vs -51.34, ' +
+      'AICc -50.52 vs -47.13. Both forms share the same parameter count, so all three information-criterion ' +
+      'contrasts coincide exactly (dAIC=dBIC=dAICc=-3.385=n*ln(RSS_lin/RSS_log)), giving an evidence ratio ' +
+      'of ~5.43:1 and Akaike weights w_log~0.844 vs w_lin~0.156. By the conventional strength-of-evidence ' +
+      'scale this is POSITIVE (d>2) but NOT decisive (d<~6-10): the linear form is roughly 5x less ' +
+      'supported but is not excluded outright. This DECIDES the imp-33917 open question -- the ' +
+      'boundary-locked endpoint peak grows SUB-LINEARLY (concave/log), not linearly -- upgrading imp-33917 ' +
+      "R2's marginal descriptive edge into a selected model, at a calibrated confidence level rather than " +
+      'an unqualified verdict.\n\n' +
+      'HONEST SCOPE: model-selection/measurement only; both forms remain descriptive fits, not derived; ' +
+      'the OLS surrogate is descriptive not derived; the underlying component model is the inherited ' +
+      'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the edge-artifact reading and the ' +
+      'imp-33843 log-linear-vs-power-law FORM verdict are UNTOUCHED; C_mb GUE-conditional per imp-486 ' +
+      'UNTOUCHED; changes no bound; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-33941 (deciding via formal AIC/BIC/AICc/RMSE model selection whether the imp-33917 boundary-locked endpoint peak grows linearly or logarithmically, reusing the imp-33917 9-window peaks verbatim), 2026',
+    relatedTerms: [
+      'imp-33917 the boundary sweep whose two descriptive linear-vs-log fits this ticket formally decides between (imp-33917)',
+      'imp-33810 the quarter-decade ladder and OLS widening-fit machinery this analysis is built on (imp-33810)',
+      'imp-33843 the log-linear-vs-power-law FORM verdict for the aggregate widening fit, left untouched by this endpoint-only decision (imp-33843)',
+      'imp-486 C_mb GUE-conditional share, left untouched by this measurement (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

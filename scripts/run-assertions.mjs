@@ -4077,6 +4077,23 @@ const DATA_MODULES = [
   // Measurement only; does NOT discharge H4; G6a STAYS OPEN; imp-3066 untouched;
   // NO QED; PT Lambda<=0.2 SOTA. 5 assertions.
   '/src/data/imp-33968-winding-rate-vs-alpha-curve.js',
+  // imp-33970 (numerical): ASSESSES whether theta = pi/2 is the UNIQUE phase-zero
+  // angle on (0, pi) of the imp-33924 JOINT leading amplitude -A(alpha,theta) for
+  // EVERY cusp exponent alpha in (0, 1) -- imp-33927 tested uniqueness only at the
+  // anchor alpha=1/2. With p=1+alpha in (1,2), the modulus |A|=pi alpha/cos(pi alpha/2)
+  // never vanishes, so realness is the pure phase condition arg(-A)=p(pi/2-theta)=0
+  // (mod 2 pi) => theta = pi/2 - (2 pi/p) k, branches spaced 2 pi/p in (pi,2 pi) apart
+  // -- wider than the interval -- so ONLY k=0 (theta=pi/2) lands in (0,pi). Equivalently
+  // the phase span p*pi in (pi,2 pi) is strictly under one turn, range inside (-pi,pi),
+  // hits 0 exactly once (arg=pi never attained either). A dense theta scan at each alpha
+  // across a grid including near-endpoint 0.01 and 0.99 confirms exactly one real-positive
+  // angle, at pi/2, residual outside a small window bounded away from 0. The winding rate
+  // -(1+alpha) NEVER manufactures a second crossing on (0,1): that needs p*pi>=2 pi, i.e.
+  // alpha>=1, the EXCLUDED endpoint (p=2) where theta->0+ and theta->pi- both become
+  // phase-zeros in the limit; uniqueness holds on the ENTIRE open range (0,1). Import-free
+  // (pure math). Measurement only; does NOT discharge H4; G6a STAYS OPEN; imp-3066
+  // untouched; NO QED; PT Lambda<=0.2 SOTA. 5 assertions.
+  '/src/data/imp-33970-joint-phase-zero-uniqueness.js',
 ];
 
 let ALL_MODULES = FAST_MODE

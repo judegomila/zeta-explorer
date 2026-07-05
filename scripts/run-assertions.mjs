@@ -4590,6 +4590,17 @@ const DATA_MODULES = [
   // EXACTLY. Measurement/fit only; C_mb GUE-conditional per imp-486 untouched; PT Lambda<=0.2 SOTA;
   // no QED. 5 assertions.
   '/src/data/imp-34194-f2-intercept-recede-curvature-artifact.js',
+  // imp-34197: fits the RATE at which the imp-34130 F3 product log T0 * resid approaches its limit
+  // 1/2 on the imp-33859 log-space direct path. Forming the product cancels the log T0 factor
+  // identically (log T0 * resid = L*(1/2)(u-1)/(uL) = (1/2)(u-1)/u), so the approach gap
+  // 1/2 - log T0 * resid is EXACTLY 1/(2u) -- gap*u = 1/2 to 12 figures across log10 N = 12..1e5,
+  // and an OLS fit of gap vs 1/u returns slope 0.5000000, intercept ~0, R^2 = 1. The leading
+  // coefficient is exactly 1/2 with no subleading 1/u^2 correction (the log(2pi) shift drops out).
+  // The band [1e11,1e12] product ~0.4786 reproduces imp-34130 F3s 0.4788 reading; an FD-vs-analytic
+  // product model gate confirms the same inherited component model. Measurement/fit only; C_mb
+  // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED.
+  // 6 assertions.
+  '/src/data/imp-34197-logt0-resid-product-approach-rate.js',
 ];
 
 let ALL_MODULES = FAST_MODE

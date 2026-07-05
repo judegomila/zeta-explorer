@@ -10852,6 +10852,29 @@ export const glossary = [
       'imp-34025 the AR(2) complex-root damped-sinusoid fit on the same 21 residuals (imp-34025)',
     ],
   },
+  {
+    term: 'imp-34092 audit: the imp-34023 F4-collapse verdict is already glossaried',
+    category: 'meta',
+    definition:
+      'imp-34092 asked for a glossary.js entry summarizing the imp-34023 verdict -- the imp-33969 F4 ' +
+      'factor collapses geometrically in kEnd (ln F4 linear, R^2~0.99942, per-unit factor exp(b)~0.3589) ' +
+      'so the F1/widening over-prediction ratio 1/(F2*F3*F4) diverges without bound past kEnd=13 ' +
+      '(~3.25x per unit kEnd), a divergence meaningful only up to the imp-33773 M2 residual sign-crossing ' +
+      'ceiling at kEnd*~21.281 where catastrophic cancellation makes the surrogate meaningless.\n\n' +
+      'AUDIT FINDING: that exact verdict is ALREADY documented, in full, by the "imp-33810 M2-residual ' +
+      'surrogate factor family F2/F3/F4 and the kEnd*~21.281 cancellation ceiling" entry above ' +
+      '(firstUsed: imp-34023), which was added incidentally while glossarying a later ticket rather than ' +
+      'this one. Adding a second full-prose entry here would duplicate that content verbatim, so this ' +
+      'entry is a short cross-reference closing the discoverability gap imp-34092 flagged, without ' +
+      'restating the verdict.\n\n' +
+      'HONEST SCOPE: bookkeeping/cross-reference only; changes no bound; establishes no operator ' +
+      'positivity; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34092 (auditing whether the imp-34023 F4-collapse verdict already has glossary coverage), 2026',
+    relatedTerms: [
+      'imp-33810 M2-residual surrogate factor family F2/F3/F4 and the kEnd*~21.281 cancellation ceiling, the pre-existing full entry this audit found (imp-33810)',
+      'imp-34023 the F4-collapse extrapolation verdict this ticket asked to be glossaried (imp-34023)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

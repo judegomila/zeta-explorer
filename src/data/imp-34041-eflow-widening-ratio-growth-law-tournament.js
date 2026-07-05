@@ -354,11 +354,12 @@ export const IMP34041_EFLOW_WIDENING_RATIO_GROWTH_LAW_TOURNAMENT_ASSERTIONS = [
   {
     // Honesty gate: numerical/measurement only, isRigorous false, no QED, PT SOTA.
     id: 'imp34041-honesty-gate-no-qed',
-    description: 'Growth-law model selection only: isRigorous false, no QED, PT SOTA',
+    description: 'Growth-law model selection only: isRigorous false, no QED, PT SOTA, imp-3066 K_a>=0 untouched',
     holds: () =>
       IMP34041_EFLOW_WIDENING_RATIO_GROWTH_LAW_TOURNAMENT.isRigorous === false &&
       /NO QED/.test(IMP34041_EFLOW_WIDENING_RATIO_GROWTH_LAW_TOURNAMENT.verdict) &&
-      /remains SOTA/.test(IMP34041_EFLOW_WIDENING_RATIO_GROWTH_LAW_TOURNAMENT.verdict),
+      /remains SOTA/.test(IMP34041_EFLOW_WIDENING_RATIO_GROWTH_LAW_TOURNAMENT.verdict) &&
+      /imp-3066 K_a >= 0 untouched/i.test(IMP34041_EFLOW_WIDENING_RATIO_GROWTH_LAW_TOURNAMENT.verdict),
   },
 ];
 

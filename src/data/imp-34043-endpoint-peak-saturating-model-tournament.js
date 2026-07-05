@@ -374,7 +374,7 @@ export const IMP34043_ENDPOINT_PEAK_SATURATING_MODEL_TOURNAMENT_ASSERTIONS = [
   {
     // (R3) The win does NOT confirm saturation: the fitted cap sits far above the data; honesty gate.
     id: 'imp34043-cap-far-above-data-and-honesty-gate',
-    description: 'weights sum to ~1; cap ~3.6x max peak (no in-window plateau); log-sat Delta = n ln(RSS ratio); isRigorous false; NO QED; PT SOTA',
+    description: 'weights sum to ~1; cap ~3.6x max peak (no in-window plateau); log-sat Delta = n ln(RSS ratio); isRigorous false; NO QED; PT SOTA; imp-3066 K_a>=0 untouched',
     holds: () => {
       const target = N * Math.log(RSS.log / RSS.sat);
       return (
@@ -385,7 +385,8 @@ export const IMP34043_ENDPOINT_PEAK_SATURATING_MODEL_TOURNAMENT_ASSERTIONS = [
         Math.abs(D_AIC_LOG_SAT - target) < 5e-3 &&
         IMP34043_ENDPOINT_PEAK_SATURATING_MODEL_TOURNAMENT.isRigorous === false &&
         /NO QED/.test(IMP34043_ENDPOINT_PEAK_SATURATING_MODEL_TOURNAMENT.verdict) &&
-        /remains SOTA/.test(IMP34043_ENDPOINT_PEAK_SATURATING_MODEL_TOURNAMENT.verdict)
+        /remains SOTA/.test(IMP34043_ENDPOINT_PEAK_SATURATING_MODEL_TOURNAMENT.verdict) &&
+        /imp-3066 K_a >= 0 untouched/i.test(IMP34043_ENDPOINT_PEAK_SATURATING_MODEL_TOURNAMENT.verdict)
       );
     },
   },

@@ -355,12 +355,13 @@ export const IMP34040_FIXED_BAND_DRIFT_SATURATION_DECADE_ASSERTIONS = [
     // Honesty gate: measurement only, saturation onset, isRigorous false, imp-33987 CORRECTED not
     // overturned within its window, no QED, PT SOTA.
     id: 'imp34040-honesty-gate-no-qed',
-    description: 'Measurement only: saturation onset, isRigorous false, imp-33987 within-window untouched, no QED, PT SOTA',
+    description: 'Measurement only: saturation onset, isRigorous false, imp-33987 within-window untouched, no QED, PT SOTA, imp-3066 K_a>=0 untouched',
     holds: () =>
       IMP34040_FIXED_BAND_DRIFT_SATURATION_DECADE.fixedBandDriftIsSaturating === true &&
       IMP34040_FIXED_BAND_DRIFT_SATURATION_DECADE.isRigorous === false &&
       /NO QED/.test(IMP34040_FIXED_BAND_DRIFT_SATURATION_DECADE.verdict) &&
-      /remains SOTA/.test(IMP34040_FIXED_BAND_DRIFT_SATURATION_DECADE.verdict),
+      /remains SOTA/.test(IMP34040_FIXED_BAND_DRIFT_SATURATION_DECADE.verdict) &&
+      /imp-3066 K_a >= 0 untouched/i.test(IMP34040_FIXED_BAND_DRIFT_SATURATION_DECADE.verdict),
   },
 ];
 

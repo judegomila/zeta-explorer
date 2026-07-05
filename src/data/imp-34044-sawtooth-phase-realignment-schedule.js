@@ -344,12 +344,13 @@ export const IMP34044_SAWTOOTH_PHASE_REALIGNMENT_SCHEDULE_ASSERTIONS = [
   {
     // Honesty gate: measurement only, isRigorous false, characterizes imp-33983, no QED, PT SOTA.
     id: 'imp34044-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, CHARACTERIZES the imp-33983 freeze, no QED, PT Lambda<=0.2 SOTA',
+    description: 'Measurement only: isRigorous false, CHARACTERIZES the imp-33983 freeze, no QED, PT Lambda<=0.2 SOTA, imp-3066 K_a>=0 untouched',
     holds: () =>
       IMP34044_SAWTOOTH_PHASE_REALIGNMENT_SCHEDULE.isRigorous === false &&
       /CHARACTERIZES the imp-33983/.test(IMP34044_SAWTOOTH_PHASE_REALIGNMENT_SCHEDULE.verdict) &&
       /NO QED/.test(IMP34044_SAWTOOTH_PHASE_REALIGNMENT_SCHEDULE.verdict) &&
-      /remains SOTA/.test(IMP34044_SAWTOOTH_PHASE_REALIGNMENT_SCHEDULE.verdict),
+      /remains SOTA/.test(IMP34044_SAWTOOTH_PHASE_REALIGNMENT_SCHEDULE.verdict) &&
+      /imp-3066 K_a >= 0 untouched/i.test(IMP34044_SAWTOOTH_PHASE_REALIGNMENT_SCHEDULE.verdict),
   },
 ];
 

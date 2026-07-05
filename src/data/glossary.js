@@ -10514,6 +10514,36 @@ export const glossary = [
       'imp-33917 the 9 boundary-locked endpoint peaks reused verbatim as the leave-two-out sample (imp-33917)',
     ],
   },
+  {
+    term: 'imp-34040 fixed-band convex drift SATURATES a further decade past kEnd=14, exponent collapses 4.41 -> 2.686',
+    category: 'numerical',
+    definition:
+      'imp-33987 found the imp-33940 fixed-band (k<=10) convex residual drift PERSISTS across kEnd=11..14 ' +
+      '(all second differences positive, power-law exponent p~4.41), but could not see past kEnd=14 ' +
+      'whether that super-linear acceleration keeps going or saturates. imp-34040 pushes the identical ' +
+      'inherited imp-33810/imp-33940/imp-33987 selector one further decade, kEnd=14.0..17.0 (7 windows).\n\n' +
+      'RESULT: the convex regime ENDS. The fixed-band peak still climbs monotonically +0.38386 (kEnd=14) ' +
+      '-> +0.64855 (kEnd=17), a further ~69% rise, but its 6 increments now SHRINK (0.04951 -> 0.03851, ' +
+      'ratio ~0.78) and ALL 5 second differences flip strictly NEGATIVE (-0.00194 -> -0.00232) -- concave, ' +
+      'not convex. The power-law exponent collapses from imp-33987 s p~4.41 to p~2.686 (R^2~0.99177), and ' +
+      'the ranking inverts: a plain linear fit now wins (R^2~0.99808) over the power law (~0.99177) and ' +
+      'exponential (~0.98595). The band argmax rung, which crept 7.00 -> 6.50 over imp-33987 s decade, ' +
+      'now LOCKS at k=6.50 across all 7 new windows -- the inward creep has halted.\n\n' +
+      'HONEST SCOPE: a boundary-independent inner-band peak that keeps drifting upward as the fit ' +
+      'boundary recedes, but decelerating rather than accelerating past kEnd=14 -- a descriptive residual ' +
+      're-selection from an inherited surrogate, not a derived law. imp-33987 s reading is CORRECT within ' +
+      'its measured kEnd=11..14 window and is not overturned, only its extrapolation beyond kEnd=14; the ' +
+      'imp-33843 log-linear-over-power-law verdict is untouched; the component model is the inherited ' +
+      'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 ' +
+      'UNTOUCHED; changes no bound; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains ' +
+      'SOTA.',
+    firstUsed: 'imp-34040 (pushing the imp-33987 fixed-band k<=10 convex residual-drift sweep one further decade to kEnd=14..17 and finding the convex regime saturates), 2026',
+    relatedTerms: [
+      'imp-33987 the kEnd=11..14 convex-drift sweep this ticket continues one decade and finds saturating past (imp-33987)',
+      'imp-33940 the R2 convex low-k drift origin, whose selector is reused verbatim (imp-33940)',
+      'imp-33917 the endpoint-peak growth machinery reused across both decades (imp-33917)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

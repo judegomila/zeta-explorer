@@ -10876,6 +10876,29 @@ export const glossary = [
     ],
   },
   {
+    term: 'imp-34096 audit: the imp-34008 wing-fidelity verdict is already glossaried',
+    category: 'meta',
+    definition:
+      'imp-34096 asked for a glossary.js entry summarizing the imp-34008 verdict -- the imp-33948 apex ' +
+      'parabola tracks the true imp-33878 resid_exp(k) hump to within 1% of the apex out to |k-k*|~0.635 ' +
+      '(low-k) / ~0.714 (high-k) decade (5% out to ~0.982 / ~1.065), the wings are ASYMMETRIC (the low-k ' +
+      'shoulder departs first, a nonzero cubic tilt), and the imp-33948 E2 flat-top half-widths (0.19, ' +
+      '0.425 decade) sit entirely inside this faithful zone -- so the flat-top readings are honest, not ' +
+      'wing extrapolations.\n\n' +
+      'AUDIT FINDING: that exact verdict is ALREADY documented, in full, by the "imp-34008 apex-parabola ' +
+      'wing-fidelity radius of the imp-33878 resid_exp(k) hump" entry above (firstUsed: imp-34008, added ' +
+      'by imp-34139), which reproduces all three findings (W1/W2/W3) verbatim. Adding a second full-prose ' +
+      'entry here would duplicate that content, so this entry is a short cross-reference closing the ' +
+      'discoverability gap imp-34096 flagged, without restating the verdict.\n\n' +
+      'HONEST SCOPE: bookkeeping/cross-reference only; changes no bound; establishes no operator ' +
+      'positivity; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34096 (auditing whether the imp-34008 apex-parabola wing-fidelity verdict already has glossary coverage), 2026',
+    relatedTerms: [
+      'imp-34008 apex-parabola wing-fidelity radius of the imp-33878 resid_exp(k) hump, the pre-existing full entry this audit found (imp-34008)',
+      'imp-34139 the ticket that added the pre-existing full entry (imp-34139)',
+    ],
+  },
+  {
     term: 'imp-34025 AR(2) complex-root damped-sinusoid fit on the 21 imp-33858 residuals',
     category: 'numerical',
     definition:

@@ -224,6 +224,52 @@ function EflowOverResidPoleChart() {
   );
 }
 
+// Coverage strip: the ticket's full kEnd=20..26 grid (13 windows, step 0.5) with only
+// the first IMP34237_COMPUTABLE_WINDOW_COUNT defined -- makes the gap visible instead of
+// letting the 2-bar pole chart above imply the ladder simply ends where it is drawn.
+function CoverageIndicator() {
+  const cellSize = 24;
+  const gap = 4;
+  const n = IMP34237_TOTAL_WINDOW_COUNT;
+  const computable = IMP34237_COMPUTABLE_WINDOW_COUNT;
+  const svgW = n * (cellSize + gap) - gap;
+  const svgH = cellSize + 18;
+
+  return (
+    <div style={{ marginBottom: '1.25rem' }}>
+      <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
+        {Array.from({ length: n }, (_, i) => {
+          const x = i * (cellSize + gap);
+          const isComputable = i < computable;
+          const kEnd = 20 + i * 0.5;
+          return (
+            <g key={kEnd}>
+              <rect
+                x={x}
+                y={0}
+                width={cellSize}
+                height={cellSize}
+                rx={3}
+                fill={isComputable ? '#4ade80' : '#1e293b'}
+                stroke={isComputable ? '#166534' : '#334155'}
+                strokeWidth={1}
+              />
+              <text x={x + cellSize / 2} y={cellSize + 13} textAnchor="middle" fill="#64748b" fontSize={8}>
+                {kEnd.toFixed(1)}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+      <p style={{ color: '#64748b', fontSize: '0.75rem', marginTop: '0.35rem' }}>
+        kEnd window coverage: {computable} of {n} defined (green). The remaining{' '}
+        {n - computable} sit past the k* &asymp; {IMP34237_RESID_ZERO_KSTAR.toFixed(5)} pole
+        and are UNDEFINED, not merely unswept.
+      </p>
+    </div>
+  );
+}
+
 export default function Imp34237FixedBandPeakReaccelAndSurrogatePoleViz() {
   return (
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
@@ -256,6 +302,7 @@ export default function Imp34237FixedBandPeakReaccelAndSurrogatePoleViz() {
       <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         eflow_over_resid = eflow_attr / resid_exp -- the log argument the fit takes -- flips sign across the pole
       </p>
+      <CoverageIndicator />
       <EflowOverResidPoleChart />
 
       <table

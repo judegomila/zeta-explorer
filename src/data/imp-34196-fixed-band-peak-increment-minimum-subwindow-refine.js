@@ -88,6 +88,13 @@
  * @see imp-33810-eflow-resid-ratio-N-ladder (the k=6.. ladder reused verbatim; its 0.25 rung spacing sets the resolution)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 = gamma_N)
  * @see polymath15-constant-C-C (C_C_PINNED constant in E_coll)
+ *
+ * IMPORT-WEIGHT AUDIT (imp-34277): this module's two-hop import chain (lambda-rh-height-mapping ->
+ * bridge-lambda-rh -> guth-maynard-tail-bound; polymath15-constant-C-C -> g6a-sub-constant-value /
+ * polymath15-lemma52-shock-holder -> lambda-intercept-burgers-uniformity -> dyson-scaling-N5000 /
+ * dyson-burgers-shock / lambda-intercept-analytic) was traced and does NOT reach the 20.8MB
+ * zeros-to-1e6.js bundle; per [[no_heavy_imports_in_pages]] this module stays safe to import from a
+ * lazy-loaded page.
  */
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';

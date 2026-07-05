@@ -36,6 +36,11 @@
  *
  *   Ticket: imp-34237 (ux, low). Viz-data only, presentation/no-bound-change;
  *   RH-equivalent untouched; imp-3066 untouched; NO QED.
+ *
+ *   IMPORT-WEIGHT AUDIT (imp-34277): this module and the page it feeds
+ *   (Imp34237FixedBandPeakReaccelAndSurrogatePoleViz.jsx) were traced for transitive
+ *   imports and confirmed to hold zero heavy-bundle references -- this file has no
+ *   imports at all (baked literals only), consistent with its own docstring above.
  */
 
 // (1) Fixed-band (k<=10) peak over the three computable windows -- imp-34169 F1.

@@ -11291,6 +11291,41 @@ export const glossary = [
       'imp-486 C_mb GUE-conditional share, left untouched by this measurement (imp-486)',
     ],
   },
+  {
+    term: 'imp-34204 AGGREGATE F4 vs PER-STEP F4(k) -- two distinct objects sharing one name',
+    category: 'meta',
+    definition:
+      'Two unrelated ratios in the imp-33962 factor family are both called "F4", and several modules ' +
+      'flag the reader-confusion explicitly (imp-34128 R0, imp-34003). This entry disambiguates them.\n\n' +
+      'PER-STEP F4(k) (imp-34003, imp-33962): the ADJACENT-RUNG ratio of the imp-33773 M2 residual ' +
+      'F4(k) = resid(k+dk)/resid(k) (dk=0.25), evaluated between two neighbouring rungs of the fixed ' +
+      'imp-33810 21-rung quarter-decade ladder. Its =1 crossing (bisected in imp-34003 to ' +
+      'from_k*=8.6958594943, geometric center k_c=8.8208594943) marks where the M2 residual stops ' +
+      'amplifying and starts attenuating rung-to-rung -- a LOCAL, continuous-in-k object.\n\n' +
+      'AGGREGATE F4 (window-endpoint) (imp-34009, imp-34128): the WINDOW-ENDPOINT ratio ' +
+      'F4(win) = resid(k_hi)/resid(k_lo) between the two ENDS of the whole imp-33962 attribution ' +
+      'window [k_lo, k_hi], used in the telescoped factor identity widening = F1*F2*F3*F4 and in the ' +
+      'F2 magnitude-share share = |ln F2|/(|ln F2|+|ln F3|+|ln F4|). imp-34009 varies k_lo/k_hi by ' +
+      'SYMMETRIC SHRINK s (k_lo=6.00+s, k_hi=11.00-s); imp-34128 refines its =1 crossing to sub-rung ' +
+      'precision (s*=0.16977116, share apex 0.96624) and its peak (s**=1.13346, F4max=1.37596) -- a ' +
+      'GLOBAL, single-window-pair object, not a function of an intermediate rung.\n\n' +
+      'THE DISTINCTION: per-step F4(k) compares two ADJACENT rungs a fixed dk=0.25 apart and asks ' +
+      'where the residual attenuation direction flips locally; aggregate F4(win) compares the two ' +
+      'ENDPOINTS of the entire attribution window and asks where the net residual ratio over the ' +
+      'whole span crosses unity. Both happen to cross 1 near similar ladder coordinates (k~8.7-8.8 ' +
+      'per-step vs k_lo/k_hi symmetric about k~8.5 aggregate) but are computed from different pairs ' +
+      'of rungs and answer different questions; neither crossing implies the other.\n\n' +
+      'HONEST SCOPE: disambiguation only, no new computation. Both objects remain measurements on the ' +
+      'inherited imp-3220/imp-3406/imp-33810 component model; NO QED; Platt-Trudgian Lambda<=0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-34204 (recording the AGGREGATE-vs-PER-STEP F4 naming collision that imp-34128 and imp-34003 each flag independently, so future readers do not conflate the two crossings), 2026',
+    relatedTerms: [
+      'imp-34003 the PER-STEP F4(k)=1 adjacent-rung crossing this entry distinguishes from the aggregate object (imp-34003)',
+      'imp-34009 the integer-grid AGGREGATE F4 window-endpoint crossing/peak this entry distinguishes from the per-step object (imp-34009)',
+      'imp-34128 the sub-rung refinement of the AGGREGATE F4 crossing/peak, whose module docstring first flags this exact confusion (imp-34128)',
+      'imp-33962 the source attribution decomposition widening=F1*F2*F3*F4 from which both F4 readings descend (imp-33962)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

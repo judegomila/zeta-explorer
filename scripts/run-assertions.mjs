@@ -4551,6 +4551,15 @@ const DATA_MODULES = [
   // on the imp-33924 closed form; does NOT discharge H4, G6a stays OPEN; imp-3066 K_a>=0 untouched;
   // C_mb GUE-conditional untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-34173-unified-branch-endpoint-law.js',
+  // imp-34174: tabulates the imp-33848 crossover surplus surplus(thr) = thr - sigma(N_cross(thr)) =
+  // thr(1-thr)r/(1+(1-thr)r), r = E_flow/E_trunc, across the imp-33743 generalised threshold family
+  // thr in {0.5,0.3,0.1,0.05,0.01}. As thr shrinks the crossover N_cross(thr) recedes (3.280e9 ->
+  // 4.624e13), E_flow/E_trunc vanishes there (1.899e-3 -> 4.255e-7, imp-33620 reading), and the
+  // surplus collapses monotonically (4.744e-4 -> 4.213e-9); thr=1/2 reproduces imp-33848s
+  // 1/2 - sigma(N_cross) = E_flow/(2(2 E_trunc + E_flow)); the surplus first drops below 1e-4 at
+  // thr ~ 0.3137 (N_cross ~ 1.687e10). Measurement/derivation only; C_mb GUE-conditional per imp-486
+  // UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34174-crossover-surplus-threshold-family-decay.js',
 ];
 
 let ALL_MODULES = FAST_MODE

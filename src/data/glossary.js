@@ -9063,6 +9063,35 @@ export const glossary = [
       'imp-33810 the 21 quarter-decade E_flow/residual ratio rungs supplying the head/tail endpoints (imp-33810)',
     ],
   },
+  {
+    term: 'imp-33918 g/law = L/(L+1) closed form for the E_coll reference-offset convergence rate',
+    category: 'numerical',
+    definition:
+      'imp-33887 decomposed the imp-33856 endpoint residual and reported the pointwise g-vs-law ' +
+      'reference offset gap_ecoll - 1/(2 log T0) at ~-6.3e-4 (ratio g/law ~0.96) on the 1e12..1e15 ' +
+      'ladder, but never measured whether or how fast g(N) converges to the far-tail law. imp-33918 ' +
+      'extends the identical inherited imp-3220/imp-3406 E_coll sub-terms to a 1e12..1e280 ladder and ' +
+      'measures the convergence RATE.\n\n' +
+      'RESULT: writing L = log T0, the Riemann-von Mangoldt inverse ln N = ln T0 + ln ln T0 - 1 + o(1) ' +
+      'gives d ln N/d ln T0 = 1 + 1/L and hence g/law = L/(L+1) = 1 - 1/(L+1), so the pointwise offset ' +
+      'off = g - law = (1/(2L))*(g/law - 1) = -1/(2 L (L+1)) ~ -1/(2 L^2). The two quantities converge ' +
+      'at DIFFERENT orders in 1/L: the RATIO g/law approaches 1 at ORDER 1 ((1 - g/law)*L -> 1, from ' +
+      '1.075 at 1e12 to 1.003 at 1e280), while the pointwise OFFSET g - law vanishes at ORDER 2 (a ' +
+      'log|off| vs log L regression over the tail gives slope ~-2.00, r2 ~1, and off/closedForm -> 1). ' +
+      'Both the offset magnitude and the ratio move monotonically across the full ladder, and the ' +
+      'imp-33854 I1 identity (pointwise gap_ecoll = g) holds to ~1e-11 throughout.\n\n' +
+      'HONEST SCOPE: measurement only, on the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
+      'rigorous asymptotic; the closed form is a MATCH to the measured decay, not a proven bound; the ' +
+      'C_mb GUE-conditional share per imp-486 is untouched; changes no bound; imp-3066 K_a >= 0 ' +
+      'untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33918 (measuring the decade-scaling convergence rate of the imp-33887 g-vs-law reference offset on an extended 1e12..1e280 ladder, and matching it to a closed form), 2026',
+    relatedTerms: [
+      'imp-33887 the three-way endpoint-residual split identifying the I3 g-vs-law reference offset this module measures the convergence rate of (imp-33887)',
+      'imp-33854 the I1 identity gap_ecoll = g to machine precision and the g -> 1/(2 log T0) reference this offset is measured against (imp-33854)',
+      'imp-33816 the pointwise gap_sigma ~ 1/(2 log T0) asymptote-approach-rate cohort this offset mirrors (imp-33816)',
+      'imp-486 C_mb GUE-conditional share, left untouched by this measurement (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

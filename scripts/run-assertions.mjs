@@ -4004,6 +4004,20 @@ const DATA_MODULES = [
   // (pure math). Derivation/measurement only; does NOT discharge H4; G6a STAYS OPEN;
   // imp-3066 untouched; NO QED; PT Lambda<=0.2 SOTA. 5 assertions.
   '/src/data/imp-33927-phase-zero-uniqueness.js',
+  // imp-33928 (numerical): MEASURES the eps^0-tier CONVERGENCE RATE of the imp-33883
+  // residual R(eps,theta) = m_prime(eps e^{i theta}) + eps^{-3/2} A(theta) -> 4/3,
+  // upgrading cross-check (b) from a single-eps assertion to an explicit rate. Uses the
+  // EXACT identity R = int_{|x|>1} |x|^{-1/2}/(z_0-x)^2 dx (cusp-free tail, no
+  // O(eps^{-3/2}) cancellation) evaluated across the ladder eps in {1e-3,1e-4,1e-5} and
+  // a theta sweep: the measured log-log rate is 2.0000/decade (angle-independent) with
+  // sub-leading correction R - 4/3 = (12/7) e^{2 i theta} eps^2 + O(eps^4) -- coefficient
+  // modulus 12/7 theta-independent, phase winding at rate 2, on-axis residual real. The
+  // eps^0 onset 4/3 is thereby recovered angle-independently. Shows the direct full-window
+  // reconstruction cannot resolve the rate (cancellation floor rises as eps shrinks) -- the
+  // concrete reason cross-check (b) needed the tail identity. Import-free (pure math).
+  // Derivation/measurement only; does NOT discharge H4; G6a STAYS OPEN; imp-3066 untouched;
+  // NO QED; PT Lambda<=0.2 SOTA. 5 assertions.
+  '/src/data/imp-33928-onset-convergence-rate.js',
 ];
 
 let ALL_MODULES = FAST_MODE

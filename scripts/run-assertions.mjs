@@ -4134,6 +4134,18 @@ const DATA_MODULES = [
   // Import-light (C_C_PINNED only). Component model NOT rigorous; imp-3066/imp-486 untouched;
   // PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-34066-centred-window-collapses-exponent-lead.js',
+  // imp-34067 (numerical): TESTS whether the imp-34007 R3 sub-linear cross-rung
+  // |ln N|-scaling slope ~+0.71 is a GEOMEAN ARTIFACT by recomputing the per-rung
+  // round-off coefficient C_N with MEDIAN and TRIMMED-MEAN estimators (not just the
+  // geomean) over the same five DL steps, then re-regressing log(C_N) on log(|ln N|)
+  // across the ten imp-33854 rungs. All three estimators stay sub-linear: geomean
+  // ~+0.710, median ~+0.574 (even MORE sub-linear -- a rank estimator doing no
+  // log-averaging), trimmed mean ~+0.802 (highest, still clearly below +1). No
+  // estimator reaches +1 and the geomean is not the low outlier, so imp-34007 R3 is an
+  // estimator-robust reading, NOT a geomean artifact. Import-light
+  // (effectiveHeightForN/C_C_PINNED only). Component model NOT rigorous; imp-3066/imp-486
+  // untouched; PT Lambda<=0.2 SOTA; no QED. 4 assertions.
+  '/src/data/imp-34067-i1-roundoff-estimator-sensitivity.js',
   // imp-33968 (numerical): TABULATES the imp-33924 phase winding rate
   // d arg(-A)/d theta = -(1+alpha) as an EXPLICIT rate-vs-alpha curve, upgrading
   // imp-33924 cross-check (a) from a single-tolerance pass/fail. Reusing the

@@ -59,6 +59,8 @@
  * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
  * @see imp-33620 (roadmap: separated E_coll local exponent -0.4810@1e12 -> -0.4848@1e15, residual ~0.0152, close-vs-floor open)
+ * @see imp-34187-ecoll-residual-milestone-ladder (successor: tabulates this closing residual as a seven-rung
+ *      N-milestone ladder with a closed-form cross-check, same shared 1/(2 log T0) law)
  * @see imp-33816-sigma-exponent-asymptote-approach-rate (the SIGMA-share exponent gap ~ 1/(2 log T0); same law; asymptote-approach cohort sibling)
  * @see imp-34126-shortfall-span-scaling-of-centroid-offset (asymptote-approach cohort sibling: span-exponent alpha -> 1)
  * @see imp-34129-widening-slope-drift-convergence-fit (asymptote-approach cohort sibling: widening slope b -> b_inf)

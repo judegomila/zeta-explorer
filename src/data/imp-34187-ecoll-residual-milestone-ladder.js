@@ -53,6 +53,8 @@
  * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
  * @see imp-34130-ecoll-local-exponent-residual-close-vs-floor (the source: residual CLOSES, ~1/(2 log T0), no floor)
+ * @see imp-33620-etrunc-ecoll-ladder-1e15-extension (the ORIGIN cohort ticket: first posed the close-vs-floor
+ *      question this residual answers, shared 1/(2 log T0) law)
  * @see imp-34198-ecoll-residual-milestone-ladder-viz-data (the four decade crossings; this refines to seven rungs)
  * @see imp-33816-sigma-exponent-asymptote-approach-rate (the sigma-share exponent gap ~ 1/(2 log T0); same law)
  * @see imp-33723 / imp-33582 (the sigma-decay landmark-ladder tabulation convention this mirrors)

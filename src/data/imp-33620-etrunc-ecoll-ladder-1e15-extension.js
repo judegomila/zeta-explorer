@@ -73,6 +73,10 @@
  * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
  * Lambda <= 0.2 remains SOTA.
  *
+ * @see imp-34130-ecoll-local-exponent-residual-close-vs-floor (RESOLVES the close-vs-floor question this
+ *      module leaves open: the ~0.0152 residual above KEEPS CLOSING as ~1/(2 log T0), does NOT floor)
+ * @see imp-34187-ecoll-residual-milestone-ladder (tabulates the imp-34130 closing residual as a seven-rung
+ *      N-milestone ladder, same shared 1/(2 log T0) law)
  * @see imp-33602-etrunc-ecoll-component-ladder (separated ladder 1e6..1e12; head reproduced here)
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (sigma<0.1 at N~3.21e11)
  * @see imp-33606-sigma-postpeak-threshold-model-sensitivity (ansatz sensitivity band of the landmarks)

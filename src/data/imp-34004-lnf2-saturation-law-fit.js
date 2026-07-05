@@ -293,7 +293,8 @@ export const IMP34004_LNF2_SATURATION_LAW_FIT_ASSERTIONS = [
     holds: () =>
       IMP34004_LNF2_SATURATION_LAW_FIT.isRigorous === false &&
       /NO QED/.test(IMP34004_LNF2_SATURATION_LAW_FIT.verdict) &&
-      /remains SOTA/.test(IMP34004_LNF2_SATURATION_LAW_FIT.verdict),
+      /remains SOTA/.test(IMP34004_LNF2_SATURATION_LAW_FIT.verdict) &&
+      /imp-3066 K_a >= 0 untouched/.test(IMP34004_LNF2_SATURATION_LAW_FIT.verdict),
   },
 ];
 

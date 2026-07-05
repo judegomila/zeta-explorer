@@ -290,7 +290,8 @@ export const IMP34001_GEOMETRIC_CENTER_TAYLOR_RATIO_FIT_ASSERTIONS = [
     holds: () =>
       IMP34001_GEOMETRIC_CENTER_TAYLOR_RATIO_FIT.isRigorous === false &&
       /NO QED/.test(IMP34001_GEOMETRIC_CENTER_TAYLOR_RATIO_FIT.verdict) &&
-      /remains SOTA/.test(IMP34001_GEOMETRIC_CENTER_TAYLOR_RATIO_FIT.verdict),
+      /remains SOTA/.test(IMP34001_GEOMETRIC_CENTER_TAYLOR_RATIO_FIT.verdict) &&
+      /imp-3066 K_a >= 0 untouched/.test(IMP34001_GEOMETRIC_CENTER_TAYLOR_RATIO_FIT.verdict),
   },
 ];
 

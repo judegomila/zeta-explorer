@@ -4637,6 +4637,18 @@ const DATA_MODULES = [
   // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED.
   // 6 assertions.
   '/src/data/imp-34197-logt0-resid-product-approach-rate.js',
+  // imp-34211: MEASURE the gap between the imp-34127 closed-form kEnd* ceiling (~21.00) and the
+  // imp-34150 direct-bisection root (21.28094743) for the imp-33773 M2-residual sign-change crossing.
+  // Rebuilds BOTH the closed form (sigma(hi)-sigma*, sigma*=(-e_pp D^2/160)/(e^2 D/2+17 e^3 D^2/480))
+  // and the raw residual resid(kEnd)=pEcoll*(1-sigma)-pSigma from the identical inherited imp-3406/
+  // imp-33810 sub-terms (head fixed at k=6) and bisects each 200 iters -> kEnd_cf~21.003, kEnd_bis~21.281.
+  // HONEST NEGATIVE: absolute gap ~0.278, relative gap ~1.3%, only ~1.88 matching sig figs -- the closed
+  // form agrees with the published 21.28094743 only on the integer part "21" and diverges at the first
+  // decimal, a leading-order estimate not a high-precision reproduction; the signed residual is negative
+  // (under-shoots), matching the O((eD)^2) window-width shortfall imp-34127 named and imp-34189 showed
+  // does not close. Measurement only; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
+  // untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34211-closedform-vs-bisection-kend-gap.js',
 ];
 
 let ALL_MODULES = FAST_MODE

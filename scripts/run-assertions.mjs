@@ -4228,6 +4228,16 @@ const DATA_MODULES = [
   // Measurement only; imp-486/C_C ansatz untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions. Was
   // present as a file but absent from DATA_MODULES until this imp-34164 coverage audit.
   '/src/data/imp-34083-kpss-bandwidth-sensitivity.js',
+  // imp-34155 (accuracy): quantifies the residual-space fragility of the imp-34083/imp-34024 un-HAC l=0
+  // KPSS borderline (eta_mu~0.3483 vs the 10% crit 0.347, margin ~0.00128) by reusing the imp-34024
+  // level l=0 statistic VERBATIM and computing the per-rung d(eta_mu)/d(delta) plus the smallest
+  // single-rung shift that drops eta_mu below 0.347. FINDING: the head endpoint k=6.00 is the most
+  // leveraged (slope ~+0.6387); a shift of only ~ -0.00201 there (~1.7% of the residual RMS ~0.116)
+  // flips the rejection, and the three cheapest rungs are the head cluster (k=6.00,6.25) plus the
+  // far-tail endpoint (k=11.00) -- endpoint-driven, mirroring imp-33858. HAC-corrected (l>=1) eta_mu
+  // ~0.149 non-rejection UNCHANGED. Measurement only; imp-486/C_mb untouched; imp-3066 K_a>=0 untouched;
+  // PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34155-kpss-l0-borderline-margin.js',
   // imp-34084: fit the FULL cubic {1,t,t^2,t^3} to the imp-33878 resid_exp(k) hump
   // apex over k*+/-0.1 and MEASURE the cubic coefficient d = (1/6) resid triple-prime(k*)
   // that imp-34008 W2 only INFERRED from wing asymmetry. FINDING: d ~ -5.347e-4 (resid

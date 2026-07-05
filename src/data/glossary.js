@@ -11619,6 +11619,29 @@ export const glossary = [
       'lambda-rh-height-mapping effectiveHeightForN/zeroCountAtHeight, the height <-> N inverse pair both fixed points rely on (imp-398)',
     ],
   },
+  {
+    term: 'Reuse-gate assertion (downstream-fit copy-drift guard)',
+    category: 'meta',
+    definition:
+      'A recurring integrity pattern across the frontier-fit modules: when a downstream module imports a ' +
+      'literal sequence (numbers, kEnd grid, widths) published by an earlier module in order to fit or ' +
+      'extend it, the downstream module\'s FIRST assertion checks that the imported values reproduce the ' +
+      'upstream published numbers EXACTLY (to the printed precision), before any fitting or interpretation ' +
+      'runs. This guards against copy-paste drift between the two modules -- a transcription slip, a stale ' +
+      'literal, or an off-by-one window index -- silently corrupting every downstream conclusion while ' +
+      'looking like a legitimate fit. Example: imp-34214 opens with the assertion ' +
+      'imp34214-reuse-gate-reproduces-imp34085-ratio-sequence, which checks its imported |trough|/|peak| ' +
+      'ratio sequence (5 entries, 0.6151..0.7200) and window widths/kEnd grid match the imp-34085 published ' +
+      'values exactly before fitting the exponential/power convergence models to them. If the reuse gate ' +
+      'fails, the module\'s own assertion suite fails loudly at build/verify time rather than silently ' +
+      'producing a fit on corrupted inputs.',
+    firstUsed: 'imp-34085 (earliest instance of a downstream module gating on exact reproduction of an upstream literal sequence); named/documented here as a general methodology by imp-34304',
+    relatedTerms: [
+      'imp-34214 the trough/peak ratio limit fit whose reuse gate is the worked example cited above (imp-34214)',
+      'imp-34085 the |trough|/|peak| ratio sequence the imp-34214 reuse gate reproduces (imp-34085)',
+      'Storage-precision assertion tolerance the companion trap when the imported literal came from a toExponential(6) cache field',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

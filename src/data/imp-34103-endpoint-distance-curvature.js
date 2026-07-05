@@ -38,6 +38,12 @@
  * 0.392699, deviation ~2.0e-5) and the measured cubic coefficient to pi/16, confirming the predicted
  * curvature term EXACTLY and its linear-in-(1-alpha) convergence.
  *
+ * FAMILY CONTEXT: this is the k = 1 member of the coherent outer-branch-geometry curvature family
+ * completed by imp-34166 (family (ii), k = 2, Taylor coefficient pi/32 at onset alpha = 3) and
+ * imp-34167 (family (iii), k = 3, onset alpha = 5, distance law/slope only, curvature not yet measured
+ * there). The general d_k''(alpha_k) = pi/(4 k^2) closed form unifying all three onsets is recorded in
+ * imp-34173/imp-34240 (k=1 gives pi/4 = 2 * pi/8, matching this module's Taylor coefficient).
+ *
  * WHAT THIS DOES NOT DO
  * ---------------------
  * MEASUREMENT ONLY, pure phase-condition geometry on the inherited imp-33924 / imp-34045 closed form for
@@ -48,6 +54,8 @@
  * @see imp-34045-phase-zero-endpoint-degeneracy (outer branch distance law d(alpha), reports linear pi/4 slope only)
  * @see imp-33970-joint-phase-zero-uniqueness (theta = pi/2 unique on (0,pi) for every alpha in (0,1))
  * @see imp-33924-joint-cusp-angle-onset-robustness-map (joint closed form A(alpha,theta), winding -(1+alpha))
+ * @see imp-34166-second-positive-branch-curvature (family (ii) k=2 curvature analog, Taylor coeff pi/32 at onset alpha=3)
+ * @see imp-34167-third-outer-branch-geometry (family (iii) k=3 member of the same onset-alpha=2k-1 ladder)
  */
 
 // exact outer real-negative branch endpoint distance (imp-34045 closed form).

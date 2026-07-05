@@ -51,6 +51,12 @@
  * positive CUBIC error that shrinks by ~1000x per decade of e (2.52e-5 at e = 0.1, 2.46e-8 at
  * e = 0.01, 2.46e-11 at e = 0.001), confirming the pi/16 curvature governs the leading correction.
  *
+ * FAMILY CONTEXT: this is the k = 2 member of the coherent outer-branch-geometry curvature family
+ * whose k = 1 anchor is imp-34103 (Taylor coefficient pi/8 at onset alpha = 1) and whose k = 3 member
+ * is imp-34167 (onset alpha = 5, distance law/slope derived, curvature not yet measured there). The
+ * general d_k''(alpha_k) = pi/(4 k^2) closed form unifying all three onsets is recorded in
+ * imp-34173/imp-34240 (k=2 gives pi/16 = 2 * pi/32, matching this module's Taylor coefficient).
+ *
  * WHAT THIS DOES NOT DO
  * ---------------------
  * MEASUREMENT / DERIVATION ONLY, pure phase-condition geometry on the inherited imp-33924 / imp-34104
@@ -62,6 +68,7 @@
  * @see imp-34104-second-positive-branch-geometry (distance law d2(alpha), reports linear -pi/8 slope only)
  * @see imp-34103-endpoint-distance-curvature (the family-(i) real-negative branch pi/8-curvature analog)
  * @see imp-33924-joint-cusp-angle-onset-robustness-map (joint closed form A(alpha,theta), winding -(1+alpha))
+ * @see imp-34167-third-outer-branch-geometry (family (iii) k=3 member of the same onset-alpha=2k-1 ladder)
  */
 
 // exact family-(ii) real-positive second-branch endpoint distance (imp-34104 closed form).

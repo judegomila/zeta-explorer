@@ -48,6 +48,13 @@
  * real-NEGATIVE axis), reproducing the closed-form angles pi/2 -+ 3 pi/p to bisection tolerance (~1e-13),
  * exactly as the family (i) / family (ii) crossings did in imp-34105.
  *
+ * FAMILY CONTEXT: this is the k = 3 member of the coherent outer-branch-geometry curvature family
+ * whose k = 1 and k = 2 members, imp-34103 (Taylor coefficient pi/8 at onset alpha = 1) and imp-34166
+ * (Taylor coefficient pi/32 at onset alpha = 3), each go one derivative further than this module by
+ * measuring the endpoint CURVATURE, not just the distance law and its slope. The general
+ * d_k''(alpha_k) = pi/(4 k^2) closed form unifying all three onsets (recorded in imp-34173/imp-34240)
+ * predicts a k = 3 curvature of pi/36 (Taylor coefficient pi/72), not yet independently measured here.
+ *
  * WHAT THIS DOES NOT DO
  * ---------------------
  * MEASUREMENT ONLY, pure phase-condition geometry on the inherited imp-33924 closed form for the model
@@ -60,6 +67,8 @@
  * @see imp-34104-second-positive-branch-geometry (the family (ii) real-positive k = -+2 branch, onset alpha = 3)
  * @see imp-34045-phase-zero-endpoint-degeneracy (named the outer branch families; k = -+1 onset alpha = 1)
  * @see imp-33924-joint-cusp-angle-onset-robustness-map (joint closed form A(alpha,theta), winding -(1+alpha))
+ * @see imp-34103-endpoint-distance-curvature (family (i) k=1 endpoint-curvature analog, Taylor coeff pi/8)
+ * @see imp-34166-second-positive-branch-curvature (family (ii) k=2 endpoint-curvature analog, Taylor coeff pi/32)
  */
 
 // B(alpha) = Gamma(1-alpha) Gamma(1+alpha) = pi alpha / sin(pi alpha).

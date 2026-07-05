@@ -269,6 +269,7 @@ const Imp33953ResidExpHumpArgmaxCrossoverViz = lazy(() => import('./pages/Imp339
 const Imp34049FixedBandDriftGrowthViz = lazy(() => import('./pages/Imp34049FixedBandDriftGrowthViz.jsx'));
 const Imp34050EndpointPeakModelTournamentViz = lazy(() => import('./pages/Imp34050EndpointPeakModelTournamentViz.jsx'));
 const Imp34051LooEvidenceRatioStripViz = lazy(() => import('./pages/Imp34051LooEvidenceRatioStripViz.jsx'));
+const Imp34052F3LandmarkThreeWaySpreadViz = lazy(() => import('./pages/Imp34052F3LandmarkThreeWaySpreadViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1067,6 +1068,7 @@ function AppShell() {
           <Route path="/viz-imp34049-fixed-band-drift-growth" element={<Imp34049FixedBandDriftGrowthViz />} />
           <Route path="/viz-imp34050-endpoint-peak-model-tournament" element={<Imp34050EndpointPeakModelTournamentViz />} />
           <Route path="/viz-imp34051-loo-evidence-ratio-strip" element={<Imp34051LooEvidenceRatioStripViz />} />
+          <Route path="/viz-imp34052-f3-landmark-spread" element={<Imp34052F3LandmarkThreeWaySpreadViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

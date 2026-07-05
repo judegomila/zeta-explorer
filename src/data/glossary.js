@@ -9890,6 +9890,38 @@ export const glossary = [
       'imp-34002 the follow-on eps^4 sub-sub-leading coefficient -10/(alpha+5) e^{4 i theta} measured beyond this eps^2 term (imp-34002)',
     ],
   },
+  {
+    term: 'imp-33962 per-step attenuation decomposition (the 92%-is-F2 headline is a net aggregate, not a per-rung property)',
+    category: 'numerical',
+    definition:
+      'imp-33922 measured the imp-33884 exact 903.538 head-to-tail widening as a single endpoint slice ' +
+      'roe(11)/roe(6) over the full imp-33810 quarter-decade ladder k=6.00..11.00, decomposing the ' +
+      'offsetting attribution attenuation F2*F3*F4=0.05022 with the E_N normaliser collapse F2 reading as ' +
+      '92% of the |ln| share on that one aggregate slice. imp-33962 recomputes the SAME four factors ' +
+      '(F1=E_flow(a)/E_flow(b), F2=E_N(b)/E_N(a), F3=sflow(a)/sflow(b), F4=resid(b)/resid(a)) per ' +
+      'ADJACENT-rung step across all 20 steps of the ladder, using the identical inherited ' +
+      'imp-3406/imp-33810 sub-terms.\n\n' +
+      'RESULT: the 20 per-step factors telescope EXACTLY to the imp-33922 endpoint slice (prod ' +
+      'F1=17992.16, prod F2=0.06332, prod widening=903.538, all rel ~1e-13), so no arithmetic is in ' +
+      'question -- but the 92%-is-F2 reading does NOT hold rung by rung. The local F2 magnitude share ' +
+      '|ln F2|/(|ln F2|+|ln F3|+|ln F4|) drifts 0.871 (head) -> 0.599 (mid-ladder dip, k~7.5) -> 0.905 ' +
+      '(interior peak, k~8.75) -> 0.079 (tail), swinging across nearly the full [0,1] range rather than ' +
+      'sitting near the aggregate 0.9225. In the tail it is F4, NOT F2, that carries the attenuation: the ' +
+      'sub-leading residual ratio F4 crosses unity near k~8.9 (refined by imp-34003 to from_k*=8.6959, ' +
+      'geometric center k_c=8.8209) and dominates the local |ln|-balance past that point.\n\n' +
+      'HONEST SCOPE: qualifies, does not overturn, the imp-33922 aggregate headline (the 903.538 widening ' +
+      'and the 0.05022 attenuation product are unchanged). Cross-check/measurement only, on the inherited ' +
+      'imp-3220/imp-3406 component model, NOT a rigorous asymptotic; changes no bound; imp-3066 K_a >= 0 ' +
+      'untouched; C_mb GUE-conditional share per imp-486 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-33962 (decomposing the imp-33922 F2*F3*F4=0.05022 attribution attenuation rung-by-rung across the 20 adjacent-rung steps of the imp-33810 quarter-decade ladder, testing whether the E_N normaliser dominance is boundary-stable or drifts along N), 2026',
+    relatedTerms: [
+      'imp-33922 the four-factor widening decomposition and its aggregate 92%-is-F2 endpoint-slice reading, qualified here as a net aggregate rather than a per-rung property (imp-33922)',
+      'imp-33884 the exact 903.538 widening this per-step decomposition telescopes back to (imp-33884)',
+      'imp-33810 the 21-rung quarter-decade ladder supplying the 20 adjacent-rung steps (imp-33810)',
+      'imp-34003 the bisected full-precision F4=1 crossing (from_k*=8.6959) locating where F4 overtakes F2 in the tail (imp-34003)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

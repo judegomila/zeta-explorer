@@ -4224,6 +4224,19 @@ const DATA_MODULES = [
   // SOTA; no QED. 5 assertions. (transitively exercises the imp-33810/imp-33962 model via
   // effectiveHeightForN/C_C_PINNED.)
   '/src/data/imp-34086-aggregate-share-asymmetric-trim.js',
+  // imp-34087: quantify the catastrophic-cancellation significance loss in the imp-34023 F4
+  // surrogate on the approach to the kEnd ~ 21.281 M2-residual zero crossing. Measures the
+  // relative cancellation C(kEnd) = (|pEcoll*(1-sigma)| + |pSigma|)/|resid| and the digits lost
+  // log10(C). FINDING: the numerator |A|+|B| ~ 0.978 is O(1) so C ~ 1/|resid| and digits-lost
+  // climbs only LINEARLY ~0.44/unit kEnd (2.55 at kEnd=13 -> 6.09 at 20 -> 7.05 at 21), mirroring
+  // the imp-34023 geometric resid decay; the surrogate loses 6 digits (C>=1e6) at kEnd ~ 19.86,
+  // and in double precision (~15.95 digits) RETAINS >= 6 accurate digits to kEnd ~ 21.2805,
+  // dropping below 6 (~21.28053) and below 3 (~21.28095) only within the last ~0.0004 kEnd before
+  // the crossing -- a near-vertical cliff at the root, so the imp-34023 divergence region is
+  // numerically usable right up to the ceiling. Measurement only; imp-486/C_C ansatz untouched;
+  // imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions. (transitively exercises
+  // the imp-33810/imp-34023 model via effectiveHeightForN/C_C_PINNED.)
+  '/src/data/imp-34087-f4-surrogate-cancellation-digit-loss.js',
 ];
 
 let ALL_MODULES = FAST_MODE

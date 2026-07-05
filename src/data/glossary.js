@@ -10419,6 +10419,41 @@ export const glossary = [
       'imp-486 C_mb GUE-conditional share, left untouched by this measurement (imp-486)',
     ],
   },
+  {
+    term: 'imp-34043 endpoint-peak saturating-model tournament (fourth family dethrones concave-log)',
+    category: 'numerical',
+    definition:
+      'imp-33982 scored three growth forms (linear/concave-log/power) on the 9 imp-33917 boundary-locked ' +
+      'endpoint peaks (kEnd=11..13) and the concave-log form won (Akaike weight ~0.841, power last ' +
+      '~0.004). But imp-33917 read the peak as NOT saturating, so the natural discriminating candidate ' +
+      '-- a bounded/saturating family approaching a cap -- was never admitted to the race. imp-34043 ' +
+      'reuses the identical 9 peaks VERBATIM and fits a fourth form, peak=a-b/kEnd, which is LINEAR in ' +
+      'its parameters (regress peak on the regressor 1/kEnd, intercept=cap a, slope=-b), so plain OLS ' +
+      'returns the exact response-space least-squares optimum -- no log-space caveat unlike the ' +
+      'imp-33982 log-log power law.\n\n' +
+      'RESULT: the saturating form WINS the four-way race and DETHRONES the concave-log winner -- ' +
+      'RSS_sat 3.643e-4 < RSS_log 5.794e-4 < RSS_lin 8.439e-4 < RSS_pow 1.911e-3 (RMSE 6.36e-3, R^2 ' +
+      '0.9919), lowest AIC -59.49, top four-way Akaike weight ~0.872 vs log ~0.108, lin ~0.020, pow ' +
+      '~0.0005. But the win is POSITIVE-NOT-DECISIVE (Delta AIC(log-sat)=+4.18, evidence ~8.07:1, below ' +
+      'the decisive band) and the inherited imp-33941 log-vs-linear margin is UNCHANGED (-3.385, log ' +
+      'still beats the line and crushes power). Crucially, the win does NOT confirm saturation: the ' +
+      'fitted cap a=1.678 sits ~3.6x above the largest observed peak (0.465), so at kEnd=13 the peaks ' +
+      'reach only ~27.7% of the ceiling and the curve is still rising steeply (slope 0.129->0.093) -- ' +
+      'the saturating form wins by CONCAVITY-MATCHING, not by plateauing, reconciling with the imp-33917 ' +
+      'non-saturating reading (a sub-linear climb toward a distant asymptote never reached within ' +
+      'kEnd=11..13).\n\n' +
+      'HONEST SCOPE: descriptive four-way model selection on the inherited imp-3220/imp-3406 component ' +
+      'model, NOT a rigorous asymptotic; the fitted cap is a narrow-window extrapolation asserting no ' +
+      'physical plateau; the imp-33843 log-linear-vs-power-law FORM verdict UNTOUCHED; C_mb ' +
+      'GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; no RH verdict, NO QED; ' +
+      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34043 (admitting a bounded/saturating fourth family to the imp-33982 endpoint-peak model tournament), 2026',
+    relatedTerms: [
+      'imp-33982 endpoint-peak lin/log/power model tournament, whose concave-log winner this ticket dethrones with a fourth saturating family (imp-33982)',
+      'imp-33917 endpoint peak boundary-locked NOT-saturating verdict, reconciled here by the distant unreached cap (imp-33917)',
+      'imp-486 C_mb GUE-conditional share, left untouched by this measurement (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

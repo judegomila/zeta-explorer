@@ -24,6 +24,15 @@
  *
  *   @see imp-34169-fixed-band-peak-extended-decade-surrogate-zero.js (source measurement)
  *   @see imp-34109-fixed-band-peak-amplitude-saturation-fit.js (the kEnd=14..20 sweep imp-34169 continues)
+ *   @see imp-34023-eflow-widening-ratio-f4-collapse-extrapolation.js (bisected kEnd*~21.281, same pole)
+ *   @see imp-34127-m2-residual-signchange-ceiling-closed-form.js (closed-form derivation of the same pole)
+ *   @see imp-34189-m2-ceiling-next-order-window-width-correction.js (next-order term on the same pole)
+ *   @see imp-34188-widening-slope-limit-exactly-minus-one.js (widening-slope limit bounded by the same pole)
+ *
+ *   COHORT MAP (M2-residual sign-change ceiling): imp-34023 (bisected kEnd*~21.281) -> imp-34127
+ *   (leading closed form) -> imp-34189 (next-order term + window-width divergence) -> imp-34188
+ *   (widening-slope limit b_inf~-1) -> imp-34169/imp-34237 (this module, fixed-band peak
+ *   re-acceleration terminating at the resid_exp pole). All six share the same kEnd* ceiling.
  *
  *   Ticket: imp-34237 (ux, low). Viz-data only, presentation/no-bound-change;
  *   RH-equivalent untouched; imp-3066 untouched; NO QED.

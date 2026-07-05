@@ -49,6 +49,14 @@
  * @see imp-33773 (the M2 sub-leading residual whose sign change caps the surrogate)
  * @see imp-33810-eflow-resid-ratio-N-ladder (the k=6.. quarter-decade ladder reused verbatim)
  * @see lambda-rh-height-mapping (RvM height law); polymath15-constant-C-C (E_coll prefactor)
+ * @see imp-34188-widening-slope-limit-exactly-minus-one (widening-slope limit bounded by the same ceiling)
+ * @see imp-34169-fixed-band-peak-extended-decade-surrogate-zero.js (fixed-band peak terminating at the same pole)
+ * @see imp-34237-fixed-band-peak-reaccel-and-surrogate-pole-viz-data.js (viz of the imp-34169 pole)
+ *
+ * COHORT MAP (M2-residual sign-change ceiling): imp-34023 (bisected kEnd*~21.281) -> imp-34127
+ * (leading closed form) -> imp-34189 (this module, next-order term + window-width divergence) ->
+ * imp-34188 (widening-slope limit b_inf~-1) -> imp-34169/imp-34237 (fixed-band peak re-acceleration
+ * terminating at the resid_exp pole). All six share the same kEnd* ceiling.
  */
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';

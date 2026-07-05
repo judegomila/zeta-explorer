@@ -80,6 +80,15 @@
  * @see imp-34023 (the residExp sign-change ceiling kEnd ~ 21.28 bounding the meaningful window)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 = gamma_N)
  * @see polymath15-constant-C-C (C_C_PINNED collision constant in E_coll)
+ * @see imp-34127-m2-residual-signchange-ceiling-closed-form (closed-form derivation of the same ceiling)
+ * @see imp-34189-m2-ceiling-next-order-window-width-correction (next-order term on the same ceiling)
+ * @see imp-34169-fixed-band-peak-extended-decade-surrogate-zero.js (fixed-band peak terminating at the same pole)
+ * @see imp-34237-fixed-band-peak-reaccel-and-surrogate-pole-viz-data.js (viz of the imp-34169 pole)
+ *
+ * COHORT MAP (M2-residual sign-change ceiling): imp-34023 (bisected kEnd*~21.281) -> imp-34127
+ * (leading closed form) -> imp-34189 (next-order term + window-width divergence) -> imp-34188
+ * (this module, widening-slope limit b_inf~-1) -> imp-34169/imp-34237 (fixed-band peak
+ * re-acceleration terminating at the resid_exp pole). All six share the same kEnd* ceiling.
  */
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';

@@ -334,6 +334,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34200-lto-per-pair-influence-bar-chart',
   '/viz-imp34203-endpoint-vs-fixed-band-peak-saturation-cross',
   '/viz-imp34205-widening-slope-drift-convergence',
+  '/viz-imp34221-eflow-etrunc-ratio-decay-onset',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

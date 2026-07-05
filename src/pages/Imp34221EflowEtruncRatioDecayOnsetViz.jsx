@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34134_EFLOW_ETRUNC_RATIO_DECAY_ONSET } from '../data/imp-34134-eflow-etrunc-ratio-decay-onset.js';
+import { IMP34213_EFLOW_ONSET_CLOSED_FORM } from '../data/imp-34213-eflow-onset-closed-form.js';
 
 // log-log chart: x = log10(N), y = log10(ratio). The whole decade sweep renders
 // as a monotone-decreasing curve; the three onset landmarks (ratio = 1, 1%, 0.1%)
@@ -148,6 +149,52 @@ export default function Imp34221EflowEtruncRatioDecayOnsetViz() {
         }}
       >
         <strong style={{ color: '#94a3b8' }}>Honest status:</strong> {data.honestScope}
+      </div>
+
+      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+        imp-34213 closed form vs the imp-34134 bisected onsets above
+      </p>
+      <table
+        style={{
+          width: '100%',
+          borderCollapse: 'collapse',
+          fontSize: '0.8rem',
+        }}
+      >
+        <thead>
+          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+            <th style={{ padding: '0.4rem 0.6rem' }}>alpha</th>
+            <th style={{ padding: '0.4rem 0.6rem' }}>N closed-form</th>
+            <th style={{ padding: '0.4rem 0.6rem' }}>N bisection (imp-34134)</th>
+            <th style={{ padding: '0.4rem 0.6rem' }}>rel diff</th>
+            <th style={{ padding: '0.4rem 0.6rem' }}>contraction |h&prime;(T0*)|</th>
+          </tr>
+        </thead>
+        <tbody>
+          {IMP34213_EFLOW_ONSET_CLOSED_FORM.onsetLadder.map((r) => (
+            <tr key={r.alpha} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.alpha}</td>
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.N_closed_form.toExponential(6)}</td>
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.N_bisection_imp34134.toExponential(6)}</td>
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.closed_form_vs_bisection_rel.toExponential(3)}</td>
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.contraction_at_root.toExponential(4)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>Honest status (imp-34213):</strong> {IMP34213_EFLOW_ONSET_CLOSED_FORM.verdict}
       </div>
     </div>
   );

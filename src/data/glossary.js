@@ -9762,6 +9762,37 @@ export const glossary = [
       "imp-3888 provenance audit of the imp-3849 R_40 cross-check, the audit pattern this module follows (imp-3888)",
     ],
   },
+  {
+    term: "imp-33903 direct-finite-difference vs plain-derivative geometric-center offset",
+    category: "numerical",
+    definition:
+      "imp-33903 reproduces the imp-33879 ~4% endpoint-vs-midpoint geometric-center offset of " +
+      "1/(2 log T0) via a code path independent of the analytic Taylor derivation: it evaluates " +
+      "the law DIRECTLY at the decade endpoint N and the geometric midpoint N/sqrt(10) and " +
+      "differences the two numeric values (no Taylor expansion, no ln 10 constant). This direct " +
+      "difference (Path B) agrees with the imp-33879 analytic leading factor (Path A) to <0.11% " +
+      "relative error at every rung across 1e12..1e15 -- confirming the ~4% is code-path-" +
+      "independent.\n\n" +
+      "SEPARATELY, imp-33903 discloses that a PLAIN pointwise first-order derivative estimate " +
+      "-- a symmetric small-h finite difference at the endpoint, folded as the half-decade step " +
+      "-(1/2) f_prime(x)/f(x) -- UNDERSHOOTS the direct offset by ~3.3%..4.6% relative across the " +
+      "same ladder. This is not a bug in either path: the direct midpoint evaluation captures the " +
+      "full finite half-decade curvature of the law, while the endpoint derivative is a purely " +
+      "local (infinitesimal-step) slope that drops that curvature by construction. imp-33900 " +
+      "later shows the same gap is the second-order Taylor tail the leading-derivative factor " +
+      "omits, so the direct-vs-derivative offset and the imp-33900 second-order residual are the " +
+      "same quantity viewed from two sides.\n\n" +
+      "HONEST SCOPE: measurement/reproduction only, on the inherited imp-3220/imp-3406 " +
+      "extrapolation, NOT a rigorous asymptotic. C_mb stays GUE-conditional (imp-486); changes no " +
+      "bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO " +
+      "QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    firstUsed: "imp-33903 (independently reproducing the imp-33879 geometric-center offset via a direct finite-difference code path and disclosing the plain-derivative undershoot), 2026",
+    relatedTerms: [
+      "imp-33879 geometric-center correction for the endpoint-vs-midpoint anchoring offset, the analytic factor reproduced here (imp-33879)",
+      "imp-33900 second-order Taylor tail, the same undershoot seen from the derivative side (imp-33900)",
+      "imp-33816 sigma-exponent shortfall law 1/(2 log T0), the object being differenced (imp-33816)",
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -8823,6 +8823,38 @@ export const glossary = [
       'imp-33620 separated E_coll discrete exponent residual gap_ecoll, the audited quantity (imp-33620)',
     ],
   },
+  {
+    term: 'imp-33883 off-axis ANGLE-ROBUST onset verdict for the fold-modulus small-eps asymptotics',
+    category: 'numerical',
+    definition:
+      'imp-33853 pinned the small-eps expansion of the fold-modulus m_prime(z_0) at the single ' +
+      'ON-AXIS point z_0*=i*eps: a leading eps^{-3/2} amplitude giving the closed-form constant ' +
+      'C_PS = pi/sqrt(2) plus an eps^0 onset coefficient of 4/3. Whether either number was an ' +
+      'artifact of the imaginary-axis special case, or held for every direction z_0=eps*e^{i*theta}, ' +
+      'was untested. imp-33883 re-derives the expansion at general theta: writing w=e^{i*theta}, the ' +
+      'finite window splits into a scale-free bulk (closed form via the Beta-function identity ' +
+      'integral_0^inf u^{-1/2}/(u+a)^2 du = (pi/2) a^{-3/2}) plus an outside-window tail, giving ' +
+      'm_prime = -eps^{-3/2} A(theta) + 4/3 + o(1) with A(theta) = (pi/2)(1-i) e^{-3i*theta/2}.\n\n' +
+      'RESULT: (i) the MODULUS |A(theta)| = pi/sqrt(2) = C_PS is theta-INDEPENDENT (sweep spread ~0 ' +
+      'for theta in {45..135} deg) -- C_PS is the angle-robust leading amplitude for every direction, ' +
+      'not an imaginary-axis artifact; (ii) only the complex PHASE rotates, rigidly at winding rate ' +
+      '3/2 (measured -1.5), vanishing (real positive amplitude) exactly at theta=pi/2, so the on-axis ' +
+      'point is distinguished only as the phase-zero of a constant-modulus family; (iii) the eps^0 ' +
+      'onset coefficient is the outside-window tail integral_{|x|>1} |x|^{-1/2}/x^2 dx = 4/3, regular ' +
+      'at x=0 and hence EXACTLY 4/3 for every theta, confirmed numerically to <1e-3 at theta in ' +
+      '{70,90,110} deg and A(theta) cross-checked against an independent complex Simpson quadrature ' +
+      'to <1e-5.\n\n' +
+      'HONEST SCOPE: derivation/measurement only. Does NOT re-derive the m_prime -> C_ren map ' +
+      'off-axis and does NOT discharge H4 (imp-33766); G6a_shock_lipschitz stays OPEN; imp-3066 ' +
+      'off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-33883 (testing whether the imp-33853 on-axis C_PS amplitude and 4/3 onset coefficient are angle-robust or imaginary-axis artifacts), 2026',
+    relatedTerms: [
+      'imp-33853 on-axis fold-modulus asymptotics pinning C_PS = pi/sqrt(2) and the 4/3 onset coefficient at z_0*=i*eps (imp-33853)',
+      'imp-33766 H4 strip-height fold-reading control, not discharged by this off-axis onset (imp-33766)',
+      'imp-3066 off-diagonal endpoint-Hankel positivity K_a >= 0, left untouched (imp-3066)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -4251,6 +4251,17 @@ const DATA_MODULES = [
   // imp-486/C_mb untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   // (reuses the imp-33810 21-rung ladder VERBATIM.)
   '/src/data/imp-34088-segmented-broken-stick-fit.js',
+  // imp-34103: measure the QUADRATIC curvature term of the imp-34045 outer real-negative branch endpoint
+  // distance d(alpha) = pi(1 - alpha)/(2(1 + alpha)) beyond the reported linear pi/4 slope. Expanding
+  // about alpha = 1 with e = 1 - alpha gives d = (pi/4) e + (pi/8) e^2 + (pi/16) e^3 + ..., so the
+  // predicted (1 - alpha)^2 coefficient is pi/8. Tabulating d on alpha in {0.9, 0.99, 0.999, 0.9999},
+  // subtracting (pi/4)(1 - alpha) and dividing by (1 - alpha)^2 gives a measured quadratic coefficient
+  // c2 = pi/(4(2 - e)) that decreases monotonically from 0.413367 to 0.392719, converging to pi/8 =
+  // 0.392699 (deviation ~2.0e-5) with the deviation shrinking LINEARLY in (1 - alpha) (~10x per decade);
+  // the next cubic coefficient likewise converges to pi/16, confirming the full expansion. Measurement
+  // only; pure phase geometry on the imp-33924/imp-34045 closed form; does NOT discharge H4, G6a stays
+  // OPEN; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34103-endpoint-distance-curvature.js',
 ];
 
 let ALL_MODULES = FAST_MODE

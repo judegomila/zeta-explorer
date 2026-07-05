@@ -3889,6 +3889,19 @@ const DATA_MODULES = [
   // / var_R ~ 4.96 exactly (cross-check). Sharpens the p-value only; no RMSE / form-selection / bound
   // change; imp-486/C_C untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-33920-runs-test-exact-permutation-pvalue.js',
+  // imp-33922 (accuracy): CROSS-CHECKS the imp-33885 analytic (log N)^3/N E_flow
+  // closed-form decay against the imp-33843/imp-33884 MEASURED head-to-tail
+  // widening (903.538 exact / 917.9 reported). FINDING: the (log N)^3/N law
+  // reproduces only the RAW E_flow decay factor F1 = 17992.16 (direct/closed
+  // forms agree to rel ~2e-16), which ALONE over-predicts the widening by
+  // ~19.9x (rel ~1891%); the widening is that raw decay attenuated by the
+  // attribution factors F2*F3*F4 = 0.05022 (92% of the log attenuation is the
+  // E_N normaliser collapse F2), and re-inserting the closed-form F1 into
+  // F1*F2*F3*F4 recovers 903.538 exactly (rel ~2.5e-16). Measurement only;
+  // component model NOT rigorous; imp-3066 untouched; PT Lambda<=0.2 SOTA; no
+  // QED. 5 assertions. (transitively exercises the imp-33810 ladder via
+  // effectiveHeightForN/C_C_PINNED.)
+  '/src/data/imp-33922-eflow-analytic-decay-vs-widening-crosscheck.js',
   // imp-33875 (meta): AUDIT of whether the imp-33843/imp-33844/imp-33845
   // *_ASSERTIONS arrays are registered in THIS runner, mirroring the imp-3369 /
   // imp-33806 unwired-assertion-coverage audits. FINDING: none of the three are
@@ -3940,6 +3953,20 @@ const DATA_MODULES = [
   // 1e12 rung reproduces the imp-33887 anchor rung exactly. Lightweight
   // (effectiveHeightForN/C_C_PINNED only, no heavy bundle). PT Lambda<=0.2 SOTA; no QED. 9 assertions.
   '/src/data/imp-33919-ecoll-three-way-decomposition-lower-ladder.js',
+  // imp-33806 (bug): WIRES the imp-33781 sigma-inflection closed-form viz-data
+  // module into this runner -- a grep had shown its *_ASSERTIONS array absent
+  // from DATA_MODULES, so its 6 tripwires (monotone curve, exact 1/2 baseline,
+  // marker-below-baseline, imp-33721 offset-band match, honesty-gate reuse,
+  // caveat-banner wording) never fired. Import-light (effectiveHeightForN/
+  // C_C_PINNED chain only, no heavy bundle). PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-33781-sigma-inflection-closed-form-viz-data.js',
+  // imp-33806 (bug): WIRES the imp-33782 residual-contrast viz-data module
+  // into this runner -- same unwired gap as imp-33781 above. Its 6 tripwires
+  // (two-landmark series shape, N_cross ordering, far-tail-residual-smaller,
+  // recomputed-vs-reused tightening ratio, ~20x..100x band, honesty-gate reuse)
+  // now fire. Import-light (effectiveHeightForN/C_C_PINNED chain only, no
+  // heavy bundle). PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-33782-residual-contrast-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

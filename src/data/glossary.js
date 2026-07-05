@@ -8998,6 +8998,41 @@ export const glossary = [
       'imp-3066 off-diagonal endpoint-Hankel obstruction K_a >= 0, left untouched (imp-3066)',
     ],
   },
+  {
+    term: 'imp-33924 JOINT cusp-angle leading-amplitude factorization for the fold-modulus onset',
+    category: 'numerical',
+    definition:
+      'imp-33882 tested robustness of the imp-33853 fold-modulus onset to the cusp exponent alpha ' +
+      '(holding the angle at theta = pi/2), and imp-33883 tested robustness to the evaluation angle ' +
+      'theta (holding the cusp at alpha = 1/2) -- each moved ONE lever at a time. imp-33924 moves ' +
+      'BOTH at once, re-deriving m_prime(z_0) = -integral_{-1}^{1} |x|^{-alpha}/(z_0-x)^2 dx at ' +
+      'z_0 = eps*e^{i*theta} on the joint (alpha, theta) grid to map any INTERACTION between the ' +
+      'two levers.\n\n' +
+      'RESULT: the expansion m_prime = -eps^{-(1+alpha)} A(alpha,theta) + 2/(alpha+1) + o(1) has ' +
+      'A(alpha,theta) = B(alpha) e^{-i(1+alpha)theta}[1 + e^{i(1+alpha)pi}], B(alpha) = ' +
+      'pi*alpha/sin(pi*alpha). BOTH magnitude tiers FACTORIZE as functions of alpha ALONE and are ' +
+      'theta-INDEPENDENT: (i) the leading-amplitude MODULUS |A(alpha,theta)| = ' +
+      'pi*alpha/cos(pi*alpha/2), equal to C_PS = pi/sqrt(2) at alpha = 1/2, matching imp-33883; ' +
+      '(ii) the eps^0 onset coefficient is the outside-window tail 2/(alpha+1), equal to 4/3 at ' +
+      'alpha = 1/2, matching imp-33882. So the 2D map is a product of a flat theta-direction and the ' +
+      'imp-33882 alpha-curves -- NO alpha-theta interaction in either magnitude tier. The ONLY joint ' +
+      'coupling is the complex PHASE: its theta-winding rate d arg/d theta = -(1+alpha) is itself ' +
+      'alpha-dependent (= -3/2 at alpha = 1/2, reproducing imp-33883), with the phase-zero at ' +
+      'theta = pi/2 for every alpha. The anchor (alpha, theta) = (1/2, pi/2) recovers the imp-33853 ' +
+      'triple (4/3, C_PS, phase-zero); cross-checked against an independent scale-free complex ' +
+      'Simpson quadrature to <1e-4 and the winding slope to <1e-4.\n\n' +
+      'HONEST SCOPE: derivation/measurement only, on the model cusp rho(x) = |x|^{-alpha}. Does NOT ' +
+      're-derive the m_prime -> C_ren map off-axis/off-exponent and does NOT discharge H4 ' +
+      '(imp-33766); G6a_shock_lipschitz stays OPEN; imp-3066 off-diagonal endpoint-Hankel ' +
+      'K_a >= 0 UNTOUCHED; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33924 (building a 2D robustness map of the imp-33853 fold-modulus onset jointly over the imp-33882 cusp exponent and imp-33883 evaluation angle, testing for alpha-theta interaction), 2026',
+    relatedTerms: [
+      'imp-33853 on-axis fold-modulus asymptotics pinning C_PS = pi/sqrt(2) and the 4/3 onset coefficient at z_0*=i*eps (imp-33853)',
+      'imp-33882 cusp-exponent onset-coefficient robustness, the alpha-only lever this joint map factorizes against (imp-33882)',
+      'imp-33883 off-axis angle-robust onset verdict, the theta-only lever this joint map factorizes against (imp-33883)',
+      'imp-33766 H4 strip-height fold-reading control, not discharged by this joint onset map (imp-33766)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

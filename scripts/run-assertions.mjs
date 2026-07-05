@@ -4468,6 +4468,22 @@ const DATA_MODULES = [
   // when E_flow becomes negligible relative to the N-independent E_TRUNC_PT floor. Measurement
   // only; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED.
   '/src/data/imp-34134-eflow-etrunc-ratio-decay-onset.js',
+  // imp-34222: audits the imp-34200 baked LTO viz-data literals against the live imp-34110
+  // measurement they were reproduced from -- live diff finds ZERO drift across all 36 folds
+  // and the summary block. Audit-only; no bound changed; imp-3066 K_a>=0 untouched; NO QED.
+  '/src/data/imp-34222-34200-lto-viz-literals-drift-audit.js',
+  // imp-34166: derive the endpoint CURVATURE of the imp-34104 family-(ii) real-positive second phase-zero
+  // branch distance d2(alpha) = pi(3 - alpha)/(2(1 + alpha)) beyond the reported linear -pi/8 slope. Twice-
+  // differentiating gives d2''(alpha) = 4 pi/(1 + alpha)^3, so d2''(3) = 4 pi/64 = pi/16 = 0.19634954 (the
+  // imp-34103 pi/8-curvature analog, here for the real-positive branch). Expanding about alpha = 3 with
+  // e = 3 - alpha gives d2 = (pi/8) e + (pi/32) e^2 + (pi/128) e^3 + ...; tabulating d2 on alpha in
+  // {2.9, 2.99, 2.999, 2.9999}, subtracting (pi/8)(3 - alpha) and dividing by (3 - alpha)^2 gives a measured
+  // e^2 coefficient c2 = pi/(8(4 - e)) decreasing monotonically to pi/32 = 0.098175 (2*c2 -> pi/16), with the
+  // local quadratic-model error pi e^3/(32(4 - e)) a strictly positive cubic shrinking ~1000x per decade and
+  // the cubic coefficient converging to pi/128. Measurement/derivation only; pure phase geometry on the
+  // imp-33924/imp-34104 closed form; does NOT discharge H4, G6a stays OPEN; imp-3066 K_a>=0 untouched; C_mb
+  // GUE-conditional (imp-486) untouched; PT Lambda<=0.2 SOTA; no QED. 7 assertions.
+  '/src/data/imp-34166-second-positive-branch-curvature.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -9859,6 +9859,37 @@ export const glossary = [
       "imp-33903 direct-finite-difference vs plain-derivative geometric-center offset, showing the same gap from an independent code path (imp-33903)",
     ],
   },
+  {
+    term: 'imp-33961 joint onset-residual eps^2 CONVERGENCE RATE',
+    category: 'numerical',
+    definition:
+      'imp-33924 wrote the joint (alpha,theta) onset residual as resid(eps,alpha,theta) = I(z_0) - ' +
+      'eps^{-(1+alpha)} A(alpha,theta), observed it approaches -C(alpha) = -2/(alpha+1) as eps -> 0, ' +
+      'and cross-checked convergence at only a single eps = 1e-4. imp-33961 upgrades this to an explicit ' +
+      'per-cell APPROACH RATE by rewriting the residual as MINUS the exact outside-the-window tail ' +
+      'integral, folded x = 1/s onto the imp-33924 scale-free tail integrand -- cusp-free, so it evaluates ' +
+      'to full precision without the O(eps^{-(1+alpha)}) catastrophic cancellation that limited the ' +
+      'direct reconstruction to one eps.\n\n' +
+      'RESULT: expanding the folded tail in powers of z_0 = eps*e^{i theta}, all odd powers cancel, ' +
+      'giving resid(eps,alpha,theta) + 2/(alpha+1) = -[6/(alpha+3)] e^{2 i theta} eps^2 + O(eps^4). The ' +
+      'RATE EXPONENT is exactly 2 for every sampled (alpha,theta) cell across the eps ladder {1e-3, 1e-4, ' +
+      '1e-5} (measured log-log slope 2.0000, deviation < 1e-2) -- angle-INDEPENDENT and cusp-exponent-' +
+      'INDEPENDENT. The sub-leading coefficient modulus 6/(alpha+3) is theta-FLAT (per-alpha spread ~0) ' +
+      'but alpha-DEPENDENT (spread ~0.20 across the grid), reproducing the imp-33928 anchor value 12/7 at ' +
+      'alpha = 1/2; the phase winds at rate 2, itself alpha-independent (unlike the leading amplitude, ' +
+      'which winds at the alpha-dependent rate -(1+alpha)).\n\n' +
+      'HONEST SCOPE: measurement/derivation only, on the model cusp rho(x) = |x|^{-alpha}. Upgrades the ' +
+      'imp-33924 single-eps cross-check to an explicit rate; does NOT re-derive the m_prime -> C_ren map ' +
+      'off-axis/off-exponent and does NOT discharge H4 (imp-33766); G6a_shock_lipschitz stays OPEN; ' +
+      'imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-33961 (measuring the eps^2 approach rate of the imp-33924 joint onset residual to -2/(alpha+1) across the eps ladder {1e-3,1e-4,1e-5} on the joint (alpha,theta) grid, upgrading the imp-33924 single-eps cross-check (b) to an explicit per-cell rate), 2026',
+    relatedTerms: [
+      'imp-33924 JOINT cusp-angle leading-amplitude factorization, whose single-eps cross-check (b) this ticket upgrades to an explicit rate (imp-33924)',
+      'imp-33928 the anchor alpha=1/2 onset-rate measurement this joint result generalizes across alpha (imp-33928)',
+      'imp-34002 the follow-on eps^4 sub-sub-leading coefficient -10/(alpha+5) e^{4 i theta} measured beyond this eps^2 term (imp-34002)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

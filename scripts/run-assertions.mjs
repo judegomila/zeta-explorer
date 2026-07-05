@@ -4472,6 +4472,13 @@ const DATA_MODULES = [
   // measurement they were reproduced from -- live diff finds ZERO drift across all 36 folds
   // and the summary block. Audit-only; no bound changed; imp-3066 K_a>=0 untouched; NO QED.
   '/src/data/imp-34222-34200-lto-viz-literals-drift-audit.js',
+  // imp-34223: grep-verified honest-banner audit of the imp-34133/34134/34146..34151 cohort
+  // (eight modules). FINDING: imp-34134 has no literal isRigorous field (uses a prose honestScope
+  // string instead); imp-34133 and imp-34134 both never name "C_mb" in their GUE-conditional
+  // clause (the other six do). All eight state NO QED, imp-3066 K_a>=0 untouched, and PT
+  // Lambda<=0.2 SOTA; none references the Polymath15 G6a_shock_lipschitz/H2 bridge. Audit-only;
+  // no bound changed; no module patched.
+  '/src/data/imp-34223-honest-banner-audit.js',
   // imp-34166: derive the endpoint CURVATURE of the imp-34104 family-(ii) real-positive second phase-zero
   // branch distance d2(alpha) = pi(3 - alpha)/(2(1 + alpha)) beyond the reported linear -pi/8 slope. Twice-
   // differentiating gives d2''(alpha) = 4 pi/(1 + alpha)^3, so d2''(3) = 4 pi/64 = pi/16 = 0.19634954 (the
@@ -4484,6 +4491,17 @@ const DATA_MODULES = [
   // imp-33924/imp-34104 closed form; does NOT discharge H4, G6a stays OPEN; imp-3066 K_a>=0 untouched; C_mb
   // GUE-conditional (imp-486) untouched; PT Lambda<=0.2 SOTA; no QED. 7 assertions.
   '/src/data/imp-34166-second-positive-branch-curvature.js',
+  // imp-34167: characterise the imp-34105-EXCLUDED k = -+3 THIRD outer phase-zero branch (arg(-A) = 3 pi,
+  // real-NEGATIVE) theta = pi/2 -+ 3 pi/p. Widening the imp-34105 from-scratch Im(-A) bisection from
+  // half-width 2 pi/p + 0.3 to 3 pi/p + 0.3 locates all SEVEN crossings k in {-3..3}; the k = -+3 roots
+  // carry Re(-A) < 0 (real-NEGATIVE axis, like family (i)) and reproduce pi/2 -+ 3 pi/p to ~1e-13. The
+  // endpoint distance is d3(alpha) = 3 pi/p - pi/2 = pi(5 - alpha)/(2(1 + alpha)), bounded below by pi on
+  // (0,1), reaching 0 -- touching 0 and pi -- only at alpha = 5 (p = 6) with endpoint slope -pi/12; the pair
+  // NEVER enters [0, pi] on the valid cusp range. Its onset alpha = 5 continues the outer-branch ladder
+  // 1, 3, 5, ... = 2k - 1 (family (i) at alpha = 1, family (ii) at alpha = 3). Measurement only; pure phase
+  // geometry on the imp-33924 closed form; does NOT discharge H4, G6a stays OPEN; imp-3066 K_a>=0 untouched;
+  // C_mb GUE-conditional untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34167-third-outer-branch-geometry.js',
 ];
 
 let ALL_MODULES = FAST_MODE

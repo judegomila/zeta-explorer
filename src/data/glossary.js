@@ -9033,6 +9033,36 @@ export const glossary = [
       'imp-33766 H4 strip-height fold-reading control, not discharged by this joint onset map (imp-33766)',
     ],
   },
+  {
+    term: 'imp-33922 four-factor widening decomposition (E_flow analytic decay vs. attributed widening)',
+    category: 'numerical',
+    definition:
+      'imp-33885 confirmed the analytic closed form E_flow = G L (L0^2-1)/(4 pi^2 N) ~ (log N)^3/N ' +
+      'tracks the direct E_flow to machine precision at every imp-33810 quarter-decade rung, and ' +
+      'imp-33843/imp-33884 pinned the head-to-tail widening of the attributed ratio ' +
+      'roe(k) = resid_exp(k)/eflow_attr(k) at 903.538 exact. imp-33922 cross-checks these head to head: ' +
+      'the exact widening decomposes (imp-28895/imp-33884) into four multiplicative endpoint factors ' +
+      'widening = roe(11)/roe(6) = F1*F2*F3*F4, with F1 = E_flow(6)/E_flow(11) the RAW (log N)^3/N ' +
+      'head-to-tail decay, F2 = E_N(11)/E_N(6) the normaliser collapse, F3 = sflow(6)/sflow(11) the ' +
+      'E_flow log-slope ratio, and F4 = resid(11)/resid(6) the imp-33773 sub-leading residual ratio.\n\n' +
+      'RESULT: the analytic decay law reproduces F1 = 17992.16 to machine precision (direct and ' +
+      'closed forms agree to rel ~2e-16) but F1 ALONE over-predicts the empirical 903.538 widening by ' +
+      '~19.9x (F1/widening = 19.913). The ~19.9x gap IS the attribution attenuation ' +
+      'F2*F3*F4 = 0.05022 -- re-inserting the closed-form F1 into the full four-factor product ' +
+      'reproduces the exact 903.538 to rel ~2.5e-16. On a log scale the raw decay over-explains ' +
+      'ln-widening by 144% (ln F1 / ln widening = 1.4395), and 92% of the offsetting attenuation is ' +
+      'the E_N normaliser collapse F2, not the slope or residual factors.\n\n' +
+      'HONEST SCOPE: accuracy/measurement cross-check only, on the inherited imp-3220/imp-3406 ' +
+      'component model (NOT a rigorous asymptotic). Establishes no operator positivity; imp-3066 ' +
+      'K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33922 (cross-checking whether the imp-33885 analytic (log N)^3/N E_flow decay law reproduces the imp-33884 exact head-to-tail widening of the attributed roe ratio, and decomposing the gap into the four imp-28895 multiplicative factors), 2026',
+    relatedTerms: [
+      'imp-33885 the (log N)^3/N per-rung machine-floor match confirming F1 to machine precision (imp-33885)',
+      'imp-33884 the exact 903.538 widening and the F1..F4 factor decomposition this cross-check reconciles (imp-33884)',
+      'imp-33843 the ~918x widening form fit later corrected to 903.538 (imp-33843)',
+      'imp-33810 the 21 quarter-decade E_flow/residual ratio rungs supplying the head/tail endpoints (imp-33810)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

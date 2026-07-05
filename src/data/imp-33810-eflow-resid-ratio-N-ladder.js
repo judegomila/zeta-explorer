@@ -163,7 +163,16 @@ const IMP33773_M2_HEAD = 2.1;
 const IMP33773_M2_TAIL = 1928;
 
 // Separation-widening factor: how much wider the tail gap is than the head gap.
+// CAVEAT (imp-33939, confirming imp-33884/imp-33885): this ratio divides the toFixed(1)-rounded
+// head rung resid_over_eflow[0] (roe(6) = 2.134 displayed as 2.1), which inflates the reported
+// ~917.9 here versus the exact full-double-precision widening 903.538 (imp-33884 R1-R3; imp-33885
+// per-rung cross-validation). The ~1.6% gap is a display-rounding artifact of the O(1) head rung,
+// NOT a factor-decomposition error -- see imp-33884/imp-33885 for the un-rounded value.
 const SEPARATION_WIDENING = +(RESID_OVER_EFLOW[RESID_OVER_EFLOW.length - 1] / RESID_OVER_EFLOW[0]).toFixed(1);
+const SEPARATION_WIDENING_DISPLAY_CAVEAT =
+  'This value divides toFixed(1)-rounded rungs (head roe(6)=2.134 shown as 2.1), inflating the ' +
+  'reported widening by ~1.6% versus the exact full-precision value 903.538 -- see imp-33884 ' +
+  '(fullprec recompute) and imp-33885 (per-rung cross-validation) for the un-rounded figure.';
 
 export const IMP33810_EFLOW_RESID_RATIO_N_LADDER = {
   id: 'imp-33810',
@@ -186,6 +195,7 @@ export const IMP33810_EFLOW_RESID_RATIO_N_LADDER = {
     all_below_unity: ALL_BELOW_UNITY, // E_flow never reaches the residual it is claimed to be
     same_sign_positive: ALL_SAME_SIGN_POSITIVE, // resid>0 AND eflow>0 -> NOT a sign coincidence
     separation_widening_factor: SEPARATION_WIDENING, // tail gap / head gap ~ 918x
+    separation_widening_display_caveat: SEPARATION_WIDENING_DISPLAY_CAVEAT, // imp-33939/imp-33884/imp-33885
   },
   reuse: {
     imp33773_M2_head_resid_over_eflow: IMP33773_M2_HEAD, // ~2.1 (k=6)

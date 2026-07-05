@@ -49712,13 +49712,15 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Annotate the imp-33810 toFixed(1) head-rung display (roe(6)=2.134 shown as 2.1) that imp-33884 proved inflates the reported head-to-tail widening from the exact 903.538 to the reported ~917.9 (~1.6%), so the display precision no longer misreads as a factor-decomposition error',
     category: 'bug',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S-frontier',
     description: "imp-33884 proved the imp-33810 reported widening ~917.9 vs exact 903.538 (~1.6%) is a PURE toFixed(1) artifact, entirely from rounding the O(1) head rung roe(6). Add an inline note/caveat next to the imp-33810 toFixed(1) reporting (or its consumer surfaces) recording that the one-decimal display inflates the head rung and pointing to imp-33884/imp-33885 for the exact 903.538 value, so downstream readers do not treat 917.9 as a real widening discrepancy. Documentation/annotation only -- do NOT change the underlying numbers or any bound, NO QED.",
     rationale: 'Frontier scout: imp-33884 shows imp-33810 toFixed(1) head-rung display misleads (917.9 vs exact 903.5); no annotation warns readers',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'sonnet-4-6',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
 ];
 

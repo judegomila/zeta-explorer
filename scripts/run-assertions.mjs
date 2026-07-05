@@ -3953,6 +3953,15 @@ const DATA_MODULES = [
   // 1e12 rung reproduces the imp-33887 anchor rung exactly. Lightweight
   // (effectiveHeightForN/C_C_PINNED only, no heavy bundle). PT Lambda<=0.2 SOTA; no QED. 9 assertions.
   '/src/data/imp-33919-ecoll-three-way-decomposition-lower-ladder.js',
+  // imp-33925 (accuracy): STEP-ROBUSTNESS of the imp-33854 I1 identity gap_ecoll = q + 1/2 = g.
+  // imp-33854 confirmed I1 to the ~1e-11 machine floor at the SINGLE step DL=1e-4, and imp-33887 R1
+  // leans on it as the reference-INDEPENDENT fact. Recomputing |gap_ecoll - g| on the same
+  // 1e12..1e200 grid at DL in {1e-3, 1e-4, 1e-5} gives max residuals 9.38e-12 / 1.94e-10 / 2.33e-9 --
+  // ALL at the machine floor (<1e-8), so the agreement is NOT a DL=1e-4 artifact. The residual GROWS
+  // as DL shrinks (~1/DL), the subtractive-cancellation fingerprint, the OPPOSITE of the DL^2 falloff
+  // a truncation artifact would show -- confirming I1 is an EXACT pointwise identity. Import-light
+  // (effectiveHeightForN/C_C_PINNED only, no heavy bundle). PT Lambda<=0.2 SOTA; no QED. 4 assertions.
+  '/src/data/imp-33925-i1-step-robustness.js',
   // imp-33806 (bug): WIRES the imp-33781 sigma-inflection closed-form viz-data
   // module into this runner -- a grep had shown its *_ASSERTIONS array absent
   // from DATA_MODULES, so its 6 tripwires (monotone curve, exact 1/2 baseline,

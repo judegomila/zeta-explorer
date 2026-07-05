@@ -11012,6 +11012,73 @@ export const glossary = [
       'imp-33773 the M2 sub-leading residual whose sign change this module shows is a discretization artifact, not a feature of the component model (imp-33773)',
     ],
   },
+  {
+    term: 'imp-34104 second real-positive phase-zero branch (arg(-A)=2pi)',
+    category: 'numerical',
+    definition:
+      'imp-34045 named the outer branch family flanking the central theta=pi/2 zero but only bounded the ' +
+      'second real-POSITIVE branch theta=pi/2-+2pi/p qualitatively. imp-34104 characterises it in full ' +
+      'across the whole cusp range alpha in (0,1) (p=1+alpha). Both lower=pi/2-2pi/p and upper=pi/2+2pi/p ' +
+      'sit ENTIRELY outside [0,pi], at endpoint distance d2(alpha)=pi(3-alpha)/(2(1+alpha)) -- bounded ' +
+      'below by pi/2 on (0,1) (3pi/2 at alpha->0 down to pi/2 at alpha->1) -- and reach the endpoints ' +
+      '(lower=0, upper=pi) exactly only at alpha=3 (p=4).\n\n' +
+      'HONEST SCOPE: measurement only, pure phase-condition geometry on the inherited imp-33924 closed ' +
+      'form; establishes no operator positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 ' +
+      'K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34104 (characterising the second real-positive phase-zero branch distance law across the cusp range and its alpha=3 endpoint touch), 2026',
+    relatedTerms: [
+      'imp-34045 the outer branch family this second-positive branch belongs to (imp-34045)',
+      'imp-33970 the uniqueness result on the cusp range this branch never violating (0,pi)-entry for alpha<3 confirms (imp-33970)',
+      'imp-34105 the independent root-find cross-validation of the phase-zero branch angles including this one (imp-34105)',
+    ],
+  },
+  {
+    term: 'imp-34108 endpoint-peak saturating-ceiling extrapolation',
+    category: 'numerical',
+    definition:
+      'imp-34043 fit the bounded saturating form peak=a-b/kEnd to the 9 imp-33917 endpoint-residual ' +
+      'peaks (kEnd=11..13) and won the AIC/BIC/AICc tournament (a~1.678095, b~15.629706) but never ' +
+      'characterised how far the fit boundary must recede before the peak approaches that ceiling. ' +
+      'imp-34108 takes the fit verbatim and derives the closed-form approach kEnd(tol)=b/(a*tol): the ' +
+      'peak is within 1% of the ceiling only at kEnd~931.40 (~72x the kEnd=13 fit-window edge) and ' +
+      'within 0.1% only at kEnd~9313.96 (~716x); at the window edge itself the peak is only ~28% of the ' +
+      'cap. The saturating form models a plateau approached only astronomically far outside the data -- ' +
+      'confirming a distant, not physically-realised, asymptote.\n\n' +
+      'HONEST SCOPE: curve-fit extrapolation only, ~72x-716x beyond the fitted data; asserts NO physical ' +
+      'plateau; the inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; C_mb ' +
+      'GUE-conditional per imp-486 untouched; changes no bound; imp-3066 K_a>=0 untouched; NO QED; ' +
+      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34108 (extrapolating the imp-34043 saturating endpoint-peak fit to its 1%/0.1% approach kEnds and finding them ~72x/~716x beyond the fit window), 2026',
+    relatedTerms: [
+      'imp-34043 the AIC/BIC/AICc tournament and saturating-fit parameters this ticket extrapolates verbatim (imp-34043)',
+      'imp-33917 the endpoint-residual peak sweep supplying the underlying kEnd=11..13 data (imp-33917)',
+      'imp-34109 the companion fixed-band peak-amplitude sweep reaching the opposite (unbounded-climb) verdict (imp-34109)',
+    ],
+  },
+  {
+    term: 'imp-34109 fixed-band re-acceleration overturning the imp-34040 saturation onset',
+    category: 'numerical',
+    definition:
+      'imp-34040 pushed the fixed-band (k<=10) residual drift to kEnd=14..17 and read a saturation onset: ' +
+      'shrinking increments, all second differences negative, and a locked argmax rung. imp-34109 extends ' +
+      'the identical grid one further decade to kEnd=14.0..20.0 (13 windows) and finds the deceleration is ' +
+      'a TRANSIENT, not a plateau: increments bottom out at ~0.03370 near kEnd~18 then re-increase, the ' +
+      'second differences flip back strictly POSITIVE at the tail, and the argmax rung un-locks from 6.50 ' +
+      'to 6.25. The bounded saturating fit gives a nominal ceiling a~1.95178, but the unbounded log form ' +
+      'peak=a+b*ln(kEnd) fits better (R2 0.99948 vs 0.99804) -- no finite ceiling is supported within ' +
+      'kEnd<=20; the amplitude keeps climbing. imp-34040 is correct within its own window; only its ' +
+      'saturation extrapolation beyond kEnd~18 is corrected.\n\n' +
+      'HONEST SCOPE: measurement only; the OLS/bounded-ceiling fit and growth-form classification are ' +
+      'descriptive, not derived; the inherited imp-3220/imp-3406 component model is NOT a rigorous ' +
+      'asymptotic; C_mb GUE-conditional per imp-486 untouched; changes no bound; imp-3066 K_a>=0 ' +
+      'untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34109 (extending the fixed-band peak-amplitude sweep past kEnd~18 and finding the imp-34040 saturation onset reverses into unbounded log growth), 2026',
+    relatedTerms: [
+      'imp-34040 the kEnd=14..17 saturation-onset reading this ticket extends and partially overturns (imp-34040)',
+      'imp-33987 the imp-33843 residual drift machinery reused verbatim by this sweep (imp-33987)',
+      'imp-34108 the companion endpoint-peak saturating-ceiling extrapolation reaching the opposite (distant-but-real ceiling) verdict (imp-34108)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

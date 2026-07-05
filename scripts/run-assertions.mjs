@@ -3964,6 +3964,17 @@ const DATA_MODULES = [
   // 1e12 rung reproduces the imp-33887 anchor rung exactly. Lightweight
   // (effectiveHeightForN/C_C_PINNED only, no heavy bundle). PT Lambda<=0.2 SOTA; no QED. 9 assertions.
   '/src/data/imp-33919-ecoll-three-way-decomposition-lower-ladder.js',
+  // imp-33966 (numerical): LOCATES the point of maximal cancellation the imp-33919 V2
+  // decomposition left un-pinned -- the N* where |disc(N)| = |ref(N)| cross (net residual
+  // gap_disc - law passes through zero). Scanning a fine 1e4..1e20 ladder (0.1-decade steps)
+  // with the identical inherited sub-terms, the crossing sits at N* ~ 10^12.6, INSIDE the
+  // imp-33887 anchor window 1e12..1e15 -- whose edges are opposite-signed (resid ~-6.48e-6 at
+  // 1e12, ~+1.29e-5 at 1e15) so the window STRADDLES the crossing, which is why the anchor RMSE
+  // ~9e-6 is small. The fall-off is asymmetric (net |resid| ~1.7e4x steeper toward 1e6 than the
+  // ~4.2e2x rise toward 1e20) and the true optimum ~3.8e-8 is ~300x below the imp-33856 ~1.12e-5
+  // endpoint -- sharpening imp-33919 V2 fortuitous/anchor-specific into a located optimum.
+  // Lightweight (effectiveHeightForN/C_C_PINNED only, no heavy bundle). PT Lambda<=0.2 SOTA; no QED. 8 assertions.
+  '/src/data/imp-33966-ecoll-disc-ref-crossing-locator.js',
   // imp-33925 (accuracy): STEP-ROBUSTNESS of the imp-33854 I1 identity gap_ecoll = q + 1/2 = g.
   // imp-33854 confirmed I1 to the ~1e-11 machine floor at the SINGLE step DL=1e-4, and imp-33887 R1
   // leans on it as the reference-INDEPENDENT fact. Recomputing |gap_ecoll - g| on the same

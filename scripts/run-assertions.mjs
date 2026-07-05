@@ -4536,6 +4536,21 @@ const DATA_MODULES = [
   // inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
   // untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-34172-deep-ladder-second-path-crossvalidation.js',
+  // imp-34173: DERIVE the UNIFIED k-indexed closed form for the outer phase-zero branch endpoint
+  // distance/slope/curvature subsuming imp-34103 (k=-+1), imp-34104 (k=-+2) and imp-34167 (k=-+3).
+  // The k-th branch theta = pi/2 -+ k pi/p (arg(-A) = k pi, p = 1 + alpha) sits at offset |k| pi/p
+  // from pi/2, so its overshoot beyond the endpoints 0, pi (a pi/2 reach) is the endpoint distance
+  // d_k(alpha) = |k| pi/(1 + alpha) - pi/2 = pi((2|k| - 1) - alpha)/(2(1 + alpha)): k=1 recovers
+  // pi(1-alpha)/(2(1+alpha)), k=2 pi(3-alpha)/(2(1+alpha)), k=3 pi(5-alpha)/(2(1+alpha)). It vanishes
+  // (branch touches 0 and pi) at the onset alpha_k = 2|k| - 1 (ladder 1, 3, 5), with endpoint slope
+  // d_k'(alpha_k) = -pi/(4|k|) (-pi/4, -pi/8, -pi/12) and curvature d_k''(alpha) = 2|k| pi/(1+alpha)^3,
+  // = pi/(4|k|^2) at the onset -- for k=1 at alpha=1 the value pi/4 = twice the imp-34103 (1-alpha)^2
+  // coefficient pi/8. Verified: the unified law matches both the inherited per-family closed forms and
+  // the directly measured branch distances (arg(-A) = k pi, residual ~1e-16), and the onset
+  // slope/curvature match central finite differences. Derivation/measurement only; pure phase geometry
+  // on the imp-33924 closed form; does NOT discharge H4, G6a stays OPEN; imp-3066 K_a>=0 untouched;
+  // C_mb GUE-conditional untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34173-unified-branch-endpoint-law.js',
 ];
 
 let ALL_MODULES = FAST_MODE

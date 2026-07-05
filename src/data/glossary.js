@@ -8724,6 +8724,37 @@ export const glossary = [
       'imp-33786 H3 joint-curvature input scoping, the coupled rung that jointly governs the discharge (imp-33786)',
     ],
   },
+  {
+    term: 'imp-33765 G7 ONE-DIMENSIONALITY-IN-s verdict: the shear obstruction provably factors through s=a*U alone',
+    category: 'proof',
+    definition:
+      'imp-33765 derives whether the imp-3066 / G7 shear obstruction admits any orthogonal, ' +
+      'non-product lever that could soften the Perron norm ||R|| WITHOUT merely rescaling the ' +
+      'product s = a*U, upgrading the imp-33725 empirical finding (both the shear rate a and the ' +
+      'window U act only through s) to a DERIVED statement. RESULT: over the admissible continuous ' +
+      'parameters (a, U) the obstruction is PROVABLY one-dimensional in s -- R is invariant under ' +
+      'the scaling orbit (a,U) -> (a/lambda, lambda*U), so the map (a,U) -> ||R|| factors through ' +
+      'the single scalar s (four pairs with a*U = 3 give ||R|| = 4.617013710 to nine digits). Two ' +
+      'candidate orthogonal levers DO move ||R|| off the s-curve but are BOTH inadmissible: (i) the ' +
+      'shear-form coefficient c scales ||R|| linearly, yet cosh + c*sinh is a genuine exponential ' +
+      'shear only at c=1; (ii) decoupling the pass rate from the shear rate strictly softens ||R|| ' +
+      '(20.94 -> 4.617 -> 0.338 across s_pass = 1,3,6), yet cosh(b*tau) and sinh(a*tau) are the ' +
+      'even/odd parts of one exponential only when b=a. The one admissible orthogonal axis, the ' +
+      'truncation size DEG, sets the all-ones ceiling DEG+1 rather than softening the curve.\n\n' +
+      'HONEST SCOPE: a representative/diagnostic derivation on the SAME monomial truncation as ' +
+      'imp-3066 / imp-33704 / imp-33725, not the section-26 Gram; ||R|| carries no RH verdict; the ' +
+      'decoupled-rate probe deliberately breaks the exponential shear as a locating device, not an ' +
+      'admissible modification; imp-3066 / imp-33704 / imp-33725 / G7 remain untouched as a proof; ' +
+      'the K_a>=0 positivity step is not attempted; Platt-Trudgian Lambda<=0.2 remains the rigorous ' +
+      'SOTA; NO QED.',
+    firstUsed: 'imp-33765 (deriving whether the imp-3066 / G7 shear obstruction admits any orthogonal lever off the s = a*U axis, following imp-33725 empirical one-dimensionality), 2026',
+    relatedTerms: [
+      'imp-33725 G7 obstruction a-scaling ladder, the empirical "both act only through s" finding this derives (imp-33725)',
+      'imp-33704 G7 obstruction U-scaling ladder, the complementary sweep at fixed a (imp-33704)',
+      'imp-3066 off-diagonal Hankel obstruction, the single-cell G7 magnitude this classifies (imp-3066)',
+      'imp-33787 dual monotone-ceiling assessment building on this one-dimensionality (imp-33787)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

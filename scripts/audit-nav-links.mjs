@@ -329,6 +329,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34158-digit-loss-cliff',
   '/viz-imp34159-cubic-tilt-wing-reconstruction',
   '/viz-imp34077-geometric-center-taylor-reduction',
+  '/viz-imp34078-pointwise-vs-window-exponent',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

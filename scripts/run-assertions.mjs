@@ -3919,6 +3919,17 @@ const DATA_MODULES = [
   // (imp-33878 uses effectiveHeightForN/C_C_PINNED, imp-33896 is import-free). imp-486/C_C
   // untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-33905-hump-argmax-grid-vs-continuum-reconciliation.js',
+  // imp-33919 (numerical): EXTENDS the imp-33887 exact three-way decomposition
+  // gap_disc - law = discretization + I1 + (g - law) from the high 1e12..1e15 anchor
+  // to a LOWER 1e6..1e12 ladder. FINDING: the imp-33887 fortuitous near-cancellation
+  // (two opposite-signed ~6.3e-4 offsets -> ~1.12e-5 endpoint) is ANCHOR-SPECIFIC and
+  // BREAKS off the anchor -- the net residual grows monotonically ~6.5e-6 (1e12) ->
+  // ~6.5e-4 (1e6), ~100x, and both offsets grow (|disc| -> ~2.6e-3, |ref| -> ~3.3e-3)
+  // and stop matching (|ref| exceeds |disc| by ~25% at 1e6), confirming imp-33887 R3.
+  // The I1 identity stays ~1e-12 and the split closes to <1e-14 at every lower rung; the
+  // 1e12 rung reproduces the imp-33887 anchor rung exactly. Lightweight
+  // (effectiveHeightForN/C_C_PINNED only, no heavy bundle). PT Lambda<=0.2 SOTA; no QED. 9 assertions.
+  '/src/data/imp-33919-ecoll-three-way-decomposition-lower-ladder.js',
 ];
 
 let ALL_MODULES = FAST_MODE

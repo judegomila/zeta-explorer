@@ -293,6 +293,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33731-sigma-ramp-curvature',
   '/viz-imp33864-cren-gap-onset-ladder',
   '/viz-imp33894-residual-shape',
+  '/viz-imp33895-log-saturation-reconciliation',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

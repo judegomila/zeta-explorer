@@ -250,6 +250,7 @@ const Imp33731SigmaRampCurvatureViz = lazy(() => import('./pages/Imp33731SigmaRa
 const Imp33677ClusterPeakGapSequenceViz = lazy(() => import('./pages/Imp33677ClusterPeakGapSequenceViz.jsx'));
 const Imp33864CrenGapOnsetLadderViz = lazy(() => import('./pages/Imp33864CrenGapOnsetLadderViz.jsx'));
 const Imp33894ResidualShapeViz = lazy(() => import('./pages/Imp33894ResidualShapeViz.jsx'));
+const Imp33895LogSaturationReconciliationViz = lazy(() => import('./pages/Imp33895LogSaturationReconciliationViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1029,6 +1030,7 @@ function AppShell() {
           <Route path="/viz-imp33677-cluster-peak-gap-sequence" element={<Imp33677ClusterPeakGapSequenceViz />} />
           <Route path="/viz-imp33864-cren-gap-onset-ladder" element={<Imp33864CrenGapOnsetLadderViz />} />
           <Route path="/viz-imp33894-residual-shape" element={<Imp33894ResidualShapeViz />} />
+          <Route path="/viz-imp33895-log-saturation-reconciliation" element={<Imp33895LogSaturationReconciliationViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

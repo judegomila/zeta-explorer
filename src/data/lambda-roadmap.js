@@ -1057,7 +1057,20 @@ export const LAMBDA_ROADMAP = {
     'C_ren -> C_PS=pi/sqrt(2) approach into a fixed onset exponent, (C_ren - C_PS) ~ (4/3) ' +
     'eps^{3/2}, settling from 1.48839 (N=2e3) to 1.50000 (N=1e7). All three are ' +
     'derivation/measurement only within the extrapolation component model, change no bound, ' +
-    'do NOT discharge H4, and C_mb remains GUE-conditional (imp-486); NO QED.',
+    'do NOT discharge H4, and C_mb remains GUE-conditional (imp-486); NO QED. ' +
+    'COHORT (imp-33765/imp-33766/imp-33767): three further single-ticket landings. ' +
+    'imp-33765 shows the G7/imp-3066 shear obstruction is PROVABLY one-dimensional in ' +
+    's=a*U — ||R|| is invariant under the (a,U)->(a/lambda,lambda*U) scaling orbit, and ' +
+    'both orthogonal softening levers (shear-coefficient rescaling, decoupled pass rate) ' +
+    'are INADMISSIBLE, so the admissible truncation axis sets the ceiling, not a relief. ' +
+    'imp-33766 finds H4 (strip-height fold-reading derivative) does NOT separate from H3 ' +
+    '(curvature) — the Holder modulus back-conversion couples them through the same ' +
+    'quadratic fold, so the minimal H4 input IS the H3 input and H3 (imp-3708) discharges ' +
+    'H4 a fortiori. imp-33767 reconciles the imp-33744/imp-33729 sigma-inflection offset ' +
+    'dichotomy on one common N ladder, showing the ~0.3-point gap is a landmark-choice ' +
+    'artifact (halving vs crossover) that IS EXACTLY the E_flow displacement term. All ' +
+    'three are derivation/measurement only, change no bound, do NOT discharge H4/G7, and ' +
+    'C_mb remains GUE-conditional (imp-486); NO QED.',
   bounds: LAMBDA_BOUNDS,
   chain: LAMBDA_CHAIN_STEPS,
   verification: VERIFICATION_EFFORTS,

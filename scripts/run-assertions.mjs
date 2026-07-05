@@ -3848,6 +3848,17 @@ const DATA_MODULES = [
   // discrete-vs-continuous offset imp-33844 D2 booked. Cross-validation only; imp-486/C_C ansatz
   // untouched; PT Lambda<=0.2 SOTA; no QED. 4 assertions. (transitively exercises imp-33810/imp-33844.)
   '/src/data/imp-33857-hump-peak-widening-crossvalidation.js',
+  // imp-33878 (numerical): REFINES the imp-33857 X3 sliding-window resid_exp(k) grid below
+  // quarter-decade (eighth-, sixteenth-, 1/32-decade) and MEASURES where the hump argmax converges.
+  // FINDING (refutes the vanishing-offset reading): the discrete argmax converges DOWNWARD to a
+  // continuum k*~8.821 (NOT toward the crossover k_cross~9.516), with |argmax-k*| shrinking below
+  // the grid step at every rung (broad concave peak, resid double-prime ~ -3.6e-2). The k_cross-k*
+  // gap ~0.695 decade is grid-INDEPENDENT, so the imp-33857 X3 / imp-33844 D2 offset is a GENUINE
+  // two-notion separation (window-lag: decade-integrated resid_exp argmax vs pointwise sigma=1/2
+  // crossover), not a discretization artifact; the k=9 label sits between the two notions.
+  // Measurement only; imp-486/C_C ansatz untouched; PT Lambda<=0.2 SOTA; no QED. 4 assertions.
+  // (transitively exercises the imp-33810/imp-33844 model via effectiveHeightForN/C_C_PINNED.)
+  '/src/data/imp-33878-hump-argmax-grid-refinement.js',
   // imp-33875 (meta): AUDIT of whether the imp-33843/imp-33844/imp-33845
   // *_ASSERTIONS arrays are registered in THIS runner, mirroring the imp-3369 /
   // imp-33806 unwired-assertion-coverage audits. FINDING: none of the three are

@@ -4100,6 +4100,17 @@ const DATA_MODULES = [
   // (effectiveHeightForN/C_C_PINNED only). Component model NOT rigorous;
   // imp-3066/imp-486 untouched; PT Lambda<=0.2 SOTA; no QED. 4 assertions.
   '/src/data/imp-34062-m2-residual-attenuation-rate.js',
+  // imp-34064 (numerical): FITS the quartic imp-34005 S3 only INFERRED. Re-running
+  // the imp-34005 21-point symmetric window family on the {1, t, t^2, t^4} basis over
+  // the imp-33878 resid_exp(k) hump apex, the leading quartic coefficient is
+  // d ~ +3.52e-3 (POSITIVE, resid quadruple-prime(k*) = 24d ~ +8.49e-2, window-robust
+  // within ~2%). Including it STABILISES the second derivative: the pure-quadratic 2c
+  // drifts ~1.58% across W in [0.05, 0.3] whereas the quartic-fit 2c drifts ~0.013%
+  // (~124x reduction), matching the imp-33878 central difference -3.6196e-2 to ~5 sig
+  // figs at every W. Import-light (effectiveHeightForN/C_C_PINNED only). Refines
+  // imp-34005; component model NOT rigorous; imp-3066/imp-486 untouched; PT
+  // Lambda<=0.2 SOTA; no QED. 4 assertions.
+  '/src/data/imp-34064-apex-quartic-curvature-fit.js',
   // imp-33968 (numerical): TABULATES the imp-33924 phase winding rate
   // d arg(-A)/d theta = -(1+alpha) as an EXPLICIT rate-vs-alpha curve, upgrading
   // imp-33924 cross-check (a) from a single-tolerance pass/fail. Reusing the

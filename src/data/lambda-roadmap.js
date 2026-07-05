@@ -1043,6 +1043,11 @@ export const LAMBDA_ROADMAP = {
     'first drops below 0.01 at N ~ 4.62e13 — ~2.16 decades past the imp-33582 ' +
     'sigma<0.1 landmark above. This is a further decay-rate refinement only and ' +
     'changes no bound (C_mb remains GUE-conditional, imp-486). ' +
+    'RESOLVED (imp-34130): the ~0.0152 residual above KEEPS CLOSING toward zero -- it does ' +
+    'NOT floor. Extending the OLS ladder to [1e17,1e18] and a log-space direct path past ' +
+    'IEEE-double range shows resid(N) decays as ~1/(2 log T0), the identical law governing ' +
+    'the sigma-share exponent (imp-33816); measurement only, changes no bound (C_mb remains ' +
+    'GUE-conditional, imp-486). ' +
     'HONEST STATUS (imp-33660..imp-33682 lattice-floor cohort): the band-clearing floorUlp(n) ' +
     'peak/trough/gap/amplitude series measured across the shared [400,1200]/[1200,1600] cluster ' +
     'sample is measurement-only and weak-positive at best, with every apparent height or slope ' +

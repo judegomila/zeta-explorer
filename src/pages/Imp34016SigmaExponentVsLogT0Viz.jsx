@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import {
   IMP33865_EXPONENT_CURVE,
@@ -149,6 +150,30 @@ export default function Imp34016SigmaExponentVsLogT0Viz() {
         {' '}(N~1e{WITHIN_0_1PCT_LOG10N_FROM_LAW}), an order of magnitude past this
         chart's log T0~100 edge -- both N and T0 overflow IEEE-double there, so this
         landmark is reported only from the (F2) law, never evaluated directly.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>See also:</strong> this page plots the
+        pointwise local exponent p(N) only. The related fixed-span OLS window
+        exponent p_eff(N) -- and why it leads p(N) toward the same 1/2 asymptote --
+        is characterized by imp-34065 (span-linear centroid law: the window reads
+        p at its start-window centroid, offset +Snat/2) and imp-34066 (re-anchoring
+        the window at its centre collapses that lead by ~97-99.7%, confirming the
+        centroid mechanism). See the{' '}
+        <Link to="/viz-imp34142-window-anchor-centroid" style={{ color: '#38bdf8' }}>
+          window-anchor centroid viz
+        </Link>{' '}
+        for the START-vs-CENTRE comparison built on this same imp-34006 lineage.
       </div>
 
       <div

@@ -11079,6 +11079,160 @@ export const glossary = [
       'imp-34108 the companion endpoint-peak saturating-ceiling extrapolation reaching the opposite (distant-but-real ceiling) verdict (imp-34108)',
     ],
   },
+  {
+    term: 'imp-34133 F2/F3 asymptotic saturation confirming F4-only divergence',
+    category: 'numerical',
+    definition:
+      'imp-34023 asserted the companion factors F2 (~0.974/unit) and F3 (~0.991/unit) are near-flat and ' +
+      'approach constants but only fit them as per-unit log-linear factors over the narrow kEnd=11..13 ' +
+      'anchor window. imp-34133 regresses F2(kEnd) and F3(kEnd) across kEnd=13.0..21.0 against a ' +
+      'constant-plus-decay form F(kEnd)=c+A*exp(-r*kEnd) and finds BOTH SATURATE to finite positive ' +
+      'constants (F2->0.059492, F3->0.835955, R2>0.9999). The F2 asymptote is independently cross-checked ' +
+      'against the analytic floor E_TRUNC_PT/HEAD.E_N~0.0594922, matching the fit to ~6 significant figures. ' +
+      'By contrast F4 collapses geometrically (0.11339 at kEnd=13 to 3.65e-6 at kEnd=21, ~3.2e-5x), so F4 ' +
+      'ALONE drives the divergence of the over-prediction ratio 1/(F2*F3*F4) -- CONFIRMING, not refuting, ' +
+      'imp-34023.\n\n' +
+      'HONEST SCOPE: curve-fit/measurement only within the inherited imp-3220/imp-3406 component model, ' +
+      'which is NOT a rigorous asymptotic; establishes no operator positivity; C_mb GUE-conditional per ' +
+      'imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-34133 (fitting the asymptotic limits of the imp-34023 F2/F3 attenuation factors and confirming F4 alone drives the divergence), 2026',
+    relatedTerms: [
+      'imp-34023 the per-unit F2/F3/F4 factor decomposition this ticket extends with asymptotic-limit fits (imp-34023)',
+      'imp-33969 the F4 geometric-collapse measurement reused verbatim by this module (imp-33969)',
+    ],
+  },
+  {
+    term: 'imp-34146 apex quintic tilt coefficient (positive, opposite the cubic)',
+    category: 'numerical',
+    definition:
+      'imp-34084 fit the apex cubic tilt d~-5.347e-4 of the imp-33878 resid_exp(k) hump but left a small ' +
+      'residual odd overshoot (~6%) unexplained at |t|=0.5. imp-34146 extends the same 21-point symmetric ' +
+      'least-squares to an odd-augmented basis {1,t,t^2,t^3,t^5} and fits the quintic coefficient ' +
+      'e~+7.5238e-5 (resid^(5)(k*)=120e~+9.0286e-3), POSITIVE -- the OPPOSITE sign to the negative cubic. ' +
+      'The positive quintic term absorbs ~57% of the imp-34084 leftover odd overshoot (from ~3.92e-6 down ' +
+      'to ~1.69e-6), tightening the left/right wing split to near-exact (0.3139/0.3137), and leaves a small ' +
+      'residual odd septic (t^7) term.\n\n' +
+      'HONEST SCOPE: a higher-order odd-term fit of an inherited surrogate, NOT an RH bound; confirms and ' +
+      'refines, does not overturn, imp-34084; the surrogate resid_exp(k) is descriptive not derived; C_mb ' +
+      'GUE-conditional per imp-486 UNTOUCHED; changes no bound; imp-3066 K_a>=0 untouched; no RH verdict, ' +
+      'NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34146 (fitting the apex quintic term imp-34084 named but never fit and finding it POSITIVE, opposite the cubic), 2026',
+    relatedTerms: [
+      'imp-34084 the apex cubic-tilt fit this ticket extends to the quintic term (imp-34084)',
+      'imp-34147 the companion window-centre sweep testing whether the cubic sign is stable (imp-34147)',
+    ],
+  },
+  {
+    term: 'imp-34147 apex cubic-tilt sign is local, not stable (three sign changes)',
+    category: 'numerical',
+    definition:
+      'imp-34084 fit a single apex cubic coefficient d~-5.347e-4 (negative) at the FIXED imp-33948 apex ' +
+      'centre k*~8.821092 but never asked whether that sign is stable. imp-34147 sweeps the SAME 21-point ' +
+      'symmetric least-squares across window centres 6.5..11.0 and finds d(centre) CHANGES SIGN THREE ' +
+      'TIMES: positive for centre<6.6166, negative on 6.6166<centre<8.8589, positive on ' +
+      '8.8589<centre<10.9820, negative for centre>10.9820. The apex k*~8.821092 sits INSIDE the negative ' +
+      'band but only ~0.0378 decade below the upper sign change at ~8.8589 -- so d<0 at the apex is ' +
+      'GENUINE yet MARGINAL, a local feature of where k* falls relative to the resid triple-prime zero, ' +
+      'not the characteristic tilt scale (which deepens to ~-7.04e-3 near centre~8.00, ~13x the apex ' +
+      'magnitude).\n\n' +
+      'HONEST SCOPE: a window-centre sweep of an inherited surrogate, NOT an RH bound; refines, does not ' +
+      'overturn, imp-34084 (its d(k*) is correct but a small near-crossing value); the surrogate ' +
+      'resid_exp(k) is descriptive not derived; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no ' +
+      'bound; imp-3066 K_a>=0 untouched; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34147 (sweeping the apex cubic-tilt fit across window centres and finding the negative sign is local, not stable), 2026',
+    relatedTerms: [
+      'imp-34084 the fixed-centre apex cubic-tilt fit this ticket sweeps across window centres (imp-34084)',
+      'imp-34146 the companion quintic-term fit at the fixed apex centre (imp-34146)',
+    ],
+  },
+  {
+    term: 'imp-34148 symmetric-trim F4 cancellation located at m*~0.679085',
+    category: 'accuracy',
+    definition:
+      'imp-34086 explained the imp-34009 symmetric-window-trim milder share drop as a partial cancellation ' +
+      'between a head-down push and a tail-up push on the M2-residual factor F4, but only named it ' +
+      'directionally. imp-34148 bisects the continuous combined trim m and LOCATES the exact cancellation ' +
+      'at m*~0.679085 (window k=6.169771..10.830229): head push H(m*)~-0.015773 plus tail push ' +
+      'T(m*)~+0.150082 exactly offset the base ln F4(0)=-0.134309, giving F4(m*)=1 and the aggregate F2 ' +
+      'share peaking at 0.966238 (vs 0.922504 full window). The nearest integer rung m=1 (F4=1.056409) is ' +
+      'exactly the imp-34009 non-monotone share-bump rung.\n\n' +
+      'HONEST SCOPE: locating a minimum of an inherited imp-34086 endpoint-sensitivity diagnostic, NOT an ' +
+      'RH bound; locates and confirms, does not overturn, imp-34086; the factor identity is exact WITHIN ' +
+      'the model only; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; imp-3066 K_a>=0 ' +
+      'untouched; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34148 (bisecting the symmetric-trim F4 cancellation to a continuous m*~0.679085), 2026',
+    relatedTerms: [
+      'imp-34086 the head-down/tail-up cancellation mechanism this ticket locates exactly (imp-34086)',
+      'imp-34149 the companion tail-only crossing at m*~0.606341 (imp-34149)',
+    ],
+  },
+  {
+    term: 'imp-34149 tail-only F4 unity crossing located at m*~0.606341',
+    category: 'numerical',
+    definition:
+      'imp-34086 found the F4-crosses-unity event behind the imp-34009 non-monotone m=1 share bump lives ' +
+      'entirely on the tail (low endpoint pinned at rung 0) but bracketed it only to the integer interval ' +
+      '[0,1]. imp-34149 bisects the continuous tail-only trim m and locates the crossing at m*~0.606341 ' +
+      '(window k=6.000000..10.848415, width ~4.848415 decades), where the moving high-endpoint residual ' +
+      'exactly equals the pinned low-endpoint residual, so F4(m*)=1 and the tail-only aggregate F2 share ' +
+      'peaks at 0.966312 -- essentially matching the imp-34148 symmetric peak (0.966238). The crossing ' +
+      'sits ~0.073 rung below the imp-34148 symmetric crossing because the tail-only trim lacks the ' +
+      'offsetting head-down push.\n\n' +
+      'HONEST SCOPE: locating a crossing of an inherited imp-34086 endpoint-sensitivity diagnostic, NOT an ' +
+      'RH bound; locates and confirms, does not overturn, imp-34086; the factor identity is exact WITHIN ' +
+      'the model only; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; imp-3066 K_a>=0 ' +
+      'untouched; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34149 (bisecting the tail-only F4 unity crossing to a continuous m*~0.606341), 2026',
+    relatedTerms: [
+      'imp-34086 the tail-only F4 crossing this ticket locates exactly (imp-34086)',
+      'imp-34148 the companion symmetric-trim crossing at m*~0.679085 (imp-34148)',
+    ],
+  },
+  {
+    term: 'imp-34150 M2-residual crossing cross-validated via direct bisection',
+    category: 'accuracy',
+    definition:
+      'imp-34023 and imp-34087 located the M2-residual zero crossing kEnd*~21.281 THROUGH derived ratios ' +
+      '(F4 sign flip, and the reciprocal C=1/|resid|). imp-34150 supplies an independent code path that ' +
+      'rebuilds resid(kEnd)=pEcoll*(1-sigma)-pSigma directly, never forming F4 or C, and locates its zero ' +
+      'with two structurally different root-finders: bisection on [21,22] gives kEnd*=21.28094743, and an ' +
+      'independent secant iteration (no bracket) converges to kEnd*=21.28094742 (agreeing to ~2.6e-9). Both ' +
+      'reproduce the inherited ceiling to all published digits, confirming the crossing is a genuine zero ' +
+      'of the raw surrogate residual, not an artifact of the F4/C derivation.\n\n' +
+      'HONEST SCOPE: cross-validation/measurement only; confirms not overturns imp-34023/imp-34087; the ' +
+      'crossing is descriptive within the inherited imp-3220/imp-3406 component model only; C_mb ' +
+      'GUE-conditional per imp-486 UNTOUCHED; changes no bound; imp-3066 K_a>=0 untouched; no RH verdict, ' +
+      'NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34150 (cross-validating the imp-34023/imp-34087 kEnd*~21.281 crossing via direct bisection and secant), 2026',
+    relatedTerms: [
+      'imp-34023 the F4-sign-flip reading of the M2-residual crossing this ticket cross-validates (imp-34023)',
+      'imp-34087 the reciprocal C=1/|resid| derivation of the same crossing (imp-34087)',
+      'imp-34151 the companion check of the cancellation numerator past this crossing (imp-34151)',
+    ],
+  },
+  {
+    term: 'imp-34151 cancellation numerator stays O(1) past the M2-residual crossing',
+    category: 'numerical',
+    definition:
+      'imp-34087 established the reciprocal identity C(kEnd)=(|A|+|B|)/|resid|~1/|resid| by arguing the ' +
+      'numerator |A|+|B|~0.978 is O(1), but only tabulated it on the sign-stable band kEnd=13..21 up to ' +
+      'the imp-34023/imp-34150 crossing. imp-34151 extends past the crossing into the sign-flipped region ' +
+      '(resid<0) and finds the O(1) numerator SURVIVES and drifts UPWARD toward 1.0 (0.98033 at kEnd=22, ' +
+      '0.99029 at kEnd=45, ~0.99709 at kEnd=150), monotonically and without blow-up, because past the ' +
+      'crossing E_coll shrinks to the fixed truncation floor so both exponents pEcoll,pSigma->0.5 and ' +
+      'A,B->0.5 each. So the imp-34087 reciprocal identity does NOT cease to hold past the crossing -- it ' +
+      'tightens as the numerator approaches unity.\n\n' +
+      'HONEST SCOPE: measurement only; confirms not overturns imp-34087; the numerator profile is ' +
+      'descriptive within the inherited imp-3220/imp-3406 component model only; C_mb GUE-conditional per ' +
+      'imp-486 UNTOUCHED; changes no bound; imp-3066 K_a>=0 untouched; no RH verdict, NO QED; ' +
+      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34151 (verifying the imp-34087 O(1) cancellation numerator survives past the M2-residual crossing), 2026',
+    relatedTerms: [
+      'imp-34087 the reciprocal-cancellation identity whose numerator this ticket tracks past the crossing (imp-34087)',
+      'imp-34150 the companion direct-bisection cross-validation of the crossing location (imp-34150)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

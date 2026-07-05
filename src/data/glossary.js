@@ -9590,6 +9590,40 @@ export const glossary = [
     ],
   },
   {
+    term: 'imp-34021 leading-amplitude modulus |A(alpha)| = pi*alpha/cos(pi*alpha/2) and its simple pole at alpha->1-',
+    category: 'numerical',
+    definition:
+      'imp-33924 factorized the joint cusp-angle leading amplitude A(alpha,theta) = B(alpha) e^{-i(1+alpha)theta}' +
+      '[1 + e^{i(1+alpha)pi}] into a theta-carrying phase and a theta-INDEPENDENT modulus tier |A(alpha)| = ' +
+      'pi*alpha/cos(pi*alpha/2), and imp-33968 tabulated the phase WINDING slope -(1+alpha) as an explicit ' +
+      'curve -- but left the modulus tier as a single unplotted formula whose alpha->1- blow-up (cos(pi/2)=0) ' +
+      'was never characterized.\n\n' +
+      'imp-34021 tabulates |A(alpha)| as an explicit curve across the grid alpha in {0.1..0.9, 0.95, 0.99, ' +
+      '0.999}, cross-checks it against the imp-33924 complex form 2*B(alpha)*|cos((1+alpha)pi/2)| with ' +
+      'B(alpha)=pi*alpha/sin(pi*alpha) (agreement to ~1e-15 at every grid point), and confirms the modulus is ' +
+      'theta-INDEPENDENT by direct complex evaluation across theta in [45deg,135deg]: the relative spread of ' +
+      '|A(alpha,theta)| over theta is ~3e-16 (machine epsilon) at every alpha, since theta enters A only ' +
+      'through the unit-modulus phase e^{i(1+alpha)(pi/2-theta)}. The anchor alpha=1/2 gives |A|=pi/sqrt(2)=' +
+      '2.221441, recovering the imp-33883 C_PS modulus.\n\n' +
+      'DIVERGENCE RATE: as alpha->1-, cos(pi*alpha/2)=sin(pi(1-alpha)/2)->0, so |A| has a SIMPLE POLE in ' +
+      'delta=1-alpha with an EXACT residue: |A| ~ 2/(1-alpha) - 2 + O(1-alpha). Numerically over delta in ' +
+      '{1e-1..1e-7} the log-log slope of |A| vs (1-alpha) converges to -1.000000 (order 1, NOT a stronger ' +
+      'singularity), the product |A|*(1-alpha) converges to 2.0000000 (leading coefficient C=2 EXACTLY, not ' +
+      'a fitted approximation), and |A| - 2/(1-alpha) converges to -2 (the additive constant of the Laurent ' +
+      'expansion). So the modulus blows up as a plain 1/(1-alpha) pole with residue 2, its divergence fully ' +
+      'pinned in closed form.\n\n' +
+      'HONEST SCOPE: measurement/derivation only, on the model cusp rho(x) = |x|^{-alpha}. It tabulates and ' +
+      'characterizes a modulus already written in closed form by imp-33924; it does NOT re-derive the ' +
+      'm_prime -> C_ren map and does NOT discharge H4 (imp-33766); G6a_shock_lipschitz stays OPEN; imp-3066 ' +
+      'off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34021 (tabulating the imp-33924 theta-independent leading-amplitude modulus |A(alpha)| = pi*alpha/cos(pi*alpha/2) as an explicit alpha-curve and measuring its alpha->1- divergence as a simple pole |A| ~ 2/(1-alpha) - 2, upgrading the imp-33968 winding-slope tabulation to cover the modulus tier), 2026',
+    relatedTerms: [
+      'imp-33924 the joint closed-form amplitude A(alpha,theta) whose theta-independent modulus tier this ticket tabulates and whose alpha->1- pole it characterizes (imp-33924)',
+      'imp-33968 the companion winding-SLOPE-vs-alpha affine law -(1+alpha); this ticket completes the pair by tabulating the MODULUS tier imp-33968 left as a formula (imp-33968)',
+      'imp-33883 off-axis angle-robust onset verdict whose C_PS = pi/sqrt(2) modulus is recovered as the alpha=1/2 anchor of this curve (imp-33883)',
+    ],
+  },
+  {
     term: 'imp-33963 Dickey-Fuller unit-root non-rejection (tau ~ -0.27, low power at n=21)',
     category: 'numerical',
     definition:

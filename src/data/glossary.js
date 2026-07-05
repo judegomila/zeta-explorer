@@ -10544,6 +10544,37 @@ export const glossary = [
       'imp-33917 the endpoint-peak growth machinery reused across both decades (imp-33917)',
     ],
   },
+  {
+    term: 'imp-34006 windowed p_eff and pointwise p reach 1/2 by the SAME approach at two offsets, window leads by ~half its span',
+    category: 'numerical',
+    definition:
+      'imp-33816 validated the POINTWISE local-exponent shortfall gap(N)=1/2-p(N)~1/(2 log T0), and ' +
+      'imp-33274 tracked the same 1/2-approach via a fixed-12-decade OLS SLIDING-WINDOW effective ' +
+      'exponent p_eff(N) -- but the two estimators had never been cross-tabulated on a shared N ladder. ' +
+      'imp-34006 co-tabulates both at log10 N in {12,20,30,44,60,100,150,200}.\n\n' +
+      'FINDINGS (measurement only): (F1) the windowed p_eff(N) exceeds the pointwise p(N) at every shared ' +
+      'rung (offset 3.38e-2 at 1e12 shrinking to 3.18e-5 at 1e200), because the 12-decade window ' +
+      '[N, N*10^12] averages in higher-N/higher-p contributions; (F2) the offset decays ONE LOG-POWER ' +
+      'FASTER than the gap itself -- offset*(log T0)^2 stays O(1)-bounded (~4.8 -> 6.6, matching the ' +
+      'analytic span-law S/4~6.9 for S=12 ln10) while offset/gap collapses monotonically 0.715 -> 0.029, ' +
+      'so the two estimators agree asymptotically; (F3) solving p>=0.495 / p>=0.4995 for both, the ' +
+      'pointwise crossings sit at 1e44.17 / 1e436.06 (reproducing imp-33816 exactly), while the ' +
+      'window-START crossings sit ~5.83 / ~5.98 decades EARLIER (1e38.3 / 1e430.1) -- the window leads ' +
+      'by roughly half its 12-decade span because the OLS reads the pointwise exponent near its window ' +
+      'CENTRE (+6 decades). imp-34065 later confirmed the S/4 and S/2 span-laws generalize across span ' +
+      'choices, and imp-34066 directly confirmed the centroid-reading mechanism by re-anchoring the ' +
+      'window at its centre (collapsing the lead to a fraction of a decade).\n\n' +
+      'HONEST SCOPE: conditional-share/exponent diagnostic reusing the inherited imp-3220/imp-3406 ' +
+      'component model, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; changes ' +
+      'no bound; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34006 (cross-tabulating the imp-33274 windowed effective exponent against the imp-33816 pointwise exponent on a shared N ladder), 2026',
+    relatedTerms: [
+      'imp-33816 the pointwise gap law gap~1/(2 log T0) this ticket cross-tabulates against (imp-33816)',
+      'imp-33274 the fixed-12-decade sliding-window effective exponent this ticket cross-tabulates against (imp-33274)',
+      'imp-34065 the span-law generalization S in {6,12,24} confirming F2/F3 as S=12 slices (imp-34065)',
+      'imp-34066 the direct centre-anchored re-test confirming the F3 centroid-reading mechanism (imp-34066)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

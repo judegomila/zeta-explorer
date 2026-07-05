@@ -9379,6 +9379,37 @@ export const glossary = [
       'imp-33897 the homotopy module showing the full-model inflection is the E_flow-on continuation of landmark 1 (imp-33897)',
     ],
   },
+  {
+    term: 'imp-33863 QUADRATURE-CONVERGED verdict: the imp-33845 fixed-3/2 (C_ren - C_PS) tail-rung onset exponent is inner-mesh-invariant, not a resolution artifact',
+    category: 'numerical',
+    definition:
+      'imp-33845 read the (C_ren - C_PS) gap onset exponent to 1.50000 at its N = 1e7 tail rung on a ' +
+      'SINGLE fixed inner mesh (N_PANELS = 8000, Simpson on u in [0,1] with x = +-u^2), never ' +
+      'panel-refinement-tested -- and the imp-3731/imp-3849 saddle-ratio cohort had already shown ' +
+      'that inner Simpson resolution, not the outer ladder, can drive an apparent exponent at large ' +
+      'argument (imp-3849 saddle-ratio inner-quadrature axis). imp-33863 closes that open worry for ' +
+      'the H4 tail-rung reading.\n\n' +
+      'RESULT: re-measuring the tail-rung exponent p_tail = d log(C_ren - C_PS) / d log eps between ' +
+      'the N = 5e6 and N = 1e7 rungs under an independent panel-doubling sweep from 2000 to 64000 (a ' +
+      '32x span straddling the imp-33845 reference mesh) finds p_tail FLAT at 1.49999767 with a ' +
+      'maximum absolute drift of ~3.1e-9 -- seven orders of magnitude below the ~1.5e-2 outer-ladder ' +
+      'rung tightening. The residual ~2.3e-6 deviation from exactly 3/2 is itself PANEL-INVARIANT (it ' +
+      'does not shrink as the inner mesh refines), so it is a finite-eps onset offset of the outer ' +
+      'ladder, NOT a quadrature error (imp-33898 later derives this residual in closed form as an ' +
+      'independent eps^2 tier with amplitude -18/7).\n\n' +
+      'HONEST SCOPE: robustness/quadrature-convergence check only. This does NOT DISCHARGE H4 -- the ' +
+      'uniform bound needs the ANALYTIC fold-modulus back-conversion tracking, not a mesh-converged ' +
+      'finite-ladder fit -- and says nothing about the coupled H3 curvature rung (N-exponent 5/4, ' +
+      'imp-33786) that jointly governs the discharge. G6a_shock_lipschitz STAYS OPEN. No positivity; ' +
+      'imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; Platt-Trudgian Lambda <= 0.2 remains ' +
+      'the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33863 (re-measuring the imp-33845 fixed-3/2 (C_ren - C_PS) tail-rung onset exponent under a 32x inner-Simpson panel-doubling sweep, confirming quadrature convergence rather than a mesh-resolution artifact), 2026',
+    relatedTerms: [
+      'imp-33845 FIXED-3/2-ONSET verdict, the single-mesh reading this panel-refinement sweep confirms (imp-33845)',
+      'imp-3849 saddle-ratio inner-quadrature axis, the prior cohort showing inner resolution (not outer ladder) can drive an apparent exponent (imp-3849)',
+      'imp-33898 the eps^2-tier closed-form derivation of the panel-invariant ~2.3e-6 residual this module measures but does not derive (imp-33898)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

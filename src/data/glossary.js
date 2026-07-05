@@ -8936,6 +8936,37 @@ export const glossary = [
       'imp-33849 window-onset-boundary localization, pinning where the small-N excess enters the asymptotic band (imp-33849)',
     ],
   },
+  {
+    term: 'imp-33808 O(1/t^2) two-notion sigma-inflection separation: sigma_I - sigma_II = (g_dbl + g*g_prime)/g^3',
+    category: 'numerical',
+    definition:
+      'imp-33771 measured a ~1.5% offset between the imp-33744 closed-form sigmoid inflection ' +
+      '(sigma_I = 1/2 - g_prime/(2 g^2)) and the imp-33721 exponent-ramp D2 (acceleration) zero-' +
+      'crossing knee (sigma_II), asserting the gap is a genuine two-notion separation "of size ' +
+      'O(1/t^2)", t = ln N, but never derived that magnitude. imp-33808 derives it: subtracting the ' +
+      'two displacements from 1/2 on the exact logistic reduction sigma = 1/(1+e^{-u}), g = -du/dt, ' +
+      'gives the closed form sigma_I - sigma_II = (g_dbl + g g_prime)/g^3 + O(1/t^3).\n\n' +
+      'RESULT: at t ~ 21.9 the naive pure-power leading coefficient +2/t^2 (~+4.2e-3) both MIS-SIGNS ' +
+      'and over-predicts (~4x) the directly-measured continuous separation (~-9.9e-4), because the ' +
+      'running-log curvature g_dbl is ~12x its t -> infinity asymptote (-1/t^3) at this finite t and ' +
+      'nearly cancels g*g_prime. Keeping g_dbl, the resolved formula evaluates to ~-9.05e-4, matching ' +
+      'the measured separation to ~8% -- so the sigmoid inflection sits just ABOVE the exponent-ramp ' +
+      'knee in N (~0.83%, log10 gap ~0.0036), not the ~1.5% imp-33771 reported.\n\n' +
+      'HONEST SCOPE: the imp-33771 ~1.5%/+0.0018 figure is that genuine ~0.83% separation inflated and ' +
+      'sign-flipped by a numerical-scheme artifact, NOT extra physics -- imp-33771 evaluated g_prime at ' +
+      'the halving point with a nested finite difference (~9.69e-4), under-resolved by ~2.4x versus the ' +
+      'well-resolved second-difference value (~2.34e-3); plugging the resolved g_prime into the closed ' +
+      'form lands on the true continuous inflection to <1e-3. Derivation/measurement only on the ' +
+      'inherited imp-3220/imp-3406 component model, NOT a rigorous asymptotic; establishes no operator ' +
+      'positivity; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33808 (deriving the leading O(1/t^2) analytic separation between the imp-33744 sigmoid inflection and the imp-33721 exponent-ramp D2 knee, and tracing the imp-33771 ~1.5% offset to a finite-difference artifact), 2026',
+    relatedTerms: [
+      'imp-33771 closed-form-inflection-vs-D2-knee cross-check, whose ~1.5% offset this derivation explains as a scheme artifact (imp-33771)',
+      'imp-33744 closed-form sigma-inflection sigma_I = 1/2 - g_prime/(2 g^2), one of the two curvature notions separated here (imp-33744)',
+      'imp-33721 sub-decade exponent-ramp D2-zero knee, the second curvature notion (sigma_II) in this separation (imp-33721)',
+      'imp-33817 grid-resolution floor confirming the imp-33771 residual exceeds discretization noise (imp-33817)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

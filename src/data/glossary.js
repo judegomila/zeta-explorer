@@ -9466,6 +9466,33 @@ export const glossary = [
       'imp-33903 independent direct-finite-difference reproduction of the same offset (imp-33903)',
     ],
   },
+  {
+    term: 'imp-33802 DEG+1=5 all-ones Perron ceiling saturation diagnostic',
+    category: 'numerical',
+    definition:
+      'imp-33765 derived that the G7/imp-3066 off-diagonal Hankel obstruction is one-dimensional ' +
+      'in the coupled scalar s = a*U, with the operator norm ||R||(s) rising monotonically toward ' +
+      'the all-ones DEG+1 Perron ceiling (DEG = 4, so ceiling = 5), but left the curve itself ' +
+      'unpackaged as a ready diagnostic. imp-33802 self-computes ||R||(s) from the SAME ' +
+      'representative imp-3066 monomial-truncation integrals across the s-ladder 0.25..32 and ' +
+      'exports it alongside the fixed-s_a=3 decoupled-rate softening series ||R||(s_b).\n\n' +
+      'RESULT: the ||R||(s) curve is monotone increasing at every rung of the 0.25..32 ladder and ' +
+      'stays STRICTLY BELOW the ceiling of 5 across the whole span -- saturating toward it from ' +
+      'below without ever crossing. The s=3 anchor reproduces the imp-33765/imp-33789 value ' +
+      '||R|| ~ 4.617014 to five digits, and the decoupled softening series reproduces the three ' +
+      'imp-33765 points (20.94 at s_b=1, 4.617 at the coupled anchor s_b=3, 0.338 at s_b=6), ' +
+      'monotone decreasing and bracketing the ||R||=1 unity line.\n\n' +
+      'HONEST SCOPE: viz-data/structural-diagnostic packaging only, on the SAME representative ' +
+      'DEG=4 truncation as imp-33765/imp-33789, NOT the section-26 Gram. No fresh derivation, no ' +
+      'positivity attempted, imp-3066/imp-33765/imp-33789 untouched, no RH verdict, NO QED. ' +
+      'C_mb stays GUE-conditional (imp-486); Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33802 (packaging the imp-33765 G7 ||R||(s) monotone curve toward the DEG+1 all-ones Perron ceiling and the fixed-s_a=3 decoupled softening series as self-computing viz-data), 2026',
+    relatedTerms: [
+      'imp-33765 the G7/imp-3066 orthogonal-lever derivation establishing ||R|| is one-dimensional in s = a*U (imp-33765)',
+      'imp-33789 the two-parameter decoupled-rate grid and the per-s_a ||R||=1 crossing contour (imp-33789)',
+      'imp-33787 the dual low-end result: inf_{s>0} ||R(s)|| = 0, approached only in the degenerate s->0 limit (imp-33787)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

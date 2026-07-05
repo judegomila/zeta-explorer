@@ -4728,6 +4728,18 @@ const DATA_MODULES = [
   // measurement only; pure phase geometry on the imp-33924 closed form; does NOT discharge H4, G6a stays
   // OPEN; imp-3066 K_a>=0 untouched; C_mb GUE-conditional untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-34229-general-onset-bisection-verification.js',
+  // imp-34230: DERIVE the endpoint CURVATURE d3''(alpha) of the imp-34167 family-(iii) k=-+3 outer phase-zero
+  // branch distance d3(alpha) = pi(5-alpha)/(2(1+alpha)) at its onset alpha=5, completing the curvature ladder
+  // alongside imp-34103 (k=1, pi/4) and imp-34166 (k=2, pi/16). Twice-differentiating gives d3''(alpha) =
+  // 6pi/(1+alpha)^3, hence d3''(5) = 6pi/216 = pi/36 = 0.08726646 (instantiating imp-34173 d_k''(alpha)=2k pi/
+  // (1+alpha)^3 at k=3). Expanding about alpha=5 with e=5-alpha gives d3 = (pi/12)e + (pi/72)e^2 + (pi/432)e^3;
+  // the measured e^2 coefficient c2 = pi/(12(6-e)) descends monotonically to pi/72 (2*c2 -> pi/36), the deviation
+  // shrinks ~10x per decade of (5-alpha), and the local quadratic-model error pi e^3/(72(6-e)) ~ (pi/432)e^3 is a
+  // strictly positive cubic shrinking ~1000x per decade, so the measured cubic coeff converges to pi/432. Completes
+  // the curvature ladder pi/(4k^2) = pi/4,pi/16,pi/36 across all three branch families. Derivation/measurement only;
+  // pure phase geometry on the imp-33924/imp-34167 closed form; does NOT discharge H4, G6a stays OPEN; imp-3066
+  // K_a>=0 untouched; C_mb GUE-conditional untouched; PT Lambda<=0.2 SOTA; no QED. 7 assertions.
+  '/src/data/imp-34230-third-branch-curvature.js',
 ];
 
 let ALL_MODULES = FAST_MODE

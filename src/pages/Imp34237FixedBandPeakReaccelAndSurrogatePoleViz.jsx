@@ -6,6 +6,7 @@ import {
   IMP34237_PEAK_SECOND_DIFFERENCE,
   IMP34237_RESID_EXP_ROWS,
   IMP34237_RESID_ZERO_KSTAR,
+  IMP34237_EFLOW_OVER_RESID_ROWS,
   IMP34237_FIRST_BREAKDOWN_KEND,
   IMP34237_COMPUTABLE_WINDOW_COUNT,
   IMP34237_TOTAL_WINDOW_COUNT,
@@ -157,6 +158,71 @@ function ResidExpZeroCrossingChart() {
   );
 }
 
+// Panel 3: eflow_over_resid = eflow_attr / resid_exp -- the log argument the fit
+// takes -- flips sign across the k* pole, matching only the two flanking rungs
+// that stay computable (21.25 positive, 21.5 negative).
+function EflowOverResidPoleChart() {
+  const svgW = 680;
+  const svgH = 200;
+  const padL = 60;
+  const padR = 20;
+  const padT = 16;
+  const padB = 36;
+  const cW = svgW - padL - padR;
+  const cH = svgH - padT - padB;
+
+  const minX = 20.9;
+  const maxX = 21.8;
+  const scale = (v) => Math.sign(v) * Math.log10(1 + Math.abs(v) / 1e-9);
+  const maxAbs = Math.max(...IMP34237_EFLOW_OVER_RESID_ROWS.map((r) => Math.abs(scale(r.ratio))));
+
+  const xAt = (x) => padL + ((x - minX) / (maxX - minX)) * cW;
+  const yAt = (y) => padT + cH / 2 - (scale(y) / maxAbs) * (cH / 2 - 8);
+  const zeroY = padT + cH / 2;
+
+  return (
+    <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={zeroY} x2={padL + cW} y2={zeroY} stroke="#334155" strokeWidth={1} strokeDasharray="2,3" />
+      <text x={padL + cW - 4} y={zeroY - 4} textAnchor="end" fill="#64748b" fontSize={9}>
+        eflow_over_resid = 0
+      </text>
+
+      <line x1={xAt(IMP34237_RESID_ZERO_KSTAR)} y1={padT} x2={xAt(IMP34237_RESID_ZERO_KSTAR)} y2={padT + cH} stroke="#f87171" strokeWidth={1.25} strokeDasharray="5,3" />
+      <text x={xAt(IMP34237_RESID_ZERO_KSTAR) + 4} y={padT + 12} fill="#f87171" fontSize={9}>
+        k* &asymp; {IMP34237_RESID_ZERO_KSTAR.toFixed(5)} (pole)
+      </text>
+
+      {IMP34237_EFLOW_OVER_RESID_ROWS.map((r) => (
+        <g key={'bar' + r.k}>
+          <line x1={xAt(r.k)} y1={zeroY} x2={xAt(r.k)} y2={yAt(r.ratio)} stroke={r.ratio > 0 ? '#4ade80' : '#f87171'} strokeWidth={4} />
+          <circle cx={xAt(r.k)} cy={yAt(r.ratio)} r={3.5} fill={r.ratio > 0 ? '#4ade80' : '#f87171'} stroke="#0a0f1a" strokeWidth={0.75} />
+          <text x={xAt(r.k)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+            {r.k}
+          </text>
+          <text x={xAt(r.k)} y={yAt(r.ratio) + (r.ratio > 0 ? -8 : 14)} textAnchor="middle" fill="#94a3b8" fontSize={9} fontFamily="monospace">
+            {r.ratio.toExponential(2)}
+          </text>
+        </g>
+      ))}
+
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+        k
+      </text>
+      <text
+        x={14}
+        y={padT + cH / 2}
+        textAnchor="middle"
+        fill="#64748b"
+        fontSize={10}
+        transform={`rotate(-90 14 ${padT + cH / 2})`}
+      >
+        eflow_over_resid (signed-log scale)
+      </text>
+    </svg>
+  );
+}
+
 export default function Imp34237FixedBandPeakReaccelAndSurrogatePoleViz() {
   return (
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
@@ -185,6 +251,11 @@ export default function Imp34237FixedBandPeakReaccelAndSurrogatePoleViz() {
         surrogate resid_exp(k) decaying through the deep tail and crossing zero at k* (the hard right edge)
       </p>
       <ResidExpZeroCrossingChart />
+
+      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+        eflow_over_resid = eflow_attr / resid_exp -- the log argument the fit takes -- flips sign across the pole
+      </p>
+      <EflowOverResidPoleChart />
 
       <table
         style={{

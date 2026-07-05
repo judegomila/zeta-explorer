@@ -4268,6 +4268,17 @@ const DATA_MODULES = [
   // offset). Nearest integer rung m=1 is the imp-34009/imp-34086 tail share bump. Measurement only;
   // imp-486/C_C ansatz untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-34149-tail-only-f4-unity-crossing.js',
+  // imp-34150: CROSS-VALIDATE the imp-34023/imp-34087 kEnd*~21.281 M2-residual zero crossing from an
+  // independent second code path. imp-34023 read the crossing off the F4=resid(hi)/resid(lo) sign flip
+  // and imp-34087 inherited it via the relative-cancellation reciprocal C=(|A|+|B|)/|resid|=1/|resid|;
+  // both located it THROUGH a derived ratio. This rebuilds resid(kEnd)=pEcoll*(1-sigma)-pSigma DIRECTLY
+  // (no F4, no C) with the identical inherited imp-3406/imp-33810 sub-terms (head fixed at k=6) and
+  // bisects on a distinct bracket [21,22] -> kEnd*=21.28094743, with an independent secant iteration
+  // landing on 21.28094742 (agree ~2.6e-9). The direct root reproduces the inherited ceiling to all
+  // published digits (rounds to 21.28095/imp-34087 at 5dp and 21.281/imp-34023 at 3dp, ~7 sig figs), so
+  // the crossing is a genuine zero of the raw residual, not an artifact of the ratio derivation.
+  // Cross-validation only; imp-486/C_C untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34150-m2-residual-crossing-direct-bisection-crossval.js',
   // imp-34087: quantify the catastrophic-cancellation significance loss in the imp-34023 F4
   // surrogate on the approach to the kEnd ~ 21.281 M2-residual zero crossing. Measures the
   // relative cancellation C(kEnd) = (|pEcoll*(1-sigma)| + |pSigma|)/|resid| and the digits lost

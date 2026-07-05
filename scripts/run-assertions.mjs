@@ -3879,6 +3879,16 @@ const DATA_MODULES = [
   // with p-values; changes no RMSE, no form selection, no bound. imp-486/C_C untouched; PT
   // Lambda<=0.2 SOTA; no QED. 5 assertions. (transitively exercises the imp-33810 ladder.)
   '/src/data/imp-33886-widening-residual-significance-test.js',
+  // imp-33920 (numerical): replaces the imp-33886 NORMAL-approximation runs-test p-value with the
+  // EXACT permutation null -- enumerates the run count over all C(21,11)=352716 sign-arrangements of
+  // the 21 imp-33858 residual signs (n1=11 pos, n2=10 neg fixed). 201 arrangements have <=4 runs, so
+  // the exact one-sided p = 201/352716 ~ 5.70e-4 and the exact two-sided p ~ 1.0-1.14e-3 (small-p /
+  // doubling), both < 0.01: the white-noise-null rejection SURVIVES with the normal approximation
+  // removed. The exact two-sided value sits inside the imp-33886 raw-normal (7.9e-4) / continuity-
+  // corrected (1.7e-3) bracket, and the closed-form runs PMF reproduces the Wald-Wolfowitz mu_R ~ 11.48
+  // / var_R ~ 4.96 exactly (cross-check). Sharpens the p-value only; no RMSE / form-selection / bound
+  // change; imp-486/C_C untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-33920-runs-test-exact-permutation-pvalue.js',
   // imp-33875 (meta): AUDIT of whether the imp-33843/imp-33844/imp-33845
   // *_ASSERTIONS arrays are registered in THIS runner, mirroring the imp-3369 /
   // imp-33806 unwired-assertion-coverage audits. FINDING: none of the three are

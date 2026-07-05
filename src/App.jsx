@@ -267,6 +267,7 @@ const Imp34033F1WideningDriftViz = lazy(() => import('./pages/Imp34033F1Widening
 const Imp34037RealnessResidualVsThetaViz = lazy(() => import('./pages/Imp34037RealnessResidualVsThetaViz.jsx'));
 const Imp33953ResidExpHumpArgmaxCrossoverViz = lazy(() => import('./pages/Imp33953ResidExpHumpArgmaxCrossoverViz.jsx'));
 const Imp34049FixedBandDriftGrowthViz = lazy(() => import('./pages/Imp34049FixedBandDriftGrowthViz.jsx'));
+const Imp34050EndpointPeakModelTournamentViz = lazy(() => import('./pages/Imp34050EndpointPeakModelTournamentViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1063,6 +1064,7 @@ function AppShell() {
           <Route path="/viz-imp34037-realness-residual-vs-theta" element={<Imp34037RealnessResidualVsThetaViz />} />
           <Route path="/viz-imp33953-resid-exp-hump-argmax-crossover" element={<Imp33953ResidExpHumpArgmaxCrossoverViz />} />
           <Route path="/viz-imp34049-fixed-band-drift-growth" element={<Imp34049FixedBandDriftGrowthViz />} />
+          <Route path="/viz-imp34050-endpoint-peak-model-tournament" element={<Imp34050EndpointPeakModelTournamentViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

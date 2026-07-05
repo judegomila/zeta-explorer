@@ -8880,6 +8880,32 @@ export const glossary = [
       'imp-3066 off-diagonal endpoint-Hankel positivity K_a >= 0, left untouched (imp-3066)',
     ],
   },
+  {
+    term: 'imp-33885 per-rung machine-precision cross-validation of the (log N)^3/N E_flow closed form',
+    category: 'accuracy',
+    definition:
+      'imp-28895 substituted the Riemann-von Mangoldt height law into E_flow to get the closed form ' +
+      'E_flow = G L (L0^2-1)/(4 pi^2 N) ~ (log N)^3/N, and checked it only at the two imp-33810 endpoint ' +
+      'rungs k=6 and k=11 (reproducing the factor F1=E_flow(6)/E_flow(11)~17992.16 to 4 sig figs). Whether ' +
+      'the closed form tracks the direct E_flow across the ladder interior, not just at the endpoints, was ' +
+      'never tabulated. imp-33885 evaluated both the closed form and the direct E_flow at all 21 ' +
+      'imp-33810 quarter-decade rungs k=6.00..11.00 and found the per-rung relative residual is below ' +
+      '1e-12 everywhere (max 3.32e-16, mean 1.23e-16) -- because effectiveHeightForN inverts the exact RvM ' +
+      'height law N=(T0/2pi)(L0-1), making the closed form and the direct evaluation an algebraic identity ' +
+      'rather than an approximation. The interior-rung max residual equals the two-endpoint residual to ' +
+      'the machine floor, so the original imp-28895 endpoint check was already representative of the whole ' +
+      'ladder, and F1~17992 reproduces to ~13 sig figs in both forms.\n\n' +
+      'HONEST SCOPE: an exact within-component-model identity, not new physics or a tighter bound -- the ' +
+      'inherited imp-3406 flow prefactor and RvM height substitution remain component-model choices, NOT a ' +
+      'rigorous asymptotic; establishes no operator positivity; imp-3066 off-diagonal endpoint-Hankel ' +
+      'K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-33885 (cross-validating the imp-28895 (log N)^3/N E_flow closed form against a direct evaluation at every one of the 21 imp-33810 rungs rather than only the k=6/k=11 endpoints), 2026',
+    relatedTerms: [
+      'imp-28895 closed-form E_flow = G L (L0^2-1)/(4 pi^2 N) ~ (log N)^3/N derivation, validated here across the full interior (imp-28895)',
+      'imp-33810 21-rung quarter-decade ladder k=6..11 whose endpoints anchored the original F1~17992 check (imp-33810)',
+      'imp-3066 off-diagonal endpoint-Hankel positivity K_a >= 0, left untouched (imp-3066)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

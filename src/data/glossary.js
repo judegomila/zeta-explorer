@@ -8906,6 +8906,36 @@ export const glossary = [
       'imp-3066 off-diagonal endpoint-Hankel positivity K_a >= 0, left untouched (imp-3066)',
     ],
   },
+  {
+    term: 'imp-33794 C_ren(N) fold-reading amplitude window: finite band monotone-decreasing toward C_PS = pi/sqrt(2)',
+    category: 'numerical',
+    definition:
+      'imp-33766 named the minimal H4-axis input a single N-uniform two-sided bound on the ' +
+      'renormalized H4 fold-reading amplitude C_ren(N) = (y_N^sharp)^{3/2} |m_prime(z_0*)|, staying ' +
+      'in a finite window as y_N^sharp = sqrt(2 pi / N) -> 0, but never MEASURED C_ren across N. ' +
+      'imp-33794 reads C_ren on the eps = y_N^sharp ladder (N in 1e3 .. 1e7) for the imp-33646 ' +
+      'Holder-1/2 cusp rho = |x|^{-1/2} (x = +-u^2 Simpson quadrature, m_prime = -2[B2(+) + B2(-)]).\n\n' +
+      'RESULT: C_ren(N) sits in a FINITE band -- whole-ladder window [2.221471, 2.250959] (spread ' +
+      '~2.95e-2, all within ~1.3% of C_PS), tightening to [2.221471, 2.222382] (spread ~9.1e-4) on ' +
+      'the asymptotic rungs N >= 1e5 -- MONOTONE-DECREASING from above toward the closed-form ' +
+      'Privalov-Sokhotski amplitude C_PS = pi/sqrt(2) = 2.221441 (imp-33646). The local N-trend ' +
+      'd log C_ren / d log N DECAYS to ~ -2e-5: an exponent flattening toward zero, i.e. an ' +
+      'asymptotic ONSET of the small-N excess, not a persistent power-law DRIFT.\n\n' +
+      'HONEST SCOPE: measurement-only, on a finite ladder. The empirical C_ren(N) IS CONSISTENT WITH ' +
+      'the imp-33766 finite-window minimal-input requirement AT THE MEASURED LEVEL, but this does ' +
+      'NOT DISCHARGE H4: the uniform bound needs the ANALYTIC tracking of C_ren through the ' +
+      'fold-modulus back-conversion, not an empirical band on a finite ladder, and it says nothing ' +
+      'about the coupled H3 curvature rung (N-exponent 5/4, imp-33786) that jointly governs the ' +
+      'discharge. G6a_shock_lipschitz STAYS OPEN. No positivity; imp-3066 off-diagonal endpoint-Hankel ' +
+      'K_a >= 0 UNTOUCHED; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33794 (measuring the imp-33766 minimal H4-axis renormalized fold-reading amplitude C_ren(N) across an N ladder, finding a finite monotone-decreasing band toward C_PS), 2026',
+    relatedTerms: [
+      'imp-33845 FIXED-3/2-ONSET verdict, sharpening this tail-slope reading to a measured 3/2 gap-approach rate (imp-33845)',
+      'imp-33646 H4 Privalov-Sokhotski fold-reading constant C_PS = pi/sqrt(2), the limit C_ren(N) decreases toward (imp-33646)',
+      'imp-33766 H4-H3 coupling verdict, the finite-window minimal-input condition this is consistent-with but does not discharge (imp-33766)',
+      'imp-33849 window-onset-boundary localization, pinning where the small-N excess enters the asymptotic band (imp-33849)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

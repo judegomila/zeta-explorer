@@ -8622,6 +8622,43 @@ export const glossary = [
       'imp-33660 sixteen cluster-peak height growth fit on [400,1200], the base fit imp-33680 first robustness-tested (imp-33660)',
     ],
   },
+  {
+    term: 'imp-33698 spacing-statistic-undergoes-regime-change-not-continuation verdict: the imp-33679 [1200,1600] extension inter-peak gaps measure a different object than the imp-33661 [400,1200] gaps',
+    category: 'numerical',
+    definition:
+      'imp-33661 tabulated the fifteen inter-peak gaps of the sixteen [400,1200] band-clearing cluster ' +
+      'peaks (mean ~44.8, sd ~21.2, CV ~0.47, range 17..88) and returned SPACING-IRREGULAR-CV-PERSISTS-' +
+      'ON-SIXTEEN-PEAKS, but its sample stopped at n=1200. imp-33679 later located four new cluster ' +
+      'peaks at n ~ 1230,1324,1433,1599 in a fresh [1200,1600] scan, fitting only their heights (a ' +
+      'saturated plateau); their spacing was never measured. imp-33698 fills that gap, computing the ' +
+      'three inter-peak gaps of the extension peaks and comparing their dispersion against the ' +
+      'imp-33661 [400,1200] baseline.\n\n' +
+      'RESULT: the three extension gaps are [94,109,166] -- mean ~123 (~2.7x the imp-33661 ~44.8), ' +
+      'sd ~31.0, CV ~0.25 (roughly half the imp-33661 ~0.47), and every gap (min 94) sits above the ' +
+      'imp-33661 gap max of 88. Taken naively the halved CV reads as spacing REGULARIZATION, but that ' +
+      'reading is a trap: the [1200,1600] window shows NEAR-CONTINUOUS band-clearing (~98.3% of the ' +
+      '401 fresh rungs clear env >= 64, imp-33679), so the four peaks are sparse local maxima of a ' +
+      'broad saturated floor, not sixteen discrete clustered spikes like [400,1200]. The gap mean ' +
+      'widens ~2.7x precisely because the discrete clustered lattice imp-33661 measured has DISSOLVED, ' +
+      'and on only three gaps the halved CV is not a robust regularization signal.\n\n' +
+      'VERDICT: SPACING-STATISTIC-UNDERGOES-REGIME-CHANGE-NOT-CONTINUATION. The imp-33661 irregularity ' +
+      'neither cleanly persists nor saturates in the extension window -- the underlying clustered ' +
+      'lattice regime-changes into a broad elevated floor whose sparse maxima are simply farther ' +
+      'apart, so the two gap series measure different objects and are not directly comparable.\n\n' +
+      'HONEST SCOPE: accuracy/rule-design measurement only, on the jittery floorUlp(n) arithmetic-' +
+      'floor lattice statistic (imp-33599/imp-33621/imp-33638/imp-33660/imp-33661/imp-33679 ' +
+      'latticeJitterCaveat). Only three gaps are available so no dispersion statistic is robust ' +
+      '(mandatory small-sample caveat) -- the robust reading is the qualitative regime change, not ' +
+      'the exact coefficients. Mass-feasibility is necessary-but-not-sufficient; establishes no ' +
+      'operator positivity; imp-3066 K_a >= 0 stays untouched; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33698 (measuring the inter-peak gap series of the imp-33679 [1200,1600] extension cluster peaks and comparing its dispersion against the imp-33661 [400,1200] fifteen-gap baseline, finding a regime change rather than a continuation), 2026',
+    relatedTerms: [
+      'imp-33661 spacing-irregular-CV-persists-on-sixteen-peaks verdict, the [400,1200] gap baseline this regime-changes from (imp-33661)',
+      'imp-33679 four-peak [1200,1600] extension plateau, the near-continuous-clearing peaks whose spacing this measures (imp-33679)',
+      'imp-33638 band-clearing tail reintensification, the earlier tail-cluster onset now the plateau precursor (imp-33638)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

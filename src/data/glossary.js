@@ -9706,6 +9706,39 @@ export const glossary = [
       'imp-33884 the exact kEnd=11 widening 903.538 and F1..F4 factor decomposition this sweep generalizes (imp-33884)',
     ],
   },
+  {
+    term: 'imp-33816 crossing LADDER: the sigma(N) exponent reaches 90% of 1/2 at N~1e11.92, 99% only at N~1e44, and 99.9% at N~1e436',
+    category: 'numerical',
+    definition:
+      'imp-33816 showed the sigma(N) post-peak local decay exponent p(N) approaches the imp-3463 ' +
+      'far-tail 1/2 asymptote only LOGARITHMICALLY (gap(N) = 1/2 - p(N) ~ 1/(2 log T0)), not ' +
+      'polynomially, so a single decay rate cannot summarize how close p(N) actually gets by a given N. ' +
+      'imp-33904 and imp-33943 filled in the pointwise crossing ladder (bisecting p(N) = target ' +
+      'directly on the imp-33816 evaluator) to make that log-slowness concrete as a memorable set of ' +
+      'marks:\n\n' +
+      '50% of 1/2 (p=0.25): N ~ 1e9.61 (log T0 ~ 21.1)\n' +
+      '90% of 1/2 (p=0.45): N ~ 1e11.92 (log T0 ~ 26.1) -- inside the very [1e11,1e12] decade where ' +
+      'imp-33582 stopped\n' +
+      '95% of 1/2 (p=0.475): N ~ 1e13.17 (log T0 ~ 28.9)\n' +
+      '99% of 1/2 (p=0.495): N ~ 1e44.17 (log T0 ~ 99) -- ~32 decades past the imp-33582 stop\n' +
+      '99.9% of 1/2 (p=0.4995): N ~ 1e436.06 (log T0 ~ 999) -- the direct crossing, ~2 decades above ' +
+      'the 1e434 estimate the gap-law alone gives, since IEEE-double range is exhausted well before it\n\n' +
+      'The ladder makes the deceleration explicit: 50% to 90% costs ~2.3 N-decades, 90% to 95% only ' +
+      '~1.25 more, but 95% to 99% costs ~31 N-decades and 99% to 99.9% costs ~392 more -- the same ' +
+      '~4-5 percentage-point exponent gain buys an order of magnitude more N-decades each time the tail ' +
+      'flattens further.\n\n' +
+      'HONEST SCOPE: a measurement/fit ladder on the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
+      'rigorous asymptotic; a conditional-share diagnostic, NOT an RH bound. C_mb stays GUE-conditional ' +
+      '(imp-486); changes no bound; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-33816 (the logarithmic gap law), with the crossing ladder pinned by imp-33904 (90% mark) and imp-33943 (50%/95% marks), 2026',
+    relatedTerms: [
+      'imp-33816 LOGARITHMIC-ASYMPTOTE-APPROACH verdict, the underlying gap(N) ~ 1/(2 log T0) law this ladder makes concrete (imp-33816)',
+      'imp-33904 the 90%-of-asymptote (p=0.45) crossing at N~1e11.92, pinned relative to the imp-33582 stop decade (imp-33904)',
+      'imp-33943 the intermediate 50% and 95% crossings filling the ladder between the 90% and 99% marks (imp-33943)',
+      'imp-33582 the coarser per-decade OLS ramp (0.0105 -> 0.4310 by [1e11,1e12]) this pointwise ladder sharpens (imp-33582)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

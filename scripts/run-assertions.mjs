@@ -4284,6 +4284,14 @@ const DATA_MODULES = [
   // form; does NOT discharge H4, G6a stays OPEN; imp-3066 K_a>=0 untouched; C_mb GUE-conditional untouched; PT
   // Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-34105-phase-zero-rootfind-crossvalidation.js',
+  // imp-34163: WHAT-REMAINS tabulation for the imp-33810 ladder-surrogate diagnostic thread --
+  // read-only content note listing which of imp-33843/33858/33948/33962/34009/34022/34023/34024/
+  // 34025/34082..34087 are SETTLED (module landed) vs which pending-queue tickets (imp-34089/34090/
+  // 34131/34133/34146..34155/34164/34165) remain OPEN follow-ups, per the 2026-07-05 queue snapshot.
+  // Content/organization only; no computation performed; the inherited component model is NOT a
+  // rigorous asymptotic; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; NO
+  // QED; PT Lambda<=0.2 SOTA. 4 assertions.
+  '/src/data/imp-34163-ladder-surrogate-what-remains.js',
 ];
 
 let ALL_MODULES = FAST_MODE

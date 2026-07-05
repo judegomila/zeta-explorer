@@ -3858,6 +3858,15 @@ const DATA_MODULES = [
   // they are safe, mechanical follow-up-wiring candidates; not wired here
   // (audit-only). PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-33875-33843-33844-33845-runner-wiring-audit.js',
+  // imp-33893 (meta): AUDIT of whether the imp-33853/33854/33855/33856/33857/
+  // 33858 + imp-28895 *_ASSERTIONS arrays are registered in THIS runner,
+  // mirroring the imp-33875 / imp-3369 / imp-33806 unwired-coverage audits.
+  // FINDING: only imp-33857 (already listed above) is registered -- the other
+  // six are ABSENT, so their combined 38 assertions are dormant. All six
+  // depend only on already-registered lightweight modules (no heavy-bundle
+  // risk), so they are safe, mechanical follow-up-wiring candidates; not
+  // wired here (audit-only). PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-33893-33853-33858-28895-runner-wiring-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

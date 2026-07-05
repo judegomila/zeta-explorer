@@ -10576,6 +10576,37 @@ export const glossary = [
     ],
   },
   {
+    term: 'imp-34066 re-anchoring the OLS window at its CENTRE collapses the ~6-decade exponent-crossing lead',
+    category: 'numerical',
+    definition:
+      'imp-34006 F3 found the fixed 12-decade OLS effective-exponent window, anchored at its START, ' +
+      'reaches each 1/2-threshold ~5.8-6.0 decades BEFORE the pointwise crossing, and EXPLAINED the lead ' +
+      'as the OLS reading the pointwise exponent near its window CENTRE (+6 decades = half the 12-decade ' +
+      'span) -- but that centroid-reading mechanism was only INFERRED from the half-span coincidence, ' +
+      'never tested by actually re-anchoring the window there. imp-34066 directly tests it by re-anchoring ' +
+      'the SAME 12-decade OLS window on the evaluation N as its CENTRE (span from N*10^-6 to N*10^+6) ' +
+      'instead of its start.\n\n' +
+      'FINDINGS (measurement only): (C1) re-centring COLLAPSES the ~6-decade lead -- the centre-anchored ' +
+      'within-1% and within-0.1% crossings sit at 1e44.34 / 1e436.08, on top of the pointwise crossings ' +
+      'at 1e44.17 / 1e436.06 (residuals -0.170 / -0.017 decades vs the START lead of +5.83 / +5.98 ' +
+      'decades, a ~97% / ~99.7% collapse), directly confirming the OLS reads the pointwise exponent at ' +
+      'its window centroid; (C2) the surviving centre-vs-pointwise residual is a higher-order curvature ' +
+      'term -- the symmetric-window OLS reads slightly past the centre because p(N) is convex, a gap ' +
+      '~1/(2 log T0) -- that shrinks ~10x one threshold deeper (-0.170 -> -0.017), so the alignment ' +
+      'tightens toward exact as N -> infinity; (C3) an identity check confirms the centre crossings equal ' +
+      'the START crossings plus exactly half the span (+6.00 decades) to machine precision (1e44.337 = ' +
+      '1e38.337+6, 1e436.076 = 1e430.076+6): the re-anchoring is exactly a half-span shift.\n\n' +
+      'HONEST SCOPE: conditional-share/exponent diagnostic reusing the inherited imp-3220/imp-3406 ' +
+      'component model, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; changes ' +
+      'no bound; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34066 (directly testing the imp-34006 F3 window-reads-pointwise-at-centre claim by re-anchoring the fixed 12-decade OLS window at its centre), 2026',
+    relatedTerms: [
+      'imp-34006 the F3 START-anchored window lead this ticket directly re-tests by re-centring (imp-34006)',
+      'imp-34065 the span-law generalization whose centroid mechanism this ticket confirms directly (imp-34065)',
+      'imp-33816 the pointwise gap law the centre-anchored crossings converge onto (imp-33816)',
+    ],
+  },
+  {
     term: 'imp-34065 span-linear exponent-offset laws: delta*(log T0)^2 = Snat/4 and threshold-lead = S/2 decades',
     category: 'numerical',
     definition:

@@ -300,6 +300,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33930-crossover-fixed-point-convergence',
   '/viz-imp33931-fartail-floor-sensitivity-scatter',
   '/viz-imp33932-subdecade-exponent-ramp-curvature',
+  '/viz-imp33950-perron-norm-curve',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

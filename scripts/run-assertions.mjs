@@ -3859,6 +3859,15 @@ const DATA_MODULES = [
   // Measurement only; imp-486/C_C ansatz untouched; PT Lambda<=0.2 SOTA; no QED. 4 assertions.
   // (transitively exercises the imp-33810/imp-33844 model via effectiveHeightForN/C_C_PINNED.)
   '/src/data/imp-33878-hump-argmax-grid-refinement.js',
+  // imp-33886 (numerical): puts a formal SIGNIFICANCE TEST under the imp-33858 "structured, not
+  // uniform noise" verdict for the imp-33843 log-linear residual. On the same 21 signed residuals
+  // (n1=11 pos, n2=10 neg, 4 runs), the Wald-Wolfowitz runs test gives z ~ -3.36, two-sided
+  // p ~ 7.9e-4 (continuity-corrected ~1.7e-3, ~3.4 sigma), and the Durbin-Watson statistic ~0.22
+  // sits far below its d_L ~ 1.22 5% lower bound -- both reject the white-noise null at conventional
+  // levels, consistent with DW ~ 2(1-rho), rho ~ +0.757. Confirms the imp-33858 qualitative verdict
+  // with p-values; changes no RMSE, no form selection, no bound. imp-486/C_C untouched; PT
+  // Lambda<=0.2 SOTA; no QED. 5 assertions. (transitively exercises the imp-33810 ladder.)
+  '/src/data/imp-33886-widening-residual-significance-test.js',
   // imp-33875 (meta): AUDIT of whether the imp-33843/imp-33844/imp-33845
   // *_ASSERTIONS arrays are registered in THIS runner, mirroring the imp-3369 /
   // imp-33806 unwired-assertion-coverage audits. FINDING: none of the three are

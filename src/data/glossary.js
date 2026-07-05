@@ -9313,6 +9313,39 @@ export const glossary = [
       'imp-33766 the H4 minimal-input condition none of the family discharges (imp-33766)',
     ],
   },
+  {
+    term: 'imp-33878 HUMP-ARGMAX-CONVERGES-DOWNWARD verdict',
+    category: 'numerical',
+    definition:
+      'imp-33857 X3 booked a +0.52-decade gap between the integer-decade M3 hump argmax (k=9) and ' +
+      'the continuous E_coll=E_trunc crossover k_cross~9.516, and imp-33844 D2 attributed its ' +
+      '+11% leading closed-form residual to the same effect -- the implicit reading being that the ' +
+      'gap is a GRID-RESOLUTION artifact that vanishes as the sliding-window grid refines toward the ' +
+      'continuum. imp-33878 refines the resid_exp(k) sliding-window grid below quarter-decade (down ' +
+      'to 1/128-decade) on the shared imp-33810 ladder and measures where the discrete argmax ' +
+      'actually converges.\n\n' +
+      'RESULT: the argmax converges DOWNWARD, to a continuum k*~8.8211 (ternary search on [8,10]), ' +
+      'NOT toward k_cross~9.516 -- refuting the vanishing-offset hypothesis. |argmax(step)-k*| ' +
+      'shrinks with the grid step and stays within ~step at every rung, confirming a genuine broad ' +
+      'quadratic peak at k*. The k_cross - k* gap is grid-INDEPENDENT at ~0.695 decade: a real ' +
+      'WINDOW-LAG separation between the decade-integrated resid_exp argmax and the pointwise ' +
+      'sigma=1/2 crossover, not a discretization artifact that closes in the continuum limit. The ' +
+      'integer-decade label k=9 sits BETWEEN the two notions (0.179 decade above k*, 0.516 below ' +
+      'k_cross).\n\n' +
+      'HONEST SCOPE: measurement only, isRigorous false. The component model is the inherited ' +
+      'imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; the surrogate resid_exp(k) is ' +
+      'descriptive, not derived; C_mb is GUE-conditional (imp-486), untouched; the C_C 1/8 ansatz ' +
+      '(imp-2642/imp-2643) is untouched; changes no bound; imp-3066 K_a >= 0 untouched; NO QED; ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33878 (refining the resid_exp(k) sliding-window grid below quarter-decade to test whether the imp-33857 X3 hump-argmax-vs-crossover offset vanishes in the continuum limit), 2026',
+    relatedTerms: [
+      'imp-33857 the X3 module that booked the +0.52-decade integer-label offset refined here (imp-33857)',
+      'imp-33810 the ladder storing resid_exp(k), reused verbatim (imp-33810)',
+      'imp-33844 the closed-form M3 hump peak and crossover k_cross~9.516 (imp-33844)',
+      'imp-33905 the companion module reconciling the grid argmax against this continuum k* (imp-33905)',
+      'imp-33942 the sawtooth-residue closed form for the grid-vs-continuum gap on this same ladder (imp-33942)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

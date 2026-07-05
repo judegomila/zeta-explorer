@@ -10819,6 +10819,39 @@ export const glossary = [
       'imp-34098 the viz page plotting the endpoint-locked peak and interior trough with the ratio strip (imp-34098)',
     ],
   },
+  {
+    term: 'imp-34024 DF/KPSS confirmatory-classification bracket on the 21 imp-33858 residuals',
+    category: 'numerical',
+    definition:
+      'imp-33963 ran a Dickey-Fuller unit-root test on the 21 signed imp-33858 residuals (from the ' +
+      'imp-33810 quarter-decade ladder + imp-33843 log-linear OLS fit) and got tau~-0.27, failing to ' +
+      'reject the unit-root null -- but a single test against a unit-root null cannot separate a ' +
+      'genuine near-unit-root process from a merely low-power N=21 sample. imp-34024 runs the ' +
+      'COMPANION KPSS test (opposite null: stationarity) on the SAME 21 residuals, level and trend ' +
+      'variants, HAC-corrected at Schwert bandwidths l=0,2,8: the level statistic eta_mu~0.149 (l=2; ' +
+      '~0.141 at l=8) sits FAR BELOW the KPSS-1992 10% critical value 0.347 (5%: 0.463, 1%: 0.739), so ' +
+      'KPSS also FAILS to reject its stationarity null. With BOTH opposite-null tests failing to ' +
+      'reject, the pair lands in the INCONCLUSIVE / low-power cell of the DF/KPSS joint-classification ' +
+      'table -- not the DF-non-reject + KPSS-reject cell that would confirm a unit root -- so the ' +
+      'near-unit-root reading stays classified as inconclusive-low-power, corroborating imp-33963 ' +
+      'rather than overturning it. Two honest caveats: the level and trend KPSS variants give ' +
+      'IDENTICAL eta because the OLS residual is already orthogonal to (1,k), making the trend ' +
+      're-detrend a numerical no-op; and without the HAC correction (l=0) the raw eta~0.348 barely ' +
+      'exceeds the 10% level threshold, so the non-rejection leans on the long-run-variance correction ' +
+      'driven by the imp-33964 lag-1 autocorrelation (+0.757).\n\n' +
+      'HONEST SCOPE: a calibration/classification measurement only, changes no RMSE (~0.116) and ' +
+      're-opens no imp-33843 form selection; the KPSS critical values are asymptotic tabulated values ' +
+      'applied at N=21; the inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; ' +
+      'C_mb GUE-conditional per imp-486 untouched; changes no bound; imp-3066 K_a>=0 untouched; NO QED; ' +
+      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34024 (running the companion KPSS stationarity test on the 21 imp-33858 residuals and combining it with the imp-33963 Dickey-Fuller test into a DF/KPSS confirmatory-classification cell), 2026',
+    relatedTerms: [
+      'imp-33858 the source of the 21 signed residuals both tests probe (imp-33858)',
+      'imp-33964 the lag-1 autocorrelation whose HAC correction is what keeps the KPSS non-rejection from flipping at l=0 (imp-33964)',
+      'imp-34101 the viz page unifying the DF/KPSS/AR(2)/Ljung-Box serial-dependence test panel (imp-34101)',
+      'imp-34025 the AR(2) complex-root damped-sinusoid fit on the same 21 residuals (imp-34025)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -8788,6 +8788,41 @@ export const glossary = [
       'imp-33787 dual monotone-ceiling assessment building on this one-dimensionality (imp-33787)',
     ],
   },
+  {
+    term: 'imp-33887 (estimator, reference)-pair reconciliation for the gap_ecoll vs 1/(2 log T0) agreement claims',
+    category: 'numerical',
+    definition:
+      'Two cohort modules both reported that the imp-33620 discrete E_coll exponent residual ' +
+      'gap_ecoll obeys the imp-33816 law 1/(2 log T0), but at very different precisions: imp-33854 ' +
+      'I1 found the POINTWISE identity gap_ecoll(N) = g(N) := (1/2) d ln(log T0)/d ln N holding to ' +
+      '~1e-11 (machine precision), while imp-33856 found the DISCRETE decade-slope gap_ecoll matches ' +
+      'the law 1/(2 log T0), endpoint-anchored, to RMSE ~1.12e-5 -- six orders of magnitude looser. ' +
+      'imp-33887 reconciles the two rather than treating them as competing precision claims.\n\n' +
+      'RESULT: the two audits use DIFFERENT (estimator, reference) pairs. imp-33854 I1 compares the ' +
+      'POINTWISE gap_ecoll to its exact fundamental reference g(N) (an algebraic identity, ~1e-11). ' +
+      'imp-33856 compares the DISCRETE decade-slope gap_ecoll to the coarser pointwise LAW ' +
+      '1/(2 log T0) directly. The imp-33856 endpoint residual splits exactly (closure <1e-15 per ' +
+      'rung) into three pieces: a discretization term (decade window vs pointwise, ~+6.3e-4 RMSE) + ' +
+      'the imp-33854 I1 identity (~1e-11) + a g-vs-law reference offset (g not yet at the law on ' +
+      'this ladder, ~-6.3e-4 RMSE). The two ~6.3e-4 pieces are opposite-signed and nearly cancel at ' +
+      'the endpoint anchor, leaving the ~1.12e-5 headline residual -- a partly-fortuitous ' +
+      'cancellation, not evidence that the discrete slope tracks the law to 1e-5 on the merits. So ' +
+      'the cohort carries no mutually-inconsistent precision statement: the robust, ' +
+      'reference-independent fact is imp-33854 I1 (pointwise gap_ecoll IS g(N) exactly); imp-33856\'s ' +
+      'small endpoint number is a narrower, different-reference claim that happens to benefit from ' +
+      'cancellation.\n\n' +
+      'HONEST SCOPE: reconciliation/measurement only, on the inherited imp-3220/imp-3406 ' +
+      'extrapolation, NOT a rigorous asymptotic. C_mb stays GUE-conditional (imp-486); changes no ' +
+      'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO ' +
+      'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33887 (reconciling the imp-33854 I1 pointwise identity and imp-33856 discrete endpoint-fit agreement claims for gap_ecoll vs 1/(2 log T0) as different estimator/reference pairs, not inconsistent precisions), 2026',
+    relatedTerms: [
+      'imp-33854 log-saturation object g(N), source of the I1 pointwise identity gap_ecoll = g (imp-33854)',
+      'imp-33856 discrete-slope endpoint fit of gap_ecoll to 1/(2 log T0), RMSE ~1.12e-5 (imp-33856)',
+      'imp-33816 sigma-exponent shortfall law 1/(2 log T0) both audits reference (imp-33816)',
+      'imp-33620 separated E_coll discrete exponent residual gap_ecoll, the audited quantity (imp-33620)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

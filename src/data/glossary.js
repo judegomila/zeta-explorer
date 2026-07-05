@@ -9346,6 +9346,39 @@ export const glossary = [
       'imp-33942 the sawtooth-residue closed form for the grid-vs-continuum gap on this same ladder (imp-33942)',
     ],
   },
+  {
+    term: 'imp-33862 THREE-LANDMARK sigma-decay distinction',
+    category: 'numerical',
+    definition:
+      'The sigma-decay curve carries THREE separate landmarks that earlier modules sometimes ' +
+      'conflated into two: (1) the E_flow-off CLOSED-FORM sigmoid inflection (the imp-33744 closed ' +
+      'form, log10 N*~9.5236, matching the direct no-flow d2 sigma/dt2=0 inflection to ~0.4%); ' +
+      '(2) the E_flow-inclusive EXPONENT-RAMP KNEE (the imp-33721 quarter-decade OLS D2 ' +
+      'zero-crossing, log10 N*~9.5285-9.5291, reproduced by a fully grid-free continuous bisection ' +
+      'to ~0.12% per imp-33862); and (3) the FULL-MODEL DIRECT sigmoid inflection (log10 ' +
+      'N*~9.5327, ~2.4% above the ramp knee on the far side).\n\n' +
+      'The ~1.5% separation quoted throughout the sigma-decay cohort (imp-33771 ~1.53%, imp-33817 ' +
+      '~1.65% via the grid-free path) is SPECIFICALLY landmark (1) vs landmark (2) -- ' +
+      'closed-form-sigmoid vs ramp-knee -- and clears the imp-33817 grid-resolution floor by an ' +
+      'order of magnitude, so it is code-path-independent, not a grid artifact. Landmark (3) is a ' +
+      'distinct, larger (~2.4%) gap on the opposite side of the knee from landmark (1), and imp-33897 ' +
+      'later showed it is the E_flow-ON continuation of landmark (1) under a homotopy amplitude ' +
+      'alpha in [0,1] (near-linear displacement, max deviation ~0.34% of the total swing) -- so it ' +
+      'is not a fourth, disconnected structure, but the two sigmoid-inflection values (E_flow-off ' +
+      'and E_flow-on) bracketing the same knee from either side.\n\n' +
+      'HONEST SCOPE: measurement/cross-validation only, isRigorous false. Component model is the ' +
+      'inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; C_mb is GUE-conditional ' +
+      '(imp-486), untouched; changes no bound; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33862 (cross-validating the ~1.5% closed-form-sigmoid-vs-ramp-knee separation with a second grid-free knee locator, and flagging the full-model direct inflection as a third landmark), 2026',
+    relatedTerms: [
+      'imp-33744 the closed-form E_flow-off sigmoid inflection (landmark 1) (imp-33744)',
+      'imp-33721 the exponent-ramp D2 knee locator (landmark 2) (imp-33721)',
+      'imp-33771 the ~1.5% closed-form-vs-knee separation this module cross-validates (imp-33771)',
+      'imp-33817 the grid-resolution floor the separation clears by an order of magnitude (imp-33817)',
+      'imp-33897 the homotopy module showing the full-model inflection is the E_flow-on continuation of landmark 1 (imp-33897)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

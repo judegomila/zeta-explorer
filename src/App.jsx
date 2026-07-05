@@ -279,6 +279,7 @@ const Imp34100ApexParabolaWingFidelityViz = lazy(() => import('./pages/Imp34100A
 const Imp34118SawtoothPhaseRealignmentScheduleViz = lazy(() => import('./pages/Imp34118SawtoothPhaseRealignmentScheduleViz.jsx'));
 const Imp34101SerialDependenceTestPanelViz = lazy(() => import('./pages/Imp34101SerialDependenceTestPanelViz.jsx'));
 const Imp34119PhaseZeroBranchGeometryViz = lazy(() => import('./pages/Imp34119PhaseZeroBranchGeometryViz.jsx'));
+const Imp34185OuterBranchAngleFamilyViz = lazy(() => import('./pages/Imp34185OuterBranchAngleFamilyViz.jsx'));
 const Imp34120EndpointPeakSaturatingTournamentViz = lazy(() => import('./pages/Imp34120EndpointPeakSaturatingTournamentViz.jsx'));
 const Imp34078PointwiseVsWindowExponentViz = lazy(() => import('./pages/Imp34078PointwiseVsWindowExponentViz.jsx'));
 const Imp34142WindowAnchorCentroidViz = lazy(() => import('./pages/Imp34142WindowAnchorCentroidViz.jsx'));
@@ -1101,6 +1102,7 @@ function AppShell() {
           <Route path="/viz-imp34100-apex-parabola-wing-fidelity" element={<Imp34100ApexParabolaWingFidelityViz />} />
           <Route path="/viz-imp34101-serial-dependence-test-panel" element={<Imp34101SerialDependenceTestPanelViz />} />
           <Route path="/viz-imp34119-phase-zero-branch-geometry" element={<Imp34119PhaseZeroBranchGeometryViz />} />
+          <Route path="/viz-imp34185-outer-branch-angle-family" element={<Imp34185OuterBranchAngleFamilyViz />} />
           <Route path="/viz-imp34120-endpoint-peak-saturating-tournament" element={<Imp34120EndpointPeakSaturatingTournamentViz />} />
           <Route path="/viz-imp34078-pointwise-vs-window-exponent" element={<Imp34078PointwiseVsWindowExponentViz />} />
           <Route path="/viz-imp34142-window-anchor-centroid" element={<Imp34142WindowAnchorCentroidViz />} />

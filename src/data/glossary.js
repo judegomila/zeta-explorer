@@ -10081,6 +10081,40 @@ export const glossary = [
       'imp-34049 the viz page plotting the measured peaks against the power-law/exponential/linear overlays (imp-34049)',
     ],
   },
+  {
+    term: 'imp-33988 F3 THREE-WAY landmark recompute: the imp-33816 1e44/1e434 marks confirmed by an independent Newton solve, ordering E1 < E3 < E2',
+    category: 'accuracy',
+    definition:
+      'imp-33816 quoted its F3 near-asymptote landmarks (sigma(N) exponent within 1% of 1/2 at ' +
+      'N~1e44, within 0.1% at N~1e434) from the gap law gap(N) = 1/2 - p(N) ~ 1/(2 log T0), with the ' +
+      'Riemann-von Mangoldt inversion collapsed to the leading term ln N ~ log T0. imp-33988 recomputes ' +
+      'both landmarks THREE ways in log-N space (the imp-33859 route, never forming T0 or N) and cross-' +
+      'checks the 1e44 figure independently:\n\n' +
+      'E1 (F2 closed-form, as quoted): log T0 = 1/(2 gap), ln N ~ log T0 -- gives 1e43.43 / 1e434.29.\n' +
+      'E2 (law-direct, full RvM inversion): same leading law but honestly inverted via ' +
+      'ln N = u + log(u-1) -- gives 1e44.62 / 1e436.50.\n' +
+      'E3 (Newton on the actual exponent): root-finds the EXACT p(N) = target directly, independent of ' +
+      'the imp-33816 bisection -- gives 1e44.17 / 1e436.06, reproducing the imp-33816 within_1pct ' +
+      '(1e44.17) and imp-33859 within_0_1pct_direct (1e436.06) landmarks to two decimals.\n\n' +
+      'All three estimates order coherently E1 < E3 < E2 and agree to ~1% in log10 N. The E1->E2 gap is ' +
+      'entirely the dropped RvM sub-leading terms (+log(u-1)+log(2pi)), a correction that SHRINKS ' +
+      'relatively as log T0 grows (~2.7% at the 1% mark, ~0.5% at the 0.1% mark). The E2->E3 gap is the ' +
+      'imp-33949 finite-log-T0 signature (log T0 * gap -> 1/2 FROM BELOW): at finite log T0 the true gap ' +
+      'is slightly smaller than the leading 1/(2 log T0), so the actual crossing sits below the law-' +
+      'direct estimate. No new mechanism -- the ~1-2 decade spread across the three estimates is fully ' +
+      'accounted for by these two known effects.\n\n' +
+      'HONEST SCOPE: measurement/cross-check only; a conditional-share diagnostic, NOT an RH bound. The ' +
+      'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
+      'C_mb stays GUE-conditional (imp-486); changes no bound; imp-3066 K_a >= 0 untouched; NO QED; ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33988 (three-way log-space recompute of the imp-33816 F3 landmarks with an independent Newton cross-check), 2026',
+    relatedTerms: [
+      'imp-33816 LOGARITHMIC-ASYMPTOTE-APPROACH verdict, the source of the F3 landmarks recomputed here (imp-33816)',
+      'imp-33859 the log-space direct within-0.1% crossing at N~1e436.06 that E3 reproduces exactly (imp-33859)',
+      'imp-33949 the finite-log-T0 signature (log T0 * gap -> 1/2 from below) that explains the E2->E3 offset (imp-33949)',
+      'imp-34052 the viz page charting the three-way landmark spread on a log10 N axis (imp-34052)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

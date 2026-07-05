@@ -10986,6 +10986,32 @@ export const glossary = [
       'imp-34081 the cubic-detrend follow-up confirming the same real-curvature/whitening-failure/deepening-lobe pattern one order further (imp-34081)',
     ],
   },
+  {
+    term: 'imp-34127 continuous-vs-discretized M2 residual: the kEnd*~21.281 ceiling is a pure estimator artifact',
+    category: 'numerical',
+    definition:
+      'imp-34127 derived the imp-34023 M2-residual sign-change ceiling kEnd*~21.281 in closed form and ' +
+      'found the KEY ALGEBRAIC FACT: the CONTINUOUS residual resid_cont=e*(1-sigma)-pSigma_cont cancels ' +
+      'IDENTICALLY to zero (verified ~2e-12 at k=20), where e is the E_coll local exponent and sigma the ' +
+      'E_coll/E_N share. There is therefore NO analytic ceiling -- the leading balance cancels to all ' +
+      'continuous orders. The nonzero residual and its bisected zero crossing are instead a pure ' +
+      'ESTIMATOR-DISCRETIZATION artifact of mixing two DIFFERENT finite operators over the same decade ' +
+      'window: pEcoll is a 2-point endpoint secant (cubic bias D^2/24, D=ln10) while pSigma is a 5-point ' +
+      'OLS slope (cubic bias 17*D^2/480), a net mismatch of exactly D^2/160. Setting the discretized ' +
+      'residual to zero gives a closed-form crossover sigma*, inverted through the sigma(N) far-tail law ' +
+      'to kEnd*~21.00 -- a residual of ~-0.28 below the imp-34023 bisected 21.281, attributed to the ' +
+      'O((eD)^2) window-width correction of the Taylor-in-D expansion (e*D/4~0.28 at a full-decade window).\n\n' +
+      'HONEST SCOPE: derivation/measurement within the inherited imp-3406/imp-33810 component model only; ' +
+      'NOT a rigorous asymptotic; changes no bound; establishes no operator positivity; C_mb GUE-conditional ' +
+      'per imp-486 untouched; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34127 (deriving the imp-34023 M2-residual sign-change ceiling in closed form and identifying it as an estimator-discretization artifact), 2026',
+    relatedTerms: [
+      'imp-34023 the bisected kEnd*~21.281 M2-residual sign-change ceiling this closed form derives (imp-34023)',
+      'imp-33810 the M2-residual surrogate factor family F2/F3/F4 and the kEnd*~21.281 cancellation ceiling entry, the surrogate this closed form explains (imp-33810)',
+      'imp-34087 the digit-loss/retained-accuracy view of the same cancellation approach to the ceiling (imp-34087)',
+      'imp-33773 the M2 sub-leading residual whose sign change this module shows is a discretization artifact, not a feature of the component model (imp-33773)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

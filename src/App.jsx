@@ -289,6 +289,7 @@ const Imp34159CubicTiltWingReconstructionViz = lazy(() => import('./pages/Imp341
 const Imp34198EcollResidualMilestoneLadderViz = lazy(() => import('./pages/Imp34198EcollResidualMilestoneLadderViz.jsx'));
 const Imp34077GeometricCenterTaylorReductionViz = lazy(() => import('./pages/Imp34077GeometricCenterTaylorReductionViz.jsx'));
 const Imp34200LtoPerPairInfluenceBarChartViz = lazy(() => import('./pages/Imp34200LtoPerPairInfluenceBarChartViz.jsx'));
+const Imp34203EndpointVsFixedBandPeakSaturationCrossViz = lazy(() => import('./pages/Imp34203EndpointVsFixedBandPeakSaturationCrossViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1107,6 +1108,7 @@ function AppShell() {
           <Route path="/viz-imp34198-ecoll-residual-milestone-ladder" element={<Imp34198EcollResidualMilestoneLadderViz />} />
           <Route path="/viz-imp34077-geometric-center-taylor-reduction" element={<Imp34077GeometricCenterTaylorReductionViz />} />
           <Route path="/viz-imp34200-lto-per-pair-influence-bar-chart" element={<Imp34200LtoPerPairInfluenceBarChartViz />} />
+          <Route path="/viz-imp34203-endpoint-vs-fixed-band-peak-saturation-cross" element={<Imp34203EndpointVsFixedBandPeakSaturationCrossViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

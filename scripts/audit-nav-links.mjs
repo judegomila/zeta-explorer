@@ -332,6 +332,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34077-geometric-center-taylor-reduction',
   '/viz-imp34078-pointwise-vs-window-exponent',
   '/viz-imp34200-lto-per-pair-influence-bar-chart',
+  '/viz-imp34203-endpoint-vs-fixed-band-peak-saturation-cross',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

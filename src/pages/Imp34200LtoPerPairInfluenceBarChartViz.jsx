@@ -63,6 +63,31 @@ export default function Imp34200LtoPerPairInfluenceBarChartViz() {
       </p>
       <PerPairInfluenceBarChart />
 
+      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+        Fitted-log parameter shift (Delta a, Delta b) for the top 4 folds -- the two boundary
+        edges are near mirror images
+      </p>
+      <table style={{ width: '100%', maxWidth: 460, borderCollapse: 'collapse', fontSize: '0.78rem' }}>
+        <thead>
+          <tr style={{ color: '#64748b', textAlign: 'right' }}>
+            <th style={{ textAlign: 'left', paddingBottom: 4 }}>Dropped pair</th>
+            <th style={{ paddingBottom: 4 }}>Delta a</th>
+            <th style={{ paddingBottom: 4 }}>Delta b</th>
+            <th style={{ paddingBottom: 4 }}>rmsShift</th>
+          </tr>
+        </thead>
+        <tbody>
+          {IMP34200_LTO_FOLDS_RANKED.slice(0, 4).map((f) => (
+            <tr key={`delta-row-${f.droppedKEnds[0]}-${f.droppedKEnds[1]}`} style={{ color: f.isBoundaryEdge ? '#f87171' : '#94a3b8' }}>
+              <td style={{ textAlign: 'left', padding: '2px 0' }}>{`{${f.droppedKEnds[0]}, ${f.droppedKEnds[1]}}`}</td>
+              <td style={{ textAlign: 'right', padding: '2px 0' }}>{f.deltaA >= 0 ? `+${f.deltaA.toFixed(4)}` : f.deltaA.toFixed(4)}</td>
+              <td style={{ textAlign: 'right', padding: '2px 0' }}>{f.deltaB >= 0 ? `+${f.deltaB.toFixed(4)}` : f.deltaB.toFixed(4)}</td>
+              <td style={{ textAlign: 'right', padding: '2px 0' }}>{f.rmsShift.toExponential(2)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
       <div
         style={{
           marginTop: '1.25rem',

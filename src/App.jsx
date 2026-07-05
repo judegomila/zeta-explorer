@@ -255,6 +255,7 @@ const Imp33895LogSaturationReconciliationViz = lazy(() => import('./pages/Imp338
 const Imp33738GapVsTroughDepthCouplingViz = lazy(() => import('./pages/Imp33738GapVsTroughDepthCouplingViz.jsx'));
 const Imp33800SigmaInflectionResidualContrastViz = lazy(() => import('./pages/Imp33800SigmaInflectionResidualContrastViz.jsx'));
 const Imp33930CrossoverFixedPointConvergenceViz = lazy(() => import('./pages/Imp33930CrossoverFixedPointConvergenceViz.jsx'));
+const Imp33931FartailFloorSensitivityScatterViz = lazy(() => import('./pages/Imp33931FartailFloorSensitivityScatterViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1039,6 +1040,7 @@ function AppShell() {
           <Route path="/viz-imp33738-gap-vs-trough-depth-coupling" element={<Imp33738GapVsTroughDepthCouplingViz />} />
           <Route path="/viz-imp33800-sigma-inflection-residual-contrast" element={<Imp33800SigmaInflectionResidualContrastViz />} />
           <Route path="/viz-imp33930-crossover-fixed-point-convergence" element={<Imp33930CrossoverFixedPointConvergenceViz />} />
+          <Route path="/viz-imp33931-fartail-floor-sensitivity-scatter" element={<Imp33931FartailFloorSensitivityScatterViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

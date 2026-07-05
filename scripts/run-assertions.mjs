@@ -4484,6 +4484,14 @@ const DATA_MODULES = [
   // floor to 6 sig figs), the F3 fit is a curve-fit artifact. Numerical/cross-check only; imp-3066
   // K_a>=0 untouched; C_mb untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-34208-f3-asymptote-analytic-crosscheck.js',
+  // imp-34209: stability test of the imp-34133 F3 fit (c ~ 0.835955, slow r ~ 0.125) by extending the
+  // fit-window upper endpoint and re-fitting. FINDING: the fit is NOT stable. Within the sign-stable
+  // window (capped at kEnd* ~ 21.281, imp-34150) it is frozen ONLY by window saturation; decoupling F3
+  // = HEAD.sflow/TAIL.sflow (which does not need the residual sign) and extending to kEnd=150 drives the
+  // fitted c monotonically DOWN 0.835955 -> 0.812145 toward the imp-34208 analytic floor ~0.802814 --
+  // the 17-rung asymptote was under-constrained. Numerical/probe only; imp-3066 K_a>=0 untouched; C_mb
+  // untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34209-f3-fit-stability-extended-ladder.js',
   // imp-34134: measures the E_flow/E_trunc ratio decay ladder and its onset landmarks, tracking
   // when E_flow becomes negligible relative to the N-independent E_TRUNC_PT floor. Measurement
   // only; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED.

@@ -1102,6 +1102,34 @@ export const LAMBDA_ROADMAP = {
     'matching the exact offset to <0.11% relative error across 1e12..1e15 (measured ' +
     'range 3.50%..4.38%), confirming the ~4% IS the geometric-center offset and not a ' +
     'model disagreement. All three are derivation/measurement only, change no bound, ' +
+    'do NOT discharge H4/G7, and C_mb remains GUE-conditional (imp-486); NO QED. ' +
+    'COHORT (imp-34104..imp-34110): seven further phase-zero-branch and ' +
+    'endpoint/fixed-band peak-growth measurements. imp-34104 characterises the ' +
+    'second real-positive phase-zero branch theta=pi/2-+2pi/p in closed form: it ' +
+    'sits entirely outside [0,pi] at distance pi(3-alpha)/(2(1+alpha)) for alpha ' +
+    'in (0,1), touching the interval boundary only at alpha=3. imp-34105 cross-' +
+    'validates the imp-34045 closed-form branch angles via an independent ' +
+    'bracket-and-bisect root-find, matching to ~9e-16 worst discrepancy. imp-34106 ' +
+    'extends the imp-34044 doubling-map phase-realignment schedule five dyadic ' +
+    'rungs deeper (to 1/2^20), finding it keeps predicting realignment steps down ' +
+    'to 1/262144 before departing at 1/524288 -- the departure traced to the ' +
+    'precision floor of the stored k* (offset ~4.12e-7 from the true peak), not a ' +
+    'breakdown of the doubling-map model. imp-34107 cross-validates the imp-34044 ' +
+    'resid_exp(k) schedule from an independent from-source code path, matching ' +
+    'all 21 cross-checked quantities to ~2.97e-5 (a round-off floor). imp-34108 ' +
+    'extrapolates the imp-34043 saturating endpoint-peak fit to its asymptotic ' +
+    'ceiling a~1.678095, reached within 1% only at kEnd~931 and within 0.1% only ' +
+    'at kEnd~9314 (~72x/716x beyond the kEnd=11..13 fit window). imp-34109 pushes ' +
+    'the imp-34040 fixed-band (k<=10) peak sweep one further decade and finds the ' +
+    'earlier saturation onset does NOT persist: increments bottom out near ' +
+    'kEnd~18 then re-accelerate, and an unbounded log fit beats the saturating ' +
+    'fit, so the peak keeps climbing with no finite ceiling supported within ' +
+    'kEnd<=20 -- the opposite verdict from imp-34108’s endpoint family. ' +
+    'imp-34110 ranks the imp-34042 leave-two-out folds by curve-shift influence, ' +
+    'finding it concentrates at the two boundary edges (low kEnd=11,11.25 and ' +
+    'high kEnd=12.75,13, near-mirror images) each ~68x stronger than interior-' +
+    'adjacent pairs. All seven are measurement/cross-validation only on the ' +
+    'inherited imp-3220/imp-3406 extrapolation component model, change no bound, ' +
     'do NOT discharge H4/G7, and C_mb remains GUE-conditional (imp-486); NO QED.',
   bounds: LAMBDA_BOUNDS,
   chain: LAMBDA_CHAIN_STEPS,

@@ -4123,6 +4123,17 @@ const DATA_MODULES = [
   // S=12 slices. Import-light (C_C_PINNED only). Component model NOT rigorous; imp-3066/imp-486
   // untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-34065-window-span-scaling-of-exponent-offset.js',
+  // imp-34066 (numerical): DIRECTLY TESTS the imp-34006 F3 window-reads-pointwise-at-centre
+  // claim by re-anchoring the fixed 12-decade OLS effective-exponent window at its CENTRE
+  // (span N*10^-6 to N*10^+6) instead of its START. (C1) re-centring collapses the imp-34006 F3
+  // ~6-decade window lead over the pointwise crossings to a fraction of a decade -- centre
+  // crossings 1e44.34/1e436.08 sit on top of pointwise 1e44.17/1e436.06 (residuals -0.170/-0.017
+  // vs START lead +5.83/+5.98, ~97%/~99.7% collapse). (C2) the residual is a higher-order
+  // curvature term that shrinks ~10x one threshold deeper. (C3) centre crossings = START crossings
+  // +6.00 decades to machine precision (exact half-span shift). Confirms the centroid mechanism.
+  // Import-light (C_C_PINNED only). Component model NOT rigorous; imp-3066/imp-486 untouched;
+  // PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34066-centred-window-collapses-exponent-lead.js',
   // imp-33968 (numerical): TABULATES the imp-33924 phase winding rate
   // d arg(-A)/d theta = -(1+alpha) as an EXPLICIT rate-vs-alpha curve, upgrading
   // imp-33924 cross-check (a) from a single-tolerance pass/fail. Reusing the

@@ -4715,6 +4715,19 @@ const DATA_MODULES = [
   // Fit only; imp-33843 form verdict untouched; imp-486/C_C untouched; imp-3066 K_a>=0 untouched; PT
   // Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-34214-trough-peak-ratio-limit-fit.js',
+  // imp-34229: VERIFY the general k=-+n outer phase-zero branch endpoint-onset law by an INDEPENDENT
+  // bracket-and-bisect at n=4,5 -- the two rungs beyond the n=1,2,3 that imp-34173 already derived and
+  // checked. The general closed form d_n(alpha) = |n| pi/(1+alpha) - pi/2 (onset alpha_n = 2|n|-1, slope
+  // -|n| pi/(1+alpha)^2) was DERIVED by imp-34173; this module does NOT re-derive it (the glossary flagged
+  // the derivation half as redundant) but supplies the ticket's second half. Reusing the imp-34105/imp-34167
+  // fine-scan + 100-iteration Im(-A) bisection (no closed-form angle used to LOCATE roots), the n=4,5
+  // crossings reproduce theta = pi/2 -+ n pi/p to ~1e-13 across alpha in (0,1), carry the predicted real-axis
+  // parity (n=4 EVEN real-positive arg=4pi, n=5 ODD real-negative arg=5pi), and their located distance
+  // n pi/p - pi/2 matches the imp-34173 closed form d_n, vanishing at the onset alpha_n = 2n-1 = 7,9 with
+  // slope -pi/(4n) = -pi/16,-pi/20 (FD-verified) -- extending the onset ladder 1,3,5 to 7,9. Verification/
+  // measurement only; pure phase geometry on the imp-33924 closed form; does NOT discharge H4, G6a stays
+  // OPEN; imp-3066 K_a>=0 untouched; C_mb GUE-conditional untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34229-general-onset-bisection-verification.js',
 ];
 
 let ALL_MODULES = FAST_MODE

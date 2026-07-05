@@ -1070,7 +1070,22 @@ export const LAMBDA_ROADMAP = {
     'dichotomy on one common N ladder, showing the ~0.3-point gap is a landmark-choice ' +
     'artifact (halving vs crossover) that IS EXACTLY the E_flow displacement term. All ' +
     'three are derivation/measurement only, change no bound, do NOT discharge H4/G7, and ' +
-    'C_mb remains GUE-conditional (imp-486); NO QED.',
+    'C_mb remains GUE-conditional (imp-486); NO QED. ' +
+    'COHORT (imp-33883/imp-33886/imp-33887): three further single-ticket landings. ' +
+    'imp-33883 tests the imp-33853 on-axis fold-modulus small-eps expansion at general ' +
+    'angle z_0=eps*e^{i theta} and finds BOTH the leading eps^{-3/2} amplitude modulus ' +
+    '|A(theta)|=C_PS=pi/sqrt(2) and the eps^0 onset coefficient 4/3 are theta-INDEPENDENT ' +
+    '-- only the complex phase rotates (winding rate 3/2, vanishing at theta=pi/2) -- so ' +
+    'neither number is an on-axis artifact. imp-33886 puts formal significance numbers ' +
+    'under the imp-33858 STRUCTURED-residual verdict: a Wald-Wolfowitz runs test ' +
+    '(z~-3.36, p~7.9e-4) and Durbin-Watson (~0.22, below the d_L~1.22 5% bound) both ' +
+    'reject the white-noise null on the 21 signed imp-33843 log-linear residuals well ' +
+    'under 1%. imp-33887 reconciles two cohort modules that both claimed gap_ecoll obeys ' +
+    '1/(2 log T0) at very different precisions, showing the imp-33856 endpoint residual ' +
+    'splits EXACTLY into a discretization term, the exact I1 identity, and a g-vs-law ' +
+    'reference offset -- the last two nearly cancelling -- so no mutually-inconsistent ' +
+    'precision claim survives. All three are derivation/measurement only, change no ' +
+    'bound, do NOT discharge H4/G7, and C_mb remains GUE-conditional (imp-486); NO QED.',
   bounds: LAMBDA_BOUNDS,
   chain: LAMBDA_CHAIN_STEPS,
   verification: VERIFICATION_EFFORTS,

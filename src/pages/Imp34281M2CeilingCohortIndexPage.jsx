@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34282_B_INF_DESCRIPTIVE_VS_DERIVATION_STATUS_NOTE } from '../data/imp-34282-b-inf-descriptive-vs-derivation-status-note.js';
 import { IMP34211_CLOSEDFORM_VS_BISECTION_KEND_GAP } from '../data/imp-34211-closedform-vs-bisection-kend-gap.js';
+import { IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST } from '../data/imp-34233-fixed-band-peak-combined-grid-ceiling-contest.js';
 
 const COHORT = [
   {
@@ -133,6 +134,33 @@ export default function Imp34281M2CeilingCohortIndexPage() {
       >
         <strong style={{ color: '#94a3b8' }}>imp-34188 widening-slope limit (imp-34282):</strong>{' '}
         {IMP34282_B_INF_DESCRIPTIVE_VS_DERIVATION_STATUS_NOTE.summary}
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>imp-34233 combined-grid ceiling contest:</strong> stitching
+        imp-34109's kEnd = 14..20 grid to imp-34169's three computable windows (kEnd 20.0, 20.5, 21.0 --
+        the last defined before the k*~21.28 surrogate pole) and re-running the bounded a - b/kEnd
+        ceiling fit against the unbounded log form shows the bounded ceiling is{' '}
+        <strong style={{ color: '#94a3b8' }}>NOT selected</strong> up to the pole: the nominal ceiling
+        a&nbsp;~&nbsp;{IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST.saturatingFit.ceiling}{' '}
+        (R&sup2;&nbsp;~&nbsp;{IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST.saturatingFit.r2}) loses
+        to the unbounded log form (R&sup2;&nbsp;~&nbsp;
+        {IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST.logFit.r2}) by an AIC gap of ~+
+        {IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST.aicGapSatMinusLog}, and the
+        re-acceleration is steep enough that even the unbounded LINEAR form (R&sup2;&nbsp;~&nbsp;
+        {IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST.linearFit.r2}) overtakes the log form
+        (AIC gap ~+{IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST.aicGapLogMinusLin}). Measurement
+        only, not an RH bound; no finite ceiling is supported within kEnd &le; k*~21.28.
       </div>
     </div>
   );

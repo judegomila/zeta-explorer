@@ -4492,6 +4492,14 @@ const DATA_MODULES = [
   // the 17-rung asymptote was under-constrained. Numerical/probe only; imp-3066 K_a>=0 untouched; C_mb
   // untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-34209-f3-fit-stability-extended-ladder.js',
+  // imp-34210: fits the imp-34151 cancellation numerator |A|+|B| approach gap g = 1 - numerator toward
+  // its unity asymptote past the kEnd* ~ 21.281 crossing under power-law vs exponential forms. FINDING:
+  // the gap closes as a CLEAN INVERSE-kEnd POWER LAW g ~ 0.4293/kEnd (power fit p ~ 0.9961, R^2 ~ 0.99999)
+  // decisively beating the exponential fit (R^2 ~ 0.9323); the local exponent climbs monotonically to 1.0
+  // (g*kEnd plateaus at ~0.437), so the asymptotic approach exponent is p = 1 exactly -- first order in
+  // 1/kEnd. Numerical/curve-fit only; imp-3066 K_a>=0 untouched; C_mb untouched; PT Lambda<=0.2 SOTA;
+  // no QED. 6 assertions.
+  '/src/data/imp-34210-numerator-approach-rate-to-unity.js',
   // imp-34134: measures the E_flow/E_trunc ratio decay ladder and its onset landmarks, tracking
   // when E_flow becomes negligible relative to the N-independent E_TRUNC_PT floor. Measurement
   // only; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED.

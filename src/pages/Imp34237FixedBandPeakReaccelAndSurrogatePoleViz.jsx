@@ -275,6 +275,12 @@ export default function Imp34237FixedBandPeakReaccelAndSurrogatePoleViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Fixed-Band Peak Re-Acceleration & Surrogate Pole (imp-34237 / imp-34169)" />
 
+      <p style={{ color: '#64748b', fontSize: '0.8rem', marginBottom: '0.75rem' }}>
+        <Link to="/viz-imp34281-m2-ceiling-cohort-index" style={{ color: '#64748b' }}>
+          &larr; back to the M2-ceiling cohort index
+        </Link>
+      </p>
+
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34169 pushed the imp-34109 fixed-band (k&le;10) peak sweep one further decade.
         Over the three windows that stay computable (kEnd = 20.0, 20.5, 21.0) the peak keeps

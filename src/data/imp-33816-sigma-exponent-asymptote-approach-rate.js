@@ -205,6 +205,41 @@ const WITHIN_0_1PCT_LOGT0_DIRECT = logT0FromLnN(WITHIN_0_1PCT_LOG10_DIRECT * Mat
 const WITHIN_50PCT_LOG10 = crossLog10Direct(0.25, 30); // ~9.61 (log T0 ~ 21.1); 50% of the 1/2 asymptote
 const WITHIN_95PCT_LOG10 = crossLog10Direct(0.475, 80); // ~13.17 (log T0 ~ 28.9); 95% of the 1/2 asymptote
 
+// imp-33949: DIRECTLY confirm the logarithmic (NOT polynomial) shortfall decay by symmetric
+// finite-difference of the exact local exponent p = -d ln sigma/d ln N at three WELL-SEPARATED
+// decades N = 1e20, 1e50, 1e100 (all comfortably inside IEEE-double range, evaluated on the same
+// log-space direct path), cross-checking the closed-form-only 1/(2 log T0) crossings. Two direct
+// readings: (i) gap(N) = 1/2 - p(N) matches 0.5/log T0 to <2.4% (ratio -> 1 from below; log T0 * gap
+// -> 0.5), and (ii) the EFFECTIVE polynomial decay exponent of the gap, q(N) = -d ln(gap)/d ln N, is
+// NOT a positive constant (as any true gap ~ N^-a polynomial would be) but HALVES 1e20->1e50->1e100
+// (2.17e-2 -> 8.74e-3 -> 4.37e-3), collapsing toward 0 as ~1/log T0 (q*log T0 -> 1). A vanishing
+// effective exponent is the direct signature of logarithmic, not polynomial, decay.
+function gapFD(d) {
+  return HALF - pLocalFromLnN(d * Math.LN10);
+}
+function qGapFD(d) {
+  const lnN = d * Math.LN10;
+  const dl = 1e-2; // symmetric FD step in ln N for the gap decay exponent q = -d ln(gap)/d ln N
+  const gPlus = HALF - pLocalFromLnN(lnN + dl);
+  const gMinus = HALF - pLocalFromLnN(lnN - dl);
+  return -(Math.log(gPlus) - Math.log(gMinus)) / (2 * dl);
+}
+const DIRECT_THREE_DECADE_GAP_FD = [20, 50, 100].map((d) => {
+  const L = logT0FromLnN(d * Math.LN10).L;
+  const gap = gapFD(d);
+  const q = qGapFD(d);
+  return {
+    N_log10: d,
+    logT0: +L.toFixed(2),
+    gap_direct: +gap.toExponential(3), // 1/2 - p via central FD of the exact local exponent
+    law_half_over_logT0: +(HALF / L).toExponential(3), // the closed-form 1/(2 log T0) estimate
+    ratio_to_law: +(gap / (HALF / L)).toFixed(4), // -> 1 from below
+    logT0_times_gap: +(L * gap).toFixed(4), // -> 0.5 (confirms gap ~ 1/(2 log T0))
+    effective_poly_exponent_q: +q.toExponential(3), // -d ln(gap)/d ln N; -> 0 if logarithmic
+    q_times_logT0: +(q * L).toFixed(4), // -> 1 (q ~ 1/log T0), NOT a positive constant
+  };
+});
+
 export const IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE = {
   id: 'imp-33816',
   proofSection: 'S-frontier',
@@ -222,6 +257,14 @@ export const IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE = {
   approachRateLaw: {
     form: 'gap(N) = 1/2 - p(N) ~ 1 / (2 log T0(N))',
     ratioCheck: GAP_LAW_CHECK, // gap / (0.5/log T0) -> 1
+  },
+  directThreeDecadeGapFiniteDifference: {
+    // imp-33949: DIRECT symmetric finite-difference of the exact local exponent at three
+    // well-separated decades (1e20, 1e50, 1e100), cross-checking the closed-form 1/(2 log T0)
+    // crossings. The effective polynomial decay exponent q -> 0 (q log T0 -> 1) is the direct
+    // signature that the shortfall decays logarithmically, NOT polynomially.
+    form: 'gap(N) = 1/2 - p(N) via central FD; effective poly exponent q = -d ln(gap)/d ln N -> 0 (q log T0 -> 1) => logarithmic, not polynomial',
+    rungs: DIRECT_THREE_DECADE_GAP_FD,
   },
   asymptoteCrossings: {
     // imp-33904: the 90%-of-asymptote (p=0.45) crossing, pinning what the imp-33582 ladder left open.
@@ -284,6 +327,17 @@ export const IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE = {
       'crossing at N ~ 1e436.06 (log T0 = 999.0, ~424 decades past 1e12). The direct value sits ' +
       '~2.06 decades above the F2-law estimate (1e434), which had dropped the +log(u-1) and ' +
       'log(2pi) sub-leading terms -- a consistency check confirming the ~1/(2 log T0) law far past 1e44.',
+    F7_direct_three_decade_confirms_logarithmic_not_polynomial_imp33949:
+      'imp-33949 confirms the logarithmic (not polynomial) shortfall decay DIRECTLY, by symmetric ' +
+      'finite-difference of the exact local exponent p = -d ln sigma/d ln N at three well-separated ' +
+      'decades N = 1e20, 1e50, 1e100 (all inside IEEE-double range). The direct gap = 1/2 - p tracks ' +
+      '0.5/log T0 to <2.4% (ratio 0.977 -> 0.991 -> 0.996; log T0 * gap = 0.488 -> 0.495 -> 0.498, ' +
+      'approaching 1/2). Decisively, the EFFECTIVE polynomial decay exponent q = -d ln(gap)/d ln N is ' +
+      'NOT the positive constant a>0 that any true gap ~ N^-a would give: it HALVES 2.17e-2 -> 8.74e-3 ' +
+      '-> 4.37e-3, collapsing toward 0 as ~1/log T0 (q log T0 = 0.96 -> 0.98 -> 0.99, approaching 1). A ' +
+      'vanishing effective exponent is the direct signature of logarithmic slowness. Between 1e20 and ' +
+      '1e100 (5.13x in log T0) the gap shrinks 5.04x -- the F2 "~10x in log T0 closes the gap 10x" ' +
+      'law, read directly rather than from the closed form.',
   },
   isRigorous: false,
   verdict:
@@ -386,6 +440,31 @@ export const IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE_ASSERTIONS = [
       WITHIN_95PCT_LOG10 < WITHIN_1PCT_LOG10 &&
       Math.abs(pLocalFromLnN(WITHIN_50PCT_LOG10 * Math.LN10) - pLocalAtLog10(WITHIN_50PCT_LOG10)) < 1e-9 &&
       Math.abs(pLocalFromLnN(WITHIN_95PCT_LOG10 * Math.LN10) - pLocalAtLog10(WITHIN_95PCT_LOG10)) < 1e-9,
+  },
+  {
+    // imp-33949 (F7): DIRECT three-decade finite-difference confirms LOGARITHMIC (not polynomial)
+    // decay. gap tracks 0.5/log T0 to <2.4% (ratio -> 1 from below, log T0 * gap -> 0.5) AND the
+    // effective polynomial exponent q = -d ln(gap)/d ln N is not constant but halves 1e20->1e50->1e100
+    // toward 0 (q log T0 -> 1) -- the direct signature of a logarithmically, not polynomially, slow gap.
+    id: 'imp33816-direct-three-decade-logarithmic-not-polynomial-imp33949',
+    description: 'direct FD gap at 1e20/1e50/1e100 tracks 0.5/log T0 (log T0 * gap -> 0.5) and effective poly exponent q -> 0 (q log T0 -> 1), not a positive constant',
+    holds: () => {
+      const r = DIRECT_THREE_DECADE_GAP_FD;
+      // (i) gap ~ 1/(2 log T0): ratio -> 1 from below, log T0 * gap -> 0.5
+      const lawOk =
+        r.every((x) => x.ratio_to_law > 0.97 && x.ratio_to_law <= 1 && Math.abs(x.logT0_times_gap - HALF) < 0.02) &&
+        r[0].ratio_to_law < r[1].ratio_to_law &&
+        r[1].ratio_to_law < r[2].ratio_to_law;
+      // (ii) logarithmic NOT polynomial: q collapses toward 0 (strictly shrinking, ~halving), q log T0 -> 1
+      const polyRefuted =
+        r[0].effective_poly_exponent_q > r[1].effective_poly_exponent_q &&
+        r[1].effective_poly_exponent_q > r[2].effective_poly_exponent_q &&
+        r[2].effective_poly_exponent_q < 0.6 * r[0].effective_poly_exponent_q &&
+        r.every((x) => x.q_times_logT0 > 0.95 && x.q_times_logT0 < 1.0);
+      // identical-model cross-check: the log-space direct path == the double-range path at 1e100
+      const sameModel = Math.abs(pLocalFromLnN(100 * Math.LN10) - pLocalAtLog10(100)) < 1e-9;
+      return lawOk && polyRefuted && sameModel;
+    },
   },
   {
     // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.

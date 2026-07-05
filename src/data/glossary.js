@@ -11582,6 +11582,43 @@ export const glossary = [
       'imp-34229 the pending ticket this note shows is a likely-redundant re-derivation (imp-34229)',
     ],
   },
+  {
+    term: 'imp-34213 E_flow-onset HEIGHT fixed point T0*=A(alpha)(log(T0*/2pi)+1)log T0*, vs the imp-33723 sibling',
+    category: 'numerical',
+    definition:
+      'imp-34134 located the E_flow(N) = alpha * E_trunc onset landmarks (alpha=1 at N~1.598e6, ' +
+      'alpha=0.01 at N~4.623e8, alpha=0.001 at N~6.933e9) only by downslope BISECTION in N. imp-34213 ' +
+      'supplies the missing CLOSED FORM, mirroring the imp-33723 sibling crossover but with a ' +
+      'STRUCTURALLY DIFFERENT fixed-point variable.\n\n' +
+      'DISTINGUISHING POINT: imp-33723 solves E_coll(N) = C_C*sqrt(log T0/N) = E_trunc, and since ' +
+      'E_coll carries N EXPLICITLY, its natural fixed point is IN N: N_cross = (C_C/E_trunc)^2 * ' +
+      'log T0(N_cross). Here E_flow(N) depends on N ONLY through the Riemann-von Mangoldt height ' +
+      'T0 = effectiveHeightForN(N), so the natural closed form instead solves for the ONSET HEIGHT ' +
+      'T0* first: isolating the leading T0 in the denominator of E_flow = alpha*E_trunc gives the ' +
+      'HEIGHT fixed point T0* = A(alpha)(log(T0*/2pi)+1) log T0*, with pinned amplitude ' +
+      'A(alpha) = GRONWALL/(2pi*alpha*E_trunc) = A0/alpha, A0 ~ 5.2025e3. The onset N* is then ' +
+      'recovered NOT by a second fixed point but by the EXACT analytic forward count ' +
+      'N* = zeroCountAtHeight(T0*) = (T0*/2pi)(log(T0*/2pi)-1), the inverse of effectiveHeightForN.\n\n' +
+      'The height map h(T0) = A(log(T0/2pi)+1)log T0 is a strong contraction (measured ' +
+      '|h_prime(T0*)| ~ 0.095..0.15 << 1, versus imp-33723\'s |g_prime(N_cross)| ~ 4.54e-2), so each ' +
+      'onset height is a unique fixed point reached by Banach iteration in ~7 steps; the closed form ' +
+      'reproduces all three imp-34134 bisected landmarks to ~1e-15 relative, and a single-shot leading ' +
+      'estimate (freezing the two slow log factors at the self-consistent seed A(log A)^2) already ' +
+      'lands within ~6% (alpha=0.001) to ~14% (alpha=1).\n\n' +
+      'HONEST SCOPE: derivation/measurement only, NOT rigorous. Component model is the inherited ' +
+      'imp-3220/imp-3406 extrapolation; E_flow is the benign mesoscopic-Gronwall term (imp-2845), NOT ' +
+      'the divergent C_Lip collision-Gronwall; C_mb GUE-conditional per imp-486 UNTOUCHED (E_coll ' +
+      'untouched); imp-3066 K_a>=0 untouched; changes no bound; establishes no operator positivity; ' +
+      'Platt-Trudgian Lambda<=0.2 remains SOTA; NO QED.',
+    firstUsed: 'imp-34213 (deriving the imp-34134 E_flow=alpha*E_trunc onset as a Banach-contracting HEIGHT fixed point T0*=A(alpha)(log(T0*/2pi)+1)log T0*, distinct in kind from the imp-33723 sibling fixed point in N, reproducing bisection to ~1e-15), 2026',
+    relatedTerms: [
+      'imp-34134 E_flow=alpha*E_trunc onset landmarks, the bisected roots this module re-derives in closed form (imp-34134)',
+      'imp-33723 CLOSED-FORM crossover: the imp-3444 E_coll=E_trunc landmark as a Banach fixed point (imp-33723)',
+      'imp-3444 E_coll=E_trunc crossover landmark and E_flow flow sub-term (imp-3444)',
+      'imp-2631 E_trunc N-independent fixed-strip floor (imp-2631)',
+      'lambda-rh-height-mapping effectiveHeightForN/zeroCountAtHeight, the height <-> N inverse pair both fixed points rely on (imp-398)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

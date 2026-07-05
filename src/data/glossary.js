@@ -11471,6 +11471,33 @@ export const glossary = [
       'imp-33810 the k=6.. quarter-decade ladder whose resid_exp is what crosses zero (imp-33810)',
     ],
   },
+  {
+    term: 'imp-34196 fixed-band peak increment minimum refined to sub-window resolution (kEnd*~18.64)',
+    category: 'numerical',
+    definition:
+      'imp-34109 read the fixed-band (k<=10) peak increment minimum off a COARSE 0.5-step kEnd grid (minimum ' +
+      '0.03370 at the kEnd 18.0->18.5 step) but never refined it nor fit the post-minimum re-acceleration ' +
+      'branch. imp-34196 halves the grid to 0.25 (the imp-33810 ladder rung spacing -- the finest resolution ' +
+      'kEnd resolves) over kEnd=17.0..19.5 (11 windows) and finds the minimum sits HALF A WINDOW LATER, at the ' +
+      'kEnd 18.50->18.75 step (increment 0.016669, ~half the coarse 0.03370, the expected step-scaling). A ' +
+      '3-point parabolic vertex of the increment-vs-kEnd curve locates the deceleration-to-re-acceleration ' +
+      'inflection at kEnd*~18.6447, bracketed by the second-difference sign flip (negative through 18.75, ' +
+      'strictly positive at 19.0). The four post-minimum increments OLS-fit to slope +0.002567 (R2~0.972) -- ' +
+      'RISING, so the peak is CONVEX on the re-accel branch, refuting delayed saturation and confirming the ' +
+      'imp-34109 F4 unbounded-log verdict at sub-window resolution. The band argmax rung un-locks 6.50->6.25 ' +
+      'at kEnd=19.0, refining the imp-34109 F3 coarse read to the exact rung-addition step.\n\n' +
+      'HONEST SCOPE: measurement/localisation and fit only; the OLS surrogate, parabolic inflection, and ' +
+      're-acceleration fit are descriptive, not derived; the inherited imp-3220/imp-3406 component model is ' +
+      'NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; imp-3066 ' +
+      'K_a>=0 untouched; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34196 (refining the imp-34109 fixed-band peak increment minimum to a 0.25 kEnd grid and locating the sub-window inflection kEnd*~18.64), 2026',
+    relatedTerms: [
+      'imp-34109 the coarse 0.5-grid sweep whose F1 minimum this refines (imp-34109)',
+      'imp-34040 the kEnd=14..17 saturation-onset window imp-34109 corrected (imp-34040)',
+      'imp-34169 the sibling cohort member tracking the same fixed-band peak to the k*~21.281 pole instead (imp-34169)',
+      'imp-34047 the argmax-rung-creep law; the F4 argmax un-lock is an independent observation of it (imp-34047)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

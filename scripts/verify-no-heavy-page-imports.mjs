@@ -22,6 +22,15 @@ const ROOT = path.resolve(__dirname, '..');
 const PAGES_DIR = path.join(ROOT, 'src', 'pages');
 const HEAVY_TARGET = path.join(ROOT, 'src', 'data', 'zeros-to-1e6.js');
 
+// imp-34186: explicit regression guard for import-light viz-data modules
+// whose header comments promise they do NOT transitively pull the heavy
+// zeros bundle. Watched alongside pages so an accidental future edit to
+// either module that re-introduces a heavy import fails this tripwire.
+const EXTRA_WATCHED_MODULES = [
+  path.join(ROOT, 'src', 'data', 'imp-34078-pointwise-vs-window-exponent-viz-data.js'),
+  path.join(ROOT, 'src', 'data', 'imp-34142-window-anchor-centroid-viz-data.js'),
+];
+
 const EXTENSIONS = ['.jsx', '.js', '.mjs', '.ts', '.tsx'];
 
 function resolveImport(fromFile, specifier) {
@@ -81,19 +90,21 @@ const pageFiles = fs
   .map((f) => path.join(PAGES_DIR, f))
   .sort();
 
-console.log(`verify-no-heavy-page-imports: checking ${pageFiles.length} page(s) for transitive zeros-to-1e6.js imports\n`);
+const watchedFiles = [...pageFiles, ...EXTRA_WATCHED_MODULES.filter((f) => fs.existsSync(f))];
+
+console.log(`verify-no-heavy-page-imports: checking ${pageFiles.length} page(s) + ${EXTRA_WATCHED_MODULES.length} watched module(s) for transitive zeros-to-1e6.js imports\n`);
 
 const violations = [];
-for (const page of pageFiles) {
-  const chain = findHeavyChain(page);
+for (const entry of watchedFiles) {
+  const chain = findHeavyChain(entry);
   if (chain) violations.push(chain);
 }
 
 if (violations.length === 0) {
-  console.log('OK — no page transitively imports zeros-to-1e6.js');
+  console.log('OK — no page or watched module transitively imports zeros-to-1e6.js');
   process.exit(0);
 } else {
-  console.error(`FAIL — ${violations.length} page(s) reach zeros-to-1e6.js:\n`);
+  console.error(`FAIL — ${violations.length} entry point(s) reach zeros-to-1e6.js:\n`);
   for (const chain of violations) {
     const rel = (f) => path.relative(ROOT, f);
     console.error('  ' + rel(chain[0]));

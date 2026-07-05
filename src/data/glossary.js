@@ -9092,6 +9092,38 @@ export const glossary = [
       'imp-486 C_mb GUE-conditional share, left untouched by this measurement (imp-486)',
     ],
   },
+  {
+    term: 'imp-33920 exact runs-test permutation p-value (white-noise-null rejection survives without the normal approximation)',
+    category: 'numerical',
+    definition:
+      'imp-33886 ran a Wald-Wolfowitz runs test on the 21 imp-33858 signed residuals (n1=11 positive, ' +
+      'n2=10 negative, observed run count R=4) and rejected the white-noise null using the N=21 NORMAL ' +
+      'approximation to the run-count distribution (raw z-test p~7.919e-4, continuity-corrected ' +
+      'companion p~1.74e-3), itself only asymptotic. imp-33920 replaces the approximation with the ' +
+      'EXACT permutation null: it fully enumerates the run count over all C(21,11)=352716 equally ' +
+      'likely sign-arrangements (2^21 mask sweep, keep popcount 11, count runs) and cross-checks the ' +
+      'resulting histogram against the closed-form combinatorial runs PMF.\n\n' +
+      'RESULT: 201 of the 352716 arrangements have 4 or fewer runs (#runs=2 is 2, #runs=3 is 19, ' +
+      '#runs=4 is 180), giving an exact one-sided lower-tail p = 201/352716 ~ 5.70e-4 and an exact ' +
+      'two-sided p ~ 1.0e-3 to 1.14e-3 (doubling vs. small-p/equal-mass conventions) -- both well below ' +
+      '0.01, so the imp-33886 white-noise-null rejection SURVIVES with the normal approximation removed ' +
+      'entirely. The exact two-sided p sits INSIDE the imp-33886 raw-normal (7.919e-4) / ' +
+      'continuity-corrected (1.74e-3) bracket: the raw z-test slightly overstated the significance and ' +
+      'the continuity correction slightly understated it, exactly the small-N behaviour imp-33886 ' +
+      'flagged. The closed-form PMF reproduces mu_R~11.476 and var_R~4.964 to machine precision.\n\n' +
+      'HONEST SCOPE: sharpens the p-value only -- no RMSE (~0.116) change, no imp-33843 ' +
+      'log-linear-vs-power-law form-selection reopening; component residual signs are inherited from ' +
+      'the imp-3220/imp-3406 extrapolation via imp-33810, NOT a rigorous asymptotic; C_mb ' +
+      'GUE-conditional share per imp-486 untouched; imp-3066 K_a >= 0 untouched; NO QED; ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33920 (replacing the imp-33886 normal-approximation Wald-Wolfowitz runs-test p-value with the exact permutation null over all C(21,11) sign-arrangements of the 21 imp-33858 residual signs), 2026',
+    relatedTerms: [
+      'imp-33886 the Wald-Wolfowitz runs test and normal-approximation p-value bracket this exact enumeration sits inside (imp-33886)',
+      'imp-33858 the 21 quarter-decade signed residuals whose run count (R=4) is tested (imp-33858)',
+      'imp-33843 the log-linear widening fit whose form-selection is left untouched by this p-value sharpening (imp-33843)',
+      'imp-3220 the inherited extrapolation supplying the residual signs, not a rigorous asymptotic (imp-3220)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

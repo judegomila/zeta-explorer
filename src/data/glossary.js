@@ -9124,6 +9124,43 @@ export const glossary = [
       'imp-3220 the inherited extrapolation supplying the residual signs, not a rigorous asymptotic (imp-3220)',
     ],
   },
+  {
+    term: 'imp-33921 AR(1) rho reconciliation (three lag-1 dependence estimates, one shared numerator)',
+    category: 'numerical',
+    definition:
+      'imp-33886 R2 observed that the imp-33858 lag-1 (Yule-Walker) autocorrelation rho_YW~0.757 ' +
+      'predicts DW~2(1-rho_YW)~0.49 via the naive relation, while the directly measured Durbin-Watson ' +
+      'statistic DW~0.222 is markedly DEEPER, but no explicit AR(1) model was ever fit and the ' +
+      'resulting three candidate rho readings were left unreconciled. imp-33921 fits the first-order ' +
+      'autoregression e_k = rho e_{k-1} + u_k to the same 21 imp-33858 signed widening-fit residuals ' +
+      '(conditional-MLE slope, n=20 lagged pairs) and reconciles all three: rho_YW~0.757 ' +
+      '(cross/S, S the full sum of squares), rho_DW~0.889 (DW-implied, 1-DW/2), and ' +
+      'rho_AR~0.968 (conditional-MLE, cross/(S-e_20^2), 95% CI [0.71,1.22] via t_19 -- the interval ' +
+      'spans the unit root).\n\n' +
+      'THE RECONCILIATION: all three share the IDENTICAL lag-1 cross-product numerator cross = ' +
+      'sum_{k>0} e_k e_{k-1}; they differ ONLY through how the far-tail endpoint residual ' +
+      'e_20=+0.2479 (the imp-33858 k=11 excursion) enters the denominator or the DW endpoint ' +
+      'correction. rho_YW divides by the full S (which includes e_20^2, deflating rho); rho_AR drops ' +
+      'e_20 as a regressor entirely (denominator excludes e_20^2, inflating rho toward 1); rho_DW sits ' +
+      'between them via the exact identity DW = 2(1-rho_YW) - (e_0^2+e_20^2)/S, which reproduces the ' +
+      'measured DW~0.222 to ~1e-16 -- so the (e_0^2+e_20^2)/S~0.263 endpoint-correction term, built from ' +
+      'the two largest-magnitude residuals (head k=6 and far-tail k=11), fully accounts for the DW ' +
+      'deepening below the naive 2(1-rho_YW)~0.49 value imp-33886 flagged. The spread across the three ' +
+      'estimates (~0.21) is itself smaller than the AR(1) CI half-width (~0.26), so they are ' +
+      'statistically consistent, not competing measurements.\n\n' +
+      'HONEST SCOPE: a calibration reconciling three DEPENDENCE-STRENGTH readings on one inherited ' +
+      'residual series, not a new claim -- changes no RMSE (~0.116), reopens no imp-33843 ' +
+      'log-linear-vs-power-law form selection, and touches no bound; the AR(1) CI is a small-sample ' +
+      'normal-theory interval on N=21 (hence its unit-root-spanning width); C_mb GUE-conditional per ' +
+      'imp-486 untouched; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33921 (fitting the explicit AR(1) model e_k=rho e_{k-1}+u_k to the 21 imp-33858 signed residuals and reconciling the Yule-Walker, DW-implied, and AR(1)-MLE rho estimates via the exact DW identity), 2026',
+    relatedTerms: [
+      'imp-33886 the naive DW~2(1-rho) prediction and observed DW~0.222 gap this AR(1) fit reconciles (imp-33886)',
+      'imp-33858 the 21 signed widening-fit residuals and lag-1 rho_YW~0.757 whose far-tail endpoint e_20 drives the spread (imp-33858)',
+      'imp-33920 the exact permutation-null runs-test p-value on the same residual series, a companion significance calibration (imp-33920)',
+      'imp-33843 the aggregate log-linear widening fit (RMSE~0.116) whose form selection is left untouched (imp-33843)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

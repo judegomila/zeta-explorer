@@ -271,6 +271,7 @@ const Imp34050EndpointPeakModelTournamentViz = lazy(() => import('./pages/Imp340
 const Imp34051LooEvidenceRatioStripViz = lazy(() => import('./pages/Imp34051LooEvidenceRatioStripViz.jsx'));
 const Imp34052F3LandmarkThreeWaySpreadViz = lazy(() => import('./pages/Imp34052F3LandmarkThreeWaySpreadViz.jsx'));
 const Imp34014EndpointPeakModelSelectionFitViz = lazy(() => import('./pages/Imp34014EndpointPeakModelSelectionFitViz.jsx'));
+const Imp34015F2MagShareDriftViz = lazy(() => import('./pages/Imp34015F2MagShareDriftViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1071,6 +1072,7 @@ function AppShell() {
           <Route path="/viz-imp34051-loo-evidence-ratio-strip" element={<Imp34051LooEvidenceRatioStripViz />} />
           <Route path="/viz-imp34052-f3-landmark-spread" element={<Imp34052F3LandmarkThreeWaySpreadViz />} />
           <Route path="/viz-imp34014-endpoint-peak-model-selection-fit" element={<Imp34014EndpointPeakModelSelectionFitViz />} />
+          <Route path="/viz-imp34015-f2-magshare-drift" element={<Imp34015F2MagShareDriftViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

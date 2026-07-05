@@ -8699,6 +8699,31 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: 'imp-33766 H4-H3 COUPLING verdict: the strip-height fold-reading derivative is not independently dischargeable',
+    category: 'proof',
+    definition:
+      'imp-33766 scoped the G6a_shock_lipschitz obligation catalogue and found that H4 (strip-height ' +
+      'perturbation control, the k=1 fold-reading derivative m_prime, N-exponent 3/4, imp-33646) ' +
+      'SEPARATES cleanly from H0 (provenance) and H5 (RH transcription) but does NOT separate from ' +
+      'H3 (uniform curvature, the k=2 rung m_double_prime, N-exponent 5/4, imp-33645): the ' +
+      'Holder-modulus back-conversion couples H4 and H3 through the SAME quadratic fold expansion, ' +
+      'so the H3 uniform-curvature bound dominates and discharges H4 a fortiori while the converse ' +
+      'fails. The minimal analytic input that would close H4 IS the same input that closes H3 -- they ' +
+      'collapse into one coupled strip-height-uniformity object rather than two independently ' +
+      'attackable rows.\n\n' +
+      'HONEST SCOPE: a structural/scoping verdict, not a discharge. H0 (provenance) and H5 ' +
+      '(transcription) remain on orthogonal/downstream axes, unaffected by the coupling. ' +
+      'G6a_shock_lipschitz stays OPEN; no positivity step is attempted; imp-3066 K_a>=0 is ' +
+      'untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33766 (scoping the minimal analytic input for the G6a_shock_lipschitz H4 strip-height residual and finding it collapses with H3 into one coupled object), 2026',
+    relatedTerms: [
+      'imp-33646 H4 fold-reading derivative rung m_prime, N-exponent 3/4 (imp-33646)',
+      'imp-33645 H3 curvature rung m_double_prime, N-exponent 5/4 (imp-33645)',
+      'imp-33845 FIXED-3/2-ONSET verdict, the C_ren(eps) measurement consistent-with but not discharging H4 given this coupling (imp-33845)',
+      'imp-33786 H3 joint-curvature input scoping, the coupled rung that jointly governs the discharge (imp-33786)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

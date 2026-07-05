@@ -9589,6 +9589,93 @@ export const glossary = [
       'imp-33970 the joint phase-zero uniqueness-over-alpha result that uses this affine winding-rate law to rule out a second crossing (imp-33970)',
     ],
   },
+  {
+    term: 'imp-33963 Dickey-Fuller unit-root non-rejection (tau ~ -0.27, low power at n=21)',
+    category: 'numerical',
+    definition:
+      'imp-33921 fit an AR(1) to the 21 signed imp-33858 residuals and reported rho_AR ~ 0.968 with a ' +
+      '95% t-CI [0.71, 1.22] spanning the unit root -- but a t-interval crossing 1 is not a valid ' +
+      'unit-root test, since the unit-root null has the non-standard Dickey-Fuller tau distribution, ' +
+      'not the normal/t. imp-33963 runs the explicit DF regression Delta e_k = phi e_{k-1} + u_k on the ' +
+      'same residuals (phi = rho_AR - 1 exactly, same SSE as the AR(1) fit) and compares tau against the ' +
+      'Fuller (1976) tau_nc critical values (-1.60 / -1.95 / -2.66 at 10%/5%/1%) instead of the normal/t.\n\n' +
+      'RESULT: tau ~ -0.27, far above (much less negative than) even the 10% critical value -1.60, so the ' +
+      'unit-root null is NOT rejected at any conventional level -- the imp-33921 near-random-walk reading ' +
+      'survives under the correct distribution. Dropping the imp-33858 far-tail excursion e_20 = +0.2479 ' +
+      '(k=11) moves tau only to -0.90, still far above -1.60, so the non-rejection is a small-N POWER ' +
+      'limitation (the DF test cannot separate a true unit root from a stationary root near 1 at n~20), ' +
+      'NOT a far-tail artifact and NOT a proven genuine unit root.\n\n' +
+      'HONEST SCOPE: a calibration re-reading imp-33921 own (rho_AR - 1)/SE against the correct reference ' +
+      'distribution; changes no RMSE (~0.116), reopens no imp-33843 log-linear-vs-power-law form ' +
+      'selection, and touches no bound; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 ' +
+      'untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33963 (running the Dickey-Fuller regression Delta e_k = phi e_{k-1} + u_k on the 21 imp-33858 signed residuals and comparing tau against the Fuller 1976 tau_nc critical values rather than the imp-33921 t-CI), 2026',
+    relatedTerms: [
+      'imp-33921 the AR(1) rho_AR ~ 0.968 and t-CI spanning the unit root that this DF test re-reads against the correct distribution (imp-33921)',
+      'imp-33858 the 21 signed widening-fit residuals, including the far-tail e_20 = +0.2479 excursion whose removal is tested for robustness (imp-33858)',
+      'imp-33964 the companion Ljung-Box higher-lag portmanteau test on the same residual series (imp-33964)',
+      'imp-33843 the aggregate log-linear widening fit (RMSE ~0.116) whose form selection is left untouched (imp-33843)',
+    ],
+  },
+  {
+    term: 'imp-33964 Ljung-Box higher-lag rejection with AR(1) inadequacy (ACF crosses zero by lag 4)',
+    category: 'numerical',
+    definition:
+      'imp-33921/imp-33886/imp-33920 all probed only LAG-1 dependence in the 21 signed imp-33858 ' +
+      'residuals. imp-33964 computes the sample autocorrelations r_1..r_5 and the Ljung-Box portmanteau ' +
+      'statistics Q_m = n(n+2) sum_{k=1}^m r_k^2/(n-k) for m=1..5, testing the white-noise null at each ' +
+      'lag horizon and checking whether the higher-lag ACF follows the geometric decay rho^k an AR(1) ' +
+      'predicts.\n\n' +
+      'RESULT: r_1..r_5 ~ +0.757, +0.481, +0.203, -0.052, -0.262, and Q_1..Q_5 ~ 13.85, 19.74, 20.84, ' +
+      '20.92, 22.99 all EXCEED even the 1% chi-square_m critical values, so the white-noise null is ' +
+      'REJECTED at every lag horizon m=1..5 -- the dependence is not confined to lag-1. But the empirical ' +
+      'ACF decays FASTER than either AR(1) prediction (rho_AR ~0.968 or rho_YW ~0.757) and CROSSES ZERO ' +
+      'into negative territory by lag 4, which a positive AR(1) cannot do: this signals residual ' +
+      'higher-order (trend-curvature) structure, the classic signature of an OLS line fit to the curved ' +
+      'imp-33858 hump, and corroborates imp-33921 R2 that rho_AR ~ 0.968 is an endpoint-inflated artifact ' +
+      'rather than the true decay rate.\n\n' +
+      'HONEST SCOPE: re-reads the same residual ACF at higher lags; changes no RMSE (~0.116), reopens no ' +
+      'imp-33843 form selection, touches no bound; small-N caveat, since higher-lag r_k rest on few pairs ' +
+      'and the chi-square_m reference is asymptotic; C_mb GUE-conditional per imp-486 untouched; imp-3066 ' +
+      'K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33964 (computing the sample autocorrelations r_1..r_5 and Ljung-Box Q_1..Q_5 on the 21 imp-33858 signed residuals, rejecting white noise at every lag horizon and finding the ACF crosses zero by lag 4, defeating the pure AR(1) geometric-decay model), 2026',
+    relatedTerms: [
+      'imp-33921 the AR(1) rho_AR ~ 0.968 whose geometric-decay adequacy is tested and found inadequate here (imp-33921)',
+      'imp-33963 the companion Dickey-Fuller unit-root test on the same residual series (imp-33963)',
+      'imp-33858 the 21 signed widening-fit residuals and lag-1 rho_YW ~ 0.757 whose higher-lag structure is measured (imp-33858)',
+      'imp-33843 the aggregate log-linear widening fit (RMSE ~0.116) whose form selection is left untouched (imp-33843)',
+    ],
+  },
+  {
+    term: 'imp-33965 Durbin-Watson exact value-permutation lower-tail bound (p < 1.5e-6)',
+    category: 'numerical',
+    definition:
+      'imp-33920 replaced the imp-33886 runs-test normal approximation with an exact sign-permutation ' +
+      'p-value, but left the Durbin-Watson companion (DW ~ 0.222) on its asymptotic Savin-White d_L ~ 1.22 ' +
+      'table bound. imp-33965 builds the DW permutation null by permuting the 21 imp-33858 residual ' +
+      'VALUES (not just signs, since DW depends on magnitudes; full exchangeability), computing the exact ' +
+      'permutation mean in closed form and a Monte-Carlo lower-tail probability P(DW <= 0.222) over ' +
+      'M = 2,000,000 deterministic orderings.\n\n' +
+      'RESULT: the exact permutation mean is E[DW] = 2 (closed form, since the OLS residuals sum to ' +
+      'zero), and the smallest DW sampled over all 2,000,000 orderings is ~0.315 -- already above the ' +
+      'observed DW ~ 0.222, so the tail count is 0/M. The rule-of-three upper bound gives an exact ' +
+      'permutation p < 3/2,000,000 ~ 1.5e-6, far below the imp-33886 asymptotic bound: the ' +
+      'positive-serial-dependence rejection SURVIVES far more strongly than the conservative d_L ~ 1.22 ' +
+      'table inequality implied. The full 21! ~ 5.1e19 enumeration is intractable, so the tail is bounded ' +
+      '(exact mean plus Monte-Carlo rule-of-three), not exactly counted.\n\n' +
+      'HONEST SCOPE: sharpens only the Durbin-Watson companion from an asymptotic table bound to an ' +
+      'exact-mean-plus-bounded permutation p-value; changes no RMSE (~0.116), reopens no imp-33843 form ' +
+      'selection, and touches no bound; residual stays small (~12% multiplicative) -- "significant" means ' +
+      '"not white noise", not "large"; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 ' +
+      'untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33965 (permuting the 21 imp-33858 residual VALUES to build an exact-mean-plus-Monte-Carlo permutation null for the Durbin-Watson statistic, replacing the imp-33886 asymptotic d_L table bound with a rule-of-three upper bound p < 1.5e-6), 2026',
+    relatedTerms: [
+      'imp-33886 the asymptotic Savin-White d_L ~ 1.22 Durbin-Watson table bound made exact here (imp-33886)',
+      'imp-33920 the exact sign-permutation runs-test companion that left the DW statistic on its asymptotic bound (imp-33920)',
+      'imp-33858 the 21 signed widening-fit residuals whose value-permutation null is built (imp-33858)',
+      'imp-33843 the aggregate log-linear widening fit (RMSE ~0.116) whose form selection is left untouched (imp-33843)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

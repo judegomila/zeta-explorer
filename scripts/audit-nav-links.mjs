@@ -335,6 +335,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34203-endpoint-vs-fixed-band-peak-saturation-cross',
   '/viz-imp34205-widening-slope-drift-convergence',
   '/viz-imp34221-eflow-etrunc-ratio-decay-onset',
+  '/viz-imp34237-fixed-band-peak-reaccel-and-surrogate-pole',
   '/viz-imp34182-deep-ladder-precision-floor',
   '/viz-imp34185-outer-branch-angle-family',
 ]);

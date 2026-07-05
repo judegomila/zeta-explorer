@@ -294,6 +294,7 @@ const Imp34200LtoPerPairInfluenceBarChartViz = lazy(() => import('./pages/Imp342
 const Imp34203EndpointVsFixedBandPeakSaturationCrossViz = lazy(() => import('./pages/Imp34203EndpointVsFixedBandPeakSaturationCrossViz.jsx'));
 const Imp34205WideningSlopeConvergenceViz = lazy(() => import('./pages/Imp34205WideningSlopeConvergenceViz.jsx'));
 const Imp34221EflowEtruncRatioDecayOnsetViz = lazy(() => import('./pages/Imp34221EflowEtruncRatioDecayOnsetViz.jsx'));
+const Imp34237FixedBandPeakReaccelAndSurrogatePoleViz = lazy(() => import('./pages/Imp34237FixedBandPeakReaccelAndSurrogatePoleViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1117,6 +1118,7 @@ function AppShell() {
           <Route path="/viz-imp34203-endpoint-vs-fixed-band-peak-saturation-cross" element={<Imp34203EndpointVsFixedBandPeakSaturationCrossViz />} />
           <Route path="/viz-imp34205-widening-slope-drift-convergence" element={<Imp34205WideningSlopeConvergenceViz />} />
           <Route path="/viz-imp34221-eflow-etrunc-ratio-decay-onset" element={<Imp34221EflowEtruncRatioDecayOnsetViz />} />
+          <Route path="/viz-imp34237-fixed-band-peak-reaccel-and-surrogate-pole" element={<Imp34237FixedBandPeakReaccelAndSurrogatePoleViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

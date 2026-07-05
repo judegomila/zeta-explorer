@@ -262,6 +262,7 @@ const Imp33993GVsLawOffsetViz = lazy(() => import('./pages/Imp33993GVsLawOffsetV
 const Imp33994SawtoothGapVsStepViz = lazy(() => import('./pages/Imp33994SawtoothGapVsStepViz.jsx'));
 const Imp33999ResidualCurvatureContrastViz = lazy(() => import('./pages/Imp33999ResidualCurvatureContrastViz.jsx'));
 const Imp33915EndpointArtifactResidualMigrationViz = lazy(() => import('./pages/Imp33915EndpointArtifactResidualMigrationViz.jsx'));
+const Imp34032WindingSlopeVsAlphaViz = lazy(() => import('./pages/Imp34032WindingSlopeVsAlphaViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1053,6 +1054,7 @@ function AppShell() {
           <Route path="/viz-imp33994-sawtooth-gap-vs-step" element={<Imp33994SawtoothGapVsStepViz />} />
           <Route path="/viz-imp33999-residual-curvature-contrast" element={<Imp33999ResidualCurvatureContrastViz />} />
           <Route path="/viz-imp33915-endpoint-artifact-residual-migration" element={<Imp33915EndpointArtifactResidualMigrationViz />} />
+          <Route path="/viz-imp34032-winding-slope-vs-alpha" element={<Imp34032WindingSlopeVsAlphaViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

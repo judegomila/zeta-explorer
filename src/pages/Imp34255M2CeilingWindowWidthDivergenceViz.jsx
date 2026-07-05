@@ -113,6 +113,26 @@ export default function Imp34255M2CeilingWindowWidthDivergenceViz() {
         {IMP34255_E_AT_CROSSING.toFixed(2)}) is O(1), not small.
       </p>
 
+      <div
+        style={{
+          marginBottom: '1.25rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(56,189,248,0.05)',
+          borderLeft: '3px solid #38bdf8',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+          maxWidth: 700,
+        }}
+      >
+        <strong style={{ color: '#e2e8f0' }}>imp-34189 finding:</strong> because e&middot;D &asymp;{' '}
+        {IMP34255_ED_AT_CROSSING.toFixed(2)} is O(1) rather than small, the imp-34127 closed form is
+        only QUALITATIVE at a full decade -- it is not a converged asymptotic, and no finite-order
+        correction to it closes the gap to the bisected value. The kEnd* ceiling is therefore best
+        quoted directly from the bisection ({IMP34255_KEND_BISECTED_W1.toFixed(3)}), not recovered
+        from the closed form.
+      </div>
+
       <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         bisected kEnd*(w) diverging as the fitting window narrows -- no continuous w &rarr; 0 limit
       </p>

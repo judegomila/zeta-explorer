@@ -9437,6 +9437,35 @@ export const glossary = [
       'imp-33898 the eps^2-tier closed-form derivation of the panel-invariant ~2.3e-6 residual this module measures but does not derive (imp-33898)',
     ],
   },
+  {
+    term: 'imp-33879 geometric-center correction for the endpoint-vs-midpoint anchoring offset',
+    category: 'numerical',
+    definition:
+      'imp-33856 found that anchoring the imp-33816 pointwise 1/(2 log T0) shortfall law at the ' +
+      'geometric decade midpoint N/sqrt(10) instead of the labelling endpoint N inflates its fit ' +
+      'residual by ~4% (ratio gap/law ~0.96), but reported the ~4% only as an unexplained ' +
+      'discretization caveat. imp-33879 derives the offset in closed form: writing x = log10 N and ' +
+      'using d(log T0)/dx ~ ln 10, the half-log-decade Taylor step of f(x) = 1/(2 log T0) gives ' +
+      'f(x - 1/2) - f(x) ~ -(1/2) f_prime(x) = ln 10 / (4 log T0^2), so the fractional ' +
+      'endpoint-vs-midpoint offset is the pure function of log T0: (1/2 ln 10) / log T0.\n\n' +
+      'RESULT: the derived leading factor reproduces the exact offset law_mid/law_end - 1 to ' +
+      '<0.11% relative error at every rung across 1e12..1e15 (RMSE ~7e-4), with the measured offset ' +
+      'ranging 4.38% at 1e12 down to 3.50% at 1e15 -- confirming the imp-33856 ~4% IS the ' +
+      'geometric-center offset of the wide decade window and NOT a model disagreement. imp-33900 ' +
+      'later shows the sub-0.11% residual is itself the convergent second-order Taylor tail, and ' +
+      'imp-33903 reproduces the same offset via an independent direct-finite-difference code path.\n\n' +
+      'HONEST SCOPE: derivation/measurement only, on the inherited imp-3220/imp-3406 extrapolation, ' +
+      'NOT a rigorous asymptotic. C_mb stays GUE-conditional (imp-486); changes no bound; ' +
+      'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33879 (deriving the imp-33856 ~4% midpoint-vs-endpoint anchoring offset as the closed-form half-log-decade Taylor step of 1/(2 log T0), closing the discretization caveat), 2026',
+    relatedTerms: [
+      'imp-33856 discrete-slope endpoint fit of gap_ecoll to 1/(2 log T0) that first flagged the ~4% caveat this closes (imp-33856)',
+      'imp-33816 sigma-exponent shortfall law 1/(2 log T0), the object being anchored (imp-33816)',
+      'imp-33900 second-order Taylor tail that reduces the sub-0.11% residual ~25-fold further (imp-33900)',
+      'imp-33903 independent direct-finite-difference reproduction of the same offset (imp-33903)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -8855,6 +8855,31 @@ export const glossary = [
       'imp-3066 off-diagonal endpoint-Hankel positivity K_a >= 0, left untouched (imp-3066)',
     ],
   },
+  {
+    term: 'imp-33886 white-noise-null significance calibration for the imp-33858 STRUCTURED residual verdict',
+    category: 'numerical',
+    definition:
+      'imp-33858 called the imp-33843 21-rung signed-residual series (k=6..11 widening-fit residuals) ' +
+      '"structured" rather than white noise, citing an eyeballed lag-1 autocorrelation of ~+0.757 and ' +
+      'only 3 sign flips against a ~(n-1)/2~10 expected under white noise -- but ran no significance ' +
+      'test, so the STRUCTURED call rested on threshold-by-eye. imp-33886 put formal numbers under it: ' +
+      'a Wald-Wolfowitz runs-test on the 3-flip count gives z~-3.36, a two-sided normal-approximation ' +
+      'p~7.9e-4 (~3.4 sigma), and a Durbin-Watson statistic of ~0.22 sits far below the 5% lower ' +
+      'critical bound d_L~1.22 for n=21. Both tests independently reject the rho=0 white-noise null at ' +
+      'well under the 1% level, agreeing with each other and with the imp-33858 eyeballed reading.\n\n' +
+      'HONEST SCOPE: "statistically significant" here means the residual serial structure is REAL, not ' +
+      'that it is large -- the underlying widening fit still holds at R^2~0.99715 with the curvature a ' +
+      'small ~12% multiplicative effect, and the imp-33843 log-linear-over-power-law form selection is ' +
+      'NOT reopened. The runs-test p-value uses the N=21 normal approximation (later exact-permutation ' +
+      'and AR(1) follow-ups refine this). Component model NOT a rigorous asymptotic; changes no bound; ' +
+      'NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-33886 (calibrating the imp-33858 eyeballed "structured" residual verdict with a formal runs-test and Durbin-Watson p-value), 2026',
+    relatedTerms: [
+      'imp-33858 localization of the imp-33843 residual as a mid-ladder trough plus k=11 far-tail excursion, the qualitative verdict this calibrates (imp-33858)',
+      'imp-33843 log-linear widening fit whose residual series is under test, form selection left unreopened (imp-33843)',
+      'imp-3066 off-diagonal endpoint-Hankel positivity K_a >= 0, left untouched (imp-3066)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

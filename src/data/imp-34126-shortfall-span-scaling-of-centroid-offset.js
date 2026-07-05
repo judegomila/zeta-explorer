@@ -68,7 +68,9 @@
  *
  * @see imp-34065-window-span-scaling-of-exponent-offset (S1 shortfall grows with span, never fit vs S)
  * @see imp-34006-pointwise-vs-window-exponent-cross-tabulation (F2 single-span S/4 centroid law)
- * @see imp-33816-sigma-exponent-asymptote-approach-rate (POINTWISE gap law 1/(2L))
+ * @see imp-33816-sigma-exponent-asymptote-approach-rate (POINTWISE gap law 1/(2L); asymptote-approach cohort sibling)
+ * @see imp-34129-widening-slope-drift-convergence-fit (asymptote-approach cohort sibling: widening slope b -> b_inf)
+ * @see imp-34130-ecoll-local-exponent-residual-close-vs-floor (asymptote-approach cohort sibling: E_coll residual -> 0 as 1/(2 log T0))
  * @see imp-33274-sigma-postpeak-later-window-decay-exponent (WINDOWED far-tail p_eff, OLS span)
  * @see imp-33859 (log-N-space direct evaluation past IEEE-double overflow; reused here)
  * @see polymath15-constant-C-C (C_C = C_H sqrt(pi C_Selberg); C_H = 1/8 ansatz)

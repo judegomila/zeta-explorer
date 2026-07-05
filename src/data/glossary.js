@@ -11326,6 +11326,33 @@ export const glossary = [
       'imp-33962 the source attribution decomposition widening=F1*F2*F3*F4 from which both F4 readings descend (imp-33962)',
     ],
   },
+  {
+    term: 'imp-34126/imp-34129/imp-34130/imp-33816 asymptote-approach cohort: three sibling does-it-converge-or-drift-forever measurements on the sigma-share surrogate, all resolved to a finite limit',
+    category: 'meta',
+    definition:
+      'imp-33816 (sigma-share local exponent gap 1/2 - p(N) ~ 1/(2 log T0), closing to within 1% by ' +
+      'N~1e44 and 0.1% by N~1e434), imp-34126 (the pointwise-vs-window centroid-offset normalized ' +
+      'shortfall, LINEAR in span S with span-exponent alpha -> 1 as L -> infinity), and imp-34129 ' +
+      '(the widening log-linear fit slope b, drifting with shrinking per-window increments toward a ' +
+      'finite limit b_inf ~ -1.0 rather than diverging) are three sibling frontier measurements on the ' +
+      'same inherited imp-3220/imp-3406 sigma(N) = E_coll/(E_trunc+E_flow+E_coll) component model, each ' +
+      'asking whether some drifting quantity keeps drifting without bound or CONVERGES to a finite ' +
+      'limit as the ladder is pushed further. imp-34130 supplies the SEPARATED E_coll (not the sigma ' +
+      'share) analogue: its local-exponent residual to the far-tail -1/2 also closes as the same ' +
+      '1/(2 log T0) law, never floors. All four share the log-T0-running approach-law framing and, ' +
+      'once cross-checked against each other, agree the answer is CONVERGE, not diverge -- no ' +
+      'quantity in the cohort drifts indefinitely.\n\n' +
+      'HONEST SCOPE: measurement/fit only, not a bound. Conditional-share diagnostic; C_mb remains ' +
+      'GUE-conditional (imp-486); changes no bound; imp-3066 K_a>=0 untouched; Platt-Trudgian ' +
+      'Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-34206 (cross-linking the imp-34126/imp-34129/imp-34130 convergence-fit trio and their shared imp-33816 approach-law source as a coherent asymptote-approach cohort), 2026',
+    relatedTerms: [
+      'imp-33816 the sigma-share exponent gap ~1/(2 log T0) approach-rate law shared across the cohort (imp-33816)',
+      'imp-34126 the span-exponent alpha -> 1 centroid-offset convergence measurement (imp-34126)',
+      'imp-34129 the widening-slope b -> b_inf convergence fit (imp-34129)',
+      'imp-34130 the separated E_coll local-exponent residual close-vs-floor resolution (imp-34130)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -63,6 +63,9 @@
  * @see imp-3529-sigma-postpeak-decay-exponent (LOCAL pointwise exponent p(N))
  * @see imp-3463-sigma-fartail-decay (far-tail leading form, exponent -> 1/2 from below)
  * @see imp-3444-sigma-nshape-landmark-ladder (E_coll = E_trunc crossover N ~ 3.280e9)
+ * @see imp-34126-shortfall-span-scaling-of-centroid-offset (asymptote-approach cohort sibling: span-exponent alpha -> 1)
+ * @see imp-34129-widening-slope-drift-convergence-fit (asymptote-approach cohort sibling: widening slope b -> b_inf)
+ * @see imp-34130-ecoll-local-exponent-residual-close-vs-floor (asymptote-approach cohort sibling: E_coll residual -> 0 as 1/(2 log T0), same law)
  * @see polymath15-constant-C-C (C_C = C_H sqrt(pi C_Selberg); C_H = 1/8 ansatz)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 = gamma_N)
  */

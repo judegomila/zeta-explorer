@@ -74,6 +74,9 @@
  * @see imp-33843-eflow-resid-widening-form-fit (the log-linear OLS whose slope drift is tracked)
  * @see imp-33810-eflow-resid-ratio-N-ladder (the k=6..11 ladder extended here)
  * @see imp-34023 (the residExp sign-change ceiling kEnd ~ 21.3 bounding the meaningful window)
+ * @see imp-34126-shortfall-span-scaling-of-centroid-offset (asymptote-approach cohort sibling: span-exponent alpha -> 1)
+ * @see imp-34130-ecoll-local-exponent-residual-close-vs-floor (asymptote-approach cohort sibling: E_coll residual -> 0 as 1/(2 log T0))
+ * @see imp-33816-sigma-exponent-asymptote-approach-rate (asymptote-approach cohort sibling: shared log-T0 approach-law framing)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 = gamma_N)
  * @see polymath15-constant-C-C (C_C_PINNED collision constant in E_coll)
  */

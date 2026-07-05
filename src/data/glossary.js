@@ -10634,6 +10634,35 @@ export const glossary = [
       'imp-33816 the pointwise gap law gap~1/(2 log T0) whose window counterpart these span laws refine (imp-33816)',
     ],
   },
+  {
+    term: 'imp-34008 apex-parabola wing-fidelity radius of the imp-33878 resid_exp(k) hump',
+    category: 'numerical',
+    definition:
+      'imp-33948 E2 inverted the apex quadratic fit to the imp-33878 resid_exp(k) hump to report flat-top ' +
+      'half-widths (0.19 decade at 1%, 0.425 decade at 5%), but never checked the fitted parabola against ' +
+      'the true resid_exp(k) OUTSIDE the tight fit window, where cubic/quartic curvature of the hump enters. ' +
+      'imp-34008 scans the fitted parabola P(t)=a+b t+c t^2 against the exact resid_exp(k*+t) over a wide ' +
+      'symmetric k range and records where the two diverge by 1% and 5% of the apex.\n\n' +
+      'FINDINGS (measurement only): (W1) the quadratic stays within 1% of the apex out to |k-k*|~0.635 on ' +
+      'the low-k wing and ~0.714 on the high-k wing, and within 5% out to ~0.982 / ~1.065 -- so "one broad ' +
+      'quadratic maximum" holds across a ~1.27-decade (1%) to ~1.96-decade (5%) full-width window, bounded ' +
+      'by the tighter low-k wing; (W2) the wings are ASYMMETRIC -- the low-k side departs first at every ' +
+      'offset (e.g. 0.410% vs 0.218% at |t|=0.5), a nonzero cubic tilt the parabola cannot capture, and the ' +
+      'departure is monotone in |t| so the first crossing IS the faithful-zone boundary; (W3) the imp-33948 ' +
+      'E2 flat-top half-widths (0.19, 0.425 decade) sit DEEP inside this faithful zone -- the parabola-vs-' +
+      'truth error there is only ~0.010% and ~0.222% of the apex, 1-2 orders of magnitude below the drop ' +
+      'being inverted, so the E2 flat-top readings are honest, not extrapolation artifacts.\n\n' +
+      'HONEST SCOPE: a wing-fidelity diagnostic of an inherited surrogate (imp-3220/imp-3406 extrapolation), ' +
+      'NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8 ansatz (imp-2642/' +
+      'imp-2643) UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a>=0 untouched; ' +
+      'NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34008 (testing the imp-33948 apex parabola against the true imp-33878 resid_exp(k) hump in the wings, to bound the validity range of the quadratic fit), 2026',
+    relatedTerms: [
+      'imp-33948 the apex-curvature quadratic fit and E2 flat-top half-widths this ticket wing-tests (imp-33948)',
+      'imp-34005 the fit-window robustness companion sweeping the quadratic-fit half-width instead of the wing range (imp-34005)',
+      'imp-33878 the resid_exp(k) hump model reused verbatim as the wing-fidelity ground truth (imp-33878)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

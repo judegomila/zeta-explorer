@@ -10266,6 +10266,36 @@ export const glossary = [
       'imp-486 C_mb GUE-conditional share, left untouched by this measurement (imp-486)',
     ],
   },
+  {
+    term: 'imp-34003 F4=1 crossing full-precision locator (bisected from_k*=8.6959, geometric center k_c=8.8209)',
+    category: 'numerical',
+    definition:
+      'imp-33962 R3 read the sub-leading residual factor F4 = resid(b)/resid(a) unity crossing off the ' +
+      'discrete 21-rung imp-33810 ladder and quoted it only to one decimal, near k~8.9. imp-34003 builds ' +
+      'resid(k) as a continuous function of the ladder coordinate (window [10^k,10^(k+1)] evaluated at ' +
+      'its upper endpoint, exactly the imp-33962 rung residual) from the inherited imp-3220/imp-3406 sub-' +
+      'terms, and bisects F4(k)-1 = resid(k+dk)/resid(k)-1 = 0 (dk=0.25) to a machine-floor residual.\n\n' +
+      'RESULT: the F4=1 crossing sits at from_k*=8.6958594943 (N=4.964e8), inside the discrete step ' +
+      'from_k=8.50 (F4=1.02708, amplifying) to 8.75 (F4=0.99253, attenuating). Its geometric center ' +
+      'k_c=from_k*+dk/2=8.8208594943 (N_center=6.620e8) is the residual-peaks-here reading imp-33962 ' +
+      'eyeballed as k~8.9 -- for a smooth resid the symmetric ratio equals 1 exactly when the interval ' +
+      'midpoint sits at the resid extremum. Independently bisecting the pointwise central-difference ' +
+      'resid-prime(k)=0 puts the peak at k_peak=8.8210916010 (N=6.624e8), matching k_c to 2.3e-4 in k, ' +
+      'with resid(k_peak)=0.0653366 -- two independent root-finds (a ratio symmetry argument and a direct ' +
+      'stationary-point search) confirming the same location. Beyond this height the imp-33773 M2 ' +
+      'residual attenuates rather than amplifies, so F4 (not the F2 normaliser) carries the imp-33962 ' +
+      'per-step tail attenuation.\n\n' +
+      'HONEST SCOPE: measurement only, on the inherited imp-3220/imp-3406 component model, NOT a rigorous ' +
+      'asymptotic; resid(k) surrogate and factor identity exact WITHIN the model only; changes no bound; ' +
+      'imp-3066 K_a >= 0 untouched; C_mb GUE-conditional per imp-486 untouched; NO QED; Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34003 (refining the imp-33962 R3 F4-unity crossing, reported only as k~8.9 off the discrete ladder, to full precision by bisecting the continuous per-step residual ratio resid(k+dk)/resid(k)-1 on the inherited imp-3220/imp-3406/imp-33810 sub-terms), 2026',
+    relatedTerms: [
+      'imp-33962 per-step attenuation decomposition (the 92%-is-F2 headline is a net aggregate, not a per-rung property), the R3 reading this ticket refines to full precision (imp-33962)',
+      'imp-33810 the 21-rung quarter-decade ladder supplying the discrete F4 evaluations bisected here (imp-33810)',
+      'imp-33773 M2 residual, whose amplifying-to-attenuating regime change at k_peak this crossing locates (imp-33773)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

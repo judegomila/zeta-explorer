@@ -4570,6 +4570,15 @@ const DATA_MODULES = [
   // C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA;
   // no QED. 6 assertions.
   '/src/data/imp-34187-ecoll-residual-milestone-ladder.js',
+  // imp-34191: fits the imp-34126 F2 span exponent alpha ladder (0.6976..0.8549 across
+  // N=1e60..1e800, L~135..1836) to saturating surrogates to test the L->inf limit. The naive
+  // alpha=1-c/L is REJECTED (R^2~-1.26); a free alpha=alpha_inf+c*L^{-p} extrapolates to
+  // alpha_inf~0.88 (p~0.765, R^2~0.99994) BELOW 1; locking the limit to 1 via alpha=1-c*L^{-p}
+  // needs an implausibly slow p~0.28 at R^2~0.970. Verdict EQUIVOCAL -- consistent with alpha->1
+  // but not confirmed; the coarse 4-pts/decade OLS biases the deepest-rung reading DOWN by ~0.0019.
+  // Measurement/fit only; C_mb GUE-conditional per imp-486 untouched; PT Lambda<=0.2 SOTA; no QED.
+  // 6 assertions.
+  '/src/data/imp-34191-span-exponent-alpha-limit-fit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -4234,6 +4234,17 @@ const DATA_MODULES = [
   // PT Lambda<=0.2 SOTA; no QED. 5 assertions. (transitively exercises the imp-33810/imp-33962 model
   // via effectiveHeightForN/C_C_PINNED.)
   '/src/data/imp-34148-symmetric-trim-f4-cancellation.js',
+  // imp-34149: LOCATE the imp-34086 R3 tail-only F4 unity crossing. imp-34086 found the F4-crosses-
+  // unity event behind the imp-34009 non-monotone m=1 share bump lives entirely on the high-N tail
+  // (tail-only F4 rises 0.8743->1.0881 through unity between m=0 and m=1) but bracketed the crossing
+  // only to [0,1]. This bisects the imp-33962 telescoping F4(win)=resid(hi)/resid(lo) on the tail-only
+  // window [6, 11-0.25m] (low endpoint pinned at rung 0) on continuous m for the fractional m*~0.6063
+  // where tail-only F4=1 (k=6.0000..10.8484, width ~4.8484 decades): the retreating high-endpoint
+  // residual matches the pinned low-endpoint residual, and the tail-only share peaks at 0.9663; the
+  // crossing sits ~0.073 rung below the imp-34148 symmetric crossing (0.6791, no head-down push to
+  // offset). Nearest integer rung m=1 is the imp-34009/imp-34086 tail share bump. Measurement only;
+  // imp-486/C_C ansatz untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34149-tail-only-f4-unity-crossing.js',
   // imp-34087: quantify the catastrophic-cancellation significance loss in the imp-34023 F4
   // surrogate on the approach to the kEnd ~ 21.281 M2-residual zero crossing. Measures the
   // relative cancellation C(kEnd) = (|pEcoll*(1-sigma)| + |pSigma|)/|resid| and the digits lost

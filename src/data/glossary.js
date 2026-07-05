@@ -10575,6 +10575,34 @@ export const glossary = [
       'imp-34066 the direct centre-anchored re-test confirming the F3 centroid-reading mechanism (imp-34066)',
     ],
   },
+  {
+    term: 'imp-34065 span-linear exponent-offset laws: delta*(log T0)^2 = Snat/4 and threshold-lead = S/2 decades',
+    category: 'numerical',
+    definition:
+      'imp-34006 F2/F3 measured the pointwise-vs-window effective-exponent offset and the window-START ' +
+      'threshold lead at a SINGLE fixed OLS window span S=12 decades, leaving open whether the analytic ' +
+      'S/4 offset prediction and the ~half-span lead were span-specific coincidences or genuine laws. ' +
+      'imp-34065 re-ran the same shared ladder varying S over {6,12,24} decades.\n\n' +
+      'FINDINGS (measurement only): (S1) delta*(log T0)^2 tracks the analytic Snat/4 (Snat=S ln10) at ' +
+      'EVERY span tested, approaching FROM BELOW -- at the deepest rung (N=1e200) the ratio to Snat/4 is ' +
+      '0.976/0.959/0.927 for S=6/12/24, i.e. linear in span to within ~5-8%, with the finite-L shortfall ' +
+      'GROWING as larger windows sample more curvature; (S2) the window-START threshold lead over the ' +
+      'span-fixed pointwise crossings tracks S/2 decades -- the deeper 0.1%-crossing lead is 3.00/5.98/11.93 ' +
+      'decades for S=6/12/24 against the S/2 prediction of 3/6/12, matched to <1.5%, doubling with the span; ' +
+      '(S3) both laws share ONE mechanism -- the fixed-span OLS window reads the pointwise exponent at its ' +
+      'CENTROID (+Snat/2), so delta~p_prime*(Snat/2)=Snat/(4 L^2) and the lead is exactly half the span -- so ' +
+      'imp-34006 F2/F3 are just the S=12 slice of these two clean span-linear laws. imp-34066 later directly ' +
+      'confirmed the centroid-reading mechanism by re-anchoring the window at its centre.\n\n' +
+      'HONEST SCOPE: conditional-share/exponent diagnostic reusing the inherited imp-3220/imp-3406 ' +
+      'component model, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; changes ' +
+      'no bound; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34065 (measuring the OLS window-span dependence of the imp-34006 pointwise-vs-window exponent offset across S in {6,12,24} decades), 2026',
+    relatedTerms: [
+      'imp-34006 the single-span (S=12) F2/F3 offset and lead this ticket generalizes to a span law (imp-34006)',
+      'imp-34066 the direct centre-anchored re-test confirming the centroid-reading mechanism behind both laws (imp-34066)',
+      'imp-33816 the pointwise gap law gap~1/(2 log T0) whose window counterpart these span laws refine (imp-33816)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

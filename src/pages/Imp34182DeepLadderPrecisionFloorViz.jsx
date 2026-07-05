@@ -224,6 +224,35 @@ export default function Imp34182DeepLadderPrecisionFloorViz() {
           color: '#64748b',
         }}
       >
+        <strong style={{ color: '#94a3b8' }}>Cross-validated (imp-34172):</strong> an independent
+        from-source second code path (own channels()/pSigma helpers, no shared imp-34106 parts()
+        helper) reproduces this deep ladder BIT-FOR-BIT under stable-OLS arithmetic across all six
+        rungs e = 15..20 -- including the e = 19 departure flagged above -- so the schedule is
+        path-independent, not a single-implementation artifact. The departure itself is a
+        precision-floor TIE: the two contested grid points at e = 19 are separated by a resid_exp
+        margin of only +3.64e-15, and an algebraically-equivalent but numerically-inferior
+        raw-moment OLS reformulation flips the selection to the predicted descent. Nothing here
+        changes the departure's cause (see "Why it departs" above) -- it sharpens imp-34106 E3's
+        precision-floor diagnosis with a second, independent path. Elsewhere on the same cohort,{' '}
+        <Link to="/viz-imp34198-ecoll-residual-milestone-ladder" style={{ color: '#38bdf8' }}>
+          imp-34130
+        </Link>{' '}
+        resolved a related open sub-question: the separated E_coll local-exponent residual to -1/2
+        does NOT saturate at a floor, but keeps closing as ~1/(2 log T0), reaching 2.174e-6 by
+        log10(N) = 1e5. Both are measurements/cross-validations only -- no bound change, NO QED.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
         <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement only, isRigorous false.
         Component model is the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; the
         surrogate resid_exp(k) is descriptive, not derived; C_mb GUE-conditional per imp-486 UNTOUCHED;

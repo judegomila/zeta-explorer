@@ -258,6 +258,7 @@ const Imp33930CrossoverFixedPointConvergenceViz = lazy(() => import('./pages/Imp
 const Imp33931FartailFloorSensitivityScatterViz = lazy(() => import('./pages/Imp33931FartailFloorSensitivityScatterViz.jsx'));
 const Imp33932SubdecadeExponentRampCurvatureViz = lazy(() => import('./pages/Imp33932SubdecadeExponentRampCurvatureViz.jsx'));
 const Imp33950PerronNormCurveViz = lazy(() => import('./pages/Imp33950PerronNormCurveViz.jsx'));
+const Imp33993GVsLawOffsetViz = lazy(() => import('./pages/Imp33993GVsLawOffsetViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1045,6 +1046,7 @@ function AppShell() {
           <Route path="/viz-imp33931-fartail-floor-sensitivity-scatter" element={<Imp33931FartailFloorSensitivityScatterViz />} />
           <Route path="/viz-imp33932-subdecade-exponent-ramp-curvature" element={<Imp33932SubdecadeExponentRampCurvatureViz />} />
           <Route path="/viz-imp33950-perron-norm-curve" element={<Imp33950PerronNormCurveViz />} />
+          <Route path="/viz-imp33993-g-vs-law-offset" element={<Imp33993GVsLawOffsetViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

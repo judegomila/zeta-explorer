@@ -4514,6 +4514,14 @@ const DATA_MODULES = [
   // inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
   // untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-34168-doubling-map-highprecision-kstar-floor.js',
+  // imp-34226: CROSS-CHECK the imp-34149 tail-only (m*~0.6063) and imp-34148 symmetric (m*~0.6791)
+  // fractional F4=1 crossings against the imp-34086 tail-only integer bracket (F4 0.8743 at m=0 ->
+  // 1.0881 at m=1). Imports all three modules' exported data (no re-derivation) and asserts: the
+  // imp-34086 bracket straddles unity; both bisected m* fall strictly inside the open (0,1) bracket;
+  // and the tail-only crossing sits ~0.0727 rung below the symmetric one, matching both modules' own
+  // verdict text. Consistency check only; no bound changes; imp-3066 K_a>=0 untouched; C_mb GUE-
+  // conditional per imp-486 UNTOUCHED; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34226-crossing-integer-bracket-crosscheck.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -10757,6 +10757,29 @@ export const glossary = [
     ],
   },
   {
+    term: 'imp-34097 audit: the imp-34009 endpoint-sensitivity verdict is already glossaried',
+    category: 'meta',
+    definition:
+      'imp-34097 asked for a glossary.js entry summarizing the imp-34009 verdict -- the imp-33962 92%-is-' +
+      'F2 aggregate share (0.9225 on the full 5-decade head-to-tail window) is ENDPOINT-CONTINGENT, ' +
+      'falling to 0.7458 on the innermost 0.5-decade window, with a non-monotone bump UP to 0.9462 at ' +
+      'm=1 (4.5 decades) where the aggregate residual factor F4 crosses unity, so a central 1-decade ' +
+      'window would report only ~75% is F2.\n\n' +
+      'AUDIT FINDING: that exact verdict is ALREADY documented, in full, by the "imp-34009 window-endpoint ' +
+      'sensitivity of the imp-33962 92%-is-F2 aggregate share" entry above (firstUsed: imp-34009), which ' +
+      'reproduces the 0.9225->0.7458 drift, the m=1 0.9462 non-monotone bump, and the F4 unity-crossing ' +
+      'explanation verbatim. Adding a second full-prose entry here would duplicate that content, so this ' +
+      'entry is a short cross-reference closing the discoverability gap imp-34097 flagged, without ' +
+      'restating the verdict.\n\n' +
+      'HONEST SCOPE: bookkeeping/cross-reference only; changes no bound; establishes no operator ' +
+      'positivity; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34097 (auditing whether the imp-34009 window-endpoint sensitivity verdict already has glossary coverage), 2026',
+    relatedTerms: [
+      'imp-34009 window-endpoint sensitivity of the imp-33962 92%-is-F2 aggregate share, the pre-existing full entry this audit found (imp-34009)',
+      'imp-33962 the per-step attenuation decomposition establishing the 92%-is-F2 aggregate headline (imp-33962)',
+    ],
+  },
+  {
     term: 'imp-33810 M2-residual surrogate factor family F2/F3/F4 and the kEnd*~21.281 cancellation ceiling',
     category: 'numerical',
     definition:

@@ -1130,7 +1130,23 @@ export const LAMBDA_ROADMAP = {
     'high kEnd=12.75,13, near-mirror images) each ~68x stronger than interior-' +
     'adjacent pairs. All seven are measurement/cross-validation only on the ' +
     'inherited imp-3220/imp-3406 extrapolation component model, change no bound, ' +
-    'do NOT discharge H4/G7, and C_mb remains GUE-conditional (imp-486); NO QED.',
+    'do NOT discharge H4/G7, and C_mb remains GUE-conditional (imp-486); NO QED. ' +
+    'FURTHER QUANTIFIED (imp-34133/imp-34134): two follow-ups pin down the ' +
+    'internal structure of the E(N) bridge components. imp-34133 fits the ' +
+    'imp-34023 near-flat F2(kEnd)/F3(kEnd) attenuation factors to their ' +
+    'asymptotic limits across the extended sign-stable ladder kEnd=13.0..21.0 ' +
+    'and finds BOTH saturate to finite positive constants (F2->0.059492, ' +
+    'F3->0.835955, R^2>0.9999) rather than collapsing toward 0, confirming F4 ' +
+    'alone (which does collapse geometrically, ~x3.2e-5 over the same window) ' +
+    'drives the divergence of the over-prediction ratio 1/(F2*F3*F4). imp-34134 ' +
+    'tabulates the E_flow/E_trunc ratio across N=1e6..1e18 and finds the point ' +
+    'where the Gronwall E_flow term drops negligible against the constant ' +
+    'E_trunc=3.06e-5 floor (collapsing the three-term sigma to the two-term ' +
+    'form) essentially COINCIDES with the imp-3444 E_coll=E_trunc crossover ' +
+    'N~3.280e9, to within about one decade. Both are measurement/curve-fit ' +
+    'only within the inherited imp-3220/imp-3406 component model, change no ' +
+    'bound, do NOT discharge H4/G7, and C_mb remains GUE-conditional ' +
+    '(imp-486); NO QED.',
   bounds: LAMBDA_BOUNDS,
   chain: LAMBDA_CHAIN_STEPS,
   verification: VERIFICATION_EFFORTS,

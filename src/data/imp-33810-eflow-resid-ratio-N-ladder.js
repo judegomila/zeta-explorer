@@ -144,6 +144,10 @@ for (let k = K_START; k <= K_END + 1e-9; k += K_STEP) {
     eflow_attr: +eflowAttr.toExponential(4),
     eflow_over_resid: +(eflowAttr / residExp).toExponential(4), // E_flow as a fraction of resid
     resid_over_eflow: +(residExp / eflowAttr).toFixed(1), // how many x too small E_flow is
+    // imp-33946 FULL-PRECISION rung ratio (raw double residExp/eflowAttr, NO toFixed(1) display
+    // rounding) so the ladder and its widening factor survive machine precision -- resolves the
+    // imp-33939 caveat that resid_over_eflow above is toFixed(1)-rounded.
+    resid_over_eflow_fullprec: +(residExp / eflowAttr).toExponential(9),
   });
 }
 
@@ -169,6 +173,20 @@ const IMP33773_M2_TAIL = 1928;
 // per-rung cross-validation). The ~1.6% gap is a display-rounding artifact of the O(1) head rung,
 // NOT a factor-decomposition error -- see imp-33884/imp-33885 for the un-rounded value.
 const SEPARATION_WIDENING = +(RESID_OVER_EFLOW[RESID_OVER_EFLOW.length - 1] / RESID_OVER_EFLOW[0]).toFixed(1);
+
+// imp-33946: FULL-PRECISION recompute of the ratio ladder and its widening factor from the raw
+// double-precision sub-terms (resid_over_eflow_fullprec = residExp/eflowAttr, no toFixed(1)),
+// removing the imp-33939 head-rung display artifact. RESID_OVER_EFLOW_FULLPREC grows strictly
+// monotonically {2.1334..1927.60} (R1) and the raw widening = roe(11)/roe(6) = 903.538 --
+// reproducing the imp-33884/imp-33885 un-rounded figure and confirming the ~917.9 toFixed(1)
+// value above is a pure ~1.6pct rounding inflation of the O(1) head rung, not a real gap.
+const RESID_OVER_EFLOW_FULLPREC = RUNGS.map((r) => r.resid_over_eflow_fullprec);
+const RAW_ROE_MONOTONE_UP = RESID_OVER_EFLOW_FULLPREC.every(
+  (x, i) => i === 0 || x > RESID_OVER_EFLOW_FULLPREC[i - 1]
+);
+const SEPARATION_WIDENING_FULLPREC = +(
+  RESID_OVER_EFLOW_FULLPREC[RESID_OVER_EFLOW_FULLPREC.length - 1] / RESID_OVER_EFLOW_FULLPREC[0]
+).toFixed(3); // ~903.538 (matches imp-33884 fullprec; vs 917.9 toFixed(1) artifact)
 const SEPARATION_WIDENING_DISPLAY_CAVEAT =
   'This value divides toFixed(1)-rounded rungs (head roe(6)=2.134 shown as 2.1), inflating the ' +
   'reported widening by ~1.6% versus the exact full-precision value 903.538 -- see imp-33884 ' +
@@ -196,6 +214,8 @@ export const IMP33810_EFLOW_RESID_RATIO_N_LADDER = {
     same_sign_positive: ALL_SAME_SIGN_POSITIVE, // resid>0 AND eflow>0 -> NOT a sign coincidence
     separation_widening_factor: SEPARATION_WIDENING, // tail gap / head gap ~ 918x
     separation_widening_display_caveat: SEPARATION_WIDENING_DISPLAY_CAVEAT, // imp-33939/imp-33884/imp-33885
+    separation_widening_fullprec: SEPARATION_WIDENING_FULLPREC, // imp-33946: ~903.538, un-rounded
+    raw_roe_monotone_up: RAW_ROE_MONOTONE_UP, // imp-33946: full-prec resid/eflow strictly rising in N
   },
   reuse: {
     imp33773_M2_head_resid_over_eflow: IMP33773_M2_HEAD, // ~2.1 (k=6)
@@ -216,6 +236,13 @@ export const IMP33810_EFLOW_RESID_RATIO_N_LADDER = {
       '~5.19e-4 (~1928x, three orders) in the tail. The 1900x tail number is the ENDPOINT of a ' +
       'monotone-widening trend across k=6..11, not a single-point artifact; and the separation is ' +
       'only ~2x at the head, so it is NOT uniformly orders-of-magnitude -- it GROWS into the tail.',
+    R5_fullprec_ladder_survives_rounding:
+      'imp-33946: recomputing the ladder from the raw double-precision sub-terms (resid_exp and ' +
+      'E_flow, no toFixed(1)) leaves R1 and R2 intact -- the full-precision resid/eflow ladder is ' +
+      'strictly monotone-increasing {2.1334..1927.60} and eflow_attr stays below resid_exp at every ' +
+      'rung -- and pins the un-rounded separation-widening at 903.538 (matching imp-33884/imp-33885), ' +
+      'confirming the displayed ~917.9 is a ~1.6pct toFixed(1) inflation of the O(1) head rung, not a ' +
+      'real magnitude discrepancy.',
     R4_same_sign_not_sign_coincidence:
       'resid_exp > 0 AND eflow_attr > 0 at every rung, so the two quantities share a sign ' +
       'throughout; the M2 refutation is a genuine magnitude gap (E_flow is a strictly shrinking ' +
@@ -278,6 +305,19 @@ export const IMP33810_EFLOW_RESID_RATIO_N_LADDER_ASSERTIONS = [
     id: 'imp33810-same-sign-not-sign-coincidence',
     description: 'resid_exp > 0 and eflow_attr > 0 at every rung -- a magnitude gap, not a sign flip',
     holds: () => ALL_SAME_SIGN_POSITIVE,
+  },
+  {
+    // (R5, imp-33946) Full-precision recompute: the raw-double resid/eflow ladder is strictly
+    // increasing and its widening reproduces the imp-33884 un-rounded 903.538, so R1/R2 survive
+    // the removal of the toFixed(1) head-rung display artifact flagged by imp-33939.
+    id: 'imp33810-fullprec-ladder-survives-rounding',
+    description: 'raw resid/eflow strictly rising; fullprec widening ~903.538 (not the 917.9 artifact)',
+    holds: () =>
+      RESID_OVER_EFLOW_FULLPREC.length === 21 &&
+      RAW_ROE_MONOTONE_UP &&
+      ALL_BELOW_UNITY &&
+      Math.abs(SEPARATION_WIDENING_FULLPREC - 903.538) < 0.05 &&
+      SEPARATION_WIDENING_FULLPREC < SEPARATION_WIDENING,
   },
   {
     // Honesty gate: measurement/attribution only, isRigorous false, no QED, PT SOTA.

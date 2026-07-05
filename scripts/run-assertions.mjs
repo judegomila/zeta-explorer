@@ -4237,6 +4237,20 @@ const DATA_MODULES = [
   // imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions. (transitively exercises
   // the imp-33810/imp-34023 model via effectiveHeightForN/C_C_PINNED.)
   '/src/data/imp-34087-f4-surrogate-cancellation-digit-loss.js',
+  // imp-34088: segmented broken-stick fit to the 21 imp-33858 residuals, testing the imp-34026 R3
+  // "richer than a quadratic" S-shape reading. Grid-searches a free interior breakpoint tau and fits
+  // the continuous hinge basis y = a + b k + c (k-tau)_+ by OLS, then recomputes Ljung-Box Q_1..5 on
+  // the segmented residual. FINDING: the break lands at tau ~ 9.65 with the ln-ratio decay flattening
+  // from ~-1.50 to ~-1.15 in the tail half; RMSE 0.0669 undercuts both the imp-34026 quadratic 0.0962
+  // (~30%) and the imp-33843 log-linear 0.1160 (~42%). The break PARTIALLY whitens: the 1% Ljung-Box
+  // null is now cleared at m=2..5 (Q_2..Q_5 ~ 7.94..14.97 all below the 1% chi-square_m), surviving
+  // only at m=1 (Q_1 ~ 7.30), where the quadratic residual was rejected at EVERY m; but every Q_m still
+  // exceeds the 5% value and the ACF far-lobe stays deep (r_5 ~ -0.363), so a single break does not
+  // fully whiten -- the imp-34026 richer-than-quadratic reading holds. Form-diagnostic only; the free
+  // breakpoint is an extra effective parameter so this does NOT re-open the imp-33843 log-linear WINNER;
+  // imp-486/C_mb untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  // (reuses the imp-33810 21-rung ladder VERBATIM.)
+  '/src/data/imp-34088-segmented-broken-stick-fit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

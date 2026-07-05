@@ -4426,6 +4426,19 @@ const DATA_MODULES = [
   // Measurement/location only; imp-486/C_C ansatz untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2
   // SOTA; no QED. 6 assertions.
   '/src/data/imp-34153-trough-peak-perstep-crossover-locate.js',
+  // imp-34154: TEST whether the imp-34085 R3 stall-then-jump argmin (trough-location) migration
+  // k=9.00->9.25->9.50->9.50->9.75 is a grid-discretization artifact. Re-running the SAME inherited
+  // effectiveHeightForN/C_C_PINNED sub-terms to reproduce the imp-33843 log-linear fit (a,b) on each
+  // quarter-decade ladder EXACTLY as imp-34085, then taking the signed-residual argmin CONTINUOUSLY in k
+  // (dense scan step 0.005 + parabolic refine) instead of over the rungs, shows the trough migrates
+  // SMOOTHLY and monotonically at a near-uniform ~+0.13 per half-decade window (9.110 -> 9.244 -> 9.377
+  // -> 9.506 -> 9.629, increments varying by < 0.011) -- NO stall. Nearest-0.25-rung rounding of that
+  // trajectory reproduces the discrete 9,9.25,9.5,9.5,9.75 bit-for-bit: the stall at 9.50 is the two
+  // straddling continuous locations 9.377 and 9.506 both snapping to the same rung. So the R3 stall is a
+  // grid-discretization ARTIFACT and the naive linear-migration picture survives continuously at ~half
+  // the discrete rate. Reuse gate reproduces imp-34085 R3 exactly; imp-34085 R1/R2 (magnitudes) untouched.
+  // imp-486/C_C ansatz untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34154-trough-continuous-argmin-artifact-test.js',
   // imp-34218: META provenance roll-up cataloguing the imp-34146/34147/34148/34149/34150/34151
   // apex-tilt and F4-cancellation cohort (six modules) by EVIDENCE CLASS (higher-order term fit
   // extension / window-centre stability sweep / symmetric-trim cancellation bisection / tail-only

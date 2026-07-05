@@ -11415,6 +11415,35 @@ export const glossary = [
       'imp-33924 joint cusp-angle leading-amplitude closed form underlying all branch measurements (imp-33924)',
     ],
   },
+  {
+    term: 'imp-34155 l=0 KPSS borderline fragility -- endpoint-driven, HAC-corrected reading unaffected',
+    category: 'numerical',
+    definition:
+      'imp-34083 R2 (echoing imp-34024 R3) isolated the SOLE KPSS rejection on the 21 signed imp-33858 ' +
+      'residuals to the un-HAC l=0 level statistic eta_mu~0.3483, exceeding the KPSS-1992 10% critical ' +
+      'value 0.347 by only ~0.0013. imp-34155 measures how FRAGILE that borderline is: reusing the ' +
+      'imp-34024 l=0 KPSS statistic VERBATIM, the smallest single-rung residual shift that drops ' +
+      'eta_mu below 0.347 is only ~ -0.00201 -- about 1.7% of the 21-residual RMS ~0.1160 -- on the HEAD ' +
+      'endpoint k=6.00, the most-leveraged rung by |d(eta_mu)/d(delta_r)| (~0.6387, the largest of all ' +
+      '21). Ranked by |flip shift| the three cheapest rungs are the head endpoint (k=6.00), its ' +
+      'neighbour (k=6.25), then the far-tail endpoint (k=11.00), mirroring the imp-33858 head/far-tail ' +
+      'residual localization -- the borderline is ENDPOINT-DRIVEN, not a deep-interior effect.\n\n' +
+      'HONEST STATUS: this l=0 un-HAC rejection is FRAGILE -- a fifth-of-a-percent nudge of one endpoint ' +
+      'erases it -- and is NOT the primary reading. The HAC-corrected (l>=1) statistic eta_mu~0.149 sits ' +
+      'far below 0.347 and KPSS fails to reject stationarity there; that HAC-corrected non-rejection is ' +
+      'UNCHANGED by this sensitivity read and REMAINS the primary reading, exactly as imp-34024 R3 ' +
+      'cautioned.\n\n' +
+      'A calibration/sensitivity read of an inherited un-HAC diagnostic, not a new claim; reproduces ' +
+      'imp-34024/imp-34083 at baseline; the inherited imp-3220/imp-3406 component model is NOT a ' +
+      'rigorous asymptotic; C_mb GUE-conditional per imp-486 untouched; changes no bound; imp-3066 ' +
+      'K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34155 (measuring the per-rung KPSS l=0 sensitivity and the smallest single-rung shift that flips the imp-34083/imp-34024 borderline rejection), 2026',
+    relatedTerms: [
+      'imp-34024 the l=0 eta_mu~0.3483 borderline and the HAC-corrected eta_mu~0.149 primary reading this entry contrasts (imp-34024)',
+      'imp-34083 the Newey-West bandwidth sweep isolating the sole rejection to the un-HAC l=0 cell (imp-34083)',
+      'imp-33858 the head/far-tail residual localization this borderline sensitivity mirrors (imp-33858)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

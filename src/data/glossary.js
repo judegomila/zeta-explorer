@@ -10353,6 +10353,39 @@ export const glossary = [
       'imp-486 C_mb GUE-conditional share, left untouched by this measurement (imp-486)',
     ],
   },
+  {
+    term: 'imp-34045 joint phase-zero outer-branch endpoint-collapse identification (alpha->1 boundary degeneracy)',
+    category: 'numerical',
+    definition:
+      'imp-33970 proved theta=pi/2 is the UNIQUE phase-zero of the imp-33924 joint leading amplitude ' +
+      '-A(alpha,theta)=2 B(alpha)|cos(p pi/2)|e^{i p(pi/2-theta)} (p=1+alpha in (1,2)) on the open ' +
+      'interval (0,pi) for every alpha in (0,1), with degeneracy only at the excluded endpoint alpha=1, ' +
+      'but never tabulated the two flanking real-axis crossing families or their approach to that ' +
+      'endpoint. imp-34045 sweeps alpha up toward 1 (0.5, 0.75, 0.9, 0.95, 0.99, 0.999, 0.9999) and ' +
+      'tabulates both branches.\n\n' +
+      'RESULT: the branch that actually COLLAPSES onto the endpoints 0+ and pi- as alpha->1 is the ' +
+      'outer real-NEGATIVE crossing theta=pi/2-+pi/p (arg(-A)=pi) -- NOT the pi/2-+2pi/p real-POSITIVE ' +
+      'branch named in the originating ticket, which sits a further pi/p out and stays a distance pi/2 ' +
+      'OUTSIDE (0,pi) even at p=2 (alpha=1), reaching the endpoints only at p=4 (alpha=3), far outside ' +
+      'the exponent range. The collapsing branch obeys the closed-form approach law d(alpha)=pi(1-alpha)/' +
+      '(2(1+alpha))=pi(2-p)/(2p), monotone to 0, with leading behaviour (pi/4)(1-alpha) and endpoint ' +
+      'slope d d/d alpha|_{alpha=1}=-pi/4 (~-0.785399). The second (positive) crossing NEVER enters ' +
+      '(0,pi) for alpha<1 -- ~7.85e-3 outside at alpha=0.99, ~7.85e-4 at alpha=0.999 -- touching the ' +
+      'boundary only in the exact excluded limit alpha=1, exactly as the imp-33970 uniqueness result ' +
+      'requires. Evaluating the closed form at the predicted angles confirms residual |Im|/|amp|~1e-16 ' +
+      'with Re<0 at pi/2-pi/p (negative real axis) and Re>0 at pi/2-2pi/p (positive real axis).\n\n' +
+      'HONEST SCOPE: measurement only, on the inherited imp-33924 closed form for the model cusp ' +
+      'rho(x)=|x|^{-alpha}; establishes NO operator positivity; does NOT re-derive the m_prime->C_ren ' +
+      'map off-axis/off-exponent and does NOT discharge H4 (imp-33766); G6a_shock_lipschitz STAYS OPEN; ' +
+      'C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian ' +
+      'Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34045 (characterizing the imp-33970 alpha->1 (p->2) boundary degeneracy of the joint phase-zero by tabulating both flanking real-axis crossing families and their approach to the endpoints), 2026',
+    relatedTerms: [
+      'imp-33970 joint phase-zero UNIQUENESS-over-alpha, whose excluded alpha=1 endpoint degeneracy this ticket characterizes (imp-33970)',
+      'imp-33924 JOINT cusp-angle leading-amplitude factorization supplying the closed form evaluated at both crossing families (imp-33924)',
+      'imp-486 C_mb GUE-conditional share, left untouched by this measurement (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

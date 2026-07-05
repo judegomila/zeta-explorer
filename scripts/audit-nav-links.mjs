@@ -296,6 +296,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33894-residual-shape',
   '/viz-imp33895-log-saturation-reconciliation',
   '/viz-imp33738-gap-vs-trough-depth-coupling',
+  '/viz-imp33800-sigma-inflection-residual-contrast',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

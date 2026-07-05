@@ -3870,6 +3870,17 @@ const DATA_MODULES = [
   // imp-486/C_C ansatz untouched; PT Lambda<=0.2 SOTA; no QED. 4 assertions. (transitively
   // exercises the imp-33810/imp-33844 model via effectiveHeightForN/C_C_PINNED.)
   '/src/data/imp-33902-hump-argmax-convergence-rate.js',
+  // imp-33945 (numerical): CHARACTERIZES the imp-33902 ~0.695-decade gap between the resid_exp(k)
+  // hump argmax k*~8.821 and the pointwise E_coll=E_trunc crossover k_cross~9.516. Recomputes k*
+  // (raw + parabolic argmax) and k_cross (crossover root) at grid steps 0.25/0.125/0.0625. FINDING:
+  // the gap is grid-discretization-STABLE under the parabolic sub-grid locator (0.6961/0.6949/0.6949,
+  // spread ~1.2e-3) since k_cross is a grid-independent root; the raw-argmax gap wobble (~0.125) is
+  // exactly the imp-33942 sawtooth artifact; and the gap encodes a FIXED structural offset -- the
+  // full resid_exp peaks at sigma(k*)~0.680, NOT at sigma=1/2 (k_cross) where the imp-33844 closed
+  // form peaks (residual at k_cross ~12.5% below the true peak). Measurement only; imp-486/C_C ansatz
+  // untouched; PT Lambda<=0.2 SOTA; no QED. 4 assertions. (transitively exercises the
+  // imp-33810/imp-33844 model via effectiveHeightForN/C_C_PINNED.)
+  '/src/data/imp-33945-hump-argmax-crossover-gap-grid-stability.js',
   // imp-33886 (numerical): puts a formal SIGNIFICANCE TEST under the imp-33858 "structured, not
   // uniform noise" verdict for the imp-33843 log-linear residual. On the same 21 signed residuals
   // (n1=11 pos, n2=10 neg, 4 runs), the Wald-Wolfowitz runs test gives z ~ -3.36, two-sided

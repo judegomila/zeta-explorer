@@ -10908,6 +10908,38 @@ export const glossary = [
       'imp-34024 the companion DF/KPSS confirmatory-classification bracket on the same 21 residuals (imp-34024)',
     ],
   },
+  {
+    term: 'imp-34026 quadratic-detrend Ljung-Box whitening-failure verdict on the 21 imp-33858 residuals',
+    category: 'numerical',
+    definition:
+      'imp-33964 read the sign-changing sample ACF of the 21 signed imp-33858 residuals (the imp-33810 ' +
+      'ladder against the imp-33843 log-linear OLS winner) as an artifact of a straight line dragged ' +
+      'across the single curved imp-33858 hump. imp-34026 tests the textbook remedy directly: re-fit the ' +
+      'same ladder with the quadratic-augmented OLS y=a+bk+ck^2 and recompute the sample ACF r_1..5 and ' +
+      'Ljung-Box Q_1..5 on the new residual. The k^2 term is REAL and material -- c~+0.0318, RMSE drops ' +
+      'from 0.1160 (log-linear) to 0.0962, a ~17% reduction -- confirming genuine curvature in the ' +
+      'imp-33964 direction. But the remedy FAILS to whiten: Q_1..5~10.31,13.00,13.04,14.01,17.52 every ' +
+      'one still exceeds the 1% chi-square_m (6.635,9.21,11.345,13.277,15.086), so the white-noise null ' +
+      'is rejected at every horizon m=1..5, and the far ACF lobe DEEPENS (r_5~-0.341 vs the linear ' +
+      '-0.262) because subtracting one parabola tilts the far tail further negative rather than ' +
+      'flattening it. Verdict: the imp-33858 hump is richer than quadratic, and the imp-33964 serial ' +
+      'dependence is NOT a simple quadratic-curvature artifact -- the imp-34081 cubic-detrend follow-up ' +
+      'confirms the same pattern one order further (RMSE keeps dropping, whitening keeps failing, the ' +
+      'lobe keeps deepening).\n\n' +
+      'HONEST SCOPE: measurement / detrend-diagnostic only, one remedy above imp-33964; re-opens no ' +
+      'imp-33843 form selection (log-linear stays the reported winner); changes no reported RMSE ' +
+      '(~0.116, ~12% multiplicative); n=21 higher-lag r_k rest on few pairs and the Q_m chi-square is a ' +
+      'small-sample asymptotic; inherited imp-3220/imp-3406 component model is NOT a rigorous ' +
+      'asymptotic; C_mb GUE-conditional per imp-486 untouched; changes no bound; imp-3066 K_a>=0 ' +
+      'untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34026 (applying the classic quadratic-detrend remedy to the imp-33964 rejected white-noise null on the 21 imp-33858 residuals, finding the curvature term real but the whitening remedy failing and the far ACF lobe deepening), 2026',
+    relatedTerms: [
+      'imp-33964 the sign-changing sample ACF and rejected white-noise null this quadratic detrend attempts to remedy (imp-33964)',
+      'imp-34025 the AR(2) complex-root damped-sinusoid fit on the same 21 residuals, a different remedy tried in parallel (imp-34025)',
+      'imp-34101 the viz page unifying the DF/KPSS/AR(2)/Ljung-Box/quadratic-detrend serial-dependence test panel (imp-34101)',
+      'imp-34081 the cubic-detrend follow-up confirming the same real-curvature/whitening-failure/deepening-lobe pattern one order further (imp-34081)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

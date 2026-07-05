@@ -10323,6 +10323,36 @@ export const glossary = [
       'imp-486 C_mb GUE-conditional share, left untouched by this measurement (imp-486)',
     ],
   },
+  {
+    term: 'imp-34005 apex curvature fit-window sensitivity: -3.61e-2 window-robust in the small (W in [0.05,0.15] within ~0.4%), drifts ~W^2, crosses 1% at W~0.255',
+    category: 'numerical',
+    definition:
+      'imp-33948 E1 fit the apex curvature of the imp-33878 sliding-window resid_exp(k) hump over a ' +
+      'SINGLE tight window k*+/-0.1 (21 samples) and got resid double-prime(k*)~-3.613e-2, but never ' +
+      'tested robustness to the fit-window half-width. Reusing the imp-33948/imp-33878 resid_exp(k) ' +
+      'model VERBATIM (no fresh model), imp-34005 re-runs the 21-point symmetric least-squares ' +
+      'quadratic at half-widths W in {0.05,0.075,0.1,0.125,0.15,0.2,0.25,0.3} and reads resid double-' +
+      'prime(k*)=2c at each. FINDING (measurement only): the fitted curvature does NOT strictly ' +
+      'plateau -- |resid double-prime| shrinks MONOTONICALLY toward zero as W widens, from -3.6180e-2 ' +
+      'at W=0.05 through the imp-33948 value -3.6130e-2 at W=0.1 to -3.5607e-2 at W=0.3 (drift ' +
+      '-0.23%/-0.55%/-0.95%/-1.45% vs the tight baseline at W=0.15/0.2/0.25/0.3). But there IS a soft ' +
+      'plateau around the imp-33948 choice: over the tight-window family W in [0.05,0.15] the ' +
+      'curvature holds within a ~0.23-0.4% band, so imp-33948 resid double-prime~-3.61e-2 is NOT a ' +
+      'half-width artifact. The downward drift scales ~W^2 (a leading quartic term flattening the ' +
+      'shoulders; fractional bias vs the imp-33878 central diff = 4.8e-4,1.8e-3,4.0e-3,7.0e-3,1.08e-2,' +
+      '1.54e-2 at W=0.05..0.3), the RMS fit residual grows from ~2e-7 to ~5e-5 of the apex, and the ' +
+      '1% level is crossed at W~0.255 (full width ~0.51 decade) beyond which the single quadratic can ' +
+      'no longer represent the hump. MEASUREMENT/FIT ONLY: descriptive fit on the inherited imp-3220/' +
+      'imp-3406 component model, NOT a rigorous asymptotic; changes no bound; imp-3066 K_a>=0 ' +
+      'untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; Platt-Trudgian Lambda<=0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-34005 (sweeping the fit-window half-width of the imp-33948 apex-curvature fit to test whether resid double-prime(k*) plateaus or drifts), 2026',
+    relatedTerms: [
+      'imp-33948 apex curvature single-window fit, whose half-width robustness this ticket tests (imp-33948)',
+      'imp-33878 HUMP-ARGMAX-CONVERGES-DOWNWARD verdict, supplying the resid_exp(k) hump model reused verbatim (imp-33878)',
+      'imp-486 C_mb GUE-conditional share, left untouched by this measurement (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

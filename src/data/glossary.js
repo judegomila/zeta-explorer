@@ -9922,6 +9922,74 @@ export const glossary = [
       'imp-34003 the bisected full-precision F4=1 crossing (from_k*=8.6959) locating where F4 overtakes F2 in the tail (imp-34003)',
     ],
   },
+  {
+    term: 'imp-34020 alpha->1- collapse rate of the imp-33970 second-phase-zero degeneracy',
+    category: 'numerical',
+    definition:
+      'imp-33970 proved theta = pi/2 is the UNIQUE real-positive phase-zero of the imp-33924 joint ' +
+      'amplitude -A(alpha,theta) = 2*B(alpha)*|cos(p*pi/2)|*e^{i*p*(pi/2-theta)} (p = 1+alpha, ' +
+      'B = pi*alpha/sin(pi*alpha)) on (0,pi) for every alpha in (0,1), with the degeneracy sitting at ' +
+      'the EXCLUDED endpoint alpha = 1. imp-34020 measures HOW that degeneracy emerges as alpha -> 1-, ' +
+      'from the closed form (cross-checked against a direct complex evaluation of A at every sampled ' +
+      'cell, agreement to ~1e-13).\n\n' +
+      'HONEST CORRECTION of the ticket wording: the two emerging second phase-zeros are real-NEGATIVE ' +
+      '(arg(-A) = +/-pi, i.e. -A real and negative), NOT real-positive. The unique real-POSITIVE angle ' +
+      'stays fixed at theta = pi/2 for ALL alpha, exactly as imp-33970 found; the endpoint degeneracy ' +
+      'is the pair of Im(-A) = 0 crossings whose analytic locations are theta_2^-(alpha) = ' +
+      'pi/2 - pi/(1+alpha) (approaching 0+) and theta_2^+(alpha) = pi/2 + pi/(1+alpha) (approaching ' +
+      'pi-). For every alpha < 1 BOTH lie strictly OUTSIDE (0,pi); they reach the open-interval ' +
+      'boundary only in the limit p -> 2 (winding span p*pi -> 2*pi).\n\n' +
+      'MEASURED COLLAPSE (both LINEAR, exponent 1):\n' +
+      '(1) Boundary gap g(alpha) = pi/(1+alpha) - pi/2 = pi*(1-alpha)/(2*(1+alpha)) between theta_2^- ' +
+      'and theta = 0: values 8.267e-2 (alpha=0.9), 7.893e-3 (0.99), 7.858e-4 (0.999); log-log collapse ' +
+      'exponent 0.9993 with leading coefficient pi/4, i.e. g ~ (pi/4)*(1-alpha).\n' +
+      '(2) Realness-residual floor outside the fixed window [pi/2 +/- 0.3], min over theta of ' +
+      '|Im(-A)|/|-A|: EXACTLY cos(alpha*pi/2), attained as theta -> 0+/pi- (numeric min 1.566e-1, ' +
+      '1.589e-2, 1.756e-3 at alpha = 0.9/0.99/0.999 confirms the closed form, grid-limited at the ' +
+      'finest alpha); log-log collapse exponent 0.9995 with coefficient pi/2, i.e. floor ~ ' +
+      '(pi/2)*(1-alpha). The floor never reaches 0 for alpha < 1, which is precisely why no second ' +
+      'real crossing enters (0,pi) below the endpoint.\n' +
+      '(3) First entry into a fixed boundary sub-window: theta_2^- enters [-delta, 0] (within delta of ' +
+      'the boundary) once alpha > pi/(pi/2 + delta) - 1, giving alpha_* = 0.9383 for delta = 0.05 and ' +
+      'alpha_* = 0.9874 for delta = 0.01.\n\n' +
+      'HONEST SCOPE: measurement/derivation only, on the model cusp rho(x) = |x|^{-alpha}. Does NOT ' +
+      're-derive the m_prime -> C_ren map and does NOT discharge H4 (imp-33766); G6a_shock_lipschitz ' +
+      'stays OPEN; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED; Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34020 (tracking the alpha->1- emergence of the imp-33970 second phase-zero of the imp-33924 joint amplitude -A(alpha,theta): measuring the collapse rate of the realness-residual-outside-window floor and the approach of the two limiting phase-zeros theta->0+, theta->pi- as the winding span (1+alpha)*pi -> 2*pi), 2026',
+    relatedTerms: [
+      'imp-33970 the joint phase-zero uniqueness-over-alpha result whose endpoint degeneracy this ticket quantifies (imp-33970)',
+      'imp-33924 the joint closed-form amplitude A(alpha,theta) = B(alpha) e^{-i(1+alpha)theta}[1+e^{i(1+alpha)pi}] supplying the second-zero locations (imp-33924)',
+      'imp-33968 the affine winding-rate law slope(alpha) = -(1+alpha) whose span (1+alpha)*pi -> 2*pi drives the degeneracy (imp-33968)',
+    ],
+  },
+  {
+    term: 'imp-33960 I1-residual round-off coefficient r(DL) ~ eps*|ln N|/(2 DL), a machine-epsilon cancellation floor not a DL^2 truncation artifact',
+    category: 'numerical',
+    definition:
+      'imp-33854 established the EXACT pointwise identity I1 gap_ecoll(N) = q(N) + 1/2 = g(N) ' +
+      'and confirmed it to a ~1e-11 machine floor at a single central-difference step DL=1e-4. ' +
+      'imp-33925 showed the identity residual r(DL) = max|gap_ecoll - g| GROWS as DL shrinks ' +
+      '(~1/DL), the fingerprint of floating-point subtractive cancellation of the large ' +
+      '-(1/2) ln N offset, the OPPOSITE of the DL^2 shrinkage a finite-difference truncation ' +
+      'artifact would show. imp-33960 upgrades this from a three-point trend to a FITTED ' +
+      'coefficient: regressing r(DL) against 1/DL over DL in {1e-2,1e-3,1e-4,1e-5,1e-6} on the ' +
+      'shared imp-33854 grid gives a log-log slope ~+1.05 (round-off, not the -2 a DL^2 ' +
+      'truncation would give), with a through-origin coefficient C_fit ~ 9e-15..1.3e-14 that is ' +
+      '~0.18..0.26 of the predicted worst-case ceiling C_pred = eps*|ln N|/2 ~ 5.11e-14 at the ' +
+      'dominant rung N=1e200 -- same order of magnitude and correctly BELOW the ceiling, ' +
+      'validating the machine-epsilon cancellation model to within a factor ~5. Measurement ' +
+      'only, on the imp-3220/imp-3406 component model; realized round-off is platform-dependent ' +
+      'so the coefficient is asserted only to order; C_mb GUE-conditional share per imp-486 ' +
+      'UNTOUCHED; imp-3066 K_a>=0 untouched; no bound changed; NO QED; Platt-Trudgian ' +
+      'Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-33960 (fitting the imp-33925 I1-residual round-off coefficient by regressing r(DL) against 1/DL over five steps on the shared imp-33854 grid), 2026',
+    relatedTerms: [
+      'imp-33925 the DL-sweep that first showed the I1 identity residual growing as ~1/DL, the round-off signature this ticket fits a coefficient to (imp-33925)',
+      'imp-33854 the log-saturation object g(N) and the EXACT pointwise identity gap_ecoll = g whose residual is being measured (imp-33854)',
+      'imp-34007 extends this single-rung round-off floor fit to a per-rung fit across the full 1e12..1e200 ladder (imp-34007)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

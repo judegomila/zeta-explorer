@@ -4062,6 +4062,21 @@ const DATA_MODULES = [
   // only, no heavy bundle). imp-3066/imp-486 untouched; PT Lambda<=0.2 SOTA; no QED.
   // 5 assertions.
   '/src/data/imp-33962-attenuation-rung-by-rung-decomposition.js',
+  // imp-33968 (numerical): TABULATES the imp-33924 phase winding rate
+  // d arg(-A)/d theta = -(1+alpha) as an EXPLICIT rate-vs-alpha curve, upgrading
+  // imp-33924 cross-check (a) from a single-tolerance pass/fail. Reusing the
+  // imp-33924 scale-free complex Simpson quadrature of A(alpha,theta), it evaluates
+  // -A across a theta sweep (45..135deg) at each alpha in the extended grid 0.1..0.9,
+  // unwraps arg(-A_quad), and least-squares fits the phase vs theta to extract the
+  // winding slope. The measured slope tracks -(1+alpha) across the full alpha range
+  // to max deviation ~1.4e-5 (residual concentrates at the smallest alpha, shrinking
+  // as alpha grows); each per-alpha fit is straight-line (max 1-R^2 < 1e-6); and the
+  // rate-vs-alpha curve is itself affine -- fitting slope(alpha) vs alpha gives slope
+  // ~-1, intercept ~-1, R^2~1, reproducing -(1+alpha) = -1 - alpha as an explicit law.
+  // Anchor alpha=1/2 recovers the imp-33883 winding rate -3/2. Import-free (pure math).
+  // Measurement only; does NOT discharge H4; G6a STAYS OPEN; imp-3066 untouched;
+  // NO QED; PT Lambda<=0.2 SOTA. 5 assertions.
+  '/src/data/imp-33968-winding-rate-vs-alpha-curve.js',
 ];
 
 let ALL_MODULES = FAST_MODE

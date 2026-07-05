@@ -283,6 +283,7 @@ const Imp34120EndpointPeakSaturatingTournamentViz = lazy(() => import('./pages/I
 const Imp34078PointwiseVsWindowExponentViz = lazy(() => import('./pages/Imp34078PointwiseVsWindowExponentViz.jsx'));
 const Imp34142WindowAnchorCentroidViz = lazy(() => import('./pages/Imp34142WindowAnchorCentroidViz.jsx'));
 const Imp34156AsymmetricTrimAttributionViz = lazy(() => import('./pages/Imp34156AsymmetricTrimAttributionViz.jsx'));
+const Imp34182DeepLadderPrecisionFloorViz = lazy(() => import('./pages/Imp34182DeepLadderPrecisionFloorViz.jsx'));
 const Imp34157TroughPeakRatioCreepViz = lazy(() => import('./pages/Imp34157TroughPeakRatioCreepViz.jsx'));
 const Imp34158DigitLossCliffViz = lazy(() => import('./pages/Imp34158DigitLossCliffViz.jsx'));
 const Imp34159CubicTiltWingReconstructionViz = lazy(() => import('./pages/Imp34159CubicTiltWingReconstructionViz.jsx'));
@@ -1104,6 +1105,7 @@ function AppShell() {
           <Route path="/viz-imp34078-pointwise-vs-window-exponent" element={<Imp34078PointwiseVsWindowExponentViz />} />
           <Route path="/viz-imp34142-window-anchor-centroid" element={<Imp34142WindowAnchorCentroidViz />} />
           <Route path="/viz-imp34156-asymmetric-trim-attribution" element={<Imp34156AsymmetricTrimAttributionViz />} />
+          <Route path="/viz-imp34182-deep-ladder-precision-floor" element={<Imp34182DeepLadderPrecisionFloorViz />} />
           <Route path="/viz-imp34157-trough-peak-ratio-creep" element={<Imp34157TroughPeakRatioCreepViz />} />
           <Route path="/viz-imp34158-digit-loss-cliff" element={<Imp34158DigitLossCliffViz />} />
           <Route path="/viz-imp34159-cubic-tilt-wing-reconstruction" element={<Imp34159CubicTiltWingReconstructionViz />} />

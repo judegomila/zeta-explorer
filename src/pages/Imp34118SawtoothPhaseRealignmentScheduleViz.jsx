@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34044_SAWTOOTH_PHASE_REALIGNMENT_SCHEDULE } from '../data/imp-34044-sawtooth-phase-realignment-schedule.js';
 
@@ -182,6 +183,24 @@ export default function Imp34118SawtoothPhaseRealignmentScheduleViz() {
         extrapolation, not a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8
         ansatz (imp-2642/imp-2643) UNTOUCHED; imp-3066 K_a&gt;=0 UNTOUCHED; NO QED; Platt-Trudgian
         Lambda&lt;=0.2 remains SOTA.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>See also:</strong>{' '}
+        <Link to="/viz-imp34182-deep-ladder-precision-floor" style={{ color: '#38bdf8' }}>
+          imp-34182 (the deep ladder extension 1/65536 .. 1/2^20 and its precision-floor departure)
+        </Link>
+        .
       </div>
     </div>
   );

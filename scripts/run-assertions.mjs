@@ -4581,6 +4581,18 @@ const DATA_MODULES = [
   // inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
   // untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-34168-doubling-map-highprecision-kstar-floor.js',
+  // imp-34228: EXTEND the imp-34168 high-precision doubling-map floor test to a FULL double-precision live
+  // ternary anchor k_true ~ 8.8210915878573530 (~4.3e-11 below the imp-34168 stored 10-sig-fig literal) over
+  // an extended ladder e = 15..28, re-running the imp-33878 resid_exp(k) discrete argmax via a neighborhood
+  // argmax cross-checked BIT-FOR-BIT against the imp-34168 full-window argmax at e = 18, 20, 22. The live
+  // ladder matches the sawtooth through e = 22 (reproducing imp-34168) and FIRST DEPARTS at e = 23
+  // (1/8388608): sawtooth ~5.515e-8 vs frozen argmax gap ~6.406e-8 (rel dev ~0.139). So the predictive
+  // floor extends EXACTLY ONE rung past 1/2^22. The imp-34168 10-sig-fig anchor (offset 4.3e-11) departs at
+  // the IDENTICAL rung, so the floor is the resid_exp EVALUATION-NOISE resolution floor (min resolved gap
+  // ~4.5e-9), NOT anchor precision -- a new named sub-gap SUB-GAP-imp-34228-residexp-resolution-floor.
+  // Measurement only; inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 untouched;
+  // imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34228-doubling-map-double-precision-anchor-floor.js',
   // imp-34226: CROSS-CHECK the imp-34149 tail-only (m*~0.6063) and imp-34148 symmetric (m*~0.6791)
   // fractional F4=1 crossings against the imp-34086 tail-only integer bracket (F4 0.8743 at m=0 ->
   // 1.0881 at m=1). Imports all three modules' exported data (no re-derivation) and asserts: the

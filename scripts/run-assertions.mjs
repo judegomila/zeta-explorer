@@ -3859,6 +3859,17 @@ const DATA_MODULES = [
   // Measurement only; imp-486/C_C ansatz untouched; PT Lambda<=0.2 SOTA; no QED. 4 assertions.
   // (transitively exercises the imp-33810/imp-33844 model via effectiveHeightForN/C_C_PINNED.)
   '/src/data/imp-33878-hump-argmax-grid-refinement.js',
+  // imp-33902 (numerical): MEASURES the convergence RATE of the imp-33878 resid_exp(k) hump argmax
+  // toward the continuum limit k*~8.821 as the grid refines below quarter-decade, and Richardson-
+  // extrapolates the limit. FINDING: the raw discrete argmax is a grid-bounded sawtooth (no clean
+  // power law), but a 3-point parabolic sub-grid locator converges at effective order ~2.10
+  // (|refined-k*| 1.30e-3 -> 8.9e-7); Richardson-extrapolating that ladder gives k*_R~8.821091,
+  // agreeing with the independent ternary k*~8.821092 to ~6e-7 (err estimate ~2.9e-6) and sitting
+  // 0.695 decade below k_cross~9.516 -- confirming the imp-33878 downward target is a genuine
+  // continuum limit, NOT an incomplete-refinement reading toward the crossover. Measurement only;
+  // imp-486/C_C ansatz untouched; PT Lambda<=0.2 SOTA; no QED. 4 assertions. (transitively
+  // exercises the imp-33810/imp-33844 model via effectiveHeightForN/C_C_PINNED.)
+  '/src/data/imp-33902-hump-argmax-convergence-rate.js',
   // imp-33886 (numerical): puts a formal SIGNIFICANCE TEST under the imp-33858 "structured, not
   // uniform noise" verdict for the imp-33843 log-linear residual. On the same 21 signed residuals
   // (n1=11 pos, n2=10 neg, 4 runs), the Wald-Wolfowitz runs test gives z ~ -3.36, two-sided

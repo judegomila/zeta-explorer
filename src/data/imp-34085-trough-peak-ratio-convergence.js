@@ -183,15 +183,24 @@ const FITS = KENDS.map((kEnd) => fitLadder(buildLadder(kEnd)));
 
 // Reuse gate: the replicated BASE/EXT115/EXT12 must reproduce the imp-33877 inherited argmax/argmin,
 // so the two new windows are the SAME inherited measurement pushed two rungs further, not a fresh model.
+// Checks BOTH the residual VALUE and the k LOCATION -- a value-only check would pass silently if a
+// tie-break shift moved the argmax/argmin to a different rung while the residual magnitude stayed close.
 const SRC = IMP33877_WIDENING_FIT_TAIL_ENDPOINT_ARTIFACT_TEST;
 const inheritedFirstThree = [SRC.base, SRC.ext115, SRC.ext12];
 let MAX_REUSE_DIFF = 0;
+let REUSE_LOCATIONS_MATCH = true;
 for (let i = 0; i < 3; i++) {
   MAX_REUSE_DIFF = Math.max(
     MAX_REUSE_DIFF,
     Math.abs(FITS[i].argmax.resid - inheritedFirstThree[i].argmax.resid),
     Math.abs(FITS[i].argmin.resid - inheritedFirstThree[i].argmin.resid),
   );
+  if (
+    FITS[i].argmax.k !== inheritedFirstThree[i].argmax.k ||
+    FITS[i].argmin.k !== inheritedFirstThree[i].argmin.k
+  ) {
+    REUSE_LOCATIONS_MATCH = false;
+  }
 }
 
 // Per-window amplitude ratio |trough|/|peak| and its per-window-step increment.
@@ -235,6 +244,7 @@ export const IMP34085_TROUGH_PEAK_RATIO_CONVERGENCE = {
     'imp-33810 ladder extended to k=6..12.5 (27 rungs) and k=6..13 (29 rungs), and the amplitude ratio ' +
     '|trough|/|peak| across all five windows BASE..EXT13, testing whether it saturates to a limit',
   reuseGateMaxDiffVsImp33877: +MAX_REUSE_DIFF.toExponential(3), // ~0 -- replicated model matches imp-33877
+  reuseGateLocationsMatchImp33877: REUSE_LOCATIONS_MATCH, // true -- argmax.k/argmin.k also reproduce imp-33877, not just the residual magnitude
   ratioSequence: ratioSeq, // 0.6151 -> 0.6293 -> 0.6492 -> 0.6868 -> 0.7200
   ratioStepIncrements: ratioSteps, // +0.0142, +0.0199, +0.0376, +0.0332 -- GROWING, not shrinking
   driftFractionFullSpan: driftFull, // ~0.171 (BASE->EXT13)
@@ -291,12 +301,15 @@ export const IMP34085_TROUGH_PEAK_RATIO_CONVERGENCE = {
 
 export const IMP34085_TROUGH_PEAK_RATIO_CONVERGENCE_ASSERTIONS = [
   {
-    // Reuse gate: the replicated BASE/EXT115/EXT12 reproduce the imp-33877 inherited argmax/argmin, and
-    // the two new windows have the right rung counts (27, 29).
+    // Reuse gate: the replicated BASE/EXT115/EXT12 reproduce the imp-33877 inherited argmax/argmin
+    // VALUE (< 1e-4) AND LOCATION (exact k match) -- a value-only check would silently pass a
+    // tie-break shift that moved the argmax/argmin to a different rung -- and the two new windows
+    // have the right rung counts (27, 29).
     id: 'imp34085-reuse-gate-reproduces-imp33877-first-three-windows',
-    description: 'replicated BASE/EXT115/EXT12 match imp-33877 argmax/argmin to < 1e-4; EXT125 is 27 rungs, EXT13 is 29',
+    description: 'replicated BASE/EXT115/EXT12 match imp-33877 argmax/argmin value (< 1e-4) and location; EXT125 is 27 rungs, EXT13 is 29',
     holds: () =>
       MAX_REUSE_DIFF < 1e-4 &&
+      REUSE_LOCATIONS_MATCH === true &&
       FITS[3].rungs === 27 &&
       FITS[4].rungs === 29 &&
       FITS[3].argmax.k === 12.5 &&

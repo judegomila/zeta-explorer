@@ -77,6 +77,8 @@
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
  * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
+ * @see imp-34196-fixed-band-peak-increment-minimum-subwindow-refine (sibling cohort member: refines the
+ *   imp-34109 increment minimum on the same fixed-band (k<=10) peak this module tracks to the same k*~21.281 pole)
  * @see imp-34109-fixed-band-peak-amplitude-saturation-fit (the kEnd = 14..20 sweep this continues; machinery reused)
  * @see imp-34040-fixed-band-drift-saturation-decade (the kEnd = 14..17 saturation-onset sweep)
  * @see imp-34107-resid-exp-second-path-crossvalidation (the resid_exp(k) schedule whose zero this locates)

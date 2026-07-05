@@ -67,6 +67,8 @@
  * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
  * remains SOTA.
  *
+ * @see imp-34196-fixed-band-peak-increment-minimum-subwindow-refine (F4 there tracks this module's argmax-creep
+ *   law un-locking at kEnd = 19.0 on the refined 0.25 grid)
  * @see imp-33987-fixed-band-convex-drift-exponent (the F3 argmax creep 7.00 -> 6.50 fit here; rows imported)
  * @see imp-34040-fixed-band-drift-saturation-decade (the kEnd = 14..17 argmax-locked measurement; rows imported)
  * @see imp-33940-interior-residual-boundary-stability (the R2 convex low-k drift both extend)

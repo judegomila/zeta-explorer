@@ -62,6 +62,8 @@
  * derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
  * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
+ * @see imp-34196-fixed-band-peak-increment-minimum-subwindow-refine (later cohort member: refines the
+ *   increment minimum on the fixed-band peak this module's saturation-onset window feeds into)
  * @see imp-33987-fixed-band-convex-drift-exponent (the kEnd = 11..14 sweep this continues; machinery reused)
  * @see imp-33940-interior-residual-boundary-stability (the R2 convex low-k drift origin)
  * @see imp-33917-endpoint-residual-growth-law (the endpoint peak whose machinery is reused verbatim)

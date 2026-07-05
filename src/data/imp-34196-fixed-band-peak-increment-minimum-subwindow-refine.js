@@ -81,6 +81,8 @@
  * @see imp-34109-fixed-band-peak-amplitude-saturation-fit (the coarse 0.5-grid sweep whose F1 minimum this refines)
  * @see imp-34040-fixed-band-drift-saturation-decade (the kEnd = 14..17 saturation-onset window imp-34109 corrected)
  * @see imp-34047-argmax-rung-creep-descent-law (the argmax-creep law; F4 is an independent argmax observation)
+ * @see imp-34169-fixed-band-peak-extended-decade-surrogate-zero (sibling cohort member: the same fixed-band
+ *   (k<=10) peak tracked to the k*~21.281 pole rather than refined at the increment minimum)
  * @see imp-33940-interior-residual-boundary-stability (the R2 convex low-k drift origin)
  * @see imp-33843-eflow-resid-widening-form-fit (the log-linear OLS re-run per boundary)
  * @see imp-33810-eflow-resid-ratio-N-ladder (the k=6.. ladder reused verbatim; its 0.25 rung spacing sets the resolution)

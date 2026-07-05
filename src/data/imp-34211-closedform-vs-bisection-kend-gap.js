@@ -39,6 +39,7 @@
  * @see imp-34127-m2-residual-signchange-ceiling-closed-form (the closed-form kEnd_cf ~ 21.00 measured here)
  * @see imp-34150-m2-residual-crossing-direct-bisection-crossval (the direct-bisection root 21.28094743 measured here)
  * @see imp-34189-m2-ceiling-next-order-window-width-correction (the O((eD)^2) gap does not close with the next term)
+ * @see imp-34278 (glossary: the single canonical honest note naming kEnd*~21.281, not this closed form, as the quoted edge)
  * @see imp-33773 (the M2 sub-leading residual whose sign change caps the surrogate)
  * @see lambda-rh-height-mapping (RvM height law); polymath15-constant-C-C (E_coll prefactor)
  */
@@ -192,6 +193,15 @@ export const IMP34211_CLOSEDFORM_VS_BISECTION_KEND_GAP = {
       'exactly the sign and magnitude of the O((eD)^2) window-width shortfall imp-34127 named (e*D/4 ~ ' +
       '0.28 at a full-decade window) and imp-34189 showed the next term does not close (eD ~ 1.13 is O(1)).',
   },
+  canonicalStatus: {
+    canonicalValue: 21.28094743,
+    canonicalSource: 'imp-34150 direct-bisection/secant root, cross-referenced canonically in the imp-34278 glossary note',
+    note:
+      'kEnd_cf ~21.00 (imp-34127) is NOT the canonical ceiling. It is a leading-order estimate that ' +
+      'under-shoots the bisected root by the ~0.278 gap measured above (signed residual negative) and ' +
+      'has no continuum-limit derivation (imp-34189 next-order term moves the wrong way). Quote ' +
+      'kEnd*~21.281 directly from imp-34150 / imp-34278, not from this closed form.',
+  },
   isRigorous: false,
   verdict:
     'NUMERICAL / MEASUREMENT (frontier-direction, NOT rigorous). Rebuilding BOTH the imp-34127 closed ' +
@@ -212,6 +222,7 @@ export const IMP34211_CLOSEDFORM_VS_BISECTION_KEND_GAP = {
   citation:
     'imp-34127 (the closed-form kEnd_cf ~ 21.00 measured here); imp-34150 (the direct-bisection root ' +
     '21.28094743 measured here); imp-34189 (the O((eD)^2) gap does not close with the next term); ' +
+    'imp-34278 (the canonical glossary note naming kEnd*~21.281 as the quoted edge); ' +
     'imp-33773 (the M2 residual whose zero this locates); lambda-rh-height-mapping (RvM height law); ' +
     'polymath15-constant-C-C (E_coll prefactor).',
 };
@@ -251,6 +262,15 @@ export const IMP34211_CLOSEDFORM_VS_BISECTION_KEND_GAP_ASSERTIONS = [
     id: 'imp34211-closed-form-under-shoots',
     description: 'signed residual kEnd_cf - kEnd_bis is negative (~ -0.28), matching imp-34127 sign',
     holds: () => SIGNED_RESIDUAL < 0 && SIGNED_RESIDUAL > -0.5,
+  },
+  {
+    // (F) The canonical ceiling is named explicitly and matches the bisection root, not the closed form.
+    id: 'imp34211-canonical-status-names-bisection',
+    description: 'canonicalStatus.canonicalValue matches the direct-bisection root, not the closed form',
+    holds: () =>
+      Math.abs(
+        IMP34211_CLOSEDFORM_VS_BISECTION_KEND_GAP.canonicalStatus.canonicalValue - KEND_DIRECT_BISECT
+      ) < 1e-6 && /imp-34278/.test(IMP34211_CLOSEDFORM_VS_BISECTION_KEND_GAP.canonicalStatus.canonicalSource),
   },
   {
     // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA, K_a untouched.

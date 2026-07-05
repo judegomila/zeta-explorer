@@ -272,12 +272,15 @@ export const IMP34042_LTO_MODEL_SELECTION_SENSITIVITY_ASSERTIONS = [
       LOW_PAIR_FOLD.positiveBand === true,
   },
   {
-    // Honesty gate: LTO sensitivity, isRigorous false, imp-33843 verdict untouched, no QED, PT SOTA.
-    id: 'imp34042-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, imp-33843 FORM verdict UNTOUCHED, no QED, PT SOTA',
+    // Honesty gate: LTO sensitivity, isRigorous false, no QED, PT SOTA, imp-3066 K_a>=0 clause SPECIFICALLY
+    // untouched -- imp-34122 flagged that a generic /UNTOUCHED/ regex also matches the unrelated imp-33843
+    // FORM verdict and C_mb clauses, so it does not actually bind to the imp-3066 statement (imp-34024-26
+    // convention).
+    id: 'imp34042-honesty-gate-imp3066-specific-no-qed',
+    description: 'Measurement only: isRigorous false, imp-3066 K_a >= 0 untouched (clause-specific), no QED, PT SOTA',
     holds: () =>
       IMP34042_LTO_MODEL_SELECTION_SENSITIVITY.isRigorous === false &&
-      /UNTOUCHED/.test(IMP34042_LTO_MODEL_SELECTION_SENSITIVITY.verdict) &&
+      /imp-3066 K_a >= 0 untouched/.test(IMP34042_LTO_MODEL_SELECTION_SENSITIVITY.verdict) &&
       /NO QED/.test(IMP34042_LTO_MODEL_SELECTION_SENSITIVITY.verdict) &&
       /remains SOTA/.test(IMP34042_LTO_MODEL_SELECTION_SENSITIVITY.verdict),
   },

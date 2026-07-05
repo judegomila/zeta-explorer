@@ -35,7 +35,9 @@
  *   re-acceleration terminating at the resid_exp pole). All six share the same kEnd* ceiling.
  *
  *   Ticket: imp-34237 (ux, low). Viz-data only, presentation/no-bound-change;
- *   RH-equivalent untouched; imp-3066 untouched; NO QED.
+ *   descriptive surrogate/fit, NOT a rigorous asymptotic; C_mb GUE-conditional per
+ *   imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2
+ *   remains SOTA.
  *
  *   IMPORT-WEIGHT AUDIT (imp-34277): this module and the page it feeds
  *   (Imp34237FixedBandPeakReaccelAndSurrogatePoleViz.jsx) were traced for transitive

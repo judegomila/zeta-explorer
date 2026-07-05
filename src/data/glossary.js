@@ -11552,6 +11552,36 @@ export const glossary = [
       'imp-34169 the fixed-band peak that terminates at this same pole (imp-34169)',
     ],
   },
+  {
+    term: 'imp-34298 outer phase-zero branch cohort map (imp-34045/34104/34166/34167 by index n)',
+    category: 'numerical',
+    definition:
+      'Reader-facing map of the per-family outer phase-zero branch cohort, indexed by n (theta=pi/2-+n ' +
+      'pi/p, p=1+alpha, on the inherited imp-33924 joint amplitude -A): n=1 real-negative endpoint-' +
+      'collapsing branch (imp-34045), n=2 real-positive branch and its curvature (imp-34104, imp-34166), ' +
+      'n=3 real-negative branch (imp-34167).\n\n' +
+      'HONEST CORRECTION: the pending imp-34229 asks to derive a general n-indexed unifying law ' +
+      '(onset alpha_onset=2n-1, endpoint slope dd_n/dalpha=-n*pi/(1+alpha)^2) as if it were still open. ' +
+      'It is NOT open -- imp-34173 already derived exactly this family in closed form under the label ' +
+      'k rather than n: d_k(alpha)=pi((2k-1)-alpha)/(2(1+alpha)), onset ladder alpha_k=2k-1, and ' +
+      'differentiating gives dd_k/dalpha=-k*pi/(1+alpha)^2 -- algebraically identical to the imp-34229 ' +
+      'title with n=k. This is already glossaried at imp-34240. imp-34229 should be treated as a ' +
+      'redundant re-derivation request, not a genuine open gap, unless it turns out to target some ' +
+      'aspect the imp-34173/imp-34240 pair does not cover.\n\n' +
+      'HONEST SCOPE: cohort-mapping and cross-check only; no new bound; measurement/derivation stays on ' +
+      'the inherited imp-33924 closed form; establishes no operator positivity; C_mb GUE-conditional per ' +
+      'imp-486 untouched; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34298 (mapping the imp-34045/34104/34166/34167 outer phase-zero branch cohort and flagging that the pending imp-34229 unification duplicates the already-derived imp-34173/imp-34240 law), 2026',
+    relatedTerms: [
+      'imp-34045 family n=1 real-negative endpoint-collapsing branch (imp-34045)',
+      'imp-34104 family n=2 real-positive branch distance law (imp-34104)',
+      'imp-34166 family n=2 endpoint curvature (imp-34166)',
+      'imp-34167 family n=3 real-negative branch (imp-34167)',
+      'imp-34173 the already-derived general k-indexed unifying law this cohort map rests on (imp-34173)',
+      'imp-34240 the existing glossary entry for the imp-34173 unified law, using k rather than n (imp-34240)',
+      'imp-34229 the pending ticket this note shows is a likely-redundant re-derivation (imp-34229)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -221,6 +221,16 @@ export const IMP33810_EFLOW_RESID_RATIO_N_LADDER = {
     imp33773_M2_head_resid_over_eflow: IMP33773_M2_HEAD, // ~2.1 (k=6)
     imp33773_M2_tail_resid_over_eflow: IMP33773_M2_TAIL, // ~1928 (k=11)
     decade_resid_over_eflow: DECADE_RESID_OVER_EFLOW, // {2.1,7.0,34.4,163.5,623.1,1927.6}
+    // imp-33956: FULL-PRECISION companion to decade_resid_over_eflow, so a reader does not mistake
+    // the toFixed(1) display above for the exact ratio -- the head rung 2.1 undershoots its exact
+    // value 2.1334 by ~1.57% (the cohort-worst reporting error per imp-33884/imp-33926); every other
+    // decade rung is accurate to well under 1.4% (imp-33926 R1).
+    decade_resid_over_eflow_fullprec: DECADE_RUNGS.map((r) => r.resid_over_eflow_fullprec),
+    decade_resid_over_eflow_precision_caveat:
+      'decade_resid_over_eflow is a toFixed(1) display, not the exact ratio: the head rung (k=6) ' +
+      'shows 2.1 but the full-precision value is 2.1334 (~1.57% understated, the largest reporting ' +
+      'error anywhere in this ladder, per imp-33884/imp-33926); the tail rung (k=11) is accurate to ' +
+      '~1e-6. See decade_resid_over_eflow_fullprec for the un-rounded values.',
   },
   finding: {
     R1_integer_decades_reproduce_imp33773:

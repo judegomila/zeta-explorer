@@ -173,6 +173,24 @@ export default function Imp33831EflowResidRatioLadderViz() {
         positivity; imp-3066 K_a &ge; 0 remains untouched. No RH verdict, NO QED. Platt-Trudgian
         &Lambda; &le; 0.2 remains the rigorous SOTA.
       </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>Precision note (imp-33956):</strong> the head/tail
+        figures above ({HEAD_ROE.toFixed(1)}x and {TAIL_ROE.toFixed(1)}x) are toFixed(1) displays,
+        not exact ratios -- the head value is really 2.1334x (a ~1.57% rounding understatement, the
+        largest reporting error anywhere in this ladder), while the tail value is accurate to
+        ~1e-6. See imp-33884 and imp-33926 for the full-precision recompute and cohort-wide audit.
+      </div>
     </div>
   );
 }

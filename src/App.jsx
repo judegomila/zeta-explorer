@@ -281,6 +281,7 @@ const Imp34101SerialDependenceTestPanelViz = lazy(() => import('./pages/Imp34101
 const Imp34119PhaseZeroBranchGeometryViz = lazy(() => import('./pages/Imp34119PhaseZeroBranchGeometryViz.jsx'));
 const Imp34120EndpointPeakSaturatingTournamentViz = lazy(() => import('./pages/Imp34120EndpointPeakSaturatingTournamentViz.jsx'));
 const Imp34142WindowAnchorCentroidViz = lazy(() => import('./pages/Imp34142WindowAnchorCentroidViz.jsx'));
+const Imp34156AsymmetricTrimAttributionViz = lazy(() => import('./pages/Imp34156AsymmetricTrimAttributionViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1091,6 +1092,7 @@ function AppShell() {
           <Route path="/viz-imp34119-phase-zero-branch-geometry" element={<Imp34119PhaseZeroBranchGeometryViz />} />
           <Route path="/viz-imp34120-endpoint-peak-saturating-tournament" element={<Imp34120EndpointPeakSaturatingTournamentViz />} />
           <Route path="/viz-imp34142-window-anchor-centroid" element={<Imp34142WindowAnchorCentroidViz />} />
+          <Route path="/viz-imp34156-asymmetric-trim-attribution" element={<Imp34156AsymmetricTrimAttributionViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

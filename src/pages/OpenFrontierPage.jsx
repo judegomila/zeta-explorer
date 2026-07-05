@@ -89,6 +89,12 @@ const RESIDUALS = [
       'exponent instead to Whitham, Linear and Nonlinear Waves (1974). This citation ' +
       'correction changes no math or verdict here: G6a_shock_lipschitz stays OPEN (PARTIAL) ' +
       'exactly as stated above, independent of the citation error.',
+      'Honest-status note (imp-33766): H4 (the strip-height fold-reading derivative m_prime) ' +
+      'is NOT independently dischargeable -- the Holder-modulus back-conversion couples it to ' +
+      'H3 (the curvature coefficient m_double_prime) through the same quadratic fold expansion, ' +
+      'and H3 dominates H4 a fortiori. H4 and H3 therefore collapse into ONE coupled ' +
+      'strip-height-uniformity object, load-bearing at the H3 rung; this is scoping only and ' +
+      'discharges nothing, so G6a_shock_lipschitz stays OPEN (PARTIAL) exactly as above.',
     ],
     links: [
       { to: '/rh-dag', label: 'Proof DAG (G6a node)' },

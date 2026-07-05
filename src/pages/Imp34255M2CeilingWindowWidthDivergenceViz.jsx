@@ -174,9 +174,12 @@ export default function Imp34255M2CeilingWindowWidthDivergenceViz() {
         }}
       >
         <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, baked literals
-        reproducing the imp-34189 measurement; no new derivation, no bound changed. Descriptive
-        surrogate/fit, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED;
-        imp-3066 K_a&ge;0 untouched; NO QED; Platt-Trudgian Lambda&le;0.2 remains SOTA.
+        reproducing the imp-34189 measurement; no new derivation, no bound changed. The canonical
+        bisected ceiling remains kEnd*&asymp;{IMP34255_KEND_BISECTED_W1.toFixed(3)} (imp-34023, w=1
+        full decade) -- this page's w-narrowing ladder is a diagnostic showing that ceiling has no
+        w&rarr;0 limit, not a replacement for it. Descriptive surrogate/fit, NOT a rigorous
+        asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a&ge;0 untouched; NO QED;
+        Platt-Trudgian Lambda&le;0.2 remains SOTA.
       </div>
     </div>
   );

@@ -301,6 +301,29 @@ export default function Imp34237FixedBandPeakReaccelAndSurrogatePoleViz() {
         surrogate/fit, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED;
         imp-3066 K_a&ge;0 untouched; NO QED; Platt-Trudgian Lambda&le;0.2 remains SOTA.
       </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>Same ceiling, closed-form cohort:</strong> this k*
+        &asymp; {IMP34237_RESID_ZERO_KSTAR.toFixed(5)} pole is the imp-34023 M2-residual
+        sign-change ceiling. imp-34127 derived it in closed form and found the CONTINUOUS
+        residual vanishes identically -- the crossing is a pure 2-point-secant-vs-5-point-OLS
+        discretization artifact, giving a leading closed-form kEnd* &asymp; 21.00 (~0.28 below the
+        bisected value). imp-34189 then formed the next-order term and found it does NOT close
+        that gap -- it moves kEnd* FURTHER away (to &asymp; 20.72) because the expansion parameter
+        e&middot;D is O(1) at a full-decade window, so the Taylor-in-D series does not converge and
+        the true crossing has no window-width limit. Cross-linked here for context only; no bound
+        or claim on this page changes.
+      </div>
     </div>
   );
 }

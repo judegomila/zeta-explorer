@@ -141,6 +141,14 @@ function crossLog10(target, hiLog10) {
   }
   return (a + b) / (2 * Math.LN10);
 }
+// imp-33904: the 90%-of-asymptote mark. The imp-33582 per-decade OLS ladder reaches ~0.4310 by
+// [1e11,1e12] but never pins where the exponent first hits 90% of 1/2 (p = 0.45). Solving the same
+// pointwise crossing shows p=0.45 lands at N ~ 1e11.92 (log T0 ~ 26.1) -- WITHIN the very [1e11,1e12]
+// decade where imp-33582 stopped, and just one decade above the imp-33701 knee decade [1e10,1e11].
+// The per-decade OLS averages 0.4310 over that decade because p is still below 0.45 early in it; the
+// pointwise value reaches 0.45 near the decade end. This makes the logarithmic slowness vivid: 90%
+// arrives at ~1e11.9, yet 99% (below) only at ~1e44 and 99.9% at ~1e436.
+const WITHIN_90PCT_LOG10 = crossLog10(0.45, 60); // ~11.92 (log T0 ~ 26.1); 90% of the 1/2 asymptote
 const WITHIN_1PCT_LOG10 = crossLog10(0.495, 80); // ~44.17 (log T0 ~ 99); reliably in double range
 // Within 0.1% needs log T0 ~ 1000, i.e. N ~ 1e434, BEYOND IEEE-double range; from the (F2) law.
 const WITHIN_0_1PCT_LOG10_FROM_LAW = 434; // log T0 ~ 1000 -> ln N ~ 1000 -> N ~ 1e434
@@ -208,6 +216,11 @@ export const IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE = {
     ratioCheck: GAP_LAW_CHECK, // gap / (0.5/log T0) -> 1
   },
   asymptoteCrossings: {
+    // imp-33904: the 90%-of-asymptote (p=0.45) crossing, pinning what the imp-33582 ladder left open.
+    within_90pct_of_half_at_N_log10: +WITHIN_90PCT_LOG10.toFixed(2), // ~11.92 (N ~ 1e11.9)
+    within_90pct_logT0: +logT0AtLog10(WITHIN_90PCT_LOG10).toFixed(1), // ~26.1
+    within_90pct_relative_to_imp33582_stop_decades: +(WITHIN_90PCT_LOG10 - 12).toFixed(2), // ~-0.08 (inside [1e11,1e12])
+    within_90pct_decades_above_imp33701_knee: +(WITHIN_90PCT_LOG10 - 11).toFixed(2), // ~0.92 (knee decade [1e10,1e11])
     within_1pct_of_half_at_N_log10: +WITHIN_1PCT_LOG10.toFixed(2), // ~44.17 (N ~ 1e44)
     within_1pct_logT0: +logT0AtLog10(WITHIN_1PCT_LOG10).toFixed(1), // ~99
     within_0_1pct_of_half_at_N_log10_fromLaw: WITHIN_0_1PCT_LOG10_FROM_LAW, // ~434 (F2 law, dropped log terms)
@@ -233,6 +246,13 @@ export const IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE = {
       'imp-33582 1e12 stopping point -- where log T0 ~ 99. Within 0.1% (p>=0.4995) requires ' +
       'log T0 ~ 1000, i.e. N ~ 1e434; N and T0 both overflow IEEE-double past ~1e308 so this mark ' +
       'was ORIGINALLY reported from the F2 law rather than evaluated directly (now closed by F4).',
+    F5_ninety_pct_of_half_is_at_the_imp33582_stop_imp33904:
+      'imp-33904 pins the 90%-of-asymptote mark the imp-33582 ladder left open. The pointwise local ' +
+      'exponent first reaches p=0.45 (90% of 1/2) at N ~ 1e11.92 (log T0 ~ 26.1) -- WITHIN the very ' +
+      '[1e11,1e12] decade where imp-33582 stopped at per-decade OLS 0.4310, and ~0.9 decade above the ' +
+      'imp-33701 knee decade [1e10,1e11]. The per-decade OLS averages 0.4310 over that decade only ' +
+      'because p is still below 0.45 early in it. Contrast the logarithmic slowness of the last leg: ' +
+      '90% arrives essentially at the 1e12 stop, yet 99% (p=0.495) waits until ~1e44 and 99.9% until ~1e436.',
     F4_within_0_1pct_evaluated_directly_imp33859:
       'imp-33859 closes the F3 note by evaluating the 0.1% mark DIRECTLY. Recasting the identical ' +
       'sub-terms in log-N space -- solving ln N = u + log(u-1) for u = log(T0/2pi) by Newton so ' +
@@ -292,6 +312,18 @@ export const IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE_ASSERTIONS = [
       GAP_LAW_CHECK.every((r) => r.ratio > 0.9 && r.ratio < 1.1) &&
       Math.abs(GAP_LAW_CHECK[1].ratio - 1) < 1e-2 &&
       Math.abs(GAP_LAW_CHECK[2].ratio - 1) < 1e-2,
+  },
+  {
+    // imp-33904 (F5): the 90%-of-asymptote (p=0.45) crossing lands at N ~ 1e11.9 (log T0 ~ 26),
+    // INSIDE the [1e11,1e12] decade where imp-33582 stopped and above the imp-33701 knee decade --
+    // a stark contrast to the within-1% (~1e44) and within-0.1% (~1e436) marks.
+    id: 'imp33816-within-90pct-crossing-at-imp33582-stop',
+    description: 'p reaches 90% of 1/2 (p=0.45) at N ~ 1e11.9 (log T0 ~ 26), inside the imp-33582 [1e11,1e12] stopping decade',
+    holds: () =>
+      WITHIN_90PCT_LOG10 > 11.5 &&
+      WITHIN_90PCT_LOG10 < 12.5 &&
+      Math.abs(pLocalAtLog10(WITHIN_90PCT_LOG10) - 0.45) < 1e-4 &&
+      WITHIN_90PCT_LOG10 < WITHIN_1PCT_LOG10,
   },
   {
     // (F3): within-1% crossing lands at N ~ 1e44 (log T0 ~ 99), tens of decades past 1e12.

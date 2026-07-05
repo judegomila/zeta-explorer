@@ -4203,6 +4203,16 @@ const DATA_MODULES = [
   // untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions. (transitively exercises the
   // imp-33810/imp-33844 model via effectiveHeightForN/C_C_PINNED.)
   '/src/data/imp-33984-sawtooth-nearest-grid-point.js',
+  // imp-34084: fit the FULL cubic {1,t,t^2,t^3} to the imp-33878 resid_exp(k) hump
+  // apex over k*+/-0.1 and MEASURE the cubic coefficient d = (1/6) resid triple-prime(k*)
+  // that imp-34008 W2 only INFERRED from wing asymmetry. FINDING: d ~ -5.347e-4 (resid
+  // triple-prime ~ -3.208e-3, NEGATIVE); the symmetric grid preserves the imp-33948 even
+  // apex value 6.5337e-2 and curvature -3.613e-2, and the cubic tilt reconstructs ~103% of
+  // the imp-34008 0.410%-vs-0.218% left/right wing split (collapsing it to 0.311%/0.317%),
+  // matching the odd part of the quadratic residual to ~6%. Measurement only; imp-486/C_C
+  // ansatz untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 4 assertions.
+  // (transitively exercises the imp-33810/imp-33878 model via effectiveHeightForN/C_C_PINNED.)
+  '/src/data/imp-34084-apex-cubic-tilt-coefficient.js',
 ];
 
 let ALL_MODULES = FAST_MODE

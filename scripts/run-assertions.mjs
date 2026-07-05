@@ -4488,6 +4488,15 @@ const DATA_MODULES = [
   // floor; F3 -> ~0.836, much slower decay), confirming F4 alone drives the imp-34023 divergence.
   // Numerical/curve-fit only; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-34133-f2-f3-asymptotic-constant-fit.js',
+  // imp-34215: measures whether the imp-34133 F4 collapse is pure-geometric or accelerating across the
+  // sign-stable ladder kEnd=13..21 (same sub-terms, head k=6). FINDING: ACCELERATING (super-geometric) --
+  // the per-rung half-unit ratio F4(k+0.5)/F4(k) is STRICTLY MONOTONE DECREASING (~0.579 -> ~0.257) and a
+  // negative-curvature quadratic ln-fit (c ~ -0.0389, R^2 ~ 0.9968) beats the log-linear geometric fit
+  // (per-unit ~0.298, R^2 ~ 0.9920); the acceleration concentrates near the imp-33773/imp-34150 residual
+  // sign-change ceiling kEnd* ~ 21.28, where F4 = TAIL.resid/HEAD.resid dives as TAIL.resid -> 0. So the
+  // imp-34023 "clean geometric" claim holds only on the narrow anchor window. Numerical/curve-fit only;
+  // imp-3066 K_a>=0 untouched; C_mb untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34215-f4-collapse-geometric-vs-accelerating.js',
   // imp-34208: independent analytic cross-check of the imp-34133 F3 asymptote c ~ 0.835955. FINDING
   // (HONEST NEGATIVE): the analytic F3 floor from the same sub-terms is HEAD.sflow ~ 0.802814 (since
   // F3 = HEAD.sflow/TAIL.sflow and the tail E_flow log-slope TAIL.sflow -> 1 as s = d ln T0/d ln N -> 1),

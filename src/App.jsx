@@ -276,6 +276,7 @@ const Imp34015F2MagShareDriftViz = lazy(() => import('./pages/Imp34015F2MagShare
 const Imp34016SigmaExponentVsLogT0Viz = lazy(() => import('./pages/Imp34016SigmaExponentVsLogT0Viz.jsx'));
 const Imp34099AggregateShareWindowSensitivityViz = lazy(() => import('./pages/Imp34099AggregateShareWindowSensitivityViz.jsx'));
 const Imp34100ApexParabolaWingFidelityViz = lazy(() => import('./pages/Imp34100ApexParabolaWingFidelityViz.jsx'));
+const Imp34118SawtoothPhaseRealignmentScheduleViz = lazy(() => import('./pages/Imp34118SawtoothPhaseRealignmentScheduleViz.jsx'));
 const Imp34101SerialDependenceTestPanelViz = lazy(() => import('./pages/Imp34101SerialDependenceTestPanelViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
@@ -1073,6 +1074,7 @@ function AppShell() {
           <Route path="/viz-imp34037-realness-residual-vs-theta" element={<Imp34037RealnessResidualVsThetaViz />} />
           <Route path="/viz-imp33953-resid-exp-hump-argmax-crossover" element={<Imp33953ResidExpHumpArgmaxCrossoverViz />} />
           <Route path="/viz-imp34049-fixed-band-drift-growth" element={<Imp34049FixedBandDriftGrowthViz />} />
+          <Route path="/viz-imp34118-sawtooth-phase-realignment-schedule" element={<Imp34118SawtoothPhaseRealignmentScheduleViz />} />
           <Route path="/viz-imp34050-endpoint-peak-model-tournament" element={<Imp34050EndpointPeakModelTournamentViz />} />
           <Route path="/viz-imp34051-loo-evidence-ratio-strip" element={<Imp34051LooEvidenceRatioStripViz />} />
           <Route path="/viz-imp34052-f3-landmark-spread" element={<Imp34052F3LandmarkThreeWaySpreadViz />} />

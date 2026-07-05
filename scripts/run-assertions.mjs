@@ -3975,6 +3975,18 @@ const DATA_MODULES = [
   // endpoint -- sharpening imp-33919 V2 fortuitous/anchor-specific into a located optimum.
   // Lightweight (effectiveHeightForN/C_C_PINNED only, no heavy bundle). PT Lambda<=0.2 SOTA; no QED. 8 assertions.
   '/src/data/imp-33966-ecoll-disc-ref-crossing-locator.js',
+  // imp-34027 (numerical): WINDOW-WIDTH SENSITIVITY of the imp-33966 crossing N* ~ 10^12.6.
+  // imp-33966 located N* at the FIXED imp-33856 one-decade window [N/10, N]. Recomputing the
+  // discrete slope gap_disc over narrower [N/5, N] (~0.699 dec) and wider [N/20, N] (~1.301 dec)
+  // with the identical inherited sub-terms shows N* is HIGHLY window-sensitive: [N/10, N]
+  // reproduces N* ~ 10^12.6, widening to [N/20, N] drags the crossing DOWN ~7.3 decades to 10^5.3,
+  // and narrowing to [N/5, N] removes the interior crossing entirely (net residual stays negative
+  // on 1e4..1e20, and to 1e30). The imp-33887 anchor 1e12..1e15 STRADDLES the crossing ONLY for
+  // [N/10, N] (both edges negative for [N/5, N], both positive for [N/20, N]); the drift is
+  // monotone (wider window -> lower N*). So the imp-33966 "anchor well-placed" reading is a
+  // property of the one-decade convention, not robust. Lightweight (effectiveHeightForN/C_C_PINNED
+  // only, no heavy bundle). PT Lambda<=0.2 SOTA; no QED. 7 assertions.
+  '/src/data/imp-34027-ecoll-crossing-window-width-sensitivity.js',
   // imp-33925 (accuracy): STEP-ROBUSTNESS of the imp-33854 I1 identity gap_ecoll = q + 1/2 = g.
   // imp-33854 confirmed I1 to the ~1e-11 machine floor at the SINGLE step DL=1e-4, and imp-33887 R1
   // leans on it as the reference-INDEPENDENT fact. Recomputing |gap_ecoll - g| on the same

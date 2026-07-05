@@ -136,6 +136,17 @@ export const IMP34237_ASSERTIONS = [
       IMP34237_FIRST_BREAKDOWN_KEND === 21.5 &&
       IMP34237_COMPUTABLE_WINDOW_COUNT < IMP34237_TOTAL_WINDOW_COUNT,
   },
+  {
+    // The undefined windows past the k* pole are represented by simply being ABSENT from
+    // these row arrays (see CoverageIndicator), never by a NaN/Infinity placeholder that
+    // could reach the chart's Math.log10-based axis scaling. This guards that invariant.
+    id: 'imp-34237-plotted-rows-are-all-finite',
+    description: 'every plotted peak/residExp/ratio value is finite -- no NaN/Infinity placeholder for undefined past-pole windows reaches the chart axes',
+    holds: () =>
+      IMP34237_FIXED_BAND_PEAK_ROWS.every((r) => Number.isFinite(r.peak)) &&
+      IMP34237_RESID_EXP_ROWS.every((r) => Number.isFinite(r.residExp)) &&
+      IMP34237_EFLOW_OVER_RESID_ROWS.every((r) => Number.isFinite(r.ratio)),
+  },
 ];
 
 for (const a of IMP34237_ASSERTIONS) {

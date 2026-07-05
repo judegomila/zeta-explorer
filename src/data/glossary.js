@@ -8528,6 +8528,37 @@ export const glossary = [
       'imp-3444 sigma(N) = E_coll/(E_trunc + E_flow + E_coll) bridge model where a conflation would land (imp-3444)',
     ],
   },
+  {
+    term: 'imp-33854 log-saturation object g(N) = (1/2) d ln(log T0)/d ln N, unifying gap_sigma and gap_ecoll',
+    category: 'numerical',
+    definition:
+      'imp-33816 and imp-33620 each reported a slow-approach shortfall for the same post-peak ' +
+      'component model but never reconciled them: imp-33816 found the sigma(N) exponent shortfall ' +
+      'gap_sigma(N) = 1/2 - p(N) ~ 1/(2 log T0) (p = -d ln sigma/d ln N), while imp-33620 found the ' +
+      'separated E_coll exponent residual gap_ecoll(N) = q(N) + 1/2 (q = d ln E_coll/d ln N) approaching ' +
+      '0 monotonely from above (~0.0152 at N=1e15). imp-33854 derives the FUNDAMENTAL object ' +
+      'g(N) := (1/2) d ln(log T0)/d ln N and shows both shortfalls reduce to it.\n\n' +
+      'RESULT: since ln E_coll = const + (1/2) ln(log T0) - (1/2) ln N, differentiating in ln N gives ' +
+      'the EXACT pointwise identity gap_ecoll(N) = g(N) (reproduced to machine precision at every ' +
+      'shared-grid rung from N=1e12 to 1e200). For sigma = E_coll/D with E_trunc constant and E_flow ' +
+      'negligible, gap_sigma(N) = g(N) + |q(N)| * sigma(N), so the residual between the two shortfalls ' +
+      'is exactly the finite-N denominator-share term |q| sigma: 2.91e-2 at 1e12, 1.10e-3 at the ' +
+      'imp-33620 1e15 landmark, and 0 to double precision by N ~ 1e44 as sigma decays. Both g and ' +
+      'gap_sigma converge to the imp-33816 law 1/(2 log T0) (ratio -> 1 by N=1e200, Riemann-von ' +
+      'Mangoldt d ln T0/d ln N -> 1). So the imp-33816 sigma-exponent shortfall and the imp-33620 ' +
+      'monotone-from-above E_coll residual are ONE log-saturation mechanism expressed two ways.\n\n' +
+      'HONEST SCOPE: measurement/derivation only, on the inherited imp-3220/imp-3406 extrapolation, ' +
+      'NOT a rigorous asymptotic. C_mb stays GUE-conditional (imp-486); changes no bound; establishes ' +
+      'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33854 (reconciling the imp-33816 gap_sigma and imp-33620 gap_ecoll slow-approach shortfalls into the single log-saturation object g(N)), 2026',
+    relatedTerms: [
+      'imp-33816 sigma-exponent shortfall gap_sigma ~ 1/(2 log T0), the law g(N) converges to (imp-33816)',
+      'imp-33620 separated E_coll exponent residual gap_ecoll ~0.0152 at 1e15, shown to equal g(N) exactly (imp-33620)',
+      'imp-3463 far-tail leading form, the 1/2 asymptote both exponents approach (imp-3463)',
+      'imp-486 C_mb GUE-conditional dependency, untouched by this reconciliation (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

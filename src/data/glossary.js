@@ -10296,6 +10296,33 @@ export const glossary = [
       'imp-33773 M2 residual, whose amplifying-to-attenuating regime change at k_peak this crossing locates (imp-33773)',
     ],
   },
+  {
+    term: 'imp-34004 ln F2 saturation mechanism: governed by the collision share sigma=E_coll/E_N (slope 0.276 vs closed-form 0.288), not by 1/log T0 or a power/geometric law',
+    category: 'numerical',
+    definition:
+      'imp-33962 R2 found the per-step normaliser log-attenuation ln F2 rises strictly monotonically ' +
+      '(-0.2549 head to -0.0191 tail) across the 20-step imp-33810 ladder but never fit a functional ' +
+      'form to it. imp-34004 regresses m=-ln F2 against three candidate laws in their linearising ' +
+      'spaces, each scored by R2 in m-space: (A) 1/log T0 gives R2=0.964 -- best of the three naive ' +
+      'candidates; (B) power-law m=c N^-p gives R2=0.741 in m-space (0.922 in log-space, p=0.236); ' +
+      '(C) geometric m=c r^i gives R2=0.741, IDENTICAL to (B) because the log-uniform ladder makes ' +
+      'ln N linear in the step index, so N^-p is exactly r^i with r=10^(-p/4). None of the three is a ' +
+      'clean law. The ACTUAL mechanism (D): m is proportional to the collision share sigma=E_coll/E_N, ' +
+      'the E_coll-dominates-E_N crossover order parameter, with R2=0.999982 and fitted slope 0.27583 ' +
+      '(near-zero intercept 9.5e-5), matching the closed-form derivation slope 0.25*ln(10)/2=0.28782 ' +
+      'to within ~4% (the gap is attributed to E_flow/E_N and -1/(2 log T0) sub-terms plus midpoint ' +
+      'finite-difference bias). So ln F2 does not decay like 1/log T0 in any clean sense -- it tracks ' +
+      'sigma, and saturates in the tail because sigma itself saturates as the E_trunc floor comes to ' +
+      'dominate E_N. MEASUREMENT/FIT ONLY: descriptive fit on the inherited imp-3220/imp-3406 component ' +
+      'model, NOT a rigorous asymptotic; changes no bound; imp-3066 K_a>=0 untouched; C_mb GUE-' +
+      'conditional per imp-486 UNTOUCHED; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34004 (fitting the saturation law of the imp-33962 per-step normaliser log-attenuation ln F2 against 1/log T0, power-N, geometric, and collision-share candidate laws on the 20-step imp-33810 ladder), 2026',
+    relatedTerms: [
+      'imp-33962 per-step attenuation decomposition, whose monotone ln F2 rise this ticket fits a functional form to (imp-33962)',
+      'imp-33810 the 20-step quarter-decade ladder supplying the m=-ln F2 samples regressed here (imp-33810)',
+      'imp-486 C_mb GUE-conditional share, left untouched by this measurement (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

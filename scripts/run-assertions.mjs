@@ -4412,6 +4412,29 @@ const DATA_MODULES = [
   // rigorous asymptotic; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; no
   // bound changed; NO QED; PT Lambda<=0.2 SOTA. 4 assertions.
   '/src/data/imp-34147-apex-cubic-tilt-sign-sweep.js',
+  // imp-34153: LOCATE the imp-34085 R2 trough-overtakes-peak per-step crossover. imp-34085 diagnosed
+  // that the endpoint-locked peak grows at a DECELERATING half-decade rate (+0.0740 -> +0.0346) while
+  // the interior trough deepens near-steady (+0.0501 -> +0.0392), so past k~12.5 the trough gains on
+  // the peak -- but on the coarse half-decade kEnd grid could only bracket the crossover to (12.5, 13.0].
+  // Re-running the SAME inherited effectiveHeightForN/C_C_PINNED sub-terms on a finer QUARTER-decade set
+  // of receding endpoints (kEnd = 11.00, 11.25, ..., 13.00) LOCATES the crossover to the kEnd 12.25 ->
+  // 12.50 window-step (boundary endpoint kEnd = 12.50; interpolated midpoint kEnd* ~ 12.286), roughly
+  // half a decade earlier than the imp-34085 bracket. The peak step decays smoothly and monotonically
+  // (0.0384 -> 0.0158) while the trough step holds near-steady (~0.025 -> 0.019), so the crossing is
+  // genuine and permanent through 13.0; the thin ~0.0005 margin reflects the grid-quantized argmin
+  // relocation (imp-34154). Reuse gate reproduces the imp-34085 half-decade resids/increments to ~0.
+  // Measurement/location only; imp-486/C_C ansatz untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2
+  // SOTA; no QED. 6 assertions.
+  '/src/data/imp-34153-trough-peak-perstep-crossover-locate.js',
+  // imp-34218: META provenance roll-up cataloguing the imp-34146/34147/34148/34149/34150/34151
+  // apex-tilt and F4-cancellation cohort (six modules) by EVIDENCE CLASS (higher-order term fit
+  // extension / window-centre stability sweep / symmetric-trim cancellation bisection / tail-only
+  // cancellation bisection / independent code-path cross-validation / past-crossing extension).
+  // AUDITED: all six carry the full honest banner (no QED, imp-3066 K_a>=0 untouched, PT
+  // Lambda<=0.2 SOTA) and all six already have a dedicated glossary.js term (imp-34217); none has
+  // a routed viz page or dedicated baked-literal viz-data module of its own. Read-only roll-up;
+  // no new bound; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34218-34146-34151-cohort-provenance-rollup.js',
 ];
 
 let ALL_MODULES = FAST_MODE

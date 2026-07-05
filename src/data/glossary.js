@@ -9894,6 +9894,39 @@ export const glossary = [
     ],
   },
   {
+    term: "imp-34000 geometric-center half-log-decade fourth-order Taylor tail",
+    category: "numerical",
+    definition:
+      "imp-33947 wrote out the third-order Taylor term S3 of the imp-33879/imp-33900 half-log-decade " +
+      "geometric-center offset and confirmed a convergent ~25x-per-order Taylor series in 1/log T0, " +
+      "but left the ~0.0035%..0.0065% relative third-order residual unmeasured. imp-34000 writes out " +
+      "the explicit fourth-order term S4 = -(1/384)b4 + (1/48)b1 b3 + (1/64)b2^2 - (3/32)b1^2 b2 + " +
+      "(1/16)b1^4, where bK = LK/L are the reduced decade derivatives of L = log T0. Because the L4 " +
+      "5-point stencil divides by H^4, the imp-33947 step H=1e-3 is roundoff-dominated for the fourth " +
+      "derivative; using H=1e-2 instead (S4 flat to ~4 sig-figs over 5e-3..1e-1, with S1..S3 " +
+      "unchanged) makes the term well-resolved.\n\n" +
+      "RESULT: S4 is nonzero and positive (~0.00012%..0.00028% absolute across the 1e12..1e15 " +
+      "ladder), recovers 96.07%..96.76% of the absolute third-order residual, and cuts the relative " +
+      "residual another ~25.5x..30.8x, from ~0.0035%..0.0065% (after S3) down to ~0.00011%..0.00026% " +
+      "(after S4). Adding S4 does NOT close the offset to machine precision -- a well-behaved " +
+      "fifth-order tail remains -- so the clean ~25x-per-order geometric reduction now extends " +
+      "S1->S2->S3->S4, confirming the imp-33947 verdict one order deeper: the ~4% offset is the " +
+      "leading term of a convergent series that does not terminate at any finite order. imp-34001 " +
+      "separately fits the per-order reduction ratio and shows it drifts with the ladder as " +
+      "~1/log T0 rather than sitting at a fixed 1/25.\n\n" +
+      "HONEST SCOPE: measurement only, on the inherited imp-3220/imp-3406 extrapolation, NOT a " +
+      "rigorous asymptotic; L1..L4 are finite-difference measurements. C_mb stays GUE-conditional " +
+      "(imp-486); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 " +
+      "untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    firstUsed: "imp-34000 (writing out the fourth-order half-log-decade Taylor term S4 of the imp-33947 geometric-center offset and confirming a surviving fifth-order tail), 2026",
+    relatedTerms: [
+      "imp-33947 geometric-center half-log-decade third-order Taylor tail, the residual this term extends (imp-33947)",
+      "imp-33879 geometric-center correction for the endpoint-vs-midpoint anchoring offset, the closed-form leading term of this series (imp-33879)",
+      "imp-33900 second-order Taylor tail that reduces the sub-0.11% residual ~25-fold further (imp-33900)",
+      "imp-34001 per-order geometric reduction ratio fit, showing the ~25x cut ramps with the ladder as ~1/log T0 (imp-34001)",
+    ],
+  },
+  {
     term: 'imp-33961 joint onset-residual eps^2 CONVERGENCE RATE',
     category: 'numerical',
     definition:

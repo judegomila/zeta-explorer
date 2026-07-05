@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
+import SurrogateDiagnosticCohortNote from '../components/SurrogateDiagnosticCohortNote.jsx';
 import { IMP34086_AGGREGATE_SHARE_ASYMMETRIC_TRIM } from '../data/imp-34086-aggregate-share-asymmetric-trim.js';
 
 const { headWindows: HEAD, tailWindows: TAIL, attribution: ATTR, finding: FINDING } =
@@ -210,9 +211,7 @@ export default function Imp34156AsymmetricTrimAttributionViz() {
       >
         <strong style={{ color: '#94a3b8' }}>Honest status:</strong> {FINDING.R1_share_drop_is_head_dominated}{' '}
         {FINDING.R3_F4_unity_crossing_is_tail_only} Directional attribution only, reusing the inherited
-        imp-3220/imp-3406 component model verbatim; no fresh derivation, no bound changed, no operator
-        positivity established; imp-3066 K_a&gt;=0 untouched; C_mb GUE-conditional per imp-486 untouched;
-        NO QED; Platt-Trudgian Lambda&lt;=0.2 remains SOTA.
+        imp-3220/imp-3406 component model verbatim. <SurrogateDiagnosticCohortNote />
       </div>
     </div>
   );

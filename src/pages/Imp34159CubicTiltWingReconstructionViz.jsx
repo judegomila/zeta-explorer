@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
+import SurrogateDiagnosticCohortNote from '../components/SurrogateDiagnosticCohortNote.jsx';
 import { IMP34084_APEX_CUBIC_TILT_COEFFICIENT } from '../data/imp-34084-apex-cubic-tilt-coefficient.js';
 
 const { cubicFit: FIT, oddPartMatch: ODD, wingAsymmetryReconstruction: RECON } =
@@ -171,10 +172,8 @@ export default function Imp34159CubicTiltWingReconstructionViz() {
         the quadratic residual ({ODD.oddResidAtProbe.toExponential(3)}) is reproduced by the fitted cubic term
         ({ODD.cubicTermAtProbe.toExponential(3)}) to within ~6% (ratio {ODD.ratio}), and including the cubic
         collapses the imp-34008 wing split from {RECON.quadraticSplit.splitPct}% to{' '}
-        {RECON.cubicSplit.splitPct}% ({RECON.reconstructedPct}% reconstructed). Measurement only, on the
-        inherited imp-3220/imp-3406 component model; no fresh derivation, no bound changed, no operator
-        positivity established; imp-3066 K_a&gt;=0 untouched; C_mb GUE-conditional per imp-486 untouched;
-        NO QED; Platt-Trudgian Lambda&lt;=0.2 remains SOTA.
+        {RECON.cubicSplit.splitPct}% ({RECON.reconstructedPct}% reconstructed).{' '}
+        <SurrogateDiagnosticCohortNote />
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
+import SurrogateDiagnosticCohortNote from '../components/SurrogateDiagnosticCohortNote.jsx';
 import { IMP34087_F4_SURROGATE_CANCELLATION_DIGIT_LOSS } from '../data/imp-34087-f4-surrogate-cancellation-digit-loss.js';
 
 const {
@@ -199,9 +200,7 @@ export default function Imp34158DigitLossCliffViz() {
       >
         <strong style={{ color: '#94a3b8' }}>Honest status:</strong> {FINDING.A_cancellation_is_reciprocal_residual}{' '}
         {FINDING.C_retained_accuracy_floor_holds_to_the_crossing} This is a floating-point significance-loss
-        diagnostic of an inherited surrogate, NOT an RH bound; the component model is the inherited
-        imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; imp-3066 K_a&gt;=0 untouched; NO QED;
-        Platt-Trudgian Lambda&lt;=0.2 remains SOTA.
+        diagnostic. <SurrogateDiagnosticCohortNote />
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
+import SurrogateDiagnosticCohortNote from '../components/SurrogateDiagnosticCohortNote.jsx';
 import { IMP34085_TROUGH_PEAK_RATIO_CONVERGENCE } from '../data/imp-34085-trough-peak-ratio-convergence.js';
 
 const {
@@ -183,10 +184,8 @@ export default function Imp34157TroughPeakRatioCreepViz() {
         }}
       >
         <strong style={{ color: '#94a3b8' }}>Honest status:</strong> {FINDING.R1_ratio_keeps_creeping_no_limit_visible}{' '}
-        {FINDING.R2_mechanism_peak_decelerates_trough_near_steady} This is a diagnostic re-fit of an
-        inherited surrogate on an extended inherited ladder, NOT an RH bound; the component model is the
-        inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; C_mb GUE-conditional per
-        imp-486 untouched; imp-3066 K_a&gt;=0 untouched; NO QED; Platt-Trudgian Lambda&lt;=0.2 remains SOTA.
+        {FINDING.R2_mechanism_peak_decelerates_trough_near_steady} On an extended inherited ladder.{' '}
+        <SurrogateDiagnosticCohortNote />
       </div>
     </div>
   );

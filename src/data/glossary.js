@@ -11353,6 +11353,39 @@ export const glossary = [
       'imp-34130 the separated E_coll local-exponent residual close-vs-floor resolution (imp-34130)',
     ],
   },
+  {
+    term: 'imp-34168 doubling-map departure is a STORED-k* PRECISION FLOOR, not a continuum limit',
+    category: 'numerical',
+    definition:
+      'imp-34106 traced the imp-34044 doubling-map phase-realignment schedule DEPARTING at 1/524288 ' +
+      '(e=19) -- the sawtooth predicts a descent but the re-run resid_exp(k) argmax stays frozen -- to ' +
+      'the precision floor of the inherited 6-decimal stored continuum peak k*=8.821092, versus the ' +
+      'true peak k_true~8.8210915879 (offset ~4.12e-7): at e=19 the grid first resolves the two to ' +
+      'DIFFERENT nearest points. This was a diagnosis, not a test -- imp-34168 re-ran the identical ' +
+      'argmax machinery over an EXTENDED ladder (e=15..22) phased on the higher-precision anchor ' +
+      '(10 sig figs, verified against an independent ternary argmax to <1e-9) to check whether ' +
+      'refining k* actually pushes the floor back.\n\n' +
+      'RESULT: a control ladder phased on the 6-decimal k* reproduces the imp-34106 departure exactly ' +
+      '(first departure e=19, rel deviation ~0.535), confirming the control is faithful. The ' +
+      'HIGH-PRECISION ladder DOES NOT DEPART anywhere across e=15..22 -- every doubling-map ' +
+      'transition is called correctly through 1/4194304 (1/2^22), matching the argmax gap to relative ' +
+      '<8e-6 at every rung (five orders below the control) -- so refining the anchor from 6 to 10 sig ' +
+      'figs pushes the predictive floor PAST the imp-34106 1/262144 ceiling through AT LEAST 1/2^22, ' +
+      'confirming the departure was the stored-k* precision floor and not a feature of the continuum ' +
+      'problem. The residual ~4.3e-11 anchor offset (versus the ~4.12e-7 offset of the 6-decimal k*) ' +
+      'sets a new estimated floor near e~34.\n\n' +
+      'HONEST SCOPE: measurement only, on the inherited imp-3220/imp-3406 extrapolation surrogate; the ' +
+      'surrogate resid_exp(k) is descriptive not derived; changes no bound; establishes no operator ' +
+      'positivity; C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8 ansatz (imp-2642/imp-2643) ' +
+      'UNTOUCHED; imp-3066 K_a>=0 untouched; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains ' +
+      'SOTA.',
+    firstUsed: 'imp-34168 (re-running the imp-34106 doubling-map ladder with a higher-precision stored k_true~8.8210915879 over an extended e=15..22 ladder to test whether the predictive floor extends past 1/262144), 2026',
+    relatedTerms: [
+      'imp-34106 the 1/524288 departure and its stored-k* precision-floor diagnosis, confirmed here (imp-34106)',
+      'imp-34044 the doubling-map closed-form realignment schedule underlying both tickets (imp-34044)',
+      'imp-486 C_mb GUE-conditional share, left untouched by this measurement (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

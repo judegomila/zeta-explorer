@@ -10694,6 +10694,37 @@ export const glossary = [
       'imp-33843 the log-linear widening fit whose whole-line tilt explains the non-boundary-invariant interior (imp-33843)',
     ],
   },
+  {
+    term: 'imp-34009 window-endpoint sensitivity of the imp-33962 92%-is-F2 aggregate share',
+    category: 'numerical',
+    definition:
+      'imp-33962 R3 established the 92%-is-F2 reading (aggregate |ln F2|-share 0.9225 of the F2*F3*F4 ' +
+      'attribution attenuation) as a NET AGGREGATE read off the FULL 5-decade head-to-tail window ' +
+      'k=6.00..11.00 of the imp-33810 quarter-decade ladder, but never quantified how contingent that ' +
+      '0.9225 is on the endpoint choice. imp-34009 shrinks the window symmetrically inward (dropping m ' +
+      'rungs each end, m=0..9, spanning 5.0 down to 0.5 decades) and recomputes the aggregate normaliser ' +
+      'magnitude share |ln F2|/(|ln F2|+|ln F3|+|ln F4|) on each of the 10 nested windows, exploiting the ' +
+      'imp-33962 R1 telescoping identity that the aggregate factors over any sub-window are exactly its ' +
+      'endpoint ratios.\n\n' +
+      'RESULT: the 0.9225 headline is ENDPOINT-CONTINGENT, falling to 0.7458 on the innermost 0.5-decade ' +
+      'window (a ~0.18 drop). The drift is NON-monotone: trimming the outermost rung each end first ' +
+      'RAISES the share to a peak 0.9462 at 4.5 decades (m=1), where the aggregate residual factor F4 ' +
+      'crosses unity (0.8743->1.0564) and drops out of the |ln| balance, before declining strictly to ' +
+      '0.7458 -- a ~0.20 swing across the window family. The underlying F2 and F3 factors drift smoothly ' +
+      'toward 1 (F2 0.0633->0.7575, F3 0.9071->0.9910); only F4 is itself non-monotone, and its unity ' +
+      'crossing is what makes the SHARE non-monotone.\n\n' +
+      'HONEST SCOPE: refines, does not overturn, imp-33962 (the full-window share still reproduces ' +
+      '0.9225). Measurement only, on the inherited imp-3220/imp-3406 component model, NOT a rigorous ' +
+      'asymptotic; factor identity exact WITHIN the model only; C_mb GUE-conditional per imp-486 ' +
+      'untouched; changes no bound; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains ' +
+      'SOTA.',
+    firstUsed: 'imp-34009 (measuring the window-endpoint sensitivity of the imp-33962 aggregate |ln|-share 0.9225 by shrinking the imp-33810 head-to-tail window symmetrically inward, m=0..9 rungs trimmed each end), 2026',
+    relatedTerms: [
+      'imp-33962 the per-step attenuation decomposition establishing the 92%-is-F2 aggregate headline this ticket tests for endpoint-contingency (imp-33962)',
+      'imp-33810 the 21-rung quarter-decade ladder supplying the nested symmetric sub-windows (imp-33810)',
+      'imp-34099 the viz page charting the aggregate share vs trim depth alongside the F2/F3/F4 factor drifts (imp-34099)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

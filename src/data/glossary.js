@@ -10725,6 +10725,45 @@ export const glossary = [
       'imp-34099 the viz page charting the aggregate share vs trim depth alongside the F2/F3/F4 factor drifts (imp-34099)',
     ],
   },
+  {
+    term: 'imp-33810 M2-residual surrogate factor family F2/F3/F4 and the kEnd*~21.281 cancellation ceiling',
+    category: 'numerical',
+    definition:
+      'imp-33969 decomposed the imp-33922 F1/widening over-prediction ratio into an exact identity ' +
+      '1/(F2*F3*F4), where F1 is the raw analytic (log N)^3/N E_flow decay and F2, F3, F4 are three ' +
+      'attenuation factors built from the imp-33810 quarter-decade ladder over the shared window ' +
+      'k=6..kEnd: F2=E_N(kEnd)/E_N(6) (the E_N normaliser ratio), F3=sflow(6)/sflow(kEnd) (the E_flow ' +
+      'log-slope ratio), and F4=resid(kEnd)/resid(6) (the imp-33773 M2 sub-leading residual ratio). ' +
+      'imp-34023 fit each factor across the imp-33917 boundary sweep and found F2 (~0.974/unit kEnd) ' +
+      'and F3 (~0.991/unit) stay nearly flat while F4 collapses geometrically -- ln F4 = a+b*kEnd, ' +
+      'b~-1.0248, R^2~0.99942 -- so extending the ladder past kEnd=13 makes the over-prediction ratio ' +
+      'diverge without bound (~3.25x per unit kEnd, x1176 over kEnd=13..21) since F4 keeps shrinking ' +
+      'toward 0 while F2, F3 approach constants.\n\n' +
+      'CANCELLATION CEILING: the divergence is only meaningful up to a surrogate-intrinsic ceiling. ' +
+      'The M2 residual itself, resid=pEcoll*(1-sigma)-pSigma, is a difference of two exponents BOTH ' +
+      'converging to 0.5, so it collapses into catastrophic cancellation and crosses zero (bisected) ' +
+      'at kEnd*~21.281 -- beyond this point F4 and the ratio flip sign as a FLOATING-POINT ARTIFACT, ' +
+      'not a physical saturation. imp-34087 quantified the approach: because the two cancelling terms ' +
+      'sum to an O(1) numerator, decimal digits lost climbs only LINEARLY (~0.44 per unit kEnd, from ' +
+      '2.55 at kEnd=13 to 7.05 at kEnd=21) across the bulk of the band -- a slow, controlled erosion, ' +
+      'not a blow-up. In double precision the surrogate nonetheless retains >=6 accurate digits all the ' +
+      'way to kEnd~21.2805, only falling off a near-vertical cliff (<6 digits at ~21.28053, <3 digits ' +
+      'at ~21.28090) within the final ~0.0004 kEnd before the resid=0 crossing -- so the honest F4-' +
+      'divergence region is sign-stable and numerically usable right up to the ceiling.\n\n' +
+      'HONEST SCOPE: a decomposition/extrapolation and numerical-significance diagnostic of an ' +
+      'inherited surrogate ratio, on the inherited imp-3220/imp-3406 component model (NOT a rigorous ' +
+      'asymptotic); the geometric F4 fit and digit-loss profile are descriptive within the model only; ' +
+      'C_C 1/8 ansatz UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a>=0 ' +
+      'untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34023 (fitting the geometric collapse of F4 and extrapolating the F1/widening ratio past kEnd=13 to the kEnd*~21.281 M2-residual sign-crossing ceiling), 2026',
+    relatedTerms: [
+      'imp-33969 the F1/widening=1/(F2*F3*F4) identity and F2/F3/F4 factor definitions this ticket extrapolates (imp-33969)',
+      'imp-33773 the M2 sub-leading residual whose ratio is F4 and whose two cancelling exponents cause the kEnd*~21.281 sign crossing (imp-33773)',
+      'imp-34087 the digit-loss/retained-accuracy quantification of the approach to the kEnd*~21.281 cancellation ceiling (imp-34087)',
+      'imp-34158 the viz page charting the digit-loss cliff and retained-digit floor near kEnd*~21.281 (imp-34158)',
+      'imp-33810 the 21-rung quarter-decade ladder supplying the inherited F2/F3/F4 sub-terms (imp-33810)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

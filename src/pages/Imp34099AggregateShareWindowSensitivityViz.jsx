@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34009_AGGREGATE_SHARE_WINDOW_ENDPOINT_SENSITIVITY } from '../data/imp-34009-aggregate-share-window-endpoint-sensitivity.js';
 
@@ -210,7 +211,12 @@ export default function Imp34099AggregateShareWindowSensitivityViz() {
         {FINDING.R2_drift_is_non_monotone_bumps_up_at_first_shrink} Endpoint-sensitivity diagnostic only,
         reusing the inherited imp-3220/imp-3406 component model verbatim; no fresh derivation, no bound
         changed, no operator positivity established; imp-3066 K_a&gt;=0 untouched; C_mb GUE-conditional
-        per imp-486 untouched; NO QED; Platt-Trudgian Lambda&lt;=0.2 remains SOTA.
+        per imp-486 untouched; NO QED; Platt-Trudgian Lambda&lt;=0.2 remains SOTA. This symmetric sweep
+        does not attribute the drift to either endpoint &mdash; see the{' '}
+        <Link to="/viz-imp34156-asymmetric-trim-attribution" style={{ color: '#38bdf8' }}>
+          imp-34086 head-vs-tail asymmetric-trim follow-up
+        </Link>{' '}
+        for that decomposition.
       </div>
     </div>
   );

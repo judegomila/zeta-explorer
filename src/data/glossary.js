@@ -11233,6 +11233,33 @@ export const glossary = [
       'imp-34150 the companion direct-bisection cross-validation of the crossing location (imp-34150)',
     ],
   },
+  {
+    term: 'imp-34134 two-term-sigma onset / E_flow-negligibility landmark',
+    category: 'numerical',
+    definition:
+      'The lambda-roadmap three-term share sigma(N)=E_coll/(E_coll+E_trunc+E_flow) collapses to the ' +
+      'simpler two-term model sigma=E_coll/(E_coll+E_trunc) once the benign Gronwall-flow term E_flow ' +
+      'drops negligible against the constant E_trunc=3.06e-5 floor -- a point that was leaned on ' +
+      '(imp-33848, imp-33582/imp-3444) but never located. imp-34134 tabulates the ratio E_flow(N)/E_trunc ' +
+      'across N=1e6..1e18 using the identical imp-3444/imp-3406 sub-terms and finds it strictly monotone ' +
+      'decreasing: 1.4376 at N=1e6 (E_flow still exceeds the floor) down to 4.70e-11 at N=1e18. Three ' +
+      'bisected landmarks mark the two-term-sigma onset: ratio=1 at N~1.598e6, ratio<1% at N~4.623e8, ' +
+      'ratio<0.1% at N~6.933e9. HEADLINE: relative to the imp-3444 E_coll=E_trunc crossover N~3.280e9, ' +
+      'the flow term is already below 1% of the E_trunc floor ~0.85 decades BEFORE the crossover and drops ' +
+      'below 0.1% only ~0.33 decades AFTER it -- so the E_flow-negligible onset essentially COINCIDES with ' +
+      'the crossover to within about a decade of N, which is exactly why imp-3444 could quote ' +
+      'E_flow/E_trunc~1.9e-3 (reproduced here as 1.899e-3) at the sigma=0.5 crossover landmark.\n\n' +
+      'HONEST SCOPE: measurement only, tabulating the inherited component model, no new mathematical claim; ' +
+      'E_flow is the benign mesoscopic-Gronwall term (imp-2845), its negligibility does NOT touch the ' +
+      'divergent C_Lip collision-Gronwall; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 ' +
+      'untouched; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains the SOTA unconditional bound.',
+    firstUsed: 'imp-34134 (tabulating the E_flow/E_trunc ratio decay ladder N=1e6..1e18 and its onset landmarks), 2026',
+    relatedTerms: [
+      'imp-3444 the E_coll=E_trunc crossover N~3.280e9 this onset is measured against (imp-3444)',
+      'imp-33848 traced the sigma(N_cross)<1/2 strictness to this E_flow surplus (imp-33848)',
+      'imp-34133 the companion F2/F3 asymptotic-constant fit from the same cohort (imp-34133)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -10454,6 +10454,39 @@ export const glossary = [
       'imp-486 C_mb GUE-conditional share, left untouched by this measurement (imp-486)',
     ],
   },
+  {
+    term: 'imp-34041 F4 over-prediction ratio growth-law tournament (exponential, no finite floor)',
+    category: 'numerical',
+    definition:
+      'imp-33969 R2 tabulated that the imp-33922 over-prediction factor F1/widening = 1/(F2*F3*F4) ' +
+      'drifts monotonically 19.913 -> 165.351 (x8.30) across the 9 windows kEnd=11..13, with the ' +
+      'attenuation F2*F3*F4 collapsing 0.05022 -> 0.006048, but never fit its functional form. imp-34041 ' +
+      'reuses the identical inherited imp-3406/imp-33810 sub-terms VERBATIM and scores three growth laws ' +
+      'on the ratio -- exponential ratio=exp(a+b*kEnd), power-law A*kEnd^b, linear a+b*kEnd -- on the ' +
+      'ORIGINAL scale so all three compete fairly.\n\n' +
+      'RESULT: the exponential form WINS decisively (RSS ~7.41, R^2 ~0.99962) over power-law (RSS ' +
+      '~55.04, R^2 ~0.99720, ~7.4x worse) and linear (RSS ~1707, R^2 ~0.91311, ~230x worse), with ' +
+      'per-unit-kEnd growth factor exp(b) ~2.888 -- the raw (log N)^3/N decay over-predicts the widening ' +
+      'GEOMETRICALLY worse as the fit boundary recedes. Equivalently the attenuation decays exponentially ' +
+      '(ln(attenuation)=a+b*kEnd, b~-1.0606, per-unit exp(b) ~0.34623 = 1/2.888, R^2 ~0.99976) and admits ' +
+      'NO finite positive asymptotic floor: Aitken/Shanks extrapolation of the attenuation sequence gives ' +
+      'limits approaching 0 FROM BELOW (-4.52e-3 -> -1.75e-4), and a 3-parameter plateau fit ' +
+      'att=c+A*exp(b*kEnd) grid-searching the floor selects a NEGATIVE c ~-8.13e-4 -- the extrapolator ' +
+      'reporting a true limit of 0, so the ratio diverges to infinity rather than saturating.\n\n' +
+      'HONEST SCOPE: this divergence is consistent with, and capped only by, the imp-34023 F4 -> 0 ratio ' +
+      'divergence and the imp-33773 M2 residual sign change at kEnd~21.3, past which catastrophic ' +
+      'cancellation makes the surrogate meaningless -- so the exponential growth law is a numerical model ' +
+      'selection valid only up to that boundary, not an unconditional asymptotic. Descriptive growth-law ' +
+      'model selection on the inherited imp-3220/imp-3406 component model, NOT a rigorous asymptotic; ' +
+      'changes no bound; establishes no operator positivity; imp-3066 K_a>=0 untouched; NO QED; ' +
+      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34041 (fitting a growth law to the imp-33969 F4/widening over-prediction ratio drift across kEnd=11..13), 2026',
+    relatedTerms: [
+      'imp-33969 F1/widening drift verdict, whose ratio and attenuation sequences this ticket fits growth laws to (imp-33969)',
+      'imp-34023 F4 -> 0 ratio divergence, whose ceiling this ticket’s floorless extrapolation is consistent with (imp-34023)',
+      'imp-33773 M2 residual sign change at kEnd~21.3, the honest cap past which the surrogate loses meaning (imp-33773)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

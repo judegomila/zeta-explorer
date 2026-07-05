@@ -9189,6 +9189,39 @@ export const glossary = [
       "imp-33847 the cross-validation companion module that re-derives the same six landmarks independently (imp-33847)",
     ],
   },
+  {
+    term: 'imp-33942 sawtooth-residue verdict for the hump-argmax grid-vs-continuum gap',
+    category: 'numerical',
+    definition:
+      'imp-33905 R2 attributed the ~0.07-decade gap between the discrete hump-argmax k* and the ' +
+      'continuum argmax k*~8.821092 to the step=0.25 grid-discretization distance, asserting it ' +
+      '"shrinks monotonically as the grid refines" -- an implicit PROPORTIONAL-shrink reading ' +
+      '(halving the step halves the gap). imp-33942 tests this directly on the imp-33878 ladder ' +
+      '(steps 0.25 down to 1/128).\n\n' +
+      'RESULT: the gap is bounded by step/2 at every rung and does vanish in the continuum limit ' +
+      '(finest gap ~91x below coarsest), so the envelope half of R2 stands. But it does NOT shrink ' +
+      'proportionally -- gap/step spreads ~4.5x across rungs, and per-refinement halving ratios ' +
+      'range from 0.111 to 1.000, including one step-halving (0.0625 -> 0.03125) that leaves the ' +
+      'gap completely UNCHANGED because the same argmax grid point survives. The gap is exactly ' +
+      'the SAWTOOTH RESIDUE (k* - 6) mod step, i.e. min(frac, 1-frac)*step with ' +
+      'frac = frac((k* - 6)/step) -- the distance from k* to the nearest grid point 6 + j*step -- ' +
+      'reproducing the measured gap at every rung to <1e-3. This residue is zero whenever some ' +
+      'grid point 6 + j*step lands exactly on k*~8.821092, and reaches its step/2 ceiling when k* ' +
+      'falls exactly between two grid points -- a phase-alignment quantity, not a decay law.\n\n' +
+      'HONEST SCOPE: measurement/reconciliation only, refining not overturning imp-33905 R2 (the ' +
+      'bounded/vanishing envelope reading holds; the proportional-shrink reading does not). The ' +
+      'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
+      'the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486 ' +
+      'is UNTOUCHED; changes no bound; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33942 (testing whether the imp-33905 R2 hump-argmax grid-vs-continuum gap shrinks proportionally to the grid step, reusing the imp-33878 ladder verbatim), 2026',
+    relatedTerms: [
+      'imp-33905 the grid-vs-continuum reconciliation whose R2 proportional-shrink reading this ticket refines (imp-33905)',
+      'imp-33878 the sliding-window resid_exp(k) argmax grid-refinement ladder and continuum k*~8.821092 reused verbatim (imp-33878)',
+      'imp-33902 the Richardson-extrapolation argmax convergence-rate cross-check (imp-33902)',
+      'imp-486 C_mb GUE-conditional share, left untouched by this measurement (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

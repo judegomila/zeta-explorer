@@ -4522,6 +4522,20 @@ const DATA_MODULES = [
   // verdict text. Consistency check only; no bound changes; imp-3066 K_a>=0 untouched; C_mb GUE-
   // conditional per imp-486 UNTOUCHED; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-34226-crossing-integer-bracket-crosscheck.js',
+  // imp-34172: CROSS-VALIDATE the imp-34106 DEEP doubling-map ladder (e=16..20, 1/65536 .. 1/2^20)
+  // from an independent from-source second code path (channels()-assembled energy channels, endpoint
+  // p_ecoll, index-enumerated argmax on an independent [8.72,8.94] window), mirroring the imp-34107
+  // shallow-ladder check. Under a numerically STABLE mean-centred OLS the second path reproduces the
+  // imp-34106 deep ladder BIT-FOR-BIT at all 6 rungs e=15..20 -- including the e=19 (1/524288)
+  // frozen-gap departure and the e=20 descent -- max rel discrepancy ~1e-9. But the e=19 departure is a
+  // precision-floor tie: the contested grid points differ by a resid_exp margin of only +3.64e-15, and
+  // the algebraically-equivalent raw-moment normal-equations OLS injects a ~1.23e-14 p_sigma
+  // perturbation (cancelling m Sxx - Sx^2 denominator) that EXCEEDS the margin and flips e=19 (and e=20)
+  // to the sawtooth-predicted descent -- first raw-vs-stable divergence exactly at e=19. This
+  // corroborates and sharpens the imp-34106 E3 stored-k* precision-floor diagnosis. Cross-check only;
+  // inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
+  // untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34172-deep-ladder-second-path-crossvalidation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

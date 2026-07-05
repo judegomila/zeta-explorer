@@ -3962,6 +3962,15 @@ const DATA_MODULES = [
   // a truncation artifact would show -- confirming I1 is an EXACT pointwise identity. Import-light
   // (effectiveHeightForN/C_C_PINNED only, no heavy bundle). PT Lambda<=0.2 SOTA; no QED. 4 assertions.
   '/src/data/imp-33925-i1-step-robustness.js',
+  // imp-33944 (numerical): resolves the SIGN and RATE of the imp-33816 F2 gap-law validation
+  // ratio ratio(N) = gap(N)*2 log T0. FINDING: ratio approaches 1 strictly FROM BELOW over
+  // 1e44..1e200 (ratio - 1 from -1.03e-2 to -2.20e-3), governed exactly by
+  // ratio = 1 - 1/(log T0 - log 2pi) = 1 - 1/u. The leading sub-leading correction is -1/log T0
+  // (coefficient exactly -1, sign NEGATIVE), the next -(log 2pi)/(log T0)^2 (~-1.838); a two-basis
+  // LSQ fit recovers c1 ~ -1.00, c2 ~ -1.84 (RMS ~1e-7). Log-slow, consistent with imp-33816 F2.
+  // Import-light (C_C_PINNED only, no heavy bundle). imp-486/C_C untouched; PT Lambda<=0.2 SOTA;
+  // no QED. 6 assertions.
+  '/src/data/imp-33944-gap-law-subleading-correction.js',
   // imp-33806 (bug): WIRES the imp-33781 sigma-inflection closed-form viz-data
   // module into this runner -- a grep had shown its *_ASSERTIONS array absent
   // from DATA_MODULES, so its 6 tripwires (monotone curve, exact 1/2 baseline,

@@ -259,6 +259,24 @@ export const IMP34133_F2_F3_ASYMPTOTIC_CONSTANT_FIT_ASSERTIONS = [
     holds: () => F2_ASYMPTOTE_MATCH < 1e-5 && F2_ASYMPTOTE_ANALYTIC > 0.059 && F2_ASYMPTOTE_ANALYTIC < 0.06,
   },
   {
+    // Storage-precision guard (imp-34225, the imp-2546/imp-2539/imp-2643 red-build trap): the
+    // toFixed(8) stored fields reconstruct to their live full-precision counterparts within the
+    // half-ULP floor (0.5e-8 each), and the 1e-5 tolerance used by the assertion above safely
+    // exceeds the combined 1e-8 storage floor.
+    id: 'imp34133-f2-analytic-floor-storage-tolerance-pinned',
+    description:
+      'Stored toFixed(8) f2Fit.asymptoticConstant_c and asymptote_analytic_E_TRUNC_over_HEAD_E_N ' +
+      'reconstruct within the 0.5e-8 half-ULP floor, and the 1e-5 cross-check tolerance exceeds the ' +
+      'combined 1e-8 storage floor',
+    holds: () =>
+      Math.abs(IMP34133_F2_F3_ASYMPTOTIC_CONSTANT_FIT.f2Fit.asymptoticConstant_c - F2_FIT.c) <= 0.5e-8 &&
+      Math.abs(
+        IMP34133_F2_F3_ASYMPTOTIC_CONSTANT_FIT.f2Fit.asymptote_analytic_E_TRUNC_over_HEAD_E_N -
+          F2_ASYMPTOTE_ANALYTIC,
+      ) <= 0.5e-8 &&
+      1e-5 >= 1e-8,
+  },
+  {
     // F3 also saturates: finite positive asymptote near 0.836, much slower decay than F2.
     id: 'imp34133-f3-saturates-to-finite-constant',
     description: 'F3(kEnd)=c+A*exp(-r*kEnd): c ~ 0.836 (finite, positive, < 1), r ~ 0.125, R2 > 0.999',

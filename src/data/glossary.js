@@ -8559,6 +8559,36 @@ export const glossary = [
       'imp-486 C_mb GUE-conditional dependency, untouched by this reconciliation (imp-486)',
     ],
   },
+  {
+    term: 'eflow_over_resid = eflow_attr/resid_exp, the E_flow-attribution-vs-offset-residual separation-widening quantity',
+    category: 'numerical',
+    definition:
+      'imp-33773 tested whether the sub-leading p_sigma/p_ecoll offset residual resid_exp(k) ' +
+      '(= p_ecoll(1 - sigma_hi) - p_sigma, the imp-33727/imp-33773 sub-leading residual, which ' +
+      'imp-33857 X1 showed equals the imp-33844 closed-form M3 hump amplitude p_ecoll^2 ln10/8 ' +
+      'exactly at its k=9 peak) is explained by the actual E_flow contribution eflow_attr(k) = ' +
+      '(E_flow/E_N)|d ln E_flow/d ln N| at the decade upper endpoint. imp-33810 tracked the ratio ' +
+      'eflow_over_resid(k) := eflow_attr(k)/resid_exp(k) across a quarter-decade-resolved ' +
+      'N = 1e6..1e11 ladder to lock the refutation as a robust trend rather than a single tail point.\n\n' +
+      'RESULT: eflow_over_resid is BELOW 1 at all 21 rungs (E_flow never even reaches the residual ' +
+      'it was attributed to) and STRICTLY DECREASING in N -- from ~0.4687 at k=6 (only a factor ~2.1 ' +
+      'gap) to ~5.19e-4 at k=11 (~1928x gap), the same-sign magnitude separation WIDENING monotonically ' +
+      'by a factor of ~918x head-to-tail (integer-decade rungs {2.1, 7.0, 34.4, 163.5, 623.1, 1927.6}). ' +
+      'imp-28895 later DERIVED this ~918x from the component-model asymptotics rather than treating it ' +
+      'as an empirical fit: it is the eflow_attr collapse under the E_flow ~ (log N)^3/N law (~1033x ' +
+      'over k=6..11) lightly damped by the resid_exp denominator\'s own E_coll -&gt; E_trunc transition ' +
+      '(~0.063x), the two combining to ~918x (matching to within toFixed(1) rounding).\n\n' +
+      'HONEST SCOPE: measurement/derivation only, on the inherited imp-3220/imp-3406/imp-33773 ' +
+      'component model, NOT a rigorous asymptotic. Changes no bound; establishes no operator positivity; ' +
+      'imp-3066 K_a &gt;= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains SOTA.',
+    firstUsed: 'imp-33810 (tracking the eflow_attr/resid_exp ratio across a fine N ladder to lock the imp-33773 E_flow-attribution refutation as a monotone-widening magnitude separation), 2026',
+    relatedTerms: [
+      'imp-33773 SUB-LEADING-RESIDUAL-IS-CURVATURE-NOT-EFLOW verdict, the refutation this ratio quantifies across N (imp-33773)',
+      'imp-33844 closed-form M3 hump peak, the value resid_exp(k=9) equals exactly per imp-33857 X1 (imp-33844)',
+      'imp-28895 eflow-resid widening-model derivation, deriving the ~918x from component-model asymptotics rather than fitting it (imp-28895)',
+      'imp-33843 descriptive form-fit of the widening, flagged as NOT derived until imp-28895 (imp-33843)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -8659,6 +8659,46 @@ export const glossary = [
       'imp-33638 band-clearing tail reintensification, the earlier tail-cluster onset now the plateau precursor (imp-33638)',
     ],
   },
+  {
+    term: "imp-33707 amplitude-slope-collapses-even-harder-two-point-artifact verdict: excluding the two tallest imp-33638 tail clusters collapses the imp-33681 peak-to-trough amplitude slope survival to ~0.036, harder than the imp-33680 height slope survival ~0.115",
+    category: "numerical",
+    definition:
+      "imp-33681 differenced the imp-33660 sixteen cluster-peak HEIGHTS against the imp-33662 fifteen " +
+      "trough floors into a peak-to-trough AMPLITUDE series and found a weak positive linear slope " +
+      "(~+0.0537 ULP/rung, R^2~0.254), noting -- but never MEASURING -- that the trend looked " +
+      "concentrated in the same two tallest imp-33638 tail clusters (~90.9 ULP at n~1126, ~91.9 at " +
+      "n~1198) that imp-33680 already showed carried the imp-33660 HEIGHT trend.\n\n" +
+      "imp-33707 runs the parallel leave-two-out test on the AMPLITUDE series: it takes the EXACT " +
+      "sixteen imp-33681 amplitudes (imported from its frozen export, no re-derivation), drops the " +
+      "two tallest, refits constant/linear/sqrt/log on the remaining fourteen, and cross-checks the " +
+      "survival ratios against the imp-33680 HEIGHT leave-two-out.\n\n" +
+      "VERDICT: AMPLITUDE-SLOPE-COLLAPSES-EVEN-HARDER-TREND-IS-LIKEWISE-A-TWO-POINT-ARTIFACT. Removing " +
+      "the two tallest tail clusters collapses the linear amplitude slope from ~+0.0537 to ~+0.0019 " +
+      "ULP/rung -- a slope survival ratio ~0.036, smaller than the imp-33680 HEIGHT slope survival " +
+      "~0.115 -- and the R^2 from ~0.254 to ~0.0011 (survival ~0.0045 vs the height's ~0.145). The " +
+      "leave-two-out linear fit barely beats its own null (residual RMS ~10.19 vs the fourteen-" +
+      "amplitude sd ~10.20, an ~0.06% reduction, versus ~13.6% on the full sixteen); the remaining " +
+      "fourteen are a flat ~17..56 ULP band (mean ~33.9, sd ~10.2 vs ~21.3 for all sixteen), and the " +
+      "concave sqrt/log laws also collapse (R^2~0.0004/0.0). Both leave-two-out refits drop the SAME " +
+      "two rungs (n~1126, n~1198), so the amplitude collapses the SAME WAY as the height -- in fact " +
+      "~3x harder, since differencing amp = peak - floor subtracts most of the flat-band common level " +
+      "and leaves the two tail spikes standing out even more sharply.\n\n" +
+      "HONEST SCOPE: measurement only, not a bound. This is a leave-two-out robustness refit of a " +
+      "jittery arithmetic-floor lattice statistic (imp-33249/imp-33599/imp-33621/imp-33638/imp-33660/" +
+      "imp-33662/imp-33681/imp-33680 latticeJitter caveat) -- the exact slope, R^2, and residual RMS " +
+      "can shift under cross-platform libm variation, but the qualitative reading (the amplitude " +
+      "trend collapses when the two tallest are removed, at least as hard as the height did) is " +
+      "robust; NPHI=10 truncation inherited; changes no bound, patches no literal; mass-feasibility " +
+      "necessary-but-not-sufficient; imp-3066 K_a>=0 untouched; Platt-Trudgian Lambda<=0.2 remains " +
+      "the rigorous SOTA; NO QED.",
+    firstUsed: "imp-33707 (leave-two-out refit of the imp-33681 sixteen peak-minus-trough amplitudes excluding the two tallest imp-33638 tail clusters, cross-checked against the imp-33680 height leave-two-out), 2026",
+    relatedTerms: [
+      "imp-33681 amplitude-grows-weakly-positive-but-below-the-peak-growth verdict, the full-sixteen amplitude fit this refits robustly (imp-33681)",
+      "imp-33680 slope-collapses-trend-is-a-two-point-artifact verdict, the parallel HEIGHT leave-two-out cross-checked here (imp-33680)",
+      "imp-33638 band-clearing tail reintensification, the source of the two tallest dropped clusters (imp-33638)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

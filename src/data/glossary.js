@@ -9739,6 +9739,29 @@ export const glossary = [
       'imp-33582 the coarser per-decade OLS ramp (0.0105 -> 0.4310 by [1e11,1e12]) this pointwise ladder sharpens (imp-33582)',
     ],
   },
+  {
+    term: "imp-33936 sigma-decay six-id-cohort citation audit -- CLEAN (mismatchesFound=0)",
+    category: "meta",
+    definition:
+      "Read-only audit checking whether the imp-33759 honesty correction (only FOUR of a ticket-named " +
+      "six-id list -- imp-33708, imp-33721, imp-33722, imp-33723 -- actually share the sigma(N) = " +
+      "E_coll/(E_trunc+E_flow+E_coll) component model; imp-33706 and imp-33707 are off-topic) had left " +
+      "any unrepaired six-id-cohort overclaim elsewhere in src/data, glossary.js, IMPROVEMENTS.md, or " +
+      "src/pages." +
+      "\n\nRESULT: mismatchesFound = 0. imp-33759 is the sole assembler of the six-id cohort claim and " +
+      "already carries the correct four-vs-two split; every other hit (imp-33746, imp-33745, the " +
+      "imp-33784 rollup, one glossary.js relatedTerms phrase naming only a narrower two-id imp-33706/" +
+      "imp-33721 lineage, and unrelated IMPROVEMENTS.md commit rows) cites imp-33706 for a disjoint " +
+      "reason or in a way already consistent with the split. Recorded here as a short pointer so this " +
+      "citation audit is not silently re-run." +
+      "\n\nHONEST SCOPE: read-only citation audit only; no bound changed; imp-3066 K_a >= 0 untouched; " +
+      "NO QED; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-33936 (sigma-decay cohort citation audit, CLEAN), 2026",
+    relatedTerms: [
+      "imp-33759 sigma-decay cohort provenance rollup, the honesty correction this audit checked for unrepaired propagation of (imp-33759)",
+      "imp-3888 provenance audit of the imp-3849 R_40 cross-check, the audit pattern this module follows (imp-3888)",
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

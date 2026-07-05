@@ -174,6 +174,7 @@ function fitLadder(R) {
   return {
     KS,
     RES,
+    series: KS.map((k, i) => ({ k, resid: +RES[i].toExponential(4) })),
     fit: { a: +F.a.toFixed(6), b: +F.b.toFixed(6) },
     rmse: +Math.sqrt(ssRes / RES.length).toExponential(4),
     r2: +(1 - ssRes / ssTot).toFixed(6),
@@ -224,9 +225,9 @@ export const IMP33877_WIDENING_FIT_TAIL_ENDPOINT_ARTIFACT_TEST = {
     '(21 rungs) to k=6..11.5 (23 rungs) and k=6..12 (25 rungs), tracking the signed residual at k=11 ' +
     'and the location/value of the largest positive residual as the fit window boundary recedes',
   reuseGateMaxRelDiffVsImp33810: +MAX_REL_DIFF_VS_IMP33810.toExponential(3), // ~0 -- same inherited model
-  base: { kEnd: 11, rungs: BASE.KS.length, fit: BASE.fit, rmse: BASE.rmse, r2: BASE.r2, argmax: BASE.argmax, argmin: BASE.argmin },
-  ext115: { kEnd: 11.5, rungs: EXT115.KS.length, fit: EXT115.fit, rmse: EXT115.rmse, r2: EXT115.r2, argmax: EXT115.argmax, argmin: EXT115.argmin },
-  ext12: { kEnd: 12, rungs: EXT12.KS.length, fit: EXT12.fit, rmse: EXT12.rmse, r2: EXT12.r2, argmax: EXT12.argmax, argmin: EXT12.argmin },
+  base: { kEnd: 11, rungs: BASE.KS.length, fit: BASE.fit, rmse: BASE.rmse, r2: BASE.r2, argmax: BASE.argmax, argmin: BASE.argmin, series: BASE.series },
+  ext115: { kEnd: 11.5, rungs: EXT115.KS.length, fit: EXT115.fit, rmse: EXT115.rmse, r2: EXT115.r2, argmax: EXT115.argmax, argmin: EXT115.argmin, series: EXT115.series },
+  ext12: { kEnd: 12, rungs: EXT12.KS.length, fit: EXT12.fit, rmse: EXT12.rmse, r2: EXT12.r2, argmax: EXT12.argmax, argmin: EXT12.argmin, series: EXT12.series },
   k11ResidualAcrossBoundaries: { base_endpoint: K11_BASE, ext115_interior: K11_EXT115, ext12_interior: K11_EXT12 },
   k11RelaxFraction: K11_RELAX_FRACTION, // ~0.86 collapse of the k=11 residual once it is interior
   endpointPeakSequence: ENDPOINT_PEAK_SEQUENCE, // +0.2479 (k=11) -> +0.3218 (k=11.5) -> +0.3830 (k=12)

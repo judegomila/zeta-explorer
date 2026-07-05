@@ -304,6 +304,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33993-g-vs-law-offset',
   '/viz-imp33994-sawtooth-gap-vs-step',
   '/viz-imp33999-residual-curvature-contrast',
+  '/viz-imp33915-endpoint-artifact-residual-migration',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

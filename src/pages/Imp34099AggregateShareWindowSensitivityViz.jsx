@@ -122,10 +122,30 @@ function FactorDriftChart() {
         />
       ))}
       {series.map((s) =>
-        WINDOWS.map((w) => (
-          <circle key={`${s.key}-${w.m}`} cx={xAt(w.m)} cy={yAt(w[s.key])} r={2.75} fill={s.color} />
-        ))
+        WINDOWS.map((w) => {
+          const isF4UnityCrossing = s.key === 'agg_F4' && w.m === 1;
+          return (
+            <circle
+              key={`${s.key}-${w.m}`}
+              cx={xAt(w.m)}
+              cy={yAt(w[s.key])}
+              r={isF4UnityCrossing ? 5.5 : 2.75}
+              fill={s.color}
+              stroke={isF4UnityCrossing ? '#0a0f1a' : 'none'}
+              strokeWidth={isF4UnityCrossing ? 1.25 : 0}
+            />
+          );
+        })
       )}
+      <text
+        x={xAt(1)}
+        y={yAt(WINDOWS[1].agg_F4) - 10}
+        textAnchor="middle"
+        fill="#f472b6"
+        fontSize={9}
+      >
+        F4={WINDOWS[1].agg_F4.toFixed(3)} (crosses unity here, m=1 -- drives the R2 share bump)
+      </text>
       <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
         m (rungs trimmed symmetrically from each end)
       </text>

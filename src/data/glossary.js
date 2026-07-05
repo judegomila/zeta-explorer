@@ -10386,6 +10386,39 @@ export const glossary = [
       'imp-486 C_mb GUE-conditional share, left untouched by this measurement (imp-486)',
     ],
   },
+  {
+    term: 'imp-34044 sawtooth phase-realignment SCHEDULE (doubling-map closed form)',
+    category: 'numerical',
+    definition:
+      'imp-33983 verified the imp-33942 P3 sawtooth-residue closed form gap(step)=min(frac,1-frac)*step ' +
+      'below the imp-33878 hump floor and observed the frozen argmax gap 7.795e-4 through 1/512, with ' +
+      'out-of-ladder descent points at 1/2048 (1.97e-4) and 1/4096 (4.71e-5), but never tabulated the ' +
+      'full realignment schedule. Reusing the imp-33878/imp-33810 resid_exp(k) model VERBATIM, imp-34044 ' +
+      're-runs the k=6..11 discrete argmax across the whole dyadic ladder 1/128..1/32768 (exponents ' +
+      'e=7..15) and reads the gap and nearest grid point to k*~8.821092 at each rung.\n\n' +
+      'RESULT: the sawtooth closed form matches the re-run argmax gap to <1e-6 at all 9 rungs. The ' +
+      'refinement phase itself follows the Bernoulli DOUBLING MAP frac_{e+1}=frac(2*frac_e) of the ' +
+      'fixed continuum phase (k*-6)~2.821092, seeded at frac_7~0.099776, giving a CLOSED-FORM ' +
+      'realignment rule: the frozen gap resumes descent at level e+1 IFF frac_e lands in the reflection ' +
+      'band (1/4,3/4) (the doubling crosses 1/2); otherwise it freezes, since min(frac,1-frac) doubles ' +
+      'exactly enough to cancel the step halving. This predicts descents at exactly e=10,12,14 ' +
+      '(1/1024,1/4096,1/16384) and freezes at e=8,9,11,13,15, matching the tabulated gaps 7.795e-4, ' +
+      '1.971e-4, 4.708e-5, 1.396e-5 (per-realignment drop ratios ~3.96, 4.19, 3.37). A ONE-RUNG ' +
+      'CORRECTION to imp-33983: the first descent actually lands at 1/1024 (argmax 8.8212890625, gap ' +
+      '1.9706e-4), not 1/2048 -- imp-33983 skipped 1/1024 (its out-of-ladder steps were [1/2048,1/4096]) ' +
+      'and reported the descent at 1/2048, which merely INHERITS that argmax because ' +
+      '8.8212890625=6+2887/1024 is a terminating dyadic.\n\n' +
+      'HONEST SCOPE: measurement only, on the inherited imp-3220/imp-3406 surrogate resid_exp(k) model, ' +
+      'NOT a rigorous asymptotic; changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8 ' +
+      'ansatz (imp-2642/imp-2643) UNTOUCHED; imp-3066 K_a>=0 untouched; no RH verdict, NO QED; ' +
+      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34044 (tabulating the imp-33983 sawtooth phase-realignment schedule across the dyadic ladder 1/128..1/32768 as a closed-form doubling-map sequence), 2026',
+    relatedTerms: [
+      'imp-33983 FROZEN sawtooth argmax-gap verdict, whose realignment schedule this ticket closes into a doubling-map form (imp-33983)',
+      'imp-33878 HUMP-ARGMAX-CONVERGES-DOWNWARD verdict, supplying the resid_exp(k) model reused verbatim (imp-33878)',
+      'imp-486 C_mb GUE-conditional share, left untouched by this measurement (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

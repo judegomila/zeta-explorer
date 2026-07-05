@@ -10115,6 +10115,33 @@ export const glossary = [
       'imp-34052 the viz page charting the three-way landmark spread on a log10 N axis (imp-34052)',
     ],
   },
+  {
+    term: 'imp-33985 leave-one-out sensitivity: the imp-33941 concave-log endpoint-peak decision is ROBUST to any single dropped rung',
+    category: 'numerical',
+    definition:
+      'imp-33941 decided the imp-33843 boundary-locked endpoint peak follows the concave log form ' +
+      '(peak = a + b ln kEnd) over the straight line by Delta AIC = -3.385 (evidence ratio ~5.43:1), ' +
+      'but scored only the full 9-point imp-33917 boundary sweep (kEnd = 11.00..13.00 step 0.25), so ' +
+      'its robustness to a single dropped rung was never measured. imp-33985 drops each of the 9 ' +
+      'windows in turn, refits both M_lin and M_log by OLS on the remaining n=8, and recomputes the ' +
+      'AIC contrast and Akaike evidence ratio for all 9 leave-one-out folds. FINDING: the log form is ' +
+      'favored in EVERY fold -- Delta AIC ranges over [-3.226, -2.757], all past the positive threshold ' +
+      '(Delta<-2), and the evidence ratio stays in [3.97, 5.02]:1, lower than the full-sample 5.43:1 ' +
+      '(each fold discards one supporting point) but never decisive (>~20:1) in any fold. The single ' +
+      'most influential rung is the LOW boundary kEnd=11 (its removal gives the worst-case 3.97:1); ' +
+      'the HIGH boundary kEnd=13 is least influential (5.02:1); interior drops land near ~4.5:1 -- so ' +
+      'the decision is not carried by the boundary-most rung. Measurement only; both forms remain ' +
+      'descriptive not derived; the imp-33843 log-linear-vs-power-law FORM verdict UNTOUCHED; C_mb ' +
+      'GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; no bound changed; NO QED; ' +
+      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-33985 (leave-one-out sensitivity of the imp-33941 log-vs-linear endpoint-peak model-selection decision across all 9 imp-33917 boundary-sweep folds), 2026',
+    relatedTerms: [
+      'imp-33941 the full-sample log-vs-linear model-selection decision whose robustness this ticket measures (imp-33941)',
+      'imp-33917 the 9 boundary-locked endpoint peaks reused verbatim as the leave-one-out sample (imp-33917)',
+      'imp-33982 the companion three-way tournament admitting a curved power-law challenger to the same decision (imp-33982)',
+      'imp-34051 the viz page charting the fold-by-fold evidence-ratio strip (imp-34051)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

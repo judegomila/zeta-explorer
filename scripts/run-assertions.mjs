@@ -4431,6 +4431,16 @@ const DATA_MODULES = [
   // component model NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 untouched; imp-3066
   // K_a>=0 untouched; no bound changed; NO QED; PT Lambda<=0.2 SOTA. 4 assertions.
   '/src/data/imp-34207-apex-septic-tilt-coefficient.js',
+  // imp-34216: CROSS-VALIDATE the imp-34146 apex quintic sign by an INDEPENDENT finite-difference fifth
+  // derivative -- free of the least-squares basis. A basis-free 7-point O(h^2) and 9-point O(h^4)
+  // Fornberg central stencil of the SAME imp-33878 resid_exp(k) surrogate at the imp-33948 apex k* give
+  // a POSITIVE resid^(5)(k*) at every h in [0.02,0.06]; the O(h^4) stencil is nearly h-independent
+  // (~+9.0501e-3) and a Richardson extrapolation of the 7-point independently gives ~+9.0502e-3,
+  // reproducing the imp-34146 least-squares resid^(5)(k*) ~ +9.0286e-3 in SIGN and to ~0.24% -- the
+  // positive quintic is NOT an artifact of the odd-augmented basis. Cross-validation only; confirms not
+  // overturns imp-34146; inherited imp-3220/imp-3406 model NOT rigorous; C_mb GUE-conditional per imp-486
+  // untouched; imp-3066 K_a>=0 untouched; no bound changed; NO QED; PT Lambda<=0.2 SOTA. 3 assertions.
+  '/src/data/imp-34216-apex-quintic-fd-crossvalidation.js',
   // imp-34147: DOES THE imp-34084 APEX CUBIC-TILT SIGN d<0 PERSIST ACROSS THE LADDER? imp-34084 C1 fit
   // the apex cubic tilt d ~ -5.347e-4 (resid triple-prime(k*) < 0) at the SINGLE imp-33948 apex centre
   // k* ~ 8.821092 and never asked whether the negative sign is a local feature or a stable property.

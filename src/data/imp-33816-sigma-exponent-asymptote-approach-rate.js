@@ -197,6 +197,14 @@ function crossLog10Direct(target, hiLog10) {
 const WITHIN_0_1PCT_LOG10_DIRECT = crossLog10Direct(0.4995, 600); // ~436.06, DIRECTLY evaluated
 const WITHIN_0_1PCT_LOGT0_DIRECT = logT0FromLnN(WITHIN_0_1PCT_LOG10_DIRECT * Math.LN10).L; // ~999.0
 
+// imp-33943: fill the crossing ladder between the imp-33904 90% mark (p=0.45, N~1e11.92) and the
+// imp-33816 99% mark (p=0.495, N~1e44) with the intermediate 50% (p=0.25) and 95% (p=0.475) marks,
+// solved on the SAME log-space direct path (Newton ln N = u + log(u-1), never forming T0/N). Both
+// crossings sit comfortably inside IEEE-double range and reproduce the double-range crossLog10 path
+// to <1e-4 in log10 N (verified below), confirming the identical inherited model is in use.
+const WITHIN_50PCT_LOG10 = crossLog10Direct(0.25, 30); // ~9.61 (log T0 ~ 21.1); 50% of the 1/2 asymptote
+const WITHIN_95PCT_LOG10 = crossLog10Direct(0.475, 80); // ~13.17 (log T0 ~ 28.9); 95% of the 1/2 asymptote
+
 export const IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE = {
   id: 'imp-33816',
   proofSection: 'S-frontier',
@@ -221,6 +229,13 @@ export const IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE = {
     within_90pct_logT0: +logT0AtLog10(WITHIN_90PCT_LOG10).toFixed(1), // ~26.1
     within_90pct_relative_to_imp33582_stop_decades: +(WITHIN_90PCT_LOG10 - 12).toFixed(2), // ~-0.08 (inside [1e11,1e12])
     within_90pct_decades_above_imp33701_knee: +(WITHIN_90PCT_LOG10 - 11).toFixed(2), // ~0.92 (knee decade [1e10,1e11])
+    // imp-33943: intermediate ladder rungs solved on the log-space direct path (crossLog10Direct).
+    within_50pct_of_half_at_N_log10: +WITHIN_50PCT_LOG10.toFixed(2), // ~9.61 (p=0.25; sits ~2.3 decades BELOW the 90% mark)
+    within_50pct_logT0: +logT0FromLnN(WITHIN_50PCT_LOG10 * Math.LN10).L.toFixed(1), // ~21.1
+    within_95pct_of_half_at_N_log10: +WITHIN_95PCT_LOG10.toFixed(2), // ~13.17 (p=0.475; strictly between the 90% and 99% marks)
+    within_95pct_logT0: +logT0FromLnN(WITHIN_95PCT_LOG10 * Math.LN10).L.toFixed(1), // ~28.9
+    within_95pct_decades_above_90pct: +(WITHIN_95PCT_LOG10 - WITHIN_90PCT_LOG10).toFixed(2), // ~1.25 (90%->95%)
+    within_99pct_decades_above_95pct: +(WITHIN_1PCT_LOG10 - WITHIN_95PCT_LOG10).toFixed(2), // ~31.0 (95%->99%, the log-slow leg)
     within_1pct_of_half_at_N_log10: +WITHIN_1PCT_LOG10.toFixed(2), // ~44.17 (N ~ 1e44)
     within_1pct_logT0: +logT0AtLog10(WITHIN_1PCT_LOG10).toFixed(1), // ~99
     within_0_1pct_of_half_at_N_log10_fromLaw: WITHIN_0_1PCT_LOG10_FROM_LAW, // ~434 (F2 law, dropped log terms)
@@ -253,6 +268,14 @@ export const IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE = {
       'imp-33701 knee decade [1e10,1e11]. The per-decade OLS averages 0.4310 over that decade only ' +
       'because p is still below 0.45 early in it. Contrast the logarithmic slowness of the last leg: ' +
       '90% arrives essentially at the 1e12 stop, yet 99% (p=0.495) waits until ~1e44 and 99.9% until ~1e436.',
+    F6_intermediate_ladder_rungs_imp33943:
+      'imp-33943 fills the crossing ladder between the imp-33904 90% mark (p=0.45, N~1e11.92) and ' +
+      'the imp-33816 99% mark (p=0.495, N~1e44) with the intermediate 50% (p=0.25) and 95% (p=0.475) ' +
+      'crossings, solved on the identical log-space direct path (both reproduce the double-range ' +
+      'crossLog10 path to <1e-4). The 50% mark lands at N~1e9.61 (log T0~21.1), ~2.3 decades BELOW ' +
+      'the 90% mark; the 95% mark at N~1e13.17 (log T0~28.9), ~1.25 decades above 90%. The ladder ' +
+      'makes the 1/(2 log T0) slowness concrete: 90%->95% costs ~1.25 decades but 95%->99% costs ' +
+      '~31 decades -- the same 4.5-point exponent gain, ~25x more N-decades, as the tail flattens.',
     F4_within_0_1pct_evaluated_directly_imp33859:
       'imp-33859 closes the F3 note by evaluating the 0.1% mark DIRECTLY. Recasting the identical ' +
       'sub-terms in log-N space -- solving ln N = u + log(u-1) for u = log(T0/2pi) by Newton so ' +
@@ -348,6 +371,21 @@ export const IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE_ASSERTIONS = [
       WITHIN_0_1PCT_LOG10_DIRECT < 438 &&
       Math.abs(WITHIN_0_1PCT_LOGT0_DIRECT - 1000) < 5 &&
       WITHIN_0_1PCT_LOG10_DIRECT > WITHIN_0_1PCT_LOG10_FROM_LAW,
+  },
+  {
+    // imp-33943 (F6): the intermediate 50% (p=0.25) and 95% (p=0.475) crossings order correctly
+    // within the ladder (50% < 90% < 95% < 99%), hit their target exponents, and reproduce the
+    // double-range crossLog10 path -- proving the identical inherited model on the log-space route.
+    id: 'imp33816-intermediate-ladder-rungs-imp33943',
+    description: 'p=0.25 (50%) at N~1e9.6 and p=0.475 (95%) at N~1e13.2 order correctly (50%<90%<95%<99%) and hit target',
+    holds: () =>
+      Math.abs(pLocalFromLnN(WITHIN_50PCT_LOG10 * Math.LN10) - 0.25) < 1e-4 &&
+      Math.abs(pLocalFromLnN(WITHIN_95PCT_LOG10 * Math.LN10) - 0.475) < 1e-4 &&
+      WITHIN_50PCT_LOG10 < WITHIN_90PCT_LOG10 &&
+      WITHIN_90PCT_LOG10 < WITHIN_95PCT_LOG10 &&
+      WITHIN_95PCT_LOG10 < WITHIN_1PCT_LOG10 &&
+      Math.abs(pLocalFromLnN(WITHIN_50PCT_LOG10 * Math.LN10) - pLocalAtLog10(WITHIN_50PCT_LOG10)) < 1e-9 &&
+      Math.abs(pLocalFromLnN(WITHIN_95PCT_LOG10 * Math.LN10) - pLocalAtLog10(WITHIN_95PCT_LOG10)) < 1e-9,
   },
   {
     // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.

@@ -4407,6 +4407,18 @@ const DATA_MODULES = [
   // component model NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 untouched; imp-3066
   // K_a>=0 untouched; no bound changed; NO QED; PT Lambda<=0.2 SOTA. 4 assertions.
   '/src/data/imp-34146-apex-quintic-tilt-coefficient.js',
+  // imp-34207: FIT THE APEX SEPTIC (t^7) TILT COEFFICIENT imp-34146 NAMED BUT NEVER FIT. Extending the
+  // SAME 21-point symmetric least-squares over k*+/-0.1 to {1,t,t^2,t^3,t^5,t^7} gives g ~ -1.0466e-5,
+  // so resid^(7)(k*) = 5040 g ~ -5.2747e-2 (NEGATIVE, same sign as the negative cubic, opposite the
+  // positive quintic -- odd coefficients alternate - + - through order 7; dense basis agrees ~3.6e-8;
+  // apex/curvature preserved exactly, quintic shifts ~0.24%). HONEST NEGATIVE RESULT: the negative
+  // septic term g(0.5)^7 ~ -8.18e-8 is the wrong sign at |t|=0.5, so it does NOT absorb the imp-34146
+  // ~2.68% odd overshoot -- it slightly DEEPENS it to ~2.80% (ratio ~1.027->~1.028, absorbed ~-4.5%);
+  // yet it drives the wing split +0.0002%->~-0.0000% (total two-wing 0.6276% unchanged, the even quartic
+  // survives). Measurement only; confirms/refines not overturns imp-34146; inherited imp-3220/imp-3406
+  // component model NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 untouched; imp-3066
+  // K_a>=0 untouched; no bound changed; NO QED; PT Lambda<=0.2 SOTA. 4 assertions.
+  '/src/data/imp-34207-apex-septic-tilt-coefficient.js',
   // imp-34147: DOES THE imp-34084 APEX CUBIC-TILT SIGN d<0 PERSIST ACROSS THE LADDER? imp-34084 C1 fit
   // the apex cubic tilt d ~ -5.347e-4 (resid triple-prime(k*) < 0) at the SINGLE imp-33948 apex centre
   // k* ~ 8.821092 and never asked whether the negative sign is a local feature or a stable property.

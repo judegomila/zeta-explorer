@@ -4579,6 +4579,17 @@ const DATA_MODULES = [
   // Measurement/fit only; C_mb GUE-conditional per imp-486 untouched; PT Lambda<=0.2 SOTA; no QED.
   // 6 assertions.
   '/src/data/imp-34191-span-exponent-alpha-limit-fit.js',
+  // imp-34194: DIRECT test of the imp-34130 F2 claim that the fitted intercept a ~ 5.9e-4 of
+  // resid ~ a + b/log T0 is a finite-window curvature artifact, not a residual floor. Re-runs the
+  // seven-rung OLS fit on the imp-33859 log-space direct path while sliding a fixed-width window up
+  // the ladder (kmin=11..50) and while dropping the lowest-k rungs (fixed top 1e18). The intercept
+  // falls MONOTONICALLY 5.8565e-4 (kmin=11) -> 3.5622e-5 (kmin=50), a 16-fold collapse toward zero,
+  // with the endpoint product a*logT0_min*logT0_max staying ~constant near 1/2 (curvature-artifact
+  // law a ~ 1/(logT0_min*logT0_max)); dropping the lowest rungs shrinks a again (5.8565e-4 ->
+  // 4.4965e-4). Model gate: the log-space fit reproduces the imp-34130 double-range seven-rung fit
+  // EXACTLY. Measurement/fit only; C_mb GUE-conditional per imp-486 untouched; PT Lambda<=0.2 SOTA;
+  // no QED. 5 assertions.
+  '/src/data/imp-34194-f2-intercept-recede-curvature-artifact.js',
 ];
 
 let ALL_MODULES = FAST_MODE

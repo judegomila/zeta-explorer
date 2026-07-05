@@ -9793,6 +9793,40 @@ export const glossary = [
       "imp-33816 sigma-exponent shortfall law 1/(2 log T0), the object being differenced (imp-33816)",
     ],
   },
+  {
+    term: "imp-33959 widening-fit residual-localization ROLLUP (far-tail excursion -> boundary-locked peak -> edge-artifact verdict)",
+    category: "meta",
+    definition:
+      "Three modules trace the SAME anomalous residual through progressively sharper diagnoses, " +
+      "but each was logged separately, leaving the combined conclusion undiscoverable in one place. " +
+      "This rollup consolidates them: (1) imp-33858 first flagged the k=11 far-tail entry of the " +
+      "21 imp-33843 signed widening-fit residuals as a standout excursion (e_20 = +0.2479), part of " +
+      "a broader STRUCTURED (non-white-noise) residual verdict later calibrated by imp-33886. " +
+      "(2) imp-33877 localized that excursion as sitting at the boundary-LOCKED endpoint of the fit " +
+      "window rather than at a fixed rung, and showed it grows as the window recedes -- but reported " +
+      "only 3 points and never fit a growth law. (3) imp-33917 reused the SAME imp-33810/imp-33877 " +
+      "machinery over a fine 9-window kEnd=11.00..13.00 sweep and fit that growth explicitly: the " +
+      "endpoint peak rises strictly and sub-linearly/concavely (+0.2479 to +0.4651, ~88% over two " +
+      "extra decades, no plateau), the textbook signature of a truncation/EDGE ARTIFACT rather than " +
+      "a saturating physical feature.\n\n" +
+      "NET READING: the k=11 excursion imp-33858 flagged is not an isolated anomaly but the same " +
+      "boundary-driven edge artifact imp-33877 localized and imp-33917 quantified -- it tracks WHERE " +
+      "the fit window is truncated, not a fixed physical rung. The genuinely boundary-INDEPENDENT " +
+      "object throughout is the imp-33843 log-linear widening FORM verdict and the tail-deceleration " +
+      "sign, both left untouched by this three-step localization.\n\n" +
+      "HONEST SCOPE: this is a cross-reference/discoverability rollup, not a new measurement -- it " +
+      "adds no data and changes no verdict from imp-33858/imp-33877/imp-33917. The component model " +
+      "is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional " +
+      "per imp-486 UNTOUCHED; changes no bound; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian " +
+      "Lambda <= 0.2 remains SOTA.",
+    firstUsed: "imp-33959 (consolidating the imp-33858 far-tail excursion, imp-33877 boundary-locked localization, and imp-33917 endpoint-growth edge-artifact verdict into a single discoverable rollup), 2026",
+    relatedTerms: [
+      "imp-33858 the far-tail k=11 residual excursion first flagged, part of the structured-residual verdict (imp-33858)",
+      "imp-33877 the boundary-locked endpoint localization of that excursion (imp-33877)",
+      "imp-33917 endpoint-residual-growth EDGE-ARTIFACT test, the growth-law fit that decides edge-artifact vs saturation (imp-33917)",
+      "imp-33843 the log-linear widening FORM verdict, the boundary-independent object left untouched throughout (imp-33843)",
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

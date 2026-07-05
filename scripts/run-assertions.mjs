@@ -4661,6 +4661,18 @@ const DATA_MODULES = [
   // does not close. Measurement only; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
   // untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-34211-closedform-vs-bisection-kend-gap.js',
+  // imp-34214: fits the imp-34085 |trough|/|peak| amplitude-ratio sequence (0.6151 -> 0.7200 across
+  // window width w = kEnd-6 = 5.0..7.0) versus w to the two saturating approach forms of the imp-34129
+  // method -- ratio = r_inf + c exp(-lam w) and ratio = r_inf + c w^(-p) -- to decide whether the ratio
+  // converges or merely creeps. REFUTED: both forms pin their rate/exponent to the lower grid boundary
+  // (lam=0.01, p=0.1, no interior optimum) and extrapolate to NON-PHYSICAL limits r_inf ~6.0 (exp) and
+  // ~3.8 (power), both far above the amplitude-ratio ceiling of 1; a floor-probe (grid floor 0.01->0.001)
+  // lowers the SSR while r_inf balloons ~6.0->~54.1, so the "limit" is a moving target, not a convergent
+  // extrapolation -- corroborating the imp-34085 growing per-window increment (+0.0142->+0.0332). Opposite
+  // to the sibling imp-34129 widening-SLOPE drift, which seated an interior optimum at a finite ~-1.0.
+  // Fit only; imp-33843 form verdict untouched; imp-486/C_C untouched; imp-3066 K_a>=0 untouched; PT
+  // Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34214-trough-peak-ratio-limit-fit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

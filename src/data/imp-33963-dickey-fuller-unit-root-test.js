@@ -265,12 +265,13 @@ export const IMP33963_DICKEY_FULLER_UNIT_ROOT_TEST_ASSERTIONS = [
   {
     // Honesty gate: isRigorous false, no QED, PT SOTA, and the residual stays small (bound untouched).
     id: 'imp33963-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, RMSE-scale residual still small',
+    description: 'Measurement only: isRigorous false, no QED, PT SOTA, RMSE-scale residual still small, imp-3066 untouched',
     holds: () =>
       IMP33963_DICKEY_FULLER_UNIT_ROOT_TEST.isRigorous === false &&
       /NO QED/.test(IMP33963_DICKEY_FULLER_UNIT_ROOT_TEST.verdict) &&
       /remains SOTA/.test(IMP33963_DICKEY_FULLER_UNIT_ROOT_TEST.verdict) &&
-      /12% multiplicative/.test(IMP33963_DICKEY_FULLER_UNIT_ROOT_TEST.verdict),
+      /12% multiplicative/.test(IMP33963_DICKEY_FULLER_UNIT_ROOT_TEST.verdict) &&
+      /imp-3066 K_a >= 0 untouched/.test(IMP33963_DICKEY_FULLER_UNIT_ROOT_TEST.verdict),
   },
 ];
 

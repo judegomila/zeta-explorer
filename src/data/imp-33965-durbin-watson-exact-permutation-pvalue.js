@@ -287,13 +287,14 @@ export const IMP33965_DURBIN_WATSON_EXACT_PERMUTATION_PVALUE_ASSERTIONS = [
   {
     // (R3) Honesty gate: isRigorous false, no QED, PT SOTA, residual still small, sub-gap named.
     id: 'imp33965-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, residual still small, sub-gap stated',
+    description: 'Measurement only: isRigorous false, no QED, PT SOTA, residual still small, sub-gap stated, imp-3066 untouched',
     holds: () =>
       IMP33965_DURBIN_WATSON_EXACT_PERMUTATION_PVALUE.isRigorous === false &&
       /NO QED/.test(IMP33965_DURBIN_WATSON_EXACT_PERMUTATION_PVALUE.verdict) &&
       /remains SOTA/.test(IMP33965_DURBIN_WATSON_EXACT_PERMUTATION_PVALUE.verdict) &&
       /12% multiplicative/.test(IMP33965_DURBIN_WATSON_EXACT_PERMUTATION_PVALUE.verdict) &&
-      /SUB-GAP/.test(IMP33965_DURBIN_WATSON_EXACT_PERMUTATION_PVALUE.verdict),
+      /SUB-GAP/.test(IMP33965_DURBIN_WATSON_EXACT_PERMUTATION_PVALUE.verdict) &&
+      /imp-3066 K_a >= 0 untouched/.test(IMP33965_DURBIN_WATSON_EXACT_PERMUTATION_PVALUE.verdict),
   },
 ];
 

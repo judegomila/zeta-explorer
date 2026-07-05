@@ -281,12 +281,13 @@ export const IMP33964_LJUNG_BOX_PORTMANTEAU_TEST_ASSERTIONS = [
   {
     // Honesty gate: isRigorous false, no QED, PT SOTA, and the residual stays small (bound untouched).
     id: 'imp33964-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, RMSE-scale residual still small',
+    description: 'Measurement only: isRigorous false, no QED, PT SOTA, RMSE-scale residual still small, imp-3066 untouched',
     holds: () =>
       IMP33964_LJUNG_BOX_PORTMANTEAU_TEST.isRigorous === false &&
       /NO QED/.test(IMP33964_LJUNG_BOX_PORTMANTEAU_TEST.verdict) &&
       /remains SOTA/.test(IMP33964_LJUNG_BOX_PORTMANTEAU_TEST.verdict) &&
-      /12% multiplicative/.test(IMP33964_LJUNG_BOX_PORTMANTEAU_TEST.verdict),
+      /12% multiplicative/.test(IMP33964_LJUNG_BOX_PORTMANTEAU_TEST.verdict) &&
+      /imp-3066 K_a >= 0 untouched/.test(IMP33964_LJUNG_BOX_PORTMANTEAU_TEST.verdict),
   },
 ];
 

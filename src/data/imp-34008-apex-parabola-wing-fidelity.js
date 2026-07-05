@@ -361,7 +361,8 @@ export const IMP34008_APEX_PARABOLA_WING_FIDELITY_ASSERTIONS = [
       IMP34008_APEX_PARABOLA_WING_FIDELITY.isRigorous === false &&
       /refines, does not overturn, imp-33948/.test(IMP34008_APEX_PARABOLA_WING_FIDELITY.verdict) &&
       /NO QED/.test(IMP34008_APEX_PARABOLA_WING_FIDELITY.verdict) &&
-      /remains SOTA/.test(IMP34008_APEX_PARABOLA_WING_FIDELITY.verdict),
+      /remains SOTA/.test(IMP34008_APEX_PARABOLA_WING_FIDELITY.verdict) &&
+      /imp-3066 K_a >= 0 untouched/.test(IMP34008_APEX_PARABOLA_WING_FIDELITY.verdict),
   },
 ];
 

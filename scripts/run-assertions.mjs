@@ -4502,6 +4502,18 @@ const DATA_MODULES = [
   // geometry on the imp-33924 closed form; does NOT discharge H4, G6a stays OPEN; imp-3066 K_a>=0 untouched;
   // C_mb GUE-conditional untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-34167-third-outer-branch-geometry.js',
+  // imp-34168: re-run the imp-34106 doubling-map phase-realignment ladder over an EXTENDED exponent set
+  // (e = 15..22) phasing the imp-33942 sawtooth on the HIGHER-precision stored k_true ~ 8.8210915879
+  // (10 sig figs) instead of the inherited 6-decimal k* = 8.821092, and MEASURE whether the predictive
+  // floor extends past the imp-34106 1/262144 departure. A control ladder phased on the 6-decimal k*
+  // reproduces the imp-34106 departure (first departure e = 19, 1/524288; rel deviation ~0.535 there).
+  // The high-precision ladder DOES NOT DEPART across e = 15..22: every doubling-map transition is called
+  // correctly through 1/4194304, max rel deviation ~7.74e-6 (five orders below the control). So refining
+  // the anchor from 6 to 10 sig figs pushes the floor PAST 1/262144, confirming the imp-34106 E3 diagnosis
+  // that the departure was the STORED-k precision floor, not the continuum problem. Measurement only;
+  // inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
+  // untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34168-doubling-map-highprecision-kstar-floor.js',
 ];
 
 let ALL_MODULES = FAST_MODE

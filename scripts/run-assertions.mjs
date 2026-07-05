@@ -4213,6 +4213,17 @@ const DATA_MODULES = [
   // ansatz untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 4 assertions.
   // (transitively exercises the imp-33810/imp-33878 model via effectiveHeightForN/C_C_PINNED.)
   '/src/data/imp-34084-apex-cubic-tilt-coefficient.js',
+  // imp-34086: split the imp-34009 SYMMETRIC window-endpoint sensitivity of the imp-33962
+  // 0.9225 aggregate F2 share into ONE-sided trims -- head-only [6+0.25m,11] and tail-only
+  // [6,11-0.25m] (m=0..9) -- to attribute the ~0.18 drift and the m=1 bump to head vs tail.
+  // FINDING: the share LEVEL is head-dominated (head-only drop ~0.503 vs tail-only ~0.245,
+  // both larger than the symmetric ~0.177 because the ends cancel in F4), while the m=1
+  // non-monotone bump and the F4-crosses-unity event behind it are entirely tail-driven
+  // (tail-only F4 crosses unity 0.874->1.088, head-only F4 never crosses, 0.874->0.349).
+  // Measurement only; imp-486/C_C ansatz untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2
+  // SOTA; no QED. 5 assertions. (transitively exercises the imp-33810/imp-33962 model via
+  // effectiveHeightForN/C_C_PINNED.)
+  '/src/data/imp-34086-aggregate-share-asymmetric-trim.js',
 ];
 
 let ALL_MODULES = FAST_MODE

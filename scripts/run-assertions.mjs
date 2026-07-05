@@ -4224,6 +4224,16 @@ const DATA_MODULES = [
   // SOTA; no QED. 5 assertions. (transitively exercises the imp-33810/imp-33962 model via
   // effectiveHeightForN/C_C_PINNED.)
   '/src/data/imp-34086-aggregate-share-asymmetric-trim.js',
+  // imp-34148: LOCATE the imp-34086 opposite-direction F4 cancellation. imp-34086 named (but never
+  // located) that under SYMMETRIC trim the head push drives F4 down while the tail push drives it up,
+  // so |ln F4| stays small and the imp-33962 0.9225 aggregate F2 share stays elevated. This tabulates
+  // the symmetric-trim F4(m)/|ln F4(m)| m=0..9 and bisects the fractional combined trim m* ~ 0.6791
+  // where the pushes exactly cancel (F4=1): head push H(m*)~-0.0158 + tail push T(m*)~+0.1501 offset
+  // the base ln F4(0)=-0.1343, and the share peaks at 0.9662; the nearest integer rung m=1 is exactly
+  // the imp-34009 share bump. Measurement only; imp-486/C_C ansatz untouched; imp-3066 K_a>=0 untouched;
+  // PT Lambda<=0.2 SOTA; no QED. 5 assertions. (transitively exercises the imp-33810/imp-33962 model
+  // via effectiveHeightForN/C_C_PINNED.)
+  '/src/data/imp-34148-symmetric-trim-f4-cancellation.js',
   // imp-34087: quantify the catastrophic-cancellation significance loss in the imp-34023 F4
   // surrogate on the approach to the kEnd ~ 21.281 M2-residual zero crossing. Measures the
   // relative cancellation C(kEnd) = (|pEcoll*(1-sigma)| + |pSigma|)/|resid| and the digits lost

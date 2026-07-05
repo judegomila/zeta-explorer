@@ -4680,6 +4680,17 @@ const DATA_MODULES = [
   // does not close. Measurement only; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
   // untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-34211-closedform-vs-bisection-kend-gap.js',
+  // imp-34227: RECONCILE SUB-GAP-imp-34169-surrogate-domain-edge -- is the imp-33810/imp-33843 surrogate
+  // resid_exp(k)=pEcoll(1-sigma)-pSigma zero at k*~21.28095 an ARTIFACT of the quarter-decade OLS/secant
+  // exponent estimators or a GENUINE component-model feature? Recomputes resid_exp three ways: refining the
+  // pSigma OLS 4->8->16->40->100 pts/decade slides k* a full decade 21.2809->20.2917 (artifact fingerprint);
+  // the coarse resid_exp exceeds the analytic-local value by 4-6 orders of magnitude in the tail (bias-
+  // dominated); and the analytic-local resid_exp (4th-order log-derivatives of the raw imp-3220/imp-3406
+  // terms) is strictly positive & smoothly decaying over the resolvable k=11..18 with NO clean crossing.
+  // VERDICT: ARTIFACT of the coarse estimators, not a deep-tail component-model feature -- sub-gap CLOSED on
+  // the artifact side; imp-34169 within-window findings untouched as measurements. Measurement only; component
+  // model NOT rigorous; C_mb/imp-486 & imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34227-surrogate-zero-estimator-reconciliation.js',
   // imp-34214: fits the imp-34085 |trough|/|peak| amplitude-ratio sequence (0.6151 -> 0.7200 across
   // window width w = kEnd-6 = 5.0..7.0) versus w to the two saturating approach forms of the imp-34129
   // method -- ratio = r_inf + c exp(-lam w) and ratio = r_inf + c w^(-p) -- to decide whether the ratio

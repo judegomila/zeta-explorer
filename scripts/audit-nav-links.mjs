@@ -328,6 +328,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34157-trough-peak-ratio-creep',
   '/viz-imp34158-digit-loss-cliff',
   '/viz-imp34159-cubic-tilt-wing-reconstruction',
+  '/viz-imp34198-ecoll-residual-milestone-ladder',
   '/viz-imp34077-geometric-center-taylor-reduction',
   '/viz-imp34078-pointwise-vs-window-exponent',
 ]);

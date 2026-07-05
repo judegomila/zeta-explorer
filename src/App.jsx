@@ -286,6 +286,7 @@ const Imp34156AsymmetricTrimAttributionViz = lazy(() => import('./pages/Imp34156
 const Imp34157TroughPeakRatioCreepViz = lazy(() => import('./pages/Imp34157TroughPeakRatioCreepViz.jsx'));
 const Imp34158DigitLossCliffViz = lazy(() => import('./pages/Imp34158DigitLossCliffViz.jsx'));
 const Imp34159CubicTiltWingReconstructionViz = lazy(() => import('./pages/Imp34159CubicTiltWingReconstructionViz.jsx'));
+const Imp34198EcollResidualMilestoneLadderViz = lazy(() => import('./pages/Imp34198EcollResidualMilestoneLadderViz.jsx'));
 const Imp34077GeometricCenterTaylorReductionViz = lazy(() => import('./pages/Imp34077GeometricCenterTaylorReductionViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
@@ -1102,6 +1103,7 @@ function AppShell() {
           <Route path="/viz-imp34157-trough-peak-ratio-creep" element={<Imp34157TroughPeakRatioCreepViz />} />
           <Route path="/viz-imp34158-digit-loss-cliff" element={<Imp34158DigitLossCliffViz />} />
           <Route path="/viz-imp34159-cubic-tilt-wing-reconstruction" element={<Imp34159CubicTiltWingReconstructionViz />} />
+          <Route path="/viz-imp34198-ecoll-residual-milestone-ladder" element={<Imp34198EcollResidualMilestoneLadderViz />} />
           <Route path="/viz-imp34077-geometric-center-taylor-reduction" element={<Imp34077GeometricCenterTaylorReductionViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

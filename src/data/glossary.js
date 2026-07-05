@@ -11260,6 +11260,37 @@ export const glossary = [
       'imp-34133 the companion F2/F3 asymptotic-constant fit from the same cohort (imp-34133)',
     ],
   },
+  {
+    term: 'imp-34105 phase-zero branch-angle second-code-path cross-validation',
+    category: 'numerical',
+    definition:
+      'imp-34045 placed the outer phase-zero branches at the closed-form angles theta=pi/2-+pi/p ' +
+      '(real-negative, arg(-A)=pi) and theta=pi/2-+2pi/p (real-positive, arg(-A)=2pi) and validated ' +
+      'them only by EVALUATING the realness residual |Im|/|amp| AT those predicted angles -- a check ' +
+      'that could not catch an error in the closed-form angle FORMULA itself. imp-34105 closes that ' +
+      'gap with an independent code path: it samples the numerically-evaluated complex amplitude ' +
+      '-A(alpha,theta), detects consecutive-sample sign changes of Im, bisects each bracket to machine ' +
+      'precision, and classifies each located root by half-turn index k=round(p(pi/2-theta)/pi) and by ' +
+      'sign of Re -- never using the closed-form angle formula to LOCATE the roots.\n\n' +
+      'RESULT: on the open interval (0,pi) the bisection recovers exactly ONE crossing, at theta=pi/2, ' +
+      'for every alpha tested, reproducing the imp-33970 uniqueness result from a second path; on a ' +
+      'widened window it locates all five crossings k in {-2,-1,0,1,2} and matches the imp-34045 ' +
+      'closed-form angles pi/2-k pi/p to bisection tolerance (worst discrepancy ~9e-16 across the whole ' +
+      'sweep). The real-axis signs also reproduce: the k=-+1 family (i) crossings carry Re<0 and the ' +
+      'k=-+2 family (ii) crossings carry Re>0, exactly as imp-34045 found by the residual-at-predicted-' +
+      'angle path.\n\n' +
+      'HONEST SCOPE: numerical cross-check only, on the inherited imp-33924/imp-34045 closed form; ' +
+      'establishes NO operator positivity; does NOT re-derive the m_prime->C_ren map off-axis/off-' +
+      'exponent and does NOT discharge H4 (imp-33766); G6a_shock_lipschitz STAYS OPEN; C_mb GUE-' +
+      'conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-34105 (cross-validating the imp-34045 closed-form phase-zero branch angles against an independent bracket-and-bisect root-find of Im(-A)(theta)), 2026',
+    relatedTerms: [
+      'imp-34045 joint phase-zero outer-branch endpoint-collapse identification, whose closed-form angles this ticket cross-validates from a second code path (imp-34045)',
+      'imp-33970 joint phase-zero UNIQUENESS-over-alpha, reproduced here from an independent bisection path on the open interval (0,pi) (imp-33970)',
+      'imp-486 C_mb GUE-conditional share, left untouched by this measurement (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

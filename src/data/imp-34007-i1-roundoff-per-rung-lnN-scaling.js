@@ -252,7 +252,8 @@ export const IMP34007_I1_ROUNDOFF_PER_RUNG_LNN_SCALING_ASSERTIONS = [
       IMP34007_I1_ROUNDOFF_PER_RUNG_LNN_SCALING.isRigorous === false &&
       /NO QED/.test(IMP34007_I1_ROUNDOFF_PER_RUNG_LNN_SCALING.verdict) &&
       /remains SOTA/.test(IMP34007_I1_ROUNDOFF_PER_RUNG_LNN_SCALING.verdict) &&
-      /imp-3066 K_a >= 0 untouched/.test(IMP34007_I1_ROUNDOFF_PER_RUNG_LNN_SCALING.verdict),
+      /imp-3066 K_a >= 0 untouched/.test(IMP34007_I1_ROUNDOFF_PER_RUNG_LNN_SCALING.verdict) &&
+      /C_mb[^.]*imp-486[^.]*UNTOUCHED/i.test(IMP34007_I1_ROUNDOFF_PER_RUNG_LNN_SCALING.verdict),
   },
 ];
 

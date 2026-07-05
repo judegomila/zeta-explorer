@@ -284,7 +284,8 @@ export const IMP34003_F4_UNITY_CROSSING_LOCATOR_ASSERTIONS = [
       IMP34003_F4_UNITY_CROSSING_LOCATOR.isRigorous === false &&
       /NO QED/.test(IMP34003_F4_UNITY_CROSSING_LOCATOR.verdict) &&
       /remains SOTA/.test(IMP34003_F4_UNITY_CROSSING_LOCATOR.verdict) &&
-      /imp-3066 K_a >= 0 untouched/.test(IMP34003_F4_UNITY_CROSSING_LOCATOR.verdict),
+      /imp-3066 K_a >= 0 untouched/.test(IMP34003_F4_UNITY_CROSSING_LOCATOR.verdict) &&
+      /C_mb[^.]*imp-486[^.]*UNTOUCHED/i.test(IMP34003_F4_UNITY_CROSSING_LOCATOR.verdict),
   },
 ];
 

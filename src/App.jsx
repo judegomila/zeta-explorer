@@ -295,6 +295,7 @@ const Imp34203EndpointVsFixedBandPeakSaturationCrossViz = lazy(() => import('./p
 const Imp34205WideningSlopeConvergenceViz = lazy(() => import('./pages/Imp34205WideningSlopeConvergenceViz.jsx'));
 const Imp34221EflowEtruncRatioDecayOnsetViz = lazy(() => import('./pages/Imp34221EflowEtruncRatioDecayOnsetViz.jsx'));
 const Imp34237FixedBandPeakReaccelAndSurrogatePoleViz = lazy(() => import('./pages/Imp34237FixedBandPeakReaccelAndSurrogatePoleViz.jsx'));
+const Imp34238SevenCrossingsOnsetLadderViz = lazy(() => import('./pages/Imp34238SevenCrossingsOnsetLadderViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1119,6 +1120,7 @@ function AppShell() {
           <Route path="/viz-imp34205-widening-slope-drift-convergence" element={<Imp34205WideningSlopeConvergenceViz />} />
           <Route path="/viz-imp34221-eflow-etrunc-ratio-decay-onset" element={<Imp34221EflowEtruncRatioDecayOnsetViz />} />
           <Route path="/viz-imp34237-fixed-band-peak-reaccel-and-surrogate-pole" element={<Imp34237FixedBandPeakReaccelAndSurrogatePoleViz />} />
+          <Route path="/viz-imp34238-seven-crossings-onset-ladder" element={<Imp34238SevenCrossingsOnsetLadderViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

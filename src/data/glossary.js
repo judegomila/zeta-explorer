@@ -11444,6 +11444,33 @@ export const glossary = [
       'imp-33858 the head/far-tail residual localization this borderline sensitivity mirrors (imp-33858)',
     ],
   },
+  {
+    term: 'SUB-GAP-imp-34169-surrogate-domain-edge -- resid_exp(k) zero at k*~21.28 is OPEN',
+    category: 'numerical',
+    definition:
+      'imp-34169 pushed the imp-34109 fixed-band (k<=10) peak sweep one further decade and found the ' +
+      'imp-33810/imp-33843 log-linear surrogate the whole fixed-band-peak family fits has a HARD RIGHT ' +
+      'EDGE: the quarter-decade quantity resid_exp(k) = pEcoll(1-sigma) - pSigma is strictly decaying ' +
+      'through the deep tail and CROSSES ZERO at the bisected k* ~ 21.28095, past which the log argument ' +
+      'eflow_over_resid goes non-positive and every downstream fixed-band-peak quantity is undefined ' +
+      '(Math.log of a negative number -> NaN).\n\n' +
+      'HONEST STATUS: whether this zero-crossing is an ARTIFACT of the imp-33843 OLS quarter-decade ' +
+      'exponent estimators (pSigma, pEcoll) -- an estimation-window edge effect -- or a GENUINE feature ' +
+      'of the inherited imp-3220/imp-3406 component model in the deep tail is left OPEN for a dedicated ' +
+      'reconciliation. imp-34169 measures the edge and its location only; it does not adjudicate which ' +
+      'of the two explanations holds.\n\n' +
+      'A surrogate-domain probe, not a form selection or a new claim; the imp-33843 log-linear-over-' +
+      'power-law verdict and the imp-34109 findings it extends are untouched; the inherited imp-3220/' +
+      'imp-3406 component model is NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 ' +
+      'untouched; changes no bound; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-34169 (locating the resid_exp(k) zero-crossing k*~21.28095 that terminates the imp-33810/imp-33843 log-linear surrogate domain), 2026',
+    relatedTerms: [
+      'imp-34109 the kEnd=14..20 fixed-band peak sweep imp-34169 continues one decade past (imp-34109)',
+      'imp-33843 the log-linear OLS whose log argument goes non-positive past k* (imp-33843)',
+      'imp-33810 the k=6.. quarter-decade ladder whose resid_exp is what crosses zero (imp-33810)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

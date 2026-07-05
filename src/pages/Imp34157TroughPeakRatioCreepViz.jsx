@@ -2,6 +2,7 @@ import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import SurrogateDiagnosticCohortNote from '../components/SurrogateDiagnosticCohortNote.jsx';
 import { IMP34085_TROUGH_PEAK_RATIO_CONVERGENCE } from '../data/imp-34085-trough-peak-ratio-convergence.js';
+import { IMP34214_TROUGH_PEAK_RATIO_LIMIT_FIT } from '../data/imp-34214-trough-peak-ratio-limit-fit.js';
 
 const {
   ratioSequence: RATIO,
@@ -10,6 +11,8 @@ const {
   argminSequence: TROUGH,
   finding: FINDING,
 } = IMP34085_TROUGH_PEAK_RATIO_CONVERGENCE;
+
+const { finding: LIMIT_FIT_FINDING } = IMP34214_TROUGH_PEAK_RATIO_LIMIT_FIT;
 
 // Primary chart: the |trough|/|peak| amplitude ratio across the five windows, annotated with the
 // GROWING per-window-step increment (the signature that the ratio is not converging).
@@ -185,6 +188,7 @@ export default function Imp34157TroughPeakRatioCreepViz() {
       >
         <strong style={{ color: '#94a3b8' }}>Honest status:</strong> {FINDING.R1_ratio_keeps_creeping_no_limit_visible}{' '}
         {FINDING.R2_mechanism_peak_decelerates_trough_near_steady} On an extended inherited ladder.{' '}
+        {LIMIT_FIT_FINDING.R2_extrapolated_limits_non_physical}{' '}
         <SurrogateDiagnosticCohortNote />
       </div>
     </div>

@@ -9560,6 +9560,35 @@ export const glossary = [
       'imp-33883 off-axis angle-robust onset verdict, the alpha=1/2-only anchor this joint uniqueness result extends to all alpha (imp-33883)',
     ],
   },
+  {
+    term: 'imp-33968 winding-rate-vs-alpha AFFINE law',
+    category: 'numerical',
+    definition:
+      'imp-33924 derived the joint leading amplitude A(alpha,theta) = B(alpha) e^{-i(1+alpha)theta}' +
+      '[1 + e^{i(1+alpha)pi}] and showed its theta-winding rate d arg(-A)/d theta = -(1+alpha), but only ' +
+      'checked that rate against a two-point finite difference on a narrow alpha grid (0.3..0.7), reporting ' +
+      'a single pass/fail tolerance rather than an explicit curve.\n\n' +
+      'imp-33968 reuses the imp-33924 scale-free complex Simpson quadrature of A(alpha,theta) across a ' +
+      'dense theta sweep (45deg..135deg, step 5deg) at each alpha on an EXTENDED grid 0.1..0.9, unwraps ' +
+      'arg(-A_quad), and least-squares fits the phase against theta to extract the winding SLOPE at each ' +
+      'alpha. The measured slope tracks the closed form -(1+alpha) across the ENTIRE grid (max deviation ' +
+      '~1.4e-5, concentrated at the smallest alpha where the cusp is least flattened), and each per-alpha ' +
+      'fit is essentially perfectly linear in theta (max 1 - R^2 < 1e-6). Critically, the rate-vs-alpha ' +
+      'curve is ITSELF affine: fitting slope(alpha) against alpha gives slope ~ -1 and intercept ~ -1 ' +
+      '(R^2 ~ 1), recovering the closed form -(1+alpha) = -1 - alpha as an explicit law rather than a ' +
+      'per-point coincidence, monotone decreasing across the grid, with the anchor alpha = 1/2 reproducing ' +
+      'the imp-33883 winding rate -3/2.\n\n' +
+      'HONEST SCOPE: measurement only, on the model cusp rho(x) = |x|^{-alpha}. It re-measures a phase ' +
+      'slope already derived in closed form by imp-33924; it does NOT re-derive the m_prime -> C_ren map ' +
+      'and does NOT discharge H4 (imp-33766); G6a_shock_lipschitz stays OPEN; imp-3066 off-diagonal ' +
+      'endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33968 (tabulating the imp-33924 phase winding rate d arg(-A)/d theta = -(1+alpha) as an explicit rate-vs-alpha curve across an extended alpha grid 0.1..0.9, upgrading the imp-33924 cross-check (a) pass/fail into a tabulated affine law), 2026',
+    relatedTerms: [
+      'imp-33924 the joint closed-form amplitude A(alpha,theta) and its cross-check (a) winding-rate tolerance this ticket tabulates explicitly (imp-33924)',
+      'imp-33883 off-axis angle-robust onset verdict, whose winding rate -3/2 is recovered as the alpha=1/2 anchor of this affine law (imp-33883)',
+      'imp-33970 the joint phase-zero uniqueness-over-alpha result that uses this affine winding-rate law to rule out a second crossing (imp-33970)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

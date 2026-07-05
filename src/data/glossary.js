@@ -9827,6 +9827,38 @@ export const glossary = [
       "imp-33843 the log-linear widening FORM verdict, the boundary-independent object left untouched throughout (imp-33843)",
     ],
   },
+  {
+    term: "imp-33947 geometric-center half-log-decade third-order Taylor tail",
+    category: "numerical",
+    definition:
+      "imp-33900 wrote out the second-order Taylor term S2 of the imp-33879 half-log-decade " +
+      "geometric-center offset and showed it cuts the first-order residual ~25-fold to a " +
+      "sub-0.165% relative residual, without measuring whether that residual was itself the " +
+      "next Taylor order. imp-33947 writes out the explicit third-order term S3 = " +
+      "(1/48)(L3/L) - (1/8)(L1/L)(L2/L) + (1/8)(L1/L)^3, using centred finite differences " +
+      "L1,L2,L3 of L = log T0 in the decade exponent, and evaluates it across the 1e12..1e15 " +
+      "ladder.\n\n" +
+      "RESULT: the ~4% direct-vs-derivative offset is NOT fully accounted at second order -- " +
+      "S3 is nonzero and positive (~0.0037%..0.0069% absolute), recovers 96.0%..96.8% of the " +
+      "absolute second-order residual, and cuts the relative residual another ~25x..31x, from " +
+      "~0.109%..0.165% (after S2) down to ~0.0035%..0.0065% (after S3). Adding S3 does NOT close " +
+      "the offset to machine precision -- a well-behaved fourth-order tail remains -- and the " +
+      "clean ~25x-per-order geometric reduction S1->S2->S3 confirms a convergent half-log-decade " +
+      "Taylor series in 1/log T0, not a non-Taylor discrepancy: the ~4% offset is the leading " +
+      "term of that series, with each order carrying a real, shrinking residual. imp-34000 later " +
+      "extends the same series one order deeper with S4, and imp-34001 shows the per-order " +
+      "reduction ratio drifts with the ladder as ~1/log T0 rather than sitting at a fixed 1/25.\n\n" +
+      "HONEST SCOPE: measurement only, on the inherited imp-3220/imp-3406 extrapolation, NOT a " +
+      "rigorous asymptotic. C_mb stays GUE-conditional (imp-486); changes no bound; establishes " +
+      "no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. " +
+      "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    firstUsed: "imp-33947 (writing out the third-order half-log-decade Taylor term S3 of the imp-33879/imp-33900 geometric-center offset and confirming the ~4% offset is the leading term of a convergent, not terminating, Taylor series), 2026",
+    relatedTerms: [
+      "imp-33879 geometric-center correction for the endpoint-vs-midpoint anchoring offset, the closed-form leading term this series extends (imp-33879)",
+      "imp-33900 second-order Taylor tail that reduces the sub-0.11% residual ~25-fold further (imp-33900)",
+      "imp-33903 direct-finite-difference vs plain-derivative geometric-center offset, showing the same gap from an independent code path (imp-33903)",
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

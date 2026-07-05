@@ -4279,6 +4279,19 @@ const DATA_MODULES = [
   // the crossing is a genuine zero of the raw residual, not an artifact of the ratio derivation.
   // Cross-validation only; imp-486/C_C untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-34150-m2-residual-crossing-direct-bisection-crossval.js',
+  // imp-34151: VERIFY the imp-34087 cancellation numerator |A|+|B| ~ 0.978 stays O(1) PAST the
+  // imp-34150 kEnd* ~ 21.281 M2-residual zero crossing into the sign-flipped region and locate where it
+  // departs. imp-34087 tabulated the numerator only on the sign-STABLE band 13..21. Extending the
+  // identical inherited imp-3406/imp-33810 sub-terms (head fixed at k=6) past the crossing: the O(1)
+  // numerator SURVIVES the sign flip and drifts UPWARD, not down -- as N grows sigma -> 0, (1-sigma) -> 1
+  // and both exponents pEcoll,pSigma -> 0.5, so A,B -> 0.5 and |A|+|B| climbs MONOTONICALLY from ~0.97969
+  // at the crossing toward the asymptote 1.0 (0.98549 at kEnd=30, 0.99029 at 45, ~0.9945 at 80), never
+  // leaving [0.978,1.0). The departure is a slow upward creep -- 0.980 at kEnd ~ 21.62, 0.985 at ~29.00,
+  // 0.990 at ~43.67, 0.995 at ~87.41 -- so the imp-34087 reciprocal identity C ~ 1/|resid| does NOT cease
+  // to hold past the crossing; it tightens as the numerator approaches unity (carrying a slowly-varying
+  // O(1) prefactor). Measurement only; imp-486/C_C ansatz untouched; imp-3066 K_a>=0 untouched;
+  // PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34151-cancellation-numerator-past-crossing.js',
   // imp-34087: quantify the catastrophic-cancellation significance loss in the imp-34023 F4
   // surrogate on the approach to the kEnd ~ 21.281 M2-residual zero crossing. Measures the
   // relative cancellation C(kEnd) = (|pEcoll*(1-sigma)| + |pSigma|)/|resid| and the digits lost

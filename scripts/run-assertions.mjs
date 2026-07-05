@@ -4287,6 +4287,18 @@ const DATA_MODULES = [
   // offset). Nearest integer rung m=1 is the imp-34009/imp-34086 tail share bump. Measurement only;
   // imp-486/C_C ansatz untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-34149-tail-only-f4-unity-crossing.js',
+  // imp-34212: COMPLETE the trio -- TABULATE the head-only F4 that imp-34148 (symmetric, m*~0.6791) and
+  // imp-34149 (tail-only, m*~0.6063) each asserted "never crosses" unity but never measured. Head-only
+  // trim moves only the LOW endpoint inward -> window [6+0.25m, 11], high pinned at rung 20; by the
+  // imp-33962 telescoping identity F4(m)=resid(k=11)/resid(k=6+0.25m). FINDING (honest negative): F4(m) is
+  // monotone DECREASING across the integer ladder (0.8743 at m=0 -> 0.3487 at m=9), never rising, then
+  // bottoms at a global floor ~0.3196 at trim m*~11.284 (k_lo~8.8211, the interior resid peak where
+  // resid_lo~0.06534 is maximised), and recovers toward unity ONLY FROM BELOW as the window collapses
+  // (k_lo->11). The head-only F2 share falls monotonically 0.9225->0.4191, the MIRROR of the tail/symmetric
+  // crossing-peak: the head-down push lifts resid(lo) (widening the -0.1343 deficit) whereas only a tail-up
+  // push lifts resid(hi) to erase it, which is why the head-only trim never crosses. Measurement only;
+  // imp-486/C_C ansatz untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34212-head-only-f4-noncrossing-floor.js',
   // imp-34150: CROSS-VALIDATE the imp-34023/imp-34087 kEnd*~21.281 M2-residual zero crossing from an
   // independent second code path. imp-34023 read the crossing off the F4=resid(hi)/resid(lo) sign flip
   // and imp-34087 inherited it via the relative-cancellation reciprocal C=(|A|+|B|)/|resid|=1/|resid|;

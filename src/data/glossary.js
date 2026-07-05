@@ -11386,6 +11386,35 @@ export const glossary = [
       'imp-486 C_mb GUE-conditional share, left untouched by this measurement (imp-486)',
     ],
   },
+  {
+    term: 'imp-34240 outer phase-zero branch onset-alpha ladder alpha_k=2k-1 (unified endpoint-distance law d_k(alpha))',
+    category: 'numerical',
+    definition:
+      'imp-34045 (family (i), k=1), imp-34104/imp-34166 (family (ii), k=2) and imp-34167 (family (iii), ' +
+      'k=3) each measured a separate outer phase-zero branch of the inherited imp-33924 joint amplitude ' +
+      '-A(alpha,theta), theta=pi/2-+k pi/p with p=1+alpha, and its approach to the interval endpoints 0 ' +
+      'and pi. imp-34173 unified the three into a single k-indexed endpoint-distance law: ' +
+      'd_k(alpha) = k pi/p - pi/2 = pi((2k-1) - alpha)/(2(1+alpha)), recovering pi(1-alpha)/(2(1+alpha)) ' +
+      'at k=1, pi(3-alpha)/(2(1+alpha)) at k=2 and pi(5-alpha)/(2(1+alpha)) at k=3.\n\n' +
+      'The law vanishes -- each branch touches the endpoints exactly -- at the onset alpha_k=2k-1, giving ' +
+      'the ladder 1, 3, 5, ... (k=1 touches at alpha=1, k=2 at alpha=3, k=3 at alpha=5). ' +
+      "At each onset the endpoint slope is d_k'(alpha_k) = -pi/(4k) (-pi/4, -pi/8, -pi/12) and the " +
+      "curvature is d_k''(alpha_k) = pi/(4k^2), with the k=1 curvature pi/4 exactly twice the imp-34103 " +
+      'measured (1-alpha)^2 Taylor coefficient pi/8. All identities were confirmed against direct branch ' +
+      'measurement (realness residual ~1e-16) and central finite differences.\n\n' +
+      'HONEST SCOPE: derivation/measurement only, on the inherited imp-33924 closed form for the model ' +
+      'cusp rho(x)=|x|^{-alpha}; establishes NO operator positivity; does NOT re-derive the m_prime->' +
+      'C_ren map off-axis/off-exponent and does NOT discharge H4 (imp-33766); G6a_shock_lipschitz STAYS ' +
+      'OPEN; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; NO QED; ' +
+      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34240 (glossary entry consolidating the imp-34173 unified endpoint-distance law d_k(alpha) and its alpha_k=2k-1 onset ladder across outer phase-zero branch families (i)/(ii)/(iii)), 2026',
+    relatedTerms: [
+      'imp-34045 joint phase-zero outer-branch endpoint-collapse identification, family (i) k=1 (imp-34045)',
+      'imp-34104 second real-positive phase-zero branch, family (ii) k=2 (imp-34104)',
+      'imp-34173 unified k-indexed endpoint-distance law d_k(alpha) subsuming all three families (imp-34173)',
+      'imp-33924 joint cusp-angle leading-amplitude closed form underlying all branch measurements (imp-33924)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

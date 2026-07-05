@@ -10024,6 +10024,31 @@ export const glossary = [
       'imp-34007 extends this single-rung round-off floor fit to a per-rung fit across the full 1e12..1e200 ladder (imp-34007)',
     ],
   },
+  {
+    term: 'imp-33982 three-way endpoint-peak tournament: the concave log form survives a curved power-law challenger',
+    category: 'numerical',
+    definition:
+      'imp-33941 decided the open linear-vs-log growth form of the imp-33917 boundary-locked endpoint ' +
+      'peak by scoring only TWO candidates, a straight line peak = a + b kEnd and its concave log ' +
+      'alternative peak = a + b ln(kEnd) (evidence ~5.43 : 1 for log, positive but not decisive). ' +
+      'imp-33982 admits a THIRD, genuinely curved family never in that tournament -- the power law ' +
+      'peak = a*kEnd^b, fit by log-log OLS with RSS scored in the original peak space -- and rescores ' +
+      'all three by AIC/BIC/AICc on the identical 9 imp-33917 peaks (kEnd = 11..13). The log form ' +
+      'STILL wins: RSS_log 5.794e-4 < RSS_lin 8.439e-4 < RSS_pow 1.911e-3, giving the lowest AIC ' +
+      '(-55.32) and the top three-way Akaike weight (~0.841 vs lin ~0.155, pow ~0.004); the imp-33941 ' +
+      'log-vs-linear margin is unchanged (Delta AIC -3.385, ~5.43 : 1). The power law lands LAST, ' +
+      'beaten even by the straight line (Delta AIC -7.36), because over the narrow window [11,13] the ' +
+      'log-log OLS returns a SUPER-linear exponent b ~ 3.69 -- a convex shape bending the opposite way ' +
+      'to the concave saturation the peaks actually show. Measurement / model-selection only; all ' +
+      'three forms remain descriptive, not derived; C_mb GUE-conditional per imp-486 and imp-3066 ' +
+      'K_a>=0 UNTOUCHED; no bound changed; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-33982 (admitting the curved power-law form peak = a*kEnd^b to the imp-33941 linear-vs-log endpoint-peak tournament and rescoring all three on the imp-33917 peaks), 2026',
+    relatedTerms: [
+      'imp-33941 the two-form linear-vs-log selection extended here with a third, curved candidate (imp-33941)',
+      'imp-33917 the 9 boundary-locked endpoint peaks scored by all three forms (imp-33917)',
+      'imp-33980 the same three-way scoring repeated on the neighbouring penultimate rung (imp-33980)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

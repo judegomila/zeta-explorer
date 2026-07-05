@@ -10795,6 +10795,30 @@ export const glossary = [
       'imp-33810 the 21-rung quarter-decade ladder supplying the inherited F2/F3/F4 sub-terms (imp-33810)',
     ],
   },
+  {
+    term: 'imp-34091 asymmetric peak/trough migration verdict of the imp-33877 finite-ladder boundary sweep',
+    category: 'numerical',
+    definition:
+      'Glossary record of the imp-34022 verdict on the imp-33877 finite-ladder endpoint peak and ' +
+      'interior negative trough across the BASE/EXT115/EXT12 boundary sweep. Both excursions migrate ' +
+      'OUTWARD and amplify as the fit window recedes, but ASYMMETRICALLY in location rate: the peak is ' +
+      'endpoint-locked, moving +0.50/window-step and growing +0.2479->+0.3830, while the trough trails ' +
+      'inside at only +0.25/step, deepening -0.1525->-0.2487 -- a 2.0x rate gap between the two edges. ' +
+      'Their relative amplitude |trough|/|peak| nonetheless stays nearly constant, ~0.615->0.649 across ' +
+      'the three windows (<6% drift), so the two excursions are near-symmetric in RATIO even though they ' +
+      'are not symmetric in per-step migration rate. Stripping BOTH edge excursions does not recover a ' +
+      'boundary-invariant interior: the deep-interior residual still drifts as the window recedes.\n\n' +
+      'HONEST SCOPE: a glossary record of an inherited measurement (imp-34022), not a new fit; on the ' +
+      'imp-3220/imp-3406 component model only, NOT a rigorous asymptotic; C_mb GUE-conditional per ' +
+      'imp-486 untouched; changes no bound; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian ' +
+      'Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34091 (glossary entry recording the imp-34022 asymmetric-rate, near-constant-ratio peak/trough migration verdict and its non-boundary-invariant interior finding), 2026',
+    relatedTerms: [
+      'imp-34022 the migration-contrast/boundary-invariance measurement this entry records (imp-34022)',
+      'imp-33877 the widening-fit tail endpoint-artifact test supplying the peak/trough sequences (imp-33877)',
+      'imp-34098 the viz page plotting the endpoint-locked peak and interior trough with the ratio strip (imp-34098)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

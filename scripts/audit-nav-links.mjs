@@ -337,6 +337,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34221-eflow-etrunc-ratio-decay-onset',
   '/viz-imp34237-fixed-band-peak-reaccel-and-surrogate-pole',
   '/viz-imp34238-seven-crossings-onset-ladder',
+  '/viz-imp34244-kpss-l0-flip-shift-ranking',
   '/viz-imp34255-m2-ceiling-window-width-divergence',
   '/viz-imp34259-unified-endpoint-distance-family',
   '/viz-imp34182-deep-ladder-precision-floor',

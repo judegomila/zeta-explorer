@@ -317,6 +317,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34015-f2-magshare-drift',
   '/viz-imp34016-sigma-exponent-vs-logt0',
   '/viz-imp34098-endpoint-trough-migration',
+  '/viz-imp34099-aggregate-share-window-sensitivity',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

@@ -274,6 +274,7 @@ const Imp34014EndpointPeakModelSelectionFitViz = lazy(() => import('./pages/Imp3
 const Imp34098EndpointTroughMigrationViz = lazy(() => import('./pages/Imp34098EndpointTroughMigrationViz.jsx'));
 const Imp34015F2MagShareDriftViz = lazy(() => import('./pages/Imp34015F2MagShareDriftViz.jsx'));
 const Imp34016SigmaExponentVsLogT0Viz = lazy(() => import('./pages/Imp34016SigmaExponentVsLogT0Viz.jsx'));
+const Imp34099AggregateShareWindowSensitivityViz = lazy(() => import('./pages/Imp34099AggregateShareWindowSensitivityViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1077,6 +1078,7 @@ function AppShell() {
           <Route path="/viz-imp34098-endpoint-trough-migration" element={<Imp34098EndpointTroughMigrationViz />} />
           <Route path="/viz-imp34015-f2-magshare-drift" element={<Imp34015F2MagShareDriftViz />} />
           <Route path="/viz-imp34016-sigma-exponent-vs-logt0" element={<Imp34016SigmaExponentVsLogT0Viz />} />
+          <Route path="/viz-imp34099-aggregate-share-window-sensitivity" element={<Imp34099AggregateShareWindowSensitivityViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

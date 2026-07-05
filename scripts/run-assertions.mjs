@@ -3887,6 +3887,15 @@ const DATA_MODULES = [
   // risk), so they are safe, mechanical follow-up-wiring candidates; not
   // wired here (audit-only). PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-33893-33853-33858-28895-runner-wiring-audit.js',
+  // imp-33887 (accuracy): RECONCILES the imp-33856 (DISCRETE gap_ecoll vs 1/(2 log T0),
+  // endpoint RMSE ~1.12e-5) and imp-33854 (identity I1, pointwise gap_ecoll = g to machine
+  // precision) reports on the shared 1e12..1e15 ladder. FINDING: the two audit paths use
+  // DIFFERENT (estimator, reference) pairs -- I1 is pointwise-vs-g (exact identity, ~1e-11),
+  // imp-33856 is discrete-slope-vs-pointwise-law (~1e-5). The imp-33856 endpoint residual
+  // splits EXACTLY into discretization (~+6.3e-4) + I1 (~1e-11) + g-vs-law reference (~-6.3e-4),
+  // two large offsets that nearly cancel; no inconsistent precision statement. Lightweight
+  // (effectiveHeightForN/C_C_PINNED only, no heavy bundle). PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-33887-ecoll-gap-anchoring-convention-reconciliation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

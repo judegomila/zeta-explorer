@@ -151,10 +151,11 @@ export const IMP34134_EFLOW_ETRUNC_RATIO_DECAY_ONSET = {
       'within about a decade of N, which is why imp-3444 could quote E_flow/E_trunc ~ 1.9e-3 at ' +
       'the sigma = 0.5 / crossover landmark (reproduced here as 1.899e-3 at N = 3.280e9).',
   },
+  isRigorous: false,
   honestScope:
-    'Measurement only within the inherited component model; NO QED. C_mb stays GUE-conditional ' +
-    'per imp-486 (E_coll untouched); imp-3066 K_a >= 0 untouched; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains the SOTA unconditional bound. E_flow is the benign mesoscopic-Gronwall term ' +
+    'Measurement only within the inherited component model; NO QED. The C_mb GUE-conditional per ' +
+    'imp-486 is UNTOUCHED (E_coll untouched); imp-3066 K_a >= 0 untouched; Platt-Trudgian Lambda ' +
+    '<= 0.2 remains the SOTA unconditional bound. E_flow is the benign mesoscopic-Gronwall term ' +
     '(imp-2845); its negligibility here does NOT touch the divergent C_Lip collision-Gronwall.',
   citation:
     'imp-3444-sigma-nshape-landmark-ladder.js (identical sub-terms, E_coll=E_trunc crossover 3.280e9); ' +
@@ -199,6 +200,15 @@ export const IMP34134_EFLOW_ETRUNC_RATIO_DECAY_ONSET_ASSERTIONS = [
     id: 'imp34134-two-term-onset-brackets-crossover',
     description: 'The two-term-sigma onset brackets the E_coll=E_trunc crossover within ~1 decade each side (1% onset before, 0.1% onset after)',
     holds: () => N_1PCT < N_ECOLL_EQ_ETRUNC && N_ECOLL_EQ_ETRUNC < N_01PCT,
+  },
+  {
+    // imp-34236: harmonize the honest banner with the cohort (imp-34223 audit found this module
+    // had no literal isRigorous field and never named C_mb explicitly).
+    id: 'imp34134-honesty-gate-isrigorous-and-cmb-clause',
+    description: 'isRigorous is a literal false field, and honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause explicitly',
+    holds: () =>
+      IMP34134_EFLOW_ETRUNC_RATIO_DECAY_ONSET.isRigorous === false &&
+      /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34134_EFLOW_ETRUNC_RATIO_DECAY_ONSET.honestScope),
   },
 ];
 

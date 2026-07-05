@@ -229,8 +229,8 @@ export const IMP34133_F2_F3_ASYMPTOTIC_CONSTANT_FIT = {
     'constants while F4 ALONE (collapsing geometrically toward 0) drives the divergence of the ' +
     'over-prediction ratio 1/(F2*F3*F4). The inherited imp-3220/imp-3406 component model is NOT a rigorous ' +
     'asymptotic; the fit is descriptive within the model only; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA.',
+    'positivity; the C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH ' +
+    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
   isRigorous: false,
   citation:
     'imp-34023 (the F4 geometric collapse + the near-flat F2, F3 assertion fit here to asymptotic ' +
@@ -309,6 +309,13 @@ export const IMP34133_F2_F3_ASYMPTOTIC_CONSTANT_FIT_ASSERTIONS = [
       /NO QED/.test(IMP34133_F2_F3_ASYMPTOTIC_CONSTANT_FIT.verdict) &&
       /remains\s+SOTA/.test(IMP34133_F2_F3_ASYMPTOTIC_CONSTANT_FIT.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34133_F2_F3_ASYMPTOTIC_CONSTANT_FIT.verdict),
+  },
+  {
+    // imp-34236: harmonize the C_mb GUE-conditional per imp-486 UNTOUCHED clause with the six
+    // sibling cohort modules (imp-34223 audit found this module never named C_mb explicitly).
+    id: 'imp34133-cmb-clause-named',
+    description: 'Verdict names the C_mb GUE-conditional per imp-486 UNTOUCHED clause explicitly, matching the sibling cohort modules',
+    holds: () => /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34133_F2_F3_ASYMPTOTIC_CONSTANT_FIT.verdict),
   },
 ];
 

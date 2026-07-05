@@ -9676,6 +9676,36 @@ export const glossary = [
       'imp-33843 the aggregate log-linear widening fit (RMSE ~0.116) whose form selection is left untouched (imp-33843)',
     ],
   },
+  {
+    term: 'imp-33969 F1/widening drift verdict: the imp-33922 ~19.9x over-prediction is NOT window-invariant, and F4 (not F2) drives the drift',
+    category: 'numerical',
+    definition:
+      'imp-33922 measured that the raw analytic (log N)^3/N E_flow decay factor F1 over-predicts the ' +
+      'empirical head-to-tail widening of roe(k) = resid_exp(k)/eflow_attr(k) by F1/widening = 19.913, ' +
+      'but only at the single fixed imp-33884 fit boundary kEnd = 11. imp-33917 separately showed the ' +
+      'endpoint feature of the same ladder is boundary-locked, not saturating, as kEnd recedes. imp-33969 ' +
+      'tests whether the ~19.9x over-prediction survives across the imp-33917 kEnd = 11..13 sweep (9 ' +
+      'windows), using the exact identity F1/widening = 1/(F2*F3*F4) (F1 cancels, since ' +
+      'widening = F1*F2*F3*F4).\n\n' +
+      'RESULT: the ~19.9x is NOT window-invariant -- it drifts monotonically upward from 19.913 at ' +
+      'kEnd = 11 to 165.351 at kEnd = 13 (a factor of 8.30), because the raw decay F1 (x61.3 over the ' +
+      'sweep) outruns the widening (x7.39). The drift is ~96.5%-driven (on a log scale) by the ' +
+      'imp-33773 sub-leading residual ratio F4, which collapses 0.87432 -> 0.11339 (x0.130), while the ' +
+      'E_N normaliser F2 (x0.946) and the E_flow log-slope ratio F3 (x0.982) stay nearly flat. This ' +
+      'REORDERS imp-33922: F2 dominates the attenuation LEVEL at the kEnd = 11 anchor (~92% of ' +
+      'ln F2*F3*F4 there), but F4 dominates its DRIFT as the boundary recedes -- the level-dominant and ' +
+      'drift-dominant factors are different.\n\n' +
+      'HONEST SCOPE: window-stability cross-check of an inherited surrogate ratio, on the inherited ' +
+      'imp-3220/imp-3406 component model (NOT a rigorous asymptotic). Establishes no operator ' +
+      'positivity; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33969 (testing window-stability of the imp-33922 ~19.9x F1/widening over-prediction across the imp-33917 boundary sweep kEnd = 11..13, and identifying which of F2/F3/F4 drives the drift), 2026',
+    relatedTerms: [
+      'imp-33922 four-factor widening decomposition (E_flow analytic decay vs. attributed widening), the fixed-kEnd=11 ~19.9x over-prediction reordered here (imp-33922)',
+      'imp-33917 the boundary sweep kEnd = 11..13 reused here to test window-stability (imp-33917)',
+      'imp-33773 SUB-LEADING-RESIDUAL-IS-CURVATURE-NOT-EFLOW verdict, the residual ratio F4 whose collapse is shown to drive the drift (imp-33773)',
+      'imp-33884 the exact kEnd=11 widening 903.538 and F1..F4 factor decomposition this sweep generalizes (imp-33884)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

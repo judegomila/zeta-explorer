@@ -4292,6 +4292,19 @@ const DATA_MODULES = [
   // rigorous asymptotic; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; NO
   // QED; PT Lambda<=0.2 SOTA. 4 assertions.
   '/src/data/imp-34163-ladder-surrogate-what-remains.js',
+  // imp-34131: CROSS-CHECK the two routes to the same cubic tilt of the imp-33878 resid_exp(k) hump.
+  // imp-34008 W2 only INFERRED a cubic tilt from the wing asymmetry (0.410%/0.218% at |t|=0.5);
+  // imp-34084 fit the apex cubic d ~ -5.347e-4 directly via a FULL cubic re-fit. This module adds a
+  // PURE tilt d t^3 (d from imp-34084, NOT re-fit) onto the independently re-derived imp-33948
+  // parabola: it reconstructs ~106% of the imp-34008 left-minus-right wing split (corroborating the
+  // imp-34084 full-refit ~103% by a path that never touches the linear term), and leaves a
+  // near-symmetric ~0.31% residual in BOTH wings -- the EVEN quartic curvature (imp-34064) a cubic
+  // cannot address. The pure-tilt residual matches the imp-34084 full-refit residual to ~0.003% of
+  // apex, so the reconciliation is route-independent: the two routes AGREE on the cubic, what remains
+  // is quartic. Cross-validation only; refines not overturns imp-34008/imp-34084; inherited
+  // imp-3220/imp-3406 component model NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486
+  // untouched; imp-3066 K_a>=0 untouched; no bound changed; NO QED; PT Lambda<=0.2 SOTA. 4 assertions.
+  '/src/data/imp-34131-cubic-tilt-wing-crosscheck.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -9927,6 +9927,36 @@ export const glossary = [
     ],
   },
   {
+    term: "imp-34001 geometric-center Taylor per-order reduction ratio drift",
+    category: "numerical",
+    definition:
+      "imp-33947 and imp-34000 assert a clean ~25x-per-order geometric reduction across the " +
+      "half-log-decade Taylor series S1->S2->S3->S4 for the imp-33879 geometric-center offset, but " +
+      "neither fits the reduction ratio itself as a decay constant. imp-34001 computes the per-order " +
+      "absolute-term ratios r21 = S2/S1, r32 = S3/S2, r43 = S4/S3 at each rung of the 1e12..1e15 " +
+      "ladder and regresses their per-rung geometric mean rbar.\n\n" +
+      "RESULT: the series is geometric to leading order -- r21, r32, and r43 agree within ~3.3% at " +
+      "each rung -- but the reduction factor is NOT a clean ladder-independent constant near 1/25. " +
+      "As a bare constant, rbar drifts 20.7% across the ladder (0.04033 -> 0.03279), so the ~25x cut " +
+      "is only the 1e12-end value and it strengthens monotonically to ~30.5x by 1e15. The drift obeys " +
+      "a 1/log T0 law: rescaling rbar by L = log T0 collapses the 20.7% spread to 1.88% (rbar*L flat " +
+      "near 1.07), and the regression rbar = 3.06e-3 + 0.981/L fits with R2 = 0.99995 -- an " +
+      "almost-through-the-origin ~1/L scaling with slope near unity. So the per-order ratio behaves " +
+      "as ~c/log T0 with c ~ 1.07: the Taylor series is geometric with a slowly-varying, " +
+      "ladder-dependent ratio that ramps with the ladder the same way the imp-33816 local exponents " +
+      "do, not a fixed 1/25.\n\n" +
+      "HONEST SCOPE: measurement/fit only, on the inherited imp-3220/imp-3406 extrapolation, NOT a " +
+      "rigorous asymptotic; L1..L4 are finite-difference measurements reproducing imp-34000. C_mb " +
+      "stays GUE-conditional (imp-486); changes no bound; establishes no operator positivity; " +
+      "imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    firstUsed: "imp-34001 (fitting the per-order geometric reduction ratio of the imp-33947/imp-34000 half-log-decade Taylor series and showing it drifts as ~1/log T0 rather than sitting at a fixed ~1/25), 2026",
+    relatedTerms: [
+      "imp-34000 geometric-center half-log-decade fourth-order Taylor tail, the series whose per-order ratio this fits (imp-34000)",
+      "imp-33947 geometric-center half-log-decade third-order Taylor tail, the first order this ratio law extends past (imp-33947)",
+      "imp-33879 geometric-center correction for the endpoint-vs-midpoint anchoring offset, the closed-form leading term of this series (imp-33879)",
+    ],
+  },
+  {
     term: 'imp-33961 joint onset-residual eps^2 CONVERGENCE RATE',
     category: 'numerical',
     definition:

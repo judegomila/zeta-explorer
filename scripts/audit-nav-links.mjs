@@ -315,6 +315,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34052-f3-landmark-spread',
   '/viz-imp34014-endpoint-peak-model-selection-fit',
   '/viz-imp34015-f2-magshare-drift',
+  '/viz-imp34016-sigma-exponent-vs-logt0',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

@@ -8589,6 +8589,39 @@ export const glossary = [
       'imp-33843 descriptive form-fit of the widening, flagged as NOT derived until imp-28895 (imp-33843)',
     ],
   },
+  {
+    term: 'imp-33700 leave-two-out-degenerate-on-four-peaks verdict: excluding the two tallest imp-33679 [1200,1600] extension peaks leaves only two points, a degenerate exact-line refit that neither replicates nor refutes the imp-33680 collapse',
+    category: 'numerical',
+    definition:
+      'imp-33680 found that dropping the two tallest imp-33638 tail clusters from the imp-33660 ' +
+      'sixteen-peak [400,1200] sample collapses the envelope-height slope from ~+0.067 to ~+0.008 ' +
+      'ULP/rung (~1/9 survival), unmasking a two-point artifact. imp-33679 later found a FOUR-peak ' +
+      '[1200,1600] extension plateau (heights ~[140.1, 144.2, 143.3, 146.5] ULP) but never ran the ' +
+      'same leave-two-out test on it. imp-33700 runs it, dropping the two tallest extension peaks ' +
+      '(n~1599 ~146.5 ULP, n~1324 ~144.2 ULP) and refitting the remaining two (n~1230 ~140.1, ' +
+      'n~1433 ~143.3).\n\n' +
+      'RESULT: with only four peaks, leaving two after the drop makes the refit a DEGENERATE ' +
+      'two-point exact line (R^2 = 1, residual RMS ~1e-13) -- any two points fit perfectly, so the ' +
+      'test carries no information about whether the trend is distributed. The two-point slope ' +
+      '~+0.01593 does NOT collapse (survival ratio ~1.07 vs the imp-33680 ~1/9), the opposite of a ' +
+      'collapse -- but this is a degeneracy artifact, not evidence of a real trend. The full six-pair ' +
+      '(all C(4,2)) leave-two-out jackknife slope STRADDLES ZERO (~-0.0075 to ~+0.0431 ULP/rung, ' +
+      'mean ~+0.0161) on the trivial ~2.3 ULP plateau spread, so no distributed growth is confirmed ' +
+      'either. VERDICT: the imp-33680 two-point-artifact collapse does NOT replicate on the ' +
+      '[1200,1600] extension, but the correct reading is that the extension is a flat SATURATED ' +
+      'plateau (imp-33679) with no trend-carrying outliers to begin with -- not that the trend is ' +
+      'genuine. The imp-33680 collapse test is simply UNDERPOWERED on n = 4.\n\n' +
+      'HONEST SCOPE: accuracy/rule-design measurement only, on the jittery floorUlp(n) arithmetic-' +
+      'floor lattice statistic (imp-33249/imp-33660/imp-33679 latticeJitterCaveat). Mass-feasibility ' +
+      'is necessary-but-not-sufficient; establishes no operator positivity; imp-3066 K_a >= 0 stays ' +
+      'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33700 (leave-two-out refit of the imp-33679 [1200,1600] extension four-peak envelope-height slope, finding the imp-33680 collapse test is degenerate and underpowered on four peaks), 2026',
+    relatedTerms: [
+      'imp-33680 slope-collapses-trend-is-a-two-point-artifact verdict, the [400,1200] collapse this test tried to replicate (imp-33680)',
+      'imp-33679 four-peak [1200,1600] extension plateau, the saturated sample this leave-two-out refits (imp-33679)',
+      'imp-33660 sixteen cluster-peak height growth fit on [400,1200], the base fit imp-33680 first robustness-tested (imp-33660)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

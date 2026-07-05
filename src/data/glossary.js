@@ -10875,6 +10875,39 @@ export const glossary = [
       'imp-34023 the F4-collapse extrapolation verdict this ticket asked to be glossaried (imp-34023)',
     ],
   },
+  {
+    term: 'imp-34025 AR(2) complex-root damped-sinusoid fit on the 21 imp-33858 residuals',
+    category: 'numerical',
+    definition:
+      'imp-33964 showed the sample ACF of the 21 signed imp-33858 residuals decays FASTER than any ' +
+      'positive AR(1) geometric rho^k and crosses zero into a negative lobe (r_4~-0.052, r_5~-0.262), ' +
+      'which a pure AR(1) cannot reproduce, but stopped short of fitting a higher-order model. imp-34025 ' +
+      'fits the SECOND-order autoregression e_k = phi1 e_{k-1} + phi2 e_{k-2} + u_k by conditional OLS on ' +
+      'the same 21 residuals: phi1~+1.807, phi2~-0.918, with a NEGATIVE discriminant (~-0.405) giving ' +
+      'COMPLEX-CONJUGATE characteristic roots (0.904 +/- 0.318 i, modulus~0.958, stationary). The AR(2) ' +
+      'theoretical Yule-Walker ACF (+0.942, +0.785, +0.554, +0.281, -0.001) is therefore a damped sinusoid ' +
+      'that DOES cross zero, qualitatively reproducing the sign-changing negative lobe an AR(1) cannot -- ' +
+      'but the complex-root pseudo-period (~18.56 rungs) EXCEEDS the whole 21-rung sample, so the ' +
+      '"oscillation" is really the single curved hump the residual traces across the ladder pressed near ' +
+      'the unit circle, under-reproducing the empirical -0.262 depth and corroborating the imp-33921/ ' +
+      'imp-33964 reading that the near-unit-root behaviour is endpoint-inflated curvature, not a genuine ' +
+      'cycle. The companion Breusch-Godfrey LM test rejects white noise at every order p=2..5 ' +
+      '(LM_2..LM_5~17.05..17.68, all above the 1% chi-square_p critical values) net of the [1,k] trend, ' +
+      'with the increments beyond p=2 tiny, so the dependence is concentrated in the first one-two lags.\n\n' +
+      'HONEST SCOPE: measurement / serial-correlation modelling only, one order above imp-33964; changes ' +
+      'no RMSE (~0.116, ~12% multiplicative) and re-opens no imp-33843 form selection; the inherited ' +
+      'imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the AR(2) rests on only 19 lagged ' +
+      'triples and the BG chi-square reference is a small-sample asymptotic on N=21; C_mb GUE-conditional ' +
+      'per imp-486 untouched; changes no bound; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian ' +
+      'Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34025 (fitting a second-order autoregression and Breusch-Godfrey LM test to the 21 imp-33858 residuals, showing complex-conjugate roots reproduce the sign-changing ACF lobe as a curved-trend artifact, not a genuine cycle), 2026',
+    relatedTerms: [
+      'imp-33964 the sign-changing sample ACF (r_4/r_5<0) that defeats AR(1), fit here at second order (imp-33964)',
+      'imp-33921 the AR(1) rho_AR~0.968 endpoint-inflation reading this AR(2) fit corroborates (imp-33921)',
+      'imp-33858 the 21 signed residuals and the curved mid-trough/far-tail hump this models (imp-33858)',
+      'imp-34024 the companion DF/KPSS confirmatory-classification bracket on the same 21 residuals (imp-34024)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

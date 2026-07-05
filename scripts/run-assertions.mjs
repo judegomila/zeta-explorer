@@ -4111,6 +4111,18 @@ const DATA_MODULES = [
   // imp-34005; component model NOT rigorous; imp-3066/imp-486 untouched; PT
   // Lambda<=0.2 SOTA; no QED. 4 assertions.
   '/src/data/imp-34064-apex-quartic-curvature-fit.js',
+  // imp-34065 (numerical): TESTS the imp-34006 F2 analytic S/4 span-law by varying the
+  // fixed OLS window span S over {6, 12, 24} decades on the imp-34006 shared ladder.
+  // (S1) delta*(log T0)^2 = (p_eff - p)*(log T0)^2 tracks the analytic Snat/4 (Snat = S ln10)
+  // at every span, approaching FROM BELOW -- deepest-rung 3.370/6.622/12.803 vs Snat/4
+  // 3.454/6.908/13.816 (ratios 0.976/0.959/0.927), linear in span to ~5-8%, the finite-L
+  // shortfall growing with span. (S2) the window-START threshold lead over the span-fixed
+  // pointwise crossings (1e44.17 / 1e436.06) tracks S/2 decades -- 0.1% leads 3.00/5.98/11.93
+  // vs 3/6/12 (matched to <1.5%), doubling with the span. Both share one mechanism: the fixed
+  // OLS window reads the pointwise exponent at its centroid (+Snat/2). imp-34006 F2/F3 are the
+  // S=12 slices. Import-light (C_C_PINNED only). Component model NOT rigorous; imp-3066/imp-486
+  // untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34065-window-span-scaling-of-exponent-offset.js',
   // imp-33968 (numerical): TABULATES the imp-33924 phase winding rate
   // d arg(-A)/d theta = -(1+alpha) as an EXPLICIT rate-vs-alpha curve, upgrading
   // imp-33924 cross-check (a) from a single-tolerance pass/fail. Reusing the

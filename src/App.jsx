@@ -276,6 +276,7 @@ const Imp34015F2MagShareDriftViz = lazy(() => import('./pages/Imp34015F2MagShare
 const Imp34016SigmaExponentVsLogT0Viz = lazy(() => import('./pages/Imp34016SigmaExponentVsLogT0Viz.jsx'));
 const Imp34099AggregateShareWindowSensitivityViz = lazy(() => import('./pages/Imp34099AggregateShareWindowSensitivityViz.jsx'));
 const Imp34100ApexParabolaWingFidelityViz = lazy(() => import('./pages/Imp34100ApexParabolaWingFidelityViz.jsx'));
+const Imp34101SerialDependenceTestPanelViz = lazy(() => import('./pages/Imp34101SerialDependenceTestPanelViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1081,6 +1082,7 @@ function AppShell() {
           <Route path="/viz-imp34016-sigma-exponent-vs-logt0" element={<Imp34016SigmaExponentVsLogT0Viz />} />
           <Route path="/viz-imp34099-aggregate-share-window-sensitivity" element={<Imp34099AggregateShareWindowSensitivityViz />} />
           <Route path="/viz-imp34100-apex-parabola-wing-fidelity" element={<Imp34100ApexParabolaWingFidelityViz />} />
+          <Route path="/viz-imp34101-serial-dependence-test-panel" element={<Imp34101SerialDependenceTestPanelViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

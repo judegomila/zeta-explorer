@@ -319,6 +319,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34098-endpoint-trough-migration',
   '/viz-imp34099-aggregate-share-window-sensitivity',
   '/viz-imp34100-apex-parabola-wing-fidelity',
+  '/viz-imp34101-serial-dependence-test-panel',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

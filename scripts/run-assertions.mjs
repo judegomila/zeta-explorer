@@ -4088,6 +4088,18 @@ const DATA_MODULES = [
   // bundle). Component model NOT rigorous; imp-3066/imp-486 untouched; PT
   // Lambda<=0.2 SOTA; no QED. 4 assertions.
   '/src/data/imp-34003-f4-unity-crossing-locator.js',
+  // imp-34062 (accuracy): QUANTIFIES the imp-34003 "attenuates rather than
+  // amplifies" claim past k_peak = 8.8210916 (resid_peak = 0.0653366). Tabulating
+  // the same resid(k) surrogate over k_peak..k_peak+3, the M2 residual falls
+  // monotonically to 14.4% of peak (6.93x drop) and HALVES over a directly-bisected
+  // dk_half = 1.646 decades (N_half ~ 2.93e10, ~44x N_peak). An exponential fits
+  // marginally better than a power law (R^2 0.9716 vs 0.9582) but neither is
+  // faithful: the local decay exponent ramps ~0.276 -> ~1.019 per decade, so the
+  // attenuation ACCELERATES and ln2/B = 0.968 under-reads the measured half-life.
+  // SUB-GAP: no single-parameter law captures the accelerating decay. Import-light
+  // (effectiveHeightForN/C_C_PINNED only). Component model NOT rigorous;
+  // imp-3066/imp-486 untouched; PT Lambda<=0.2 SOTA; no QED. 4 assertions.
+  '/src/data/imp-34062-m2-residual-attenuation-rate.js',
   // imp-33968 (numerical): TABULATES the imp-33924 phase winding rate
   // d arg(-A)/d theta = -(1+alpha) as an EXPLICIT rate-vs-alpha curve, upgrading
   // imp-33924 cross-check (a) from a single-tolerance pass/fail. Reusing the

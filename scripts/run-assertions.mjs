@@ -4560,6 +4560,16 @@ const DATA_MODULES = [
   // thr ~ 0.3137 (N_cross ~ 1.687e10). Measurement/derivation only; C_mb GUE-conditional per imp-486
   // UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-34174-crossover-surplus-threshold-family-decay.js',
+  // imp-34187: tabulates the imp-34130 separated-E_coll local-exponent residual-to-(-1/2)
+  // milestone ladder at SEVEN thresholds {1e-2, 3e-3, 1e-3, 3e-4, 1e-4, 3e-5, 1e-5} on the
+  // imp-33859 log-space direct path (adding the half-decade rungs to imp-34198's four decade
+  // crossings): resid first drops below 1e-2 at log10 N ~ 22.12 (log T0 ~ 48.9), below 1e-3 at
+  // ~218.61 (~499), below 1e-5 at ~21718.19 (~50000); log T0 = 1/(2 resid) doubles per decade.
+  // The closed-form 1/(2 log T0) inverse reproduces every crossing with a ratio collapsing to 1
+  // from above (1.02129 -> 1.00002) as the finite-N (u-1)/u factor relaxes. Tabulation only;
+  // C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA;
+  // no QED. 6 assertions.
+  '/src/data/imp-34187-ecoll-residual-milestone-ladder.js',
 ];
 
 let ALL_MODULES = FAST_MODE

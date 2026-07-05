@@ -9526,6 +9526,40 @@ export const glossary = [
       'imp-33940 the companion test showing the edge growth also bleeds into the penultimate rung and a fixed low-k band (imp-33940)',
     ],
   },
+  {
+    term: 'imp-33970 joint phase-zero UNIQUENESS-over-alpha for the fold-modulus onset amplitude',
+    category: 'numerical',
+    definition:
+      'imp-33924 derived the joint closed form A(alpha,theta) = B(alpha) e^{-i(1+alpha)theta}' +
+      '[1 + e^{i(1+alpha)pi}], B(alpha) = pi*alpha/sin(pi*alpha), and OBSERVED that the phase-zero ' +
+      'of -A(alpha,theta) (where -A is real-positive) sits at theta = pi/2 for every alpha, but ' +
+      'imp-33927 checked uniqueness of that zero only at the single anchor alpha = 1/2. Because the ' +
+      'imp-33968 winding rate d arg/d theta = -(1+alpha) GROWS with alpha, the concern is that for ' +
+      'large alpha the phase might wind a full extra half-turn on (0,pi) and admit a SECOND ' +
+      'real-positive angle.\n\n' +
+      'RESULT: with p = 1+alpha in (1,2), 1 + e^{ip*pi} = 2*cos(p*pi/2)*e^{ip*pi/2} and cos(p*pi/2) < 0, ' +
+      'so -A = 2*B*|cos(p*pi/2)| * e^{ip(pi/2-theta)} -- a never-vanishing modulus times a pure phase. ' +
+      'Realness reduces to arg(-A) = p*(pi/2-theta) = 0 (mod 2*pi), i.e. theta = pi/2 - (2*pi/p)*k; ' +
+      'consecutive branches are spaced 2*pi/p apart, which for p in (1,2) is WIDER than the whole ' +
+      'interval length pi, so only k=0 (theta = pi/2) lands inside (0,pi). A dense scan at alpha in ' +
+      '{0.01, 0.1, 0.25, 0.4, 0.5, 0.6, 0.75, 0.9, 0.99} -- including the near-endpoint values where ' +
+      'winding is slowest/fastest -- confirms exactly one real-positive angle at pi/2 for every ' +
+      'sampled alpha. So theta = pi/2 is the UNIQUE phase-zero of -A(alpha,theta) on the entire open ' +
+      'interval (0,1), for EVERY cusp exponent alpha; the alpha-dependent winding rate -(1+alpha) ' +
+      'never manufactures a second crossing. That would require the phase span p*pi to reach 2*pi, ' +
+      'i.e. alpha >= 1, and the degeneracy sits exactly at the EXCLUDED endpoint alpha = 1 (p=2), ' +
+      'where theta -> 0+ and theta -> pi- both become phase-zeros in the limit.\n\n' +
+      'HONEST SCOPE: measurement/derivation only, on the model cusp rho(x) = |x|^{-alpha}. Does NOT ' +
+      're-derive the m_prime -> C_ren map off-axis/off-exponent and does NOT discharge H4 ' +
+      '(imp-33766); G6a_shock_lipschitz stays OPEN; imp-3066 off-diagonal endpoint-Hankel ' +
+      'K_a >= 0 UNTOUCHED; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33970 (assessing whether theta = pi/2 is the unique phase-zero of the imp-33924 joint leading amplitude -A(alpha,theta) on (0,pi) for every cusp exponent alpha in (0,1), extending the imp-33927 single-anchor check), 2026',
+    relatedTerms: [
+      'imp-33924 JOINT cusp-angle leading-amplitude factorization, the closed form A(alpha,theta) whose phase-zero uniqueness this ticket settles (imp-33924)',
+      'imp-33968 the affine winding-rate-vs-alpha law slope(alpha) = -(1+alpha), the mechanism that could in principle manufacture a second crossing (imp-33968)',
+      'imp-33883 off-axis angle-robust onset verdict, the alpha=1/2-only anchor this joint uniqueness result extends to all alpha (imp-33883)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -4238,6 +4238,17 @@ const DATA_MODULES = [
   // ~0.149 non-rejection UNCHANGED. Measurement only; imp-486/C_mb untouched; imp-3066 K_a>=0 untouched;
   // PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-34155-kpss-l0-borderline-margin.js',
+  // imp-34231 (accuracy): EXTENDS the imp-34155 single-rung head shift to the MULTI-rung joint minimal
+  // L2-norm perturbation. Reusing the imp-34024 l=0 KPSS statistic VERBATIM, it solves the least-norm-to
+  // -the-level-set problem (gradient-parallel KKT, nonlinear-exact) over the head cluster {k=6.00,6.25}
+  // and the head cluster + far-tail endpoint {6.00,6.25,11.00}. FINDING: the joint shift IS cheaper but
+  // only modestly -- head+far-tail joint norm ~0.001655 (~82.5% of the single-rung ~0.002006), head-pair
+  // ~0.001748 (~87.1%), all-21-rung absolute floor ~0.001456 (~72.5%); the head endpoint still carries
+  // ~82% of the joint norm (far-tail component OPPOSITE sign), so the borderline stays head-dominated and
+  // endpoint-driven per imp-34155 R4. Linear MARGIN/||g_S|| agrees to ~0.4%. HAC-corrected (l>=1) eta_mu
+  // ~0.149 non-rejection UNCHANGED. Measurement only; imp-486/C_mb untouched; imp-3066 K_a>=0 untouched;
+  // PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34231-kpss-l0-multi-rung-joint-shift.js',
   // imp-34084: fit the FULL cubic {1,t,t^2,t^3} to the imp-33878 resid_exp(k) hump
   // apex over k*+/-0.1 and MEASURE the cubic coefficient d = (1/6) resid triple-prime(k*)
   // that imp-34008 W2 only INFERRED from wing asymmetry. FINDING: d ~ -5.347e-4 (resid
@@ -4740,6 +4751,11 @@ const DATA_MODULES = [
   // pure phase geometry on the imp-33924/imp-34167 closed form; does NOT discharge H4, G6a stays OPEN; imp-3066
   // K_a>=0 untouched; C_mb GUE-conditional untouched; PT Lambda<=0.2 SOTA; no QED. 7 assertions.
   '/src/data/imp-34230-third-branch-curvature.js',
+  // imp-34302: build-time gate for the M2-ceiling cohort pages (Imp34237 pole viz, Imp34281 index),
+  // which cite the imp-34023/imp-34237 bisected sign-change ceiling kEnd*~21.28095 as canonical while
+  // imp-34127 separately reports a lower, non-canonical closed-form leading estimate kEnd~21.00
+  // (residual ~-0.28). Live-imports both source literals so a future edit cannot drift or conflate them.
+  '/src/data/imp-34302-m2-ceiling-cohort-canonical-value-gate.js',
 ];
 
 let ALL_MODULES = FAST_MODE

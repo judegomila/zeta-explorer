@@ -95,6 +95,13 @@ const RESIDUALS = [
       'and H3 dominates H4 a fortiori. H4 and H3 therefore collapse into ONE coupled ' +
       'strip-height-uniformity object, load-bearing at the H3 rung; this is scoping only and ' +
       'discharges nothing, so G6a_shock_lipschitz stays OPEN (PARTIAL) exactly as above.',
+      'Honest-status note (imp-33794): the measured finite-band C_ren(N) window (the renormalized ' +
+      'fold-reading amplitude across the eps = y_N^sharp ladder) is CONSISTENT-WITH the H4 ' +
+      'finite-window minimal-input requirement but does NOT DISCHARGE H4 -- the uniform bound needs ' +
+      'the ANALYTIC tracking of C_ren through the fold-modulus back-conversion, not an empirical ' +
+      'band checked on a finite ladder, and it says nothing about the coupled H3 curvature rung ' +
+      '(imp-33786) that dominates and jointly governs discharge. Measurement only; ' +
+      'G6a_shock_lipschitz stays OPEN (PARTIAL) exactly as above.',
     ],
     links: [
       { to: '/rh-dag', label: 'Proof DAG (G6a node)' },

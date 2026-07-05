@@ -4320,6 +4320,21 @@ const DATA_MODULES = [
   // component model NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 untouched; imp-3066
   // K_a>=0 untouched; no bound changed; NO QED; PT Lambda<=0.2 SOTA. 4 assertions.
   '/src/data/imp-34146-apex-quintic-tilt-coefficient.js',
+  // imp-34147: DOES THE imp-34084 APEX CUBIC-TILT SIGN d<0 PERSIST ACROSS THE LADDER? imp-34084 C1 fit
+  // the apex cubic tilt d ~ -5.347e-4 (resid triple-prime(k*) < 0) at the SINGLE imp-33948 apex centre
+  // k* ~ 8.821092 and never asked whether the negative sign is a local feature or a stable property.
+  // Sweeping the SAME 21-point symmetric {1,t,t^2,t^3} fit window across the imp-33810 ladder support
+  // (centre 6.5 .. 11.0, quarter-decade steps) shows d(centre) CHANGES SIGN THREE TIMES: positive for
+  // centre < 6.6166, negative on the central band 6.6166 < centre < 8.8589, positive on 8.8589 <
+  // centre < 10.9820, negative for centre > 10.9820 (crossings bisected at ~6.616582, ~8.858861,
+  // ~10.982012). The apex k* lies inside the negative band (reproducing d(k*) ~ -5.347e-4) but only
+  // ~0.0378 decade BELOW the upper sign change, so the negative apex tilt is GENUINE yet MARGINAL; and
+  // d deepens to ~-7.04e-3 near centre ~8.00 (~13x the apex magnitude, well left of the apex), so d(k*)
+  // is a small near-crossing value. The imp-34084 negative apex tilt is a LOCAL feature, not a stable
+  // property. Refines not overturns imp-34084; inherited imp-3220/imp-3406 component model NOT a
+  // rigorous asymptotic; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; no
+  // bound changed; NO QED; PT Lambda<=0.2 SOTA. 4 assertions.
+  '/src/data/imp-34147-apex-cubic-tilt-sign-sweep.js',
 ];
 
 let ALL_MODULES = FAST_MODE

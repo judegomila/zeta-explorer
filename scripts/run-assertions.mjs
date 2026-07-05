@@ -4062,6 +4062,20 @@ const DATA_MODULES = [
   // only, no heavy bundle). imp-3066/imp-486 untouched; PT Lambda<=0.2 SOTA; no QED.
   // 5 assertions.
   '/src/data/imp-33962-attenuation-rung-by-rung-decomposition.js',
+  // imp-34003 (accuracy): REFINES the imp-33962 R3 "F4 crosses unity near k~8.9"
+  // reading. F4 = resid(b)/resid(a) is the per-step ratio of the imp-33773 M2
+  // sub-leading residual between adjacent imp-33810 quarter-decade rungs; imp-33962
+  // read its unity crossing off the discrete 21-rung ladder to one decimal. This
+  // module bisects the CONTINUOUS ratio resid(k+dk)/resid(k) - 1 (dk = 0.25) to full
+  // precision: F4 = 1 at from_k* = 8.6958594943 (N = 4.964e8), geometric-center
+  // k_c = 8.8208594943 (N = 6.620e8) -- the "residual peaks here" reading imp-33962
+  // eyeballed as k~8.9 -- confirmed by the pointwise resid'(k)=0 root at
+  // k_peak = 8.8210916010 (N = 6.624e8) to 2.3e-4 in k. Beyond this height the M2
+  // residual attenuates rather than amplifies, so F4 (not the F2 normaliser) carries
+  // the tail attenuation. Import-light (effectiveHeightForN/C_C_PINNED only, no heavy
+  // bundle). Component model NOT rigorous; imp-3066/imp-486 untouched; PT
+  // Lambda<=0.2 SOTA; no QED. 4 assertions.
+  '/src/data/imp-34003-f4-unity-crossing-locator.js',
   // imp-33968 (numerical): TABULATES the imp-33924 phase winding rate
   // d arg(-A)/d theta = -(1+alpha) as an EXPLICIT rate-vs-alpha curve, upgrading
   // imp-33924 cross-check (a) from a single-tolerance pass/fail. Reusing the

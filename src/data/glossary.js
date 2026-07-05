@@ -8967,6 +8967,37 @@ export const glossary = [
       'imp-33817 grid-resolution floor confirming the imp-33771 residual exceeds discretization noise (imp-33817)',
     ],
   },
+  {
+    term: 'imp-33795 coupled Perron norm ||R(s)||: fine-grid strict monotonicity, zero interior turning points',
+    category: 'numerical',
+    definition:
+      'imp-33765 built its one-dimensionality-in-s verdict on describing the coupled Perron norm ' +
+      '||R(s)|| as a "monotone-in-s curve" saturating the all-ones ceiling DEG+1, but only sampled ' +
+      'isolated s values (the s = 3 anchor plus scaling-orbit checks) -- the monotone, ' +
+      'turning-point-free shape itself was never swept on a fine grid. imp-33795 fills that gap: ' +
+      'at the fixed DEG = 4 anchor it samples ||R(s)|| on a 400-point fine grid, s in [0.05, 20] ' +
+      '(step 0.05).\n\n' +
+      'RESULT: the curve is STRICTLY monotone increasing -- every consecutive difference is ' +
+      'positive (smallest first-difference ~9.0e-5 > 0) -- with EXACTLY 0 interior turning points, ' +
+      'and CONCAVE (its discrete derivative peaks near the origin and decreases monotonically, 0 ' +
+      'slope sign-changes). ||R|| passes 1 at s ~ 0.2794, and by the imp-33765 anchor s = 3 it is ' +
+      'already ~4.617014, i.e. ~92.3% of the DEG = 4 ceiling 5. The ceiling gap (DEG+1) - ||R||(s) ' +
+      'then shrinks exponential-like on the tail, log(gap) nearly linear on s in [10, 20] with ' +
+      'slope ~ -0.1165 per unit s (gap ~0.0646 at s = 10 down to ~0.0202 at s = 20).\n\n' +
+      'HONEST SCOPE: a fine-grid VERIFICATION on the same representative monomial truncation as ' +
+      'imp-3066 / imp-33704 / imp-33725 / imp-33765, not the section-26 Gram; it VALIDATES the ' +
+      'monotone-curve premise the imp-33765 one-dimensionality argument rests on but discharges ' +
+      'nothing new -- ||R|| carries no RH verdict, K_a >= 0 was not attempted, and imp-3066 / ' +
+      'imp-33704 / imp-33725 / imp-33765 / G7 remain UNTOUCHED as proofs; Platt-Trudgian ' +
+      'Lambda <= 0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-33795 (measuring the imp-33765 monotone-in-s ||R(s)|| shape premise on a fine 400-point s-grid at the DEG=4 anchor), 2026',
+    relatedTerms: [
+      'imp-33765 G7 one-dimensionality-in-s verdict, whose monotone-curve premise this fine-grid sweep validates (imp-33765)',
+      'imp-33791 DEG-dependence of the saturation scale s_90, the complementary DEG-sweep this s-sweep does not repeat (imp-33791)',
+      'imp-33725 G7 obstruction a-scaling ladder, the empirical one-dimensionality finding behind the s = a*U reduction (imp-33725)',
+      'imp-3066 off-diagonal endpoint-Hankel obstruction K_a >= 0, left untouched (imp-3066)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

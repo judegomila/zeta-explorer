@@ -4094,6 +4094,19 @@ const DATA_MODULES = [
   // (pure math). Measurement only; does NOT discharge H4; G6a STAYS OPEN; imp-3066
   // untouched; NO QED; PT Lambda<=0.2 SOTA. 5 assertions.
   '/src/data/imp-33970-joint-phase-zero-uniqueness.js',
+  // imp-33984 (numerical): LOCATES, within the imp-33878 grid-refinement ladder
+  // (steps 0.25 down to 1/128), the step whose nearest grid point 6+j*step lands
+  // closest to the imp-33942 continuum argmax k*~8.821092. FINDING: the FINEST rung
+  // (step 1/128) wins both ways -- frac((k*-6)/step)=0.099776 (tightest phase-to-
+  // integer over all rungs) and the smallest sawtooth gap 7.795e-4, node 8.820313
+  // sitting 7.8e-4 below k* (~11x closer than the 0.0625 rung), though frac~0.1 means
+  // no sampled grid point lands EXACTLY on k*. The imp-33878 0.0625 rung anomaly (gap
+  // 8.6e-3 unchanged 0.0625->0.03125) is a shared-node survival: 8.8125=6+45/16=6+90/32
+  // is a common node, so the sawtooth doubling map holds the gap identical until a finer
+  // node (8.828125 at step 0.015625) lands nearer. Measurement only; imp-486/C_C ansatz
+  // untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions. (transitively exercises the
+  // imp-33810/imp-33844 model via effectiveHeightForN/C_C_PINNED.)
+  '/src/data/imp-33984-sawtooth-nearest-grid-point.js',
 ];
 
 let ALL_MODULES = FAST_MODE

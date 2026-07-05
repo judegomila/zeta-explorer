@@ -327,6 +327,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34156-asymmetric-trim-attribution',
   '/viz-imp34157-trough-peak-ratio-creep',
   '/viz-imp34158-digit-loss-cliff',
+  '/viz-imp34159-cubic-tilt-wing-reconstruction',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

@@ -259,7 +259,8 @@ export const IMP34104_SECOND_POSITIVE_BRANCH_GEOMETRY_ASSERTIONS = [
       /NO QED/.test(IMP34104_SECOND_POSITIVE_BRANCH_GEOMETRY.verdict) &&
       /STAYS OPEN/.test(IMP34104_SECOND_POSITIVE_BRANCH_GEOMETRY.verdict) &&
       /remains the rigorous SOTA/.test(IMP34104_SECOND_POSITIVE_BRANCH_GEOMETRY.verdict) &&
-      /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(IMP34104_SECOND_POSITIVE_BRANCH_GEOMETRY.verdict),
+      /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(IMP34104_SECOND_POSITIVE_BRANCH_GEOMETRY.verdict) &&
+      /C_mb GUE-conditional untouched/i.test(IMP34104_SECOND_POSITIVE_BRANCH_GEOMETRY.verdict),
   },
 ];
 

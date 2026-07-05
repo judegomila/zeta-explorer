@@ -345,7 +345,8 @@ export const IMP34110_LTO_PER_PAIR_INFLUENCE_RANKING_ASSERTIONS = [
       IMP34110_LTO_PER_PAIR_INFLUENCE_RANKING.isRigorous === false &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34110_LTO_PER_PAIR_INFLUENCE_RANKING.verdict) &&
       /NO QED/.test(IMP34110_LTO_PER_PAIR_INFLUENCE_RANKING.verdict) &&
-      /remains SOTA/.test(IMP34110_LTO_PER_PAIR_INFLUENCE_RANKING.verdict),
+      /remains SOTA/.test(IMP34110_LTO_PER_PAIR_INFLUENCE_RANKING.verdict) &&
+      /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34110_LTO_PER_PAIR_INFLUENCE_RANKING.verdict),
   },
 ];
 

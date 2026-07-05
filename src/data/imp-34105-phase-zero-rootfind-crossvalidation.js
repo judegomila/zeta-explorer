@@ -287,7 +287,8 @@ export const IMP34105_PHASE_ZERO_ROOTFIND_CROSSVALIDATION_ASSERTIONS = [
       /NO QED/.test(IMP34105_PHASE_ZERO_ROOTFIND_CROSSVALIDATION.verdict) &&
       /STAYS OPEN/.test(IMP34105_PHASE_ZERO_ROOTFIND_CROSSVALIDATION.verdict) &&
       /remains the rigorous SOTA/.test(IMP34105_PHASE_ZERO_ROOTFIND_CROSSVALIDATION.verdict) &&
-      /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(IMP34105_PHASE_ZERO_ROOTFIND_CROSSVALIDATION.verdict),
+      /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(IMP34105_PHASE_ZERO_ROOTFIND_CROSSVALIDATION.verdict) &&
+      /C_mb GUE-conditional untouched/i.test(IMP34105_PHASE_ZERO_ROOTFIND_CROSSVALIDATION.verdict),
   },
 ];
 

@@ -331,7 +331,9 @@ export const IMP34107_RESID_EXP_SECOND_PATH_CROSSVALIDATION_ASSERTIONS = [
       /PERFORMS the independent recomputation imp-34044/.test(IMP34107_RESID_EXP_SECOND_PATH_CROSSVALIDATION.verdict) &&
       /NO QED/.test(IMP34107_RESID_EXP_SECOND_PATH_CROSSVALIDATION.verdict) &&
       /remains SOTA/.test(IMP34107_RESID_EXP_SECOND_PATH_CROSSVALIDATION.verdict) &&
-      /imp-3066 K_a >= 0 untouched/i.test(IMP34107_RESID_EXP_SECOND_PATH_CROSSVALIDATION.verdict),
+      /imp-3066 K_a >= 0 untouched/i.test(IMP34107_RESID_EXP_SECOND_PATH_CROSSVALIDATION.verdict) &&
+      /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34107_RESID_EXP_SECOND_PATH_CROSSVALIDATION.verdict) &&
+      /C_C 1\/8 ansatz \(imp-2642\/imp-2643\) is UNTOUCHED/i.test(IMP34107_RESID_EXP_SECOND_PATH_CROSSVALIDATION.verdict),
   },
 ];
 

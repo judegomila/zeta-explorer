@@ -50614,13 +50614,15 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Add a viz/analysis panel plotting the imp-33940 residual-vs-kEnd curves on one axis — endpoint (concave), penultimate rung k=kEnd-0.25 (concave, sub-linear), and fixed low-k band k<=10 (convex) — to display the opposite curvatures of the OLS-window edge artifact.',
     category: 'ux',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S-frontier',
     description: "UX only. Plot the three residual series across kEnd=11..13 with an honest banner (measurement diagnostic REFINING imp-33917 R3: interior amplitudes not boundary-stable; only the FORM verdict and concavity sign are; no bound, no QED, PT Lambda<=0.2 SOTA). Keep imports light.",
     rationale: 'Frontier scout: imp-33940 contrasts concave endpoint/penultimate vs convex low-k drift but the opposite-curvature edge artifact is not visualized',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'sonnet-4-6',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
 ];
 

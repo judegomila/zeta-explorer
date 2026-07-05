@@ -3907,6 +3907,18 @@ const DATA_MODULES = [
   // two large offsets that nearly cancel; no inconsistent precision statement. Lightweight
   // (effectiveHeightForN/C_C_PINNED only, no heavy bundle). PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-33887-ecoll-gap-anchoring-convention-reconciliation.js',
+  // imp-33905 (accuracy): RECONCILES the imp-33896 quarter-decade hump peak (k=8.75,
+  // 6.5245e-2) with the imp-33878 continuum argmax (k*~8.821, 6.5337e-2) on a common
+  // grid-spacing axis. FINDING: they are the SAME sliding-window resid_exp(k) argmax at
+  // two resolutions -- imp-33896 k=8.75/6.5245e-2 equals the imp-33878 step=0.25 rung to
+  // machine precision, and the ~0.07-decade gap is exactly the imp-33878 step=0.25
+  // distToKStar (0.07109), a grid-discretization distance bounded by the step and
+  // shrinking to zero as the grid refines -- NOT a genuine discrepancy. The two resid
+  // amplitudes agree to ~0.14% (one broad peak), and k*~8.821 sits between the snapshot
+  // (k=8.75) and the integer label (k=9). Reads two inherited data objects; import-light
+  // (imp-33878 uses effectiveHeightForN/C_C_PINNED, imp-33896 is import-free). imp-486/C_C
+  // untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-33905-hump-argmax-grid-vs-continuum-reconciliation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

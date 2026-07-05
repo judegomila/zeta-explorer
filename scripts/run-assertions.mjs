@@ -4203,6 +4203,22 @@ const DATA_MODULES = [
   // untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions. (transitively exercises the
   // imp-33810/imp-33844 model via effectiveHeightForN/C_C_PINNED.)
   '/src/data/imp-33984-sawtooth-nearest-grid-point.js',
+  // imp-34082 (coverage audit, imp-34164): leave-endpoints-out robustness check on the imp-33964
+  // near-unit-root serial-dependence verdict -- drops the k=6/k=11 boundary rungs, re-fits the
+  // imp-33843 log-linear OLS on the 19 interior rungs, and recomputes Durbin-Watson + Ljung-Box.
+  // FINDING: dropping the endpoints barely moves DW (0.2219->0.2212) or r_1 (0.757->0.752), and every
+  // interior Q_1..Q_5 still exceeds the 1% chi-square_m -- the serial dependence is interior-carried,
+  // REFUTING the imp-34025 R2 endpoint-inflated-artifact reading. Measurement only; imp-486/C_C ansatz
+  // untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions. Was present as a file but absent from
+  // DATA_MODULES until this imp-34164 coverage audit.
+  '/src/data/imp-34082-endpoint-drop-serial-dependence.js',
+  // imp-34083 (coverage audit, imp-34164): sweeps the KPSS level-statistic Bartlett bandwidth l over
+  // the standard range (l=0,1,2,floor(4(n/100)^{1/4}),floor(12(n/100)^{1/4})) on the imp-33858 signed
+  // residuals to test whether the imp-34024 "fails to reject stationarity" verdict is bandwidth-robust
+  // or bandwidth-sensitive, given the positive imp-33964 r_1~+0.757 autocorrelation that inflates s2(l).
+  // Measurement only; imp-486/C_C ansatz untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions. Was
+  // present as a file but absent from DATA_MODULES until this imp-34164 coverage audit.
+  '/src/data/imp-34083-kpss-bandwidth-sensitivity.js',
   // imp-34084: fit the FULL cubic {1,t,t^2,t^3} to the imp-33878 resid_exp(k) hump
   // apex over k*+/-0.1 and MEASURE the cubic coefficient d = (1/6) resid triple-prime(k*)
   // that imp-34008 W2 only INFERRED from wing asymmetry. FINDING: d ~ -5.347e-4 (resid
@@ -4213,6 +4229,13 @@ const DATA_MODULES = [
   // ansatz untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 4 assertions.
   // (transitively exercises the imp-33810/imp-33878 model via effectiveHeightForN/C_C_PINNED.)
   '/src/data/imp-34084-apex-cubic-tilt-coefficient.js',
+  // imp-34085 (coverage audit, imp-34164): extends the imp-33810 ladder two further quarter-decade
+  // steps (EXT125 k=6..12.5, EXT13 k=6..13, same inherited effectiveHeightForN/C_C_PINNED sub-terms)
+  // and tests whether the imp-34022 R2 |trough|/|peak| amplitude ratio (~0.6151->0.6293->0.6492 over
+  // BASE/EXT115/EXT12) is converging to a fixed limit or merely creeping over too short a span to see.
+  // Measurement only; imp-486/C_C ansatz untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions. Was
+  // present as a file but absent from DATA_MODULES until this imp-34164 coverage audit.
+  '/src/data/imp-34085-trough-peak-ratio-convergence.js',
   // imp-34086: split the imp-34009 SYMMETRIC window-endpoint sensitivity of the imp-33962
   // 0.9225 aggregate F2 share into ONE-sided trims -- head-only [6+0.25m,11] and tail-only
   // [6,11-0.25m] (m=0..9) -- to attribute the ~0.18 drift and the m=1 bump to head vs tail.

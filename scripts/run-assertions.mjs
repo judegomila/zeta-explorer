@@ -4038,6 +4038,19 @@ const DATA_MODULES = [
   // Derivation/measurement only; does NOT discharge H4; G6a STAYS OPEN; imp-3066 untouched;
   // NO QED; PT Lambda<=0.2 SOTA. 5 assertions.
   '/src/data/imp-33928-onset-convergence-rate.js',
+  // imp-33962 (accuracy): DECOMPOSES the imp-33922 F2*F3*F4 = 0.05022 attribution
+  // attenuation RUNG-BY-RUNG across the imp-33810 quarter-decade ladder (20
+  // adjacent-rung steps). FINDING: the per-step factors telescope EXACTLY to the
+  // imp-33922 endpoint slice (prod widening 903.538, rel ~1e-13) but the normaliser
+  // dominance is NOT boundary-stable -- the local F2 magnitude share drifts from
+  // 0.871 (head) through a mid-dip ~0.599 and interior peak ~0.905 down to 0.079
+  // (tail), where the residual factor F4 takes over; the clean monotone signal is
+  // ln F2 itself, weakening strictly (-0.255 -> -0.019) as the E_N collapse
+  // saturates. The "92% is F2" endpoint headline is a NET aggregate (agg |ln| share
+  // 0.9225), not a per-rung property. Import-light (effectiveHeightForN/C_C_PINNED
+  // only, no heavy bundle). imp-3066/imp-486 untouched; PT Lambda<=0.2 SOTA; no QED.
+  // 5 assertions.
+  '/src/data/imp-33962-attenuation-rung-by-rung-decomposition.js',
 ];
 
 let ALL_MODULES = FAST_MODE

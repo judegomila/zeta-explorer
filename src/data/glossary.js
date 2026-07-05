@@ -11642,6 +11642,35 @@ export const glossary = [
       'Storage-precision assertion tolerance the companion trap when the imported literal came from a toExponential(6) cache field',
     ],
   },
+  {
+    term: 'imp-34315 outer-branch endpoint-curvature ladder pi/(4k^2) (imp-34103/imp-34166/imp-34230)',
+    category: 'numerical',
+    definition:
+      'Consolidates the per-family endpoint-curvature measurements of the imp-34173/imp-34240 unified ' +
+      'outer phase-zero branch law d_k(alpha) = pi((2k-1)-alpha)/(2(1+alpha)) into a single named ladder. ' +
+      'Each branch touches the model-cusp interval endpoints at its onset alpha_k=2k-1, where the second ' +
+      "derivative (curvature) d_k''(alpha_k) takes the closed form pi/(4k^2): imp-34103 measured pi/4 at " +
+      'k=1 (onset alpha=1), imp-34166 measured pi/16 at k=2 (onset alpha=3), and imp-34230 measured ' +
+      'pi/36 at k=3 (onset alpha=5), each confirmed by Taylor-tabulating the branch distance near its ' +
+      'onset and by central finite differences (residual ~1e-16 against the closed form). The three ' +
+      'values instantiate the single closed form d_k(1+alpha)^3-scaled second derivative 2k*pi/(1+alpha)^3 ' +
+      "evaluated at alpha_k=2k-1, i.e. d_k''(2k-1) = 2k*pi/(2k)^3 = pi/(4k^2), matching imp-34173's " +
+      'general onset-curvature formula.\n\n' +
+      'HONEST SCOPE: this entry only names and cross-references an already-measured ladder; no new ' +
+      'derivation or bound. Pure phase-condition geometry on the inherited imp-33924 closed form; ' +
+      'establishes NO operator positivity; does NOT re-derive the m_prime->C_ren map off-axis/off-exponent ' +
+      'and does NOT discharge H4 (imp-33766); G6a_shock_lipschitz STAYS OPEN; C_mb GUE-conditional per ' +
+      'imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34315 (glossary entry naming the pi/(4k^2) endpoint-curvature ladder spanning imp-34103, imp-34166 and imp-34230), 2026',
+    relatedTerms: [
+      'imp-34103 k=1 endpoint curvature pi/4 at onset alpha=1 (imp-34103)',
+      'imp-34166 k=2 endpoint curvature pi/16 at onset alpha=3 (imp-34166)',
+      'imp-34230 k=3 endpoint curvature pi/36 at onset alpha=5, closing the ladder (imp-34230)',
+      'imp-34173 the unified k-indexed endpoint-distance law d_k(alpha) this curvature ladder derives from (imp-34173)',
+      'imp-34240 the existing glossary entry for the imp-34173 unified law and its onset slope/curvature (imp-34240)',
+      'imp-34298 the sibling cohort map indexing the same branch family by n (imp-34298)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

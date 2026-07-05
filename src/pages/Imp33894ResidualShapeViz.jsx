@@ -158,6 +158,27 @@ export default function Imp33894ResidualShapeViz() {
         positivity; imp-3066 K_a &ge; 0 remains untouched. No RH verdict, NO QED. Platt-Trudgian
         &Lambda; &le; 0.2 remains the rigorous SOTA.
       </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>Cohort note:</strong> the residual series plotted above
+        is the SAME 21-rung series that imp-33886, imp-33920, imp-33921, imp-33963 (Dickey-Fuller
+        unit-root test), imp-33964 (Ljung-Box portmanteau test), and imp-33965 (exact Durbin-Watson
+        permutation bound) each run a different formal serial-dependence test against. All six tests
+        calibrate this one inherited residual -- none of them changes the RMSE (&sim;{aggregateRmse}),
+        reopens the imp-33843 log-linear-vs-power-law form selection, or touches any bound.
+        "Significant" throughout that cohort means "not white noise", never "large": the residual
+        stays the same small &sim;12% multiplicative effect shown here at every rung.
+      </div>
     </div>
   );
 }

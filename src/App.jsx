@@ -299,6 +299,7 @@ const Imp34238SevenCrossingsOnsetLadderViz = lazy(() => import('./pages/Imp34238
 const Imp34244KpssL0FlipShiftRankingViz = lazy(() => import('./pages/Imp34244KpssL0FlipShiftRankingViz.jsx'));
 const Imp34255M2CeilingWindowWidthDivergenceViz = lazy(() => import('./pages/Imp34255M2CeilingWindowWidthDivergenceViz.jsx'));
 const Imp34259UnifiedEndpointDistanceFamilyViz = lazy(() => import('./pages/Imp34259UnifiedEndpointDistanceFamilyViz.jsx'));
+const Imp34274FixedBandPeakIncrementMinimumViz = lazy(() => import('./pages/Imp34274FixedBandPeakIncrementMinimumViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1127,6 +1128,7 @@ function AppShell() {
           <Route path="/viz-imp34244-kpss-l0-flip-shift-ranking" element={<Imp34244KpssL0FlipShiftRankingViz />} />
           <Route path="/viz-imp34255-m2-ceiling-window-width-divergence" element={<Imp34255M2CeilingWindowWidthDivergenceViz />} />
           <Route path="/viz-imp34259-unified-endpoint-distance-family" element={<Imp34259UnifiedEndpointDistanceFamilyViz />} />
+          <Route path="/viz-imp34274-fixed-band-peak-increment-minimum" element={<Imp34274FixedBandPeakIncrementMinimumViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

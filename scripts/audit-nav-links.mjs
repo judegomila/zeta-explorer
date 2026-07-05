@@ -342,6 +342,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34259-unified-endpoint-distance-family',
   '/viz-imp34182-deep-ladder-precision-floor',
   '/viz-imp34185-outer-branch-angle-family',
+  '/viz-imp34274-fixed-band-peak-increment-minimum',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

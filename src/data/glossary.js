@@ -9493,6 +9493,39 @@ export const glossary = [
       'imp-33787 the dual low-end result: inf_{s>0} ||R(s)|| = 0, approached only in the degenerate s->0 limit (imp-33787)',
     ],
   },
+  {
+    term: 'imp-33917 endpoint-residual-growth EDGE-ARTIFACT test',
+    category: 'numerical',
+    definition:
+      'imp-33877 found the largest positive residual of the imp-33843 log-linear widening fit sits ' +
+      'at the boundary-locked endpoint and grows as the fit window recedes, but reported only 3 ' +
+      'points and never fit the growth law. imp-33917 reuses the SAME inherited imp-33810/imp-33877 ' +
+      'machinery over a fine boundary sweep kEnd=11.00..13.00 (step 0.25, 9 windows) and extracts the ' +
+      'endpoint peak per window as a general diagnostic: a boundary-locked residual that GROWS without ' +
+      'bound as the fit window recedes is the signature of a truncation/edge artifact, whereas a ' +
+      'residual that SATURATES to a fixed magnitude as the window widens would instead read as a ' +
+      'genuine physical feature of the underlying quantity.\n\n' +
+      'RESULT: the endpoint peak rises strictly across all 9 boundaries, +0.2479 (kEnd=11) to +0.4651 ' +
+      '(kEnd=13) -- an ~88% increase over two extra decades with NO plateau -- and the largest positive ' +
+      'residual sits at the endpoint in EVERY window, the edge-artifact signature. The growth is ' +
+      'SUB-LINEAR/concave (per-step increments fall monotonically 0.0384 -> 0.0158, every second ' +
+      'difference negative), fit either as linear peak=-0.9318+0.1086*kEnd (R2~0.9813) or concave ' +
+      'ln(kEnd) (R2~0.9872, later selected as the better form by imp-33941). Because the peak keeps ' +
+      'climbing rather than saturating, it is read as scaling with WHERE the fit window is truncated, ' +
+      'not as a fixed rung -- sharpening rather than overturning imp-33877, whose genuine ' +
+      'boundary-INDEPENDENT feature remains the tail deceleration.\n\n' +
+      'HONEST SCOPE: measurement/growth-law-fit only; the component model is the inherited ' +
+      'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS surrogate and growth fits ' +
+      'are descriptive not derived; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; ' +
+      'imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33917 (fitting the growth law of the imp-33877 boundary-locked endpoint peak residual over a 9-window kEnd=11..13 sweep, finding unbounded sub-linear growth rather than saturation), 2026',
+    relatedTerms: [
+      'imp-33877 the boundary-locked endpoint residual peak whose growth law this ticket fits (imp-33877)',
+      'imp-33843 the log-linear widening FORM verdict the endpoint residual is measured against (imp-33843)',
+      'imp-33941 the formal AIC/BIC/AICc/RMSE model-selection decision confirming the concave/log growth form (imp-33941)',
+      'imp-33940 the companion test showing the edge growth also bleeds into the penultimate rung and a fixed low-k band (imp-33940)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

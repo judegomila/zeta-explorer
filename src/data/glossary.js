@@ -10120,6 +10120,37 @@ export const glossary = [
     ],
   },
   {
+    term: 'imp-34007 I1 round-off floor holds PER RUNG but the |ln N|-proportionality is only approximate across rungs',
+    category: 'numerical',
+    definition:
+      'imp-33960 fit the eps*|ln N|/(2 DL) round-off cancellation floor of the imp-33854 I1 identity ' +
+      'residual ONLY at the single dominant rung N=1e200 (largest |ln N| on the shared grid), so its ' +
+      '"|ln N|-scaling confirmed" verdict was really a worst-rung reading, never checked across rungs. ' +
+      'imp-34007 reopens the aggregate rung by rung: recomputing r_N(DL) over the same five steps ' +
+      'DL in {1e-2..1e-6} at EACH of the ten imp-33854 grid rungs (N=1e12..1e200) gives (a) a per-rung ' +
+      'log-log slope of r_N vs 1/DL clustered around +1 at every rung (median ~0.99, range ~0.77..1.08 ' +
+      '-- the round-off signature, not just at N=1e200), (b) a per-rung coefficient C_N = geomean(r*DL) ' +
+      'sitting BELOW its own per-rung ceiling C_pred_N=eps*|ln N|/2 at every rung (ratio ~0.046..0.375), ' +
+      'and (c) a cross-rung regression of log(C_N) on log(|ln N|) giving slope ~+0.71 -- positive (the ' +
+      'coefficient does grow with |ln N|, the sign the floor law predicts) but distinctly BELOW the ' +
+      'clean +1 a strict C ~ |ln N| proportionality requires, with the ceiling-fraction C_N/C_pred_N ' +
+      'drifting non-monotonically (dips to ~0.05 at d=100, recovers to ~0.25 at d=200).\n\n' +
+      'HONEST SCOPE: confirms imp-33960 R1/R2 (the ~1/DL round-off slope and the sub-ceiling coefficient) ' +
+      'as PER-RUNG facts, not lucky-rung artifacts, but narrows R3 -- the |ln N|-proportionality is an ' +
+      'aggregate/worst-rung ORDERING (largest |ln N| carries the largest residual), not a tight ' +
+      'deterministic per-rung law, because per-rung round-off is stochastic and only fractionally ' +
+      'same-sign. Same inherited imp-3220/imp-3406 component model as imp-33854/imp-33925/imp-33960; ' +
+      'realized round-off magnitudes are platform-dependent so slopes/coefficients are asserted only to ' +
+      'order; C_mb GUE-conditional share per imp-486 UNTOUCHED; changes no bound; imp-3066 K_a>=0 ' +
+      'untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34007 (recomputing the imp-33960 I1 round-off floor r(DL)~eps|ln N|/(2 DL) at every rung of the shared imp-33854 grid, rather than only the dominant N=1e200 rung, and testing the |ln N|-proportionality across rungs), 2026',
+    relatedTerms: [
+      'imp-33960 the single-rung round-off coefficient fit at N=1e200 this ticket generalizes rung by rung (imp-33960)',
+      'imp-33925 the DL-sweep that first showed the I1 identity residual growing as ~1/DL (imp-33925)',
+      'imp-33854 the log-saturation object g(N) and the EXACT pointwise identity gap_ecoll = g whose residual is being measured (imp-33854)',
+    ],
+  },
+  {
     term: 'imp-33982 three-way endpoint-peak tournament: the concave log form survives a curved power-law challenger',
     category: 'numerical',
     definition:

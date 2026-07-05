@@ -9256,6 +9256,35 @@ export const glossary = [
       'imp-486 C_mb GUE-conditional share, left untouched by this measurement (imp-486)',
     ],
   },
+  {
+    term: 'imp-33940 interior-residual boundary-stability REFINEMENT (edge growth is a whole-fit property, not one endpoint rung)',
+    category: 'accuracy',
+    definition:
+      'imp-33917 R3 asserted, without measuring it, that the interior residual structure of the imp-33843 ' +
+      'log-linear widening fit is BOUNDARY-STABLE while only the endpoint rung grows. imp-33940 tests that ' +
+      'assertion directly over the same imp-33917 9-window boundary sweep (kEnd=11.00..13.00, step 0.25), ' +
+      'extracting per window both (a) the largest signed residual EXCLUDING the last rung and (b) the ' +
+      'largest residual in the FIXED low-k band (k<=10, rungs common to every window).\n\n' +
+      'RESULT: neither quantity is boundary-stable. The largest non-last-rung residual sits at the ' +
+      'PENULTIMATE rung (k=kEnd-0.25) in every window and grows sub-linearly/concavely from +0.1575 ' +
+      '(kEnd=11) to +0.3829 (kEnd=13), ~143%, mirroring the endpoint itself. The fixed band k<=10 -- rungs ' +
+      'that never change across windows -- ALSO grows, +0.1337 to +0.2862, but CONVEXLY (opposite ' +
+      'curvature), which can only happen because the OLS regression line pivots as the window extends. So ' +
+      'the edge growth imp-33917 measured is a property of the whole pivoting fit, not a single endpoint ' +
+      'rung. The genuinely boundary-stable objects are the imp-33843 log-linear FORM verdict itself and the ' +
+      'imp-33877 tail-concavity SIGN -- not any residual amplitude.\n\n' +
+      'HONEST SCOPE: measurement/residual-localization only; the OLS surrogate and growth classifications ' +
+      'are descriptive not derived; the component model is the inherited imp-3220/imp-3406 extrapolation, ' +
+      'NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; imp-3066 ' +
+      'K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-33940 (measuring whether the interior residual structure of the imp-33843 widening fit is boundary-stable across the imp-33917 9-window kEnd=11..13 sweep, finding it is not), 2026',
+    relatedTerms: [
+      'imp-33917 the boundary sweep and endpoint-peak growth this refinement reuses, whose R3 boundary-stability assertion is corrected here (imp-33917)',
+      'imp-33843 the log-linear widening FORM verdict, confirmed as the genuinely boundary-stable object (imp-33843)',
+      'imp-33877 the tail-concavity SIGN, the other object confirmed boundary-stable by this refinement (imp-33877)',
+      'imp-33941 the companion model-selection decision on the same endpoint-peak sweep (imp-33941)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -9161,6 +9161,34 @@ export const glossary = [
       'imp-33843 the aggregate log-linear widening fit (RMSE~0.116) whose form selection is left untouched (imp-33843)',
     ],
   },
+  {
+    term: "imp-33828 sigma(N)-decay landmark ladder: six N-ordered landmarks on the single monotone right arm of the imp-3406 U-shape",
+    category: "reference",
+    definition:
+      "The lambda-roadmap.js currentStatus paragraph accumulates landmarks of the conditional share " +
+      "sigma(N) = E_coll(N)/E(N) one PHASE at a time in prose, so no single place lists them in " +
+      "N-order with provenance. imp-33828 tabulates the ladder once, in strict N-order, each entry " +
+      "citing the imp-id that established it:\n\n" +
+      "N ~ 9.22e5 -- interior maximum, sigma_max ~ 0.9494 (imp-3406)\n" +
+      "N ~ 2.57e7 -- sigma last stays above 0.9 (imp-33582)\n" +
+      "N ~ 3.267e9 -- sigma = 0.5, the halving landmark (imp-33582; bisected imp-3444)\n" +
+      "N ~ 3.280e9 -- E_coll = E_trunc crossover, closed form (imp-3444 bisection; imp-33723 closed form)\n" +
+      "N ~ 3.38e9 -- sigma decay-exponent sub-decade inflection knee (imp-33721; closed form imp-33744)\n" +
+      "N ~ 3.21e11 -- sigma last stays above 0.1, closed form (imp-33582; closed form imp-33743)\n\n" +
+      "All six sit on the single monotone-decreasing right arm of the imp-3406 N-shape past the " +
+      "interior peak (imp-3444 F3). No value is derived and no bound changes -- it is a pure " +
+      "cross-reference collecting figures already on record.\n\n" +
+      "HONEST SCOPE: reference-only assessment, NO QED. C_mb is GUE-conditional (imp-486), untouched; " +
+      "imp-3066 K_a >= 0 untouched; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    firstUsed: "imp-33828 (collecting the six sigma(N)-decay landmarks already recorded across lambda-roadmap.js currentStatus PHASEs into one N-ordered, provenance-tagged reference table), 2026",
+    relatedTerms: [
+      "imp-3406 interior maximum sigma_max ~ 0.9494 at N ~ 9.22e5, the first landmark on the ladder (imp-3406)",
+      "imp-33582 accelerating (not fixed-rate) sigma(N) post-peak decay, source of three of the six landmarks (imp-33582)",
+      "imp-3444 sigma(N) N-shape bisection to machine precision, source of the halving and crossover landmarks (imp-3444)",
+      "imp-33721 sigma-decay sub-decade exponent curvature, source of the inflection-knee landmark (imp-33721)",
+      "imp-33847 the cross-validation companion module that re-derives the same six landmarks independently (imp-33847)",
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

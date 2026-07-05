@@ -10049,6 +10049,38 @@ export const glossary = [
       'imp-33980 the same three-way scoring repeated on the neighbouring penultimate rung (imp-33980)',
     ],
   },
+  {
+    term: 'imp-33987 fixed-band convex drift PERSISTS a decade further, exponent p ~ 4.41',
+    category: 'numerical',
+    definition:
+      'imp-33940 R2 found the largest residual in the boundary-INDEPENDENT low-k band (k<=10, rungs ' +
+      'common to every fit window) of the imp-33843 log-linear widening fit drifts CONVEXLY as the fit ' +
+      'boundary recedes, but measured it over only kEnd=11..13 (3 windows, +0.1337 -> +0.2862). imp-33987 ' +
+      'extends the identical fixed-band selector across a finer-and-wider sweep kEnd=11.0..14.0 (7 ' +
+      'windows, step 0.5, one full decade of N past imp-33940 s boundary).\n\n' +
+      'RESULT: the convex drift PERSISTS -- the fixed-band peak rises monotonically +0.13368 (kEnd=11) ' +
+      '-> +0.38386 (kEnd=14), a ~187% increase, with ALL 5 second differences of its 6 increments ' +
+      'strictly positive (increments 0.02938 -> 0.05099, ratio ~1.74), so the curvature imp-33940 read ' +
+      'off 9 quarter-decade rungs is not a 3-point coincidence. A power-law fit peak ~ A*kEnd^p gives a ' +
+      'growth exponent p ~ 4.41 (R^2 ~ 0.9985), edging an exponential fit (rate ~0.3533, R^2 ~ 0.9948) ' +
+      'and both beating the plain linear convex-null (R^2 ~ 0.9939). The band argmax rung itself creeps ' +
+      'inward, k=7.00 (kEnd=11) -> k=6.50 (kEnd=14), as the OLS line keeps pivoting toward the band s ' +
+      'inner edge; the kEnd=11/13 peaks reproduce imp-33940 s anchors (+0.1337, +0.2862), confirming the ' +
+      'reused machinery.\n\n' +
+      'HONEST SCOPE: measurement / residual-growth fit only; the OLS surrogate and growth-exponent ' +
+      'classification are descriptive not derived; distinct from any form selection -- the imp-33843 ' +
+      'log-linear-over-power-law verdict and the imp-33940 R2 finding it extends are untouched; the ' +
+      'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
+      'C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; imp-3066 K_a>=0 untouched; NO QED; ' +
+      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-33987 (extending the imp-33940 R2 fixed-band k<=10 convex residual drift across a wider kEnd=11..14 sweep and fitting its growth exponent), 2026',
+    relatedTerms: [
+      'imp-33940 the R2 convex low-k drift over kEnd=11..13 this ticket extends and confirms (imp-33940)',
+      'imp-33986 the R1 penultimate-rung unrounded concavity cross-validation companion (imp-33986)',
+      'imp-33843 the log-linear widening FORM verdict, left untouched by this residual-growth fit (imp-33843)',
+      'imp-34049 the viz page plotting the measured peaks against the power-law/exponential/linear overlays (imp-34049)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

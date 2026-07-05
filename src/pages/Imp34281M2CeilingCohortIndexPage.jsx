@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34282_B_INF_DESCRIPTIVE_VS_DERIVATION_STATUS_NOTE } from '../data/imp-34282-b-inf-descriptive-vs-derivation-status-note.js';
+import { IMP34211_CLOSEDFORM_VS_BISECTION_KEND_GAP } from '../data/imp-34211-closedform-vs-bisection-kend-gap.js';
 
 const COHORT = [
   {
@@ -74,6 +75,35 @@ export default function Imp34281M2CeilingCohortIndexPage() {
       <div
         style={{
           marginTop: '1.25rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>imp-34211 closed-form vs bisection kEnd (two ceiling readings, side by side):</strong>
+        <div style={{ display: 'flex', gap: '1.5rem', marginTop: '0.4rem', flexWrap: 'wrap' }}>
+          <span>
+            <span style={{ color: '#94a3b8' }}>closed form (imp-34127):</span>{' '}
+            {IMP34211_CLOSEDFORM_VS_BISECTION_KEND_GAP.kEndClosedForm}
+          </span>
+          <span>
+            <span style={{ color: '#94a3b8' }}>direct bisection (imp-34150, canonical):</span>{' '}
+            {IMP34211_CLOSEDFORM_VS_BISECTION_KEND_GAP.kEndDirectBisect}
+          </span>
+          <span>
+            <span style={{ color: '#94a3b8' }}>gap:</span>{' '}
+            {IMP34211_CLOSEDFORM_VS_BISECTION_KEND_GAP.gap.absolute} abs (
+            {(IMP34211_CLOSEDFORM_VS_BISECTION_KEND_GAP.gap.relative * 100).toFixed(2)}% rel)
+          </span>
+        </div>
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
           padding: '0.75rem 1rem',
           background: 'rgba(148,163,184,0.04)',
           borderLeft: '3px solid #334155',

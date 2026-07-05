@@ -3990,6 +3990,20 @@ const DATA_MODULES = [
   // does NOT discharge H4; G6a STAYS OPEN; imp-3066 untouched; NO QED; PT Lambda<=0.2
   // SOTA. 6 assertions.
   '/src/data/imp-33924-joint-cusp-angle-onset-robustness-map.js',
+  // imp-33927 (numerical): PROVES theta = pi/2 is the UNIQUE evaluation angle on
+  // the OPEN interval (0, pi) at which the imp-33883 leading eps^{-3/2} amplitude
+  // -A(theta), A(theta) = (pi/2)(1-i) e^{-3 i theta/2}, is real-positive (= C_PS).
+  // Since |A| = pi/sqrt(2) never vanishes, real-positivity is a pure phase condition
+  // arg(-A) = 3pi/4 - 3 theta/2 = 0 (mod 2 pi); its integer branches
+  // theta = pi/2 - (4 pi/3) k place only k=0 (theta=pi/2) in (0, pi), and the phase is
+  // monotone (slope -3/2) with total variation 3 pi/2 < 2 pi so a residue class is hit
+  // at most once. An independent dense scan of (0, pi) finds exactly one real-positive
+  // neighbourhood, at pi/2, and a golden-section refine of |Im(-A)| locates its unique
+  // minimiser at pi/2 to ~1e-9 with amplitude C_PS real-positive. The on-axis point
+  // z_0*=i eps is the SOLE phase-zero of the constant-modulus off-axis family. Import-free
+  // (pure math). Derivation/measurement only; does NOT discharge H4; G6a STAYS OPEN;
+  // imp-3066 untouched; NO QED; PT Lambda<=0.2 SOTA. 5 assertions.
+  '/src/data/imp-33927-phase-zero-uniqueness.js',
 ];
 
 let ALL_MODULES = FAST_MODE

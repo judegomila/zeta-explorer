@@ -9988,6 +9988,38 @@ export const glossary = [
     ],
   },
   {
+    term: 'imp-34002 joint onset-residual eps^4 SUB-SUB-LEADING coefficient',
+    category: 'numerical',
+    definition:
+      'imp-33961 derived the joint (alpha,theta) onset-tail expansion resid(eps,alpha,theta) + ' +
+      '2/(alpha+1) = -[6/(alpha+3)] e^{2 i theta} eps^2 - [10/(alpha+5)] e^{4 i theta} eps^4 + O(eps^6) ' +
+      'but measured only the eps^2 term. imp-34002 isolates and measures the next even-power term.\n\n' +
+      'METHOD: subtracting the order-1 baseline -2/(alpha+1) and the imp-33961 eps^2 term buries the ' +
+      'eps^4 signal under the ~4e-16 double-precision reconstruction floor once eps^4 itself drops below ' +
+      'it (already true at eps = 1e-4, the deepest imp-33961 rung). imp-34002 shifts to a half-decade ' +
+      'ladder {1e-2, 3.1623e-3, 1e-3} so that eps^4 in {1e-8, 1e-10, 1e-12} clears the floor on its two ' +
+      'top rungs, using the same 200000-panel complex-Simpson tail quadrature as imp-33961/imp-33924.\n\n' +
+      'RESULT: on the clean top step the isolated residual falls at measured log-log rate 4.0000 per ' +
+      'half-decade (max deviation 1.4e-4). The coefficient -[10/(alpha+5)] e^{4 i theta}, read off at ' +
+      'eps = 1e-2, matches to 1.9e-4; its modulus 10/(alpha+5) is theta-FLAT (spread 4.4e-5) but alpha-' +
+      'DEPENDENT (spread 0.132), giving 20/11 = 1.818 at the anchor alpha = 1/2. The phase winds at rate ' +
+      '4, itself alpha-independent (3.99983 at both alpha=0.3 and alpha=0.7) -- the same alpha-flat ' +
+      'winding-rate pattern as the eps^2 term (rate 2), distinct from the leading amplitude\'s alpha-' +
+      'dependent winding rate -(1+alpha). The deepest rung eps=1e-3 already shows the double-precision ' +
+      'floor onset (coefficient deviation ~2.7e-2), reported honestly rather than hidden; a fifth-order ' +
+      '(eps^6) tail persists beyond this measurement.\n\n' +
+      'HONEST SCOPE: measurement only, on the model cusp rho(x) = |x|^{-alpha}. Upgrades the imp-33961 ' +
+      'eps^2 rate with the next even-power term; does NOT re-derive the m_prime -> C_ren map off-axis/' +
+      'off-exponent and does NOT discharge H4 (imp-33766); G6a_shock_lipschitz stays OPEN; imp-3066 ' +
+      'off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34002 (measuring the eps^4 sub-sub-leading onset coefficient 10/(alpha+5) predicted by the imp-33961 tail expansion, jointly over the imp-33924 (alpha,theta) grid via the same 200000-panel complex-Simpson tail quadrature, upgrading the imp-33961 eps^2 rate with the next even-power term), 2026',
+    relatedTerms: [
+      'imp-33961 joint onset-residual eps^2 CONVERGENCE RATE, whose eps^2 term this ticket extends with the next even-power coefficient (imp-33961)',
+      'imp-33924 JOINT cusp-angle leading-amplitude factorization, source of the scale-free tail quadrature reused here (imp-33924)',
+      'imp-33928 the anchor alpha=1/2 onset-rate measurement whose eps^4 counterpart at alpha=1/2 (20/11) is reported here (imp-33928)',
+    ],
+  },
+  {
     term: 'imp-33962 per-step attenuation decomposition (the 92%-is-F2 headline is a net aggregate, not a per-rung property)',
     category: 'numerical',
     definition:

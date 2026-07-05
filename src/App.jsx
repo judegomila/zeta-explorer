@@ -296,6 +296,7 @@ const Imp34205WideningSlopeConvergenceViz = lazy(() => import('./pages/Imp34205W
 const Imp34221EflowEtruncRatioDecayOnsetViz = lazy(() => import('./pages/Imp34221EflowEtruncRatioDecayOnsetViz.jsx'));
 const Imp34237FixedBandPeakReaccelAndSurrogatePoleViz = lazy(() => import('./pages/Imp34237FixedBandPeakReaccelAndSurrogatePoleViz.jsx'));
 const Imp34238SevenCrossingsOnsetLadderViz = lazy(() => import('./pages/Imp34238SevenCrossingsOnsetLadderViz.jsx'));
+const Imp34255M2CeilingWindowWidthDivergenceViz = lazy(() => import('./pages/Imp34255M2CeilingWindowWidthDivergenceViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1121,6 +1122,7 @@ function AppShell() {
           <Route path="/viz-imp34221-eflow-etrunc-ratio-decay-onset" element={<Imp34221EflowEtruncRatioDecayOnsetViz />} />
           <Route path="/viz-imp34237-fixed-band-peak-reaccel-and-surrogate-pole" element={<Imp34237FixedBandPeakReaccelAndSurrogatePoleViz />} />
           <Route path="/viz-imp34238-seven-crossings-onset-ladder" element={<Imp34238SevenCrossingsOnsetLadderViz />} />
+          <Route path="/viz-imp34255-m2-ceiling-window-width-divergence" element={<Imp34255M2CeilingWindowWidthDivergenceViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

@@ -4262,6 +4262,17 @@ const DATA_MODULES = [
   // only; pure phase geometry on the imp-33924/imp-34045 closed form; does NOT discharge H4, G6a stays
   // OPEN; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-34103-endpoint-distance-curvature.js',
+  // imp-34104: characterise the imp-34045 SECOND real-POSITIVE phase-zero branch theta = pi/2 -+ 2 pi/p
+  // (the true second zero, arg(-A) = 2 pi) across the whole cusp range alpha in (0, 1). With p = 1 + alpha
+  // in (1, 2), 2 pi/p in (pi, 2 pi) so the pair lower = pi/2 - 2 pi/p < 0 and upper = pi/2 + 2 pi/p > pi lies
+  // ENTIRELY outside [0, pi] at endpoint distance d2(alpha) = 2 pi/p - pi/2 = pi(3 - alpha)/(2(1 + alpha)),
+  // bounded below by pi/2 on (0, 1) and reaching 0 -- so touching 0 and pi -- only at alpha = 3 (p = 4), with
+  // endpoint slope -pi/8 there. Honest correction: the ticket wrote the distance as pi(1 - 3 alpha)/(2(1+alpha));
+  // pi/2 - 2 pi/p is NEGATIVE and equals pi(alpha - 3)/(2(1+alpha)), whose magnitude is d2. Evaluating -A at the
+  // branch confirms residual ~1e-16 with Re > 0 and wrapped phase 2 pi (positive real axis). Measurement only;
+  // pure phase geometry on the imp-33924 closed form; does NOT discharge H4, G6a stays OPEN; imp-3066 K_a>=0
+  // untouched; C_mb GUE-conditional untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34104-second-positive-branch-geometry.js',
 ];
 
 let ALL_MODULES = FAST_MODE

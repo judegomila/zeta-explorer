@@ -249,6 +249,14 @@ export const IMP33985_LOO_MODEL_SELECTION_SENSITIVITY_ASSERTIONS = [
       /NO QED/.test(IMP33985_LOO_MODEL_SELECTION_SENSITIVITY.verdict) &&
       /remains SOTA/.test(IMP33985_LOO_MODEL_SELECTION_SENSITIVITY.verdict),
   },
+  {
+    // imp-34058/imp-34080: the generic /UNTOUCHED/ check above is satisfied by the separate "C_mb
+    // GUE-conditional... UNTOUCHED" text, not the imp-3066 clause -- this tripwire gates that clause
+    // specifically.
+    id: 'imp33985-imp3066-specific-untouched-tripwire',
+    description: 'verdict states the imp-3066 K_a >= 0 untouched clause specifically, not just a generic UNTOUCHED match',
+    holds: () => /imp-3066 K_a >= 0 untouched/.test(IMP33985_LOO_MODEL_SELECTION_SENSITIVITY.verdict),
+  },
 ];
 
 for (const a of IMP33985_LOO_MODEL_SELECTION_SENSITIVITY_ASSERTIONS) {

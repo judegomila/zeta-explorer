@@ -348,6 +348,13 @@ export const IMP33987_FIXED_BAND_CONVEX_DRIFT_EXPONENT_ASSERTIONS = [
       /NO QED/.test(IMP33987_FIXED_BAND_CONVEX_DRIFT_EXPONENT.verdict) &&
       /remains SOTA/.test(IMP33987_FIXED_BAND_CONVEX_DRIFT_EXPONENT.verdict),
   },
+  {
+    // imp-34058/imp-34080: dedicated tripwire for the imp-3066 K_a >= 0 untouched clause -- previously
+    // stated only in prose with no executable regex gate covering it specifically.
+    id: 'imp33987-imp3066-specific-untouched-tripwire',
+    description: 'verdict states the imp-3066 K_a >= 0 untouched clause specifically, not just a generic UNTOUCHED match',
+    holds: () => /imp-3066 K_a >= 0 untouched/.test(IMP33987_FIXED_BAND_CONVEX_DRIFT_EXPONENT.verdict),
+  },
 ];
 
 for (const a of IMP33987_FIXED_BAND_CONVEX_DRIFT_EXPONENT_ASSERTIONS) {

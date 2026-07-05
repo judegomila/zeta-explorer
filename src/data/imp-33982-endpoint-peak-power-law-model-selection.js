@@ -346,6 +346,13 @@ export const IMP33982_ENDPOINT_PEAK_POWER_LAW_MODEL_SELECTION_ASSERTIONS = [
       );
     },
   },
+  {
+    // imp-34058/imp-34080: dedicated tripwire for the imp-3066 K_a >= 0 untouched clause -- the generic
+    // NO-QED/SOTA gate above does not regex-check this specific clause, so it is gated here explicitly.
+    id: 'imp33982-imp3066-specific-untouched-tripwire',
+    description: 'verdict states the imp-3066 K_a >= 0 untouched clause specifically, not just a generic UNTOUCHED match',
+    holds: () => /imp-3066 K_a >= 0 untouched/.test(IMP33982_ENDPOINT_PEAK_POWER_LAW_MODEL_SELECTION.verdict),
+  },
 ];
 
 for (const a of IMP33982_ENDPOINT_PEAK_POWER_LAW_MODEL_SELECTION_ASSERTIONS) {

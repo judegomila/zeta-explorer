@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
+import { IMP34282_B_INF_DESCRIPTIVE_VS_DERIVATION_STATUS_NOTE } from '../data/imp-34282-b-inf-descriptive-vs-derivation-status-note.js';
 
 const COHORT = [
   {
@@ -87,6 +88,21 @@ export default function Imp34281M2CeilingCohortIndexPage() {
         derived mathematical ceiling. It changes no bound and patches no literal. C_mb
         GUE-conditional per imp-486 untouched; imp-3066 K_a&ge;0 untouched; RH-equivalent, NO QED;
         Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>imp-34188 widening-slope limit (imp-34282):</strong>{' '}
+        {IMP34282_B_INF_DESCRIPTIVE_VS_DERIVATION_STATUS_NOTE.summary}
       </div>
     </div>
   );

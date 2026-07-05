@@ -4146,6 +4146,18 @@ const DATA_MODULES = [
   // (effectiveHeightForN/C_C_PINNED only). Component model NOT rigorous; imp-3066/imp-486
   // untouched; PT Lambda<=0.2 SOTA; no QED. 4 assertions.
   '/src/data/imp-34067-i1-roundoff-estimator-sensitivity.js',
+  // imp-34068 (numerical): TESTS whether the imp-34007 R3 sub-linear cross-rung
+  // |ln N|-scaling slope ~+0.71 is DRIVEN by the two non-monotone ceiling-fraction
+  // outliers by dropping the extreme rungs (d=100 where C_N/C_pred dips to ~0.05,
+  // d=200 where it recovers to ~0.25) and re-regressing log(C_N) on log(|ln N|) over
+  // the interior EIGHT rungs. The interior slope stays sub-linear (~+0.614, if anything
+  // MORE sub-linear than the full ~+0.710), and the single leave-outs expose the two
+  // extreme rungs as OPPOSING high-leverage endpoints (drop d=100 -> ~+0.945, drop
+  // d=200 -> ~+0.256) whose effects cancel in the full grid. So imp-34007 R3 is a
+  // data-robust reading, NOT an outlier artifact -- complementary to imp-34067 ruling
+  // out a geomean artifact. Reuses the imp-34007 per-rung C_N verbatim. Component model
+  // NOT rigorous; imp-3066/imp-486 untouched; PT Lambda<=0.2 SOTA; no QED. 4 assertions.
+  '/src/data/imp-34068-i1-roundoff-leave-out-extreme-rungs.js',
   // imp-33968 (numerical): TABULATES the imp-33924 phase winding rate
   // d arg(-A)/d theta = -(1+alpha) as an EXPLICIT rate-vs-alpha curve, upgrading
   // imp-33924 cross-check (a) from a single-tolerance pass/fail. Reusing the

@@ -1085,7 +1085,24 @@ export const LAMBDA_ROADMAP = {
     'splits EXACTLY into a discretization term, the exact I1 identity, and a g-vs-law ' +
     'reference offset -- the last two nearly cancelling -- so no mutually-inconsistent ' +
     'precision claim survives. All three are derivation/measurement only, change no ' +
-    'bound, do NOT discharge H4/G7, and C_mb remains GUE-conditional (imp-486); NO QED.',
+    'bound, do NOT discharge H4/G7, and C_mb remains GUE-conditional (imp-486); NO QED. ' +
+    'COHORT (imp-33877/imp-33878/imp-33879): three further single-ticket landings. ' +
+    'imp-33877 tests the imp-33858 far-tail k=11 residual excursion (largest signed ' +
+    'residual of the imp-33843 log-linear widening fit, +0.2479) against ladder ' +
+    'truncation and finds it is a finite-ladder ENDPOINT/TRUNCATION artifact -- the ' +
+    'k=11 residual collapses ~86% once no longer the endpoint (+0.2479 -> +0.0345 ' +
+    'interior at k=12) while the largest positive residual always re-anchors at the ' +
+    'new endpoint and grows there, though the underlying tail deceleration itself is ' +
+    'genuine and boundary-independent. imp-33878 refines the imp-33857 X3 hump-argmax ' +
+    'grid to 1/128-decade and REFUTES the vanishing-offset hypothesis: the discrete ' +
+    'argmax converges DOWNWARD to a continuum k*~8.821 (not toward k_cross~9.516), so ' +
+    'the ~0.695-decade gap is a genuine two-notion window-lag separation, not a grid ' +
+    'artifact. imp-33879 derives the imp-33856 ~4% midpoint-vs-endpoint anchoring ' +
+    'offset in closed form as the half-log-decade Taylor step of 1/(2 log T0), ' +
+    'matching the exact offset to <0.11% relative error across 1e12..1e15 (measured ' +
+    'range 3.50%..4.38%), confirming the ~4% IS the geometric-center offset and not a ' +
+    'model disagreement. All three are derivation/measurement only, change no bound, ' +
+    'do NOT discharge H4/G7, and C_mb remains GUE-conditional (imp-486); NO QED.',
   bounds: LAMBDA_BOUNDS,
   chain: LAMBDA_CHAIN_STEPS,
   verification: VERIFICATION_EFFORTS,

@@ -3,6 +3,11 @@ import PageHeader from '../components/PageHeader.jsx';
 import { IMP33810_EFLOW_RESID_RATIO_N_LADDER } from '../data/imp-33810-eflow-resid-ratio-N-ladder.js';
 
 const { ladder, ratioTrend } = IMP33810_EFLOW_RESID_RATIO_N_LADDER;
+const {
+  imp33773_M2_head_resid_over_eflow: HEAD_ROE,
+  imp33773_M2_tail_resid_over_eflow: TAIL_ROE,
+  same_sign_positive: SAME_SIGN,
+} = ratioTrend;
 
 function EflowResidRatioChart() {
   const svgW = 720;
@@ -158,7 +163,13 @@ export default function Imp33831EflowResidRatioLadderViz() {
         -- imp-33810 changes no value and derives nothing new, and this page adds no new
         derivation either. It gives the 21-rung ratio ladder a visual surface: the ratio is
         strictly below unity at every rung ({ratioTrend.all_below_unity ? 'confirmed' : 'not confirmed'})
-        and strictly monotone-decreasing in N. No bound changes; establishes no operator
+        and strictly monotone-decreasing in N. E_flow is a strictly-shrinking <strong>positive</strong>{' '}
+        fraction of the offset residual throughout -- resid_exp and eflow_attr share the same sign
+        at all 21 rungs ({SAME_SIGN ? 'confirmed, no sign flip' : 'not confirmed'}), so this is a
+        magnitude separation, not a sign coincidence. That separation itself widens monotonically
+        from only &sim;{HEAD_ROE.toFixed(1)}x at the head (k=6) to &sim;{TAIL_ROE.toFixed(1)}x in
+        the tail (k=11) -- the imp-33773 M2 "~1900x" figure is the tail endpoint of this trend, not
+        a uniform order-of-magnitude gap. No bound changes; establishes no operator
         positivity; imp-3066 K_a &ge; 0 remains untouched. No RH verdict, NO QED. Platt-Trudgian
         &Lambda; &le; 0.2 remains the rigorous SOTA.
       </div>

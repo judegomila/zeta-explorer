@@ -10142,6 +10142,35 @@ export const glossary = [
       'imp-34051 the viz page charting the fold-by-fold evidence-ratio strip (imp-34051)',
     ],
   },
+  {
+    term: 'imp-33983 sawtooth-residue verification below the imp-33878 grid floor (phase-gated freeze)',
+    category: 'numerical',
+    definition:
+      'imp-33942 P3 established that the imp-33878 grid-vs-continuum argmax gap equals the sawtooth ' +
+      'residue min(frac, 1-frac)*step (frac = frac((k*-6)/step), the distance from the continuum ' +
+      'argmax k*~8.821092 to the nearest grid point 6+j*step), but verified it only through the ' +
+      'imp-33878 ladder floor of step=1/128. imp-33983 re-runs the VERBATIM imp-33878/imp-33810 ' +
+      'resid_exp(k) argmax at two finer rungs, step=1/256 and 1/512.\n\n' +
+      'RESULT: the sawtooth closed form matches the re-run argmax gap EXACTLY (<1e-6, machine ' +
+      'precision) at both new rungs, and the gap stays bounded by step/2 (ratio climbing toward the ' +
+      'bound: 0.200 at 1/128, 0.399 at 1/256, 0.798 at 1/512). But the argmax gap itself is FROZEN at ' +
+      '7.795e-4 across all three rungs, because the argmax grid point 8.8203125 = 6+361/128 is a ' +
+      'terminating dyadic that survives unchanged on every finer dyadic refinement (=6+722/256=6+1444/512). ' +
+      'The approach-to-zero is PHASE-GATED, not a decay law: an out-of-ladder check shows the frozen ' +
+      'argmax finally moves only past 1/512 (1/2048 -> gap 1.97e-4; 1/4096 -> gap 4.71e-5), sawtooth ' +
+      'still exact throughout.\n\n' +
+      'HONEST SCOPE: measurement only, confirming the imp-33942 P3 identity is not a coarse-ladder ' +
+      'artifact and extending its phase-alignment reading two rungs deeper. The surrogate resid_exp(k) ' +
+      'remains descriptive not derived; C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8 ansatz ' +
+      '(imp-2642/imp-2643) UNTOUCHED; imp-3066 K_a>=0 untouched; changes no bound; NO QED; ' +
+      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-33983 (verifying the imp-33942 sawtooth-residue closed form at grid steps finer than the imp-33878 floor of 1/128 by extending the resid_exp(k) argmax ladder to 1/256 and 1/512 on the same imp-33810 model), 2026',
+    relatedTerms: [
+      'imp-33942 the sawtooth-residue closed form for the grid-vs-continuum gap this ticket verifies below its original ladder floor (imp-33942)',
+      'imp-33878 the sliding-window resid_exp(k) argmax grid-refinement ladder and continuum k*~8.821092 reused verbatim (imp-33878)',
+      'imp-486 C_mb GUE-conditional share, left untouched by this measurement (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

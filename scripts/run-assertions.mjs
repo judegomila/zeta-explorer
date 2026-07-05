@@ -4273,6 +4273,17 @@ const DATA_MODULES = [
   // pure phase geometry on the imp-33924 closed form; does NOT discharge H4, G6a stays OPEN; imp-3066 K_a>=0
   // untouched; C_mb GUE-conditional untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-34104-second-positive-branch-geometry.js',
+  // imp-34105: CROSS-VALIDATE the imp-34045 closed-form phase-zero branch angles against an INDEPENDENT direct
+  // root-find. Bracket-and-bisect the zeros of Im(-A)(theta) on a fine grid (a second code path that never uses
+  // the closed-form angle formula to LOCATE the crossings), classify each by half-turn index k = round(p(pi/2 -
+  // theta)/pi) and by sign of Re. On the open interval (0, pi) exactly ONE crossing is found, at theta = pi/2
+  // (reproducing imp-33970 uniqueness); on a widened window the five crossings k in {-2,-1,0,1,2} are located and
+  // match the closed-form angles pi/2 - k pi/p to bisection tolerance (worst discrepancy ~1e-13 across the sweep),
+  // with k = -+1 real-NEGATIVE (Re < 0) and k = -+2 real-POSITIVE (Re > 0) exactly as imp-34045 found by the
+  // residual-at-predicted-angle path. Measurement only; pure phase geometry on the imp-33924/imp-34045 closed
+  // form; does NOT discharge H4, G6a stays OPEN; imp-3066 K_a>=0 untouched; C_mb GUE-conditional untouched; PT
+  // Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34105-phase-zero-rootfind-crossvalidation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

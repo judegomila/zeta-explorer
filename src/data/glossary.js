@@ -9285,6 +9285,34 @@ export const glossary = [
       'imp-33941 the companion model-selection decision on the same endpoint-peak sweep (imp-33941)',
     ],
   },
+  {
+    term: 'imp-33976 model-cusp onset FAMILY shared caveat (H4 undischarged family-wide, not just module-by-module)',
+    category: 'meta',
+    definition:
+      'The imp-33976 banner consolidates four onset-family modules -- imp-33853 (closed-form 4/3 ' +
+      'onset coefficient, on-axis anchor), imp-33882 (general coefficient law C(alpha) = 2/(alpha+1)), ' +
+      'imp-33883 (C_PS = pi/sqrt(2) modulus and phase-winding angle-robustness), and imp-33924 (their ' +
+      'joint (alpha, theta) unification) -- each of which already carries its own per-module honesty ' +
+      'gate, into a single family-wide statement: ALL four results are derived on the MODEL cusp ' +
+      'density rho(x) = |x|^{-alpha}, an idealized Holder-cusp stand-in, and NONE of the four ' +
+      're-derives the real fold-modulus back-conversion m_prime(z_0) -> C_ren that the H4 minimal-input ' +
+      'condition (imp-33766) actually needs.\n\n' +
+      'RESULT: H4 is NOT discharged by this family, and G6a_shock_lipschitz STAYS OPEN across the ' +
+      'whole family, not merely for each module in isolation. This closes the gap between four ' +
+      'individually-honest modules and a reader mistakenly inferring a combined, stronger claim from ' +
+      'their union.\n\n' +
+      'HONEST SCOPE: this is a bookkeeping/consolidation note only; it changes no bound and derives no ' +
+      'new result; imp-3066 K_a >= 0 stays untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains the ' +
+      'rigorous SOTA.',
+    firstUsed: 'imp-33976 (consolidating the imp-33853/33882/33883/33924 model-cusp onset family into one honest banner), 2026',
+    relatedTerms: [
+      'imp-33853 the closed-form 4/3 onset coefficient, on-axis anchor (imp-33853)',
+      'imp-33882 the general C(alpha) = 2/(alpha+1) coefficient law (imp-33882)',
+      'imp-33883 the C_PS modulus angle-robustness and phase-winding result (imp-33883)',
+      'imp-33924 the joint (alpha, theta) unification of the family (imp-33924)',
+      'imp-33766 the H4 minimal-input condition none of the family discharges (imp-33766)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

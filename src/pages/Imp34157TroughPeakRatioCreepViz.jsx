@@ -3,6 +3,7 @@ import PageHeader from '../components/PageHeader.jsx';
 import SurrogateDiagnosticCohortNote from '../components/SurrogateDiagnosticCohortNote.jsx';
 import { IMP34085_TROUGH_PEAK_RATIO_CONVERGENCE } from '../data/imp-34085-trough-peak-ratio-convergence.js';
 import { IMP34214_TROUGH_PEAK_RATIO_LIMIT_FIT } from '../data/imp-34214-trough-peak-ratio-limit-fit.js';
+import { IMP34234_TROUGH_PEAK_PERSTEP_CROSSOVER_TENTH_DECADE } from '../data/imp-34234-trough-peak-perstep-crossover-tenth-decade.js';
 
 const {
   ratioSequence: RATIO,
@@ -190,6 +191,28 @@ export default function Imp34157TroughPeakRatioCreepViz() {
         {FINDING.R2_mechanism_peak_decelerates_trough_near_steady} On an extended inherited ladder.{' '}
         {LIMIT_FIT_FINDING.R2_extrapolated_limits_non_physical}{' '}
         <SurrogateDiagnosticCohortNote />
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>imp-34234 per-step crossover (refines imp-34153):</strong> on a
+        tenth-decade receding-endpoint grid, the interior-trough per-step increment first (and permanently)
+        overtakes the endpoint-peak per-step increment at window-step (12.30 → 12.40), interpolated crossover
+        midpoint kEnd* ≈ {IMP34234_TROUGH_PEAK_PERSTEP_CROSSOVER_TENTH_DECADE.interpolatedCrossoverKEnd} —
+        nested inside the imp-34153 quarter-decade bracket. Past that boundary the trough-gains-on-peak gap
+        grows roughly linearly, OLS slope ≈{' '}
+        {IMP34234_TROUGH_PEAK_PERSTEP_CROSSOVER_TENTH_DECADE.gapGrowthFitSlope}/kEnd-midpoint (R² ≈{' '}
+        {IMP34234_TROUGH_PEAK_PERSTEP_CROSSOVER_TENTH_DECADE.gapGrowthFitR2}). Measurement/location only, not
+        rigorous; no QED.
       </div>
     </div>
   );

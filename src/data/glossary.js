@@ -6411,6 +6411,39 @@ export const glossary = [
     link: "/viz-imp33607-sigma-postpeak-decay",
   },
   {
+    term: "imp-33722 far-tail sigma-decay exponent-ladder 1%-of-1/2 extension: p_dec first lands within 1% of the imp-3463 far-tail asymptote only at decade k*=44, ~32 decades past the imp-33582 endpoint",
+    category: "numerical",
+    definition:
+      "imp-33582 tabulated the per-decade local decay exponent p_dec of the conditional share " +
+      "sigma(N)=E_coll/(E_trunc+E_flow+E_coll) over decades k=6..11 and stopped at [1e11,1e12] " +
+      "(p_dec~0.4310), describing the approach to the imp-3463 far-tail 1/2 as decelerating but never " +
+      "quantifying how many further decades the post-knee ramp needs to close the last 1%.\n\n" +
+      "imp-33722 reuses the IDENTICAL imp-33582 sigma sub-terms and whole-decade OLS estimator (k=11 " +
+      "reproduces the ~0.4310 rung as a reuse gate), extends the ladder across decades 12..16, and " +
+      "marches the same estimator outward to derive the first decade with p_dec>=0.495. FINDING: the " +
+      "exponent keeps rising monotonely -- 0.4310(k=11) -> 0.4646 -> 0.4777 -> 0.4828 -> 0.4851 -> " +
+      "0.4864(k=16) -- while the per-decade increment COLLAPSES (0.075 -> 0.034 -> 0.013 -> 0.0051 -> " +
+      "0.0023 -> 0.0013), and p_dec first reaches within 1% of 1/2 only at decade k*=44, window " +
+      "[1e44,1e45], roughly 32 decades PAST the imp-33582 [1e11,1e12] endpoint.\n\n" +
+      "EXPLANATION: past ~1e14 the truncation-floor factor (1-sigma) is ~1, so the leading pointwise " +
+      "residual is 0.5-p(N) ~ 1/(2 log T0) -- measured/predicted ratio ~1.00/~0.99 at 1e16/1e30/1e44 -- " +
+      "and setting 1/(2 log N)=0.005 gives log N~100, N~e^100~10^43.4, exactly the decade k*~44 the OLS " +
+      "march lands on. The 32-decade tail is a direct consequence of the sqrt(log T0/N) form: the " +
+      "growing log T0 numerator holds the exponent below 1/2 and can only be overcome logarithmically, " +
+      "so the approach is asymptotic-in-1/log, not merely slow.\n\n" +
+      "HONEST SCOPE: measurement/fit only, a conditional-share diagnostic, inherited imp-3220/imp-3406 " +
+      "extrapolation NOT a rigorous asymptotic; C_mb is GUE-conditional (imp-486), untouched; changes " +
+      "no bound; establishes no operator positivity; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian " +
+      "Lambda<=0.2 remains SOTA.",
+    firstUsed: "imp-33722 (extending the imp-33582 per-decade sigma(N) OLS exponent ladder from decades 12..16 and deriving the first decade k*=44 where p_dec sits within 1% of the imp-3463 far-tail 1/2), 2026",
+    relatedTerms: [
+      "imp-33582 accelerating per-decade sigma(N) exponent ladder over decades k=6..11, the endpoint this extends past (imp-33582)",
+      "imp-3463 far-tail leading form, exponent -> 1/2 from below, the asymptote the extended ladder closes to within 1% of (imp-3463)",
+      "imp-3444 E_coll = E_trunc crossover N ~ 3.280e9, the earlier landmark on the same downslope (imp-3444)",
+      "imp-33759 sigma-decay cohort provenance roll-up, which flagged this entry as the sole glossary coverage gap (imp-33759)",
+    ],
+  },
+  {
     term: "imp-33580 uniform-abscissa-artifact verdict: the imp-33560 climbing Clenshaw-Curtis deep-tail budget is a fixed-node-placement artifact, not a solver-family property -- grading, not the rule, carries the flat-budget edge",
     category: "numerical",
     definition:

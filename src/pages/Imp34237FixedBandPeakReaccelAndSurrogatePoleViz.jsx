@@ -223,8 +223,12 @@ export default function Imp34237FixedBandPeakReaccelAndSurrogatePoleViz() {
       >
         <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, baked
         literals reproducing the imp-34169 measurement; no new derivation, no bound changed.
-        Descriptive surrogate/fit, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486
-        UNTOUCHED; imp-3066 K_a&ge;0 untouched; NO QED; Platt-Trudgian Lambda&le;0.2 remains SOTA.
+        Only {IMP34237_COMPUTABLE_WINDOW_COUNT} of the ticket's {IMP34237_TOTAL_WINDOW_COUNT} kEnd
+        windows compute -- the surrogate resid_exp(k) hits a pole at k* &asymp;{' '}
+        {IMP34237_RESID_ZERO_KSTAR.toFixed(5)}, so windows past kEnd ={' '}
+        {IMP34237_FIRST_BREAKDOWN_KEND.toFixed(1)} are undefined, not merely unswept. Descriptive
+        surrogate/fit, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED;
+        imp-3066 K_a&ge;0 untouched; NO QED; Platt-Trudgian Lambda&le;0.2 remains SOTA.
       </div>
     </div>
   );

@@ -161,7 +161,11 @@ export const IMP33802_PERRON_NORM_CURVE_VIZ_DATA = Object.freeze({
     imp33789Untouched: true,
     didNotAttemptPositivity: true,
     carriesNoRHVerdict: true,
+    isRigorous: false,
     sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    honestyLock:
+      'Viz-data / structural diagnostic only, NO QED; C_mb GUE-conditional (imp-486) untouched; ' +
+      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
   }),
 });
 
@@ -215,7 +219,9 @@ export const IMP33802_PERRON_NORM_CURVE_VIZ_DATA_ASSERTIONS = [
         c.imp33789Untouched === true &&
         c.didNotAttemptPositivity === true &&
         c.carriesNoRHVerdict === true &&
-        /Platt-Trudgian/.test(c.sota)
+        c.isRigorous === false &&
+        /Platt-Trudgian/.test(c.sota) &&
+        /NO QED/.test(c.honestyLock)
       );
     },
   },

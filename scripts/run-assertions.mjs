@@ -4435,6 +4435,16 @@ const DATA_MODULES = [
   // a routed viz page or dedicated baked-literal viz-data module of its own. Read-only roll-up;
   // no new bound; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-34218-34146-34151-cohort-provenance-rollup.js',
+  // imp-34133: fits the imp-34023 companion attenuation factors F2, F3 to a constant-plus-decay
+  // form F(kEnd)=c+A*exp(-r*kEnd) over the extended sign-stable ladder kEnd=13..21. FINDING: both
+  // SATURATE to finite positive asymptotes (F2 -> ~0.0595, cross-checked by the analytic E_TRUNC_PT
+  // floor; F3 -> ~0.836, much slower decay), confirming F4 alone drives the imp-34023 divergence.
+  // Numerical/curve-fit only; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34133-f2-f3-asymptotic-constant-fit.js',
+  // imp-34134: measures the E_flow/E_trunc ratio decay ladder and its onset landmarks, tracking
+  // when E_flow becomes negligible relative to the N-independent E_TRUNC_PT floor. Measurement
+  // only; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED.
+  '/src/data/imp-34134-eflow-etrunc-ratio-decay-onset.js',
 ];
 
 let ALL_MODULES = FAST_MODE

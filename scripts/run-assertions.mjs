@@ -4212,6 +4212,15 @@ const DATA_MODULES = [
   // untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions. Was present as a file but absent from
   // DATA_MODULES until this imp-34164 coverage audit.
   '/src/data/imp-34082-endpoint-drop-serial-dependence.js',
+  // imp-34152: robustness check on the imp-34082 R3 lag-4 ACF sign-change -- re-fits the imp-33810 ladder
+  // with the imp-34026 QUADRATIC trend y=a+bk+ck^2, recomputes the residual ACF r_1..r_10, and locates the
+  // sign-change lag. FINDING: the sole zero-crossing stays pinned at lag 4 under BOTH the log-linear and the
+  // quadratic re-fit (a single crossing over r_1..r_10); the quadratic detrend only shrinks the lobe
+  // amplitudes (r_1 0.757->0.653, |r_10| 0.346->0.179). So the lag-4 crossing is hump-carried, robust across
+  // BOTH the imp-34082 endpoint-drop and this trend-form perturbation -- NOT a log-linear-trend artifact.
+  // Log-linear stays the reported winner (not re-opened). Measurement only; imp-486/C_C ansatz untouched;
+  // imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34152-quadratic-refit-lag4-robustness.js',
   // imp-34083 (coverage audit, imp-34164): sweeps the KPSS level-statistic Bartlett bandwidth l over
   // the standard range (l=0,1,2,floor(4(n/100)^{1/4}),floor(12(n/100)^{1/4})) on the imp-33858 signed
   // residuals to test whether the imp-34024 "fails to reject stationarity" verdict is bandwidth-robust

@@ -217,6 +217,17 @@ const FIDELITY_AT_FLAT_TOP = {
   at_5pct_halfwidth: +(100 * maxDiscAt(FLAT_TOP_HALFWIDTH_5PCT)).toFixed(4), // ~0.222%
 };
 
+// Sampled curve for the imp-34100 viz page: the SAME parabola(t) and residExp(k*+t) functions
+// above, evaluated on a dense grid over the wing range -- no new computation, just a plottable
+// re-sampling of the exact functions already used for the departure-radius scan.
+const CURVE_T_MIN = -1.3;
+const CURVE_T_MAX = 1.3;
+const CURVE_STEP = 0.02;
+const WING_CURVE = [];
+for (let t = CURVE_T_MIN; t <= CURVE_T_MAX + 1e-9; t += CURVE_STEP) {
+  WING_CURVE.push({ t: +t.toFixed(3), parabola: parabola(t), truth: residExp(K_STAR + t) });
+}
+
 export const IMP34008_APEX_PARABOLA_WING_FIDELITY = {
   id: 'imp-34008',
   proofSection: 'S-frontier',
@@ -237,6 +248,7 @@ export const IMP34008_APEX_PARABOLA_WING_FIDELITY = {
     fitWindow: 0.1,
     fitPoints: 21,
   },
+  wingCurve: WING_CURVE, // dense (t, parabola, truth) samples over [-1.3, 1.3] for plotting
   wingFidelity: {
     departureRadiusDecade: RADIUS, // {left/right}_{1pct,5pct}
     faithfulFullWidthDecade: FAITHFUL_FULL_WIDTH,
@@ -320,6 +332,26 @@ export const IMP34008_APEX_PARABOLA_WING_FIDELITY_ASSERTIONS = [
       FIDELITY_AT_FLAT_TOP.at_5pct_halfwidth < 1.0 && // << 5% flat-top drop
       FLAT_TOP_HALFWIDTH_1PCT < RADIUS.left_1pct && // 1% flat top inside 1% faithful radius
       FLAT_TOP_HALFWIDTH_5PCT < RADIUS.left_5pct, // 5% flat top inside 5% faithful radius
+  },
+  {
+    // (imp-34100 viz) The sampled wing curve spans the full plotted range and agrees with the
+    // apex value at t=0, so the viz page's overlay of parabola vs truth is a faithful redraw.
+    id: 'imp34008-wing-curve-spans-range-and-matches-apex',
+    description: 'wingCurve covers [-1.3,1.3] and both series equal the apex value at t=0',
+    holds: () => {
+      const wc = IMP34008_APEX_PARABOLA_WING_FIDELITY.wingCurve;
+      const first = wc[0];
+      const last = wc[wc.length - 1];
+      const mid = wc.find((p) => p.t === 0);
+      return (
+        wc.length > 100 &&
+        first.t <= -1.29 &&
+        last.t >= 1.29 &&
+        mid &&
+        Math.abs(mid.parabola - APEX_RESID) < 1e-9 &&
+        Math.abs(mid.truth - APEX_RESID) / APEX_RESID < 0.01
+      );
+    },
   },
   {
     // Honesty gate: measurement only, isRigorous false, refines not overturns, no QED, PT SOTA.

@@ -10487,6 +10487,33 @@ export const glossary = [
       'imp-33773 M2 residual sign change at kEnd~21.3, the honest cap past which the surrogate loses meaning (imp-33773)',
     ],
   },
+  {
+    term: 'imp-34042 leave-two-out sensitivity: the imp-33941 concave-log endpoint-peak decision is ROBUST to any dropped PAIR of rungs',
+    category: 'numerical',
+    definition:
+      'imp-33985 showed the imp-33941 log-vs-linear endpoint-peak decision (Delta AIC = -3.385, evidence ' +
+      'ratio ~5.43:1) survives dropping any SINGLE one of the 9 imp-33917 boundary-sweep rungs ' +
+      '(kEnd = 11.00..13.00 step 0.25), naming the low-boundary rung kEnd=11 the most influential. The ' +
+      'joint influence of a dropped PAIR was never measured. imp-34042 extends the test to full leave-' +
+      'two-out: it enumerates all C(9,2)=36 rung pairs, refits M_lin (peak=a+b*kEnd) and M_log ' +
+      '(peak=a+b*ln kEnd) by OLS on the remaining n=7 for each fold, and recomputes the AIC contrast and ' +
+      'Akaike evidence ratio. FINDING: the log form is favored in ALL 36 folds -- Delta AIC ranges over ' +
+      '[-3.0492, -2.2238], every fold past the positive threshold (Delta<-2), and the evidence ratio ' +
+      'stays in [3.04, 4.59]:1, lower than the full-sample 5.43:1 (each fold discards two supporting ' +
+      'points) but never decisive (>~20:1, Delta<-6) in any fold. The single most influential PAIR is ' +
+      'exactly the two low-boundary rungs imp-33985 flagged individually, kEnd=11 & 11.25 (their joint ' +
+      'removal is the 3.04:1 worst case); the high-boundary pair kEnd=12.75 & 13 is least influential ' +
+      '(4.59:1). So the two most-influential low rungs together still do NOT overturn the decision. ' +
+      'Measurement only; both forms remain descriptive not derived; the imp-33843 log-linear-vs-power-law ' +
+      'FORM verdict UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; no ' +
+      'bound changed; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34042 (extending the imp-33985 leave-one-out sensitivity of the imp-33941 log-vs-linear endpoint-peak decision to the full leave-two-out 36-fold test across the imp-33917 boundary sweep), 2026',
+    relatedTerms: [
+      'imp-33985 the leave-one-out sensitivity test this ticket extends to dropped pairs (imp-33985)',
+      'imp-33941 the full-sample log-vs-linear model-selection decision whose robustness this ticket measures (imp-33941)',
+      'imp-33917 the 9 boundary-locked endpoint peaks reused verbatim as the leave-two-out sample (imp-33917)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

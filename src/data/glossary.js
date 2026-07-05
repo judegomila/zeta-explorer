@@ -10663,6 +10663,37 @@ export const glossary = [
       'imp-33878 the resid_exp(k) hump model reused verbatim as the wing-fidelity ground truth (imp-33878)',
     ],
   },
+  {
+    term: 'imp-34022 endpoint-peak vs interior-trough migration asymmetry of the imp-33843 widening fit',
+    category: 'numerical',
+    definition:
+      'imp-33877 recorded that the negative interior trough (argmin k=9.00->9.25->9.50) migrates ' +
+      'lock-step with the endpoint-locked positive peak (argmax +0.2479->+0.3218->+0.3830) as the ' +
+      'BASE/EXT115/EXT12 fit window recedes, but never contrasted their migration RATES nor tested ' +
+      'whether the interior residual shape is boundary-invariant once both edge excursions are ' +
+      'stripped. imp-34022 reuses the imp-33877 fits verbatim to measure both.\n\n' +
+      'FINDINGS (measurement only): (R1) the two edges migrate OUTWARD and amplify but at DIFFERENT ' +
+      'location rates -- the peak is endpoint-locked, moving +0.50 per window-step, while the trough ' +
+      'trails inside at only +0.25/step, a 2.0x rate gap, so the lock-step reading is co-directional ' +
+      'not equal-rate; (R2) the two are ASYMMETRIC in absolute magnitude (peak ~1.5x the trough, per-' +
+      'step growth ratio ~1.48 vs ~1.33) yet NEAR-symmetric in relative amplification -- the ratio ' +
+      '|trough|/|peak| holds ~0.615->0.629->0.649 across the three windows, drifting <6%; (R3) the ' +
+      'interior is NOT boundary-invariant even after stripping both excursion rungs -- interior RMSE ' +
+      'still rises 0.1021->0.1311->0.1640 and the deep-interior k=6 residual FLIPS SIGN (-0.1142-> ' +
+      '-0.0577->+0.0050), because extending the high-k boundary tilts the whole OLS line (intercept ' +
+      '7.959->7.440, slope -1.434->-1.367) -- so the RMSE growth is a global fit rebalancing, not two ' +
+      'independent localized boundary artifacts.\n\n' +
+      'HONEST SCOPE: a migration-contrast/boundary-invariance diagnostic reusing the inherited ' +
+      'imp-3220/imp-3406 extrapolation component model verbatim, NOT a rigorous asymptotic; C_mb ' +
+      'GUE-conditional per imp-486 UNTOUCHED; changes no bound; imp-3066 K_a>=0 untouched; NO QED; ' +
+      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34022 (contrasting the imp-33877 endpoint-peak and interior-trough migration rates and testing interior boundary-invariance after stripping both edge excursions), 2026',
+    relatedTerms: [
+      'imp-33877 the widening-fit tail endpoint-artifact test whose peak/trough sequences this ticket contrasts (imp-33877)',
+      'imp-34098 the viz page plotting both the endpoint-locked peak and interior trough with the ratio strip (imp-34098)',
+      'imp-33843 the log-linear widening fit whose whole-line tilt explains the non-boundary-invariant interior (imp-33843)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

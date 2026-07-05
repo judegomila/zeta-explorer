@@ -264,6 +264,7 @@ const Imp33999ResidualCurvatureContrastViz = lazy(() => import('./pages/Imp33999
 const Imp33915EndpointArtifactResidualMigrationViz = lazy(() => import('./pages/Imp33915EndpointArtifactResidualMigrationViz.jsx'));
 const Imp34032WindingSlopeVsAlphaViz = lazy(() => import('./pages/Imp34032WindingSlopeVsAlphaViz.jsx'));
 const Imp34033F1WideningDriftViz = lazy(() => import('./pages/Imp34033F1WideningDriftViz.jsx'));
+const Imp34037RealnessResidualVsThetaViz = lazy(() => import('./pages/Imp34037RealnessResidualVsThetaViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1057,6 +1058,7 @@ function AppShell() {
           <Route path="/viz-imp33915-endpoint-artifact-residual-migration" element={<Imp33915EndpointArtifactResidualMigrationViz />} />
           <Route path="/viz-imp34032-winding-slope-vs-alpha" element={<Imp34032WindingSlopeVsAlphaViz />} />
           <Route path="/viz-imp34033-f1-widening-drift" element={<Imp34033F1WideningDriftViz />} />
+          <Route path="/viz-imp34037-realness-residual-vs-theta" element={<Imp34037RealnessResidualVsThetaViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

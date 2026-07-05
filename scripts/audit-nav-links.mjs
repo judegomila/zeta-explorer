@@ -307,6 +307,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33915-endpoint-artifact-residual-migration',
   '/viz-imp34032-winding-slope-vs-alpha',
   '/viz-imp34033-f1-widening-drift',
+  '/viz-imp34037-realness-residual-vs-theta',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

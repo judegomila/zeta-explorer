@@ -4305,6 +4305,21 @@ const DATA_MODULES = [
   // imp-3220/imp-3406 component model NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486
   // untouched; imp-3066 K_a>=0 untouched; no bound changed; NO QED; PT Lambda<=0.2 SOTA. 4 assertions.
   '/src/data/imp-34131-cubic-tilt-wing-crosscheck.js',
+  // imp-34146: FIT THE APEX QUINTIC (t^5) TERM imp-34084 named but never fit. imp-34084 C2/C3 fit the
+  // apex cubic tilt d ~ -5.347e-4 and found it reconstructs ~103% of the imp-34008 wing asymmetry but
+  // LEFT a small residual odd overshoot (cubic term d(0.5)^3 overshoots the true odd residual by ~6%,
+  // ratio ~1.06 at |t|=0.5) it named "a residual odd quintic overshoot" without fitting it. Extending
+  // the SAME 21-point symmetric least-squares over k* +/- 0.1 to the sparse basis {1,t,t^2,t^3,t^5}
+  // gives a quintic coefficient e ~ +7.5238e-5 (resid^(5)(k*) = 120 e ~ +9.0286e-3, POSITIVE -- the
+  // OPPOSITE sign to the negative cubic; dense {1,...,t^5} basis agrees to ~6 sig figs). The positive
+  // t^5 term cancels part of the overshoot: the |t|=0.5 odd tail ratio drops ~1.062 -> ~1.027,
+  // absorbing ~57% of the imp-34084 leftover and leaving a small odd septic (t^7) tail; it also tightens
+  // the cubic wing split -0.0066% -> +0.0002% while the even-quartic total two-wing discrepancy 0.6276%
+  // is unchanged. Sparse grid preserves the imp-33948 even apex 6.5337e-2 and curvature -3.613e-2
+  // exactly. Measurement only; confirms/refines not overturns imp-34084; inherited imp-3220/imp-3406
+  // component model NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 untouched; imp-3066
+  // K_a>=0 untouched; no bound changed; NO QED; PT Lambda<=0.2 SOTA. 4 assertions.
+  '/src/data/imp-34146-apex-quintic-tilt-coefficient.js',
 ];
 
 let ALL_MODULES = FAST_MODE

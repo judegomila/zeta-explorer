@@ -11498,6 +11498,60 @@ export const glossary = [
       'imp-34047 the argmax-rung-creep law; the F4 argmax un-lock is an independent observation of it (imp-34047)',
     ],
   },
+  {
+    term: 'imp-34278 canonical honest note: the kEnd*~21.281 surrogate hard-right-edge is a non-convergent discretization artifact, not a mathematical ceiling',
+    category: 'meta',
+    definition:
+      'The M2-ceiling cohort has accumulated many separate readings of the same right-hand edge -- the ' +
+      'point kEnd*~21.281 where the imp-33773 M2 sub-leading residual (a difference of two exponents ' +
+      'both converging to 0.5) bisects to zero and the imp-33810/imp-34023 F4 surrogate factor flips ' +
+      'sign. This entry is the single canonical cross-reference tying that cohort together, so future ' +
+      'readers do not have to reassemble the status from a dozen modules.\n\n' +
+      'WHAT IS SOLID: imp-34150 independently cross-validated the location by direct bisection and ' +
+      'secant on the raw residual, landing at kEnd*=21.28094743 / 21.28094742 (agree to ~2.6e-9) -- so ' +
+      'the NUMBER itself is not in doubt. imp-34087 showed the approach to it is well-behaved: digit ' +
+      'loss from cancellation climbs only linearly (~0.44/unit kEnd) and >=6 accurate digits survive ' +
+      'all the way to kEnd~21.2805, with the cliff confined to the final ~0.0004 before the crossing. ' +
+      'imp-34195 confirmed the CONTINUOUS residual is genuinely ~machine-zero in the k>~18 crossing ' +
+      'region (the tiny departure at small N is fully accounted for by the neglected E_flow term), so ' +
+      'the sign change there really is carried entirely by the finite-operator (2-point secant vs ' +
+      '5-point OLS) discretization mismatch, exactly as imp-34127 first argued.\n\n' +
+      'WHAT IS NOT SOLID: the kEnd*~21.281 value has NO analytic derivation and NO continuum limit. ' +
+      'imp-34127 closed-form-derived a leading estimate kEnd_cf~21.00 from the cubic-bias balance ' +
+      'between the two estimators, but imp-34211 measured the gap to the bisected value directly: ' +
+      '~0.278 absolute, ~1.3% relative, only ~1.88 matching significant figures -- the closed form ' +
+      'reproduces just the leading integer "21", nothing past the decimal point. imp-34189 then formed ' +
+      'the next-order correction term and found it moves the WRONG way (would roughly DOUBLE the gap, ' +
+      'to kEnd*_next~20.72), because the Taylor-in-D expansion parameter eD~1.13 is O(1) at a ' +
+      'full-decade window, not small -- the series simply does not converge here. Independently, ' +
+      'imp-34189 showed the bisected crossing itself has no w->0 limit: it diverges monotonically as ' +
+      'the window narrows (kEnd*~21.28, 21.73, 22.30, 23.17, 23.94 at w=1, 3/4, 1/2, 1/4, 1/8 decades). ' +
+      'So kEnd*~21.281 is not a perturbation of some converged continuous value -- it is the finite-' +
+      'window reading of a non-convergent expansion, honestly quoted only at the specific full-decade ' +
+      'window the surrogate ladder happens to use.\n\n' +
+      'VERDICT: kEnd*~21.281 is a real, reproducible, well-conditioned NUMBER attached to one specific ' +
+      'inherited surrogate at one specific window width -- not a derived mathematical ceiling and not ' +
+      'an asymptotic constant. Quote it directly from the bisection (imp-34150), not from the closed ' +
+      'form (imp-34127/imp-34189/imp-34211 all agree the closed form is qualitative-only here).\n\n' +
+      'HONEST SCOPE: this is a bookkeeping/cross-reference synthesis, not a new measurement -- every ' +
+      'quoted number is reproduced verbatim from the cited modules. Entirely within the inherited ' +
+      'imp-3220/imp-3406/imp-33810 component model, which is NOT a rigorous asymptotic; changes no ' +
+      'bound; establishes no operator positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 ' +
+      'K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34278 (writing the single canonical honest-status note for the kEnd*~21.281 surrogate hard-right-edge, cross-referencing the full M2-ceiling cohort), 2026',
+    relatedTerms: [
+      'imp-33810 M2-residual surrogate factor family F2/F3/F4 and the kEnd*~21.281 cancellation ceiling, the origin of the edge (imp-33810)',
+      'imp-34023 the bisected F4 sign-change ceiling this cohort centers on (imp-34023)',
+      'imp-34087 the digit-loss/retained-accuracy profile of the approach to the ceiling (imp-34087)',
+      'imp-34127 the closed-form leading estimate kEnd_cf~21.00 and the estimator-discretization-artifact diagnosis (imp-34127)',
+      'imp-34150 the independent direct-bisection/secant cross-validation pinning kEnd*=21.28094743 (imp-34150)',
+      'imp-34189 the next-order correction (moves the wrong way) and the window-width w->0 non-convergence (imp-34189)',
+      'imp-34195 the continuous-residual ladder verification confirming the sign change is a pure discretization effect (imp-34195)',
+      'imp-34211 the direct closed-form-vs-bisection gap measurement (~1.3%, ~1.88 sig figs) (imp-34211)',
+      'imp-34163 the broader ladder-surrogate settled/open cohort tabulation this edge sits within (imp-34163)',
+      'imp-34169 the fixed-band peak that terminates at this same pole (imp-34169)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

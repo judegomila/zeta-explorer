@@ -4476,6 +4476,14 @@ const DATA_MODULES = [
   // floor; F3 -> ~0.836, much slower decay), confirming F4 alone drives the imp-34023 divergence.
   // Numerical/curve-fit only; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-34133-f2-f3-asymptotic-constant-fit.js',
+  // imp-34208: independent analytic cross-check of the imp-34133 F3 asymptote c ~ 0.835955. FINDING
+  // (HONEST NEGATIVE): the analytic F3 floor from the same sub-terms is HEAD.sflow ~ 0.802814 (since
+  // F3 = HEAD.sflow/TAIL.sflow and the tail E_flow log-slope TAIL.sflow -> 1 as s = d ln T0/d ln N -> 1),
+  // which does NOT reproduce the fitted 0.835955 -- the fit over-estimates by ~4.2%; direct large-N
+  // probing shows F3 decreasing past the fit window toward 0.80281. Unlike F2 (matched its analytic
+  // floor to 6 sig figs), the F3 fit is a curve-fit artifact. Numerical/cross-check only; imp-3066
+  // K_a>=0 untouched; C_mb untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34208-f3-asymptote-analytic-crosscheck.js',
   // imp-34134: measures the E_flow/E_trunc ratio decay ladder and its onset landmarks, tracking
   // when E_flow becomes negligible relative to the N-independent E_TRUNC_PT floor. Measurement
   // only; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED.

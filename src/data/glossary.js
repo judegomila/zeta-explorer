@@ -11872,6 +11872,42 @@ export const glossary = [
     ],
   },
   {
+    term: 'recovered pole k* ~ 21.28095 (eflow_over_resid): pole-location, residue and genuine-pole readings consolidated',
+    category: 'numerical',
+    definition:
+      'Consolidates three separate readings of the SAME eflow_over_resid = eflow_attr/resid_exp ' +
+      'singularity at k* ~ 21.28095 (the resid_exp(k) zero-crossing, see [[surrogate zero k* ~ ' +
+      '21.28095]]) into one entry.\n\n' +
+      'LOCATION (imp-34237). resid_exp(k) decays through the deep tail (+8.72e-8 at k=21.0, ' +
+      '+8.19e-9 at k=21.25, -4.97e-8 at k=21.5) and bisection pins the continuous zero-crossing at ' +
+      'k* ~ 21.28095; only 3 of the 13 attempted kEnd=20..26 windows compute before the pole.\n\n' +
+      'RESIDUE (imp-34310). The local secant slope of resid_exp at the zero is dg_resid/dk ~ ' +
+      '-2.3156e-7 per k (a 3-rung finite difference). Because resid_exp changes SIGN across k* ' +
+      '(odd-order zero, ruling out a double/even-order zero), and eflow_attr is smooth and nonzero ' +
+      'there (interpolated E* ~ 4.583e-15), eflow_over_resid has a SIMPLE pole with leading residue ' +
+      'R = E*/m ~ -1.979e-8, i.e. eflow_over_resid ~ R/(k - k*) near k*. resid_exp is mildly convex ' +
+      'near the pole (2nd difference +3.38e-7 per k^2), which is why the secant slope and residue ' +
+      'carry ~10% offsets and would need a finer sub-rung grid to tighten.\n\n' +
+      'GENUINE POLE, NOT REMOVABLE (imp-34406). imp-34310\'s two-rung premise (eflow_attr smooth and ' +
+      'nonzero at k*) is confirmed directly on six ADDITIONAL rungs bracketing k*: eflow_attr is ' +
+      'strictly monotone decreasing and smooth across k=21.00..21.50 (8.287e-15 -> 2.816e-15), never ' +
+      'vanishing (directly recovered eflow_attr(k*) = +4.5197e-15, ~1.4% below the imp-34310 linear ' +
+      'interp because eflow_attr is convex). Since the numerator never hits zero near k*, the ' +
+      'eflow_over_resid singularity is NOT a 0/0 removable singularity -- it is a genuine simple pole ' +
+      'coming entirely from the resid_exp zero.\n\n' +
+      'HONEST SCOPE: three finite-difference measurements stacked on the same inherited imp-3220/' +
+      'imp-3406 surrogate, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; ' +
+      'imp-3066 K_a>=0 untouched; changes no bound; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-34577 (consolidating the imp-34237 pole-location, imp-34310 residue, and imp-34406 genuine-pole-not-removable readings of the same k*~21.28095 singularity), 2026',
+    relatedTerms: [
+      'surrogate zero k* ~ 21.28095, the resid_exp(k) zero-crossing that hard-edges the fixed-band-peak log surrogate (surrogate zero)',
+      'eflow_over_resid = eflow_attr/resid_exp, the E_flow-attribution-vs-offset-residual separation-widening quantity, whose pole sits at this surrogate zero (eflow_over_resid)',
+      'imp-34310 the 3-rung finite-difference residue/simple-pole read of this singularity (imp-34310)',
+      'imp-34406 the six-additional-rung confirmation that eflow_attr never vanishes near k*, ruling out a removable singularity (imp-34406)',
+    ],
+  },
+  {
     term: 'M2 ceiling: the imp-33773 M2 sub-leading residual sign-change bound, kEnd*~21.28095 (bisected) vs kEnd_cf~21.00 (closed-form)',
     category: 'numerical',
     definition:

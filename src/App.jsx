@@ -319,6 +319,7 @@ const Imp34516PoleLeakageLadderViz = lazy(() => import('./pages/Imp34516PoleLeak
 const Imp34517NumeratorApproachAStabilityViz = lazy(() => import('./pages/Imp34517NumeratorApproachAStabilityViz.jsx'));
 const Imp34522ConditionalityGapLandmarksViz = lazy(() => import('./pages/Imp34522ConditionalityGapLandmarksViz.jsx'));
 const Imp34534PoleLeakageSinglePoleFitViz = lazy(() => import('./pages/Imp34534PoleLeakageSinglePoleFitViz.jsx'));
+const Imp34562DeepRungDoublingMapLandmarksViz = lazy(() => import('./pages/Imp34562DeepRungDoublingMapLandmarksViz.jsx'));
 const Imp34535DriftResidualVsStepSizeViz = lazy(() => import('./pages/Imp34535DriftResidualVsStepSizeViz.jsx'));
 const Imp34542CrossoverExponentVsLogT0Viz = lazy(() => import('./pages/Imp34542CrossoverExponentVsLogT0Viz.jsx'));
 const Imp34416CrossoverSurplusFartailCompositeLimitViz = lazy(() => import('./pages/Imp34416CrossoverSurplusFartailCompositeLimitViz.jsx'));
@@ -1211,6 +1212,7 @@ function AppShell() {
           <Route path="/viz-imp34516-pole-leakage-ladder" element={<Imp34516PoleLeakageLadderViz />} />
           <Route path="/viz-imp34517-numerator-approach-a-stability" element={<Imp34517NumeratorApproachAStabilityViz />} />
           <Route path="/viz-imp34522-conditionality-gap-landmarks" element={<Imp34522ConditionalityGapLandmarksViz />} />
+          <Route path="/viz-imp34562-deep-rung-doubling-map-landmarks" element={<Imp34562DeepRungDoublingMapLandmarksViz />} />
           <Route path="/viz-imp34534-pole-leakage-single-pole-fit" element={<Imp34534PoleLeakageSinglePoleFitViz />} />
           <Route path="/viz-imp34535-drift-residual-vs-step-size" element={<Imp34535DriftResidualVsStepSizeViz />} />
           <Route path="/viz-imp34542-crossover-exponent-vs-logT0" element={<Imp34542CrossoverExponentVsLogT0Viz />} />

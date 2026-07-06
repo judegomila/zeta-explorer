@@ -6301,6 +6301,14 @@ const DATA_MODULES = [
   // own) is reached only via imp-34557's page, which still carries it.
   // AUDIT-ONLY, no surfacing fix applied. 6 assertions.
   '/src/data/imp-34561-caveat-surfacing-audit-34528-34530-34532-34533.js',
+  // imp-34562: PRESENTATION -- tabulates three deep-rung doubling-map landmarks describing the
+  // same resid_exp(k) hump near k*~8.8211 on one shared refinement-rung axis: the imp-34524
+  // continuum vertex k*=8.821091375252, the imp-34368 evaluation-noise floor ~7.2e-8, and the
+  // imp-34524/imp-34551 f-independent top-two margin ladder (4.63/1.16/0.29 ULP at e=24/25/26,
+  // crossing below one storage ULP at e=26). Reuses every literal verbatim (no re-derivation).
+  // 3 assertions. Presentation only; component model NOT rigorous; C_mb GUE-conditional per
+  // imp-486 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34562-deep-rung-doubling-map-landmarks.js',
 ];
 
 let ALL_MODULES = FAST_MODE

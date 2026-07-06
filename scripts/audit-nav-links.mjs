@@ -358,6 +358,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34516-pole-leakage-ladder',
   '/viz-imp34517-numerator-approach-a-stability',
   '/viz-imp34522-conditionality-gap-landmarks',
+  '/viz-imp34562-deep-rung-doubling-map-landmarks',
   '/viz-imp34534-pole-leakage-single-pole-fit',
   '/viz-imp34535-drift-residual-vs-step-size',
   '/viz-imp34542-crossover-exponent-vs-logT0',

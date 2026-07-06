@@ -12142,6 +12142,38 @@ export const glossary = [
       'imp-34551 double-double extended-precision resolution of the deep-rung argmax (imp-34551)',
     ],
   },
+  {
+    term: 'imp-34486 slow-log drift term x = -2g/(1-g), g = (1 - 1/log(T0/2pi))/log T0: the closed-form sub-leading correction to the clean -2 crossover exponent',
+    category: 'numerical',
+    definition:
+      'imp-34446 measured the crossover exponent m = d log N/d log E_coll at -2.0664 near the deep-tail ' +
+      'landmark N* ~ 4.6244e13 (central difference), an excess of +0.0664 over the clean asymptotic value ' +
+      '-2, and attributed the excess to the slow-varying log T0(N) factor without deriving it in closed ' +
+      'form. imp-34486 supplies that closed form. From the height law N = C_C^2 log T0/E_coll^2, writing ' +
+      'log N = 2 log C_C + log(log T0) - 2 log E_coll and chaining through the shared crossover parameter ' +
+      'N gives the excess x := d log(log T0)/d log E_coll = -2 + m as the one-line fixed point ' +
+      'x = g(x - 2), i.e. x = -2g/(1-g), where g := d log(log T0)/d log N is itself pinned down by the ' +
+      'Riemann-von Mangoldt height law N = (T0/2pi)(log(T0/2pi) - 1): with u = T0/2pi, ' +
+      'd log T0/d log N = log u/(log u - 1), so g = (1 - 1/log(T0/2pi))/log T0. This closed form ' +
+      'reproduces the imp-34446 central-difference exponents to ~1e-9 (the O(h^2) finite-difference ' +
+      'floor of that measurement) at every landmark and matches the measured +0.0664 excess at N* exactly. ' +
+      'Because |x| = 2g/(1-g) ~ 2/log T0 -> 0 as log(T0/2pi) -> infinity, the +0.0664 excess is a ' +
+      'saturating log T0 artifact at accessible N, not a coincidental exactly-2 crossover: -2 is the true ' +
+      'analytic asymptote, and x is the derived origin of the imp-34446 monotone drift toward it.\n\n' +
+      'HONEST SCOPE: a derivation/cross-check only within the inherited imp-3220/imp-3406 extrapolation ' +
+      'component model, which is NOT a rigorous asymptotic; the -2 asymptote and C_C = (1/8)sqrt(3 pi) ' +
+      '(imp-2714, C_H = 1/8) ansatz are UNTOUCHED; C_mb remains GUE-conditional per imp-486; imp-3066 ' +
+      'K_a>=0 untouched; establishes no operator positivity; changes no bound; no RH verdict, NO QED; ' +
+      'Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA unconditional bound.',
+    firstUsed: 'imp-34486 (deriving the closed-form sub-leading correction to the imp-34446 crossover ' +
+      'exponent), 2026',
+    relatedTerms: [
+      'imp-34446 the central-difference measurement whose +0.0664 excess this derives (imp-34446)',
+      'imp-34513 standalone residual cross-check certifying the O(h^2) finite-difference floor (imp-34513)',
+      'imp-34526 extension of the drift law down to the low-N assembly ceiling (imp-34526)',
+      'imp-34531 verification that the residual shrink is curvature-driven (imp-34531)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

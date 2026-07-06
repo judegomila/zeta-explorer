@@ -5994,6 +5994,21 @@ const DATA_MODULES = [
   // component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
   // untouched; PT Lambda<=0.2 SOTA; no bound; NO QED.
   '/src/data/imp-34584-deflow-refit-second-order-term.js',
+  // imp-34590: MEASUREMENT -- fits the imp-34571 per-rung residuals of the deflow local exponent
+  // against 1/log(N) to decide whether the observed-only pInf gap to the analytic E_flow slope -1 is
+  // a finite-rung correction or a floor. Forms devAnalytic = 1 - p(N) and devFullWindow = pInf_fw -
+  // p(N) on the six imp-34448 directly-observed rungs (kMid 16.125..19.875) and OLS-fits each to
+  // dev = a + c/log(N). FINDING: both fit cleanly (R^2 ~ 0.9976) with slope c ~ 3.2116 (the imp-34571
+  // refit c, at the E_flow log^3(N)/N model-c = 3); the N->inf intercepts |a| ~ 7.34e-4 (analytic, =
+  // residualVsAnalytic) and ~2.34e-4 (full-window, = residualVsFullWindow) sit at ~0.38 SE and ~0.12
+  // SE from 0 against the OLS intercept SE ~1.92e-3 -- statistically indistinguishable from 0. So both
+  // residuals scale as ~c/log(N) and extrapolate to ~0: the observed pInf gap to the analytic slope -1
+  // is a FINITE-RUNG 1/log(N) correction that vanishes asymptotically, NOT a floor (the ~7.3e-4 /
+  // ~2.3e-4 are sub-SE intercept noise, consistent with imp-34584). Reuses the imp-34448 export
+  // verbatim (import-light). 6 assertions. Measurement only; component model NOT rigorous; C_mb
+  // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound;
+  // NO QED.
+  '/src/data/imp-34590-deflow-residual-oneoverlogn-scaling.js',
   // imp-34572: EXTENDS the imp-34406 eflow_attr smooth-bracket recovery to rungs ABOVE the pole
   // k* ~ 21.28095 (k = 21.30 .. 21.60, all > k*), since imp-34406 bracketed only k = 21.00 .. 21.50
   // (at/below k*). Recovers eflow_attr = (E_flow/E_N)*|d ln E_flow/d log10 N| DIRECTLY via the
@@ -6043,6 +6058,19 @@ const DATA_MODULES = [
   // inherited surrogate NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
   // untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34585-eflow-attr-log-corrected-fit.js',
+  // imp-34591: DRIFT GUARD for the imp-34570 baked power-law fit literals (R^2=0.99999993,
+  // p=-0.937481, A=3.4917e+6, per-k slope -2.158629, analytic slope -2.161846 per k, residual
+  // +0.002846) -- re-derives the eflow_attr bracket from a verbatim inline copy of the imp-34169
+  // parts()/eflowLogSlope() machinery (import-light, no 16.7MB zeros bundle), reuses only the
+  // 8-rung k grid from imp-34406 (recomputing eflowAttr fresh), refits the OLS power law
+  // independently, and cross-checks every imp-34570 literal. FINDING: (G1) all 8 rungs recompute
+  // to < 1e-8 relative drift; (G2) every fit + analytic-slope literal reproduces within the 1e-6
+  // storage tolerance; (G3) zero out-of-tolerance literals -- the imp-34570 constants are faithful
+  // transcriptions, no copy/storage drift. Matches the imp-34553/imp-34272 viz-literal audit
+  // pattern. 5 assertions. Accuracy guard only; inherited surrogate NOT rigorous; C_mb
+  // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no
+  // bound change; NO QED.
+  '/src/data/imp-34591-imp34570-fit-literal-drift-audit.js',
   // imp-34490: PROPAGATION -- carries the imp-34449 measured residue bar R = -1.756e-8 +/- 0.019e-8
   // (~+/-1.1% half-width) into the imp-34310 / imp-34398 / imp-34454 residue-channel consumers and
   // reports whether the band changes any qualitative verdict. (P1) the simple-pole (order-1)

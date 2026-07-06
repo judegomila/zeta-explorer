@@ -13092,6 +13092,48 @@ export const glossary = [
       'imp-34708 extended the floor-scaling law to the 11-point stencil, finding the per-step ratio decays toward 1 rather than staying fixed at ~1.25x (imp-34708)',
     ],
   },
+  {
+    term: 'imp-34714 separation of concerns: exact Krawczyk existence-uniqueness lemma vs unimplemented directed-rounding machine-certificate layer',
+    category: 'numerical',
+    definition:
+      'A headword distinguishing two different things that can be meant by "the Krawczyk lemma holds": ' +
+      'the EXACT real-analysis statement proved by imp-34714, and the machine-checked CERTIFICATE that ' +
+      'imp-34714a still requires.\n\n' +
+      'imp-34714 formalized the interval-Newton/Krawczyk existence-uniqueness lemma for the RvM height ' +
+      'inverse f(T) = (T/2pi)(log(T/2pi)-1) - N: for a bracket [T] with T_lo > 2pi, midpoint m, and the ' +
+      'EXACT derivative range [f_prime] = [log(T_lo/2pi), log(T_hi/2pi)]/2pi, if (H1) 0 not in [f_prime] ' +
+      'and (H2) the Newton image N([T]) = m - f(m)/[f_prime] lands strictly inside [T], then f has exactly ' +
+      'one zero T0 in [T]. This derivation -- uniqueness from strict monotonicity, existence from IVT, the ' +
+      'contraction factor rho = mag(1 - f_prime(m)^-1 [f_prime]) -- is EXACT real analysis: it holds for the ' +
+      'true real values f(m) and [f_prime], with no reference to how those values are computed.\n\n' +
+      'What the lemma does NOT supply is a guarantee about the MACHINE evaluation of f(m) and [f_prime]. ' +
+      'Checking (H1)-(H2) numerically (as imp-34714\'s N=1e9 verification did) uses ordinary IEEE-754 double ' +
+      'precision, which has no directed-rounding mode -- so the computed f(m) and [f_prime] are not ' +
+      'guaranteed to CONTAIN the true values, only to approximate them. Closing that gap is the separately ' +
+      'named sub-gap imp-34714a: supplying an actual directed-rounding / error-bounded arithmetic layer ' +
+      '(mpfi- or Dekker/TwoSum-style) so every evaluation of f and f_prime is a machine-checked enclosure, ' +
+      'not a double-precision approximation. Stock JS Math has no such mode natively.\n\n' +
+      'HOW TO APPLY: when a module says it "verified the Krawczyk lemma at N=X", read that as "checked ' +
+      '(H1)-(H2) hold for the double-precision surrogate values" -- the mathematical content (the lemma ' +
+      'itself) is already exact and needs no further proof, but the NUMERICAL CHECK is not yet a machine ' +
+      'certificate until imp-34714a is closed. The imp-34726/imp-34752/imp-34776 outward-ULP slack studies ' +
+      'measure how much room a real directed-rounding layer would have before breaking (H1)-(H2) -- large ' +
+      'slack is evidence the gap will close cleanly, not a substitute for closing it.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34714 separation-of-concerns finding verbatim, ' +
+      'not a new derivation; sub-gap imp-34714a REMAINS OPEN; the inherited imp-3220/imp-3406 surrogate ' +
+      'crossover map is NOT rigorous; C_C = (1/8)sqrt(3pi) (imp-2642/imp-2643) and C_mb GUE-conditional per ' +
+      'imp-486 UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34738 (glossary headword for the imp-34714 separation-of-concerns distinction), 2026',
+    relatedTerms: [
+      'imp-34714 formalized the exact Krawczyk existence-uniqueness lemma and named the sub-gap imp-34714a (imp-34714)',
+      'imp-34687a named sub-gap: supply an actual directed-rounding / error-bounded arithmetic layer (imp-34687a)',
+      'imp-34726 measured the outward-ULP slack budget k* before (H1)-(H2) break under a surrogate widening model (imp-34726)',
+      'imp-34752 found the outward-ULP slack budget k* is essentially N-independent across the crossover range (imp-34752)',
+      'imp-34776 confirmed k*(delta) is linear in bracket half-width delta, converging to 1/(2 eps) (imp-34776)',
+      'double-precision surrogate enclosure width vs certified outward-rounded interval-arithmetic enclosure: the parallel distinction for the crossover map itself',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

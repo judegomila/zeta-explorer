@@ -4924,6 +4924,21 @@ const DATA_MODULES = [
   // only; imp-33843 form verdict untouched; imp-486/C_mb & imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA;
   // no QED. 6 assertions.
   '/src/data/imp-34292-slope-vs-ratio-convergence-mechanism.js',
+  // imp-34369: REFINE imp-34288 in both directions with the verbatim imp-33843 OLS residual machinery
+  // (reuse gate reproduces the imp-34288 max ratio 0.9072, crossover peak k=6.5, and kEnd=20 ratio 0.6184).
+  // (F1) The peak-relocation is a DISCRETE rung-quantized step at w*=9.5 (adding the k=15.5 rung), NOT a
+  // continuously-resolvable threshold: the imp-33810 ladder is quantized at dk=0.25, so sub-0.25 kEnd values
+  // (15.30..15.45) truncate to the k=15.25 last rung and reproduce that fit IDENTICALLY (ratio 0.9072, peak
+  // endpoint-locked); the peak relocates to k=6.5 the instant the k=15.5 rung is added, and the max ratio
+  // 0.9072 sits at the last pre-migration width w=9.25. (F2) The post-migration ratio does NOT restabilize
+  // at a floor -- past kEnd=20 it declines monotonically 0.6184->0.6026->0.5847->0.5109->0.3628->0.1607,
+  // RE-LOCKS its peak to the receding right endpoint at kEnd=20.75 (a second regime flip), and then the OLS
+  // surrogate DISSOLVES at kEnd~21.5 because the imp-33773 residExp denominator crosses zero (+8.19e-9 at
+  // k=21.25 -> -4.97e-8 at k=21.5, interpolated k*~21.29), driving eflow_over_resid negative and its log NaN.
+  // So the ratio KEEPS FALLING to a hard model-breakdown wall; no amplitude floor exists on this grid.
+  // Measurement/grid-refinement only; imp-33843 form verdict untouched; imp-486/C_C & imp-3066 K_a>=0
+  // untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34369-peak-relocation-regime-width.js',
   // imp-34293: ASSESS whether the imp-34213 E_flow onset (fixed point in the height T0) and the
   // imp-33723 E_coll=E_trunc crossover (fixed point in N) can be coupled into a single joint (N,T0)
   // fixed-point system linked by the Riemann-von Mangoldt height law, and MEASURE the joint 2x2
@@ -5090,6 +5105,17 @@ const DATA_MODULES = [
   // rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2
   // SOTA; no bound change; NO QED. 5 assertions.
   '/src/data/imp-34351-eflow-division-form-fartail-crossvalidation.js',
+  // imp-34372: folds the imp-33860 deep-tail thr=0.01 landmark (N ~ 4.62e13) into the imp-34355
+  // two-landmark ~54x lockstep table and asks whether residual/(E_flow/E_trunc) DRIFTS deeper down
+  // the tail. It does NOT: from far tail to deep tail residual and E_flow/E_trunc both drop ~84x
+  // (lockstep gap 0.62), extending the ~54x halving->far-tail lockstep, and the coupling ratio
+  // stays pinned near 2 (2.0885 -> 2.0788 -> 2.0634, ~1.2% total downward drift). The per-step
+  // factor grows 54x -> 84x only because the amplitude ((1-thr)/thr)^2 jumps 81 -> 9801; the
+  // residual = 2*(E_flow/E_trunc) coupling (factor 2 from N proportional to E_coll^-2) is
+  // structural, NOT a two-landmark crossing artifact. Import-light (no heavy modules), 6
+  // assertions. Measurement only; component model NOT rigorous; C_mb GUE-conditional per imp-486
+  // untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34372-lockstep-ratio-deeptail-persistence.js',
 ];
 
 let ALL_MODULES = FAST_MODE

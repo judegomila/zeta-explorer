@@ -12842,6 +12842,46 @@ export const glossary = [
       'imp-34611 the original 4th-order q2/q3 stencil pipeline whose share sensitivity is being certified (imp-34611)',
     ],
   },
+  {
+    term: 'imp-34685 numerical central-difference of a freshly re-typed inverse solver as an independent derivative cross-check',
+    category: 'numerical',
+    definition:
+      'A methodology headword recording why differentiating a NUMERICAL central difference of a freshly ' +
+      're-typed inverse solver, instead of merely re-reading an ANALYTIC derivative formula, is the more ' +
+      'robust independent-worker check for catching a sign or reciprocal slip.\n\n' +
+      'imp-34650 derived the Banach contraction certificate for the imp-33723 crossover fixed point from the ' +
+      'closed-form map derivative gPrime(N) = K * (dT0/dN) / T0 with dT0/dN = 2*pi / log(T0/2pi), where T0(N) ' +
+      'is the Riemann-von Mangoldt inverse-height solved by Newton iteration inside effectiveHeightForN. Every ' +
+      'certificate number (K ~ 1.5727e8, Lipschitz constant L = gPrime(1e9) ~ 0.1484829, self-map endpoints, ' +
+      'fixed point N_cross ~ 3.280294e9) rested on that single imported function, so a reviewer re-reading the ' +
+      'same formula and the same import cannot catch an algebra mistake baked into both -- re-reading is BLIND ' +
+      'to the thing it is meant to verify.\n\n' +
+      'imp-34685 instead wrote a FRESH inline copy of the inverse-height Newton solver (does not import ' +
+      'effectiveHeightForN) and took its NUMERICAL central difference in N to estimate dT0/dN directly, with no ' +
+      'reference to the analytic formula at all. The numeric estimate matched the analytic gPrime to ~5e-11 ' +
+      'relative at both contraction endpoints, and imp-34692 widened the same check to a dense 201-point log ' +
+      'grid spanning the left edge, the fixed point, and the right-widened tail, finding a worst-case relative ' +
+      'error ~2.06e-10 and a numeric/analytic ratio that stays in [0.99999999979, 1.0000000002] everywhere -- ' +
+      'never crossing zero or flipping to the reciprocal dN/dT0 = log(T0/2pi) / (2*pi).\n\n' +
+      'HOW TO APPLY: because the finite difference is computed from an independently re-typed solver and makes ' +
+      'no reference to the analytic derivative expression, it cannot silently inherit a sign or reciprocal ' +
+      'error the way a second read-through of the same formula could; a step-size sweep additionally confirms ' +
+      'method/roundoff-limited residuals (an O(h^2) V-curve bottoming near h/N ~ eps^(1/3)) rather than a ' +
+      'non-vanishing formula-error floor. Reuse this pattern -- independent re-implementation plus numerical ' +
+      'differentiation, not re-reading -- whenever an analytic derivative underwrites a certificate that a ' +
+      'single sign slip could invalidate.\n\n' +
+      'HONEST SCOPE: a measurement-methodology headword; confirms arithmetic of the INHERITED imp-3220/imp-3406 ' +
+      'surrogate crossover map only, adds no new bound, and does not touch the imp-34650a interval-arithmetic ' +
+      'upgrade (still OPEN); C_C = (1/8)sqrt(3pi) ansatz (imp-2642/imp-2643) and C_mb GUE-conditional per ' +
+      'imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34702 (glossary headword for the imp-34685 numerical-vs-analytic derivative cross-check methodology), 2026',
+    relatedTerms: [
+      'imp-34650 the Banach contraction certificate whose derivative formula this methodology cross-checks (imp-34650)',
+      'imp-34685 the two-endpoint fresh-solver central-difference check that found no discrepancy (imp-34685)',
+      'imp-34692 the dense 201-point grid extension confirming the residual is method-limited, not a formula error (imp-34692)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -1,10 +1,23 @@
 name: verify
 
+# COST CONTROL (2026-07): the autonomous engine fleet pushes hundreds of commits/day
+# directly to main. Running this job on every push was the source of the metered
+# GitHub Actions bill (npm ci + build + heavy assertion sweep, ~several min each,
+# hundreds of times a day). Triggers are now restricted to actual pull requests and
+# manual dispatch, so the fleet's direct main pushes cost ZERO Actions minutes.
+# Safety is still covered elsewhere: Vercel's own deploy build fails on broken commits,
+# each engine runs `npm run build` per ticket, and scripts/prepush-tracked-imports-guard.mjs
+# catches the shared-worktree import race. To verify main on demand: Actions tab -> verify
+# -> "Run workflow" (workflow_dispatch), or re-add `push: { branches: [main] }` below.
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
+
+# Cancel superseded in-flight runs (e.g. rapid PR pushes) so only the latest is billed.
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   verify:

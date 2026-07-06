@@ -367,6 +367,9 @@ const Imp34557HumpSkewMirrorViz = lazy(() =>
 const Imp34574LocalSpacingExponentDescentViz = lazy(() =>
   import('./pages/Imp34574LocalSpacingExponentDescentViz.jsx')
 );
+const Imp34575NearPoleResolvabilityFloorsViz = lazy(() =>
+  import('./pages/Imp34575NearPoleResolvabilityFloorsViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1271,6 +1274,10 @@ function AppShell() {
           <Route
             path="/viz-imp34574-local-spacing-exponent-descent"
             element={<Imp34574LocalSpacingExponentDescentViz />}
+          />
+          <Route
+            path="/viz-imp34575-near-pole-resolvability-floors"
+            element={<Imp34575NearPoleResolvabilityFloorsViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

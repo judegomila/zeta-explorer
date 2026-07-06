@@ -392,6 +392,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34529-recovered-pole-convergence',
   '/viz-imp34557-hump-skew-mirror-j5',
   '/viz-imp34574-local-spacing-exponent-descent',
+  '/viz-imp34575-near-pole-resolvability-floors',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

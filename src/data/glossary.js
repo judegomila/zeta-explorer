@@ -13134,6 +13134,42 @@ export const glossary = [
       'double-precision surrogate enclosure width vs certified outward-rounded interval-arithmetic enclosure: the parallel distinction for the crossover map itself',
     ],
   },
+  {
+    term: 'imp-34693 admissible seed band: why more Picard iterates buy a WIDER certified seed region, not faster convergence',
+    category: 'numerical',
+    definition:
+      'A headword explaining the imp-34693 admissible-seed-band concept for the imp-34650 Banach ' +
+      'contraction certificate on the imp-33723 crossover fixed point N_cross ~ 3.280294e9.\n\n' +
+      'The Banach a-priori bound after k Picard iterates from seed N_0 is B(N_0,k) = L^k/(1-L)*|g(N_0)-N_0|, ' +
+      'L = g_prime(1e9) ~ 0.1485. A first-order expansion of the seed defect about the fixed point, ' +
+      'g(N_0) - N_0 ~ (L_c - 1)(N_0 - N_cross) with L_c = g_prime(N_cross) ~ 0.04542, turns "B(N_0,k) < tol" ' +
+      'into an explicit ADMISSIBLE SEED BAND centered on N_cross: |N_0 - N_cross| < rho(tol,k) = ' +
+      'tol*(1-L)/[(1-L_c)*L^k]. This half-width is not a convergence radius -- it is the region from which ' +
+      'k iterates already certify a bound below tol -- and it WIDENS geometrically by exactly 1/L ~ 6.7348 ' +
+      'per additional iterate: from +-0.89 around N_cross at k=0 to +-1.24e4 at k=5 and +-1.7e8 at k=10.\n\n' +
+      'THE COUNTERINTUITIVE PART: the per-iterate CONVERGENCE rate L is seed-independent (iterates to full ' +
+      'floating-point agreement fall only from 12-14, seeded far away at 1e10/1e300, to 10 seeded near ' +
+      'N_cross, and 1 if seeded exactly at the fixed point -- confirming imp-34676). So extra iterates do not ' +
+      'make a fixed seed converge faster; what they buy is a WIDER region of seeds for which the CERTIFICATE ' +
+      'is already useful (< tol) after only that many steps. HOW TO APPLY: when a module reports "the a-priori ' +
+      'bound is < tol at iterate k", read the accompanying seed placement against rho(tol,k) -- a seed outside ' +
+      'that band is not wrong, it just needs more iterates before the SAME certificate becomes useful, exactly ' +
+      'as the closed form predicts.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34693 seed-band finding verbatim, not a new ' +
+      'derivation; named sub-gap imp-34693a REMAINS OPEN (L, L_c and g are IEEE-754 double-precision ' +
+      'evaluations, the defect linearization is not interval-enclosed); the inherited imp-3220/imp-3406 ' +
+      'surrogate crossover map is NOT rigorous; C_C = (1/8)sqrt(3pi) (imp-2642/imp-2643) and C_mb ' +
+      'GUE-conditional per imp-486 UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO ' +
+      'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34739 (glossary headword for the imp-34693 admissible-seed-band concept), 2026',
+    relatedTerms: [
+      'imp-34693 derived the closed-form admissible seed band rho(tol,k) = tol(1-L)/[(1-L_c)L^k], widening 1/L ~ 6.7348 per iterate (imp-34693)',
+      'imp-34650 the Banach L-contraction certificate on I = [1e9, 1e10] this seed band refines (imp-34650)',
+      'imp-34676 the right-widening sweep whose "seed near N_cross" recommendation this module makes quantitative (imp-34676)',
+      'imp-34714 separation of concerns: exact Krawczyk existence-uniqueness lemma vs unimplemented directed-rounding machine-certificate layer (the parallel exact-statement-vs-machine-certificate distinction)',
+      'imp-34693a named sub-gap: L, L_c and g are double-precision, the seed-defect linearization is not interval-enclosed',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -373,6 +373,9 @@ const Imp34575NearPoleResolvabilityFloorsViz = lazy(() =>
 const Imp34551DeepRungArgmaxJitterViz = lazy(() =>
   import('./pages/Imp34551DeepRungArgmaxJitterViz.jsx')
 );
+const Imp34594EflowAttrFarSideSmoothnessLadderViz = lazy(() =>
+  import('./pages/Imp34594EflowAttrFarSideSmoothnessLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1285,6 +1288,10 @@ function AppShell() {
           <Route
             path="/viz-imp34551-deep-rung-argmax-jitter"
             element={<Imp34551DeepRungArgmaxJitterViz />}
+          />
+          <Route
+            path="/viz-imp34594-eflow-attr-far-side-smoothness-ladder"
+            element={<Imp34594EflowAttrFarSideSmoothnessLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -12452,6 +12452,38 @@ export const glossary = [
       'imp-34585 the companion log-corrected power-law refit on the same bracket family (imp-34585)',
     ],
   },
+  {
+    term: 'imp-34612 RAW-VALUE convexity vs LOG-curvature: two different second-derivatives of eflow_attr, only one is a log^3(N)/N fingerprint',
+    category: 'numerical',
+    definition:
+      'A quick-lookup headword for the imp-34612 F1 finding, which separates two easily-conflated ' +
+      'quantities for eflow_attr(k). imp-34586 F2 observed the RAW-VALUE second difference ' +
+      'd2(eflow_attr)/dk2 stays strictly POSITIVE (convex) on the far side of the pole, ' +
+      '+7.665e-15 -> +4.980e-15 per k^2. But a pure single-power falloff eflow_attr = A*N^p ' +
+      '(which imp-34570 already fit to R^2 = 0.99999993) is ALWAYS value-convex for any p != 0 -- ' +
+      'the second derivative of A*e^{p*k*ln10} is A*p^2*ln10^2*e^{...} > 0 identically -- while ' +
+      'having EXACTLY ZERO log-curvature. So the positive raw second difference is the GENERIC ' +
+      'convexity of any monotone-decaying positive function and carries no information about the ' +
+      'log^3(N)/N structure specifically.\n\n' +
+      'The structure-SENSITIVE quantity is instead the LOG curvature d2(ln eflow_attr)/dk2 -- the ' +
+      'departure from a pure power law, since ln(A*N^p) is exactly LINEAR in k and so has zero ' +
+      'log-curvature by construction. imp-34612 measured this and found it strictly NEGATIVE ' +
+      '(concave), -6.460e-3 -> -6.345e-3 per k^2 observed, matching the analytic E_flow ~ ' +
+      'log^3(N)/N surrogate prediction of -6.038e-3 -> -5.931e-3 (same negative sign, E_flow ' +
+      '-3/u^2 term ~96%, |g| = 1-3/u correction ~4%) to ~93% of magnitude, with a real ~7% ' +
+      'residual (~51x the rung-precision floor) attributed to the C_F(T0)/Gronwall correction the ' +
+      'pure surrogate drops.\n\n' +
+      'HONEST SCOPE: a distinction drawn from the reused imp-34586 deep-far rungs and the ' +
+      'inherited imp-3220/imp-3406 surrogate; not a new derivation; C_mb remains GUE-conditional ' +
+      'per imp-486; changes no bound; no RH verdict, NO QED.',
+    firstUsed: 'imp-34612 (eflow_attr raw-value convexity vs analytic log^3(N)/N log-curvature check), 2026',
+    relatedTerms: [
+      'imp-34586 the deep-far-side raw-value second-difference ladder this reinterprets (imp-34586)',
+      'imp-34570 the pure power-law fit whose zero log-curvature motivates the distinction (imp-34570)',
+      'imp-34613 the symbolic closed-form derivation of the log-curvature sign (imp-34613)',
+      'imp-34625 reconciles the ~7% log-curvature residual with the eflow_attr slope shift (imp-34625)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

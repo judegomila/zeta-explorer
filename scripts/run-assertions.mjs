@@ -4718,6 +4718,44 @@ const DATA_MODULES = [
   // shrink window. Measurement only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched;
   // PT Lambda<=0.2 SOTA; no QED. 8 assertions.
   '/src/data/imp-34330-widening-residual-prepole-reversal.js',
+  // imp-34333: assesses whether the imp-34247 residue-EXACTLY-+1 simple pole of the widening-slope
+  // log-derivative dy/dk = d/dk ln(eflow/resid_exp) is structurally forced or estimator-specific.
+  // Structural law: residue of the log-derivative at a zero of resid_exp = the multiplicity m of that
+  // zero (argument principle, residue of f_prime/f = order of zero). For the imp-34310 SIMPLE sign-change
+  // zero m = 1, so residue +1 is set ENTIRELY by m -- independent of the zero amplitude (cancels as the
+  // additive ln|c|) and the exact k* (moves the pole location, not its coefficient). Verified on a
+  // self-contained model surrogate: (D1) denominator residue -> +1; (D2) amplitude rescale x~4.3e6 leaves
+  // it unchanged to <1e-9; (D3) k* shift by ~6.28 leaves it unchanged to <1e-9; (D4) the imp-34284
+  // reciprocal orientation (resid_exp in the numerator) flips it to -1 (sign flip, |.|=1); (D5) a squared
+  // (even, order-2) surrogate gives +2 but does NOT change sign -- excluded by the imp-34310 sign flip, so
+  // any sign-change-preserving estimator forces odd order and the near-linear crossing forces m=1. So +1
+  // is estimator-invariant in magnitude; its sign is a convention. Assessment only; C_mb GUE-conditional
+  // per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34333-residue-plus-one-estimator-invariance.js',
+  // imp-34334: fits the imp-34250 top-two resid_exp margin collapse (e=15..20) as a decay law in the
+  // halving step, excluding the small-e e=15->16 uptick. OLS of ln(margin) on e over e=16..20 gives slope
+  // ~-1.648/rung (decay factor ~0.192, STEEPER than halving 0.5), collapse exponent alpha=-slope/ln2 ~2.38
+  // (margin ~ 2^{-2.38 e}), R^2 ~0.85. The fit line crosses the ~1.2e-14 raw-moment perturbation floor at
+  // e*~19.38 -> first FULLY floor-locked rung ceil(e*)=20 (empirical sub-floor onset one rung earlier at
+  // e=19, ratio 0.30). VERDICT: the geometric fit extrapolates to an UNBOUNDED tie-fragile tail (all rungs
+  // e>=~19.4 below floor, argmax undecidable), but the OBSERVED margin SATURATES -- e=19 (3.64e-15) and e=20
+  // (1.46e-14) STRADDLE the floor, pinned at the double-precision ~1e-14 noise scale, not decaying below it.
+  // Measurement/fit only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT
+  // Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34334-top-two-margin-collapse-fit.js',
+  // imp-34346: characterizes the divergence RATE of the imp-34268 F3 fixed-band peak third differences
+  // (increment second differences, growing to +0.057428 at kEnd=21.25) as kEnd -> the imp-34237/imp-34253
+  // resid_exp pole k*~21.28095, via a log-log power-law fit third_diff ~ K*(k*-kEnd)^(-p). FINDINGS: over
+  // the pole-dominated tail kEnd=20.0..21.25 (6 nodes) the effective pole order p~0.94 (R^2~0.95), SUB-UNITY
+  // (weaker than a simple pole); the LOCAL last-pair order ~0.67 is strictly below the tail estimate, so the
+  // effective order DECREASES toward the pole -- the signature of a SUB-POWER (logarithmic-family) divergence
+  // driven by the imp-34253 log-divergent peak, not a high-order pole. Honest caveat (F3): the fixed step
+  // h=0.25 is not small vs x near k* (x~0.031 at kEnd=21.25), so the discrete third difference reports an
+  // EFFECTIVE order, not a rigorous continuous exponent (SUB-GAP-imp-34346-continuous-order-blocked). DISTINCT
+  // from imp-34310 (simple pole of the surrogate ratio at k*) and imp-34253 (log-vs-saturation of the peak).
+  // Measurement/power-law fit only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT
+  // Lambda<=0.2 SOTA; no QED. 4 assertions.
+  '/src/data/imp-34346-fixed-band-peak-third-diff-pole-order.js',
   // imp-34187: tabulates the imp-34130 separated-E_coll local-exponent residual-to-(-1/2)
   // milestone ladder at SEVEN thresholds {1e-2, 3e-3, 1e-3, 3e-4, 1e-4, 3e-5, 1e-5} on the
   // imp-33859 log-space direct path (adding the half-decade rungs to imp-34198's four decade

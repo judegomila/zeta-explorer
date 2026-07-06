@@ -317,6 +317,7 @@ const Imp34417SigmaVsProductGapComplementViz = lazy(() => import('./pages/Imp344
 const Imp34418WideningResidualPrepoleReversalViz = lazy(() => import('./pages/Imp34418WideningResidualPrepoleReversalViz.jsx'));
 const Imp34419WideningSlopeMinusOneCrossingViz = lazy(() => import('./pages/Imp34419WideningSlopeMinusOneCrossingViz.jsx'));
 const Imp34438EflowRatioRExponentLadderViz = lazy(() => import('./pages/Imp34438EflowRatioRExponentLadderViz.jsx'));
+const Imp34439ThirdDiffPoleOrderViz = lazy(() => import('./pages/Imp34439ThirdDiffPoleOrderViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1163,6 +1164,7 @@ function AppShell() {
           <Route path="/viz-imp34418-widening-residual-prepole-reversal" element={<Imp34418WideningResidualPrepoleReversalViz />} />
           <Route path="/viz-imp34419-widening-slope-minus-one-crossing" element={<Imp34419WideningSlopeMinusOneCrossingViz />} />
           <Route path="/viz-imp34438-eflow-ratio-r-exponent-ladder" element={<Imp34438EflowRatioRExponentLadderViz />} />
+          <Route path="/viz-imp34439-third-diff-pole-order" element={<Imp34439ThirdDiffPoleOrderViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

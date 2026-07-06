@@ -397,6 +397,9 @@ const Imp34619Q3SharePlateauDpFitViz = lazy(() =>
 const Imp34620Q4ShareRoundoffFloorVsDpViz = lazy(() =>
   import('./pages/Imp34620Q4ShareRoundoffFloorVsDpViz.jsx')
 );
+const Imp34621EflowAttrSlopeContinuityViz = lazy(() =>
+  import('./pages/Imp34621EflowAttrSlopeContinuityViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1341,6 +1344,10 @@ function AppShell() {
           <Route
             path="/viz-imp34620-q4-share-roundoff-floor-vs-dp"
             element={<Imp34620Q4ShareRoundoffFloorVsDpViz />}
+          />
+          <Route
+            path="/viz-imp34621-eflow-attr-slope-continuity"
+            element={<Imp34621EflowAttrSlopeContinuityViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

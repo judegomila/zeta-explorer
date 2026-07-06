@@ -402,6 +402,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34599-full-ladder-through-pole',
   '/viz-imp34619-q3-share-plateau-dp-fit',
   '/viz-imp34620-q4-share-roundoff-floor-vs-dp',
+  '/viz-imp34621-eflow-attr-slope-continuity',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

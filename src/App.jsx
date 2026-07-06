@@ -400,6 +400,9 @@ const Imp34620Q4ShareRoundoffFloorVsDpViz = lazy(() =>
 const Imp34642RoundoffAmplificationExponentLadderViz = lazy(() =>
   import('./pages/Imp34642RoundoffAmplificationExponentLadderViz.jsx')
 );
+const Imp34667FourRungRoundoffFloorLadderViz = lazy(() =>
+  import('./pages/Imp34667FourRungRoundoffFloorLadderViz.jsx')
+);
 const Imp34621EflowAttrSlopeContinuityViz = lazy(() =>
   import('./pages/Imp34621EflowAttrSlopeContinuityViz.jsx')
 );
@@ -1375,6 +1378,10 @@ function AppShell() {
           <Route
             path="/viz-imp34642-roundoff-amplification-exponent-ladder"
             element={<Imp34642RoundoffAmplificationExponentLadderViz />}
+          />
+          <Route
+            path="/viz-imp34667-four-rung-roundoff-floor-ladder"
+            element={<Imp34667FourRungRoundoffFloorLadderViz />}
           />
           <Route
             path="/viz-imp34621-eflow-attr-slope-continuity"

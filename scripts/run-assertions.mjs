@@ -4928,6 +4928,18 @@ const DATA_MODULES = [
   // The imp-34268 convex-branch reading is not overturned. Measurement/parity-split only; C_mb GUE-conditional
   // per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-34347-odd-quarter-increment-parity-branch.js',
+  // imp-34431: refines the fixed-band (k<=10) peak kEnd node grid from 0.25 to 0.125 across [18.5,19.5] (identical
+  // imp-34347/imp-34268/imp-34196 machinery) to test whether the imp-34347 F3 sole concave node kEnd=19.00 (centered
+  // second diff -0.000480) is a genuine lone turning point or an under-sampled cluster the 0.25 grid smears.
+  // FINDING: the peak is STEP-FLAT below 0.25 -- it steps exactly on the imp-33810 ladder 0.25 rung spacing, so every
+  // intermediate 0.125 node inherits the prior peak unchanged (identical ladder length 51->51->52, exactly-zero
+  // increment) and the four nonzero 0.125 increments land on the 0.25 nodes reproducing imp-34347 verbatim (0.016669
+  // min at 18.75, then 0.017629, 0.018109, 0.018648). The 0.125 centered second diffs are a full-amplitude alternating
+  // sawtooth ~0.035 (~70x the genuine -0.000480 concavity) -- a sampling artifact, NOT resolved curvature. kEnd
+  // refinement cannot confirm/refute a cluster; 19.00 stays a genuine lone 0.25 turning point; finer needs LADDER
+  // refinement (imp-34400). imp-34347 reading STANDS. Measurement only; C_mb GUE-conditional per imp-486 UNTOUCHED;
+  // imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34431-fixed-band-peak-half-step-kend-step-flat.js',
   // imp-34367: closes SUB-GAP-imp-34268-convex-branch-form by form-SELECTION -- fits the three ticket-named
   // convex forms (quadratic, exponential in kEnd, 1/(k*-kEnd) pole) to the imp-34268 post-minimum fixed-band
   // (k<=10) peak re-acceleration branch (11 nodes kEnd=18.75..21.25, reproducing the imp-34196/imp-34169/imp-34268

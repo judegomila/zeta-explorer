@@ -367,6 +367,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34438-eflow-ratio-r-exponent-ladder',
   '/viz-imp34439-third-diff-pole-order',
   '/viz-imp34475-four-locator-cluster-axis',
+  '/viz-imp34476-sigma-product-gap-ratio-approach',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

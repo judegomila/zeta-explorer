@@ -4759,6 +4759,32 @@ const DATA_MODULES = [
   // composite -> 3 stand. Measurement/fit only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066
   // K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-34428-fartail-correction-two-term-fit.js',
+  // imp-34432: measures the SECOND-ORDER correction to the imp-34329 limiting COMPOSITE exponent 3 by
+  // fitting composite(thr) = 3 - a/log T0 - b/log^2 T0 across the deep-tail probe (thr down to 1e-12).
+  // On the INSTANTANEOUS composite exponents the leading coefficient a collapses to 4.00 (from single-term
+  // 4.15) with a genuine next-order b ~ +7.26 and RSS ~1879x smaller, confirming the imp-34414 derived
+  // composite = 3 - 4/log T0 + O(1/log^2 T0); the composite b (~+7.26) is close to but DISTINCT from the
+  // imp-34428 r-exponent c2 (~+6.90) since composite = 1 + r-exponent only to leading order (the prefactor
+  // share carries its own softening). On the imp-34329 decade SECANT exponents the fit leaves a ~ 4.44 and
+  // barely improves RSS (~3%), a fit-window artifact mirroring imp-34428. The shortfall split shows ~95% of
+  // the residual-to-3 at accessible thr is the leading 1/log T0 term, only ~5% the next-order 1/log^2 T0
+  // term (shrinking as thr falls). Exact-3 limit stands. Measurement/fit only; C_mb GUE-conditional per
+  // imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 7 assertions.
+  '/src/data/imp-34432-composite-correction-two-term-fit.js',
+  // imp-34433: locates the exact thr* at which the imp-34329 composite exponent (d log surplus/d log thr,
+  // shallow minimum ~2.871) and the imp-34349 isolated r exponent (d log r/d log thr, shallow minimum
+  // ~1.875) each bottom, using INSTANTANEOUS central-difference exponents + parabola refinement (sharper
+  // than the adjacent-rung secants), then tests their predicted coincidence. They do NOT coincide: the
+  // composite minimum bottoms at thr*~1.196e-2 (value ~2.86682), the r minimum at thr*~4.85e-3 (value
+  // ~1.87430) -- the composite minimum sits ~2.469x farther out in thr, an offset of ~0.3925 decades. The
+  // cause is the thr-dependence of the prefactor share d log P/d log thr (~0.98789 at the composite min,
+  // ~0.99513 at the r min, both < 1, rising toward 1), which is NOT the constant the naive coincidence
+  // needs; the exact identity composite = Pshare + r-exponent still holds pointwise (at the composite min
+  // r has climbed to ~1.87893, Pshare ~0.98789, sum ~2.86682), and the naive 1 + r_min = 2.87430 OVERSHOOTS
+  // the true composite minimum by ~0.0075. So "composite = 1 + r-exponent" is a leading-order (P->1) reading
+  // only. Location/measurement only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched;
+  // PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34433-composite-vs-r-exponent-minima-coincidence.js',
   // imp-34441: tabulates a single reconciliation table of the four independent ~3.28e9-cluster landmark
   // locators -- imp-33723 closed-form crossover N~3.280294e9, imp-33721 sigmoid-knee inflection N*~3.38e9,
   // imp-3444 bisected crossover N~3.280294e9, and the imp-3444/imp-33582 sigma=1/2 halving landmark

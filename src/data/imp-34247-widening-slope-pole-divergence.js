@@ -69,8 +69,10 @@
  *
  * COHORT MAP (M2-residual sign-change ceiling): imp-34023 (bisected k* ~ 21.281) -> imp-34127
  * (leading closed form) -> imp-34189 (next-order term) -> imp-34188 (widening-slope limit b_inf ~ -1) ->
+ * imp-34246 (derives b_inf~-1.003 is a finite-window coincidence, true leading value -ln10/2) ->
  * imp-34247 (this module, the dy/dk simple-pole divergence at the same k*) -> imp-34169/imp-34237
- * (fixed-band peak re-acceleration terminating at the resid_exp pole). All share the same k* ceiling.
+ * (fixed-band peak re-acceleration terminating at the resid_exp pole). All eight share the same k*
+ * ceiling.
  */
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';

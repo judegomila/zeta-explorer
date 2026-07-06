@@ -70,6 +70,14 @@
  * @see imp-34205-widening-slope-convergence-viz-data (the b_inf convergence plot this derivation shows is a finite-window coincidence)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0)
  * @see polymath15-constant-C-C (C_C = C_H sqrt(pi C_Selberg))
+ *
+ * COHORT MAP (M2-residual sign-change ceiling): imp-34023 (bisected kEnd*~21.281) -> imp-34127
+ * (leading closed form) -> imp-34189 (next-order term + window-width divergence) -> imp-34188
+ * (widening-slope leading -ln10/2, observed -1 a finite-window coincidence per this module) -> imp-34246
+ * (this module, derives b_inf~-1.003 is a finite-window coincidence, true leading value -ln10/2) ->
+ * imp-34247 (simple-pole residue +1 fit of the same slope's divergence) -> imp-34169/imp-34237
+ * (fixed-band peak re-acceleration terminating at the resid_exp pole). All eight share the same kEnd*
+ * ceiling; see reciprocal @see links above.
  */
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';

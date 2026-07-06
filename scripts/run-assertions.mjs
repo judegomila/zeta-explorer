@@ -4626,6 +4626,20 @@ const DATA_MODULES = [
   // inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
   // untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-34172-deep-ladder-second-path-crossvalidation.js',
+  // imp-34250: QUANTIFY the precision-floor top-two resid_exp margin across the FULL imp-34106 deep
+  // doubling-map ladder e=15..20 and CLASSIFY each rung decidable vs tie-fragile -- imp-34172 Y2
+  // measured this top-two separation ONLY at e=19 (+3.64e-15, below the ~1.23e-14 raw-moment
+  // perturbation that flips it). A from-source reimplementation tabulates, per rung, the top-two
+  // resid_exp separation under the stable mean-centred OLS, the raw-moment |pSigma - pSigmaRaw|
+  // perturbation, their ratio, and the classification. The margin collapses monotonically toward the
+  // floor (ratio 158 -> 301 -> 65 -> 11.3 -> 0.295 -> 0.881), so EXACTLY TWO rungs are tie-fragile:
+  // e=19 (margin +3.64e-15, reproducing imp-34172 Y2 bit-for-bit) and e=20 (margin 1.46e-14); e=15..18
+  // are robustly decidable (margin >= 11x the perturbation). The tie-fragile set {19,20} is IDENTICALLY
+  // the set where the raw-moment argmax flips off the stable selection, so the margin-vs-perturbation
+  // class PREDICTS the raw-moment flip rung-for-rung. Measurement only; inherited imp-3220/imp-3406
+  // surrogate; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2
+  // SOTA; no QED. 6 assertions.
+  '/src/data/imp-34250-deep-ladder-tie-margin-classification.js',
   // imp-34173: DERIVE the UNIFIED k-indexed closed form for the outer phase-zero branch endpoint
   // distance/slope/curvature subsuming imp-34103 (k=-+1), imp-34104 (k=-+2) and imp-34167 (k=-+3).
   // The k-th branch theta = pi/2 -+ k pi/p (arg(-A) = k pi, p = 1 + alpha) sits at offset |k| pi/p

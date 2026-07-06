@@ -727,6 +727,15 @@ const CONCEPTS = [
     formula: '\\sigma(N) = \\frac{E_{\\text{coll}}}{E_{\\text{trunc}} + E_{\\text{flow}} + E_{\\text{coll}}}',
     intuition: "Think of it as a pie chart with three slices (truncation, flow, collision) that changes shape as N grows: at small N the collision slice is nearly the whole pie, and as N grows the other two slices catch up. Two DIFFERENT landmarks get read off this curve and are easy to conflate: the CROSSOVER is where a component-equality condition holds (e.g. E_coll = E_trunc, a closed-form fixed point in N, imp-33723), while the HALVING point is where the composite ratio itself equals one half (sigma(N) = 1/2, an empirical bisection, imp-33582/imp-3444). They live in the same ~3.3e9 region and agree to within about 0.4%, but they answer different questions — one asks when two raw energy terms are equal, the other asks when the SHARE crosses the midpoint — so a close numerical match is a cross-validation, not a proof that they are the same landmark.",
   },
+  {
+    id: 'nhalf-ncross-axis-invariant-ordering',
+    category: 'proof',
+    term: 'Axis-Invariant N_half < N_cross Ordering',
+    symbol: 'N_{\\text{half}} < N_{\\text{cross}}',
+    definition: "The finding (imp-34290, building on imp-33848) that the strict ordering between the sigma=1/2 halving landmark N_half and the E_coll=E_trunc crossover N_cross survives no matter which axis is used to locate them. The original proof bisected both landmarks in N using the Newton-inverted height T0=effectiveHeightForN(N). Relocating both landmarks directly on the HEIGHT axis (bisecting in T0) and recovering N via the exact Riemann-von Mangoldt forward count N=zeroCountAtHeight(T0) reproduces the same ordering with only a ~6e-15 (machine-epsilon) shift in the separation -- confirming the ~0.4% gap is an intrinsic property of the landmark pair, not an artifact of which axis (height or count) it is read on.",
+    formula: '\\frac{d(\\log N)}{d(\\log T_0)} = \\frac{T_0}{N}\\cdot\\frac{\\log(T_0/2\\pi)}{2\\pi} \\approx 1.056',
+    intuition: "If two thresholds are truly ordered, it should not matter whether you measure the ordering in feet or in meters -- the conversion factor just rescales both sides consistently, it cannot flip which one is bigger. Here the two rulers are the HEIGHT axis (T0) and the ZERO-COUNT axis (N), linked by the Riemann-von Mangoldt density Jacobian (~1.056 in this region). The height gap between the two landmarks (~0.379%) and the count gap (~0.400%) are the same underlying separation stretched by that Jacobian, and the ordering N_half < N_cross survives the stretch on both rulers -- a cross-check of consistency, not a new bound.",
+  },
 ];
 
 export default function ConceptsPage() {

@@ -6014,6 +6014,17 @@ const DATA_MODULES = [
   // only; surrogate NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066
   // K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34406-eflow-attr-smooth-nonzero-across-pole.js',
+  // imp-34552: DERIVE how much extended precision lowers the imp-34368 resid_exp peak-location
+  // floor dk = sqrt(2 eps_f/|f2|) and TABULATE it per working precision (scopes imp-34551 before
+  // the bignum recompute). With |f2|~0.036196 and the ~6.5-ulp accumulation fixed, eps_f(p) =
+  // eps_f(53)*2^(53-p) so dk(p) = dk(53)*2^((53-p)/2) -- half a bit of k* per added mantissa bit.
+  // ATTAINABLE FLOORS: binary64 dk~7.2e-8 (~8.1 sig figs); x87 80-bit dk~1.6e-9 (~45x, ~+1.66 sig
+  // figs); binary128 dk~6.7e-17 (~1.07e9x, ~+9.03 sig figs, ~17.1 total). PAYOFF: resolving the
+  // imp-34228 ~4.27e-11 offset needs dk<4.27e-11 i.e. p>~74.4 bits -- 80-bit is NOT enough (~37x
+  // above), binary128 clears it with ~6 orders of margin. Derivation only; no bignum recompute;
+  // inherited surrogate NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
+  // untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED. 6 assertions.
+  '/src/data/imp-34552-residexp-precision-floor-payoff-derivation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

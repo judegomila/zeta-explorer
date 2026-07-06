@@ -433,6 +433,9 @@ const Imp34656RoundoffPrefactorAmplitudeViz = lazy(() =>
 const Imp34671TruncationSweetSpotPlateauViz = lazy(() =>
   import('./pages/Imp34671TruncationSweetSpotPlateauViz.jsx')
 );
+const Imp34674SharedStencilPlateauCrossvalidationViz = lazy(() =>
+  import('./pages/Imp34674SharedStencilPlateauCrossvalidationViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1425,6 +1428,10 @@ function AppShell() {
           <Route
             path="/viz-imp34671-truncation-sweet-spot-plateau"
             element={<Imp34671TruncationSweetSpotPlateauViz />}
+          />
+          <Route
+            path="/viz-imp34674-shared-stencil-plateau-crossvalidation"
+            element={<Imp34674SharedStencilPlateauCrossvalidationViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

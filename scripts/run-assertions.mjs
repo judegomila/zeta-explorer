@@ -6652,6 +6652,12 @@ const DATA_MODULES = [
   // other four are data-only with no page to check. No module in the cohort's
   // transitive import closure reaches the zeros-to-1e6.js heavy bundle.
   '/src/data/imp-34740-caveat-surfacing-audit-34710-34714-34693.js',
+  // imp-34745: thin-page/banner audit of the imp-34712 second-footing
+  // collapse-ladder cross-validation. No src/pages/*.jsx or App.jsx import of
+  // the imp-34712 module was found -- an absence, not a stub -- so the
+  // honest-status-banner criterion is inapplicable; the gap is already
+  // scoped for a fix under the separate imp-34747 viz-page ticket.
+  '/src/data/imp-34745-thin-page-banner-audit-34712.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -12174,6 +12174,44 @@ export const glossary = [
       'imp-34531 verification that the residual shrink is curvature-driven (imp-34531)',
     ],
   },
+  {
+    term: 'imp-34533 continuum-argmax split: provably never locks yet unobservable past e=24 (deep-rung doubling-map)',
+    category: 'numerical',
+    definition:
+      'The imp-34411/imp-34508 doubling-map resid_exp(k) argmax jittered by exactly one dyadic node ' +
+      'between refinement rungs e=23 and e=24, raising the question of whether the deep-rung argmax keeps ' +
+      'jittering forever ("propagates") or settles ("locks"). imp-34533 answered with a two-layer finding ' +
+      'that separates the CONTINUUM truth from what double precision can OBSERVE. Layer 1 (continuum, ' +
+      'geometric): the smooth resid_exp(k) peak has a true non-dyadic vertex k* = 8.821091375252 ' +
+      '(imp-34524, Richardson curvature |R2| = 3.61964221e-2). Because k* is non-dyadic, the nearest ' +
+      'dyadic node 6 + round((k*-6)*2^e)/2^e is a DIFFERENT value at every rung e=23..27 (8.821091413498, ' +
+      '8.821091353893, 8.821091383696, 8.821091368794, 8.821091376245), each converging toward k* but ' +
+      'never landing on it exactly: PROVABLY NEVER LOCKS, since locking would require k* to be exactly ' +
+      'dyadic. Layer 2 (double precision, storage): the same analysis bounds the top-two resid_exp margin ' +
+      'between the winning and runner-up dyadic nodes in units of one storage ULP (2^-56): ~4.63 ULP at ' +
+      'e=24, ~1.16 ULP at e=25, and ~0.29 ULP at e=26 -- crossing below one whole storage ULP by e=26, a ' +
+      'bit-level tie a native double cannot break. VERDICT: the never-locking jitter genuinely PROPAGATES ' +
+      'on the continuum, but becomes UNOBSERVABLE in double precision past e=24 -- a direct e=25/e=26 ' +
+      'argmax scan cannot tell jitter from lock, named SUB-GAP-imp-34533-deep-rung-argmax-noise-dominated. ' +
+      '(imp-34551 later closed this sub-gap with a double-double, 106-bit recompute: the dd argmax at ' +
+      'e=25/e=26 does track the geometric nearest node with an adjacent runner-up, confirming F1 ' +
+      'observationally and refining the vertex to k*_dd = 8.8210916010340.) The same ~6-7-significant-' +
+      'figure ceiling is independently visible in the imp-34368 resid_exp evaluation-noise floor ' +
+      'dk ~ 7.22e-8 (RMS noise eps_f ~ 9.43e-17 via dk ~ sqrt(2 eps_f/|f2|), confirmed by direct bracket-' +
+      'scatter): both routes say double precision simply cannot resolve k* past its 6th or 7th digit.\n\n' +
+      'HONEST SCOPE: a numerical/precision-floor observation about an inherited descriptive surrogate, not ' +
+      'a derivation. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
+      'asymptotic; the resid_exp(k) surrogate is descriptive, not derived; C_mb remains GUE-conditional ' +
+      'per imp-486; imp-3066 K_a>=0 untouched; establishes no operator positivity; changes no bound; no ' +
+      'RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA unconditional bound.',
+    firstUsed: 'imp-34533 (two-layer resolution of the imp-34508 deep-rung argmax jitter question), 2026',
+    relatedTerms: [
+      'imp-34524 the non-dyadic continuum vertex k* = 8.821091375252 whose irrationality forces the never-locking layer (imp-34524)',
+      'imp-34508 the e=24 one-node argmax jitter that first raised the propagates-or-locks question (imp-34508)',
+      'imp-34368 the independent resid_exp evaluation-noise floor dk ~ 7.22e-8 setting the same ~6-7-digit observability ceiling (imp-34368)',
+      'imp-34551 double-double (106-bit) recompute that closes the SUB-GAP by observing the never-locking jitter directly (imp-34551)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

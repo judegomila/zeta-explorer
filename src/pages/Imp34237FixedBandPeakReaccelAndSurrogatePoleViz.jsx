@@ -2,6 +2,7 @@
  * @see imp-34302-m2-ceiling-cohort-canonical-value-gate.js (build-time gate keeping this page's canonical
  *   kEnd*~21.281 ceiling distinct from the imp-34127 closed-form estimate)
  * @see imp-34127-m2-residual-signchange-ceiling-closed-form.js (the distinct, lower closed-form estimate)
+ * @see imp-34247-widening-slope-pole-divergence.js (the dy/dk simple-pole characterization of this same k*)
  */
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -17,6 +18,7 @@ import {
   IMP34237_COMPUTABLE_WINDOW_COUNT,
   IMP34237_TOTAL_WINDOW_COUNT,
 } from '../data/imp-34237-fixed-band-peak-reaccel-and-surrogate-pole-viz-data.js';
+import { IMP34247_WIDENING_SLOPE_POLE_DIVERGENCE } from '../data/imp-34247-widening-slope-pole-divergence.js';
 
 // Panel 1: the fixed-band (k<=10) peak over the three computable windows,
 // climbing +0.865303 -> +0.915942 -> +0.996333 with re-accelerating increments.
@@ -386,6 +388,33 @@ export default function Imp34237FixedBandPeakReaccelAndSurrogatePoleViz() {
           full M2-ceiling cohort index
         </Link>{' '}
         for the other viz surfaces sharing this ceiling.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>Same k*, a fitted local slope pole (imp-34247):</strong>{' '}
+        the eflow_over_resid pole plotted above also drives a divergence in the imp-34188 local tail
+        slope dy/dk of y(k) = ln(eflow_over_resid_k): imp-34247 fits it as a SIMPLE POLE dy/dk ={' '}
+        B(k) + 1/(k* - k) with residue exactly{' '}
+        {IMP34247_WIDENING_SLOPE_POLE_DIVERGENCE.residueNearPole.toFixed(3)} (order p &asymp;{' '}
+        {IMP34247_WIDENING_SLOPE_POLE_DIVERGENCE.poleOrder.toFixed(2)}), the smooth background B(k) a
+        slowly-varying negative drift, and the far-field plateau dy/dk &asymp;{' '}
+        {IMP34247_WIDENING_SLOPE_POLE_DIVERGENCE.farFieldPlateau.toFixed(3)}. From this independent
+        local-slope angle the widening-slope ladder rungs are clean only through k &asymp; 18 and
+        become ceiling-contaminated from k ={' '}
+        {IMP34247_WIDENING_SLOPE_POLE_DIVERGENCE.contaminationOnsetK} onward -- the same k* &asymp;{' '}
+        {IMP34237_RESID_ZERO_KSTAR.toFixed(5)} ceiling visualized above, now characterized as a
+        residue-1 simple pole rather than merely located. Cross-linked here for context only; no
+        bound or claim on this page changes.
       </div>
     </div>
   );

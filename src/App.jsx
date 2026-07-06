@@ -463,6 +463,9 @@ const Imp34715CrossoverMarginMonotoneViz = lazy(() =>
 const Imp34716ResolutionMatchedCollapseLadderViz = lazy(() =>
   import('./pages/Imp34716ResolutionMatchedCollapseLadderViz.jsx')
 );
+const Imp34717Q3TrustBoundaryViz = lazy(() =>
+  import('./pages/Imp34717Q3TrustBoundaryViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1495,6 +1498,10 @@ function AppShell() {
           <Route
             path="/viz-imp34716-resolution-matched-collapse-ladder"
             element={<Imp34716ResolutionMatchedCollapseLadderViz />}
+          />
+          <Route
+            path="/viz-imp34717-q3-trust-boundary"
+            element={<Imp34717Q3TrustBoundaryViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -424,6 +424,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34701-raw-float-weight-plateau-shift-by-stencil-order',
   '/viz-imp34715-crossover-margin-monotone',
   '/viz-imp34716-resolution-matched-collapse-ladder',
+  '/viz-imp34717-q3-trust-boundary',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

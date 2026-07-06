@@ -4697,6 +4697,17 @@ const DATA_MODULES = [
   // Measurement/fit only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched;
   // PT Lambda<=0.2 SOTA; no QED. 7 assertions.
   '/src/data/imp-34329-crossover-surplus-fartail-composite-limit.js',
+  // imp-34330: measures the imp-34246 two-term prediction residual (measured local widening-slope minus
+  // -ln10/2 + ln10*3/u) on a finer pre-pole grid k=12..20.75 approaching k*~21.281. The residual does NOT
+  // keep shrinking -- it REVERSES: |residual| shrinks 0.0991 (k=12) -> ~0.0016 (k=17.75), passes through
+  // zero at k_best ~ 17.80, then flips sign and diverges to +0.818 (k=20.5) and +1.401 (k=20.75). The
+  // leading form stops improving at k~17.80, ~3.48 decades below the M2 ceiling and ~1.90 decades past the
+  // resid_exp hump peak (k~15.9); the re-growth is imp-34247 pole contamination (resid_exp collapses faster
+  // than E_coll, hump coefficient 0.401 -> 0.168, lifting the measured slope positive by k>=20.75 while the
+  // prediction keeps declining toward -ln10/2). Confirms imp-34246 V2: the fit samples only the pre-turn
+  // shrink window. Measurement only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched;
+  // PT Lambda<=0.2 SOTA; no QED. 8 assertions.
+  '/src/data/imp-34330-widening-residual-prepole-reversal.js',
   // imp-34187: tabulates the imp-34130 separated-E_coll local-exponent residual-to-(-1/2)
   // milestone ladder at SEVEN thresholds {1e-2, 3e-3, 1e-3, 3e-4, 1e-4, 3e-5, 1e-5} on the
   // imp-33859 log-space direct path (adding the half-decade rungs to imp-34198's four decade

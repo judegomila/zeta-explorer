@@ -385,6 +385,9 @@ const Imp34596DeflowObservedExponentViz = lazy(() =>
 const Imp34597DriftShareRegimeSplitViz = lazy(() =>
   import('./pages/Imp34597DriftShareRegimeSplitViz.jsx')
 );
+const Imp34598Binary128CrossCheckViz = lazy(() =>
+  import('./pages/Imp34598Binary128CrossCheckViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1313,6 +1316,10 @@ function AppShell() {
           <Route
             path="/viz-imp34597-drift-share-regime-split"
             element={<Imp34597DriftShareRegimeSplitViz />}
+          />
+          <Route
+            path="/viz-imp34598-binary128-cross-check"
+            element={<Imp34598Binary128CrossCheckViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

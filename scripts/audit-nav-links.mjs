@@ -413,6 +413,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34656-roundoff-prefactor-amplitude',
   '/viz-imp34664-pole-window-bias-variance',
   '/viz-imp34667-four-rung-roundoff-floor-ladder',
+  '/viz-imp34671-truncation-sweet-spot-plateau',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

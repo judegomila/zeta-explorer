@@ -430,6 +430,9 @@ const Imp34664PoleWindowBiasVarianceViz = lazy(() =>
 const Imp34656RoundoffPrefactorAmplitudeViz = lazy(() =>
   import('./pages/Imp34656RoundoffPrefactorAmplitudeViz.jsx')
 );
+const Imp34671TruncationSweetSpotPlateauViz = lazy(() =>
+  import('./pages/Imp34671TruncationSweetSpotPlateauViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1418,6 +1421,10 @@ function AppShell() {
           <Route
             path="/viz-imp34656-roundoff-prefactor-amplitude"
             element={<Imp34656RoundoffPrefactorAmplitudeViz />}
+          />
+          <Route
+            path="/viz-imp34671-truncation-sweet-spot-plateau"
+            element={<Imp34671TruncationSweetSpotPlateauViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

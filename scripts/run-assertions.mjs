@@ -5068,6 +5068,35 @@ const DATA_MODULES = [
   // widening-slope dy/dk channel). Measurement only; surrogate NOT rigorous; C_mb GUE-conditional per
   // imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED. 6 assertions.
   '/src/data/imp-34310-eflow-over-resid-pole-residue-simple-pole.js',
+  // imp-34397: TIGHTEN the imp-34310 eflow_over_resid simple-pole residue R~-1.979e-8 (2-point secant) by a
+  // curvature-corrected quadratic re-read of dg_resid/dt through the SAME three imp-34237 rungs (k=21.0/21.25/
+  // 21.5), evaluating the local slope AT the pole k*~21.28095 instead of averaging over [21.25,21.5]. The k=21.0
+  // rung -- unused by the imp-34310 secant -- fixes the curvature c=+1.6896e-7 (half the imp-34310 2nd diff
+  // +3.379e-7). Corrected slope m_star=b+2c*t*=-2.63341e-7 is 13.7% STEEPER than the secant -2.3156e-7 (the
+  // secant under-reads |slope| because its [21.25,21.5] midpoint 21.375 sits right of k* in the convex tail).
+  // Tightened residue R_quad=eflow_attr(k*)/m_star=-1.74023e-8, a -12.07% inward shift -> the F4 ~10% caveat was
+  // real and mildly under-stated. Independent corroboration: the quadratic zero k_quad=21.280486 recovers the
+  // bisected k* to -4.64e-4 (~9.5x tighter than the imp-34310 linear-secant zero 21.285369, +4.42e-3 off) WITHOUT
+  // using k* as input. Resolution floor set by the unmeasured cubic term (~1-2% heuristic, data-limited as
+  // resid_exp->0 loses digits). Simple-pole order and all upstream verdicts UNCHANGED. Import-light (reuses
+  // imp-34237/imp-34310 exports, exact === reproduction asserted). Measurement only; surrogate NOT rigorous; C_mb
+  // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO
+  // QED. 5 assertions.
+  '/src/data/imp-34397-eflow-over-resid-residue-curvature-corrected.js',
+  // imp-34398: RECONCILE the imp-34310 raw-ratio residue R~-1.979e-8 against the imp-34247 residue-EXACTLY-+1
+  // reading of the SAME resid_exp simple pole at k*~21.28095. Near k* the ratio collapses to ONE leading
+  // Laurent monomial g(k)=eflow_over_resid~E_star/(m(k-k*))=R(k-k*)^p with COEFFICIENT R=E_star/m (imp-34310)
+  // and EXPONENT p=-1 (simple pole). imp-34310 reads the coefficient R (units of g, sign E_star/m<0);
+  // imp-34247 reads -p=+1 via dy/dk=d/dk ln g=p/(k-k*), in which R CANCELS -> dimensionless order +1 for ANY
+  // nonzero R (numerically unchanged to <1e-6 under a ~5e7 rescale of R). The resid_exp local slope m is the
+  // bridge: R=E_star/m and m!=0 => order-1 => exponent -1 => log-residue +1. The two residues differ by ~8
+  // orders and by sign precisely because one is an amplitude and the other a dimensionless order, NOT two
+  // readings of one quantity, and neither determines the other -- MUTUALLY CONSISTENT and NON-REDUNDANT. The
+  // same g reproduces BOTH the imp-34310 near-flank ratio g(21.25)~+6.39e-7 (measured +5.9e-7) AND the
+  // imp-34247 near-pole landmark +1.013. Import-light (no zeros bundle; baked reference literals). Derivation/
+  // measurement only; surrogate NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
+  // untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED. 6 assertions.
+  '/src/data/imp-34398-eflow-resid-pole-residue-channel-reconciliation.js',
   // imp-34312: SWEEP the bounded a - b/kEnd ceiling estimate a across a MONOTONE sequence of nested grids
   // (fixed left anchor kEnd = 14.0, right edge kEnd_max growing one window at a time 15.0 -> 21.0, up to the
   // k* ~ 21.28 surrogate edge) and measure whether it converges. The estimate does NOT: it climbs strictly
@@ -5127,6 +5156,17 @@ const DATA_MODULES = [
   // assertions. Measurement only; component model NOT rigorous; C_mb GUE-conditional per imp-486
   // untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34372-lockstep-ratio-deeptail-persistence.js',
+  // imp-34374: refits the imp-34287 pole-proximity regression g ~ 1.4074 + 0.2361/(k*-kEnd) using the
+  // imp-34169 resid_exp pole at FULL bisection precision (k* ~ 21.280947425) instead of the baked 6-digit
+  // 21.280947. The refinement is only dk* ~ +4.25e-7, so the prefactor moves +3.35e-6 (0.236112 ->
+  // 0.236116), the floor -1.77e-6 (1.407443 -> 1.407441), and R^2 improves +7.45e-7 (0.923517 ->
+  // 0.923518); the baked fit reproduces imp-34287 exactly. Local sensitivity db/dk* ~ +7.87 (da/dk* ~
+  // -4.17, dR^2/dk* ~ +1.76) with k* pinned to ~1e-7 => the pole-artifact attribution is ROBUST. The
+  // imp-34127 closed-form k* ~ 21.00 is inadmissible (below the last window 21.25, NaN R^2). Import-light,
+  // 6 assertions. imp-34287 verdict UNCHANGED; SUB-GAP-imp-34287-asymptotic-class-undecidable stays open;
+  // component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched;
+  // PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34374-pole-proximity-refit-refined-kstar.js',
   // imp-34375: cross-validates the imp-34286 bias-corrected leading prefactor a ~ 0.437-0.438 (in the
   // approach gap g(kEnd) = 1 - numerator ~ a/kEnd) against an explicit TWO-TERM fit g ~ a/kEnd + b/kEnd^2,
   // done as an OLS of g*kEnd on u = 1/kEnd (intercept = a, slope = b). FINDING: adding the curvature term

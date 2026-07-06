@@ -6455,6 +6455,15 @@ const DATA_MODULES = [
   // pinned to {2,3,4} while r_k moves to {4.00,9.17,15.98} and the q3/q4 deviation
   // from 2^k flips sign, confirming the F3 residual is footing-dependent ULP scatter.
   '/src/data/imp-34712-second-footing-collapse-ladder-crossvalidation.js',
+  // imp-34643: audit of the imp-34606..34613 measurement cluster found five modules
+  // (imp-34606, imp-34609, imp-34611, imp-34612, imp-34613) carry self-executing
+  // *_ASSERTIONS arrays that were absent from this DATA_MODULES sweep; wired in below.
+  '/src/data/imp-34606-roundoff-amplification-exponent-ladder.js',
+  '/src/data/imp-34609-eflow-attr-near-far-slope-diff-log-corrected.js',
+  '/src/data/imp-34611-plateau-drift-independent-stencil-crosscheck.js',
+  '/src/data/imp-34612-eflow-attr-convexity-vs-analytic-log3-curvature.js',
+  '/src/data/imp-34613-eflow-attr-log-slope-second-deriv-sign.js',
+  '/src/data/imp-34643-measurement-cluster-invariant-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

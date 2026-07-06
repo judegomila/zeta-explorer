@@ -4769,6 +4769,18 @@ const DATA_MODULES = [
   // composite -> 3 stand. Measurement/fit only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066
   // K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-34428-fartail-correction-two-term-fit.js',
+  // imp-34466: DERIVES analytically the sub-leading O(1/log^2 T0) coefficient c2 of the far-tail r-exponent
+  // from the imp-34407 refined finite-L formula c_analytic(L) = 4 L (L-lam)/([(L-lam)^2-1] B_D), and compares
+  // it against the imp-34428 two-term-fit measured c2 = +6.90. Expanding c_analytic in x = 1/L (the -x/+x from
+  // 1/L and 1/(L-lam-1) cancel, so B_D = 1 + O(x^2)) gives c_analytic = 4 + 4 log(2pi)/L + 4 log(2pi)(log(2pi)-1)/L^2,
+  // so c2 = 4 log(2pi) ~ 7.3515 EXACTLY (the precise realisation of the imp-34407 sub-leading-log(2pi) remark),
+  // c3 = 4 log(2pi)(log(2pi)-1) ~ 6.16. The derived 7.3515 matches the reproduced imp-34428 fit c2 = +6.8975 to
+  // ~6.18% over log T0 in [39.21, 76.01]; the ~0.45 residual is the positive third-order c3/L^2 term leaking into
+  // the two-parameter fit (which lifts c1 to 4.009 above the exact 4 and pulls c2 below 7.35), with resid*L^2 ->
+  // c3 as L: 40 -> 2000. So c2 = 4 log(2pi) is derived and CONSISTENT with imp-34428; c1 = 4, r-exponent -> 2
+  // stand. Derivation/measurement only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched;
+  // PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34466-fartail-r-exponent-c2-derivation.js',
   // imp-34432: measures the SECOND-ORDER correction to the imp-34329 limiting COMPOSITE exponent 3 by
   // fitting composite(thr) = 3 - a/log T0 - b/log^2 T0 across the deep-tail probe (thr down to 1e-12).
   // On the INSTANTANEOUS composite exponents the leading coefficient a collapses to 4.00 (from single-term
@@ -5517,6 +5529,34 @@ const DATA_MODULES = [
   // check only; component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066
   // K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34454-bridge-slope-three-rung-tabulation.js',
+  // imp-34455: SHARPENS the imp-34371 span = 4W loss-of-knee frontier on a finer window-gap grid and
+  // quantifies, for the first time, the finite-precision evaluation-noise floor imp-34371 F2 only
+  // ASSERTED (never measured). At the imp-34371 counting-floor threshold (numBrackets = 4, numD2 = 2)
+  // the sigma(N) D2 knee sits SNR in [2.68e10 (W=0.1) .. 1.90e13 (W=0.5)] above the analytic FP-
+  // propagation noise floor noiseFloorD2 = sqrt(6)*EPS*yscale/sqrt(Sxx) across the whole imp-34371
+  // width band -- confirming F2 ("pure resolution floor, NOT noise-limited") with numbers. On a finer
+  // grid the SNR falls as a clean SNR ~ W^4 power law (log-log fit slope 4.038, signal ~ W^3, noise ~
+  // W^-1), directly resolved down to a window gap W = 0.001 decade (SNR = 238, still >> 1) and fit-
+  // extrapolated to an SNR = 1 crossover W* ~ 2.57e-4 -- ~390x FINER than imp-34371 finest tested
+  // width 0.1. So the imp-34371 frontier is COUNTING-limited (numBrackets >= 4), never noise-limited.
+  // HONEST sub-gap: the noise floor is an analytic FP-propagation estimate, NOT a sampled band, and W*
+  // is fit-extrapolated below the directly resolvable grid (at W ~ W* the OLS exponents themselves go
+  // FP-noise-dominated). Import-light (reuses the imp-34371 effectiveHeightForN / C_C_PINNED deps,
+  // live recompute asserted against baked reference literals). Measurement / detectability diagnostic
+  // only; surrogate NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
+  // untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED. 7 assertions.
+  '/src/data/imp-34455-d2-knee-noise-floor-threshold.js',
+  // imp-34468: BISECTS the imp-34413 / imp-34247 pole-leakage metric leak(k) = 100 |dy/dk(k) - P| / |P|
+  // (P = dy/dk(k=14) ~ -0.977) at the 3% and 8% thresholds, completing the 1%/3%/8% clean-window
+  // degradation ladder above the imp-34413 k ~ 18.106 one-percent crossing. Reuses the IDENTICAL imp-34247
+  // metric, imp-34188 window, and imp-34023 pole k* ~ 21.28095. FINDINGS: the 3% crossing is k ~ 18.49677
+  // (just below k=18.5, refining imp-34247 R3 s coarse "~3% at 18.5"); the 8% crossing is k ~ 19.03440 --
+  // ABOVE k=19, since leak(19) ~ 7.567% is BELOW 8%, so the inherited ">~8% by k=19" figure rounded up.
+  // The full ladder {18.106, 18.497, 19.034} strictly increases and widens (1%->3% ~0.391 decades,
+  // 3%->8% ~0.538), all below the pole. Import-light (only effectiveHeightForN + C_C_PINNED). 5 assertions.
+  // Measurement / threshold-location only; component model NOT rigorous; C_mb GUE-conditional per imp-486
+  // untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34468-pole-leakage-3-8-percent-crossings.js',
 ];
 
 let ALL_MODULES = FAST_MODE

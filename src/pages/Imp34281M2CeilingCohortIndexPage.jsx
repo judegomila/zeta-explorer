@@ -13,6 +13,7 @@ import { IMP34109_FIXED_BAND_PEAK_AMPLITUDE_SATURATION_FIT } from '../data/imp-3
 import { IMP34285_CLOSEDFORM_GAP_TERM_DECOMPOSITION } from '../data/imp-34285-closedform-gap-term-decomposition.js';
 import { IMP34288_TROUGH_PEAK_RATIO_CEILING_EXTENSION } from '../data/imp-34288-trough-peak-ratio-ceiling-extension.js';
 import { IMP34311_M2_CLOSEDFORM_5POINT_ENDPOINT_STENCIL_SHARE } from '../data/imp-34311-m2-closedform-5point-endpoint-stencil-share.js';
+import { IMP34314_M2_CEILING_TWO_PATH_BISECTION_RESIDUAL } from '../data/imp-34314-m2-ceiling-two-path-bisection-residual.js';
 
 const KEND_GAP_DECOMPOSITION_SUB_COHORT = [
   {
@@ -207,6 +208,31 @@ export default function Imp34281M2CeilingCohortIndexPage() {
         to zero, and the crossing recedes to +infinity in both the closed form and the exact bisection
         (never re-crossing zero for k in [10, 35]). Readers should not read the -0.28 offset as a
         competing ceiling. Measurement only; no bound changes.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>
+          imp-34314 two-path bisection residual (what imp-34302 gates but never tabulates):
+        </strong>{' '}
+        the imp-34302 gate live-imports imp-34127's OWN independent bisection{' '}
+        (kEnd_bisected = {IMP34314_M2_CEILING_TWO_PATH_BISECTION_RESIDUAL.kEndBisectedImp34127}) and the
+        imp-34023/imp-34237 canonical ceiling{' '}
+        (kEnd* = {IMP34314_M2_CEILING_TWO_PATH_BISECTION_RESIDUAL.kEndStarCanonical}) and only asserts they
+        agree to within 1e-2 -- without recording the residual. Measured explicitly, kEnd_bisected - kEnd* ={' '}
+        {IMP34314_M2_CEILING_TWO_PATH_BISECTION_RESIDUAL.twoPathResidual}; including the 1e-4 quantization of
+        imp-34127's published literal the true two-path agreement is bounded by{' '}
+        {IMP34314_M2_CEILING_TWO_PATH_BISECTION_RESIDUAL.agreementUpperBound}, a quantified confirmation that
+        the two independent code paths land on the same canonical ceiling. Measurement only; no bound changes.
       </div>
 
       <div

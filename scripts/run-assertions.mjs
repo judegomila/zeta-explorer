@@ -4727,6 +4727,15 @@ const DATA_MODULES = [
   // both descending to the derived limit c = 4. Measurement/derivation only; C_mb GUE-conditional per
   // imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 7 assertions.
   '/src/data/imp-34407-fartail-composite-correction-constant-derivation.js',
+  // imp-34412: extends the imp-34329 far-tail crossover-surplus deep probe three decade-pairs deeper,
+  // to thr = 1e-18 (N_cross ~ 1.630e46, log T0 ~ 103.6, IEEE-overflow-safe). The local composite exponent
+  // keeps climbing MONOTONICALLY toward 3 across the three new windows (2.94918, 2.95451, 2.95882, all < 3)
+  // and the r-exponent with it (1.94918 -> 1.95882, all < 2), with no plateau. The residual 3 - composite =
+  // 2 - r-exponent shrinks to 0.04118 at thr = 1e-18 (from 0.05756 at thr = 1e-12), and the SECANT correction
+  // c = (2 - r-exponent) . log T0 has peaked (~4.625 at 1e-4->1e-6) and descends 4.331 -> 4.296 -> 4.267 toward
+  // the imp-34407 derived limit c = 4. Confirms the imp-34329 exactly-3 limit deeper. Measurement/fit only;
+  // C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 8 assertions.
+  '/src/data/imp-34412-fartail-composite-probe-to-1e-18.js',
   // imp-34332: fits the imp-34248 prefactor P(thr) approach to linearity. From the exact ratio
   // surplus/(thr.r) = (1-thr)/(1+(1-thr)r), the residual 1 - surplus/(thr.r) = (thr + (1-thr)r)/(1+(1-thr)r)
   // (verified to machine precision) = thr + (1-thr)^2 r + O(r^2). So the residual vanishes LINEARLY IN thr

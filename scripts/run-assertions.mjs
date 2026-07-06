@@ -4743,6 +4743,24 @@ const DATA_MODULES = [
   // inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
   // untouched; PT Lambda<=0.2 SOTA; no bound; NO QED.
   '/src/data/imp-34508-direct-e23-e24-margin-confirmation.js',
+  // imp-34524: RESOLVE SUB-GAP-imp-34508-continuum-margin-at-ulp-floor -- recompute the imp-34411 e=24
+  // top-two resid_exp margin in higher EFFECTIVE precision. imp-34508 found the double-precision e=24
+  // margin QUANTIZED to exactly 2^-53 = 1.110e-16 (8 ULP of the ~0.0653 resid values), masking whether
+  // the CONTINUUM margin sits above or below the ~1e-16 floor. This module (offline
+  // scripts/imp-34524-continuum-margin-highprec.mjs, baked literals) BYPASSES the double-precision
+  // cancellation by reconstructing the smooth resid_exp(k) peak analytically -- Richardson curvature
+  // |R2| = 3.61964221e-2 and Newton vertex k* = 8.821091375252 -- then evaluates the exact top-two
+  // difference between the two e=24 nodes straddling k*. FINDINGS: (F1) the continuum margin is BELOW the
+  // floor -- reconstructed 1.822e-17, f-independent upper bound 0.5|R2|h^2 = 6.430e-17 < 1e-16 for ANY
+  // sub-node offset. (F2) the imp-34508 2^-53 reading was a discrete 8-ULP quantization CEILING sitting
+  // ABOVE the true value (~6x it), not a marginally-above-floor value. (F3) the double-precision e=24
+  // "top-two" is ~1-ULP noise -- the two highest nodes are 3 grid steps apart (non-adjacent, 5.551e-17
+  // spread). (F4) the bound decays 4x per rung (e=24 6.430e-17, e=25 1.607e-17, e=26 4.019e-18), so no
+  // rung e>=24 reaches the floor. Import-light (reuses imp-34508 only, no zeros bundle), self-asserting
+  // (5 assertions). SUB-GAP-imp-34508 RESOLVED: continuum margin BELOW the ~1e-16 floor. Higher-effective-
+  // precision measurement only; inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486
+  // untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound; NO QED.
+  '/src/data/imp-34524-continuum-margin-below-ulp-floor.js',
   // imp-34173: DERIVE the UNIFIED k-indexed closed form for the outer phase-zero branch endpoint
   // distance/slope/curvature subsuming imp-34103 (k=-+1), imp-34104 (k=-+2) and imp-34167 (k=-+3).
   // The k-th branch theta = pi/2 -+ k pi/p (arg(-A) = k pi, p = 1 + alpha) sits at offset |k| pi/p

@@ -4748,6 +4748,17 @@ const DATA_MODULES = [
   // Cross-check/derivation only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched;
   // PT Lambda<=0.2 SOTA; no QED. 7 assertions.
   '/src/data/imp-34414-crossover-surplus-direct-cubic-expansion.js',
+  // imp-34428: reconciles the imp-34329 single-term fit c ~ 4.4 (r-exponent = 2 - c/log T0) against the
+  // imp-34349/imp-34407 derived c = 4 by adding the 1/log^2 T0 term explicitly -- a two-parameter OLS
+  // r-exponent = 2 - c1/L - c2/L^2 over the deep rungs (log T0 >= 39). On the INSTANTANEOUS exponents c1
+  // collapses to 4.01 (from single-term 4.15) with c2 ~ +6.90 and RSS 337x smaller, so ~0.15 of the
+  // excess is a GENUINE next-order 1/log^2 T0 term (as imp-34407 derived 2 - 4/L + O(1/L^2)); on the
+  // imp-34329 decade SECANT exponents the same fit leaves c1 ~ 4.46 and barely improves RSS (~1%), so the
+  // remaining ~0.35 (secant 4.49 vs instantaneous 4.15) is a finite fit-window / finite-difference
+  // artifact the 1/L^2 basis cannot absorb. Either way the leading coefficient is 4; r-exponent -> 2,
+  // composite -> 3 stand. Measurement/fit only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066
+  // K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34428-fartail-correction-two-term-fit.js',
   // imp-34441: tabulates a single reconciliation table of the four independent ~3.28e9-cluster landmark
   // locators -- imp-33723 closed-form crossover N~3.280294e9, imp-33721 sigmoid-knee inflection N*~3.38e9,
   // imp-3444 bisected crossover N~3.280294e9, and the imp-3444/imp-33582 sigma=1/2 halving landmark
@@ -4890,6 +4901,20 @@ const DATA_MODULES = [
   // Measurement/power-law fit only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT
   // Lambda<=0.2 SOTA; no QED. 4 assertions.
   '/src/data/imp-34346-fixed-band-peak-third-diff-pole-order.js',
+  // imp-34429: grid-refinement convergence study of the imp-34346 fixed-band peak third-difference
+  // EFFECTIVE pole order -- tests the imp-34346 F3 honest caveat that h=0.25 (h/x~8 near the pole
+  // k*~21.28095) under-resolves the ~0.94 (local ~0.67) order. A genuine finer-grid component recompute
+  // is blocked (SUB-GAP-imp-34346-continuous-order-blocked: resid_exp->0 below k=21.5), so this applies
+  // the identical imp-34268 backward third-difference stencil to the imp-34253 LOG-peak form f=-ln(k*-k)
+  // (the form F2 itself invokes; effective order is B-independent) on refined grids h=0.125,0.0625,...,
+  // 0.001953. FINDINGS: the effective order RISES monotonically toward 3 (tail 1.302->2.962; local
+  // last-pair 1.009->2.756) -- it does NOT fall toward 0. Three is the order-3 pole of the third
+  // derivative of a log peak (f'''=2B/(k*-k)^3; thirdDiff/h^3->2/x^3=16.000 at x=0.5), CONFIRMING the
+  // imp-34253 logarithmic peak and CORRECTING the imp-34346 F2 "order->0" reading -- the raw ~0.94 at
+  // h=0.25 is a coarse-grid under-estimate. Model-based refinement only (component finer grid still
+  // blocked); DISTINCT from imp-34310/imp-34253; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066
+  // K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34429-third-diff-order-grid-refinement.js',
   // imp-34347: tabulates the imp-34269 F3 odd-quarter interior-node increments (kEnd=17.25,17.75,...,21.25)
   // of the fixed-band (k<=10) peak -- flagged nonzero but never listed -- and splits the imp-34268 0.25-grid
   // increment sequence by right-endpoint parity to test whether the odd-quarter nodes interleave smoothly onto
@@ -5341,6 +5366,18 @@ const DATA_MODULES = [
   // rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA;
   // no bound change; NO QED.
   '/src/data/imp-34410-complement-identity-direct-secant-crossvalidation.js',
+  // imp-34427: decomposes the imp-34349 gap between the MONOTONE analytic point-exponent
+  // e_pt(thr)=2-4/log T0 (M1, rising 1.808->1.898) and the MEASURED local secant d log r/d log thr,
+  // which has a shallow MINIMUM ~1.875 near thr~0.005-0.01 (M2). log T0(thr)=C-2 log thr+2 log(1-thr):
+  // the e_pt derivation keeps only the pure -2 log thr power-law; the dropped +2 log(1-thr) is the
+  // (1-thr) factor of the imp-34174 P(thr) linear prefactor. Rebuilding the imp-34349 crossover with
+  // that (1-thr)^2 factor SUPPRESSED ((1-thr)->1), the local secant becomes STRICTLY MONOTONE
+  // (1.8094->1.8882, no minimum) and tracks e_pt; the shallow minimum is ABSENT, so it is produced
+  // ENTIRELY by the prefactor-curvature contribution Delta_pref=full-pure, which is positive, decays
+  // to ~0 (1.175->0.0005), and matches the analytic point scale 2 thr(1-2/log T0) at each window
+  // geometric mean to within ~13% deep in the tail. Decomposition/measurement only; C_mb GUE-conditional
+  // per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34427-measured-slope-minimum-prefactor-decomposition.js',
 ];
 
 let ALL_MODULES = FAST_MODE

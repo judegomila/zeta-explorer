@@ -104,6 +104,28 @@ export default function Imp34377ResidExpPoleCohortIndexPage() {
           color: '#64748b',
         }}
       >
+        <strong style={{ color: '#94a3b8' }}>Later pole-cohort measurements (no dedicated viz pages):</strong>{' '}
+        imp-34309 leave-one-out over the three near-pole windows shows the imp-34233 linear-overtakes-log
+        flip is FRAGILE -- it hinges entirely on the single closest-to-pole window kEnd=21.0, reversing
+        back to log if that one window is deleted. imp-34310 measures the resid_exp zero at k* as a SIMPLE
+        pole (odd-order sign change) in the eflow_over_resid channel, with local slope ~-2.32e-7 and leading
+        residue R~-1.979e-8. imp-34311 recomputes the imp-34127 closed-form M2 residual with a matched
+        5-point (vs 2-point) pEcoll endpoint stencil and finds it removes 100% of the -0.28 residual --
+        the sign-change ceiling itself dissolves, confirming the estimator-bias attribution over a
+        competing ceiling.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
         <strong style={{ color: '#94a3b8' }}>Honest sub-gap (SUB-GAP-imp-34287-asymptotic-class-undecidable):</strong>{' '}
         the surrogate domain terminates at k* ~ {IMP34169_FIXED_BAND_PEAK_EXTENDED_DECADE_SURROGATE_ZERO.surrogateZero.continuousZeroKStar} before any pole-free window
         can separate a genuine super-log signature from pole contamination -- the whole re-acceleration

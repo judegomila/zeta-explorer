@@ -12344,6 +12344,30 @@ export const glossary = [
       'imp-34228 the live-vs-stored offset that only binary128, not 80-bit, resolves (imp-34228)',
     ],
   },
+  {
+    term: 'q2/q3 drift-residual split: order-preserved regime-stability as sigma->1',
+    category: 'numerical',
+    definition:
+      'A quick-lookup headword for the deep-tail stability question answered by imp-34573 about the ' +
+      'imp-34543 q2/q3 O(h^2) coefficient split (curvature term C_q2 ~98%, third-derivative term C_q3 ~2%; ' +
+      'see the fuller imp-34531/imp-34543 drift-residual attribution ladder entry for the full decomposition). ' +
+      '"Order-preserved" means C_q2 stays the dominant share and the split never inverts anywhere on the ' +
+      'N=1e13..1e14 ladder, including the deep tail (N >= N* ~ 4.62e13, sigma < 0.01). The q3 share does drift ' +
+      'downward toward sigma->1 -- ~21% at the parents’ step size -- but a coarser step-size cross-check shows ' +
+      'most of that drift is finite-difference conditioning, not a genuine sigma-dependence: the intrinsic ' +
+      'decline after correcting for conditioning shrinks to a mild ~8%. So the regime is stable in kind (no ' +
+      'sign flip, no crossover) even though the exact percentages are a mid-range snapshot rather than ' +
+      'sigma-uniform constants.\n\n' +
+      'HONEST SCOPE: descriptive stability check on an already-certified O(h^2) coefficient decomposition, not ' +
+      'a new derivation; the inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; C_mb ' +
+      'remains GUE-conditional per imp-486; changes no bound; no RH verdict, NO QED.',
+    firstUsed: 'imp-34573 (deep-tail sigma->1 stability check on the imp-34543 q2/q3 split), 2026',
+    relatedTerms: [
+      'imp-34543 drift-residual attribution ladder: 6% -> 0.9% -> 0.4% as the O(h^2) coefficient is decomposed (imp-34531/imp-34543 drift-residual attribution ladder)',
+      'imp-34573 the deep-tail stability check this headword summarizes (imp-34573)',
+      'imp-34566 confirms the next-order q4 term contributes ~0% to the surviving ~0.4% (imp-34566)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

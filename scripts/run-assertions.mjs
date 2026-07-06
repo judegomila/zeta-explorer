@@ -6051,6 +6051,22 @@ const DATA_MODULES = [
   // model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT
   // Lambda<=0.2 SOTA; no bound; NO QED.
   '/src/data/imp-34628-deflow-second-order-se-target-window.js',
+  // imp-34634: MEASUREMENT -- extends the imp-34607 deflow 1/log^2(N) identifiability window from a
+  // fixed-high-anchor 1-D slice (kEnd = 20, span ~43.5 for VIF < 10) to a 2-D grid of BOTH span
+  // endpoints. The anchored kHi = 20 slice reproduces imp-34607 exactly (reuse gate). FINDING:
+  // relaxing the anchor DOES materially reduce the required span -- the min-span VIF = 10 crossing
+  // decreases monotonically as kHi drops (~43.5 at kHi=20 -> ~22.1 at kHi=10 -> ~20.0 at kHi=9), to a
+  // GLOBAL minimum feasible span ~19.6 log N at kHi ~8.8 (low end pinned at the physical floor N = 2),
+  // ~0.45x the anchored span, so the 1-D slice overstates the minimum by ~2.2x. Below kHi ~8.8 the
+  // floor binds and VIF < 10 is unreachable at any span. Mechanism: corr(u, u^2) is scale-invariant in
+  // u and driven by the range ratio kHi/kLo, larger at lower absolute k for a fixed span. BUT the
+  // minimum-span window sits at N ~2..6e8, even further below the deep-N surrogate regime than the
+  // imp-34607 window, so the required-span NUMBER changes but the qualitative conclusion does not: the
+  // coefficient stays non-identifiable in any accessible window (structural non-resolvability
+  // reinforced). Reuses the imp-34448 export verbatim (import-light). 6 assertions. Measurement only;
+  // component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
+  // untouched; PT Lambda<=0.2 SOTA; no bound; NO QED.
+  '/src/data/imp-34634-deflow-second-order-both-endpoints-window.js',
   // imp-34572: EXTENDS the imp-34406 eflow_attr smooth-bracket recovery to rungs ABOVE the pole
   // k* ~ 21.28095 (k = 21.30 .. 21.60, all > k*), since imp-34406 bracketed only k = 21.00 .. 21.50
   // (at/below k*). Recovers eflow_attr = (E_flow/E_N)*|d ln E_flow/d log10 N| DIRECTLY via the
@@ -6276,6 +6292,15 @@ const DATA_MODULES = [
   // headword, and 2 a ConceptsPage explainer, each independently repeating it.
   // AUDIT-ONLY, no surfacing fix applied. 6 assertions.
   '/src/data/imp-34521-caveat-surfacing-audit-34468-34489.js',
+  // imp-34561: AUDIT (extending the imp-34521 precedent) of whether the
+  // shared honest-status caveat carried by imp-34528/34530/34532/34533 is
+  // surfaced wherever a page/viz consumes their exports. FINDING: no gap --
+  // all 4 `detail` rows in improvements.js carry the caveat; imp-34528 and
+  // imp-34530 additionally have a dedicated viz page, imp-34530 and imp-34533
+  // additionally have a glossary.js headword, and imp-34532 (no page of its
+  // own) is reached only via imp-34557's page, which still carries it.
+  // AUDIT-ONLY, no surfacing fix applied. 6 assertions.
+  '/src/data/imp-34561-caveat-surfacing-audit-34528-34530-34532-34533.js',
 ];
 
 let ALL_MODULES = FAST_MODE

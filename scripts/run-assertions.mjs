@@ -5981,6 +5981,19 @@ const DATA_MODULES = [
   // export verbatim (import-light). 6 assertions. Measurement only; component model NOT rigorous;
   // C_mb GUE-conditional per imp-486 untouched; PT Lambda<=0.2 SOTA; no bound; NO QED.
   '/src/data/imp-34571-deflow-exponent-vs-analytic-slope.js',
+  // imp-34584: MEASUREMENT -- assesses whether adding a 1/log^2(N) second-order term to the imp-34571
+  // observed-only deflow refit p = pInf - c/log(N) tightens pInf toward 1. FINDING: it does NOT. The
+  // two-parameter fit p = pInf - c/log(N) - d/log^2(N) on the same six directly-observed rungs (kMid
+  // 16.125..19.875) moves pInf AWAY from 1 (1.00073 -> 0.94650), so |pInf - 1| GROWS ~73x (7.3e-4 ->
+  // 5.4e-2); the in-sample RMS merely halves (2.74e-4 -> 1.40e-4) by overfitting. The recovered
+  // d ~ +91.7 is ~30x the O(1)-O(3) E_flow log^3(N)/N model-coefficient scale and c flips to an
+  // unphysical -1.26 (vs +3.21). Cause: over the narrow observed window the predictors 1/log(N) and
+  // 1/log^2(N) correlate ~0.9995, so the second-order term is not identifiable -- the ~7.3e-4 residual
+  // is NOT resolvable to next order from these six rungs; the one-parameter refit stays the honest
+  // estimator. Reuses the imp-34448 export verbatim (import-light). 6 assertions. Measurement only;
+  // component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
+  // untouched; PT Lambda<=0.2 SOTA; no bound; NO QED.
+  '/src/data/imp-34584-deflow-refit-second-order-term.js',
   // imp-34572: EXTENDS the imp-34406 eflow_attr smooth-bracket recovery to rungs ABOVE the pole
   // k* ~ 21.28095 (k = 21.30 .. 21.60, all > k*), since imp-34406 bracketed only k = 21.00 .. 21.50
   // (at/below k*). Recovers eflow_attr = (E_flow/E_N)*|d ln E_flow/d log10 N| DIRECTLY via the
@@ -5998,6 +6011,38 @@ const DATA_MODULES = [
   // only; inherited surrogate NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066
   // K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34572-eflow-attr-far-side-pole-smoothness.js',
+  // imp-34586: EXTENDS the imp-34572 far-side eflow_attr smooth-bracket ladder PAST its top rung
+  // k=21.60 toward the double-precision floor (k = 21.70 .. 22.00, uniform h=0.05) to test whether
+  // the monotone smoothness and the finite local log-slope persist to the fp floor or whether
+  // cancellation/roundoff corrupts the recovery. Recovers eflow_attr = (E_flow/E_N)*|d ln E_flow/
+  // d log10 N| DIRECTLY via the verbatim imp-34169 machinery; the handoff rung k=21.60 reproduces the
+  // imp-34572 far endpoint EXACTLY (reuse gate). FINDINGS: (F1) eflow_attr strictly positive and
+  // strictly monotone decreasing all the way to k=22.00 (1.82794e-15 -> 9.55437e-16, min +9.554e-16
+  // at k=22.00, ~5.6 orders clear of zero and ~292 orders above the denormal floor 4.9e-324), no
+  // local zero/sign-change/kink; (F2) local per-k log-slope -2.16163 .. -2.16355 across 21.70..22.00,
+  // a smooth monotone steepening of just -0.0019 seamlessly continuing the imp-34572 -2.16098 at
+  // k=21.60 with no jump/kink/acceleration, second differences strictly positive (+7.665e-15 ->
+  // +4.980e-15, convex, same sign as imp-34572 +1.318e-14) -> convexity preserved to k=22.00; (F3)
+  // the recovery STAYS CLEAN to the fp floor because eflow_attr is a product of well-scaled O(1e-15)
+  // factors (NOT the near-pole difference resid_exp), so no cancellation/roundoff enters -- deepest
+  // clean rung is k=22.00 (top of window); only the eflow_over_resid RATIO (dividing by the vanishing
+  // resid_exp) is fp-sensitive near k*, not eflow_attr itself. Import-light (reuses imp-34572 handoff
+  // rung, baked literals). 6 assertions. Measurement only; inherited surrogate NOT rigorous; C_mb
+  // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound
+  // change; NO QED.
+  '/src/data/imp-34586-eflow-attr-fp-floor-far-side-ladder.js',
+  // imp-34585: REFINES the imp-34570 PURE power-law fit of the smooth eflow_attr(k) bracket by
+  // testing a LOG-CORRECTED form eflow_attr ~ A*N^p*(ln N)^q against the analytic E_flow ~
+  // log^3(N)/N structure. Same 8 baked imp-34406 rungs, a 3-parameter OLS on design [1, ln N,
+  // ln ln N] (import-light). FINDINGS: (F1) the log-correction collapses the residual by ~4 orders
+  // of magnitude -- max log-residual 1.40e-4 -> 1.52e-8 (~9217x), RMS 8.42e-5 -> 1.05e-8 (~8044x),
+  // 1-R^2 = 1.07e-15; (F2) recovered p = -1.002844 recovers the analytic N^-1 falloff to 0.28% (the
+  // pure fit blended it into a fractional -0.9375); (F3) recovered q = 3.348339 lands +0.348 (+11.6%)
+  // above the analytic log^3 exponent 3, the excess consistent with the |g| = 1 - 3/ln N attractor
+  // curvature. So (p, q) ~ (-1, 3) log^3(N)/N structure RECOVERED. 5 assertions. Measurement only;
+  // inherited surrogate NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
+  // untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34585-eflow-attr-log-corrected-fit.js',
   // imp-34490: PROPAGATION -- carries the imp-34449 measured residue bar R = -1.756e-8 +/- 0.019e-8
   // (~+/-1.1% half-width) into the imp-34310 / imp-34398 / imp-34454 residue-channel consumers and
   // reports whether the band changes any qualitative verdict. (P1) the simple-pole (order-1)

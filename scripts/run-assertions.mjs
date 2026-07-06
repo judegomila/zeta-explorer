@@ -6507,6 +6507,12 @@ const DATA_MODULES = [
   // largely closed (~81% of the way to corruption), and the exact dp-star runs ~7.7%
   // above the closed-form asymptote at 1e300 so the true crossing is earlier than ~1e375.
   '/src/data/imp-34754-dp-star-probe-band-ratio-deep-tail.js',
+  // imp-34757: extend the imp-34731 closed-form-vs-central-difference cross-check of the
+  // crossover-map second derivative g_double_prime = -4 pi^2 K (u+1)/(T^2 u^3) from 5 probes
+  // on [1e9,1e10] to 63 probes across three post-peak bands [1e9,1e10],[1e10,1e11],[1e11,1e12];
+  // closed form still matches the central difference to < 1e-5 relative (max ~8e-7) and the
+  // sharp-supremum ratio B(band)/max_band = 1.000 on every band. Standing accuracy guard.
+  '/src/data/imp-34757-crossover-gpp-dense-cross-check.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -5127,6 +5127,19 @@ const DATA_MODULES = [
   // Measurement/grid-refinement only; imp-33843 form verdict untouched; imp-486/C_C & imp-3066 K_a>=0
   // untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-34369-peak-relocation-regime-width.js',
+  // imp-34452: SHARPEN the imp-34369 half-open peak-relocation endpoint bracket (9.25, 9.5] by rebuilding
+  // the ladder on a FINER rung grid (dk = 0.125, 0.05, 0.025; single added dk parameter, reuse gate at
+  // dk = 0.25 reproduces the imp-34369 coarse kEnd = 15.25 ratio 0.9072 and kEnd = 15.5 peak k=6.5 rows).
+  // (F1) The relocation endpoint TIGHTENS and CONVERGES: first-migrated width 9.375 (dk=0.125) -> 9.4
+  // (dk=0.05) -> 9.4 (dk=0.025), settling into the bracket (9.375, 9.4] -- ~5x narrower than imp-34369 and
+  // centred BELOW its coarse first-migrated width 9.5; converged endpoint kEnd = 15.4 (w = 9.4). (F2) The
+  // migration REMAINS a discrete rung-quantized step at every resolution (argmax flips across a single rung
+  // addition), so refining sharpens WHERE the step sits without turning it continuous -- imp-34369 F1 stands.
+  // HONESTY: the ladder OLS surrogate is resolution-dependent, so ratio magnitudes at a fixed kEnd shift with
+  // dk (0.9072 -> 0.8669); the sharpened quantity is the endpoint LOCATION, not the ratio value. Measurement/
+  // grid-refinement only; imp-33843 form verdict untouched; imp-486/C_C & imp-3066 K_a>=0 untouched; PT
+  // Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34452-peak-relocation-endpoint-fine-rung.js',
   // imp-34293: ASSESS whether the imp-34213 E_flow onset (fixed point in the height T0) and the
   // imp-33723 E_coll=E_trunc crossover (fixed point in N) can be coupled into a single joint (N,T0)
   // fixed-point system linked by the Riemann-von Mangoldt height law, and MEASURE the joint 2x2
@@ -5478,6 +5491,32 @@ const DATA_MODULES = [
   // rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no
   // bound change; NO QED. 6 assertions.
   '/src/data/imp-34451-residue-pole-location-vs-curvature-error-budget.js',
+  // imp-34453: ASSEMBLES the full headline E(N) = E_trunc + E_flow + E_coll at the imp-3444 E_coll =
+  // E_trunc crossover N ~ 3.280294e9 (the currentStatus/imp-33582 sigma-halving landmark) -- a value
+  // imp-3444 tabulated as a LANDMARK (N, sigma) but never assembled as a headline slack. Reusing the
+  // identical imp-3444/imp-3406/imp-3220 sub-term formulas and re-pinning the crossover by the same
+  // bisection: E_trunc = E_coll = 3.06e-5, E_flow = 5.812e-8 (negligible, E_flow/E_trunc ~ 1.9e-3),
+  // so the headline GUE-conditional slack Lambda <= E(N) = 6.1258e-5 is, to 0.19%, exactly TWICE the
+  // truncation floor (E(N)/E_trunc = 2.0019) and reproduces the imp-3444 landmark sigma ~ 0.49953 ===.
+  // This slack sits a factor ~1975 BELOW the unconditional finite-height beat L_pt ~ 0.121 (imp-452/
+  // imp-459): L_pt/E(N_cross) = 1975.2 -- a CONDITIONALITY gap, since E(N) is dominated by GUE-
+  // conditional E_coll (C_H = 1/8) plus rigorous E_trunc while L_pt is fully unconditional; the ~2000x
+  // separation is the headroom the C_H route claims over the standing rigorous certificate, NOT a bound.
+  // Measurement only; C_mb remains GUE-conditional per imp-486; no bound change; NO QED; PT Lambda <=
+  // 0.2 remains SOTA. 5 assertions.
+  '/src/data/imp-34453-crossover-en-headline-slack-vs-lpt.js',
+  // imp-34454: TABULATE the imp-34398 bridge quantity (resid_exp local slope m) at THREE rungs,
+  // confirming the R = E_star/m COEFFICIENT (imp-34310) and p = -1 EXPONENT (imp-34247) are two
+  // readings of ONE leading Laurent monomial g ~ R (k - k*)^{-1} at k* ~ 21.28095 -- a relation
+  // imp-34398 asserts but never tabulates. RUNG 1 near-zero bisected slope m1 = -2.3156e-7 -> R1 =
+  // E_star/m1 = -1.979e-8; RUNG 2 flank-canonical at k = 21.25 recovers R2 = -1.979e-8, m2 = -2.3156e-7
+  // (rung-invariance of one monomial); RUNG 3 flank-measured (imp-34310 F3 ratio +5.9e-7) gives R3 =
+  // -1.826e-8 (~7.7% smaller), m3 = -2.510e-7. The exponent p = -1 (read +1.0034) holds at every rung
+  // and is coefficient-independent; the three bridge-slope reads land in an ~8.4% band [-2.510e-7,
+  // -2.316e-7]. Import-light (imports NOTHING; baked reference literals). 5 assertions. Tabulation /
+  // check only; component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066
+  // K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34454-bridge-slope-three-rung-tabulation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -12394,6 +12394,31 @@ export const glossary = [
       'imp-34606 the {2,3,4} roundoff-amplification exponent ladder that reproduces this q4 ~1/dp^4 rung on a common footing (imp-34606)',
     ],
   },
+  {
+    term: 'imp-34585 log-corrected eflow_attr recovery: splitting off log^q(N) recovers the integer N^-1 falloff a pure power law blends into a fractional exponent',
+    category: 'numerical',
+    definition:
+      'A quick-lookup headword for the imp-34585 refit of the imp-34570 eflow_attr(k) power-law bracket. ' +
+      'imp-34570 fit the 8 baked imp-34406 rungs to a PURE power law eflow_attr = A*N^p and recovered a ' +
+      'FRACTIONAL exponent p = -0.937481 (R^2 = 0.99999993, RMS log-residual 8.42e-5, max 1.40e-4), 6.3% shy ' +
+      'of the analytic E_flow ~ log^3(N)/N falloff N^-1. imp-34585 refit the SAME 8 rungs with a log-corrected ' +
+      'form eflow_attr = A*N^p*(ln N)^q via a 3-parameter OLS, and found the log-correction collapses the max ' +
+      'log-residual to 1.52e-8 (~9200x smaller) while recovering p = -1.002844 (within 0.28% of the analytic ' +
+      '-1) and q = 3.348339 (+11.6% above the analytic log^3 exponent 3, the excess consistent with the mild ' +
+      '|g| = 1 - 3/ln N attractor factor in eflow_attr = (E_flow/E_N)*|g|). The pure power law was not wrong, ' +
+      'it was a single-power BLEND of the true N^-1 falloff and the rising log^3(N) factor; separating them ' +
+      'both fits far better and recovers the analytically expected structure.\n\n' +
+      'HONEST SCOPE: a log-corrected OLS refit of the inherited surrogate numerator eflow_attr, reusing the ' +
+      'imp-34406 baked rungs verbatim; not a new derivation; the inherited imp-3220/imp-3406 component model ' +
+      'is NOT a rigorous asymptotic; C_mb remains GUE-conditional per imp-486; changes no bound; no RH ' +
+      'verdict, NO QED.',
+    firstUsed: 'imp-34585 (log-corrected refit of the imp-34570 eflow_attr power-law bracket against the analytic E_flow ~ log^3(N)/N structure), 2026',
+    relatedTerms: [
+      'imp-34570 the pure power-law fit recovering the fractional p = -0.9375 this refines (imp-34570)',
+      'imp-34406 the 8 baked eflow_attr rungs reused verbatim by both fits (imp-34406)',
+      'imp-34590 the companion finite-rung-not-floor residual-extrapolation result on the same bracket family (imp-34590)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

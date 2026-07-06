@@ -313,6 +313,7 @@ const Imp34269FixedBandPeakSharedGridCrossRecomputeViz = lazy(() => import('./pa
 const Imp34377ResidExpPoleCohortIndexPage = lazy(() => import('./pages/Imp34377ResidExpPoleCohortIndexPage.jsx'));
 const Imp34378TroughPeakRatioCeilingViz = lazy(() => import('./pages/Imp34378TroughPeakRatioCeilingViz.jsx'));
 const Imp34383D2SignChangeGridViz = lazy(() => import('./pages/Imp34383D2SignChangeGridViz.jsx'));
+const Imp34417SigmaVsProductGapComplementViz = lazy(() => import('./pages/Imp34417SigmaVsProductGapComplementViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1155,6 +1156,7 @@ function AppShell() {
           <Route path="/viz-imp34377-resid-exp-pole-cohort-index" element={<Imp34377ResidExpPoleCohortIndexPage />} />
           <Route path="/viz-imp34378-trough-peak-ratio-ceiling" element={<Imp34378TroughPeakRatioCeilingViz />} />
           <Route path="/viz-imp34383-d2-signchange-grid" element={<Imp34383D2SignChangeGridViz />} />
+          <Route path="/viz-imp34417-sigma-vs-product-gap-complement" element={<Imp34417SigmaVsProductGapComplementViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

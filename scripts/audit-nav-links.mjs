@@ -356,6 +356,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34378-trough-peak-ratio-ceiling',
   '/viz-imp34383-d2-signchange-grid',
   '/viz-imp34416-crossover-surplus-fartail-composite-limit',
+  '/viz-imp34417-sigma-vs-product-gap-complement',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

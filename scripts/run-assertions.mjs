@@ -5097,6 +5097,29 @@ const DATA_MODULES = [
   // measurement only; surrogate NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
   // untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED. 6 assertions.
   '/src/data/imp-34398-eflow-resid-pole-residue-channel-reconciliation.js',
+  // imp-34401: CROSS-VALIDATE the imp-34311 matched-5-point M2 residual finite handle ~+2.6e-7 at the
+  // canonical crossing k=21.28095 against an INDEPENDENT second code path. Reconstructs the imp-33810
+  // M2-endpoint parts(N) model verbatim and codes the 5-point OLS negated-log-slope operator differently
+  // (exactly five index-sampled points d=k+i/4, explicit normal-equation sums; NO incremental d += step
+  // accumulation or +1e-9 grid guard), removing any shared floating-point-loop dependence. The second path
+  // reproduces residAt5pt(21.28095)=+2.615837e-7 to a relative difference ~2.1e-10 (far tighter than the
+  // ~+2.6e-7 handle itself), while the native 2-point residual there is ~-6.7e-13 (~0 by construction). So
+  // the stencil-mismatch handle is real and code-path-robust, not an artifact of imp-34311s OLS loop.
+  // Import-light (no zeros bundle; baked +2.6e-7 reference literal), self-asserting (4 assertions). Measurement/
+  // cross-check only; reproduces imp-34311 exactly, changes no literal; canonical kEnd*~21.28095 UNCHANGED;
+  // C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound; NO QED.
+  '/src/data/imp-34401-m2-matched-5point-residual-independent-recompute.js',
+  // imp-34399: DECOMPOSE the imp-34310 ~0.0044 secant-vs-bisection offset on the resid_exp zero k*~21.28095
+  // and attribute it to convexity. imp-34310 F1/F4 recorded k_sec~21.28537 (+4.42e-3 above the bisected
+  // k*=21.28095) and the near-pole convexity (2nd diff +3.379e-7). This module quantifies the curvature
+  // share: a 3-point (quadratic, imp-34397) correction moves the zero to k_quad=21.280486, removing 89.5%
+  // of the offset (magnitude drops 4.419e-3 -> 4.64e-4 residual); a closed-form curvature-bias predictor
+  // delta=-C(k_sec-k_LO)(k_sec-k_HI)/m~-5.54e-3 reproduces the exact shift in sign and to ~13%, confirming
+  // the near-pole convexity as the mechanism. The ~10.5% residual is the uncorrected cubic term + bisection
+  // resolution (data-limited). Import-light (chains only to zero-import imp-34237 rows). Measurement/
+  // decomposition only; surrogate NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
+  // untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED. 5 assertions.
+  '/src/data/imp-34399-secant-zero-convexity-bias-decomposition.js',
   // imp-34312: SWEEP the bounded a - b/kEnd ceiling estimate a across a MONOTONE sequence of nested grids
   // (fixed left anchor kEnd = 14.0, right edge kEnd_max growing one window at a time 15.0 -> 21.0, up to the
   // k* ~ 21.28 surrogate edge) and measure whether it converges. The estimate does NOT: it climbs strictly

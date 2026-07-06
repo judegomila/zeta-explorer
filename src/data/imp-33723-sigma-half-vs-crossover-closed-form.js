@@ -66,6 +66,10 @@
  * @see imp-3444-sigma-nshape-landmark-ladder (E_coll = E_trunc crossover N ~ 3.280e9, bisected)
  * @see polymath15-constant-C-C (C_C = (1/8) sqrt(3 pi); the 1/8 ansatz per imp-2642)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 via Riemann-von Mangoldt inverse)
+ * @see imp-33743-sigma-fartail-crossover-closed-form (generalises this module's closed form to an
+ *      arbitrary threshold thr, recovering this module's amplitude K at thr = 1/2)
+ * @see imp-34270-eflow-gronwall-crossover-offset-correction (forms the explicit E_flow offset this
+ *      module named, and confirms it accounts for ~96% of the measured ~0.4% residual)
  */
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';

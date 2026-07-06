@@ -72,6 +72,14 @@
  * @see imp-eflow-constant-discharge (E_flow Gronwall flow term, imp-398 prefactor)
  * @see polymath15-constant-C-C (C_C = C_H sqrt(pi C_Selberg); C_H = 1/8 ansatz)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 = gamma_N)
+ * @see imp-33723-sigma-half-vs-crossover-closed-form (closed-form N_cross pinning this module's
+ *      identity; measures the residual from the analytic root instead of a bisected bracket)
+ * @see imp-33743-sigma-fartail-crossover-closed-form (generalises this module's identity to an
+ *      arbitrary threshold thr via N_cross(thr), evaluated at the far-tail thr = 0.1 landmark)
+ * @see imp-34174-crossover-surplus-threshold-family-decay (tabulates the E_flow surplus this
+ *      module's identity predicts across the imp-33743 threshold family)
+ * @see imp-34270-eflow-gronwall-crossover-offset-correction (forms this module's named E_flow
+ *      offset explicitly and confirms it accounts for ~96% of the measured ~0.4% residual)
  */
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';

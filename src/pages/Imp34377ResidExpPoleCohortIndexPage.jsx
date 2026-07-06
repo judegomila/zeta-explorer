@@ -10,6 +10,8 @@ import { IMP34169_FIXED_BAND_PEAK_EXTENDED_DECADE_SURROGATE_ZERO } from '../data
 import { IMP34309_COMBINED_GRID_LOO_LINEAR_FLIP_ROBUSTNESS } from '../data/imp-34309-combined-grid-loo-linear-flip-robustness.js';
 import { IMP34247_WIDENING_SLOPE_POLE_DIVERGENCE } from '../data/imp-34247-widening-slope-pole-divergence.js';
 import { IMP34310_EFLOW_OVER_RESID_POLE_RESIDUE } from '../data/imp-34310-eflow-over-resid-pole-residue-simple-pole.js';
+import { IMP34333_RESIDUE_PLUS_ONE_ESTIMATOR_INVARIANCE } from '../data/imp-34333-residue-plus-one-estimator-invariance.js';
+import { IMP34326_WIDENING_SLOPE_BACKGROUND_RECONCILIATION } from '../data/imp-34326-widening-slope-background-reconciliation.js';
 
 const COHORT = [
   {
@@ -36,6 +38,42 @@ const COHORT = [
     summary:
       'The sibling kEnd*~21.281 cohort index covering the closed-form/bisection split and the ' +
       'window-width divergence ladder around the same pole.',
+  },
+  {
+    id: 'imp-34419 / imp-34327',
+    path: '/viz-imp34419-widening-slope-minus-one-crossing',
+    title: 'Widening-Slope -1 Crossing: Above the Fit Window, Below the M2 Ceiling',
+    summary:
+      'Solves the imp-34246 two-term form for its exact -1.0 crossing in closed form (u*=45.65827): the ' +
+      'crossing sits ~2.48 decades ABOVE the k=12..18 fit window (the window never reaches -1) but is a ' +
+      'genuine PRE-POLE crossing at k*~20.48, ~0.80 decades below the k*~21.281 ceiling.',
+  },
+  {
+    id: 'imp-34417 / imp-34328',
+    path: '/viz-imp34417-sigma-vs-product-gap-complement',
+    title: 'Sigma-vs-Product Gap: the Exact Complement Identity',
+    summary:
+      'Cross-validates the imp-34197 product gap 1/(2u) against the imp-33816 sigma-exponent gap: the sigma ' +
+      'channel does NOT collapse to 1/(2u) (it keeps the log(2pi) shift), but the two gaps are EXACT ' +
+      'complements on the log T0 axis -- gapSigma*logT0 + gapProduct = 1/2 to 12+ figures at every rung.',
+  },
+  {
+    id: 'imp-34418 / imp-34330',
+    path: '/viz-imp34418-widening-residual-prepole-reversal',
+    title: 'Widening-Slope Two-Term Residual: Pre-Pole Sign Change and Divergence',
+    summary:
+      'Extends the imp-34246 residual grid from k=18 to k=20.5: the residual does NOT keep shrinking toward ' +
+      'the pole -- it crosses zero at k_best~17.80 then FLIPS SIGN and diverges (+1.401 by k=20.75), so the ' +
+      'imp-34246 zero-crossing was a finite-window coincidence, not an approach to the leading value.',
+  },
+  {
+    id: 'imp-34416 / imp-34329',
+    path: '/viz-imp34416-crossover-surplus-fartail-composite-limit',
+    title: 'Crossover-Surplus Composite Exponent: Turn and Climb Toward 3',
+    summary:
+      'Extends the imp-34248 crossover-surplus ladder into the far tail (thr down to 1e-12): the composite ' +
+      'exponent bottoms out at ~2.871 then REVERSES and climbs back, with the local r-exponent approaching 2 ' +
+      'from below -- so the well-defined limiting composite exponent is exactly 3, not the ~2.88 plateau.',
   },
 ];
 
@@ -139,7 +177,39 @@ export default function Imp34377ResidExpPoleCohortIndexPage() {
         and measures R&nbsp;~&nbsp;{IMP34310_EFLOW_OVER_RESID_POLE_RESIDUE.poleResidue.toExponential(4)}. Both are
         confirmed SIMPLE (order-1) poles of the same underlying resid_exp zero -- the magnitude gap is expected,
         since a log-derivative residue always normalizes to 1 for a simple zero while the raw-ratio residue scales
-        with the actual eflow_attr(k*) magnitude and local slope.
+        with the actual eflow_attr(k*) magnitude and local slope.{' '}
+        <strong style={{ color: '#94a3b8' }}>Estimator-invariance (imp-34333):</strong> the log-derivative residue
+        +1 is the multiplicity of the resid_exp zero (residue of f&prime;/f = order of zero), so it is invariant to
+        the estimator amplitude and the exact k* -- rescaling the zero amplitude by ~4.3e6 and shifting k* by ~6.28
+        both leave it at {IMP34333_RESIDUE_PLUS_ONE_ESTIMATOR_INVARIANCE.residueDenominator.toFixed(3)} (to &lt;&nbsp;1e-9).
+        The imp-34284 reciprocal orientation (resid_exp in the numerator) flips it to{' '}
+        {IMP34333_RESIDUE_PLUS_ONE_ESTIMATOR_INVARIANCE.residueReciprocal.toFixed(3)} (sign flip, magnitude preserved);
+        only a higher-order-zero estimator would change &#124;residue&#124; (a squared surrogate gives{' '}
+        {IMP34333_RESIDUE_PLUS_ONE_ESTIMATOR_INVARIANCE.residueOrderTwo.toFixed(3)}), and that would also destroy the
+        imp-34310 sign change -- so +1 is structurally forced.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>Widening-slope background reconciliation (imp-34326, no dedicated viz page):</strong>{' '}
+        imp-34247's pole-subtraction background B(k) = dy/dk &minus; 1/(k*&minus;k) and imp-34246's strict-derivative
+        form &minus;ln10/2 + ln10&middot;(3/u) look like competing characterizations of the same raw local widening
+        slope, but they RECONCILE rather than conflict: once the pole term cancels identically between the two
+        decompositions, the convention-matched residual R(k) = dy/dk &minus; form reproduces imp-34246's own
+        two-term plateau residual exactly ({IMP34326_WIDENING_SLOPE_BACKGROUND_RECONCILIATION.matchedResidAtK12} at k=12
+        shrinking to {IMP34326_WIDENING_SLOPE_BACKGROUND_RECONCILIATION.matchedResidAtK18} at k=18). B(k)'s apparent
+        drift is the pole term's own k-dependence, not a disagreement between the two models -- the match breaks
+        past k&nbsp;&ge;&nbsp;19 ({IMP34326_WIDENING_SLOPE_BACKGROUND_RECONCILIATION.matchedResidAtK20} at k=20) where
+        the same hump-turn / pole contamination both source modules independently flag corrupts the raw slope.
       </div>
 
       <div

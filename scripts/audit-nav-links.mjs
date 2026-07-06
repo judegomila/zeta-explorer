@@ -410,6 +410,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34641-deflow-identifiability-window',
   '/viz-imp34642-roundoff-amplification-exponent-ladder',
   '/viz-imp34655-local-scaling-order-climb',
+  '/viz-imp34656-roundoff-prefactor-amplitude',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

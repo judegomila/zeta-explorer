@@ -55,7 +55,18 @@
  *   @see imp-34253-fixed-band-peak-pole-divergence-vs-saturation-fit.js (simple linear zero, weak peak coupling)
  *   @see imp-34247 (same pole read as simple, residue +1, in the widening-slope dy/dk channel)
  *   @see imp-34023-eflow-widening-ratio-f4-collapse-extrapolation.js (bisected kEnd*~21.281)
+ *
+ *   AUDIT (imp-34393): the RUNG_K0/RUNG_LO/RUNG_HI resid_exp and ratio literals below were
+ *   hand-copied from imp-34237; IMP34310_ASSERTIONS now imports the imp-34237 source rows
+ *   directly and checks exact (===) reproduction, so any future edit to either module that
+ *   desyncs the two throws immediately instead of silently drifting.
  */
+
+import {
+  IMP34237_RESID_EXP_ROWS,
+  IMP34237_EFLOW_OVER_RESID_ROWS,
+  IMP34237_RESID_ZERO_KSTAR,
+} from './imp-34237-fixed-band-peak-reaccel-and-surrogate-pole-viz-data.js';
 
 // --- Baked inputs (imp-34237 literals) ---------------------------------------
 export const IMP34310_KSTAR = 21.28095; // canonical bisected resid_exp zero (imp-34023/imp-34237)
@@ -163,6 +174,34 @@ export const IMP34310_ASSERTIONS = [
     holds: () =>
       IMP34310_RESID_SECOND_DIFFERENCE > 0 &&
       Math.abs(IMP34310_RESID_SECOND_DIFFERENCE - 3.3792e-7) < 1e-10,
+  },
+  {
+    id: 'imp-34310-bracket-literals-match-imp34237-source-exactly',
+    description:
+      'imp-34393 audit: the baked RUNG_K0/RUNG_LO/RUNG_HI resid_exp/ratio literals and KSTAR ' +
+      'exactly (===) reproduce the imp-34237 source rows, not just approximately',
+    holds: () => {
+      const rows = IMP34237_RESID_EXP_ROWS;
+      const ratioRows = IMP34237_EFLOW_OVER_RESID_ROWS;
+      const rowK0 = rows.find((r) => r.k === RUNG_K0.k);
+      const rowLo = rows.find((r) => r.k === RUNG_LO.k);
+      const rowHi = rows.find((r) => r.k === RUNG_HI.k);
+      const ratioLo = ratioRows.find((r) => r.k === RUNG_LO.k);
+      const ratioHi = ratioRows.find((r) => r.k === RUNG_HI.k);
+      return (
+        rowK0 !== undefined &&
+        rowLo !== undefined &&
+        rowHi !== undefined &&
+        ratioLo !== undefined &&
+        ratioHi !== undefined &&
+        rowK0.residExp === RUNG_K0.residExp &&
+        rowLo.residExp === RUNG_LO.residExp &&
+        rowHi.residExp === RUNG_HI.residExp &&
+        ratioLo.ratio === RUNG_LO.ratio &&
+        ratioHi.ratio === RUNG_HI.ratio &&
+        IMP34237_RESID_ZERO_KSTAR === IMP34310_KSTAR
+      );
+    },
   },
 ];
 

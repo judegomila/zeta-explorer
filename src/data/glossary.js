@@ -11856,6 +11856,36 @@ export const glossary = [
       'imp-33843 descriptive log-surrogate form-fit that resid_exp(k) feeds, undefined past k* (imp-33843)',
     ],
   },
+  {
+    term: 'M2 ceiling: the imp-33773 M2 sub-leading residual sign-change bound, kEnd*~21.28095 (bisected) vs kEnd_cf~21.00 (closed-form)',
+    category: 'numerical',
+    definition:
+      'shorthand for the sign-change ceiling of the imp-33773 M2 sub-leading residual resid_exp(k) = ' +
+      'p_ecoll(1 - sigma) - p_sigma. TWO DISTINCT numbers carry this name and imp-34311 keeps them ' +
+      'explicitly separate: (1) kEnd*~21.28095, the imp-34023/imp-34169 BISECTED zero-crossing of the ' +
+      'actual discretized residual (resid_exp goes from +8.19e-9 at k=21.25 to -4.97e-8 at k=21.5), the ' +
+      'operative hard edge past which the eflow_over_resid log surrogate is undefined; and (2) ' +
+      'kEnd_cf~21.00, the imp-34127 CLOSED-FORM leading estimate obtained by Taylor-expanding the ' +
+      'pEcoll-2-point-secant vs pSigma-5-point-OLS discretization mismatch (a net cubic-bias gap of ' +
+      'exactly D^2/160, D=ln10) and inverting through the sigma(N) far-tail law.\n\n' +
+      'WHY THEY DIFFER: imp-34127 shows the CONTINUOUS residual cancels identically to zero (no analytic ' +
+      'ceiling at all) -- the nonzero bisected crossing is a pure estimator-discretization artifact, and ' +
+      'the ~-0.28 gap between kEnd_cf and kEnd* is attributed to the O((eD)^2) window-width correction ' +
+      'the leading-order closed form drops. imp-34311 confirms this gap survives independent stencil ' +
+      'checks and is not itself further collapsible -- the two numbers measure the SAME artifact at two ' +
+      'different orders of approximation, not competing claims about where the ceiling sits.\n\n' +
+      'HONEST SCOPE: measurement/derivation only, on the inherited imp-3220/imp-3406/imp-33773 component ' +
+      'model, NOT a rigorous asymptotic; changes no bound; establishes no operator positivity; C_mb ' +
+      'GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian ' +
+      'Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34388 (adding a glossary headword distinguishing the imp-34023 bisected kEnd*~21.28095 M2 ceiling from the imp-34127 closed-form kEnd_cf~21.00 estimate, per the imp-34311 cohort), 2026',
+    relatedTerms: [
+      'imp-34023 the bisected kEnd*~21.28095 M2-residual sign-change ceiling (imp-34023)',
+      'imp-34127 the closed-form kEnd_cf~21.00 estimate and the estimator-discretization-artifact diagnosis (imp-34127)',
+      'imp-34311 the cohort entry keeping the two numbers explicitly distinct (imp-34311)',
+      'surrogate zero k* ~ 21.28095, the resid_exp(k) zero-crossing that hard-edges the fixed-band-peak log surrogate (surrogate zero)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

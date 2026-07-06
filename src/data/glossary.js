@@ -11781,6 +11781,54 @@ export const glossary = [
       'imp-34268 the sibling convexity finding on the same post-minimum branch (imp-34268)',
     ],
   },
+  {
+    term: 'imp-34384 honest-status note: the imp-34288 measured ~0.907 ratio ceiling vs the imp-34214 non-physical r_inf>>1 extrapolation are NOT a discrepancy',
+    category: 'meta',
+    definition:
+      'Two modules quote seemingly conflicting limits for the same imp-34085 |trough|/|peak| amplitude ' +
+      'ratio: imp-34214 fits the w = 5.0..7.0 creep to saturating exponential/power-law forms and reports ' +
+      'non-physical extrapolated limits r_inf ~ 6.0 and ~3.8 (both far above the ratio s own ceiling of ' +
+      '1), while imp-34288 extends the underlying window-width grid past w = 7 and MEASURES the ratio ' +
+      'directly, finding it climbs only to a maximum ~0.907 (at w = 9.25) and then recedes. This entry ' +
+      'is the single canonical note reconciling the two: they are not competing answers to the same ' +
+      'question, they are a FIT and the DIRECT DATA that refutes it.\n\n' +
+      'WHY THE FIT OVERSHOT: imp-34214 s two saturating forms both pinned their rate/exponent (lam, p) to ' +
+      'the LOWER edge of their search grid -- a boundary optimum, not an interior one. A boundary-pinned ' +
+      'fit degenerates toward near-linear growth (the saturating curve flattens as the rate is pushed to ' +
+      'zero), so its extrapolated r_inf is an artifact of the boundary pin, not a value the sequence ' +
+      'approaches. imp-34214 s own floor-probe already flagged this: lowering the lam grid floor further ' +
+      '(0.01 -> 0.001) LOWERED the SSR while r_inf ballooned (~6.0 -> ~54.1) -- the "limit" is a moving ' +
+      'target set by wherever the grid floor happens to sit, the direct signature of fitting a saturating ' +
+      'form to a sequence that, over the w <= 7 span available to imp-34214, was not yet decelerating.\n\n' +
+      'WHAT THE DIRECT DATA SHOWS: imp-34288 pushes the SAME underlying ladder past w = 7 (to w = 14) and ' +
+      'finds the ratio does keep climbing for a while -- but the growth is NOT the accelerating creep ' +
+      'imp-34214 s short window suggested. The half-decade increment plateaus near +0.042 (not accelerating), ' +
+      'peaks at ratio ~0.9072 (kEnd = 15.25, w = 9.25), then turns down. The turnaround is a REGIME CHANGE, ' +
+      'not decay: the OLS argmax peak migrates off the receding right endpoint to the near-left rung ' +
+      'k = 6.5 once w exceeds ~9.25, after which the ratio recedes to ~0.618 by kEnd = 20. So the ratio ' +
+      'neither converges to a fixed interior value nor breaches the amplitude ceiling of 1 -- it rises ' +
+      'under one regime and recedes under another, a shape NEITHER of imp-34214 s two saturating forms was ' +
+      'built to express.\n\n' +
+      'VERDICT: no discrepancy. imp-34214 correctly REFUTED convergence-to-a-fixed-limit on the w <= 7 ' +
+      'evidence it had, and correctly flagged its own r_inf as non-physical rather than reporting it as a ' +
+      'true limit. imp-34288 then supplied the missing wider-window measurement and found the actual cap ' +
+      '(~0.907, comfortably below 1) plus the structural reason for the eventual turnaround. Quote the ' +
+      'imp-34288 ~0.907 ceiling as the measured cap; treat the imp-34214 r_inf ~ 6.0/3.8 numbers only as ' +
+      'evidence that a two-parameter saturating fit is the wrong functional form here, never as candidate ' +
+      'limits themselves.\n\n' +
+      'HONEST SCOPE: this is a bookkeeping/cross-reference synthesis, not a new measurement -- every quoted ' +
+      'number is reproduced verbatim from the cited modules. Entirely within the inherited imp-3220/imp-3406 ' +
+      'component model, which is NOT a rigorous asymptotic; changes no bound; establishes no operator ' +
+      'positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; NO QED; ' +
+      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34384 (writing the honest-status note reconciling the imp-34288 measured ceiling with the imp-34214 non-physical extrapolation), 2026',
+    relatedTerms: [
+      'imp-34085 the |trough|/|peak| ratio sequence both modules build on (imp-34085)',
+      'imp-34214 the saturating-fit non-physical extrapolation this reconciles (imp-34214)',
+      'imp-34288 the direct wider-window measurement supplying the actual ~0.907 ceiling (imp-34288)',
+      'imp-34129 the sibling widening-slope-drift convergence fit that DID seat an interior optimum, contrasted by imp-34214 (imp-34129)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -44,6 +44,17 @@
  * there). The general d_k''(alpha_k) = pi/(4 k^2) closed form unifying all three onsets is recorded in
  * imp-34173/imp-34240 (k=1 gives pi/4 = 2 * pi/8, matching this module's Taylor coefficient).
  *
+ * RECONCILIATION (imp-34307): a label discrepancy exists across downstream references -- imp-34230's
+ * curvature ladder cites imp-34103 as "pi/4 (k=1)" while several pending queue tickets cite this same
+ * family-(i) "curvature" as pi/8. Both literals are numerically correct but name DIFFERENT quantities:
+ * pi/8 is the QUADRATIC TAYLOR COEFFICIENT (the e^2 term measured here), whereas the ENDPOINT CURVATURE
+ * (the second derivative d''(alpha) at the onset alpha=1) is d''(1) = 2 pi / (1 + alpha)^3 |_{alpha=1}
+ * = 2 pi / 8 = pi/4, EXACTLY twice the Taylor coefficient (since for f(e) = c2 e^2 + ..., f'' = 2 c2).
+ * The imp-34173 unified law d_k''(alpha_k) = pi/(4 k^2) is the second-derivative convention, so pi/4
+ * (k=1) is the correct curvature literal and imp-34230's ladder is internally consistent; the pending
+ * tickets labelling imp-34103's "curvature" as pi/8 are loosely equating the Taylor coefficient with the
+ * second derivative. This module confirms d''(1) = pi/4 = 2 * (pi/8) numerically below.
+ *
  * WHAT THIS DOES NOT DO
  * ---------------------
  * MEASUREMENT ONLY, pure phase-condition geometry on the inherited imp-33924 / imp-34045 closed form for
@@ -67,6 +78,20 @@ const PI = Math.PI;
 const PREDICTED_LINEAR = PI / 4; // imp-34045 endpoint slope magnitude.
 const PREDICTED_QUADRATIC = PI / 8; // leading (1 - alpha)^2 coefficient, this ticket.
 const PREDICTED_CUBIC = PI / 16; // next term, bonus confirmation.
+
+// imp-34307 reconciliation: closed-form SECOND DERIVATIVE (curvature) of the endpoint distance.
+// d(alpha) = (pi/2)(1-alpha)/(1+alpha) has d''(alpha) = 2 pi / (1 + alpha)^3, so the ENDPOINT
+// curvature at the onset alpha=1 is d''(1) = pi/4 -- exactly TWICE the pi/8 quadratic Taylor coeff.
+function endpointSecondDerivative(alpha) {
+  return (2 * PI) / Math.pow(1 + alpha, 3);
+}
+const ONSET_ALPHA = 1;
+const CURVATURE_AT_ONSET = endpointSecondDerivative(ONSET_ALPHA); // pi/4 = 0.78539816.
+// independent central second-difference cross-check of d''(1) directly from the distance law.
+const H_FD = 1e-4;
+const CURVATURE_FD =
+  (endpointDistance(ONSET_ALPHA + H_FD) - 2 * endpointDistance(ONSET_ALPHA) + endpointDistance(ONSET_ALPHA - H_FD)) /
+  (H_FD * H_FD);
 
 const ALPHA_GRID = [0.9, 0.99, 0.999, 0.9999];
 
@@ -130,6 +155,18 @@ export const IMP34103_ENDPOINT_DISTANCE_CURVATURE = {
   predictedLinearCoeff: +PREDICTED_LINEAR.toFixed(8), // 0.78539816
   predictedQuadraticCoeff: +PREDICTED_QUADRATIC.toFixed(8), // 0.39269908
   predictedCubicCoeff: +PREDICTED_CUBIC.toFixed(8), // 0.19634954
+
+  // imp-34307 reconciliation of the pi/4-vs-pi/8 endpoint-curvature label discrepancy.
+  quadraticTaylorCoeff: +PREDICTED_QUADRATIC.toFixed(8), // pi/8: coefficient of the e^2 Taylor term.
+  endpointCurvatureSecondDerivativeAtOnset: +CURVATURE_AT_ONSET.toFixed(8), // pi/4: d''(1), the CURVATURE.
+  endpointCurvatureFiniteDifferenceCheck: +CURVATURE_FD.toFixed(6), // -> pi/4 from central 2nd difference.
+  curvatureEqualsTwiceQuadraticCoeff: Math.abs(CURVATURE_AT_ONSET - 2 * PREDICTED_QUADRATIC) < 1e-12,
+  curvatureLabelReconciliation:
+    'pi/4 (imp-34230 ladder, k=1) is the ENDPOINT CURVATURE d2 = 2 pi/(1+alpha)^3 at alpha=1 (d2 = second ' +
+    'derivative); pi/8 is the QUADRATIC TAYLOR COEFFICIENT (e^2 term) = half the curvature. Both are correct ' +
+    'for their own quantity; the imp-34173 pi/(4 k^2) unified law uses the second-derivative convention, so ' +
+    'pi/4 is the correct curvature literal for k=1 and downstream tickets calling this curvature pi/8 conflate ' +
+    'the Taylor coefficient with the second derivative.',
 
   // per-alpha measurement table.
   rows: ROWS,
@@ -196,6 +233,16 @@ export const IMP34103_ENDPOINT_DISTANCE_CURVATURE_ASSERTIONS = [
     holds: () =>
       IMP34103_ENDPOINT_DISTANCE_CURVATURE.cubicCoeffMatchesPiOver16 === true &&
       Math.abs(IMP34103_ENDPOINT_DISTANCE_CURVATURE.measuredCubicCoeffAtFinestRung - Math.PI / 16) < 5e-5,
+  },
+  {
+    // imp-34307 reconciliation: the endpoint CURVATURE (second derivative d''(1)) is pi/4 = 2 * (pi/8 Taylor coeff),
+    // confirmed both in closed form and by a central second difference; resolves the pi/4-vs-pi/8 label discrepancy.
+    id: 'imp34103-curvature-is-pi-over-4-twice-quadratic-coeff',
+    description: 'the endpoint curvature d(2)(1) = pi/4 equals twice the pi/8 quadratic Taylor coefficient',
+    holds: () =>
+      IMP34103_ENDPOINT_DISTANCE_CURVATURE.curvatureEqualsTwiceQuadraticCoeff === true &&
+      Math.abs(IMP34103_ENDPOINT_DISTANCE_CURVATURE.endpointCurvatureSecondDerivativeAtOnset - Math.PI / 4) < 1e-7 &&
+      Math.abs(IMP34103_ENDPOINT_DISTANCE_CURVATURE.endpointCurvatureFiniteDifferenceCheck - Math.PI / 4) < 1e-4,
   },
   {
     // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.

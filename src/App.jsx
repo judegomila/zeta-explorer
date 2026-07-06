@@ -301,6 +301,7 @@ const Imp34255M2CeilingWindowWidthDivergenceViz = lazy(() => import('./pages/Imp
 const Imp34259UnifiedEndpointDistanceFamilyViz = lazy(() => import('./pages/Imp34259UnifiedEndpointDistanceFamilyViz.jsx'));
 const Imp34274FixedBandPeakIncrementMinimumViz = lazy(() => import('./pages/Imp34274FixedBandPeakIncrementMinimumViz.jsx'));
 const Imp34281M2CeilingCohortIndexPage = lazy(() => import('./pages/Imp34281M2CeilingCohortIndexPage.jsx'));
+const Imp34356M2CeilingExactFitCoeffLadderViz = lazy(() => import('./pages/Imp34356M2CeilingExactFitCoeffLadderViz.jsx'));
 const Imp34352EflowGronwallCrossoverOffsetViz = lazy(() => import('./pages/Imp34352EflowGronwallCrossoverOffsetViz.jsx'));
 const Imp34353CrossoverSurplusFamilyDecayViz = lazy(() => import('./pages/Imp34353CrossoverSurplusFamilyDecayViz.jsx'));
 const Imp34354CrossoverSurplusSmallThrFactorisationViz = lazy(() => import('./pages/Imp34354CrossoverSurplusSmallThrFactorisationViz.jsx'));
@@ -1135,6 +1136,7 @@ function AppShell() {
           <Route path="/viz-imp34259-unified-endpoint-distance-family" element={<Imp34259UnifiedEndpointDistanceFamilyViz />} />
           <Route path="/viz-imp34274-fixed-band-peak-increment-minimum" element={<Imp34274FixedBandPeakIncrementMinimumViz />} />
           <Route path="/viz-imp34281-m2-ceiling-cohort-index" element={<Imp34281M2CeilingCohortIndexPage />} />
+          <Route path="/viz-imp34356-m2-ceiling-exactfit-coeff-ladder" element={<Imp34356M2CeilingExactFitCoeffLadderViz />} />
           <Route path="/viz-imp34352-eflow-gronwall-crossover-offset" element={<Imp34352EflowGronwallCrossoverOffsetViz />} />
           <Route path="/viz-imp34353-crossover-surplus-family-decay" element={<Imp34353CrossoverSurplusFamilyDecayViz />} />
           <Route path="/viz-imp34354-crossover-surplus-small-thr-factorisation" element={<Imp34354CrossoverSurplusSmallThrFactorisationViz />} />

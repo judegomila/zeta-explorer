@@ -371,6 +371,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34477-widening-slope-pole-leakage',
   '/viz-imp34478-widening-slope-prepole-landmark-decade-axis',
   '/viz-imp34494-residue-error-bar',
+  '/viz-imp34495-deflow-decay',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

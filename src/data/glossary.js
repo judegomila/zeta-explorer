@@ -12925,6 +12925,43 @@ export const glossary = [
       'imp-34676 the right-widening sweep showing L invariant and the self-map free out to b = 1e300 (imp-34676)',
     ],
   },
+  {
+    term: 'q3 trust boundary: the smallest usable step dp*(N) = C(N)^(1/3) and the relative conditioning floor F_rel(dp,N) = C(N)/dp^3',
+    category: 'numerical',
+    definition:
+      'A quick-lookup headword for the imp-34691 closed-form trust boundary on the tiny-q3 third-difference ' +
+      'estimate q3 = N3(dp) / (240 dp^3), computed from the 9-point antisymmetric stencil ' +
+      '[7,-72,338,-488,+488,-338,+72,-7] on q(p) = log E_coll. Two facts pin the conditioning: (i) the largest ' +
+      'stencil summand is essentially step-INDEPENDENT, max_k|w_k q(p+k dp)| ~ W_max|q(p)| with the stencil ' +
+      'weight W_max = 488 = max|w_k|, so the absolute roundoff in the numerator is flat in dp; (ii) the true ' +
+      'numerator SHRINKS as dp^3 (the whole point of a 3rd-difference stencil). Dividing (i) by (ii) gives the ' +
+      'relative conditioning floor as an explicit closed function of the step and the depth, ' +
+      'F_rel(dp,N) = W_max*eps_mach*|q(p)| / (240*|q3(p)|*dp^3) = C(N)/dp^3, with depth-only prefactor ' +
+      'C(N) = W_max*eps_mach*|q(p)| / (240*|q3(p)|). The floor reaches the full physical signal (F_rel = 1) at ' +
+      'the smallest usable step dp*(N) = C(N)^(1/3); below dp* the q3 numerator is pure roundoff noise, not ' +
+      'signal. The 1/dp^3 power IS the imp-34606 q3 rung exponent m3 = 3 exactly (analytic here, not fitted), ' +
+      'and the amplitude W_max*eps_mach*|q| IS the imp-34633 eps_mach*|q| prefactor with the stencil weight ' +
+      'W_max = max|w3|. Across the imp-33620 deep-tail ladder (N* ~ 4.62e13 up to N = 1e15), dp* climbs slowly ' +
+      'from ~5.72e-4 to ~6.86e-4 (a ~20% rise over two decades of N, driven by |q| growing and |q3| shrinking), ' +
+      'and dp* ~ 6e-4 sits between the parents operating step dp = 1e-3 (F_rel ~ 0.19, edge of trust) and the ' +
+      'fully-lost step dp = 1e-4 (F_rel ~ 190) -- all three points on the same cubic law.' +
+      '\n\nHOW TO APPLY: whenever a finite-difference quantity is reported at a fixed step dp without checking ' +
+      'dp against a conditioning floor, ask whether dp is above or below dp*(N) for that stencil order -- below ' +
+      'dp* the reported digits are catastrophic-cancellation roundoff, not the physical derivative, no matter ' +
+      'how small the step looks.' +
+      '\n\nHONEST SCOPE: a glossary headword synthesizing the imp-34691 measurement verbatim, not a new bound. ' +
+      'q1..q3 are inherited central differences on the surrogate component model, not fresh analytic closed ' +
+      'forms; the -2 asymptote and C_C = (1/8)sqrt(3 pi) ansatz (imp-2714) are UNTOUCHED; C_mb GUE-conditional ' +
+      'per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-34691 (q3 cancellation-floor trust boundary dp*(N) closed form), 2026',
+    relatedTerms: [
+      'imp-34673 the F3 catastrophic-cancellation conditioning floor ~1.87e-4 this headword makes explicit as a function of dp and N (imp-34673)',
+      'imp-34606 the clean {2,3,4} 1/dp^k roundoff-amplification exponent ladder, whose q3 rung m3 = 3 is the exponent here (imp-34606)',
+      'imp-34633 the eps_mach*|q| roundoff-prefactor amplitude reused as the numerator of C(N) (imp-34633)',
+    ],
+    link: '/viz-imp34717-q3-trust-boundary',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

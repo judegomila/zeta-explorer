@@ -4673,6 +4673,20 @@ const DATA_MODULES = [
   // Measurement only; inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 untouched;
   // imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-34228-doubling-map-double-precision-anchor-floor.js',
+  // imp-34368: MEASURE the resid_exp(k) evaluation-noise / resolution floor bounding the imp-34228 deep-
+  // ladder live ternary peak k_true~8.8210915878573530, resolving SUB-GAP-imp-34228-residexp-resolution-
+  // floor. Three concordant measurements on the inherited imp-33810/imp-33878 surrogate: TRUE central-
+  // difference curvature f2~-0.036196 (stable over h=1e-2..1e-4); resid_exp evaluation noise eps_f~9.4e-17
+  // (~6.5 ulp of f_peak~0.0653, the quadratic-fit residual at 5e-13 spacing); and the smooth-maximum map
+  // dk~sqrt(2 eps_f/|f2|)~7.2e-8 -- DIRECTLY confirmed by the max-min~9.0e-8 (std~2.5e-8) scatter of the
+  // ternary peak across ten brackets (agreement to a factor ~1.25). CONCLUSION: the imp-34228 ~4.3e-11
+  // live-vs-stored offset is NOT a real feature; it sits ~1600x BELOW the floor, deep inside evaluation
+  // noise. The floor scales as sqrt(eps_f/|f2|): only raising the WORKING precision (bignum) lowers it; an
+  // analytic/finite-difference derivative does NOT -- the derivative-root lands ~1.4e-8 away, inside the
+  // SAME noise band, inheriting the f64 value noise. Measurement only; inherited imp-3220/imp-3406
+  // surrogate; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA;
+  // no QED. 6 assertions.
+  '/src/data/imp-34368-residexp-resolution-floor-measurement.js',
   // imp-34226: CROSS-CHECK the imp-34149 tail-only (m*~0.6063) and imp-34148 symmetric (m*~0.6791)
   // fractional F4=1 crossings against the imp-34086 tail-only integer bracket (F4 0.8743 at m=0 ->
   // 1.0881 at m=1). Imports all three modules' exported data (no re-derivation) and asserts: the

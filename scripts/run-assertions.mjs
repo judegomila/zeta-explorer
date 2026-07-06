@@ -4736,6 +4736,29 @@ const DATA_MODULES = [
   // the imp-34407 derived limit c = 4. Confirms the imp-34329 exactly-3 limit deeper. Measurement/fit only;
   // C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 8 assertions.
   '/src/data/imp-34412-fartail-composite-probe-to-1e-18.js',
+  // imp-34414: cross-checks the imp-34329 exactly-3 limiting composite exponent (obtained by extrapolating
+  // finite-difference secants) against a DIRECT leading-order expansion of the imp-34174 closed-form
+  // surplus(thr) = thr(1-thr)r/(1+(1-thr)r) as thr -> 0. (A) the prefactor collapses so surplus = thr.r.(1+o(1))
+  // (exact ratio thr.r/surplus -> 1); (B) N_cross ~ thr^-2 gives log T0 = -2 log thr + const and T0 ~ thr^-2,
+  // so r ~ A_r (log T0)^2 thr^2, A_r = GRONWALL/((2pi)^2 K_AMPL E_trunc) ~ 5.26e-6 (measured r/((logT0)^2 thr^2)
+  // rises 4.73e-6 -> 5.01e-6, no residual thr power). Hence surplus = A_r (log T0)^2 thr^3 (1+o(1)): leading
+  // power EXACTLY 3, the extra thr-dependence being only the (log T0)^2 softening. Differentiating gives the
+  // instantaneous composite exponent 3 - 4/log T0 (the imp-34407 c = 4 EXACTLY), matching the imp-34329 decade
+  // secants (2.872 -> 2.942) which lag it. Corroborates the exactly-3 limit by direct expansion, not extrapolation.
+  // Cross-check/derivation only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched;
+  // PT Lambda<=0.2 SOTA; no QED. 7 assertions.
+  '/src/data/imp-34414-crossover-surplus-direct-cubic-expansion.js',
+  // imp-34441: tabulates a single reconciliation table of the four independent ~3.28e9-cluster landmark
+  // locators -- imp-33723 closed-form crossover N~3.280294e9, imp-33721 sigmoid-knee inflection N*~3.38e9,
+  // imp-3444 bisected crossover N~3.280294e9, and the imp-3444/imp-33582 sigma=1/2 halving landmark
+  // N_half~3.267235e9 -- with every pairwise relative offset, importing the literal published values with
+  // NO recomputation. The closed-form and bisected crossovers agree to ~1e-7 at the tabulated literal
+  // precision (same landmark, two methods); the four locators collapse to TWO independent gaps: the
+  // crossover pair sits ~0.40% above N_half (the E_flow displacement, imp-33723/imp-3444), and the sigmoid
+  // knee sits further out at ~3.25%/~2.87% above N_half/the crossover (the ramp-curvature offset,
+  // imp-33721/imp-33767). Tabulation only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0
+  // untouched; PT Lambda<=0.2 SOTA; no QED. 7 assertions.
+  '/src/data/imp-34441-3p28e9-landmark-cluster-reconciliation.js',
   // imp-34332: fits the imp-34248 prefactor P(thr) approach to linearity. From the exact ratio
   // surplus/(thr.r) = (1-thr)/(1+(1-thr)r), the residual 1 - surplus/(thr.r) = (thr + (1-thr)r)/(1+(1-thr)r)
   // (verified to machine precision) = thr + (1-thr)^2 r + O(r^2). So the residual vanishes LINEARLY IN thr

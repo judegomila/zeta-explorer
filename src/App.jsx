@@ -409,6 +409,9 @@ const Imp34623DeflowResidualOneOverLogNViz = lazy(() =>
 const Imp34637EflowAttrLogCurvatureCheckViz = lazy(() =>
   import('./pages/Imp34637EflowAttrLogCurvatureCheckViz.jsx')
 );
+const Imp34639StencilTailSpreadCrosscheckViz = lazy(() =>
+  import('./pages/Imp34639StencilTailSpreadCrosscheckViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1369,6 +1372,10 @@ function AppShell() {
           <Route
             path="/viz-imp34637-eflow-attr-log-curvature-check"
             element={<Imp34637EflowAttrLogCurvatureCheckViz />}
+          />
+          <Route
+            path="/viz-imp34639-stencil-tail-spread-crosscheck"
+            element={<Imp34639StencilTailSpreadCrosscheckViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

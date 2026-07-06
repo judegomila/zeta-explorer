@@ -354,6 +354,9 @@ const Imp33851HumpEnvelopeSymmetryVsKViz = lazy(() =>
 const Imp34528TailsideHumpDecayVsSqrtNFartailViz = lazy(() =>
   import('./pages/Imp34528TailsideHumpDecayVsSqrtNFartailViz.jsx')
 );
+const Imp34530PoleLeakageSpacingCompressionFitViz = lazy(() =>
+  import('./pages/Imp34530PoleLeakageSpacingCompressionFitViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1241,6 +1244,10 @@ function AppShell() {
           <Route
             path="/viz-imp34528-tailside-hump-decay-vs-sqrt-n-fartail"
             element={<Imp34528TailsideHumpDecayVsSqrtNFartailViz />}
+          />
+          <Route
+            path="/viz-imp34530-pole-leakage-spacing-compression-fit"
+            element={<Imp34530PoleLeakageSpacingCompressionFitViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

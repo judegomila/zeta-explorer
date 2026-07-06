@@ -387,6 +387,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp33851-hump-envelope-symmetry-vs-k',
   '/viz-imp34540-pole-leakage-five-rung-ladder',
   '/viz-imp34528-tailside-hump-decay-vs-sqrt-n-fartail',
+  '/viz-imp34530-pole-leakage-spacing-compression-fit',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

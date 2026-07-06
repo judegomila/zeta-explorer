@@ -5653,6 +5653,18 @@ const DATA_MODULES = [
   // imp-34188 untouched; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT
   // Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34469-widening-slope-crossing-window-convergence.js',
+  // imp-34511: REFITS the imp-34409/imp-34469 -1 crossing with the CORRECT reciprocal-in-u law instead of the
+  // mis-specified exp(-lam k) surrogate: it solves g(u) = -ln10/2 + ln10*3/u = -1 DIRECTLY on the mapped grid
+  // (pointwise bisection root-find, no fit window) and measures the residual against the mapped crossing 20.47903.
+  // FINDING: k_direct = 20.47903468 matches the full-precision mapped crossing to ~7e-15 (machine) and the 5dp
+  // landmark to 4.68e-6 (rounding), with g(k_direct) = -1 -- ~48500x below the imp-34409 exp baseline overshoot
+  // 0.22710 and ~330x below the imp-34469 best-window floor 0.00154, and WINDOW-FREE. This isolates the entire
+  // imp-34469 residual band (0.0015..0.085) as PURE surrogate mis-specification: the reciprocal law the exp kernel
+  // approximates lands on the crossing to machine precision. Import-light (only effectiveHeightForN). 6 assertions.
+  // Measurement / surrogate-correction only; reciprocal-in-u law descriptive NOT rigorous; imp-34469/imp-34409/
+  // imp-34327/imp-34246/imp-34188 untouched; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched;
+  // PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34511-widening-slope-crossing-reciprocal-direct-solve.js',
   // imp-34471: FITS the imp-34410 F3 direct-secant deviation delta(N) = (p_resid - p_direct) log T0
   // (the E_trunc/E_flow sub-term contamination of the sigma exponent) to its decay law across a dense
   // log10 N ladder and locates the N where delta first drops below 1e-6. Recomputes delta from the

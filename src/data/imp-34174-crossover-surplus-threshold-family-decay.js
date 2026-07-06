@@ -73,6 +73,8 @@
  * @see imp-34134-eflow-etrunc-ratio-decay-onset (E_flow/E_trunc decay ladder; imp-33620 vanishing-E_flow reading)
  * @see imp-33601-sigma-half-vs-crossover-eflow-offset (exact identity sigma=1/2 <=> E_coll=E_trunc+E_flow)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 = gamma_N, Riemann-von Mangoldt inverse)
+ * @see imp-34248-crossover-surplus-small-thr-asymptotic (small-thr asymptotic refinement: factorises this
+ *      module's surplus into a linear thr prefactor and a log-softened ~thr^1.9 E_flow-ratio term)
  */
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';

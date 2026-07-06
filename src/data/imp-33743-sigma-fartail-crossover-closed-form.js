@@ -69,6 +69,8 @@
  * @see imp-33601-sigma-half-vs-crossover-eflow-offset (exact identity sigma=1/2 <=> E_coll=E_trunc+E_flow)
  * @see polymath15-constant-C-C (C_C = (1/8) sqrt(3 pi); the 1/8 ansatz per imp-2642)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 via Riemann-von Mangoldt inverse)
+ * @see imp-34248-crossover-surplus-small-thr-asymptotic (small-thr asymptotic refinement of the imp-34174
+ *      surplus built on this module's N_cross(thr) closed form)
  */
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';

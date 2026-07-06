@@ -65,6 +65,8 @@
  * @see imp-33743-sigma-fartail-crossover-closed-form (generalised crossover N_cross(thr), identical sub-terms)
  * @see imp-34134-eflow-etrunc-ratio-decay-onset (E_flow/E_trunc decay ladder; imp-33620 vanishing-E_flow reading)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 = gamma_N, Riemann-von Mangoldt inverse)
+ * @see imp-34254 (pending: maps the surplus-below-tolerance threshold locus thr*(eps) and N_cross(thr*)
+ *      across a tolerance ladder, consuming this module's composite ~thr^2.88 collapse law)
  */
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';

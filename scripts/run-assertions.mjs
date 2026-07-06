@@ -5941,6 +5941,17 @@ const DATA_MODULES = [
   // Reuses effectiveHeightForN + C_C_PINNED verbatim. 7 assertions. Feasibility/measurement only; component
   // model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; PT Lambda<=0.2 SOTA; no bound; NO QED.
   '/src/data/imp-34485-deflow-cancellation-free.js',
+  // imp-34571: MEASUREMENT -- checks the imp-34448 deflow decay pInf ~ 1.000 asymptote against the
+  // analytic E_flow log-slope. Refitting p = pInf - c/log(N) on ONLY the directly-observed rungs
+  // (kMid 16.125..19.875, all below the crossing kEnd* ~ 21.281 and the fp floor kEnd ~ 23) gives
+  // pInf ~ 1.0007, c ~ 3.21; the residual against the analytic E_flow log-slope magnitude 1 (E_flow
+  // ~ log^3(N)/N => d log E_flow / d log N -> -1) is ~7.3e-4, the same order as the 1/log(N)
+  // finite-rung correction, so the observed approach to pInf ~ 1.000 is CONSISTENT with the analytic
+  // slope -1. The observed-only pInf agrees with the imp-34448 full-window pInf = 1.0005 to ~2.3e-4,
+  // so excluding the fit-extrapolated rows past the fp floor moves nothing. Reuses the imp-34448
+  // export verbatim (import-light). 6 assertions. Measurement only; component model NOT rigorous;
+  // C_mb GUE-conditional per imp-486 untouched; PT Lambda<=0.2 SOTA; no bound; NO QED.
+  '/src/data/imp-34571-deflow-exponent-vs-analytic-slope.js',
   // imp-34490: PROPAGATION -- carries the imp-34449 measured residue bar R = -1.756e-8 +/- 0.019e-8
   // (~+/-1.1% half-width) into the imp-34310 / imp-34398 / imp-34454 residue-channel consumers and
   // reports whether the band changes any qualitative verdict. (P1) the simple-pole (order-1)
@@ -6050,6 +6061,15 @@ const DATA_MODULES = [
   // inherited surrogate NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
   // untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED. 6 assertions.
   '/src/data/imp-34552-residexp-precision-floor-payoff-derivation.js',
+  // imp-34569: INDEPENDENT extended-precision cross-check of the imp-34551 dd (106-bit) resid_exp hi-word
+  // against a base-10 BigInt fixed-point kernel (P=60, ~199-bit; distinct radix + exp/log/sqrt algorithms).
+  // The full dd pair reproduces the independent arbiter to its 106-bit floor (rel(dd,bf) 2.0e-31/9.6e-31/
+  // 1.2e-30 at e=24/25/26) while native sits at double-level ULP width (7.8e-16/6.6e-15/4.9e-15), and the
+  // e=24 native gap reproduces the imp-34551 8.496e-16 to the same order -- CONFIRMING the ~8.5e-16
+  // native-vs-dd gap is arithmetic width, NOT a formula divergence. dd is >1e6x tighter than native at
+  // every node. Cross-validation only; inherited surrogate NOT rigorous; imp-3066 K_a>=0 untouched; C_mb
+  // per imp-486 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED. 4 assertions.
+  '/src/data/imp-34569-binary128-emulation-cross-check.js',
   // imp-34482: AUDIT of whether the imp-34408/34412/34428/34441 self-asserting
   // cluster modules are correctly registered in improvements.js (distinct log
   // id, correct file reference), are present in DATA_MODULES, and whether any

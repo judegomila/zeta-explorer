@@ -12047,6 +12047,38 @@ export const glossary = [
       'imp-34151 the cancellation numerator approaching unity that this prefactor describes (imp-34151)',
     ],
   },
+  {
+    term: 'Surplus Amplitude A_r ~ 5.264698e-6',
+    category: 'constant',
+    definition:
+      'The leading amplitude in the imp-34414 surplus asymptotic surplus(thr) = A_r (log T0)^2 thr^3 ' +
+      '(1+o(1)), assembled in closed numeric form by imp-34473 as A_r = GRONWALL/((2pi)^2 K_AMPL E_trunc) ' +
+      '= 5.264698e-6, from three inherited primitives: E_trunc = 3.06e-5, GRONWALL = exp(2.37e-4) ~ ' +
+      '1.0002370, and K_AMPL = (C_C_PINNED/E_trunc)^2 ~ 1.5727e8 with C_C_PINNED = (1/8)sqrt(3pi) ~ ' +
+      '0.383748. Because K_AMPL E_trunc = C_C_PINNED^2/E_trunc, one power of E_trunc cancels and the ' +
+      'amplitude collapses to the bit-identical primitive-identity form A_r = GRONWALL E_trunc / ' +
+      '((2pi)^2 C_C_PINNED^2) -- so A_r is LINEAR in the truncation constant E_trunc, not inversely ' +
+      'proportional to it as the K_AMPL denominator superficially suggests. imp-34473 also found the ' +
+      'measured asymptote M(thr) = surplus/((log T0)^2 thr^3) approaches A_r strictly from below, with ' +
+      'the relative-deficit product relDef*logT0 converging to the closed constant 2 log(2pi) = 3.675754; ' +
+      'imp-34507 pinned the flat next-order gap at log(2pi)^2 - 1 = 2.377792, closing the two-term ' +
+      'expansion M/A_r = 1 - 2 log(2pi)/log T0 + (log(2pi)^2-1)/log^2 T0 = (1 - log(2pi)/log T0)^2 - ' +
+      '1/log^2 T0.\n\n' +
+      'HONEST SCOPE: derivation/numeric assembly and cross-check only within the inherited imp-34329/' +
+      'imp-34248/imp-34174/imp-33743 extrapolation component model, which is NOT a rigorous asymptotic. ' +
+      'E_flow is the benign mesoscopic-Gronwall term (imp-2845) and this amplitude does NOT touch the ' +
+      'divergent C_Lip collision-Gronwall; C_mb remains GUE-conditional per imp-486; imp-3066 K_a>=0 ' +
+      'untouched; establishes no operator positivity; changes no bound; no RH verdict, NO QED; ' +
+      'Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA unconditional bound.',
+    firstUsed: 'imp-34473 (assembling A_r = GRONWALL/((2pi)^2 K_AMPL E_trunc) = 5.264698e-6 in closed ' +
+      'numeric form and deriving the primitive-identity form), 2026',
+    relatedTerms: [
+      'imp-34414 the surplus(thr) = A_r (log T0)^2 thr^3 asymptotic this amplitude belongs to (imp-34414)',
+      'imp-34473 closed-form assembly of A_r and its E_trunc-linear primitive-identity form (imp-34473)',
+      'imp-34507 next-order constant log(2pi)^2 - 1 closing the two-term M/A_r expansion (imp-34507)',
+      'imp-34515 viz page for the relDef*logT0 convergence toward 2 log(2pi) (imp-34515)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

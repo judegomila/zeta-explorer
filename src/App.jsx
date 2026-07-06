@@ -466,6 +466,9 @@ const Imp34716ResolutionMatchedCollapseLadderViz = lazy(() =>
 const Imp34717Q3TrustBoundaryViz = lazy(() =>
   import('./pages/Imp34717Q3TrustBoundaryViz.jsx')
 );
+const Imp34718DerivativeCrosscheckWideGridViz = lazy(() =>
+  import('./pages/Imp34718DerivativeCrosscheckWideGridViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1502,6 +1505,10 @@ function AppShell() {
           <Route
             path="/viz-imp34717-q3-trust-boundary"
             element={<Imp34717Q3TrustBoundaryViz />}
+          />
+          <Route
+            path="/viz-imp34718-derivative-crosscheck-wide-grid"
+            element={<Imp34718DerivativeCrosscheckWideGridViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

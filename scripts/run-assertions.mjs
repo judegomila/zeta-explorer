@@ -5802,6 +5802,15 @@ const DATA_MODULES = [
   // entry. FINDING: no gap -- every cohort member is covered on every render
   // surface. AUDIT-ONLY, no surfacing added. 5 assertions.
   '/src/data/imp-34463-caveat-surfacing-audit.js',
+  // imp-34464: AUDIT of whether the imp-34369/34371/34372/34373/34374/34375/
+  // 34397/34398 cluster modules are correctly registered in improvements.js
+  // (distinct log id, correct file reference) and whether any transitively
+  // imports the 16.7MB+ zeros-to-1e6.js bundle. All 8 trace to at most
+  // lambda-rh-height-mapping.js / polymath15-constant-C-C.js (or a named
+  // sibling module, or nothing); walking that whole chain never touches the
+  // zeros bundle. FINDING: no gap -- all 8 registered correctly, no heavy
+  // import found. AUDIT-ONLY, no fix applied. 5 assertions.
+  '/src/data/imp-34464-registration-heavy-import-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

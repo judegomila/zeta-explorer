@@ -4682,6 +4682,23 @@ const DATA_MODULES = [
   // dyadic nodes below the ULP margin is OPEN. Measurement only; inherited imp-3220/imp-3406 surrogate; C_mb
   // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound; NO QED.
   '/src/data/imp-34411-deep-ladder-kahan-ols-e21-e22-extension.js',
+  // imp-34472: EXTRAPOLATE the imp-34411 D2 deep-ladder top-two argmax margin shrinkage (e=20: 1.4627e-14,
+  // e=21: 2.9976e-15, e=22: 1.027e-15, reused verbatim from the imp-34411 marginLadder export) to the
+  // doubling-map rung where the stored resid_exp margin would cross the ~1e-16 relative ULP floor. A
+  // log-linear LS fit gives a per-rung shrinkage ratio rho ~ 0.265 (R^2 ~ 0.988), remarkably close to the
+  // 1/4 quadratic-near-maximum (grid-spacing)^2 law; the fit crosses the floor at rung e ~ 23.69 (an
+  // independent quarter-law anchored at e=22 crosses at ~23.68, near-coincident), so rung e=24 is the
+  // first whose stored margin sits below the floor, only ~1.7 rungs past e=22. ASSESSMENT: a genuine
+  // argmax degeneracy is NEVER reachable under the Kahan operator -- the imp-34411 Kahan perturbation is
+  // EXACTLY 0 (decoupled from the margin) and the stable argmax has already CONVERGED on the dyadic grid
+  // at k=8.821091651900 across e=20..22, so the floor crossing is a stored-precision / grid-quantization
+  // artifact, not a physical degeneracy, and the stable argmax stays rescued indefinitely. Import-light
+  // (reuses only the imp-34411 module, no zeros bundle), self-asserting (5 assertions).
+  // SUB-GAP-imp-34472-continuum-margin-below-floor: whether a sub-ULP continuum refinement off the dyadic
+  // lattice would place the true continuum margin above or below the floor is OPEN. Extrapolation only;
+  // inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
+  // untouched; PT Lambda<=0.2 SOTA; no bound; NO QED.
+  '/src/data/imp-34472-margin-shrinkage-ulp-floor-extrapolation.js',
   // imp-34173: DERIVE the UNIFIED k-indexed closed form for the outer phase-zero branch endpoint
   // distance/slope/curvature subsuming imp-34103 (k=-+1), imp-34104 (k=-+2) and imp-34167 (k=-+3).
   // The k-th branch theta = pi/2 -+ k pi/p (arg(-A) = k pi, p = 1 + alpha) sits at offset |k| pi/p
@@ -4758,6 +4775,14 @@ const DATA_MODULES = [
   // Cross-check/derivation only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched;
   // PT Lambda<=0.2 SOTA; no QED. 7 assertions.
   '/src/data/imp-34414-crossover-surplus-direct-cubic-expansion.js',
+  // imp-34473: assembles the imp-34414 leading surplus amplitude A_r = GRONWALL/((2pi)^2 K_AMPL E_trunc)
+  // = 5.264698e-6 in closed form from the three inherited primitives, exposes the E_trunc-cancellation
+  // identity A_r = GRONWALL.E_trunc/((2pi)^2 C_C_PINNED^2) (A_r LINEAR in E_trunc), and cross-checks the
+  // measured asymptote M = surplus/((log T0)^2 thr^3): M sits below A_r (relative deficit 11.10% -> 4.79%)
+  // and its slow rise is a clean 1/log T0 approach with relDef.log T0 -> 2 log(2pi) = 3.675754 (the two
+  // dropped C_F/RvM log-(2pi) shifts). Derivation/cross-check only; C_mb GUE-conditional per imp-486
+  // UNTOUCHED; changes no bound; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34473-surplus-amplitude-Ar-closed-form-assembly.js',
   // imp-34428: reconciles the imp-34329 single-term fit c ~ 4.4 (r-exponent = 2 - c/log T0) against the
   // imp-34349/imp-34407 derived c = 4 by adding the 1/log^2 T0 term explicitly -- a two-parameter OLS
   // r-exponent = 2 - c1/L - c2/L^2 over the deep rungs (log T0 >= 39). On the INSTANTANEOUS exponents c1
@@ -5578,6 +5603,17 @@ const DATA_MODULES = [
   // imp-34188 untouched; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT
   // Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34469-widening-slope-crossing-window-convergence.js',
+  // imp-34471: FITS the imp-34410 F3 direct-secant deviation delta(N) = (p_resid - p_direct) log T0
+  // (the E_trunc/E_flow sub-term contamination of the sigma exponent) to its decay law across a dense
+  // log10 N ladder and locates the N where delta first drops below 1e-6. Recomputes delta from the
+  // IDENTICAL imp-34410 full-sigma central secant. FINDINGS: the decay is a POWER law in N,
+  // delta ~ 10^5.45 N^(-0.46) (max ln-residual ~0.10, vs ~0.77 for the rejected 1/log law); the local
+  // exponent drifts up monotonically 0.415 -> 0.472 toward the alpha=1/2 set by the E_coll ~ N^(-1/2)
+  // envelope; delta first falls below 1e-6 at log10 N ~ 24.80 (past log10 N ~ 28 the ~1.6e-9 secant
+  // roundoff floor governs). Import-light (only C_C_PINNED). 6 assertions. Fit / tabulation only;
+  // component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched;
+  // PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34471-direct-secant-deviation-decay-law-fit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -6534,6 +6534,13 @@ const DATA_MODULES = [
   // closed form still matches the central difference to < 1e-5 relative (max ~8e-7) and the
   // sharp-supremum ratio B(band)/max_band = 1.000 on every band. Standing accuracy guard.
   '/src/data/imp-34757-crossover-gpp-dense-cross-check.js',
+  // imp-34777: cross-band tripwire on the imp-34757 second-derivative bound. imp-34757 proved
+  // g_double_prime is monotone WITHIN each post-peak decade so B(band) is the sharp band supremum,
+  // but never checked cross-band. This asserts the three per-band bounds strictly descend
+  // (B(1e9) > B(1e10) > B(1e11)) and the single leftmost constant B(1e9) dominates the max on
+  // every band (B(1e9)/max_union = 1.000), so they collapse to one monotone envelope; each B(band)
+  // matches the imp-34757 published literal to < 1e-3. Standing accuracy tripwire, no bound change.
+  '/src/data/imp-34777-crossover-gpp-cross-band-envelope-collapse.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -4871,6 +4871,29 @@ const DATA_MODULES = [
   // imp-33924/imp-34167/imp-34173 closed form; does NOT discharge H4, G6a stays OPEN; imp-3066 K_a>=0 untouched;
   // C_mb GUE-conditional untouched; PT Lambda<=0.2 SOTA; no QED. 8 assertions.
   '/src/data/imp-34306-general-branch-k-endpoint-curvature.js',
+  // imp-34309: LEAVE-ONE-OUT robustness of the imp-34233 F4 linear-overtakes-log flip. Re-running the
+  // imp-34233 linear-vs-log-vs-bounded AIC contest on the combined kEnd=14..21 grid with each of the three
+  // near-pole windows (kEnd 20.0/20.5/21.0) deleted in turn shows the flip is FRAGILE: it survives deleting
+  // kEnd=20.0 (log-minus-lin AIC gap ~+6.99) and kEnd=20.5 (~+5.90) but REVERSES on deleting the single
+  // closest-to-pole window kEnd=21.0, where log reclaims the win (AIC_log ~-136.44 < AIC_lin ~-126.50, gap
+  // flips to ~-9.94). The linear-beats-log verdict hinges ENTIRELY on kEnd=21.0. The coarser imp-34233
+  // ceilingNotSelected reading (log beats the bounded a-b/kEnd ceiling) IS robust to every single deletion
+  // (sat-minus-log AIC gap +9.27..+17.33). Measurement only; imp-34233/imp-34109/imp-34169 untouched;
+  // C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; NO QED. 6 assertions.
+  '/src/data/imp-34309-combined-grid-loo-linear-flip-robustness.js',
+  // imp-34310: MEASURE the local slope dg_resid/dk of the surrogate resid_exp(k) at its zero k*~21.28095
+  // (the imp-34237/imp-34169 pole) and extract the leading pole residue of eflow_over_resid = eflow_attr/
+  // resid_exp there. Secant slope across the two bracketing rungs (k=21.25 resid=+8.19e-9, k=21.5 resid=
+  // -4.97e-8) is m~-2.3156e-7 per k (reproduces the imp-34253 slope~-2.32e-7). resid_exp CHANGES SIGN
+  // across k*, so the zero is ODD order -> simplest order 1 (a double/even-order zero would not flip sign
+  // and is ruled out); with eflow_attr smooth and nonzero at k* (E*~4.583e-15), eflow_over_resid ~
+  // (E*/m)/(k-k*) is a SIMPLE pole with leading residue R = E*/m ~ -1.979e-8. Honest caveat: resid_exp is
+  // convex near the pole (3-point 2nd diff +3.38e-7), so m and the secant zero k_local~21.2854 carry ~10%
+  // / ~O(1e-2) offsets from the bisected k*; tightening needs sub-rungs in kEnd in (21.0,21.28) where
+  // resid_exp->0 loses digits. Consistent with imp-34247 (same pole simple, residue +1 in the DISTINCT
+  // widening-slope dy/dk channel). Measurement only; surrogate NOT rigorous; C_mb GUE-conditional per
+  // imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED. 6 assertions.
+  '/src/data/imp-34310-eflow-over-resid-pole-residue-simple-pole.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -207,7 +207,10 @@ export default function Imp34281M2CeilingCohortIndexPage() {
         the closed form with pEcoll on the SAME 5-point OLS stencil as pSigma collapses the net cubic bias
         to zero, and the crossing recedes to +infinity in both the closed form and the exact bisection
         (never re-crossing zero for k in [10, 35]). Readers should not read the -0.28 offset as a
-        competing ceiling. Measurement only; no bound changes.
+        competing ceiling. This dissolution -- the matched stencil removing{' '}
+        {(IMP34311_M2_CLOSEDFORM_5POINT_ENDPOINT_STENCIL_SHARE.residualShareRemoved * 100).toFixed(0)}% of the
+        residual -- quantitatively CONFIRMS imp-34127/imp-34302's own estimator-bias attribution for the
+        21.28095 ceiling, rather than exposing a distinct derivation error. Measurement only; no bound changes.
       </div>
 
       <div

@@ -476,6 +476,9 @@ const Imp34719SigmaExponentRampKneeViz = lazy(() =>
 const Imp34736SigmaKneeResidualBudgetViz = lazy(() =>
   import('./pages/Imp34736SigmaKneeResidualBudgetViz.jsx')
 );
+const Imp34737DpStarFarTailLadderViz = lazy(() =>
+  import('./pages/Imp34737DpStarFarTailLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1525,6 +1528,10 @@ function AppShell() {
           <Route
             path="/viz-imp34736-sigma-knee-residual-budget"
             element={<Imp34736SigmaKneeResidualBudgetViz />}
+          />
+          <Route
+            path="/viz-imp34737-dp-star-far-tail-ladder"
+            element={<Imp34737DpStarFarTailLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

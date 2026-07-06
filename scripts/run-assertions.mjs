@@ -6478,6 +6478,12 @@ const DATA_MODULES = [
   // slope m5~5.00, and the q5 deviation from 2^5 passes all three mean-zero tests (sign p~0.54,
   // runs z~0.57, CI~[-0.03,+0.03]); the clean integer-exponent ladder does NOT break at fifth order.
   '/src/data/imp-34771-collapse-ladder-q5-channel-extension.js',
+  // imp-34795: extends the collapse ladder one order further to the q6 channel (sixth central
+  // difference) on the same 24 deep-group footings over the same window -- ensemble r6~64.41
+  // (rounds to 2^6=64), slope m6~6.00, and the q6 deviation from 2^6 passes all three mean-zero
+  // tests (sign p~0.84, runs z~1.30, CI~[-0.03,+0.04]); the integer-exponent ladder does NOT
+  // break at sixth order either.
+  '/src/data/imp-34795-collapse-ladder-q6-channel-extension.js',
   // imp-34643: audit of the imp-34606..34613 measurement cluster found five modules
   // (imp-34606, imp-34609, imp-34611, imp-34612, imp-34613) carry self-executing
   // *_ASSERTIONS arrays that were absent from this DATA_MODULES sweep; wired in below.
@@ -6541,6 +6547,21 @@ const DATA_MODULES = [
   // every band (B(1e9)/max_union = 1.000), so they collapse to one monotone envelope; each B(band)
   // matches the imp-34757 published literal to < 1e-3. Standing accuracy tripwire, no bound change.
   '/src/data/imp-34777-crossover-gpp-cross-band-envelope-collapse.js',
+  // imp-34792: appends a 4th far-tail band [1e12,1e13] to the imp-34777 3-band collapse and
+  // confirms BOTH properties survive one decade deeper into the far tail: the four per-band
+  // left-endpoint bounds still strictly descend (B(1e9) > B(1e10) > B(1e11) > B(1e12)) and the
+  // single leftmost constant B(1e9) still dominates max |dg_kk/dt| on every one of the four bands
+  // (B(1e9)/max_union = 1.000), so one envelope guards the widened [1e9,1e13] union; the per-decade
+  // shrink ratios rise monotonically toward the clean 100x/decade, so approaching the 1/2 asymptote
+  // STABILISES rather than degrades the collapse. Measurement only, no bound change.
+  '/src/data/imp-34792-crossover-gpp-fourth-band-envelope-extension.js',
+  // imp-34793: derives the crossover-map FOURTH derivative g_quadruple_prime(N) =
+  // -16 pi^4 K (6u^3+18u^2+25u+15)/(T^4 u^7) in closed form on the imp-34768 footing --
+  // the NEXT derivative imp-34768 left open. It matches a 5-point fourth-difference of g to
+  // < 1e-3 relative across 63 post-peak probes, and 6u^3+18u^2+25u+15 > 0 makes it strictly
+  // NEGATIVE on [1e9,1e12], so d2/dN2 |dg_kk/dt| = -g_quadruple_prime > 0 and |g_double_prime|
+  // is strictly CONVEX across the post-peak union. Measurement/derivation only, no bound change.
+  '/src/data/imp-34793-crossover-gpppp-convexity.js',
   // imp-34790: energy of the Hamiltonian around phase-change boundaries. Verifies the ZPO
   // kinetic-curvature term IS (log zeta)''(2 sigma) (primon-gas specific-heat kernel at
   // beta = 2 sigma, identity to 1.2e-13), so its sigma -> 1/2+ behaviour is a DIVERGENCE
@@ -6571,6 +6592,11 @@ const DATA_MODULES = [
   // by ~3.75e11x, so the residual is an unported barrier lemma, not a constant. E_flow leans on
   // A1 (R1/R2' open) once imp-398's own C_G = 8.57 breaks the 6.78 OLS fallback. NO QED.
   '/src/data/imp-34791-etrunc-eflow-pt-anchor-honest-discharge.js',
+  // imp-34725: caveat-surfacing audit of the imp-34620..34623 viz-page cluster
+  // (extends the imp-34521/34561/34618 lineage); also documents that the ticket
+  // text's "imp-34624" viz-page reference is an id error -- imp-34624 is the
+  // already-completed imp-34584..34593 registration audit, not a viz page.
+  '/src/data/imp-34725-caveat-surfacing-audit-34620-34623.js',
 ];
 
 let ALL_MODULES = FAST_MODE

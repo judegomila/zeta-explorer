@@ -351,6 +351,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34356-m2-ceiling-exactfit-coeff-ladder',
   '/viz-imp34268-fixed-band-peak-reaccel-convexity-stitch',
   '/viz-imp34269-fixed-band-peak-shared-grid-cross-recompute',
+  '/viz-imp34361-eflow-crossover-offset-cohort-index',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

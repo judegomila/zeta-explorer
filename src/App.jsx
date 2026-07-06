@@ -302,6 +302,7 @@ const Imp34259UnifiedEndpointDistanceFamilyViz = lazy(() => import('./pages/Imp3
 const Imp34274FixedBandPeakIncrementMinimumViz = lazy(() => import('./pages/Imp34274FixedBandPeakIncrementMinimumViz.jsx'));
 const Imp34268FixedBandPeakReaccelConvexityStitchViz = lazy(() => import('./pages/Imp34268FixedBandPeakReaccelConvexityStitchViz.jsx'));
 const Imp34281M2CeilingCohortIndexPage = lazy(() => import('./pages/Imp34281M2CeilingCohortIndexPage.jsx'));
+const Imp34361EflowCrossoverOffsetCohortIndexPage = lazy(() => import('./pages/Imp34361EflowCrossoverOffsetCohortIndexPage.jsx'));
 const Imp34356M2CeilingExactFitCoeffLadderViz = lazy(() => import('./pages/Imp34356M2CeilingExactFitCoeffLadderViz.jsx'));
 const Imp34352EflowGronwallCrossoverOffsetViz = lazy(() => import('./pages/Imp34352EflowGronwallCrossoverOffsetViz.jsx'));
 const Imp34353CrossoverSurplusFamilyDecayViz = lazy(() => import('./pages/Imp34353CrossoverSurplusFamilyDecayViz.jsx'));
@@ -1145,6 +1146,7 @@ function AppShell() {
           <Route path="/viz-imp34353-crossover-surplus-family-decay" element={<Imp34353CrossoverSurplusFamilyDecayViz />} />
           <Route path="/viz-imp34354-crossover-surplus-small-thr-factorisation" element={<Imp34354CrossoverSurplusSmallThrFactorisationViz />} />
           <Route path="/viz-imp34355-fartail-crossover-residual-collapse" element={<Imp34355FarTailCrossoverResidualCollapseViz />} />
+          <Route path="/viz-imp34361-eflow-crossover-offset-cohort-index" element={<Imp34361EflowCrossoverOffsetCohortIndexPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

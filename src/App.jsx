@@ -326,6 +326,7 @@ const Imp34439ThirdDiffPoleOrderViz = lazy(() => import('./pages/Imp34439ThirdDi
 const Imp34475FourLocatorClusterAxisViz = lazy(() => import('./pages/Imp34475FourLocatorClusterAxisViz.jsx'));
 const Imp34494ResidueErrorBarViz = lazy(() => import('./pages/Imp34494ResidueErrorBarViz.jsx'));
 const Imp34495DeflowDecayViz = lazy(() => import('./pages/Imp34495DeflowDecayViz.jsx'));
+const Imp34496ExcessAboveTwoViz = lazy(() => import('./pages/Imp34496ExcessAboveTwoViz.jsx'));
 const Imp34476SigmaProductGapRatioApproachViz = lazy(() =>
   import('./pages/Imp34476SigmaProductGapRatioApproachViz.jsx')
 );
@@ -1188,6 +1189,7 @@ function AppShell() {
           <Route path="/viz-imp34475-four-locator-cluster-axis" element={<Imp34475FourLocatorClusterAxisViz />} />
           <Route path="/viz-imp34494-residue-error-bar" element={<Imp34494ResidueErrorBarViz />} />
           <Route path="/viz-imp34495-deflow-decay" element={<Imp34495DeflowDecayViz />} />
+          <Route path="/viz-imp34496-excess-above-two" element={<Imp34496ExcessAboveTwoViz />} />
           <Route
             path="/viz-imp34476-sigma-product-gap-ratio-approach"
             element={<Imp34476SigmaProductGapRatioApproachViz />}

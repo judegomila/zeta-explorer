@@ -418,6 +418,9 @@ const Imp34639StencilTailSpreadCrosscheckViz = lazy(() =>
 const Imp34641DeflowIdentifiabilityWindowViz = lazy(() =>
   import('./pages/Imp34641DeflowIdentifiabilityWindowViz.jsx')
 );
+const Imp34655LocalScalingOrderClimbViz = lazy(() =>
+  import('./pages/Imp34655LocalScalingOrderClimbViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1390,6 +1393,10 @@ function AppShell() {
           <Route
             path="/viz-imp34641-deflow-identifiability-window"
             element={<Imp34641DeflowIdentifiabilityWindowViz />}
+          />
+          <Route
+            path="/viz-imp34655-local-scaling-order-climb"
+            element={<Imp34655LocalScalingOrderClimbViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

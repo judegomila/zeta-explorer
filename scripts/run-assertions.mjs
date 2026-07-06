@@ -2613,6 +2613,16 @@ const DATA_MODULES = [
   // has essentially peaked at the assembly ceiling. Throws on import if the interior max,
   // flat-cap gap, past-ceiling decrease, or decay-to-0 breaks. Assessment only; no QED; PT SOTA.
   '/src/data/imp-3406-sigma-highN-extrapolation.js',
+  // imp-34434: tabulates the bridge TOTAL E(N) = E_trunc + E_flow + E_coll with the identical
+  // imp-3220/imp-3406 sub-terms and locates its minimum. Finding: E(N) is MONOTONE DECREASING
+  // (no interior minimum), unlike the SHARE sigma(N) which peaks at N ~ 9.22e5 -- so E(N)-min is
+  // the far-tail infimum = the constant E_trunc floor 3.06e-5 (within 10% near N ~ 4e11). At the
+  // sigma peak E(N) ~ 1.53e-3 is still ~50x above the floor and falling. The infimum sits ~3954x
+  // below the imp-452/459 L_pt ~ 0.121 finite-height beat, but per imp-2564 E(N) are bridge
+  // CONSTANTS not the headline inequality (the floor IS the E_trunc_pt imp-459 folds into L_pt),
+  // so it is not a Lambda beat. Throws on import if monotonicity, the floor infimum, or the
+  // slack ratio breaks. Measurement only; no QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-34434-en-bridge-total-minimum-locate.js',
   // imp-3443: MEASURES the sensitivity of the imp-3406 turnover point N_max ~ 9.22e5 to
   // the imp-2631 truncation floor E_trunc = 3.06e-5. Re-runs the identical imp-3406
   // ternary search over E_trunc in [0.5, 2.0] x 3.06e-5 with the same imp-3220 sub-terms.

@@ -58,6 +58,15 @@ const COHORT = [
       'stitched sequence pulls monotonically above the imp-34196 4-point linear extrapolation past ' +
       'kEnd~19.5, confirming convex (not linear) re-acceleration into the pole.',
   },
+  {
+    id: 'imp-34378 / imp-34288',
+    path: '/viz-imp34378-trough-peak-ratio-ceiling',
+    title: 'Trough/Peak Ratio Ceiling: Rise, Cap, and Regime-Change Recede',
+    summary:
+      'Extends the imp-34214/imp-34085 |trough|/|peak| amplitude-ratio grid past w=7: the ratio climbs ' +
+      'to a maximum ~0.907 at w=9.25, saturates below the ceiling of 1 (no overshoot), then recedes to ' +
+      '~0.618 by w=14 once the argmax peak migrates off the receding right endpoint to k~6.5.',
+  },
 ];
 
 export default function Imp34281M2CeilingCohortIndexPage() {

@@ -12079,6 +12079,35 @@ export const glossary = [
       'imp-34515 viz page for the relDef*logT0 convergence toward 2 log(2pi) (imp-34515)',
     ],
   },
+  {
+    term: 'imp-34023 pole k* ~ 21.28095 (widening-slope organizing singularity)',
+    category: 'concept',
+    definition:
+      'The simple zero of the imp-34023 M2 sub-leading residual residExp(k) = pEcoll(1-sigma) - pSigma, ' +
+      'a difference of two exponents both converging to 0.5 as N grows, whose catastrophic cancellation ' +
+      'crosses zero at k* ~ 21.28095 (bisected). imp-34247 showed this zero forces a genuine SIMPLE POLE ' +
+      '(residue exactly +1, order p ~ 1.02) in the local widening-slope tail slope dy/dk of ' +
+      'y(k) = ln(eflow_over_resid_k), since y = ln eflowAttr - ln residExp and -ln residExp contributes ' +
+      '+1/(k* - k). That single pole is the ORGANIZING SINGULARITY behind an entire leakage-ladder ' +
+      'degradation cohort: the widening-slope local estimate stays clean (<1% pole leakage) only through ' +
+      'k <~ 18.1, then degrades on a bisected 1%/3%/8% ladder at k ~ {18.106, 18.497, 19.034} (imp-34413, ' +
+      'imp-34468) as the pole term 1/(k* - k) leaks into the slope measurement -- all still well below the ' +
+      'pole itself. Every rung of the ladder, and every other module in the imp-34127/imp-34169/imp-34237 ' +
+      'cohort, terminates at this same k*.\n\n' +
+      'HONEST SCOPE: a numerical/structural observation (floating-point cancellation zero of an inherited ' +
+      'surrogate), not a derivation. The component model is the inherited imp-3220/imp-3406 extrapolation, ' +
+      'NOT a rigorous asymptotic; C_mb remains GUE-conditional per imp-486; imp-3066 K_a>=0 untouched; ' +
+      'establishes no operator positivity; changes no bound; no RH verdict, NO QED; Platt-Trudgian ' +
+      'Lambda<=0.2 remains the rigorous SOTA unconditional bound.',
+    firstUsed: 'imp-34023 (bisecting the residExp zero crossing at k* ~ 21.28095), 2026',
+    relatedTerms: [
+      'imp-34247 the simple-pole characterization of dy/dk (residue +1) forced by this zero (imp-34247)',
+      'imp-34413 the bisected 1% clean-window ceiling k ~ 18.106 on the leakage ladder (imp-34413)',
+      'imp-34468 the bisected 3%/8% leakage crossings k ~ 18.497/19.034 completing the ladder (imp-34468)',
+      'imp-34127 closed-form derivation of the same k* ceiling (imp-34127)',
+      'imp-34169 fixed-band peak surrogate terminating at the same pole (imp-34169)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

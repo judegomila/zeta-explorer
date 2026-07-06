@@ -6380,6 +6380,16 @@ const DATA_MODULES = [
   // coarse spread-ratio missed; per-channel slopes round to {2,3,4}, obs/pred rel
   // spread tightens 0.44 -> 0.245 (~44% of the undershoot was grid-density noise).
   '/src/data/imp-34689-resolution-matched-collapse-2pow-k-recovery.js',
+  // imp-34692: extend the imp-34685 two-endpoint central-difference dT0/dN
+  // cross-check of the imp-34650 analytic derivative to a dense 201-point log
+  // grid ([1.475e8,1e12]); worst FD-vs-analytic relerr ~2e-10, no sign slip,
+  // step-size study shows the residual is method-limited not formula error.
+  '/src/data/imp-34692-derivative-crosscheck-wide-grid.js',
+  // imp-34693: make the imp-34676 "seed near N_cross" recommendation quantitative --
+  // derive the admissible seed band |N_0 - N_cross| < rho(tol,k) = tol(1-L)/[(1-L_c)L^k]
+  // that keeps the Banach a-priori bound useful, matching the root-bracketed band to ~4
+  // sig figs and widening by exactly 1/L ~ 6.7348 per Picard iterate.
+  '/src/data/imp-34693-crossover-contraction-seed-band.js',
 ];
 
 let ALL_MODULES = FAST_MODE

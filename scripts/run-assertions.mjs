@@ -5614,6 +5614,17 @@ const DATA_MODULES = [
   // component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched;
   // PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34471-direct-secant-deviation-decay-law-fit.js',
+  // imp-34474: ASSEMBLES the full headline E(N) = E_trunc + E_flow + E_coll at the imp-33620
+  // sigma < 0.01 FAR-TAIL landmark N ~ 4.62e13 (re-pinned by the identical log10-N bisection) and
+  // reports the Lambda <= E(N) slack there against the L_pt ~ 0.121 finite-height beat (imp-452/459)
+  // and against the imp-34453 E_coll = E_trunc crossover slack. FINDINGS: the headline E(N) ~ 3.0909e-5
+  // is 1.0101x E_trunc (E_coll decayed to ~1% E_trunc, E_flow ~ 4.26e-7 E_trunc), HALF the imp-34453
+  // crossover headline (49.5% drop, crossover = 1.9819x the far tail), and ~3915x below L_pt -- within
+  // 1.0% of the ceiling L_pt/E_trunc = 3954.2, so the conditionality headroom against L_pt has nearly
+  // saturated. Reuses imp-33620/imp-3406 sub-terms and the imp-34453 crossover E(N) verbatim. 5 assertions.
+  // Measurement only; component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched;
+  // PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34474-far-tail-en-headline-slack-vs-lpt.js',
 ];
 
 let ALL_MODULES = FAST_MODE

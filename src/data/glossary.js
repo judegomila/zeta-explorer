@@ -11901,6 +11901,34 @@ export const glossary = [
       'surrogate zero k* ~ 21.28095, the resid_exp(k) zero-crossing that hard-edges the fixed-band-peak log surrogate (surrogate zero)',
     ],
   },
+  {
+    term: 'coupling ratio residual/(E_flow/E_trunc) ~ 2 (factor-2 lockstep, imp-34372)',
+    category: 'numerical',
+    definition:
+      'shorthand for the ratio of the closed-form-vs-empirical residual (rel_offset) to the dropped ' +
+      'Gronwall ratio E_flow/E_trunc at a given closed-form-crossover landmark N_cross(thr). The exact ' +
+      'relation is residual = 1 - [L/L]/(1+r)^2 with r = E_flow/E_trunc (imp-34270/imp-34351), whose ' +
+      'leading term is 2r -- so the ratio residual/r is pinned near the leading coefficient 2 for small ' +
+      'r, with the factor of 2 traced to N being proportional to E_coll^-2.\n\n' +
+      'imp-34355 first observed the two-landmark (halving thr=0.5, far-tail thr=0.1) lockstep: residual ' +
+      'and E_flow/E_trunc drop together ~54x between the two landmarks. imp-34372 folded in the imp-33860 ' +
+      'deep-tail thr=0.01 landmark and confirmed the lockstep PERSISTS (residual and E_flow/E_trunc both ' +
+      'drop ~84x from far-tail to deep-tail) while the coupling ratio itself drifts only slightly: ' +
+      '2.0885 (halving) -> 2.0788 (far tail) -> 2.0634 (deep tail), a monotone ~1.20% total downward ' +
+      'drift as r shrinks across two decades of tightening -- consistent with the next-order term ' +
+      '(-3r^2 + logT0 drift) shaving the ratio slightly below 2, not a divergence or a two-point ' +
+      'coincidence.\n\n' +
+      'HONEST SCOPE: measurement only, on the inherited imp-3220/imp-3406 component model, NOT a ' +
+      'rigorous asymptotic; changes no bound; C_mb GUE-conditional per imp-486 untouched; imp-3066 ' +
+      'K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34462 (adding a glossary headword defining the imp-34372 coupling ratio ~2 constant in one place), 2026',
+    relatedTerms: [
+      'imp-34355 the two-landmark ~54x lockstep first observed between halving and far-tail (imp-34355)',
+      'imp-34372 the three-landmark confirmation that the lockstep persists to the deep tail (imp-34372)',
+      'imp-34351 the exact residual = 1 - [L/L]/(1+r)^2 identity whose leading term gives the factor 2 (imp-34351)',
+      'imp-33860 the deep-tail thr=0.01 closed-form crossover landmark folded into the comparison (imp-33860)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

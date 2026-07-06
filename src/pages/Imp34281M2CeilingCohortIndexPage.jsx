@@ -10,6 +10,7 @@ import { IMP34282_B_INF_DESCRIPTIVE_VS_DERIVATION_STATUS_NOTE } from '../data/im
 import { IMP34211_CLOSEDFORM_VS_BISECTION_KEND_GAP } from '../data/imp-34211-closedform-vs-bisection-kend-gap.js';
 import { IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST } from '../data/imp-34233-fixed-band-peak-combined-grid-ceiling-contest.js';
 import { IMP34109_FIXED_BAND_PEAK_AMPLITUDE_SATURATION_FIT } from '../data/imp-34109-fixed-band-peak-amplitude-saturation-fit.js';
+import { IMP34285_CLOSEDFORM_GAP_TERM_DECOMPOSITION } from '../data/imp-34285-closedform-gap-term-decomposition.js';
 
 const COHORT = [
   {
@@ -38,6 +39,24 @@ const COHORT = [
       'Refines the imp-34109 fixed-band peak sweep to a finer grid: the peak increments dip to a ' +
       'minimum half a window later than the coarse read, and the post-minimum branch is convex, ' +
       'refuting delayed saturation.',
+  },
+  {
+    id: 'imp-34356 / imp-34267',
+    path: '/viz-imp34356-m2-ceiling-exactfit-coeff-ladder',
+    title: 'Exact-Fit Coefficient Ladder',
+    summary:
+      'Decomposes the imp-34189 exact-fit e^3 D^2 coefficient through the isolated endpoint-curvature ' +
+      'Taylor channel: truncating sigma_hi at order M has the wrong sign at M=0, overshoots at M=1/M=2, ' +
+      'and locks onto the exact-fit value by cubic order M=3.',
+  },
+  {
+    id: 'imp-34268 / imp-34196',
+    path: '/viz-imp34268-fixed-band-peak-reaccel-convexity-stitch',
+    title: 'Re-Acceleration Convexity Stitch',
+    summary:
+      'Stitches the imp-34196 re-accelerating fixed-band peak increments onto an 18-window grid: the ' +
+      'stitched sequence pulls monotonically above the imp-34196 4-point linear extrapolation past ' +
+      'kEnd~19.5, confirming convex (not linear) re-acceleration into the pole.',
   },
 ];
 
@@ -193,6 +212,28 @@ export default function Imp34281M2CeilingCohortIndexPage() {
         which pulls the best-fit form away from the log's curvature and toward the least-bounded linear
         form. Neither reading is wrong; imp-34233's grid is simply longer and its tail steeper. Measurement
         only; no RH bound changes.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>imp-34285 closed-form gap attribution (no dedicated viz page):</strong>{' '}
+        of the ~{IMP34285_CLOSEDFORM_GAP_TERM_DECOMPOSITION.gap} kEnd gap between the imp-34127 closed form
+        ({IMP34285_CLOSEDFORM_GAP_TERM_DECOMPOSITION.kEndClosedForm}) and the direct-bisection ceiling
+        ({IMP34285_CLOSEDFORM_GAP_TERM_DECOMPOSITION.kEndDirect}), dropping the E_flow term shifts the root
+        by only {IMP34285_CLOSEDFORM_GAP_TERM_DECOMPOSITION.eflowTerm.rootShiftFromDroppingEflow} (share{' '}
+        {IMP34285_CLOSEDFORM_GAP_TERM_DECOMPOSITION.eflowTerm.shareOfGap} of the gap) -- essentially none of
+        it. The entire gap is instead the higher-order-in-D remainder of two nearly-cancelling
+        finite-vs-continuum estimator biases (ratio {IMP34285_CLOSEDFORM_GAP_TERM_DECOMPOSITION.estimatorBias.biasCancellationRatio}).
+        Decomposition only; no RH bound changes.
       </div>
     </div>
   );

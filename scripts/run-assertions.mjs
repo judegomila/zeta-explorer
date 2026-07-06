@@ -5798,6 +5798,21 @@ const DATA_MODULES = [
   // model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT
   // Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34529-recovered-pole-convergence-vs-inherited.js',
+  // imp-34550: EXTENDS the imp-34529 recovered-pole ladder two tighter rungs [21.22,21.27] and
+  // [21.25,21.275] and tests whether the imp-34529 R3 ~1/3-per-rung geometric residual shrink persists or
+  // stalls at the imp-34368 resid_exp evaluation-noise floor. Reuses the IDENTICAL imp-34247 metric,
+  // imp-34188 y(k) surrogate, imp-34023 pole, and imp-34512 invLeakRoot estimator VERBATIM (the seven
+  // imp-34529 rungs are reproduced, then two appended). FINDINGS: (F1) the recovered pole keeps climbing
+  // 21.279970 -> 21.280579 toward k* ~ 21.28095 and the residual keeps shrinking 9.78e-4 -> 3.69e-4 below
+  // the imp-34529 tail ~2.055e-3 -- no stall; (F2) BUT the ~1/3 shrink does NOT persist: the two new
+  // per-rung ratios ~0.476/~0.377 (geomean ~0.424) exceed the imp-34529 early ~0.341 -- the contraction
+  // DECELERATES as the window crowds the pole; (F3) the slowdown is NOT the imp-34368 double-precision
+  // floor -- both new residuals sit ~1.36e4x / ~5.1e3x ABOVE dk ~ 7.2e-8 (~4 decades), so deeper
+  // convergence is still observable at double precision and the naive linear-1/leak estimator saturates
+  // its own accuracy near the pole before the precision floor binds. Import-light. 6 assertions.
+  // Cross-validation / measurement only; component model NOT rigorous; C_mb GUE-conditional per imp-486
+  // untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34550-recovered-pole-ladder-two-tighter-rungs.js',
   // imp-34530: FITS the imp-34512 R2 per-pp spacing compression (~0.196 -> 0.108 -> 0.058 -> 0.039
   // decades/pp across the {1,3,8,15,20}% rungs) to a power law in the pole distance, s = A (k* - k)^p,
   // over the four interval-midpoint distances, then EXTRAPOLATES the 25% / 30% rungs by integrating the

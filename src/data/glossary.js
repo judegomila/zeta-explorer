@@ -12419,6 +12419,39 @@ export const glossary = [
       'imp-34590 the companion finite-rung-not-floor residual-extrapolation result on the same bracket family (imp-34590)',
     ],
   },
+  {
+    term: 'imp-34590 finite-rung-not-floor test: intercept-SE extrapolation distinguishes a vanishing 1/log(N) correction from a genuine floor',
+    category: 'numerical',
+    definition:
+      'A quick-lookup headword for the imp-34590 test that settles whether a residual left open by imp-34571 ' +
+      'is a finite-rung artifact or a real floor. imp-34571 refit the imp-34448 deflow(kEnd) decay local ' +
+      'exponent on the six directly-observed rungs (kMid 16.125..19.875) as p = pInf - c/log(N), getting ' +
+      'pInf ~ 1.00073, and reported two residuals of that observed-only asymptote against fixed reference ' +
+      'values: residualVsAnalytic ~ 7.3e-4 (against the analytic E_flow ~ log^3(N)/N slope magnitude 1) and ' +
+      'residualVsFullWindow ~ 2.3e-4 (against the imp-34448 full-window pInf = 1.0005) -- without ever fitting ' +
+      'how either residual depends on N, so a finite-rung correction and a genuine floor were both consistent ' +
+      'with the numbers. imp-34590 forms the two PER-RUNG residuals devAnalytic(N) = 1 - p(N) and ' +
+      'devFullWindow(N) = pInf_fw - p(N) and fits each by OLS against u = 1/log(N): both fall monotonically ' +
+      '(R^2 ~ 0.9976) with slope c ~ 3.2116, the same coefficient the imp-34571 refit carries, at the E_flow ' +
+      'log^3(N)/N model-coefficient scale 3. The TEST is the extrapolated N->inf intercept: it reproduces the ' +
+      'imp-34571 residuals almost exactly (|a_analytic| ~ 7.34e-4, |a_fullWindow| ~ 2.34e-4) but sits at only ' +
+      '~0.38 SE and ~0.12 SE from 0 against the OLS intercept standard error ~1.92e-3 -- statistically ' +
+      'indistinguishable from zero. Because the intercept is sub-SE rather than resolved away from 0, the ' +
+      '~7.3e-4 / ~2.3e-4 gaps are finite-rung 1/log(N) corrections that vanish asymptotically, not floors: a ' +
+      'genuine floor would instead show an intercept resolved well outside its standard error.\n\n' +
+      'HONEST SCOPE: a two-parameter OLS extrapolation on the six imp-34448 directly-observed rungs, reusing ' +
+      'them verbatim; not a new derivation; the inherited imp-3220/imp-3406 component model is NOT a rigorous ' +
+      'asymptotic; the analytic E_flow slope -1 is a property of that surrogate, not of the true residual; ' +
+      'C_mb remains GUE-conditional per imp-486; changes no bound; establishes no operator positivity; no RH ' +
+      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34590 (deflow residual 1/log(N) scaling and the intercept-SE finite-rung-vs-floor test), 2026',
+    relatedTerms: [
+      'imp-34571 the observed-only pInf fit and the two fixed-reference residuals this extrapolates (imp-34571)',
+      'imp-34584 confirms the residual is not resolvable to next order from these six rungs (imp-34584)',
+      'imp-34448 the pInf ~ 1.000 fit and directly-observed local exponents reused verbatim (imp-34448)',
+      'imp-34585 the companion log-corrected power-law refit on the same bracket family (imp-34585)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

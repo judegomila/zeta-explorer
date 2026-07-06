@@ -4640,6 +4640,18 @@ const DATA_MODULES = [
   // surrogate; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2
   // SOTA; no QED. 6 assertions.
   '/src/data/imp-34250-deep-ladder-tie-margin-classification.js',
+  // imp-34325: CROSS-VALIDATE the imp-34250 tie-fragile {e=19, e=20} deep-ladder classification against a
+  // THIRD, higher-precision compensated (Kahan-summed) OLS estimator. imp-34250 used only two argmax
+  // operators -- the stable mean-centred OLS and the raw-moment OLS whose ~1.2e-14 cancellation
+  // perturbation flips e19/e20. A from-source reimplementation adds a Kahan-compensated mean-centred OLS
+  // and measures its argmax at both tie-fragile rungs: it RESCUES the stable argmax at e=19
+  // (k=8.821090698200) and e=20 (k=8.821091651900), agreeing with the stable OLS and DIFFERING from the
+  // raw-moment argmax (k=8.821092605600). Its pSigma disagreement with the stable operator (~2.78e-17 at
+  // e=19, exactly 0 at e=20) is ~450x below the raw-moment perturbation and below the top-two margin, so it
+  // cannot flip the tie -- the e19/e20 tie-fragility is an inferior-raw-moment-operator artifact, NOT a
+  // genuine sub-ULP degeneracy. Measurement only; inherited imp-3220/imp-3406 surrogate; C_mb
+  // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34325-deep-ladder-kahan-ols-crossvalidation.js',
   // imp-34173: DERIVE the UNIFIED k-indexed closed form for the outer phase-zero branch endpoint
   // distance/slope/curvature subsuming imp-34103 (k=-+1), imp-34104 (k=-+2) and imp-34167 (k=-+3).
   // The k-th branch theta = pi/2 -+ k pi/p (arg(-A) = k pi, p = 1 + alpha) sits at offset |k| pi/p

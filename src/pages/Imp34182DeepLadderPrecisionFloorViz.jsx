@@ -5,6 +5,7 @@ import {
   IMP34182_DEEP_LADDER_RUNGS,
   IMP34182_PRECISION_FLOOR,
 } from '../data/imp-34182-deep-ladder-precision-floor-viz-data.js';
+import { IMP34250_DEEP_LADDER_TIE_MARGIN_CLASSIFICATION } from '../data/imp-34250-deep-ladder-tie-margin-classification.js';
 
 // Log-log chart: measured gap vs exponent, colored by realign (descent) vs freeze vs departure.
 function GapScheduleChart() {
@@ -240,6 +241,30 @@ export default function Imp34182DeepLadderPrecisionFloorViz() {
         resolved a related open sub-question: the separated E_coll local-exponent residual to -1/2
         does NOT saturate at a floor, but keeps closing as ~1/(2 log T0), reaching 2.174e-6 by
         log10(N) = 1e5. Both are measurements/cross-validations only -- no bound change, NO QED.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>Per-rung decidability profile (imp-34250):</strong> the
+        e=19 tie margin above is not an isolated reading -- imp-34250 tabulates the top-two resid_exp
+        margin against the ~1.2e-14 raw-moment perturbation floor at every deep rung. The margin
+        collapses monotonically as the step halves (ratio 158 &#8594; 301 &#8594; 65 &#8594; 11.3 at
+        e=15..18, all robustly decidable), then drops below the perturbation floor exactly at{' '}
+        {IMP34250_DEEP_LADDER_TIE_MARGIN_CLASSIFICATION.fragileExponents.join(' and ')}: e=19 (ratio 0.295,
+        margin +3.64e-15, matching the tie above bit-for-bit) and e=20 (ratio 0.881, margin 1.46e-14).
+        Rungs {IMP34250_DEEP_LADDER_TIE_MARGIN_CLASSIFICATION.decidableExponents.join(', ')} stay robustly
+        decidable throughout. The tie-fragile set is identical to the set of rungs where the raw-moment
+        OLS reformulation flips the argmax selection -- the classifier predicts the flip rung-for-rung,
+        not merely describes it. Measurement/cross-check only, isRigorous false, no bound change, NO QED.
       </div>
 
       <div

@@ -12278,6 +12278,43 @@ export const glossary = [
       'imp-34551 double-double (106-bit) recompute that closes the SUB-GAP by observing the never-locking jitter directly (imp-34551)',
     ],
   },
+  {
+    term: 'imp-34531/imp-34543 drift-residual attribution ladder: 6% -> 0.9% -> 0.4% as the O(h^2) coefficient is decomposed',
+    category: 'numerical',
+    definition:
+      'imp-34446 measured the raw central-difference drift exponent d log N/d log E_coll drifting toward ' +
+      'the clean -2 asymptote down the N=1e13..1e14 ladder, leaving an unexplained residual. This entry ' +
+      'consolidates the ladder that pinned down what that residual is made of. Step 1 (imp-34531): the raw ' +
+      'residual tracks the closed-form second derivative d2 q/d(log N)^2 (q = log E_coll) to within ~6% ' +
+      '(ratio range 7.835e-6..8.312e-6 down the ladder) -- confirming the drift shrinks because it is ' +
+      'curvature-driven, but leaving that ~6% unexplained. Step 2 (imp-34543): splitting the full O(h^2) ' +
+      'coefficient C_th = C_q2 + C_q3 into its pure second-derivative (curvature) part C_q2 and pure ' +
+      'third-derivative part C_q3 shows C_q3/C_th is only ~2% at every landmark (C_q2 alone is ~98-99% of ' +
+      'the coefficient) -- restoring just C_q2 tightens the ratio to ~0.9% constant (~6.7x better than raw/' +
+      'd2m), and restoring the full C_q2+C_q3 coefficient tightens it further to ~0.4%. So the ladder reads ' +
+      '6% (curvature alone, uncorrected) -> 0.9% (isolated pure-q2 curvature term) -> 0.4% (adding back the ' +
+      '~2%-share q3 third-difference term): each step in the decomposition accounts for essentially all of ' +
+      'the previous step’s unexplained residual. imp-34566 confirmed the next term in the series (a ' +
+      'q4 4th-difference, O(h^4)) contributes ~0% to the surviving ~0.4%, so it is a finite-difference ' +
+      'truncation-vs-roundoff floor, not a missing q4/q5 tail.\n\n' +
+      'HONEST SCOPE / DEEP-TAIL CAVEAT: imp-34573 checked whether the ~98%/~2% q2/q3 split stays stable as ' +
+      'sigma -> 1 in the deep tail (N >= N* ~ 4.62e13, imp-33620 sigma<0.01) versus the mid-range: the split ' +
+      'never inverts, but the q3 share drifts down ~21% into the deep tail at the parents’ step size, ' +
+      'and a coarser step-size cross-check shows most of that drift is finite-difference conditioning ' +
+      '(the intrinsic decline shrinks to a mild ~8%) -- so the ladder’s percentages are a mid-range ' +
+      'snapshot, not sigma-uniform constants. This is a decomposition of an already-certified O(h^2) ' +
+      'coefficient, not a new derivation; the inherited imp-3220/imp-3406 component model is NOT a rigorous ' +
+      'asymptotic; C_mb remains GUE-conditional per imp-486; imp-3066 K_a>=0 untouched; changes no bound; no ' +
+      'RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA unconditional bound.',
+    firstUsed: 'imp-34531 (verifying the raw drift residual is curvature-driven) and imp-34543 (isolating ' +
+      'the pure q2/q3 shares of the O(h^2) coefficient), 2026',
+    relatedTerms: [
+      'imp-34446 the raw central-difference drift measurement whose residual this ladder decomposes (imp-34446)',
+      'imp-34486 the closed-form slow-log origin of the drift toward -2 that the residual sits on top of (imp-34486)',
+      'imp-34566 confirms the next-order q4 term contributes ~0% to the surviving ~0.4% (imp-34566)',
+      'imp-34573 deep-tail (sigma->1) stability check on the q2/q3 split, with the honesty caveat (imp-34573)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

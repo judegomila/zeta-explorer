@@ -5,6 +5,7 @@ import {
   IMP34198_MILESTONE_CROSSINGS,
   residLawAtLogT0,
 } from '../data/imp-34198-ecoll-residual-milestone-ladder-viz-data.js';
+import { IMP34197_LOGT0_RESID_PRODUCT_APPROACH_RATE } from '../data/imp-34197-logt0-resid-product-approach-rate.js';
 
 // log-log chart: x = log10(log T0), y = log10(residToHalf), so the 1/(2 log T0)
 // reference law renders as a straight diagonal line and the measured ladder's
@@ -138,6 +139,33 @@ export default function Imp34198EcollResidualMilestoneLadderViz() {
         log10(N)~{IMP34198_MILESTONE_CROSSINGS[3].log10N} -- glacially, but every
         crossing arrives strictly further out than the last, with no plateau in
         between.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>Exact approach-rate law (imp-34197):</strong>{' '}
+        the product log T0 * resid does not merely track 1/2 -- forming it cancels the
+        log T0 factor identically, so the gap 1/2 - (log T0 * resid) is EXACTLY 1/(2u)
+        with u = log(T0/2pi): gap*u equals {IMP34197_LOGT0_RESID_PRODUCT_APPROACH_RATE.productLadder[0].gap_times_u.toFixed(1)}{' '}
+        to 12 significant figures at every rung, and the OLS fit of gap against 1/u
+        returns slope {IMP34197_LOGT0_RESID_PRODUCT_APPROACH_RATE.fit.slope.toFixed(7)}, R^2 ={' '}
+        {IMP34197_LOGT0_RESID_PRODUCT_APPROACH_RATE.fit.rSquared.toFixed(6)} -- the leading
+        coefficient is exactly 1/2 with no subleading 1/u^2 term. (imp-34249) the closed
+        form makes the {IMP34197_LOGT0_RESID_PRODUCT_APPROACH_RATE.productFirstExceeds0499.threshold}{' '}
+        crossing exact too: the product first exceeds{' '}
+        {IMP34197_LOGT0_RESID_PRODUCT_APPROACH_RATE.productFirstExceeds0499.threshold} at u ={' '}
+        {IMP34197_LOGT0_RESID_PRODUCT_APPROACH_RATE.productFirstExceeds0499.uCrossing} exactly, i.e.
+        log10(N) ~ {IMP34197_LOGT0_RESID_PRODUCT_APPROACH_RATE.productFirstExceeds0499.log10NCrossing}
+        -- sitting between this page&apos;s log10(N)=100 and 300 ladder rungs.
       </div>
 
       <div

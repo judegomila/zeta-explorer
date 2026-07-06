@@ -394,6 +394,9 @@ const Imp34599FullLadderThroughPoleViz = lazy(() =>
 const Imp34619Q3SharePlateauDpFitViz = lazy(() =>
   import('./pages/Imp34619Q3SharePlateauDpFitViz.jsx')
 );
+const Imp34620Q4ShareRoundoffFloorVsDpViz = lazy(() =>
+  import('./pages/Imp34620Q4ShareRoundoffFloorVsDpViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1334,6 +1337,10 @@ function AppShell() {
           <Route
             path="/viz-imp34619-q3-share-plateau-dp-fit"
             element={<Imp34619Q3SharePlateauDpFitViz />}
+          />
+          <Route
+            path="/viz-imp34620-q4-share-roundoff-floor-vs-dp"
+            element={<Imp34620Q4ShareRoundoffFloorVsDpViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

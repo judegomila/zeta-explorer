@@ -78,6 +78,8 @@
  *
  * @see imp-34687-crossover-interval-arithmetic-scope (scoped the IA upgrade; named sub-gap imp-34687a)
  * @see imp-34650-crossover-banach-contraction-certificate (L-contraction certificate on I = [1e9, 1e10])
+ * @see imp-34676-crossover-contraction-right-widening (right-widening of the same binding regime at a = 1e9)
+ * @see imp-34693-crossover-contraction-seed-band (quantitative seed-band refinement of the same Banach certificate; parallel exact-lemma-vs-machine-certificate distinction)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 Riemann-von Mangoldt inverse, Newton solver)
  */
 

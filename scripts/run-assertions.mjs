@@ -6046,6 +6046,20 @@ const DATA_MODULES = [
   // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound
   // change; NO QED.
   '/src/data/imp-34586-eflow-attr-fp-floor-far-side-ladder.js',
+  // imp-34604: CROSS-FITS the imp-34572 FAR-side eflow_attr rungs (k=21.30..21.60, all above the pole
+  // k*~21.28095) to the imp-34585 LOG-CORRECTED form eflow_attr ~ A*N^p*(ln N)^q and measures whether
+  // (p_far, q_far) match the near-side (-1.0028, 3.348). Reuses IMP34572_FAR_SIDE_RUNGS verbatim and
+  // imports the imp-34585 near-side p/q live (import-light, no 16.7MB zeros bundle); same 3-parameter
+  // OLS on [1, ln N, ln ln N]. FINDINGS: (F1) the log-correction collapses the far-side residual too --
+  // max 4.16e-5 -> 3.42e-9 (~12142x), RMS 2.88e-5 -> 2.27e-9 (~12689x), 1-R^2=1.11e-16; (F2) far-side
+  // (p_far, q_far) = (-1.002802, 3.346178) match the near-side (-1.002844, 3.348339) to +4.2e-5 in p
+  // (0.004%) and -2.16e-3 in q (0.065%); (F3) the far side also recovers the analytic (p, q)~(-1, 3) --
+  // p off -1 by 0.28%, q off 3 by +0.346 (the same mild |g|=1-3/ln N attractor curvature, marginally
+  // smaller than near side). So the log-corrected structure is continuous through k*, closing the
+  // imp-34589 gap where the far side had only seen the pure power law. 5 assertions. Measurement only;
+  // inherited surrogate NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
+  // untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34604-eflow-attr-far-side-log-corrected-cross-fit.js',
   // imp-34585: REFINES the imp-34570 PURE power-law fit of the smooth eflow_attr(k) bracket by
   // testing a LOG-CORRECTED form eflow_attr ~ A*N^p*(ln N)^q against the analytic E_flow ~
   // log^3(N)/N structure. Same 8 baked imp-34406 rungs, a 3-parameter OLS on design [1, ln N,

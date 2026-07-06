@@ -6460,6 +6460,12 @@ const DATA_MODULES = [
   // and the q3/q4 deviation from 2^k flips sign a THIRD time (alternating {-,+,-} /
   // {+,-,+}), upgrading the two-footing "variance" reading to mean-zero ULP scatter.
   '/src/data/imp-34730-third-footing-collapse-ladder-crossvalidation.js',
+  // imp-34751: formal statistical test of the imp-34689/imp-34712/imp-34730 eyeballed
+  // three-footing mean-zero reading over an ENSEMBLE of 24 deep-group footings -- exact
+  // two-sided sign-test, Wald-Wolfowitz runs-test, and Student-t mean CI all fail to
+  // reject mean-zero on BOTH q3 (p~0.84, z~-1.23, CI~[-0.05,+0.04]) and q4 (p~1.0,
+  // z~-0.42, CI~[-0.05,+0.19]) while the exponents stay pinned to {3,4}.
+  '/src/data/imp-34751-collapse-ladder-mean-zero-statistical-test.js',
   // imp-34643: audit of the imp-34606..34613 measurement cluster found five modules
   // (imp-34606, imp-34609, imp-34611, imp-34612, imp-34613) carry self-executing
   // *_ASSERTIONS arrays that were absent from this DATA_MODULES sweep; wired in below.
@@ -6493,6 +6499,14 @@ const DATA_MODULES = [
   // derived the identical form inside its enclosure); a 5-probe closed-form-vs-central-
   // difference table (max relerr ~4e-7) and tightness ratio B/max = 1.000 confirm it sharp.
   '/src/data/imp-34731-crossover-map-second-derivative-bound.js',
+  // imp-34754: extend the imp-34735 exact-model edge-ratio ladder [dp-star(N)/0.05,
+  // dp-star(N)/0.1] from its N=1e100 ceiling toward N=1e300 and measure whether the two
+  // edges converge to finite limits -- they do NOT (both rise monotonically, finer 0.05
+  // edge ~0.170 at 1e100 -> ~0.806 at 1e300, ~4.75x, diverging like (log N)^(4/3)); the
+  // no-crossing verdict still holds through 1e300 (finer edge < 1) but the margin has
+  // largely closed (~81% of the way to corruption), and the exact dp-star runs ~7.7%
+  // above the closed-form asymptote at 1e300 so the true crossing is earlier than ~1e375.
+  '/src/data/imp-34754-dp-star-probe-band-ratio-deep-tail.js',
 ];
 
 let ALL_MODULES = FAST_MODE

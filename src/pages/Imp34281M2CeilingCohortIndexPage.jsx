@@ -11,6 +11,34 @@ import { IMP34211_CLOSEDFORM_VS_BISECTION_KEND_GAP } from '../data/imp-34211-clo
 import { IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST } from '../data/imp-34233-fixed-band-peak-combined-grid-ceiling-contest.js';
 import { IMP34109_FIXED_BAND_PEAK_AMPLITUDE_SATURATION_FIT } from '../data/imp-34109-fixed-band-peak-amplitude-saturation-fit.js';
 import { IMP34285_CLOSEDFORM_GAP_TERM_DECOMPOSITION } from '../data/imp-34285-closedform-gap-term-decomposition.js';
+import { IMP34288_TROUGH_PEAK_RATIO_CEILING_EXTENSION } from '../data/imp-34288-trough-peak-ratio-ceiling-extension.js';
+
+const KEND_GAP_DECOMPOSITION_SUB_COHORT = [
+  {
+    id: 'imp-34285',
+    measures: 'imp-34211 ~0.278 kEnd gap (imp-34127 closed form vs imp-34150 direct bisection), decomposed term-by-term',
+    reuseGate: 'rebuilds both roots from the identical inherited imp-3406/imp-33810 sub-terms',
+    subGap: 'SUB-GAP-imp-34285-per-estimator-percentage-split (dA-dB near-total cancellation leaves a clean percentage ill-conditioned)',
+  },
+  {
+    id: 'imp-34286',
+    measures: 'imp-34210 numerator-approach coefficient a, cross-validated via an independent finite-difference derivative',
+    reuseGate: 'reuses the imp-33810 quarter-decade ladder verbatim',
+    subGap: 'none -- FD estimator (~0.437-0.438) corroborates the g*kEnd plateau, only tightens the OLS prefactor',
+  },
+  {
+    id: 'imp-34287',
+    measures: 'imp-34196 re-acceleration vs imp-34109 unbounded-log verdict, reconciled via the local growth exponent g',
+    reuseGate: 'reuses the imp-34196/imp-34109 machinery verbatim',
+    subGap: 'SUB-GAP-imp-34287-asymptotic-class-undecidable (true growth class undecidable within the surrogate domain)',
+  },
+  {
+    id: 'imp-34288',
+    measures: 'imp-34214 |trough|/|peak| ratio grid, extended past window width w=7 toward the amplitude ceiling',
+    reuseGate: `reproduces the imp-34085 ratio at kEnd=11..13 exactly (max diff ${IMP34288_TROUGH_PEAK_RATIO_CEILING_EXTENSION.reuseGateMaxDiffVsImp34085})`,
+    subGap: 'none -- ratio saturates below ceiling 1 (max ~0.907), no overshoot',
+  },
+];
 
 const COHORT = [
   {
@@ -243,6 +271,59 @@ export default function Imp34281M2CeilingCohortIndexPage() {
         it. The entire gap is instead the higher-order-in-D remainder of two nearly-cancelling
         finite-vs-continuum estimator biases (ratio {IMP34285_CLOSEDFORM_GAP_TERM_DECOMPOSITION.estimatorBias.biasCancellationRatio}).
         Decomposition only; no RH bound changes.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>
+          M2-residual kEnd-gap decomposition sub-cohort provenance rollup (imp-34381):
+        </strong>{' '}
+        imp-34285/imp-34286/imp-34287/imp-34288 form one decomposition sub-cohort of the M2-residual
+        kEnd gap. Auditable in one place -- each module's reuse gate against its inherited source and
+        its honest sub-gap status (open vs closed):
+        <div style={{ overflowX: 'auto', marginTop: '0.5rem' }}>
+          <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: '0.78rem' }}>
+            <thead>
+              <tr>
+                {['Module', 'Measures', 'Reuse gate', 'Honest sub-gap'].map((h) => (
+                  <th
+                    key={h}
+                    style={{
+                      textAlign: 'left',
+                      padding: '0.35rem 0.5rem',
+                      borderBottom: '1px solid #334155',
+                      color: '#94a3b8',
+                    }}
+                  >
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {KEND_GAP_DECOMPOSITION_SUB_COHORT.map((row) => (
+                <tr key={row.id}>
+                  <td style={{ padding: '0.35rem 0.5rem', borderBottom: '1px solid #1e293b', color: '#e2e8f0', fontWeight: 600 }}>
+                    {row.id}
+                  </td>
+                  <td style={{ padding: '0.35rem 0.5rem', borderBottom: '1px solid #1e293b' }}>{row.measures}</td>
+                  <td style={{ padding: '0.35rem 0.5rem', borderBottom: '1px solid #1e293b' }}>{row.reuseGate}</td>
+                  <td style={{ padding: '0.35rem 0.5rem', borderBottom: '1px solid #1e293b' }}>{row.subGap}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        Citation/provenance audit only; no new derivation; no bound changed.
       </div>
     </div>
   );

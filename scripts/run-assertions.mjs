@@ -6519,6 +6519,15 @@ const DATA_MODULES = [
   // largely closed (~81% of the way to corruption), and the exact dp-star runs ~7.7%
   // above the closed-form asymptote at 1e300 so the true crossing is earlier than ~1e375.
   '/src/data/imp-34754-dp-star-probe-band-ratio-deep-tail.js',
+  // imp-34772: derive the next-order (log log N)/(log N) correction to the imp-34754 dp-star
+  // asymptote via a CLOSED-FORM q3 (RvM w-chain, no finite differencing) and test whether it
+  // accounts for the imp-34754 F3 ~7.7% excess. It does NOT: the genuine correction is NEGATIVE
+  // (R = dp-star_exact/asymptote = 1 - c loglogN/logN, c -> 1, R ~0.988 -> ~0.994 across
+  // 1e100..1e300, staying below 1), and the ~7.7% is a finite-difference roundoff artifact --
+  // the probe-band q3*p^3 collapses ~1.02 -> ~0.76 by 1e300 while the closed-form q3*p^3 stays
+  // ~1.01 (validated: closed-form matches probe-band q3 to ~1e-5 at N<=1e50). Correcting it
+  // moves the finer-edge crossover LATER (log10 N ~376.2 vs ~374.6), opposite to imp-34754 F3.
+  '/src/data/imp-34772-dp-star-loglog-correction.js',
   // imp-34757: extend the imp-34731 closed-form-vs-central-difference cross-check of the
   // crossover-map second derivative g_double_prime = -4 pi^2 K (u+1)/(T^2 u^3) from 5 probes
   // on [1e9,1e10] to 63 probes across three post-peak bands [1e9,1e10],[1e10,1e11],[1e11,1e12];

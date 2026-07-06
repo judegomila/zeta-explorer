@@ -11711,9 +11711,20 @@ export const glossary = [
       'region, so the re-acceleration is genuinely CONVEX, not the linear descriptor imp-34196 fit locally.\n\n' +
       'HONEST STATUS: imp-34196 (correct within 18.75..19.50) and imp-34169 (correct within 20..21) are not ' +
       'overturned -- only their local linear extrapolation is. Which convex functional form (quadratic, ' +
-      'exponential-in-kEnd, or resid_exp pole blow-up toward k* ~ 21.28) the branch follows is left OPEN ' +
-      '(named SUB-GAP-imp-34268-convex-branch-form); imp-34287 reconciles this with the pole but does not ' +
+      'exponential-in-kEnd, or resid_exp pole blow-up toward k* ~ 21.28) the branch follows was originally left ' +
+      'OPEN (named SUB-GAP-imp-34268-convex-branch-form); imp-34287 reconciles this with the pole but does not ' +
       'settle the functional form.\n\n' +
+      'UPDATE (PARTIALLY RESOLVED): imp-34346 resolves the divergence-RATE half -- the third-difference blow-up ' +
+      'is a power-law-in-(k*-kEnd) signature with a SUB-UNITY, DECREASING effective pole order (~0.94 falling to ' +
+      '~0.67 at the last rung), the signature of a sub-power / logarithmic-family divergence, not an integer-order ' +
+      'pole. imp-34347 resolves the parity/smoothness half -- the odd-quarter nodes the 0.5 grid never sampled ' +
+      'interleave SMOOTHLY onto the same convex branch with NO parity oscillation (all seven interior odd-quarter ' +
+      'nodes locally convex; the lone concave node, kEnd = 19.00, is a one-node turning-point overshoot next to the ' +
+      '18.75 minimum, not a systematic even-odd effect). The EXACT functional form remains pole-blocked at this ' +
+      'point -- still SUB-GAP-imp-34268-convex-branch-form -- though later modules narrow it further: imp-34367 ' +
+      'ranks candidate forms (quadratic favored, simple pole disfavored, but only as a local descriptor, not the ' +
+      'true asymptotic) and imp-34400 identifies a sub-unity branch-point CUSP (finite limiting peak, infinite ' +
+      'slope) on a 5x-finer grid.\n\n' +
       'MEASUREMENT / STITCH-AND-CONVEXITY PROBE ONLY, NOT an RH bound. The inherited imp-3220/imp-3406 ' +
       'component model is NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 ' +
       'K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
@@ -11722,6 +11733,10 @@ export const glossary = [
       'imp-34196 the local 4-point linear re-accel slope this shows is only a local descriptor (imp-34196)',
       'imp-34169 the kEnd 20..21 increments this stitches onto the imp-34196 grid (imp-34169)',
       'imp-34287 the pole-proximity reconciliation of this convex branch (imp-34287)',
+      'imp-34346 resolves the divergence-rate half: sub-unity, decreasing effective pole order (imp-34346)',
+      'imp-34347 resolves the parity/smoothness half: no oscillation, single 19.00 overshoot (imp-34347)',
+      'imp-34367 candidate-form selection on the accessible branch: quadratic favored, pole disfavored (imp-34367)',
+      'imp-34400 fine-grid finding: a sub-unity branch-point cusp, finite peak with infinite slope (imp-34400)',
     ],
   },
   {

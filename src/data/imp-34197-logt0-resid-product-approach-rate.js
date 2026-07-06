@@ -148,6 +148,19 @@ const BAND_PRODUCT_1e11_1e12 = (() => {
   return +(0.5 * (p(11) + p(12))).toFixed(4);
 })();
 
+// imp-34249: WHERE does the product first EXCEED 0.499? The exact gap = 1/(2u) makes this a
+// closed-form threshold: product = 1/2 - 1/(2u) > 0.499 <=> 1/(2u) < 1e-3 <=> u > 500. So the
+// product crosses 0.499 exactly at u = 500 (product = 0.499 there), i.e. at ln N = 500 + log(499)
+// on the imp-33859 direct path -- log10 N ~ 219.85, sitting between the 100 and 300 rungs.
+const PRODUCT_EXCEEDS_0499 = (() => {
+  const uCross = 500; // 1/2 - 1/(2u) = 0.499 => u = 500 exactly
+  const lnNCross = uCross + Math.log(uCross - 1); // imp-33859 direct path ln N = u + log(u-1)
+  const log10NCross = lnNCross / Math.LN10;
+  const uBack = uFromLnN(lnNCross); // numeric round-trip: Newton recovers u ~ 500
+  const productAtCross = HALF * (uBack - 1) / uBack; // == 0.499 at the crossover
+  return { uCross, log10NCross, productAtCross, uBack };
+})();
+
 export const IMP34197_LOGT0_RESID_PRODUCT_APPROACH_RATE = {
   id: 'imp-34197',
   proofSection: 'S-frontier',
@@ -173,6 +186,16 @@ export const IMP34197_LOGT0_RESID_PRODUCT_APPROACH_RATE = {
     rSquared: +FIT.r2.toFixed(12), // 1 to machine precision
   },
   bandProduct_1e11_1e12: BAND_PRODUCT_1e11_1e12, // ~0.4786, reproduces imp-34130 F3s 0.4788
+  productFirstExceeds0499: {
+    // imp-34249: exact closed-form threshold from gap = 1/(2u): product > 0.499 <=> u > 500.
+    threshold: 0.499,
+    uCrossing: PRODUCT_EXCEEDS_0499.uCross, // exactly 500 (product = 1/2 - 1/(2u) = 0.499 at u = 500)
+    log10NCrossing: +PRODUCT_EXCEEDS_0499.log10NCross.toFixed(4), // ~219.85
+    productAtCrossing: +PRODUCT_EXCEEDS_0499.productAtCross.toFixed(6), // 0.499000
+    note:
+      'product exceeds 0.499 for u > 500, i.e. log10 N > ~219.85 on the imp-33859 direct path -- it ' +
+      'sits between the log10 N = 100 rung product 0.497776 and the 300 rung product 0.499269',
+  },
   modelGate_FD_vs_analytic_product_at_1e100: +MODEL_GATE_FD_VS_ANALYTIC_PRODUCT.toExponential(3), // ~0
   farTailExponent: -HALF, // imp-3463 asymptote the local exponent q(N) approaches from above
   finding: {
@@ -242,6 +265,20 @@ export const IMP34197_LOGT0_RESID_PRODUCT_APPROACH_RATE_ASSERTIONS = [
     id: 'imp34197-fd-vs-analytic-product-model-gate',
     description: 'imp-34130 FD product == analytic product at log10 N = 100 (< 1e-6)',
     holds: () => MODEL_GATE_FD_VS_ANALYTIC_PRODUCT < 1e-6,
+  },
+  {
+    // (imp-34249) the product first exceeds 0.499 at u = 500 exactly (log10 N ~ 219.85), bracketed by the 100/300 rungs.
+    id: 'imp34197-product-first-exceeds-0499-at-u-500',
+    description: 'product > 0.499 <=> u > 500 exactly; crossover log10 N ~ 219.85 sits between the 100 and 300 rungs',
+    holds: () => {
+      const c = PRODUCT_EXCEEDS_0499;
+      if (c.uCross !== 500) return false;
+      if (Math.abs(c.productAtCross - 0.499) > 1e-12) return false;
+      if (!(c.log10NCross > 219 && c.log10NCross < 221)) return false;
+      const p100 = logT0FromLnN(100 * Math.LN10) * residAnalyticFromLnN(100 * Math.LN10);
+      const p300 = logT0FromLnN(300 * Math.LN10) * residAnalyticFromLnN(300 * Math.LN10);
+      return p100 < 0.499 && p300 > 0.499;
+    },
   },
   {
     // honesty gate: fit only, far-tail exponent = -1/2 (imp-3463), no QED, PT SOTA.

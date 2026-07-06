@@ -12315,6 +12315,35 @@ export const glossary = [
       'imp-34573 deep-tail (sigma->1) stability check on the q2/q3 split, with the honesty caveat (imp-34573)',
     ],
   },
+  {
+    term: 'extended-precision tier ladder: native double / 80-bit / binary128 / double-double 106-bit',
+    category: 'numerical',
+    definition:
+      'A reference ladder of the four mantissa-precision tiers this project has used to push past the ' +
+      'double-precision (53-bit, ~15-17 sig fig) floor on resid_exp(k)-based measurements, and which ' +
+      'inherited finding each tier unlocks. Native double (53 bits) is the default: it is enough for the ' +
+      'ordinary 7-sig-fig storage/cancellation floor near the resid_exp pole k*~21.28095 (imp-34405), but ' +
+      'not enough to resolve finer questions. x87 80-bit extended (64-bit mantissa) buys roughly 45x tighter ' +
+      'peak-location resolution than native double (dk ~ 1.6e-9 vs ~7.2e-8), per the dk(p) = dk(53) * ' +
+      '2^((53-p)/2) scaling law derived in imp-34552 -- but 80-bit is NOT enough to resolve the imp-34228 ' +
+      'live-vs-stored offset (~4.27e-11), which needs p > ~74.4 mantissa bits. binary128 quad precision ' +
+      '(113-bit mantissa) clears that requirement with several orders of margin (dk ~ 6.7e-17, ~1.07e9x ' +
+      'tighter than native double) and is the tier imp-34552 shows actually resolves the imp-34228 offset. ' +
+      'Separately, double-double (106-bit effective mantissa via Dekker/Knuth splitting, no external bignum ' +
+      'library) is the tier imp-34551 used to resolve the e>=25 deep-rung argmax question: native double\'s ' +
+      'refinement-depth-24-plus argmax search has a top-two candidate margin below one 2^-56 storage ULP -- ' +
+      'genuinely unresolvable in double precision -- while DD arithmetic resolves it directly (margins ' +
+      '0.480/0.049 ULP at e=25/26) and confirms the argmax never locks onto a dyadic node, converging ' +
+      'instead to the non-dyadic k*_dd = 8.8210916010340.',
+    firstUsed: 'imp-34551 (double-double argmax resolution) and imp-34552 (binary128 precision-floor payoff ' +
+      'derivation), 2026',
+    relatedTerms: [
+      'imp-34551 bignum double-double recompute resolving the e>=25 argmax deep-rung jitter (imp-34551)',
+      'imp-34552 derivation of the precision-floor dk(p) scaling law and the binary128 imp-34228 payoff (imp-34552)',
+      'imp-34405 the ordinary native-double storage/cancellation floor near the resid_exp pole (imp-34405)',
+      'imp-34228 the live-vs-stored offset that only binary128, not 80-bit, resolves (imp-34228)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

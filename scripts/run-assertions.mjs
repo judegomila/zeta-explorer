@@ -6473,6 +6473,11 @@ const DATA_MODULES = [
   // reject mean-zero on BOTH q3 (p~0.84, z~-1.23, CI~[-0.05,+0.04]) and q4 (p~1.0,
   // z~-0.42, CI~[-0.05,+0.19]) while the exponents stay pinned to {3,4}.
   '/src/data/imp-34751-collapse-ladder-mean-zero-statistical-test.js',
+  // imp-34771: extends the imp-34751 collapse ladder to the q5 channel (fifth central
+  // difference) on the same 24 deep-group footings -- ensemble r5~31.97 (rounds to 2^5=32),
+  // slope m5~5.00, and the q5 deviation from 2^5 passes all three mean-zero tests (sign p~0.54,
+  // runs z~0.57, CI~[-0.03,+0.03]); the clean integer-exponent ladder does NOT break at fifth order.
+  '/src/data/imp-34771-collapse-ladder-q5-channel-extension.js',
   // imp-34643: audit of the imp-34606..34613 measurement cluster found five modules
   // (imp-34606, imp-34609, imp-34611, imp-34612, imp-34613) carry self-executing
   // *_ASSERTIONS arrays that were absent from this DATA_MODULES sweep; wired in below.

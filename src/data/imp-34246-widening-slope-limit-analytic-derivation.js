@@ -67,6 +67,7 @@
  * @see imp-34023-eflow-widening-ratio-f4-collapse-extrapolation (the resid_exp sign-change ceiling k*~21.281)
  * @see imp-33843-eflow-resid-widening-form-fit (the log-linear widening-slope form b(k))
  * @see imp-33810-eflow-resid-ratio-N-ladder (the eflow_attr/resid_exp ladder and inherited parts)
+ * @see imp-34205-widening-slope-convergence-viz-data (the b_inf convergence plot this derivation shows is a finite-window coincidence)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0)
  * @see polymath15-constant-C-C (C_C = C_H sqrt(pi C_Selberg))
  */

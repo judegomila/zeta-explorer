@@ -15,6 +15,8 @@
  *   @see imp-34129-widening-slope-drift-convergence-fit.js (the sweep and convergence fits plotted here)
  *   @see imp-34022-argmin-argmax-migration-symmetry (the R3 three-window whole-line tilt)
  *   @see imp-33843-eflow-resid-widening-form-fit (the log-linear OLS whose slope drift is tracked)
+ *   @see imp-34246-widening-slope-limit-analytic-derivation (derives the b_inf convergence plotted here is a finite-window coincidence, not a true k -> inf limit)
+ *   @see imp-34247-widening-slope-pole-divergence (the same slope's divergence at k* ~ 21.281, past the window plotted here)
  */
 
 import { IMP34129_WIDENING_SLOPE_DRIFT_CONVERGENCE_FIT } from './imp-34129-widening-slope-drift-convergence-fit.js';

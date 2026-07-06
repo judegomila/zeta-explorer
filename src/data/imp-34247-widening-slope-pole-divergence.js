@@ -63,6 +63,7 @@
  * @see imp-34127-m2-residual-signchange-ceiling-closed-form (closed-form derivation of the same k* ceiling)
  * @see imp-34169-fixed-band-peak-extended-decade-surrogate-zero (fixed-band peak terminating at the same pole)
  * @see imp-33843-eflow-resid-widening-form-fit (the log-linear widening-slope surrogate the pole contaminates)
+ * @see imp-34205-widening-slope-convergence-viz-data (the b_inf convergence plot terminating at the same pole)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 = gamma_N)
  * @see polymath15-constant-C-C (C_C_PINNED collision constant in E_coll)
  *

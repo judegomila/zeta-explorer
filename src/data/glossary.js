@@ -11992,11 +11992,18 @@ export const glossary = [
       'the price, in orders of magnitude, of assuming the C_mb Montgomery pair-correlation constant (GUE-' +
       'conditional, imp-486) rather than only using the rigorous unconditional certificate. imp-34453 ' +
       'assembled the headline at the imp-3444 E_coll=E_trunc sigma-halving crossover (N ~ 3.280294e9): ' +
-      'E(N) = 6.1258e-5 there, sitting a factor ~1975x BELOW L_pt (L_pt/E(N) = 1975.2). imp-34488 later ' +
-      'tabulated this ratio across three landmarks and found it grows but saturates toward a ceiling ' +
-      'L_pt/E_trunc = 3954.25 as sigma(N) decays to 0.\n\n' +
+      'E(N) = 6.1258e-5 there, sitting a factor ~1975x BELOW L_pt (L_pt/E(N) = 1975.2). Writing R(N) = ' +
+      'L_pt/E(N), imp-34488 tabulated the ratio at three named landmarks and found it GROWS but ' +
+      'DECELERATES: R = 1975.2 at the sigma=0.50 crossover, 3558.7 at the sigma<0.1 knee (N ~ 3.213e11), ' +
+      'and 3914.7 at the sigma<0.01 far tail (N ~ 4.624e13) -- the first hop multiplies R by 1.80x but the ' +
+      'second only by 1.10x. R(N) is a BOUNDED, saturating quantity: R(N) < the structural ceiling ' +
+      'L_pt/E_trunc = 3954.25 at every N, with the three landmarks sitting at 50.0%, 90.0%, and 99.0% of ' +
+      'that ceiling -- nearly all the headroom is already spent by the sigma<0.1 knee. The ceiling fraction ' +
+      'R(N)/ceiling = E_trunc/E(N) equals 1-sigma to a negligible E_flow correction (below 1e-3 and ' +
+      'shrinking at every landmark), so R(N) = (L_pt/E_trunc)(1-sigma-eps): the conditionality gap scales ' +
+      'with N only through the collision share sigma(N).\n\n' +
       'HONEST SCOPE: a conditional-share diagnostic only, not an RH bound. E(N) is dominated by GUE-' +
-      'conditional E_coll while L_pt is fully unconditional, so the ~1975x separation measures conditional ' +
+      'conditional E_coll while L_pt is fully unconditional, so the R(N) separation measures conditional ' +
       'headroom, not a proof gain; per imp-2564, the E(N) values are bridge (assembly-error) constants, ' +
       'not the headline Lambda<=... inequality itself. C_mb remains GUE-conditional (imp-486) throughout; ' +
       'changes no bound; imp-3066 K_a>=0 untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
@@ -12006,7 +12013,7 @@ export const glossary = [
       'imp-3444 sigma(N) machine-precision landmark ladder, source of the E_coll=E_trunc crossover this gap is measured at (imp-3444)',
       'imp-452 L_pt finite-height beat assembly, the unconditional side of the ratio (imp-452)',
       'imp-486 C_mb Montgomery pair-correlation constant, the GUE-conditional assumption this gap prices (imp-486)',
-      'imp-34488 conditionality-gap ratio tabulated across three landmarks, showing saturation toward a ceiling (imp-34488)',
+      'imp-34488 R(N)=L_pt/E(N) tabulated at three landmarks (1975.2/3558.7/3914.7), saturating toward the ceiling L_pt/E_trunc=3954.25 at 50%/90%/99% (imp-34488)',
     ],
   },
   {

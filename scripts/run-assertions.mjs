@@ -6037,6 +6037,20 @@ const DATA_MODULES = [
   // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound;
   // NO QED.
   '/src/data/imp-34607-deflow-second-order-identifiability-window.js',
+  // imp-34628: MEASUREMENT -- re-poses the imp-34607 deflow 1/log^2(N) identifiability window under a
+  // COEFFICIENT-SE-TARGET criterion instead of the VIF < 10 rule of thumb. Using the closed-form OLS
+  // standard error SE(d) = sigma / sqrt(S22 (1 - r^2)) (sigma ~3.4e-4 = imp-34571 refit residual,
+  // |d| ~91.7 = imp-34584), the observed six-rung window sits at relSE ~0.58 (d not resolved even to
+  // 50%, consistent with imp-34584). Holding the high anchor at kEnd = 20 and extending the same
+  // STEP = 0.25 grid downward, resolving d to 50% needs a log N span of only ~8.9 (~0.20x the
+  // imp-34607 VIF < 10 span ~43.5) and to 10% needs ~14.6 (~0.34x): the VIF < 10 rule of thumb
+  // overstates the span for a stated precision by ~3x-5x (it thresholds only r, ignoring that a wider
+  // span also grows the u^2 spread S22 and the rung count). The SE-target floors (N ~4.5e13..1.4e16)
+  // stay in the deep-N regime below the fp floor kEnd ~22.5, unlike the VIF < 10 floors (N ~12..9000).
+  // Reuses the imp-34448 export verbatim (import-light). 7 assertions. Measurement only; component
+  // model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT
+  // Lambda<=0.2 SOTA; no bound; NO QED.
+  '/src/data/imp-34628-deflow-second-order-se-target-window.js',
   // imp-34572: EXTENDS the imp-34406 eflow_attr smooth-bracket recovery to rungs ABOVE the pole
   // k* ~ 21.28095 (k = 21.30 .. 21.60, all > k*), since imp-34406 bracketed only k = 21.00 .. 21.50
   // (at/below k*). Recovers eflow_attr = (E_flow/E_N)*|d ln E_flow/d log10 N| DIRECTLY via the

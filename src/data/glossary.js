@@ -12515,6 +12515,43 @@ export const glossary = [
       'imp-34571 the one-parameter refit and ~7.3e-4 residual left unresolved to next order (imp-34571)',
     ],
   },
+  {
+    term: 'imp-34657 machine-epsilon DUAL signature: the deep-tail finite-difference floor is roundoff in BOTH power and amplitude',
+    category: 'numerical',
+    definition:
+      'A quick-lookup headword consolidating two independent machine-epsilon fingerprints on the ' +
+      'deep-tail 1/dp^k finite-difference floor of the q2/q3/q4 apparent-coefficient shares, pinned ' +
+      'by two separate tickets on two separate halves of the same log-log line. imp-34606 fixed the ' +
+      'POWER: the deep-group apparent share s_k(dp) grows as 1/dp^m_k with the fitted exponents ' +
+      'rounding to the clean integer ladder {2, 3, 4} (m2 ~ 1.999, m3 ~ 2.903, m4 ~ 4.008), exactly ' +
+      'the k-point-difference / dp^k amplification the difference structure predicts. imp-34633 then ' +
+      'fixed the AMPLITUDE: reading the intercept B_k = exp(lnb_k) of the SAME log-log fits and ' +
+      'comparing it to the parameter-free prediction eps_mach * |q| (or |q1|) set only by unit ' +
+      'roundoff eps_mach = 2.22e-16 and the true function magnitudes |q| ~ 15..16, |q1| ~ 0.485 at ' +
+      'the deep-tail landmarks -- with NO fitted amplitude of its own -- found all three measured ' +
+      'prefactors (B2 ~ 7.67e-15, B3 ~ 6.29e-15, B4 ~ 1.25e-15) sit within a factor of ~3 of that ' +
+      'pinned prediction.\n\n' +
+      'WHY BOTH HALVES MATTER: the slope test alone only shows the floor scales like SOME k-point ' +
+      'difference; a modelling artifact that happened to decay as 1/dp^k would pass it too. The ' +
+      'amplitude test is independent and has no free parameter -- matching it fixes the floor\'s ' +
+      'SOURCE as double-precision roundoff on |q|-magnitude function evaluations, not merely its ' +
+      'shape. Together the two halves of the log-log line (slope AND intercept) are BOTH accounted ' +
+      'for by machine epsilon, closing the amplitude gap imp-34606 left open and completing the dual ' +
+      'signature.\n\n' +
+      'HONEST SCOPE: q1..q4 are the inherited imp-3220/imp-3406 central differences, NOT fresh ' +
+      'analytic closed forms, so this is a conditioning diagnostic OF the finite-difference ' +
+      'measurement -- it does not rehabilitate the surrogate, and the sigma -> 1 deep-tail regime ' +
+      'remains the component model\'s least-trustworthy range. Changes no bound; imp-3066 K_a >= 0 ' +
+      'untouched; C_mb remains GUE-conditional per imp-486; no RH verdict, NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34657 (consolidating the imp-34606 power ladder and imp-34633 amplitude match into one dual machine-epsilon signature), 2026',
+    relatedTerms: [
+      'imp-34606 the {2,3,4} exponent-ladder POWER half of this dual signature (imp-34606)',
+      'imp-34633 the eps_mach-matched intercept AMPLITUDE half of this dual signature (imp-34633)',
+      'imp-34592 the isolated q4 O(h^4)-share roundoff floor the ladder reconciles (imp-34592)',
+      'imp-34593 the isolated q3-share non-integer proxy exponent the ladder reconciles (imp-34593)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

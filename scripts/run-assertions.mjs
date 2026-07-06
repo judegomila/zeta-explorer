@@ -6641,6 +6641,12 @@ const DATA_MODULES = [
   // CLASSICAL de Bruijn Thm 13 + jet lemma, orientation corrected. Ceiling refined, no new
   // bound: lower hard-capped (Lambda>0 iff RH false), upper = existing PT-0.2 architecture.
   '/src/data/imp-34813-winding-monotonicity-rigor.js',
+  // imp-34740: caveat-surfacing audit of the imp-34710/34711/34712/34713/34714/34693
+  // frontier cohort (extends the imp-34521/34561/34618/34725 lineage). Only imp-34710
+  // and imp-34711 drive a viz page -- both carry the honest-status banner inline; the
+  // other four are data-only with no page to check. No module in the cohort's
+  // transitive import closure reaches the zeros-to-1e6.js heavy bundle.
+  '/src/data/imp-34740-caveat-surfacing-audit-34710-34714-34693.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -12108,6 +12108,40 @@ export const glossary = [
       'imp-34169 fixed-band peak surrogate terminating at the same pole (imp-34169)',
     ],
   },
+  {
+    term: 'imp-34508 ULP-floor margin quantization: the e=24 top-two resid_exp margin bottoms out at exactly 2^-53, not a smooth sub-floor value',
+    category: 'numerical',
+    definition:
+      'The imp-34411 doubling-map top-two resid_exp margin (the gap between the winning and runner-up ' +
+      'dyadic-node resid_exp values at the stable/Kahan argmax) shrinks geometrically as the grid exponent ' +
+      'e refines: e=22 gives 1.027e-15, and imp-34472 log-linearly EXTRAPOLATED e=23/e=24 to ~2.498e-16 / ' +
+      '~6.619e-17, predicting a smooth crossing of the ~1e-16 relative ULP floor at e ~ 23.69. imp-34508 ' +
+      'DIRECTLY computed both rungs instead of extrapolating: e=23 measured 3.608225e-16 (~44% above the ' +
+      'fitted value) and e=24 measured exactly 2^-53 = 1.1102230246251565e-16 (machine-epsilon/2), ~68% ' +
+      'above the fitted value. So the geometric shrinkage direction is confirmed (ratios ~0.351, ~0.308, ' +
+      'both inside the imp-34472 rho ~ 0.265 band), but the e=24 margin does NOT continue smoothly below ' +
+      '1e-16 to the fitted ~6.62e-17: it QUANTIZES to the discrete one-ULP storage floor instead, a step ' +
+      'the fitted continuous power-law curve cannot reproduce. The stable/Kahan argmax stayed pinned at ' +
+      'the e=20..22 stabilized node k=8.8210916519 through e=23 then jittered by exactly one dyadic node ' +
+      '(+1/2^24) to k=8.8210917115 at e=24, while Kahan-vs-stable perturbation stayed exactly 0 at both ' +
+      'rungs (E3 non-degeneracy holds directly, not just under extrapolation).\n\n' +
+      'HONEST SCOPE: whether the TRUE continuum top-two margin at e>=24 sits above or below the ~1e-16 ' +
+      'floor is SUB-GAP-imp-34508-continuum-margin-at-ulp-floor -- STILL OPEN, since double precision ' +
+      'cannot distinguish a continuum value near the floor from the floor itself; only a recomputation off ' +
+      'the dyadic lattice at higher-than-double precision could settle it. Direct measurement/cross-check ' +
+      'only; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
+      'asymptotic; C_mb remains GUE-conditional per imp-486; imp-3066 K_a>=0 untouched; establishes no ' +
+      'operator positivity; changes no bound; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains ' +
+      'the rigorous SOTA unconditional bound.',
+    firstUsed: 'imp-34508 (directly computing the imp-34411 e=23/e=24 margins to confirm/refute the ' +
+      'imp-34472 extrapolated ULP-floor crossing), 2026',
+    relatedTerms: [
+      'imp-34472 the log-linear extrapolation refined/under-predicted here (imp-34472)',
+      'imp-34411 source of the doubling-map operator and the e=20..22 marginLadder tail (imp-34411)',
+      'imp-34524 continuum margin estimate below the ULP floor (imp-34524)',
+      'imp-34551 double-double extended-precision resolution of the deep-rung argmax (imp-34551)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

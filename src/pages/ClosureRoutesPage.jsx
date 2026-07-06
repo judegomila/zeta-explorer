@@ -70,6 +70,9 @@ import { REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126 } from '../data/imp-3126-re
 import { IMP3220_EN_BRIDGE_FIDELITY_FRONTIER } from '../data/imp-3220-en-bridge-fidelity-frontier.js';
 import { IMP_33772_ETRUNC_BASELINE_COHORT_PROVENANCE } from '../data/imp-33772-etrunc-baseline-cohort-provenance-tabulation.js';
 import { IMP_33818_ETRUNC_NAME_COLLISION_CROSSCHECK } from '../data/imp-33818-etrunc-name-collision-crosscheck.js';
+import { IMP34270_EFLOW_GRONWALL_CROSSOVER_OFFSET_CORRECTION } from '../data/imp-34270-eflow-gronwall-crossover-offset-correction.js';
+import { IMP34248_CROSSOVER_SURPLUS_SMALL_THR_ASYMPTOTIC } from '../data/imp-34248-crossover-surplus-small-thr-asymptotic.js';
+import { IMP33743_SIGMA_FARTAIL_CROSSOVER_CLOSED_FORM } from '../data/imp-33743-sigma-fartail-crossover-closed-form.js';
 import { IMP3406_SIGMA_HIGHN_EXTRAPOLATION } from '../data/imp-3406-sigma-highN-extrapolation.js';
 import { IMP3711_SIGMA_POSTPEAK_CONTINUATION } from '../data/imp-3711-sigma-postpeak-continuation.js';
 import { IMP33701_SIGMA_POSTPEAK_RAMP_CURVATURE_INFLECTION } from '../data/imp-33701-sigma-postpeak-ramp-curvature-inflection.js';
@@ -733,6 +736,23 @@ function ConditionalShareUShapePanel() {
         (ratio &asymp;{IMP_33818_ETRUNC_NAME_COLLISION_CROSSCHECK.ratio}&times;), and a build-time tripwire confirms all
         {' '}{IMP_33818_ETRUNC_NAME_COLLISION_CROSSCHECK.sigmaBridgeConsumers.length} sigma(N)-bridge consumers declare the
         fixed-strip value and none substitutes the lambda-bound one.
+      </div>
+      <div style={{ marginTop: 6, padding: '6px 10px', borderRadius: 4, background: 'rgba(167,139,250,0.05)', border: '1px solid rgba(167,139,250,0.18)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+        <strong style={{ color: '#a78bfa' }}>Landmark-offset closed forms (imp-34270/imp-34248/imp-33743):</strong>{' '}
+        The ~0.4% gap between the closed-form E<sub>coll</sub>=E<sub>trunc</sub> crossover and the &sigma;=1/2
+        halving landmark is now FORMED explicitly (imp-34270): the leading correction is
+        {' '}2&times;E<sub>flow</sub>/E<sub>trunc</sub>&thinsp;&asymp;&thinsp;{IMP34270_EFLOW_GRONWALL_CROSSOVER_OFFSET_CORRECTION.correction.leading_gronwall_term_2r.toExponential(3)}
+        {' '}(the doubling from E<sub>coll</sub>&thinsp;&sim;&thinsp;N<sup>-1/2</sup>), reproducing {(IMP34270_EFLOW_GRONWALL_CROSSOVER_OFFSET_CORRECTION.correction.leading_share_of_offset * 100).toFixed(1)}%
+        of the measured offset, with the remainder identically a log T<sub>0</sub> drift term. The same closed
+        form extends to the &sigma;&thinsp;&lt;&thinsp;0.1 far-tail landmark (imp-33743), pinning
+        N<sub>cross</sub>&thinsp;&asymp;&thinsp;{IMP33743_SIGMA_FARTAIL_CROSSOVER_CLOSED_FORM.landmarks.N_cross_closed_form.toExponential(4)} with a residual
+        {' '}~{IMP33743_SIGMA_FARTAIL_CROSSOVER_CLOSED_FORM.residualContrast.fartail_is_tighter_by}&times; tighter than the halving-landmark residual because E<sub>flow</sub>/E<sub>trunc</sub>
+        decays down the tail. Across the threshold family the crossover-surplus thr&thinsp;&minus;&thinsp;&sigma;(N<sub>cross</sub>)
+        does not vanish linearly in thr: imp-34248 factors it into a linear target-share prefactor and a
+        log-softened E<sub>flow</sub> ratio, giving a super-linear composite decay exponent &asymp;{IMP34248_CROSSOVER_SURPLUS_SMALL_THR_ASYMPTOTIC.olsFits.deep_tail_composite_slope}
+        {' '}(deep-tail OLS) &mdash; strictly faster than thr, strictly slower than thr<sup>3</sup>. All three are
+        derivation/measurement only on the inherited extrapolation component model; NO QED, Platt&ndash;Trudgian
+        &Lambda;&thinsp;&le;&thinsp;0.2 remains SOTA.
       </div>
       <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
         Source: imp-3220-en-bridge-fidelity-frontier.js &mdash; N&isin;{'{2..10'}<sup>6</sup>{'}'}, dual-axis (&sigma;(N) left, E_coll/E_flow right).

@@ -6327,6 +6327,12 @@ const DATA_MODULES = [
   // the zeros bundle. FINDING (registration): imp-34543 and imp-34548 were missing
   // from this DATA_MODULES list; both are appended above to close the gap. 6 assertions.
   '/src/data/imp-34581-pole-recovery-cohort-heavy-import-audit.js',
+  // imp-34583: AUDIT of whether imp-34550/imp-34548/imp-34406 carry the full
+  // seven-element honest-status banner (inherited surrogate NOT rigorous, changes
+  // no bound, no operator positivity, imp-3066 untouched, C_mb GUE-conditional
+  // untouched, NO QED, PT Lambda<=0.2 SOTA). FINDING: no gap -- all 3 carry the
+  // complete banner verbatim in their verdict/honest field. 5 assertions.
+  '/src/data/imp-34583-pole-recovery-cohort-banner-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

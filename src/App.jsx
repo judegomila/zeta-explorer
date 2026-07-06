@@ -370,6 +370,9 @@ const Imp34574LocalSpacingExponentDescentViz = lazy(() =>
 const Imp34575NearPoleResolvabilityFloorsViz = lazy(() =>
   import('./pages/Imp34575NearPoleResolvabilityFloorsViz.jsx')
 );
+const Imp34551DeepRungArgmaxJitterViz = lazy(() =>
+  import('./pages/Imp34551DeepRungArgmaxJitterViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1278,6 +1281,10 @@ function AppShell() {
           <Route
             path="/viz-imp34575-near-pole-resolvability-floors"
             element={<Imp34575NearPoleResolvabilityFloorsViz />}
+          />
+          <Route
+            path="/viz-imp34551-deep-rung-argmax-jitter"
+            element={<Imp34551DeepRungArgmaxJitterViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

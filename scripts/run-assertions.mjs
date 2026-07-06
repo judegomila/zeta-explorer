@@ -5657,6 +5657,21 @@ const DATA_MODULES = [
   // Reuses effectiveHeightForN + C_C_PINNED verbatim. 7 assertions. Feasibility/measurement only; component
   // model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; PT Lambda<=0.2 SOTA; no bound; NO QED.
   '/src/data/imp-34485-deflow-cancellation-free.js',
+  // imp-34490: PROPAGATION -- carries the imp-34449 measured residue bar R = -1.756e-8 +/- 0.019e-8
+  // (~+/-1.1% half-width) into the imp-34310 / imp-34398 / imp-34454 residue-channel consumers and
+  // reports whether the band changes any qualitative verdict. (P1) the simple-pole (order-1)
+  // classification rests on the magnitude-independent resid_exp sign change; the least-negative band
+  // endpoint sits ~90 half-widths from R = 0, so the sign is preserved -> ROBUST. (P2) R = E_star/m is
+  // an exact identity; the bar slides the implied slope m ~1.1% along it into [-2.63341e-7, -2.57631e-7]
+  // (the imp-34449 quad/cubic slopes) -> ROBUST. (P3) the exponent p = -1 is coefficient-independent, so
+  // the |+1|/|R| separation stays in [5.62e7, 5.75e7] inside the ~8-orders-and-sign window at both band
+  // endpoints -> two-readings verdict ROBUST. HONEST: the ~1.1% bar is subdominant to the ~11.3%
+  // raw-vs-curvature-corrected systematic (imp-34310 -1.979e-8 vs imp-34449 central -1.756e-8), and the
+  // implied slope band sits STEEPER than and does not overlap the imp-34454 three-rung band
+  // [-2.510e-7, -2.316e-7]. Import-light (imp-34449 bar + imp-34310 E_star). 5 assertions. Propagation /
+  // measurement only; component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066
+  // K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34490-residue-error-bar-propagation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

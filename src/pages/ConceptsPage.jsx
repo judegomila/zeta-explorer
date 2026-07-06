@@ -718,6 +718,15 @@ const CONCEPTS = [
     formula: 'E_{\\text{coll}}(N^*) < 0.2 \\;(\\text{numerical, rigorous-modulo-}C_H)',
     intuition: "The computation says below threshold at N=10000, but the proof says we cannot yet certify this unconditionally because C_H is unknown. Like a measurement with an unresolved systematic error — the central value looks good, but the error bar has no certified bound until C_H is discharged.",
   },
+  {
+    id: 'sigma-conditional-share-decomposition',
+    category: 'proof',
+    term: 'Conditional-Share Decomposition sigma(N)',
+    symbol: '\\sigma(N)',
+    definition: "The three-term ratio sigma(N) = E_coll / (E_trunc + E_flow + E_coll) that tracks how much of the total assembly energy is attributable to eigenvalue-collision (E_coll) versus truncation (E_trunc, N-independent) and backward Gronwall flow (E_flow). E_coll dominates at large N (it scales like sqrt(log T0 / N)), so sigma(N) starts near 1 for small N and decays toward 0 as N grows. This is a diagnostic ratio for tracking which term drives the total, NOT itself an RH bound.",
+    formula: '\\sigma(N) = \\frac{E_{\\text{coll}}}{E_{\\text{trunc}} + E_{\\text{flow}} + E_{\\text{coll}}}',
+    intuition: "Think of it as a pie chart with three slices (truncation, flow, collision) that changes shape as N grows: at small N the collision slice is nearly the whole pie, and as N grows the other two slices catch up. Two DIFFERENT landmarks get read off this curve and are easy to conflate: the CROSSOVER is where a component-equality condition holds (e.g. E_coll = E_trunc, a closed-form fixed point in N, imp-33723), while the HALVING point is where the composite ratio itself equals one half (sigma(N) = 1/2, an empirical bisection, imp-33582/imp-3444). They live in the same ~3.3e9 region and agree to within about 0.4%, but they answer different questions — one asks when two raw energy terms are equal, the other asks when the SHARE crosses the midpoint — so a close numerical match is a cross-validation, not a proof that they are the same landmark.",
+  },
 ];
 
 export default function ConceptsPage() {

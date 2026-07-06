@@ -11829,6 +11829,33 @@ export const glossary = [
       'imp-34129 the sibling widening-slope-drift convergence fit that DID seat an interior optimum, contrasted by imp-34214 (imp-34129)',
     ],
   },
+  {
+    term: 'surrogate zero k* ~ 21.28095, the resid_exp(k) zero-crossing that hard-edges the fixed-band-peak log surrogate',
+    category: 'numerical',
+    definition:
+      'imp-33810/imp-33843 build the resid_exp(k) = p_ecoll(1 - sigma) - p_sigma sub-leading offset ' +
+      'residual and take its LOG via eflow_over_resid = eflow_attr/resid_exp to feed the fixed-band-peak ' +
+      '(k <= 10) surrogate ladder (imp-33940/imp-33987/imp-34040/imp-34109). imp-34169 pushed that ladder ' +
+      'one further decade (kEnd = 20..26) and found resid_exp(k) is strictly decaying through the deep ' +
+      'tail (+3.04e-6 at k=19, +7.94e-7 at k=20, +8.72e-8 at k=21, +8.19e-9 at k=21.25) then goes NEGATIVE ' +
+      '(-4.97e-8 at k=21.5) -- bisection pins the continuous zero-crossing at k* ~ 21.28095.\n\n' +
+      'RESULT: this is the "surrogate zero" -- past k*, eflow_over_resid crosses a POLE (sign flip in its ' +
+      'denominator) and Math.log of it goes NaN, so the unbounded log surrogate is simply UNDEFINED beyond ' +
+      'k*, not merely diverging. Of the 13 windows imp-34169 attempted (kEnd = 20.0..26.0), only the 3 ' +
+      'below k* (20.0, 20.5, 21.0) are computable at all. This is the hard right edge referenced by the ' +
+      'imp-34237 viz page and honest-status callouts across the resid_exp-pole cohort.\n\n' +
+      'HONEST SCOPE: measurement only, on the inherited imp-3220/imp-3406/imp-33773 component model, NOT a ' +
+      'rigorous asymptotic. Changes no bound; establishes no operator positivity; C_mb GUE-conditional per ' +
+      'imp-486 untouched; imp-3066 K_a>=0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda<=0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-34169 (pushing the fixed-band peak-amplitude sweep one decade to kEnd=20..26 and locating the resid_exp(k) zero at k*~21.28095 where the log surrogate breaks), 2026',
+    relatedTerms: [
+      'eflow_over_resid = eflow_attr/resid_exp, the E_flow-attribution-vs-offset-residual separation-widening quantity, whose pole sits at this surrogate zero (eflow_over_resid)',
+      'imp-34237 import-light viz page rendering the fixed-band peak re-acceleration and this surrogate-zero pole (imp-34237)',
+      'imp-34109 fixed-band peak-amplitude sweep whose re-acceleration this zero hard-edges (imp-34109)',
+      'imp-33843 descriptive log-surrogate form-fit that resid_exp(k) feeds, undefined past k* (imp-33843)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

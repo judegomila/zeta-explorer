@@ -11963,6 +11963,26 @@ export const glossary = [
       'imp-33582 accelerating (not fixed-rate) sigma(N) post-peak decay, halving exactly at the imp-3444 crossover (imp-33582 accelerating)',
     ],
   },
+  {
+    term: 'Widening-Slope Clean Window (k <~ 18.1)',
+    category: 'numerical',
+    definition:
+      'The honest upper decade-index ceiling below which the imp-34188 local widening-slope estimate ' +
+      'dy/dk is uncorrupted by imp-34247 resid_exp pole leakage. imp-34247 R3 only coarsely bracketed the ' +
+      '1% leakage threshold between k=18 and k=18.5; imp-34413 bisected the leak(k) = 100|dy/dk(k) - P|/|P| ' +
+      'metric (P = clean far-field plateau at k=14) to the exact crossing k ~ 18.10597, tightening the ' +
+      'clean-window ceiling from the coarsely-cited k~19 to k <~ 18.1 -- ~0.89 decades below k=19 and ' +
+      '~3.17 decades below the pole k* ~ 21.281 (imp-34247/imp-34023). Diagnostic definition only; no bound ' +
+      'change; C_mb GUE-conditional per imp-486 untouched; NO QED.',
+    firstUsed: 'imp-34413 (exact 1% pole-leakage crossing bisection, tightening the shared clean-window ceiling to k ~ 18.106)',
+    relatedTerms: [
+      'imp-34247 widening-slope pole divergence, source of the leak(k) deviation metric and the pole k* ~ 21.281',
+      'imp-34246 widening-slope limit analytic derivation, the leading -ln10/2 plateau this window shares',
+      'imp-34326 widening-slope background reconciliation, F3 clean-window match breaking past k>=19',
+      'imp-34330 widening residual pre-pole reversal, F2 leading form stopping improvement at k~17.80',
+      'imp-34188 widening-slope limit exactly -1, the surrogate estimate the pole leakage corrupts',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

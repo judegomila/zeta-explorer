@@ -89,6 +89,7 @@ export const NAV_GROUPS = [
     label: 'Attack',
     items: [
       { to: '/what-we-know', label: 'What We Know ★' },
+      { to: '/route-b-limsup', label: 'Route B: limsup t_c = 0 ★' },
       { to: '/lambda-bounds', label: 'Λ Bounds & RH Roadmap' },
       { to: '/lambda-timeline', label: 'Λ Timeline' },
       { to: '/rh-dag', label: 'RH Dependency DAG' },

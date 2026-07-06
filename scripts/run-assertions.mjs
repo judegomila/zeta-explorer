@@ -6353,6 +6353,9 @@ const DATA_MODULES = [
   // invariant -- all 10 import-light, all carry the complete banner. FINDING
   // (registration): all 10 were missing from this DATA_MODULES list; fixed above.
   '/src/data/imp-34682-recovery-cohort-invariant-audit.js',
+  // imp-34685: independent cross-validation of the imp-34650 Banach certificate
+  // numbers from a FRESH inline copy of the Riemann-von Mangoldt inverse solver.
+  '/src/data/imp-34685-banach-certificate-crossvalidation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -4697,6 +4697,16 @@ const DATA_MODULES = [
   // Measurement/fit only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched;
   // PT Lambda<=0.2 SOTA; no QED. 7 assertions.
   '/src/data/imp-34329-crossover-surplus-fartail-composite-limit.js',
+  // imp-34332: fits the imp-34248 prefactor P(thr) approach to linearity. From the exact ratio
+  // surplus/(thr.r) = (1-thr)/(1+(1-thr)r), the residual 1 - surplus/(thr.r) = (thr + (1-thr)r)/(1+(1-thr)r)
+  // (verified to machine precision) = thr + (1-thr)^2 r + O(r^2). So the residual vanishes LINEARLY IN thr
+  // with leading coefficient EXACTLY 1 (residual/thr -> 1: 1.000949 -> 1.000042), confirming/sharpening
+  // imp-34248 F1 (exactly one power of thr). The ticket premise that the residual vanishes linearly in
+  // (1-thr).r is REFUTED: residual/((1-thr)r) DIVERGES 527 -> 23739; (1-thr).r is only the SUBLEADING
+  // O(thr^2) correction with coefficient (1-thr)^2 ((residual-thr)/r -> (1-thr)^2 to 4-5 digits). Since
+  // r ~ thr^2 (imp-34248 F2), it is strictly subdominant to thr. Measurement/fit only; C_mb GUE-conditional
+  // per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34332-crossover-surplus-prefactor-linearity-fit.js',
   // imp-34330: measures the imp-34246 two-term prediction residual (measured local widening-slope minus
   // -ln10/2 + ln10*3/u) on a finer pre-pole grid k=12..20.75 approaching k*~21.281. The residual does NOT
   // keep shrinking -- it REVERSES: |residual| shrinks 0.0991 (k=12) -> ~0.0016 (k=17.75), passes through

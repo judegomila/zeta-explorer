@@ -382,6 +382,9 @@ const Imp34570EflowAttrPowerLawFitViz = lazy(() =>
 const Imp34596DeflowObservedExponentViz = lazy(() =>
   import('./pages/Imp34596DeflowObservedExponentViz.jsx')
 );
+const Imp34597DriftShareRegimeSplitViz = lazy(() =>
+  import('./pages/Imp34597DriftShareRegimeSplitViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1306,6 +1309,10 @@ function AppShell() {
           <Route
             path="/viz-imp34596-deflow-observed-exponent"
             element={<Imp34596DeflowObservedExponentViz />}
+          />
+          <Route
+            path="/viz-imp34597-drift-share-regime-split"
+            element={<Imp34597DriftShareRegimeSplitViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

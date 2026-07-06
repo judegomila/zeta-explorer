@@ -231,7 +231,9 @@ export const EPS_FIELD_ROBUST_BOOTSTRAP = {
         'Certify a deterministic eps\'_true (ideally the per-gap profile eps\'_l) for the true xi backward-heat-flow '
         + 'zero dynamics vs the window-Dyson field on [0, T]: mirror-zero pairing, RvM tail of above-window zeros, '
         + 'far-zero displacement control over T <= 1.8e-4, spectator conjugate-pair handling. Estimated O(1e-3) near '
-        + 'the record pair (~1e4x headroom vs epsMax >= 22.9); O(10) at the window top edge — use the per-gap variant there.',
+        + 'the record pair (~1e4x headroom vs epsMax >= 22.9); O(10) at the window top edge — use the per-gap variant there. '
+        + '[UPDATE imp-34427: the realness/spectator channel is CLOSED RH-FREE and the mirror SIGN is moot; remaining: '
+        + 'displacement control, discrete-table sums, edge no-collision check.]',
       status: 'open',
     },
     {
@@ -292,8 +294,8 @@ export const EPS_TRUE_DECOMPOSITION = Object.freeze({
   channels: [
     { id: 'far-above (RvM tail)', form: '2 sum_{y > window top} 1/((x_l-y)(x_{l+1}-y)); dominated by nearest omitted zero, decays 1/k into interior', status: 'bounded' },
     { id: 'far-below', form: '2 sum_{y < window bottom} 1/((x_l-y)(x_{l+1}-y)); symmetric telescoping tail', status: 'bounded' },
-    { id: 'mirror-pairing', form: 'functional-equation mirror zeros at -gamma; contribution 2/((x_l+y)(x_{l+1}+y)) far from window, sign to be resolved', status: 'open' },
-    { id: 'spectator conjugate-pair / realness', form: 'off-critical-line spectators enter as conjugate pairs; realness handling of e_k not yet certified', status: 'open' },
+    { id: 'mirror-pairing', form: 'functional-equation mirror zeros at -gamma; contribution 2/((x_l+y)(x_{l+1}+y)) far from window; SIGN moot (imp-34427: the lemma is two-sided), magnitude in the discrete-sum residual', status: 'sign-moot-magnitude-open' },
+    { id: 'spectator conjugate-pair / realness', form: 'off-critical-line spectators enter as conjugate pairs; e_k realness + projection domination + straddle exclusion certified RH-FREE by imp-34427 (off-line tail above T_ver < 6e-12)', status: 'closed-rh-free-imp-34427' },
   ],
   bindingChannel:
     'far-above top-edge zeros: the nearest omitted zero sits ~one mean spacing delta = 2pi/log(gamma/2pi) above the '
@@ -304,8 +306,11 @@ export const EPS_TRUE_DECOMPOSITION = Object.freeze({
     + 'sum_{m>=1} 1/((k+m-1)(k+m)) = 1/k; ~4.7 at k=1 (delta~0.65), decaying 1/k so only O(1/delta) top gaps carry large eps.',
   openResidual:
     'FULL closure STILL needs: (i) the two-sided (above + below) tail constants summed on the ACTUAL Odlyzko ordinates '
-    + 'per plateau; (ii) the mirror / functional-equation pairing sign; (iii) spectator conjugate-pair realness handling; '
-    + '(iv) the per-gap eps_l certification feeding the imp-3933 bootstrap in place of the uniform eps. STAYS OPEN.',
+    + 'per plateau; (ii) the mirror / functional-equation pairing sign [MOOT per imp-34427 — the lemma is two-sided; '
+    + 'magnitude folds into (i)]; (iii) spectator conjugate-pair realness handling [CLOSED RH-FREE by imp-34427: '
+    + 'conjugate closure + projection domination + straddle exclusion, off-line tail < 6e-12]; '
+    + '(iv) the per-gap eps_l certification feeding the imp-3933 bootstrap in place of the uniform eps; '
+    + '(v) far-zero displacement control on [0,T] incl. the imp-34427-sub-edge-no-collision table check. STAYS OPEN.',
   rigorousBeat: false,
 });
 

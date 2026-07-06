@@ -4887,6 +4887,17 @@ const DATA_MODULES = [
   // the two estimators window-width laws, not a crossing coincidence. Decomposition only; component model NOT
   // rigorous; C_mb/imp-486 & imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-34366-per-estimator-percentage-split-well-conditioned.js',
+  // imp-34373: MEASURE whether the imp-34285 E_flow share of the imp-34211 kEnd gap (~2.2e-7 at the crossing)
+  // GROWS as the balance point is pushed toward the imp-34169 resid_exp pole k*~21.28095. Sweeping a threshold
+  // family resid(kEnd)=thr (thr 1e-4 -> 1e-8) whose balance points approach k* from below (dist ~5.3 -> ~0.038)
+  // and remeasuring the E_flow root-shift share at each: the share does NOT grow -- it MONOTONICALLY SHRINKS
+  // ~175x from ~4.07e-5 (far below) to the ~2.17e-7 crossing floor (reproducing imp-34285), so the crossing is
+  // the MINIMUM of the family. The E_flow-negligible assumption STRENGTHENS toward the pole because E_flow =
+  // C_F*log(T0)/T0*Gronwall decays with N and k* sits at very large N (~10^21.28): its additive contribution to
+  // the residual falls ~76000x while the residual slope stays finite. The imp-34169 eflow_over_resid pole is a
+  // residual-VALUE divergence (denominator -> 0), not a ROOT-LOCATION effect, so it does not transfer. Measurement
+  // only; component model NOT rigorous; C_mb/imp-486 & imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34373-eflow-share-near-pole.js',
   // imp-34227: RECONCILE SUB-GAP-imp-34169-surrogate-domain-edge -- is the imp-33810/imp-33843 surrogate
   // resid_exp(k)=pEcoll(1-sigma)-pSigma zero at k*~21.28095 an ARTIFACT of the quarter-decade OLS/secant
   // exponent estimators or a GENUINE component-model feature? Recomputes resid_exp three ways: refining the
@@ -5116,6 +5127,17 @@ const DATA_MODULES = [
   // assertions. Measurement only; component model NOT rigorous; C_mb GUE-conditional per imp-486
   // untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34372-lockstep-ratio-deeptail-persistence.js',
+  // imp-34375: cross-validates the imp-34286 bias-corrected leading prefactor a ~ 0.437-0.438 (in the
+  // approach gap g(kEnd) = 1 - numerator ~ a/kEnd) against an explicit TWO-TERM fit g ~ a/kEnd + b/kEnd^2,
+  // done as an OLS of g*kEnd on u = 1/kEnd (intercept = a, slope = b). FINDING: adding the curvature term
+  // does NOT relocate the leading coefficient -- a lands at 0.436974 (far-field 40..150), 0.438333 (full
+  // 22..150), 0.436656 and 0.436426 (deeper windows), all in the 0.437-0.438 band; vs the one-term constant
+  // fit over the same window a shifts by only +0.000114 (~0.03%) far-field, at most +0.002203 (~0.5%) full
+  // window (that from the small-kEnd rungs). Curvature b is small (|b|<=0.102; 0.008 far-field), its b/kEnd^2
+  // at kEnd=100 ~8.1e-7 is ~4 orders below g(100)~0.00437 -- the first-order g~a/kEnd verdict is STABLE.
+  // Import-light, 5 assertions. Cross-validation only; component model NOT rigorous; C_mb GUE-conditional
+  // per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34375-numerator-approach-two-term-curvature-crossval.js',
 ];
 
 let ALL_MODULES = FAST_MODE

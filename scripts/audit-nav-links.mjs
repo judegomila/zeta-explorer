@@ -407,6 +407,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34623-deflow-residual-oneoverlogn',
   '/viz-imp34637-eflow-attr-log-curvature-check',
   '/viz-imp34639-stencil-tail-spread-crosscheck',
+  '/viz-imp34641-deflow-identifiability-window',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

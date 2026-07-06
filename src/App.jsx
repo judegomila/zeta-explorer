@@ -316,6 +316,7 @@ const Imp34460TwoTermCurvatureCrossvalViz = lazy(() => import('./pages/Imp34460T
 const Imp34514CouplingRatio1overLogT0FitViz = lazy(() => import('./pages/Imp34514CouplingRatio1overLogT0FitViz.jsx'));
 const Imp34515SurplusAmplitudeRelDefConvergenceViz = lazy(() => import('./pages/Imp34515SurplusAmplitudeRelDefConvergenceViz.jsx'));
 const Imp34516PoleLeakageLadderViz = lazy(() => import('./pages/Imp34516PoleLeakageLadderViz.jsx'));
+const Imp34517NumeratorApproachAStabilityViz = lazy(() => import('./pages/Imp34517NumeratorApproachAStabilityViz.jsx'));
 const Imp34416CrossoverSurplusFartailCompositeLimitViz = lazy(() => import('./pages/Imp34416CrossoverSurplusFartailCompositeLimitViz.jsx'));
 const Imp34269FixedBandPeakSharedGridCrossRecomputeViz = lazy(() => import('./pages/Imp34269FixedBandPeakSharedGridCrossRecomputeViz.jsx'));
 const Imp34377ResidExpPoleCohortIndexPage = lazy(() => import('./pages/Imp34377ResidExpPoleCohortIndexPage.jsx'));
@@ -1186,6 +1187,7 @@ function AppShell() {
           <Route path="/viz-imp34514-coupling-ratio-1overlogT0-fit" element={<Imp34514CouplingRatio1overLogT0FitViz />} />
           <Route path="/viz-imp34515-surplus-amplitude-relDef-convergence" element={<Imp34515SurplusAmplitudeRelDefConvergenceViz />} />
           <Route path="/viz-imp34516-pole-leakage-ladder" element={<Imp34516PoleLeakageLadderViz />} />
+          <Route path="/viz-imp34517-numerator-approach-a-stability" element={<Imp34517NumeratorApproachAStabilityViz />} />
           <Route path="/viz-imp34361-eflow-crossover-offset-cohort-index" element={<Imp34361EflowCrossoverOffsetCohortIndexPage />} />
           <Route path="/viz-imp34377-resid-exp-pole-cohort-index" element={<Imp34377ResidExpPoleCohortIndexPage />} />
           <Route path="/viz-imp34378-trough-peak-ratio-ceiling" element={<Imp34378TroughPeakRatioCeilingViz />} />

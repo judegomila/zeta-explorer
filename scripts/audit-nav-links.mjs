@@ -356,6 +356,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34514-coupling-ratio-1overlogT0-fit',
   '/viz-imp34515-surplus-amplitude-relDef-convergence',
   '/viz-imp34516-pole-leakage-ladder',
+  '/viz-imp34517-numerator-approach-a-stability',
   '/viz-imp34356-m2-ceiling-exactfit-coeff-ladder',
   '/viz-imp34268-fixed-band-peak-reaccel-convexity-stitch',
   '/viz-imp34269-fixed-band-peak-shared-grid-cross-recompute',

@@ -6099,6 +6099,29 @@ const DATA_MODULES = [
   // drifts as sigma->1 -- the regime imp-34543 flagged as least trustworthy. 7 assertions. Measurement
   // only; C_mb GUE-conditional share per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; no bound; NO QED.
   '/src/data/imp-34573-drift-residual-share-deeptail-vs-midrange.js',
+  // imp-34587: MEASUREMENT -- Richardson dp->0 extrapolation of the imp-34573 deep-vs-mid q3-share
+  // drift. Adds a third finite-difference step dp=4e-3 to the imp-34573 pair (1e-3, 2e-3), extrapolates
+  // the two truncation-dominated points (2e-3, 4e-3) under the central-difference O(dp^2) error model,
+  // and confirms dp=1e-3 is roundoff-dominated (its Richardson pair DIVERGES instead of converging).
+  // FINDING: the intrinsic deep-vs-mid q3-share drift is ~-0.0748, marginally smaller than but
+  // consistent with the imp-34573 dp=2e-3 ~-8% floor. 7 assertions. Measurement only; C_mb
+  // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; no bound; NO QED.
+  '/src/data/imp-34587-drift-share-drift-richardson-dp-extrapolation.js',
+  // imp-34592: MEASUREMENT -- a conditioning stress-test on the imp-34573/imp-34566 claim that the
+  // q4-bearing O(h^4) drift-residual term stays negligible (~1e-6 of the O(h^2) term). Sweeps the
+  // q-derivative step dp across the deep-tail landmarks and locates the dp window over which the
+  // negligibility claim is real vs roundoff-inflated (~1/dp^4). FINDING: negligible for dp >~ 1e-3;
+  // smaller steps inflate the apparent share by roundoff. 7 assertions. Measurement only; C_mb
+  // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; no bound; NO QED.
+  '/src/data/imp-34592-q4-share-roundoff-floor-vs-dp.js',
+  // imp-34593: MEASUREMENT -- an optimal-step (dp*) analysis of the imp-34573 deep-tail q3-share
+  // error, fitting err(dp) ~ a dp^2 + b/dp per the ticket-prescribed truncation-vs-roundoff model.
+  // FINDING: the truncation coefficient a is unmeasurably small (no interior optimum, (b/2a)^(1/3)
+  // diverges); the roundoff channel is better fit by a free exponent m~3.5 (R^2~0.99) than the
+  // forced m=1 form (R^2~0.48) -- a roundoff-limited plateau, not a U-shaped trade-off. 7
+  // assertions. Measurement only; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
+  // untouched; no bound; NO QED.
+  '/src/data/imp-34593-drift-share-error-optimal-dp-fit.js',
   // imp-34586: EXTENDS the imp-34572 far-side eflow_attr smooth-bracket ladder PAST its top rung
   // k=21.60 toward the double-precision floor (k = 21.70 .. 22.00, uniform h=0.05) to test whether
   // the monotone smoothness and the finite local log-slope persist to the fp floor or whether
@@ -6119,6 +6142,14 @@ const DATA_MODULES = [
   // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound
   // change; NO QED.
   '/src/data/imp-34586-eflow-attr-fp-floor-far-side-ladder.js',
+  // imp-34589: FITS the imp-34572 far-side eflow_attr ladder (7 rungs, k=21.30..21.60) to the same
+  // power law eflow_attr = A*N^p that imp-34570 fit on the near side, measuring whether the far-side
+  // per-k log-slope matches the near-side -2.158629 within fit resolution. FINDING: far-side slope
+  // -2.159985 sits -0.001356 (0.063%, ~5.1 combined-sigma) from the near-side fit -- a resolved but
+  // tiny window-centre-drift difference, not a kink; later closed further by imp-34604/imp-34609. 5
+  // assertions. Measurement only; inherited surrogate NOT rigorous; C_mb GUE-conditional per imp-486
+  // untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34589-eflow-attr-far-side-power-law-slope-continuity.js',
   // imp-34604: CROSS-FITS the imp-34572 FAR-side eflow_attr rungs (k=21.30..21.60, all above the pole
   // k*~21.28095) to the imp-34585 LOG-CORRECTED form eflow_attr ~ A*N^p*(ln N)^q and measures whether
   // (p_far, q_far) match the near-side (-1.0028, 3.348). Reuses IMP34572_FAR_SIDE_RUNGS verbatim and

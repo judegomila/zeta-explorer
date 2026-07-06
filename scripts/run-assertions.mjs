@@ -6541,6 +6541,36 @@ const DATA_MODULES = [
   // every band (B(1e9)/max_union = 1.000), so they collapse to one monotone envelope; each B(band)
   // matches the imp-34757 published literal to < 1e-3. Standing accuracy tripwire, no bound change.
   '/src/data/imp-34777-crossover-gpp-cross-band-envelope-collapse.js',
+  // imp-34790: energy of the Hamiltonian around phase-change boundaries. Verifies the ZPO
+  // kinetic-curvature term IS (log zeta)''(2 sigma) (primon-gas specific-heat kernel at
+  // beta = 2 sigma, identity to 1.2e-13), so its sigma -> 1/2+ behaviour is a DIVERGENCE
+  // (2 sigma-1)^{-2} - (gamma^2+2 gamma_1) + O(2 sigma-1) driven entirely by the zeta pole at
+  // s=1 (Stieltjes constants; zero-free content); the sigma=1 boundary is the known one-sided
+  // Hagedorn/Bost-Connes transition (U = 1/(beta-1) - gamma, C_v (beta-1)^2 -> 1); the finite-N
+  // page-Hamiltonian convexity at sigma=1/2 is a truncation artifact (curvature sign-flips with
+  // growing amplitude across N=10..3200). Reduces-to-known; no Lambda contact; NO QED.
+  '/src/data/imp-34790-phase-boundary-energy.js',
+  // imp-34724: wiring audit found imp-34686, imp-34687, imp-34690, imp-34691, imp-34694
+  // committed with self-executing import-time assertion guards (and, for 34686/34687/34694,
+  // exported *_ASSERTIONS arrays) but never added to this sweep list, so the sweep never
+  // loaded them and their tripwires were never actually exercised. Extends the imp-34624
+  // wiring lineage.
+  '/src/data/imp-34686-crossover-contraction-margin-monotone-proof.js',
+  '/src/data/imp-34687-crossover-interval-arithmetic-scope.js',
+  '/src/data/imp-34690-q3-share-cancellation-stencil-width-scaling.js',
+  '/src/data/imp-34691-q3-cancellation-floor-trust-boundary.js',
+  '/src/data/imp-34694-sigma-exponent-knee-closed-form-location.js',
+  // imp-34791: E_trunc/E_flow reconciliation at the post-imp-33226 field-channel bracket,
+  // N* = 1e4. RIGOROUS: kappa_T locked to the exact rational 2/5 at the PT anchor (fixed strip
+  // sigma = 3/4, fixed T_PT = 3e12 — height-mismatch structurally unavailable); tail prefactor
+  // corrected 3 -> 5 (dN <= dNbar is not implied by N <= Nbar; parts, boundary term vanishes
+  // exactly by PT verification). PARTIAL: explicit-constant frontier quantified — A_max(B)
+  // requirement curve; sharpest verified explicit Ingham-exponent estimate (Chourasiya-Simonic
+  // 2025) gives E_trunc_pt = 3.34 at sigma = 3/4, 16.7x short of 0.2; imp-1324's Ramare line
+  // refuted (~9.5e7x). STRUCTURAL: single-deep-zero witness shows the 2/gamma kernel misprices
+  // by ~3.75e11x, so the residual is an unported barrier lemma, not a constant. E_flow leans on
+  // A1 (R1/R2' open) once imp-398's own C_G = 8.57 breaks the 6.78 OLS fallback. NO QED.
+  '/src/data/imp-34791-etrunc-eflow-pt-anchor-honest-discharge.js',
 ];
 
 let ALL_MODULES = FAST_MODE

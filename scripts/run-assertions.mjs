@@ -5741,6 +5741,26 @@ const DATA_MODULES = [
   // check only; component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066
   // K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34454-bridge-slope-three-rung-tabulation.js',
+  // imp-34503 registration audit: imp-34446 and imp-34447 (siblings of the imp-34448..34454
+  // cluster above) carry self-executing assertions but were never wired into DATA_MODULES nor
+  // reachable via any importer (unlike imp-34448, reachable transitively through imp-34571) --
+  // an orphaned-module gap the imp-34444/imp-34464 audit precedent exists to catch. Wiring them
+  // in now so their assertions actually run under the sweep instead of only at write-time.
+  // imp-34446: independently recomputes the imp-34372 factor-2 coupling exponent via a SECOND,
+  // import-free code path (own Riemann-von Mangoldt inversion + E_coll formula), fitting the
+  // local exponent d log N / d log E_coll = -2.0664 at the imp-33620 deep-tail landmark, matching
+  // the imp-34372 lockstep-read ratio 2.0634 to ~0.15%. Measurement only; component model NOT
+  // rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT
+  // Lambda<=0.2 SOTA; no bound change; NO QED. 5 assertions.
+  '/src/data/imp-34446-coupling-exponent-independent-recompute.js',
+  // imp-34447: adds a FOURTH, deeper coupling-ratio landmark (thr=0.001), giving the imp-34372
+  // residual/(E_flow/E_trunc) drift a THIRD interval. FINDING: the per-step drift is NOT
+  // constant-rate -- the new deepest interval is the SMALLEST -- so the ratio converges toward
+  // ~2.05 rather than sliding past 2. Import-light (baked literals, offline generator
+  // scripts/imp-34447-compute.mjs). Measurement/extrapolation only; component model NOT
+  // rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT
+  // Lambda<=0.2 SOTA; no bound change; NO QED. 8 assertions.
+  '/src/data/imp-34447-coupling-ratio-drift-third-interval.js',
   // imp-34455: SHARPENS the imp-34371 span = 4W loss-of-knee frontier on a finer window-gap grid and
   // quantifies, for the first time, the finite-precision evaluation-noise floor imp-34371 F2 only
   // ASSERTED (never measured). At the imp-34371 counting-floor threshold (numBrackets = 4, numD2 = 2)

@@ -6009,6 +6009,23 @@ const DATA_MODULES = [
   // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound;
   // NO QED.
   '/src/data/imp-34590-deflow-residual-oneoverlogn-scaling.js',
+  // imp-34607: MEASUREMENT -- quantifies the imp-34584 identifiability window for the deflow
+  // second-order 1/log^2(N) term. The collinearity of the predictors u = 1/log(N) and u^2 is a pure
+  // design-matrix geometry property (independent of the deflow response, which underflows the
+  // double-precision floor past kEnd ~22.5), so the question is answered exactly from the predictor
+  // grid. Holding the high anchor fixed at kEnd = 20 and extending the synthetic N-span downward, it
+  // measures the correlation r = corr(u, u^2), VIF = 1/(1 - r^2), and correlation-matrix condition
+  // number cond = (1 + |r|)/(1 - |r|) as a function of the log N range. FINDING: the observed six-rung
+  // window (log N ~36.9..45.8, span ~8.6) sits at r ~0.9995, VIF ~1080, cond ~4300 (severe
+  // multicollinearity); VIF drops below the standard 10 threshold (|r| < 0.9487, cond < ~38) only when
+  // the low end reaches log N_lo ~2.51 (N ~12), a span of ~43.5 (~5x the observed) -- and even cond <
+  // 100 needs log N_lo ~9.1 (N ~9000). Both floors lie far below the large-N surrogate regime and the
+  // fp-observable window, so the 1/log^2(N) coefficient is not separable in ANY accessible window --
+  // the imp-34584 non-resolvability is structural, not a six-rung artifact. Reuses the imp-34448
+  // export verbatim (import-light). 6 assertions. Measurement only; component model NOT rigorous; C_mb
+  // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound;
+  // NO QED.
+  '/src/data/imp-34607-deflow-second-order-identifiability-window.js',
   // imp-34572: EXTENDS the imp-34406 eflow_attr smooth-bracket recovery to rungs ABOVE the pole
   // k* ~ 21.28095 (k = 21.30 .. 21.60, all > k*), since imp-34406 bracketed only k = 21.00 .. 21.50
   // (at/below k*). Recovers eflow_attr = (E_flow/E_N)*|d ln E_flow/d log10 N| DIRECTLY via the

@@ -66,6 +66,9 @@
  * @see imp-34023-eflow-widening-ratio-f4-collapse-extrapolation (the residExp simple zero k* ~ 21.281 whose pole term separates the two backgrounds)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0)
  * @see polymath15-constant-C-C (C_C_PINNED collision constant in E_coll)
+ * @see imp-34327-widening-slope-minus-one-crossing-location (sibling: locates the exact -1 crossing this background feeds)
+ * @see imp-34329-crossover-surplus-fartail-composite-limit (sibling: same k*~21.281-ceiling era, far-tail composite-exponent extension)
+ * @see imp-34330-widening-residual-prepole-reversal (sibling: the finer-grid residual whose pre-pole sign flip this background reconciliation predates)
  *
  * COHORT MAP (M2-residual sign-change ceiling): imp-34023 (bisected k* ~ 21.281) -> imp-34127 (leading
  * closed form) -> imp-34189 (next-order term) -> imp-34188 (widening-slope limit) -> imp-34246 (strict

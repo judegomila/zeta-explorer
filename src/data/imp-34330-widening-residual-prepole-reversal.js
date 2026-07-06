@@ -62,6 +62,9 @@
  * @see imp-33810-eflow-resid-ratio-N-ladder (the eflow_attr/resid_exp ladder and inherited parts)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0)
  * @see polymath15-constant-C-C (C_C = C_H sqrt(pi C_Selberg))
+ * @see imp-34326-widening-slope-background-reconciliation (sibling: reconciles the two-term prediction this residual is measured against)
+ * @see imp-34327-widening-slope-minus-one-crossing-location (sibling: the exact -1 crossing this module finds reappears as a pre-pole sign flip)
+ * @see imp-34329-crossover-surplus-fartail-composite-limit (sibling: same k*~21.281-ceiling era, far-tail composite-exponent extension)
  */
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';

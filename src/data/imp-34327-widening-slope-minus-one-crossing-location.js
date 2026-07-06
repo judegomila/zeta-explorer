@@ -54,13 +54,18 @@
  * @see imp-34023-eflow-widening-ratio-f4-collapse-extrapolation (the M2 sign-change ceiling k*~21.281)
  * @see imp-34247-widening-slope-pole-divergence (the same ceiling as a simple pole in dy/dk)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0, the RvM inversion)
+ * @see imp-34326-widening-slope-background-reconciliation (sibling: reconciles the two-term prediction this crossing is solved from)
+ * @see imp-34329-crossover-surplus-fartail-composite-limit (sibling: same k*~21.281-ceiling era, far-tail composite-exponent extension)
+ * @see imp-34330-widening-residual-prepole-reversal (sibling: the finer-grid residual that finds the SAME crossing reappears as a pre-pole sign flip)
  *
  * COHORT MAP (M2-residual sign-change ceiling): imp-34023 (bisected kEnd*~21.281) -> imp-34127 (leading
  * closed form) -> imp-34189 (next-order term) -> imp-34188 (widening-slope leading -ln10/2, observed -1 a
  * finite-window coincidence per imp-34246) -> imp-34246 (derives the -ln10/2 + ln10*3/u correction) ->
  * imp-34327 (this module, locates the exact -1 crossing at u*~45.66 / k*~20.48, above the k=12..18 window)
  * -> imp-34247 (simple-pole residue +1 fit) -> imp-34169/imp-34237 (fixed-band peak re-acceleration).
- * All share the same kEnd* ceiling; see reciprocal @see links above.
+ * Later siblings: imp-34326 (background reconciliation), imp-34330 (pre-pole residual reversal),
+ * imp-34329 (crossover-surplus far-tail limit, same era). All share the same kEnd* ceiling; see
+ * reciprocal @see links above.
  */
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';

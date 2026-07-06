@@ -62,6 +62,9 @@
  * @see imp-34174-crossover-surplus-threshold-family-decay (the closed form surplus(thr))
  * @see imp-33743-sigma-fartail-crossover-closed-form (generalised crossover N_cross(thr), identical sub-terms)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 = gamma_N, Riemann-von Mangoldt inverse)
+ * @see imp-34326-widening-slope-background-reconciliation (sibling: same k*~21.281-ceiling era, widening-slope background reconciliation)
+ * @see imp-34327-widening-slope-minus-one-crossing-location (sibling: same era, exact -1 crossing of the widening-slope background)
+ * @see imp-34330-widening-residual-prepole-reversal (sibling: same era, pre-pole residual sign-change reversal)
  */
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';

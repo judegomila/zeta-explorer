@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import {
   IMP34205_SWEEP_POINTS,
@@ -8,6 +9,7 @@ import {
   IMP34205_SLOPE_STEPS,
   IMP34205_CAVEAT_BANNER,
 } from '../data/imp-34205-widening-slope-convergence-viz-data.js';
+import { IMP34246_WIDENING_SLOPE_LIMIT_ANALYTIC_DERIVATION } from '../data/imp-34246-widening-slope-limit-analytic-derivation.js';
 
 function SlopeConvergenceChart() {
   const svgW = 720;
@@ -156,6 +158,12 @@ export default function Imp34205WideningSlopeConvergenceViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Widening-Slope Drift Convergence (imp-34205 / imp-34129)" />
 
+      <p style={{ color: '#64748b', fontSize: '0.8rem', marginBottom: '0.75rem' }}>
+        <Link to="/viz-imp34281-m2-ceiling-cohort-index" style={{ color: '#64748b' }}>
+          &larr; back to the M2-ceiling cohort index
+        </Link>
+      </p>
+
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34022 found the imp-33843 log-linear widening slope b tilts across three windows
         (kEnd 11, 11.5, 12), leaving open whether it drifts open-endedly or saturates. imp-34129
@@ -220,6 +228,31 @@ export default function Imp34205WideningSlopeConvergenceViz() {
         }}
       >
         <strong style={{ color: '#94a3b8' }}>Honest status:</strong> {IMP34205_CAVEAT_BANNER}
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>imp-34246 leading-slope correction:</strong> the free
+        exponential-approach fit above pins b_inf &asymp; {expBInf.toFixed(3)}, but imp-34246 derives
+        (within the inherited component model, not rigorously) that the LEADING per-k slope of
+        y(k)=ln(eflow_attr/resid_exp) is{' '}
+        {IMP34246_WIDENING_SLOPE_LIMIT_ANALYTIC_DERIVATION.leadingSlopeClosedForm} &asymp;{' '}
+        {IMP34246_WIDENING_SLOPE_LIMIT_ANALYTIC_DERIVATION.leadingSlope}, a NON-ROUND value distinct
+        from -1. The measured pre-pole plateau near -1 is that leading value lifted by a slow{' '}
+        {IMP34246_WIDENING_SLOPE_LIMIT_ANALYTIC_DERIVATION.correctionTerm} log-correction that only
+        vanishes as u&rarr;&infin;, a window the imp-34023 M2 sign-change ceiling at kEnd*&asymp;
+        {IMP34246_WIDENING_SLOPE_LIMIT_ANALYTIC_DERIVATION.signChangeCeilingKStar} truncates before
+        it can be reached -- so this page's b_inf&asymp;-1 read is a coincidental finite-window value,
+        not a derived limit. No bound changes; NO QED.
       </div>
     </div>
   );

@@ -421,6 +421,9 @@ const Imp34641DeflowIdentifiabilityWindowViz = lazy(() =>
 const Imp34655LocalScalingOrderClimbViz = lazy(() =>
   import('./pages/Imp34655LocalScalingOrderClimbViz.jsx')
 );
+const Imp34664PoleWindowBiasVarianceViz = lazy(() =>
+  import('./pages/Imp34664PoleWindowBiasVarianceViz.jsx')
+);
 const Imp34656RoundoffPrefactorAmplitudeViz = lazy(() =>
   import('./pages/Imp34656RoundoffPrefactorAmplitudeViz.jsx')
 );
@@ -1400,6 +1403,10 @@ function AppShell() {
           <Route
             path="/viz-imp34655-local-scaling-order-climb"
             element={<Imp34655LocalScalingOrderClimbViz />}
+          />
+          <Route
+            path="/viz-imp34664-pole-window-bias-variance"
+            element={<Imp34664PoleWindowBiasVarianceViz />}
           />
           <Route
             path="/viz-imp34656-roundoff-prefactor-amplitude"

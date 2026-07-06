@@ -357,6 +357,9 @@ const Imp34528TailsideHumpDecayVsSqrtNFartailViz = lazy(() =>
 const Imp34530PoleLeakageSpacingCompressionFitViz = lazy(() =>
   import('./pages/Imp34530PoleLeakageSpacingCompressionFitViz.jsx')
 );
+const Imp34529RecoveredPoleConvergenceViz = lazy(() =>
+  import('./pages/Imp34529RecoveredPoleConvergenceViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1248,6 +1251,10 @@ function AppShell() {
           <Route
             path="/viz-imp34530-pole-leakage-spacing-compression-fit"
             element={<Imp34530PoleLeakageSpacingCompressionFitViz />}
+          />
+          <Route
+            path="/viz-imp34529-recovered-pole-convergence"
+            element={<Imp34529RecoveredPoleConvergenceViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

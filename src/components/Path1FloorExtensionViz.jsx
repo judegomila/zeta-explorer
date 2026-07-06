@@ -38,7 +38,7 @@ export default function Path1FloorExtensionViz() {
   return (
     <div style={{ margin: '16px 0' }}>
       <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: '#64748b', marginBottom: 4 }}>
-        τ_c_est(N) = H_N² / (8 ρ_{J*(N)}²)  &nbsp;—&nbsp; log-log scale; E2 predicate: non-increasing ✓
+        τ_c_est(N) = H_N² / (8 ρ_{'{J*(N)}'}²)  &nbsp;—&nbsp; log-log scale; E2 predicate: non-increasing ✓
       </div>
       <svg width="100%" viewBox={`0 0 ${W} ${H}`}
         style={{ fontFamily: 'var(--font-mono)', overflow: 'visible', display: 'block' }}>

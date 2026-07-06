@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import {
   IMP34274_FIXED_BAND_PEAK_ROWS,
@@ -163,6 +164,12 @@ export default function Imp34274FixedBandPeakIncrementMinimumViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Fixed-Band Peak Increment Minimum & Sub-Window Inflection (imp-34274 / imp-34196)" />
 
+      <p style={{ color: '#64748b', fontSize: '0.8rem', marginBottom: '0.75rem' }}>
+        <Link to="/viz-imp34281-m2-ceiling-cohort-index" style={{ color: '#64748b' }}>
+          &larr; back to the M2-ceiling cohort index
+        </Link>
+      </p>
+
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34196 refined the imp-34109 fixed-band (k&le;10) peak sweep to a 0.25 kEnd grid
         (the imp-33810 ladder rung spacing) over kEnd = 17.0 .. 19.5. The peak climbs
@@ -228,6 +235,29 @@ export default function Imp34274FixedBandPeakIncrementMinimumViz() {
         Descriptive OLS surrogate/fit, NOT a rigorous asymptotic; C_mb GUE-conditional per
         imp-486 UNTOUCHED; imp-3066 K_a&ge;0 untouched; NO QED; Platt-Trudgian
         Lambda&le;0.2 remains SOTA.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>Same fixed-band-peak cohort:</strong> this page's
+        kEnd = 17.0 .. 19.5 refinement sits below the canonical kEnd* &asymp; 21.281 point where
+        the imp-34023 M2 sub-leading residual bisects to zero -- the fixed-band peak keeps
+        climbing all the way to that pole edge (imp-34237 covers the last three computable
+        windows immediately before it). Cross-linked here for context only; no bound or claim
+        on this page changes. See the{' '}
+        <Link to="/viz-imp34281-m2-ceiling-cohort-index" style={{ color: '#94a3b8' }}>
+          full M2-ceiling cohort index
+        </Link>{' '}
+        for the other viz surfaces sharing this ceiling.
       </div>
     </div>
   );

@@ -72,6 +72,12 @@ export const WINDING_LYAPUNOV_SCOPE = {
   ceiling:
     'CAPPED: upside is a topological re-derivation of Lambda>=0 (Rodgers-Tao); does NOT beat Platt-Trudgian Lambda<=0.2; no new analytic content; NOT a PT-beating bound',
   threadStatus: 'UNDER-EXPLORED thread closed with an explicit anti-overclaim scope cap; experiment in imp-2673 + imp-2696, no re-run here',
+  // imp-34813 CORRECTION: the artifactRegime reading (and the "wrong sign of true
+  // de Bruijn dynamics" clause) is refuted -- the proxy computes the exact flow at
+  // negative de Bruijn time, so the drop is genuine. The ceiling is also refined:
+  // lower side hard-capped (Lambda > 0 iff RH false); upper side, winding + de
+  // Bruijn landing rate IS the architecture of the PT 0.2 SOTA (still no new bound).
+  correctedBy: 'imp-34813-winding-monotonicity-rigor',
 };
 
 export const WINDING_LYAPUNOV_SCOPE_ASSERTIONS = [

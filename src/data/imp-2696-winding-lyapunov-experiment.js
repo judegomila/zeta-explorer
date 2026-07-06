@@ -74,6 +74,12 @@ export const WINDING_LYAPUNOV_EXPERIMENT = {
   verdict: 'winding of arg H_tau is a monotone non-increasing Lyapunov quantity; in the faithful regime its conservation is the topological content of Lambda>=0',
   ceiling: 'CONFIRMED: re-derives Lambda>=0 (Rodgers-Tao) topologically; does NOT beat Platt-Trudgian Lambda<=0.2 (stays SOTA); no new analytic content',
   threadStatus: 'UNDER-EXPLORED thread closed honestly: monotone confirmed, one time-boxed pass, no path to a new bound',
+  // imp-34813 CORRECTION: the artifactRegime interpretation above is WRONG in its
+  // physical reading (kept verbatim as historical record). The Gaussian convolution
+  // is EXACTLY H_{-tau} (negative de Bruijn time; conv identity ~1e-9), so the
+  // large-tau drop is GENUINE zeros-leaving-the-line dynamics, not a smoothing
+  // artifact; monotonicity is the classical no-lift-off/landing theorem time-reversed.
+  correctedBy: 'imp-34813-winding-monotonicity-rigor: proxy = exact negative-time flow; drop ladder matches exact H_t counts at t = -4 tau entry-by-entry',
 };
 
 export const WINDING_LYAPUNOV_ASSERTIONS = [

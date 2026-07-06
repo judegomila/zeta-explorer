@@ -70,7 +70,7 @@ export const FULL_ROUTE_MAP = {
     ],
     originalIdeas: [
       { name: 'Zeta-as-supercritical-fluid thermodynamics', status: 'ESTIMATE', opp: 4, note: 'bulk order-parameter EMPIRICALLY killed (imp-2323, no transition in (1/2,1)); pressure families = RH-equivalent' },
-      { name: 'Topological surface tension = quantized winding', status: 'UNDER-EXPLORED', opp: 5, note: 'THE one genuine under-developed kernel: winding of arg H_tau(t) vs heat-flow tau as a Lyapunov quantity; ceiling ~ re-derive Lambda>=0' },
+      { name: 'Topological surface tension = quantized winding', status: 'DEAD-END', opp: 1, note: 'CLOSED (was UNDER-EXPLORED): experiment run (imp-2673/2696/2859), interpretation CORRECTED by imp-34813 -- the Gaussian proxy was the EXACT flow in negative de Bruijn time (conv identity ~1e-9), the "artifact" drop was genuine zeros-leaving-the-line; monotonicity is classical (de Bruijn Thm 13 + jet lemma); ceiling refined: lower side hard-capped (Lambda>0 iff RH false), upper side = the existing Lambda<=0.2 architecture; no new bound' },
       { name: 'Selberg S(T) super-critical (imp-1333)', status: 'RH-EQUIVALENT', opp: 1, note: 'circular Lambda link' },
       { name: 'Levinson-Conrey mollifier (imp-1336)', status: 'DEAD-END', opp: 1, note: 'symmetry-locked to the line' },
       { name: 'Berry-Keating H=xp (Hilbert-Polya)', status: 'OPEN-HARD', opp: 3, note: 'genuinely open but the missing piece IS the PCC wall; heavily attacked in literature' },
@@ -88,7 +88,7 @@ export const RANKED_OPPORTUNITIES = [
   { rank: 2, target: 'Redirect Theta-trap R1/R2 + heat-discriminant ladder at E(N) constants', why: 'The linchpin resolution freed this rigorous CM-flow machinery from chasing the wrong t_c term; pointed at E_coll/E_flow it is the live non-RH-equivalent move. Sharpens constants; does not cross the C_H wall alone.' },
   { rank: 3, target: 'Normalized-R endpoint-bridge mu^pass construction (Conj-26.3)', why: 'Least-ruled-out direct target; mu^pass is genuinely unconstructed and not proven impossible. Capped: any success is a faithful RH reformulation (section26-verdict) -- structural/expository upside only.' },
   { rank: 4, target: 'Min-gap sandwich theorem conditional on beta', why: 'Two-sided bracket stronger than the A1 pinch; links to opportunity 2; throttled by an unproven uniform field bound. Same E(N)-only ceiling.' },
-  { rank: 5, target: 'Supercritical-fluid quantized-winding-under-heat-flow experiment', why: 'The one genuinely under-explored original idea: is d(winding(arg H_tau))/d(tau) a monotone Lyapunov quantity? Realistic ceiling = a topological re-derivation of Lambda>=0; will NOT beat PT. Worth ONE time-boxed pass.' },
+  { rank: 5, target: 'Supercritical-fluid quantized-winding-under-heat-flow experiment', why: 'The one genuinely under-explored original idea: is d(winding(arg H_tau))/d(tau) a monotone Lyapunov quantity? Realistic ceiling = a topological re-derivation of Lambda>=0; will NOT beat PT. Worth ONE time-boxed pass. [RESOLVED: passes imp-2673/2696/2859; deep-dive imp-34813 CORRECTED the artifact interpretation (proxy = exact negative-time flow) and refined the ceiling (lower hard-capped Lambda>0 iff RH false; upper = existing PT-0.2 architecture). Thread closed, no new bound.]' },
 ];
 
 // Cross-check of the route map against the project's other views (DAG, roadmap).
@@ -146,8 +146,8 @@ export const FULL_ROUTE_MAP_ASSERTIONS = [
   },
   {
     id: 'route-map-supercritical-winding-is-the-original-thread',
-    description: 'The one genuinely under-explored original idea is the quantized-winding-under-heat-flow thread',
-    holds: () => FULL_ROUTE_MAP.clusters.originalIdeas.some((r) => r.status === 'UNDER-EXPLORED' && /winding/.test(r.name)),
+    description: 'The quantized-winding thread (formerly the one UNDER-EXPLORED original idea) is now CLOSED with the imp-34813 interpretation correction recorded',
+    holds: () => FULL_ROUTE_MAP.clusters.originalIdeas.some((r) => r.status === 'DEAD-END' && /winding/.test(r.name) && /imp-34813/.test(r.note) && /negative de Bruijn time/.test(r.note)),
   },
   {
     id: 'route-map-no-shortcut-pt-sota',

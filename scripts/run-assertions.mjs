@@ -6632,6 +6632,15 @@ const DATA_MODULES = [
   // ~7.6e-5 absolute for n_op ~ 50 -- ~10 orders below the (H2) bracket margin. The strict-(H2)
   // op-count ceiling delta(1-|g_prime|)/eps ~ 8.60e11 recovers the imp-34776 k* budget. No bound change.
   '/src/data/imp-34799-krawczyk-directed-rounding-width-bound.js',
+  // imp-34813: quantized-winding deep-dive CORRECTION. The imp-2673/2696 Gaussian proxy
+  // computed the EXACT de Bruijn flow at NEGATIVE time (conv identity ~1e-9) -- the large-tau
+  // winding drop was genuine zeros-leaving-the-line dynamics, not a smoothing artifact
+  // (root cause: heat-equation sign inverted in supercritical.js docs). Exact-integral H_t
+  // ladder: count flat 10 for all t>=0, even pair-merger drops for t<0; first collision
+  // t_c=-1.8837 (tau_repo 0.471, reconciling imp-2673's first drop); monotonicity is the
+  // CLASSICAL de Bruijn Thm 13 + jet lemma, orientation corrected. Ceiling refined, no new
+  // bound: lower hard-capped (Lambda>0 iff RH false), upper = existing PT-0.2 architecture.
+  '/src/data/imp-34813-winding-monotonicity-rigor.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -62,6 +62,14 @@ export const WINDING_EXPERIMENT = {
   verdict: 'winding/real-zero-count is the right Lyapunov object, but heatEvolvedXi is an inadequate proxy; the faithful realization is the backward CM/Dyson flow, where monotonicity IS Lambda>=0',
   ceiling: 'CONFIRMED: re-derives Lambda>=0 (Rodgers-Tao); does NOT beat Platt-Trudgian 0.2; no new analytic content beyond the collision picture',
   frameStatus: 'supercritical-fluid retired to exposition + this one honest numerical illustration',
+  // imp-34813 CORRECTION: the artifactRegime reading above inverted the time
+  // direction. Gaussian convolution of width sqrt(2 tau) computes EXACTLY the
+  // de Bruijn family at t = -4 tau (gamma-units; conv identity ~1e-9), where
+  // zeros GENUINELY merge and leave the line -- the drop ladder here matches the
+  // exact H_t counts entry-by-entry on a matched gamma-window [10,52]: proxy
+  // counts (10,10,8,6,4) at tau=(0.125,0.3125,0.5,1,2) = exact at t=-4*tau. The
+  // heatEvolvedXi proxy was not inadequate; it was the true flow run backwards.
+  correctedBy: 'imp-34813-winding-monotonicity-rigor',
 };
 
 export const WINDING_EXPERIMENT_ASSERTIONS = [

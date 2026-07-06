@@ -181,11 +181,15 @@ export function thermodynamicScan(t, sigmaRange = [-2, 4], steps = 200, numPrime
  * The Xi function: Ξ(t) = ξ(1/2 + it) where ξ is the completed zeta.
  * ξ(s) = (1/2)s(s-1)π^{-s/2}Γ(s/2)ζ(s)
  *
- * The heat-evolved family: H_τ(t) satisfies ∂H/∂τ = ∂²H/∂t²
- * At τ=0, H_0(t) = Ξ(t). For τ>0 (forward heat), zeros stay real —
- * de Bruijn proved H_τ has only real zeros for τ ≥ Λ, and Rodgers-Tao
- * showed Λ ≥ 0. For τ<0 (backward heat / inverse diffusion), zeros
- * can scatter off the real line into conjugate pairs.
+ * SIGN CONVENTION (corrected by imp-34813): the standard de Bruijn family
+ * H_t(x) = ∫ e^{tu²}Φ(u)cos(xu)du satisfies the BACKWARD heat equation
+ * ∂H/∂t = −∂²H/∂x² (Tao/Rodgers-Tao). Zeros repel and stay real as t
+ * INCREASES (de Bruijn: only real zeros for t ≥ Λ; Rodgers-Tao: Λ ≥ 0);
+ * running t DOWNWARD (forward heat / Gaussian smoothing) is where real
+ * zeros merge and scatter into conjugate pairs. So a Gaussian convolution
+ * of Ξ with width sqrt(2τ) computes EXACTLY H_{−τ} (negative de Bruijn
+ * time), verified to ~1e-9 in imp-34813 — its zero mergers are genuine
+ * negative-time de Bruijn dynamics, not a smoothing artifact.
  *
  * We approximate by tracking how individual zeros evolve:
  * Under heat flow, zeros at positions γ_n repel each other.
@@ -230,10 +234,12 @@ export function heatFlowZeros(tau, numZeros = 30) {
 }
 
 /**
- * Approximate the heat-evolved Xi function value
- * H_τ(t) ≈ Ξ(t) convolved with Gaussian of width √(2τ)
- *
- * For visualization, we compute |H_τ(t)| along the real axis
+ * Approximate the heat-evolved Xi function value.
+ * Computes Ξ(t) convolved with a Gaussian of width √(2τ) — which is
+ * EXACTLY the de Bruijn family at NEGATIVE de Bruijn time, H_{−τ}
+ * (Fourier multiplier e^{−τu²}; see imp-34813 conv identity ~1e-9).
+ * Callers should read growing τ as running the true flow backwards from
+ * t=0, where zeros genuinely merge and leave the real line.
  */
 export function heatEvolvedXi(t, tau, numTerms = 50) {
   // For τ ≤ 0, the backward heat equation (inverse diffusion) is ill-posed and

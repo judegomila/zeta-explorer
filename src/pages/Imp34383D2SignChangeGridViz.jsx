@@ -144,7 +144,10 @@ export default function Imp34383D2SignChangeGridViz() {
         <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, baked literals
         reproducing the imp-34291 measurement; no new derivation, no bound changed. Robustness
         diagnostic, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066
-        K_a&ge;0 untouched; NO QED; Platt-Trudgian Lambda&le;0.2 remains SOTA.
+        K_a&ge;0 untouched; NO QED; Platt-Trudgian Lambda&le;0.2 remains SOTA. The coarse
+        narrow-domain configs that read zero sign changes are under-resolved, not a second
+        knee-free zone or evidence of anything structural -- never read a zero count as license to
+        fabricate a spurious second knee; every config in this sweep caps at signChanges&le;1.
       </div>
     </div>
   );

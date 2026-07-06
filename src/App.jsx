@@ -327,6 +327,7 @@ const Imp34475FourLocatorClusterAxisViz = lazy(() => import('./pages/Imp34475Fou
 const Imp34476SigmaProductGapRatioApproachViz = lazy(() =>
   import('./pages/Imp34476SigmaProductGapRatioApproachViz.jsx')
 );
+const Imp34477WideningSlopePoleLeakageViz = lazy(() => import('./pages/Imp34477WideningSlopePoleLeakageViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1184,6 +1185,7 @@ function AppShell() {
             path="/viz-imp34476-sigma-product-gap-ratio-approach"
             element={<Imp34476SigmaProductGapRatioApproachViz />}
           />
+          <Route path="/viz-imp34477-widening-slope-pole-leakage" element={<Imp34477WideningSlopePoleLeakageViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

@@ -427,6 +427,9 @@ const Imp34655LocalScalingOrderClimbViz = lazy(() =>
 const Imp34664PoleWindowBiasVarianceViz = lazy(() =>
   import('./pages/Imp34664PoleWindowBiasVarianceViz.jsx')
 );
+const Imp34681PuncturedPoleWindowViz = lazy(() =>
+  import('./pages/Imp34681PuncturedPoleWindowViz.jsx')
+);
 const Imp34656RoundoffPrefactorAmplitudeViz = lazy(() =>
   import('./pages/Imp34656RoundoffPrefactorAmplitudeViz.jsx')
 );
@@ -1426,6 +1429,10 @@ function AppShell() {
           <Route
             path="/viz-imp34664-pole-window-bias-variance"
             element={<Imp34664PoleWindowBiasVarianceViz />}
+          />
+          <Route
+            path="/viz-imp34681-punctured-pole-window"
+            element={<Imp34681PuncturedPoleWindowViz />}
           />
           <Route
             path="/viz-imp34656-roundoff-prefactor-amplitude"

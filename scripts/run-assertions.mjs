@@ -6455,6 +6455,11 @@ const DATA_MODULES = [
   // pinned to {2,3,4} while r_k moves to {4.00,9.17,15.98} and the q3/q4 deviation
   // from 2^k flips sign, confirming the F3 residual is footing-dependent ULP scatter.
   '/src/data/imp-34712-second-footing-collapse-ladder-crossvalidation.js',
+  // imp-34730: third independent deep-group footing of the imp-34712 F3 residual --
+  // m_k pinned to {2,3,4} on all three footings while r_k moves to {4.00,6.36,19.61}
+  // and the q3/q4 deviation from 2^k flips sign a THIRD time (alternating {-,+,-} /
+  // {+,-,+}), upgrading the two-footing "variance" reading to mean-zero ULP scatter.
+  '/src/data/imp-34730-third-footing-collapse-ladder-crossvalidation.js',
   // imp-34643: audit of the imp-34606..34613 measurement cluster found five modules
   // (imp-34606, imp-34609, imp-34611, imp-34612, imp-34613) carry self-executing
   // *_ASSERTIONS arrays that were absent from this DATA_MODULES sweep; wired in below.

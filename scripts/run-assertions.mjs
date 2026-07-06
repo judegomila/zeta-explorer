@@ -4919,6 +4919,18 @@ const DATA_MODULES = [
   // surrogate NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT
   // Lambda<=0.2 SOTA; no bound change; NO QED. 5 assertions.
   '/src/data/imp-34312-fixed-band-ceiling-estimate-window-drift.js',
+  // imp-34326: RECONCILE imp-34247 s pole-subtracted background B(k) = dy/dk - 1/(k*-k) (~ -1.10 at k=12 to
+  // ~ -1.46 at k=20.5) against imp-34246 s strict-derivative leading slope -ln10/2 + ln10*(3/u). Both describe
+  // the SAME raw local slope dy/dk of y=ln(eflow_attr/resid_exp), so B(k) = (form) - 1/(k*-k) + r(k): the two
+  // backgrounds differ EXACTLY by the imp-34023 pole term 1/(k*-k). The naive direct gap B - form runs ~ -0.21
+  // (k=12) to ~ -0.42 (k=20) but is essentially that pole term (0.108 -> 0.781), NOT a conflict; the
+  // convention-matched residual dy/dk - form reproduces imp-34246 s two-term residual EXACTLY (magnitudes
+  // 0.099 at k=12 -> 0.008 at k=18). VERDICT: RECONCILED -- B(k) equals (form - 1/(k*-k)) to |R| <= 0.099 across
+  // the clean window k <= 18, then the match breaks past k >= 19 (R -> +0.36) where both modules independently
+  // flag hump-turn + pole contamination. Cross-check only; component model NOT rigorous; imp-34246/imp-34247
+  // untouched; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA;
+  // no bound change; NO QED. 5 assertions.
+  '/src/data/imp-34326-widening-slope-background-reconciliation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -736,6 +736,15 @@ const CONCEPTS = [
     formula: '\\frac{d(\\log N)}{d(\\log T_0)} = \\frac{T_0}{N}\\cdot\\frac{\\log(T_0/2\\pi)}{2\\pi} \\approx 1.056',
     intuition: "If two thresholds are truly ordered, it should not matter whether you measure the ordering in feet or in meters -- the conversion factor just rescales both sides consistently, it cannot flip which one is bigger. Here the two rulers are the HEIGHT axis (T0) and the ZERO-COUNT axis (N), linked by the Riemann-von Mangoldt density Jacobian (~1.056 in this region). The height gap between the two landmarks (~0.379%) and the count gap (~0.400%) are the same underlying separation stretched by that Jacobian, and the ordering N_half < N_cross survives the stretch on both rulers -- a cross-check of consistency, not a new bound.",
   },
+  {
+    id: 'eflow-gronwall-residual-collapse',
+    category: 'proof',
+    term: 'E_flow (Gronwall Backward-Flow Term)',
+    symbol: 'E_{\\text{flow}} \\sim \\frac{\\log T_0}{T_0}',
+    definition: "E_flow is the smallest of the three energy terms in the sigma(N) conditional-share decomposition (alongside the N-independent E_trunc and the collision term E_coll): a benign, unconditionally-bounded correction that arises from the backward Gronwall flow (imp-2845). Because E_flow decays like log T0 / T0, it shrinks fast down the tail, so the leading closed-form crossover derivations (imp-33723, imp-33743) drop it as negligible and solve the simpler two-term balance E_coll = E_trunc * thr/(1-thr). That leading form already matches the empirical bisection to within a fraction of a percent -- the remaining gap is not noise, it is exactly the size of the term that was dropped.",
+    formula: '\\text{leading: } N_{\\text{cross}} = \\left(\\frac{C_C(1-thr)}{E_{\\text{trunc}}\\, thr}\\right)^{2}\\log T_0 \\;\\to\\; \\text{restored: } N_{\\text{cross}} = \\left(\\frac{C_C(1-thr)}{(E_{\\text{trunc}}+E_{\\text{flow}})\\, thr}\\right)^{2}\\log T_0',
+    intuition: "Think of the closed-form crossover as a leading-order Taylor approximation with one small term left out on purpose because it looked negligible. At the far-tail landmark (sigma < 0.1, thr = 0.1) the leading form already lands within ~7.38e-5 relative of the empirical bisection (imp-33743, visualized in imp-34355) -- but that residual is not rounding error, since it is ~54x tighter than the ~0.4% residual at the halving landmark (thr = 1/2), and E_flow/E_trunc shrinks by that same ~54x factor between the two landmarks. Plugging E_flow back into the balance (replacing E_trunc with E_trunc + E_flow) closes the gap from ~7.38e-5 all the way to ~1.33e-15 -- machine epsilon -- confirming the entire leading-order residual was E_flow and nothing else (no grid or discretization artifact). It is a clean illustration of how a project can quantify exactly what an approximation left out, rather than just asserting it was small.",
+  },
 ];
 
 export default function ConceptsPage() {

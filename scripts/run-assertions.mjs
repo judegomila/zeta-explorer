@@ -6309,6 +6309,24 @@ const DATA_MODULES = [
   // 3 assertions. Presentation only; component model NOT rigorous; C_mb GUE-conditional per
   // imp-486 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34562-deep-rung-doubling-map-landmarks.js',
+  // imp-34543: isolates the pure THIRD-derivative (q3) share of the imp-34531 F2 O(h^2)
+  // drift-residual coefficient C_th. Self-contained, no imports. Was missing from this
+  // DATA_MODULES list (found by the imp-34581 audit below) -- added here so its
+  // self-executing assertions run in the build-time sweep.
+  '/src/data/imp-34543-drift-residual-third-derivative-share.js',
+  // imp-34548: measures the LOCAL per-pp spacing exponent p_local between adjacent
+  // imp-34530 pole-leakage interval midpoints. Imports only lambda-rh-height-mapping.js /
+  // polymath15-constant-C-C.js (no heavy zeros bundle). Was missing from this
+  // DATA_MODULES list (found by the imp-34581 audit below) -- added here so its
+  // self-executing assertions run in the build-time sweep.
+  '/src/data/imp-34548-pole-leakage-local-spacing-exponent.js',
+  // imp-34581: AUDIT of whether the imp-34405/34406/34543/34548 pole-recovery cohort
+  // modules stay import-light and do not transitively pull in the 16.7MB
+  // zeros-to-1e6.js bundle. FINDING (heavy-imports): no gap -- all 4 import at most
+  // the light imp-34310/lambda-rh-height-mapping/polymath15-constant-C-C chain, never
+  // the zeros bundle. FINDING (registration): imp-34543 and imp-34548 were missing
+  // from this DATA_MODULES list; both are appended above to close the gap. 6 assertions.
+  '/src/data/imp-34581-pole-recovery-cohort-heavy-import-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

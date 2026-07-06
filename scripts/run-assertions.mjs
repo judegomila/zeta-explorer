@@ -6472,6 +6472,16 @@ const DATA_MODULES = [
   // plateau/roundoff cohort for the honest-status banner and the storage-
   // precision assertion-tolerance trap found no gaps in either invariant.
   '/src/data/imp-34659-drift-residual-plateau-cohort-audit.js',
+  // imp-34660: audit of the imp-34562 deep-rung doubling-map landmarks page
+  // for the honest-status banner and the zeros-bundle transitive-import ban
+  // found no gaps in either invariant.
+  '/src/data/imp-34660-doubling-map-landmarks-page-audit.js',
+  // imp-34727: discharge the curvature half of imp-34693a -- derive the closed-form
+  // second derivative g_double_prime = -K(2pi)^2(1+1/L_T)/(T0^2 L_T^2), bound its sup
+  // on I=[1e9,1e10] at the left endpoint (~1.4802e-10, FD-validated), and enclose the
+  // seed defect to second order so the certified band equals the imp-34693 linear band
+  // through k=4 and shrinks only ~1.3% at k=10 (ratio 0.987); outward-rounding model.
+  '/src/data/imp-34727-crossover-seed-band-second-order-enclosure.js',
 ];
 
 let ALL_MODULES = FAST_MODE

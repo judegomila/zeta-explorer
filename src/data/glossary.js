@@ -12882,6 +12882,49 @@ export const glossary = [
       'imp-34692 the dense 201-point grid extension confirming the residual is method-limited, not a formula error (imp-34692)',
     ],
   },
+  {
+    term: 'imp-34705 asymmetry of the imp-34650 Banach contraction region: free right-widening vs binding left edge',
+    category: 'proof',
+    definition:
+      'A concept headword explaining why the imp-34650 Banach L-contraction certificate for the imp-33723 ' +
+      'crossover map g(N) = K log T0(N) is LOPSIDED: extending the certified interval to the right costs ' +
+      'nothing, while the left edge is the sole boundary that can ever be violated.\n\n' +
+      'g_prime(N) = K * 2pi / (T0 * log(T0/2pi)) is positive and STRICTLY DECREASING in N (imp-34650), so on ' +
+      'any interval [a, b] the supremum of g_prime -- the Lipschitz constant L -- sits at the LEFT endpoint a ' +
+      'and never depends on b. imp-34676 measured this directly: holding a = 1e9 fixed and sweeping b from ' +
+      '1e10 out to 1e300, L = g_prime(1e9) ~ 0.1485 stayed EXACTLY invariant, and the self-map upper condition ' +
+      'g(b) <= b held at every b >= N_cross ~ 3.280294e9 with the margin b - g(b) growing WITHOUT BOUND (g ' +
+      'grows only logarithmically in N while b grows linearly). So [1e9, b] is a certified contraction ' +
+      'self-map for arbitrarily large b -- right-widening is FREE.\n\n' +
+      'The left side has no such slack. imp-34675 located the exact boundary in closed form: setting ' +
+      'g_prime(N_star) = 1 and substituting u = T0/2pi reduces the condition to u log u = K, solved by the ' +
+      'Lambert W function as T0_star = 2pi K / W(K), giving N_star = K(1 - 1/W(K)) ~ 1.474994e8 (K ~ 1.5727e8, ' +
+      'W(K) ~ 16.095). For every N > N_star the map contracts (g_prime < 1); for N < N_star it expands ' +
+      '(g_prime(1e8) ~ 1.4727 > 1, straddling N_star as required). N_star sits ~22.24x below the fixed point ' +
+      'N_cross and ~6.78x below the original certificate left edge a = 1e9 -- so a = 1e9 was conservative, but ' +
+      'the true contraction region cannot be pushed past N_star no matter how the interval is chosen: any a ' +
+      '<= N_star makes L = g_prime(a) >= 1 and the certificate fails outright.\n\n' +
+      'HOW TO APPLY: when certifying a Banach contraction for a map whose derivative is monotone in the ' +
+      'certification variable, check whether the monotonicity is one-sided -- here g_prime decreasing in N ' +
+      'means the Lipschitz sup is pinned at the interval endpoint where g_prime is LARGEST, so widening ' +
+      'toward decreasing-derivative territory is free while widening toward increasing-derivative territory is ' +
+      'bounded by a hard closed-form edge. The two findings are complementary, not redundant: imp-34676 shows ' +
+      'HOW FAR right one can go (unboundedly), and imp-34675 shows WHERE the left boundary actually is ' +
+      '(N_star, in closed form), together giving the full honest extent of the contraction region ' +
+      '(N_star, infinity) rather than only the originally-certified [1e9, 1e10].\n\n' +
+      'HONEST SCOPE: a concept headword synthesizing the imp-34675/imp-34676 findings verbatim, not a new ' +
+      'derivation; both N_star and the right-widening sweep are IEEE-754 double-precision evaluations of the ' +
+      'INHERITED imp-3220/imp-3406 surrogate crossover map, not interval-enclosed (imp-34650a/imp-34675a remain ' +
+      'OPEN); C_C = (1/8)sqrt(3pi) ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per imp-486 ' +
+      'UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; no operator positivity; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34705 (glossary headword for the asymmetry of the imp-34650 Banach contraction region), 2026',
+    relatedTerms: [
+      'imp-34650 the Banach L-contraction certificate on I = [1e9, 1e10] whose asymmetric extent this headword explains (imp-34650)',
+      'imp-34675 the closed-form Lambert-W left edge N_star = K(1 - 1/W(K)) ~ 1.475e8, the sole binding constraint (imp-34675)',
+      'imp-34676 the right-widening sweep showing L invariant and the self-map free out to b = 1e300 (imp-34676)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

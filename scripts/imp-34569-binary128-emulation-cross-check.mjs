@@ -208,6 +208,7 @@ const NODES = [
   { label: 'e=24 (imp-34524 node, the 8.496e-16 figure)', k: 8.821091353893 },
   { label: 'e=25 (dd-argmax node)', k: 8.821091592312 },
   { label: 'e=26 (dd-argmax node)', k: 8.821091607213 },
+  { label: 'e=27 (dd-argmax node, imp-34588 fourth rung)', k: 8.821091599762 },
 ];
 console.log('=== imp-34569: independent BigInt-fixed-point (P=60, ~199-bit) arbiter of imp-34551 dd hi-word ===\n');
 const results = [];

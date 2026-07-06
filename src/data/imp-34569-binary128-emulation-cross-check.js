@@ -94,6 +94,18 @@ const NODES = [
     relNativeBf: 4.945e-15,   // native double ULP width
     relDdBf: 1.185e-30,
   },
+  {
+    // imp-34588: fourth refinement rung. native does NOT keep climbing -- rel(native,bf) drops
+    // back to 7.065e-16 (near the e=24 level, BELOW the e=25/26 cancellation spikes), while dd
+    // still tracks the independent arbiter to its 106-bit floor (5.585e-31).
+    label: 'e=27 (dd-argmax node, imp-34588 fourth rung)',
+    k: 8.821091599762,
+    native: 6.53365972060055145e-2,
+    ddHiWord: 6.53365972060055561e-2,
+    bf: 6.53365972060055561e-2,
+    relNativeBf: 7.065e-16,   // native double ULP width -- back near e=24, NOT a monotone climb
+    relDdBf: 5.585e-31,       // dd 106-bit floor -- still reproduces the independent arbiter
+  },
 ];
 
 // (F1) dd hi-word matches the independent >binary128 arbiter to its ~1e-31 106-bit floor at every node.
@@ -160,6 +172,14 @@ export const IMP34569_BINARY128_EMULATION_CROSS_CHECK = {
       'rel(native,bf) * 1e-6), so the extra 53 mantissa bits resolve real signal rather than reshuffle ' +
       'rounding -- confirming the imp-34551 widening was substantive.',
   },
+  imp34588FourthRung:
+    'imp-34588 added a fourth refinement rung e=27 (dd-argmax node k=8.821091599762). ANSWER to the ' +
+    'sub-gap: native double does NOT keep losing ground past the e=25/26 argmax margins -- rel(native,bf) ' +
+    'is 7.065e-16 at e=27, dropping back near the e=24 level (7.806e-16) and BELOW the e=25/26 spikes ' +
+    '(6.633e-15 / 4.945e-15). The e=25/26 elevation was a per-node cancellation artifact (near-degenerate ' +
+    'OLS/endpoints inflating the native ULP width), NOT a monotone climb. The dd hi-word still tracks the ' +
+    'independent BigInt arbiter to its 106-bit floor at e=27 (rel(dd,bf)=5.585e-31 < 1e-25), and dd stays ' +
+    '> 1e6x tighter than native, so the argmax remains dd-resolvable at the fourth rung.',
   isRigorous: false,
   verdict:
     'INDEPENDENT EXTENDED-PRECISION CROSS-VALIDATION (NOT rigorous). CONFIRMS the imp-34551 dd hi-word by ' +
@@ -188,7 +208,7 @@ export const IMP34569_BINARY128_EMULATION_CROSS_CHECK_ASSERTIONS = [
     // (F1) dd hi-word reproduces the independent >binary128 arbiter to its 106-bit floor at every node.
     id: 'imp34569-dd-hiword-reproduces-independent-arbiter',
     description: 'the full 106-bit dd pair matches the independent BigInt decimal fixed-point kernel (P=60) to rel-diff < 1e-25 at all three nodes (e=24/25/26), i.e. to the dd floor not the native floor -- confirming the widened pipeline is the same function with no formula divergence',
-    holds: () => DD_MATCHES_INDEPENDENT && BF_EQUALS_DD_HIWORD && NODES.length === 3,
+    holds: () => DD_MATCHES_INDEPENDENT && BF_EQUALS_DD_HIWORD && NODES.length === 4,
   },
   {
     // (F2) native gap is double-level arithmetic width and reproduces the reported 8.496e-16 figure.

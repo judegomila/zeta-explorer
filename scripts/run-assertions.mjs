@@ -5471,6 +5471,19 @@ const DATA_MODULES = [
   // assertions. Cross-validation only; component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched;
   // imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34450-numerator-approach-three-term-curvature-crossval.js',
+  // imp-34489: EXTENDS the imp-34450 three-term curvature crossval (g ~ a/kEnd + b/kEnd^2 + c/kEnd^3) to an
+  // explicit FOUR-TERM fit g ~ a/kEnd + b/kEnd^2 + c/kEnd^3 + c4/kEnd^4 (degree-3 least squares of g*kEnd on
+  // u = 1/kEnd, 4x4 normal equations) and bounds how much the fourth-order term c4/kEnd^4 moves the leading
+  // coefficient a. FINDING: the four-term a lands at 0.435100 (far-field 40..150), 0.435437 (full 22..150),
+  // 0.435017 and 0.434934 (deeper windows) -- every value at 0.4349-0.4355, just below the imp-34450 three-term
+  // band 0.4353-0.4361 and within ~0.0021 of the imp-34286 0.437-0.438 band. Against the imp-34450 three-term
+  // fit over the same window a shifts by only -0.000462 (~0.11%) far-field, at most -0.000667 (~0.15%) full
+  // window; this ~0.00067 max is ~3x SMALLER than the imp-34450 three-term max shift (0.002229), so the
+  // order-to-order a-shift SHRINKS (~0.0022 at 2->3, ~0.00067 at 3->4) -- a converging expansion. The g~a/kEnd
+  // first-order verdict SURVIVES the fourth term (a within ~0.0031 of 0.437 at every order, drift decreasing).
+  // Import-light, 5 assertions. Cross-validation only; component model NOT rigorous; C_mb GUE-conditional per
+  // imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34489-numerator-approach-four-term-curvature-crossval.js',
   // imp-34410: CROSS-VALIDATE the imp-34328 F2 exact complement identity gapSigma * log T0 + gapProduct
   // = 1/2 against a DIRECT finite-N sigma-exponent secant, not the closed form both gaps were built from.
   // imp-34328 formed BOTH gaps from the same resid, so its identity is an algebraic TAUTOLOGY
@@ -5625,6 +5638,12 @@ const DATA_MODULES = [
   // Measurement only; component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched;
   // PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34474-far-tail-en-headline-slack-vs-lpt.js',
+  // imp-34488: MEASUREMENT -- tabulates the conditionality-gap ratio L_pt/E(N) across three named
+  // landmarks (imp-3444 crossover, imp-33582 sigma<0.1, imp-33620 sigma<0.01); the gap grows 1975x
+  // -> 3559x -> 3915x but SATURATES toward the ceiling L_pt/E_trunc=3954.25, governed by 1-sigma.
+  // Reuses the imp-34453/imp-34474/imp-3406 sub-terms verbatim. C_mb GUE-conditional per imp-486;
+  // no bound change; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-34488-conditionality-gap-ratio-three-landmarks.js',
   // imp-34485: FEASIBILITY -- resolves the imp-34448 double-precision-floor sub-gap WITHOUT extended
   // precision. deflow = resid_full - resid_noflow underflows the ~1e-15 floor past kEnd~22.5 (bit-zero
   // by ~23) only because it is a catastrophic subtraction of two ~15-sig-fig-identical residuals; since

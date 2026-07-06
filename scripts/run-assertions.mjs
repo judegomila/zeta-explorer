@@ -4783,6 +4783,13 @@ const DATA_MODULES = [
   // dropped C_F/RvM log-(2pi) shifts). Derivation/cross-check only; C_mb GUE-conditional per imp-486
   // UNTOUCHED; changes no bound; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-34473-surplus-amplitude-Ar-closed-form-assembly.js',
+  // imp-34507: identifies the imp-34473 flat "~2.38" next-order gap (2 log(2pi) - relDef.log T0).log T0,
+  // left unidentified, as the closed constant log(2pi)^2 - 1 = 2.377792111...: deeper thr probing (to
+  // thr=1e-80, log T0 ~ 389) shows monotone convergence to it matched to ~1e-11. Closes the two-term
+  // expansion M/A_r = 1 - 2 log(2pi)/log T0 + (log(2pi)^2 - 1)/log^2 T0 = (1 - log(2pi)/log T0)^2 - 1/log^2 T0,
+  // the square of one log-(2pi) shift minus a lone 1/log^2 T0 deficit. Identification/cross-check only;
+  // C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; PT Lambda<=0.2 SOTA; no QED. 4 assertions.
+  '/src/data/imp-34507-surplus-nextorder-constant-identification.js',
   // imp-34428: reconciles the imp-34329 single-term fit c ~ 4.4 (r-exponent = 2 - c/log T0) against the
   // imp-34349/imp-34407 derived c = 4 by adding the 1/log^2 T0 term explicitly -- a two-parameter OLS
   // r-exponent = 2 - c1/L - c2/L^2 over the deep rungs (log T0 >= 39). On the INSTANTANEOUS exponents c1

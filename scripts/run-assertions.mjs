@@ -4799,6 +4799,18 @@ const DATA_MODULES = [
   // The imp-34268 convex-branch reading is not overturned. Measurement/parity-split only; C_mb GUE-conditional
   // per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-34347-odd-quarter-increment-parity-branch.js',
+  // imp-34367: closes SUB-GAP-imp-34268-convex-branch-form by form-SELECTION -- fits the three ticket-named
+  // convex forms (quadratic, exponential in kEnd, 1/(k*-kEnd) pole) to the imp-34268 post-minimum fixed-band
+  // (k<=10) peak re-acceleration branch (11 nodes kEnd=18.75..21.25, reproducing the imp-34196/imp-34169/imp-34268
+  // anchors). FINDINGS: the QUADRATIC is decisively favored (SSE~2.43e-3, R2~0.9753) over the exponential
+  // (SSE~6.83e-3, R2~0.9307), and the SIMPLE POLE is the WORST (SSE~3.95e-2, R2~0.5993, ~16x worse); the pole
+  // does NOT dominate near k* (near-pole tail SSE quad~2.80e-4 < exp~1.88e-3 < pole~4.87e-3 -- it OVER-predicts
+  // the blow-up). A free-exponent power pole is best fit as p->~0 (log limit) and an explicit log pole
+  // (SSE~5.64e-3) beats every genuine power pole -- the imp-34346 sub-unity-order / imp-34253 logarithmic-peak
+  // signature. HONEST CAVEAT: the winning quadratic is a LOCAL descriptor over the computable domain, NOT the
+  // true asymptotic (which stays open as SUB-GAP-imp-34287-asymptotic-class-undecidable). Measurement/form-select
+  // only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34367-convex-branch-form-selection.js',
   // imp-34187: tabulates the imp-34130 separated-E_coll local-exponent residual-to-(-1/2)
   // milestone ladder at SEVEN thresholds {1e-2, 3e-3, 1e-3, 3e-4, 1e-4, 3e-5, 1e-5} on the
   // imp-33859 log-space direct path (adding the half-decade rungs to imp-34198's four decade
@@ -4864,6 +4876,17 @@ const DATA_MODULES = [
   // percentage-split (ill-conditioned by the near-total dA-dB cancellation). Decomposition only; component
   // model NOT rigorous; C_mb/imp-486 & imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-34285-closedform-gap-term-decomposition.js',
+  // imp-34366: RESOLVE SUB-GAP-imp-34285-per-estimator-percentage-split with a WELL-CONDITIONED attribution.
+  // The naive per-estimator share dA/(dA-dB) blows up (magnitude ~1.4e8) because dA, dB ~ -2.286e-4 cancel to
+  // ratio ~7e-9 at the crossing. Instead measure each estimator OWN window-width bias curve dA(w), dB(w)
+  // separately at the fixed crossing base point and fit each independently to w^2,w^3,w^4: the coefficients are
+  // near-identical (A_n/B_n ~ 0.999 at every order), so the higher-order (n>=3) content splits ~49.98% pEcoll /
+  // ~50.02% pSigma -- a SUM of absolute magnitudes, never dividing by dA-dB. An independent IFT root-slope
+  // sensitivity check (slopes O(2e-5), individually well-conditioned) concurs at ~49.69% / ~50.31%. Split is
+  // therefore ~50/50 (pSigma marginally larger); the near-total cancellation is a structural near-equality of
+  // the two estimators window-width laws, not a crossing coincidence. Decomposition only; component model NOT
+  // rigorous; C_mb/imp-486 & imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34366-per-estimator-percentage-split-well-conditioned.js',
   // imp-34227: RECONCILE SUB-GAP-imp-34169-surrogate-domain-edge -- is the imp-33810/imp-33843 surrogate
   // resid_exp(k)=pEcoll(1-sigma)-pSigma zero at k*~21.28095 an ARTIFACT of the quarter-decade OLS/secant
   // exponent estimators or a GENUINE component-model feature? Recomputes resid_exp three ways: refining the
@@ -5032,6 +5055,12 @@ const DATA_MODULES = [
   // surrogate NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT
   // Lambda<=0.2 SOTA; no bound change; NO QED. 5 assertions.
   '/src/data/imp-34312-fixed-band-ceiling-estimate-window-drift.js',
+  // imp-34365: pole-free deep-tail estimator for the fixed-band (k<=10) peak growth. Decomposes the imp-33810
+  // diagnostic log(eflow_over_resid) = log(eflowAttr) - log(residExp); the imp-34169 pole is entirely in the
+  // -log(residExp) half, so the log(eflowAttr) half is deep-extensible past k*. Swept to kEnd=45 (24 windows
+  // beyond k*), its local log-derivative g declines monotonically and never rises -> super-log REJECTED,
+  // narrowing SUB-GAP-imp-34287-asymptotic-class-undecidable (residual: extending-window OLS confound).
+  '/src/data/imp-34365-fixed-band-peak-pole-free-deep-tail-estimator.js',
   // imp-34326: RECONCILE imp-34247 s pole-subtracted background B(k) = dy/dk - 1/(k*-k) (~ -1.10 at k=12 to
   // ~ -1.46 at k=20.5) against imp-34246 s strict-derivative leading slope -ln10/2 + ln10*(3/u). Both describe
   // the SAME raw local slope dy/dk of y=ln(eflow_attr/resid_exp), so B(k) = (form) - 1/(k*-k) + r(k): the two

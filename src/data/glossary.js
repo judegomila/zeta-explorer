@@ -12109,6 +12109,36 @@ export const glossary = [
     ],
   },
   {
+    term: 'leak(k) = 100|dy/dk(k) - P|/|P| (pole-leakage metric)',
+    category: 'numerical',
+    definition:
+      'The percentage deviation of the imp-34188 local widening-slope estimate dy/dk(k) (y(k) = ' +
+      'ln(eflowAttr(k)/residExp(k))) from its clean far-field plateau P = dy/dk(k=14) ~ -0.977, ' +
+      'quantifying how far the imp-34023/imp-34247 simple pole at k* ~ 21.28095 (residue +1 in dy/dk, ' +
+      'forced by the residExp simple zero) has leaked into the local slope measurement at a given k. ' +
+      'First recorded as the imp-34247 R3 contaminationLadder devPct, then formalized and bisected under ' +
+      'the name leak(k) starting with imp-34413. The ladder of bisected crossings climbs steeply as ' +
+      'k -> k*: leak(k)=1% at k ~ 18.106 (imp-34413), 3%/8% at k ~ 18.497/19.034 (imp-34468), 15%/20% at ' +
+      'k ~ 19.443/19.637 (imp-34512), and imp-34530 fit the per-percentage-point spacing between rungs to ' +
+      'a near-cubic power law in the pole distance (s = A(k*-k)^p, p ~ 3.00, R^2 ~ 0.996), extrapolating ' +
+      'the 25%/30% crossings to k ~ 19.774/19.882.\n\n' +
+      'HONEST SCOPE: a numerical/structural deviation metric on an inherited surrogate, not a derivation. ' +
+      'The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
+      'C_mb remains GUE-conditional per imp-486; imp-3066 K_a>=0 untouched; establishes no operator ' +
+      'positivity; changes no bound; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains the ' +
+      'rigorous SOTA unconditional bound.',
+    firstUsed: 'imp-34247 (first measured as contaminationLadder devPct); formalized and bisected as ' +
+      'leak(k) starting imp-34413, 2026',
+    relatedTerms: [
+      'imp-34023 pole k* ~ 21.28095, the organizing singularity leak(k) tracks (imp-34023)',
+      'imp-34413 the bisected 1% clean-window ceiling k ~ 18.106 (imp-34413)',
+      'imp-34468 the bisected 3%/8% leakage crossings k ~ 18.497/19.034 (imp-34468)',
+      'imp-34512 the 15%/20% crossings k ~ 19.443/19.637 (imp-34512)',
+      'imp-34530 near-cubic power-law fit of the per-pp spacing and 25%/30% extrapolation (imp-34530)',
+      'imp-34529 the 1/leak(k) linear-root pole estimator converging onto k* as the fit window tightens (imp-34529)',
+    ],
+  },
+  {
     term: 'imp-34508 ULP-floor margin quantization: the e=24 top-two resid_exp margin bottoms out at exactly 2^-53, not a smooth sub-floor value',
     category: 'numerical',
     definition:

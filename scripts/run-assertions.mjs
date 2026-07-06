@@ -4713,6 +4713,30 @@ const DATA_MODULES = [
   // r ~ thr^2 (imp-34248 F2), it is strictly subdominant to thr. Measurement/fit only; C_mb GUE-conditional
   // per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-34332-crossover-surplus-prefactor-linearity-fit.js',
+  // imp-34349: derives and measures the LIMITING small-thr r-exponent of the imp-34248 F2 E_flow ratio
+  // r(thr) ~ (log T0)^2 thr^2, in isolation from the linear prefactor. The self-consistent crossover fixes
+  // T0 ~ thr^-2 const (log-T0 factors cancel), so log T0 = -2 log thr + C and d log r / d log thr =
+  // 2 - 4/log T0: the limiting r-exponent is exactly 2, approached FROM BELOW with a logarithmically slow
+  // -4/log T0 correction. Extending the ladder to thr=1e-4 confirms the measured local secant is
+  // NON-MONOTONE -- a shallow minimum ~1.875 near thr~0.005-0.01 then climbs back toward 2 (1.8752 -> 1.8887)
+  // -- and gap x log T0 stabilises near the derived coefficient 4 (~3.9->4.4), consistent with imp-34329's
+  // independent c~4.4 fit. The sub-2 readings (imp-34248 F2 1.917) are the finite-thr correction, not a
+  // settled limit. Derivation/measurement only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066
+  // K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34349-eflow-ratio-r-exponent-limit.js',
+  // imp-34350: tests whether the imp-34189 finding-C window-width w->0 DIVERGENCE of the M2 ceiling
+  // (bisected kEnd* rising 21.28 -> 23.94 as w shrinks 1 -> 1/8 decades, measured with a 2-point
+  // endpoint pEcoll) survives the imp-34311 MATCHED 5-point OLS endpoint stencil, or is a
+  // 2-point-endpoint-rule artifact. Recomputing the whole finding-C ladder with pEcoll discretized by
+  // the same 5-point operator as pSigma: the 2-point ladder reproduces finding C exactly (21.2809,
+  // 21.7314, 22.3036, 23.1663, 23.9426), but under the matched 5-point stencil there is NO finite
+  // crossing at ANY window width -- the exact residual stays strictly positive across k in [12,32] at
+  // every w (grid minima ~1.4e-12 down to 3.6e-13, all > 0). So the finding-C divergence is a
+  // 2pt-vs-5pt stencil-MISMATCH artifact (extending imp-34311 from w=1 across the full ladder); the
+  // 5pt residual at each 2pt crossing shrinks 2.6158e-7 -> 3.0746e-9 and the w=1 handle matches
+  // imp-34311 exactly. Measurement only; imp-34189 21.281 canonical reading UNCHANGED; C_mb
+  // GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 7 assertions.
+  '/src/data/imp-34350-m2-ceiling-window-divergence-5point-endpoint-survival.js',
   // imp-34330: measures the imp-34246 two-term prediction residual (measured local widening-slope minus
   // -ln10/2 + ln10*3/u) on a finer pre-pole grid k=12..20.75 approaching k*~21.281. The residual does NOT
   // keep shrinking -- it REVERSES: |residual| shrinks 0.0991 (k=12) -> ~0.0016 (k=17.75), passes through

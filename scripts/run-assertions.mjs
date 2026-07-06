@@ -6487,6 +6487,12 @@ const DATA_MODULES = [
   // seed defect to second order so the certified band equals the imp-34693 linear band
   // through k=4 and shrinks only ~1.3% at k=10 (ratio 0.987); outward-rounding model.
   '/src/data/imp-34727-crossover-seed-band-second-order-enclosure.js',
+  // imp-34731: isolate the imp-34693a g_double_prime ceiling as a STANDALONE closed-form
+  // bound |g_double_prime(N)| <= 4 pi^2 K (u+1)/(T^2 u^3), monotone-decreasing on
+  // I=[1e9,1e10] so its sup is the left-endpoint B ~ 1.4802e-10 (imp-34727 already
+  // derived the identical form inside its enclosure); a 5-probe closed-form-vs-central-
+  // difference table (max relerr ~4e-7) and tightness ratio B/max = 1.000 confirm it sharp.
+  '/src/data/imp-34731-crossover-map-second-derivative-bound.js',
 ];
 
 let ALL_MODULES = FAST_MODE

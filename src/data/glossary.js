@@ -12597,6 +12597,48 @@ export const glossary = [
       'imp-34593 the roundoff-free plateau drift ~ -0.0968 this cohort measures around (imp-34593)',
     ],
   },
+  {
+    term: 'resid_exp near-cancellation conditioning: why the pole degrades slope-fit determinability',
+    category: 'numerical',
+    definition:
+      'A conditioning caveat for the eflow_over_resid ratio, surfaced by the imp-34636/imp-34645 pole- ' +
+      'window cohort: eflow_over_resid(k) = eflow_attr(k) / resid_exp(k), where resid_exp(k) is the ' +
+      'imp-34169 surrogate numerator pEcoll(1 - sigma) - pSigma. imp-34653 confirmed resid_exp(k) is ' +
+      'strictly decreasing across the pole window and crosses zero AT the median rung k* ~ 21.28095 ' +
+      '(resid_exp ~ -6.69e-13, the double-precision floor) -- a genuine sign-changing simple pole in ' +
+      'the DENOMINATOR, not a numerator zero. Because resid_exp -> 0 exactly at k*, evaluating the ' +
+      'ratio there means dividing a smooth, well-behaved eflow_attr numerator by a quantity that is ' +
+      'itself a near-cancellation of two comparable-magnitude terms (pEcoll(1 - sigma) and pSigma) -- ' +
+      'so BOTH the numerator computation of resid_exp and its use as a denominator lose conditioning ' +
+      'at the same k. This is why an OLS slope fit of eflow_attr across a window straddling the pole ' +
+      'is least trustworthy exactly at the rung closest to k*: imp-34636 found the narrow 5-rung pole- ' +
+      'centred window has a leading-slope SE of ~6.99e-5 per k, roughly 10x the near/far flank SEs ' +
+      '(~8.4e-6 / ~5.9e-6), even though the same log-corrected fit machinery is reused verbatim on all ' +
+      'three windows -- the inflation comes from the window straddling the near-cancellation point, ' +
+      'not from a defect in the fitting procedure. imp-34645 confirmed the SE inflation is a small- ' +
+      'sample artifact of the narrow window rather than a property of the pole itself: widening the ' +
+      'same pole-centred window to 7 symmetric rungs collapses the SE ~10x (to ~6.99e-6, below the ' +
+      '~1e-4 window-centre-drift scale) and the nominal steepening dissolves back to the window-centre- ' +
+      'drift prediction at only 0.245 sigma.\n\n' +
+      'HOW TO APPLY: when a fit window straddles a k-node where the denominator of a ratio is known to ' +
+      'cross zero, expect the slope-fit SE to inflate there relative to flanks away from the pole -- ' +
+      'that inflation is a conditioning signature of the near-cancellation, not evidence the fit ' +
+      'itself is broken. Widening the window (adding rungs symmetrically, keeping the pole rung as ' +
+      'the median) is the fix that was shown to work: it lowers the SE without re-introducing the ' +
+      'centre-drift bias, up to the point (imp-34645 F3, 9-rung) where further widening starts ' +
+      'drifting the window centroid off the pole again.\n\n' +
+      'HONEST SCOPE: a measurement-methodology headword, not a new derivation; eflow_attr, resid_exp, ' +
+      'and k* = 21.28095 are the inherited imp-3220/imp-3406/imp-34169 surrogate quantities, NOT fresh ' +
+      'closed forms; changes no bound; imp-3066 K_a >= 0 untouched; C_mb remains GUE-conditional per ' +
+      'imp-486; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34661 (documenting the imp-34636 SE inflation and its imp-34653/imp-34645 explanation), 2026',
+    relatedTerms: [
+      'imp-34636 the pole-centred 5-rung window whose ~7e-5 SE this conditioning explains (imp-34636)',
+      'imp-34653 the independent recomputation confirming resid_exp is a genuine sign-changing pole (imp-34653)',
+      'imp-34645 the widened-window cross-check showing the SE inflation is a small-sample artifact (imp-34645)',
+      'imp-34169 the original surrogate resid_exp zero and k* ~ 21.280947 locator (imp-34169)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -4805,6 +4805,19 @@ const DATA_MODULES = [
   // sub-terms; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no
   // QED. 6 assertions.
   '/src/data/imp-34251-shortfall-alpha-refined-estimator-cross-check.js',
+  // imp-34253: ASSESS whether the imp-34237/imp-34169 fixed-band (k<=10) peak DIVERGES or SATURATES at the
+  // surrogate resid_exp pole k*~21.28095. The three sub-pole peaks {0.865303,0.915942,0.996333} at
+  // kEnd=20.0,20.5,21.0 are fit to a divergence ansatz peak=A-B*ln(k*-kEnd) (A~0.889812, B~0.085204,
+  // rms~0.003652) AND a saturating power law peak=P_inf-C*(k*-kEnd)^q (q~0.352706, C~0.289750,
+  // P_inf~1.181495). VERDICT: DIVERGES logarithmically by mechanism -- resid_exp has a SIMPLE (linear)
+  // zero at k* (slope~-2.32e-7) inside a log-denominator, giving -ln(k*-kEnd) -- but the coefficient
+  // B~0.085 is only ~8.5% of the naive full-strength pole. Honest sub-gap: both forms fit the 3 points
+  // and both re-accelerate their increments (positive 2nd difference), so neither fit quality nor the
+  // 2nd-difference sign discriminates; the windows that would separate them lie in kEnd in (21.0,21.28)
+  // and are blocked by the same pole. Measurement/fit only; surrogate model NOT rigorous; C_mb
+  // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound
+  // change; NO QED. 5 assertions.
+  '/src/data/imp-34253-fixed-band-peak-pole-divergence-vs-saturation-fit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

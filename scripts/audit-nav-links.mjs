@@ -404,6 +404,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34620-q4-share-roundoff-floor-vs-dp',
   '/viz-imp34621-eflow-attr-slope-continuity',
   '/viz-imp34622-eflow-attr-fp-floor-slope-drift',
+  '/viz-imp34623-deflow-residual-oneoverlogn',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

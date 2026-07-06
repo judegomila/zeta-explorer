@@ -403,6 +403,9 @@ const Imp34621EflowAttrSlopeContinuityViz = lazy(() =>
 const Imp34622EflowAttrFpFloorSlopeDriftViz = lazy(() =>
   import('./pages/Imp34622EflowAttrFpFloorSlopeDriftViz.jsx')
 );
+const Imp34623DeflowResidualOneOverLogNViz = lazy(() =>
+  import('./pages/Imp34623DeflowResidualOneOverLogNViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1355,6 +1358,10 @@ function AppShell() {
           <Route
             path="/viz-imp34622-eflow-attr-fp-floor-slope-drift"
             element={<Imp34622EflowAttrFpFloorSlopeDriftViz />}
+          />
+          <Route
+            path="/viz-imp34623-deflow-residual-oneoverlogn"
+            element={<Imp34623DeflowResidualOneOverLogNViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

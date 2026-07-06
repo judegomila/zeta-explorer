@@ -4772,6 +4772,18 @@ const DATA_MODULES = [
   // shrink window. Measurement only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched;
   // PT Lambda<=0.2 SOTA; no QED. 8 assertions.
   '/src/data/imp-34330-widening-residual-prepole-reversal.js',
+  // imp-34408: co-tabulates the three named widening-slope pre-pole landmarks on ONE shared decade axis
+  // (k and u=log(T0/2pi) via the exact imp-34327/imp-34330 rung->u map): L1 imp-34330 residual sign-change
+  // k~17.798 (u~39.630), L2 imp-34327 mapped -1 crossing k*~20.479 (u*~45.658), L3 imp-34247/imp-34023 M2
+  // pole k*~21.281 (u~47.465). The two consecutive spacings are strongly UNEQUAL and COMPRESS toward the
+  // pole -- the second gap is ~30% of the first on BOTH axes (gap_k ratio 0.29913, gap_u ratio 0.29974),
+  // and the k-ratio and u-ratio agree to <1e-3, the signature of a near-affine u(k), so the ~0.30
+  // compression is the near-log-linearity of the height map and carries no axis-specific structure: the
+  // three landmarks are essentially independent, NOT a simple equal- or geometric-spaced ladder. L2 sits
+  // 0.80 decades below the pole vs 2.68 above the residual crossing. Tabulation only; L1/L2/L3 UNTOUCHED;
+  // C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; NO QED.
+  // 6 assertions.
+  '/src/data/imp-34408-widening-slope-prepole-landmark-decade-axis.js',
   // imp-34333: assesses whether the imp-34247 residue-EXACTLY-+1 simple pole of the widening-slope
   // log-derivative dy/dk = d/dk ln(eflow/resid_exp) is structurally forced or estimator-specific.
   // Structural law: residue of the log-derivative at a zero of resid_exp = the multiplicity m of that
@@ -5079,6 +5091,16 @@ const DATA_MODULES = [
   // (sat-minus-log AIC gap +9.27..+17.33). Measurement only; imp-34233/imp-34109/imp-34169 untouched;
   // C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; NO QED. 6 assertions.
   '/src/data/imp-34309-combined-grid-loo-linear-flip-robustness.js',
+  // imp-34404: COMPLETE the imp-34309 near-pole-only leave-one-out to a FULL jackknife over ALL 15 windows
+  // kEnd=14.0..21.0 of the imp-34233 combined grid, deleting each in turn and re-running the linear-vs-log-vs-
+  // bounded AIC contest. The flip-reversing set is the EXACT singleton {kEnd=21.0}: the linear-beats-log flip
+  // survives fourteen of the fifteen single-window deletions (log-minus-lin AIC gap +5.09..+6.99) and is
+  // reversed only by deleting the closest-to-pole window kEnd=21.0 (log reclaims, gap flips to ~-9.94). New
+  // detail invisible to imp-34309: the narrowest surviving linear lead is the MID-GRID window kEnd=18.5
+  // (gap ~+5.09), not a near-pole window. The bounded-ceiling-not-selected reading is robust to every single
+  // deletion (sat-minus-log AIC gap +8.53..+17.33). Measurement only; imp-34309/imp-34233 untouched; C_mb
+  // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; NO QED. 7 assertions.
+  '/src/data/imp-34404-full-jackknife-linear-flip-robustness.js',
   // imp-34310: MEASURE the local slope dg_resid/dk of the surrogate resid_exp(k) at its zero k*~21.28095
   // (the imp-34237/imp-34169 pole) and extract the leading pole residue of eflow_over_resid = eflow_attr/
   // resid_exp there. Secant slope across the two bracketing rungs (k=21.25 resid=+8.19e-9, k=21.5 resid=

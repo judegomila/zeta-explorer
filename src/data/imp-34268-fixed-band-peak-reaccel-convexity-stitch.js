@@ -75,6 +75,8 @@
  * @see imp-34196-fixed-band-peak-increment-minimum-subwindow-refine (the 0.25-grid re-accel slope this stitches)
  * @see imp-34169-fixed-band-peak-extended-decade-surrogate-zero (the kEnd 20..21 increments this stitches; pole)
  * @see imp-34109-fixed-band-peak-amplitude-saturation-fit (the kEnd = 14..20 sweep; machinery reused)
+ * @see imp-34287-fixed-band-peak-growth-exponent-pole-reconciliation (sibling cohort member: SUB-GAP-imp-34287-asymptotic-class-undecidable reconciling this convex branch with the pole)
+ * @see imp-34228-doubling-map-double-precision-anchor-floor (sibling cohort member: SUB-GAP-imp-34228-residexp-resolution-floor, the resid_exp resolution floor near the same pole)
  * @see imp-33940-interior-residual-boundary-stability (the R2 convex low-k drift origin)
  * @see imp-33843-eflow-resid-widening-form-fit (the log-linear OLS whose fixed-band peak this tracks)
  * @see imp-33810-eflow-resid-ratio-N-ladder (the k=6.. ladder reused verbatim)

@@ -83,6 +83,9 @@
  * @see imp-34047-argmax-rung-creep-descent-law (the argmax-creep law; F4 is an independent argmax observation)
  * @see imp-34169-fixed-band-peak-extended-decade-surrogate-zero (sibling cohort member: the same fixed-band
  *   (k<=10) peak tracked to the k*~21.281 pole rather than refined at the increment minimum)
+ * @see imp-34287-fixed-band-peak-growth-exponent-pole-reconciliation (sibling cohort member: SUB-GAP-imp-34287-asymptotic-class-undecidable, reconciles this module's rising increments with the pole)
+ * @see imp-34268-fixed-band-peak-reaccel-convexity-stitch (sibling cohort member: SUB-GAP-imp-34268-convex-branch-form, stitches this module's re-accel slope onto the pole-adjacent windows)
+ * @see imp-34228-doubling-map-double-precision-anchor-floor (sibling cohort member: SUB-GAP-imp-34228-residexp-resolution-floor, the resid_exp resolution floor near the same pole)
  * @see imp-33940-interior-residual-boundary-stability (the R2 convex low-k drift origin)
  * @see imp-33843-eflow-resid-widening-form-fit (the log-linear OLS re-run per boundary)
  * @see imp-33810-eflow-resid-ratio-N-ladder (the k=6.. ladder reused verbatim; its 0.25 rung spacing sets the resolution)

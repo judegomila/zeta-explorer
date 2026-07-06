@@ -85,6 +85,10 @@
  * @see imp-33942-hump-argmax-gap-step-proportionality (P3 sawtooth-residue closed form)
  * @see imp-33878-hump-argmax-grid-refinement (source of k* and the resid_exp model, reused verbatim)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 = gamma_N)
+ * @see imp-34287-fixed-band-peak-growth-exponent-pole-reconciliation (sibling cohort member: SUB-GAP-imp-34287-asymptotic-class-undecidable, the same resid_exp quantity's pole-proximity growth class)
+ * @see imp-34268-fixed-band-peak-reaccel-convexity-stitch (sibling cohort member: SUB-GAP-imp-34268-convex-branch-form, the same resid_exp quantity's convex re-accel branch)
+ * @see imp-34169-fixed-band-peak-extended-decade-surrogate-zero (sibling cohort member: SUB-GAP-imp-34169-surrogate-domain-edge, the resid_exp(k) zero-crossing this evaluation-noise floor sits near)
+ * @see imp-34196-fixed-band-peak-increment-minimum-subwindow-refine (sibling cohort member: the fixed-band-peak sub-window refinement sharing the same resid_exp(k) argmax machinery)
  */
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';

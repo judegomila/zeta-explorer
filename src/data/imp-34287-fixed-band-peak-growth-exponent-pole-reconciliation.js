@@ -100,6 +100,8 @@
  * @see imp-34109-fixed-band-peak-amplitude-saturation-fit (the F4 unbounded-log verdict this reconciles)
  * @see imp-34169-fixed-band-peak-extended-decade-surrogate-zero (the resid_exp pole k* ~ 21.28095 this attributes the re-accel to)
  * @see imp-34237-fixed-band-peak-reaccel-and-surrogate-pole-viz-data (the pole viz sibling)
+ * @see imp-34268-fixed-band-peak-reaccel-convexity-stitch (sibling cohort member: SUB-GAP-imp-34268-convex-branch-form on the same post-minimum branch)
+ * @see imp-34228-doubling-map-double-precision-anchor-floor (sibling cohort member: SUB-GAP-imp-34228-residexp-resolution-floor, the resid_exp resolution floor near the same pole)
  * @see imp-34040-fixed-band-drift-saturation-decade (the kEnd = 14..17 saturation-onset window whose deceleration F1 recovers)
  * @see imp-33843-eflow-resid-widening-form-fit (the log-linear OLS re-run per boundary)
  * @see imp-33810-eflow-resid-ratio-N-ladder (the k=6.. ladder reused verbatim; its resid_exp is what has the pole)

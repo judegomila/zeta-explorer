@@ -92,6 +92,9 @@
  * @see imp-34189-m2-ceiling-next-order-window-width-correction (next-order term on the same ceiling)
  * @see imp-34188-widening-slope-limit-exactly-minus-one (widening-slope limit bounded by the same k*)
  * @see imp-34237-fixed-band-peak-reaccel-and-surrogate-pole-viz-data.js (viz of this module's pole)
+ * @see imp-34287-fixed-band-peak-growth-exponent-pole-reconciliation (sibling cohort member: SUB-GAP-imp-34287-asymptotic-class-undecidable, the growth-class this pole leaves undecided)
+ * @see imp-34268-fixed-band-peak-reaccel-convexity-stitch (sibling cohort member: SUB-GAP-imp-34268-convex-branch-form, the convex branch this pole terminates)
+ * @see imp-34228-doubling-map-double-precision-anchor-floor (sibling cohort member: SUB-GAP-imp-34228-residexp-resolution-floor, the resid_exp resolution floor near the same pole)
  *
  * COHORT MAP (M2-residual sign-change ceiling): imp-34023 (bisected kEnd*~21.281) -> imp-34127
  * (leading closed form) -> imp-34189 (next-order term + window-width divergence) -> imp-34188

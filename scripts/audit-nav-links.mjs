@@ -345,6 +345,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34274-fixed-band-peak-increment-minimum',
   '/viz-imp34281-m2-ceiling-cohort-index',
   '/viz-imp34352-eflow-gronwall-crossover-offset',
+  '/viz-imp34353-crossover-surplus-family-decay',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

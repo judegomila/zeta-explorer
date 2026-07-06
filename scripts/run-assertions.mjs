@@ -6316,6 +6316,16 @@ const DATA_MODULES = [
   // own) is reached only via imp-34557's page, which still carries it.
   // AUDIT-ONLY, no surfacing fix applied. 6 assertions.
   '/src/data/imp-34561-caveat-surfacing-audit-34528-34530-34532-34533.js',
+  // imp-34618: AUDIT (extending the imp-34521/imp-34561 precedent) of whether the
+  // shared honest-status caveat carried by the imp-34584..34593 measurement
+  // cluster (10 tickets; imp-34588 folded into imp-34569's module) is surfaced
+  // wherever a page/viz consumes their exports. FINDING: no gap -- all 10
+  // `detail` rows in improvements.js carry the caveat; each of the 9 dedicated
+  // data modules independently repeats it in its own JSDoc; imp-34588 is
+  // covered via the imp-34569 module it was folded into; imp-34590 and
+  // imp-34593 additionally have a ConceptsPage glossary headword repeating it.
+  // AUDIT-ONLY, no surfacing fix applied. 6 assertions.
+  '/src/data/imp-34618-caveat-surfacing-audit-34584-34593.js',
   // imp-34562: PRESENTATION -- tabulates three deep-rung doubling-map landmarks describing the
   // same resid_exp(k) hump near k*~8.8211 on one shared refinement-rung axis: the imp-34524
   // continuum vertex k*=8.821091375252, the imp-34368 evaluation-noise floor ~7.2e-8, and the

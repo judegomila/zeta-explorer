@@ -12753,6 +12753,48 @@ export const glossary = [
       'conditioning floor vs truncation-order signature: why a tight low-order stencil agreement need not tighten further (imp-34663)',
     ],
   },
+  {
+    term: 'coarse collapse-factor statistic vs dedicated exponent fit: ordering a ladder without quantifying it',
+    category: 'numerical',
+    definition:
+      'A methodology headword distinguishing two different strengths of evidence a roundoff-amplification ' +
+      'ladder across finite-difference channels can carry: (a) an ORDERING claim -- a coarse statistic ' +
+      '(e.g. a spread ratio, max minus min over a discrete step grid) rises monotonically with the ' +
+      'finite-difference order k, consistent with a 1/dp^k conditioning law but not proof of it; versus ' +
+      '(b) a QUANTITATIVE match -- a dedicated per-channel exponent fit (e.g. a log-log regression over a ' +
+      'resolved roundoff window) recovers the predicted geometric ladder itself, with the correct common ' +
+      'ratio and a high R^2.\n\n' +
+      'imp-34651 F3 found the q2/q3/q4 drift-share collapse factors {8.44, 10.80, 27.74} strictly increase ' +
+      'with the finite-difference order k, the same order as the 1/dp^k roundoff conditioning imp-34606 ' +
+      'measured with a clean integer exponent ladder {2, 3, 4}, but it only asserted the ORDERING. ' +
+      'imp-34679 tested whether the collapse-factor magnitudes themselves quantitatively track the pure ' +
+      '2^k = {4, 8, 16} prediction (valley step dp = 1.5e-2 vs flat-tail onset dp = 3e-2, a factor 2 in ' +
+      'dp). They do not: the channel-to-channel multiplicative steps c3/c2 ~ 1.28 and c4/c3 ~ 2.57 are ' +
+      'neither the predicted 2 nor equal to each other, the observed/predicted ratios {2.11, 1.35, 1.73} ' +
+      'have relative spread ~0.44, and a log-linear fit of ln(collapse_k) vs k gives slope ~0.595 -- ' +
+      'undershooting the predicted ln 2 ~ 0.6931 by ~14% -- with R^2 ~ 0.897, the low R^2 driven by the ' +
+      'q3 rung sitting off the geometric line.\n\n' +
+      'HOW TO APPLY: when a coarse spread-ratio statistic (max minus min over a discrete grid) is reported ' +
+      'as rising monotonically with a finite-difference order and is described as matching a 1/dp^k ' +
+      'conditioning law, check whether the match is only an ORDERING (the ladder increases in the right ' +
+      'sequence) or a genuine QUANTITATIVE recovery (the common ratio and R^2 of a dedicated exponent fit). ' +
+      'A coarse statistic mixes grid density with the plateau roundoff residual and can order channels ' +
+      'correctly while still missing the exact geometric ratio -- do not treat ordering alone as ' +
+      'quantitative confirmation; the imp-34689 resolution-matched pairing (see below) shows what closing ' +
+      'that gap actually requires.\n\n' +
+      'HONEST SCOPE: a measurement-methodology headword consolidating the imp-34679 findings verbatim, not ' +
+      'a new derivation; q1..q4 are inherited central differences, NOT fresh analytic closed forms; the ' +
+      'sigma -> 1 deep-tail regime (imp-3220/imp-3406 component model) is inherited as-is; changes no ' +
+      'bound; imp-3066 K_a >= 0 untouched; C_mb remains GUE-conditional per imp-486; no RH verdict, NO ' +
+      'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34698 (glossary headword for the imp-34679 statistic-resolution caveat), 2026',
+    relatedTerms: [
+      'imp-34679 the collapse-factor-vs-1/dp^k quantitative test finding ordering only, slope ~0.595 vs ln 2, R^2 ~ 0.897 (imp-34679)',
+      'imp-34651 the F3 collapse-factor ladder {8.44, 10.80, 27.74} whose ordering (not magnitude) this headword scopes (imp-34651)',
+      'imp-34606 the dedicated log-log exponent fit that DOES recover the clean {2,3,4} ladder the coarse statistic cannot (imp-34606)',
+      'imp-34689 the resolution-matched 2:1 dp-pair statistic that later closes most of this quantitative gap (imp-34689)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

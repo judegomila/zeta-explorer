@@ -344,6 +344,9 @@ const Imp34477WideningSlopePoleLeakageViz = lazy(() => import('./pages/Imp34477W
 const Imp34478WideningSlopePrepoleLandmarkDecadeAxisViz = lazy(() =>
   import('./pages/Imp34478WideningSlopePrepoleLandmarkDecadeAxisViz.jsx')
 );
+const Imp33851HumpEnvelopeSymmetryVsKViz = lazy(() =>
+  import('./pages/Imp33851HumpEnvelopeSymmetryVsKViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1218,6 +1221,10 @@ function AppShell() {
           <Route
             path="/viz-imp34478-widening-slope-prepole-landmark-decade-axis"
             element={<Imp34478WideningSlopePrepoleLandmarkDecadeAxisViz />}
+          />
+          <Route
+            path="/viz-imp33851-hump-envelope-symmetry-vs-k"
+            element={<Imp33851HumpEnvelopeSymmetryVsKViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

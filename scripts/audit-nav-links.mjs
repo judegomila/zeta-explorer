@@ -416,6 +416,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34671-truncation-sweet-spot-plateau',
   '/viz-imp34674-shared-stencil-plateau-crossvalidation',
   '/viz-imp34677-banach-contraction-certificate',
+  '/viz-imp34680-three-term-share-spread-roundoff-valley',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

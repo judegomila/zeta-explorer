@@ -4860,6 +4860,17 @@ const DATA_MODULES = [
   // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound
   // change; NO QED. 5 assertions.
   '/src/data/imp-34253-fixed-band-peak-pole-divergence-vs-saturation-fit.js',
+  // imp-34306: DERIVE the GENERAL branch-k endpoint-curvature closed form d_k''(alpha=2k-1) for ARBITRARY k,
+  // extending the imp-34230 ladder that MEASURED only k=1 (pi/4), k=2 (pi/16), k=3 (pi/36). Twice-differentiating
+  // the imp-34173 unified distance law d_k(alpha)=k pi/(1+alpha)-pi/2 gives d_k''(alpha)=2k pi/(1+alpha)^3, so at
+  // the onset alpha_k=2k-1 (where 1+alpha=2k) the curvature is d_k''(2k-1)=2k pi/(2k)^3=pi/(4k^2) for EVERY k, with
+  // matching quadratic Taylor coefficient (1/2)d_k''(2k-1)=pi/(2(2k)^2)=pi/(8k^2). Numerically confirmed across
+  // k=1..8: measuring c2_k=pi/(4k(2k-e)) on e=(2k-1)-alpha in {1e-2,1e-3,1e-4}, 2*c2_k recovers pi/(4k^2) to <1e-4
+  // at the finest rung (limited by the genuine O(e) tail pi e/(8k^3), not roundoff), descends monotonically, and
+  // the deviation shrinks ~100x over two decades of e. Derivation/measurement only; pure phase geometry on the
+  // imp-33924/imp-34167/imp-34173 closed form; does NOT discharge H4, G6a stays OPEN; imp-3066 K_a>=0 untouched;
+  // C_mb GUE-conditional untouched; PT Lambda<=0.2 SOTA; no QED. 8 assertions.
+  '/src/data/imp-34306-general-branch-k-endpoint-curvature.js',
 ];
 
 let ALL_MODULES = FAST_MODE

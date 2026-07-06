@@ -307,6 +307,7 @@ const Imp34352EflowGronwallCrossoverOffsetViz = lazy(() => import('./pages/Imp34
 const Imp34353CrossoverSurplusFamilyDecayViz = lazy(() => import('./pages/Imp34353CrossoverSurplusFamilyDecayViz.jsx'));
 const Imp34354CrossoverSurplusSmallThrFactorisationViz = lazy(() => import('./pages/Imp34354CrossoverSurplusSmallThrFactorisationViz.jsx'));
 const Imp34355FarTailCrossoverResidualCollapseViz = lazy(() => import('./pages/Imp34355FarTailCrossoverResidualCollapseViz.jsx'));
+const Imp34269FixedBandPeakSharedGridCrossRecomputeViz = lazy(() => import('./pages/Imp34269FixedBandPeakSharedGridCrossRecomputeViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1139,6 +1140,7 @@ function AppShell() {
           <Route path="/viz-imp34268-fixed-band-peak-reaccel-convexity-stitch" element={<Imp34268FixedBandPeakReaccelConvexityStitchViz />} />
           <Route path="/viz-imp34281-m2-ceiling-cohort-index" element={<Imp34281M2CeilingCohortIndexPage />} />
           <Route path="/viz-imp34356-m2-ceiling-exactfit-coeff-ladder" element={<Imp34356M2CeilingExactFitCoeffLadderViz />} />
+          <Route path="/viz-imp34269-fixed-band-peak-shared-grid-cross-recompute" element={<Imp34269FixedBandPeakSharedGridCrossRecomputeViz />} />
           <Route path="/viz-imp34352-eflow-gronwall-crossover-offset" element={<Imp34352EflowGronwallCrossoverOffsetViz />} />
           <Route path="/viz-imp34353-crossover-surplus-family-decay" element={<Imp34353CrossoverSurplusFamilyDecayViz />} />
           <Route path="/viz-imp34354-crossover-surplus-small-thr-factorisation" element={<Imp34354CrossoverSurplusSmallThrFactorisationViz />} />

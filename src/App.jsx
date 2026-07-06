@@ -314,6 +314,7 @@ const Imp34377ResidExpPoleCohortIndexPage = lazy(() => import('./pages/Imp34377R
 const Imp34378TroughPeakRatioCeilingViz = lazy(() => import('./pages/Imp34378TroughPeakRatioCeilingViz.jsx'));
 const Imp34383D2SignChangeGridViz = lazy(() => import('./pages/Imp34383D2SignChangeGridViz.jsx'));
 const Imp34417SigmaVsProductGapComplementViz = lazy(() => import('./pages/Imp34417SigmaVsProductGapComplementViz.jsx'));
+const Imp34418WideningResidualPrepoleReversalViz = lazy(() => import('./pages/Imp34418WideningResidualPrepoleReversalViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1157,6 +1158,7 @@ function AppShell() {
           <Route path="/viz-imp34378-trough-peak-ratio-ceiling" element={<Imp34378TroughPeakRatioCeilingViz />} />
           <Route path="/viz-imp34383-d2-signchange-grid" element={<Imp34383D2SignChangeGridViz />} />
           <Route path="/viz-imp34417-sigma-vs-product-gap-complement" element={<Imp34417SigmaVsProductGapComplementViz />} />
+          <Route path="/viz-imp34418-widening-residual-prepole-reversal" element={<Imp34418WideningResidualPrepoleReversalViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

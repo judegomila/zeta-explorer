@@ -35,14 +35,27 @@ for (const d of scanRoots) {
 }
 for (const f of scanFiles) if (fs.existsSync(path.join(ROOT, f))) files.push(f);
 
-const IMPORT_RE = /(?:import|from)\s*\(?\s*['"](\.\.?\/[^'"]+?)['"]/g;
+// Only REAL module imports, anchored so we don't match `from '...'` / `import(...)`
+// occurrences inside string literals, JSDoc examples, or data fields:
+//   ^import ... from '...'   |   ^} from '...'   |   ^export ... from '...'
+//   |   lazy(() => import('...'))  /  bare dynamic import('...')
+const IMPORT_RES = [
+  /^\s*import\b[^'"\n]*?['"](\.\.?\/[^'"]+?)['"]/gm,
+  /^\s*}\s*from\s*['"](\.\.?\/[^'"]+?)['"]/gm,
+  /^\s*export\b[^'"\n]*?\bfrom\s*['"](\.\.?\/[^'"]+?)['"]/gm,
+  /\bimport\(\s*['"](\.\.?\/[^'"$]+?)['"]\s*\)/g, // dynamic/lazy; skip ${...} template specs
+];
 const offenders = [];
 for (const rel of files) {
   const src = fs.readFileSync(path.join(ROOT, rel), 'utf8');
   const dir = path.dirname(rel);
-  let m;
-  while ((m = IMPORT_RE.exec(src)) !== null) {
-    let spec = m[1];
+  const specs = new Set();
+  for (const re of IMPORT_RES) { let mm; while ((mm = re.exec(src)) !== null) specs.add(mm[1]); }
+  for (const orig of specs) {
+    if (orig.includes('$')) continue; // template-interpolated specifier, not a literal path
+    if (orig.includes('/src/')) continue; // documentary path in a comment/string, not a real relative import
+
+    let spec = orig;
     if (!/\.(jsx?|mjs|json|css)$/.test(spec)) spec += '.js'; // bare specifier -> .js (vite resolves)
     const target = path.normalize(path.join(dir, spec)).replace(/\\/g, '/');
     if (!/^src\/|^scripts\//.test(target)) continue; // only local source
@@ -51,7 +64,7 @@ for (const rel of files) {
       const alt = target.replace(/\.js$/, '.jsx');
       if (tracked.has(alt)) continue;
       const onDisk = fs.existsSync(path.join(ROOT, target)) || fs.existsSync(path.join(ROOT, alt));
-      offenders.push({ from: rel, import: m[1], target, onDisk });
+      offenders.push({ from: rel, import: orig, target, onDisk });
     }
   }
 }

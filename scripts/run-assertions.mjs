@@ -4939,6 +4939,14 @@ const DATA_MODULES = [
   // (not affine). Measurement only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched;
   // PT Lambda<=0.2 SOTA; NO QED. 5 assertions.
   '/src/data/imp-34470-height-map-affinity-departure-fit.js',
+  // imp-34510: fits the convex imp-34470 affinity-departure residual to a quadratic r=c0+c1*k+c2*k^2 (OLS) and
+  // checks its curvature coefficient against the predicted imp-34246 widening-slope curvature. FINDINGS: c2 ~
+  // 1.36926e-3 (R^2 on the residual 0.99908), empirical curvature 2*c2 ~ 2.73852e-3, matching the closed-form
+  // ln10^2*(1-1/u)/u^2 = 2.72917e-3 at u~43.567 (finite-diff confirmed) to 0.34% (ratio 1.0034). The bare
+  // ln10/u^2 ~ 1.213e-3 imp-34470 named is the per-u drift rate db/du; the per-k curvature is that times the
+  // local slope b~2.25. CONFIRMS imp-34470 quantitatively. Measurement/cross-check only; imp-34470 UNTOUCHED;
+  // C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; NO QED. 5 assertions.
+  '/src/data/imp-34510-affinity-residual-quadratic-curvature-check.js',
   // imp-34409: resolves the imp-34327 naive-vs-mapped -1 crossing sub-gap by reconstructing the imp-34188
   // exponential-approach kernel u-grid over k=12..18. imp-34188 s buildLadder evaluates parts() at hi=10^(k+1)
   // with C_F=(log(T0/2pi)+1)/2pi, so its widening slope is a function of the MAPPED u=log(eff(10^(k+1))/2pi)
@@ -5656,6 +5664,17 @@ const DATA_MODULES = [
   // component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched;
   // PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34471-direct-secant-deviation-decay-law-fit.js',
+  // imp-34509: PUSHES the imp-34471 direct-secant deviation delta(N) = (p_resid - p_direct) log T0 one
+  // decade tighter -- bisects the IDENTICAL imp-34410 full-sigma central secant for the delta < 1e-8
+  // crossing and scans alpha_local = -d ln delta/d ln N for any 0.49 point. FINDINGS: the delta < 1e-8
+  // crossing sits at log10 N ~ 29.17 but PAST the log10 N ~ 28 floor onset (delta there ~6x the ~1.6e-9
+  // secant floor -> FLOOR-CONTAMINATED, outside the clean window); and alpha_local NEVER reaches 0.49 --
+  // it peaks at ~0.4722 (log10 N ~ 25.15) then rolls over and collapses (0.319 at 30), capped ~0.018
+  // short of 0.49 by the roundoff floor. Sub-gap EXTENDED-PRECISION-SECANT-ALPHA-CAP: the 0.49/true-1/2
+  // approach needs an extended-precision secant. Import-light (only C_C_PINNED). 6 assertions.
+  // Measurement / threshold-location only; component model NOT rigorous; C_mb GUE-conditional per
+  // imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34509-secant-deviation-1e-8-crossing-alpha-cap.js',
   // imp-34474: ASSEMBLES the full headline E(N) = E_trunc + E_flow + E_coll at the imp-33620
   // sigma < 0.01 FAR-TAIL landmark N ~ 4.62e13 (re-pinned by the identical log10-N bisection) and
   // reports the Lambda <= E(N) slack there against the L_pt ~ 0.121 finite-height beat (imp-452/459)
@@ -5718,6 +5737,16 @@ const DATA_MODULES = [
   // UNTOUCHED. Assessment/model read only; component model NOT rigorous; C_mb GUE-conditional per imp-486
   // untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34492-nearer-flank-gap-narrowing.js',
+  // imp-34463: AUDIT of whether the honest-status caveat block present in the
+  // imp-34369/34371/34372/34373/34374/34375/34397/34398 JSDoc is ALSO surfaced
+  // wherever the improvements viewer renders these cluster modules to end-readers.
+  // src/pages/ImprovementsPage.jsx renders `imp.detail` in full for every logged
+  // entry; grepping improvements.js confirms all 8 cohort `detail` fields already
+  // carry the caveat sentence, 5 of the 8 additionally have a dedicated viz page
+  // repeating it, and imp-34372/imp-34398 additionally have a glossary/Concepts
+  // entry. FINDING: no gap -- every cohort member is covered on every render
+  // surface. AUDIT-ONLY, no surfacing added. 5 assertions.
+  '/src/data/imp-34463-caveat-surfacing-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

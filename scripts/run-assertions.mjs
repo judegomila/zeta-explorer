@@ -5810,6 +5810,17 @@ const DATA_MODULES = [
   // Measurement / threshold-location + fit only; component model NOT rigorous; C_mb GUE-conditional per
   // imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34512-pole-leakage-fit-15-20-percent-crossings.js',
+  // imp-34513: standalone cross-check tabulating the imp-34486 closed-form slow-log drift exponent
+  // -2+x (x=-2g/(1-g), g=(1-1/log(T0/2pi))/log T0) against the imp-34446 central-difference measurement
+  // across the imp-34446 landmark ladder (N=1e13..1e14) plus the deep-tail landmark N*~4.6244e13.
+  // Reproduces the imp-34446/imp-34486 primitives inline (imports NOTHING). FINDINGS: the raw residual
+  // analytic-minus-measured is ~1.1e-9 everywhere and SHRINKS down the ladder (1.194e-9 -> 1.024e-9),
+  // scales O(h^2) (central-difference signature), and Richardson extrapolation collapses it ~166x to the
+  // double-precision floor ~7.2e-12, certifying the residual is a finite-difference artifact of the
+  // MEASUREMENT, not a derivation gap. 5 assertions. Import-light, no zeros-bundle risk. Derivation/
+  // cross-check only; component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066
+  // K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34513-slowlog-drift-residual-crosscheck.js',
   // imp-34525: ASSESSES whether a SECOND (subdominant) pole, a DOUBLE (order-2) pole at k*, or a REGULAR
   // polynomial part added to A/(k* - k) fits the imp-34512 measured 1%-20% pole-leakage window k in
   // [18.5, 20.9] and reproduces the effective exponent ~2.12 that a single simple pole cannot. Reuses the
@@ -6102,6 +6113,20 @@ const DATA_MODULES = [
   // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no
   // bound change; NO QED.
   '/src/data/imp-34591-imp34570-fit-literal-drift-audit.js',
+  // imp-34608: DRIFT GUARD extending imp-34591 G3 to the imp-34572/imp-34406 eflow-attr cohort
+  // -- re-derives the four derived percent/ratio literals from the same import-light imp-34169
+  // parts()/eflowLogSlope() machinery (no 16.7MB zeros bundle) and classifies each by the 1e-6
+  // storage tolerance AND algebraic form. FINDING: (H1) all 15 cohort rungs recompute to 1.74e-9;
+  // (H2) EXACTLY ONE literal exceeds 1e-6 -- the only ratio-minus-1 form, imp-34406
+  // imp34310InterpHighPct (full 1.39517455 vs stored 1.3952, ~2.5e-5), whose input-only
+  // amplification (~4.0e-6) already clears 1e-6, the same mechanism as imp-34570 slopeResidualPct;
+  // (H3) the three plain-difference literals (both second differences, slopeDrift) stay within 1e-6
+  // (max 3.96e-7) since a subtraction propagates absolute rounding ~1:1 with no division
+  // amplification. Refines G3: ratio-minus-1 amplifies, plain difference does not; imp-34406
+  // imp34310InterpHighPct already carries a 5e-2 assertion tolerance (safe). 4 assertions. Accuracy
+  // guard only; inherited surrogate NOT rigorous; C_mb GUE-conditional per imp-486 untouched;
+  // imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34608-eflow-attr-cohort-derived-pct-drift-audit.js',
   // imp-34490: PROPAGATION -- carries the imp-34449 measured residue bar R = -1.756e-8 +/- 0.019e-8
   // (~+/-1.1% half-width) into the imp-34310 / imp-34398 / imp-34454 residue-channel consumers and
   // reports whether the band changes any qualitative verdict. (P1) the simple-pole (order-1)

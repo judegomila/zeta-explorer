@@ -5754,6 +5754,19 @@ const DATA_MODULES = [
   // model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT
   // Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34529-recovered-pole-convergence-vs-inherited.js',
+  // imp-34530: FITS the imp-34512 R2 per-pp spacing compression (~0.196 -> 0.108 -> 0.058 -> 0.039
+  // decades/pp across the {1,3,8,15,20}% rungs) to a power law in the pole distance, s = A (k* - k)^p,
+  // over the four interval-midpoint distances, then EXTRAPOLATES the 25% / 30% rungs by integrating the
+  // fitted ODE dk/dpp = A (k* - k)^p forward from the 20% rung and VALIDATES against direct bisection.
+  // Reuses the IDENTICAL imp-34247 metric, imp-34188 window, and imp-34023 pole k* ~ 21.28095 VERBATIM.
+  // FINDINGS: (R1) the per-pp spacing fits a near-CUBIC law p ~ 3.004, A ~ 7.06e-3, R^2 ~ 0.996 -- spacing
+  // collapses like the cube of the shrinking pole distance; (R2) integrating forward places the 25% / 30%
+  // rungs at k ~ 19.774 / 19.882 (~1.51 / 1.40 decades below k*); (R3) the directly-bisected crossings are
+  // k ~ 19.786 / 19.907, so the fit undershoots by ~0.012 / 0.025 decades (true branch steepens faster than
+  // the global cubic near k*, per imp-34512 R3). Import-light. 5 assertions. Measurement / fit + threshold
+  // extrapolation only; component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066
+  // K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34530-pole-leakage-spacing-compression-fit.js',
   // imp-34469: TESTS the imp-34409 +0.227 overshoot (its k=12..18 exponential-approach fit extrapolates
   // the -1 crossing to k ~ 20.706, 0.227 above the analytic mapped crossing 20.47903) for window-dependence
   // by re-fitting the IDENTICAL surrogate over extended (start=12, end 18..30) and slid (fixed 7-rung width,

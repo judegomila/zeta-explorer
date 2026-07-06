@@ -5465,6 +5465,19 @@ const DATA_MODULES = [
   // exports, exact === reproduction asserted). Measurement only; surrogate NOT rigorous; C_mb GUE-conditional per
   // imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED. 5 assertions.
   '/src/data/imp-34449-residue-curvature-error-bar-extended-rungs.js',
+  // imp-34451: PROPAGATES the imp-34374 full-precision resid_exp pole k*_full ~ 21.280947425 (the imp-34169
+  // 80-iteration bisection) into the imp-34310 / imp-34397 eflow_over_resid residue R and DECOMPOSES the
+  // residue error budget into a pole-location contribution vs a finite-difference curvature-fit contribution.
+  // dk* = 21.280947425 - 21.28095 = -2.575e-6 (the canonical 5-decimal already pinned the zero). Re-evaluating
+  // R at k*_full moves it by only -8.96e-14 in the linear channel (rel -4.53e-6) and -2.13e-14 in the quadratic
+  // channel (rel -1.22e-6) -- 6th-significant-figure moves; both channels reproduce the imp-34310 -1.97908e-8
+  // and imp-34397 -1.74023e-8 residues === at the canonical k*. The linear -> quadratic curvature-fit shift is
+  // +2.39e-9 (12.07%), so |curvature|/|pole-location| ~ 2.67e4: the residue error budget is curvature-fit-
+  // dominated by ~4-5 orders of magnitude and the pole-location uncertainty (given the bisection) is negligible.
+  // Import-light (reuses imp-34237/imp-34310/imp-34397/imp-34374 exports). Measurement only; surrogate NOT
+  // rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no
+  // bound change; NO QED. 6 assertions.
+  '/src/data/imp-34451-residue-pole-location-vs-curvature-error-budget.js',
 ];
 
 let ALL_MODULES = FAST_MODE

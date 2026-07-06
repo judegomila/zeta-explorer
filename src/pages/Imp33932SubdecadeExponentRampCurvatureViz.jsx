@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import {
   IMP33762_EXPONENT_LADDER,
@@ -225,6 +226,23 @@ export default function Imp33932SubdecadeExponentRampCurvatureViz() {
         Conditional-share curvature diagnostic, not an RH bound. imp-3066 K_a&nbsp;&ge;&nbsp;0
         untouched; RH-EQUIVALENT; NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains the
         rigorous SOTA.
+      </div>
+
+      <div
+        style={{
+          marginTop: '1rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>Related:</strong>{' '}
+        <Link to="/viz-imp34383-d2-signchange-grid">imp-34383 D2 sign-change grid</Link> tests
+        whether this single knee's D2 sign change stays unique across 39 bracket-width/offset/domain
+        configurations (it does -- signChanges never exceeds 1).
       </div>
     </div>
   );

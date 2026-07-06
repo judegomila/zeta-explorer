@@ -328,6 +328,9 @@ const Imp34476SigmaProductGapRatioApproachViz = lazy(() =>
   import('./pages/Imp34476SigmaProductGapRatioApproachViz.jsx')
 );
 const Imp34477WideningSlopePoleLeakageViz = lazy(() => import('./pages/Imp34477WideningSlopePoleLeakageViz.jsx'));
+const Imp34478WideningSlopePrepoleLandmarkDecadeAxisViz = lazy(() =>
+  import('./pages/Imp34478WideningSlopePrepoleLandmarkDecadeAxisViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1186,6 +1189,10 @@ function AppShell() {
             element={<Imp34476SigmaProductGapRatioApproachViz />}
           />
           <Route path="/viz-imp34477-widening-slope-pole-leakage" element={<Imp34477WideningSlopePoleLeakageViz />} />
+          <Route
+            path="/viz-imp34478-widening-slope-prepole-landmark-decade-axis"
+            element={<Imp34478WideningSlopePrepoleLandmarkDecadeAxisViz />}
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

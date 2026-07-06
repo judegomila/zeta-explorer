@@ -369,6 +369,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34475-four-locator-cluster-axis',
   '/viz-imp34476-sigma-product-gap-ratio-approach',
   '/viz-imp34477-widening-slope-pole-leakage',
+  '/viz-imp34478-widening-slope-prepole-landmark-decade-axis',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

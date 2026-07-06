@@ -4658,6 +4658,20 @@ const DATA_MODULES = [
   // genuine sub-ULP degeneracy. Measurement only; inherited imp-3220/imp-3406 surrogate; C_mb
   // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-34325-deep-ladder-kahan-ols-crossvalidation.js',
+  // imp-34411: EXTEND the imp-34325 three-estimator Kahan-OLS tie-break to the DEEPER doubling-map ladder
+  // rungs e=21,e=22 to measure whether the stable argmax stays rescued or a genuine sub-ULP degeneracy
+  // emerges as the top-two margin keeps shrinking. THE ANSWER: still RESCUED -- the Kahan mean-centred OLS
+  // selects the SAME grid point as the stable OLS (k=8.821091651900 at both e=21,e=22), differing from the
+  // raw-moment argmax (k=8.821092605600); the stable argmax STABILIZES at k=8.821091651900 across e=20..22.
+  // The top-two margin keeps shrinking (1.46e-14 -> 3.00e-15 -> 1.03e-15) and now sits below the raw-moment
+  // perturbation (1.66e-14), but the Kahan-vs-stable perturbation is EXACTLY 0 at both deeper rungs, so no
+  // genuine sub-ULP degeneracy emerges -- tie-fragility remains a raw-moment-operator artifact deeper into
+  // the ladder. Re-derives the e=19,20 rungs as a reproduction cross-check. Import-light (reuses the imp-34325
+  // module + lambda-rh-height-mapping + polymath15-constant-C-C, no zeros bundle), self-asserting (6
+  // assertions). SUB-GAP-imp-34411-dyadic-argmax-grid-floor: whether the continuum argmax sits between two
+  // dyadic nodes below the ULP margin is OPEN. Measurement only; inherited imp-3220/imp-3406 surrogate; C_mb
+  // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound; NO QED.
+  '/src/data/imp-34411-deep-ladder-kahan-ols-e21-e22-extension.js',
   // imp-34173: DERIVE the UNIFIED k-indexed closed form for the outer phase-zero branch endpoint
   // distance/slope/curvature subsuming imp-34103 (k=-+1), imp-34104 (k=-+2) and imp-34167 (k=-+3).
   // The k-th branch theta = pi/2 -+ k pi/p (arg(-A) = k pi, p = 1 + alpha) sits at offset |k| pi/p
@@ -5282,6 +5296,19 @@ const DATA_MODULES = [
   // Import-light, 5 assertions. Cross-validation only; component model NOT rigorous; C_mb GUE-conditional
   // per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34375-numerator-approach-two-term-curvature-crossval.js',
+  // imp-34410: CROSS-VALIDATE the imp-34328 F2 exact complement identity gapSigma * log T0 + gapProduct
+  // = 1/2 against a DIRECT finite-N sigma-exponent secant, not the closed form both gaps were built from.
+  // imp-34328 formed BOTH gaps from the same resid, so its identity is an algebraic TAUTOLOGY
+  // ((1/2)(u-1)/u + 1/(2u) = 1/2 for all u) and self-validates nothing. Measuring gapSigma = 1/2 - p(N)
+  // from a full-sigma secant (imp-33816 sub-terms, E_trunc/E_flow included) INDEPENDENTLY reproduces the
+  // identity to ~1e-9 in the far tail (log10 N in [50,1e5]) -- so it is REAL -- but exposes a genuine
+  // finite-N deviation the tautology hides: delta = +0.767 at log10 N=12 (sigma E_trunc-dominated near its
+  // peak), +1.8e-4 at log10 N=20, the sub-term contamination that decays only as the far tail is reached.
+  // imp-34328 F2 validated in the tail, finite-N validity window quantified. Import-light (polymath15-
+  // constant-C-C only, no zeros bundle), self-asserting (5 assertions). Cross-check only; surrogate NOT
+  // rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA;
+  // no bound change; NO QED.
+  '/src/data/imp-34410-complement-identity-direct-secant-crossvalidation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

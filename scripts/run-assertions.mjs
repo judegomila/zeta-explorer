@@ -4762,6 +4762,20 @@ const DATA_MODULES = [
   // Fit only; imp-33843 form verdict untouched; imp-486/C_C untouched; imp-3066 K_a>=0 untouched; PT
   // Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-34214-trough-peak-ratio-limit-fit.js',
+  // imp-34292: ASSESS why the imp-34129 widening-SLOPE drift DID converge to a finite interior optimum
+  // (~-1.0) while the imp-34214 |trough|/|peak| ratio did NOT, under the SAME exp-vs-power method. The
+  // discriminant is CURVATURE (the sign of the second difference of the fitted segment), NOT the
+  // bounded-above-by-1 amplitude ceiling: imp-34129s slope DECELERATES (increments shrink 0.0331->0.0103,
+  // net -0.0228, 12/13 second diffs negative) so a saturating form fits with an interior rate and finite
+  // limit; the imp-34085 ratio over the identical w=5..7 segment ACCELERATES (increments grow 0.0142->
+  // 0.0332, net +0.0190) so the fit degenerates (rate to the floor, r_inf~6.0 non-physical). TESTING the
+  // ceiling candidate directly: imposing r_inf<=1 does NOT recover a genuine interior optimum -- it clamps
+  // r_inf to the boundary (1.0) with interior rate lam~0.154 but a ~1.48x SSR penalty (3.79e-4 vs 2.56e-4),
+  // a cosmetic clamp not a convergence the data wants -- so the ceiling is REFUTED as the mechanism, and
+  // imp-34288 corroborates (the ratio itself decelerates and turns over ~0.907 below 1 past w=7). Assessment
+  // only; imp-33843 form verdict untouched; imp-486/C_mb & imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA;
+  // no QED. 6 assertions.
+  '/src/data/imp-34292-slope-vs-ratio-convergence-mechanism.js',
   // imp-34229: VERIFY the general k=-+n outer phase-zero branch endpoint-onset law by an INDEPENDENT
   // bracket-and-bisect at n=4,5 -- the two rungs beyond the n=1,2,3 that imp-34173 already derived and
   // checked. The general closed form d_n(alpha) = |n| pi/(1+alpha) - pi/2 (onset alpha_n = 2|n|-1, slope

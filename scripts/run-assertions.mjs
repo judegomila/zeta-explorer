@@ -5965,6 +5965,23 @@ const DATA_MODULES = [
   '/src/data/imp-34378-trough-peak-ratio-ceiling-viz-data.js',
   '/src/data/imp-34383-d2-signchange-grid-viz-data.js',
   '/src/data/imp-34389-honest-status-boilerplate-consolidation-assessment.js',
+  // imp-34405: QUANTIFIES the imp-34169 F3 / imp-34310 F4 near-pole significant-digit
+  // loss of the surrogate resid_exp(k) as the fixed-band endpoint kEnd approaches the
+  // simple zero k* ~ 21.28095 (where eflow_over_resid = eflow_attr/resid_exp diverges),
+  // and bounds the finest kEnd increment before the imp-33843 log(eflow_over_resid)
+  // surrogate is numerically undefined. Reuses the imp-34310 published k* and slope
+  // m ~ -2.3156e-7 (import-light, no zeros bundle). FINDINGS: (F1) the pole-location
+  // significant-digit count sig(d)=log10(d/5e-6) falls ~4.75 (k=21.00) -> ~3.79 (k=21.25),
+  // ~0.96 digits lost over the last quarter-decade of approach, -> 0 at d=5e-6; (F2) the
+  // finest kEnd step keeping log(eflow_over_resid) well-defined is ~5e-6 below k* (resid_exp
+  // must stay resolvably positive, else the ratio flips sign and log() returns NaN);
+  // (F3) the 7-sig-fig storage/cancellation floor d_store ~1.88e-7 is ~27x finer (~1.42
+  // decades headroom), so the wall is the reported-k* precision, NOT resid_exp storage --
+  // the imp-34310 F4 caveat now quantified. Import-light. 5 assertions. Measurement /
+  // precision-budget read of an inherited surrogate near an inherited pole, NOT an RH
+  // bound; component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched;
+  // imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34405-resid-exp-near-pole-digit-loss.js',
 ];
 
 let ALL_MODULES = FAST_MODE

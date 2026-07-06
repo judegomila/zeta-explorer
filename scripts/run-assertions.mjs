@@ -6431,6 +6431,12 @@ const DATA_MODULES = [
   // that keeps the Banach a-priori bound useful, matching the root-bracketed band to ~4
   // sig figs and widening by exactly 1/L ~ 6.7348 per Picard iterate.
   '/src/data/imp-34693-crossover-contraction-seed-band.js',
+  // imp-34706: discharge the imp-34686a sub-gap -- derive g_prime < 1 for N > N_star
+  // and g_prime strictly decreasing as CLOSED-FORM facts of the leading RvM height
+  // structure (g_prime = K*2pi/h(T0), h(t) = t log(t/2pi) increasing => g_prime the
+  // reciprocal of an increasing function; g_prime = 1 <=> s log s = K => log s* = W(K),
+  // N_star = K(1 - 1/W(K))), verified only through closed-form identities not a swept grid.
+  '/src/data/imp-34706-g-prime-monotone-closed-form-derivation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

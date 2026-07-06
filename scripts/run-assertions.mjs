@@ -6468,6 +6468,10 @@ const DATA_MODULES = [
   // id/title/status consistency found no gaps -- all 8 tickets completed,
   // each with exactly one distinct-log-id registration and existing files.
   '/src/data/imp-34644-measurement-cluster-registration-audit.js',
+  // imp-34659: audit of the imp-34626/28/30/33/34/35/36 drift-residual/
+  // plateau/roundoff cohort for the honest-status banner and the storage-
+  // precision assertion-tolerance trap found no gaps in either invariant.
+  '/src/data/imp-34659-drift-residual-plateau-cohort-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

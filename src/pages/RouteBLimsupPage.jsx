@@ -22,7 +22,36 @@ export default function RouteBLimsupPage() {
         </p>
       </PageHeader>
 
-      <BlockMath tex={"\\boxed{\\;\\limsup_{N\\to\\infty}\\; |t_c(N)| \\;=\\; 0 \\quad\\text{unconditionally}\\;}"} />
+      <BlockMath tex={"\\limsup_{N\\to\\infty}\\; |t_c(N)| \\;=\\; 0 \\qquad\\text{(unconditional \\emph{modulo one named gap} — see audit)}"} />
+
+      {/* ── AUDIT VERDICT (independent adversarial rigor audit, 2026-07) ── */}
+      <div className="card" style={{ marginTop: 20, borderLeft: '3px solid #ef4444', background: 'rgba(127,29,29,0.12)' }}>
+        <h3 style={{ color: '#f87171', fontSize: 16, marginBottom: 8 }}>⚠ Audit verdict: PARTIAL — not a complete unconditional theorem (as stated)</h3>
+        <p style={{ color: '#e2e8f0', fontSize: 13, lineHeight: 1.8 }}>
+          An independent adversarial rigor audit found the "UNCONDITIONALLY" wording <strong>overstates</strong> the
+          current state. What is <strong style={{ color: '#10b981' }}>genuinely rigorous</strong> (GUE-free, PCC-free):
+          the Trudgian-backed discrepancy bound <InlineMath tex={"D_N^\\ast \\le 3\\log\\gamma_N/N"} />, the
+          Koksma–Hlawka uniformity lemma, and the <strong>imp-322 Dyson min-gap monotonicity theorem</strong>{' '}
+          (the cleanest proven object — this smaller lemma, not the full lim-sup, is the project's real rigorous new result).
+          What is <strong style={{ color: '#f87171' }}>not</strong> rigorous is the <em>composition</em> into{' '}
+          <InlineMath tex={"\\limsup|t_c(N)|=0"} />: it rests on (1) an <strong>admitted surrogate</strong> — the
+          finite-N inviscid-Burgers collision formula <InlineMath tex={"\\tau_c = 1/(2\\sup\\operatorname{Im} m)"} /> is
+          not valid at collision/pole scale (the exact CM identity <InlineMath tex={"\\partial_t S = 2S\\partial_z S - \\partial_z^2 S"} />{' '}
+          keeps the diffusive term same-order near collisions; imp-424 concedes this in its own scope note; falsifier:
+          <InlineMath tex={"N{=}2"} /> has exact <InlineMath tex={"t_c=g^2/8"} /> violating the bound for{' '}
+          <InlineMath tex={"g>2.66"} />), and (2) a <InlineMath tex={"1/N"} /> <strong>normalization inconsistency</strong>{' '}
+          that, under either consistent convention, makes the surviving divergence a trivial pole self-term — demoting
+          the advertised RvM/Trudgian input from load-bearing to decorative.
+        </p>
+        <p style={{ color: '#94a3b8', fontSize: 12.5, lineHeight: 1.8, marginTop: 6 }}>
+          <strong style={{ color: '#e2e8f0' }}>No false pessimism:</strong> the statement is very likely <em>true</em> and is{' '}
+          <strong>not</strong> RH in disguise — the missing piece is a concrete, plausibly-attackable PDE/ODE lemma
+          (a candidate RvM-only rescue: the exact heat-polynomial representation + an edge-gap comparison{' '}
+          <InlineMath tex={"t_c(N)\\le(\\text{min edge gap})^2/4"} />). Honest label:{' '}
+          <em>"limsup |t_c(N)| = 0, unconditional MODULO the finite-N validity of the collision formula (G5-residual)."</em>{' '}
+          Platt–Trudgian <InlineMath tex={"\\Lambda\\le 0.2"} /> is unaffected either way.
+        </p>
+      </div>
 
       {/* mechanism */}
       <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #10b981' }}>
@@ -92,14 +121,16 @@ export default function RouteBLimsupPage() {
       <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #8b5cf6' }}>
         <h3 style={{ color: '#8b5cf6', fontSize: 16, marginBottom: 8 }}>Rigor status</h3>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
-          Recorded status (<code>lambda-intercept-unconditional.js</code>, ROUTE_B_BURGERS): <strong style={{ color: '#10b981' }}>"UNCONDITIONAL as a lim-sup statement"</strong> —
-          a structural closure of the continuum-Burgers uniformity gap <InlineMath tex={"G_5"} /> with no GUE
-          or local-law input. The load-bearing pieces are (i) the deterministic Koksma–Hlawka bound above,
-          (ii) the unconditional Selberg <InlineMath tex={"|S(T)|"} /> estimate, and (iii) the Dyson-flow
-          monotonicity that maps zero-density convergence to shock-time collapse. An{' '}
-          <strong>independent adversarial rigor audit is running</strong> to confirm each dependency is used
-          within its proven hypotheses and that the core lim-sup is gap-free even where the <em>rate</em> is
-          not; this page will be updated with its verdict. No false QED.
+          The codebase records ROUTE_B_BURGERS as <em>"UNCONDITIONAL as a lim-sup statement"</em>, but the
+          independent adversarial audit (see the red verdict banner above) downgraded this to{' '}
+          <strong style={{ color: '#f87171' }}>PARTIAL</strong>: the rigorous, GUE-free, PCC-free content is the
+          Koksma–Hlawka/Trudgian discrepancy bound and the <strong>imp-322 min-gap monotonicity lemma</strong>,
+          but the composition into <InlineMath tex={"\\limsup|t_c(N)|=0"} /> rests on an admitted finite-N
+          collision-formula surrogate (the G5-residual) plus a normalization repair. The honest label is{' '}
+          <em>"unconditional modulo the finite-N validity of the collision formula."</em> The route-map "RIGOROUS-SOTA"
+          tag and the imp-341/344 "UNCONDITIONALLY" wording should be regraded <strong>CLOSED-MODULO</strong>, and the
+          stale <code>G6_PER_N_BOUND</code> / "C_H = 1/8 RIGOROUS" block in <code>dyson-burgers-shock.js</code>{' '}
+          corrected. No false QED; PT <InlineMath tex={"\\Lambda\\le 0.2"} /> unaffected.
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginTop: 12, fontSize: 13 }}>
           <Link to="/route-map" style={{ color: '#38bdf8' }}>→ Full route map</Link>

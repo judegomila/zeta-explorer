@@ -4894,6 +4894,19 @@ const DATA_MODULES = [
   // widening-slope dy/dk channel). Measurement only; surrogate NOT rigorous; C_mb GUE-conditional per
   // imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED. 6 assertions.
   '/src/data/imp-34310-eflow-over-resid-pole-residue-simple-pole.js',
+  // imp-34312: SWEEP the bounded a - b/kEnd ceiling estimate a across a MONOTONE sequence of nested grids
+  // (fixed left anchor kEnd = 14.0, right edge kEnd_max growing one window at a time 15.0 -> 21.0, up to the
+  // k* ~ 21.28 surrogate edge) and measure whether it converges. The estimate does NOT: it climbs strictly
+  // monotonically 1.839457 -> 2.060412 (reproducing imp-34109 s a ~ 1.95178 at kEnd_max = 20 and imp-34233 s
+  // a ~ 2.06041 at kEnd_max = 21), and its per-window increment, after decaying to a minimum 0.005859 near
+  // kEnd_max ~ 18, RE-ACCELERATES to a maximum final 0.070714 (the largest of all 12, ~12x the minimum, taken
+  // at the widest grid). Total drift 0.220955 (~10.7% of the final nominal ceiling), still growing. A true
+  // saturation level would show the increment decaying toward zero; here it bottoms out then turns sharply
+  // back up -- direct evidence the nominal ceiling a is a non-converging fit artifact, consistent with
+  // imp-34233 s ceiling-not-selected AIC verdict. Measurement only; imp-34233/imp-34109/imp-34169 untouched;
+  // surrogate NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT
+  // Lambda<=0.2 SOTA; no bound change; NO QED. 5 assertions.
+  '/src/data/imp-34312-fixed-band-ceiling-estimate-window-drift.js',
 ];
 
 let ALL_MODULES = FAST_MODE

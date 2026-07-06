@@ -5401,6 +5401,18 @@ const DATA_MODULES = [
   // Import-light, 5 assertions. Cross-validation only; component model NOT rigorous; C_mb GUE-conditional
   // per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34375-numerator-approach-two-term-curvature-crossval.js',
+  // imp-34450: EXTENDS the imp-34375 two-term curvature crossval (g ~ a/kEnd + b/kEnd^2) to an explicit
+  // THREE-TERM fit g ~ a/kEnd + b/kEnd^2 + c/kEnd^3 (degree-2 least squares of g*kEnd on u = 1/kEnd) and
+  // bounds how much the third-order term c/kEnd^3 moves the leading coefficient a. FINDING: the three-term a
+  // lands at 0.435561 (far-field 40..150), 0.436104 (full 22..150), 0.435413 and 0.435288 (deeper windows) --
+  // every value at 0.4353-0.4361, just below and within ~0.0015 of the imp-34286 0.437-0.438 band. Against the
+  // imp-34375 two-term fit over the same window a shifts by only -0.001413 (~0.32%) far-field, at most -0.002229
+  // (~0.51%) full window; this ~0.0022 max is the SAME order as the imp-34375 two-term-vs-constant max shift
+  // (+0.002203), so the third term does not relocate a more than the second did. The g~a/kEnd first-order verdict
+  // SURVIVES the third term (a within ~0.0022 of 0.437 at every order, no runaway drift). Import-light, 5
+  // assertions. Cross-validation only; component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched;
+  // imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34450-numerator-approach-three-term-curvature-crossval.js',
   // imp-34410: CROSS-VALIDATE the imp-34328 F2 exact complement identity gapSigma * log T0 + gapProduct
   // = 1/2 against a DIRECT finite-N sigma-exponent secant, not the closed form both gaps were built from.
   // imp-34328 formed BOTH gaps from the same resid, so its identity is an algebraic TAUTOLOGY
@@ -5439,6 +5451,20 @@ const DATA_MODULES = [
   // precision artifact, NOT a mechanism. imp-34189 quote-from-bisection conclusion stands; C_mb
   // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-34435-m2-ceiling-lock-vs-channelsum-crosscheck.js',
+  // imp-34449: CONVERTS the imp-34397 residue R~-1.740e-8 "residual ~1-2% (heuristic, data-limited)" caveat into
+  // a MEASURED error bar by extending the imp-34397 3-rung local quadratic (k=21.0/21.25/21.5) to a 4th (k=20.0)
+  // and 5th (k=19.0) imp-34237 rung -- raising the local fit order quad->cubic->quartic while KEEPING every near-
+  // pole rung -- and re-reading the slope dg_resid/dk AT k*~21.28095 for each. Residue R re-reads: -1.74023e-8
+  // (quad, imp-34397 baseline reproduced ===) -> -1.77880e-8 (4-rung cubic) -> -1.75589e-8 (5-rung quartic). The
+  // order-by-order shift DECREASES (+2.216% quad->cubic, +0.900% quad->quartic), the signature of a converging
+  // Taylor sequence, so the imp-34397 ~1-2% heuristic is REAL and now MEASURED. Reported bar: R=-1.756e-8 +/-
+  // 0.019e-8 (half the quad/cubic/quartic spread, ~+/-1.1%). HONEST caveat: naive rung-SWAPS that drop a near-pole
+  // rung for the far 20.0 (e.g. (20.0,21.25,21.5)/(20.0,21.0,21.25)) swing R to -1.63e-8/-2.10e-8 and are excluded
+  // as resolution-losing -- the bar is built ONLY from nested order-raising fits. imp-34397 tightened value,
+  // simple-pole classification, all upstream verdicts UNCHANGED. Import-light (reuses imp-34237/imp-34310/imp-34397
+  // exports, exact === reproduction asserted). Measurement only; surrogate NOT rigorous; C_mb GUE-conditional per
+  // imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED. 5 assertions.
+  '/src/data/imp-34449-residue-curvature-error-bar-extended-rungs.js',
 ];
 
 let ALL_MODULES = FAST_MODE

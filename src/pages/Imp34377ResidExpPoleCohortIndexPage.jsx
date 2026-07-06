@@ -8,6 +8,8 @@ import PageHeader from '../components/PageHeader.jsx';
 import { IMP34287_FIXED_BAND_PEAK_GROWTH_EXPONENT_POLE_RECONCILIATION } from '../data/imp-34287-fixed-band-peak-growth-exponent-pole-reconciliation.js';
 import { IMP34169_FIXED_BAND_PEAK_EXTENDED_DECADE_SURROGATE_ZERO } from '../data/imp-34169-fixed-band-peak-extended-decade-surrogate-zero.js';
 import { IMP34309_COMBINED_GRID_LOO_LINEAR_FLIP_ROBUSTNESS } from '../data/imp-34309-combined-grid-loo-linear-flip-robustness.js';
+import { IMP34247_WIDENING_SLOPE_POLE_DIVERGENCE } from '../data/imp-34247-widening-slope-pole-divergence.js';
+import { IMP34310_EFLOW_OVER_RESID_POLE_RESIDUE } from '../data/imp-34310-eflow-over-resid-pole-residue-simple-pole.js';
 
 const COHORT = [
   {
@@ -114,6 +116,30 @@ export default function Imp34377ResidExpPoleCohortIndexPage() {
         5-point (vs 2-point) pEcoll endpoint stencil and finds it removes 100% of the -0.28 residual --
         the sign-change ceiling itself dissolves, confirming the estimator-bias attribution over a
         competing ceiling.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>Two-channel pole-residue summary (imp-34247 vs imp-34310):</strong>{' '}
+        the SAME resid_exp zero at k* ~ {IMP34247_WIDENING_SLOPE_POLE_DIVERGENCE.poleLocation} reads as two
+        DIFFERENT residues depending on channel. In the imp-34247 LOG-DERIVATIVE channel dy/dk = d/dk
+        ln(eflow_over_resid), the residue is dimensionless and normalizes to exactly +1
+        ((k*&nbsp;&minus;&nbsp;k)&nbsp;dy/dk&nbsp;&rarr;&nbsp;{IMP34247_WIDENING_SLOPE_POLE_DIVERGENCE.residueNearPole}
+        at k=21.275, pole order p&nbsp;~&nbsp;{IMP34247_WIDENING_SLOPE_POLE_DIVERGENCE.poleOrder}). In the imp-34310
+        RAW-ratio channel eflow_over_resid = eflow_attr / resid_exp, the residue carries eflow_attr s physical units
+        and measures R&nbsp;~&nbsp;{IMP34310_EFLOW_OVER_RESID_POLE_RESIDUE.poleResidue.toExponential(4)}. Both are
+        confirmed SIMPLE (order-1) poles of the same underlying resid_exp zero -- the magnitude gap is expected,
+        since a log-derivative residue always normalizes to 1 for a simple zero while the raw-ratio residue scales
+        with the actual eflow_attr(k*) magnitude and local slope.
       </div>
 
       <div

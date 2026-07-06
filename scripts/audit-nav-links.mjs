@@ -359,6 +359,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34417-sigma-vs-product-gap-complement',
   '/viz-imp34418-widening-residual-prepole-reversal',
   '/viz-imp34419-widening-slope-minus-one-crossing',
+  '/viz-imp34438-eflow-ratio-r-exponent-ladder',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

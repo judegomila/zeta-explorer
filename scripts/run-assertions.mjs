@@ -4468,6 +4468,19 @@ const DATA_MODULES = [
   // overturns imp-34146; inherited imp-3220/imp-3406 model NOT rigorous; C_mb GUE-conditional per imp-486
   // untouched; imp-3066 K_a>=0 untouched; no bound changed; NO QED; PT Lambda<=0.2 SOTA. 3 assertions.
   '/src/data/imp-34216-apex-quintic-fd-crossvalidation.js',
+  // imp-33851: imp-33809 confirmed the M3 saturation-curvature hump peaks globally at the k=9
+  // crossover but reported only one-sided step ratios hump(k)/hump(k-1) and hump(k)/hump(k+1).
+  // Placing the two sides at the SAME symmetric offset j from the peak and reusing the imp-33809
+  // per-k amplitudes verbatim, the head-over-tail skew ratio hump(9-j)/hump(9+j) climbs
+  // 1.2176 -> 1.5758 -> 3.0426 and the signed asymmetry index climbs 0.0981 -> 0.2236 -> 0.5053
+  // over j=1,2,3, both monotone and head-heavy at every offset; over the symmetric +-3 window the
+  // head decades (k=6,7,8) carry 1.5131x the mass of the tail decades (k=10,11,12). So the hump
+  // envelope is DEFINITIVELY SKEWED toward the E_coll-dominated low-N head side and away from the
+  // E_trunc-dominated (k>9) tail -- the lighter, faster-decaying flank, consistent with imp-33809
+  // H2/H3. Measurement only; inherited imp-3220/imp-3406 model NOT rigorous; C_mb GUE-conditional
+  // per imp-486 untouched; imp-3066 K_a>=0 untouched; no bound changed; NO QED; PT Lambda<=0.2 SOTA.
+  // 6 assertions.
+  '/src/data/imp-33851-hump-envelope-symmetry-vs-k.js',
   // imp-34147: DOES THE imp-34084 APEX CUBIC-TILT SIGN d<0 PERSIST ACROSS THE LADDER? imp-34084 C1 fit
   // the apex cubic tilt d ~ -5.347e-4 (resid triple-prime(k*) < 0) at the SINGLE imp-33948 apex centre
   // k* ~ 8.821092 and never asked whether the negative sign is a local feature or a stable property.
@@ -5658,6 +5671,18 @@ const DATA_MODULES = [
   // Measurement / threshold-location only; component model NOT rigorous; C_mb GUE-conditional per imp-486
   // untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34468-pole-leakage-3-8-percent-crossings.js',
+  // imp-34512: EXTENDS imp-34468 by (a) FITTING the pole-leakage metric leak(k) = 100 |dy/dk(k) - P| / |P|
+  // to the single-pole form A/(k* - k) + P and (b) bisecting the NEXT 15% and 20% rungs, extending the
+  // ladder to {1: 18.106, 3: 18.497, 8: 19.034, 15: 19.443, 20: 19.637} (all below the pole k* ~ 21.281).
+  // Reuses the IDENTICAL imp-34247 metric, imp-34188 window, imp-34023 pole VERBATIM. FINDINGS: (R1) the
+  // 15%/20% crossings are k ~ 19.44328 / 19.63682; (R2) per-pp spacing compresses monotonically toward the
+  // pole; (R3) a single simple pole is only the ASYMPTOTIC driver -- the measured 1%-20% window has
+  // effective exponent ~2.12 and a naive 1/leak-root undershoots to ~19.98, but the exponent collapses
+  // toward 1 (2.12 -> 1.39 -> 1.14) and the recovered pole -> 21.26 as the window tightens onto k*,
+  // confirming the imp-34023 residExp singularity is a genuine simple pole. Import-light. 6 assertions.
+  // Measurement / threshold-location + fit only; component model NOT rigorous; C_mb GUE-conditional per
+  // imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34512-pole-leakage-fit-15-20-percent-crossings.js',
   // imp-34469: TESTS the imp-34409 +0.227 overshoot (its k=12..18 exponential-approach fit extrapolates
   // the -1 crossing to k ~ 20.706, 0.227 above the analytic mapped crossing 20.47903) for window-dependence
   // by re-fitting the IDENTICAL surrogate over extended (start=12, end 18..30) and slid (fixed 7-rung width,

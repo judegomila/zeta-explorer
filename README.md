@@ -134,7 +134,9 @@ npm run build      # → dist/
 
 ### The Twin-Ladder Bridge framing in one paragraph
 
-Every prime `p` defines a harmonic oscillator with energy levels `E_k = k · log p`. Summing over excitations gives `H_p(s) = 1/(1 − p⁻ˢ)` — simultaneously a partition function (statistical mechanics) and a transfer function (circuit theory). Cascading all primes recovers the Euler product. The **twin-ladder system** pairs ζ(s) with the dual ladder ζ(1−s) coupled by a bridge χ(s) satisfying `|χ(½+it)|=1` (lossless on the critical line). Under this framing the Riemann Hypothesis becomes: **the twin-ladder network is Darlington-lossless**, forcing all transmission zeros onto σ=½.
+Every prime `p` defines a harmonic oscillator with energy levels `E_k = k · log p`. Summing over excitations gives `H_p(s) = 1/(1 − p⁻ˢ)` — simultaneously a partition function (statistical mechanics) and a transfer function (circuit theory). Cascading all primes recovers the Euler product. The **twin-ladder system** pairs ζ(s) with the dual ladder ζ(1−s) coupled by a bridge χ(s) satisfying `|χ(½+it)|=1` on the critical line — but note this on-line unimodularity is *just the functional equation*, true whether or not RH holds.
+
+> ⚠ **Honest correction (the circuit slogan is a heuristic, not a theorem).** The tempting statement "RH ⇔ the twin-ladder network is Darlington-lossless" does **not** hold rigorously: Darlington's theorem confines transmission *zeros*, whereas ζ-zeros are *poles* of S₂₁ = ζ(2s)/ζ(s) (imp-129); and off-line passivity — the only RH-strength reading — is *equivalent to RH itself*, not an independent lever. The circuit picture is the **heuristic that generated** the real model; the rigorous content lives entirely in the **shift-bridge / de Branges layer** (Theorem 15.1, the a-dial, the four-route equivalence). See the [Project Results](#) and the systematic wall map: every route reduces to RH-hard objects, and Platt–Trudgian Λ ≤ 0.2 remains the unbeaten rigorous SOTA.
 
 This gives every classical RH attack a network-theoretic interpretation:
 

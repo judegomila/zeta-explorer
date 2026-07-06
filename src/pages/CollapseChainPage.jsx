@@ -356,7 +356,12 @@ export default function CollapseChainPage() {
             {' '}<InlineMath math="\text{block positivity} \Leftrightarrow K_a \succeq 0" />, one direction loses.
           </li>
           <li>
-            <strong>Montgomery PCC obstruction persists (imp-1184).</strong> An unconditional proof of ‖V‖ ≤ 1 still requires Montgomery PCC at 2-point.
+            <strong>⚠ Superseded — the ‖V‖ ≤ 1 collapse is RH-equivalent, and the PCC caveat was a mis-attribution.</strong>{' '}
+            The §26 verdict found the ‖V‖ ≤ 1 biconditional to be <em>RH-equivalent / tautological</em> (an information-preserving
+            restatement, not a reduction to a cheaper problem; the 5000× empirical margin was a scale-homogeneity artifact). And the
+            strategic PCC-free severance showed the Volterra/de&nbsp;Branges strand does <strong>not</strong> factor through Montgomery
+            pair correlation — the earlier "still requires Montgomery PCC at 2-point" (imp-1184) was mis-attributed to this strand.
+            The strand's true residual is the operator positivity <InlineMath math="K_a \succeq 0" />, itself RH-equivalent.
           </li>
           <li>
             <strong>Empirical pilot at finite window.</strong> imp-1240's data (U ≤ 20, a ≥ 0.025) shows norms well below 1, not yet a proof.

@@ -13206,6 +13206,47 @@ export const glossary = [
       'imp-34751 upgraded the two/three-footing eyeballed sign-flip reading to a formal 24-footing sign-test/runs-test/Student-t mean-zero ensemble (imp-34751)',
     ],
   },
+  {
+    term: 'Genuine V-curve vs fixed non-vanishing floor (imp-34713)',
+    category: 'numerical',
+    definition:
+      'A diagnostic for telling a real finite-difference roundoff floor apart from a hidden formula ' +
+      'defect, drawn from the imp-34692/imp-34713 step-size study of the imp-34650 crossover-map ' +
+      'derivative gPrime(N) = K * (dT0/dN)/T0, dT0/dN = 2pi / log(T0/2pi).\n\n' +
+      'imp-34692 swept the central-difference relative step h/N at the fixed point N_cross ~ 3.28e9 ' +
+      'and found the textbook V shape: monotone O(h^2) truncation descent as h shrinks, a minimum ' +
+      'near h/N ~ eps^(1/3) ~ 6.06e-6 (eps = 2^-52), then a roundoff climb as h shrinks further past ' +
+      'that optimum. imp-34713 repeated the identical sweep at five log-spaced nodes spanning the ' +
+      'whole contraction interval -- the imp-34675 left edge N_star ~ 1.475e8, two interior points ' +
+      'below/above N_cross, and the imp-34676 right-widened tail ~1e12 -- and found the SAME V shape ' +
+      'at every node: optimal step pinned at h/N in {1e-5, 1e-6}, attained floor ~1e-11 or below.\n\n' +
+      'THE DIAGNOSTIC: a genuine V-curve requires BOTH halves to be present -- the error must fall ' +
+      'monotonically as h shrinks toward the optimum (truncation regime) AND climb again as h shrinks ' +
+      'past it (roundoff regime). If only the descent were seen (error flattening but never climbing ' +
+      'back up), the ~1e-10 residual could instead be a fixed non-vanishing floor -- i.e. a genuine ' +
+      'defect in the analytic formula being tested, invisible to further h-tuning. Because the error ' +
+      'is instead driven arbitrarily small by tuning h and then climbs again beyond that point, the ' +
+      'residual is attributed to the differencing method\'s own roundoff, not to the formula under ' +
+      'test: the floor is METHOD-LIMITED (formula-error-free), not a fixed defect floor.\n\n' +
+      'HOW TO APPLY: before treating a finite-difference residual against an analytic target as ' +
+      'evidence of a formula defect, sweep the step size and check for a full V -- a floor that never ' +
+      'rises again as h keeps shrinking is the signature of a real, formula-level defect; a floor ' +
+      'flanked by a roundoff climb on both sides is ordinary differencing noise. Repeating the sweep ' +
+      'at multiple nodes (as imp-34713 does) additionally rules out the V being a coincidence of one ' +
+      'special point.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34713 multi-node V-curve verdict verbatim, ' +
+      'not a new derivation; adds no RH bound; leaves the imp-34650a interval-arithmetic sub-gap OPEN; ' +
+      'the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 are ' +
+      'UNTOUCHED; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34743 (glossary headword for the imp-34713 genuine-V-curve diagnostic), 2026',
+    relatedTerms: [
+      'imp-34692 traced the single-node V-curve at N_cross that imp-34713 widens to multiple nodes (imp-34692)',
+      'imp-34713 repeated the V-curve sweep at five nodes across [N_star, ~1e12] confirming the floor is uniformly method-limited (imp-34713)',
+      'imp-34650 the analytic crossover-map derivative formula gPrime(N) whose central-difference twin is under test (imp-34650)',
+      'imp-34675 the left edge N_star ~ 1.475e8 of the contraction interval used as one probe node (imp-34675)',
+      'imp-34676 the right-widened tail ~1e12 used as another probe node (imp-34676)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

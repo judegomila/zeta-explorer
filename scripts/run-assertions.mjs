@@ -4970,6 +4970,15 @@ const DATA_MODULES = [
   // imp-33721/imp-33767). Tabulation only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0
   // untouched; PT Lambda<=0.2 SOTA; no QED. 7 assertions.
   '/src/data/imp-34441-3p28e9-landmark-cluster-reconciliation.js',
+  // imp-34413: bisects the imp-34247 pole-leakage metric leak(k)=100|dy/dk(k)-P|/|P| on its rising
+  // pole-side branch to pin the exact 1% crossing at k~18.10597, refining the imp-34247 coarse
+  // k=18..18.5 bracket; also finds a deep ~0.009% interior minimum at k~17.80. Coverage-audit fix
+  // (imp-34481): file existed in src/data/ but was never added to this DATA_MODULES list.
+  '/src/data/imp-34413-widening-slope-pole-leakage-one-percent-crossing.js',
+  // imp-34415: measures the approach rate of the imp-34328 sigma/product gap ratio (u-1)/(u+log 2pi)
+  // to 1, locating the 0.99 crossing at log10 N~124.90 with an exact 1/log T0 deficit. Coverage-audit
+  // fix (imp-34481): file existed in src/data/ but was never added to this DATA_MODULES list.
+  '/src/data/imp-34415-sigma-product-gap-ratio-99pct-crossing.js',
   // imp-34332: fits the imp-34248 prefactor P(thr) approach to linearity. From the exact ratio
   // surplus/(thr.r) = (1-thr)/(1+(1-thr)r), the residual 1 - surplus/(thr.r) = (thr + (1-thr)r)/(1+(1-thr)r)
   // (verified to machine precision) = thr + (1-thr)^2 r + O(r^2). So the residual vanishes LINEARLY IN thr

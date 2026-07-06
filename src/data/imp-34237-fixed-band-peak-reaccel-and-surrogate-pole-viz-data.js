@@ -31,7 +31,8 @@
  *
  *   COHORT MAP (M2-residual sign-change ceiling): imp-34023 (bisected kEnd*~21.281) -> imp-34127
  *   (leading closed form) -> imp-34189 (next-order term + window-width divergence) -> imp-34188
- *   (widening-slope limit b_inf~-1) -> imp-34169/imp-34237 (this module, fixed-band peak
+ *   (widening-slope leading -ln10/2, observed -1 a finite-window coincidence per imp-34246) ->
+ *   imp-34169/imp-34237 (this module, fixed-band peak
  *   re-acceleration terminating at the resid_exp pole). All six share the same kEnd* ceiling.
  *
  *   Ticket: imp-34237 (ux, low). Viz-data only, presentation/no-bound-change;

@@ -308,6 +308,7 @@ const Imp34352EflowGronwallCrossoverOffsetViz = lazy(() => import('./pages/Imp34
 const Imp34353CrossoverSurplusFamilyDecayViz = lazy(() => import('./pages/Imp34353CrossoverSurplusFamilyDecayViz.jsx'));
 const Imp34354CrossoverSurplusSmallThrFactorisationViz = lazy(() => import('./pages/Imp34354CrossoverSurplusSmallThrFactorisationViz.jsx'));
 const Imp34355FarTailCrossoverResidualCollapseViz = lazy(() => import('./pages/Imp34355FarTailCrossoverResidualCollapseViz.jsx'));
+const Imp34456CouplingRatioDriftLadderViz = lazy(() => import('./pages/Imp34456CouplingRatioDriftLadderViz.jsx'));
 const Imp34416CrossoverSurplusFartailCompositeLimitViz = lazy(() => import('./pages/Imp34416CrossoverSurplusFartailCompositeLimitViz.jsx'));
 const Imp34269FixedBandPeakSharedGridCrossRecomputeViz = lazy(() => import('./pages/Imp34269FixedBandPeakSharedGridCrossRecomputeViz.jsx'));
 const Imp34377ResidExpPoleCohortIndexPage = lazy(() => import('./pages/Imp34377ResidExpPoleCohortIndexPage.jsx'));
@@ -1156,6 +1157,7 @@ function AppShell() {
           <Route path="/viz-imp34354-crossover-surplus-small-thr-factorisation" element={<Imp34354CrossoverSurplusSmallThrFactorisationViz />} />
           <Route path="/viz-imp34416-crossover-surplus-fartail-composite-limit" element={<Imp34416CrossoverSurplusFartailCompositeLimitViz />} />
           <Route path="/viz-imp34355-fartail-crossover-residual-collapse" element={<Imp34355FarTailCrossoverResidualCollapseViz />} />
+          <Route path="/viz-imp34456-coupling-ratio-drift-ladder" element={<Imp34456CouplingRatioDriftLadderViz />} />
           <Route path="/viz-imp34361-eflow-crossover-offset-cohort-index" element={<Imp34361EflowCrossoverOffsetCohortIndexPage />} />
           <Route path="/viz-imp34377-resid-exp-pole-cohort-index" element={<Imp34377ResidExpPoleCohortIndexPage />} />
           <Route path="/viz-imp34378-trough-peak-ratio-ceiling" element={<Imp34378TroughPeakRatioCeilingViz />} />

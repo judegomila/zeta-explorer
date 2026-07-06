@@ -12962,6 +12962,47 @@ export const glossary = [
     ],
     link: '/viz-imp34717-q3-trust-boundary',
   },
+  {
+    term: 'coarse spread-ratio collapse vs resolution-matched dp-pair collapse: why matching resolution recovers the 2^k ladder',
+    category: 'numerical',
+    definition:
+      'A methodology headword distinguishing the two collapse-factor statistics imp-34679 and imp-34689 ' +
+      'applied to the same q2/q3/q4 finite-difference channels, and why only one of them recovers the ' +
+      'predicted 1/dp^k geometric ladder.\n\n' +
+      'The imp-34679 statistic is COARSE: it takes the spread (max minus min) of each channel\'s drift ' +
+      'share over a fixed discrete dp grid that sits entirely ABOVE every channel\'s own roundoff onset -- ' +
+      'i.e. the grid resolution is not matched to where each channel actually transitions. This statistic ' +
+      'only ORDERS the channels correctly (collapse factors {8.44, 10.80, 27.74} increase with k) and gives ' +
+      'a log-linear slope ~0.595, undershooting the predicted ln 2 ~ 0.6931 by ~14% (R^2 ~ 0.897).\n\n' +
+      'The imp-34689 statistic is RESOLUTION-MATCHED: instead of a wide grid spread, it reads a fixed 2:1 ' +
+      'dp pair placed INSIDE each channel\'s own roundoff window (geometric-averaged over several such ' +
+      'pairs), so the comparison is always made at the resolution where that channel\'s roundoff behavior ' +
+      'is actually resolved. This recovers the ladder cleanly: r_k ~ {4.00, 7.00, 17.91} land on the ' +
+      'predicted {4, 8, 16}, and per-channel log-log slopes m_k ~ {1.999, 2.807, 4.163} round to exactly ' +
+      '{2, 3, 4}. The observed/predicted relative spread tightens from ~0.44 (imp-34679) to ~0.245 ' +
+      '(imp-34689) -- about 44% of the original undershoot was an artifact of grid-density and ' +
+      'window-placement mismatch, not a real departure from the 1/dp^k law.\n\n' +
+      'HOW TO APPLY: when two collapse-factor statistics computed over the same channels disagree in how ' +
+      'well they match a predicted geometric ladder, check whether the disagreeing statistic\'s probe grid ' +
+      'is placed INSIDE or OUTSIDE each channel\'s own roundoff-onset window. A grid sitting uniformly above ' +
+      'every onset (imp-34679-style) mixes plateau residual into the spread and will systematically ' +
+      'undershoot the true exponent; a grid resolution-matched per channel (imp-34689-style) isolates the ' +
+      'genuine 1/dp^k signal. Residual imperfection even after matching resolution (q3 ~ 7.0, q4 ~ 17.9 vs ' +
+      'exact 8, 16) is attributed to imp-34647 ULP-stochasticity rather than a fractional exponent, since ' +
+      'the log-log slopes still round to the exact integers {2, 3, 4}.\n\n' +
+      'HONEST SCOPE: a measurement-methodology headword consolidating the imp-34679/imp-34689 findings ' +
+      'verbatim, not a new derivation; q1..q4 remain inherited central differences; changes no bound; ' +
+      'C_mb remains GUE-conditional per imp-486; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-34721 (glossary headword distinguishing imp-34679 coarse vs imp-34689 resolution-matched collapse), 2026',
+    relatedTerms: [
+      'imp-34679 the coarse spread-ratio statistic that only orders the ladder, slope ~0.595 vs ln 2, R^2 ~ 0.897 (imp-34679)',
+      'imp-34689 the resolution-matched 2:1 dp-pair statistic that recovers the {2,3,4} exponent ladder (imp-34689)',
+      'imp-34606 the dedicated log-log exponent fit whose clean {2,3,4} ladder both later statistics are compared against (imp-34606)',
+      'imp-34647 the ULP-stochastic deep-tail roundoff floor invoked to explain the residual q3/q4 imperfection after resolution-matching (imp-34647)',
+      'coarse collapse-factor statistic vs dedicated exponent fit: ordering a ladder without quantifying it',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

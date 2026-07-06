@@ -470,6 +470,9 @@ const Imp34717Q3TrustBoundaryViz = lazy(() =>
 const Imp34718DerivativeCrosscheckWideGridViz = lazy(() =>
   import('./pages/Imp34718DerivativeCrosscheckWideGridViz.jsx')
 );
+const Imp34719SigmaExponentRampKneeViz = lazy(() =>
+  import('./pages/Imp34719SigmaExponentRampKneeViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1511,6 +1514,10 @@ function AppShell() {
           <Route
             path="/viz-imp34718-derivative-crosscheck-wide-grid"
             element={<Imp34718DerivativeCrosscheckWideGridViz />}
+          />
+          <Route
+            path="/viz-imp34719-sigma-exponent-ramp-knee"
+            element={<Imp34719SigmaExponentRampKneeViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

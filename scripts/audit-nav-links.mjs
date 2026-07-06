@@ -426,6 +426,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34716-resolution-matched-collapse-ladder',
   '/viz-imp34717-q3-trust-boundary',
   '/viz-imp34718-derivative-crosscheck-wide-grid',
+  '/viz-imp34719-sigma-exponent-ramp-knee',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

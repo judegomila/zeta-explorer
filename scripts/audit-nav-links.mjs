@@ -366,6 +366,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34419-widening-slope-minus-one-crossing',
   '/viz-imp34438-eflow-ratio-r-exponent-ladder',
   '/viz-imp34439-third-diff-pole-order',
+  '/viz-imp34475-four-locator-cluster-axis',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

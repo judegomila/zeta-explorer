@@ -2,6 +2,7 @@ export const NAV_GROUPS = [
   {
     label: 'Model',
     items: [
+      { to: '/', label: 'Introduction (Home)' },
       { to: '/full-story', label: 'Improving Bounds on Λ' },
       { to: '/oscillators', label: 'Oscillators' },
       { to: '/hamiltonian', label: 'Hamiltonian' },

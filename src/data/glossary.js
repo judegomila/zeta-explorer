@@ -13052,6 +13052,46 @@ export const glossary = [
       'coarse spread-ratio collapse vs resolution-matched dp-pair collapse: why matching resolution recovers the 2^k ladder',
     ],
   },
+  {
+    term: 'imp-34690 conditioning-floor law vs weights-representability effect: the two factors behind q3-share stencil-order sensitivity that must not be conflated',
+    category: 'numerical',
+    definition:
+      'A methodology headword isolating the CLOSED-FORM piece of the imp-34684 stencil-order-sensitivity ' +
+      'puzzle from the piece that closed form cannot explain, so the two are not mistaken for one effect.\n\n' +
+      'imp-34684 found the 9-point (6th-order) q3 Fornberg stencil is ~30x more float-order-sensitive than ' +
+      'the 7-point (4th-order) stencil. imp-34690 asked how much of that ~30x gap the intrinsic ' +
+      'near-cancellation floor -- max|term|*eps/|sum| -- can explain on its own, independent of which ' +
+      'concrete weight values are used. It derived a CLOSED FORM: because q(p+j*dp) is nearly constant ' +
+      'across the stencil, max|term| ~ maxNum*|q| and |sum| ~ denom*dp^3*|q3|, so the floor ratio between ' +
+      'stencils depends only on maxNum/denom = (488/240)/(13/8) = 1.25128 -- matching the measured floor ' +
+      'ratio to ~4e-6. That is the CONDITIONING-FLOOR LAW: it is a property of the stencil coefficients\' ' +
+      'shape alone, and it grows only ~1.25x from 7-point to 9-point, not ~30x.\n\n' +
+      'The remaining ~24x of the ~30x gap is NOT predicted by that law -- it is the WEIGHTS-REPRESENTABILITY ' +
+      'EFFECT (traced separately, see imp-34684 stencil-WIDTH dependence of q3-share conditioning): the ' +
+      '7-point Fornberg weights round to exactly the target integers in double precision (zero raw-vs-exact ' +
+      'residual), so the 7-point share sensitivity is set by the floor alone, while the 9-point weights carry ' +
+      'a ~5.3e-13 residual that the ~1e12-scale near-cancellation amplifies toward the imp-34654 ~3e-4 ' +
+      'signature. The floor law explains the SHAPE-driven ~1.25x; the representability effect explains the ' +
+      'REST.\n\n' +
+      'HOW TO APPLY: when a wider finite-difference stencil turns out far more sensitive than a narrower one, ' +
+      'do not attribute the entire gap to "worse conditioning from a deeper cancellation." First compute the ' +
+      'closed-form floor ratio (maxNum/denom for antisymmetric central-difference stencils) -- if it accounts ' +
+      'for only a small fraction of the observed gap, the rest is very likely a raw-float weight-residual ' +
+      'amplification, checkable directly by comparing raw Fornberg floats against exact integer weights ' +
+      'before assuming the floor law alone is the explanation.\n\n' +
+      'HONEST SCOPE: a measurement-methodology headword restating the imp-34690 closed form verbatim, not a ' +
+      'new derivation; q1, q2, q3 remain inherited central differences, NOT fresh analytic closed forms; the ' +
+      'inherited imp-3220/imp-3406 surrogate is NOT rigorous; changes no bound; C_C = (1/8)sqrt(3pi) ' +
+      '(imp-2714) UNTOUCHED; C_mb remains GUE-conditional per imp-486; imp-3066 K_a >= 0 untouched; no ' +
+      'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34723 (glossary headword isolating the imp-34690 conditioning-floor law from the weights-representability effect), 2026',
+    relatedTerms: [
+      'imp-34690 derived the closed-form maxNum/denom = 1.25128 floor-ratio law this headword isolates (imp-34690)',
+      'imp-34684 stencil-WIDTH dependence of q3-share conditioning: why the 4th-order share is ~30x milder and carries no 1e9x Fornberg-residual signature (imp-34684)',
+      'imp-34654 the 6th-order cross-validation whose ~5.3e-13 Fornberg residual is the weights-representability effect this headword contrasts against the floor law (imp-34654)',
+      'imp-34708 extended the floor-scaling law to the 11-point stencil, finding the per-step ratio decays toward 1 rather than staying fixed at ~1.25x (imp-34708)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -4494,6 +4494,20 @@ const DATA_MODULES = [
   // per imp-486 untouched; imp-3066 K_a>=0 untouched; no bound changed; NO QED; PT Lambda<=0.2 SOTA.
   // 6 assertions.
   '/src/data/imp-34527-hump-skew-growth-law-vs-decay-asymmetry.js',
+  // imp-34528: quantitatively cross-check the imp-33851 qualitative tail attribution ("k>9 tail falls
+  // off the faster, consistent with sigma ~ N^(-1/2)"). Mapping each tail decade k=10..13 to its N via
+  // imp-3444 anchoring (N(k)=N* * 10^(k-9), N* ~ 3.280294e9), the CUMULATIVE tail fraction hump(9+j)/
+  // hump(9) = {0.6958, 0.3225, 0.1212, 0.0418} OVERSHOOTS the idealized 10^(-j/2) = {0.3162, 0.1000,
+  // 0.0316, 0.0100} by a GROWING factor {2.200, 3.225, 3.834, 4.183}, so it is NOT a clean sqrt(1/N)
+  // law from the peak. But the LOCAL per-decade decay hump(k-1)/hump(k) = {1.4372, 2.1575, 2.6602,
+  // 2.8985} climbs toward sqrt(10)=3.1623 with a gap {1.7251, 1.0047, 0.5021, 0.2638} halving per
+  // decade, and in the deep tail shadows the true imp-3463 sigma decade decay {2.2688, 2.6964, 2.9140}
+  // to within {-0.1113, -0.0362, -0.0155}. So the N^(-1/2) tail is an asymptotic per-decade RATE the
+  // hump and sigma both approach, not the cumulative law both overshoot. Measurement/cross-check only;
+  // reuses imp-33809/imp-33851/imp-3463 literals; inherited imp-3220/imp-3406 model NOT rigorous; C_mb
+  // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; no bound changed; NO QED; PT
+  // Lambda<=0.2 SOTA. 7 assertions.
+  '/src/data/imp-34528-tailside-hump-decay-vs-sqrt-n-fartail.js',
   // imp-34147: DOES THE imp-34084 APEX CUBIC-TILT SIGN d<0 PERSIST ACROSS THE LADDER? imp-34084 C1 fit
   // the apex cubic tilt d ~ -5.347e-4 (resid triple-prime(k*) < 0) at the SINGLE imp-33948 apex centre
   // k* ~ 8.821092 and never asked whether the negative sign is a local feature or a stable property.
@@ -5727,6 +5741,19 @@ const DATA_MODULES = [
   // Import-light. 6 assertions. Fit / measurement only; component model NOT rigorous; C_mb GUE-conditional per
   // imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34525-pole-leakage-two-pole-vs-regular-part-fit.js',
+  // imp-34529: TABULATES the imp-34512 R3 recovered-pole convergence sequence (naive 1/leak linear-root
+  // estimate climbing 19.98 -> 21.22 -> 21.26 as the fit window tightens) as a STANDALONE cross-validation
+  // against the inherited imp-34023 pole k* ~ 21.28095, over a graded seven-rung ladder of tightening
+  // windows. Reuses the IDENTICAL imp-34247 metric, imp-34188 window, imp-34023 pole, and imp-34512
+  // invLeakRoot estimator VERBATIM (three edges reproduce imp-34512 kStarFitWindow/Near/Closest). FINDINGS:
+  // (R1) the recovered pole climbs monotonically 19.981 -> ... -> 21.279 toward k*; (R2) the residual
+  // |k*_recovered - 21.28095| shrinks monotonically 1.300 -> ~0.0021 (~635x over six rungs, within ~0.01%
+  // of k*); (R3) the per-rung shrink ratio clusters near 1/3 (geometric mean ~0.341, ~2.9x per rung), so the
+  // naive estimator converges ONTO the inherited pole -- a clean cross-validation of k* ~ 21.28095 as the
+  // genuine simple-pole location. Import-light. 5 assertions. Cross-validation / measurement only; component
+  // model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT
+  // Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34529-recovered-pole-convergence-vs-inherited.js',
   // imp-34469: TESTS the imp-34409 +0.227 overshoot (its k=12..18 exponential-approach fit extrapolates
   // the -1 crossing to k ~ 20.706, 0.227 above the analytic mapped crossing 20.47903) for window-dependence
   // by re-fitting the IDENTICAL surrogate over extended (start=12, end 18..30) and slid (fixed 7-rung width,

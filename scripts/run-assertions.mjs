@@ -6198,6 +6198,14 @@ const DATA_MODULES = [
   // chain never touches the zeros bundle. FINDING: no gap -- all 4 registered
   // correctly, no heavy import found. AUDIT-ONLY, no fix applied. 5 assertions.
   '/src/data/imp-34482-selfasserting-cluster-heavy-import-audit.js',
+  // imp-34521: AUDIT (extending the imp-34463/imp-34504 precedent) of whether the
+  // honest-status caveat is surfaced wherever the improvements viewer renders the
+  // imp-34468..34489 cluster (22 members) to end-readers. FINDING: no gap -- all
+  // 22 `detail` rows in improvements.js (rendered in full by ImprovementsPage.jsx)
+  // carry the caveat, 4 additionally have a dedicated viz page, 2 a glossary
+  // headword, and 2 a ConceptsPage explainer, each independently repeating it.
+  // AUDIT-ONLY, no surfacing fix applied. 6 assertions.
+  '/src/data/imp-34521-caveat-surfacing-audit-34468-34489.js',
 ];
 
 let ALL_MODULES = FAST_MODE

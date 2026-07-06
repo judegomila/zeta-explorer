@@ -1,3 +1,8 @@
+/**
+ * @see imp-34302-m2-ceiling-cohort-canonical-value-gate.js (build-time gate keeping this page's canonical
+ *   kEnd*~21.281 ceiling distinct from the imp-34127 closed-form estimate)
+ * @see imp-34127-m2-residual-signchange-ceiling-closed-form.js (the distinct, lower closed-form estimate)
+ */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';

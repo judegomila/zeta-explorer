@@ -7,6 +7,11 @@
 // to 2pt-vs-5pt estimator-discretization bias, NOT a competing ceiling reading). Live-imports both source
 // modules so a future edit that drifts either literal, or that collapses the two distinct readings into one,
 // throws at build time instead of silently mislabeling the closed form as the ceiling.
+//
+// @see imp-34237-fixed-band-peak-reaccel-and-surrogate-pole-viz-data.js (canonical ceiling literal, gated)
+// @see Imp34237FixedBandPeakReaccelAndSurrogatePoleViz.jsx (cohort page gated)
+// @see Imp34281M2CeilingCohortIndexPage.jsx (cohort index page gated)
+// @see imp-34127-m2-residual-signchange-ceiling-closed-form.js (closed-form estimate literal, gated)
 
 import { IMP34237_RESID_ZERO_KSTAR } from './imp-34237-fixed-band-peak-reaccel-and-surrogate-pole-viz-data.js';
 import { IMP34127_M2_RESIDUAL_SIGNCHANGE_CEILING_CLOSED_FORM } from './imp-34127-m2-residual-signchange-ceiling-closed-form.js';

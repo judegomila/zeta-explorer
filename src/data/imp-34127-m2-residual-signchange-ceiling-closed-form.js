@@ -59,6 +59,10 @@
  * @see imp-34188-widening-slope-limit-exactly-minus-one (widening-slope limit bounded by this kEnd*)
  * @see imp-34169-fixed-band-peak-extended-decade-surrogate-zero.js (fixed-band peak terminating at the same pole)
  * @see imp-34237-fixed-band-peak-reaccel-and-surrogate-pole-viz-data.js (viz of the imp-34169 pole)
+ * @see imp-34302-m2-ceiling-cohort-canonical-value-gate.js (build-time gate keeping this closed form
+ *   distinct from the imp-34237/imp-34023 canonical ceiling on the two cohort pages below)
+ * @see Imp34237FixedBandPeakReaccelAndSurrogatePoleViz.jsx (cohort page gated by imp-34302)
+ * @see Imp34281M2CeilingCohortIndexPage.jsx (cohort index page gated by imp-34302)
  *
  * COHORT MAP (M2-residual sign-change ceiling): imp-34023 (bisected kEnd*~21.281) -> imp-34127
  * (this module, leading closed form) -> imp-34189 (next-order term + window-width divergence) ->

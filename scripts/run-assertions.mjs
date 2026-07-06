@@ -5426,6 +5426,19 @@ const DATA_MODULES = [
   // geometric mean to within ~13% deep in the tail. Decomposition/measurement only; C_mb GUE-conditional
   // per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-34427-measured-slope-minimum-prefactor-decomposition.js',
+  // imp-34435: cross-checks the imp-34267 M>=4 endpoint-curvature Taylor-ladder LOCK of the M2-ceiling
+  // e^3 D^2 coefficient (c_eff(M=4)=c_eff(M=5)=89.94) against the imp-34345 two-channel split (17 OLS
+  // baseline + 72.94 log-T0-drift bump = 89.94) IN ONE PLACE, reusing only the two modules published
+  // result literals (no re-derivation). Both routes recover the same exact-fit coefficient: the
+  // full-precision matcher anchor is 89.940466 with an inter-module difference of exactly 0 (bit-
+  // identical, per imp-34345). Route B (channel SUM) recovers the value BY CONSTRUCTION (drift_bump =
+  // exact_fit - 17, so channel_SUM - exact_fit = 0 identically) -- an identity, its substantive content
+  // is the ~19/~81 percent split. Route A (endpoint-curvature LOCK) is the genuine independent witness,
+  // reaching 89.94 by an order-by-order Taylor mechanism and locking (M=4==M=5). The only nonzero
+  // cross-route residual in the published readings is -0.0005, a toFixed(3)-vs-toFixed(4) reporting-
+  // precision artifact, NOT a mechanism. imp-34189 quote-from-bisection conclusion stands; C_mb
+  // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34435-m2-ceiling-lock-vs-channelsum-crosscheck.js',
 ];
 
 let ALL_MODULES = FAST_MODE

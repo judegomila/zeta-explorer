@@ -312,6 +312,7 @@ const Imp34456CouplingRatioDriftLadderViz = lazy(() => import('./pages/Imp34456C
 const Imp34457ResidueCurvatureCorrectedViz = lazy(() => import('./pages/Imp34457ResidueCurvatureCorrectedViz.jsx'));
 const Imp34458DeflowFalloffViz = lazy(() => import('./pages/Imp34458DeflowFalloffViz.jsx'));
 const Imp34459PeakRelocationRegimeWidthViz = lazy(() => import('./pages/Imp34459PeakRelocationRegimeWidthViz.jsx'));
+const Imp34460TwoTermCurvatureCrossvalViz = lazy(() => import('./pages/Imp34460TwoTermCurvatureCrossvalViz.jsx'));
 const Imp34416CrossoverSurplusFartailCompositeLimitViz = lazy(() => import('./pages/Imp34416CrossoverSurplusFartailCompositeLimitViz.jsx'));
 const Imp34269FixedBandPeakSharedGridCrossRecomputeViz = lazy(() => import('./pages/Imp34269FixedBandPeakSharedGridCrossRecomputeViz.jsx'));
 const Imp34377ResidExpPoleCohortIndexPage = lazy(() => import('./pages/Imp34377ResidExpPoleCohortIndexPage.jsx'));
@@ -1164,6 +1165,7 @@ function AppShell() {
           <Route path="/viz-imp34457-residue-curvature-corrected" element={<Imp34457ResidueCurvatureCorrectedViz />} />
           <Route path="/viz-imp34458-deflow-falloff" element={<Imp34458DeflowFalloffViz />} />
           <Route path="/viz-imp34459-peak-relocation-regime-width" element={<Imp34459PeakRelocationRegimeWidthViz />} />
+          <Route path="/viz-imp34460-two-term-curvature-crossval" element={<Imp34460TwoTermCurvatureCrossvalViz />} />
           <Route path="/viz-imp34361-eflow-crossover-offset-cohort-index" element={<Imp34361EflowCrossoverOffsetCohortIndexPage />} />
           <Route path="/viz-imp34377-resid-exp-pole-cohort-index" element={<Imp34377ResidExpPoleCohortIndexPage />} />
           <Route path="/viz-imp34378-trough-peak-ratio-ceiling" element={<Imp34378TroughPeakRatioCeilingViz />} />

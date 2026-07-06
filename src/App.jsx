@@ -436,6 +436,9 @@ const Imp34671TruncationSweetSpotPlateauViz = lazy(() =>
 const Imp34674SharedStencilPlateauCrossvalidationViz = lazy(() =>
   import('./pages/Imp34674SharedStencilPlateauCrossvalidationViz.jsx')
 );
+const Imp34677BanachContractionCertificateViz = lazy(() =>
+  import('./pages/Imp34677BanachContractionCertificateViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1432,6 +1435,10 @@ function AppShell() {
           <Route
             path="/viz-imp34674-shared-stencil-plateau-crossvalidation"
             element={<Imp34674SharedStencilPlateauCrossvalidationViz />}
+          />
+          <Route
+            path="/viz-imp34677-banach-contraction-certificate"
+            element={<Imp34677BanachContractionCertificateViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

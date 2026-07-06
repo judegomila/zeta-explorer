@@ -4650,6 +4650,16 @@ const DATA_MODULES = [
   // thr ~ 0.3137 (N_cross ~ 1.687e10). Measurement/derivation only; C_mb GUE-conditional per imp-486
   // UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-34174-crossover-surplus-threshold-family-decay.js',
+  // imp-34248: derives the small-thr asymptotic of the imp-34174 surplus by SEPARATING the two
+  // vanishing factors -- surplus(thr) = P(thr).r(thr), P(thr) = thr(1-thr)/(1+(1-thr)r). The prefactor
+  // P -> thr is asymptotically linear (surplus/(thr.r) climbs 0.4995 -> 0.9900), and the E_flow ratio
+  // r ~ (log T0)^2 thr^2 vanishes with a log-softened exponent BELOW 2 (2.985 -> 1.897; deep-tail OLS
+  // 1.917) because N_cross ~ thr^-2 grows log T0. The composite d log surplus / d log thr thus collapses
+  // SUPER-LINEARLY (3.325 -> 2.871; deep-tail OLS 2.878, all-rung OLS 2.961) -- faster than thr, slower
+  // than the naive thr^3 -- and equals 1 + the r-exponent at every deep rung. Derivation/fit only;
+  // C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED.
+  // 6 assertions.
+  '/src/data/imp-34248-crossover-surplus-small-thr-asymptotic.js',
   // imp-34187: tabulates the imp-34130 separated-E_coll local-exponent residual-to-(-1/2)
   // milestone ladder at SEVEN thresholds {1e-2, 3e-3, 1e-3, 3e-4, 1e-4, 3e-5, 1e-5} on the
   // imp-33859 log-space direct path (adding the half-decade rungs to imp-34198's four decade

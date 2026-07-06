@@ -5981,6 +5981,14 @@ const DATA_MODULES = [
   // Reuses effectiveHeightForN + C_C_PINNED verbatim. 7 assertions. Feasibility/measurement only; component
   // model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; PT Lambda<=0.2 SOTA; no bound; NO QED.
   '/src/data/imp-34485-deflow-cancellation-free.js',
+  // imp-34570: MEASUREMENT -- fits the imp-34406 8-rung smooth eflow_attr(k) bracket (k=21.0..21.5,
+  // straddling k*~21.28095) to a power law eflow_attr = A*N^p (R^2=0.99999993, p=-0.937481) and checks
+  // whether the imp-34406 finite local log-slope -2.159 per k is reproduced by the analytic E_flow
+  // log-slope. FINDING: the fit's per-k slope -2.1586 reproduces imp-34406's -2.159 to <0.05%, and both
+  // are within +0.003 (<0.15%) of the analytic E_flow log-slope -2.1618. Reuses IMP34406_EFLOW_ATTR_RUNGS
+  // verbatim (import-light). 5 assertions. Measurement only; component model NOT rigorous; C_mb
+  // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound; NO QED.
+  '/src/data/imp-34570-eflow-attr-power-law-fit-eflow-slope-check.js',
   // imp-34571: MEASUREMENT -- checks the imp-34448 deflow decay pInf ~ 1.000 asymptote against the
   // analytic E_flow log-slope. Refitting p = pInf - c/log(N) on ONLY the directly-observed rungs
   // (kMid 16.125..19.875, all below the crossing kEnd* ~ 21.281 and the fp floor kEnd ~ 23) gives
@@ -6084,6 +6092,13 @@ const DATA_MODULES = [
   // only; inherited surrogate NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066
   // K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34572-eflow-attr-far-side-pole-smoothness.js',
+  // imp-34573: MEASUREMENT -- a regime-stability diagnostic on the imp-34543/imp-34531 O(h^2)
+  // coefficient q2/q3 (curvature/third-derivative) share split. Reuses the imp-34543 decomposition
+  // verbatim to measure the ~98%/~2% split SEPARATELY in the sigma->1 deep tail (N >= N* ~4.62e13,
+  // imp-33620 sigma<0.01) vs the mid-range (N < N*), reporting whether the attribution stays stable or
+  // drifts as sigma->1 -- the regime imp-34543 flagged as least trustworthy. 7 assertions. Measurement
+  // only; C_mb GUE-conditional share per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; no bound; NO QED.
+  '/src/data/imp-34573-drift-residual-share-deeptail-vs-midrange.js',
   // imp-34586: EXTENDS the imp-34572 far-side eflow_attr smooth-bracket ladder PAST its top rung
   // k=21.60 toward the double-precision floor (k = 21.70 .. 22.00, uniform h=0.05) to test whether
   // the monotone smoothness and the finite local log-slope persist to the fp floor or whether

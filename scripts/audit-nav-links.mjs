@@ -347,6 +347,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34352-eflow-gronwall-crossover-offset',
   '/viz-imp34353-crossover-surplus-family-decay',
   '/viz-imp34354-crossover-surplus-small-thr-factorisation',
+  '/viz-imp34355-fartail-crossover-residual-collapse',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

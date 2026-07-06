@@ -304,6 +304,7 @@ const Imp34281M2CeilingCohortIndexPage = lazy(() => import('./pages/Imp34281M2Ce
 const Imp34352EflowGronwallCrossoverOffsetViz = lazy(() => import('./pages/Imp34352EflowGronwallCrossoverOffsetViz.jsx'));
 const Imp34353CrossoverSurplusFamilyDecayViz = lazy(() => import('./pages/Imp34353CrossoverSurplusFamilyDecayViz.jsx'));
 const Imp34354CrossoverSurplusSmallThrFactorisationViz = lazy(() => import('./pages/Imp34354CrossoverSurplusSmallThrFactorisationViz.jsx'));
+const Imp34355FarTailCrossoverResidualCollapseViz = lazy(() => import('./pages/Imp34355FarTailCrossoverResidualCollapseViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1137,6 +1138,7 @@ function AppShell() {
           <Route path="/viz-imp34352-eflow-gronwall-crossover-offset" element={<Imp34352EflowGronwallCrossoverOffsetViz />} />
           <Route path="/viz-imp34353-crossover-surplus-family-decay" element={<Imp34353CrossoverSurplusFamilyDecayViz />} />
           <Route path="/viz-imp34354-crossover-surplus-small-thr-factorisation" element={<Imp34354CrossoverSurplusSmallThrFactorisationViz />} />
+          <Route path="/viz-imp34355-fartail-crossover-residual-collapse" element={<Imp34355FarTailCrossoverResidualCollapseViz />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

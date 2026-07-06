@@ -5484,6 +5484,28 @@ const DATA_MODULES = [
   // Import-light, 5 assertions. Cross-validation only; component model NOT rigorous; C_mb GUE-conditional per
   // imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34489-numerator-approach-four-term-curvature-crossval.js',
+  // imp-34506: TABULATES the higher-order coefficients b, c, c4 of the imp-34489 four-term fit g*kEnd =
+  // a + b*u + c*u^2 + c4*u^3 (u = 1/kEnd) across the imp-34286 windows -- imp-34489 only inspected the leading
+  // coefficient a. FINDING: the signs are window-STABLE (strictly alternating b>0, c<0, c4>0 in every window --
+  // no sign swing) but the MAGNITUDES are window-driven, growing monotonically as the window narrows (b 0.2426
+  // -> 0.3626, c -9.69 -> -18.49, c4 66.38 -> 271.55, ~4.1x swing). The 4x4 normal-equation condition number is
+  // ENORMOUS and grows ~3.5 orders of magnitude (6.08e11 full -> 1.97e15 deep 60..150), so the high-order
+  // coefficients are sign-determined but NOT magnitude-determined -- the one robust output of the ill-conditioned
+  // solve is the intercept a (window-stable per imp-34489), not its higher-order tail. Import-light, 5 assertions.
+  // Diagnostic only; component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
+  // untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34506-four-term-higher-order-coeff-window-stability.js',
+  // imp-34505: EXTRAPOLATE the imp-34489 leading-coefficient a-sequence {two-term a2, three-term a3, four-term
+  // a4} to a limit via Aitken Delta-squared (equivalently a geometric-ratio) per imp-34286 window. The a-limit
+  // lands at 0.43477-0.43515 (full 0.435152, far-field 0.434877, deep 0.434832/0.434774) -- just below the
+  // imp-34489 four-term band 0.4349-0.4355 and ~1.9e-3..2.3e-3 below the imp-34286 0.437-0.438 band. The shift
+  // ratio r=(a4-a3)/(a3-a2) clusters at 0.299-0.326 (mean ~0.314, spread ~4.4%), every value in (0,1/2): the
+  // shrinking shift IS a single fixed convergence rate ~0.31 (~3.2x contraction per order), a converging
+  // geometric expansion. Residual band |a_star-a4| <= ~2.85e-4 and Aitken equals the geometric-tail sum to
+  // <1e-9. Import-light (imp-34489 triples only), 5 assertions. Extrapolation only; component model NOT
+  // rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA;
+  // no bound change; NO QED.
+  '/src/data/imp-34505-numerator-approach-a-sequence-extrapolation.js',
   // imp-34410: CROSS-VALIDATE the imp-34328 F2 exact complement identity gapSigma * log T0 + gapProduct
   // = 1/2 against a DIRECT finite-N sigma-exponent secant, not the closed form both gaps were built from.
   // imp-34328 formed BOTH gaps from the same resid, so its identity is an algebraic TAUTOLOGY
@@ -5672,6 +5694,23 @@ const DATA_MODULES = [
   // measurement only; component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066
   // K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34490-residue-error-bar-propagation.js',
+  // imp-34492: ASSESSMENT -- does the ~8% imp-34454 flank discrepancy between the monomial-predicted
+  // eflow_over_resid ratio +6.394e-7 (leading residue R) and the imp-34310-measured +5.9e-7 at k=21.25
+  // shrink on a nearer-flank sample, tightening the three-read bridge-slope m band [-2.510e-7,-2.316e-7]?
+  // Near the simple pole g(k)=R/(k-k*)+A+O(k-k*) with a CONSTANT subleading background A pinned by the
+  // one measured rung (A=measured-leading=-4.944e-8), so the fractional gap relGap=|A|delta/|R| vanishes
+  // LINEARLY in the pole distance delta=k*-k. FINDINGS: (F1) k=21.25 (delta=0.03095) reproduces the
+  // inherited leading +6.394e-7, ~8.4% gap, R3=-1.826e-8, m3=-2.510e-7 (wide band edge); (F2) a rung at
+  // HALF the distance (k~21.2655, delta=0.0155) halves the gap to ~4.0% (below 8%) and tightens R3 to
+  // ~-1.902e-8 (m3~-2.409e-7); at delta=0.005 the gap is ~1.3%, the band span collapses 8.38%->0.63%
+  // across the ladder; (F3) SUB-GAP EXTENDED-PRECISION-NEAR-POLE-RATIO: no rung nearer than k=21.25 in
+  // the baked imp-34237 source (imp-34397) and resid_exp->0 (~-1.16e-9 at delta=0.005, ~6-7 sig figs
+  // above the ~1e-15 double floor), so the ACTUAL nearer-rung ratio is cancellation-noise-dominated --
+  // the model narrows cleanly, the measurement needs bignum. Import-light (imports NOTHING; baked
+  // reference literals). 7 assertions. The leading residue R and exponent p=-1 (amplitude-independent)
+  // UNTOUCHED. Assessment/model read only; component model NOT rigorous; C_mb GUE-conditional per imp-486
+  // untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34492-nearer-flank-gap-narrowing.js',
 ];
 
 let ALL_MODULES = FAST_MODE

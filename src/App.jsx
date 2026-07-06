@@ -379,6 +379,9 @@ const Imp34594EflowAttrFarSideSmoothnessLadderViz = lazy(() =>
 const Imp34570EflowAttrPowerLawFitViz = lazy(() =>
   import('./pages/Imp34570EflowAttrPowerLawFitViz.jsx')
 );
+const Imp34596DeflowObservedExponentViz = lazy(() =>
+  import('./pages/Imp34596DeflowObservedExponentViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1299,6 +1302,10 @@ function AppShell() {
           <Route
             path="/viz-imp34570-eflow-attr-power-law-fit"
             element={<Imp34570EflowAttrPowerLawFitViz />}
+          />
+          <Route
+            path="/viz-imp34596-deflow-observed-exponent"
+            element={<Imp34596DeflowObservedExponentViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

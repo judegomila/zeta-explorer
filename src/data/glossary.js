@@ -11983,6 +11983,32 @@ export const glossary = [
       'imp-34188 widening-slope limit exactly -1, the surrogate estimate the pole leakage corrupts',
     ],
   },
+  {
+    term: 'Conditionality Gap L_pt / E(N)',
+    category: 'numerical',
+    definition:
+      'The factor by which the unconditional finite-height beat L_pt ~ 0.121 (imp-452/459, Platt-Trudgian) ' +
+      'exceeds the GUE-conditional headline slack E(N) = E_trunc + E_flow + E_coll at a given landmark N -- ' +
+      'the price, in orders of magnitude, of assuming the C_mb Montgomery pair-correlation constant (GUE-' +
+      'conditional, imp-486) rather than only using the rigorous unconditional certificate. imp-34453 ' +
+      'assembled the headline at the imp-3444 E_coll=E_trunc sigma-halving crossover (N ~ 3.280294e9): ' +
+      'E(N) = 6.1258e-5 there, sitting a factor ~1975x BELOW L_pt (L_pt/E(N) = 1975.2). imp-34488 later ' +
+      'tabulated this ratio across three landmarks and found it grows but saturates toward a ceiling ' +
+      'L_pt/E_trunc = 3954.25 as sigma(N) decays to 0.\n\n' +
+      'HONEST SCOPE: a conditional-share diagnostic only, not an RH bound. E(N) is dominated by GUE-' +
+      'conditional E_coll while L_pt is fully unconditional, so the ~1975x separation measures conditional ' +
+      'headroom, not a proof gain; per imp-2564, the E(N) values are bridge (assembly-error) constants, ' +
+      'not the headline Lambda<=... inequality itself. C_mb remains GUE-conditional (imp-486) throughout; ' +
+      'changes no bound; imp-3066 K_a>=0 untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-34453 (assembling the headline E(N) at the imp-3444 sigma-halving crossover and comparing ' +
+      'it to L_pt, finding the ~1975x factor)',
+    relatedTerms: [
+      'imp-3444 sigma(N) machine-precision landmark ladder, source of the E_coll=E_trunc crossover this gap is measured at (imp-3444)',
+      'imp-452 L_pt finite-height beat assembly, the unconditional side of the ratio (imp-452)',
+      'imp-486 C_mb Montgomery pair-correlation constant, the GUE-conditional assumption this gap prices (imp-486)',
+      'imp-34488 conditionality-gap ratio tabulated across three landmarks, showing saturation toward a ceiling (imp-34488)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

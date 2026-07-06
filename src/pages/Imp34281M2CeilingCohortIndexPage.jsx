@@ -9,6 +9,7 @@ import PageHeader from '../components/PageHeader.jsx';
 import { IMP34282_B_INF_DESCRIPTIVE_VS_DERIVATION_STATUS_NOTE } from '../data/imp-34282-b-inf-descriptive-vs-derivation-status-note.js';
 import { IMP34211_CLOSEDFORM_VS_BISECTION_KEND_GAP } from '../data/imp-34211-closedform-vs-bisection-kend-gap.js';
 import { IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST } from '../data/imp-34233-fixed-band-peak-combined-grid-ceiling-contest.js';
+import { IMP34109_FIXED_BAND_PEAK_AMPLITUDE_SATURATION_FIT } from '../data/imp-34109-fixed-band-peak-amplitude-saturation-fit.js';
 
 const COHORT = [
   {
@@ -166,6 +167,32 @@ export default function Imp34281M2CeilingCohortIndexPage() {
         {IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST.linearFit.r2}) overtakes the log form
         (AIC gap ~+{IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST.aicGapLogMinusLin}). Measurement
         only, not an RH bound; no finite ceiling is supported within kEnd &le; k*~21.28.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>Reconciling the log-vs-linear flip (imp-34233 vs imp-34109):</strong>{' '}
+        on imp-34109's kEnd = 14..20 grid the unbounded log form beat linear (R&sup2;&nbsp;
+        {IMP34109_FIXED_BAND_PEAK_AMPLITUDE_SATURATION_FIT.logFit.r2}&nbsp;&gt;&nbsp;
+        {IMP34109_FIXED_BAND_PEAK_AMPLITUDE_SATURATION_FIT.linearFit.r2}), while on the imp-34233 combined
+        grid extended to kEnd = 21.0 the unbounded LINEAR form overtakes the log (R&sup2;&nbsp;
+        {IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST.linearFit.r2}&nbsp;&gt;&nbsp;
+        {IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST.logFit.r2}). These two readings are not in
+        tension: the flip is driven entirely by the two extra imp-34169 windows (kEnd 20.5, 21.0) imp-34233
+        stitches onto imp-34109's grid -- both windows re-accelerate steeply (increments
+        0.040658&nbsp;&rarr;&nbsp;0.050639&nbsp;&rarr;&nbsp;0.080391, strictly positive second differences),
+        which pulls the best-fit form away from the log's curvature and toward the least-bounded linear
+        form. Neither reading is wrong; imp-34233's grid is simply longer and its tail steeper. Measurement
+        only; no RH bound changes.
       </div>
     </div>
   );

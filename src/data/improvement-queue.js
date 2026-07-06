@@ -55492,13 +55492,15 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Add an analysis-tab note reconciling the imp-34233 unbounded-LINEAR-overtakes-log combined-grid reading with the imp-34109 log-over-linear reading, stating the flip is driven by the two steeply-climbing near-pole imp-34169 windows',
     category: 'content',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S-frontier',
     description: "On imp-34109's kEnd 14..20 grid the log form beat linear (R^2 0.99948 > 0.99617), but imp-34233 shows that stitching the two steeply-climbing imp-34169 windows flips it so unbounded LINEAR overtakes log (kEnd 14..21). Add an analysis-tab note reconciling the two readings for a reader, making explicit that the form-winner flip is driven by the near-pole re-acceleration in the last windows and is a finite-window growth-form observation, not a bound; honest footer (descriptive, inherited component model, NO QED, PT SOTA). Presentation only.",
     rationale: 'Frontier scout: imp-34233 linear-overtakes-log vs imp-34109 log-over-linear flip needs a reader-facing reconciliation note',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'sonnet-4-6',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
 ];
 

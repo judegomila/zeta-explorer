@@ -6356,6 +6356,10 @@ const DATA_MODULES = [
   // imp-34685: independent cross-validation of the imp-34650 Banach certificate
   // numbers from a FRESH inline copy of the Riemann-von Mangoldt inverse solver.
   '/src/data/imp-34685-banach-certificate-crossvalidation.js',
+  // imp-34684: extend the imp-34654 reference-weight cross-validation to the
+  // imp-34611 4th-order stencils (Fornberg + Vandermonde re-derivation; the
+  // 4th-order does NOT reproduce the 6th-order ~3e-4 conditioning signature).
+  '/src/data/imp-34684-fourth-order-stencil-reference-weight-crossvalidation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

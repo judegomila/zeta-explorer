@@ -76,7 +76,7 @@ export default function PascalPage() {
         </p>
 
         <h3 style={{ fontSize: 14, fontWeight: 600, color: '#8b5cf6', marginBottom: 8 }}>
-          Why This Matters for the ZPO Model
+          Why This Matters for the Twin-Ladder Bridge Model
         </h3>
         <p style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 8 }}>
           In the oscillator chain framework, each Pascal row acts as a "decorating filter" — row <InlineMath tex={"n"} />'s
@@ -98,7 +98,7 @@ export default function PascalPage() {
             <thead>
               <tr style={{ borderBottom: '1px solid var(--border)' }}>
                 <th style={{ textAlign: 'left', padding: '8px 12px', color: '#64748b', fontWeight: 600 }}>Pascal's Triangle</th>
-                <th style={{ textAlign: 'left', padding: '8px 12px', color: '#64748b', fontWeight: 600 }}>Zeta / ZPO Model</th>
+                <th style={{ textAlign: 'left', padding: '8px 12px', color: '#64748b', fontWeight: 600 }}>Zeta / Twin-Ladder Bridge Model</th>
               </tr>
             </thead>
             <tbody>
@@ -234,7 +234,7 @@ export default function PascalPage() {
         <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: 8 }}>
           The fractal in Pascal mod <InlineMath tex={"p"} /> has a self-similarity ratio
           of <InlineMath tex={"p"} />: zooming in by a factor of <InlineMath tex={"p"} /> reveals an identical
-          copy of the full pattern. This mirrors the ZPO oscillator cascade: the <InlineMath tex={"p"} />-oscillator's
+          copy of the full pattern. This mirrors the Twin-Ladder Bridge oscillator cascade: the <InlineMath tex={"p"} />-oscillator's
           contribution repeats at scales <InlineMath tex={"p, p^2, p^3, \\ldots"} />, each level a
           geometrically attenuated copy of the fundamental. The density of nonzero entries in Pascal
           mod <InlineMath tex={"p"} /> through row <InlineMath tex={"p^m - 1"} /> is:
@@ -298,7 +298,7 @@ export default function PascalPage() {
           The 2-Euler Factor and Binary Decomposition
         </h3>
         <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: 8 }}>
-          The Euler factor for <InlineMath tex={"p = 2"} /> is the "first rung" of the ZPO ladder and has
+          The Euler factor for <InlineMath tex={"p = 2"} /> is the "first rung" of the Twin-Ladder Bridge ladder and has
           the simplest harmonic structure:
         </p>
         <BlockMath tex={"\\frac{1}{1 - 2^{-s}} = 1 + 2^{-s} + 4^{-s} + 8^{-s} + \\cdots = \\sum_{k=0}^{\\infty} 2^{-ks}"} />
@@ -329,10 +329,10 @@ export default function PascalPage() {
         </p>
 
         <h3 style={{ fontSize: 14, fontWeight: 600, color: '#8b5cf6', marginBottom: 8, marginTop: 16 }}>
-          Connection to the ZPO Twin Ladder
+          Connection to the Twin-Ladder Bridge Twin Ladder
         </h3>
         <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: 8 }}>
-          In the ZPO twin-ladder model, the 2-oscillator sits at the top of the cascade (lowest
+          In the Twin-Ladder Bridge twin-ladder model, the 2-oscillator sits at the top of the cascade (lowest
           prime, highest frequency <InlineMath tex={"\\omega_2 = \\log 2"} />). The Sierpinski structure
           shows that this oscillator's contribution to the Hasse representation has a fundamentally
           binary, self-similar organization. Each "level" of the Sierpinski triangle corresponds to
@@ -386,7 +386,7 @@ export default function PascalPage() {
             the need for alternating signs to achieve cancellation.
           </li>
           <li>
-            In the ZPO ladder model, the Hasse formula provides an alternative to the Euler product —
+            In the Twin-Ladder Bridge ladder model, the Hasse formula provides an alternative to the Euler product —
             instead of one factor per prime, we get one factor per Pascal row, with binomial
             "decorations" replacing prime frequencies.
           </li>
@@ -399,7 +399,7 @@ export default function PascalPage() {
             Pascal's triangle mod <InlineMath tex={"p"} /> reveals a <strong style={{ color: '#e2e8f0' }}>per-prime fractal</strong> whose
             self-similarity ratio <InlineMath tex={"p"} /> matches the base of the corresponding Euler
             factor, linking the combinatorial structure of binomials to the harmonic structure of
-            each ZPO oscillator.
+            each Twin-Ladder Bridge oscillator.
           </li>
           <li>
             The <strong style={{ color: '#e2e8f0' }}>Sierpinski triangle</strong> (Pascal mod 2) acts as a binary
@@ -413,7 +413,7 @@ export default function PascalPage() {
         <p style={{ fontSize: 12, color: '#64748b', marginBottom: 10, fontStyle: 'italic' }}>
           Note: the combinatorial identities on this page (Hasse–Sondow, Lucas, Kummer) are
           rigorous theorems. The Pascal/binomial-to-zeta connections shown here are structural
-          and illustrative — they are not a route to RH. The ZPO oscillator-chain framing
+          and illustrative — they are not a route to RH. The Twin-Ladder Bridge oscillator-chain framing
           connecting binomial structure to RH via zero-coupling is a heuristic model, not a proof of RH.
         </p>
         <h3 style={{ color: '#64748b', fontSize: 13, marginBottom: 10 }}>Related Pages</h3>

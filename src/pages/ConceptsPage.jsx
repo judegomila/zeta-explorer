@@ -323,7 +323,7 @@ const CONCEPTS = [
     category: 'thermo',
     term: 'Free Energy',
     symbol: 'F = -T \\ln Z',
-    definition: 'In the ZPO thermodynamic interpretation, F = -(1/σ)·ln ζ(σ+it). At σ = ½, the free energy is at a critical point. The free energy landscape determines equilibrium states.',
+    definition: 'In the Twin-Ladder Bridge thermodynamic interpretation, F = -(1/σ)·ln ζ(σ+it). At σ = ½, the free energy is at a critical point. The free energy landscape determines equilibrium states.',
     formula: 'F(\\sigma, t) = -\\frac{1}{\\sigma} \\ln|\\zeta(\\sigma + it)| + V_{\\text{bridge}}(\\sigma)',
     intuition: 'Zeros of ζ correspond to F → -∞ (divergent free energy) — thermodynamic "singularities" where the system undergoes qualitative change.',
   },
@@ -332,7 +332,7 @@ const CONCEPTS = [
     category: 'thermo',
     term: 'Partition Function',
     symbol: 'Z(\\beta)',
-    definition: 'The central object of statistical mechanics: sum of Boltzmann weights over all states. For the ZPO system, Z(β) = ζ(β) with β = σ as inverse temperature.',
+    definition: 'The central object of statistical mechanics: sum of Boltzmann weights over all states. For the Twin-Ladder Bridge system, Z(β) = ζ(β) with β = σ as inverse temperature.',
     formula: 'Z(\\beta) = \\sum_n e^{-\\beta E_n} = \\sum_n n^{-\\sigma} = \\zeta(\\sigma) \\quad (\\text{for }t=0)',
     intuition: 'Each integer n is a "microstate" with energy E_n = log n. The partition function sums their Boltzmann weights.',
   },
@@ -441,7 +441,7 @@ const CONCEPTS = [
     category: 'geometry',
     term: 'Twistor',
     symbol: 'Z^{\\alpha} = (\\omega^A, \\pi_{A\'})',
-    definition: 'A point in Penrose twistor space. In the ZPO mapping, s = σ + it maps to a 4-component twistor with ω encoding displacement from the critical line and π encoding prime-phase oscillation.',
+    definition: 'A point in Penrose twistor space. In the Twin-Ladder Bridge mapping, s = σ + it maps to a 4-component twistor with ω encoding displacement from the critical line and π encoding prime-phase oscillation.',
     formula: 'Z^\\alpha = \\left(\\sigma - \\tfrac{1}{2},\\; \\frac{t}{2\\pi},\\; \\cos(t\\log 2),\\; \\sin(t\\log 2)\\right)',
     intuition: 'A different coordinate system for the s-plane that makes the critical line condition geometric — it becomes "two vectors being perpendicular."',
   },
@@ -458,7 +458,7 @@ const CONCEPTS = [
     id: 'incidence-relation',
     category: 'geometry',
     term: 'Twistor Incidence Relation',
-    definition: 'The condition Z·W = 0 (twistor is "incident" on dual twistor). In the ZPO mapping, this reduces to 2(σ-½)cos(t log 2) = 0, satisfied iff σ = ½ (away from special t-values).',
+    definition: 'The condition Z·W = 0 (twistor is "incident" on dual twistor). In the Twin-Ladder Bridge mapping, this reduces to 2(σ-½)cos(t log 2) = 0, satisfied iff σ = ½ (away from special t-values).',
     formula: 'Z^\\alpha W_\\alpha = 2(\\sigma - \\tfrac{1}{2})\\cos(t \\log 2) = 0 \\;\\Longleftrightarrow\\; \\sigma = \\tfrac{1}{2}',
     intuition: 'The critical line is where twistor and dual twistor are "perpendicular" — a geometric restatement of the symmetry condition.',
   },
@@ -495,7 +495,7 @@ const CONCEPTS = [
     term: 'Hilbert-Pólya Conjecture',
     definition: 'The conjecture that there exists a self-adjoint operator A on a Hilbert space whose eigenvalues are the imaginary parts of the zeta zeros. Self-adjointness forces real eigenvalues, which forces Re(ρ) = ½.',
     formula: 'A\\psi_n = \\gamma_n \\psi_n, \\quad A = A^\\dagger \\;\\Rightarrow\\; \\gamma_n \\in \\mathbb{R} \\;\\Rightarrow\\; \\text{Re}(\\rho_n) = \\tfrac{1}{2}',
-    intuition: 'If the zeros are eigenvalues of a "nice" (self-adjoint) operator, they MUST be real — and that IS the Riemann Hypothesis. The ZPO gap S5 is exactly this.',
+    intuition: 'If the zeros are eigenvalues of a "nice" (self-adjoint) operator, they MUST be real — and that IS the Riemann Hypothesis. The Twin-Ladder Bridge gap S5 is exactly this.',
   },
   {
     id: 'darlington-synthesis',
@@ -519,7 +519,7 @@ const CONCEPTS = [
     term: 'Selberg Trace Formula',
     definition: 'Relates spectral data (eigenvalues of the Laplacian on a surface) to geometric data (lengths of closed geodesics). Analogous to the Weil explicit formula, with "eigenvalues ↔ zeros" and "geodesics ↔ primes".',
     formula: '\\sum_n h(r_n) = \\frac{\\text{Area}}{4\\pi}\\int h(r)\\,r\\tanh(\\pi r)\\,dr + \\sum_\\gamma \\frac{\\log N(\\gamma)}{N(\\gamma)^{1/2} - N(\\gamma)^{-1/2}} \\hat{h}(\\log N(\\gamma))',
-    intuition: 'The "spectral = geometric" duality: eigenvalues encode geodesic lengths. The ZPO twin ladder is a discrete version: "zeros encode prime frequencies."',
+    intuition: 'The "spectral = geometric" duality: eigenvalues encode geodesic lengths. The Twin-Ladder Bridge twin ladder is a discrete version: "zeros encode prime frequencies."',
   },
   {
     id: 'li-criterion',
@@ -561,7 +561,7 @@ const CONCEPTS = [
     term: 'Circular Unitary Ensemble (CUE)',
     definition: 'The ensemble of N×N unitary matrices distributed according to Haar measure. Models the scattering matrix of quantum systems with time-reversal symmetry breaking. The bridge χ(s) on the critical line is a 1×1 CUE matrix (random phase).',
     formula: 'U \\in \\text{CUE}(N) \\;\\Leftrightarrow\\; U^\\dagger U = I, \\quad P(U) = \\text{Haar measure}',
-    intuition: 'Random unitary matrices — like spinning a wheel of phases. The ZPO bridge at σ=½ is a "random phase multiplier" consistent with CUE statistics.',
+    intuition: 'Random unitary matrices — like spinning a wheel of phases. The Twin-Ladder Bridge bridge at σ=½ is a "random phase multiplier" consistent with CUE statistics.',
   },
   {
     id: 'wigner-surmise',
@@ -604,7 +604,7 @@ const CONCEPTS = [
     symbol: '\\psi(x)',
     definition: 'The sum of von Mangoldt values up to x: ψ(x) = Σ_{n≤x} Λ(n). A weighted prime counting function whose "staircase" jumps at prime powers. The explicit formula decomposes it into zeta zero oscillations.',
     formula: '\\psi(x) = \\sum_{n \\leq x} \\Lambda(n) = x - \\sum_{\\rho} \\frac{x^{\\rho}}{\\rho} - \\frac{\\zeta\'(0)}{\\zeta(0)} + O(1)',
-    intuition: 'A staircase that jumps by log(p) at each prime p and prime power. The ZPO explicit formula decomposes this staircase into oscillating modes — one per zeta zero.',
+    intuition: 'A staircase that jumps by log(p) at each prime p and prime power. The Twin-Ladder Bridge explicit formula decomposes this staircase into oscillating modes — one per zeta zero.',
   },
   {
     id: 'dirichlet-l-function',
@@ -621,7 +621,7 @@ const CONCEPTS = [
     term: 'Bohr-Sommerfeld Quantization',
     definition: 'A semiclassical rule for finding eigenvalues: the action integral around a classical orbit must be an integer multiple of 2π. Berry-Keating applied this to H = xp to approximate zeta zeros.',
     formula: '\\oint p\\,dx = 2\\pi\\hbar(n + \\tfrac{1}{2}) \\;\\Rightarrow\\; E_n \\approx \\frac{2\\pi n}{\\log(n/2\\pi e)}',
-    intuition: 'Standing waves on a drum: only certain frequencies fit exactly. Similarly, the ZPO "drum" (the prime oscillator chain) only resonates at frequencies corresponding to zeta zeros.',
+    intuition: 'Standing waves on a drum: only certain frequencies fit exactly. Similarly, the Twin-Ladder Bridge "drum" (the prime oscillator chain) only resonates at frequencies corresponding to zeta zeros.',
   },
   {
     id: 'borwein-acceleration',
@@ -648,9 +648,9 @@ const CONCEPTS = [
   {
     term: 'Spectral Realization of Zeros',
     category: 'quantum',
-    definition: 'The Hilbert-Polya dream made precise: there exists a self-adjoint operator on a Hilbert space whose eigenvalues are the nontrivial zeros of ζ(s). Connes\' approach constructs this space as L²(A_Q/Q*) and the operator as the infinitesimal generator of scaling (the "absorption spectrum" of the adele class space). The ZPO coupling matrix M_jk is a finite-dimensional approximation to this operator.',
+    definition: 'The Hilbert-Polya dream made precise: there exists a self-adjoint operator on a Hilbert space whose eigenvalues are the nontrivial zeros of ζ(s). Connes\' approach constructs this space as L²(A_Q/Q*) and the operator as the infinitesimal generator of scaling (the "absorption spectrum" of the adele class space). The Twin-Ladder Bridge coupling matrix M_jk is a finite-dimensional approximation to this operator.',
     formula: 'M_{jk} = \\gamma_j \\delta_{jk} + \\sum_p \\frac{\\log p}{p} \\cos((\\gamma_j - \\gamma_k)\\log p)',
-    intuition: 'The ZPO matrix uses prime-indexed coupling to approximate the infinite-dimensional Connes operator. As the matrix grows, its eigenvalues converge to the actual zeta zeros.',
+    intuition: 'The Twin-Ladder Bridge matrix uses prime-indexed coupling to approximate the infinite-dimensional Connes operator. As the matrix grows, its eigenvalues converge to the actual zeta zeros.',
   },
 
   // ── New Proof-Status Concepts ──
@@ -658,7 +658,7 @@ const CONCEPTS = [
     id: 'c-h-wall',
     category: 'proof',
     term: 'C_H Wall (Gronwall Obstruction)',
-    definition: "The unresolved Gronwall amplification constant C_H that bounds backward heat-flow in the ZPO collision analysis. C_H exists (the flow is bounded) but pinning its numerical value is as hard as RH itself — making it an \"RH-hard\" obstruction. This wall is the primary gap blocking a fully rigorous E_flow bound.",
+    definition: "The unresolved Gronwall amplification constant C_H that bounds backward heat-flow in the Twin-Ladder Bridge collision analysis. C_H exists (the flow is bounded) but pinning its numerical value is as hard as RH itself — making it an \"RH-hard\" obstruction. This wall is the primary gap blocking a fully rigorous E_flow bound.",
     formula: 'E_{\\text{flow}} \\leq C_H \\cdot |t_c|^{1/2}, \\quad C_H \\text{ finite} \\Longleftrightarrow \\text{RH}',
     intuition: "Like a speed limit that exists but whose exact value requires solving RH to certify — the wall that currently blocks unconditional rigor in the backward-flow analysis.",
   },
@@ -676,22 +676,22 @@ const CONCEPTS = [
     term: 'RH-Equivalent Statement',
     definition: "A proposition S is RH-equivalent if S is provably equivalent to the Riemann Hypothesis (S iff RH). There are hundreds of such reformulations: Li's criterion (all lambda_n >= 0), Weil positivity, explicit PNT error bounds, and the Volterra operator norm ||V_{a,Phi}|| <= 1. Proving any one unconditionally proves RH.",
     formula: 'S \\Longleftrightarrow \\text{RH}, \\quad \\text{e.g., } \\lambda_n \\geq 0 \\;\\forall n,\\; \\|V\\|_{op} \\leq 1,\\; W(g) \\geq 0',
-    intuition: "Different faces of the same crystal. Each RH-equivalent statement is a new attack surface. The ZPO program contributes several new equivalences through the oscillator-chain collapse theorems.",
+    intuition: "Different faces of the same crystal. Each RH-equivalent statement is a new attack surface. The Twin-Ladder Bridge program contributes several new equivalences through the oscillator-chain collapse theorems.",
   },
   {
     id: 'pcc-free',
     category: 'proof',
     term: 'PCC-Free Route',
-    definition: "A proof strategy is PCC-free if it avoids assuming the Montgomery Pair-Correlation Conjecture (PCC). Of the 13 primary ZPO paper conjectures, 5 are SUBSUMED-BY-RH through a shared Montgomery PCC obstruction across all live ESY-closure routes — meaning any route through these conjectures implicitly depends on PCC. A PCC-free route navigates around this obstruction without invoking pair-correlation statistics. See /route-map and /pcc-route-exhaustion.",
+    definition: "A proof strategy is PCC-free if it avoids assuming the Montgomery Pair-Correlation Conjecture (PCC). Of the 13 primary Twin-Ladder Bridge paper conjectures, 5 are SUBSUMED-BY-RH through a shared Montgomery PCC obstruction across all live ESY-closure routes — meaning any route through these conjectures implicitly depends on PCC. A PCC-free route navigates around this obstruction without invoking pair-correlation statistics. See /route-map and /pcc-route-exhaustion.",
     formula: '\\text{PCC: } \\int_\\alpha^\\beta \\!\\left(1 - \\tfrac{\\sin^2(\\pi u)}{(\\pi u)^2}\\right)du \\;\\Longleftrightarrow\\; \\text{GUE statistics for zeros}',
-    intuition: "PCC-free does NOT mean RH-free: the Riemann Hypothesis is still the target. It only means the proof route does not secretly lean on unproven pair-correlation statistics. Five ZPO routes share a single PCC wall — a PCC-free route must find a path that avoids this shared obstruction entirely.",
+    intuition: "PCC-free does NOT mean RH-free: the Riemann Hypothesis is still the target. It only means the proof route does not secretly lean on unproven pair-correlation statistics. Five Twin-Ladder Bridge routes share a single PCC wall — a PCC-free route must find a path that avoids this shared obstruction entirely.",
   },
   {
     id: 'ch-wall',
     category: 'proof',
     term: 'C_H Wall',
     symbol: 'C_H',
-    definition: "The principal unresolved constant barrier in the ZPO program. C_H = C_shock * C_Lip / 4 enters the Gronwall backward-flow integral, which diverges at the eigenvalue collision time t_c, making the C_H discharge RH-equivalent and unconditionally undischargeable by the current route. imp-2640 confirmed the Gronwall discharge fails; imp-2632 showed the OLS-fitted t_c is not rigorous. See /state-of-program and the overclaim-ledger for full C_H-pending status.",
+    definition: "The principal unresolved constant barrier in the Twin-Ladder Bridge program. C_H = C_shock * C_Lip / 4 enters the Gronwall backward-flow integral, which diverges at the eigenvalue collision time t_c, making the C_H discharge RH-equivalent and unconditionally undischargeable by the current route. imp-2640 confirmed the Gronwall discharge fails; imp-2632 showed the OLS-fitted t_c is not rigorous. See /state-of-program and the overclaim-ledger for full C_H-pending status.",
     formula: 'C_H = \\frac{C_{\\mathrm{shock}} \\cdot C_{\\mathrm{Lip}}}{4}',
     intuition: "C_H is the #1 named wall in the route map. Every integral certificate bounding the backward Gronwall flow must ultimately pin C_H to an explicit value — and no unconditional bound exists yet. Until C_H is certified, every beat estimate is an honest ceiling only.",
   },
@@ -1031,7 +1031,7 @@ export default function ConceptsPage() {
         </h3>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 16 }}>
           Alain Connes' approach is the most developed spectral framework for the Riemann Hypothesis.
-          It provides the theoretical foundation for our ZPO operator construction (S5).
+          It provides the theoretical foundation for our Twin-Ladder Bridge operator construction (S5).
         </p>
 
         <div style={{ display: 'grid', gap: 16 }}>
@@ -1071,7 +1071,7 @@ export default function ConceptsPage() {
           <div style={{ padding: '12px 16px', borderRadius: 8, background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.15)' }}>
             <h4 style={{ color: '#fbbf24', fontSize: 14, marginBottom: 8 }}>4. Connection to ZPO</h4>
             <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
-              Our ZPO coupling matrix <InlineMath tex="M_{jk} = \gamma_j\delta_{jk} + \sum_p \frac{\log p}{p}\cos((\gamma_j-\gamma_k)\log p)" /> is
+              Our Twin-Ladder Bridge coupling matrix <InlineMath tex="M_{jk} = \gamma_j\delta_{jk} + \sum_p \frac{\log p}{p}\cos((\gamma_j-\gamma_k)\log p)" /> is
               a <strong>finite-dimensional approximation</strong> to Connes' operator Θ. The diagonal terms are
               the zeros themselves; the off-diagonal coupling via primes mirrors the action of Frobenius
               on cohomology. As the matrix size grows, the eigenvalues converge to the actual zeros —

@@ -961,7 +961,7 @@ function BerryKeatingTab() {
     ctx.font = '11px "JetBrains Mono", monospace';
     ctx.fillStyle = '#3b82f6';
     ctx.textAlign = 'left';
-    ctx.fillText(`BK+ZPO eigenvalues (n=${matrixSize})`, margin.left + 8, margin.top + 14);
+    ctx.fillText(`BK+Twin-Ladder Bridge eigenvalues (n=${matrixSize})`, margin.left + 8, margin.top + 14);
     ctx.fillStyle = '#64748b';
     ctx.fillText('— perfect match line', margin.left + 8, margin.top + 30);
 
@@ -987,7 +987,7 @@ function BerryKeatingTab() {
         <p>
           The <strong>Berry-Keating conjecture</strong> proposes that ζ-zeros are eigenvalues of the
           quantized Hamiltonian <InlineMath tex="H = \\tfrac{1}{2}(xp + px)" />. We discretize this
-          operator on a log-uniform grid, then apply the <strong>ZPO correction</strong>: prime-indexed
+          operator on a log-uniform grid, then apply the <strong>Twin-Ladder Bridge correction</strong>: prime-indexed
           coupling terms <InlineMath tex="V_{jk} = \\sum_p \\frac{\\log p}{p} \\cos((E_j - E_k)\\log p)" /> that
           shift eigenvalues toward the actual zeros.
         </p>
@@ -1017,14 +1017,14 @@ function BerryKeatingTab() {
       {/* Comparison table */}
       <div style={{ marginTop: 16 }}>
         <div style={{ color: '#94a3b8', fontSize: 13, fontWeight: 600, marginBottom: 8 }}>
-          ZPO Correction Impact
+          Twin-Ladder Bridge Correction Impact
         </div>
         <table style={{ width: '100%', fontSize: 12, borderCollapse: 'collapse' }}>
           <thead>
             <tr style={{ color: '#64748b', borderBottom: '1px solid #1e293b' }}>
               <th style={{ textAlign: 'left', padding: 4 }}>n</th>
               <th style={{ textAlign: 'right', padding: 4 }}>Bare BK avg err</th>
-              <th style={{ textAlign: 'right', padding: 4 }}>+ZPO avg err</th>
+              <th style={{ textAlign: 'right', padding: 4 }}>+Twin-Ladder Bridge avg err</th>
               <th style={{ textAlign: 'right', padding: 4 }}>Improvement</th>
             </tr>
           </thead>
@@ -1055,7 +1055,7 @@ function BerryKeatingTab() {
           <thead>
             <tr style={{ color: '#64748b', borderBottom: '1px solid #1e293b' }}>
               <th style={{ textAlign: 'left', padding: 3 }}>#</th>
-              <th style={{ textAlign: 'right', padding: 3 }}>BK+ZPO eigenvalue</th>
+              <th style={{ textAlign: 'right', padding: 3 }}>BK+Twin-Ladder Bridge eigenvalue</th>
               <th style={{ textAlign: 'right', padding: 3 }}>ζ zero</th>
               <th style={{ textAlign: 'right', padding: 3 }}>Error</th>
             </tr>

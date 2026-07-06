@@ -16,7 +16,7 @@ const reasoningEntries = [
     status: 'active',
     content: `Both the Twin-Ladder Bridge framework and Connes' latest work (Zeta Spectral Triples, Nov 2025; Letter to Riemann, Feb 2026) face the SAME core challenge: proving that properties verified for finitely many primes persist in the infinite limit.
 
-**ZPO version:** For N primes, the scattering matrix satisfies S_N†S_N ≈ I with deficit O(p_N^{-1}). We need lim_{N→∞} S_N†S_N = I (exact unitarity).
+**Twin-Ladder Bridge version:** For N primes, the scattering matrix satisfies S_N†S_N ≈ I with deficit O(p_N^{-1}). We need lim_{N→∞} S_N†S_N = I (exact unitarity).
 
 **Connes' version:** For primes p ≤ x, he constructs self-adjoint operators whose eigenvalues match the first ~50 zeta zeros to accuracy 10^{-55}. He needs the eigenvalues to converge to exact zeros as x → ∞.
 
@@ -33,10 +33,10 @@ const reasoningEntries = [
     id: 'R002',
     date: '2026-03-06',
     epoch: 1,
-    title: 'Connes\' Rank-One Perturbation ↔ ZPO Bridge Coupling',
+    title: 'Connes\' Rank-One Perturbation ↔ Twin-Ladder Bridge Bridge Coupling',
     category: 'novel-connection',
     status: 'active',
-    content: `In the Zeta Spectral Triples paper (arXiv:2511.22755), Connes constructs self-adjoint operators via rank-one perturbations of a scaling operator. In ZPO language:
+    content: `In the Zeta Spectral Triples paper (arXiv:2511.22755), Connes constructs self-adjoint operators via rank-one perturbations of a scaling operator. In Twin-Ladder Bridge language:
 
 - The scaling operator = the direct ladder (free evolution of prime oscillators)
 - The rank-one perturbation = the bridge χ(s) coupling direct to dual
@@ -49,11 +49,11 @@ This is remarkable: Connes' rank-one perturbation is exactly what we call the "b
 3. The coupling is "lossless" (|χ|=1 on critical line / self-adjoint operator)
 4. Zeros = points where direct and dual are perfectly matched = eigenvalues
 
-**Action item:** Translate Connes' proof of self-adjointness via Carathéodory-Fejér into ZPO scattering language. If the translation is faithful, we get Gap S5 (Hilbert-Pólya) essentially for free.`,
+**Action item:** Translate Connes' proof of self-adjointness via Carathéodory-Fejér into Twin-Ladder Bridge scattering language. If the translation is faithful, we get Gap S5 (Hilbert-Pólya) essentially for free.`,
     implications: [
       'The bridge χ(s) IS Connes\' rank-one perturbation, just in scattering language',
       'Carathéodory-Fejér positivity ↔ Darlington losslessness — same theorem, different frames',
-      'Self-adjointness of Connes\' operator may directly imply unitarity of ZPO scattering matrix',
+      'Self-adjointness of Connes\' operator may directly imply unitarity of Twin-Ladder Bridge scattering matrix',
     ],
     relatedGaps: ['S5', 'S7'],
     references: ['connes-2025-spectral'],
@@ -67,7 +67,7 @@ This is remarkable: Connes' rank-one perturbation is exactly what we call the "b
     status: 'active',
     content: `Connes showed that using only primes {2, 3, 5, 7, 11}, the Weil quadratic form's extremization yields approximations to the first 50 zeros with accuracy ranging from 2.6 × 10^{-55} to 10^{-3}.
 
-In ZPO terms, this means the first 5 stages of the ladder chain carry essentially ALL the information about zero locations. Why?
+In Twin-Ladder Bridge terms, this means the first 5 stages of the ladder chain carry essentially ALL the information about zero locations. Why?
 
 **Hypothesis (Impedance dominance):** The characteristic impedance Z_0 = log(p) grows with p. Small primes have low impedance → strong coupling → dominant contribution to the scattering matrix. Large primes have high impedance → weak coupling → perturbative corrections.
 
@@ -79,7 +79,7 @@ In ZPO terms, this means the first 5 stages of the ladder chain carry essentiall
     implications: [
       'The proof strategy should work "inside out" — prove for small primes, then show tail is perturbative',
       'Gap S7 may be closable by showing the tail sum ∑_{p>P} (contribution to S-matrix) converges absolutely',
-      'The ZPO impedance hierarchy mirrors Connes\' observation that small primes suffice',
+      'The Twin-Ladder Bridge impedance hierarchy mirrors Connes\' observation that small primes suffice',
     ],
     relatedGaps: ['S4', 'S7'],
     references: ['connes-2026'],
@@ -137,7 +137,7 @@ If ANY of these can be proven, all follow. The Twin-Ladder Bridge framework sugg
 
 Then P_∞ ≥ 0, which is Weil positivity = RH.
 
-**ZPO implementation:** Let P_N = smallest eigenvalue of S_N†S_N - I. Numerically:
+**Twin-Ladder Bridge implementation:** Let P_N = smallest eigenvalue of S_N†S_N - I. Numerically:
 - P_1 = 0 (single oscillator is perfectly matched)
 - P_N grows monotonically toward 0 from below (unitarity deficit shrinks)
 - The deficit converges as O(p_N^{-1})
@@ -162,26 +162,26 @@ for some constant c > 0. This gives geometric convergence: the deficit after N p
     id: 'R006',
     date: '2026-03-06',
     epoch: 1,
-    title: 'Guth-Maynard Zero-Density ↔ ZPO Sub-Ladder Statistics',
+    title: 'Guth-Maynard Zero-Density ↔ Twin-Ladder Bridge Sub-Ladder Statistics',
     category: 'novel-connection',
     status: 'active',
     content: `Guth and Maynard (2024) proved new large value estimates for Dirichlet polynomials, breaking an 84-year-old record. Their key innovation: combining harmonic analysis with multiplicative structure.
 
-**ZPO translation:** A Dirichlet polynomial D(s) = Σ_{n≤N} a_n n^{-s} is the transfer function of a FINITE sub-ladder. Large values of |D(s)| correspond to resonances of the sub-ladder.
+**Twin-Ladder Bridge translation:** A Dirichlet polynomial D(s) = Σ_{n≤N} a_n n^{-s} is the transfer function of a FINITE sub-ladder. Large values of |D(s)| correspond to resonances of the sub-ladder.
 
 Guth-Maynard bound large values of D on the critical line by:
 1. Decomposing D into "short" and "long" components
 2. Using Hölder's inequality with an optimal exponent
 3. Exploiting multiplicative structure to bound bilinear sums
 
-In ZPO terms:
+In Twin-Ladder Bridge terms:
 1. Short component = low-prime oscillators (dominant)
 2. Long component = high-prime oscillators (perturbative)
 3. Multiplicative structure = factorization of the cascade into independent stages
 
 **Potential for ZPO:** If we can reformulate the Guth-Maynard bounds in scattering language, we get bounds on the S-matrix that constrain zero locations. Their exponent improvement (0.6 → 0.52 for σ = 3/4) translates to a tighter confinement of the unitarity deficit near the critical line.
 
-**Open question:** Can the Guth-Maynard decomposition be expressed as a splitting of the ZPO scattering matrix into "coarse" (small primes) and "fine" (large primes) components? If so, it might give an explicit bound on the tail contribution that closes Gap S7.`,
+**Open question:** Can the Guth-Maynard decomposition be expressed as a splitting of the Twin-Ladder Bridge scattering matrix into "coarse" (small primes) and "fine" (large primes) components? If so, it might give an explicit bound on the tail contribution that closes Gap S7.`,
     implications: [
       'Dirichlet polynomials ARE sub-ladder transfer functions — the translation is exact',
       'Guth-Maynard\'s harmonic analysis tools may apply directly to S-matrix bounds',
@@ -203,27 +203,27 @@ In ZPO terms:
 - Classical limit of quantum Hamiltonian on half-line
 - Eigenvalues: WKB approximation matches first ~10 zeros to ~1%, then drifts
 - Problem: H = xp is not self-adjoint on any natural domain; boundary conditions are ad hoc
-- ZPO connection: Berry-Keating's semiclassical prime orbits with period log(p) ↔ ZPO resonance frequencies
+- Twin-Ladder Bridge connection: Berry-Keating's semiclassical prime orbits with period log(p) ↔ Twin-Ladder Bridge resonance frequencies
 
 **Candidate 2: Yao's Hamiltonian (2024)**
 - Eigenfunctions vanish at origin by nontrivial zeta zeros
 - A similarity transformation yields a self-adjoint operator
 - Problem: The similarity transformation may not preserve the spectrum in general
-- ZPO connection: Yao's boundary condition at origin ↔ impedance matching at port 1 of the ladder
+- Twin-Ladder Bridge connection: Yao's boundary condition at origin ↔ impedance matching at port 1 of the ladder
 
 **Candidate 3: Connes' Spectral Triple (2025)**
 - Scaling operator + rank-one perturbation using Euler product
 - Self-adjointness PROVEN via Carathéodory-Fejér for each finite truncation
 - Problem: Convergence of eigenvalues as truncation grows → the same convergence problem
-- ZPO connection: Rank-one perturbation IS the bridge χ(s)
+- Twin-Ladder Bridge connection: Rank-one perturbation IS the bridge χ(s)
 
-**Assessment:** Candidate 3 is the strongest because self-adjointness is already proven for finite truncations. The ONLY remaining gap is convergence. This is exactly Gap S7 in ZPO language — proving the infinite limit preserves the finite property.
+**Assessment:** Candidate 3 is the strongest because self-adjointness is already proven for finite truncations. The ONLY remaining gap is convergence. This is exactly Gap S7 in Twin-Ladder Bridge language — proving the infinite limit preserves the finite property.
 
-**Strategy:** Focus all effort on the convergence problem. If solved, it simultaneously closes Gap S5 (via Connes) and Gap S7 (via ZPO Darlington), and proves RH.`,
+**Strategy:** Focus all effort on the convergence problem. If solved, it simultaneously closes Gap S5 (via Connes) and Gap S7 (via Twin-Ladder Bridge Darlington), and proves RH.`,
     implications: [
       'All three candidates reduce to the same convergence problem',
       'Connes (Candidate 3) is furthest along — self-adjointness already proven for finite case',
-      'The ZPO super-convergence evidence supports the conjecture that convergence holds',
+      'The Twin-Ladder Bridge super-convergence evidence supports the conjecture that convergence holds',
     ],
     relatedGaps: ['S5'],
     references: ['connes-2025-spectral', 'berry-keating-1999'],
@@ -252,10 +252,10 @@ In ZPO terms:
 
 ...will fail because D-H provides a counterexample. The proof must use that ζ(s) = ∏_p (1-p^{-s})^{-1}.
 
-**This validates the ZPO approach:** The ladder chain IS the Euler product. Every step of the ZPO construction uses the prime factorization. The Darlington synthesis argument uses the cascade structure (independent stages). This is precisely the ingredient that D-H lacks and that makes RH true for ζ but false for D-H.`,
+**This validates the Twin-Ladder Bridge approach:** The ladder chain IS the Euler product. Every step of the Twin-Ladder Bridge construction uses the prime factorization. The Darlington synthesis argument uses the cascade structure (independent stages). This is precisely the ingredient that D-H lacks and that makes RH true for ζ but false for D-H.`,
     implications: [
       'Any proof attempt that doesn\'t use the Euler product is guaranteed to fail (D-H counterexample)',
-      'The ZPO cascade structure is not optional decoration — it\'s the mathematical core',
+      'The Twin-Ladder Bridge cascade structure is not optional decoration — it\'s the mathematical core',
       'Gap S7 (Darlington) explicitly requires cascade realizability, which is exactly the right condition',
     ],
     relatedGaps: ['S7'],
@@ -302,12 +302,12 @@ In ZPO terms:
     status: 'active',
     content: `Connes-Consani-Moscovici (2024, arXiv:2310.18423) introduced prolate wave operators in their semilocal trace formula. The prolate operator's positive spectrum gives the spectral realization of low-lying zeta zeros, while the negative spectrum (Sonin space) governs UV behavior.
 
-**ZPO translation:**
+**Twin-Ladder Bridge translation:**
 - Positive spectrum = normal modes of the twin-ladder system (resonances where direct and dual ladders are in phase)
 - Negative spectrum = anti-resonances (evanescent modes that decay exponentially)
 - Sonin space stability = bridge remains unitary as we add more primes
 
-**The prolate wave operator** is defined as the sum of the square of the scaling operator with the grading of orthogonal polynomials. In ZPO terms:
+**The prolate wave operator** is defined as the sum of the square of the scaling operator with the grading of orthogonal polynomials. In Twin-Ladder Bridge terms:
 - Scaling operator squared = kinetic energy of the ladder (H_kinetic = Σ_p ω_p² |a_p|²)
 - Orthogonal polynomial grading = potential energy from inter-stage coupling (H_coupling)
 - Total: H_prolate = H_kinetic + H_coupling → harmonic oscillator!
@@ -463,7 +463,7 @@ export default function HistoricalReasoningPage() {
               Key Insight (March 2026)
             </div>
             <div style={{ fontSize: 13, color: '#e2e8f0', lineHeight: 1.7 }}>
-              <strong>ZPO Bridge = Connes' Rank-One Perturbation.</strong> The bridge{' '}
+              <strong>Twin-Ladder Bridge Bridge = Connes' Rank-One Perturbation.</strong> The bridge{' '}
               <InlineMath tex={"\\chi(s)"} /> coupling direct and dual ladders is exactly
               Connes' rank-one perturbation of the scaling operator. Self-adjointness is
               proven for finite truncations via Carathéodory-Fejér.

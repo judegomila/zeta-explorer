@@ -1017,7 +1017,7 @@ export default function HomePage() {
               <tr style={{ borderBottom: '1px solid var(--border)' }}>
                 <th style={{ textAlign: 'left', padding: '10px 14px', color: '#64748b', fontWeight: 600 }}>Number Theory</th>
                 <th style={{ textAlign: 'left', padding: '10px 14px', color: '#64748b', fontWeight: 600 }}>Circuit / Control Theory</th>
-                <th style={{ textAlign: 'left', padding: '10px 14px', color: '#64748b', fontWeight: 600 }}>ZPO Model</th>
+                <th style={{ textAlign: 'left', padding: '10px 14px', color: '#64748b', fontWeight: 600 }}>Twin-Ladder Bridge Model</th>
               </tr>
             </thead>
             <tbody>

@@ -135,7 +135,7 @@ function DetailCard({ entry, onClose }) {
       </div>
 
       <div style={{ padding: 12, borderRadius: 8, background: 'rgba(6,182,212,0.06)', border: '1px solid rgba(6,182,212,0.2)' }}>
-        <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: '#67e8f9', marginBottom: 4 }}>ZPO Connection</div>
+        <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: '#67e8f9', marginBottom: 4 }}>Twin-Ladder Bridge Connection</div>
         <div style={{ fontSize: 13, lineHeight: 1.5, color: 'var(--text-secondary)' }}>{entry.zpoConnection}</div>
       </div>
     </div>
@@ -227,7 +227,7 @@ export default function LmfdbCrossReferencePage() {
         <p style={{ color: 'var(--text-secondary)', maxWidth: 720 }}>
           {lmfdbCrossReference.length} curated L-functions from the LMFDB, spanning degrees 1-4
           plus the Ramanujan Delta function. Each entry carries the Bober-Sutherland label,
-          first five nontrivial zeros, GRH status, and its connection to the ZPO ladder-network model.
+          first five nontrivial zeros, GRH status, and its connection to the Twin-Ladder Bridge ladder-network model.
         </p>
       </div>
 

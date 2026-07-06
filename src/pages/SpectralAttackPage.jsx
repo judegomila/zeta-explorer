@@ -2577,13 +2577,13 @@ export default function SpectralAttackPage() {
           </p>
         </div>
 
-        {/* Connection to ZPO */}
+        {/* Connection to Twin-Ladder Bridge */}
         <div style={{ marginBottom: 20 }}>
           <h4 style={{ color: '#10b981', fontSize: 14, marginBottom: 10 }}>
-            5. Connection to the ZPO Framework
+            5. Connection to the Twin-Ladder Bridge Framework
           </h4>
           <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 8 }}>
-            In the ZPO ladder model, the Weil explicit formula is the <strong style={{ color: '#e2e8f0' }}>input-output relation</strong> of
+            In the Twin-Ladder Bridge ladder model, the Weil explicit formula is the <strong style={{ color: '#e2e8f0' }}>input-output relation</strong> of
             the prime oscillator cascade. The Weil quadratic form becomes the <strong style={{ color: '#e2e8f0' }}>energy
             functional</strong> of the LC network:
           </p>

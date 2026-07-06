@@ -70,7 +70,7 @@ const GAP_CLOSERS = [
   {
     id: 'S7',
     title: 'Darlington Synthesis Extension',
-    result: 'Extend Darlington\'s theorem to countably infinite lossless 2-port networks defined by analytic continuation. Must address: (a) convergence of scattering parameters, (b) exact (not approximate) losslessness of the full network, (c) applicability of Youla\'s infinite-network framework to the ZPO topology.',
+    result: 'Extend Darlington\'s theorem to countably infinite lossless 2-port networks defined by analytic continuation. Must address: (a) convergence of scattering parameters, (b) exact (not approximate) losslessness of the full network, (c) applicability of Youla\'s infinite-network framework to the Twin-Ladder Bridge topology.',
   },
   {
     id: 'S8',

@@ -9,7 +9,7 @@ export default function ZXCalculusPage() {
     <div className="page">
       <PageHeader title="ZX-Calculus Framework">
         <p>
-          Map the ZPO oscillator cascade into the ZX-calculus diagrammatic language.
+          Map the Twin-Ladder Bridge oscillator cascade into the ZX-calculus diagrammatic language.
           Each prime Euler factor becomes a <strong style={{ color: '#10b981' }}>Z-spider</strong> (green),
           the dual ladder uses <strong style={{ color: '#ef4444' }}>X-spiders</strong> (red), and
           the functional equation bridge is a <strong style={{ color: '#f59e0b' }}>Hadamard box</strong>.
@@ -36,7 +36,7 @@ export default function ZXCalculusPage() {
           to see the spider fusion rule collapse the entire chain into one spider — this is the
           Euler product evaluation. The cumulative phase graph shows how primes contribute to the
           total zeta phase.{' '}
-          <strong style={{ color: '#8b5cf6' }}>Twin Ladder</strong> — the full ZPO diagram in
+          <strong style={{ color: '#8b5cf6' }}>Twin Ladder</strong> — the full Twin-Ladder Bridge diagram in
           ZX-calculus form: green Z-spiders (direct) connected through a yellow Hadamard box
           (bridge <InlineMath tex={"\\chi(s)"} />) to red X-spiders (dual). At{' '}
           <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> the diagram has perfect color symmetry
@@ -53,12 +53,12 @@ export default function ZXCalculusPage() {
       </div>
 
       <div className="card" style={{ marginTop: 32, borderColor: '#8b5cf6' }}>
-        <h3 style={{ color: '#8b5cf6' }}>ZPO / ZX-Calculus Correspondence</h3>
+        <h3 style={{ color: '#8b5cf6' }}>Twin-Ladder Bridge / ZX-Calculus Correspondence</h3>
         <table style={{ width: '100%', marginTop: 12, fontSize: 13, color: 'var(--text-secondary)', borderCollapse: 'collapse' }}>
           <thead>
             <tr style={{ borderBottom: '1px solid #334155' }}>
               <th style={{ textAlign: 'left', padding: '8px 12px', color: '#10b981' }}>ZX-Calculus</th>
-              <th style={{ textAlign: 'left', padding: '8px 12px', color: '#3b82f6' }}>ZPO Model</th>
+              <th style={{ textAlign: 'left', padding: '8px 12px', color: '#3b82f6' }}>Twin-Ladder Bridge Model</th>
               <th style={{ textAlign: 'left', padding: '8px 12px', color: '#64748b' }}>Zeta Identity</th>
             </tr>
           </thead>
@@ -96,7 +96,7 @@ export default function ZXCalculusPage() {
             observables.
           </p>
           <p style={{ marginBottom: 12 }}>
-            In the ZPO mapping, the Frobenius multiplication (merging wires) corresponds to
+            In the Twin-Ladder Bridge mapping, the Frobenius multiplication (merging wires) corresponds to
             combining impedances in series, while comultiplication (splitting) corresponds to
             parallel combination. The Frobenius condition ensures consistency — exactly what
             circuit theory requires.
@@ -134,7 +134,7 @@ export default function ZXCalculusPage() {
       <div className="card" style={{ marginTop: 24, borderColor: '#06b6d4' }}>
         <h3 style={{ color: '#06b6d4' }}>Twin Ladder as a ZX Diagram</h3>
         <p style={{ marginBottom: 12, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.8 }}>
-          The ZPO twin-ladder architecture maps precisely onto the ZX-calculus framework.
+          The Twin-Ladder Bridge twin-ladder architecture maps precisely onto the ZX-calculus framework.
           Each prime oscillator becomes a Z-phase gate whose angle encodes the Euler factor argument,
           the bridge <InlineMath tex={"\\chi(s)"} /> acts as a Hadamard-like intertwiner between the two spider colors,
           and the unitarity of the bridge on the critical line corresponds to the ZX spider fusion rule
@@ -260,7 +260,7 @@ export default function ZXCalculusPage() {
           <InlineMath tex={"X(\\alpha_p(\\tfrac{1}{2} - it))"} />. Since <InlineMath tex={"\\overline{\\alpha_p(\\tfrac{1}{2} + it)} = \\alpha_p(\\tfrac{1}{2} - it)"} />,
           the per-prime color change is equivalent to complex conjugation of the phase. This
           per-prime symmetry is a stronger condition than the global functional equation, and it
-          is precisely what the ZPO twin-ladder model enforces: each rung of the ladder is
+          is precisely what the Twin-Ladder Bridge twin-ladder model enforces: each rung of the ladder is
           individually balanced at <InlineMath tex={"\\sigma = 1/2"} />.
         </p>
         <BlockMath tex={"Z(\\alpha_p) \\;\\xrightarrow{H}\\; X(\\bar{\\alpha}_p) \\quad \\forall\\, p \\;\\text{ prime, at } \\sigma = \\tfrac{1}{2}"} />

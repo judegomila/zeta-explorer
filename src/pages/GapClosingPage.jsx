@@ -487,7 +487,7 @@ export default function GapClosingPage() {
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8 }}>
             Need a self-adjoint operator <InlineMath tex={"\\mathcal{A}"} /> with
             <InlineMath tex={"\\text{Spec}(\\mathcal{A}) = \\{\\gamma_n\\}"} />.
-            The ZPO matrix couples prime oscillators.
+            The Twin-Ladder Bridge matrix couples prime oscillators.
           </p>
           <BlockMath tex={"M_{jk} = \\sum_p \\frac{\\log p}{p} \\cos((\\gamma_j - \\gamma_k)\\log p)"} />
         </div>
@@ -776,10 +776,10 @@ export default function GapClosingPage() {
 
         <div style={{ marginBottom: 20 }}>
           <h4 style={{ color: '#c084fc', fontSize: 13, marginBottom: 8 }}>
-            Step 4 — Connection to the ZPO Framework
+            Step 4 — Connection to the Twin-Ladder Bridge Framework
           </h4>
           <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 8 }}>
-            The ZPO scattering matrix provides a concrete realization of the Weil distribution. The
+            The Twin-Ladder Bridge scattering matrix provides a concrete realization of the Weil distribution. The
             Darlington unitarity condition <InlineMath tex={"S^\\dagger S = I"} /> on
             <InlineMath tex={"\\sigma = \\frac{1}{2}"} /> is equivalent to a "power conservation"
             identity that, when decomposed spectrally, yields exactly the Weil positivity:
@@ -938,7 +938,7 @@ export default function GapClosingPage() {
           <strong style={{ color: '#10b981' }}> Status: Largely resolved via eta regularization.</strong>
         </p>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
-          <strong>S5 (Open):</strong> Constructing the Hilbert-Polya operator would immediately prove RH via self-adjointness {'\u2192'} real eigenvalues {'\u2192'} zeros on the critical line. The ZPO matrix provides a candidate but needs rigorous spectral analysis.
+          <strong>S5 (Open):</strong> Constructing the Hilbert-Polya operator would immediately prove RH via self-adjointness {'\u2192'} real eigenvalues {'\u2192'} zeros on the critical line. The Twin-Ladder Bridge matrix provides a candidate but needs rigorous spectral analysis.
           <strong style={{ color: '#ef4444' }}> Status: Deep open problem.</strong>
         </p>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>

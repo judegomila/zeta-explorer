@@ -376,9 +376,9 @@ export default function FourierPage() {
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginTop: 16 }}>
           <div style={{ padding: 16, background: '#0a0e1a', borderRadius: 8, border: '1px solid #1e293b' }}>
-            <h4 style={{ color: '#f97316', fontSize: 13, marginBottom: 8 }}>ZPO Interpretation</h4>
+            <h4 style={{ color: '#f97316', fontSize: 13, marginBottom: 8 }}>Twin-Ladder Bridge Interpretation</h4>
             <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8 }}>
-              In ZPO terms, the Mellin transform converts between the "time domain" (prime counting
+              In Twin-Ladder Bridge terms, the Mellin transform converts between the "time domain" (prime counting
               functions like <InlineMath tex={"\\psi(x)"} /> and <InlineMath tex={"\\pi(x)"} />) and the
               "frequency domain" (the zeta zeros <InlineMath tex={"\\rho"} />). Primes are the
               time-domain impulses; zeros are the spectral peaks.

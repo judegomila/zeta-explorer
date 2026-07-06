@@ -210,7 +210,7 @@ export default function BreakItPage() {
       <PageHeader title="Try to Break the Proof">
         <p>
           The best way to strengthen a proof is to attack it. Each challenge below presents a
-          ZPO claim with interactive controls. Your goal: find parameters that make it FAIL.
+          Twin-Ladder Bridge claim with interactive controls. Your goal: find parameters that make it FAIL.
           If you succeed, you've found a genuine flaw. If you can't — that's evidence it's correct.
         </p>
       </PageHeader>

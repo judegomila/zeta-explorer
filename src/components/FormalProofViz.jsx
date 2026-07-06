@@ -858,7 +858,7 @@ function GapsTab() {
             requires new mathematics.
           </li>
           <li>
-            <strong style={{ color: '#f97316' }}>S7 (Darlington):</strong> Prove the ZPO twin-ladder
+            <strong style={{ color: '#f97316' }}>S7 (Darlington):</strong> Prove the Twin-Ladder Bridge twin-ladder
             is an exact Darlington synthesis for an infinite analytically-continued network.
             Requires extending classical circuit theory.
           </li>
@@ -935,7 +935,7 @@ export default function FormalProofViz() {
       {/* Tab explainers */}
       {tab === 0 && (
         <div className="tab-explainer accent-green">
-          <strong>Proof Map:</strong> Dependency graph of the ZPO proof sections. Each node is a proof step
+          <strong>Proof Map:</strong> Dependency graph of the Twin-Ladder Bridge proof sections. Each node is a proof step
           (S1–S9) colored by status: <span style={{ color: '#10b981' }}>proven</span>, <span style={{ color: '#f59e0b' }}>conditional</span>,
           or <span style={{ color: '#ef4444' }}>open</span>. Arrows show logical dependencies — a section
           cannot be fully established until all its prerequisites are resolved.

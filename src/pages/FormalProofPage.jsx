@@ -288,10 +288,10 @@ export default function FormalProofPage() {
         </div>
       </div>
 
-      {/* ── ZPO Theorem Statement ── */}
+      {/* ── Twin-Ladder Bridge Theorem Statement ── */}
       <div className="card" style={{ marginTop: 24 }}>
         <h3 style={{ color: '#06b6d4', fontSize: 14, marginBottom: 12 }}>
-          The ZPO Proof Attempt: Formal Statement
+          The Twin-Ladder Bridge Proof Attempt: Formal Statement
         </h3>
         <BlockMath tex={
           '\\text{If } \\exists \\text{ self-adjoint } \\mathcal{A} \\text{ on } L^2(X, \\mu) ' +
@@ -304,7 +304,7 @@ export default function FormalProofPage() {
           '\\;\\Longrightarrow\\; \\text{RH.}'
         } />
         <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginTop: 12 }}>
-          The ZPO candidate for <InlineMath tex={"\\mathcal{A}"} /> is the quantization of the
+          The Twin-Ladder Bridge candidate for <InlineMath tex={"\\mathcal{A}"} /> is the quantization of the
           Hamiltonian <InlineMath tex={"\\mathcal{H}(\\sigma,t)"} /> restricted to the critical line.
           The Hilbert space <InlineMath tex={"L^2(X,\\mu)"} /> would be constructed from the prime
           oscillator chain. <strong style={{ color: '#ef4444' }}>This construction is not yet

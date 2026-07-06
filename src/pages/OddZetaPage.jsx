@@ -139,12 +139,12 @@ export default function OddZetaPage() {
       <h1>Odd Zeta Values &amp; Irrationality</h1>
       <p style={{ color: 'var(--text-secondary)', maxWidth: 720, marginBottom: 32 }}>
         Exploring <InlineMath tex={"\\zeta(3)"} />, <InlineMath tex={"\\zeta(5)"} />, <InlineMath tex={"\\zeta(7)"} />, and
-        higher odd zeta values through the ZPO twin-ladder model. While even zeta values{' '}
+        higher odd zeta values through the Twin-Ladder Bridge twin-ladder model. While even zeta values{' '}
         <InlineMath tex={"\\zeta(2n) = (-1)^{n+1} B_{2n} (2\\pi)^{2n} / (2(2n)!)"} /> are rational multiples
         of <InlineMath tex={"\\pi^{2n}"} />, the odd values remain deeply mysterious.
       </p>
 
-      {/* ─── Two-Column Layout: Known Results + ZPO Interpretation ─── */}
+      {/* ─── Two-Column Layout: Known Results + Twin-Ladder Bridge Interpretation ─── */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 24, marginBottom: 32 }}>
 
         {/* Left: Known Results */}
@@ -173,10 +173,10 @@ export default function OddZetaPage() {
           ))}
         </div>
 
-        {/* Right: ZPO Interpretation */}
+        {/* Right: Twin-Ladder Bridge Interpretation */}
         <div className="card" style={{ borderLeft: '3px solid #8b5cf6' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 16, color: '#8b5cf6' }}>
-            ZPO Interpretation
+            Twin-Ladder Bridge Interpretation
           </h2>
           <p style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 12, lineHeight: 1.6 }}>
             At real integer points <InlineMath tex={"s = n"} />, the twin-ladder model simplifies:
@@ -437,9 +437,9 @@ export default function OddZetaPage() {
         </div>
       </div>
 
-      {/* ─── ZPO Connection ─── */}
+      {/* ─── Twin-Ladder Bridge Connection ─── */}
       <div className="card" style={{ marginTop: 32 }}>
-        <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 16 }}>ZPO Perspective: Why Odd Values are Harder</h2>
+        <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 16 }}>Twin-Ladder Bridge Perspective: Why Odd Values are Harder</h2>
         <ul style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.8, paddingLeft: 20 }}>
           <li>
             <strong style={{ color: '#e2e8f0' }}>Even values</strong> correspond to the functional equation
@@ -466,10 +466,10 @@ export default function OddZetaPage() {
         </ul>
       </div>
 
-      {/* ─── Odd Zeta Irrationality via the Explicit Formula and the ZPO Model ─── */}
+      {/* ─── Odd Zeta Irrationality via the Explicit Formula and the Twin-Ladder Bridge Model ─── */}
       <div className="card" style={{ marginTop: 32, borderLeft: '3px solid #ec4899' }}>
         <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 16, color: '#ec4899' }}>
-          Connecting Irrationality Proofs to ZPO via the Explicit Formula
+          Connecting Irrationality Proofs to Twin-Ladder Bridge via the Explicit Formula
         </h2>
         <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: 12 }}>
           The von Mangoldt explicit formula provides a spectral decomposition of the prime-counting
@@ -478,7 +478,7 @@ export default function OddZetaPage() {
         <BlockMath tex={"\\psi(x) = x - \\sum_{\\rho} \\frac{x^{\\rho}}{\\rho} - \\log(2\\pi) - \\frac{1}{2}\\log(1 - x^{-2})"} />
         <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: 12 }}>
           Each nontrivial zero <InlineMath tex={"\\rho = \\beta + i\\gamma"} /> contributes an oscillatory
-          correction <InlineMath tex={"x^{\\rho}/\\rho"} /> to the prime distribution. In the ZPO ladder model,
+          correction <InlineMath tex={"x^{\\rho}/\\rho"} /> to the prime distribution. In the Twin-Ladder Bridge ladder model,
           these zeros are the resonant frequencies of the coupled oscillator chain. Evaluating
           {' '}<InlineMath tex={"\\zeta(s)"} /> at an odd integer <InlineMath tex={"s = 2n+1"} /> amounts to
           "reading off" the total response of the ladder at a specific real frequency.
@@ -494,7 +494,7 @@ export default function OddZetaPage() {
         <BlockMath tex={"-\\frac{\\zeta'(2n+1)}{\\zeta(2n+1)} = 1 + \\sum_{\\rho} \\frac{1}{2n+1-\\rho} + \\text{(rational terms)}"} />
         <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: 16 }}>
           The irrationality of <InlineMath tex={"\\zeta(2n+1)"} /> is therefore intimately tied to the
-          distribution of zeros <InlineMath tex={"\\rho"} />. In the ZPO picture, the zeros determine the
+          distribution of zeros <InlineMath tex={"\\rho"} />. In the Twin-Ladder Bridge picture, the zeros determine the
           transfer function poles, and the value <InlineMath tex={"\\zeta(2n+1)"} /> is the DC gain of a
           specific filtered version of the ladder. The Ball-Rivoal well-poised integrals can be
           reinterpreted as computing the "impulse response" of this filter at integer time-steps,
@@ -503,7 +503,7 @@ export default function OddZetaPage() {
         </p>
 
         <div style={{ padding: 16, background: '#0a0e1a', borderRadius: 8, border: '1px solid #1e293b' }}>
-          <h3 style={{ color: '#ec4899', fontSize: 14, marginBottom: 8 }}>ZPO Ladder Interpretation</h3>
+          <h3 style={{ color: '#ec4899', fontSize: 14, marginBottom: 8 }}>Twin-Ladder Bridge Ladder Interpretation</h3>
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginBottom: 8 }}>
             The explicit formula decomposes <InlineMath tex={"\\zeta(s)"} /> into a product over primes (the
             ladder stages) and a sum over zeros (the resonances). At even integers, the functional equation
@@ -573,7 +573,7 @@ export default function OddZetaPage() {
               For <InlineMath tex={"\\Omega"} />, <InlineMath tex={"K(\\Omega|_N) \\geq N - O(1)"} /> (maximally random).
             </p>
             <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginTop: 8 }}>
-              <strong style={{ color: '#e2e8f0' }}>The ZPO connection:</strong> The Euler product is an
+              <strong style={{ color: '#e2e8f0' }}>The Twin-Ladder Bridge connection:</strong> The Euler product is an
               "infinite program" for computing <InlineMath tex={"\\zeta(n)"} /> — each prime adds information
               that cannot be derived from the others. The irrationality of odd zeta values reflects
               the irreducible computational content of the prime distribution.
@@ -653,7 +653,7 @@ export default function OddZetaPage() {
             Connection to ZPO: Information Content of the Ladder
           </h3>
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginBottom: 8 }}>
-            In the ZPO twin-ladder framework, the "information content" of{' '}
+            In the Twin-Ladder Bridge twin-ladder framework, the "information content" of{' '}
             <InlineMath tex={"\\zeta(2k+1)"} /> relates directly to how many prime oscillator harmonics
             are needed to approximate it to a given precision. To compute{' '}
             <InlineMath tex={"N"} /> digits of <InlineMath tex={"\\zeta(2k+1)"} />, the Euler product

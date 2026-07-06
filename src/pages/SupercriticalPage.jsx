@@ -57,7 +57,7 @@ export default function SupercriticalPage() {
           no such transition anywhere in the strip. The thermodynamic framework on this page remains
           a valid interpretive lens (primon gas, Bost-Connes), but it does not supply a proof route.
           The live proof thread is{' '}
-          <strong style={{ color: '#10b981' }}>topological winding</strong> (ZPO winding number /
+          <strong style={{ color: '#10b981' }}>topological winding</strong> (Twin-Ladder Bridge winding number /
           Cauchy-index approach). See the{' '}
           <Link to="/route-map" style={{ color: '#3b82f6' }}>route map</Link> for the live program state.
         </p>
@@ -255,7 +255,7 @@ export default function SupercriticalPage() {
           The functional equation's symmetry under{' '}
           <InlineMath tex={"s \\leftrightarrow 1 - s"} /> then forces these resonances onto{' '}
           <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />, the midpoint of the hot phase.
-          In ZPO language: the bridge unitarity{' '}
+          In Twin-Ladder Bridge language: the bridge unitarity{' '}
           <InlineMath tex={"|\\chi(\\tfrac{1}{2} + it)| = 1"} /> is the scattering condition
           that pins the resonance exactly at the thermal equilibrium temperature.
         </p>

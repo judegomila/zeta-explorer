@@ -165,7 +165,7 @@ export default function HamiltonianPage() {
           connection to the <strong>Weil quadratic form</strong>. Connes (2026) showed that the Weil
           positivity condition <InlineMath tex={"W(g \\star \\tilde{g}) \\geq 0"} /> is equivalent to
           RH, and that extremizing this form using only primes {"<"} 13 approximates 50 zeros with
-          accuracy up to <InlineMath tex={"10^{-55}"} />. In ZPO terms: the Hamiltonian <InlineMath tex={"\\mathcal{H}"} /> being
+          accuracy up to <InlineMath tex={"10^{-55}"} />. In Twin-Ladder Bridge terms: the Hamiltonian <InlineMath tex={"\\mathcal{H}"} /> being
           bounded below is the physical manifestation of Weil positivity. The explicit formula
           that drives the spectral decomposition above is the <em>same</em> formula that defines
           the Weil kernel.
@@ -196,7 +196,7 @@ export default function HamiltonianPage() {
         <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
           <strong>Connection to the Twin-Ladder Bridge model:</strong> the <InlineMath tex={"xp"} /> Hamiltonian is the
           continuum limit of the discrete ladder Hamiltonian used in the prime oscillator chain. In
-          the ZPO picture every prime contributes a separate oscillator; taking the product over all
+          the Twin-Ladder Bridge picture every prime contributes a separate oscillator; taking the product over all
           primes and passing to the continuum recovers the Berry-Keating operator.
         </p>
       </div>
@@ -205,7 +205,7 @@ export default function HamiltonianPage() {
       <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #0ea5e9' }}>
         <h3 style={{ color: '#0ea5e9' }}>Why <InlineMath tex={"\\sigma = 1/2"} /> Minimizes the Hamiltonian</h3>
         <p style={{ marginTop: 12 }}>
-          The ZPO Hamiltonian decomposes into kinetic and potential parts:
+          The Twin-Ladder Bridge Hamiltonian decomposes into kinetic and potential parts:
         </p>
         <BlockMath tex={"\\mathcal{H}(\\sigma, t) = T(\\sigma, t) + V(\\sigma, t)"} />
 

@@ -11,14 +11,14 @@ export default function ProofCheckerPage() {
         <p>
           A skeptical verification engine that tests every claim in the Twin-Ladder Bridge framework.
           Includes the Davenport-Heilbronn counterexample — a function that satisfies
-          most ZPO properties but violates RH, identifying exactly which arguments are valid.
+          most Twin-Ladder Bridge properties but violates RH, identifying exactly which arguments are valid.
         </p>
       </PageHeader>
 
       <div className="card" style={{ marginBottom: 24, borderLeft: '3px solid #ef4444' }}>
         <h3 style={{ color: '#ef4444', fontSize: 14, marginBottom: 8 }}>Adversarial Testing Philosophy</h3>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
-          This checker is deliberately skeptical. For each ZPO claim, it asks: <em>"Does this
+          This checker is deliberately skeptical. For each Twin-Ladder Bridge claim, it asks: <em>"Does this
           hold for the Davenport-Heilbronn function?"</em> D-H has a functional equation like ζ
           but has zeros OFF the critical line. Any argument that also works for D-H
           <strong style={{ color: '#ef4444' }}> cannot prove RH</strong>.
@@ -227,7 +227,7 @@ export default function ProofCheckerPage() {
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
           The checker identifies that the <strong>Euler product structure</strong> (multiplicativity of coefficients,
           Selberg class membership) is the <strong>only</strong> property that discriminates ζ from D-H.
-          All other ZPO arguments (Hamiltonian, bridge, information theory) follow from the functional equation
+          All other Twin-Ladder Bridge arguments (Hamiltonian, bridge, information theory) follow from the functional equation
           alone, which D-H also satisfies. This means the proof path must go through Darlington synthesis
           or the Euler product directly — not through surrogate measures.
         </p>

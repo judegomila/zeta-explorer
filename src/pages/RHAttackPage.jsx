@@ -19,7 +19,7 @@ export default function RHAttackPage() {
         <h1>RH Attack Strategies</h1>
         <p>
           Computational tools for testing specific conditions equivalent to or implied by the
-          Riemann Hypothesis, using the ZPO oscillator framework. Each strategy identifies
+          Riemann Hypothesis, using the Twin-Ladder Bridge framework. Each strategy identifies
           what is established, what is assumed, and where the proof gaps lie.
         </p>
       </div>
@@ -48,7 +48,7 @@ export default function RHAttackPage() {
             <li>
               <strong style={{ color: '#3b82f6' }}>Hamiltonian Convexity</strong> — Test{' '}
               <InlineMath tex={"\\partial^2 H / \\partial\\sigma^2 > 0"} /> at{' '}
-              <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> (ZPO energy minimum).
+              <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> (Twin-Ladder Bridge energy minimum).
             </li>
             <li>
               <strong style={{ color: '#8b5cf6' }}>S-Matrix Confinement</strong> — Darlington synthesis:
@@ -97,10 +97,10 @@ export default function RHAttackPage() {
         </p>
         <BlockMath tex={"\\text{Darlington (1939): For a lossless reciprocal 2-port, zeros of } S_{21} \\text{ lie on the } j\\omega \\text{ axis.}"} />
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 12 }}>
-          In the ZPO mapping: <InlineMath tex="S_{21}" /> is the transmission through the twin-ladder
+          In the Twin-Ladder Bridge mapping: <InlineMath tex="S_{21}" /> is the transmission through the twin-ladder
           (proportional to <InlineMath tex={"\\zeta(s)"} />), and the{' '}
           <InlineMath tex={"j\\omega"} /> axis is the critical line <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />.
-          If the ZPO network satisfies Darlington's conditions <em>exactly</em>, then RH follows.
+          If the Twin-Ladder Bridge network satisfies Darlington's conditions <em>exactly</em>, then RH follows.
         </p>
         <div style={{ marginTop: 16, padding: '12px 16px', background: 'rgba(239,68,68,0.08)', borderRadius: 8, border: '1px solid #ef444440' }}>
           <h4 style={{ color: '#ef4444', fontSize: 12, marginBottom: 8 }}>Three Obstacles:</h4>
@@ -118,7 +118,7 @@ export default function RHAttackPage() {
             </li>
             <li>
               <strong>Realizability:</strong> Darlington's theorem applies to physically realizable
-              networks. The ZPO network has infinitely many stages (one per prime), requiring
+              networks. The Twin-Ladder Bridge network has infinitely many stages (one per prime), requiring
               a limiting argument.
             </li>
           </ol>
@@ -190,7 +190,7 @@ export default function RHAttackPage() {
             {selectedPath === 'B' && <span style={{ fontSize: 10, background: '#10b98130', padding: '2px 8px', borderRadius: 4 }}>selected — blocks: S4, S7</span>}
           </h4>
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8 }}>
-            Prove the ZPO twin ladder satisfies exact losslessness. Transmission zeros of a lossless
+            Prove the Twin-Ladder Bridge twin ladder satisfies exact losslessness. Transmission zeros of a lossless
             network lie on the <InlineMath tex={"j\\omega"} /> axis, which maps to{' '}
             <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />.
           </p>

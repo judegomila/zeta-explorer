@@ -250,10 +250,10 @@ export default function RHProofStateDashboardPage() {
           title="Hilbert-Pólya"
           status="research"
           statusLabel="FOUNDATIONAL"
-          description="The ZPO oscillator framework connects zeta zeros to resonances of a Hamiltonian operator. Physical intuition is strong but the rigorous connection between zeta zeros and Hamiltonian eigenvalues remains unproven. This framework motivates all downstream work."
+          description="The Twin-Ladder Bridge framework connects zeta zeros to resonances of a Hamiltonian operator. Physical intuition is strong but the rigorous connection between zeta zeros and Hamiltonian eigenvalues remains unproven. This framework motivates all downstream work."
           progress={35}
           blockedBy={['S5']}
-          links={[{ label: 'ZPO Framework', to: '/zeta' }]}
+          links={[{ label: 'Twin-Ladder Bridge Framework', to: '/zeta' }]}
         />
 
         <PathCard
@@ -261,7 +261,7 @@ export default function RHProofStateDashboardPage() {
           title="Darlington Synthesis"
           status="conditional"
           statusLabel="BLOCKED ON PCC"
-          description="Uses classical network synthesis theory: transmission zeros of lossless reciprocal networks lie on the imaginary axis. The ZPO network should be lossless at σ=1/2, but requires Montgomery PCC at 2-point to guarantee the cascade converges."
+          description="Uses classical network synthesis theory: transmission zeros of lossless reciprocal networks lie on the imaginary axis. The Twin-Ladder Bridge network should be lossless at σ=1/2, but requires Montgomery PCC at 2-point to guarantee the cascade converges."
           progress={25}
           blockedBy={['S4', 'S7']}
           links={[{ label: 'Attack Strategies', to: '/rh-attack' }]}

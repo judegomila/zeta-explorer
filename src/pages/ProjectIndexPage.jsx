@@ -69,14 +69,14 @@ export default function ProjectIndexPage() {
         <div style={{ marginBottom: 12, padding: '10px 14px', borderRadius: 6, background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.2)' }}>
           <div style={{ color: '#fbbf24', fontSize: 12, fontWeight: 600, marginBottom: 4 }}>Single Remaining Open Gap</div>
           <div style={{ color: '#cbd5e1', fontSize: 12, lineHeight: 1.6 }}>
-            Prove the Lax-Phillips scattering operator for the ZPO Hamiltonian satisfies the LP contraction semigroup axioms.
+            Prove the Lax-Phillips scattering operator for the Twin-Ladder Bridge Hamiltonian satisfies the LP contraction semigroup axioms.
             If confirmed, poles of S&#x2082;&#x2081; are confined to &#x3c3;=&#xbd;, closing the proof.
           </div>
         </div>
         <div style={{ color: '#64748b', fontSize: 11, lineHeight: 1.7 }}>
           <strong style={{ color: '#94a3b8' }}>What is RH?</strong>{' '}
           The Riemann Hypothesis asks whether all non-trivial zeros of &#x3b6;(s) lie on Re(s)=&#xbd;.
-          The ZPO approach encodes this via an S-matrix: &#x3b6;-zeros are poles of S&#x2082;&#x2081; = &#x3b6;(2s)/&#x3b6;(s),
+          The Twin-Ladder Bridge approach encodes this via an S-matrix: &#x3b6;-zeros are poles of S&#x2082;&#x2081; = &#x3b6;(2s)/&#x3b6;(s),
           and Lax-Phillips operator theory bounds where those poles can live.
         </div>
       </div>

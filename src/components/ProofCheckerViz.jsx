@@ -471,7 +471,7 @@ function DHCounterexampleTab() {
         fontSize: 12, color: '#e2e8f0', lineHeight: 1.6, textAlign: 'center',
       }}>
         The <strong style={{ color: '#3b82f6' }}>Euler product / Darlington synthesis</strong> is the{' '}
-        <strong style={{ color: '#ef4444' }}>ONLY</strong> ZPO property that distinguishes{' '}
+        <strong style={{ color: '#ef4444' }}>ONLY</strong> Twin-Ladder Bridge property that distinguishes{' '}
         <InlineMath tex={"\\zeta"} /> from Davenport-Heilbronn.
       </div>
 
@@ -562,11 +562,11 @@ function LogicGapsTab({ numPrimes }) {
   return (
     <div>
       <div className="tab-explainer accent-orange">
-        Automated analysis of logical gaps in the ZPO &ldquo;proof&rdquo; chain. The circularity checker traces
+        Automated analysis of logical gaps in the Twin-Ladder Bridge &ldquo;proof&rdquo; chain. The circularity checker traces
         which claims depend on which assumptions and flags circular reasoning. The implication strength
         tester evaluates whether each step is a rigorous proof, a strong heuristic, a weak analogy,
         or outright circular.
-        <strong> Every gap found here</strong> is a place where the ZPO argument fails to constitute a proof.
+        <strong> Every gap found here</strong> is a place where the Twin-Ladder Bridge argument fails to constitute a proof.
       </div>
       {/* Circularity Check */}
       <h4 style={{ color: '#f59e0b', fontSize: 13, marginBottom: 10 }}>

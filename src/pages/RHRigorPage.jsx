@@ -128,7 +128,7 @@ export default function RHRigorPage() {
       <div style={{ marginBottom: 32 }}>
         <h2 style={{ fontSize: 18, marginBottom: 12 }}>Numerical Stress Tests</h2>
         <p style={{ color: '#94a3b8', fontSize: 13, marginBottom: 16 }}>
-          Interactive diagnostics that probe specific ZPO claims. Each test comes with an interpretation
+          Interactive diagnostics that probe specific Twin-Ladder Bridge claims. Each test comes with an interpretation
           explaining what the results actually show versus what the model claims.
         </p>
         <RHRigorViz />
@@ -288,7 +288,7 @@ export default function RHRigorPage() {
                   borderLeft: '3px solid #3b82f6',
                 }}>
                   <h4 style={{ color: '#3b82f6', fontSize: 12, margin: '0 0 8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                    ZPO Model Claims
+                    Twin-Ladder Bridge Model Claims
                   </h4>
                   <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7, margin: 0 }}>
                     <MathText>{crit.originalClaim}</MathText>
@@ -424,7 +424,7 @@ export default function RHRigorPage() {
             <li>
               <strong style={{ color: '#e2e8f0' }}>Finite prime data is surprisingly powerful:</strong> Only
               5 primes encode enough information to approximate 50 zeros to extraordinary precision.
-              This supports the ZPO rate-distortion picture: the oscillator chain's information content
+              This supports the Twin-Ladder Bridge rate-distortion picture: the oscillator chain's information content
               is dominated by its first few stages.
             </li>
             <li>

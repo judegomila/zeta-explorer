@@ -23,9 +23,9 @@ export default function WaveSimPage() {
         <BlockMath tex={"\\text{Conjugate match: } Z_{\\text{dir}} = Z_{\\text{dual}}^* \\;\\text{ at } \\sigma = \\tfrac{1}{2} \\quad (\\text{magnitudes equal, phases reflected})"} />
       </div>
 
-      {/* Wave Physics in the ZPO Model */}
+      {/* Wave Physics in the Twin-Ladder Bridge Model */}
       <div className="card" style={{ marginTop: 32, borderColor: '#06b6d4' }}>
-        <h3 style={{ color: '#06b6d4' }}>Wave Physics in the ZPO Model</h3>
+        <h3 style={{ color: '#06b6d4' }}>Wave Physics in the Twin-Ladder Bridge Model</h3>
         <ul style={{ marginLeft: 16, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 2.2 }}>
           <li>
             Each prime <InlineMath tex="p" /> creates a standing wave with wavelength{' '}

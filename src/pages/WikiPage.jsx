@@ -42,7 +42,7 @@ export default function WikiPage() {
       <div className="page-header">
         <h1>Wiki / Glossary</h1>
         <p>
-          Definitions of every term and concept used in the ZPO Math Explorer project.
+          Definitions of every term and concept used in the Twin-Ladder Bridge Explorer project.
           {' '}{stats.totalEntries} entries across {categories.length} categories.
         </p>
       </div>

@@ -146,7 +146,7 @@ function Card({ children, tone = 'neutral', style = {} }) {
 
 const TOC = [
   { id: 'rh',           label: 'The Riemann Hypothesis' },
-  { id: 'zpo',          label: 'The ZPO Model' },
+  { id: 'zpo',          label: 'The Twin-Ladder Bridge Model' },
   { id: 'collision',    label: 'Zeros → Collision Times' },
   { id: 'chain5',       label: 'The 5-Step Λ Chain' },
   { id: 'chain12',      label: '12-Step Proof Chain' },
@@ -361,7 +361,7 @@ function S1_RH() {
 
 function S2_ZPO() {
   return (
-    <Section id="zpo" number={2} title="The Zeta-Prime Oscillator Model"
+    <Section id="zpo" number={2} title="The Twin-Ladder Bridge Model"
       subtitle="Reinterpreting the Euler product as a cascade of LC oscillators with a bridge at σ = ½. The foundation of this project's approach.">
       <Para>
         Start with one prime <InlineMath tex="p" />. Its Euler factor

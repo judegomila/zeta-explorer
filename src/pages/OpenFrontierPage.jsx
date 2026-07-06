@@ -121,7 +121,7 @@ export default function OpenFrontierPage() {
 
       <div className="card" style={{ marginBottom: 20, borderLeft: '3px solid #64748b' }}>
         <p style={{ fontSize: 13, color: '#94a3b8', margin: 0, lineHeight: 1.65 }}>
-          This page consolidates the three genuine open residuals of the ZPO / RH-attack program in one place.
+          This page consolidates the three genuine open residuals of the Twin-Ladder Bridge / RH-attack program in one place.
           Everything else in the route map is either{' '}
           <strong style={{ color: '#22c55e' }}>closed</strong> (rigorous),{' '}
           <strong style={{ color: '#ef4444' }}>refuted</strong>, or{' '}

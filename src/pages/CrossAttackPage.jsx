@@ -42,7 +42,7 @@ export default function CrossAttackPage() {
             <li><strong style={{ color: '#a855f7' }}>CY Spectral:</strong> Calabi-Yau Laplacian eigenvalues mirror GUE statistics</li>
             <li><strong style={{ color: '#ec4899' }}>CY Modularity:</strong> Ramanujan bound satisfaction (finite-field RH analog)</li>
             <li><strong style={{ color: '#ef4444' }}>Li Coefficients:</strong> <InlineMath tex={'\\lambda_n > 0'} /> for all <InlineMath tex={'n \\geq 1'} /> iff RH holds</li>
-            <li><strong style={{ color: '#f97316' }}>Hamiltonian Convexity:</strong> ZPO Hamiltonian strictly convex at <InlineMath tex={'\\sigma=\\tfrac{1}{2}'} /></li>
+            <li><strong style={{ color: '#f97316' }}>Hamiltonian Convexity:</strong> Twin-Ladder Bridge Hamiltonian strictly convex at <InlineMath tex={'\\sigma=\\tfrac{1}{2}'} /></li>
             <li><strong style={{ color: '#84cc16' }}>S-Matrix Confinement:</strong> Darlington unitarity constrains transmission zeros</li>
           </ul>
         </div>

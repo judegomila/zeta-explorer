@@ -415,7 +415,7 @@ export default function PaperPage() {
         </P>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2, margin: '16px 0', fontSize: 14 }}>
           <div style={{ padding: '8px 12px', background: 'rgba(59,130,246,0.08)', borderRadius: 6 }}>
-            <strong style={{ color: '#60a5fa' }}>ZPO Model</strong>
+            <strong style={{ color: '#60a5fa' }}>Twin-Ladder Bridge Model</strong>
           </div>
           <div style={{ padding: '8px 12px', background: 'rgba(139,92,246,0.08)', borderRadius: 6 }}>
             <strong style={{ color: '#a78bfa' }}>Twistor Theory</strong>
@@ -538,7 +538,7 @@ export default function PaperPage() {
         <P>
           In early 2026, Alain Connes published a striking result concerning the Weil quadratic form
           and the approximation of zeta zeros using only a small set of primes. This result has
-          significant implications for the ZPO programme.
+          significant implications for the Twin-Ladder Bridge programme.
         </P>
 
         <Thm label="Result 14.1 (Connes, The Weil Quadratic Form)">
@@ -553,13 +553,13 @@ export default function PaperPage() {
 
         <P>
           <strong>Implications for the Twin-Ladder Bridge framework.</strong> Connes' result validates one of the
-          ZPO programme's central insights from an information-theoretic perspective: <em>small primes
+          Twin-Ladder Bridge programme's central insights from an information-theoretic perspective: <em>small primes
           dominate the information content of zeta zeros</em>. In rate-distortion terms, the zero
           sequence <InlineMath tex={"\\{\\gamma_n\\}"} /> has a highly compressible representation in terms of
           prime data, and the first five primes already capture the bulk of this information.
         </P>
         <P>
-          The equivalence between Weil positivity and RH maps naturally onto the ZPO Hamiltonian
+          The equivalence between Weil positivity and RH maps naturally onto the Twin-Ladder Bridge Hamiltonian
           framework. The condition <InlineMath tex={"W \\geq 0"} /> corresponds to the system Hamiltonian
           being bounded below — that is, <InlineMath tex={"\\mathcal{H}(\\sigma, t) \\geq \\mathcal{H}(\\tfrac{1}{2}, t)"} /> for
           all <InlineMath tex={"\\sigma"} />. Both express the same structural constraint: the critical
@@ -603,7 +603,7 @@ export default function PaperPage() {
           condition <InlineMath tex={"W \\geq 0"} /> remains unproven. However, the extraordinary accuracy
           of the five-prime approximation provides the strongest numerical evidence yet for the
           spectral approach to RH: the operator's spectrum is effectively encoded in a small,
-          finite set of prime data. This aligns precisely with the ZPO rate-distortion picture,
+          finite set of prime data. This aligns precisely with the Twin-Ladder Bridge rate-distortion picture,
           where the critical line emerges as the information-theoretically optimal encoding of
           the prime-zero relationship.
         </Rmk>

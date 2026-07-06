@@ -278,7 +278,7 @@ export default function ControlTheoryPage() {
             poles of <InlineMath tex={"1 + L(s)"} /> in the right half-plane.
           </p>
           <p style={{ marginTop: 8 }}>
-            For the ZPO ladder network, the "plant" is the cascade{' '}
+            For the Twin-Ladder Bridge ladder network, the "plant" is the cascade{' '}
             <InlineMath tex={"\\zeta(s)"} />, and the feedback path involves the
             scattering factor <InlineMath tex={"\\chi(s)"} />. The closed-loop
             transfer function is:

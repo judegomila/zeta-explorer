@@ -139,7 +139,7 @@ export default function ProofOverviewPage() {
           Proof Overview
         </h1>
         <p style={{ color: '#64748b', fontSize: 14, lineHeight: 1.6, maxWidth: 640 }}>
-          A complete summary of the Zeta-Prime Oscillator proof attempt for the Riemann Hypothesis,
+          A complete summary of the Twin-Ladder Bridge proof attempt for the Riemann Hypothesis,
           presented for mathematical review. Status as of March 2026.
         </p>
       </div>
@@ -278,7 +278,7 @@ export default function ProofOverviewPage() {
         <PathCard
           number={2}
           title="Marchenko Inverse Scattering"
-          description="The Marchenko integral equation reconstructs a potential from scattering data. If the ZPO cascade defines valid scattering data, the reconstruction yields a self-adjoint operator with the correct spectral properties."
+          description="The Marchenko integral equation reconstructs a potential from scattering data. If the Twin-Ladder Bridge cascade defines valid scattering data, the reconstruction yields a self-adjoint operator with the correct spectral properties."
           keyResult="Marchenko kernel integrability for the cascade reflection coefficient."
         />
         <PathCard
@@ -290,7 +290,7 @@ export default function ProofOverviewPage() {
         <PathCard
           number={4}
           title="Lax-Phillips Scattering"
-          description="The Lax-Phillips framework provides an abstract scattering theory where the S-matrix is automatically unitary. Embedding the ZPO cascade into this framework would give S7 for free."
+          description="The Lax-Phillips framework provides an abstract scattering theory where the S-matrix is automatically unitary. Embedding the Twin-Ladder Bridge cascade into this framework would give S7 for free."
           keyResult="Construction of incoming/outgoing subspaces D_+/- for the cascade semigroup."
         />
       </Section>

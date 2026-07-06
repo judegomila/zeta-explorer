@@ -81,7 +81,7 @@ export default function InformationTheoryPage() {
       <div className="page-header">
         <h1>Information Theory of the Twin Ladder</h1>
         <p>
-          The ZPO twin-ladder network viewed as a communication channel. Six information-theoretic
+          The Twin-Ladder Bridge twin-ladder network viewed as a communication channel. Six information-theoretic
           measures reveal that the critical line <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> is the
           unique operating point that simultaneously optimizes entropy, capacity, mutual information,
           and divergence from equilibrium.

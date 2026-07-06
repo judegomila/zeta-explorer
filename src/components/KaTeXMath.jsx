@@ -101,24 +101,25 @@ function MathModal({ tex, displayMode, onClose }) {
 
 // ─── InlineMath (clickable) ─────────────────────────────────────────────────
 
-export function InlineMath({ tex }) {
+export function InlineMath({ tex, math }) {
+  const t = tex !== undefined ? tex : math; // accept `math=` as an alias for `tex=`
   const ref = useRef();
   const ctx = useContext(MathModalContext);
 
   useEffect(() => {
     if (ref.current) {
       try {
-        katex.render(tex, ref.current, { throwOnError: false, displayMode: false });
+        katex.render(t ?? '', ref.current, { throwOnError: false, displayMode: false });
       } catch (e) {
-        ref.current.textContent = tex;
+        ref.current.textContent = t ?? '';
       }
     }
-  }, [tex]);
+  }, [t]);
 
   const handleClick = (e) => {
     if (!ctx) return;
     e.stopPropagation();
-    ctx.openModal({ tex, displayMode: false });
+    ctx.openModal({ tex: t, displayMode: false });
   };
 
   return <span ref={ref} className="math-inline math-clickable" onClick={handleClick} />;
@@ -126,24 +127,25 @@ export function InlineMath({ tex }) {
 
 // ─── BlockMath (clickable) ──────────────────────────────────────────────────
 
-export function BlockMath({ tex }) {
+export function BlockMath({ tex, math }) {
+  const t = tex !== undefined ? tex : math; // accept `math=` as an alias for `tex=`
   const ref = useRef();
   const ctx = useContext(MathModalContext);
 
   useEffect(() => {
     if (ref.current) {
       try {
-        katex.render(tex, ref.current, { throwOnError: false, displayMode: true });
+        katex.render(t ?? '', ref.current, { throwOnError: false, displayMode: true });
       } catch (e) {
-        ref.current.textContent = tex;
+        ref.current.textContent = t ?? '';
       }
     }
-  }, [tex]);
+  }, [t]);
 
   const handleClick = (e) => {
     if (!ctx) return;
     e.stopPropagation();
-    ctx.openModal({ tex, displayMode: true });
+    ctx.openModal({ tex: t, displayMode: true });
   };
 
   return <div ref={ref} className="math-block math-clickable" onClick={handleClick} />;

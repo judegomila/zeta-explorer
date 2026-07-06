@@ -79,7 +79,7 @@ export default function SelbergTracePage() {
 
       {/* ─── Why-it-matters paragraphs ─── */}
       <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #a855f7' }}>
-        <h3 style={{ color: '#a855f7' }}>Why it matters for the ZPO / Lambda project</h3>
+        <h3 style={{ color: '#a855f7' }}>Why it matters for the Twin-Ladder Bridge / Lambda project</h3>
         {R.whyItMatters.map((p, i) => (
           <p
             key={i}

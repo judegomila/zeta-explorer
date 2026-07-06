@@ -179,7 +179,7 @@ export default function ExplorationsPage() {
                 {exp.mathContent && exp.mathContent.length > 0 && (
                   <div style={{ marginTop: 16, padding: '12px 16px', background: 'rgba(59,130,246,0.06)', borderRadius: 8, border: '1px solid rgba(59,130,246,0.15)' }}>
                     <h4 style={{ fontSize: 12, fontWeight: 600, color: '#3b82f6', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                      ZPO Correspondence
+                      Twin-Ladder Bridge Correspondence
                     </h4>
                     {exp.mathContent.map((tex, i) => (
                       <div key={i} style={{ marginBottom: 4 }}>

@@ -10,7 +10,7 @@ export default function TwistorPage() {
       <div className="page-header">
         <h1>Twistor Duality</h1>
         <p>
-          Map the ZPO twin-ladder model into Penrose twistor geometry. The twistor
+          Map the Twin-Ladder Bridge twin-ladder model into Penrose twistor geometry. The twistor
           correspondence reframes the direct/dual ladder pair as a twistor/dual-twistor pair
           coupled by an intertwiner — the bridge <InlineMath tex={"\\chi(s)"} />. The critical line
           condition <InlineMath tex={"\\sigma = \\frac{1}{2}"} /> becomes the twistor incidence relation
@@ -70,11 +70,11 @@ export default function TwistorPage() {
       </div>
 
       <div className="card" style={{ marginTop: 32, borderColor: '#8b5cf6' }}>
-        <h3 style={{ color: '#8b5cf6' }}>ZPO / Twistor Correspondence Table</h3>
+        <h3 style={{ color: '#8b5cf6' }}>Twin-Ladder Bridge / Twistor Correspondence Table</h3>
         <table style={{ width: '100%', marginTop: 12, fontSize: 13, color: 'var(--text-secondary)', borderCollapse: 'collapse' }}>
           <thead>
             <tr style={{ borderBottom: '1px solid #334155' }}>
-              <th style={{ textAlign: 'left', padding: '8px 12px', color: '#3b82f6' }}>ZPO Model</th>
+              <th style={{ textAlign: 'left', padding: '8px 12px', color: '#3b82f6' }}>Twin-Ladder Bridge Model</th>
               <th style={{ textAlign: 'left', padding: '8px 12px', color: '#f59e0b' }}>Twistor Theory</th>
               <th style={{ textAlign: 'left', padding: '8px 12px', color: '#64748b' }}>Connection</th>
             </tr>
@@ -143,7 +143,7 @@ export default function TwistorPage() {
             Twin-Ladder Bridge interpretation: direct and dual ladders share a common zero
           </h4>
           <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 8 }}>
-            In the ZPO mapping, <InlineMath tex={"Z"} /> encodes the direct ladder{' '}
+            In the Twin-Ladder Bridge mapping, <InlineMath tex={"Z"} /> encodes the direct ladder{' '}
             <InlineMath tex={"\\zeta(s)"} /> and <InlineMath tex={"W"} /> encodes the dual ladder{' '}
             <InlineMath tex={"\\zeta(1-s)"} />. The incidence condition <InlineMath tex={"Z \\cdot W = 0"} />{' '}
             then translates to a precise statement: the direct and dual ladders share a common zero.
@@ -360,7 +360,7 @@ export default function TwistorPage() {
             the geometry of light rays in spacetime.
           </p>
           <p style={{ marginBottom: 12 }}>
-            In our ZPO mapping, the incidence relation corresponds to the conjugate impedance match
+            In our Twin-Ladder Bridge mapping, the incidence relation corresponds to the conjugate impedance match
             condition at <InlineMath tex={"\\sigma = \\frac{1}{2}"} /> (where <InlineMath tex={"Z_{\\text{dual}} = \\overline{Z_{\\text{dir}}}"} /> via Schwarz reflection). When the twistor and dual twistor are
             incident, the bridge is lossless and the system is in equilibrium:
           </p>

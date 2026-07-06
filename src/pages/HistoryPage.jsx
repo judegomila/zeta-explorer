@@ -883,7 +883,7 @@ function ResultExplainer({ title, author, color, tldr, math, explanation, whyItM
               padding: '10px 14px', borderRadius: 6,
               background: 'rgba(139,92,246,0.08)', border: '1px solid #8b5cf640',
             }}>
-              <h4 style={{ color: '#8b5cf6', fontSize: 12, marginBottom: 4 }}>ZPO Connection</h4>
+              <h4 style={{ color: '#8b5cf6', fontSize: 12, marginBottom: 4 }}>Twin-Ladder Bridge Connection</h4>
               <p style={{ color: '#a78bfa', fontSize: 12, lineHeight: 1.6, margin: 0 }}>
                 {zpoConnection}
               </p>

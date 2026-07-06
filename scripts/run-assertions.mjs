@@ -4756,6 +4756,19 @@ const DATA_MODULES = [
   // Measurement/power-law fit only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT
   // Lambda<=0.2 SOTA; no QED. 4 assertions.
   '/src/data/imp-34346-fixed-band-peak-third-diff-pole-order.js',
+  // imp-34347: tabulates the imp-34269 F3 odd-quarter interior-node increments (kEnd=17.25,17.75,...,21.25)
+  // of the fixed-band (k<=10) peak -- flagged nonzero but never listed -- and splits the imp-34268 0.25-grid
+  // increment sequence by right-endpoint parity to test whether the odd-quarter nodes interleave smoothly onto
+  // the imp-34268 convex branch or introduce an even/odd oscillation. FINDINGS: the global increment minimum
+  // 0.016669 falls on the ODD-QUARTER node kEnd=18.75 (imp-34196 anchor); the nine odd-quarter increments are
+  // themselves U-shaped (strict descent to 18.75 then strict convex re-acceleration to 0.104154 at 21.25); NO
+  // parity oscillation -- all seven interior odd-quarter nodes are locally convex (centered second difference
+  // >=0), and the ONLY concavity in the 15-node interior is the single even-half node kEnd=19.00 (centered
+  // second diff -0.000480), a one-node turning-point overshoot the coarse 0.5 grid (which never samples the
+  // 18.75 dip) masks, not a systematic even/odd effect; convex for both parities from kEnd>=19.25 to the pole.
+  // The imp-34268 convex-branch reading is not overturned. Measurement/parity-split only; C_mb GUE-conditional
+  // per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34347-odd-quarter-increment-parity-branch.js',
   // imp-34187: tabulates the imp-34130 separated-E_coll local-exponent residual-to-(-1/2)
   // milestone ladder at SEVEN thresholds {1e-2, 3e-3, 1e-3, 3e-4, 1e-4, 3e-5, 1e-5} on the
   // imp-33859 log-space direct path (adding the half-decade rungs to imp-34198's four decade

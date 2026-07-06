@@ -388,6 +388,9 @@ const Imp34597DriftShareRegimeSplitViz = lazy(() =>
 const Imp34598Binary128CrossCheckViz = lazy(() =>
   import('./pages/Imp34598Binary128CrossCheckViz.jsx')
 );
+const Imp34599FullLadderThroughPoleViz = lazy(() =>
+  import('./pages/Imp34599FullLadderThroughPoleViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1320,6 +1323,10 @@ function AppShell() {
           <Route
             path="/viz-imp34598-binary128-cross-check"
             element={<Imp34598Binary128CrossCheckViz />}
+          />
+          <Route
+            path="/viz-imp34599-full-ladder-through-pole"
+            element={<Imp34599FullLadderThroughPoleViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

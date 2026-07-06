@@ -399,6 +399,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34596-deflow-observed-exponent',
   '/viz-imp34597-drift-share-regime-split',
   '/viz-imp34598-binary128-cross-check',
+  '/viz-imp34599-full-ladder-through-pole',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

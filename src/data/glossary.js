@@ -12671,6 +12671,45 @@ export const glossary = [
       'imp-34570 the F3 flat-cap approximation (E_N E_trunc-dominated) whose removal is measured here (imp-34570)',
     ],
   },
+  {
+    term: 'conditioning floor vs truncation-order signature: why a tight low-order stencil agreement need not tighten further',
+    category: 'numerical',
+    definition:
+      'A methodology headword distinguishing two things a small cross-stencil agreement on a near- ' +
+      'cancellation quantity could mean: (a) a genuine truncation-order signature -- the agreement ' +
+      'keeps tightening as the stencil order rises, evidencing the underlying function is smooth and ' +
+      'well-resolved at every order; or (b) a conditioning-floor coincidence -- a roundoff-limited ' +
+      'near-cancellation that happens to land close for two low orders, but does NOT keep tightening ' +
+      'because a wider, higher-order stencil amplifies roundoff MORE, not less, when extracting a tiny ' +
+      'quantity.\n\n' +
+      'imp-34611 found the imp-34593/imp-34611 roundoff-free q3-share plateau drift ~ -0.0968 agrees ' +
+      'between a 2nd-order 5-point and a 4th-order 7-point central-difference stencil to ~4.2e-6. ' +
+      'imp-34626 added a THIRD, still-higher 6th-order 9-point stencil to test whether that tightness ' +
+      'keeps improving with order. It does NOT: the 6th-vs-4th agreement is ~1.5e-5, about 3.7x LOOSER ' +
+      'than the 2nd-vs-4th pairing. Two independent roundoff-amplification signatures confirm this is ' +
+      'conditioning, not truncation: on the large-dp tail (dp = 1.5e-2 .. 3e-1) the 6th-order drift ' +
+      'spread ~4.7e-5 EXCEEDS the 4th-order ~2.2e-5 (truncation alone would make the higher order ' +
+      'FLATTER, not noisier), and at the dp = 2e-3 roundoff node the 6th-order drift ~ -0.049 is ' +
+      'SHALLOWER than the 4th-order ~ -0.077 (more roundoff amplification, not less). The intrinsic q3 ' +
+      'is tiny (~3.4e-5 at N = 1e13), so the q3-share is a near-cancellation quantity that a wider ' +
+      '9-point stencil resolves LESS cleanly than a narrower one, even though the plateau value itself ' +
+      'reproduces to ~2e-5 across all three orders.\n\n' +
+      'HOW TO APPLY: when a small cross-stencil agreement is reported for a near-cancellation quantity ' +
+      '(a share, ratio, or difference whose numerator is much smaller than its operands), do not treat ' +
+      'a tight low-order pairing as evidence the agreement will keep tightening with stencil order -- ' +
+      'check whether the tail spread and small-dp roundoff-node behavior also tighten with order. If ' +
+      'the wider stencil is instead noisier on the tail and shallower at the roundoff node, the original ' +
+      'tight pairing was a conditioning-floor coincidence, not a signature of increasing resolution.\n\n' +
+      'HONEST SCOPE: a measurement-methodology headword consolidating imp-34611/imp-34626 findings ' +
+      'verbatim, not a new derivation; changes no bound; imp-3066 K_a >= 0 untouched; C_mb remains ' +
+      'GUE-conditional per imp-486; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34663 (consolidating the imp-34626 F2/F3 conditioning-floor finding against the imp-34611 tight 2nd-vs-4th agreement), 2026',
+    relatedTerms: [
+      'imp-34611 the 2nd-vs-4th plateau agreement (~4.2e-6) this headword shows is not a tightening trend (imp-34611)',
+      'imp-34626 the third (6th-order) stencil cross-check that surfaces the ~1.5e-5 looser 6th-vs-4th agreement (imp-34626)',
+      'imp-34593 the roundoff-free plateau drift ~ -0.0968 this cohort measures around (imp-34593)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -6375,6 +6375,11 @@ const DATA_MODULES = [
   // imp-34611 4th-order stencils (Fornberg + Vandermonde re-derivation; the
   // 4th-order does NOT reproduce the 6th-order ~3e-4 conditioning signature).
   '/src/data/imp-34684-fourth-order-stencil-reference-weight-crossvalidation.js',
+  // imp-34689: resolution-matched collapse statistic (fixed 2:1 dp pairs INSIDE
+  // each channel roundoff window) recovers the 2^k = {4,8,16} ladder the imp-34679
+  // coarse spread-ratio missed; per-channel slopes round to {2,3,4}, obs/pred rel
+  // spread tightens 0.44 -> 0.245 (~44% of the undershoot was grid-density noise).
+  '/src/data/imp-34689-resolution-matched-collapse-2pow-k-recovery.js',
 ];
 
 let ALL_MODULES = FAST_MODE

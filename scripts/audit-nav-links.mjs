@@ -423,6 +423,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34699-collapse-factor-vs-inverse-dp-k-mismatch',
   '/viz-imp34701-raw-float-weight-plateau-shift-by-stencil-order',
   '/viz-imp34715-crossover-margin-monotone',
+  '/viz-imp34716-resolution-matched-collapse-ladder',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

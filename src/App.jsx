@@ -460,6 +460,9 @@ const Imp34701RawFloatWeightPlateauShiftByStencilOrderViz = lazy(() =>
 const Imp34715CrossoverMarginMonotoneViz = lazy(() =>
   import('./pages/Imp34715CrossoverMarginMonotoneViz.jsx')
 );
+const Imp34716ResolutionMatchedCollapseLadderViz = lazy(() =>
+  import('./pages/Imp34716ResolutionMatchedCollapseLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1488,6 +1491,10 @@ function AppShell() {
           <Route
             path="/viz-imp34715-crossover-margin-monotone"
             element={<Imp34715CrossoverMarginMonotoneViz />}
+          />
+          <Route
+            path="/viz-imp34716-resolution-matched-collapse-ladder"
+            element={<Imp34716ResolutionMatchedCollapseLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

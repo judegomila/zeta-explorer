@@ -6409,6 +6409,13 @@ const DATA_MODULES = [
   // invariant -- all 10 import-light, all carry the complete banner. FINDING
   // (registration): all 10 were missing from this DATA_MODULES list; fixed above.
   '/src/data/imp-34682-recovery-cohort-invariant-audit.js',
+  // imp-34704: audit of the imp-34673/34675/34676/34679/34684/34685 cluster found
+  // four modules (imp-34673, imp-34675, imp-34676, imp-34679) carry self-executing
+  // *_ASSERTIONS arrays that were absent from this DATA_MODULES sweep; wired in below.
+  '/src/data/imp-34673-plateau-drift-kahan-summation-order-probe.js',
+  '/src/data/imp-34675-crossover-contraction-left-edge.js',
+  '/src/data/imp-34676-crossover-contraction-right-widening.js',
+  '/src/data/imp-34679-share-collapse-ladder-vs-inverse-dp-k-prediction.js',
   // imp-34685: independent cross-validation of the imp-34650 Banach certificate
   // numbers from a FRESH inline copy of the Riemann-von Mangoldt inverse solver.
   '/src/data/imp-34685-banach-certificate-crossvalidation.js',

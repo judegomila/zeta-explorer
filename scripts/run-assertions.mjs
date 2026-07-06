@@ -4508,6 +4508,19 @@ const DATA_MODULES = [
   // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; no bound changed; NO QED; PT
   // Lambda<=0.2 SOTA. 7 assertions.
   '/src/data/imp-34528-tailside-hump-decay-vs-sqrt-n-fartail.js',
+  // imp-34532: EXTEND the imp-33851 head-heavy hump-skew ladder head-side by recomputing the imp-33809
+  // curvature-hump amplitude hump(k) = p_ecoll*(1-sigma_hi) - p_sigma (same method, reuse-gated against
+  // the k=6..13 ladder) at k=5,4 (head) and k=14 (tail), pairing with tail k=13. The head-heavy skew(j)
+  // = hump(9-j)/hump(9+j) does NOT saturate past imp-33851 j=3: {1.2176, 1.5758, 3.0426, 10.9549,
+  // 50.3270} for j=1..5, and the successive-skew ratio {1.294, 1.931, 3.600, 4.594} itself GROWS, so the
+  // climb ACCELERATES; the bounded asymmetry index {0.0981, 0.2236, 0.5053, 0.8327, 0.9610} rises toward
+  // its ceiling of 1 (head ~50x tail by j=5). Honestly, the j=4,5 growth is JOINT: the E_trunc tail
+  // vanishes (tailFrac 0.0418, 0.0140 as sigma_hi->0) AND the deep-head hump RE-RISES below its k=6 local
+  // minimum (hump(6)=2.3886e-2 < hump(5)=2.9671e-2 < hump(4)=4.5516e-2), so the head is non-monotone in
+  // the collision-dominated (sigma->1) regime where the inherited imp-3220/imp-3406 model is least tuned.
+  // Measurement only; reuse-gated recompute; inherited model NOT rigorous; C_mb GUE-conditional per imp-486
+  // untouched; imp-3066 K_a>=0 untouched; no bound changed; NO QED; PT Lambda<=0.2 SOTA. 7 assertions.
+  '/src/data/imp-34532-hump-skew-headside-extension-k5-k4.js',
   // imp-34147: DOES THE imp-34084 APEX CUBIC-TILT SIGN d<0 PERSIST ACROSS THE LADDER? imp-34084 C1 fit
   // the apex cubic tilt d ~ -5.347e-4 (resid triple-prime(k*) < 0) at the SINGLE imp-33948 apex centre
   // k* ~ 8.821092 and never asked whether the negative sign is a local feature or a stable property.

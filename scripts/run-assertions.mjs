@@ -4686,6 +4686,17 @@ const DATA_MODULES = [
   // C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED.
   // 6 assertions.
   '/src/data/imp-34248-crossover-surplus-small-thr-asymptotic.js',
+  // imp-34329: extends the imp-34248 crossover-surplus ladder to thr in {1e-3, 1e-4} (plus a deep-tail
+  // probe to 1e-12, all IEEE-overflow-safe) to settle whether a limiting super-linear composite exponent
+  // exists. The composite d log surplus / d log thr does NOT keep drifting down -- it REVERSES: a shallow
+  // minimum ~2.8711 (0.05->0.01) then climbs back up (2.8721, 2.8863). The deep probe shows the local
+  // r-exponent climbing monotonically back toward 2 (1.876 -> 1.942 as log T0 grows 34.6 -> 76) with a
+  // bounded correction r-exponent = 2 - c/log T0, c ~ 4.4, so the WELL-DEFINED limit is exactly composite
+  // = 3 (surplus ~ thr^3): the log-T0 softening that lifts r above thr^2 itself decays as ~1/log T0. The
+  // imp-34248 deep-tail 2.878 is a shallow-minimum reading ~0.13 below the limit, taken right at the turn.
+  // Measurement/fit only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched;
+  // PT Lambda<=0.2 SOTA; no QED. 7 assertions.
+  '/src/data/imp-34329-crossover-surplus-fartail-composite-limit.js',
   // imp-34187: tabulates the imp-34130 separated-E_coll local-exponent residual-to-(-1/2)
   // milestone ladder at SEVEN thresholds {1e-2, 3e-3, 1e-3, 3e-4, 1e-4, 3e-5, 1e-5} on the
   // imp-33859 log-space direct path (adding the half-decade rungs to imp-34198's four decade

@@ -4481,6 +4481,19 @@ const DATA_MODULES = [
   // per imp-486 untouched; imp-3066 K_a>=0 untouched; no bound changed; NO QED; PT Lambda<=0.2 SOTA.
   // 6 assertions.
   '/src/data/imp-33851-hump-envelope-symmetry-vs-k.js',
+  // imp-34527: fit the imp-33851 head-heavy hump skew ladder skew(j) = hump(9-j)/hump(9+j) =
+  // {1.2176, 1.5758, 3.0426} (j=1,2,3) to a growth law and connect the fitted rate to the head/tail
+  // decay-exponent asymmetry. The geometric null is rejected (successive ratios grow 1.2942 ->
+  // 1.9308); a log-linear fit ln skew = alpha + beta j gives beta ~ 0.4579 at R^2 ~ 0.940 with a
+  // convex residual, extrapolating skew(4) ~ 4.50 (lower) up to ~8.76 (exact log-quadratic, curvature
+  // c ~ 0.20 > 0). Crucially, since ln skew = ln headFrac - ln tailFrac, beta EQUALS the tail-minus-
+  // head log-decay gap aTail - aHead ~ 0.4581 (aHead ~ 0.4158 E_coll head, aTail ~ 0.8738 E_trunc tail,
+  // ratio ~ 2.10), so the head-heavy skew IS the E_trunc tail decaying ~twice as fast per offset,
+  // consistent with the imp-3463 far-tail sigma ~ N^(-1/2) form. Measurement/fit only; reuses the
+  // imp-33851 amplitudes verbatim; inherited imp-3220/imp-3406 model NOT rigorous; C_mb GUE-conditional
+  // per imp-486 untouched; imp-3066 K_a>=0 untouched; no bound changed; NO QED; PT Lambda<=0.2 SOTA.
+  // 6 assertions.
+  '/src/data/imp-34527-hump-skew-growth-law-vs-decay-asymmetry.js',
   // imp-34147: DOES THE imp-34084 APEX CUBIC-TILT SIGN d<0 PERSIST ACROSS THE LADDER? imp-34084 C1 fit
   // the apex cubic tilt d ~ -5.347e-4 (resid triple-prime(k*) < 0) at the SINGLE imp-33948 apex centre
   // k* ~ 8.821092 and never asked whether the negative sign is a local feature or a stable property.
@@ -5683,6 +5696,19 @@ const DATA_MODULES = [
   // Measurement / threshold-location + fit only; component model NOT rigorous; C_mb GUE-conditional per
   // imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34512-pole-leakage-fit-15-20-percent-crossings.js',
+  // imp-34525: ASSESSES whether a SECOND (subdominant) pole, a DOUBLE (order-2) pole at k*, or a REGULAR
+  // polynomial part added to A/(k* - k) fits the imp-34512 measured 1%-20% pole-leakage window k in
+  // [18.5, 20.9] and reproduces the effective exponent ~2.12 that a single simple pole cannot. Reuses the
+  // IDENTICAL imp-34247 metric, imp-34188 window, imp-34023 pole VERBATIM. FINDINGS: (R1) single pole + const
+  // fits POORLY (RMS ~2.656); (R2) pole + regular linear part fits ~20x better (RMS ~0.132) and reproduces
+  // 2.12 (wide) -> 1.14 (near); (R3) a DISTANT second pole at k2 ~ 32.35 (far beyond k*) fits ~218x better
+  // (RMS ~0.012) but is nearly DEGENERATE with a regular part over the window; (R4) a DOUBLE (order-2) pole AT
+  // k* is REJECTED (RMS ~1.163, ~8.8x worse than the regular part) because it would keep the exponent near 2
+  // at k*, opposite to the observed collapse to 1 -- so the ~2.12 exponent is a finite-window / pre-asymptotic
+  // artifact of the single imp-34023 simple pole plus a smooth background, NOT a second singularity at k*.
+  // Import-light. 6 assertions. Fit / measurement only; component model NOT rigorous; C_mb GUE-conditional per
+  // imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34525-pole-leakage-two-pole-vs-regular-part-fit.js',
   // imp-34469: TESTS the imp-34409 +0.227 overshoot (its k=12..18 exponential-approach fit extrapolates
   // the -1 crossing to k ~ 20.706, 0.227 above the analytic mapped crossing 20.47903) for window-dependence
   // by re-fitting the IDENTICAL surrogate over extended (start=12, end 18..30) and slid (fixed 7-rung width,
@@ -5811,6 +5837,19 @@ const DATA_MODULES = [
   // zeros bundle. FINDING: no gap -- all 8 registered correctly, no heavy
   // import found. AUDIT-ONLY, no fix applied. 5 assertions.
   '/src/data/imp-34464-registration-heavy-import-audit.js',
+  // imp-34465: AUDIT (following the imp-3369 unwired-assertion-coverage
+  // precedent) of every imp-34369..imp-34398 sibling module for an exported
+  // *_ASSERTIONS array absent from this runner's DATA_MODULES list. FINDING:
+  // 5 modules export a valid *_ASSERTIONS array but were never registered
+  // here -- imp-34370, imp-34371, imp-34378, imp-34383, imp-34389. (The
+  // imp-34464 registration audit above only checked the 8-module log/import
+  // chain, not runner wiring, so it did not catch this.) FIX: the 5 modules
+  // are appended below so their assertions execute in the build-time sweep.
+  '/src/data/imp-34370-nthr-ncross-fartail-ordering-rvm-jacobian.js',
+  '/src/data/imp-34371-d2-knee-detectability-threshold.js',
+  '/src/data/imp-34378-trough-peak-ratio-ceiling-viz-data.js',
+  '/src/data/imp-34383-d2-signchange-grid-viz-data.js',
+  '/src/data/imp-34389-honest-status-boilerplate-consolidation-assessment.js',
 ];
 
 let ALL_MODULES = FAST_MODE

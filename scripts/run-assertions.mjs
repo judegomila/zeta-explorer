@@ -4727,6 +4727,18 @@ const DATA_MODULES = [
   // does not close. Measurement only; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
   // untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-34211-closedform-vs-bisection-kend-gap.js',
+  // imp-34285: DECOMPOSE the imp-34211 ~0.278 kEnd gap (closed form 21.003 vs direct bisection 21.28094742)
+  // into the pieces the imp-34127 closed form omits, reintroducing each one at a time. (i) Dropping the
+  // E_flow term shifts the direct root by only ~ -6.0e-8 (share ~2.2e-7 of the gap) -- E_flow accounts for
+  // NONE of it. (ii) With the continuous residual identically zero (imp-34127 Part A), resid = dA - dB, dA
+  // the pEcoll 2-pt-secant bias and dB the pSigma 5-pt-OLS bias, both ~ -2.286e-4 at the crossing and
+  // cancelling to ~1e-7, so the whole gap is the higher-order-in-D window-width content the leading-D^2
+  // closed form drops. HONEST premise correction: the scout "F4 term" (resid(hi)/resid(lo)) and "C term"
+  // (1/|resid|) are derived DIAGNOSTIC RATIOS of the residual, not additive summands, so they cannot be
+  // reintroduced into it. Clean per-estimator percentage split left as SUB-GAP-imp-34285-per-estimator-
+  // percentage-split (ill-conditioned by the near-total dA-dB cancellation). Decomposition only; component
+  // model NOT rigorous; C_mb/imp-486 & imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-34285-closedform-gap-term-decomposition.js',
   // imp-34227: RECONCILE SUB-GAP-imp-34169-surrogate-domain-edge -- is the imp-33810/imp-33843 surrogate
   // resid_exp(k)=pEcoll(1-sigma)-pSigma zero at k*~21.28095 an ARTIFACT of the quarter-decade OLS/secant
   // exponent estimators or a GENUINE component-model feature? Recomputes resid_exp three ways: refining the

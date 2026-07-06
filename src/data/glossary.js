@@ -11671,6 +11671,116 @@ export const glossary = [
       'imp-34298 the sibling cohort map indexing the same branch family by n (imp-34298)',
     ],
   },
+  {
+    term: 'SUB-GAP-imp-34228-residexp-resolution-floor -- resid_exp evaluation-noise floor at gap ~1e-8',
+    category: 'numerical',
+    definition:
+      'imp-34228 extended the imp-34168 doubling-map floor test to a FULL DOUBLE-PRECISION live k_true ' +
+      'anchor (offset ~4.3e-11 below the imp-34168 stored 10-sig-fig literal) and re-ran the ladder to ' +
+      'e = 15..28. Refining the anchor buys exactly ONE more rung: the schedule now matches through e = 22 ' +
+      'and first departs at e = 23 (1/8388608), one rung past the imp-34168 stopping point. But both the ' +
+      'live and stored anchors -- which differ from each other by 4.3e-11 -- depart at the IDENTICAL rung, ' +
+      'so the departure cannot be an anchor-precision floor. It is instead a resid_exp EVALUATION-NOISE ' +
+      'floor: the smallest gap the discrete argmax ever resolves is ~4.5e-9, below which floating-point ' +
+      'resid_exp differences between adjacent near-peak grid points fall below evaluation noise and the ' +
+      'argmax can no longer track the truly-nearest grid point (the ladder flickers past e = 23).\n\n' +
+      'HONEST STATUS: named and located here as a measurement; whether a higher-precision or ' +
+      'analytic-derivative evaluation of resid_exp lowers this floor is left OPEN.\n\n' +
+      'MEASUREMENT ONLY -- a closed-form-vs-measurement comparison on an inherited surrogate argmax gap, ' +
+      'not an RH bound. The component model is the inherited imp-3220/imp-3406 extrapolation; C_mb ' +
+      'GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian ' +
+      'Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34228 (extending the imp-34168 doubling-map floor test to a full double-precision live anchor and e=15..28), 2026',
+    relatedTerms: [
+      'imp-34168 the 10-sig-fig stored-anchor floor test this extends (imp-34168)',
+      'imp-34106 the E3 stored-precision-floor diagnosis this sharpens (imp-34106)',
+      'imp-34169 the resid_exp(k) zero-crossing this resolution floor sits near (imp-34169)',
+    ],
+  },
+  {
+    term: 'SUB-GAP-imp-34268-convex-branch-form -- fixed-band peak re-acceleration branch is CONVEX, not linear',
+    category: 'numerical',
+    definition:
+      'imp-34196 fit the post-minimum re-acceleration branch of the fixed-band (k<=10) peak as a LINEAR ' +
+      'increment slope (increment = a + b*kEnd, b ~ +0.002567, R2 ~ 0.972) on four windows (kEnd 18.75..19.50). ' +
+      'imp-34268 stitches that grid onto the imp-34169 kEnd 20..21 increments on one common 0.25-step grid ' +
+      '(through the last computable rung kEnd = 21.25 before the imp-34169 resid_exp pole) and finds the ' +
+      'linear fit UNDER-predicts the extended increments monotonically and super-linearly -- the residual ' +
+      'grows from +0.000213 (kEnd 19.75) to +0.080936 (kEnd 21.25). The branch carries strictly POSITIVE ' +
+      'and GROWING third differences (second differences of the increments) across the whole post-minimum ' +
+      'region, so the re-acceleration is genuinely CONVEX, not the linear descriptor imp-34196 fit locally.\n\n' +
+      'HONEST STATUS: imp-34196 (correct within 18.75..19.50) and imp-34169 (correct within 20..21) are not ' +
+      'overturned -- only their local linear extrapolation is. Which convex functional form (quadratic, ' +
+      'exponential-in-kEnd, or resid_exp pole blow-up toward k* ~ 21.28) the branch follows is left OPEN ' +
+      '(named SUB-GAP-imp-34268-convex-branch-form); imp-34287 reconciles this with the pole but does not ' +
+      'settle the functional form.\n\n' +
+      'MEASUREMENT / STITCH-AND-CONVEXITY PROBE ONLY, NOT an RH bound. The inherited imp-3220/imp-3406 ' +
+      'component model is NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 ' +
+      'K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34268 (stitching the imp-34196 and imp-34169 fixed-band-peak increment grids and measuring third differences), 2026',
+    relatedTerms: [
+      'imp-34196 the local 4-point linear re-accel slope this shows is only a local descriptor (imp-34196)',
+      'imp-34169 the kEnd 20..21 increments this stitches onto the imp-34196 grid (imp-34169)',
+      'imp-34287 the pole-proximity reconciliation of this convex branch (imp-34287)',
+    ],
+  },
+  {
+    term: 'SUB-GAP-imp-34285-per-estimator-percentage-split -- ill-conditioned pEcoll-vs-pSigma gap attribution',
+    category: 'accuracy',
+    definition:
+      'imp-34211 measured that the imp-34127 closed-form M2-residual sign-change ceiling (kEnd_cf ~ 21.003) ' +
+      'under-shoots the imp-34150 direct-bisection root (kEnd_bis ~ 21.28094743) by ~ -0.278, without ' +
+      'attributing where the gap comes from. imp-34285 shows the "F4-term / C-term" scout framing is not ' +
+      'well-posed (F4 and C are diagnostic RATIOS of the residual, not additive summands) and that the ' +
+      'genuine gap is the higher-order-in-D Taylor remainder of two nearly-equal, nearly-cancelling ' +
+      'estimator biases dA (pEcoll 2-point secant) and dB (pSigma 5-point OLS): at the crossing both are ' +
+      '~ -2.286e-4 and their tiny ~1e-7 difference IS the full residual (the catastrophic cancellation ' +
+      'imp-34023/imp-34087 named). The E_flow-negligible assumption the closed form makes accounts for ' +
+      'essentially none of the gap (share ~2.2e-7).\n\n' +
+      'HONEST SUB-GAP: splitting the 0.278 kEnd gap into a clean pEcoll-share-percent vs pSigma-share-percent ' +
+      'is ILL-CONDITIONED, because the root location is set by the tiny difference of two large nearly-equal ' +
+      'quantities, so a per-estimator percentage of the root shift is not separably defined without an ' +
+      'arbitrary reference. This module reports the two biases and their near-equality instead of a spurious ' +
+      'percentage split, and leaves a well-conditioned per-estimator decomposition OPEN.\n\n' +
+      'NUMERICAL / DECOMPOSITION ONLY, NOT an RH bound. The inherited imp-3220/imp-3406 component model is ' +
+      'NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO ' +
+      'QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34285 (decomposing the imp-34211 closed-form-vs-bisection kEnd gap into its dA/dB estimator biases), 2026',
+    relatedTerms: [
+      'imp-34211 the ~0.278 kEnd gap decomposed here (imp-34211)',
+      'imp-34127 the closed form and continuous-residual identity the gap is measured against (imp-34127)',
+      'imp-34150 the direct-bisection root kEnd_bis ~ 21.28094743 (imp-34150)',
+    ],
+  },
+  {
+    term: 'SUB-GAP-imp-34287-asymptotic-class-undecidable -- fixed-band peak sub-log/log/super-log growth class OPEN',
+    category: 'numerical',
+    definition:
+      'imp-34196 found the fixed-band (k<=10) peak increments RE-ACCELERATE past kEnd ~ 18.64, in tension ' +
+      'with the imp-34109 "unbounded-log" verdict (a pure logarithm has decelerating, not rising, ' +
+      'increments). imp-34287 resolves the tension by measuring the LOCAL LOG-DERIVATIVE g = dP/d ln(kEnd) ' +
+      'across kEnd = 14.0..21.25: far from the imp-34169 resid_exp pole (kEnd <= 18) g DECLINES 1.4109 -> ' +
+      '1.2325 (OLS slope -0.0535, R2 ~ 0.981) -- sub-log-leaning, never super-log. The re-acceleration is ' +
+      'confined to the pole-approach branch (kEnd >= 18.75), where g climbs to 8.80, and regresses on the ' +
+      'pole-proximity coordinate as g ~ 1.4074 + 0.2361/(k* - kEnd) with R2 ~ 0.9235 -- so the ' +
+      're-acceleration is a bounded pole-proximity transient, not intrinsic super-logarithmic growth.\n\n' +
+      'HONEST SUB-GAP: because the surrogate domain terminates at the resid_exp pole k* ~ 21.28 and the ' +
+      'entire re-acceleration branch sits inside the pole s influence radius, this measurement can only ' +
+      'conclude the far-window growth is decelerating / sub-log-leaning; whether the TRUE underlying ' +
+      'fixed-band-peak growth is sub-log, log, or super-log is left OPEN. A pole-free deep-tail estimator ' +
+      'distinct from the imp-33810 quarter-decade OLS would be required to decide it.\n\n' +
+      'MEASUREMENT / LOCAL-EXPONENT RECONCILIATION ONLY, NOT an RH bound. imp-34196 and imp-34109 are not ' +
+      'overturned, only reframed. The inherited imp-3220/imp-3406 component model is NOT a rigorous ' +
+      'asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; ' +
+      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34287 (reconciling the imp-34196 rising-increment / imp-34109 unbounded-log tension via the local log-derivative), 2026',
+    relatedTerms: [
+      'imp-34196 the rising-increment re-acceleration this reconciles (imp-34196)',
+      'imp-34109 the unbounded-log verdict this reconciles (imp-34109)',
+      'imp-34169 the resid_exp pole k* ~ 21.28095 the re-acceleration is attributed to (imp-34169)',
+      'imp-34268 the sibling convexity finding on the same post-minimum branch (imp-34268)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

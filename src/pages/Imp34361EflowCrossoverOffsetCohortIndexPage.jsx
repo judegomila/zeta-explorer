@@ -115,6 +115,30 @@ export default function Imp34361EflowCrossoverOffsetCohortIndexPage() {
           color: '#64748b',
         }}
       >
+        <strong style={{ color: '#94a3b8' }}>imp-34328 sigma-vs-product gap complement (not identical laws):</strong>{' '}
+        The sigma-exponent gap 1/2 - p (imp-33816) and the imp-34197 E_coll product gap 1/(2u) look like
+        "the same law" at a glance, but imp-34328 shows they are EXACT COMPLEMENTS on the log T0 axis
+        instead: gapSigma * log T0 + gapProduct = 1/2 at every rung, not gapSigma = gapProduct. The
+        product cancels the log(2 pi) shift between u = log(T0/2 pi) and log T0 by multiplying through
+        log T0; the bare sigma-exponent gap keeps that shift, so it approaches 1/2 * u only slowly
+        (0.446 to 0.500) rather than sitting on it exactly. See the{' '}
+        <Link to="/viz-imp34417-sigma-vs-product-gap-complement" style={{ color: '#7dd3fc' }}>
+          side-by-side complement chart (imp-34417)
+        </Link>{' '}
+        for the full ladder. Cross-check/tabulation only, NOT an RH bound.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
         <strong style={{ color: '#94a3b8' }}>Honest status:</strong> this is a navigation aid over
         already-published measurements. The offset and its E_flow attribution are real, reproducible
         readings under the inherited imp-3220/imp-3406 conditional-share extrapolation -- not a

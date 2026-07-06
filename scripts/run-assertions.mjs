@@ -4780,6 +4780,20 @@ const DATA_MODULES = [
   // imp-34127 separately reports a lower, non-canonical closed-form leading estimate kEnd~21.00
   // (residual ~-0.28). Live-imports both source literals so a future edit cannot drift or conflate them.
   '/src/data/imp-34302-m2-ceiling-cohort-canonical-value-gate.js',
+  // imp-34251: CROSS-CHECK the imp-34126 F2 sub-linear normalized-shortfall span exponent alpha against a
+  // REFINED estimator to rule out the FD/OLS-precision-floor undershoot reading. Re-runs the identical
+  // inherited shortfall at two fixed deep rungs (N=1e200 L~456.24, N=1e800 L~1836.39) while densifying the
+  // OLS window 4->8->16->32->64 pts/decade and shrinking the pointwise central-FD step 1e-3->1e-5. (F1) OLS
+  // density is NOT the bottleneck: 4->64 pts/decade shifts alpha only +0.0037 at BOTH rungs (0.8084->0.8121,
+  // 0.8549->0.8585), saturating far below 1 -- the sub-linear reading survives OLS refinement. (F2) FD-step
+  // refinement DESTABILIZES rather than corrects: at N=1e800 the 1e-5 step OVERSHOOTS past 1 (0.8578->1.1695)
+  // while R^2 collapses 0.99896->0.98530 -- a roundoff blow-up of the pointwise FD on a vanishing p~1/(2L),
+  // the imp-34126 "FD floor corrupts L>~3000" wall shown to be a roundoff wall finer stepping WORSENS. Verdict:
+  // FD-precision-floor undershoot RULED OUT; the sub-linear alpha is genuine finite-L curvature (imp-34126 F2
+  // primary attribution correct). Measurement/cross-check only; identical inherited imp-34065/imp-3220/imp-3406
+  // sub-terms; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no
+  // QED. 6 assertions.
+  '/src/data/imp-34251-shortfall-alpha-refined-estimator-cross-check.js',
 ];
 
 let ALL_MODULES = FAST_MODE

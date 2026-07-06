@@ -445,6 +445,9 @@ const Imp34677BanachContractionCertificateViz = lazy(() =>
 const Imp34680ThreeTermShareSpreadRoundoffValleyViz = lazy(() =>
   import('./pages/Imp34680ThreeTermShareSpreadRoundoffValleyViz.jsx')
 );
+const Imp34696RightWideningBanachCertificateViz = lazy(() =>
+  import('./pages/Imp34696RightWideningBanachCertificateViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1453,6 +1456,10 @@ function AppShell() {
           <Route
             path="/viz-imp34680-three-term-share-spread-roundoff-valley"
             element={<Imp34680ThreeTermShareSpreadRoundoffValleyViz />}
+          />
+          <Route
+            path="/viz-imp34696-right-widening-banach-certificate"
+            element={<Imp34696RightWideningBanachCertificateViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

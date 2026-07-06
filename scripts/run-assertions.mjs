@@ -6464,6 +6464,10 @@ const DATA_MODULES = [
   '/src/data/imp-34612-eflow-attr-convexity-vs-analytic-log3-curvature.js',
   '/src/data/imp-34613-eflow-attr-log-slope-second-deriv-sign.js',
   '/src/data/imp-34643-measurement-cluster-invariant-audit.js',
+  // imp-34644: audit of the imp-34606..34613 span for improvements.js
+  // id/title/status consistency found no gaps -- all 8 tickets completed,
+  // each with exactly one distinct-log-id registration and existing files.
+  '/src/data/imp-34644-measurement-cluster-registration-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

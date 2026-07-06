@@ -4703,6 +4703,16 @@ const DATA_MODULES = [
   // Measurement/fit only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched;
   // PT Lambda<=0.2 SOTA; no QED. 7 assertions.
   '/src/data/imp-34329-crossover-surplus-fartail-composite-limit.js',
+  // imp-34407: derives the imp-34329 far-tail correction constant c ~ 4.4 in r-exponent = 2 - c/log T0
+  // analytically from the imp-34248 sub-terms. Leading constant is c = 4 EXACTLY (2 x 2: the power 2 on
+  // L in r ~ (log T0)^2 thr^2 times the slope |dL/d log thr| = 2 of L = -2 log thr) -- NOT log(2pi),
+  // which enters only the sub-leading correction. The refined finite-L form c_analytic(L) =
+  // 4 L (L-lam)/([(L-lam)^2-1] B_D), B_D = 1 - 1/L + 1/(L-lam-1), matches the instantaneous exponent of
+  // the imp-34248 sub-terms to < 1e-3 for log T0 >= 48 and -> 4 as log T0 -> infinity. The imp-34329
+  // ~4.4 is a SECANT finite-difference reading: LS c is ~4.49 on decade secants but ~4.15 instantaneous,
+  // both descending to the derived limit c = 4. Measurement/derivation only; C_mb GUE-conditional per
+  // imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 7 assertions.
+  '/src/data/imp-34407-fartail-composite-correction-constant-derivation.js',
   // imp-34332: fits the imp-34248 prefactor P(thr) approach to linearity. From the exact ratio
   // surplus/(thr.r) = (1-thr)/(1+(1-thr)r), the residual 1 - surplus/(thr.r) = (thr + (1-thr)r)/(1+(1-thr)r)
   // (verified to machine precision) = thr + (1-thr)^2 r + O(r^2). So the residual vanishes LINEARLY IN thr
@@ -4784,6 +4794,18 @@ const DATA_MODULES = [
   // C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; NO QED.
   // 6 assertions.
   '/src/data/imp-34408-widening-slope-prepole-landmark-decade-axis.js',
+  // imp-34409: resolves the imp-34327 naive-vs-mapped -1 crossing sub-gap by reconstructing the imp-34188
+  // exponential-approach kernel u-grid over k=12..18. imp-34188 s buildLadder evaluates parts() at hi=10^(k+1)
+  // with C_F=(log(T0/2pi)+1)/2pi, so its widening slope is a function of the MAPPED u=log(eff(10^(k+1))/2pi)
+  // (imp-34327 s uOfK), NOT the naive u=k*ln10. Fitting the imp-34188 surrogate g=g_inf+c exp(-lam k) on this
+  // mapped grid extrapolates the -1 crossing to k~20.706 -- within 0.227 of the mapped crossing 20.479 and
+  // 0.877 from the naive 19.829 (~3.9x closer to mapped). The naive-grid counterfactual lands at ~19.980
+  // (within 0.151 of naive), same kernel rate lam~0.135, so the ~0.73 crossing shift is the grid, not the
+  // weighting; the +0.227 overshoot above the exact mapped crossing is the kernel s finite-window u-weighting
+  // bias (g_inf~-1.048 short of -ln10/2=-1.15129), well inside the 0.65 gap. So the fit sees the MAPPED index.
+  // Measurement/surrogate-fit only; imp-34246/imp-34327/imp-34188 UNTOUCHED; C_mb GUE-conditional per imp-486
+  // UNTOUCHED; imp-3066 K_a>=0 untouched; changes no bound; PT Lambda<=0.2 SOTA; NO QED. 5 assertions.
+  '/src/data/imp-34409-widening-slope-crossing-kernel-frame.js',
   // imp-34333: assesses whether the imp-34247 residue-EXACTLY-+1 simple pole of the widening-slope
   // log-derivative dy/dk = d/dk ln(eflow/resid_exp) is structurally forced or estimator-specific.
   // Structural law: residue of the log-derivative at a zero of resid_exp = the multiplicity m of that

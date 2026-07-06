@@ -5052,6 +5052,15 @@ const DATA_MODULES = [
   // Sensitivity measurement only; component model NOT rigorous; C_mb GUE-conditional per imp-486
   // untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED. 5 assertions.
   '/src/data/imp-34348-eflow-gronwall-offset-tc-a1-sensitivity.js',
+  // imp-34351: cross-validate the imp-34270 exact division form relOffset = 1 - [L/L]/(1+r)^2 at
+  // the imp-33743 far-tail thr=0.1 crossover (E_flow-dropped N_cf vs E_flow-restored N_wf). It
+  // reproduces the measured offset 7.377156e-5 to 8.41e-12 relative (~5 orders tighter than the
+  // halving <1e-6, no bisection here), and the 2r+deltaL split survives (leading share 96.21% vs
+  // 95.74% at halving). The thr/(1-thr) amplitude factor CANCELS in the division, so the identity
+  // is landmark-independent, NOT tuned to sigma=1/2. Cross-validation only; component model NOT
+  // rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2
+  // SOTA; no bound change; NO QED. 5 assertions.
+  '/src/data/imp-34351-eflow-division-form-fartail-crossvalidation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

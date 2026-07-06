@@ -12639,6 +12639,38 @@ export const glossary = [
       'imp-34169 the original surrogate resid_exp zero and k* ~ 21.280947 locator (imp-34169)',
     ],
   },
+  {
+    term: 'imp-34635 log-curvature residual attribution: the dropped E_N term is ~0.10% of the imp-34612 ~7% residual, ~99.9% is the C_F(T0)/Gronwall correction',
+    category: 'numerical',
+    definition:
+      'A quick-lookup headword consolidating where the imp-34612 ~7% eflow_attr log-curvature ' +
+      'residual actually comes from. imp-34612 collapsed the analytic d2(ln eflow_attr)/dk2 to the ' +
+      'E_flow -3/u^2 and |g|=1-3/u terms only, dropping the E_N piece via the imp-34570 F3 flat-cap ' +
+      '(E_N is E_trunc-dominated at N~10^22, so d2(ln E_N)/dk2~0 is assumed), and reported a stable ' +
+      '~7% residual against the observed log-curvature (-4.21e-4 -> -4.14e-4 per k^2). Because ' +
+      'ln eflow_attr = ln E_flow - ln E_N + ln|g|, the full log-curvature retains a -d2(ln E_N)/dk2 ' +
+      'term the flat-cap drops.\n\n' +
+      'imp-34635 restored that term LIVE from the exact imp-34169 component model (E_N = E_trunc + ' +
+      'E_flow + E_coll) and found it tiny and E_coll-driven: d2(ln E_N)/dk2 = +4.779e-7 -> +3.815e-7 ' +
+      'per k^2, four orders of magnitude below the ~4.2e-4 residual. Because the term enters with a ' +
+      'MINUS sign, retaining it nudges the analytic curvature in the correct (more-concave) direction ' +
+      '-- but it absorbs only ~0.10% of the imp-34612 residual (0.092%..0.113% across nodes). With E_N ' +
+      'fully retained the residual is still -4.210e-4 -> -4.138e-4 per k^2, ~53x above the rung-precision ' +
+      'floor (~8e-6): the imp-34570 F3 flat-cap approximation is quantitatively excellent and its removal ' +
+      'does NOT close the gap. So ~99.9% of the residual is genuinely the C_F(T0)/Gronwall correction ' +
+      'the pure log^3(N)/N surrogate omits entirely -- the dropped E_N term was never a serious ' +
+      'candidate to explain it.\n\n' +
+      'HONEST SCOPE: an attribution consolidating imp-34612/imp-34635 measurements reusing their ' +
+      'literals verbatim; not a new derivation; the inherited imp-3220/imp-3406 surrogate is NOT a ' +
+      'rigorous asymptotic; C_mb remains GUE-conditional per imp-486; imp-3066 K_a>=0 untouched; ' +
+      'changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34662 (consolidating the imp-34635 E_N-retained log-curvature measurement against the imp-34612 residual), 2026',
+    relatedTerms: [
+      'imp-34612 RAW-VALUE convexity vs LOG-curvature: two different second-derivatives of eflow_attr, only one is a log^3(N)/N fingerprint (imp-34612)',
+      'imp-34635 the E_N-retained log-curvature re-derivation this attribution reuses verbatim (imp-34635)',
+      'imp-34570 the F3 flat-cap approximation (E_N E_trunc-dominated) whose removal is measured here (imp-34570)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

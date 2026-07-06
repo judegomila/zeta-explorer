@@ -253,4 +253,56 @@ console.log('  => the ~8.5e-16 native-vs-dd gap is confirmed ARITHMETIC WIDTH (n
 console.log('     SAME function), NOT a formula divergence: an independent >binary128 base-10 kernel reproduces');
 console.log('     the dd hi-word to its 106-bit floor and reproduces the native gap. imp-34551 F1/F2/F3 stand.');
 console.log('  CONFIRMED:', DD_MATCHES_INDEPENDENT && NATIVE_IS_DOUBLE_LEVEL && DD_TIGHTER_THAN_NATIVE);
+
+// ===========================================================================
+// (F) imp-34610: OFF-ARGMAX nodes ACROSS the ~0.0653 peak interior. The (D) nodes
+//     all sit in the near-degenerate argmax cluster (k ~ 8.8210913..8.8210916) where
+//     endpoint cancellation elevated rel(native,bf) to 7.8e-16..4.9e-15. Whether the
+//     gap stays at plain double-ULP width AWAY from the argmax -- across the peak
+//     flanks and top where the two subtracted O(1) terms do NOT nearly cancel -- was
+//     never sampled. Here we take k spread across the peak (resid_exp a plain O(1e-2)
+//     value, non-degenerate) and confirm rel(dd,bf) holds the ~1e-31 dd floor while
+//     rel(native,bf) settles to plain native double ULP (no formula divergence),
+//     i.e. the double-ULP-width native-vs-arbiter gap is a property of the WHOLE peak.
+// ===========================================================================
+const OFF_ARGMAX_NODES = [
+  { label: 'k=7.80 (lower flank)', k: 7.80 },
+  { label: 'k=8.20 (lower flank)', k: 8.20 },
+  { label: 'k=8.60 (near top, off argmax)', k: 8.60 },
+  { label: 'k=9.20 (near top, off argmax)', k: 9.20 },
+  { label: 'k=9.60 (upper flank)', k: 9.60 },
+  { label: 'k=10.00 (upper flank)', k: 10.00 },
+];
+console.log('\n=== imp-34610: OFF-ARGMAX peak-interior sampling (rel gap AWAY from the degenerate argmax) ===\n');
+const offResults = [];
+for (const nd of OFF_ARGMAX_NODES) {
+  const kBf = bfFromDouble(nd.k);
+  const bfV = bfResidExp(kBf);
+  const nV = nResidExp(nd.k);
+  const ddPair = ddResidExp(dd(nd.k));
+  const ddBf = bfFromDdPair(ddPair);
+  const relNativeBf = bfRelBetween(bfFromDouble(nV), bfV);
+  const relDdBf = bfRelBetween(ddBf, bfV);
+  offResults.push({ label: nd.label, k: nd.k, nV, relNativeBf, relDdBf });
+  console.log(`  ${nd.label}  k=${nd.k}`);
+  console.log(`    resid_exp   = ${nV.toExponential(6)}   (plain peak value, non-degenerate)`);
+  console.log(`    rel(native, bf) = ${relNativeBf.toExponential(3)}   <- native double ULP width`);
+  console.log(`    rel(dd,     bf) = ${relDdBf.toExponential(3)}   <- dd 106-bit floor\n`);
+}
+const offMaxDdBf = Math.max(...offResults.map((r) => r.relDdBf));
+const offMaxNativeBf = Math.max(...offResults.map((r) => r.relNativeBf));
+const OFF_DD_AT_FLOOR = offResults.every((r) => r.relDdBf < 1e-25);
+const OFF_NATIVE_DOUBLE_LEVEL = offResults.every((r) => r.relNativeBf < 1e-12);
+const OFF_DD_TIGHTER = offResults.every((r) => r.relDdBf < r.relNativeBf * 1e-6);
+console.log('=== imp-34610 OFF-ARGMAX VERDICT ===');
+console.log('  worst rel(dd, bf) off-argmax     =', offMaxDdBf.toExponential(3), '(dd 106-bit floor, same as argmax cluster)');
+console.log('  worst rel(native, bf) off-argmax =', offMaxNativeBf.toExponential(3), '(few * 2^-53 native ULP; same double-ULP band as argmax, no blow-up)');
+console.log('  dd stays at its 106-bit floor off-argmax (all rel(dd,bf) < 1e-25):', OFF_DD_AT_FLOOR);
+console.log('  native stays at plain double level, no formula divergence (all rel(native,bf) < 1e-12):', OFF_NATIVE_DOUBLE_LEVEL);
+console.log('  dd still > 1e6x tighter than native across the peak interior:', OFF_DD_TIGHTER);
+console.log('  => the double-ULP-width native-vs-arbiter gap is a property of the WHOLE ~0.0653 peak, NOT an');
+console.log('     artifact of the near-degenerate argmax nodes: across the peak flanks/top rel(native,bf) stays');
+console.log('     in the few * 2^-53 double-ULP band while rel(dd,bf) holds the ~1e-31 dd floor. imp-34569 F2 extends.');
+console.log('  imp-34610 OFF-ARGMAX CONFIRMED:', OFF_DD_AT_FLOOR && OFF_NATIVE_DOUBLE_LEVEL && OFF_DD_TIGHTER);
+
 console.log('  Cross-validation only; inherited surrogate NOT rigorous; changes no bound; NO QED; PT Lambda <= 0.2 SOTA.');

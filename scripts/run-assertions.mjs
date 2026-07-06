@@ -5982,6 +5982,23 @@ const DATA_MODULES = [
   // bound; component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched;
   // imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34405-resid-exp-near-pole-digit-loss.js',
+  // imp-34406: CONFIRMS the imp-34310 F2 premise that the numerator eflow_attr =
+  // eflow_over_resid * resid_exp is smooth and NONZERO across the pole k* ~ 21.28095,
+  // by recovering eflow_attr DIRECTLY (= (E_flow/E_N)*|d ln E_flow/d log10 N|, no
+  // near-pole quotient cancellation, via the verbatim imp-34169 machinery) on SIX
+  // extra rungs bracketing k* -- not just imp-34310's two -- ruling out a REMOVABLE
+  // singularity. FINDINGS: (F1) eflow_attr(k*) = +4.5197e-15 directly, strictly
+  // positive and ~5.5 orders clear of zero (min bracket rung k=21.50 still +2.816e-15),
+  // so eflow_over_resid = eflow_attr/resid_exp is 0/0 nowhere near k* -> GENUINE pole,
+  // NOT removable; (F2) eflow_attr is strictly monotone decreasing and smooth through
+  // k* (8.287e-15 -> 2.816e-15, no zero/kink, 2nd diff +3.117e-14, finite log-slope
+  // -2.159), so the only singular factor is the resid_exp zero -> SIMPLE pole confirmed;
+  // (F3) the imp-34310 two-rung LINEAR interp E*=4.582753e-15 over-reads the direct
+  // 4.519696e-15 by +1.395% (convexity), sign/order/nonzero-ness unchanged. Import-light
+  // (imp-34310 K*/E* scalars only, baked reference literals). 6 assertions. Measurement
+  // only; surrogate NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066
+  // K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34406-eflow-attr-smooth-nonzero-across-pole.js',
 ];
 
 let ALL_MODULES = FAST_MODE

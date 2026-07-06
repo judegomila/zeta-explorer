@@ -309,6 +309,7 @@ const Imp34353CrossoverSurplusFamilyDecayViz = lazy(() => import('./pages/Imp343
 const Imp34354CrossoverSurplusSmallThrFactorisationViz = lazy(() => import('./pages/Imp34354CrossoverSurplusSmallThrFactorisationViz.jsx'));
 const Imp34355FarTailCrossoverResidualCollapseViz = lazy(() => import('./pages/Imp34355FarTailCrossoverResidualCollapseViz.jsx'));
 const Imp34269FixedBandPeakSharedGridCrossRecomputeViz = lazy(() => import('./pages/Imp34269FixedBandPeakSharedGridCrossRecomputeViz.jsx'));
+const Imp34377ResidExpPoleCohortIndexPage = lazy(() => import('./pages/Imp34377ResidExpPoleCohortIndexPage.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1147,6 +1148,7 @@ function AppShell() {
           <Route path="/viz-imp34354-crossover-surplus-small-thr-factorisation" element={<Imp34354CrossoverSurplusSmallThrFactorisationViz />} />
           <Route path="/viz-imp34355-fartail-crossover-residual-collapse" element={<Imp34355FarTailCrossoverResidualCollapseViz />} />
           <Route path="/viz-imp34361-eflow-crossover-offset-cohort-index" element={<Imp34361EflowCrossoverOffsetCohortIndexPage />} />
+          <Route path="/viz-imp34377-resid-exp-pole-cohort-index" element={<Imp34377ResidExpPoleCohortIndexPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

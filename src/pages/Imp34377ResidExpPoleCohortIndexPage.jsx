@@ -1,0 +1,133 @@
+/**
+ * @see imp-34287-fixed-band-peak-growth-exponent-pole-reconciliation.js (the SUB-GAP-imp-34287-asymptotic-class-undecidable finding)
+ * @see imp-34169-fixed-band-peak-extended-decade-surrogate-zero.js (the resid_exp pole k* ~ 21.280947 this cohort is built around)
+ */
+import React from 'react';
+import { Link } from 'react-router-dom';
+import PageHeader from '../components/PageHeader.jsx';
+import { IMP34287_FIXED_BAND_PEAK_GROWTH_EXPONENT_POLE_RECONCILIATION } from '../data/imp-34287-fixed-band-peak-growth-exponent-pole-reconciliation.js';
+import { IMP34169_FIXED_BAND_PEAK_EXTENDED_DECADE_SURROGATE_ZERO } from '../data/imp-34169-fixed-band-peak-extended-decade-surrogate-zero.js';
+
+const COHORT = [
+  {
+    id: 'imp-34237 / imp-34169',
+    path: '/viz-imp34237-fixed-band-peak-reaccel-and-surrogate-pole',
+    title: 'Fixed-Band Peak Re-Acceleration & Surrogate Pole',
+    summary:
+      'The core viz: the fixed-band (k<=10) peak re-accelerates over the three computable windows ' +
+      'and the resid_exp(k) surrogate hits an undefined pole at k*~21.281.',
+  },
+  {
+    id: 'imp-34268 / imp-34196',
+    path: '/viz-imp34268-fixed-band-peak-reaccel-convexity-stitch',
+    title: 'Re-Acceleration Convexity Stitch',
+    summary:
+      'Stitches the imp-34196 re-accelerating fixed-band peak increments onto an 18-window grid: the ' +
+      'stitched sequence pulls monotonically above the imp-34196 4-point linear extrapolation past ' +
+      'kEnd~19.5, confirming convex (not linear) re-acceleration into the pole.',
+  },
+  {
+    id: 'imp-34281 (cohort index)',
+    path: '/viz-imp34281-m2-ceiling-cohort-index',
+    title: 'M2-Residual Sign-Change Ceiling Cohort',
+    summary:
+      'The sibling kEnd*~21.281 cohort index covering the closed-form/bisection split and the ' +
+      'window-width divergence ladder around the same pole.',
+  },
+];
+
+export default function Imp34377ResidExpPoleCohortIndexPage() {
+  return (
+    <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
+      <PageHeader title="resid_exp Pole (k*~21.28) Family Cohort (imp-34377)" />
+
+      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 780 }}>
+        The imp-34169 resid_exp(k) surrogate zero at k* ~ {IMP34169_FIXED_BAND_PEAK_EXTENDED_DECADE_SURROGATE_ZERO.surrogateZero.continuousZeroKStar}{' '}
+        is where the fixed-band peak's re-acceleration (imp-34237, imp-34268, imp-34196) meets its own
+        surrogate boundary, and where the imp-34287 reconciliation shows that re-acceleration is a
+        pole-proximity transient rather than intrinsic super-log growth -- leaving the true asymptotic
+        growth class of the peak an OPEN, undecidable question within this surrogate. This index groups
+        the navigable viz pages in that family so the pole story can be read as one thread.
+      </p>
+
+      <div style={{ display: 'grid', gap: '0.75rem' }}>
+        {COHORT.map((entry) => (
+          <Link
+            key={entry.id}
+            to={entry.path}
+            style={{
+              display: 'block',
+              padding: '0.85rem 1rem',
+              background: 'rgba(148,163,184,0.04)',
+              borderLeft: '3px solid #334155',
+              borderRadius: '0 4px 4px 0',
+              textDecoration: 'none',
+            }}
+          >
+            <div style={{ color: '#e2e8f0', fontWeight: 700, fontSize: '0.9rem' }}>
+              {entry.title} <span style={{ color: '#64748b', fontWeight: 400 }}>({entry.id})</span>
+            </div>
+            <div style={{ color: '#94a3b8', fontSize: '0.82rem', marginTop: '0.25rem' }}>
+              {entry.summary}
+            </div>
+          </Link>
+        ))}
+      </div>
+
+      <div
+        style={{
+          marginTop: '1.25rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>imp-34287 growth-class reconciliation (no dedicated viz page):</strong>{' '}
+        far from the pole (kEnd &le; 18) the local log-derivative g DECLINES ({IMP34287_FIXED_BAND_PEAK_GROWTH_EXPONENT_POLE_RECONCILIATION.farBranch.slope} slope,
+        R&sup2;&nbsp;{IMP34287_FIXED_BAND_PEAK_GROWTH_EXPONENT_POLE_RECONCILIATION.farBranch.r2}) -- sub-log-leaning, never super-log. The imp-34196
+        re-acceleration is confined to the pole-approach branch and is explained by pole proximity
+        (g regressed on 1/(k*-kEnd) gives R&sup2;&nbsp;{IMP34287_FIXED_BAND_PEAK_GROWTH_EXPONENT_POLE_RECONCILIATION.poleProximityRegression.r2Full}), so it is a bounded
+        finite-window transient, not intrinsic super-logarithmic growth.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>Honest sub-gap (SUB-GAP-imp-34287-asymptotic-class-undecidable):</strong>{' '}
+        the surrogate domain terminates at k* ~ {IMP34169_FIXED_BAND_PEAK_EXTENDED_DECADE_SURROGATE_ZERO.surrogateZero.continuousZeroKStar} before any pole-free window
+        can separate a genuine super-log signature from pole contamination -- the whole re-acceleration
+        branch sits inside the pole's influence radius. Whether the TRUE fixed-band-peak growth is
+        sub-log, log, or super-log is left OPEN.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> this is a navigation aid over
+        already-published measurements. k* ~ 21.28 is a real, reproducible surrogate boundary attached
+        to one specific inherited extrapolation, not a derived mathematical ceiling. It changes no
+        bound and patches no literal. C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a&ge;0
+        untouched; RH-equivalent, NO QED; Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+      </div>
+    </div>
+  );
+}

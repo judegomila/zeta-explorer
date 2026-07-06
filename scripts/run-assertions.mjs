@@ -3550,6 +3550,12 @@ const DATA_MODULES = [
   // through the imp-3933 field channel, replacing the C_H * W_1^{1/2} E_coll leg
   // by E_field = W(eps'_true) <= 5.17e-7; new binding leg = E_trunc (ansatz). 4 assertions.
   '/src/data/imp-33226-bracket-field-channel-rearchitecture.js',
+  // imp-34427: RH-FREE closure of the spectator conjugate-pair / realness channel
+  // of the eps'_true certificate (imp-33224 channel 4) — conjugate closure of the
+  // H_t zero multiset at every t makes e_k real regardless of off-line zeros; the
+  // telescoping kernel extends to complex y with projection domination; window
+  // completeness excludes the straddle; off-line tail above T_ver < 6e-12. 7 assertions.
+  '/src/data/imp-34427-spectator-realness-channel-closure.js',
   // imp-33256: TABULATE the imp-3888 R_40 = |D_40|/|D_40^saddle| inner-quadrature
   // sensitivity that imp-3888 named but never swept. Holding the outer moment grid
   // fixed (T_A=2, NM=3200), the inner A(tau) Simpson resolution is swept from the
@@ -5014,6 +5020,14 @@ const DATA_MODULES = [
   // untouched; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA;
   // no bound change; NO QED. 5 assertions.
   '/src/data/imp-34326-widening-slope-background-reconciliation.js',
+  // imp-34348: sensitivity of the imp-34270 ~95.7% leading-2r offset attribution to the
+  // hard-coded A1-trap constant TC_A1_TRAP=2.37e-4 (GRONWALL=exp(TC_A1_TRAP) multiplies E_flow).
+  // Sweeping TC_A1_TRAP end-to-end across the imp-2762 A1-trap band [0, 4.74e-4] moves the leading
+  // share by only 1.338108e-6 absolute (~1.40e-6 relative), monotonically; baseline reproduces
+  // imp-34270 0.957390 exactly -- the Gronwall constant is not a hidden lever on the headline.
+  // Sensitivity measurement only; component model NOT rigorous; C_mb GUE-conditional per imp-486
+  // untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED. 5 assertions.
+  '/src/data/imp-34348-eflow-gronwall-offset-tc-a1-sensitivity.js',
 ];
 
 let ALL_MODULES = FAST_MODE

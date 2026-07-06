@@ -5625,6 +5625,19 @@ const DATA_MODULES = [
   // Measurement only; component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched;
   // PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34474-far-tail-en-headline-slack-vs-lpt.js',
+  // imp-34485: FEASIBILITY -- resolves the imp-34448 double-precision-floor sub-gap WITHOUT extended
+  // precision. deflow = resid_full - resid_noflow underflows the ~1e-15 floor past kEnd~22.5 (bit-zero
+  // by ~23) only because it is a catastrophic subtraction of two ~15-sig-fig-identical residuals; since
+  // E_flow enters resid only additively, deflow evaluates CANCELLATION-FREE in ordinary double precision
+  // (direct product for sigma_full - sigma_noflow; log1p(-E_flow/E_N) for the OLS-exponent difference).
+  // The reformulated deflowCF matches the naive deflow to <2e-3 over kEnd 16..20 and keeps observing the
+  // falloff where the naive one is bit-zero (~3.80e-16 at kEnd 23, ~5.59e-19 at 26); its directly-measured
+  // local exponent rises toward 1 (0.941->0.948 over kEnd 23..26, tracking 1-3/log N), directly CONFIRMING
+  // the imp-34448 pInf=1.000 (deflow ~ N^-1) law past the floor, and the direct share table reproduces the
+  // imp-34448 extrapolation to within ~5-17%. Bignum is unnecessary; the sub-gap was a subtraction artifact.
+  // Reuses effectiveHeightForN + C_C_PINNED verbatim. 7 assertions. Feasibility/measurement only; component
+  // model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; PT Lambda<=0.2 SOTA; no bound; NO QED.
+  '/src/data/imp-34485-deflow-cancellation-free.js',
 ];
 
 let ALL_MODULES = FAST_MODE

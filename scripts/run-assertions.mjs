@@ -6437,6 +6437,18 @@ const DATA_MODULES = [
   // reciprocal of an increasing function; g_prime = 1 <=> s log s = K => log s* = W(K),
   // N_star = K(1 - 1/W(K))), verified only through closed-form identities not a swept grid.
   '/src/data/imp-34706-g-prime-monotone-closed-form-derivation.js',
+  // imp-34713: repeat the imp-34692 central-difference step-size V-curve at FIVE
+  // log-spaced nodes across [N_star~1.475e8, ~1e12] (not just N_cross); at every
+  // node the optimal step is pinned at h/N ~ eps^(1/3) (measured 1e-5) and the floor
+  // is ~1e-11 or below with a roundoff climb beneath it, so the ~1e-10 residual is
+  // method-limited (formula-error-free) uniformly, not a fixed-point artifact.
+  '/src/data/imp-34713-vcurve-multi-node.js',
+  // imp-34711: extend the imp-34691 smallest-usable q-derivative step ladder
+  // dp*(N)=C(N)^(1/3) past N=1e15 to the far tail (1e29, 1e100 sentinel); the
+  // ~20%/two-decade rise CONTINUES (monotone, no saturation, no turnover) but the
+  // fractional rate decelerates like 1/log N because dp*(N) ~ (W_max*eps/480)^(1/3)
+  // (log N)^(4/3) [q ~ -p/2, q3 ~ 1/p^3], reproducing the ladder to < 2%.
+  '/src/data/imp-34711-q3-trust-boundary-far-tail-extension.js',
 ];
 
 let ALL_MODULES = FAST_MODE

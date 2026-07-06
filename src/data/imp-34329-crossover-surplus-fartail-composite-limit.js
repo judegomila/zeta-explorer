@@ -21,10 +21,10 @@
  * Reusing the IDENTICAL imp-34248/imp-34174/imp-33743 sub-terms verbatim, this
  * import-light self-asserting module extends the ladder to thr in {1e-3, 1e-4}
  * (N_cross receding to 5.432e15 and 6.165e17) and adds a deep-tail probe out to
- * thr = 1e-12 (N_cross ~ 6e29, log T0 ~ 76), all IEEE-overflow-safe.
+ * thr = 1e-12 (N_cross ~ 1.195e34, log T0 ~ 76), all IEEE-overflow-safe.
  *
  * (F1) The far-tail N_cross log-T0 evaluation is overflow-safe: even at thr =
- *      1e-12 (N_cross ~ 6e29) every factor -- N_cross, r, P, surplus -- stays
+ *      1e-12 (N_cross ~ 1.195e34) every factor -- N_cross, r, P, surplus -- stays
  *      finite and positive; N_cross recedes MONOTONICALLY as ~thr^-2.
  *
  * (F2) The composite exponent does NOT keep drifting downward -- it REVERSES.
@@ -87,7 +87,7 @@ function crossoverN(thr) {
   const K_thr = ((1 - thr) / thr) ** 2 * K_AMPL;
   let N = 1e9;
   // The fixed point N = K_thr log T0(N) converges logarithmically fast; 120 sweeps
-  // are ample even in the far tail (thr = 1e-12, N_cross ~ 6e29) and stay finite.
+  // are ample even in the far tail (thr = 1e-12, N_cross ~ 1.195e34) and stay finite.
   for (let i = 0; i < 120; i++) N = K_thr * Math.log(effectiveHeightForN(N));
   return N;
 }
@@ -172,7 +172,7 @@ export const IMP34329_CROSSOVER_SURPLUS_FARTAIL_COMPOSITE_LIMIT = {
   deepProbe: DEEP_PROBE,
   finding: {
     F1_fartail_overflow_safe:
-      'The far-tail N_cross log-T0 evaluation is IEEE-overflow-safe: even at thr = 1e-12 (N_cross ~ 6e29, ' +
+      'The far-tail N_cross log-T0 evaluation is IEEE-overflow-safe: even at thr = 1e-12 (N_cross ~ 1.195e34, ' +
       'log T0 ~ 76) every factor N_cross, r, P, surplus stays finite and positive, and N_cross recedes ' +
       'monotonically as ~thr^-2 (5.432e15 at thr=1e-3, 6.165e17 at thr=1e-4).',
     F2_composite_reverses:

@@ -5822,6 +5822,22 @@ const DATA_MODULES = [
   // Cross-validation / measurement only; component model NOT rigorous; C_mb GUE-conditional per imp-486
   // untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34550-recovered-pole-ladder-two-tighter-rungs.js',
+  // imp-34565: TESTS the imp-34550 F3 claim -- that the recovered-pole residual shrink deceleration
+  // (per-rung ratio bending up from ~1/3 to ~0.42 near the pole) was the naive imp-34512 LINEAR 1/leak-root
+  // OLS estimator saturating its own accuracy, NOT the imp-34368 double-precision floor dk ~ 7.2e-8 -- by
+  // implementing a HIGHER-ORDER (quadratic-in-1/leak) estimator on the IDENTICAL near-pole leak(k) rungs.
+  // Reuses the imp-34247 metric, imp-34188 y(k) surrogate, imp-34023 pole, and imp-34512 LINEAR invLeakRoot
+  // VERBATIM (each of the five shared windows reports BOTH residuals). FINDINGS: (F1) the quadratic beats the
+  // linear on every rung (quad/lin ~0.083, 0.0093, 0.258, 0.347, 0.510); on the imp-34550 tightest rung the
+  // quad residual ~1.879e-4 is ~2.0x below the linear tightest ~3.688e-4, best quad ~5.478e-5 ~6.7x below;
+  // (F2) => imp-34550 F3 CONFIRMED -- a better estimator on the same double-precision rungs continues past the
+  // linear tail without bignum, so the deceleration WAS estimator-limited; (F3) BUT the quadratic does NOT
+  // reach the floor -- best residual still ~761x (~3 decades) ABOVE dk ~ 7.2e-8 and its quad/lin gain erodes
+  // 0.0093 -> 0.510 as the window crowds the pole (ill-conditioned Vandermonde), so it hits its OWN ~1e-4..1e-5
+  // ceiling and the precision floor stays un-binding. Import-light. 7 assertions. Cross-validation / measurement
+  // only; component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched;
+  // PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34565-quadratic-invleak-pole-estimator.js',
   // imp-34530: FITS the imp-34512 R2 per-pp spacing compression (~0.196 -> 0.108 -> 0.058 -> 0.039
   // decades/pp across the {1,3,8,15,20}% rungs) to a power law in the pole distance, s = A (k* - k)^p,
   // over the four interval-midpoint distances, then EXTRAPOLATES the 25% / 30% rungs by integrating the

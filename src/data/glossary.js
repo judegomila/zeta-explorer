@@ -13170,6 +13170,42 @@ export const glossary = [
       'imp-34693a named sub-gap: L, L_c and g are double-precision, the seed-defect linearization is not interval-enclosed',
     ],
   },
+  {
+    term: 'ULP-stochastic vs fixed-fractional exponent: the sign-flip diagnostic (imp-34712)',
+    category: 'numerical',
+    definition:
+      'A general diagnostic for telling a genuine fractional-power residual apart from ordinary ' +
+      'floating-point (ULP) scatter, drawn from the imp-34689/imp-34712 collapse-ladder F3 residual.\n\n' +
+      'imp-34689 recovered a geometric collapse ladder with per-channel log-log slopes m_k ~ ' +
+      '{1.999, 2.807, 4.163} rounding cleanly to the integer exponents {2,3,4}, but the recovered ' +
+      'ratios r_k were not exactly {4,8,16}: q3 ~ 7.0 fell BELOW the exact 8, and q4 ~ 17.9 rose ' +
+      'ABOVE the exact 16. Re-run on an independent second deep-group footing (imp-34712), the same ' +
+      'residual FLIPPED SIGN: q3 and q4 landed on the opposite side of the exact {8,16} line.\n\n' +
+      'THE DIAGNOSTIC: a fixed fractional exponent is a property of the underlying formula, so it ' +
+      'must point the SAME direction (same sign of residual) under any independent re-measurement -- ' +
+      'changing the footing cannot flip which side of the exact ladder value the residual sits on. ' +
+      'A residual that DOES flip sign across independent footings therefore cannot be a real ' +
+      'fractional-exponent correction; it can only be mean-zero scatter about the exact integer-power ' +
+      'ladder, i.e. imp-34647-style per-rung ULP noise in the finite-precision reconstruction. Sign ' +
+      'STABILITY under an independent footing is evidence for a genuine fractional effect; sign ' +
+      'INSTABILITY is evidence against one. (imp-34751 later upgraded this eyeballed two/three-footing ' +
+      'sign-flip reading to a formal 24-footing sign-test/runs-test/Student-t ensemble.)\n\n' +
+      'HOW TO APPLY: before reporting a measured exponent as a genuine sub-integer or super-integer ' +
+      'correction to an expected power law, re-derive it on at least one independent footing (a ' +
+      'different seed, grid, or sampling window) and check whether the residual keeps its sign. A ' +
+      'sign flip demotes the finding from "new physics" to "roundoff floor."\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34712 sign-flip diagnostic verbatim, not a ' +
+      'new derivation; changes no bound; the inherited imp-3220/imp-3406 surrogate crossover map is ' +
+      'NOT rigorous; C_mb GUE-conditional per imp-486 UNTOUCHED; no operator positivity; no RH ' +
+      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34742 (glossary headword for the imp-34712 sign-flip ULP-stochastic diagnostic), 2026',
+    relatedTerms: [
+      'imp-34689 recovered the {2,3,4} exponent ladder with an imperfect r_k ~ {4,7,17.9} residual on the first footing (imp-34689)',
+      'imp-34712 cross-validated on a second footing and found the F3 residual sign flips, establishing footing-dependent ULP scatter over a fixed fractional exponent (imp-34712)',
+      'imp-34647 the per-rung ULP-stochastic roundoff floor this sign-flip pattern is attributed to (imp-34647)',
+      'imp-34751 upgraded the two/three-footing eyeballed sign-flip reading to a formal 24-footing sign-test/runs-test/Student-t mean-zero ensemble (imp-34751)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

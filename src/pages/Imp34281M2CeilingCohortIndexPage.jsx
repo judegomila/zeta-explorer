@@ -12,6 +12,7 @@ import { IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST } from '../data/
 import { IMP34109_FIXED_BAND_PEAK_AMPLITUDE_SATURATION_FIT } from '../data/imp-34109-fixed-band-peak-amplitude-saturation-fit.js';
 import { IMP34285_CLOSEDFORM_GAP_TERM_DECOMPOSITION } from '../data/imp-34285-closedform-gap-term-decomposition.js';
 import { IMP34288_TROUGH_PEAK_RATIO_CEILING_EXTENSION } from '../data/imp-34288-trough-peak-ratio-ceiling-extension.js';
+import { IMP34311_M2_CLOSEDFORM_5POINT_ENDPOINT_STENCIL_SHARE } from '../data/imp-34311-m2-closedform-5point-endpoint-stencil-share.js';
 
 const KEND_GAP_DECOMPOSITION_SUB_COHORT = [
   {
@@ -181,6 +182,31 @@ export default function Imp34281M2CeilingCohortIndexPage() {
         derived mathematical ceiling. It changes no bound and patches no literal. C_mb
         GUE-conditional per imp-486 untouched; imp-3066 K_a&ge;0 untouched; RH-equivalent, NO QED;
         Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>
+          imp-34311 stencil-mismatch reason for the imp-34211 gap (no dedicated viz page):
+        </strong>{' '}
+        the two kEnd readings above stay DISTINCT literals -- closed form{' '}
+        {IMP34311_M2_CLOSEDFORM_5POINT_ENDPOINT_STENCIL_SHARE.twoPoint.kEnd_closed_form} vs bisected{' '}
+        {IMP34311_M2_CLOSEDFORM_5POINT_ENDPOINT_STENCIL_SHARE.twoPoint.kEnd_bisected} -- but imp-34311
+        shows the {IMP34311_M2_CLOSEDFORM_5POINT_ENDPOINT_STENCIL_SHARE.twoPoint.residual_closed_minus_bisected}{' '}
+        gap is 100% a 2-point-vs-5-point endpoint-stencil MISMATCH between pEcoll and pSigma: recomputing
+        the closed form with pEcoll on the SAME 5-point OLS stencil as pSigma collapses the net cubic bias
+        to zero, and the crossing recedes to +infinity in both the closed form and the exact bisection
+        (never re-crossing zero for k in [10, 35]). Readers should not read the -0.28 offset as a
+        competing ceiling. Measurement only; no bound changes.
       </div>
 
       <div

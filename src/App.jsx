@@ -376,6 +376,9 @@ const Imp34551DeepRungArgmaxJitterViz = lazy(() =>
 const Imp34594EflowAttrFarSideSmoothnessLadderViz = lazy(() =>
   import('./pages/Imp34594EflowAttrFarSideSmoothnessLadderViz.jsx')
 );
+const Imp34570EflowAttrPowerLawFitViz = lazy(() =>
+  import('./pages/Imp34570EflowAttrPowerLawFitViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1292,6 +1295,10 @@ function AppShell() {
           <Route
             path="/viz-imp34594-eflow-attr-far-side-smoothness-ladder"
             element={<Imp34594EflowAttrFarSideSmoothnessLadderViz />}
+          />
+          <Route
+            path="/viz-imp34570-eflow-attr-power-law-fit"
+            element={<Imp34570EflowAttrPowerLawFitViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

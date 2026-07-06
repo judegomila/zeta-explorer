@@ -395,6 +395,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34575-near-pole-resolvability-floors',
   '/viz-imp34551-deep-rung-argmax-jitter',
   '/viz-imp34594-eflow-attr-far-side-smoothness-ladder',
+  '/viz-imp34570-eflow-attr-power-law-fit',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

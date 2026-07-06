@@ -13247,6 +13247,41 @@ export const glossary = [
       'imp-34676 the right-widened tail ~1e12 used as another probe node (imp-34676)',
     ],
   },
+  {
+    term: 'Sigmoid-approach single-inflection knee (concept): sigma(N) conditional-share ramp at N* ~ 3.38e9',
+    category: 'concept',
+    definition:
+      'A general concept for reading a monotone ramp that approaches its asymptote NOT at a ' +
+      'constant or ever-steepening rate, but with exactly one curvature reversal -- an S-shape ' +
+      '(sigmoid) rather than a straight or purely convex/concave climb. The imp-3406 sigma(N) = ' +
+      'E_coll/E(N) conditional-collision-share ramp is the worked example: its per-decade local ' +
+      'decay exponent climbs monotonely from ~0.0105 toward the imp-3463 far-tail 1/2 asymptote, ' +
+      'but imp-33701 showed the ramp VELOCITY (first difference) rises then falls, and the ramp ' +
+      'ACCELERATION (second difference) changes sign exactly ONCE -- the single knee that marks ' +
+      'the sigmoid. imp-33701\'s coarse whole-decade ladder could only localize that knee to the ' +
+      '[1e10,1e11] bracket; imp-33721 re-differenced on quarter-decade sub-brackets and pinned the ' +
+      'knee at N* ~ 3.38e9, a full decade lower and robust to sub-bracket width. N* sits only ' +
+      '~3.3% above the imp-3444 E_coll=E_trunc crossover (sigma=1/2 halving landmark) -- the ramp ' +
+      'accelerates fastest essentially where the conditional share passes one half.\n\n' +
+      'HOW TO APPLY: when a decay or growth curve is reported as "smooth" or "monotone," that ' +
+      'alone says nothing about its curvature. Difference it twice (velocity, then acceleration) ' +
+      'before calling the approach linear, convex, or concave -- a single sign change in the ' +
+      'second difference is the signature of a sigmoid, and coarse (whole-decade or whole-window) ' +
+      'differencing can smear that knee\'s apparent location, so re-check at finer resolution ' +
+      'before trusting where it sits.\n\n' +
+      'HONEST SCOPE: a glossary headword synthesizing the imp-33701/imp-33721 curvature-diagnostic ' +
+      'concept for reuse elsewhere; not a new derivation; changes no bound; the component model is ' +
+      'the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; C_mb stays ' +
+      'GUE-conditional (imp-486); no operator positivity; imp-3066 K_a>=0 sign-positivity ' +
+      'untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-34746 (glossary headword generalizing the imp-33701/imp-33721 sigma(N) sigmoid-knee curvature diagnostic into a reusable concept), 2026',
+    relatedTerms: [
+      'imp-33701 SIGMOID-NOT-STRAIGHT sigma-ramp knee, the whole-decade [1e10,1e11] localization this concept generalizes (imp-33701)',
+      'imp-33721 KNEE-A-DECADE-BELOW, the sub-decade refinement pinning the knee at N* ~ 3.38e9 (imp-33721)',
+      'imp-3444 E_coll=E_trunc crossover landmark, the sigma=1/2 halving twin the refined knee sits ~3.3% above (imp-3444)',
+      'imp-33582 accelerating sigma(N) post-peak decay, the six-decade exponent ladder whose curvature the knee is drawn from (imp-33582)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

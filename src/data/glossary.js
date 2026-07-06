@@ -12710,6 +12710,49 @@ export const glossary = [
       'imp-34593 the roundoff-free plateau drift ~ -0.0968 this cohort measures around (imp-34593)',
     ],
   },
+  {
+    term: 'catastrophic-cancellation conditioning floor vs accumulation-order error: why Kahan summation cannot remove the q3-share jitter',
+    category: 'numerical',
+    definition:
+      'A methodology headword distinguishing two roundoff sources that a small numerical jitter in a ' +
+      'near-cancellation quantity can be mistaken for one another: (a) accumulation-order error -- ' +
+      'rounding drift that accrues in the running total as an ADDITION CHAIN combines many summands in ' +
+      'a particular order, which compensated (Kahan) summation is specifically designed to cancel; ' +
+      'versus (b) the catastrophic-cancellation conditioning floor -- roundoff already baked into the ' +
+      'PRE-ROUNDED INPUTS themselves (each summand w * f(x) individually rounded to double precision ' +
+      'before any addition happens), which lives upstream of the addition chain and NO summation ' +
+      'algorithm (Kahan, pairwise, sorted) can recover.\n\n' +
+      'imp-34649 F3 found the shared-vs-inline 6th-order q3-share plateau drift differs by ~7e-6 across ' +
+      'two code paths summing the same eight-term 9-point antisymmetric stencil ' +
+      '[7,-72,338,-488,+488,-338,+72,-7]/240 in different orders, and attributed the gap to ' +
+      'accumulation-order sensitivity. imp-34673 tested this directly: it summed the same eight terms ' +
+      'under four orderings (forward/reverse/ascending/descending by weight magnitude) with BOTH naive ' +
+      'left-to-right and Kahan compensated accumulators. (F1) For eight summands Kahan is bit-identical ' +
+      'to naive summation -- |kahan - naive| = 0 exactly for every ordering at the reference point ' +
+      '(N = 1e13, dp = 1e-2), so there is no accumulation-chain error left for Kahan to cancel. (F2) The ' +
+      'cross-ordering plateau spread barely moves: ~2.17e-5 naive vs ~1.75e-5 Kahan, a ~1.24x reduction ' +
+      '-- same order of magnitude, not a collapse. (F3) The largest stencil term (~6.96e3) cancels ' +
+      'against its neighbors down to a true numerator ~8.24e-9 (cancellation ratio ~8.44e11, ~11.9 ' +
+      'decimal digits lost), giving an input-roundoff floor max|term| * eps / |sum| ~ 1.87e-4 (relative) ' +
+      'that is the irreducible conditioning of the near-cancellation itself.\n\n' +
+      'HOW TO APPLY: before reaching for Kahan/pairwise/sorted summation to remove a jitter in a ' +
+      'near-cancellation share or ratio, check where the cancellation ratio (largest summand magnitude ' +
+      'divided by the true sum) is concentrated. If it is already extreme (many digits lost) BEFORE the ' +
+      'terms are combined, the eps-scale roundoff is baked into each pre-rounded input and compensated ' +
+      'summation -- which only fixes drift accrued DURING addition -- will leave the jitter essentially ' +
+      'unchanged; only wider-than-double arithmetic on the inputs (or an analytically reformulated, ' +
+      'better-conditioned expression) could remove it.\n\n' +
+      'HONEST SCOPE: a measurement-methodology headword consolidating the imp-34673 findings verbatim, ' +
+      'not a new derivation; q1,q2,q3 are inherited central differences, NOT fresh analytic closed ' +
+      'forms; changes no bound; imp-3066 K_a >= 0 untouched; C_mb remains GUE-conditional per imp-486; ' +
+      'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34695 (consolidating the imp-34673 Kahan-vs-naive summation-order probe), 2026',
+    relatedTerms: [
+      'imp-34673 the Kahan-vs-naive probe finding the ~2e-5 jitter is conditioning, not accumulation order (imp-34673)',
+      'imp-34649 the shared-stencil crossvalidation whose ~7e-6 F3 gap this headword explains (imp-34649)',
+      'conditioning floor vs truncation-order signature: why a tight low-order stencil agreement need not tighten further (imp-34663)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

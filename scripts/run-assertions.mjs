@@ -5952,6 +5952,23 @@ const DATA_MODULES = [
   // export verbatim (import-light). 6 assertions. Measurement only; component model NOT rigorous;
   // C_mb GUE-conditional per imp-486 untouched; PT Lambda<=0.2 SOTA; no bound; NO QED.
   '/src/data/imp-34571-deflow-exponent-vs-analytic-slope.js',
+  // imp-34572: EXTENDS the imp-34406 eflow_attr smooth-bracket recovery to rungs ABOVE the pole
+  // k* ~ 21.28095 (k = 21.30 .. 21.60, all > k*), since imp-34406 bracketed only k = 21.00 .. 21.50
+  // (at/below k*). Recovers eflow_attr = (E_flow/E_N)*|d ln E_flow/d log10 N| DIRECTLY via the
+  // verbatim imp-34169 machinery; the three overlap rungs (21.30/21.40/21.50) reproduce imp-34406
+  // EXACTLY (reuse gate), the four new far-side rungs (21.35/21.45/21.55/21.60, the last two past the
+  // imp-34406 bracket top) fill in and extend past it. FINDINGS: (F1) eflow_attr strictly positive and
+  // strictly monotone decreasing on the whole far side (4.33758e-15 -> 2.26896e-15, min +2.269e-15 at
+  // k=21.60), no local zero/sign-change/kink -> nonzero-across-k* premise holds continuously PAST k*;
+  // (F2) local per-k log-slope -2.15932/-2.15999/-2.16065/-2.16098 across 21.35..21.60, a smooth drift
+  // of just +0.0017 seamlessly continuing the imp-34406 -2.159 at k* with no jump/kink, far-side 2nd
+  // diff +1.31752e-14 (convex, same sign as near side) -> convexity preserved through k*; (F3) the
+  // far-side slopes lie between the imp-34570 power-law slope -2.15863 and the E_flow analytic slope
+  // -2.16185, drifting monotonically toward E_flow (E_N E_trunc-flat) -- same clean N^p falloff, not a
+  // distinct branch. Import-light (reuses imp-34406 rungs, baked literals). 6 assertions. Measurement
+  // only; inherited surrogate NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066
+  // K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34572-eflow-attr-far-side-pole-smoothness.js',
   // imp-34490: PROPAGATION -- carries the imp-34449 measured residue bar R = -1.756e-8 +/- 0.019e-8
   // (~+/-1.1% half-width) into the imp-34310 / imp-34398 / imp-34454 residue-channel consumers and
   // reports whether the band changes any qualitative verdict. (P1) the simple-pole (order-1)

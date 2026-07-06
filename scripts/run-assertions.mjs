@@ -6034,6 +6034,15 @@ const DATA_MODULES = [
   // inherited surrogate NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
   // untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED. 6 assertions.
   '/src/data/imp-34552-residexp-precision-floor-payoff-derivation.js',
+  // imp-34482: AUDIT of whether the imp-34408/34412/34428/34441 self-asserting
+  // cluster modules are correctly registered in improvements.js (distinct log
+  // id, correct file reference), are present in DATA_MODULES, and whether any
+  // transitively imports the 16.7MB+ zeros-to-1e6.js bundle. All 4 trace to at
+  // most lambda-rh-height-mapping.js / polymath15-constant-C-C.js or the
+  // imp-33723/imp-33721/imp-3444 sibling literal modules; walking that whole
+  // chain never touches the zeros bundle. FINDING: no gap -- all 4 registered
+  // correctly, no heavy import found. AUDIT-ONLY, no fix applied. 5 assertions.
+  '/src/data/imp-34482-selfasserting-cluster-heavy-import-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

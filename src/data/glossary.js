@@ -12552,6 +12552,51 @@ export const glossary = [
       'imp-34593 the isolated q3-share non-integer proxy exponent the ladder reconciles (imp-34593)',
     ],
   },
+  {
+    term: 'genuine PLATEAU vs undetectable TRUNCATION: telling a flat drift tail from an unresolved power law',
+    category: 'numerical',
+    definition:
+      'A reusable diagnostic for the drift-share cohort, surfaced by imp-34630: a flat large-dp tail ' +
+      'in a finite-difference residual drift can mean two very different things, and only a local ' +
+      'scaling-exponent fit tells them apart. A GENUINE PLATEAU is a real property of the underlying ' +
+      'quantity -- there is no hidden slope, just noise. AN UNDETECTABLE TRUNCATION is different: the ' +
+      'true O(dp^k) truncation term is still there, but its coefficient is so small that it sits ' +
+      'below the double-precision + inherited-model noise floor over the whole measured range, so it ' +
+      'LOOKS flat without actually being resolved. imp-34611 F2 saw the 4th-order 7-point stencil ' +
+      'q3-share drift go ~2x flatter than the 2nd-order stencil on dp = 1.5e-2 .. 3e-1 and read that ' +
+      'as "the smaller O(dp^4) truncation is visibly smaller-but-present." imp-34630 fit the LOCAL ' +
+      'scaling exponent via the D_inf-free geometric-triple ratio rho = ln([d3-d2]/[d2-d1])/ln(r) and ' +
+      'found the two stencils tell opposite stories: the 2nd-order stencil RESOLVES its O(dp^2) ' +
+      'truncation (local order climbs ~1.74 then ~1.94 toward the predicted 2, flat-tail spread over ' +
+      'dp >= 3e-2 ~3.2e-5, a real growing drift), while the 4th-order stencil shows NO resolvable ' +
+      'O(dp^4) signature at all (flat-tail spread only ~2.0e-6, local order estimates sign-indefinite ' +
+      'noise -- NaN or ~ -4.9, not ~4): the O(dp^4) term is genuinely undetectable, not merely small.\n\n' +
+      'THE SECOND HALF OF THE CAVEAT -- A ROUNDOFF VALLEY CAN MASQUERADE AS A TRUNCATION SPREAD: the ' +
+      'imp-34611 F2 "~2.2e-5 spread" itself turned out to be a measurement artifact, not the large-dp ' +
+      'drift it was read as. On the full imp-34611 tail grid the 4th-order spread (~2.25e-5) has BOTH ' +
+      'its extremes at the two SMALLEST steps dp in {1.5e-2, 2e-2} -- the small-dp roundoff valley -- ' +
+      'and restricting to dp >= 3e-2 collapses it ~10x to ~2.0e-6. So a spread computed across a dp ' +
+      'grid that still touches the roundoff valley can look like a large-dp truncation slope when it ' +
+      'is really dominated by small-dp noise; only checking WHERE the extremes of the spread sit (and ' +
+      'excluding the valley) separates the two.\n\n' +
+      'HOW TO APPLY: before calling a flat finite-difference tail a "resolved but small" truncation ' +
+      'term, fit the LOCAL order on geometric dp-triples (D_inf-free ratio, no plateau value needed) ' +
+      'and check it actually approaches the stencil-predicted k; if the order estimate is noise ' +
+      'instead, the term is undetectable, not small. And before citing a spread as evidence of a ' +
+      'large-dp trend, locate where its min/max actually sit on the dp grid -- if both are at the ' +
+      'smallest steps, the spread is a roundoff-valley artifact, not a large-dp signal.\n\n' +
+      'HONEST SCOPE: a measurement-methodology headword, not a new derivation; reuses the imp-34611/' +
+      'imp-34630 literals verbatim; q1,q2,q3 are the inherited imp-3220/imp-3406 central differences, ' +
+      'NOT fresh analytic closed forms; changes no bound; imp-3066 K_a >= 0 untouched; C_mb remains ' +
+      'GUE-conditional per imp-486; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34658 (consolidating the imp-34630 plateau-vs-truncation distinction and imp-34611 F2 roundoff-valley correction), 2026',
+    relatedTerms: [
+      'imp-34630 the local scaling-exponent fit that resolves the plateau-vs-truncation question (imp-34630)',
+      'imp-34611 the original F2 flat-tail observation and ~2.2e-5 spread this corrects the mechanism of (imp-34611)',
+      'imp-34626 the sixth-order stencil cross-check in the same cohort (imp-34626)',
+      'imp-34593 the roundoff-free plateau drift ~ -0.0968 this cohort measures around (imp-34593)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -360,6 +360,9 @@ const Imp34530PoleLeakageSpacingCompressionFitViz = lazy(() =>
 const Imp34529RecoveredPoleConvergenceViz = lazy(() =>
   import('./pages/Imp34529RecoveredPoleConvergenceViz.jsx')
 );
+const Imp34557HumpSkewMirrorViz = lazy(() =>
+  import('./pages/Imp34557HumpSkewMirrorViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1255,6 +1258,10 @@ function AppShell() {
           <Route
             path="/viz-imp34529-recovered-pole-convergence"
             element={<Imp34529RecoveredPoleConvergenceViz />}
+          />
+          <Route
+            path="/viz-imp34557-hump-skew-mirror-j5"
+            element={<Imp34557HumpSkewMirrorViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

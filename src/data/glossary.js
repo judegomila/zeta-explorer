@@ -11929,6 +11929,40 @@ export const glossary = [
       'imp-33860 the deep-tail thr=0.01 closed-form crossover landmark folded into the comparison (imp-33860)',
     ],
   },
+  {
+    term: 'imp-34441 3.28e9 sigma post-peak landmark cluster: two independent gaps, not four distinct landmarks',
+    category: 'numerical',
+    definition:
+      'shorthand for the four sigma(N) post-peak locators that independently cluster near N ~ 3.28e9 -- ' +
+      'imp-33723\'s closed-form E_coll = E_trunc crossover (N ~ 3.280294e9), imp-3444\'s downslope-bisected ' +
+      'version of the same crossover (N ~ 3.280294e9), imp-3444/imp-33582\'s sigma(N) = 1/2 halving landmark ' +
+      '(N ~ 3.267235e9), and imp-33721\'s sub-decade sigmoid-knee inflection (N ~ 3.38e9) -- and the imp-34441 ' +
+      'reconciliation that tabulates all four together with every pairwise relative offset, without ' +
+      're-deriving any of them.\n\n' +
+      'FINDING: the closed-form crossover and the bisected crossover are the SAME landmark located two ' +
+      'independent ways, agreeing to within their combined stored-literal rounding (imp-33723 itself reports ' +
+      '~1.7e-15 agreement internally at full float precision). Once that pair is collapsed, the remaining ' +
+      'spread reduces to exactly TWO independent gaps: the crossover pair sits only ~0.40% above the halving ' +
+      'landmark (the E_flow Gronwall displacement, imp-33723/imp-3444), while the sigmoid knee sits further ' +
+      'out at ~3.3-3.5% above the halving landmark and ~3.0-3.1% above the crossover pair (the ramp-curvature ' +
+      'offset, imp-33721/imp-33767). All four values order N_half < N_cross_bisection ~ N_cross_closed_form ' +
+      '< N_knee_sigmoid, matching the imp-3444 monotone N-shape ordering on the decaying right arm.\n\n' +
+      'HONEST SCOPE: tabulation only, a conditional-share diagnostic, NOT an RH bound. The component model ' +
+      'is the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; C_mb is GUE-conditional ' +
+      '(imp-486), untouched; changes no bound; imp-3066 K_a>=0 untouched; Platt-Trudgian Lambda<=0.2 remains ' +
+      'the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-34441 (tabulating the four independent ~3.28e9-cluster locators -- imp-33723 closed-form ' +
+      'crossover, imp-33721 sigmoid-knee inflection, imp-3444 bisected crossover, imp-3444/imp-33582 halving ' +
+      'landmark -- on one shared axis with every pairwise relative offset, finding they collapse to two ' +
+      'independent gaps), 2026',
+    relatedTerms: [
+      'imp-33723 closed-form E_coll = E_trunc crossover as a Banach fixed point, the first locator in the cluster (imp-33723)',
+      'imp-3444 sigma(N) machine-precision landmark ladder L1-L5, source of the bisected crossover and halving landmark (imp-3444)',
+      'imp-33721 sub-decade sigmoid-knee inflection, the fourth and most distant locator (imp-33721)',
+      'imp-33767 the knee-vs-halving and knee-vs-crossover offset reconciliation as one E_flow displacement (imp-33767)',
+      'imp-33582 accelerating (not fixed-rate) sigma(N) post-peak decay, halving exactly at the imp-3444 crossover (imp-33582 accelerating)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

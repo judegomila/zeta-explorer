@@ -4737,6 +4737,30 @@ const DATA_MODULES = [
   // imp-34311 exactly. Measurement only; imp-34189 21.281 canonical reading UNCHANGED; C_mb
   // GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 7 assertions.
   '/src/data/imp-34350-m2-ceiling-window-divergence-5point-endpoint-survival.js',
+  // imp-34402: DIRECTLY differences the pEcoll 2-point endpoint secant and the pSigma 5-point OLS slope
+  // stencils on -log E_coll over the decade D=ln10, confirming the imp-34311 (i) net cubic-bias
+  // coefficient D^2/24 - 17 D^2/480 = D^2/160. On a controlled cubic g(x)=x^3 (biases exact) the two
+  // stencils reproduce 1/24 and 17/480 individually and 1/160 in the difference, all to machine
+  // precision; on the actual -log E_coll the decade difference reproduces f-triple-prime * D^2/160 with
+  // the ratio measured/predicted -> 1 as the window w -> 0 (1.00071 at one decade, ~1.0002 after one
+  // Richardson step). Closes the numerical gap in imp-34311 (i): the D^2/160 net bias is now a
+  // differenced measurement, not only an analytic assertion. imp-34311 D^2/160 and the 21.00/21.28095
+  // readings UNCHANGED; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched;
+  // PT Lambda<=0.2 SOTA; no QED. 8 assertions.
+  '/src/data/imp-34402-net-cubic-bias-2pt-vs-5pt-stencil-difference.js',
+  // imp-34403: INDEPENDENT deep-tail estimate of dg_resid/dt of resid_exp at its zero k*~21.28095, fit from
+  // the imp-34169/imp-34237 decay rungs k=19,20,21,21.25 (all last-positive, no past-pole datum), as a
+  // cross-check on imp-34310's 2-rung BRACKETING secant (21.25/21.5 -> -2.3156e-7). Near a simple zero
+  // |resid_exp|~A(k*-k)^p; the log-log local exponent descends 2.327->1.456->1.072 toward p=1 (a second,
+  // independent witness of the order-1 zero imp-34310 argued only from the sign change), and the
+  // linear-near-zero last-rung-to-zero slope -8.19e-9/(k*-21.25)=-2.646e-7 reproduces the imp-34310 secant
+  // in sign and to +14.3% from a DISJOINT data set. Honest: a 4-point power-law over-steepens to p~1.339
+  // (far rungs still exponential), so the slope uses the nearest chord, not the power-law amplitude;
+  // curvature-limited to the ~14% band (imp-34169 F3 digit loss below k*-0.031). Import-light (imp-34237
+  // zero-import rows + imp-34310 secant for comparison). Measurement only; surrogate NOT rigorous; C_mb
+  // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change;
+  // NO QED. 4 assertions.
+  '/src/data/imp-34403-resid-exp-deep-tail-slope-estimator.js',
   // imp-34330: measures the imp-34246 two-term prediction residual (measured local widening-slope minus
   // -ln10/2 + ln10*3/u) on a finer pre-pole grid k=12..20.75 approaching k*~21.281. The residual does NOT
   // keep shrinking -- it REVERSES: |residual| shrinks 0.0991 (k=12) -> ~0.0016 (k=17.75), passes through
@@ -5120,6 +5144,19 @@ const DATA_MODULES = [
   // decomposition only; surrogate NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
   // untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED. 5 assertions.
   '/src/data/imp-34399-secant-zero-convexity-bias-decomposition.js',
+  // imp-34400: REFINE the imp-34169/imp-34268 fixed-band (k<=10) peak increment grid a further 5x -- a 0.05
+  // grid (26 windows kEnd 20.00..21.25) with a 0.1 cross-check -- up to the last computable rung below the
+  // resid_exp pole k*~21.28095, and FIT the increment growth against the pole distance to distinguish a finite
+  // jump from a pole blow-up. THE ANSWER: NEITHER -- the increment growth exponent q in inc~(k*-kEnd)^(-q) is
+  // sub-unity and decreasing (OLS 0.4704 on 0.05, 0.4913 on 0.1; local 0.4835->0.3087), so the peak VALUE
+  // converges to a finite limit (~1.05..1.09 across steps 0.1/0.05/0.02/0.01) while its slope diverges: a
+  // sub-unity branch-point CUSP, confirming/extending imp-34346/imp-34253. The verbatim 0.25-step ladder
+  // reproduces imp-34169 exactly (+0.865303, 0.050639, 0.080391). Import-light (lambda-rh-height-mapping +
+  // polymath15-constant-C-C, no zeros bundle), self-asserting (5 assertions). SUB-GAP-imp-34400-pole-approach-
+  // resolution-floor: the finer ladder shifts the OLS anchor so absolute peak values are resolution-dependent;
+  // exact log-family form OPEN (imp-34228 floor, k* to ~5 digits). Measurement only; surrogate NOT rigorous;
+  // C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound; NO QED.
+  '/src/data/imp-34400-fixed-band-peak-increment-fine-grid-pole-approach.js',
   // imp-34312: SWEEP the bounded a - b/kEnd ceiling estimate a across a MONOTONE sequence of nested grids
   // (fixed left anchor kEnd = 14.0, right edge kEnd_max growing one window at a time 15.0 -> 21.0, up to the
   // k* ~ 21.28 surrogate edge) and measure whether it converges. The estimate does NOT: it climbs strictly

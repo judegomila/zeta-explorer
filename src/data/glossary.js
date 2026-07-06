@@ -13003,6 +13003,55 @@ export const glossary = [
       'coarse collapse-factor statistic vs dedicated exponent fit: ordering a ladder without quantifying it',
     ],
   },
+  {
+    term: 'double-precision surrogate enclosure width vs certified outward-rounded interval-arithmetic enclosure',
+    category: 'numerical',
+    definition:
+      'A methodology headword distinguishing what imp-34687 actually measured (a MODELLED enclosure ' +
+      'width in ordinary IEEE-754 double precision) from what a CERTIFIED interval-arithmetic (IA) ' +
+      'enclosure would guarantee, and why the crossover contraction certificate\'s two load-bearing ' +
+      'walls -- L < 1 and g(a) >= a -- survive the gap between the two anyway.\n\n' +
+      'A CERTIFIED enclosure is produced by directed (outward) rounding: every floating-point operation ' +
+      'is evaluated so the result interval is guaranteed to contain the true value, using an IA layer ' +
+      '(e.g. mpfi-style multiple-precision intervals, or a Dekker/TwoSum error-tracking scheme). Stock ' +
+      'JS Math has no directed-rounding mode, so no such guarantee is available natively.\n\n' +
+      'A DOUBLE-PRECISION SURROGATE, which is what imp-34687 computed, instead MODELS the rounding: it ' +
+      'takes the achieved Newton residual of T0(N) = effectiveHeightForN(N) plus a few-ULP roundoff term ' +
+      '(4*eps_mach*|largest term|) as a stand-in for what a directed-rounding evaluation would report, ' +
+      'then propagates that modelled width through the monotone maps dT0/dN, L = g_prime(a), and ' +
+      'g(a) = K*log T0 by ordinary interval substitution. The arithmetic used to CARRY the width forward ' +
+      'is textbook interval arithmetic (correct); only the WIDTH ITSELF is a model, not a machine-checked ' +
+      'bound.\n\n' +
+      'At the binding left endpoint a = 1e9: the surrogate width gives T0 relative width ~1.06e-15 and ' +
+      'dT0/dN relative width ~1.58e-16 -- both already at the double-precision floor. Propagated forward, ' +
+      'the certified-style L upper bound is ~0.1485, sitting 0.8515 below the contraction wall L < 1, and ' +
+      'the certified-style lower bound of g(a) is ~3.104e9, sitting ~2.104e9 above the self-map wall ' +
+      'g(a) >= a. Both margins are ~10^15 times wider than the modelled enclosure widths, so a REAL ' +
+      'directed-rounding enclosure -- which can only be wider than a double-precision surrogate by adding ' +
+      'genuine outward slack, not by shifting the true value -- would have to be about 15 orders of ' +
+      'magnitude looser before it could flip either inequality. That is why the two walls are trusted to ' +
+      'survive certification even though no certified enclosure has actually been built yet.\n\n' +
+      'HOW TO APPLY: when a measurement reports an "enclosure width" computed in ordinary double ' +
+      'precision (no directed-rounding library involved), read it as a SURROGATE that scopes achievability ' +
+      'and estimates margins, not as a certificate. Check whether the inequality margins the surrogate ' +
+      'reports are many orders of magnitude wider than the surrogate widths themselves (as here, ~1e15x) -- ' +
+      'if so, the qualitative verdict (which inequality holds) is robust to the surrogate-vs-certified gap ' +
+      'even though the exact digits of the width are not certified. The named sub-gap imp-34687a records ' +
+      'that an actual directed-rounding / error-bounded (mpfi- or Dekker/TwoSum-style) layer is still ' +
+      'needed to close this gap formally.\n\n' +
+      'HONEST SCOPE: a methodology headword consolidating the imp-34687 findings verbatim, not a new ' +
+      'derivation; the crossover map remains the inherited imp-3220/imp-3406 double-precision surrogate; ' +
+      'C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 untouched; changes ' +
+      'no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34722 (glossary headword distinguishing double-precision surrogate vs certified interval-arithmetic enclosure), 2026',
+    relatedTerms: [
+      'imp-34687 scoped the interval-arithmetic upgrade and measured surrogate enclosure widths at a = 1e9 (imp-34687)',
+      'imp-34687a named sub-gap: supply an actual directed-rounding / error-bounded arithmetic layer (imp-34687a)',
+      'imp-34650 the Banach contraction certificate whose L < 1 wall is one of the two inequalities scoped here (imp-34650)',
+      'imp-34676 the right-widening whose g(a) >= a wall is the other inequality scoped here (imp-34676)',
+      'coarse spread-ratio collapse vs resolution-matched dp-pair collapse: why matching resolution recovers the 2^k ladder',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

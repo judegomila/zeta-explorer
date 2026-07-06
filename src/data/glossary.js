@@ -12368,6 +12368,32 @@ export const glossary = [
       'imp-34566 confirms the next-order q4 term contributes ~0% to the surviving ~0.4% (imp-34566)',
     ],
   },
+  {
+    term: 'imp-34592 q4-negligibility robustness window: a physical ~5e-7 share for dp>~1e-3, untrustworthy at dp~7e-4, falsely non-negligible below dp~1.5e-4',
+    category: 'numerical',
+    definition:
+      'A quick-lookup headword for the imp-34592 step-conditioning stress-test on the imp-34573/imp-34566 ' +
+      'claim that the q4-bearing O(h^4) drift-residual term stays negligible (~1e-6 of the O(h^2) term) in ' +
+      'the sigma->1 deep tail. The claim was read off a single q-derivative step dp = 1e-3; imp-34592 swept ' +
+      'dp across the deep-tail landmarks (N >= N* ~ 4.62e13) and found the apparent share is a clean, ' +
+      'physical ~5e-7 at dp >= 1e-3 (agreeing with imp-34573/imp-34566), but below dp ~ 1e-3 roundoff on ' +
+      'q4 = (5-point 4th difference)/dp^4 inflates the apparent share ~1/dp^4 (halving dp multiplies it by ' +
+      '~16). This produces two thresholds against the physical baseline: the ESTIMATE stops faithfully ' +
+      'tracking the true term (inflated > 10x) at dp ~ 7e-4, and the inflated apparent share first FALSELY ' +
+      'crosses the ~0.4% (4.41e-3) drift-residual floor -- making q4 spuriously look non-negligible -- at ' +
+      'dp ~ 1.5e-4. Between those two thresholds the estimate is roundoff-inflated yet still numerically ' +
+      'below the residual, so the negligibility conclusion survives even though the number is no longer a ' +
+      'faithful measurement.\n\n' +
+      'HONEST SCOPE: a step-conditioning diagnostic on an already-certified O(h^4) coefficient, not a new ' +
+      'derivation; changes no bound; the inherited imp-3220/imp-3406 component model is untouched; C_mb ' +
+      'remains GUE-conditional per imp-486; no RH verdict, NO QED.',
+    firstUsed: 'imp-34592 (q4-negligibility robustness window vs the q-derivative step dp), 2026',
+    relatedTerms: [
+      'imp-34573 the q4-negligible-in-both-regimes claim stressed here at fixed dp=1e-3 (imp-34573)',
+      'imp-34566 the O(h^4) coefficient C_h4 and the finite-difference floor F3 this reuses (imp-34566)',
+      'imp-34606 the {2,3,4} roundoff-amplification exponent ladder that reproduces this q4 ~1/dp^4 rung on a common footing (imp-34606)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

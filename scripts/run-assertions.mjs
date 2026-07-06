@@ -5761,6 +5761,15 @@ const DATA_MODULES = [
   // rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT
   // Lambda<=0.2 SOTA; no bound change; NO QED. 8 assertions.
   '/src/data/imp-34447-coupling-ratio-drift-third-interval.js',
+  // imp-34504: AUDIT (following the imp-34463/imp-34464 precedent) of whether the honest-status
+  // caveat block is surfaced wherever the improvements viewer renders the imp-34446..34454 cluster
+  // to end-readers, and whether any of the 9 modules transitively pulls the 16.7MB+ zeros-to-1e6.js
+  // bundle. FINDING: no gap -- all 9 `detail` rows in improvements.js (rendered in full by
+  // ImprovementsPage.jsx) carry the caveat, 6 of the 9 additionally have a dedicated viz page or
+  // glossary headword independently repeating it, and the shared import chain
+  // (lambda-rh-height-mapping / polymath15-constant-C-C and siblings) never touches zeros-to-1e6.js.
+  // AUDIT-ONLY, no surfacing or import fix applied. 6 assertions.
+  '/src/data/imp-34504-caveat-surfacing-heavy-import-audit.js',
   // imp-34455: SHARPENS the imp-34371 span = 4W loss-of-knee frontier on a finer window-gap grid and
   // quantifies, for the first time, the finite-precision evaluation-noise floor imp-34371 F2 only
   // ASSERTED (never measured). At the imp-34371 counting-floor threshold (numBrackets = 4, numD2 = 2)

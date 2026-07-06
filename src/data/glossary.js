@@ -12009,6 +12009,37 @@ export const glossary = [
       'imp-34488 conditionality-gap ratio tabulated across three landmarks, showing saturation toward a ceiling (imp-34488)',
     ],
   },
+  {
+    term: 'Numerator-Approach Leading Prefactor a ~ 0.437-0.438',
+    category: 'numerical',
+    definition:
+      'The imp-34151 cancellation numerator |A|+|B| (A = pEcoll*(1-sigma), B = pSigma) approaches unity as ' +
+      'kEnd grows, with an approach gap g(kEnd) = 1 - numerator ~ a/kEnd. The coefficient a is the leading ' +
+      'prefactor of that first-order-in-1/kEnd approach. imp-34210 first estimated a ~ 0.4293 from an OLS ' +
+      'log-log fit, but imp-34286 showed this intercept is biased low: a single OLS line co-fits a slope ' +
+      'exponent p ~ 0.9961 (not exactly 1), and that compromise slope tilts the line and pulls its intercept ' +
+      'below the true prefactor. A direct finite-difference derivative of the numerator gap, free of any ' +
+      'log-log fit, instead converges to ~0.4377, matching the independent g*kEnd plateau (~0.4370) to ' +
+      'within ~0.001 -- landing the bias-corrected coefficient at a ~ 0.437-0.438, about 2% above the raw ' +
+      'OLS intercept. imp-34450 (extending imp-34375) then added second- and third-order curvature terms to ' +
+      'the fit and found the leading coefficient stays in the 0.4353-0.4370 range across every window tested, ' +
+      'within ~0.0022 of the band and with no runaway drift order-to-order -- so the first-order g ~ a/kEnd ' +
+      'verdict survives, only the prefactor tightens. The ~0.437-0.438 band is therefore the best current ' +
+      'reading of a.\n\n' +
+      'HONEST SCOPE: measurement/cross-validation only; the underlying numerator still uses the inherited ' +
+      'imp-3220/imp-3406/imp-33810 quarter-decade OLS exponent estimators verbatim -- this refines only the ' +
+      'approach-rate fit, not the numerator internals. C_mb GUE-conditional per imp-486 UNTOUCHED; changes ' +
+      'no bound; imp-3066 K_a>=0 untouched; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34286 (bias-correcting the imp-34210 OLS intercept via a direct finite-difference ' +
+      'derivative, landing at a ~ 0.437-0.438), 2026',
+    relatedTerms: [
+      'imp-34210 the original OLS log-log fit a ~ 0.4293 this entry supersedes (imp-34210)',
+      'imp-34286 the finite-difference bias-correction to a ~ 0.437-0.438 (imp-34286)',
+      'imp-34375 the two-term curvature fit extending imp-34286 (imp-34375)',
+      'imp-34450 the three-term curvature fit confirming a stays within ~0.0022 of the band (imp-34450)',
+      'imp-34151 the cancellation numerator approaching unity that this prefactor describes (imp-34151)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

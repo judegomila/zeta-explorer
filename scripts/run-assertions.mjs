@@ -4776,6 +4776,22 @@ const DATA_MODULES = [
   // only; imp-33843 form verdict untouched; imp-486/C_mb & imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA;
   // no QED. 6 assertions.
   '/src/data/imp-34292-slope-vs-ratio-convergence-mechanism.js',
+  // imp-34293: ASSESS whether the imp-34213 E_flow onset (fixed point in the height T0) and the
+  // imp-33723 E_coll=E_trunc crossover (fixed point in N) can be coupled into a single joint (N,T0)
+  // fixed-point system linked by the Riemann-von Mangoldt height law, and MEASURE the joint 2x2
+  // Jacobian spectral radius. FINDING: they EMBED in one common (N,T0) framework -- state (N,T0),
+  // one landmark condition + the RvM link -- but as TWO DISTINCT fixed points with DIFFERENT Jacobian
+  // structure: ANTI-DIAGONAL for the crossover (F_coll = (K log T0, effectiveHeightForN(N)), both
+  // coordinates driven by the other, rho ~ 0.213) and TRIANGULAR for the onset (F_flow =
+  // (zeroCountAtHeight(T0), h(T0)), N one-way slaved to the height fixed point, rho ~ 0.150). Both
+  // joint spectral radii are < 1, so the 2D coupling stays a strict contraction; they CANNOT be fused
+  // into a single fixed point (a contraction map has one fixed point per basin). The anti-diagonal
+  // radius is the SQRT of the reduced 1D rate (rho^2 = g_prime(N*) ~ 0.0454 to ~1e-9, two half-steps
+  // compose), the triangular radius equals the reduced rate |h_prime| ~ 0.150 exactly (zero eigenvalue
+  // on the slaved N). Measurement only; E_flow benign mesoscopic-Gronwall (imp-2845), E_coll GUE-
+  // conditional but untouched; imp-486/C_C & imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED.
+  // 7 assertions.
+  '/src/data/imp-34293-joint-eflow-ecoll-fixed-point.js',
   // imp-34229: VERIFY the general k=-+n outer phase-zero branch endpoint-onset law by an INDEPENDENT
   // bracket-and-bisect at n=4,5 -- the two rungs beyond the n=1,2,3 that imp-34173 already derived and
   // checked. The general closed form d_n(alpha) = |n| pi/(1+alpha) - pi/2 (onset alpha_n = 2|n|-1, slope

@@ -4763,6 +4763,17 @@ const DATA_MODULES = [
   // measurement only; pure phase geometry on the imp-33924 closed form; does NOT discharge H4, G6a stays
   // OPEN; imp-3066 K_a>=0 untouched; C_mb GUE-conditional untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-34229-general-onset-bisection-verification.js',
+  // imp-34252: CROSS-VALIDATE the imp-34173 unified endpoint law d_k(alpha) = pi((2|k|-1)-alpha)/(2(1+alpha))
+  // against a DIRECT root-find of the ACTUAL atan2 phase arg(-A) = -+ k pi for k=1..4 -- a THIRD, phase-based
+  // code path distinct from the imp-34173 direct-angle check and the imp-34229 Im(-A)=0 bisection (which only
+  // covered k=4,5). Build the continuous unwrapped phase Phi(theta) anchored at theta=pi/2 (arg=0, the imp-33927
+  // on-axis phase-zero -- not the linear formula), bracket + branch-anchored-bisect Phi = -+ k pi. The located
+  // angles reproduce theta = pi/2 -+ k pi/p to ~1e-15 across alpha in (0,1), the located endpoint distances match
+  // d_k, the FD alpha-slope matches -k pi/(1+alpha)^2, the real-axis parity holds (k even Re>0, k odd Re<0), and
+  // the k=1 branch is watched to touch theta=0 as alpha->1- (onset alpha_1=1; ladder alpha_k=2|k|-1 = 1,3,5,7).
+  // Cross-validation/measurement only; pure phase geometry on the imp-33924 closed form; does NOT discharge H4,
+  // G6a stays OPEN; imp-3066 K_a>=0 untouched; C_mb GUE-conditional untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-34252-arg-rootfind-cross-validation.js',
   // imp-34230: DERIVE the endpoint CURVATURE d3''(alpha) of the imp-34167 family-(iii) k=-+3 outer phase-zero
   // branch distance d3(alpha) = pi(5-alpha)/(2(1+alpha)) at its onset alpha=5, completing the curvature ladder
   // alongside imp-34103 (k=1, pi/4) and imp-34166 (k=2, pi/16). Twice-differentiating gives d3''(alpha) =

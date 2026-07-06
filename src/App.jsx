@@ -457,6 +457,9 @@ const Imp34699CollapseFactorVsInverseDpKMismatchViz = lazy(() =>
 const Imp34701RawFloatWeightPlateauShiftByStencilOrderViz = lazy(() =>
   import('./pages/Imp34701RawFloatWeightPlateauShiftByStencilOrderViz.jsx')
 );
+const Imp34715CrossoverMarginMonotoneViz = lazy(() =>
+  import('./pages/Imp34715CrossoverMarginMonotoneViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1481,6 +1484,10 @@ function AppShell() {
           <Route
             path="/viz-imp34701-raw-float-weight-plateau-shift-by-stencil-order"
             element={<Imp34701RawFloatWeightPlateauShiftByStencilOrderViz />}
+          />
+          <Route
+            path="/viz-imp34715-crossover-margin-monotone"
+            element={<Imp34715CrossoverMarginMonotoneViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

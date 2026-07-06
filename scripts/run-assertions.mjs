@@ -4699,6 +4699,24 @@ const DATA_MODULES = [
   // inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
   // untouched; PT Lambda<=0.2 SOTA; no bound; NO QED.
   '/src/data/imp-34472-margin-shrinkage-ulp-floor-extrapolation.js',
+  // imp-34508: DIRECTLY compute the imp-34411 doubling-map top-two resid_exp margin at rungs e=23 and e=24
+  // (offline scripts/imp-34508-direct-e23-e24-margin.mjs, baked literals) to CONFIRM/REFUTE the imp-34472
+  // EXTRAPOLATED ULP-floor crossing rather than extrapolate it. FINDINGS: (F1) the measured margin keeps
+  // shrinking geometrically -- e=23: 3.608e-16, e=24: 1.110e-16, per-rung ratios ~0.351/~0.308 inside the
+  // imp-34472 rho band. (F2) E3 non-degeneracy CONFIRMED DIRECTLY: the Kahan-vs-stable perturbation is
+  // EXACTLY 0 and rescues-stable (Kahan == stable argmax, differs from raw-moment) at BOTH rungs. (F3) the
+  // log-linear fit UNDER-predicted -- measured e=23 ~44% and e=24 ~68% ABOVE the fitted 2.498e-16 /
+  // 6.619e-17 -- and the e=24 margin did NOT descend smoothly below 1e-16 to ~6.62e-17 but QUANTIZED to
+  // exactly 2^-53 (machine-eps/2, the relative ULP floor), so imp-34472 E2 is REFINED: e=24 is where the
+  // margin REACHES the floor by discrete quantization (1.110e-16, marginally above 1e-16), not where a
+  // smooth value falls below it. (F4) the stable/Kahan argmax held at k=8.8210916519 through e=23 then
+  // shifted one dyadic node (+1/2^24) to k=8.8210917115 at e=24, direct SUB-GAP evidence the continuum
+  // argmax sits between dyadic nodes. Import-light (reuses imp-34411 + imp-34472, no zeros bundle),
+  // self-asserting (5 assertions). SUB-GAP-imp-34508-continuum-margin-at-ulp-floor: whether the true
+  // continuum margin at e>=24 lies above or below the ~1e-16 floor is OPEN. Direct measurement only;
+  // inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0
+  // untouched; PT Lambda<=0.2 SOTA; no bound; NO QED.
+  '/src/data/imp-34508-direct-e23-e24-margin-confirmation.js',
   // imp-34173: DERIVE the UNIFIED k-indexed closed form for the outer phase-zero branch endpoint
   // distance/slope/curvature subsuming imp-34103 (k=-+1), imp-34104 (k=-+2) and imp-34167 (k=-+3).
   // The k-th branch theta = pi/2 -+ k pi/p (arg(-A) = k pi, p = 1 + alpha) sits at offset |k| pi/p

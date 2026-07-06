@@ -6449,6 +6449,12 @@ const DATA_MODULES = [
   // fractional rate decelerates like 1/log N because dp*(N) ~ (W_max*eps/480)^(1/3)
   // (log N)^(4/3) [q ~ -p/2, q3 ~ 1/p^3], reproducing the ladder to < 2%.
   '/src/data/imp-34711-q3-trust-boundary-far-tail-extension.js',
+  // imp-34712: cross-validate the imp-34689 resolution-matched collapse ladder
+  // r_k ~ {4.00,7.00,17.91} (slopes m_k -> {2,3,4}) on a SECOND independent deep
+  // footing {10^13.8,10^14.15,10^14.7,10^15.3} + re-tiled 2:1 dp pairs -- m_k stays
+  // pinned to {2,3,4} while r_k moves to {4.00,9.17,15.98} and the q3/q4 deviation
+  // from 2^k flips sign, confirming the F3 residual is footing-dependent ULP scatter.
+  '/src/data/imp-34712-second-footing-collapse-ladder-crossvalidation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

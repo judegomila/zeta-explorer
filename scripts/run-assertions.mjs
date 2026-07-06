@@ -4899,6 +4899,14 @@ const DATA_MODULES = [
   // C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; NO QED.
   // 6 assertions.
   '/src/data/imp-34408-widening-slope-prepole-landmark-decade-axis.js',
+  // imp-34470: quantifies the departure of u(k)=log(effectiveHeightForN(10^(k+1))/2pi) from exact affinity
+  // across k=17.8..21.3 (the imp-34408 F2 window) by OLS fit u=a+b*k. FINDINGS: b~2.24965, a~-0.41216,
+  // R^2~0.9999997; max |residual| ~2.891e-3 at k=17.8, max relative ~7.293e-5, RMS ~1.258e-3; residual is
+  // convex (positive endpoints, negative middle -- the ln10*(1-1/u) slope drift). CONFIRMS imp-34408 F2:
+  // the residual magnitude exceeds and explains the ~6.16e-4 axis-ratio disagreement, so u(k) is near-affine
+  // (not affine). Measurement only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched;
+  // PT Lambda<=0.2 SOTA; NO QED. 5 assertions.
+  '/src/data/imp-34470-height-map-affinity-departure-fit.js',
   // imp-34409: resolves the imp-34327 naive-vs-mapped -1 crossing sub-gap by reconstructing the imp-34188
   // exponential-approach kernel u-grid over k=12..18. imp-34188 s buildLadder evaluates parts() at hi=10^(k+1)
   // with C_F=(log(T0/2pi)+1)/2pi, so its widening slope is a function of the MAPPED u=log(eff(10^(k+1))/2pi)
@@ -5557,6 +5565,19 @@ const DATA_MODULES = [
   // Measurement / threshold-location only; component model NOT rigorous; C_mb GUE-conditional per imp-486
   // untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34468-pole-leakage-3-8-percent-crossings.js',
+  // imp-34469: TESTS the imp-34409 +0.227 overshoot (its k=12..18 exponential-approach fit extrapolates
+  // the -1 crossing to k ~ 20.706, 0.227 above the analytic mapped crossing 20.47903) for window-dependence
+  // by re-fitting the IDENTICAL surrogate over extended (start=12, end 18..30) and slid (fixed 7-rung width,
+  // deeper start) windows. FINDINGS: extending the end collapses the residual 0.2271 -> -0.016 through zero
+  // (>14x); sliding a 7-rung window up to bracket the crossing drops |resid| to ~0.0015 (>140x); every
+  // window hugs the MAPPED crossing 20.479 and none approaches the naive 19.829 -- so the 0.227 is DOMINANTLY
+  // a finite k=12..18 fit-window artifact, confirming and sharpening the imp-34409 mapped-index resolution.
+  // The residual settles to a shallow ~0.085 band (not exactly 0) because the exp-in-k surrogate is
+  // mis-specified against the reciprocal-in-u law. Import-light (only effectiveHeightForN). 6 assertions.
+  // Measurement / window-dependence study only; surrogate NOT rigorous; imp-34409/imp-34327/imp-34246/
+  // imp-34188 untouched; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT
+  // Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34469-widening-slope-crossing-window-convergence.js',
 ];
 
 let ALL_MODULES = FAST_MODE

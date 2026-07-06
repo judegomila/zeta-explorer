@@ -8,6 +8,7 @@ import {
   IMP34244_RESID_RMS,
   IMP34244_DEEP_INTERIOR_TO_HEAD_RATIO,
 } from '../data/imp-34244-kpss-l0-flip-shift-ranking-viz-data.js';
+import { IMP34231_KPSS_L0_MULTI_RUNG_JOINT_SHIFT as MULTI } from '../data/imp-34231-kpss-l0-multi-rung-joint-shift.js';
 
 function isHighlighted(k) {
   return IMP34244_HEAD_CLUSTER_KS.includes(k) || k === IMP34244_FAR_TAIL_K;
@@ -106,6 +107,25 @@ export default function Imp34244KpssL0FlipShiftRankingViz() {
           </tbody>
         </table>
       </div>
+
+      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+        imp-34231: does a MULTI-rung joint shift erase the borderline more cheaply?
+      </p>
+      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '0.75rem', maxWidth: 700 }}>
+        The single-rung ranking above asks each rung alone; imp-34231 asks the joint question &mdash;
+        the minimal L2-norm shift spread across the head cluster (k=6.00, 6.25) AND the far-tail
+        endpoint (k={IMP34244_FAR_TAIL_K.toFixed(2)}) together. That joint least-norm
+        shift is &#126;{MULTI.clusterTailJointNorm.toFixed(6)}, only{' '}
+        {(MULTI.clusterTailNormOverRms * 100).toFixed(2)}% of the residual RMS &#126;
+        {IMP34244_RESID_RMS} &mdash; about {(MULTI.clusterTailRatioToSingle * 100).toFixed(1)}% of the
+        single-rung head cost ({(100 - MULTI.clusterTailRatioToSingle * 100).toFixed(1)}% cheaper), and
+        the absolute all-21-rung floor is &#126;{MULTI.allRungFloorNorm.toFixed(6)} (
+        {(MULTI.allRungFloorRatioToSingle * 100).toFixed(1)}% of single). The head endpoint still
+        carries &#126;{(MULTI.headEndpointNormShare * 100).toFixed(0)}% of the joint norm, so joining
+        rungs only modestly cheapens the flip and the borderline stays head-dominated. Crucially, this
+        is still a dissection of the FRAGILE un-HAC l=0 cell only: the HAC-corrected (l&ge;1) statistic
+        eta_mu &#126;0.149 is unchanged and remains the primary, non-rejecting reading.
+      </p>
 
       <div
         style={{

@@ -6562,6 +6562,22 @@ const DATA_MODULES = [
   // NEGATIVE on [1e9,1e12], so d2/dN2 |dg_kk/dt| = -g_quadruple_prime > 0 and |g_double_prime|
   // is strictly CONVEX across the post-peak union. Measurement/derivation only, no bound change.
   '/src/data/imp-34793-crossover-gpppp-convexity.js',
+  // imp-34796: settles imp-34769s deferred "does the ~4.5e-8 dex optimal-step sigma-knee gap
+  // extrapolate to exactly 0 or leave a residual physical term" question ANALYTICALLY -- derives
+  // the exact identity F(x) = -g_thirdDeriv(x)/(1-S(x)) between the u-route F-condition and the
+  // direct (ln sigma)_thirdDeriv route, so (1-S) > 0 forces F=0 <=> g_thirdDeriv=0: the two
+  // estimators share the IDENTICAL analytic root and the h -> 0 gap is EXACTLY 0, no residual
+  // physical term. The pointwise F vs -g_thirdDeriv/(1-S) match is ~1e-5 at h=1e-2 and scales as
+  // clean O(h^2) (ratio ~4 per halving), confirming the exact algebra. Derivation only, no bound change.
+  '/src/data/imp-34796-sigma-knee-gap-exact-zero-identity.js',
+  // imp-34794: DUAL of the imp-34774 fixed-delta Krawczyk enclosure of N_cross -- fixes the few-ULP
+  // outward-rounding budget K_FEW_ULP = 4 and drives the bracket half-width delta -> 0 to LOCATE the
+  // tightest double-precision certified bracket. delta_min(k=4) ~ 1.887e-15 ~ 8.5 eps = (2 k + ~0.5) eps
+  // (leading 2 k eps break term plus a 0.5-ULP(m) endpoint-quantization floor), delta_min(k) affine with
+  // slope ~ 2 eps/k, tightest enclosure width ~ 1.288e-5 (N-index units), ~11 orders tighter than the
+  // imp-34774 working point delta = 2e-4; just below delta_min the F(m)=0 strict inclusion collapses.
+  // Surrogate for the imp-34687a directed-rounding layer; sub-gap imp-34714a REMAINS OPEN; no bound, NO QED.
+  '/src/data/imp-34794-krawczyk-tightest-certified-bracket.js',
   // imp-34790: energy of the Hamiltonian around phase-change boundaries. Verifies the ZPO
   // kinetic-curvature term IS (log zeta)''(2 sigma) (primon-gas specific-heat kernel at
   // beta = 2 sigma, identity to 1.2e-13), so its sigma -> 1/2+ behaviour is a DIVERGENCE
@@ -6597,6 +6613,12 @@ const DATA_MODULES = [
   // text's "imp-34624" viz-page reference is an id error -- imp-34624 is the
   // already-completed imp-34584..34593 registration audit, not a viz page.
   '/src/data/imp-34725-caveat-surfacing-audit-34620-34623.js',
+  // imp-34798: densely re-measures the imp-34775 iters-to-floor log law across the higher-N
+  // band [1e9,1e12] (31- and 61-point grids, ~15x denser than imp-34775 4-decade sampling)
+  // plus an extended tail [1e12,1e15]. Reports the log-law constant c_law = 1/ln(1/r) ~ 0.3234
+  // and confirms the closed-form-vs-Picard two-route agreement STAYS BOUNDED at +/-1 iterate
+  // (never +/-2) at every sampling density -- exact in the tail. Measurement only, no bound change.
+  '/src/data/imp-34798-iters-to-floor-log-law-higher-N.js',
 ];
 
 let ALL_MODULES = FAST_MODE

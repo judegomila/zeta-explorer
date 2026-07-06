@@ -6344,6 +6344,7 @@ const DATA_MODULES = [
   '/src/data/imp-34649-plateau-drift-shared-stencil-crossvalidation.js',
   '/src/data/imp-34650-crossover-banach-contraction-certificate.js',
   '/src/data/imp-34651-q2-q4-share-roundoff-valley-spread.js',
+  '/src/data/imp-34672-truncation-sweet-spot-landmark-independence.js',
   '/src/data/imp-34652-eflow-attr-punctured-pole-window-slope.js',
   '/src/data/imp-34653-eflow-attr-pole-window-component-model-crossval.js',
   '/src/data/imp-34654-sixth-order-stencil-reference-weight-crossvalidation.js',

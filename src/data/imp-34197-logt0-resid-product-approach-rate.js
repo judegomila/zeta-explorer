@@ -161,6 +161,32 @@ const PRODUCT_EXCEEDS_0499 = (() => {
   return { uCross, log10NCross, productAtCross, uBack };
 })();
 
+// imp-34331: INDEPENDENT cross-check of the imp-34249 u=500 landmark against the imp-34197 exact fit.
+// imp-34249 read u=500 off the ASSUMED gap = 1/(2u), inverting 1/2 - 1/(2u) = 0.499 by hand. Here we
+// instead solve the FULL product L * resid = 0.499 DIRECTLY from the ladder -- L and resid multiplied
+// numerically, the (1/2)(u-1)/u cancellation NOT pre-applied -- by bisection on ln N, then read off u.
+// If imp-34197s claim of NO subleading term were wrong (a residual 1/u^2 pulling the product down) the
+// direct solve would land at u = 499.x; recovering u = 500 to ~2e-11 independently corroborates both the
+// u=500 landmark and the exact-c=1/2 fit (the two closed-form landmarks are mutually consistent).
+const CROSSCHECK_DIRECT_SOLVE_0499 = (() => {
+  const productOfLnN = (lnN) => logT0FromLnN(lnN) * residAnalyticFromLnN(lnN);
+  let lo = 100 * Math.LN10; // product 0.497776 < 0.499
+  let hi = 300 * Math.LN10; // product 0.499269 > 0.499
+  for (let i = 0; i < 200; i++) {
+    const mid = 0.5 * (lo + hi);
+    if (productOfLnN(mid) < 0.499) lo = mid;
+    else hi = mid;
+  }
+  const lnNStar = 0.5 * (lo + hi);
+  const uStar = uFromLnN(lnNStar);
+  return {
+    uStar, // -> 500.0000000000 (matches the imp-34249 u=500 landmark from an independent solve)
+    deviationFrom500: uStar - 500, // -> ~ -2.5e-11 (no 1/u^2 residual pulling the crossover to 499.x)
+    log10NStar: lnNStar / Math.LN10, // -> ~219.845, agreeing with PRODUCT_EXCEEDS_0499.log10NCross
+    productAtStar: productOfLnN(lnNStar), // -> 0.499
+  };
+})();
+
 export const IMP34197_LOGT0_RESID_PRODUCT_APPROACH_RATE = {
   id: 'imp-34197',
   proofSection: 'S-frontier',
@@ -195,6 +221,20 @@ export const IMP34197_LOGT0_RESID_PRODUCT_APPROACH_RATE = {
     note:
       'product exceeds 0.499 for u > 500, i.e. log10 N > ~219.85 on the imp-33859 direct path -- it ' +
       'sits between the log10 N = 100 rung product 0.497776 and the 300 rung product 0.499269',
+  },
+  crossCheck_imp34249_direct_solve: {
+    // imp-34331: solve L*resid = 0.499 DIRECTLY (cancellation not pre-applied) -> u lands at 500.
+    method: 'bisection on ln N of the full product L * resid = 0.499, cancellation NOT pre-applied',
+    uStar: +CROSSCHECK_DIRECT_SOLVE_0499.uStar.toFixed(9), // 500.000000000
+    deviationFrom500: +CROSSCHECK_DIRECT_SOLVE_0499.deviationFrom500.toExponential(3), // ~ -2.5e-11
+    log10NStar: +CROSSCHECK_DIRECT_SOLVE_0499.log10NStar.toFixed(4), // ~219.8453
+    productAtStar: +CROSSCHECK_DIRECT_SOLVE_0499.productAtStar.toFixed(6), // 0.499000
+    consistent: Math.abs(CROSSCHECK_DIRECT_SOLVE_0499.deviationFrom500) < 1e-6,
+    note:
+      'imp-34249 read u=500 off the assumed gap = 1/(2u); solving the full product = 0.499 directly ' +
+      'from the ladder recovers u = 500 to ~2.5e-11, so the two closed-form landmarks are mutually ' +
+      'consistent and the direct solve independently corroborates imp-34197s claim of NO subleading ' +
+      '1/u^2 term (which would have pulled the crossover to u = 499.x). Cross-check only; NO QED.',
   },
   modelGate_FD_vs_analytic_product_at_1e100: +MODEL_GATE_FD_VS_ANALYTIC_PRODUCT.toExponential(3), // ~0
   farTailExponent: -HALF, // imp-3463 asymptote the local exponent q(N) approaches from above
@@ -278,6 +318,20 @@ export const IMP34197_LOGT0_RESID_PRODUCT_APPROACH_RATE_ASSERTIONS = [
       const p100 = logT0FromLnN(100 * Math.LN10) * residAnalyticFromLnN(100 * Math.LN10);
       const p300 = logT0FromLnN(300 * Math.LN10) * residAnalyticFromLnN(300 * Math.LN10);
       return p100 < 0.499 && p300 > 0.499;
+    },
+  },
+  {
+    // (imp-34331) INDEPENDENT direct solve of L*resid = 0.499 lands at u = 500 (agrees with imp-34249),
+    // corroborating the exact-c=1/2 fit with no subleading 1/u^2 term; the two landmarks are consistent.
+    id: 'imp34197-crosscheck-imp34249-direct-solve-lands-at-u500',
+    description: 'direct bisection solve of L*resid = 0.499 recovers u = 500 within 1e-6, agreeing with the imp-34249 landmark',
+    holds: () => {
+      const c = CROSSCHECK_DIRECT_SOLVE_0499;
+      if (!(Math.abs(c.uStar - 500) < 1e-6)) return false;
+      if (!(Math.abs(c.productAtStar - 0.499) < 1e-9)) return false;
+      if (!(c.log10NStar > 219 && c.log10NStar < 221)) return false;
+      // it agrees with the by-hand imp-34249 crossover to full precision.
+      return Math.abs(c.uStar - PRODUCT_EXCEEDS_0499.uCross) < 1e-6;
     },
   },
   {

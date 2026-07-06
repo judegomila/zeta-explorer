@@ -12484,6 +12484,37 @@ export const glossary = [
       'imp-34625 reconciles the ~7% log-curvature residual with the eflow_attr slope shift (imp-34625)',
     ],
   },
+  {
+    term: 'imp-34607 deflow second-order identifiability window: why the 1/log^2(N) coefficient d is non-identifiable in any accessible regime',
+    category: 'numerical',
+    definition:
+      'A quick-lookup headword for the imp-34607 finding, which quantifies HOW WIDE an N-span would ' +
+      'be needed to make the imp-34584 second-order deflow refit p = pInf - c/log(N) + d/log^2(N) ' +
+      'identifiable. imp-34584 found the two predictors u = 1/log(N) and u^2 have Pearson correlation ' +
+      '~0.9995 over the six observed rungs (log N in ~36.9..45.8, span ~8.6), so the recovered d blows ' +
+      'up to an unphysical +91.7 -- a classic multicollinearity failure, not evidence the second-order ' +
+      'term is genuinely absent. Because the collinearity of u and u^2 is a pure PROPERTY OF THE ' +
+      'DESIGN-MATRIX GEOMETRY (the sampled log N points), independent of the deflow response values, ' +
+      'imp-34607 measures it exactly: holding the observed high anchor fixed and extending the ' +
+      'synthetic log N span downward, the variance-inflation factor VIF = 1/(1-r^2) only drops below ' +
+      'the standard identifiability threshold VIF < 10 (|r| < 0.9487) once the span reaches log N_lo ' +
+      '~2.51 (N ~12), a total span of ~43.5 -- ~5x the observed ~8.6 span; even a milder cond < 100 ' +
+      'threshold needs log N_lo ~9.1 (N ~9000). Both required floors lie far below the surrogate\'s own ' +
+      'regime of validity (deflow is only fp-observable to kEnd ~22.5, log N ~52, and N ~12..9000 are ' +
+      'nowhere near the deep-N pole neighbourhood the fit describes), so the coefficient d is not ' +
+      'separable from the leading 1/log(N) term in ANY physically or numerically accessible window: ' +
+      'the imp-34584 non-resolvability is structural, not a six-rung artifact.\n\n' +
+      'HONEST SCOPE: a design-matrix conditioning measurement reusing the imp-34448 rungs verbatim; ' +
+      'not a new derivation; the inherited imp-3220/imp-3406 component model is NOT a rigorous ' +
+      'asymptotic; C_mb remains GUE-conditional per imp-486; changes no bound; establishes no operator ' +
+      'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34607 (deflow second-order identifiability window), 2026',
+    relatedTerms: [
+      'imp-34584 the overfit and ~0.9995 predictor collinearity this quantifies (imp-34584)',
+      'imp-34448 the observed local exponents and the fp floor at kEnd ~22.5 reused verbatim (imp-34448)',
+      'imp-34571 the one-parameter refit and ~7.3e-4 residual left unresolved to next order (imp-34571)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

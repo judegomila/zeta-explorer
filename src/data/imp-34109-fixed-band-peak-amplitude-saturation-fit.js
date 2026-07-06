@@ -76,6 +76,10 @@
  *
  * @see imp-34196-fixed-band-peak-increment-minimum-subwindow-refine (refines this module's F1 increment
  *   minimum to sub-window resolution on a halved 0.25 kEnd grid)
+ * @see imp-34287-fixed-band-peak-growth-exponent-pole-reconciliation (named
+ *   SUB-GAP-imp-34287-asymptotic-class-undecidable in the glossary -- reconciles this module's UNBOUNDED-log
+ *   verdict with the imp-34196 rising-increment reading via the local log-derivative g = dP/d ln(kEnd); the
+ *   sub/log/super-log growth class question this leaves open is still OPEN)
  * @see imp-34169-fixed-band-peak-extended-decade-surrogate-zero (continues this module's sweep one further
  *   decade, kEnd = 20..26, and finds the surrogate this module's OLS depends on has a hard right edge)
  * @see imp-34040-fixed-band-drift-saturation-decade (the kEnd = 14..17 sweep this continues; machinery reused)

@@ -56403,13 +56403,15 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Surface the SUB-GAP-imp-34287-asymptotic-class-undecidable growth-class open question via @see backlinks on the imp-34109 and imp-34196 modules it reconciles',
     category: 'meta',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S-frontier',
     description: "imp-34287 reconciles the imp-34196 re-acceleration and imp-34109 unbounded-log findings and reframes the super-log reading as a pole artifact, opening SUB-GAP-imp-34287-asymptotic-class-undecidable. imp-34109 and imp-34196 do not yet backlink to that open question. Add reciprocal @see backlinks so the undecidable growth class is reachable from the modules it reframes. Docs/wiring only; no bound; no QED.",
     rationale: 'Frontier scout: imp-34287 reframes imp-34109/imp-34196 but they lack backlinks to its open sub-gap',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'sonnet-4-6',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
 ];
 

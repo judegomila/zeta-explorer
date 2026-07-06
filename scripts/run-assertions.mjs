@@ -6333,6 +6333,25 @@ const DATA_MODULES = [
   // untouched, NO QED, PT Lambda<=0.2 SOTA). FINDING: no gap -- all 3 carry the
   // complete banner verbatim in their verdict/honest field. 5 assertions.
   '/src/data/imp-34583-pole-recovery-cohort-banner-audit.js',
+  // imp-34645..34654: the pole-recovery / roundoff-conditioning cohort audited
+  // by imp-34682 below. Were missing from this DATA_MODULES list (found by the
+  // imp-34682 audit) -- added here so their self-executing assertions run in
+  // the build-time sweep.
+  '/src/data/imp-34645-eflow-attr-pole-window-widen-se.js',
+  '/src/data/imp-34646-q1-first-difference-roundoff-floor.js',
+  '/src/data/imp-34647-q3-deeper-window-exponent-amplitude-convergence.js',
+  '/src/data/imp-34648-plateau-drift-large-dp-truncation-sweet-spot.js',
+  '/src/data/imp-34649-plateau-drift-shared-stencil-crossvalidation.js',
+  '/src/data/imp-34650-crossover-banach-contraction-certificate.js',
+  '/src/data/imp-34651-q2-q4-share-roundoff-valley-spread.js',
+  '/src/data/imp-34652-eflow-attr-punctured-pole-window-slope.js',
+  '/src/data/imp-34653-eflow-attr-pole-window-component-model-crossval.js',
+  '/src/data/imp-34654-sixth-order-stencil-reference-weight-crossvalidation.js',
+  // imp-34682: AUDIT of the imp-34645..34654 cohort for BOTH standing invariants
+  // (no-heavy-imports + honest-status banner). FINDING: no gap in either
+  // invariant -- all 10 import-light, all carry the complete banner. FINDING
+  // (registration): all 10 were missing from this DATA_MODULES list; fixed above.
+  '/src/data/imp-34682-recovery-cohort-invariant-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -4788,6 +4788,23 @@ const DATA_MODULES = [
   // precision measurement only; inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486
   // untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound; NO QED.
   '/src/data/imp-34524-continuum-margin-below-ulp-floor.js',
+  // imp-34533: measure whether the imp-34508 F4 stable/Kahan argmax dyadic-node jitter (held at
+  // k=8.8210916519 through e=23, hopped +1/2^24 to 8.8210917115 at e=24) PROPAGATES or LOCKS at the deeper
+  // rungs e=25/e=26. Rather than a heavy (and uninformative) e=25/e=26 scan, this module uses the imp-34524
+  // continuum vertex k* = 8.821091375252 + trivial nearest-node geometry. FINDINGS: (F1) the continuum
+  // argmax PROVABLY NEVER LOCKS -- k* is non-dyadic, so the nearest dyadic node is a distinct value each
+  // rung (e=23..27: 8.821091413498, 8.821091353893, 8.821091383696, 8.821091368794, 8.821091376245)
+  // converging to k*; locking would require k* exactly dyadic. (F2) the imp-34508 reported argmax sits
+  // ~4.64/~5.64 nodes ABOVE k*, not tracking the geometry -- its "+1/2^24 hop" was floor noise (confirming
+  // imp-34524 F3), not a geometric signal. (F3) the imp-34524 f-independent margin bound in resid_exp
+  // storage ULPs (2^-56) is ~4.63 at e=24, ~1.16 at e=25, ~0.29 at e=26 -- so by e=26 the two straddling
+  // nodes are within one storage ULP (bit-level tie) and a double-precision scan cannot resolve the winner.
+  // (F4) VERDICT: neither clean single-node propagation NOR lock -- the continuum jitter propagates but is
+  // unobservable in double precision past e=24; SUB-GAP-imp-34533-deep-rung-argmax-noise-dominated. Import-
+  // light (reuses imp-34508 + imp-34524 only, no zeros bundle), self-asserting (4 assertions). Measurement
+  // only; inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 untouched; imp-3066
+  // K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound; NO QED.
+  '/src/data/imp-34533-deep-rung-argmax-jitter-propagation.js',
   // imp-34173: DERIVE the UNIFIED k-indexed closed form for the outer phase-zero branch endpoint
   // distance/slope/curvature subsuming imp-34103 (k=-+1), imp-34104 (k=-+2) and imp-34167 (k=-+3).
   // The k-th branch theta = pi/2 -+ k pi/p (arg(-A) = k pi, p = 1 + alpha) sits at offset |k| pi/p

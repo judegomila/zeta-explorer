@@ -5767,6 +5767,19 @@ const DATA_MODULES = [
   // extrapolation only; component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066
   // K_a>=0 untouched; PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34530-pole-leakage-spacing-compression-fit.js',
+  // imp-34531: VERIFIES the imp-34513 F1 attribution that the raw central-difference drift residual shrinks
+  // "as the local curvature relaxes" -- i.e. the O(h^2) finite-difference coefficient is proportional to the
+  // drift exponent second derivative. Reproduces the imp-34446/imp-34486 primitives inline (imports NOTHING).
+  // FINDINGS: (F1) the closed-form d2 m / d(log N)^2 is negative and shrinks in magnitude down the ladder
+  // (-1.525e-4 -> -1.321e-4 -> -1.232e-4) in lockstep with the raw residual (1.194e-9 -> 1.024e-9); both
+  // monotone and raw/d2m constant to ~6% (7.83e-6 -> 8.31e-6), so the shrink IS curvature-driven; (F2) raw/h^2
+  // matches the FULL analytic O(h^2) coefficient -(1/q1)(q2/(2 q1) - q3/(6 q1)) [q = log E_coll(log N)] to <1%
+  // at every landmark (certifying the residual IS the finite-difference floor), and the pure second-derivative
+  // (q2) part is ~98% of the coefficient -- so proportional-to-curvature holds to ~2% (the residual ~2% being
+  // the q3 term, why raw/d2m drifts ~6% not 0%). Import-light. 5 assertions. Verification / measurement only;
+  // component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT
+  // Lambda<=0.2 SOTA; no bound change; NO QED.
+  '/src/data/imp-34531-drift-residual-vs-second-derivative.js',
   // imp-34469: TESTS the imp-34409 +0.227 overshoot (its k=12..18 exponential-approach fit extrapolates
   // the -1 crossing to k ~ 20.706, 0.227 above the analytic mapped crossing 20.47903) for window-dependence
   // by re-fitting the IDENTICAL surrogate over extended (start=12, end 18..30) and slid (fixed 7-rung width,

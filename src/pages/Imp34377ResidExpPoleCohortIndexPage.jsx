@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34287_FIXED_BAND_PEAK_GROWTH_EXPONENT_POLE_RECONCILIATION } from '../data/imp-34287-fixed-band-peak-growth-exponent-pole-reconciliation.js';
 import { IMP34169_FIXED_BAND_PEAK_EXTENDED_DECADE_SURROGATE_ZERO } from '../data/imp-34169-fixed-band-peak-extended-decade-surrogate-zero.js';
+import { IMP34309_COMBINED_GRID_LOO_LINEAR_FLIP_ROBUSTNESS } from '../data/imp-34309-combined-grid-loo-linear-flip-robustness.js';
 
 const COHORT = [
   {
@@ -113,6 +114,28 @@ export default function Imp34377ResidExpPoleCohortIndexPage() {
         5-point (vs 2-point) pEcoll endpoint stencil and finds it removes 100% of the -0.28 residual --
         the sign-change ceiling itself dissolves, confirming the estimator-bias attribution over a
         competing ceiling.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(217,119,6,0.06)',
+          borderLeft: '3px solid #b45309',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+        }}
+      >
+        <strong style={{ color: '#f59e0b' }}>Fragility caveat (imp-34394, on imp-34309):</strong>{' '}
+        the imp-34233 "linear overtakes log" verdict is NOT a stable growth-form conclusion -- it is carried
+        entirely by the single closest-to-pole window kEnd=21.0. On the full 15-window grid linear beats log
+        by a log-minus-linear AIC gap of +{IMP34309_COMBINED_GRID_LOO_LINEAR_FLIP_ROBUSTNESS.fullGrid.aicGapLogMinusLin},
+        and that gap stays positive under leave-one-out deletion of kEnd=20.0 or kEnd=20.5. But deleting kEnd=21.0
+        alone REVERSES it to {IMP34309_COMBINED_GRID_LOO_LINEAR_FLIP_ROBUSTNESS.leaveOneOut[2].aicGapLogMinusLin}{' '}
+        (log reclaims the win). Downstream readers should not over-read "linear wins" from imp-34233 -- only the
+        coarser reading that the bounded a&nbsp;-&nbsp;b/kEnd ceiling is never selected (log beats it under every
+        single-window deletion) is robust.
       </div>
 
       <div

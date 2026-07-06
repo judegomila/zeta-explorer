@@ -337,6 +337,9 @@ const Imp34496ExcessAboveTwoViz = lazy(() => import('./pages/Imp34496ExcessAbove
 const Imp34497CrossoverEnAssemblyViz = lazy(() => import('./pages/Imp34497CrossoverEnAssemblyViz.jsx'));
 const Imp34498EnMonotoneDescentViz = lazy(() => import('./pages/Imp34498EnMonotoneDescentViz.jsx'));
 const Imp34499BridgeSlopeThreeRungViz = lazy(() => import('./pages/Imp34499BridgeSlopeThreeRungViz.jsx'));
+const Imp34540PoleLeakageFiveRungLadderViz = lazy(() =>
+  import('./pages/Imp34540PoleLeakageFiveRungLadderViz.jsx'),
+);
 const Imp34476SigmaProductGapRatioApproachViz = lazy(() =>
   import('./pages/Imp34476SigmaProductGapRatioApproachViz.jsx')
 );
@@ -1213,6 +1216,10 @@ function AppShell() {
           <Route path="/viz-imp34497-crossover-en-assembly" element={<Imp34497CrossoverEnAssemblyViz />} />
           <Route path="/viz-imp34498-en-monotone-descent" element={<Imp34498EnMonotoneDescentViz />} />
           <Route path="/viz-imp34499-bridge-slope-three-rung" element={<Imp34499BridgeSlopeThreeRungViz />} />
+          <Route
+            path="/viz-imp34540-pole-leakage-five-rung-ladder"
+            element={<Imp34540PoleLeakageFiveRungLadderViz />}
+          />
           <Route
             path="/viz-imp34476-sigma-product-gap-ratio-approach"
             element={<Imp34476SigmaProductGapRatioApproachViz />}

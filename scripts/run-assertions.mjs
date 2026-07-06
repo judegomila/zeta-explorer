@@ -6547,6 +6547,13 @@ const DATA_MODULES = [
   // every band (B(1e9)/max_union = 1.000), so they collapse to one monotone envelope; each B(band)
   // matches the imp-34757 published literal to < 1e-3. Standing accuracy tripwire, no bound change.
   '/src/data/imp-34777-crossover-gpp-cross-band-envelope-collapse.js',
+  // imp-34801: resolution-matched live recompute of the imp-34777 cross-band collapse. imp-34777
+  // pinned the collapse against the FROZEN imp-34757 literals at a single 41-point-per-band grid;
+  // this re-runs it across a resolution ladder 41/161/641/2561 pts/band. The descending ladder
+  // (B(1e9) > B(1e10) > B(1e11)) and the B(1e9) global dominance hold at every resolution, and
+  // refining 41 -> 2561 does not raise any per-band max (growth < 1e-12) so no interior maximum was
+  // hidden below the coarse grid -- the collapse is a genuine property, not a coarse-grid artifact.
+  '/src/data/imp-34801-crossover-gpp-cross-band-resolution-matched.js',
   // imp-34792: appends a 4th far-tail band [1e12,1e13] to the imp-34777 3-band collapse and
   // confirms BOTH properties survive one decade deeper into the far tail: the four per-band
   // left-endpoint bounds still strictly descend (B(1e9) > B(1e10) > B(1e11) > B(1e12)) and the
@@ -6619,6 +6626,12 @@ const DATA_MODULES = [
   // and confirms the closed-form-vs-Picard two-route agreement STAYS BOUNDED at +/-1 iterate
   // (never +/-2) at every sampling density -- exact in the tail. Measurement only, no bound change.
   '/src/data/imp-34798-iters-to-floor-log-law-higher-N.js',
+  // imp-34799: DERIVES an a-priori width bound for a genuine directed-rounding instantiation of the
+  // imp-34774 Krawczyk fixed-point enclosure of N_cross. The F(m)=0 surrogate collapses the image to a
+  // POINT; a directed-rounding F(m) widens it to ~ n_op eps N_cross / (1 - |g_prime|) (first-order IA),
+  // ~7.6e-5 absolute for n_op ~ 50 -- ~10 orders below the (H2) bracket margin. The strict-(H2)
+  // op-count ceiling delta(1-|g_prime|)/eps ~ 8.60e11 recovers the imp-34776 k* budget. No bound change.
+  '/src/data/imp-34799-krawczyk-directed-rounding-width-bound.js',
 ];
 
 let ALL_MODULES = FAST_MODE

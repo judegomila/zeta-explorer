@@ -12795,6 +12795,53 @@ export const glossary = [
       'imp-34689 the resolution-matched 2:1 dp-pair statistic that later closes most of this quantitative gap (imp-34689)',
     ],
   },
+  {
+    term: 'imp-34684 stencil-WIDTH dependence of q3-share conditioning: why the 4th-order share is ~30x milder and carries no 1e9x Fornberg-residual signature',
+    category: 'numerical',
+    definition:
+      'A methodology headword recording that the severity of q3-share catastrophic-cancellation ' +
+      'conditioning is NOT a fixed property of the share statistic alone -- it depends on whether the ' +
+      'underlying finite-difference stencil weights happen to be exactly representable in double ' +
+      'precision.\n\n' +
+      'imp-34654 certified the imp-34626 6th-order 9-point stencil ([-7,72,-338,488,0,-488,338,-72,7]/240) ' +
+      'against Fornberg and Vandermonde reconstructions and found the RAW (un-rounded) float weights carry ' +
+      'a ~5e-13 residual against the exact-integer numerators; pushed through the near-cancellation q3-share ' +
+      'pipeline, that tiny residual is amplified ~1e9x into a ~3e-4 plateau shift. imp-34684 repeated the ' +
+      'same cross-validation on the imp-34611 4th-order stencils (5-point q2, 7-point q3 ' +
+      '[1,-8,13,0,-13,8,-1]/8) and found BOTH references still reproduce all twelve numerators exactly ' +
+      '(Fornberg maxErr 0), but the 4th-order Fornberg floats are themselves exactly representable in ' +
+      'double precision (raw residual < 1e-15) -- so there is no weight error left to amplify, and the ' +
+      'raw-float-vs-exact-integer plateau differs by only ~4e-8, about four orders of magnitude below the ' +
+      '6th-order shift. The share is still ill-conditioned (a ~9e-6 sensitivity to summation order, imp-34684 ' +
+      'F4), just ~30x more mildly than the 9-point stencil.\n\n' +
+      'imp-34690 traced WHY the ~30x gap is not explained by stencil width alone: the input-roundoff floor ' +
+      'max|term|*eps/|sum| scales only ~1.25x between the 7-point and 9-point stencils (a closed-form ratio ' +
+      'maxNum/denom = (488/240)/(13/8) ~ 1.251, matching measurement to ~4e-6) -- far short of the observed ' +
+      '~30x severity gap. The remaining factor is entirely the exactly-representable-weights effect: the ' +
+      '7-point Fornberg weights carry zero raw-vs-exact residual so the share sensitivity is set by the ' +
+      'floor alone, while the 9-point weights carry a ~5.3e-13 residual that ~1e12-scale near-cancellation ' +
+      'amplifies toward the imp-34654 ~3e-4 signature.\n\n' +
+      'HOW TO APPLY: when comparing catastrophic-cancellation conditioning across finite-difference stencils ' +
+      'of different order/width, do not assume a wider stencil is uniformly worse-conditioned by the same ' +
+      'mechanism. Check separately (a) the intrinsic cancellation-depth floor, which scales mildly with ' +
+      'stencil width (~1.25x here), and (b) whether the specific stencil weights are exactly representable ' +
+      'in double precision -- a stencil whose Fornberg floats happen to round exactly (small numerators) can ' +
+      'be ~30x more mildly conditioned than one whose floats carry a tiny residual, even though both ' +
+      'reconstruct the same exact-integer weights to machine precision.\n\n' +
+      'HONEST SCOPE: a measurement-methodology headword consolidating the imp-34684/imp-34690 findings ' +
+      'verbatim, not a new derivation; q1, q2, q3 remain inherited central differences, NOT fresh analytic ' +
+      'closed forms; the inherited imp-3220/imp-3406 surrogate is NOT rigorous; changes no bound; ' +
+      'C_C = (1/8)sqrt(3pi) (imp-2714) UNTOUCHED; C_mb remains GUE-conditional per imp-486; imp-3066 ' +
+      'K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-34700 (glossary headword for the imp-34684 stencil-width dependence of q3-share conditioning), 2026',
+    relatedTerms: [
+      'imp-34654 the 6th-order 9-point cross-validation that found the ~1e9x Fornberg-residual amplification this headword contrasts against (imp-34654)',
+      'imp-34684 the 4th-order cross-validation finding the ~30x milder, signature-free share sensitivity (imp-34684)',
+      'imp-34690 the closed-form floor-scaling analysis showing the ~30x gap is a weights-representability effect, not a floor-scaling one (imp-34690)',
+      'imp-34611 the original 4th-order q2/q3 stencil pipeline whose share sensitivity is being certified (imp-34611)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

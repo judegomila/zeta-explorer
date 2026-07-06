@@ -420,6 +420,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34681-punctured-pole-window',
   '/viz-imp34696-right-widening-banach-certificate',
   '/viz-imp34697-left-edge-contraction-boundary',
+  '/viz-imp34699-collapse-factor-vs-inverse-dp-k-mismatch',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

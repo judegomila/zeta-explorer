@@ -451,6 +451,9 @@ const Imp34696RightWideningBanachCertificateViz = lazy(() =>
 const Imp34697LeftEdgeContractionBoundaryViz = lazy(() =>
   import('./pages/Imp34697LeftEdgeContractionBoundaryViz.jsx')
 );
+const Imp34699CollapseFactorVsInverseDpKMismatchViz = lazy(() =>
+  import('./pages/Imp34699CollapseFactorVsInverseDpKMismatchViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1467,6 +1470,10 @@ function AppShell() {
           <Route
             path="/viz-imp34697-left-edge-contraction-boundary"
             element={<Imp34697LeftEdgeContractionBoundaryViz />}
+          />
+          <Route
+            path="/viz-imp34699-collapse-factor-vs-inverse-dp-k-mismatch"
+            element={<Imp34699CollapseFactorVsInverseDpKMismatchViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

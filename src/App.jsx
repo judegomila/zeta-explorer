@@ -497,6 +497,9 @@ const Imp34763CmbElasticitySigmaPeakViz = lazy(() =>
 const Imp34765SigmaKneeCfElasticityViz = lazy(() =>
   import('./pages/Imp34765SigmaKneeCfElasticityViz.jsx')
 );
+const Imp34767FarTailTwoStencilCrossvalidationViz = lazy(() =>
+  import('./pages/Imp34767FarTailTwoStencilCrossvalidationViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1574,6 +1577,10 @@ function AppShell() {
           <Route
             path="/viz-imp34765-sigma-knee-cf-elasticity"
             element={<Imp34765SigmaKneeCfElasticityViz />}
+          />
+          <Route
+            path="/viz-imp34767-far-tail-two-stencil-crossvalidation"
+            element={<Imp34767FarTailTwoStencilCrossvalidationViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

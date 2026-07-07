@@ -435,6 +435,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34761-three-footing-collapse-ladder',
   '/viz-imp34763-cmb-elasticity-sigma-peak',
   '/viz-imp34765-sigma-knee-cf-elasticity',
+  '/viz-imp34767-far-tail-two-stencil-crossvalidation',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

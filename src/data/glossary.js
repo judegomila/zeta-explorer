@@ -13606,6 +13606,40 @@ export const glossary = [
       'imp-34731 the g_double_prime closed form both the per-band and cross-band checks reuse verbatim (imp-34731)',
     ],
   },
+  {
+    term: 'failure-to-reject is not acceptance (collapse-ladder q4/q5 CI-contains-0 caveat)',
+    category: 'numerical',
+    definition:
+      'A headword for a statistical caveat recurring verbatim across the imp-34778 (q4) and imp-34771 (q5) ' +
+      'collapse-ladder channel tests: a 95% mean confidence interval that CONTAINS 0 shows only FAILURE TO ' +
+      'REJECT the null hypothesis of an exactly-zero deviation mean -- it does NOT show ACCEPTANCE of that ' +
+      'null, and the two readings are not interchangeable.\n\n' +
+      'imp-34751/imp-34771 found the q3/q4/q5 deviation CIs all contain 0 (e.g. q4 ~[-0.048, +0.187], q5 ' +
+      '~[-0.029, +0.028]) and reported this as consistent with the clean r_k -> 2^k integer-exponent ladder. ' +
+      'imp-34778 then asked HOW STRONG that failure-to-reject actually is, by running a power analysis on the ' +
+      'SAME 24-footing ensemble: it found the q4 CI is ~2.6x wider than the q3 CI not because of a nonzero ' +
+      'centre but because the q4 channel sigma is ~2.6x larger (a larger two-pair ULP amplitude, imp-34647), ' +
+      'and that at N_F = 24 the test can only detect a fixed fractional q4 offset above an MDE (minimum ' +
+      'detectable effect) of ~16% -- any true offset smaller than that would be statistically invisible to ' +
+      'the current ensemble, no matter how the CI reads.\n\n' +
+      'HOW TO APPLY: whenever a module reports a CI containing 0 as support for a mean-zero / exact-collapse ' +
+      'reading, treat that as a failure-to-reject at the ensemble’s CURRENT POWER, not as a proof of an ' +
+      'exactly-zero mean -- and, where the evidentiary strength itself needs quantifying (as imp-34778 did ' +
+      'for q4), report the channel sigma and the minimum detectable effect at the current sample size ' +
+      'alongside the CI, since a wide CI can reflect a noisy channel rather than a genuine null.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34778/imp-34771 caveat verbatim, not a new ' +
+      'derivation or bound; the underlying imp-3220/imp-3406 collapse-ladder surrogate (q1..q5 inherited ' +
+      'central differences) is unchanged and NOT rigorous; C_C = (1/8)sqrt(3pi) (imp-2714) and C_mb ' +
+      'GUE-conditional per imp-486 UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO ' +
+      'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34805 (glossary headword for the failure-to-reject-is-not-acceptance caveat across the imp-34778/imp-34771 collapse-ladder q4/q5 channel tests), 2026',
+    relatedTerms: [
+      'imp-34778 measured the q4 channel sigma (~2.6x the q3 sigma) and the ~16% minimum detectable offset at N_F=24 (imp-34778)',
+      'imp-34771 the q5 channel extension whose CI ~[-0.029,+0.028] restates the same failure-to-reject caveat (imp-34771)',
+      'imp-34751 the original 24-footing formal mean-zero test on q3/q4 whose CI-contains-0 readings this caveat qualifies (imp-34751)',
+      'imp-34647 the two-pair q4 channel larger-ULP-amplitude observation imp-34778 later quantified as a ~2.6x sigma ratio (imp-34647)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

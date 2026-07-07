@@ -536,6 +536,9 @@ const Imp34811KrawczykDeltaSweepKStarLadderViz = lazy(() =>
 const Imp34825WindingCountLadderViz = lazy(() =>
   import('./pages/Imp34825WindingCountLadderViz.jsx')
 );
+const Imp34830DirectedRoundingWidthBoundViz = lazy(() =>
+  import('./pages/Imp34830DirectedRoundingWidthBoundViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1665,6 +1668,10 @@ function AppShell() {
           <Route
             path="/viz-imp34825-winding-count-ladder"
             element={<Imp34825WindingCountLadderViz />}
+          />
+          <Route
+            path="/viz-imp34830-directed-rounding-width-bound"
+            element={<Imp34830DirectedRoundingWidthBoundViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

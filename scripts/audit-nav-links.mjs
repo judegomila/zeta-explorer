@@ -448,6 +448,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34810-crossover-n-stencil-order-band',
   '/viz-imp34811-krawczyk-delta-sweep-k-star-ladder',
   '/viz-imp34825-winding-count-ladder',
+  '/viz-imp34830-directed-rounding-width-bound',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

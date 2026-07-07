@@ -6623,6 +6623,15 @@ const DATA_MODULES = [
   // steps {2e-3,1e-3,5e-4}, so the delta_7 order is below the FD noise floor. The step-STABLE ladder stays
   // sub-unity and does NOT resume rising, so the extended evidence still favours CONVERGENT. Measurement only, no bound change.
   '/src/data/imp-34836-sigma-knee-sixth-seventh-order-v-expansion.js',
+  // imp-34863: SHARPENS the imp-34836 convergent-vs-asymptotic verdict (which rested on the raw ratio ladder alone)
+  // with the Cauchy-Hadamard ROOT test. |delta_k|^(1/k) stays in a narrow band {5.64e-3..7.21e-3} across all nine
+  // orders (limsup ~ 7.21e-3), so the radius of convergence R = 1/limsup ~ 1.39e2 >> 1 and the physical resummation
+  // point eps=1 sits deep inside the disk -> comfortably CONVERGENT. The root test does not register the r7/6 ~ 1.6e-1
+  // blip that troubled imp-34836 (k=7 root 6.12e-3, in the band) -- it smooths the single-term FD noise the ratio
+  // test amplifies. It also extends the recursion to delta_8 ~ -5.34e-18, delta_9 ~ -5.25e-20 (r8/7 ~ 1.66e-2, r9/8 ~
+  // 9.82e-3 return to the sub-unity band -> the r7/6 rise was a one-term artifact), MORE step-stable than delta_6/delta_7
+  // (delta_8 spread ~1.5x, no sign flip). Measurement only, no bound change.
+  '/src/data/imp-34863-sigma-knee-cauchy-hadamard-radius.js',
   // imp-34820: assesses whether the imp-34796 third-order identity F = -g_thirdDeriv/(1-S) can locate the
   // imp-34746/imp-33721 convex-to-concave sigmoid inflection (sigma_secondDeriv=0). Verdict: NO for that
   // identity -- its g_thirdDeriv=0 root is the DISTINCT sigma-KNEE (log10 N ~ 9.5364), ~0.0127 dex above the
@@ -6766,6 +6775,16 @@ const DATA_MODULES = [
   // So the imp-34843 "arithmetic depth non-binding" conclusion is UNIFORM across the seed band, not an
   // artifact of the single-G snapshot. Sensitivity/consistency check; imp-34714a REMAINS OPEN; no bound change.
   '/src/data/imp-34861-krawczyk-crosscheck-band-sensitivity.js',
+  // imp-34864: DERIVES + MEASURES the crossover-map THIRD-derivative envelope per-decade shrink ratio one
+  // order up from imp-34839. From g_triple_prime = 8 pi^3 K (2u^2+4u+3)/(T^3 u^5) = K P(u)/(M^3 u^5) the
+  // ratio factors as r3 = (M_prime/M)^3 (u_prime/u)^5 P(u)/P(u_prime); Riemann-von Mangoldt N=M(u-1) forces
+  // s = u_prime-u -> log 10 so (M_prime/M)^3 -> 1000: the limit is EXACTLY 1000x/decade (T^3 factor). The
+  // same second-order expansion cancels the O(1/u) AND L^2/u^2 terms, leaving 1000 - r3 ~ (1000 log 10)/u^2,
+  // C3 = 1000 log 10 = 2302.5851 (general pattern: residual constant = limit x log 10). On [1e9..1e30] +
+  // deep probes {1e40,1e80,1e150,1e300} (factored ratio, no M^3 overflow) the fitted C3_k converges to the
+  // constant from ABOVE (sign-flipped mirror of the order-2 ladder), and the factored ratio matches a direct
+  // recomputation to machine precision. Accuracy assessment on the inherited surrogate; no bound change; NO QED.
+  '/src/data/imp-34864-crossover-gppp-shrink-ratio-limit.js',
   // imp-34840: SCOPES the feasibility of a minimal directed-rounding evaluation of the endpoints [g](m) and
   // [F_prime]. Reads the ACTUAL effectiveHeightForN Newton loop as an operation DAG: ~9 ops/step, ~4 steps
   // to converge at N_cross, so n_op ~ 49 for both endpoints with sequential depth ~30. This concrete count

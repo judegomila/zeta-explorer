@@ -14255,6 +14255,41 @@ export const glossary = [
       'imp-34731 the inherited second-derivative closed form g_double_prime = -K(u+1)/(M^2 u^3) this law reuses verbatim (imp-34731)',
     ],
   },
+  {
+    term: 'E_flow crossing strength s* (landmark-coincidence strength)',
+    category: 'numerical',
+    definition:
+      'A headword for the imp-34886 measurement: the E_flow reinstatement strength s* in [0,1] at which two ' +
+      'INITIALLY-SEPARATED logistic landmarks -- the D2 sigmoid inflection (imp-34820) and the D3 sigma-knee ' +
+      '(imp-34710/34749) -- COINCIDE, X*_knee(s*) = X*_infl(s*).\n\n' +
+      'At s=0 (E_flow dropped) the no-E_flow gap is Gap(0) = X*_knee(0) - X*_infl(0) ~ +1.27e-2 dex (knee ABOVE ' +
+      'inflection, imp-34820). imp-34837 measured the D2 inflection shifting UP by +9.03e-3 dex under full ' +
+      'E_flow reinstatement while imp-34858 measured the D3 knee shifting DOWN by -7.32e-3 dex, flipping the ' +
+      'gap to Gap(1) ~ -3.61e-3 dex at s=1. Because the two landmarks move in OPPOSITE directions as the ' +
+      'E_flow strength s scales the exact additive log-odds shift phi = -ln(1+s E_flow/E_trunc) (imp-34749), ' +
+      'Gap(s) has an interior sign change. imp-34886 bisected Gap(s)=0 over s in [0,1] and located the ' +
+      'crossing at s* ~ 0.78 -- WELL INSIDE the physical range, not an endpoint -- with the two landmarks ' +
+      'coinciding at the common location log10 N* ~ 9.531. The crossing is transversal, dGap/ds ~ -1.65e-2 ' +
+      'dex per unit strength (the sum of the imp-34858 knee slope -7.34e-3 and the imp-34837 inflection ' +
+      'slope +9.15e-3), so the linear estimate s* ~ Gap(0)/|dGap/ds| ~ 0.77 corroborates the bisected root.\n\n' +
+      'HOW TO APPLY: when two landmarks derived from the SAME perturbed log-odds move in opposite directions ' +
+      'under a scalable perturbation, do not assume they stay ordered across the whole strength range -- solve ' +
+      'for the crossing strength explicitly and check whether it lands inside the physical range; a strength ' +
+      '"where they exactly coincide" is a genuinely different quantity from either endpoint\'s no-perturbation ' +
+      'or fully-carried separation.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34886 measurement verbatim, not a new bound; the ' +
+      'component model is the inherited imp-3220/imp-3406 extrapolation; C_mb GUE-conditional (imp-486) ' +
+      'UNTOUCHED; changes no bound; no operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH ' +
+      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34917 (glossary headword for the imp-34886 E_flow crossing strength s* ~ 0.78), 2026',
+    relatedTerms: [
+      'imp-34886 solved for and measured the crossing strength s* ~ 0.78 and the transversal slope (imp-34886)',
+      'imp-34837 measured the D2 inflection UP shift (+9.03e-3 dex) that helps drive the crossing (imp-34837)',
+      'imp-34858 measured the D3 knee DOWN shift (-7.32e-3 dex) that helps drive the crossing (imp-34858)',
+      'imp-34820 the closed-form D2 inflection locator and the no-E_flow +1.27e-2 dex knee-above gap (imp-34820)',
+      'imp-34749 the exact additive log-odds shift phi = -ln(1+E_flow/E_trunc) scaled by strength s (imp-34749)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -14451,6 +14451,55 @@ export const glossary = [
       'imp-34933 confirms the definitional offset is a RUNNING term that shrinks >4x over seven decades, not a fixed constant (imp-34933)',
     ],
   },
+  {
+    term: 'periodic sign-cycle fingerprint of a complex-conjugate dominant singularity pair',
+    category: 'numerical',
+    definition:
+      'A headword for the imp-34932 diagnostic: why a PERIODIC sign pattern in the delta_k sigma-knee ' +
+      'expansion coefficients (interior runs +5/-4/+5/-4/+5/-4, full cycle P ~ 9 in k) is the fingerprint ' +
+      'of a complex-conjugate pair of dominant singularities at R e^(+-i theta), and why this rules out ' +
+      'a convergent real-axis Domb-Sykes/Neville intercept no matter how many orders are added.\n\n' +
+      'WHY A REAL SINGLE POLE GIVES A FIXED SIGN, NOT A CYCLE: if the nearest singularity sat on the ' +
+      'positive real axis at x = 1/R, the ratio delta_k/delta_(k-1) would tend to a single real constant ' +
+      '1/R (or -1/R for a pole at negative x), so the coefficient signs would eventually settle into an ' +
+      'all-same or strict alternation -- never a longer periodic run.\n\n' +
+      'WHY A CONJUGATE PAIR PRODUCES THE CYCLE INSTEAD: a pair of dominant singularities at R e^(+i theta) ' +
+      'and R e^(-i theta) makes delta_k asymptotically behave like a damped OSCILLATION, delta_k ~ ' +
+      'C R^(-k) cos(k theta + phi) for some phase phi (imp-34932/imp-34947 recovered this as a 2-term ' +
+      'linear recurrence delta_k = p delta_(k-1) + q delta_(k-2) with q = -R^2, cos(theta) = p/(2R)). The ' +
+      'sign of cos(k theta + phi) flips whenever k theta + phi crosses a multiple of pi/2, so consecutive ' +
+      'same-sign runs have length ~ (pi/theta) rather than 1 -- a full +/- cycle spans P = 2*(pi/theta) ' +
+      'steps in k. Reading the imp-34932 run lengths backwards, P ~ 9 gives theta = 360/P ~ 40 degrees, ' +
+      'independently cross-checked by imp-34947 via the local 2x2 Cramer solve for (p, q) at theta ~ 39 ' +
+      'degrees (agreement to ~2.4%).\n\n' +
+      'WHY THIS BLOCKS A REAL-INTERCEPT DOMB-SYKES/NEVILLE READ: Domb-Sykes and Neville/Richardson ' +
+      'extrapolation both assume the root sequence root_k = |delta_k|^(1/k) (or the ratio delta_k/delta_(k-1)) ' +
+      'settles onto a single real limit 1/R as k grows, so plotting against x = 1/k and extrapolating to ' +
+      'x = 0 recovers that intercept. Under an oscillating cos(k theta + phi) envelope the ratio itself ' +
+      'oscillates and never settles, so a linear (or higher-order) real-axis extrapolation is extrapolating ' +
+      'a moving target -- imp-34932 measured exactly this failure mode: the Neville tail-window intercept ' +
+      'DIVERGES as the window lengthens (|1/R| from ~1.45e1 at 4 points to ~1.52e11 at 30 points) rather ' +
+      'than converging. Only the coarse LINEAR/median rolling intercept survives as a robust order-of-' +
+      'magnitude read, R ~ O(1e2), because it averages over enough of the cycle to wash out the oscillation ' +
+      'without trying to pin a nonexistent single real root.\n\n' +
+      'HOW TO APPLY: when a Domb-Sykes or Neville extrapolation of a coefficient sequence shows the ' +
+      'higher-order intercept DIVERGING rather than sharpening as more terms are added, check the raw ' +
+      'coefficient sign pattern first -- a periodic multi-term run (not strict alternation, not all-same) ' +
+      'is diagnostic of an off-real-axis conjugate singularity pair, and no amount of additional real-axis ' +
+      'extrapolation order will cure the ill-conditioning; only a complex-plane read (angle from the sign ' +
+      'period or a local linear-recurrence/Cramer solve, radius from the coarse linear intercept) is well posed.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34932/imp-34947 measurements verbatim, not a new ' +
+      'bound; the component model is the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per ' +
+      'imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; far-tail exponent stays 1/2 ' +
+      '(imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34966 (glossary headword for the imp-34932 complex-conjugate singularity-pair sign-cycle fingerprint), 2026',
+    relatedTerms: [
+      'imp-34932 measures the periodic +5/-4 sign cycle (P ~ 9 -> theta ~ 40 deg) and the diverging Neville tail intercept (imp-34932)',
+      'imp-34947 independently cross-checks theta via a local 2x2 Cramer solve on the same delta ladder (imp-34947)',
+      'imp-34918 distinguishes the plain Cauchy-Hadamard limsup radius from the Domb-Sykes extrapolated radius on this same sequence (imp-34918)',
+      'imp-34959 the viz page rendering the periodic sign pattern and the Neville tail-window divergence (imp-34959)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

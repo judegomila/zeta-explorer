@@ -225,4 +225,76 @@ for (const tauRepo of [0.125, 0.3125, 0.5, 1, 2]) {
   const exact = windowZeros(-4 * tauRepo).length;
   console.log('F. tau_repo=', tauRepo, ' proxy(Z-conv) count=', proxyCount(tauRepo), ' exact H_t count (t=', -4 * tauRepo, ') =', exact);
 }
+
+// --- G. truncated-N CM cross-validation vs the exact-flow meter ----------------
+// imp-34814: the Route A/B conditional-model (CM) machinery tracks a FINITE,
+// TRUNCATED set of N zeros under the first-order Calogero-Moser backward flow
+//   dx_k/dt = 2 * SUM_{j != k} 1/(x_k - x_j)        (x_k(0) = 2*gamma_k),
+// which is the leading-order (log-derivative) reduction of the exact de Bruijn
+// zero dynamics x_k'(t) = H_xx/H_x at each simple zero. Isolated pairs collide
+// at the two-body time t = -(2 dgamma)^2/8. Cross-validate the truncated-N CM
+// collision time for the tightest window pair (gamma_9, gamma_10) against the
+// exact first-collision t_c measured in section C: as the truncation window
+// grows the CM t_c should migrate from the two-body -1.5641 toward the exact
+// -1.8837 (many-body neighbour retardation), quantifying the CM truncation
+// error at each N. Cross-validation only; changes no bound; NO QED.
+const PAIR_LO = 8, PAIR_HI = 9;                       // 0-indexed gamma_9, gamma_10
+function cmDeriv(x, live) {
+  const d = new Float64Array(x.length);
+  for (let k = 0; k < x.length; k++) {
+    if (!live[k]) continue;
+    let s = 0;
+    for (let j = 0; j < x.length; j++) {
+      if (j === k || !live[j]) continue;
+      s += 1 / (x[k] - x[j]);
+    }
+    d[k] = 2 * s;
+  }
+  return d;
+}
+// RK4 in t (t decreasing from 0). Returns CM collision time for the tracked pair
+// by extrapolating gap^2 -> 0 (gap^2 is ~linear in t near an isolated collision).
+function cmCollision(indices) {
+  let x = Float64Array.from(indices.map((i) => 2 * GAMMAS[i]));
+  const live = indices.map(() => true);
+  const kA = indices.indexOf(PAIR_LO), kB = indices.indexOf(PAIR_HI);
+  const dt = -2e-4;
+  let t = 0, prevT = 0, prevG2 = (x[kB] - x[kA]) ** 2;
+  for (let step = 0; step < 200000; step++) {
+    const k1 = cmDeriv(x, live);
+    const x2 = x.map((v, i) => v + (dt / 2) * k1[i]);
+    const k2 = cmDeriv(x2, live);
+    const x3 = x.map((v, i) => v + (dt / 2) * k2[i]);
+    const k3 = cmDeriv(x3, live);
+    const x4 = x.map((v, i) => v + dt * k3[i]);
+    const k4 = cmDeriv(x4, live);
+    const xn = x.map((v, i) => v + (dt / 6) * (k1[i] + 2 * k2[i] + 2 * k3[i] + k4[i]));
+    const g = xn[kB] - xn[kA];
+    const g2 = g * g;
+    if (g < 0.05) {
+      // linear extrapolation of gap^2 through zero from the last two samples
+      const frac = prevG2 / (prevG2 - g2);
+      return prevT + frac * (t + dt - prevT);
+    }
+    prevT = t; prevG2 = g2; x = Float64Array.from(xn); t += dt;
+  }
+  return null;
+}
+// Truncation windows centred on the pair: N=2 (pair only -> two-body), then
+// symmetric neighbour shells up to the full 13-zero list.
+const CM_WINDOWS = [
+  { N: 2, idx: [8, 9] },
+  { N: 4, idx: [7, 8, 9, 10] },
+  { N: 6, idx: [6, 7, 8, 9, 10, 11] },
+  { N: 8, idx: [5, 6, 7, 8, 9, 10, 11, 12] },
+  { N: 10, idx: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12] },
+  { N: 13, idx: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] },
+];
+const EXACT_TC = -1.8837, TWO_BODY = -1.5641;
+for (const win of CM_WINDOWS) {
+  const tc = cmCollision(win.idx);
+  const vsExact = tc === null ? '-' : (tc - EXACT_TC).toFixed(4);
+  console.log('G. CM N=', win.N, ' t_c=', tc === null ? 'none' : tc.toFixed(4),
+    ' vs exact', EXACT_TC, '(delta', vsExact, ') vs two-body', TWO_BODY);
+}
 console.log('done');

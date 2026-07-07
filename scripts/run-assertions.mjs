@@ -6860,6 +6860,16 @@ const DATA_MODULES = [
   // safety factor holds INDEPENDENTLY of the parameterization (worst case clears by 25.55x). Reconciliation
   // on the surrogate models; imp-34714a REMAINS OPEN; changes no bound; NO QED.
   '/src/data/imp-34906-krawczyk-headroom-h2-ceiling-reconcile.js',
+  // imp-34929: DERIVES the sign of d/dN star_over_H2(N) = G/((1+G) delta FP_LO) IN CLOSED FORM, upgrading the
+  // imp-34883/34906 monotone-decreasing ASSERTION (evidenced by three endpoint samples) to a global sign. With
+  // a(N) = |g-prime(N)| = 2 pi K/(T0 u) and the exact chain-rule a-prime(N) = -4 pi^2 K (u+1)/(T0^2 u^3) < 0
+  // (via dT0/dN = 2 pi/u), the log-derivative splits as G-prime/(G(1+G)) - FP_LO-prime/FP_LO; the 1/(1+G)
+  // factor damps the numerator so the UP-push is the DOWN-push times 1/(1+V) < 1, forcing dS/dN < 0. A dense
+  // 4000-point sweep of the exact derivative over the widest k=10 band is strictly negative at every node
+  // (zero sign changes, no interior turning point, worst-case relative margin ~0.488) and the recomputed
+  // endpoints reproduce 2561.39 / 2558.12 / 2555.18 verbatim (top < center < lo). Derivation on the surrogate
+  // models; imp-34714a REMAINS OPEN; changes no bound; NO QED.
+  '/src/data/imp-34929-krawczyk-headroom-monotonicity-derivative.js',
   // imp-34864: DERIVES + MEASURES the crossover-map THIRD-derivative envelope per-decade shrink ratio one
   // order up from imp-34839. From g_triple_prime = 8 pi^3 K (2u^2+4u+3)/(T^3 u^5) = K P(u)/(M^3 u^5) the
   // ratio factors as r3 = (M_prime/M)^3 (u_prime/u)^5 P(u)/P(u_prime); Riemann-von Mangoldt N=M(u-1) forces
@@ -7084,6 +7094,14 @@ const DATA_MODULES = [
   // all 7 self-executing *_ASSERTIONS modules were already wired into
   // MATH_MODULES -- no orphans found.
   '/src/data/imp-34856-orphan-wiring-audit-34817-34824.js',
+  // imp-34928: EXTENDS the imp-34910 residual-corrected directed-quotient ULP measurement from the single
+  // N_cross point to a wide N-band across the imp-34693 rungs (1e6..1e13). At every rung and all five division
+  // sites of the effectiveHeightForN Newton loop: exactly-1-ULP injection (0 when exact, max rel width <= eps),
+  // native a/b already correctly rounded (<= 0.5 ulp), and [RD,RU] brackets the double-double true quotient --
+  // no failing rung. Honest refinement: the S2-dT Newton-update quotient is the residual f/fp at the CONVERGED
+  // root, so its sign is NOT uniformly negative band-wide (exactly 0 at most rungs, tiny-negative incl. N_cross,
+  // tiny-positive elsewhere); the sign-aware directed rounding brackets all three regimes. imp-34714a/34687a open.
+  '/src/data/imp-34928-directed-quotient-ulp-band-wide.js',
 ];
 
 let ALL_MODULES = FAST_MODE

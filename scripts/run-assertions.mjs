@@ -6607,6 +6607,12 @@ const DATA_MODULES = [
   // alternating -, +, -, + sign ladder g_double_prime/g_triple_prime/g_quadruple_prime/g_fifth_deriv
   // PERSISTS to fifth order. Measurement/derivation only, no bound change.
   '/src/data/imp-34842-crossover-gpppp5-fifth-deriv-fourth-band.js',
+  // imp-34859: extends the imp-34842 closed-form chain one order further over the same fourth band
+  // [1e12,1e13], deriving g_sixth_deriv(N) = -64 pi^6 K (120u^5+600u^4+1526u^3+2380u^2+2205u+945)/(T^6 u^11)
+  // on the identical footing. Cross-checks against a 7-point sixth-difference of g to < 1e-2 relative, and
+  // asserts g_sixth_deriv is strictly NEGATIVE across the whole band (no interior sign change), so the
+  // alternating -, +, -, +, - sign ladder extends to sixth order. Measurement/derivation only, no bound change.
+  '/src/data/imp-34859-crossover-gpppppp6-sixth-deriv-fourth-band.js',
   // imp-34796: settles imp-34769s deferred "does the ~4.5e-8 dex optimal-step sigma-knee gap
   // extrapolate to exactly 0 or leave a residual physical term" question ANALYTICALLY -- derives
   // the exact identity F(x) = -g_thirdDeriv(x)/(1-S(x)) between the u-route F-condition and the
@@ -6767,6 +6773,13 @@ const DATA_MODULES = [
   // reproduces imp-34824 (+2.15e-2) and the root slope reproduces imp-34838 (+1.466e-1, ~6.8x). Measurement only
   // on the surrogate map; does NOT discharge the GUE conditional (imp-486); changes no bound; NO QED; PT SOTA.
   '/src/data/imp-34844-inflection-crossover-gap-cmb-curvature.js',
+  // imp-34860: extends the imp-34844 dense relGap(C_mb) grid TOWARD 0, below the C_mb=0.30 stopping point.
+  // The curvature does NOT diverge -- it SATURATES at a finite interior peak (~9.34/unit^2 at C_mb~0.184,
+  // Richardson-stable) then WEAKENS and SIGN-FLIPS concave-to-convex at C_mb~0.139. relGap keeps falling
+  // monotonically (-6.12% at 0.30 to -27.39% at 0.11) until the sub-decade knee loses its clean D2
+  // zero-crossing around C_mb~0.10 and the diagnostic breaks down (returns null). Measurement only on the
+  // surrogate map; does NOT discharge the GUE conditional (imp-486); changes no bound; NO QED; PT SOTA.
+  '/src/data/imp-34860-inflection-crossover-gap-cmb-low-limit.js',
   // imp-34794: DUAL of the imp-34774 fixed-delta Krawczyk enclosure of N_cross -- fixes the few-ULP
   // outward-rounding budget K_FEW_ULP = 4 and drives the bracket half-width delta -> 0 to LOCATE the
   // tightest double-precision certified bracket. delta_min(k=4) ~ 1.887e-15 ~ 8.5 eps = (2 k + ~0.5) eps

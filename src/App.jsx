@@ -494,6 +494,9 @@ const Imp34782DpStarFullTailEdgeRatioViz = lazy(() =>
 const Imp34783PicardItersToFloorViz = lazy(() =>
   import('./pages/Imp34783PicardItersToFloorViz.jsx')
 );
+const Imp34784KrawczykOutwardUlpSlackNViz = lazy(() =>
+  import('./pages/Imp34784KrawczykOutwardUlpSlackNViz.jsx')
+);
 const Imp34761ThreeFootingCollapseLadderViz = lazy(() =>
   import('./pages/Imp34761ThreeFootingCollapseLadderViz.jsx')
 );
@@ -1588,6 +1591,10 @@ function AppShell() {
           <Route
             path="/viz-imp34783-picard-iters-to-floor"
             element={<Imp34783PicardItersToFloorViz />}
+          />
+          <Route
+            path="/viz-imp34784-krawczyk-outward-ulp-slack-N"
+            element={<Imp34784KrawczykOutwardUlpSlackNViz />}
           />
           <Route
             path="/viz-imp34761-three-footing-collapse-ladder"

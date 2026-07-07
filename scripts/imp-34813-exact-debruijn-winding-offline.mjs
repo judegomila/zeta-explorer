@@ -378,4 +378,136 @@ console.log('H. CAVEAT: levels <= 4 are not per-pair-attributable by this meter'
   '(clustered merges + structural reorganization + boundary flux at count->1);',
   'robust attribution needs zero-trajectory continuation, not t=0 proximity matching -- SUB-GAP');
 
+// --- I. zero-trajectory-continuation attribution (imp-34841) ------------------
+// Section H matched each merging pair to its t=0 gap by MIDPOINT PROXIMITY at
+// tc+0.08, which only cleanly resolves the two tightest well-separated pairs
+// (10->8, 8->6); clustered merges (8->6 vs 6->4 within ~0.08 in t) and window
+// reorganization contaminate the later rungs, and the count->odd rung is a
+// boundary exit mis-read as a merge. Here we FOLLOW each real zero forward from
+// t=0 by ORDER-CONTINUATION: label the window zeros 0..n-1 at t=0 and step t
+// downward, at each step recomputing the FULL sorted real-zero list on the exact
+// grid. Real simple zeros keep their left-to-right ORDER and can only leave R by
+// colliding with an ADJACENT labelled zero (conjugate-pair birth) or by exiting
+// through the window boundary; count is non-increasing. When the count drops by
+// 2 we identify the vanished ADJACENT-label pair by the order-preserving match
+// that minimizes total displacement to the surviving zeros (NO t=0 proximity
+// guess); a drop of 1 is a boundary exit (which end left is chosen the same way);
+// a step that drops by more than 2 is SUBDIVIDED so each event is isolated. This
+// separates the clustered events section H could not and attributes every merge
+// to a specific labelled pair. Re-run on a WIDENED window reports boundary-flux
+// sensitivity. Cross-validation instrument only; changes no bound; NO QED.
+//
+// NOTE: an earlier prototype tried INDEPENDENT Newton-from-previous continuation
+// of each trajectory; it mis-tracks near collisions (H_x -> 0 at the incipient
+// double zero destabilizes Newton), producing label-order inversions and zeros
+// that walk out past the window edge -- an inconsistent census. Order-matching on
+// the exact grid is robust because it never relies on a single unstable solve.
+function Hderiv(w, x) {
+  let s = 0, c = 0;
+  for (let i = 0; i <= M; i++) {
+    const term = -w[i] * U[i] * Math.sin(x * U[i]);
+    const y = term - c, tt = s + y;
+    c = (tt - s) - y; s = tt;
+  }
+  return s;
+}
+function refineZero(w, x0) {                    // Newton polish of a bracketed zero
+  let x = x0;
+  for (let it = 0; it < 30; it++) {
+    const f = Hval(w, x), fp = Hderiv(w, x);
+    if (fp === 0) break;
+    let dx = f / fp;
+    if (dx > 0.05) dx = 0.05; else if (dx < -0.05) dx = -0.05;
+    x -= dx;
+    if (Math.abs(dx) < 1e-12) break;
+  }
+  return x;
+}
+const TRACK_DX = 0.05;                           // coarse detection grid (zeros separated by >> this except at a collision)
+function sortedZerosAt(t, xlo, xhi) {
+  const w = weightsForT(t);
+  const n = Math.round((xhi - xlo) / TRACK_DX);
+  const z = [];
+  let xPrev = xlo, fPrev = Hval(w, xlo);
+  for (let j = 1; j <= n; j++) {
+    const x = xlo + j * TRACK_DX, f = Hval(w, x);
+    if (fPrev !== 0 && fPrev * f < 0) {
+      z.push(refineZero(w, xPrev + TRACK_DX * fPrev / (fPrev - f)));
+    }
+    xPrev = x; fPrev = f;
+  }
+  return z;
+}
+// Order-preserving identification of which labels vanished when count drops.
+function matchDrop(prevPos, prevLabels, newPos) {
+  const m = prevPos.length, p = newPos.length, drop = m - p;
+  const residual = (keepIdx) => {
+    let c = 0;
+    for (let k = 0; k < p; k++) c += Math.abs(prevPos[keepIdx[k]] - newPos[k]);
+    return c;
+  };
+  const allIdx = prevPos.map((_, k) => k);
+  if (drop === 2) {                              // an adjacent conjugate pair merged
+    let best = 0, bestCost = Infinity;
+    for (let i = 0; i + 1 < m; i++) {
+      const cost = residual(allIdx.filter((k) => k !== i && k !== i + 1));
+      if (cost < bestCost) { bestCost = cost; best = i; }
+    }
+    return { type: 'merge', removed: [prevLabels[best], prevLabels[best + 1]], keep: allIdx.filter((k) => k !== best && k !== best + 1) };
+  }
+  if (drop === 1) {                              // one zero left through a boundary
+    let best = 0, bestCost = Infinity;
+    for (const i of [0, m - 1]) {
+      const cost = residual(allIdx.filter((k) => k !== i));
+      if (cost < bestCost) { bestCost = cost; best = i; }
+    }
+    return { type: 'exit', removed: [prevLabels[best]], keep: allIdx.filter((k) => k !== best) };
+  }
+  return { type: 'ambiguous', removed: [], keep: allIdx.slice(0, p) };
+}
+function continuationCensus(xlo, xhi) {
+  const T_END = -40, BASE_DT = -0.05, MIN_DT = -0.05 / 512;
+  let pos = sortedZerosAt(0, xlo, xhi);
+  const seedCount = pos.length;
+  let labels = pos.map((_, i) => i);
+  const merges = [], exits = [];
+  let inflowAtT = null;                          // t of first boundary IN-flux (count increase)
+  let t = 0;
+  while (t > T_END && labels.length > 0) {
+    let dt = BASE_DT;
+    let newPos = sortedZerosAt(t + dt, xlo, xhi);
+    // subdivide so at most one merge (drop 2) or one exit (drop 1) resolves per step
+    while (pos.length - newPos.length > 2 && dt > MIN_DT) { dt /= 2; newPos = sortedZerosAt(t + dt, xlo, xhi); }
+    const tNext = t + dt;
+    if (newPos.length > pos.length) {            // a zero migrated IN from outside the window
+      inflowAtT = tNext;                         // order-continuation cannot attribute past in-flux -- stop honestly
+      break;
+    }
+    if (newPos.length < pos.length) {
+      const r = matchDrop(pos, labels, newPos);
+      const tc = tNext + dt / 2;                 // event bracketed in (tNext, t]; report bracket midpoint
+      if (r.type === 'merge') merges.push({ a: Math.min(r.removed[0], r.removed[1]), b: Math.max(r.removed[0], r.removed[1]), tc, res: Math.abs(dt) });
+      else if (r.type === 'exit') exits.push({ label: r.removed[0], tc, res: Math.abs(dt) });
+      labels = r.keep.map((k) => labels[k]);
+    }
+    pos = newPos; t = tNext;
+  }
+  merges.sort((p, q) => q.tc - p.tc);            // collision order: least-negative t first
+  return { merges, exits, seedCount, survivorsAtEnd: labels, inflowAtT };
+}
+// Base window [20,104] and widened window [12,112] for boundary-flux sensitivity.
+for (const [xlo, xhi] of [[XLO, XHI], [12, 112]]) {
+  const { merges, exits, seedCount, survivorsAtEnd, inflowAtT } = continuationCensus(xlo, xhi);
+  console.log(`I. window [${xlo},${xhi}] seedZeros=${seedCount}: ${merges.length} pair-merge(s) attributed, ${exits.length} boundary exit(s)` + (inflowAtT === null ? `, ${survivorsAtEnd.length} survivor(s)` : `; STOPPED at t=${inflowAtT.toFixed(3)} on boundary IN-flux (a zero entered from outside the wider edge)`));
+  for (const mm of merges) {
+    const gapX = 2 * (GAMMAS[mm.b] - GAMMAS[mm.a]);        // seed label = GAMMAS index in these windows
+    const tTwoBody = -(gapX * gapX) / 8;
+    const retard = mm.tc / tTwoBody;
+    console.log(`I.   merge (gamma_${mm.a + 1}, gamma_${mm.b + 1})  t_c=${mm.tc.toFixed(4)} (+/-${mm.res.toFixed(4)})  gap_x0=${gapX.toFixed(4)}  two-body=${tTwoBody.toFixed(4)}  retard=${retard.toFixed(4)}`);
+  }
+  for (const e of exits) console.log(`I.   boundary exit: gamma_${e.label + 1} at t_c=${e.tc.toFixed(4)} (+/-${e.res.toFixed(4)})`);
+  console.log(`I.   survivor label(s) at t=${-40}: [${survivorsAtEnd.map((l) => 'gamma_' + (l + 1)).join(',')}]`);
+}
+console.log('I. NOTE: order-continuation attributes every conjugate-pair merge to a SPECIFIC labelled pair with no proximity guess, subdividing to separate clustered events; boundary exits are held apart from merges. Widened window shows how many section-H boundary/mis-attributed rungs become interior merges. Cross-validation only; changes no bound; NO QED.');
+
 console.log('done');

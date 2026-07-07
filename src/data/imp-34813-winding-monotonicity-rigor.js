@@ -146,6 +146,43 @@ export const WINDING_MONOTONICITY_RIGOR = {
     verdict:
       'The two tightest window pairs both collide LATER (|t_c| larger) than their isolated two-body prediction, by a retardation factor 1.20 and 1.26 that GROWS mildly with pair spacing -- confirming and extending the imp-34813 tightest-pair 5.78-vs-8 slope finding to a second pair. Measurement only; changes no bound; NO QED; PT Lambda<=0.2 stays SOTA.',
   },
+  continuationAttribution: {
+    // imp-34841. Closes the multiPairCollisionCensus SUB-GAP: replaces section H's
+    // t=0 midpoint-proximity matching (clean for only the two tightest well-separated
+    // pairs) with ORDER-CONTINUATION -- follow each labelled t=0 zero forward along
+    // decreasing t, recomputing the FULL sorted real-zero list on the exact grid at
+    // each step, and attribute every count drop to the adjacent-label pair picked by
+    // the order-preserving displacement match (drop 2 = conjugate-pair merge, drop 1 =
+    // boundary exit, a step dropping >2 is SUBDIVIDED to isolate clustered events).
+    // Real simple zeros keep their left-to-right order, so attribution is unambiguous
+    // with NO proximity guess. Offline solver section I of
+    // scripts/imp-34813-exact-debruijn-winding-offline.mjs.
+    method:
+      'order-continuation on the exact grid (grid-detect + Newton polish per step, order-preserving displacement match on each count drop); an earlier independent-Newton-from-previous prototype was REJECTED -- it mis-tracks near collisions (H_x -> 0 destabilizes the solve, giving label-order inversions and zeros walking past the window edge)',
+    window: [20, 104],
+    tcResolutionInT: 0.05, // coarse BASE_DT bracket; the value-add is ATTRIBUTION, not a sharper t_c than section C/H bisection
+    // Every window merger now attributed to a SPECIFIC labelled pair (4 total vs section H's 2 clean):
+    merges: [
+      { pair: 'gamma_9,gamma_10', tc: -1.925, gapX: 3.5374, tTwoBody: -1.5641, retard: 1.2307 },
+      { pair: 'gamma_4,gamma_5', tc: -4.025, gapX: 5.0204, tTwoBody: -3.1505, retard: 1.2776 },
+      { pair: 'gamma_7,gamma_8', tc: -4.075, gapX: 4.8167, tTwoBody: -2.9001, retard: 1.4051 }, // NEW: the x~66 cluster section H could not separate from 8->6
+      { pair: 'gamma_2,gamma_3', tc: -12.525, gapX: 7.9776, tTwoBody: -7.9553, retard: 1.5744 }, // NEW: corrects section H 4->2 mis-attribution (its apparent retard 0.85 < 1 was a wrong-pair artifact)
+    ],
+    boundaryExit: { pair: 'gamma_6', tc: -34.925 }, // the count->1 rung is a boundary exit, NOT a merge; corrects section H's spurious retard 6.28
+    survivor: 'gamma_1',
+    additionalMergesBeyondSectionH: 2, // 4 cleanly attributed vs section H's 2-clean subset
+    retardLadder: [1.2307, 1.2776, 1.4051, 1.5744], // MONOTONE-increasing with collision depth: extends imp-34815 "retard grows with spacing" from 2 to all 4 pairs
+    boundaryFluxSensitivity: {
+      // Ticket hypothesis was that a WIDENED window eliminates boundary flux. REFUTED:
+      widenedWindow: [12, 112],
+      seedZeros: 11,
+      inflowStopsAtT: -3.6, // a zero migrates IN from x>112, count INCREASES -> order-continuation halts (attributes only gamma_9,gamma_10 before the in-flux)
+      finding:
+        'widening does NOT eliminate boundary flux -- it introduces boundary IN-flux (a zero enters from x>112) as early as t~-3.6, well before most merges, halting order-continuation. The BASE window [20,104] is the cleaner instrument: its sole boundary event is a DEEP exit (gamma_6 at t~-34.9), leaving all four interior merges cleanly attributable.',
+    },
+    verdict:
+      'Order-continuation cleanly attributes ALL FOUR base-window conjugate-pair mergers to specific labelled pairs (2 more than section H proximity matching), with a retardation ladder 1.23 -> 1.28 -> 1.41 -> 1.57 that stays > 1 and grows MONOTONICALLY with collision depth -- and it correctly reads the count->1 rung as a boundary EXIT of gamma_6, dissolving the section-H spurious retard 0.85 (4->2 mis-attribution) and 6.28 (boundary-as-merge) artifacts. Widening the window does not clean up the flux; it merely trades a deep exit for an early in-flux. Cross-validation instrument only; changes no bound; NO QED; PT Lambda<=0.2 stays SOTA.',
+  },
   convIdentity: {
     relErrTau05: 1.982e-9,
     relErrTau2: 6.085e-9,
@@ -265,6 +302,23 @@ export const WINDING_MONOTONICITY_RIGOR_ASSERTIONS = [
       const grows = c.length >= 2 && c[1].gapX > c[0].gapX && c[1].retard > c[0].retard;
       return allRetard && consistentTwoBody && grows && mc.retardGrowsWithSpacing === true &&
         /OPEN/.test(mc.subGap) && /NO QED/.test(mc.verdict) && /stays SOTA/.test(mc.verdict);
+    },
+  },
+  {
+    id: 'wmr-continuation-attribution-adds-merges-and-fixes-boundary-rung',
+    description: 'imp-34841: order-continuation attributes all 4 base-window pair mergers (2 more than section H proximity matching), each retarded (retard > 1) with a MONOTONE-increasing ladder in collision depth, correctly reads the count->1 rung as a gamma_6 boundary exit (not the mis-attributed retard 6.28 merge), and shows a widened window does NOT eliminate boundary flux (it introduces in-flux far shallower than the base-window deep exit)',
+    holds: () => {
+      const ca = WINDING_MONOTONICITY_RIGOR.continuationAttribution;
+      const r = ca.retardLadder;
+      const allRetard = ca.merges.length === 4 && ca.merges.every((m) => m.retard > 1);
+      const monotone = r.length === 4 && r.every((v, i) => i === 0 || v > r[i - 1]);
+      const twoBodyOk = ca.merges.every((m) => Math.abs(-(m.gapX * m.gapX) / 8 - m.tTwoBody) < 2e-3);
+      const addsTwo = ca.additionalMergesBeyondSectionH === 2;
+      const boundaryFixed = ca.boundaryExit.pair === 'gamma_6' && ca.boundaryExit.tc < -30;
+      // widening is NOT cleaner: its in-flux halt sits far shallower (less negative) than the base deep exit
+      const widenNotClean = ca.boundaryFluxSensitivity.inflowStopsAtT > ca.boundaryExit.tc;
+      return allRetard && monotone && twoBodyOk && addsTwo && boundaryFixed && widenNotClean &&
+        /NO QED/.test(ca.verdict) && /stays SOTA/.test(ca.verdict);
     },
   },
   {

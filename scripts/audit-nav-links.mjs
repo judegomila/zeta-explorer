@@ -466,6 +466,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34912-pade-borel-resummation-inertness',
   '/viz-imp34913-signed-residual-offset-inversion',
   '/viz-imp34914-eflow-knee-inflection-crossing',
+  '/viz-imp34915-krawczyk-worstcase-headroom-band',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

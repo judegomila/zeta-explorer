@@ -590,6 +590,9 @@ const Imp34913SignedResidualOffsetInversionViz = lazy(() =>
 const Imp34914EflowKneeInflectionCrossingViz = lazy(() =>
   import('./pages/Imp34914EflowKneeInflectionCrossingViz.jsx')
 );
+const Imp34915KrawczykWorstcaseHeadroomBandViz = lazy(() =>
+  import('./pages/Imp34915KrawczykWorstcaseHeadroomBandViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1791,6 +1794,10 @@ function AppShell() {
           <Route
             path="/viz-imp34914-eflow-knee-inflection-crossing"
             element={<Imp34914EflowKneeInflectionCrossingViz />}
+          />
+          <Route
+            path="/viz-imp34915-krawczyk-worstcase-headroom-band"
+            element={<Imp34915KrawczykWorstcaseHeadroomBandViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

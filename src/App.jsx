@@ -587,6 +587,9 @@ const Imp34912PadeBorelResummationInertnessViz = lazy(() =>
 const Imp34913SignedResidualOffsetInversionViz = lazy(() =>
   import('./pages/Imp34913SignedResidualOffsetInversionViz.jsx')
 );
+const Imp34914EflowKneeInflectionCrossingViz = lazy(() =>
+  import('./pages/Imp34914EflowKneeInflectionCrossingViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1784,6 +1787,10 @@ function AppShell() {
           <Route
             path="/viz-imp34913-signed-residual-offset-inversion"
             element={<Imp34913SignedResidualOffsetInversionViz />}
+          />
+          <Route
+            path="/viz-imp34914-eflow-knee-inflection-crossing"
+            element={<Imp34914EflowKneeInflectionCrossingViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

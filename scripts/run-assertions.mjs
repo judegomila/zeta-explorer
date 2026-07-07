@@ -6724,6 +6724,12 @@ const DATA_MODULES = [
   // all are true one-offs, the nearest integer sits ~238 interval half-widths away, so interval-enclosing
   // neither removes nor relocates the +/-1 -- it is INTRINSIC to the doubly-logarithmic delta_0. No bound change.
   '/src/data/imp-34845-iters-to-floor-interval-ceil.js',
+  // imp-34862: tests whether a TWO-RATE iters-to-floor law (early-transient rate r_0 fitted from the first
+  // few post-collapse iterates plus asymptotic r) removes the imp-34845 intrinsic off-by-one. It does NOT:
+  // ratio-fit leaves 10-11/31 & 22-23/61 (no better than baseline 10/31 & 21/61), max error 1. The decisive
+  // EXACT-PEEL control (zero early-transient model error) ALSO leaves it -- so the residual +/-1 lives in the
+  // TERMINAL ceil (continuous eps_fp vs discrete bit-collapse), not the transient rate. Refines imp-34845.
+  '/src/data/imp-34862-iters-to-floor-two-rate-law.js',
   // imp-34799: DERIVES an a-priori width bound for a genuine directed-rounding instantiation of the
   // imp-34774 Krawczyk fixed-point enclosure of N_cross. The F(m)=0 surrogate collapses the image to a
   // POINT; a directed-rounding F(m) widens it to ~ n_op eps N_cross / (1 - |g_prime|) (first-order IA),

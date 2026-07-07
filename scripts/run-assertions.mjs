@@ -7284,6 +7284,11 @@ const DATA_MODULES = [
   // P_11 and P_12, verifying the boundary-projection recurrences hold at the two new orders.
   // Measurement/derivation only, no bound change.
   '/src/data/imp-34957-crossover-deriv-p11-p12-extension.js',
+  // imp-35053 orphan-wiring check (imp-34896/34920/34945/34967 lineage): imp-35018's
+  // self-executing IMP35018_FOUR_LANDMARK_CLUSTER_LOG_N_VIZ_ASSERTIONS array (band-contains-
+  // locators, ordered-increasing, pairwise-spreads-under-4pct, cluster-band-3p3e9) was not yet
+  // wired into this sweep. Audit only; no bound change.
+  '/src/data/imp-35018-four-landmark-cluster-log-n-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

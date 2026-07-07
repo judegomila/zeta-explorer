@@ -6,8 +6,12 @@
 //
 // Those audits enumerate viz-data modules BY HAND from a page-id range
 // (e.g. "34947..34951"), which is error-prone -- imp-35032 found imp-34948
-// fell through two manual audits this way. This script instead globs every
-// src/data/*-viz-data.js module and checks, programmatically:
+// fell through two manual audits this way. This script instead scans every
+// src/data/*.js module that either matches the `-viz-data.js` naming
+// convention or exports a self-executing *_ASSERTIONS array (imp-35087:
+// the filename-suffix glob alone silently skipped assertion-bearing
+// modules under other naming conventions, e.g. imp-NNNNN-topic.js), and
+// checks, programmatically:
 //
 //   1. honest-status banner  -- does the module carry the "NO QED" marker
 //      (the one marker common to the shared caveat block used across the
@@ -45,9 +49,20 @@ function readFile(rel) {
 }
 
 const DATA_DIR = path.join(ROOT, 'src/data');
+
+const BANNER_MARKER = 'NO QED';
+const ASSERTIONS_RE = /\b[A-Z0-9_]*_ASSERTIONS\b\s*=/;
+
+// imp-35087: the `-viz-data.js` suffix glob only catches one naming
+// convention. Self-executing assertion-array modules under other suffixes
+// (e.g. imp-NNNNN-topic.js) were silently excluded from this audit even
+// though they carry the same honest-status / wiring / discoverability
+// obligations. Include any src/data/*.js module that exports a
+// self-executing *_ASSERTIONS array, not just the -viz-data.js cohort.
 const vizDataFiles = fs
   .readdirSync(DATA_DIR)
-  .filter((f) => f.endsWith('-viz-data.js'))
+  .filter((f) => f.endsWith('.js'))
+  .filter((f) => f.endsWith('-viz-data.js') || ASSERTIONS_RE.test(readFile(`src/data/${f}`)))
   .sort();
 
 const runAssertionsSrc = readFile('scripts/run-assertions.mjs');
@@ -64,9 +79,6 @@ let rm;
 while ((rm = routeRe.exec(appSrc)) !== null) {
   routeByComponent.set(rm[2], rm[1]);
 }
-
-const BANNER_MARKER = 'NO QED';
-const ASSERTIONS_RE = /\b[A-Z0-9_]*_ASSERTIONS\b\s*=/;
 
 const missingBanner = [];
 const unwiredAssertions = [];

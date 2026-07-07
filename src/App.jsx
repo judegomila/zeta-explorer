@@ -485,6 +485,9 @@ const Imp34747SecondFootingCollapseLadderViz = lazy(() =>
 const Imp34758DpStarProbeBandRatioViz = lazy(() =>
   import('./pages/Imp34758DpStarProbeBandRatioViz.jsx')
 );
+const Imp34759CrossoverGppCeilingViz = lazy(() =>
+  import('./pages/Imp34759CrossoverGppCeilingViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1546,6 +1549,10 @@ function AppShell() {
           <Route
             path="/viz-imp34758-dp-star-probe-band-ratio"
             element={<Imp34758DpStarProbeBandRatioViz />}
+          />
+          <Route
+            path="/viz-imp34759-crossover-gpp-ceiling"
+            element={<Imp34759CrossoverGppCeilingViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

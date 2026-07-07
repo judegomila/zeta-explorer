@@ -13889,6 +13889,44 @@ export const glossary = [
       'Definitional gap vs measurement error (concept): a three-way diagnostic across imp-34800/imp-34733/imp-34772',
     ],
   },
+  {
+    term: 'Second-order D2 sibling vs third-order sigma-KNEE identity (concept): the imp-34820 vs imp-34796 landmark split',
+    category: 'concept',
+    definition:
+      'Two identities fall out of the SAME logistic differentiation chain (sigma = 1/(1+exp(-u)), S = sigma) ' +
+      'but locate DIFFERENT landmarks, ~0.0127 dex apart, and must not be conflated.\n\n' +
+      'THE THIRD-ORDER IDENTITY (imp-34796): F(x) = -g_thirdDeriv(x)/(1-S(x)), where g = ln sigma. Since ' +
+      '(1-S) > 0, F = 0 exactly when g_thirdDeriv = 0. Its root is the decay-exponent-RAMP knee (the ' +
+      'sigma-KNEE), where p = -(ln sigma)_prime has its own inflection. Measured on the no-E_flow model: ' +
+      'log10 N* ~ 9.53638, sigma ~ 0.4944.\n\n' +
+      'THE SECOND-ORDER SIBLING IDENTITY (imp-34820): sigma_secondDeriv = S(1-S)[(1-2S) u_prime^2 + ' +
+      'u_secondDeriv]. Since S(1-S) > 0 everywhere, sigma_secondDeriv = 0 exactly when (1-2S) u_prime^2 + ' +
+      'u_secondDeriv = 0, i.e. sigma_infl = 1/2 + u_secondDeriv/(2 u_prime^2) -- the convex-to-concave ' +
+      'SIGMOID INFLECTION, recovering the imp-33744 closed form sigma_infl = 1/2 - v_prime/(2 v^2) with ' +
+      'v = -u_prime. Measured on the same model: log10 N* ~ 9.52364, sigma ~ 0.4979, matching the ' +
+      'finite-difference sigma_secondDeriv = 0 root to ~3e-8 (removing the imp-34746 FD floor).\n\n' +
+      'THE TWO ROOTS ARE DISTINCT: log10 N*_knee - log10 N*_infl ~ +1.27e-2 dex (~3% in N), confirmed by ' +
+      'independent bisection on each condition. The third-order identity is the WRONG ORDER for the D2-zero ' +
+      'inflection and cannot supply its closed form, and vice versa -- each identity locates only its own ' +
+      'order of root.\n\n' +
+      'HOW TO APPLY: when a logistic differentiation chain yields a closed-form identity at one order, do not ' +
+      'assume it locates a landmark defined at a different order. Check whether the root condition in hand ' +
+      '(g_thirdDeriv = 0 vs sigma_secondDeriv = 0) matches the order of the landmark being sought, and treat a ' +
+      'small dex separation between siblings as evidence of two genuinely distinct roots, not numerical noise, ' +
+      'if independent bisection reproduces it.\n\n' +
+      'HONEST SCOPE: a glossary headword synthesizing the imp-34820 verdict (itself measurement/derivation ' +
+      'only, answering a question left open by imp-34796/imp-34746); no new derivation; the inherited ' +
+      'imp-3220/imp-3406 surrogate crossover map and C_mb GUE-conditional per imp-486 remain UNTOUCHED; changes ' +
+      'no bound; no operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34848 (glossary headword distinguishing the imp-34820 second-order sibling identity from the imp-34796 third-order identity), 2026',
+    relatedTerms: [
+      'imp-34796 the exact third-order identity F = -g_thirdDeriv/(1-S) locating the sigma-KNEE (imp-34796)',
+      'imp-34820 the sibling second-order D2 identity locating the sigmoid inflection in closed form (imp-34820)',
+      'imp-33744 closed form sigma_infl = 1/2 - v_prime/(2 v^2) recovered by the imp-34820 identity (imp-33744)',
+      'imp-34746 the glossary headword flagging the sigmoid knee as a finite-difference landmark (imp-34746)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

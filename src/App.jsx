@@ -578,6 +578,9 @@ const Imp34891TwoRateOffByOneViz = lazy(() =>
 const Imp34892CauchyHadamardRootTestViz = lazy(() =>
   import('./pages/Imp34892CauchyHadamardRootTestViz.jsx')
 );
+const Imp34911ForwardBreachBandUniformityViz = lazy(() =>
+  import('./pages/Imp34911ForwardBreachBandUniformityViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1763,6 +1766,10 @@ function AppShell() {
           <Route
             path="/viz-imp34892-cauchy-hadamard-root-test"
             element={<Imp34892CauchyHadamardRootTestViz />}
+          />
+          <Route
+            path="/viz-imp34911-forward-breach-band-uniformity"
+            element={<Imp34911ForwardBreachBandUniformityViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

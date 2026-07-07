@@ -13533,6 +13533,44 @@ export const glossary = [
       'imp-34756 echoes the same discretization-vs-physical discriminator in the slowly-varying-v expansion context (imp-34756)',
     ],
   },
+  {
+    term: 'imp-34774 fixed-point-map Krawczyk enclosure vs an ordinary Newton-Krawczyk root enclosure',
+    category: 'numerical',
+    definition:
+      'A headword distinguishing what imp-34774 enclosed from an ordinary Krawczyk root enclosure like ' +
+      'imp-34752\'s.\n\n' +
+      'An ORDINARY Newton-Krawczyk root enclosure (e.g. imp-34752 on the RvM height inverse f(T) = ' +
+      '(T/2pi)(log(T/2pi)-1) - N) checks (H1) 0 not in [f_prime] and (H2) the Newton image lands strictly ' +
+      'inside the bracket, for a derivative f_prime that is bounded away from 0 only because it HAPPENS to be ' +
+      'positive on the bracket -- nothing structural forces that gap open.\n\n' +
+      'imp-34774 instead applies the SAME Krawczyk operator to the residual F(N) = N - g(N) of the imp-33723 ' +
+      'Banach crossover map g(N) = K log T0(N), whose root is the fixed point N_cross ~ 3.28029435165241e9. ' +
+      'Here F_prime(N) = 1 - g_prime(N), and because g is a CONTRACTION near N_cross with |g_prime(N_cross)| ' +
+      '~ 0.045 << 1, (H1) 0 not in [F_prime] is guaranteed by the CONTRACTION GAP 1 - |g_prime| ~ 0.955 -- a ' +
+      'structural consequence of the Banach certificate, not an accident of positivity. That is why imp-34774 ' +
+      'found the (H1)-alone budget k*_H1 ~ 1/eps sitting ~4 orders of ULP ABOVE the binding k* ~ 4.5034e11: ' +
+      'the contraction gap buys (H1) enormous head-room, leaving (H2) as the sole binding constraint, unlike ' +
+      'a generic root where either hypothesis could bind.\n\n' +
+      'HOW TO APPLY: when a module encloses the ROOT of a residual built from a Banach/Picard fixed-point map ' +
+      '(F(N) = N - g(N)), expect (H1) to be structurally easy because 1 - |g_prime| is already known to be ' +
+      'bounded away from 0 by the contraction certificate itself -- read a large (H1) head-room as expected, ' +
+      'not as a new finding. For an ORDINARY root enclosure with no contraction structure behind f_prime, no ' +
+      'such head-room is guaranteed and (H1) must be checked on its own.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34774 distinction verbatim, not a new derivation; ' +
+      'imp-34774 remains a double-precision surrogate for the imp-34687a directed-rounding layer (the k eps ' +
+      'outward-widening rule is not that layer), and sub-gap imp-34714a REMAINS OPEN; the inherited ' +
+      'imp-3220/imp-3406 surrogate crossover map is NOT rigorous; C_C = (1/8)sqrt(3pi) (imp-2642/imp-2643) and ' +
+      'C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO ' +
+      'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34803 (glossary headword for the imp-34774 fixed-point-map vs ordinary root enclosure distinction), 2026',
+    relatedTerms: [
+      'imp-34774 applied the Krawczyk operator to F(N) = N - g(N), finding (H1) held by the contraction gap and (H2) binding at k* ~ 4.5034e11 (imp-34774)',
+      'imp-34752 the ordinary inverse-map Krawczyk slack sweep whose (H1) has no contraction structure behind it (imp-34752)',
+      'imp-34714 separation of concerns: exact Krawczyk existence-uniqueness lemma vs unimplemented directed-rounding machine-certificate layer',
+      'imp-33723 the Banach map g(N) = K log T0(N) and its fixed point N_cross whose contraction supplies the (H1) gap',
+      'imp-34687a named sub-gap: supply an actual directed-rounding / error-bounded arithmetic layer (imp-34687a)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

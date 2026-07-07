@@ -641,6 +641,9 @@ const Imp34964EflowPinnedProductInvarianceViz = lazy(() =>
 const Imp34965ItersToFloorCeilBoundaryGeometryViz = lazy(() =>
   import('./pages/Imp34965ItersToFloorCeilBoundaryGeometryViz.jsx')
 );
+const Imp34978DoubleDoubleLogUlpBandWideViz = lazy(() =>
+  import('./pages/Imp34978DoubleDoubleLogUlpBandWideViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1910,6 +1913,10 @@ function AppShell() {
           <Route
             path="/viz-imp34965-iters-to-floor-ceil-boundary-geometry"
             element={<Imp34965ItersToFloorCeilBoundaryGeometryViz />}
+          />
+          <Route
+            path="/viz-imp34978-double-double-log-ulp-band-wide"
+            element={<Imp34978DoubleDoubleLogUlpBandWideViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

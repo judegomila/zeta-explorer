@@ -530,6 +530,9 @@ const Imp34809SigmaKneeThirdOrderResidualBudgetViz = lazy(() =>
 const Imp34810CrossoverNStencilOrderBandViz = lazy(() =>
   import('./pages/Imp34810CrossoverNStencilOrderBandViz.jsx')
 );
+const Imp34811KrawczykDeltaSweepKStarLadderViz = lazy(() =>
+  import('./pages/Imp34811KrawczykDeltaSweepKStarLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1651,6 +1654,10 @@ function AppShell() {
           <Route
             path="/viz-imp34810-crossover-n-stencil-order-band"
             element={<Imp34810CrossoverNStencilOrderBandViz />}
+          />
+          <Route
+            path="/viz-imp34811-krawczyk-delta-sweep-k-star-ladder"
+            element={<Imp34811KrawczykDeltaSweepKStarLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

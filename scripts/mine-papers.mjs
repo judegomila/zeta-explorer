@@ -25,7 +25,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const PAPERS_DIR = join(ROOT, 'public', 'papers');
 const QUEUE_FILE = join(ROOT, 'src', 'data', 'improvement-queue.js');
-const INDEX_FILE = join(ROOT, 'scripts', 'queue-index.json');
 const DEFAULT_CROSSWALK = join(PAPERS_DIR, 'CROSSWALK.md');
 
 const argv = process.argv.slice(2);
@@ -40,8 +39,20 @@ function log(msg) {
 }
 
 function nextIdFromIndex() {
-  const idx = JSON.parse(readFileSync(INDEX_FILE, 'utf8'));
-  return idx.nextImprovementId;
+  // imp-35085: idx.nextImprovementId is the src/data/improvements.js log-entry
+  // counter, a namespace that diverged from improvement-queue.js ticket ids
+  // long ago (currently trails the real ticket-id tail by ~5000; see the
+  // imp-33785 note in build-queue-index.mjs). It also never advances when
+  // this script seeds tickets, so a second mine-papers run would collide
+  // with ids seeded by the first. Derive the next id from the queue file's
+  // own max imp-NNNN id instead, matching claimId() in
+  // auto-ticket-producer.mjs.
+  const text = readFileSync(QUEUE_FILE, 'utf8');
+  let maxId = 0;
+  const re = /id:\s*'imp-(\d+)'/g;
+  let m;
+  while ((m = re.exec(text))) maxId = Math.max(maxId, parseInt(m[1], 10));
+  return maxId + 1;
 }
 
 function existingQueueTitles() {

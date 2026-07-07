@@ -6750,6 +6750,16 @@ const DATA_MODULES = [
   // to full precision at the few-ULP budget), a KNOWN linearization artifact NOT an inconsistency. Both
   // contraction ceilings sit ~2558x-5001x above the binding (H2)-margin ceiling; imp-34714a REMAINS OPEN.
   '/src/data/imp-34843-krawczyk-n-op-star-vs-deltastar-floor-crosscheck.js',
+  // imp-34861: SENSITIVITY of the imp-34843 factor 1 + G and the contraction-validity bracket
+  // [n_op*, FP_LO/eps] = [2.20e15, 4.30e15] to the contraction gap G = 1 - |g_prime| across the imp-34693
+  // seed band. imp-34843 froze G at N_cross; g_prime = 2pi K/(T0 u) drifts with N, so this re-evaluates
+  // the quantities over |N_0 - N_cross| < rho(1,k). Only the widest rung k=10 (~5.2% of N_cross) moves G
+  // (range [0.9521, 0.9568], spread ~2.4e-3): 1 + G moves ~0.24%, n_op* ~0.25%, and the headroom over the
+  // binding imp-34799 (H2)-margin ceiling stays pinned ~2555x-2561x, NEVER near the binding 1. The
+  // looser-over-tighter endpoint ratio FP_LO/eps over n_op^max = 1/delta = 5000 is EXACT and band-invariant.
+  // So the imp-34843 "arithmetic depth non-binding" conclusion is UNIFORM across the seed band, not an
+  // artifact of the single-G snapshot. Sensitivity/consistency check; imp-34714a REMAINS OPEN; no bound change.
+  '/src/data/imp-34861-krawczyk-crosscheck-band-sensitivity.js',
   // imp-34840: SCOPES the feasibility of a minimal directed-rounding evaluation of the endpoints [g](m) and
   // [F_prime]. Reads the ACTUAL effectiveHeightForN Newton loop as an operation DAG: ~9 ops/step, ~4 steps
   // to converge at N_cross, so n_op ~ 49 for both endpoints with sequential depth ~30. This concrete count
@@ -6794,6 +6804,15 @@ const DATA_MODULES = [
   // FD d3(ln sigma)=0 knee to ~6e-8 (FD floor removed) -- the imp-34796 F = -g_thirdDeriv/(1-S) identity in closed
   // form. Exact algebra: pointwise ~1.2e-5 at h=1e-2, clean O(h^2) (mean halving ratio ~4.01). Derivation only, no bound change.
   '/src/data/imp-34846-sigma-knee-third-order-closed-form-locator.js',
+  // imp-34858: closes the E_flow-reinstatement sub-gap imp-34846 inherited UNCHANGED from imp-34796 -- does the
+  // imp-34846 closed-form D3 sigma-KNEE locator (1-S)[u_thirdDeriv - 3S u_prime u_secondDeriv + S(2S-1)u_prime^3]
+  // survive reinstating the dropped E_flow term? The third-order (knee) analogue of the imp-34837 second-order
+  // (inflection) measurement, carrying E_flow as the exact log-odds shift phi = -ln(1+E_flow/E_trunc). Verdict:
+  // YES -- with u_full carried the D3 root still lands on the FD d3(ln sigma)=0 knee to ~8e-7, and the knee shifts
+  // -7.32e-3 dex (9.53638 -> 9.52906), REPRODUCING the imp-34749/imp-34796 FD knee E_flow shift to < 0.1% and
+  // first-order-captured to ~100.3%. Opposite sign to the imp-34837 D2 inflection shift (+9.03e-3). Measurement
+  // only, no bound change.
+  '/src/data/imp-34858-sigma-knee-d3-eflow-reinstatement.js',
   // imp-34788: wires three orphaned self-executing *_ASSERTIONS modules from the imp-34751/
   // imp-34754/imp-34757 cluster back into the sweep (audit found only the three cluster
   // ANCHORS wired; the extension modules below were never added).
@@ -6808,6 +6827,13 @@ const DATA_MODULES = [
   // imp-34756: restores the second order of the slowly-varying-v expansion of the sigma-
   // knee condition and tests whether it closes the ~8e-5 dex imp-34710 residual balance.
   '/src/data/imp-34756-sigma-knee-second-order-v-expansion.js',
+  // imp-34802: wiring audit found imp-34769, imp-34770, imp-34774, imp-34776 committed
+  // with exported *_ASSERTIONS arrays and self-executing import-time guards but never
+  // added to this sweep list. Extends the imp-34724/34788 orphan-wiring lineage.
+  '/src/data/imp-34769-sigma-knee-optimal-step-richardson-gap.js',
+  '/src/data/imp-34770-sigma-knee-third-order-v-expansion.js',
+  '/src/data/imp-34774-krawczyk-fixed-point-map-enclosure.js',
+  '/src/data/imp-34776-krawczyk-delta-sweep.js',
 ];
 
 let ALL_MODULES = FAST_MODE

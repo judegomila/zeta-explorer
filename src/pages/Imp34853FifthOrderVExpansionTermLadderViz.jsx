@@ -158,10 +158,11 @@ export default function Imp34853FifthOrderVExpansionTermLadderViz() {
       >
         <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page presenting the imp-34821
         literals verbatim (no new computation). Component model is the inherited imp-3220/imp-3406 surrogate
-        crossover map, NOT a rigorous asymptotic; sub-gap imp-34714a REMAINS OPEN (no machine certificate). The
-        C_C&nbsp;=&nbsp;(1/8)&radic;(3&pi;) ansatz (imp-2642/imp-2643) is UNTOUCHED; C_mb GUE-conditional per
-        imp-486 is UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO QED.
-        Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        crossover map, NOT a rigorous asymptotic; sub-gap imp-34756/imp-34770/imp-34797 REMAINS OPEN (a
+        Richardson/higher-precision resolution of the FD-discretization floor below the milli-dex scale is
+        deferred, not attempted here). The C_C&nbsp;=&nbsp;(1/8)&radic;(3&pi;) ansatz (imp-2642/imp-2643) is
+        UNTOUCHED; C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; no operator positivity;
+        no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
       </div>
     </div>
   );

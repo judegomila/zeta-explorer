@@ -475,7 +475,6 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34938-landmark-reconciliation-axis',
   '/viz-imp34939-krawczyk-headroom-h2-ceiling-band',
   '/viz-imp34940-op-depth-newton-step-reconciliation',
-  '/viz-imp34958-inflection-offset-running-vs-fixed-ladder',
   '/viz-imp34959-sign-pattern-neville-divergence',
   '/viz-imp34960-raw-total-crossing',
   '/viz-imp34961-breach-step-doubling',
@@ -483,8 +482,6 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34963-eflow-crossing-strength-power-law',
   '/viz-imp34964-eflow-pinned-product-invariance',
   '/viz-imp34965-iters-to-floor-ceil-boundary-geometry',
-  '/viz-imp35018-four-landmark-cluster-log-n',
-  '/viz-imp35030-far-tail-inflection-offset-ladder',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

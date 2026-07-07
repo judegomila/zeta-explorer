@@ -13282,6 +13282,44 @@ export const glossary = [
       'imp-33582 accelerating sigma(N) post-peak decay, the six-decade exponent ladder whose curvature the knee is drawn from (imp-33582)',
     ],
   },
+  {
+    term: 'Reproducibility floor vs structural gap (concept): imp-34733 closed-form vs Picard N_cross cross-tab',
+    category: 'concept',
+    definition:
+      'A general concept for reading TWO measured differences on the same page without conflating ' +
+      'them: a reproducibility residual (how well two computational routes to the SAME quantity agree) ' +
+      'and a structural gap (how far apart TWO DISTINCT quantities genuinely sit). The imp-34733 ' +
+      'N_cross ~ 3.280294e9 crossover landmark is the worked example: it can be reached either as the ' +
+      'imp-33723 CLOSED-FORM Banach fixed point of N = g(N) (40 iterates from 1e9) or as the ' +
+      'imp-34693/imp-34676 PICARD terminal value of iterating the SAME map g to double-precision ' +
+      'agreement (80+ iterates, including far seeds 1e10 and 1e300). Both land on the bit-identical ' +
+      'double 3280294351.65240669 -- a relative difference of exactly 0, at (below) the ~2.3e-16 ' +
+      'floating-point floor, because both routes iterate one strongly-contracting map ' +
+      '(|g_prime(N_cross)| ~ 0.045 << 1) to its unique double-precision fixed point. That ~0 ' +
+      'reproducibility residual sits more than 12 orders of magnitude below the genuinely-structural ' +
+      '~3.98e-3 (~0.4%) gap between N_cross and the DISTINCT imp-33582 sigma = 1/2 halving landmark ' +
+      'N_half ~ 3.267235e9. The two "routes" locate one landmark, not two -- the bit-agreement residual ' +
+      'and the halving gap are not remotely comparable, so seeing both near a single page is not ' +
+      'evidence the crossover and the halving landmark are the same thing spelled two ways.\n\n' +
+      'HOW TO APPLY: before treating agreement between two computational routes as corroboration of a ' +
+      'result, check whether they share the SAME underlying map or derivation -- if so, agreement is ' +
+      'an expected reproducibility floor (near machine epsilon), not independent confirmation. Reserve ' +
+      '"independent cross-validation" language for routes with a genuinely different derivation, and ' +
+      'keep any nearby structural gap to a distinct landmark reported on its own, unconflated, scale.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34733 bit-agreement-vs-halving-gap ' +
+      'measurement as a reusable concept; not a new derivation; adds no RH bound; the component model ' +
+      'is the inherited imp-3220/imp-3406 extrapolation, the C_C = (1/8) sqrt(3 pi) ansatz ' +
+      '(imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; no operator positivity; ' +
+      'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34760 (glossary headword for the imp-34733 two-route distinction), 2026',
+    relatedTerms: [
+      'imp-33723 the closed-form Banach fixed point route (route A) to N_cross (imp-33723)',
+      'imp-34693 the Picard terminal-value route (route B) and its seed/iterate-count band (imp-34693)',
+      'imp-34676 the right-widening of the same contraction map used for far-seed replays (imp-34676)',
+      'imp-3444 the sigma(N) landmark ladder including the distinct halving landmark N_half (imp-3444)',
+      'imp-34441 the four ~3.28e9 landmark locators reconciled and tabulated together (imp-34441)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

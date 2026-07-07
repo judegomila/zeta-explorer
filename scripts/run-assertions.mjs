@@ -6718,6 +6718,12 @@ const DATA_MODULES = [
   // and confirms the closed-form-vs-Picard two-route agreement STAYS BOUNDED at +/-1 iterate
   // (never +/-2) at every sampling density -- exact in the tail. Measurement only, no bound change.
   '/src/data/imp-34798-iters-to-floor-log-law-higher-N.js',
+  // imp-34845: replaces the imp-34798 point-valued ceil argument x(seed)=ln(delta_0/eps_fp)/ln(1/r) with an
+  // enclosing interval (propagating the ~7.95e-8 central-difference r truncation half-width and a few-ULP
+  // delta_0 floor). MEASURES that ZERO of the 31 off-by-one seeds have an interval that straddles an integer:
+  // all are true one-offs, the nearest integer sits ~238 interval half-widths away, so interval-enclosing
+  // neither removes nor relocates the +/-1 -- it is INTRINSIC to the doubly-logarithmic delta_0. No bound change.
+  '/src/data/imp-34845-iters-to-floor-interval-ceil.js',
   // imp-34799: DERIVES an a-priori width bound for a genuine directed-rounding instantiation of the
   // imp-34774 Krawczyk fixed-point enclosure of N_cross. The F(m)=0 surrogate collapses the image to a
   // POINT; a directed-rounding F(m) widens it to ~ n_op eps N_cross / (1 - |g_prime|) (first-order IA),

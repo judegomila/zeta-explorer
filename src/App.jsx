@@ -614,6 +614,9 @@ const Imp34938LandmarkReconciliationAxisViz = lazy(() =>
 const Imp34939KrawczykHeadroomH2CeilingBandViz = lazy(() =>
   import('./pages/Imp34939KrawczykHeadroomH2CeilingBandViz.jsx')
 );
+const Imp34940OpDepthNewtonStepReconciliationViz = lazy(() =>
+  import('./pages/Imp34940OpDepthNewtonStepReconciliationViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1847,6 +1850,10 @@ function AppShell() {
           <Route
             path="/viz-imp34939-krawczyk-headroom-h2-ceiling-band"
             element={<Imp34939KrawczykHeadroomH2CeilingBandViz />}
+          />
+          <Route
+            path="/viz-imp34940-op-depth-newton-step-reconciliation"
+            element={<Imp34940OpDepthNewtonStepReconciliationViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

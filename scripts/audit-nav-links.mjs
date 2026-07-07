@@ -474,6 +474,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34937-iter-floor-residual-wide-band',
   '/viz-imp34938-landmark-reconciliation-axis',
   '/viz-imp34939-krawczyk-headroom-h2-ceiling-band',
+  '/viz-imp34940-op-depth-newton-step-reconciliation',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

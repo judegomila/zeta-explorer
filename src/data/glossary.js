@@ -14721,6 +14721,49 @@ export const glossary = [
       'imp-486 the GUE-conditional many-body constant C_mb swept as the free knob (imp-486)',
     ],
   },
+  {
+    term: 'witness vs. bound (imp-34951a named residual sub-gap)',
+    category: 'numerical',
+    definition:
+      'A headword for why a tabulated numerical MAXIMUM over a finite set of observed seeds is not the same ' +
+      'thing as a PROVEN uniform-in-N bound, even when the maximum is exact, bit-identical, and reproduced ' +
+      'across every case examined.\n\n' +
+      'THE SETUP: imp-34926 found that on 34 off-by-one seeds spanning [1e3,1e18], the largest penultimate ' +
+      'relative distance to the fixed point is 1.4536413720400559e-16, strictly below the model floor ' +
+      'EPS_FP = 2.3e-16 -- and argued this makes +1 over-counting structurally impossible, because the ' +
+      'terminal ceil can only round down when the true distance sits under the floor. imp-34951 then tabulated ' +
+      'the resulting margin (EPS_FP minus penultRelDist) rung-by-rung and found it EXACTLY UNIFORM: all 34 ' +
+      'off-by-one rungs share the identical penultimate value, so the margin is one quantized constant ' +
+      '8.4636e-17 (0.36798*EPS_FP) at every rung, with zero spread -- min equals max, and the margin never ' +
+      'narrows across the observed band.\n\n' +
+      'WHY THIS IS ONLY AN UPPER WITNESS, NOT A LOWER BOUND: penultRelDist(N) as tabulated is the largest value ' +
+      'observed across the seeds that happened to produce an off-by-one on the finite grid searched. It is an ' +
+      'UPPER witness of the true bit-collapse threshold (the real threshold sits at-or-below it), not a proof ' +
+      'that no seed at any N could ever produce a penultimate distance closer to EPS_FP. Establishing the ' +
+      'uniform-in-N claim penultRelDist(N) <= c*EPS_FP with c < 1 for ALL N -- not just the 34 observed rungs -- ' +
+      'requires showing the closed-form log law of the underlying map (imp-34775) FORCES such a bound, or ' +
+      'else bounding how an unmeasured N could push the ratio toward 1. Neither has been done: the exact ' +
+      'zero-spread uniformity observed is consistent with a genuine structural constant, but also consistent ' +
+      'with the finite grid never having sampled a seed near the true worst case. This is the same rate-mismatch ' +
+      'gap imp-34926a already named -- imp-34951 inherits it without discharging it.\n\n' +
+      'HOW TO APPLY: when a numerical sweep reports "the maximum over N observed instances is X, uniformly," ' +
+      'check whether X is a witness (an upper bound on a finite sample, however striking) or a theorem (a proof ' +
+      'that binds all N). Zero spread across a finite sample raises suspicion that a bound is real, but by ' +
+      'itself is only evidence, not a certificate -- widen the sample, or supply an analytic argument, before ' +
+      'promoting a witness to a bound.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34951/imp-34926 findings verbatim, not a new bound; ' +
+      'the uniform-in-N lower bound stays OPEN (reduces to imp-34926a); measurement stays on the inherited ' +
+      'imp-3220/imp-3406 surrogate, IEEE-754 double precision; C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb ' +
+      'GUE-conditional per imp-486 untouched; changes no bound; establishes no operator positivity; no RH ' +
+      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35004 (glossary headword for the imp-34951a named residual sub-gap), 2026',
+    relatedTerms: [
+      'imp-34951 tabulates the impossibility margin rung-by-rung, finding it exactly uniform across all 34 off-by-one seeds (imp-34951)',
+      'imp-34926 argues +1 over-counting is structurally impossible from the ceil-boundary geometry (imp-34926)',
+      'imp-34926a the underlying rate-mismatch bound both imp-34951a and imp-34926 leave open (imp-34926a)',
+      'imp-34775 the closed-form log law that would need to force the bound for the claim to be established (imp-34775)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -443,6 +443,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34783-picard-iters-to-floor',
   '/viz-imp34784-krawczyk-outward-ulp-slack-N',
   '/viz-imp34807-collapse-ladder-channel-sigma-comparison',
+  '/viz-imp34808-krawczyk-contraction-gap-headroom',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

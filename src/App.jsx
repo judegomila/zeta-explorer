@@ -521,6 +521,9 @@ const Imp34781CollapseLadderMeanZeroEnsembleViz = lazy(() =>
 const Imp34807CollapseLadderChannelSigmaComparisonViz = lazy(() =>
   import('./pages/Imp34807CollapseLadderChannelSigmaComparisonViz.jsx')
 );
+const Imp34808KrawczykContractionGapHeadroomViz = lazy(() =>
+  import('./pages/Imp34808KrawczykContractionGapHeadroomViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1630,6 +1633,10 @@ function AppShell() {
           <Route
             path="/viz-imp34807-collapse-ladder-channel-sigma-comparison"
             element={<Imp34807CollapseLadderChannelSigmaComparisonViz />}
+          />
+          <Route
+            path="/viz-imp34808-krawczyk-contraction-gap-headroom"
+            element={<Imp34808KrawczykContractionGapHeadroomViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

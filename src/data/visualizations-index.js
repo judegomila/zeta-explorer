@@ -538,6 +538,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Descriptive combined decay-ladder check; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
     Object.freeze({
+      route: '/viz-imp35018-four-landmark-cluster-log-n',
+      title: 'Four-Landmark Cluster on One Log-N Axis',
+      oneLine:
+        'Places the imp-35009 cluster of three point-landmarks (N_half, N_cross, N_star) near N ~ 3.3e9 plus the imp-34693 admissible seed band around N_cross on one shared log-N axis, with pairwise relative spreads annotated.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35018-four-landmark-cluster-log-n-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-33723-sigma-half-vs-crossover-closed-form.js, src/data/imp-33582-sigma-postpeak-nearpeak-threshold-decay.js, src/data/imp-33721-sigma-ramp-inflection-subdecade.js, src/data/imp-34693-crossover-contraction-seed-band.js (imp-35018 viz page)',
+      ticket: 'imp-35018',
+      pedagogicalStep: 36,
+      honestCeiling:
+        'Descriptive log-N landmark placement on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
+    Object.freeze({
       route: '/viz-imp35080-loglog-crossing-strength-power-law',
       title: 'Crossing-Strength Power Law, Log-Log View',
       oneLine:

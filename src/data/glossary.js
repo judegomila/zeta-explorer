@@ -14547,6 +14547,48 @@ export const glossary = [
       'imp-34928 the sibling band-wide measurement of the directed DIVISION primitive at the same crossover-map sites (imp-34928)',
     ],
   },
+  {
+    term: 'exact sigma-space surplus (imp-34954) vs the ~4.6% relative-N landmark-gap conversion residual',
+    category: 'numerical',
+    definition:
+      'A headword distinguishing two DIFFERENT quantities that imp-34923/imp-34954 measure on the same ' +
+      'component model: the SIGMA-space surplus 1/2 - sigma(N_cross) = r/(2(2+r)), r := E_flow/E_trunc at ' +
+      'N_cross, which is an ALGEBRAICALLY EXACT closed form (its r/4 leading approximation overstates it by ' +
+      'only rel error ~ r/2, about 9.5e-4) -- versus the RELATIVE-N L1-L3 landmark gap G = (N_cross - N_half) ' +
+      '/ N_cross (~0.407%, measured independently from the two crossing points), which the LEADING sigma-to-N ' +
+      'conversion 8*surplus ~ 2r ~ 1-(1+r)^-2 reproduces only to within ~4.6% relative residual.\n\n' +
+      'WHY THE TWO NUMBERS ARE NOT THE SAME KIND OF QUANTITY: the surplus lives in sigma-space (a ratio of ' +
+      'error terms at a single fixed N_cross), while the gap lives in relative-N-space (how far apart two ' +
+      'different crossing points N_cross and N_half are). Converting one into the other requires assuming ' +
+      'E_coll decays exactly as N^{-1/2} between the two landmarks; imp-34954 shows the sigma-side surplus ' +
+      'formula itself is exact, so the ~4.6% conversion residual cannot be blamed on the surplus -- it has to ' +
+      'live entirely in that N^{-1/2} assumption.\n\n' +
+      'WHAT ACCOUNTS FOR THE RESIDUAL: imp-34954 measured the LOCAL log-slope d ln E_coll / d ln N at N_cross ' +
+      'to be -0.47729, not the ideal -1/2 (the slow log T0 growth inside E_coll makes it decay slightly slower ' +
+      'than a pure inverse-square-root law). Swapping the ideal -1/2 for this measured -0.4773 slope in the ' +
+      'gap conversion formula alone drops the residual from ~4.6% to ~0.34%; adding the small E_flow drift ' +
+      'across the gap (E_flow is slightly larger at N_half than at N_cross) closes the remaining residual to ' +
+      '~4e-6 -- floating-point agreement.\n\n' +
+      'HOW TO APPLY: when a closed-form quantity in one space (here, sigma) is converted into a landmark gap ' +
+      'in another space (here, relative N) via a leading power-law assumption, and the converted prediction ' +
+      'misses the independently measured gap by a few percent, check whether the closed form itself is exact ' +
+      'before assuming it is approximate -- the deficit may instead be entirely a conversion-assumption ' +
+      'artifact (here, an ideal exponent standing in for a measured one), fixable by substituting the locally ' +
+      'measured exponent rather than revising the closed form.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34954 measurement verbatim, not a new bound; no ' +
+      'quantity is re-derived; the component model is the inherited imp-3220/imp-3406/imp-33601 extrapolation; ' +
+      'C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; ' +
+      'far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34982 (glossary headword for the imp-34954 exact surplus closed form vs the ~4.6% conversion residual), 2026',
+    relatedTerms: [
+      'imp-34954 measures the exact surplus, the ~4.6% leading-conversion residual, and closes it via the measured E_coll log-slope and E_flow drift (imp-34954)',
+      'imp-34923 derived the surplus closed form r/(2(2+r)) and noted the ~8x/~95% coincidence without quantifying the residual (imp-34923)',
+      'imp-34904 the independently measured L1-L3 ~0.407% relative-N landmark gap (imp-34904)',
+      'imp-33601 the leading (1+r)^2 N-gap prediction the sigma-to-N conversion chain extends (imp-33601)',
+      'imp-3444 the E_coll = E_trunc crossover landmark N_cross (imp-3444)',
+      'imp-33582 the sigma = 1/2 halving landmark N_half (imp-33582)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

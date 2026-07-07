@@ -15092,6 +15092,46 @@ export const glossary = [
       "imp-34657 the machine-epsilon dual power/amplitude signature q1 extends down to the k=1 rung (imp-34657)",
     ],
   },
+  {
+    term: "imp-34647 WIDE-window averaging vs NARROW-window relocation: why only widening the q3 fit recovers the integer exponent",
+    category: "numerical",
+    definition:
+      "A quick-lookup headword explaining WHY the imp-34647 q3 log-log refit only recovers the clean " +
+      "exponent 3 and the parameter-free machine-epsilon amplitude when the fitting window is made " +
+      "WIDE, not merely relocated deeper. imp-34633 diagnosed the q3 channel's loose fit (slope " +
+      "m3 ~ 2.90 instead of 3, amplitude ratio ~3.07 instead of 1) as an artifact of its dp = 1e-4 .. " +
+      "1e-5 window sitting the LEAST DEEP of the {2,3,4} ladder in the roundoff floor. imp-34647 " +
+      "tested that prediction directly and found it holds only in one specific form: a WIDE 15-rung " +
+      "window spanning dp = 1e-4 .. 5e-7 (~20x deeper) drives m3 to ~3.008 and the amplitude ratio to " +
+      "~0.886 (R^2 ~ 0.994), but three NARROW 5-point windows merely relocated to the same depths give " +
+      "erratic slopes (2.71, 3.16, 3.22) and amplitude ratios swinging over 50x (~23.3 down to ~0.05).\n\n" +
+      "THE MECHANISM: the per-rung roundoff floor s3(dp) is not a smooth 1/dp^3 line but oscillates " +
+      "within [~0.61, ~1.84] of that line at the ULP level, because each rung's central difference " +
+      "rounds to the nearest representable double independently. A narrow window's log-log " +
+      "least-squares fit sees only 5 points, so it latches onto whichever local cluster of that ULP " +
+      "noise it happens to span -- its fitted slope and intercept are dominated by wherever the noise " +
+      "pushed those particular 5 rungs. A wide window spanning 15 rungs across two decades of dp " +
+      "instead averages over many independent ULP-noise realizations, so the noise's mean-zero " +
+      "(in log-log space) character cancels out and the true underlying 1/dp^3 trend -- and the true " +
+      "machine-epsilon amplitude -- emerges.\n\n" +
+      "HOW TO APPLY: when a deep-tail finite-difference fit looks loose, first check whether the " +
+      "window is wide enough to average over ULP noise before concluding the underlying model or " +
+      "exponent is wrong -- a narrow window moved to a different depth can look equally loose (or " +
+      "worse) even though the true trend is clean, simply because it sampled an unlucky noise cluster.\n\n" +
+      "HONEST SCOPE: q1..q4 remain the inherited imp-3220/imp-3406 central differences, not fresh " +
+      "analytic closed forms, so this explains the CONDITIONING of the finite-difference measurement " +
+      "itself, not a rehabilitation of the underlying surrogate; the sigma -> 1 deep-tail regime " +
+      "remains the component model's least-trustworthy range. Changes no bound; the C_C = (1/8)sqrt(3 pi) " +
+      "ansatz (imp-2714) and C_mb GUE-conditional share (imp-486) are untouched; imp-3066 K_a >= 0 " +
+      "untouched; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    firstUsed: "imp-34670 (explainer for the imp-34647 wide-window-averaging recovery), 2026",
+    relatedTerms: [
+      "imp-34647 the direct test measuring the wide-vs-narrow window divergence this headword explains (imp-34647)",
+      "imp-34633 the least-deep-window diagnosis of the q3 channel's loose slope and amplitude (imp-34633)",
+      "imp-34606 the {2,3,4} roundoff-amplification exponent ladder q3's slope belongs to (imp-34606)",
+      "imp-34646 the well-conditioned-denominator vs ill-conditioned-numerator distinction on the same ladder (imp-34646)",
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

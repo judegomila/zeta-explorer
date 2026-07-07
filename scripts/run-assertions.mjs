@@ -6708,6 +6708,15 @@ const DATA_MODULES = [
   // C_mb-robust; but the tight landing ON R ~ 91 (eps25/R 0.887 -> 1.001) is C_mb-specific. Resummation stays
   // inert at eps = 1 for every C_mb. Measurement/derivation only, C_mb GUE-conditional untouched, no bound change.
   '/src/data/imp-34955-sigma-knee-crossing-cmb-sensitivity.js',
+  // imp-34972: DERIVES the imp-34955 ~0.18 C_mb elasticity of the raw-total 5%/25% crossings. Since C_mb enters
+  // uOf as an additive ln(C_mb) it reaches the crossings ONLY by relocating X_CROSS, so implicit differentiation
+  // of uOf(X_CROSS)=0 gives the CLOSED-FORM X-shift dX_CROSS/d ln(C_mb) = 1/v_CROSS = 2/(1 - (ln L)_prime(X_CROSS)),
+  // and d ln(eps)/d ln(C_mb) = [d ln(eps)/dX] * (1/v_CROSS). The analytic X-shift matches a central difference to
+  // ~1e-4 and is near-constant (2.1018 -> 2.0952, ~0.3% drift); times the measured shape sensitivity ~0.090/0.083
+  // it reproduces the imp-34955 chord elasticities 0.1888/0.1751 exactly. CONSTANCY: the ~0.18 is a band-averaged
+  // chord quantity -- the local pointwise elasticity fails to converge (dev = max_m has method-switch kinks).
+  // Derivation/measurement only, C_mb GUE-conditional untouched, no bound change.
+  '/src/data/imp-34972-sigma-knee-crossing-cmb-elasticity-derivation.js',
   // imp-34900: ATTEMPTS the imp-34882 tighter-radius sub-gap with ANALYTICALLY-differentiated v-kernels instead of the
   // hd = 1e-3 finite differences. Writing w = ln(T/2pi), the Riemann-von Mangoldt relation collapses to x = w + ln(w-1),
   // so v/v_prime/v_secondDeriv are closed-form and exact to machine precision. Findings: the FD noise lives in exactly
@@ -7176,6 +7185,17 @@ const DATA_MODULES = [
   // imp-34889 band-invariance holds THERE (0.315/0.685-doubling headroom the
   // +-5% N-drift and ~0.5% FP_LO drift cannot consume). imp-34714a stays open.
   '/src/data/imp-34953-r-margin-dyadic-wall-across-N.js',
+  // imp-34969: MEASURES the true FP_LO(N) = 1 - |g_prime(N(1-delta))| that
+  // imp-34953 held FIXED at 0.954568 and argued drifts only ~0.5% band-wide,
+  // re-instantiating the imp-34861 g_prime = 2pi K/(T0 u) chain verbatim across
+  // 1e6..1e13. Band-wide FP_LO ranges -142.585 (1e6, |g_prime| = 143.6, map
+  // NON-contractive) -> 0.999985 (1e13), a ~150 range -- so the ~0.5% claim is
+  // FALSE band-wide (the map contracts, FP_LO > 0, only above the onset N* ~
+  // 1.4753e8). But within the +-5.2% imp-34693 seed band FP_LO drifts only
+  // ~0.497%, reproducing the figure; and R_margin with BOTH true N and true
+  // FP_LO drifting stays in [18.82, 21.00], strictly inside the nStar=5 window
+  // (16, 32] -- NO dyadic wall crossed in the seed band. imp-34714a stays open.
+  '/src/data/imp-34969-fp-lo-drift-band-wide.js',
   // imp-34812: caveat-surfacing audit of the imp-34774/imp-34776 Krawczyk and
   // imp-34769/imp-34770 sigma-knee and imp-34772 dp-star viz cluster (extends
   // the imp-34725 lineage); the true viz-page cohort is only imp-34774/34776/
@@ -7210,6 +7230,16 @@ const DATA_MODULES = [
   // outward width of exactly 1 ulp -- no failing rung. N-independent structural facts, not artifacts of
   // N_cross; difficulty stays correctness (not size) of the log rounding. imp-34714a/34687a REMAIN OPEN.
   '/src/data/imp-34952-double-double-log-ulp-band-wide.js',
+  // imp-34971: CROSS-VALIDATES the imp-34952 single-reference band-wide double-double log measurement
+  // against a STRUCTURALLY INDEPENDENT second ~106-bit path. PATH A (imp-34927/imp-34952) forms
+  // s = (m-1)/(m+1) by double-double division and sums the atanh series; PATH B (this module) forms
+  // u = m-1 additively (exact, no division) and sums the alternating log1p Taylor series over the larger
+  // argument |u| <= 0.414. At every rung (1e6..1e13) and all four imp-34885 log sites the two references
+  // round to the SAME double and agree to ~1e-16 ulp band-wide (far below the ~0.49 ulp round-to-nearest
+  // error), and PATH B reproduces the imp-34952 correct-rounding / native-agreement / 1-ulp enclosure
+  // findings exactly (no failing rung). So those findings are reference-independent, not artifacts of the
+  // single atanh-series reference. Measurement only; imp-34714a/34687a REMAIN OPEN; no bound change; NO QED.
+  '/src/data/imp-34971-double-double-log-second-reference-cross-validation.js',
   // imp-34904: ASSEMBLES the four independent ~3.3e9 landmark estimates that cluster near the sigma(N)
   // halving point (L1 closed-form N_cross, L2 bisection N_cross, L3 N_half, L4 N_knee) into a single
   // reconciliation table and attributes all six pairwise relative gaps to named causes: L1-L2 (~1.7e-15)

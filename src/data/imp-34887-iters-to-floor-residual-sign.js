@@ -116,6 +116,8 @@ function signBand(loExp, hiExp, step) {
   let exact0 = 0;
   let exactPlus1 = 0;
   let offByOnePlus1 = 0;
+  // Per-seed residual trace (exponent + resid), so a viz page can plot the grid without recomputing.
+  const trace = [];
   for (const s of seeds) {
     const resid = itersToFloorPredicted(s) - itersToFloorMeasured(s);
     if (Math.abs(resid) === 1) {
@@ -127,6 +129,7 @@ function signBand(loExp, hiExp, step) {
     const residPlus1 = resid + 1;
     if (residPlus1 === 0) exactPlus1++;
     else if (Math.abs(residPlus1) === 1) offByOnePlus1++;
+    trace.push({ log10Seed: +Math.log10(s).toPrecision(6), resid });
   }
   return {
     points: seeds.length,
@@ -138,6 +141,7 @@ function signBand(loExp, hiExp, step) {
     exact_no_offset: exact0,
     exact_plus1_offset: exactPlus1, // exact count AFTER applying k_single + 1 to every seed
     off_by_one_plus1_offset: offByOnePlus1, // off-by-one count AFTER the +1 offset (should NOT be zero)
+    trace, // [{log10Seed, resid}] across the whole grid, for plotting
   };
 }
 

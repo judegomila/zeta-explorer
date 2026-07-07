@@ -584,6 +584,9 @@ const Imp34911ForwardBreachBandUniformityViz = lazy(() =>
 const Imp34912PadeBorelResummationInertnessViz = lazy(() =>
   import('./pages/Imp34912PadeBorelResummationInertnessViz.jsx')
 );
+const Imp34913SignedResidualOffsetInversionViz = lazy(() =>
+  import('./pages/Imp34913SignedResidualOffsetInversionViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1777,6 +1780,10 @@ function AppShell() {
           <Route
             path="/viz-imp34912-pade-borel-resummation-inertness"
             element={<Imp34912PadeBorelResummationInertnessViz />}
+          />
+          <Route
+            path="/viz-imp34913-signed-residual-offset-inversion"
+            element={<Imp34913SignedResidualOffsetInversionViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

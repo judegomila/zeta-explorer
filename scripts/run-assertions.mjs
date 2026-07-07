@@ -6785,6 +6785,15 @@ const DATA_MODULES = [
   // honest-status-banner criterion is inapplicable; the gap is already
   // scoped for a fix under the separate imp-34747 viz-page ticket.
   '/src/data/imp-34745-thin-page-banner-audit-34712.js',
+  // imp-34846: mirrors imp-34820 one order up -- does the sibling-identity technique give a closed-form locator
+  // for the DISTINCT sigma-KNEE (g_thirdDeriv=0 at log10 N ~ 9.53638), removing ITS finite-difference floor?
+  // Verdict: NO for sigma_thirdDeriv (third derivative of sigma ITSELF; closed form S(1-S)[(1-6S+6S^2)u_prime^3 +
+  // 3(1-2S)u_prime u_secondDeriv + u_thirdDeriv], root at log10 N ~ 8.327, a DISTINCT landmark ~1.21 dex below the
+  // knee). But YES via the same logistic algebra on g = ln sigma: g_thirdDeriv = (1-S)[u_thirdDeriv - 3S u_prime
+  // u_secondDeriv + S(2S-1)u_prime^3], so g_thirdDeriv=0 <=> that bracket = 0. This closed-form root lands on the
+  // FD d3(ln sigma)=0 knee to ~6e-8 (FD floor removed) -- the imp-34796 F = -g_thirdDeriv/(1-S) identity in closed
+  // form. Exact algebra: pointwise ~1.2e-5 at h=1e-2, clean O(h^2) (mean halving ratio ~4.01). Derivation only, no bound change.
+  '/src/data/imp-34846-sigma-knee-third-order-closed-form-locator.js',
 ];
 
 let ALL_MODULES = FAST_MODE

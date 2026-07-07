@@ -6798,6 +6798,13 @@ const DATA_MODULES = [
   // branch over the full band. Off-by-ones concentrate at/below the knee (13 below 1e9, 21 in [1e9,1e12]) and
   // vanish above 1e12 (0), where the collapse distance is large enough the terminal ceil never straddles.
   '/src/data/imp-34903-iters-to-floor-residual-sign-wide-band.js',
+  // imp-34926: EXTENDS the imp-34903 signed-residual sweep to [1e3,1e18] (301 seeds, same 10^0.05 grid) and
+  // inspects the terminal ceil-boundary geometry to decide whether the uniform -1 is STRUCTURALLY forced. It
+  // is: the extra decades add NO new off-by-ones (still 34, all -1), bit-collapse (rel-dist 0 <= EPS_FP) never
+  // precedes the EPS_FP-shell crossing (0 violations), and the max penultimate rel-dist 1.4536e-16 sits below
+  // EPS_FP -- so over-counting (+1) is structurally impossible, ruling out the imp-34862 two-rate branch over
+  // the band, subject only to named sub-gap imp-34926a (uniform-in-N ceil(x) <= m_exact).
+  '/src/data/imp-34926-iters-to-floor-ceil-boundary-geometry.js',
   // imp-34799: DERIVES an a-priori width bound for a genuine directed-rounding instantiation of the
   // imp-34774 Krawczyk fixed-point enclosure of N_cross. The F(m)=0 surrogate collapses the image to a
   // POINT; a directed-rounding F(m) widens it to ~ n_op eps N_cross / (1 - |g_prime|) (first-order IA),

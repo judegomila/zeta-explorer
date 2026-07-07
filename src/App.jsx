@@ -488,6 +488,9 @@ const Imp34758DpStarProbeBandRatioViz = lazy(() =>
 const Imp34759CrossoverGppCeilingViz = lazy(() =>
   import('./pages/Imp34759CrossoverGppCeilingViz.jsx')
 );
+const Imp34782DpStarFullTailEdgeRatioViz = lazy(() =>
+  import('./pages/Imp34782DpStarFullTailEdgeRatioViz.jsx')
+);
 const Imp34761ThreeFootingCollapseLadderViz = lazy(() =>
   import('./pages/Imp34761ThreeFootingCollapseLadderViz.jsx')
 );
@@ -1574,6 +1577,10 @@ function AppShell() {
           <Route
             path="/viz-imp34759-crossover-gpp-ceiling"
             element={<Imp34759CrossoverGppCeilingViz />}
+          />
+          <Route
+            path="/viz-imp34782-dp-star-full-tail-edge-ratio"
+            element={<Imp34782DpStarFullTailEdgeRatioViz />}
           />
           <Route
             path="/viz-imp34761-three-footing-collapse-ladder"

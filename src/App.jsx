@@ -542,6 +542,9 @@ const Imp34830DirectedRoundingWidthBoundViz = lazy(() =>
 const Imp34832NCrossThreeWayLandmarkComparisonViz = lazy(() =>
   import('./pages/Imp34832NCrossThreeWayLandmarkComparisonViz.jsx')
 );
+const Imp34852CmbSweepSignFlipLadderViz = lazy(() =>
+  import('./pages/Imp34852CmbSweepSignFlipLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1679,6 +1682,10 @@ function AppShell() {
           <Route
             path="/viz-imp34832-ncross-three-way-landmark-comparison"
             element={<Imp34832NCrossThreeWayLandmarkComparisonViz />}
+          />
+          <Route
+            path="/viz-imp34852-cmb-sweep-sign-flip-ladder"
+            element={<Imp34852CmbSweepSignFlipLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

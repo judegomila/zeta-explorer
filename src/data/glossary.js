@@ -14635,6 +14635,48 @@ export const glossary = [
       'imp-34863 the Cauchy-Hadamard root-test radius R ~ 139, an independent radius estimate (imp-34863)',
     ],
   },
+  {
+    term: 'discrete sign-count vs continuous magnitude read of a conjugate-pair angle',
+    category: 'numerical',
+    definition:
+      'A headword for the imp-34947 cross-check: why a PERIODIC interior sign pattern (a discrete cycle count) ' +
+      'and a local linear-recurrence Darboux solve (a continuous magnitude read) are two DIFFERENT-LOOKING ' +
+      'estimators of the SAME off-axis dominant-singularity angle theta, and why leaving eps = 1 deep inside a ' +
+      'convergent radius R ~ O(1e2) means neither read threatens the region actually used.\n\n' +
+      'THE TWO READS, AND WHY THEY MEASURE THE SAME THING: for a complex-conjugate pole pair R e^(+-i theta), ' +
+      'the coefficients delta_k asymptotically behave like a damped oscillation C R^(-k) cos(k theta + phi). ' +
+      'imp-34932 reads theta INDIRECTLY, by counting how many terms it takes the sign of cos(k theta + phi) to ' +
+      'complete a full +/- cycle (period P = 2*(pi/theta) in k, so theta = 360/P); this only ever sees which ' +
+      'side of zero the coefficient sits on, quantized to whole terms. imp-34947 reads theta DIRECTLY, by ' +
+      'solving the local 2-step recurrence delta_k = p delta_(k-1) + q delta_(k-2) for its characteristic-root ' +
+      'angle cos(theta) = p/(2 rho); this uses the coefficient MAGNITUDES and returns a continuous angle at ' +
+      'every window. Both are reading off the argument of the same pole pair -- one through a coarse sign-count ' +
+      'proxy, the other through the underlying magnitudes -- so agreement between them (40.0 deg vs ~39.0 deg, ' +
+      '~2.4%) is a genuine independent cross-check, not two views of a single fitted number.\n\n' +
+      'WHY R ~ O(1e2) LEAVES THE USED REGION UNTHREATENED: the coarse linear/median radius read (robust to the ' +
+      'sign oscillation precisely because it averages over full cycles) puts the singularity pair at R ~ 78 ' +
+      '(imp-34932) to R ~ 89.6 (imp-34900), independently cross-checked by the recurrence read at R ~ 85.6 ' +
+      '(imp-34947). The physical expansion variable is evaluated at eps = 1, so |eps| / R ~ 1/85 is far inside ' +
+      'the disk of convergence |eps| < R regardless of which of the three R estimates is used -- the angle ' +
+      'uncertainty (37..41 deg across reads) changes where the pole sits on the circle, not whether eps = 1 is ' +
+      'inside it.\n\n' +
+      'HOW TO APPLY: when two estimators of the same complex-singularity argument look structurally unrelated ' +
+      '(a discrete count vs a continuous magnitude fit), check first whether both are legitimate readouts of the ' +
+      'same characteristic-root angle before treating their agreement as a coincidence; and separately confirm ' +
+      'the operating point sits well inside the cross-checked radius before worrying about the residual angle ' +
+      'spread between the reads.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34947 cross-check verbatim, not a new bound; the ' +
+      'component model is the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 UNTOUCHED; ' +
+      'changes no bound; establishes no operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH ' +
+      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35002 (glossary headword for the imp-34947 conjugate-pair singularity-angle cross-check), 2026',
+    relatedTerms: [
+      'imp-34947 measures theta two independent ways (sign-cycle 40.0 deg vs recurrence Darboux ~39.0 deg, ~2.4% agreement) and cross-checks R ~ 85.6 (imp-34947)',
+      'imp-34932 the sign-cycle read: interior runs +5/-4, period P ~ 9, theta ~ 40 deg, R ~ 78 (imp-34932)',
+      'imp-34900 the analytic-kernel radius estimate R ~ 89.6, independently bracketing the same pole pair (imp-34900)',
+      'imp-34966 the sibling headword on why a periodic sign pattern is the fingerprint of a conjugate pair (imp-34966)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

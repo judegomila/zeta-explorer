@@ -14290,6 +14290,45 @@ export const glossary = [
       'imp-34749 the exact additive log-odds shift phi = -ln(1+E_flow/E_trunc) scaled by strength s (imp-34749)',
     ],
   },
+  {
+    term: 'Domb-Sykes extrapolated radius vs plain Cauchy-Hadamard limsup radius',
+    category: 'numerical',
+    definition:
+      'A headword distinguishing two different readings of the SAME Cauchy-Hadamard root test applied to the ' +
+      'sigma-knee delta_k exponent-knee expansion, root_k = |delta_k|^(1/k) for k=1..9 (imp-34836/imp-34863).\n\n' +
+      'imp-34863 read the radius as R = 1/limsup root_k but took limsup as the plain MAXIMUM over the nine ' +
+      'resolvable orders -- the k=9 rung, root_9 ~ 7.21e-3, giving R ~ 138.7. That is a crude read: the root ' +
+      'sequence is still RISING at the resolvable tail (root_7 ~ 6.12e-3, root_8 ~ 6.93e-3, root_9 ~ 7.21e-3), so ' +
+      'the true k -> inf limit sits ABOVE the k=9 value and the plain-max UNDERSTATES limsup, hence OVERSTATES R.\n\n' +
+      'imp-34882 sharpened this with a Domb-Sykes construction: plot root_k against x = 1/k and extrapolate ' +
+      'linearly to x = 0 (k -> inf), where the intercept is exactly 1/R. The two DEEPEST resolvable pairs, ' +
+      '(k=7,8) and (k=8,9), extrapolate to 1/R = 1.262e-2 and 9.397e-3, central 1/R ~ 1.10e-2 with a half-spread ' +
+      'error bar ~1.61e-3, giving R ~ 91 (range ~[79, 106]) -- BELOW the imp-34863 plain-max read, a correction of ' +
+      'factor ~1.5, not an order of magnitude. Higher-order Neville/Richardson extrapolants over the same nine ' +
+      'points are ILL-CONDITIONED (3-pt intercept negative, 4-pt R ~ 44.5, full 9-pt R ~ 0.26), so R is only ' +
+      'pinnable to R ~ O(1e2), not tighter than the linear read.\n\n' +
+      'BOTH READS AGREE ON THE VERDICT THAT MATTERS: even the low end of the Domb-Sykes error bar, R ~ 79, sits ' +
+      'three orders above the physical resummation point eps = 1, so eps = 1 remains deep inside |eps| < R under ' +
+      'either reading -- the sharpening trims an already-huge margin, it does not threaten the convergent verdict.\n\n' +
+      'HOW TO APPLY: when a Cauchy-Hadamard root test is applied to a short, numerically noisy sequence, do not ' +
+      'take limsup as the plain maximum over the resolvable orders if that sequence is still rising at the tail -- ' +
+      'the true k -> inf limsup sits higher, so the plain-max radius is an OVER-estimate of R. Use a Domb-Sykes ' +
+      '(linear, in 1/k) extrapolation from the deepest resolvable pairs for a sharper, smaller R with an explicit ' +
+      'error bar, but stop at linear order: higher-order polynomial extrapolants over a short FD-noise-contaminated ' +
+      'tail are ill-conditioned and swing wildly, so only report R to order-of-magnitude precision.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34863/imp-34882 measurements verbatim, not a new bound; ' +
+      'the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb ' +
+      'GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; far-tail ' +
+      'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34918 (glossary headword distinguishing the imp-34882 Domb-Sykes extrapolated radius from the imp-34863 plain Cauchy-Hadamard limsup radius), 2026',
+    relatedTerms: [
+      'imp-34863 the plain Cauchy-Hadamard root test taking limsup as the max over k=1..9, R ~ 138.7 (imp-34863)',
+      'imp-34882 the Domb-Sykes/Neville extrapolation sharpening the limsup read to R ~ 91, range [79,106] (imp-34882)',
+      'imp-34900 the closed-form analytic-derivative Domb-Sykes cross-check of the same root sequence (imp-34900)',
+      'imp-34836 sixth/seventh order v-expansion feeding delta_6/delta_7 into the root sequence (imp-34836)',
+      'imp-34916 the viz page rendering the imp-34863 root sequence against the imp-34882 Domb-Sykes intercept (imp-34916)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

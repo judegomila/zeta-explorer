@@ -473,6 +473,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34936-sigma-knee-eps-sweep',
   '/viz-imp34937-iter-floor-residual-wide-band',
   '/viz-imp34938-landmark-reconciliation-axis',
+  '/viz-imp34939-krawczyk-headroom-h2-ceiling-band',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

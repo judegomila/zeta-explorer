@@ -560,6 +560,9 @@ const Imp34873SigmaKneeD3HalvingLadderViz = lazy(() =>
 const Imp34874CmbElasticityCurvatureLadderViz = lazy(() =>
   import('./pages/Imp34874CmbElasticityCurvatureLadderViz.jsx')
 );
+const Imp34875IntervalCeilMarginViz = lazy(() =>
+  import('./pages/Imp34875IntervalCeilMarginViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1721,6 +1724,10 @@ function AppShell() {
           <Route
             path="/viz-imp34874-cmb-elasticity-curvature-ladder"
             element={<Imp34874CmbElasticityCurvatureLadderViz />}
+          />
+          <Route
+            path="/viz-imp34875-interval-ceil-margin"
+            element={<Imp34875IntervalCeilMarginViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

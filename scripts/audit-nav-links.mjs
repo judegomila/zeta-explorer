@@ -489,6 +489,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34983-sigma-knee-crossing-cmb-sensitivity',
   '/viz-imp34985-pinned-product-window-sensitivity',
   '/viz-imp34986-crossover-numerator-polynomial-ladder',
+  '/viz-imp34998-conjugate-pair-singularity-angle-cross-check',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

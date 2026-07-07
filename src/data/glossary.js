@@ -14000,6 +14000,43 @@ export const glossary = [
       'imp-34714a named sub-gap: the imp-34687a directed-rounding machine-certificate layer remains unimplemented (imp-34714)',
     ],
   },
+  {
+    term: 'imp-34798 Iters-to-Floor Log-Law Constant c_law = 1/ln(1/r)',
+    category: 'numerical',
+    definition:
+      'A headword for the single characteristic constant of the imp-34775 closed-form iters-to-floor log law ' +
+      'k(seed) = 1 + ceil(ln(delta_0(seed)/eps_fp)/ln(1/r)) for the Banach fixed-point map g(N) = K log T0(N): ' +
+      'the geometric-contraction slope per iterate\n\n' +
+      'c_law = 1/ln(1/r) ~ 0.323444 iterates per e-fold of delta_0\n\n' +
+      'equivalently ln(1/r) ~ 3.09173 nats removed per Picard step, i.e. -log10(r) ~ 1.34272 DECIMAL DIGITS of ' +
+      'distance-to-fixed-point erased per iterate (r ~ 0.04542 is the contraction rate |g_prime(N_cross)| at ' +
+      'the unique double-precision fixed point N_cross ~ 3.280294e9). This is what MAKES the closed-form ' +
+      'ceil-count and the directly-measured Picard iterate count agree to a bounded +/-1: both routes are ' +
+      'walking down the SAME geometric ladder at rate c_law, so the only place they can disagree is a ceil ' +
+      'boundary crossing near an integer, never by more than one rung.\n\n' +
+      'imp-34798 measured this constant explicitly (it had only been implicit in imp-34775/imp-34755\'s ' +
+      '~1.343/~1.35 digits-per-step estimates) and then swept the higher-N band [1e9,1e12] at 31- and ' +
+      '61-point densities (~8x and ~15x denser than the imp-34775 decade grid) plus an extended [1e12,1e15] ' +
+      'tail: the maximum two-route absolute error stayed exactly 1 at every density (never widening to 2), ' +
+      'and became fully exact (0) in the extended tail, because c_law is a fixed asymptotic rate -- denser ' +
+      'sampling multiplies the COUNT of ceil-boundary crossings, never the SIZE of the disagreement.\n\n' +
+      'HOW TO APPLY: when comparing a closed-form iterate-count formula against a directly-measured Picard ' +
+      'loop for this map, cite c_law (not the raw contraction rate r) as the digits-per-step conversion ' +
+      'factor, and treat any observed +/-1 disagreement as the EXPECTED ceil-rounding floor of a bounded-rate ' +
+      'geometric contraction, not as evidence the log law is wrong.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34798 measurement verbatim, not a new bound; the ' +
+      'component model is the inherited imp-3220/imp-3406 extrapolation; C_C = (1/8)sqrt(3pi) (imp-2642) and ' +
+      'C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; no operator positivity; no RH verdict, ' +
+      'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34851 (glossary headword for the imp-34798 iters-to-floor log-law constant c_law), 2026',
+    relatedTerms: [
+      'imp-34798 measured c_law ~ 0.323444 explicitly and confirmed the +/-1 two-route agreement stays bounded across dense higher-N sweeps (imp-34798)',
+      'imp-34775 derived the closed-form iters-to-floor log law over the sparse imp-3220 decade grid (imp-34775)',
+      'imp-34755 the two-route (closed-form vs Picard) M2 iterate-count comparison this log law reproduces (imp-34755)',
+      'imp-33723 the closed-form crossover fixed point N_cross this contraction rate r is evaluated at (imp-33723)',
+      'imp-34693 the Picard terminal-value seed band and iterate counts the measured route draws from (imp-34693)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

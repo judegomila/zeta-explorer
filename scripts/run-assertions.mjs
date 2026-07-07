@@ -6632,6 +6632,16 @@ const DATA_MODULES = [
   // 9.82e-3 return to the sub-unity band -> the r7/6 rise was a one-term artifact), MORE step-stable than delta_6/delta_7
   // (delta_8 spread ~1.5x, no sign flip). Measurement only, no bound change.
   '/src/data/imp-34863-sigma-knee-cauchy-hadamard-radius.js',
+  // imp-34882: SHARPENS the imp-34863 radius read. imp-34863 took R = 1/limsup |delta_k|^(1/k) with limsup = the
+  // plain MAX over k=1..9 (the k=9 rung, R ~ 138.7), crude while the root sequence still rises at the tail. This
+  // module applies a Domb-Sykes construction -- Neville/Richardson extrapolation of root_k vs 1/k to the k -> inf
+  // intercept 1/R -- reusing the imp-34863 root_1..root_9 literals verbatim. The linear read on the two deepest
+  // resolvable pairs (k=7,8),(k=8,9) gives 1/R ~ 1.10e-2 +/- 1.61e-3, R ~ 91 (range ~[79,106]) -- ~1.5x below the
+  // plain-max R ~ 138.7 (extrapolation lands above root_9 ~ 7.21e-3). Convergent verdict survives: even R ~ 79 sits
+  // three orders above the physical resummation point eps = 1. Higher-order Neville is ill-conditioned (3-pt
+  // intercept negative, full 9-pt R ~ 0.26) -> R pinnable only to O(1e2), the same Richardson sub-gap left open.
+  // Measurement only, no bound change.
+  '/src/data/imp-34882-sigma-knee-domb-sykes-radius.js',
   // imp-34820: assesses whether the imp-34796 third-order identity F = -g_thirdDeriv/(1-S) can locate the
   // imp-34746/imp-33721 convex-to-concave sigmoid inflection (sigma_secondDeriv=0). Verdict: NO for that
   // identity -- its g_thirdDeriv=0 root is the DISTINCT sigma-KNEE (log10 N ~ 9.5364), ~0.0127 dex above the
@@ -6775,6 +6785,15 @@ const DATA_MODULES = [
   // So the imp-34843 "arithmetic depth non-binding" conclusion is UNIFORM across the seed band, not an
   // artifact of the single-G snapshot. Sensitivity/consistency check; imp-34714a REMAINS OPEN; no bound change.
   '/src/data/imp-34861-krawczyk-crosscheck-band-sensitivity.js',
+  // imp-34883: MINIMISES the imp-34861 contraction-validity headroom star_over_H2(N) = G/((1+G) delta FP_LO)
+  // over the WHOLE widest physically-admissible imp-34693 rung (k=10, rho ~5.2% of N_cross; at k=12 the band
+  // runs negative), not just at the edges. A dense 4000-point sweep shows star_over_H2 is monotone decreasing
+  // in N (no interior minimum), so the WORST-CASE seed is the band TOP edge N ~ 3.4515e9: the minimum headroom
+  // is 2555.18x, 25.55x ABOVE a stated 100x safety factor (best case 2561.39x at the lower edge). So the
+  // imp-34843 ~2558x margin over the binding imp-34799 (H2)-margin ceiling NEVER dips below 100x anywhere in
+  // the admissible band. Dense-sweep min matches the published imp-34861 band-min 2555.2 VERBATIM. Worst-case
+  // minimisation on the surrogate models; imp-34714a REMAINS OPEN; changes no bound; NO QED.
+  '/src/data/imp-34883-krawczyk-worstcase-headroom-band.js',
   // imp-34864: DERIVES + MEASURES the crossover-map THIRD-derivative envelope per-decade shrink ratio one
   // order up from imp-34839. From g_triple_prime = 8 pi^3 K (2u^2+4u+3)/(T^3 u^5) = K P(u)/(M^3 u^5) the
   // ratio factors as r3 = (M_prime/M)^3 (u_prime/u)^5 P(u)/P(u_prime); Riemann-von Mangoldt N=M(u-1) forces
@@ -6785,6 +6804,17 @@ const DATA_MODULES = [
   // constant from ABOVE (sign-flipped mirror of the order-2 ladder), and the factored ratio matches a direct
   // recomputation to machine precision. Accuracy assessment on the inherited surrogate; no bound change; NO QED.
   '/src/data/imp-34864-crossover-gppp-shrink-ratio-limit.js',
+  // imp-34881: UNIFIES imp-34839 (n=2, 100x, C_2=230.2585) and imp-34864 (n=3, 1000x, C_3=2302.5851) by
+  // DERIVING the GENERAL order-n curvature-envelope per-decade shrink-ratio limit = EXACTLY 10^n and its
+  // residual constant. From the exact chain rule dM/dN=1/u, du/dN=1/(Mu) the closed forms follow from a
+  // single recurrence Q_{n+1}=u Q_n_prime-(n u+(2n-1)) Q_n (reproduces Q_2=-(u+1), Q_3=2u^2+4u+3; extends
+  // to Q_4=-(6u^3+18u^2+25u+15)). The ratio factors r_n=(M_prime/M)^n (u_prime/u)^(2n-1) P_n(u)/P_n(u_prime)
+  // and N=M(u-1) forces (M_prime/M)^n -> 10^n. The O(1/u) coeffs cancel UNIVERSALLY (-n+(2n-1)-(n-1)=0 for
+  // all n), leaving log(r_n/10^n) ~ -(log 10)/u^2, so C_n=10^n log 10 = limit x log 10. This REFUTES the
+  // ticket hypothesis C_n=n*100*log 10 (predicts C_2=460.5 vs true 230.2585, a 2x miss). Measured on
+  // [1e9..1e150] for n in {2,3,4}, the fitted C_n_k converges to 10^n log 10 (deepest relerr <5e-3 each);
+  // n=2 from below, n=3/n=4 from above. Accuracy assessment on the inherited surrogate; no bound change; NO QED.
+  '/src/data/imp-34881-crossover-envelope-general-order-n-shrink-ratio-limit.js',
   // imp-34840: SCOPES the feasibility of a minimal directed-rounding evaluation of the endpoints [g](m) and
   // [F_prime]. Reads the ACTUAL effectiveHeightForN Newton loop as an operation DAG: ~9 ops/step, ~4 steps
   // to converge at N_cross, so n_op ~ 49 for both endpoints with sequential depth ~30. This concrete count

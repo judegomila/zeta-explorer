@@ -117,11 +117,18 @@ export const WINDING_LYAPUNOV_ASSERTIONS = [
     },
   },
   {
-    id: 'winding-lyap-largetau-drop-is-artifact',
-    description: 'The large-tau winding drop is recorded as a smoothing artifact, not de Bruijn dynamics',
+    // Regression tripwire (imp-34828 route-map relabel audit): the historical
+    // "smoothing artifact" wording above is kept verbatim as a record, but a
+    // stale re-audit could silently drop the imp-34813 correctedBy note and
+    // leave the artifact reading looking un-corrected. Require both: the
+    // historical text and the correction stay paired.
+    id: 'winding-lyap-largetau-drop-correction-intact',
+    description: 'The historical smoothing-artifact wording is preserved verbatim but stays paired with the imp-34813 correction (genuine negative-time de Bruijn dynamics, not an artifact)',
     holds: () => {
       const w = WINDING_LYAPUNOV_EXPERIMENT.windingArg;
-      return /smoothing artifact/.test(WINDING_LYAPUNOV_EXPERIMENT.artifactRegime) && w[w.length - 1] < w[0];
+      const historicalRecordIntact = /smoothing artifact/.test(WINDING_LYAPUNOV_EXPERIMENT.artifactRegime) && w[w.length - 1] < w[0];
+      const correctionIntact = /imp-34813/.test(WINDING_LYAPUNOV_EXPERIMENT.correctedBy) && /exact negative-time flow/.test(WINDING_LYAPUNOV_EXPERIMENT.correctedBy);
+      return historicalRecordIntact && correctionIntact;
     },
   },
   {

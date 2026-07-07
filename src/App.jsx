@@ -563,6 +563,9 @@ const Imp34874CmbElasticityCurvatureLadderViz = lazy(() =>
 const Imp34875IntervalCeilMarginViz = lazy(() =>
   import('./pages/Imp34875IntervalCeilMarginViz.jsx')
 );
+const Imp34876ShrinkRatioLimitViz = lazy(() =>
+  import('./pages/Imp34876ShrinkRatioLimitViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1728,6 +1731,10 @@ function AppShell() {
           <Route
             path="/viz-imp34875-interval-ceil-margin"
             element={<Imp34875IntervalCeilMarginViz />}
+          />
+          <Route
+            path="/viz-imp34876-shrink-ratio-limit"
+            element={<Imp34876ShrinkRatioLimitViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -13808,6 +13808,50 @@ export const glossary = [
       'imp-33748 the Banach/empirical-1/2/knee trio where the distinct ~0.4% Gronwall E_flow offset instead lives (imp-33748)',
     ],
   },
+  {
+    term: 'Definitional gap vs measurement error (concept): a three-way diagnostic across imp-34800/imp-34733/imp-34772',
+    category: 'concept',
+    definition:
+      'A reusable checklist for reading any observed numerical gap between two computed quantities, built ' +
+      'from three worked cases that each illustrate a DIFFERENT root cause and each demand a different verdict. ' +
+      'The naive instinct is to treat "the numbers differ" as evidence of either corroboration (if small) or a ' +
+      'genuine correction (if not) -- both readings can be wrong, and telling them apart requires asking what ' +
+      'kind of gap is actually being measured.\n\n' +
+      'CASE 1 -- reproducibility floor, not independent confirmation (imp-34733): the closed-form Banach route ' +
+      'and the Picard-iterate route to N_cross ~ 3.280294e9 agree to the bit, a ~0 residual roughly 12 orders ' +
+      'of magnitude below the genuinely-structural ~0.4% gap to the distinct N_half landmark nearby. Both ' +
+      'routes iterate the SAME contracting map to its unique double-precision fixed point, so bit-agreement ' +
+      'here is an expected floor near machine epsilon, not two independent measurements confirming each other.\n\n' +
+      'CASE 2 -- landmark-definition residual, not error (imp-34800): the Banach/Krawczyk fixed point and the ' +
+      'sigmoid D2-zero inflection knee differ by ~+2.95%, about 147 Krawczyk enclosure half-widths -- far too ' +
+      'large to be discretization error. The two routes are not computing the same quantity: one locates the ' +
+      'ROOT of the crossover map, the other the CURVATURE inflection of the same curve. A root-finder and a ' +
+      'curvature-finder can each be exact and still disagree, because they answer different questions.\n\n' +
+      'CASE 3 -- roundoff artifact masquerading as signal (imp-34772): the imp-34754 fixed-step 9-point finite-' +
+      'difference q3 reported a ~7.7% excess over the closed-form asymptote and concluded the crossover moves ' +
+      'EARLIER. Re-deriving q3 in closed form (no differencing) showed the fixed-step stencil was losing digits ' +
+      'to cancellation in the deep tail -- with the artifact removed the correction is negative and the ' +
+      'crossover instead moves LATER, the opposite sign and direction from the original claim.\n\n' +
+      'HOW TO APPLY: before assigning meaning to a gap between two computed numbers, ask three questions in ' +
+      'order. (1) Do the two routes iterate or evaluate the SAME underlying map/derivation? If so, a tiny gap ' +
+      'is a reproducibility floor near machine epsilon, not confirmation of anything. (2) Do the two routes ' +
+      'have DIFFERENT mathematical definitions (a root vs. a curvature feature, a crossover vs. a halving ' +
+      'point)? If so, a gap far exceeding either route’s verified precision is a real but definitional ' +
+      'residual -- expected, not an error to be closed by more precision. (3) Does either route depend on a ' +
+      'fixed-step finite-difference stencil? If so, check for cancellation or loss of monotonicity in the ' +
+      'regime being probed before trusting the reported excess/deficit as a genuine correction -- a closed-form ' +
+      're-derivation can flip both its sign and its direction.\n\n' +
+      'HONEST SCOPE: a glossary headword synthesizing three prior findings (imp-34733, imp-34800, imp-34772) ' +
+      'into one reusable diagnostic; not a new derivation or bound; the inherited imp-3220/imp-3406 surrogate ' +
+      'crossover map, C_C = (1/8)sqrt(3pi) (imp-2642/imp-2643), and C_mb GUE-conditional per imp-486 remain ' +
+      'UNTOUCHED; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34835 (Concepts/Docs explainer tying together the imp-34800/imp-34733/imp-34772 definitional-gap-vs-measurement-error pattern), 2026',
+    relatedTerms: [
+      'imp-34800 landmark-definition residual: why the sigmoid D2-zero knee sits ~+2.95% above N_cross (imp-34800)',
+      'Reproducibility floor vs structural gap (concept): imp-34733 closed-form vs Picard N_cross cross-tab (imp-34733)',
+      'imp-34772 dp-star artifact-vs-correction: the ~7.7% imp-34754 excess runs the crossover LATER, not earlier (imp-34772)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

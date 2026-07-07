@@ -483,16 +483,6 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34963-eflow-crossing-strength-power-law',
   '/viz-imp34964-eflow-pinned-product-invariance',
   '/viz-imp34965-iters-to-floor-ceil-boundary-geometry',
-  '/viz-imp34978-double-double-log-ulp-band-wide',
-  '/viz-imp34980-r-margin-dyadic-wall-sweep',
-  '/viz-imp34981-landmark-gap-reconstruction-ladder',
-  '/viz-imp34983-sigma-knee-crossing-cmb-sensitivity',
-  '/viz-imp34985-pinned-product-window-sensitivity',
-  '/viz-imp34986-crossover-numerator-polynomial-ladder',
-  '/viz-imp34998-conjugate-pair-singularity-angle-cross-check',
-  '/viz-imp34999-krawczyk-margin-infimum-band-endpoint',
-  '/viz-imp35000-eflow-crossing-strength-exponent-decomposition',
-  '/viz-imp35001-plus-one-impossibility-margin-band',
   '/viz-imp35018-four-landmark-cluster-log-n',
   '/viz-imp35030-far-tail-inflection-offset-ladder',
 ]);
@@ -588,6 +578,11 @@ console.log(`\nNav link audit  ${timestamp}`);
 console.log(`Routes defined in App.jsx: ${routes.size}`);
 console.log(`NAV_GROUPS entries checked: ${navLinks.length}`);
 console.log(`Viz routes checked vs index: ${vizRouteCount} (registry entries: ${registryRoutes.size})`);
+// imp-35049: drift-backlog health metric -- how much of the viz-route surface
+// is riding on the EXEMPT_FROM_INDEX warn-only list rather than being indexed.
+const driftBacklogSize = EXEMPT_FROM_INDEX.size;
+const driftBacklogPct = vizRouteCount > 0 ? ((driftBacklogSize / vizRouteCount) * 100).toFixed(1) : '0.0';
+console.log(`EXEMPT_FROM_INDEX drift backlog: ${driftBacklogSize} routes (${driftBacklogPct}% of viz routes) -- shrinks only when entries are indexed and removed`);
 console.log(`Finding modules checked: ${findingModulesChecked} (required: ${FINDING_MODULES_REQUIRED.size}, backlog: ${FINDING_MODULES_BACKLOG.size})`);
 
 if (warnings.length > 0) {

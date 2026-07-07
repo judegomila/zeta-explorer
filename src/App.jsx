@@ -644,6 +644,9 @@ const Imp34965ItersToFloorCeilBoundaryGeometryViz = lazy(() =>
 const Imp34978DoubleDoubleLogUlpBandWideViz = lazy(() =>
   import('./pages/Imp34978DoubleDoubleLogUlpBandWideViz.jsx')
 );
+const Imp34980RMarginDyadicWallSweepViz = lazy(() =>
+  import('./pages/Imp34980RMarginDyadicWallSweepViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1917,6 +1920,10 @@ function AppShell() {
           <Route
             path="/viz-imp34978-double-double-log-ulp-band-wide"
             element={<Imp34978DoubleDoubleLogUlpBandWideViz />}
+          />
+          <Route
+            path="/viz-imp34980-r-margin-dyadic-wall-sweep"
+            element={<Imp34980RMarginDyadicWallSweepViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

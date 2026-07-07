@@ -14500,6 +14500,53 @@ export const glossary = [
       'imp-34959 the viz page rendering the periodic sign pattern and the Neville tail-window divergence (imp-34959)',
     ],
   },
+  {
+    term: 'measured correct-rounding vs a machine-checkable directed-rounding certificate (imp-34952 vs imp-34687a)',
+    category: 'numerical',
+    definition:
+      'A headword distinguishing what imp-34952 actually measured -- that the double-double log used at the ' +
+      'four imp-34885 crossover-map sites rounds to within < 0.5 ulp of a ~106-bit reference at EVERY N across ' +
+      'the full imp-34693 band (1e6 .. 1e13), so native JS Math.log already agrees with the correctly-rounded ' +
+      'double site by site -- from the still-OPEN imp-34687a named sub-gap: a genuine directed-rounding (RD, ' +
+      'RU) log primitive with a PROVEN outward-only ULP bound, of the kind crlibm/RLIBM/MPFR supply, that a ' +
+      'Krawczyk-style machine certificate could actually call.\n\n' +
+      'WHY N-INDEPENDENT CORRECT-ROUNDING IS NOT THE SAME THING AS A PROVEN BOUND: imp-34952 re-instantiates ' +
+      'the imp-34927 range-reduction + atanh-series reference verbatim at every rung and directly COMPARES ' +
+      'the rounded double-double result and native Math.log against that reference, rung by rung -- this is an ' +
+      'empirical measurement over a finite set of band rungs, not a proof that no N in [1e6, 1e13] (or beyond ' +
+      'it) can ever exceed 0.5 ulp. A directed-rounding log primitive of the imp-34687a kind instead comes with ' +
+      'an a priori error analysis of the algorithm itself (range reduction + polynomial/series remainder + ' +
+      'floating-point rounding at each step), so its RD <= true_value <= RU bracket holds for every input in ' +
+      'its domain by CONSTRUCTION, not by having been checked at finitely many sample points.\n\n' +
+      'WHAT imp-34952 DOES AND DOES NOT DISCHARGE: it corroborates -- band-wide, not just at the single ' +
+      'N_cross point imp-34927 checked -- that (1) the rounded double-double log is correctly rounded, (2) ' +
+      'native Math.log already matches that correctly-rounded double, and (3) a NAIVE directed enclosure built ' +
+      'by nudging the correctly-rounded double one ulp each way brackets the ~106-bit reference with exactly a ' +
+      '1-ulp outward width. Property (3) LOOKS like a directed-rounding enclosure, but it is manufactured from ' +
+      'the measured reference itself (nextUp/nextDown of the rounded double), not derived from a proven forward ' +
+      'error bound on the log algorithm -- so it inherits none of the a priori guarantee an imp-34687a-style ' +
+      'primitive would carry into inputs the module never tested. The named sub-gaps imp-34714a and imp-34687a ' +
+      'therefore REMAIN OPEN exactly as before; imp-34952 narrows where the eventual certificate would need to ' +
+      'hold (nowhere in the band shows any sign of degrading) without supplying it.\n\n' +
+      'HOW TO APPLY: when a module reports that a floating-point primitive is "correctly rounded" or "brackets ' +
+      'the reference to within 1 ulp" across a wide swept domain, check whether the enclosure was DERIVED from ' +
+      'an algorithm-level error bound (a certificate, holds by construction everywhere in its domain) or ' +
+      'RECONSTRUCTED from comparing measured results against a reference at sampled points (a measurement, ' +
+      'holds only at the points checked). Band-wide agreement across many rungs raises confidence the two would ' +
+      'coincide but does not convert one into the other.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34952 finding and the imp-34687a/imp-34714a scope ' +
+      'verbatim, not a new derivation; no bound is recomputed; the crossover map remains the inherited ' +
+      'imp-3220/imp-3406 double-precision surrogate; C_mb GUE-conditional per imp-486 UNTOUCHED; establishes no ' +
+      'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34979 (glossary headword distinguishing the imp-34952 measured correct-rounding from the imp-34687a proven-ULP certificate), 2026',
+    relatedTerms: [
+      'imp-34952 measures band-wide correct-rounding, native-agreement and 1-ulp bracketing of the double-double log at the four crossover-map sites (imp-34952)',
+      'imp-34927 the single-point (N_cross) log ULP measurement imp-34952 extends band-wide (imp-34927)',
+      'imp-34687a named sub-gap: supply an actual directed-rounding / error-bounded arithmetic layer (imp-34687a)',
+      'imp-34714a named sub-gap: the imp-34687a directed-rounding machine-certificate layer remains unimplemented (imp-34714)',
+      'imp-34928 the sibling band-wide measurement of the directed DIVISION primitive at the same crossover-map sites (imp-34928)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

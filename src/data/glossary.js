@@ -15275,6 +15275,24 @@ export const glossary = [
     ],
     link: "/surrogate-model",
   },
+  {
+    term: 'N_star (imp-33721 sigma-ramp sigmoid inflection knee, ~3.38e9)',
+    category: 'numerical',
+    definition:
+      'Quick-lookup headword for the "N_star" notation used across currentStatus and the landmark ' +
+      'comparison tables (lambda-roadmap.js) to denote the imp-33721 sigma-ramp sigmoid inflection ' +
+      'knee: the point where the sigma(N) = E_coll/E(N) local-decay-exponent acceleration D2 changes ' +
+      'sign, located at log10 N_star ~ 9.529, i.e. N_star ~ 3.38e9. See the "imp-33721 ' +
+      'KNEE-A-DECADE-BELOW" headword for the full sub-decade re-differencing derivation; this entry ' +
+      'exists only so the underscore N_star notation itself is a searchable term on the Wiki/Glossary ' +
+      'page, since the other entry spells it "N*" which does not substring-match a search for "N_star".',
+    firstUsed: 'imp-33721 (sub-decade quarter-decade re-differencing of the imp-33701 sigma-ramp knee across [1e9,1e11], relocating the D2 zero-crossing to N* ~ 3.38e9), 2026',
+    relatedTerms: [
+      'imp-33721 KNEE-A-DECADE-BELOW: sub-decade resolution relocates the sigma-ramp inflection to N* ~ 3.38e9 (imp-33721)',
+      'N_half/N_cross/N_star triple, the sibling landmark cluster N_star belongs to',
+      'imp-3220/imp-3406 surrogate model, the extrapolation N_star is located within',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

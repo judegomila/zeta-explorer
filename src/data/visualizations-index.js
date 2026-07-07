@@ -537,6 +537,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive combined decay-ladder check; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35080-loglog-crossing-strength-power-law',
+      title: 'Crossing-Strength Power Law, Log-Log View',
+      oneLine:
+        'Plots the imp-34925 21-point s*(C_mb) grid on log-log axes against the imp-34950 pinned power-law exponent p~1.5493 (95% CI) and the clean rationals 3/2 and 8/5, plus the imp-34950 F2 local-slope drift band [1.528,1.562].',
+      mathBucket: 'bound',
+      dataModule: null,
+      paperSourcePath:
+        'src/data/imp-34925-eflow-crossing-strength-cmb-functional-form.js, src/data/imp-34950-eflow-crossing-strength-cmb-exponent-structural.js (imp-35080 viz page)',
+      ticket: 'imp-35080',
+      pedagogicalStep: 34,
+      honestCeiling:
+        'Descriptive log-log power-law check on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

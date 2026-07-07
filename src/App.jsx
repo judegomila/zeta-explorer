@@ -689,6 +689,9 @@ const Imp35077ConjugatePairDarbouxTrajectoryViz = lazy(() =>
 const Imp35079CombinedInflectionOffsetLadderViz = lazy(() =>
   import('./pages/Imp35079CombinedInflectionOffsetLadderViz.jsx')
 );
+const Imp35080LogLogCrossingStrengthPowerLawViz = lazy(() =>
+  import('./pages/Imp35080LogLogCrossingStrengthPowerLawViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2022,6 +2025,10 @@ function AppShell() {
           <Route
             path="/viz-imp35079-combined-inflection-offset-ladder"
             element={<Imp35079CombinedInflectionOffsetLadderViz />}
+          />
+          <Route
+            path="/viz-imp35080-loglog-crossing-strength-power-law"
+            element={<Imp35080LogLogCrossingStrengthPowerLawViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

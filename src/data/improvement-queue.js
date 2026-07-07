@@ -66560,13 +66560,16 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Orphaned-assertion-wiring audit of the imp-35018 (four-landmark cluster log-N viz-data) and imp-35030 (far-tail inflection-offset ladder viz) modules: both export self-executing assertion arrays that throw on load, but were authored after the imp-35032 wiring audit -- verify each is listed in the scripts/run-assertions.mjs MATH_MODULES sweep (as imp-35032 verified for imp-34948) so their assertions actually run in CI rather than only firing on direct import. Audit only; no bound change; NO QED.',
     category: 'meta',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S-frontier',
     description: "imp-35018 and imp-35030 carry self-executing assertion arrays but post-date the imp-35032 wiring audit. Verify both module paths appear in the run-assertions.mjs MATH_MODULES sweep so their assertions run in the assertion pass; report any that are orphaned. Audit only; NO QED.",
     rationale: 'Frontier scout: imp-35018/imp-35030 self-executing assertion modules never checked for run-assertions.mjs MATH_MODULES sweep wiring (imp-35032 pattern)',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'sonnet-4-6',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
+    duplicateOf: 'imp-35062',
   },
 ];
 

@@ -608,6 +608,9 @@ const Imp34936SigmaKneeEpsSweepViz = lazy(() =>
 const Imp34937IterFloorResidualWideBandViz = lazy(() =>
   import('./pages/Imp34937IterFloorResidualWideBandViz.jsx')
 );
+const Imp34938LandmarkReconciliationAxisViz = lazy(() =>
+  import('./pages/Imp34938LandmarkReconciliationAxisViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1833,6 +1836,10 @@ function AppShell() {
           <Route
             path="/viz-imp34937-iter-floor-residual-wide-band"
             element={<Imp34937IterFloorResidualWideBandViz />}
+          />
+          <Route
+            path="/viz-imp34938-landmark-reconciliation-axis"
+            element={<Imp34938LandmarkReconciliationAxisViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

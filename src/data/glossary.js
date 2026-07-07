@@ -14216,6 +14216,45 @@ export const glossary = [
       'imp-33744 the F3 same-order ~0.003 secondary-shift estimate the imp-34837 measured +9.03e-3 shift exceeds ~3x (imp-33744)',
     ],
   },
+  {
+    term: 'Crossover-envelope 10^n-per-decade shrink-ratio law',
+    category: 'numerical',
+    definition:
+      'A headword for why the crossover-map curvature envelope |g^(n)(N)| shrinks by EXACTLY a factor of 10^n ' +
+      'per decade of N as N -> infinity, for every derivative order n, with a universal O(1/u^2) residual, where ' +
+      'u = log(T0/2pi).\n\n' +
+      'imp-34839 first measured this for the second derivative (n=2): the per-decade ratio r(N) = |g\'\'(N)| / ' +
+      '|g\'\'(10N)| rises monotonically toward EXACTLY 100, with residual 100 - r(N) ~ (100 log 10)/u^2 = ' +
+      '230.2585/u^2. imp-34864 cross-checked one order up (n=3, the third derivative) and found the SAME ' +
+      'pattern with the limit at 1000 and residual constant 1000 log 10 = 2302.5851 -- but approaching from ' +
+      'ABOVE rather than below, a sign-flipped mirror of the n=2 ladder. imp-34881 then unified both into the ' +
+      'general order-n law: the closed form g^(n) = K Q_n(u) / (M^n u^(2n-1)) forces the per-decade ratio to ' +
+      'factor as r_n = (M\'/M)^n (u\'/u)^(2n-1) P_n(u)/P_n(u\'), and the Riemann-von Mangoldt leading law ' +
+      'N = M(u-1) forces the decade step s = u\' - u -> log 10, so (M\'/M)^n -> 10^n exactly. The O(1/u) terms ' +
+      'cancel UNIVERSALLY for every n (from -n + (2n-1) - (n-1) = 0), leaving the n-independent leading residual ' +
+      'log(r_n/10^n) ~ -(log 10)/u^2, i.e. C_n = (10^n - r_n) u^2 -> 10^n log 10 = (limit) x log 10. This ' +
+      'REFUTES the naive linear-in-n hypothesis C_n = n * 100 * log 10 (it predicts C_2 = 460.5 against the ' +
+      'measured/derived 230.2585, a factor-of-2 miss) -- the residual constant scales EXPONENTIALLY with n, not ' +
+      'linearly.\n\n' +
+      'HOW TO APPLY: when a family of successive derivatives of a T^(-k)-type crossover envelope is swept for a ' +
+      'per-decade shrink ratio, expect the limit to be EXACTLY 10^n (never assume it needs a fresh derivation ' +
+      'per order) and expect the residual constant to be (limit) x log 10, not a constant multiple of n; also ' +
+      'do not assume the approach direction (from above vs below) is fixed across orders -- it flips sign with n ' +
+      'even though the leading constant does not.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34839/imp-34864/imp-34881 measurements and general ' +
+      'derivation verbatim, not a new bound; the component model is the inherited imp-3220/imp-3406/imp-34731/ ' +
+      'imp-34757/imp-34768 surrogate crossover map; the far-tail exponent stays 1/2 (imp-3463); C_C = ' +
+      '(1/8)sqrt(3pi) (imp-2642) and C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes ' +
+      'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34895 (glossary headword unifying the imp-34839/imp-34864/imp-34881 crossover-envelope 10^n-per-decade shrink-ratio law), 2026',
+    relatedTerms: [
+      'imp-34839 measured the n=2 case: limit EXACTLY 100, residual (100 log 10)/u^2 = 230.2585/u^2, approaching from below (imp-34839)',
+      'imp-34864 measured the n=3 case: limit EXACTLY 1000, residual (1000 log 10)/u^2 = 2302.5851/u^2, approaching from above (imp-34864)',
+      'imp-34881 derived the GENERAL order-n law C_n = 10^n log 10 and refuted the linear-in-n hypothesis (imp-34881)',
+      'imp-34876 the viz page rendering the imp-34839 n=2 ladder and fitted-constant convergence (imp-34876)',
+      'imp-34731 the inherited second-derivative closed form g_double_prime = -K(u+1)/(M^2 u^3) this law reuses verbatim (imp-34731)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

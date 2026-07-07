@@ -602,6 +602,9 @@ const Imp34934EflowRampPositionSweepViz = lazy(() =>
 const Imp34935SigmaKneeAnalyticVsFdDerivativeViz = lazy(() =>
   import('./pages/Imp34935SigmaKneeAnalyticVsFdDerivativeViz.jsx')
 );
+const Imp34936SigmaKneeEpsSweepViz = lazy(() =>
+  import('./pages/Imp34936SigmaKneeEpsSweepViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1819,6 +1822,10 @@ function AppShell() {
           <Route
             path="/viz-imp34935-sigma-knee-analytic-vs-fd-derivative"
             element={<Imp34935SigmaKneeAnalyticVsFdDerivativeViz />}
+          />
+          <Route
+            path="/viz-imp34936-sigma-knee-eps-sweep"
+            element={<Imp34936SigmaKneeEpsSweepViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

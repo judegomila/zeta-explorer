@@ -6726,6 +6726,15 @@ const DATA_MODULES = [
   // delta*/floor = 1 + 1/(4 k) ~ 1.0625 at k=4 -- surrogate sits ~6% ABOVE the floor (the endpoint-quantization
   // additive), ratio -> 1 as k grows. No exploitable head-room; imp-34714a REMAINS OPEN. No bound change.
   '/src/data/imp-34818-krawczyk-deltastar-vs-directed-rounding-floor.js',
+  // imp-34840: SCOPES the feasibility of a minimal directed-rounding evaluation of the endpoints [g](m) and
+  // [F_prime]. Reads the ACTUAL effectiveHeightForN Newton loop as an operation DAG: ~9 ops/step, ~4 steps
+  // to converge at N_cross, so n_op ~ 49 for both endpoints with sequential depth ~30. This concrete count
+  // lands within ~2% of the imp-34799 representative guess n_op = 50 (validating it); the achievable
+  // endpoint half-width ~3.7e-5 clears the (H2) margin ~6.56e5 by ~10.2 orders -- FEASIBLE on the margin
+  // axis, provided the inner T0 solve uses the imp-34687 interval-Newton contraction not forward-propagation.
+  // The genuine blocker is the missing directed-rounding transcendental layer (imp-34687a), not margin;
+  // imp-34714a REMAINS OPEN. Feasibility/scoping only. No bound change.
+  '/src/data/imp-34840-krawczyk-directed-rounding-op-dag-feasibility.js',
   // imp-34813: quantized-winding deep-dive CORRECTION. The imp-2673/2696 Gaussian proxy
   // computed the EXACT de Bruijn flow at NEGATIVE time (conv identity ~1e-9) -- the large-tau
   // winding drop was genuine zeros-leaving-the-line dynamics, not a smoothing artifact

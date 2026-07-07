@@ -557,6 +557,9 @@ const Imp34855FiveBandShrinkRatioLadderViz = lazy(() =>
 const Imp34873SigmaKneeD3HalvingLadderViz = lazy(() =>
   import('./pages/Imp34873SigmaKneeD3HalvingLadderViz.jsx')
 );
+const Imp34874CmbElasticityCurvatureLadderViz = lazy(() =>
+  import('./pages/Imp34874CmbElasticityCurvatureLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1714,6 +1717,10 @@ function AppShell() {
           <Route
             path="/viz-imp34873-sigma-knee-d3-halving-ladder"
             element={<Imp34873SigmaKneeD3HalvingLadderViz />}
+          />
+          <Route
+            path="/viz-imp34874-cmb-elasticity-curvature-ladder"
+            element={<Imp34874CmbElasticityCurvatureLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

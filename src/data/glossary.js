@@ -15,6 +15,14 @@
  * Serves as the backbone for understanding the full proof framework.
  */
 
+// imp-35094: shared HONEST SCOPE closing clause reused verbatim across the sigma(N)/E_flow/N_cross
+// landmark modules that inherit the imp-3220/imp-3406 extrapolation, so the caveat is stated once
+// instead of restated per module.
+const SIGMA_3220_3406_HONEST_SCOPE_CORE =
+  'The component model is the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; ' +
+  'C_mb stays GUE-conditional (imp-486); changes no bound; establishes no operator positivity; ' +
+  'imp-3066 K_a>=0 sign-positivity untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.';
+
 export const glossary = [
   // ═══════════════════════════════════════════════════════════════════════
   // CORE FRAMEWORK TERMS
@@ -7613,10 +7621,7 @@ export const glossary = [
       'imp-33582 sigma=1/2 halving landmark (N ~ 3.27e9, itself matching the imp-3444 E_coll=E_trunc ' +
       'crossover): the local decay exponent accelerates fastest essentially where the conditional share ' +
       'passes one half.\n\n' +
-      'HONEST SCOPE: measurement/fit only, NOT rigorous. The component model is the inherited ' +
-      'imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; C_mb stays GUE-conditional (imp-486); ' +
-      'changes no bound; establishes no operator positivity; imp-3066 K_a>=0 sign-positivity untouched; ' +
-      'Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+      'HONEST SCOPE: measurement/fit only, NOT rigorous. ' + SIGMA_3220_3406_HONEST_SCOPE_CORE,
     firstUsed: 'imp-33721 (sub-decade quarter-decade re-differencing of the imp-33701 sigma-ramp knee across [1e9,1e11], relocating the D2 zero-crossing to N* ~ 3.38e9, a full decade below the whole-decade report), 2026',
     relatedTerms: [
       'imp-33701 SIGMOID-NOT-STRAIGHT sigma-ramp knee, the whole-decade [1e10,1e11] localization this module refines (imp-33701)',
@@ -7647,10 +7652,7 @@ export const glossary = [
       'milestones stay robust -- for every positive constant floor both crossings still exist and stay ' +
       'ordered (halving precedes sub-0.1), since a constant E_trunc always outlives the vanishing ' +
       'E_coll. Verdict: ROBUST QUALITATIVELY, FRAGILE QUANTITATIVELY, and MORE fragile than the peak.\n\n' +
-      'HONEST SCOPE: measurement/sensitivity only, NOT rigorous. The component model is the inherited ' +
-      'imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; C_mb stays GUE-conditional (imp-486); ' +
-      'changes no bound; establishes no operator positivity; imp-3066 K_a>=0 sign-positivity untouched; ' +
-      'Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+      'HONEST SCOPE: measurement/sensitivity only, NOT rigorous. ' + SIGMA_3220_3406_HONEST_SCOPE_CORE,
     firstUsed: 'imp-33708 (E_trunc floor-model-form sensitivity sweep of the imp-33582 far-tail sigma=0.5 and sigma<0.1 landmarks, measuring the clean dimensional N ~ E_trunc^(-2.0) scaling and contrasting it with the imp-33684 interior-peak ~E_trunc^(-1.375)), 2026',
     relatedTerms: [
       'imp-33582 accelerating sigma(N) post-peak decay, source of the two far-tail landmarks perturbed here (imp-33582)',

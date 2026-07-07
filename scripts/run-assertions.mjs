@@ -6843,6 +6843,16 @@ const DATA_MODULES = [
   // the admissible band. Dense-sweep min matches the published imp-34861 band-min 2555.2 VERBATIM. Worst-case
   // minimisation on the surrogate models; imp-34714a REMAINS OPEN; changes no bound; NO QED.
   '/src/data/imp-34883-krawczyk-worstcase-headroom-band.js',
+  // imp-34906: CROSS-VALIDATES the imp-34883 worst-case headroom 2555.18x by RE-DERIVING it FROM the binding
+  // imp-34799 (H2)-margin ceiling directly, as the explicit ratio n_op*/n_op^max of the two published op
+  // ceilings (n_op^max = delta FP_LO/eps ~8.5980e11 binding, n_op* = G/((1+G) eps) ~2.1995e15), NOT the
+  // pre-collapsed closed form. Obtains 2558.12x at the fixed-point seed N_cross (= imp-34843 center) and
+  // 2555.18x at the worst-case band-top edge (= imp-34883 band-min), matching the closed form bit-for-bit
+  // (eps cancels). RECONCILES the ~2555-vs-~2558 spread: same headroom at different seeds, monotone
+  // decreasing in N, the ~2.94 gap being the N-drift from the fixed point to the upper band edge. The >100x
+  // safety factor holds INDEPENDENTLY of the parameterization (worst case clears by 25.55x). Reconciliation
+  // on the surrogate models; imp-34714a REMAINS OPEN; changes no bound; NO QED.
+  '/src/data/imp-34906-krawczyk-headroom-h2-ceiling-reconcile.js',
   // imp-34864: DERIVES + MEASURES the crossover-map THIRD-derivative envelope per-decade shrink ratio one
   // order up from imp-34839. From g_triple_prime = 8 pi^3 K (2u^2+4u+3)/(T^3 u^5) = K P(u)/(M^3 u^5) the
   // ratio factors as r3 = (M_prime/M)^3 (u_prime/u)^5 P(u)/P(u_prime); Riemann-von Mangoldt N=M(u-1) forces
@@ -6894,6 +6904,16 @@ const DATA_MODULES = [
   // and breaches (H2) at step 5. (d) everything buildable in-repo EXCEPT one unmet external dependency: a
   // crlibm/RLIBM/MPFR directed-log binding. imp-34714a and imp-34687a REMAIN OPEN. Scoping only. No bound change.
   '/src/data/imp-34885-krawczyk-directed-rounding-instantiation-checklist.js',
+  // imp-34908: SCOPES the machine-checkable Krawczyk certificate that would replace the imp-34799 gamma(n_op)
+  // eps first-order surrogate (F(m)=0 a double-precision artifact) the imp-34865/34883/34884/34889 modules
+  // defer to. (A) every DAG op needs a directed [RD,RU] primitive: +,-,* IEEE-754 correctly rounded but need
+  // error-free-transformation emulation (no fesetround in JS), / needs a residual-corrected quotient, max is
+  // exact, consts need outward enclosures, log only RECOMMENDED-correctly-rounded. (B) the ~7 log calls sit
+  // ~10 orders below the (H2) margin -- NOT the binding accuracy term. (C) extended precision is NOT mandated
+  // by the interval width (double clears (H2) by ~10 orders) but IS the mechanism to manufacture a
+  // correctly-rounded log and the residual-corrected quotient. (D) double precision is FEASIBLE; closure is
+  // gated on a SINGLE unmet correctness artifact, a proven-ULP log. imp-34714a and imp-34687a REMAIN OPEN. No bound change.
+  '/src/data/imp-34908-krawczyk-certificate-precision-scope.js',
   // imp-34813: quantized-winding deep-dive CORRECTION. The imp-2673/2696 Gaussian proxy
   // computed the EXACT de Bruijn flow at NEGATIVE time (conv identity ~1e-9) -- the large-tau
   // winding drop was genuine zeros-leaving-the-line dynamics, not a smoothing artifact
@@ -6961,6 +6981,14 @@ const DATA_MODULES = [
   // (<= ~5.43e-3 in s) and LARGEST at the near-peak -- imp-34886 linear ~0.77 is robust, not fragile.
   // Measurement only, no bound change.
   '/src/data/imp-34899-eflow-crossing-strength-ramp-position-sweep.js',
+  // imp-34907: sweeps the imp-34886 E_flow knee-vs-inflection crossing strength s* under a GUE-conditional C_mb
+  // sweep over [0.5,1] (C_mb inserted as the imp-34824 multiplicative factor on E_coll = an additive ln C_mb
+  // log-odds shift). Finding: the crossing PERSISTS -- s* stays strictly inside (0,1) at every C_mb (Gap(0) > 0,
+  // Gap(1) < 0) -- but DRIFTS DOWN monotonically from ~0.778 (C_mb=1, reproduces imp-34886) to ~0.267 (C_mb=0.5),
+  // ds*/dC_mb ~ +1.0 to +1.2 per unit. The imp-34824/34847 ~0.512 sign-inversion is NOT special here (it governs
+  // the inflection-vs-crossover pair, not knee-vs-inflection): at C_mb=0.512 the crossing is an ordinary interior
+  // s* ~ 0.28. Separates definitional existence (C_mb-robust) from GUE-conditional magnitude (drifts). Meas only.
+  '/src/data/imp-34907-eflow-crossing-strength-cmb-sweep.js',
   // imp-34788: wires three orphaned self-executing *_ASSERTIONS modules from the imp-34751/
   // imp-34754/imp-34757 cluster back into the sweep (audit found only the three cluster
   // ANCHORS wired; the extension modules below were never added).

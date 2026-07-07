@@ -6749,6 +6749,13 @@ const DATA_MODULES = [
   // EXACT-PEEL control (zero early-transient model error) ALSO leaves it -- so the residual +/-1 lives in the
   // TERMINAL ceil (continuous eps_fp vs discrete bit-collapse), not the transient rate. Refines imp-34845.
   '/src/data/imp-34862-iters-to-floor-two-rate-law.js',
+  // imp-34887: records the SIGNED iters-to-floor residual k_single - k_measured (not its abs value) at every
+  // off-by-one seed. The sign is uniformly -1 across both bands (single-rate law never over-counts, always
+  // under-counts by exactly 1 where it errs) -- ruling out the mixed-sign / mandatory-two-rate branch. BUT a
+  // fixed +1 offset does NOT remove the off-by-one: it INVERTS the population (31-band exact 21 -> 10, 61-band
+  // 40 -> 21), because the off-by-one is a seed-selective TERMINAL-ceil crossing, not a global bias. Fixed
+  // offset and imp-34862 two-rate law both fail for the same terminal-ceil reason.
+  '/src/data/imp-34887-iters-to-floor-residual-sign.js',
   // imp-34799: DERIVES an a-priori width bound for a genuine directed-rounding instantiation of the
   // imp-34774 Krawczyk fixed-point enclosure of N_cross. The F(m)=0 surrogate collapses the image to a
   // POINT; a directed-rounding F(m) widens it to ~ n_op eps N_cross / (1 - |g_prime|) (first-order IA),
@@ -6835,6 +6842,16 @@ const DATA_MODULES = [
   // "supply directed rounding" to "supply a proven-ULP correctly-rounded log with RD/RU variants" (stock JS
   // Math.log carries no guaranteed ULP bound). imp-34714a REMAINS OPEN. Feasibility/scoping only. No bound change.
   '/src/data/imp-34867-crlibm-log-enclosure-ulp-scope.js',
+  // imp-34885: turns the imp-34867 log-layer scoping into a formal GAP-CLOSURE CHECKLIST for the imp-34687a
+  // directed-rounding layer. (a) 4 distinct Math.log sites in the effectiveHeightForN / g / g_prime chain
+  // (seed, ~4 inner Newton, outer g, g_prime; ~7 calls), each needing a two-sided [RD(log),RU(log)] proven-ULP
+  // log. (b) +,-,*,/ are IEEE-754 correctly rounded but not JS-exposed (no fesetround) so need error-free-
+  // transformation emulation; interval max is exact; constants need outward enclosures; log is not even
+  // correctly-rounded-mandated. (c) the [T0]-inverse MUST be the interval-Newton / Krawczyk contraction
+  // (imp-34687 monotone+convex f), MANDATORY because imp-34865 measured forward propagation doubles per step
+  // and breaches (H2) at step 5. (d) everything buildable in-repo EXCEPT one unmet external dependency: a
+  // crlibm/RLIBM/MPFR directed-log binding. imp-34714a and imp-34687a REMAIN OPEN. Scoping only. No bound change.
+  '/src/data/imp-34885-krawczyk-directed-rounding-instantiation-checklist.js',
   // imp-34813: quantized-winding deep-dive CORRECTION. The imp-2673/2696 Gaussian proxy
   // computed the EXACT de Bruijn flow at NEGATIVE time (conv identity ~1e-9) -- the large-tau
   // winding drop was genuine zeros-leaving-the-line dynamics, not a smoothing artifact
@@ -6879,6 +6896,14 @@ const DATA_MODULES = [
   // first-order-captured to ~100.3%. Opposite sign to the imp-34837 D2 inflection shift (+9.03e-3). Measurement
   // only, no bound change.
   '/src/data/imp-34858-sigma-knee-d3-eflow-reinstatement.js',
+  // imp-34886: solves for the E_flow strength s* at which the D3 sigma-KNEE (imp-34858, shifts DOWN) and the D2
+  // sigmoid-INFLECTION (imp-34837, shifts UP) COINCIDE. Because the two logistic landmarks move in opposite
+  // directions as E_flow is reinstated, the imp-34820 +1.27e-2 dex knee-above-inflection gap must cross zero.
+  // Bisecting gapAt(s)=X*_knee(s)-X*_infl(s)=0 over s in [0,1] (Gap(0)~+1.27e-2, Gap(1)~-3.61e-3) locates s*
+  // ~ 0.78, WELL INSIDE the physical [0,1] range, common location log10 N* ~ 9.531; the crossing is transversal
+  // (dGap/ds ~ -1.65e-2 dex/unit = the sum of the imp-34858 knee slope -7.34e-3 and imp-34837 inflection slope
+  // +9.15e-3). Measurement/derivation only, no bound change.
+  '/src/data/imp-34886-eflow-strength-knee-inflection-crossing.js',
   // imp-34788: wires three orphaned self-executing *_ASSERTIONS modules from the imp-34751/
   // imp-34754/imp-34757 cluster back into the sweep (audit found only the three cluster
   // ANCHORS wired; the extension modules below were never added).
@@ -6908,6 +6933,13 @@ const DATA_MODULES = [
   // collapses to ~2.86e-6 T-units (~12.5 orders below the margin). Forward/contraction width ratio ~2.56e12,
   // confirming the flat gamma(n_op) bound is faithful ONLY on the contraction route. imp-34714a stays open.
   '/src/data/imp-34865-forward-vs-contraction-width-inflation.js',
+  // imp-34884: LOCALISES the imp-34865 forward-propagation breach to op-DAG depth. Instruments the same
+  // directed-rounding surrogate at ELEMENTARY-OP granularity (8 ops/Newton step) down the depth-30 chain and
+  // reports the first depth d* at which the forward iterate half-width exceeds the (H2) bracket half-width
+  // delta*T0 in T-space. d* = 8 (the first [T]-dT subtraction, ~22 ops below the depth-30 chain) -- forward
+  // exceeds the bracket it started from after ONE Newton step; the contraction route (width set by the final
+  // step) never breaches at any depth. imp-34714a stays open.
+  '/src/data/imp-34884-forward-op-depth-breach.js',
   // imp-34812: caveat-surfacing audit of the imp-34774/imp-34776 Krawczyk and
   // imp-34769/imp-34770 sigma-knee and imp-34772 dp-star viz cluster (extends
   // the imp-34725 lineage); the true viz-page cohort is only imp-34774/34776/

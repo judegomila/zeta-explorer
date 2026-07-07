@@ -506,6 +506,9 @@ const Imp34779CrossoverGppCurvatureGuardViz = lazy(() =>
 const Imp34780SigmaKneeResidualDecompositionViz = lazy(() =>
   import('./pages/Imp34780SigmaKneeResidualDecompositionViz.jsx')
 );
+const Imp34781CollapseLadderMeanZeroEnsembleViz = lazy(() =>
+  import('./pages/Imp34781CollapseLadderMeanZeroEnsembleViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1595,6 +1598,10 @@ function AppShell() {
           <Route
             path="/viz-imp34780-sigma-knee-residual-decomposition"
             element={<Imp34780SigmaKneeResidualDecompositionViz />}
+          />
+          <Route
+            path="/viz-imp34781-collapse-ladder-mean-zero-ensemble"
+            element={<Imp34781CollapseLadderMeanZeroEnsembleViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

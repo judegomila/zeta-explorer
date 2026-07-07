@@ -283,6 +283,8 @@ export const IMP34751_COLLAPSE_LADDER_MEAN_ZERO_STATISTICAL_TEST = Object.freeze
   q4_runs_z: r4(Q4.runs.z), // ~-0.42 -- |z| < 1.96, no serial drift
   q4_mean_zero_not_rejected: Q4.meanZeroNotRejected, // true
   mean_zero_confirmed_formally: MEAN_ZERO_CONFIRMED_FORMALLY, // true
+  q3_deviations_by_footing: Object.freeze(DEV_Q3.map(r4)), // per-footing d3 = (r3-8)/8, j = 0..23
+  q4_deviations_by_footing: Object.freeze(DEV_Q4.map(r4)), // per-footing d4 = (r4-16)/16, j = 0..23
   isRigorous: false,
   verdict:
     'MEASUREMENT (NOT rigorous). Upgrades the imp-34689/imp-34712/imp-34730 eyeballed three-footing ' +
@@ -359,6 +361,13 @@ const IMP34751_ASSERTIONS = [
       /UNTOUCHED/.test(IMP34751_COLLAPSE_LADDER_MEAN_ZERO_STATISTICAL_TEST.verdict) &&
       /failure to reject, not acceptance/.test(IMP34751_COLLAPSE_LADDER_MEAN_ZERO_STATISTICAL_TEST.verdict),
     why: 'Honesty gate: measurement only, CI-contains-0 is failure to reject not acceptance, no bound change, no QED, Platt-Trudgian stays SOTA.',
+  },
+  {
+    id: 'imp34751-per-footing-deviation-arrays-exposed',
+    holds: () =>
+      IMP34751_COLLAPSE_LADDER_MEAN_ZERO_STATISTICAL_TEST.q3_deviations_by_footing.length === N_FOOTINGS &&
+      IMP34751_COLLAPSE_LADDER_MEAN_ZERO_STATISTICAL_TEST.q4_deviations_by_footing.length === N_FOOTINGS,
+    why: 'imp-34781: the per-footing q3/q4 deviation arrays exposed for the ensemble viz must match the N_F = 24 footing count so the plotted scatter is the exact ensemble the three formal tests summarize.',
   },
 ];
 

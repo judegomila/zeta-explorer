@@ -469,6 +469,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34915-krawczyk-worstcase-headroom-band',
   '/viz-imp34916-domb-sykes-radius-extrapolation',
   '/viz-imp34934-eflow-ramp-position-sweep',
+  '/viz-imp34935-sigma-knee-analytic-vs-fd-derivative',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

@@ -13320,6 +13320,42 @@ export const glossary = [
       'imp-34441 the four ~3.28e9 landmark locators reconciled and tabulated together (imp-34441)',
     ],
   },
+  {
+    term: 'Slack vs certificate (concept): imp-34726 outward-ULP surrogate evidence for a directed-rounding proof',
+    category: 'concept',
+    definition:
+      'A general distinction between MEASURING that a numerical certificate has room to spare and ' +
+      'PROVING the certificate holds under the actual arithmetic it will eventually run on. The ' +
+      'imp-34726 outward-ULP slack assessment is the worked example: the imp-34714 Krawczyk ' +
+      'existence-uniqueness lemma is exact in the real values f(m) and [f_prime], but its concrete ' +
+      'N = 1e9 verification runs in double precision, leaving the named sub-gap imp-34714a -- turning ' +
+      'hypotheses (H1) 0 not in [f_prime] and (H2) N([T]) subset int([T]) into a genuine machine ' +
+      'certificate needs the imp-34687a directed-rounding layer, which JS Math does not provide. ' +
+      'imp-34726 models that missing layer with a single relative-widening parameter k (every computed ' +
+      'endpoint inflated outward by k*eps*|value|) and measures the largest surviving k* ~ 4.2512e11, ' +
+      'about 11 orders of magnitude (log10(k*/4)) above the k ~ 10 a real few-ULP directed-rounding ' +
+      'layer would need. That vast headroom is EVIDENCE the certificate would survive directed rounding ' +
+      '-- it is NOT a proof, because the k*eps model is a stand-in for the imp-34687a layer, not that ' +
+      'layer itself: it does not show the computed f(m) and [f_prime] endpoints ARE valid outward-rounded ' +
+      'enclosures, only that (H1)-(H2) would still hold IF they were. Sub-gap imp-34714a stays OPEN.\n\n' +
+      'HOW TO APPLY: when a numerical result reports that some margin or hypothesis survives a modeled ' +
+      'perturbation by many orders of magnitude, check whether the perturbation model is the real missing ' +
+      'mechanism (a proof) or a parameterized stand-in for it (evidence of slack). Large surviving budgets ' +
+      'are a legitimate reason to expect a future rigorous instantiation will succeed, but they do not ' +
+      'discharge the sub-gap that instantiation is meant to close.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34726 slack-vs-certificate distinction as a ' +
+      'reusable concept; not a new derivation; adds no RH bound; the component model is the inherited ' +
+      'imp-3220/imp-3406 extrapolation, the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and C_mb ' +
+      'GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator positivity; ' +
+      'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34762 (glossary headword for the imp-34726 slack-vs-certificate distinction), 2026',
+    relatedTerms: [
+      'imp-34714 the exact Krawczyk existence-uniqueness lemma and its named sub-gap imp-34714a (imp-34714)',
+      'imp-34687 the crossover interval-arithmetic scope naming the imp-34687a directed-rounding sub-gap (imp-34687)',
+      'imp-34726 the outward-ULP k*eps surrogate measuring ~11 orders of ULP-budget slack (imp-34726)',
+      'imp-34650 the Banach contraction certificate this Krawczyk lemma complements (imp-34650)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

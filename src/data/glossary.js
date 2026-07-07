@@ -13487,6 +13487,52 @@ export const glossary = [
       'imp-34773 mapped how the closed-form crossover N shifts across three q3 stencil orders (imp-34773)',
     ],
   },
+  {
+    term: 'stencil-order discriminator: order-INVARIANT vs order-CONVERGENT residuals',
+    category: 'numerical',
+    definition:
+      'A reusable methodology for telling a genuine finite-p property of a measured function apart ' +
+      'from an ordinary discretization artifact, drawn from imp-34753\'s three-stencil extension of ' +
+      'the imp-34728/imp-34711 far-tail trust-boundary law.\n\n' +
+      'imp-34728 compared only TWO finite-difference stencils (4th-order 7-point and 6th-order ' +
+      '9-point) computing q3(p) on the same q(p)=log E_coll footing, and found both share a ~6e-3 ' +
+      'shortfall of the fitted (log N)^(4/3) exponent below the exact 4/3 -- but two points cannot ' +
+      'tell whether that shortfall would vanish with a higher-order scheme (discretization) or is a ' +
+      'real property of q that survives any stencil (physics). imp-34753 added a THIRD, still-higher ' +
+      '8th-order 11-point stencil on the identical footing and read the pairwise deltas across all ' +
+      'three order-steps (4->6->8).\n\n' +
+      'THE DISCRIMINATOR: if a residual stays flat across increasing stencil order (no march toward ' +
+      'zero as accuracy order rises), it is ORDER-INVARIANT and signals a genuine property of the ' +
+      'underlying function, not an artifact of the differencing scheme. If a residual shrinks by a ' +
+      'roughly constant factor per order-step, it is ORDER-CONVERGENT and signals removable ' +
+      'discretization error that a higher-order scheme would erase in the limit. imp-34753 found both ' +
+      'signatures side by side on the SAME footing: the (log N)^(4/3) exponent shortfall stayed at ' +
+      '6.12e-3/6.22e-3/6.08e-3 across order 4/6/8 (order-invariant, a real finite-p property of ' +
+      'q(p)~-p/2), while the q3*p^3 constant residual shrank ~5.1x per +2 order (2.48e-4 -> 4.87e-5, ' +
+      'order-convergent, ordinary truncation error extrapolating to one shared ~1.026 constant). Only ' +
+      'the roundoff amplitude prefactor W_max/denom (2.033/1.625/2.319 across the three stencils) is ' +
+      'scheme-dependent, a pure amplitude rescale that does not affect either verdict.\n\n' +
+      'HOW TO APPLY: whenever a small residual survives a pairwise (two-stencil) cross-check and its ' +
+      'origin is ambiguous, add a THIRD stencil at a further accuracy order on the identical footing ' +
+      'before concluding either way. A residual that stays flat (or fails to shrink monotonically) as ' +
+      'order rises is real; a residual that shrinks by a roughly constant per-order factor and ' +
+      'extrapolates to a shared limit is discretization. Two points can suggest a trend; three points ' +
+      'are the minimum needed to distinguish a flat line from a convergent sequence.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34753 F1-F3 findings as a reusable ' +
+      'methodology, not a new derivation; the underlying imp-3220/imp-3406 crossover-map surrogate and ' +
+      'its inherited q1..q3 central differences are unchanged and untrustworthy in the sigma->1 ' +
+      'deep-tail regime; C_C = (1/8)sqrt(3pi) (imp-2714) and C_mb GUE-conditional per imp-486 ' +
+      'UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; no operator positivity; no RH ' +
+      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34787 (glossary headword for the imp-34753 stencil-order discriminator), 2026',
+    relatedTerms: [
+      'imp-34711 derived the (log N)^(4/3) far-tail trust-boundary law this discriminator was applied to (imp-34711)',
+      'imp-34728 the original two-stencil cross-validation that could not distinguish the two residuals (imp-34728)',
+      'imp-34753 added the third (8th-order 11-point) stencil and separated the order-invariant exponent from the order-convergent constant (imp-34753)',
+      'imp-34773 reused the three imp-34753 stencils to map how the dp-star crossover N shifts with stencil order (imp-34773)',
+      'imp-34756 echoes the same discretization-vs-physical discriminator in the slowly-varying-v expansion context (imp-34756)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

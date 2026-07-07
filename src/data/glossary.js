@@ -13395,6 +13395,51 @@ export const glossary = [
       'imp-398 the pinned Gronwall prefactor C_F whose sensitivity is being measured (imp-398)',
     ],
   },
+  {
+    term: 'Eyeballed sign-flip reading vs formal ensemble test: the imp-34751 methodology upgrade',
+    category: 'numerical',
+    definition:
+      'A general methodology distinction for when a "the residual flips sign across a handful of ' +
+      'footings, so it must be mean-zero noise" reading needs to be upgraded from an eyeball to a ' +
+      'formal statistical test, drawn from imp-34751\'s treatment of the imp-34689/imp-34712 ' +
+      'resolution-matched collapse-ladder residual.\n\n' +
+      'imp-34689 and imp-34712 observed the collapse-ladder deviation d_k = (r_k - 2^k)/2^k switch ' +
+      'sign across THREE hand-picked deep-group footings and inferred, by eye, that the scatter is ' +
+      'mean-zero imp-34647 ULP noise rather than a genuine fixed fractional offset (the imp-34712 ' +
+      'sign-flip diagnostic). Three sign flips is suggestive but is not a test: with only three ' +
+      'footings, a truly biased (non-zero-mean) process can still produce an alternating-looking ' +
+      'sample by chance, and there is no way to read off a confidence level from three points.\n\n' +
+      'THE UPGRADE: imp-34751 replaced the eyeball with a deterministic 24-footing ensemble (each ' +
+      'footing an independent whole-tiling shift of the same four deep anchors, no two footings ' +
+      'sharing a tiling, every anchor kept past the imp-33620 sigma<0.01 threshold) and ran THREE ' +
+      'formal tests against the mean-zero null on the SAME d_k deviations the eyeball had been ' +
+      'reading: (1) an exact two-sided binomial sign-test on the +/- split, (2) a Wald-Wolfowitz ' +
+      'runs-test on the sign sequence (which guards against a footing-ORDERED drift that a raw sign ' +
+      'count would miss), and (3) a Student-t 95% confidence interval on the mean deviation. All ' +
+      'three failing to reject is a materially stronger statement than "I see it flip a few times" ' +
+      '-- it bounds how large a hidden fixed offset could be (the imp-34778 companion power ' +
+      'analysis quantifies exactly that bound: ~16% minimum detectable offset at N_F=24).\n\n' +
+      'HOW TO APPLY: when a module reports a residual "flipping sign" across a small, hand-picked ' +
+      'set of footings/seeds/trials as evidence for mean-zero noise, treat that as a HYPOTHESIS, not ' +
+      'a conclusion -- escalate to a deterministic multi-footing ensemble (tens, not a handful) and ' +
+      'run sign-test + runs-test + a t-based CI before calling the effect "noise." A CI containing 0 ' +
+      'is still failure-to-reject, not proof of a zero mean; pair it with a power analysis (imp-34778) ' +
+      'to state what size of offset the test could and could not have caught.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34751 eyeball-to-ensemble upgrade as a ' +
+      'reusable methodology, not a new derivation; the underlying imp-3220/imp-3406 crossover-map ' +
+      'surrogate is unchanged and untrustworthy in the sigma->1 deep-tail regime; C_C = (1/8)sqrt(3pi) ' +
+      '(imp-2714) and C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes ' +
+      'no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
+      'SOTA.',
+    firstUsed: 'imp-34785 (glossary headword for the imp-34751 eyeball-to-ensemble methodology upgrade), 2026',
+    relatedTerms: [
+      'imp-34712 the original eyeballed three-footing sign-flip diagnostic this methodology formalizes (imp-34712)',
+      'imp-34751 ran the 24-footing sign-test/runs-test/Student-t ensemble upgrade on the q3/q4 channels (imp-34751)',
+      'imp-34771 and imp-34795 reused the identical 24-footing three-test harness to extend the ladder to q5 and q6 (imp-34771, imp-34795)',
+      'imp-34778 the companion power analysis quantifying the minimum detectable offset the ensemble could have caught (imp-34778)',
+      'imp-34647 the per-rung ULP-stochastic roundoff floor the mean-zero null attributes the scatter to (imp-34647)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

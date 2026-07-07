@@ -6678,6 +6678,15 @@ const DATA_MODULES = [
   // edge. The raw-total breakdown COINCIDES with the Domb-Sykes convergence boundary, corroborating R ~ 91 as the
   // operative finite nine-term radius. Measurement/derivation only, no bound change; resummation inert at eps = 1.
   '/src/data/imp-34931-sigma-knee-raw-total-crossing.js',
+  // imp-34955: MEASURES the C_mb-sensitivity of the imp-34931 raw-total 5%/25% crossings by sweeping the
+  // imp-34824/imp-34734 multiplicative C_mb factor on E_coll over [0.5,1] (A = E_coll/E_trunc -> C_mb * A, an
+  // additive ln(C_mb) in the log-odds kernel, so C_mb moves the crossings only by relocating the r = 1 landmark
+  // X_CROSS). Both crossings drift monotonically and SUBLINEARLY (5% 69.52 -> 79.24, 25% 80.72 -> 91.13; log-log
+  // elasticity ~0.18; C_mb = 1 reproduces the imp-34931 79.24 / 91.13 anchors). ROBUSTNESS: the 25% crossing
+  // stays inside the imp-34882 Domb-Sykes range [79,106] across the whole band, so the range-level coincidence is
+  // C_mb-robust; but the tight landing ON R ~ 91 (eps25/R 0.887 -> 1.001) is C_mb-specific. Resummation stays
+  // inert at eps = 1 for every C_mb. Measurement/derivation only, C_mb GUE-conditional untouched, no bound change.
+  '/src/data/imp-34955-sigma-knee-crossing-cmb-sensitivity.js',
   // imp-34900: ATTEMPTS the imp-34882 tighter-radius sub-gap with ANALYTICALLY-differentiated v-kernels instead of the
   // hd = 1e-3 finite differences. Writing w = ln(T/2pi), the Riemann-von Mangoldt relation collapses to x = w + ln(w-1),
   // so v/v_prime/v_secondDeriv are closed-form and exact to machine precision. Findings: the FD noise lives in exactly
@@ -7130,6 +7139,15 @@ const DATA_MODULES = [
   // ~4.32 doubling gap floors to the step gap 4, and the linear image map
   // doubles exactly (preserves 2^n). imp-34714a stays open.
   '/src/data/imp-34930-breach-step-law-verification.js',
+  // imp-34953: MEASURES the imp-34930 R_margin(N)=N*FP_LO/K recompute (reused
+  // verbatim, published K/FP_LO fixed) and its distance to the nearest 2^n wall
+  // across the broad N-band 1e6..1e13. R_margin is LINEAR in N, so nStar climbs
+  // -7 (1e6) -> 16 (1e13), crossing ~23 dyadic walls -- NOT pinned at 5
+  // band-wide. But the nStar=5 window (N in (2.6361e9, 5.2722e9]) strictly
+  // contains the imp-34693 admissible seed band [3.11e9, 3.45e9], so the
+  // imp-34889 band-invariance holds THERE (0.315/0.685-doubling headroom the
+  // +-5% N-drift and ~0.5% FP_LO drift cannot consume). imp-34714a stays open.
+  '/src/data/imp-34953-r-margin-dyadic-wall-across-N.js',
   // imp-34812: caveat-surfacing audit of the imp-34774/imp-34776 Krawczyk and
   // imp-34769/imp-34770 sigma-knee and imp-34772 dp-star viz cluster (extends
   // the imp-34725 lineage); the true viz-page cohort is only imp-34774/34776/

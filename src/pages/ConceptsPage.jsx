@@ -962,6 +962,33 @@ const CONCEPTS = [
   },
 ];
 
+// Minimal, hand-maintained map from imp-NNNN references that appear inside glossary
+// text to the viz route they name, so those mentions can render as clickable links
+// instead of plain text. Only entries confirmed to both (a) be named inline in a
+// CONCEPTS definition/intuition string and (b) have a live /viz-impNNNN route in
+// App.jsx are listed here -- add more pairs as new cross-references are confirmed.
+const VIZ_REF_ROUTES = {
+  'imp-34268': '/viz-imp34268-fixed-band-peak-reaccel-convexity-stitch',
+  'imp-34355': '/viz-imp34355-fartail-crossover-residual-collapse',
+  'imp-34599': '/viz-imp34599-full-ladder-through-pole',
+};
+const VIZ_REF_PATTERN = /(imp-\d{4,5})/g;
+
+function linkifyVizRefs(text) {
+  if (!text) return text;
+  const parts = text.split(VIZ_REF_PATTERN);
+  return parts.map((part, i) => {
+    const route = VIZ_REF_ROUTES[part];
+    return route ? (
+      <Link key={i} to={route} style={{ color: '#22d3ee', textDecoration: 'underline' }}>
+        {part}
+      </Link>
+    ) : (
+      part
+    );
+  });
+}
+
 export default function ConceptsPage() {
   const [selectedCat, setSelectedCat] = useState('all');
   const [search, setSearch] = useState('');
@@ -1066,7 +1093,7 @@ export default function ConceptsPage() {
                 )}
               </div>
               <p style={{ margin: '0 0 8px', color: '#94a3b8', fontSize: 14, lineHeight: 1.7 }}>
-                {concept.definition}
+                {linkifyVizRefs(concept.definition)}
               </p>
               {concept.formula && (
                 <div style={{ margin: '8px 0' }}>
@@ -1079,7 +1106,7 @@ export default function ConceptsPage() {
                   borderLeft: '2px solid #06b6d4', borderRadius: '0 6px 6px 0',
                   fontSize: 13, color: '#67e8f9', lineHeight: 1.6, marginTop: 8,
                 }}>
-                  <strong style={{ color: '#22d3ee' }}>Intuition:</strong> {concept.intuition}
+                  <strong style={{ color: '#22d3ee' }}>Intuition:</strong> {linkifyVizRefs(concept.intuition)}
                 </div>
               )}
             </div>

@@ -183,6 +183,47 @@ export const WINDING_MONOTONICITY_RIGOR = {
     verdict:
       'Order-continuation cleanly attributes ALL FOUR base-window conjugate-pair mergers to specific labelled pairs (2 more than section H proximity matching), with a retardation ladder 1.23 -> 1.28 -> 1.41 -> 1.57 that stays > 1 and grows MONOTONICALLY with collision depth -- and it correctly reads the count->1 rung as a boundary EXIT of gamma_6, dissolving the section-H spurious retard 0.85 (4->2 mis-attribution) and 6.28 (boundary-as-merge) artifacts. Widening the window does not clean up the flux; it merely trades a deep exit for an early in-flux. Cross-validation instrument only; changes no bound; NO QED; PT Lambda<=0.2 stays SOTA.',
   },
+  thm13LandingBound: {
+    // imp-34866. The imp-34813 (L2) de Bruijn 1950 Thm 13 landing bound (zeros in
+    // |Im z| <= Delta at t0 are all REAL by t0 + Delta^2/2) had never been COMPARED
+    // to the exact-flow measured collision (landing) time. This measures both sides
+    // on the exact H_t integral (no proxy): t_land by real-zero-count bisection, and
+    // Delta(t0) = max |Im z| over the window by complex-plane Newton on H_{t0}(z)
+    // (H(z)=int w(u)cos(zu)du, H'(z)=-int w(u)u sin(zu)du; validated by the scale-free
+    // residual |H(z)| / sum|w cosh|, ~1e-17 at a genuine zero). Offline solver
+    // scripts/imp-34866-thm13-landing-bound-offline.mjs.
+    tLand: -1.87842, // exact all-real (last-pair = tightest gamma_9,gamma_10 landing) time; consistent with firstCollision.tExact/continuation -1.925
+    // WINDOW-WIDE bound (Delta = max |Im z| over ALL complex pairs at t0), CLEAN rows
+    // (complex-zero census complete: pair count = (10 - realCount)/2, no boundary drift):
+    window: [
+      { t0: -2.5, nPairs: 1, delta: 1.1450, bound: -1.8445, gap: 0.0339 },
+      { t0: -3.0, nPairs: 1, delta: 1.5837, bound: -1.7459, gap: 0.1325 },
+      { t0: -4.0, nPairs: 2, delta: 2.2916, bound: -1.3743, gap: 0.5041 },
+      { t0: -6.0, nPairs: 3, delta: 3.5419, bound: 0.2724, gap: 2.1509 },
+    ],
+    // SINGLE-PAIR bound tracking ONLY the shallowest (last-to-land) gamma_9,gamma_10
+    // pair (complex zero near x ~ 99), whose imaginary part alone governs its landing:
+    singlePair: [
+      { t0: -2.1, z: '99.514 + 0.6757i', delta: 0.6757, bound: -1.8717, gap: 0.0067 },
+      { t0: -2.5, z: '99.850 + 1.1530i', delta: 1.1530, bound: -1.8353, gap: 0.0431 },
+      { t0: -3.0, z: '100.272 + 1.5901i', delta: 1.5901, bound: -1.7358, gap: 0.1426 },
+      { t0: -4.0, z: '101.132 + 2.2924i', delta: 2.2924, bound: -1.3724, gap: 0.5061 },
+    ],
+    boundaryArtifact: {
+      // The t0 = -8 window row reads found/expected = 2/3 pairs and an apparent
+      // gap -0.46 < 0. NOT a Thm 13 violation: the OLDEST complex pair (gamma_9,
+      // gamma_10, off the line since t~-1.9) has drifted in Re z PAST the x = 104
+      // window edge, so it is dropped from the window max and the census is
+      // INCOMPLETE. This is the imp-34813 continuationAttribution boundary-flux
+      // phenomenon seen in the COMPLEX plane; the row is flagged INCOMPLETE, not
+      // counted as a bound comparison.
+      t0: -8, found: 2, expected: 3, note: 'oldest pair drifted past x=104; window Delta incomplete; NOT a Thm 13 failure',
+    },
+    subGap:
+      'A trustworthy full-window max-|Im z| census at DEEP t0 (t0 <~ -8) is OPEN: the oldest complex pairs drift out of the fixed x-window and grid-seeded complex Newton stalls at the ~1e-17 quadrature roundoff floor (positions good to ~1e-2 only). A boundary-tracking window (following each pair in Re z) or an argument-principle zero count on a widening contour is needed to certify the deep-t0 window Delta; only t0 in [-6, -2.1] is cleanly measured here.',
+    verdict:
+      'The exact-flow last-pair landing time t_land = -1.878 satisfies the de Bruijn Thm 13 bound t0 + Delta^2/2 on every CLEAN reference time (gap >= 0 throughout). The WINDOW-WIDE bound is dominated by the single DEEPEST complex pair, so its slack grows steeply with |t0| (gap 0.034 at t0=-2.5 to 2.151 at t0=-6 -- at t0=-6 the classical bound only certifies all-real by t~+0.27, 2.15 later than the true -1.878). The SINGLE-PAIR bound for the shallowest (last-to-land) pair nearly SATURATES just below landing (gap 0.0067 at t0=-2.1, confirming near-isolated rate-2 landing) and its gap grows with depth as the many-body imaginary part exceeds the isolated rate-2 curve -- the same retardation the imp-34813 5.78-vs-8 slope records, now read on the imaginary axis. Measurement only; classical (de Bruijn 1950 Thm 13); establishes no new theorem; changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.',
+  },
   convIdentity: {
     relErrTau05: 1.982e-9,
     relErrTau2: 6.085e-9,
@@ -319,6 +360,30 @@ export const WINDING_MONOTONICITY_RIGOR_ASSERTIONS = [
       const widenNotClean = ca.boundaryFluxSensitivity.inflowStopsAtT > ca.boundaryExit.tc;
       return allRetard && monotone && twoBodyOk && addsTwo && boundaryFixed && widenNotClean &&
         /NO QED/.test(ca.verdict) && /stays SOTA/.test(ca.verdict);
+    },
+  },
+  {
+    id: 'wmr-thm13-landing-bound-valid-and-single-pair-saturates',
+    description: 'imp-34866: the exact last-pair landing time t_land = -1.878 satisfies the de Bruijn Thm 13 bound t0 + Delta^2/2 on every clean reference time (gap >= 0); the window-wide bound slack grows monotonically with |t0| (deepest-pair dominated), while the single-pair (shallowest, last-to-land) bound nearly SATURATES just below landing (gap < 0.02) and its gap also grows with depth (many-body imaginary part exceeds the isolated rate-2 curve)',
+    holds: () => {
+      const b = WINDING_MONOTONICITY_RIGOR.thm13LandingBound;
+      const tLand = b.tLand;
+      const landInWindow = tLand < -1.75 && tLand > -2.0; // between the count-10 and count-8 ladder rungs
+      // every clean window row: bound is a VALID upper bound on the all-real time, with positive slack
+      const winValid = b.window.every((r) => r.gap > 0 && r.bound >= tLand - 1e-6 &&
+        Math.abs(r.bound - (r.t0 + (r.delta * r.delta) / 2)) < 5e-3);
+      // window slack grows monotonically as t0 deepens (deepest-pair-dominated conservativeness)
+      const winGrows = b.window.every((r, i) => i === 0 || (r.t0 < b.window[i - 1].t0 && r.gap > b.window[i - 1].gap));
+      // single-pair bound: valid, near-saturates closest to landing, grows with depth
+      const sp = b.singlePair;
+      const spValid = sp.every((r) => r.gap >= 0 && r.bound >= tLand - 1e-6);
+      const spSaturates = sp[0].gap < 0.02 && sp[0].t0 < tLand; // t0=-2.1 just below (more negative than) landing
+      const spGrows = sp.every((r, i) => i === 0 || (r.t0 < sp[i - 1].t0 && r.gap > sp[i - 1].gap));
+      // boundary artifact honestly flagged as incomplete census, not a Thm 13 failure
+      const artifactFlagged = b.boundaryArtifact.found < b.boundaryArtifact.expected &&
+        /NOT a Thm 13 failure/.test(b.boundaryArtifact.note);
+      return landInWindow && winValid && winGrows && spValid && spSaturates && spGrows && artifactFlagged &&
+        /OPEN/.test(b.subGap) && /NO QED/.test(b.verdict) && /stays SOTA/.test(b.verdict);
     },
   },
   {

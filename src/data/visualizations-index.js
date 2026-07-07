@@ -349,6 +349,139 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Exploratory geometric re-parameterisation showing resonance ticks; does not produce a Lambda bound or RH claim.',
     }),
+    Object.freeze({
+      route: '/viz-imp34978-double-double-log-ulp-band-wide',
+      title: 'Double-Double Log ULP, Band-Wide',
+      oneLine:
+        'Band-wide worst-case double-double log rounding error in ULP across four log sites, checked against the 0.5 ulp correctly-rounded threshold.',
+      mathBucket: 'bound',
+      dataModule: null,
+      paperSourcePath: 'src/data/imp-34952-double-double-log-ulp-band-wide.js (imp-34978 viz page)',
+      ticket: 'imp-34978',
+      pedagogicalStep: 20,
+      honestCeiling:
+        'Descriptive numerical-precision audit of a log implementation; establishes no operator positivity, no Lambda bound, no RH claim.',
+    }),
+    Object.freeze({
+      route: '/viz-imp34980-r-margin-dyadic-wall-sweep',
+      title: 'R_margin Dyadic-Wall Sweep Across N',
+      oneLine:
+        'Sweeps the R_margin quantity across a dyadic ladder of N to check the dyadic-wall behavior holds band-wide, not just at one rung.',
+      mathBucket: 'bound',
+      dataModule: null,
+      paperSourcePath: 'src/data/imp-34953-r-margin-dyadic-wall-across-N.js (imp-34980 viz page)',
+      ticket: 'imp-34980',
+      pedagogicalStep: 21,
+      honestCeiling:
+        'Descriptive margin sweep across N; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
+    Object.freeze({
+      route: '/viz-imp34981-landmark-gap-reconstruction-ladder',
+      title: 'Landmark-Gap Reconstruction Ladder',
+      oneLine:
+        'Cross-checks the closed-form surplus prediction against the directly measured landmark gap across a ladder of N, rung by rung.',
+      mathBucket: 'bound',
+      dataModule: null,
+      paperSourcePath:
+        'src/data/imp-34954-surplus-closed-form-vs-landmark-gap-crosscheck.js (imp-34981 viz page)',
+      ticket: 'imp-34981',
+      pedagogicalStep: 22,
+      honestCeiling:
+        'Descriptive cross-check ladder; establishes no operator positivity, no RH verdict, no Lambda bound.',
+    }),
+    Object.freeze({
+      route: '/viz-imp34983-sigma-knee-crossing-cmb-sensitivity',
+      title: 'Sigma-Knee Resummation-Crossing C_mb Sensitivity',
+      oneLine:
+        'Tests whether the sigma-knee/Domb-Sykes-boundary coincidence survives when the GUE-conditional C_mb constant is perturbed away from its pinned value.',
+      mathBucket: 'bound',
+      dataModule: null,
+      paperSourcePath: 'src/data/imp-34955-sigma-knee-crossing-cmb-sensitivity.js (imp-34983 viz page)',
+      ticket: 'imp-34983',
+      pedagogicalStep: 23,
+      honestCeiling:
+        'Descriptive sensitivity sweep; C_mb remains GUE-conditional, changes no bound, no RH verdict.',
+    }),
+    Object.freeze({
+      route: '/viz-imp34985-pinned-product-window-sensitivity',
+      title: 'Pinned-Product Window Sensitivity',
+      oneLine:
+        'Checks how the pinned product P = g*·r0 responds to shifting the averaging window, separating the window-invariant factor from the window-variable one.',
+      mathBucket: 'bound',
+      dataModule: null,
+      paperSourcePath: 'src/data/imp-34956-pinned-product-window-sensitivity.js (imp-34985 viz page)',
+      ticket: 'imp-34985',
+      pedagogicalStep: 24,
+      honestCeiling:
+        'Descriptive window-sensitivity check; establishes no operator positivity, no Lambda bound, no RH claim.',
+    }),
+    Object.freeze({
+      route: '/viz-imp34986-crossover-numerator-polynomial-ladder',
+      title: 'Crossover-Map Numerator Polynomial Ladder P_2..P_12',
+      oneLine:
+        'Shows the inherited crossover-map derivative numerator polynomial P_n has all-positive coefficients through order n=12, forcing a definite alternating sign with no interior zero.',
+      mathBucket: 'bound',
+      dataModule: null,
+      paperSourcePath: 'src/data/imp-34957-crossover-deriv-p11-p12-extension.js (imp-34986 viz page)',
+      ticket: 'imp-34986',
+      pedagogicalStep: 25,
+      honestCeiling:
+        'Descriptive coefficient-positivity ladder; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
+    Object.freeze({
+      route: '/viz-imp34998-conjugate-pair-singularity-angle-cross-check',
+      title: 'Conjugate-Pair Singularity-Angle Cross-Check',
+      oneLine:
+        'Cross-checks the dominant complex-conjugate singularity angle theta via two independent reads: the sign-cycle period and a direct local Darboux-recurrence argument.',
+      mathBucket: 'bound',
+      dataModule: null,
+      paperSourcePath:
+        'src/data/imp-34947-conjugate-pair-argument-theta-cross-check.js (imp-34998 viz page)',
+      ticket: 'imp-34998',
+      pedagogicalStep: 26,
+      honestCeiling:
+        'Descriptive cross-check of a singularity angle; establishes no operator positivity, no RH verdict, NO QED.',
+    }),
+    Object.freeze({
+      route: '/viz-imp34999-krawczyk-margin-infimum-band-endpoint',
+      title: 'Krawczyk Monotonicity-Margin Infimum',
+      oneLine:
+        'Locates the infimum of the Krawczyk monotonicity margin across the admissible band and checks it stays away from the band endpoint.',
+      mathBucket: 'bound',
+      dataModule: null,
+      paperSourcePath: 'src/data/imp-34949-krawczyk-margin-infimum-band-endpoint.js (imp-34999 viz page)',
+      ticket: 'imp-34999',
+      pedagogicalStep: 27,
+      honestCeiling:
+        'Descriptive margin-infimum band check; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
+    Object.freeze({
+      route: '/viz-imp35000-eflow-crossing-strength-exponent-decomposition',
+      title: 'E_flow Crossing-Strength Exponent Decomposition',
+      oneLine:
+        'Decomposes the E_flow crossing-strength exponent into its structural components to see which factor dominates the crossing behavior.',
+      mathBucket: 'bound',
+      dataModule: null,
+      paperSourcePath:
+        'src/data/imp-34950-eflow-crossing-strength-cmb-exponent-structural.js (imp-35000 viz page)',
+      ticket: 'imp-35000',
+      pedagogicalStep: 28,
+      honestCeiling:
+        'Descriptive exponent decomposition; establishes no operator positivity, no Lambda bound, no RH claim.',
+    }),
+    Object.freeze({
+      route: '/viz-imp35001-plus-one-impossibility-margin-band',
+      title: 'Plus-One Impossibility Margin Band',
+      oneLine:
+        'Bands the margin by which a plus-one perturbation is excluded, showing how far the impossibility result sits from its own boundary.',
+      mathBucket: 'bound',
+      dataModule: null,
+      paperSourcePath: 'src/data/imp-34951-plus-one-impossibility-margin-band.js (imp-35001 viz page)',
+      ticket: 'imp-35001',
+      pedagogicalStep: 29,
+      honestCeiling:
+        'Descriptive margin-band check; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

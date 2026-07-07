@@ -13737,6 +13737,42 @@ export const glossary = [
     ],
     link: '/viz-imp34825-winding-count-ladder',
   },
+  {
+    term: 'imp-34799 Contraction-Gap Amplification 1/(1-|g_prime|) ~ 1.0476',
+    category: 'numerical',
+    definition:
+      'A headword for why the imp-34799 directed-rounding width bound comes out LARGER than the raw ' +
+      'floating-point residual half-width, not equal to it.\n\n' +
+      'The imp-34774 Krawczyk image is N([X]) = m - F(m)/[F_prime] at the Banach fixed point m = N_cross, ' +
+      'with F(N) = N - g(N) and [F_prime] = 1 - [g_prime]. A directed-rounding evaluation of g(m) carries a ' +
+      'residual half-width r_F(n_op) bounded by the standard first-order IA propagation factor ' +
+      'gamma(n_op) = n_op*eps/(1-n_op*eps) times |g(m)|. That residual is NOT the final image half-width: ' +
+      'the interval-Newton QUOTIENT divides it by the lower endpoint of [F_prime], FP_LO ~ 0.9546 (the ' +
+      'contraction gap 1 - |g_prime(N_cross)|), giving r_image(n_op) = r_F(n_op) / FP_LO.\n\n' +
+      'Because FP_LO < 1, dividing by it AMPLIFIES the width rather than shrinking it: the enclosure the ' +
+      'directed-rounding layer would produce is 1/FP_LO ~ 1.0476 times wider than the raw residual half-' +
+      'width alone would suggest. Concretely, imp-34799 finds a per-operation image half-width of ' +
+      '~7.63e-7 absolute versus a raw per-operation residual half-width of ~7.28e-7 -- the ~4.76% gap IS ' +
+      'this amplification factor.\n\n' +
+      'HOW TO APPLY: when a Krawczyk/interval-Newton image width is reported for a Banach-contraction fixed ' +
+      'point, expect the certified width to sit ABOVE the raw evaluation-residual width by exactly ' +
+      '1/(1-|g_prime|) -- a strong contraction (|g_prime| small) keeps this factor close to 1, but do not ' +
+      'read the quotient step as width-reducing just because the map itself is a strong contraction.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34799 derivation verbatim, not a new bound; the ' +
+      'width bound is an a-priori DERIVATION assuming a well-behaved directed-rounding evaluation, it does ' +
+      'not instantiate the imp-34687a directed-rounding layer, so sub-gap imp-34714a REMAINS OPEN; the ' +
+      'inherited imp-3220/imp-3406 surrogate crossover map is NOT rigorous; C_C = (1/8)sqrt(3pi) ' +
+      '(imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; no operator ' +
+      'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34829 (glossary headword for the imp-34799 contraction-gap amplification factor 1/(1-|g_prime|) ~ 1.0476), 2026',
+    relatedTerms: [
+      'imp-34799 derived the a-priori directed-rounding width bound r_image(n_op) <= gamma(n_op) N_cross / (1-|g_prime|) (imp-34799)',
+      'imp-34774 the Krawczyk fixed-point-map enclosure whose (H1)/(H2) hypotheses this quotient step feeds (imp-34774)',
+      'imp-34776 the outward-ULP budget k* = delta/(2 eps) that the imp-34799 op-count ceiling exactly recovers (imp-34776)',
+      'imp-33723 the Banach map g(N) = K log T0(N) whose contraction gap 1 - |g_prime(N_cross)| ~ 0.9546 sets FP_LO',
+      'imp-34687a named sub-gap: supply an actual directed-rounding / error-bounded arithmetic layer (imp-34687a)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

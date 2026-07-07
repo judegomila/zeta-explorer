@@ -14137,6 +14137,47 @@ export const glossary = [
       'imp-34800 the +2.95% R3-vs-R1/R2 crossvalidation residual this inflection-crossover gap builds on (imp-34800)',
     ],
   },
+  {
+    term: 'imp-34845 Intrinsic Model Offset vs Ceil-Rounding Ambiguity',
+    category: 'numerical',
+    definition:
+      'A headword distinguishing two DIFFERENT explanations a closed-form iterate count can miss a directly ' +
+      'measured Picard count by exactly one step, using the imp-34798 iters-to-floor log law ' +
+      'k(seed) = 1 + ceil(ln(delta_0(seed)/eps_fp)/ln(1/r)) for the Banach fixed-point map g(N) = K log T0(N) ' +
+      'as the worked case:\n\n' +
+      '(1) CEIL-ROUNDING AMBIGUITY: the ceil argument x = ln(delta_0/eps_fp)/ln(1/r) sits so close to an ' +
+      'integer that ordinary floating-point noise in x could flip ceil(x) either way -- a NUMERICAL artifact ' +
+      'that a tighter interval enclosure on x could resolve or at least explain.\n\n' +
+      '(2) INTRINSIC MODEL-VS-MEASUREMENT OFFSET: the closed form assumes the map contracts at a single ' +
+      'ASYMPTOTIC rate r from the first iterate, while the true early Picard transient contracts at a ' +
+      'slightly different rate -- an O(1)-fraction-of-an-iterate discrepancy between MODEL and MEASUREMENT ' +
+      'that no amount of floating-point precision can remove, because it is not a precision problem at all.\n\n' +
+      'imp-34845 distinguished these by wrapping x in an honest enclosing interval [x_lo, x_hi] (propagating ' +
+      'an O(h^2) central-difference truncation half-width on r plus a few-ULP floor on delta_0) and checking, ' +
+      'at every one of the 31+21=52 off-by-one seeds over [1e9,1e12], whether that interval straddles an ' +
+      'integer (ceil(x_lo) != ceil(x_hi)). FINDING: ZERO seeds straddle. The smallest distance from x to its ' +
+      'nearest integer over every off-by-one seed, MIN_GAP_TO_INTEGER ~ 1.439e-3, is ~238x LARGER than the ' +
+      'honest interval half-width -- the numerical uncertainty is roughly two orders of magnitude too narrow ' +
+      'to ever reach a ceil boundary. The +/-1 is therefore explanation (2), not (1): INTRINSIC to the ' +
+      'transient-vs-asymptotic model gap, not a ceil-rounding knife-edge.\n\n' +
+      'HOW TO APPLY: before attributing a bounded off-by-one disagreement between a closed-form count and a ' +
+      'measured count to floating-point rounding, build the honest interval and check whether it actually ' +
+      'straddles the ceil boundary; if the gap-to-nearest-integer dwarfs the interval half-width (as here, by ' +
+      '~238x), the offset is intrinsic to the model and no interval-tightening or extra precision will remove ' +
+      'it -- only reformulating the model (e.g. a transient-aware rate) can even attempt to.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34845 interval-enclosure finding verbatim, not a ' +
+      'new bound; the component model is the inherited imp-3220/imp-3406 extrapolation; C_C = (1/8)sqrt(3pi) ' +
+      '(imp-2642) and C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; no operator positivity; ' +
+      'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34871 (glossary headword distinguishing an intrinsic model offset from a ceil-rounding ambiguity, recording the imp-34845 finding), 2026',
+    relatedTerms: [
+      'imp-34845 built the interval-ceil enclosure and found ZERO of 31 off-by-one seeds straddle an integer, MIN_GAP_TO_INTEGER ~238x the interval half-width (imp-34845)',
+      'imp-34798 measured c_law ~ 0.323444, the single-rate log law whose +/-1 disagreement this headword classifies (imp-34798)',
+      'imp-34862 tested a TWO-RATE law and found it does NOT remove the offset -- the residual lives in the terminal ceil, not the transient rate (imp-34862)',
+      'imp-34887 recorded the SIGNED residual is uniformly -1 (under-count only) yet a fixed +1 offset INVERTS the population, since the crossing is seed-selective (imp-34887)',
+      'imp-34693 the Picard terminal-value seed band and iterate counts the measured route draws from (imp-34693)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

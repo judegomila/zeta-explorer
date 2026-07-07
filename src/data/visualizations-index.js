@@ -509,6 +509,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive decay-ladder check; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35077-conjugate-pair-darboux-trajectory',
+      title: 'Conjugate-Pair Darboux Trajectory theta_k / R_k vs Depth',
+      oneLine:
+        'Plots the imp-34947 per-window Darboux recurrence angle theta_k and radius R_k versus window depth k, on both a line chart and a polar/complex-plane view, against the sign-cycle and radius-band reference lines.',
+      mathBucket: 'bound',
+      dataModule: null,
+      paperSourcePath:
+        'src/data/imp-34947-conjugate-pair-argument-theta-cross-check.js (imp-35077 viz page)',
+      ticket: 'imp-35077',
+      pedagogicalStep: 32,
+      honestCeiling:
+        'Descriptive per-window convergence trajectory; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

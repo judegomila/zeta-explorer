@@ -166,6 +166,13 @@ for (let k = 3; k < K_MAX; k++) {
 }
 // deep band k >= 8 (the transient early windows k=4..7 have not yet locked onto the pair)
 const DEEP = recurrenceReads.filter((r) => r.k >= 8);
+// imp-35077: per-window {k, theta, R} baked literals for the theta_k/R_k-vs-k viz page (no recomputation there).
+export const IMP34947_RECURRENCE_WINDOWS = recurrenceReads.map((r) => ({
+  k: r.k,
+  theta_deg: +r.theta.toFixed(3),
+  R: +r.R.toFixed(3),
+  deep: r.k >= 8,
+}));
 const deepThetas = DEEP.map((r) => r.theta);
 const deepRs = DEEP.map((r) => r.R);
 const mean = (arr) => arr.reduce((a, b) => a + b, 0) / arr.length;

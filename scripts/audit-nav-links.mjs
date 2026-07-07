@@ -492,6 +492,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34998-conjugate-pair-singularity-angle-cross-check',
   '/viz-imp34999-krawczyk-margin-infimum-band-endpoint',
   '/viz-imp35000-eflow-crossing-strength-exponent-decomposition',
+  '/viz-imp35001-plus-one-impossibility-margin-band',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

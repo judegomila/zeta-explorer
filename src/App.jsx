@@ -668,6 +668,9 @@ const Imp34999KrawczykMarginInfimumBandEndpointViz = lazy(() =>
 const Imp35000EflowCrossingStrengthExponentDecompositionViz = lazy(() =>
   import('./pages/Imp35000EflowCrossingStrengthExponentDecompositionViz.jsx')
 );
+const Imp35001PlusOneImpossibilityMarginBandViz = lazy(() =>
+  import('./pages/Imp35001PlusOneImpossibilityMarginBandViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1973,6 +1976,10 @@ function AppShell() {
           <Route
             path="/viz-imp35000-eflow-crossing-strength-exponent-decomposition"
             element={<Imp35000EflowCrossingStrengthExponentDecompositionViz />}
+          />
+          <Route
+            path="/viz-imp35001-plus-one-impossibility-margin-band"
+            element={<Imp35001PlusOneImpossibilityMarginBandViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

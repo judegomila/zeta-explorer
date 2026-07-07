@@ -6484,6 +6484,12 @@ const DATA_MODULES = [
   // tests (sign p~0.84, runs z~1.30, CI~[-0.03,+0.04]); the integer-exponent ladder does NOT
   // break at sixth order either.
   '/src/data/imp-34795-collapse-ladder-q6-channel-extension.js',
+  // imp-34823: extends the collapse ladder two orders further to the q7,q8 channels (seventh/eighth
+  // central differences) on the same 24 deep-group footings over the same window -- LOCATES the ladder
+  // break: the exact-integer 2^k recovery FAILS at seventh order (r7~127.19 rounds to 127 not 128, r8
+  // ~267.49 overshoots 256 by ~+4.5%), while the log-log slope m_k->k survives to eighth order (m7~6.99,
+  // m8~8.05) and the deviation stays statistically mean-zero (both CIs contain 0).
+  '/src/data/imp-34823-collapse-ladder-q7-q8-channel-extension.js',
   // imp-34643: audit of the imp-34606..34613 measurement cluster found five modules
   // (imp-34606, imp-34609, imp-34611, imp-34612, imp-34613) carry self-executing
   // *_ASSERTIONS arrays that were absent from this DATA_MODULES sweep; wired in below.

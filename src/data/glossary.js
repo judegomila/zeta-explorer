@@ -13963,6 +13963,43 @@ export const glossary = [
       'imp-34756 the second-order rung establishing the ~9.2e-5 dex finite-difference floor (imp-34756)',
     ],
   },
+  {
+    term: 'imp-34817 Contraction-Validity Ceiling n_op* vs the (H2)-Margin Ceiling n_op^max',
+    category: 'numerical',
+    definition:
+      'A headword distinguishing TWO different op-count ceilings that bound the arithmetic depth of a ' +
+      'hypothetical imp-34687a directed-rounding Krawczyk evaluation, so the ~2558x gap between them is not ' +
+      'mistaken for a single tight budget.\n\n' +
+      'The imp-34799 gamma(n_op) = n_op*eps/(1-n_op*eps) IA propagation model feeds TWO distinct thresholds. ' +
+      'The (H2)-BINDING-MARGIN ceiling n_op^max = delta*(1-|g_prime|)/eps ~ 8.60e11 is the op count at which ' +
+      'the amplified image half-width would exhaust the imp-34774 Krawczyk bracket margin delta*N_cross -- ' +
+      'this is the ceiling that actually governs whether the enclosure hypothesis (H2) still holds. The ' +
+      'CONTRACTION-VALIDITY ceiling n_op* = G/((1+G)*eps) ~ 2.20e15 (G = 1-|g_prime| ~ 0.9546) is a different, ' +
+      'looser threshold: the op count at which the propagation factor gamma(n_op) itself overtakes the ' +
+      'contraction gap G, so the interval-Newton quotient would stop contracting at all.\n\n' +
+      'These are not competing estimates of the same quantity -- they answer different questions (does the ' +
+      'bracket margin survive vs does the contraction structure survive), and n_op* nests ABOVE n_op^max by ' +
+      'the ratio n_op*/n_op^max ~ 2558. So the OPERATIVE budget is the smaller of the two, min(n_op^max, n_op*) ' +
+      '= n_op^max: (H2)-margin exhaustion caps any realistic evaluation, not loss of certifiable contraction, ' +
+      'and both ceilings sit ~10 orders above any plausible O(10..100)-op directed-rounding evaluation.\n\n' +
+      'HOW TO APPLY: when a Krawczyk surrogate cluster reports a headroom multiplier like "~2558x", check ' +
+      'which of the two ceilings sits in the numerator and which in the denominator -- the large ratio is ' +
+      'EVIDENCE that arithmetic depth is comfortably non-binding on the inherited surrogate model, not a proof ' +
+      'that an actual directed-rounding instantiation would enclose correctly.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34817 derivation verbatim, not a new bound; both ' +
+      'ceilings are DERIVATIONS on the inherited k*eps/gamma(n) surrogate models of the imp-34687a directed-' +
+      'rounding layer, not an instantiation of that layer, so sub-gap imp-34714a REMAINS OPEN; C_C = (1/8)sqrt(3pi) ' +
+      '(imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; no operator ' +
+      'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34850 (glossary headword distinguishing the imp-34817 contraction-validity ceiling from the (H2)-margin ceiling), 2026',
+    relatedTerms: [
+      'imp-34817 derived n_op* = G/((1+G)*eps) ~ 2.20e15, the ~2558x headroom over the binding n_op^max (imp-34817)',
+      'imp-34799 the a-priori residual/image half-width model and the binding (H2)-margin ceiling n_op^max (imp-34799)',
+      'imp-34818 measured the tightest surrogate half-width delta* sits only ~6% above the directed-rounding floor (imp-34818)',
+      'imp-34794 located the tightest certified double-precision Krawczyk half-width delta* (imp-34794)',
+      'imp-34714a named sub-gap: the imp-34687a directed-rounding machine-certificate layer remains unimplemented (imp-34714)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

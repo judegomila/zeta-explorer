@@ -6663,6 +6663,14 @@ const DATA_MODULES = [
   // the grid), and the raw resummed-total agreement degrades from ~5e-12 (eps <= 1) to ~25% at eps = 91 (the SC
   // map compresses this so the inertness metric stays < 5%). Measurement/derivation only, no bound change.
   '/src/data/imp-34902-sigma-knee-resummation-eps-sweep.js',
+  // imp-34931: PINS the imp-34902 (F3) raw cross-method resummed-total deviation crossings by fine bisection.
+  // The raw-total deviation dev(eps) = max_m |total_m/total_plain - 1| is smooth and monotone across [1, ~100]
+  // (below the first diagonal-Pade pole ~110), so it crosses 5% at eps ~ 79.24 and 25% at eps ~ 91.13. Cross-check:
+  // both crossings lie in the imp-34882 Domb-Sykes range [79,106] and far interior to the imp-34863 root radius
+  // R ~ 139 -- the 25% crossing lands essentially ON R_DombSykes ~ 91 (0.14% above), the 5% crossing on its low
+  // edge. The raw-total breakdown COINCIDES with the Domb-Sykes convergence boundary, corroborating R ~ 91 as the
+  // operative finite nine-term radius. Measurement/derivation only, no bound change; resummation inert at eps = 1.
+  '/src/data/imp-34931-sigma-knee-raw-total-crossing.js',
   // imp-34900: ATTEMPTS the imp-34882 tighter-radius sub-gap with ANALYTICALLY-differentiated v-kernels instead of the
   // hd = 1e-3 finite differences. Writing w = ln(T/2pi), the Riemann-von Mangoldt relation collapses to x = w + ln(w-1),
   // so v/v_prime/v_secondDeriv are closed-form and exact to machine precision. Findings: the FD noise lives in exactly
@@ -7077,6 +7085,14 @@ const DATA_MODULES = [
   // one law nStar(R)=floor(log2 R)+1 reproduces both (nStar(1)=1, nStar(19.91)=5), differing by the ~4.32
   // log2 threshold gap. Consistent, not contradictory. imp-34714a stays open.
   '/src/data/imp-34909-op-depth-newton-step-reconciliation.js',
+  // imp-34930: INDEPENDENTLY verifies the imp-34909 unified breach-step law
+  // nStar(R)=floor(log2 R)+1 by recomputing R_seed=1 and R_margin=N*FP_LO/K
+  // ~19.91 from the PUBLISHED FP_LO/K/N/delta constituents (not imp-34909 s
+  // internal scalars). Confirms nStar reproduces both op-depths (8 and 40),
+  // the delta-cancelling image-map route agrees, the log2(R_margin/R_seed)
+  // ~4.32 doubling gap floors to the step gap 4, and the linear image map
+  // doubles exactly (preserves 2^n). imp-34714a stays open.
+  '/src/data/imp-34930-breach-step-law-verification.js',
   // imp-34812: caveat-surfacing audit of the imp-34774/imp-34776 Krawczyk and
   // imp-34769/imp-34770 sigma-knee and imp-34772 dp-star viz cluster (extends
   // the imp-34725 lineage); the true viz-page cohort is only imp-34774/34776/

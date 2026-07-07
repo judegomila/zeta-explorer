@@ -442,6 +442,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34782-dp-star-full-tail-edge-ratio',
   '/viz-imp34783-picard-iters-to-floor',
   '/viz-imp34784-krawczyk-outward-ulp-slack-N',
+  '/viz-imp34807-collapse-ladder-channel-sigma-comparison',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

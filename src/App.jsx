@@ -518,6 +518,9 @@ const Imp34780SigmaKneeResidualDecompositionViz = lazy(() =>
 const Imp34781CollapseLadderMeanZeroEnsembleViz = lazy(() =>
   import('./pages/Imp34781CollapseLadderMeanZeroEnsembleViz.jsx')
 );
+const Imp34807CollapseLadderChannelSigmaComparisonViz = lazy(() =>
+  import('./pages/Imp34807CollapseLadderChannelSigmaComparisonViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1623,6 +1626,10 @@ function AppShell() {
           <Route
             path="/viz-imp34781-collapse-ladder-mean-zero-ensemble"
             element={<Imp34781CollapseLadderMeanZeroEnsembleViz />}
+          />
+          <Route
+            path="/viz-imp34807-collapse-ladder-channel-sigma-comparison"
+            element={<Imp34807CollapseLadderChannelSigmaComparisonViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

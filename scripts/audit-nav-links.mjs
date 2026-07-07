@@ -468,6 +468,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34914-eflow-knee-inflection-crossing',
   '/viz-imp34915-krawczyk-worstcase-headroom-band',
   '/viz-imp34916-domb-sykes-radius-extrapolation',
+  '/viz-imp34934-eflow-ramp-position-sweep',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

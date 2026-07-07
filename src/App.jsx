@@ -596,6 +596,9 @@ const Imp34915KrawczykWorstcaseHeadroomBandViz = lazy(() =>
 const Imp34916DombSykesRadiusExtrapolationViz = lazy(() =>
   import('./pages/Imp34916DombSykesRadiusExtrapolationViz.jsx')
 );
+const Imp34934EflowRampPositionSweepViz = lazy(() =>
+  import('./pages/Imp34934EflowRampPositionSweepViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1805,6 +1808,10 @@ function AppShell() {
           <Route
             path="/viz-imp34916-domb-sykes-radius-extrapolation"
             element={<Imp34916DombSykesRadiusExtrapolationViz />}
+          />
+          <Route
+            path="/viz-imp34934-eflow-ramp-position-sweep"
+            element={<Imp34934EflowRampPositionSweepViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -6608,6 +6608,11 @@ const DATA_MODULES = [
   // physical term. The pointwise F vs -g_thirdDeriv/(1-S) match is ~1e-5 at h=1e-2 and scales as
   // clean O(h^2) (ratio ~4 per halving), confirming the exact algebra. Derivation only, no bound change.
   '/src/data/imp-34796-sigma-knee-gap-exact-zero-identity.js',
+  // imp-34797 (orphan-wired by imp-34833): restores the FOURTH order delta_4 of the imp-34694/imp-34756/
+  // imp-34770 slowly-varying-v expansion of the logistic exponent-knee condition; delta_4 ~ +7e-10, two
+  // orders below delta_3, confirming the ratio ladder stays sub-unity while the SC-to-exactF residual
+  // remains FD-floor-dominated (non-monotone). Measurement only, no bound change.
+  '/src/data/imp-34797-sigma-knee-fourth-order-v-expansion.js',
   // imp-34821: restores the FIFTH order delta_5 = -3(v_prime/v^2)delta_4 - 4 delta_1 delta_4 - 4 delta_2 delta_3
   // of the imp-34797/imp-34770 slowly-varying-v expansion of the logistic exponent-knee condition. delta_5 ~
   // +3.80e-12 at the crossover (~two orders below delta_4), the ratio ladder {1.47e-3, 9.82e-3, 8.13e-3,
@@ -6667,6 +6672,11 @@ const DATA_MODULES = [
   // the inflection shifts UP, the two landmarks CROSS: the imp-34820 +1.27e-2 dex knee-above-inflection gap
   // flips to -3.61e-3 dex once E_flow is carried. Measurement only, no bound change, GUE conditional intact.
   '/src/data/imp-34837-sigmoid-inflection-d2-eflow-reinstatement.js',
+  // imp-34800 (orphan-wired by imp-34833): tabulates three INDEPENDENT N_cross ~ 3.28e9 landmark placements
+  // side-by-side -- the imp-33723 Banach closed form, the imp-34774 Krawczyk enclosure, and the imp-33721
+  // sigmoid-inflection relocation -- attributing each pairwise gap to its source (enclosure width vs
+  // landmark-definition curvature vs E_flow). Cross-validation only, no bound change.
+  '/src/data/imp-34800-ncross-three-way-crossvalidation-banach-krawczyk-inflection.js',
   // imp-34824: cross-checks the imp-34800 +2.95% sigmoid-inflection-vs-crossover residual (R3 vs R1/R2)
   // against the imp-34734 C_mb elasticity, never done before. Inserting C_mb on E_coll (as imp-34734 does)
   // and recomputing BOTH the imp-33723/imp-34800 crossover (N = C_mb^2 K log T0) and the imp-33721 sub-decade

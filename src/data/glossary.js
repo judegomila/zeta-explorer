@@ -14370,6 +14370,47 @@ export const glossary = [
       'imp-34714a the still-OPEN sub-gap for a full machine-checked directed-rounding certificate (imp-34714a)',
     ],
   },
+  {
+    term: 'op-DAG depth vs Newton step (two axes for the same forward-breach doubling law)',
+    category: 'numerical',
+    definition:
+      'A headword distinguishing two apparently contradictory forward-breach counts -- imp-34884 reported a ' +
+      'breach at op-DAG DEPTH d*=8 while imp-34889 reported a breach at Newton STEP 5 -- which imp-34909 shows ' +
+      'are NOT contradictory but the same doubling law read on two different axes against two different ' +
+      'reference widths.\n\n' +
+      'imp-34884 unrolled each Newton step of the forward interval-Newton recurrence into OPS_PER_STEP=8 ' +
+      'elementary ops (a=[T]/2pi, u=log(a), u-1, a*(u-1), f=a(u-1)-N, fp=u/2pi, dT=f/fp, [T]=[T]-dT). Op-depth ' +
+      'and Newton step are therefore the SAME axis rescaled: op-depth d corresponds to Newton step s=d/8. On ' +
+      'that ladder d*=8 op is Newton step 1 (the first [T]-dT subtraction), and step 5 is op-depth 40 (the ' +
+      'fifth subtraction) -- so comparing the integers 8 and 5 directly mixed an op-depth with a Newton step.\n\n' +
+      'The forward width-inflation is identical in both measurements: the iterate doubles per Newton step, ' +
+      'forward_ratio(n)=2^n. The two breach points differ only in the REFERENCE WIDTH each is measured ' +
+      'against. imp-34884 measures against the forward route own seed bracket half-width delta*T0 (T-space): ' +
+      'the breach ratio is R_seed=1 (the iterate first exceeds the width it started from), giving breach step ' +
+      'n=1, i.e. op-depth 8. imp-34889 measures against the (H2) margin delta*N reached through the linear ' +
+      'image map toImageHalfWidth(w)=K(w/2)/T0/FP_LO: the seed image half-width K*delta/FP_LO is T0-independent ' +
+      '(T0 cancels), so the breach ratio is R_margin=N*FP_LO/K ~19.91, giving breach step n=5, i.e. op-depth 40.\n\n' +
+      'A single unified breach-step law nStar(R)=floor(log2(R))+1 (the smallest integer n with 2^n>R) ' +
+      'reproduces BOTH published breach points: nStar(1)=1 gives op-depth 8 (imp-34884 d*), and ' +
+      'nStar(19.91)=5 gives op-depth 40 (imp-34889 step 5). The two breach steps differ by exactly 4, matching ' +
+      'log2(R_margin/R_seed) ~4.3154 doublings between the seed-bracket threshold and the (H2)-margin threshold.\n\n' +
+      'HOW TO APPLY: when a surrogate reports two breach counts on what look like the same forward-propagation ' +
+      'phenomenon, check whether they share an op-DAG (op-depth vs coarser-grained step) and whether they are ' +
+      'measured against the SAME reference width before concluding disagreement -- an axis mismatch or a ' +
+      'reference-width mismatch can produce different integers from one underlying doubling law.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34909 reconciliation verbatim, not a new bound; ' +
+      'reconciliation/measurement only on the inherited imp-3220/imp-3406 surrogate crossover map; does NOT ' +
+      'instantiate the imp-34687a directed-rounding layer; imp-34714a REMAINS OPEN; no operator positivity; ' +
+      'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34942 (glossary headword distinguishing op-DAG depth from Newton step as two breach axes reconciled by imp-34909), 2026',
+    relatedTerms: [
+      'imp-34884 op-DAG DEPTH forward breach at d*=8, the first [T]-dT subtraction (imp-34884)',
+      'imp-34889 Newton STEP 5 (H2)-margin forward breach, band-wide (imp-34889)',
+      'imp-34909 reconciles both breach points on a shared 8-ops-per-step ladder via nStar(R)=floor(log2 R)+1 (imp-34909)',
+      'imp-34901 closed-form breach step n_star=ceil(log2(N*FP_LO/K)) for the (H2)-margin breach (imp-34901)',
+      'imp-34714a the still-OPEN sub-gap for a full machine-checked directed-rounding certificate (imp-34714a)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

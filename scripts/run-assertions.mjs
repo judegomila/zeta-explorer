@@ -6794,6 +6794,20 @@ const DATA_MODULES = [
   // FD d3(ln sigma)=0 knee to ~6e-8 (FD floor removed) -- the imp-34796 F = -g_thirdDeriv/(1-S) identity in closed
   // form. Exact algebra: pointwise ~1.2e-5 at h=1e-2, clean O(h^2) (mean halving ratio ~4.01). Derivation only, no bound change.
   '/src/data/imp-34846-sigma-knee-third-order-closed-form-locator.js',
+  // imp-34788: wires three orphaned self-executing *_ASSERTIONS modules from the imp-34751/
+  // imp-34754/imp-34757 cluster back into the sweep (audit found only the three cluster
+  // ANCHORS wired; the extension modules below were never added).
+  // imp-34753: third (8th-order) q3 stencil cross-check of the imp-34728 far-tail trust-
+  // boundary law -- splits the residual into a stencil-order-INVARIANT exponent shortfall
+  // (real finite-p property) vs an order-CONVERGENT q3*p^3 constant (discretization error).
+  '/src/data/imp-34753-q3-far-tail-third-stencil-convergence.js',
+  // imp-34755: tabulates the imp-34733 closed-form-vs-Picard two-route residual for
+  // N_cross across a seed range (1e2..1e12, 1e50, 1e300) -- confirms bit-identical
+  // agreement is seed-uniform, not a crossover-point coincidence.
+  '/src/data/imp-34755-two-route-residual-across-N.js',
+  // imp-34756: restores the second order of the slowly-varying-v expansion of the sigma-
+  // knee condition and tests whether it closes the ~8e-5 dex imp-34710 residual balance.
+  '/src/data/imp-34756-sigma-knee-second-order-v-expansion.js',
 ];
 
 let ALL_MODULES = FAST_MODE

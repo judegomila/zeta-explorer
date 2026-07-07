@@ -6726,6 +6726,14 @@ const DATA_MODULES = [
   // delta*/floor = 1 + 1/(4 k) ~ 1.0625 at k=4 -- surrogate sits ~6% ABOVE the floor (the endpoint-quantization
   // additive), ratio -> 1 as k grows. No exploitable head-room; imp-34714a REMAINS OPEN. No bound change.
   '/src/data/imp-34818-krawczyk-deltastar-vs-directed-rounding-floor.js',
+  // imp-34843: CROSS-CHECKS the imp-34817 contraction-validity op ceiling n_op* ~ 2.20e15 against the
+  // imp-34818 delta*-vs-directed-rounding-floor budget via the shared n_op = 2 FP_LO k bridge. Converting
+  // n_op* to the imp-34818 outward-ULP budget k_at_star = n_op* / (2 FP_LO) ~ 1.15e15, the imp-34817 FULL
+  // image spans ~100% of N_cross while the imp-34818 LINEAR floor 2k eps N_cross gives ~51%, the ratio
+  // being EXACTLY 1/(1 - n_op* eps) = 1 + G ~ 1.9546 -- the full-vs-linearized gamma gap (models coincide
+  // to full precision at the few-ULP budget), a KNOWN linearization artifact NOT an inconsistency. Both
+  // contraction ceilings sit ~2558x-5001x above the binding (H2)-margin ceiling; imp-34714a REMAINS OPEN.
+  '/src/data/imp-34843-krawczyk-n-op-star-vs-deltastar-floor-crosscheck.js',
   // imp-34840: SCOPES the feasibility of a minimal directed-rounding evaluation of the endpoints [g](m) and
   // [F_prime]. Reads the ACTUAL effectiveHeightForN Newton loop as an operation DAG: ~9 ops/step, ~4 steps
   // to converge at N_cross, so n_op ~ 49 for both endpoints with sequential depth ~30. This concrete count

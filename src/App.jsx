@@ -692,6 +692,9 @@ const Imp35079CombinedInflectionOffsetLadderViz = lazy(() =>
 const Imp35080LogLogCrossingStrengthPowerLawViz = lazy(() =>
   import('./pages/Imp35080LogLogCrossingStrengthPowerLawViz.jsx')
 );
+const Imp35081SurplusConversionResidualWaterfallViz = lazy(() =>
+  import('./pages/Imp35081SurplusConversionResidualWaterfallViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2029,6 +2032,10 @@ function AppShell() {
           <Route
             path="/viz-imp35080-loglog-crossing-strength-power-law"
             element={<Imp35080LogLogCrossingStrengthPowerLawViz />}
+          />
+          <Route
+            path="/viz-imp35081-surplus-conversion-residual-waterfall"
+            element={<Imp35081SurplusConversionResidualWaterfallViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

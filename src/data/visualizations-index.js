@@ -551,6 +551,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive log-log power-law check on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35081-surplus-conversion-residual-waterfall',
+      title: 'Surplus-to-Gap Conversion Residual Decomposition',
+      oneLine:
+        'Bar-charts how the imp-34954 ~4.6% residual of the leading sigma-to-N conversion (8*surplus, 2r, 1-(1+r)^-2, all ~4.6-4.9%) drops to ~0.34% when the ideal -1/2 power-law slope is replaced by the measured E_coll log-slope at N_cross.',
+      mathBucket: 'bound',
+      dataModule: null,
+      paperSourcePath:
+        'src/data/imp-34954-surplus-closed-form-vs-landmark-gap-crosscheck.js (imp-35081 viz page)',
+      ticket: 'imp-35081',
+      pedagogicalStep: 35,
+      honestCeiling:
+        'Descriptive residual-decomposition bar chart on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

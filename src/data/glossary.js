@@ -14037,6 +14037,39 @@ export const glossary = [
       'imp-34693 the Picard terminal-value seed band and iterate counts the measured route draws from (imp-34693)',
     ],
   },
+  {
+    term: 'imp-34846 Sigma-Knee vs Sigma-Third-Derivative Order/Object Mismatch',
+    category: 'numerical',
+    definition:
+      'A headword distinguishing two DIFFERENT closed forms that both come out of third-order logistic ' +
+      'differentiation of the same no-E_flow sigmoid model sigma(x) = 1/(1 + exp(-u(x))), and only ONE of ' +
+      'which locates the sigma-KNEE:\n\n' +
+      'g_thirdDeriv = (1-S)[u_thirdDeriv - 3S u_prime u_secondDeriv + S(2S-1) u_prime^3], where g = ln(sigma) ' +
+      'and S = sigma(x). Since 1-S > 0, g_thirdDeriv = 0 IFF the bracket vanishes -- a CLOSED-FORM sigma-KNEE ' +
+      'locator (the imp-34796 identity F = -g_thirdDeriv/(1-S) rendered explicitly). Its root lands on the ' +
+      'finite-difference g_thirdDeriv = 0 knee (log10 N* ~ 9.53638) to ~6e-8, removing the imp-34796 FD floor.\n\n' +
+      'sigma_thirdDeriv = S(1-S)[(1-6S+6S^2) u_prime^3 + 3(1-2S) u_prime u_secondDeriv + u_thirdDeriv], the ' +
+      'third derivative of sigma ITSELF. Its root is a DISTINCT landmark, sitting ~1.21 dex BELOW the knee ' +
+      '(log10 N* ~ 8.327, sigma ~ 0.786) -- the same order/object mismatch the sibling imp-34820 D2 identity ' +
+      'hit one order down.\n\n' +
+      'HOW TO APPLY: the sigma-knee is a property of g = ln sigma (the third derivative of the LOG of the ' +
+      'sigmoid), not of sigma itself; citing sigma_thirdDeriv = 0 as the knee condition locates the wrong ' +
+      'landmark, ~1.21 dex too low. Always route the closed-form knee search through g_thirdDeriv, matching ' +
+      'how the imp-34820 D2 inflection closed form routes through g_secondDeriv rather than sigma_secondDeriv.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34846 measurement verbatim, not a new bound; the ' +
+      'closed form is on the no-E_flow surrogate (the E_flow-reinstatement sub-gap imp-34796/imp-34820/imp-34837 ' +
+      'left open stays open here too); component model inherited imp-3220/imp-3406; C_mb GUE-conditional per ' +
+      'imp-486 UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34980 (glossary headword for the imp-34846 sigma-knee vs sigma-third-derivative distinction), 2026',
+    relatedTerms: [
+      'imp-34846 derived both closed forms and measured the ~1.21 dex separation between the two landmarks (imp-34846)',
+      'imp-34796 the F = -g_thirdDeriv/(1-S) exact-zero identity this renders in closed form (imp-34796)',
+      'imp-34820 the sibling second-order D2 closed-form locator this mirrors one order up (imp-34820)',
+      'imp-34837 measured the E_flow-reinstatement shift for the D2 pair, the open sub-gap this D3 closed form inherits (imp-34837)',
+      'imp-34710 the sigma-KNEE decomposition this third-order identity locates (imp-34710)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

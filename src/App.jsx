@@ -503,6 +503,9 @@ const Imp34767FarTailTwoStencilCrossvalidationViz = lazy(() =>
 const Imp34779CrossoverGppCurvatureGuardViz = lazy(() =>
   import('./pages/Imp34779CrossoverGppCurvatureGuardViz.jsx')
 );
+const Imp34780SigmaKneeResidualDecompositionViz = lazy(() =>
+  import('./pages/Imp34780SigmaKneeResidualDecompositionViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1588,6 +1591,10 @@ function AppShell() {
           <Route
             path="/viz-imp34779-crossover-gpp-curvature-guard"
             element={<Imp34779CrossoverGppCurvatureGuardViz />}
+          />
+          <Route
+            path="/viz-imp34780-sigma-knee-residual-decomposition"
+            element={<Imp34780SigmaKneeResidualDecompositionViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

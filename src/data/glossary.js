@@ -14070,6 +14070,41 @@ export const glossary = [
       'imp-34710 the sigma-KNEE decomposition this third-order identity locates (imp-34710)',
     ],
   },
+  {
+    term: 'imp-34842 Alternating Definite-Sign Derivative Ladder of the Crossover Map',
+    category: 'numerical',
+    definition:
+      'A headword for why the successive derivatives of the inherited imp-33723 crossover map ' +
+      'g(N) = K log T0(N) alternate sign on the ENTIRE post-peak ramp, not just on the sampled bands ' +
+      'where each order was checked:\n\n' +
+      'g_double_prime = -4 pi^2 K (u+1)/(T^2 u^3), g_triple_prime = +8 pi^3 K (2u^2+4u+3)/(T^3 u^5), ' +
+      'g_quadruple_prime = -16 pi^4 K (6u^3+18u^2+25u+15)/(T^4 u^7), ' +
+      'g_fifth_deriv = +32 pi^5 K (24u^4+96u^3+190u^2+210u+105)/(T^5 u^9) (T = T0(N), u = log(T/2pi)). ' +
+      'The leading factor is (-1)^n 2^n pi^n K -- alternating and doubling, -4, +8, -16, +32 -- and every ' +
+      'numerator polynomial (u+1, 2u^2+4u+3, 6u^3+18u^2+25u+15, 24u^4+96u^3+190u^2+210u+105) is strictly ' +
+      'POSITIVE for u > 0. Since T^n u^(2n-1) > 0 on the whole ramp, the sign of each derivative is fixed ' +
+      'entirely by the leading (-1)^n factor: the ladder is a DEFINITE alternation, not a band-specific ' +
+      'coincidence that a denser probe grid could break.\n\n' +
+      'HOW TO APPLY: when a sub-gap asks whether an alternating derivative-sign pattern measured on one ' +
+      'band (e.g. imp-34822s fourth band [1e12,1e13]) persists into a deeper or shallower band, check the ' +
+      'numerator polynomial for a sign change in u rather than re-running the probe sweep from scratch -- ' +
+      'if the polynomial has no positive root the ladder cannot break anywhere on the ramp, exactly the ' +
+      'reasoning imp-34842 (fifth order) and its imp-34859 sixth-order extension both used to close their ' +
+      'bands without finding an interior sign change.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34842 measurement verbatim, not a new bound; ' +
+      'the closed forms are on the INHERITED imp-3220/imp-3406 surrogate crossover map; the C_mb ' +
+      'GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; changes no ' +
+      'bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34869 (glossary headword for the imp-34842 alternating definite-sign derivative ladder), 2026',
+    relatedTerms: [
+      'imp-34842 derived g_fifth_deriv in closed form and measured the ladder persisting to fifth order with no interior sign change (imp-34842)',
+      'imp-34859 extended the same ladder to a strictly negative sixth derivative on the same band (imp-34859)',
+      'imp-34822 the fourth-band g_quadruple_prime<0 convexity result the ladder underpins (imp-34822)',
+      'imp-34793 the g_quadruple_prime closed form and its [1e9,1e12] convexity proof (imp-34793)',
+      'imp-34768 the g_triple_prime closed form and global monotone-decrease envelope (imp-34768)',
+      'imp-33723 the closed-form crossover map g(N)=K log T0(N) this derivative ladder is built on (imp-33723)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

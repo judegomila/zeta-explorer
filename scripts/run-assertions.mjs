@@ -6578,6 +6578,14 @@ const DATA_MODULES = [
   // NEGATIVE on [1e9,1e12], so d2/dN2 |dg_kk/dt| = -g_quadruple_prime > 0 and |g_double_prime|
   // is strictly CONVEX across the post-peak union. Measurement/derivation only, no bound change.
   '/src/data/imp-34793-crossover-gpppp-convexity.js',
+  // imp-34822: assesses whether the imp-34793 strict convexity of |g_double_prime| (proved on
+  // [1e9,1e12] via the strictly NEGATIVE closed-form g_quadruple_prime) persists into the far-tail
+  // band [1e12,1e13] imp-34792 appended to the second-derivative curvature-envelope collapse. Reusing
+  // the imp-34793 closed form verbatim, g_quadruple_prime = -16 pi^4 K (6u^3+18u^2+25u+15)/(T^4 u^7)
+  // stays strictly NEGATIVE on [1e12,1e13] (u ~ 27..29), matches a 5-point fourth-difference of g to
+  // < 1e-3 relative, so -g_quadruple_prime > 0 and |g_double_prime| is strictly CONVEX one decade
+  // deeper; the value at the shared boundary N=1e12 matches the imp-34793 frozen literal. No bound change.
+  '/src/data/imp-34822-crossover-gpppp-convexity-fourth-band.js',
   // imp-34796: settles imp-34769s deferred "does the ~4.5e-8 dex optimal-step sigma-knee gap
   // extrapolate to exactly 0 or leave a residual physical term" question ANALYTICALLY -- derives
   // the exact identity F(x) = -g_thirdDeriv(x)/(1-S(x)) between the u-route F-condition and the
@@ -6586,6 +6594,22 @@ const DATA_MODULES = [
   // physical term. The pointwise F vs -g_thirdDeriv/(1-S) match is ~1e-5 at h=1e-2 and scales as
   // clean O(h^2) (ratio ~4 per halving), confirming the exact algebra. Derivation only, no bound change.
   '/src/data/imp-34796-sigma-knee-gap-exact-zero-identity.js',
+  // imp-34821: restores the FIFTH order delta_5 = -3(v_prime/v^2)delta_4 - 4 delta_1 delta_4 - 4 delta_2 delta_3
+  // of the imp-34797/imp-34770 slowly-varying-v expansion of the logistic exponent-knee condition. delta_5 ~
+  // +3.80e-12 at the crossover (~two orders below delta_4), the ratio ladder {1.47e-3, 9.82e-3, 8.13e-3,
+  // 5.73e-3} stays sub-unity and DECREASING (no divergence turn-up within five orders -> series looks
+  // convergent, not asymptotic/divergent). The non-monotone match pattern CONTINUES as a flat FD-floor plateau:
+  // the SC-to-exactF residual ladder {-1.1e-5, +4.86e-5, +4.86e-5, +4.86e-5} sign-flips then goes flat, so the
+  // min-|residual| truncation order is 2 (a fortuitous sign cancellation, not convergence). Measurement only, no bound change.
+  '/src/data/imp-34821-sigma-knee-fifth-order-v-expansion.js',
+  // imp-34820: assesses whether the imp-34796 third-order identity F = -g_thirdDeriv/(1-S) can locate the
+  // imp-34746/imp-33721 convex-to-concave sigmoid inflection (sigma_secondDeriv=0). Verdict: NO for that
+  // identity -- its g_thirdDeriv=0 root is the DISTINCT sigma-KNEE (log10 N ~ 9.5364), ~0.0127 dex above the
+  // inflection (log10 N ~ 9.5236). But the SIBLING second-order identity sigma_secondDeriv = S(1-S)[(1-2S)
+  // u_prime^2 + u_secondDeriv] gives the closed-form D2 locator sigma_infl = 1/2 + u_secondDeriv/(2 u_prime^2),
+  // which lands ON the finite-difference inflection to ~3e-8 (FD floor removed) and recovers imp-33744. The D2
+  // identity is exact algebra: pointwise match ~3.6e-6 at h=1e-2, clean O(h^2) (ratio ~4). Derivation only, no bound change.
+  '/src/data/imp-34820-sigmoid-inflection-d2-closed-form-locator.js',
   // imp-34794: DUAL of the imp-34774 fixed-delta Krawczyk enclosure of N_cross -- fixes the few-ULP
   // outward-rounding budget K_FEW_ULP = 4 and drives the bracket half-width delta -> 0 to LOCATE the
   // tightest double-precision certified bracket. delta_min(k=4) ~ 1.887e-15 ~ 8.5 eps = (2 k + ~0.5) eps
@@ -6647,6 +6671,12 @@ const DATA_MODULES = [
   // Shows this contraction-validity ceiling is ~2558x LOOSER than the imp-34799 (H2)-margin ceiling
   // n_op^max ~ 8.60e11, nesting as 1/((1+G) delta), so the operative op budget is the (H2) margin. No bound change.
   '/src/data/imp-34817-krawczyk-op-budget-contraction-gap.js',
+  // imp-34818: COMPARES the imp-34794 tightest surrogate certified half-width delta* against the imp-34799
+  // a-priori directed-rounding floor at the fixed few-ULP budget. Via the imp-34799 n_op^max/k* = 2 FP_LO
+  // bridge, the directed-rounding floor at budget k is exactly 2 k eps N_cross (FP_LO cancels), so the ratio
+  // delta*/floor = 1 + 1/(4 k) ~ 1.0625 at k=4 -- surrogate sits ~6% ABOVE the floor (the endpoint-quantization
+  // additive), ratio -> 1 as k grows. No exploitable head-room; imp-34714a REMAINS OPEN. No bound change.
+  '/src/data/imp-34818-krawczyk-deltastar-vs-directed-rounding-floor.js',
   // imp-34813: quantized-winding deep-dive CORRECTION. The imp-2673/2696 Gaussian proxy
   // computed the EXACT de Bruijn flow at NEGATIVE time (conv identity ~1e-9) -- the large-tau
   // winding drop was genuine zeros-leaving-the-line dynamics, not a smoothing artifact

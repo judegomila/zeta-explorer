@@ -6600,6 +6600,13 @@ const DATA_MODULES = [
   // < 1e-3 relative, so -g_quadruple_prime > 0 and |g_double_prime| is strictly CONVEX one decade
   // deeper; the value at the shared boundary N=1e12 matches the imp-34793 frozen literal. No bound change.
   '/src/data/imp-34822-crossover-gpppp-convexity-fourth-band.js',
+  // imp-34842: extends the imp-34793/imp-34822 closed-form chain one order over the fourth band
+  // [1e12,1e13], deriving g_fifth_deriv(N) = 32 pi^5 K (24u^4+96u^3+190u^2+210u+105)/(T^5 u^9) on the
+  // identical footing. Cross-checks against a 7-point fifth-difference of g to < 1e-3 relative, and
+  // asserts g_fifth_deriv is strictly POSITIVE across the whole band (no interior sign change), so the
+  // alternating -, +, -, + sign ladder g_double_prime/g_triple_prime/g_quadruple_prime/g_fifth_deriv
+  // PERSISTS to fifth order. Measurement/derivation only, no bound change.
+  '/src/data/imp-34842-crossover-gpppp5-fifth-deriv-fourth-band.js',
   // imp-34796: settles imp-34769s deferred "does the ~4.5e-8 dex optimal-step sigma-knee gap
   // extrapolate to exactly 0 or leave a residual physical term" question ANALYTICALLY -- derives
   // the exact identity F(x) = -g_thirdDeriv(x)/(1-S(x)) between the u-route F-condition and the

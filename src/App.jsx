@@ -674,6 +674,9 @@ const Imp35001PlusOneImpossibilityMarginBandViz = lazy(() =>
 const Imp35018FourLandmarkClusterLogNViz = lazy(() =>
   import('./pages/Imp35018FourLandmarkClusterLogNViz.jsx')
 );
+const Imp35030FarTailInflectionOffsetLadderViz = lazy(() =>
+  import('./pages/Imp35030FarTailInflectionOffsetLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1987,6 +1990,10 @@ function AppShell() {
           <Route
             path="/viz-imp35018-four-landmark-cluster-log-n"
             element={<Imp35018FourLandmarkClusterLogNViz />}
+          />
+          <Route
+            path="/viz-imp35030-far-tail-inflection-offset-ladder"
+            element={<Imp35030FarTailInflectionOffsetLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

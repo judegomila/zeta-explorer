@@ -7324,6 +7324,11 @@ const DATA_MODULES = [
   // P_11 and P_12, verifying the boundary-projection recurrences hold at the two new orders.
   // Measurement/derivation only, no bound change.
   '/src/data/imp-34957-crossover-deriv-p11-p12-extension.js',
+  // imp-34975: EXTENDS the imp-34957 crossover-map numerator-polynomial ladder from P_11/P_12 to
+  // P_13 and P_14 in EXACT BigInt, and LOCATES the 2^53 exact-integer ceiling imp-34957 flagged but
+  // never determined: the largest coefficient first exceeds 2^53 at n=16 (exact through n=15).
+  // Verification/derivation only, no bound change.
+  '/src/data/imp-34975-crossover-deriv-p13-p14-2p53-ceiling.js',
   // imp-34974: DERIVES the two boundary-projection recurrences (k=0 -> a_0^(n+1)=(2n-1)a_0^(n),
   // k=n -> a_n^(n+1)=n a_{n-1}^(n)) as standalone projections of the interior recurrence, and adds
   // two interior closed forms (subleading (n-1)(n-1)!, row-sum n^(n-1)) plus a two-sided interior

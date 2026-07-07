@@ -490,6 +490,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34985-pinned-product-window-sensitivity',
   '/viz-imp34986-crossover-numerator-polynomial-ladder',
   '/viz-imp34998-conjugate-pair-singularity-angle-cross-check',
+  '/viz-imp34999-krawczyk-margin-infimum-band-endpoint',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

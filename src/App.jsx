@@ -662,6 +662,9 @@ const Imp34986CrossoverNumeratorPolynomialLadderViz = lazy(() =>
 const Imp34998ConjugatePairSingularityAngleCrossCheckViz = lazy(() =>
   import('./pages/Imp34998ConjugatePairSingularityAngleCrossCheckViz.jsx')
 );
+const Imp34999KrawczykMarginInfimumBandEndpointViz = lazy(() =>
+  import('./pages/Imp34999KrawczykMarginInfimumBandEndpointViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1959,6 +1962,10 @@ function AppShell() {
           <Route
             path="/viz-imp34998-conjugate-pair-singularity-angle-cross-check"
             element={<Imp34998ConjugatePairSingularityAngleCrossCheckViz />}
+          />
+          <Route
+            path="/viz-imp34999-krawczyk-margin-infimum-band-endpoint"
+            element={<Imp34999KrawczykMarginInfimumBandEndpointViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

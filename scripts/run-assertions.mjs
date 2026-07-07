@@ -7033,6 +7033,13 @@ const DATA_MODULES = [
   // widest band). Forward/contraction ratio stays ~2.56e12-2.92e12. So the imp-34865 N_cross conclusion is
   // representative of the whole band. imp-34714a stays open.
   '/src/data/imp-34889-forward-breach-band-uniformity.js',
+  // imp-34909: RECONCILES the imp-34884 op-DAG DEPTH breach (d*=8) with the imp-34889 Newton STEP 5 (H2)-margin
+  // breach on a shared 8-ops-per-step ladder. d*=8 op == Newton step 1 (forward exceeds its OWN seed bracket
+  // half-width, ratio 1); step 5 == op-depth 40 (forward image exceeds the (H2) margin, ratio N*FP_LO/K ~19.91
+  // through the linear image map). Both are the SAME factor-2/step doubling read against two reference widths;
+  // one law nStar(R)=floor(log2 R)+1 reproduces both (nStar(1)=1, nStar(19.91)=5), differing by the ~4.32
+  // log2 threshold gap. Consistent, not contradictory. imp-34714a stays open.
+  '/src/data/imp-34909-op-depth-newton-step-reconciliation.js',
   // imp-34812: caveat-surfacing audit of the imp-34774/imp-34776 Krawczyk and
   // imp-34769/imp-34770 sigma-knee and imp-34772 dp-star viz cluster (extends
   // the imp-34725 lineage); the true viz-page cohort is only imp-34774/34776/

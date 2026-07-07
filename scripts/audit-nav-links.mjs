@@ -432,6 +432,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34747-second-footing-collapse-ladder',
   '/viz-imp34758-dp-star-probe-band-ratio',
   '/viz-imp34759-crossover-gpp-ceiling',
+  '/viz-imp34761-three-footing-collapse-ladder',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

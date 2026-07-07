@@ -647,6 +647,9 @@ const Imp34978DoubleDoubleLogUlpBandWideViz = lazy(() =>
 const Imp34980RMarginDyadicWallSweepViz = lazy(() =>
   import('./pages/Imp34980RMarginDyadicWallSweepViz.jsx')
 );
+const Imp34981LandmarkGapReconstructionLadderViz = lazy(() =>
+  import('./pages/Imp34981LandmarkGapReconstructionLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1924,6 +1927,10 @@ function AppShell() {
           <Route
             path="/viz-imp34980-r-margin-dyadic-wall-sweep"
             element={<Imp34980RMarginDyadicWallSweepViz />}
+          />
+          <Route
+            path="/viz-imp34981-landmark-gap-reconstruction-ladder"
+            element={<Imp34981LandmarkGapReconstructionLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

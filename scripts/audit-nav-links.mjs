@@ -485,6 +485,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34965-iters-to-floor-ceil-boundary-geometry',
   '/viz-imp34978-double-double-log-ulp-band-wide',
   '/viz-imp34980-r-margin-dyadic-wall-sweep',
+  '/viz-imp34981-landmark-gap-reconstruction-ladder',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

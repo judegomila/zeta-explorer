@@ -548,6 +548,9 @@ const Imp34852CmbSweepSignFlipLadderViz = lazy(() =>
 const Imp34853FifthOrderVExpansionTermLadderViz = lazy(() =>
   import('./pages/Imp34853FifthOrderVExpansionTermLadderViz.jsx')
 );
+const Imp34854D2LocatorConvergenceViz = lazy(() =>
+  import('./pages/Imp34854D2LocatorConvergenceViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1693,6 +1696,10 @@ function AppShell() {
           <Route
             path="/viz-imp34853-fifth-order-v-expansion-term-ladder"
             element={<Imp34853FifthOrderVExpansionTermLadderViz />}
+          />
+          <Route
+            path="/viz-imp34854-d2-locator-convergence"
+            element={<Imp34854D2LocatorConvergenceViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

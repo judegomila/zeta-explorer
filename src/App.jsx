@@ -620,6 +620,9 @@ const Imp34940OpDepthNewtonStepReconciliationViz = lazy(() =>
 const Imp34958InflectionOffsetRunningVsFixedLadderViz = lazy(() =>
   import('./pages/Imp34958InflectionOffsetRunningVsFixedLadderViz.jsx')
 );
+const Imp34959SignPatternNevilleDivergenceViz = lazy(() =>
+  import('./pages/Imp34959SignPatternNevilleDivergenceViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1861,6 +1864,10 @@ function AppShell() {
           <Route
             path="/viz-imp34958-inflection-offset-running-vs-fixed-ladder"
             element={<Imp34958InflectionOffsetRunningVsFixedLadderViz />}
+          />
+          <Route
+            path="/viz-imp34959-sign-pattern-neville-divergence"
+            element={<Imp34959SignPatternNevilleDivergenceViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

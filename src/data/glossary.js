@@ -14411,6 +14411,46 @@ export const glossary = [
       'imp-34714a the still-OPEN sub-gap for a full machine-checked directed-rounding certificate (imp-34714a)',
     ],
   },
+  {
+    term: 'imp-34904 landmark-cluster gap taxonomy (three causes, not one, for a ~3.3e9 cluster)',
+    category: 'numerical',
+    definition:
+      'A headword cataloguing the three qualitatively DIFFERENT causes that separate the four independent ' +
+      '~3.3e9 landmarks imp-34904 assembled into one reconciliation table, so a reader does not conflate a ' +
+      'floating-point artifact with a genuine model term, or one model term with another.\n\n' +
+      'THE THREE CAUSE FAMILIES\n' +
+      '(1) FP / ROOT-FINDING RESIDUAL (~1.7e-15, the L1-L2 gap): imp-33723 closed-form Banach fixed point ' +
+      'N_cross_closed and the imp-3444 bisection root N_cross_bisect solve the SAME E_coll = E_trunc ' +
+      'crossover condition. Their gap carries NO model term at all -- it is the floating-point/root-finding ' +
+      'noise floor of two numerical methods converging on one target.\n' +
+      '(2) GRONWALL E_flow TERM (~0.407%, the L1-L3/L2-L3 gaps): the E_coll=E_trunc crossover sits strictly ' +
+      'above the sigma(N)=1/2 halving landmark by the surplus 1/2 - sigma(N_cross) = 1/(2 + E_flow/E_trunc) ' +
+      '(imp-33601/imp-33848; the exact closed form is r/(2(2+r)) with r=E_flow/E_trunc per the imp-34923 ' +
+      'correction). This IS a genuine model term -- it vanishes only if E_flow itself vanishes.\n' +
+      '(3) DEFINITIONAL inflection-vs-crossover/halving OFFSET (~3.06%/3.48%, the L1-L4/L2-L4/L3-L4 gaps): the ' +
+      'imp-33721 sigmoid-inflection knee is a CURVATURE landmark (d2 sigma/dt2=0) while the crossover and ' +
+      'halving points are E-BALANCE landmarks -- different definitions of "the transition," not different ' +
+      'estimates of the same quantity. The gap is the imp-33744 log-factor running (a structural E_coll ' +
+      'term, sigma_infl = 1/2 - g_prime/(2 g^2)), which imp-34933 confirmed SHRINKS monotonically toward 0 as ' +
+      'N grows (>4x contraction across a seven-decade ladder), reaching 1/2 only in the pure power-law limit.\n\n' +
+      'HOW TO APPLY: before quoting a gap between two "~3.3e9" numbers as evidence of model imprecision, check ' +
+      'which cause family it belongs to. A (1)-type gap is pure numerical noise and should never be reported ' +
+      'as a physical quantity. A (2)-type gap is a genuine, N-scale-dependent model term. A (3)-type gap ' +
+      'reflects two landmarks being different DEFINITIONS of "the transition," not two measurements of one ' +
+      'thing -- it need not (and per imp-34933, does not) shrink to the same fixed constant at every scale.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34904 attribution verbatim, not a new derivation; ' +
+      'no landmark is recomputed and no bound is changed; C_mb remains GUE-conditional (imp-486); the ' +
+      'imp-3220/imp-3406 surrogate is UNTOUCHED; establishes no operator positivity; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34943 (glossary headword for the imp-34904 landmark-cluster gap taxonomy), 2026',
+    relatedTerms: [
+      'imp-34904 assembles the four ~3.3e9 landmarks and their six pairwise gaps into one reconciliation table (imp-34904)',
+      'imp-33848 Gronwall gap: halving strictly below crossover, surplus = E_flow/E_trunc term (imp-33848)',
+      'imp-34923 derives the exact surplus closed form r/(2(2+r)), correcting the imp-34904 stated identity (imp-34923)',
+      'imp-33744 the definitional inflection-vs-crossover offset as the log-factor running (imp-33744)',
+      'imp-34933 confirms the definitional offset is a RUNNING term that shrinks >4x over seven decades, not a fixed constant (imp-34933)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

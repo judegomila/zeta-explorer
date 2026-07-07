@@ -15251,6 +15251,7 @@ export const glossary = [
       "imp-33723 closed-form Banach fixed point defining N_cross (imp-33723)",
       "imp-33721 sub-decade sigmoid-knee inflection defining N_star (imp-33721)",
       "imp-34675 the unrelated, overloaded Lambert-W N_star (~1.475e8) elsewhere in the codebase (imp-34675)",
+      "imp-35018 shared log-N axis viz page plotting all four landmarks (the triple plus the imp-34693 seed band) together (imp-35018)",
     ],
   },
   {

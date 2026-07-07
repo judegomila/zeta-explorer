@@ -13356,6 +13356,45 @@ export const glossary = [
       'imp-34650 the Banach contraction certificate this Krawczyk lemma complements (imp-34650)',
     ],
   },
+  {
+    term: 'C_F-elasticity vs residual share (concept): imp-34729 sigma-knee robustness to the E_flow prefactor',
+    category: 'concept',
+    definition:
+      'A general distinction between the SIZE of a per-unit sensitivity (an elasticity) and the SIZE of ' +
+      'the perturbation actually in play, which together decide whether a named residual reflects genuine ' +
+      'parameter fragility or a large one-off change. The imp-34729 sigma-exponent-knee C_F elasticity is ' +
+      'the worked example: imp-34710 found that ~99% of the imp-34694 knee-location residual (~7.4e-3 dex, ' +
+      'between the direct root-find knee log10 N* ~ 9.52906 and the analytic no-E_flow knee ~9.53638) is the ' +
+      'DROPPED E_flow = C_F (L/T0) Gronwall term, whose prefactor is the imp-398 pinned C_F. Re-root-finding ' +
+      'the exact full-model p_secondDeriv(ln N) = 0 knee at cfScale in {0.90, 0.99, 1.00, 1.01, 1.10} gives a ' +
+      'local elasticity dX*/dC_F ~ -7.19e-3 dex per unit fractional C_F (+-10% secant) / ~-6.87e-3 (+-1% ' +
+      'secant) -- the SAME order of magnitude as the 7.4e-3 residual itself. Read in isolation, that ' +
+      'elasticity looks alarming: it suggests the knee could be as fragile to C_F as the whole residual is ' +
+      'large. But the actual C_F uncertainty in play is a realistic +-10% (0.1 of a unit fractional change), ' +
+      'not a full unit, so the elasticity translates to only ~7.2e-4 dex of knee movement -- a full order of ' +
+      'magnitude below the 7.4e-3 residual. The imp-34710 residual, by contrast, is what a -100% C_F change ' +
+      '(E_flow dropped ENTIRELY, cfScale: 1 -> 0) produces. The knee is therefore C_F-ROBUST under any ' +
+      'plausible mis-pinning even though its per-unit elasticity is not small: the residual is dominated by ' +
+      'the size of the (large, unrealistic) perturbation, not by the size of the sensitivity.\n\n' +
+      'HOW TO APPLY: before calling a parameter "fragile" or "robust" from an elasticity number alone, ' +
+      'multiply it by the REALISTIC uncertainty band on that parameter, not by a unit change or a full ' +
+      'drop-to-zero. A large per-unit elasticity paired with a small realistic perturbation is robust in ' +
+      'practice; a small elasticity paired with a large assumed perturbation can still produce the residual ' +
+      'everyone is looking at. The two numbers -- elasticity and perturbation size -- must be read together, ' +
+      'never elasticity alone.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34729 elasticity-vs-perturbation-size measurement ' +
+      'as a reusable concept; not a new derivation; adds no RH bound; the component model is the inherited ' +
+      'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is ' +
+      'UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no operator ' +
+      'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34764 (glossary headword for the imp-34729 C_F-elasticity robustness distinction), 2026',
+    relatedTerms: [
+      'imp-34710 the residual decomposition finding ~99% of the knee gap is the dropped E_flow term (imp-34710)',
+      'imp-34694 the sigma-exponent-knee closed form naming the original ~7.4e-3 dex gap (imp-34694)',
+      'imp-34729 the C_F elasticity measurement dX*/dC_F ~ -7e-3 dex per unit fractional C_F (imp-34729)',
+      'imp-398 the pinned Gronwall prefactor C_F whose sensitivity is being measured (imp-398)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

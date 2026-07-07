@@ -13640,6 +13640,44 @@ export const glossary = [
       'imp-34647 the two-pair q4 channel larger-ULP-amplitude observation imp-34778 later quantified as a ~2.6x sigma ratio (imp-34647)',
     ],
   },
+  {
+    term: 'imp-34772 dp-star artifact-vs-correction: the ~7.7% imp-34754 excess runs the crossover LATER, not earlier',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-34772 finding that the ~7.7% exact-vs-asymptote "excess" imp-34754 F3 ' +
+      'reported for the dp-star(N) smallest-usable-step model at N = 1e300 is a finite-difference ROUNDOFF ' +
+      'ARTIFACT, not a genuine sub-asymptotic model correction -- and that correcting the artifact moves the ' +
+      'finer-edge crossover LATER, not earlier.\n\n' +
+      'imp-34754 built its exact q3 (the third log-derivative of log E_coll) from a fixed dp = 0.1/0.05 ' +
+      '9-point finite-difference stencil, and found the exact dp-star ran ~7.7% ABOVE the imp-34735 closed-' +
+      'form (log N)^(4/3) asymptote by 1e300, concluding the finer-probe crossover sits EARLIER than the ' +
+      'asymptote-only log10 N ~ 374.6 landmark. imp-34772 re-derived q3 in CLOSED FORM from the RvM w-chain ' +
+      '(w = log(T/2pi) solving p = w + log(w-1); q3 needs no differencing at all) and found the two routes ' +
+      'agree to ~1e-5 relative at N <= ~1e50, but the probe-band q3*p^3 then COLLAPSES from ~1.02 to ~0.76 by ' +
+      '1e300 (deflating the |q3| denominator and inflating dp-star) while the closed-form q3*p^3 stays ~1.01 ' +
+      '-- exactly the "loses monotonicity by ~1e305" imp-34754 itself flagged as a warning sign. With the ' +
+      'artifact removed, R(N) = dp-star_exact/asymptote stays BELOW 1 across 1e100..1e300 (~0.988 -> ~0.994), ' +
+      'so the genuine correction is a NEGATIVE (log log N)/(log N) term, and solving dp-star = 0.05 with the ' +
+      'closed-form q3 gives log10 N ~ 376.2 versus the asymptote-only ~374.6 -- the finer crossover moves ' +
+      '~+1.5 decades LATER, the OPPOSITE direction to the imp-34754 F3 artifact-driven "earlier."\n\n' +
+      'HOW TO APPLY: when an exact-model ladder built from a fixed-step finite-difference stencil reports a ' +
+      'deep-tail excess or deficit relative to a closed-form asymptote, check whether the differencing itself ' +
+      'is losing digits to cancellation in that regime (as flagged here by "loses monotonicity") before ' +
+      'reading the excess as a genuine sub-asymptotic correction -- a closed-form re-derivation of the same ' +
+      'quantity, where available, can reverse both the sign and the direction of the implied crossover shift.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34772 artifact diagnosis verbatim, not a new bound; ' +
+      'the crossover N is an asymptotic extrapolation hundreds of decades past the imp-34711-validated 1e100 ' +
+      'window and certifies nothing about the true q3; C_C = (1/8)sqrt(3pi) (imp-2714) and C_mb GUE-' +
+      'conditional per imp-486 UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34806 (glossary headword recording the imp-34772 finding that the ~7.7% dp-star excess is a finite-difference roundoff artifact, not a genuine correction), 2026',
+    relatedTerms: [
+      'imp-34772 the closed-form q3 re-derivation diagnosing the ~7.7% excess as a probe-band roundoff artifact and finding the crossover moves later (imp-34772)',
+      'imp-34754 reported the ~7.7% exact-vs-asymptote excess this headword recontextualizes as an artifact (imp-34754)',
+      'imp-34735 the exact-model ratio ladder to 1e100 and closed-form crossover log10 N ~ 374.6 that imp-34754 extended into the roundoff-noisy deep tail (imp-34735)',
+      'imp-34711 the far-tail dp-star(N) ~ (log N)^(4/3) ladder validated across 1e13..1e100, the trustworthy window the crossover extrapolates past (imp-34711)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

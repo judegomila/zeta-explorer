@@ -14764,6 +14764,48 @@ export const glossary = [
       'imp-34775 the closed-form log law that would need to force the bound for the claim to be established (imp-34775)',
     ],
   },
+  {
+    term: 'imp-34949 boundary-ATTAINED margin infimum vs a machine certificate: what "confirmed the band infimum" does and does not establish',
+    category: 'numerical',
+    definition:
+      'A headword distinguishing two different senses in which the imp-34949 result "confirms 0.488 is the ' +
+      'band infimum" for the imp-34929 Krawczyk monotonicity margin -- an EXACT closed-form fact about a ' +
+      'surrogate model, versus a directed-rounding machine certificate for the underlying crossover map.\n\n' +
+      'imp-34929 measured a worst-case relative monotonicity margin ~0.488 = V/(1+V) for star_over_H2(N) ' +
+      'from a 4000-point sweep, i.e. a SAMPLED minimum. imp-34949 independently re-derived the exact margin ' +
+      'm(N) = 1 - a_prime(N)(1-a(M)) / [a_prime(M)(1-delta)(1-a(N))(2-a(N))], M = N(1-delta), showed its ' +
+      'delta -> 0 limit collapses to the one-line closed form m_0(N) = (1-a)/(2-a) = V/(1+V), proved m_0 is ' +
+      'strictly increasing in N with no interior stationary point, and confirmed via a dense 40001-point ' +
+      'sweep that the minimum sits at the band-lo boundary node (0.4878337, matching imp-34929\'s sampled ' +
+      '0.487834). Because m_0 is monotone with a closed form, "smallest at band-lo" is an ATTAINED boundary ' +
+      'value, not merely the smallest of finitely many samples -- a genuine upgrade in evidential strength ' +
+      'over imp-34929\'s sweep alone, the same kind of upgrade the imp-34650-vs-imp-33723 headword (imp-34678) ' +
+      'draws between a pointwise sample and a certificate, though here it stops short of a certificate.\n\n' +
+      'What it does NOT supply is a machine certificate that a directed-rounding evaluation of [g](m)/[F_prime] ' +
+      'yields a valid enclosure. The margin m(N), like star_over_H2(N) itself, rests on the gamma(n)/k eps ' +
+      'surrogate models of the imp-34687a layer, not the layer itself -- the same double-precision-vs-machine-' +
+      'checked-enclosure gap the imp-34714 separation-of-concerns headword names. Closing that gap is the ' +
+      'separately named sub-gap imp-34714a, which REMAINS OPEN regardless of how tight the closed-form ' +
+      'analysis of the surrogate becomes.\n\n' +
+      'HOW TO APPLY: read "imp-34949 confirmed the band infimum" as "the closed-form margin, evaluated on ' +
+      'the surrogate model, provably attains its minimum at the band-lo boundary" -- strong evidence the ' +
+      'imp-34929 sweep found the true worst case, not a lucky sample -- but keep it separate from "a machine-' +
+      'checked directed-rounding certificate exists for this margin," which is a strictly stronger claim that ' +
+      'imp-34714a has not yet delivered.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34949/imp-34929 findings verbatim, not a new ' +
+      'derivation; sub-gap imp-34714a REMAINS OPEN; the headroom rests on the gamma(n)/k eps surrogate of the ' +
+      'imp-34687a layer; the inherited imp-3220/imp-3406 surrogate crossover map is NOT rigorous; C_C = ' +
+      '(1/8)sqrt(3pi) (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; ' +
+      'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35005 (glossary headword distinguishing the imp-34949 boundary-attained infimum from a machine certificate), 2026',
+    relatedTerms: [
+      'imp-34949 independently re-derived the exact margin m(N) and confirmed its band-lo boundary infimum 0.4878337 (imp-34949)',
+      'imp-34929 measured the worst-case relative monotonicity margin ~0.488 from a 4000-point sweep (imp-34929)',
+      'imp-34714 separation of concerns: exact Krawczyk existence-uniqueness lemma vs unimplemented directed-rounding machine-certificate layer (imp-34714)',
+      'imp-34687a named sub-gap: supply an actual directed-rounding / error-bounded arithmetic layer (imp-34687a)',
+      'imp-34678 the parallel distinction between a pointwise derivative sample and a Banach certificate (imp-34678)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

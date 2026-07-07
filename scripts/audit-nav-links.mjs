@@ -477,6 +477,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34940-op-depth-newton-step-reconciliation',
   '/viz-imp34958-inflection-offset-running-vs-fixed-ladder',
   '/viz-imp34959-sign-pattern-neville-divergence',
+  '/viz-imp34960-raw-total-crossing',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

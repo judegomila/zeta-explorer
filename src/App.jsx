@@ -623,6 +623,9 @@ const Imp34958InflectionOffsetRunningVsFixedLadderViz = lazy(() =>
 const Imp34959SignPatternNevilleDivergenceViz = lazy(() =>
   import('./pages/Imp34959SignPatternNevilleDivergenceViz.jsx')
 );
+const Imp34960RawTotalCrossingViz = lazy(() =>
+  import('./pages/Imp34960RawTotalCrossingViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1868,6 +1871,10 @@ function AppShell() {
           <Route
             path="/viz-imp34959-sign-pattern-neville-divergence"
             element={<Imp34959SignPatternNevilleDivergenceViz />}
+          />
+          <Route
+            path="/viz-imp34960-raw-total-crossing"
+            element={<Imp34960RawTotalCrossingViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

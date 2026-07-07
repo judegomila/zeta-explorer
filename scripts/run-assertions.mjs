@@ -6681,6 +6681,16 @@ const DATA_MODULES = [
   // the barrier is the nine-term SEQUENCE LENGTH, not the FD precision. Open sub-gap: extend the exact recursion to more
   // orders (delta_10, delta_11, ...), now feasible since the analytic kernel removes the FD floor. Measurement only, no bound change.
   '/src/data/imp-34900-sigma-knee-analytic-derivative-domb-sykes.js',
+  // imp-34932: CLOSES the imp-34900 F3 open sub-gap -- extend the exact analytic delta recursion from 9 to 30 orders
+  // (feasible because the analytic w-kernel removed the imp-34882 FD floor; all 30 deltas finite, monotone-shrinking to
+  // |delta_30| ~ 1e-61) and re-read the Domb-Sykes tableau. Findings: (F1) MORE ORDERS DO NOT CURE the ill-conditioning --
+  // the Neville tail-window intercept DIVERGES with window size (|1/R| ~1.4e1 at 4-pt -> ~1.5e11 at 30-pt, radius -> 0);
+  // (F2) the mechanism is a COMPLEX-CONJUGATE singularity pair -- the delta signs are periodic (interior runs +5/-4
+  // repeating, full cycle P ~ 9 in k -> theta ~ 40 deg off the real axis), for which a real-axis intercept cannot
+  // converge; (F3) only the LINEAR/averaged radius survives and is robust (median R ~ 78, deep pairs reproduce imp-34900
+  // R ~ 89.6), so eps = 1 stays deep inside |eps| < R ~ O(1e2). NET: the ill-conditioning is INTRINSIC to the analytic
+  // structure, neither curable FD noise (imp-34900) nor a short nine-term tableau (this module). Measurement only, no bound change.
+  '/src/data/imp-34932-sigma-knee-extended-order-domb-sykes.js',
   // imp-34820: assesses whether the imp-34796 third-order identity F = -g_thirdDeriv/(1-S) can locate the
   // imp-34746/imp-33721 convex-to-concave sigmoid inflection (sigma_secondDeriv=0). Verdict: NO for that
   // identity -- its g_thirdDeriv=0 root is the DISTINCT sigma-KNEE (log10 N ~ 9.5364), ~0.0127 dex above the
@@ -7118,6 +7128,15 @@ const DATA_MODULES = [
   // root, so its sign is NOT uniformly negative band-wide (exactly 0 at most rungs, tiny-negative incl. N_cross,
   // tiny-positive elsewhere); the sign-aware directed rounding brackets all three regimes. imp-34714a/34687a open.
   '/src/data/imp-34928-directed-quotient-ulp-band-wide.js',
+  // imp-34933: DISCRIMINATES whether the imp-34904 L1-L4 (~3.06%) crossover-vs-knee and L3-L4 (~3.48%)
+  // halving-vs-knee inflection offsets are a FIXED structural constant or a RUNNING imp-33744 log-factor
+  // term, by sliding the N-independent E_trunc to place the sigma=1/2 halving/crossover point on a ladder
+  // of reference scales 1e6..1e13 and measuring N_infl/N_half - 1 at each rung. Both the sigmoid inflection
+  // (4.21% -> 0.97%) and the imp-33721 ramp knee (10.86% -> 2.68%) SHRINK monotonically (>4x) -- a RUNNING
+  // term, not a fixed ~3% constant. Tracks the closed form offsetN ~ const/(t-1)^2, t = ln N: the product
+  // offsetN*(t-1)^2 stays banded and the local decay exponent is ~-1.9 (predicted -2). Confirms the
+  // imp-34904 attribution; offset -> 0 as N -> infinity. Measurement only; changes no bound; NO QED.
+  '/src/data/imp-34933-inflection-offset-running-vs-fixed-ladder.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -102,8 +102,10 @@ function signBand(loExp, hiExp, step) {
   let plusOne = 0; // residual = +1 (single-rate law over-counts)
   let minusOne = 0; // residual = -1 (single-rate law under-counts)
   let exact = 0;
+  const pointwise = []; // {logSeed, resid} at every grid point, for per-seed viz
   for (const s of seeds) {
     const resid = itersToFloorPredicted(s) - itersToFloorMeasured(s);
+    pointwise.push({ logSeed: +Math.log10(s).toPrecision(6), resid });
     if (Math.abs(resid) === 1) {
       offByOne++;
       if (resid > 0) plusOne++;
@@ -120,6 +122,7 @@ function signBand(loExp, hiExp, step) {
     exact,
     signIsUniform: plusOne === 0 || minusOne === 0,
     uniformSign: offByOne === 0 ? 0 : plusOne === 0 ? -1 : minusOne === 0 ? 1 : null, // null = mixed
+    pointwise,
   };
 }
 
@@ -154,6 +157,8 @@ export const IMP34903_ITERS_TO_FLOOR_RESIDUAL_SIGN_WIDE_BAND = {
     sub_window_1e9_to_1e12: SUB_WINDOW, // reproduces imp-34887 band_61 verbatim (21 off-by-one, all -1)
     sub_above_1e12_to_1e15: SUB_ABOVE, // 0 off-by-one: single-rate law is EXACT far above the knee
   },
+  // per-seed {logSeed, resid} across the full [1e6,1e15] grid, for the imp-34937 pointwise viz.
+  wide_band_pointwise: BAND_WIDE.pointwise,
   summary: {
     wide_band_points: BAND_WIDE.points, // 181
     wide_band_off_by_one: BAND_WIDE.offByOne, // 34

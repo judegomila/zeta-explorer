@@ -13852,6 +13852,43 @@ export const glossary = [
       'imp-34772 dp-star artifact-vs-correction: the ~7.7% imp-34754 excess runs the crossover LATER, not earlier (imp-34772)',
     ],
   },
+  {
+    term: 'Definitional existence vs GUE-conditional magnitude (concept): the imp-34824 C_mb-sweep split',
+    category: 'concept',
+    definition:
+      'A split reading of a single reported residual that separates a claim into two parts with different ' +
+      'epistemic status: WHETHER a gap exists between two landmarks, and WHAT its numeric value and sign are. ' +
+      'imp-34800 found the imp-33721 sigmoid-inflection knee (R3) sits ~+2.95% above the Banach/Krawczyk ' +
+      'crossover (R1/R2), a gap ~147 Krawczyk enclosure half-widths wide -- far too large to be discretization ' +
+      'error, so the two routes are genuinely locating different landmarks (a root vs. a curvature feature). ' +
+      'That EXISTENCE of a nonzero separation is DEFINITIONAL: it follows from the two routes answering ' +
+      'different mathematical questions, and holds regardless of any free parameter in the model.\n\n' +
+      'But the reported +2.95% VALUE, and even its POSITIVE SIGN, are NOT definitional. imp-34824 re-ran the ' +
+      'identical cross-check while sweeping the GUE-conditional multiplicative constant C_mb (imp-486) over ' +
+      '{1.00,0.99,0.90,0.75,0.50,0.25} and found the gap falls MONOTONICALLY through {+2.95,+2.93,+2.70,+2.11,' +
+      '-0.18,-9.38}%, changing SIGN near C_mb ~ 0.512 (pinned by imp-34838 to C_mb* ~ 0.5115957). At C_mb=1 ' +
+      '(the GUE bound) the gap is positive and near its plateau value; below C_mb* the same two landmarks swap ' +
+      'order and the gap is negative. So +2.95% is a GUE-saturated-endpoint artifact of evaluating at C_mb=1, ' +
+      'not a C_mb-free constant of the model.\n\n' +
+      'HOW TO APPLY: when a cross-check reports both "a gap exists" and "the gap is X%", check whether the ' +
+      'existence claim survives a sweep of every free constant the model depends on (here C_mb) before trusting ' +
+      'the magnitude or sign as portable. A gap can be robustly nonzero (definitional, tied to what is being ' +
+      'compared) while its printed number is a snapshot at one conditional-constant value, liable to shrink, ' +
+      'flip sign, or vanish elsewhere in the constant\'s admissible range.\n\n' +
+      'HONEST SCOPE: a glossary headword synthesizing the imp-34824 verdict (already itself measurement-only); ' +
+      'no new derivation; the inherited imp-3220/imp-3406 surrogate crossover map, C_C = (1/8)sqrt(3pi) ' +
+      '(imp-2642/imp-2643), and C_mb GUE-conditional per imp-486 remain UNTOUCHED, with C_mb treated as a free ' +
+      'knob; changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-34847 (glossary headword for the imp-34824 definitional-existence vs GUE-conditional-magnitude split), 2026',
+    relatedTerms: [
+      'imp-34824 the C_mb sweep finding the inflection-vs-crossover gap ladder and its sign change near C_mb~0.512 (imp-34824)',
+      'imp-34838 pins the zero-gap crossing to C_mb* ~ 0.5115957 with two independent root-finders (imp-34838)',
+      'imp-34844 measures the accelerating second-order curvature driving the sign flip (imp-34844)',
+      'imp-34800 landmark-definition residual: why the sigmoid D2-zero knee sits ~+2.95% above N_cross (imp-34800)',
+      'Definitional gap vs measurement error (concept): a three-way diagnostic across imp-34800/imp-34733/imp-34772',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

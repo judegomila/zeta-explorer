@@ -491,6 +491,9 @@ const Imp34759CrossoverGppCeilingViz = lazy(() =>
 const Imp34761ThreeFootingCollapseLadderViz = lazy(() =>
   import('./pages/Imp34761ThreeFootingCollapseLadderViz.jsx')
 );
+const Imp34763CmbElasticitySigmaPeakViz = lazy(() =>
+  import('./pages/Imp34763CmbElasticitySigmaPeakViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1560,6 +1563,10 @@ function AppShell() {
           <Route
             path="/viz-imp34761-three-footing-collapse-ladder"
             element={<Imp34761ThreeFootingCollapseLadderViz />}
+          />
+          <Route
+            path="/viz-imp34763-cmb-elasticity-sigma-peak"
+            element={<Imp34763CmbElasticitySigmaPeakViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

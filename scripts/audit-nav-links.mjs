@@ -479,6 +479,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34959-sign-pattern-neville-divergence',
   '/viz-imp34960-raw-total-crossing',
   '/viz-imp34961-breach-step-doubling',
+  '/viz-imp34962-krawczyk-headroom-monotonicity-derivative',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

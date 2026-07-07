@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34948_INFLECTION_OFFSET_FAR_TAIL_LADDER_EXTENSION } from '../data/imp-34948-inflection-offset-far-tail-ladder-extension.js';
 
@@ -238,6 +239,13 @@ export default function Imp35030FarTailInflectionOffsetLadderViz() {
         the inherited imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic; C_mb GUE-conditional per
         imp-486 untouched; establishes no operator positivity; imp-3066 K_a&nbsp;&ge;&nbsp;0 untouched;
         changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+      </div>
+
+      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>
+        <strong>Related:</strong>{' '}
+        <Link to="/viz-imp34958-inflection-offset-running-vs-fixed-ladder" style={{ color: '#7c3aed' }}>
+          Inflection-vs-Halving Offset: Running, Not Fixed, Near-Tail Ladder (imp-34958 / imp-34933)
+        </Link>
       </div>
     </div>
   );

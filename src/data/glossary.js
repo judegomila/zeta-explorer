@@ -15132,6 +15132,53 @@ export const glossary = [
       "imp-34646 the well-conditioned-denominator vs ill-conditioned-numerator distinction on the same ladder (imp-34646)",
     ],
   },
+  {
+    term: "imp-34678 POINTWISE derivative vs BANACH certificate: why a uniform Lipschitz sup over an explicit interval beats |g_prime(N_cross)|<<1 alone",
+    category: "proof",
+    definition:
+      "A quick-lookup headword distinguishing two different strengths of evidence for the imp-33723 " +
+      "crossover fixed point N_cross=(C_C/E_trunc)^2*log T0(N_cross)=g(N_cross): a POINTWISE derivative " +
+      "reading and a BANACH existence/uniqueness CERTIFICATE. imp-33723 originally reported only the " +
+      "pointwise value |g_prime(N_cross)|~4.54e-2 and informally read this as evidence of uniqueness. " +
+      "imp-34650 showed that reading is not yet a certificate: a single derivative sample at one point " +
+      "says nothing about g's behavior anywhere else, so it cannot by itself rule out other fixed " +
+      "points or guarantee convergence from an arbitrary seed.\n\n" +
+      "THE UPGRADE: imp-34650 proved two additional facts on the explicit deep-tail interval " +
+      "I=[1e9,1e10]: (i) g_prime(N) is positive and strictly DECREASING on I, so its SUPREMUM over " +
+      "the whole interval is attained at the left endpoint, sup_I|g_prime|=g_prime(1e9)~0.1485<1 -- a " +
+      "UNIFORM Lipschitz bound, not a single sample; and (ii) g is a verified SELF-MAP, g(I) subset I " +
+      "(g(1e9)~3.1036e9 and g(1e10)~3.4466e9 both land back inside [1e9,1e10]). Together, uniform " +
+      "Lipschitz L<1 plus self-map are exactly the hypotheses of the Banach fixed-point theorem, which " +
+      "then hands back existence AND uniqueness of the fixed point in I plus geometric a-priori " +
+      "convergence |N_k-N_cross| <= L^k/(1-L)|N_1-N_0| from ANY seed N_0 in I -- guarantees a lone " +
+      "derivative sample cannot supply.\n\n" +
+      "WHY THE POINTWISE READING ALONE IS NOT ENOUGH: |g_prime(N_cross)|<<1 only says the map is " +
+      "locally contracting in an infinitesimal neighborhood of N_cross itself -- it says nothing about " +
+      "whether g stays contracting a finite distance away, and nothing about whether g maps its domain " +
+      "back into itself. Indeed imp-34650 also found the certificate is LOCAL, not global: " +
+      "g_prime(1e8)~1.4727>1, so below the window the contraction fails entirely, and imp-34675 later " +
+      "located the exact boundary N_star~1.475e8 (via Lambert W) where g_prime crosses 1. A pointwise " +
+      "reading at N_cross alone cannot see this failure lurking one order of magnitude away; the " +
+      "uniform-sup-plus-self-map certificate can, because it is checked across the whole interval.\n\n" +
+      "HOW TO APPLY: when a fixed-point iteration reports only |g_prime| at the fixed point itself, " +
+      "treat that as a plausibility signal, not a uniqueness or convergence guarantee -- the genuine " +
+      "upgrade requires checking the derivative's supremum over an explicit interval (not just its " +
+      "value at one point) together with an independently verified self-map property before invoking " +
+      "Banach.\n\n" +
+      "HONEST SCOPE: both readings concern the inherited imp-3220/imp-3406 surrogate crossover map, " +
+      "not a fresh analytic form; the certificate itself is numerically evaluated in IEEE-754 double " +
+      "precision via effectiveHeightForN (imp-34650a), not a machine-checked interval-arithmetic proof. " +
+      "Changes no bound; the C_C=(1/8)sqrt(3pi) ansatz (imp-2642/imp-2643) and C_mb GUE-conditional " +
+      "share (imp-486) are untouched; imp-3066 K_a>=0 untouched; no operator positivity; no RH verdict, " +
+      "NO QED. Platt-Trudgian Lambda<=0.2 remains SOTA.",
+    firstUsed: "imp-34678 (headwording the imp-34650-vs-imp-33723 pointwise/certificate distinction), 2026",
+    relatedTerms: [
+      "imp-34650 the Banach contraction certificate this headword contrasts with a pointwise reading (imp-34650)",
+      "imp-33723 the closed-form fixed point whose pointwise derivative motivated the upgrade (imp-33723)",
+      "imp-34675 the closed-form left edge N_star where g_prime=1, invisible to a pointwise reading at N_cross (imp-34675)",
+      "imp-34676 the free right-widening of the certificate once the uniform-sup framing is in place (imp-34676)",
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

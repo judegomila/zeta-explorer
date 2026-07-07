@@ -13773,6 +13773,41 @@ export const glossary = [
       'imp-34687a named sub-gap: supply an actual directed-rounding / error-bounded arithmetic layer (imp-34687a)',
     ],
   },
+  {
+    term: 'imp-34800 landmark-definition residual: why the sigmoid D2-zero knee sits ~+2.95% above N_cross',
+    category: 'numerical',
+    definition:
+      'imp-34800 tabulated three independent locators of the imp-3444 post-peak landmark on one N axis: the ' +
+      'imp-33723 BANACH closed-form fixed point of g(N) = K log T0(N) (R1), the imp-34774 KRAWCZYK outward-ULP ' +
+      'enclosure of that same fixed point (R2), and the imp-33721 sigmoid D2-zero INFLECTION knee (R3). R1 and ' +
+      'R2 locate the identical N_cross ~ 3.28029435165241e9 to ~1e-15 -- their only separation is the verified ' +
+      'Krawczyk enclosure half-width (relative ~2e-4), a pure DISCRETIZATION quantity. R3 instead sits ~+2.95% ' +
+      'ABOVE R1/R2, roughly 147 enclosure half-widths outside the bracket -- far too large to be enclosure ' +
+      'width, so the gap is not measurement error at all.\n\n' +
+      'THE KEY DISTINCTION: this ~+2.95% gap is a LANDMARK-DEFINITION residual, not a disagreement between ' +
+      'routes computing the same quantity. R1/R2 both locate the ROOT of the crossover map (E_coll = E_trunc), ' +
+      'while R3 locates the CURVATURE inflection (where the sigma(N) ramp’s acceleration D2 changes sign) -- ' +
+      'two genuinely different features of the same sigma(N) curve that happen to sit close together, not two ' +
+      'measurements of one feature. A root-finder and a curvature-finder can each be exact and still disagree, ' +
+      'because they answer different questions about the curve.\n\n' +
+      'HOW TO APPLY: when two computed landmarks on the same curve differ by an amount far exceeding either ' +
+      'route’s verified precision (here ~2e-4 relative), first check whether they are DEFINED as the same ' +
+      'root/feature before treating the gap as error -- a defined-differently pair (root vs. inflection) can ' +
+      'carry a real, reproducible offset that no amount of added precision will close.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34800 cross-validation verbatim, not a new bound; ' +
+      'the inherited imp-3220/imp-3406 surrogate crossover map is NOT rigorous; the Krawczyk enclosure is the ' +
+      'imp-34774 double-precision surrogate with sub-gap imp-34714a REMAINS OPEN; C_C = (1/8)sqrt(3pi) ' +
+      '(imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; no operator ' +
+      'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34831 (glossary headword for the imp-34800 landmark-definition residual distinguishing the sigmoid D2-zero inflection knee from the Banach/Krawczyk fixed-point N_cross), 2026',
+    relatedTerms: [
+      'imp-34800 three-way N_cross cross-validation tabulating Banach (R1), Krawczyk (R2) and sigmoid-inflection (R3) on one axis (imp-34800)',
+      'imp-33723 the Banach closed-form fixed point of g(N) = K log T0(N), N_cross ~ 3.280294e9 (imp-33723)',
+      'imp-34774 the Krawczyk outward-ULP enclosure of the same fixed point (imp-34774)',
+      'imp-33721 KNEE-A-DECADE-BELOW: sub-decade resolution relocating the sigma-ramp inflection to N* ~ 3.38e9',
+      'imp-33748 the Banach/empirical-1/2/knee trio where the distinct ~0.4% Gronwall E_flow offset instead lives (imp-33748)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

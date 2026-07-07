@@ -482,6 +482,9 @@ const Imp34737DpStarFarTailLadderViz = lazy(() =>
 const Imp34747SecondFootingCollapseLadderViz = lazy(() =>
   import('./pages/Imp34747SecondFootingCollapseLadderViz.jsx')
 );
+const Imp34758DpStarProbeBandRatioViz = lazy(() =>
+  import('./pages/Imp34758DpStarProbeBandRatioViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1539,6 +1542,10 @@ function AppShell() {
           <Route
             path="/viz-imp34747-second-footing-collapse-ladder"
             element={<Imp34747SecondFootingCollapseLadderViz />}
+          />
+          <Route
+            path="/viz-imp34758-dp-star-probe-band-ratio"
+            element={<Imp34758DpStarProbeBandRatioViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

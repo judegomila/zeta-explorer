@@ -14984,6 +14984,77 @@ export const glossary = [
       'imp-33743 generalised the E_coll=E_trunc crossover to an arbitrary threshold thr via the Banach fixed point N_cross(thr) (imp-33743)',
     ],
   },
+  {
+    term: 'R_margin dyadic-wall distance is LINEAR in N, not pinned band-wide (imp-34953 dyadic-wall sweep)',
+    category: 'numerical',
+    definition:
+      'A headword distinguishing a SINGLE-POINT reading of the dyadic-window margin R_margin(N) = N*FP_LO/K ' +
+      '(imp-34930, read only at N_cross ~3.2803e9) from the BAND-WIDE behaviour imp-34953 measured across ' +
+      'N in [1e6,1e13].\n\n' +
+      'WHY R_margin GROWS LINEARLY IN N: K = (C_C/E_trunc)^2 is the N-INDEPENDENT PT-anchor amplitude and FP_LO ' +
+      'drifts only ~0.5% across the whole band, so R_margin(N) is, to that ~0.5%, directly proportional to N. ' +
+      'Consequently log2(R_margin) climbs by ~23.25 (== log2(1e13/1e6)) over the sweep, and the dyadic-wall ' +
+      'step count nStar = floor(log2 R_margin) + 1 climbs from -7 (at N=1e6) to 16 (at N=1e13), crossing ~23 ' +
+      'distinct 2^n walls -- roughly one wall per doubling of N.\n\n' +
+      'WHY THAT DOES NOT REFUTE imp-34889: nStar is NOT globally pinned at 5, but the specific window where ' +
+      'nStar=5 (R_margin in (16,32], i.e. N in (2.6361e9,5.2722e9], width ~2.636e9) straddles N_cross and ' +
+      'STRICTLY CONTAINS the imp-34693 admissible seed band [3.11e9,3.45e9]. Neither the +-5% N-drift of that ' +
+      'seed band nor the ~0.5% FP_LO drift (which moves each dyadic-wall edge by only ~1.3e7 in N, ~200x below ' +
+      'the factor-2 wall spacing) is enough to push the seed band across either the nStar=4/5 or 5/6 wall. So ' +
+      'imp-34889\'s band-invariance claim is correct FOR ITS BAND, not band-wide across 1e6..1e13.\n\n' +
+      'HOW TO APPLY: when a "the step count is pinned" claim is checked, ask over WHAT band it was verified. A ' +
+      'quantity that is linear (or any strictly monotone function) of N will always eventually cross every ' +
+      'dyadic wall as N ranges wide enough; a pinning claim is only meaningful, and only needs to be checked, ' +
+      'over the specific admissible seed band the downstream argument actually uses.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34953 measurement verbatim, not a new bound; ' +
+      'VERIFICATION/MEASUREMENT only on the inherited imp-3220/imp-3406 surrogate crossover map, reusing the ' +
+      'imp-34884/34889/34909/34930 literals verbatim; does not instantiate the imp-34687a directed-rounding ' +
+      'layer; imp-34714a remains OPEN; C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per ' +
+      'imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; changes no bound; establishes no operator positivity; no ' +
+      'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35044 (glossary headword for the imp-34953 R_margin dyadic-wall sweep), 2026',
+    relatedTerms: [
+      'imp-34953 measured R_margin(N) and its dyadic-wall crossing count across N in [1e6,1e13] (imp-34953)',
+      'imp-34930 read the R_margin ~19.910 dyadic-window margin only at N_cross ~3.2803e9 (imp-34930)',
+      'imp-34889 the band-invariance claim that nStar stays pinned at 5 across the imp-34693 seed band (imp-34889)',
+      'imp-34693 the +-5% admissible seed band [3.11e9,3.45e9] around N_cross (imp-34693)',
+    ],
+  },
+  {
+    term: 'crossover-map numerator-polynomial ladder extended to P_11/P_12 (imp-34957)',
+    category: 'numerical',
+    definition:
+      'A headword recording that the integer-coefficient numerator polynomials P_n in the inherited imp-33723 ' +
+      'crossover-map derivative g^(n)(N) = (-1)^(n+1) 2^n pi^n K P_n(u) / (T^n u^(2n-1)) (u = N/N_cross), ' +
+      'extended by imp-34880/imp-34905/imp-34922 through P_10, are extended TWO FURTHER RUNGS to P_11 and P_12 ' +
+      'by imp-34957, and that BOTH independent construction routes still agree there.\n\n' +
+      'THE TWO INDEPENDENT ROUTES: (1) the pre-solved coefficient recurrence a_k^(n+1) = n*a_{k-1}^(n) + ' +
+      '(2n-1-k)*a_k^(n), and (2) the operator recurrence P_(n+1) = n*(u*P_n) + (2n-1)*P_n - u*dP_n/du. imp-34957 ' +
+      'runs both from the imp-34922 P_10 baseline and checks the results against independently hand-derived ' +
+      'literals for P_11 and P_12 (largest coefficient ~1.66e11, safely under 2^53 exact-integer range).\n\n' +
+      'WHAT STILL HOLDS AT n=11,12: the two routes agree on P_11 and P_12 exactly; both reproduce the P_9/P_10 ' +
+      'baseline; every coefficient of P_11 and P_12 is a strictly positive exact integer; the leading coefficient ' +
+      'a_{n-1}^(n) = (n-1)! (10! at n=11, 11! at n=12) and the constant coefficient a_0^(n) = (2n-3)!! (19!! at ' +
+      'n=11, 21!! at n=12) both continue to hold; and the two decoupled boundary-projection recurrences ' +
+      'a_0^(n+1) = (2n-1)*a_0^(n) and a_n^(n+1) = n*a_{n-1}^(n) still hold, independent of the interior ' +
+      '(2n-1-k) multiplier. Because every P_n coefficient stays strictly positive, g^(11) keeps sign +1 and ' +
+      'g^(12) keeps sign -1 under (-1)^(n+1), with no interior zero appearing on the post-peak ramp through n=12.\n\n' +
+      'HOW TO APPLY: this is a two-rungs-further VERIFICATION that an established sign/positivity pattern keeps ' +
+      'holding, not a proof that it holds for all n -- treat each new rung as an empirical data point strengthening, ' +
+      'not closing, the induction.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34957 verdict verbatim, not a new bound; ' +
+      'VERIFICATION/EXTENSION only on the inherited imp-3220/imp-3406/imp-33723 surrogate crossover-map ' +
+      'derivative signs; establishes NO operator positivity; changes no bound; C_mb GUE-conditional per imp-486, ' +
+      'C_C 1/8 ansatz (imp-2642/imp-2643), imp-3066 K_a>=0 UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35044 (glossary headword for the imp-34957 crossover-map numerator-polynomial ladder), 2026',
+    relatedTerms: [
+      'imp-34957 extended the numerator-polynomial ladder to P_11/P_12 by both recurrences (imp-34957)',
+      'imp-34922 extended the ladder to P_9/P_10 by both the coefficient and operator recurrences (imp-34922)',
+      'imp-34986 the import-light viz page reconstructing P_2..P_12 (imp-34986)',
+      'imp-33723 the Banach fixed-point characterisation of the crossover map this derivative ladder is built on (imp-33723)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

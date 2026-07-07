@@ -66070,13 +66070,15 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Discoverability / consumer re-pointer audit of imp-34948-inflection-offset-far-tail-ladder-extension: assess whether the far-tail inflection-offset ladder is surfaced from any analysis-index or Concepts page so it is navigable, since imp-34948 was omitted from the imp-35008 and imp-35023 discoverability audits (which enumerated only imp-34947/34949/34950/34951 and imp-34952..34957 respectively), and record whether it is orphaned relative to the imp-34933 near-tail ladder it extends',
     category: 'meta',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S-frontier',
     description: "AUDIT ONLY, extending the imp-35008/35023 discoverability lineage. Record any missing consumer re-pointer from analysis-index/Concepts to imp-34948; no code beyond a navigability re-pointer if trivially warranted; NO QED.",
     rationale: 'Frontier scout: imp-34948 omitted from both prior discoverability audits (imp-35008 listed 47/49/50/51; imp-35023 listed 34952-34957) -- navigability never checked.',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'sonnet-4-6',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
 ];
 

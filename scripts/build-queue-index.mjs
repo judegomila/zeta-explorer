@@ -20,6 +20,13 @@
 //   {
 //     generatedAt: ISO timestamp
 //     nextImprovementId: next monotonic id for src/data/improvements.js
+//       (imp-33785, re-confirmed imp-35025: this is a plain-integer counter
+//       for improvements.js log entries only. It is a DIFFERENT namespace
+//       from the imp-NNNN ticket ids in improvement-queue.js -- the two
+//       diverged long ago and nextImprovementId now trails the ticket-id
+//       counter by thousands. That gap is expected, not a staleness bug;
+//       see claimId() in auto-ticket-producer.mjs, which derives new ticket
+//       ids from the queue file's own max imp-NNNN id, never from this field.)
 //     improvementsTotal: total entries in improvements.js
 //     criticalPending: [ { id, title, priority, dependsOn } ]
 //     highPending: [...]

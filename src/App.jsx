@@ -27,6 +27,7 @@ const TwistorPage = lazy(() => import('./pages/TwistorPage.jsx'));
 const PaperPage = lazy(() => import('./pages/PaperPage.jsx'));
 const HistoryPage = lazy(() => import('./pages/HistoryPage.jsx'));
 const ConceptsPage = lazy(() => import('./pages/ConceptsPage.jsx'));
+const SurrogateModelPage = lazy(() => import('./pages/SurrogateModelPage.jsx'));
 const PascalPage = lazy(() => import('./pages/PascalPage.jsx'));
 const ZXCalculusPage = lazy(() => import('./pages/ZXCalculusPage.jsx'));
 const RHAttackPage = lazy(() => import('./pages/RHAttackPage.jsx'));
@@ -1250,6 +1251,7 @@ function AppShell() {
           <Route path="/paper" element={<PaperPage />} />
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/concepts" element={<ConceptsPage />} />
+          <Route path="/surrogate-model" element={<SurrogateModelPage />} />
           <Route path="/pascal" element={<PascalPage />} />
           <Route path="/zx-calculus" element={<ZXCalculusPage />} />
           <Route path="/rh-attack" element={<RHAttackPage />} />

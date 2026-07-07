@@ -15253,6 +15253,25 @@ export const glossary = [
       "imp-34675 the unrelated, overloaded Lambert-W N_star (~1.475e8) elsewhere in the codebase (imp-34675)",
     ],
   },
+  {
+    term: "imp-3220/imp-3406 surrogate crossover map (canonical explainer)",
+    category: "numerical",
+    definition:
+      "A quick-lookup headword for the double-precision numerical extrapolation model (imp-3220/imp-3406) " +
+      "that recurs across dozens of module verdicts as the phrase 'inherited imp-3220/imp-3406 extrapolation " +
+      "component model (NOT a rigorous asymptotic)'. It fits and extends the observed behaviour of the " +
+      "E_coll/E_trunc/E_flow finite-N energy terms across a wide N range so that landmarks (N_cross, N_half, " +
+      "N_star) can be located numerically, since closed-form N-uniform bounds for those terms are RH-hard " +
+      "(the C_H wall). See the dedicated /surrogate-model page for the full explainer of what the surrogate " +
+      "is, why it is a proxy rather than a proof, and how the three energy terms compose.",
+    firstUsed: "imp-3220/imp-3406 (surrogate origin); imp-35086 (canonical explainer page and headword)",
+    relatedTerms: [
+      "C_H wall",
+      "N_half/N_cross/N_star triple",
+      "RH-equivalent",
+    ],
+    link: "/surrogate-model",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -1151,7 +1151,16 @@ export const LAMBDA_ROADMAP = {
     'N~3.280e9, to within about one decade. Both are measurement/curve-fit ' +
     'only within the inherited imp-3220/imp-3406 component model, change no ' +
     'bound, do NOT discharge H4/G7, and C_mb remains GUE-conditional ' +
-    '(imp-486); NO QED.',
+    '(imp-486); NO QED. ' +
+    'NOTED (imp-35009): tabulating four nearby N~3.3e9 landmarks -- N_cross=' +
+    '3.280294e9 (imp-33723 Banach fixed point), N_half~3.27e9 (imp-33582 ' +
+    'sigma=1/2 halving), N_star~3.38e9 (imp-33721 sigmoid inflection knee), ' +
+    'and the imp-34693 admissible seed band [3.11e9,3.45e9] -- finds all ' +
+    'pairwise relative spreads under 4%, a tight co-location consistent with ' +
+    '(but not proof of) the shared E_coll=E_trunc crossover geometry ' +
+    'underlying each. Measurement only on the inherited imp-3220/imp-3406 ' +
+    'surrogate; changes no bound; C_mb remains GUE-conditional (imp-486); ' +
+    'NO QED.',
   bounds: LAMBDA_BOUNDS,
   chain: LAMBDA_CHAIN_STEPS,
   verification: VERIFICATION_EFFORTS,

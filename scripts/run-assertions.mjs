@@ -7155,6 +7155,15 @@ const DATA_MODULES = [
   // root, so its sign is NOT uniformly negative band-wide (exactly 0 at most rungs, tiny-negative incl. N_cross,
   // tiny-positive elsewhere); the sign-aware directed rounding brackets all three regimes. imp-34714a/34687a open.
   '/src/data/imp-34928-directed-quotient-ulp-band-wide.js',
+  // imp-34952: EXTENDS the imp-34927 double-double (~106-bit) log ULP measurement from the single N_cross
+  // point to a wide N-band across the imp-34693 rungs (1e6..1e13) -- the log-site sibling of imp-34928. At
+  // every rung and all four imp-34885 log sites (log(N+2pi), log(T/2pi), log(T0), log(T0/2pi)) of the
+  // effectiveHeightForN / g / g_prime chain, against the imp-34927 range-reduction + atanh-series reference
+  // re-instantiated verbatim: correctly rounded (band-wide max 0.4911 ulp <= 0.5), native Math.log agrees
+  // with the correctly-rounded double, and the directed [RD,RU] enclosure brackets the reference with an
+  // outward width of exactly 1 ulp -- no failing rung. N-independent structural facts, not artifacts of
+  // N_cross; difficulty stays correctness (not size) of the log rounding. imp-34714a/34687a REMAIN OPEN.
+  '/src/data/imp-34952-double-double-log-ulp-band-wide.js',
   // imp-34933: DISCRIMINATES whether the imp-34904 L1-L4 (~3.06%) crossover-vs-knee and L3-L4 (~3.48%)
   // halving-vs-knee inflection offsets are a FIXED structural constant or a RUNNING imp-33744 log-factor
   // term, by sliding the N-independent E_trunc to place the sigma=1/2 halving/crossover point on a ladder

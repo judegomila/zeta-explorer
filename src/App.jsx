@@ -566,6 +566,9 @@ const Imp34875IntervalCeilMarginViz = lazy(() =>
 const Imp34876ShrinkRatioLimitViz = lazy(() =>
   import('./pages/Imp34876ShrinkRatioLimitViz.jsx')
 );
+const Imp34877CrossoverDerivativeLadderViz = lazy(() =>
+  import('./pages/Imp34877CrossoverDerivativeLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1735,6 +1738,10 @@ function AppShell() {
           <Route
             path="/viz-imp34876-shrink-ratio-limit"
             element={<Imp34876ShrinkRatioLimitViz />}
+          />
+          <Route
+            path="/viz-imp34877-crossover-derivative-ladder"
+            element={<Imp34877CrossoverDerivativeLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

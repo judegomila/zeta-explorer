@@ -14329,6 +14329,47 @@ export const glossary = [
       'imp-34916 the viz page rendering the imp-34863 root sequence against the imp-34882 Domb-Sykes intercept (imp-34916)',
     ],
   },
+  {
+    term: 'residual-corrected directed quotient (division as the sole non-IEEE-754-exposed basic interval op)',
+    category: 'numerical',
+    definition:
+      'A headword for why division is architecturally different from the other three basic interval ops when ' +
+      'building a directed-rounding (Krawczyk-style) enclosure layer in plain JS (imp-34885/imp-34910).\n\n' +
+      'For +, -, and *, a single error-free transformation (Knuth twoSum for +/-, Dekker split + twoProduct for ' +
+      '*) recovers the EXACT rounding error of the native double result in one shot: fl(a+b) = s, and s+err = a+b ' +
+      'exactly, so the two directed endpoints RD/RU are read straight off the sign of err with one directed ULP ' +
+      'step. Division has no analogous single EFT -- there is no "twoQuotient" identity that yields a+err = q*b ' +
+      'exactly from q = fl(a/b) alone. ECMAScript also exposes no fesetround, so there is no hardware-level way to ' +
+      'ask for the round-down/round-up quotient directly (unlike a C99 environment with fesetround(FE_DOWNWARD)).\n\n' +
+      'The residual-corrected quotient (imp-34910) closes this gap by COMPOSING the existing EFTs rather than ' +
+      'inventing a new one: compute q = fl(a/b); recover q*b EXACTLY via Dekker split + twoProduct (q*b = p + e); ' +
+      'recover the residual r = a - q*b exactly via twoSum(a, -p) combined with e; the SIGN of r then tells whether ' +
+      'the true quotient lies above or below q, and a single sign-aware nextUp/nextDown step produces the directed ' +
+      '[RD, RU] pair. This makes division the only basic op needing a multi-EFT composition instead of a single ' +
+      'EFT call -- not a harder ERROR to bound, just a longer BUILD path to the same directed endpoints.\n\n' +
+      'imp-34910 measured this build in practice at 5 division sites of the effectiveHeightForN Newton loop: the ' +
+      'composed residual-corrected quotient injects exactly 1 ULP of enclosure width per call (max relative width ' +
+      '1.6804e-16 <= eps), matching the per-op eps unit the imp-34799 gamma(n_op) surrogate already budgets for ' +
+      'every op, so the extra build complexity does not translate into extra injected error.\n\n' +
+      'HOW TO APPLY: when instantiating a directed-rounding interval layer in an environment without fesetround, ' +
+      'do not assume +, -, *, / are equally easy to make directed -- +,-,* need only their existing EFT plus one ' +
+      'directed step, while / needs the EFT-based residual recovery ABOVE composed from the twoProduct/twoSum of ' +
+      'the other three ops before the same directed step can be taken; budget the implementation effort ' +
+      'accordingly, but do not budget extra ERROR for it once the composition is done correctly.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34885/imp-34910 findings verbatim, not a new bound; ' +
+      'this measures ONE primitive of the directed-rounding checklist and does NOT instantiate the full ' +
+      'imp-34687a layer (still gated on an external proven-ULP log binding); imp-34714a and imp-34687a REMAIN ' +
+      'OPEN; changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34941 (glossary headword for the residual-corrected directed quotient as the sole non-IEEE-754-exposed basic interval op), 2026',
+    relatedTerms: [
+      'imp-34885 the directed-rounding instantiation checklist flagging / as the sole non-IEEE-754-exposed basic op (imp-34885)',
+      'imp-34910 instantiates and measures the residual-corrected directed quotient, exactly 1 ULP injected per call (imp-34910)',
+      'imp-34908 the Krawczyk-certificate precision scope naming the residual-corrected quotient as the / primitive (imp-34908)',
+      'imp-34799 the a-priori gamma(n_op) = n_op eps/(1-n_op eps) per-op eps half-width model the div matches (imp-34799)',
+      'imp-34714a the still-OPEN sub-gap for a full machine-checked directed-rounding certificate (imp-34714a)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

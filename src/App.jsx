@@ -680,6 +680,9 @@ const Imp35030FarTailInflectionOffsetLadderViz = lazy(() =>
 const Imp35022PinnedProductDecompositionViz = lazy(() =>
   import('./pages/Imp35022PinnedProductDecompositionViz.jsx')
 );
+const Imp35026SigmaDecayLandmarkLadderViz = lazy(() =>
+  import('./pages/Imp35026SigmaDecayLandmarkLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2001,6 +2004,10 @@ function AppShell() {
           <Route
             path="/viz-imp35022-pinned-product-decomposition"
             element={<Imp35022PinnedProductDecompositionViz />}
+          />
+          <Route
+            path="/viz-imp35026-sigma-decay-landmark-ladder"
+            element={<Imp35026SigmaDecayLandmarkLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

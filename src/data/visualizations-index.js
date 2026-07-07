@@ -495,6 +495,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive factor-decomposition check; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35026-sigma-decay-landmark-ladder',
+      title: 'Sigma(N) Decay Landmark Ladder',
+      oneLine:
+        'Plots the imp-33582 E(N)-bridge conditional share sigma(N) across N in [1e6,1e12] with the sigma=0.9/0.5/0.1 threshold-crossing landmarks, the imp-33721 inflection knee, and the per-decade local decay-exponent ramp toward the imp-3463 far-tail 1/2.',
+      mathBucket: 'bound',
+      dataModule: null,
+      paperSourcePath:
+        'src/data/imp-33582-sigma-postpeak-nearpeak-threshold-decay.js (imp-35026 viz page)',
+      ticket: 'imp-35026',
+      pedagogicalStep: 31,
+      honestCeiling:
+        'Descriptive decay-ladder check; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

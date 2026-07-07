@@ -6895,6 +6895,17 @@ const DATA_MODULES = [
   // endpoints reproduce 2561.39 / 2558.12 / 2555.18 verbatim (top < center < lo). Derivation on the surrogate
   // models; imp-34714a REMAINS OPEN; changes no bound; NO QED.
   '/src/data/imp-34929-krawczyk-headroom-monotonicity-derivative.js',
+  // imp-34949: INDEPENDENTLY RE-DERIVES the imp-34929 relative monotonicity margin as the EXACT closed form
+  // m(N) = 1 - a-prime(N)(1-a(M)) / [a-prime(M)(1-delta)(1-a(N))(2-a(N))], M = N(1-delta), whose delta -> 0
+  // limit is the one-line closed form m_0 = (1-a)/(2-a) = G/(1+G) = V/(1+V) (a-prime factors cancel) --
+  // strictly increasing in N with no interior stationary point, so its infimum is the band-lo endpoint. A
+  // dense 40001-point sweep of the exact m(N) attains its minimum at the band-lo boundary node (0.4878337,
+  // matching the imp-34929 0.487834), rising to 0.4890744 at band-top with center 0.4884871 between: 0.488
+  // is the band INFIMUM (attained boundary minimum), not a sampled value. The O(delta ~ 2e-4) G-vs-FP_LO
+  // mismatch perturbs the margin by at most 1.0728e-4 (~0.54 delta), three orders below the ~0.488 margin,
+  // so it cannot close the gap. Derivation/measurement on the surrogate models; imp-34714a REMAINS OPEN;
+  // changes no bound; NO QED.
+  '/src/data/imp-34949-krawczyk-margin-infimum-band-endpoint.js',
   // imp-34864: DERIVES + MEASURES the crossover-map THIRD-derivative envelope per-decade shrink ratio one
   // order up from imp-34839. From g_triple_prime = 8 pi^3 K (2u^2+4u+3)/(T^3 u^5) = K P(u)/(M^3 u^5) the
   // ratio factors as r3 = (M_prime/M)^3 (u_prime/u)^5 P(u)/P(u_prime); Riemann-von Mangoldt N=M(u-1) forces
@@ -7144,6 +7155,14 @@ const DATA_MODULES = [
   // offsetN*(t-1)^2 stays banded and the local decay exponent is ~-1.9 (predicted -2). Confirms the
   // imp-34904 attribution; offset -> 0 as N -> infinity. Measurement only; changes no bound; NO QED.
   '/src/data/imp-34933-inflection-offset-running-vs-fixed-ladder.js',
+  // imp-34948: EXTENDS the imp-34933 inflection-offset reference-scale ladder past N = 1e13 to the far-tail
+  // rungs 1e14..1e18 (imp-34933 locators reused verbatim), to assess whether the measured local decay
+  // exponent of offsetN vs t = ln N converges to the imp-33744-predicted -2. It does: the far-tail exponent
+  // is ~-2.013 (sigmoid) and ~-1.949 (ramp), both nearer -2 than the imp-34933 near-tail ~-1.9 (running-g
+  // fading out). The diagnostic offsetN*(t-1)^2 keeps drifting slowly UPWARD (sigmoid ~8.18 -> ~8.27, ramp
+  // ~22.68 -> ~23.30, above the near-tail band tops) -- not yet flat, per-decade drift < 1.03x, a residual
+  // O(1/t) correction asymptoting on top of the leading 1/(t-1)^2 law. Measurement only; changes no bound; NO QED.
+  '/src/data/imp-34948-inflection-offset-far-tail-ladder-extension.js',
 ];
 
 let ALL_MODULES = FAST_MODE

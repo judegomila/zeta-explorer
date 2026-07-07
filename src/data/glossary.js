@@ -14105,6 +14105,38 @@ export const glossary = [
       'imp-33723 the closed-form crossover map g(N)=K log T0(N) this derivative ladder is built on (imp-33723)',
     ],
   },
+  {
+    term: 'imp-34844 GUE-Bound Elasticity Plateau vs Accelerating Slope',
+    category: 'numerical',
+    definition:
+      'A headword for a general trap: quoting an elasticity (a first derivative) measured only at a boundary ' +
+      'value of a free parameter, when the underlying curve is concave and steepens away from that boundary.\n\n' +
+      'imp-34824 quoted d(relGap)/dC_mb ~ +2.15e-2/unit for the inflection-vs-crossover gap relGap(C_mb), but ' +
+      'ONLY at the GUE bound C_mb = 1. imp-34844 measured the same derivative on a dense C_mb grid down to 0.30 ' +
+      'and found it is NOT constant: it rises MONOTONICALLY to +5.39e-1/unit at C_mb = 0.30, a ~25x increase, ' +
+      'under a curvature d2(relGap)/dC_mb^2 that is negative at every node and strengthens ~58x over the same ' +
+      'range (Richardson-stable across h in {0.01,0.02,0.04}, so a genuine second derivative, not FD grid noise). ' +
+      'Because the true sign-flip of relGap sits at C_mb* ~ 0.5116, and the boundary slope is a near-flat ' +
+      'plateau, a LINEAR extrapolation of the C_mb=1 slope predicts the flip at C_mb ~ -0.37 -- OUTSIDE the ' +
+      'physical range [0,1] -- entirely missing it. The flip only exists in range because the accelerating ' +
+      'curvature pulls it up by ~0.88 in C_mb.\n\n' +
+      'HOW TO APPLY: when a sub-gap reports an elasticity "at" a single boundary value of a free knob, treat it ' +
+      'as a PLATEAU reading, not a representative slope, unless the second derivative has been checked across ' +
+      'the range. A concave, monotonically-strengthening curvature can put a root inside the physical domain ' +
+      'that a linear read of the boundary slope would place outside it (or miss the sign entirely).\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34844 measurement verbatim, not a new bound; C_mb is ' +
+      'treated as a free knob and the GUE conditional (imp-486) is NOT tightened or discharged; the C_C 1/8 ' +
+      'ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34870 (glossary headword for the imp-34844 GUE-bound elasticity plateau vs accelerating slope), 2026',
+    relatedTerms: [
+      'imp-34844 measured the ~25x elasticity rise and ~58x curvature strengthening, and the linear-read miss of the sign-flip (imp-34844)',
+      'imp-34824 quoted the +2.15e-2/unit GUE-bound elasticity this headword shows is a plateau value (imp-34824)',
+      'imp-34838 located the precise sign-flip C_mb* ~ 0.5116 and its ~6.8x local steepening (imp-34838)',
+      'imp-486 the GUE-conditional bound C_mb <= 1 this sweep treats as a free knob, left untouched (imp-486)',
+      'imp-34800 the +2.95% R3-vs-R1/R2 crossvalidation residual this inflection-crossover gap builds on (imp-34800)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

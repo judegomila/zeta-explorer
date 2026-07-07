@@ -15215,6 +15215,44 @@ export const glossary = [
       "imp-34636 the spliced pole-centred window this cross-validation certifies is seamless (imp-34636)",
     ],
   },
+  {
+    term: "N_half / N_cross / N_star landmark triple (imp-35009 cluster)",
+    category: "numerical",
+    definition:
+      "A quick-lookup headword naming the three N ~ 3.3e9 sigma(N) post-peak landmarks that recur " +
+      "across dozens of modules and currentStatus, so a reader can resolve which value a bare " +
+      "'N_half', 'N_cross', or 'N_star' reference means without re-deriving it.\n\n" +
+      "N_half ~ 3.267235e9 -- the sigma(N) = 1/2 HALVING point (imp-33582/imp-3444), where the " +
+      "post-peak decay of sigma(N) crosses one-half.\n" +
+      "N_cross ~ 3.280294e9 -- the E_coll(N) = E_trunc CROSSOVER, recovered independently as a " +
+      "Banach fixed point of g(N) = K log T0(N) (imp-33723) and as a bisection root (imp-3444), " +
+      "agreeing to ~1.7e-15.\n" +
+      "N_star ~ 3.38e9 -- the sigmoid-inflection KNEE (d2 sigma/dt2 = 0), pinned to sub-decade " +
+      "resolution by imp-33721.\n\n" +
+      "ORDERING: N_half < N_cross < N_star, with N_cross sitting ~0.40% above N_half (the E_flow/E_trunc " +
+      "Gronwall surplus, imp-33848/imp-34923) and N_star sitting ~3.0-3.3% above the N_half/N_cross pair " +
+      "(a distinct curvature-vs-E-balance definitional offset, imp-33744/imp-34904). imp-35009 tabulates " +
+      "all six pairwise relative spreads for this triple plus the imp-34693 admissible seed band " +
+      "[3.11e9, 3.45e9], finding a max spread of 3.308% and the seed-band midpoint coinciding with " +
+      "N_cross to 0.009%.\n\n" +
+      "CAUTION: 'N_star' is OVERLOADED elsewhere in the codebase for the unrelated imp-34675 Lambert-W " +
+      "contraction-boundary value (~1.475e8, where g_prime(N) = 1) -- context (a ~3.3e9-scale value vs " +
+      "a ~1e8-scale value) disambiguates which N_star is meant.\n\n" +
+      "HONEST SCOPE: a naming/lookup headword only, restating the imp-35009/imp-34441/imp-34904 " +
+      "tabulations verbatim -- no landmark is recomputed and no bound changes. The component model is " +
+      "the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb remains " +
+      "GUE-conditional (imp-486); imp-3066 K_a>=0 untouched; no RH verdict, NO QED; Platt-Trudgian " +
+      "Lambda<=0.2 remains SOTA.",
+    firstUsed: "imp-35082 (glossary headword naming and ordering the N_half/N_cross/N_star landmark triple), 2026",
+    relatedTerms: [
+      "imp-35009 tabulates all six pairwise relative spreads across this triple plus the seed band (imp-35009)",
+      "imp-34441 the four-locator ~3.28e9 cluster reconciliation this triple is drawn from (imp-34441)",
+      "imp-34904 the three-cause taxonomy explaining why the N_half/N_cross and N_cross/N_star gaps differ in kind (imp-34904)",
+      "imp-33723 closed-form Banach fixed point defining N_cross (imp-33723)",
+      "imp-33721 sub-decade sigmoid-knee inflection defining N_star (imp-33721)",
+      "imp-34675 the unrelated, overloaded Lambert-W N_star (~1.475e8) elsewhere in the codebase (imp-34675)",
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

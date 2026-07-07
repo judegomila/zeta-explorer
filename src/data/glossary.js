@@ -14806,6 +14806,57 @@ export const glossary = [
       'imp-34678 the parallel distinction between a pointwise derivative sample and a Banach certificate (imp-34678)',
     ],
   },
+  {
+    term: 'landmark-translation coefficient dx*/d ln(C_mb) ~ 2.06 (imp-34950 F3 mechanism)',
+    category: 'numerical',
+    definition:
+      'A headword explaining WHY the imp-34950 landmark-translation coefficient is close to 2, why it is not ' +
+      'EXACTLY 2, and how that ~3% excess is the same log-odds-derivative effect that later prevents the ' +
+      'level-pinned composite from reproducing the measured crossing-strength exponent p.\n\n' +
+      'WHY THE NAIVE PREDICTION IS 2: the sigmoid argument u0(x, C_mb) = ln(C_mb) + ln(A) + (1/2) ln(L(x)) - x/2 ' +
+      'carries C_mb as an ADDITIVE ln(C_mb) shift that does not depend on x, while its dominant x-dependence is ' +
+      'the linear term -x/2 (the (1/2) ln(L(x)) term varies far more slowly in x). To leading order, raising ' +
+      'ln(C_mb) by delta lifts the whole u0(x) curve by delta at every x; restoring the same u0 value at a new ' +
+      'landmark position requires shifting x by dx* = 2 delta, since the local slope of the dominant term is ' +
+      '-1/2. That is the entire content of "the ~2 ln(C_mb) translation": it is a leading-order linear-slope ' +
+      'argument on u0 alone, nothing more.\n\n' +
+      'WHY THE MEASURED VALUE IS 2.06, NOT 2: imp-34950 does not measure the naive slope argument -- it measures ' +
+      'dx*/d ln(C_mb) by finite-differencing the ACTUAL landmark locator, the inflection condition ' +
+      '(1-2S) u_x^2 + u_xx = 0 on the FULL uFull = u0 + phi(x,s), holding s fixed at s*(1). Because sigma = ' +
+      '1/(1+exp(-uFull)) depends on the LEVEL of u through S = sigma(uFull), an additive ln(C_mb) shift changes ' +
+      'not only where u0 sits but also the value of S(1-S) entering the inflection condition -- a genuine ' +
+      'DERIVATIVE-level sensitivity that the naive -x/2 slope argument never accounts for, because that ' +
+      'argument only tracks the LEVEL of u0, not the curvature-balancing condition that actually defines the ' +
+      'landmark. This extra derivative contribution is what pushes the measured coefficient about 3% above the ' +
+      'naive value of 2, to ~2.06.\n\n' +
+      'HOW THIS FEEDS THE F3 COMPOSITION SHORTFALL: the SAME root cause -- the landmark is a derivative ' +
+      '(inflection) condition, not a level condition -- is why composing the translation coefficient with the ' +
+      'local E_flow decay exponent q_eff ~ 0.855 (as if s* R held a constant LEVEL at the landmark) overshoots ' +
+      'the measured exponent p ~ 1.549 by ~14%: the naive product 2.06 x 0.855 ~ 1.71 only counts the level ' +
+      'effect, so only ~88% of it transmits into p, with the missing ~12% absorbed by the very same log-odds ' +
+      'DERIVATIVE dependence that already inflated the translation coefficient from 2 to 2.06. The ~3% excess ' +
+      'on the coefficient and the ~12% composition shortfall are two readouts of one underlying fact: cmb\'s ' +
+      'shift perturbs the DERIVATIVE structure of the landmark condition, not just its level.\n\n' +
+      'HOW TO APPLY: when a quantity enters a sigmoid argument as a pure additive constant, a leading-order ' +
+      '"slope-matching" argument (divide the constant by the dominant local slope) gives the right ORDER of a ' +
+      'translation coefficient but is not exact whenever the object being translated is defined by a DERIVATIVE ' +
+      'condition on the sigmoid (an inflection, a knee) rather than a LEVEL condition -- the sigmoid\'s own ' +
+      'S(1-S) level-sensitivity feeds back into the derivative condition and produces a measurable correction. ' +
+      'Do not expect a level-pinned composite built from such a coefficient to fully reproduce a measured ' +
+      'exponent; the residual transmission fraction is diagnostic of exactly this feedback.\n\n' +
+      'HONEST SCOPE: a mechanistic headword restating and explaining the imp-34950 F3 numbers (dx*/d ln(C_mb) ' +
+      '~ 2.06, q_eff ~ 0.855, p ~ 1.549, ~88% transmission) verbatim, not a new measurement or bound; the ' +
+      'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb ' +
+      'GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; far-tail ' +
+      'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35006 (glossary headword mechanistically explaining the imp-34950 F3 landmark-translation coefficient), 2026',
+    relatedTerms: [
+      'imp-34950 measures the landmark-translation coefficient dx*/d ln(C_mb) ~ 2.06 and the local E_flow exponent q_eff ~ 0.855 (imp-34950)',
+      'measured-but-not-structural power-law exponent (imp-34950 crossing-strength exponent) the sibling headword on why the composite p_struct = 2 q_eff does not reproduce measured p',
+      'imp-34925 first reported the power-law form s* = K C_mb^p and the point exponent p ~ 1.549 (imp-34925)',
+      'imp-3463 the far-tail E_flow decay exponent 1/2, far below the local q_eff ~ 0.855 at the crossing landmark (imp-3463)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

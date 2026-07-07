@@ -6658,6 +6658,13 @@ const DATA_MODULES = [
   // every coefficient a_k^(n) is strictly positive for all n >= 2, upgrading the order-6 empirical chain
   // to a single all-orders definite-sign statement. Derivation/proof-checking module, no bound change.
   '/src/data/imp-34880-crossover-deriv-all-orders-sign-induction.js',
+  // imp-34905: INDEPENDENT verification of the imp-34880 all-orders closed-form cross-checks
+  // (leading a_{n-1}^(n)=(n-1)!, constant a_0^(n)=(2n-3)!!, strict positivity) via a SECOND,
+  // structurally-independent route -- the raw operator recurrence P_(n+1)=n u P_n+(2n-1)P_n-u P_n_prime
+  // built from explicit multiply-by-u / differentiate primitives, rather than the pre-solved
+  // coefficient formula -- and a two-order EXTENSION baking the independently hand-derived P_7/P_8
+  // literals. Both routes agree exactly at every order through n=8; no bound change; NO QED.
+  '/src/data/imp-34905-crossover-deriv-closed-form-independent-verify-p7-p8.js',
   // imp-34882: SHARPENS the imp-34863 radius read. imp-34863 took R = 1/limsup |delta_k|^(1/k) with limsup = the
   // plain MAX over k=1..9 (the k=9 rung, R ~ 138.7), crude while the root sequence still rises at the tail. This
   // module applies a Domb-Sykes construction -- Neville/Richardson extrapolation of root_k vs 1/k to the k -> inf
@@ -7203,6 +7210,13 @@ const DATA_MODULES = [
   // outward width of exactly 1 ulp -- no failing rung. N-independent structural facts, not artifacts of
   // N_cross; difficulty stays correctness (not size) of the log rounding. imp-34714a/34687a REMAIN OPEN.
   '/src/data/imp-34952-double-double-log-ulp-band-wide.js',
+  // imp-34904: ASSEMBLES the four independent ~3.3e9 landmark estimates that cluster near the sigma(N)
+  // halving point (L1 closed-form N_cross, L2 bisection N_cross, L3 N_half, L4 N_knee) into a single
+  // reconciliation table and attributes all six pairwise relative gaps to named causes: L1-L2 (~1.7e-15)
+  // is pure root-finding/FP residual; L1-L3/L2-L3 (~0.407%) is the Gronwall E_flow surplus term; L1-L4/
+  // L2-L4/L3-L4 (~3.06%/~3.48%) is the imp-33744 definitional inflection-vs-crossover/halving offset, a
+  // structural E_coll log-factor term, NOT the E_flow term. Reconciliation only, no bound change; NO QED.
+  '/src/data/imp-34904-landmark-3p3e9-reconciliation-table.js',
   // imp-34933: DISCRIMINATES whether the imp-34904 L1-L4 (~3.06%) crossover-vs-knee and L3-L4 (~3.48%)
   // halving-vs-knee inflection offsets are a FIXED structural constant or a RUNNING imp-33744 log-factor
   // term, by sliding the N-independent E_trunc to place the sigma=1/2 halving/crossover point on a ladder

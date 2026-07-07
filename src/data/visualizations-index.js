@@ -482,6 +482,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive margin-band check; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35022-pinned-product-decomposition',
+      title: 'Pinned-Product Decomposition: g* vs r0',
+      oneLine:
+        'Splits the imp-34956 pinned product P = g*·r0 into two panels: the window-invariant g* factor (flat at the FP floor) and the window-variable r0 factor (52.8x swing).',
+      mathBucket: 'bound',
+      dataModule: null,
+      paperSourcePath: 'src/data/imp-34956-pinned-product-window-sensitivity.js (imp-35022 viz page)',
+      ticket: 'imp-35022',
+      pedagogicalStep: 30,
+      honestCeiling:
+        'Descriptive factor-decomposition check; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

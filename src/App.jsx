@@ -677,6 +677,9 @@ const Imp35018FourLandmarkClusterLogNViz = lazy(() =>
 const Imp35030FarTailInflectionOffsetLadderViz = lazy(() =>
   import('./pages/Imp35030FarTailInflectionOffsetLadderViz.jsx')
 );
+const Imp35022PinnedProductDecompositionViz = lazy(() =>
+  import('./pages/Imp35022PinnedProductDecompositionViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1994,6 +1997,10 @@ function AppShell() {
           <Route
             path="/viz-imp35030-far-tail-inflection-offset-ladder"
             element={<Imp35030FarTailInflectionOffsetLadderViz />}
+          />
+          <Route
+            path="/viz-imp35022-pinned-product-decomposition"
+            element={<Imp35022PinnedProductDecompositionViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

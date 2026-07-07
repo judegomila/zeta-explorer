@@ -6794,6 +6794,17 @@ const DATA_MODULES = [
   // The genuine blocker is the missing directed-rounding transcendental layer (imp-34687a), not margin;
   // imp-34714a REMAINS OPEN. Feasibility/scoping only. No bound change.
   '/src/data/imp-34840-krawczyk-directed-rounding-op-dag-feasibility.js',
+  // imp-34867: SCOPES the transcendental LOG layer that imp-34840 localized as the genuine blocker. A
+  // correctly-rounded / crlibm-style log has a round-to-nearest per-call relative half-width of 0.5 ulp
+  // (2^-53) and a two-sided directed enclosure [RD(log),RU(log)] of outward half-width <= 1 ulp (2^-52) --
+  // no wider per call than a directed-rounded arithmetic op. On this chain log is well-conditioned
+  // (kappa_log = 1/log(arg) ~ 0.05 at the inner T0/2pi and outer T0 arguments), so each of the ~6 log calls
+  // CONTRACTS relative width ~20x and enters the gamma(n_op) accumulation as an ordinary unit-roundoff term,
+  // leaving the imp-34840 endpoint half-width ~3.7e-5 (~10 orders below the (H2) margin) UNCHANGED. So the
+  // log layer is FEASIBLE on the width axis; the genuine remaining gap SHARPENS the imp-34687a gap from
+  // "supply directed rounding" to "supply a proven-ULP correctly-rounded log with RD/RU variants" (stock JS
+  // Math.log carries no guaranteed ULP bound). imp-34714a REMAINS OPEN. Feasibility/scoping only. No bound change.
+  '/src/data/imp-34867-crlibm-log-enclosure-ulp-scope.js',
   // imp-34813: quantized-winding deep-dive CORRECTION. The imp-2673/2696 Gaussian proxy
   // computed the EXACT de Bruijn flow at NEGATIVE time (conv identity ~1e-9) -- the large-tau
   // winding drop was genuine zeros-leaving-the-line dynamics, not a smoothing artifact

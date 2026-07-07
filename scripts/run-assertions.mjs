@@ -6650,6 +6650,14 @@ const DATA_MODULES = [
   // 9.82e-3 return to the sub-unity band -> the r7/6 rise was a one-term artifact), MORE step-stable than delta_6/delta_7
   // (delta_8 spread ~1.5x, no sign flip). Measurement only, no bound change.
   '/src/data/imp-34863-sigma-knee-cauchy-hadamard-radius.js',
+  // imp-34880: PROVES by induction that the imp-34793/34822/34842/34859 order-by-order derivative-sign
+  // chain for the crossover map g(N)=K log T0(N) extends to ALL orders n >= 2. The recurrence
+  // P_(n+1)(u) = n u P_n(u) + (2n-1) P_n(u) - u P_n_prime(u) reproduces the measured P_2..P_6 exactly;
+  // the subtractive -u P_n_prime term never overpowers because it combines with +(2n-1)P_n into a single
+  // multiplier (2n-1-k) bounded below by n >= 2 across P_n's whole support (deg P_n = n-1 caps k). Hence
+  // every coefficient a_k^(n) is strictly positive for all n >= 2, upgrading the order-6 empirical chain
+  // to a single all-orders definite-sign statement. Derivation/proof-checking module, no bound change.
+  '/src/data/imp-34880-crossover-deriv-all-orders-sign-induction.js',
   // imp-34882: SHARPENS the imp-34863 radius read. imp-34863 took R = 1/limsup |delta_k|^(1/k) with limsup = the
   // plain MAX over k=1..9 (the k=9 rung, R ~ 138.7), crude while the root sequence still rises at the tail. This
   // module applies a Domb-Sykes construction -- Neville/Richardson extrapolation of root_k vs 1/k to the k -> inf

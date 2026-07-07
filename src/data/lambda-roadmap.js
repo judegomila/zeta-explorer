@@ -1155,12 +1155,17 @@ export const LAMBDA_ROADMAP = {
     'NOTED (imp-35009): tabulating four nearby N~3.3e9 landmarks -- N_cross=' +
     '3.280294e9 (imp-33723 Banach fixed point), N_half~3.27e9 (imp-33582 ' +
     'sigma=1/2 halving), N_star~3.38e9 (imp-33721 sigmoid inflection knee), ' +
-    'and the imp-34693 admissible seed band [3.11e9,3.45e9] -- finds all ' +
-    'pairwise relative spreads under 4%, a tight co-location consistent with ' +
-    '(but not proof of) the shared E_coll=E_trunc crossover geometry ' +
-    'underlying each. Measurement only on the inherited imp-3220/imp-3406 ' +
-    'surrogate; changes no bound; C_mb remains GUE-conditional (imp-486); ' +
-    'NO QED.',
+    'and the imp-34693 admissible seed band [3.11e9,3.45e9] (mid 3.28e9) -- ' +
+    'now tabulates all six pairwise relative spreads |a-b|/mean(a,b) ' +
+    '(scripts/imp-35009-landmark-cluster-spread.mjs): N_cross/N_half 0.314%, ' +
+    'N_cross/N_star 2.994%, N_cross/seedmid 0.009%, N_half/N_star 3.308%, ' +
+    'N_half/seedmid 0.305%, N_star/seedmid 3.003%. Max spread 3.308% (the ' +
+    'N_half..N_star cluster endpoints), all under 4%; N_cross and the seed-band ' +
+    'midpoint coincide to 0.009%; and the seed band brackets all three point ' +
+    'landmarks. The tight co-location is consistent with -- but this measurement ' +
+    'does NOT prove -- the shared E_coll=E_trunc crossover geometry underlying ' +
+    'each. Measurement only on the inherited imp-3220/imp-3406 surrogate; ' +
+    'changes no bound; C_mb remains GUE-conditional (imp-486); NO QED.',
   bounds: LAMBDA_BOUNDS,
   chain: LAMBDA_CHAIN_STEPS,
   verification: VERIFICATION_EFFORTS,

@@ -94,6 +94,7 @@
  * @see imp-winding-lyapunov-scope (imp-2859 scope cap -- ceiling refined here)
  * @see full-route-map-2026-06-19 (RANKED_OPPORTUNITIES #5 -- relabelled)
  * @see scripts/imp-34813-exact-debruijn-winding-offline.mjs (offline solver)
+ * @see scripts/imp-34816-conv-identity-scaling-offline.mjs (imp-34816 conv-identity error scaling)
  */
 
 export const WINDING_MONOTONICITY_RIGOR = {
@@ -125,6 +126,23 @@ export const WINDING_MONOTONICITY_RIGOR = {
     relErrTau05: 1.982e-9,
     relErrTau2: 6.085e-9,
     meaning: 'GaussianConv_{sqrt(2 tau)}(H_0) = H_{-tau} to ~1e-9: the imp-2673/2696 proxy computed the TRUE flow in negative de Bruijn time',
+  },
+  convIdentityScaling: {
+    // imp-34816. Separates the recorded ~1e-9 conv-identity relErr into three
+    // channels: discrete-convolution step h (Q), 6-sigma kernel-tail cut (T),
+    // ext-grid edge cut (E). Offline solver imp-34816-conv-identity-scaling-offline.mjs
+    // (reproduced the two recorded points EXACTLY: 1.982e-9 at tau=0.5, 6.085e-9 at tau=2).
+    // (Q) step-h sweep at tau=2, 8-sigma kernel, interior x-band [40,84]:
+    hSweepTau2: { h: [0.02, 0.01, 0.005, 0.0025], relErr: [2.735e-13, 2.761e-13, 2.762e-13, 2.769e-13] },
+    hFloorRatio: 1.0, // successive-h relErr ratio; O(h^2) would give 4.0 -- so NOT an h-floor
+    // (tau) sweep at fixed fine h=0.005, 8-sigma kernel, interior band:
+    tauSweep: { tau: [0.25, 0.5, 1, 2, 4], relErr: [4.747e-13, 3.531e-13, 3.821e-13, 2.762e-13, 6.070e-13] },
+    tauLogLogSlopeRange: [-0.468, 1.136], // brackets 0 -- no monotone tau-growth, sits at roundoff floor
+    // (T) kernel-span sweep at tau=2, h=0.005, interior band -- the DOMINANT channel:
+    spanSweep: { spanSigma: [4, 5, 6, 8, 10], relErr: [3.268e-4, 3.369e-6, 1.220e-8, 2.762e-13, 2.686e-13] },
+    roundoffFloor: 3e-13,
+    verdict:
+      'NEITHER a Simpson step-h quadrature floor (relErr flat at ~2.76e-13 across h=0.02..0.0025, ratio ~1.0 not 4.0) NOR a genuine de Bruijn flow-identity tau-growth (at an 8-sigma kernel relErr sits at the ~3e-13 roundoff floor for all tau in [0.25,4], log-log slope brackets 0). The recorded ~1e-9..1e-8 numbers and their mild tau=0.5->2 rise are ENTIRELY the 6-sigma Gaussian-kernel TRUNCATION channel: relErr collapses 3.3e-4 -> 3.4e-6 -> 1.2e-8 -> 2.8e-13 as the kernel widens 4 -> 5 -> 6 -> 8 sigma. Proxy fidelity is NOT tau-limited: widening the convolution kernel to 8-sigma restores full double precision at every tau, confirming GaussConv = H_{-tau} exact to machine roundoff. Measurement only; no bound changed; NO QED.',
   },
   proxyReconciliation: {
     tauRepo: [0.125, 0.3125, 0.5, 1, 2],
@@ -173,6 +191,23 @@ export const WINDING_MONOTONICITY_RIGOR_ASSERTIONS = [
     holds: () => {
       const { relErrTau05, relErrTau2 } = WINDING_MONOTONICITY_RIGOR.convIdentity;
       return relErrTau05 < 1e-6 && relErrTau2 < 1e-6;
+    },
+  },
+  {
+    id: 'wmr-conv-identity-error-is-kernel-truncation-not-h-floor-not-tau-growth',
+    description: 'imp-34816: the conv-identity relErr is dominated by the 6-sigma kernel-truncation channel, NOT a step-h quadrature floor (flat in h, ratio ~1 not 4) and NOT genuine tau-growth (at 8-sigma it sits at the ~3e-13 roundoff floor for all tau, so the identity is exact to machine precision)',
+    holds: () => {
+      const s = WINDING_MONOTONICITY_RIGOR.convIdentityScaling;
+      // step-h flat: max/min over the h-sweep within a small factor of 1 (no O(h^2) decay)
+      const maxH = Math.max(...s.hSweepTau2.relErr), minH = Math.min(...s.hSweepTau2.relErr);
+      const hFlat = maxH / minH < 1.1;
+      // 8-sigma tau-sweep all at the roundoff floor (no tau-growth beyond it)
+      const tauFloored = s.tauSweep.relErr.every((r) => r < s.roundoffFloor * 3);
+      // truncation channel dominant: 6-sigma error >> 8-sigma error by many orders
+      const idx6 = s.spanSweep.spanSigma.indexOf(6), idx8 = s.spanSweep.spanSigma.indexOf(8);
+      const truncDominates = s.spanSweep.relErr[idx6] / s.spanSweep.relErr[idx8] > 1e3;
+      return hFlat && tauFloored && truncDominates &&
+        /NEITHER a Simpson step-h/.test(s.verdict) && /NO QED/.test(s.verdict);
     },
   },
   {

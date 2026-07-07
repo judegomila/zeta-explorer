@@ -6923,6 +6923,17 @@ const DATA_MODULES = [
   // imp-34799 model budgets -- NOT the binding accuracy term; the imp-34883 2555.18x band-minimum headroom
   // over the (H2) ceiling is preserved. Measurement only; imp-34714a and imp-34687a REMAIN OPEN. No bound change.
   '/src/data/imp-34910-residual-corrected-quotient-ulp-measurement.js',
+  // imp-34922: TWO-ORDER EXTENSION of the imp-34880/imp-34905 crossover-map numerator-polynomial table to
+  // P_9 and P_10. Regenerates P_2..P_10 by BOTH the pre-solved coefficient recurrence a_k^(n+1)=n a_{k-1}
+  // +(2n-1-k)a_k AND the independent operator recurrence P_(n+1)=n u P_n+(2n-1)P_n - u P_n_prime; the two
+  // routes agree exactly. Bakes the hand-derived P_9=[2027025,...,40320] / P_10=[34459425,...,362880] and
+  // reconfirms leading a_{n-1}^(n)=(n-1)! (40320=8!, 362880=9!), constant a_0^(n)=(2n-3)!! (2027025=15!!,
+  // 34459425=17!!) and strict positivity (definite sign (-1)^(n+1)) at n=9,10. ASSESSES the two extreme
+  // coefficients: they follow from a DIRECT boundary projection of the operator recurrence (constant from
+  // the u->0 projection a_0^(n+1)=(2n-1)a_0^(n)->(2n-3)!!; leading from the top-degree projection
+  // a_n^(n+1)=n a_{n-1}^(n)->(n-1)!), each decoupled from the interior multiplier. Surrogate-map SIGNS only;
+  // C_mb GUE-conditional per imp-486 and C_C 1/8 ansatz UNTOUCHED; no operator positivity; no bound change; NO QED.
+  '/src/data/imp-34922-crossover-deriv-p9-p10-extension.js',
   // imp-34813: quantized-winding deep-dive CORRECTION. The imp-2673/2696 Gaussian proxy
   // computed the EXACT de Bruijn flow at NEGATIVE time (conv identity ~1e-9) -- the large-tau
   // winding drop was genuine zeros-leaving-the-line dynamics, not a smoothing artifact
@@ -7061,6 +7072,11 @@ const DATA_MODULES = [
   // cohort is only imp-34813/34799/34800 -- imp-34798/34801/34794 completed
   // as data-module-only tickets with no dedicated viz page under those ids.
   '/src/data/imp-34834-caveat-surfacing-audit-34798-34801-34813.js',
+  // imp-34856: orphan-wiring audit of the imp-34817/34818/34819/34820/34821/
+  // 34822/34824 cohort (extends the imp-34724/34788/34802/34833 lineage);
+  // all 7 self-executing *_ASSERTIONS modules were already wired into
+  // MATH_MODULES -- no orphans found.
+  '/src/data/imp-34856-orphan-wiring-audit-34817-34824.js',
 ];
 
 let ALL_MODULES = FAST_MODE

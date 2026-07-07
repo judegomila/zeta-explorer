@@ -974,6 +974,15 @@ const VIZ_REF_ROUTES = {
 };
 const VIZ_REF_PATTERN = /(imp-\d{4,5})/g;
 
+// imp-35065 scoping: the headword itself (the <h3> term above) can ALSO carry an
+// optional per-concept route via a `headwordRoute` field on a CONCEPTS entry, wrapped
+// in the same <Link> already imported for linkifyVizRefs -- no new import, so this does
+// not violate the no-heavy-imports directive. No entry sets it yet: unlike the inline
+// imp-NNNN mentions linkified above (a 1:1 text-token -> route match), most CONCEPTS
+// entries are generic glossary terms or multi-ticket digests with no single canonical
+// viz page, so populating headwordRoute needs a separate per-entry audit (out of scope
+// here) to confirm which ids genuinely own one dedicated route before wiring them.
+
 function linkifyVizRefs(text) {
   if (!text) return text;
   const parts = text.split(VIZ_REF_PATTERN);
@@ -1085,7 +1094,15 @@ export default function ConceptsPage() {
                 }}>
                   {cat?.label}
                 </span>
-                <h3 style={{ margin: 0, color: '#e2e8f0', fontSize: 17 }}>{concept.term}</h3>
+                <h3 style={{ margin: 0, color: '#e2e8f0', fontSize: 17 }}>
+                  {concept.headwordRoute ? (
+                    <Link to={concept.headwordRoute} style={{ color: '#e2e8f0', textDecoration: 'underline' }}>
+                      {concept.term}
+                    </Link>
+                  ) : (
+                    concept.term
+                  )}
+                </h3>
                 {concept.symbol && (
                   <span style={{ marginLeft: 'auto' }}>
                     <InlineMath tex={concept.symbol} />

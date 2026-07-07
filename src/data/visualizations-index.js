@@ -523,6 +523,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive per-window convergence trajectory; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35079-combined-inflection-offset-ladder',
+      title: 'Combined Inflection-Offset Ladder, 1e6-1e18',
+      oneLine:
+        'Stitches the imp-34933 near-tail (1e6-1e13) and imp-34948 far-tail (1e14-1e18) inflection-vs-halving offset ladders into one thirteen-rung view, plotting offsetN and the offsetN*(t-1)^2 diagnostic against the imp-33744-predicted 1/(t-1)^2 law and the near-tail band tops.',
+      mathBucket: 'bound',
+      dataModule: null,
+      paperSourcePath:
+        'src/data/imp-34933-inflection-offset-running-vs-fixed-ladder.js, src/data/imp-34948-inflection-offset-far-tail-ladder-extension.js (imp-35079 viz page)',
+      ticket: 'imp-35079',
+      pedagogicalStep: 33,
+      honestCeiling:
+        'Descriptive combined decay-ladder check; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

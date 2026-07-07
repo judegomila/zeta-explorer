@@ -686,6 +686,9 @@ const Imp35026SigmaDecayLandmarkLadderViz = lazy(() =>
 const Imp35077ConjugatePairDarbouxTrajectoryViz = lazy(() =>
   import('./pages/Imp35077ConjugatePairDarbouxTrajectoryViz.jsx')
 );
+const Imp35079CombinedInflectionOffsetLadderViz = lazy(() =>
+  import('./pages/Imp35079CombinedInflectionOffsetLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2015,6 +2018,10 @@ function AppShell() {
           <Route
             path="/viz-imp35077-conjugate-pair-darboux-trajectory"
             element={<Imp35077ConjugatePairDarbouxTrajectoryViz />}
+          />
+          <Route
+            path="/viz-imp35079-combined-inflection-offset-ladder"
+            element={<Imp35079CombinedInflectionOffsetLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

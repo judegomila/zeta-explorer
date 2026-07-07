@@ -14858,6 +14858,44 @@ export const glossary = [
     ],
   },
   {
+    term: 'exponent-vs-diagnostic-band tension (imp-34948 far-tail ladder)',
+    category: 'numerical',
+    definition:
+      'A headword explaining why the imp-34933/imp-34948 inflection-offset ladder shows two readings that ' +
+      'look contradictory at first glance but are not: the LOCAL DECAY EXPONENT of offsetN = N_infl/N_half - 1 ' +
+      'vs t = ln N converges toward the imp-33744-predicted -2 (measuring ~-2.013 sigmoid, ~-1.949 ramp on the ' +
+      'far-tail rungs 1e14..1e18, vs only ~-1.9 on the imp-34933 near-tail rungs 1e6..1e13), while the ' +
+      'diagnostic product offsetN*(t-1)^2 is STILL slowly rising (sigmoid ~8.18 -> ~8.27, ramp ~22.68 -> ~23.30 ' +
+      'across the same five far-tail decades) rather than flat.\n\n' +
+      'WHY BOTH CAN BE TRUE AT ONCE: the imp-33744 closed form predicts a LEADING term offsetN ~ C/(t-1)^2, ' +
+      'but the actual offset carries an additional multiplicative correction from the running of ' +
+      'g = -d ln r/d ln N, which is not exactly constant in t -- it drifts slowly toward its asymptotic value ' +
+      'as t grows. Write offsetN ~ [C + h(t)]/(t-1)^2 where h(t) -> 0 is a residual O(1/t) running-g term. The ' +
+      'LOCAL EXPONENT d ln offsetN / d ln t is dominated by the (t-1)^-2 factor once h(t) is small relative to ' +
+      'C, so it converges to -2 quickly -- exponent convergence only requires h(t)/C to be SMALL, not zero. But ' +
+      'the DIAGNOSTIC PRODUCT offsetN*(t-1)^2 = C + h(t) isolates exactly the part the exponent reading is ' +
+      'insensitive to: it keeps drifting for as long as h(t) has not decayed to noise floor, which (being only ' +
+      'O(1/t)) takes far more decades than the O(1/t) correction needs to stop moving the exponent.\n\n' +
+      'HOW TO APPLY: when a measured local exponent has converged to a theoretically predicted power but a ' +
+      'companion diagnostic built to isolate the prefactor is still drifting, do not treat this as inconsistent ' +
+      'or as evidence the exponent reading is premature. A converged exponent only certifies that the ' +
+      'correction term is small COMPARED TO the leading power -- it says nothing about whether that correction ' +
+      'has reached ITS OWN asymptote. Check the correction\'s own decay rate (here O(1/t), i.e. logarithmically ' +
+      'slow in N) before expecting the prefactor diagnostic to flatten on the same span the exponent converges ' +
+      'on.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34948 verdict verbatim, not a new measurement or ' +
+      'bound; the component model is the inherited imp-3220/imp-3406 extrapolation reusing imp-34933 locators ' +
+      'verbatim, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; ' +
+      'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35031 (glossary headword for the imp-34948 exponent-vs-diagnostic-band tension), 2026',
+    relatedTerms: [
+      'imp-34948 extended the imp-34933 ladder to far-tail rungs 1e14..1e18 and measured the exponent drift toward -2 (imp-34948)',
+      'imp-34933 found the near-tail (1e6..1e13) local decay exponent ~-1.9, attributed to running-g (imp-34933)',
+      'imp-33744 the closed-form prediction sigma_infl = 1/2 - g_prime/(2 g^2) giving offsetN ~ 1/(t-1)^2 (imp-33744)',
+      'imp-33721 the sub-decade exponent-ramp knee this ladder\'s "ramp" notion tracks (imp-33721)',
+    ],
+  },
+  {
     term: 'g*-landmark-window-independence (imp-34956 pinned-product diagnostic)',
     category: 'numerical',
     definition:

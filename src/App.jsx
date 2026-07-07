@@ -539,6 +539,9 @@ const Imp34825WindingCountLadderViz = lazy(() =>
 const Imp34830DirectedRoundingWidthBoundViz = lazy(() =>
   import('./pages/Imp34830DirectedRoundingWidthBoundViz.jsx')
 );
+const Imp34832NCrossThreeWayLandmarkComparisonViz = lazy(() =>
+  import('./pages/Imp34832NCrossThreeWayLandmarkComparisonViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1672,6 +1675,10 @@ function AppShell() {
           <Route
             path="/viz-imp34830-directed-rounding-width-bound"
             element={<Imp34830DirectedRoundingWidthBoundViz />}
+          />
+          <Route
+            path="/viz-imp34832-ncross-three-way-landmark-comparison"
+            element={<Imp34832NCrossThreeWayLandmarkComparisonViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

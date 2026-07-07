@@ -6655,6 +6655,16 @@ const DATA_MODULES = [
   // identical, Borel moves ~9e-8 dex). Resummation is INERT; the ~9.2e-5 finite-difference floor (imp-34772/
   // imp-34756 lineage) caps the accuracy regardless. Measurement/derivation only, no bound change.
   '/src/data/imp-34888-sigma-knee-pade-borel-resummation.js',
+  // imp-34900: ATTEMPTS the imp-34882 tighter-radius sub-gap with ANALYTICALLY-differentiated v-kernels instead of the
+  // hd = 1e-3 finite differences. Writing w = ln(T/2pi), the Riemann-von Mangoldt relation collapses to x = w + ln(w-1),
+  // so v/v_prime/v_secondDeriv are closed-form and exact to machine precision. Findings: the FD noise lives in exactly
+  // one number, the THIRD derivative (~1.08% off; v/v_prime match to <= 2e-8), and analytic kernels remove it -- the
+  // low-order 4-pt Neville is rescued (R ~ 44.5 -> 92.7, into agreement with the linear read). BUT the LINEAR Domb-Sykes
+  // radius is UNCHANGED (R ~ 89.6, range ~[78,105], vs imp-34882 R ~ 91) and the high-order Neville stays ill-conditioned
+  // EVEN with exact derivatives (3-pt intercept negative, 9-pt R ~ 0.31). So 1/R cannot be pinned beyond linear order:
+  // the barrier is the nine-term SEQUENCE LENGTH, not the FD precision. Open sub-gap: extend the exact recursion to more
+  // orders (delta_10, delta_11, ...), now feasible since the analytic kernel removes the FD floor. Measurement only, no bound change.
+  '/src/data/imp-34900-sigma-knee-analytic-derivative-domb-sykes.js',
   // imp-34820: assesses whether the imp-34796 third-order identity F = -g_thirdDeriv/(1-S) can locate the
   // imp-34746/imp-33721 convex-to-concave sigmoid inflection (sigma_secondDeriv=0). Verdict: NO for that
   // identity -- its g_thirdDeriv=0 root is the DISTINCT sigma-KNEE (log10 N ~ 9.5364), ~0.0127 dex above the
@@ -6922,6 +6932,21 @@ const DATA_MODULES = [
   // (dGap/ds ~ -1.65e-2 dex/unit = the sum of the imp-34858 knee slope -7.34e-3 and imp-34837 inflection slope
   // +9.15e-3). Measurement/derivation only, no bound change.
   '/src/data/imp-34886-eflow-strength-knee-inflection-crossing.js',
+  // imp-34898: derives a ROOT-FREE closed form for the imp-34886 crossing strength s* ~ 0.78 from the two
+  // landmark slopes and curvatures (Taylor-in-s of Gap(s) at s=0): linear tangent s*_lin = -G0/G1 ~ 0.7722 and
+  // quadratic curvature-corrected s*_quad = (-G1 - sqrt(G1^2 - 2 G2 G0))/G2 ~ 0.7729, with G1 = dKnee/ds -
+  // dInfl/ds ~ -1.649e-2 (imp-34886 sensitivity) and G2 = dKnee2 - dInfl2 ~ +3.64e-5. Curvature correction a
+  // tiny +6.6e-4 (~100% first-order capture); both ~5e-3 below the bisected 0.7777 (un-captured Taylor tail
+  // from anchoring at s=0). Measurement/derivation only, no bound change.
+  '/src/data/imp-34898-eflow-crossing-strength-closed-form.js',
+  // imp-34899: sweeps the imp-34886 crossing strength s* across ramp positions (E_flow/E_trunc scaled by a
+  // ramp-depth multiplier m in {1,3,10,30,100,300}) to answer the imp-34886 curvature-vs-ramp-position subGap.
+  // Finding: s* DRIFTS as ~1/ratio (0.7777 at m=1 -> 0.0026 at m=300, ~300x -- NOT flat), but the product
+  // s*(E_flow/E_trunc) ~ 1.4366e-3 is RAMP-INVARIANT (the crossing pins the phi log-odds shift), so the
+  // constant-slope linear estimate tracks s* to <= ~0.7% and the curvature-induced departure is bounded
+  // (<= ~5.43e-3 in s) and LARGEST at the near-peak -- imp-34886 linear ~0.77 is robust, not fragile.
+  // Measurement only, no bound change.
+  '/src/data/imp-34899-eflow-crossing-strength-ramp-position-sweep.js',
   // imp-34788: wires three orphaned self-executing *_ASSERTIONS modules from the imp-34751/
   // imp-34754/imp-34757 cluster back into the sweep (audit found only the three cluster
   // ANCHORS wired; the extension modules below were never added).
@@ -6972,6 +6997,12 @@ const DATA_MODULES = [
   // 34770 -- imp-34769/imp-34772 completed as data-module-only tickets with no
   // dedicated viz page under those ids.
   '/src/data/imp-34812-caveat-surfacing-audit-krawczyk-sigma-knee-dpstar.js',
+  // imp-34834: caveat-surfacing audit of the imp-34798/imp-34800/imp-34801/
+  // imp-34813 data-module cohort and any viz pages built from imp-34799/
+  // imp-34794 (extends the imp-34725/imp-34812 lineage); the true viz-page
+  // cohort is only imp-34813/34799/34800 -- imp-34798/34801/34794 completed
+  // as data-module-only tickets with no dedicated viz page under those ids.
+  '/src/data/imp-34834-caveat-surfacing-audit-34798-34801-34813.js',
 ];
 
 let ALL_MODULES = FAST_MODE

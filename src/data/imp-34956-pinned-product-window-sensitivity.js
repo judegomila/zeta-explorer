@@ -199,6 +199,13 @@ const P_AT_BRACKET_LO = productAtDex(9); // full bracket 10^9
 const P_AT_BRACKET_HI = productAtDex(11); // full bracket 10^11
 const FULL_BRACKET_MAX_OVER_MIN = P_AT_BRACKET_LO / P_AT_BRACKET_HI; // ~52.8x
 
+// Dense sampling of productAtDex across the full bracket, for plotting the P-vs-window curve
+// (same deterministic function as above, sampled at finer resolution than the 3 symmetric bands).
+const DEX_SWEEP = Array.from({ length: 11 }, (_, i) => 9 + i * 0.2).map((dex) => ({
+  dex: +dex.toFixed(2),
+  product: +productAtDex(dex).toExponential(4),
+}));
+
 export const IMP34956_PINNED_PRODUCT_WINDOW_SENSITIVITY = {
   id: 'imp-34956',
   proofSection: 'S-frontier',
@@ -244,6 +251,7 @@ export const IMP34956_PINNED_PRODUCT_WINDOW_SENSITIVITY = {
     physicalWindowMoveVsNoiseRatio: +(P_MOVE_ACROSS_PHYSICAL_WINDOW / RESIDUAL_RAMP_SPREAD).toFixed(3), // ~0.57
   },
   symmetricBands: SYMMETRIC_BANDS,
+  dexSweep: DEX_SWEEP, // 11-point dense sample of P across the full [1e9,1e11] bracket, for plotting
   fullBracket: {
     dexLo: 9,
     dexHi: 11,
@@ -353,6 +361,21 @@ export const IMP34956_PINNED_PRODUCT_WINDOW_SENSITIVITY_ASSERTIONS = [
     id: 'imp34956-reproduces-imp34924-pinned-product',
     description: 'P at the nominal window reproduces the imp-34924 pinned product ~1.43656e-3',
     holds: () => Math.abs(P_NOMINAL - 1.43656e-3) < 5e-6,
+  },
+  {
+    // the dense dex sweep is monotonically decreasing and its endpoints match the full-bracket lo/hi.
+    id: 'imp34956-dex-sweep-monotonic-matches-bracket-endpoints',
+    description: 'dexSweep has 11 monotonically-decreasing points spanning dex 9..11, endpoints match fullBracket',
+    holds: () => {
+      const sweep = IMP34956_PINNED_PRODUCT_WINDOW_SENSITIVITY.dexSweep;
+      const monotonic = sweep.every((p, i) => i === 0 || p.product < sweep[i - 1].product);
+      return (
+        sweep.length === 11 &&
+        monotonic &&
+        Math.abs(sweep[0].product - P_AT_BRACKET_LO) / P_AT_BRACKET_LO < 1e-3 &&
+        Math.abs(sweep[sweep.length - 1].product - P_AT_BRACKET_HI) / P_AT_BRACKET_HI < 1e-3
+      );
+    },
   },
   {
     // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA.

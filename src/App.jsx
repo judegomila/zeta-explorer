@@ -653,6 +653,9 @@ const Imp34981LandmarkGapReconstructionLadderViz = lazy(() =>
 const Imp34983SigmaKneeCrossingCmbSensitivityViz = lazy(() =>
   import('./pages/Imp34983SigmaKneeCrossingCmbSensitivityViz.jsx')
 );
+const Imp34985PinnedProductWindowSensitivityViz = lazy(() =>
+  import('./pages/Imp34985PinnedProductWindowSensitivityViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1938,6 +1941,10 @@ function AppShell() {
           <Route
             path="/viz-imp34983-sigma-knee-crossing-cmb-sensitivity"
             element={<Imp34983SigmaKneeCrossingCmbSensitivityViz />}
+          />
+          <Route
+            path="/viz-imp34985-pinned-product-window-sensitivity"
+            element={<Imp34985PinnedProductWindowSensitivityViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

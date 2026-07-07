@@ -6577,6 +6577,14 @@ const DATA_MODULES = [
   // than degrades the collapse. Cross-checks the four inherited bands vs the imp-34792 literals to
   // < 1e-3. Measurement only, no bound change.
   '/src/data/imp-34819-crossover-gpp-fifth-band-envelope-extension.js',
+  // imp-34839: derives the LIMIT of the imp-34819 rising per-decade shrink ladder. Factoring
+  // r(N)=B(N)/B(10N)=(M'/M)^2 (u'/u)^3 (u+1)/(u'+1) and using Riemann-von Mangoldt N=M(u-1), the
+  // decade step s=u'-u -> log 10 forces (M'/M)^2 -> 100 and the u-factors -> 1: the limit is EXACTLY
+  // 100x/decade. A second-order expansion (O(1/u) terms cancel) gives the residual law
+  // 100 - r ~ (100 log 10)/u^2 = 230.2585/u^2; the fitted C_k=(100-r_k)u_k^2 rises monotonically
+  // toward 100 log 10 (0.9775 at 1e9, 0.9991 at 1e150). Reproduces the four imp-34819 ratios to
+  // < 1e-3. Accuracy assessment on the inherited surrogate, no bound change.
+  '/src/data/imp-34839-crossover-gpp-shrink-ratio-limit.js',
   // imp-34793: derives the crossover-map FOURTH derivative g_quadruple_prime(N) =
   // -16 pi^4 K (6u^3+18u^2+25u+15)/(T^4 u^7) in closed form on the imp-34768 footing --
   // the NEXT derivative imp-34768 left open. It matches a 5-point fourth-difference of g to
@@ -6608,6 +6616,13 @@ const DATA_MODULES = [
   // the SC-to-exactF residual ladder {-1.1e-5, +4.86e-5, +4.86e-5, +4.86e-5} sign-flips then goes flat, so the
   // min-|residual| truncation order is 2 (a fortuitous sign cancellation, not convergence). Measurement only, no bound change.
   '/src/data/imp-34821-sigma-knee-fifth-order-v-expansion.js',
+  // imp-34836: extends the recursion TWO more orders past imp-34821 -- delta_6 = -3 p delta_5 - 4 delta_1 delta_5 -
+  // 4 delta_2 delta_4 - 2 delta_3^2 ~ +2.02e-15 (r6/5 ~ 5.32e-4, still decreasing) and delta_7 ~ -3.22e-16 whose
+  // ratio r7/6 ~ 1.60e-1 is the FIRST apparent rise. That turn-up is an FD-NOISE artifact, not a divergence
+  // signature: the step-sensitivity probe shows delta_6 varies ~11x (flips sign) and r7/6 swings >1 order across
+  // steps {2e-3,1e-3,5e-4}, so the delta_7 order is below the FD noise floor. The step-STABLE ladder stays
+  // sub-unity and does NOT resume rising, so the extended evidence still favours CONVERGENT. Measurement only, no bound change.
+  '/src/data/imp-34836-sigma-knee-sixth-seventh-order-v-expansion.js',
   // imp-34820: assesses whether the imp-34796 third-order identity F = -g_thirdDeriv/(1-S) can locate the
   // imp-34746/imp-33721 convex-to-concave sigmoid inflection (sigma_secondDeriv=0). Verdict: NO for that
   // identity -- its g_thirdDeriv=0 root is the DISTINCT sigma-KNEE (log10 N ~ 9.5364), ~0.0127 dex above the

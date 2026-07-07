@@ -635,6 +635,9 @@ const Imp34962KrawczykHeadroomMonotonicityDerivativeViz = lazy(() =>
 const Imp34963EflowCrossingStrengthPowerLawViz = lazy(() =>
   import('./pages/Imp34963EflowCrossingStrengthPowerLawViz.jsx')
 );
+const Imp34964EflowPinnedProductInvarianceViz = lazy(() =>
+  import('./pages/Imp34964EflowPinnedProductInvarianceViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1896,6 +1899,10 @@ function AppShell() {
           <Route
             path="/viz-imp34963-eflow-crossing-strength-power-law"
             element={<Imp34963EflowCrossingStrengthPowerLawViz />}
+          />
+          <Route
+            path="/viz-imp34964-eflow-pinned-product-invariance"
+            element={<Imp34964EflowPinnedProductInvarianceViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

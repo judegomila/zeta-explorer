@@ -481,6 +481,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34961-breach-step-doubling',
   '/viz-imp34962-krawczyk-headroom-monotonicity-derivative',
   '/viz-imp34963-eflow-crossing-strength-power-law',
+  '/viz-imp34964-eflow-pinned-product-invariance',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

@@ -575,6 +575,9 @@ const Imp34890SixthDerivLadderViz = lazy(() =>
 const Imp34891TwoRateOffByOneViz = lazy(() =>
   import('./pages/Imp34891TwoRateOffByOneViz.jsx')
 );
+const Imp34892CauchyHadamardRootTestViz = lazy(() =>
+  import('./pages/Imp34892CauchyHadamardRootTestViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1756,6 +1759,10 @@ function AppShell() {
           <Route
             path="/viz-imp34891-two-rate-off-by-one"
             element={<Imp34891TwoRateOffByOneViz />}
+          />
+          <Route
+            path="/viz-imp34892-cauchy-hadamard-root-test"
+            element={<Imp34892CauchyHadamardRootTestViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

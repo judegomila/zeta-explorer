@@ -593,6 +593,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive far-tail decay-ladder check on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp34958-inflection-offset-running-vs-fixed-ladder',
+      title: 'Inflection-Offset Running-vs-Fixed Ladder, 1e6-1e13',
+      oneLine:
+        'Plots the imp-34933 seven-rung near-tail ladder of the sigmoid-inflection and exponent-ramp-knee offsets against N_half in 1e6..1e13, showing the offsets fall monotonically rather than holding at the imp-34904 fixed ~3% reading.',
+      mathBucket: 'bound',
+      dataModule: null,
+      paperSourcePath:
+        'src/data/imp-34933-inflection-offset-running-vs-fixed-ladder.js (imp-34958 viz page)',
+      ticket: 'imp-35090',
+      pedagogicalStep: 38,
+      honestCeiling:
+        'Descriptive running-vs-fixed decay-ladder check on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

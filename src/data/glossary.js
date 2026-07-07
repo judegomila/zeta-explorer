@@ -13440,6 +13440,53 @@ export const glossary = [
       'imp-34647 the per-rung ULP-stochastic roundoff floor the mean-zero null attributes the scatter to (imp-34647)',
     ],
   },
+  {
+    term: 'dp-star trust boundary: the imp-34735/imp-34754 edge-ratio and no-crossing verdict',
+    category: 'numerical',
+    definition:
+      'A general diagnostic for when a FIXED finite-differencing probe step is still resolving a ' +
+      'quantity honestly, versus when the rising smallest-USABLE step dp-star(N) has overtaken it, ' +
+      'drawn from imp-34735/imp-34754\'s treatment of the imp-34711/imp-34691 q3 stencil.\n\n' +
+      'imp-34711 derived dp-star(N) = (W_max*eps*|q|/(240*|q3|))^(1/3), the smallest step below which ' +
+      'roundoff (not truncation) dominates a central-difference estimate of q3 on q(p)=log E_coll, and ' +
+      'showed it RISES like (log N)^(4/3) as N grows. imp-34691 measures the physical q3 on a FIXED ' +
+      'probe band of two steps, dp=0.1 (coarser) and dp=0.05 (finer). Because dp-star climbs while the ' +
+      'probe steps stay fixed, there is an internal TRUST BOUNDARY: once dp-star(N) reaches a probe ' +
+      'step, that step has fallen below the smallest-usable resolution and the q3 it reports has ' +
+      'silently become roundoff, not physics -- a crossing that is never tabulated by the q3 output ' +
+      'itself and must be checked separately.\n\n' +
+      'THE DIAGNOSTIC: track the EDGE RATIOS dp-star(N)/0.05 (finer edge, always crossed first) and ' +
+      'dp-star(N)/0.1 (coarser edge, crossed last). A ratio below 1 means the probe step still exceeds ' +
+      'the smallest-usable step and the measurement is self-consistent (the NO-CROSSING verdict); a ' +
+      'ratio at or above 1 means the boundary has been crossed and the reported q3 cannot be trusted. ' +
+      'imp-34735 found both ratios far below 1 through N=1e100 (~0.170 finer, ~0.085 coarser); imp-34754 ' +
+      'extended the exact ladder to N=1e300 and found the ratios DIVERGE (no finite plateau) yet the ' +
+      'no-crossing verdict still holds, only barely -- the finer ratio reaches ~0.806, i.e. ~81% of the ' +
+      'way to corruption, versus ~17% at 1e100, so the safety margin closes sharply in the deep tail. ' +
+      'The closed-form crossover extrapolation (finer edge ~1e375, coarser ~1e630) sits HUNDREDS of ' +
+      'decades past the 1e300 exact-ladder ceiling and must be flagged as an asymptotic estimate, not a ' +
+      'validated landmark.\n\n' +
+      'HOW TO APPLY: whenever a module reports a quantity from a fixed-step finite difference while a ' +
+      'companion smallest-usable-step formula is rising with N, compute the edge ratio (rising-step / ' +
+      'fixed-step) across the validated range before trusting the deep-tail value; report both the ' +
+      'current ratio (margin remaining) and whether it is still rising toward 1, and clearly separate ' +
+      'an exact-ladder-validated verdict from any closed-form extrapolation used to locate the eventual ' +
+      'crossing.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34735/imp-34754 trust-boundary methodology, ' +
+      'not a new derivation; the underlying imp-3220/imp-3406 crossover-map surrogate and its inherited ' +
+      'q1..q3 central differences are unchanged and untrustworthy in the sigma->1 deep-tail regime; ' +
+      'C_C = (1/8)sqrt(3pi) (imp-2714) and C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 ' +
+      'K_a >= 0 untouched; changes no bound; no operator positivity; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34786 (glossary headword for the imp-34735/imp-34754 dp-star trust-boundary edge-ratio and no-crossing verdict), 2026',
+    relatedTerms: [
+      'imp-34711 derived the rising smallest-usable step dp-star(N) ~ (log N)^(4/3) this boundary tracks (imp-34711)',
+      'imp-34691 the fixed dp=0.1/0.05 probe band the boundary compares dp-star against (imp-34691)',
+      'imp-34735 measured the exact-model edge ratios through N=1e100, both far below 1 (imp-34735)',
+      'imp-34754 extended the ladder to N=1e300, showing the ratios diverge yet no-crossing still holds (imp-34754)',
+      'imp-34773 mapped how the closed-form crossover N shifts across three q3 stencil orders (imp-34773)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

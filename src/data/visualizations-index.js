@@ -579,6 +579,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive residual-decomposition bar chart on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35030-far-tail-inflection-offset-ladder',
+      title: 'Far-Tail Inflection-Offset Ladder, 1e14-1e18',
+      oneLine:
+        'Plots the imp-34948 far-tail extension of the offsetSigmoidPct and offsetRampPct inflection-vs-halving decay across the five rungs N_half in 1e14..1e18, continuing the imp-34933 near-tail (1e6-1e13) band tops.',
+      mathBucket: 'bound',
+      dataModule: null,
+      paperSourcePath:
+        'src/data/imp-34948-inflection-offset-far-tail-ladder-extension.js (imp-35030 viz page)',
+      ticket: 'imp-35030',
+      pedagogicalStep: 37,
+      honestCeiling:
+        'Descriptive far-tail decay-ladder check on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

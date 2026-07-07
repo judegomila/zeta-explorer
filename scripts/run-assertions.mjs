@@ -6878,6 +6878,12 @@ const DATA_MODULES = [
   // collapses to ~2.86e-6 T-units (~12.5 orders below the margin). Forward/contraction width ratio ~2.56e12,
   // confirming the flat gamma(n_op) bound is faithful ONLY on the contraction route. imp-34714a stays open.
   '/src/data/imp-34865-forward-vs-contraction-width-inflation.js',
+  // imp-34812: caveat-surfacing audit of the imp-34774/imp-34776 Krawczyk and
+  // imp-34769/imp-34770 sigma-knee and imp-34772 dp-star viz cluster (extends
+  // the imp-34725 lineage); the true viz-page cohort is only imp-34774/34776/
+  // 34770 -- imp-34769/imp-34772 completed as data-module-only tickets with no
+  // dedicated viz page under those ids.
+  '/src/data/imp-34812-caveat-surfacing-audit-krawczyk-sigma-knee-dpstar.js',
 ];
 
 let ALL_MODULES = FAST_MODE

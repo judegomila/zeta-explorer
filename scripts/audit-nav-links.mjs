@@ -453,6 +453,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34852-cmb-sweep-sign-flip-ladder',
   '/viz-imp34853-fifth-order-v-expansion-term-ladder',
   '/viz-imp34854-d2-locator-convergence',
+  '/viz-imp34855-five-band-shrink-ratio-ladder',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

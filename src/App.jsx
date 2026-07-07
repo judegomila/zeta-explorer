@@ -551,6 +551,9 @@ const Imp34853FifthOrderVExpansionTermLadderViz = lazy(() =>
 const Imp34854D2LocatorConvergenceViz = lazy(() =>
   import('./pages/Imp34854D2LocatorConvergenceViz.jsx')
 );
+const Imp34855FiveBandShrinkRatioLadderViz = lazy(() =>
+  import('./pages/Imp34855FiveBandShrinkRatioLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1700,6 +1703,10 @@ function AppShell() {
           <Route
             path="/viz-imp34854-d2-locator-convergence"
             element={<Imp34854D2LocatorConvergenceViz />}
+          />
+          <Route
+            path="/viz-imp34855-five-band-shrink-ratio-ladder"
+            element={<Imp34855FiveBandShrinkRatioLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

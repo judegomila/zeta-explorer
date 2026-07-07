@@ -6562,6 +6562,15 @@ const DATA_MODULES = [
   // shrink ratios rise monotonically toward the clean 100x/decade, so approaching the 1/2 asymptote
   // STABILISES rather than degrades the collapse. Measurement only, no bound change.
   '/src/data/imp-34792-crossover-gpp-fourth-band-envelope-extension.js',
+  // imp-34819: appends a 5th far-tail band [1e13,1e14] to the imp-34792 4-band collapse and confirms
+  // BOTH properties survive one decade further: the five per-band left-endpoint bounds still strictly
+  // descend (B(1e9) > ... > B(1e13)) and the single leftmost constant B(1e9) still dominates
+  // max |dg_kk/dt| on every one of the five bands (B(1e9)/max_union = 1.000), so one envelope guards
+  // the widened [1e9,1e14] union; the per-decade shrink ratios (~99.30, 99.44, 99.54, 99.62) keep
+  // rising monotonically toward the clean 100x/decade, so nearing the 1/2 asymptote STABILISES rather
+  // than degrades the collapse. Cross-checks the four inherited bands vs the imp-34792 literals to
+  // < 1e-3. Measurement only, no bound change.
+  '/src/data/imp-34819-crossover-gpp-fifth-band-envelope-extension.js',
   // imp-34793: derives the crossover-map FOURTH derivative g_quadruple_prime(N) =
   // -16 pi^4 K (6u^3+18u^2+25u+15)/(T^4 u^7) in closed form on the imp-34768 footing --
   // the NEXT derivative imp-34768 left open. It matches a 5-point fourth-difference of g to

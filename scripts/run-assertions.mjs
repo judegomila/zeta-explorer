@@ -7245,6 +7245,16 @@ const DATA_MODULES = [
   // q_eff ~ 0.855, matching imp-34950) -- of the same order as the noise floor -- while a FREE window over
   // [1e9,1e11] swings |P| by ~52.8x. So essentially NONE of the m-invariance residual is window-attributable.
   '/src/data/imp-34956-pinned-product-window-sensitivity.js',
+  // imp-34973: MEASURES d ln P/dx of the imp-34924 pinned product against the imp-34950 local E_flow
+  // decay exponent q_eff on a 9-point X_CROSS grid across [1e9,1e11], to test whether the imp-34956
+  // ~0.855 slope match is a point coincidence at 9.53 dex or holds window-wide. Because g* is
+  // landmark-window-INDEPENDENT (imp-34956 W0), P = g* r0 is EXACTLY proportional to r0 = R(X_CROSS), so
+  // d ln P/dx = d ln R/dx while q_eff = -d ln R/dx of the SAME eflowRatio kernel -- hence |d ln P/dx| =
+  // q_eff at every window BY DEFINITION (identity residual ~4.4e-12 window-wide). The match is an
+  // ALGEBRAIC IDENTITY, not a coincidence. What is window-LOCAL is the number: q_eff drifts monotonically
+  // from ~0.8463 (1e9) through ~0.8549 (9.53 dex) to ~0.8744 (1e11), so ~0.855 is a point reading at the
+  // crossing landmark, well above the imp-3463 far-tail 1/2. Measurement only; changes no bound; NO QED.
+  '/src/data/imp-34973-pinned-product-slope-qeff-window-identity.js',
   // imp-34967 orphan-wiring sweep (imp-34878/imp-34724/imp-34802 lineage): the following four
   // imp-34922..imp-34933 cohort modules define self-executing *_ASSERTIONS arrays but were not yet
   // wired into this MATH_MODULES sweep.
@@ -7284,6 +7294,11 @@ const DATA_MODULES = [
   // P_11 and P_12, verifying the boundary-projection recurrences hold at the two new orders.
   // Measurement/derivation only, no bound change.
   '/src/data/imp-34957-crossover-deriv-p11-p12-extension.js',
+  // imp-34974: DERIVES the two boundary-projection recurrences (k=0 -> a_0^(n+1)=(2n-1)a_0^(n),
+  // k=n -> a_n^(n+1)=n a_{n-1}^(n)) as standalone projections of the interior recurrence, and adds
+  // two interior closed forms (subleading (n-1)(n-1)!, row-sum n^(n-1)) plus a two-sided interior
+  // bound. Derivation/verification only, no bound change.
+  '/src/data/imp-34974-crossover-boundary-projection-recurrence-derivation.js',
   // imp-35053 orphan-wiring check (imp-34896/34920/34945/34967 lineage): imp-35018's
   // self-executing IMP35018_FOUR_LANDMARK_CLUSTER_LOG_N_VIZ_ASSERTIONS array (band-contains-
   // locators, ordered-increasing, pairwise-spreads-under-4pct, cluster-band-3p3e9) was not yet

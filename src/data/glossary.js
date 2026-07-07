@@ -13706,6 +13706,37 @@ export const glossary = [
     ],
     link: '/viz-imp34825-winding-count-ladder',
   },
+  {
+    term: 'Exact-Flow Collision-Time Meter',
+    category: 'method',
+    definition:
+      'A new-to-repo cross-validation instrument seeded by imp-34813: instead of approximating the de Bruijn ' +
+      'flow, integrate the TRUE H_t(x) = int e^{t u^2} Phi(u) cos(xu) du directly (Kahan-compensated Simpson, ' +
+      'doubly-exponential Polymath15 kernel), then bisect the exact negative-time t_c at which each conjugate ' +
+      'pair of real zeros collides and leaves the line. This turns the quantized-winding count ladder into an ' +
+      'exact MANY-BODY collision clock: on the window gamma in [10,52] the tightest pair (gamma_9, gamma_10) ' +
+      'collides at t_c = -1.8837, retarded relative to the isolated TWO-BODY prediction t_2b = -(2 dgamma)^2/8 ' +
+      '= -1.5641 -- the neighbouring zeros slow the approach, measured as a many-body gap-squared closing rate ' +
+      'd(gap^2)/dt ~ 5.78 versus the isolated two-body rate of exactly 8. The meter is a clock, not a bound: it ' +
+      'gives a ground-truth t_c against which cheaper approximate machinery can be checked. imp-34814 used it ' +
+      'this way, integrating the truncated-N Calogero-Moser (CM) backward flow dg_k/dt = 2 sum_{j != k} ' +
+      '1/(x_k - x_j) for the same pair and finding its t_c migrates monotonically toward the exact value as the ' +
+      'truncation window N grows (t_c = -1.5642, -1.7063, -1.7581, -1.7854, -1.7964, -1.8028 at N = 2, 4, 6, 8, ' +
+      '10, 13), the truncation error shrinking from 0.32 to 0.08 but not vanishing at N=13 -- quantifying, not ' +
+      'eliminating, the finite-N error in Route A/B CM machinery. HONEST SCOPE: a measurement/cross-validation ' +
+      'tool only; no new theorem, no new bound; the classical monotonicity underneath is de Bruijn 1950 Thm 13 ' +
+      'plus the jet-lemma argument (see Winding Orientation Correction); Rodgers-Tao Lambda>=0 and Platt-' +
+      'Trudgian Lambda<=0.2 remain SOTA; NO QED.',
+    firstUsed: 'imp-34813 (seeded the exact H_t integral as a cross-validation instrument), used by imp-34814 (truncated-N CM cross-validation), 2026',
+    relatedTerms: [
+      'imp-34813 the exact de Bruijn flow re-audit that seeded this instrument (imp-34813)',
+      'imp-34814 cross-validated the truncated-N Calogero-Moser collision-time machinery against this meter (imp-34814)',
+      'Winding Orientation Correction (Gaussian Proxy = Exact Negative-Time de Bruijn Flow)',
+      'imp-34825 the exact de Bruijn winding count ladder visualization built alongside this meter (imp-34825)',
+      'de Bruijn-Newman Constant Λ',
+    ],
+    link: '/viz-imp34825-winding-count-ladder',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

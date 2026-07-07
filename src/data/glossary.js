@@ -14178,6 +14178,44 @@ export const glossary = [
       'imp-34693 the Picard terminal-value seed band and iterate counts the measured route draws from (imp-34693)',
     ],
   },
+  {
+    term: 'imp-34837 Knee-vs-Inflection ORDERING REVERSAL under E_flow reinstatement',
+    category: 'numerical',
+    definition:
+      'A headword for why carrying the SAME additive perturbation into two nearby logistic landmarks can move ' +
+      'them in OPPOSITE directions and flip which one sits higher.\n\n' +
+      'imp-34820 located the closed-form sigmoid D2 inflection and imp-34796/imp-34846 the third-order sigma-' +
+      'knee, both on the no-E_flow log-odds u_0(x) = ln A + 0.5 ln L - x/2. Reinstating the dropped E_flow term ' +
+      'adds the EXACT additive log-odds shift phi(x) = -ln(1 + E_flow/E_trunc) (imp-34749), so u_full = u_0 + ' +
+      'phi. imp-34837 measured what phi does to each landmark: the third-order sigma-KNEE shifts DOWN by ' +
+      '-7.32e-3 dex (reproducing imp-34749/imp-34710), while the second-order D2 INFLECTION shifts UP by ' +
+      '+9.03e-3 dex -- opposite signs, both first-order-captured to ~100-101% by their respective implicit-' +
+      'function slopes dXstar/ds at s=0. Because the no-E_flow separation was only +1.27e-2 dex (knee above ' +
+      'inflection, imp-34820), the two opposite-signed shifts are large enough relative to that gap to CROSS ' +
+      'it: with E_flow carried the knee sits -3.61e-3 dex BELOW the inflection -- the ordering flips.\n\n' +
+      'WHY OPPOSITE SIGNS: the third- and second-order closed-form kernels weight the same perturbation phi(x) ' +
+      'through DIFFERENT combinations of u derivatives (v = -u_prime cubed and coupled terms for the knee vs. ' +
+      '(1-2S) u_prime^2 + u_secondDeriv for the inflection), so a single shared log-odds perturbation need not ' +
+      'push same-signed corrections through both kernels -- there is no a priori reason nearby landmarks drift ' +
+      'together just because they share a perturbation.\n\n' +
+      'HOW TO APPLY: when a correction term is reinstated into a log-odds (or similar) model that hosts several ' +
+      'nearby closed-form landmarks, do not assume every landmark moves the same direction, or that a small ' +
+      'no-perturbation separation is a floor other shifts cannot cross -- check each landmark shift and ' +
+      'the sign of the SEPARATION explicitly; a shared perturbation can reverse the ordering of adjacent ' +
+      'landmarks even when each individual shift is small.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34837 measurement verbatim, not a new bound; the ' +
+      'component model is the inherited imp-3220/imp-3406 extrapolation; C_mb GUE-conditional (imp-486) ' +
+      'UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-34872 (glossary headword for the imp-34837 knee-vs-inflection ordering reversal under E_flow reinstatement), 2026',
+    relatedTerms: [
+      'imp-34837 measured the opposite-signed shifts (-7.32e-3 knee, +9.03e-3 inflection) and the resulting ordering flip (imp-34837)',
+      'imp-34820 the closed-form D2 inflection locator whose no-E_flow +1.27e-2 dex knee-above separation gets crossed (imp-34820)',
+      'imp-34749 the exact additive log-odds shift phi = -ln(1+E_flow/E_trunc) carried into both landmarks (imp-34749)',
+      'imp-34886 solved for the E_flow strength s* where the two landmarks exactly coincide mid-crossing (imp-34886)',
+      'imp-33744 the F3 same-order ~0.003 secondary-shift estimate the imp-34837 measured +9.03e-3 shift exceeds ~3x (imp-33744)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

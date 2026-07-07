@@ -7245,6 +7245,26 @@ const DATA_MODULES = [
   // q_eff ~ 0.855, matching imp-34950) -- of the same order as the noise floor -- while a FREE window over
   // [1e9,1e11] swings |P| by ~52.8x. So essentially NONE of the m-invariance residual is window-attributable.
   '/src/data/imp-34956-pinned-product-window-sensitivity.js',
+  // imp-34967 orphan-wiring sweep (imp-34878/imp-34724/imp-34802 lineage): the following four
+  // imp-34922..imp-34933 cohort modules define self-executing *_ASSERTIONS arrays but were not yet
+  // wired into this MATH_MODULES sweep.
+  // imp-34923: DERIVES the exact 1/2 - sigma(N_cross) = 1/(2 + E_flow/E_trunc) identity from the
+  // sigma(N) = E_coll/E(N) definition and residual-checks it against the measured ~0.407% L1-L3 gap.
+  // Measurement/derivation only, no bound change; light imports only.
+  '/src/data/imp-34923-gronwall-halving-surplus-identity-derivation.js',
+  // imp-34924: DERIVES in closed form why the imp-34899 crossing-strength * ratio product
+  // s* * (E_flow/E_trunc) is EXACTLY ramp-invariant (a univariate Gap(s,m)=G(m s) argument), then
+  // measures the pinned product across the m-ladder. Measurement/derivation only, no bound change.
+  '/src/data/imp-34924-eflow-pinned-product-derivation.js',
+  // imp-34925: fits the functional form of the imp-34907 knee-vs-inflection crossing strength s*
+  // against C_mb on a finer grid, testing the power-law prediction s* = K * C_mb^p implied by the
+  // additive ln(C_mb) log-odds shift. Measurement only, no bound change.
+  '/src/data/imp-34925-eflow-crossing-strength-cmb-functional-form.js',
+  // imp-34927: MEASURES the double-double (~106-bit) log evaluation error at the four imp-34885 log
+  // sites, confirming <= 0.5 ulp correct-rounding and propagating the 1-ulp outward half-widths
+  // through the interval-Newton quotient. The log-site sibling of imp-34910/imp-34928. Measurement
+  // only, no bound change.
+  '/src/data/imp-34927-double-double-log-ulp-measurement.js',
 ];
 
 let ALL_MODULES = FAST_MODE

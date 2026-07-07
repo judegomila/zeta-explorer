@@ -581,6 +581,9 @@ const Imp34892CauchyHadamardRootTestViz = lazy(() =>
 const Imp34911ForwardBreachBandUniformityViz = lazy(() =>
   import('./pages/Imp34911ForwardBreachBandUniformityViz.jsx')
 );
+const Imp34912PadeBorelResummationInertnessViz = lazy(() =>
+  import('./pages/Imp34912PadeBorelResummationInertnessViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1770,6 +1773,10 @@ function AppShell() {
           <Route
             path="/viz-imp34911-forward-breach-band-uniformity"
             element={<Imp34911ForwardBreachBandUniformityViz />}
+          />
+          <Route
+            path="/viz-imp34912-pade-borel-resummation-inertness"
+            element={<Imp34912PadeBorelResummationInertnessViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

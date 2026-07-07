@@ -6698,6 +6698,15 @@ const DATA_MODULES = [
   // R ~ 89.6), so eps = 1 stays deep inside |eps| < R ~ O(1e2). NET: the ill-conditioning is INTRINSIC to the analytic
   // structure, neither curable FD noise (imp-34900) nor a short nine-term tableau (this module). Measurement only, no bound change.
   '/src/data/imp-34932-sigma-knee-extended-order-domb-sykes.js',
+  // imp-34947: CROSS-CHECKS the imp-34932 conjugate-pair argument. imp-34932 only COUNTED delta sign changes to INFER a
+  // complex-conjugate singularity pair at theta ~ 40 deg (interior runs +5/-4, P ~ 9). This module MEASURES theta two
+  // INDEPENDENT ways: (a) the sign-cycle period P -> theta = 360/P = 40.0 deg (reproduces imp-34932), and (b) a local
+  // 2-step linear-recurrence / Darboux angle read cos(theta) = p/(2 rho) from the pole pair rho e^(+- i theta), using the
+  // coefficient MAGNITUDES not the sign count -- which converges over the deep band k >= 8 to theta ~ 39 deg (median
+  // 39.04) with radius median R ~ 85.6 inside the imp-34932 R ~ 78 / imp-34900 R ~ 89.6 band. The two theta reads agree
+  // to ~0.96 deg (~2.4%); the small gap is the sign-count quantization (360/9). CONFIRMS the conjugate pair by an
+  // independent estimator. Measurement only, C_mb GUE-conditional untouched, no bound change, no QED.
+  '/src/data/imp-34947-conjugate-pair-argument-theta-cross-check.js',
   // imp-34820: assesses whether the imp-34796 third-order identity F = -g_thirdDeriv/(1-S) can locate the
   // imp-34746/imp-33721 convex-to-concave sigmoid inflection (sigma_secondDeriv=0). Verdict: NO for that
   // identity -- its g_thirdDeriv=0 root is the DISTINCT sigma-KNEE (log10 N ~ 9.5364), ~0.0127 dex above the

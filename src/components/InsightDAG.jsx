@@ -20,6 +20,15 @@ const PADDING_BOTTOM = 100;
 const STAGGER_Y = 58;     // vertical offset for odd nodes in crowded layers
 const STAGGER_THRESHOLD = 6; // layers with more nodes than this are staggered
 
+// The load-bearing "spine" edge types. The default (minimum-path) view keeps
+// only these + the nodes they touch, so the diagram reads as a clean path to RH
+// instead of an 81-node hairball. Decorative edges (illustrates/analogous/
+// supports/inspires/characterizes/extends) + their leaf nodes appear only in the
+// full-graph view.
+const STRUCTURAL_EDGE_TYPES = new Set([
+  'derives', 'composes', 'requires', 'proves', 'equivalent',
+]);
+
 /* ─── Compute positioned nodes ──────────────────────────────────────────── */
 //
 // Each node carries its own `layer` (0-4) in the data, so the renderer no
@@ -27,12 +36,43 @@ const STAGGER_THRESHOLD = 6; // layers with more nodes than this are staggered
 // LAYER_MAP silently hid every node it didn't list). Crowded layers are
 // staggered into two rows so 110px labels don't collide.
 
-function computeNodePositions() {
+function computeNodePositions(nodesInput = INSIGHT_NODES, edgesInput = INSIGHT_EDGES) {
   const layers = [[], [], [], [], [], [], []];
-  INSIGHT_NODES.forEach((n) => {
+  const nodeLayer = {};
+  nodesInput.forEach((n) => {
     const layer = typeof n.layer === 'number' ? n.layer : 2;
-    if (layer >= 0 && layer < layers.length) layers[layer].push(n);
+    if (layer >= 0 && layer < layers.length) { layers[layer].push(n); nodeLayer[n.id] = layer; }
   });
+
+  // ── Crossing-minimization: barycenter ordering ──────────────────────────
+  // Reorder nodes WITHIN each layer so they line up with their neighbours,
+  // turning the 81-node hairball into a clean, minimal-crossing path diagram.
+  // Adjacency over both edge directions; a few alternating sweeps converge.
+  const nbr = {};
+  edgesInput.forEach((e) => {
+    if (nodeLayer[e.from] === undefined || nodeLayer[e.to] === undefined) return;
+    (nbr[e.from] ||= []).push(e.to);
+    (nbr[e.to] ||= []).push(e.from);
+  });
+  const idx = {};
+  layers.forEach((layer) => layer.forEach((n, i) => { idx[n.id] = i; }));
+  const SWEEPS = 6;
+  for (let s = 0; s < SWEEPS; s++) {
+    const order = s % 2 === 0
+      ? layers.map((_, i) => i)                 // top → bottom
+      : layers.map((_, i) => i).reverse();      // bottom → top
+    for (const L of order) {
+      const layer = layers[L];
+      if (layer.length < 2) continue;
+      const bary = layer.map((n) => {
+        const ns = (nbr[n.id] || []).map((m) => idx[m]).filter((v) => v !== undefined);
+        return ns.length ? ns.reduce((a, b) => a + b, 0) / ns.length : idx[n.id];
+      });
+      const ord = layer.map((_, i) => i).sort((a, b) => (bary[a] - bary[b]) || (a - b));
+      layers[L] = ord.map((i) => layer[i]);
+      layers[L].forEach((n, i) => { idx[n.id] = i; });
+    }
+  }
 
   const positioned = {};
   layers.forEach((nodesInLayer, layerIdx) => {
@@ -293,7 +333,7 @@ function Tooltip({ node, svgRef }) {
 
 /* ─── Legend ─────────────────────────────────────────────────────────────── */
 
-function Legend() {
+function Legend({ maxLayer = 6 }) {
   const statusItems = [
     { label: 'Proven', color: STATUS_COLORS.proven },
     { label: 'Conditional', color: STATUS_COLORS.conditional },
@@ -318,7 +358,7 @@ function Legend() {
     { label: 'Analogous', stroke: '#ec4899', dash: '2,3' },
   ];
 
-  const baseY = PADDING_TOP + LAYER_Y[6] + NODE_H / 2 + 30;
+  const baseY = PADDING_TOP + LAYER_Y[maxLayer] + NODE_H / 2 + 30;
 
   return (
     <g>
@@ -377,7 +417,7 @@ function Legend() {
 
 /* ─── Layer labels ──────────────────────────────────────────────────────── */
 
-function LayerLabels() {
+function LayerLabels({ maxLayer = 6 }) {
   const labels = [
     { label: 'FOUNDATION', y: LAYER_Y[0], color: CATEGORY_COLORS.foundation },
     { label: 'MODEL', y: LAYER_Y[1], color: CATEGORY_COLORS.model },
@@ -386,7 +426,7 @@ function LayerLabels() {
     { label: 'TARGET', y: LAYER_Y[4], color: CATEGORY_COLORS.target },
     { label: 'OBSERVATIONS', y: LAYER_Y[5], color: CATEGORY_COLORS.viz },
     { label: 'FINDINGS', y: LAYER_Y[6], color: CATEGORY_COLORS.finding },
-  ];
+  ].filter((_, i) => i <= maxLayer);
 
   return (
     <>
@@ -417,29 +457,44 @@ export default function InsightDAG() {
   const navigate = useNavigate();
   const svgRef = useRef(null);
   const [hoveredId, setHoveredId] = useState(null);
+  const [showFull, setShowFull] = useState(false); // false = clean minimum-path spine
 
-  // Compute positions once
-  const nodes = useMemo(() => computeNodePositions(), []);
+  // Visible node/edge sets. Minimum-path view keeps only structural (spine) edges
+  // and the nodes they touch; full view shows everything.
+  const { vNodes, vEdges } = useMemo(() => {
+    if (showFull) return { vNodes: INSIGHT_NODES, vEdges: INSIGHT_EDGES };
+    const vEdges = INSIGHT_EDGES.filter((e) => STRUCTURAL_EDGE_TYPES.has(e.type));
+    const keep = new Set();
+    vEdges.forEach((e) => { keep.add(e.from); keep.add(e.to); });
+    const vNodes = INSIGHT_NODES.filter((n) => keep.has(n.id));
+    return { vNodes, vEdges };
+  }, [showFull]);
 
-  // Connections for highlight: set of node ids connected to hovered
+  const nodes = useMemo(() => computeNodePositions(vNodes, vEdges), [vNodes, vEdges]);
+  const maxLayer = useMemo(
+    () => vNodes.reduce((m, n) => Math.max(m, typeof n.layer === 'number' ? n.layer : 2), 0),
+    [vNodes]
+  );
+
+  // Connections for highlight: set of node ids connected to hovered (visible edges)
   const connectedIds = useMemo(() => {
     if (!hoveredId) return null;
     const ids = new Set([hoveredId]);
-    INSIGHT_EDGES.forEach((e) => {
+    vEdges.forEach((e) => {
       if (e.from === hoveredId) ids.add(e.to);
       if (e.to === hoveredId) ids.add(e.from);
     });
     return ids;
-  }, [hoveredId]);
+  }, [hoveredId, vEdges]);
 
   const connectedEdges = useMemo(() => {
     if (!hoveredId) return null;
     return new Set(
-      INSIGHT_EDGES
+      vEdges
         .filter((e) => e.from === hoveredId || e.to === hoveredId)
         .map((e) => `${e.from}->${e.to}`)
     );
-  }, [hoveredId]);
+  }, [hoveredId, vEdges]);
 
   const handleHover = useCallback((id) => setHoveredId(id), []);
   const handleLeave = useCallback(() => setHoveredId(null), []);
@@ -450,10 +505,24 @@ export default function InsightDAG() {
     [navigate]
   );
 
-  const svgHeight = PADDING_TOP + LAYER_Y[6] + NODE_H / 2 + STAGGER_Y + PADDING_BOTTOM;
+  const svgHeight = PADDING_TOP + LAYER_Y[maxLayer] + NODE_H / 2 + STAGGER_Y + PADDING_BOTTOM;
 
   return (
     <div style={{ width: '100%', overflowX: 'auto' }}>
+      <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 8, marginBottom: 6 }}>
+        <button
+          onClick={() => setShowFull((v) => !v)}
+          style={{
+            padding: '5px 12px', fontSize: 11, fontFamily: 'var(--font-mono)', cursor: 'pointer',
+            background: showFull ? 'rgba(139,92,246,0.15)' : 'rgba(16,185,129,0.15)',
+            color: showFull ? '#a78bfa' : '#10b981',
+            border: `1px solid ${showFull ? 'rgba(139,92,246,0.4)' : 'rgba(16,185,129,0.4)'}`,
+            borderRadius: 6,
+          }}
+        >
+          {showFull ? `Full graph — ${INSIGHT_NODES.length} nodes ⇄ show minimum path` : `Minimum path — ${vNodes.length} nodes ⇄ show full graph`}
+        </button>
+      </div>
       <svg
         ref={svgRef}
         viewBox={`0 0 ${SVG_WIDTH} ${svgHeight}`}
@@ -468,17 +537,17 @@ export default function InsightDAG() {
         }}
       >
         <MarkerDefs />
-        <LayerLabels />
+        <LayerLabels maxLayer={maxLayer} />
 
         {/* Render edges */}
-        {INSIGHT_EDGES.map((edge, i) => {
+        {vEdges.map((edge, i) => {
           const edgeKey = `${edge.from}->${edge.to}`;
           const dimmed = connectedEdges ? !connectedEdges.has(edgeKey) : false;
           return <EdgePath key={i} edge={edge} nodes={nodes} dimmed={dimmed} />;
         })}
 
         {/* Render nodes */}
-        {INSIGHT_NODES.map((n) => {
+        {vNodes.map((n) => {
           const pos = nodes[n.id];
           if (!pos) return null;
           const dimmed = connectedIds ? !connectedIds.has(n.id) : false;
@@ -500,7 +569,7 @@ export default function InsightDAG() {
         {hoveredId && nodes[hoveredId] && <Tooltip node={nodes[hoveredId]} svgRef={svgRef} />}
 
         {/* Legend */}
-        <Legend />
+        <Legend maxLayer={maxLayer} />
       </svg>
     </div>
   );

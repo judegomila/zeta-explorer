@@ -61,6 +61,15 @@ export const IMP35018_PAIRWISE_SPREADS = {
   half_vs_star_rel: Math.abs(N_STAR - N_HALF) / N_STAR,
 };
 
+// imp-35050: this is a qualitative co-location sanity check, not a derived mathematical bound.
+// The 4% ceiling was set with headroom above the imp-33721 ~3.3% N_star-vs-N_cross spread
+// measured at authoring time. If a future refinement relocates a landmark (as imp-33721 itself
+// relocated the inflection knee by a full decade), a spread crossing this line is a signal to
+// re-examine the co-location claim in imp-35009, not necessarily a real regression -- widen the
+// tolerance deliberately (with a comment noting the new source spread) rather than silently
+// deriving it from whatever the modules currently measure.
+const IMP35018_PAIRWISE_SPREAD_TOLERANCE = 0.04;
+
 export const IMP35018_N_MIN = Math.min(IMP35018_ADMISSIBLE_BAND.lo, ...IMP35018_ORDERED_LOCATORS.map((l) => l.N));
 export const IMP35018_N_MAX = Math.max(IMP35018_ADMISSIBLE_BAND.hi, ...IMP35018_ORDERED_LOCATORS.map((l) => l.N));
 
@@ -104,9 +113,9 @@ export const IMP35018_FOUR_LANDMARK_CLUSTER_LOG_N_VIZ_ASSERTIONS = [
     id: 'imp35018-pairwise-spreads-under-4pct',
     description: 'all pairwise relative spreads across the cluster stay under 4%, per the imp-35009 co-location finding (imp-33721 measured N_star ~3.3% above N_cross)',
     holds: () =>
-      IMP35018_PAIRWISE_SPREADS.half_vs_cross_rel < 0.04 &&
-      IMP35018_PAIRWISE_SPREADS.cross_vs_star_rel < 0.04 &&
-      IMP35018_PAIRWISE_SPREADS.half_vs_star_rel < 0.04,
+      IMP35018_PAIRWISE_SPREADS.half_vs_cross_rel < IMP35018_PAIRWISE_SPREAD_TOLERANCE &&
+      IMP35018_PAIRWISE_SPREADS.cross_vs_star_rel < IMP35018_PAIRWISE_SPREAD_TOLERANCE &&
+      IMP35018_PAIRWISE_SPREADS.half_vs_star_rel < IMP35018_PAIRWISE_SPREAD_TOLERANCE,
   },
   {
     id: 'imp35018-cluster-band-3p3e9',

@@ -494,6 +494,9 @@ const Imp34761ThreeFootingCollapseLadderViz = lazy(() =>
 const Imp34763CmbElasticitySigmaPeakViz = lazy(() =>
   import('./pages/Imp34763CmbElasticitySigmaPeakViz.jsx')
 );
+const Imp34765SigmaKneeCfElasticityViz = lazy(() =>
+  import('./pages/Imp34765SigmaKneeCfElasticityViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1567,6 +1570,10 @@ function AppShell() {
           <Route
             path="/viz-imp34763-cmb-elasticity-sigma-peak"
             element={<Imp34763CmbElasticitySigmaPeakViz />}
+          />
+          <Route
+            path="/viz-imp34765-sigma-knee-cf-elasticity"
+            element={<Imp34765SigmaKneeCfElasticityViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

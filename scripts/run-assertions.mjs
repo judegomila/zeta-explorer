@@ -6616,6 +6616,16 @@ const DATA_MODULES = [
   // which lands ON the finite-difference inflection to ~3e-8 (FD floor removed) and recovers imp-33744. The D2
   // identity is exact algebra: pointwise match ~3.6e-6 at h=1e-2, clean O(h^2) (ratio ~4). Derivation only, no bound change.
   '/src/data/imp-34820-sigmoid-inflection-d2-closed-form-locator.js',
+  // imp-34824: cross-checks the imp-34800 +2.95% sigmoid-inflection-vs-crossover residual (R3 vs R1/R2)
+  // against the imp-34734 C_mb elasticity, never done before. Inserting C_mb on E_coll (as imp-34734 does)
+  // and recomputing BOTH the imp-33723/imp-34800 crossover (N = C_mb^2 K log T0) and the imp-33721 sub-decade
+  // D2-zero inflection knee over C_mb in {1.00..0.25}: at C_mb=1 the pair reproduces the published landmarks
+  // and the +2.95% residual, but the residual is NOT C_mb-invariant -- it falls monotonically {+2.95,+2.93,
+  // +2.70,+2.11,-0.18,-9.38}%, changing SIGN near C_mb ~ 0.512 (elasticity +2.15e-2/unit). SHARP CONTRAST with
+  // imp-34734's C_mb-invariant peak LOCATION: the SEPARATION of a first-order balance and a second-order
+  // curvature knee moves with C_mb. Verdict: the nonzero separation is DEFINITIONAL, but the +2.95% VALUE/sign
+  // is a GUE-conditional-constant artifact of C_mb=1. Measurement only, no bound change, GUE conditional intact.
+  '/src/data/imp-34824-inflection-crossover-gap-cmb-sweep.js',
   // imp-34794: DUAL of the imp-34774 fixed-delta Krawczyk enclosure of N_cross -- fixes the few-ULP
   // outward-rounding budget K_FEW_ULP = 4 and drives the bracket half-width delta -> 0 to LOCATE the
   // tightest double-precision certified bracket. delta_min(k=4) ~ 1.887e-15 ~ 8.5 eps = (2 k + ~0.5) eps

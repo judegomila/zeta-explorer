@@ -6859,6 +6859,14 @@ const DATA_MODULES = [
   '/src/data/imp-34770-sigma-knee-third-order-v-expansion.js',
   '/src/data/imp-34774-krawczyk-fixed-point-map-enclosure.js',
   '/src/data/imp-34776-krawczyk-delta-sweep.js',
+  // imp-34865: MEASURES the imp-34840 structural requirement -- instantiates both the naive forward-
+  // propagation and the interval-Newton CONTRACTION routes for [T0] at N_cross with a directed-rounding
+  // surrogate. Forward interval evaluation DOUBLES the enclosure width per Newton step (factor 2.0000:
+  // interval subtraction adds widths) -- growing [T0] to ~7.32e6 T-units (image half-width ~5.27e5, ~80%
+  // of the (H2) margin) over the ~4-step op-DAG and BREACHING the margin at step ~5; the contraction route
+  // collapses to ~2.86e-6 T-units (~12.5 orders below the margin). Forward/contraction width ratio ~2.56e12,
+  // confirming the flat gamma(n_op) bound is faithful ONLY on the contraction route. imp-34714a stays open.
+  '/src/data/imp-34865-forward-vs-contraction-width-inflation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

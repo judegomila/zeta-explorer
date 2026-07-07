@@ -6659,6 +6659,16 @@ const DATA_MODULES = [
   // by the OLS/D2 finite-difference grid geometry, not the root-finder. Measurement only on the surrogate map;
   // does NOT tighten or discharge the GUE conditional (imp-486); changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-34838-cmb-zero-gap-precise-root-and-elasticity.js',
+  // imp-34844: SECOND-order view of the imp-34824 elasticity, which quoted d(relGap)/dC_mb ~ +2.15e-2/unit only
+  // at the GUE bound C_mb=1. On a dense C_mb grid {1.00..0.30} the local slope RISES ~25x (to +5.39e-1/unit at
+  // C_mb=0.30) and the curvature d2(relGap)/dC_mb^2 is negative at every node, strengthening ~58x (-6.80e-2 to
+  // -3.94/unit^2), stable across h in {0.01,0.02,0.04} -- a genuine accelerating concavity, not FD grid noise.
+  // So the elasticity is NOT constant: the sign-flip near C_mb ~ 0.512 is approached with accelerating curvature.
+  // A linear read of the near-flat GUE-bound slope predicts the zero at C_mb ~ -0.37 (outside [0,1]), MISSING the
+  // flip; the accelerating curvature pulls the true zero (imp-34838 C_mb* ~ 0.5116) into range. GUE-bound slope
+  // reproduces imp-34824 (+2.15e-2) and the root slope reproduces imp-34838 (+1.466e-1, ~6.8x). Measurement only
+  // on the surrogate map; does NOT discharge the GUE conditional (imp-486); changes no bound; NO QED; PT SOTA.
+  '/src/data/imp-34844-inflection-crossover-gap-cmb-curvature.js',
   // imp-34794: DUAL of the imp-34774 fixed-delta Krawczyk enclosure of N_cross -- fixes the few-ULP
   // outward-rounding budget K_FEW_ULP = 4 and drives the bracket half-width delta -> 0 to LOCATE the
   // tightest double-precision certified bracket. delta_min(k=4) ~ 1.887e-15 ~ 8.5 eps = (2 k + ~0.5) eps

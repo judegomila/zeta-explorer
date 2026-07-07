@@ -13678,6 +13678,34 @@ export const glossary = [
       'imp-34711 the far-tail dp-star(N) ~ (log N)^(4/3) ladder validated across 1e13..1e100, the trustworthy window the crossover extrapolates past (imp-34711)',
     ],
   },
+  {
+    term: 'Winding Orientation Correction (Gaussian Proxy = Exact Negative-Time de Bruijn Flow)',
+    category: 'proof-status',
+    definition:
+      'imp-34813 re-audit finding: the repo’s spatial-Gaussian-convolution proxy of H_0 with width sqrt(2 tau) is NOT ' +
+      'an approximation or a smoothing artifact -- it is EXACTLY the true de Bruijn flow H_{-tau} run at NEGATIVE ' +
+      'de Bruijn time (Fourier multiplier e^{-tau u^2} applied backward), verified against the exact integral to ' +
+      '~2e-9 (tau=0.5) and ~6e-9 (tau=2) relative deviation. imp-2673/2696/2859 had read the large-tau winding-' +
+      'count drop as "the wrong sign of true de Bruijn dynamics, NOT zeros leaving the line" -- exactly backward: ' +
+      'the drop IS zeros genuinely merging and leaving the real line, because running the flow to negative time is ' +
+      'precisely the content of Lambda >= 0 (Rodgers-Tao) read in reverse. The repo’s gamma-unit proxy time ' +
+      'tau_repo maps to true de Bruijn time via t = -4 tau_repo. The prior passes’ NUMBERS were always correct; ' +
+      'only the physical INTERPRETATION was time-reversed. Along increasing (forward) t, winding is genuinely non-' +
+      'decreasing -- classical, via de Bruijn 1950 Thm 13 (landing rate) plus a local jet-lemma argument (no lift-' +
+      'off: even-multiplicity real zeros become scaled Hermite jets under the backward heat equation dH/dt = ' +
+      '-d^2H/dx^2, real-rooted only for s>0). HONEST SCOPE: no new theorem, no new bound; Rodgers-Tao Lambda>=0 and ' +
+      'Platt-Trudgian Lambda<=0.2 unchanged; the correction is purely about which direction of t the observed count ' +
+      'drop corresponds to. NO QED.',
+    firstUsed: 'imp-34813 (deep-dive re-audit of the quantized-winding thread correcting the imp-2673/2696/2859 artifact claim), 2026',
+    relatedTerms: [
+      'imp-2696 recorded the corrected-orientation monotonicity as a "monotone non-increasing Lyapunov" in proxy time tau = -t/4 (imp-2696)',
+      'imp-2673 the spatial-Gaussian-convolution winding ladder whose count drop is reclassified here as a genuine collision, not an artifact (imp-2673)',
+      'imp-2859 the scope cap on the quantized-winding route, refined here into a hard lower-side cap at Lambda>=0 <=> RH (imp-2859)',
+      'imp-34825 the exact de Bruijn winding count ladder visualization built from this correction (imp-34825)',
+      'de Bruijn-Newman Constant Λ',
+    ],
+    link: '/viz-imp34825-winding-count-ladder',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -533,6 +533,9 @@ const Imp34810CrossoverNStencilOrderBandViz = lazy(() =>
 const Imp34811KrawczykDeltaSweepKStarLadderViz = lazy(() =>
   import('./pages/Imp34811KrawczykDeltaSweepKStarLadderViz.jsx')
 );
+const Imp34825WindingCountLadderViz = lazy(() =>
+  import('./pages/Imp34825WindingCountLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1658,6 +1661,10 @@ function AppShell() {
           <Route
             path="/viz-imp34811-krawczyk-delta-sweep-k-star-ladder"
             element={<Imp34811KrawczykDeltaSweepKStarLadderViz />}
+          />
+          <Route
+            path="/viz-imp34825-winding-count-ladder"
+            element={<Imp34825WindingCountLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

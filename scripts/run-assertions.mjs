@@ -7199,6 +7199,17 @@ const DATA_MODULES = [
   // ~22.68 -> ~23.30, above the near-tail band tops) -- not yet flat, per-decade drift < 1.03x, a residual
   // O(1/t) correction asymptoting on top of the leading 1/(t-1)^2 law. Measurement only; changes no bound; NO QED.
   '/src/data/imp-34948-inflection-offset-far-tail-ladder-extension.js',
+  // imp-34956: MEASURES the landmark-window (X_CROSS) sensitivity of the imp-34924 pinned product
+  // P = s*(E_flow/E_trunc) = g* r0, to bound how much of the ~1.6e-7 residual ramp-invariance spread is
+  // attributable to the fixed-window assumption vs bisection/finite-difference noise. g* is
+  // landmark-window-INDEPENDENT (gapAt has no X_CROSS), so P is EXACTLY proportional to r0 = r(X_CROSS)
+  // and the whole window dependence is d ln P = d ln r0. The ~1.6e-7 across-m residual is measured at
+  // FIXED X_CROSS, so the fixed-window assumption contributes EXACTLY 0 to it -- pure bisection noise. The
+  // nominal 10^9.53 sits on the actual knee-inflection crossing landmark (~9.53068 dex) to < 1e-3 dex; the
+  // physical crossing window (~4.6e-8 dex wide) perturbs P by ~9e-8 (local d ln P/d(dex) ~ -1.9685,
+  // q_eff ~ 0.855, matching imp-34950) -- of the same order as the noise floor -- while a FREE window over
+  // [1e9,1e11] swings |P| by ~52.8x. So essentially NONE of the m-invariance residual is window-attributable.
+  '/src/data/imp-34956-pinned-product-window-sensitivity.js',
 ];
 
 let ALL_MODULES = FAST_MODE

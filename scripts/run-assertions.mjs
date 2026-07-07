@@ -6632,6 +6632,12 @@ const DATA_MODULES = [
   // ~7.6e-5 absolute for n_op ~ 50 -- ~10 orders below the (H2) bracket margin. The strict-(H2)
   // op-count ceiling delta(1-|g_prime|)/eps ~ 8.60e11 recovers the imp-34776 k* budget. No bound change.
   '/src/data/imp-34799-krawczyk-directed-rounding-width-bound.js',
+  // imp-34817: COMPLEMENTARY op-count ceiling to imp-34799. Derives n_op* = G/((1+G) eps) ~ 2.20e15,
+  // the arithmetic depth at which the FP-error model gamma(n_op) = n_op eps/(1 - n_op eps) OVERTAKES the
+  // Krawczyk contraction gap 1 - |g_prime| ~ 0.9546 (image relative half-width reaches ~100% of N_cross).
+  // Shows this contraction-validity ceiling is ~2558x LOOSER than the imp-34799 (H2)-margin ceiling
+  // n_op^max ~ 8.60e11, nesting as 1/((1+G) delta), so the operative op budget is the (H2) margin. No bound change.
+  '/src/data/imp-34817-krawczyk-op-budget-contraction-gap.js',
   // imp-34813: quantized-winding deep-dive CORRECTION. The imp-2673/2696 Gaussian proxy
   // computed the EXACT de Bruijn flow at NEGATIVE time (conv identity ~1e-9) -- the large-tau
   // winding drop was genuine zeros-leaving-the-line dynamics, not a smoothing artifact

@@ -30,6 +30,36 @@ const BRIDGE_LABELS = PRIMES.map(p => {
   return 'χ' + String(p).replace(/\d/g, d => sub[d]);
 });
 
+// Precomputed per-prime RGB triples — avoids hex parsing per packet per frame
+const PRIME_RGB = PRIME_COLORS.map(c => [
+  parseInt(c.slice(1, 3), 16), parseInt(c.slice(3, 5), 16), parseInt(c.slice(5, 7), 16),
+]);
+
+// ─── Cached radial glow sprites ──────────────────────────────────────────────
+// Built once on first use, then drawn with scaled drawImage — a real radial
+// gradient falloff with zero per-frame allocation. Combined with 'lighter'
+// compositing this gives additive bloom where energies overlap (the bridge).
+const _glowSprites = {};
+function glowSprite(key, r, g, b) {
+  let s = _glowSprites[key];
+  if (!s) {
+    const c = document.createElement('canvas');
+    c.width = c.height = 64;
+    const g2 = c.getContext('2d');
+    const grad = g2.createRadialGradient(32, 32, 0, 32, 32, 32);
+    grad.addColorStop(0, `rgba(${r},${g},${b},0.9)`);
+    grad.addColorStop(0.35, `rgba(${r},${g},${b},0.32)`);
+    grad.addColorStop(1, `rgba(${r},${g},${b},0)`);
+    g2.fillStyle = grad;
+    g2.fillRect(0, 0, 64, 64);
+    _glowSprites[key] = s = c;
+  }
+  return s;
+}
+
+// Background gradients — rebuilt only when the canvas CSS size changes
+const _bgCache = { key: '', grad: null, vignette: null };
+
 export default function HeroSignalFlow() {
   const canvasRef = useRef();
   const animRef = useRef();
@@ -85,9 +115,27 @@ export default function HeroSignalFlow() {
     }
     const ctx = canvas.getContext('2d');
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
 
-    // Background
-    ctx.fillStyle = '#060a14';
+    // Background — cached vertical gradient + corner vignette for depth
+    const bgKey = w + ':' + h;
+    if (_bgCache.key !== bgKey) {
+      const grad = ctx.createLinearGradient(0, 0, 0, h);
+      grad.addColorStop(0, '#04060d');
+      grad.addColorStop(0.5, '#0a1222');
+      grad.addColorStop(1, '#04060d');
+      const vig = ctx.createRadialGradient(
+        w / 2, h / 2, Math.min(w, h) * 0.35,
+        w / 2, h / 2, Math.max(w, h) * 0.72
+      );
+      vig.addColorStop(0, 'rgba(2, 4, 10, 0)');
+      vig.addColorStop(1, 'rgba(2, 4, 10, 0.5)');
+      _bgCache.key = bgKey;
+      _bgCache.grad = grad;
+      _bgCache.vignette = vig;
+    }
+    ctx.fillStyle = _bgCache.grad;
     ctx.fillRect(0, 0, w, h);
 
     // Layout: two horizontal ladders with bridge coupling between them at each prime
@@ -112,7 +160,7 @@ export default function HeroSignalFlow() {
     const unitarity = Math.max(0, 1 - 2 * sigmaDeviation);
 
     // ─── Subtle grid (single batched path) ───
-    ctx.strokeStyle = '#0f172a';
+    ctx.strokeStyle = 'rgba(15, 23, 42, 0.75)';
     ctx.lineWidth = 0.5;
     ctx.beginPath();
     for (let gx = margin; gx < w - margin; gx += 50) {
@@ -120,6 +168,21 @@ export default function HeroSignalFlow() {
       ctx.lineTo(gx, h - 20);
     }
     ctx.stroke();
+
+    // Vignette — darkens corners, pulls the eye to the bridge axis
+    ctx.fillStyle = _bgCache.vignette;
+    ctx.fillRect(0, 0, w, h);
+
+    // ─── Luminous field along the bridge axis ───
+    // Radiant at σ=½ (lossless coupling saturates the whole bridge), fading
+    // smoothly as σ moves off-critical — the single strongest visual cue that
+    // the critical line is the special state.
+    const bridgeFieldSprite = glowSprite('bridge', 16, 185, 129);
+    ctx.globalCompositeOperation = 'lighter';
+    ctx.globalAlpha = (0.04 + 0.20 * unitarity * unitarity) * Math.min(1.6, pres);
+    ctx.drawImage(bridgeFieldSprite, offsetX - 40, midY - 36, totalLadderW + 80, 72);
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.globalAlpha = 1;
 
     // ─── Ladder labels ───
     ctx.font = '11px "JetBrains Mono", monospace';
@@ -139,15 +202,20 @@ export default function HeroSignalFlow() {
     ctx.moveTo(offsetX - 10, dualY);
     ctx.lineTo(offsetX + totalLadderW + 10, dualY);
     ctx.stroke();
-    // Signal energy overlay — blue for direct, gold for dual
-    const wireGlow = 0.04 + 0.12 * unitarity;
+    // Signal energy overlay — blue for direct, gold for dual.
+    // Off-critical the coupling can't drain the "hotter" ladder, so energy
+    // piles up on one side: σ>½ → direct wire brightens, σ<½ → dual wire.
+    // At σ=½ the two wires glow identically (perfect balance).
+    const hotBoost = 0.22 * sigmaDeviation * 2;
+    const dirWireGlow = 0.05 + 0.12 * unitarity + (sigma > 0.5 ? hotBoost : 0);
+    const dualWireGlow = 0.05 + 0.12 * unitarity + (sigma < 0.5 ? hotBoost : 0);
     ctx.lineWidth = 1.5;
-    ctx.strokeStyle = `rgba(59, 130, 246, ${wireGlow})`;
+    ctx.strokeStyle = `rgba(59, 130, 246, ${dirWireGlow})`;
     ctx.beginPath();
     ctx.moveTo(offsetX - 10, dirY);
     ctx.lineTo(offsetX + totalLadderW + 10, dirY);
     ctx.stroke();
-    ctx.strokeStyle = `rgba(245, 158, 11, ${wireGlow})`;
+    ctx.strokeStyle = `rgba(245, 158, 11, ${dualWireGlow})`;
     ctx.beginPath();
     ctx.moveTo(offsetX - 10, dualY);
     ctx.lineTo(offsetX + totalLadderW + 10, dualY);
@@ -235,10 +303,13 @@ export default function HeroSignalFlow() {
       const breatheR = bridgeR + 1.5 * unitarity * breathe; // ±1.5px at full unitarity
       // Pressure scales the bridge glow intensity (higher P → tighter, brighter coupling)
       const glowPulse = Math.min(0.55, (0.03 + unitarity * (0.12 + 0.08 * breathe)) * pres);
-      ctx.fillStyle = `rgba(16, 185, 129, ${glowPulse})`;
-      ctx.beginPath();
-      ctx.arc(cx, midY, breatheR + 4, 0, Math.PI * 2);
-      ctx.fill();
+      // Additive radial bloom — soft real-gradient falloff via cached sprite
+      ctx.globalCompositeOperation = 'lighter';
+      ctx.globalAlpha = glowPulse;
+      const nodeGlowSize = (breatheR + 4) * 2.8;
+      ctx.drawImage(bridgeFieldSprite, cx - nodeGlowSize / 2, midY - nodeGlowSize / 2, nodeGlowSize, nodeGlowSize);
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.globalAlpha = 1;
 
       ctx.fillStyle = bridgeFill;
       ctx.strokeStyle = bridgeStroke;
@@ -247,6 +318,18 @@ export default function HeroSignalFlow() {
       ctx.arc(cx, midY, breatheR, 0, Math.PI * 2);
       ctx.fill();
       ctx.stroke();
+
+      // Loss ring — a red arc that fills around the node as reflection grows.
+      // At σ=½ it vanishes (|χ|=1, lossless); fully off-critical it closes
+      // into a complete ring. Reads as a per-node "energy leak" gauge.
+      const nodeReflection = 1 - unitarity;
+      if (nodeReflection > 0.03) {
+        ctx.strokeStyle = `rgba(239, 68, 68, ${0.22 + 0.45 * nodeReflection})`;
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.arc(cx, midY, breatheR + 3.5, -Math.PI / 2, -Math.PI / 2 + nodeReflection * Math.PI * 2);
+        ctx.stroke();
+      }
 
       // χ_p label — scale font down and offset alternating rows when many primes
       // so the subscripted labels don't run into each other.
@@ -338,13 +421,49 @@ export default function HeroSignalFlow() {
     }
   }, []); // stable — reads state from stateRef, no deps to trigger recreation
 
+  // Respect prefers-reduced-motion: render a single static frame instead of
+  // looping (redrawn on control changes by the effect below).
+  const reducedRef = useRef(false);
+
   useEffect(() => {
-    runningRef.current = true;
+    const mq = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+    reducedRef.current = !!(mq && mq.matches);
+    runningRef.current = !reducedRef.current; // false → draw won't self-schedule
     animRef.current = requestAnimationFrame(draw);
     return () => {
       runningRef.current = false; // prevents draw from self-scheduling after cleanup
       cancelAnimationFrame(animRef.current);
     };
+  }, [draw]);
+
+  // Under reduced motion, repaint one frame whenever a control changes
+  useEffect(() => {
+    if (reducedRef.current) {
+      cancelAnimationFrame(animRef.current);
+      animRef.current = requestAnimationFrame(draw);
+    }
+  }, [sigma, temperature, pressure, draw]);
+
+  // Pause the rAF loop while the canvas is scrolled offscreen
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas || typeof IntersectionObserver === 'undefined') return;
+    const io = new IntersectionObserver(([entry]) => {
+      if (reducedRef.current) return;
+      if (entry.isIntersecting) {
+        if (!runningRef.current) {
+          runningRef.current = true;
+          timeRef.current.lastRAF = 0; // fresh delta — no time jump on resume
+          cancelAnimationFrame(animRef.current);
+          animRef.current = requestAnimationFrame(draw);
+        }
+      } else {
+        runningRef.current = false;
+        cancelAnimationFrame(animRef.current);
+      }
+    });
+    io.observe(canvas);
+    return () => io.disconnect();
   }, [draw]);
 
   return (
@@ -361,6 +480,8 @@ export default function HeroSignalFlow() {
           borderRadius: 12,
           border: '1px solid #1e293b',
           cursor: 'pointer',
+          background: '#04060d',
+          boxShadow: '0 0 48px rgba(16, 185, 129, 0.05), 0 8px 32px rgba(0, 0, 0, 0.4)',
         }}
       />
       {/* Controls: fixed height, no layout shift */}
@@ -475,14 +596,6 @@ function drawLCStage(ctx, x, y, w, prime, color, type, t, sigma, logP) {
   ctx.textAlign = 'center';
   const labelY = type === 'direct' ? y + h / 2 + 13 : y - h / 2 - 5;
   ctx.fillText(prime.toString(), x + w / 2, labelY);
-
-  // Impedance value Z₀ = log(p) — hide when stage is too narrow to avoid overlap
-  if (w >= 50) {
-    ctx.fillStyle = color + '60';
-    ctx.font = '7px "JetBrains Mono", monospace';
-    const zLabelY = type === 'direct' ? y + h / 2 + 22 : y - h / 2 - 14;
-    ctx.fillText(`Z₀=${logP.toFixed(2)}`, x + w / 2, zLabelY);
-  }
 }
 
 
@@ -505,8 +618,6 @@ function drawBridgeEnergy(ctx, cx, topY, botY, midY, t, stageIdx, prime, sigma, 
   const wavePoints = 28;
   const span = botY - topY;
   if (transmission > 0.3) {
-    ctx.strokeStyle = `rgba(16, 185, 129, ${Math.min(0.75, (0.08 + 0.12 * transmission) * pressure)})`;
-    ctx.lineWidth = 1 * Math.sqrt(pressure);
     ctx.beginPath();
     const omega = 2 * Math.PI / logP; // natural frequency — unique per prime
     const spatialK = 1 + logP * 0.6;  // wavenumber — more nodes for larger primes
@@ -526,7 +637,16 @@ function drawBridgeEnergy(ctx, cx, topY, botY, midY, t, stageIdx, prime, sigma, 
       const wave = Math.sin(frac * Math.PI * spatialK) * waveScale;
       j === 0 ? ctx.moveTo(cx + wave, py) : ctx.lineTo(cx + wave, py);
     }
+    // Two-pass stroke on the same path: wide faint halo + bright core.
+    // Additive blending makes waves at neighbouring primes bloom where dense.
+    ctx.globalCompositeOperation = 'lighter';
+    ctx.strokeStyle = `rgba(16, 185, 129, ${Math.min(0.28, 0.05 * transmission * pressure)})`;
+    ctx.lineWidth = 3.2 * Math.sqrt(pressure);
     ctx.stroke();
+    ctx.strokeStyle = `rgba(52, 211, 153, ${Math.min(0.8, (0.10 + 0.16 * transmission) * pressure)})`;
+    ctx.lineWidth = 1 * Math.sqrt(pressure);
+    ctx.stroke();
+    ctx.globalCompositeOperation = 'source-over';
   }
 
   // ─── Downward particles (direct → bridge → dual) ───
@@ -552,8 +672,9 @@ function drawBridgeEnergy(ctx, cx, topY, botY, midY, t, stageIdx, prime, sigma, 
       const py = midY - phase * (midY - topY);
       // Spread widens with distance from bridge (scattering cone)
       const spread = phase * 6 * reflection;
-      // Alpha decays with distance and scales smoothly with reflection
-      const alpha = reflection * (0.2 + 0.3 * (1 - phase));
+      // Alpha decays with distance; eased at both path ends (no pop-in)
+      const fade = Math.min(1, phase * 8, (1 - phase) * 4);
+      const alpha = reflection * (0.2 + 0.3 * (1 - phase)) * fade;
       const radius = 1 + 1.5 * reflection * (1 - phase * 0.5);
       ctx.fillStyle = `rgba(239, 68, 68, ${alpha})`;
       ctx.beginPath();
@@ -565,7 +686,8 @@ function drawBridgeEnergy(ctx, cx, topY, botY, midY, t, stageIdx, prime, sigma, 
       const phase = ((t * 0.5 + k * 0.5 + primePhase + 0.75) % 1);
       const py = midY + phase * (botY - midY);
       const spread = phase * 6 * reflection;
-      const alpha = reflection * (0.2 + 0.3 * (1 - phase));
+      const fade = Math.min(1, phase * 8, (1 - phase) * 4);
+      const alpha = reflection * (0.2 + 0.3 * (1 - phase)) * fade;
       const radius = 1 + 1.5 * reflection * (1 - phase * 0.5);
       ctx.fillStyle = `rgba(239, 68, 68, ${alpha})`;
       ctx.beginPath();
@@ -582,8 +704,12 @@ function drawEnergyDot(ctx, cx, py, midY, transmission, phase, direction, halfSp
   const distFromBridge = Math.abs(py - midY);
   const bridgeProximity = Math.max(0, 1 - distFromBridge / halfSpan); // 1 at bridge, 0 far away
 
+  // Eased endpoints — particles condense out of / dissolve into the ladders
+  // instead of popping in and out at the path wrap.
+  const fade = Math.min(1, phase * 5, (1 - phase) * 5);
+
   // Smooth alpha and radius: peaks at bridge, proportional to transmission
-  const alpha = 0.12 + 0.25 * transmission + 0.4 * bridgeProximity * transmission;
+  const alpha = (0.12 + 0.25 * transmission + 0.4 * bridgeProximity * transmission) * fade;
   const radius = 1.5 + 1.5 * bridgeProximity * (1 + 2 * transmission);
 
   // Smooth 3-way color blend: source → green(bridge) → destination
@@ -627,17 +753,25 @@ function drawEnergyDot(ctx, cx, py, midY, transmission, phase, direction, halfSp
   ctx.arc(cx, py, radius, 0, Math.PI * 2);
   ctx.fill();
 
-  // Glow at bridge crossing — concentric circles instead of expensive RadialGradient
-  if (bridgeProximity > 0.4 && transmission > 0.25) {
-    const glowBase = alpha * 0.3 * bridgeProximity;
-    ctx.fillStyle = `rgba(16, 185, 129, ${glowBase * 0.15})`;
-    ctx.beginPath();
-    ctx.arc(cx, py, radius * 3.5, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.fillStyle = `rgba(16, 185, 129, ${glowBase * 0.4})`;
-    ctx.beginPath();
-    ctx.arc(cx, py, radius * 2.2, 0, Math.PI * 2);
-    ctx.fill();
+  // Additive sprite bloom — crossfades source→bridge→destination tint along
+  // the path, brightest at the bridge crossing. Overlapping packets from
+  // neighbouring primes sum into genuine bloom at the coupling axis.
+  if (transmission > 0.15) {
+    const srcSprite = glowSprite(isDown ? 'blue' : 'gold', srcR, srcG, srcB);
+    const dstSprite = glowSprite(isDown ? 'gold' : 'blue', dstR, dstG, dstB);
+    const bridgeSprite = glowSprite('bridge', midR, midG, midB);
+    let sA, sB, f;
+    if (pathFrac < 0.5) { sA = srcSprite; sB = bridgeSprite; f = pathFrac * 2; }
+    else { sA = bridgeSprite; sB = dstSprite; f = (pathFrac - 0.5) * 2; }
+    const gAlpha = (0.06 + 0.30 * bridgeProximity) * transmission * fade;
+    const gSize = radius * 6;
+    ctx.globalCompositeOperation = 'lighter';
+    ctx.globalAlpha = gAlpha * (1 - f);
+    ctx.drawImage(sA, cx - gSize / 2, py - gSize / 2, gSize, gSize);
+    ctx.globalAlpha = gAlpha * f;
+    ctx.drawImage(sB, cx - gSize / 2, py - gSize / 2, gSize, gSize);
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.globalAlpha = 1;
   }
 }
 
@@ -660,9 +794,6 @@ function drawLadderSignals(ctx, startX, totalW, y, t, numPrimes, sigma, color, t
   // ─── Continuous waveform trace along the wire ───
   // Shows the propagating AC signal as a faint sine path, amplitude decaying per stage
   const tracePoints = Math.round(totalW / 3); // ~1 point per 3px
-  ctx.strokeStyle = color;
-  ctx.globalAlpha = 0.12;
-  ctx.lineWidth = 1;
   ctx.beginPath();
   for (let j = 0; j <= tracePoints; j++) {
     const frac = j / tracePoints;
@@ -673,8 +804,19 @@ function drawLadderSignals(ctx, startX, totalW, y, t, numPrimes, sigma, color, t
     const py = y + amp * Math.sin(t * PRIME_FREQ[sIdx] + frac * 12);
     j === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
   }
+  // Two-pass stroke on the same path: soft halo + crisp core
+  ctx.strokeStyle = color;
+  ctx.globalAlpha = 0.05;
+  ctx.lineWidth = 3;
+  ctx.stroke();
+  ctx.globalAlpha = 0.14;
+  ctx.lineWidth = 1;
   ctx.stroke();
   ctx.globalAlpha = 1;
+
+  const sprite = type === 'direct'
+    ? glowSprite('blue', 59, 130, 246)
+    : glowSprite('gold', 245, 158, 11);
 
   for (let i = 0; i < numParticles; i++) {
     const phase = ((t * 0.4 + i / numParticles) % 1);
@@ -690,21 +832,20 @@ function drawLadderSignals(ctx, startX, totalW, y, t, numPrimes, sigma, color, t
     const waveFreq = PRIME_FREQ[stageIdx];
     const yOsc = y + waveAmp * Math.sin(t * waveFreq + phase * 12);
 
-    const alpha = 0.15 + 0.5 * attenuation;
+    // Eased entry/exit at the ladder ends — no hard pop at the wrap point
+    const fade = Math.min(1, phase * 6, (1 - phase) * 6);
+    const alpha = (0.15 + 0.5 * attenuation) * fade;
     const radius = 1.5 + 2 * attenuation;
 
-    // Soft glow — two concentric circles instead of expensive RadialGradient
-    ctx.fillStyle = color;
-    ctx.globalAlpha = alpha * 0.12;
-    ctx.beginPath();
-    ctx.arc(x, yOsc, radius * 3, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.globalAlpha = alpha * 0.3;
-    ctx.beginPath();
-    ctx.arc(x, yOsc, radius * 1.8, 0, Math.PI * 2);
-    ctx.fill();
+    // Soft additive bloom via cached radial sprite
+    const gSize = radius * 6.5;
+    ctx.globalCompositeOperation = 'lighter';
+    ctx.globalAlpha = alpha * 0.35;
+    ctx.drawImage(sprite, x - gSize / 2, yOsc - gSize / 2, gSize, gSize);
+    ctx.globalCompositeOperation = 'source-over';
 
     // Core
+    ctx.fillStyle = color;
     ctx.globalAlpha = alpha;
     ctx.beginPath();
     ctx.arc(x, yOsc, radius, 0, Math.PI * 2);
@@ -751,6 +892,17 @@ function drawEnergyPackets(ctx, cx, dirY, dualY, stageW, t, prime, logP, color, 
   // the direct ladder so higher-k packets appear further from the wire.
   const orbitRx = Math.max(6, stageW * 0.28);
 
+  // Color: prime color at equilibrium, red-shift toward instability if σ<½
+  // so a user dragging σ downward SEES the divergent regime as a warning.
+  // (Constant across k and side — hoisted out of the loops.)
+  const [pr, pg, pb] = PRIME_RGB[stageIdx];
+  let r = pr, g = pg, b = pb;
+  if (divergent && instability > 0.05) {
+    r = Math.round(pr + (239 - pr) * instability);
+    g = Math.round(pg + (68 - pg) * instability);
+    b = Math.round(pb + (68 - pb) * instability);
+  }
+
   // Draw direct-side packets (σ), then dual-side packets (1-σ)
   for (let side = 0; side < 2; side++) {
     const isDirect = side === 0;
@@ -758,14 +910,10 @@ function drawEnergyPackets(ctx, cx, dirY, dualY, stageW, t, prime, logP, color, 
     const yAnchor = isDirect ? dirY - 28 : dualY + 28; // above direct, below dual
     const yStep = isDirect ? -6 : 6;                    // stack direction
 
-    // Running cumulative sum used only for an optional on-stage amplitude bar
-    let cumulative = 0;
-
     for (let k = 1; k <= K_MAX; k++) {
       // PHYSICAL AMPLITUDE of the k-th packet — this is THE quantity that
       // responds to the σ dial.
       const weight = Math.pow(prime, -k * localSigma);
-      cumulative += weight;
 
       // Radius: visible band [1.2 .. 6.5 px], monotone in weight.
       // We squash through sqrt so the decay is visible without tiny packets
@@ -783,69 +931,20 @@ function drawEnergyPackets(ctx, cx, dirY, dualY, stageW, t, prime, logP, color, 
       const py = yAnchor + (k - 1) * yStep
                  + Math.sin(theta * 1.3) * 2.2 * temperature;
 
-      // Color: prime color at equilibrium, red-shift toward instability if σ<½
-      // so a user dragging σ downward SEES the divergent regime as a warning.
-      let r, g, b;
-      if (divergent && instability > 0.05) {
-        // Blend prime color → red (239,68,68) by instability magnitude
-        const hex = color.replace('#', '');
-        const pr = parseInt(hex.slice(0, 2), 16);
-        const pg = parseInt(hex.slice(2, 4), 16);
-        const pb = parseInt(hex.slice(4, 6), 16);
-        const mix = instability;
-        r = Math.round(pr * (1 - mix) + 239 * mix);
-        g = Math.round(pg * (1 - mix) + 68 * mix);
-        b = Math.round(pb * (1 - mix) + 68 * mix);
-      } else {
-        const hex = color.replace('#', '');
-        r = parseInt(hex.slice(0, 2), 16);
-        g = parseInt(hex.slice(2, 4), 16);
-        b = parseInt(hex.slice(4, 6), 16);
-      }
-
-      // Outer glow — scaled by pressure so P dial affects packet luminosity.
-      const glowAlpha = Math.min(0.55, alpha * 0.35 * pressure);
+      // Outer glow — additive, scaled by pressure so P affects luminosity.
+      const glowAlpha = Math.min(0.45, alpha * 0.28 * pressure);
+      ctx.globalCompositeOperation = 'lighter';
       ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${glowAlpha})`;
       ctx.beginPath();
       ctx.arc(px, py, radius * 2.0, 0, Math.PI * 2);
       ctx.fill();
+      ctx.globalCompositeOperation = 'source-over';
 
       // Core packet dot
       ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
       ctx.beginPath();
       ctx.arc(px, py, radius, 0, Math.PI * 2);
       ctx.fill();
-
-      // k-index tick — a tiny subscript only when packet is large enough to
-      // read. Keeps the layer uncluttered at the σ=0.9 regime where all
-      // k≥2 packets are invisible anyway.
-      if (radius > 3 && stageW > 36) {
-        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${Math.min(1, alpha + 0.15)})`;
-        ctx.font = '7px "JetBrains Mono", monospace';
-        ctx.textAlign = 'center';
-        ctx.fillText('k' + k, px, py + (isDirect ? -radius - 2 : radius + 7));
-      }
-    }
-
-    // On-stage ζ-partial-sum meter: a thin horizontal bar whose length is
-    // Σ_{k=1}^{K_MAX} p^{-kσ} — the geometric partial sum that σ rescales.
-    // Rendered as an amber tick so the user can literally see the sum shrink
-    // or grow as they drag σ.
-    if (stageW > 30) {
-      const maxSum = 1 / Math.max(0.05, 1 - 1 / Math.sqrt(prime)); // σ=½ full sum
-      const sumFrac = Math.min(1.2, cumulative / maxSum);
-      const meterY = isDirect ? dirY - 42 : dualY + 42;
-      const meterW = Math.max(12, stageW * 0.6);
-      const meterX = cx - meterW / 2;
-      // Track
-      ctx.fillStyle = 'rgba(148, 163, 184, 0.18)';
-      ctx.fillRect(meterX, meterY, meterW, 2);
-      // Fill — amber when converging, red when > 1 (divergent regime indicator)
-      const overflow = sumFrac > 1;
-      ctx.fillStyle = overflow
-        ? `rgba(239, 68, 68, ${0.5 + 0.4 * Math.min(1, (sumFrac - 1) * 2)})`
-        : `rgba(251, 191, 36, ${0.35 + 0.35 * sumFrac})`;
-      ctx.fillRect(meterX, meterY, Math.min(meterW, meterW * sumFrac), 2);
     }
   }
 }

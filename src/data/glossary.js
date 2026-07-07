@@ -15055,6 +15055,43 @@ export const glossary = [
       'imp-33723 the Banach fixed-point characterisation of the crossover map this derivative ladder is built on (imp-33723)',
     ],
   },
+  {
+    term: "imp-34646 well-conditioned DENOMINATOR vs ill-conditioned NUMERATORS: why q1's roundoff floor never blows up the drift shares",
+    category: "numerical",
+    definition:
+      "A quick-lookup headword distinguishing two different roles the deep-tail finite-difference " +
+      "roundoff floor plays depending on WHERE the differenced quantity sits in the drift-share " +
+      "ratios C_q2 = -q2 / (2 q1^2) and C_q3 = q3 / (6 q1^2). imp-34606/imp-34633 established that " +
+      "q2, q3, q4 -- the NUMERATORS of these shares -- are near-cancelling higher central differences " +
+      "whose TRUE value shrinks toward zero as dp -> 0, so their absolute roundoff floor (amplitude " +
+      "~eps_mach|q|, growing as 1/dp^k for k = 2, 3, 4) dominates the ratio and blows up the measured " +
+      "share as dp shrinks. imp-34646 then measured q1 -- the first central difference that appears " +
+      "only as the DENOMINATOR q1^2 -- and found it amplifies the same way in structure (1/dp^1, the " +
+      "k=1 rung one power below the {2,3,4} ladder, amplitude within a factor ~3 of the same " +
+      "eps_mach|q1| prediction) but NEVER blows up the shares, because q1's TRUE value is O(1) " +
+      "(~0.485), not near-cancelling: the roundoff floor is a tiny ABSOLUTE quantity riding on top of " +
+      "an O(1) number, so at the truncation-regime dp where the shares are actually evaluated " +
+      "(~1e-3..1e-4) it induces only a ~2e-9 RELATIVE error in q1^2 -- negligible next to the " +
+      "numerator-driven blow-up.\n\n" +
+      "WHY THE DISTINCTION MATTERS: both q1 and q2/q3/q4 carry the identical eps_mach|q|/dp^k roundoff " +
+      "signature, so a reader could mistake q1's floor for an equally dangerous instability. The " +
+      "denominator/numerator split shows conditioning, not just the presence of roundoff, decides " +
+      "whether a floor is load-bearing: a near-cancelling numerator with a shrinking true value " +
+      "propagates roundoff catastrophically into a ratio, while a well-conditioned denominator with " +
+      "an O(1) true value absorbs the same absolute floor harmlessly.\n\n" +
+      "HONEST SCOPE: q1..q4 are the inherited imp-3220/imp-3406 central differences, not fresh " +
+      "analytic forms; this is a conditioning diagnostic of the finite-difference measurement, not a " +
+      "rehabilitation of the surrogate, and the sigma -> 1 deep-tail regime remains the component " +
+      "model's least-trustworthy range. Changes no bound; imp-3066 K_a >= 0 untouched; C_mb remains " +
+      "GUE-conditional per imp-486; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    firstUsed: "imp-34668 (headwording the imp-34646 denominator-vs-numerator conditioning split), 2026",
+    relatedTerms: [
+      "imp-34646 the q1 first-difference deep-tail roundoff floor measurement this headword explains (imp-34646)",
+      "imp-34633 the eps_mach|q| amplitude prediction q1 and the q2/q3/q4 numerators both satisfy (imp-34633)",
+      "imp-34531 the drift-residual attribution ladder whose C_q2/C_q3 shares this conditioning split concerns (imp-34531)",
+      "imp-34657 the machine-epsilon dual power/amplitude signature q1 extends down to the k=1 rung (imp-34657)",
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

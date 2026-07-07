@@ -13927,6 +13927,42 @@ export const glossary = [
       'imp-34746 the glossary headword flagging the sigmoid knee as a finite-difference landmark (imp-34746)',
     ],
   },
+  {
+    term: 'Convergent series vs optimal truncation (concept): imp-34821 fifth-order v-expansion decreasing-ratio ladder',
+    category: 'concept',
+    definition:
+      'A general distinction between a series whose terms shrink because it is genuinely CONVERGENT and ' +
+      'one whose apparent "best" truncation is instead a FORTUITOUS SIGN CANCELLATION against an unrelated ' +
+      'measurement floor. An asymptotic/divergent series has an optimal truncation order: terms shrink for a ' +
+      'while, then turn up, and the residual is minimised right before the turn-up. The imp-34821 sigma-knee ' +
+      'fifth-order slowly-varying-v expansion is the worked example against that pattern: the ordered term ' +
+      'magnitudes {5.64e-3, 8.30e-6, 8.15e-8, 6.62e-10, 3.80e-12} give successive ratios {1.47e-3, 9.82e-3, ' +
+      '8.13e-3, 5.73e-3} that stay well below 1 and DECREASE on the last step -- no divergence turn-up across ' +
+      'five orders, so the series reads as convergent. Yet the self-consistent SC-to-exactF residual ladder ' +
+      '{-1.1e-5 (2nd), +4.86e-5 (3rd), +4.86e-5 (4th), +4.86e-5 (5th)} sign-flips once then goes flat: the ' +
+      'order that MINIMISES |SC-to-exactF| is the second, not because higher orders are less accurate, but ' +
+      'because the second-order residual happens to cancel against the ~9.2e-5 dex imp-34756 finite-difference ' +
+      'floor while orders 3-5 all land on the same +4.86e-5 plateau set by that same floor. Mistaking this for ' +
+      "a genuine optimal-truncation minimum would wrongly credit the expansion's accuracy rather than the " +
+      'floor arithmetic.\n\n' +
+      'HOW TO APPLY: before calling some truncation order "optimal" because its residual against a reference ' +
+      'is smallest, first check whether the term-ratio ladder ever turns up (a real divergence signature). If ' +
+      'the ratios stay sub-unity and decreasing, the series is convergent and any non-monotone residual pattern ' +
+      'against a downstream reference is a symptom of that reference’s own measurement floor, not of the ' +
+      'series structure -- report the floor, not a spurious "best" order.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34821 convergent-series-vs-fortuitous-cancellation ' +
+      'reading as a reusable concept; not a new derivation; adds no RH bound; the component model is the ' +
+      'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
+      'imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no operator ' +
+      'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34849 (glossary headword for the imp-34821 convergent-series-no-optimal-truncation reading), 2026',
+    relatedTerms: [
+      'imp-34821 the fifth-order v-expansion measuring the decreasing ratio ladder and FD-floor plateau (imp-34821)',
+      'imp-34797 the fourth-order rung whose non-monotone match this closes the deferred delta_5 test on (imp-34797)',
+      'imp-34770 the third-order rung first showing the sign-flip against the FD floor (imp-34770)',
+      'imp-34756 the second-order rung establishing the ~9.2e-5 dex finite-difference floor (imp-34756)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

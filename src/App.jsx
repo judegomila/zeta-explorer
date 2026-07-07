@@ -638,6 +638,9 @@ const Imp34963EflowCrossingStrengthPowerLawViz = lazy(() =>
 const Imp34964EflowPinnedProductInvarianceViz = lazy(() =>
   import('./pages/Imp34964EflowPinnedProductInvarianceViz.jsx')
 );
+const Imp34965ItersToFloorCeilBoundaryGeometryViz = lazy(() =>
+  import('./pages/Imp34965ItersToFloorCeilBoundaryGeometryViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1903,6 +1906,10 @@ function AppShell() {
           <Route
             path="/viz-imp34964-eflow-pinned-product-invariance"
             element={<Imp34964EflowPinnedProductInvarianceViz />}
+          />
+          <Route
+            path="/viz-imp34965-iters-to-floor-ceil-boundary-geometry"
+            element={<Imp34965ItersToFloorCeilBoundaryGeometryViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

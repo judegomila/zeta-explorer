@@ -6914,6 +6914,15 @@ const DATA_MODULES = [
   // correctly-rounded log and the residual-corrected quotient. (D) double precision is FEASIBLE; closure is
   // gated on a SINGLE unmet correctness artifact, a proven-ULP log. imp-34714a and imp-34687a REMAIN OPEN. No bound change.
   '/src/data/imp-34908-krawczyk-certificate-precision-scope.js',
+  // imp-34910: MEASURES the ULP error of the residual-corrected directed quotient [RD(a/b),RU(a/b)] -- the
+  // imp-34885 SOLE non-IEEE-754-exposed basic op -- at the 5 division sites in/around the four Math.log
+  // evaluation sites of the effectiveHeightForN Newton loop, cross-checked vs a double-double reference. The
+  // emulation injects EXACTLY 1 ULP per call (max rel width 1.6804e-16 <= eps), native a/b is already
+  // correctly rounded (<= 0.4736 ulp), and the directed enclosure brackets the true quotient at every site
+  // (incl. the negative Newton-update site). So the div consumes no more than the per-op eps unit the
+  // imp-34799 model budgets -- NOT the binding accuracy term; the imp-34883 2555.18x band-minimum headroom
+  // over the (H2) ceiling is preserved. Measurement only; imp-34714a and imp-34687a REMAIN OPEN. No bound change.
+  '/src/data/imp-34910-residual-corrected-quotient-ulp-measurement.js',
   // imp-34813: quantized-winding deep-dive CORRECTION. The imp-2673/2696 Gaussian proxy
   // computed the EXACT de Bruijn flow at NEGATIVE time (conv identity ~1e-9) -- the large-tau
   // winding drop was genuine zeros-leaving-the-line dynamics, not a smoothing artifact

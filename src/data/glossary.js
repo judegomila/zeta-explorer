@@ -14940,6 +14940,50 @@ export const glossary = [
       'imp-34950 the local q_eff ~ 0.855 decay exponent matching the pinned-product window sensitivity slope (imp-34950)',
     ],
   },
+  {
+    term: 'crossover surplus (imp-34174/imp-34248/imp-34329)',
+    category: 'numerical',
+    definition:
+      'A headword for the E_flow-driven shortfall of the actual three-term share sigma below an arbitrary ' +
+      'target threshold thr AT the generalised E_coll=E_trunc crossover N_cross(thr), and its thr^3 far-tail ' +
+      'collapse law.\n\n' +
+      'THE CLOSED FORM: imp-33743 generalised the halving crossover (thr=1/2) to an arbitrary threshold via the ' +
+      'Banach fixed point N_cross(thr) = (C_C(1-thr)/(E_trunc thr))^2 log T0(N_cross), at which the leading ' +
+      '(E_flow-dropped) balance E_coll = E_trunc thr/(1-thr) holds. Restoring E_flow, the ACTUAL three-term ' +
+      'share there is sigma(N_cross(thr)) = thr/(1+(1-thr)r), r = E_flow(N_cross(thr))/E_trunc, so the shortfall ' +
+      'below the target -- the crossover surplus -- is imp-34174\'s closed form surplus(thr) = thr - ' +
+      'sigma(N_cross(thr)) = thr(1-thr)r/(1+(1-thr)r). At thr=1/2 this reproduces imp-33848\'s halving surplus ' +
+      '1/2-sigma(N_cross) = E_flow/(2(2E_trunc+E_flow)) exactly, and across thr in {0.5,0.3,0.1,0.05,0.01} it ' +
+      'collapses monotonically 4.744e-4 -> 4.213e-9 as N_cross recedes 3.280e9 -> 4.624e13.\n\n' +
+      'THE thr^3 LIMIT: imp-34248 factorised surplus(thr) = P(thr).r(thr) into a prefactor P(thr) -> thr ' +
+      '(exactly one power of thr, since surplus/(thr.r) climbs monotonically to 1) and the E_flow ratio ' +
+      'r(thr), whose LOCAL exponent d log r/d log thr drops below 2 deep in the tail (measured down to 1.897) ' +
+      'because log T0 = -2 log thr grows as thr shrinks, giving an apparent ~thr^2.88 composite -- short of the ' +
+      'naive thr^3. Extending the ladder to thr in {1e-3,1e-4,...,1e-12}, imp-34329 showed this ~2.88 reading is ' +
+      'a shallow-minimum ARTIFACT, not a limit: past thr~0.01 the local r-exponent REVERSES and climbs back ' +
+      'toward 2 (fit r-exponent = 2-c/log T0, c~4.4), so the composite exponent climbs back toward 3. The ' +
+      'genuine thr -> 0 limit is exactly thr^3: the log T0 softening that depresses r below thr^2 itself decays ' +
+      'as ~1/log T0, so it vanishes in the true limit and the naive product-of-two-powers reading is restored.\n\n' +
+      'HOW TO APPLY: when a two-factor product law shows a measured composite exponent that looks stably ' +
+      'sub-integer across a modest parameter ladder, check whether one factor\'s local exponent is drifting ' +
+      'monotonically before concluding the ladder has reached its asymptotic value -- a drifting exponent can ' +
+      'turn and reverse once the ladder is extended far enough, as here, where the apparent 2.88 plateau was a ' +
+      'turning point rather than a limit.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34174/imp-34248/imp-34329 findings verbatim, not a ' +
+      'new measurement or bound; the component model is the inherited imp-33743/imp-33848 extrapolation, NOT a ' +
+      'rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED (E_coll untouched); C_C 1/8 ansatz ' +
+      '(imp-2642/imp-2643) UNTOUCHED; imp-3066 K_a>=0 untouched; establishes no operator positivity; E_flow is ' +
+      'the benign mesoscopic-Gronwall term (imp-2845), its vanishing here does NOT touch the divergent C_Lip ' +
+      'collision-Gronwall; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34423 (glossary headword for the imp-34174/imp-34248/imp-34329 crossover surplus cohort), 2026',
+    relatedTerms: [
+      'imp-34174 gave the closed form surplus(thr) = thr(1-thr)r/(1+(1-thr)r) and tabulated its collapse (imp-34174)',
+      'imp-34248 factorised the surplus into a linear thr prefactor and a log-softened ~thr^1.9 E_flow-ratio term (imp-34248)',
+      'imp-34329 extended the ladder to thr in {1e-3..1e-12} and located the genuine thr^3 far-tail limit (imp-34329)',
+      'imp-33848 identified the thr=1/2 halving surplus as exactly the E_flow/E_trunc term (imp-33848)',
+      'imp-33743 generalised the E_coll=E_trunc crossover to an arbitrary threshold thr via the Banach fixed point N_cross(thr) (imp-33743)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

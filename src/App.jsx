@@ -632,6 +632,9 @@ const Imp34961BreachStepDoublingViz = lazy(() =>
 const Imp34962KrawczykHeadroomMonotonicityDerivativeViz = lazy(() =>
   import('./pages/Imp34962KrawczykHeadroomMonotonicityDerivativeViz.jsx')
 );
+const Imp34963EflowCrossingStrengthPowerLawViz = lazy(() =>
+  import('./pages/Imp34963EflowCrossingStrengthPowerLawViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1889,6 +1892,10 @@ function AppShell() {
           <Route
             path="/viz-imp34962-krawczyk-headroom-monotonicity-derivative"
             element={<Imp34962KrawczykHeadroomMonotonicityDerivativeViz />}
+          />
+          <Route
+            path="/viz-imp34963-eflow-crossing-strength-power-law"
+            element={<Imp34963EflowCrossingStrengthPowerLawViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

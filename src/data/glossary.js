@@ -13571,6 +13571,41 @@ export const glossary = [
       'imp-34687a named sub-gap: supply an actual directed-rounding / error-bounded arithmetic layer (imp-34687a)',
     ],
   },
+  {
+    term: 'imp-34777 cross-band envelope collapse vs the imp-34757 per-band supremum',
+    category: 'numerical',
+    definition:
+      'A headword distinguishing two DIFFERENT scopes of "sharp bound" for the crossover-map second ' +
+      'derivative g_double_prime(N) = -4 pi^2 K (u+1)/(T^2 u^3), T = T0(N), u = log(T/2pi).\n\n' +
+      'A PER-BAND SUPREMUM (imp-34757) is a bound that is sharp only WITHIN one post-peak decade: ' +
+      'because g_double_prime is monotone-decreasing across that single band, the left-endpoint value ' +
+      'B(band) equals the true max on that band alone (B(band)/max_band = 1.000), but nothing in that ' +
+      'check says how B(band) compares to the bounds on the OTHER bands.\n\n' +
+      'A CROSS-BAND ENVELOPE COLLAPSE (imp-34777) is the stronger, union-wide claim: that the three ' +
+      'per-band bounds themselves form a strictly descending ladder B(1e9) > B(1e10) > B(1e11), so the ' +
+      'SINGLE leftmost constant B(1e9) dominates |g_double_prime| on every band in the union ' +
+      '[1e9,1e12] (B(1e9)/max_union = 1.000). Only after that cross-band check does the per-band ' +
+      'bookkeeping collapse to one global envelope constant; imp-34757 alone never established this, ' +
+      'it only certified sharpness one band at a time.\n\n' +
+      'HOW TO APPLY: when a module reports a per-band or per-decade "sharp bound", check whether it also ' +
+      'verifies the bounds descend ACROSS bands before treating the leftmost value as a global envelope ' +
+      '-- a per-band supremum and a cross-band-dominating constant are different claims, and the ' +
+      'stronger one needs its own tripwire (as imp-34777 supplies, cross-checked against the frozen ' +
+      'imp-34757 literals).\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34777 accuracy-tripwire finding, not a new ' +
+      'derivation; the underlying imp-3220/imp-3406 crossover-map surrogate is unchanged and NOT ' +
+      'rigorous; C_C = (1/8)sqrt(3pi) (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 ' +
+      'UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34804 (glossary headword distinguishing the imp-34777 cross-band collapse from the imp-34757 per-band supremum), 2026',
+    relatedTerms: [
+      'imp-34757 established the per-band sharp supremum, monotone WITHIN each single decade only (imp-34757)',
+      'imp-34777 checked CROSS-BAND collapse, finding B(1e9) dominates the max on every band of the union (imp-34777)',
+      'imp-34768 the complementary global-grid monotonicity check via g_triple_prime > 0 (imp-34768)',
+      'imp-34750 the per-decade B ladder across [1e9,1e12] this cross-band check builds on (imp-34750)',
+      'imp-34731 the g_double_prime closed form both the per-band and cross-band checks reuse verbatim (imp-34731)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

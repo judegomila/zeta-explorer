@@ -572,6 +572,9 @@ const Imp34877CrossoverDerivativeLadderViz = lazy(() =>
 const Imp34890SixthDerivLadderViz = lazy(() =>
   import('./pages/Imp34890SixthDerivLadderViz.jsx')
 );
+const Imp34891TwoRateOffByOneViz = lazy(() =>
+  import('./pages/Imp34891TwoRateOffByOneViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1749,6 +1752,10 @@ function AppShell() {
           <Route
             path="/viz-imp34890-sixth-deriv-ladder"
             element={<Imp34890SixthDerivLadderViz />}
+          />
+          <Route
+            path="/viz-imp34891-two-rate-off-by-one"
+            element={<Imp34891TwoRateOffByOneViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

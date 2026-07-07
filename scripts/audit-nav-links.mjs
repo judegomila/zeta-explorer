@@ -460,6 +460,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34876-shrink-ratio-limit',
   '/viz-imp34877-crossover-derivative-ladder',
   '/viz-imp34890-sixth-deriv-ladder',
+  '/viz-imp34891-two-rate-off-by-one',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

@@ -122,6 +122,30 @@ export const WINDING_MONOTONICITY_RIGOR = {
     twoBody: 8,
     note: 'd(g^2)/dt for the tightest pair over t in [-1, 0.5]; neighbours retard the two-body attraction, delaying collision from -1.56 to -1.88',
   },
+  multiPairCollisionCensus: {
+    // imp-34815. Section C measured the exact first-collision t_c for the tightest
+    // pair only. Section H extends it to every window count-drop (10->8->6->4->2),
+    // bisecting each collision time and comparing to the two-body prediction
+    // t_2b = -(gap_x)^2/8 (gap_x = 2 dgamma at t=0). Offline solver section H of
+    // scripts/imp-34813-exact-debruijn-winding-offline.mjs.
+    // CLEAN subset -- the two tightest, well-separated collisions whose merging
+    // pair sits in an unreorganized part of the window (t=0 proximity match reliable):
+    clean: [
+      { drop: '10->8', tExact: -1.8782, mergeX: 99.259, gapX: 3.5383, tTwoBody: -1.5649, retard: 1.2002 },
+      { drop: '8->6', tExact: -3.9548, mergeX: 66.140, gapX: 5.0204, tTwoBody: -3.1505, retard: 1.2553 },
+    ],
+    retardGrowsWithSpacing: true, // 1.200 (gap 3.54) -> 1.255 (gap 5.02): wider pairs retard MORE
+    // Later rungs are NOT per-pair-attributable by this meter and are reported as a caveat,
+    // not a measurement: the 8->6 and 6->4 events cluster within ~0.08 in t (the tc+0.08
+    // probe cannot separate them; both localize to x~66), the 4->2 match falls on a
+    // reorganized region (apparent retard 0.85 < 1 is a mis-attribution artifact, not
+    // physical acceleration), and the count->1 rung is ODD (a zero exits the window through
+    // the x-boundary at t < -20, not a conjugate-pair merge).
+    subGap:
+      'Robust per-pair attribution of the exact-flow collision census BEYOND the first two window collisions is OPEN: it needs zero-trajectory continuation (following each real zero forward from t=0) rather than t=0 midpoint-proximity matching, plus a widened window to eliminate boundary flux. Only the two tightest well-separated pairs are cleanly measured here.',
+    verdict:
+      'The two tightest window pairs both collide LATER (|t_c| larger) than their isolated two-body prediction, by a retardation factor 1.20 and 1.26 that GROWS mildly with pair spacing -- confirming and extending the imp-34813 tightest-pair 5.78-vs-8 slope finding to a second pair. Measurement only; changes no bound; NO QED; PT Lambda<=0.2 stays SOTA.',
+  },
   convIdentity: {
     relErrTau05: 1.982e-9,
     relErrTau2: 6.085e-9,
@@ -228,6 +252,19 @@ export const WINDING_MONOTONICITY_RIGOR_ASSERTIONS = [
       return fc.tExact > -2 && fc.tExact < -1.75 && ratio > 1 && ratio < 1.3 &&
         Math.abs(fc.tauRepoUnits - (-fc.tExact / 4)) < 1e-3 &&
         fc.tauRepoUnits > 0.2 && fc.tauRepoUnits <= 0.5;
+    },
+  },
+  {
+    id: 'wmr-multi-pair-census-clean-subset-retards-and-grows',
+    description: 'imp-34815: the exact collision census cleanly resolves the two tightest well-separated window pairs; both collide LATER than their two-body prediction (retard > 1) and the retardation GROWS with pair spacing (1.200 at gap 3.54 -> 1.255 at gap 5.02), with the later rungs honestly flagged as not per-pair-attributable (SUB-GAP)',
+    holds: () => {
+      const mc = WINDING_MONOTONICITY_RIGOR.multiPairCollisionCensus;
+      const c = mc.clean;
+      const allRetard = c.every((r) => r.retard > 1 && r.retard < 1.5 && r.tExact < r.tTwoBody);
+      const consistentTwoBody = c.every((r) => Math.abs(-(r.gapX * r.gapX) / 8 - r.tTwoBody) < 1e-3);
+      const grows = c.length >= 2 && c[1].gapX > c[0].gapX && c[1].retard > c[0].retard;
+      return allRetard && consistentTwoBody && grows && mc.retardGrowsWithSpacing === true &&
+        /OPEN/.test(mc.subGap) && /NO QED/.test(mc.verdict) && /stays SOTA/.test(mc.verdict);
     },
   },
   {

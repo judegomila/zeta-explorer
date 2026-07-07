@@ -14857,6 +14857,51 @@ export const glossary = [
       'imp-3463 the far-tail E_flow decay exponent 1/2, far below the local q_eff ~ 0.855 at the crossing landmark (imp-3463)',
     ],
   },
+  {
+    term: 'g*-landmark-window-independence (imp-34956 pinned-product diagnostic)',
+    category: 'numerical',
+    definition:
+      'A headword explaining WHY the pinned coupling g* in the imp-34924 product P = s*(E_flow/E_trunc) = g* r0 ' +
+      'does not depend on the X_CROSS landmark window used to read r0, so that ALL of P\'s window sensitivity ' +
+      'flows through r0 alone -- and why that fact makes the fixed-window assumption a statement about the ' +
+      'ABSOLUTE VALUE of P, not about the m-ramp-invariance residual imp-34924 measured.\n\n' +
+      'WHY g* IS WINDOW-INDEPENDENT: g* = m s* is defined as the root of gapAt(s,m) = kneeAt(s,m) - inflAt(s,m), ' +
+      'where kneeAt and inflAt are found by bisection over the FULL bracket [1e9,1e11] on ln N. Nowhere does ' +
+      'gapAt reference X_CROSS -- the crossing-strength root g* is a property of the knee/inflection LOCATOR ' +
+      'functions alone. X_CROSS only enters afterward, as the point at which r0 = E_flow/E_trunc is READ OFF to ' +
+      'form the product P = g* r0. Consequently P is EXACTLY proportional to r0 at every window (P/r0 = g* to ' +
+      '10 digits, imp-34956), and the entire window-dependence of P collapses to d ln P = d ln r0: g* carries ' +
+      'none of it.\n\n' +
+      'WHY THIS SPLITS THE ~1.6e-7 RESIDUAL FROM THE WINDOW QUESTION: imp-34924\'s residual ramp-invariance ' +
+      'spread is measured ACROSS m at ONE FIXED X_CROSS. Since X_CROSS never varies in that measurement and r0 ' +
+      'is therefore identical for every m in the ladder, the fixed-window assumption contributes EXACTLY ZERO ' +
+      'to the m-spread -- the ~1.6e-7 is pure bisection/finite-difference noise, full stop. Window choice is a ' +
+      'SEPARATE axis, orthogonal to m: imp-34956 found the nominal 10^9.53 sits on the true knee-inflection ' +
+      'crossing landmark (~9.53068 dex) to under 1e-3 dex, so the physically-motivated window is a single point ' +
+      'rather than a band, and moving across that ~4.6e-8-dex-wide point shifts P by only ~9e-8 -- comparable ' +
+      'to, not a multiple of, the noise floor. Only an UNMOTIVATED free window spanning the whole [1e9,1e11] ' +
+      'bracket produces a large (~53x) swing in P, and that swing is entirely an uncertainty on |P|\'s magnitude.\n\n' +
+      'HOW TO APPLY: when a diagnostic combines a bisection-located root (here g*) with a value read off at a ' +
+      'separately-chosen window (here r0 at X_CROSS), check whether the root\'s defining condition ever ' +
+      'references the window coordinate. If it does not, the root is CONSTANT across window choices, and any ' +
+      'sensitivity analysis of the composite quantity should attribute 100% of the window dependence to the ' +
+      'read-off term, not split it evenly or assume the root inherits some fraction of it. Do not conflate "the ' +
+      'window choice bounds the magnitude of the composite" with "the window choice explains an invariance-' +
+      'across-a-different-parameter residual" -- they are different axes unless the residual measurement itself ' +
+      'lets the window vary.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34956 verdict verbatim, not a new measurement or ' +
+      'bound; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
+      'C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; far-tail ' +
+      'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35019 (glossary headword for the imp-34956 g*-landmark-window-independence), 2026',
+    relatedTerms: [
+      'imp-34956 measured the window sensitivity of the pinned product P = g* r0 and bounded the fixed-window contribution (imp-34956)',
+      'imp-34924 derived the pinned product P = s*(E_flow/E_trunc) = g* r0 and reported the ~1.6e-7 across-m residual (imp-34924)',
+      'imp-34899 reported the ~1.4366e-3 invariant product across the ramp-position sweep (imp-34899)',
+      'imp-34886 the s* ~ 0.78 = g* crossing on Gap(s) = 0 that defines the landmark locator (imp-34886)',
+      'imp-34950 the local q_eff ~ 0.855 decay exponent matching the pinned-product window sensitivity slope (imp-34950)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

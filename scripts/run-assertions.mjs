@@ -6616,6 +6616,15 @@ const DATA_MODULES = [
   // which lands ON the finite-difference inflection to ~3e-8 (FD floor removed) and recovers imp-33744. The D2
   // identity is exact algebra: pointwise match ~3.6e-6 at h=1e-2, clean O(h^2) (ratio ~4). Derivation only, no bound change.
   '/src/data/imp-34820-sigmoid-inflection-d2-closed-form-locator.js',
+  // imp-34837: measures whether the imp-34820 closed-form D2 inflection locator sigma_infl = 1/2 +
+  // u_secondDeriv/(2 u_prime^2) SURVIVES reinstating the dropped E_flow term (carried as the imp-34749 exact
+  // additive log-odds shift phi = -ln(1+E_flow/E_trunc)). Verdict: YES it survives -- the D2 root still lands
+  // on the finite-difference sigma_secondDeriv=0 inflection to ~8e-8 with E_flow carried. But the LOCATION
+  // shifts +9.03e-3 dex (9.52364 -> 9.53267), ~3x the imp-33744 F3 ~0.003 estimate (F3 understates), first-
+  // order-captured to ~101%. And since the knee shifts DOWN (-7.32e-3, reproducing imp-34749/imp-34710) while
+  // the inflection shifts UP, the two landmarks CROSS: the imp-34820 +1.27e-2 dex knee-above-inflection gap
+  // flips to -3.61e-3 dex once E_flow is carried. Measurement only, no bound change, GUE conditional intact.
+  '/src/data/imp-34837-sigmoid-inflection-d2-eflow-reinstatement.js',
   // imp-34824: cross-checks the imp-34800 +2.95% sigmoid-inflection-vs-crossover residual (R3 vs R1/R2)
   // against the imp-34734 C_mb elasticity, never done before. Inserting C_mb on E_coll (as imp-34734 does)
   // and recomputing BOTH the imp-33723/imp-34800 crossover (N = C_mb^2 K log T0) and the imp-33721 sub-decade
@@ -6626,6 +6635,15 @@ const DATA_MODULES = [
   // curvature knee moves with C_mb. Verdict: the nonzero separation is DEFINITIONAL, but the +2.95% VALUE/sign
   // is a GUE-conditional-constant artifact of C_mb=1. Measurement only, no bound change, GUE conditional intact.
   '/src/data/imp-34824-inflection-crossover-gap-cmb-sweep.js',
+  // imp-34838: PINS the imp-34824 inflection-vs-crossover gap zero (coarse cmbZeroGap ~ 0.51160) to several
+  // digits with two independent root-finders that must agree: a 60-step bisection on [0.50,0.52] and a secant
+  // from (0.50,0.52) both give C_mb* ~ 0.5115957 (agreement < 1e-9, |relGap(C_mb*)| < 1e-10). The LOCAL
+  // elasticity at the zero, d(relGap)/dC_mb ~ +1.4658e-1 per unit, is ~6.8x STEEPER than the +2.153e-2/unit
+  // imp-34824 measured at the GUE bound C_mb=1: relGap is convex-steepening as C_mb falls, so it crosses zero
+  // far more sharply than the near-flat +2.95% plateau at C_mb=1 suggests. Absolute accuracy of C_mb* is capped
+  // by the OLS/D2 finite-difference grid geometry, not the root-finder. Measurement only on the surrogate map;
+  // does NOT tighten or discharge the GUE conditional (imp-486); changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-34838-cmb-zero-gap-precise-root-and-elasticity.js',
   // imp-34794: DUAL of the imp-34774 fixed-delta Krawczyk enclosure of N_cross -- fixes the few-ULP
   // outward-rounding budget K_FEW_ULP = 4 and drives the bracket half-width delta -> 0 to LOCATE the
   // tightest double-precision certified bracket. delta_min(k=4) ~ 1.887e-15 ~ 8.5 eps = (2 k + ~0.5) eps

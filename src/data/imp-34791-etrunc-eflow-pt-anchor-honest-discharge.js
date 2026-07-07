@@ -1,6 +1,12 @@
 /**
  * @module imp-34791-etrunc-eflow-pt-anchor-honest-discharge
  *
+ * NOTE: "discharge" in the module name is ASPIRATIONAL / id-stable only. The
+ * VERIFIED status (4/4 independent referees, imp-34791 verification 2026-07) is
+ * CONDITIONAL, NOT a discharge: E_trunc is reclassified ansatz -> conditional on
+ * honestCeiling C1-C5 (currently 16.7x short; C1 is an RH-flavored deep-zero
+ * realness barrier lemma). PT Lambda <= 0.2 remains SOTA; no beat.
+ *
  * imp-34791 (proof, S-frontier): RECONCILE the E_trunc / E_flow rigor ledger at
  * the post-imp-33226 field-channel bracket, LOCK kappa_T at the N* = 1e4
  * instantiation, correct the recorded tail-integral prefactor, map the VERIFIED

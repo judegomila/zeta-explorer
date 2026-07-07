@@ -671,6 +671,9 @@ const Imp35000EflowCrossingStrengthExponentDecompositionViz = lazy(() =>
 const Imp35001PlusOneImpossibilityMarginBandViz = lazy(() =>
   import('./pages/Imp35001PlusOneImpossibilityMarginBandViz.jsx')
 );
+const Imp35018FourLandmarkClusterLogNViz = lazy(() =>
+  import('./pages/Imp35018FourLandmarkClusterLogNViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1980,6 +1983,10 @@ function AppShell() {
           <Route
             path="/viz-imp35001-plus-one-impossibility-margin-band"
             element={<Imp35001PlusOneImpossibilityMarginBandViz />}
+          />
+          <Route
+            path="/viz-imp35018-four-landmark-cluster-log-n"
+            element={<Imp35018FourLandmarkClusterLogNViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

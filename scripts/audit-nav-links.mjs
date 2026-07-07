@@ -493,6 +493,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34999-krawczyk-margin-infimum-band-endpoint',
   '/viz-imp35000-eflow-crossing-strength-exponent-decomposition',
   '/viz-imp35001-plus-one-impossibility-margin-band',
+  '/viz-imp35018-four-landmark-cluster-log-n',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

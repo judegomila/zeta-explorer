@@ -7265,6 +7265,25 @@ const DATA_MODULES = [
   // through the interval-Newton quotient. The log-site sibling of imp-34910/imp-34928. Measurement
   // only, no bound change.
   '/src/data/imp-34927-double-double-log-ulp-measurement.js',
+  // imp-34987 orphan-wiring sweep (imp-34896/34920/34945/34967 lineage): the following four
+  // imp-34947..imp-34957 cohort modules define self-executing *_ASSERTIONS arrays but were not yet
+  // wired into this MATH_MODULES sweep.
+  // imp-34950: DECOMPOSES the E_flow crossing-strength exponent p ~ 1.5493 into the level-pinned
+  // structural prediction 2*q_eff ~ 1.71 and the far-tail prediction 2*(1/2) ~ 1.03, confirming the
+  // measured 95% CI excludes both naive composites. Measurement only, no bound change.
+  '/src/data/imp-34950-eflow-crossing-strength-cmb-exponent-structural.js',
+  // imp-34951: MEASURES the uniform positive penultimate-relative-distance margin across all 34
+  // off-by-one rungs on [1e3,1e18] against the EPS_FP floor, an upper-witness proxy that the +1
+  // over-count residual is structurally excluded. Measurement only, no bound change.
+  '/src/data/imp-34951-plus-one-impossibility-margin-band.js',
+  // imp-34954: CROSS-CHECKS the exact surplus closed form against the ~4.6% landmark-gap conversion
+  // residual at N_cross, confirming the E_coll local log-slope reconciliation. Measurement only, no
+  // bound change.
+  '/src/data/imp-34954-surplus-closed-form-vs-landmark-gap-crosscheck.js',
+  // imp-34957: EXTENDS the imp-34922 crossover-map numerator-polynomial ladder from P_2..P_10 through
+  // P_11 and P_12, verifying the boundary-projection recurrences hold at the two new orders.
+  // Measurement/derivation only, no bound change.
+  '/src/data/imp-34957-crossover-deriv-p11-p12-extension.js',
 ];
 
 let ALL_MODULES = FAST_MODE

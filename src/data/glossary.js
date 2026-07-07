@@ -15179,6 +15179,42 @@ export const glossary = [
       "imp-34676 the free right-widening of the certificate once the uniform-sup framing is in place (imp-34676)",
     ],
   },
+  {
+    term: "imp-34653 pole-window cross-validation: one coherent measurement, not a two-ladder seam",
+    category: "numerical",
+    definition:
+      "The imp-34636 pole-centred OLS window was assembled by SPLICING five k-nodes from two " +
+      "separately published modules -- four rungs (k = 21.2, 21.25, 21.28095, 21.3) taken verbatim " +
+      "from the imp-34406 near ladder and one rung (k = 21.35) from the imp-34572 far ladder -- " +
+      "without ever re-deriving eflow_attr and resid_exp at those nodes from a single component-model " +
+      "code path. imp-34653 closes that gap by recomputing both quantities inline, in one code path, " +
+      "from the verbatim imp-34169 parts()/eflowLogSlope() machinery on the inherited imp-3220/imp-3406 " +
+      "component model.\n\n" +
+      "F1 (SEAM CHECK). The independent recomputation matches the spliced baked eflow_attr values at " +
+      "all five nodes to a max relative error of 8.60e-10 -- largest at k = 21.2, smallest (6.07e-11) " +
+      "at the k = 21.35 FAR rung. The single far-side rung reproduces just as tightly as the four near " +
+      "rungs, so the imp-34406 and imp-34572 source ladders are on the SAME footing: the pole window " +
+      "is one coherent measurement, not a splicing artifact of two differently-sampled ladders.\n\n" +
+      "F2 (SIGN-CHANGE CHECK). The independently recomputed surrogate numerator resid_exp(k) is " +
+      "strictly decreasing across the window -- +2.211e-8 (21.2), +8.190e-9 (21.25), -6.69e-13 " +
+      "(21.28095), -4.886e-9 (21.3), -1.717e-8 (21.35) -- crossing zero AT the median rung " +
+      "k* = 21.28095, where resid_exp sits at -6.69e-13, the double-precision floor. eflow_attr stays " +
+      "smooth and positive there (4.520e-15), so it is the DENOMINATOR resid_exp that vanishes, " +
+      "confirming eflow_over_resid = eflow_attr/resid_exp has a genuine, sign-changing SIMPLE pole at " +
+      "k*, recovered from the single code path rather than assumed from the spliced ladders.\n\n" +
+      "HONEST SCOPE: cross-validation only -- an independent recomputation confirming two source " +
+      "ladders agree and reproducing a sign change already read off the spliced data, not a fresh " +
+      "derivation. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a " +
+      "rigorous asymptotic; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; " +
+      "changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda<=0.2 remains SOTA.",
+    firstUsed: "imp-34683 (headwording the imp-34653 F1/F2 component-model cross-validation), 2026",
+    relatedTerms: [
+      "imp-34653 the cross-validation module this headword summarizes (imp-34653)",
+      "imp-34406 the near-ladder source module (four of the five pole-window rungs) (imp-34406)",
+      "imp-34572 the far-ladder source module (the k=21.35 rung) (imp-34572)",
+      "imp-34636 the spliced pole-centred window this cross-validation certifies is seamless (imp-34636)",
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

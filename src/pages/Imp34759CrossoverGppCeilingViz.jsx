@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
+import CrossoverMapClusterCaveatBanner from '../components/CrossoverMapClusterCaveatBanner.jsx';
 import { IMP34731_CROSSOVER_MAP_SECOND_DERIVATIVE_BOUND } from '../data/imp-34731-crossover-map-second-derivative-bound.js';
 
 const M = IMP34731_CROSSOVER_MAP_SECOND_DERIVATIVE_BOUND;
@@ -166,9 +167,7 @@ export default function Imp34759CrossoverGppCeilingViz() {
       >
         <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page presenting the
         imp-34731 closed-form g'' ceiling (imported literals, no new computation) for the INHERITED
-        imp-3220/imp-3406 surrogate crossover map. C_C&nbsp;=&nbsp;(1/8)&radic;(3&pi;) (imp-2642/imp-2643)
-        and C_mb GUE-conditional per imp-486 are UNTOUCHED; changes no bound; establishes no operator
-        positivity; no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        imp-3220/imp-3406 surrogate crossover map. <CrossoverMapClusterCaveatBanner />
       </div>
     </div>
   );

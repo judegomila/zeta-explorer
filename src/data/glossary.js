@@ -14677,6 +14677,50 @@ export const glossary = [
       'imp-34966 the sibling headword on why a periodic sign pattern is the fingerprint of a conjugate pair (imp-34966)',
     ],
   },
+  {
+    term: 'measured-but-not-structural power-law exponent (imp-34950 crossing-strength exponent)',
+    category: 'numerical',
+    definition:
+      'A headword for the imp-34950 finding: why a power-law exponent can be SHARPLY DETERMINED by a fit -- ' +
+      'tight enough to rule out clean rationals by tens of standard errors -- and yet still fail to be a ' +
+      'STRUCTURAL constant, i.e. a value that follows necessarily from composing two independently-measured ' +
+      'structural ingredients.\n\n' +
+      'THE SETUP: imp-34925 found the E_flow knee-vs-inflection crossing strength s* drifts with the ' +
+      'GUE-conditional constant C_mb as a clean power law s* = K C_mb^p, with a point exponent p ~ 1.549. ' +
+      'imp-34950 refit this WITH a residual-based confidence interval -- p_pinned = 1.5493 +/- 8.9e-4 (95% CI ' +
+      '~ [1.5476, 1.5511]) -- so tight that the clean rationals 3/2 and 8/5 sit ~55 and ~57 standard errors ' +
+      'outside it. That precision alone might suggest p is "the" exponent of some underlying mechanism.\n\n' +
+      'WHY PRECISION IS NOT THE SAME AS STRUCTURE: imp-34950 then tested p against two INDEPENDENTLY MEASURED ' +
+      'structural ingredients, each with its own physical meaning. First, the ~2 ln(C_mb) landmark-translation ' +
+      'coefficient (how far C_mb shifts the crossing landmark in log-N) was confirmed at dx*/d ln(C_mb) ~ 2.06, ' +
+      'close to its naive prediction of 2. Second, the LOCAL E_flow decay exponent at the crossing landmark ' +
+      'itself was measured at q_eff ~ 0.855 -- far above the imp-3463 far-tail asymptote of 1/2, because the ' +
+      'crossing band sits at N ~ 1e9, nowhere near the far tail. Composing these under the naive level-pinned ' +
+      'hypothesis (that s* R held constant at the landmark) gives two composite predictions: 2 q_eff ~ 1.71, ' +
+      'which OVERSHOOTS the measured p by ~14%, and the far-tail composite 2(1/2) ~ 1.03, which UNDERSHOOTS it ' +
+      'by ~34%. Measured p sits BETWEEN the two, with only ~88% of the naive translation-times-local-exponent ' +
+      'product transmitting -- because s* also enters the landmark-defining log-odds DERIVATIVES, not just the ' +
+      'sigmoid level the naive composite assumes.\n\n' +
+      'HOW TO APPLY: a tight confidence interval and a genuine power law (near-constant local log-log slope) ' +
+      'establish that a quantity is being measured PRECISELY and CONSISTENTLY -- they do not by themselves ' +
+      'establish that the measured value is forced by, or reducible to, other structural quantities in the ' +
+      'model. Test that separately by composing the candidate structural ingredients and checking whether the ' +
+      'composite actually reproduces the measured value; a residual transmission fraction away from 100% ' +
+      '(here ~88%) signals an unmodeled contribution (here, the log-odds derivative dependence) rather than ' +
+      'measurement noise.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34950 verdict verbatim, not a new bound; this ' +
+      'SWEEPS C_mb as a free knob and does NOT discharge the GUE conditional (C_mb GUE-conditional per ' +
+      'imp-486); the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
+      'asymptotic; changes no bound; establishes no operator positivity; far-tail exponent stays 1/2 ' +
+      '(imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35003 (glossary headword for the imp-34950 surrogate-dependent non-structural crossing exponent), 2026',
+    relatedTerms: [
+      'imp-34950 pins p = 1.5493 +/- 8.9e-4 (95% CI excludes 3/2, 8/5) yet finds only ~88% of the naive translation x local-exponent product transmits (imp-34950)',
+      'imp-34925 first reported the power-law form s* = K C_mb^p and the point exponent p ~ 1.549 that imp-34950 refines with a CI (imp-34925)',
+      'imp-3463 the far-tail E_flow decay exponent 1/2, the weaker of the two naive composites (imp-3463)',
+      'imp-486 the GUE-conditional many-body constant C_mb swept as the free knob (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

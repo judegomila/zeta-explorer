@@ -14589,6 +14589,52 @@ export const glossary = [
       'imp-33582 the sigma = 1/2 halving landmark N_half (imp-33582)',
     ],
   },
+  {
+    term: 'range-level robust coincidence vs point-level parameter-specific coincidence (imp-34955)',
+    category: 'numerical',
+    definition:
+      'A headword distinguishing two different STRENGTHS of "coincidence" claim that imp-34955 separates when it ' +
+      'sweeps the GUE-conditional multiplicative C_mb factor on E_coll (imp-486) across [0.5, 1] and re-measures ' +
+      'the imp-34931 sigma-knee resummation-crossing eps values against the imp-34882 Domb-Sykes convergence ' +
+      'radius range [79, 106]: a RANGE-LEVEL coincidence (does a measured value land ANYWHERE inside a stated ' +
+      'uncertainty interval) versus a POINT-LEVEL coincidence (does it land ON a specific point estimate inside ' +
+      'that interval).\n\n' +
+      'WHAT STAYS ROBUST: the 25% resummed-total-deviation crossing stays INSIDE the Domb-Sykes range [79, 106] ' +
+      'for every C_mb swept over [0.5, 1] -- its minimum, ~80.72 at C_mb = 0.5, is still above the 79 low edge. ' +
+      'So the qualitative imp-34931 claim (the raw-total breakdown coincides with the measured convergence ' +
+      'boundary) survives the full GUE-conditional uncertainty on C_mb: it is a RANGE-LEVEL, structural ' +
+      'coincidence, not an artifact of pinning C_mb = 1.\n\n' +
+      'WHAT IS NOT ROBUST: the TIGHT numerical landing on the Domb-Sykes point estimate R ~ 91 is C_mb-SPECIFIC. ' +
+      'The ratio eps_25/R runs 0.887 (C_mb = 0.5) up to 1.001 (C_mb = 1), so "essentially ON R ~ 91" only holds ' +
+      'near C_mb ~ 1 -- the exact physical value. Move C_mb down toward 0.5 and the same crossing sits ~11% below ' +
+      'R, still inside [79,106] but no longer "on" the point estimate. The 5% crossing is weaker still: it exits ' +
+      'the low edge of [79,106] entirely for every C_mb below ~1.\n\n' +
+      'WHY THE DISTINCTION MATTERS: a range-level coincidence is a claim about ORDER OF MAGNITUDE placement -- it ' +
+      'survives any sensitivity sweep that keeps the measured value inside the stated bracket, so it is the ' +
+      'more defensible reading when an input constant (here C_mb) is only conditionally known. A point-level ' +
+      'coincidence is a claim about a specific numerical landing, and reporting it as if it were structural ' +
+      'silently smuggles in the unstated assumption that the input constant sits exactly at its currently pinned ' +
+      'value; imp-34955 shows that assumption is doing real work here (~11-12% of the crossing value moves with ' +
+      'C_mb, log-log elasticity ~0.18).\n\n' +
+      'HOW TO APPLY: whenever a measured quantity is reported as "landing on" a reference value that itself ' +
+      'carries an uncertainty range, and an upstream constant feeding the measurement is only conditionally ' +
+      'pinned, re-sweep that constant across its plausible band and check separately whether the measurement ' +
+      'stays (a) inside the reference range at every swept value (range-level, robust) and (b) close to the ' +
+      'specific point estimate at every swept value (point-level, fragile) -- these can and do diverge.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34955 sensitivity-sweep verdict verbatim, not a new ' +
+      'bound; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
+      'the C_mb GUE-conditional constant per imp-486 is swept as a sensitivity knob but its pinned value is ' +
+      'UNTOUCHED; changes no bound; establishes no operator positivity; far-tail exponent stays 1/2 (imp-3463); ' +
+      'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-34984 (glossary headword distinguishing the imp-34955 range-level robust coincidence from the point-level C_mb-specific coincidence), 2026',
+    relatedTerms: [
+      'imp-34955 sweeps C_mb over [0.5,1] and separates the robust range-level crossing/Domb-Sykes coincidence from the C_mb-specific point-level landing (imp-34955)',
+      'imp-34931 pinned the fixed-model (C_mb = 1) 5%/25% crossings at eps ~ 79.24/91.13 that imp-34955 varies (imp-34931)',
+      'imp-34882 the Domb-Sykes/Neville radius R ~ 91 with uncertainty range [79,106] (imp-34882)',
+      'imp-486 the GUE-conditional multiplicative C_mb factor on E_coll swept as the sensitivity knob (imp-486)',
+      'imp-34863 the Cauchy-Hadamard root-test radius R ~ 139, an independent radius estimate (imp-34863)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -6655,6 +6655,14 @@ const DATA_MODULES = [
   // identical, Borel moves ~9e-8 dex). Resummation is INERT; the ~9.2e-5 finite-difference floor (imp-34772/
   // imp-34756 lineage) caps the accuracy regardless. Measurement/derivation only, no bound change.
   '/src/data/imp-34888-sigma-knee-pade-borel-resummation.js',
+  // imp-34902: SWEEPS the imp-34888 four-method resummation cross-tabulation off the single physical point eps = 1
+  // across the whole convergent (0, R] (R ~ 91). Verdict: the INERTNESS is band-wide -- the max cross-method
+  // SC-to-exactF residual-ratio deviation stays below the 5% threshold everywhere (~1.6e-4 at eps = 0.1, ~1.9e-3
+  // at eps = 1 reproducing imp-34888, ~3.4e-2 at eps = 91) and NO method departs. Two honest caveats: the +4.86e-5
+  // residual is the near-zero crossing at eps = 1 only (the absolute residual drifts -1.8e-2 -> +1.35 dex across
+  // the grid), and the raw resummed-total agreement degrades from ~5e-12 (eps <= 1) to ~25% at eps = 91 (the SC
+  // map compresses this so the inertness metric stays < 5%). Measurement/derivation only, no bound change.
+  '/src/data/imp-34902-sigma-knee-resummation-eps-sweep.js',
   // imp-34900: ATTEMPTS the imp-34882 tighter-radius sub-gap with ANALYTICALLY-differentiated v-kernels instead of the
   // hd = 1e-3 finite differences. Writing w = ln(T/2pi), the Riemann-von Mangoldt relation collapses to x = w + ln(w-1),
   // so v/v_prime/v_secondDeriv are closed-form and exact to machine precision. Findings: the FD noise lives in exactly
@@ -6784,6 +6792,12 @@ const DATA_MODULES = [
   // 40 -> 21), because the off-by-one is a seed-selective TERMINAL-ceil crossing, not a global bias. Fixed
   // offset and imp-34862 two-rate law both fail for the same terminal-ceil reason.
   '/src/data/imp-34887-iters-to-floor-residual-sign.js',
+  // imp-34903: EXTENDS the imp-34887 signed-residual sweep from [1e9,1e12] to a wider [1e6,1e15] band on the
+  // same 10^0.05 grid (181 seeds). The uniform -1 sign is BAND-WIDE: all 34 off-by-one seeds are -1 (0
+  // over-counts), three decades below and above the knee -- ruling out the mixed-sign / mandatory-two-rate
+  // branch over the full band. Off-by-ones concentrate at/below the knee (13 below 1e9, 21 in [1e9,1e12]) and
+  // vanish above 1e12 (0), where the collapse distance is large enough the terminal ceil never straddles.
+  '/src/data/imp-34903-iters-to-floor-residual-sign-wide-band.js',
   // imp-34799: DERIVES an a-priori width bound for a genuine directed-rounding instantiation of the
   // imp-34774 Krawczyk fixed-point enclosure of N_cross. The F(m)=0 surrogate collapses the image to a
   // POINT; a directed-rounding F(m) widens it to ~ n_op eps N_cross / (1 - |g_prime|) (first-order IA),

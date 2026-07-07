@@ -6642,6 +6642,14 @@ const DATA_MODULES = [
   // intercept negative, full 9-pt R ~ 0.26) -> R pinnable only to O(1e2), the same Richardson sub-gap left open.
   // Measurement only, no bound change.
   '/src/data/imp-34882-sigma-knee-domb-sykes-radius.js',
+  // imp-34888: ASSESSES whether a Borel or diagonal-Pade [m/m] resummation of the imp-34863 delta_1..delta_9
+  // slowly-varying-v knee series beats the imp-34821 +4.86e-5 dex SC-to-exactF plateau. Verdict: NO -- because the
+  // series is convergent (imp-34863 R ~ 139, imp-34882 R ~ 91) with eps = 1 deep inside the disk, diagonal Pade
+  // [4/4]/[3/3], the Wynn epsilon-algorithm and a Borel-Laplace (Gauss-Laguerre) sum ALL reproduce the plain
+  // 9-term sum to ~1e-14..1e-19, so the resummed self-consistent knee stays on the +4.86e-5 plateau (Pade/Wynn
+  // identical, Borel moves ~9e-8 dex). Resummation is INERT; the ~9.2e-5 finite-difference floor (imp-34772/
+  // imp-34756 lineage) caps the accuracy regardless. Measurement/derivation only, no bound change.
+  '/src/data/imp-34888-sigma-knee-pade-borel-resummation.js',
   // imp-34820: assesses whether the imp-34796 third-order identity F = -g_thirdDeriv/(1-S) can locate the
   // imp-34746/imp-33721 convex-to-concave sigmoid inflection (sigma_secondDeriv=0). Verdict: NO for that
   // identity -- its g_thirdDeriv=0 root is the DISTINCT sigma-KNEE (log10 N ~ 9.5364), ~0.0127 dex above the
@@ -6940,6 +6948,14 @@ const DATA_MODULES = [
   // exceeds the bracket it started from after ONE Newton step; the contraction route (width set by the final
   // step) never breaches at any depth. imp-34714a stays open.
   '/src/data/imp-34884-forward-op-depth-breach.js',
+  // imp-34889: SWEEPS the imp-34865 forward-vs-contraction measurement across the imp-34693 admissible seed
+  // band. Re-instantiates both directed-rounding routes at N = N_cross +/- rho(1,k) (k in {0,5,10}) and finds
+  // the forward route breaches the (H2) margin at step 5 at EVERY band point (band-wide), while the
+  // contraction route never breaches. The breach is band-invariant because the seed image half-width
+  // K delta / FP_LO is T0(N)-independent (delta cancels: 2^n > (K/FP_LO)/N, RHS ~20 moves only +-5% over the
+  // widest band). Forward/contraction ratio stays ~2.56e12-2.92e12. So the imp-34865 N_cross conclusion is
+  // representative of the whole band. imp-34714a stays open.
+  '/src/data/imp-34889-forward-breach-band-uniformity.js',
   // imp-34812: caveat-surfacing audit of the imp-34774/imp-34776 Krawczyk and
   // imp-34769/imp-34770 sigma-knee and imp-34772 dp-star viz cluster (extends
   // the imp-34725 lineage); the true viz-page cohort is only imp-34774/34776/

@@ -6979,6 +6979,15 @@ const DATA_MODULES = [
   // BOUNDARY VALUE, not an interior sampling artifact. Cross-validation/measurement on the surrogate models;
   // imp-34714a REMAINS OPEN; changes no bound; NO QED.
   '/src/data/imp-34993-krawczyk-margin-infimum-xvalidate.js',
+  // imp-34996: EXTRAPOLATES the imp-34929 monotone-decreasing headroom S(N) = star_over_H2(N) = G/((1+G) delta
+  // FP_LO) BEYOND the imp-34693 admissible band to answer at what N the 100x safety factor would first be
+  // exhausted. Since S is strictly decreasing (imp-34929) its infimum is the N -> infinity limit, and a(N) -> 0
+  // collapses S to the EXACT closed-form floor S_inf = 1/(2 delta) = 2500 (G, FP_LO -> 1). So S stays above
+  // 2500 = 25x the 100x safety factor for every finite N: the safety factor is NEVER exhausted, the failure N
+  // is +infinity, and the residual headroom-to-failure distance is S_inf - 100 = 2400. A 40001-point log-spaced
+  // sweep across ~290 decades confirms strict decrease to the floor (non-increasing, pinning 2500.0000 in the
+  // far tail). Extrapolation on the surrogate models; imp-34714a REMAINS OPEN; changes no bound; NO QED.
+  '/src/data/imp-34996-krawczyk-headroom-safety-factor-asymptote.js',
   // imp-34864: DERIVES + MEASURES the crossover-map THIRD-derivative envelope per-decade shrink ratio one
   // order up from imp-34839. From g_triple_prime = 8 pi^3 K (2u^2+4u+3)/(T^3 u^5) = K P(u)/(M^3 u^5) the
   // ratio factors as r3 = (M_prime/M)^3 (u_prime/u)^5 P(u)/P(u_prime); Riemann-von Mangoldt N=M(u-1) forces
@@ -7303,6 +7312,15 @@ const DATA_MODULES = [
   // from ~0.8463 (1e9) through ~0.8549 (9.53 dex) to ~0.8744 (1e11), so ~0.855 is a point reading at the
   // crossing landmark, well above the imp-3463 far-tail 1/2. Measurement only; changes no bound; NO QED.
   '/src/data/imp-34973-pinned-product-slope-qeff-window-identity.js',
+  // imp-35011: DIRECTLY verifies the imp-34956 W0 claim that the pinned coupling g* in P = g* r0 is
+  // landmark-window (X_CROSS) INDEPENDENT -- imp-34956 checked it only via productAtDex/r0OfDex, which is
+  // identically G_STAR by construction (a tautology). This module RE-DERIVES g* from the full gapAt
+  // bisection at 21 X_CROSS windows across [1e9,1e11] and measures its true variation: the recomputed root
+  // is BIT-IDENTICAL at every window (max relative variation = 0, below the ~1e-16 FP floor) while r0
+  // swings ~52.8x, certifying P = g* r0 is EXACTLY proportional to r0 (P/r0 = g* to ~1e-16 window-wide) and
+  // the window freedom is a pure absolute-value uncertainty on |P|, contributing EXACTLY 0 to the imp-34924
+  // ~1.6e-7 m-invariance residual. Measurement only; changes no bound; NO QED.
+  '/src/data/imp-35011-gstar-window-independence-direct.js',
   // imp-34967 orphan-wiring sweep (imp-34878/imp-34724/imp-34802 lineage): the following four
   // imp-34922..imp-34933 cohort modules define self-executing *_ASSERTIONS arrays but were not yet
   // wired into this MATH_MODULES sweep.
@@ -7368,6 +7386,11 @@ const DATA_MODULES = [
   // locators, ordered-increasing, pairwise-spreads-under-4pct, cluster-band-3p3e9) was not yet
   // wired into this sweep. Audit only; no bound change.
   '/src/data/imp-35018-four-landmark-cluster-log-n-viz-data.js',
+  // imp-34997: REFINES the imp-34903/imp-34951 (1e12,1e15] off-by-one tail census from the coarse 10^0.05
+  // grid up to 10^0.001 (3001 seeds); 0 off-by-one at every resolution confirms the tail 0 is a genuine
+  // depletion, not a coarse-grid artifact. Shows it is a FINITE ceil-phase gap (frac(xArg) confined below the
+  // fixed off-by-one window), with off-by-one reappearing at N ~ 10^27.08. Measurement only, no bound change.
+  '/src/data/imp-34997-iters-to-floor-tail-grid-refinement.js',
 ];
 
 let ALL_MODULES = FAST_MODE

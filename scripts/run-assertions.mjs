@@ -7330,6 +7330,11 @@ const DATA_MODULES = [
   // structural prediction 2*q_eff ~ 1.71 and the far-tail prediction 2*(1/2) ~ 1.03, confirming the
   // measured 95% CI excludes both naive composites. Measurement only, no bound change.
   '/src/data/imp-34950-eflow-crossing-strength-cmb-exponent-structural.js',
+  // imp-34994: BOOTSTRAPS (4000 seeded resamples, with replacement) and JACKKNIFES (leave-one-out) the
+  // imp-34950 pinned exponent p = 1.5493 on the reused 21-point C_mb grid. Resampling SEs (~1.19e-3 boot,
+  // ~1.23e-3 jk) run ~1.35x the residual-based SE, yet 3/2 and 8/5 stay ~40-42 sigma out and outside the
+  // 95% percentile CI, confirming imp-34950 F1 against resampling. Measurement only, no bound change.
+  '/src/data/imp-34994-cmb-exponent-bootstrap-jackknife.js',
   // imp-34951: MEASURES the uniform positive penultimate-relative-distance margin across all 34
   // off-by-one rungs on [1e3,1e18] against the EPS_FP floor, an upper-witness proxy that the +1
   // over-count residual is structurally excluded. Measurement only, no bound change.

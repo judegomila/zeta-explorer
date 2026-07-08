@@ -7383,6 +7383,12 @@ const DATA_MODULES = [
   // P_11 and P_12, verifying the boundary-projection recurrences hold at the two new orders.
   // Measurement/derivation only, no bound change.
   '/src/data/imp-34957-crossover-deriv-p11-p12-extension.js',
+  // imp-35012: CLASSIFICATION ASSESSMENT of the imp-34957 all-positive P_n plus the (-1)^(n+1) sign
+  // of g^(n). The pattern does NOT upgrade g to complete monotonicity (CM needs g_prime<=0, g_pp>=0;
+  // the surrogate has g_prime>0, g_pp<0); it is the BERNSTEIN-function signature (g_prime completely
+  // monotone), from which a Bernstein/Levy-Khintchine integral representation FOLLOWS (not required)
+  // via Hausdorff-Bernstein-Widder. Assessment only; no operator positivity; no bound change.
+  '/src/data/imp-35012-crossover-complete-monotonicity-bernstein-assessment.js',
   // imp-34975: EXTENDS the imp-34957 crossover-map numerator-polynomial ladder from P_11/P_12 to
   // P_13 and P_14 in EXACT BigInt, and LOCATES the 2^53 exact-integer ceiling imp-34957 flagged but
   // never determined: the largest coefficient first exceeds 2^53 at n=16 (exact through n=15).

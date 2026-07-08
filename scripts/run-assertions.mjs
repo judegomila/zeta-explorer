@@ -7307,6 +7307,16 @@ const DATA_MODULES = [
   // ~22.68 -> ~23.30, above the near-tail band tops) -- not yet flat, per-decade drift < 1.03x, a residual
   // O(1/t) correction asymptoting on top of the leading 1/(t-1)^2 law. Measurement only; changes no bound; NO QED.
   '/src/data/imp-34948-inflection-offset-far-tail-ladder-extension.js',
+  // imp-35027: FITS the imp-34948 far-tail diagnostic band P(t) = offsetN*(t-1)^2 to a C + D/t model over the
+  // rungs 1e14..1e18 (imp-34948 locators reused verbatim), resolving imp-34948-s un-flattened slow drift into a
+  // leading constant plus a 1/t tail: sigmoid C ~ 8.58, D ~ -13.07 (R^2 ~ 0.994); ramp C ~ 25.49, D ~ -90.41
+  // (R^2 ~ 0.9996). D is NEGATIVE both (band rises to C from below). The running-g coefficient c_g = lim t(1/2-g)
+  // of g = -d ln r/d ln N (imp-33744 gAt kernel) extrapolates to ~0.517 (g runs 0.4843 -> 0.4877, toward 1/2 from
+  // below); the closed-form link D = C*2*(c_g-1) predicts the sign of both and matches the sigmoid D to ~1.58x
+  // (the landmark imp-33744-s closed form governs) and the ramp knee more loosely to ~3.67x. Flattening the band
+  // to within 1% of C needs ~48 (sigmoid) / ~136 (ramp) further decades past 1e18. Measurement only; light
+  // imports only; changes no bound; NO QED.
+  '/src/data/imp-35027-far-tail-band-C-plus-D-over-t-fit.js',
   // imp-34956: MEASURES the landmark-window (X_CROSS) sensitivity of the imp-34924 pinned product
   // P = s*(E_flow/E_trunc) = g* r0, to bound how much of the ~1.6e-7 residual ramp-invariance spread is
   // attributable to the fixed-window assumption vs bisection/finite-difference noise. g* is

@@ -6746,6 +6746,15 @@ const DATA_MODULES = [
   // to ~0.96 deg (~2.4%); the small gap is the sign-count quantization (360/9). CONFIRMS the conjugate pair by an
   // independent estimator. Measurement only, C_mb GUE-conditional untouched, no bound change, no QED.
   '/src/data/imp-34947-conjugate-pair-argument-theta-cross-check.js',
+  // imp-34991: CLOSES the imp-34947 open thread (its 2-step recurrence resolves only a SINGLE conjugate pair). Fits the
+  // local FOUR-step recurrence delta_k = c1 delta_(k-1) + .. + c4 delta_(k-4) on the analytic delta_1..delta_30 ladder
+  // (rescaled by R_ref ~ 85.6 for conditioning) and factors its characteristic quartic into TWO conjugate pairs by
+  // Durand-Kerner -- a single two-point Darboux estimator pinning radius AND angle of both. (F1) dominant R_1 ~ 84.2,
+  // theta_1 ~ 38.6 deg reproduces imp-34947 to ~2% (sub-dominant perturbs the R read by only ~1.7%); (F2) a sub-dominant
+  // pair is resolved at R_2 ~ 120, theta_2 ~ 27 deg, rho_sub/rho_dom ~ 0.70 < 1 (R_2/R_1 ~ 1.43, ~43% farther out);
+  // (F3) both radii >> 1 with R_2 > R_1, so the sub-dominant term NEVER threatens |eps| < R at the physical eps = 1.
+  // Measurement only, C_mb GUE-conditional untouched, no bound change, no QED.
+  '/src/data/imp-34991-two-pair-darboux-joint-radius-angle.js',
   // imp-34820: assesses whether the imp-34796 third-order identity F = -g_thirdDeriv/(1-S) can locate the
   // imp-34746/imp-33721 convex-to-concave sigmoid inflection (sigma_secondDeriv=0). Verdict: NO for that
   // identity -- its g_thirdDeriv=0 root is the DISTINCT sigma-KNEE (log10 N ~ 9.5364), ~0.0127 dex above the
@@ -7320,6 +7329,12 @@ const DATA_MODULES = [
   // residual at N_cross, confirming the E_coll local log-slope reconciliation. Measurement only, no
   // bound change.
   '/src/data/imp-34954-surplus-closed-form-vs-landmark-gap-crosscheck.js',
+  // imp-34976: INDEPENDENTLY cross-validates the imp-34954 ~4e-6 L1-L3 landmark-gap closure by
+  // re-locating BOTH landmarks (N_cross ~3.280e9, N_half ~3.267e9) with a different root-finder
+  // (coarse-to-fine log-grid scan + secant, not the imp-34954 bisection) and reconciling the direct
+  // gap against both the bisected landmarks and the decomposition-reconstructed gap. Cross-validation
+  // only, no bound change.
+  '/src/data/imp-34976-independent-bisection-landmark-gap-crossvalidation.js',
   // imp-34957: EXTENDS the imp-34922 crossover-map numerator-polynomial ladder from P_2..P_10 through
   // P_11 and P_12, verifying the boundary-projection recurrences hold at the two new orders.
   // Measurement/derivation only, no bound change.

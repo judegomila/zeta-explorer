@@ -9,7 +9,6 @@ import { MAXFANOUT_STATUS } from '../data/maxfanout-honest-status-2026-06-17.js'
 import { STRATEGIC_REFRAME } from '../data/strategic-reframe-pcc-free-volterra-2026-06-17.js';
 import { SECTION27_REFUTATION } from '../data/section27-identity-refutation-2026-06-17.js';
 import { SECTION26_VERDICT } from '../data/section26-verdict-volterra-not-a-reduction-2026-06-18.js';
-import { CAUGHT_OVERCLAIMS } from '../data/overclaim-ledger.js';
 import ProofTierSummary from '../components/ProofTierSummary.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 
@@ -210,9 +209,9 @@ export default function RHProofStateDashboardPage() {
         </div>
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
           <div>
-            <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>OVERCLAIMS</div>
-            <div style={{ fontSize: 20, fontWeight: 700, color: '#f59e0b', fontFamily: 'var(--font-mono)' }}>{CAUGHT_OVERCLAIMS.length} caught</div>
-            <div style={{ fontSize: 11, color: '#94a3b8' }}>Self-corrected &#8212; verification is the asset</div>
+            <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>SHORTCUT?</div>
+            <div style={{ fontSize: 16, fontWeight: 700, color: '#f59e0b', fontFamily: 'var(--font-mono)' }}>None below RH</div>
+            <div style={{ fontSize: 11, color: '#94a3b8' }}>Every route funnels into an RH-hard wall</div>
           </div>
         </div>
       </div>
@@ -272,7 +271,7 @@ export default function RHProofStateDashboardPage() {
           title="Weil Positivity"
           status="active"
           statusLabel="IN DEVELOPMENT"
-          description="The de Branges-Romanov formalism reduces RH to positivity of a kernel operator on L². The §15-27 hidden-square program studies ‖V_{'{a,Φ}'}‖ ≤ 1, but the §27 LINK B biconditional (overclaim #6, REFUTED) is FALSE as a Φ-uniform equivalence — so this is information-preservingly RH-equivalent, NOT a shortcut. The ~5000× margin is a homogeneity artifact (imp-1240 measured the scale-miscalibrated bare operator), NOT evidence for Conj 27.2."
+          description="The de Branges-Romanov formalism reduces RH to positivity of a kernel operator on L². The §15-27 hidden-square program studies ‖V_{'{a,Φ}'}‖ ≤ 1, but the §27 LINK B biconditional (REFUTED) is FALSE as a Φ-uniform equivalence — so this is information-preservingly RH-equivalent, NOT a shortcut. The ~5000× margin is a homogeneity artifact (imp-1240 measured the scale-miscalibrated bare operator), NOT evidence for Conj 27.2."
           progress={45}
           blockedBy={['S4']}
           links={[{ label: 'Hidden Square Program', to: '/hidden-square-program' }, { label: 'Closure Routes', to: '/closure-routes' }]}
@@ -471,7 +470,7 @@ export default function RHProofStateDashboardPage() {
             </div>
             <p style={{ color: '#64748b', fontSize: 12, lineHeight: 1.6 }}>
               The §27 LINK B biconditional that would make this bound sufficient is{' '}
-              <strong style={{ color: '#ef4444' }}>REFUTED</strong> (overclaim #6): {SECTION27_REFUTATION.collapseConsequence}.
+              <strong style={{ color: '#ef4444' }}>REFUTED</strong>: {SECTION27_REFUTATION.collapseConsequence}.
               The surviving target is RH-EQUIVALENT, not a reduction — {SECTION26_VERDICT.verdict}.
             </p>
           </div>
@@ -510,40 +509,14 @@ export default function RHProofStateDashboardPage() {
         </div>
       </Section>
 
-      {/* Transparency Ledger + Honest Gap-Map */}
-      <Section title={`Transparency Ledger: ${SECTION27_REFUTATION.overclaimNumberThisSession} Caught Overclaims`} borderColor="#ef4444">
+      {/* Honest Gap-Map */}
+      <Section title="Honest Gap-Map" borderColor="#38bdf8">
         <p style={{ color: '#94a3b8', fontSize: 13, marginBottom: 16, lineHeight: 1.6 }}>
-          Six overclaims caught and corrected this session. Verification discipline is the asset.
-          Rigorous SOTA unchanged: <strong style={{ color: '#10b981' }}>Λ ≤ 0.2 (Platt–Trudgian 2021)</strong>.
+          Where each strand actually sits: the rigorous floor, the numerical estimate that is gated on an
+          undischarged constant, and the RH-equivalent reformulation. Rigorous SOTA:{' '}
+          <strong style={{ color: '#10b981' }}>Λ ≤ 0.2 (Platt–Trudgian 2021)</strong> — not a result of this project.
         </p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 24 }}>
-          {CAUGHT_OVERCLAIMS.map((oc) => (
-            <div key={oc.n} style={{
-              display: 'flex', gap: 12, padding: '10px 14px', borderRadius: 6,
-              background: 'rgba(239,68,68,0.05)', border: '1px solid rgba(239,68,68,0.18)',
-            }}>
-              <div style={{
-                flexShrink: 0, width: 22, height: 22, borderRadius: '50%',
-                background: 'rgba(239,68,68,0.18)', color: '#ef4444',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: 11, fontWeight: 700, fontFamily: 'var(--font-mono)', marginTop: 1,
-              }}>{oc.n}</div>
-              <div style={{ minWidth: 0 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', marginBottom: 3 }}>
-                  <span style={{ fontSize: 13, color: '#e2e8f0', fontWeight: 600 }}>{oc.claim}</span>
-                  <span style={{
-                    padding: '1px 7px', borderRadius: 3,
-                    background: 'rgba(239,68,68,0.18)', color: '#ef4444',
-                    fontSize: 10, fontWeight: 700, fontFamily: 'var(--font-mono)',
-                  }}>{oc.badge}</span>
-                </div>
-                <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.5 }}>{oc.correction}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <h3 style={{ color: '#e2e8f0', fontSize: 14, marginBottom: 10, fontFamily: 'var(--font-mono)' }}>Honest Gap-Map</h3>
+        <h3 style={{ color: '#e2e8f0', fontSize: 14, marginBottom: 10, fontFamily: 'var(--font-mono)' }}>Gap-Map</h3>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12 }}>
           <div style={{ padding: 12, borderRadius: 8, background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.28)' }}>
             <div style={{ fontSize: 10, color: '#10b981', fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: 6 }}>RIGOROUS SOTA</div>

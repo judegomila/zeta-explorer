@@ -161,7 +161,7 @@ export default function WikiPage() {
           <Link to="/state-of-program" style={{ color: '#f59e0b', fontSize: 12 }}>State of the Program</Link>
           <Link to="/route-map" style={{ color: '#f59e0b', fontSize: 12 }}>Route Map</Link>
           <Link to="/concepts#ch-wall" style={{ color: '#f59e0b', fontSize: 12 }}>C_H Wall</Link>
-          <Link to="/concepts#overclaim-ledger" style={{ color: '#f59e0b', fontSize: 12 }}>Overclaim Ledger</Link>
+          <Link to="/concepts#overclaim-ledger" style={{ color: '#f59e0b', fontSize: 12 }}>Correction Log</Link>
         </div>
       </div>
 

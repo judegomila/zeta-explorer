@@ -46,10 +46,10 @@ const VARIANTS = {
   },
   REFUTED: {
     color: '#f87171',
-    title: 'Honesty audit withdrew six caught overclaims',
+    title: 'Exploratory / refuted route — not a shortcut below RH',
     body:
-      'The honesty audit (route map, 2026-06-19) caught and withdrew six overclaims. This page is exploratory or a ' +
-      'faithful reformulation — not a shortcut below RH.',
+      'This page is an exploratory attempt or a faithful reformulation of RH — not a proof and not a shortcut ' +
+      'below it. Any bound it discusses is an estimate; the rigorous SOTA toward Λ stays Platt-Trudgian (Λ ≤ 0.2).',
   },
   'OPEN-HARD': {
     color: '#22d3ee',

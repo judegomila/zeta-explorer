@@ -669,14 +669,14 @@ git log --oneline -10                    # engine commits`}
             {
               layer: 'L4 — Rigor Audit',
               color: '#ef4444',
-              desc: 'External audit loop catches overclaiming and forces honest reframing of results.',
+              desc: 'An internal verification loop keeps result framing honest and in line with the evidence.',
               features: [
                 { name: 'Honesty pass', status: 'shipped', detail: 'Replaced false UNCONDITIONAL labels with GUE-CONDITIONAL (imp-583)' },
                 { name: 'NoSwap gap acknowledged', status: 'shipped', detail: 'Honest partial closure — initial superiority fails (imp-584)' },
                 { name: 'Route B separation', status: 'shipped', detail: 'Standalone unconditional paper for genuinely proved result (imp-585)' },
                 { name: 'Paper reframing', status: 'shipped', detail: 'Conditional computational verification framing (imp-590)' },
                 { name: 'Selberg rescue path', status: 'shipped', detail: 'Unconditional C_mb = O(log T) closes at finite N_0* (imp-586)' },
-                { name: 'Overclaim-ledger discipline', status: 'shipped', detail: 'src/data/overclaim-ledger.js logs all withdrawn claims with WITHDRAWN/REFUTED status; StateOfProgram TRUTHS cross-checked at build time to prevent honesty drift' },
+                { name: 'Honesty-drift guard', status: 'shipped', detail: 'StateOfProgram TRUTHS are cross-checked against the internal record at build time (imp-2967) so result framing cannot silently drift' },
               ],
             },
           ].map((layer) => (

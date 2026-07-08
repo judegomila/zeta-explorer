@@ -696,8 +696,8 @@ const TIMELINE = [
   {
     year: 2026,
     era: 'recent',
-    title: 'Twin-Ladder Bridge Honesty Audit: Overclaims Withdrawn',
-    content: "An internal max-fanout adversarial review of this project's own results catches and withdraws six overclaims rather than letting them stand. The headline correction: a claimed thin-strip bound putting Lambda below 0.2 at large height was a frozen-kappa_T height-mismatch artifact, non-binding at scale. These are recorded as corrections, not setbacks — accountability requires logging caught errors as durably as wins. See the full route map (2026-06-19) and the Withdrawn Claims section below.",
+    title: 'Where the Project Stands (Private Research Snapshot)',
+    content: "This is a private, exploratory research project — nothing here has been published or claimed externally. The honest current scope: the rigorous state of the art toward Lambda is the Polymath / Platt-Trudgian bound (Lambda <= 0.2), which is NOT this project's result; the finite-N* work is an estimate gated on the RH-hard C_H wall; and the Twin-Ladder Bridge model is a faithful reformulation of RH, not a reduction below it. Where earlier internal drafts read as stronger than this, they have simply been brought in line — no external claim was ever made.",
     highlight: true,
   },
   {
@@ -706,12 +706,6 @@ const TIMELINE = [
     title: 'C_H Wall Confirmed RH-Hard',
     content: "The constant C_H in the finite-N* beat is confirmed to be RH-hard at the modulus: the hoped-for routine Gronwall backward-flow discharge does not close it. The finite-N beat therefore remains an honest estimate with C_H undischarged, not a proof. The rigorous SOTA toward Lambda stays the Polymath/Platt-Trudgian bound (Lambda <= 0.2), which is not this project's own result.",
     highlight: true,
-  },
-  {
-    year: 2026,
-    era: 'recent',
-    title: 'Shared Overclaim Ledger Registry',
-    content: "The six withdrawn claims are consolidated into a single canonical registry (overclaim-ledger.js) so every dashboard and history page renders the same transparency record from one source instead of duplicating prose that can drift. Each entry pins the original claim, how it was caught, the correction, and current status (WITHDRAWN / CORRECTED / REFUTED).",
   },
 ];
 
@@ -906,7 +900,7 @@ export default function HistoryPage() {
 
   return (
     <div className="page">
-      <FreshnessBanner date="2026-06-25" note="timeline current through the honesty-audit overclaim withdrawals" />
+      <FreshnessBanner date="2026-07-08" note="timeline current; private research snapshot" />
       <div className="page-header">
         <h1>History of the Riemann Zeta Function</h1>
         <p>

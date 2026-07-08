@@ -7,7 +7,6 @@ import {
   CONDITIONS,
 } from '../data/proof-chain-snapshot-2026-06-23.js';
 import ConstantDischargeTracker from '../components/ConstantDischargeTracker.jsx';
-import { CAUGHT_OVERCLAIMS } from '../data/overclaim-ledger.js';
 import ProofTierSummary from '../components/ProofTierSummary.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { RANKED_OPPORTUNITIES } from '../data/full-route-map-2026-06-19.js';
@@ -301,59 +300,6 @@ function ConditionBadge({ cond, color }) {
 }
 
 
-function TransparencyLedger() {
-  return (
-    <div style={{ marginBottom: 32 }}>
-      <h2 style={{ fontSize: 16, color: '#e2e8f0', marginBottom: 8 }}>
-        Transparency Ledger
-      </h2>
-      <p style={{ fontSize: 12, color: '#64748b', marginBottom: 16, lineHeight: 1.6 }}>
-        Claims withdrawn or corrected by adversarial verification.
-        Format: claim made &rarr; how caught &rarr; correction &rarr; current honest status.
-        This record is a credibility asset: the verification discipline that catches errors is the same discipline that will confirm any genuine proof.
-      </p>
-      {CAUGHT_OVERCLAIMS.map((entry, i) => (
-        <div
-          key={entry.id}
-          style={{
-            border: '1px solid rgba(239,68,68,0.25)',
-            borderRadius: 8,
-            background: 'rgba(239,68,68,0.04)',
-            padding: '14px 16px',
-            marginBottom: 10,
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
-            <span style={{
-              fontSize: 11, fontFamily: 'var(--font-mono)',
-              color: '#ef4444',
-              background: 'rgba(239,68,68,0.12)',
-              border: '1px solid rgba(239,68,68,0.3)',
-              borderRadius: 4, padding: '2px 7px',
-              flexShrink: 0,
-            }}>
-              {'OVERCLAIM #' + (i + 1)}
-            </span>
-            <span style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)' }}>
-              {entry.id}
-            </span>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '90px 1fr', gap: '6px 12px', fontSize: 12 }}>
-            <span style={{ color: '#475569', fontFamily: 'var(--font-mono)', paddingTop: 2, fontWeight: 600 }}>CLAIM</span>
-            <span style={{ color: '#cbd5e1', lineHeight: 1.5 }}>{entry.claim}</span>
-            <span style={{ color: '#475569', fontFamily: 'var(--font-mono)', paddingTop: 2, fontWeight: 600 }}>CAUGHT BY</span>
-            <span style={{ color: '#94a3b8', lineHeight: 1.5 }}>{entry.caughtBy}</span>
-            <span style={{ color: '#475569', fontFamily: 'var(--font-mono)', paddingTop: 2, fontWeight: 600 }}>CORRECTION</span>
-            <span style={{ color: '#94a3b8', lineHeight: 1.5 }}>{entry.correction}</span>
-            <span style={{ color: '#475569', fontFamily: 'var(--font-mono)', paddingTop: 2, fontWeight: 600 }}>STATUS</span>
-            <span style={{ color: '#fbbf24', lineHeight: 1.5, fontWeight: 600 }}>{entry.status}</span>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 // ── Honest SOTA banner (imp-2670) ────────────────────────────────────────────
 const SOTA_TIERS = [
   {
@@ -378,12 +324,12 @@ const SOTA_TIERS = [
   },
   {
     key: 'refuted',
-    label: 'REFUTED THIS SESSION',
+    label: 'NOT A SHORTCUT BELOW RH',
     color: '#ef4444',
     bg: 'rgba(239,68,68,0.07)',
     items: [
-      CAUGHT_OVERCLAIMS.length + ' overclaims withdrawn/corrected by adversarial verification (see Transparency Ledger below).',
-      'No live claim beats Platt–Trudgian Λ ≤ 0.2; the thin-strip "beats P–T" framing is structurally dead (imp-2630).',
+      'No live route in this project beats Platt–Trudgian Λ ≤ 0.2; the thin-strip "beats P–T" framing is structurally dead (imp-2630).',
+      'The Twin-Ladder Bridge / Volterra collapse is a faithful reformulation of RH, not a reduction below it.',
     ],
   },
 ];
@@ -1053,9 +999,6 @@ export default function RigorDashboardPage() {
           <ConditionBadge key={c.id} cond={c} color="red" />
         ))}
       </div>
-
-      {/* Transparency ledger */}
-      <TransparencyLedger />
 
       {/* Links */}
       <div style={{

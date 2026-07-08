@@ -6,7 +6,7 @@
 //   RIGOROUS SOTA = Platt-Trudgian Lambda <= 0.2 (NOT this program)
 //   ESTIMATE      = finite-N* = 1e4 beat, gated on the undischargeable C_H
 //   RH-EQUIVALENT = Volterra ||V|| <= 1 collapse (a rename, not a reduction)
-//   REFUTED       = six caught overclaims, withdrawn
+//   REFUTED       = the thin-strip sub-RH shortcut is a dead artifact (imp-2630)
 //   OPEN-HARD     = C_H / G6a is the #1 genuine wall
 //
 // Intentionally has NO imports so it stays light and never drags in the
@@ -47,12 +47,13 @@ export const STATE_OF_PROGRAM_TRUTHS = [
   {
     badge: 'REFUTED',
     color: '#f87171',
-    title: 'Six overclaims were caught and withdrawn',
+    title: 'No shortcut below RH — the thin-strip beat is a dead artifact',
     body:
-      'Honesty audit (route map, 2026-06-19) withdrew the caught overclaims, including: thin-strip E_trunc / κ_T ' +
-      '(frozen-κ height-mismatch artifact, imp-2630), the Soundararajan-Tao 2024 PHANTOM citation (wrong object), ' +
-      'the Goldston-Gonek fabricated citation, and reading the Volterra collapse as a reduction. The DAG node that ' +
-      'still labels the finite-1e4 beat "rigorous unconditional" is the one stale view flagged for reconciliation.',
+      'The one route that once looked like a sub-RH shortcut — the thin-strip E_trunc / κ_T beat — is a frozen-κ ' +
+      'height-mismatch artifact and is structurally dead (imp-2630): κ_T was frozen at T0=3000 but multiplied against ' +
+      'T0=1e13; the height-consistent value grows with height and never drops below 0.2 at scale. The §15-27 Volterra ' +
+      '‖V‖ ≤ 1 collapse is a faithful reformulation of RH, not a reduction below it. Net: there is no shortcut below ' +
+      'RH anywhere in the map.',
   },
   {
     badge: 'OPEN-HARD',

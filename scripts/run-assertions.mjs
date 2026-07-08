@@ -7302,6 +7302,18 @@ const DATA_MODULES = [
   // q_eff ~ 0.855, matching imp-34950) -- of the same order as the noise floor -- while a FREE window over
   // [1e9,1e11] swings |P| by ~52.8x. So essentially NONE of the m-invariance residual is window-attributable.
   '/src/data/imp-34956-pinned-product-window-sensitivity.js',
+  // imp-35010: RE-RUNS the imp-34956 m-ramp-invariance measurement of the pinned coupling g* = m s* at
+  // successively finer bisection tolerances (shared iteration budget on all three nested bisections) to test
+  // the imp-34956 verdict that the ~1.6e-7 residual is fixed-window bisection/FD noise. g* is algebraically
+  // m-invariant (phi depends on s,m only through g = m s), so the spread is a pure numerical artifact. It
+  // falls steeply while the brackets are unresolved (~2.25e-3 at 8 iters -> ~8.55e-7 at 24) then PLATEAUS at
+  // an irreducible floor ~3.69e-7 from ~52 iterations on (identical at 80 and 200 iters), ~9.6 orders above
+  // the ~1e-16 double-precision floor -- so tighter bisection does NOT reach the FP floor. Isolating the floor
+  // by varying the FD step h at saturated bisection shows it moves with h (2e-2 -> ~1.5e-9, 1e-2 -> ~3.69e-7,
+  // 5e-3 -> ~5.4e-6): the floor is finite-difference-cancellation limited, NOT bisection limited. So the
+  // residual IS fixed-window numerical noise (confirming imp-34956), irreducible by tolerance refinement alone.
+  // Measurement only; changes no bound; NO QED; light imports only.
+  '/src/data/imp-35010-ramp-invariance-bisection-tolerance-floor.js',
   // imp-34973: MEASURES d ln P/dx of the imp-34924 pinned product against the imp-34950 local E_flow
   // decay exponent q_eff on a 9-point X_CROSS grid across [1e9,1e11], to test whether the imp-34956
   // ~0.855 slope match is a point coincidence at 9.53 dex or holds window-wide. Because g* is

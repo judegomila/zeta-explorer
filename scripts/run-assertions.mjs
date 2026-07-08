@@ -7419,6 +7419,14 @@ const DATA_MODULES = [
   // yet the pointwise exponents agree to <1% (~0.238 vs ~0.240). Measurement only; changes no
   // bound; NO QED.
   '/src/data/imp-35017-sigma-landmark-pointwise-exponent-ladder.js',
+  // imp-35041: EXTENDS the imp-33582 sigma(N) = E_coll/E(N) conditional-share threshold map two
+  // decades deeper on the identical inherited model -- sigma drops below 0.01 only at N ~ 4.62e13
+  // and below 0.001 only at N ~ 5.43e15 (reproducing the 0.5 ~3.27e9 and 0.1 ~3.21e11 landmarks),
+  // ~7.5 and ~9.5 decades past the 10^6 ceiling. The per-factor-10 crossing spacing hovers at ~2
+  // decades of N (1.99, 2.16, 2.07): the far-tail sqrt(1/N) signature (imp-3463 exponent 1/2),
+  // since sigma ~ C sqrt(L/N) gives N ~ (C/(E_trunc*thr))^2 * L, and E_flow is negligible
+  // throughout (E_flow/E_coll < 5e-4). Measurement only; changes no bound; NO QED.
+  '/src/data/imp-35041-sigma-deep-tail-threshold-extension.js',
   // imp-34967 orphan-wiring sweep (imp-34878/imp-34724/imp-34802 lineage): the following four
   // imp-34922..imp-34933 cohort modules define self-executing *_ASSERTIONS arrays but were not yet
   // wired into this MATH_MODULES sweep.

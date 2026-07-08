@@ -19,6 +19,7 @@ const LiteraturePage = lazy(() => import('./pages/LiteraturePage.jsx'));
 const SimulatorPage = lazy(() => import('./pages/SimulatorPage.jsx'));
 const FourierPage = lazy(() => import('./pages/FourierPage.jsx'));
 const SupercriticalPage = lazy(() => import('./pages/SupercriticalPage.jsx'));
+const DeBruijnDeparturePage = lazy(() => import('./pages/DeBruijnDeparturePage.jsx'));
 const DocsPage = lazy(() => import('./pages/DocsPage.jsx'));
 const ImprovementsPage = lazy(() => import('./pages/ImprovementsPage.jsx'));
 const WaveSimPage = lazy(() => import('./pages/WaveSimPage.jsx'));
@@ -1243,6 +1244,7 @@ function AppShell() {
           <Route path="/simulator" element={<SimulatorPage />} />
           <Route path="/fourier" element={<FourierPage />} />
           <Route path="/supercritical" element={<SupercriticalPage />} />
+          <Route path="/debruijn-departure" element={<DeBruijnDeparturePage />} />
           <Route path="/docs" element={<DocsPage />} />
           <Route path="/waves" element={<WaveSimPage />} />
           <Route path="/rigor" element={<RHRigorPage />} />

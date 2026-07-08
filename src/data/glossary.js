@@ -15300,6 +15300,31 @@ export const glossary = [
       'imp-3220/imp-3406 surrogate model, the extrapolation N_star is located within',
     ],
   },
+  {
+    term: 'imp-35012 Bernstein-function classification (surrogate crossover map g)',
+    category: 'numerical',
+    definition:
+      'Quick-lookup headword for the imp-35012 classification of the imp-3220/imp-3406 surrogate ' +
+      'crossover map g(N) = K log T0(N) on the post-peak ramp. The imp-34957 all-positive numerator ' +
+      'polynomials P_n plus the definite alternating derivative sign (-1)^(n+1) of g^(n) do NOT make g ' +
+      'completely monotone (CM of g would need g_prime <= 0 and g_pp >= 0, but g has g_prime > 0 and ' +
+      'g_pp < 0 -- the opposite first two signs). The correct classification is that g is a BERNSTEIN ' +
+      'FUNCTION on the ramp (g_prime completely monotone), since (-1)^(n+1) g^(n) = (-1)^(n-1) g^(n) >= 0 ' +
+      'for n >= 1 is exactly the Bernstein signature, with the imp-34880 all-orders coefficient-positivity ' +
+      'induction closing for every n. By the Hausdorff-Bernstein-Widder theorem a Levy-Khintchine integral ' +
+      'representation g(x) = a + b x + integral_0^inf (1 - e^(-x t)) dmu(t) then FOLLOWS from that ' +
+      'classification (it is not a separate prerequisite). HONEST SCOPE: this is a SURROGATE structural ' +
+      'property only -- it establishes NO operator positivity and NO spectral/RH consequence. The C_mb ' +
+      'GUE-conditional (imp-486) and imp-3066 K_a>=0 are untouched; changes no bound; no RH verdict, ' +
+      'NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-35012 (classification assessment of the imp-34957 crossover-map derivative signs), 2026',
+    relatedTerms: [
+      'imp-34957 all-positive numerator polynomials P_n and the alternating derivative sign (-1)^(n+1) (imp-34957)',
+      'imp-34880 all-orders coefficient-positivity induction underlying the classification (imp-34880)',
+      'Hausdorff-Bernstein-Widder theorem: complete monotonicity <=> Laplace transform of a nonnegative measure',
+      'imp-3220/imp-3406 surrogate crossover map (canonical explainer), the map g is classified on',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

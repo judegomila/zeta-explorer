@@ -7325,6 +7325,16 @@ const DATA_MODULES = [
   // split is NOT a running-g difference -- it is the different curvature structure of the d2 sigma/dt2 = 0 vs
   // d2 p/dt2 = 0 diagnostics. Measurement only; light imports only; changes no bound; NO QED.
   '/src/data/imp-35028-running-g-ramp-vs-sigmoid-split.js',
+  // imp-35029: CERTIFIES whether the imp-34948 far-tail exponents are genuine asymptotics or double-precision
+  // artifacts at N ~ 1e18, by re-running the imp-34933/imp-34948 inflection + half-N locators on 1e14..1e18 at
+  // tightened bisection tolerance (200 -> 400 iters) and swept central-difference steps. The SIGMOID exponent
+  // ~-2.013 and its band [~8.176, ~8.266] are GENUINE (< 3e-4 spread across all cases, band stable to < 1e-3),
+  // and the 400-iter bisection reproduces the 200-iter baseline to machine precision -- so NEITHER reading is a
+  // bisection-tolerance artifact (the locators had converged at 200). The RAMP exponent ~-1.949 is stable
+  // (< 2e-3) only inside the imp-34948 outer-step window (hpp >= 1e-3); at hpp = 4e-4 it jumps to ~-2.155 as the
+  // nested d2 p/dt2 knee hits finite-difference cancellation -- a step-conditioned reading (honest sub-gap), not
+  // a genuine sub-(-2) asymptote. Measurement only; light imports only; changes no bound; NO QED.
+  '/src/data/imp-35029-far-tail-exponent-tolerance-robustness.js',
   // imp-34956: MEASURES the landmark-window (X_CROSS) sensitivity of the imp-34924 pinned product
   // P = s*(E_flow/E_trunc) = g* r0, to bound how much of the ~1.6e-7 residual ramp-invariance spread is
   // attributable to the fixed-window assumption vs bisection/finite-difference noise. g* is
@@ -7378,6 +7388,28 @@ const DATA_MODULES = [
   // p_track ~ -0.230 (matching p - q_eff dx*/d ln C_mb ~ -0.236 to ~3%). Measurement only; changes no
   // bound; NO QED.
   '/src/data/imp-35015-crossing-strength-exponent-window-stability.js',
+  // imp-35034: CERTIFIES the residual absolute-value uncertainty on the imp-34924 pinned product
+  // P = g* r0 by measuring how tightly the physical knee-inflection crossing landmark is located and
+  // propagating that through the local sensitivity d ln P/d(dex) ~ -1.9685. The ~4.6e-8 dex knee-inflection
+  // separation imp-34956 W1 reported is the crossing-region width at ONE fixed resolution, NOT the
+  // precision to which the crossing dex sits: bisection localization is negligible once converged (midpoint
+  // bit-stable from ~80 iters), while the finite-difference STEP is the binding localization scale, moving
+  // the crossing dex over ~7.76e-7 dex (~16.7x the separation, consistent with imp-35010). Propagating that
+  // certifies |dP/P| <= ~1.53e-6 (~2.19e-9 absolute at P ~ 1.4366e-3) -- ~17x the bare-separation ~9.1e-8,
+  // yet still ~5 orders below the ~52.8x free-window systematic (imp-34956 W3). Residual on |P| under the
+  // fixed-window assumption, NOT the across-m ramp residual. Measurement only; changes no bound; NO QED.
+  '/src/data/imp-35034-crossing-landmark-localization-residual.js',
+  // imp-35035: TABULATES the two independently-reported local E_flow decay exponents at the crossing
+  // landmark x* = ln N_cross (9.53 dex) side by side -- imp-34950 F3 q_eff = -d ln R/dx ~ 0.855 (per unit
+  // x = ln N) and imp-34956 W2 d ln P/d(dex) ~ -1.9685 / d ln P/dx ~ -0.8549 -- and confirms they are the
+  // SAME quantity, not a coincidence. Because g* is landmark-window-independent (imp-34956 W0), P = g* r0
+  // is EXACTLY proportional to r0 = R(X_CROSS), so d ln P/dx = d ln R/dx = -q_eff of the SAME eflowRatio
+  // kernel; |d ln P/dx| and q_eff computed independently agree to ~1e-12. The dex->x unit bridge (divide by
+  // ln 10) turns W2s -1.9685 into -0.85486, matching F3s q_eff to the FD floor, so the apparent ~2.3 factor
+  // is the unit choice; F3s 0.855 and W2s 0.8549 are both roundings of ~0.85486 (literal gap 1e-4 = display
+  // width, true residual ~1e-12). The single-landmark tabulation of the imp-34973 window-wide identity.
+  // Measurement only; changes no bound; NO QED.
+  '/src/data/imp-35035-eflow-exponent-crossing-landmark-crossvalidation.js',
   // imp-35017: CO-TABULATES the imp-33582 sigma(N) threshold landmarks (sigma<0.9 ~2.57e7, the
   // sigma=1/2 HALVING point ~3.27e9, sigma<0.1 ~3.21e11) with the POINTWISE local decay exponent
   // p(N) = -d ln sigma / d ln N at each (~0.0391, ~0.2378, ~0.4329, rising monotonely toward the

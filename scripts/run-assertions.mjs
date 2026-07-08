@@ -7317,6 +7317,14 @@ const DATA_MODULES = [
   // to within 1% of C needs ~48 (sigmoid) / ~136 (ramp) further decades past 1e18. Measurement only; light
   // imports only; changes no bound; NO QED.
   '/src/data/imp-35027-far-tail-band-C-plus-D-over-t-fit.js',
+  // imp-35028: DECOMPOSES the imp-34948 far-tail ramp-vs-sigmoid decay-exponent split (sigmoid ~-2.013, ramp
+  // ~-1.949, ~0.064 apart) by measuring the running-g g = -d ln r/d ln N (imp-33744 gAt kernel) at BOTH
+  // landmarks band-wide (imp-34948 locators reused verbatim). Result: the ramp knee and the sigmoid inflection
+  // sit on the SAME running-g to five significant figures (g ~0.4843 -> ~0.4877 at both; max relative excess
+  // g_ramp/g_sigmoid - 1 ~ 1.45e-5, correct in sign but ~2200x too small to move the exponent by 0.064). The
+  // split is NOT a running-g difference -- it is the different curvature structure of the d2 sigma/dt2 = 0 vs
+  // d2 p/dt2 = 0 diagnostics. Measurement only; light imports only; changes no bound; NO QED.
+  '/src/data/imp-35028-running-g-ramp-vs-sigmoid-split.js',
   // imp-34956: MEASURES the landmark-window (X_CROSS) sensitivity of the imp-34924 pinned product
   // P = s*(E_flow/E_trunc) = g* r0, to bound how much of the ~1.6e-7 residual ramp-invariance spread is
   // attributable to the fixed-window assumption vs bisection/finite-difference noise. g* is

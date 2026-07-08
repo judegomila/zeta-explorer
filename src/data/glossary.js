@@ -14813,8 +14813,9 @@ export const glossary = [
     category: 'numerical',
     definition:
       'A headword explaining WHY the imp-34950 landmark-translation coefficient is close to 2, why it is not ' +
-      'EXACTLY 2, and how that ~3% excess is the same log-odds-derivative effect that later prevents the ' +
-      'level-pinned composite from reproducing the measured crossing-strength exponent p.\n\n' +
+      'EXACTLY 2, and (per the imp-34995 correction below) why that ~3% excess is DOMINATED by a distinct ' +
+      'surrogate-curvature effect, not the log-odds-derivative feedback that separately causes the level-pinned ' +
+      'composite to fall short of the measured crossing-strength exponent p.\n\n' +
       'WHY THE NAIVE PREDICTION IS 2: the sigmoid argument u0(x, C_mb) = ln(C_mb) + ln(A) + (1/2) ln(L(x)) - x/2 ' +
       'carries C_mb as an ADDITIVE ln(C_mb) shift that does not depend on x, while its dominant x-dependence is ' +
       'the linear term -x/2 (the (1/2) ln(L(x)) term varies far more slowly in x). To leading order, raising ' +
@@ -14824,21 +14825,24 @@ export const glossary = [
       'argument on u0 alone, nothing more.\n\n' +
       'WHY THE MEASURED VALUE IS 2.06, NOT 2: imp-34950 does not measure the naive slope argument -- it measures ' +
       'dx*/d ln(C_mb) by finite-differencing the ACTUAL landmark locator, the inflection condition ' +
-      '(1-2S) u_x^2 + u_xx = 0 on the FULL uFull = u0 + phi(x,s), holding s fixed at s*(1). Because sigma = ' +
-      '1/(1+exp(-uFull)) depends on the LEVEL of u through S = sigma(uFull), an additive ln(C_mb) shift changes ' +
-      'not only where u0 sits but also the value of S(1-S) entering the inflection condition -- a genuine ' +
-      'DERIVATIVE-level sensitivity that the naive -x/2 slope argument never accounts for, because that ' +
-      'argument only tracks the LEVEL of u0, not the curvature-balancing condition that actually defines the ' +
-      'landmark. This extra derivative contribution is what pushes the measured coefficient about 3% above the ' +
-      'naive value of 2, to ~2.06.\n\n' +
-      'HOW THIS FEEDS THE F3 COMPOSITION SHORTFALL: the SAME root cause -- the landmark is a derivative ' +
-      '(inflection) condition, not a level condition -- is why composing the translation coefficient with the ' +
-      'local E_flow decay exponent q_eff ~ 0.855 (as if s* R held a constant LEVEL at the landmark) overshoots ' +
-      'the measured exponent p ~ 1.549 by ~14%: the naive product 2.06 x 0.855 ~ 1.71 only counts the level ' +
-      'effect, so only ~88% of it transmits into p, with the missing ~12% absorbed by the very same log-odds ' +
-      'DERIVATIVE dependence that already inflated the translation coefficient from 2 to 2.06. The ~3% excess ' +
-      'on the coefficient and the ~12% composition shortfall are two readouts of one underlying fact: cmb\'s ' +
-      'shift perturbs the DERIVATIVE structure of the landmark condition, not just its level.\n\n' +
+      '(1-2S) u_x^2 + u_xx = 0 on the FULL uFull = u0 + phi(x,s), holding s fixed at s*(1). imp-34995 additively ' +
+      'decomposed the resulting +3.18% excess into a LEVEL-landmark surrogate-curvature part (~+5.02%, from the ' +
+      'local slope u_x at the landmark deviating from the ideal -1/2 via the slowly-varying effective-height ' +
+      'term 0.5 L-prime/L) and a genuine log-odds-DERIVATIVE (inflection-condition) part from the S(1-S) ' +
+      'level-sensitivity feeding back into the inflection condition (~-1.84%, OPPOSITE sign). The two partially ' +
+      'cancel to the measured net +3.18% excess (~2.06): the excess is DRIVEN by the surrogate-curvature ' +
+      'deviation of u_x from -1/2, while the log-odds-derivative feedback actually REDUCES the coefficient.\n\n' +
+      'HOW THIS RELATES TO THE F3 COMPOSITION SHORTFALL (CORRECTED per imp-34995): this headword originally ' +
+      'attributed the ~3% translation-coefficient excess and the ~12% exponent-transmission deficit to the SAME ' +
+      'root cause -- imp-34995 shows that attribution was WRONG. The ~12% deficit (composing the translation ' +
+      'coefficient ~2.06 with the local E_flow decay exponent q_eff ~ 0.855, as if s* held a constant LEVEL at ' +
+      'the landmark, overshoots the measured exponent p ~ 1.549 by ~12%) IS the log-odds-derivative effect: s* ' +
+      'enters u_x and u_xx through phi, so only ~88% of the naive product transmits into p. But that SAME ' +
+      'log-odds-derivative contribution to the translation coefficient itself is small AND opposite-signed ' +
+      '(~-1.84%), while the ~3% excess over 2 is dominated by the distinct surrogate-curvature effective-height ' +
+      'term (~+5.02%). So the excess and the deficit are NOT two readouts of one underlying fact; they are ' +
+      'distinct effects that merely both trace back to the landmark being a derivative condition rather than a ' +
+      'level condition -- only the deficit is actually driven by the log-odds-derivative feedback.\n\n' +
       'HOW TO APPLY: when a quantity enters a sigmoid argument as a pure additive constant, a leading-order ' +
       '"slope-matching" argument (divide the constant by the dominant local slope) gives the right ORDER of a ' +
       'translation coefficient but is not exact whenever the object being translated is defined by a DERIVATIVE ' +
@@ -14848,12 +14852,15 @@ export const glossary = [
       'exponent; the residual transmission fraction is diagnostic of exactly this feedback.\n\n' +
       'HONEST SCOPE: a mechanistic headword restating and explaining the imp-34950 F3 numbers (dx*/d ln(C_mb) ' +
       '~ 2.06, q_eff ~ 0.855, p ~ 1.549, ~88% transmission) verbatim, not a new measurement or bound; the ' +
+      'excess-vs-deficit origin attribution has been CORRECTED per the imp-34995 additive decomposition (the ' +
+      '~3% excess is dominated by surrogate curvature ~+5.02%, not the log-odds-derivative ~-1.84%); the ' +
       'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb ' +
       'GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; far-tail ' +
       'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
     firstUsed: 'imp-35006 (glossary headword mechanistically explaining the imp-34950 F3 landmark-translation coefficient), 2026',
     relatedTerms: [
       'imp-34950 measures the landmark-translation coefficient dx*/d ln(C_mb) ~ 2.06 and the local E_flow exponent q_eff ~ 0.855 (imp-34950)',
+      'imp-34995 CORRECTS this headword: the ~3% excess is DOMINATED by a distinct surrogate-curvature effect (~+5.02%), not the log-odds-derivative feedback (~-1.84%, opposite-signed) blamed for the ~12% transmission deficit (imp-34995)',
       'measured-but-not-structural power-law exponent (imp-34950 crossing-strength exponent) the sibling headword on why the composite p_struct = 2 q_eff does not reproduce measured p',
       'imp-34925 first reported the power-law form s* = K C_mb^p and the point exponent p ~ 1.549 (imp-34925)',
       'imp-3463 the far-tail E_flow decay exponent 1/2, far below the local q_eff ~ 0.855 at the crossing landmark (imp-3463)',

@@ -7502,6 +7502,23 @@ const DATA_MODULES = [
   // bisection artifact. Re-confirms the Banach premise across a +/-50% neighborhood (|g_prime| in (0,1),
   // ~0.045 at root) and maps the seed-basin boundary N* ~1.475e8. Cross-validation only, no bound change.
   '/src/data/imp-35016-ncross-newton-solver-crossvalidation.js',
+  // imp-35039: MAPS the full imp-34950/imp-34973 local E_flow decay exponent q_eff(x) = -d ln R/dx from
+  // the 1e9 crossing band out to the representable far tail (~1e300). CORRECTS the imp-34973 subGap
+  // premise of a q_eff turnover/descent toward 1/2: q_eff RISES monotonically toward 1 (0.8463 at 1e9 ->
+  // 0.9956 at 1e300, 1 - q_eff ~ 3/ln N), never drops to 0.6 at/above the band (the single 0.6 crossing
+  // is UPWARD at N ~ 1e3.22, below the band), and the imp-3463 far-tail 1/2 is the E_coll log-derivative
+  // (E_coll ~ N^(-1/2)), a DISTINCT term. Measurement only, no bound change.
+  '/src/data/imp-35039-eflow-qeff-profile-crossing-to-fartail.js',
+  // imp-35036: EXTENDS the imp-33582 per-decade local decay-exponent ladder of the GUE-conditional
+  // share sigma(N) = E_coll/E(N) past [1e11,1e12] (p_dec ~0.4310) out to [1e30,1e31] (p_dec ~0.4927),
+  // measuring the residual gap 1/2 - p_dec. The gap decays only LOGARITHMICALLY, g ~ 1/(2 ln N) (the
+  // ratio g/[1/(2 ln N)] -> 1 from above, plateauing at ~1.019 by the 1e20 decade), so the exponent
+  // plateaus near ~0.49 for hundreds of decades: p_dec first reaches 0.49 at ~[1e22,1e23], 0.495 at
+  // ~[1e44,1e45], and 0.499 (within 1e-3 of 1/2) only at ~[1e219,1e220], N ~ 10^219 -- so the
+  // constant E_trunc floor finishes overtaking the vanishing E_coll only at astronomically large
+  // heights. Same imp-33582 olsExponent estimator and imp-3220/imp-3406 sub-terms; far-tail exponent
+  // stays 1/2 (imp-3463); measurement only; changes no bound; NO QED.
+  '/src/data/imp-35036-sigma-fartail-exponent-log-slow-half-approach.js',
 ];
 
 let ALL_MODULES = FAST_MODE

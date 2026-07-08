@@ -6970,6 +6970,15 @@ const DATA_MODULES = [
   // so it cannot close the gap. Derivation/measurement on the surrogate models; imp-34714a REMAINS OPEN;
   // changes no bound; NO QED.
   '/src/data/imp-34949-krawczyk-margin-infimum-band-endpoint.js',
+  // imp-34993: CROSS-VALIDATES the imp-34949 exact closed-form margin infimum ~0.4878337 (band-lo boundary-
+  // attained) against ADDITIONAL INDEPENDENT axes: six imp-34693 seed-band rungs k=0..10 (argmin at band-lo in
+  // each, infima nested-decreasing to the widest k=10 band-lo), six sweep resolutions including prime off-grid
+  // node counts (argmin pinned leftmost, infimum resolution-independent), four phase-shifted off-grid sweeps,
+  // and both band endpoints with a strictly-positive interior forward difference (+2.2302e-7) ruling out any
+  // interior stationary point -- confirming the 4000-point imp-34929 sweep minimum is a genuinely ATTAINED
+  // BOUNDARY VALUE, not an interior sampling artifact. Cross-validation/measurement on the surrogate models;
+  // imp-34714a REMAINS OPEN; changes no bound; NO QED.
+  '/src/data/imp-34993-krawczyk-margin-infimum-xvalidate.js',
   // imp-34864: DERIVES + MEASURES the crossover-map THIRD-derivative envelope per-decade shrink ratio one
   // order up from imp-34839. From g_triple_prime = 8 pi^3 K (2u^2+4u+3)/(T^3 u^5) = K P(u)/(M^3 u^5) the
   // ratio factors as r3 = (M_prime/M)^3 (u_prime/u)^5 P(u)/P(u_prime); Riemann-von Mangoldt N=M(u-1) forces

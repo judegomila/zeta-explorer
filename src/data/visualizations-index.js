@@ -607,6 +607,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive running-vs-fixed decay-ladder check on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35118-bernstein-signature-ladder',
+      title: 'Bernstein-Signature Derivative Sign Ladder',
+      oneLine:
+        'Plots the imp-35012 sign(g^(n)) = (-1)^(n+1) trace against the complete-monotonicity-of-g requirement (-1)^n (opposite at every single order) and the Bernstein requirement (-1)^(n-1) (matches at every order), through n=12.',
+      mathBucket: 'bound',
+      dataModule: null,
+      paperSourcePath:
+        'src/data/imp-35012-crossover-complete-monotonicity-bernstein-assessment.js (imp-35118 viz page)',
+      ticket: 'imp-35118',
+      pedagogicalStep: 39,
+      honestCeiling:
+        'Descriptive sign-arithmetic chart on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

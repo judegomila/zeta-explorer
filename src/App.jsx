@@ -697,6 +697,9 @@ const Imp35080LogLogCrossingStrengthPowerLawViz = lazy(() =>
 const Imp35081SurplusConversionResidualWaterfallViz = lazy(() =>
   import('./pages/Imp35081SurplusConversionResidualWaterfallViz.jsx')
 );
+const Imp35118BernsteinSignatureLadderViz = lazy(() =>
+  import('./pages/Imp35118BernsteinSignatureLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2040,6 +2043,10 @@ function AppShell() {
           <Route
             path="/viz-imp35081-surplus-conversion-residual-waterfall"
             element={<Imp35081SurplusConversionResidualWaterfallViz />}
+          />
+          <Route
+            path="/viz-imp35118-bernstein-signature-ladder"
+            element={<Imp35118BernsteinSignatureLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

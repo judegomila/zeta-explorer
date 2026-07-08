@@ -251,6 +251,65 @@ export const LAMBDA_CHAIN_STEPS = [
     notes:
       'Two integrator agreement + interval arithmetic elevates this from ' +
       'numerical to cross-verified.',
+    // imp-35058 (scoping/assessment ONLY; changes no bound, establishes no
+    // operator positivity, closes nothing, NO QED): enumerate — WITHOUT
+    // claiming any is discharged — the concrete analytic obligations that
+    // separate the current NUMERICAL grade from a rigorous one. The measured
+    // rows and the two cross-checks below are all finite-N floating-point (or
+    // one-ULP-interval) measurements; NONE supplies a certified, N-UNIFORM,
+    // machine-checkable enclosure of |t_c(N)|. All three obligations remain OPEN.
+    rigorousUpgradeGap: {
+      grade: 'numerical',
+      wouldRequire: 'rigorous',
+      status: 'OPEN — none of the three ingredients below is closed',
+      obligations: [
+        {
+          key: 'G-step-error',
+          label: 'RK4/DP5 step-budget truncation bound',
+          need:
+            'A CERTIFIED a-priori bound on the local + accumulated truncation ' +
+            'error of the integrator as a function of step dt and N, not merely ' +
+            'the empirical two-method gap |t_c_RK4 - t_c_DP5|. The DP5-vs-RK4 ' +
+            'agreement (imp-2466) is a cross-check, not a certificate: it bounds ' +
+            'scheme-DISAGREEMENT, so a shared systematic error common to both ' +
+            'RK5(4) and RK4 tableaux is invisible to it.',
+          machinery: 'imp-2466 (DP5 cross-integrator), imp-357 cross-integrator check',
+          closed: false,
+        },
+        {
+          key: 'G-gronwall',
+          label: 'Gronwall stability constant, certified and N-uniform',
+          need:
+            'An explicit, N-uniform Gronwall propagation constant controlling how ' +
+            'zero-ordinate input error and per-step error amplify along the ' +
+            'backward flow up to the collision front. backward-flow-stability-' +
+            'gronwall.js (imp-2520) supplies the propagation LEMMA in de Bruijn-' +
+            'Newman units but its per-N consequence is honestly flagged as ' +
+            'Gronwall-vacuous near the true nearest-pair front (floor collapses ' +
+            'as strip height to 0); the constant is not yet certified up to t_c.',
+          machinery: 'backward-flow-stability-gronwall.js (imp-2520)',
+          closed: false,
+        },
+        {
+          key: 'G-interval-enclosure',
+          label: 'Interval-arithmetic enclosure of the flow, N-uniform',
+          need:
+            'A rigorous interval-arithmetic (or ball-arithmetic) enclosure ' +
+            '[t_c_lo(N), t_c_hi(N)] valid at the measured N and extensible with a ' +
+            'documented N-dependence, with the 1/(x_k - x_j) pole reduction ' +
+            'carried through in interval form. imp-362 delivers a one-ULP interval ' +
+            'RK4 witness (LAMBDA_INTERVAL_DYSON) at the bundled ordinate table only; ' +
+            'it is a single-N enclosure, not an N-uniform certificate.',
+          machinery: 'imp-362 (interval RK4 witness, LAMBDA_INTERVAL_DYSON)',
+          closed: false,
+        },
+      ],
+      caveat:
+        'Discharging all three would elevate Step 2 to rigorous but changes NO ' +
+        'Lambda bound on its own: Step 2 feeds the E(N) bridge constants (Step 4), ' +
+        'not the headline inequality. This field is a scoping map only.',
+      by: 'imp-35058',
+    },
   },
   {
     step: 3,
@@ -635,11 +694,23 @@ export const OPEN_GAPS = [
   {
     id: 'G6a',
     label: 'Hölder-1/2 modulus of τ_c at the Burgers shock',
-    status: 'closed (imp-366: Polymath15 Lemma 5.2 port)',
-    owner: 'imp-366',
+    status:
+      'LEDGER-PORT CLOSED, ASYMPTOTIC MODULO STILL LIVE (imp-35056 reconciliation). ' +
+      'imp-366 ported Polymath15 Lemma 5.2 and closed the ledger PORT, but that ' +
+      'port did NOT discharge the asymptotic modulo: the SAME Holder-1/2 shock ' +
+      'modulus supplies C_H in E_coll, and C_H is RH-HARD / undischargeable ' +
+      '(imp-2640 gap-Lipschitz Gronwall discharge NEGATIVE, imp-2674, ' +
+      'ch-wall-frontier-verdict-2026-06-26 RH-HARD-CONFIRMED). So G6a remains the ' +
+      'SOLE live modulo of the imp-1261 asymptotic Lambda <= 3.06e-5 bound, ' +
+      'consistent with the headline status rigorous-modulo-polymath15-G6a, the ' +
+      'LAMBDA_CHAIN_STEPS Step-4 NUMERICAL grade / open sub-gap G6a_shock_lipschitz, ' +
+      'and the cond-polymath15-G6a dependency-matrix leaf. The former bare ' +
+      'closed (imp-366) framing was the outlier and overstated closure. Assessment ' +
+      'only; changes no bound; NO QED.',
+    owner: 'imp-366 (Lemma 5.2 port) + imp-2640 / imp-2674 (modulo persistence) + imp-35056 (reconcile)',
     nextTickets: [],
-    severity: 'closed',
-    blocks: null,
+    severity: 'open',
+    blocks: 'the sole modulo of the imp-1261 asymptotic Lambda <= 3.06e-5 bound',
   },
   {
     // imp-3401: formalizes the recurring imp-3066 "lone obstruction" (cited in the

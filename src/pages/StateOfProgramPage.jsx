@@ -64,15 +64,15 @@ export default function StateOfProgramPage() {
               padding: '2px 7px',
             }}
           >
-            OVERCLAIM LEDGER
+            CORRECTIONS LOG
           </span>
           <strong style={{ color: '#e2e8f0', fontSize: 14.5 }}>
-            {OVERCLAIM_COUNT} claims caught and withdrawn
+            {OVERCLAIM_COUNT} claims overreached the evidence and were corrected
           </strong>
         </div>
         <p style={{ fontSize: 12.5, color: '#94a3b8', lineHeight: 1.6, marginTop: 0 }}>
           Bound directly to the canonical <code>overclaim-ledger.js</code> registry (not duplicated prose), so
-          this honesty record cannot drift from the source of truth.
+          this record cannot drift from the source of truth.
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           {CAUGHT_OVERCLAIMS.map((o) => (

@@ -6717,6 +6717,14 @@ const DATA_MODULES = [
   // chord quantity -- the local pointwise elasticity fails to converge (dev = max_m has method-switch kinks).
   // Derivation/measurement only, C_mb GUE-conditional untouched, no bound change.
   '/src/data/imp-34972-sigma-knee-crossing-cmb-elasticity-derivation.js',
+  // imp-35013: SEPARATES the imp-34955 bundled "~0.18" C_mb elasticity into the 5% crossing chord elasticity
+  // d ln(eps_5)/d ln(C_mb) ~ 0.18878 and the 25% crossing ~0.17507 (ratio ~1.078, a ~7.8% asymmetry -- the 5%
+  // crossing is more C_mb-elastic), and PINS the exact C_mb at which the 5% crossing exits the imp-34882
+  // Domb-Sykes [79,106] low edge: a 200-iter bisection of eps_5 - 79 lands at C_mb* ~ 0.984 (top ~3.2% of the
+  // swept [0.5,1] band, ~1.6% below the physical C_mb = 1). eps_5 jitters ~0.08 in eps near the edge (imp-34972
+  // method-switch kinks), so the fine-grid straddle spans C_mb ~ [0.9875,0.99] and the threshold is ~0.985 +/-
+  // 0.005; at C_mb* the 25% crossing ~91.05 is still inside the band. Measurement only, C_mb untouched, no bound.
+  '/src/data/imp-35013-sigma-knee-5pct-lowedge-exit.js',
   // imp-34900: ATTEMPTS the imp-34882 tighter-radius sub-gap with ANALYTICALLY-differentiated v-kernels instead of the
   // hd = 1e-3 finite differences. Writing w = ln(T/2pi), the Riemann-von Mangoldt relation collapses to x = w + ln(w-1),
   // so v/v_prime/v_secondDeriv are closed-form and exact to machine precision. Findings: the FD noise lives in exactly
@@ -6755,6 +6763,14 @@ const DATA_MODULES = [
   // (F3) both radii >> 1 with R_2 > R_1, so the sub-dominant term NEVER threatens |eps| < R at the physical eps = 1.
   // Measurement only, C_mb GUE-conditional untouched, no bound change, no QED.
   '/src/data/imp-34991-two-pair-darboux-joint-radius-angle.js',
+  // imp-35014: assesses the two questions imp-34991 left after LOCATING the sub-dominant pair -- how much theta_2
+  // PERTURBS the dominant P = 9 -> theta_1 = 40 deg sign-cycle read, and whether theta_1, theta_2 are COMMENSURATE.
+  // (F1) the sub-dominant relative amplitude 0.70^k caps the argument perturbation at arcsin(0.70^8) = 3.30 deg at the
+  // deep-band onset (6.05x below the 20 deg half-step that would flip an integer run, decaying to ~0), so P = 9 is
+  // unmoved and 3.30 deg bounds-above the ~0.96 deg imp-34947 spread; (F2) the central period ratio P_2/P_1 =
+  // theta_1/theta_2 = 1.490 is 0.68% from 3/2 but the theta_2 band [19,37] deg spreads it over [1.08,2.11], too wide
+  // to establish commensurability -> the pairs read as independent within resolution. Measurement only, no bound change, no QED.
+  '/src/data/imp-35014-subdominant-angle-commensurability.js',
   // imp-34820: assesses whether the imp-34796 third-order identity F = -g_thirdDeriv/(1-S) can locate the
   // imp-34746/imp-33721 convex-to-concave sigmoid inflection (sigma_secondDeriv=0). Verdict: NO for that
   // identity -- its g_thirdDeriv=0 root is the DISTINCT sigma-KNEE (log10 N ~ 9.5364), ~0.0127 dex above the
@@ -7333,6 +7349,26 @@ const DATA_MODULES = [
   // the window freedom is a pure absolute-value uncertainty on |P|, contributing EXACTLY 0 to the imp-34924
   // ~1.6e-7 m-invariance residual. Measurement only; changes no bound; NO QED.
   '/src/data/imp-35011-gstar-window-independence-direct.js',
+  // imp-35015: TESTS whether the imp-34950 sharply-measured crossing-strength C_mb exponent p = 1.5493
+  // (95% CI [1.5476,1.5511]) is landmark-window-STABLE or a window artifact, connecting the imp-34956
+  // ~52.8x X_CROSS window freedom to the exponent. Re-extracting p at 10 X_CROSS windows across
+  // [1e9,1e11] gives p = 1.54933 at EVERY window (max spread ~2.4e-15, at the double-precision floor,
+  // ~12 orders below the imp-34950 se) -- so p is a genuine surrogate constant, NOT a 9.53-dex-window
+  // artifact. The ~52.8x window freedom lands ENTIRELY on the pinned-product prefactor K r0 (swinging
+  // ~52.8x) because r(X_CROSS) is a C_mb-INDEPENDENT factor: it shifts the intercept, not the slope.
+  // The exponent shifts ONLY under a self-consistent tracking window X_CROSS = x*(C_mb), dropping to
+  // p_track ~ -0.230 (matching p - q_eff dx*/d ln C_mb ~ -0.236 to ~3%). Measurement only; changes no
+  // bound; NO QED.
+  '/src/data/imp-35015-crossing-strength-exponent-window-stability.js',
+  // imp-35017: CO-TABULATES the imp-33582 sigma(N) threshold landmarks (sigma<0.9 ~2.57e7, the
+  // sigma=1/2 HALVING point ~3.27e9, sigma<0.1 ~3.21e11) with the POINTWISE local decay exponent
+  // p(N) = -d ln sigma / d ln N at each (~0.0391, ~0.2378, ~0.4329, rising monotonely toward the
+  // imp-3463 far-tail 1/2, halving exponent mid-ramp), and settles the halving-vs-knee identity:
+  // the imp-33721 exponent-ramp inflection knee N* ~3.38e9 (log10 ~9.529) sits ~3.5% ABOVE the
+  // halving landmark -- DISTINCT N, so sigma=1/2 is reached slightly before steepest acceleration --
+  // yet the pointwise exponents agree to <1% (~0.238 vs ~0.240). Measurement only; changes no
+  // bound; NO QED.
+  '/src/data/imp-35017-sigma-landmark-pointwise-exponent-ladder.js',
   // imp-34967 orphan-wiring sweep (imp-34878/imp-34724/imp-34802 lineage): the following four
   // imp-34922..imp-34933 cohort modules define self-executing *_ASSERTIONS arrays but were not yet
   // wired into this MATH_MODULES sweep.
@@ -7409,6 +7445,13 @@ const DATA_MODULES = [
   // depletion, not a coarse-grid artifact. Shows it is a FINITE ceil-phase gap (frac(xArg) confined below the
   // fixed off-by-one window), with off-by-one reappearing at N ~ 10^27.08. Measurement only, no bound change.
   '/src/data/imp-34997-iters-to-floor-tail-grid-refinement.js',
+  // imp-35016: cross-validates the imp-33723 closed-form N_cross Banach fixed point against a SECOND
+  // independent root-finder (scalar Newton on the residual h(N)=N-g(N), numerical derivative, seeded
+  // away from the root across six decades). Newton lands on N_cross=3.2802943517e9 to machine precision
+  // and matches the imp-3444 bisection to ~1.744e-15 -- so the agreement is solver-independent, not a
+  // bisection artifact. Re-confirms the Banach premise across a +/-50% neighborhood (|g_prime| in (0,1),
+  // ~0.045 at root) and maps the seed-basin boundary N* ~1.475e8. Cross-validation only, no bound change.
+  '/src/data/imp-35016-ncross-newton-solver-crossvalidation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

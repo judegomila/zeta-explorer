@@ -48,8 +48,11 @@ mkdir -p "$SCRIPT_DIR/logs" "$STATE_DIR"
 # interactive subscription session. The subscription/haiku engines stay OUT (they
 # share the subscription channel with the interactive session and would rate-limit
 # it); add them only when the user is away and accepts that trade-off.
+# SUBSCRIPTION-FIRST (2026-07, user directive): the watchdog no longer auto-revives
+# the metered auto-improve-api-pool.sh (ANTHROPIC_API_KEY, pay-per-token). It keeps
+# only the subscription-side sonnet engine + the ticket scout alive. The API pool is
+# started manually as SPILLOVER when subscription/channel-quota is near its cap.
 ENGINES=(
-  "auto-improve-api-pool.sh"
   "auto-improve-sonnet.sh"
   "frontier-scout.sh"
 )

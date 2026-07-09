@@ -958,6 +958,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive stacked-residual chart reusing baked imp-35236 anchors literals verbatim; measurement only, component model is the imp-3220/imp-3406 extrapolation not a rigorous asymptotic; C_mb stays GUE-conditional per imp-486; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35296-min-gap-strip-advantage',
+      title: 'Min-Gap-vs-Strip Advantage Factor on Real Ordinates',
+      oneLine:
+        'Log-log plot of the imp-35239 min-gap-route advantage factor L_strip/L_gap over the imp-35196 strip route across N=200..1e6, contrasting the exact unit-spacing 2N (p_gap=0) against the real-ordinate ~2N^0.36 (p_gap~0.57-0.65, imp-35218 R1), showing the advantage still grows without bound but with a visibly degraded slope.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35239-min-gap-prefactor-real-spacing-reassessment.js',
+      paperSourcePath:
+        'src/data/imp-35239-min-gap-prefactor-real-spacing-reassessment.js (imp-35296 viz page)',
+      ticket: 'imp-35296',
+      pedagogicalStep: 64,
+      honestCeiling:
+        'Descriptive advantage-factor chart reusing baked imp-35239 advantageRows/realOrdinateGrowth literals verbatim; assessment only, the residual missing input is still an a-priori g_min(t)>0 whole-trajectory bound (imp-35167 M2/M5, OPEN); C_mb stays GUE-conditional per imp-486; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

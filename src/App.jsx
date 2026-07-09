@@ -744,6 +744,9 @@ const Imp35233BetaFrontLawNUniformityViz = lazy(() =>
 const Imp35234RhoDeviationLogLogModulusViz = lazy(() =>
   import('./pages/Imp35234RhoDeviationLogLogModulusViz.jsx')
 );
+const Imp35252RealVsUnitBackgroundFieldSupContrastViz = lazy(() =>
+  import('./pages/Imp35252RealVsUnitBackgroundFieldSupContrastViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2148,6 +2151,10 @@ function AppShell() {
           <Route
             path="/viz-imp35234-rho-deviation-loglog-modulus"
             element={<Imp35234RhoDeviationLogLogModulusViz />}
+          />
+          <Route
+            path="/viz-imp35252-real-vs-unit-background-field-sup-contrast"
+            element={<Imp35252RealVsUnitBackgroundFieldSupContrastViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

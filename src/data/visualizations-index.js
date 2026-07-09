@@ -831,6 +831,21 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive log-log deviation-modulus chart on the inherited imp-3220/imp-3406/imp-33646 model-cusp surrogate; an OLS slope over 9 rungs is empirical, not a certified modulus; does not discharge O3 or G6a_shock_lipschitz (both stay OPEN); changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35252-real-vs-unit-background-field-sup-contrast',
+      title: 'Background-Field Sup: Real Ordinates vs. Unit Spacing',
+      oneLine:
+        'Overlays the imp-35218 real-ordinate beta(N) against the imp-35194 unit-spacing beta(N) at matched min-gap fractions [0.5, 0.25, 0.1, 0.05] for N = 50, 100, 200: unit-spacing beta collapses onto one curve (relative spread < 1.5%) while real-ordinate beta fans out with N (spread ~120-140%), showing the N-uniformity breakdown while the beta ~ 1/g_min front law survives on both.',
+      mathBucket: 'bound',
+      dataModule:
+        'src/data/imp-35218-real-ordinate-background-field-sup.js, src/data/imp-35194-background-field-sup-n-uniformity.js',
+      paperSourcePath:
+        'src/data/imp-35218-real-ordinate-background-field-sup.js, src/data/imp-35194-background-field-sup-n-uniformity.js (imp-35252 viz page)',
+      ticket: 'imp-35252',
+      pedagogicalStep: 55,
+      honestCeiling:
+        'Measurement-only overlay chart probing the imp-35167 M2 background-field-sup obstruction under the M3 initial-gap regime on the inherited backward Dyson surrogate; does not certify N-uniformity over the full trajectory (sup diverges as g_min -> 0); M5 horizon-front mismatch stays OPEN; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

@@ -780,6 +780,9 @@ const Imp35308ReentryBandViz = lazy(() =>
 const Imp35183SigmaFartailExponentLadderViz = lazy(() =>
   import('./pages/Imp35183SigmaFartailExponentLadderViz.jsx')
 );
+const Imp35184BernsteinIngredientsTripleViz = lazy(() =>
+  import('./pages/Imp35184BernsteinIngredientsTripleViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2232,6 +2235,10 @@ function AppShell() {
           <Route
             path="/viz-imp35183-sigma-fartail-exponent-ladder"
             element={<Imp35183SigmaFartailExponentLadderViz />}
+          />
+          <Route
+            path="/viz-imp35184-bernstein-ingredients-triple"
+            element={<Imp35184BernsteinIngredientsTripleViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

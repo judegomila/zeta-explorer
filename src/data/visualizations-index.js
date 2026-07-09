@@ -1000,6 +1000,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive exponent-ladder chart reusing baked imp-35036 extendedLadder/gapLaw/crossings literals verbatim; measurement on the inherited imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 untouched; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35184-bernstein-ingredients-triple',
+      title: 'Bernstein / Lévy-Khintchine Ingredient Triple',
+      oneLine:
+        'Compact structural diagram of the imp-35114 Bernstein/Lévy-Khintchine ingredients for the surrogate g = K log T0(N): the finite killing term a = g(0+), the zero drift b (all growth in the Lévy integral term), and the completely-monotone g_prime confirmed by the (-1)^(n+1) sign ladder and from-source central-difference tables.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35114-bernstein-ingredients-extraction.js',
+      paperSourcePath:
+        'src/data/imp-35114-bernstein-ingredients-extraction.js (imp-35184 viz page)',
+      ticket: 'imp-35184',
+      pedagogicalStep: 67,
+      honestCeiling:
+        'Descriptive ingredient-triple diagram reusing baked imp-35114 cmTable/driftTable literals verbatim; the extracted ingredients are structural properties of the SURROGATE map, NOT operator positivity; C_mb GUE-conditional per imp-486 untouched; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

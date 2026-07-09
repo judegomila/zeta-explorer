@@ -201,6 +201,8 @@ const DATA_MODULES = [
   '/src/data/imp-35190-r2-n500-flow-reference.js',
   // imp-35221: order-robust DP45 flow reference at N=1000 extends R2 one more rung.
   '/src/data/imp-35221-r2-n1000-flow-reference.js',
+  // imp-35240: finer smaller-eps re-measurement confirms rho prefactor K = 8 sqrt(2)/(9 pi), not 2/5.
+  '/src/data/imp-35240-rho-prefactor-finer-grid-remeasurement.js',
   // imp-903 27-point H_raw-update sweep: rescue satisfied from N_0 = 100.
   '/src/data/imp-903-uniform-sweep-result.js',
   // imp-904 dense-N-grid partial closure: 31-N combined catalog over [10, 10^4].
@@ -7092,6 +7094,16 @@ const DATA_MODULES = [
   // floor only RISES in the operative direction: the safety factor is delta-robust. Measurement on the
   // surrogate; imp-34714a REMAINS OPEN; changes no bound; NO QED.
   '/src/data/imp-35116-krawczyk-headroom-delta-robustness.js',
+  // imp-35241: TABULATES the S(N) = G/((1+G) delta FP_LO) profile across the imp-34693 admissible seed band that
+  // imp-35176 reported only a single physical-branch minimum (~2500.02) of. Across the k = 10 band [3.1090e9,
+  // 3.4515e9] (N_cross ~ 3.2803e9, half-width ~1.7124e8) S(N) descends MONOTONICALLY (imp-34929 dS/dN < 0) from
+  // ~2561.39 (band-bottom) through ~2558.12 (N_cross) to ~2555.18 (band-top); the closest approach to the
+  // closed-form floor S_inf = 1/(2 delta) = 2500 is at the BAND-TOP (S ~ 2555.18 = 25.55x the 100x factor, a
+  // residual ~55.18 above the floor), and every sampled value exceeds 2500, so the floor is approached STRICTLY
+  // FROM ABOVE and never touched in-band -- confirming S_inf = 2500 is the true infimum (the imp-35176 min
+  // ~2500.02 is a far-tail value, not a band value). Measurement on the surrogate; imp-34714a REMAINS OPEN;
+  // changes no bound; NO QED.
+  '/src/data/imp-35241-krawczyk-headroom-band-profile.js',
   // imp-35136: SCOPES the still-OPEN imp-34687a / imp-34714a sub-gap by enumerating the five concrete
   // obligations a real directed-rounding / error-bounded arithmetic layer must discharge to certify the
   // exact-digit width the imp-34714 Krawczyk check leaves uncertified: (G1) directed rounding-mode control on

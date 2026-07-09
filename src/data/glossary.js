@@ -16943,6 +16943,38 @@ export const glossary = [
       'imp-34903 and imp-34951 established the original off-by-one iters-to-floor population (imp-34903, imp-34951)',
     ],
   },
+  {
+    term: 'imp-35133 combined pinned-product uncertainty |dP/P| ~ 1.542e-6',
+    category: 'numerical',
+    definition:
+      'A narrative note recording the single combined uncertainty figure imp-35133 derived for the pinned ' +
+      'crossing product P = g* r0 ~ 1.435e-3, so later work can cite one number instead of re-deriving it. ' +
+      'The two orthogonal contributors are the imp-35034 fixed-window localization residual dr0/r0 ~ 1.53e-6 ' +
+      'in the r0 factor and the across-m ramp-invariance residual dgstar/gstar ~ 2.06e-7 in the g* factor ' +
+      '(the imp-34924/imp-34956 absolute spread ~1.6e-7 converted to relative terms).\n\n' +
+      'Because imp-34956 showed the window contributes exactly zero to the across-m residual and imp-35011 ' +
+      'showed g* is bit-identical across windows, the two factors carry vanishing cross-terms and compose in ' +
+      'quadrature: (dP/P)^2 = (dgstar/gstar)^2 + (dr0/r0)^2, giving |dP/P| ~ sqrt(1.53e-6^2 + 2.06e-7^2) ~ ' +
+      '1.542e-6, or ~2.212e-9 absolute at P ~ 1.435e-3. The fixed-window localization term binds -- it is ' +
+      '~7.4x the across-m relative residual -- so the ramp term only raises the combined figure by ~0.9% over ' +
+      'quoting dr0/r0 alone; even substituting the wider imp-35010 floor ~3.69e-7 (relative ~4.75e-7), the ' +
+      'fixed-window term still dominates by ~3.2x (combined ~1.60e-6).\n\n' +
+      'HOW TO APPLY: cite |dP/P| ~ 1.542e-6 as the combined uncertainty on P = g* r0 when the figure needed is ' +
+      'a single number rather than a breakdown by source; cite imp-35034 or the across-m residual alone only ' +
+      'when the question is specifically about localization or m-ramp noise in isolation.\n\n' +
+      'HONEST SCOPE: a narrative note restating the imp-35133 composed figure verbatim, not a new measurement; ' +
+      'the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb ' +
+      'GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; far-tail ' +
+      'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains SOTA.',
+    firstUsed: 'imp-35211 (narrative note recording the imp-35133 combined pinned-product uncertainty), 2026',
+    relatedTerms: [
+      'imp-35133 composed the two residuals in quadrature into this combined figure (imp-35133)',
+      'imp-35145 the companion headword clarifying the two source residuals are different, not redundant (imp-35145)',
+      'imp-35034 certified the fixed-window localization residual |dP/P| <= ~1.53e-6 on the r0 factor (imp-35034)',
+      'imp-34956 showed the window contributes exactly 0 to the across-m residual (W0) (imp-34956)',
+      'imp-35010 measured the irreducible across-m finite-difference-cancellation floor ~3.69e-7 (imp-35010)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

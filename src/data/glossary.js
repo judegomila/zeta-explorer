@@ -16683,6 +16683,44 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this cross-check (imp-486)',
     ],
   },
+  {
+    term: 'imp-35238 three-factor invariant survival on real ordinates: beta * g_min * (x_2 - x_0) -> 1 holds N-UNIFORMLY on the first N real Riemann zero ordinates even though the imp-35218 bare product beta * g_min does not, because the bare product equals 1/span with span the local real spacing (> 1), not a unit-spacing artifact',
+    category: 'proof-status',
+    definition:
+      'A headword recording the imp-35238 re-run of the imp-35218 real-ordinate backward-Dyson flow ' +
+      '(first N = 50, 100, 200 zeros, adaptive RK4, deep to min-gap fraction 1e-4), testing whether the ' +
+      'imp-35215 exact near-front identity beta * g_min * (x_2 - x_0) -> 1 survives real spacings or was ' +
+      'a unit-spacing special case.\n\n' +
+      'THE FINDING: the identity SURVIVES and is N-UNIFORM on real ordinates -- the full three-factor ' +
+      'product converges to the rational constant 1 at every N (deviation <= ~1e-4 at the 1e-4 front, ' +
+      'N-spread ~5e-5), even though the imp-35218 R2 BARE product beta * g_min lands in a smaller, ' +
+      'visibly N-dependent band (0.354 / 0.531 / 0.445 at N = 50 / 100 / 200, spread ~0.18). The gap is ' +
+      'fully explained by the neighbouring span x_2 - x_0, which is the LOCAL real spacing scale ' +
+      '(measured 2.825 / 1.884 / 2.246, all > 1 unlike the unit-spacing case where it relaxes to 1): ' +
+      'beta * g_min -> 1/span < 1, so the entire N-dependence of the bare product lives in the span ' +
+      'factor, not in the invariant. The imp-35215 unit-spacing limit beta * g_min -> 1 was simply the ' +
+      'special case span = 1.\n\n' +
+      'HOW TO APPLY: cite imp-35238 (not the bare imp-35218 R2 band) whenever asking whether the ' +
+      'imp-35215 near-front identity is a unit-spacing artifact -- it is not; the THREE-factor invariant ' +
+      'is the robust, N-uniform, spacing-independent object, while the bare TWO-factor product beta * ' +
+      'g_min merely inherits whatever local spacing scale the initial condition sets. The underlying ' +
+      'single-dominant-reciprocal-term mechanism (imp-35215) is scale- and location-invariant (on real ' +
+      'ordinates the collapse is interior, not edge, yet the mechanism still carries > 99.99% of beta).\n\n' +
+      'HONEST SCOPE: measurement only on the inherited imp-35218 real-ordinate surrogate; changes no ' +
+      'bound; certifies no N-uniformity of beta itself (beta still diverges ~1/g_min toward the front, ' +
+      'imp-35218 R1); does not discharge M2 or M5, which stay OPEN and INSEPARABLE (imp-35227); does not ' +
+      'touch the imp-2563 sandwich (a valid CONDITIONAL bracket); establishes no operator positivity; ' +
+      'C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+      'remains the rigorous SOTA.',
+    firstUsed: 'imp-35291 (glossary headword recording the imp-35238 three-factor invariant survival on real ordinates), 2026',
+    relatedTerms: [
+      'imp-35215 derived the exact three-factor identity on unit spacing that this entry shows survives real spacings (imp-35215)',
+      'imp-35218 measured the smaller, N-dependent BARE product beta * g_min on real ordinates that this entry reconciles (imp-35218)',
+      'imp-35227 records the M2/M5 inseparability left untouched by this measurement (imp-35227)',
+      'imp-35167 named the M2 background-field-sup obstruction this measurement probes on real data (imp-35167)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this measurement (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

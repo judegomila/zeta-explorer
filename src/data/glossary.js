@@ -15751,6 +15751,42 @@ export const glossary = [
       'imp-362 supplies the interval RK4 pole-reduction witness relevant to the M5 horizon-to-front bridge (imp-362)',
     ],
   },
+  {
+    term: 'imp-35168 mesoscopic-strip asymmetry: the strip that rescues the imp-2520 propagation constant 2/y_star^2 does NOT rescue the imp-35127 I3 accumulation constant 2N/y_star^2, the two windows diverging by sqrt(N)',
+    category: 'proof-status',
+    definition:
+      'A headword recording the imp-35168 finding that restricting the ' +
+      'imp-2520 backward-flow Gronwall lemma to a MESOSCOPIC strip (where ' +
+      'exp(-2S/y_star^2) is non-vacuous) does NOT suffice for the imp-35127 ' +
+      'I3 ingredient, the N-uniform Lipschitz constant the RK4 ' +
+      'step-to-global truncation-error accumulation needs.\n\n' +
+      'On the SAME strip Im z >= y_star the transport coefficient ' +
+      'L_prop = 2/y_star^2 is O(1) and N-uniform, but the field Jacobian ' +
+      'Lipschitz constant L_field = 2N/y_star^2 (from |d_z M| <= N/y^2) is ' +
+      'N-LINEAR -- the two differ by exactly the pole count N, and I3 ' +
+      'needs L_field, not L_prop. The propagation-safe window ' +
+      'y_star > sqrt(2S) and the accumulation-N-uniform window ' +
+      'y_star > sqrt(2NS) ~ sqrt(N) coincide only at N=2; a fixed ' +
+      'mesoscopic y_star ~ 5.6 leaves the accumulation e-fold ' +
+      '2NS/y_star^2 growing LINEARLY in N (63104 at N=1e6 versus a ' +
+      'propagation e-fold of 0.063 -- a height-gap factor of 1000, i.e. ' +
+      'sqrt(1e6)). So the mesoscopic restriction moves I3 from ' +
+      'Gronwall-VACUOUS (infinite factor at the microscopic nearest-pair ' +
+      'front) to merely N-DEPENDENT, a genuine sharpening but short of the ' +
+      'N-uniform constant I3 requires; forcing accumulation uniform needs ' +
+      'an N-diverging strip y_star ~ sqrt(NS) that abandons the real-axis ' +
+      'particles.\n\n' +
+      'HONEST SCOPE: assessment only; I3 stays OPEN; discharges nothing; ' +
+      'changes no bound; establishes no operator positivity; C_mb stays ' +
+      'GUE-conditional per imp-486; no RH verdict; NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35204 (glossary headword recording the imp-35168 mesoscopic-strip asymmetry), 2026',
+    relatedTerms: [
+      'imp-35127 named I3 the N-uniform field-Lipschitz accumulation ingredient the RK4 truncation-error certificate needs (imp-35127)',
+      'imp-2520 supplies the propagation-constant Gronwall lemma that the mesoscopic strip rescues, but only for L_prop (imp-2520)',
+      'imp-35196 shows no N-dependent strip schedule y_star(N) can reconcile the two requirements either, ruling out a fixed-height artifact explanation (imp-35196)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

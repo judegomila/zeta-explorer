@@ -16191,6 +16191,45 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this derivation (imp-486)',
     ],
   },
+  {
+    term: 'imp-35216 model-cusp margin-ratio prefactor closed form: the imp-35193 measured K ~ 0.400 in |rho(eps) - 2/3| ~ K eps^{3/2} is NOT 2/5 but the transcendental K = 4/(3 A_2) = 8 sqrt(2)/(9 pi) = 0.4001406, with 2/5 an unrelated tail coefficient that happens to sit close by',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35216 closed-form derivation of the imp-35193 empirical eps^{3/2} ' +
+      'prefactor K in the model-cusp margin ratio rho(eps) = C_ren(eps) / C_curv(eps) -> 2/3.\n\n' +
+      'THE DERIVATION: rescaling the imp-35076 branch integrals by u = sqrt(eps) t gives rho(eps) = ' +
+      '|F_2(L)| / (2 |F_3(L)|) with L = eps^{-1/2}, where F_2(infinity) = -A_1/2 and F_3(infinity) = ' +
+      '-A_2/4 reproduce the bare limit A_1/A_2 = 2/3 (A_1 = pi/sqrt2 per imp-33646, A_2 = 3 pi/(2 sqrt2) ' +
+      'per imp-33645). The eps-dependence enters only through the finite cutoff L, and the missing ' +
+      'numerator tail R_2(L) -> (2/3) eps^{3/2} gives the exact leading coefficient ' +
+      'K = 4/(3 A_2) = 8 sqrt(2)/(9 pi) = 0.4001405849..., matching the imp-35193 measured tail reading ' +
+      '(0.4001) more closely than the near-miss candidate 2/5 (0.4000) does.\n\n' +
+      'WHY 2/5 IS A COINCIDENCE, NOT THE ANSWER: the denominator tail R_3(L) L^5 -> 2/5 also appears in ' +
+      'the same expansion, but it lives in C_curv at SUBLEADING order eps^{5/2} and never reaches the ' +
+      'eps^{3/2} coefficient K; its numerical closeness to K (differing by ~1.4e-4) is a coincidence of ' +
+      'the model cusp, not a shared closed form. imp-35244 subsequently found the naive eps^{5/2} term ' +
+      'this tail would imply does NOT survive into rho at all -- the slot is empty, and the true next ' +
+      'order is eps^{7/2} with coefficient -8 sqrt(2)/(3 pi) (imp-35244) -- so 2/5 should not be carried ' +
+      'forward as any coefficient of rho’s expansion.\n\n' +
+      'HOW TO APPLY: cite imp-35216 (or this entry) for the certified closed form of the imp-35193 ' +
+      'eps^{3/2} coefficient, K = 8 sqrt(2)/(9 pi), and cite imp-35244 alongside it for the corrected ' +
+      'higher-order structure (eps^{5/2} empty, eps^{7/2} = -8 sqrt(2)/(3 pi)) -- do not quote the bare ' +
+      '2/5 as a term of the expansion.\n\n' +
+      'HONEST SCOPE: assessment only on the inherited imp-3220/imp-3406/imp-33646 model-cusp surrogate; ' +
+      'an asymptotic leading coefficient is not the certified uniform inequality O3 asks for, and does ' +
+      'not bound the true RvM cusp jet; O3 and G6a_shock_lipschitz stay OPEN; imp-3066 K_a >= 0 ' +
+      'UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator ' +
+      'positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35247 (glossary headword recording the imp-35216 closed-form model-cusp margin-ratio prefactor), 2026',
+    relatedTerms: [
+      'imp-35193 measured the empirical prefactor K ~ 0.400 this entry identifies in closed form (imp-35193)',
+      'imp-35244 finds the eps^{5/2} slot the 2/5 tail would imply is empty, correcting the higher-order expansion (imp-35244)',
+      'imp-35240 remeasured K on a finer, deeper eps grid, confirming this closed form to ~3.3e-7 (imp-35240)',
+      'imp-33646 supplies A_1 = pi/sqrt2, the eps^{3/2} renormalization constant (imp-33646)',
+      'imp-33645 supplies A_2 = 3 pi/(2 sqrt2), the eps^{5/2} renormalization constant (imp-33645)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this derivation (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

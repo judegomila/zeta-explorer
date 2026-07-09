@@ -15715,6 +15715,42 @@ export const glossary = [
       'imp-486 supplies the IMPOSSIBILITY_ARGUMENT chain that makes R5b equivalent to GUE universality (imp-486)',
     ],
   },
+  {
+    term: 'imp-35167 I2 g_min separation-certificate scope: the M1 sandwich skeleton is PRESENT, but the binding obstruction is the M5 horizon-front mismatch, not a missing sandwich',
+    category: 'proof-status',
+    definition:
+      'A headword recording the imp-35167 scoping verdict on the imp-35127 ' +
+      'I2 ingredient (a CERTIFIED a-priori non-collision lower bound ' +
+      'g_min(t) > 0 along the whole backward Dyson trajectory to the ' +
+      'collision front). imp-2563 already supplies the exact gap ODE ' +
+      'du/ds = -8 + 4 B(s) u and a Gronwall lower branch ' +
+      'm(s) = (g^2 + 2/beta) e^{-4 beta s} - 2/beta > 0 for s < T_- -- this ' +
+      'M1 skeleton is PRESENT and unconditional algebra, so the min-gap ' +
+      'sandwich itself is not the missing piece.\n\n' +
+      'The actually binding obstruction is M5: the certified window ' +
+      'T_-(g, beta) ~ g^2/8 SHRINKS like O(1/N^2) (with g ~ 1/N), while the ' +
+      'collision front t_c(N) stays O(1) -- so the horizon never reaches the ' +
+      'front, and the ratio T_-/t_c collapses (~100x per decade of N). M5 is ' +
+      'fed by M2, an uncertified N-uniform background-field sup beta that is ' +
+      'itself self-referential with the g_min it is meant to bound near the ' +
+      'front. M3 (certified initial gap) is data-level and M4 (SG1 local ' +
+      'virial) is honestly Gronwall-vacuous at the microscopic front strip. ' +
+      'So the honest picture is: the sandwich (M1) exists, but it certifies ' +
+      'only a LOCAL-in-time window, not a whole-trajectory bound -- a ' +
+      'witness, not a certificate.\n\n' +
+      'HONEST SCOPE: scoping/assessment only; derives none of the bound; the ' +
+      'imp-2563 sandwich is UNTOUCHED and remains a valid CONDITIONAL ' +
+      'bracket; C_mb stays GUE-conditional per imp-486; changes no bound; ' +
+      'establishes no operator positivity; no RH verdict; NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35203 (glossary headword recording the imp-35167 I2 g_min separation-certificate scope), 2026',
+    relatedTerms: [
+      'imp-35127 named I2 the hardest ingredient of the RK4/DP5 truncation error certificate (imp-35127)',
+      'imp-2563 supplies the M1 exact gap ODE and Gronwall lower branch, the certificate skeleton (imp-2563)',
+      'imp-2520 supplies the M4 SG1 local virial strip lemma, Gronwall-vacuous at the front (imp-2520)',
+      'imp-362 supplies the interval RK4 pole-reduction witness relevant to the M5 horizon-to-front bridge (imp-362)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

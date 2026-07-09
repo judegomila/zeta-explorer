@@ -777,6 +777,9 @@ const Imp35296MinGapStripAdvantageViz = lazy(() =>
 const Imp35308ReentryBandViz = lazy(() =>
   import('./pages/Imp35308ReentryBandViz.jsx')
 );
+const Imp35254EflowFartailTwoTermLawViz = lazy(() =>
+  import('./pages/Imp35254EflowFartailTwoTermLawViz.jsx')
+);
 const Imp35183SigmaFartailExponentLadderViz = lazy(() =>
   import('./pages/Imp35183SigmaFartailExponentLadderViz.jsx')
 );
@@ -2231,6 +2234,10 @@ function AppShell() {
           <Route
             path="/viz-imp35308-reentry-band"
             element={<Imp35308ReentryBandViz />}
+          />
+          <Route
+            path="/viz-imp35254-eflow-fartail-two-term-law"
+            element={<Imp35254EflowFartailTwoTermLawViz />}
           />
           <Route
             path="/viz-imp35183-sigma-fartail-exponent-ladder"

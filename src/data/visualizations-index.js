@@ -1014,6 +1014,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive ingredient-triple diagram reusing baked imp-35114 cmTable/driftTable literals verbatim; the extracted ingredients are structural properties of the SURROGATE map, NOT operator positivity; C_mb GUE-conditional per imp-486 untouched; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35254-eflow-fartail-two-term-law',
+      title: 'E_flow Far-Tail Two-Term Exponent Law vs Measurement',
+      oneLine:
+        'Plots the imp-35217 leading -1+3/log N law against the two-term law with the evaluated c2(x)/(log N)^2 correction and the imp-35135 measured exponents across the N=1e6..1e16 ladder, shading the c2 sign-change at N~2.615e7 where adding the x^-2 term hurts below and helps above.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35217-eflow-fartail-exponent-x2-correction.js',
+      paperSourcePath:
+        'src/data/imp-35217-eflow-fartail-exponent-x2-correction.js (imp-35254 viz page)',
+      ticket: 'imp-35254',
+      pedagogicalStep: 68,
+      honestCeiling:
+        'Descriptive exponent-law chart reusing baked imp-35217 ladder/topRung/deepRung literals verbatim; derivation/measurement only on the inherited imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 untouched; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

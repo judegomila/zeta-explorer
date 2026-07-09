@@ -16912,6 +16912,37 @@ export const glossary = [
       'imp-35170 scoped I4 itself, the absolute per-scheme RK4 Butcher error-constant bound (imp-35170)',
     ],
   },
+  {
+    term: 'imp-35188 Off-By-One Reentry as a Window-Recrossing, Not a New Mechanism',
+    category: 'numerical',
+    definition:
+      'A headword sharpening the imp-34997 finding by naming the reentry mechanism precisely: the off-by-one ' +
+      'trigger is frac(xArg) landing in the FIXED window (W, 1) with W ~ 0.8516, floor(xArg) pinned at 11 ' +
+      'throughout. Over roughly [1e12, 1e27.08], frac(xArg) sits below W and the population reads as a flat ' +
+      'ZERO -- a span of ~15 decades that is easy to misread as asymptotic extinction of the off-by-one ' +
+      'phenomenon.\n\n' +
+      'It is not: frac(xArg) drifts upward at a measured ~0.0187 per decade of N, and once the drift carries ' +
+      'it back above W at N ~ 10^27.08, it re-enters the SAME fixed trigger window (W, 1) it started below -- ' +
+      'off-by-one seeds reappear because the phase recrosses a fixed threshold, not because any new mechanism ' +
+      'switches on. floor(xArg) stays pinned at 11 across the entire ~15-decade gap; the reentry is a pure ' +
+      'phase-window recrossing at constant floor, confirmed independently in double-double arithmetic ' +
+      '(imp-35109) as a genuine analytic feature rather than a rounding artifact.\n\n' +
+      'HOW TO APPLY: when a bounded phase quantity drifts monotonically toward a fixed trigger window, a flat ' +
+      'zero count over any finite N-range is a statement about how far the drift has to travel, not about ' +
+      'whether the underlying trigger condition (W, 1) still exists -- it always does, and will refire once ' +
+      'crossed again.\n\n' +
+      'HONEST SCOPE: a documentation/headword entry restating the imp-34997/imp-35109/imp-35111 mechanism with ' +
+      'the (W, 1) window made explicit; not a new bound; measurement only on the inherited imp-3220/imp-3406 ' +
+      'surrogate; changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
+      'Lambda &lt;= 0.2 remains SOTA.',
+    firstUsed: 'imp-35188 (glossary headword naming the imp-34997/imp-35111 reentry as a fixed-window (W,1) recrossing), 2026',
+    relatedTerms: [
+      'imp-34997 Finite Ceil-Phase Gap vs Asymptotic Extinction: the broader headword this entry sharpens (imp-34997)',
+      'imp-35109 certified the ceil-phase drift and 10^27.08 reentry in double-double arithmetic (imp-35109)',
+      'imp-35111 showed the repopulated band above the reentry is itself bounded, exiting again at N~10^37.17 (imp-35111)',
+      'imp-34903 and imp-34951 established the original off-by-one iters-to-floor population (imp-34903, imp-34951)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

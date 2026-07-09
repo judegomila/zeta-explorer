@@ -16069,6 +16069,52 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this reconciliation (imp-486)',
     ],
   },
+  {
+    term: 'imp-35190 order-robust caveat: the exact RK4/DP45 N=500 tie is partly a gate-quantization artifact, not independent evidence',
+    category: 'proof-status',
+    definition:
+      'An honest-status note on how to read the imp-35190 N=500 rung of the ' +
+      'imp-35104 R2 true-flow-bound ladder. imp-35190 reported that an RK4 ' +
+      '(order-4) and an independent-family DP45 (order-5) backward-Dyson-flow ' +
+      'integrator land on the IDENTICAL resolved collision time t_c=' +
+      '0.012336066560 at N=500. Read naively, an exact tie between two ' +
+      'different-order schemes looks like strong independent confirmation. ' +
+      'imp-35190 itself flagged, and this note preserves, the correct reading: ' +
+      'that same-grid exact tie is PARTLY a gate-quantization artifact -- both ' +
+      'integrators trip the shared min-spacing<1e-4 collision gate at the same ' +
+      'step (1024), so the resolved-grid values coincide because the gate ' +
+      'quantizes the reported time to the step at which the threshold is ' +
+      'crossed, not because the two families independently resolve the same ' +
+      'continuous-time value to that many digits.\n\n' +
+      'WHY THIS MATTERS: the R2 one-sided bound t_c_flow<=t_c_hi is certified ' +
+      'by the CROSS-FAMILY + CROSS-GRID ENVELOPE -- RK4@dt, DP45@dt, RK4@dt/2=' +
+      '0.012330043090, DP45@dt/2=0.012396301260, giving [0.012330043090, ' +
+      '0.012396301260] -- whose WORST-CASE (largest) endpoint still clears ' +
+      't_c_hi=0.0124 with slack 3.699e-6. That envelope, not the same-grid ' +
+      'tie, is the load-bearing evidence for R2 at N=500. The same-grid tie is ' +
+      'a quantization coincidence that should not be cited on its own as an ' +
+      'independent-family confirmation.\n\n' +
+      'HOW TO APPLY: when citing imp-35190 for the N=500 R2 rung, cite the ' +
+      'dt/2-refined worst-case envelope endpoint and its positive slack against ' +
+      't_c_hi, not the exact same-grid RK4/DP45 agreement; the same caveat ' +
+      'applies structurally to the imp-35221 N=1000 rung, where RK4 and DP45 ' +
+      'trip the gate one step apart rather than identically, and the dt/2 ' +
+      'refinement (not the raw-grid numbers) is again what carries the ' +
+      'certificate.\n\n' +
+      'HONEST SCOPE: a reading-caveat on an existing measurement, not a new ' +
+      'computation; changes no bound; does not affect the R2 ladder ceiling ' +
+      'recorded in imp-35104/imp-35201; C_mb stays GUE-conditional (imp-486); ' +
+      'establishes no operator positivity; no RH verdict; NO QED. ' +
+      'Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35230 (honest-status note on the imp-35190 order-robust N=500 gate-quantization caveat), 2026',
+    relatedTerms: [
+      'imp-35190 computed the N=500 cross-family cross-grid flow reference and flagged the same-grid tie as gate-quantization (imp-35190)',
+      'imp-35221 repeated the method at N=1000 and again relies on the dt/2 envelope, not a raw-grid tie (imp-35221)',
+      'imp-35104 R2 true-flow-bound ladder honest status: CERTIFIED to N=1000, PROVISIONAL-not-certified at N=2000, UNTESTED past N=2000',
+      'imp-2528 supplies the one-sided map-to-flow overshoot mechanism underlying the R2 predicate (imp-2528)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this note (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

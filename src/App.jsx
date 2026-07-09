@@ -795,6 +795,9 @@ const Imp35320SignLadderRoundoffCeilingViz = lazy(() =>
 const Imp35329ExponentDriftClosingComparisonViz = lazy(() =>
   import('./pages/Imp35329ExponentDriftClosingComparisonViz.jsx')
 );
+const Imp35344FloorSensitivityCurveViz = lazy(() =>
+  import('./pages/Imp35344FloorSensitivityCurveViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2267,6 +2270,10 @@ function AppShell() {
           <Route
             path="/viz-imp35329-exponent-drift-closing-comparison"
             element={<Imp35329ExponentDriftClosingComparisonViz />}
+          />
+          <Route
+            path="/viz-imp35344-floor-sensitivity-curve"
+            element={<Imp35344FloorSensitivityCurveViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -1070,6 +1070,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Viz-only consolidation reusing the imp-35242/imp-35198/imp-35183 ladders verbatim, with a per-series rescale by each already-established closing-law constant (arithmetic only, no re-derivation); establishes no new numerical claim on the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 untouched; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35344-floor-sensitivity-curve',
+      title: 'D1 Floor-Sensitivity Curve: Reentry Band vs. EPS_FP Scale',
+      oneLine:
+        'Line plot of the imp-35243 D1 reentry-band position (log10 N) as a linear function of the machine-epsilon floor scale factor EPS_FP*2^k over k=-3..3, showing the ~11.99-decade-per-factor-2 slide and annotating that the true continuum has no floor and hence no counterpart to the curve.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35243-reentry-band-surrogate-fidelity-assessment.js',
+      paperSourcePath:
+        'src/data/imp-35243-reentry-band-surrogate-fidelity-assessment.js (imp-35344 viz page)',
+      ticket: 'imp-35344',
+      pedagogicalStep: 72,
+      honestCeiling:
+        'Descriptive floor-sensitivity line chart extending the baked imp-35243 demonstration_D1_floor_sensitivity slope arithmetically over a small k range (no re-derivation); the band is a SURROGATE feature with no continuum counterpart at all; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

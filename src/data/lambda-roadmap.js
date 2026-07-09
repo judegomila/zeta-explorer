@@ -365,6 +365,84 @@ export const LAMBDA_CHAIN_STEPS = [
       'reading at y_star = 4d is Gronwall-vacuous at the true nearest-pair front (floor collapses to ' +
       '0 as strip height -> 0, per imp-2520 negative-finding 1). G6a_shock_lipschitz remains OPEN; no ' +
       'candidate closure route has been found via the direct-flow V0 measurement.',
+    // imp-35098 (scoping/assessment ONLY; changes no bound, establishes no
+    // operator positivity, closes nothing, respects the imp-2519 no-overclaim
+    // guard, NO QED): enumerate — WITHOUT claiming any is discharged — the
+    // analytic ingredients that separate the current NUMERICAL grade of the
+    // Step-4 bridge |Lambda - (-t_c(N))| <= E(N) from a rigorous one. This is
+    // DISTINCT from the imp-35058 Step-2 scoping (which lists integrator /
+    // Gronwall / interval-enclosure obligations for the backward Dyson ODE):
+    // Step 4 is the ANALYTIC BRIDGE itself, so its obligations are the shock
+    // modulus, the E-term constant discharge, and the assembled-E(N) ladder
+    // check. imp-345 shipped only a partial closure (E_flow rigorous MODULO
+    // constants; E_trunc a Guth-Maynard tail), and the assembled E(N) has only
+    // ever been evaluated at finite N (floating point) on the imp-321 ladder.
+    // All three obligations below remain OPEN.
+    rigorousUpgradeGap: {
+      grade: 'numerical',
+      wouldRequire: 'rigorous (unconditional E(N) -> 0)',
+      status: 'OPEN — none of the three ingredients below is closed',
+      obligations: [
+        {
+          key: 'G6a-holder-modulus',
+          label: 'G6a_shock_lipschitz Hoelder-1/2 modulus of tau_c at the Burgers shock',
+          need:
+            'A certified Hoelder-1/2 spatial modulus ' +
+            '|tau_c(x) - tau_c(x_prime)| <= C_Lip |x - x_prime|^{1/2} for the ' +
+            'collision time tau_c at the Burgers shock, supplying the constant ' +
+            'C_H in E_coll. imp-366 ported the Polymath15 Lemma 5.2 LEDGER but ' +
+            'the modulus itself is RH-HARD: imp-2640 gap-Lipschitz Gronwall ' +
+            'discharge NEGATIVE, the imp-3642/imp-3671 direct-flow V0 profile is ' +
+            'the wrong TYPE of object (strip-sup density scalar, not a spatial ' +
+            'modulus) and is Gronwall-vacuous at the true nearest-pair front, and ' +
+            'the asymptotic modulo persists (imp-35056). This is the sole open ' +
+            'sub-gap that gates the whole step.',
+          machinery: 'imp-366, imp-2640, imp-3642, imp-3671, imp-35056',
+          feedsInto: 'C_H in E_coll, hence the E(N) bridge constant',
+          closed: false,
+        },
+        {
+          key: 'G-Etrunc-Eflow-constants',
+          label: 'Explicit discharge of the E_trunc and E_flow constants',
+          need:
+            'Replace the imp-345 rigorous-MODULO-constants status with explicit ' +
+            'unconditional numerical constants: the E_flow heat-flow term is only ' +
+            'rigorous up to unnamed constants, and E_trunc is a Guth-Maynard ' +
+            'tail whose prefactor/exponent must be pinned unconditionally (the ' +
+            'imp-34791 audit flagged a prefactor 3->5 correction and a WRONG ' +
+            'Ramaré line, so the constant chain is not yet certified). Until each ' +
+            'constant is a discharged number, the assembled E(N) is not a rigorous ' +
+            'bound even with G6a closed.',
+          machinery: 'imp-345, imp-354, imp-34791',
+          feedsInto: 'the additive assembly E(N) = E_coll + E_trunc + E_flow',
+          closed: false,
+        },
+        {
+          key: 'G-EN-ladder-verify',
+          label: 'Assembled-E(N) verification at the imp-321 ladder',
+          need:
+            'A verification that the ASSEMBLED E(N) formula (all three terms with ' +
+            'their discharged constants carried through) actually satisfies ' +
+            'E(N) -> 0 across the imp-321 N-ladder. The existing ladder rows are ' +
+            'finite-N floating-point evaluations of the surrogate, not a certified ' +
+            'evaluation of the fully-assembled formula; the imp-35100 far-tail ' +
+            'measurement further flags that the constant E_trunc floor can outlive ' +
+            'the vanishing GUE-conditional E_coll, so E(N) -> 0 at the ladder is ' +
+            'itself in question until the constants are pinned.',
+          machinery: 'imp-321, imp-3220, imp-3406, imp-35100',
+          feedsInto: 'the headline Step-4 rate E(N) -> 0',
+          closed: false,
+        },
+      ],
+      caveat:
+        'Scoping map only. Discharging all three would elevate Step 4 to ' +
+        'rigorous and (with t_c >= 0 automatic) give Lambda <= E(N) -> 0, hence ' +
+        'Lambda <= 0; but the C_mb many-body correction remains an irreducible ' +
+        'GUE conditional (imp-486), capping the reachable claim at RH-modulo-GUE. ' +
+        'Changes NO Lambda bound on its own; Platt-Trudgian Lambda <= 0.2 remains ' +
+        'SOTA; NO QED.',
+      by: 'imp-35098',
+    },
   },
   {
     step: 5,
@@ -454,6 +532,73 @@ export const LAMBDA_CHAIN_STEPS = [
         'then the C_mb GUE conditional (imp-486) caps the reachable claim at RH-' +
         'modulo-GUE. Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
       by: 'imp-35074',
+    },
+    // imp-35099 (scoping/assessment ONLY; changes no bound, closes nothing,
+    // respects the imp-2519 no-overclaim guard, NO QED): COMPLEMENT to the
+    // imp-35074 rigorousUpgradeGap above. That block enumerates the three OPEN
+    // input LINKS whose closure is a research problem; this block enumerates the
+    // mechanical BOOKKEEPING-ASSEMBLY items that would STILL remain even after
+    // those links (and Step 4) are discharged -- the "have all inputs, now write
+    // the capstone" checklist named in the step need field. These items close
+    // NOTHING on their own and are inert until Step 4 is rigorous; they are the
+    // clerical residue, not a proof. currentStatus must NEVER state RH follows.
+    conditionalBookkeeping: {
+      framing:
+        'Conditional-on-Step-4 (and on the G5-perN-translation link). If and ' +
+        'ONLY IF Steps 3-perN and 4 become rigorous do these items become ' +
+        'executable; today every one is BLOCKED on that upstream closure. ' +
+        'Enumerating them does NOT assert RH and moves NO Lambda bound.',
+      items: [
+        {
+          key: 'B1-final-assembly-write',
+          label: 'Write the final RH combination into sota-lambda-claim.js',
+          need:
+            'Assemble, in SOTA_LAMBDA_CLAIM (src/data/sota-lambda-claim.js, ' +
+            'created imp-375), the closed-form chain: an unconditional Lambda <= 0 ' +
+            '(from the Step-4 E(N) -> 0 bridge with t_c >= 0) + Rodgers-Tao ' +
+            'Lambda >= 0 (2020) => Lambda = 0 => (de Bruijn 1950 / imp-327 height ' +
+            'mapping) RH. Today SOTA_LAMBDA_CLAIM headline is the finite-height / ' +
+            'asymptotic-modulo-constants record, NOT an unconditional RH claim; the ' +
+            'bookkeeping is a STRING/RECORD edit gated on the B-links, not new math.',
+          citationChain: 'imp-375 (SOTA record), imp-356 (chain assembly), imp-327 (de Bruijn height mapping)',
+          blockedOn: 'G5-step4-bridge + G5-perN-translation + G5-cmb-gue (all OPEN)',
+          closed: false,
+        },
+        {
+          key: 'B2-effective-height-Tstar',
+          label: 'Produce the effective height T-star(N) at which the assembled result holds',
+          need:
+            'Report T_star(N) = effectiveHeightForN(N) (Riemann-von Mangoldt ' +
+            'inversion, imp-327, src/data/lambda-rh-height-mapping.js) at the N the ' +
+            'closed Steps 3-4 actually reach, and state the conclusion as RH up to ' +
+            'height T_star(N) -- NOT RH unconditionally. The inversion machinery ' +
+            'already exists and is cross-checked by zeroCountAtHeight; the residual ' +
+            'clerical act is only substituting the achieved N. Height is bounded by ' +
+            'whatever finite N the upstream rate supplies, so T_star(N) is FINITE.',
+          citationChain: 'imp-327 (effectiveHeightForN / N_TO_T_STAR_TABLE), imp-375 (headline.effectiveHeight)',
+          blockedOn: 'the achieved-N of the closed Steps 3-4 (undefined while OPEN)',
+          closed: false,
+        },
+        {
+          key: 'B3-conditional-caveat-propagation',
+          label: 'Propagate the RH-modulo-GUE caveat into the final record',
+          need:
+            'Even with B1/B2 mechanically done, the imp-486 C_mb GUE conditional ' +
+            '(G5-cmb-gue above) caps the reachable claim at RH-modulo-GUE-universality ' +
+            'on the Route-A per-N translation. The bookkeeping write MUST carry that ' +
+            'caveat verbatim and MUST NOT upgrade the status string to unconditional ' +
+            'RH; this preserves the imp-2519 no-overclaim guard.',
+          citationChain: 'imp-486 (irreducible C_mb), imp-2519 (no-overclaim guard)',
+          blockedOn: 'G5-cmb-gue (irreducible; not closable by bookkeeping)',
+          closed: false,
+        },
+      ],
+      caveat:
+        'Scoping checklist only. NONE of B1-B3 is executable today: all are ' +
+        'BLOCKED on the OPEN Step-4 / per-N / C_mb links (see rigorousUpgradeGap). ' +
+        'Listing the clerical residue changes NO Lambda bound and does NOT make RH ' +
+        'follow. Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+      by: 'imp-35099',
     },
   },
 ];

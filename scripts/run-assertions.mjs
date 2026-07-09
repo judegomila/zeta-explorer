@@ -195,6 +195,8 @@ const DATA_MODULES = [
   '/src/data/empirical-m-sweep-extended.js',
   // imp-857-baseline-sweep-partial: disproves "blow-up at N>=1000" premise.
   '/src/data/imp-857-baseline-sweep-result.js',
+  // imp-35150: R2 sub-scale -- R2 one-sided true-flow bound ladder assessment.
+  '/src/data/imp-35150-r2-ladder-assessment.js',
   // imp-903 27-point H_raw-update sweep: rescue satisfied from N_0 = 100.
   '/src/data/imp-903-uniform-sweep-result.js',
   // imp-904 dense-N-grid partial closure: 31-N combined catalog over [10, 10^4].

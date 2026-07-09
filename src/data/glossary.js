@@ -16027,6 +16027,48 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this measurement (imp-486)',
     ],
   },
+  {
+    term: 'imp-35177 offset/split reconciliation: BOTH the sigmoid-inflection offset (~2 g_prime/g^3) and the ramp-knee offset (~5.6 g_prime/g^3) are running-rate-convexity displacements, and the imp-35132 0.064 split is where g_prime cancels',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35177 reconciliation of two prior results that looked like a ' +
+      'possible contradiction: imp-35042 found the sigmoid-inflection knee N_star sits above halving ' +
+      'by a closed margin proportional to the running-rate convexity conv = g_prime/g^3 (coefficient ' +
+      '2), while imp-35132 found the ~0.064 ramp-vs-sigmoid far-tail decay-exponent split is NOT ' +
+      'running-g (ruled out by imp-35028, common to both landmarks) but a ramp-vs-sigmoid ' +
+      'DEFINITIONAL curvature-operator difference.\n\n' +
+      'RECONCILIATION on the identical imp-35132/imp-34948 surrogate (sigmaNoFlow, E_flow == 0, five ' +
+      'far-tail rungs N_half in 1e14..1e18):\n\n' +
+      '(M1) BOTH landmark offsets from halving are g_prime/g^3 displacements. Dividing each offset by ' +
+      'conv = g_prime/g^3 gives a near-constant DEFINITIONAL coefficient: sigmoid ~2.006 (reproducing ' +
+      'the imp-35042 closed margin 2 g_prime/g^3 to the third digit) and ramp ~5.61, each varying <2% ' +
+      'across the band -- so the ramp knee is ALSO a running-rate-convexity displacement, extending ' +
+      'imp-35042 structural to the ramp operator, with g_prime the COMMON magnitude driver of both.\n\n' +
+      '(M2) The imp-35132 split is the log-log slope of the offset RATIO off_ramp / off_sig = ' +
+      'coefRamp / coefSigmoid ~ 2.78, in which the common g_prime/g^3 factor CANCELS: across the band ' +
+      'g_prime falls ~1.62x (4.74e-4 -> 2.93e-4) while the ratio drifts only ~1.63% ' +
+      '(2.7734 -> 2.8186), and that slow drift reproduces the split to 0.0643.\n\n' +
+      'VERDICT: the offset and the split are NOT two readings of the same running-rate convexity but ' +
+      'COMPLEMENTARY functionals of it -- the offset CARRIES g_prime (magnitude 2 or ~5.6 times ' +
+      'g_prime/g^3), the split is exactly where g_prime DROPS OUT (a ratio of two g_prime-proportional ' +
+      'offsets, leaving only the definitional coefficient ratio and its ~1.6% drift). This resolves ' +
+      'imp-35042 (offset g_prime-driven) with imp-35132 (split definitional, running-g ruled out) with ' +
+      'NO contradiction.\n\n' +
+      'HONEST SCOPE: derivation/measurement only on the inherited imp-3220/imp-3406 surrogate, not a ' +
+      'rigorous asymptotic; OPEN sub-gap: no closed form for the ramp coefficient ~5.6 (only the ' +
+      'sigmoid coefficient 2 is derived, imp-33808), hence no closed 2.78; C_mb GUE-conditional per ' +
+      'imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes ' +
+      'no bound; establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35229 (glossary headword recording the imp-35177 offset/split reconciliation), 2026',
+    relatedTerms: [
+      'imp-35042 derives the sigmoid-inflection offset closed margin 2 g_prime/g^3 that this entry shows also governs the ramp knee (imp-35042)',
+      'imp-35132 attributes the ~0.064 ramp-vs-sigmoid split to a definitional curvature-operator difference, here identified as where g_prime cancels (imp-35132)',
+      'imp-35028 rules out running-g as the source of the split, the premise both imp-35132 and this reconciliation build on (imp-35028)',
+      'imp-33808 derives the sigmoid definitional coefficient 2, leaving the ramp coefficient ~5.6 as an open sub-gap here (imp-33808)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this reconciliation (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

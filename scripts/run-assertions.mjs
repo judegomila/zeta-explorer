@@ -7498,6 +7498,15 @@ const DATA_MODULES = [
   // since sigma ~ C sqrt(L/N) gives N ~ (C/(E_trunc*thr))^2 * L, and E_flow is negligible
   // throughout (E_flow/E_coll < 5e-4). Measurement only; changes no bound; NO QED.
   '/src/data/imp-35041-sigma-deep-tail-threshold-extension.js',
+  // imp-35130: DERIVES the imp-35041 per-factor-10 sigma-threshold crossing spacing (measured
+  // ~1.99/2.16/2.07 decades) in closed form from the E_trunc-dominated tail: N(thr) =
+  // (C_C/E_trunc)^2 * L(N) * ((1-thr)/thr)^2, so the per-pair spacing is 2*log10([(1-lo)/lo]/
+  // [(1-hi)/hi]) + log10(L(N_lo)/L(N_hi)). The asymptotic per-factor-10 constant is EXACTLY 2 (pure
+  // sqrt(1/N) law, share-mapping -> 2.000000 as thr -> 0); the finite-thr share-mapping correction
+  // and the residual log T0 running (+0.083/+0.075/+0.062) reproduce the measured spacings to the
+  // fourth decimal, and the log running is the SOLE residual above 2 in the deep tail. Derivation
+  // only on the surrogate; changes no bound; NO QED.
+  '/src/data/imp-35130-sigma-crossing-spacing-closed-form.js',
   // imp-35036: EXTENDS the imp-33582 per-decade local decay-exponent ladder for sigma(N) =
   // E_coll/E(N) past [1e11,1e12] (0.4310) on the identical inherited model. The exponent keeps
   // climbing monotonely toward the imp-3463 1/2 asymptote (0.4646, 0.4777, 0.4828, 0.4851 on
@@ -7669,6 +7678,13 @@ const DATA_MODULES = [
   // is UPWARD at N ~ 1e3.22, below the band), and the imp-3463 far-tail 1/2 is the E_coll log-derivative
   // (E_coll ~ N^(-1/2)), a DISTINCT term. Measurement only, no bound change.
   '/src/data/imp-35039-eflow-qeff-profile-crossing-to-fartail.js',
+  // imp-35131: DERIVES in closed form the imp-35039 E_flow q_eff monotone-rise limit toward 1 (not 1/2).
+  // On the Riemann-von Mangoldt height map N=(T0/2pi)(v-1), v=ln(T0/2pi), the log-height sensitivity is
+  // u=d ln T0/d ln N=1-1/v, giving q_eff(v)=(1-1/v)(1-1/(v+ln 2pi)-1/(v+1)): monotone increasing, limit 1
+  // with 1-q_eff=3/v+O(1/v^2)~3/ln N, single 0.6 root the upward crossing at v~5.847 (N~1e3.22). The 1/2 is
+  // the SEPARATE E_coll exponent q_coll=(1/2)(1-u/L)->1/2 (q_eff-q_coll->1/2, limits never meet). Closed form
+  // reproduces the imp-35039 finite-difference profile to ~1e-10 across dex 9..300. Derivation only, no bound change.
+  '/src/data/imp-35131-eflow-qeff-closed-form-limit-to-one.js',
   // imp-35036: EXTENDS the imp-33582 per-decade local decay-exponent ladder of the GUE-conditional
   // share sigma(N) = E_coll/E(N) past [1e11,1e12] (p_dec ~0.4310) out to [1e30,1e31] (p_dec ~0.4927),
   // measuring the residual gap 1/2 - p_dec. The gap decays only LOGARITHMICALLY, g ~ 1/(2 ln N) (the

@@ -1028,6 +1028,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive exponent-law chart reusing baked imp-35217 ladder/topRung/deepRung literals verbatim; derivation/measurement only on the inherited imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 untouched; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35314-fidelity-certificate-diagram',
+      title: 'Surrogate-Fidelity Certificate: R1-R4 Structural Diagram',
+      oneLine:
+        'Compact four-card structural diagram of the imp-35243/imp-35277 surrogate-fidelity certificate for the iters-to-floor reentry band: R1 floor-independence and R4 independent-model agreement flagged BINDING and presently unreachable, R2 single-rate fidelity and R3 height-map fidelity flagged OPEN but not binding.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35243-reentry-band-surrogate-fidelity-assessment.js',
+      paperSourcePath:
+        'src/data/imp-35243-reentry-band-surrogate-fidelity-assessment.js (imp-35314 viz page)',
+      ticket: 'imp-35314',
+      pedagogicalStep: 69,
+      honestCeiling:
+        'Descriptive certificate-checklist diagram reusing baked imp-35243 fidelity_certificate_requirements literals verbatim; no requirement is discharged here; the reentry band stays NOT established as a feature of the true dynamic; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

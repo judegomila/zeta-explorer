@@ -16611,6 +16611,42 @@ export const glossary = [
       'imp-2642 is the C_C ansatz R3 height-map fidelity would need to extend past its ~3e12 pin (imp-2642)',
     ],
   },
+  {
+    term: 'imp-35236 E_flow far-tail residual inverse-swap isolation: 0.0093 (1e6) / 0.0025 (1e16) is the height-map gap',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35236 direct isolation of the surrogate-vs-true-RvM-inverse gap that ' +
+      'imp-35217/imp-35198 ATTRIBUTED but never directly measured. Reproducing the exact imp-35135 E_flow ' +
+      'far-tail finite-difference exponent (same prefactor form C_F * (L/T0) * GRONWALL, same central-' +
+      'difference stencil h = 1.0002) under BOTH height maps -- the true effectiveHeightForN RvM inverse and ' +
+      'the closed T0 = 2 pi N / log N surrogate -- holding everything else fixed isolates the inverse swap as ' +
+      'the ONLY variable between the two runs.\n\n' +
+      'THE ISOLATED GAP: 0.0093 at N = 1e6 and 0.0025 at N = 1e16. The true-inverse finite-difference exponent ' +
+      'reproduces the imp-35135 stored measured values (-0.7710, -0.9142) to the digit, confirming the ' +
+      'isolation is faithful. At N = 1e16 the swap gap 0.0025 ~ the full ~0.003 residual -- the inverse swap ' +
+      'accounts for ESSENTIALLY ALL of it, CONFIRMING the imp-35217/imp-35198 attribution there. At N = 1e6 the ' +
+      'swap gap 0.0093 is the BULK (~78%) of the ~0.0119 residual but NOT all of it: a ~0.0025 remnant survives ' +
+      'the swap -- the closed-form Taylor truncation plus the (log T0)^2-vs-C_F*L prefactor-form difference ' +
+      'between the analytic surrogate exponent (-1 + 3/x = -0.7829) and the finite-difference surrogate ' +
+      'exponent (-0.7803), NOT the inverse gap (0.0093 + 0.0025 = 0.0118 ~ the imp-35217 leading residual ' +
+      '0.0119).\n\n' +
+      'HOW TO APPLY: cite imp-35236 when the imp-35217/imp-35198 residual attribution to the surrogate-vs-' +
+      'true-inverse gap is invoked -- the attribution is EXACT deep in the ladder (N = 1e16) but only ' +
+      'APPROXIMATE at the top (N = 1e6), where the inverse swap is dominant but not sole; do not overstate it ' +
+      'as a complete decomposition at N = 1e6 without the closed-form/prefactor remnant.\n\n' +
+      'HONEST SCOPE: measurement only (frontier-direction, NOT rigorous), on the inherited imp-3220/imp-3406 ' +
+      'extrapolation; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; ' +
+      'E_coll far-tail exponent 1/2 per imp-3463 untouched; imp-3066 K_a >= 0 untouched; changes no bound; no ' +
+      'operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35289 (glossary headword recording the imp-35236 inverse-swap isolation finding), 2026',
+    relatedTerms: [
+      'imp-35217 attributed the residual to the surrogate-vs-true-inverse gap, isolated directly here (imp-35217)',
+      'imp-35198 derived the leading -1 + 3/log N law the isolated gap is measured against (imp-35198)',
+      'imp-35135 measured the E_flow far-tail exponent (-0.7710, -0.9142) this isolation reproduces exactly (imp-35135)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this isolation (imp-486)',
+      'lambda-rh-height-mapping supplies effectiveHeightForN, the true RvM inverse swapped in here (imp-2642)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

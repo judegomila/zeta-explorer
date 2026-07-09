@@ -16801,6 +16801,47 @@ export const glossary = [
       'imp-3066 the off-diagonal endpoint-Hankel K_a&gt;=0 obstruction that remains OPEN (imp-3066)',
     ],
   },
+  {
+    term: 'imp-35127 five-ingredient scope for a certified a-priori RK4/DP5 truncation bound (I1-I5): I2 minimum-gap is the binding ingredient, I4 absolute per-scheme bound is what the empirical two-method gap cannot supply',
+    category: 'proof-status',
+    definition:
+      'A headword enumerating the five concrete analytic ingredients a CERTIFIED a-priori RK4/DP5 ' +
+      'truncation bound for the backward Dyson flow would require, distinguished from the EMPIRICAL ' +
+      'two-method gap |t_c_RK4 - t_c_DP5| (imp-2466), which bounds only scheme-disagreement and is ' +
+      'blind to a shared systematic error.\n\n' +
+      'THE FIVE INGREDIENTS: I1 elementary-differential derivative bounds sup|y^(p+1)| along the ' +
+      'flow; I2 a CERTIFIED minimum-gap lower bound g_min &gt; 0 along the WHOLE backward trajectory ' +
+      '-- the hardest, singular-flow-specific ingredient, since the Dyson field sum 1/(x_k - x_j) ' +
+      'and every derivative blow up as inverse powers of g_min, with no textbook-RK analogue; I3 an ' +
+      'N-uniform Lipschitz/stability constant for the step-to-global error accumulation (COUPLED to ' +
+      'and inheriting the openness of the G-gronwall obligation, imp-2520 Gronwall-vacuous near the ' +
+      'front); I4 an ABSOLUTE per-scheme bound against the TRUE flow -- the ingredient the empirical ' +
+      'gap structurally CANNOT supply, because a common-mode systematic error cancels in ' +
+      '|t_c_RK4 - t_c_DP5|; I5 an N-uniform step-budget law dt(N) with the imp-362 pole reduction ' +
+      'carried through (COUPLED to G-interval-enclosure).\n\n' +
+      'TWO ILLUSTRATIONS: (S1) on a deliberately biased scalar field y_prime = -y + eps, faithful ' +
+      'classic-RK4 and Dormand-Prince DP5=RK5(4) tableaux AGREE to ~1.8e-10 while each carries the ' +
+      'common-mode absolute error eps(1 - e^-1) ~ 6.32e-4 -- a ~3.4e6x factor the two-method gap is ' +
+      'blind to; (S2) the RK4-LTE 5th-derivative bound m!/g^(m+1) grows exactly 10^6 per decade of ' +
+      'gap reduction, so a finite LTE constant exists only through an a-priori g_min lower bound (I2).\n\n' +
+      'CONSEQUENCE: G-step-error is NOT independent of the other Step-2 obligations (I3 &lt;-&gt; ' +
+      'G-gronwall, I5 &lt;-&gt; G-interval-enclosure), and the imp-2466 agreement, while a valid ' +
+      'cross-check, is provably not a certificate.\n\n' +
+      'HONEST SCOPE: a SCOPING entry only; discharges NONE of I1..I5; the imp-2466 cross-check is ' +
+      'UNTOUCHED and remains a valid non-certifying cross-check; C_mb GUE-conditional per imp-486 ' +
+      'UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict; NO QED. ' +
+      'Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35178 (glossary headword enumerating the imp-35127 five-ingredient scope), 2026',
+    relatedTerms: [
+      'imp-35127 scoped the five I1-I5 ingredients this entry enumerates and ran the S1/S2 illustrations (imp-35127)',
+      'imp-2466 the empirical two-method RK4/DP5 agreement this entry distinguishes from a certificate (imp-2466)',
+      'imp-35167 scoped I2, the binding minimum-gap non-collision ingredient, into machinery M1-M5 (imp-35167)',
+      'imp-35170 scoped I4, the absolute per-scheme RK4 Butcher error-constant bound (imp-35170)',
+      'imp-35168 assessed I3, showing the mesoscopic strip saves propagation but not accumulation (imp-35168)',
+      'imp-2520 the backward-flow Gronwall stability lemma I3 and M4 couple to, vacuous near the front (imp-2520)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this scoping entry (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

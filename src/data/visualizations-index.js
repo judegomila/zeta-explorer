@@ -1056,6 +1056,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive round-off-ceiling diagram reusing baked imp-35113 resolvedTable/firstUnresolvedN/firstUnresolvedSignFlips/representativeMagnitudesAtCross literals verbatim; a numerical-differentiation reach limit, not a sign change, on the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 untouched; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35329-exponent-drift-closing-comparison',
+      title: 'Exponent-Drift Closing Comparison: Shared 1/log Envelope',
+      oneLine:
+        'Places the three logarithmically-closing exponent-drift residuals (E_coll to -1/2 per imp-35242, E_flow to -1 per imp-35198, sigma-share to +1/2 per imp-35183) on one chart, each rescaled by its own already-known closing-law constant so all three collapse onto a shared 1/ln(argument) reference envelope.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35242-ecoll-exponent-residual-0005-tolerance-locate.js',
+      paperSourcePath:
+        'src/data/imp-35242-ecoll-exponent-residual-0005-tolerance-locate.js, src/data/imp-35198-eflow-fartail-exponent-logn-correction.js, src/data/imp-35183-sigma-fartail-exponent-ladder-viz-data.js (imp-35329 viz page)',
+      ticket: 'imp-35329',
+      pedagogicalStep: 71,
+      honestCeiling:
+        'Viz-only consolidation reusing the imp-35242/imp-35198/imp-35183 ladders verbatim, with a per-series rescale by each already-established closing-law constant (arithmetic only, no re-derivation); establishes no new numerical claim on the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 untouched; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

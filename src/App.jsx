@@ -768,6 +768,9 @@ const Imp35293ThreeFactorInvariantRealOrdinatesViz = lazy(() =>
 const Imp35294EflowFartailResidualMonotoneViz = lazy(() =>
   import('./pages/Imp35294EflowFartailResidualMonotoneViz.jsx')
 );
+const Imp35295EflowFartailResidualDecompositionViz = lazy(() =>
+  import('./pages/Imp35295EflowFartailResidualDecompositionViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2204,6 +2207,10 @@ function AppShell() {
           <Route
             path="/viz-imp35294-eflow-fartail-residual-monotone"
             element={<Imp35294EflowFartailResidualMonotoneViz />}
+          />
+          <Route
+            path="/viz-imp35295-eflow-fartail-residual-decomposition"
+            element={<Imp35295EflowFartailResidualDecompositionViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

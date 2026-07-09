@@ -944,6 +944,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive residual-ladder chart reusing baked imp-35237 anchors literals verbatim; cross-check only, component model is the imp-3220/imp-3406 extrapolation not a rigorous asymptotic; C_mb stays GUE-conditional per imp-486; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35295-eflow-fartail-residual-decomposition',
+      title: 'E_flow Far-Tail Residual Decomposition: Swap Gap + Closed-Form Remnant',
+      oneLine:
+        'Stacked-bar plot of the imp-35236 E_flow far-tail residual decomposition at N=1e6 and N=1e16, showing the directly-isolated inverse-swap gap (0.0093/0.0025) stacked with the closed-form-Taylor/prefactor remnant (0.0025/0.0019) summing to the imp-35217 leading residual (0.0119/0.0043) at each anchor.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35236-eflow-fartail-inverse-swap-isolation.js',
+      paperSourcePath:
+        'src/data/imp-35236-eflow-fartail-inverse-swap-isolation.js (imp-35295 viz page)',
+      ticket: 'imp-35295',
+      pedagogicalStep: 63,
+      honestCeiling:
+        'Descriptive stacked-residual chart reusing baked imp-35236 anchors literals verbatim; measurement only, component model is the imp-3220/imp-3406 extrapolation not a rigorous asymptotic; C_mb stays GUE-conditional per imp-486; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

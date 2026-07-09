@@ -16884,6 +16884,34 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED and distinct from the R3 obligation (imp-486)',
     ],
   },
+  {
+    term: 'Common-mode blindness: two convergent integrators agreeing to many digits certifies AGREEMENT, not CORRECTNESS',
+    category: 'proof-status',
+    definition:
+      'A headword for the imp-35127 I4/S1 distinction: when two convergent numerical schemes (e.g. ' +
+      'RK4 and DP5=RK5(4)) applied to the SAME flow agree to many digits, |t_c_RK4 - t_c_DP5| ~ 1e-10, ' +
+      'that agreement certifies only that the two schemes AGREE -- it does NOT certify that either is ' +
+      'RIGHT, because any systematic error E_sys shared by both tableaux (a common-mode error) cancels ' +
+      'exactly in the difference and is invisible to a two-method comparison.\n\n' +
+      'THE ILLUSTRATION (S1, imp-35127): on a deliberately biased scalar field y_prime = -y + eps, ' +
+      'faithful RK4 and DP5 agree to ~1e-10 (the two-method gap), yet EACH carries the SAME common-mode ' +
+      'absolute error eps(1 - e^-1) ~ 6.3e-4 against the true solution -- a factor ~6e6 larger than the ' +
+      'gap the agreement measures. The agreement is blind to E_sys by a factor of millions.\n\n' +
+      'CONSEQUENCE: an empirical cross-check like imp-2466 (RK4 vs DP5 agreement on t_c) is a valid ' +
+      'consistency check but structurally CANNOT serve as a certificate; only an ABSOLUTE per-scheme ' +
+      'a-priori bound against the true flow (imp-35127 ingredient I4) closes this gap.\n\n' +
+      'HONEST SCOPE: a documentation/headword entry only; discharges no ingredient of imp-35127 I1-I5; ' +
+      'the imp-2466 cross-check remains valid as a non-certifying consistency check; changes no bound; ' +
+      'establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 ' +
+      'remains the rigorous SOTA.',
+    firstUsed: 'imp-35180 (glossary headword for the imp-35127 I4/S1 common-mode-blindness distinction), 2026',
+    relatedTerms: [
+      'imp-35127 ran the S1 illustration and named I4, the ingredient this headword highlights (imp-35127)',
+      'imp-2466 the empirical RK4/DP5 agreement this entry shows is blind to common-mode error (imp-2466)',
+      'imp-35178 the broader glossary headword enumerating the full imp-35127 I1-I5 scope (imp-35178)',
+      'imp-35170 scoped I4 itself, the absolute per-scheme RK4 Butcher error-constant bound (imp-35170)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -7815,6 +7815,15 @@ const DATA_MODULES = [
   // N-uniform field-Lipschitz bound on a front-adherent strip is UNREACHABLE BY ANY STRIP SCHEDULE.
   // Seven THROWing assertions; I3 stays OPEN; changes no bound; NO QED.
   '/src/data/imp-35196-ystar-schedule-reconciliation-assessment.js',
+  // imp-35220: TABULATES the imp-35196 corridor endpoints y_floor(N) = sqrt(2 N S / E_acc) and the flat
+  // y_ceil across an N grid for EIGHT plausible (S, E_acc, y_ceil) triples from the imp-35127 / imp-2520 /
+  // imp-2563 horizon conventions (imp-35196 quoted the crossing only for the single (1, 1, 5.63) triple).
+  // For each triple it exhibits the crossing N_crit = y_ceil^2 E_acc / (2 S) and confirms the corridor is
+  // EMPTY for all N > N_crit. HEADLINE: N_crit stays a MODEST O(1)-to-O(100) number across every triple
+  // (here in [0.5, 316.9]), far below the roadmap flow anchors N ~ 1e3..1e6, so the corridor is empty at
+  // every anchor for every triple -- the imp-35196 collapse is robust to the horizon conventions, not an
+  // artifact of the (1, 1, 5.63) choice. Eight THROWing assertions; measurement only; I3 stays OPEN; NO QED.
+  '/src/data/imp-35220-ncrit-corridor-endpoint-tabulation.js',
   // imp-35214: ASSESSES whether the imp-35167 min-gap route (an intrinsic accumulation constant keyed
   // to g_min(t), NOT a distance-to-pole bound) can supply the N-uniform field-Lipschitz surrogate that
   // imp-35196 proved unreachable by ANY vertical strip schedule. Enumerates surrogate requirements

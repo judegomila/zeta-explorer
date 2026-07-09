@@ -471,6 +471,37 @@ export default function LambdaBoundsPage() {
                 {s.notes}
               </div>
             )}
+            {s.rigorousUpgradeGap && (
+              <div
+                style={{
+                  fontSize: 11,
+                  color: 'var(--text-muted)',
+                  marginBottom: 10,
+                  padding: '8px 10px',
+                  borderRadius: 6,
+                  background: 'rgba(234,179,8,0.06)',
+                  border: '1px solid rgba(234,179,8,0.2)',
+                }}
+              >
+                <div style={{ marginBottom: 6 }}>
+                  <strong style={{ color: '#facc15' }}>
+                    {s.rigorousUpgradeGap.grade} &rarr; {s.rigorousUpgradeGap.wouldRequire} upgrade gap:
+                  </strong>{' '}
+                  {s.rigorousUpgradeGap.status}
+                </div>
+                <ul style={{ margin: '0 0 6px 18px', padding: 0, lineHeight: 1.5 }}>
+                  {s.rigorousUpgradeGap.obligations.map((o) => (
+                    <li key={o.key}>
+                      <span style={statusChip(o.closed ? 'closed' : 'open')}>
+                        {o.closed ? 'CLOSED' : 'OPEN'}
+                      </span>{' '}
+                      <strong>{o.label}:</strong> {o.need}
+                    </li>
+                  ))}
+                </ul>
+                <div style={{ fontStyle: 'italic' }}>{s.rigorousUpgradeGap.caveat}</div>
+              </div>
+            )}
             <div>
               {s.tickets.map((t) => ticketLink(t))}
             </div>

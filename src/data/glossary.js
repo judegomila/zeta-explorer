@@ -17036,6 +17036,50 @@ export const glossary = [
       'imp-33723 the sibling E_coll=E_trunc closed-form crossover this crossing mirrors in structure (imp-33723)',
     ],
   },
+  {
+    term: 'imp-35312 2/5-vs-K disambiguation: why the near-miss constant 2/5 kept surfacing next to the model-cusp margin-ratio prefactor K = 8 sqrt(2)/(9 pi) = 0.40014, and why 2/5 is neither that prefactor nor any surviving term of the rho(eps) expansion',
+    category: 'numerical',
+    definition:
+      'A disambiguation headword tying together why 2/5 = 0.40000 kept being mistaken for the model-cusp ' +
+      'margin-ratio prefactor K in |rho(eps) - 2/3| ~ K eps^{3/2}, across three separate tickets that each ' +
+      'addressed one facet of the confusion.\n\n' +
+      'THE DRIFT: imp-35193 measured K empirically at ~0.400 on a ladder that floored at N = 1e7 (eps ~ ' +
+      '7.9e-4), where the O(eps) finite-size bias (~1e-3) exceeds the ~3.5e-4 gap separating the true K from ' +
+      '2/5 -- close enough that the write-up drifted toward citing 2/5 as if it were the prefactor.\n\n' +
+      'WHY IT IS NOT THE PREFACTOR: imp-35216 derived the closed form K = 4/(3 A_2) = 8 sqrt(2)/(9 pi) = ' +
+      '0.4001406 from the certified renormalization constants A_1 = pi/sqrt2 (imp-33646) and A_2 = ' +
+      '3 pi/(2 sqrt2) (imp-33645), and imp-35240 independently confirmed it on a grid pushed three decades ' +
+      'deeper (to eps = 1e-6), landing on 0.40014 to ~3.3e-7 -- about 424x closer than to 2/5. imp-35216 ' +
+      'also identified WHERE 2/5 actually comes from: the denominator tail R_3(L) L^5 -> 2/5, a SUBLEADING ' +
+      '(eps^{5/2}) term of C_curv, not the leading eps^{3/2} coefficient K -- its closeness to K (differing ' +
+      'by only ~1.4e-4) is a numerical coincidence of the model cusp, not a shared closed form.\n\n' +
+      'WHY IT DOES NOT EVEN SURVIVE AS THE NEXT TERM: imp-35244 then checked whether the naive eps^{5/2} ' +
+      'coefficient the 2/5 tail would imply (K_{5/2} = -32 sqrt(2)/(45 pi) = -0.32011) actually appears in ' +
+      'rho, and found it does not -- the residual ratio decays to 0 rather than converging there. The odd-p ' +
+      'conjugate branches B_3(+) + B_3(-) cancel at leading order ((i-t^2)^{-3} + (i+t^2)^{-3} = ' +
+      '-6 i t^{-8} + O(t^{-12})), so the eps^{5/2} slot the 2/5 tail lives in is EMPTY and the true next term ' +
+      'is eps^{7/2} with coefficient -8 sqrt(2)/(3 pi). The 2/5 tail belongs to the symmetric branch-sum ' +
+      'integrand, which never reaches the rho expansion at all.\n\n' +
+      'HOW TO APPLY: whenever 2/5 is mentioned in the same breath as the model-cusp prefactor, cite this ' +
+      'entry (or imp-35216 + imp-35240 + imp-35244 together) to make clear 2/5 is (a) not the eps^{3/2} ' +
+      'prefactor -- that is K = 8 sqrt(2)/(9 pi) = 0.40014, certified and independently confirmed -- and ' +
+      '(b) not even a term of rho’s expansion at any order, since the eps^{5/2} slot it would occupy is ' +
+      'empty.\n\n' +
+      'HONEST SCOPE: a content/glossary disambiguation restating the imp-35193/imp-35216/imp-35240/imp-35244 ' +
+      'chain, distinct from the imp-35240 confirmation headword and the imp-35244 corrected-expansion ' +
+      'headword; not a new measurement or bound; assessment only on the inherited imp-3220/imp-3406/' +
+      'imp-33646 model-cusp surrogate; O3 and G6a_shock_lipschitz stay OPEN; C_mb GUE-conditional per ' +
+      'imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict; NO QED. ' +
+      'Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35312 (glossary headword disambiguating 2/5 from the model-cusp margin-ratio prefactor K), 2026',
+    relatedTerms: [
+      'imp-35193 measured the empirical prefactor K ~ 0.400 that drifted toward citing 2/5 (imp-35193)',
+      'imp-35216 derived the certified closed form K = 8 sqrt(2)/(9 pi) and identified 2/5 as an unrelated subleading tail (imp-35216)',
+      'imp-35240 independently confirmed K = 8 sqrt(2)/(9 pi) on a finer grid, 424x closer than to 2/5 (imp-35240)',
+      'imp-35244 showed the eps^{5/2} slot the 2/5 tail would imply is EMPTY, so 2/5 never reaches rho (imp-35244)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this disambiguation (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

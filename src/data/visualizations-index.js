@@ -986,6 +986,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive band-position chart reusing baked imp-35243 demonstration_D1/D2 literals verbatim; the band is a SURROGATE feature ~15-25 decades above any verified datum, not established as a feature of the true dynamic; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35183-sigma-fartail-exponent-ladder',
+      title: 'Sigma(N) Far-Tail Exponent Ladder: The Log-Slow Approach to 1/2',
+      oneLine:
+        'Plots the imp-35036 per-decade local decay-exponent ladder p_dec of sigma(N)=E_coll/E(N) climbing from ~0.4310 [1e11] toward the imp-3463 far-tail 1/2 asymptote over k=11..30, overlaid with the 1/(2 ln N) residual-gap envelope, plus the residual gap itself on a log scale, showing the constant E_trunc floor overtakes the vanishing sqrt(1/N) E_coll only logarithmically.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35183-sigma-fartail-exponent-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-35036-sigma-fartail-exponent-log-slow-half-approach.js (imp-35183 viz page)',
+      ticket: 'imp-35183',
+      pedagogicalStep: 66,
+      honestCeiling:
+        'Descriptive exponent-ladder chart reusing baked imp-35036 extendedLadder/gapLaw/crossings literals verbatim; measurement on the inherited imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 untouched; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

@@ -15787,6 +15787,35 @@ export const glossary = [
       'imp-35196 shows no N-dependent strip schedule y_star(N) can reconcile the two requirements either, ruling out a fixed-height artifact explanation (imp-35196)',
     ],
   },
+  {
+    term: 'imp-35154 E_flow negligibility thresholds: N_1pct ~ 3.247e7 and N_0p1pct ~ 1.755e10 bracket the imp-33723 N_cross, where the E_flow share is already ~0.19%',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35154 measurement of where the flow term E_flow becomes ' +
+      'quantitatively negligible inside the above-floor residual E_coll + E_flow (imp-35100 M3 ' +
+      'established only that the ratio E_flow/E_coll -> 0, ~8e-5 by 1e13, without locating a ' +
+      'threshold N).\n\n' +
+      'Define the E_flow share s(N) = E_flow / (E_coll + E_flow) on the inherited imp-33601/imp-3406 ' +
+      'component surrogate. Since E_flow/E_coll ~ N^-1/2 up to slow log factors, s(N) is strictly ' +
+      'decreasing (s(1e6) ~ 3.05e-2 down to s(1e13) ~ 7.93e-5). Bisection locates s(N) < 1% first at ' +
+      'N_1pct ~ 3.247e7 and s(N) < 0.1% first at N_0p1pct ~ 1.755e10. Relative to the imp-33723 ' +
+      'closed-form crossover N_cross = 3.280294e9 (where E_coll = E_trunc), N_1pct sits ~2.00 decades ' +
+      'BELOW N_cross and N_0p1pct sits ~0.73 decades ABOVE it -- and at N_cross itself the share is ' +
+      'already only s(N_cross) ~ 0.19%, between the two thresholds. So across the entire E_coll = ' +
+      'E_trunc crossover neighborhood, and everywhere above ~3.25e7, the above-floor residual is ' +
+      'E_coll to better than 1%, and to better than 0.1% by ~1.76e10 -- the neighborhood is ' +
+      'essentially E_coll-only.\n\n' +
+      'HONEST SCOPE: measurement only, on the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
+      'rigorous asymptotic; C_mb stays GUE-conditional per imp-486; C_C 1/8 ansatz (imp-2642) and ' +
+      'E_trunc fixed strip (imp-2631) untouched; changes no bound; establishes no operator ' +
+      'positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35205 (glossary headword recording the imp-35154 E_flow negligibility thresholds), 2026',
+    relatedTerms: [
+      'imp-35100 established E_flow/E_coll -> 0 only at the endpoint (~8e-5 by 1e13), the ratio this headword pins a threshold N for (imp-35100)',
+      'imp-33723 supplies the closed-form N_cross = 3.280294e9 crossover the two thresholds are measured relative to (imp-33723)',
+      'imp-3406 supplies the inherited component model (E_coll, E_flow sub-terms) reused without re-derivation (imp-3406)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -14,6 +14,10 @@
  * HONEST SCOPE: this is a RH-FREE HPC computation, not an analytic advance. It
  * only nudges the bound (0.20 → ~0.19 for a 3× height gain) and asymptotes well
  * above 0. Platt–Trudgian Λ ≤ 0.2 remains SOTA. NO QED.
+ *
+ * @see VerifiedHeightLeverPage.jsx (route /verified-height-lever, listed in
+ *   nav-groups.js) -- the page consumer that renders this module's payoff
+ *   table, scaling law, and honest-ceiling banner.
  */
 
 export const LEVER_META = {

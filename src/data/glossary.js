@@ -16228,6 +16228,7 @@ export const glossary = [
       'imp-33646 supplies A_1 = pi/sqrt2, the eps^{3/2} renormalization constant (imp-33646)',
       'imp-33645 supplies A_2 = 3 pi/(2 sqrt2), the eps^{5/2} renormalization constant (imp-33645)',
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this derivation (imp-486)',
+      'imp-35276 audited this headword and confirms it does NOT carry the refuted eps^{5/2} 2/5 tail forward as a coefficient (imp-35276)',
     ],
   },
   {

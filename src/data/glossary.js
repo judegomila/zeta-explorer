@@ -17164,6 +17164,56 @@ export const glossary = [
       'imp-35105 E-component decomposition table, the source layout the four landmarks live on (imp-35105)',
     ],
   },
+  {
+    term: 'imp-35328 three logarithmically-closing exponent-drift laws (disambiguation): E_coll -> -1/2 from above, E_flow -> -1 from above, sigma-share -> +1/2 from below',
+    category: 'numerical',
+    definition:
+      'A DISAMBIGUATION headword separating three distinct local-decay-exponent laws in the repo ' +
+      'that are easy to conflate because each approaches a half-integer asymptote only ~1/log-slowly, ' +
+      'on the same inherited imp-3220/imp-3406 component model.\n\n' +
+      '(1) E_COLL SEPARATED EXPONENT -> -1/2 FROM ABOVE. Quantity: the local decay exponent of ' +
+      'E_coll = C_C_PINNED sqrt(log T0 / N) alone (T0 = effectiveHeightForN(N)) with respect to log N. ' +
+      'Sign of approach: from ABOVE (the exponent stays strictly greater than -1/2, e.g. still ' +
+      '~-0.4848 at N=1e15). Closing law: residual = exponent - (-1/2) ~ 1/(2 log T0), confirmed with ' +
+      'no floor out past N=1e45 (imp-33620 established the ladder to N=1e15; imp-35242 extended it, ' +
+      'locating the residual<0.005 landmark at N~4.67e44; glossary headword imp-35269).\n\n' +
+      '(2) E_FLOW FAR-TAIL EXPONENT -> -1 FROM ABOVE. Quantity: the local decay exponent of the ' +
+      'FULL E_flow ~ (log T0)^2 / (2 pi T0) term with respect to log N. Sign of approach: from ABOVE ' +
+      '(e.g. ~-0.77 at N=1e6 drifting to ~-0.91 at N=1e16). Closing law: leading correction ' +
+      's(x) = -1 + 3/log N, x = log N (imp-35198 derivation, independently cross-checked at the two ' +
+      'anchors N=1e6/1e16 by imp-35222, extended to a four-point ladder by imp-35237, visualized by ' +
+      'imp-35231).\n\n' +
+      '(3) SIGMA-SHARE FAR-TAIL EXPONENT -> +1/2 FROM BELOW. Quantity: the local DECAY exponent ' +
+      'p_dec = -slope of OLS(ln sigma vs ln N) of the GUE-conditional share sigma(N) = E_coll / E(N) ' +
+      '(the ratio, not a component alone). Sign of approach: from BELOW (p_dec climbs upward toward ' +
+      '1/2, e.g. ~0.4310 at [1e11,1e12] rising to ~0.4927 by [1e30,1e31], never overshooting). ' +
+      'Closing law: residual gap 1/2 - p_dec ~ 1/(2 ln N) (imp-3463 far-tail form; imp-35036 extended ' +
+      'the imp-33582 ladder and quantified the log-slow gap and the astronomical 0.499 crossing at ' +
+      'N~1e219; visualized by imp-35183).\n\n' +
+      'WHY THEY ARE EASY TO CONFUSE: all three are local-decay-exponent laws on the SAME E_coll/ ' +
+      'E_flow/E_trunc component model, all close on a half-integer asymptote (-1/2, -1, or +1/2), and ' +
+      'all close only LOGARITHMICALLY (1/log T0 or 1/log N), so a reader skimming any one residual ' +
+      'plot can mistake it for either of the other two. The differentiator is WHAT quantity is being ' +
+      'differenced (E_coll alone vs full E_flow vs the E_coll/E(N) ratio) and WHICH direction the ' +
+      'approach comes from (above, above, or below respectively).\n\n' +
+      'HOW TO APPLY: cite this entry when a reader needs to identify which of the three closing laws ' +
+      'a given residual figure or ticket refers to, before citing imp-35198, imp-35242, or imp-35036 ' +
+      'individually.\n\n' +
+      'HONEST SCOPE: content/glossary only, reproducing existing literals verbatim from the cited ' +
+      'source modules; no new measurement; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no ' +
+      'bound; establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+      'remains the rigorous SOTA.',
+    firstUsed: 'imp-35328 (glossary disambiguation headword for the three exponent-drift closing laws), 2026',
+    relatedTerms: [
+      'imp-35242 E_coll exponent-residual landmark, law (1) above (imp-35242)',
+      'imp-35198 E_flow far-tail exponent leading correction, law (2) above (imp-35198)',
+      'imp-35036 sigma far-tail exponent log-slow half-approach, law (3) above (imp-35036)',
+      'imp-33620 established the E_coll exponent ladder through N=1e15 (imp-33620)',
+      'imp-33582 established the sigma-share per-decade ladder k=6..11 (imp-33582)',
+      'imp-3463 is the far-tail leading form for the sigma-share exponent, approached from below (imp-3463)',
+      'imp-486 is the C_mb GUE-conditional caveat shared by all three laws, UNTOUCHED (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

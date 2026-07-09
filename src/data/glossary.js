@@ -15455,6 +15455,36 @@ export const glossary = [
       'imp-362 is the interval RK4 witness (LAMBDA_INTERVAL_DYSON) that G-interval-enclosure would need extended (imp-362)',
     ],
   },
+  {
+    term: 'imp-35039 Exponent Ownership (E_coll owns 1/2, E_flow rises to 1)',
+    category: 'numerical',
+    definition:
+      'A headword recording which surrogate error term owns which far-tail local decay exponent, ' +
+      'correcting a recurring misreading. The E_flow local exponent q_eff(x)=-d ln R/dx (on the ' +
+      'inherited imp-3220/imp-3406 surrogate) rises MONOTONICALLY toward 1 across the measured band ' +
+      '(~0.8463 at N=1e9 to ~0.9956 at N=1e300, with 1-q_eff~3/ln N), never turning over toward 1/2 ' +
+      'as the imp-34973 subGap premise proposed. The single q_eff=0.6 level crossing is an UPWARD ' +
+      'event at N~1e3.22, far BELOW the 1e9 crossing band, not a descent at or above it. The imp-3463 ' +
+      'far-tail 1/2 belongs instead to E_coll/E_trunc ~ A*sqrt(L/N) (log-derivative rising from ' +
+      '~0.4761 at 1e9 toward 1/2 from below) -- a distinct term from E_flow (~(log)^3/N, ' +
+      'log-derivative->1). imp-35131 later derived both limits in closed form, confirming q_eff-q_coll' +
+      '->1/2 so the two never meet.\n\n' +
+      'HOW TO APPLY: cite this entry (or imp-35039/imp-35131) whenever a ticket or note frames q_eff ' +
+      'as "descending to 1/2" -- that framing conflates E_flow with E_coll and describes an asymptote ' +
+      'that does not exist for E_flow on this surrogate.\n\n' +
+      'HONEST SCOPE: measurement/derivation on the inherited imp-3220/imp-3406 component model only; ' +
+      'C_mb stays GUE-conditional (imp-486); the imp-3463 far-tail 1/2 exponent is untouched (it now ' +
+      'attaches to E_coll, not E_flow); changes no bound; establishes no operator positivity; ' +
+      'Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-35142 (glossary headword recording the imp-35039 exponent-ownership correction), 2026',
+    relatedTerms: [
+      'imp-35039 measured q_eff(x) rising monotonically toward 1 with the single 0.6 crossing upward and below the band (imp-35039)',
+      'imp-35131 derives both the q_eff->1 and q_coll->1/2 limits in closed form, confirming they never meet (imp-35131)',
+      'imp-35139 visualizes the q_eff profile against the contrasting E_coll log-derivative on a shared dex axis (imp-35139)',
+      'imp-3463 is the source of the far-tail 1/2 exponent, now attributed to E_coll rather than E_flow (imp-3463)',
+      'imp-34973 is the subGap whose turnover-toward-1/2 premise for E_flow this entry corrects (imp-34973)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

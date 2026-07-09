@@ -789,6 +789,9 @@ const Imp35184BernsteinIngredientsTripleViz = lazy(() =>
 const Imp35314FidelityCertificateDiagramViz = lazy(() =>
   import('./pages/Imp35314FidelityCertificateDiagramViz.jsx')
 );
+const Imp35320SignLadderRoundoffCeilingViz = lazy(() =>
+  import('./pages/Imp35320SignLadderRoundoffCeilingViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2253,6 +2256,10 @@ function AppShell() {
           <Route
             path="/viz-imp35314-fidelity-certificate-diagram"
             element={<Imp35314FidelityCertificateDiagramViz />}
+          />
+          <Route
+            path="/viz-imp35320-sign-ladder-roundoff-ceiling"
+            element={<Imp35320SignLadderRoundoffCeilingViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

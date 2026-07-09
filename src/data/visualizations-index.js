@@ -1042,6 +1042,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive certificate-checklist diagram reusing baked imp-35243 fidelity_certificate_requirements literals verbatim; no requirement is discharged here; the reentry band stays NOT established as a feature of the true dynamic; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35320-sign-ladder-roundoff-ceiling',
+      title: 'Sign-Ladder Round-off Ceiling: Recovered Sign vs Order',
+      oneLine:
+        'Plots the imp-35113 finite-difference-recovered sign of g^(n) against order n=1..6 alongside the analytic |g^(n)| geometric collapse, showing the sign matches the analytic (-1)^(n+1) ladder robustly through n*=4, flips step-dependently at n=5, and is round-off dominated beyond.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35113-crossover-deriv-sign-ladder-finite-difference.js',
+      paperSourcePath:
+        'src/data/imp-35113-crossover-deriv-sign-ladder-finite-difference.js (imp-35320 viz page)',
+      ticket: 'imp-35320',
+      pedagogicalStep: 70,
+      honestCeiling:
+        'Descriptive round-off-ceiling diagram reusing baked imp-35113 resolvedTable/firstUnresolvedN/firstUnresolvedSignFlips/representativeMagnitudesAtCross literals verbatim; a numerical-differentiation reach limit, not a sign change, on the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 untouched; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

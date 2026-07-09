@@ -15485,6 +15485,34 @@ export const glossary = [
       'imp-34973 is the subGap whose turnover-toward-1/2 premise for E_flow this entry corrects (imp-34973)',
     ],
   },
+  {
+    term: 'imp-35041 sigma(N) far-tail sqrt(1/N) crossing-spacing signature (~2 decades of N per factor-10 sigma drop)',
+    category: 'numerical',
+    definition:
+      'A headword recording the measured per-factor-10 threshold-crossing spacing of the imp-33582/' +
+      'imp-3406 conditional collision share sigma(N) = E_coll/E(N) two decades deeper than imp-33582 ' +
+      'went. Bisecting the N at which sigma first drops below 0.5, 0.1, 0.01, and 0.001 gives crossing ' +
+      'spacings of 1.99, 2.16, 2.07 decades of N for the 0.5->0.1, 0.1->0.01, 0.01->0.001 pairs -- all ' +
+      'hovering near 2 decades, the signature of the far-tail E_coll ~ C_C*sqrt(L/N) tail (a factor-10 ' +
+      'drop in a sqrt(1/N) quantity costs exactly 2 decades of N). imp-35130 later derived this ~2-decade ' +
+      'constant in closed form, showing it is EXACTLY 2 as thr->0 and that the measured drift above 2 ' +
+      '(the 0.16 and 0.07 excess) is the residual log T0(N) running plus a finite-threshold ' +
+      'share-mapping correction, reproducing all three measured spacings to the fourth decimal.\n\n' +
+      'HOW TO APPLY: cite imp-35041 (or this entry) when discussing the sigma(N) far-tail crossing ' +
+      'spacing as diagnostic evidence for the sqrt(1/N) tail form; cite imp-35130 for the closed-form ' +
+      'derivation of the ~2-decade constant and its log-running residual.\n\n' +
+      'HONEST SCOPE: measurement/derivation on the inherited imp-3220/imp-3406 component model only; ' +
+      'C_mb stays GUE-conditional (imp-486); changes no bound; establishes no operator positivity; ' +
+      'Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-35143 (glossary headword recording the imp-35041 far-tail crossing-spacing signature), 2026',
+    relatedTerms: [
+      'imp-35041 measured the 1.99/2.16/2.07 decade crossing spacings two decades past the imp-33582 endpoint (imp-35041)',
+      'imp-35130 derives the ~2-decade constant in closed form, EXACTLY 2 as thr->0, matching imp-35041 to the fourth decimal (imp-35130)',
+      'imp-33582 is the accelerating post-peak sigma(N) decay ladder this extends deeper into the tail (imp-33582)',
+      'imp-3463 is the far-tail leading form sigma ~ C*sqrt(L/N), the exponent -> 1/2 signature underlying the 2-decade spacing (imp-3463)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this measurement (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

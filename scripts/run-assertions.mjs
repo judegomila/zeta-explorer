@@ -7607,6 +7607,14 @@ const DATA_MODULES = [
   // monotonically 0.9128 -> 0.9846 -- mirroring the imp-34130 sibling separated-E_coll local-exponent
   // residual law. Measurement only; light imports; C_mb GUE-conditional (imp-486) untouched; no bound; NO QED.
   '/src/data/imp-35069-g-conversion-slope-n-ladder-half-approach.js',
+  // imp-35073: CROSS-VALIDATES the imp-34948 far-tail (1e14..1e18) inflection/half-N locators from a
+  // STRUCTURALLY-INDEPENDENT from-source root-finder (secant on the direct E_coll=E_trunc crossover for
+  // half-N, secant on 5-point O(h^4) curvature stencils for the two inflections) -- NOT the imp-34933/
+  // imp-34948 200-step 3-point bisection reused verbatim. The independent path reproduces the offsetN
+  // {0.838..0.5053 sigmoid, 2.3241..1.4242 ramp} to ~1.4e-4 rel (toFixed(4)-percent storage floor) and the
+  // -2.013/-1.948 decay exponents to <5e-5/~7e-4, so the far-tail readings are NOT a shared-locator artifact.
+  // Measurement/cross-check only; light imports; C_mb GUE-conditional (imp-486) untouched; no bound; NO QED.
+  '/src/data/imp-35073-far-tail-locator-second-path-crossvalidation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

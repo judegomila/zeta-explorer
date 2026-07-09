@@ -15325,6 +15325,30 @@ export const glossary = [
       'imp-3220/imp-3406 surrogate crossover map (canonical explainer), the map g is classified on',
     ],
   },
+  {
+    term: 'imp-34996 Krawczyk headroom asymptotic floor S_inf = 1/(2 delta) = 2500',
+    category: 'numerical',
+    definition:
+      'Quick-lookup headword for the imp-34996 closed-form N -> infinity limit of the strictly-decreasing ' +
+      'Krawczyk contraction-validity headroom S(N) = G/((1+G) delta FP_LO) (imp-34929 proved S is strictly ' +
+      'decreasing in N with no interior turning point). As N -> infinity the contraction factor a(N) -> 0, ' +
+      'so the bounded gain G/(1+G) rises to its ceiling 1/2 and FP_LO -> 1, collapsing the headroom to the ' +
+      'one-line closed form S_inf = 1/(2 delta); with the fixed imp-34774/34776/34799 bracket half-width ' +
+      'delta = 2e-4 this is EXACTLY 2500. Since S_inf = 2500 is 25x the imp-34799/34817 100x safety factor, ' +
+      'the safety factor is NEVER exhausted at any finite N: the residual asymptotic margin is a persistent ' +
+      '2400 (25x multiplicative), and the entire remaining monotone descent from the imp-34883/34906 in-band ' +
+      'worst case (band-top 2555.18x) down to the floor closes only 2555.18 - 2500 = 55.18 of headroom over ' +
+      'the whole infinite N-range. HONEST SCOPE: measurement/extrapolation only on the inherited imp-3220/ ' +
+      'imp-3406 surrogate crossover map; the imp-34714a machine certificate remains OPEN; changes no bound; ' +
+      'establishes no operator positivity; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-34996 (closed-form N -> infinity extrapolation of the imp-34929 monotone-decreasing Krawczyk headroom), 2026',
+    relatedTerms: [
+      'imp-34929 Krawczyk headroom monotonicity derivative: closed-form dS/dN < 0, strictly decreasing S',
+      'imp-34906 Krawczyk headroom H2-ceiling reconcile: worst in-band case clears 100x by 25.55x (imp-34906)',
+      'imp-34883 Krawczyk worst-case headroom band: the k=10 band-min 2555.18x in-band worst case',
+      'imp-34714a machine certificate (OPEN): the directed-rounding certification this floor does not close',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -30,7 +30,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const PROJECT_ROOT = path.resolve(__dirname, '..');
 const QUEUE_FILE = path.join(PROJECT_ROOT, 'src/data/improvement-queue.js');
-const INDEX_FILE = path.join(PROJECT_ROOT, 'scripts/queue-index.json');
 
 // ── Argument parsing ─────────────────────────────────────────────────────────
 
@@ -159,16 +158,22 @@ if (existingIds.has(ticketId)) {
   process.exit(1);
 }
 
-// Suggest next ID from queue-index.json if provided ID seems off
-let nextIdHint = null;
-try {
-  const idx = JSON.parse(fs.readFileSync(INDEX_FILE, 'utf8'));
-  nextIdHint = idx.nextImprovementId;
-} catch (_) {}
+// Suggest next ID from the actual ticket-id tail in improvement-queue.js.
+// imp-35146: this used to read idx.nextImprovementId from queue-index.json,
+// but that field is the src/data/improvements.js log-entry counter -- a
+// different namespace that has diverged from the imp-NNNN ticket-id tail by
+// thousands (imp-33785, imp-35085). Comparing a proposed ticket id against
+// it made the staleness check silently useless. Derive the hint from
+// existingIds (the real ticket-id namespace) instead.
+let maxExistingNum = 0;
+for (const id of existingIds) {
+  const n = parseInt(id.replace('imp-', ''), 10);
+  if (n > maxExistingNum) maxExistingNum = n;
+}
 
 const proposedNum = parseInt(ticketId.replace('imp-', ''), 10);
-if (nextIdHint !== null && proposedNum < nextIdHint - 50) {
-  console.warn(`Warning: proposed ${ticketId} is much lower than expected next id imp-${nextIdHint}`);
+if (maxExistingNum > 0 && proposedNum < maxExistingNum - 50) {
+  console.warn(`Warning: proposed ${ticketId} is much lower than the existing ticket-id tail (max imp-${maxExistingNum})`);
 }
 
 // Find insertion point: the close of the IMPROVEMENT_QUEUE array specifically.

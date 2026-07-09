@@ -649,6 +649,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive resampling-distribution histogram on the inherited surrogate; changes no bound, does not discharge the GUE conditional (imp-486), establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35138-sigma-deep-tail-threshold-ladder',
+      title: 'Sigma(N) Deep-Tail Threshold Ladder',
+      oneLine:
+        'Plots the imp-35041 sigma(N) = E_coll/E(N) curve across N in [1e6,1e16] with all four threshold crossings marked (0.5, 0.1, 0.01, 0.001), plus the per-factor-10 decade-spacing ladder (1.99, 2.16, 2.07) converging on the imp-3463 far-tail sqrt(1/N) signature.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35138-sigma-deep-tail-threshold-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-35041-sigma-deep-tail-threshold-extension.js (imp-35138 viz page)',
+      ticket: 'imp-35138',
+      pedagogicalStep: 42,
+      honestCeiling:
+        'Descriptive threshold-crossing chart on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

@@ -707,6 +707,9 @@ const Imp35118BernsteinSignatureLadderViz = lazy(() =>
 const Imp35123BootstrapExponentDistributionViz = lazy(() =>
   import('./pages/Imp35123BootstrapExponentDistributionViz.jsx')
 );
+const Imp35138SigmaDeepTailThresholdLadderViz = lazy(() =>
+  import('./pages/Imp35138SigmaDeepTailThresholdLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2062,6 +2065,10 @@ function AppShell() {
           <Route
             path="/viz-imp35123-bootstrap-exponent-distribution"
             element={<Imp35123BootstrapExponentDistributionViz />}
+          />
+          <Route
+            path="/viz-imp35138-sigma-deep-tail-threshold-ladder"
+            element={<Imp35138SigmaDeepTailThresholdLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

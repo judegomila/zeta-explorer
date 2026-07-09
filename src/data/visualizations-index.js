@@ -691,6 +691,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive running-g overlay chart on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35161-e-component-decomposition-table',
+      title: 'E_coll / E_trunc / E_flow Component Decomposition Table',
+      oneLine:
+        'Tabulates the imp-35105 surrogate E(N) = E_coll + E_trunc + E_flow decomposition (absolute magnitudes and fractional shares) on a log-spaced grid across N in [1e6,1e13] plus the four cluster landmarks, highlighting the twice-flipping dominant-term rank order.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35105-e-component-decomposition-table.js',
+      paperSourcePath:
+        'src/data/imp-35105-e-component-decomposition-table.js (imp-35161 viz page)',
+      ticket: 'imp-35161',
+      pedagogicalStep: 45,
+      honestCeiling:
+        'Descriptive component-decomposition table on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

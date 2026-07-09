@@ -16350,6 +16350,42 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this measurement (imp-486)',
     ],
   },
+  {
+    term: 'imp-35176 honest-status note: the Krawczyk 100x safety factor is NEVER first-reached on the physical branch, correcting the imp-34996 heuristic',
+    category: 'proof-status',
+    definition:
+      'An honest-status note recording the imp-35176 correction to the imp-34996 heuristic ' +
+      'placement of the Krawczyk contraction-validity headroom S(N) = G/((1+G) delta FP_LO) ' +
+      'crossing the imp-34799/34817 100x safety factor. imp-34996 assumed a step gain ~0.02 ' +
+      'implies S ~ 100, silently taking FP_LO ~ 1 -- an assumption that fails once FP_LO = ' +
+      '1 - a(N)(1-delta) is tracked with its FULL a(N)-dependence.\n\n' +
+      'imp-35176 swept the entire physical (a<1) admissible branch out to N=1e13 with the ' +
+      'complete FP_LO dependence and found there is NO genuine 100x crossing there: the ' +
+      'physical branch is FLOORED at S_inf = 1/(2 delta) = 2500 (the same asymptotic floor ' +
+      'imp-34996 derived), descending toward 2500 from above with a measured minimum ~2500.02. ' +
+      'Since 100 sits ~25x BELOW that floor, it is never in the range of S on the admissible ' +
+      'branch, so the headroom never first reaches the 100x factor at any admissible N -- ' +
+      'the imp-34996 premise that such a crossing exists at small N is FALSE. The only N at ' +
+      'which the surrogate expression equals 100 lies at log10 N ~ 7.867 with a ~ 1.998, deep ' +
+      'in the UNPHYSICAL a>1 region: a sign-flip through the gain pole at a=2, not a smooth ' +
+      'admissible-branch descent.\n\n' +
+      'HOW TO APPLY: cite imp-35176 (or this entry), not the original imp-34996 heuristic, ' +
+      'when discussing where the Krawczyk headroom drops to the 100x safety factor -- it ' +
+      'does not, on the physical branch; the safety factor is never exhausted, holding a ' +
+      'persistent ~25x margin down to the S_inf=2500 floor.\n\n' +
+      'HONEST SCOPE: a correction of an existing heuristic via measurement on the inherited ' +
+      'imp-3220/imp-3406 surrogate crossover map; the imp-34714a machine certificate remains ' +
+      'OPEN; changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35251 (honest-status note recording the imp-35176 correction of the imp-34996 S~100 heuristic), 2026',
+    relatedTerms: [
+      'imp-35176 swept the full physical-branch FP_LO dependence and found no genuine 100x crossing (imp-35176)',
+      'imp-34996 Krawczyk headroom asymptotic floor S_inf = 1/(2 delta) = 2500',
+      'imp-34929 Krawczyk headroom monotonicity derivative: closed-form dS/dN < 0, strictly decreasing S',
+      'imp-34714a machine certificate (OPEN): the directed-rounding certification this floor does not close',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this note (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

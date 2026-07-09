@@ -22,6 +22,7 @@ const SupercriticalPage = lazy(() => import('./pages/SupercriticalPage.jsx'));
 const DeBruijnDeparturePage = lazy(() => import('./pages/DeBruijnDeparturePage.jsx'));
 const PtFloorSensitivityAuditPage = lazy(() => import('./pages/PtFloorSensitivityAuditPage.jsx'));
 const VerifiedHeightLeverPage = lazy(() => import('./pages/VerifiedHeightLeverPage.jsx'));
+const MollifiedBarrierCertificatePage = lazy(() => import('./pages/MollifiedBarrierCertificatePage.jsx'));
 const DocsPage = lazy(() => import('./pages/DocsPage.jsx'));
 const ImprovementsPage = lazy(() => import('./pages/ImprovementsPage.jsx'));
 const WaveSimPage = lazy(() => import('./pages/WaveSimPage.jsx'));
@@ -703,6 +704,9 @@ const Imp35081SurplusConversionResidualWaterfallViz = lazy(() =>
 const Imp35118BernsteinSignatureLadderViz = lazy(() =>
   import('./pages/Imp35118BernsteinSignatureLadderViz.jsx')
 );
+const Imp35123BootstrapExponentDistributionViz = lazy(() =>
+  import('./pages/Imp35123BootstrapExponentDistributionViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1253,6 +1257,7 @@ function AppShell() {
           <Route path="/debruijn-departure" element={<DeBruijnDeparturePage />} />
           <Route path="/pt-floor-audit" element={<PtFloorSensitivityAuditPage />} />
           <Route path="/verified-height-lever" element={<VerifiedHeightLeverPage />} />
+          <Route path="/mollified-barrier-certificate" element={<MollifiedBarrierCertificatePage />} />
           <Route path="/docs" element={<DocsPage />} />
           <Route path="/waves" element={<WaveSimPage />} />
           <Route path="/rigor" element={<RHRigorPage />} />
@@ -2053,6 +2058,10 @@ function AppShell() {
           <Route
             path="/viz-imp35118-bernstein-signature-ladder"
             element={<Imp35118BernsteinSignatureLadderViz />}
+          />
+          <Route
+            path="/viz-imp35123-bootstrap-exponent-distribution"
+            element={<Imp35123BootstrapExponentDistributionViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

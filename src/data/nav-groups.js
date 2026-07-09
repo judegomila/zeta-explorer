@@ -79,6 +79,7 @@ export const NAV_GROUPS = [
       { to: '/debruijn-departure', label: 'Zero Departure (exact de Bruijn flow)' },
       { to: '/pt-floor-audit', label: 'What Binds the Λ≤0.2 Floor? (audit)' },
       { to: '/verified-height-lever', label: 'The Verified-Height Lever' },
+      { to: '/mollified-barrier-certificate', label: 'Mollified Barrier Certificate (survivor)' },
       { to: '/viz-phase-cylinder', label: 'Phase Cylinder: Unwrapped Rays' },
       { to: '/viz-unwrapped-rays', label: 'Unwrapped Prime Phase Rays' },
       { to: '/zoom-hierarchy', label: 'Zoom Hierarchy of the Prime Spiral' },

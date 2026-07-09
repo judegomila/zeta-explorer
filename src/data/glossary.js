@@ -16464,6 +16464,36 @@ export const glossary = [
     ],
   },
   {
+    term: 'imp-35313 odd-p branch-cancellation MECHANISM behind the empty eps^{5/2} slot: (i-t^2)^{-3}+(i+t^2)^{-3} = -6 i t^{-8} + O(t^{-12}) kills the leading t^{-6} term, pushing the |F_3| curvature correction from t^{-6}->L^{-5}->eps^{5/2} out to t^{-8}->L^{-7}->eps^{7/2}',
+    category: 'numerical',
+    definition:
+      'A headword isolating WHY the imp-35244 eps^{5/2} slot is empty, distinct from the RESULT-only ' +
+      'headword above (which states the slot is empty and the corrected eps^{7/2} coefficient without ' +
+      'spelling out the cancellation mechanism on its own).\n\n' +
+      'THE MECHANISM: the denominator m_double_prime is built from the ODD power p=3 conjugate pair ' +
+      'B_3(+) + B_3(-). Using (i-t^2)^{-3} = -(t^2-i)^{-3}, the rescaled pair sum is ' +
+      '(i-t^2)^{-3} + (i+t^2)^{-3} = -6 i t^{-8} + O(t^{-12}) -- the leading t^{-6} terms that a naive ' +
+      'single-branch reading would predict CANCEL between the two conjugate branches, leaving only the ' +
+      'subleading t^{-8} term. Since t^{-6} -> L^{-5} -> eps^{5/2} and t^{-8} -> L^{-7} -> eps^{7/2} under ' +
+      'the model-cusp rescaling, this cancellation is exactly what pushes the |F_3| curvature correction ' +
+      'out from eps^{5/2} to eps^{7/2}: the eps^{5/2} slot is not merely small, it is algebraically absent ' +
+      'because the conjugate branches that would populate it cancel identically at that order.\n\n' +
+      'HOW TO APPLY: cite this entry (alongside imp-35244) when explaining WHY the eps^{5/2} coefficient ' +
+      'vanishes, not just THAT it vanishes -- the mechanism is the odd-p conjugate-branch cancellation, ' +
+      'not a numerical coincidence. imp-35265 is the separate, still-open ticket to derive this ' +
+      'cancellation as an exact identity rather than the 4-sig-fig grid confirmation reported here.\n\n' +
+      'HONEST SCOPE: content/glossary only, isolating a mechanism already reported inside the imp-35244 ' +
+      'measurement; establishes no operator positivity; does not discharge O3 or G6a_shock_lipschitz, ' +
+      'both stay OPEN; changes no bound; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the ' +
+      'rigorous SOTA.',
+    firstUsed: 'imp-35313 (glossary headword isolating the imp-35244 odd-p branch-cancellation mechanism), 2026',
+    relatedTerms: [
+      'imp-35244 reports the RESULT (eps^{5/2} slot empty, eps^{7/2} = -8 sqrt(2)/(3 pi)) this entry explains the mechanism for (imp-35244)',
+      'imp-35265 is the still-open ticket to derive this cancellation as an exact identity rather than a 4-sig-fig grid confirmation (imp-35265)',
+      'imp-35216 derived the leading K = 8 sqrt(2)/(9 pi) and the R_3 tail whose naive eps^{5/2} extension this mechanism refutes (imp-35216)',
+    ],
+  },
+  {
     term: 'imp-35242 E_coll exponent-residual 0.005-tolerance landmark: the separated E_coll local-decay exponent residual to the far-tail -1/2 asymptote first drops below 0.005 at N ~ 4.67e44 (log T0 ~ 100), tracking 1/(2 log T0) the whole way with no floor',
     category: 'numerical',
     definition:

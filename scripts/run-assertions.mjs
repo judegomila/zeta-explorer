@@ -7581,6 +7581,15 @@ const DATA_MODULES = [
   // strictly positive at every finite N (~9.92e-14 at 1e16). Negligible (a RATIO fact) is not zero
   // (a SIGN fact), so imp-33848 and imp-35041 are compatible. Measurement only; no bound; NO QED.
   '/src/data/imp-35135-eflow-fartail-decay-exponent-positivity-reconciliation.js',
+  // imp-35198: DERIVES the closed-form leading (log N)-power correction to the imp-35135 far-tail
+  // E_flow decay exponent. With x = log N and M = log T0 = x - log x + log(2pi) under the RvM
+  // surrogate T0 = 2pi N / log N, and E_flow ~ (log T0)^2/(2pi T0), the exact surrogate exponent
+  // is s(x) = (1 - 1/x)(2/M - 1); expanding gives d(log E_flow)/d(log N) = -1 + 3/log N +
+  // O(log log N/(log N)^2). The leading correction is EXACTLY +3/log N (1 from the RvM log-thinning
+  // dM/dx = 1 - 1/x, plus 2 from the (log T0)^2 prefactor), positive so the exponent approaches -1
+  // from above; -1 + 3/log N reproduces the imp-35135 measured drift (-0.77 at 1e6, -0.91 at 1e16)
+  // to within ~0.015. Derivation only on the inherited surrogate; changes no bound; NO QED.
+  '/src/data/imp-35198-eflow-fartail-exponent-logn-correction.js',
   // imp-35036: EXTENDS the imp-33582 per-decade local decay-exponent ladder for sigma(N) =
   // E_coll/E(N) past [1e11,1e12] (0.4310) on the identical inherited model. The exponent keeps
   // climbing monotonely toward the imp-3463 1/2 asymptote (0.4646, 0.4777, 0.4828, 0.4851 on
@@ -7764,6 +7773,20 @@ const DATA_MODULES = [
   // N-DEPENDENT -- a real sharpening but short of N-uniform; the I3<->G-gronwall coupling is
   // CONFIRMED and shown ASYMMETRIC. Six THROWing assertions; I3 stays OPEN; changes no bound; NO QED.
   '/src/data/imp-35168-mesoscopic-i3-lipschitz-window-assessment.js',
+  // imp-35196: ASSESSES the sharper follow-up to imp-35168 -- does any N-DEPENDENT strip SCHEDULE
+  // y_star(N) (not just a fixed height) reconcile the imp-35127 I3 N-uniform field-Lipschitz
+  // requirement with the requirement that the strip still bound the near-front integrator error?
+  // Two envelopes: (A) N-uniformity forces an accumulation FLOOR y_star(N) >= sqrt(2 N S / E_acc) ~
+  // sqrt(N), monotone-increasing and UNBOUNDED; (B) bounding the y=0 near-front error caps the strip
+  // at an O(1) proximity CEILING (front resolution ~ 2 pi / log N, flat/shrinking), strict reading
+  // forces y_star -> 0. The rising floor crosses the flat ceiling at N_crit = y_ceil^2 E_acc / (2 S)
+  // (~15.7), beyond which the corridor y_floor <= y_star <= y_ceil is EMPTY -- no value, hence no
+  // schedule, satisfies both. A single function cannot tend to +infinity and stay bounded/tend to 0;
+  // letting the ceiling grow to chase the floor only concedes the strip detaching from the front.
+  // CONCLUSION: the imp-35168 fixed-height incompatibility is NOT a fixed-height artifact -- an
+  // N-uniform field-Lipschitz bound on a front-adherent strip is UNREACHABLE BY ANY STRIP SCHEDULE.
+  // Seven THROWing assertions; I3 stays OPEN; changes no bound; NO QED.
+  '/src/data/imp-35196-ystar-schedule-reconciliation-assessment.js',
   // imp-35167: SCOPES the imp-35127 I2 ingredient -- what a CERTIFIED non-collision minimum-gap lower
   // bound g_min(t) > 0 along the WHOLE backward Dyson trajectory to the front would need. Enumerates
   // five machinery pieces M1..M5: M1 the exact gap ODE du/ds = -8 + 4 B(s) u + Gronwall lower branch

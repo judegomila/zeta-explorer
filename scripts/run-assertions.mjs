@@ -7647,6 +7647,15 @@ const DATA_MODULES = [
   // reproduces ~102% of the gap (anchor-leverage residual ~7e-5). Verdict: MODEL MISMATCH, not estimator
   // bias -- K-pinning is the lever, the real convexity is the cause. Measurement only, no bound change.
   '/src/data/imp-35037-pinned-vs-free-exponent-gap-diagnosis.js',
+  // imp-35038: MEASURES the second derivative d^2 ln s*/d(ln C_mb)^2 of the imp-34925/imp-34950 E_flow
+  // crossing-strength power law directly, quantifying the imp-34950 F2 "mild convexity". COMPLEMENTS the
+  // imp-35037 global quadratic fit: reports the DIRECT second derivative 2*b2 ~ +0.0545 and adds a
+  // MODEL-FREE pointwise non-uniform three-point stencil in [0.0477,0.0600] positive at EVERY interior grid
+  // point, so ln s* is genuinely convex in ln C_mb independent of the quadratic-form assumption. The
+  // convexity is STATISTICALLY SIGNIFICANT (OLS quadratic coefficient ~271 se from zero, residual RMS
+  // shrinks ~64x vs the pure power law), NOT consistent with zero, and reconstructs the imp-34950 F1
+  // pinned-vs-free gap (curvature-predicted ~+4.14e-3 vs measured ~+4.08e-3, ~1.7%). Measurement only, no bound change.
+  '/src/data/imp-35038-eflow-crossing-strength-cmb-loglog-curvature.js',
   // imp-34951: MEASURES the uniform positive penultimate-relative-distance margin across all 34
   // off-by-one rungs on [1e3,1e18] against the EPS_FP floor, an upper-witness proxy that the +1
   // over-count residual is structurally excluded. Measurement only, no bound change.
@@ -7720,6 +7729,10 @@ const DATA_MODULES = [
   // locators, ordered-increasing, pairwise-spreads-under-4pct, cluster-band-3p3e9) was not yet
   // wired into this sweep. Audit only; no bound change.
   '/src/data/imp-35018-four-landmark-cluster-log-n-viz-data.js',
+  // imp-35057: MEASURES how much the imp-35018 band-contains-all-locators conclusion depends on the
+  // k=10-only rung choice -- the tightest imp-34693 rung containing all three landmarks is k=10 (the
+  // widest tabulated rung), binding on N_star (~2.95% out), with only ~0.30 of a Picard iterate of slack.
+  '/src/data/imp-35057-landmark-band-membership-robustness.js',
   // imp-34997: REFINES the imp-34903/imp-34951 (1e12,1e15] off-by-one tail census from the coarse 10^0.05
   // grid up to 10^0.001 (3001 seeds); 0 off-by-one at every resolution confirms the tail 0 is a genuine
   // depletion, not a coarse-grid artifact. Shows it is a FINITE ceil-phase gap (frac(xArg) confined below the

@@ -16612,6 +16612,36 @@ export const glossary = [
     ],
   },
   {
+    term: 'imp-35243 D2 UNMEASURABILITY: the reentry band sits ~14.6-24.7 decades above any verified zero height, not merely un-modelled but presently unmeasurable',
+    category: 'proof-status',
+    definition:
+      'A headword isolating the imp-35243 demonstration D2 finding on its own terms, distinct from the ' +
+      'general imp-35243 honest-status note and the R1-R4 certificate headword. D2 measures how far the ' +
+      'imp-34997/imp-35111 iters-to-floor REENTRY band sits above the highest Platt-Trudgian VERIFIED zero ' +
+      'height that binds Lambda <= 0.2: that verified height is ~3e12 (log10 ~12.48), while the band reentry ' +
+      'sits at N ~ 10^27.08 (~14.6 decades above) and the band exit at N ~ 10^37.17 (~24.7 decades above).\n\n' +
+      'The distinction D2 draws is between UN-MODELLED and UNMEASURABLE. A gap could in principle be closed by ' +
+      'building a better model of known data; D2 instead finds there IS no known data anywhere near the band -- ' +
+      'no verified arithmetic zero exists within ~15 decades of either edge -- so the true collapse dynamic in ' +
+      'that range cannot presently be measured at all, by any model. Any statement that the reentry band is a ' +
+      'real feature of the TRUE dynamic (rather than of the discrete analytic surrogate) is therefore a ' +
+      '~15-25-decade extrapolation with no anchor: nothing currently checks it against reality.\n\n' +
+      'HOW TO APPLY: when citing the reentry band, distinguish "not yet modelled" claims (which further analysis ' +
+      'could resolve) from this UNMEASURABLE status (which only new verified height, per the verified-height-' +
+      'lever audit, can resolve). D2 is one of the two BINDING requirements (alongside R1 floor-independence) ' +
+      'in the imp-35243 surrogate-fidelity certificate; it is presently unreachable with existing verified data.\n\n' +
+      'HONEST SCOPE: restates the imp-35243 D2 literals only; discharges nothing; the reentry band verdict stays ' +
+      'NOT ESTABLISHED for the true dynamic; C_mb GUE-conditional (imp-486) and imp-3066 K_a >= 0 UNTOUCHED; ' +
+      'changes no bound; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35311 (glossary headword isolating the imp-35243 D2 unmeasurability finding), 2026',
+    relatedTerms: [
+      'imp-35243 demonstration D2 measured the ~14.6/~24.7-decade gaps this entry restates (imp-35243)',
+      'imp-35243 honest-status note records the overall verdict D2 (with D1) supports (imp-35243)',
+      'imp-35243 surrogate-fidelity certificate lists D2 as evidence against the BINDING R4 requirement (imp-35243)',
+      'imp-35307 measures how many additional decades of verified height would be needed to close the D2 gap (imp-35307)',
+    ],
+  },
+  {
     term: 'imp-35236 E_flow far-tail residual inverse-swap isolation: 0.0093 (1e6) / 0.0025 (1e16) is the height-map gap',
     category: 'numerical',
     definition:

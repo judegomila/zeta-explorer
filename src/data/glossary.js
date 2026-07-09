@@ -16264,6 +16264,51 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this derivation (imp-486)',
     ],
   },
+  {
+    term: 'imp-35219 beta-source insensitivity: swapping the RvM density-model beta for the imp-35194 measured running-sup beta ~ 1/g_min leaves the imp-35195 M5 onset (g ~ 0.23) and the 1e4 ratio (~0.025) essentially unchanged, a sub-2% lever',
+    category: 'proof-status',
+    definition:
+      'A headword recording the imp-35219 sensitivity check on the imp-35195 M5 horizon-front ' +
+      'mismatch ratio T_minus(g, beta) / t_c(N). imp-35195 measured this ratio sourcing beta from ' +
+      'the RvM height-density MODEL beta_density(T) = pi^2 / (3 l(T)^2), explicitly caveating that ' +
+      'this beta is the density model, not a certified sup over the true backward flow. imp-35219 ' +
+      're-runs the SAME ratio substituting the imp-35194 empirically-MEASURED running-sup beta ~ ' +
+      '1/g_min (product band 1.33 -> 1.00, imp-35215 near-front limit) and asks how much the ' +
+      'headline numbers move.\n\n' +
+      'THE REASON THE RATIO IS INSENSITIVE: the imp-2563 window is T_minus(g, beta) = ' +
+      '(1/(4 beta)) log(1 + beta g^2/2). Writing the gate z = beta g^2/2, T_minus = ' +
+      '(g^2/8)(log(1+z)/z), and log(1+z)/z -> 1 as z -> 0. For EITHER beta source the gate ' +
+      'shrinks toward the front (density: z ~ g^2; measured: z = c*g/2 ~ g), so both collapse onto ' +
+      'the SAME beta-independent leading window T_minus -> g^2/8. The beta source enters only the ' +
+      'O(z) log-curvature correction.\n\n' +
+      'THE NUMBERS: the onset crossover g_cross = sqrt(8 * 0.0066) = 0.2298 is beta-independent to ' +
+      'leading order for both sources (shift < 1%); g_min(0, 870) = 0.2211 still sits just below it ' +
+      'and is still the first rung with ratio < 1/2 under the measured beta. At the verified ' +
+      'g_min(1e4) = 0.0376985 the ratio reads ~0.0251 (RvM leading), ~0.0248 (measured c = 1), ' +
+      '~0.0247 (measured c = 1.33) -- a total spread of only ~1.3% across the entire beta band. ' +
+      'The measured gate c*g exceeds the imp-2563 validity ceiling 2 only at wide-gap small-N rungs ' +
+      '(an extrapolation), but in the onset region and beyond, where the mismatch actually lives, ' +
+      'the measured gate stays < 0.3 and shrinks to 0 toward the front.\n\n' +
+      'HOW TO APPLY: cite imp-35219 (or this entry) whenever the imp-35195 honest caveat is raised ' +
+      '-- the M5 mismatch is a property of g_min^2/8 versus the t_c floor, NOT of which beta model ' +
+      'feeds it; the beta source is a sub-2% lever on the ratio. This DE-RISKS the imp-35195 ' +
+      'conclusion: it did not secretly depend on beta being the certified sup rather than the RvM ' +
+      'model.\n\n' +
+      'HONEST SCOPE: measurement only, on the imp-2563 T_minus closed form and the imp-35194/' +
+      'imp-35215 measured coupling AS-IS; certifies nothing and discharges nothing (the measured ' +
+      'beta itself still diverges as g_min -> 0, so M2/M5 stay bound); does not touch the imp-2563 ' +
+      'sandwich (a valid CONDITIONAL bracket); changes no bound; establishes no operator ' +
+      'positivity; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict; NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35249 (glossary headword recording the imp-35219 beta-source insensitivity result), 2026',
+    relatedTerms: [
+      'imp-35195 measured the M5 horizon-front ratio with the RvM density beta that this entry stress-tests (imp-35195)',
+      'imp-35194 supplies the measured running-sup beta ~ 1/g_min this entry substitutes in (imp-35194)',
+      'imp-35215 sharpened the near-front beta*g_min limit to the closed-form constant 1 used as the primary measured beta here (imp-35215)',
+      'imp-2563 supplies the T_minus(g, beta) closed form used AS-IS by both beta sources (imp-2563)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this measurement (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

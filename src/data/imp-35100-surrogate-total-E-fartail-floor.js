@@ -71,6 +71,7 @@
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 import { C_C_PINNED } from './polymath15-constant-C-C.js';
+import { IMP35121_LADDER } from './imp-35121-ecoll-etrunc-eflow-decomposition-viz-data.js';
 
 const TWO_PI = 2 * Math.PI;
 const E_TRUNC_PT = 3.06e-5; // N-independent fixed-strip route (imp-2631/imp-3406/imp-33601)
@@ -123,6 +124,20 @@ const TOTAL_NOT_TO_ZERO = LAST.E / FIRST.E > 0.01 && E_OVER_TRUNC_1E13 > 0.9; //
 // (M3) the residual above the floor is E_coll-dominated; E_flow/E_coll -> 0.
 const EFLOW_FRACTION_1E13 = LAST.E_flow_over_coll; // ~8e-5
 const EFLOW_FRACTION_SHRINKS = LAST.E_flow_over_coll < FIRST.E_flow_over_coll;
+
+// (imp-35159) Cross-module Gronwall-factor consistency. imp-35105 pins
+// GRONWALL = exp(2.37e-4) "matches imp-34970/imp-34954 exactly"; this module uses the
+// same numeral (line 77-78). imp-35121 ships baked E_flow literals with no live recompute.
+// Recompute E_flow(N) here (which applies THIS module GRONWALL) and confirm it reproduces
+// every imp-35121 baked E_flow rung to storage sig-fig precision -- so all three modules
+// apply the identical Gronwall multiplier exp(2.37e-4), not a drifted value. A missing or
+// drifted Gronwall factor would show up as a ~2.37e-4 relative offset on every rung.
+const GRONWALL_XMODULE_MAX_RELERR = Math.max(
+  ...IMP35121_LADDER.map((row) => {
+    const recomputed = parts(row.N).E_flow; // uses GRONWALL = exp(2.37e-4)
+    return Math.abs(recomputed / row.E_flow - 1);
+  })
+);
 
 export const IMP35100_SURROGATE_TOTAL_E_FARTAIL_FLOOR = {
   id: 'imp-35100',
@@ -224,6 +239,14 @@ export const IMP35100_SURROGATE_TOTAL_E_FARTAIL_FLOOR_ASSERTIONS = [
     id: 'imp35100-residual-is-ecoll-dominated',
     description: 'E_flow/E_coll -> 0 (deep tail residual is essentially E_coll)',
     holds: () => EFLOW_FRACTION_1E13 < 1e-3 && EFLOW_FRACTION_SHRINKS,
+  },
+  {
+    // (imp-35159) Cross-module Gronwall consistency: recomputed E_flow (this module GRONWALL =
+    // exp(2.37e-4)) reproduces every imp-35121 baked E_flow rung to storage precision, confirming
+    // imp-35100/imp-35105/imp-35121 all apply the identical Gronwall multiplier (no drift).
+    id: 'imp35100-gronwall-factor-consistent-across-modules',
+    description: 'recomputed E_flow matches imp-35121 baked E_flow to <1e-5 at every rung (shared exp(2.37e-4))',
+    holds: () => GRONWALL_XMODULE_MAX_RELERR < 1e-5,
   },
   {
     // Honesty gate: measurement only, no QED, PT stays SOTA.

@@ -7075,6 +7075,16 @@ const DATA_MODULES = [
   // floor only RISES in the operative direction: the safety factor is delta-robust. Measurement on the
   // surrogate; imp-34714a REMAINS OPEN; changes no bound; NO QED.
   '/src/data/imp-35116-krawczyk-headroom-delta-robustness.js',
+  // imp-35136: SCOPES the still-OPEN imp-34687a / imp-34714a sub-gap by enumerating the five concrete
+  // obligations a real directed-rounding / error-bounded arithmetic layer must discharge to certify the
+  // exact-digit width the imp-34714 Krawczyk check leaves uncertified: (G1) directed rounding-mode control on
+  // +, -, *, /; (G2) a correctly-outward-rounded log (and enclosed 2pi); (G3) interval evaluation of the whole
+  // Krawczyk / Newton operator N([T]) = m - [f](m)/[f_prime] and the rho contraction factor; (G4) per-operation
+  // propagated-slack accounting (the imp-34726/34752/34776 k* is the BUDGET a real G4 would spend against, NOT
+  // the layer); and (G5) certified verification of (H1)-(H2) from those enclosures. SCOPING ONLY: discharges
+  // NONE of G1-G5; imp-34687a and imp-34714a REMAIN OPEN; F(m) = 0 stays a double-precision artifact; changes
+  // no bound; NO QED.
+  '/src/data/imp-35136-krawczyk-directed-rounding-layer-requirements.js',
   // imp-34864: DERIVES + MEASURES the crossover-map THIRD-derivative envelope per-decade shrink ratio one
   // order up from imp-34839. From g_triple_prime = 8 pi^3 K (2u^2+4u+3)/(T^3 u^5) = K P(u)/(M^3 u^5) the
   // ratio factors as r3 = (M_prime/M)^3 (u_prime/u)^5 P(u)/P(u_prime); Riemann-von Mangoldt N=M(u-1) forces
@@ -7537,6 +7547,16 @@ const DATA_MODULES = [
   // caveats: the wide basin needs one log-step clamp, and both solvers share the same surrogate.
   // Cross-validation only on the inherited model; changes no bound; NO QED.
   '/src/data/imp-35134-sigma-deep-tail-newton-crossvalidation.js',
+  // imp-35135: RECONCILES the imp-33848 strict-positivity requirement E_flow > 0 (which the
+  // N_half < N_cross ordering rests on) with the imp-35041 far-tail negligibility E_flow/E_coll
+  // < 5e-4, by measuring the local log-log decay exponents across N in [1e6, 1e16] on the
+  // inherited surrogate. E_flow decays with a local exponent drifting from ~-0.77 toward ~-0.91
+  // (heading for -1 up to log powers) while E_coll approaches -1/2 (~-0.49), so their ratio decays
+  // like ~N^(-1/2) (ratio exponent ~-0.43 at 1e16) and drops below 5e-4 deep in the tail -- yet
+  // E_flow, a product of strictly positive factors (C_F > 0, log T0/T0 > 0, Gronwall > 0), stays
+  // strictly positive at every finite N (~9.92e-14 at 1e16). Negligible (a RATIO fact) is not zero
+  // (a SIGN fact), so imp-33848 and imp-35041 are compatible. Measurement only; no bound; NO QED.
+  '/src/data/imp-35135-eflow-fartail-decay-exponent-positivity-reconciliation.js',
   // imp-35036: EXTENDS the imp-33582 per-decade local decay-exponent ladder for sigma(N) =
   // E_coll/E(N) past [1e11,1e12] (0.4310) on the identical inherited model. The exponent keeps
   // climbing monotonely toward the imp-3463 1/2 asymptote (0.4646, 0.4777, 0.4828, 0.4851 on
@@ -7694,6 +7714,19 @@ const DATA_MODULES = [
   // absolute error ~6.3e-4 (~6e6x blind); (S2) the RK4-LTE 5th-derivative bound blows up 10^6 per
   // decade of gap reduction. Discharges NONE; imp-2466 cross-check untouched; changes no bound; NO QED.
   '/src/data/imp-35127-g-step-error-certified-bound-scope.js',
+  // imp-35168: ASSESSES whether restricting the imp-2520 backward-flow Gronwall lemma to a
+  // MESOSCOPIC strip (where exp(-2 S / y_star^2) is non-vacuous) suffices for the imp-35127 I3
+  // ingredient -- the N-UNIFORM Lipschitz/stability constant the RK4 step-to-global accumulation
+  // needs. Crux: on the SAME strip Im z >= y_star the transport coefficient L_prop = 2/y_star^2 is
+  // O(1) / N-uniform, but the field Jacobian Lipschitz L_field = 2N/y_star^2 (from |dz M| <= N/y^2)
+  // is N-LINEAR -- they differ by exactly the pole count N, and I3 accumulates the integrator error
+  // so it needs L_field, not L_prop. The propagation-safe window y_star > sqrt(2S) and the
+  // accumulation-N-uniform window y_star > sqrt(2 N S) ~ sqrt(N) coincide only at N=2; a fixed
+  // mesoscopic height leaves the accumulation e-fold growing linearly in N (63104 at N=1e6 vs prop
+  // e-fold 0.063). So the mesoscopic restriction moves I3 from Gronwall-VACUOUS to merely
+  // N-DEPENDENT -- a real sharpening but short of N-uniform; the I3<->G-gronwall coupling is
+  // CONFIRMED and shown ASYMMETRIC. Six THROWing assertions; I3 stays OPEN; changes no bound; NO QED.
+  '/src/data/imp-35168-mesoscopic-i3-lipschitz-window-assessment.js',
   // imp-35167: SCOPES the imp-35127 I2 ingredient -- what a CERTIFIED non-collision minimum-gap lower
   // bound g_min(t) > 0 along the WHOLE backward Dyson trajectory to the front would need. Enumerates
   // five machinery pieces M1..M5: M1 the exact gap ODE du/ds = -8 + 4 B(s) u + Gronwall lower branch

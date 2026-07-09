@@ -15816,6 +15816,41 @@ export const glossary = [
       'imp-3406 supplies the inherited component model (E_coll, E_flow sub-terms) reused without re-derivation (imp-3406)',
     ],
   },
+  {
+    term: 'imp-35198 E_flow far-tail exponent leading correction: -1 + 3/log N',
+    category: 'numerical',
+    definition:
+      'A headword recording the closed-form leading (log N)-power correction to the imp-35135 ' +
+      'measured E_flow far-tail local decay exponent (drifting ~-0.77 at N=1e6 toward ~-0.91 at ' +
+      'N=1e16, approaching -1 from above with unnamed corrections).\n\n' +
+      'With x = log N and M = log T0 = x - log x + log(2 pi) under the RvM surrogate T0 ~ 2 pi N / ' +
+      'log N (so dM/dx = 1 - 1/x), and E_flow ~ (log T0)^2 / (2 pi T0) giving log E_flow = 2 log M - ' +
+      'M - log(2 pi) + const, the exact surrogate exponent is s(x) = (1 - 1/x)(2/M - 1). Expanding ' +
+      '2/M = 2/x + O(log x / x^2) gives s(x) = -1 + 3/x + O(log log N / (log N)^2).\n\n' +
+      'THE +3 DECOMPOSES INTO TWO PIECES: 1 from the RvM log-thinning of the height map (the 1/x ' +
+      'term inside dM/dx = 1 - 1/x), and 2 from the (log T0)^2 prefactor numerator (the 2/M term). ' +
+      'The correction is positive, so the exponent approaches -1 strictly FROM ABOVE, matching the ' +
+      'imp-35135 F1 direction. Evaluated on the ladder, -1 + 3/log N gives -0.783 at N=1e6 and ' +
+      '-0.919 at N=1e16, tracking the imp-35135 measured -0.77 / -0.91 to within ~0.015, with the ' +
+      'residual attributed to the surrogate-vs-true-RvM-inverse gap rather than a missing power of ' +
+      'log N.\n\n' +
+      'HOW TO APPLY: cite imp-35198 (or this entry) when discussing why the E_flow far-tail exponent ' +
+      'drift approaches -1 slowly and from above; the +3/log N law is the leading term, confirmed by ' +
+      'imp-35217 to have a next-order x^-2 correction that changes sign at N ~ 2.615e7.\n\n' +
+      'HONEST SCOPE: derivation/measurement only, on the inherited imp-3220/imp-3406 extrapolation, ' +
+      'NOT a rigorous asymptotic; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional ' +
+      'per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463 untouched; imp-3066 K_a >= 0 ' +
+      'untouched; changes no bound; establishes no operator positivity; no RH verdict; NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35223 (glossary headword recording the imp-35198 E_flow far-tail exponent correction), 2026',
+    relatedTerms: [
+      'imp-35135 measured the E_flow far-tail exponent drift (-0.77 at N=1e6 to -0.91 at N=1e16) this ticket derives in closed form (imp-35135)',
+      'imp-398 supplies the C_F ~ log T0 / 2pi flow prefactor underlying the E_flow ~ (log T0)^2/(2 pi T0) form (imp-398)',
+      'imp-35217 derives the next-order x^-2 term c2(x) = 2(log x - log 2pi - 1), which changes sign at N ~ 2.615e7 (imp-35217)',
+      'imp-3463 is the contrasting E_coll far-tail exponent 1/2, untouched by this E_flow correction (imp-3463)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this derivation (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -7776,6 +7776,19 @@ const DATA_MODULES = [
   // whole-trajectory certificate. Binding obstruction = M5 fed by M2. Derives NONE; imp-2563 untouched;
   // couples to G-gronwall (imp-2520) / G-interval-enclosure (imp-362); changes no bound; NO QED.
   '/src/data/imp-35167-g-min-non-collision-certificate-scope.js',
+  // imp-35194: MEASURES the imp-35167 M2 obstruction empirically -- the background-field sup
+  // beta(N) = sup_{p, s} |B_p(s)|, B_p = sum_{j != k,k+1} 1/((b-x_j)(a-x_j)), along the backward
+  // Dyson flow dx_k/ds = -2 sum 1/(x_k-x_j) for N = 50, 100, 200 (equally-spaced unit-spacing init,
+  // adaptive RK4 dt = 0.02 g_min^2), snapshotting the running sup at matched min-gap fractions
+  // [0.5,0.25,0.1,0.05]. FINDINGS: (F1) beta(N) is N-UNIFORM at matched front-progress -- relative
+  // spread < 1.5% across N, weakly DECREASING with N (a convergent reciprocal-PRODUCT sum saturating
+  // at the local scale, so N is not the driver); (F2) beta GROWS toward the front ~8x while the
+  // product beta*g_min stays in (1,1.4) and decreases toward the front (~1.33 -> ~1.04), i.e.
+  // beta ~ 1/g_min. So the M2 obstruction is the FRONT (self-referential beta ~ 1/g_min), not the
+  // particle count: a finite N-uniform sup over s < t_c needs an a-priori g_min > 0, so M2 is
+  // inseparable from the horizon/front bridge M5. Six THROWing assertions; certifies NOTHING; M5
+  // stays OPEN; imp-2563 sandwich untouched; changes no bound; NO QED.
+  '/src/data/imp-35194-background-field-sup-n-uniformity.js',
   // imp-35170: SCOPES the imp-35127 I4 ingredient -- an ABSOLUTE per-scheme RK4 Butcher error-constant
   // bound on the imp-362 desingularized pole form, the object the empirical two-method gap
   // |t_c_RK4 - t_c_DP5| (imp-2466) CANNOT supply (a common-mode error cancels in a scheme difference).

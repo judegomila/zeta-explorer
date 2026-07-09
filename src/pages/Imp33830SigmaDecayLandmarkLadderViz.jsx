@@ -135,6 +135,26 @@ export default function Imp33830SigmaDecayLandmarkLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
+          background: 'rgba(248,113,113,0.06)',
+          borderLeft: '3px solid #f87171',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+        }}
+      >
+        <strong style={{ color: '#f87171' }}>Share vs. total, do not conflate:</strong> every
+        landmark above tracks the shrinking SHARE sigma(N) = E_coll(N)/E(N), not the total error
+        E(N) itself. imp-35100 measured that the surrogate total E(N) = E_coll + E_trunc + E_flow
+        does NOT tend to 0 -- it floors at the N-independent constant E_trunc = 3.06e-5 (imp-2631)
+        as N &rarr; &infin;. So a shrinking sigma(N) reflects E_coll being outlived by the flat
+        E_trunc floor, not the total error vanishing, and must not be misread as Step-4
+        (E(N) &rarr; 0) progress.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
           background: 'rgba(148,163,184,0.04)',
           borderLeft: '3px solid #334155',
           borderRadius: '0 4px 4px 0',

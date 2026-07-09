@@ -5218,6 +5218,17 @@ const DATA_MODULES = [
   // GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED.
   // 6 assertions.
   '/src/data/imp-34197-logt0-resid-product-approach-rate.js',
+  // imp-35072: INDEPENDENT second-path cross-validation of the imp-34130 resolution that the imp-33620
+  // separated E_coll local-exponent residual to -1/2 decays as ~1/(2 log T0). Recomputes the residual
+  // from a from-source CENTRAL FINITE-DIFFERENCE derivative of ln E_coll vs ln N on the TRUE
+  // effectiveHeightForN map (never the imp-34130 OLS windowing, never the imp-33859 u+log(u-1)
+  // surrogate) across the same [1e11..1e18] rungs. The FD exponent reproduces the anchors
+  // (-0.4810@[1e11,1e12], -0.4848@[1e14,1e15], resid ~0.0152), equals the closed form
+  // (1/2)(u-1)/(u log T0) to a relative ~3e-10 at every rung, log T0 * resid_FD rises monotonically
+  // 0.47861 -> 0.48638 toward 1/2, and the FD and OLS residuals reconcile to < 2e-5 -- confirming the
+  // imp-34130 law is not a single-route artifact. Cross-validation/measurement only; C_mb GUE-conditional
+  // per imp-486 untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-35072-ecoll-exponent-residual-fd-crossvalidation.js',
   // imp-34211: MEASURE the gap between the imp-34127 closed-form kEnd* ceiling (~21.00) and the
   // imp-34150 direct-bisection root (21.28094743) for the imp-33773 M2-residual sign-change crossing.
   // Rebuilds BOTH the closed form (sigma(hi)-sigma*, sigma*=(-e_pp D^2/160)/(e^2 D/2+17 e^3 D^2/480))

@@ -747,6 +747,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive DEG-ladder chart on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35209-margin-ratio-ladder',
+      title: 'Margin-Ratio Ladder: rho(eps) = C_ren / C_curv',
+      oneLine:
+        'Plots the imp-35076 nine-rung margin-ratio ladder rho(eps) = C_ren / C_curv on the shared quadratic fold, marking the 2/3 closed-form asymptote and the head-worst rho ~ 0.6754, with the imp-35152 G-a un-sampled between-rung continuum shown as shaded bands.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35076-h3-a-fortiori-discharges-h4-numerical-verification.js',
+      paperSourcePath:
+        'src/data/imp-35076-h3-a-fortiori-discharges-h4-numerical-verification.js (imp-35209 viz page)',
+      ticket: 'imp-35209',
+      pedagogicalStep: 49,
+      honestCeiling:
+        'Descriptive margin-ratio ladder chart on the inherited surrogate; does not discharge H3/H4 or gap G-a; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

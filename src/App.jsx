@@ -726,6 +726,9 @@ const Imp35207TwoWindowIncompatibilityViz = lazy(() =>
 const Imp35208DegLadderViz = lazy(() =>
   import('./pages/Imp35208DegLadderViz.jsx')
 );
+const Imp35209MarginRatioLadderViz = lazy(() =>
+  import('./pages/Imp35209MarginRatioLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2106,6 +2109,10 @@ function AppShell() {
           <Route
             path="/viz-imp35208-deg-ladder"
             element={<Imp35208DegLadderViz />}
+          />
+          <Route
+            path="/viz-imp35209-margin-ratio-ladder"
+            element={<Imp35209MarginRatioLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

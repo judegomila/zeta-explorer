@@ -48,6 +48,18 @@ function CorridorChart() {
         fill="rgba(52,211,153,0.08)"
       />
 
+      {/* empty-corridor region N > N_crit: y_floor has risen past y_ceil, corridor is EMPTY here */}
+      <rect
+        x={xOf(nCrit)}
+        y={padT}
+        width={padL + plotW - xOf(nCrit)}
+        height={plotH}
+        fill="rgba(248,113,113,0.06)"
+      />
+      <text x={xOf(nCrit) + 8} y={padT + plotH - 10} fill="#f87171" fontSize={9}>
+        corridor empty (N &gt; N_crit)
+      </text>
+
       {yTicks.map((t) => (
         <g key={t}>
           <line x1={padL} y1={yOf(t)} x2={padL + plotW} y2={yOf(t)} stroke="#1e293b" strokeWidth={1} />

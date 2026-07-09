@@ -803,6 +803,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive log-log floor-vs-ceiling chart on the inherited imp-3220/imp-3406 surrogate; imp-35127 I3 field-Lipschitz requirement stays OPEN; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35233-beta-front-law-n-uniformity',
+      title: 'Background-Field Sup: N-Uniformity vs. Front-Growth',
+      oneLine:
+        'Plots the imp-35194 measured background-field sup beta(N) at matched min-gap fractions [0.5, 0.25, 0.1, 0.05]: beta collapses onto a single curve across N = 50, 100, 200 (relative spread < 1.5%), while the product beta * g_min narrows from ~1.33 toward ~1.04 toward the front, the signature of beta ~ 1/g_min.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35194-background-field-sup-n-uniformity.js',
+      paperSourcePath:
+        'src/data/imp-35194-background-field-sup-n-uniformity.js (imp-35233 viz page)',
+      ticket: 'imp-35233',
+      pedagogicalStep: 53,
+      honestCeiling:
+        'Measurement-only chart probing the imp-35167 M2 background-field-sup obstruction on the inherited backward Dyson surrogate; does not certify N-uniformity over the full trajectory (sup diverges as g_min -> 0); M5 horizon-front mismatch stays OPEN; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

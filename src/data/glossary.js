@@ -16761,6 +16761,46 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this measurement (imp-486)',
     ],
   },
+  {
+    term: 'imp-35165 G7 tangent-space completeness verdict surfaced: the two imp-33765 ruled-out levers exhaust the 2-D off-orbit transverse space, so no third continuous admissible softening lever can hide off the imp-3066 shear orbit',
+    category: 'proof-status',
+    definition:
+      'A headword surfacing the imp-35075 tangent-space count in the proof-chain narrative. ' +
+      'imp-33765 showed the G7 / imp-3066 shear obstruction is one-dimensional in the scaling ' +
+      'orbit s = a*U and ruled out two off-orbit levers -- the shear-form coefficient c and the ' +
+      'decoupled pass rate b -- as INADMISSIBLE, but never established that those two levers were ' +
+      'ALL of the off-orbit directions. imp-35075 closed that gap by exhibiting the natural smooth ' +
+      '3-parameter closure (s_pass, s_shear, c) of the imp-3066 exponential-shear metric pair and ' +
+      'counting tangent spaces at the anchor (s_pass, s_shear, c) = (3, 3, 1).\n\n' +
+      'THE COUNT: the admissible imp-3066 slice A = { s_pass = s_shear, c = 1 } has codimension 2 ' +
+      'in the 3-D family, so the transverse (off-A) complement is exactly 2-dimensional. A basis ' +
+      'for that transverse space is the two imp-33765 ruled-out directions -- decoupling ' +
+      '(1, -1, 0) and coefficient rescaling (0, 0, 1) -- which are linearly independent and so ' +
+      'SPAN the entire transverse space. EXHAUST means no third continuous direction is left over: ' +
+      'every off-orbit smooth softening lever must be a combination of the two imp-33765 already ' +
+      'ruled out, so none can hide off the imp-3066 shear orbit.\n\n' +
+      'WHAT REMAINS: within the admissible slice A, the only nonzero-derivative direction is the ' +
+      'coupled s-flow (the imp-33765 monotone obstruction itself). The one other admissible axis, ' +
+      'the truncation size DEG, is DISCRETE (it changes the matrix dimension rather than being a ' +
+      'tangent direction) and was the only lever left unprobed by imp-33765 / imp-35075 -- ' +
+      'imp-35148 then measured it and found it strictly INFLATES ||R|| (a ceiling-setting effect, ' +
+      'never a softening).\n\n' +
+      'HONEST SCOPE: an ASSESS ticket, a tangent-space count on the same representative monomial ' +
+      'truncation and inherited surrogate as imp-3066 / imp-33765, not the section-26 Gram; rules ' +
+      'out only continuous levers inside the natural exponential-shear closure, not entirely ' +
+      'different kernel classes (non-exponential multiplier, non-monomial basis), which remain the ' +
+      'discrete truncation axis; establishes no operator positivity; imp-3066 K_a&gt;=0 and G7 stay ' +
+      'OPEN; changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict; NO QED. ' +
+      'Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35165 (glossary headword surfacing the imp-35075 G7 tangent-space completeness verdict in the proof-chain narrative), 2026',
+    relatedTerms: [
+      'imp-35075 proved the two ruled-out continuous levers exhaust the 2-D off-orbit tangent space, the verdict this entry surfaces (imp-35075)',
+      'imp-33765 established the G7/imp-3066 one-dimensionality-in-s classification and named the two ruled-out levers (imp-33765)',
+      'imp-33791 characterized the DEG axis as ceiling-setting (truncation size DEG+1) (imp-33791)',
+      'imp-35148 measured the discrete DEG axis found un-probed by imp-35075 and showed it only inflates ||R|| (imp-35148)',
+      'imp-3066 the off-diagonal endpoint-Hankel K_a&gt;=0 obstruction that remains OPEN (imp-3066)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

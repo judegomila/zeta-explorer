@@ -225,6 +225,7 @@ const Imp33609GradedMappedCcAbscissaArtifactViz = lazy(() => import('./pages/Imp
 const Imp33611BandCrossingFloorBisectionViz = lazy(() => import('./pages/Imp33611BandCrossingFloorBisectionViz.jsx'));
 const Imp33613BandCrossingCrossSolverNodeBudgetViz = lazy(() => import('./pages/Imp33613BandCrossingCrossSolverNodeBudgetViz.jsx'));
 const Imp33628EtruncEcollCrossoverViz = lazy(() => import('./pages/Imp33628EtruncEcollCrossoverViz.jsx'));
+const Imp35121EcollEtruncEflowDecompositionViz = lazy(() => import('./pages/Imp35121EcollEtruncEflowDecompositionViz.jsx'));
 const Imp33629WideRangeBandCrossingEnvelopeViz = lazy(() => import('./pages/Imp33629WideRangeBandCrossingEnvelopeViz.jsx'));
 const Imp33656MergedBandClearingOverviewViz = lazy(() => import('./pages/Imp33656MergedBandClearingOverviewViz.jsx'));
 const Imp33676FullRangeBandClearingOverviewViz = lazy(() => import('./pages/Imp33676FullRangeBandClearingOverviewViz.jsx'));
@@ -1357,6 +1358,7 @@ function AppShell() {
           <Route path="/viz-imp33611-band-crossing-floor-bisection" element={<Imp33611BandCrossingFloorBisectionViz />} />
           <Route path="/viz-imp33613-band-crossing-cross-solver-node-budget" element={<Imp33613BandCrossingCrossSolverNodeBudgetViz />} />
           <Route path="/viz-imp33628-etrunc-ecoll-crossover" element={<Imp33628EtruncEcollCrossoverViz />} />
+          <Route path="/viz-imp35121-ecoll-etrunc-eflow-decomposition" element={<Imp35121EcollEtruncEflowDecompositionViz />} />
           <Route path="/viz-imp33629-wide-range-band-crossing-envelope" element={<Imp33629WideRangeBandCrossingEnvelopeViz />} />
           <Route path="/viz-imp33656-merged-band-clearing-overview" element={<Imp33656MergedBandClearingOverviewViz />} />
           <Route path="/viz-imp33676-full-range-band-clearing-overview" element={<Imp33676FullRangeBandClearingOverviewViz />} />

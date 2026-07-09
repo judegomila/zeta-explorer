@@ -193,6 +193,10 @@ export default function Imp33628EtruncEcollCrossoverViz() {
         <Link to="/viz-imp33607-sigma-postpeak-decay" style={{ color: '#7c3aed' }}>
           Sigma(N) Post-Peak Decay (imp-33582 / imp-33607)
         </Link>
+        {' | '}
+        <Link to="/viz-imp35121-ecoll-etrunc-eflow-decomposition" style={{ color: '#7c3aed' }}>
+          E_coll / E_trunc / E_flow Component Decomposition (imp-33601 / imp-35121)
+        </Link>
       </div>
     </div>
   );

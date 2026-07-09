@@ -621,6 +621,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive sign-arithmetic chart on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35121-ecoll-etrunc-eflow-decomposition',
+      title: 'E_coll / E_trunc / E_flow Component Decomposition',
+      oneLine:
+        'Plots the imp-33601 surrogate E(N) = E_coll + E_trunc + E_flow decomposition across N in [1e6,1e13] on a shared log-log axis, annotating which term dominates at the imp-3406 sigma peak, the imp-33582 N_half, the imp-33723 N_cross, and the imp-33721 N_star landmarks.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35121-ecoll-etrunc-eflow-decomposition-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-33601-sigma-half-vs-crossover-eflow-offset.js (imp-35121 viz page)',
+      ticket: 'imp-35121',
+      pedagogicalStep: 40,
+      honestCeiling:
+        'Descriptive component-decomposition chart on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

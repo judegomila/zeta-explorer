@@ -15513,6 +15513,42 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this measurement (imp-486)',
     ],
   },
+  {
+    term: 'imp-35212 RK4 order-5 truncation-SIGN on the scalar Dyson proxy f(y)=1/(y-a): all nine trees collapse to a POSITIVE multiple of (y-a)^-9, so the per-step sign = sign(h)*sign(y-a)*sign(K) with K a single finite N-independent RK4 defect constant',
+    category: 'proof',
+    definition:
+      'imp-35197 reduced R2 past N=200 to the N-uniform sign statement (S) t_c_flow<=t_c_map and named I1 -- ' +
+      'a certified per-step RK4 local-truncation-error DIRECTION -- as the first un-supplied ingredient, ' +
+      'DISTINCT from the imp-35170 Butcher error-constant MAGNITUDE which fixes |E_local| but not its sign. ' +
+      'This ticket ASSESSES the sign requirement on the imp-362 desingularization proxy f(y)=1/(y-a). ' +
+      'Writing u=y-a, every derivative is a monomial f^(m)=(-1)^m m! u^-(m+1), so for a scalar autonomous ' +
+      'ODE the order-5 elementary differential of any rooted tree tau (a product over nodes of f^(children)) ' +
+      'collapses to F(tau) = (-1)^(n-1) (prod children!) u^-(2n-1) = +(prod children!) u^-9 at n=5 -- a ' +
+      'STRICTLY POSITIVE combinatorial multiple of u^-9 for ALL nine order-5 trees (the sign exponent n-1=4 ' +
+      'is even, the pole exponent 2n-1=9 is odd). CONSEQUENCE: there is NO inter-tree sign cancellation at the ' +
+      'elementary-differential level; the leading LTE = h^5 u^-9 K with K = sum_tau alpha(tau) defect(tau) ' +
+      '(prod children!) a single method-specific finite constant, so the per-step sign = sign(h)*sign(y-a)*sign(K). ' +
+      'The sign question thus reduces to ONE finite N-independent bit sign(K) -- the SIGNED counterpart of the ' +
+      'imp-35170 magnitude constant -- confirming imp-35197 I1 is genuinely a separate ingredient (magnitude ' +
+      'sums |contributions|, sign needs the signed aggregate not to vanish), and the reduction is CLEANER than ' +
+      'the ticket hoped (all trees share the sign, not merely the dominant ones). SUB-GAP: survival over the ' +
+      'summed N-pole field f=sum_j 1/(y-y_j) BREAKS the single-sign collapse -- f^(m)=sum_j (-1)^m m! (y-y_j)^-(m+1) ' +
+      'mixes signs across poles on both sides, so F(tau) becomes a product of signed sums with mixed cross-terms; ' +
+      'the collapsing-pair term dominates as u^-9 while distant poles stay O(1), so sign(K)*sign(u) is recovered ' +
+      'only in the near-front DOMINANT-BALANCE leading asymptotic, NOT N-uniformly at finite gap. The finite-gap ' +
+      'signed aggregate over N poles remains un-certified: I1 is scoped to a single finite constant sign(K) plus ' +
+      'an un-discharged near-front dominant-balance step, not closed. Scoping/assessment only; certifies nothing; ' +
+      'discharges no bound; R2 stays OPEN past N=200; C_mb GUE-conditional per imp-486; NO QED; Platt-Trudgian ' +
+      'Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-35212 (assessing the per-step RK4 truncation-SIGN ingredient I1 on the scalar Dyson desingularization proxy f=1/(y-a)), 2026',
+    relatedTerms: [
+      'imp-35197 reduced R2 past N=200 to the sign statement (S) and named I1 as the first un-supplied per-step-sign ingredient (imp-35197)',
+      'imp-35170 supplies the Butcher error-constant MAGNITUDE |E_local| but not its sign, the distinction this ticket makes precise (imp-35170)',
+      'imp-35213 is the companion I2 monotone-comparison obligation lifting a per-step sign to a collision-TIME ordering t_c_flow<=t_c_map (imp-35213)',
+      'imp-362 is the desingularized Dyson pole form whose scalar proxy f=1/(y-a) the sign analysis runs on (imp-362)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this assessment (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

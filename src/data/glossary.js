@@ -15386,6 +15386,40 @@ export const glossary = [
       'imp-34903 and imp-34951 established the original off-by-one iters-to-floor population this headword tracks the tail-extinction question for (imp-34903, imp-34951)',
     ],
   },
+  {
+    term: 'imp-35011 g* Landmark-Window Independence (Direct Measurement)',
+    category: 'numerical',
+    definition:
+      'A headword recording that imp-35011 directly re-derived the pinned coupling g* in the imp-34924 product ' +
+      'P = g* r0 from scratch, rather than relying on the imp-34956 W0 indirect check.\n\n' +
+      'imp-34956 W0 had ASSERTED g* is landmark-window (X_CROSS) independent, but its only supporting evidence, ' +
+      'PROD_OVER_R0_MAX_REL_DIFF = productAtDex(dex)/r0OfDex(dex), is IDENTICALLY G_STAR by construction ' +
+      '(productAtDex is DEFINED as G_STAR*r0OfDex), so that check never actually re-derives g* -- it is a ' +
+      'tautology. imp-35011 closes that gap: it reruns the full 200-iteration knee/inflection landmark bisection ' +
+      'and the outer crossing-strength bisection at 21 X_CROSS windows spanning [1e9, 1e11] (0.1-dex steps). ' +
+      'Since gapAt takes no X_CROSS argument, the recomputed g* is BIT-IDENTICAL at every window -- max relative ' +
+      'variation EXACTLY 0, below the ~1e-16 double-precision floor, not merely small. Over the same 21 windows ' +
+      'r0 = r(X_CROSS) falls from ~1.87e-3 (10^9) to ~3.5e-5 (10^11), a ~52.8x swing, reproducing the imp-34956 W3 ' +
+      'bracket range. Because g* is one fixed constant, P(dex) = g* r0OfDex(dex) is EXACTLY proportional to r0, so ' +
+      'the entire 52.8x window freedom is a pure absolute-value uncertainty on |P| that contributes EXACTLY 0 to ' +
+      'the imp-34924 ~1.6e-7 across-m ramp-invariance residual (measured at one fixed X_CROSS).\n\n' +
+      'HOW TO APPLY: this measurement upgrades imp-34956 W0 from a code-inspection claim to a directly-verified ' +
+      'fact (cross-linked in imp-34956 per imp-35120) -- cite imp-35011, not W0 alone, when the window-independence ' +
+      'of g* is load-bearing. OPEN: verified only against the X_CROSS window at which r0 is read, not against ' +
+      'changing the ramp bracket [1e9,1e11] itself, a self-consistent literal-N ramp traversal (imp-34956 sub-gap), ' +
+      'or the root-free closed form for the crossing-landmark location (imp-34898).\n\n' +
+      'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per ' +
+      'imp-486 UNTOUCHED; C_C 1/8 (imp-2642/imp-2643) untouched; imp-3066 K_a>=0 untouched; far-tail exponent ' +
+      'stays 1/2 (imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35125 (glossary headword recording the imp-35011 direct g* window-independence measurement), 2026',
+    relatedTerms: [
+      'imp-35011 reran the g* bisection at 21 X_CROSS windows across [1e9,1e11], finding it bit-identical (max relative variation exactly 0) while r0 swings ~52.8x (imp-35011)',
+      'imp-34956 W0 originally asserted g* window-independence but only via a tautological PROD_OVER_R0_MAX_REL_DIFF check, now SUPERSEDED by imp-35011 (imp-34956, imp-35120)',
+      'imp-34924 defines the pinned product P = g* r0 = s*(E_flow/E_trunc) whose ~1.6e-7 across-m ramp-invariance residual receives EXACTLY 0 contribution from the window freedom (imp-34924)',
+      'imp-34898 is the OPEN root-free closed form for the crossing-landmark location that would remove the remaining window-bracket dependency (imp-34898)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

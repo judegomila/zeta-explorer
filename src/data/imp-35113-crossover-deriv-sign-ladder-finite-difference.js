@@ -55,12 +55,14 @@
  * crossover map g. Establishes NO operator positivity and NO spectral consequence; the sign ladder is
  * a structural property of the SURROGATE map, NOT of the RH operator. The C_mb GUE-conditional per
  * imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), and imp-3066 K_a >= 0 are UNTOUCHED. Changes NO
- * bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
+ * remains SOTA.
  *
  * @see imp-35012-crossover-complete-monotonicity-bernstein-assessment (analytic Bernstein sign ladder)
  * @see imp-34957-crossover-deriv-p11-p12-extension (all-positive P_n, sign (-1)^(n+1))
  * @see imp-34880-crossover-deriv-all-orders-sign-induction (all-orders coefficient positivity)
  * @see imp-33723-sigma-half-vs-crossover-closed-form (surrogate g = K log T0, K = (C_C/E_trunc)^2)
+ * @see imp-3463 (far-tail E_flow decay exponent 1/2)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 Riemann-von Mangoldt inverse)
  */
 
@@ -242,7 +244,8 @@ export const IMP35113_CROSSOVER_DERIV_SIGN_LADDER_FINITE_DIFFERENCE = {
     'for ALL n by the elementary imp-34880 coefficient-positivity induction (imp-35107 re-verified it ' +
     'exactly to n=22). MEASUREMENT ONLY on the surrogate map: the C_mb GUE-conditional per imp-486, the ' +
     'C_C 1/8 ansatz (imp-2642/imp-2643), and imp-3066 K_a >= 0 are UNTOUCHED; establishes no operator ' +
-    'positivity; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; changes no bound; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. ' +
+    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
   citation:
     'imp-35012 (analytic Bernstein sign ladder); imp-34957 (all-positive P_n, sign (-1)^(n+1)); ' +
     'imp-34880 / imp-35107 (all-orders coefficient positivity, exact to n=22); imp-33723 (surrogate ' +

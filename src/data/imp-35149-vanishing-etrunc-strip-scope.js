@@ -89,13 +89,15 @@
  * obligation and is RH-free-compute-or-RH-circular. Changes no bound; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED and is a SEPARATE conditional from R3; the imp-2631 fixed strip is
  * UNTOUCHED; C_C 1/8 ansatz (imp-2642) UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no
- * operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED.
+ * Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
  * @see imp-35100-surrogate-total-E-fartail-floor (E(N) floors at constant E_trunc; names this route)
  * @see imp-2631-honest-truncation-route-assessment (E_trunc = (2e/kappa) T_v^{-kappa}; fixed strip)
  * @see imp-2622-height-mismatch-refutation (thin moving strip kappa -> 0, E_trunc blows up; Knob B)
  * @see imp-459 sigma_opt = 3/4 variational optimum for the fixed-strip route
  * @see imp-486 (C_mb GUE-conditional caveat; separate conditional from the R3 verified-height input)
+ * @see imp-3463 (far-tail E_flow decay exponent 1/2)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 = instantiation height)
  */
 
@@ -292,11 +294,13 @@ export const IMP35149_VANISHING_ETRUNC_STRIP_SCOPE = {
     'DISTINCT from and not collapsing onto the C_mb GUE-conditional per imp-486 that binds E_coll. ' +
     'SCOPING ONLY: discharges NONE of R1..R5; changes no bound; the imp-2631 fixed strip is ' +
     'UNTOUCHED; C_C 1/8 ansatz (imp-2642) UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. ' +
+    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
   citation:
     'imp-35100 (E(N) floors at constant E_trunc; names this route); imp-2631 (E_trunc = ' +
     '(2e/kappa) T_v^{-kappa}, fixed strip); imp-2622 (thin moving strip kappa -> 0, blow-up, ' +
     'Knob B); imp-459 (sigma_opt = 3/4); imp-486 (C_mb GUE-conditional, separate from R3); ' +
+    'imp-3463 (far-tail E_flow decay exponent 1/2); ' +
     'lambda-rh-height-mapping (effectiveHeightForN).',
 };
 

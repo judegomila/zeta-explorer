@@ -92,13 +92,15 @@
  * G-interval-enclosure obligation, so G-step-error is not independent of the other two Step-2
  * obligations. Changes no bound; establishes no operator positivity; the imp-2466 cross-check is
  * UNTOUCHED and remains a valid (non-certifying) cross-check; C_mb GUE-conditional per imp-486
- * UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict,
+ * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
  * @see lambda-roadmap.js Step 2 rigorousUpgradeGap.obligations[G-step-error] (imp-35058; this ticket)
  * @see imp-2466-dyson-tc-interval-ladder (empirical two-method gap |t_c_RK4 - t_c_DP5|; cross-check)
  * @see backward-flow-stability-gronwall.js (imp-2520; G-gronwall, coupled to I3, Gronwall-vacuous)
  * @see imp-362 (interval RK4 witness, 1/(x_k-x_j) pole reduction; G-interval-enclosure, coupled to I5)
  * @see imp-35149-vanishing-etrunc-strip-scope (sibling Step-frontier obligation-enumeration pattern)
+ * @see imp-3463 (far-tail E_flow decay exponent 1/2)
  */
 
 const E_INV = Math.exp(-1); // e^{-1} = true solution of y' = -y at t = 1, y(0) = 1
@@ -326,12 +328,14 @@ export const IMP35127_G_STEP_ERROR_CERTIFIED_BOUND_SCOPE = {
     'G-gronwall and I5 to G-interval-enclosure -- and the empirical imp-2466 agreement, while a valid ' +
     'cross-check, is provably not a certificate (I4). SCOPING ONLY: discharges NONE of I1..I5; changes ' +
     'no bound; establishes no operator positivity; the imp-2466 cross-check is UNTOUCHED and remains a ' +
-    'valid non-certifying cross-check; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict, NO ' +
-    'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'valid non-certifying cross-check; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 ' +
+    'untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian ' +
+    'Lambda <= 0.2 remains SOTA.',
   citation:
     'lambda-roadmap.js Step 2 rigorousUpgradeGap.obligations[G-step-error] (imp-35058); imp-2466 ' +
     '(empirical two-method gap, cross-check not certificate); imp-2520 (G-gronwall, coupled to I3); ' +
-    'imp-362 (pole reduction, G-interval-enclosure, coupled to I5); imp-486 (C_mb GUE-conditional).',
+    'imp-362 (pole reduction, G-interval-enclosure, coupled to I5); imp-486 (C_mb GUE-conditional); ' +
+    'imp-3463 (far-tail E_flow decay exponent 1/2).',
 };
 
 export const IMP35127_G_STEP_ERROR_CERTIFIED_BOUND_SCOPE_ASSERTIONS = [

@@ -43,11 +43,13 @@
  * crossover map g. Establishes NO operator positivity and NO spectral consequence; the Bernstein
  * ingredients are structural properties of the SURROGATE map, NOT of the RH operator. The C_mb
  * GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), and imp-3066 K_a >= 0 are
- * UNTOUCHED. Changes NO bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * UNTOUCHED. Changes NO bound; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED.
+ * Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
  * @see imp-35012-crossover-complete-monotonicity-bernstein-assessment (the classification this extracts from)
  * @see imp-35113-crossover-deriv-sign-ladder-finite-difference (finite-difference sign ladder cross-check)
  * @see imp-33723-sigma-half-vs-crossover-closed-form (surrogate g = K log T0, K = (C_C/E_trunc)^2)
+ * @see imp-3463 (far-tail E_flow decay exponent 1/2)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 Riemann-von Mangoldt inverse)
  */
 
@@ -168,7 +170,8 @@ export const IMP35114_BERNSTEIN_INGREDIENTS_EXTRACTION = {
     'a, b >= 0 representation requires. The drift and the far-tail linear slope AGREE (the ticket ' +
     'cross-check). MEASUREMENT ONLY on the surrogate map: the C_mb GUE-conditional per imp-486, the ' +
     'C_C 1/8 ansatz (imp-2642/imp-2643), and imp-3066 K_a >= 0 are UNTOUCHED; establishes no operator ' +
-    'positivity; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; changes no bound; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. ' +
+    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
   citation:
     'imp-35012 (Bernstein classification, representation follows by Hausdorff-Bernstein-Widder); ' +
     'imp-35113 (finite-difference sign-ladder cross-check); imp-34957/imp-34880 (all-positive P_n, ' +

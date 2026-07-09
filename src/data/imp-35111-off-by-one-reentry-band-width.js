@@ -62,13 +62,14 @@
  * A width/exit characterization of the imp-34997 reappearing off-by-one band. MEASUREMENT ONLY on the inherited
  * imp-3220/imp-3406 double surrogate map, IEEE-754 double precision, no interval enclosure. The C_C = (1/8)
  * sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
- * imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; far-tail exponent
+ * stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
  * @see imp-34997-iters-to-floor-tail-grid-refinement (parent: locates the 10^27.08 reentry; sub-gap imp-34997a)
  * @see imp-35109-ceil-phase-drift-precision-certification (certifies the drift/reentry; sub-gap imp-35109a)
  * @see imp-34903-iters-to-floor-residual-sign-wide-band (0 off-by-one above 1e12 on the 10^0.05 grid)
  * @see imp-34951-plus-one-impossibility-margin-band (uniform quantized penult margin; sub-gap imp-34951a)
+ * @see imp-3463 (far-tail E_flow decay exponent 1/2)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 Riemann-von Mangoldt inverse)
  */
 
@@ -254,7 +255,8 @@ export const IMP35111_OFF_BY_ONE_REENTRY_BAND_WIDTH = {
     'imp-34997a / imp-35109a). IEEE-754 double precision; the component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) and the C_mb ' +
     'GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian ' +
+    'Lambda <= 0.2 remains SOTA.',
   citation:
     'imp-34997 (parent: locates the 10^27.08 reentry; sub-gap imp-34997a); imp-35109 (certifies the drift/' +
     'reentry; sub-gap imp-35109a); imp-34903 (0 off-by-one above 1e12 on the 10^0.05 grid); imp-34951 (uniform ' +

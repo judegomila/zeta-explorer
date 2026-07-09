@@ -16115,6 +16115,46 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this note (imp-486)',
     ],
   },
+  {
+    term: 'imp-35218 real-ordinate background-field-sup break: the imp-35194 unit-spacing beta(N) N-uniformity is a UNIT-SPACING ARTIFACT -- on the first-N real Riemann zero ordinates beta GROWS with N at matched front-progress, though the beta ~ 1/g_min front law survives with a smaller, N-dependent prefactor',
+    category: 'proof-status',
+    definition:
+      'A headword recording the imp-35218 re-measurement of the imp-35194 background-field running ' +
+      'sup beta(N) = sup_{p, s < t_c} |B_p(s)|, this time starting the backward Dyson flow from the ' +
+      'first N REAL Riemann zero ordinates (gamma_1 .. gamma_N, Odlyzko table) instead of the ' +
+      'equally-spaced unit-spacing initial condition imp-35194 used.\n\n' +
+      'imp-35194 found beta N-uniform at matched front-progress (relative spread under 1.5% across ' +
+      'N = 50, 100, 200) on unit spacing. imp-35218 REFUTES this on real spacings: at each matched ' +
+      'min-gap fraction beta(N) instead GROWS strongly with N -- roughly 1.1 -> 1.7 -> 2.7 at fraction ' +
+      '0.5 and 9.2 -> 15.7 -> 20.3 at fraction 0.05, a relative spread of ~120-140% per level. The ' +
+      'mechanism is physical, not numerical: real zero spacings SHRINK with height (mean spacing ~ ' +
+      '2 pi / log(T / 2 pi)), so the initial min gap itself decreases with N, and a larger N drags in ' +
+      'higher, more tightly packed zeros that lower the local scale setting beta.\n\n' +
+      'What DOES survive: the beta ~ 1/g_min front-coupling law. Along every real-ordinate trajectory ' +
+      'the product beta * g_min stays O(1) (~0.36 -> 0.64) and weakly decreases toward the front, the ' +
+      'same qualitative coupling imp-35194 found -- but the O(1) constant is smaller than the ' +
+      'unit-spacing (1, 1.4) band and itself grows with N, so the prefactor is NOT N-uniform on real ' +
+      'data.\n\n' +
+      'HOW TO APPLY: cite imp-35218 (or this entry) whenever the imp-35194 N-uniformity is invoked -- ' +
+      'it holds only on the unit-spacing surrogate; on the physically relevant irregular ordinates the ' +
+      'M2 background-field-sup obstruction (imp-35167) is HARDER, not easier, because beta inherits the ' +
+      'height-dependence of the real spacing on top of the self-referential front coupling recorded in ' +
+      'the imp-35227 M2/M5 inseparability entry.\n\n' +
+      'HONEST SCOPE: measurement/frontier-diagnostic only, on the same self-contained backward-RK4 ' +
+      'surrogate as imp-35194; does not certify or bound beta over the full trajectory (the sup ' +
+      'diverges as g_min -> 0); does not discharge M2 or M5, which stay OPEN; does not touch the ' +
+      'imp-2563 sandwich (a valid CONDITIONAL bracket); changes no bound; establishes no operator ' +
+      'positivity; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict; NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35245 (glossary headword recording the imp-35218 real-ordinate finding), 2026',
+    relatedTerms: [
+      'imp-35194 measured the unit-spacing beta(N) N-uniformity that this entry shows is an artifact on real ordinates (imp-35194)',
+      'imp-35167 named the M2 background-field-sup obstruction this measurement probes on real data (imp-35167)',
+      'imp-35227 records the M2/M5 inseparability derived from the imp-35194 unit-spacing measurement (imp-35227)',
+      'imp-35215 derives the exact near-front limit beta*g_min*(x_2-x_0) -> 1 on the same unit-spacing surrogate (imp-35215)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this measurement (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

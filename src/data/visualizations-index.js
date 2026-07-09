@@ -930,6 +930,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive convergence chart reusing baked imp-35238 nearFrontTable/invariantTrajectory literals verbatim; measurement only, beta itself still diverges ~1/g_min toward the front so M2/M5 stay OPEN; C_mb stays GUE-conditional per imp-486; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35294-eflow-fartail-residual-monotone',
+      title: 'E_flow Far-Tail Residual: Monotone Shrinking Across the Ladder',
+      oneLine:
+        'Plots the imp-35237 leading-law and full-surrogate E_flow far-tail residuals against the imp-35135 measured exponent across N = 1e6,1e9,1e12,1e16, showing both residuals shrinking monotonically and the full-surrogate curve crossing below the leading-law curve past N = 1e6.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35237-eflow-fartail-exponent-ladder-crosscheck.js',
+      paperSourcePath:
+        'src/data/imp-35237-eflow-fartail-exponent-ladder-crosscheck.js (imp-35294 viz page)',
+      ticket: 'imp-35294',
+      pedagogicalStep: 62,
+      honestCeiling:
+        'Descriptive residual-ladder chart reusing baked imp-35237 anchors literals verbatim; cross-check only, component model is the imp-3220/imp-3406 extrapolation not a rigorous asymptotic; C_mb stays GUE-conditional per imp-486; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

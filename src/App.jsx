@@ -765,6 +765,9 @@ const Imp35288R2FlowLadderSlackViz = lazy(() =>
 const Imp35293ThreeFactorInvariantRealOrdinatesViz = lazy(() =>
   import('./pages/Imp35293ThreeFactorInvariantRealOrdinatesViz.jsx')
 );
+const Imp35294EflowFartailResidualMonotoneViz = lazy(() =>
+  import('./pages/Imp35294EflowFartailResidualMonotoneViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2197,6 +2200,10 @@ function AppShell() {
           <Route
             path="/viz-imp35293-three-factor-invariant-real-ordinates"
             element={<Imp35293ThreeFactorInvariantRealOrdinatesViz />}
+          />
+          <Route
+            path="/viz-imp35294-eflow-fartail-residual-monotone"
+            element={<Imp35294EflowFartailResidualMonotoneViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

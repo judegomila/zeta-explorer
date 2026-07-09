@@ -723,6 +723,9 @@ const Imp35206HorizonFrontMismatchViz = lazy(() =>
 const Imp35207TwoWindowIncompatibilityViz = lazy(() =>
   import('./pages/Imp35207TwoWindowIncompatibilityViz.jsx')
 );
+const Imp35208DegLadderViz = lazy(() =>
+  import('./pages/Imp35208DegLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2099,6 +2102,10 @@ function AppShell() {
           <Route
             path="/viz-imp35207-two-window-incompatibility"
             element={<Imp35207TwoWindowIncompatibilityViz />}
+          />
+          <Route
+            path="/viz-imp35208-deg-ladder"
+            element={<Imp35208DegLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

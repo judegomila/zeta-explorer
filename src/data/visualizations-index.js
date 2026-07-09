@@ -733,6 +733,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive log-log two-window-height chart on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35208-deg-ladder',
+      title: 'Discrete DEG Ladder: ||R||(DEG) Monotone Inflation',
+      oneLine:
+        'Plots the imp-35148 discrete truncation-size ladder ||R||(DEG) against the all-ones ceiling DEG+1 across DEG=1..12 at the imp-3066 admissible anchor, with the DEG=4 roadmap anchor marked and a bar panel of the strictly positive forward difference Delta||R||(DEG) showing the axis inflates rather than softens the Perron norm.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35148-g7-truncation-deg-lever-probe.js',
+      paperSourcePath:
+        'src/data/imp-35148-g7-truncation-deg-lever-probe.js (imp-35208 viz page)',
+      ticket: 'imp-35208',
+      pedagogicalStep: 48,
+      honestCeiling:
+        'Descriptive DEG-ladder chart on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

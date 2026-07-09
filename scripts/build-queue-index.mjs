@@ -26,7 +26,12 @@
 //       diverged long ago and nextImprovementId now trails the ticket-id
 //       counter by thousands. That gap is expected, not a staleness bug;
 //       see claimId() in auto-ticket-producer.mjs, which derives new ticket
-//       ids from the queue file's own max imp-NNNN id, never from this field.)
+//       ids from the queue file's own max imp-NNNN id, never from this field.
+//       imp-35166 re-raised this exact confusion a third time, proposing to
+//       "fix" nextImprovementId by re-deriving it from max(imp-NNNN ticket
+//       id, improvements.js id) -- closed as stale: that merge would make
+//       nextImprovementId jump by thousands and orphan the improvements.js
+//       sequence, which is exactly the bug imp-33785/imp-35025 ruled out.)
 //     improvementsTotal: total entries in improvements.js
 //     criticalPending: [ { id, title, priority, dependsOn } ]
 //     highPending: [...]

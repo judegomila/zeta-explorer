@@ -7057,6 +7057,15 @@ const DATA_MODULES = [
   // sweep across ~290 decades confirms strict decrease to the floor (non-increasing, pinning 2500.0000 in the
   // far tail). Extrapolation on the surrogate models; imp-34714a REMAINS OPEN; changes no bound; NO QED.
   '/src/data/imp-34996-krawczyk-headroom-safety-factor-asymptote.js',
+  // imp-35110: LOCATES the small-N edge imp-34996 only asserted. The gain-0.02 landmark (a ~ 0.9796,
+  // N ~ 1.506e8) and the FP_LO = 0 pole (a ~ 0.9998, N ~ 1.475e8) both sit ~1.3 decades BELOW the imp-34693
+  // band-bottom (~3.109e9), CONFIRMING the sub-100x direction is small-N outside the admissible band. But it
+  // SHARPENS imp-34996: headroom at the gain-0.02 edge is S ~ 4947 (49x safety), NOT ~100 -- the "gain ~ 0.02
+  // => S ~ 100" step assumed FP_LO ~ 1, whereas FP_LO collapses in lockstep with the gain near a = 1, so S
+  // diverges at the pole rather than descending to 100. On the whole physical (a < 1) branch S is monotone-
+  // decreasing from a +infinity pole to the 2500 floor and NEVER dips below 2500 -- the 100x factor is
+  // unreachable in BOTH directions. Measurement on the surrogate; imp-34714a REMAINS OPEN; changes no bound.
+  '/src/data/imp-35110-krawczyk-headroom-small-n-edge.js',
   // imp-34864: DERIVES + MEASURES the crossover-map THIRD-derivative envelope per-decade shrink ratio one
   // order up from imp-34839. From g_triple_prime = 8 pi^3 K (2u^2+4u+3)/(T^3 u^5) = K P(u)/(M^3 u^5) the
   // ratio factors as r3 = (M_prime/M)^3 (u_prime/u)^5 P(u)/P(u_prime); Riemann-von Mangoldt N=M(u-1) forces
@@ -7577,6 +7586,13 @@ const DATA_MODULES = [
   // depletion, not a coarse-grid artifact. Shows it is a FINITE ceil-phase gap (frac(xArg) confined below the
   // fixed off-by-one window), with off-by-one reappearing at N ~ 10^27.08. Measurement only, no bound change.
   '/src/data/imp-34997-iters-to-floor-tail-grid-refinement.js',
+  // imp-35109: CERTIFIES the imp-34997a sub-gap -- recomputes the imp-34997 ceil-phase drift (~0.0187/decade,
+  // floor(xArg) pinned at 11) and the off-by-one reentry at N ~ 10^27.08 in double-double / compensated
+  // arithmetic, with the RvM Newton inverse re-solved from a cancellation-free dd residual. Higher precision
+  // agrees with the double surrogate to ~1e-15 in xArg, <1e-6/decade drift, <1e-6 reentry exponent -- the
+  // reentry is a GENUINE analytic feature, NOT a double artifact. Arithmetic half of imp-34997a discharged;
+  // surrogate-fidelity half re-pointed as imp-35109a. Certification only, no bound change.
+  '/src/data/imp-35109-ceil-phase-drift-precision-certification.js',
   // imp-35016: cross-validates the imp-33723 closed-form N_cross Banach fixed point against a SECOND
   // independent root-finder (scalar Newton on the residual h(N)=N-g(N), numerical derivative, seeded
   // away from the root across six decades). Newton lands on N_cross=3.2802943517e9 to machine precision

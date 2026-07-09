@@ -1084,6 +1084,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive floor-sensitivity line chart extending the baked imp-35243 demonstration_D1_floor_sensitivity slope arithmetically over a small k range (no re-derivation); the band is a SURROGATE feature with no continuum counterpart at all; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35345-extrapolation-gap',
+      title: 'D2 Extrapolation Gap: Verified Height vs. Reentry Band',
+      oneLine:
+        'Log10 N axis marking the Platt-Trudgian verified-zero height (~3e12) that binds Lambda<=0.2 alongside the imp-35243 reentry-band reentry edge (10^27.08) and exit edge (10^37.17), making visible the 14.6-24.7-decade gap with no verified anchor between them and the band.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35243-reentry-band-surrogate-fidelity-assessment.js',
+      paperSourcePath:
+        'src/data/imp-35243-reentry-band-surrogate-fidelity-assessment.js (imp-35345 viz page)',
+      ticket: 'imp-35345',
+      pedagogicalStep: 73,
+      honestCeiling:
+        'Descriptive to-scale axis reusing the baked imp-35243 demonstration_D2_extrapolation_gap literals verbatim (no re-derivation); shows the extrapolation distance only, does not certify the band against any independent witness; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

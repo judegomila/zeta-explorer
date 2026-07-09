@@ -798,6 +798,9 @@ const Imp35329ExponentDriftClosingComparisonViz = lazy(() =>
 const Imp35344FloorSensitivityCurveViz = lazy(() =>
   import('./pages/Imp35344FloorSensitivityCurveViz.jsx')
 );
+const Imp35345ExtrapolationGapViz = lazy(() =>
+  import('./pages/Imp35345ExtrapolationGapViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2274,6 +2277,10 @@ function AppShell() {
           <Route
             path="/viz-imp35344-floor-sensitivity-curve"
             element={<Imp35344FloorSensitivityCurveViz />}
+          />
+          <Route
+            path="/viz-imp35345-extrapolation-gap"
+            element={<Imp35345ExtrapolationGapViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

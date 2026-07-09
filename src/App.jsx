@@ -732,6 +732,9 @@ const Imp35209MarginRatioLadderViz = lazy(() =>
 const Imp35210FourEComponentLandmarksViz = lazy(() =>
   import('./pages/Imp35210FourEComponentLandmarksViz.jsx')
 );
+const Imp35231EflowFartailExponentLogNCorrectionViz = lazy(() =>
+  import('./pages/Imp35231EflowFartailExponentLogNCorrectionViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2120,6 +2123,10 @@ function AppShell() {
           <Route
             path="/viz-imp35210-four-e-component-landmarks"
             element={<Imp35210FourEComponentLandmarksViz />}
+          />
+          <Route
+            path="/viz-imp35231-eflow-fartail-exponent-logn-correction"
+            element={<Imp35231EflowFartailExponentLogNCorrectionViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

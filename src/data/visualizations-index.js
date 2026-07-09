@@ -775,6 +775,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive landmark-placement chart on the inherited surrogate; conditional-share diagnostic, not an RH bound; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35231-eflow-fartail-exponent-logn-correction',
+      title: 'E_flow Far-Tail Exponent Log-N Correction',
+      oneLine:
+        'Plots the imp-35198 derived leading correction -1 + 3/log N and the full surrogate s(x) against the imp-35135 measured far-tail E_flow decay exponents across N = 1e6..1e16, showing the approach to -1 strictly from above.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35198-eflow-fartail-exponent-logn-correction.js',
+      paperSourcePath:
+        'src/data/imp-35198-eflow-fartail-exponent-logn-correction.js (imp-35231 viz page)',
+      ticket: 'imp-35231',
+      pedagogicalStep: 51,
+      honestCeiling:
+        'Derivation/measurement chart on the inherited imp-3220/imp-3406 surrogate; NOT a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

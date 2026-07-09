@@ -1098,6 +1098,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive to-scale axis reusing the baked imp-35243 demonstration_D2_extrapolation_gap literals verbatim (no re-derivation); shows the extrapolation distance only, does not certify the band against any independent witness; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35346-expansion-slot-ladder',
+      title: 'rho(eps) Expansion-Slot Ladder: eps^(5/2) Skipped',
+      oneLine:
+        'Renders the three resolved coefficient slots of the imp-35322 model-cusp rho(eps) expansion as a term-by-term ladder: eps^(3/2) K=8 sqrt(2)/(9 pi)=0.40014 (imp-35216/imp-35240), eps^(5/2) EMPTY (imp-35244 falsified the -0.32011 near-miss), eps^(7/2) K_(7/2)=-8 sqrt(2)/(3 pi)=-1.20042 (imp-35244), making visible that the expansion skips the eps^(5/2) slot.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35322-rho-eps-expansion-cohort-provenance-rollup.js',
+      paperSourcePath:
+        'src/data/imp-35322-rho-eps-expansion-cohort-provenance-rollup.js (imp-35346 viz page)',
+      ticket: 'imp-35346',
+      pedagogicalStep: 74,
+      honestCeiling:
+        'Descriptive slot-ladder chart baking the imp-35322 roll-up literals verbatim (no new computation); displaying which expansion slots are filled versus skipped is measurement-summary only on the inherited imp-3220/imp-3406/imp-33646 model-cusp surrogate; does not certify a uniform modulus, does not discharge O3 or G6a_shock_lipschitz (both stay OPEN); changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

@@ -15673,6 +15673,48 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this ladder (imp-486)',
     ],
   },
+  {
+    term: 'imp-35151 R5 separability: finite-N window monotonicity (R5a) is GUE-FREE and decidable, only the asymptotic tail (R5b) carries the irreducible imp-486 GUE dependence',
+    category: 'proof-status',
+    definition:
+      'A headword recording the imp-35151 classification of the imp-35104 ' +
+      'R5 obligation (tail-monotonicity of the weaker-K C_mb surrogate ' +
+      'region), which imp-35104 had simply tagged "IRREDUCIBLE per imp-486". ' +
+      'imp-35151 shows that tag is imprecise if read as covering ALL ' +
+      'monotonicity of the region: R5 is SEPARABLE into two parts.\n\n' +
+      'R5a (finite-N window monotonicity): for any bounded window ' +
+      '{N: N<=N_max}, monotonicity of the surrogate is a finite conjunction ' +
+      'of pairwise comparisons of directly-computed tau_c_est(N) values -- ' +
+      'DECIDABLE by finite computation, unconditional, GUE-FREE. Certificate ' +
+      '= the imp-486 direct tau_c monotonicity sweep ' +
+      '(src/math/m-raw-from-umon-bridge.js), which verifies the surrogate for ' +
+      'N in {2,...,100000} WITHOUT invoking C_mb. imp-35191 later tabulated ' +
+      'this conjunction explicitly on the imp-35104 certified window ' +
+      '{50,100,200,500}, exhibiting all three pairwise differences as ' +
+      'non-positive.\n\n' +
+      'R5b (asymptotic tail monotonicity, N->infinity): controlling the sign ' +
+      'of the surrogate difference UNIFORMLY as N->infinity requires ' +
+      'CLT-scale control of the long-range Cauchy sum, which by the imp-486 ' +
+      'IMPOSSIBILITY_ARGUMENT chain is EQUIVALENT to Montgomery pair ' +
+      'correlation / GUE universality -- IRREDUCIBLE.\n\n' +
+      'The literal imp-35104 phrase "tail-monotonicity" names R5b, so the ' +
+      '"IRREDUCIBLE per imp-486" tag is CORRECT for the tail it names, but ' +
+      'wrong if generalized to the whole region: R5a is unconditional. The ' +
+      'daylight this opens lands exactly on the finite window that imp-35104 ' +
+      'R1-R4 already certify, SHARPENING and CONFIRMING the imp-35104 ' +
+      'set-shrinkage picture (conditional region narrows from all-N to the ' +
+      'tail complement) rather than reducing conditional strength.\n\n' +
+      'HONEST SCOPE: classification/assessment only; changes no bound; C_mb ' +
+      'stays GUE-conditional per imp-486; establishes no operator positivity; ' +
+      'no reduction of conditional strength; NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35202 (glossary headword recording the imp-35151 R5 separability verdict), 2026',
+    relatedTerms: [
+      'imp-35104 tagged R5 tail-monotonicity as IRREDUCIBLE per imp-486, the premise imp-35151 sharpens (imp-35104)',
+      'imp-35191 tabulated the R5a finite conjunction explicitly on the certified window {50,100,200,500} (imp-35191)',
+      'imp-486 supplies the IMPOSSIBILITY_ARGUMENT chain that makes R5b equivalent to GUE universality (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

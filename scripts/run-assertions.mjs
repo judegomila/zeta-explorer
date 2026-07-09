@@ -7406,6 +7406,15 @@ const DATA_MODULES = [
   // nested d2 p/dt2 knee hits finite-difference cancellation -- a step-conditioned reading (honest sub-gap), not
   // a genuine sub-(-2) asymptote. Measurement only; light imports only; changes no bound; NO QED.
   '/src/data/imp-35029-far-tail-exponent-tolerance-robustness.js',
+  // imp-35132: ATTRIBUTES the imp-34948 far-tail ramp-vs-sigmoid decay-exponent split (~0.064) to a structural
+  // term, given imp-35028 ruled out a running-g difference. On the same surrogate (locators verbatim): the split
+  // equals EXACTLY the log-log slope of the offset ratio offsetRamp/offsetSigmoid (0.06431 = 0.06431, residual
+  // < 1e-4), a ~2.78 ratio drifting ~1.6% band-wide. E_flow is structurally absent from the surrogate (out);
+  // log-factor running / running-g is common to both landmarks (imp-35028, out); and using the SAME curvature
+  // operator for both offsets collapses the split to exactly 0 while only the CROSS (d2 p/dt2 = 0 vs
+  // d2 sigma/dt2 = 0) pairing carries 0.064 -- so the residual split is the ramp-vs-sigmoid DEFINITIONAL
+  // difference. Measurement only; light imports only; changes no bound; NO QED.
+  '/src/data/imp-35132-split-attribution.js',
   // imp-34956: MEASURES the landmark-window (X_CROSS) sensitivity of the imp-34924 pinned product
   // P = s*(E_flow/E_trunc) = g* r0, to bound how much of the ~1.6e-7 residual ramp-invariance spread is
   // attributable to the fixed-window assumption vs bisection/finite-difference noise. g* is

@@ -15640,7 +15640,10 @@ export const glossary = [
       'clear the map bracket, but the DP45 dt/2 refinement suffers a GATE-SKIP ' +
       '(the min-gap steps through the collision singularity in one stage without ' +
       'landing in the (0, 1e-4) gate band, producing a spurious late re-approach ' +
-      'collision that EXCEEDS t_c_hi). Because the cross-family cross-grid ' +
+      'collision at t_c=1.3238e-3, which EXCEEDS t_c_hi=1.2e-3, while the other ' +
+      'three references (RK4 dt and dt/2, DP45 dt) cleanly land the true event ' +
+      'at t_c in [1.1925e-3, 1.1931e-3], strictly below t_c_hi with worst-case ' +
+      'slack ~6.9e-6. Because the cross-family cross-grid ' +
       'agreement that certified N=500/1000 fails at N=2000, the honest ' +
       'worst-case envelope does not clear the bracket there and the R2 ' +
       'largest-N-tested-AND-met stays at 1000, not 2000. Past N=2000 (N in ' +

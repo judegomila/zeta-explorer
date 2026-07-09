@@ -205,7 +205,7 @@ export const IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT = {
     'is unmeasurable. A fidelity certificate needs all four of R1 floor-independence, R2 single-rate/lineariza' +
     'tion fidelity (imp-34862 found a two-rate law), R3 height-map fidelity, R4 independent-model agreement; R1 ' +
     'and R4 are the binding, presently-unreachable ones. VERDICT: the band is NOT established as a feature of the ' +
-    'true dynamic -- it is a feature of the analytic surrogate. imp-35174s arithmetic result stands; this bounds ' +
+    'true dynamic -- it is a feature of the analytic surrogate. imp-35174\'s arithmetic result stands; this bounds ' +
     'its scope. imp-35111a / imp-35174a / imp-34997a stay OPEN as re-pointed sub-gap imp-35243a.',
   residual_sub_gap_imp_35243a:
     'The surrogate-fidelity half stays OPEN. imp-35243a = certify surrogate-vs-true-dynamics fidelity for the ' +
@@ -224,7 +224,7 @@ export const IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT = {
     'so the true dynamic there is unmeasurable. A fidelity certificate needs R1 floor-independence, R2 single-' +
     'rate/linearization fidelity (imp-34862 found a two-rate law), R3 height-map fidelity and R4 independent-' +
     'model agreement; R1/R4 are binding and presently unreachable. So imp-35111a / imp-35174a stay OPEN, re-' +
-    'pointed as imp-35243a; imp-35174s arithmetic result is unaffected, only its scope is bounded. MEASUREMENT / ' +
+    'pointed as imp-35243a; imp-35174\'s arithmetic result is unaffected, only its scope is bounded. MEASUREMENT / ' +
     'ASSESSMENT ONLY on the inherited imp-3220/imp-3406 surrogate; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/' +
     'imp-2643) and the C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail ' +
     'exponent stays 1/2 (imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +

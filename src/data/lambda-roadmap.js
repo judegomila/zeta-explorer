@@ -461,6 +461,126 @@ export const LAMBDA_CHAIN_STEPS = [
               'Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.',
             by: 'imp-35101',
           },
+          // imp-35147 (assessment/classification ONLY; discharges nothing, no
+          // operator positivity, respects the imp-2519 no-overclaim guard, NO
+          // QED): imp-35101 left ONE minimal-gap object (route R2) as the sole
+          // fit for the G6a modulus but never asked whether a WEAKER-than-RH
+          // version of it suffices. Enumerate candidate sub-RH minimal-gap
+          // inputs, map each to the G6a two-point Hoelder-1/2 requirement, and
+          // classify EQUIVALENT-TO-RH / STRICTLY-WEAKER-BUT-SUFFICIENT /
+          // INSUFFICIENT. Verdict: the STRICTLY-WEAKER-BUT-SUFFICIENT bucket is
+          // EMPTY for the asymptotic (N -> inf) modulus.
+          weakerGapAssessment: {
+            question:
+              'The imp-35101 verdict names a minimal-gap LOWER bound as the sole ' +
+              'object fitting the G6a Hoelder-1/2 modulus. Is that object ' +
+              'RH-EQUIVALENT, or can a strictly-weaker-than-RH minimal-gap input ' +
+              '(averaged, positive-proportion, GUE-conditional, zero-free-region, ' +
+              'or finite-height) supply the SAME modulus?',
+            modulusRequirement:
+              'G6a needs a POINTWISE two-point statement ' +
+              '|tau_c(x) - tau_c(x_prime)| <= C_H |x - x_prime|^{1/2} holding at ' +
+              'EVERY x, hence a UNIFORM (sup-over-x, worst-case) lower bound on ' +
+              'the nearest-pair spacing -- the modulus is controlled at the single ' +
+              'x where spacing is SMALLEST (the shock front). This worst-point, ' +
+              'all-height, pointwise character is what every candidate is graded ' +
+              'against.',
+            candidates: [
+              {
+                key: 'C1',
+                input:
+                  'Uniform pointwise minimal-gap lower bound at every zero (all ' +
+                  'heights): min-gap >= c / log(gamma) for all consecutive pairs',
+                classification: 'EQUIVALENT-TO-RH (the fitting object itself; RH-hard)',
+                reason:
+                  'This IS route R2 / the imp-2520 nearest-pair front / imp-348 ' +
+                  'microscopic local law. Right type AND right sign AND uniform. ' +
+                  'Not PROVEN literally equivalent to RH, but no route weaker than ' +
+                  'RH is known to deliver it; graded as RH-strength, not a lever.',
+              },
+              {
+                key: 'C2',
+                input: 'Averaged / mean minimal-gap bound (control of the average spacing)',
+                classification: 'INSUFFICIENT',
+                reason:
+                  'Wrong aggregation: the modulus is a sup-over-x worst-case, and ' +
+                  'an average cannot bound the single smallest-spacing point. The ' +
+                  'shock front is exactly the extreme x an average washes out.',
+              },
+              {
+                key: 'C3',
+                input:
+                  'Positive-proportion minimal-gap lower bound (holds for a ' +
+                  'positive proportion of zeros)',
+                classification: 'INSUFFICIENT',
+                reason:
+                  'Same defect one level up: tau_c is set by the exceptional ' +
+                  'SMALLEST gap, precisely the measure-zero / excluded-proportion ' +
+                  'front that a positive-proportion statement says nothing about.',
+              },
+              {
+                key: 'C4',
+                input:
+                  'GUE-conditional minimal-gap floor (imp-348 microscopic local ' +
+                  'law, imp-486 C_mb conditional)',
+                classification: 'NOT-WEAKER (rests on RH-level input; = current status)',
+                reason:
+                  'Supplies the right uniform pointwise object, but GUE spacing ' +
+                  'floors are themselves proved conditional on RH-level pair-' +
+                  'correlation input; this is the imp-486 GUE conditional already ' +
+                  'in the ledger, not a sub-RH lever that improves it.',
+              },
+              {
+                key: 'C5',
+                input:
+                  'Zero-free-region / zero-density input (genuinely weaker than ' +
+                  'RH, unconditional)',
+                classification: 'INSUFFICIENT',
+                reason:
+                  'Wrong axis: these bound HORIZONTAL distance of zeros to the ' +
+                  'critical line or COUNT exceptional zeros; they give no ' +
+                  'VERTICAL consecutive-spacing lower bound, which is the only ' +
+                  'quantity feeding the shock-front modulus.',
+              },
+              {
+                key: 'C6',
+                input:
+                  'Finite-height minimal-gap lower bound: an unconditional ' +
+                  'RH-free spacing floor read off the verified zero list up to ' +
+                  'height X (X ~ 3e12)',
+                classification:
+                  'STRICTLY-WEAKER-THAN-RH and SUFFICIENT ON THE VERIFIED STRIP ' +
+                  'ONLY -- INSUFFICIENT for the asymptotic N -> inf modulus',
+                reason:
+                  'Genuinely sub-RH (a finite computation), and it does supply a ' +
+                  'certified uniform pointwise gap floor for all pairs below X. ' +
+                  'But the G6a modulus is needed uniformly as N -> inf (the ' +
+                  'surrogate strip height grows unbounded), and a finite-height ' +
+                  'floor carries no control above X. So it discharges the modulus ' +
+                  'on the truncated strip but not asymptotically -- the SAME ' +
+                  'verified-height mechanism as the Platt-Trudgian floor.',
+              },
+            ],
+            verdict:
+              'The STRICTLY-WEAKER-BUT-SUFFICIENT bucket is EMPTY for the ' +
+              'asymptotic (N -> inf) G6a modulus. Every enumerated sub-RH input ' +
+              'is either wrong-aggregation (C2), wrong-front (C3) or wrong-axis ' +
+              '(C5) INSUFFICIENT, or (C6) sufficient only on the finite verified ' +
+              'strip; the fitting object (C1) is RH-hard with no known sub-RH ' +
+              'route, and the GUE floor (C4) supplies it only under the imp-486 ' +
+              'conditional, which is not weaker than RH for this purpose.',
+            conclusion:
+              'The G6a minimal-gap modulus is effectively RH-EQUIVALENT in ' +
+              'strength: no weaker-than-RH input supplies the asymptotic modulus. ' +
+              'The single sub-RH lever that supplies it AT ALL is a finite-height ' +
+              'gap floor (C6), and it binds only up to the verified height X -- ' +
+              'consistent with the standing finding that the sole non-RH lever on ' +
+              'this program is MORE VERIFIED HEIGHT, not a softer analytic input. ' +
+              'G6a_shock_lipschitz remains OPEN; C_mb stays GUE-conditional ' +
+              '(imp-486); changes no bound; Platt-Trudgian Lambda <= 0.2 stays ' +
+              'SOTA; NO QED.',
+            by: 'imp-35147',
+          },
           closed: false,
         },
         {

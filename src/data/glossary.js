@@ -15992,6 +15992,41 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this assessment (imp-486)',
     ],
   },
+  {
+    term: 'imp-35193 O3 empirical modulus of convergence: |rho(eps) - 2/3| ~ K eps^theta with theta = 3/2 (the Holder-1/2 half-integer fingerprint) and K ~ 0.400, which does NOT discharge O3',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35193 measurement of the imp-35152 O3 modulus-of-convergence on ' +
+      'the imp-35076 a-fortiori margin ratio rho(eps) = C_ren(eps) / C_curv(eps) on the model ' +
+      'Holder-1/2 cusp, which observes rho -> 2/3 from above as eps -> 0+ but supplies no rate.\n\n' +
+      'FITTING PROCEDURE: re-forming rho on the SAME 9-rung imp-35076 ladder (eps = y_N^sharp = ' +
+      'sqrt(2 pi / N) for N = 1e3 .. 1e7) and reading the deviation dev(eps) = |rho(eps) - 2/3|, the ' +
+      'LOCAL log-log slope theta_i = d ln(dev) / d ln(eps) climbs monotonically from ~1.4769 at the ' +
+      'head (worst rung) to ~1.49999 at the tail. An independent OLS tail-5 regression confirms ' +
+      'theta ~ 1.4999, and the prefactor read as dev / eps^{3/2} converges to K ~ 0.4001 (near 2/5 ' +
+      'but not certified as a closed form here).\n\n' +
+      'RESULT: the empirical exponent is theta = 3/2, the HALF-INTEGER fingerprint of the Holder-1/2 ' +
+      'cusp, giving |rho(eps) - 2/3| ~ K eps^{3/2} with K ~ 0.400. Even at the worst (head) rung the ' +
+      'deviation is only ~8.8e-3 with rho ~ 0.6754 < 1, consistent with the a-fortiori margin holding ' +
+      'across the whole ladder.\n\n' +
+      'HOW TO APPLY: cite imp-35193 (or this entry) as the measured target -- theta = 3/2, K ~ 0.4 -- ' +
+      'that a future analytic proof of O3 would need to certify with a rigorous error bar; imp-35216 ' +
+      'subsequently proposed a closed form K = 8 sqrt(2)/(9 pi) matching the tail reading, and ' +
+      'imp-35240 pushed the ladder ~3 decades deeper without resolving the closed-form question.\n\n' +
+      'HONEST SCOPE: measurement only, on the inherited imp-3220/imp-3406/imp-33646 model-cusp ' +
+      'surrogate; no certified constant, no error bars, finite 9-rung sample cannot exclude a ' +
+      'between-rung excursion; O3 and G6a_shock_lipschitz stay OPEN; imp-3066 K_a >= 0 untouched; ' +
+      'C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator ' +
+      'positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35228 (glossary headword recording the imp-35193 O3 empirical modulus of convergence), 2026',
+    relatedTerms: [
+      'imp-35152 named O3 (a certified rate |rho(eps) - 2/3| <= K eps^theta) the load-bearing missing ingredient this measurement targets (imp-35152)',
+      'imp-35076 supplies the a-fortiori margin ratio rho(eps) and the bare 2/3 limit this modulus refines (imp-35076)',
+      'imp-35216 proposes a closed-form candidate K = 8 sqrt(2)/(9 pi) matching the measured tail reading (imp-35216)',
+      'imp-35240 remeasures K on a finer, deeper eps grid without resolving the closed-form question (imp-35240)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this measurement (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

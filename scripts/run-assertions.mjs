@@ -6708,6 +6708,15 @@ const DATA_MODULES = [
   // C_mb-robust; but the tight landing ON R ~ 91 (eps25/R 0.887 -> 1.001) is C_mb-specific. Resummation stays
   // inert at eps = 1 for every C_mb. Measurement/derivation only, C_mb GUE-conditional untouched, no bound change.
   '/src/data/imp-34955-sigma-knee-crossing-cmb-sensitivity.js',
+  // imp-35070: PROPAGATES the imp-34882/imp-34900 Domb-Sykes radius band [79,106] through the imp-34955 C_mb
+  // sweep as a joint (C_mb, R) coincidence (pure interval arithmetic on the imported eps-bands, no new bisection).
+  // The 25% crossing eps-band ~[80.72, 91.13] is ENTIRELY inside [79,106] (100% of the eps-band, robust to both
+  // the C_mb and the radius uncertainty) but spans only ~38.6% of the radius band -- a band-in-band containment,
+  // NOT the tight R ~ 91 point landing it looks like at C_mb = 1 (R ~ 91 is the top corner, fractile ~0.98). The
+  // 5% crossing eps-band ~[69.52, 79.24] overlaps [79,106] in only a ~0.24 top sliver (~2.4% of the 5% band), so
+  // the imp-34931 "5% on the low edge" reading is a C_mb ~ 1 point-estimate artifact. Confirms/sharpens the
+  // imp-34955 two-level verdict; no tighter POINT verdict recoverable (imp-34932 radius intrinsically ill-conditioned).
+  '/src/data/imp-35070-crossing-radius-band-propagation.js',
   // imp-34972: DERIVES the imp-34955 ~0.18 C_mb elasticity of the raw-total 5%/25% crossings. Since C_mb enters
   // uOf as an additive ln(C_mb) it reaches the crossings ONLY by relocating X_CROSS, so implicit differentiation
   // of uOf(X_CROSS)=0 gives the CLOSED-FORM X-shift dX_CROSS/d ln(C_mb) = 1/v_CROSS = 2/(1 - (ln L)_prime(X_CROSS)),
@@ -7511,6 +7520,11 @@ const DATA_MODULES = [
   // two interior closed forms (subleading (n-1)(n-1)!, row-sum n^(n-1)) plus a two-sided interior
   // bound. Derivation/verification only, no bound change.
   '/src/data/imp-34974-crossover-boundary-projection-recurrence-derivation.js',
+  // imp-35068: IDENTIFIES the imp-34957/imp-34922 crossover-map numerator-polynomial coefficient
+  // triangle a_k^(n) as the classical RAMANUJAN POLYNOMIAL triangle read in reverse (P_n(u)=
+  // u^(n-1)R_n(1/u), R_(n+1)=n(1+x)R_n+x^2 dR_n/dx), verified exact-integer n=2..12; names the row
+  // sum as Cayley OEIS A000169 and characterizes the alternating sum. Identification only, no bound change.
+  '/src/data/imp-35068-crossover-triangle-ramanujan-polynomial-identification.js',
   // imp-35053 orphan-wiring check (imp-34896/34920/34945/34967 lineage): imp-35018's
   // self-executing IMP35018_FOUR_LANDMARK_CLUSTER_LOG_N_VIZ_ASSERTIONS array (band-contains-
   // locators, ordered-increasing, pairwise-spreads-under-4pct, cluster-band-3p3e9) was not yet
@@ -7563,6 +7577,13 @@ const DATA_MODULES = [
   // E_flow closes 100% of the C1-to-N_half gap -- so the two forms are the two balances of imp-33601, not
   // independent estimates. Light imports only; C_mb GUE-conditional (imp-486) untouched; changes no bound; NO QED.
   '/src/data/imp-35054-two-closed-form-crossovers-cross-validation.js',
+  // imp-35069: MEASURES the imp-34954 G-conversion slope s = d ln E_coll/d ln N across an N ladder
+  // [1e6,1e30] and resolves its single-point reading -0.47729 into a monotone running toward -1/2:
+  // the offset s+1/2 equals (1/2) d ln(log T0)/d ln N exactly (chain rule, E_coll = C_C sqrt(log T0/N),
+  // verified to ~1e-11) and decays as ~1/(2 log T0) -- the ratio offset/(1/(2 log T0)) climbs
+  // monotonically 0.9128 -> 0.9846 -- mirroring the imp-34130 sibling separated-E_coll local-exponent
+  // residual law. Measurement only; light imports; C_mb GUE-conditional (imp-486) untouched; no bound; NO QED.
+  '/src/data/imp-35069-g-conversion-slope-n-ladder-half-approach.js',
 ];
 
 let ALL_MODULES = FAST_MODE

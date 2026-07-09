@@ -17214,6 +17214,36 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat shared by all three laws, UNTOUCHED (imp-486)',
     ],
   },
+  {
+    term: 'imp-35111a disambiguation: the ARITHMETIC half (imp-35174, DISCHARGED) versus the SURROGATE-FIDELITY half (imp-35243a, OPEN) of the reentry-band sub-gap',
+    category: 'proof-status',
+    definition:
+      'A disambiguation headword separating the two halves of sub-gap imp-35111a on the imp-34997/imp-35111 ' +
+      'iters-to-floor REENTRY band, which are easy to conflate because both concern whether the band is an ' +
+      'artifact rather than a real feature.\n\n' +
+      'THE ARITHMETIC HALF (imp-35174, DISCHARGED). Question: is the band an IEEE-754 double-precision rounding ' +
+      'artifact of computing the surrogate itself? Answer: NO -- imp-35174 recomputed the band edges in ' +
+      'double-double precision and found the edges (band-on ~N=10^27.08, band-off ~N=10^37.17) agree with the ' +
+      'double-precision computation to ~1e-13/1e-14, ruling out rounding error as the cause. This half is CLOSED; ' +
+      'imp-35174 bounded its own scope to arithmetic reproducibility only.\n\n' +
+      'THE SURROGATE-FIDELITY HALF (imp-35243a, OPEN). Question: does the band, confirmed real IN THE SURROGATE, ' +
+      'also describe the TRUE collapse dynamic? Answer: NOT ESTABLISHED -- imp-35243 found the band sits on a ' +
+      'machine-epsilon floor with no continuum counterpart (D1) and lies ~15-25 decades above any Platt-Trudgian ' +
+      'verified zero height (D2), and the underlying single-rate log-law model may be unfaithful to the true ' +
+      'dynamic that far out. This half stays OPEN, tracked as imp-35243a (re-pointed from imp-35174a).\n\n' +
+      'HOW TO APPLY: when citing progress on imp-35111a, specify WHICH half is meant -- imp-35174 discharging ' +
+      'the arithmetic half does not touch the surrogate-fidelity half, and the surrogate-fidelity half staying ' +
+      'OPEN does not reopen the arithmetic half.\n\n' +
+      'HONEST SCOPE: glossary disambiguation only, reproducing existing verdicts verbatim from imp-35174 and ' +
+      'imp-35243; no new measurement; changes no bound; establishes no operator positivity; no RH verdict; NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35340 (glossary disambiguation headword separating the arithmetic and surrogate-fidelity halves of imp-35111a), 2026',
+    relatedTerms: [
+      'imp-35174 discharged the arithmetic half of imp-35111a, re-pointing the fidelity half as imp-35174a (imp-35174)',
+      'imp-35243 assessed the surrogate-fidelity half and found the reentry band unestablished for the true dynamic (imp-35243)',
+      'imp-35111 first measured the reentry band width as an off-by-one phase-window phenomenon (imp-35111)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

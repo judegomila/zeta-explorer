@@ -741,6 +741,9 @@ const Imp35232ScheduleCorridorCollapseViz = lazy(() =>
 const Imp35233BetaFrontLawNUniformityViz = lazy(() =>
   import('./pages/Imp35233BetaFrontLawNUniformityViz.jsx')
 );
+const Imp35234RhoDeviationLogLogModulusViz = lazy(() =>
+  import('./pages/Imp35234RhoDeviationLogLogModulusViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2141,6 +2144,10 @@ function AppShell() {
           <Route
             path="/viz-imp35233-beta-front-law-n-uniformity"
             element={<Imp35233BetaFrontLawNUniformityViz />}
+          />
+          <Route
+            path="/viz-imp35234-rho-deviation-loglog-modulus"
+            element={<Imp35234RhoDeviationLogLogModulusViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

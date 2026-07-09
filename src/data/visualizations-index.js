@@ -817,6 +817,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Measurement-only chart probing the imp-35167 M2 background-field-sup obstruction on the inherited backward Dyson surrogate; does not certify N-uniformity over the full trajectory (sup diverges as g_min -> 0); M5 horizon-front mismatch stays OPEN; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35234-rho-deviation-loglog-modulus',
+      title: 'rho(eps) - 2/3 Deviation Modulus, Log-Log',
+      oneLine:
+        'Plots the imp-35193 measured deviation dev(eps) = |rho(eps) - 2/3| against eps on log-log axes with the K eps^{3/2} prefactor reference line (K ~ 0.400), and the local log-log slope theta_i climbing monotonically from ~1.4769 at the head toward the theta = 3/2 Holder-1/2 cusp fingerprint at the tail.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35193-rho-convergence-rate-modulus-measurement.js',
+      paperSourcePath:
+        'src/data/imp-35193-rho-convergence-rate-modulus-measurement.js (imp-35234 viz page)',
+      ticket: 'imp-35234',
+      pedagogicalStep: 54,
+      honestCeiling:
+        'Descriptive log-log deviation-modulus chart on the inherited imp-3220/imp-3406/imp-33646 model-cusp surrogate; an OLS slope over 9 rungs is empirical, not a certified modulus; does not discharge O3 or G6a_shock_lipschitz (both stay OPEN); changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

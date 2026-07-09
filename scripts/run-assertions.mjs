@@ -203,6 +203,8 @@ const DATA_MODULES = [
   '/src/data/imp-35221-r2-n1000-flow-reference.js',
   // imp-35240: finer smaller-eps re-measurement confirms rho prefactor K = 8 sqrt(2)/(9 pi), not 2/5.
   '/src/data/imp-35240-rho-prefactor-finer-grid-remeasurement.js',
+  // imp-35244: eps^{5/2} slot is EMPTY -- implied -16/(15 A_2) falsified; next term eps^{7/2} = -8 sqrt(2)/(3 pi).
+  '/src/data/imp-35244-rho-eps52-coefficient-measurement.js',
   // imp-903 27-point H_raw-update sweep: rescue satisfied from N_0 = 100.
   '/src/data/imp-903-uniform-sweep-result.js',
   // imp-904 dense-N-grid partial closure: 31-N combined catalog over [10, 10^4].

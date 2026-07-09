@@ -717,6 +717,9 @@ const Imp35139EflowQeffProfileViz = lazy(() =>
 const Imp35140RunningGRampVsSigmoidSplitViz = lazy(() =>
   import('./pages/Imp35140RunningGRampVsSigmoidSplitViz.jsx')
 );
+const Imp35206HorizonFrontMismatchViz = lazy(() =>
+  import('./pages/Imp35206HorizonFrontMismatchViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2085,6 +2088,10 @@ function AppShell() {
           <Route
             path="/viz-imp35140-running-g-ramp-vs-sigmoid-split"
             element={<Imp35140RunningGRampVsSigmoidSplitViz />}
+          />
+          <Route
+            path="/viz-imp35206-horizon-front-mismatch"
+            element={<Imp35206HorizonFrontMismatchViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

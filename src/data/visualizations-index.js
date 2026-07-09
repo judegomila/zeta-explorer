@@ -705,6 +705,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive component-decomposition table on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35206-horizon-front-mismatch',
+      title: 'Horizon-Front Mismatch: T_minus(g,beta) vs. t_c(N)',
+      oneLine:
+        'Plots the imp-35195 measurement of the imp-35167 M5 horizon-front mismatch on a shared log-log axis: the certified non-collision window T_minus(g,beta) against the O(1) collision-front fit t_c(N) across N=5..870, plus the imp-2762 verified g_min(1e4) asymptotic anchor showing the ~20x ratio drop from the small-N O(1) plateau.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35195-horizon-front-mismatch-ratio.js',
+      paperSourcePath:
+        'src/data/imp-35195-horizon-front-mismatch-ratio.js (imp-35206 viz page)',
+      ticket: 'imp-35206',
+      pedagogicalStep: 46,
+      honestCeiling:
+        'Descriptive log-log window-vs-front chart on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

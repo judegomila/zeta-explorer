@@ -16386,6 +16386,41 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this note (imp-486)',
     ],
   },
+  {
+    term: 'imp-35240 finer-grid prefactor confirmation: an independent, ~3-decades-deeper eps re-measurement (down to eps = 1e-6, N ~ 6.3e12) matches the model-cusp margin-ratio prefactor K = 8 sqrt(2)/(9 pi) = 0.40014 to ~3.3e-7 -- about 424x closer than to the near-miss candidate 2/5',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35240 independent finer-grid confirmation of the imp-35216 ' +
+      'closed-form model-cusp margin-ratio prefactor K in |rho(eps) - 2/3| ~ K eps^{3/2}.\n\n' +
+      'THE MEASUREMENT: the imp-35193 empirical ladder floored at N = 1e7 (eps ~ 7.9e-4), where the ' +
+      'O(eps) finite-size bias (~1e-3) exceeds the ~3.5e-4 gap separating K = 0.40014 from the ' +
+      'near-miss candidate 2/5 = 0.40000, so it could not discriminate between them. This module pushes ' +
+      'eps three decades lower (to eps = 1e-6) via the imp-35216 finite-cutoff rescaling ' +
+      'rho = |F_2(L)| / (2 |F_3(L)|), L = eps^{-1/2}, forming |F_p(L)| = |F_p(infinity)| + R_p(L) with ' +
+      'Kahan-compensated Simpson quadrature so the ~4e-10 deviations at the smallest rung are not ' +
+      'swamped by roundoff.\n\n' +
+      'RESULT: the measured K climbs monotonically across eps = {1e-4 .. 1e-6} -- 0.40010857, ' +
+      '0.40013098, 0.40013739, 0.40013963, 0.40014025 -- converging on the imp-35216 closed form ' +
+      '8 sqrt(2)/(9 pi) = 0.4001406 to ~3.3e-7 at the smallest rung, roughly 424x closer than to 2/5 ' +
+      '(gap ~1.40e-4). This is an INDEPENDENT confirmation of imp-35216 (not a re-derivation) and a ' +
+      'refutation of 2/5 as the true coefficient, resolving the discrimination the imp-35193 ladder ' +
+      'left open.\n\n' +
+      'HOW TO APPLY: cite imp-35240 alongside imp-35216 when a reader asks whether the closed form was ' +
+      'only ever fit to the same coarse ladder it was read off -- imp-35240 is a separate, deeper, ' +
+      'higher-precision measurement that lands on the same constant.\n\n' +
+      'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406/imp-33646 model-cusp surrogate; ' +
+      'does NOT certify a uniform modulus, does not discharge O3 or G6a_shock_lipschitz, both stay ' +
+      'OPEN; establishes no operator positivity; imp-3066 K_a >= 0 UNTOUCHED; C_mb GUE-conditional per ' +
+      'imp-486 UNTOUCHED; changes no bound; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
+      'the rigorous SOTA.',
+    firstUsed: 'imp-35267 (glossary headword recording the imp-35240 finer-grid prefactor confirmation), 2026',
+    relatedTerms: [
+      'imp-35216 derived the closed form K = 8 sqrt(2)/(9 pi) this entry confirms on a deeper grid (imp-35216)',
+      'imp-35193 measured the coarse empirical K ~ 0.400 that floored before discriminating from 2/5 (imp-35193)',
+      'imp-35244 finds the eps^{5/2} slot the 2/5 tail would imply is empty, a separate higher-order correction (imp-35244)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this measurement (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

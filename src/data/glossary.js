@@ -17244,6 +17244,39 @@ export const glossary = [
       'imp-35111 first measured the reentry band width as an off-by-one phase-window phenomenon (imp-35111)',
     ],
   },
+  {
+    term: 'imp-35243 certificate requirement routing: where each of R1-R4 is being worked (R1->imp-35263, R2->imp-35259, R3->imp-35260, R4->imp-35297)',
+    category: 'proof-status',
+    definition:
+      'A routing headword pointing each of the four imp-35243 surrogate-fidelity certificate requirements (R1-R4, ' +
+      'first enumerated in full at imp-35277) to the specific ticket assigned to discharge it, so progress on the ' +
+      'iters-to-floor REENTRY band certificate can be tracked requirement-by-requirement rather than as one bundle.\n\n' +
+      'R1 FLOOR-INDEPENDENCE -> imp-35263. Needs a floor-free continuum re-expression of the band, or a proof the ' +
+      'true dynamic has an intrinsic floor at EPS_FP = 2.3e-16. This is the BINDING obstruction labeled D1 in ' +
+      'imp-35243: the band moves ~12 decades in N per factor-2 change in the machine-epsilon floor, a ' +
+      'representation constant absent from the infinite-precision continuum.\n\n' +
+      'R2 SINGLE-RATE / LINEARIZATION FIDELITY -> imp-35259. Needs the nonlinear remainder of the true map bounded ' +
+      'uniformly across the band so one fixed-point contraction rate governs the approach out to N ~ 10^37.\n\n' +
+      'R3 HEIGHT-MAP FIDELITY -> imp-35260. Needs certification that g = K log T0(N) models the true E_flow height ' +
+      'at N ~ 10^37, extending constants pinned near N ~ 3e12.\n\n' +
+      'R4 INDEPENDENT-MODEL AGREEMENT -> imp-35297. Needs reproduction of the reentry/exit from an independent, ' +
+      'non-log-law model, or from verified zero data at height ~10^27-10^37. This is the other BINDING requirement, ' +
+      'labeled D2 in imp-35243: presently UNREACHABLE, since no verified zero height sits within ~15 decades of the ' +
+      'band (highest verified height ~3e12, log10 ~12.48, versus band reentry/exit at log10 ~27.08/37.17).\n\n' +
+      'HOW TO APPLY: R1 (imp-35263) and R4 (imp-35297) are the two requirements that actually bind the certificate, ' +
+      'per the D1/D2 demonstrations in imp-35243; progress on R2 (imp-35259) or R3 (imp-35260) alone does not move ' +
+      'the reentry-band verdict, since a certificate needs all four requirements discharged together.\n\n' +
+      'HONEST SCOPE: routing/documentation only, reusing terminology and statuses already established in imp-35243 ' +
+      'and imp-35277; discharges none of R1-R4; changes no bound; no RH verdict; NO QED. Platt-Trudgian Lambda <= ' +
+      '0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35341 (glossary headword routing the four imp-35243 certificate requirements to their tickets), 2026',
+    relatedTerms: [
+      'imp-35277 first enumerated the four requirements R1-R4 in full with their status (imp-35277)',
+      'imp-35243 demonstrations D1 and D2 identify R1 and R4 as the binding, presently unreachable requirements (imp-35243)',
+      'imp-35263 is the ticket assigned to R1 floor-independence (imp-35263)',
+      'imp-35297 is the ticket assigned to R4 independent-model agreement, the requirement with no verified datum within ~15 decades (imp-35297)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

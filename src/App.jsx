@@ -21,6 +21,7 @@ const FourierPage = lazy(() => import('./pages/FourierPage.jsx'));
 const SupercriticalPage = lazy(() => import('./pages/SupercriticalPage.jsx'));
 const DeBruijnDeparturePage = lazy(() => import('./pages/DeBruijnDeparturePage.jsx'));
 const PtFloorSensitivityAuditPage = lazy(() => import('./pages/PtFloorSensitivityAuditPage.jsx'));
+const VerifiedHeightLeverPage = lazy(() => import('./pages/VerifiedHeightLeverPage.jsx'));
 const DocsPage = lazy(() => import('./pages/DocsPage.jsx'));
 const ImprovementsPage = lazy(() => import('./pages/ImprovementsPage.jsx'));
 const WaveSimPage = lazy(() => import('./pages/WaveSimPage.jsx'));
@@ -1251,6 +1252,7 @@ function AppShell() {
           <Route path="/supercritical" element={<SupercriticalPage />} />
           <Route path="/debruijn-departure" element={<DeBruijnDeparturePage />} />
           <Route path="/pt-floor-audit" element={<PtFloorSensitivityAuditPage />} />
+          <Route path="/verified-height-lever" element={<VerifiedHeightLeverPage />} />
           <Route path="/docs" element={<DocsPage />} />
           <Route path="/waves" element={<WaveSimPage />} />
           <Route path="/rigor" element={<RHRigorPage />} />

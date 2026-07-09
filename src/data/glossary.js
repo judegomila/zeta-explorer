@@ -15622,6 +15622,57 @@ export const glossary = [
       'imp-3066 the off-diagonal endpoint-Hankel K_a>=0 obstruction that remains OPEN (imp-3066)',
     ],
   },
+  {
+    term: 'imp-35104 R2 true-flow-bound ladder honest status: CERTIFIED to N=1000, PROVISIONAL-not-certified at N=2000, UNTESTED past N=2000',
+    category: 'proof-status',
+    definition:
+      'A headword recording the CURRENT state of the imp-35104 R2 requirement ' +
+      '(the one-sided true-flow bound t_c_flow(N) <= t_c_hi(N) that makes the ' +
+      'imp-857 map bracket an actual upper bound on the true Dyson-flow collision ' +
+      'time). imp-35150 first found R2 testable only where an order-robust flow ' +
+      'reference exists and capped it at N=200 (met at N in {50,100,200}, ' +
+      'UNTESTED at N>=500). That cap has since moved TWICE: imp-35190 computed ' +
+      'an independent-family (RK4 order-4 + DP45 order-5) cross-grid flow ' +
+      'reference at N=500 and found R2 MET there, and imp-35221 repeated the ' +
+      'method at N=1000 and again found R2 MET (worst-case envelope slack ' +
+      '9.72e-5 below t_c_hi). The ladder does NOT reach N=2000: imp-35235 ' +
+      'reproduced the method at N=2000 and found three of the four references ' +
+      'clear the map bracket, but the DP45 dt/2 refinement suffers a GATE-SKIP ' +
+      '(the min-gap steps through the collision singularity in one stage without ' +
+      'landing in the (0, 1e-4) gate band, producing a spurious late re-approach ' +
+      'collision that EXCEEDS t_c_hi). Because the cross-family cross-grid ' +
+      'agreement that certified N=500/1000 fails at N=2000, the honest ' +
+      'worst-case envelope does not clear the bracket there and the R2 ' +
+      'largest-N-tested-AND-met stays at 1000, not 2000. Past N=2000 (N in ' +
+      '{5000, 10000, ...}) the imp-857 map bracket exists but no order-robust ' +
+      'flow reference has been computed at all, so R2 remains UNTESTED (neither ' +
+      'confirmed nor violated) there, exactly as at the original N=200 cap -- ' +
+      'only the untested threshold has moved from 500 to past 2000.\n\n' +
+      'WHY THIS CORRECTS A STALE PREMISE: any note citing imp-35150 alone as ' +
+      'the current R2 ceiling ("certified only to N=200, untested at N>=500") ' +
+      'is now OUT OF DATE; the ladder has advanced through two further rungs. ' +
+      'The honest ceiling as of imp-35235 is N=1000 certified, N=2000 ' +
+      'provisional-only, gated past that on either a finer flow grid than ' +
+      'tauC/1000 or a signed-crossing collision gate (named sub-gap ' +
+      'imp-35235-sub-n2000-gate-skip).\n\n' +
+      'HOW TO APPLY: cite imp-35221 (not imp-35150) for the current largest ' +
+      'certified R2 rung; cite imp-35235 for why N=2000 is provisional rather ' +
+      'than certified, and imp-35235-sub-n2000-gate-skip for what would be ' +
+      'needed to close it.\n\n' +
+      'HONEST SCOPE: measurement/certification only on the inherited backward-' +
+      'Dyson map/flow surrogate; C_mb stays GUE-conditional (imp-486); changes ' +
+      'no bound; establishes no operator positivity; Platt-Trudgian Lambda<=0.2 ' +
+      'remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-35201 (glossary headword recording the current, post-imp-35235 honest status of the imp-35104 R2 true-flow-bound ladder), 2026',
+    relatedTerms: [
+      'imp-35150 first capped R2 at N=200 by flow-reference availability, not by violation (imp-35150)',
+      'imp-35190 extended R2 to N=500 with a cross-family cross-grid envelope (imp-35190)',
+      'imp-35221 extended R2 to N=1000, the current largest certified rung (imp-35221)',
+      'imp-35235 found N=2000 only provisional (3-of-4 references) due to a DP45 dt/2 gate-skip (imp-35235)',
+      'imp-2528 supplies the one-sided map-to-flow overshoot mechanism underlying the R2 predicate (imp-2528)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this ladder (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

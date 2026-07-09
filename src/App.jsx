@@ -747,6 +747,9 @@ const Imp35234RhoDeviationLogLogModulusViz = lazy(() =>
 const Imp35252RealVsUnitBackgroundFieldSupContrastViz = lazy(() =>
   import('./pages/Imp35252RealVsUnitBackgroundFieldSupContrastViz.jsx')
 );
+const Imp35272PrefactorLadderViz = lazy(() =>
+  import('./pages/Imp35272PrefactorLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2155,6 +2158,10 @@ function AppShell() {
           <Route
             path="/viz-imp35252-real-vs-unit-background-field-sup-contrast"
             element={<Imp35252RealVsUnitBackgroundFieldSupContrastViz />}
+          />
+          <Route
+            path="/viz-imp35272-prefactor-ladder"
+            element={<Imp35272PrefactorLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -846,6 +846,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Measurement-only overlay chart probing the imp-35167 M2 background-field-sup obstruction under the M3 initial-gap regime on the inherited backward Dyson surrogate; does not certify N-uniformity over the full trajectory (sup diverges as g_min -> 0); M5 horizon-front mismatch stays OPEN; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35272-prefactor-ladder',
+      title: 'rho(eps) Prefactor Ladder: K(eps) to 8 sqrt(2)/(9 pi)',
+      oneLine:
+        'Plots the imp-35240 finer-grid prefactor K(eps) = (rho(eps) - 2/3)/eps^{3/2} across eps = 1e-4..1e-6, climbing monotonically toward the derived closed form 8 sqrt(2)/(9 pi) = 0.40014 (matched to ~3.3e-7 at eps = 1e-6) and decisively away from the near-miss candidate 2/5 = 0.4000 (~424x discrimination).',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35240-rho-prefactor-finer-grid-remeasurement.js',
+      paperSourcePath:
+        'src/data/imp-35240-rho-prefactor-finer-grid-remeasurement.js (imp-35272 viz page)',
+      ticket: 'imp-35272',
+      pedagogicalStep: 56,
+      honestCeiling:
+        'Descriptive prefactor-ladder chart on the inherited imp-3220/imp-3406/imp-33646 model-cusp surrogate; a finer eps ladder discriminating a prefactor is measurement only, not a certified uniform modulus; does not discharge O3 or G6a_shock_lipschitz (both stay OPEN); changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

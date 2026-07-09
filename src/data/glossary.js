@@ -15954,6 +15954,44 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this measurement (imp-486)',
     ],
   },
+  {
+    term: 'imp-35227 M2/M5 inseparability: the background-field sup beta ~ 1/g_min is N-uniform at matched front-progress, so the binding difficulty in certifying a finite beta is the FRONT (self-referential g_min coupling), not the particle count N',
+    category: 'proof-status',
+    definition:
+      'A headword recording the imp-35194 finding that the imp-35167 M2 obstruction (certifying a ' +
+      'finite sup over the adjacent-pair background field beta = sup B_p along the backward Dyson ' +
+      'flow) and the M5 horizon-bridge obstruction are NOT independent difficulties.\n\n' +
+      'imp-35194 measured two facts on the equally-spaced unit-spacing initial condition: (F1) beta is ' +
+      'N-uniform at matched front-progress (spread under 1.5% across N = 50, 100, 200, weakly ' +
+      'DECREASING with N -- a convergent reciprocal-product sum that saturates at the local scale ' +
+      'rather than growing with particle count), and (F2) beta grows toward the front like ~1/g_min, ' +
+      'with the product beta*g_min staying in the band (1, 1.4) and decreasing monotonically as the ' +
+      'min-gap fraction drops from 0.5 to 0.05.\n\n' +
+      'CONSEQUENCE: since F1 shows the obstruction is NOT indexed by N, the only remaining lever that ' +
+      'can blow beta up is the min gap g_min itself approaching 0 near the front -- exactly the ' +
+      'quantity the M5 horizon-bridge obstruction (imp-35167, imp-35195) already tracks. A finite sup ' +
+      'over s < t_c therefore requires an a-priori lower bound g_min(s) > 0 all the way to the front, ' +
+      'so M2 cannot be discharged on its own terms: it is SELF-REFERENTIALLY folded into M5, not a ' +
+      'separate ingredient sitting beside it.\n\n' +
+      'HOW TO APPLY: cite this entry when scoping the imp-35167 obstruction list to note that closing ' +
+      'M2 does not add work beyond closing M5 -- a certified g_min(s) > 0 bound down to the front ' +
+      'would discharge both simultaneously, and conversely no route that leaves g_min unbounded near ' +
+      'the front can supply a finite beta either.\n\n' +
+      'HONEST SCOPE: measurement/assessment only, on the equally-spaced unit-spacing surrogate; ' +
+      'imp-35218 subsequently found the F1 N-uniformity does NOT survive on real Riemann zero ' +
+      'ordinates (beta grows with N there), though the beta ~ 1/g_min front law does survive with a ' +
+      'smaller N-dependent prefactor; M2/M5 stay OPEN; changes no bound; C_mb GUE-conditional per ' +
+      'imp-486 UNTOUCHED; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35227 (glossary headword recording the imp-35194 M2/M5 inseparability), 2026',
+    relatedTerms: [
+      'imp-35167 named M2 (finite background-field sup) and M5 (horizon-front mismatch), the two obstructions this entry links (imp-35167)',
+      'imp-35194 supplies the F1/F2 measurements (N-uniform beta, beta ~ 1/g_min) this inseparability is derived from (imp-35194)',
+      'imp-35195 measures the M5 horizon-front ratio directly, the obstruction M2 is shown to reduce to (imp-35195)',
+      'imp-35218 found the F1 N-uniformity is a unit-spacing artifact, not present on real zero ordinates (imp-35218)',
+      'imp-35215 derives the exact near-front limit beta*g_min*(x_2-x_0) -> 1, sharpening the F2 band (imp-35215)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this assessment (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

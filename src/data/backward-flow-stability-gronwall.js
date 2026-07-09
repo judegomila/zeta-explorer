@@ -593,6 +593,85 @@ const MEASURED_STABILITY_NONVACUOUS = MEASURED_ROWS.every(
 const ROW_1E6 = PER_N_ROWS[PER_N_ROWS.length - 1];
 const TICKET_TARGET_AT_1E6 = 1.9e-4;
 
+// ── imp-35128: Gronwall vacuity map (strip-height collapse near the front) ────
+// The imp-35058 Step-2 G-gronwall obligation needs an N-uniform propagation
+// constant exp(-2 T / y^2) valid up to the collision front. Lemma B is
+// non-vacuous only at MESOSCOPIC height y_star; near the true nearest-pair
+// front the resolving strip shrinks and the constant collapses (imp-2520
+// negative finding 1). This map QUANTIFIES, on the existing per-N surrogate,
+// the band edge y_vac = sqrt(2 T / E_vac) below which the propagation factor
+// is vacuous (e-fold count 2 T / y^2 >= E_vac), and how far the microscopic
+// nearest-pair-front strip y_N_sharp = sqrt(2 pi / N) sits INSIDE that band.
+// The N-range of collapse and the front-proximity y_N_sharp / y_vac delimit
+// where the propagation LEMMA parts from a per-N front certificate. Measurement
+// only: it establishes NO N-uniform constant and changes no bound. The e-fold
+// at the micro strip reduces to T N / pi, matching microStripEfold above.
+const VACUITY_EFOLD_THRESHOLD = 1; // stability factor exp(-e-fold) <= 1/e
+const COLLAPSE_EFOLD_THRESHOLD = 10; // factor <= ~4.5e-5, fully collapsed
+
+function gronwallVacuityMap() {
+  const rows = PER_N_ROWS.map((r) => {
+    const yNSharp = Math.sqrt((2 * Math.PI) / r.N);
+    // Horizon to the front: measured collision time where known, else the
+    // self-consistent Lemma-C budget T_b = 2 / V0 used to close the corollary.
+    const horizon = r.measured ? r.tc_measured : 2 / r.im_M_floor_V0;
+    const yStar = r.y_star_mesoscopic;
+    const efoldMicro = (2 * horizon) / (yNSharp * yNSharp);
+    const efoldMeso = (2 * horizon) / (yStar * yStar);
+    const yVac = Math.sqrt((2 * horizon) / VACUITY_EFOLD_THRESHOLD);
+    return {
+      N: r.N,
+      measured: r.measured,
+      horizon_to_front: horizon,
+      y_N_sharp_micro: yNSharp,
+      y_star_meso: yStar,
+      y_vac_band_edge: yVac,
+      efold_micro: efoldMicro,
+      efold_meso: efoldMeso,
+      micro_vacuous: efoldMicro >= VACUITY_EFOLD_THRESHOLD,
+      micro_collapsed: efoldMicro >= COLLAPSE_EFOLD_THRESHOLD,
+      meso_nonvacuous: efoldMeso < VACUITY_EFOLD_THRESHOLD,
+      front_proximity_micro_over_vac: yNSharp / yVac,
+      vacuous_band_decades: Math.log10(yVac / yNSharp),
+    };
+  });
+  const vacuousRows = rows.filter((r) => r.micro_vacuous);
+  const firstVacuousN = vacuousRows.length ? vacuousRows[0].N : null;
+  const allMicroVacuous = rows.every((r) => r.micro_vacuous);
+  const allMesoNonVacuous = rows.every((r) => r.meso_nonvacuous);
+  const allBandEdgesPositive = rows.every(
+    (r) => r.y_vac_band_edge > 0 && r.front_proximity_micro_over_vac > 0,
+  );
+  // front-proximity shrinks as N grows: the micro strip sinks deeper into the
+  // vacuous band toward the nearest-pair front (y_N_sharp ~ 1/sqrt(N) while
+  // y_vac ~ sqrt(2 T) stays O(1)); over the PROJECTED anchors (fixed horizon
+  // T_b) proximity ~ sqrt(pi / (T_b N)) -> 0 monotonically.
+  const projected = rows.filter((r) => !r.measured);
+  const projectedProximityDecreasing = projected.every(
+    (r, i) =>
+      i === 0 ||
+      r.front_proximity_micro_over_vac < projected[i - 1].front_proximity_micro_over_vac,
+  );
+  return {
+    rows,
+    vacuityEfoldThreshold: VACUITY_EFOLD_THRESHOLD,
+    collapseEfoldThreshold: COLLAPSE_EFOLD_THRESHOLD,
+    firstVacuousN,
+    lastN: rows[rows.length - 1].N,
+    allMicroVacuous,
+    allMesoNonVacuous,
+    allBandEdgesPositive,
+    projectedProximityDecreasing,
+    crossoverNVacFormula:
+      'N_vac ~ pi / (T_front * VACUITY_EFOLD_THRESHOLD): the micro-strip e-fold ' +
+      'T N / pi crosses the vacuity threshold at O(1) N, so the constant is ' +
+      'collapsed at the nearest-pair front across the whole tabulated N-range, ' +
+      'while y_star mesoscopic stays non-vacuous.',
+  };
+}
+
+const GRONWALL_VACUITY_MAP = gronwallVacuityMap();
+
 // ── The record ──────────────────────────────────────────────────────────────
 
 export const BACKWARD_FLOW_STABILITY_GRONWALL = {
@@ -751,6 +830,7 @@ export const BACKWARD_FLOW_STABILITY_GRONWALL = {
     },
   ],
   perNTable: PER_N_ROWS,
+  gronwallVacuityMap: GRONWALL_VACUITY_MAP,
   conventionNote:
     'All times in de Bruijn-Newman units (dx_k/ds = -2 sum 1/(x_k - x_j), ' +
     'M unnormalized). The imp-338 normalized PDE time differs by a factor ' +
@@ -876,6 +956,26 @@ export const BACKWARD_FLOW_STABILITY_GRONWALL_ASSERTIONS = [
       'Dyson row the microscopic-strip e-fold tc N / pi >= 1 (Gronwall ' +
       'vacuous at y_N_sharp) while the mesoscopic floor over the same ' +
       'measured horizon is > 0.99 (Lemma B non-vacuous where claimed).',
+  },
+  {
+    id: 'imp35128-gronwall-vacuity-map',
+    holds: () =>
+      GRONWALL_VACUITY_MAP.allMicroVacuous &&
+      GRONWALL_VACUITY_MAP.allMesoNonVacuous &&
+      GRONWALL_VACUITY_MAP.allBandEdgesPositive &&
+      GRONWALL_VACUITY_MAP.projectedProximityDecreasing &&
+      GRONWALL_VACUITY_MAP.firstVacuousN === GRONWALL_VACUITY_MAP.rows[0].N,
+    why:
+      'imp-35128 vacuity map: at every per-N row the microscopic nearest-pair ' +
+      'strip y_N_sharp = sqrt(2 pi / N) sits INSIDE the vacuous band (e-fold ' +
+      '2 T / y^2 >= 1, factor <= 1/e) while the mesoscopic y_star stays ' +
+      'non-vacuous, so the imp-35058 Step-2 G-gronwall constant is collapsed ' +
+      'at the front across the whole tabulated N-range. Over the projected ' +
+      'anchors the front-proximity y_N_sharp / y_vac shrinks monotonically ' +
+      '(~1/sqrt(N)) as the strip sinks toward the front. Failure means the ' +
+      'band-edge y_vac = sqrt(2 T), the horizon selection, or the front-' +
+      'proximity ordering has been corrupted; this is a MEASUREMENT and ' +
+      'establishes no N-uniform propagation constant.',
   },
   {
     id: 'imp2520-subgap-open-no-false-qed',

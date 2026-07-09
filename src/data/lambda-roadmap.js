@@ -610,8 +610,16 @@ export const LAMBDA_CHAIN_STEPS = [
             'evaluation of the fully-assembled formula; the imp-35100 far-tail ' +
             'measurement further flags that the constant E_trunc floor can outlive ' +
             'the vanishing GUE-conditional E_coll, so E(N) -> 0 at the ladder is ' +
-            'itself in question until the constants are pinned.',
-          machinery: 'imp-321, imp-3220, imp-3406, imp-35100',
+            'itself in question until the constants are pinned. HONEST STATUS ' +
+            '(imp-35164): on the CURRENT surrogate, E(N) does NOT tend to 0 -- it ' +
+            'floors at the fixed-strip constant E_trunc = 3.06e-5, so the ' +
+            'surrogate as written cannot itself supply the Step-4 E(N) -> 0 rate. ' +
+            'The only scoped route that would change this is imp-35149\'s ' +
+            'vanishing-strip Knob A (an N-indexed growing verified height T_v(N) ' +
+            'at fixed abscissa, NOT the imp-2631 fixed T_v = 3e12 strip), whose ' +
+            'hard obligation R3 is an unconditional supply of T_v(N) -> infinity ' +
+            'beyond the Platt-Trudgian verified height -- OPEN.',
+          machinery: 'imp-321, imp-3220, imp-3406, imp-35100, imp-35149',
           feedsInto: 'the headline Step-4 rate E(N) -> 0',
           closed: false,
         },

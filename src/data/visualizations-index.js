@@ -1112,6 +1112,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive slot-ladder chart baking the imp-35322 roll-up literals verbatim (no new computation); displaying which expansion slots are filled versus skipped is measurement-summary only on the inherited imp-3220/imp-3406/imp-33646 model-cusp surrogate; does not certify a uniform modulus, does not discharge O3 or G6a_shock_lipschitz (both stay OPEN); changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35347-fixed-point-contraction',
+      title: 'Iters-to-Floor Single-Rate Contraction to N_CROSS_FP',
+      oneLine:
+        'Plots the Picard-iterate log-law contraction g(N)=K*log(T0(N)) to the imp-35243 fixed point N_CROSS_FP~3.2803e9 at rate R_CONTRACT~0.0454235 (LN_INV_R~3.09173 nats/iterate, 1.34272 digits/iterate), reaching the machine-epsilon floor after ~12 iterates, overlaid with the ceil-phase drift (~0.0187/decade) that produces the off-by-one reentry band.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35243-reentry-band-surrogate-fidelity-assessment.js',
+      paperSourcePath:
+        'src/data/imp-35243-reentry-band-surrogate-fidelity-assessment.js (imp-35347 viz page)',
+      ticket: 'imp-35347',
+      pedagogicalStep: 75,
+      honestCeiling:
+        'Descriptive contraction-curve chart baking the imp-35243 single-rate log-law literals verbatim (no new computation, no data-module import); shows the iterate-to-floor convergence and drift context only; does not certify surrogate fidelity (R1-R4 stay OPEN), does not discharge imp-35111a/imp-35174a; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

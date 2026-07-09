@@ -804,6 +804,9 @@ const Imp35345ExtrapolationGapViz = lazy(() =>
 const Imp35346ExpansionSlotLadderViz = lazy(() =>
   import('./pages/Imp35346ExpansionSlotLadderViz.jsx')
 );
+const Imp35347FixedPointContractionViz = lazy(() =>
+  import('./pages/Imp35347FixedPointContractionViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2288,6 +2291,10 @@ function AppShell() {
           <Route
             path="/viz-imp35346-expansion-slot-ladder"
             element={<Imp35346ExpansionSlotLadderViz />}
+          />
+          <Route
+            path="/viz-imp35347-fixed-point-contraction"
+            element={<Imp35347FixedPointContractionViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

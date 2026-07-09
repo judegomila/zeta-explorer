@@ -16459,6 +16459,40 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this correction (imp-486)',
     ],
   },
+  {
+    term: 'imp-35242 E_coll exponent-residual 0.005-tolerance landmark: the separated E_coll local-decay exponent residual to the far-tail -1/2 asymptote first drops below 0.005 at N ~ 4.67e44 (log T0 ~ 100), tracking 1/(2 log T0) the whole way with no floor',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35242 extension of the imp-33620 separated E_coll ' +
+      'local-decay-exponent ladder (E_coll = C_C_PINNED sqrt(log T0 / N), T0 = effectiveHeightForN(N)) ' +
+      'from N=1e15 out past N=1e45, locating where the exponent residual to the far-tail -1/2 ' +
+      'asymptote first clears a tighter 0.005 tolerance.\n\n' +
+      'THE MEASUREMENT: imp-33620 had pushed the ladder to N=1e15 and found the local-decay exponent ' +
+      'still ~0.0152 above -1/2, approaching monotonically from above with no overshoot, but never ' +
+      'located where the residual reaches 0.005. Extending the identical component on the same ' +
+      'one-decade finite-difference convention, the residual is 0.00508 at N=1e44 (still above ' +
+      'tolerance) and 0.00496 at N=1e45 (first below), bisecting to a crossing at log10 N ~ 44.67 ' +
+      '(N ~ 4.67e44, T0 ~ 3.01e43, log T0 ~ 100.0) where the exponent is -0.49500 -- still strictly ' +
+      'above -1/2, never crossing. The residual tracks 1/(2 log T0) to under 1e-3 across the entire ' +
+      'extended ladder (max deviation ~2e-5), confirming the imp-34130/imp-34187 closing law: the ' +
+      'residual does not floor, it keeps shrinking as ~1/(2 log T0) and reaches -1/2 only in the ' +
+      'log T0 -> infinity limit. Because log T0 grows only logarithmically in N, the convergence is ' +
+      'log-T0-saturation-limited -- shrinking the residual from ~0.01518 (N=1e15, log T0~33) to 0.005 ' +
+      '(N~4.67e44, log T0~100) costs ~29.7 additional decades in N.\n\n' +
+      'HOW TO APPLY: cite imp-35242 when a reader asks how far out the E_coll exponent residual must ' +
+      'be pushed to reach a given tolerance -- the 1/(2 log T0) closing law means tighter tolerances ' +
+      'cost enormous additional decades in N, not a fixed additive distance.\n\n' +
+      'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 component model, not a ' +
+      'rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; establishes no operator ' +
+      'positivity; imp-3066 K_a >= 0 UNTOUCHED; changes no bound; no RH verdict; NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35269 (glossary headword recording the imp-35242 E_coll exponent-residual landmark), 2026',
+    relatedTerms: [
+      'imp-33620 established the ladder through N=1e15 with residual ~0.0152, monotone from above (imp-33620)',
+      'imp-34130 and imp-34187 derived the 1/(2 log T0) closing law this landmark confirms with no floor (imp-34130)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this measurement (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

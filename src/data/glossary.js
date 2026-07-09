@@ -16155,6 +16155,42 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this measurement (imp-486)',
     ],
   },
+  {
+    term: 'imp-35215 exact near-front rational identity: under the backward one-sided Dyson pull the min gap is the EDGE pair, and the sup background field beta * g_min * (x_2 - x_0) -> 1 EXACTLY, sharpening the imp-35194 pre-asymptotic ~1.04 band to a closed-form rational constant',
+    category: 'proof-status',
+    definition:
+      'A headword recording the imp-35215 derivation that pushes the SAME backward Dyson flow imp-35194 ' +
+      'ran past its 5e-2 min-gap-fraction floor down to 1e-5, and finds the adjacent-pair ' +
+      'background-field product beta * g_min keeps falling, not toward the ~1.04 imp-35194 read off ' +
+      'the coarse fractions, but to the closed-form RATIONAL constant 1.\n\n' +
+      'THE MECHANISM: under the one-sided inward pull the outermost particle accelerates fastest, so the ' +
+      'min gap is always the EDGE pair (x_0, x_1), g_min = x_1 - x_0 -> 0, not a central pair. The sup ' +
+      'beta is attained at the edge-ADJACENT pair (x_1, x_2), whose field is dominated by the single ' +
+      'reciprocal-product term 1 / ((x_2 - x_0) g_min) contributed by the near-coincident particle x_0, ' +
+      'while every other term stays O(1). This gives the scale-invariant identity ' +
+      'beta * g_min * (x_2 - x_0) -> 1 EXACTLY (verified to ~1e-4 at every N tested), with the ' +
+      'remaining N-dependence living only in the neighbouring span x_2 - x_0, which relaxes back up ' +
+      'toward the ambient unit spacing (deficit ~0.377/N, halving each time N doubles).\n\n' +
+      'HOW TO APPLY: cite imp-35215 (not the coarse imp-35194 ~1.33 -> 1.04 band) whenever the ' +
+      'near-front limit of beta * g_min is needed -- the closed-form value is the rational constant 1, ' +
+      'reached because a SINGLE dominant term carries essentially all of beta near the front, not a ' +
+      'lattice sum or pi-multiple. This sharpens imp-35194 F2 but changes nothing about the M2 ' +
+      'obstruction: the bounded product IS the statement beta ~ 1/g_min, so beta itself still diverges ' +
+      'toward the front and M2 stays INSEPARABLE from the horizon/front bridge M5 (imp-35227).\n\n' +
+      'HONEST SCOPE: derivation/measurement only on the inherited unit-spacing surrogate; does not ' +
+      'certify N-uniformity of beta itself (still diverges as g_min -> 0); does not discharge M2 or M5, ' +
+      'which stay OPEN; does not touch the imp-2563 sandwich (a valid CONDITIONAL bracket); changes no ' +
+      'bound; establishes no operator positivity; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH ' +
+      'verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35246 (glossary headword recording the imp-35215 exact near-front rational identity), 2026',
+    relatedTerms: [
+      'imp-35194 measured the pre-asymptotic beta * g_min band (1.33 -> 1.04) that this identity sharpens to the exact limit 1 (imp-35194)',
+      'imp-35167 named the M2 background-field-sup obstruction left untouched by this derivation (imp-35167)',
+      'imp-35227 records the M2/M5 inseparability this entry confirms rather than resolves (imp-35227)',
+      'imp-35218 shows the imp-35194 N-uniformity itself is a unit-spacing artifact, orthogonal to this near-front limit (imp-35218)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this derivation (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

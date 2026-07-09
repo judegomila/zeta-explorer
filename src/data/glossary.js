@@ -16493,6 +16493,40 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this measurement (imp-486)',
     ],
   },
+  {
+    term: 'imp-35241 Krawczyk headroom band profile: the contraction-validity headroom S(N) descends monotonically across the imp-34693 admissible seed band (~2561.39 at band-bottom to ~2555.18 at band-top), closest approach to the S_inf=2500 floor at the band-top, clearing the 100x safety factor by 25.55x',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35241 tabulation of the Krawczyk contraction-validity headroom ' +
+      'S(N) = G/((1+G) delta FP_LO) across the imp-34693 admissible seed band, locating where WITHIN ' +
+      'the band the headroom comes closest to the imp-34996 asymptotic floor S_inf = 1/(2 delta) = 2500.\n\n' +
+      'THE MEASUREMENT: imp-35176 had reported only a single far-tail physical-branch minimum ' +
+      '(~2500.02, N far beyond the band) but never tabulated the S(N) profile inside the band itself. ' +
+      'This module reproduces the imp-35176/imp-34996 machinery on the widest (k=10) admissible band ' +
+      '[N_bot, N_top] ~ [3.1090e9, 3.4515e9] (centered on N_cross ~ 3.2803e9) on a 200-point grid.\n\n' +
+      'RESULT: S(N) descends MONOTONICALLY across the band with no interior turning point -- ' +
+      '~2561.39 at band-bottom, ~2558.12 at N_cross, ~2555.18 at band-top -- realizing the closed-form ' +
+      'dS/dN < 0 of imp-34929 on the actual band. Because S is strictly decreasing, the CLOSEST ' +
+      'APPROACH to the 2500 floor happens at the BAND-TOP: S_min_band ~ 2555.18, a residual ~55.18 ' +
+      'ABOVE the floor, clearing the imp-34799/34817 100x safety factor by 25.55x at its worst point. ' +
+      'Every sampled S in the band exceeds 2500, so the floor is approached strictly from above and ' +
+      'never touched in-band -- the imp-35176 ~2500.02 minimum lives far outside the band, not within it.\n\n' +
+      'HOW TO APPLY: cite imp-35241 when a reader asks whether the Krawczyk headroom could dip toward ' +
+      'the 2500 floor (and lose safety margin) anywhere inside the imp-34693 admissible seed band -- ' +
+      'it cannot; the worst point in the whole band is the band-top at 25.55x, well clear of 100x.\n\n' +
+      'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 surrogate; the imp-34714a ' +
+      'machine certificate remains OPEN and F(m)=0 stays a double-precision artifact; C_mb ' +
+      'GUE-conditional per imp-486 UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0 ' +
+      'UNTOUCHED; changes no bound; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the ' +
+      'rigorous SOTA.',
+    firstUsed: 'imp-35270 (glossary headword recording the imp-35241 Krawczyk headroom band profile), 2026',
+    relatedTerms: [
+      'imp-35176 reported the far-tail physical-branch minimum ~2500.02, outside the admissible band this entry profiles (imp-35176)',
+      'imp-34996 derived the closed-form asymptotic floor S_inf = 1/(2 delta) = 2500 this band never reaches (imp-34996)',
+      'imp-34929 proved the closed-form dS/dN < 0 monotonicity this band profile realizes with no interior turning point (imp-34929)',
+      'imp-34714a machine certificate (OPEN): the directed-rounding certification this headroom profile does not close',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

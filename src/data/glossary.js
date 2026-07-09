@@ -17277,6 +17277,28 @@ export const glossary = [
       'imp-35297 is the ticket assigned to R4 independent-model agreement, the requirement with no verified datum within ~15 decades (imp-35297)',
     ],
   },
+  {
+    term: 'reentry-band unmeasurable regime: the named shorthand for the imp-35243 D2 finding that the iters-to-floor reentry band sits in a range with no verified zero data at all',
+    category: 'proof-status',
+    definition:
+      'A short lookup term for the D2 finding already recorded in full under the imp-35243 D2 UNMEASURABILITY ' +
+      'headword: the imp-34997/imp-35111 reentry band (edges at N ~ 10^27.08 and N ~ 10^37.17) sits ~14.6 to ' +
+      '~24.7 decades above the highest Platt-Trudgian verified zero height (~3e12, log10 ~12.48) that binds ' +
+      'Lambda <= 0.2. "Unmeasurable regime" names the range itself -- not merely a gap in modelling, but a ' +
+      'range with no verified arithmetic zero data at any height, so nothing there can presently be checked ' +
+      'against reality by any model.\n\n' +
+      'HOW TO APPLY: use this term as the short-form pointer when the reentry band is mentioned in passing; ' +
+      'cite the imp-35243 D2 UNMEASURABILITY headword for the full literals and derivation.\n\n' +
+      'HONEST SCOPE: naming/routing only, restates no new literals beyond the existing D2 headword; discharges ' +
+      'nothing; the reentry band verdict stays NOT ESTABLISHED for the true dynamic; changes no bound; no RH ' +
+      'verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35342 (glossary headword naming the imp-35243 D2 unmeasurable regime), 2026',
+    relatedTerms: [
+      'imp-35243 D2 UNMEASURABILITY records the full literals and derivation this term names (imp-35243)',
+      'imp-35243 honest-status note records the overall verdict this regime supports (imp-35243)',
+      'imp-35307 measures how many additional decades of verified height would be needed to close this regime (imp-35307)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

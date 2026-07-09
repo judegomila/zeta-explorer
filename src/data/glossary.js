@@ -17110,6 +17110,31 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this disambiguation (imp-486)',
     ],
   },
+  {
+    term: 'imp-35113 round-off ceiling n* = 4 (finite-difference sign ladder)',
+    category: 'numerical',
+    definition:
+      'Quick-lookup headword for the imp-35113 REACH-of-numerical-differentiation limit on the ' +
+      'imp-35012/imp-34880 alternating derivative-sign ladder sign(g^(n)) = (-1)^(n+1) of the ' +
+      'inherited imp-3220/imp-3406 surrogate crossover map g(N) = K log T0(N). Richardson-extrapolated ' +
+      'central finite differences, taken from source at every evaluation, robustly reproduce the ' +
+      'analytic sign (+,-,+,-) only through n* = 4: each successive derivative order carries an extra ' +
+      'factor ~2pi/(T0 u) ~5e-10 at the crossover, so |g^(n)| collapses geometrically and by n=5 the ' +
+      'true magnitude sinks at or below the double-precision round-off floor eps|g|/h^n, making the ' +
+      'recovered sign step-dependent (it flips across the step bracket) rather than a genuine sign ' +
+      'change. n* = 4 is therefore a property of DOUBLE-PRECISION DIFFERENCING, not of the analytic ' +
+      'ladder: the exact all-orders sign result holds for every n by the imp-34880 coefficient-' +
+      'positivity induction, re-verified exactly to n=22 by imp-35107. HONEST SCOPE: a measurement on ' +
+      'the SURROGATE map only; establishes no operator positivity; changes no bound; NO QED; ' +
+      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'imp-35319 (glossary headword for the imp-35113 round-off ceiling finding), 2026',
+    relatedTerms: [
+      'imp-35113 direct finite-difference cross-check that located the n* = 4 ceiling (imp-35113)',
+      'imp-35012 Bernstein-function classification, whose sign ladder is being cross-checked (imp-35012)',
+      'imp-34880/imp-35107 all-orders coefficient-positivity induction, exact to n=22 (imp-34880, imp-35107)',
+      'imp-3220/imp-3406 surrogate crossover map (canonical explainer), the map g is differenced on',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

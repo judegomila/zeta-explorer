@@ -385,6 +385,76 @@ export const LAMBDA_CHAIN_STEPS = [
     notes:
       'This is the capstone of the whole attack. Everything upstream must ' +
       'be rigorous; this step is just the final combination.',
+    // imp-35074 (scoping/assessment ONLY; changes no bound, establishes no
+    // operator positivity, closes nothing, respects the imp-2519 no-overclaim
+    // guard, NO QED): unlike Step 2 (imp-35058) Step 5 carried no enumeration
+    // of what its rigorous closure needs. Step 5 is a bookkeeping COMBINATION,
+    // so it inherits the UNVERIFIED grade entirely from its upstream inputs:
+    // it cannot be discharged until every ingredient below is discharged. The
+    // three missing links compose as follows into a Step-5 RH statement, and
+    // ALL THREE remain OPEN:
+    //   (per-N translation) + (Step-4 E(N) bridge) => unconditional Lambda <= 0;
+    //   Lambda <= 0 with Rodgers-Tao Lambda >= 0 => Lambda = 0;
+    //   Lambda = 0 with de Bruijn 1950 (imp-327 height mapping) => RH.
+    // The C_mb link is the irreducible named conditional (imp-486): even with
+    // the other two links closed, the per-N route-A many-body correction stays
+    // GUE-conditional, so the assembled statement is RH-modulo-GUE, not
+    // unconditional RH.
+    rigorousUpgradeGap: {
+      grade: 'unverified',
+      wouldRequire: 'rigorous (unconditional) OR rigorous-modulo-GUE',
+      status: 'OPEN — Step 5 is a pure combination; none of its three input links is discharged',
+      obligations: [
+        {
+          key: 'G5-perN-translation',
+          label: 'Per-N translation of the Step-3 unconditional lim-sup',
+          need:
+            'A per-N bound r(N) on |t_c(N)| derived from the Step-3 UNCONDITIONAL ' +
+            'lim sup_{N->infty} |t_c(N)| <= 0 (imp-341/imp-344, Koksma-Hlawka, no ' +
+            'GUE). The lim-sup alone does not yield the per-N rate that the Step-4 ' +
+            'E(N) bridge constants consume; routes (A) imp-336 monotonicity, (B) ' +
+            'imp-348 O(1/N) local-law rigidity, (C) imp-337/342/343 density squeeze ' +
+            'are the candidate translations and none is closed.',
+          machinery: 'imp-341, imp-344, imp-348, imp-336, imp-337, imp-342, imp-343',
+          feedsInto: 'Step-4 E(N) bridge constants (NOT the headline inequality) per imp-2564',
+          closed: false,
+        },
+        {
+          key: 'G5-step4-bridge',
+          label: 'Step-4 Polymath15 G6a_shock_lipschitz bridge',
+          need:
+            'An unconditional E(N) -> 0 in |Lambda - (-t_c(N))| <= E(N), whose sole ' +
+            'open sub-gap is G6a_shock_lipschitz: the Hoelder-1/2 modulus of tau_c at ' +
+            'the Burgers shock feeding C_H in E_coll. imp-366 ported the Polymath15 ' +
+            'Lemma 5.2 LEDGER but the same shock modulus is RH-HARD (imp-2640 gap-' +
+            'Lipschitz Gronwall discharge NEGATIVE, ch-wall-frontier-verdict-2026-06-26 ' +
+            'RH-HARD-CONFIRMED); the asymptotic modulo persists (imp-35056).',
+          machinery: 'imp-345, imp-366, imp-2640, imp-3671',
+          feedsInto: 'unconditional Lambda <= E(N) -> 0, hence Lambda <= 0 combined with t_c >= 0',
+          closed: false,
+        },
+        {
+          key: 'G5-cmb-gue',
+          label: 'C_mb many-body correction — irreducible GUE conditional',
+          need:
+            'The Route-A many-body Calogero-Moser correction C_mb is the sole ' +
+            'irreducible named conditional (imp-486 exhaustive search: no ' +
+            'unconditional C_mb bound; GGM+Huxley fail identically). Unless a ' +
+            'GUE-free replacement is found, the assembled Step-5 statement is ' +
+            'RH-MODULO-GUE-UNIVERSALITY, not unconditional RH. This link cannot ' +
+            'be closed by bookkeeping.',
+          machinery: 'imp-486, imp-462',
+          feedsInto: 'conditions the per-N route-A translation; leaves RH conditional on GUE',
+          closed: false,
+        },
+      ],
+      caveat:
+        'Scoping map only. Step 5 establishes no operator positivity and changes ' +
+        'NO Lambda bound; it is inert until Steps 3-perN and 4 are rigorous. Even ' +
+        'then the C_mb GUE conditional (imp-486) caps the reachable claim at RH-' +
+        'modulo-GUE. Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+      by: 'imp-35074',
+    },
   },
 ];
 

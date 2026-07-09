@@ -188,6 +188,20 @@ function bootQuantile(q) {
 const BOOT_CI_LO = bootQuantile(0.025); // ~1.5475
 const BOOT_CI_HI = bootQuantile(0.975); // ~1.5521
 
+// histogram of the 4000-sample bootstrap distribution, 30 equal-width bins over [min, max]
+// (imp-35123 viz: makes the shape of the resampling distribution, not just its summary
+// stats, directly plottable without re-running the LCG resample in the page itself).
+const HIST_BINS = 30;
+const BOOT_MIN = BOOT_P[0];
+const BOOT_MAX = BOOT_P[BOOT_N - 1];
+const HIST_WIDTH = (BOOT_MAX - BOOT_MIN) / HIST_BINS;
+const HIST_COUNTS = new Array(HIST_BINS).fill(0);
+for (const p of BOOT_P) {
+  const idx = Math.min(HIST_BINS - 1, Math.floor((p - BOOT_MIN) / HIST_WIDTH));
+  HIST_COUNTS[idx]++;
+}
+const HIST_EDGES = Array.from({ length: HIST_BINS + 1 }, (_, i) => +(BOOT_MIN + i * HIST_WIDTH).toFixed(5));
+
 // --- (F1) JACKKNIFE: leave-one-out over the 21 grid points --------------------------------------------------
 const JK_P = ALL_IDX.map((i) => pinnedSlopeOn(ALL_IDX.filter((j) => j !== i)));
 const JK_MEAN = JK_P.reduce((a, b) => a + b, 0) / NPTS;
@@ -257,6 +271,11 @@ export const IMP34994_CMB_EXPONENT_BOOTSTRAP_JACKKNIFE = {
     mean: +BOOT_MEAN.toFixed(5), // ~1.5495
     ci95_lo: +BOOT_CI_LO.toFixed(5), // ~1.5475
     ci95_hi: +BOOT_CI_HI.toFixed(5), // ~1.5521
+    histogram: {
+      bins: HIST_BINS,
+      edges: HIST_EDGES,
+      counts: HIST_COUNTS,
+    },
   },
   jackknife: {
     leave_one_out_points: NPTS,
@@ -362,6 +381,15 @@ export const IMP34994_CMB_EXPONENT_BOOTSTRAP_JACKKNIFE_ASSERTIONS = [
     id: 'imp34994-clean-rationals-outside-bootstrap-ci',
     description: 'neither 3/2 nor 8/5 lies inside the bootstrap 95% percentile CI',
     holds: () => R_1P5_IN_BOOT_CI === false && R_1P6_IN_BOOT_CI === false,
+  },
+  {
+    // imp-35123 viz support: the histogram is a lossless re-binning of BOOT_P (counts sum to BOOT_N).
+    id: 'imp34994-histogram-counts-sum-to-boot-n',
+    description: 'the exported bootstrap histogram bin counts sum to the number of finite resamples',
+    holds: () =>
+      HIST_COUNTS.length === HIST_BINS &&
+      HIST_EDGES.length === HIST_BINS + 1 &&
+      HIST_COUNTS.reduce((a, b) => a + b, 0) === BOOT_N,
   },
   {
     // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA.

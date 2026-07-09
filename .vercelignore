@@ -1,6 +1,7 @@
 # Keep the Vercel upload to just what `vite build` needs.
 # Everything below is local-only engine/harness state or build artifacts.
 
+.git/
 .claude/
 scripts/
 rust/

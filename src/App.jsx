@@ -729,6 +729,9 @@ const Imp35208DegLadderViz = lazy(() =>
 const Imp35209MarginRatioLadderViz = lazy(() =>
   import('./pages/Imp35209MarginRatioLadderViz.jsx')
 );
+const Imp35210FourEComponentLandmarksViz = lazy(() =>
+  import('./pages/Imp35210FourEComponentLandmarksViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2113,6 +2116,10 @@ function AppShell() {
           <Route
             path="/viz-imp35209-margin-ratio-ladder"
             element={<Imp35209MarginRatioLadderViz />}
+          />
+          <Route
+            path="/viz-imp35210-four-e-component-landmarks"
+            element={<Imp35210FourEComponentLandmarksViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

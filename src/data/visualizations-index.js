@@ -761,6 +761,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive margin-ratio ladder chart on the inherited surrogate; does not discharge H3/H4 or gap G-a; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35210-four-e-component-landmarks',
+      title: 'Four E-Component Landmarks on One Shared Log-N Axis',
+      oneLine:
+        'Places the imp-35153 E_flow=E_trunc crossover (N ~ 1.597752e6), the imp-35154 E_flow 1%/0.1% negligibility thresholds (~3.247e7, ~1.755e10), and the imp-33723 E_coll=E_trunc crossover N_cross (~3.280294e9) together on one shared log-N axis, ordered and annotated with the decade gaps between consecutive landmarks.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35210-four-e-component-landmarks-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-35210-four-e-component-landmarks-viz-data.js (imp-35210 viz page)',
+      ticket: 'imp-35210',
+      pedagogicalStep: 50,
+      honestCeiling:
+        'Descriptive landmark-placement chart on the inherited surrogate; conditional-share diagnostic, not an RH bound; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

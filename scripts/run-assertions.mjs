@@ -7066,6 +7066,15 @@ const DATA_MODULES = [
   // decreasing from a +infinity pole to the 2500 floor and NEVER dips below 2500 -- the 100x factor is
   // unreachable in BOTH directions. Measurement on the surrogate; imp-34714a REMAINS OPEN; changes no bound.
   '/src/data/imp-35110-krawczyk-headroom-small-n-edge.js',
+  // imp-35116: ASSESSES the delta-robustness of the imp-34996 asymptotic headroom floor S_inf = 1/(2 delta) =
+  // 2500, derived at the FIXED bracket half-width delta = 2e-4. A far-tail probe at N = 1e300 reproduces the
+  // closed form 1/(2 delta) to machine precision (max rel error ~1e-16) at every delta across ~3 decades,
+  // with the invariant S_inf . delta = 1/2 holding exactly. The floor is strictly decreasing in delta and
+  // reaches the 100x safety factor only at delta = 1/200 = 5e-3 -- 25x WIDER than the actual 2e-4 (the
+  // reciprocal image of the 25x S-space margin). Since the bracket is only ever tightened below 2e-4, the
+  // floor only RISES in the operative direction: the safety factor is delta-robust. Measurement on the
+  // surrogate; imp-34714a REMAINS OPEN; changes no bound; NO QED.
+  '/src/data/imp-35116-krawczyk-headroom-delta-robustness.js',
   // imp-34864: DERIVES + MEASURES the crossover-map THIRD-derivative envelope per-decade shrink ratio one
   // order up from imp-34839. From g_triple_prime = 8 pi^3 K (2u^2+4u+3)/(T^3 u^5) = K P(u)/(M^3 u^5) the
   // ratio factors as r3 = (M_prime/M)^3 (u_prime/u)^5 P(u)/P(u_prime); Riemann-von Mangoldt N=M(u-1) forces
@@ -7535,6 +7544,11 @@ const DATA_MODULES = [
   // regression (bootstrap ~1.33x, jackknife ~1.38x). All three cluster the ratio in ~1.33-1.45x, so the
   // correction is a shared small-sample OLS geometry factor, not specific to the pinned fit. Measurement only.
   '/src/data/imp-35112-sibling-estimator-resampling-se-crosscheck.js',
+  // imp-35115: RECONCILES the imp-34994 widened bootstrap exponent CI ~[1.5475,1.5521] with the imp-34950 F2
+  // local log-log slope band [1.528,1.562]. The CI is a STRICT sub-interval of the slope band (~7.4x narrower),
+  // so one power law with an exponent in the CI is compatible with the convexity; yet the slope endpoints sit
+  // ~2.2-4.2 CI-widths OUTSIDE the CI, so the local drift is a genuine surrogate feature not sampling noise.
+  '/src/data/imp-35115-exponent-ci-vs-local-slope-band.js',
   // imp-34951: MEASURES the uniform positive penultimate-relative-distance margin across all 34
   // off-by-one rungs on [1e3,1e18] against the EPS_FP floor, an upper-witness proxy that the +1
   // over-count residual is structurally excluded. Measurement only, no bound change.
@@ -7579,6 +7593,12 @@ const DATA_MODULES = [
   // for n>=5 (magnitudes collapse ~5e-10 per order below the round-off floor; sign becomes
   // step-dependent) -- a differencing ceiling, not a sign change. Measurement only; no bound change.
   '/src/data/imp-35113-crossover-deriv-sign-ladder-finite-difference.js',
+  // imp-35114: EXTRACTS the imp-35012 Bernstein / Levy-Khintchine representation ingredients for the
+  // surrogate g = K log T0(N): confirms g_prime is completely monotone (>0, decreasing, convex) across
+  // N in {1e7 .. 1e18} from source, and estimates the drift b = lim g_prime(N) = 0 (matching the
+  // far-tail linear slope g(N)/N of the sub-linear K log T0) and the finite killing term a = K log T0(0+)
+  // >= 0. Measurement only on the surrogate map; no operator positivity; changes no bound.
+  '/src/data/imp-35114-bernstein-ingredients-extraction.js',
   // imp-34974: DERIVES the two boundary-projection recurrences (k=0 -> a_0^(n+1)=(2n-1)a_0^(n),
   // k=n -> a_n^(n+1)=n a_{n-1}^(n)) as standalone projections of the interior recurrence, and adds
   // two interior closed forms (subleading (n-1)(n-1)!, row-sum n^(n-1)) plus a two-sided interior

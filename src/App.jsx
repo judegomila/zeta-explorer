@@ -753,6 +753,9 @@ const Imp35272PrefactorLadderViz = lazy(() =>
 const Imp35273RhoRemainderStructureViz = lazy(() =>
   import('./pages/Imp35273RhoRemainderStructureViz.jsx')
 );
+const Imp35274EcollExponentResidualLadderViz = lazy(() =>
+  import('./pages/Imp35274EcollExponentResidualLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2169,6 +2172,10 @@ function AppShell() {
           <Route
             path="/viz-imp35273-rho-remainder-structure"
             element={<Imp35273RhoRemainderStructureViz />}
+          />
+          <Route
+            path="/viz-imp35274-ecoll-exponent-residual-ladder"
+            element={<Imp35274EcollExponentResidualLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -874,6 +874,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive remainder-structure chart on the inherited imp-3220/imp-3406/imp-33646 model-cusp surrogate; pinning the eps^{5/2} slot empty and the eps^{7/2} coefficient sharpens the remainder shape but is measurement only, not a certified uniform modulus; does not discharge O3 or G6a_shock_lipschitz (both stay OPEN); changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35274-ecoll-exponent-residual-ladder',
+      title: 'Extended E_coll Exponent-Residual Ladder to N~1e45',
+      oneLine:
+        'Plots the imp-35242 extended E_coll local-decay-exponent residual to the far-tail -1/2 asymptote (log-log) across the decade grid N = 1e15..1e45, overlaid with the imp-34130 closing law 1/(2 log T0), marking the residual<0.005 landmark at N ~ 4.67e44 and the ~29.7-decade log-T0-saturation-limited convergence span from the imp-33620 N=1e15 rung.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35242-ecoll-exponent-residual-0005-tolerance-locate.js',
+      paperSourcePath:
+        'src/data/imp-35242-ecoll-exponent-residual-0005-tolerance-locate.js (imp-35274 viz page)',
+      ticket: 'imp-35274',
+      pedagogicalStep: 58,
+      honestCeiling:
+        'Descriptive exponent-residual ladder chart on the inherited imp-3220/imp-3406 component model; locating the residual<0.005 landmark is measurement only, not a certified uniform modulus of convergence on the true RvM cusp jet; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

@@ -77,6 +77,41 @@ export const LEVER_UNCERTAINTIES = [
   'The 3×10¹²→10¹³ compute multiple is an algorithmic-scaling order-of-magnitude, not a quoted figure.',
 ];
 
+// imp-35155: Fit the inverse-log X->Lambda law from the TWO pinned anchors and
+// test whether the UNPINNED ~0.19 (at ~10^13) is quantitatively consistent.
+// Both candidate 2-parameter forms are EXACTLY determined by the two pinned
+// points (6e10 -> 0.22, 3e12 -> 0.20), so each has zero residual on the anchors;
+// the discriminating question is the interpolated value at the unpinned rows.
+// Log10 heights: L1 = 10.77815, L2 = 12.47712 (delta = 1.69897 decades).
+//   Form A (linear-in-log):  Lambda = 0.346879 - 0.0117716 * log10(X)
+//   Form B (inverse-log):    Lambda = 0.073114 + 1.583194 / log10(X)   <- matches the stated mechanism
+// Measurement only; pins no row to a primary source; changes no bound; NO QED.
+export const INVERSE_LOG_FIT = {
+  ticket: 'imp-35155',
+  anchors: [
+    { X: '6e10', log10X: 10.77815, lambda: 0.22, pinned: true },
+    { X: '3e12', log10X: 12.47712, lambda: 0.20, pinned: true },
+  ],
+  formA: { name: 'linear-in-log10', a: 0.346879, b: 0.0117716, expr: 'Lambda = a - b*log10(X)', anchorResidual: 0 },
+  formB: { name: 'inverse-log10',   a: 0.073114, b: 1.583194, expr: 'Lambda = a + b/log10(X)', anchorResidual: 0 },
+  // Interpolated Lambda at the module HEIGHT_TO_LAMBDA unpinned rows.
+  predictions: [
+    { X: '1e13',  log10X: 13.0,     module: 0.19, formA: 0.1938, formB: 0.1949 },
+    { X: '2e13',  log10X: 13.30103, module: 0.19, formA: 0.1903, formB: 0.1921 },
+    { X: '1e14',  log10X: 14.0,     module: 0.18, formA: 0.1821, formB: 0.1862 },
+    { X: '1e15',  log10X: 15.0,     module: 0.18, formA: 0.1703, formB: 0.1787 },
+  ],
+  // Residual of the module approximate 0.19 vs the fits, at the nominal 1e13.
+  residualAt1e13: { vsFormA: -0.0038, vsFormB: -0.0049, note: 'module 0.19 sits ~0.004-0.005 BELOW both fits, i.e. within the anchors 2-decimal (+/-0.005) rounding.' },
+  band: {
+    valueAt1e13: 0.194,
+    plusMinus: 0.005,
+    interval: [0.189, 0.199],
+    rationale: 'Band dominated by the two pinned anchors own 2-decimal rounding (+/-0.005 each); it also covers the A-vs-B form spread (0.0011 at 1e13) and the 1e13..2e13 window width (fit spans 0.190..0.195). The module 0.19 lies inside.',
+  },
+  verdict: 'CONSISTENT. The unpinned ~0.19 at ~10^13 is quantitatively consistent with the inverse-log law fitted to the two pinned anchors (0.194 +/- 0.005). The inverse-log form (B) is preferred: it matches BOTH the stated 1/log(X) mechanism AND the 0.18 row at 10^14-10^15 (0.179..0.186), whereas linear-in-log undershoots to 0.170 at 10^15. Measurement only; pins no row; changes no bound; NO QED.',
+};
+
 export const VERIFIED_HEIGHT_LEVER = {
   meta: LEVER_META,
   heightToLambda: HEIGHT_TO_LAMBDA,
@@ -85,4 +120,5 @@ export const VERIFIED_HEIGHT_LEVER = {
   honestVerdict: HONEST_VERDICT,
   citations: LEVER_CITATIONS,
   uncertainties: LEVER_UNCERTAINTIES,
+  inverseLogFit: INVERSE_LOG_FIT,
 };

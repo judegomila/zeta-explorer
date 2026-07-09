@@ -7634,6 +7634,19 @@ const DATA_MODULES = [
   // frac-window models LOWER edge while only the exit at 10^37.17 is shared by model and census. floor(xArg)
   // pinned at 11 across the band. Measurement only, sub-gap imp-35111a (inherits imp-34997a), no bound change.
   '/src/data/imp-35111-off-by-one-reentry-band-width.js',
+  // imp-35127: SCOPES the imp-35058 Step-2 G-step-error obligation -- what a CERTIFIED a-priori
+  // RK4/DP5 truncation bound (local + accumulated, vs step dt and N) would require, distinguished
+  // from the EMPIRICAL two-method gap |t_c_RK4 - t_c_DP5| (imp-2466). Enumerates five analytic
+  // ingredients I1..I5: I1 elementary-differential derivative bounds, I2 a certified minimum-gap
+  // lower bound (hardest, singular-flow-specific, no textbook analogue), I3 an N-uniform Lipschitz
+  // accumulation constant (COUPLED to the open G-gronwall obligation, imp-2520), I4 an ABSOLUTE
+  // per-scheme bound (the one the empirical gap structurally CANNOT supply -- a common-mode
+  // systematic error cancels in the scheme difference), I5 an N-uniform step-budget law dt(N) with
+  // the imp-362 pole reduction (COUPLED to G-interval-enclosure). Two self-contained illustrations:
+  // (S1) on a deliberately biased field RK4 and DP5 agree to ~1e-10 while each carries a common-mode
+  // absolute error ~6.3e-4 (~6e6x blind); (S2) the RK4-LTE 5th-derivative bound blows up 10^6 per
+  // decade of gap reduction. Discharges NONE; imp-2466 cross-check untouched; changes no bound; NO QED.
+  '/src/data/imp-35127-g-step-error-certified-bound-scope.js',
   // imp-35016: cross-validates the imp-33723 closed-form N_cross Banach fixed point against a SECOND
   // independent root-finder (scalar Newton on the residual h(N)=N-g(N), numerical derivative, seeded
   // away from the root across six decades). Newton lands on N_cross=3.2802943517e9 to machine precision

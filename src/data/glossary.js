@@ -15851,6 +15851,39 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this derivation (imp-486)',
     ],
   },
+  {
+    term: 'imp-35196 strip-schedule corridor collapse: no N-DEPENDENT strip height y_star(N), fixed or scheduled, can be both N-uniform (I3) and front-adherent, the two pulling to +infinity and to 0',
+    category: 'proof-status',
+    definition:
+      'A headword recording the imp-35196 finding that promoting the imp-35168 FIXED mesoscopic ' +
+      'strip height y_star to a free N-SCHEDULE y_star(N) does not reconcile the imp-35127 I3 ' +
+      'N-uniform field-Lipschitz requirement with the requirement that the strip still bound the ' +
+      'near-front integrator error -- the two requirements are STRICTLY INCOMPATIBLE for any schedule, ' +
+      'not merely for a fixed height.\n\n' +
+      'THE TWO ENVELOPES: (A) the I3 accumulation floor y_floor(N) = sqrt(2 N S / E_acc) ~ sqrt(N), ' +
+      'a LOWER envelope that is monotone increasing and UNBOUNDED, forcing y_star(N) -> infinity; ' +
+      '(B) the near-front proximity ceiling y_ceil = O(1), N-independent (the front resolution ' +
+      '~ 2 pi / log N is itself shrinking), an UPPER envelope that in the strict reading forces ' +
+      'y_star(N) -> 0. A feasible schedule must satisfy y_floor(N) <= y_star(N) <= y_ceil for every N; ' +
+      'the rising floor crosses the flat ceiling at N_crit = y_ceil^2 E_acc / (2 S), beyond which the ' +
+      'corridor is EMPTY. Letting the ceiling itself grow as c N^alpha (alpha >= 1/2) to chase the ' +
+      'floor only concedes the strip detaching from the front at rate sqrt(N) -- exactly what (B) ' +
+      'forbids -- so the reconciliation fails in both readings.\n\n' +
+      'CONSEQUENCE: the imp-35168 fixed-height incompatibility is not a fixed-height artifact; the ' +
+      'residual sub-gap (an N-uniform field-Lipschitz bound on a front-adherent strip) is UNREACHABLE ' +
+      'BY ANY STRIP SCHEDULE, localizing the I3 obstruction to the N poles at y = 0 rather than to ' +
+      'the choice of strip height.\n\n' +
+      'HONEST SCOPE: assessment only; I3 stays OPEN; discharges nothing; changes no bound; ' +
+      'establishes no operator positivity; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict; ' +
+      'NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35224 (glossary headword recording the imp-35196 verdict), 2026',
+    relatedTerms: [
+      'imp-35168 showed the fixed-height version of this asymmetry, the precursor this ticket generalizes to any schedule (imp-35168)',
+      'imp-35127 named I3 the N-uniform field-Lipschitz accumulation ingredient the RK4 truncation-error certificate needs (imp-35127)',
+      'imp-2520 supplies the Gronwall lemma whose propagation constant the strip DOES rescue, in contrast to I3 (imp-2520)',
+      'imp-35167 is the alternative min-gap lever suggested as the next avenue since strip geometry alone cannot discharge I3 (imp-35167)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

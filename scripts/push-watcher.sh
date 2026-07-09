@@ -88,12 +88,34 @@ case "${1:-status}" in
     backoff_level=0
     consecutive_rate_limited=0
     alert_emitted=0
+    guard_defers=0
+    GUARD_DEFER_ALERT=10   # loud alert after this many consecutive guard-deferred cycles
     while true; do
       cd "$PROJECT_DIR" || exit 1
       git fetch origin --quiet 2>/dev/null || true
       unpushed=$(git log --oneline @{u}..HEAD 2>/dev/null | wc -l | tr -d ' ')
       if [ "${unpushed:-0}" -gt 0 ]; then
         ts=$(date -u +%FT%TZ)
+        # Pre-push tracked-imports guard (the "guard the push path" deploy fix).
+        # The shared worktree occasionally holds a transient state where a
+        # COMMITTED page/data file imports a module that is still untracked (a
+        # sibling worker created the page but hasn't committed the module yet).
+        # Pushing that HEAD reaches Vercel's clean checkout and fails the build
+        # (the intermittent "● Error" deployments). Defer the push until the tree
+        # is import-consistent — the guard passes once the owning worker commits
+        # the module (usually within one cycle), then the batched commits push
+        # together and Vercel builds green.
+        if ! node "$PROJECT_DIR/scripts/prepush-tracked-imports-guard.mjs" >/dev/null 2>>"$LOG_FILE"; then
+          guard_defers=$(( guard_defers + 1 ))
+          echo "[$ts] push DEFERRED — tracked-imports guard failed (untracked import; shared-worktree race); defer #$guard_defers" >> "$LOG_FILE"
+          if [ "$guard_defers" -ge "$GUARD_DEFER_ALERT" ]; then
+            echo "[$ts] ALERT: push-watcher deferred $guard_defers cycles on the tracked-imports guard — likely a genuine orphaned import, not a transient race. Commits are NOT being pushed; investigate." | tee -a "$LOG_FILE" >&2
+          fi
+          sleep_s=$(jittered_sleep_seconds "${BACKOFF_LEVELS[$backoff_level]}")
+          sleep "$sleep_s"
+          continue
+        fi
+        guard_defers=0
         echo "[$ts] $unpushed unpushed commit(s) — pushing... (backoff_level=$backoff_level)" >> "$LOG_FILE"
         # Capture push output so we can scan for rate-limit signatures.
         push_output=$(git push origin main 2>&1)

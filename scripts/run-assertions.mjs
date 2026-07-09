@@ -6771,6 +6771,16 @@ const DATA_MODULES = [
   // theta_1/theta_2 = 1.490 is 0.68% from 3/2 but the theta_2 band [19,37] deg spreads it over [1.08,2.11], too wide
   // to establish commensurability -> the pairs read as independent within resolution. Measurement only, no bound change, no QED.
   '/src/data/imp-35014-subdominant-angle-commensurability.js',
+  // imp-35067: TREND-TESTS the imp-34947 deep-band (k >= 8) Darboux recurrence-angle theta_k, which imp-34947 reported
+  // only as a static span 37.37..39.37 deg (median 39.04, deepest k=29 -> 39.23) without asking whether theta_k drifts
+  // with window depth k. Regressing the imp-34947 per-window theta_k against k on the imp-34863 delta ladder: (a) the
+  // OLS slope is POSITIVE +0.0787 deg/k (R^2 ~ 0.66, jitter ~0.37 deg), (b) the Spearman rank correlation rho_S ~ 0.88
+  // confirms a strong monotone upward association (not scatter around a constant), and (c) the Domb-Sykes 1/k -> 0
+  // extrapolation (R^2 ~ 0.77) puts the limiting angle theta_infinity ~ 40.12 deg. NET: theta_k rises SYSTEMATICALLY
+  // toward a ~40 deg limit -- a genuine approach, not band noise -- reconciling the imp-34947 magnitude read with the
+  // imp-34932 sign-cycle theta = 40.0 deg (the ~1 deg gap is the finite-k transient). Pair geometry unchanged.
+  // Measurement only, C_mb GUE-conditional untouched, no bound change, no QED.
+  '/src/data/imp-35067-recurrence-angle-k-trend-vs-noise.js',
   // imp-34820: assesses whether the imp-34796 third-order identity F = -g_thirdDeriv/(1-S) can locate the
   // imp-34746/imp-33721 convex-to-concave sigmoid inflection (sigma_secondDeriv=0). Verdict: NO for that
   // identity -- its g_thirdDeriv=0 root is the DISTINCT sigma-KNEE (log10 N ~ 9.5364), ~0.0127 dex above the
@@ -7427,6 +7437,14 @@ const DATA_MODULES = [
   // since sigma ~ C sqrt(L/N) gives N ~ (C/(E_trunc*thr))^2 * L, and E_flow is negligible
   // throughout (E_flow/E_coll < 5e-4). Measurement only; changes no bound; NO QED.
   '/src/data/imp-35041-sigma-deep-tail-threshold-extension.js',
+  // imp-35036: EXTENDS the imp-33582 per-decade local decay-exponent ladder for sigma(N) =
+  // E_coll/E(N) past [1e11,1e12] (0.4310) on the identical inherited model. The exponent keeps
+  // climbing monotonely toward the imp-3463 1/2 asymptote (0.4646, 0.4777, 0.4828, 0.4851 on
+  // [1e12..1e16]) but the residual gap 1/2 - p_dec closes only as 1/(2 ln N) -- confirmed by the
+  // deep-tail product (1/2 - p_dec) * 2 ln N_center holding near ~1.007-1.02 -- so p_dec first
+  // reaches 0.499 only near N ~ 1.28e218 (~212 decades past the 10^6 ceiling). E_trunc overtakes
+  // the vanishing E_coll only in the logarithmically-slow limit. Measurement only; no bound; NO QED.
+  '/src/data/imp-35036-sigma-decay-exponent-ladder-extension.js',
   // imp-34967 orphan-wiring sweep (imp-34878/imp-34724/imp-34802 lineage): the following four
   // imp-34922..imp-34933 cohort modules define self-executing *_ASSERTIONS arrays but were not yet
   // wired into this MATH_MODULES sweep.
@@ -7527,6 +7545,24 @@ const DATA_MODULES = [
   // heights. Same imp-33582 olsExponent estimator and imp-3220/imp-3406 sub-terms; far-tail exponent
   // stays 1/2 (imp-3463); measurement only; changes no bound; NO QED.
   '/src/data/imp-35036-sigma-fartail-exponent-log-slow-half-approach.js',
+  // imp-35042: DERIVES whether the imp-35018 sigmoid-inflection knee N_star (~3.4e9), sitting ~3-4% ABOVE the
+  // tight N_half/N_cross pair (~0.4% apart), is a STRUCTURAL offset or numerical. Two closed margins on the
+  // identical imp-3220/imp-3406 surrogate: (A) halving-vs-crossover is a FIRST-order E_flow perturbation
+  // -r/g (r = E_flow/E_trunc ~1.9e-3, ~-0.4%, reproduced to ~0.3%); (B) inflection-vs-halving is the O(1/t^2)
+  // sigmoid-asymmetry displacement 2 g_prime/g^3 (~+4.4%, reproduced to ~2%), with the closed-form inflection
+  // height sigma_I = 1/2 - g_prime/(2 g^2) landing on the directly-located d2 sigma/dt2 = 0 knee to <1e-3. The
+  // ~11x margin ratio IS the 0.4%-vs-3.9% cluster split. VERDICT: STRUCTURAL, NOT co-located, NOT numerical.
+  // Measurement only; light imports only; C_mb GUE-conditional (imp-486) untouched; changes no bound; NO QED.
+  '/src/data/imp-35042-inflection-crossover-offset-structural.js',
+  // imp-35054: CROSS-VALIDATES the two independent closed-form crossovers side by side -- the imp-33723
+  // E_flow-OFF Banach fixed point N_off = (C_C/E_trunc)^2 log T0(N) ~ 3.280294e9 and the imp-33750
+  // E_flow-ON corrected fixed point N_on = (C_C/(E_trunc+E_flow(N)))^2 log T0(N) ~ 3.267235e9 -- against
+  // each other AND the imp-33582 empirical sigma=1/2 halving landmark N_half. Their mutual offset
+  // (N_off - N_on)/N_off ~ 3.98e-3 is EXACTLY the ~0.4% E_flow offset (the two forms solve E_coll=E_trunc
+  // vs E_coll=E_trunc+E_flow, imp-33601), C2 lands on N_half to ~3e-15 (sigma(N_on)=1/2), and restoring
+  // E_flow closes 100% of the C1-to-N_half gap -- so the two forms are the two balances of imp-33601, not
+  // independent estimates. Light imports only; C_mb GUE-conditional (imp-486) untouched; changes no bound; NO QED.
+  '/src/data/imp-35054-two-closed-form-crossovers-cross-validation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

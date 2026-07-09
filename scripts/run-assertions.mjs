@@ -199,6 +199,8 @@ const DATA_MODULES = [
   '/src/data/imp-35150-r2-ladder-assessment.js',
   // imp-35190: order-robust DP45 flow reference at N=500 extends R2 one rung.
   '/src/data/imp-35190-r2-n500-flow-reference.js',
+  // imp-35221: order-robust DP45 flow reference at N=1000 extends R2 one more rung.
+  '/src/data/imp-35221-r2-n1000-flow-reference.js',
   // imp-903 27-point H_raw-update sweep: rescue satisfied from N_0 = 100.
   '/src/data/imp-903-uniform-sweep-result.js',
   // imp-904 dense-N-grid partial closure: 31-N combined catalog over [10, 10^4].
@@ -7599,6 +7601,15 @@ const DATA_MODULES = [
   // true-RvM-inverse difference (effectiveHeightForN vs T0 = 2pi N/log N), CONFIRMING the imp-35198
   // attribution that the residual is not a missing power of log N. Derivation only; no bound; NO QED.
   '/src/data/imp-35217-eflow-fartail-exponent-x2-correction.js',
+  // imp-35222: LIGHT STANDALONE cross-check (no heavy import) that the imp-35198 leading law
+  // -1 + 3/log N and full surrogate s(x) = (1 - 1/log N)(2/log T0 - 1) reproduce the imp-35135
+  // MEASURED far-tail E_flow exponents via an INDEPENDENT code path. Recomputes both from first
+  // principles with fresh local functions and compares against the imp-35135 measured literals
+  // (-0.77 at 1e6, -0.91 at 1e16) baked in as constants -- reproduces the imp-35198 ladder
+  // (leading -0.7829/-0.9186, full -0.7852/-0.9174) and the ~0.013/~0.009 residuals to the digit,
+  // so the agreement no longer depends on the derivation modules own arithmetic. Cross-check only;
+  // changes no bound; NO QED.
+  '/src/data/imp-35222-eflow-fartail-exponent-standalone-crosscheck.js',
   // imp-35036: EXTENDS the imp-33582 per-decade local decay-exponent ladder for sigma(N) =
   // E_coll/E(N) past [1e11,1e12] (0.4310) on the identical inherited model. The exponent keeps
   // climbing monotonely toward the imp-3463 1/2 asymptote (0.4646, 0.4777, 0.4828, 0.4851 on

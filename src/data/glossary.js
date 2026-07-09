@@ -16421,6 +16421,44 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this measurement (imp-486)',
     ],
   },
+  {
+    term: 'imp-35244 corrected rho expansion: the eps^{5/2} slot the imp-35216 R_3 tail implied is EMPTY (the implied K_{5/2} = -32 sqrt(2)/(45 pi) = -0.32011 is falsified), and the true next-order term is eps^{7/2} with coefficient K_{7/2} = -8 sqrt(2)/(3 pi) = -1.20042',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35244 correction to the imp-35216 model-cusp margin-ratio ' +
+      'expansion rho(eps) = 2/3 + K eps^{3/2} + O(eps^{5/2}), pinning what actually occupies the ' +
+      'next order after the certified leading term K = 8 sqrt(2)/(9 pi).\n\n' +
+      'THE MEASUREMENT: imp-35216 stated a denominator tail R_3(L) L^5 -> 2/5 that would naively imply ' +
+      'an eps^{5/2} coefficient K_{5/2} = -16/(15 A_2) = -32 sqrt(2)/(45 pi) = -0.32011, but never ' +
+      'checked whether it survives into rho. Forming the residual r1 = rho(eps) - 2/3 - K eps^{3/2} on ' +
+      'the imp-35193 grid (clean window N in [1e3, 1e6]) and reading r1/eps^{5/2}, the ratio does NOT ' +
+      'converge to -0.32011 -- it DECAYS to 0 (~-9.5e-2 at N=1e3 down to ~-3.0e-3 at N=1e6). Instead ' +
+      'r1/eps^{7/2} converges cleanly to -1.20042, matching the closed form ' +
+      'K_{7/2} = -8/(3 A_1) = -8 sqrt(2)/(3 pi). The corrected expansion is therefore ' +
+      'rho(eps) = 2/3 + [8 sqrt(2)/(9 pi)] eps^{3/2} + 0*eps^{5/2} - [8 sqrt(2)/(3 pi)] eps^{7/2} + ...\n\n' +
+      'WHY THE eps^{5/2} SLOT CANCELS: imp-35216 read the 2/5 tail off the symmetric (both +) branch ' +
+      'sum, but the denominator m_double_prime is built from the ODD power p=3 pair ' +
+      'B_3(+) + B_3(-), whose rescaling gives (i-t^2)^{-3} + (i+t^2)^{-3} = -6 i t^{-8} + O(t^{-12}): ' +
+      'the leading t^{-6} terms cancel between the conjugate branches, so the |F_3| correction that ' +
+      'actually forms C_curv enters at eps^{7/2}, not eps^{5/2}. The 2/5 tail belongs to the symmetric ' +
+      'integrand and never reaches rho.\n\n' +
+      'HOW TO APPLY: cite imp-35244 (alongside imp-35216) whenever the 2/5 near-miss constant is ' +
+      'mentioned, so it is not mistaken for an eps^{5/2} coefficient of rho -- the eps^{5/2} slot is ' +
+      'empty and the corrected next-order term is eps^{7/2} = -8 sqrt(2)/(3 pi).\n\n' +
+      'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406/imp-33646 model-cusp ' +
+      'surrogate; sharpens the remainder SHAPE an O3 proof would need but supplies neither the ' +
+      'certified uniform inequality nor a rigorous remainder bound; does NOT discharge O3 or ' +
+      'G6a_shock_lipschitz, both stay OPEN; establishes no operator positivity; imp-3066 K_a >= 0 ' +
+      'UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; no RH verdict; NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35268 (glossary headword recording the imp-35244 corrected rho expansion), 2026',
+    relatedTerms: [
+      'imp-35216 derived the leading K = 8 sqrt(2)/(9 pi) and the R_3 tail this entry corrects at next order (imp-35216)',
+      'imp-35193 supplies the branch-integral grid re-formed here to read the eps^{5/2}/eps^{7/2} residual (imp-35193)',
+      'imp-35240 independently confirms the imp-35216 leading K on a finer grid, untouched by this correction (imp-35240)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this correction (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

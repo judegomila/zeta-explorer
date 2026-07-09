@@ -715,3 +715,161 @@ export const C_MB_INTERVAL_CERTIFIED_CROSS_VERIFY = {
     'an upper-bound certificate. One low-severity flag logged ' +
     '(rho-floor-under-quote) as a suggested-future-tightening.',
 };
+
+// ── imp-35104 SCOPING: what a weaker-K interval-certified partial C_mb bound
+//    would need to establish, and how far it would narrow the GUE-conditional
+//    gap, GIVEN the imp-486 exhaustive-search negative that no UNCONDITIONAL
+//    C_mb bound exists (GUE universality irreducible). SCOPING ONLY -- this
+//    export enumerates obligations and quantifies the narrowing; it establishes
+//    NO bound, removes NO conditional, and claims NO QED. It is a static data
+//    map (no computation, no new imports), a companion to the imp-972-audited
+//    C_MB_INTERVAL_CERTIFIED certificate above.
+// ────────────────────────────────────────────────────────────────────
+export const C_MB_WEAKER_K_INTERVAL_SCOPE = {
+  id: 'imp-35104',
+  title:
+    'Scope a weaker-K / partial-range interval-certified C_mb bound (imp-857 ' +
+    'route) against the imp-486 no-unconditional-bound negative',
+  scopingOnly: true,
+
+  // The irreducible premise this scoping is conditioned on.
+  irreduciblePremise: {
+    source: 'imp-486',
+    statement:
+      'An exhaustive search over closure strategies confirmed that NO ' +
+      'unconditional (all-N, N-independent) bound on the many-body ' +
+      'correction C_mb exists without invoking GUE universality ' +
+      '(Erdos-Schlein-Yau). The GUE-conditional dependence is IRREDUCIBLE ' +
+      'in the sense that any finite-N certificate cannot be extrapolated ' +
+      'to N -> infinity by interval arithmetic alone.',
+    consequence:
+      'A weaker-K interval certificate therefore CANNOT be a full C_mb ' +
+      'bound; the best it can be is a PER-N or FINITE-RANGE certified ' +
+      'upper envelope, valid only on the N-set where the interval-Dyson ' +
+      'bracket actually closes. See imp-856 PATH 3, which evaluated three ' +
+      'hybrid weaker-K approaches and recommended interval-arithmetic ' +
+      'certification (imp-857) as the most promising of the three.',
+  },
+
+  // What "weaker-K" means here, made precise.
+  weakerKMeaning:
+    'A weaker-K bound relaxes the headline target from a single uniform ' +
+    'constant K valid for ALL N to a possibly N-dependent certified ' +
+    'envelope K_weak(N) established pointwise on an explicit finite N-set ' +
+    'via interval arithmetic on the ACTUAL first-N Riemann zeros. It is ' +
+    'weaker because it does not assert a value at unenumerated N and does ' +
+    'not by itself close the tail N -> infinity.',
+
+  // Concrete obligations an imp-857 interval certification would need to meet
+  // to deliver even a weaker-K PARTIAL bound. Each carries a current status.
+  requirementsToEstablish: [
+    {
+      id: 'R1-closed-bracket-set',
+      needs:
+        'A backward-collision bracket [t_c_lo, t_c_hi] that CLOSES (reason ' +
+        'gap-lower-bound-nonpositive) at each N in the target set, under ' +
+        'outward (directed) rounding so the enclosure is rigorous.',
+      currentStatus:
+        'MET (existence) for N in {50,100,200,500} via the imp-362 one-ULP ' +
+        'Float64 wrapper consumed above; imp-2550 extends bracket EXISTENCE ' +
+        'to {1000,2000,5000,10000} and to {25000,50000,100000} in plain JS.',
+    },
+    {
+      id: 'R2-truncation-vs-roundoff',
+      needs:
+        'Certified control of RK4 TRUNCATION error, not just Float64 ' +
+        'roundoff. One-ULP inflation bounds roundoff of the discrete map ' +
+        'but NOT the map-to-flow gap (the imp-2528 semantics downgrade), so ' +
+        'a true-flow enclosure needs a higher-order or defect-controlled ' +
+        'interval integrator.',
+      currentStatus:
+        'OPEN. This is the load-bearing residual half of the imp-857-sub- ' +
+        'scale-to-N10k sub-gap; wants a directed-rounding backend (Arb/WASM, ' +
+        'MPFI, CAPD) or a Krawczyk / mean-value-form contraction.',
+    },
+    {
+      id: 'R3-pair-subtraction-enclosure',
+      needs:
+        'A certified enclosure of F_mb(N) = t_c_full - t_c_pair with ' +
+        't_c_pair = H_raw^2 / 8, hence a certified H_raw(N) (min raw gap of ' +
+        'the first N zeros) computed with outward rounding.',
+      currentStatus:
+        'MET on the closable set: H_raw is an exact finite min over the ' +
+        'zero table and the subtraction is interval-safe; the enclosure ' +
+        'width is inherited from R1/R2.',
+    },
+    {
+      id: 'R4-paper-norm-conversion',
+      needs:
+        'The rho-floor conversion K_paper = K_raw / rho with rho(gamma_N) ' +
+        '>= rho(14) = 0.12751 (imp-469 analytic floor), so K_raw certifies ' +
+        'an upper bound in the paper C_mb normalization.',
+      currentStatus:
+        'MET and imp-972-audited as CONFIRMED-CONSERVATIVE (0.12751 slightly ' +
+        'under-quotes the exact rvmDensity(14) ~= 0.127529, safe direction).',
+    },
+    {
+      id: 'R5-monotone-or-tail-argument',
+      needs:
+        'To upgrade a per-N envelope toward a range bound, a certified ' +
+        'monotonicity-of-corrections statement (F_mb decreasing in N in the ' +
+        'certified norm) OR an explicit tail dominance argument -- WITHOUT ' +
+        'which the certificate is strictly pointwise.',
+      currentStatus:
+        'OPEN and, per imp-486, NOT achievable by interval arithmetic alone: ' +
+        'the tail N -> infinity is exactly where GUE universality is ' +
+        'irreducible. Any monotonicity claim here would smuggle in the ' +
+        'GUE-conditional content it is meant to avoid.',
+    },
+  ],
+
+  // How far a fully-discharged R1-R4 (R5 left open) would narrow the gap.
+  narrowingOfGap: {
+    beforeCertificate:
+      'The C_mb correction is GUE-conditional for ALL N (imp-486): every N ' +
+      'in the ladder inherits the Erdos-Schlein-Yau dependence.',
+    afterWeakerKCertificate:
+      'For each N in the certified set S (currently {50,100,200,500}; ' +
+      'extendable to {1000,...,100000} once R2 is discharged), C_mb(N) has ' +
+      'an UNCONDITIONAL interval-certified upper bound (the imp-972 ' +
+      'K_paper_floor headline). The GUE-conditional dependence is thereby ' +
+      'REMOVED at those finitely many N and survives ONLY on the ' +
+      'complement N not in S -- in particular the tail N -> infinity.',
+    quantification:
+      'The narrowing is from all-N-conditional to (all N not in S)- ' +
+      'conditional. It is a set-shrinkage of the conditional region, NOT a ' +
+      'reduction of the conditional STRENGTH: the surviving tail carries the ' +
+      'full irreducible GUE dependence. The finite verified height in the ' +
+      'Lambda pipeline (imp-327 T_star(N)) is what determines which N are ' +
+      'operative, so the practical value of S is capped by how far the ' +
+      'certified bracket can be pushed, i.e. by discharging R2.',
+    doesNotAchieve:
+      'Does NOT remove the C_mb conditional; does NOT deliver an ' +
+      'unconditional (all-N) C_mb bound (imp-486 proves none exists); does ' +
+      'NOT establish operator positivity; changes NO Lambda bound. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.',
+  },
+
+  // The single blocking obligation, named for a successor.
+  blockingResidual: {
+    id: 'imp-857-sub-scale-to-N10k',
+    which: 'R2-truncation-vs-roundoff (true-flow enclosure at N >= 1000)',
+    note:
+      'R1/R3/R4 are already met on the closable set; a weaker-K PARTIAL ' +
+      'certificate over the extended set {1000,...,100000} is gated solely ' +
+      'on R2 (a directed-rounding / higher-order interval integrator). R5 ' +
+      '(the tail) is the irreducible GUE boundary and is deliberately left ' +
+      'OUT of scope per imp-486.',
+  },
+
+  honestStatus:
+    'SCOPING COMPLETE (enumeration only). Four of five interval-certification ' +
+    'requirements (R1 existence, R3 pair-subtraction, R4 paper-norm, and ' +
+    'the closable-set half of R2) are already met on {50,100,200,500}; a ' +
+    'weaker-K PARTIAL bound over {1000,...,100000} is gated on the R2 true- ' +
+    'flow residual (imp-857-sub-scale-to-N10k). Such a certificate would ' +
+    'narrow the C_mb GUE-conditional from all-N to the tail complement, ' +
+    'removing the conditional at finitely many certified N while leaving ' +
+    'the irreducible N -> infinity dependence (imp-486) fully intact. ' +
+    'Changes no bound; establishes no operator positivity; NO QED.',
+};

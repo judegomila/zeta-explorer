@@ -76,7 +76,7 @@ fi
 
 # ── 4. Queue health ─────────────────────────────────────────────────────
 if [ -f "$SCRIPT_DIR/queue-index.json" ]; then
-  PENDING=$(node -e "const q=require('./scripts/queue-index.json'); const p=q.tickets?.filter(t=>t.status==='pending')?.length || 0; console.log(p)" 2>/dev/null || echo "0")
+  PENDING=$(node -e "const q=require('./scripts/queue-index.json'); console.log(q.totalPending || 0)" 2>/dev/null || echo "0")
   echo "$LOG_PREFIX Queue: $PENDING pending tickets"
   if [ "$PENDING" -lt 4 ]; then
     echo "$LOG_PREFIX Queue low — running autofill..."

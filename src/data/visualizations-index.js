@@ -635,6 +635,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive component-decomposition chart on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35123-bootstrap-exponent-distribution',
+      title: 'Bootstrap Distribution of the Pinned Crossing-Strength Exponent',
+      oneLine:
+        'Histograms the imp-34994 bootstrap distribution of the pinned imp-34950 crossing-strength exponent p (4000 seeded-LCG resamples over the imp-34925 21-point C_mb grid, mean ~1.5495, 95% percentile CI ~[1.5475,1.5521]), marking the clean rationals 3/2 and 8/5 ~41 and ~42 sigma outside the band.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-34994-cmb-exponent-bootstrap-jackknife.js',
+      paperSourcePath:
+        'src/data/imp-34994-cmb-exponent-bootstrap-jackknife.js (imp-35123 viz page)',
+      ticket: 'imp-35123',
+      pedagogicalStep: 41,
+      honestCeiling:
+        'Descriptive resampling-distribution histogram on the inherited surrogate; changes no bound, does not discharge the GUE conditional (imp-486), establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

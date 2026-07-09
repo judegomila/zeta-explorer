@@ -310,9 +310,9 @@ do_stop() {
 do_status() {
   if [ -f "$PID_FILE" ] && kill -0 "$(cat "$PID_FILE")" 2>/dev/null; then
     pid=$(cat "$PID_FILE")
-    echo "Auto-improve HAIKU is RUNNING (PID $pid)"
+    echo "Auto-improve SONNET is RUNNING (PID $pid)"
     run_count=$(ls "$LOG_DIR"/run_sonnet_*.log 2>/dev/null | wc -l | tr -d ' ')
-    echo "  Completed Haiku runs: $run_count"
+    echo "  Completed Sonnet runs: $run_count"
     latest=$(ls -t "$LOG_DIR"/run_sonnet_*.log 2>/dev/null | head -1)
     if [ -n "$latest" ]; then
       echo "  Latest log: $latest"
@@ -320,13 +320,13 @@ do_status() {
       tail -3 "$latest" | sed 's/^/    /'
     fi
   else
-    echo "Auto-improve HAIKU is NOT running"
+    echo "Auto-improve SONNET is NOT running"
     if [ -f "$PID_FILE" ]; then
       echo "  (stale PID file found, cleaning up)"
       rm -f "$PID_FILE"
     fi
     run_count=$(ls "$LOG_DIR"/run_sonnet_*.log 2>/dev/null | wc -l | tr -d ' ')
-    echo "  Total completed Haiku runs: $run_count"
+    echo "  Total completed Sonnet runs: $run_count"
   fi
 }
 

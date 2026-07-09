@@ -7529,6 +7529,12 @@ const DATA_MODULES = [
   // ~1.23e-3 jk) run ~1.35x the residual-based SE, yet 3/2 and 8/5 stay ~40-42 sigma out and outside the
   // 95% percentile CI, confirming imp-34950 F1 against resampling. Measurement only, no bound change.
   '/src/data/imp-34994-cmb-exponent-bootstrap-jackknife.js',
+  // imp-35112: GENERALIZES the imp-34994 ~1.35x resampling-over-residual SE under-estimation from the pinned
+  // exponent to its two SIBLING estimators -- the imp-34950 free-K exponent p_free ~ 1.5453 (bootstrap ~1.38x,
+  // jackknife ~1.45x) and the imp-34954 G-conversion slope -0.47729 reconstructed as a local log-log
+  // regression (bootstrap ~1.33x, jackknife ~1.38x). All three cluster the ratio in ~1.33-1.45x, so the
+  // correction is a shared small-sample OLS geometry factor, not specific to the pinned fit. Measurement only.
+  '/src/data/imp-35112-sibling-estimator-resampling-se-crosscheck.js',
   // imp-34951: MEASURES the uniform positive penultimate-relative-distance margin across all 34
   // off-by-one rungs on [1e3,1e18] against the EPS_FP floor, an upper-witness proxy that the +1
   // over-count residual is structurally excluded. Measurement only, no bound change.
@@ -7566,6 +7572,13 @@ const DATA_MODULES = [
   // integer, P_n(u)>0 at ramp points u in {1,2,3}, the (n-1)!/(2n-3)!! closed forms, and exact
   // reproduction of the baked P_6/P_14 literals. Verification only; no operator positivity; no bound change.
   '/src/data/imp-35107-crossover-deriv-exact-bigint-positivity-to-n20.js',
+  // imp-35113: DIRECT from-source numerical cross-check of the imp-35012 alternating derivative-sign
+  // ladder sign(g^(n))=(-1)^(n+1) via Richardson-extrapolated central finite differences of the
+  // surrogate g=K log T0(N) for n=1..8 at five ramp points. Confirms the (+,-,+,-) ladder robustly
+  // through n*=4 across the step bracket, and quantifies that double precision cannot resolve the sign
+  // for n>=5 (magnitudes collapse ~5e-10 per order below the round-off floor; sign becomes
+  // step-dependent) -- a differencing ceiling, not a sign change. Measurement only; no bound change.
+  '/src/data/imp-35113-crossover-deriv-sign-ladder-finite-difference.js',
   // imp-34974: DERIVES the two boundary-projection recurrences (k=0 -> a_0^(n+1)=(2n-1)a_0^(n),
   // k=n -> a_n^(n+1)=n a_{n-1}^(n)) as standalone projections of the interior recurrence, and adds
   // two interior closed forms (subleading (n-1)(n-1)!, row-sum n^(n-1)) plus a two-sided interior
@@ -7593,6 +7606,14 @@ const DATA_MODULES = [
   // reentry is a GENUINE analytic feature, NOT a double artifact. Arithmetic half of imp-34997a discharged;
   // surrogate-fidelity half re-pointed as imp-35109a. Certification only, no bound change.
   '/src/data/imp-35109-ceil-phase-drift-precision-certification.js',
+  // imp-35111: CHARACTERIZES the imp-34997 reappearing off-by-one band ABOVE the 10^27.08 ceil-phase reentry.
+  // It is a BOUNDED phase-window band, not a persistent tail: the phase transits the fixed window (W, 1) once
+  // and EXITS at N ~ 10^37.17 (frac(xArg) -> 1, xArg crosses 11 -> 12, floor steps to 12, phase wraps below W),
+  // with resid = -1 identically 0 above the exit out to 1e44. Honest nuance: the direct residual census turns
+  // ON ~7.3 decades earlier (N ~ 10^19.75, measured Picard count 13 -> 14), so imp-34997s reentry is the
+  // frac-window models LOWER edge while only the exit at 10^37.17 is shared by model and census. floor(xArg)
+  // pinned at 11 across the band. Measurement only, sub-gap imp-35111a (inherits imp-34997a), no bound change.
+  '/src/data/imp-35111-off-by-one-reentry-band-width.js',
   // imp-35016: cross-validates the imp-33723 closed-form N_cross Banach fixed point against a SECOND
   // independent root-finder (scalar Newton on the residual h(N)=N-g(N), numerical derivative, seeded
   // away from the root across six decades). Newton lands on N_cross=3.2802943517e9 to machine precision

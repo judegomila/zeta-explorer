@@ -7479,6 +7479,18 @@ const DATA_MODULES = [
   // yet still ~5 orders below the ~52.8x free-window systematic (imp-34956 W3). Residual on |P| under the
   // fixed-window assumption, NOT the across-m ramp residual. Measurement only; changes no bound; NO QED.
   '/src/data/imp-35034-crossing-landmark-localization-residual.js',
+  // imp-35133: RECONCILES the imp-35034 fixed-window certified |dP/P| <= ~1.53e-6 residual on the ABSOLUTE
+  // crossing product P = g* r0 against the ~1.6e-7 across-m ramp-invariance residual (imp-34924/34956;
+  // irreducible FD floor ~3.69e-7 per imp-35010). The two perturb DIFFERENT factors of the product: the
+  // ~1.53e-6 is the relative localization error dr0/r0 in the r0 = R(X_CROSS) factor (X_CROSS axis, g* held
+  // fixed since g* is window-independent per imp-34956 W0 / imp-35011); the ~1.6e-7 is pure numerical noise
+  // in the g* factor (m axis, an algebraically m-invariant coupling). They are INDEPENDENT and ORTHOGONAL
+  // with vanishing cross-terms (window gives 0 ramp contribution; g* bit-identical across windows), NOT
+  // nested, so the relative errors add in QUADRATURE: combined |dP/P| = sqrt((1.53e-6)^2 + (2.06e-7)^2) ~
+  // 1.542e-6 (~2.212e-9 absolute). The FIXED-WINDOW LOCALIZATION BINDS -- ~7.4x the across-m relative
+  // residual, so the ramp raises the combined figure by only ~0.9%; even with the wider imp-35010 floor the
+  // fixed-window dominates ~3.2x. Measurement only; changes no bound; NO QED.
+  '/src/data/imp-35133-fixed-window-vs-across-m-residual-composition.js',
   // imp-35035: TABULATES the two independently-reported local E_flow decay exponents at the crossing
   // landmark x* = ln N_cross (9.53 dex) side by side -- imp-34950 F3 q_eff = -d ln R/dx ~ 0.855 (per unit
   // x = ln N) and imp-34956 W2 d ln P/d(dex) ~ -1.9685 / d ln P/dx ~ -0.8549 -- and confirms they are the
@@ -7682,6 +7694,18 @@ const DATA_MODULES = [
   // absolute error ~6.3e-4 (~6e6x blind); (S2) the RK4-LTE 5th-derivative bound blows up 10^6 per
   // decade of gap reduction. Discharges NONE; imp-2466 cross-check untouched; changes no bound; NO QED.
   '/src/data/imp-35127-g-step-error-certified-bound-scope.js',
+  // imp-35167: SCOPES the imp-35127 I2 ingredient -- what a CERTIFIED non-collision minimum-gap lower
+  // bound g_min(t) > 0 along the WHOLE backward Dyson trajectory to the front would need. Enumerates
+  // five machinery pieces M1..M5: M1 the exact gap ODE du/ds = -8 + 4 B(s) u + Gronwall lower branch
+  // m(s) = (g^2 + 2/beta) e^{-4 beta s} - 2/beta (PRESENT, imp-2563 skeleton), M2 a certified N-uniform
+  // background-field sup beta (OPEN, imp-2563 assumes it finite), M3 a certified initial gap ~O(1/N)
+  // (PARTIAL / data-level), M4 the SG1 local virial (imp-2520, PRESENT but Gronwall-vacuous at the front
+  // strip), M5 a horizon-to-front whole-trajectory bridge (OPEN, binding). (S1) the lower branch is
+  // strictly positive on s < T_- and hits 0 at the horizon (a positive g_min on its window); (S2) but
+  // T_-(g, beta) ~ g^2/8 collapses like O(1/N^2) while the front stays O(1) -- a local witness, not a
+  // whole-trajectory certificate. Binding obstruction = M5 fed by M2. Derives NONE; imp-2563 untouched;
+  // couples to G-gronwall (imp-2520) / G-interval-enclosure (imp-362); changes no bound; NO QED.
+  '/src/data/imp-35167-g-min-non-collision-certificate-scope.js',
   // imp-35016: cross-validates the imp-33723 closed-form N_cross Banach fixed point against a SECOND
   // independent root-finder (scalar Newton on the residual h(N)=N-g(N), numerical derivative, seeded
   // away from the root across six decades). Newton lands on N_cross=3.2802943517e9 to machine precision

@@ -16567,6 +16567,47 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this note (imp-486)',
     ],
   },
+  {
+    term: 'imp-35243 surrogate-fidelity certificate: the four requirements (R1-R4) a proof the reentry band is real in the true dynamic would need',
+    category: 'proof-status',
+    definition:
+      'A headword enumerating, in full, the four-requirement surrogate-fidelity certificate imp-35243 lays out ' +
+      'for the imp-34997/imp-35111 iters-to-floor REENTRY band. The prior imp-35243 honest-status entry records ' +
+      'the VERDICT (not established for the true dynamic); this entry records the CHECKLIST that verdict rests on, ' +
+      'so a future attempt to certify the band knows exactly what it must discharge.\n\n' +
+      'R1 FLOOR-INDEPENDENCE. Need: re-express the band in a floor-free continuum limit, or prove the true dynamic ' +
+      'has an intrinsic floor at EPS_FP = 2.3e-16. Status: BINDING / OPEN -- imp-35243 demonstration D1 shows the ' +
+      'band moves ~12 decades in N per factor-2 change in the machine-epsilon floor, a representation constant ' +
+      'with no counterpart in the infinite-precision continuum.\n\n' +
+      'R2 SINGLE-RATE / LINEARIZATION FIDELITY. Need: bound the nonlinear remainder of the true map uniformly ' +
+      'across the band so the single fixed-point contraction rate r governs the true approach out to N ~ 10^37. ' +
+      'Status: OPEN -- the log law is only asymptotic near the fixed point, and imp-34862 found a TWO-rate law, ' +
+      'undercutting the single-rate linearization the surrogate assumes.\n\n' +
+      'R3 HEIGHT-MAP FIDELITY. Need: certify that g = K log T0(N) models the true E_flow height at N ~ 10^37, ' +
+      'where the imp-3220/imp-3406 constants and the C_C = (1/8)sqrt(3 pi) ansatz were pinned near N ~ 3e12, not ' +
+      'at 10^37. Status: OPEN -- inherits the imp-3220/imp-3406 surrogate scope without extension.\n\n' +
+      'R4 INDEPENDENT-MODEL AGREEMENT. Need: reproduce the reentry/exit from an independent, non-log-law model, ' +
+      'or from verified zero data at height ~10^27-10^37. Status: BINDING / PRESENTLY UNREACHABLE -- imp-35243 ' +
+      'demonstration D2 finds no verified zero height within ~15 decades of the band (highest verified height ' +
+      '~3e12, log10 ~12.48, versus band reentry/exit at log10 ~27.08/37.17).\n\n' +
+      'R1 and R4 are the two BINDING requirements; both are presently unreachable with existing verified data, ' +
+      'which is why imp-35243 concludes the band is NOT established as a feature of the true collapse dynamic. ' +
+      'A certificate needs all four of R1-R4 discharged together, not any proper subset.\n\n' +
+      'HOW TO APPLY: use this entry as the checklist when scoping future work on the reentry band -- a proposed ' +
+      'fix to any single requirement (e.g. a floor-free reformulation for R1) does not close the certificate ' +
+      'unless R2-R4 are addressed too; R4 in particular requires new verified height, not new analysis.\n\n' +
+      'HONEST SCOPE: enumeration only, mirroring the imp-35243 module; discharges none of R1-R4; the reentry ' +
+      'band verdict stays NOT ESTABLISHED for the true dynamic; C_mb GUE-conditional (imp-486) and imp-3066 ' +
+      'K_a >= 0 UNTOUCHED; changes no bound; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the ' +
+      'rigorous SOTA.',
+    firstUsed: 'imp-35277 (glossary headword enumerating the imp-35243 surrogate-fidelity certificate requirements), 2026',
+    relatedTerms: [
+      'imp-35243 enumerated these four requirements and flagged R1/R4 as binding and presently unreachable (imp-35243)',
+      'imp-35243 honest-status note records the resulting verdict this checklist supports (imp-35174)',
+      'imp-34862 found a TWO-rate law, the obstruction cited against R2 single-rate fidelity (imp-34862)',
+      'imp-2642 is the C_C ansatz R3 height-map fidelity would need to extend past its ~3e12 pin (imp-2642)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

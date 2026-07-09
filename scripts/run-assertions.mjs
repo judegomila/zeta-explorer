@@ -6801,6 +6801,18 @@ const DATA_MODULES = [
   // imp-34932 sign-cycle theta = 40.0 deg (the ~1 deg gap is the finite-k transient). Pair geometry unchanged.
   // Measurement only, C_mb GUE-conditional untouched, no bound change, no QED.
   '/src/data/imp-35067-recurrence-angle-k-trend-vs-noise.js',
+  // imp-35071: DERIVES the imp-3406 interior sigma-peak (N ~ 9.22e5, sigma_max ~ 0.9494), previously only
+  // LOCATED by sampling, in CLOSED FORM on the imp-33601 component model. Setting dsigma/dN = 0 gives the
+  // peak condition E_coll_prime(E_trunc + E_flow) = E_coll E_flow_prime, equivalently the fixed point
+  // (1-sigma)/sigma = E_flow_prime/E_coll_prime, equivalently the two-slope balance E_flow/E_trunc = a/(b-a)
+  // with a = dlogE_coll/dlogN, b = dlogE_flow/dlogN. Its root N_star ~ 9.218633e5 matches an independent
+  // direct numeric peak-finder to relative ~4e-10, sigma_max ~ 0.949429, and 1e6 lands ~2.14e-5 below on the
+  // downslope -- reproducing the currentStatus landmark. PUNCHLINE: the peak is E_flow-driven (E_flow/E_trunc
+  // ~1.53 at the peak); forcing E_flow = 0 makes sigma = 1/(1+E_trunc/E_coll) monotone decreasing and the
+  // interior maximum vanishes, so the rising branch is the same Gronwall flow term imp-33601 named for the
+  // sigma = 1/2 offset. Derivation only on the inherited imp-3220/imp-3406 surrogate, C_mb GUE-conditional
+  // per imp-486 untouched, changes no bound, establishes no operator positivity, no QED, PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-35071-sigma-interior-peak-closed-form.js',
   // imp-34820: assesses whether the imp-34796 third-order identity F = -g_thirdDeriv/(1-S) can locate the
   // imp-34746/imp-33721 convex-to-concave sigmoid inflection (sigma_secondDeriv=0). Verdict: NO for that
   // identity -- its g_thirdDeriv=0 root is the DISTINCT sigma-KNEE (log10 N ~ 9.5364), ~0.0127 dex above the

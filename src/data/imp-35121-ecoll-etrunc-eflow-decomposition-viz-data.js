@@ -24,6 +24,9 @@
  *   @see imp-33723-sigma-half-vs-crossover-closed-form.js (closed-form N_cross)
  *   @see imp-33721-sigma-ramp-inflection-subdecade.js (N_star ramp inflection)
  *   @see imp-35105 (pending tabulation companion of this same decomposition)
+ *   @see Imp35121EcollEtruncEflowDecompositionViz.jsx (imp-35160: the page
+ *     consumer -- route /viz-imp35121-ecoll-etrunc-eflow-decomposition,
+ *     cross-linked from the imp-33628 and imp-35161 sibling pages)
  *
  *   Ticket: imp-35121 (ux, medium). Visualization only on the inherited
  *   imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486; changes

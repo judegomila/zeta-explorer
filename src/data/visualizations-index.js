@@ -663,6 +663,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive threshold-crossing chart on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35139-eflow-qeff-profile',
+      title: 'E_flow q_eff Profile: Rising to 1, Not Descending to 1/2',
+      oneLine:
+        'Plots the imp-35039 E_flow local decay exponent q_eff(x) rising monotonically toward 1 across dex 9..300, marking the single upward q_eff=0.6 crossing at N~1e3.22 (far below the 1e9 crossing band) alongside the separate E_coll log-derivative approaching the imp-3463 far-tail 1/2.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35139-eflow-qeff-profile-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-35039-eflow-qeff-profile-crossing-to-fartail.js (imp-35139 viz page)',
+      ticket: 'imp-35139',
+      pedagogicalStep: 43,
+      honestCeiling:
+        'Descriptive log-derivative profile chart on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

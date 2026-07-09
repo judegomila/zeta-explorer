@@ -15349,6 +15349,43 @@ export const glossary = [
       'imp-34714a machine certificate (OPEN): the directed-rounding certification this floor does not close',
     ],
   },
+  {
+    term: 'imp-34997 Finite Ceil-Phase Gap vs Asymptotic Extinction',
+    category: 'numerical',
+    definition:
+      'A headword recording that the imp-34903/imp-34951 off-by-one iters-to-floor population, which reads ' +
+      'as a flat ZERO count above N~1e12, is a FINITE ceil-phase gap over roughly [1e12, ~1e27] -- NOT the ' +
+      'asymptotic extinction of the off-by-one phenomenon.\n\n' +
+      'imp-34997 first ruled out a coarse-grid artifact: a 50x seed-grid refinement above 1e12 (3001 seeds on ' +
+      '(1e12,1e15]) repopulated NOTHING at any resolution, confirming the tail zero is a genuine depletion, ' +
+      'not an under-sampling gap. But the mechanism is a bounded PHASE effect, not vanishing: the ceil ' +
+      'argument fraction frac(xArg) sits confined below the fixed off-by-one window edge (W ~ 0.8516) over ' +
+      'the tail, drifts upward at a measured rate of ~0.0187 per decade of N with floor(xArg) pinned at 11, ' +
+      'and off-by-one seeds REAPPEAR once the drift carries frac(xArg) back above W at N ~ 10^27.08.\n\n' +
+      'This reentry landmark was independently certified in double-double / compensated arithmetic (imp-35109), ' +
+      'confirming the drift and the 10^27.08 crossing are GENUINE analytic features of the surrogate, not an ' +
+      'IEEE-754 double-rounding artifact. Following the reentry, imp-35111 showed the repopulated band is ITSELF ' +
+      'bounded, not a persistent tail: the frac-window model exits again at N ~ 10^37.17 (floor steps from 11 to ' +
+      '12, phase wraps back below W), giving a single bounded band of ~10.08 decades; the wider directly-measured ' +
+      'residual band (driven by the Picard iterate count itself incrementing) spans [10^19.75, 10^37.17], ~17.42 ' +
+      'decades, with the imp-34997 reentry marking only the frac-window models LOWER edge.\n\n' +
+      'HOW TO APPLY: when a measured population statistic on this surrogate reads as identically zero over an ' +
+      'extended N-range, do not default to reading that as asymptotic extinction -- check whether the underlying ' +
+      'driver is a bounded, slowly-drifting phase quantity that can re-cross its trigger threshold arbitrarily far ' +
+      'out, as here. The precision sub-gap imp-34997a (higher-precision certification of the drift/reentry) is now ' +
+      'discharged by imp-35109; imp-35111a (certifying the exit/onset split) remains OPEN.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34997/imp-35109/imp-35111 findings verbatim, not a new ' +
+      'bound; measurement only on the inherited imp-3220/imp-3406 surrogate; C_C = (1/8)sqrt(3pi) (imp-2642) and ' +
+      'C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; no RH ' +
+      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35124 (glossary headword recording the imp-34997 finite ceil-phase gap finding), 2026',
+    relatedTerms: [
+      'imp-34997 refined the seed grid 50x above 1e12, found the zero off-by-one tail is genuine depletion but a FINITE ceil-phase gap, not asymptotic vanishing, with reentry at N~10^27.08 (imp-34997)',
+      'imp-35109 certified the imp-34997 ceil-phase drift (~0.0187/decade) and the 10^27.08 reentry in double-double arithmetic, confirming it is a genuine analytic feature, not a double-rounding artifact (imp-35109)',
+      'imp-35111 showed the repopulated band above the reentry is itself bounded, exiting again at N~10^37.17 (~10.08-decade band), with a wider ~17.42-decade measured census band (imp-35111)',
+      'imp-34903 and imp-34951 established the original off-by-one iters-to-floor population this headword tracks the tail-extinction question for (imp-34903, imp-34951)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

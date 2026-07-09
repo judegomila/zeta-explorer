@@ -4843,6 +4843,17 @@ const DATA_MODULES = [
   // thr ~ 0.3137 (N_cross ~ 1.687e10). Measurement/derivation only; C_mb GUE-conditional per imp-486
   // UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-34174-crossover-surplus-threshold-family-decay.js',
+  // imp-35102: VERIFIES the imp-33848 two closed-form strictness conditions for N_half < N_cross --
+  // (C1) E_flow(N_cross) > 0 and (C2) sigma strictly decreasing -- at nine INDEPENDENT fixed N rungs
+  // across [3.20e9, 3.36e9] that strictly bracket both landmarks, certifying the strict ordering is
+  // STRUCTURAL not a two-point artifact of the ~3.267e9 < ~3.280e9 recompute. E_flow > 0 at every
+  // rung and at N_cross; sigma strictly decreasing with dsigma/dlogN < 0 at each; the surplus
+  // 1/2 - sigma(N_cross) = E_flow/(2(2 E_trunc + E_flow)) = 1/2 - 1/(2 + E_flow/E_trunc) holds to
+  // floating point (~4.74e-4), and the ~0.4% N-space gap is that surplus amplified ~8x by the
+  // E_coll ~ N^{-1/2} Jacobian. Verification/measurement only; C_mb GUE-conditional per imp-486
+  // UNTOUCHED; C_C 1/8 ansatz untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED.
+  // 7 assertions.
+  '/src/data/imp-35102-nhalf-ncross-strictness-multirung-verify.js',
   // imp-34248: derives the small-thr asymptotic of the imp-34174 surplus by SEPARATING the two
   // vanishing factors -- surplus(thr) = P(thr).r(thr), P(thr) = thr(1-thr)/(1+(1-thr)r). The prefactor
   // P -> thr is asymptotically linear (surplus/(thr.r) climbs 0.4995 -> 0.9900), and the E_flow ratio

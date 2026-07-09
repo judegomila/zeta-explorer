@@ -16842,6 +16842,48 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this scoping entry (imp-486)',
     ],
   },
+  {
+    term: 'imp-35149 two-knob E_trunc(N) vanishing-strip scope: Knob A (grow verified height T_v) is the ONLY vanishing lever, Knob B (thin moving strip sigma->1/2) BLOWS UP instead',
+    category: 'proof-status',
+    definition:
+      'A headword recording the imp-35149 scope of whether a genuinely vanishing N-dependent ' +
+      'truncation strip E_trunc(N)->0 -- as opposed to the imp-2631 FIXED constant strip 3.06e-5 -- ' +
+      'can supply the LAMBDA_CHAIN_STEPS Step-4 rate E(N)->0 that imp-35100 found the fixed strip ' +
+      'cannot (E(N) floors at the constant instead of vanishing).\n\n' +
+      'On the inherited imp-2631 tail model E_trunc(T_v,sigma) = (2e/kappa) T_v^{-kappa}, ' +
+      'kappa = 1-e, e = 3(1-sigma)/(2-sigma) (Ingham), there are exactly two levers: ' +
+      'Knob A grows the verified height T_v(N)->infinity at a fixed abscissa sigma bounded away ' +
+      'from 1/2 (kappa &gt;= kappa_0 &gt; 0) -- this vanishes E_trunc at the algebraic rate ' +
+      'T_v^{-kappa_0} (illustrated at fixed sigma=3/4: 3.06e-5 at T_v=3e12 down to ~7.5e-10 at ' +
+      'T_v=1e24, monotone). Knob B instead thins the strip toward the critical line ' +
+      '(sigma -> 1/2, the imp-2622 sigma=1/2+1/logT0 schedule) -- this makes kappa->0, so the ' +
+      'prefactor 2e/kappa BLOWS UP and E_trunc GROWS (4.73 at T0=1e6, 10.75 at T0=1e13), a ' +
+      'structurally DEAD route, never a vanishing one.\n\n' +
+      'Knob A survives re-inflation of the sibling terms only because E_coll and E_flow key off ' +
+      'the INSTANTIATION height T0=effectiveHeightForN(N), never off T_v directly -- decoupling ' +
+      'holds provided T_v is chosen independently of T0 (re-inflation only arises under the ' +
+      'forbidden identification T_v=T0(N), i.e. Knob B evaluated at T0).\n\n' +
+      'The route reduces to five obligations R1 (strip-width law), R2 (excluded-tail decay rate), ' +
+      'R3 (UNCONDITIONAL growing verified height beyond T_PT=3e12), R4 (no-reinflation decoupling), ' +
+      'R5 (conditionality ledger); R1/R2/R4/R5 are analytic/algebraic and dischargeable, while R3 ' +
+      'is the sole BINDING obligation, a verified-height input (RH-free HPC compute, or RH-circular ' +
+      'on-line-zero counting) distinct from and not collapsing onto the imp-486 GUE conditional ' +
+      'that binds E_coll.\n\n' +
+      'HONEST SCOPE: a SCOPING entry only; discharges NONE of R1..R5; the imp-2631 fixed strip is ' +
+      'UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; establishes no operator positivity; ' +
+      'changes no bound; no RH verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the ' +
+      'rigorous SOTA.',
+    firstUsed: 'imp-35179 (glossary headword for the imp-35149 two-knob vanishing-E_trunc-strip scope), 2026',
+    relatedTerms: [
+      'imp-35149 ran the two-knob scope and named R1-R5, the entry this headword surfaces (imp-35149)',
+      'imp-35100 found the fixed-strip surrogate E(N) floors at the constant E_trunc instead of vanishing (imp-35100)',
+      'imp-2631 the FIXED truncation strip constant 3.06e-5 that Knob A/B both act on (imp-2631)',
+      'imp-2622 the thinning-strip sigma=1/2+1/logT0 schedule identified here as the dead Knob B (imp-2622)',
+      'imp-35169 derived the Knob-A growth law T_v(N)~N^1.25 and its crossover vs E_coll (imp-35169)',
+      'imp-35164 pointed the LAMBDA_CHAIN_STEPS Step-4 status note at this vanishing-strip route (imp-35164)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED and distinct from the R3 obligation (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

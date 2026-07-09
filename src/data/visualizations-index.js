@@ -860,6 +860,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive prefactor-ladder chart on the inherited imp-3220/imp-3406/imp-33646 model-cusp surrogate; a finer eps ladder discriminating a prefactor is measurement only, not a certified uniform modulus; does not discharge O3 or G6a_shock_lipschitz (both stay OPEN); changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35273-rho-remainder-structure',
+      title: 'rho(eps) Corrected Remainder Structure: eps^(5/2) Empty, eps^(7/2) True',
+      oneLine:
+        'Plots the imp-35244 residual r1(eps) = rho(eps) - 2/3 - K eps^{3/2} scaled by eps^{5/2} (decaying to 0, the naive -0.32011 coefficient falsified) alongside the same residual scaled by eps^{7/2} (converging to the closed form K_(7/2) = -8 sqrt(2)/(3 pi) = -1.20042) across the imp-35193 clean window N = 1e3..1e6, showing the eps^{5/2} slot is empty and the true next-order term is eps^{7/2}.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35244-rho-eps52-coefficient-measurement.js',
+      paperSourcePath:
+        'src/data/imp-35244-rho-eps52-coefficient-measurement.js (imp-35273 viz page)',
+      ticket: 'imp-35273',
+      pedagogicalStep: 57,
+      honestCeiling:
+        'Descriptive remainder-structure chart on the inherited imp-3220/imp-3406/imp-33646 model-cusp surrogate; pinning the eps^{5/2} slot empty and the eps^{7/2} coefficient sharpens the remainder shape but is measurement only, not a certified uniform modulus; does not discharge O3 or G6a_shock_lipschitz (both stay OPEN); changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

@@ -750,6 +750,9 @@ const Imp35252RealVsUnitBackgroundFieldSupContrastViz = lazy(() =>
 const Imp35272PrefactorLadderViz = lazy(() =>
   import('./pages/Imp35272PrefactorLadderViz.jsx')
 );
+const Imp35273RhoRemainderStructureViz = lazy(() =>
+  import('./pages/Imp35273RhoRemainderStructureViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2162,6 +2165,10 @@ function AppShell() {
           <Route
             path="/viz-imp35272-prefactor-ladder"
             element={<Imp35272PrefactorLadderViz />}
+          />
+          <Route
+            path="/viz-imp35273-rho-remainder-structure"
+            element={<Imp35273RhoRemainderStructureViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

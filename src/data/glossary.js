@@ -15922,6 +15922,38 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this reduction (imp-486)',
     ],
   },
+  {
+    term: 'imp-35195 M5 horizon-front mismatch ratio: ASYMPTOTIC not visible on accessible zeros, onset g_min~0.23 at N~900, ratio ~0.025 at the verified g_min(1e4)',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35195 measurement of the imp-35167 M5 horizon-front mismatch ' +
+      'ratio T_minus(g, beta) / t_c(N) on REAL inputs: the actual initial min-gap g_min(0, N) of the ' +
+      'first N Riemann zero ordinates, the RvM density beta(N) = pi^2 / (3 l(T_N)^2), and the OLS ' +
+      'collision-front fit t_c(N) = 0.0066 + 4.91/N.\n\n' +
+      'FINDING: across the accessible zero range N = 5..870 the ratio stays O(1) (~0.49..1.01), even ' +
+      'crossing 1 near N = 100 -- the M5 collapse predicted by imp-35167 is NOT visible there, since ' +
+      'both g_min^2/8 and t_c are still O(1) at that range. The collapse is ASYMPTOTIC: t_c(N) -> 0.0066 ' +
+      '(an O(1) floor) while T_minus ~ g_min(0, N)^2/8 -> 0, so the ratio stays O(1) only while ' +
+      'g_min >~ sqrt(8*0.0066) = 0.2298 and then decays like g_min^2. The accessible range reaches ' +
+      'exactly that onset: g_min(0, 870) = 0.2211 sits just below the crossover, and the N=870 ratio ' +
+      '(~0.485) is the first to dip below 1/2 (onset g_min ~ 0.23 at N ~ 900). Extending to the ' +
+      'verified g_min(1e4) = 0.0376985 (imp-2762) drives the ratio to ~0.025, a ~20x fall from the ' +
+      'small-N O(1) plateau, purely from g_min shrinking against the fixed 0.0066 front floor.\n\n' +
+      'HONEST SCOPE: measurement only; uses the imp-2563 T_minus closed form AS-IS; beta(N) is the ' +
+      'RvM density MODEL, not a certified sup over the true backward flow, and t_c(N) is an empirical ' +
+      'OLS fit, so this changes no bound and certifies nothing; the sandwich remains a valid ' +
+      'CONDITIONAL bracket; I2/M5 stay OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH ' +
+      'verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35226 (glossary headword recording the imp-35195 M5 finding), 2026',
+    relatedTerms: [
+      'imp-35167 named M5 the horizon-reaches-front obstruction this ratio measures (imp-35167)',
+      'imp-2563 supplies the T_minus closed form used AS-IS (imp-2563)',
+      'imp-325 / dyson-collision-lower-bound supplies the OLS front fit t_c ~ 0.0066 + 4.91/N (imp-325)',
+      'imp-2762 supplies the verified g_min(1e4) = 0.0376985 asymptotic anchor (imp-2762)',
+      'imp-35219 re-measured this ratio with the imp-35194 measured beta instead of the RvM density beta, finding sub-2% sensitivity (imp-35219)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this measurement (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

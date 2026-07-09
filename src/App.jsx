@@ -774,6 +774,9 @@ const Imp35295EflowFartailResidualDecompositionViz = lazy(() =>
 const Imp35296MinGapStripAdvantageViz = lazy(() =>
   import('./pages/Imp35296MinGapStripAdvantageViz.jsx')
 );
+const Imp35308ReentryBandViz = lazy(() =>
+  import('./pages/Imp35308ReentryBandViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2218,6 +2221,10 @@ function AppShell() {
           <Route
             path="/viz-imp35296-min-gap-strip-advantage"
             element={<Imp35296MinGapStripAdvantageViz />}
+          />
+          <Route
+            path="/viz-imp35308-reentry-band"
+            element={<Imp35308ReentryBandViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

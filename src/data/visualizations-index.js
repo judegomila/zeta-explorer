@@ -972,6 +972,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive advantage-factor chart reusing baked imp-35239 advantageRows/realOrdinateGrowth literals verbatim; assessment only, the residual missing input is still an a-priori g_min(t)>0 whole-trajectory bound (imp-35167 M2/M5, OPEN); C_mb stays GUE-conditional per imp-486; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35308-reentry-band',
+      title: 'Iters-to-Floor Reentry Band vs Verified Height',
+      oneLine:
+        'Plots the imp-35243/imp-34997/imp-35111 iters-to-floor off-by-one reentry band [10^27.08, 10^37.17] against the Platt-Trudgian verified-zero height ~10^12.48 (marking the ~14.6/~24.7-decade gaps), and a second panel showing the imp-35243 D1 result that the band slides ~11.99 decades per factor-2 change in the EPS_FP machine-epsilon floor.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35243-reentry-band-surrogate-fidelity-assessment.js',
+      paperSourcePath:
+        'src/data/imp-35243-reentry-band-surrogate-fidelity-assessment.js (imp-35308 viz page)',
+      ticket: 'imp-35308',
+      pedagogicalStep: 65,
+      honestCeiling:
+        'Descriptive band-position chart reusing baked imp-35243 demonstration_D1/D2 literals verbatim; the band is a SURROGATE feature ~15-25 decades above any verified datum, not established as a feature of the true dynamic; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

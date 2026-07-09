@@ -7549,6 +7549,14 @@ const DATA_MODULES = [
   // never determined: the largest coefficient first exceeds 2^53 at n=16 (exact through n=15).
   // Verification/derivation only, no bound change.
   '/src/data/imp-34975-crossover-deriv-p13-p14-2p53-ceiling.js',
+  // imp-35107: INDEPENDENT from-source EXACT-BigInt re-verification of the imp-34880 all-orders
+  // numerator-polynomial positivity induction that underpins the imp-35012 Bernstein classification,
+  // recomputing the P_n triangle out to n=22 (target n~20) -- past both the n=12 induction-exercise
+  // point and the n=16 2^53 float-exactness ceiling. Confirms both recurrence multipliers n and
+  // (2n-1-k) strictly positive on the support 0<=k<=n-1, every coefficient a strictly positive exact
+  // integer, P_n(u)>0 at ramp points u in {1,2,3}, the (n-1)!/(2n-3)!! closed forms, and exact
+  // reproduction of the baked P_6/P_14 literals. Verification only; no operator positivity; no bound change.
+  '/src/data/imp-35107-crossover-deriv-exact-bigint-positivity-to-n20.js',
   // imp-34974: DERIVES the two boundary-projection recurrences (k=0 -> a_0^(n+1)=(2n-1)a_0^(n),
   // k=n -> a_n^(n+1)=n a_{n-1}^(n)) as standalone projections of the interior recurrence, and adds
   // two interior closed forms (subleading (n-1)(n-1)!, row-sum n^(n-1)) plus a two-sided interior

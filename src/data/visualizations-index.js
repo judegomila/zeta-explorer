@@ -677,6 +677,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive log-derivative profile chart on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35140-running-g-ramp-vs-sigmoid-split',
+      title: 'Running-g vs Sigmoid: Why the Ramp/Sigmoid Split Is Not a Running-g Effect',
+      oneLine:
+        'Plots the imp-35028 running-g g = -d ln r/d ln N at the sigmoid inflection and ramp knee across the imp-34948 far-tail ladder 1e14..1e18, showing the two curves overlay to five significant figures while the ~1.45e-5 relative gap is orders of magnitude too small to explain the ~0.064 decay-exponent split.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35028-running-g-ramp-vs-sigmoid-split.js',
+      paperSourcePath:
+        'src/data/imp-35028-running-g-ramp-vs-sigmoid-split.js (imp-35140 viz page)',
+      ticket: 'imp-35140',
+      pedagogicalStep: 44,
+      honestCeiling:
+        'Descriptive running-g overlay chart on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

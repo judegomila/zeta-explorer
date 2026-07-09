@@ -713,6 +713,9 @@ const Imp35138SigmaDeepTailThresholdLadderViz = lazy(() =>
 const Imp35139EflowQeffProfileViz = lazy(() =>
   import('./pages/Imp35139EflowQeffProfileViz.jsx')
 );
+const Imp35140RunningGRampVsSigmoidSplitViz = lazy(() =>
+  import('./pages/Imp35140RunningGRampVsSigmoidSplitViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2076,6 +2079,10 @@ function AppShell() {
           <Route
             path="/viz-imp35139-eflow-qeff-profile"
             element={<Imp35139EflowQeffProfileViz />}
+          />
+          <Route
+            path="/viz-imp35140-running-g-ramp-vs-sigmoid-split"
+            element={<Imp35140RunningGRampVsSigmoidSplitViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

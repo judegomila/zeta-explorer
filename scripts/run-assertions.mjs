@@ -7911,6 +7911,14 @@ const DATA_MODULES = [
   // -2.013/-1.948 decay exponents to <5e-5/~7e-4, so the far-tail readings are NOT a shared-locator artifact.
   // Measurement/cross-check only; light imports; C_mb GUE-conditional (imp-486) untouched; no bound; NO QED.
   '/src/data/imp-35073-far-tail-locator-second-path-crossvalidation.js',
+  // imp-35172: RESOLVE the imp-35114 killing-term ambiguity a = g(0+) for g = K log T0(N). The RvM count
+  // N(T) = (T/2pi)(log(T/2pi)-1) is negative on u in (0,e) and crosses zero at u = e, so effectiveHeightForN
+  // inverts on u >= e and floors at 2pi e ~ 17.0795 as N -> 0+ (measured from source), NOT at 2pi (u = 1,
+  // the count MINIMUM where N = -1). DECISION: a = K log(2pi e) ~ 4.4632e8 (the RvM-floor candidate); the two
+  // imp-35114 candidates differ by exactly K since log(2pi e) - log(2pi) = 1. The killing term is the additive
+  // constant, so g_prime is invariant to it and the drift b = 0 / dmu >= 0 conclusions are UNAFFECTED.
+  // Surrogate resolution only; light imports; C_mb GUE-conditional (imp-486) untouched; no bound; NO QED.
+  '/src/data/imp-35172-killing-term-resolution.js',
 ];
 
 let ALL_MODULES = FAST_MODE

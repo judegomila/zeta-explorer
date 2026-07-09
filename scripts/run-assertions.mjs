@@ -7599,6 +7599,14 @@ const DATA_MODULES = [
   // far-tail linear slope g(N)/N of the sub-linear K log T0) and the finite killing term a = K log T0(0+)
   // >= 0. Measurement only on the surrogate map; no operator positivity; changes no bound.
   '/src/data/imp-35114-bernstein-ingredients-extraction.js',
+  // imp-35129: SCOPES how the imp-362 single-scale one-ULP interval RK4 witness would extend to the
+  // imp-35058 Step-2 G-interval-enclosure obligation. Finds the reported per-N bracket width EQUALS
+  // the RK4 step dt exactly at every closed row (width/dt=1), so it measures temporal step resolution
+  // not the interval-arithmetic ball radius; its decrease with N tracks the shrinking dt schedule, NOT
+  // enclosure tightening. Coverage is one decade [50,500] (N=2458 zero-list-insufficient). Records the
+  // four requirements (decouple radius from dt, surface wrapper radius, extend height, true directed
+  // rounding with a documented radius(N) bound) to document the growth. Scoping only; changes no bound.
+  '/src/data/imp-35129-interval-enclosure-n-dependence-scoping.js',
   // imp-34974: DERIVES the two boundary-projection recurrences (k=0 -> a_0^(n+1)=(2n-1)a_0^(n),
   // k=n -> a_n^(n+1)=n a_{n-1}^(n)) as standalone projections of the interior recurrence, and adds
   // two interior closed forms (subleading (n-1)(n-1)!, row-sum n^(n-1)) plus a two-sided interior

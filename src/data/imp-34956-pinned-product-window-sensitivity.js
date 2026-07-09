@@ -49,10 +49,20 @@
  * per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
  * far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
+ * SUPERSEDED (imp-35011): W0 above was checked here only INDIRECTLY, via PROD_OVER_R0_MAX_REL_DIFF =
+ * productAtDex(dex)/r0OfDex(dex), which is IDENTICALLY G_STAR by construction (productAtDex is DEFINED as
+ * G_STAR * r0OfDex) -- a tautology that never re-derives g* from the underlying bisection. imp-35011 replaces
+ * this with a DIRECT re-derivation: it recomputes g* from scratch via the full gapAt bisection at the same
+ * 21-window [1e9,1e11] grid and finds it bit-identical (max relative variation EXACTLY 0) while r0 swings the
+ * same ~52.8x reported in W3. W0's conclusion stands, now on a measured rather than asserted footing; the
+ * m-invariance-residual attribution in the BOUND above is unaffected.
+ *
  * @see imp-34924-eflow-pinned-product-derivation (derived P = g* r0 at the FIXED window this module varies)
  * @see imp-34899-eflow-crossing-strength-ramp-position-sweep (reported the ~1.4366e-3 invariant product)
  * @see imp-34886-eflow-strength-knee-inflection-crossing (the s* ~ 0.78 = g* crossing on Gap(s)=0)
  * @see imp-34950-eflow-crossing-strength-cmb-exponent-structural (the local q_eff ~ 0.855 decay this slope matches)
+ * @see imp-35011-gstar-window-independence-direct (SUPERSEDES W0's indirect tautological check with a direct
+ *   per-window re-derivation of g*: bit-identical, max relative variation EXACTLY 0)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 = gamma_N)
  */
 

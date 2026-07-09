@@ -15420,6 +15420,41 @@ export const glossary = [
       'imp-34898 is the OPEN root-free closed form for the crossing-landmark location that would remove the remaining window-bracket dependency (imp-34898)',
     ],
   },
+  {
+    term: 'imp-35058 Step-2 Rigorous-Upgrade Gap (Backward-Dyson-ODE)',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35058 scoping map of what separates the LAMBDA_CHAIN_STEPS ' +
+      'Step 2 (backward-Dyson-ODE, numerical grade) from a rigorous grade: three named OPEN ' +
+      'obligations, none closed.\n\n' +
+      'G-step-error: a CERTIFIED a-priori bound on the local plus accumulated truncation error of ' +
+      'the RK4/DP5 integrator as a function of step dt and N is missing -- only the empirical ' +
+      'two-method gap |t_c_RK4 - t_c_DP5| (imp-2466, imp-357 cross-integrator check) exists, which ' +
+      'is a non-certifying consistency check, not a bound. G-gronwall: an explicit, N-uniform ' +
+      'Gronwall propagation constant controlling how zero-ordinate input error and per-step error ' +
+      'amplify along the backward flow up to the collision front is missing (machinery: ' +
+      'backward-flow-stability-gronwall.js, imp-2520). G-interval-enclosure: a rigorous interval- ' +
+      'or ball-arithmetic enclosure [t_c_lo(N), t_c_hi(N)] valid at the measured N and extensible ' +
+      'with a documented N-dependence is missing (machinery: imp-362 interval RK4 witness, ' +
+      'LAMBDA_INTERVAL_DYSON).\n\n' +
+      'HOW TO APPLY: cite imp-35058 (source field in lambda-roadmap.js) or its viz-data port ' +
+      'imp-35137 when discussing why Step 2 remains numerical rather than rigorous. The gap is a ' +
+      'scoping map, not a blocker on the headline inequality: discharging all three obligations ' +
+      'would elevate Step 2 to rigorous but changes NO Lambda bound on its own, since Step 2 feeds ' +
+      'the E(N) bridge constants (Step 4), not the Λ inequality itself.\n\n' +
+      'HONEST SCOPE: none of the three obligations is closed; this entry records a scoping map only; ' +
+      'C_mb stays GUE-conditional (imp-486); changes no bound; establishes no operator positivity; ' +
+      'Platt-Trudgian Λ<=0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-35141 (glossary headword recording the imp-35058 Step-2 rigorous-upgrade gap), 2026',
+    relatedTerms: [
+      'imp-35058 is the source scoping map in lambda-roadmap.js LAMBDA_CHAIN_STEPS step 2 rigorousUpgradeGap (imp-35058)',
+      'imp-35137 ports the same three obligations into an import-light viz-data panel with closed:false state (imp-35137)',
+      'imp-35181 is the OPEN pending ticket to surface this gap as an honest-status card on the Lambda-roadmap UI (imp-35181)',
+      'imp-2466 supplies the empirical two-method gap that G-step-error notes is NOT a certified bound (imp-2466)',
+      'imp-2520 is the backward-flow-stability-gronwall machinery that G-gronwall would need to be made N-uniform (imp-2520)',
+      'imp-362 is the interval RK4 witness (LAMBDA_INTERVAL_DYSON) that G-interval-enclosure would need extended (imp-362)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

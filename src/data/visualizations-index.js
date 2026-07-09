@@ -888,6 +888,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive exponent-residual ladder chart on the inherited imp-3220/imp-3406 component model; locating the residual<0.005 landmark is measurement only, not a certified uniform modulus of convergence on the true RvM cusp jet; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35275-krawczyk-headroom-band-profile',
+      title: 'Krawczyk Contraction-Validity Headroom Band Profile S(N)',
+      oneLine:
+        'Plots the imp-35241 Krawczyk contraction-validity headroom S(N) = G/((1+G) delta FP_LO) across the imp-34693 admissible seed band, descending monotonically from ~2561.39 (band-bottom) through ~2558.12 (N_cross) to ~2555.18 (band-top), with the S_inf = 2500 floor and 100x safety-factor reference lines.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35241-krawczyk-headroom-band-profile.js',
+      paperSourcePath:
+        'src/data/imp-35241-krawczyk-headroom-band-profile.js (imp-35275 viz page)',
+      ticket: 'imp-35275',
+      pedagogicalStep: 59,
+      honestCeiling:
+        'Descriptive band-profile chart on the inherited imp-3220/imp-3406 surrogate; the imp-34714a machine certificate REMAINS OPEN and F(m) = 0 stays a double-precision artifact; C_C 1/8 ansatz (imp-2642/2643) and C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

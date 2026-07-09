@@ -756,6 +756,9 @@ const Imp35273RhoRemainderStructureViz = lazy(() =>
 const Imp35274EcollExponentResidualLadderViz = lazy(() =>
   import('./pages/Imp35274EcollExponentResidualLadderViz.jsx')
 );
+const Imp35275KrawczykHeadroomBandProfileViz = lazy(() =>
+  import('./pages/Imp35275KrawczykHeadroomBandProfileViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2176,6 +2179,10 @@ function AppShell() {
           <Route
             path="/viz-imp35274-ecoll-exponent-residual-ladder"
             element={<Imp35274EcollExponentResidualLadderViz />}
+          />
+          <Route
+            path="/viz-imp35275-krawczyk-headroom-band-profile"
+            element={<Imp35275KrawczykHeadroomBandProfileViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

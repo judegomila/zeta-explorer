@@ -762,6 +762,9 @@ const Imp35275KrawczykHeadroomBandProfileViz = lazy(() =>
 const Imp35288R2FlowLadderSlackViz = lazy(() =>
   import('./pages/Imp35288R2FlowLadderSlackViz.jsx')
 );
+const Imp35293ThreeFactorInvariantRealOrdinatesViz = lazy(() =>
+  import('./pages/Imp35293ThreeFactorInvariantRealOrdinatesViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2190,6 +2193,10 @@ function AppShell() {
           <Route
             path="/viz-imp35288-r2-flow-ladder-slack"
             element={<Imp35288R2FlowLadderSlackViz />}
+          />
+          <Route
+            path="/viz-imp35293-three-factor-invariant-real-ordinates"
+            element={<Imp35293ThreeFactorInvariantRealOrdinatesViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

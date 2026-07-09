@@ -916,6 +916,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive ladder-slack chart reusing baked t_c literals verbatim; measurement/certification only, not a certified R2 bound past N=1000; C_mb stays GUE-conditional per imp-486; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35293-three-factor-invariant-real-ordinates',
+      title: 'Three-Factor Invariant Convergence on Real Ordinates',
+      oneLine:
+        'Plots the imp-35238 N=100 real-ordinate backward-Dyson three-factor invariant beta*g_min*(x_2-x_0) converging to 1 across min-gap fraction 0.5 down to 1e-4, overlaid with the smaller N-dependent bare product beta*g_min (imp-35218 R2 0.36-0.64 band), and tabulates the N=50,100,200 front-limit values showing the local-span factor x_2-x_0 closes the gap.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35238-real-ordinate-three-factor-invariant.js',
+      paperSourcePath:
+        'src/data/imp-35238-real-ordinate-three-factor-invariant.js (imp-35293 viz page)',
+      ticket: 'imp-35293',
+      pedagogicalStep: 61,
+      honestCeiling:
+        'Descriptive convergence chart reusing baked imp-35238 nearFrontTable/invariantTrajectory literals verbatim; measurement only, beta itself still diverges ~1/g_min toward the front so M2/M5 stay OPEN; C_mb stays GUE-conditional per imp-486; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

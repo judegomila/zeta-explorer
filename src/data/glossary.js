@@ -16721,6 +16721,46 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this measurement (imp-486)',
     ],
   },
+  {
+    term: 'imp-35239 min-gap-route reassessment on real spacings: the imp-35214 Q2 N-uniform prefactor rating splits into a STRUCTURAL advantage (A, survives) and a NUMERIC advantage (B, refuted) -- the real-ordinate prefactor grows only SUB-LINEARLY (p_gap ~ 0.57-0.65, strictly below 1), so the min-gap route still beats the imp-35196 strip route but the margin degrades from an exact 2N to ~2 N^0.4',
+    category: 'proof-status',
+    definition:
+      'A headword recording the imp-35239 disentangling of the imp-35214 Q2 claim (the min-gap field-' +
+      'Lipschitz surrogate prefactor c_pair carries no factor of N, rated PRESENT at data-level on the ' +
+      'imp-35194 unit-spacing measurement) after imp-35218 R1 found beta is NOT N-uniform on REAL zero ' +
+      'ordinates (grows ~1.10 -> 1.71 -> 2.69 at min-gap fraction 0.5 across N = 50, 100, 200, a relative ' +
+      'spread of ~121-143%, versus under 1.5% on unit spacing).\n\n' +
+      'THE SPLIT: Q2 bundled two distinct advantages of the min-gap route over the imp-35196 strip route. ' +
+      '(A) STRUCTURAL: the strip prefactor L_strip = 2N/y^2 is EXPLICITLY N-linear (exponent p_strip = 1), ' +
+      'while the min-gap prefactor beta/g_min^2 is a local background-field scale carrying no explicit ' +
+      '2N factor. (B) NUMERIC: Q2 additionally claimed the prefactor VALUE does not grow with N at all ' +
+      '(p_gap = 0). imp-35218 R1 REFUTES (B) outright on real ordinates. But fitting beta(N) ~ N^p over ' +
+      'N = 50, 100, 200 gives p_gap ~ 0.645 at min-gap fraction 0.5 and ~ 0.572 at fraction 0.05 -- both ' +
+      'STRICTLY sub-linear (p_gap < 1 = p_strip) -- so (A) SURVIVES: the advantage factor ' +
+      'L_strip/L_gap ~ 2 N^(1-p) still grows unbounded (exponent 1 - p_gap ~ 0.36-0.43 > 0).\n\n' +
+      'VERDICT: the min-gap route still beats the strip route on real spacings; the advantage merely ' +
+      'DEGRADES from an exact 2N (unit spacing) to ~2 N^0.4 (real spacing), it does NOT collapse. The ' +
+      'imp-35214 Q2 N-uniform rating was a FIXED-UNIT-SCALE ARTIFACT, not a property of the true min-gap ' +
+      'route -- the growth is driven by the SHRINKING LOCAL SCALE of real zero spacings with height ' +
+      '(mean spacing ~ 2 pi / log(T/2 pi)), a slow log-height effect, not the particle count.\n\n' +
+      'HOW TO APPLY: cite imp-35239 (or this entry) whenever the imp-35214 Q2 N-uniformity claim is ' +
+      'invoked on real ordinates -- report the split verdict (structural advantage survives, numeric ' +
+      'N-independence refuted) rather than the bundled PRESENT rating; the binding residual obstruction ' +
+      'is UNCHANGED and made HARDER, not easier: an a-priori g_min(t) > 0 whole-trajectory bound ' +
+      '(imp-35214 Q3 = imp-35167 M2/M5).\n\n' +
+      'HONEST SCOPE: assessment/measurement only, on the same self-contained backward-RK4 surrogate as ' +
+      'imp-35194/imp-35218; discharges nothing; I3 stays OPEN; does not discharge M2 or M5, which stay ' +
+      'OPEN and INSEPARABLE (imp-35227); establishes no operator positivity; C_mb GUE-conditional per ' +
+      'imp-486 UNTOUCHED; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35292 (glossary headword recording the imp-35239 min-gap-route reassessment on real spacings), 2026',
+    relatedTerms: [
+      'imp-35214 rated the min-gap prefactor N-uniformity PRESENT on unit-spacing data, the claim split here (imp-35214)',
+      'imp-35218 found beta is NOT N-uniform on real ordinates, the R1 finding that triggered this reassessment (imp-35218)',
+      'imp-35196 is the strip route this entry confirms the min-gap route still beats, with a degraded margin (imp-35196)',
+      'imp-35167 named the M2 background-field-sup obstruction left OPEN and made harder by this finding (imp-35167)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this measurement (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

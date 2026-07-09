@@ -15549,6 +15549,47 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this assessment (imp-486)',
     ],
   },
+  {
+    term: 'fixed-window vs across-m residuals are DIFFERENT uncertainties (imp-35034 / imp-35133)',
+    category: 'numerical',
+    definition:
+      'A headword clarifying that the imp-35034 certified fixed-window residual |dP/P| <= ~1.53e-6 on the ' +
+      'pinned crossing product P = g* r0 and the ~1.6e-7 across-m ramp-invariance residual (imp-34924/imp-34956, ' +
+      'floor per imp-35010) are NOT the same number measured two ways -- they bound DIFFERENT factors of the ' +
+      'product along DIFFERENT parameter axes, and must not be substituted for one another.\n\n' +
+      'WHAT EACH ONE MEASURES: the ~1.53e-6 (imp-35034) is the relative LOCALIZATION uncertainty dr0/r0 in the ' +
+      'r0 = R(X_CROSS) factor -- how tightly the physical knee-inflection crossing-landmark dex is pinned down, ' +
+      'at FIXED m, propagated through the sensitivity d ln P/d(dex) ~ -1.968. The ~1.6e-7 (imp-34924/imp-34956) ' +
+      'is the spread of the pinned coupling g* = m s* as m RAMPS at one FIXED window -- since phi depends on s,m ' +
+      'only through the product g = m s, g* is algebraically m-invariant, so this spread is pure numerical noise ' +
+      'in the g* factor (an irreducible finite-difference-cancellation floor per imp-35010), not a localization ' +
+      'measurement at all.\n\n' +
+      'WHY THEY DO NOT COMPETE OR SUBSTITUTE: imp-34956 showed the window contributes EXACTLY ZERO to the ' +
+      'across-m spread (X_CROSS is held fixed throughout that measurement), and imp-35011 showed g* is ' +
+      'bit-identical across windows (the m-noise does not move if X_CROSS is moved). The two residuals live on ' +
+      'orthogonal axes (X_CROSS localization vs m-ramp) with vanishing cross-terms, so quoting either one as if ' +
+      'it already accounted for the other silently drops real uncertainty. imp-35133 composed both into a single ' +
+      'combined statement by quadrature -- (dP/P)^2 = (dgstar/gstar)^2 + (dr0/r0)^2 -- giving |dP/P| ~ 1.542e-6, ' +
+      'with the fixed-window term BINDING (~7.4x the across-m relative residual ~2.06e-7); the ramp term only ' +
+      'raises the combined figure by ~0.9%.\n\n' +
+      'HOW TO APPLY: when a diagnostic reports two small residuals on the "same" derived quantity, check which ' +
+      'factor and which parameter axis each one actually perturbs before treating them as redundant or as ' +
+      'alternative estimates of one uncertainty -- independent orthogonal errors on a product compose in ' +
+      'quadrature, not by taking the larger or averaging.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-35034/imp-35133 verdicts verbatim, not a new ' +
+      'measurement or bound; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
+      'rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator ' +
+      'positivity; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-35145 (glossary headword cross-linking the imp-35034 fixed-window residual against the across-m ramp-invariance residual), 2026',
+    relatedTerms: [
+      'imp-35034 certified the fixed-window localization residual |dP/P| <= ~1.53e-6 on the r0 factor (imp-35034)',
+      'imp-35133 composed the two residuals in quadrature into a combined |dP/P| ~ 1.542e-6, fixed-window binding (imp-35133)',
+      'imp-35010 measured the irreducible across-m finite-difference-cancellation floor ~3.69e-7 (imp-35010)',
+      'imp-34956 showed the window contributes exactly 0 to the across-m residual (W0) (imp-34956)',
+      'imp-35011 showed g* is bit-identical across landmark windows (imp-35011)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -15590,6 +15590,38 @@ export const glossary = [
       'imp-35011 showed g* is bit-identical across landmark windows (imp-35011)',
     ],
   },
+  {
+    term: 'imp-35148 discrete DEG-axis verdict: enlarging the imp-3066 truncation only INFLATES ||R||, never softens it',
+    category: 'proof-status',
+    definition:
+      'imp-35075 proved the two ruled-out CONTINUOUS levers (decoupled pass rate, shear ' +
+      'coefficient) exhaust the 2-dimensional off-orbit tangent space at the imp-3066 anchor, ' +
+      'leaving only one un-probed admissible axis: the DISCRETE truncation-size DEG knob, which ' +
+      'imp-33791 had already characterized as ceiling-setting (DEG+1) but never numerically probed ' +
+      'as a softening direction. imp-35148 closes that gap by measuring the discrete forward ' +
+      'difference Delta||R||(DEG) = ||R||(DEG+1) - ||R||(DEG) across DEG = 1..12 at the imp-3066 ' +
+      'admissible anchor (s_pass, s_shear, c) = (3, 3, 1): every forward difference is strictly ' +
+      'POSITIVE (~0.89..0.93, a slowly decaying near-unit step trailing the all-ones ceiling gap), ' +
+      'so ||R||(DEG) is strictly monotone INCREASING. Enlarging the truncation NEVER softens the ' +
+      'Perron norm -- it inflates it, exactly as imp-33791 predicted for the ceiling. Combined with ' +
+      'imp-35075, this closes the LAST un-probed admissible softening axis of the imp-3066 ' +
+      'exponential-shear metric-pair construction: neither the continuous transverse directions ' +
+      'nor the discrete truncation axis soften ||R||.\n\n' +
+      'HONEST SCOPE: a MEASUREMENT on the same representative monomial truncation and inherited ' +
+      'surrogate as imp-3066 / imp-33765 / imp-35075, NOT the section-26 Gram; "no softening lever" ' +
+      'is scoped to the imp-3066 exponential-shear metric-pair family and does NOT rule out entirely ' +
+      'different kernel classes (non-exponential multiplier, non-monomial basis); a monotone ' +
+      'increase carries NO RH verdict either way. imp-3066 K_a>=0 and G7 remain OPEN and untouched; ' +
+      'changes no bound; establishes no operator positivity; NO QED. Platt-Trudgian Lambda<=0.2 ' +
+      'remains the rigorous SOTA.',
+    firstUsed: 'imp-35148 (measuring the discrete DEG-axis forward difference at the imp-3066 anchor to close the last un-probed admissible softening axis), 2026',
+    relatedTerms: [
+      'imp-35075 proved the two ruled-out continuous levers exhaust the 2-D off-orbit tangent space, leaving DEG as the only un-probed axis (imp-35075)',
+      'imp-33791 characterized the DEG axis as ceiling-setting (truncation size DEG+1) (imp-33791)',
+      'imp-33765 established the G7/imp-3066 one-dimensionality-in-s classification (imp-33765)',
+      'imp-3066 the off-diagonal endpoint-Hankel K_a>=0 obstruction that remains OPEN (imp-3066)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -4856,6 +4856,17 @@ const DATA_MODULES = [
   // UNTOUCHED; C_C 1/8 ansatz untouched; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED.
   // 7 assertions.
   '/src/data/imp-35102-nhalf-ncross-strictness-multirung-verify.js',
+  // imp-35157: quantifies the imp-35121/imp-35105 three-landmark ~3.3e9 cluster -- N_half (sigma=1/2),
+  // N_cross (E_coll=E_trunc), N_star (ramp inflection) -- as a scale-stability question. On the refined
+  // grid the cluster is a GENUINE tight triple ~1.437e-2 decades wide (ordering N_half<N_cross<N_star),
+  // with strongly asymmetric inner gaps: N_half->N_cross ~1.732e-3 dec (the analytically-fixed imp-33601
+  // E_flow surplus, converged to 12+ sig figs by bisection depth 50) vs N_cross->N_star ~1.263e-2 dec
+  // (the grid-robust ramp inflection). A grid-refinement sweep (bisection depth {30..300}; OLS sub-bracket
+  // width {0.25..0.0625}) drifts log10 N_star only ~7.1e-4 dec (always one D2 sign change), so the cluster
+  // width holds in ~[1.437e-2, 1.508e-2] dec -- it neither tightens nor spreads, NOT a grid coincidence.
+  // Measurement only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; changes no
+  // bound; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-35157-landmark-cluster-width-stability.js',
   // imp-34248: derives the small-thr asymptotic of the imp-34174 surplus by SEPARATING the two
   // vanishing factors -- surplus(thr) = P(thr).r(thr), P(thr) = thr(1-thr)/(1+(1-thr)r). The prefactor
   // P -> thr is asymptotically linear (surplus/(thr.r) climbs 0.4995 -> 0.9900), and the E_flow ratio
@@ -7427,6 +7438,15 @@ const DATA_MODULES = [
   // d2 sigma/dt2 = 0) pairing carries 0.064 -- so the residual split is the ramp-vs-sigmoid DEFINITIONAL
   // difference. Measurement only; light imports only; changes no bound; NO QED.
   '/src/data/imp-35132-split-attribution.js',
+  // imp-35175: RECONCILES the imp-35036 logarithmic residual-gap envelope 1/2 - p_dec ~ 1/(2 ln N) against the
+  // imp-35132 ~0.064 between-landmark decay-exponent split -- placing them side by side on the shared surrogate for
+  // the first time. Evaluating env(N) = 1/(2 ln N) at the two landmarks: the difference is ~2.6e-6..7.0e-6 within a
+  // rung (~9145x too small at 1e14) and ~3.45e-3 even across the 1e14..1e18 band (~18.7x too small), so no pair of N
+  // makes 1/(2 ln N) reproduce 0.064. The within-rung envelope gap is the same micro-scale as the imp-35028 running-g
+  // gap (~1.45e-5). VERDICT: the ~0.064 split is a DISTINCT structural effect (the imp-35132 C3 definitional
+  // difference), NOT a finite-N reading of the logarithmic approach -- confirmed from a third angle. Measurement
+  // only; light imports only; changes no bound; NO QED.
+  '/src/data/imp-35175-log-envelope-vs-landmark-split.js',
   // imp-34956: MEASURES the landmark-window (X_CROSS) sensitivity of the imp-34924 pinned product
   // P = s*(E_flow/E_trunc) = g* r0, to bound how much of the ~1.6e-7 residual ramp-invariance spread is
   // attributable to the fixed-window assumption vs bisection/finite-difference noise. g* is
@@ -7716,6 +7736,19 @@ const DATA_MODULES = [
   // absolute error ~6.3e-4 (~6e6x blind); (S2) the RK4-LTE 5th-derivative bound blows up 10^6 per
   // decade of gap reduction. Discharges NONE; imp-2466 cross-check untouched; changes no bound; NO QED.
   '/src/data/imp-35127-g-step-error-certified-bound-scope.js',
+  // imp-35171: PORTS the imp-35127 S1 common-mode-blindness illustration from the scalar biased proxy
+  // f(y) = -y + eps to an ACTUAL small-N desingularized Dyson backward flow dx_k/ds = -2 sum 1/(x_k -
+  // x_j) + eps (N=4, tight central pair, imp-362 pole form). Injecting the shared additive velocity
+  // bias eps = 1e-3 that BOTH classic RK4 and DP5 = RK5(4) see: the two schemes AGREE to ~2e-10 while
+  // each carries a common-mode absolute error ~1.3e-5 (~6.3e4x the two-method gap), and because the
+  // Dyson field depends only on x_k - x_j the bias integrates to an EXACT rigid center-of-mass drift
+  // eps s (1,...,1) -- rigid-shift residual and min-gap drift both at machine zero, so the empirical
+  // gap |t_c_RK4 - t_c_DP5| (imp-2466) is structurally blind to it. A g_min sweep shows the blindness
+  // is WORST in the smooth interior (ratio ~5.8e6 at g_min ~ 0.135) and DROPS toward the front (ratio
+  // ~4.5e3 at g_min ~ 0.055) as the schemes' mutual truncation disagreement grows. DIAGNOSTIC on the
+  // real field; supplies NO imp-35127 I4 certificate, discharges NONE of I1..I5; imp-2466 cross-check
+  // UNTOUCHED; C_mb GUE-conditional (imp-486); changes no bound; NO QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-35171-dyson-common-mode-blindness-diagnostic.js',
   // imp-35168: ASSESSES whether restricting the imp-2520 backward-flow Gronwall lemma to a
   // MESOSCOPIC strip (where exp(-2 S / y_star^2) is non-vacuous) suffices for the imp-35127 I3
   // ingredient -- the N-UNIFORM Lipschitz/stability constant the RK4 step-to-global accumulation
@@ -7741,6 +7774,22 @@ const DATA_MODULES = [
   // whole-trajectory certificate. Binding obstruction = M5 fed by M2. Derives NONE; imp-2563 untouched;
   // couples to G-gronwall (imp-2520) / G-interval-enclosure (imp-362); changes no bound; NO QED.
   '/src/data/imp-35167-g-min-non-collision-certificate-scope.js',
+  // imp-35170: SCOPES the imp-35127 I4 ingredient -- an ABSOLUTE per-scheme RK4 Butcher error-constant
+  // bound on the imp-362 desingularized pole form, the object the empirical two-method gap
+  // |t_c_RK4 - t_c_DP5| (imp-2466) CANNOT supply (a common-mode error cancels in a scheme difference).
+  // Via the leading LTE E_local = dt^5 sum_{tau in T5} (1/sigma) e(tau) F(tau)(y) + O(dt^6), enumerates
+  // five inputs B1..B5: B1 the scheme-fixed residual weights e(tau)/sigma(tau) (PRESENT/CLOSED --
+  // linear-test principal constant 1/120 = 1/5!, the per-scheme object a difference cancels), B2 the 9
+  // order-5 elementary-differential magnitudes (OPEN, O(g^{-9}) on the pole field), B3 the I1 order-1..4
+  // derivative bounds on the 1/(x_k-x_j) field (OPEN, BINDING, gated by the I2 min-gap bound imp-35167),
+  // B4 the 9-tree symmetry/density bookkeeping (PRESENT), B5 the N-uniform accumulation to global (OPEN
+  // but SEPARATE = I3/G-gronwall imp-2520). (S1) an RK4 step on y_prime=-y isolates the tall tree, error
+  // /dt^5 -> 1/120 (DP5 is order 5 there, z^5 residual 0, so the scalar case is NOT common-mode); (S2)
+  // all 9 order-5 trees share the topology-independent inverse-gap exponent 2q-1=9, so the field factor
+  // blows up 10^9 per decade (3 decades steeper than the g^{-6} top single derivative, imp-35127 S2).
+  // CONCLUSION: I4 adds NO new obstruction beyond I1/I2 -- its per-scheme part B1 is closed; binding
+  // input B3. Discharges NONE; imp-2466 untouched; changes no bound; NO QED.
+  '/src/data/imp-35170-rk4-butcher-absolute-error-constant-scope.js',
   // imp-35016: cross-validates the imp-33723 closed-form N_cross Banach fixed point against a SECOND
   // independent root-finder (scalar Newton on the residual h(N)=N-g(N), numerical derivative, seeded
   // away from the root across six decades). Newton lands on N_cross=3.2802943517e9 to machine precision

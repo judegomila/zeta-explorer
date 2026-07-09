@@ -7590,6 +7590,15 @@ const DATA_MODULES = [
   // from above; -1 + 3/log N reproduces the imp-35135 measured drift (-0.77 at 1e6, -0.91 at 1e16)
   // to within ~0.015. Derivation only on the inherited surrogate; changes no bound; NO QED.
   '/src/data/imp-35198-eflow-fartail-exponent-logn-correction.js',
+  // imp-35217: EVALUATES the imp-35198 named-but-unevaluated next-order E_flow far-tail exponent
+  // term. The x^{-2} coefficient is c2(x) = 2 log x - 2 log(2pi) - 2 = 2(log log N - log 2pi - 1),
+  // a (log log N)/(log N)^2 term that changes sign at N ~ 2.6e7 (negative below, positive above).
+  // MEASUREMENT: adding c2/x^2 does NOT close the imp-35135 residual -- at N = 1e6 (c2 < 0) it
+  // WORSENS the gap 0.0119 -> 0.0141, at N = 1e16 (c2 > 0) it only trims 0.0044 -> 0.0032. Since
+  // the two-term law reproduces the exact surrogate to < 2e-4, its residual IS the surrogate-vs-
+  // true-RvM-inverse difference (effectiveHeightForN vs T0 = 2pi N/log N), CONFIRMING the imp-35198
+  // attribution that the residual is not a missing power of log N. Derivation only; no bound; NO QED.
+  '/src/data/imp-35217-eflow-fartail-exponent-x2-correction.js',
   // imp-35036: EXTENDS the imp-33582 per-decade local decay-exponent ladder for sigma(N) =
   // E_coll/E(N) past [1e11,1e12] (0.4310) on the identical inherited model. The exponent keeps
   // climbing monotonely toward the imp-3463 1/2 asymptote (0.4646, 0.4777, 0.4828, 0.4851 on
@@ -7806,6 +7815,20 @@ const DATA_MODULES = [
   // N-uniform field-Lipschitz bound on a front-adherent strip is UNREACHABLE BY ANY STRIP SCHEDULE.
   // Seven THROWing assertions; I3 stays OPEN; changes no bound; NO QED.
   '/src/data/imp-35196-ystar-schedule-reconciliation-assessment.js',
+  // imp-35214: ASSESSES whether the imp-35167 min-gap route (an intrinsic accumulation constant keyed
+  // to g_min(t), NOT a distance-to-pole bound) can supply the N-uniform field-Lipschitz surrogate that
+  // imp-35196 proved unreachable by ANY vertical strip schedule. Enumerates surrogate requirements
+  // Q1..Q5: Q1 L_gap ~ c_pair / g^2 the adjacent-pair scale (PRESENT); Q2 the prefactor is N-UNIFORM,
+  // imp-35194 F1 background beta spread < 1.5% -- the min-gap route sheds the strip 2N/y^2 N-linearity
+  // (L_strip / L_gap = N), its genuine advantage over imp-35196; Q3 an a-priori g_min(t) > 0 to the
+  // front (OPEN = the imp-35167 M2/M5 certificate); Q4 the accumulation e-fold integral c_pair / g^2 ds
+  // LOG-diverges at the front (g^2 ~ 8 (T - s), imp-2563), finite only with the Q3 cutoff; Q5 the beta
+  // driving both the gap ODE and the surrogate is itself ~ 1/g_min (imp-35194 F2), the same
+  // self-referential coupling. VERDICT: the min-gap route DEFEATS the imp-35196 N-linear-prefactor
+  // obstruction but RELOCATES I3 onto the imp-35167 M5 horizon-front bridge -- I3 COLLAPSES INTO I2
+  // (one g_min certificate now gates both) rather than being discharged. Seven THROWing assertions;
+  // I3 stays OPEN; changes no bound; NO QED.
+  '/src/data/imp-35214-min-gap-field-lipschitz-surrogate-assessment.js',
   // imp-35167: SCOPES the imp-35127 I2 ingredient -- what a CERTIFIED non-collision minimum-gap lower
   // bound g_min(t) > 0 along the WHOLE backward Dyson trajectory to the front would need. Enumerates
   // five machinery pieces M1..M5: M1 the exact gap ODE du/ds = -8 + 4 B(s) u + Gronwall lower branch

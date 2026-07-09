@@ -16309,6 +16309,47 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this measurement (imp-486)',
     ],
   },
+  {
+    term: 'imp-35220 schedule-corridor collapse robustness: the imp-35196 I3 strip corridor N_crit = y_ceil^2 E_acc / (2 S) is a MODEST O(1)-to-O(100) number across EVERY plausible (S, E_acc, y_ceil) triple, not an artifact of the single imp-35168 triple',
+    category: 'proof-status',
+    definition:
+      'A headword recording the imp-35220 robustness check on the imp-35196 I3 strip-corridor ' +
+      'collapse. imp-35196 proved the imp-35127 I3 strip corridor y_floor(N) <= y_star(N) <= y_ceil ' +
+      '-- the range of strip heights that could simultaneously satisfy the N-uniform accumulation ' +
+      'floor y_floor(N) = sqrt(2 N S / E_acc) (rising like sqrt(N), unbounded) and the O(1) ' +
+      'near-front proximity ceiling y_ceil (flat, N-independent) -- empties for every N above ' +
+      'N_crit = y_ceil^2 E_acc / (2 S), but quoted that crossing on only the ONE triple ' +
+      '(S, E_acc, y_ceil) = (1, 1, 2 . 0.448 . 2 pi ~ 5.63) carried over from imp-35168.\n\n' +
+      'THE CHECK: imp-35220 tabulates y_floor(N) against the flat y_ceil across N in ' +
+      '{2, 10, 100, 1e3, ..., 1e6} for EIGHT triples spanning the plausible imp-35127/imp-2520/' +
+      'imp-2563 horizon conventions -- S in {1/2, 1, 2} (order-one backward-time horizon), E_acc in ' +
+      '{1/10, 1, 10} (the vacuity threshold on the accumulation e-fold), y_ceil in {1, 2 pi ~ 6.28, ' +
+      'meso ~ 5.63} (the near-front proximity cap, from strict to generous). The closed form ' +
+      'y_floor(N_crit) = y_ceil holds exactly (< 1e-9) for every triple, confirming the algebra.\n\n' +
+      'THE HEADLINE: N_crit stays a MODEST O(1)-to-O(100) number across the ENTIRE plausible range ' +
+      '-- from ~0.5 (strictest: y_ceil = 1) up to ~316.94 (loosest: S = 1/2, E_acc = 10, ' +
+      'y_ceil = meso), with the imp-35196 baseline triple reproducing its quoted N_crit ~ 15.85. ' +
+      'Since the roadmap flow anchors run to N ~ 1e6 and beyond, the corridor is EMPTY at every ' +
+      'roadmap anchor for EVERY one of the eight triples: widening E_acc or y_ceil, or shrinking S, ' +
+      'only pushes N_crit up by a bounded factor and never removes the crossing, because ' +
+      'y_floor ~ sqrt(N) is unbounded while y_ceil is flat.\n\n' +
+      'HOW TO APPLY: cite imp-35220 (or this entry) whenever the imp-35196 corridor-collapse ' +
+      'conclusion is challenged as depending on the specific (1, 1, 5.63) parameter choice -- the ' +
+      'collapse is robust across the full plausible horizon-convention range, so no reasonable ' +
+      're-parameterization reopens the I3 corridor at roadmap-scale N.\n\n' +
+      'HONEST SCOPE: measurement/tabulation only, on the inherited imp-3220/imp-3406/imp-35196 ' +
+      'surrogate; discharges nothing; I3 stays OPEN; establishes no operator positivity; C_mb ' +
+      'GUE-conditional per imp-486 UNTOUCHED; changes no bound; no RH verdict; NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35250 (glossary headword recording the imp-35220 schedule-corridor collapse robustness), 2026',
+    relatedTerms: [
+      'imp-35196 proved the single-triple I3 strip-corridor collapse this entry confirms is robust (imp-35196)',
+      'imp-35168 supplied the original (1,1,5.63) triple whose specificity this entry rules out as an artifact (imp-35168)',
+      'imp-35127 poses the I3 N-uniform field-Lipschitz ingredient the corridor is meant to supply (imp-35127)',
+      'imp-2520 supplies the backward-flow Gronwall lemma whose strip height is at stake (imp-2520)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this measurement (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

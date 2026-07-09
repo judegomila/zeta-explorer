@@ -17299,6 +17299,41 @@ export const glossary = [
       'imp-35307 measures how many additional decades of verified height would be needed to close this regime (imp-35307)',
     ],
   },
+  {
+    term: 'imp-35243 machine-epsilon-floor mechanism: the reentry-band window (W,1) and phase are set by the ratio EPS_FP/PENULT ~ 1.58 of two machine-precision constants with no continuum counterpart',
+    category: 'proof-status',
+    definition:
+      'A headword naming the precise mechanism behind imp-35243 demonstration D1 (already recorded under the ' +
+      'imp-35243 R1-R4 certificate and D1/D2 headwords): the iters-to-floor reentry band is pinned by a single ' +
+      'ratio of two machine-precision constants, EPS_FP = 2.3e-16 (the surrogate relative-agreement floor) ' +
+      'over PENULT = 1.4536e-16 (the imp-34926/imp-34951 quantized penultimate-collapse witness, itself a ' +
+      'bit-identical double-precision value shared by all 34 off-by-one seeds). This ratio, EPS_FP/PENULT ~ ' +
+      '1.582, sets the width of the off-by-one window OFFSET = log(EPS_FP/PENULT)/ln(1/r) ~ 0.1484 and hence ' +
+      'the window (W, 1) with W = 1 - OFFSET ~ 0.8516 that the slowly upward-drifting ceil phase must land in ' +
+      'for an off-by-one to occur.\n\n' +
+      'WHY THIS IS THE BINDING OBSTRUCTION: both EPS_FP and PENULT are artifacts of finite-precision ' +
+      'representation -- EPS_FP is a chosen relative-agreement floor for the surrogate, and PENULT is the last ' +
+      'representable double-precision distance before a bit-identical fixed-point snap. Neither constant, nor ' +
+      'their ratio, has any counterpart in the true infinite-precision continuum, where the collapse iterate ' +
+      'never stops at a floor and there is no integer iterate count to be off by one. This is exactly why R1 ' +
+      '(floor-independence, imp-35263) is BINDING per imp-35243 D1: a floor-free continuum limit would have no ' +
+      'EPS_FP/PENULT ratio to define a window width from, and the ~12-decades-per-factor-2 sensitivity already ' +
+      'measured in D1 is a direct consequence of the window boundary depending on this ratio through a ' +
+      'logarithm.\n\n' +
+      'HOW TO APPLY: cite this entry when the question is specifically WHY the reentry band position and width ' +
+      'are floor-dependent, as opposed to the D1 headword (WHAT the sensitivity measures, ~11.99 decades per ' +
+      'factor-2) or the R1-R4 routing headword (WHERE the fix is being attempted).\n\n' +
+      'HONEST SCOPE: naming/documentation only, restating literals already established in imp-34926, ' +
+      'imp-34951, imp-34997, and imp-35243; discharges no requirement; the reentry band verdict stays NOT ' +
+      'ESTABLISHED for the true dynamic; changes no bound; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+      'remains the rigorous SOTA.',
+    firstUsed: 'imp-35343 (glossary headword naming the imp-35243 machine-epsilon-floor mechanism), 2026',
+    relatedTerms: [
+      'imp-35243 demonstration D1 measures the ~12-decades-per-factor-2 sensitivity this mechanism produces (imp-35243)',
+      'imp-34951 tabulated PENULT = 1.4536e-16 as a single bit-identical quantized constant across all 34 off-by-one rungs (imp-34951)',
+      'imp-35263 is the ticket assigned to R1 floor-independence, the requirement this mechanism binds (imp-35263)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

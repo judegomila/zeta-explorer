@@ -16975,6 +16975,37 @@ export const glossary = [
       'imp-35010 measured the irreducible across-m finite-difference-cancellation floor ~3.69e-7 (imp-35010)',
     ],
   },
+  {
+    term: 'imp-35199 fully-independent E_flow=E_trunc landmark cross-check',
+    category: 'numerical',
+    definition:
+      'A verification note recording that the imp-35153 closed-form E_flow=E_trunc height fixed point and ' +
+      'the imp-35105 downslope-bisection landmark N* ~ 1.597752e6 have now been reproduced by a codepath that ' +
+      'shares NOTHING with either source module -- it imports only the imp-35153 landmark object to diff ' +
+      'against, never calling it or the shared lambda-rh-height-mapping module.\n\n' +
+      'The independent path re-declares the pinned constants from their PRIMARY sources (imp-2631 E_trunc = ' +
+      '3.06e-5, imp-398 C_F, the imp-35105/imp-33723 GRONWALL = exp(2.37e-4) trap), iterates the height fixed ' +
+      'point T0 = (GRONWALL/2pi/E_trunc)(log(T0/2pi)+1)log T0 from scratch to floating-point convergence, and ' +
+      'evaluates the Riemann-von Mangoldt leading count N(T) = (T/2pi)(log(T/2pi)-1) INLINE rather than by ' +
+      'calling the height-mapping module. It converges to T0_star ~ 9.213669e5, giving N* ~ 1.597752e6 that ' +
+      'matches the imp-35105 landmark to ~7.96e-8 relative -- the full 7 significant figures it is quoted at ' +
+      '-- and a measured contraction modulus |h_prime(T0_star)| ~ 0.1504 reproducing the imp-35153 reported ' +
+      '~0.150 to ~9.4e-7 absolute.\n\n' +
+      'HOW TO APPLY: cite imp-35199 when a later module needs to state the N* ~ 1.597752e6 / T0_star ~ ' +
+      '9.213669e5 landmark is not merely a single implementation quirk but is reproduced by two codepaths ' +
+      'that share no code path between the height solve and the count conversion.\n\n' +
+      'HONEST SCOPE: a verification/cross-check note; the imp-33601/imp-3220/imp-3406 component model is ' +
+      'inherited and NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz ' +
+      '(imp-2642/imp-2643) are UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict, ' +
+      'NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains SOTA.',
+    firstUsed: 'imp-35255 (glossary headword for the imp-35199 independent cross-check), 2026',
+    relatedTerms: [
+      'imp-35199 ran the fully-independent height-solve-plus-inline-RvM-count cross-check this entry documents (imp-35199)',
+      'imp-35153 derived the E_flow=E_trunc height fixed point in closed form, the landmark being cross-checked (imp-35153)',
+      'imp-35105 first reported the N* ~ 1.597752e6 downslope-bisection landmark (imp-35105)',
+      'imp-33723 the sibling E_coll=E_trunc closed-form crossover this crossing mirrors in structure (imp-33723)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

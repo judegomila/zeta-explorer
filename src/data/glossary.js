@@ -15884,6 +15884,44 @@ export const glossary = [
       'imp-35167 is the alternative min-gap lever suggested as the next avenue since strip geometry alone cannot discharge I3 (imp-35167)',
     ],
   },
+  {
+    term: 'imp-35197 R2-to-sign reduction: past N=200, R2 reduces to ONE N-uniform sign statement (S) t_c_flow<=t_c_map chaining with the imp-857 map bracket, leaving I1/I2/I3 as the un-supplied ingredients',
+    category: 'proof',
+    definition:
+      'imp-35150 found the R2 one-sided true-flow bound t_c_flow(N)<=t_c_hi(N) MET at every rung tested ' +
+      'WITH an order-robust flow reference (N in {50,100,200}) but UNTESTED at N>=500 because no DP8 / ' +
+      'directed-rounding flow reference exists there. imp-35197 asks whether the DEFINITE, N-independent ' +
+      'overshoot sign of the map-to-flow truncation (imp-2510/imp-2528: fixed-dt backward RK4 collides ' +
+      'LATER than the true flow, so t_c_flow<=t_c_map) can be PROMOTED into an analytic certificate that ' +
+      'discharges R2 uniformly in N WITHOUT a per-N flow reference. VERDICT: the sign IS the right lever -- ' +
+      'R1/imp-857 already certifies the interval-map upper bracket t_c_map(N)<=t_c_hi(N), so an analytic ' +
+      'N-uniform sign fact (S) t_c_flow(N)<=t_c_map(N) would chain as t_c_flow<=t_c_map<=t_c_hi to give R2 ' +
+      'for FREE up the imp-857 map ladder ({1000..100000}) with NO per-N flow reference. The ENTIRE R2 ' +
+      'residual past N=200 therefore reduces to certifying the single statement (S). But (S) is today ' +
+      'mechanistic/empirical, not a theorem, and promoting it needs three un-supplied ingredients: I1 a ' +
+      'certified per-step RK4 truncation-error SIGN on the imp-362 desingularized pole form (distinct from ' +
+      'the imp-35170 ABSOLUTE Butcher error-constant MAGNITUDE, which fixes size not direction); I2 an ' +
+      'order-preservation / monotone-comparison lemma lifting a per-step ordering to a collision-TIME ' +
+      'ordering in the min-gap scalar; I3 N-uniformity of I1+I2 as the field stiffens toward collision. Only ' +
+      'I4 (t_c_map<=t_c_hi, R1/imp-857) is already met. So the sign argument REPLACES the imp-35150 ' +
+      'flow-reference-availability gate with an analytic-sign-certificate gate wanting I1/I2/I3 -- it does ' +
+      'NOT close R2 by itself; the residual is RECLASSIFIED, not removed.\n\n' +
+      'HOW TO APPLY: cite this entry when locating exactly what the R2 residual past N=200 still needs -- ' +
+      'point to I1 (imp-35212 scoped I1 on the scalar proxy) and I2 (imp-35213 scoped I2, finding no free ' +
+      'monotone lemma) as the sub-tickets narrowing the outstanding gap; I3 remains fully open.\n\n' +
+      'HONEST SCOPE: assessment/scoping only; certifies nothing; discharges no bound; R2 stays OPEN past ' +
+      'N=200; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict; NO QED. Platt-Trudgian Lambda<=0.2 ' +
+      'remains the rigorous SOTA.',
+    firstUsed: 'imp-35225 (glossary headword recording the imp-35197 R2-to-sign reduction), 2026',
+    relatedTerms: [
+      'imp-35150 found R2 MET at every rung WITH a flow reference but untested at N>=500, the gate this reduction replaces (imp-35150)',
+      'imp-857 supplies the interval-map upper bracket t_c_map<=t_c_hi (I4), the only already-met ingredient (imp-857)',
+      'imp-35170 supplies the Butcher error-constant MAGNITUDE, distinct from the I1 SIGN this reduction still needs (imp-35170)',
+      'imp-35212 scopes I1 on the scalar Dyson desingularization proxy, finding all order-5 trees share one sign (imp-35212)',
+      'imp-35213 scopes I2, finding no free monotone-comparison lemma and relocating it onto the imp-35194 M2/M5 obstruction (imp-35213)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this reduction (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

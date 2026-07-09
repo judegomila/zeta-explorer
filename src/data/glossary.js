@@ -16527,6 +16527,45 @@ export const glossary = [
       'imp-34714a machine certificate (OPEN): the directed-rounding certification this headroom profile does not close',
     ],
   },
+  {
+    term: 'imp-35243 honest-status note: the iters-to-floor REENTRY band is a feature of the analytic SURROGATE, not (yet) an established feature of the true collapse dynamic',
+    category: 'proof-status',
+    definition:
+      'An honest-status note recording the imp-35243 verdict on the imp-34997/imp-35111 iters-to-floor ' +
+      'REENTRY band (band-on ~ N=10^27.08, band-off ~ N=10^37.17, width ~10.08 decades). imp-35174 already ' +
+      'discharged the ARITHMETIC half of sub-gap imp-35111a -- the band edges reproduce double-vs-double-double ' +
+      'to ~1e-13/1e-14, so the band is not an IEEE-754 rounding artifact of computing the surrogate -- and ' +
+      'explicitly re-pointed the deeper SURROGATE-FIDELITY half as imp-35174a.\n\n' +
+      'imp-35243 assesses that deeper half directly and finds the band is NOT established as a feature of the ' +
+      'TRUE collapse dynamic: it is a feature of the discrete, single-rate, machine-epsilon-floored analytic ' +
+      'surrogate xArg(seed) = log(collapseDist(seed)/EPS_FP)/ln(1/r). Two findings anchor the verdict: (D1) the ' +
+      'machine-epsilon floor EPS_FP = 2.3e-16 enters as a pure additive phase shift of log(2)/ln(1/r) ~ 0.2242 ' +
+      'phase units per factor-2 change, which at the measured ~0.0187/decade phase drift relocates the ENTIRE ' +
+      'band by ~11.99 decades in N -- a representation constant with no counterpart in the infinite-precision ' +
+      'continuum; (D2) the band sits ~14.6 (reentry) to ~24.7 (exit) decades ABOVE the highest Platt-Trudgian ' +
+      'verified zero height ~3e12 (log10 ~ 12.48) that binds Lambda <= 0.2, so no verified arithmetic datum ' +
+      'exists within ~15 decades of the band and the true dynamic there is presently UNMEASURABLE.\n\n' +
+      'imp-35243 enumerates a four-requirement surrogate-fidelity certificate (R1 floor-independence, R2 ' +
+      'single-rate/linearization fidelity -- not automatic, since imp-34862 found a TWO-rate law -- R3 ' +
+      'height-map fidelity, R4 independent-model/verified-height agreement) and flags R1 and R4 as BINDING and ' +
+      'presently unmet.\n\n' +
+      'HOW TO APPLY: cite imp-35243 (or this entry) whenever the reentry band is discussed -- do not read it as ' +
+      'a confirmed feature of the true collapse dynamic; it is a confirmed feature of the analytic surrogate ' +
+      'only, anchored to a machine-precision floor and sitting far beyond any verified height. imp-35111a / ' +
+      'imp-35174a / imp-34997a stay OPEN, re-pointed as imp-35243a.\n\n' +
+      'HONEST SCOPE: an assessment on the inherited single-rate log-law surrogate; discharges nothing; the ' +
+      'C_C = (1/8)sqrt(3 pi) ansatz (imp-2642/2643) and the C_mb GUE-conditional caveat (imp-486) are UNTOUCHED; ' +
+      'imp-3066 K_a >= 0 untouched; the far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes ' +
+      'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35271 (honest-status note recording the imp-35243 surrogate-fidelity verdict), 2026',
+    relatedTerms: [
+      'imp-35243 assessed the surrogate-fidelity half of imp-35111a and found the reentry band unestablished for the true dynamic (imp-35243)',
+      'imp-35174 discharged the arithmetic half of imp-35111a, re-pointing the fidelity half as imp-35174a (imp-35174)',
+      'imp-35111 first measured the reentry band width as an off-by-one phase-window phenomenon (imp-35111)',
+      'imp-34862 found a TWO-rate law, undercutting the single-rate linearization the surrogate assumes (imp-34862)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this note (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

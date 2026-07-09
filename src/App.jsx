@@ -720,6 +720,9 @@ const Imp35140RunningGRampVsSigmoidSplitViz = lazy(() =>
 const Imp35206HorizonFrontMismatchViz = lazy(() =>
   import('./pages/Imp35206HorizonFrontMismatchViz.jsx')
 );
+const Imp35207TwoWindowIncompatibilityViz = lazy(() =>
+  import('./pages/Imp35207TwoWindowIncompatibilityViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2092,6 +2095,10 @@ function AppShell() {
           <Route
             path="/viz-imp35206-horizon-front-mismatch"
             element={<Imp35206HorizonFrontMismatchViz />}
+          />
+          <Route
+            path="/viz-imp35207-two-window-incompatibility"
+            element={<Imp35207TwoWindowIncompatibilityViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

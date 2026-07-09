@@ -719,6 +719,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive log-log window-vs-front chart on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35207-two-window-incompatibility',
+      title: 'Two-Window Incompatibility: y_prop vs. y_acc ~ sqrt(N)',
+      oneLine:
+        'Plots the imp-35168 propagation-safe strip height y_prop (N-independent) against the accumulation-safe strip height y_acc ~ sqrt(N) across N=2..1e6, showing the sqrt(N) divergence past the N=2 coincidence point that leaves no fixed mesoscopic strip serving both the imp-2520 transport lemma and the imp-35127 I3 accumulation constant.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35168-mesoscopic-i3-lipschitz-window-assessment.js',
+      paperSourcePath:
+        'src/data/imp-35168-mesoscopic-i3-lipschitz-window-assessment.js (imp-35207 viz page)',
+      ticket: 'imp-35207',
+      pedagogicalStep: 47,
+      honestCeiling:
+        'Descriptive log-log two-window-height chart on the inherited surrogate; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

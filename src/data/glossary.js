@@ -16230,6 +16230,40 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this derivation (imp-486)',
     ],
   },
+  {
+    term: 'imp-35217 E_flow far-tail exponent next-order term: c2(x) = 2(log x - log 2 pi - 1), sign change at x = 2 pi e',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35217 next-order correction to the imp-35198 leading E_flow far-tail ' +
+      'exponent law s(x) = -1 + 3/x (x = log N). Continuing the s(x) = (1 - 1/x)(2/M - 1) expansion (M = ' +
+      'log T0 = x - log x + log(2 pi)) one order further in 1/x gives the two-term law s(x) = -1 + 3/x + ' +
+      'c2(x)/x^2, with c2(x) = 2(log x - log 2 pi - 1).\n\n' +
+      'THE COEFFICIENT CHANGES SIGN: c2(x) = 0 at x = 2 pi e (N = exp(2 pi e) ~ 2.615e7), negative for ' +
+      'smaller N and positive above it, because c2 is itself a log-log-N term (it grows like 2 log x, not ' +
+      'a constant). At N = 1e6 (x ~ 13.82, below the crossover) c2/x^2 ~ -0.0022, pushing the two-term ' +
+      'prediction FURTHER from the imp-35135 measured exponent than the bare leading law (residual worsens, ' +
+      '~0.0142 vs ~0.0119). At N = 1e16 (x ~ 36.84, above the crossover) c2/x^2 ~ +0.0011, a small ' +
+      'improvement over the leading law.\n\n' +
+      'HOW TO APPLY: cite imp-35217 (or this entry) whenever a naive next-order (log N)^{-2} refinement of ' +
+      'the imp-35198 leading law is proposed -- adding it does NOT uniformly tighten the fit against ' +
+      'imp-35135, because c2(x) changes sign inside the tested ladder. imp-35236 isolates the true driver ' +
+      'of the residual as the surrogate-vs-true-RvM-inverse height-map gap, not a missing asymptotic term, ' +
+      'and imp-35237 confirms the residual (both leading and full-surrogate) shrinks monotonically across ' +
+      'the wider N=1e6..1e16 ladder regardless.\n\n' +
+      'HONEST SCOPE: derivation/measurement only, on the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
+      'rigorous asymptotic; the sign-changing correction confirms rather than resolves the imp-35198 ' +
+      'residual; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463 ' +
+      'untouched; changes no bound; establishes no operator positivity; no RH verdict; NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35248 (glossary headword recording the imp-35217 E_flow far-tail exponent next-order term), 2026',
+    relatedTerms: [
+      'imp-35198 derives the leading -1 + 3/log N term this ticket extends to next order (imp-35198)',
+      'imp-35135 measured the E_flow far-tail exponent drift this two-term law is tested against (imp-35135)',
+      'imp-35236 isolates the surrogate-vs-true-RvM-inverse height-map gap as the true residual driver (imp-35236)',
+      'imp-35237 confirms the residual shrinks monotonically across the wider N=1e6..1e16 ladder (imp-35237)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this derivation (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

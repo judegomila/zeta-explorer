@@ -7516,6 +7516,15 @@ const DATA_MODULES = [
   // fourth decimal, and the log running is the SOLE residual above 2 in the deep tail. Derivation
   // only on the surrogate; changes no bound; NO QED.
   '/src/data/imp-35130-sigma-crossing-spacing-closed-form.js',
+  // imp-35134: CROSS-VALIDATES the imp-35041 deep-tail conditional-share landmarks (sigma < 0.01 at
+  // N ~ 4.62e13, sigma < 0.001 at N ~ 5.43e15, each located by a single downslope bisection) against
+  // a SECOND independent solver -- damped scalar Newton on f(x) = sigma(exp(x)) - thr in log-N,
+  // seeded across 1e8..1e25 (17 decades). Newton reproduces both landmarks (rel ~0 bit-identical at
+  // 0.01, ~7e-15 at 0.001) in <= 13 iters, seed-independently, mirroring imp-35016 for the crossover:
+  // the landmarks are solver-independent, NOT artifacts of the imp-33582 bisection ceiling. Honest
+  // caveats: the wide basin needs one log-step clamp, and both solvers share the same surrogate.
+  // Cross-validation only on the inherited model; changes no bound; NO QED.
+  '/src/data/imp-35134-sigma-deep-tail-newton-crossvalidation.js',
   // imp-35036: EXTENDS the imp-33582 per-decade local decay-exponent ladder for sigma(N) =
   // E_coll/E(N) past [1e11,1e12] (0.4310) on the identical inherited model. The exponent keeps
   // climbing monotonely toward the imp-3463 1/2 asymptote (0.4646, 0.4777, 0.4828, 0.4851 on

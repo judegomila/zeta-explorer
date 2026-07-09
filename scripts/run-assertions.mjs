@@ -7641,6 +7641,12 @@ const DATA_MODULES = [
   // so one power law with an exponent in the CI is compatible with the convexity; yet the slope endpoints sit
   // ~2.2-4.2 CI-widths OUTSIDE the CI, so the local drift is a genuine surrogate feature not sampling noise.
   '/src/data/imp-35115-exponent-ci-vs-local-slope-band.js',
+  // imp-35037: DIAGNOSES the imp-34950 F1 ~3-sigma pinned-vs-free exponent gap (p_pinned 1.5493 vs p_free
+  // 1.5453, ~0.004). A quadratic log-log fit finds a significant POSITIVE convexity (c ~ 0.0273, t ~ 271
+  // sigma, cutting the linear SSE ~4085x); the noiseless fitted quadratic run through both estimators
+  // reproduces ~102% of the gap (anchor-leverage residual ~7e-5). Verdict: MODEL MISMATCH, not estimator
+  // bias -- K-pinning is the lever, the real convexity is the cause. Measurement only, no bound change.
+  '/src/data/imp-35037-pinned-vs-free-exponent-gap-diagnosis.js',
   // imp-34951: MEASURES the uniform positive penultimate-relative-distance margin across all 34
   // off-by-one rungs on [1e3,1e18] against the EPS_FP floor, an upper-witness proxy that the +1
   // over-count residual is structurally excluded. Measurement only, no bound change.

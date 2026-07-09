@@ -16647,6 +16647,42 @@ export const glossary = [
       'lambda-rh-height-mapping supplies effectiveHeightForN, the true RvM inverse swapped in here (imp-2642)',
     ],
   },
+  {
+    term: 'imp-35237 E_flow far-tail residual monotone-shrinking ladder check: 0.0119->0.0089->0.0064->0.0044',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35237 extension of the imp-35222 independent two-anchor E_flow far-tail ' +
+      'exponent cross-check to the full four-anchor ladder N = 1e6, 1e9, 1e12, 1e16. On the SAME independent ' +
+      'code path (fresh local functions, no heavy import, imp-35135 measured literals baked in as plain ' +
+      'constants), the imp-35198 derived leading law -1 + 3/log N and the full surrogate ' +
+      's(x) = (1 - 1/log N)(2/log T0 - 1) are checked against the imp-35135 measured drift at all four rungs, ' +
+      'not just the two endpoints imp-35222 pinned.\n\n' +
+      'THE FINDING: both residuals shrink MONOTONICALLY across the whole ladder. The leading-law residual runs ' +
+      '0.0119 -> 0.0089 -> 0.0064 -> 0.0044 (N = 1e6, 1e9, 1e12, 1e16) and the full-surrogate residual runs ' +
+      '0.0142 -> 0.0080 -> 0.0051 -> 0.0032 over the same four rungs. The imp-35198 law tracks the imp-35135 ' +
+      'measured drift increasingly well at larger N, exactly as expected of a leading-order (log N)-power ' +
+      'correction to the asymptotic exponent -1.\n\n' +
+      'WHY IT MATTERS: the ~0.01 residual imp-35222 saw was measured at only the two endpoints. This ladder ' +
+      'check shows that residual is not an artifact of the two extremes -- it is the TOP of a monotone-' +
+      'decreasing sequence, so the imp-35198 derivation is tightening its agreement with measurement steadily ' +
+      'as N grows, not merely bracketing it at two isolated points.\n\n' +
+      'HOW TO APPLY: cite imp-35237 when the imp-35198/imp-35222 leading-law fit to the imp-35135 measured ' +
+      'far-tail drift is invoked across intermediate N, not just the endpoints -- the monotone-shrinking ' +
+      'residual is itself evidence the fit is a genuine leading-order correction rather than a two-point ' +
+      'coincidence.\n\n' +
+      'HONEST SCOPE: cross-check only (independent code path), NOT rigorous; component model is the inherited ' +
+      'imp-3220/imp-3406 extrapolation; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional per ' +
+      'imp-486 UNTOUCHED; changes no bound; no operator positivity; no RH verdict; NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35290 (glossary headword recording the imp-35237 monotone-shrinking ladder check), 2026',
+    relatedTerms: [
+      'imp-35222 pinned the two-anchor (N=1e6, N=1e16) residual this ladder check extends to four anchors (imp-35222)',
+      'imp-35198 derived the leading -1 + 3/log N law tracked here across the full ladder (imp-35198)',
+      'imp-35135 measured the far-tail E_flow exponent drift this ladder check is fit against (imp-35135)',
+      'imp-35236 isolated the inverse-swap component of this same residual at the two endpoints (imp-35236)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this cross-check (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

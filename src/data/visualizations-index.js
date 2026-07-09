@@ -902,6 +902,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive band-profile chart on the inherited imp-3220/imp-3406 surrogate; the imp-34714a machine certificate REMAINS OPEN and F(m) = 0 stays a double-precision artifact; C_C 1/8 ansatz (imp-2642/2643) and C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35288-r2-flow-ladder-slack',
+      title: 'R2 One-Sided True-Flow Ladder: t_c_flow vs t_c_hi Slack',
+      oneLine:
+        'Plots the imp-35150/imp-35190/imp-35221/imp-35235 R2 one-sided true-flow bound t_c_flow(N) <= t_c_hi(N) across the tested rungs N = 50,100,200,500,1000,2000, marking N=1000 as the last robustly-certified rung and N=2000 as the DP45 dt/2 gate-skip point where the worst-case envelope fails but the 3-of-4 clean references still clear the map bracket.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35235-r2-n2000-flow-reference.js',
+      paperSourcePath:
+        'src/data/imp-35150-r2-ladder-assessment.js, src/data/imp-35190-r2-n500-flow-reference.js, src/data/imp-35221-r2-n1000-flow-reference.js, src/data/imp-35235-r2-n2000-flow-reference.js (imp-35288 viz page)',
+      ticket: 'imp-35288',
+      pedagogicalStep: 60,
+      honestCeiling:
+        'Descriptive ladder-slack chart reusing baked t_c literals verbatim; measurement/certification only, not a certified R2 bound past N=1000; C_mb stays GUE-conditional per imp-486; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

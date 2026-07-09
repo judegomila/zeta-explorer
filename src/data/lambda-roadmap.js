@@ -399,6 +399,68 @@ export const LAMBDA_CHAIN_STEPS = [
             'sub-gap that gates the whole step.',
           machinery: 'imp-366, imp-2640, imp-3642, imp-3671, imp-35056',
           feedsInto: 'C_H in E_coll, hence the E(N) bridge constant',
+          // imp-35101 (scoping/assessment ONLY; changes no bound, closes
+          // nothing, no operator positivity, respects the imp-2519 no-overclaim
+          // guard, NO QED): assess whether ANY right-TYPE spatial density-floor
+          // object could supply the G6a modulus, given imp-3671 two obstructions
+          // to V0(gamma) (S1 wrong object type, S2 Gronwall-vacuous at the
+          // nearest-pair front). Verdict below: NONE, and the reason sharpens
+          // S2 from vacuous to WRONG MONOTONE DIRECTION.
+          densityFloorAssessment: {
+            question:
+              'Does the repo toolkit contain a density-floor object of the ' +
+              'CORRECT spatial-modulus type (a two-point ' +
+              '|tau_c(x) - tau_c(x_prime)| <= C_Lip |x - x_prime|^{1/2}) that ' +
+              'supplies the G6a Hoelder-1/2 modulus?',
+            verdict: 'NO right-type density-floor object exists; G6a stays OPEN.',
+            keyFinding:
+              'The imp-3671 obstructions S1 (wrong TYPE) and S2 (Gronwall-vacuous ' +
+              'at the nearest-pair front) are INDEPENDENT: retyping V0(gamma) from ' +
+              'a strip-sup scalar into a genuine two-point spatial density ' +
+              'difference fixes S1 but NOT S2, because a density FLOOR (a LOWER ' +
+              'bound on eigenvalue density, equivalently an UPPER bound on ' +
+              'spacing) is the WRONG MONOTONE DIRECTION at the shock. tau_c is set ' +
+              'by the nearest pair -- the SMALLEST spacing, i.e. the HIGHEST-' +
+              'density region -- exactly where a floor carries no information. So ' +
+              'S2 is not a tuning artifact of the y_star = 4d reading; any ' +
+              'density-FLOOR object of any type gives the wrong-sign control at ' +
+              'the nearest-pair front.',
+            candidateRoutes: [
+              {
+                route: 'R1: retype V0(gamma) to a two-point spatial density difference',
+                fixesTypeS1: true,
+                fixesSignS2: false,
+                note:
+                  'right TYPE but still a floor, so still vacuous / wrong-sign at ' +
+                  'the nearest-pair front (imp-2520 negative-finding 1)',
+              },
+              {
+                route: 'R2: minimal-gap LOWER bound (density ceiling -- the correct dual object)',
+                fixesTypeS1: true,
+                fixesSignS2: true,
+                note:
+                  'right type AND right sign, but NO unconditional such object is ' +
+                  'in the toolkit: it IS the imp-2520 nearest-pair front / imp-348 ' +
+                  'microscopic local law, available only GUE-conditionally (RH-hard)',
+              },
+              {
+                route: 'R3: direct Polymath15 Lemma 5.2 port (imp-366 ledger)',
+                fixesTypeS1: true,
+                fixesSignS2: true,
+                note:
+                  'right type by construction but RH-hard: imp-2640 gap-Lipschitz ' +
+                  'Gronwall discharge NEGATIVE, ch-wall-frontier-verdict RH-HARD',
+              },
+            ],
+            conclusion:
+              'No density-FLOOR object of any TYPE discharges G6a. The type fix ' +
+              '(S1) and the sign fix (S2) are independent, and the only object ' +
+              'satisfying both is a minimal-gap lower bound -- exactly the ' +
+              'RH-hard nearest-pair control (imp-2520 / imp-348, GUE-conditional). ' +
+              'G6a_shock_lipschitz remains OPEN; changes no bound; ' +
+              'Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.',
+            by: 'imp-35101',
+          },
           closed: false,
         },
         {

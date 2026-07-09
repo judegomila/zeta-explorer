@@ -789,6 +789,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Derivation/measurement chart on the inherited imp-3220/imp-3406 surrogate; NOT a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35232-schedule-corridor-collapse',
+      title: 'I3 Schedule-Corridor Collapse: y_floor(N) vs. y_ceil',
+      oneLine:
+        'Plots the imp-35220 tabulated I3 strip-corridor endpoints for the baseline (S, E_acc, y_ceil) triple: the rising accumulation floor y_floor(N) = sqrt(2 N S / E_acc) against the flat near-front ceiling y_ceil on log-log axes, marking N_crit where the corridor empties, plus the N_crit spread across all eight plausible triples.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35220-ncrit-corridor-endpoint-tabulation.js',
+      paperSourcePath:
+        'src/data/imp-35220-ncrit-corridor-endpoint-tabulation.js (imp-35232 viz page)',
+      ticket: 'imp-35232',
+      pedagogicalStep: 52,
+      honestCeiling:
+        'Descriptive log-log floor-vs-ceiling chart on the inherited imp-3220/imp-3406 surrogate; imp-35127 I3 field-Lipschitz requirement stays OPEN; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

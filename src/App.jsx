@@ -735,6 +735,9 @@ const Imp35210FourEComponentLandmarksViz = lazy(() =>
 const Imp35231EflowFartailExponentLogNCorrectionViz = lazy(() =>
   import('./pages/Imp35231EflowFartailExponentLogNCorrectionViz.jsx')
 );
+const Imp35232ScheduleCorridorCollapseViz = lazy(() =>
+  import('./pages/Imp35232ScheduleCorridorCollapseViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2127,6 +2130,10 @@ function AppShell() {
           <Route
             path="/viz-imp35231-eflow-fartail-exponent-logn-correction"
             element={<Imp35231EflowFartailExponentLogNCorrectionViz />}
+          />
+          <Route
+            path="/viz-imp35232-schedule-corridor-collapse"
+            element={<Imp35232ScheduleCorridorCollapseViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

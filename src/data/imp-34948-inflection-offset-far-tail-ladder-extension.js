@@ -53,6 +53,11 @@
  * @see imp-33721-sigma-ramp-inflection-subdecade (sub-decade ramp knee log10 N* ~ 9.529)
  * @see imp-34904-landmark-3p3e9-reconciliation-table (the single-scale L1-L4/L3-L4 gaps)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0)
+ * @see imp-35029-far-tail-exponent-tolerance-robustness (honest-status: the ramp exponent
+ *   ~-1.949 measured here is RESOLUTION-CONDITIONED on this module's outer nested-FD step
+ *   hpp = 2e-3, not a resolution-independent value -- shrinking hpp to 4e-4 sends it to
+ *   ~-2.155 via finite-difference cancellation at the ramp knee; the sigmoid ~-2.013 IS
+ *   robust. imp-34687a/imp-34714a stay OPEN.)
  */
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';

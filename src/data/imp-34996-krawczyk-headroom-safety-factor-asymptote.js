@@ -43,9 +43,10 @@
  * rests on the SAME gamma(n)/k eps surrogate models of the imp-34687a directed-rounding layer, not the layer
  * itself. F(m) = 0 remains a double-precision artifact and the machine certificate imp-34714a REMAINS OPEN.
  * C_C = 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066
- * K_a >= 0 untouched; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * K_a >= 0 untouched; establishes no operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH
+ * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
+ * @see imp-3463 (far-tail E_flow decay exponent 1/2)
  * @see imp-34949-krawczyk-margin-infimum-band-endpoint (the exact closed-form margin m(N) this builds on)
  * @see imp-34929-krawczyk-headroom-monotonicity-derivative (closed-form dS/dN < 0; strictly decreasing S)
  * @see imp-34906-krawczyk-headroom-h2-ceiling-reconcile (worst in-band case clears 100x by 25.55x)

@@ -64,8 +64,10 @@
  * crossover-map derivative signs. The Bernstein classification is a structural property of the
  * SURROGATE map g, NOT of the RH operator: it establishes NO operator positivity and NO spectral
  * consequence. Changes NO bound. The C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz
- * (imp-2642/imp-2643), and imp-3066 K_a >= 0 are UNTOUCHED. No RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * (imp-2642/imp-2643), and imp-3066 K_a >= 0 are UNTOUCHED. Far-tail exponent stays 1/2 (imp-3463).
+ * No RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *
+ * @see imp-3463 (far-tail E_flow decay exponent 1/2)
  *
  * @see imp-34957-crossover-deriv-p11-p12-extension (P_11/P_12 extension, all-positive coefficients)
  * @see imp-34880-crossover-deriv-all-orders-sign-induction (all-orders coefficient-positivity induction)

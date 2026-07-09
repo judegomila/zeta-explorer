@@ -54,8 +54,10 @@
  * tail 0. MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate map, IEEE-754 double precision, no
  * interval enclosure. The C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no
- * operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian
+ * Lambda <= 0.2 remains SOTA.
  *
+ * @see imp-3463 (far-tail E_flow decay exponent 1/2)
  * @see imp-34903-iters-to-floor-residual-sign-wide-band (parent: 0 off-by-one above 1e12 on the 10^0.05 grid)
  * @see imp-34951-plus-one-impossibility-margin-band (uniform quantized penult margin; sub-gap imp-34951a)
  * @see imp-34926-iters-to-floor-ceil-boundary-geometry (terminal ceil-boundary geometry; +1 impossibility)

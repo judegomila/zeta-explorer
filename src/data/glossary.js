@@ -17135,6 +17135,35 @@ export const glossary = [
       'imp-3220/imp-3406 surrogate crossover map (canonical explainer), the map g is differenced on',
     ],
   },
+  {
+    term: 'imp-35210 four E-component landmarks L1 < L2 < L3 < L4',
+    category: 'numerical',
+    definition:
+      'Quick-lookup headword for the N-ordered chain of four landmark heights on the inherited ' +
+      'imp-3220/imp-3406 E-component decomposition (E_trunc + E_coll + E_flow), each pinned by a ' +
+      'closed form or dedicated measurement in an earlier ticket: L1 N_flow_eq_trunc ~ 1.597752e6 ' +
+      'is the E_flow = E_trunc crossover (imp-35153 closed form); L2 N_1pct ~ 3.246862e7 is where ' +
+      'E_flow first drops below 1% of the above-floor residual E_coll + E_flow (imp-35154 M2); L3 ' +
+      'N_cross ~ 3.280294e9 is the E_coll = E_trunc crossover (imp-33723 closed form); L4 N_0p1pct ' +
+      '~ 1.754552e10 is where E_flow drops below 0.1% of E_coll + E_flow (imp-35154 M3). The strict ' +
+      'ordering means the flow term crashes below the truncation floor first (L1), becomes a sub-1% ' +
+      'correction well before the collision term itself reaches the truncation floor (L2 sits ~2.00 ' +
+      'decades below L3), and only becomes sub-0.1% slightly past the collision crossover (L4 sits ' +
+      '~0.73 decades above L3) -- so the whole E_coll = E_trunc crossover neighborhood is already ' +
+      'E_coll-only to better than 1%. Distinct from the separate N_half/N_cross/N_star landmark ' +
+      'triple near N ~ 3.3e9. HONEST SCOPE: a documentation headword reproducing the imp-35153/' +
+      'imp-35154/imp-33723/imp-35210 literals verbatim; not a new measurement or bound; C_mb ' +
+      'GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; ' +
+      'no RH verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35321 (glossary headword for the imp-35210 four E-component landmark ordering), 2026',
+    relatedTerms: [
+      'imp-35153 derived the closed-form L1 E_flow = E_trunc crossover (imp-35153)',
+      'imp-35154 located the L2 and L4 E_flow negligibility thresholds (imp-35154)',
+      'imp-33723 derived the closed-form L3 E_coll = E_trunc crossover (N_cross) (imp-33723)',
+      'imp-35210 first placed all four landmarks together on one shared log-N axis (imp-35210)',
+      'imp-35105 E-component decomposition table, the source layout the four landmarks live on (imp-35105)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

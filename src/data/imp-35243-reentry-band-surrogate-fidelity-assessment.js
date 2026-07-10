@@ -126,6 +126,22 @@ const EPS_OVER_PENULT = EPS_FP / PENULT; // ~1.5822 (both ~machine-epsilon)
 const PHASE_SHIFT_PER_FLOOR_HALVING = Math.log(2) / LN_INV_R; // ~0.22419 phase units
 const DECADE_SHIFT_PER_FLOOR_HALVING = PHASE_SHIFT_PER_FLOOR_HALVING / DRIFT_PER_DECADE; // ~11.99 decades in N
 
+// DEMONSTRATION D1b (imp-35335): the D1 floor-sensitivity slope rests on R_CONTRACT from a SINGLE central-difference
+// step h=1 in gPrimeAtStep. Re-measure R_CONTRACT, LN_INV_R, the phase shift log(2)/ln(1/r) and the decade shift on a
+// stencil ladder h in {0.25, 0.5, 1, 2, 4} to confirm the ~11.99-decade figure is stencil-independent, not an artifact
+// of the h=1 choice. Measured (this file, node): R_CONTRACT spread ~1.0e-5 relative; decade shift 11.98896-11.98900.
+const STENCIL_LADDER = [0.25, 0.5, 1, 2, 4].map((h) => {
+  const r = Math.abs(gPrimeAtStep(h));
+  const lnInvR = Math.log(1 / r);
+  const phase = Math.log(2) / lnInvR;
+  return { h, r_contract: r, ln_inv_r: lnInvR, phase_shift: phase, decade_shift: phase / DRIFT_PER_DECADE };
+});
+const STENCIL_R_MAX_REL_DEV = Math.max(
+  ...STENCIL_LADDER.map((s) => Math.abs(s.r_contract - R_CONTRACT) / R_CONTRACT),
+); // ~1.05e-5 -- R_CONTRACT is stencil-independent to 5 significant figures
+const STENCIL_DECADE_SHIFT_SPREAD =
+  Math.max(...STENCIL_LADDER.map((s) => s.decade_shift)) - Math.min(...STENCIL_LADDER.map((s) => s.decade_shift)); // ~4e-5
+
 // DEMONSTRATION D2: how far the band sits above the highest verified zero height (~3e12).
 const REENTRY_DECADES_ABOVE_VERIFIED = REENTRY_EXP - PT_VERIFIED_HEIGHT_LOG10; // ~14.6
 const EXIT_DECADES_ABOVE_VERIFIED = EXIT_EXP - PT_VERIFIED_HEIGHT_LOG10; // ~24.7
@@ -179,6 +195,20 @@ export const IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT = {
       'EPS_FP enters xArg = log(collapseDist/EPS_FP)/ln(1/r) as a pure additive phase shift log(2)/ln(1/r) per ' +
       'factor-2 change, which at the ~0.0187/decade drift relocates the whole band by ~12 decades in N. The ' +
       'true infinite-precision continuum has no such floor, no integer iterate count, and hence no off-by-one.',
+  },
+  demonstration_D1b_stencil_ladder: {
+    r_contract_h1: +R_CONTRACT.toPrecision(9), // ~0.0454235 (the imp-35243 single-stencil value)
+    ladder: STENCIL_LADDER.map((s) => ({
+      h: s.h,
+      r_contract: +s.r_contract.toPrecision(9),
+      decade_shift: +s.decade_shift.toPrecision(9),
+    })),
+    r_max_rel_dev: +STENCIL_R_MAX_REL_DEV.toPrecision(3), // ~1.05e-5
+    decade_shift_spread: +STENCIL_DECADE_SHIFT_SPREAD.toPrecision(3), // ~4e-5
+    reading:
+      'R_CONTRACT and the derived phase shift log(2)/ln(1/r) ~ 0.2242 and the ~11.99-decade floor-sensitivity are ' +
+      'stencil-INDEPENDENT: across central-difference steps h in {0.25, 0.5, 1, 2, 4}, R_CONTRACT agrees to ~1e-5 ' +
+      'relative and the decade shift stays 11.98896-11.98900. The D1 slope is not an artifact of the h=1 stencil.',
   },
   demonstration_D2_extrapolation_gap: {
     pt_verified_height_log10: +PT_VERIFIED_HEIGHT_LOG10.toPrecision(5), // ~12.48 (N ~ 3e12)
@@ -255,6 +285,16 @@ export const IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT_ASSERTIONS = [
       EPS_OVER_PENULT > 1 &&
       EPS_OVER_PENULT < 2 &&
       Math.abs(OFFSET - 0.148408) < 1e-5,
+  },
+  {
+    // D1b (imp-35335): the D1 floor-sensitivity slope is stencil-independent (not an h=1 artifact).
+    id: 'imp35243-D1b-stencil-independent-slope',
+    description: 'R_CONTRACT and the ~11.99-decade shift agree across h in {0.25,0.5,1,2,4} (stencil-independent)',
+    holds: () =>
+      STENCIL_LADDER.length === 5 &&
+      STENCIL_R_MAX_REL_DEV < 1e-4 &&
+      STENCIL_DECADE_SHIFT_SPREAD < 1e-3 &&
+      STENCIL_LADDER.every((s) => Math.abs(s.decade_shift - 11.989) < 1e-2),
   },
   {
     // D2: the band is 15-25 decades above any verified zero height -- unmeasurable in the true dynamic.

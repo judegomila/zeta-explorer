@@ -1,12 +1,20 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 
-// Baked literals from the imp-35150 / imp-35190 / imp-35221 / imp-35235 data
-// modules (src/data/imp-35150-r2-ladder-assessment.js,
+// Baked literals from the imp-35150 / imp-35190 / imp-35221 / imp-35235 /
+// imp-35324 / imp-35278 data modules (src/data/imp-35150-r2-ladder-assessment.js,
 // src/data/imp-35190-r2-n500-flow-reference.js,
 // src/data/imp-35221-r2-n1000-flow-reference.js,
-// src/data/imp-35235-r2-n2000-flow-reference.js). Reused verbatim; no new
-// computation.
+// src/data/imp-35235-r2-n2000-flow-reference.js,
+// src/data/imp-35324-r2-n2000-finer-grid-reference.js,
+// src/data/imp-35278-r2-n2000-gatefree-flow-reference.js). Reused verbatim;
+// no new computation. The N=2000 rung reflects the imp-35324 finer-base-grid
+// (tauC/4000) re-run, which RESOLVES the imp-35235 DP45 dt/2 gate-skip: all
+// four references now clear t_c_hi, worst-case slack +6.16e-8 (razor-thin).
+// imp-35278 (gate-free signed-crossing, same tauC/1000 grid) confirms this is
+// a WITHIN-STEP step-over, not an endpoint-gate artifact -- a dt/2 stage can
+// pass through the collision inside a single step, invisible to any endpoint
+// event. The ladder therefore stays robustly certified only through N=1000.
 const RUNGS = [
   { N: 50, t_c_flow: 0.096, t_c_hi: 0.096, status: 'met', note: 'structural (gate == t_c_hi)' },
   { N: 100, t_c_flow: 0.0705, t_c_hi: 0.076, status: 'met', note: 'clean slack' },
@@ -15,11 +23,11 @@ const RUNGS = [
   { N: 1000, t_c_flow: 0.0033027720310, t_c_hi: 0.0034, status: 'met', note: 'last robustly-certified rung' },
   {
     N: 2000,
-    t_c_flow: 0.0013238241280,
+    t_c_flow: 0.0011999384320,
     t_c_hi: 0.0012,
-    status: 'gate-skip',
-    note: 'DP45 dt/2 gate-skip; 3-of-4 clean references land at 0.0011931054080 (slack 6.895e-6)',
-    cleanMax: 0.0011931054080,
+    status: 'provisional-clear',
+    note: 'imp-35324 finer grid (tauC/4000) resolves the imp-35235 DP45 dt/2 gate-skip: worst case (DP45 dt/2) clears t_c_hi at slack +6.16e-8 (razor-thin, ~1600x below one map cell); imp-35278 confirms a within-step step-over, not an endpoint artifact',
+    cleanMax: 0.0011923626880,
   },
 ].map((r) => ({ ...r, slack: r.t_c_hi - r.t_c_flow }));
 
@@ -62,14 +70,14 @@ function LadderChart() {
           key={`flow-${r.N}`}
           cx={xOf(r.N)}
           cy={yOf(r.t_c_flow)}
-          r={r.status === 'gate-skip' ? 5.5 : 4}
-          fill={r.status === 'gate-skip' ? '#fb923c' : '#facc15'}
+          r={r.status !== 'met' ? 5.5 : 4}
+          fill={r.status !== 'met' ? '#fb923c' : '#facc15'}
         />
       ))}
-      {/* imp-35235 clean 3-of-4 max, shown as an open marker below the gate-skip point */}
+      {/* imp-35324 finer-grid best estimate (RK4 dt/2), shown as an open marker below the worst-case point */}
       <circle cx={xOf(2000)} cy={yOf(RUNGS[5].cleanMax)} r={4} fill="none" stroke="#4ade80" strokeWidth={1.75} />
       <text x={xOf(2000) + 8} y={yOf(RUNGS[5].cleanMax) + 3} fill="#4ade80" fontSize={8.5}>
-        clean 3-of-4 max
+        finer-grid best (imp-35324)
       </text>
 
       <text
@@ -88,7 +96,7 @@ function LadderChart() {
         fill="#fb923c"
         fontSize={9}
       >
-        N=2000: gate-skip
+        N=2000: marginal clear
       </text>
 
       <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
@@ -131,11 +139,14 @@ export default function Imp35288R2FlowLadderSlackViz() {
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-35104 R2 requirement (t_c_flow(N) &le; t_c_hi(N), the one-sided map-to-flow bound
         from imp-2528) has been tested rung by rung across N = 50, 100, 200 (imp-35150), 500
-        (imp-35190), 1000 (imp-35221), and 2000 (imp-35235). The worst-case order-robust flow
-        collision stays below the imp-857 map-bracket upper endpoint through N = 1000. At N = 2000
-        the DP45 dt/2 refinement steps through the collision singularity in one stage (a
-        gate-skip), producing a spurious t_c = 1.3238e-3 that exceeds t_c_hi = 1.2e-3 &mdash; the
-        three non-skipping references still land cleanly at t_c &asymp; 1.1925e-3&ndash;1.1931e-3.
+        (imp-35190), 1000 (imp-35221), and 2000 (imp-35235, superseded by imp-35324/imp-35278). The
+        worst-case order-robust flow collision stays below the imp-857 map-bracket upper endpoint
+        through N = 1000. At N = 2000 the original tauC/1000 grid produced a DP45 dt/2 gate-skip
+        &mdash; a spurious t_c = 1.3238e-3 exceeding t_c_hi = 1.2e-3. The imp-35324 finer base grid
+        (tauC/4000) resolves this as a grid-resolution artifact: all four references now clear
+        t_c_hi, worst-case slack +6.16e-8 (razor-thin). imp-35278&apos;s gate-free signed-crossing
+        check confirms the skip was a genuine WITHIN-STEP step-over &mdash; the collision completes
+        inside a single dt/2 stage, invisible to any endpoint gate &mdash; not a spurious artifact.
       </p>
 
       <LadderChart />
@@ -182,11 +193,13 @@ export default function Imp35288R2FlowLadderSlackViz() {
 
       <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '1rem' }}>
         The R2 ladder&apos;s largest robustly-certified rung is N = 1000 (worst-case slack{' '}
-        {RUNGS[4].slack.toExponential(3)}). At N = 2000 the honest worst-case envelope fails
-        (slack {RUNGS[5].slack.toExponential(3)}) purely because of the DP45 dt/2 gate-skip
-        artifact; the clean 3-of-4 references clear t_c_hi with slack{' '}
-        {(RUNGS[5].t_c_hi - RUNGS[5].cleanMax).toExponential(3)}, so N = 2000 is PROVISIONAL, not
-        certified.
+        {RUNGS[4].slack.toExponential(3)}). At N = 2000 the imp-35324 finer-grid (tauC/4000)
+        re-run clears t_c_hi at all four references: worst case (DP45 dt/2) slack{' '}
+        {RUNGS[5].slack.toExponential(3)} (razor-thin, ~1600x below one imp-857 map cell), clean
+        best estimate (RK4 dt/2) slack {(RUNGS[5].t_c_hi - RUNGS[5].cleanMax).toExponential(3)}.
+        imp-35278 confirms this is a within-step step-over, not an endpoint-gate artifact, so
+        N = 2000 is marginally MET rather than failing &mdash; though the razor-thin margin keeps
+        it flagged PROVISIONAL relative to the robustly-certified N = 1000 rung.
       </p>
 
       <div

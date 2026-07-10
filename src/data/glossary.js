@@ -15623,7 +15623,7 @@ export const glossary = [
     ],
   },
   {
-    term: 'imp-35104 R2 true-flow-bound ladder honest status: CERTIFIED to N=1000, PROVISIONAL-not-certified at N=2000, UNTESTED past N=2000',
+    term: 'imp-35104 R2 true-flow-bound ladder honest status: ROBUSTLY CERTIFIED to N=1000, N=2000 grid-artifact-sensitive razor-thin PROVISIONAL-CLEAR, UNTESTED past N=2000',
     category: 'proof-status',
     definition:
       'A headword recording the CURRENT state of the imp-35104 R2 requirement ' +
@@ -15635,43 +15635,52 @@ export const glossary = [
       'an independent-family (RK4 order-4 + DP45 order-5) cross-grid flow ' +
       'reference at N=500 and found R2 MET there, and imp-35221 repeated the ' +
       'method at N=1000 and again found R2 MET (worst-case envelope slack ' +
-      '9.72e-5 below t_c_hi). The ladder does NOT reach N=2000: imp-35235 ' +
-      'reproduced the method at N=2000 and found three of the four references ' +
-      'clear the map bracket, but the DP45 dt/2 refinement suffers a GATE-SKIP ' +
-      '(the min-gap steps through the collision singularity in one stage without ' +
-      'landing in the (0, 1e-4) gate band, producing a spurious late re-approach ' +
-      'collision at t_c=1.3238e-3, which EXCEEDS t_c_hi=1.2e-3, while the other ' +
-      'three references (RK4 dt and dt/2, DP45 dt) cleanly land the true event ' +
-      'at t_c in [1.1925e-3, 1.1931e-3], strictly below t_c_hi with worst-case ' +
-      'slack ~6.9e-6. Because the cross-family cross-grid ' +
-      'agreement that certified N=500/1000 fails at N=2000, the honest ' +
-      'worst-case envelope does not clear the bracket there and the R2 ' +
-      'largest-N-tested-AND-met stays at 1000, not 2000. Past N=2000 (N in ' +
-      '{5000, 10000, ...}) the imp-857 map bracket exists but no order-robust ' +
-      'flow reference has been computed at all, so R2 remains UNTESTED (neither ' +
-      'confirmed nor violated) there, exactly as at the original N=200 cap -- ' +
-      'only the untested threshold has moved from 500 to past 2000.\n\n' +
-      'WHY THIS CORRECTS A STALE PREMISE: any note citing imp-35150 alone as ' +
-      'the current R2 ceiling ("certified only to N=200, untested at N>=500") ' +
-      'is now OUT OF DATE; the ladder has advanced through two further rungs. ' +
-      'The honest ceiling as of imp-35235 is N=1000 certified, N=2000 ' +
-      'provisional-only, gated past that on either a finer flow grid than ' +
-      'tauC/1000 or a signed-crossing collision gate (named sub-gap ' +
-      'imp-35235-sub-n2000-gate-skip).\n\n' +
-      'HOW TO APPLY: cite imp-35221 (not imp-35150) for the current largest ' +
-      'certified R2 rung; cite imp-35235 for why N=2000 is provisional rather ' +
-      'than certified, and imp-35235-sub-n2000-gate-skip for what would be ' +
-      'needed to close it.\n\n' +
+      '9.72e-5 below t_c_hi). At N=2000 the story has TWO chapters: imp-35235 ' +
+      'first reproduced the method on the tauC/1000 grid and found the DP45 ' +
+      'dt/2 refinement gate-skip past the collision (min-gap steps through the ' +
+      'singularity in one stage without landing in the (0, 1e-4) gate band), ' +
+      'producing a spurious late re-approach t_c=1.3238e-3 that EXCEEDS ' +
+      't_c_hi=1.2e-3 while the other three references cleanly landed at t_c in ' +
+      '[1.1925e-3, 1.1931e-3]. imp-35324 then re-ran all four references on a ' +
+      'FINER base grid (tauC/4000) and found the gate-skip was a GRID-' +
+      'RESOLUTION ARTIFACT of the coarser tauC/1000 grid: at tauC/4000 all four ' +
+      'references (including DP45 dt/2) clear t_c_hi, worst case with slack ' +
+      '+6.16e-8 -- razor-thin, about 1600x smaller than one imp-857 map cell. ' +
+      'imp-35278 independently confirmed (gate-free signed-crossing check, ' +
+      'same tauC/1000 grid) that the true event is a genuine WITHIN-STEP step-' +
+      'over invisible to any endpoint gate, not a spurious computational ' +
+      'artifact -- so the imp-35235 gate-skip was a detection-method artifact, ' +
+      'not evidence the true collision exceeds t_c_hi. Net effect: N=2000 now ' +
+      'reads PROVISIONAL-CLEAR rather than provisional-failing, but the ' +
+      '+6.16e-8 margin is razor-thin and flips sign depending on grid choice ' +
+      '(tauC/1000 fails, tauC/4000 clears), so N=2000 must NOT be cited as a ' +
+      'robustly-certified rung -- the R2 ladder stays ROBUSTLY CERTIFIED only ' +
+      'through N=1000. Past N=2000 (N in {5000, 10000, ...}) the imp-857 map ' +
+      'bracket exists but no order-robust flow reference has been computed at ' +
+      'all, so R2 remains UNTESTED (neither confirmed nor violated) there.\n\n' +
+      'WHY THIS CORRECTS A STALE PREMISE: any note citing imp-35235 alone as ' +
+      'the current N=2000 verdict ("provisional-not-certified", implying the ' +
+      'worst-case envelope fails) is now OUT OF DATE; imp-35324/imp-35278 ' +
+      'resolved that specific gate-skip as a grid artifact. But the corrected ' +
+      'reading is NOT "N=2000 is now certified" -- the razor-thin, grid-' +
+      'sensitive margin means N=1000 remains the largest ROBUSTLY-certified ' +
+      'rung; N=2000 is best described as marginally-clear-but-fragile.\n\n' +
+      'HOW TO APPLY: cite imp-35221 for the current largest robustly-certified ' +
+      'R2 rung; cite imp-35324/imp-35278 (not imp-35235 alone) for why N=2000 ' +
+      'clears provisionally rather than fails, and flag the +6.16e-8 slack as ' +
+      'razor-thin/grid-artifact-sensitive whenever N=2000 is mentioned.\n\n' +
       'HONEST SCOPE: measurement/certification only on the inherited backward-' +
       'Dyson map/flow surrogate; C_mb stays GUE-conditional (imp-486); changes ' +
       'no bound; establishes no operator positivity; Platt-Trudgian Lambda<=0.2 ' +
       'remains the rigorous SOTA; NO QED.',
-    firstUsed: 'imp-35201 (glossary headword recording the current, post-imp-35235 honest status of the imp-35104 R2 true-flow-bound ladder), 2026',
+    firstUsed: 'imp-35201 (glossary headword recording the current, post-imp-35235 honest status of the imp-35104 R2 true-flow-bound ladder), 2026, updated imp-35361 (post-imp-35324/imp-35278 grid-artifact-sensitive reclassification)',
     relatedTerms: [
       'imp-35150 first capped R2 at N=200 by flow-reference availability, not by violation (imp-35150)',
       'imp-35190 extended R2 to N=500 with a cross-family cross-grid envelope (imp-35190)',
-      'imp-35221 extended R2 to N=1000, the current largest certified rung (imp-35221)',
-      'imp-35235 found N=2000 only provisional (3-of-4 references) due to a DP45 dt/2 gate-skip (imp-35235)',
+      'imp-35221 extended R2 to N=1000, the current largest robustly-certified rung (imp-35221)',
+      'imp-35235 first found N=2000 provisional-failing (3-of-4 references) due to a DP45 dt/2 gate-skip on the tauC/1000 grid (imp-35235)',
+      'imp-35324 resolved the imp-35235 gate-skip as a tauC/1000 grid-resolution artifact: all four references clear on tauC/4000, worst-case slack +6.16e-8 razor-thin (imp-35324)',
+      'imp-35278 confirmed the underlying event is a genuine within-step step-over, not a spurious artifact (imp-35278)',
       'imp-2528 supplies the one-sided map-to-flow overshoot mechanism underlying the R2 predicate (imp-2528)',
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this ladder (imp-486)',
     ],
@@ -16113,7 +16122,7 @@ export const glossary = [
     relatedTerms: [
       'imp-35190 computed the N=500 cross-family cross-grid flow reference and flagged the same-grid tie as gate-quantization (imp-35190)',
       'imp-35221 repeated the method at N=1000 and again relies on the dt/2 envelope, not a raw-grid tie (imp-35221)',
-      'imp-35104 R2 true-flow-bound ladder honest status: CERTIFIED to N=1000, PROVISIONAL-not-certified at N=2000, UNTESTED past N=2000',
+      'imp-35104 R2 true-flow-bound ladder honest status: ROBUSTLY CERTIFIED to N=1000, N=2000 grid-artifact-sensitive razor-thin PROVISIONAL-CLEAR, UNTESTED past N=2000',
       'imp-2528 supplies the one-sided map-to-flow overshoot mechanism underlying the R2 predicate (imp-2528)',
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this note (imp-486)',
     ],

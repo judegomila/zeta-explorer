@@ -209,6 +209,8 @@ const DATA_MODULES = [
   '/src/data/imp-35244-rho-eps52-coefficient-measurement.js',
   // imp-35256: reconciles imp-35240 O(eps) vs imp-35244 O(eps^2) K-residual -- symmetric route p~1, true odd-p route p~2.
   '/src/data/imp-35256-k-residual-decay-exponent-reconciliation.js',
+  // imp-35258: dd re-measurement of the imp-34714 certificate residual F(m) -- F(m)=0 is a double artifact, F_dd genuinely nonzero (~1 ulp), imp-34714a still OPEN.
+  '/src/data/imp-35258-krawczyk-residual-double-double-measurement.js',
   // imp-903 27-point H_raw-update sweep: rescue satisfied from N_0 = 100.
   '/src/data/imp-903-uniform-sweep-result.js',
   // imp-904 dense-N-grid partial closure: 31-N combined catalog over [10, 10^4].
@@ -8000,6 +8002,34 @@ const DATA_MODULES = [
   // ~1.574; so the constant-0.0187 band width (~7.97 decades) understates the actual ~10.08, the two reconciled
   // by the drift integral = OFFSET = 0.148408. Derivation/assessment only; imp-35243a stays OPEN; NO QED.
   '/src/data/imp-35332-reentry-band-drift-analytic-derivation.js',
+  // imp-35259: DIRECTLY root-finds (bisects) the imp-34997/imp-35111 iters-to-floor REENTRY band edges under
+  // the imp-34862 TWO-rate collapse law, answering the imp-35243 R2 (single-rate/linearization fidelity)
+  // "persist, shift, or vanish?" question by LOCATING the edges rather than the imp-35331 linear-drift
+  // EXTRAPOLATION. The single-rate control root-finder reproduces the imp-35111 band exactly (reentry
+  // 10^27.0847, exit 10^37.1671, width 10.0824 decades), so the locator is faithful. The directly-located
+  // two-rate band PERSISTS but is relocated: p=1 reentry 10^60.66, exit 10^178.35, width 117.69 decades -- a
+  // ~33-decade upward SHIFT and a ~12x WIDENING vs single-rate. The imp-35331 linear-drift extrapolation
+  // (reentry ~10^48.85, width ~17.4) UNDERSHOOTS the direct p=1 reentry by ~11.8 decades and the width by a
+  // factor ~6.8, because it linearizes a drift that decays like 1/(K log T0 - N_cross) (imp-35332). So
+  // single-rate fidelity (R2) is decisively NOT automatic for the band position/width. Self-executing module
+  // (five assertions) was present as a file but never registered in this sweep. Assessment only; imp-35243a /
+  // imp-35111a / imp-35174a stay OPEN; light imports; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35259-two-rate-band-edges-direct-rootfind.js',
+  // imp-35260: MEASURES the sensitivity of the imp-35243/imp-34997/imp-35111 REENTRY-band edges to perturbation
+  // of the C_C = (1/8) sqrt(3 pi) prefactor -- the concrete measurement behind imp-35243 requirement R3
+  // (height-map fidelity). C_C enters ONLY through K = (C_C/E_TRUNC_PT)^2, so a relative change dC/C scales K by
+  // (1+dC/C)^2, moving the fixed point and the ceil phase xArg. The band edges TRANSLATE near-rigidly at ~ -20.86
+  // (reentry 10^27.08) and ~ -20.77 (exit 10^37.17) decades per unit relative C_C (~ -0.209 decades per 1% C_C,
+  // edge spread < 0.1), sign negative (raising C_C lowers the band in N). Clean cross-check: the fixed point moves
+  // the OPPOSITE way and ~23x less (+0.910 decades per unit relC_C), so the band motion is phase re-registration,
+  // not the FP sliding. Converged plateau for relative steps 1e-3..1e-1 (spread < 0.2); sub-1e-3 steps are
+  // rounding-corrupted (spurious ~ -13 at 1e-4). R3 is thus non-vacuous but MODERATE: a plausible few-percent C_C
+  // uncertainty moves the band under a decade and cannot lift it out of the ~14.6-24.7-decade extrapolation gap
+  // above any verified height (imp-35243 D2), so R3 is NOT the binding obstruction (R1/R4 are). Self-executing
+  // module (six assertions) was present as a file but never registered in this sweep. Measurement only on the
+  // inherited imp-3220/imp-3406 surrogate; the C_C ansatz (imp-2642) UNTOUCHED; imp-35243a / imp-35111a /
+  // imp-35174a stay OPEN; light imports; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35260-reentry-band-cc-prefactor-sensitivity.js',
 ];
 
 let ALL_MODULES = FAST_MODE

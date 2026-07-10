@@ -207,6 +207,8 @@ const DATA_MODULES = [
   '/src/data/imp-35240-rho-prefactor-finer-grid-remeasurement.js',
   // imp-35244: eps^{5/2} slot is EMPTY -- implied -16/(15 A_2) falsified; next term eps^{7/2} = -8 sqrt(2)/(3 pi).
   '/src/data/imp-35244-rho-eps52-coefficient-measurement.js',
+  // imp-35256: reconciles imp-35240 O(eps) vs imp-35244 O(eps^2) K-residual -- symmetric route p~1, true odd-p route p~2.
+  '/src/data/imp-35256-k-residual-decay-exponent-reconciliation.js',
   // imp-903 27-point H_raw-update sweep: rescue satisfied from N_0 = 100.
   '/src/data/imp-903-uniform-sweep-result.js',
   // imp-904 dense-N-grid partial closure: 31-N combined catalog over [10, 10^4].
@@ -7990,6 +7992,14 @@ const DATA_MODULES = [
   // constant, so g_prime is invariant to it and the drift b = 0 / dmu >= 0 conclusions are UNAFFECTED.
   // Surrogate resolution only; light imports; C_mb GUE-conditional (imp-486) untouched; no bound; NO QED.
   '/src/data/imp-35172-killing-term-resolution.js',
+  // imp-35332: DERIVES the imp-34997/imp-35109 ceil-phase drift DRIFT_PER_DECADE (~0.0187) analytically as
+  // DRIFT(N) = ln(10).K.(L-1)/L / (LN_INV_R.(K log T0 - N_cross)), L = log(T0/2pi), from the log-law constant
+  // and the RvM inverse slope d log T0/d log N = (L-1)/L. Reproduces the grid value at the reentry (0.0186273)
+  // and matches a direct xArg central difference to ~1e-7. ASSESSMENT: the drift is NOT constant -- it drifts
+  // DOWN like 1/(K log T0 - N_cross) from 0.0186273 (reentry 10^27.08) to 0.0118306 (exit 10^37.17), factor
+  // ~1.574; so the constant-0.0187 band width (~7.97 decades) understates the actual ~10.08, the two reconciled
+  // by the drift integral = OFFSET = 0.148408. Derivation/assessment only; imp-35243a stays OPEN; NO QED.
+  '/src/data/imp-35332-reentry-band-drift-analytic-derivation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

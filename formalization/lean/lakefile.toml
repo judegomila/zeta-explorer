@@ -1,0 +1,16 @@
+name = "debruijnnewman"
+defaultTargets = ["DeBruijnNewman"]
+
+# Lean 4 formalization PILOT for the de Bruijn–Newman lower-bound chain.
+#
+# NOTE ON DEPENDENCIES.  This project is deliberately built on **plain Lean 4 core
+# only** (no mathlib), so that `lake build` succeeds offline and reproducibly with
+# the pinned toolchain.  We first attempted a mathlib dependency (pinned to tag
+# v4.9.0, matching lean-toolchain), but mathlib's prebuilt `cache` binary aborts on
+# this macOS ("__DATA_CONST segment missing SG_READ_ONLY flag", SIGABRT), so the
+# prebuilt `.olean`s cannot be downloaded, and compiling mathlib from source is
+# impractical here.  The faithful ℝ/ℂ version — real heat kernel, entire functions,
+# Laguerre–Pólya class — is future work and is flagged as such in the source.
+
+[[lean_lib]]
+name = "DeBruijnNewman"

@@ -1,0 +1,4 @@
+# Lake build artifacts and fetched packages
+/.lake/
+/build/
+lake-manifest.json

@@ -7863,6 +7863,18 @@ const DATA_MODULES = [
   // (one g_min certificate now gates both) rather than being discharged. Seven THROWing assertions;
   // I3 stays OPEN; changes no bound; NO QED.
   '/src/data/imp-35214-min-gap-field-lipschitz-surrogate-assessment.js',
+  // imp-35284: ENUMERATES candidate FORMS the imp-35214 Q3 a-priori g_min(t) > 0 whole-trajectory bound
+  // could take and asks, per form, whether it CLOSES ON ITSELF into a strictly-positive floor. C1 the
+  // imp-2563 constant-beta Gronwall lower branch does NOT close (needs a constant N-uniform beta, but
+  // beta ~ 1/g_min per imp-35215, so forcing beta = 1/g0 shrinks T_- ~ g0^2/8 ~ O(1/N^2) below the O(1)
+  // front). C2 the self-referential beta = 1/g_min coupling DOES close -- substituting beta = 1/sqrt(u)
+  // into du/ds = -8 + 4 B_p u gives the AUTONOMOUS ODE du/ds = -8 + 4 sqrt(u) -- but reproduces the
+  // collision: unstable fixed point u* = 4, finite-time collapse T_SR(u0) = log(2/(2-sqrt(u0))) -
+  // sqrt(u0)/2 -> u0/8, EXACTLY the imp-2563 horizon g^2/8, so g_min -> 0 (the front, not a floor). C3 a
+  // re-seeded bridge chain is circular (restates M5); C4 the SG1 virial is vacuous at the front strip.
+  // VERDICT: the min-gap route RELOCATES M5 rather than removing it; the one form that genuinely closes
+  // closes onto the collision. Six THROWing assertions; I3/M5 stay OPEN; changes no bound; NO QED.
+  '/src/data/imp-35284-apriori-gmin-bound-forms-assessment.js',
   // imp-35167: SCOPES the imp-35127 I2 ingredient -- what a CERTIFIED non-collision minimum-gap lower
   // bound g_min(t) > 0 along the WHOLE backward Dyson trajectory to the front would need. Enumerates
   // five machinery pieces M1..M5: M1 the exact gap ODE du/ds = -8 + 4 B(s) u + Gronwall lower branch

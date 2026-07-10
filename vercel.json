@@ -4,6 +4,11 @@
   "buildCommand": "node scripts/check-bundle-sizes.mjs && vite build",
   "outputDirectory": "dist",
   "installCommand": "npm ci",
+  "git": {
+    "deploymentEnabled": {
+      "main": false
+    }
+  },
   "build": {
     "env": {
       "PUPPETEER_SKIP_DOWNLOAD": "1",

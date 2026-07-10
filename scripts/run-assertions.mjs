@@ -201,6 +201,8 @@ const DATA_MODULES = [
   '/src/data/imp-35190-r2-n500-flow-reference.js',
   // imp-35221: order-robust DP45 flow reference at N=1000 extends R2 one more rung.
   '/src/data/imp-35221-r2-n1000-flow-reference.js',
+  // imp-35324: finer-base-grid (tauC/4000) re-run resolves the imp-35235 DP45 dt/2 gate-skip; worst-case envelope clears t_c_hi marginally, ladder stays at N=1000.
+  '/src/data/imp-35324-r2-n2000-finer-grid-reference.js',
   // imp-35240: finer smaller-eps re-measurement confirms rho prefactor K = 8 sqrt(2)/(9 pi), not 2/5.
   '/src/data/imp-35240-rho-prefactor-finer-grid-remeasurement.js',
   // imp-35244: eps^{5/2} slot is EMPTY -- implied -16/(15 A_2) falsified; next term eps^{7/2} = -8 sqrt(2)/(3 pi).

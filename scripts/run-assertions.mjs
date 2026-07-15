@@ -9261,6 +9261,25 @@ const DATA_MODULES = [
   // UNTOUCHED; E_trunc = 3.06e-5 (imp-2631) UNTOUCHED; imp-35337a stays OPEN; NO QED;
   // Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35661-sigma-peak-quartic-coefficient-guard.js',
+  // imp-35662: REGRESSION-GUARD pinning the imp-35552 far-tail E_flow remnant q -> -1
+  // LIMIT so a silent drift trips the build (the dedicated standalone recompute the
+  // imp-35552 module lacked). imp-35552 established the exact cancellation-free signed
+  // remnant remnant_signed = (1-log u)/(u(s+1)) + (c-log u)/(u(s+c)) + (1/(s+1)+1/(s+c))/u
+  // and the q -> -1 product-decay limit but carried only embedded checks. This
+  // import-light module INDEPENDENTLY re-derives the signed remnant (byte-faithful to
+  // imp-35552, no height-map swap, no zeros bundle) and asserts the imp-35413 rung
+  // remnant(1e26)=0.000979 and imp-35535 endpoint remnant(1e200)=3.5385e-5 anchors to
+  // storage precision, the NEGATIVE signed leading sign at every rung, the leading form
+  // remnant_signed ~ -(2 log u -3 -c)/u^2 (ratio |remnant_signed| u^2/(2 log u -3 -c)
+  // descends monotonically to 1.0000000 by 10^1e120), and the q -> -1 trend (q ~ -0.739
+  // at 1e200, -0.918 at 10^1e6, -0.996 at 10^1e120, strictly above -1), cross-checking
+  // the imp-35552 baked ladder/limit record. Eight self-executing assertions. Import-light
+  // (imports only the import-light imp-35552 record, no zeros bundle, per
+  // [[no_heavy_imports_in_pages]] / [[verify_heavy_assertion_modules]]). Regression-guard
+  // only; recomputes established measurement figures; changes no bound; E_flow > 0
+  // strictness (imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED;
+  // Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35662-eflow-fartail-remnant-limit-guard.js',
 ];
 
 let ALL_MODULES = FAST_MODE

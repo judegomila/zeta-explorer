@@ -19271,6 +19271,38 @@ export const glossary = [
       'imp-35337 names the OPEN imp-35337a surrogate -> observable dictionary this taxonomy targets (imp-35337)',
     ],
   },
+  {
+    term: 'imp-35663 E_flow far-tail remnant decade-span-GROWTH ladder: growing spans, declining ratio, sqrt(10) asymptote',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35553 span-growth measurement for the E_flow far-tail ' +
+      'fd-vs-analytic remnant on the closed surrogate log-space channel: the "decade span to ' +
+      'shed each further factor of ten" GROWS across the four threshold crossings (1e-3 at ' +
+      'log10 N = 25.6205, 1e-4 at 109.1892, 1e-5 at 410.0475, 1e-6 at 1467.7351 direct), giving ' +
+      'three successive spans 83.5687 -> 300.8583 -> 1057.6875, while the span RATIO between ' +
+      'successive spans strictly DECLINES (3.6001 for span45/span34, then 3.5156 for ' +
+      'span56/span45) toward the asymptotic value sqrt(10) ~ 3.1623.\n\n' +
+      'WHY sqrt(10): the remnant leading form ~ 2 loglog N / (log N)^2 (imp-35552) forces this ' +
+      'exact asymptote -- at a crossing 10^-k, u_k^2/log(u_k) ~ A*10^k gives log10 u_k ~ k/2, so ' +
+      'the span ratio u_{k+1}/u_k tends to 10^(1/2) = sqrt(10) from above, with the loglog factor ' +
+      'making each finite-k ratio slightly larger and slowly fading.\n\n' +
+      'HOW TO APPLY: a naive constant-ratio (geometric) fit of only the first two known spans ' +
+      '(imp-35534s 83.5687, 300.8583; r = 3.6001) OVERSHOOTS the true sub-1e-6 crossing -- ' +
+      'projecting 10^1493.18 versus the directly-bisected 10^1467.7351, an overshoot of ~25.44 ' +
+      'decades (~1.73%) -- because the ratio is not constant. The growth is genuine (each ' +
+      'threshold decade costs progressively more decades of N) but SUB-geometric.\n\n' +
+      'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 surrogate ' +
+      'extrapolation, not a rigorous asymptotic; changes no bound; E_flow > 0 strictness ' +
+      '(imp-33848) untouched; C_mb GUE-conditional per imp-486 untouched; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35714 (glossary headword recording the imp-35663 decade-span-growth viz-data presentation of the imp-35553 measurement), 2026',
+    relatedTerms: [
+      'imp-35553 supplies the span-growth fit, direct sub-1e-6 measurement, and overshoot figures recorded here (imp-35553)',
+      'imp-35552 supplies the remnant ~ 2 loglogN/(logN)^2 leading form that fixes the sqrt(10) asymptote (imp-35552)',
+      'imp-35663 re-exports the imp-35553 span ladder as import-light viz data for a page to plot (imp-35663)',
+      'imp-35534 tabulated the first two spans (83.5687, 300.8583) that imp-35553 extends and fits (imp-35534)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

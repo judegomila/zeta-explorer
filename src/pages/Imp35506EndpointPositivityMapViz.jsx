@@ -2,7 +2,7 @@ import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP35506_ENDPOINT_MAP, IMP35506_SUMMARY } from '../data/imp-35506-endpoint-positivity-map-viz-data.js';
 
-const GRIDS = ['dt', 'dt/2'];
+const GRIDS = ['dt', 'dt/2', 'dt/4'];
 const FAMILIES = ['DP45', 'RK4', 'BS3'];
 
 function cellFor(family, grid) {
@@ -91,14 +91,14 @@ function EndpointPositivityHeatmap() {
 export default function Imp35506EndpointPositivityMapViz() {
   return (
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
-      <PageHeader title="N=2000 Pair-1495 Endpoint-Positivity Map: DP45/RK4/BS3 x dt, dt/2 (imp-35506)" />
+      <PageHeader title="N=2000 Pair-1495 Endpoint-Positivity Map: DP45/RK4/BS3 x dt, dt/2, dt/4 (imp-35506)" />
 
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-35452 mapped the N=2000 pair-1495 step-endpoint signed gap g_end&nbsp;=&nbsp;y1[i+1]-y1[i]
         across RK4 and DP45 at three grids (dt, dt/2, dt/4); imp-35477 added a third integrator family
-        (BS3, order 3) at dt and dt/2. Restricting to the two grids shared by all three families gives
-        a 3x2 matrix with exactly ONE endpoint-POSITIVE cell -- DP45 at dt/2, the single-grid resonance
-        where the within-step crossing never reaches the step endpoint -- against five
+        (BS3, order 3) at dt and dt/2; imp-35573 filled the last cell, BS3 at dt/4 (endpoint NEGATIVE).
+        The full 3x3 matrix has exactly ONE endpoint-POSITIVE cell -- DP45 at dt/2, the single-grid
+        resonance where the within-step crossing never reaches the step endpoint -- against eight
         endpoint-NEGATIVE cells where the endpoint sees the crossing directly.
       </p>
 

@@ -4947,6 +4947,16 @@ const DATA_MODULES = [
   // 3 self-assertions, previously never executed by this runner -- run every build. Verification /
   // accuracy cross-check only; changes no bound; C_mb GUE-conditional per imp-486; NO QED.
   '/src/data/imp-35318-four-landmark-source-crosscheck.js',
+  // imp-35352: DIAGNOSE why the imp-35324 DP45 dt/2 pre-gate gap (9.841e-4) is anomalously larger
+  // than the other three N=2000 references (~8.79e-4) on the tauC/4000 grid. Instrumented re-run of the
+  // imp-35324 flow records the full pre-collision pair-1495 gap trajectory of each reference; the two
+  // dt/2 families (RK4, DP45) agree to < 1e-6 ABSOLUTE for all 8027 approach steps and first diverge
+  // (>1e-6, in fact 7.86e-3) ONLY at step 8027 -- RK4s own gate step -- where the order-5 DP45 stages
+  // overshoot the singular 2/diff approach (gap re-separates to 7.77e-3), delaying DP45s gate landing by
+  // 51 steps and leaving the anomalous 9.841e-4 last-clean sample. VERDICT: stage-ordering / final-step
+  // singular-sampling effect, NOT accumulated trajectory divergence. 5 tripwires. Measurement only;
+  // ladder stays N=1000; C_mb GUE-conditional per imp-486; changes no bound; NO QED.
+  '/src/data/imp-35352-dp45-dthalf-gap-divergence-reference.js',
   // imp-34248: derives the small-thr asymptotic of the imp-34174 surplus by SEPARATING the two
   // vanishing factors -- surplus(thr) = P(thr).r(thr), P(thr) = thr(1-thr)/(1+(1-thr)r). The prefactor
   // P -> thr is asymptotically linear (surplus/(thr.r) climbs 0.4995 -> 0.9900), and the E_flow ratio
@@ -8356,6 +8366,16 @@ const DATA_MODULES = [
   // 1e-6 (0/20 mismatches, farTailExponent = 1/2). All literals faithful. Read-only; changes no
   // bound; O3/G6a stay OPEN; C_mb GUE-conditional per imp-486 untouched; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35339-coefficient-and-envelope-literal-consistency-check.js',
+  // imp-35489: INDEPENDENTLY recomputes the recorded E_trunc=3.06e-5 from the imp-35459 closed leading
+  // form (2 C_T/kappa_T)(log T_PT)^B T_PT^{-kappa_T} with the committed inputs (C_T=1, B=0, kappa_T=2/5,
+  // T_PT=3e12) -- the recompute imp-35459 SCOPED but never performed. From scratch: log T_PT=28.7296334046,
+  // (log T_PT)^0=1, T_PT^{-0.4}=1.0212956876e-5, prefactor 2 e_I/kappa_T=3.0, giving 3.0638870628e-5, which
+  // rounds to the stored 3.06e-5 at 3 sig figs (relative residual 1.270e-3 = the discarded fourth figure,
+  // not a transcription error). The parts-corrected 5.0-prefactor value likewise reproduces the imp-35459
+  // 5.106e-5 cache field. Stored decimals FAITHFUL. Does NOT re-pin C_T/kappa_T (separate Guth-Maynard/Ingham
+  // line), holds the E_trunc barrier reclassification (imp-35419/imp-35459) fixed; C_mb GUE-conditional per
+  // imp-486 untouched. Literal-consistency measurement only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35489-etrunc-closed-form-literal-recompute.js',
   // imp-35434: EXTENDS the imp-35402 two-component additivity check (fdVsAnalyticGap +
   // inverseSwapGap = analyticResidual) from the original four rungs onto the deep rungs
   // N = 1e18/1e20/1e24 and the imp-35370 crossover log10 N = 44.7593. The full-precision defect

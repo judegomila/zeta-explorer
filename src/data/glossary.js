@@ -19078,6 +19078,43 @@ export const glossary = [
       'imp-397 supplies the 2/gamma per-zero kernel shown to be an unsound realness price (imp-397)',
     ],
   },
+  {
+    term: 'imp-35575 quartic coefficient c4 of the interior sigma-peak is NEGLIGIBLE for the imp-35451 arm-skew prediction A_skew ~ 11.02',
+    category: 'numerical-frontier',
+    definition:
+      'A headword recording the imp-35575 measurement of the next-order QUARTIC term c4 in the Taylor ' +
+      'expansion sigma(u0 + d) ~ sigma_max - (k/2) d^2 + c3 d^3 + c4 d^4 of the imp-35411/imp-35337 ' +
+      'interior sigma-share peak (N_max ~ 9.219e5, sigma_max ~ 0.949429014), continuing the imp-35450 ' +
+      'quadratic curvature k ~ 6.43191e-3 and the imp-35451 cubic skew c3 ~ -2.623677e-4.\n\n' +
+      'MEASUREMENT: c4 = sigma-quad-prime(u0)/24 ~ -2.654580e-5 (sigma-quad-prime ~ -6.370991e-4), via a ' +
+      'symmetric 5-point fourth-difference stencil Richardson-extrapolated from the clean h = 4e-2 / 2e-2 ' +
+      'pair, stable to ~1.5e-4 relative over the resolvable window h in {1e-1 .. 1e-2}. The fourth ' +
+      'difference cancels at h^4 (unlike the cubic third difference), so the dd round-off floor ~1e-16/h^4 ' +
+      'dominates below h ~ 5e-3, blowing the raw stencil up to +1.1e-4 garbage by h = 1e-3.\n\n' +
+      'MATERIALITY VERDICT: because c4 is an EVEN term it steepens both peak arms symmetrically and does ' +
+      'NOT set the leading (odd) rising-vs-falling skew that c3 sets. Solving the local root balance ' +
+      'tol = (k/2) d^2 - c3 d^3 - c4 d^4 for the rising/falling half-widths with and without the quartic, ' +
+      'the arm-imbalance slope A_skew = (W_rise - W_fall)/(ln10 * tol) shifts by only ~7.70e-5 relative at ' +
+      'the well-resolved tol = 1e-5 -- BELOW the ~1.5e-4 fourth-difference stencil spread, i.e. not even ' +
+      'resolvable against the measurement noise (the shift is LINEAR in tol: ~7.70e-4 at 1e-4, ~7.70e-6 at ' +
+      '1e-6). The imp-35451 cubic-only prediction A_skew = -4 c3 / (k^2 ln10) ~ 11.02 therefore STANDS.\n\n' +
+      'HOW TO APPLY: cite A_skew ~ 11.02 from the cubic term alone; the quartic correction is a genuine ' +
+      'surrogate feature (four orders above the dd cancellation floor, not a double-rounding artifact) but ' +
+      'is immaterial to the arm-skew at every resolvable tolerance -- no downstream ticket needs to carry ' +
+      'the quartic term to get the skew prediction right.\n\n' +
+      'HONEST SCOPE: MEASUREMENT ONLY on the inherited imp-3220/imp-3406 double surrogate; the C_C 1/8 ' +
+      'ansatz, E_trunc = 3.06e-5 floor and imp-398 C_F prefactor are UNTOUCHED; the surrogate-vs-true ' +
+      'fidelity half (imp-35337a) stays OPEN; changes no bound; establishes no operator positivity; no RH ' +
+      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35669 (glossary headword recording the imp-35575 quartic-immateriality verdict), 2026',
+    relatedTerms: [
+      'imp-35575 measures c4 and establishes the immateriality verdict recorded here (imp-35575)',
+      'imp-35451 sets the cubic c3 ~ -2.623677e-4 and the arm-imbalance prediction A_skew ~ 11.02 extended here (imp-35451)',
+      'imp-35450 supplies the direct quadratic curvature k ~ 6.43191e-3 (imp-35450)',
+      'imp-35337 dd-certifies the interior peak value to ~1e-16 that the quartic stencil relies on (imp-35337)',
+      'imp-35411 locates the asymmetric plateau endpoints around the same interior peak (imp-35411)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -852,6 +852,9 @@ const Imp35580Req4HeightGapViz = lazy(() =>
 const Imp35582ReentryBandDataUnreachabilityViz = lazy(() =>
   import('./pages/Imp35582ReentryBandDataUnreachabilityViz.jsx')
 );
+const Imp35587ArmAsymmetryViz = lazy(() =>
+  import('./pages/Imp35587ArmAsymmetryViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2399,6 +2402,10 @@ function AppShell() {
           <Route
             path="/viz-imp35582-reentry-band-data-unreachability"
             element={<Imp35582ReentryBandDataUnreachabilityViz />}
+          />
+          <Route
+            path="/viz-imp35587-arm-asymmetry"
+            element={<Imp35587ArmAsymmetryViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -1318,6 +1318,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive log10(N) marker chart re-exporting the imp-35537 Part D operativeSwap literals verbatim (no new computation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; the reentry band is a diagnostic iterate-count not a Lambda lever; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35587-arm-asymmetry',
+      title: 'Sigma-Peak Arm Asymmetry: W_rise - W_fall and the Width Ratio',
+      oneLine:
+        'Table and bars of the imp-35451 rising/falling plateau half-width imbalance W_rise - W_fall and the width ratio W_rise/W_fall across tol in {1e-4..1e-7}, narrowing from 1.01449 to 1.00044, produced by the negative cubic-skew coefficient c3 ~ -2.6237e-4.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35587-arm-asymmetry-viz-data.js',
+      paperSourcePath: 'src/data/imp-35451-sigma-peak-arm-asymmetry.js (imp-35587 viz page)',
+      ticket: 'imp-35587',
+      pedagogicalStep: 90,
+      honestCeiling:
+        'Descriptive table/bars re-exporting the imp-35451 arm_asymmetry table and cubic-skew cross-check verbatim (no new computation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; the imp-35337a surrogate-vs-true fidelity sub-gap REMAINS OPEN; C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

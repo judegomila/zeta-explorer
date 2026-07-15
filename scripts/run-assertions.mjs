@@ -211,6 +211,8 @@ const DATA_MODULES = [
   '/src/data/imp-35256-k-residual-decay-exponent-reconciliation.js',
   // imp-35265: DERIVES the imp-35244 empty-eps^{5/2}-slot as an exact identity -- odd-p pair = -2i(3t^4-1)/(1+t^4)^3 = -6i t^{-8}+..., K_{7/2} = -8 sqrt(2)/(3 pi) assembled analytically.
   '/src/data/imp-35265-eps52-cancellation-exact-identity.js',
+  // imp-35261: independently CONFIRMS the imp-35244 K_{7/2} = -8 sqrt(2)/(3 pi) on the imp-35240 compensated finite-cutoff ladder, reaching rungs below the imp-35244 Simpson floor (eps < 2.5e-3, N up to 6.3e12); empty eps^{5/2} slot survives past eps = 1e-6.
+  '/src/data/imp-35261-k72-compensated-deep-rung-confirmation.js',
   // imp-35258: dd re-measurement of the imp-34714 certificate residual F(m) -- F(m)=0 is a double artifact, F_dd genuinely nonzero (~1 ulp), imp-34714a still OPEN.
   '/src/data/imp-35258-krawczyk-residual-double-double-measurement.js',
   // imp-903 27-point H_raw-update sweep: rescue satisfied from N_0 = 100.
@@ -7114,6 +7116,14 @@ const DATA_MODULES = [
   // ~2500.02 is a far-tail value, not a band value). Measurement on the surrogate; imp-34714a REMAINS OPEN;
   // changes no bound; NO QED.
   '/src/data/imp-35241-krawczyk-headroom-band-profile.js',
+  // imp-35266: DECOMPOSES the imp-35241 ~55.18 band-top headroom surplus (S ~ 2555.18 above the closed-form floor
+  // S_inf = 1/(2 delta) = 2500) into its FP_LO = 1 - a(N(1-delta)) finite-N part and its asymptotic 2G/(1+G) -> 1
+  // floor part. Factoring S = S_inf . M_G . M_FP (M_G = 2G/(1+G), M_FP = 1/FP_LO) the surplus splits as dG + dFP:
+  // at the band-top dFP ~ +110.34 (FP_LO finite-N, pushes S above the floor) and dG ~ -55.16 (G-factor, pulls it
+  // below), a near-exact 2:1 cancellation (-dFP/dG ~ 2.00042, N-flat across the band) whose residue is the +55.18;
+  // the net surplus tracks S_inf . a/2. FP_LO finite-N is the dominant driver. Measurement on the surrogate;
+  // imp-34714a REMAINS OPEN; changes no bound; NO QED.
+  '/src/data/imp-35266-krawczyk-headroom-surplus-decomposition.js',
   // imp-35136: SCOPES the still-OPEN imp-34687a / imp-34714a sub-gap by enumerating the five concrete
   // obligations a real directed-rounding / error-bounded arithmetic layer must discharge to certify the
   // exact-digit width the imp-34714 Krawczyk check leaves uncertified: (G1) directed rounding-mode control on

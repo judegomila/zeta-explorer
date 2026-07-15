@@ -8612,6 +8612,17 @@ const DATA_MODULES = [
   // GUE-conditional per imp-486 UNTOUCHED; E_flow > 0 strictness (imp-33848) untouched; changes no bound;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35553-eflow-fartail-remnant-decade-span-growth-fit.js',
+  // imp-35618: EXTENDS the imp-35553 span-RATIO trend (3.6001, 3.5156) to the sub-1e-7 crossing on the
+  // byte-identical log-space channel. Projects sub-1e-7 from the two clean ratios (constant/linear/sqrt10-floor
+  // -> tight band 10^5097-5186) then DIRECT-bisects it. FINDING: the direct bisection is BRACKET-DEPENDENT by
+  // ~156 decades (10^5218.85 vs 10^5062.50) because the remnant near the crossing carries a ~1.19e-8 finite-
+  // difference NOISE floor (~12% of the 1e-7 target); sub-1e-7 sits only ~10x above it (sub-1e-6 was ~100x, why
+  // imp-35553 stopped there). The noise-averaged third ratio R67 ~ 3.5116 is indistinguishable from R56 = 3.5156:
+  // the ratio has PLATEAUED near ~3.5, above sqrt(10) ~ 3.1623 -- neither a confirmed drift toward sqrt(10) nor a
+  // converged constant; a precision WALL of the double-precision channel. Seven self-executing assertions.
+  // Measurement only on the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 UNTOUCHED;
+  // E_flow > 0 strictness (imp-33848) untouched; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35618-eflow-fartail-remnant-span-ratio-sub1e7-noise-wall.js',
   // imp-35535: TABULATES the imp-35473 E_flow far-tail fd-vs-analytic remnant*log N PRODUCT across a dense
   // ladder N = 1e26..1e200 on the IDENTICAL closed surrogate channel (byte-identical eFlowWith/localExponent/
   // remnant; no height-map swap, no heavy import) to settle whether the product flattens toward a nonzero

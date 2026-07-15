@@ -18730,6 +18730,45 @@ export const glossary = [
       'imp-486 is the GUE-conditional caveat inherited via REQ 5 (imp-486)',
     ],
   },
+  {
+    term: 'imp-35555 crossover bracketing-family envelope: ~0.50% span, closed surrogate a DIFFERENT (larger) map class',
+    category: 'numerical',
+    definition:
+      'imp-35458 quantified the E_coll = E_trunc floor-crossover landmark (N ~ 3.280294352e9) on only TWO ' +
+      'height maps -- the RvM inverse effectiveHeightForN and the imp-35413 closed surrogate T0 = 2 pi N / ' +
+      'log N -- recording a -0.98% shift, leaving open whether that figure is the full envelope or an ' +
+      'under-estimate. imp-35555 extends the study to a THIRD construction, the imp-35536 multiplicative ' +
+      'bracketing family T0 = mult * effectiveHeightForN(N) for mult in {1.02, 0.98, 1.05, 0.95}, and ' +
+      'measures the crossover-N spread across all four arms.\n\n' +
+      'THE RESULT: the bracketing family moves the crossover by at most ~0.26% (the widest arm, RvM x ' +
+      '0.95, shifts -0.2576%), for a full two-sided envelope span of only ~0.50% (-0.258% to +0.245%) -- ' +
+      'entirely INSIDE the recorded -0.98% two-map shift. The response is analytically clean: a ' +
+      'multiplicative perturbation shifts log T0 by exactly ln(mult), a constant independent of N, so ' +
+      'each arm obeys the same log-damping law imp-35458 identified (d(rel shift)/d ln(mult) ~ 0.0502, a ' +
+      'hair above 1/log T0(N_cross) ~ 0.0479).\n\n' +
+      'THE HONEST READING: ~1% is NOT an under-estimate of the bracketing-family envelope -- it is ' +
+      'already the LARGER of the two measured perturbations, because the closed surrogate is effectively ' +
+      'a ~-18% raw-height perturbation while the imp-35536 family is only +/- 2-5%. The surrogate and the ' +
+      'bracketing family are not the same perturbation class scaled differently; the surrogate behaves ' +
+      'like a much bigger effective height error, so its -0.98% shift and the family\'s ~0.50% envelope ' +
+      'are two DIFFERENT map classes, not two points on one dial.\n\n' +
+      'HOW TO APPLY: cite this entry (distinct from the imp-35458 two-map headword) when a future module ' +
+      'needs the honest three-map crossover sensitivity picture -- report the ~0.50% bracketing-family ' +
+      'envelope and the -0.98% surrogate shift as separate figures from separate map classes, never ' +
+      'average or combine them into one bound.\n\n' +
+      'HONEST SCOPE: measurement only (frontier-direction, NOT rigorous) on the inherited imp-3220/' +
+      'imp-3406 extrapolation; the C_C ansatz (imp-2642/imp-2643) and E_trunc = 3.06e-5 (imp-2631/imp-447) ' +
+      'are UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no ' +
+      'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35631 (glossary/Concepts headword for the imp-35555 crossover bracketing-family sensitivity envelope), 2026',
+    relatedTerms: [
+      'imp-35555 measures the ~0.50% bracketing-family envelope this headword documents (imp-35555)',
+      'imp-35458 measures the -0.98% two-map shift this entry contrasts as a DIFFERENT map class (imp-35458)',
+      'imp-35536 supplies the RvM x {1.02,0.98,1.05,0.95} bracketing family (imp-35536)',
+      'imp-35413 defines the closed surrogate T0 = 2 pi N / log N (imp-35413)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this envelope (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

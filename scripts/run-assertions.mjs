@@ -9073,6 +9073,26 @@ const DATA_MODULES = [
   // the imp-35186/imp-35309 flag-then-fix convention); changes no bound; NO QED; Platt-Trudgian
   // Lambda<=0.2 remains SOTA.
   '/src/data/imp-35644-imp3559x-imp361x-frontier-crossref-integrity-audit.js',
+  // imp-35645: registration/reachability audit of imp-35593 (peak-damping viz-data), imp-35594
+  // (peak-crossover-mechanism derivation), and imp-35597 (threshold-collapse viz-data) -- three
+  // modules the imp-35630 imp-35550..imp-35574 sweep did not cover (all ids fall above its hi
+  // bound). FINDING: all three export cleanly and are reachable (App.jsx route + wiring for the
+  // two viz-data modules, direct DATA_MODULES entry for imp-35594); none orphaned. AUDIT ONLY;
+  // changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35645-imp3559x-registration-reachability-audit.js',
+  // imp-35632: MEASURES the imp-35458 E_coll = E_trunc crossover height-map DAMPING factor across a
+  // log-T0 ladder (L = 10, 13.23 peak, 20.858 crossover, 24, 28.73 PT), extending the imp-35594
+  // Derivation-1 check from ONE height to a range. For each target height T0 the crossover is placed
+  // there via E_trunc = C_C sqrt(log T0 / N_A) (N_A = RvM count at T0) and re-solved on the imp-35413
+  // closed surrogate 2 pi N/log N; the damping (1 - H_B(N_A)/T0)/|(N_B - N_A)/N_A| rises near-perfectly
+  // linearly in L (fit ~0.966 L - 2.03, R^2 ~0.99997) and tracks the Derivation-1 closed form
+  // (1 - r)(L - 1)/|log r| to <1% at every rung, CONFIRMING the log-proportional insulation over a
+  // range of heights. The L~20.858 rung recovers E_trunc ~3.06e-5 (imp-2631) and damping ~18x
+  // (imp-35458). Six self-executing assertions. Import-light (inlined RvM count/surrogate, no zeros
+  // bundle). Measurement only; the E_trunc values place the crossover on the ladder (diagnostic
+  // reparametrise, NOT a re-anchoring); surrogate-vs-true fidelity (imp-35337a) OPEN; changes no
+  // bound; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35632-crossover-damping-height-ladder.js',
 ];
 
 let ALL_MODULES = FAST_MODE

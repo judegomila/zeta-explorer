@@ -19029,6 +19029,55 @@ export const glossary = [
       'imp-35473 locates the sub-1e-4 surrogate-channel crossing (imp-35473)',
     ],
   },
+  {
+    term: 'imp-35419 S_barrier: E_trunc numeric value 3.06e-5 is a mispriced COUNT ARTIFACT, not a realness certificate -- the operative statement is a Polymath15/Platt-Trudgian deterministic barrier',
+    category: 'proof-status',
+    definition:
+      'A headword recording the imp-35419 scoping assessment of what porting the imp-34791 E_trunc ' +
+      '"unported barrier lemma" would require. The NOMINAL derivation prices E_trunc_pt = ' +
+      'int_{T_PT}^inf (2/t) dN_off(t) = 3.06e-5 (clean count) / 5.106e-5 (imp-34791 R2 parts-corrected) ' +
+      'via the imp-397 2/gamma per-zero kernel, with the boundary term vanishing exactly because ' +
+      'N_off(T_PT) = 0 (Platt-Trudgian 2021 verified RH to T_PT = 3e12). But imp-34791 Part 3 showed ' +
+      'this kernel is UNSOUND as a realness certificate: it prices a single admissible deep zero at ' +
+      '(beta = 3/4, gamma = 6e12) at 2/gamma = 3.33e-13, a ~3.75e11x MISPRICING against that zero’s ' +
+      'isolated-pair realness time (2 beta - 1)^2/2 = 0.125 under the repo gap law d(s^2)/dt = -8 ' +
+      '(imp-3933), and no count bound can exclude one zero.\n\n' +
+      'THE OPERATIVE STATEMENT (S_barrier): for every t > T_PT, no zero of the heat-flow-evolved xi ' +
+      'lies off the real axis in the relevant strip -- any hypothetical zero at beta + i gamma with ' +
+      'gamma > T_PT is driven real by the interaction-accelerated de Bruijn/Newman flow (realness time ' +
+      'O(0.02-0.1)) strictly below its isolated-pair budget (up to 0.5 as beta -> 1), before it can ' +
+      'contribute a Lambda obstruction. Under S_barrier the off-line contribution above T_PT is EXACTLY ' +
+      'ZERO, so 3.06e-5 is a count artifact, not the residual the bridge actually needs.\n\n' +
+      'PROVENANCE OF THE PORT: S_barrier must be ported FROM Polymath15 2019 (the argument-principle / ' +
+      'winding-number barrier + heat-flow zero-repulsion giving Lambda <= 0.22) and Platt-Trudgian 2021 ' +
+      '(the improved barrier at T_PT giving Lambda <= 0.2) -- the SAME machinery PT own SOTA already ' +
+      'rests on -- received by the repo imp-3933 gap law / de Bruijn Thm 13 (winding-thread) machinery, ' +
+      'currently operating only BELOW model heights and not lifted above T_PT.\n\n' +
+      'WOULD PORTING HELP? Yes IN CLASS -- it would discharge E_trunc barrier conditionality, so the ' +
+      'far-tail bridge (E_trunc share -> 1 as sigma -> 0, imp-35334 M3) becomes unconditional simpliciter. ' +
+      'But it is unconditional-PARITY-WITH-PT, NOT a beat: the ported machinery is exactly PT own, so a ' +
+      'ported bridge MATCHES Lambda <= 0.2 by PT method and never beats it. Net height-tail frontier gain ' +
+      'of the port = ZERO; all beat content lives in the window legs (t_c, E_flow, E_field). The port ' +
+      'itself is scoped as a full Polymath15-scale rigorous verification/port -- a MAJOR breakthrough-' +
+      'tier work item, not an engine-closable ticket.\n\n' +
+      'HOW TO APPLY: never cite the E_trunc value 3.06e-5/5.106e-5 as a realness bound in its own right -- ' +
+      'it is a count-kernel artifact that a single unverified deep zero could invalidate by ~1e11x; cite ' +
+      'S_barrier (Polymath15/PT provenance) as the actual operative statement, and note that porting it ' +
+      'would only match, never beat, Platt-Trudgian Lambda <= 0.2.\n\n' +
+      'HONEST SCOPE: assessment/scoping only (frontier-direction, NOT rigorous); discharges nothing, ' +
+      'ports nothing, changes no bound; establishes no operator positivity; the imp-34791 barrier-lemma ' +
+      'reclassification and imp-35334 dominance finding are UNCHANGED; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35668 (glossary headword recording the imp-35419 S_barrier porting-scope assessment), 2026',
+    relatedTerms: [
+      'imp-35419 scopes the S_barrier porting requirement and the parity-not-beat verdict recorded here (imp-35419)',
+      'imp-34791 reclassifies E_trunc from effective constant C_T to unported barrier lemma and finds the 2/gamma mispricing (imp-34791)',
+      'imp-35334 shows E_trunc dominates the far-tail bridge as sigma -> 0, the residual S_barrier would discharge (imp-35334)',
+      'imp-3933 supplies the gap law d(s^2)/dt = -8 and isolated-pair realness time (2 beta - 1)^2/2 (imp-3933)',
+      'winding-thread supplies the de Bruijn Thm 13 monotonicity + jet lemma that is the repo-side receiver of the port (imp-winding-thread)',
+      'imp-397 supplies the 2/gamma per-zero kernel shown to be an unsound realness price (imp-397)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

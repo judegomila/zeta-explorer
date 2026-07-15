@@ -9280,6 +9280,21 @@ const DATA_MODULES = [
   // strictness (imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED;
   // Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35662-eflow-fartail-remnant-limit-guard.js',
+  // imp-35672: ASSESSMENT/SCOPING of what the route-(ii) imp-35488 two-height data-anchored
+  // g_true spot-check CAN and CANNOT certify for the OPEN imp-35337a surrogate -> observable
+  // dictionary, now that imp-35652 killed the route-(i) option-(a) restricted-support surrogate
+  // and named route-(ii) the sole viable partial. CAN: at the ONE in-repo-reachable peak height
+  // (N ~ 9.2186e5) it spot-confirms a bounded small DISTRIBUTIONAL spacing-pdf deviation (KL
+  // 0.0014321, Hellinger 0.019198) tighter than the first-10000 reference (universality improves
+  // with height). CANNOT: not genuinely two-height in-repo (crossover ~3280x beyond the 10^6-zero
+  // table, imp-35488a); distributional != sigma-unit (the ~2.14e-5 flat-cap / ~0.5% crossover
+  // budgets, imp-35488b); no full-support Montgomery pair-correlation law (C_mb stays
+  // GUE-conditional, imp-486); not a global certification across the far tail. Five self-executing
+  // assertions. Import-light (baked imp-35488 literals, no zeros bundle, per [[no_heavy_imports_in_pages]]
+  // / [[verify_heavy_assertion_modules]]). Assessment/scoping only; certifies no surrogate map;
+  // changes no bound; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643) and E_trunc = 3.06e-5 (imp-2631)
+  // UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35672-route-ii-gtrue-spotcheck-scope.js',
 ];
 
 let ALL_MODULES = FAST_MODE

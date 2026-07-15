@@ -11,6 +11,7 @@ import { SECTION27_REFUTATION } from '../data/section27-identity-refutation-2026
 import { SECTION26_VERDICT } from '../data/section26-verdict-volterra-not-a-reduction-2026-06-18.js';
 import { CAUGHT_OVERCLAIMS } from '../data/overclaim-ledger.js';
 import { IMP35653_SBARRIER_FINITE_CHECK_PORTING_SCOPE } from '../data/imp-35653-sbarrier-finite-check-porting-scope.js';
+import { IMP35681_W1_W2_W4_EXISTING_INFRA_INVENTORY } from '../data/imp-35681-w1-w2-w4-existing-infra-inventory.js';
 import ProofTierSummary from '../components/ProofTierSummary.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 
@@ -435,6 +436,16 @@ export default function RHProofStateDashboardPage() {
                 })}
               </tbody>
             </table>
+          </div>
+
+          {/* imp-35741 honest-status banner: imp-35681 Part D corrects a scout misattribution */}
+          <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.28)', fontSize: 11.5, color: '#94a3b8', lineHeight: 1.6 }}>
+            <strong style={{ color: '#fbbf24' }}>Barrier-base provenance correction:</strong>{' '}
+            {IMP35681_W1_W2_W4_EXISTING_INFRA_INVENTORY.barrierBaseProvenance.correction} A prior scout
+            note misattributed this base to repo <strong>imp-341</strong>, but canonical imp-341 is the
+            Close G5_burgers Koksma&ndash;Hlawka result (S7 uniformity of the finite-N empirical Stieltjes
+            transform) &mdash; a different thread with no bearing on off-line zero verification to T_PT.
+            No bound is asserted here; PT Λ≤0.2 remains SOTA.
           </div>
 
           {/* E_flow */}

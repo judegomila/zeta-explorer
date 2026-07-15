@@ -8209,6 +8209,13 @@ const DATA_MODULES = [
   // reentry-band landmark desynchronized. Read-only; changes no bound; the surrogate-fidelity sub-gap
   // imp-35243a stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35338-cohort-constant-consistency-audit.js',
+  // imp-35402: literal-verification (imp-35339-style) audit of the imp-35279/imp-35280 E_flow
+  // far-tail four-rung ladder. Cross-module remnant agreement is EXACT; the reconstruction
+  // identity holds to <5e-4; the swapFraction column, however, is NOT reproducible to tight
+  // tolerance from its own rounded sibling columns alone (up to ~1.34% off at N = 1e16) -- a
+  // bounded double-rounding/small-denominator amplification artifact, not a computation bug.
+  // Read-only; changes no bound; NO QED.
+  '/src/data/imp-35402-eflow-fartail-ladder-literal-reconstruction-check.js',
 ];
 
 let ALL_MODULES = FAST_MODE

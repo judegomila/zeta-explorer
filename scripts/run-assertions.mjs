@@ -8781,6 +8781,15 @@ const DATA_MODULES = [
   // reference modules per the established imp-35412 convention. AUDIT ONLY; no source file
   // required correction; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35545-imp354xx-registration-reachability-audit.js',
+  // imp-35569: AUDITS whether the only rendered sigma-peak analysis page
+  // (Imp35561PeakHeightMapSensitivityViz.jsx) surfaces both the imp-35536 peak
+  // height-map-ROBUSTNESS verdict and the imp-35451 arm-asymmetry cubic-skew (c3 ~ -2.62e-4).
+  // FINDING: the page correctly surfaces the imp-35536 robustness verdict (sigma_max spread
+  // under 1 percent, one-sig-fig N_max guidance) but does NOT mention the imp-35451/imp-35557
+  // cubic-skew arm-asymmetry at all -- a real honest-status gap that could leave the peak
+  // looking more symmetric than it is. Recorded for a follow-up content/ux fix. AUDIT ONLY,
+  // no page edited in this ticket, changes no bound, NO QED, Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35569-sigma-peak-page-honest-status-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

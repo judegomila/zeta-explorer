@@ -8345,6 +8345,15 @@ const DATA_MODULES = [
   // bounded double-rounding/small-denominator amplification artifact, not a computation bug.
   // Read-only; changes no bound; NO QED.
   '/src/data/imp-35402-eflow-fartail-ladder-literal-reconstruction-check.js',
+  // imp-35339: read-only literal-consistency audit of two stored decimal conventions. Recomputes
+  // the imp-35322 rho(eps)-expansion coefficients from scratch -- K = 8*sqrt(2)/(9*pi) = 0.40014
+  // (eps^{3/2} prefactor) and K_{7/2} = -8*sqrt(2)/(3*pi) = -1.20042 (eps^{7/2} coefficient) --
+  // confirming both round to the roll-up's stated decimals, obey the structural ratio K_{7/2} = -3*K,
+  // and appear verbatim in the imp-35216/35240/35244 coefficient strings; and re-derives the imp-35183
+  // envelope p_env = 1/2 - 1/(2*ln(10^(k+0.5))) at every decade k=11..30, matching the live column to
+  // 1e-6 (0/20 mismatches, farTailExponent = 1/2). All literals faithful. Read-only; changes no
+  // bound; O3/G6a stay OPEN; C_mb GUE-conditional per imp-486 untouched; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35339-coefficient-and-envelope-literal-consistency-check.js',
   // imp-35434: EXTENDS the imp-35402 two-component additivity check (fdVsAnalyticGap +
   // inverseSwapGap = analyticResidual) from the original four rungs onto the deep rungs
   // N = 1e18/1e20/1e24 and the imp-35370 crossover log10 N = 44.7593. The full-precision defect
@@ -8490,6 +8499,19 @@ const DATA_MODULES = [
   // GUE-conditional per imp-486 UNTOUCHED; E_flow > 0 strictness (imp-33848) untouched; changes no bound;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35473-eflow-fartail-remnant-sub1e4-crossing.js',
+  // imp-35317: derives Banach-fixed-point CLOSED FORMS for the imp-35210 L2 (E_flow share < 1% of the
+  // above-floor residual E_coll + E_flow, ~3.246862e7) and L4 (share < 0.1%, ~1.754552e10) landmarks,
+  // which imp-35154 M2/M3 located by downslope bisection only -- mirroring the imp-35153 (L1) and
+  // imp-33723 (L3) closed forms. The share threshold s = E_flow/(E_coll+E_flow) = t reduces to the
+  // E_flow/E_coll = r = t/(1-t) balance; eliminating the explicit N of E_coll via N = zeroCountAtHeight(T0)
+  // turns it into a HEIGHT fixed point T0 = (C_F(T0) GRONWALL/(r C_C)) sqrt(N(T0) log T0) (like imp-35153,
+  // NOT an N solve -- the naive N-fixed point is a repeller, |dN-map/dN| ~ 1.7 > 1). The closed forms
+  // reproduce the imp-35154 bisection to ~2e-16 / ~4e-16 and the baked imp-35210 literals to below storage
+  // rounding; |H_prime| ~ 0.63 / 0.59 is the MILDEST contraction of the L1-L4 quartet (imp-35153 ~0.150,
+  // imp-33723 ~0.045), needing ~44-48 iterations, and the two landmarks bracket N_cross = 3.280294e9. Seven
+  // self-executing assertions. DERIVATION only on the inherited imp-3220/imp-3406 surrogate; C_mb
+  // GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35317-eflow-negligible-landmarks-closed-form.js',
 ];
 
 let ALL_MODULES = FAST_MODE

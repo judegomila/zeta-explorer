@@ -8449,6 +8449,19 @@ const DATA_MODULES = [
   // Post-port zero is PARITY with PT, not a beat. Scoping only; the imp-34791 reclassification stays
   // UNCHANGED; ports nothing; discharges nothing; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35676-w4-etrunc-zero-reading-consistency-scope.js',
+  // imp-35677: MEASURES the imp-35654 post-port residual GUE-conditional share across a FOUR-RUNG
+  // far-tail landmark ladder sigma = {1e-3, 1e-4, 1e-5, 1e-6}, quantifying the asserted sigma-TRACKING
+  // residual decay that imp-35654 bakes at only the single sigma<1e-3 landmark. Confirms (M1) the
+  // post-port residual GUE share EQUALS sigma at every rung (E_coll/E = sigma by imp-486), so it is
+  // sigma-TRACKING; (M2) it vanishes MONOTONICALLY, exactly a decade per rung across three decades; and
+  // (M3) the post-port unconditional share = 1 - sigma rises monotonically toward 1. HONEST SUB-GAP: the
+  // ladder holds the E_flow share fixed at the baked ~5.655e-9 literal (no deeper-N E_flow literals baked);
+  // because E_flow is already fully unconditional (imp-398) this affects only the interior split of the
+  // ~(1 - sigma) unconditional bucket, NOT the residual GUE share nor the sigma-TRACKING conclusion.
+  // Import-light (re-uses the imp-35654 baked landmark, no zeros bundle). Measurement only; ports nothing;
+  // discharges nothing; changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-34791 E_trunc
+  // reclassification UNCHANGED; the ported bridge stays PARITY-WITH-PT, no beat; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35677-postport-residual-share-sigma-ladder.js',
   // imp-35402: literal-verification (imp-35339-style) audit of the imp-35279/imp-35280 E_flow
   // far-tail four-rung ladder. Cross-module remnant agreement is EXACT; the reconstruction
   // identity holds to <5e-4; the swapFraction column, however, is NOT reproducible to tight

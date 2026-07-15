@@ -215,9 +215,9 @@ export default function Imp35400EflowFartailTwoComponentLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, baked literals
-        reproducing the imp-35279/imp-35280 four-rung measurements verbatim; no new derivation, no
-        bound changed. The inverse swap is the dominant but not sole residual component at every
+        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Measurement only. Viz-data
+        only, baked literals reproducing the imp-35279/imp-35280 four-rung measurements verbatim;
+        no new derivation, no bound changed. The inverse swap is the dominant but not sole residual component at every
         rung; the fd-vs-analytic remnant is a non-vanishing ~0.002 closed-form/prefactor floor, not
         a transient artifact. Component model is the inherited imp-3220/imp-3406 extrapolation, NOT
         a rigorous asymptotic; E_flow &gt; 0 strictness (imp-33848) untouched; C_mb GUE-conditional

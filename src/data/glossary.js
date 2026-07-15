@@ -18839,6 +18839,43 @@ export const glossary = [
       'imp-35331 frac-window relocation is the same exit-edge movement located exactly here (imp-35331)',
     ],
   },
+  {
+    term: 'imp-35609 peak-location damping input-stability',
+    category: 'concept',
+    definition:
+      'A headword documenting the imp-35609 result that the imp-35574 interior sigma-peak ' +
+      'height-map damping factor (~0.553, < 1, an AMPLIFICATION rather than the crossover-style ' +
+      '~18x log-damping) is STABLE to the two fixed inputs the imp-35574 measurement never varied: ' +
+      'the peak-locator bisection bracket and the truncation floor E_trunc.\n\n' +
+      'BRACKET INVARIANCE: widening the peak-locator bracket from [1e4, 1e7] (the imp-35574 ' +
+      'baseline) through [1e3, 1e8], [1e2, 1e9] and [1, 1e10] leaves the damping factor EXACTLY ' +
+      'unchanged (0.5530 to all reported digits), because the interior peak is a genuine ' +
+      'stationary point -- any bracket containing it converges to the same N_max regardless of ' +
+      'width. The imp-35574 bracket was not a tuned choice.\n\n' +
+      'E_TRUNC SENSITIVITY: swapping the truncation floor E_trunc = 3.06e-5 -> 3.6e-5 (imp-2631/' +
+      'imp-447 baseline vs a sensitivity probe, NOT a re-anchoring) pulls the peak location earlier ' +
+      '(N_max 9.218633e5 -> 7.368509e5, both height maps) but moves the damping factor by only ' +
+      '~1.1 percent relative (0.5530 -> 0.5467, a -0.0063 absolute change), staying firmly below 1.\n\n' +
+      'HOW TO APPLY: cite this entry alongside [[imp-35594 peak-vs-crossover log-proportional ' +
+      'insulation mechanism]] whenever the ROBUSTNESS (not just the value) of the peak-location ' +
+      'amplification verdict is at issue -- neither the search-window choice nor the truncation-' +
+      'floor value is a lever that could flip the peak into the crossover-style log-damping regime, ' +
+      'so the ~32x gap between the two damping factors is itself input-stable.\n\n' +
+      'HONEST SCOPE: MEASUREMENT ONLY (frontier-direction, NOT rigorous) on the inherited ' +
+      'imp-3220/imp-3406 double-surrogate sigma(N); surrogate-vs-true fidelity (imp-35337a) stays ' +
+      'OPEN; C_C ansatz (imp-2642/imp-2643) and the baseline E_trunc = 3.06e-5 (imp-2631/imp-447) ' +
+      'are UNTOUCHED (the 3.6e-5 value is a probe only); C_mb GUE-conditional per imp-486 ' +
+      'UNTOUCHED; discharges nothing; changes no bound; no operator positivity; no RH verdict, ' +
+      'NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-30666 (glossary/Concepts headword for the imp-35609 peak-location damping input-stability result), 2026',
+    relatedTerms: [
+      'imp-35609 is the input-sensitivity module this headword documents (imp-35609)',
+      'imp-35574 supplies the ~0.553 peak-location damping factor probed for stability here (imp-35574)',
+      'imp-35594 derives the peak-vs-crossover insulation mechanism this stability result corroborates (imp-35594)',
+      'imp-35458 measures the ~18x crossover log-damping this entry contrasts against (imp-35458)',
+      'imp-35337 is the interior-peak locator whose bracket is varied here (imp-35337)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

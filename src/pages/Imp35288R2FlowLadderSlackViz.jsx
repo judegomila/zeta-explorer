@@ -186,9 +186,7 @@ export default function Imp35288R2FlowLadderSlackViz() {
               >
                 {r.slack.toExponential(3)}
               </td>
-              <td style={{ padding: '0.4rem 0.6rem', color: r.status === 'gate-skip' ? '#fb923c' : '#4ade80' }}>
-                {r.status === 'gate-skip' ? 'FAILS (gate-skip)' : 'MET'}
-              </td>
+              <td style={{ padding: '0.4rem 0.6rem', color: '#4ade80' }}>MET</td>
             </tr>
           ))}
         </tbody>

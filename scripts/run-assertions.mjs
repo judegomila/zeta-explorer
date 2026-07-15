@@ -215,6 +215,8 @@ const DATA_MODULES = [
   '/src/data/imp-35416-n2000-rk4-hermite-dense-crossvalidate-reference.js',
   // imp-35452: characterizes the imp-35416 DP45-specific endpoint-positivity knife-edge -- maps the step-endpoint signed gap of pair-1495 at N=2000 across integrator order (RK4, DP45) x grid (dt, dt/2, dt/4). Across the full 2x3 matrix the DP45 dt/2 cell is the ONLY one whose endpoint gap stays POSITIVE (min +1.775e-3 at step 2006); every other cell goes NEGATIVE. Refining DP45 dt->dt/2->dt/4 flips the endpoint sign NEG->POS->NEG, so the blindness is a single-grid RESONANCE, not an order-5 trend; at step 2007 DP45 lands +1.78e-3 above zero while RK4 first-crosses only -5.44e-5 below, so both dt/2 schemes straddle the boundary. MEASUREMENT ONLY, ladder stays N=1000, NO QED.
   '/src/data/imp-35452-n2000-endpoint-positivity-knife-edge-reference.js',
+  // imp-35455: SCOPES what a finer-grid endpoint confirmation would require to PROMOTE the imp-35412 N=2000 R2 rung (RUNGS[5]) from PROVISIONAL to certified -- enumerates four conditions: C1 grid convergence (imp-35350 tauC/16000 tie 1.1923626880e-3, needs a confirming tauC/32000 rung), C2 event-definition reconciliation (imp-35354 min-spacing vs signed-crossing gap ~1.31e-7), C3 conservative folded envelope max (imp-35412 one-sided-upper rule), C4 safety-margin predicate t_c_converged + Delta_grid + Delta_event + Delta_fp <= t_c_hi. Converged slack 7.637e-6 absorbs the 1.31e-7 event gap; MISSING is one dedicated verified run certifying Delta_grid. ASSESSMENT/SCOPING ONLY, ladder stays N=1000, NO QED.
+  '/src/data/imp-35455-r2-n2000-rung-certification-scope.js',
   // imp-35281: extends the imp-35238 real-ordinate three-factor invariant beta*g_min*(x_2-x_0)->1 to N=250,300,350,400 -- invariant stays pinned at 1 (|dev|<=1e-4, spread ~7.7e-5), bare-product band widens past the three-point 0.36-0.64; MEASUREMENT ONLY, I3/M2/M5 OPEN.
   '/src/data/imp-35281-real-ordinate-three-factor-invariant-larger-N.js',
   // imp-35282: ties the imp-35238 non-monotone span x_2-x_0 (2.83/1.88/2.25) to the RvM mean spacing 2pi/log(T/2pi) at the collapse height -- RvM is MONOTONE (2.18->1.77->1.54) but span/RvM stays non-monotone (1.30->1.07->1.46), so the band is a COLLAPSE-LOCATION effect not a mean-spacing effect; MEASUREMENT ONLY, M2/M5 OPEN.
@@ -6079,6 +6081,17 @@ const DATA_MODULES = [
   // 6 assertions. Measurement only; component model NOT rigorous; C_mb GUE-conditional per imp-486
   // untouched; imp-34791 barrier-lemma unchanged; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35418-far-tail-three-way-share-ladder-eflow-1e-9-landmark.js',
+  // imp-35456: MEASUREMENT -- computes the imp-35334 three-way E-component budget (E_coll GUE-conditional
+  // / E_flow fully-unconditional / E_trunc C_T-barrier-lemma, each /E(N)) at the height that actually
+  // BINDS Lambda<=0.2: the Platt-Trudgian verified zero height X ~ 3e12 (imp-2564/PT-floor anchor), via
+  // N = zeroCountAtHeight(3e12) ~ 1.236e13 (log10 N ~ 13.0921, T0 = 3e12). The C_T barrier-lemma E_trunc
+  // floor DOMINATES: shares E_trunc 0.981240 / E_coll 1.876e-2 / E_flow 1.364e-6, sum 1; E_trunc out-weighs
+  // E_coll by 52.3x and E_flow by ~7.2e5x. sigma at X ~ 3e12 is 1.876e-2, between the imp-33582 sigma<0.1
+  // (N ~ 3.2e11) and imp-34474 sigma<0.01 (N ~ 4.6e13) far-tail rungs -- E_trunc dominance is the state at
+  // the actually-binding height, not a far-tail artifact. Reuses imp-35418 parts() verbatim. 5 assertions.
+  // Measurement only; component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched; imp-34791
+  // barrier-lemma unchanged; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35456-en-component-budget-at-verified-height-3e12.js',
   // imp-34488: MEASUREMENT -- tabulates the conditionality-gap ratio L_pt/E(N) across three named
   // landmarks (imp-3444 crossover, imp-33582 sigma<0.1, imp-33620 sigma<0.01); the gap grows 1975x
   // -> 3559x -> 3915x but SATURATES toward the ceiling L_pt/E_trunc=3954.25, governed by 1-sigma.

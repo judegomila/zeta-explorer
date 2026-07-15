@@ -18581,6 +18581,40 @@ export const glossary = [
       'imp-35331 frac-window relocation is the same exit-edge movement seen here in the direct census (imp-35331)',
     ],
   },
+  {
+    term: 'imp-35559 in-repo verified-zeros DATA ceiling: ~6.70 decades below T_PT, ~21-31 below the R1t band',
+    category: 'concept',
+    definition:
+      'A headword recording the imp-35559 tabulation of the exact per-endpoint decade gaps between the imp-' +
+      '35537 R1t reentry band [10^27.084691, 10^37.167107] and TWO distinct verified-height ceilings, showing ' +
+      'the two ceilings themselves sit far apart. The Platt-Trudgian COMPLETE-verification height T_PT = 3e12 ' +
+      '(log10 ~ 12.4771, binds Lambda <= 0.2) reproduces the imp-35537/imp-35243 D2 ~14.6-24.7 decade prose ' +
+      'exactly (reentry ~14.61, exit ~24.69). But the ACTUAL in-repo verified-zeros DATA ceiling -- the ' +
+      'src/data/zeros-to-1e6.js Odlyzko bundle, whose highest ordinate is the millionth zero gamma ~ ' +
+      '600269.677012445 (log10 ~ 5.7783) -- sits a further ~6.70 decades BELOW T_PT, since certified height and ' +
+      'bundled ordinate data are two different ceilings and only the smaller one is anything this repo can ' +
+      'compute against. Measured from that data ceiling the gaps WIDEN to ~21.31 (reentry) and ~31.39 (exit) ' +
+      'decades. Even the highest height at which any zero has EVER been verified anywhere (Odlyzko\'s external ' +
+      'spot-checks near 10^22, imp-1323 -- not in-repo data) still falls ~5.08 decades short of the reentry ' +
+      'edge.\n\n' +
+      'HOW TO APPLY: cite this entry whenever a route-(ii) data-anchored fidelity check for the reentry band is ' +
+      'proposed against "the verified frontier" -- distinguish which ceiling is meant. T_PT bounds what is ' +
+      'CERTIFIED; the in-repo bundle bounds what this codebase can actually READ AND COMPUTE against; the ' +
+      'former is always closer to the band than the latter, so a claim of near-reachability must be checked ' +
+      'against the smaller, data-bearing ceiling, not the larger, certification-only one.\n\n' +
+      'HONEST SCOPE: measurement/assessment only; discharges nothing; changes no bound; establishes no operator ' +
+      'positivity; the reentry band is a diagnostic of a surrogate iterate-COUNT, not a Lambda lever, so even a ' +
+      'perfect R1t closure would move no bound (imp-35537 Part D); C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), ' +
+      'E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35605 (glossary/Concepts headword for the imp-35559 in-repo data-ceiling decade-gap quantification), 2026',
+    relatedTerms: [
+      'imp-35559 is the quantification module this headword documents (imp-35559)',
+      'imp-35537 stated the ~14.6-24.7 decade prose figure this module reproduces against T_PT (imp-35537)',
+      'imp-35243 D2 is the original band-vs-verified-height assessment (imp-35243)',
+      'imp-1323 supplies both the Platt-Trudgian T_PT = 3e12 ceiling and the Odlyzko ~10^22 spot-check context (imp-1323)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

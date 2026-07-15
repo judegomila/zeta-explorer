@@ -19477,6 +19477,39 @@ export const glossary = [
       'imp-2563 supplies the gap ODE and Gronwall lower branch that C1 uses as-is (imp-2563)',
     ],
   },
+  {
+    term: 'imp-35332 Reentry-Band Drift-Integral Self-Consistency (Band Width = Drift Integral)',
+    category: 'numerical',
+    definition:
+      'A headword isolating the imp-35332 self-consistency identity that the reentry band width is set by ' +
+      'the INTEGRAL of the ceil-phase drift over the band, not by a single edge drift value.\n\n' +
+      'imp-35332 analytically derived DRIFT(N) = ln(10).K.(L-1)/L / (LN_INV_R.(K log T0 - N_cross)) and showed ' +
+      'it decreases monotonically across the band [10^27.08, 10^37.17], from ~0.0186273 at the reentry to ' +
+      '~0.0118306 at the exit (factor ~1.574). Dividing the fixed off-by-one window width OFFSET ~ 0.148408 ' +
+      'by the reentry-edge drift value alone predicts a band ~7.97 decades wide -- narrower than the actual ' +
+      '~10.08-decade band, because that estimate ignores the slowdown.\n\n' +
+      'The exact relation instead integrates the (non-constant) drift across the band: integral of DRIFT(N) ' +
+      'd(log10 N) over [reentry, exit] = xArg(exit) - xArg(reentry) = OFFSET, reproduced numerically to ~1e-6. ' +
+      'So the ~10.08-decade band width is exactly self-consistent with a DECREASING drift once the drift is ' +
+      'integrated rather than treated as the single constant 0.0187 -- the integral form, not the edge value, ' +
+      'is what determines the width.\n\n' +
+      'HOW TO APPLY: when a phase-drift-triggered band width is quoted alongside a single drift-per-decade ' +
+      'figure, check whether that figure is a band-wide constant or an edge value; if the drift is N-dependent, ' +
+      'only the drift integral over the band reproduces the true width, and the edge-value quotient is merely ' +
+      'an approximation (here an underestimate, since the drift slows with N).\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-35332 self-consistency check verbatim, not a new ' +
+      'derivation or bound; measurement/derivation only on the inherited imp-3220/imp-3406 surrogate; the ' +
+      'surrogate-fidelity sub-gap imp-35243a (and parents imp-35111a/imp-35174a/imp-34997a) stay OPEN; C_C = ' +
+      '(1/8)sqrt(3pi) (imp-2642) and C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes ' +
+      'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35332 (analytic derivation of the ceil-phase drift and the band-width drift-integral self-consistency), 2026',
+    relatedTerms: [
+      'imp-34997 Finite Ceil-Phase Gap vs Asymptotic Extinction: the parent headword this self-consistency sharpens (imp-34997)',
+      'imp-35109 certified the 0.0187 edge drift and the 10^27.08 reentry in double-double arithmetic (imp-35109)',
+      'imp-35111 established the ~10.08-decade band width (reentry 10^27.08 to exit 10^37.17) this integral reproduces (imp-35111)',
+      'imp-35243 baked the single DRIFT_PER_DECADE=0.0187 constant this headword shows is an edge value, not a band-constant (imp-35243)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

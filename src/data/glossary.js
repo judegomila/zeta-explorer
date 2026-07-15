@@ -17542,6 +17542,36 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this sweep (imp-486)',
     ],
   },
+  {
+    term: 'imp-35357 R1s-vs-R1t split: the reentry-band pure-artifact requirement R1 splits into a near-provable SURROGATE half (R1s) and an OPEN true-dynamic half (R1t)',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35357 sharpening of the imp-35330 CLAIM 1 honesty qualifier, which conflated ' +
+      'two distinct claims under the single label "R1-as-pure-artifact". R1s (SURROGATE): the imp-3220/imp-3406 ' +
+      'surrogate reentry band vanishes as ITS OWN machine-epsilon floor EPS_FP -> 0 -- ESSENTIALLY PROVABLE, ' +
+      'because (i) the floor-free continuum count-to-exact-convergence is the constant +infinity function (no ' +
+      'terminal integer, no ceil, no band), (ii) the band indicator at any fixed finite seed is eventually and ' +
+      'permanently 0 as EPS_FP -> 0 (a pointwise identically-zero limit, not merely sub-EPS_FP), and (iii) the ' +
+      'floor-sensitivity d xArg / d log(EPS_FP) = -1/ln(1/r) is an EXACT identity. R1t (TRUE DYNAMIC): the TRUE ' +
+      'collapse dynamic has no such band at ~10^27-10^37 -- this is what fidelity actually needs, and it stays ' +
+      'OPEN because it is entangled with the still-unresolved R2 (single-rate fidelity) and R3 (height-map ' +
+      'fidelity), neither of which yet supplies a certified true-dynamic model.\n\n' +
+      'HOW TO APPLY: floor-SENSITIVITY (imp-35243 D1) is NECESSARY but NOT SUFFICIENT for zero-RESIDUE -- a ' +
+      'feature can depend on EPS_FP via an exact identity and still leave a nonzero continuum limit; R1s closes ' +
+      'the sensitivity-to-residue gap for the surrogate only. Consequently imp-35330 CLAIM 1 upgrades from ' +
+      '"conditional on an unproven pure-artifact hypothesis" to "unconditional against the SURROGATE (via R1s), ' +
+      'conditional against the TRUE dynamic (via R1t, through R2/R3)".\n\n' +
+      'HONEST SCOPE: this SHARPENS but does not DISCHARGE R1 -- R1t remains the binding obstruction. Discharges ' +
+      'nothing: R1t / imp-35111a / imp-35174a / imp-34997a / imp-35243a stay OPEN; C_mb GUE-conditional per ' +
+      'imp-486 UNTOUCHED; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35421 (glossary headword recording the imp-35357 R1s-vs-R1t split), 2026',
+    relatedTerms: [
+      'imp-35330 CLAIM 1 (R1-unmet => R4 vacuous) whose honesty qualifier this split sharpens (imp-35330)',
+      'imp-35243 D1 floor-sensitivity, necessary but not sufficient for the zero-residue step this split isolates (imp-35243)',
+      'imp-35364 the R1->R2R3R4 dependency-DAG companion, a coarser framing than this finer R1s/R1t split (imp-35364)',
+      'imp-34862 the two-rate law bearing on R2, hence on R1t (imp-34862)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

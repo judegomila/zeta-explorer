@@ -8678,6 +8678,18 @@ const DATA_MODULES = [
   // imp-3220/imp-3406 surrogate; C_C ansatz and E_trunc = 3.06e-5 UNTOUCHED; surrogate-vs-true fidelity
   // (imp-35337a) OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35557-cubic-skew-height-map-sensitivity.js',
+  // imp-35615: extends the imp-35557 interior sigma-peak cubic-skew height-map measurement from the +/- 2
+  // percent RvM x {1.02, 0.98} pair to the imp-35536/imp-35555 +/- 5 percent bracket arms (RvM x {1.05,
+  // 0.95}), completing the four-arm bracketing envelope. Reuses the imp-35557 component model VERBATIM
+  // (E_coll = C_C sqrt(log T0/N), E_flow Gronwall, E_trunc = 3.06e-5); only the height multiplier changes.
+  // Finding: c3 stays at ~ -2.6e-4 on both new arms (x1.05 -2.565164e-4, x0.95 -2.686436e-4), the full
+  // four-arm envelope spans only ~4.62 percent of |c3| (A_skew ~5.72 percent), c3 stays NEGATIVE on every
+  // arm, and the +/- 5 percent log-response slope d ln|c3|/d ln(mult) ~ -0.4615 is essentially IDENTICAL to
+  // the imp-35557 +/- 2 percent slope ~ -0.4616 (drift ~2e-4) -- the skew stays LOG-LINEARLY robust, it does
+  // NOT steepen. Eight self-executing assertions. Measurement only on the inherited imp-3220/imp-3406
+  // surrogate; C_C ansatz and E_trunc = 3.06e-5 UNTOUCHED; surrogate-vs-true fidelity (imp-35337a) OPEN;
+  // C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35615-cubic-skew-height-map-5pct-arms.js',
   // imp-35317: derives Banach-fixed-point CLOSED FORMS for the imp-35210 L2 (E_flow share < 1% of the
   // above-floor residual E_coll + E_flow, ~3.246862e7) and L4 (share < 0.1%, ~1.754552e10) landmarks,
   // which imp-35154 M2/M3 located by downslope bisection only -- mirroring the imp-35153 (L1) and

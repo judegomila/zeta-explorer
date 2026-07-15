@@ -99,6 +99,26 @@ export default function Imp35561PeakHeightMapSensitivityViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
+          background: 'rgba(56,189,248,0.06)',
+          borderLeft: '3px solid #38bdf8',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+        }}
+      >
+        <strong style={{ color: '#38bdf8' }}>Not a symmetric extremum (imp-35451 / imp-35557):</strong>{' '}
+        the robust-sigma_max / one-sig-fig-N_max framing above should not be read as a clean,
+        symmetric peak. A negative cubic coefficient c3 &asymp; -2.62e-4 (imp-35451) makes the
+        rising arm wider than the falling arm, and imp-35557 shows this skew INHERITS the same
+        height-map robustness as sigma_max itself: under the RvM &times; {'{'}1.02, 0.98{'}'}
+        {' '}pair, c3 stays negative to within ~0.9 percent per arm and the arm-imbalance slope
+        A_skew stays near 11.0.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
           background: 'rgba(148,163,184,0.04)',
           borderLeft: '3px solid #334155',
           borderRadius: '0 4px 4px 0',

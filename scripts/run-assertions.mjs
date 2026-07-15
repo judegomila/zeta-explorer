@@ -8645,6 +8645,19 @@ const DATA_MODULES = [
   // self-executing assertions. Measurement only on the inherited imp-3220/imp-3406 surrogate; C_mb
   // GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35497-fartail-crossing-height-map-sensitivity.js',
+  // imp-35555: extends the imp-35458 two-map E_coll = E_trunc floor-crossover height-map study (RvM
+  // inverse vs closed surrogate, -0.98 percent shift) to a THIRD map -- the imp-35536 multiplicative
+  // bracketing family RvM x {1.02, 0.98, 1.05, 0.95} -- and measures the crossover-N spread. FINDING:
+  // the +/- 2-5 percent family moves the crossover by at most ~0.26 percent (RvM x 0.95), a two-sided
+  // envelope of only ~0.50 percent, ALL inside the recorded -0.98 percent two-map shift; the response is
+  // linear in ln(mult) with slope ~0.0502 (constant across all four arms), a hair above 1/log T0(N_cross)
+  // ~0.0479 -- the same log-damping law imp-35458 found. VERDICT: ~1 percent is NOT an under-estimate but
+  // the fuller envelope (the closed surrogate is effectively a ~-18 percent raw-height perturbation while
+  // this family is only +/- 2-5 percent); the floor-crossover landmark is ROBUST across THREE map
+  // constructions. Four self-executing assertions. Measurement only on the inherited imp-3220/imp-3406
+  // surrogate; C_C ansatz and E_trunc = 3.06e-5 UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED;
+  // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35555-crossover-bracketing-family-sensitivity.js',
   // imp-35317: derives Banach-fixed-point CLOSED FORMS for the imp-35210 L2 (E_flow share < 1% of the
   // above-floor residual E_coll + E_flow, ~3.246862e7) and L4 (share < 0.1%, ~1.754552e10) landmarks,
   // which imp-35154 M2/M3 located by downslope bisection only -- mirroring the imp-35153 (L1) and

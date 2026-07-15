@@ -62,12 +62,15 @@ export const IMP35622_PEAK_CROSSOVER_DAMPING_HEADWORD_ALREADY_SATISFIED_AUDIT = 
   verdict:
     'AUDIT ONLY (not rigorous, not a measurement of a mathematical quantity). imp-35622 ' +
     'duplicates work already completed by imp-35592; no further glossary edit needed. ' +
-    'Changes no bound; establishes no operator positivity; no RH verdict; NO QED. ' +
+    'The audited ~0.553 peak-location amplification factor rests on the inherited ' +
+    'imp-3220/imp-3406 double-surrogate sigma(N); surrogate-vs-true fidelity (imp-35337a) ' +
+    'stays OPEN. Changes no bound; establishes no operator positivity; no RH verdict; NO QED. ' +
     'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
   citation:
     'imp-35574 (the peak-location-vs-crossover damping measurement); imp-35458 (the ~18x ' +
     'crossover log-damping baseline); imp-35592 (git commit that already added the ' +
-    'requested headword); imp-486 (C_mb GUE-conditional caveat, UNTOUCHED).',
+    'requested headword); imp-35337a (surrogate-vs-true fidelity sub-gap, UNTOUCHED, ' +
+    'inherited by the audited ~0.553 factor); imp-486 (C_mb GUE-conditional caveat, UNTOUCHED).',
 };
 
 export const IMP35622_PEAK_CROSSOVER_DAMPING_HEADWORD_ALREADY_SATISFIED_AUDIT_ASSERTIONS = [
@@ -108,6 +111,15 @@ export const IMP35622_PEAK_CROSSOVER_DAMPING_HEADWORD_ALREADY_SATISFIED_AUDIT_AS
       /remains SOTA/.test(
         IMP35622_PEAK_CROSSOVER_DAMPING_HEADWORD_ALREADY_SATISFIED_AUDIT.verdict
       ),
+  },
+  {
+    id: 'imp35622-surrogate-fidelity-caveat-present',
+    description:
+      'the audited ~0.553 peak-amplification factor carries the imp-35337a surrogate-vs-true ' +
+      'fidelity OPEN caveat in both the verdict and citation',
+    holds: () =>
+      /imp-35337a/.test(IMP35622_PEAK_CROSSOVER_DAMPING_HEADWORD_ALREADY_SATISFIED_AUDIT.verdict) &&
+      /imp-35337a/.test(IMP35622_PEAK_CROSSOVER_DAMPING_HEADWORD_ALREADY_SATISFIED_AUDIT.citation),
   },
 ];
 

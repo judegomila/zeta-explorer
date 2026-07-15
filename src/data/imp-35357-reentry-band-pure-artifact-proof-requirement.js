@@ -95,6 +95,8 @@
  * no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
  * @see imp-35330-reentry-band-fidelity-requirement-dependency (CLAIM 1 + the honesty qualifier this sharpens)
+ * @see imp-35356-r1-candidate-routes-assessment (enumerates the three R1 routes; this module formalizes route (ii),
+ *      the pure-artifact proof -- together the two form the route-list + formal-requirement treatment of R1)
  * @see imp-35243-reentry-band-surrogate-fidelity-assessment (D1 floor-sensitivity; enumerates R1-R4)
  * @see imp-35263-reentry-band-eps-floor-sweep (D1 ~11.99-decade figure is the reentry-edge local rate; grows to ~18.95 at exit)
  * @see imp-35332-reentry-band-drift-analytic-derivation (DRIFT_PER_DECADE is NOT band-wide constant: 0.0186 -> 0.0118)

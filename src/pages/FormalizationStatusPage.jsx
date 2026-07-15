@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { FORMALIZATION_STATUS } from '../data/formalization-status-2026-07-09.js';
 
-const { meta, proved, stubbed, mathlibGap } = FORMALIZATION_STATUS;
+const { meta, proved, realRootedShadow, stubbed, mathlibGap } = FORMALIZATION_STATUS;
 
 export default function FormalizationStatusPage() {
   return (
@@ -41,6 +41,14 @@ export default function FormalizationStatusPage() {
           </div>
         ))}
       </div>
+
+      {realRootedShadow && (
+        <div style={{ border: '1px solid #10b98155', background: 'rgba(16,185,129,0.06)', borderRadius: 8, padding: '12px 16px', margin: '14px 0', maxWidth: 840 }}>
+          <div style={{ fontSize: 12, fontFamily: 'ui-monospace, monospace', color: '#10b981', marginBottom: 4 }}>2026-07-14 advance — RealRooted.lean (commit 91763a02)</div>
+          <p style={{ margin: 0, color: '#e2e8f0', fontSize: 13.5, lineHeight: 1.6 }}>{realRootedShadow.proved}</p>
+          <p style={{ margin: '6px 0 0', color: '#94a3b8', fontSize: 12.5, lineHeight: 1.55 }}>{realRootedShadow.significance}</p>
+        </div>
+      )}
 
       <h2>○ Stated but not proved (honest <code>sorry</code>-stubs)</h2>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>

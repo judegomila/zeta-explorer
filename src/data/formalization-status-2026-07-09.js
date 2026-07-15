@@ -33,9 +33,21 @@ export const PROVED_LEMMAS = [
 ];
 
 // Honest `sorry`-stubs — stated but NOT proved; each names the missing ingredient.
+// 2026-07-14 UPDATE (RealRooted.lean, commit 91763a02): the finite-dimensional
+// ALGEBRAIC SHADOW of the Laguerre–Pólya class is now fully proved sorry-free in
+// plain Lean 4 core (#print axioms → propext only, no sorryAx). These port
+// verbatim to ℝ / any integral domain once mathlib is available:
+//   evalFactors_eq_zero_iff, Poly.eval_eq_zero_iff, evalFactors_append,
+//   Poly.eval_mul, isRealRooted_mul (2-factor closure), Poly.mul_isRealRooted,
+//   isRealRooted_prod (finite n-ary product closure).
+export const REALROOTED_SHADOW = {
+  proved: 'Real-rooted class closed under finite products (isRealRooted_prod), the algebraic shadow of "LP is closed under products". 7 lemmas, sorry-free (propext only).',
+  significance: 'This is the finite-dimensional core of heat_preserves_LP; the remaining distance is exactly the infinite-dimensional entire-function theory (Hadamard/Hermite–Poulain) absent from this toolchain.',
+};
+
 export const STUBBED_THEOREMS = [
   { name: 'exists_dbn_constant', statement: '∃ Λ, IsDBNConstant Λ', needs: 'de Bruijn monotonicity + Newman growth/lower bounds + an infimum (sInf/IsGLB over ℝ completeness).' },
-  { name: 'deBruijn_monotone', statement: 'HasOnlyRealZeros t → t ≤ s → HasOnlyRealZeros s', needs: 'Laguerre–Pólya class, Hermite–Biehler / Pólya–Schur real-rootedness preservation, entire-function order/genus, Hadamard factorization of Ξ. (de Bruijn 1950 — already a substantial multi-file project.)' },
+  { name: 'deBruijn_monotone', statement: 'HasOnlyRealZeros t → t ≤ s → HasOnlyRealZeros s', needs: 'NO LONGER a bare sorry (91763a02): it is now a real proof term = (realZeros_iff_LP s).mpr (heat_preserves_LP … hle), reduced to two sourced sub-stubs — realZeros_iff_LP (needs Hadamard factorization / LP class; shadow: Poly.eval_eq_zero_iff, proved) and heat_preserves_LP (needs Hermite–Poulain multiplier theory; shadow: isRealRooted_prod, proved).' },
   { name: 'rodgers_tao', statement: 'IsDBNConstant Λ → 0 ≤ Λ', needs: 'the full Rodgers–Tao (2020) zero-dynamics + pair-correlation argument. Far beyond current formalization reach.' },
 ];
 
@@ -48,6 +60,7 @@ export const MATHLIB_GAP = {
 export const FORMALIZATION_STATUS = {
   meta: FORMALIZATION_META,
   proved: PROVED_LEMMAS,
+  realRootedShadow: REALROOTED_SHADOW,
   stubbed: STUBBED_THEOREMS,
   mathlibGap: MATHLIB_GAP,
 };

@@ -9608,6 +9608,19 @@ const DATA_MODULES = [
   // self-executing assertions. Measurement only; derives nothing; discharges
   // nothing; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35724-collision-scale-landmark-prefactor-propagation.js',
+  // imp-35726: COST the sign reconciliation between the repo held negative-time
+  // heat-flow proxy (de Bruijn t = -4 tau_repo) and the positive-time Polymath15
+  // barrier before it can seed W1. Continues imp-35717 (which enumerated R1-R4) by
+  // costing the two candidate routes to positive t: Route (a) analytic continuation /
+  // Gaussian deconvolution = inverse heat operator with UNBOUNDED exp(+(dt)u^2)
+  // amplification (ill-posed, rejected), Route (b) forward-evolution certificate is
+  // well-posed but a fresh uniform-in-x no-lift-off certificate at T_PT ~ cost of the
+  // direct barrier. REPO-INFRA INVENTORY: the Gaussian-convolution proxy (heatEvolvedXi)
+  // is one-sided (de Bruijn t <= 0 only) and the exact evaluator (imp-34813 offline) is
+  // height-capped at x ~< 104, so NEITHER supports either route at T_PT. VERDICT: seeding
+  // W1 from the proxy is NET-NEGATIVE vs building the positive-t A+B-C directly. Four
+  // self-executing assertions. Assessment only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35726-w1-sign-reconciliation-cost-scope.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -235,6 +235,8 @@ const DATA_MODULES = [
   '/src/data/imp-35375-k112-cusp-tail-closed-form.js',
   // imp-35299: SPLITS the imp-35244 K_{7/2} = -8 sqrt(2)/(3 pi) into its two named source tails, measured separately on the imp-35240 compensated quadrature -- numerator |F_2| tail -6/7 -> -8/(7 A_1) = -0.514466, curvature |F_3|-A_2/4 tail +6/7 -> -16/(7 A_2) = -0.685955; sum reconstructs the grid K_{7/2} (imp-35261 verified only the SUM).
   '/src/data/imp-35299-k72-two-source-decomposition.js',
+  // imp-35394: DERIVES the imp-35299 numerator |F_2| (m-prime, even-p B_2) tail as an EXACT rational identity (t^2-i)^{-2}+(t^2+i)^{-2}=2(t^4-1)/(t^4+1)^2=2 t^{-4}-6 t^{-8}+10 t^{-12}+O(t^{-16}); leading 2 t^{-4} SURVIVES (even-p SUM, CONTRAST imp-35265 odd-p cancellation) giving the (2/3) eps^{3/2} head, subleading -6 t^{-8} -> -(6/7) eps^{7/2} tail maps to -8/(7 A_1)=-0.514466, matching the imp-35299 grid numerator contribution.
+  '/src/data/imp-35394-f2-numerator-tail-exact-identity.js',
   // imp-35306: AUDIT -- imp-35240 K = 8 sqrt(2)/(9 pi) and imp-35244 K_{7/2} = -8 sqrt(2)/(3 pi) are EXECUTED build assertions (recomputed from quadrature), not merely documented; wires a light gate enforcing the documented tolerances (~3e-7 for K, 4 sig figs for K_{7/2}), tighter than the producer 1e-5 / 5e-3.
   '/src/data/imp-35306-rho-prefactor-assertion-execution-audit.js',
   // imp-35258: dd re-measurement of the imp-34714 certificate residual F(m) -- F(m)=0 is a double artifact, F_dd genuinely nonzero (~1 ulp), imp-34714a still OPEN.
@@ -8251,6 +8253,19 @@ const DATA_MODULES = [
   // surrogate, conditional against the true dynamic. Five self-executing assertions. Assessment only; discharges
   // nothing; imp-35111a/imp-35174a/imp-35243a stay OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35357-reentry-band-pure-artifact-proof-requirement.js',
+  // imp-35393: TABULATES the imp-35263 FAITHFUL co-moving-window reentry-band WIDTH as a direct function of the
+  // machine-epsilon floor EPS_FP. imp-35263 D4 showed the co-moving reentry edge is EXACTLY EPS_FP-invariant (spread
+  // ~1e-13), so ALL floor sensitivity is carried by the exit edge and hence the WIDTH -- but it tabulated the EDGE
+  // positions only, never the width. This module measures the co-moving width (exit decade minus co-moving reentry
+  // decade) across EPS_FP = 2.3e-16 * 2^k for k in {-1,0,1,2} with the imp-35259 root-finder. Findings: (1) the
+  // co-moving reentry edge is EPS_FP-invariant at 10^27.08469, so WIDTH_k = exit_exp_k - 27.08469; (2) the width is
+  // monotone-increasing in EPS_FP (-3.632 -> 10.082 -> 37.334 -> 91.613 decades over k = -1 to 2), CLOSED (negative)
+  // below the base floor and crossing zero between k=-1 and k=0; (3) the width grows super-linearly -- the per-
+  // factor-2 increments 13.714 -> 27.252 -> 54.278 decades roughly DOUBLE each octave (ratios ~1.99), equal to the
+  // exit-edge slide (reentry fixed) and accelerating because the drift decays with N (imp-35332). Self-executing
+  // module (five assertions). Measurement only on the inherited imp-3220/imp-3406 surrogate; the C_C ansatz
+  // (imp-2642) UNTOUCHED; imp-35243a / imp-35111a / imp-35174a stay OPEN; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35393-comoving-band-width-eps-floor.js',
 ];
 
 let ALL_MODULES = FAST_MODE

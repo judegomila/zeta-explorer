@@ -9637,6 +9637,21 @@ const DATA_MODULES = [
   // I5 continuous corner composition. Five self-executing assertions. Assessment only;
   // ports nothing; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35727-w2-certified-winding-count-ingredients-scope.js',
+  // imp-35728: QUANTIFY the necessary-not-sufficient gap between the EXTERNAL
+  // Platt-Trudgian certificate N_off(T_PT) = 0 (verified to T_PT = 3e12) and the
+  // imp-35681/imp-35676 W4 mechanical zero-substitution (off-line contribution
+  // above T_PT read as EXACTLY ZERO). imp-35676 established the gating qualitatively;
+  // this splits W4's obligation into a CLEAN PARTITION at T_PT: R_below = [0, T_PT]
+  // (finite base case, discharged 100% by the external count -- the load-bearing
+  // initial condition that anchors any barrier continuation) and R_above = (T_PT,
+  // infinity) (infinite tail, discharged 0% by the count: measure-zero at every cut,
+  // the W3-gated residual needing the non-finite |A+B|>|C| lemma). The count is
+  // NECESSARY (drop => R_above unanchored) and NOT SUFFICIENT (drop W3 => R_above
+  // uncertified); the two are COMPLEMENTARY. Sharpens imp-35676 Part E: the count
+  // supplies exactly one of W4's two license pieces (the base-case license), the gate
+  // is the tail license. Five self-executing assertions. Assessment only; ports
+  // nothing; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35728-w4-external-count-vs-w3-gated-residual-quantify.js',
 ];
 
 let ALL_MODULES = FAST_MODE

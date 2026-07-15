@@ -834,6 +834,9 @@ const Imp35506EndpointPositivityMapViz = lazy(() =>
 const Imp35541SchemeIndependenceViz = lazy(() =>
   import('./pages/Imp35541SchemeIndependenceViz.jsx')
 );
+const Imp35544SigmaThreeInputDecompositionViz = lazy(() =>
+  import('./pages/Imp35544SigmaThreeInputDecompositionViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2357,6 +2360,10 @@ function AppShell() {
           <Route
             path="/viz-imp35541-scheme-independence"
             element={<Imp35541SchemeIndependenceViz />}
+          />
+          <Route
+            path="/viz-imp35544-sigma-three-input-decomposition"
+            element={<Imp35544SigmaThreeInputDecompositionViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

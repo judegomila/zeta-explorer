@@ -1238,6 +1238,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive bar chart baking the imp-35477 scheme-independence literals verbatim (no new computation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; does NOT advance the R2 ladder past N=1000 (imp-35221/imp-35324/imp-35412); does NOT change the imp-35412 slack denominator; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35544-sigma-three-input-decomposition',
+      title: 'Sigma(N) Three-Input Decomposition: E_trunc / E_flow / E_coll Shares vs N',
+      oneLine:
+        'Three-line chart of the imp-35475 sigma(N) = E_coll/E(N) share decomposition vs log10(N), showing the E_coll share (sigma) rise to a flat interior peak (~0.94943 near N ~ 9.2186e5), the monotonically falling E_flow share, and the monotonically rising E_trunc share crossing sigma near the E_coll = E_trunc landmark (N ~ 3.280294e9).',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35544-sigma-three-input-decomposition-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-35475-sigma-fidelity-closure-scope.js (imp-35544 viz page)',
+      ticket: 'imp-35544',
+      pedagogicalStep: 84,
+      honestCeiling:
+        'Descriptive three-line share chart baking offline-reproduced imp-35475 surrogate-formula literals (no fresh computation at load, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; the imp-35337a surrogate-vs-true fidelity sub-gap REMAINS OPEN; the E_coll share is GUE-conditional and inherits imp-486; C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and E_trunc = 3.06e-5 (imp-2631) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

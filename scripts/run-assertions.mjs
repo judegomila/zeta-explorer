@@ -8869,6 +8869,14 @@ const DATA_MODULES = [
   // reentry band is a diagnostic iterate-COUNT not a Lambda lever; imp-35243a stays OPEN; C_mb GUE-conditional
   // per imp-486 UNTOUCHED; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35559-r1t-reentry-band-decade-gap-assertion.js',
+  // imp-35602: REGRESSION-GUARD pinning the imp-35573 BS3 dt/4 endpoint-positivity cell
+  // (endpointPositive=false, step 4014, cross_index 1495, g_curr=-4.254687e-6 to ~1e-6 tol,
+  // t_c=1.1923274308e-3) and the completed 3x3 (DP45/RK4/BS3 x dt, dt/2, dt/4) invariant that
+  // exactly ONE cell -- DP45 dt/2 -- is endpoint-positive, assembled from the imp-35452/imp-35477/
+  // imp-35573 reference modules (none pulls the 16.7MB zeros bundle). Measurement pinning only;
+  // keeps the endpoint DP45 dt/2 worst-case (imp-35412); changes no bound; C_mb GUE-conditional per
+  // imp-486 UNTOUCHED; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35602-bs3-dt4-3x3-endpoint-positivity-assertions.js',
 ];
 
 let ALL_MODULES = FAST_MODE

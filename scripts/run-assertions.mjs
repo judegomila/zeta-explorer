@@ -8879,6 +8879,19 @@ const DATA_MODULES = [
   // the OPEN imp-35337a. SCOPING ONLY; derives no remainder; C_mb GUE-conditional per imp-486 UNTOUCHED;
   // changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35538-route-i-remainder-derivation-requirements.js',
+  // imp-35718: EXPANDS imp-35538 REQ-1 (the "effective C_H=1/8 provenance" definitional prerequisite) into its own
+  // requirements inventory -- the five analytic inputs an effective derivation expressing E_coll_true as a
+  // pair-correlation / near-minimal-spacing functional with leading term C_C = (1/8) sqrt(3 pi) consumes: (1a) a
+  // functional DEFINITION of E_coll_true as E[min gap] over M=M(N) spacings; (1b) the GUE small-gap density
+  // p(s) ~ (pi^2/3) s^2; (1c) the smallest-gap scaling s_min ~ M^{-1/3} (Ben Arous-Bourgade 2013); (1d) a
+  // constant-pinning step making (1/8) sqrt(3 pi) EMERGE; (1e) the RvM height map to sqrt(log T0/N). The repo
+  // SUPPLIES three (1b,1c,1e) but lacks the two load-bearing ones: 1a is ENTIRELY ABSENT (E_coll stored as the
+  // ansatz value, never as a functional) and 1d is only a NEGATIVE (repo-reachable curvature pi^2/3 overshoots
+  // C_C by ~8.573x; cube-root prefactor by ~2.047x). The ansatz 1/8 is the tangency-ODE coefficient (imp-2690),
+  // NOT a pair-correlation amplitude, and the two provenances are UN-BRIDGED -- so REQ-1 is NOT partially
+  // discharged and remains the definitional floor beneath the imp-35538 REQ-2 crux. SCOPING ONLY; derives no
+  // remainder; changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35718-req1-effective-ch-provenance-scope.js',
   // imp-35551: RANKS the five imp-35538 route-(i) finite-N remainder derivation requirements (REQ 1 effective
   // C_H=1/8 provenance, REQ 2 explicit-rate GUE local law, REQ 3 restricted->full Fourier support, REQ 4 height
   // regime, REQ 5 conditionality) by reachability / bottleneck severity: REQ 2 > REQ 4 > REQ 3 > REQ 1 > REQ 5.

@@ -9221,6 +9221,24 @@ const DATA_MODULES = [
   // E_trunc reclassification UNCHANGED; imp-35337a stays OPEN; NO QED; Platt-Trudgian
   // Lambda<=0.2 remains SOTA.
   '/src/data/imp-35686-postport-share-literal-guard.js',
+  // imp-35660: REGRESSION-GUARD pinning the imp-35577 far-tail-crossing HEIGHT-MAP sensitivity
+  // literals so a silent literal drift trips the build (the sibling of the imp-35619 span-growth
+  // guard, which the imp-35577 cohort lacked). imp-35577 measured both E_flow far-tail remnant
+  // threshold-crossings under a height-map swap and baked the two decade shifts (sub-1e-3 +15.31,
+  // sub-1e-4 +46.84), the RvM-inverse vs surrogate crossing log10 N (25.6205 -> 40.9350,
+  // 109.1892 -> 156.0294), the remnant inflation ratios (2.1311x, 1.8740x) and the height
+  // divergence (+9.238 percent, +2.654 percent) -- but had no dedicated standalone recompute guard.
+  // This import-light module INDEPENDENTLY recomputes those literals via the imp-35577 inlined-Newton
+  // channel (byte-faithful |analytic - fd| remnant, inlined pure-Math RvM inverse effectiveHeightForN,
+  // closed surrogate 2 pi N/log N, h = 1.0002 central difference, no height-map import, no zeros
+  // bundle) and asserts each shift / crossing / inflation / divergence to storage precision (~1e-6)
+  // per the recurring 7-sig-fig cache tolerance trap, cross-checking the imp-35577 baked crossings
+  // record reproduces. Seven self-executing assertions. Import-light (imports only the import-light
+  // imp-35577 record, no zeros bundle, per [[no_heavy_imports_in_pages]] / [[verify_heavy_assertion_modules]]).
+  // Regression-guard only; recomputes established measurement figures; changes no bound; E_coll far-tail
+  // exponent 1/2 per imp-3463; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional per
+  // imp-486 UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35660-fartail-crossings-height-map-sensitivity-guard.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -89,6 +89,18 @@
  * @see imp-34997-iters-to-floor-tail-grid-refinement (locates the 10^27.08 reentry; sub-gap imp-34997a)
  * @see imp-34862-iters-to-floor-two-rate-law (a TWO-rate law -- bears on R2 single-rate fidelity)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 Riemann-von Mangoldt inverse)
+ * @see imp-35263-reentry-band-eps-floor-sweep (LATER: shows the D1 ~11.99-decade figure is the reentry-edge LOCAL
+ *   rate, not a band-wide constant -- the true EPS_FP-factor-2 slide grows to ~18.95 decades at the exit edge)
+ * @see imp-35332-reentry-band-drift-analytic-derivation (LATER: analytically derives DRIFT_PER_DECADE and shows it
+ *   is NOT constant across the band -- it decreases monotonically from 0.0186273 at reentry to 0.0118306 at exit)
+ *
+ * HONESTY-AUDIT CAVEAT (imp-35385, added post hoc). The DRIFT_PER_DECADE = 0.0187 constant used below for D1/D1b
+ * is a LOCAL value at the reentry edge (N ~ 10^27.08), not a band-wide constant. imp-35332 (filed after this
+ * module) derives the drift analytically and shows it decreases ~1.574x across the band to 0.0118306 at the
+ * exit edge; imp-35263 (also later) confirms the ~11.99-decade D1 figure is exactly the reentry-edge local rate
+ * and that the true EPS_FP-factor-2 slide is NOT constant (it grows to ~18.95 decades at the exit edge). This
+ * does not change the D1/D1b verdict at the reentry edge (still correct there), and imp-35243a stays OPEN; it
+ * only bounds the D1 headline figure to the reentry edge rather than the whole band.
  */
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
@@ -263,6 +275,14 @@ export const IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT = {
     'imp-35174 (discharged the arithmetic half; re-pointed imp-35174a); imp-35111 (parent: band width/exit on ' +
     'double; sub-gap imp-35111a); imp-34997 (locates the 10^27.08 reentry; sub-gap imp-34997a); imp-34862 (two-' +
     'rate law, bears on R2); lambda-rh-height-mapping (effectiveHeightForN RvM inverse); imp-2642 (C_C ansatz).',
+  drift_not_constant_caveat:
+    'HONESTY-AUDIT CAVEAT (imp-35385). DRIFT_PER_DECADE = 0.0187 above is a LOCAL value at the reentry edge, not ' +
+    'a band-wide constant. imp-35332 (filed after this module) analytically derives the drift and shows it ' +
+    'decreases monotonically from 0.0186273 at reentry to 0.0118306 at exit (~1.574x); imp-35263 (also later) ' +
+    'confirms the D1 ~11.99-decade figure is exactly the reentry-edge local rate and that the true EPS_FP-' +
+    'factor-2 slide grows to ~18.95 decades at the exit edge -- it is NOT constant across the band. This does ' +
+    'not change the D1/D1b verdict AT the reentry edge; it bounds the D1 headline figure to that edge. ' +
+    'imp-35243a stays OPEN.',
 };
 
 export const IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT_ASSERTIONS = [
@@ -328,6 +348,17 @@ export const IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT_ASSERTIONS = [
       /remains SOTA/.test(IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT.verdict) &&
       /imp-35111a/.test(IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT.residual_sub_gap_imp_35243a) &&
       /imp-35243a/.test(IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT.residual_sub_gap_imp_35243a),
+  },
+  {
+    // imp-35385 honesty audit: DRIFT_PER_DECADE is flagged as a local (not band-wide) value, cross-referencing
+    // the later imp-35332 (analytic non-constancy) and imp-35263 (D1 figure is the reentry-edge local rate).
+    id: 'imp35243-drift-not-constant-caveat-present',
+    description: 'the drift_not_constant_caveat field cross-references imp-35332 and imp-35263 and keeps imp-35243a OPEN',
+    holds: () =>
+      /imp-35332/.test(IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT.drift_not_constant_caveat) &&
+      /imp-35263/.test(IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT.drift_not_constant_caveat) &&
+      /NOT constant/.test(IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT.drift_not_constant_caveat) &&
+      /imp-35243a stays OPEN/.test(IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT.drift_not_constant_caveat),
   },
 ];
 

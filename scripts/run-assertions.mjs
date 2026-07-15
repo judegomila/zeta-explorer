@@ -7142,6 +7142,15 @@ const DATA_MODULES = [
   // the net surplus tracks S_inf . a/2. FP_LO finite-N is the dominant driver. Measurement on the surrogate;
   // imp-34714a REMAINS OPEN; changes no bound; NO QED.
   '/src/data/imp-35266-krawczyk-headroom-surplus-decomposition.js',
+  // imp-35300: DUAL of imp-35241 -- holding the imp-34693 band and K fixed, sweeps the bracket half-width delta
+  // upward in the band-top headroom S(delta) = G/((1+G) delta FP_LO) and locates delta* ~ 5.1115e-3 (~25.56x the
+  // current delta = 2e-4) where band-top S first falls to the 100x safety factor: the bracket could widen ~25.6x
+  // before the worst-case (band-top) contraction validity is exhausted. At delta* the floor S_inf = 1/(2 delta*)
+  // ~ 97.82 and the surplus has shrunk to ~2.18, so the naive floor-only delta = 1/200 = 5e-3 undershoots delta*
+  // by ~2.2%. The band-top surplus tracks delta INVERSELY (surplus . delta ~ 1.104e-2 near-constant; imp-35266
+  // ratio S/S_inf ~ 1.0221 nearly delta-independent), so S(delta) ~ 1.0221/(2 delta) and delta* ~ 1.0221/200.
+  // Measurement on the surrogate; imp-34714a REMAINS OPEN; changes no bound; NO QED.
+  '/src/data/imp-35300-krawczyk-headroom-delta-star-to-100.js',
   // imp-35136: SCOPES the still-OPEN imp-34687a / imp-34714a sub-gap by enumerating the five concrete
   // obligations a real directed-rounding / error-bounded arithmetic layer must discharge to certify the
   // exact-digit width the imp-34714 Krawczyk check leaves uncertified: (G1) directed rounding-mode control on

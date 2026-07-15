@@ -8228,6 +8228,18 @@ const DATA_MODULES = [
   // assertions. Assessment only on the inherited imp-3220/imp-3406 surrogate; imp-35111a/imp-35174a/imp-35243a
   // stay OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35356-r1-candidate-routes-assessment.js',
+  // imp-35357: FORMALIZES what the imp-35356 route (ii) needs -- assesses what a formal R1-as-pure-artifact proof
+  // requires, sharpening the imp-35330 CLAIM 1 honesty qualifier. Splits pure-artifact into R1s (surrogate) and
+  // R1t (true dynamic): (i) a floor-free continuum model with no band is elementary (continuum count-to-exact-
+  // convergence is +infinity, band structurally absent); (ii) a zero-residue bound is AVAILABLE for the surrogate
+  // (band recedes to infinity as EPS_FP->0, pointwise identically-zero limit) but OPEN for the true dynamic
+  // (needs R2/R3); (iii) the D1 slide is already an EXACT identity d xArg / d log(EPS_FP) = -1/ln(1/r) (phase
+  // shift log(2)/ln(1/r) ~ 0.224194), so floor-sensitivity is proof-grade but the ~11.99-decade headline is
+  // reentry-edge-local and sensitivity is necessary-not-sufficient for zero residue. So R1s is essentially
+  // PROVABLE and R1t stays OPEN (entangled with R2/R3); imp-35330 CLAIM 1 upgrades to unconditional against the
+  // surrogate, conditional against the true dynamic. Five self-executing assertions. Assessment only; discharges
+  // nothing; imp-35111a/imp-35174a/imp-35243a stay OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35357-reentry-band-pure-artifact-proof-requirement.js',
 ];
 
 let ALL_MODULES = FAST_MODE

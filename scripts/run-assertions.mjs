@@ -227,6 +227,8 @@ const DATA_MODULES = [
   '/src/data/imp-35474-dense-envelope-max-reverify-reference.js',
   // imp-35491: reports the imp-35412 R2 dense-envelope slack (vs the imp-857 upper bracket t_c_hi=1.2e-3) as an INTERVAL across BOTH envelope definitions imp-35474 flagged. Definition A (imp-35351 RK4 ENDPOINT members) descending rank RK4 dt/2 > RK4 dt > DP45 dt > DP45 dt/2, max 1.1924935719e-3, slack +7.5064281e-6; definition B (imp-35416 RK4 + cubic-Hermite DENSE members) descending rank RK4h dt > DP45 dt > RK4h dt/2 > DP45 dt/2, max 1.1923500033e-3, slack +7.6499967e-6. The slack is the narrow positive interval [+7.5064281e-6, +7.6499967e-6], width 1.435686e-7 = the RK4 endpoint-minus-dense argmax gap EXACTLY (the DP45 members are shared). Both maxima clear t_c_hi and both slacks are positive, so the conservatism conclusion is robust to the envelope-definition choice; only the argmax MEMBER identity flips (RK4 dt/2 endpoint vs RK4 dt dense). MEASUREMENT ONLY, adopts no new slack denominator (imp-35412 KEEPS the endpoint worst-case), ladder stays N=1000, C_mb stays GUE-conditional per imp-486, NO QED.
   '/src/data/imp-35491-r2-slack-interval-both-envelope-definitions.js',
+  // imp-35486: VERIFIES the imp-35416 N=2000 scheme-independence cross-validation is surfaced on src/pages/Imp35288R2FlowLadderSlackViz.jsx with BOTH its scheme-invariant-crossing framing (t_c agreeing to ~4.5e-5 relative at the same step/pair) and its endpoint-nuance framing (DP45 dt/2 endpoint positive, RK4 dt/2 endpoint negative). FINDING: already surfaced correctly. Locks it in as a regression guard by importing the imp-35416 stored verdict and asserting the page's baked prose figures still match it. AUDIT ONLY, changes no bound, NO QED.
+  '/src/data/imp-35486-imp35416-page-surfacing-audit.js',
   // imp-35455: SCOPES what a finer-grid endpoint confirmation would require to PROMOTE the imp-35412 N=2000 R2 rung (RUNGS[5]) from PROVISIONAL to certified -- enumerates four conditions: C1 grid convergence (imp-35350 tauC/16000 tie 1.1923626880e-3, needs a confirming tauC/32000 rung), C2 event-definition reconciliation (imp-35354 min-spacing vs signed-crossing gap ~1.31e-7), C3 conservative folded envelope max (imp-35412 one-sided-upper rule), C4 safety-margin predicate t_c_converged + Delta_grid + Delta_event + Delta_fp <= t_c_hi. Converged slack 7.637e-6 absorbs the 1.31e-7 event gap; MISSING is one dedicated verified run certifying Delta_grid. ASSESSMENT/SCOPING ONLY, ladder stays N=1000, NO QED.
   '/src/data/imp-35455-r2-n2000-rung-certification-scope.js',
   // imp-35354: DECOMPOSES the ~1.31e-7 RK4 dt-over-2 collision-time gap at N=2000 between the imp-35324 finer-grid min-spacing gate (1.1923626880e-3) and the imp-35278 resolved-grid signed-crossing (1.1924935719e-3) via a full 2x2 (grid x event) factorial of the SAME RK4 dt-over-2 flow. Cell B (resolved,crossing) reproduces imp-35278 and cell C (finer,gate) reproduces imp-35324 EXACTLY; the missing off-diagonals A (resolved,gate=1.1925112320e-3) and D (finer,crossing=1.1923496352e-3) split the gap additively: GRID effect +1.462403e-7 (~112% of total, refining tauC/1000->tauC/4000 lowers t_c ~1.46e-7 at both events) vs EVENT effect -1.535648e-8 (~-12%, crossing reports an EARLIER t_c than the up-rounding gate, at BOTH grids), interaction -4.607313e-9. The gap is almost entirely grid resolution, NOT a gate-vs-crossing artifact -- corroborating imp-35455 C2 (the ~1.5e-8 event contribution is ~500x below the imp-35350 converged slack 7.637e-6). MEASUREMENT ONLY, all cells pair 1495, ladder stays N=1000, changes no bound, C_mb stays GUE-conditional per imp-486, NO QED.
@@ -8417,6 +8419,16 @@ const DATA_MODULES = [
   // line), holds the E_trunc barrier reclassification (imp-35419/imp-35459) fixed; C_mb GUE-conditional per
   // imp-486 untouched. Literal-consistency measurement only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35489-etrunc-closed-form-literal-recompute.js',
+  // imp-35531: MEASURES how the imp-33723 sigma E_coll=E_trunc crossover landmark N_cross ~ 3.280294e9
+  // shifts when the vestigial C_T=1, B=0 E_trunc idealization (3.06e-5; imp-35419/imp-35459) is repriced
+  // with honest explicit zero-density constants. Offline bisection of the exact self-consistent crossover
+  // (baseline reproduces the 3.28e9 headline) shows N_cross ~ E_trunc^{-2}: the parts-corrected 5.106e-5
+  // moves it -0.47 dec (1.12e9), Kadiri-Lumley-Ng 1.22e-3 -3.39 dec (1.34e6), and the sharpest explicit
+  // Chourasiya-Simonic 2025 (3.34) collapses it ~10.9 dec to 3.76e-2 -- below the PT anchor T_PT=3e12 and
+  // below any meaningful zero index; Ramare pushes it out of range. So the 3.28e9 landmark is NOT robust
+  // to E_trunc repricing -- an artifact of the optimistic idealization. Measurement/sensitivity only;
+  // re-derives no new certified E_trunc; changes no bound; C_mb GUE-conditional per imp-486; NO QED; PT SOTA.
+  '/src/data/imp-35531-etrunc-repricing-crossover-sensitivity.js',
   // imp-35434: EXTENDS the imp-35402 two-component additivity check (fdVsAnalyticGap +
   // inverseSwapGap = analyticResidual) from the original four rungs onto the deep rungs
   // N = 1e18/1e20/1e24 and the imp-35370 crossover log10 N = 44.7593. The full-precision defect
@@ -8619,6 +8631,17 @@ const DATA_MODULES = [
   // from the OPEN R1t true-dynamic residue. FORMALIZATION ONLY, discharges nothing,
   // imp-35243a stays OPEN, changes no bound, NO QED.
   '/src/data/imp-35414-r1s-zero-residue-surrogate-lemma.js',
+  // imp-35530: ADVANCES the CROSSOVER half of the imp-35475 route-(ii) E_coll fidelity check that
+  // imp-35488 declared out of in-repo range. The crossover height (T0 ~ 1.14e9) is ~1905x beyond the
+  // last tabulated zero, so g_true is NOT directly measurable there (imp-35488a stays OPEN). Instead it
+  // MEASURES the g_true(T0) height-decay trend across 10 disjoint 50000-spacing windows (KL falls
+  // 3.316e-3 -> 1.484e-3 as logT0 climbs 10.61 -> 13.26, fit KL ~ 11.316 (logT0)^(-3.446)) and PROJECTS
+  // it to logT0 = 20.858: g_true ~ 3.214e-4 (free), 1.146e-3 (1/logT0), 6.816e-4 (1/(logT0)^2) -- all an
+  // order of magnitude above the modeled E_coll_CROSS = 3.060e-5, robustly to the ~3.6x model bracket.
+  // EXTRAPOLATION not measurement (imp-35530a); KL-vs-sigma units mismatch (imp-35530b, inherits imp-35488b).
+  // Measurement/extrapolation only; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED;
+  // Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35530-crossover-gtrue-trend-extrapolation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

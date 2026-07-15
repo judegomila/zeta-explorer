@@ -18917,6 +18917,40 @@ export const glossary = [
       'imp-35594 DERIVES analytically why this ~18x measured damping holds -- cite the two together as the measurement+derivation pair for the log-proportional insulation mechanism (imp-35594)',
     ],
   },
+  {
+    term: '"damping factor" disambiguation: crossover DAMPS (>1) vs peak-location AMPLIFIES (<1)',
+    category: 'concept',
+    definition:
+      'A headword flagging that the phrase "damping factor" now names TWO OPPOSITE height-map ' +
+      'behaviours in the corpus, and must not be read as one number or one direction without ' +
+      'saying which landmark it attaches to (imp-35593 measures both side by side).\n\n' +
+      'AT THE E_coll = E_trunc CROSSOVER (imp-35458/imp-35594): the damping factor is ~18x, ' +
+      'meaning a raw height-map disagreement is COMPRESSED into a much smaller landmark shift -- ' +
+      'a large number, direction = insulation, because the crossover pins N through log T0 only.\n\n' +
+      'AT THE INTERIOR SIGMA-PEAK LOCATION (imp-35574/imp-35609): the damping factor is ~0.553, ' +
+      'meaning a raw height-map disagreement is EXPANDED into a larger landmark shift -- a number ' +
+      'BELOW 1, direction = amplification, because the peak instead pins the direct-height term ' +
+      'E_flow ~ L/T0.\n\n' +
+      'imp-35593 tabulates both factors together: crossover ~18x vs peak ~0.553 is a ' +
+      '~32.55x contrast (imp-35593 crossoverVsPeakRatio), so treating "the damping factor" as a ' +
+      'single shared quantity would silently conflate a >1 insulation effect with a <1 ' +
+      'amplification effect.\n\n' +
+      'HOW TO APPLY: when citing a "damping factor" value, always name which landmark it is ' +
+      '(crossover vs peak location) and its side of 1 -- see [[imp-35594 peak-vs-crossover ' +
+      'log-proportional insulation mechanism]] for the mechanism that separates them.\n\n' +
+      'HONEST SCOPE: terminology/documentation only, no new bound, no new measurement; imp-35337a ' +
+      'surrogate-vs-true fidelity stays OPEN; C_C ansatz (imp-2642/imp-2643) and E_trunc = 3.06e-5 ' +
+      '(imp-2631/imp-447) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; no operator ' +
+      'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35650 (glossary/concept disambiguation headword for the two opposite "damping factor" regimes), 2026',
+    relatedTerms: [
+      'imp-35593 tabulates the ~18x vs ~0.553 (~32.55x) contrast this headword disambiguates (imp-35593)',
+      'imp-35594 derives the mechanism that separates the two regimes (imp-35594)',
+      'imp-35574 supplies the ~0.553 peak-location amplification factor (imp-35574)',
+      'imp-35458 measures the ~18x crossover log-damping factor (imp-35458)',
+      'imp-35609 confirms the ~0.553 peak-location factor is input-stable (imp-35609)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

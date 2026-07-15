@@ -18468,6 +18468,49 @@ export const glossary = [
       'imp-486 is the GUE conditional route (i) inherits via the C_C-derived K (imp-486)',
     ],
   },
+  {
+    term: 'imp-35574 peak-location amplification vs crossover log-damping contrast',
+    category: 'numerical',
+    definition:
+      'imp-35458 found the E_coll = E_trunc floor CROSSOVER landmark compresses a ~18 percent ' +
+      'raw height-map gap (RvM inverse vs closed surrogate T0 = 2 pi N / log N) into only a ' +
+      '~0.98 percent landmark shift -- an ~18x LOG-DAMPING. imp-35574 asks whether that same ' +
+      'log-damping also holds at the interior sigma-PEAK LOCATION N_max (imp-35337/imp-35536), ' +
+      'and finds it does NOT: recomputing N_max under both height maps moves it from ' +
+      '9.218633e5 (RvM) to 1.327368e6 (surrogate), a +43.99 percent / +0.158-decade shift, ' +
+      'against a larger ~24.33 percent raw-height gap at the peak. Forming the identical ' +
+      'imp-35458 damping factor -- (1 - raw-height ratio) / |relative landmark shift| -- gives ' +
+      '~0.553 at the peak versus ~18 at the crossover: a factor BELOW 1, meaning the peak ' +
+      'location is mildly AMPLIFIED rather than damped, and the crossover is ~32.55x more ' +
+      'log-damped than the peak location.\n\n' +
+      'WHY THE SAME METHOD SPLITS: the crossover N solves E_coll = E_trunc, so N is ' +
+      'proportional to log T0 and the height map enters only through its logarithm, ' +
+      'insulating the landmark from raw height-map disagreement. The peak location instead ' +
+      'solves the stationarity condition dg_sigma/dN = 0, balancing E_coll against E_flow with ' +
+      'no log-proportional insulation, so a height-map change moves the balance point close to ' +
+      'one-for-one. This SHARPENS the imp-35536 verdict: the peak HEIGHT sigma_max ~ 0.949 ' +
+      'stays robust to the height map, but the peak LOCATION N_max is NOT a log-damped ' +
+      'landmark the way the crossover is, and should be quoted only to ~one significant figure ' +
+      '(~9e5 to 1.3e6).\n\n' +
+      'HOW TO APPLY: cite this entry whenever a landmark N-value is quoted for height-map ' +
+      'robustness -- check whether the landmark is defined by an equality solved proportional ' +
+      'to log T0 (log-insulated, like the crossover) or by a stationarity/balance condition ' +
+      '(uninsulated, like the peak location) before assuming imp-35458-style log-damping ' +
+      'applies.\n\n' +
+      'HONEST SCOPE: measurement only (frontier-direction, NOT rigorous) on the inherited ' +
+      'imp-3220/imp-3406 surrogate; surrogate-vs-true fidelity (imp-35337a) UNTOUCHED; C_C ' +
+      'ansatz (imp-2642/imp-2643) and E_trunc = 3.06e-5 (imp-2631/imp-447) UNTOUCHED; C_mb ' +
+      'GUE-conditional per imp-486 UNTOUCHED; changes no bound; no operator positivity; no RH ' +
+      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35592 (glossary/Concepts headword for the imp-35574 peak-location amplification vs crossover log-damping contrast), 2026',
+    relatedTerms: [
+      'imp-35574 measures the ~0.55 peak-location damping factor and ~32.55x crossover-vs-peak ratio documented here (imp-35574)',
+      'imp-35458 measures the ~18x crossover log-damping this entry contrasts against (imp-35458)',
+      'imp-35536 measures the peak sigma_max height robustness sharpened by this entry (imp-35536)',
+      'imp-35337 is the interior-peak locator recomputed under both height maps (imp-35337)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this contrast (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

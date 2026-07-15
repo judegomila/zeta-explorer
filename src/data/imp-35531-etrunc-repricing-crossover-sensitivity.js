@@ -130,6 +130,29 @@ export const IMP35531_ETRUNC_REPRICING_CROSSOVER_SENSITIVITY_ASSERTIONS = [
       }),
   },
   {
+    // imp-35566 regression guard: the coarse <1.0-decade bound above would still pass if a future
+    // edit drifted the max deviation up toward 1.0 dec or down toward 0 -- neither matches the
+    // documented "~0.9 decade" claim (module header + imp-35531 verdict). Pin the MAX deviation
+    // across the in-range menu to a tight band around the recorded ~0.9-decade figure so a change
+    // to REPRICING_ROWS or the law itself is caught, not silently absorbed by the loose bound.
+    id: 'imp35566-fminus2-law-tight-tolerance-guard',
+    description:
+      'max deviation of measured decade shifts from the frozen-L -2 log10 f prediction across the ' +
+      'in-range repricing menu stays within the recorded ~0.9-decade tolerance (documented max ~0.86 ' +
+      'dec at Chourasiya-Simonic), tighter than the coarse <1.0 dec bound above',
+    holds: () => {
+      const inRange = REPRICING_ROWS.filter((r) => r.nCross !== null);
+      const maxDev = Math.max(
+        ...inRange.map((r) => {
+          const f = r.eTrunc / E_TRUNC_RECORDED;
+          const pred = -2 * Math.log10(f);
+          return Math.abs(r.decShift - pred);
+        })
+      );
+      return maxDev < 0.95 && maxDev > 0.8;
+    },
+  },
+  {
     // Monotone collapse: larger E_trunc strictly lowers N_cross (the crossover is fragile, one-directional).
     id: 'imp35531-monotone-collapse',
     description: 'a larger repriced E_trunc strictly lowers N_cross across the in-range menu',

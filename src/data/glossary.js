@@ -18687,6 +18687,49 @@ export const glossary = [
       'imp-35353 shows the four-of-four envelope breaks at N=4000, the B3 blocker (imp-35353)',
     ],
   },
+  {
+    term: 'imp-35551 route-(i) requirement severity RANKING: REQ2 the binding crux, REQ4 folds into it',
+    category: 'concept',
+    definition:
+      'A headword recording the imp-35551 SEVERITY RANKING of the five imp-35538 route-(i) finite-N ' +
+      'remainder derivation requirements (REQ 1 effective C_H = 1/8 provenance, REQ 2 explicit-rate GUE ' +
+      'local law, REQ 3 restricted -> full Fourier support, REQ 4 height regime, REQ 5 conditionality), ' +
+      'which imp-35538 enumerated but left UNRANKED. ORDER (hardest first): REQ 2 > REQ 4 > REQ 3 > ' +
+      'REQ 1 > REQ 5.\n\n' +
+      'RANK 1 REQ 2 is the BINDING CRUX: a named E_GUE(T0) rate does not exist (Montgomery 1973 / ' +
+      'Rudnick-Sarnak 1996 are asymptotic-only) and must be proved from scratch; it silently CARRIES ' +
+      'REQ 4, since the bound only binds the landmarks if the delivered rate beats the natural ' +
+      'O(1/log T0) at log T0 ~ 21. RANK 2 REQ 4 is an independent lock escapable only by strengthening ' +
+      'REQ 2 to a super-natural rate (on the natural rate no reachable height binds, needing ' +
+      'log T0 >= 200, ~9.6x the crossover log-height and ~7.0x log T_PT), so it folds back INTO REQ 2. ' +
+      'RANK 3 REQ 3 is conjectural (Montgomery pair-correlation at full support; a support-limited ' +
+      'surrogate is the only non-conjectural escape and is itself unproven). RANK 4 REQ 1 is the most ' +
+      'reachable: a definitional prerequisite with a known target answer (C_H = 1/8). RANK 5 REQ 5 is ' +
+      'not a dischargeable task but an irreducible OUTCOME CEILING -- any GUE-based law inherits the ' +
+      'imp-486 conditional, capping the payoff rather than blocking construction.\n\n' +
+      'BINDING-OBSTRUCTION VERDICT: discharging REQ 2 alone does NOT suffice. At full Fourier support ' +
+      'REQ 2 IS REQ 3 (the Montgomery conjecture with a rate); a discharged REQ 2 at the natural rate ' +
+      'still fails REQ 4 at the landmark heights, forcing a super-natural rate; and REQ 5 caps the ' +
+      'outcome at imp-486-conditional regardless. The true binding obstruction is the FUSED super-crux ' +
+      '{REQ 2 + REQ 3 + REQ 4}, atop the REQ 1 definitional floor and under the REQ 5 ceiling -- not a ' +
+      'single literature-nameable input.\n\n' +
+      'HOW TO APPLY: cite this ranking when route-(i) (a rigorous unconditional finite-N remainder) is ' +
+      'proposed with a single named breakthrough gate -- there is none; the coupled REQ 2 + REQ 3 + ' +
+      'REQ 4 cluster is the real target. Route-(ii) (the imp-35488 two-height data-anchored spot check, ' +
+      'both landmark heights below T_PT = 3e12) remains the only viable partial for the OPEN imp-35337a.\n\n' +
+      'HONEST SCOPE: assessment / ranking only; derives no remainder; discharges nothing; changes no ' +
+      'bound; establishes no operator positivity; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), ' +
+      'the E_trunc = 3.06e-5 floor (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH ' +
+      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35624 (glossary/Concepts headword for the imp-35551 route-(i) requirement severity ranking), 2026',
+    relatedTerms: [
+      'imp-35551 is the severity-ranking module this headword documents (imp-35551)',
+      'imp-35538 enumerates the five REQs this ranking orders (imp-35538)',
+      'imp-35493 confirms route-(i) is absent from the literature (imp-35493)',
+      'imp-35488 supplies route-(ii), the only viable partial for imp-35337a (imp-35488)',
+      'imp-486 is the GUE-conditional caveat inherited via REQ 5 (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

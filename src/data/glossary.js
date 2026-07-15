@@ -17867,6 +17867,46 @@ export const glossary = [
       'imp-35263 supplies the surviving co-moving-vs-fixed-window comparison landmark (imp-35263)',
     ],
   },
+  {
+    term: 'imp-35411 sigma-peak flat-maximum quadratic signature: W(tol) = 15.3165*sqrt(tol), curvature k ~ 6.428e-3',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35411 quantification of the imp-35337 flat-cap interior sigma-peak ' +
+      '(sigma(N) = E_coll(N)/E(N), the imp-3220/imp-3406 GUE-conditional share). imp-35337 dd-certified the ' +
+      'PEAK VALUE (sigma_max ~ 0.94942901 at N_max ~ 9.219e5) but flagged the peak LOCATION as intrinsically ' +
+      'ill-conditioned -- "a flat maximum has tiny curvature, so the argmax carries a wide ln-N plateau even in ' +
+      'dd" -- without measuring that plateau.\n\n' +
+      'WHAT WAS MEASURED: for a fixed tolerance tol below sigma_max, the two N-endpoints where sigma(N) first ' +
+      'falls tol below the peak, reported as a plateau WIDTH in decades of N. At the headline tol = 1e-5 ' +
+      '(matching the imp-35337 2.1e-5 below-ceiling margin scale) the plateau spans W ~ 0.04844 decades: N in ' +
+      '[8.7175e5, 9.7461e5], a factor ~1.118x in N straddling N_max.\n\n' +
+      'THE QUADRATIC SIGNATURE: sweeping tol over {1e-4, 1e-5, 1e-6, 1e-7} shows W(tol)/sqrt(tol) is constant to ' +
+      '6+ sig figs at ~15.3165 -- exactly the behavior of a SMOOTH QUADRATIC maximum sigma(N) ~ sigma_max - ' +
+      '(k/2)(ln N - ln N_max)^2, for which the decade-width is W(tol) = (2/ln10) sqrt(2/k) sqrt(tol). The ' +
+      'measured constant pins the peak curvature k = -d^2 sigma/d(ln N)^2 ~ 6.428e-3 -- tiny, hence the wide ' +
+      'plateau.\n\n' +
+      'WHY WIDTH IS WELL-CONDITIONED WHILE ARGMAX IS NOT: the razor-sharp ill-conditioning imp-35337 flagged ' +
+      'belongs to the ARGMAX itself (many N give sigma indistinguishable from sigma_max at machine precision), ' +
+      'not to sigma VALUES at a fixed offset below the peak -- those are cleanly bisectable, which is precisely ' +
+      'why the plateau WIDTH, unlike the argmax location, is a stable measurement, located on the imp-35337 ' +
+      'double surrogate reproduced verbatim (dd-certified there to ~1e-16, eleven orders below the 1e-5 ' +
+      'tolerance used here).\n\n' +
+      'HOW TO APPLY: when a numerical argmax is reported as ill-conditioned near a flat maximum, do not treat ' +
+      'the whole landmark as unmeasurable -- the SUBLEVEL-SET WIDTH at a fixed tolerance is typically well-' +
+      'conditioned and its sqrt(tol) scaling constant directly recovers the peak curvature.\n\n' +
+      'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 surrogate; the surrogate-vs-true ' +
+      'fidelity half (imp-35337a) stays OPEN; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), the ' +
+      'E_trunc = 3.06e-5 floor (imp-2631) and the imp-398 C_F prefactor are UNTOUCHED; changes no bound; no RH ' +
+      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35481 (glossary headword recording the imp-35411 sigma-peak flat-maximum quadratic signature), 2026',
+    relatedTerms: [
+      'imp-35411 the measurement this entry records verbatim, including the sqrt(tol) scaling sweep (imp-35411)',
+      'imp-35337 dd-certified the peak VALUE and flagged the argmax plateau as ill-conditioned without measuring it (imp-35337)',
+      'imp-3406 supplies the interior MAX ~ 9.22e5 and 2.1e-5 flat-cap margin on double that set the headline tolerance scale (imp-3406)',
+      'imp-35337a the surrogate-vs-true fidelity sub-gap this measurement inherits and leaves OPEN (imp-35337a)',
+      'imp-2642 supplies the C_C = (1/8) sqrt(3 pi) GUE-conditional ansatz feeding sigma(N), untouched here (imp-2642)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

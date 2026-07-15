@@ -8216,6 +8216,18 @@ const DATA_MODULES = [
   // bounded double-rounding/small-denominator amplification artifact, not a computation bug.
   // Read-only; changes no bound; NO QED.
   '/src/data/imp-35402-eflow-fartail-ladder-literal-reconstruction-check.js',
+  // imp-35356: ENUMERATES and ASSESSES the concrete candidate routes to MEET R1 (floor-independence) -- the
+  // imp-35330 DAG root and sole live lever for the imp-34997/35111 reentry band. Of the three named routes,
+  // exactly ONE is self-contained and non-circular: route (ii), the pure-artifact proof, which resolves R1 in
+  // the DISPOSAL direction (band = artifact, not a true-dynamic feature; the route imp-35357 formalizes).
+  // Route (i) (floor-free re-expression) is SELF-DEFEATING -- a faithful floor-free limit dissolves the
+  // off-by-one and erases the band, while any band-preserving variant smuggles a floor back in -- collapsing
+  // into (ii). Route (iii) (intrinsic floor) is CIRCULAR: reproducing the computed edges forces the intrinsic
+  // floor onto the machine constant EPS_FP=2.3e-16 (no dynamical reason; D1 ~11.99 decades per factor-2), and
+  // any independently-motivated cutoff lands at a different scale. NO route upholds the band. Five self-executing
+  // assertions. Assessment only on the inherited imp-3220/imp-3406 surrogate; imp-35111a/imp-35174a/imp-35243a
+  // stay OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35356-r1-candidate-routes-assessment.js',
 ];
 
 let ALL_MODULES = FAST_MODE

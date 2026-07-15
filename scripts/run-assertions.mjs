@@ -8704,6 +8704,14 @@ const DATA_MODULES = [
   // measures a different sigma-decomposition input). Zero violations found. AUDIT ONLY; no
   // re-derivation; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35505-etrunc-consumer-audit.js',
+  // imp-35545: REGISTRATION/REACHABILITY AUDIT (imp-35484 method) of the imp-35472..imp-35477
+  // cohort -- checks every *_ASSERTIONS array is wired into this DATA_MODULES sweep and every
+  // viz-data-bearing module has a routed, App.jsx-wired page. Finding: zero orphans. All six
+  // filepath strings are already live entries here; the two viz-data modules (imp-35475,
+  // imp-35477) each back a routed page (imp-35544, imp-35541); the other four are registry-only
+  // reference modules per the established imp-35412 convention. AUDIT ONLY; no source file
+  // required correction; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35545-imp354xx-registration-reachability-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

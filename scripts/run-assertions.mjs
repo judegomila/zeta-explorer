@@ -8755,6 +8755,17 @@ const DATA_MODULES = [
   // common functional (imp-35337a dictionary OPEN). ASSESSMENT ONLY; imp-35488a/35530a/35530b/35337a stay
   // OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35556-gtrue-ecoll-dimensional-comparability.js',
+  // imp-35617: RE-RANKS the imp-35530 three extrapolation forms (free, 1/logT0, 1/(logT0)^2) inside the
+  // imp-35556 common first-order functional TV <= sqrt(KL/2). FINDING: the per-form ordering (free < p2 < p1)
+  // is PRESERVED exactly (sqrt is monotone), and the ~10.5x raw KL/E_coll factor maps by the closed form
+  // TV_ratio = sqrt(raw/(2 E_coll)) to ~414x/603x/782x -- so, because E_coll << 1, the order-correction
+  // AMPLIFIES the gap rather than reducing it to same order, and COMPRESSES the ~3.566x inter-form bracket to
+  // its square root (~1.888x). The g_true >> E_coll ordering thus survives as an even LARGER, UPPER-bound-only
+  // gap that (being an upper bound) still cannot certify the direction -- confirming/sharpening imp-35556; the
+  // certified lower bound needs the surrogate->observable dictionary imp-35337a / imp-35556a leave OPEN.
+  // ASSESSMENT ONLY; imp-35488a/35530a/35530b/35337a/35556a stay OPEN; C_mb GUE-conditional per imp-486
+  // UNTOUCHED; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35617-pinsker-tv-reranking-crossover-ordering.js',
   // imp-35538: ENUMERATES what DERIVING a rigorous finite-N remainder for the E_coll = C_C sqrt(log T0/N)
   // ansatz (C_C = (1/8) sqrt(3 pi), C_H = 1/8; imp-2642/imp-2643) would REQUIRE, per the imp-35475 route-(i)
   // observation that no such remainder exists. Complementary to the imp-35493 literature survey: a

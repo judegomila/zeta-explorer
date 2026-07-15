@@ -8854,6 +8854,21 @@ const DATA_MODULES = [
   // of a mechanism only; discharges nothing; changes no bound; surrogate-vs-true fidelity
   // (imp-35337a) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35594-peak-crossover-mechanism-derivation.js',
+  // imp-35559: ASSERTION-ONLY tripwire pinning the six imp-35559 per-endpoint reentry-band decade-gap
+  // literals against a silent drift of the baked band edges [10^27.084691, 10^37.167107] or ceilings.
+  // Independently recomputes all six gaps from Math.log10 of the same edges and ceilings -- reentry/exit
+  // above the Platt-Trudgian complete-verification frontier T_PT=3e12 (14.61/24.69), above the ACTUAL
+  // in-repo verified-zeros DATA ceiling (src/data/zeros-to-1e6.js millionth-zero gamma_max=600269.677012445,
+  // log10 ~5.7783; 21.31/31.39), in-repo below T_PT (6.70) and reentry above the external 10^22 Odlyzko
+  // spot-check (5.08) -- then asserts (a) the full-precision recompute matches 7-sig-fig reference literals
+  // within 1e-6 relative (storage-precision tolerance) and (b) every baked perEndpointDecadeGaps and
+  // ceilings.log10 field reproduces EXACTLY when the source toPrecision(6) rounding is re-applied to the
+  // independent recompute, plus the qualitative ordering (in-repo ceiling smallest; both band edges above
+  // every ceiling; 10^22 below reentry). Import-light (the import-light imp-35559 record only, no zeros
+  // bundle). Verification tooling only; recomputes established measurement figures; changes no bound; the
+  // reentry band is a diagnostic iterate-COUNT not a Lambda lever; imp-35243a stays OPEN; C_mb GUE-conditional
+  // per imp-486 UNTOUCHED; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35559-r1t-reentry-band-decade-gap-assertion.js',
 ];
 
 let ALL_MODULES = FAST_MODE

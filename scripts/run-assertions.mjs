@@ -8831,6 +8831,17 @@ const DATA_MODULES = [
   // recomputes established figures; changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED;
   // NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35578-req4-shortfall-literals-assertion.js',
+  // imp-35594: DERIVES the imp-35574 F2 structural mechanism from the imp-35017/imp-3406
+  // double-surrogate sigma(N). Expands the floor crossover E_coll = E_trunc to the closed form
+  // N = (C_C/E_trunc)^2 log T0 (height only in the log => damping ~ log T0; predicted ~18.99x vs
+  // measured ~18x, predicted shift -0.94% vs measured -0.98%), and reduces the peak stationarity
+  // dg_sigma/dN = 0 to E_coll_prime (E_trunc + E_flow) = E_coll E_flow_prime, which pins the
+  // DIRECT-height term E_flow ~ L/T0 to O(1)*E_trunc (ratio ~1.53) => damping O(1), NOT ~ log T0
+  // (measured ~0.55, a factor ~ log T0 below the crossover). Six self-executing assertions.
+  // Import-light (inlined effectiveHeightForN + reference literals, no zeros bundle). Derivation
+  // of a mechanism only; discharges nothing; changes no bound; surrogate-vs-true fidelity
+  // (imp-35337a) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35594-peak-crossover-mechanism-derivation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

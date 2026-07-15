@@ -8339,6 +8339,18 @@ const DATA_MODULES = [
   // decades (model-sensitive). Measurement only on the inherited imp-3220/imp-3406 surrogate; far-tail
   // exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35431-eflow-fartail-remnant-decay-law-fit.js',
+  // imp-35432: DERIVES in closed form the imp-35243 DEMONSTRATION D1 EPS_FP-slide RATE of the reentry-band
+  // POSITION (the ~11.99 decades in N per factor-2 in the machine-epsilon floor) as SLIDE(N) =
+  // d(log10 N_band)/d(log2 EPS_FP) = ln(2)/(ln(1/r).DRIFT(N)) = PHASE_SHIFT_PER_FACTOR2/DRIFT(N), with
+  // PHASE_SHIFT_PER_FACTOR2 = ln(2)/ln(1/r) ~0.224194 the exact additive xArg shift per factor-2 (imp-35357
+  // axis(iii): d xArg/d log EPS_FP = -1/ln(1/r)) and DRIFT(N) the imp-35332 ceil-phase drift, from the
+  // fixed-band-phase implicit-function balance. Reproduces the D1 headline ~11.99 (11.989 grid drift 0.0187 /
+  // 12.0358 analytic 0.0186273), matches the imp-35263 direct sweep (12.036) and a fresh finite-difference band
+  // re-solve (12.0359, ~8e-6 rel), and reproduces the imp-35263 exit-edge slide ~18.95 (18.9503) -- so the slide
+  // GROWS as 1/DRIFT(N) and the ~11.99 is a reentry-edge local rate. Five self-executing assertions. Derivation/
+  // measurement only on the inherited imp-3220/imp-3406 surrogate; discharges nothing; imp-35243a / imp-35111a /
+  // imp-35174a / imp-34997a stay OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35432-eps-floor-slide-rate-closed-form.js',
 ];
 
 let ALL_MODULES = FAST_MODE

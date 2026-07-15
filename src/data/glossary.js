@@ -17973,6 +17973,41 @@ export const glossary = [
       'imp-33723 supplies L3, the N_cross sigma=1/2-vs-crossover closed form (imp-33723)',
     ],
   },
+  {
+    term: 'imp-35502 sigma-peak curvature k HEADLINE-vs-RAW rounding inventory: 6.428e-3 (prose typo) vs 6.4319e-3 (corroborated)',
+    category: 'numerical',
+    definition:
+      'A literal cross-reference audit of the interior sigma-peak curvature constant k across the ' +
+      'imp-35411/imp-35450/imp-35470/imp-35476 cohort (imp-35462 is a queue title only, not a distinct ' +
+      'module -- it carries no separate k literal). Two conventions are in circulation:\n\n' +
+      'RAW, corroborated value: k ~ 6.4319e-3 (more precisely 6.43191e-3). This is what every module ' +
+      'actually COMPUTES and STORES: imp-35411 bakes PEAK_CURVATURE = 8/(ln10*15.3165)^2 = 6.4319e-3 ' +
+      'via toExponential(4); imp-35450 measures it DIRECTLY by 3-point central FD, converging to ' +
+      '6.43191e-3 (Richardson 6.431910e-3); imp-35470 confirms it with a 5-point O(h^4) stencil at ' +
+      '6.4319102e-3, step-independent.\n\n' +
+      'ROUNDED "~6.428e-3" HEADLINE: appears only in PROSE/comments, in imp-35411 (module docstring and ' +
+      'several inline description strings) and imp-35476 (module docstring and description strings), as ' +
+      'a slightly-off rounded quote of the same raw 6.4319e-3 value -- never as a separately computed ' +
+      'number. Both modules also gate an assertion on Math.abs(PEAK_CURVATURE - 6.428e-3) < 1e-4, a ' +
+      'tolerance loose enough (relative offset ~6.1e-4) that the rounded target passes without exposing ' +
+      'the mismatch. imp-35450 and imp-35470 explicitly flag this: they never cite 6.428e-3, and imp-35470 ' +
+      'computes REL_FROM_ROUNDED_HEADLINE = |k_5pt - 6.428e-3| / k_5pt ~ 6.1e-4 to quantify the drift.\n\n' +
+      'HOW TO APPLY: any future consumer re-pointing to "the sigma-peak curvature k" should cite the raw ' +
+      '6.4319e-3 (three independent routes -- width-inference, 3-point FD, 5-point FD -- agree to ~6 sig ' +
+      'figs), not the imp-35411/imp-35476 "~6.428e-3" prose headline, which is a rounding slip rather than ' +
+      'an independently corroborated figure.\n\n' +
+      'HONEST SCOPE: read-only inventory of an existing literal-convention split; no module data field is ' +
+      'wrong (the STORED numbers are all the raw 6.4319e-3), only prose quotes and one loose assertion ' +
+      'tolerance in two modules understate precision; changes no bound; NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35502 (literal cross-reference audit of the sigma-peak curvature constant k), 2026',
+    relatedTerms: [
+      'imp-35411 bakes the raw k = 6.4319e-3 from the width constant 15.3165 but quotes "~6.428e-3" in prose (imp-35411)',
+      'imp-35450 DIRECTLY measures k = 6.43191e-3 by 3-point FD and first flags the imp-35411 rounded headline (imp-35450)',
+      'imp-35470 confirms k = 6.4319102e-3 by 5-point FD and quantifies the ~6.1e-4 drift from the rounded headline (imp-35470)',
+      'imp-35476 recovers the same raw k off an off-grid tolerance set but repeats the "~6.428e-3" prose quote (imp-35476)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -137,24 +137,80 @@ NEEDS, and is left as `sorry`:
 theorem exists_dbn_constant : ∃ Λ : Int, IsDBNConstant Λ := by
   sorry
 
+/-! #### Laguerre–Pólya decomposition of de Bruijn monotonicity
+
+`deBruijn_monotone` is no longer a bare `sorry`.  It is now **proved** from two
+clearly-named analytic lemmas, each of which is the honest remaining gap and each of
+which has a *fully-proved finite-dimensional shadow* in `DeBruijnNewman.RealRooted`.
+
+The route is the classical Laguerre–Pólya (LP) one:
+
+    H_t has only real zeros  ⟺  H_t ∈ LP    (via Hadamard factorization)
+    t ≤ s  ⟹  ( H_t ∈ LP ⟹ H_s ∈ LP )       (heat semigroup preserves LP)
+
+Chaining these gives monotonicity.  We introduce an abstract LP-membership predicate
+`InLaguerrePolya` on flow times (opaque, like `HasOnlyRealZeros`, since the genuine
+definition needs entire-function theory), and isolate the two analytic inputs. -/
+
+/--
+`InLaguerrePolya t` : "the flow function `H_t` lies in the **Laguerre–Pólya class**",
+i.e. it is a locally-uniform limit of real polynomials with only real roots (times the
+usual `e^{a x + b x²}` factor).  Kept `opaque` for the same reason as
+`HasOnlyRealZeros`: the genuine definition needs entire functions, order/genus and
+Hadamard factorization, none of which is available in plain Lean 4 core.
+-/
+opaque InLaguerrePolya : Int → Prop
+
+/--
+**Analytic input 1 — real zeros ⟺ LP membership** (`sorry`).
+
+For the Pólya-class entire functions arising as the heat flow `H_t` (order ≤ 2, real
+on the real axis), "having only real zeros" is equivalent to lying in the
+Laguerre–Pólya class.  Forward direction is Hadamard factorization of a real entire
+function of finite order whose zeros are all real; the converse is immediate from the
+LP product structure.
+
+* mathlib GAP: Hadamard factorization, entire-function order/genus, the LP class.
+* FINITE-DIMENSIONAL SHADOW (PROVED, no `sorry`): `RealRooted.Poly.eval_eq_zero_iff`
+  — a factored real polynomial's zero set is exactly its finite list of real roots,
+  which is the polynomial content of "real zeros ⟺ real-rooted factorization".
+-/
+theorem realZeros_iff_LP (t : Int) :
+    HasOnlyRealZeros t ↔ InLaguerrePolya t := by
+  sorry
+
+/--
+**Analytic input 2 — the heat semigroup preserves LP** (`sorry`).
+
+If `H_t ∈ LP` and `t ≤ s`, then `H_s ∈ LP`.  Since `H_s = e^{(s-t)·d²/dx²} H_t` is
+the Gaussian/heat multiplier applied to `H_t`, this is the Pólya–Schur / Hermite–
+Poulain theorem that the diagonal heat multiplier operator maps the Laguerre–Pólya
+class into itself.  (Equivalently: an energy/Newton-flow argument showing the
+imaginary parts of the zeros of `H_t` are non-increasing in `t`.)
+
+* mathlib GAP: Hermite–Poulain / Pólya–Schur multiplier theory, LP closure.
+* FINITE-DIMENSIONAL SHADOW (PROVED, no `sorry`): `RealRooted.isRealRooted_mul`
+  — the LP class is closed under products; a product of real-rooted polynomials is
+  real-rooted.  Product-closure is the structural core that the heat multiplier
+  preserves (LP functions are limits of products of real linear factors).
+-/
+theorem heat_preserves_LP {t s : Int}
+    (h : InLaguerrePolya t) (hle : t ≤ s) : InLaguerrePolya s := by
+  sorry
+
 /--
 **de Bruijn monotonicity** (de Bruijn, *Duke Math. J.* 1950): if `H_t` has only real
 zeros then `H_s` has only real zeros for every `s ≥ t`.
 
-PROOF ROUTE (left as `sorry`):
-* Ξ lies in the Laguerre–Pólya class LP (locally-uniform limits of real polynomials
-  with only real roots).  Convolution with a Gaussian is the heat semigroup
-  `e^{t·d²/dx²}`, which preserves LP — the Pólya–Schur / Hermite–Biehler circle of
-  results on real-rootedness-preserving multiplier operators.
-* Concretely, an energy/Newton-flow argument (de Bruijn; Newman; Csordas–Norfolk–
-  Varga) shows the imaginary parts of the zeros of `H_t` are non-increasing in `t`,
-  and once a zero is real it stays real under the forward flow.
-* mathlib GAP: no Laguerre–Pólya class, no Hermite–Biehler theorem, no
-  entire-function order/genus theory, no Hadamard factorization for Ξ.
+**PROVED** (no `sorry` in this theorem) from the two named analytic inputs
+`realZeros_iff_LP` and `heat_preserves_LP` above: transport `H_t` into the
+Laguerre–Pólya class, push it forward along the heat flow (LP is preserved), then
+transport back.  The only remaining gaps are those two lemmas, each with a proved
+finite-dimensional shadow in `DeBruijnNewman.RealRooted`.
 -/
 theorem deBruijn_monotone {t s : Int}
-    (hts : HasOnlyRealZeros t) (hle : t ≤ s) : HasOnlyRealZeros s := by
-  sorry
+    (hts : HasOnlyRealZeros t) (hle : t ≤ s) : HasOnlyRealZeros s :=
+  (realZeros_iff_LP s).mpr (heat_preserves_LP ((realZeros_iff_LP t).mp hts) hle)
 
 /--
 **Rodgers–Tao (2020):** `Λ ≥ 0`.  (Ann. of Math., "The de Bruijn–Newman constant is

@@ -8593,6 +8593,19 @@ const DATA_MODULES = [
   // imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 UNTOUCHED; E_flow > 0 strictness
   // (imp-33848) untouched; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35534-eflow-fartail-remnant-sub1e5-crossing.js',
+  // imp-35553: FITS the imp-35534 growing "decade-span-to-shed-each-factor-of-ten" law and PROJECTS the
+  // sub-1e-6 crossing on the identical log-space closed-surrogate channel. imp-35534 tabulated only two
+  // spans (83.5687 decades for 1e-3 -> 1e-4, 300.8583 for 1e-4 -> 1e-5) and never fit the growth. A
+  // constant-ratio (geometric) fit sets r = 3.6001 and projects sub-1e-6 at 10^1493.18; a DIRECT bisection
+  // of the identical byte-faithful remnant channel (reproduces the imp-35413 rung 0.000979, imp-35473
+  // sub-1e-4 crossing 109.1892, imp-35534 sub-1e-5 crossing 410.0475 to the digit) puts it at 10^1467.7351,
+  // ~1057.69 decades past sub-1e-5. The geometric fit OVERSHOOTS by ~25.44 decades (~1.73%) because the span
+  // ratio is not constant at ~3.6 but DECLINES (3.6001 -> 3.5156) toward sqrt(10) ~ 3.1623 -- the asymptote
+  // fixed by the remnant ~ 2 loglogN/(logN)^2 leading form (imp-35552); the growth is genuine but SUB-geometric.
+  // Eight self-executing assertions. Measurement only on the inherited imp-3220/imp-3406 surrogate; C_mb
+  // GUE-conditional per imp-486 UNTOUCHED; E_flow > 0 strictness (imp-33848) untouched; changes no bound;
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35553-eflow-fartail-remnant-decade-span-growth-fit.js',
   // imp-35535: TABULATES the imp-35473 E_flow far-tail fd-vs-analytic remnant*log N PRODUCT across a dense
   // ladder N = 1e26..1e200 on the IDENTICAL closed surrogate channel (byte-identical eFlowWith/localExponent/
   // remnant; no height-map swap, no heavy import) to settle whether the product flattens toward a nonzero

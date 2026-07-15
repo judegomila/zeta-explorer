@@ -9616,6 +9616,20 @@ const DATA_MODULES = [
   // self-executing assertions. Measurement only; derives nothing; discharges
   // nothing; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35724-collision-scale-landmark-prefactor-propagation.js',
+  // imp-35734: TABULATE the imp-35696 ABSOLUTE collision-scale prefactors (3/c)^{1/3}
+  // for the two small-gap density coefficients c = pi^2/3 (standard cubic GUE
+  // curvature) and c = C_C = (1/8)sqrt(3 pi), which imp-35696 gave only as the RATIO
+  // 2.047. Recomputing s_min(M;c) by BISECTION on M F(s_min)=1 at M=1 gives
+  // prefStd ~ 0.96972 (O(1)) and prefCC ~ 1.98469, prefCC/prefStd ~ 2.04665 =
+  // ((pi^2/3)/C_C)^{1/3} = cube root of the imp-35680 amplitude ratio 8.573. Across
+  // M in {10,1e2,1e4,1e6,1e8} the s_min gap (prefCC-prefStd) M^{-1/3} ~ 1.01496 M^{-1/3}
+  // SHRINKS (~0.471 -> ~0.00219) while the s_min ratio stays FIXED at 2.04665 at every
+  // rung (M-independent) -- isolating the amplitude as a fixed multiplicative O(1) offset
+  // decoupled from the shared -1/3 exponent. Import-light; six self-executing assertions.
+  // Prefactor tabulation only; confirms imp-35696; derives nothing; discharges nothing;
+  // changes no bound; C_C (imp-2642/imp-2643) and imp-486 UNTOUCHED; imp-35337a stays
+  // OPEN; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35734-collision-scale-prefactor-tabulation.js',
   // imp-35726: COST the sign reconciliation between the repo held negative-time
   // heat-flow proxy (de Bruijn t = -4 tau_repo) and the positive-time Polymath15
   // barrier before it can seed W1. Continues imp-35717 (which enumerated R1-R4) by

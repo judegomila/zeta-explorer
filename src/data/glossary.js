@@ -17938,6 +17938,33 @@ export const glossary = [
       'imp-35312 disambiguates the near-miss constant 2/5 from this K, showing it is neither the prefactor nor a surviving expansion term (imp-35312)',
     ],
   },
+  {
+    term: 'imp-35318 four-E-component-landmark decade ladder: L1 < L2 < L3 < L4, signed gaps ~2.0044 below / ~0.7283 above N_cross',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35210 four-landmark ladder that imp-35318 verified reproduces its ' +
+      'imp-35153/imp-35154/imp-33723 sources with no drift beyond storage rounding. The four landmarks, ' +
+      'strictly increasing in N: L1 N_flow=trunc ~ 1.597752e6 (E_flow = E_trunc crossover), L2 ~ 3.246862e7 ' +
+      '(E_flow drops below 1% share), L3 N_cross ~ 3.280294e9 (E_coll = E_trunc crossover), L4 ~ 1.754552e10 ' +
+      '(E_flow drops below 0.1% share).\n\n' +
+      'SIGNED DECADE GAPS about N_cross (L3): L2 sits ~2.0044 decades BELOW N_cross (log10 L3 - log10 L2), ' +
+      'and L4 sits ~0.7283 decades ABOVE N_cross (log10 L4 - log10 L3) -- the ladder is asymmetric around its ' +
+      'central crossover, spanning roughly three decades below to under one decade above.\n\n' +
+      'HOW TO APPLY: cite imp-35318 for the source-crosscheck confirming these four literals and the two ' +
+      'decade gaps recompute exactly to the imp-35154 reported figures; use this ladder as the reference ' +
+      'ordering when a module needs all four E-component landmarks together rather than re-deriving them.\n\n' +
+      'HONEST SCOPE: the underlying component model is the inherited imp-3220/imp-3406 single-rate log-law ' +
+      'surrogate, NOT a rigorous asymptotic; C_mb is GUE-conditional per imp-486; verification cross-check ' +
+      'only, changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35499 (glossary headword recording the imp-35318 four-landmark decade ladder), 2026',
+    relatedTerms: [
+      'imp-35318 the source-crosscheck this entry records verbatim, including the zero-drift verification (imp-35318)',
+      'imp-35210 bakes the L1-L4 landmark array in strict N-order under test (imp-35210)',
+      'imp-35153 supplies L1, the E_flow = E_trunc crossover closed form (imp-35153)',
+      'imp-35154 supplies L2 and L4, the 1% and 0.1% E_flow-negligible thresholds and the reported decade gaps (imp-35154)',
+      'imp-33723 supplies L3, the N_cross sigma=1/2-vs-crossover closed form (imp-33723)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

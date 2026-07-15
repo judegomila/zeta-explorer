@@ -19448,6 +19448,44 @@ export const glossary = [
     ],
   },
   {
+    term: 'R1 disambiguation: the DAG-root finding (imp-35330), the three candidate ROUTES (imp-35356), and the R1s/R1t SPLIT (imp-35357) are three DIFFERENT treatments of the SAME requirement, not three separate objects',
+    category: 'proof-status',
+    definition:
+      'A navigation headword for readers who meet "R1" across imp-35330, imp-35356, and imp-35357 and risk ' +
+      'reading them as three competing or additive obstructions. All three are downstream analyses of the ' +
+      'SAME imp-35243 requirement R1 (floor-independence for the imp-34997/imp-35111 reentry band), asking ' +
+      'three different questions about it.' +
+      '\n\n' +
+      'imp-35330 asks WHERE R1 sits in the R1-R4 checklist: it is the DAG ROOT, with R4 vacuous-by-' +
+      'construction and R2/R3 dominated (they fix WHERE the band edges fall, not WHETHER the band exists) ' +
+      'until R1 is met. This is a STRUCTURAL finding about R1 relative to R2-R4; it does not attempt R1 itself.' +
+      '\n\n' +
+      'imp-35356 (verdict recorded imp-35429) asks HOW R1 could actually be MET: it enumerates three candidate ' +
+      'routes -- (i) floor-free re-expression, SELF-DEFEATING; (ii) pure-artifact proof, SELF-CONTAINED but ' +
+      'DISPOSAL-direction; (iii) intrinsic floor, CIRCULAR -- and finds route (ii) the sole viable one. This is ' +
+      'a ROUTE-ENUMERATION over R1, not a DAG placement or a partial discharge.' +
+      '\n\n' +
+      'imp-35357 (formalized as a lemma by imp-35414) asks what a FORMAL route-(ii) proof requires, and SPLITS ' +
+      'R1 into a near-provable SURROGATE half R1s (the contraction-map statement imp-35414 makes precise) and ' +
+      'an OPEN true-dynamic half R1t (no certified true-dynamic model exists to speak of it). This is a ' +
+      'DECOMPOSITION of R1 into an establishable piece and the piece that remains the actual binding gap.' +
+      '\n\n' +
+      'HOW TO APPLY: these are not four things to separately discharge -- they are one requirement (R1) viewed ' +
+      'through a DAG lens (imp-35330), a routes lens (imp-35356/imp-35429), and a surrogate/true-dynamic lens ' +
+      '(imp-35357/imp-35414). The residual gap after all three is the SAME object under different names: R1t.' +
+      '\n\n' +
+      'HONEST SCOPE: a cross-reference/navigation headword only; it discharges nothing and changes no bound. ' +
+      'R1t / imp-35111a / imp-35174a / imp-34997a / imp-35243a stay OPEN; no RH verdict, NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35444 (glossary disambiguation headword tying the R1-R4 DAG, the three-route verdict, and the R1s/R1t split into one navigation entry), 2026',
+    relatedTerms: [
+      'imp-35330 supplies the DAG-root finding (R1 root, R4 downstream-vacuous, R2/R3 dominated) (imp-35330)',
+      'imp-35356 enumerates the three candidate routes to meet R1, verdict recorded by imp-35429 (imp-35356)',
+      'imp-35357 splits R1 into surrogate R1s and true-dynamic R1t, formalized by imp-35414 (imp-35357)',
+      'imp-35243 is the source checklist R1-R4 that all three treatments trace back to (imp-35243)',
+    ],
+  },
+  {
     term: 'imp-35284 a-priori g_min bound candidate forms C1-C4: only C2 closes on itself, and it closes onto the collision, not a floor',
     category: 'proof-status',
     definition:

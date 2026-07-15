@@ -1224,6 +1224,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive heatmap baking the imp-35452/imp-35477 endpoint-positivity literals verbatim (no new computation); measurement only on the inherited imp-3220/imp-3406 surrogate; does NOT advance the R2 ladder past N=1000 (imp-35221/imp-35324/imp-35412); does NOT change the imp-35412 slack denominator; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35541-scheme-independence',
+      title: 'N=2000 Pair-1495 Crossing t_c: Scheme-Independence Across Orders 3/4/5',
+      oneLine:
+        'Bar chart and table of the imp-35477 N=2000 pair-1495 within-step crossing t_c across three integrator families (DP45 order 5, RK4 order 4, BS3 order 3) at two grids (dt, dt/2), with pairwise relative deviations all under ~1e-4.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35541-scheme-independence-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-35477-n2000-bs3-dense-crossvalidate-reference.js (imp-35541 viz page)',
+      ticket: 'imp-35541',
+      pedagogicalStep: 83,
+      honestCeiling:
+        'Descriptive bar chart baking the imp-35477 scheme-independence literals verbatim (no new computation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; does NOT advance the R2 ladder past N=1000 (imp-35221/imp-35324/imp-35412); does NOT change the imp-35412 slack denominator; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

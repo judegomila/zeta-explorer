@@ -831,6 +831,9 @@ const Imp35483EflowFartailRemnantSub1e3CrossingViz = lazy(() =>
 const Imp35506EndpointPositivityMapViz = lazy(() =>
   import('./pages/Imp35506EndpointPositivityMapViz.jsx')
 );
+const Imp35541SchemeIndependenceViz = lazy(() =>
+  import('./pages/Imp35541SchemeIndependenceViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2350,6 +2353,10 @@ function AppShell() {
           <Route
             path="/viz-imp35506-endpoint-positivity-map"
             element={<Imp35506EndpointPositivityMapViz />}
+          />
+          <Route
+            path="/viz-imp35541-scheme-independence"
+            element={<Imp35541SchemeIndependenceViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

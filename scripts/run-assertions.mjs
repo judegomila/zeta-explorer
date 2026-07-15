@@ -9584,6 +9584,17 @@ const DATA_MODULES = [
   // Three self-executing assertions. Audit only; changes no bound; NO QED;
   // Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35367-guth-maynard-firewall-nav-reachability-audit.js',
+  // imp-35722: TABULATE the imp-35538 REQ-4 required-height gap as a per-landmark
+  // ladder -- for each sigma landmark form the multiple 200 / log T0 (the factor by
+  // which the landmark log-height must grow to reach the binding log T0 >= 200,
+  // T0 >= e^200 ~ 7.23e86, an O(1/log T0) route-(i) remainder needs for the 0.5%
+  // crossover budget). FINDING: the multiple DESCENDS as log-height grows -- peak
+  // (~13.23) needs ~15.12x (NEW: largest, never tabulated), crossover (~20.86)
+  // ~9.59x, PT anchor (~28.73) ~6.96x -- yet even the deepest verified height still
+  // falls ~7x short. Crossover/PT multiples reproduce imp-35538 shortfallVsCross /
+  // shortfallVsTPT. Import-light; six self-executing assertions. Measurement only;
+  // derives nothing; discharges nothing; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35722-req4-required-height-landmark-ladder.js',
 ];
 
 let ALL_MODULES = FAST_MODE

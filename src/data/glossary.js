@@ -17955,6 +17955,7 @@ export const glossary = [
       'imp-35450 direct central-FD curvature confirming the RAW 6.4319e-3, not the rounded 6.428e-3 headline (imp-35450)',
       'imp-35470 5-point Richardson stencil independently confirming the RAW 6.4319e-3 (imp-35470)',
       'imp-35495 closed-form derivation of k with no finite-difference step, confirming the RAW 6.4319e-3 (imp-35495)',
+      'imp-35462 the queue ticket requesting this headword -- satisfied verbatim by this entry (queue title only, no distinct compute module of its own) (imp-35462)',
     ],
   },
   {

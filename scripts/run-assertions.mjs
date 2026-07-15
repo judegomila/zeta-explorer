@@ -9595,6 +9595,19 @@ const DATA_MODULES = [
   // shortfallVsTPT. Import-light; six self-executing assertions. Measurement only;
   // derives nothing; discharges nothing; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35722-req4-required-height-landmark-ladder.js',
+  // imp-35724: PROPAGATE the imp-35696 cube-root collision-scale prefactor
+  // ((pi^2/3)/C_C)^{1/3} ~ 2.047 onto the actual imp-35337 sigma-landmark heights
+  // N_peak ~ 9.22e5 and N_cross ~ 3.28e9. RvM surrogate M = N (gap count over the
+  // local unfolded window = zero count); s_min(M;c) recomputed by BISECTION on
+  // M F(s_min)=1 for c = pi^2/3 and c = C_C. FINDING: the O(1) shift
+  // s_min(C_C)/s_min(std) is IDENTICAL at both landmarks (~2.0467, N cancels -- the
+  // cube root of the imp-35680 amplitude mismatch ~8.573): s_min moves ~9.97e-3 ->
+  // ~2.04e-2 at the peak and ~6.53e-4 -> ~1.34e-3 at the crossover, while the
+  // two-landmark log-log slope stays -1/3 for BOTH readings (exponent untouched).
+  // std s_min cross-checks the imp-35652 bare-N^{-1/3} table. Import-light; six
+  // self-executing assertions. Measurement only; derives nothing; discharges
+  // nothing; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35724-collision-scale-landmark-prefactor-propagation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -17414,6 +17414,47 @@ export const glossary = [
     ],
   },
   {
+    term: 'imp-35265 odd-p vs symmetric branch-pair distinction: (i-t^2)^{-3}+(i+t^2)^{-3} feeds the |F_3| curvature tail that DOES enter rho, while the superficially similar (t^2-i)^{-3}+(t^2+i)^{-3} = 2t^{-6}+O(t^{-10}) belongs to a DIFFERENT integrand and never reaches rho at all',
+    category: 'numerical',
+    definition:
+      'A headword pinning down which of two similar-looking conjugate-branch sums is the one that actually ' +
+      'populates the model-cusp rho(eps) expansion, since both keep getting invoked in the same breath as ' +
+      'imp-35312 notes.\n\n' +
+      'THE ODD-p PAIR (enters rho): the |F_3| curvature-correction denominator is built from the odd power ' +
+      'p=3 conjugate branches evaluated at a=t^2, giving the exact identity ' +
+      '(i-t^2)^{-3}+(i+t^2)^{-3} = -2i(3t^4-1)/(1+t^4)^3 = -6i t^{-8}+O(t^{-12}) (imp-35265/imp-35313). The ' +
+      'leading t^{-6} term that either branch alone would contribute cancels between the conjugates, so this ' +
+      'pair only supplies rho with the eps^{7/2} term (K_{7/2} = -8 sqrt(2)/(3 pi)); its own would-be eps^{5/2} ' +
+      'contribution is algebraically absent, not merely small.\n\n' +
+      'THE SYMMETRIC PAIR (never enters rho): a different, symmetric-in-sign pairing of the same building ' +
+      'block, (t^2-i)^{-3}+(t^2+i)^{-3}, satisfies the exact identity 2t^2(t^4-3)/(t^4+1)^3 = ' +
+      '2t^{-6}-12t^{-10}+O(t^{-14}) (verified to <1e-18 at four test points and matching the expansion to ' +
+      '<1e-33 at t=1000) -- a nonzero t^{-6} leading term that WOULD imply an eps^{5/2} contribution if it ' +
+      'fed rho. It belongs to a separate integrand (the symmetric branch-sum imp-35312 traces the 2/5 ' +
+      'near-miss constant to) that is never summed into the model-cusp margin-ratio expansion at all.\n\n' +
+      'WHY THE DISTINCTION MATTERS: the two pairs differ only by which conjugate is negated ((i-t^2) versus ' +
+      '(t^2-i) = -(i-t^2)... but raised to the SAME odd power 3, the sign flips the pairing that survives ' +
+      'cancellation), yet one is algebraically forced into rho with its t^{-6} term erased, while the other ' +
+      'carries a live t^{-6} term but is structurally excluded from rho\'s integrand altogether. The eps^{5/2} ' +
+      'slot is empty in rho not because every t^{-6}-bearing branch pair vanishes, but because the specific ' +
+      'pair that DOES enter rho happens to cancel at that order -- the symmetric pair\'s surviving t^{-6} term ' +
+      'is a fact about a different sum, irrelevant to rho.\n\n' +
+      'HOW TO APPLY: cite this entry when a reader conflates the two branch pairs -- e.g. after seeing the ' +
+      'symmetric pair\'s nonzero t^{-6} term and wondering why it does not contradict the imp-35265 eps^{5/2}' +
+      '-slot-empty result. The two exact identities coexist without conflict because they describe different ' +
+      'integrands.\n\n' +
+      'HONEST SCOPE: a content/glossary disambiguation adding one new exact identity (the symmetric pair) ' +
+      'alongside the already-derived imp-35265 odd-p identity; establishes no operator positivity; O3 and ' +
+      'G6a_shock_lipschitz stay OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; no RH ' +
+      'verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35382 (glossary headword distinguishing the imp-35265 odd-p pair from the symmetric branch pair), 2026',
+    relatedTerms: [
+      'imp-35265 derived the odd-p pair exact identity that DOES enter rho, with its eps^{5/2} term algebraically absent (imp-35265)',
+      'imp-35312 traced the 2/5 near-miss constant to the symmetric branch-sum integrand this entry gives an exact identity for (imp-35312)',
+      'imp-35244 first reported the eps^{5/2} slot in rho is empty, the result the odd-p pair here derives exactly (imp-35244)',
+    ],
+  },
+  {
     term: 'imp-35266 Krawczyk headroom 2:1 cancellation: the band-top surplus ~55.18 above the closed-form floor S_inf = 1/(2 delta) = 2500 is the residue of a near-exact 2:1 cancellation between a +110.34 finite-N push (FP_LO) and a -55.16 asymptotic-floor pull (G-factor)',
     category: 'numerical',
     definition:

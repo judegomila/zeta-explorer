@@ -227,7 +227,11 @@ export default function Imp35288R2FlowLadderSlackViz() {
         crossing itself is scheme-invariant. But the endpoint-positivity flag differs by scheme
         (DP45 dt/2 positive, RK4 dt/2 negative), so that flag is a DP45-specific knife-edge, not a
         property of the flow. This cross-check does not advance the ladder past N = 1000: RUNGS[5]
-        still bakes the imp-35412 endpoint DP45 dt/2 worst-case as the reported slack.
+        still bakes the imp-35412 endpoint DP45 dt/2 worst-case as the reported slack &mdash; per
+        imp-35412&apos;s KEEP verdict, a one-sided upper bound (t_c_flow &le; t_c_hi) must report the
+        LARGEST tested collision time as its worst case, so the more-faithful but earlier dense
+        interior crossing (imp-35351) is recorded only as a diagnostic, never adopted in the slack
+        denominator.
       </div>
     </div>
   );

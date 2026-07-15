@@ -9193,6 +9193,20 @@ const DATA_MODULES = [
   // zeros bundle). Decomposition only on the imp-3220/imp-3406 surrogate; changes no bound; imp-35337a
   // stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35639-peak-balance-eflow-etrunc-decomposition.js',
+  // imp-35685: REGRESSION-GUARD pinning the imp-35652 resolution-shortfall literals so a silent
+  // literal drift trips the build. imp-35652 scoped the imp-35538 REQ-3 option-(a) route and baked
+  // the resolution-floor arithmetic (s_min(N_PEAK) = 1.0275e-2, shortfall = 97.32x; s_min(N_CROSS) =
+  // 6.7302e-4, shortfall = 1485.84x; C_C = (1/8) sqrt(3 pi) = 0.38374752 ansatz, imp-2642/imp-2643)
+  // but had no dedicated standalone recompute guard wired into the build. This import-light module
+  // INDEPENDENTLY recomputes s_min(M) = M^{-1/3} and the shortfall 1/s_min(M) = M^{1/3} from the two
+  // imp-35337/imp-35475 landmark N values, and cross-checks the imp-35652 baked
+  // resolutionScaleTable/C_C reproduce the same figures. Four self-executing assertions. Import-light
+  // (imports only the import-light imp-35652 record, no zeros bundle, per
+  // [[no_heavy_imports_in_pages]] / [[verify_heavy_assertion_modules]]). Regression-guard only;
+  // recomputes an established assessment/scoping figure; changes no bound; C_C ansatz and
+  // E_trunc = 3.06e-5 (imp-2631) UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian
+  // Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35685-resolution-shortfall-literal-guard.js',
 ];
 
 let ALL_MODULES = FAST_MODE

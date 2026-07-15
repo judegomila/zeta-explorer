@@ -8172,6 +8172,18 @@ const DATA_MODULES = [
   // imp-33582 caveat exactly as imp-35174 did for the band edges. Six assertions. Measurement only on the inherited
   // imp-3220/imp-3406 surrogate; imp-35336a (surrogate-vs-true fidelity) stays OPEN; changes no bound; NO QED; PT SOTA.
   '/src/data/imp-35336-sigma-crossing-landmarks-double-double.js',
+  // imp-35337: CERTIFIES the two INTERIOR U-curve landmarks of the imp-3220/imp-3406/imp-3444 GUE-conditional
+  // share sigma(N)=E_coll/E(N) in the imp-35109/imp-35174 cancellation-free double-double (dd) path (dd RvM
+  // Newton inverse + dd log/sqrt/add/div chain). Distinct from imp-35336 (crossings): here the headline is the
+  // interior PEAK (N_max~9.2186e5, sigma_max~0.94942901) -- agrees double-vs-dd to ~1.5e-8 in log10 N -- and the
+  // "10^6 lands 2.1e-5 below the interior peak" FLAT-CAP margin, which agrees double-vs-dd to ~1e-16, eleven
+  // orders below the 2.1e-5 margin itself, so it is NOT a flat-maximum cancellation artifact. The imp-3444
+  // E_coll=E_trunc CROSSOVER re-bisects to ~3.280294352e9 (relative ~0 double-vs-dd, reproducing imp-3444 to all
+  // printed digits); max |sigma_dd-sigma_double| across the N-shape ladder ~1e-16. Seven self-executing
+  // assertions. Certification only on the inherited imp-3220/imp-3406 surrogate; the C_C=(1/8)sqrt(3 pi) ansatz
+  // (imp-2642), E_trunc=3.06e-5 (imp-2631) and the imp-398 C_F prefactor UNTOUCHED; surrogate-fidelity half
+  // re-pointed imp-35337a stays OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35337-sigma-landmarks-double-double-certification.js',
 ];
 
 let ALL_MODULES = FAST_MODE

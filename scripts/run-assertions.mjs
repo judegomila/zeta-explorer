@@ -9295,6 +9295,19 @@ const DATA_MODULES = [
   // changes no bound; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643) and E_trunc = 3.06e-5 (imp-2631)
   // UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35672-route-ii-gtrue-spotcheck-scope.js',
+  // imp-35673: EXTEND the imp-35652 two-row resolution-shortfall table into a
+  // FAR-TAIL landmark ladder (peak N~9.22e5, cross N~3.28e9, T_PT=3e12, sigma<1e-3
+  // N~5.43e15, decade probes to 1e24) and MEASURE the shortfall = N^{1/3} at each.
+  // Under GUE cubic repulsion s_min(M)~M^{-1/3} so the band-limited |alpha|<1
+  // resolution shortfall delta_res/s_min = M^{1/3} DIVERGES -- one order of
+  // magnitude per three decades of N, ~6.0 decades peak->1e24, NO plateau -- so
+  // the imp-35652 option-(a) obstruction GROWS into the tail, confirmed
+  // quantitatively. Import-light (baked imp-35652 anchors, no zeros bundle, per
+  // [[no_heavy_imports_in_pages]] / [[verify_heavy_assertion_modules]]). Five
+  // self-executing assertions. Measurement only; changes no bound; C_C =
+  // (1/8) sqrt(3 pi) (imp-2642/imp-2643) and E_trunc = 3.06e-5 (imp-2631)
+  // UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35673-resolution-shortfall-far-tail-ladder.js',
 ];
 
 let ALL_MODULES = FAST_MODE

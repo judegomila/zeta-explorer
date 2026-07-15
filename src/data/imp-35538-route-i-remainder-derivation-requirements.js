@@ -88,9 +88,20 @@
  * imp-35337a. Assessment/scoping only; discharges nothing; changes no bound; no
  * positivity; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
+ * CROSS-REFERENCE (imp-35712): imp-35652 assesses REQ 3's option (a) directly --
+ * whether E_coll can be re-expressed via a restricted-Fourier-support surrogate
+ * reachable inside the PROVEN |alpha| < 1 correlations, which would DISSOLVE REQ
+ * 2 as well. imp-35652 finds option (a) NOT viable: such a surrogate is a
+ * band-limited, mean-scale statistic that cannot carry the leading constant
+ * C_C = (1/8) sqrt(3 pi) (the near-coincidence scale is inaccessible inside
+ * |alpha| < 1). So option (a) does NOT dissolve REQ 2 -- the full-support
+ * explicit-rate E_GUE(T0) local law of REQ 2 is still required, and REQ 3 still
+ * forces the conjectural option (b).
+ *
  * @see imp-35475-sigma-fidelity-closure-scope (Part B flags route-(i) absent; Part C budgets; Part D imp-486)
  * @see imp-35493-route-i-remainder-literature-scope (survey CONFIRMS route-(i) absent; this module scopes its requirements)
  * @see imp-35488-route-ii-two-height-gtrue-spotcheck (route-(ii) partial for imp-35337a)
+ * @see imp-35652-req3-option-a-restricted-support-surrogate-scope (REQ 3 option (a) assessed and found NOT viable; REQ 2 not dissolved)
  * @see imp-35337-sigma-landmarks-double-double-certification (names imp-35337a)
  * @see imp-486 (GUE-conditional caveat inherited by any pair-correlation remainder)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 Riemann-von Mangoldt inverse)
@@ -245,8 +256,9 @@ export const IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS = {
     'CONFIRMS route-(i) absent -- this module scopes its derivation requirements); imp-35488 (route-(ii) ' +
     'two-height partial for imp-35337a); imp-35337 (names imp-35337a); imp-2642/imp-2643 (C_C = (1/8) ' +
     'sqrt(3 pi) ansatz, C_H = 1/8); imp-398 (E_flow C_F prefactor); imp-2631 (E_trunc floor); imp-486 ' +
-    '(GUE-conditional caveat); lambda-rh-height-mapping (effectiveHeightForN RvM inverse); Platt-Trudgian ' +
-    '2021 (T_PT = 3e12). Literature: Montgomery (1973); Rudnick-Sarnak (1996).',
+    '(GUE-conditional caveat); imp-35652 (assesses REQ 3 option (a), finds it NOT viable, so REQ 2 is still ' +
+    'required); lambda-rh-height-mapping (effectiveHeightForN RvM inverse); Platt-Trudgian 2021 ' +
+    '(T_PT = 3e12). Literature: Montgomery (1973); Rudnick-Sarnak (1996).',
 };
 
 export const IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS_ASSERTIONS = [

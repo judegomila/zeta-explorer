@@ -18511,6 +18511,43 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this contrast (imp-486)',
     ],
   },
+  {
+    term: 'imp-35571 REQ-4 e^200 threshold: a leading-rate artifact with no available subleading escape',
+    category: 'concept',
+    definition:
+      'A headword recording the imp-35571 finding on the imp-35538 REQ-4 route-(i) height requirement: the ' +
+      'log T0 >= 200 (T0 >= e^200 ~ 7.23e86) threshold that the natural LEADING O(1/log T0) GUE local-law ' +
+      'rate imposes to meet the imp-35475 Part-C 0.5% relative E_coll crossover budget is an ARTIFACT of that ' +
+      'leading rate, not a fundamental barrier -- but no proved rate exists that would dissolve it.\n\n' +
+      'THE COLLAPSE ARITHMETIC: a poly-log rate O(1/(log T0)^a) needs only log T0 >= 200^(1/a); a power-law ' +
+      'rate O(T0^{-delta}) needs only log T0 >= ln(200)/delta ~ 5.298/delta. An a = 2 poly-log rate alone ' +
+      'drops the threshold from 200 to ~14.14 -- just above the sigma-peak log-height (~13.23) and below both ' +
+      'the crossover (~20.86) and the Platt-Trudgian anchor log T_PT ~28.73 -- and a modest power-law rate ' +
+      '(delta ~0.254) already reaches the crossover height.\n\n' +
+      'WHY THE ESCAPE IS UNAVAILABLE: TIER A, the zeta-zero statistics route-(i) actually needs, carries NO ' +
+      'finite-T rate at all -- Montgomery (1973) pair-correlation and Rudnick-Sarnak (1996) n-level ' +
+      'correlations are asymptotic-only at restricted Fourier support, and the finite-T heuristics (Berry ' +
+      '1988, Bogomolny-Keating 1996, Conrey-Snaith 2007) are themselves Hardy-Littlewood-conditional and only ' +
+      'predict LEADING-size corrections. TIER B, the GUE random-matrix ENSEMBLE, does carry proved power-law ' +
+      'rates (Erdos-Schlein-Yau / Erdos-Yau-Yin optimal rigidity N^{-1+eps}) -- but transferring an ensemble ' +
+      'rate to the zeta statistics IS EXACTLY the conjectural Montgomery pair-correlation step (imp-35538 ' +
+      'REQ-3), so the one proved subleading rate lives on the wrong object.\n\n' +
+      'HOW TO APPLY: cite this entry whenever the e^200 threshold is proposed as fixable by "just sharpening ' +
+      'the rate" -- the arithmetic shows sharpening would work in principle, but no proved sharpening exists ' +
+      'for the object route-(i) needs; closing this gap is Montgomery-conjecture-scale, not an incremental ' +
+      'step. Route-(ii) (imp-35488) remains the only viable partial for the OPEN imp-35337a.\n\n' +
+      'HONEST SCOPE: assessment/scoping only; derives no remainder; discharges nothing; changes no bound; ' +
+      'establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), E_trunc = 3.06e-5 ' +
+      '(imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35598 (glossary/Concepts headword for the imp-35571 REQ-4 leading-rate-artifact finding), 2026',
+    relatedTerms: [
+      'imp-35571 is the scoping module this headword documents (imp-35571)',
+      'imp-35538 REQ-4 names the log T0 >= 200 threshold this entry shows is a leading-rate artifact (imp-35538)',
+      'imp-35493 surveyed the literature for the leading rate this entry contrasts against a subleading one (imp-35493)',
+      'imp-35488 route-(ii) two-height data spot check remains the only viable partial for imp-35337a (imp-35488)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

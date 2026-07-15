@@ -217,6 +217,8 @@ const DATA_MODULES = [
   '/src/data/imp-35471-imp-35416-rk4-hermite-reverify-reference.js',
   // imp-35477: THIRD dense-output family (Bogacki-Shampine BS3, order-3 FSAL + cubic Hermite) corroboration of the imp-35351/imp-35416 N=2000 pair-1495 within-step crossing. Driven on the identical imp-35278 N=2000 setup (dt=tauC_est/1000, 256 interior nodes), BS3 catches the crossing at the SAME step (1004 at dt, 2007 at dt/2) and SAME pair (1495) at t_c=1.1923806919e-3 (dt) / 1.1921020374e-3 (dt/2), within ~1e-4 relative of BOTH prior families (dt/2 vs DP45 rel 9.996e-5, dt vs RK4 rel 2.574e-5), so the crossing is scheme-invariant across integrator orders 3, 4, and 5 -- not a high-order artifact. BS3 endpoint gap NEGATIVE at both grids (matching RK4); the lone endpoint-POSITIVE cell stays the DP45 dt/2 knife-edge. MEASUREMENT/CROSS-CHECK ONLY, ladder stays N=1000, changes no bound, C_mb stays GUE-conditional per imp-486, NO QED.
   '/src/data/imp-35477-n2000-bs3-dense-crossvalidate-reference.js',
+  // imp-35494: INDEPENDENT recomputation of the four imp-35477 BS3 dense-output cross-check relative figures (N=2000 pair-1495 within-step crossing) purely from the three families' baked t_c literals (DP45 dt 1.1923008536e-3/dt2 1.1919828898e-3, RK4 dt 1.1923500033e-3/dt2 1.1920364654e-3, BS3 dt 1.1923806919e-3/dt2 1.1921020374e-3). All four relatives reproduce the imp-35477 reported 4-sig-fig figures (dt BS3-vs-RK4 2.5738e-5->2.574e-5, dt BS3-vs-DP45 6.6962e-5->6.696e-5, dt/2 BS3-vs-DP45 9.9957e-5->9.996e-5, dt/2 BS3-vs-RK4 5.5008e-5->5.501e-5) and the ordering BS3 > RK4 > DP45 holds at both grids -- no transcription drift. VERIFICATION/LITERAL-CONSISTENCY ONLY, ladder stays N=1000, changes no bound, C_mb stays GUE-conditional per imp-486, NO QED.
+  '/src/data/imp-35494-imp-35477-bs3-crosscheck-reverify-reference.js',
   // imp-35452: characterizes the imp-35416 DP45-specific endpoint-positivity knife-edge -- maps the step-endpoint signed gap of pair-1495 at N=2000 across integrator order (RK4, DP45) x grid (dt, dt/2, dt/4). Across the full 2x3 matrix the DP45 dt/2 cell is the ONLY one whose endpoint gap stays POSITIVE (min +1.775e-3 at step 2006); every other cell goes NEGATIVE. Refining DP45 dt->dt/2->dt/4 flips the endpoint sign NEG->POS->NEG, so the blindness is a single-grid RESONANCE, not an order-5 trend; at step 2007 DP45 lands +1.78e-3 above zero while RK4 first-crosses only -5.44e-5 below, so both dt/2 schemes straddle the boundary. MEASUREMENT ONLY, ladder stays N=1000, NO QED.
   '/src/data/imp-35452-n2000-endpoint-positivity-knife-edge-reference.js',
   // imp-35490: MEASURES whether the imp-35452 lone endpoint-POSITIVE cell (DP45 dt/2, N=2000 pair-1495, min endpoint gap +1.775304e-3 at step 2006) survives compensated/extended-precision arithmetic. On the verbatim imp-35278 N=2000 setup: the compensated float64 Kahan-Neumaier run reproduces the +1.775303683e-3 positive min endpoint gap, a full double-double (~106-bit twoSum/twoProd) recomputation of the critical step 2006 keeps the gap POSITIVE (1.775303683276e-3; dd-vs-float64 delta 8.7e-14, rel 4.9e-11), and the gap sits ~9 decades above the float64 endpoint-subtraction noise floor eps*(|y[i+1]|+|y[i]|)=8.78e-13 (margin 2.02e9). So the DP45 dt/2 endpoint positivity is a GENUINE order-5 within-step step-over, NOT a rounding artifact. Full-trajectory dd left as residual sub-gap imp-35490a (native backend). MEASUREMENT ONLY, adopts no new slack denominator (imp-35412 KEEPS the endpoint worst-case), ladder stays N=1000, C_mb stays GUE-conditional per imp-486, NO QED.
@@ -8560,6 +8562,24 @@ const DATA_MODULES = [
   // self-executing assertions. DERIVATION only on the inherited imp-3220/imp-3406 surrogate; C_mb
   // GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35317-eflow-negligible-landmarks-closed-form.js',
+  // imp-35484: registration audit found imp-35410, imp-35413, imp-35414 (the imp-35410..
+  // imp-35417 measurement/lemma cohort) export self-executing *_ASSERTIONS arrays but were
+  // never wired into this sweep -- orphan-wiring pattern per imp-34987.
+  // imp-35410: locates the sigma < 1e-4 GUE-conditional share threshold at N ~ 6.165e17
+  // (log10 N ~ 17.7899), extending the imp-35334 sigma<1e-3 three-way E-component share
+  // table one further decade. MEASUREMENT ONLY, C_mb GUE-conditional per imp-486
+  // UNTOUCHED, changes no bound, NO QED.
+  '/src/data/imp-35410-far-tail-sigma-1e-4-threshold-three-way-shares.js',
+  // imp-35413: locates the imp-35371 E_flow far-tail fd-vs-analytic remnant sub-1e-3
+  // crossing at N ~ 4.17e25 (log10 N ~ 25.6205) on the closed T0 = 2 pi N / log N
+  // surrogate channel. MEASUREMENT ONLY, C_mb GUE-conditional per imp-486 UNTOUCHED,
+  // changes no bound, NO QED.
+  '/src/data/imp-35413-eflow-fartail-remnant-sub1e3-crossing.js',
+  // imp-35414: formalizes the imp-35357 R1s surrogate result as a precise self-contained
+  // lemma (hypotheses H1-H4, identically-zero band-indicator conclusion), isolating it
+  // from the OPEN R1t true-dynamic residue. FORMALIZATION ONLY, discharges nothing,
+  // imp-35243a stays OPEN, changes no bound, NO QED.
+  '/src/data/imp-35414-r1s-zero-residue-surrogate-lemma.js',
 ];
 
 let ALL_MODULES = FAST_MODE

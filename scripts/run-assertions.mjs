@@ -8910,6 +8910,19 @@ const DATA_MODULES = [
   // surrogate-vs-true fidelity (imp-35337a) UNTOUCHED; the 3.6e-5 value is a probe not a re-anchoring;
   // changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35609-peak-damping-input-sensitivity.js',
+  // imp-35620: RE-FORMS the imp-35574 peak-LOCATION damping factor (~0.553, < 1 AMPLIFIED) under the
+  // imp-35536 multiplicative bracketing family RvM x {1.02, 0.98, 1.05, 0.95} instead of the single
+  // closed-surrogate swap. For each constant-scaling arm T0 = m*RvM(N) the raw-height ratio at the
+  // fixed base peak is EXACTLY m, so the damping factor is |1-m|/|rel loc shift|: all four arms give
+  // damping < 1 (~0.9055, 0.8680, 0.9336, 0.8399; range ~[0.84,0.93], mean ~0.887), so the AMPLIFICATION
+  // is a map-FAMILY-robust property, NOT a closed-surrogate artifact. But the specific ~0.55 is
+  // surrogate-specific: the clean family value is milder (~0.88, matching the imp-35536 local slope
+  // -0.49); the surrogate inflates it via its larger, N-dependent (>5 percent effective per imp-35555)
+  // perturbation. Five self-executing assertions. Import-light (inlined effectiveHeightForN + surrogate,
+  // no zeros bundle). Measurement only; reuses the imp-35536/imp-35574 locator + component model verbatim;
+  // surrogate-vs-true fidelity (imp-35337a) UNTOUCHED; changes no bound; C_mb GUE-conditional per imp-486
+  // UNTOUCHED; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35620-peak-location-damping-bracketing-family.js',
   // imp-35559: ASSERTION-ONLY tripwire pinning the six imp-35559 per-endpoint reentry-band decade-gap
   // literals against a silent drift of the baked band edges [10^27.084691, 10^37.167107] or ceilings.
   // Independently recomputes all six gaps from Math.log10 of the same edges and ceilings -- reentry/exit

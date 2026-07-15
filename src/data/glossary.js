@@ -19611,6 +19611,42 @@ export const glossary = [
       'imp-35433 independently cross-checked this landmark under different quadrature and root-finding numerics (imp-35433)',
     ],
   },
+  {
+    term: 'imp-35402 Literal-Reconstruction-Fidelity Caveat (rounded-sibling division amplifies to ~1.3%)',
+    category: 'method',
+    definition:
+      'A methodological caveat for future literal-verification audits: a stored table column ' +
+      'computed from FULL-PRECISION intermediate values cannot always be reproduced by dividing ' +
+      'that same table\'s own already-rounded sibling columns.\n\n' +
+      'imp-35402 tried to recompute the imp-35279 stored swapFraction column (0.786/0.648/0.600/' +
+      '0.568 at N = 1e6/1e9/1e12/1e16) as (stored inverseSwapGap) / (stored analyticResidual) -- ' +
+      'i.e. purely from the table\'s own 4-decimal-rounded published literals. RESULT: this does ' +
+      'NOT reproduce tightly -- the recomputation gives 0.7815/0.6517/0.5938/0.5814, off by up to ' +
+      '0.0134 (1.34%, at the deepest rung N = 1e16) from the stored value.\n\n' +
+      'This is NOT a computation bug in the source module: swapFraction is computed there from the ' +
+      'FULL-PRECISION pre-rounding gap/residual, not from the module\'s own rounded storage columns. ' +
+      'Dividing two independently-rounded 4-decimal numbers -- especially the small ~0.004-0.012 ' +
+      'denominators/numerators at the ladder\'s deep end -- amplifies the +/-5e-5 per-literal rounding ' +
+      'error to a percent-level swing in the quotient. imp-35402 confirmed swapFraction stays ' +
+      'faithful to the LIVE computation via an independent exact cross-module check (imp-35279 ' +
+      'closedFormRemnant vs imp-35280 fdVsAnalyticGap, bit-for-bit agreement at every rung); only the ' +
+      'rounded-literal-only reconstruction path is lossy.\n\n' +
+      'GENERAL RULE for future literal audits of this table (and any table storing a ratio/derived ' +
+      'column alongside its rounded inputs): reconstruct from the PRE-ROUNDING live values, not from ' +
+      'the published rounded siblings -- a failed rounded-sibling reconstruction is expected rounding ' +
+      'amplification, not evidence of a transcription error.\n\n' +
+      'HONEST SCOPE: measurement-and-methodology note only; changes no bound; no re-derivation of ' +
+      'the underlying E_flow quantity; E_flow > 0 strictness (imp-33848) untouched; C_mb ' +
+      'GUE-conditional per imp-486 UNTOUCHED; no operator positivity; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35449 (glossary/method headword documenting the imp-35402 literal-reconstruction-fidelity caveat), 2026',
+    relatedTerms: [
+      'imp-35402 ran the swap-fraction rounded-sibling recomputation this caveat generalizes from (imp-35402)',
+      'imp-35279 tabulated the four-rung swapFraction ladder whose rounded columns cannot exactly reconstruct it (imp-35279)',
+      'imp-35280 supplies the independent exact cross-check confirming swapFraction is faithful to the live computation (imp-35280)',
+      'imp-35339 is the literal-verification method template imp-35402 applied to surface this caveat (imp-35339)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

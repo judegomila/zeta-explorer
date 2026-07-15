@@ -19194,6 +19194,41 @@ export const glossary = [
       'imp-35334 shows E_trunc dominates the far-tail bridge as sigma -> 0 (imp-35334)',
     ],
   },
+  {
+    term: 'imp-35654 post-port verdict: "unconditional up to a vanishing GUE-conditional share sigma"',
+    category: 'proof-status',
+    definition:
+      'A headword recording the imp-35654 characterization of the mixed conditionality that SURVIVES ' +
+      'porting the imp-35419 S_barrier deterministic realness lemma into the far-tail (sigma -> 0) bridge.\n\n' +
+      'PRE-PORT (imp-35334): the bridge carries TWO ORTHOGONAL conditionalities -- a GUE-conditional share ' +
+      '(E_coll/E(N), exactly sigma, vanishing) and a sigma-BLIND DOMINANT C_T-barrier share ' +
+      '(E_trunc/E(N) ~ 0.999 -> 1, the imp-34791 unported barrier lemma). Because the sigma decay removes ' +
+      'only the GUE share and is blind to the C_T share, the pre-port bridge never reaches unconditional.\n\n' +
+      'POST-PORT (this headword): the S_barrier port discharges the dominant sigma-blind C_T-barrier share ' +
+      'to unconditional (the Polymath15/PT barrier theorem is itself unconditional, imp-35419 C1), folding ' +
+      'the ~0.999 share into the unconditional bucket. The residual conditionality COLLAPSES from two ' +
+      'orthogonal classes to ONE: the bridge is unconditional on a share 1 - sigma -> 1 and GUE-conditional ' +
+      '(imp-486) on only the residual share sigma -> 0 -- "unconditional up to a vanishing GUE-conditional ' +
+      'share sigma". The residual is now sigma-TRACKING (vanishes with tail depth), the OPPOSITE of the ' +
+      'pre-port sigma-blind floor -- yet for every FINITE N the GUE-conditional remainder is nonzero.\n\n' +
+      'HONEST TWIST: this asymptotic unconditionality is still only PARITY-WITH-PT (imp-35419 C2) -- the ' +
+      'ported machinery IS Platt-Trudgian own Lambda <= 0.2 machinery, so the bridge MATCHES 0.2, it does ' +
+      'NOT beat it.\n\n' +
+      'HOW TO APPLY: never describe the post-port far-tail bridge as simply "unconditional" -- qualify it ' +
+      'as unconditional up to the vanishing but always-positive GUE share sigma, and note the result only ' +
+      'matches, not beats, the Platt-Trudgian bound.\n\n' +
+      'HONEST SCOPE: assessment only (frontier-direction, NOT rigorous); ports nothing, discharges nothing, ' +
+      'changes no bound; establishes no operator positivity; C_mb GUE-conditional (imp-486) UNTOUCHED; no ' +
+      'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35684 (glossary headword recording the imp-35654 post-port far-tail mixed-conditionality verdict), 2026',
+    relatedTerms: [
+      'imp-35654 supplies the pre-port/post-port mixed-conditionality analysis recorded here (imp-35654)',
+      'imp-35419 supplies the S_barrier port whose unconditional discharge (C1) drives the collapse (imp-35419)',
+      'imp-35334 establishes the pre-port two-orthogonal-conditionalities floor (imp-35334)',
+      'imp-34791 reclassifies E_trunc as the unported barrier lemma folded in by the port (imp-34791)',
+      'imp-486 supplies the GUE-conditional caveat that is the only surviving residual (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

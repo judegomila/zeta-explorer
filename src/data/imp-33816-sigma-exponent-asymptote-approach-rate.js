@@ -208,6 +208,14 @@ const WITHIN_0_1PCT_LOGT0_DIRECT = logT0FromLnN(WITHIN_0_1PCT_LOG10_DIRECT * Mat
 const WITHIN_50PCT_LOG10 = crossLog10Direct(0.25, 30); // ~9.61 (log T0 ~ 21.1); 50% of the 1/2 asymptote
 const WITHIN_95PCT_LOG10 = crossLog10Direct(0.475, 80); // ~13.17 (log T0 ~ 28.9); 95% of the 1/2 asymptote
 
+// imp-35730: tabulate the intermediate exponent crossings p=0.25 (quarter-of-the-1/2-ramp, i.e. the
+// imp-33943 50%-of-half mark, reproduced as a reuse gate) and p=0.375 (three-quarter mark, NEVER
+// previously tabulated) on the IDENTICAL log-space direct path (crossLog10Direct). The imp-33582 ramp
+// reports only its endpoints (~0.0105 first decade -> ~0.4310 by [1e11,1e12]); the p=0.375 crossing sat
+// unmeasured in the gap between the imp-33943 p=0.25 (N~1e9.61) and imp-33904 p=0.45 (N~1e11.92) rungs.
+const CROSS_p25_LOG10 = crossLog10Direct(0.25, 60); // ~9.61 (log T0 ~ 21.05); reproduces WITHIN_50PCT_LOG10
+const CROSS_p375_LOG10 = crossLog10Direct(0.375, 60); // ~10.68 (log T0 ~ 23.40); the untabulated three-quarter mark
+
 // imp-33949: DIRECTLY confirm the logarithmic (NOT polynomial) shortfall decay by symmetric
 // finite-difference of the exact local exponent p = -d ln sigma/d ln N at three WELL-SEPARATED
 // decades N = 1e20, 1e50, 1e100 (all comfortably inside IEEE-double range, evaluated on the same
@@ -280,6 +288,12 @@ export const IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE = {
     within_50pct_logT0: +logT0FromLnN(WITHIN_50PCT_LOG10 * Math.LN10).L.toFixed(1), // ~21.1
     within_95pct_of_half_at_N_log10: +WITHIN_95PCT_LOG10.toFixed(2), // ~13.17 (p=0.475; strictly between the 90% and 99% marks)
     within_95pct_logT0: +logT0FromLnN(WITHIN_95PCT_LOG10 * Math.LN10).L.toFixed(1), // ~28.9
+    // imp-35730: the intermediate p=0.25 (quarter) and p=0.375 (three-quarter) exponent crossings.
+    exponent_0p25_crossing_at_N_log10: +CROSS_p25_LOG10.toFixed(2), // ~9.61 (p=0.25; = imp-33943 50%-of-half mark)
+    exponent_0p25_crossing_logT0: +logT0FromLnN(CROSS_p25_LOG10 * Math.LN10).L.toFixed(2), // ~21.05
+    exponent_0p375_crossing_at_N_log10: +CROSS_p375_LOG10.toFixed(2), // ~10.68 (p=0.375; the untabulated three-quarter mark)
+    exponent_0p375_crossing_logT0: +logT0FromLnN(CROSS_p375_LOG10 * Math.LN10).L.toFixed(2), // ~23.40
+    exponent_0p25_to_0p375_decades: +(CROSS_p375_LOG10 - CROSS_p25_LOG10).toFixed(2), // ~1.07 decades (quarter -> three-quarter)
     within_95pct_decades_above_90pct: +(WITHIN_95PCT_LOG10 - WITHIN_90PCT_LOG10).toFixed(2), // ~1.25 (90%->95%)
     within_99pct_decades_above_95pct: +(WITHIN_1PCT_LOG10 - WITHIN_95PCT_LOG10).toFixed(2), // ~31.0 (95%->99%, the log-slow leg)
     within_1pct_of_half_at_N_log10: +WITHIN_1PCT_LOG10.toFixed(2), // ~44.17 (N ~ 1e44)
@@ -322,6 +336,13 @@ export const IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE = {
       'the 90% mark; the 95% mark at N~1e13.17 (log T0~28.9), ~1.25 decades above 90%. The ladder ' +
       'makes the 1/(2 log T0) slowness concrete: 90%->95% costs ~1.25 decades but 95%->99% costs ' +
       '~31 decades -- the same 4.5-point exponent gain, ~25x more N-decades, as the tail flattens.',
+    F8_intermediate_quarter_three_quarter_crossings_imp35730:
+      'imp-35730 tabulates the two intermediate exponent crossings the imp-33582 ramp (endpoints ' +
+      '~0.0105 -> ~0.4310) left unmeasured: the local exponent p(N) first reaches 0.25 at N ~ 1e9.61 ' +
+      '(log T0 ~ 21.05, reproducing the imp-33943 50%-of-half rung as a reuse gate) and 0.375 at ' +
+      'N ~ 1e10.68 (log T0 ~ 23.40) -- the previously-blank rung between the imp-33943 p=0.25 and the ' +
+      'imp-33904 p=0.45 (N~1e11.92) marks. The 0.25 -> 0.375 step spans only ~1.07 decades, one more ' +
+      'concrete reading of the fast early ramp before the ~1/(2 log T0) crawl sets in past 1e12.',
     F4_within_0_1pct_evaluated_directly_imp33859:
       'imp-33859 closes the F3 note by evaluating the 0.1% mark DIRECTLY. Recasting the identical ' +
       'sub-terms in log-N space -- solving ln N = u + log(u-1) for u = log(T0/2pi) by Newton so ' +
@@ -468,6 +489,20 @@ export const IMP33816_SIGMA_EXPONENT_ASYMPTOTE_APPROACH_RATE_ASSERTIONS = [
       const sameModel = Math.abs(pLocalFromLnN(100 * Math.LN10) - pLocalAtLog10(100)) < 1e-9;
       return lawOk && polyRefuted && sameModel;
     },
+  },
+  {
+    // imp-35730: the intermediate p=0.25 and p=0.375 crossings hit their targets, order correctly
+    // within the ladder (0.25 < 0.375 < 0.45(90%) < 0.475(95%) < 0.495(99%)), reproduce the imp-33943
+    // 50%-of-half mark on the identical model, and span ~1.07 decades between quarter and three-quarter.
+    id: 'imp33816-intermediate-quarter-three-quarter-crossings-imp35730',
+    description: 'p=0.25 at N~1e9.6 and p=0.375 at N~1e10.7 hit target, order 0.25<0.375<0.45<0.475<0.495, span ~1.07 decades',
+    holds: () =>
+      Math.abs(pLocalFromLnN(CROSS_p25_LOG10 * Math.LN10) - 0.25) < 1e-4 &&
+      Math.abs(pLocalFromLnN(CROSS_p375_LOG10 * Math.LN10) - 0.375) < 1e-4 &&
+      Math.abs(CROSS_p25_LOG10 - WITHIN_50PCT_LOG10) < 1e-3 &&
+      CROSS_p25_LOG10 < CROSS_p375_LOG10 &&
+      CROSS_p375_LOG10 < WITHIN_90PCT_LOG10 &&
+      Math.abs((CROSS_p375_LOG10 - CROSS_p25_LOG10) - 1.07) < 0.05,
   },
   {
     // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.

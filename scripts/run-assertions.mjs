@@ -8923,6 +8923,22 @@ const DATA_MODULES = [
   // figures; changes no bound; imp-35337a stays OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED;
   // NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35591-peak-damping-literals-assertion.js',
+  // imp-35611: REGRESSION-GUARD pinning the imp-35555 five-map E_coll = E_trunc floor-crossover
+  // bracketing-family literals. imp-35555 baked the five per-map crossover-N (RvM base 3.280294352e9,
+  // x1.02 3.283556848e9, x0.98 3.276965783e9, x1.05 3.288332288e9, x0.95 3.271843029e9) and the full
+  // bracketing envelope span 5.026763e-3 (~0.50 percent) but carried only a widest-arm / span-range
+  // check, so a silent effectiveHeightForN / C_C / bisection drift could move the four inner per-map
+  // crossover-N at storage precision untripped. This import-light module INDEPENDENTLY recomputes each
+  // crossover N by solving E_coll(N) = C_C sqrt(log T0(N)/N) = E_trunc = 3.06e-5 under
+  // T0 = mult * effectiveHeightForN(N) (inlined verbatim RvM inverse, no height-map import), asserts the
+  // five crossover-N and the envelope span vs 7-sig-fig references within 1e-6 storage-precision tolerance
+  // ([[storage_precision_assertion_tolerance]]), and cross-checks the baked imp-35555 fields reproduce
+  // exactly under the source display rounding. Import-light (imports only the import-light imp-35555 record,
+  // no zeros bundle, per [[no_heavy_imports_in_pages]] / [[verify_heavy_assertion_modules]]). Regression-guard
+  // only; recomputes established measurement figures; changes no bound; C_C ansatz (imp-2642/imp-2643) and
+  // E_trunc = 3.06e-5 (imp-2631/imp-447) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED;
+  // Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35611-crossover-bracketing-literals-assertion.js',
 ];
 
 let ALL_MODULES = FAST_MODE

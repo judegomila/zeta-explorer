@@ -211,6 +211,8 @@ const DATA_MODULES = [
   '/src/data/imp-35351-n2000-dense-output-flow-reference.js',
   // imp-35412: ASSESSMENT of which N=2000 collision time RUNGS[5] slack should report -- KEEP the imp-35324 endpoint DP45 dt-over-2 worst-case (1.1999384320e-3, slack +6.16e-8) rather than the imp-35351 dense interior crossing (1.1919828898e-3): the R2 predicate is a one-sided UPPER bound so the conservative worst case is the LARGEST tested collision time; the dense crossing is a faithful diagnostic (below t_c_hi) but is smaller AND not even the dense-envelope max (RK4 dt-over-2 = 1.1924935719e-3). ASSESSMENT ONLY, ladder stays N=1000, NO QED.
   '/src/data/imp-35412-r2-ladder-slack-dense-vs-endpoint-assessment.js',
+  // imp-35416: independent RK4 + cubic-Hermite dense-output cross-validation of the imp-35351 DP45 CONTD5 within-step crossing (N=2000 pair-1495) -- the crossing fires at the SAME step (1004 at dt, 2007 at dt/2) and SAME pair (1495) with t_c agreeing to ~4.5e-5 relative (5.358e-8 abs at dt/2), so it is SCHEME-INDEPENDENT, not a DP45-CONTD5 artifact; endpoint-positivity flag differs at dt/2 (DP45 positive step-over vs RK4 endpoint-negative per imp-35278) but crossing location is scheme-invariant. MEASUREMENT ONLY, ladder stays N=1000, NO QED.
+  '/src/data/imp-35416-n2000-rk4-hermite-dense-crossvalidate-reference.js',
   // imp-35281: extends the imp-35238 real-ordinate three-factor invariant beta*g_min*(x_2-x_0)->1 to N=250,300,350,400 -- invariant stays pinned at 1 (|dev|<=1e-4, spread ~7.7e-5), bare-product band widens past the three-point 0.36-0.64; MEASUREMENT ONLY, I3/M2/M5 OPEN.
   '/src/data/imp-35281-real-ordinate-three-factor-invariant-larger-N.js',
   // imp-35282: ties the imp-35238 non-monotone span x_2-x_0 (2.83/1.88/2.25) to the RvM mean spacing 2pi/log(T/2pi) at the collapse height -- RvM is MONOTONE (2.18->1.77->1.54) but span/RvM stays non-monotone (1.30->1.07->1.46), so the band is a COLLAPSE-LOCATION effect not a mean-spacing effect; MEASUREMENT ONLY, M2/M5 OPEN.
@@ -8274,6 +8276,16 @@ const DATA_MODULES = [
   // surrogate, conditional against the true dynamic. Five self-executing assertions. Assessment only; discharges
   // nothing; imp-35111a/imp-35174a/imp-35243a stay OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35357-reentry-band-pure-artifact-proof-requirement.js',
+  // imp-35415: SCOPES which reentry-band landmarks the imp-35356 route (ii) DISPOSAL (band = artifact, not a
+  // true-dynamic feature) demotes versus which survive. Classifies the five inherited landmarks by the principle
+  // that floor-DETERMINED absolute coordinates demote while floor-STRUCTURAL relative/relational diagnostics
+  // survive: the two absolute edge positions (reentry 10^27.08, exit 10^37.17) are ARTIFACT-LABELED / demoted to
+  // machine-precision surrogate coordinates (D1 ~11.99 decades per factor-2 in EPS_FP), while the ~10.08-decade
+  // WIDTH, the imp-35332 drift-integral self-consistency, and the imp-35263 co-moving-vs-fixed comparison SURVIVE
+  // as legitimate surrogate-map diagnostics independent of the dynamic-reality claim. Six self-executing
+  // assertions. Assessment only; discharges nothing; imp-35243a stays OPEN; imp-35357 pending; changes no bound;
+  // NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35415-reentry-band-landmark-disposal-scope.js',
   // imp-35393: TABULATES the imp-35263 FAITHFUL co-moving-window reentry-band WIDTH as a direct function of the
   // machine-epsilon floor EPS_FP. imp-35263 D4 showed the co-moving reentry edge is EXACTLY EPS_FP-invariant (spread
   // ~1e-13), so ALL floor sensitivity is carried by the exit edge and hence the WIDTH -- but it tabulated the EDGE

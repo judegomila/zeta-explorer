@@ -8809,6 +8809,13 @@ const DATA_MODULES = [
   // table one further decade. MEASUREMENT ONLY, C_mb GUE-conditional per imp-486
   // UNTOUCHED, changes no bound, NO QED.
   '/src/data/imp-35410-far-tail-sigma-1e-4-threshold-three-way-shares.js',
+  // imp-35699: MEASURES the imp-35654 POST-PORT unconditional share 1 - sigma across the
+  // imp-35337 interior peak + imp-35334 sigma landmarks and locates where it first exceeds
+  // 0.9999 (N ~ 6.165e17, = imp-35410 sigma<1e-4) and 0.99999 (N ~ 6.889e19, sigma<1e-5),
+  // ~2.05 decades apart. Post-port framing HYPOTHETICAL (E_trunc port not done). Reuses the
+  // imp-35410 parts()/bisection verbatim. MEASUREMENT ONLY, ports nothing, C_mb GUE-conditional
+  // per imp-486 UNTOUCHED, changes no bound, NO QED.
+  '/src/data/imp-35699-post-port-unconditional-share-9999-99999-crossings.js',
   // imp-35413: locates the imp-35371 E_flow far-tail fd-vs-analytic remnant sub-1e-3
   // crossing at N ~ 4.17e25 (log10 N ~ 25.6205) on the closed T0 = 2 pi N / log N
   // surrogate channel. MEASUREMENT ONLY, C_mb GUE-conditional per imp-486 UNTOUCHED,

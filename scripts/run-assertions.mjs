@@ -225,6 +225,8 @@ const DATA_MODULES = [
   '/src/data/imp-35298-rho-eps5-next-slot-measurement.js',
   // imp-35299: SPLITS the imp-35244 K_{7/2} = -8 sqrt(2)/(3 pi) into its two named source tails, measured separately on the imp-35240 compensated quadrature -- numerator |F_2| tail -6/7 -> -8/(7 A_1) = -0.514466, curvature |F_3|-A_2/4 tail +6/7 -> -16/(7 A_2) = -0.685955; sum reconstructs the grid K_{7/2} (imp-35261 verified only the SUM).
   '/src/data/imp-35299-k72-two-source-decomposition.js',
+  // imp-35306: AUDIT -- imp-35240 K = 8 sqrt(2)/(9 pi) and imp-35244 K_{7/2} = -8 sqrt(2)/(3 pi) are EXECUTED build assertions (recomputed from quadrature), not merely documented; wires a light gate enforcing the documented tolerances (~3e-7 for K, 4 sig figs for K_{7/2}), tighter than the producer 1e-5 / 5e-3.
+  '/src/data/imp-35306-rho-prefactor-assertion-execution-audit.js',
   // imp-35258: dd re-measurement of the imp-34714 certificate residual F(m) -- F(m)=0 is a double artifact, F_dd genuinely nonzero (~1 ulp), imp-34714a still OPEN.
   '/src/data/imp-35258-krawczyk-residual-double-double-measurement.js',
   // imp-903 27-point H_raw-update sweep: rescue satisfied from N_0 = 100.

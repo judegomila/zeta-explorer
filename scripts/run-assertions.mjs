@@ -8328,6 +8328,17 @@ const DATA_MODULES = [
   // module (five assertions). Measurement only on the inherited imp-3220/imp-3406 surrogate; the C_C ansatz
   // (imp-2642) UNTOUCHED; imp-35243a / imp-35111a / imp-35174a stay OPEN; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35393-comoving-band-width-eps-floor.js',
+  // imp-35431: FITS a decay-rate law to the imp-35371 E_flow far-tail fd-vs-analytic remnant on a dense
+  // half-decade ladder (N = 1e9..1e24). The local log-log decay exponent d(log remnant)/d(log N) is
+  // NON-MONOTONE (magnitude peaks ~0.0343 near log10 N ~ 13, falling to ~0.0258 by log10 N = 23.5) -- a
+  // crossover signature that matches neither a pure power law (constant local exponent) nor a pure
+  // inverse-log-power (monotone-declining local exponent). Both global fits over e in [12,24] near-tie:
+  // power p = 0.03064 (R^2 = 0.99795) vs inverse-log q = 1.23314 (R^2 = 0.99766), and their sub-1e-3
+  // extrapolations (24.984 and 26.289) BRACKET the imp-35413 bisected true crossing 25.6205, confirming a
+  // crossover. The remnant crosses 1e-3 near log10 N ~ 25.6 (robust) and 1e-4 somewhere in ~[58,170]
+  // decades (model-sensitive). Measurement only on the inherited imp-3220/imp-3406 surrogate; far-tail
+  // exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35431-eflow-fartail-remnant-decay-law-fit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

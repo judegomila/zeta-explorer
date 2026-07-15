@@ -8297,6 +8297,15 @@ const DATA_MODULES = [
   // spread ~1.6e-5; curvature k~6.43e-3 matches). MEASUREMENT ONLY; imp-35337a stays OPEN; changes no bound;
   // NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35476-sigma-peak-plateau-sqrt-tol-offgrid.js',
+  // imp-35492: SPLITS the imp-35411/imp-35476 TOTAL plateau width W = W_rise + W_fall at N_max and asks
+  // whether EACH arm has its own tol-invariant sqrt law and whether c_rise/c_fall is tol-invariant. NEGATIVE
+  // on both: across the seven-tol union c_rise 7.713->7.660 DECREASES, c_fall 7.603->7.657 INCREASES (each
+  // spread ~5.3e-2, 3+ orders > the ~1.6e-5 total-constant spread); their SUM stays 15.3165 so both converge
+  // to c0 = 7.658246, and c_rise/c_fall drifts 1.0145->1.0004 toward 1 as tol->0. The clean invariant is the
+  // arm-DIFFERENCE law W_rise - W_fall ~ A_skew*tol (LINEAR, A_skew~11.01) -- a cubic-skew refinement of the
+  // imp-35451 single-tol asymmetry. Double surrogate (dd-certified ~1e-16); MEASUREMENT ONLY; imp-35337a OPEN;
+  // changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35492-sigma-peak-plateau-arm-sqrt-law.js',
   // imp-35450: DIRECTLY measures the imp-35411 interior sigma-peak curvature k=-d^2 sigma/d(lnN)^2 by a central
   // finite-difference second derivative at N_max~9.219e5 (FD-step sweep converges monotonically to ~6.43191e-3),
   // and cross-checks it against the imp-35411 width-INFERRED k~6.4319e-3 (agree to ~2e-7 relative -- two

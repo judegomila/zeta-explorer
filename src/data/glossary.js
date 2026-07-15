@@ -19230,6 +19230,7 @@ export const glossary = [
       'imp-35334 establishes the pre-port two-orthogonal-conditionalities floor (imp-35334)',
       'imp-34791 reclassifies E_trunc as the unported barrier lemma folded in by the port (imp-34791)',
       'imp-486 supplies the GUE-conditional caveat that is the only surviving residual (imp-486)',
+      'imp-35708 re-requested this exact headword; confirmed already satisfied by this entry (no duplicate added)',
     ],
   },
   {

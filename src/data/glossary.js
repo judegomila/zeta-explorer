@@ -19158,6 +19158,42 @@ export const glossary = [
     ],
   },
   {
+    term: 'imp-35680 constant-mismatch obstruction: the band-averaged in-band amplitude A_band=1/2 cannot carry the short-range collision constant C_C=(1/8) sqrt(3 pi)',
+    category: 'proof-frontier',
+    definition:
+      'A headword quantifying the CORROBORATING constant-mismatch half of the imp-35652 resolution-floor ' +
+      'obstruction: even setting the resolution-floor gap aside, no scalar reachable from a band-limited ' +
+      '|alpha| < 1 proxy can numerically reproduce the target short-range collision constant ' +
+      'C_C = (1/8) sqrt(3 pi) ~ 0.383748 (imp-2642/imp-2643).\n\n' +
+      'SETUP: the full pair correlation R_2(x) = delta(x) + 1 - (sin(pi x)/(pi x))^2 has structure factor ' +
+      'S(alpha) = |alpha| on the PROVEN band |alpha| < 1 (the Montgomery ramp) and S(alpha) = 1 on the ' +
+      'diagonal collision plateau |alpha| >= 1 -- exactly where C_C is carried.\n\n' +
+      'MEASUREMENT (Simpson quadrature): the band-averaged mean-scale amplitude a support-limited proxy ' +
+      'recovers is A_band = (1 / 2) INT_{-1}^{1} |alpha| d alpha = 1/2, OFF the target C_C by ratio ' +
+      'A_band/C_C ~ 1.3029 (a ~30.3% OVERSHOOT, absolute gap ~0.11625). DECISIVELY, the collision-carrying ' +
+      'plateau S = 1 contributes exactly ZERO to A_band (the in-band ramp touches level 1 only at the ' +
+      'measure-zero boundary |alpha| = 1), so 100% of the C_C spectral support sits out of band. A_band = 1/2 ' +
+      'is a fixed, N-independent mean-scale number with no s_min ~ M^{-1/3} or C_H = 1/8 dependence, so it ' +
+      'cannot equal or reproduce C_C at any N. The secondary near-coincidence curvature pi^2/3 ~ 3.290 ' +
+      '(from R_2(x) ~ (pi^2/3) x^2 as x -> 0) is likewise a fixed in-band scalar and misses C_C by a ' +
+      'different ratio (~8.573) -- imp-35696 later shows this ratio is the SAME cubic-repulsion coefficient ' +
+      'as C_C, entering the collision scale only via its cube root (~2.047).\n\n' +
+      'HOW TO APPLY: when citing why a band-limited |alpha| < 1 surrogate fails to carry the short-range ' +
+      'collision amplitude, cite this numeric overshoot (~30.3%, ratio ~1.3029) as the quantitative half of ' +
+      'the imp-35652 obstruction, alongside (not instead of) the resolution-floor gap.\n\n' +
+      'HONEST SCOPE: measurement only, NOT rigorous; derives no remainder, discharges nothing, changes no ' +
+      'bound; establishes no operator positivity; C_C, C_H, E_trunc = 3.06e-5 (imp-2631) and C_mb ' +
+      'GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35742 (glossary headword recording the imp-35680 constant-mismatch magnitude), 2026',
+    relatedTerms: [
+      'imp-35680 supplies the Simpson-measured A_band=1/2 and the ~30.3% overshoot ratio recorded here (imp-35680)',
+      'imp-35652 poses the qualitative constant-mismatch claim this headword quantifies (imp-35652)',
+      'imp-2642/imp-2643 fix the C_C = (1/8) sqrt(3 pi), C_H = 1/8 short-range amplitude ansatz (imp-2642, imp-2643)',
+      'imp-35696 shows the curvature ratio ~8.573 is the SAME cubic-repulsion coefficient as C_C, entering only via a cube root (imp-35696)',
+    ],
+  },
+  {
     term: 'imp-35653 S_barrier decomposition: FINITE bounded-rectangle winding check (B1) PLUS a NON-finite semi-infinite analytic tail lemma (B2)',
     category: 'proof-status',
     definition:

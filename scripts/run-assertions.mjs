@@ -9387,6 +9387,21 @@ const DATA_MODULES = [
   // (1/8) sqrt(3 pi) (imp-2642/imp-2643) and E_trunc = 3.06e-5 (imp-2631)
   // UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35673-resolution-shortfall-far-tail-ladder.js',
+  // imp-35680: QUANTIFY the imp-35652 constantMismatch claim. The short-range
+  // collision constant C_C = (1/8) sqrt(3 pi) ~ 0.3837 sits on the |alpha| >= 1
+  // diagonal plateau S = 1 of the pair-correlation R_2(x) = 1 - (sin pi x/pi x)^2;
+  // a band-limited |alpha| < 1 proxy recovers only the mean-scale amplitude
+  // A_band = (1/2) INT_{-1}^{1}|alpha| = 1/2 (Simpson-measured), which MISSES C_C
+  // by ratio ~ 1.3029 (~30.3 percent, absolute gap ~ 0.11625), captures ZERO of
+  // the collision plateau, and is N-independent (no s_min / C_H dependence) -- so
+  // option (a) reports a mean-scale constant, NOT C_C. Corroborates imp-35652
+  // constantMismatch with a numeric magnitude. Import-light (imports only the
+  // import-light imp-35652 record, no zeros bundle, per
+  // [[no_heavy_imports_in_pages]] / [[verify_heavy_assertion_modules]]). Six
+  // self-executing assertions. Measurement only; changes no bound; C_C =
+  // (1/8) sqrt(3 pi) (imp-2642/imp-2643) and C_mb GUE-conditional (imp-486)
+  // UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35680-constant-mismatch-magnitude.js',
 ];
 
 let ALL_MODULES = FAST_MODE

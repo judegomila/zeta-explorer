@@ -17442,6 +17442,38 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this decomposition (imp-486)',
     ],
   },
+  {
+    term: 'imp-35405 honest-status note: the imp-35236 "essentially ALL of it at N=1e16" inverse-swap reading is APPROXIMATE across the whole E_flow far-tail ladder, not exact at the deep end',
+    category: 'proof-status',
+    definition:
+      'A correction note for how to read the imp-35236 isolation of the E_flow far-tail surrogate-vs-true-RvM ' +
+      'inverse-swap gap. imp-35236 compared its N=1e16 swap gap (0.0025) to an OLDER ~0.003 residual estimate ' +
+      'and concluded the inverse swap accounts for "essentially ALL of it there" at the deep end, i.e. that the ' +
+      'whole-residual-is-inverse-swap attribution becomes EXACT as N grows.\n\n' +
+      'imp-35279/imp-35280 extended the swap isolation to the intermediate rungs N=1e9, N=1e12 and beyond, and ' +
+      'measured the swap FRACTION against the module s OWN analytic residual (not the older external estimate) ' +
+      'at every rung: 0.786 (1e6), 0.648 (1e9), 0.600 (1e12), 0.568 (1e16). The fraction is monotone DECREASING, ' +
+      'not rising toward 1 -- the inverse swap is the dominant but never the sole component. A closed-form/' +
+      'prefactor remnant (~0.0019-0.0031) survives at every rung, staying roughly constant in absolute size while ' +
+      'the total residual shrinks, so its RELATIVE share of the residual actually GROWS with N (imp-35371 confirms ' +
+      'the remnant keeps decaying only slowly, not toward a nonzero floor, out past N=1e20/1e24).\n\n' +
+      'HOW TO APPLY: cite imp-35279/imp-35280 (not the imp-35236 "essentially ALL" phrasing) for the deep-end ' +
+      '(N=1e16) swap-fraction reading -- quote ~57%, not ~100%. The whole-residual-is-inverse-swap attribution is ' +
+      'approximate across the WHOLE ladder, shallow and deep alike; treat the swap gap as the dominant term of a ' +
+      'two-component decomposition, never as the entire residual.\n\n' +
+      'HONEST SCOPE: a reconciliation of two measurements on the inherited imp-3220/imp-3406 component model, not ' +
+      'a new derivation; changes no bound; establishes no operator positivity; C_mb GUE-conditional per imp-486 ' +
+      'UNTOUCHED; imp-3066 K_a>=0 UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda<=0.2 remains the ' +
+      'rigorous SOTA.',
+    firstUsed: 'imp-35405 (honest-status companion correcting the imp-35236 "essentially ALL of it at N=1e16" reading), 2026',
+    relatedTerms: [
+      'imp-35236 isolated the inverse-swap gap at the two endpoint anchors and read the deep end as "essentially ALL" (imp-35236)',
+      'imp-35279 extended the isolation to the intermediate rungs and measured the true monotone-decreasing swap fraction (imp-35279)',
+      'imp-35280 the fd-vs-analytic remnant this note attributes the non-swap share of the residual to (imp-35280)',
+      'imp-35371 confirms the remnant decays slowly, not toward a nonzero asymptote, out to N=1e20/1e24 (imp-35371)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this note (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

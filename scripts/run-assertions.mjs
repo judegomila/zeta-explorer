@@ -8877,6 +8877,19 @@ const DATA_MODULES = [
   // keeps the endpoint DP45 dt/2 worst-case (imp-35412); changes no bound; C_mb GUE-conditional per
   // imp-486 UNTOUCHED; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35602-bs3-dt4-3x3-endpoint-positivity-assertions.js',
+  // imp-35604: ASSESSMENT / SCOPING quantifying the DATA-REACHABILITY margin of route-(ii) (the
+  // imp-35488 two-height data-anchored g_true spot check imp-35571 names as the ONLY viable partial
+  // for the OPEN imp-35337a). Converts the two imp-35571 baked natural-log landmark heights (peak
+  // logT0 ~13.2309, crossover logT0 ~20.8576) to decades and measures each against T_PT=3e12
+  // (log10 ~12.4771) and the ACTUAL in-repo verified-zeros DATA ceiling (millionth-zero
+  // gamma_max=600269.677012445, log10 ~5.7783). FINDING: only HALF-reachable in-repo -- the PEAK
+  // (log10 ~5.75, zero index N~9.22e5 < 1e6) is ~0.032 decades below the ceiling => reachable, but
+  // the CROSSOVER (log10 ~9.06, N~3.28e9 ~3280x beyond the 10^6 bundle) is ~3.28 decades above =>
+  // needs external verified zeros; both sit below T_PT (~6.73 / ~3.42 decades). Import-light (the
+  // import-light imp-35571 record only, no zeros bundle). Assessment/scoping only; discharges nothing;
+  // imp-35337a stays OPEN; route-(ii) stays the only viable partial; changes no bound; C_mb GUE-
+  // conditional per imp-486 UNTOUCHED; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35604-route-ii-landmark-data-reachability-scope.js',
 ];
 
 let ALL_MODULES = FAST_MODE

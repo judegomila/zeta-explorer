@@ -18076,6 +18076,40 @@ export const glossary = [
       'imp-35416 supplies the RK4 + cubic-Hermite dense variant used for the definition-sensitivity cross-check (imp-35416)',
     ],
   },
+  {
+    term: 'imp-35473 E_flow far-tail remnant sub-1e-4 crossing: N ~ 1.546e109 (log10 N ~ 109.1892), ~83.57 decades past the imp-35413 sub-1e-3 crossing, remnant*log N ~ 0.02514',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35473 continuation of the imp-35413 fd-vs-analytic E_flow far-tail ' +
+      'remnant threshold-crossing ladder. imp-35413 located only the sub-1e-3 crossing (N ~ 4.17e25, ' +
+      'log10 N ~ 25.6205, remnant*log N ~ 0.05899) and stopped there. imp-35473 continues the identical ' +
+      'closed-surrogate channel (T0 = 2 pi N / log N, no height-map swap, no heavy import) past N = 1e26, ' +
+      'reproducing the imp-35413 rung to the digit (0.000979) before bisecting the deeper sub-1e-4 crossing.\n\n' +
+      'FINDING (measurement only): the remnant first falls below 1e-4 at N ~ 10^109.1892 ~ 1.546e109, ' +
+      'bracketed cleanly by N = 1e100 (0.000116, still above) and N = 1e120 (0.0000852, below) -- fully ' +
+      '~83.57 decades past the imp-35413 sub-1e-3 crossing. At this deeper crossing remnant*log N ~ 0.02514, ' +
+      'DOWN from ~0.05899 at the sub-1e-3 crossing, so the product itself keeps decaying rather than pinning ' +
+      'at a nonzero log-floor; it takes ~83.6 further decades to shed one more factor of ten in the remnant, ' +
+      'confirming decay slightly faster than 1/log N but far slower than any power. A genuine nonzero floor ' +
+      'would never reach a 1e-4 crossing at all.\n\n' +
+      'HOW TO APPLY: cite this entry (alongside imp-35413) for the two-rung E_flow far-tail remnant ' +
+      'threshold-crossing ladder -- sub-1e-3 at N ~ 4.17e25, sub-1e-4 at N ~ 1.546e109 -- when the question ' +
+      'is how far the surrogate-channel remnant must run to shed one more decimal order, not whether it ' +
+      'vanishes.\n\n' +
+      'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 closed-surrogate extrapolation, NOT ' +
+      'a rigorous asymptotic; changes no bound; E_flow > 0 strictness (imp-33848) untouched; C_mb ' +
+      'GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 K_a >= 0 ' +
+      'untouched; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the ' +
+      'rigorous SOTA.',
+    firstUsed: 'imp-35540 (glossary/Concepts headword recording the imp-35473 sub-1e-4 crossing landmark), 2026',
+    relatedTerms: [
+      'imp-35413 located the sub-1e-3 crossing this entry continues past N = 1e26 (imp-35413)',
+      'imp-35371 the slow-decay reading corroborated one decade of threshold deeper by this crossing (imp-35371)',
+      'imp-35280 the four-rung fd-vs-analytic remnant origin whose channel this crossing shares exactly (imp-35280)',
+      'imp-35534 continues the same ladder to the still-deeper sub-1e-5 crossing (imp-35534)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this crossing (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

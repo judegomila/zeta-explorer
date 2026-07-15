@@ -9315,6 +9315,20 @@ const DATA_MODULES = [
   // literal (0.999 display is legitimate); changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED;
   // imp-34791 E_trunc reclassification UNCHANGED; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35679-postport-share-sum-unity-excess-reconciliation.js',
+  // imp-35704: REGRESSION-GUARD pinning the imp-35654 post-port share IDENTITY (distinct from
+  // the imp-35686 share LITERAL guard). imp-35654 computes SHARE_SUM_POSTPORT = unconditional
+  // share + residual GUE-conditional share == 1 but nothing in the sweep pinned the two
+  // structural identities behind it: (I1) the unity partition (1 - sigma) + sigma == 1 to
+  // storage tolerance (~1e-6, not 1e-9, per the recurring 7-sig-fig cache trap), and (I2) the
+  // bucket fold -- the post-port unconditional share = (E_trunc + E_flow)/E(N) = C_T-barrier
+  // share + E_flow share = 1 - sigma. This import-light module INDEPENDENTLY reconstructs both
+  // identities from the baked imp-35334 sigma<1e-3 landmark shares and cross-checks the imp-35654
+  // baked postPort record reproduces them. Four self-executing assertions. Import-light (imports
+  // only the import-light imp-35654 record, no zeros bundle, per [[no_heavy_imports_in_pages]] /
+  // [[verify_heavy_assertion_modules]]). Regression-guard only; recomputes an established
+  // assessment identity; changes no bound; C_mb GUE-conditional (imp-486) UNTOUCHED; imp-34791
+  // E_trunc reclassification UNCHANGED; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35704-postport-share-identity-guard.js',
   // imp-35660: REGRESSION-GUARD pinning the imp-35577 far-tail-crossing HEIGHT-MAP sensitivity
   // literals so a silent literal drift trips the build (the sibling of the imp-35619 span-growth
   // guard, which the imp-35577 cohort lacked). imp-35577 measured both E_flow far-tail remnant

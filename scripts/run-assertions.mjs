@@ -7656,6 +7656,17 @@ const DATA_MODULES = [
   // so the agreement no longer depends on the derivation modules own arithmetic. Cross-check only;
   // changes no bound; NO QED.
   '/src/data/imp-35222-eflow-fartail-exponent-standalone-crosscheck.js',
+  // imp-35286: LOCATES the N at which the imp-35237 full surrogate s(x) = (1 - 1/log N)(2/log T0 - 1)
+  // far-tail residual first BEATS the imp-35198 leading law -1 + 3/log N against the imp-35135
+  // MEASURED local exponent. On the same independent code path (which reproduces the imp-35135
+  // literals -0.7710/-0.8463/-0.8850/-0.9142), the residual difference runs positive at N = 1e6
+  // (leading wins) and negative at N = 1e9 (full wins); bisecting lands the crossover at
+  // N* ~ 2.615e7 (log N* ~ 17.08), inside the decade the imp-35237 anchor table skipped. Both fits
+  // sit strictly below the measured exponent throughout, so the residual crossover coincides to full
+  // precision with the pure fit-crossing full(x) = lead(x) -- it is the shallower far-tail slope of
+  // the full surrogate overtaking the leading law, not a measured coincidence. Measurement only;
+  // changes no bound; NO QED.
+  '/src/data/imp-35286-eflow-fartail-surrogate-crossover.js',
   // imp-35036: EXTENDS the imp-33582 per-decade local decay-exponent ladder for sigma(N) =
   // E_coll/E(N) past [1e11,1e12] (0.4310) on the identical inherited model. The exponent keeps
   // climbing monotonely toward the imp-3463 1/2 asymptote (0.4646, 0.4777, 0.4828, 0.4851 on

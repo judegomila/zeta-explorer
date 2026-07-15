@@ -9575,6 +9575,15 @@ const DATA_MODULES = [
   // the exponent. Import-light; six self-executing assertions. Measurement only;
   // derives nothing; discharges nothing; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35720-prefactor-M-independence-ladder.js',
+  // imp-35367: VERIFY the Guth-Maynard alpha=1/2 scoping page renders the
+  // RH-adjacent / Lambda-inert firewall banner prominently and is reachable via
+  // nav. FINDING: GuthMaynardScopingPage.jsx already renders HonestCeilingBanner
+  // (variant RH-EQUIVALENT) right after its lead paragraph plus a secondary
+  // FIREWALL box; the /guth-maynard-scoping route is registered in App.jsx and
+  // listed in nav-groups.js. No fix needed; baked as a permanent regression guard.
+  // Three self-executing assertions. Audit only; changes no bound; NO QED;
+  // Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35367-guth-maynard-firewall-nav-reachability-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

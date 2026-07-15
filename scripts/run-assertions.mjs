@@ -8696,6 +8696,14 @@ const DATA_MODULES = [
   // data-unreachable -- strictly worse than the sigma case. Assessment only; discharges nothing; imp-35243a stays
   // OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35537-r1t-reentry-band-closure-scope.js',
+  // imp-35505: READ-ONLY CONSUMER AUDIT of the E_trunc = 3.06e-5 fixed-strip floor (imp-2631)
+  // across the named sigma/far-tail cohort (imp-35411/imp-35413/imp-35417/imp-35459/imp-35475).
+  // Of the five, four explicitly cite E_trunc = 3.06e-5 and all four treat it as the fixed,
+  // vestigial barrier-lemma artifact imp-35419/imp-35459 established -- none frames it as a
+  // tightenable rigorous Lambda lever. The fifth (imp-35413) does not cite E_trunc at all (it
+  // measures a different sigma-decomposition input). Zero violations found. AUDIT ONLY; no
+  // re-derivation; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35505-etrunc-consumer-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -1210,6 +1210,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive line chart baking the imp-35413 sub-1e-3 crossing ladder literals verbatim (no new computation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; its own surrogate-vs-true fidelity gap remains an UNNAMED tracked sub-gap (imp-35337a does NOT cover this quantity); E_flow > 0 strictness (imp-33848) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35506-endpoint-positivity-map',
+      title: 'N=2000 Pair-1495 Endpoint-Positivity Map (DP45/RK4/BS3 x dt, dt/2)',
+      oneLine:
+        'Heatmap tabulating the imp-35452/imp-35477 N=2000 pair-1495 endpoint-positivity matrix across three integrator families (DP45, RK4, BS3) x two grids (dt, dt/2), highlighting the lone endpoint-positive cell (DP45 dt/2) against five endpoint-negative cells.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35506-endpoint-positivity-map-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-35452-n2000-endpoint-positivity-knife-edge-reference.js, src/data/imp-35477-n2000-bs3-dense-crossvalidate-reference.js (imp-35506 viz page)',
+      ticket: 'imp-35506',
+      pedagogicalStep: 82,
+      honestCeiling:
+        'Descriptive heatmap baking the imp-35452/imp-35477 endpoint-positivity literals verbatim (no new computation); measurement only on the inherited imp-3220/imp-3406 surrogate; does NOT advance the R2 ladder past N=1000 (imp-35221/imp-35324/imp-35412); does NOT change the imp-35412 slack denominator; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

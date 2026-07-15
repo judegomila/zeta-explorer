@@ -10,6 +10,7 @@ import { STRATEGIC_REFRAME } from '../data/strategic-reframe-pcc-free-volterra-2
 import { SECTION27_REFUTATION } from '../data/section27-identity-refutation-2026-06-17.js';
 import { SECTION26_VERDICT } from '../data/section26-verdict-volterra-not-a-reduction-2026-06-18.js';
 import { CAUGHT_OVERCLAIMS } from '../data/overclaim-ledger.js';
+import { IMP35653_SBARRIER_FINITE_CHECK_PORTING_SCOPE } from '../data/imp-35653-sbarrier-finite-check-porting-scope.js';
 import ProofTierSummary from '../components/ProofTierSummary.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 
@@ -404,6 +405,36 @@ export default function RHProofStateDashboardPage() {
             principle tail lemma (imp-35653 Part D, work-item W3) is discharged. Platt&ndash;Trudgian
             verified-to-T_PT N_off(T_PT)=0 is the necessary floor this stands on, <strong>not</strong>{' '}
             a substitute for that semi-infinite-tail lemma. No bound is asserted here; PT Λ≤0.2 remains SOTA.
+          </div>
+
+          {/* imp-35690: imp-35653 S_barrier porting work-list W1..W4 status table */}
+          <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(15,23,42,0.5)', border: '1px solid rgba(148,163,184,0.2)' }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: '#e2e8f0', fontFamily: 'var(--font-mono)', marginBottom: 6 }}>
+              S_barrier porting work-items (imp-35653)
+            </div>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 11.5 }}>
+              <tbody>
+                {['W1', 'W2', 'W3', 'W4'].map((w) => {
+                  const isFinite_ = w !== 'W3';
+                  return (
+                    <tr key={w} style={{ borderTop: '1px solid rgba(148,163,184,0.12)' }}>
+                      <td style={{ padding: '5px 8px 5px 0', fontFamily: 'var(--font-mono)', color: '#e2e8f0', fontWeight: 700, verticalAlign: 'top', whiteSpace: 'nowrap' }}>
+                        {w}
+                      </td>
+                      <td style={{ padding: '5px 8px', color: '#94a3b8', lineHeight: 1.5 }}>
+                        {IMP35653_SBARRIER_FINITE_CHECK_PORTING_SCOPE.portWorkItems[w]}
+                      </td>
+                      <td style={{ padding: '5px 0 5px 8px', verticalAlign: 'top', whiteSpace: 'nowrap' }}>
+                        <ConstantBadge status={isFinite_ ? 'RIGOROUSLY-PINNED' : 'ORDER-UNITY-PLACEHOLDER'} />
+                        <span style={{ marginLeft: 6, fontSize: 10.5, color: isFinite_ ? '#10b981' : '#f59e0b', fontFamily: 'var(--font-mono)' }}>
+                          {isFinite_ ? 'FINITE / MECHANICAL' : 'NON-FINITE / BREAKTHROUGH-TIER'}
+                        </span>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
 
           {/* E_flow */}

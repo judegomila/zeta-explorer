@@ -18398,6 +18398,43 @@ export const glossary = [
       'imp-486 the GUE-conditional caveat inherited by any route-(i) remainder (imp-486)',
     ],
   },
+  {
+    term: 'imp-35538 REQ-5: route-(i) conditionality is unavoidable',
+    category: 'concept',
+    definition:
+      'A headword isolating the imp-35538 REQ 5 finding on its own: ANY route-(i) finite-N remainder for ' +
+      'the E_coll = C_C sqrt(log T0/N) ansatz (C_C = (1/8) sqrt(3 pi), C_H = 1/8; imp-2642/imp-2643) is ' +
+      'UNAVOIDABLY GUE-conditional, whether or not REQ 1-4 (provenance, explicit-rate local law, ' +
+      'full-Fourier-support upgrade, a binding height regime) are ever met.\n\n' +
+      'WHY IT IS UNAVOIDABLE: err(N) in E_coll_true(N) = C_C sqrt(log T0/N) (1 + err(N)) is defined as the ' +
+      'deviation of the true local zero statistics from their GUE limit (REQ 2). Bounding it therefore ' +
+      'REQUIRES a GUE local law as the analytic engine, and every rigorous GUE local law is itself ' +
+      'RH-conditional; at full Fourier support the derivation additionally rests on the CONJECTURAL ' +
+      'Montgomery pair-correlation conjecture (REQ 3). So the conditionality is baked into the choice of ' +
+      'analytic engine, not an incidental gap that a sharper proof could remove -- it inherits the imp-486 ' +
+      'GUE conditional exactly as imp-35475 Part D anticipated.\n\n' +
+      'THE ONLY ESCAPE: an unconditional route-(i) remainder would require a non-GUE, PURELY ARITHMETIC ' +
+      'derivation of the minimal-collision gap -- one that never invokes local pair-correlation statistics ' +
+      'or their GUE limit. No such derivation is known; none of REQ 1-4 point toward one, since all four ' +
+      'are themselves phrased in GUE-local-law terms.\n\n' +
+      'HOW TO APPLY: cite this entry whenever a proposed route-(i) fix is framed as merely needing a ' +
+      '"better" or "sharper" GUE local law -- REQ 5 shows that no amount of sharpening removes the ' +
+      'conditionality, only a fundamentally different (non-GUE, arithmetic) derivation would. Pair with ' +
+      'the imp-35538 five-requirements headword for the full requirements list; REQ 5 is the one that ' +
+      'survives even a hypothetical resolution of REQ 1-4.\n\n' +
+      'HONEST SCOPE: assessment/scoping only; isolates one requirement of the imp-35538 spec, derives NO ' +
+      'remainder; discharges nothing; changes no bound; establishes no operator positivity; the C_C = ' +
+      '(1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), the E_trunc = 3.06e-5 floor (imp-2631) and C_mb ' +
+      'GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-35581 (glossary/Concepts headword isolating the imp-35538 REQ-5 conditionality result), 2026',
+    relatedTerms: [
+      'imp-35538 is the requirements-spec module REQ 5 is drawn from (imp-35538)',
+      'imp-35538 route-(i) finite-N remainder: the five derivation requirements is the companion full-spec headword (imp-35570)',
+      'imp-486 is the GUE conditional REQ 5 shows is unavoidably inherited (imp-486)',
+      'imp-35475 Part D anticipated this conditionality result ahead of the imp-35538 spec (imp-35475)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

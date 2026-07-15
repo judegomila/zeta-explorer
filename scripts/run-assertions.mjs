@@ -8854,6 +8854,17 @@ const DATA_MODULES = [
   // of a mechanism only; discharges nothing; changes no bound; surrogate-vs-true fidelity
   // (imp-35337a) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35594-peak-crossover-mechanism-derivation.js',
+  // imp-35609: MEASURES the input-stability of the imp-35574 peak-LOCATION damping factor (~0.553,
+  // < 1 AMPLIFIED) to its two fixed inputs -- the peak-locator bracket [1e4,1e7] and E_trunc = 3.06e-5.
+  // Re-runs the imp-35574 damping computation verbatim under three bracket widenings ([1e3,1e8],
+  // [1e2,1e9], [1,1e10]) and the E_trunc = 3.6e-5 variant: the damping factor is EXACTLY bracket-invariant
+  // (0.5530 to all reported digits -- the interior peak is a genuine stationary point) and moves only
+  // ~1.1% under the larger floor (0.5530 -> 0.5467, peak N_max pulled 9.22e5 -> 7.37e5), staying below 1
+  // in every case, so the AMPLIFICATION-not-damping verdict is INPUT-STABLE. Five self-executing
+  // assertions. Import-light (inlined effectiveHeightForN + surrogate, no zeros bundle). Measurement only;
+  // surrogate-vs-true fidelity (imp-35337a) UNTOUCHED; the 3.6e-5 value is a probe not a re-anchoring;
+  // changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35609-peak-damping-input-sensitivity.js',
   // imp-35559: ASSERTION-ONLY tripwire pinning the six imp-35559 per-endpoint reentry-band decade-gap
   // literals against a silent drift of the baked band edges [10^27.084691, 10^37.167107] or ceilings.
   // Independently recomputes all six gaps from Math.log10 of the same edges and ceilings -- reentry/exit
@@ -8890,6 +8901,14 @@ const DATA_MODULES = [
   // imp-35337a stays OPEN; route-(ii) stays the only viable partial; changes no bound; C_mb GUE-
   // conditional per imp-486 UNTOUCHED; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35604-route-ii-landmark-data-reachability-scope.js',
+  // imp-35606: REGISTRATION/REACHABILITY AUDIT (imp-35484/imp-35545 method) of the
+  // Imp35561PeakHeightMapSensitivityViz page named by imp-35569 as the only rendered sigma-peak
+  // height-map page. FINDING: fully registered, not merely routed -- lazy import + <Route> in
+  // App.jsx, a complete visualizations-index.js entry (pedagogicalStep 86), and nav-reachable via
+  // VisualizationsIndexPage.jsx at /visualizations. node scripts/audit-nav-links.mjs exits 0 with
+  // no WARN for this route -- not even in the EXEMPT_FROM_INDEX drift backlog. AUDIT ONLY; no
+  // source file required correction; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35606-imp35561-page-registration-reachability-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -1154,6 +1154,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive stacked-residual and fraction-trend chart baking the imp-35279/imp-35280 four-rung literals verbatim (no new computation, no heavy data-module import); measurement only, component model is the imp-3220/imp-3406 extrapolation not a rigorous asymptotic; C_mb stays GUE-conditional per imp-486; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35404-krawczyk-headroom-cancellation',
+      title: 'Krawczyk Headroom 2:1 Cancellation: FP_LO Push vs G-Factor Pull',
+      oneLine:
+        'Diverging bar chart of the imp-35266 decomposition of the imp-35241 band-top headroom surplus into a positive FP_LO finite-N push (dFP) and a negative asymptotic-floor G-factor pull (dG) at the three imp-34693 band landmarks (band-bottom, N_cross, band-top), showing the near-exact 2:1 cancellation (-dFP/dG ~ 2.00042) whose net residue is the reported surplus above the S_inf = 2500 floor.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35404-krawczyk-headroom-cancellation-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-35266-krawczyk-headroom-surplus-decomposition.js (imp-35404 viz page)',
+      ticket: 'imp-35404',
+      pedagogicalStep: 78,
+      honestCeiling:
+        'Descriptive diverging-bar chart baking the imp-35266 measurement literals verbatim (no new computation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; the imp-34714a machine certificate REMAINS OPEN; C_mb stays GUE-conditional per imp-486; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

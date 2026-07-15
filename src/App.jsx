@@ -816,6 +816,9 @@ const Imp35362N2000CollisionEnvelopeViz = lazy(() =>
 const Imp35400EflowFartailTwoComponentLadderViz = lazy(() =>
   import('./pages/Imp35400EflowFartailTwoComponentLadderViz.jsx')
 );
+const Imp35404KrawczykHeadroomCancellationViz = lazy(() =>
+  import('./pages/Imp35404KrawczykHeadroomCancellationViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2315,6 +2318,10 @@ function AppShell() {
           <Route
             path="/viz-imp35400-eflow-fartail-two-component-ladder"
             element={<Imp35400EflowFartailTwoComponentLadderViz />}
+          />
+          <Route
+            path="/viz-imp35404-krawczyk-headroom-cancellation"
+            element={<Imp35404KrawczykHeadroomCancellationViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

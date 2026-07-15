@@ -17474,6 +17474,39 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this note (imp-486)',
     ],
   },
+  {
+    term: 'imp-35407 why the imp-35280 fd-vs-analytic gap and inverse-swap gap add exactly: betweenness, not the shared negative sign',
+    category: 'method',
+    definition:
+      'A within-ladder explainer for the imp-35280 two-component reconstruction. At every rung N = 1e6, ' +
+      '1e9, 1e12, 1e16 the three E_flow far-tail surrogate-channel exponents are strictly ORDERED ' +
+      'analytic < fd-surrogate < fd-true < 0 (e.g. at N=1e6: -0.7829 < -0.7803 < -0.7710). Because ' +
+      'fd-surrogate always sits BETWEEN analytic and fd-true, the signed telescoping identity ' +
+      '(analytic - fd-true) = (analytic - fd-surrogate) + (fd-surrogate - fd-true) converts to absolute ' +
+      'gaps with no cancellation: |analytic - fd-true| = |analytic - fd-surrogate| + |fd-surrogate - fd-true| ' +
+      'exactly, which is why the imp-35280 fd-vs-analytic gap plus the imp-35236 inverse-swap gap ' +
+      'reconstructs the imp-35217 leading residual to 4 decimals at every rung.\n\n' +
+      'THE PART THAT IS NOT ESSENTIAL: this additivity does NOT depend on all three exponents being ' +
+      'negative. For any three reals a, b, c with a <= b <= c (or a >= b >= c), |a-c| = |a-b| + |b-c| holds ' +
+      'regardless of a common sign -- it is the ordinary fact that a detour through a BETWEEN point never ' +
+      'backtracks on the real line. The shared negativity of the three exponents here is incidental to the ' +
+      'far-tail decay being negative, not the reason the gaps add; the reason is that fd-surrogate is ' +
+      'squeezed between analytic and fd-true at every rung of the ladder.\n\n' +
+      'HOW TO APPLY: when citing the imp-35280 two-component reconstruction, attribute the exact-additivity ' +
+      'to the measured betweenness ordering (fd-surrogate between analytic and fd-true), not to the three ' +
+      'quantities sharing a sign -- the latter is a coincidence of this being a decay exponent, not the ' +
+      'mechanism.\n\n' +
+      'HONEST SCOPE: an explanatory note on why an already-measured arithmetic identity holds, adding no new ' +
+      'measurement; changes no bound; establishes no operator positivity; C_mb GUE-conditional per imp-486 ' +
+      'UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35407 (within-ladder explainer companion for the imp-35280 three-exponent ordering), 2026',
+    relatedTerms: [
+      'imp-35280 measured the fd-vs-analytic gap across the full ladder and reported the exact reconstruction this note explains (imp-35280)',
+      'imp-35236 isolated the inverse-swap gap this note shows adds without cancellation to the fd-vs-analytic gap (imp-35236)',
+      'imp-35217 the leading E_flow far-tail residual the two components reconstruct (imp-35217)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this note (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -19373,6 +19373,39 @@ export const glossary = [
       'imp-35534 tabulated the first two spans (83.5687, 300.8583) that imp-35553 extends and fits (imp-35534)',
     ],
   },
+  {
+    term: 'imp-35330 requirement DAG: the imp-35243 R1-R4 reentry-band checklist collapses to a single root obstruction R1, with R4/R2/R3 downstream',
+    category: 'proof-status',
+    definition:
+      'A dependency-DAG companion to the imp-35243 surrogate-fidelity certificate for the imp-34997/imp-35111 ' +
+      'iters-to-floor REENTRY band. imp-35243 listed R1 (floor-independence), R2 (single-rate fidelity), R3 ' +
+      '(height-map fidelity), and R4 (independent-model agreement) as an UNORDERED checklist and flagged both ' +
+      'R1 and R4 as BINDING. imp-35330 asks whether the four are truly independent and finds they are not: they ' +
+      'form a DAG rooted at R1, with R1 -> {R2, R3, R4}.\n\n' +
+      'CLAIM 1 (R4 downstream of R1). If R1 is unmet in the strong sense the imp-35243 D1 floor-sensitivity ' +
+      'evidences -- the band is a pure EPS_FP floor artifact with no continuum counterpart -- then any floor-' +
+      'free independent witness (R4) carries no such band at all, so agreement can only REFUTE, never ' +
+      'REPRODUCE, the edges. R4 is therefore not merely un-attempted but IMPOSSIBLE-IN-PRINCIPLE as a positive ' +
+      'confirmation while R1 stands: R4 is VACUOUS-BY-CONSTRUCTION, live only once R1 is met.\n\n' +
+      'CLAIM 2 (R2, R3 dominated by R1). R2 and R3 fix WHERE the band edges fall (the phase argument and the ' +
+      'height map), not WHETHER a band exists at all. A floor artifact positioned faithfully by a perfect R2/R3 ' +
+      'is still a floor artifact, so R2/R3 become operative fidelity conditions only once R1 is met.\n\n' +
+      'CONCLUSION: the count of INDEPENDENT binding obstructions in the imp-35243 checklist is 1 (R1), not 2 -- ' +
+      'the only lever that moves any of R1-R4 is meeting R1 (re-express the band floor-free, or prove an ' +
+      'intrinsic EPS_FP floor). This refines imp-35243 (R1/R4 co-flagged binding) and imp-35297 (R4 zero ' +
+      'independent witnesses): R4 binding is DERIVED from R1 binding, not co-equal with it.\n\n' +
+      'HONEST SCOPE: the R1-unmet hypothesis behind CLAIM 1 is D1-evidenced but not formally proven (that is R1 ' +
+      'itself, still OPEN), so the DAG is a logical-ordering ASSESSMENT, not a discharge. imp-35111a / ' +
+      'imp-35174a / imp-34997a / imp-35243a stay OPEN; changes no bound; no RH verdict; NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35364 (glossary headword surfacing the imp-35330 requirement dependency DAG), 2026',
+    relatedTerms: [
+      'imp-35243 surrogate-fidelity certificate lists R1-R4 as the unordered checklist this DAG re-orders (imp-35243)',
+      'imp-35297 found R4 has zero independent witnesses, which this DAG derives from R1 rather than treating as co-equal (imp-35297)',
+      'imp-35330 is the module deriving the DAG this headword surfaces (imp-35330)',
+      'imp-35243 honest-status note records the overall surrogate-fidelity verdict this DAG refines (imp-35243)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

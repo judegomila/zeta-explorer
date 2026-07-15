@@ -219,6 +219,15 @@ export default function Imp35288R2FlowLadderSlackViz() {
         Measurement/certification only; C_mb stays GUE-conditional (imp-486); changes no bound;
         establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda &le; 0.2
         remains SOTA.
+        <br />
+        <br />
+        <strong style={{ color: '#94a3b8' }}>imp-35416 cross-check:</strong> an independent RK4 +
+        cubic-Hermite dense output reproduces the within-step pair-1495 crossing behind the
+        N = 2000 rung at the same step and pair, t_c agreeing to &sim;4.5e-5 relative &mdash; the
+        crossing itself is scheme-invariant. But the endpoint-positivity flag differs by scheme
+        (DP45 dt/2 positive, RK4 dt/2 negative), so that flag is a DP45-specific knife-edge, not a
+        property of the flow. This cross-check does not advance the ladder past N = 1000: RUNGS[5]
+        still bakes the imp-35412 endpoint DP45 dt/2 worst-case as the reported slack.
       </div>
     </div>
   );

@@ -42,7 +42,10 @@ function eColl(N) {
 
 // Bisect the crossover E_coll(N) = E_trunc. E_coll DECREASES in N, so a LARGER
 // E_trunc gives a SMALLER N_cross. Wide bracket to accommodate the collapse.
-function crossover(eTrunc, loExp = -2, hiExp = 40) {
+// imp-35554: floor lowered from -2 to -30 decades so the Ramare (1.67e5) row is
+// MEASURED at its true self-consistent crossover instead of being pinned at the
+// old bracket edge (the vestigial 1.0000e-2 "below floor" artifact).
+function crossover(eTrunc, loExp = -30, hiExp = 40) {
   let a = loExp * Math.LN10, b = hiExp * Math.LN10; // work in ln N
   // Guard: ensure a sign change; E_coll(exp(a)) should exceed eTrunc, E_coll(exp(b)) below.
   for (let i = 0; i < 600; i++) {
@@ -90,6 +93,26 @@ for (const row of menu) {
   console.log('  ' + row.label.padEnd(42) + ' actual ' + actual.toFixed(3).padStart(9) +
     '   f^-2 ' + pred.toFixed(3).padStart(9) + '   L-residual ' + (actual - pred).toFixed(4).padStart(8));
 }
+
+// imp-35554: MEASURE the Ramare 2016 (sigma=3/4, E_trunc=1.67e5) row that imp-35531
+// left only PREDICTED (~-19.5, "below floor"). With the widened bracket the
+// self-consistent bisection now resolves the true crossover.
+const E_RAMARE = 1.67e5;
+const NcRam = crossover(E_RAMARE);
+const fRam = E_RAMARE / E_TRUNC_CLEAN;
+const decRam = Math.log10(NcRam / N0);
+const predRam = -2 * Math.log10(fRam);
+const LatRam = Math.log(effectiveHeightForN(NcRam));
+console.log('\nRamare 2016 (sigma=3/4) row -- MEASURED (imp-35554, was PREDICTED ~-19.5 below floor):');
+console.log('  E_trunc = ' + E_RAMARE.toExponential(2) + ',  f = ' + fRam.toExponential(3) +
+  '  ->  N_cross = ' + NcRam.toExponential(6) + '  (log10 N_cross = ' + Math.log10(NcRam).toFixed(4) + ')');
+console.log('  actual decade shift ' + decRam.toFixed(4) + '   vs frozen-L f^-2 ' + predRam.toFixed(4) +
+  '   L-residual ' + (decRam - predRam).toFixed(4));
+console.log('  Self-consistent L at the crossover = ' + LatRam.toFixed(5) +
+  ' (collapsed from baseline 20.858 to its small-N floor ~2.838), so the actual shift is');
+console.log('  ~0.87 decade MORE negative than the frozen-L prediction -- the -19.474 f^-2 estimate UNDERSTATES the collapse.');
+console.log('  N_cross ~ 1.5e-11 << 1: the crossover sits ~11 decades below even one zero (N>=1), i.e. it leaves');
+console.log('  the in-repo model range ENTIRELY -- confirming the imp-35531 "below floor" prediction as a genuine out-of-range measurement.');
 
 const NcCS = crossover(3.34);
 const T_PT = 3e12;

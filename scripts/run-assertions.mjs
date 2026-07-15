@@ -8804,6 +8804,22 @@ const DATA_MODULES = [
   // looking more symmetric than it is. Recorded for a follow-up content/ux fix. AUDIT ONLY,
   // no page edited in this ticket, changes no bound, NO QED, Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35569-sigma-peak-page-honest-status-audit.js',
+  // imp-35577: applies the imp-35458/imp-35497 height-map sensitivity method to BOTH E_flow
+  // far-tail remnant threshold-crossings side by side -- the imp-35413 sub-1e-3 (N ~ 4.17e25)
+  // and the never-before-tested imp-35473 sub-1e-4 (N ~ 1.546e109). Swapping the closed
+  // surrogate T0 = 2 pi N / log N for the exact RvM inverse effectiveHeightForN (inlined
+  // pure-Math Newton solve) roughly doubles the fd-vs-analytic remnant under both maps and
+  // pushes the sub-1e-3 crossing +15.31 decades (25.6205 -> 40.9350, reproducing imp-35497)
+  // and the sub-1e-4 crossing +46.84 decades (109.1892 -> 156.0294, NEW). FINDING: the
+  // imp-35458 log-damping (sub-1 percent for the crossover) does NOT hold here and GROWS worse
+  // deeper -- the absolute shift rises from +15.31 to +46.84 decades (N-ratio ~2.06e15 to
+  // ~6.92e46) EVEN THOUGH the raw height divergence shrinks from ~9.24 to ~2.65 percent, because
+  // the ~2x remnant inflation (analytic -1 + 3/log N is a surrogate-channel reference) rides an
+  // ever-slower ~1/log N decay. VERDICT: the far-tail crossings are the least height-map-robust
+  // landmarks in the cohort and get more fragile deeper, opposite to the log-damped crossover /
+  // peak. Six self-executing assertions. Measurement only on the inherited imp-3220/imp-3406
+  // surrogate; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35577-fartail-crossings-height-map-sensitivity.js',
 ];
 
 let ALL_MODULES = FAST_MODE

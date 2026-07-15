@@ -8909,6 +8909,20 @@ const DATA_MODULES = [
   // no WARN for this route -- not even in the EXEMPT_FROM_INDEX drift backlog. AUDIT ONLY; no
   // source file required correction; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35606-imp35561-page-registration-reachability-audit.js',
+  // imp-35610: WIRES the imp-35591 peak-LOCATION damping-literals recompute guard into this
+  // standalone runner. imp-35591 built /src/data/imp-35591-peak-damping-literals-assertion.js
+  // (independently recomputing the imp-35574 peak N_max on both height maps via effectiveHeightForN
+  // + surrogate + the imp-35536 dg_sigma/dN bisection locator, then asserting the +43.99% location
+  // shift 9.218633e5 -> 1.327368e6, the 24.33% raw-height gap, the ~0.553 AMPLIFIED peak damping
+  // factor and the ~32.55x crossover/peak ratio to 1e-6 storage-precision tolerance) but its file
+  // was never added to this DATA_MODULES list nor imported by any page, so its four self-executing
+  // tripwires never ran in the standalone assertion sweep. Registering it here makes every npm-run
+  // assertion pass exercise the recompute guard the imp-35610 ticket asks for. Import-light (imports
+  // only the import-light imp-35574 record, no zeros bundle, per [[no_heavy_imports_in_pages]] /
+  // [[verify_heavy_assertion_modules]]). Registration only; recomputes established measurement
+  // figures; changes no bound; imp-35337a stays OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED;
+  // NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35591-peak-damping-literals-assertion.js',
 ];
 
 let ALL_MODULES = FAST_MODE

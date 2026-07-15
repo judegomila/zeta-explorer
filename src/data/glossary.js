@@ -18435,6 +18435,39 @@ export const glossary = [
       'imp-35475 Part D anticipated this conditionality result ahead of the imp-35538 spec (imp-35475)',
     ],
   },
+  {
+    term: 'imp-35537 R1t "strictly-worse-off" finding: BOTH GUE-conditional AND data-unreachable',
+    category: 'concept',
+    definition:
+      'A headword isolating the imp-35537 Part D punchline on the OPEN true-dynamic residue R1t (the ' +
+      'true-dynamic half of the imp-35357 R1s/R1t reentry-band split; certificate imp-35243a OPEN): closing ' +
+      'R1t is STRICTLY WORSE OFF than the imp-35475 sigma-landmark case, because it fails on BOTH admissible ' +
+      'routes at once, not just one.\n\n' +
+      'ROUTE (i), a certified/modeled true-dynamic closure, INHERITS the imp-486 GUE conditional -- the ' +
+      'height map g = K log T0(N) rests on K = (C_C/E_TRUNC)^2 with the GUE-conditional C_C = (1/8) sqrt(3 pi) ' +
+      'ansatz, so any route-(i) remainder is conditional via the C_C-derived K, exactly as REQ 5 of imp-35538 ' +
+      'shows for the sigma side.\n\n' +
+      'ROUTE (ii), direct data measurement at the band heights, would be unconditional in principle but is ' +
+      'INFEASIBLE here: the reentry band N-range [10^27.08, 10^37.17] sits ~14.6-24.7 decades ABOVE the ' +
+      '~3e12 Platt-Trudgian verified frontier (imp-35243 D2), so no verified datum exists within ~15 decades.\n\n' +
+      'THE CONTRAST: the imp-35475 sigma landmarks both sit BELOW T_PT = 3e12, so their route (ii) was ' +
+      'feasible and unconditional -- giving the sigma case an escape hatch R1t does not have. R1t has no ' +
+      'unconditional AND feasible route at all: route (i) is conditional, route (ii) is unreachable.\n\n' +
+      'HOW TO APPLY: cite this entry whenever the reentry band is proposed as a route to tighten Lambda -- ' +
+      'even a perfect R1t closure would still be conditional-or-unreachable, and regardless moves NO bound, ' +
+      'since the band is a diagnostic of a surrogate iterate-count, not a Lambda lever.\n\n' +
+      'HONEST SCOPE: assessment/scoping only; discharges nothing; imp-35243a stays OPEN; changes no bound; ' +
+      'establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), E_trunc = 3.06e-5 ' +
+      '(imp-2631), imp-3066 K_a>=0 and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35583 (glossary/Concepts headword for the imp-35537 R1t strictly-worse-off finding), 2026',
+    relatedTerms: [
+      'imp-35537 is the scoping module this headword isolates the Part D punchline from (imp-35537)',
+      'imp-35475 sigma-fidelity closure scope: three-input epistemic split and two admissible routes is the sigma-side template R1t is contrasted against (imp-35475)',
+      'imp-35243a is the OPEN certificate whose data route this entry shows is unreachable (imp-35243a)',
+      'imp-486 is the GUE conditional route (i) inherits via the C_C-derived K (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

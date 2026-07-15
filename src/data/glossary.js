@@ -17795,6 +17795,42 @@ export const glossary = [
       'imp-486 C_mb GUE-conditional provenance, untouched by this measurement (imp-486)',
     ],
   },
+  {
+    term: 'imp-35412 one-sided-upper-bound conservative-worst-case principle: largest tested collision time is the honest R2 slack denominator',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35412 assessment of which N=2000 collision time the R2 one-sided ' +
+      'true-flow ladder slack (Imp35288R2FlowLadderSlackViz RUNGS[5]) should report against the upper-' +
+      'bracket endpoint t_c_hi. The R2 predicate is a ONE-SIDED UPPER bound t_c_flow(N) <= t_c_hi(N) ' +
+      '(imp-2528); for a one-sided upper bound the CONSERVATIVE worst case is the LARGEST tested collision ' +
+      'time -- the value closest to t_c_hi from below, giving the SMALLEST (most honest) slack.\n\n' +
+      'VERDICT: KEEP the imp-35324 finer-grid (tauC/4000) endpoint DP45 dt-over-2 worst-case ' +
+      '1.1999384320e-3 (slack +6.16e-8) in RUNGS[5]. Do NOT replace it with the imp-35351 coarser-grid ' +
+      '(tauC/1000) DP45 CONTD5 dense-output interior crossing 1.1919828898e-3, even though the dense ' +
+      'crossing is the more physically faithful detection of the within-step collision -- because it is ' +
+      'EARLIER (smaller), so adopting it would replace the conservative +6.16e-8 margin with an over-' +
+      'optimistic +8.02e-6 margin that understates the endpoint-quantization risk the slack exists to ' +
+      'bound. A second, independent trap: within imp-35351’s own dense-output envelope the DP45 dt-over-2 ' +
+      'crossing is not even the dense-envelope max -- the RK4 dt-over-2 endpoint crossing 1.1924935719e-3 ' +
+      'is (slack +7.506e-6) -- so a naive dense-vs-endpoint swap can double-mis-select (wrong reference ' +
+      'and wrong grid at once).\n\n' +
+      'HOW TO APPLY: whenever a more-faithful or more-accurate (i.e. earlier) collision-time estimate is ' +
+      'proposed for a one-sided UPPER-bound slack denominator, check direction first -- a smaller candidate ' +
+      'inflates the reported margin and is the wrong choice regardless of physical fidelity; the dense ' +
+      'crossing remains valuable only as a DIAGNOSTIC that the step-over is real and lands below t_c_hi, ' +
+      'not as a replacement slack value.\n\n' +
+      'HONEST SCOPE: assessment only; recommends no page edit (RUNGS[5] already correct per imp-35359); ' +
+      'does not advance the R2 ladder past N=1000 (imp-35221/imp-35324); C_mb stays GUE-conditional per ' +
+      'imp-486; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35479 (glossary headword recording the imp-35412 one-sided-upper-bound conservative-worst-case principle), 2026',
+    relatedTerms: [
+      'imp-35412 the assessment this entry records verbatim, including the dense-envelope double-mis-selection trap (imp-35412)',
+      'imp-35324 supplies the kept finer-grid endpoint DP45 dt-over-2 worst-case 1.1999384320e-3 (imp-35324)',
+      'imp-35351 supplies the coarser-grid dense-output interior crossing, correctly NOT adopted as the slack (imp-35351)',
+      'imp-35359 confirmed RUNGS[5] already bakes the imp-35324 endpoint worst-case (imp-35359)',
+      'imp-2528 the one-sided true-flow upper-bound predicate this principle governs (imp-2528)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

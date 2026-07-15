@@ -18318,6 +18318,43 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this table (imp-486)',
     ],
   },
+  {
+    term: 'imp-35530 route-(ii) crossover g_true trend extrapolation: projected g_true >> E_coll, ~1900x beyond the table',
+    category: 'numerical',
+    definition:
+      'The imp-35488 route-(ii) fidelity check declared the E_coll = E_trunc crossover landmark ' +
+      '(N ~ 3.28e9, effective height T0 ~ 1.14e9) OUT OF IN-REPO RANGE: it sits ~1905x beyond the ' +
+      'last tabulated Odlyzko ordinate (~6.0027e5 in ZEROS_EXTENDED), so the true empirical-vs-GUE ' +
+      'deviation g_true is not directly measurable there (sub-gap imp-35488a, still OPEN). This entry ' +
+      'measures the one thing that IS reachable: the g_true(T0) height-decay TREND across 10 disjoint ' +
+      'in-table windows (logT0 = 10.61 -> 13.26), where g_true is read as the KL divergence of the ' +
+      'RvM-unfolded nearest-neighbour spacing pdf against the GUE Wigner surmise. KL falls monotonically ' +
+      '3.316e-3 -> 1.484e-3 as height climbs, fit as KL ~ 11.316 (logT0)^(-3.446) (free exponent).\n\n' +
+      'PROJECTING that fit (plus two theory-forced exponents, p=1 and p=2, spanning a ~3.6x value ' +
+      'bracket) out to the crossover logT0 = 20.858 gives g_true ~ 3.2e-4 .. 1.15e-3, which stays an ' +
+      'ORDER OF MAGNITUDE above the modeled surrogate E_coll_CROSS = 3.060e-5 (= E_trunc) across ALL ' +
+      'THREE forms (~10.5x for the free fit, up to ~37x for the 1/logT0 form). The qualitative ordering ' +
+      'g_true >> E_coll is robust to the extrapolation model; the exact value is not (sub-gap imp-35530a). ' +
+      'KL and E_coll are also in DIFFERENT UNITS -- a distributional divergence versus a sigma-share ' +
+      'collision magnitude -- so the ordering is a diagnostic flag, not a certified fidelity error ' +
+      '(sub-gap imp-35530b, inherits the units caveat from imp-35488b).\n\n' +
+      'HOW TO APPLY: cite this entry when a future module wants to reason about the crossover-height ' +
+      'fidelity of the E_coll surrogate without re-deriving the trend fit, and always carry BOTH open ' +
+      'sub-gaps forward -- the ~1900x extrapolation distance (imp-35530a) and the KL-vs-sigma-share ' +
+      'units mismatch (imp-35530b) -- rather than quoting the ~10.5x ratio as a settled number.\n\n' +
+      'HONEST SCOPE: measurement of an in-table trend plus a model-bracketed EXTRAPOLATION, not a ' +
+      'direct measurement or a certification; changes no bound; sigma is a diagnostic share, not a ' +
+      'Lambda lever; C_mb GUE-conditional per imp-486 UNTOUCHED; C_C ansatz (imp-2642/imp-2643) and ' +
+      'E_trunc floor (imp-2631) UNTOUCHED; no operator positivity; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35565 (glossary/method headword for the imp-35530 route-(ii) crossover fidelity finding), 2026',
+    relatedTerms: [
+      'imp-35488 declared the crossover height out of in-repo range, opening sub-gap imp-35488a this entry keeps OPEN (imp-35488)',
+      'imp-35529 supplies the bin-free KS sup-distance secondary witness reused as a floor-limited check (imp-35529)',
+      'imp-35475 scopes the route-(ii) two-height fidelity check this crossover half belongs to (imp-35475)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this projection (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

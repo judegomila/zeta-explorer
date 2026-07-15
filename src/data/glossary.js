@@ -17678,6 +17678,52 @@ export const glossary = [
       'imp-33620 the sigma<0.01 far-tail landmark this entry extends one further decade of sigma (imp-33620)',
     ],
   },
+  {
+    term: 'imp-35356 R1 three-route verdict: (i) floor-free re-expression SELF-DEFEATING, (ii) pure-artifact proof SELF-CONTAINED but DISPOSAL-direction, (iii) intrinsic floor CIRCULAR',
+    category: 'proof-status',
+    definition:
+      'A headword recording the imp-35356 enumeration of the three concrete candidate routes to MEET R1 ' +
+      '(floor-independence), the imp-35330 DAG-root requirement of the imp-35243 reentry-band surrogate-' +
+      'fidelity checklist, and their classification as self-contained, self-defeating, or circular.' +
+      '\n\n' +
+      'ROUTE (i) -- re-express the band edges in a floor-free continuum quantity carrying no terminal ceil ' +
+      'against EPS_FP = 2.3e-16 -- is SELF-DEFEATING: a faithful floor-free limit (threshold -> 0) sends the ' +
+      'phase argument xArg to infinity and dissolves the integer off-by-one, ERASING the band rather than ' +
+      'repositioning it floor-free; any band-preserving variant smuggles a positive threshold back in, i.e. ' +
+      'the imp-35243 D1 floor-sensitivity merely renamed. It collapses into route (ii).' +
+      '\n\n' +
+      'ROUTE (ii) -- prove the band is a PURE floor artifact with zero continuum residue as the floor -> 0 -- ' +
+      'is SELF-CONTAINED and non-circular: it needs only the surrogate log-law and a threshold -> 0 limit ' +
+      'removing the terminal ceil, with no appeal to the conclusion it establishes. It is the ONLY route of ' +
+      'the three that is both self-contained and non-circular, and it is exactly the route imp-35357 is ' +
+      'chartered to formalize. Its DIRECTION matters: it meets R1 by DISPOSAL -- certifying the band is NOT ' +
+      'a true-dynamic feature -- not by upholding the band.' +
+      '\n\n' +
+      'ROUTE (iii) -- exhibit an intrinsic, non-IEEE-754 floor (e.g. mean zero spacing or the imp-2563 ' +
+      'collision horizon) so the band anchors to a real cutoff -- is CIRCULAR as a band-preserving route: ' +
+      'the observed edges [10^27.08, 10^37.17] were computed at floor = EPS_FP, and by D1 a factor-2 change ' +
+      'relocates the band ~11.99 decades, so any intrinsic floor reproducing THESE edges must numerically ' +
+      'coincide with the machine constant -- for which there is no dynamical reason -- while independently-' +
+      'motivated candidates sit at different scales and would place a DIFFERENT band.' +
+      '\n\n' +
+      'HOW TO APPLY: cite imp-35356 whenever asking how R1 could actually be met (not merely that it is the ' +
+      'DAG root, per imp-35330). Exactly one route -- (ii) -- is viable, and it discharges imp-35243a in the ' +
+      'DISPOSAL direction, not the upholding direction; no enumerated route preserves the reentry band as a ' +
+      'feature of the true dynamic.' +
+      '\n\n' +
+      'HONEST SCOPE: assessment only (frontier-direction, NOT rigorous); discharges nothing; imp-35111a / ' +
+      'imp-35174a / imp-34997a / imp-35243a stay OPEN; the imp-3220/imp-3406 surrogate and the C_mb GUE-' +
+      'conditional per imp-486 are UNTOUCHED; changes no bound; establishes no operator positivity; no RH ' +
+      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35429 (glossary headword recording the imp-35356 R1 three-route verdict), 2026',
+    relatedTerms: [
+      'imp-35356 enumerates and classifies the three routes this entry records (imp-35356)',
+      'imp-35330 named R1 the DAG root but did not enumerate routes to meet it (imp-35330)',
+      'imp-35243 supplies the R1-R4 checklist and the D1 floor-sensitivity this entry cites (imp-35243)',
+      'imp-35357 is chartered to formalize route (ii), the only self-contained non-circular route (imp-35357)',
+      'imp-35263 is the dedicated R1 EPS_FP floor-sweep ticket (imp-35263)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -18245,6 +18245,40 @@ export const glossary = [
       'sigma(N) = E_coll/E(N): a DIAGNOSTIC conditional-share readout, NOT a Lambda lever (companion no-bound-moves headword)',
     ],
   },
+  {
+    term: 'imp-35534 E_flow far-tail remnant sub-1e-5 crossing: N ~ 10^410.0475, ~300.86 decades past the imp-35473 sub-1e-4 crossing, remnant*log N ~ 0.009442',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35534 continuation of the imp-35413/imp-35473 fd-vs-analytic E_flow ' +
+      'far-tail remnant threshold-crossing ladder to its third rung. imp-35413 located the sub-1e-3 crossing ' +
+      '(N ~ 4.17e25) and imp-35473 the sub-1e-4 crossing (N ~ 1.546e109). imp-35534 continues the identical ' +
+      'closed-surrogate channel (T0 = 2 pi N / log N, no height-map swap, no heavy import) to bisect the ' +
+      'sub-1e-5 crossing.\n\n' +
+      'FINDING (measurement only): the remnant first falls below 1e-5 at N ~ 10^410.0475, ~300.86 decades ' +
+      'past the imp-35473 sub-1e-4 crossing -- a decade-gap an order of magnitude wider than the ~83.57 ' +
+      'decades it took to get from the sub-1e-3 to the sub-1e-4 rung. At this crossing remnant*log N ~ ' +
+      '0.009442, DOWN from ~0.02514 at the sub-1e-4 rung, so the product keeps decaying rather than pinning ' +
+      'at a nonzero log-floor. Because N ~ 10^410 is far beyond the IEEE-754 double range (N_max ~ ' +
+      '1.80e308), where a direct Math.pow(10, e) channel would overflow to NaN, the crossing is located via ' +
+      'a LOG-SPACE reformulation: the identical eFlowWith/localExponent/remnant algebra evaluated on ' +
+      'u = log N directly, which never forms the overflowing N or T0 value and so survives arbitrarily deep ' +
+      'past N = 1.8e308.\n\n' +
+      'HOW TO APPLY: cite this entry (alongside imp-35413 and imp-35473) for the three-rung E_flow far-tail ' +
+      'remnant threshold-crossing ladder, and cite the log-space reformulation technique specifically when a ' +
+      'future module needs to push a closed-surrogate measurement past the double-precision N range without ' +
+      'switching numeric libraries.\n\n' +
+      'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 closed-surrogate extrapolation, NOT ' +
+      'a rigorous asymptotic; changes no bound; E_flow > 0 strictness (imp-33848) untouched; C_mb ' +
+      'GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; no operator ' +
+      'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35562 (glossary/Concepts headword for the imp-35534 sub-1e-5 crossing landmark), 2026',
+    relatedTerms: [
+      'imp-35473 locates the sub-1e-4 crossing this entry continues to the sub-1e-5 rung (imp-35473)',
+      'imp-35413 locates the first sub-1e-3 rung of the same ladder (imp-35413)',
+      'imp-35371 establishes the slow-decay reading (not a nonzero floor) this crossing confirms two thresholds deeper (imp-35371)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this crossing (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

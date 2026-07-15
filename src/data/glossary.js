@@ -18914,6 +18914,7 @@ export const glossary = [
       'imp-35337 is the interior-peak locator that pinned the crossover landmark 3.280294352e9 (imp-35337)',
       'imp-35574 shows the interior peak LOCATION does NOT share this log-insulation (imp-35574)',
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this robustness result (imp-486)',
+      'imp-35594 DERIVES analytically why this ~18x measured damping holds -- cite the two together as the measurement+derivation pair for the log-proportional insulation mechanism (imp-35594)',
     ],
   },
 ];

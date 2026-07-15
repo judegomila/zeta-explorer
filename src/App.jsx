@@ -819,6 +819,9 @@ const Imp35400EflowFartailTwoComponentLadderViz = lazy(() =>
 const Imp35404KrawczykHeadroomCancellationViz = lazy(() =>
   import('./pages/Imp35404KrawczykHeadroomCancellationViz.jsx')
 );
+const Imp35460ReentryBandLandmarkDisposalViz = lazy(() =>
+  import('./pages/Imp35460ReentryBandLandmarkDisposalViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2322,6 +2325,10 @@ function AppShell() {
           <Route
             path="/viz-imp35404-krawczyk-headroom-cancellation"
             element={<Imp35404KrawczykHeadroomCancellationViz />}
+          />
+          <Route
+            path="/viz-imp35460-reentry-band-landmark-disposal"
+            element={<Imp35460ReentryBandLandmarkDisposalViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

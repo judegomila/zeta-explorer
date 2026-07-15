@@ -1168,6 +1168,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive diverging-bar chart baking the imp-35266 measurement literals verbatim (no new computation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; the imp-34714a machine certificate REMAINS OPEN; C_mb stays GUE-conditional per imp-486; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35460-reentry-band-landmark-disposal',
+      title: 'Reentry-Band Landmark Disposal Split: 2 Demoted vs 3 Surviving',
+      oneLine:
+        'Number-line and split-list chart of the imp-35415 scoping of the imp-35356 route (ii) disposal, showing the two absolute-coordinate reentry-band landmarks (reentry edge 10^27.08, exit edge 10^37.17) demoted to machine-precision surrogate coordinates, versus the three floor-structural diagnostics (width ~10.08 decades, imp-35332 drift self-consistency, imp-35263 co-moving-vs-fixed window) that survive as legitimate surrogate-map descriptors.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35460-reentry-band-landmark-disposal-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-35415-reentry-band-landmark-disposal-scope.js (imp-35460 viz page)',
+      ticket: 'imp-35460',
+      pedagogicalStep: 79,
+      honestCeiling:
+        'Descriptive number-line and split-list chart baking the imp-35415 scoping literals verbatim (no new computation, no heavy data-module import); discharges nothing, R1 stays the OPEN binding obstruction, imp-35111a/imp-35174a/imp-34997a/imp-35243a stay OPEN; C_mb stays GUE-conditional per imp-486; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

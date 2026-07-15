@@ -65,8 +65,17 @@
  * imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. Platt-Trudgian
  * Lambda <= 0.2 remains SOTA.
  *
+ * IMP-35389 / IMP-35371 UPDATE (honest-status companion)
+ * -------------------------------------------------------
+ * imp-35389 added the honestStatus field below, reading the ~0.002 remnant as a NON-VANISHING
+ * floor. imp-35371 later extended this exact remnant two decades deeper (N = 1e20, 1e24) and
+ * found it keeps decreasing MONOTONICALLY past the N = 1e9 peak (0.0026 -> 0.0019 -> 0.0014 ->
+ * 0.0011 over 1e12..1e24). The imp35371Refinement field below records that "non-vanishing" is
+ * only a fair LOCAL description on this module's N <= 1e16 window, not a nonzero asymptote.
+ *
  * @see imp-35236-eflow-fartail-inverse-swap-isolation (the two-endpoint decomposition this extends)
  * @see imp-35279-eflow-fartail-inverse-swap-ladder (same four-rung remnant column, from the swap-gap side)
+ * @see imp-35371-eflow-fartail-remnant-deep-extension (refines the honestStatus non-vanishing reading below)
  * @see imp-35217-eflow-fartail-exponent-x2-correction (attributed the leading residual to the inverse gap)
  * @see imp-35198-eflow-fartail-exponent-logn-correction (the analytic -1 + 3/log N leading form)
  * @see imp-35135-eflow-fartail-decay-exponent-positivity-reconciliation (measured on effectiveHeightForN)
@@ -179,6 +188,15 @@ export const IMP35280_EFLOW_FARTAIL_FD_VS_ANALYTIC_SURROGATE_GAP = {
     'one. The imp-35236 whole-residual-is-inverse-swap attribution must therefore be read as an ' +
     'approximation that degrades (not improves) as N grows, and any extrapolation of this ladder ' +
     'past N = 1e16 should assume the ~0.002 floor persists rather than assuming it vanishes.',
+  imp35371Refinement:
+    'imp-35371 extended this remnant two decades deeper (N = 1e20, 1e24) and found it keeps ' +
+    'decreasing MONOTONICALLY past the N = 1e9 peak (0.0026 -> 0.0019 -> 0.0014 -> 0.0011 over ' +
+    '1e12..1e24), a factor ~2.33 drop across those twelve decades -- the deep rungs do NOT ' +
+    'support a nonzero asymptote. The "NON-VANISHING" language above is therefore a fair LOCAL ' +
+    'description on this module’s own N <= 1e16 window (the decay is slower than 1/log N, ' +
+    'so it still reads as a ~0.002 band there), but must NOT be read as a nonzero asymptote: ' +
+    'the remnant is a slowly decaying quantity, not a persistent floor, and the extrapolation ' +
+    'instruction above is superseded by imp-35371 for N > 1e16.',
   verdict:
     'MEASUREMENT ONLY (frontier-direction, NOT rigorous). Measuring the fd-vs-analytic surrogate ' +
     'exponent gap directly across the full N = 1e6..1e16 ladder gives 0.0025 / 0.0031 / 0.0026 / ' +
@@ -245,6 +263,15 @@ export const IMP35280_EFLOW_FARTAIL_FD_VS_ANALYTIC_SURROGATE_GAP_ASSERTIONS = [
       typeof IMP35280_EFLOW_FARTAIL_FD_VS_ANALYTIC_SURROGATE_GAP.honestStatus === 'string' &&
       /NON-VANISHING/.test(IMP35280_EFLOW_FARTAIL_FD_VS_ANALYTIC_SURROGATE_GAP.honestStatus) &&
       /GROWING FRACTION/.test(IMP35280_EFLOW_FARTAIL_FD_VS_ANALYTIC_SURROGATE_GAP.honestStatus),
+  },
+  {
+    // imp-35371: a companion field records that the remnant decays past 1e16, not a floor.
+    id: 'imp35280-imp35371-refinement-field-present',
+    description: 'imp35371Refinement field records the deep-rung monotone decay, not a nonzero asymptote',
+    holds: () =>
+      typeof IMP35280_EFLOW_FARTAIL_FD_VS_ANALYTIC_SURROGATE_GAP.imp35371Refinement === 'string' &&
+      /MONOTONICALLY/.test(IMP35280_EFLOW_FARTAIL_FD_VS_ANALYTIC_SURROGATE_GAP.imp35371Refinement) &&
+      /nonzero asymptote/.test(IMP35280_EFLOW_FARTAIL_FD_VS_ANALYTIC_SURROGATE_GAP.imp35371Refinement),
   },
   {
     // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.

@@ -7153,6 +7153,15 @@ const DATA_MODULES = [
   // ratio S/S_inf ~ 1.0221 nearly delta-independent), so S(delta) ~ 1.0221/(2 delta) and delta* ~ 1.0221/200.
   // Measurement on the surrogate; imp-34714a REMAINS OPEN; changes no bound; NO QED.
   '/src/data/imp-35300-krawczyk-headroom-delta-star-to-100.js',
+  // imp-35303: BAND-WIDTH (k-rung) profile of imp-35241 -- imp-35241 profiled the headroom S(N) only on the widest
+  // (k = 10) imp-34693 rung; this tabulates band-top S_top(k) = S(N_cross + rho(1,k)) across the rungs k = 1..10.
+  // Since S is strictly decreasing in N (imp-34929 dS/dN < 0) and the rung half-width rho(1,k) grows with k,
+  // band-top S_top(k) DESCENDS MONOTONICALLY as the band widens -- from ~2558.12 at the narrow k = 1 rung to
+  // ~2555.18 at the widest k = 10 rung -- so the k = 10 rung MINIMIZES S_top over the ladder and is the GLOBAL
+  // binding worst case (25.55x the 100x factor), confirming the imp-35241 band-top figure. Total tightening
+  // narrowest -> widest is only ~2.94 (25.58x -> 25.55x, under 0.12%); every rung stays above the S_inf = 2500
+  // floor. Measurement on the surrogate; imp-34714a REMAINS OPEN; changes no bound; NO QED.
+  '/src/data/imp-35303-krawczyk-headroom-band-width-krung.js',
   // imp-35136: SCOPES the still-OPEN imp-34687a / imp-34714a sub-gap by enumerating the five concrete
   // obligations a real directed-rounding / error-bounded arithmetic layer must discharge to certify the
   // exact-digit width the imp-34714 Krawczyk check leaves uncertified: (G1) directed rounding-mode control on

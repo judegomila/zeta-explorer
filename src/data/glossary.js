@@ -18279,6 +18279,45 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this crossing (imp-486)',
     ],
   },
+  {
+    term: 'imp-35563 unified landmark height-map-sensitivity table: crossover -0.98% robust, sigma-peak height +0.81% robust, far-tail crossing +15.31-decade fragile',
+    category: 'numerical',
+    definition:
+      'A single side-by-side table of the three landmarks that have each had the imp-35458 ' +
+      'height-map swap method (exact RvM inverse effectiveHeightForN vs a closed surrogate/ ' +
+      'perturbation family) applied to them, so the honest robustness verdict for each is ' +
+      'visible at a glance instead of scattered across three modules:\n\n' +
+      '  landmark                          | height-map shift          | verdict\n' +
+      '  E_coll = E_trunc floor-crossover   | -0.98% (N: 3.280e9 -> 3.248e9) | ROBUST (imp-35458)\n' +
+      '  sigma interior-peak HEIGHT         | +0.81% (sigma_max in [0.9417,0.9507]) | ROBUST (imp-35536)\n' +
+      '  sigma interior-peak LOCATION       | +0.158 decades (N_max ~1.44x)  | mildly sensitive (imp-35536)\n' +
+      '  E_flow far-tail sub-1e-3 crossing  | +15.31 decades (N-ratio ~2.06e15) | NOT ROBUST (imp-35497)\n\n' +
+      'WHY THE SAME METHOD GIVES OPPOSITE VERDICTS: the crossover and the peak height both ' +
+      'depend on the height map only through log T0 (or a ratio of log T0 terms), so even a ' +
+      'large raw-height disagreement between maps (~18% at the crossover scale, ~32% at the ' +
+      'peak scale) gets compressed by the logarithm into a sub-1% shift. The far-tail crossing ' +
+      'instead compares a finite-difference exponent against the imp-35198 analytic reference ' +
+      '-1 + 3/log N, which was derived ON the surrogate channel; swapping the height map ' +
+      'roughly doubles the remnant rather than damping it, so the 1e-3 crossing-N is a ' +
+      'self-consistency feature of the surrogate channel, not an intrinsic scale.\n\n' +
+      'HOW TO APPLY: cite this table when deciding whether a reported landmark N-value can be ' +
+      'quoted as a genuine feature of the underlying quantity or must be flagged as a surrogate-' +
+      'channel artifact -- the crossover N and the peak sigma_max height pass, the peak N_max ' +
+      'location only mildly drifts, but any bare far-tail crossing-N must always carry the ' +
+      'surrogate-channel caveat.\n\n' +
+      'HONEST SCOPE: measurement only (frontier-direction, NOT rigorous) on the inherited ' +
+      'imp-3220/imp-3406 extrapolation; C_C ansatz, E_trunc = 3.06e-5, and the imp-35198 ' +
+      'analytic reference are UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no ' +
+      'bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+      'remains the rigorous SOTA.',
+    firstUsed: 'imp-35563 (glossary headword tabulating the three imp-35458/35536/35497 height-map-sensitivity landmarks), 2026',
+    relatedTerms: [
+      'imp-35458 measures the -0.98% crossover shift tabulated here (imp-35458)',
+      'imp-35536 measures the +0.81% peak-height / +0.158-decade peak-location shift tabulated here (imp-35536)',
+      'imp-35497 measures the +15.31-decade far-tail crossing shift tabulated here (imp-35497)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this table (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

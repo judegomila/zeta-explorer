@@ -8413,6 +8413,17 @@ const DATA_MODULES = [
   // breakthrough-tier obligation; W4 retires the 3.06e-5/5.106e-5 count artifact to EXACTLY ZERO. Scoping
   // only; discharges nothing; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35653-sbarrier-finite-check-porting-scope.js',
+  // imp-35674: SCOPES imp-35653 work-item W3 -- the analytic tail lemma |A+B|>|C| for all x>=T_PT+Delta,
+  // the sole breakthrough-tier NON-finite obligation in the S_barrier port, re-anchored at T_PT=3e12.
+  // Identifies the required Polymath15 estimate (the mollified triangle-inequality LOWER bound on |A_t+B_t|
+  // keeping B_t/A_t away from -1 via the dominant n=1 term, PLUS the explicit error bounds C_t=E_A+E_B+E_{C_0}),
+  // the re-anchoring constant change (retained terms N=floor(sqrt(x/4 pi)) grows ~7x, ~6.9e4->~4.89e5, local
+  // density ~4.28/unit), and the heat-parameter t dependence: the margin is monotone in t (easier for larger
+  // t, hardest at t=0), and the repo Gaussian-conv proxy is de Bruijn flow at NEGATIVE time (t=-4 tau_repo) --
+  // the HARDER side -- so the sign of the operative t vs the Polymath15 barrier must be reconciled first. W3
+  // stays NON-finite; no finite mesh spans the semi-infinite tail. Scoping only; ports nothing; changes no
+  // bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35674-w3-tail-lemma-polymath15-scope.js',
   // imp-35402: literal-verification (imp-35339-style) audit of the imp-35279/imp-35280 E_flow
   // far-tail four-rung ladder. Cross-module remnant agreement is EXACT; the reconstruction
   // identity holds to <5e-4; the swapFraction column, however, is NOT reproducible to tight

@@ -9621,6 +9621,22 @@ const DATA_MODULES = [
   // W1 from the proxy is NET-NEGATIVE vs building the positive-t A+B-C directly. Four
   // self-executing assertions. Assessment only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35726-w1-sign-reconciliation-cost-scope.js',
+  // imp-35727: ENUMERATE the ingredients a rigorous interval-arithmetic-CERTIFIED
+  // winding (argument-principle) zero count on the boundary of the transition
+  // rectangle R = [T_PT, T_PT+Delta] x [-h, h] needs BEYOND the held-but-EXPERIMENTAL
+  // winding scaffolding (imp-2696 winding-Lyapunov, imp-33923 off-axis phase-winding
+  // quadrature, imp-33968 winding-rate-vs-alpha) -- the imp-35681 Part B graded-W2
+  // greenfield gap. All three held modules point-sample the phase, unwrap it, and read
+  // a slope/count in double precision (isRigorous:false); none brackets the phase
+  // between samples, lower-bounds |f| off zero on a contour, or closes to an integer.
+  // A certified count needs FIVE greenfield ingredients: I1 between-node interval
+  // ENCLOSURE of H_t = A+B-C along each edge (gated on the imp-35681 Part A / imp-35725
+  // evaluator, so W2 is downstream of W1); I2 a per-panel argument-increment cap
+  // |Delta arg| < pi; I3 a modulus floor |f| >= delta > 0 (f != 0 on dR); I4 closure
+  // of the accumulated increment to a UNIQUE integer within a < pi error budget;
+  // I5 continuous corner composition. Five self-executing assertions. Assessment only;
+  // ports nothing; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35727-w2-certified-winding-count-ingredients-scope.js',
 ];
 
 let ALL_MODULES = FAST_MODE

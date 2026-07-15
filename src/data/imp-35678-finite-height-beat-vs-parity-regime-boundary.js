@@ -98,6 +98,8 @@
  * @see imp-35334-far-tail-effectively-unconditional-vs-etrunc-conditionality (E_coll/E(N) = sigma)
  * @see imp-486 (C_mb GUE-conditional -- the residual carrier); imp-2632/imp-2640 (measured C_mb OLS, C_H RH-hard)
  * @see lambda-roadmap currentStatus (imp-452/459 finite-height beat L_pt ~ 0.121; CORRECTION 2026-07-03 C_H-gated)
+ * @see imp-35711-postport-parity-no-beat-honest-status-banner (reciprocal: the standalone no-beat banner
+ *      stating this module regime boundary is the SAME assembly viewed at opposite ends of sigma)
  */
 
 // ── Baked reference literals (no heavy import) ──

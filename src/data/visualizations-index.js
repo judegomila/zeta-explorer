@@ -1141,6 +1141,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Descriptive envelope chart baking the imp-35324 finer-grid t_c literals verbatim (no new computation, no data-module import); visualizes the razor-thin worst-case clearance only; does not advance the R2 ladder past N=1000 (imp-35221 stays the largest robustly-certified rung), does not extend the C_mb certificate, does not remove the imp-486 GUE conditional; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
     Object.freeze({
+      route: '/viz-imp35381-eflow-fartail-swap-fraction',
+      title: 'E_flow Far-Tail Inverse-Swap Fraction Ladder',
+      oneLine:
+        'Bar chart of the imp-35279 inverse-swap FRACTION of the E_flow far-tail residual across the four-rung ladder N=1e6,1e9,1e12,1e16, showing the fraction decreasing monotonically (0.786->0.568) while staying above 0.5, i.e. the swap is the dominant but never sole residual component.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35381-eflow-fartail-swap-fraction-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-35279-eflow-fartail-inverse-swap-ladder.js (imp-35381 viz page)',
+      ticket: 'imp-35381',
+      pedagogicalStep: 98,
+      honestCeiling:
+        'Descriptive bar chart baking the imp-35279 four-rung swapFraction literals verbatim (no new computation, no heavy data-module import); measurement only, component model is the imp-3220/imp-3406 extrapolation not a rigorous asymptotic; C_mb stays GUE-conditional per imp-486; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
+    Object.freeze({
       route: '/viz-imp35400-eflow-fartail-two-component-ladder',
       title: 'E_flow Far-Tail Two-Component Decomposition: Full Four-Rung Ladder',
       oneLine:

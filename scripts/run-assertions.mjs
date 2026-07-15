@@ -9170,6 +9170,19 @@ const DATA_MODULES = [
   // imp-3220/imp-3406 surrogate; the 3.6e-5 value is a probe, not a re-anchoring; anchor E_trunc = 3.06e-5
   // and C_C ansatz UNTOUCHED; imp-35337a stays OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35638-crossover-N-etrunc-sensitivity.js',
+  // imp-35639: DECOMPOSES the imp-35594 Derivation-2 interior-peak stationarity balance (*)
+  // E_coll_prime (E_trunc + E_flow) = E_coll E_flow_prime at the map-A peak N = 9.218633e5. The LHS
+  // factor splits additively (E_coll_prime E_trunc + E_coll_prime E_flow), so each fractional
+  // contribution equals its share of (E_trunc + E_flow). MEASUREMENT (central-finite-difference
+  // derivatives on the exact surrogate, LHS/RHS = 1.000000 confirming the peak): E_flow carries ~60.5%
+  // and the constant E_trunc ~39.5% (E_flow/E_trunc = 1.530605). E_flow DOMINATES the LHS, so the
+  // imp-35594 prose that the ~0.55 amplification is E_flow-driven is CONFIRMED in direction; but the
+  // lead is only ~1.53x and E_trunc carries nearly two fifths, so the effect is E_flow-LED not
+  // E_flow-exclusive -- the O(1) regime imp-35594 pins where the direct-height term has just overtaken
+  // the constant floor. Six self-executing assertions. Import-light (inlined effectiveHeightForN, no
+  // zeros bundle). Decomposition only on the imp-3220/imp-3406 surrogate; changes no bound; imp-35337a
+  // stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35639-peak-balance-eflow-etrunc-decomposition.js',
 ];
 
 let ALL_MODULES = FAST_MODE

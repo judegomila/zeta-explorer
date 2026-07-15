@@ -209,6 +209,8 @@ const DATA_MODULES = [
   '/src/data/imp-35282-span-vs-rvm-mean-spacing.js',
   // imp-35301: measures the CONVERGENCE RATE of the imp-35238 three-factor invariant to 1 -- an OLS fit of log|invariant-1| on log(min-gap fraction) gives deep-front q_front=1 at every N (band 0.996-1.000, spread ~4e-3, N-uniform), so the approach is LINEAR in the fraction; driven by the single subdominant reciprocal-product term (q_sub~1), residue coef (invariant-1)/g_min per-N stable but N-dependent (0.84/0.68/2.05); MEASUREMENT ONLY, M2/M5 OPEN.
   '/src/data/imp-35301-three-factor-invariant-convergence-rate.js',
+  // imp-35305: tests the imp-35238 three-factor invariant beta*g_min*(x_2-x_0)->1 on a THIRD ensemble -- GUE-simulated ordinates (sorted eigenvalues of a Dumitriu-Edelman beta=2 tridiagonal Hermite matrix, the imp-486 C_mb-conditional law) at N=50,100,200; invariant -> 1 (|dev|<=4e-5, spread ~3e-5, N-uniform) matching the unit-spacing and real-ordinate cases, eigensolver self-certified by trace + sum-of-squares invariants; MEASUREMENT ONLY, certifies nothing about C_mb, I3/M2/M5 OPEN, NO QED.
+  '/src/data/imp-35305-gue-ordinate-three-factor-invariant.js',
   // imp-35240: finer smaller-eps re-measurement confirms rho prefactor K = 8 sqrt(2)/(9 pi), not 2/5.
   '/src/data/imp-35240-rho-prefactor-finer-grid-remeasurement.js',
   // imp-35244: eps^{5/2} slot is EMPTY -- implied -16/(15 A_2) falsified; next term eps^{7/2} = -8 sqrt(2)/(3 pi).

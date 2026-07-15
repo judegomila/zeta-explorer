@@ -17507,6 +17507,41 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this note (imp-486)',
     ],
   },
+  {
+    term: 'imp-35263 co-moving-vs-fixed reentry-window dichotomy: under the faithful co-moving window the reentry edge is EPS_FP-invariant, and all machine-floor sensitivity is carried by the exit edge / band width',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35263 direct EPS_FP factor-2 sweep of the imp-34997/imp-35111 reentry-band ' +
+      'edges, which distinguishes two conventions for the off-by-one phase window (W, 1) that the imp-35243 ' +
+      'DEMONSTRATION D1 did not separate. (A) FIXED window -- hold the base window edge W_0 fixed as EPS_FP ' +
+      'varies (D1s framing): both the reentry edge (phase 11 + W_0) and the exit edge (phase 12) slide as EPS_FP ' +
+      'changes, by +17.29 and +27.25 decades respectively on the first doubling. (B) FAITHFUL / CO-MOVING window ' +
+      '-- recompute W_k = 1 - OFFSET(eps_k) at each EPS_FP_k, since OFFSET is itself a function of the floor.\n\n' +
+      'FINDING (measurement only): under the co-moving window the reentry edge is EXACTLY EPS_FP-invariant ' +
+      '(measured spread ~1e-13 across k in {-1,0,1,2}), because W_k shifts down by precisely log(2)/ln(1/r) per ' +
+      'factor-2 -- the SAME additive amount the reentry phase target shifts by -- so the identical seed solves ' +
+      'the reentry root for every k. The exit edge (fixed integer phase 12, which does NOT co-move) still slides ' +
+      '~19-35 decades per factor-2. So the band does not translate rigidly under its own definition: it ANCHORS ' +
+      'at reentry and STRETCHES from the exit, with all floor-sensitivity relocated into the exit edge / band ' +
+      'width rather than the reentry position.\n\n' +
+      'HOW TO APPLY: when citing the reentry-band EPS_FP sensitivity, specify WHICH window convention is meant. ' +
+      'Under the fixed-window framing (D1), BOTH edges slide and R1 floor-independence must sever the whole band ' +
+      'from EPS_FP. Under the co-moving/faithful framing (the windows own definition), the reentry edge is ' +
+      'already floor-invariant and R1 only needs to sever the EXIT edge / band WIDTH -- a narrower, sharper ' +
+      'target. Neither framing weakens R1: both exhibit >10 decade-per-factor-2 dependence on EPS_FP somewhere ' +
+      'in the band-defining structure.\n\n' +
+      'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 double surrogate, IEEE-754 double ' +
+      'precision, point rate estimates, no interval enclosure. Discharges nothing: R1 / imp-35243a / imp-35111a / ' +
+      'imp-35174a stay OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 UNTOUCHED; changes no ' +
+      'bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35409 (glossary headword recording the imp-35263 co-moving-vs-fixed reentry-window dichotomy), 2026',
+    relatedTerms: [
+      'imp-35243 states the D1 fixed-window ~12-decade/factor-2 slide analytically, ahead of this sweep (imp-35243)',
+      'imp-35111 the parent single-rate reentry-band edges 10^27.08 / 10^37.17 this sweep re-tabulates (imp-35111)',
+      'imp-35332 the drift-decay derivation explaining why the exit edge slides faster than the reentry edge (imp-35332)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this sweep (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

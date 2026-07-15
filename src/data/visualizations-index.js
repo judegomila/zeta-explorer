@@ -1182,6 +1182,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive number-line and split-list chart baking the imp-35415 scoping literals verbatim (no new computation, no heavy data-module import); discharges nothing, R1 stays the OPEN binding obstruction, imp-35111a/imp-35174a/imp-34997a/imp-35243a stay OPEN; C_mb stays GUE-conditional per imp-486; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35482-sigma-peak-plateau-width-sqrt-scaling',
+      title: 'Sigma-Peak Plateau Width vs sqrt(tol): a Line Through the Origin',
+      oneLine:
+        'Scatter-plus-fit chart of the imp-35411 sqrt(tol) sweep, showing the four measured (sqrt(tol), plateau-width) points sitting on the W = 15.316494 * sqrt(tol) line through the origin -- the signature of a smooth quadratic sigma-peak maximum.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35482-sigma-peak-plateau-width-sqrt-scaling-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-35411-sigma-peak-plateau-width.js (imp-35482 viz page)',
+      ticket: 'imp-35482',
+      pedagogicalStep: 80,
+      honestCeiling:
+        'Descriptive scatter-plus-fit chart baking the imp-35411 sqrt(tol) sweep literals verbatim (no new computation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; the imp-35337a surrogate-vs-true fidelity sub-gap REMAINS OPEN; C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

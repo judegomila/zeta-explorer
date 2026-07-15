@@ -822,6 +822,9 @@ const Imp35404KrawczykHeadroomCancellationViz = lazy(() =>
 const Imp35460ReentryBandLandmarkDisposalViz = lazy(() =>
   import('./pages/Imp35460ReentryBandLandmarkDisposalViz.jsx')
 );
+const Imp35482SigmaPeakPlateauWidthSqrtScalingViz = lazy(() =>
+  import('./pages/Imp35482SigmaPeakPlateauWidthSqrtScalingViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2329,6 +2332,10 @@ function AppShell() {
           <Route
             path="/viz-imp35460-reentry-band-landmark-disposal"
             element={<Imp35460ReentryBandLandmarkDisposalViz />}
+          />
+          <Route
+            path="/viz-imp35482-sigma-peak-plateau-width-sqrt-scaling"
+            element={<Imp35482SigmaPeakPlateauWidthSqrtScalingViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

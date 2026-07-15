@@ -17760,6 +17760,41 @@ export const glossary = [
       'imp-34862 the two-rate law bearing on R2, hence on the OPEN R1t this lemma explicitly excludes (imp-34862)',
     ],
   },
+  {
+    term: 'imp-35416 DP45-specific endpoint-blindness knife-edge: scheme-INVARIANT within-step crossing vs scheme-DEPENDENT endpoint positivity',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35416 N=2000 pair-1495 cross-validation nuance: the ' +
+      'within-step crossing (step 2007, t_c agreeing to within about 5e-8 across DP45-CONTD5 ' +
+      'dense output and an independent RK4 + cubic-Hermite dense output, roughly 4.5e-5 ' +
+      'relative) is SCHEME-INVARIANT, but the step-ENDPOINT positivity flag at dt/2 is ' +
+      'SCHEME-DEPENDENT: the DP45 endpoint gap stays POSITIVE (+1.775304e-3, a pure ' +
+      'within-step step-over that re-separates before the step ends) while the RK4 endpoint ' +
+      'gap goes NEGATIVE (first-cross gap -5.436e-5 at the same step), so the order-4 ' +
+      'crossing persists to the endpoint under RK4 but not under DP45.\n\n' +
+      'imp-35452 later mapped exactly how thin this knife-edge is: across the full ' +
+      '2x3 (integrator order x grid) matrix, DP45 dt/2 is the ONLY cell whose endpoint ' +
+      'gap stays positive -- every other cell (RK4 at dt, dt/2, dt/4; DP45 at dt and dt/4) ' +
+      'goes negative at the collision step. Refining the DP45 grid dt -> dt/2 -> dt/4 flips ' +
+      'the endpoint sign NEG -> POS -> NEG, so the blindness is a single-grid RESONANCE of ' +
+      'DP45 at exactly dt/2, not a monotone order-5 trend that would persist under further ' +
+      'refinement.\n\n' +
+      'HOW TO APPLY: cite imp-35416 for the raw scheme-invariant-crossing / ' +
+      'scheme-dependent-endpoint observation and imp-35452 for the full characterization of ' +
+      'its thinness and non-persistence. Neither result advances the R2 ladder past N=1000 ' +
+      '(imp-35221/imp-35324/imp-35412) nor changes the imp-35412 slack denominator.\n\n' +
+      'HONEST SCOPE: measurement / cross-check only; changes no bound; C_mb stays ' +
+      'GUE-conditional per imp-486; no operator positivity established; no RH verdict, ' +
+      'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35478 (glossary headword recording the imp-35416 endpoint-blindness knife-edge and its imp-35452 characterization), 2026',
+    relatedTerms: [
+      'imp-35416 first flagged the DP45-vs-RK4 endpoint-positivity nuance at N=2000 pair-1495 (imp-35416)',
+      'imp-35452 mapped the knife-edge as a single DP45 dt/2 resonance across a 2x3 order-x-grid matrix (imp-35452)',
+      'imp-35351 the DP45 CONTD5 dense-output within-step crossing this knife-edge is built on (imp-35351)',
+      'imp-35412 KEEPS the endpoint DP45 dt/2 worst-case as the R2 ladder slack denominator regardless (imp-35412)',
+      'imp-486 C_mb GUE-conditional provenance, untouched by this measurement (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

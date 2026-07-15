@@ -8658,6 +8658,20 @@ const DATA_MODULES = [
   // surrogate; C_C ansatz and E_trunc = 3.06e-5 UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED;
   // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35555-crossover-bracketing-family-sensitivity.js',
+  // imp-35557: applies the imp-35536 multiplicative-perturbation height-map method to the imp-35451
+  // interior sigma-peak CUBIC skew. imp-35451 measured c3 = sigma-triple-prime/6 ~ -2.623677e-4 (and the
+  // arm-imbalance slope A_skew ~ 11.01 it predicts) on the BASE RvM map ONLY. Re-locating the peak and
+  // re-running the imp-35451 stencils under RvM x {1.02, 0.98}: c3 stays at ~ -2.6e-4 (full-pair spread
+  // ~1.85 percent of |c3|), A_skew stays at ~11.0 (spread ~2.4 percent), c3 stays NEGATIVE (rising arm
+  // wider) and the cubic-predicts-imbalance cross-check A_skew_pred = -4 c3/(k^2 ln10) still matches to
+  // < 1.5e-3 relative under EACH map. VERDICT: the third-order skew INHERITS the peak robustness -- log
+  // slope d ln|c3|/d ln(mult) ~ -0.46, the same log-damping order as the imp-35536 N_max slope ~ -0.49 --
+  // and does NOT drift materially; honest caveat: in RELATIVE terms it is ~17x more sensitive than sigma_max
+  // (which moves only ~0.11 percent over the same pair), but its ABSOLUTE drift is still only ~1 percent per
+  // 2-percent height move. Eight self-executing assertions. Measurement only on the inherited
+  // imp-3220/imp-3406 surrogate; C_C ansatz and E_trunc = 3.06e-5 UNTOUCHED; surrogate-vs-true fidelity
+  // (imp-35337a) OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35557-cubic-skew-height-map-sensitivity.js',
   // imp-35317: derives Banach-fixed-point CLOSED FORMS for the imp-35210 L2 (E_flow share < 1% of the
   // above-floor residual E_coll + E_flow, ~3.246862e7) and L4 (share < 0.1%, ~1.754552e10) landmarks,
   // which imp-35154 M2/M3 located by downslope bisection only -- mirroring the imp-35153 (L1) and

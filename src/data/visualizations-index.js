@@ -1279,6 +1279,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive table re-exporting the imp-35536 peakLadder literals verbatim (no new computation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; the imp-35337a surrogate-vs-true fidelity sub-gap REMAINS OPEN; C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35564-fartail-product-decay',
+      title: 'E_flow Far-Tail Remnant*logN Product Decay Ladder',
+      oneLine:
+        'Plots of the imp-35535 fd-vs-analytic remnant*log N product across N=1e26..1e200, showing the product falling monotonically (0.058620 -> 0.016296) while its local decay exponent q steepens monotonically away from zero (-0.435 -> -0.740), confirming no nonzero log-floor through N=1e200.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35564-eflow-fartail-product-decay-viz-data.js',
+      paperSourcePath: 'src/data/imp-35535-eflow-fartail-remnant-product-decay-ladder.js (imp-35564 viz page)',
+      ticket: 'imp-35564',
+      pedagogicalStep: 87,
+      honestCeiling:
+        'Descriptive plots re-exporting the imp-35535 ladder literals verbatim (no new computation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

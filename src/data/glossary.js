@@ -18548,6 +18548,39 @@ export const glossary = [
       'imp-35488 route-(ii) two-height data spot check remains the only viable partial for imp-35337a (imp-35488)',
     ],
   },
+  {
+    term: 'imp-35572 in-band rate-robustness: the reentry-band terminal off-by-one is RATE-INDEPENDENT',
+    category: 'concept',
+    definition:
+      'A headword recording the imp-35572 direct measurement confirming the imp-35537 Part C claim: adding a ' +
+      'second (early-transient) contraction rate to the single-rate iters-to-floor map cannot change the ' +
+      'TERMINAL off-by-one over the nominal reentry band [10^27.084691, 10^37.167107]. Across a dense 202-seed ' +
+      'grid (10^0.05 spacing) and early-rate fit windows p in {1,2,3}, the two-rate count n_two(seed) equals ' +
+      'the single-rate count n_single(seed) EXACTLY at every seed (differ = 0, max|n_two - n_single| = 0), ' +
+      'both giving resid = -1 against a measured Picard count of 14 across the whole band.\n\n' +
+      'WHAT DOES MOVE: the direct-census ONSET edge (~10^19.748) is IDENTICAL under single- and two-rate, since ' +
+      'it is set by the directly-measured Picard count stepping 13 -> 14 and so is rate-independent. Only the ' +
+      'census EXIT edge is rate-sensitive: the two-rate negative phase offset (r_0 < r far above the fixed ' +
+      'point) holds the ceil argument below its integer crossing, pushing the exit edge >20 decades above the ' +
+      'nominal 10^37.167 (resid still -1 at 10^60 in the tested range) -- the same imp-35331 frac-window ' +
+      'relocation, now confirmed in the direct census, but it never alters an in-band seed count.\n\n' +
+      'HOW TO APPLY: cite this entry when asked whether a better transient-rate model could close the imp-' +
+      '35537 Part C / imp-34862 off-by-one -- it cannot, in-band, by even one iterate; a second rate only ' +
+      'relocates the far-above-band exit edge, confirming the off-by-one is a TERMINAL discretization artifact ' +
+      'no additional rate term can span.\n\n' +
+      'HONEST SCOPE: measurement only on the surrogate iterate-count (IEEE-754 double, point rate estimates, ' +
+      'no interval enclosure); discharges nothing; imp-35111a / imp-35174a / imp-35243a stay OPEN; the reentry ' +
+      'band stays NOT ESTABLISHED as a feature of the true dynamic; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643) ' +
+      'and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-35600 (glossary/Concepts headword for the imp-35572 in-band rate-robustness finding), 2026',
+    relatedTerms: [
+      'imp-35572 is the measurement module this headword documents (imp-35572)',
+      'imp-35537 Part C is the claim this measurement directly confirms (imp-35537)',
+      'imp-34862 is the two-rate law and exact-peel control this measurement tests (imp-34862)',
+      'imp-35331 frac-window relocation is the same exit-edge movement seen here in the direct census (imp-35331)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

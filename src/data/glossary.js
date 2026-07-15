@@ -17758,6 +17758,7 @@ export const glossary = [
       'imp-35243 supplies the D1 floor-sensitivity/monotone-band-slide facts the mechanism cites (imp-35243)',
       'imp-35330 CLAIM 1 the reentry-band fidelity requirement R1 whose surrogate half this lemma formalizes (imp-35330)',
       'imp-34862 the two-rate law bearing on R2, hence on the OPEN R1t this lemma explicitly excludes (imp-34862)',
+      'imp-35485 requested this same H1-H4/conclusion headword independently; already satisfied by this entry (imp-35461) -- no duplicate added',
     ],
   },
   {

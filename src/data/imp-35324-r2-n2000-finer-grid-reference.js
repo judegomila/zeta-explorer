@@ -287,4 +287,31 @@ export const IMP_35324_R2_N2000_FINER_GRID_REFERENCE_ASSERTIONS = [
       'a named sub-gap is recorded. C_mb stays GUE-conditional (imp-486); ' +
       'Lambda <= 0.2 stays SOTA.',
   },
+  {
+    // imp-35358: independent recompute of BOTH prose slack literals from the
+    // baked t_c reference values, plus the worst-case (smallest-slack) selection.
+    id: 'imp35358-slack-recompute-crosscheck',
+    holds: () => {
+      const dp45h = FLOW_REFERENCES.find((r) => r.integrator === 'dp45-order-5' && r.dt === DT_FLOW / 2);
+      // imp-35324 R2 predicate slack: t_c_hi - DP45 dt/2 worst-case t_c.
+      const slack324 = T_C_HI - dp45h.t_c;                 // baked 6.156800e-8
+      // imp-35278 clean-envelope slack: t_c_hi - DP45 dt clean-max t_c.
+      const cleanMax278 = 0.0011926277027;                 // imp-35278 baked DP45 dt clean-max
+      const slack278 = T_C_HI - cleanMax278;               // baked 7.372297e-6
+      return (
+        Math.abs(slack324 - 6.156800e-8) < 1e-13 &&
+        Math.abs(slack278 - 7.372297e-6) < 1e-11 &&
+        slack324 > 0 && slack278 > 0 &&
+        slack324 < slack278 // imp-35324 DP45 dt/2 is the worst-case (smallest slack)
+      );
+    },
+    why:
+      'imp-35358 independent verification: recomputing t_c_hi - t_c from the baked ' +
+      'literals reproduces the imp-35324 R2 slack (+6.156800e-8, from DP45 dt/2 ' +
+      't_c=1.1999384320e-3) and the imp-35278 clean-envelope slack (7.372297e-6, ' +
+      'from DP45 dt clean-max t_c=1.1926277027e-3) to reported precision. Both are ' +
+      'POSITIVE (references below t_c_hi=1.2e-3) and the imp-35324 dt/2 slack is the ' +
+      'smaller of the two, so it is the correct worst-case. No transcription or ' +
+      'reference-selection error. Verification only; changes no bound; NO QED.',
+  },
 ];

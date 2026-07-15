@@ -9007,6 +9007,17 @@ const DATA_MODULES = [
   // no source file corrected by this ticket (per the imp-35186/imp-35309 flag-then-fix
   // convention); changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35629-imp3554x-imp3558x-frontier-crossref-integrity-audit.js',
+  // imp-35630: REGISTRATION/REACHABILITY SWEEP (imp-35472..imp-35477/imp-35537/imp-35538/imp-35545
+  // method) over the imp-35550..imp-35574 assessment/data-module cohort (14 tickets, 15 files,
+  // imp-35559 an intentional quantification+assertion pair). Checked every file's export
+  // statements, the two *-viz-data modules (imp-35561, imp-35564) against App.jsx route wiring and
+  // visualizations-index.js registry entries (pedagogicalStep 86/87), and the 13 non-viz files
+  // against scripts/run-assertions.mjs DATA_MODULES membership -- direct for 11, transitive via a
+  // registered sibling importer for imp-35573 (via imp-35602) and imp-35574 (via imp-35591).
+  // FINDING: all 15 files export cleanly and are reachable; zero dangling exports, zero absent
+  // registrations, zero orphaned assertion modules (the imp-35610 failure mode). AUDIT ONLY; no
+  // source file required correction; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35630-imp3555x-imp3557x-registration-reachability-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

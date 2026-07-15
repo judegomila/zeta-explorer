@@ -207,6 +207,8 @@ const DATA_MODULES = [
   '/src/data/imp-35281-real-ordinate-three-factor-invariant-larger-N.js',
   // imp-35282: ties the imp-35238 non-monotone span x_2-x_0 (2.83/1.88/2.25) to the RvM mean spacing 2pi/log(T/2pi) at the collapse height -- RvM is MONOTONE (2.18->1.77->1.54) but span/RvM stays non-monotone (1.30->1.07->1.46), so the band is a COLLAPSE-LOCATION effect not a mean-spacing effect; MEASUREMENT ONLY, M2/M5 OPEN.
   '/src/data/imp-35282-span-vs-rvm-mean-spacing.js',
+  // imp-35301: measures the CONVERGENCE RATE of the imp-35238 three-factor invariant to 1 -- an OLS fit of log|invariant-1| on log(min-gap fraction) gives deep-front q_front=1 at every N (band 0.996-1.000, spread ~4e-3, N-uniform), so the approach is LINEAR in the fraction; driven by the single subdominant reciprocal-product term (q_sub~1), residue coef (invariant-1)/g_min per-N stable but N-dependent (0.84/0.68/2.05); MEASUREMENT ONLY, M2/M5 OPEN.
+  '/src/data/imp-35301-three-factor-invariant-convergence-rate.js',
   // imp-35240: finer smaller-eps re-measurement confirms rho prefactor K = 8 sqrt(2)/(9 pi), not 2/5.
   '/src/data/imp-35240-rho-prefactor-finer-grid-remeasurement.js',
   // imp-35244: eps^{5/2} slot is EMPTY -- implied -16/(15 A_2) falsified; next term eps^{7/2} = -8 sqrt(2)/(3 pi).
@@ -7680,6 +7682,13 @@ const DATA_MODULES = [
   // the full surrogate overtaking the leading law, not a measured coincidence. Measurement only;
   // changes no bound; NO QED.
   '/src/data/imp-35286-eflow-fartail-surrogate-crossover.js',
+  // imp-35302: CONFIRMS the imp-35236 isolated E_flow far-tail inverse-swap gap (0.0093 at
+  // N = 1e6, 0.0025 at N = 1e16) is step-converged, not a stencil-width artifact -- re-running
+  // the imp-35236 swap isolation across central-difference widths h in {1.02,1.002,1.0002,1.00002}
+  // leaves the gap h-invariant (spread ~2.2e-9 / ~5.0e-10, ~2e-7 relative), reproducing 0.0093/
+  // 0.0025 to four decimals at every h; the plateau extends past h = 1.1 with the imp-35236
+  // h = 1.0002 deep inside it, round-off floor only below h ~ 1.000002. MEASUREMENT ONLY, NO QED.
+  '/src/data/imp-35302-eflow-fartail-swap-gap-step-robustness.js',
   // imp-35036: EXTENDS the imp-33582 per-decade local decay-exponent ladder for sigma(N) =
   // E_coll/E(N) past [1e11,1e12] (0.4310) on the identical inherited model. The exponent keeps
   // climbing monotonely toward the imp-3463 1/2 asymptote (0.4646, 0.4777, 0.4828, 0.4851 on

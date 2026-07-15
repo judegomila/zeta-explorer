@@ -8290,6 +8290,15 @@ const DATA_MODULES = [
   // with the split still exactly additive -- a symmetric bisection, NOT a growing additivity
   // defect. Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35434-eflow-fartail-additivity-deep-rungs.js',
+  // imp-35435: CONSUMER MAP for the imp-35402 ~1.3% rounded-literal reconstruction flag. Maps
+  // every src/data/viz-data/src/pages consumer of the imp-35279/imp-35280 gap/residual/swapFraction
+  // columns into three classes: FULL-PRECISION-SAFE (imp-35370/imp-35378/imp-35390/imp-35236
+  // recompute from a fresh division), BAKED-ROUNDED-LITERAL (the imp-35400 viz-data + page -- the
+  // one cluster that bakes rounded columns alongside a full-precision swapFraction the columns do
+  // NOT divide to; flagged for a rounding caveat or full-precision read, PREVENTIVE not a live
+  // wrong value), and ABSORBED-BY-INTEGER-ROUNDING (the imp-35295 page). Audit only; changes no
+  // bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35435-swapfraction-rounded-literal-consumer-audit.js',
   // imp-35356: ENUMERATES and ASSESSES the concrete candidate routes to MEET R1 (floor-independence) -- the
   // imp-35330 DAG root and sole live lever for the imp-34997/35111 reentry band. Of the three named routes,
   // exactly ONE is self-contained and non-circular: route (ii), the pure-artifact proof, which resolves R1 in
@@ -8360,6 +8369,18 @@ const DATA_MODULES = [
   // measurement only on the inherited imp-3220/imp-3406 surrogate; discharges nothing; imp-35243a / imp-35111a /
   // imp-35174a / imp-34997a stay OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35432-eps-floor-slide-rate-closed-form.js',
+  // imp-35436: EXTENDS the imp-35332 ceil-phase drift DRIFT(N) PAST the imp-35111 exit edge (10^37.17) and
+  // measures its tail. (a) The drift keeps decreasing STRICTLY toward ZERO (0.0118306 at the exit ->
+  // 0.0011179 at 10^300); its asymptote is 0 with limiting law DRIFT ~ ln(10)/(LN_INV_R log T0) ~ 1/log N,
+  // confirmed by DRIFT.log T0 -> ln(10)/LN_INV_R = 0.744757 from above -- NO nonzero drift floor. (b) The
+  // cumulative drift integral (= the xArg phase, 12 at the exit, since integral of DRIFT d log10 N = d xArg)
+  // DIVERGES double-logarithmically (~ln(log10 N)/LN_INV_R: 0.0319 to 10^40, 0.3872 to 10^100, 0.7666 to
+  // 10^300), so there is NO finite terminal phase and NO hard upper band edge -- xArg completes another
+  // off-by-one cycle at log10 N ~ 307.46 and each recurrence is ~2x sparser (imp-35399), making the band the
+  // FIRST of an infinite ever-thinning sequence. Five self-executing assertions. Measurement only on the
+  // inherited imp-3220/imp-3406 surrogate; discharges nothing; imp-35243a / imp-35111a / imp-35174a /
+  // imp-34997a stay OPEN; the C_C ansatz (imp-2642) UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35436-reentry-band-drift-past-exit-tail.js',
 ];
 
 let ALL_MODULES = FAST_MODE

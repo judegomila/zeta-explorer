@@ -9746,6 +9746,15 @@ const DATA_MODULES = [
   // orphaned, no wiring/flag action needed. AUDIT ONLY; changes no bound; NO QED;
   // Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35447-imp35404-registration-reachability-audit.js',
+  // imp-35762: ISOLATE the imp-35266 D3 ~1.2 band-top surplus residual. D3 attributed the
+  // gap between the exact +55.18 surplus and the leading estimate S_inf . a/2 ~ 53.97 to
+  // "the a(N(1-delta)) > a(N) shift". Measuring the shift directly (surplus_exact minus the
+  // no-shift variant FP_LO = 1 - a(N)) shows it contributes only ~+0.023 (~1.9% of the ~1.214
+  // residual); the ~1.2 is instead the O(a^2) CURVATURE term S_inf . a^2/4 ~ 1.165 (~98%).
+  // CORRECTS the D3 attribution (shift is a distant secondary effect) while confirming both
+  // are governed by a. Four self-executing assertions. Measurement only on the imp-3220/imp-3406
+  // surrogate; imp-34714a stays OPEN; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35762-krawczyk-surplus-shift-residual-isolation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

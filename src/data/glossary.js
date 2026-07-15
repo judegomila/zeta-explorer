@@ -17895,6 +17895,11 @@ export const glossary = [
       'HOW TO APPLY: when a numerical argmax is reported as ill-conditioned near a flat maximum, do not treat ' +
       'the whole landmark as unmeasurable -- the SUBLEVEL-SET WIDTH at a fixed tolerance is typically well-' +
       'conditioned and its sqrt(tol) scaling constant directly recovers the peak curvature.\n\n' +
+      'HONEST STATUS ON THE HEADLINE QUOTE: the "k ~ 6.428e-3" figure above is imp-35411 own width-inferred value, ' +
+      'rounded to 4 sig figs. Its RAW inferred value is k ~ 6.4319e-3 -- a ~6.1e-4 relative difference from the ' +
+      '6.428e-3 rounding. Three independent direct routes (imp-35450 direct central-FD, imp-35470 5-point Richardson ' +
+      'stencil, imp-35495 closed-form derivation, none of which use the width fit at all) all confirm the RAW ' +
+      '6.4319e-3, not the rounded 6.428e-3. Downstream consumers should cite k ~ 6.4319e-3, not the 6.428e-3 headline.\n\n' +
       'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 surrogate; the surrogate-vs-true ' +
       'fidelity half (imp-35337a) stays OPEN; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), the ' +
       'E_trunc = 3.06e-5 floor (imp-2631) and the imp-398 C_F prefactor are UNTOUCHED; changes no bound; no RH ' +
@@ -17906,6 +17911,9 @@ export const glossary = [
       'imp-3406 supplies the interior MAX ~ 9.22e5 and 2.1e-5 flat-cap margin on double that set the headline tolerance scale (imp-3406)',
       'imp-35337a the surrogate-vs-true fidelity sub-gap this measurement inherits and leaves OPEN (imp-35337a)',
       'imp-2642 supplies the C_C = (1/8) sqrt(3 pi) GUE-conditional ansatz feeding sigma(N), untouched here (imp-2642)',
+      'imp-35450 direct central-FD curvature confirming the RAW 6.4319e-3, not the rounded 6.428e-3 headline (imp-35450)',
+      'imp-35470 5-point Richardson stencil independently confirming the RAW 6.4319e-3 (imp-35470)',
+      'imp-35495 closed-form derivation of k with no finite-difference step, confirming the RAW 6.4319e-3 (imp-35495)',
     ],
   },
   {

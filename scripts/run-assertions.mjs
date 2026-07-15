@@ -8576,6 +8576,34 @@ const DATA_MODULES = [
   // GUE-conditional per imp-486 UNTOUCHED; E_flow > 0 strictness (imp-33848) untouched; changes no bound;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35473-eflow-fartail-remnant-sub1e4-crossing.js',
+  // imp-35534: CONTINUES the imp-35473 E_flow far-tail fd-vs-analytic remnant ladder one threshold decade
+  // deeper -- from the sub-1e-4 crossing (N ~ 1.546e109) to LOCATE the sub-1e-5 crossing on the identical
+  // closed T0 = 2 pi N / log N channel. The crossing lands at N ~ 10^410, BEYOND the double-precision N
+  // range (N_max ~ 1.8e308) where the imp-35473 direct Math.pow(10,e) channel overflows to NaN, so the
+  // SAME eFlowWith/localExponent/remnant math is evaluated in log-space on u = log N (verified to reproduce
+  // the imp-35473 sub-1e-4 crossing 109.1892 and the imp-35413 rung 0.000979 to the digit -- a faithful
+  // reformulation, NOT a height-map swap). The remnant first falls below 1e-5 at N ~ 10^410.0475, bracketed
+  // by N = 1e400 (1.0451e-5, above) and N = 1e500 (7.0202e-6, below) -- ~300.86 decades past the sub-1e-4
+  // crossing (vs ~83.57 for the prior rung). At the crossing remnant*log N ~ 0.009442, DOWN from ~0.02514
+  // at the sub-1e-4 crossing, so the product keeps decaying (not a log-floor) and each threshold decade
+  // costs progressively more decades of N -- the signature of decay slightly faster than 1/log N yet far
+  // slower than any power. Eight self-executing assertions. Measurement only on the inherited
+  // imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 UNTOUCHED; E_flow > 0 strictness
+  // (imp-33848) untouched; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35534-eflow-fartail-remnant-sub1e5-crossing.js',
+  // imp-35535: TABULATES the imp-35473 E_flow far-tail fd-vs-analytic remnant*log N PRODUCT across a dense
+  // ladder N = 1e26..1e200 on the IDENTICAL closed surrogate channel (byte-identical eFlowWith/localExponent/
+  // remnant; no height-map swap, no heavy import) to settle whether the product flattens toward a nonzero
+  // log-floor or keeps decaying. imp-35473 recorded the product at the sub-1e-3 (0.05899) and sub-1e-4
+  // (0.02514) crossings ONLY. FINDING: the product falls MONOTONICALLY from 0.058620 (1e26) to 0.016296
+  // (1e200) -- a ~3.60x drop over 174 decades -- and its local decay exponent q = d log P / d log x is
+  // NEGATIVE at every rung and STEEPENS monotonically from ~-0.435 to ~-0.740, pulling AWAY from 0. A nonzero
+  // log-floor (remnant ~ c/log N) would pin P -> c with q -> 0; here q pulls away from 0, so the product keeps
+  // heading to zero and the remnant decays strictly faster than 1/log N -- no floor through N = 1e200,
+  // consistent with imp-35473 slow-decay and the imp-35496 both-components-vanish split. Six self-executing
+  // assertions. Measurement only on the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per
+  // imp-486 UNTOUCHED; E_flow > 0 strictness (imp-33848) untouched; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35535-eflow-fartail-remnant-product-decay-ladder.js',
   // imp-35496: SPLITS the imp-35413/imp-35454 E_flow far-tail fd-vs-analytic remnant into its two exact
   // closed-form contributions -- the C_F PREFACTOR-form residual (A - 1/x) and the log-T0 Taylor-truncation
   // residual (B - 1/x) -- to test whether either alone carries a c/log N tail (a floor imp-35454 could only

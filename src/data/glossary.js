@@ -18041,6 +18041,41 @@ export const glossary = [
       'imp-486 the GUE-conditional caveat inherited by any modeled E_coll asymptotic feeding sigma(N) (imp-486)',
     ],
   },
+  {
+    term: 'imp-35474 envelope-definition-dependence nuance: the R2 dense-envelope ARGMAX member shifts under RK4 endpoint-vs-dense choice, the conservatism conclusion does not',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35474 independent re-fold of the imp-35351 N=2000 dense-output ' +
+      'envelope from its four primary-source members (imp-35278 RK4 dt / dt-over-2 ENDPOINT crossings, ' +
+      'imp-35351 DP45 dt / dt-over-2 DENSE crossings). The re-fold reproduces the imp-35412 R2 selection ' +
+      'exactly: the true max is the RK4 dt-over-2 endpoint crossing 1.1924935719e-3 (slack +7.5064281e-6 ' +
+      'against t_c_hi = 1.2e-3), and the naive ~8.0e-6 figure picks the DP45 dt-over-2 dense crossing, ' +
+      'which is the envelope MINIMUM (rank 4 of 4) -- a double-mis-selection whose inflation equals the ' +
+      'envelope span exactly (5.106821e-7).\n\n' +
+      'THE NUANCE: this RK4-dt/2-is-the-max identity holds only for the imp-35351 envelope AS DEFINED, ' +
+      'which folds imp-35278 RK4 ENDPOINT crossings. Substituting the imp-35416 RK4 + cubic-Hermite DENSE ' +
+      'crossings (dt 1.1923500033e-3, dt/2 1.1920364654e-3) for the RK4 members shifts the argmax to the ' +
+      'RK4 dt Hermite value 1.1923500033e-3 instead. So the ARGMAX MEMBER identity is envelope-definition-' +
+      'dependent (RK4 endpoint vs RK4 dense) -- but under either definition the max still clears t_c_hi ' +
+      'with positive slack, so the CONSERVATISM conclusion (envelope well below the upper bracket) is ' +
+      'robust to the choice.\n\n' +
+      'HOW TO APPLY: when citing "the imp-35351 envelope max is RK4 dt/2," scope the claim to the RK4-' +
+      'endpoint definition of that envelope; if a future ticket substitutes RK4-Hermite dense crossings, ' +
+      'expect the argmax label to change to RK4 dt Hermite while the qualitative conclusion (max clears ' +
+      't_c_hi) does not.\n\n' +
+      'HONEST SCOPE: verification/assessment only; adopts no new slack denominator (imp-35412 KEEPS the ' +
+      'endpoint DP45 dt/2 worst-case); does not advance the R2 ladder past N=1000 (imp-35221/imp-35324); ' +
+      'C_mb stays GUE-conditional per imp-486; changes no bound; no RH verdict, NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35507 (glossary/Concepts headword recording the imp-35474 envelope-definition-dependence nuance), 2026',
+    relatedTerms: [
+      'imp-35474 the independent re-fold and definition-sensitivity check this entry records (imp-35474)',
+      'imp-35412 the R2 dense-envelope-max selection independently confirmed by imp-35474 (imp-35412)',
+      'imp-35351 the DP45 dense-output envelope whose four members are re-folded (imp-35351)',
+      'imp-35278 supplies the RK4 endpoint crossings folded into the imp-35351 envelope (imp-35278)',
+      'imp-35416 supplies the RK4 + cubic-Hermite dense variant used for the definition-sensitivity cross-check (imp-35416)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -9,10 +9,13 @@
  *
  *   Re-exports the imp-35577 crossings table directly (that module is import-light: pure
  *   Math, a Newton solve, and bisection, no heavy dependency, never the 16.7MB zeros
- *   bundle), per [[no_heavy_imports_in_pages]].
+ *   bundle), per [[no_heavy_imports_in_pages]]. Also imports the imp-35458 module directly
+ *   (imp-35689) so the hand-entered IMP35664_BENIGN_CROSSOVER contrast literals are
+ *   guarded against drifting stale versus their live source; imp-35458 is itself
+ *   import-light (effectiveHeightForN + C_C_PINNED, no zeros bundle).
  *
  *   @see imp-35577-fartail-crossings-height-map-sensitivity.js (the two-crossing table this re-exports)
- *   @see imp-35458-crossover-height-map-sensitivity.js (the benign sub-1 percent log-damped crossover, contrasted here)
+ *   @see imp-35458-crossover-height-map-sensitivity.js (the benign sub-1 percent log-damped crossover, contrasted here; now imported directly for the imp-35689 staleness guard)
  *   @see imp-35497-fartail-crossing-height-map-sensitivity.js (the sub-1e-3 swap alone)
  *   @see imp-35561-peak-height-map-sensitivity-viz-data.js (sibling viz for the robust interior peak)
  *
@@ -22,6 +25,7 @@
  */
 
 import IMP35577_FARTAIL_CROSSINGS_HEIGHT_MAP_SENSITIVITY from './imp-35577-fartail-crossings-height-map-sensitivity.js';
+import { IMP35458_CROSSOVER_HEIGHT_MAP_SENSITIVITY } from './imp-35458-crossover-height-map-sensitivity.js';
 
 export const IMP35664_CROSSINGS = IMP35577_FARTAIL_CROSSINGS_HEIGHT_MAP_SENSITIVITY.crossings;
 
@@ -86,6 +90,21 @@ const IMP35664_ASSERTIONS = [
       IMP35664_ROWS[0].shiftDecades > 10 &&
       IMP35664_ROWS[1].shiftDecades > 40,
     why: 'The imp-35458 crossover shift must stay under 1 percent while both far-tail crossings shift by double-digit-plus decades, grounding the banner contrast.',
+  },
+  {
+    // Guards against IMP35664_BENIGN_CROSSOVER drifting stale vs its live imp-35458 source.
+    id: 'imp35664-benign-crossover-not-stale',
+    holds: () => {
+      const src = IMP35458_CROSSOVER_HEIGHT_MAP_SENSITIVITY;
+      const rawHeightGapPctLive = (1 - src.findings.M3_log_damps_the_height_map_choice.raw_height_ratio) * 100;
+      const dampingFactorLive = src.findings.M3_log_damps_the_height_map_choice.damping_factor;
+      return (
+        Math.abs(IMP35664_BENIGN_CROSSOVER.relativeShiftPct - src.crossover.relative_shift_pct) < 1e-4 &&
+        Math.abs(IMP35664_BENIGN_CROSSOVER.rawHeightGapPct - rawHeightGapPctLive) < 1 &&
+        Math.abs(IMP35664_BENIGN_CROSSOVER.dampingFactor - dampingFactorLive) < 1
+      );
+    },
+    why: 'The hand-entered imp-35458 contrast literals (relativeShiftPct, rawHeightGapPct, dampingFactor) must stay within rounding tolerance of the live imp-35458 module output, so a future edit to that source cannot silently leave this banner stale.',
   },
 ];
 

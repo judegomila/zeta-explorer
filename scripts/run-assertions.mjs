@@ -9239,6 +9239,28 @@ const DATA_MODULES = [
   // exponent 1/2 per imp-3463; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional per
   // imp-486 UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35660-fartail-crossings-height-map-sensitivity-guard.js',
+  // imp-35661: REGRESSION-GUARD pinning the imp-35575 interior sigma-peak QUARTIC
+  // coefficient literals (c4 = sigma-quad-prime(u0)/24 ~ -2.654580e-5, Richardson-
+  // extrapolated sigma-quad-prime(u0) ~ -6.370991e-4) and the arm-skew materiality
+  // shift so a silent literal drift trips the build (the sibling of the imp-35619
+  // span-growth guard, which the imp-35575 cohort lacked). imp-35575 measured c4 from
+  // the imp-35337 partsD double surrogate 5-point fourth-difference stencil and assessed
+  // that the even quartic shifts the imp-35451 cubic-skew arm-imbalance slope A_skew
+  // ~ 11.02 by only ~7.70e-4 at tol=1e-4, ~7.70e-5 at 1e-5, ~7.70e-6 at 1e-6 (LINEAR in
+  // tol), BELOW the ~1.5e-4 stencil spread -- but had no dedicated recompute guard. This
+  // import-light module INDEPENDENTLY reproduces sigmaD verbatim (reuses effectiveHeightForN
+  // + C_C_PINNED, no zeros bundle), retakes the symmetric fourth-difference, Richardson-
+  // extrapolates from the clean h = 4e-2 / 2e-2 pair, and asserts c4, sigma-quad-prime(u0),
+  // the 2e-2/1e-2 cross-pair agreement, the A_skew cubic-only ~11.02 and the linear-in-tol
+  // quartic shift to storage precision (~1e-6) per the recurring 7-sig-fig cache tolerance
+  // trap, cross-checking the imp-35575 baked record reproduces. Eight self-executing
+  // assertions. Import-light (imports only the import-light imp-35575 record plus the shared
+  // effectiveHeightForN / C_C_PINNED deps, no zeros bundle, per [[no_heavy_imports_in_pages]]
+  // / [[verify_heavy_assertion_modules]]). Regression-guard only; recomputes established
+  // measurement figures; changes no bound; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642)
+  // UNTOUCHED; E_trunc = 3.06e-5 (imp-2631) UNTOUCHED; imp-35337a stays OPEN; NO QED;
+  // Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35661-sigma-peak-quartic-coefficient-guard.js',
 ];
 
 let ALL_MODULES = FAST_MODE

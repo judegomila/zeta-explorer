@@ -142,11 +142,13 @@ export default function Imp35210FourEComponentLandmarksViz() {
         }}
       >
         <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, every landmark
-        reused verbatim from imp-35153 / imp-35154 / imp-33723 (all inherited from the imp-3220/
-        imp-3406 surrogate component model) -- no recomputation. Reader-facing diagnostic, NOT a
-        rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
-        establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda&le;0.2
-        remains SOTA.
+        (L1-L4) reused verbatim from imp-35153 / imp-35154 / imp-33723 -- all inherited from the
+        imp-3220/imp-3406 single-rate log-law SURROGATE, no recomputation. Reader-facing diagnostic,
+        NOT a rigorous asymptotic. The L3 landmark is the sigma(N) = E_coll/E(N) = 1/2 crossover
+        (imp-33723): sigma(N) itself is a GUE-conditional diagnostic SHARE of the surrogate, not a
+        Lambda lever -- moving it changes no bound. The C_mb GUE-conditional per imp-486 is
+        UNTOUCHED; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
+        Lambda&le;0.2 remains SOTA.
       </div>
     </div>
   );

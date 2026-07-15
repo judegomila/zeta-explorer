@@ -229,6 +229,8 @@ const DATA_MODULES = [
   '/src/data/imp-35261-k72-compensated-deep-rung-confirmation.js',
   // imp-35298: the term AFTER eps^{7/2} is eps^5 (first INTEGER power, an eps^{3/2}-num x eps^{7/2}-den cross term), NOT eps^{9/2}; K_5 = -2/(7 b^2) = -256/(63 pi^2) = -0.41172.
   '/src/data/imp-35298-rho-eps5-next-slot-measurement.js',
+  // imp-35375: ASSEMBLES the next slot K_{11/2} from the imp-35265 20 i t^{-12} identity term -- the two t^{-12} tails (num 10/11, den -20/11) give K_{11/2} = (b r_{11/2} - a d_{11/2})/(2 b^2) = 20/(3 A_2) = 40 sqrt(2)/(9 pi) = 2.00070 = -(5/3) K_{7/2}; cross-checked on the imp-35298 ladder.
+  '/src/data/imp-35375-k112-cusp-tail-closed-form.js',
   // imp-35299: SPLITS the imp-35244 K_{7/2} = -8 sqrt(2)/(3 pi) into its two named source tails, measured separately on the imp-35240 compensated quadrature -- numerator |F_2| tail -6/7 -> -8/(7 A_1) = -0.514466, curvature |F_3|-A_2/4 tail +6/7 -> -16/(7 A_2) = -0.685955; sum reconstructs the grid K_{7/2} (imp-35261 verified only the SUM).
   '/src/data/imp-35299-k72-two-source-decomposition.js',
   // imp-35306: AUDIT -- imp-35240 K = 8 sqrt(2)/(9 pi) and imp-35244 K_{7/2} = -8 sqrt(2)/(3 pi) are EXECUTED build assertions (recomputed from quadrature), not merely documented; wires a light gate enforcing the documented tolerances (~3e-7 for K, 4 sig figs for K_{7/2}), tighter than the producer 1e-5 / 5e-3.

@@ -17908,6 +17908,36 @@ export const glossary = [
       'imp-2642 supplies the C_C = (1/8) sqrt(3 pi) GUE-conditional ansatz feeding sigma(N), untouched here (imp-2642)',
     ],
   },
+  {
+    term: 'imp-35339 rho(eps) structural ratio K_{7/2} = -3*K',
+    category: 'constant',
+    definition:
+      'A headword recording the exact internal-consistency identity between the two lowest ' +
+      'stored coefficients of the imp-35322 rho(eps)-expansion cohort roll-up: the eps^{3/2} ' +
+      'prefactor K = 8*sqrt(2)/(9*pi) ~ 0.40014 (imp-35216) and the eps^{7/2} coefficient ' +
+      'K_{7/2} = -8*sqrt(2)/(3*pi) ~ -1.20042 (imp-35244) are NOT independent numbers -- they ' +
+      'share the same 8*sqrt(2)/pi factor and differ only in denominator (9 versus 3), so ' +
+      'K_{7/2} = -3*K exactly.\n\n' +
+      'WHY IT HOLDS: K = (8*sqrt(2)/pi) / 9 and K_{7/2} = -(8*sqrt(2)/pi) / 3, so ' +
+      'K_{7/2}/K = -(1/3)/(1/9) = -3 identically, independent of any numerical rounding -- the ' +
+      'ratio is exact algebra, not a coincidence of the 5-dp decimals (0.40014, -1.20042) that ' +
+      'the imp-35339 audit confirmed those two modules store faithfully.\n\n' +
+      'HOW TO APPLY: when cross-checking rho(eps)-expansion coefficient literals across modules, ' +
+      'this -3 ratio is a free, near-zero-cost internal consistency check (imp-35339 assertion ' +
+      '"imp35339-coefficient-structural-ratio-minus-three") that catches transcription drift in ' +
+      'either coefficient without needing an independent re-derivation.\n\n' +
+      'HONEST SCOPE: a read-only literal-consistency observation on the two-term rho(eps) ' +
+      'expansion; changes no bound; recomputes no underlying quantity; NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35339 (coefficient-and-envelope literal-consistency check), 2026',
+    relatedTerms: [
+      'imp-35216 defines and closed-form-derives K = 8*sqrt(2)/(9*pi), the eps^{3/2} prefactor (imp-35216)',
+      'imp-35244 defines and measures K_{7/2} = -8*sqrt(2)/(3*pi), the eps^{7/2} coefficient (imp-35244)',
+      'imp-35322 rolls up both coefficient decimals from their source modules (imp-35322)',
+      'imp-35261 independently reproduces K_{7/2} on deep eps rungs the imp-35244 quadrature could not reach (imp-35261)',
+      'imp-35312 disambiguates the near-miss constant 2/5 from this K, showing it is neither the prefactor nor a surviving expansion term (imp-35312)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

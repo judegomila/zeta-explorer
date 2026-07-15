@@ -124,6 +124,30 @@ const T0_NEEDED = Math.exp(LOG_T0_NEEDED); // ~7.23e86
 const SHORTFALL_VS_CROSS = LOG_T0_NEEDED / LOG_T0_CROSS; // ~9.59x
 const SHORTFALL_VS_T_PT = LOG_T0_NEEDED / LOG_T_PT; // ~6.96x
 
+// imp-35576 -- REQ 4 budget sweep. imp-35538 REQ 4 fixes a single budget b = 0.5%; here the
+// same threshold LOG_T0_NEEDED = 1/b and T0_NEEDED = e^(1/b), with both shortfall factors, is
+// tabulated across the fidelity budget b in {0.5%,1%,2%,5%} on the SAME fixed O(1/log T0) rate.
+// The required log-height relaxes linearly in the reciprocal budget (200 -> 100 -> 50 -> 20); the
+// required height T0_NEEDED first drops below the PT anchor T_PT = 3e12 only once 1/b < log T_PT,
+// i.e. b > 1/log T_PT ~ 3.48%, so within this grid only b = 5% is reachable. Tabulation only from
+// the fixed rate; discharges nothing; changes no bound; NO QED.
+const REQ4_BUDGET_GRID = [0.005, 0.01, 0.02, 0.05]; // relative E_coll fidelity budgets
+const REQ4_BUDGET_SWEEP = REQ4_BUDGET_GRID.map((b) => {
+  const logT0Needed = 1 / b; // LOG_T0_NEEDED = 1/b
+  const t0Needed = Math.exp(logT0Needed); // T0_NEEDED = e^(1/b)
+  return {
+    budget: b,
+    budgetPct: +(100 * b).toPrecision(3), // 0.5, 1, 2, 5
+    logT0Needed: +logT0Needed.toFixed(2), // 200, 100, 50, 20
+    T0Needed: +t0Needed.toExponential(3), // e^(1/b)
+    shortfallVsCross: +(logT0Needed / LOG_T0_CROSS).toFixed(3), // vs log T0 ~ 20.86
+    shortfallVsTPT: +(logT0Needed / LOG_T_PT).toFixed(3), // vs log T_PT ~ 28.73
+    belowTPT: t0Needed < T_PT, // does the required height drop below the PT anchor?
+  };
+});
+// The budget at which T0_NEEDED first drops below T_PT: 1/b < log T_PT => b > 1/log T_PT.
+const REQ4_BUDGET_BELOW_TPT_THRESHOLD = 1 / LOG_T_PT; // ~0.03481 (3.48%)
+
 export const IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS = {
   id: 'imp-35538',
   proofSection: 'S-frontier',
@@ -179,6 +203,22 @@ export const IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS = {
     shortfallVsTPT: +SHORTFALL_VS_T_PT.toFixed(2), // ~6.96x
     naturalCorrAtCross: +CORR_CROSS.toExponential(3), // ~4.794e-2
     crossEcollRelBudget: CROSS_ECOLL_REL_BUDGET, // 0.005
+  },
+  req4BudgetSweep: {
+    // imp-35576: budget -> required-height dependence of the REQ 4 threshold, named but not
+    // tabulated by imp-35538 (which fixes only b = 0.5%). LOG_T0_NEEDED = 1/b and T0_NEEDED =
+    // e^(1/b), with shortfalls vs the crossover (log T0 ~ 20.86) and PT anchor (log T_PT ~ 28.73).
+    note:
+      'imp-35576: the REQ 4 threshold LOG_T0_NEEDED = 1/b, T0_NEEDED = e^(1/b) and the shortfall factors vs ' +
+      'the crossover (log T0 ~ 20.86) and PT anchor (log T_PT ~ 28.73), swept over the fidelity budget b in ' +
+      '{0.5%,1%,2%,5%} on the SAME fixed O(1/log T0) rate. The required log-height 1/b relaxes linearly in ' +
+      'the reciprocal budget (200 -> 100 -> 50 -> 20); T0_NEEDED drops below T_PT = 3e12 only once ' +
+      'b > 1/log T_PT ~ 3.48%, so within this grid only b = 5% (T0_NEEDED ~ 4.85e8 < 3e12, both shortfalls ' +
+      '< 1) is reachable while b <= 2% stays astronomically out of reach (b = 0.5% needs T0 ~ 7.23e86). ' +
+      'Tabulation only from the fixed rate; discharges nothing; changes no bound; NO QED.',
+    grid: REQ4_BUDGET_SWEEP,
+    belowTPTBudgetThreshold: +REQ4_BUDGET_BELOW_TPT_THRESHOLD.toFixed(5), // ~0.03481
+    belowTPTBudgetThresholdPct: +(100 * REQ4_BUDGET_BELOW_TPT_THRESHOLD).toFixed(2), // ~3.48
   },
   C_C: +C_C.toPrecision(8), // 0.38374752 (untouched)
   isRigorous: false,
@@ -240,6 +280,28 @@ export const IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS_ASSERTIONS = [
       SHORTFALL_VS_T_PT > 6 && SHORTFALL_VS_T_PT < 8 && // ~7.0x the PT anchor
       CORR_CROSS > CROSS_ECOLL_REL_BUDGET && // natural rate at the crossover already overshoots the budget
       T0_PEAK < T_PT && T0_CROSS < T_PT, // both landmark heights below T_PT
+  },
+  {
+    // (2b) imp-35576 REQ 4 budget sweep: LOG_T0_NEEDED = 1/b decreases as the budget loosens
+    //      (200 -> 100 -> 50 -> 20), shortfalls scale as 1/(b * log-height), and T0_NEEDED first
+    //      drops below T_PT = 3e12 only for b > 1/log T_PT ~ 3.48% (only b = 5% in the grid).
+    id: 'imp35576-req4-budget-sweep-monotone-and-tpt-crossing',
+    description: 'the REQ 4 threshold LOG_T0_NEEDED = 1/b decreases as the budget loosens (200->100->50->20), the shortfalls track 1/(b*log-height), and T0_NEEDED drops below T_PT = 3e12 only for b > 1/log T_PT ~ 3.48% (only b = 5% in the {0.5,1,2,5}% grid)',
+    holds: () => {
+      const g = REQ4_BUDGET_SWEEP;
+      const logsOk = g.map((r) => r.logT0Needed).join(',') === '200,100,50,20';
+      const monotone = g.every((r, i) => i === 0 || r.logT0Needed < g[i - 1].logT0Needed);
+      const belowFlags = g.map((r) => r.belowTPT).join(',') === 'false,false,false,true';
+      const only5 = g.filter((r) => r.belowTPT).length === 1 && g[3].budgetPct === 5;
+      const threshOk =
+        REQ4_BUDGET_BELOW_TPT_THRESHOLD > 0.034 && REQ4_BUDGET_BELOW_TPT_THRESHOLD < 0.035;
+      const shortfallsConsistent = g.every(
+        (r) =>
+          Math.abs(r.shortfallVsCross - r.logT0Needed / LOG_T0_CROSS) < 5e-4 &&
+          Math.abs(r.shortfallVsTPT - r.logT0Needed / LOG_T_PT) < 5e-4,
+      );
+      return logsOk && monotone && belowFlags && only5 && threshOk && shortfallsConsistent;
+    },
   },
   {
     // (3) honesty gate: conditional (inherits imp-486, not unconditional), no bound moves, PT SOTA, sub-gap named; NO QED.

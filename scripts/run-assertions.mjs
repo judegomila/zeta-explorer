@@ -8672,6 +8672,17 @@ const DATA_MODULES = [
   // Measurement/extrapolation only; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED;
   // Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35530-crossover-gtrue-trend-extrapolation.js',
+  // imp-35538: ENUMERATES what DERIVING a rigorous finite-N remainder for the E_coll = C_C sqrt(log T0/N)
+  // ansatz (C_C = (1/8) sqrt(3 pi), C_H = 1/8; imp-2642/imp-2643) would REQUIRE, per the imp-35475 route-(i)
+  // observation that no such remainder exists. Complementary to the imp-35493 literature survey: a
+  // forward-looking requirements spec listing REQ 1-5 -- effective C_H=1/8 provenance, a GUE local law with
+  // an EXPLICIT finite-N rate (the crux, absent from Montgomery/Rudnick-Sarnak), restricted->full Fourier
+  // support, a height regime log T0 >= 200 (T0 ~ e^200 ~ 7.23e86, ~9.6x the crossover log-height ~20.86 and
+  // ~7.0x log T_PT ~ 28.73) to bind the 0.5% budget, and unavoidable imp-486 GUE conditionality. Each
+  // requirement is individually out of reach, so route-(ii) (imp-35488) remains the only viable partial for
+  // the OPEN imp-35337a. SCOPING ONLY; derives no remainder; C_mb GUE-conditional per imp-486 UNTOUCHED;
+  // changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35538-route-i-remainder-derivation-requirements.js',
 ];
 
 let ALL_MODULES = FAST_MODE

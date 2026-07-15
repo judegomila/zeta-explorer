@@ -9494,6 +9494,14 @@ const DATA_MODULES = [
   // bound; C_C=(1/8)sqrt(3 pi) (imp-2642/imp-2643) and E_trunc=3.06e-5 (imp-2631)
   // UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35695-resolution-floor-factor-M-ladder.js',
+  // imp-35736: DERIVE the M(N) correspondence between the imp-35695 gap-count ladder
+  // (variable M) and the imp-35673 verified-height ladder (variable N). M(N) = number
+  // of consecutive gaps at height N = the zero count there; for the zero-COUNT
+  // landmarks (peak, crossover) this is the identity M = N, so both ladders report the
+  // SAME s_min = M^{-1/3} = N^{-1/3} row-for-row. Sub-gap imp-35736-subgap-height-vs-count:
+  // the lone raw-HEIGHT landmark T_PT=3e12 is plugged as a count; its RvM gap count is
+  // ~4.121x larger, deepening s_min by ~0.624. Measurement only; no bound; NO QED; PT 0.2 SOTA.
+  '/src/data/imp-35736-MN-correspondence-gapcount-vs-height.js',
   // imp-35696: CONSISTENCY CHECK -- do the two short-range facts imp-35652 uses to
   // kill option (a) describe the SAME scale? Reading C_C=(1/8)sqrt(3 pi) as a
   // small-gap density coefficient p(s)~c s^2 and solving the extreme-value balance

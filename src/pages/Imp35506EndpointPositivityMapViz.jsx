@@ -174,6 +174,12 @@ export default function Imp35506EndpointPositivityMapViz() {
         imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict,
         NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
       </div>
+
+      <p style={{ color: '#475569', fontSize: '0.75rem', marginTop: '0.75rem' }}>
+        Ticket provenance: this page and its data module were built directly under imp-35506 itself;
+        imp-35567&apos;s later request for &quot;an import-light viz-data module + page&quot; for the
+        same matrix duplicates this artifact and is closed as already-satisfied, not built again.
+      </p>
     </div>
   );
 }

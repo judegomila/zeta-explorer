@@ -18141,6 +18141,38 @@ export const glossary = [
       'imp-35337a the surrogate-vs-true fidelity sub-gap both measurements inherit and leave OPEN (imp-35337a)',
     ],
   },
+  {
+    term: 'imp-35413/imp-35473 E_flow far-tail remnant threshold-crossing ladder: sub-1e-3 and sub-1e-4 rungs',
+    category: 'numerical',
+    definition:
+      'A cross-reference headword linking two consecutive rungs of the imp-35371 E_flow far-tail fd-vs-analytic ' +
+      'remnant threshold-crossing ladder, both on the identical closed-surrogate channel (T0 = 2 pi N / log N, ' +
+      'byte-identical eFlowWith/localExponent/remnant). imp-35413 located the FIRST rung -- the sub-1e-3 ' +
+      'crossing at N ~ 10^25.6205 ~ 4.17e25, only ~1.62 decades past the imp-35371 endpoint N = 1e24 -- with ' +
+      'remnant*log N ~ 0.05899 there. imp-35473 continued the SAME ladder to the sub-1e-4 crossing at ' +
+      'N ~ 10^109.1892 ~ 1.546e109, a full ~83.57 decades deeper, with remnant*log N ~ 0.02514 -- down from the ' +
+      'imp-35413 rung, confirming the product itself keeps decaying rather than sitting at a fixed log-floor.\n\n' +
+      'Together the two rungs are the same measurement repeated one threshold-decade deeper: each module ' +
+      'reproduces the prior rung live to the digit (imp-35473 reproduces the imp-35413 N = 1e26 value 0.000979 ' +
+      'exactly) before bisecting the next crossing, so the ladder is a single continuous surrogate-channel ' +
+      'extrapolation, not two independent measurements. The widening decade-gap between rungs (~1.6 decades to ' +
+      'shed the first factor of ten below 1e-3, ~83.6 decades to shed the next factor of ten below 1e-4) is ' +
+      'itself evidence the remnant decays slightly faster than 1/log N but far slower than any power -- exactly ' +
+      'the slow-but-real decay imp-35371 first flagged.\n\n' +
+      'HOW TO APPLY: cite imp-35413 for the sub-1e-3 rung and imp-35473 for the sub-1e-4 rung together when a ' +
+      'future module extends this ladder further (e.g. toward a sub-1e-5 crossing), so the reproduces-prior-rung ' +
+      'discipline and the widening-decade-gap pattern carry forward unbroken.\n\n' +
+      'HONEST SCOPE: cross-reference only; measurement on the inherited imp-3220/imp-3406 surrogate, NOT a ' +
+      'rigorous asymptotic; changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35547 (cross-reference note linking imp-35413 and imp-35473), 2026',
+    relatedTerms: [
+      'imp-35413 locates the sub-1e-3 crossing at N ~ 4.17e25, ~1.62 decades past the imp-35371 endpoint (imp-35413)',
+      'imp-35473 continues the same ladder to the sub-1e-4 crossing at N ~ 1.546e109, ~83.57 decades deeper (imp-35473)',
+      'imp-35371 establishes the slow-decay reading (not a nonzero floor) this ladder confirms one threshold deeper (imp-35371)',
+      'imp-35280 supplies the four-rung fd-vs-analytic remnant origin both crossing modules inherit (imp-35280)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

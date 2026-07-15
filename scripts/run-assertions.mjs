@@ -9060,6 +9060,19 @@ const DATA_MODULES = [
   // (imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; Platt-Trudgian
   // Lambda<=0.2 remains SOTA.
   '/src/data/imp-35619-eflow-fartail-remnant-span-ladder-assertion.js',
+  // imp-35644: CROSS-REFERENCE INTEGRITY AUDIT (imp-35186/imp-35629 method) on the src/data files
+  // whose leading numeric id falls in [35593, 35614] (picks up where the imp-35629 audit of
+  // [35539, 35590] left off). Checked every filename-suffixed @see target, ES-module import
+  // specifier, named import against its target's exports, git-commit citation, and bare
+  // imp-NNNNN ticket citation (70 distinct ids) across all 14 audited files. FINDING: one
+  // dangling @see reference -- imp-35606 cites imp-35484-imp35410x-registration-reachability-
+  // audit, a file that was never created (imp-35484 was completed inline, no dedicated data
+  // file) -- the same dangling target imp-35629 already found in imp-35545, now also present in
+  // this cohort. Names the correct ticket id, wrong file suffix only -- documentation drift, not
+  // a broken import or missing export. AUDIT ONLY; no source file corrected by this ticket (per
+  // the imp-35186/imp-35309 flag-then-fix convention); changes no bound; NO QED; Platt-Trudgian
+  // Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35644-imp3559x-imp361x-frontier-crossref-integrity-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

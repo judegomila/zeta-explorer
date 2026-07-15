@@ -1383,6 +1383,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive bar chart re-exporting the imp-35553 span ladder literals verbatim (no new derivation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35664-fartail-crossing-height-map-sensitivity',
+      title: 'Far-Tail Crossing Height-Map Sensitivity: Growing, Not Damping',
+      oneLine:
+        'Table of the imp-35577 far-tail-crossing height-map sensitivity: the surrogate-vs-RvM-inverse crossing shift GROWS from +15.31 to +46.84 decades (sub-1e-3 to sub-1e-4) even as the raw height divergence SHRINKS (9.24% to 2.65%), contrasted against the benign sub-1 percent imp-35458 crossover log-damping.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35664-fartail-crossings-height-map-sensitivity-viz-data.js',
+      paperSourcePath: 'src/data/imp-35577-fartail-crossings-height-map-sensitivity.js (imp-35664 viz page)',
+      ticket: 'imp-35664',
+      pedagogicalStep: 95,
+      honestCeiling:
+        'Descriptive table re-exporting the imp-35577 crossings literals verbatim (no new derivation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; the imp-35337a surrogate-vs-true fidelity sub-gap REMAINS OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

@@ -18876,6 +18876,46 @@ export const glossary = [
       'imp-35337 is the interior-peak locator whose bracket is varied here (imp-35337)',
     ],
   },
+  {
+    term: 'imp-35458 log-damping: the E_coll = E_trunc crossover is height-MAP-robust as well as dd-PATH-robust',
+    category: 'method',
+    definition:
+      'A headword recording WHY the imp-35458 E_coll = E_trunc floor-crossover landmark (N_cross ~ ' +
+      '3.280294352e9) survives a swap of height map. At the FIXED height N = 3.28e9 the RvM-inverse ' +
+      'map effectiveHeightForN and the closed surrogate T0 = 2 pi N / log N disagree on T0 itself by ' +
+      '~18 percent (surrogate / RvM ~ 0.822), yet recomputing the crossover on the surrogate map moves ' +
+      'it only from 3.280294352e9 to 3.248060946e9 -- a relative shift of ~ -0.98 percent, ~18x smaller ' +
+      'than the raw height-map gap.\n\n' +
+      'THE MECHANISM: the crossover N solves E_coll(N) = E_trunc, i.e. C_C sqrt(log T0(N) / N) = E_trunc, ' +
+      'so N is proportional to log T0(N) and the two maps enter the equation only through the ' +
+      'LOGARITHM of the height, never the height itself. An ~18 percent disagreement in T0 becomes only ' +
+      'a ~1 percent disagreement in log T0 (log(9.406e8) / log(1.144e9) ~ 0.991), which then tracks the ' +
+      'crossover shift almost 1:1 -- the log compresses the height-map choice by an order of magnitude.\n\n' +
+      'HOW THIS COMBINES WITH imp-35417: imp-35417 already certified the SAME crossover landmark is ' +
+      'insensitive to the dd EVALUATION PATH (distinct dd node grid, distinct sqrt/div evaluation order, ' +
+      'delta ~0 to all printed digits). imp-35458 adds a SECOND, independent robustness axis -- the ' +
+      'HEIGHT MAP itself. Together the two results mean the floor-crossover landmark is doubly robust: ' +
+      'insensitive to how it is dd-evaluated (imp-35417) and insensitive to which height construction ' +
+      'feeds it (imp-35458), unlike the interior peak LOCATION, which the imp-35574 contrast shows is ' +
+      'NOT log-insulated the same way.\n\n' +
+      'HOW TO APPLY: cite this entry when a future module needs to state that the E_coll = E_trunc ' +
+      'crossover N_cross ~ 3.28e9 is robust on two independent axes, not just one -- do not conflate ' +
+      'dd-PATH robustness (imp-35417) with height-MAP robustness (imp-35458); they are separate checks ' +
+      'that happen to agree.\n\n' +
+      'HONEST SCOPE: MEASUREMENT ONLY (frontier-direction, NOT rigorous) on the inherited imp-3220/' +
+      'imp-3406 double-surrogate component model; the C_C ansatz (imp-2642/imp-2643) and E_trunc = ' +
+      '3.06e-5 (imp-2631/imp-447) are UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no ' +
+      'bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+      'remains the rigorous SOTA.',
+    firstUsed: 'imp-35586 (glossary/method headword documenting the imp-35458 log-damping principle and its combination with imp-35417 dd-PATH robustness), 2026',
+    relatedTerms: [
+      'imp-35458 measures the ~18x crossover log-damping and ~0.98% shift documented here (imp-35458)',
+      'imp-35417 certifies the same crossover landmark is dd-PATH-robust, the companion axis to this entry (imp-35417)',
+      'imp-35337 is the interior-peak locator that pinned the crossover landmark 3.280294352e9 (imp-35337)',
+      'imp-35574 shows the interior peak LOCATION does NOT share this log-insulation (imp-35574)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this robustness result (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

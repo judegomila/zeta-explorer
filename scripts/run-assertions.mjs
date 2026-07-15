@@ -9667,6 +9667,20 @@ const DATA_MODULES = [
   // I5 continuous corner composition. Five self-executing assertions. Assessment only;
   // ports nothing; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35727-w2-certified-winding-count-ingredients-scope.js',
+  // imp-35757: ESTIMATE the imp-35727 ingredient-I2 per-panel argument-increment
+  // budget. From the measured winding rate w(t) = (1/2) log(t/2pi) the held-but-
+  // experimental modules read (imp-2696 W_pp, imp-33968 slope -(1+alpha)), charge it
+  // against the I2 cap |Delta arg f| < pi to DERIVE the boundary-panel width
+  // Delta_panel = pi/w = 2 pi / log(T_PT/2pi) = mean zero gap ~ 0.234 at T_PT = 3e12
+  // (a clean identity: one half-turn of budget buys one mean zero spacing). Panel
+  // density is w/pi ~ 4.28 per unit height (~8.56 with a safety factor 2); a
+  // representative unit rectangle Delta = h = 1 needs ~5 panels per long (along-line)
+  // edge, <=9 per short (transverse) edge, ~ tens around the loop, scaling linearly
+  // in the window height and only logarithmically in T_PT. Counts use the mean rate
+  // and are LOWER bounds (a certified cap needs an interval upper bound on the LOCAL
+  // rate). Five self-executing assertions. OOM scoping only; certifies no count;
+  // instantiates no enclosure; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35757-i2-panel-width-count-scope.js',
   // imp-35728: QUANTIFY the necessary-not-sufficient gap between the EXTERNAL
   // Platt-Trudgian certificate N_off(T_PT) = 0 (verified to T_PT = 3e12) and the
   // imp-35681/imp-35676 W4 mechanical zero-substitution (off-line contribution

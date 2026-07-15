@@ -238,6 +238,26 @@ export default function Imp35138SigmaDeepTailThresholdLadderViz() {
         K_a&nbsp;&ge;&nbsp;0 untouched; changes no bound; no RH verdict, NO QED. Platt-Trudgian
         Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
       </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(251,191,36,0.06)',
+          borderLeft: '3px solid #d97706',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+        }}
+      >
+        <strong style={{ color: '#fbbf24' }}>Not effectively unconditional (imp-35334):</strong> at the
+        &sigma;&nbsp;&lt;&nbsp;0.001 landmark shown above, &ge;99.9% of the surviving E(N) bridge is the
+        constant E_trunc floor -- and E_trunc is only rigorous-modulo-C_T (imp-34791: an unported
+        barrier-lemma conditionality, NOT GUE). So the far tail does not become unconditional; it trades
+        the vanishing GUE-conditional E_coll for a bridge pinned by the C_T-conditional E_trunc. The
+        chart's rightward drift toward &sigma;&nbsp;&rarr;&nbsp;0 tracks a shrinking GUE dependence, not a
+        shrinking conditionality overall.
+      </div>
     </div>
   );
 }

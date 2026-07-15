@@ -9141,6 +9141,20 @@ const DATA_MODULES = [
   // (crossover damping ~ log T0) UNCHANGED; imp-35337a stays OPEN; C_C ansatz and E_trunc = 3.06e-5
   // UNTOUCHED; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35636-crossover-damping-residual-gap-decomposition.js',
+  // imp-35637: ASSESSMENT / SCOPING of a single-point true-dynamic spot-check of the imp-35017/imp-3406
+  // double surrogate at the interior sigma-PEAK N ~ 9.22e5. imp-35604 settled the peak is DATA-REACHABLE
+  // in-repo (index ~921859 inside the 10^6 Odlyzko bundle, surrogate height ~5.573e5 below the
+  // millionth-zero ceiling gamma_max=600269.677012445); this scopes the NEXT step -- what a real-zeros
+  // evaluation of sigma there would REQUIRE. Of the three sub-terms only E_coll (the ~94.9%-share
+  // GUE-conditional collision term, C_C = C_H sqrt(C_KH)) needs zero-DYNAMICS data: the actual N-th
+  // ordinate gamma_N, the nearest-neighbour min-gap statistics (Holder C_H, Dyson beta=2) and the
+  // star-discrepancy vs GUE (Koksma-Hlawka C_KH); E_flow needs only gamma_N, E_trunc needs nothing. But a
+  // SINGLE point confirms the surrogate VALUE only to the ~1.04e-3 finite-N sampling floor (~1/sqrt(N)),
+  // ~48.7x above the ~2.14e-5 flat-cap argmax margin the landmark rides on, so it can bound the surrogate
+  // at the peak yet CANNOT certify the peak as an extremum. Import-light (effectiveHeightForN + baked
+  // gamma_max literal, no zeros bundle). Assessment/scoping only; imp-35337a stays OPEN; C_C ansatz and
+  // E_trunc=3.06e-5 UNTOUCHED; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35637-peak-single-point-true-dynamic-spotcheck-scope.js',
 ];
 
 let ALL_MODULES = FAST_MODE

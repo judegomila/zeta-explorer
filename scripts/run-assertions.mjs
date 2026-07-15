@@ -8424,6 +8424,15 @@ const DATA_MODULES = [
   // stays NON-finite; no finite mesh spans the semi-infinite tail. Scoping only; ports nothing; changes no
   // bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35674-w3-tail-lemma-polymath15-scope.js',
+  // imp-35675: MEASURES the imp-35653 FINITE winding-barrier (B1) mesh cost O(Delta log T_PT) as a
+  // function of transition-rectangle width Delta at T_PT=3e12. Boundary evals M(Delta) = 2*MESH_PER_UNIT*Delta
+  // + 4*h*MESH_PER_UNIT are LINEAR in Delta (slope ~25.68 evals/unit width, fixed ~51.36 vertical-side
+  // intercept); the slope carries log(T_PT/2 pi) not T_PT (slope/T_PT ~8.6e-12, cheap in complexity); horizontal
+  // boundary work per enclosed zero is EXACTLY 2*OVERSAMPLE=6, and total work per zero decays monotonically
+  // toward 6 as Delta grows. Confirms the imp-35653 "set by log of height not height" claim quantitatively for
+  // B1; touches nothing in the NON-finite tail lemma B2/W3 (imp-35674). Measurement only; discharges nothing;
+  // changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35675-finite-winding-mesh-cost-vs-delta.js',
   // imp-35402: literal-verification (imp-35339-style) audit of the imp-35279/imp-35280 E_flow
   // far-tail four-rung ladder. Cross-module remnant agreement is EXACT; the reconstruction
   // identity holds to <5e-4; the swapFraction column, however, is NOT reproducible to tight

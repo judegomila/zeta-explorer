@@ -8831,6 +8831,18 @@ const DATA_MODULES = [
   // recomputes established figures; changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED;
   // NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35578-req4-shortfall-literals-assertion.js',
+  // imp-35596: ASSERTION-ONLY tripwire pinning the imp-35571 route-(i) subleading-rate
+  // THRESHOLD-COLLAPSE arithmetic (leading baseline 1/B=200; poly-log a=1.5/2/3 -> 34.20/14.14/5.85
+  // via 200^(1/a); power-law delta=0.25/0.5/1 -> 21.19/10.60/5.30 via ln(200)/delta; the crossover-
+  // height rate delta~0.254) plus the framing landmark log-heights (peak ~13.23, crossover ~20.86,
+  // PT ~28.73). Independently recomputes all from B=0.005 and inlined effectiveHeightForN, asserting
+  // (a) the full-precision recompute matches 7-sig-fig reference literals within 1e-6 relative
+  // (storage-precision tolerance) and (b) every baked imp-35571 CANDIDATES field (logT0Needed,
+  // reductionVsLeading, below-flags) reproduces EXACTLY when the source toFixed rounding is re-applied
+  // to the independent recompute. Import-light (effectiveHeightForN + the imp-35571 record only, no
+  // zeros bundle). Verification tooling only; recomputes established figures; changes no bound; e^200
+  // STANDS on the natural leading rate; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; PT SOTA.
+  '/src/data/imp-35596-threshold-collapse-literals-assertion.js',
   // imp-35594: DERIVES the imp-35574 F2 structural mechanism from the imp-35017/imp-3406
   // double-surrogate sigma(N). Expands the floor crossover E_coll = E_trunc to the closed form
   // N = (C_C/E_trunc)^2 log T0 (height only in the log => damping ~ log T0; predicted ~18.99x vs

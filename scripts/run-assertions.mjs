@@ -7828,6 +7828,14 @@ const DATA_MODULES = [
   // far-tail linear slope g(N)/N of the sub-linear K log T0) and the finite killing term a = K log T0(0+)
   // >= 0. Measurement only on the surrogate map; no operator positivity; changes no bound.
   '/src/data/imp-35114-bernstein-ingredients-extraction.js',
+  // imp-35316: ESTIMATES the SHAPE of the imp-35114 Levy measure dmu(t) for the surrogate g = K log T0(N)
+  // beyond the sign-only checks -- Gaver-Stehfest real-axis inversion (M=8) of the exact analytic
+  // g_prime = 2 pi K/(T0 log(T0/2pi)) recovers the Laplace density rho(t)=t dmu/dt: a monotone-decreasing
+  // profile rising to the ceiling rho(0+)=K and decaying exp-fast, so dmu/dt = rho/t has the log-Bernstein
+  // ~K/t singularity with an exponential cutoff. Mass integral rho dt matches K/e to ~0.24%, and reassembling
+  // g = a + integral (1-e^{-x t}) dmu reproduces K log T0 to ~0.01% across N in {1e3..1e12} (representation
+  // numerically COMPLETE). Measurement only on the surrogate map; no operator positivity; changes no bound; NO QED.
+  '/src/data/imp-35316-levy-measure-shape-inversion.js',
   // imp-35129: SCOPES how the imp-362 single-scale one-ULP interval RK4 witness would extend to the
   // imp-35058 Step-2 G-interval-enclosure obligation. Finds the reported per-N bracket width EQUALS
   // the RK4 step dt exactly at every closed row (width/dt=1), so it measures temporal step resolution

@@ -19406,6 +19406,36 @@ export const glossary = [
       'imp-35243 honest-status note records the overall surrogate-fidelity verdict this DAG refines (imp-35243)',
     ],
   },
+  {
+    term: 'imp-35284 a-priori g_min bound candidate forms C1-C4: only C2 closes on itself, and it closes onto the collision, not a floor',
+    category: 'proof-status',
+    definition:
+      'A headword for the imp-35284 enumeration of concrete candidate FORMS an a-priori g_min(t) > 0 lower ' +
+      'bound along the whole backward-Dyson trajectory could take -- the OPEN piece named by imp-35214 Q3 / ' +
+      'imp-35167 M2-M5, still lacking from the imp-35239-confirmed sub-linear min-gap surrogate.\n\n' +
+      'C1 (constant-beta Gronwall lower branch, imp-2563 M1 as-is) does NOT close: it needs a CONSTANT ' +
+      'N-uniform beta over the whole trajectory, but imp-35215 derived beta ~ 1/g_min diverging at the front, ' +
+      'so forcing the honest beta = 1/g0 shrinks the certified window to O(1/N^2), below the O(1) front.\n\n' +
+      'C2 (self-referential coupling beta = 1/g_min, the ticket-named candidate) DOES close -- substituting ' +
+      'beta = 1/sqrt(u) into the gap ODE gives the autonomous du/ds = -8 + 4 sqrt(u), no external input -- but ' +
+      'its dynamics REPRODUCE the collision: an unstable fixed point at u* = 4, with any front gap u0 < 4 ' +
+      'collapsing to 0 in finite time T_SR(u0) -> u0/8, EXACTLY the imp-2563 horizon g^2/8. Self-consistent, ' +
+      'but it lands on the front, not on a floor bounded away from 0.\n\n' +
+      'C3 (re-seeded bridge chain) is circular: each restart needs a certified interior gap, the very bound ' +
+      'sought, directly restating imp-35167 M5. C4 (SG1 local-virial monotonicity) is Gronwall-vacuous at the ' +
+      'microscopic front strip.\n\n' +
+      'VERDICT: no candidate form closes into a strictly-positive floor; the min-gap route RELOCATES the ' +
+      'imp-35167 M5 horizon obstruction rather than removing it. Assessment only; discharges nothing; I3/M5 ' +
+      'stay OPEN; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35365 (glossary headword documenting the imp-35284 C1-C4 candidate bound forms), 2026',
+    relatedTerms: [
+      'imp-35214 named the OPEN a-priori g_min bound as Q3, the requirement this enumeration assesses (imp-35214)',
+      'imp-35167 supplies the M1-M5 machinery; M2/M5 are the OPEN pieces C1-C4 assess against (imp-35167)',
+      'imp-35215 derived beta * g_min -> 1 exactly, the near-front identity feeding C1 and C2 (imp-35215)',
+      'imp-35239 confirmed the sub-linear min-gap surrogate that still lacks this a-priori bound (imp-35239)',
+      'imp-2563 supplies the gap ODE and Gronwall lower branch that C1 uses as-is (imp-2563)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

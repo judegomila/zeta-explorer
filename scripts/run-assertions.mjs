@@ -8162,6 +8162,16 @@ const DATA_MODULES = [
   // module (five assertions). Measurement only on the inherited imp-3220/imp-3406 surrogate; the C_C ansatz
   // (imp-2642) UNTOUCHED; imp-35243a / imp-35111a / imp-35174a stay OPEN; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35263-reentry-band-eps-floor-sweep.js',
+  // imp-35336: CERTIFIES the imp-33582 sigma-share crossing landmarks (sigma < 0.9 at N ~ 2.57e7, sigma halves
+  // at N ~ 3.27e9 = the imp-3444 crossover, sigma < 0.1 at N ~ 3.21e11) against IEEE-754 rounding by recomputing
+  // sigma(N) = E_coll/E(N) in the imp-35109/imp-35174 cancellation-free double-double path (RvM inverse re-solved
+  // from a dd residual, E_coll sqrt(L/N) via an added dd sqrt, full E_trunc+E_flow+E_coll share in dd) and re-
+  // bisecting each crossing under dd. RESULT: all three landmarks agree double-vs-dd to the full double-precision
+  // resolution of the bisected exponent in log10 N (bit-identical) with the max sigma shift at the machine-epsilon
+  // floor (~1e-16), so the crossings are GENUINE, NOT double artifacts -- discharging the ARITHMETIC half of the
+  // imp-33582 caveat exactly as imp-35174 did for the band edges. Six assertions. Measurement only on the inherited
+  // imp-3220/imp-3406 surrogate; imp-35336a (surrogate-vs-true fidelity) stays OPEN; changes no bound; NO QED; PT SOTA.
+  '/src/data/imp-35336-sigma-crossing-landmarks-double-double.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -8939,6 +8939,26 @@ const DATA_MODULES = [
   // E_trunc = 3.06e-5 (imp-2631/imp-447) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED;
   // Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35611-crossover-bracketing-literals-assertion.js',
+  // imp-35612: REGRESSION-GUARD pinning the imp-35557 three-map interior sigma-peak cubic-skew
+  // height-map literals. imp-35557 re-measured the cubic coefficient c3, quadratic curvature k
+  // and arm-imbalance slope A_skew under the RvM x {1.02, 0.98} bracketing pair (RvM base
+  // c3=-2.623677e-4/k=6.431916e-3/A_skew=11.01451, x1.02 -2.599790e-4/6.365650e-3/11.13633,
+  // x0.98 -2.648243e-4/6.500125e-3/10.87302) plus the A_skew_pred=-4c3/(k^2 ln10) cross-check
+  // (11.01727/11.14543/10.88826), but its own tripwires only RANGE-check sign/spread/cross-check,
+  // so a silent effectiveHeightForN / sigma(N) surrogate / ternary-argmax / Richardson-stencil
+  // drift could move any of the nine literals at storage precision untripped. This import-light
+  // module INDEPENDENTLY recomputes each triplet -- inlining the RvM inverse + double-surrogate
+  // sigma(N), re-locating the peak by the same 500-iter ternary argmax, re-running the imp-35451
+  // 5-point Richardson third-derivative + quadratic stencils -- asserts c3/k/A_skew/A_skew_pred on
+  // all three maps vs 7-sig-fig references within 1e-6 storage-precision tolerance
+  // ([[storage_precision_assertion_tolerance]]), and cross-checks the baked imp-35557 skewLadder
+  // fields reproduce exactly under the source display rounding. Import-light (imports only the
+  // import-light imp-35557 record, no zeros bundle, per [[no_heavy_imports_in_pages]] /
+  // [[verify_heavy_assertion_modules]]). Regression-guard only; recomputes established measurement
+  // figures; changes no bound; C_C ansatz (imp-2642/imp-2643), E_trunc=3.06e-5 (imp-2631) and the
+  // imp-398 C_F prefactor UNTOUCHED; surrogate-vs-true fidelity (imp-35337a) stays OPEN; C_mb
+  // GUE-conditional per imp-486 UNTOUCHED; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35612-cubic-skew-height-map-literals-assertion.js',
 ];
 
 let ALL_MODULES = FAST_MODE

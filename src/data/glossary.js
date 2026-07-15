@@ -18951,6 +18951,42 @@ export const glossary = [
       'imp-35609 confirms the ~0.553 peak-location factor is input-stable (imp-35609)',
     ],
   },
+  {
+    term: 'imp-35552 E_flow far-tail remnant product-decay exponent q -> -1 limit',
+    category: 'concept',
+    definition:
+      'A headword recording that the imp-35535 local product-decay exponent q (of the E_flow ' +
+      'far-tail fd-vs-analytic remnant*log N product) does NOT keep steepening without bound as ' +
+      'imp-35535 read it "with no floor in sight" from ~-0.435 (N=1e26) to ~-0.740 (N=1e200) -- it ' +
+      'instead ASYMPTOTES MONOTONICALLY to a FINITE limit of -1.\n\n' +
+      'MECHANISM: on the identical closed-surrogate log-space channel (imp-35534), the signed ' +
+      'remnant has an exact cancellation-free closed form where the leading -1 and 3/u terms ' +
+      'cancel algebraically (u = log N), leaving remnant ~ (2 log u - 3 - log 2 pi)/u^2. This pins ' +
+      'q(u) = 2/(2 log u - 3 - log 2 pi) - 1, which -> -1 as u -> infinity -- equivalently the ' +
+      'remnant decays like 1/(log N)^2 up to a slowly-varying 2 log log N factor, so the product ' +
+      'remnant*log N ~ 2 log log N/log N still heads to zero (no nonzero log-floor), confirming ' +
+      'imp-35535 while pinning the exact decay class.\n\n' +
+      'THE CONVERGENCE IS TRIPLE-LOGARITHMICALLY SLOW: q reaches -0.9 only near log10 N ~ 10^5.0, ' +
+      '-0.95 near 10^9.4, -0.99 near 10^44.1 -- which is why the imp-35535 window (max N=1e200, ' +
+      'q~-0.739) saw only monotone steepening and could not read the limit. Anchor reproductions: ' +
+      'remnant(1e26)=0.000979 (imp-35413), remnant(1e200)=3.5385e-5 (imp-35535 endpoint), and deep ' +
+      'q(10^1e120)~-0.996360.\n\n' +
+      'HOW TO APPLY: cite imp-35552 (or this entry) when discussing whether the imp-35535 remnant ' +
+      'exponent keeps steepening -- it does not; it has a finite limit of -1, reached only after a ' +
+      'triple-logarithmically slow approach.\n\n' +
+      'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 surrogate extrapolation, ' +
+      'NOT a rigorous asymptotic; derives nothing, changes no bound; E_flow > 0 strictness ' +
+      '(imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; no operator positivity; ' +
+      'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35666 (glossary headword recording the imp-35552 q -> -1 limit finding), 2026',
+    relatedTerms: [
+      'imp-35552 settles the imp-35535 "no floor in sight" question with the closed-form limit (imp-35552)',
+      'imp-35535 tabulated the product-decay exponent q that this limit resolves (imp-35535)',
+      'imp-35534 supplies the log-space finite-difference channel imp-35552 continues past N=1e200 (imp-35534)',
+      'imp-35198 E_flow far-tail exponent leading correction -1 + 3/log N (imp-35198)',
+      'imp-35473 the remnant*log N product datapoints (imp-35473)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -18355,6 +18355,49 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this projection (imp-486)',
     ],
   },
+  {
+    term: 'imp-35538 route-(i) finite-N remainder: the five derivation requirements',
+    category: 'concept',
+    definition:
+      'A headword recording the imp-35538 FORWARD-LOOKING requirements spec: what DERIVING a rigorous ' +
+      'finite-N remainder for the E_coll = C_C sqrt(log T0/N) ansatz (C_C = (1/8) sqrt(3 pi), C_H = 1/8; ' +
+      'imp-2642/imp-2643) -- i.e. an explicit B(N) with |err(N)| <= B(N) in ' +
+      'E_coll_true(N) = C_C sqrt(log T0/N) (1 + err(N)) -- would REQUIRE. Where imp-35493 surveyed the ' +
+      'literature and confirmed no such remainder currently exists, this entry catalogs its five ' +
+      'ANALYTIC INGREDIENTS.\n\n' +
+      'THE FIVE REQUIREMENTS: REQ 1 an effective C_H = 1/8 provenance (the definitional prerequisite -- ' +
+      'without it |err(N)| is not even defined). REQ 2 an explicit-rate GUE local law E_GUE(T0) with ' +
+      '|true statistic - GUE prediction| <= E_GUE(T0) -- the BINDING CRUX, since Montgomery (1973) and ' +
+      'Rudnick-Sarnak (1996) are asymptotic-only and carry no such named rate; this input DOES NOT EXIST ' +
+      'and would itself have to be proved. REQ 3 a restricted -> full Fourier-support upgrade, since ' +
+      'Montgomery/Rudnick-Sarnak control only |alpha| < 1 while minimal collision spacing is a ' +
+      'full-support functional -- resolvable only via a support-limited surrogate (unproven) or the full ' +
+      'Montgomery pair-correlation conjecture (CONJECTURAL). REQ 4 a height regime where the bound can ' +
+      'bind: the natural GUE local-law rate is O(1/log T0), so meeting the imp-35475 Part-C 0.5% budget ' +
+      'needs log T0 >= 200 (T0 >= e^200 ~ 7.23e86) versus actual landmark heights log T0 ~ 13.23 (peak) ' +
+      'and ~20.86 (crossover) -- astronomically out of reach even against log T_PT ~ 28.73. REQ 5 ' +
+      'conditionality: any GUE-based local law is RH-conditional (full support rests on Montgomery’s ' +
+      'conjecture), so a route-(i) remainder is UNAVOIDABLY conditional and inherits the imp-486 GUE ' +
+      'conditional; no non-GUE purely arithmetic derivation of the collision gap is known.\n\n' +
+      'HOW TO APPLY: cite this spec when route-(i) (a rigorous unconditional finite-N remainder) is ' +
+      'proposed as a way to close the imp-35337a surrogate-vs-true fidelity sub-gap, to show the route is ' +
+      'not merely absent (imp-35493) but has each ingredient individually out of reach; the imp-35551 ' +
+      'severity ranking orders REQ 2 as the binding crux with REQ 4 folding back into it. Route-(ii) (the ' +
+      'imp-35488 two-height data-anchored spot check, both heights below T_PT = 3e12) remains the only ' +
+      'viable partial for imp-35337a.\n\n' +
+      'HONEST SCOPE: assessment/scoping only; enumerates requirements, derives NO remainder; discharges ' +
+      'nothing; changes no bound; establishes no operator positivity; the C_C = (1/8) sqrt(3 pi) ansatz ' +
+      '(imp-2642/imp-2643), the E_trunc = 3.06e-5 floor (imp-2631) and C_mb GUE-conditional (imp-486) are ' +
+      'UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35570 (glossary/Concepts headword for the imp-35538 route-(i) derivation-requirements spec), 2026',
+    relatedTerms: [
+      'imp-35538 is the requirements-spec module this headword documents (imp-35538)',
+      'imp-35493 surveyed the literature and confirmed no route-(i) remainder currently exists (imp-35493)',
+      'imp-35551 ranks the five requirements by bottleneck severity, REQ 2 as the binding crux (imp-35551)',
+      'imp-35475 sigma-fidelity closure scope: three-input epistemic split and two admissible routes (companion route-(i)/route-(ii) headword)',
+      'imp-486 the GUE-conditional caveat inherited by any route-(i) remainder (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

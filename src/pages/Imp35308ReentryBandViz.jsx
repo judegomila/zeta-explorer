@@ -187,8 +187,12 @@ export default function Imp35308ReentryBandViz() {
         imp-35243 baked demonstration_D1_floor_sensitivity / demonstration_D2_extrapolation_gap
         literals verbatim (no new computation). The reentry band is a SURROGATE feature
         ~15&ndash;25 decades above any verified datum, not established as a feature of the true
-        collapse dynamic (imp-35243); changes no bound; establishes no operator positivity;
-        no RH verdict, NO QED. Platt-Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains SOTA.
+        collapse dynamic (imp-35243). The imp-35263 direct EPS_FP sweep CONFIRMS R1
+        (floor-independence) is binding: the band slides &gt;10 decades per factor-2 change in the
+        machine-epsilon representation constant EPS_FP, a floor-artifact absent from the true
+        continuum. R1 / the imp-35243a surrogate-fidelity certificate stay OPEN; changes no bound;
+        establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
+        &Lambda;&nbsp;&le;&nbsp;0.2 remains SOTA.
       </div>
     </div>
   );

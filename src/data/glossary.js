@@ -19540,6 +19540,39 @@ export const glossary = [
       'imp-35217 attributed the residual to the inverse gap, refined here to hold only below the crossover (imp-35217)',
     ],
   },
+  {
+    term: 'imp-35372 Reentry-Band Half-OFFSET Mid-Band Landmark (log10 N = 31.5562, ~0.57 decades below the geometric midpoint)',
+    category: 'numerical',
+    definition:
+      'A headword naming the imp-35372 mid-band decade where the cumulative imp-35332 ceil-phase ' +
+      'drift integral from the reentry edge first reaches HALF the off-by-one window OFFSET = ' +
+      '0.148408, and the front-loaded asymmetry this landmark exposes.\n\n' +
+      'imp-35332 showed the ceil-phase drift DRIFT(N) is N-dependent, falling from 0.0186273 at the ' +
+      'reentry edge (10^27.08) to 0.0118306 at the exit edge (10^37.17), with the drift INTEGRAL over ' +
+      'the band equal to OFFSET. Bisecting the cumulative integral for CumDrift(u) = OFFSET/2 = ' +
+      '0.074204 locates the half-OFFSET decade u_half = 31.556242 (N_half ~ 10^31.5562). Because the ' +
+      'drift is faster near the reentry, the FIRST half of the phase window is swept in only 4.4716 ' +
+      'decades (reentry -> half) while the SECOND half takes 5.6109 decades (half -> exit) -- so the ' +
+      'half-OFFSET landmark sits ~0.57 decades BELOW the geometric-midpoint decade ' +
+      '(REENTRY_EXP + EXIT_EXP)/2 = 32.1259, not on it.\n\n' +
+      'A neighboring width-crossover decade u_cross = 31.7467 (~0.19 decades above the half-OFFSET ' +
+      'landmark) is where the naive local-drift band width OFFSET/DRIFT(10^e) equals the true ' +
+      '10.0824-decade integral width, the one interior point where a constant-drift reading would not ' +
+      'mislead about band width.\n\n' +
+      'HONEST SCOPE: a glossary headword over already-measured landmarks (imp-35372, independently ' +
+      'cross-checked by imp-35433 under different quadrature/root-finding numerics). Entirely inside ' +
+      'the inherited imp-3220/imp-3406 surrogate; discharges NOTHING; surrogate-fidelity sub-gap ' +
+      'imp-35243a (and parents imp-35111a/imp-35174a/imp-34997a) stay OPEN; the C_C = (1/8) sqrt(3 pi) ' +
+      'ansatz (imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; ' +
+      'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35442 (glossary headword documenting the imp-35372 half-OFFSET mid-band landmark), 2026',
+    relatedTerms: [
+      'imp-35332 derived the N-dependent DRIFT(N) and its integral = OFFSET that this landmark bisects (imp-35332)',
+      'imp-35111 established the 10.08-decade reentry band this landmark sits inside (imp-35111)',
+      'imp-35373 located the nearly-coincident VALUE-domain geometric-mean drift landmark (imp-35373)',
+      'imp-35433 independently cross-checked this landmark under different quadrature and root-finding numerics (imp-35433)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

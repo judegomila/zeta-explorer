@@ -825,6 +825,9 @@ const Imp35460ReentryBandLandmarkDisposalViz = lazy(() =>
 const Imp35482SigmaPeakPlateauWidthSqrtScalingViz = lazy(() =>
   import('./pages/Imp35482SigmaPeakPlateauWidthSqrtScalingViz.jsx')
 );
+const Imp35483EflowFartailRemnantSub1e3CrossingViz = lazy(() =>
+  import('./pages/Imp35483EflowFartailRemnantSub1e3CrossingViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2336,6 +2339,10 @@ function AppShell() {
           <Route
             path="/viz-imp35482-sigma-peak-plateau-width-sqrt-scaling"
             element={<Imp35482SigmaPeakPlateauWidthSqrtScalingViz />}
+          />
+          <Route
+            path="/viz-imp35483-eflow-fartail-remnant-sub1e3-crossing"
+            element={<Imp35483EflowFartailRemnantSub1e3CrossingViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -1196,6 +1196,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive scatter-plus-fit chart baking the imp-35411 sqrt(tol) sweep literals verbatim (no new computation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; the imp-35337a surrogate-vs-true fidelity sub-gap REMAINS OPEN; C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35483-eflow-fartail-remnant-sub1e3-crossing',
+      title: 'E_flow Far-Tail Remnant Sub-1e-3 Crossing Ladder',
+      oneLine:
+        'Line chart of the imp-35413 fd-vs-analytic E_flow far-tail remnant ladder (N=1e24..1e28) against the 1e-3 threshold, marking the bisected crossing at N ~ 4.17e25 (log10 N ~ 25.6205).',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35483-eflow-fartail-remnant-sub1e3-crossing-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-35413-eflow-fartail-remnant-sub1e3-crossing.js (imp-35483 viz page)',
+      ticket: 'imp-35483',
+      pedagogicalStep: 81,
+      honestCeiling:
+        'Descriptive line chart baking the imp-35413 sub-1e-3 crossing ladder literals verbatim (no new computation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; its own surrogate-vs-true fidelity gap remains an UNNAMED tracked sub-gap (imp-35337a does NOT cover this quantity); E_flow > 0 strictness (imp-33848) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

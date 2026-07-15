@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
+import RelatedLinks from '../components/RelatedLinks.jsx';
 import {
   IMP35561_PEAK_LADDER,
   IMP35561_BASE,
@@ -133,6 +134,20 @@ export default function Imp35561PeakHeightMapSensitivityViz() {
         changes no bound; establishes no operator positivity; no RH verdict, NO QED.
         Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
       </div>
+
+      <RelatedLinks
+        links={[
+          { to: '/viz-imp35663-decade-span-growth', label: 'imp-35663 Decade-Span Growth' },
+          {
+            to: '/viz-imp35664-fartail-crossing-height-map-sensitivity',
+            label: 'imp-35664 Far-Tail-Crossing Height-Map Sensitivity',
+          },
+          {
+            to: '/viz-imp35665-pinsker-common-functional-bridge',
+            label: 'imp-35665 Pinsker Common-Functional Bridge',
+          },
+        ]}
+      />
     </div>
   );
 }

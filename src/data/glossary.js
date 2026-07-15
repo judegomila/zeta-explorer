@@ -19155,6 +19155,45 @@ export const glossary = [
       'imp-486 supplies the GUE-conditional caveat inherited by any pair-correlation remainder (imp-486)',
     ],
   },
+  {
+    term: 'imp-35653 S_barrier decomposition: FINITE bounded-rectangle winding check (B1) PLUS a NON-finite semi-infinite analytic tail lemma (B2)',
+    category: 'proof-status',
+    definition:
+      'A headword recording the imp-35653 scoping result that the ported deterministic realness ' +
+      'barrier (imp-35419 S_barrier) is NOT a single finite check, but decomposes into two pieces ' +
+      'of very different character.\n\n' +
+      '(B1) FINITE: on a bounded transition rectangle R = [T_PT, T_PT + Delta] x [-h, h] in the ' +
+      'H_t plane, the argument-principle winding number (1/2 pi i) contourInt_dR (H_t prime/H_t) dz ' +
+      'counts enclosed zeros exactly, certified by a finite mesh of boundary points under interval ' +
+      'arithmetic on H_t = A + B - C with a per-segment argument-increment cap. This is exactly what ' +
+      'Polymath15 evaluated at their fixed barrier height, and it costs O(Delta * log T_PT) boundary ' +
+      'evaluations (local zero density ~4.28/unit height at T_PT = 3e12) -- large but bounded and ' +
+      'mechanically checkable.\n\n' +
+      '(B2) NON-FINITE: for t >= T_PT + Delta, an analytic large-height zero-free estimate of ' +
+      'Polymath15 type |A + B| > |C| must hold for ALL x above the transition. This is a closed-form ' +
+      'inequality proved ONCE and valid over the whole semi-infinite tail -- not a mesh check, not ' +
+      'enumerable, not reducible to a finite computation.\n\n' +
+      'WHY IT MATTERS: a winding computation can only ever certify "no off-line zero in a bounded ' +
+      'region", never "no off-line zero for every t > T_PT" -- the semi-infinite quantifier in ' +
+      'S_barrier defeats any single finite check. So only the bounded piece (B1) is mechanically ' +
+      'checkable; the semi-infinite coverage (B2) remains an analytic proof obligation, which is ' +
+      'exactly why imp-35419 classes the port as breakthrough-tier rather than engine-closable. ' +
+      'Platt-Trudgian N_off(T_PT) = 0 supplies a NECESSARY base (the initial condition B1 starts ' +
+      'from) but does not suffice -- it says nothing about t > T_PT.\n\n' +
+      'HOW TO APPLY: never describe a ported S_barrier as "a finite check" without qualifying that ' +
+      'only its bounded-rectangle piece B1 is finite; B2 is the true breakthrough-tier cost center ' +
+      '(itemized as work item W3 in imp-35653).\n\n' +
+      'HONEST SCOPE: assessment/scoping only (frontier-direction, NOT rigorous); discharges nothing, ' +
+      'ports nothing, changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35683 (glossary headword recording the imp-35653 S_barrier finite/non-finite decomposition), 2026',
+    relatedTerms: [
+      'imp-35653 supplies the B1/B2 decomposition and itemized port work W1-W4 recorded here (imp-35653)',
+      'imp-35419 supplies the S_barrier statement this module decomposes (imp-35419)',
+      'imp-34791 reclassifies E_trunc as the unported barrier lemma that W4 retires (imp-34791)',
+      'imp-35334 shows E_trunc dominates the far-tail bridge as sigma -> 0 (imp-35334)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

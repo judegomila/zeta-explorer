@@ -18008,6 +18008,39 @@ export const glossary = [
       'imp-35476 recovers the same raw k off an off-grid tolerance set but repeats the "~6.428e-3" prose quote (imp-35476)',
     ],
   },
+  {
+    term: 'sigma(N) = E_coll/E(N): a DIAGNOSTIC conditional-share readout, NOT a Lambda lever',
+    category: 'concept',
+    definition:
+      'A firewall headword recording the imp-35475 punchline: sigma(N) = E_coll(N)/E(N), the GUE-conditional ' +
+      'collision term expressed as a SHARE of the total error budget E(N) = E_trunc + E_flow(N) + E_coll(N), ' +
+      'is a diagnostic readout of how the budget is composed at a given N -- it does not itself enter the ' +
+      'Platt-Trudgian bound as a term that could be tightened.\n\n' +
+      'imp-35411/imp-35417/imp-35337 measure and dd-certify sigma(N) and its two interior landmarks (the ' +
+      'flat-cap PEAK N ~ 9.22e5 and the E_coll = E_trunc CROSSOVER N ~ 3.28e9) on the imp-3220/imp-3406 ' +
+      'single-rate log-law surrogate, and flag the surrogate-vs-true fidelity half as OPEN (imp-35337a). ' +
+      'imp-35475 scopes what CLOSING that fidelity gap would require -- and shows it does not matter for ' +
+      'Lambda either way: EVEN A PERFECT surrogate-vs-true fidelity closure of imp-35337a (replacing the ' +
+      'modeled E_coll by the true empirical-vs-analytic collision gap, at whatever cost in rigor or GUE ' +
+      'conditionality) changes only the reported SHARE sigma(N), not any of the three summands E_trunc, ' +
+      'E_flow(N), E_coll(N) that actually feed the bound -- so Platt-Trudgian Lambda <= 0.2 is left unchanged.\n\n' +
+      'HOW TO APPLY: when a module reports or tightens sigma(N), check whether it is claiming a bound-moving ' +
+      'result -- it cannot be one. sigma is read off the same three inputs that already determine Lambda; ' +
+      'improving sigma-fidelity is a measurement/scoping exercise (imp-35337a, imp-35475), not a route to a ' +
+      'smaller Lambda. Cite this headword to firewall sigma(N) work from being mistaken for Lambda progress.\n\n' +
+      'HONEST SCOPE: recording-only; discharges nothing; changes no bound; establishes no operator ' +
+      'positivity; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), the E_trunc = 3.06e-5 floor ' +
+      '(imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35504 (glossary/Concepts firewall headword recording the imp-35475 sigma(N) diagnostic-not-lever punchline), 2026',
+    relatedTerms: [
+      'imp-35475 scopes the imp-35337a fidelity closure and states the no-bound-moves punchline this entry records (imp-35475)',
+      'imp-35337 dd-certifies the sigma(N) landmarks and names the surrogate-vs-true fidelity sub-gap imp-35337a (imp-35337)',
+      'imp-35411 measures the sigma(N) flat-cap PEAK plateau width on the surrogate (imp-35411)',
+      'imp-35417 independently cross-checks the sigma(N) landmarks on a distinct dd grid (imp-35417)',
+      'imp-486 the GUE-conditional caveat inherited by any modeled E_coll asymptotic feeding sigma(N) (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

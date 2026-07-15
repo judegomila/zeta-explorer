@@ -8700,6 +8700,18 @@ const DATA_MODULES = [
   // Measurement/extrapolation only; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED;
   // Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35530-crossover-gtrue-trend-extrapolation.js',
+  // imp-35556: ASSESSES whether the imp-35530 g_true (KL divergence of the unfolded spacing pdf vs GUE)
+  // and the modeled surrogate E_coll are dimensionally comparable, and whether the projected ~10.5x
+  // g_true >> E_coll gap is a meaningful inequality. FINDING: both are dimensionless numbers, so the
+  // barrier is not physical units but functional ORDER -- KL = O(eps^2) (a second-order whole-pdf
+  // divergence) vs E_coll = O(eps) (a first-order scalar-observable amplitude). The Pinsker bridge
+  // TV <= sqrt(KL/2) reduces KL to a first-order TV amplitude but changes the multiplier entirely
+  // (10.5x raw ratio -> ~414x upper bound) and, being an upper bound, cannot certify even the direction,
+  // so the ~10.5x is a CATEGORY MISMATCH / diagnostic flag, not a certified inequality. The units caveat
+  // is imp-35530b (not imp-35530a as the title says); new sub-gap imp-35556a records the missing in-repo
+  // common functional (imp-35337a dictionary OPEN). ASSESSMENT ONLY; imp-35488a/35530a/35530b/35337a stay
+  // OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35556-gtrue-ecoll-dimensional-comparability.js',
   // imp-35538: ENUMERATES what DERIVING a rigorous finite-N remainder for the E_coll = C_C sqrt(log T0/N)
   // ansatz (C_C = (1/8) sqrt(3 pi), C_H = 1/8; imp-2642/imp-2643) would REQUIRE, per the imp-35475 route-(i)
   // observation that no such remainder exists. Complementary to the imp-35493 literature survey: a

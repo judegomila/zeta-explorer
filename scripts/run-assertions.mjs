@@ -9712,6 +9712,13 @@ const DATA_MODULES = [
   // is the tail license. Five self-executing assertions. Assessment only; ports
   // nothing; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35728-w4-external-count-vs-w3-gated-residual-quantify.js',
+  // imp-35447: registration/reachability audit of imp-35404 (Krawczyk-headroom-cancellation
+  // viz-data, IMP35404_LADDER). FINDING: fully registered and reachable -- App.jsx carries
+  // the lazy import + <Route>, visualizations-index.js carries a complete entry
+  // (pedagogicalStep 78), and audit-nav-links.mjs exits 0 with no WARN for the route; not
+  // orphaned, no wiring/flag action needed. AUDIT ONLY; changes no bound; NO QED;
+  // Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35447-imp35404-registration-reachability-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

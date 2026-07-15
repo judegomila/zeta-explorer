@@ -8421,6 +8421,17 @@ const DATA_MODULES = [
   // surrogate; discharges nothing; R1t / imp-35243a / imp-35111a / imp-35174a / imp-34997a stay OPEN; changes no
   // bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35453-r1s-eps-fp-threshold-closed-form.js',
+  // imp-35472: INDEPENDENTLY RE-VERIFIES the imp-35414 R1s lemma surrogate constants baked "from imp-35243/imp-35357;
+  // no re-import" -- r = |g prime (fixed point)| ~ 0.0454235, ln(1/r) ~ 3.09173, EPS_FP = 2.3e-16, and the additive
+  // count coupling -log(EPS_FP)/ln(1/r). Re-imports the imp-35243 contraction-map SOURCE CHAIN (the same two light
+  // modules effectiveHeightForN + C_C_PINNED, NOT the zeros bundle) and re-runs gD -> N_CROSS_FP -> central-difference
+  // derivative: r reconstructs to 0.0454235076..., ln(1/r) to 3.09172551..., whose 6-sig-fig roundings are EXACTLY the
+  // baked literals (relative deviations 1.7e-7 and 1.5e-6, precisely the 6-sig-fig quantization); EPS_FP is bit-identical;
+  // the additive term 11.6467171 and the exact sensitivity -1/ln(1/r) = -0.3234439779 match the baked values to the same
+  // floor. The lemma H1-H3 numerical inputs are VERIFIED. Six self-executing assertions. Verification of numerical inputs
+  // ONLY; discharges NOTHING on R1t; imp-35243a / imp-35111a / imp-35174a / imp-34997a stay OPEN; C_C ansatz (imp-2642)
+  // and C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35472-r1s-baked-constants-reconstruction.js',
   // imp-35454: CONTINUES the imp-35413/imp-35371 E_flow far-tail fd-vs-analytic remnant surrogate ladder
   // (closed T0 = 2 pi N / log N channel, no heavy import) past N = 1e28 to N = 1e60 to DISTINGUISH whether
   // remnant*log N tends to ZERO (remnant faster than 1/log N) or a POSITIVE FLOOR (remnant ~ c/log N). The
@@ -8433,6 +8444,18 @@ const DATA_MODULES = [
   // inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail
   // exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35454-eflow-fartail-remnant-product-limit.js',
+  // imp-35473: CONTINUES the imp-35413 E_flow far-tail fd-vs-analytic remnant surrogate ladder (closed
+  // T0 = 2 pi N / log N channel, no heavy import) past the sub-1e-3 crossing (N ~ 4.17e25) to LOCATE the
+  // sub-1e-4 crossing. It reproduces the imp-35413 rung N = 1e26 (0.000979) to the digit, then bisects:
+  // the remnant first falls below 1e-4 at N ~ 10^109.1892 ~ 1.546e109, bracketed by N = 1e100 (0.000116,
+  // above) and N = 1e120 (0.0000852, below) -- fully ~83.57 decades past the sub-1e-3 crossing. At the
+  // crossing remnant*log N ~ 0.02514, DOWN from ~0.05899 at the sub-1e-3 crossing, so the product keeps
+  // decaying (not a log-floor) and it takes ~83.6 decades to shed one further factor of ten -- corroborating
+  // the imp-35371/imp-35413/imp-35454 slow-but-real-decay reading one threshold decade deeper. Six
+  // self-executing assertions. Measurement only on the inherited imp-3220/imp-3406 surrogate; C_mb
+  // GUE-conditional per imp-486 UNTOUCHED; E_flow > 0 strictness (imp-33848) untouched; changes no bound;
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35473-eflow-fartail-remnant-sub1e4-crossing.js',
 ];
 
 let ALL_MODULES = FAST_MODE

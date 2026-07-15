@@ -80,6 +80,10 @@
  * @see imp-34862-iters-to-floor-two-rate-law (the two-rate law reconstructed here; does NOT remove off-by-one)
  * @see imp-35111-off-by-one-reentry-band-width (parent: single-rate frac-window band edges 10^27.08 / 10^37.17)
  * @see imp-35330-reentry-band-fidelity-requirement-dependency (R2 dominated by R1 in the fidelity DAG)
+ * @see imp-35332-reentry-band-drift-analytic-derivation (CAVEAT: the 0.0187 grid constant used below as the
+ *      single-rate comparison baseline is a LOCAL value at the reentry edge, not an analytic constant -- the
+ *      analytic drift decays 0.0186273 -> 0.0118306 across the band and the exact single-rate traversal is the
+ *      drift INTEGRAL, not drift-per-decade times decades)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 Riemann-von Mangoldt inverse)
  */
 
@@ -114,7 +118,9 @@ const WINDOW_LOWER_EDGE = 1 - OFFSET; // W ~ 0.851592
 // Inherited band landmarks (imp-35174 double-double certified) and the inherited grid drift constant.
 const REENTRY_EXP = 27.084691; // band-on, log10 N (imp-34997/35111/35174)
 const EXIT_EXP = 37.167107; // band-off, log10 N (imp-35111/35174)
-const DRIFT_PER_DECADE_GRID = 0.0187; // single-rate ceil-phase grid drift (imp-34997/35109)
+const DRIFT_PER_DECADE_GRID = 0.0187; // single-rate ceil-phase grid drift (imp-34997/35109); this is the LOCAL
+// reentry-edge value, not an analytic constant -- imp-35332 derives DRIFT(N) analytically and shows it decays
+// 0.0186273 -> 0.0118306 across the band, so 0.0187 is a comparison baseline here, not the exact drift law.
 
 // The imp-34862 TWO-rate ceil argument: ratio-fit early rate r_0 over the first p post-collapse iterates,
 // then x_two = p + [ln(delta_0/EPS_FP) - p ln(1/r_0)]/ln(1/r) = x_single + p(1 - ln(1/r_0)/ln(1/r)).

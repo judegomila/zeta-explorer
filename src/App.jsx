@@ -861,6 +861,9 @@ const Imp35593PeakDampingViz = lazy(() =>
 const Imp35597ThresholdCollapseViz = lazy(() =>
   import('./pages/Imp35597ThresholdCollapseViz.jsx')
 );
+const Imp35628ReqSeverityRankingViz = lazy(() =>
+  import('./pages/Imp35628ReqSeverityRankingViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2420,6 +2423,10 @@ function AppShell() {
           <Route
             path="/viz-imp35597-threshold-collapse"
             element={<Imp35597ThresholdCollapseViz />}
+          />
+          <Route
+            path="/viz-imp35628-req-severity-ranking"
+            element={<Imp35628ReqSeverityRankingViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

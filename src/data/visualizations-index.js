@@ -1357,6 +1357,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive bar chart re-exporting the imp-35571 candidates/landmark table verbatim plus dense curve series (no new derivation, no heavy data-module import); scoping only -- no subleading rate is proved for the zeta zeros; route-(i) stays imp-486 GUE-conditional; the imp-35337a surrogate-vs-true fidelity sub-gap REMAINS OPEN; C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35628-req-severity-ranking',
+      title: 'Route-(i) Requirement Severity Ranking',
+      oneLine:
+        'Ranked tier chart of the imp-35551 REQ 1-5 severity ordering (RANK1 REQ2 explicit-rate GUE local law binding crux, RANK2 REQ4 height regime folding into REQ2, RANK3 REQ3 conjectural Fourier support, RANK4 REQ1 reachable C_H=1/8 provenance, RANK5 REQ5 irreducible conditionality ceiling), annotated with the REQ2<-REQ4 coupling and the no-single-discharge-suffices verdict.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35628-req-severity-ranking-viz-data.js',
+      paperSourcePath: 'src/data/imp-35551-route-i-requirement-severity-ranking.js (imp-35628 viz page)',
+      ticket: 'imp-35628',
+      pedagogicalStep: 93,
+      honestCeiling:
+        'Descriptive ranked tier chart re-exporting the imp-35551 severity ranking literals verbatim (no new derivation, no heavy data-module import); scoping only -- assesses reachability, discharges nothing; route-(i) stays imp-486 GUE-conditional; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

@@ -17599,6 +17599,44 @@ export const glossary = [
       'imp-35217 the analytic leading exponent -1 + 3/log N used to form the residual here (imp-35217)',
     ],
   },
+  {
+    term: 'imp-35355 ambient-spacing-restored SR-h C2 ODE: du/ds = -8 + (4/h) sqrt(u) moves the fixed point to g* = 2h but leaves it unstable AND unreachable (h >= g_min)',
+    category: 'proof-status',
+    definition:
+      'A headword recording the imp-35355 assessment of whether restoring the ambient-spacing dependence ' +
+      'the imp-35215 unit-spacing identity beta * g_min -> 1 dropped changes the imp-35284 C2 candidate-form ' +
+      'verdict. The true imp-35215 identity is the three-factor form beta * g_min * h -> 1, with h = x_2 - x_0 ' +
+      'the ambient span of the collapsing edge pair plus its neighbour; imp-35215 set h -> 1 only as a unit-' +
+      'spacing simplification. Substituting the honest self-referential coupling beta = 1/(h sqrt(u)) into ' +
+      'the exact gap ODE (imp-2563) gives the GENERAL form du/ds = -8 + (4/h) sqrt(u) (the "SR-h" ODE), which ' +
+      'reduces to the imp-35284 C2 ODE du/ds = -8 + 4 sqrt(u) at h = 1.\n\n' +
+      'THE FINDING: ambient spacing enters ONLY the feedback coefficient (4 -> 4/h); the collapse coefficient ' +
+      '-8 is ambient-independent. (F1) The fixed point rescales to u* = 4h^2 (g* = 2h) but stays UNSTABLE at ' +
+      'every ambient scale (RHS-prime = (2/h)/sqrt(u*) > 0). (F2) It is UNREACHABLE by construction: g* = 2h ' +
+      'requires g_min = 2(g_min + g_1), i.e. -g_min = 2 g_1, impossible for positive gaps, so u stays below ' +
+      'u* for every admissible configuration and profile h(s) (and imp-35215 shows h relaxes UP, pushing g* ' +
+      'further away still). (F3) The sign of du/ds is LOCKED strictly negative across the entire admissible ' +
+      'band h >= g_min = sqrt(u): -8 <= du/ds <= -4 < 0, with the tightest admissible ambient (h = g_min) only ' +
+      'halving the collapse rate, not stopping it. The closed-form collapse time T_SR^h(u0) -> u0/8 as u0 -> 0 ' +
+      'for EVERY h, so the imp-2563 horizon g^2/8 is unchanged by ambient spacing.\n\n' +
+      'HOW TO APPLY: cite imp-35355 (not the bare unit-spacing imp-35284 C2 form) whenever asking whether ' +
+      'restoring the real, trajectory-varying ambient span could rescue the self-referential front-coupling ' +
+      'candidate C2 into a strictly-positive g_min floor -- it cannot, because the fixed point it introduces ' +
+      'is both unstable and unreachable under every admissible ambient profile, so C2 stays collision-' +
+      'reproducing at every ambient scale, not just at h = 1.\n\n' +
+      'HONEST SCOPE: assessment only (frontier-direction, NOT rigorous); discharges nothing; establishes no ' +
+      'operator positivity; changes no bound; the imp-2563 sandwich stays a valid CONDITIONAL bracket; C_mb ' +
+      'GUE-conditional per imp-486 UNTOUCHED; I3/M5 stay OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda ' +
+      '<= 0.2 remains SOTA.',
+    firstUsed: 'imp-35426 (glossary headword recording the imp-35355 ambient-spacing-restored SR-h C2 ODE), 2026',
+    relatedTerms: [
+      'imp-35284 found the unit-spacing C2 ODE du/ds = -8 + 4 sqrt(u) reproduces the collision, the parent verdict this entry confirms at finer resolution (imp-35284)',
+      'imp-35215 derived the exact three-factor identity beta * g_min * h -> 1 whose ambient factor h this entry restores (imp-35215)',
+      'imp-35167 named the M2/M5 background-field-sup obstructions left OPEN by this assessment (imp-35167)',
+      'imp-2563 supplies the exact gap ODE du/ds = -8 + 4 B(s) u and the Gronwall lower-branch sandwich this assessment substitutes into (imp-2563)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this assessment (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

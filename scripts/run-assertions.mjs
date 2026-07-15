@@ -203,6 +203,8 @@ const DATA_MODULES = [
   '/src/data/imp-35221-r2-n1000-flow-reference.js',
   // imp-35324: finer-base-grid (tauC/4000) re-run resolves the imp-35235 DP45 dt/2 gate-skip; worst-case envelope clears t_c_hi marginally, ladder stays at N=1000.
   '/src/data/imp-35324-r2-n2000-finer-grid-reference.js',
+  // imp-35350: STILL-finer-grid (tauC/8000 and tauC/16000) re-run of imp-35324 -- on tauC/16000 the DP45 dt/2 overshoot vanishes, the dt/2 cross-family gap collapses 7.576e-6 -> 0 (tie restored), clearance below t_c_hi grows 6.16e-8 -> 7.637e-6 (~124x); knife-edge is a resolution artifact. Trend non-monotone + tauC/32000 rung deferred, so ladder stays N=1000, NO QED.
+  '/src/data/imp-35350-r2-n2000-still-finer-grid-reference.js',
   // imp-35325: DIAGNOSES the imp-35235 DP45 dt/2 gate-skip as a PHYSICAL near-collision (not a label swap) -- tracking the signed diff d=gamma[1496]-gamma[1495] (no re-sort), a direct sub-step probe crosses zero (min|d|=8.8e-7 << gate, first crossing frac 0.664) and the RK4 dt/2 reference confirms the sign change (+1.775e-3 -> -5.44e-5 in-gate -> +1.45e-2); re-approach at 1.3238e-3 is spurious; DIAGNOSTIC ONLY, ladder stays N=1000, NO QED.
   '/src/data/imp-35325-n2000-signed-crossing-diagnostic.js',
   // imp-35351: a TRUE DP45 dense-output (DOPRI5 CONTD5) interpolant sampled at 256 interior sub-step nodes CATCHES the within-step pair-1495 step-over at N=2000 that both the imp-35235 endpoint gate and the imp-35278 endpoint signed-crossing miss -- DP45 dt/2 fires at step 2007 (endpoint gap POSITIVE) with t_c=1.1919828898e-3 below t_c_hi, superseding the imp-35278 spurious step-2228 re-approach; envelope clears (slack ~7.506e-6). MEASUREMENT ONLY, ladder stays N=1000, NO QED.
@@ -8165,6 +8167,13 @@ const DATA_MODULES = [
   // (the floor imp-35240 pushed past) -- neither a prefactor discrepancy. Cross-validation only on the
   // inherited imp-3220/imp-3406 surrogate; discharges nothing; O3/H3/H4/G6a stay OPEN; NO QED; PT SOTA.
   '/src/data/imp-35264-rho-prefactor-vs-imp35076-margin-crosscheck.js',
+  // imp-35379: MEASURES the imp-35264 coarsest-rung next-order residual r1 = rho_meas - 2/3 - K eps^{3/2}
+  // directly on the imp-35076 large-eps rungs -- it decays with local exponent 3.500 (eps^{7/2}, NOT eps^{5/2})
+  // and equals K_{7/2} eps^{7/2} with K_{7/2} = -8 sqrt(2)/(3 pi) to ratio 1.000 (0.997 coarsest, imp-35298 eps^5
+  // biting), confirming the imp-35256 reconciliation of the same residual and reproducing the imp-35264
+  // kEmp = 0.39263 as K + K_{7/2} eps^2 to 4e-5. The imp-35264 "O(eps)" label is the imp-35240 surrogate reading;
+  // the physical exponent is 7/2. Measurement only on the inherited surrogate; O3/H3/H4/G6a stay OPEN; NO QED; PT SOTA.
+  '/src/data/imp-35379-rho-o-eps-next-order-term-measurement.js',
   // imp-35263: DIRECTLY sweeps the machine-epsilon floor EPS_FP over factor-2 multiples (k in {-1,0,1,2}) and
   // TABULATES the imp-34997/imp-35111 REENTRY-band edges, turning imp-35243 DEMONSTRATION D1 (a ~11.99-decade-per-
   // factor-2 slide, asserted analytically) into a MEASURED table -- the imp-35243 R1 (floor-independence)

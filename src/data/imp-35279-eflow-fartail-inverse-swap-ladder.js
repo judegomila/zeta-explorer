@@ -45,12 +45,22 @@
  *     component at every rung, deep as well as shallow. The whole-residual-is-the-swap
  *     attribution is thus APPROXIMATE across the WHOLE ladder, not exact at the deep end.
  *
+ * RELATION TO imp-35280 (complementary framing of the same decomposition)
+ * ------------------------------------------------------------------------
+ * This module treats the isolated inverse-SWAP gap as the primary measured object and reports
+ * the closed-form/prefactor remnant (closedFormRemnant) as a byproduct column. imp-35280
+ * measures the SAME four-rung ladder independently with the fd-vs-analytic remnant as its
+ * primary object instead, and reproduces this module's closedFormRemnant column to the digit
+ * (0.0025 / 0.0031 / 0.0026 / 0.0019) -- a cross-check from the opposite side of the same
+ * signed exponent identity. Same numbers, complementary framing.
+ *
  * MEASUREMENT ONLY. Reproduces the imp-35236 finite difference on the inherited imp-3220/
  * imp-3406 extrapolation, NOT a rigorous asymptotic; changes no bound; E_flow > 0 strictness
  * (imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent
  * 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict,
  * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
+ * @see imp-35280-eflow-fartail-fd-vs-analytic-surrogate-gap (same four-rung remnant column, from the fd-vs-analytic side)
  * @see imp-35236-eflow-fartail-inverse-swap-isolation (isolated the swap at only 1e6/1e16; extended here to 1e9/1e12)
  * @see imp-35237-eflow-fartail-exponent-ladder-crosscheck (added 1e9/1e12 to the derived-law residual, not the swap)
  * @see imp-35217-eflow-fartail-exponent-x2-correction (attributed the residual to the inverse gap)

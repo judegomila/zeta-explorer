@@ -18111,6 +18111,36 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this crossing (imp-486)',
     ],
   },
+  {
+    term: 'imp-35411/imp-35476 sigma-peak plateau sqrt(tol) law: decade-grid and off-grid corroboration',
+    category: 'numerical',
+    definition:
+      'A cross-reference headword linking the two measurements of the imp-35337/imp-3406 interior sigma-peak ' +
+      'plateau-width law W(tol)/sqrt(tol) = 15.3165. imp-35411 established the constant on FOUR decade-aligned ' +
+      'tolerances {1e-4, 1e-5, 1e-6, 1e-7}, recovering peak curvature k ~ 6.428e-3 -- but a skeptic could read ' +
+      'that constancy as an artifact of sampling only powers of ten. imp-35476 closes that gap by re-running ' +
+      'the SAME endpoint locator on the SAME imp-35337 partsD double surrogate at three deliberately OFF-GRID ' +
+      'tolerances {2e-5, 5e-6, 3e-7}, finding W(tol)/sqrt(tol) = 15.3165 still holds (off-grid spread ~3.1e-6; ' +
+      'full seven-tolerance union spread ~1.6e-5) and recovering the identical curvature.\n\n' +
+      'Together the two measurements are COMPLEMENTARY, not redundant: imp-35411 supplies the discovery and the ' +
+      'decade-grid sweep, imp-35476 supplies the independent off-grid cross-check that rules out decade-sampling ' +
+      'coincidence. Agreement across seven tolerances spanning four decades, on- and off-grid, is the signature ' +
+      'of a genuine smooth quadratic maximum sigma(N) ~ sigma_max - (k/2)(ln N - ln N_max)^2, not a numerical ' +
+      'fluke of the sampling grid.\n\n' +
+      'HOW TO APPLY: cite imp-35411 for the discovery of the sqrt(tol) law and imp-35476 for the off-grid ' +
+      'corroboration when a future module needs to assert the plateau law is a genuine feature of sigma(N), ' +
+      'not a sampling artifact.\n\n' +
+      'HONEST SCOPE: cross-reference only; measurement on the inherited imp-3220/imp-3406 surrogate, NOT a ' +
+      'rigorous asymptotic; the surrogate-vs-true fidelity half (imp-35337a) stays OPEN; changes no bound; no ' +
+      'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35546 (cross-reference note linking imp-35411 and imp-35476), 2026',
+    relatedTerms: [
+      'imp-35411 discovers W(tol)/sqrt(tol) = 15.3165 on the four decade-aligned tolerances (imp-35411)',
+      'imp-35476 corroborates the same constant on three off-grid tolerances, ruling out decade-sampling coincidence (imp-35476)',
+      'imp-35337 dd-certifies the underlying sigma(N) peak VALUE this plateau law is measured against (imp-35337)',
+      'imp-35337a the surrogate-vs-true fidelity sub-gap both measurements inherit and leave OPEN (imp-35337a)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

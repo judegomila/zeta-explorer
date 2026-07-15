@@ -8809,6 +8809,14 @@ const DATA_MODULES = [
   // table one further decade. MEASUREMENT ONLY, C_mb GUE-conditional per imp-486
   // UNTOUCHED, changes no bound, NO QED.
   '/src/data/imp-35410-far-tail-sigma-1e-4-threshold-three-way-shares.js',
+  // imp-35732: closes the imp-35677 fixed-E_flow CAVEAT by MEASURING the true N-scaling of the
+  // E_flow share across sigma = {1e-3, 1e-4, 1e-5, 1e-6} (reuses imp-35410 parts()/bisection
+  // verbatim): the E_flow share is NOT fixed at ~5.655e-9 -- it vanishes ~80x per sigma-decade
+  // (far faster than the residual GUE share's 10x), so the fixed literal overstated the interior
+  // bucket share by ~77x/6102x/495611x; the (1-sigma) bucket is overwhelmingly E_trunc. Residual
+  // GUE share stays = sigma exactly; MEASUREMENT ONLY, C_mb GUE-conditional per imp-486 UNTOUCHED,
+  // changes no bound, NO QED.
+  '/src/data/imp-35732-eflow-share-true-nscaling-interior-bucket-split.js',
   // imp-35699: MEASURES the imp-35654 POST-PORT unconditional share 1 - sigma across the
   // imp-35337 interior peak + imp-35334 sigma landmarks and locates where it first exceeds
   // 0.9999 (N ~ 6.165e17, = imp-35410 sigma<1e-4) and 0.99999 (N ~ 6.889e19, sigma<1e-5),

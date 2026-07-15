@@ -8245,6 +8245,12 @@ const DATA_MODULES = [
   // Located on the imp-35337 double surrogate (dd-certified to ~1e-16); MEASUREMENT ONLY; imp-35337a stays
   // OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35411-sigma-peak-plateau-width.js',
+  // imp-35450: DIRECTLY measures the imp-35411 interior sigma-peak curvature k=-d^2 sigma/d(lnN)^2 by a central
+  // finite-difference second derivative at N_max~9.219e5 (FD-step sweep converges monotonically to ~6.43191e-3),
+  // and cross-checks it against the imp-35411 width-INFERRED k~6.4319e-3 (agree to ~2e-7 relative -- two
+  // independent routes pin the same curvature). Located on the imp-35337 double surrogate (dd-certified to
+  // ~1e-16); MEASUREMENT ONLY; imp-35337a stays OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35450-sigma-peak-curvature-direct-fd.js',
   // imp-35417: INDEPENDENTLY corroborates the imp-35337 sigma-landmark double-vs-dd agreement figures on a
   // DISTINCT dd evaluation order (separated sqrt(log T0)/sqrt(N) via full dd/dd division, versus the imp-35337
   // fused sqrt-of-a-quotient) and a DISTINCT half-decade node grid. The interior peak log10 N delta stays a

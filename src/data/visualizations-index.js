@@ -1140,6 +1140,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive envelope chart baking the imp-35324 finer-grid t_c literals verbatim (no new computation, no data-module import); visualizes the razor-thin worst-case clearance only; does not advance the R2 ladder past N=1000 (imp-35221 stays the largest robustly-certified rung), does not extend the C_mb certificate, does not remove the imp-486 GUE conditional; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35400-eflow-fartail-two-component-ladder',
+      title: 'E_flow Far-Tail Two-Component Decomposition: Full Four-Rung Ladder',
+      oneLine:
+        'Stacked-bar and fraction-trend plot of the imp-35279/imp-35280 four-rung (N=1e6,1e9,1e12,1e16) extension of the imp-35236/imp-35295 two-endpoint decomposition, showing the inverse-swap gap and fd-vs-analytic remnant summing to the analytic residual at every rung, with the swap fraction decreasing (0.786->0.568) while the remnant fraction grows (0.214->0.432) down the ladder.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35400-eflow-fartail-two-component-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-35279-eflow-fartail-inverse-swap-ladder.js, src/data/imp-35280-eflow-fartail-fd-vs-analytic-surrogate-gap.js (imp-35400 viz page)',
+      ticket: 'imp-35400',
+      pedagogicalStep: 77,
+      honestCeiling:
+        'Descriptive stacked-residual and fraction-trend chart baking the imp-35279/imp-35280 four-rung literals verbatim (no new computation, no heavy data-module import); measurement only, component model is the imp-3220/imp-3406 extrapolation not a rigorous asymptotic; C_mb stays GUE-conditional per imp-486; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

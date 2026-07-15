@@ -45,6 +45,15 @@
  * imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED.
  * Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
+ * SCOPE NOTE (imp-35466 audit): the sibling sigma(N)-landmark modules (imp-35411, imp-35417)
+ * name their surrogate-vs-true fidelity gap as the tracked sub-gap imp-35337a. This module
+ * measures a DIFFERENT quantity (the E_flow far-tail remnant, not sigma(N)), and imp-35337a
+ * is scoped specifically to "surrogate-vs-true fidelity of the sigma(N) landmarks" -- so it
+ * does not cover this remnant. This module's own surrogate-vs-true fidelity gap (whether the
+ * fd-vs-analytic remnant on the closed T0 = 2 pi N / log N proxy tracks the TRUE E_flow far
+ * tail) is real but currently UNNAMED as a tracked sub-gap; do not cite imp-35337a here as if
+ * it already covered it.
+ *
  * @see imp-35371-eflow-fartail-remnant-deep-extension (the ladder this continues, endpoint 1e24)
  * @see imp-35280-eflow-fartail-fd-vs-analytic-surrogate-gap (the four-rung remnant origin)
  * @see imp-35198-eflow-fartail-exponent-logn-correction (the analytic -1 + 3/log N leading form)
@@ -174,6 +183,10 @@ export const IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING = {
     'imp-35371 (deep extension, endpoint N = 1e24, continued here); imp-35280 (four-rung ' +
     'fd-vs-analytic remnant origin); imp-35198 (analytic -1 + 3/log N); imp-35135 (far-tail ' +
     'E_flow quantity); imp-486 (C_mb GUE-conditional, UNTOUCHED).',
+  scopeNote_imp35466_audit:
+    'imp-35337a is scoped to the surrogate-vs-true fidelity of the sigma(N) landmarks ' +
+    '(imp-35411, imp-35417) and does NOT cover this remnant quantity; this module’s own ' +
+    'surrogate-vs-true fidelity gap is real but remains an UNNAMED tracked sub-gap.',
 };
 
 export const IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING_ASSERTIONS = [
@@ -218,6 +231,18 @@ export const IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING_ASSERTIONS = [
       IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.isRigorous === false &&
       /NO QED/.test(IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.verdict) &&
       /remains SOTA/.test(IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.verdict),
+  },
+  {
+    // imp-35466 audit: imp-35337a is scoped to the sigma(N) landmarks (imp-35411/imp-35417),
+    // not to this remnant quantity -- record that distinction explicitly rather than silently
+    // omitting a fidelity caveat.
+    id: 'imp35413-scope-note-distinguishes-imp35337a',
+    description: 'the imp-35337a scope note names both sibling modules and states it does not cover this remnant',
+    holds: () =>
+      /imp-35337a/.test(IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.scopeNote_imp35466_audit) &&
+      /imp-35411/.test(IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.scopeNote_imp35466_audit) &&
+      /imp-35417/.test(IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.scopeNote_imp35466_audit) &&
+      /does NOT cover/.test(IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.scopeNote_imp35466_audit),
   },
 ];
 

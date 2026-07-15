@@ -17637,6 +17637,47 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this assessment (imp-486)',
     ],
   },
+  {
+    term: 'imp-35334 three-provenance-class distinction: E_coll (GUE-conditional), E_flow (unconditional), E_trunc (C_T barrier-lemma) are THREE distinct conditionalities of the E(N) bridge, not one bucket',
+    category: 'proof-status',
+    definition:
+      'A headword recording the imp-35334 assessment that the three sub-terms of the E(N) = E_trunc + ' +
+      'E_flow + E_coll bridge do NOT share one conditionality bucket -- they carry three DISTINCT ' +
+      'provenance classes. E_coll is GUE-conditional (imp-486 C_mb; C_H = 1/8 ansatz) -- the ONLY term ' +
+      'depending on the GUE pair-correlation hypothesis, and its share of E(N) is exactly the ratio ' +
+      'sigma(N) = E_coll/E(N). E_flow is unconditionally rigorous (imp-398), fully discharged, no GUE and ' +
+      'no C_T. E_trunc is "rigorous-modulo-C_T" (imp-2643/imp-2706 ledger), reclassified by imp-34791 from ' +
+      'an "effective constant C_T" to an UNPORTED BARRIER LEMMA (deterministic realness control above ' +
+      'T_PT, NO GUE, NO PCC) -- a residual that is sigma-BLIND, meaning it does not shrink as sigma decays.' +
+      '\n\n' +
+      'THE FINDING: as N grows and sigma(N) -> 0 (imp-33582 sigma<0.1 at N~3.213e11; imp-33620 sigma<0.01 ' +
+      'at N~4.624e13; imp-35334 sigma<1e-3 at N~5.432e15), the E(N) bridge becomes effectively ' +
+      'UNCONDITIONAL RELATIVE TO GUE ONLY -- the GUE-conditional share is exactly sigma and vanishes ' +
+      'monotonically -- but it does NOT become unconditional simpliciter. The bridge instead becomes ' +
+      'DOMINATED by E_trunc (share -> ~0.999 at the sigma<1e-3 landmark), whose imp-34791 barrier-lemma ' +
+      'residual carries a DIFFERENT, unremoved conditionality that never shrinks with N. The far tail ' +
+      'trades a vanishing GUE-conditional term for a bridge pinned by a C_T-conditional floor -- two ' +
+      'ORTHOGONAL conditionalities, and the sigma decay removes only the GUE one.' +
+      '\n\n' +
+      'HOW TO APPLY: whenever citing that the far-tail E(N) bridge is "effectively unconditional," specify ' +
+      'WHICH conditionality is meant -- GUE-unconditional (true, per imp-486 sigma decay) is not the same ' +
+      'claim as unconditional-in-full (false, per the surviving imp-34791 E_trunc barrier lemma). Treat ' +
+      'E_coll, E_flow, and E_trunc as three separate provenance ledgers, not one bucket, when auditing ' +
+      'which conditional hypotheses a given E(N) bound still depends on.' +
+      '\n\n' +
+      'HONEST SCOPE: assessment only (frontier-direction, NOT rigorous); the inherited imp-3220/imp-3406 ' +
+      'component model is unchanged; the imp-486 C_mb GUE-conditional share is UNTOUCHED; the imp-34791 ' +
+      'E_trunc = barrier-lemma reclassification is UNCHANGED; changes no bound; establishes no operator ' +
+      'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35427 (glossary headword recording the imp-35334 three-provenance-class distinction), 2026',
+    relatedTerms: [
+      'imp-35334 measures the sigma<1e-3 landmark and states this three-way decomposition (imp-35334)',
+      'imp-34791 reclassifies E_trunc from effective constant C_T to unported barrier lemma, the source of the C_T-conditionality this entry names (imp-34791)',
+      'imp-486 supplies the GUE-conditional C_mb / C_H ansatz that E_coll alone depends on (imp-486)',
+      'imp-398 supplies the E_flow C_F prefactor, the fully-unconditional rigorous term (imp-398)',
+      'imp-33620 the sigma<0.01 far-tail landmark this entry extends one further decade of sigma (imp-33620)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

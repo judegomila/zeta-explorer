@@ -17572,6 +17572,33 @@ export const glossary = [
       'imp-34862 the two-rate law bearing on R2, hence on R1t (imp-34862)',
     ],
   },
+  {
+    term: 'imp-35370 E_flow far-tail swap=half crossover: log10 N = 44.7593 (N ~ 5.745e44) where the inverse-swap gap and the closed-form/prefactor remnant become equal halves of the residual',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35370 finding on the imp-35279 E_flow far-tail inverse-swap FRACTION: ' +
+      'the fraction |fdSurr - fdTrue| / |analyticLead - fdTrue| decreases monotonically but only very slowly ' +
+      'past the imp-35279 N = 1e16 endpoint (0.557 at 1e18, 0.549 at 1e20, 0.535 at 1e24, 0.521 at 1e30, 0.505 ' +
+      'at 1e40) -- still above one-half forty decades further out. Bisecting the imp-35279 swappable-height-map ' +
+      'finite difference (bracketed between N = 1e44 at 0.5008 and N = 1e45 at 0.4998) to a 1e-7 fraction ' +
+      'tolerance locates the crossover at log10 N = 44.7593 (N ~ 5.745e44, ln N ~ 103.06).\n\n' +
+      'HOW TO APPLY: at that deep rung the inverse-swap gap and the closed-form/prefactor remnant are each ' +
+      'exactly HALF the analytic residual; for every N beyond it the remnant becomes the LARGER of the two ' +
+      'components. So the imp-35236 "whole-residual-is-the-swap" attribution stops being even approximately ' +
+      'dominant only at this astronomically deep, PT-irrelevant scale (vastly past the verified-height X ~ ' +
+      '3e12 of imp-audit) -- the swap dominance is extremely long-lived but NOT permanent.\n\n' +
+      'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 extrapolation, reproducing the ' +
+      'imp-35279/imp-35236 finite difference verbatim, NOT a rigorous asymptotic; E_flow > 0 strictness ' +
+      '(imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; no RH verdict, ' +
+      'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35422 (glossary headword recording the imp-35370 swap=half crossover), 2026',
+    relatedTerms: [
+      'imp-35279 the four-rung swap-fraction ladder (0.786->0.568) that stopped short of locating this crossover (imp-35279)',
+      'imp-35236 the whole-residual-is-the-swap attribution this crossover shows is not permanent (imp-35236)',
+      'imp-35280 the complementary fd-vs-analytic remnant framing that becomes the majority owner past the crossover (imp-35280)',
+      'imp-35217 the analytic leading exponent -1 + 3/log N used to form the residual here (imp-35217)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

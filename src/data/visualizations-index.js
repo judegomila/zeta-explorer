@@ -1292,6 +1292,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive plots re-exporting the imp-35535 ladder literals verbatim (no new computation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35580-req4-height-gap',
+      title: 'REQ-4 Required-Height Gap: log T0 Needed vs Actual Landmarks',
+      oneLine:
+        'Bar chart comparing the imp-35538 REQ-4 needed log-height (log T0 >= 200, for a natural O(1/log T0) route-(i) remainder to hit the 0.5% crossover budget) against the actual sigma-peak (~13.23) and crossover (~20.86) landmark log-heights and the Platt-Trudgian anchor (~28.73), showing the needed height is ~9.6x and ~7.0x those respectively.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35580-req4-height-gap-viz-data.js',
+      paperSourcePath: 'src/data/imp-35538-route-i-remainder-derivation-requirements.js (imp-35580 viz page)',
+      ticket: 'imp-35580',
+      pedagogicalStep: 88,
+      honestCeiling:
+        'Descriptive bar chart re-exporting the imp-35538 REQ-4 heightRegime literals verbatim (no new computation, no heavy data-module import); the needed log-height is a scoping estimate under a GUE local-law rate that does not yet rigorously exist (imp-35538 REQ 2); measurement only on the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

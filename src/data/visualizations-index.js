@@ -1436,6 +1436,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive chart re-exporting the imp-35675 Delta-ladder cost table verbatim (no new derivation, no heavy data-module import); presentation only, does not discharge the non-finite argument-principle tail lemma (imp-35653 Part D, W3); changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35386-kemp-bracketing-ladder',
+      title: 'Empirical Prefactor kEmp Across the imp-35076 Ladder',
+      oneLine:
+        'Scatter chart of the imp-35264 empirical prefactor kEmp(eps) at each imp-35076 finite-ladder rung (N in 1e3..1e7) against the imp-35240 confirmed closed form K = 8 sqrt(2)/(9 pi) = 0.400141, with the coarsest and finest rungs annotated as understood departures (physical O(eps) term; imp-35076 6-decimal storage floor).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-35386-kemp-bracketing-ladder-viz-data.js',
+      paperSourcePath: 'src/data/imp-35264-rho-prefactor-vs-imp35076-margin-crosscheck.js (imp-35386 viz page)',
+      ticket: 'imp-35386',
+      pedagogicalStep: 98,
+      honestCeiling:
+        'Descriptive chart re-exporting the imp-35264 crosscheck table verbatim (no new derivation, no heavy data-module import); presentation only on the inherited imp-3220/imp-3406/imp-33646 model-cusp surrogate; does NOT discharge O3 / H3 / H4 / G6a; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

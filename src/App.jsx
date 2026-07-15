@@ -879,6 +879,9 @@ const Imp35665PinskerBridgeViz = lazy(() =>
 const Imp35710WindingMeshCostDeltaLadderViz = lazy(() =>
   import('./pages/Imp35710WindingMeshCostDeltaLadderViz.jsx')
 );
+const Imp35386KempBracketingLadderViz = lazy(() =>
+  import('./pages/Imp35386KempBracketingLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2462,6 +2465,10 @@ function AppShell() {
           <Route
             path="/viz-imp35710-winding-mesh-cost-delta-ladder"
             element={<Imp35710WindingMeshCostDeltaLadderViz />}
+          />
+          <Route
+            path="/viz-imp35386-kemp-bracketing-ladder"
+            element={<Imp35386KempBracketingLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

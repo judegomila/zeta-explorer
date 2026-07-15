@@ -19510,6 +19510,36 @@ export const glossary = [
       'imp-35243 baked the single DRIFT_PER_DECADE=0.0187 constant this headword shows is an edge value, not a band-constant (imp-35243)',
     ],
   },
+  {
+    term: 'imp-35370 E_flow Far-Tail Swap Fraction Half-Crossover (log10 N = 44.7593)',
+    category: 'numerical',
+    definition:
+      'A headword naming the imp-35370 deep rung where the imp-35279 E_flow far-tail inverse-swap ' +
+      'FRACTION -- monotone decreasing from 0.786 at N=1e6 -- first falls to exactly one-half.\n\n' +
+      'imp-35279 measured the swap fraction (the share of the analytic residual attributable to ' +
+      'swapping the closed RvM surrogate height map for the true effectiveHeightForN inverse) as ' +
+      '0.786/0.648/0.600/0.568 at N = 1e6/1e9/1e12/1e16, still dominant but never the SOLE component. ' +
+      'imp-35370 continued the same swappable-height-map finite difference deeper -- 0.557 at 1e18, ' +
+      '0.549 at 1e20, 0.535 at 1e24, 0.521 at 1e30, 0.505 at 1e40 -- and bisected the fraction to a ' +
+      '1e-7 tolerance, locating the swapFraction = 0.5 root at log10 N = 44.7593 (N ~ 5.745e44, ' +
+      'ln N ~ 103.06).\n\n' +
+      'At that crossover the inverse-swap gap and the closed-form/prefactor remnant are each exactly ' +
+      'HALF the analytic residual; for every N beyond it the remnant becomes the LARGER of the two ' +
+      'components, so the imp-35236 whole-residual-is-the-swap attribution stops being even ' +
+      'approximately dominant past this rung -- vastly deeper than any verified-height or ' +
+      'Platt-Trudgian-relevant scale (X ~ 3e12).\n\n' +
+      'HONEST SCOPE: measurement only, reproducing the imp-35279/imp-35236 finite difference on the ' +
+      'inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; E_flow > 0 strictness ' +
+      '(imp-33848) untouched; C_mb GUE-conditional per imp-486 untouched; changes no bound; no ' +
+      'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35440 (glossary headword documenting the imp-35370 swap-fraction half-crossover), 2026',
+    relatedTerms: [
+      'imp-35279 tabulated the four-rung swap-fraction ladder (0.786->0.568) this crossover extends (imp-35279)',
+      'imp-35236 isolated the inverse-swap component this crossover shows is not permanently dominant (imp-35236)',
+      'imp-35280 supplies the complementary fd-vs-analytic remnant framing that overtakes the swap past this rung (imp-35280)',
+      'imp-35217 attributed the residual to the inverse gap, refined here to hold only below the crossover (imp-35217)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

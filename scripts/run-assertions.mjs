@@ -8549,6 +8549,32 @@ const DATA_MODULES = [
   // GUE-conditional per imp-486 UNTOUCHED; E_flow > 0 strictness (imp-33848) untouched; changes no bound;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35473-eflow-fartail-remnant-sub1e4-crossing.js',
+  // imp-35496: SPLITS the imp-35413/imp-35454 E_flow far-tail fd-vs-analytic remnant into its two exact
+  // closed-form contributions -- the C_F PREFACTOR-form residual (A - 1/x) and the log-T0 Taylor-truncation
+  // residual (B - 1/x) -- to test whether either alone carries a c/log N tail (a floor imp-35454 could only
+  // rule out in aggregate). On the closed surrogate T0 = 2 pi N / log N the exact log-log exponent is
+  // (1-1/x)[1/(x-log x+1) + 1/L - 1]; each of A, B and the +1/x half of the T0 term supplies one leading
+  // +1/x, so the imp-35198 analytic -1 + 3/x is their sum (the "3") and the split is apportionment-free (the
+  // T0 term is residual-free). Continuing to N = 1e120, BOTH component products drift DOWN monotonically
+  // (prefactor 0.03533 -> 0.01333, Taylor 0.02138 -> 0.01021) and sum to remnant*log N to finite-difference
+  // precision -- so NEITHER carries a c/log N tail; the imp-35454 vanishing is component-wise, not a
+  // cancellation. Seven self-executing assertions. Measurement only on the inherited imp-3220/imp-3406
+  // surrogate; C_mb GUE-conditional per imp-486 UNTOUCHED; E_flow > 0 strictness (imp-33848) untouched;
+  // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35496-eflow-fartail-remnant-two-component-split.js',
+  // imp-35497: HEIGHT-MAP sensitivity of the imp-35413 E_flow far-tail remnant sub-1e-3 crossing
+  // (N ~ 4.17e25, log10 N ~ 25.6205). Applies the imp-35458 method: recompute the crossing with ONLY
+  // the height map swapped from the closed surrogate T0 = 2 pi N / log N to the EXACT RvM inverse
+  // effectiveHeightForN (Newton solve of (T/2pi)(log(T/2pi)-1) = N, inlined pure-Math). FINDING: the
+  // RvM inverse sits ~9.1 percent above the surrogate at N = 1e26 (an O(1/log T0) divergence in the
+  // imp-486 5-8 percent band), which roughly DOUBLES the fd-vs-analytic remnant (0.001097 -> 0.002360
+  // at N = 1e24, because the imp-35198 analytic -1 + 3/log N reference is a surrogate-channel form) and
+  // pushes the sub-1e-3 crossing from log10 N ~ 25.6205 (4.17e25) out to log10 N ~ 40.9350 (8.61e40) --
+  // a +15.31-decade / ~2.06e15 shift. VERDICT: the sub-1e-3 crossing landmark is NOT robust; it is a
+  // self-consistency feature of the closed surrogate channel, not an intrinsic far-tail scale. Six
+  // self-executing assertions. Measurement only on the inherited imp-3220/imp-3406 surrogate; C_mb
+  // GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35497-fartail-crossing-height-map-sensitivity.js',
   // imp-35317: derives Banach-fixed-point CLOSED FORMS for the imp-35210 L2 (E_flow share < 1% of the
   // above-floor residual E_coll + E_flow, ~3.246862e7) and L4 (share < 0.1%, ~1.754552e10) landmarks,
   // which imp-35154 M2/M3 located by downslope bisection only -- mirroring the imp-35153 (L1) and

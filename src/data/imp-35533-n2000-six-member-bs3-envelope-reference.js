@@ -71,6 +71,8 @@
  * @see imp-35412  R2 KEEP verdict that keeps the endpoint DP45 dt/2 worst-case
  */
 
+import { IMP_35474_DENSE_ENVELOPE_MAX_REVERIFY_REFERENCE } from './imp-35474-dense-envelope-max-reverify-reference.js';
+
 // -- DP45 dense members (imp-35351 DENSE_REFERENCES). -----------------------------
 const DP45_DT = 0.0011923008536;      // imp-35351 dense, dt = tauC_est/1000
 const DP45_DTHALF = 0.0011919828898;  // imp-35351 dense, dt/2 within-step step-over
@@ -274,6 +276,28 @@ export const IMP_35533_SIX_MEMBER_BS3_ENVELOPE_REFERENCE_ASSERTIONS = [
       'Both BS3 members clear t_c_hi=1.2e-3 on their own (slacks +7.6193081e-6 and ' +
       '+7.8979626e-6) and sit strictly below the RK4 dt/2 argmax, consistent with ' +
       'the imp-35477 scheme-invariance finding.',
+  },
+  {
+    id: 'imp35533-cross-module-consistency-with-imp35474',
+    holds: () => {
+      const liveFour = IMP_35474_DENSE_ENVELOPE_MAX_REVERIFY_REFERENCE.fold;
+      return (
+        liveFour.argmaxKey === FOUR.argmaxKey &&
+        liveFour.argminKey === FOUR.argminKey &&
+        Math.abs(liveFour.max - FOUR.max) < 1e-16 &&
+        Math.abs(liveFour.min - FOUR.min) < 1e-16 &&
+        Math.abs(liveFour.max - SIX.max) < 1e-16 &&
+        Math.abs(liveFour.min - SIX.min) < 1e-16
+      );
+    },
+    why:
+      'This module derives its own FOUR-member baseline from duplicated raw ' +
+      'literals rather than importing imp-35474 directly, so a future edit to ' +
+      'the imp-35474 module could silently drift out of sync. This assertion ' +
+      'imports imp-35474 LIVE and checks its actual exported argmax/argmin/max/ ' +
+      'min still match both the locally recomputed FOUR baseline and the ' +
+      'SIX-member fold above -- a genuine cross-module regression guard, not a ' +
+      'self-check against the same hardcoded numbers.',
   },
   {
     id: 'imp35533-measurement-only-no-qed',

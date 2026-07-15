@@ -1331,6 +1331,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive table/bars re-exporting the imp-35451 arm_asymmetry table and cubic-skew cross-check verbatim (no new computation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; the imp-35337a surrogate-vs-true fidelity sub-gap REMAINS OPEN; C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35593-peak-damping',
+      title: 'Peak-Location vs Crossover Height-Map Damping',
+      oneLine:
+        'Paired bars contrasting the imp-35574 peak-LOCATION height-map damping factor (~0.553, amplified) against the imp-35458 crossover damping factor (~18x, log-damped) across the raw-height gap, relative landmark shift, and damping factor, with the ~32.55x crossover-vs-peak readout.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35593-peak-damping-viz-data.js',
+      paperSourcePath: 'src/data/imp-35574-peak-location-height-map-damping.js (imp-35593 viz page)',
+      ticket: 'imp-35593',
+      pedagogicalStep: 91,
+      honestCeiling:
+        'Descriptive paired-bar chart re-exporting the imp-35574 peak/rawHeightGapAtPeak/dampingComparison fields verbatim (no new computation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; the imp-35337a surrogate-vs-true fidelity sub-gap REMAINS OPEN; C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

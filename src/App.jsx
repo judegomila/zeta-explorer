@@ -855,6 +855,9 @@ const Imp35582ReentryBandDataUnreachabilityViz = lazy(() =>
 const Imp35587ArmAsymmetryViz = lazy(() =>
   import('./pages/Imp35587ArmAsymmetryViz.jsx')
 );
+const Imp35593PeakDampingViz = lazy(() =>
+  import('./pages/Imp35593PeakDampingViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2406,6 +2409,10 @@ function AppShell() {
           <Route
             path="/viz-imp35587-arm-asymmetry"
             element={<Imp35587ArmAsymmetryViz />}
+          />
+          <Route
+            path="/viz-imp35593-peak-damping"
+            element={<Imp35593PeakDampingViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -18653,6 +18653,40 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this order-mismatch reading (imp-486)',
     ],
   },
+  {
+    term: 'imp-35558 R2 ladder-advance DECISION: necessary-not-sufficient, ladder stays at N=1000',
+    category: 'numerical',
+    definition:
+      'A headword collecting the imp-35558 DECISION record on whether the imp-35324 finer-base-grid ' +
+      '(dt = tauC/4000) N=2000 four-of-four (0, 1e-4)-gate clearance is enough to advance the imp-35104 ' +
+      'R2 order-robust ladder past its imp-35221 N=1000 rung. DECISION: NOT-SUFFICIENT -- the ladder ' +
+      'stays at N=1000. The finer grid is real, NECESSARY strengthening (it upgrades the imp-35235 ' +
+      'three-of-four worst-case FAILURE to a four-of-four PASS), but the N=2000 clearance is ' +
+      'qualitatively weaker than the rung it would supersede: worst-case slack 6.156800e-8, ~1579x ' +
+      'SMALLER than the certified N=1000 slack of 9.72e-5, and its dt/2 cross-family gap is 7.576e-6 ' +
+      '(NONZERO), breaking the full-precision tie both dt/2 families hold exactly at N=1000.\n\n' +
+      'RESIDUAL BLOCKERS: B1 marginal-clearance knife-edge (mitigated on tauC/16000 but the confirming ' +
+      'tauC/32000 rung is DEFERRED) and B4 rung-stays-provisional (needs a certified grid-convergence ' +
+      'term Delta_grid per imp-35455 C1) are DECISIVE; B2 endpoint-positivity scheme split (imp-35416, ' +
+      'genuine per imp-35490 double-double, but crossing location scheme-invariant) and B3 no ' +
+      'up-ladder generalization (imp-35353: envelope persists at N=3000, breaks at N=4000) are ' +
+      'characterized but not independently blocking once B1/B4 land.\n\n' +
+      'HOW TO APPLY: cite this entry when the imp-35324 finer-grid clearance is proposed as grounds to ' +
+      'certify the R2 ladder at N=2000 -- a conservative one-sided upper bound (imp-2528 semantics) ' +
+      'may not rest its largest certified rung on a knife-edge a coarser sibling rung clears by three ' +
+      'orders of magnitude.\n\n' +
+      'HONEST SCOPE: assessment / decision-record only; advances no rung by fiat; changes no bound; ' +
+      'extends no C_mb certificate; removes no imp-486 GUE conditional; no operator positivity; no RH ' +
+      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35623 (glossary/Concepts headword for the imp-35558 R2 ladder-advance decision), 2026',
+    relatedTerms: [
+      'imp-35558 is the decision-record module this headword documents (imp-35558)',
+      'imp-35324 supplies the N=2000 finer-grid clearance this decision assesses (imp-35324)',
+      'imp-35221 is the certified N=1000 rung the ladder stays at (imp-35221)',
+      'imp-35455 C1 (certified Delta_grid) is the decisive B4 blocker to promote N=2000 (imp-35455)',
+      'imp-35353 shows the four-of-four envelope breaks at N=4000, the B3 blocker (imp-35353)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

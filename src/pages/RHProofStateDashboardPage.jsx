@@ -12,6 +12,7 @@ import { SECTION26_VERDICT } from '../data/section26-verdict-volterra-not-a-redu
 import { CAUGHT_OVERCLAIMS } from '../data/overclaim-ledger.js';
 import { IMP35653_SBARRIER_FINITE_CHECK_PORTING_SCOPE } from '../data/imp-35653-sbarrier-finite-check-porting-scope.js';
 import { IMP35681_W1_W2_W4_EXISTING_INFRA_INVENTORY } from '../data/imp-35681-w1-w2-w4-existing-infra-inventory.js';
+import { IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER } from '../data/imp-35711-postport-parity-no-beat-honest-status-banner.js';
 import ProofTierSummary from '../components/ProofTierSummary.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 
@@ -451,6 +452,17 @@ export default function RHProofStateDashboardPage() {
             Close G5_burgers Koksma&ndash;Hlawka result (S7 uniformity of the finite-N empirical Stieltjes
             transform) &mdash; a different thread with no bearing on off-line zero verification to T_PT.
             No bound is asserted here; PT Λ≤0.2 remains SOTA.
+          </div>
+
+          {/* imp-35749: imp-35711 PROMINENT-level post-port parity-no-beat honest-status banner */}
+          <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.35)', fontSize: 11.5, color: '#e2e8f0', lineHeight: 1.6 }}>
+            <strong style={{ color: '#f87171' }}>{IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER.headline}:</strong>{' '}
+            The imp-35654 post-port far-tail bridge becomes asymptotically unconditional (residual
+            GUE-conditional share σ&nbsp;&rarr;&nbsp;0) but is <strong>still only parity-with-PT</strong> — the
+            ported machinery IS PT&apos;s own Λ&nbsp;&le;&nbsp;0.2 barrier theorem (imp-35419 C2), so it matches
+            0.2 and does not beat it. σ is nonzero at every finite N, and C_mb stays GUE-conditional per
+            imp-486, untouched by the port. Documentation only — no bound changes; PT Λ&nbsp;&le;&nbsp;0.2
+            remains SOTA.
           </div>
 
           {/* E_flow */}

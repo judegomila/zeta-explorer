@@ -17724,6 +17724,42 @@ export const glossary = [
       'imp-35263 is the dedicated R1 EPS_FP floor-sweep ticket (imp-35263)',
     ],
   },
+  {
+    term: 'imp-35414 R1s lemma: hypotheses H1-H4, the identically-zero pointwise-in-N conclusion lim B_N(EPS_FP) = 0, and the exact-identity mechanism -log(EPS_FP)/ln(1/r)',
+    category: 'proof-status',
+    definition:
+      'A headword recording the imp-35414 formalization of the imp-35357 R1s surrogate result as one precise ' +
+      'self-contained lemma statement (previously running prose across three axis paragraphs). HYPOTHESES: ' +
+      'H1 (contraction) r in (0,1) so ln(1/r) > 0 and the floor-free gap dist_n = dist_0 * r^n > 0 for every ' +
+      'finite n, -> 0 only as n -> +infinity; H2 (floor) EPS_FP in (0,1) a strictly positive relative agreement ' +
+      'floor with collapseDist(seed) > 0; H3 (count map) the terminal count is the ceil-quantized integer ' +
+      'n(seed, EPS_FP) = ceil(xArg), xArg = [log(collapseDist(seed)) - log(EPS_FP)] / ln(1/r); H4 (band ' +
+      'indicator) B_N(EPS_FP) in {0,1} indicates the fixed seed N lies in the ceil-phase reentry band at floor ' +
+      'EPS_FP.\n\n' +
+      'CONCLUSION: for every FIXED finite seed N there is a threshold EPS_FP*(N) > 0 with B_N(EPS_FP) = 0 for ' +
+      'all 0 < EPS_FP < EPS_FP*(N); equivalently lim_{EPS_FP -> 0+} B_N(EPS_FP) = 0 for every fixed finite N -- ' +
+      'an EXACT identically-zero pointwise-in-N limit, NOT a mere sub-EPS_FP smallness statement.\n\n' +
+      'MECHANISM: EPS_FP enters xArg ONLY via the additive term -log(EPS_FP)/ln(1/r), so d xArg / d log(EPS_FP) ' +
+      '= -1/ln(1/r) is an EXACT seed-independent identity; as EPS_FP -> 0+ this term -> +infinity and the count ' +
+      'n(seed, EPS_FP) -> +infinity uniformly on any bounded seed set, so the band position (monotone in ' +
+      'EPS_FP by imp-35243 D1) recedes to seed -> +infinity and, being monotone, never returns below any fixed ' +
+      'finite N.\n\n' +
+      'HOW TO APPLY: cite imp-35414 for the precise H1-H4/conclusion/mechanism statement of R1s -- distinct ' +
+      'from imp-35357, which established the result but left it as prose. The lemma is scoped strictly to the ' +
+      'SURROGATE contraction map: it does NOT touch OPEN R1t (the true collapse dynamic has no band at ' +
+      '~10^27-10^37), which stays entangled with R2 (single-rate fidelity) and R3 (height-map fidelity).\n\n' +
+      'HONEST SCOPE: formalization only on the inherited imp-3220/imp-3406 surrogate; discharges nothing; ' +
+      'R1t / imp-35243a / imp-35111a / imp-35174a / imp-34997a stay OPEN; C_mb GUE-conditional per imp-486 ' +
+      'UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35461 (glossary headword recording the imp-35414 R1s lemma H1-H4/conclusion/mechanism), 2026',
+    relatedTerms: [
+      'imp-35357 established R1s in prose across three axis paragraphs; imp-35414 formalizes it as one lemma (imp-35357)',
+      'imp-35243 supplies the D1 floor-sensitivity/monotone-band-slide facts the mechanism cites (imp-35243)',
+      'imp-35330 CLAIM 1 the reentry-band fidelity requirement R1 whose surrogate half this lemma formalizes (imp-35330)',
+      'imp-34862 the two-rate law bearing on R2, hence on the OPEN R1t this lemma explicitly excludes (imp-34862)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

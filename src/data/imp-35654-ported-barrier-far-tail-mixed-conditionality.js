@@ -255,3 +255,166 @@ for (const a of IMP35654_PORTED_BARRIER_FAR_TAIL_MIXED_CONDITIONALITY_ASSERTIONS
     throw new Error(`imp-35654-ported-barrier-far-tail-mixed-conditionality assertion failed: ${a.id}`);
   }
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// imp-35702 RECONCILIATION: which E_trunc feeds the landmark share arithmetic?
+// ─────────────────────────────────────────────────────────────────────────────
+// The far-tail share decomposition above uses C_T-barrier share = E_trunc/E(N) = 0.999,
+// but TWO competing E_trunc values live in the ledger and were never reconciled for THIS
+// arithmetic:
+//   imp-2631 clean count floor       E_trunc = 3.06e-5   (the value imp-35334 baked here)
+//   imp-34791/imp-35653 R2-corrected E_trunc = 5.106e-5  (parts-corrected count, ~1.67x)
+// KEY OBSERVATION: the imp-35334 landmark is DEFINED by the DIMENSIONLESS ratio
+// sigma = E_coll/E(N) = 1e-3, so the GUE share is fixed at sigma REGARDLESS of the E_trunc
+// scale. The remaining 1 - sigma is split between the E_trunc floor and the invariant
+// E_flow constant (imp-398). Because E_flow is ~1e-13 (nine orders below E_trunc), the
+// split is 0.999 : ~5e-9 either way -- the E_trunc absolute scale only moves WHICH N is the
+// landmark, NOT the two headline shares AT it. MEASUREMENT ONLY; no bound changes.
+const E_TRUNC_CLEAN_IMP2631 = 3.06e-5; // imp-2631 clean count floor (imp-35334 baked provenance)
+const E_TRUNC_CORRECTED_IMP34791 = 5.106e-5; // imp-34791/imp-35653 R2 parts-corrected count
+const E_TRUNC_COLLISION_RATIO = E_TRUNC_CORRECTED_IMP34791 / E_TRUNC_CLEAN_IMP2631; // ~1.6686
+
+// Back out the invariant physical constants from the baked landmark (E_trunc = clean value):
+// C_T share = E_trunc/E(N) = 0.999  =>  E(N) = E_trunc/0.999 ; E_flow = (E_flow share)*E(N).
+const E_N_LANDMARK_ABS = E_TRUNC_CLEAN_IMP2631 / CT_BARRIER_SHARE; // total E(N) at the landmark
+const E_FLOW_ABS = UNCONDITIONAL_SHARE_PREPORT * E_N_LANDMARK_ABS; // ~1.732e-13, invariant (imp-398)
+
+// Recompute the landmark shares holding sigma = 1e-3 fixed (landmark definition) and
+// splitting the remaining 1 - sigma between the given E_trunc and the invariant E_flow.
+function imp35702LandmarkShares(eTrunc) {
+  const denom = eTrunc + E_FLOW_ABS;
+  return {
+    GUE: SIGMA_LANDMARK, // = sigma, exactly (landmark definition, E_trunc-independent)
+    C_T: (1 - SIGMA_LANDMARK) * (eTrunc / denom), // E_trunc/E(N)
+    unconditional: (1 - SIGMA_LANDMARK) * (E_FLOW_ABS / denom), // E_flow/E(N)
+  };
+}
+const SHARES_CLEAN = imp35702LandmarkShares(E_TRUNC_CLEAN_IMP2631);
+const SHARES_CORRECTED = imp35702LandmarkShares(E_TRUNC_CORRECTED_IMP34791);
+// The only material shift is the negligible E_flow bucket (5.655e-9 -> ~3.389e-9), which
+// moves inversely to E_trunc (a smaller E_flow fraction of a larger floor). The two headline
+// shares (GUE=1e-3, C_T=0.999) are byte-identical to 6 sig figs under both E_trunc values.
+const IMP35702_CT_SHARE_SHIFT = Math.abs(SHARES_CORRECTED.C_T - SHARES_CLEAN.C_T); // ~2.27e-9
+const IMP35702_UNCOND_SHARE_SHIFT = Math.abs(SHARES_CORRECTED.unconditional - SHARES_CLEAN.unconditional); // ~2.27e-9
+
+export const IMP35702_ETRUNC_LANDMARK_SHARE_RECONCILIATION = {
+  id: 'imp-35702',
+  proofSection: 'S-frontier',
+  question:
+    'Reconcile which E_trunc value feeds the imp-35654 far-tail share arithmetic (E_trunc/E(N)=0.999): the ' +
+    'imp-2631 3.06e-5 clean floor vs the imp-34791/imp-35653 R2 parts-corrected 5.106e-5 (~1.67x apart), ' +
+    'and measure whether the constant difference shifts the sigma<1e-3 landmark shares. Measurement only; ' +
+    'changes no bound; NO QED.',
+  eTruncCandidates: {
+    clean_imp2631: E_TRUNC_CLEAN_IMP2631, // 3.06e-5 (imp-35334 baked provenance)
+    corrected_imp34791: E_TRUNC_CORRECTED_IMP34791, // 5.106e-5 (imp-34791/imp-35653 R2-corrected)
+    ratio: +E_TRUNC_COLLISION_RATIO.toFixed(6), // ~1.668627
+  },
+  invariantConstants: {
+    note: 'Backed out of the baked landmark; E_flow is an imp-398 physical constant, E_trunc-independent.',
+    E_N_landmark: E_N_LANDMARK_ABS, // ~3.063e-5
+    E_flow_abs: E_FLOW_ABS, // ~1.732e-13
+  },
+  landmarkSharesUnderEachETrunc: {
+    withClean_3p06e5: {
+      GUE: SHARES_CLEAN.GUE,
+      C_T: +SHARES_CLEAN.C_T.toFixed(9),
+      unconditional: +SHARES_CLEAN.unconditional.toExponential(4),
+    },
+    withCorrected_5p106e5: {
+      GUE: SHARES_CORRECTED.GUE,
+      C_T: +SHARES_CORRECTED.C_T.toFixed(9),
+      unconditional: +SHARES_CORRECTED.unconditional.toExponential(4),
+    },
+  },
+  measuredShifts: {
+    C_T_share_shift: +IMP35702_CT_SHARE_SHIFT.toExponential(4), // ~2.27e-9
+    unconditional_share_shift: +IMP35702_UNCOND_SHARE_SHIFT.toExponential(4), // ~2.27e-9
+    GUE_share_shift: Math.abs(SHARES_CORRECTED.GUE - SHARES_CLEAN.GUE), // exactly 0
+  },
+  isRigorous: false,
+  verdict:
+    'RECONCILIATION (measurement only, NOT rigorous). The imp-35654 landmark is DEFINED by the ' +
+    'dimensionless ratio sigma = E_coll/E(N) = 1e-3, so the GUE share is pinned to sigma and the C_T-barrier ' +
+    'share to 1 - sigma - (E_flow/E(N)) INDEPENDENTLY of the E_trunc absolute scale. Substituting the ' +
+    'imp-34791/imp-35653 R2-corrected E_trunc = 5.106e-5 for the imp-2631 clean 3.06e-5 (a ~1.67x change) ' +
+    'leaves the two HEADLINE landmark shares byte-identical to 6 sig figs: GUE = 1.000000e-3 (unchanged, ' +
+    'shift exactly 0) and C_T = 0.999000 (shift ~2.27e-9). The ENTIRE effect of the constant collision is ' +
+    'absorbed in the negligible fully-unconditional E_flow bucket, which moves inversely ~1.67x from ' +
+    '5.655e-9 to ~3.389e-9 -- nine orders below the dominant C_T share and six below the GUE share. So ' +
+    'the E_trunc value that feeds the share arithmetic is IMMATERIAL to the landmark decomposition: the ' +
+    'absolute E_trunc scale sets only WHICH N is the sigma<1e-3 landmark, not the shares AT it. Neither ' +
+    'candidate legitimately privileges the other for this arithmetic; both are the same vestigial count ' +
+    'artifact (imp-35653 W4 retires either to exactly zero). Changes no bound; C_mb GUE-conditional ' +
+    '(imp-486) UNTOUCHED; imp-34791 E_trunc reclassification UNCHANGED; no RH verdict, NO QED. ' +
+    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+  citation:
+    'imp-35654 (far-tail mixed-conditionality landmark shares); imp-35334 (sigma<1e-3 landmark, baked on ' +
+    'the 3.06e-5 floor); imp-2631 (clean count floor 3.06e-5); imp-34791 (E_trunc R2 parts-correction ' +
+    '5.106e-5; barrier-lemma reclassification); imp-35653 (W4 retires the count artifact); imp-398 ' +
+    '(E_flow fully unconditional).',
+};
+
+export const IMP35702_ETRUNC_LANDMARK_SHARE_RECONCILIATION_ASSERTIONS = [
+  {
+    // The two E_trunc candidates are the ~1.67x collision the ticket flags.
+    id: 'imp35702-etrunc-collision-ratio-1p67x',
+    description: 'imp-34791/imp-35653 corrected E_trunc = 5.106e-5 is ~1.67x the imp-2631 clean 3.06e-5',
+    holds: () =>
+      E_TRUNC_CLEAN_IMP2631 === 3.06e-5 &&
+      E_TRUNC_CORRECTED_IMP34791 === 5.106e-5 &&
+      E_TRUNC_COLLISION_RATIO > 1.6 &&
+      E_TRUNC_COLLISION_RATIO < 1.7,
+  },
+  {
+    // The GUE headline share is defined by sigma and is EXACTLY invariant to the E_trunc choice.
+    id: 'imp35702-gue-share-exactly-invariant',
+    description: 'GUE share = sigma = 1e-3 is byte-identical under both E_trunc values (shift exactly 0)',
+    holds: () =>
+      SHARES_CLEAN.GUE === SIGMA_LANDMARK &&
+      SHARES_CORRECTED.GUE === SIGMA_LANDMARK &&
+      SHARES_CORRECTED.GUE - SHARES_CLEAN.GUE === 0,
+  },
+  {
+    // The dominant C_T headline share is invariant to 6 sig figs (shift ~2.3e-9, below display precision).
+    id: 'imp35702-ct-headline-share-invariant-to-6-sig-figs',
+    description: 'C_T-barrier share stays 0.999000 under both E_trunc values; the ~1.67x swap shifts it by only ~2.3e-9',
+    holds: () =>
+      Math.abs(SHARES_CLEAN.C_T - CT_BARRIER_SHARE) < 1e-6 &&
+      Math.abs(SHARES_CORRECTED.C_T - CT_BARRIER_SHARE) < 1e-6 &&
+      IMP35702_CT_SHARE_SHIFT < 1e-8,
+  },
+  {
+    // The ONLY material effect: the negligible E_flow share moves inversely ~1.67x (E_flow/E_trunc scaling).
+    id: 'imp35702-only-eflow-bucket-shifts-inversely',
+    description: 'The whole collision is absorbed in the E_flow bucket, which shifts inversely ~1.67x (5.655e-9 -> ~3.389e-9)',
+    holds: () =>
+      SHARES_CLEAN.unconditional > SHARES_CORRECTED.unconditional && // larger floor => smaller E_flow share
+      SHARES_CLEAN.unconditional < 1e-7 &&
+      SHARES_CORRECTED.unconditional < 1e-7 &&
+      Math.abs(SHARES_CLEAN.unconditional / SHARES_CORRECTED.unconditional - E_TRUNC_COLLISION_RATIO) < 1e-3,
+  },
+  {
+    // Consistency: the clean-E_trunc recompute reproduces the baked imp-35334 E_flow share to storage tol.
+    id: 'imp35702-clean-recompute-matches-baked-eflow-share',
+    description: 'Recomputing with the clean 3.06e-5 reproduces the baked ~5.655e-9 E_flow share (storage tolerance)',
+    holds: () => Math.abs(SHARES_CLEAN.unconditional - UNCONDITIONAL_SHARE_PREPORT) < 1e-11,
+  },
+  {
+    // Honesty gate: reconciliation only, immaterial to the decomposition, no bound change, no QED, PT SOTA.
+    id: 'imp35702-honesty-gate-no-qed',
+    description: 'Reconciliation only: E_trunc choice IMMATERIAL to the landmark shares, no bound change, no QED, PT SOTA',
+    holds: () =>
+      IMP35702_ETRUNC_LANDMARK_SHARE_RECONCILIATION.isRigorous === false &&
+      /IMMATERIAL to the landmark decomposition/.test(IMP35702_ETRUNC_LANDMARK_SHARE_RECONCILIATION.verdict) &&
+      /Changes no bound/.test(IMP35702_ETRUNC_LANDMARK_SHARE_RECONCILIATION.verdict) &&
+      /NO QED/.test(IMP35702_ETRUNC_LANDMARK_SHARE_RECONCILIATION.verdict) &&
+      /remains SOTA/.test(IMP35702_ETRUNC_LANDMARK_SHARE_RECONCILIATION.verdict),
+  },
+];
+
+for (const a of IMP35702_ETRUNC_LANDMARK_SHARE_RECONCILIATION_ASSERTIONS) {
+  if (!a.holds()) {
+    throw new Error(`imp-35702-etrunc-landmark-share-reconciliation assertion failed: ${a.id}`);
+  }
+}

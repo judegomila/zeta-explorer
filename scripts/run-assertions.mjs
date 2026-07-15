@@ -8234,6 +8234,14 @@ const DATA_MODULES = [
   // Located on the imp-35337 double surrogate (dd-certified to ~1e-16); MEASUREMENT ONLY; imp-35337a stays
   // OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35411-sigma-peak-plateau-width.js',
+  // imp-35417: INDEPENDENTLY corroborates the imp-35337 sigma-landmark double-vs-dd agreement figures on a
+  // DISTINCT dd evaluation order (separated sqrt(log T0)/sqrt(N) via full dd/dd division, versus the imp-35337
+  // fused sqrt-of-a-quotient) and a DISTINCT half-decade node grid. The interior peak log10 N delta stays a
+  // flat-max plateau ~1e-8 (both N_max~9.2186e5, sigma_max~0.94942901), the E_coll=E_trunc crossover reproduces
+  // ~3.280294352e9 relative ~0, the 2.1e-5 flat-cap margin delta stays ~1e-16, and max |sigma_dd-sigma_double|
+  // over the half-decade ladder stays ~1e-16 -- so the imp-35337 deltas are NOT sensitive to the specific
+  // imp-35109 dd path. VERIFICATION ONLY; imp-35337a stays OPEN; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35417-sigma-landmark-distinct-dd-grid-cross-check.js',
   // imp-35338: CROSS-MODULE constant-consistency AUDIT of the iters-to-floor / reentry-band cohort
   // (imp-34997/35109/35111/35174/35243). imp-35243 asserted K_AMPL~1.5727e8, N_CROSS_FP~3.2803e9,
   // R_CONTRACT~0.0454235, EPS_FP=2.3e-16, PENULT=1.4536413720400559e-16 are "bit-identical" across all five,

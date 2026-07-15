@@ -9029,6 +9029,24 @@ const DATA_MODULES = [
   // registrations, zero orphaned assertion modules (the imp-35610 failure mode). AUDIT ONLY; no
   // source file required correction; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35630-imp3555x-imp3557x-registration-reachability-audit.js',
+  // imp-35619: REGRESSION-GUARD pinning the imp-35553 E_flow far-tail remnant span-growth ladder.
+  // imp-35553 baked the four-threshold crossing ladder (log10 N 25.6205 / 109.1892 / 410.0475 /
+  // 1467.7351 through the sub-1e-6 direct bisection), the three decade spans (83.5687 / 300.8583 /
+  // 1057.6875) and the two span ratios (3.6001 / 3.5156), and reproduced the imp-35413
+  // remnant(1e26) = 0.000979 and imp-35473 sub-1e-4 (109.1892) anchors -- but those literals live
+  // only inside the imp-35553 module with no DEDICATED standalone recompute guard. This import-light
+  // module INDEPENDENTLY recomputes the whole ladder via the imp-35534 log-space identity (g = log T0
+  // = log(2pi) + u - log(u), C_F = (u - log(u) + 1)/2pi, log eFlowWith = log(C_F) + log(g) - g +
+  // TC_A1_TRAP, remnant = |(-1 + 3/u) - localExponent|, h = 1.0002; byte-faithful, no height-map swap,
+  // no zeros bundle), re-bisects the four crossings, forms the three spans and two ratios, and asserts
+  // each against the imp-35553 printed literals to printed-digit tolerance plus the two anchor
+  // reproductions, cross-checking the imp-35553 baked spanLadder record reproduces. Import-light
+  // (imports only the import-light imp-35553 record, no zeros bundle, per [[no_heavy_imports_in_pages]]
+  // / [[verify_heavy_assertion_modules]]). Regression-guard only; recomputes established measurement
+  // figures; changes no bound; E_coll far-tail exponent 1/2 per imp-3463; E_flow > 0 strictness
+  // (imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; Platt-Trudgian
+  // Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35619-eflow-fartail-remnant-span-ladder-assertion.js',
 ];
 
 let ALL_MODULES = FAST_MODE

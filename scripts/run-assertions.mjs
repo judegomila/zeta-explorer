@@ -8357,6 +8357,19 @@ const DATA_MODULES = [
   // height only; sigma is a diagnostic share not a Lambda lever so NO bound moves; C_mb GUE-conditional per
   // imp-486 UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35488-route-ii-two-height-gtrue-spotcheck.js',
+  // imp-35529: a BIN-FREE re-measurement of the imp-35488 peak-height route-(ii) fidelity check. imp-35488 read
+  // g_true as a max BIN pdf residual (50 bins over [0,4]) -- inflated by within-bin Poisson noise. This module
+  // measures instead the two-sided Kolmogorov-Smirnov sup-distance D_KS = sup_s |F_emp(s) - F_GUE(s)| between the
+  // empirical RvM-unfolded spacing CDF and the EXACT GUE Wigner CDF (closed form, normalizes to 1.0 to ~1e-16)
+  // over the SAME 100001-real-zero peak window: D_KS = 0.012591 (at unfolded spacing 0.6286) -- ~3.9x SMALLER
+  // than the imp-35488 bin residual 0.049026, so most of that residual was binning noise and the true GUE fit is
+  // even tighter. Peak D_KS < first-10000 reference D_KS (0.027472), matching the imp-35488 KL ordering
+  // (universality improves with height). But D_KS is a dimensionless CDF distance, not the sigma-unit fidelity the
+  // 2.14e-5 flat-cap PEAK budget asks for (~8.66x the surrogate E_coll 1.453810e-3, units differ) -- the
+  // observable->sigma dictionary stays OPEN (sub-gap imp-35488b, unchanged); crossover out of range (imp-35488a).
+  // HONEST PARTIAL; one reachable height only; sigma is a diagnostic share not a Lambda lever so NO bound moves;
+  // C_mb GUE-conditional per imp-486 UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35529-peak-ks-supdistance.js',
   // imp-35338: CROSS-MODULE constant-consistency AUDIT of the iters-to-floor / reentry-band cohort
   // (imp-34997/35109/35111/35174/35243). imp-35243 asserted K_AMPL~1.5727e8, N_CROSS_FP~3.2803e9,
   // R_CONTRACT~0.0454235, EPS_FP=2.3e-16, PENULT=1.4536413720400559e-16 are "bit-identical" across all five,

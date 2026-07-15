@@ -213,6 +213,8 @@ const DATA_MODULES = [
   '/src/data/imp-35412-r2-ladder-slack-dense-vs-endpoint-assessment.js',
   // imp-35416: independent RK4 + cubic-Hermite dense-output cross-validation of the imp-35351 DP45 CONTD5 within-step crossing (N=2000 pair-1495) -- the crossing fires at the SAME step (1004 at dt, 2007 at dt/2) and SAME pair (1495) with t_c agreeing to ~4.5e-5 relative (5.358e-8 abs at dt/2), so it is SCHEME-INDEPENDENT, not a DP45-CONTD5 artifact; endpoint-positivity flag differs at dt/2 (DP45 positive step-over vs RK4 endpoint-negative per imp-35278) but crossing location is scheme-invariant. MEASUREMENT ONLY, ladder stays N=1000, NO QED.
   '/src/data/imp-35416-n2000-rk4-hermite-dense-crossvalidate-reference.js',
+  // imp-35471: INDEPENDENT re-verification of the imp-35416 stored RK4 + cubic-Hermite dense-output cross-validation literals (N=2000 pair-1495). Re-running scripts/imp-35416-n2000-rk4-hermite-dense-crossvalidate.mjs from the same imp-35278 N=2000 setup reproduces every stored figure bit-for-bit at stored precision: RK4 dt/2 t_c=1.1920364654e-3 step 2007 pair 1495 (|dt_c|=5.358e-8, rel 4.495e-5 vs DP45 1.1919828898e-3); RK4 dt t_c=1.1923500033e-3 step 1004 pair 1495 (|dt_c|=4.915e-8, rel 4.122e-5); endpoint-positivity nuance confirmed (DP45 dt/2 positive vs RK4 dt/2 negative). VERIFICATION ONLY, ladder stays N=1000, NO QED.
+  '/src/data/imp-35471-imp-35416-rk4-hermite-reverify-reference.js',
   // imp-35452: characterizes the imp-35416 DP45-specific endpoint-positivity knife-edge -- maps the step-endpoint signed gap of pair-1495 at N=2000 across integrator order (RK4, DP45) x grid (dt, dt/2, dt/4). Across the full 2x3 matrix the DP45 dt/2 cell is the ONLY one whose endpoint gap stays POSITIVE (min +1.775e-3 at step 2006); every other cell goes NEGATIVE. Refining DP45 dt->dt/2->dt/4 flips the endpoint sign NEG->POS->NEG, so the blindness is a single-grid RESONANCE, not an order-5 trend; at step 2007 DP45 lands +1.78e-3 above zero while RK4 first-crosses only -5.44e-5 below, so both dt/2 schemes straddle the boundary. MEASUREMENT ONLY, ladder stays N=1000, NO QED.
   '/src/data/imp-35452-n2000-endpoint-positivity-knife-edge-reference.js',
   // imp-35455: SCOPES what a finer-grid endpoint confirmation would require to PROMOTE the imp-35412 N=2000 R2 rung (RUNGS[5]) from PROVISIONAL to certified -- enumerates four conditions: C1 grid convergence (imp-35350 tauC/16000 tie 1.1923626880e-3, needs a confirming tauC/32000 rung), C2 event-definition reconciliation (imp-35354 min-spacing vs signed-crossing gap ~1.31e-7), C3 conservative folded envelope max (imp-35412 one-sided-upper rule), C4 safety-margin predicate t_c_converged + Delta_grid + Delta_event + Delta_fp <= t_c_hi. Converged slack 7.637e-6 absorbs the 1.31e-7 event gap; MISSING is one dedicated verified run certifying Delta_grid. ASSESSMENT/SCOPING ONLY, ladder stays N=1000, NO QED.
@@ -8266,6 +8268,13 @@ const DATA_MODULES = [
   // independent routes pin the same curvature). Located on the imp-35337 double surrogate (dd-certified to
   // ~1e-16); MEASUREMENT ONLY; imp-35337a stays OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35450-sigma-peak-curvature-direct-fd.js',
+  // imp-35470: CROSS-CHECKS the interior sigma-peak curvature k=-d^2 sigma/d(lnN)^2 with a higher-order 5-point
+  // O(h^4) central second difference at N_max~9.219e5 -- independent of BOTH the imp-35411 width fit (constant
+  // 15.3165) AND the imp-35450 3-point O(h^2) stencil. The O(h^4) estimate is step-independent (~6.4319102e-3
+  // across h in {1e-1..2e-3}, spread ~5e-11, no Richardson) and agrees with the width-INFERRED k to ~2e-7; it
+  // confirms the RAW 6.4319e-3, not the rounded 6.428e-3 headline. Three routes now pin the same k to ~6 sig
+  // figs. Double surrogate (dd-certified ~1e-16); MEASUREMENT ONLY; imp-35337a OPEN; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35470-sigma-peak-curvature-5point-stencil.js',
   // imp-35417: INDEPENDENTLY corroborates the imp-35337 sigma-landmark double-vs-dd agreement figures on a
   // DISTINCT dd evaluation order (separated sqrt(log T0)/sqrt(N) via full dd/dd division, versus the imp-35337
   // fused sqrt-of-a-quotient) and a DISTINCT half-decade node grid. The interior peak log10 N delta stays a

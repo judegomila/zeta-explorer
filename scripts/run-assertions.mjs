@@ -9287,6 +9287,19 @@ const DATA_MODULES = [
   // E_trunc reclassification UNCHANGED; imp-35337a stays OPEN; NO QED; Platt-Trudgian
   // Lambda<=0.2 remains SOTA.
   '/src/data/imp-35686-postport-share-literal-guard.js',
+  // imp-35679: RECONCILES the imp-35654 post-port SHARE_SUM_POSTPORT ~1.000000006 (+~6e-9 over unity):
+  // is it a genuine normalization gap in the imp-35334 landmark shares or a display-rounding artifact of
+  // the sigma<1e-3 reference literals (GUE 1e-3, C_T 0.999, E_flow 5.655e-9)? Verdict: ROUNDING ARTIFACT,
+  // NOT a gap. (V1) The excess share_sum - 1 = 5.655e-9 EQUALS the baked E_flow literal EXACTLY (residual
+  // ~2.4e-17). (V2) The two DOMINANT literals GUE (1e-3) + C_T (0.999) already sum to EXACTLY 1, so the
+  // E_flow share added on top is DOUBLE-REPRESENTED -- the 0.999 C_T is the 3-sig-fig display of the true
+  // residual E_trunc/E(N) = 1 - sigma - E_flow_share = 0.998999994345 that ALREADY absorbs the E_flow mass.
+  // (V3) With the un-rounded C_T = 0.998999994345 the three imp-35334 shares partition E(N) EXACTLY
+  // (residual < 1e-15): the provenance classes E_coll + E_trunc + E_flow = E(N) DO sum to 1. Import-light
+  // (baked literals + the import-light imp-35654 record, no zeros bundle). Verification only; corrects no
+  // literal (0.999 display is legitimate); changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED;
+  // imp-34791 E_trunc reclassification UNCHANGED; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35679-postport-share-sum-unity-excess-reconciliation.js',
   // imp-35660: REGRESSION-GUARD pinning the imp-35577 far-tail-crossing HEIGHT-MAP sensitivity
   // literals so a silent literal drift trips the build (the sibling of the imp-35619 span-growth
   // guard, which the imp-35577 cohort lacked). imp-35577 measured both E_flow far-tail remnant

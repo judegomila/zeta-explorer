@@ -1409,6 +1409,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive table re-exporting the imp-35556 Pinsker-bridge literals verbatim (no new derivation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; imp-35556a and imp-35337a stay OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35710-winding-mesh-cost-delta-ladder',
+      title: 'Winding-Barrier Mesh-Cost Delta-Ladder',
+      oneLine:
+        'Line chart of the imp-35675 finite winding-barrier (B1) mesh cost at T_PT=3e12: boundary evaluations per enclosed zero across the transition-width Delta ladder {1,2,5,10,20,50,100}, decaying monotonically from 18 toward the exact horizontal asymptote of 6, anchored at local density ~4.28 zeros/unit and meshPerUnit ~12.84.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35710-winding-mesh-cost-delta-ladder-viz-data.js',
+      paperSourcePath: 'src/data/imp-35675-finite-winding-mesh-cost-vs-delta.js (imp-35710 viz page)',
+      ticket: 'imp-35710',
+      pedagogicalStep: 97,
+      honestCeiling:
+        'Descriptive chart re-exporting the imp-35675 Delta-ladder cost table verbatim (no new derivation, no heavy data-module import); presentation only, does not discharge the non-finite argument-principle tail lemma (imp-35653 Part D, W3); changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

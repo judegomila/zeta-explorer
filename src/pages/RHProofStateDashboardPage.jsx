@@ -436,6 +436,11 @@ export default function RHProofStateDashboardPage() {
                 })}
               </tbody>
             </table>
+            <div style={{ marginTop: 8 }}>
+              <Link to="/viz-imp35710-winding-mesh-cost-delta-ladder" style={{ color: '#38bdf8', fontSize: 12, textDecoration: 'none' }}>
+                Winding-Barrier Mesh-Cost Delta-Ladder chart (imp-35710) →
+              </Link>
+            </div>
           </div>
 
           {/* imp-35741 honest-status banner: imp-35681 Part D corrects a scout misattribution */}

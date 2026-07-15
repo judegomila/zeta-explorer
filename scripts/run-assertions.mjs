@@ -9563,6 +9563,18 @@ const DATA_MODULES = [
   // guard against silent re-seeding. Five self-executing assertions. Audit only;
   // re-points nothing; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35719-imp341-barrier-base-misattribution-fanout-audit.js',
+  // imp-35720: TABULATE the imp-35696 collision-scale amplitude prefactor ratio
+  // prefCC/prefStd = ((pi^2/3)/C_C)^{1/3} ~ 2.047 across the imp-35695 gap-count
+  // ladder M in {10,1e2,1e4,1e6,1e8}, recomputing s_min(M;c) by bisection on
+  // M F(s_min)=1 for both c = pi^2/3 and c = C_C. FINDING: the ratio is FLAT at
+  // ~2.0467 at every rung (max relative spread ~ 0, log-log slope ~ 0) -- a pure
+  // amplitude in which M cancels -- while the imp-35695 reciprocal floor factor
+  // M^{1/3} climbs 2.15x -> 464x (slope exactly 1/3) in the same rows. Amplitude
+  // and exponent separated numerically on one shared ladder; the coefficient
+  // mismatch (pi^2/3)/C_C ~ 8.573 (imp-35680) enters only as its cube root, never
+  // the exponent. Import-light; six self-executing assertions. Measurement only;
+  // derives nothing; discharges nothing; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35720-prefactor-M-independence-ladder.js',
 ];
 
 let ALL_MODULES = FAST_MODE

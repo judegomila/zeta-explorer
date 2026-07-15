@@ -8169,6 +8169,17 @@ const DATA_MODULES = [
   // (the floor imp-35240 pushed past) -- neither a prefactor discrepancy. Cross-validation only on the
   // inherited imp-3220/imp-3406 surrogate; discharges nothing; O3/H3/H4/G6a stay OPEN; NO QED; PT SOTA.
   '/src/data/imp-35264-rho-prefactor-vs-imp35076-margin-crosscheck.js',
+  // imp-35398: CLOSES the single apparent imp-35264 departure -- re-reads the imp-35076 FINEST margin rungs
+  // (N = 1e5..1e7, eps ~ 7.9e-4 at the finest) on the imp-35240 Kahan-compensated finite-cutoff quadrature and
+  // confirms the empirical prefactor kEmp = (rho - 2/3)/eps^{3/2} returns to K = 8 sqrt(2)/(9 pi) = 0.40014. At
+  // the apparent-departure rung (N = 1e7) kEmp drops from the imp-35076 stored 0.41821 (dist 1.81e-2, the lone
+  // imp-35264 outlier) to a compensated 0.39989 (dist 2.54e-4) -- a ~71x collapse -- and approaches K MONOTONE
+  // from below (0.39757 -> 0.39933 -> 0.39989), continuing the imp-35240 O(eps) climb rather than the imp-35076
+  // stored upward scatter. So the finest-rung 0.4182 is confirmed an imp-35076 6-decimal storage / coarse-
+  // quadrature floor artifact, exactly as imp-35264 diagnosed from grain arithmetic. Six self-executing
+  // assertions. Cross-validation only on the inherited imp-3220/imp-3406 surrogate; discharges nothing; O3/H3/
+  // H4/G6a stay OPEN; imp-3066 UNTOUCHED; C_mb GUE-conditional (imp-486); NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35398-finest-rung-compensated-kemp-crosscheck.js',
   // imp-35379: MEASURES the imp-35264 coarsest-rung next-order residual r1 = rho_meas - 2/3 - K eps^{3/2}
   // directly on the imp-35076 large-eps rungs -- it decays with local exponent 3.500 (eps^{7/2}, NOT eps^{5/2})
   // and equals K_{7/2} eps^{7/2} with K_{7/2} = -8 sqrt(2)/(3 pi) to ratio 1.000 (0.997 coarsest, imp-35298 eps^5

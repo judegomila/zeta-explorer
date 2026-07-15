@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
+import WithinStepStepoverExplainer from '../components/WithinStepStepoverExplainer.jsx';
 
 // Baked literals from the imp-35150 / imp-35190 / imp-35221 / imp-35235 /
 // imp-35324 / imp-35278 data modules (src/data/imp-35150-r2-ladder-assessment.js,
@@ -148,6 +149,8 @@ export default function Imp35288R2FlowLadderSlackViz() {
         check confirms the skip was a genuine WITHIN-STEP step-over &mdash; the collision completes
         inside a single dt/2 stage, invisible to any endpoint gate &mdash; not a spurious artifact.
       </p>
+
+      <WithinStepStepoverExplainer />
 
       <LadderChart />
 

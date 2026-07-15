@@ -20,6 +20,9 @@
  */
 
 import { IMP35675_FINITE_WINDING_MESH_COST_VS_DELTA } from './imp-35675-finite-winding-mesh-cost-vs-delta.js';
+// imp-35729: independent cross-verification of the anchors below (density, meshPerUnit, 6-asymptote).
+// Imported for its self-executing assertions -- any drift beyond storage-precision tolerance throws at build.
+import { IMP35729_MESH_COST_ANCHOR_CROSSVERIFY } from './imp-35729-mesh-cost-anchor-crossverify.js';
 
 const M = IMP35675_FINITE_WINDING_MESH_COST_VS_DELTA;
 
@@ -38,6 +41,7 @@ export const IMP35710_SUMMARY = Object.freeze({
   slopePerUnitDelta: M.slopePerUnitDelta,
   verticalIntercept: M.verticalIntercept,
   horizontalEvalsPerEnclosedZeroAsymptote: M.horizontalEvalsPerEnclosedZero, // = 6 exactly
+  crossVerifiedById: IMP35729_MESH_COST_ANCHOR_CROSSVERIFY.id, // imp-35729: anchors independently confirmed
 });
 
 export default Object.freeze({
@@ -68,6 +72,13 @@ const IMP35710_ASSERTIONS = [
       return monotone && perZero.every((v) => v > 6) && perZero[perZero.length - 1] < perZero[0];
     },
     why: 'Boundary evaluations per enclosed zero decay monotonically toward the asymptote of exactly 6 as Delta grows.',
+  },
+  {
+    id: 'imp35710-anchors-cross-verified',
+    holds: () =>
+      Math.abs(IMP35729_MESH_COST_ANCHOR_CROSSVERIFY.anchors.densityFiniteDiff - M.anchors.localDensityAtTPT) < 1e-4 &&
+      IMP35729_MESH_COST_ANCHOR_CROSSVERIFY.anchors.perZeroAsymptote === M.horizontalEvalsPerEnclosedZero,
+    why: 'imp-35729 independently re-derives the density and 6-asymptote anchors; they must equal the baked imp-35675 values within storage precision.',
   },
   {
     id: 'imp35710-presentation-only-no-qed',

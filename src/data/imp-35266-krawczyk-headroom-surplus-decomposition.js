@@ -55,6 +55,7 @@
  * @see imp-34693-crossover-contraction-seed-band (admissible seed band + band-bottom/band-top)
  * @see imp-3463 (far-tail exponent 1/2)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 RvM inverse)
+ * @see imp-35404-krawczyk-headroom-cancellation-viz-data (viz data + rendered page visualizing this 2:1 cancellation)
  */
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';

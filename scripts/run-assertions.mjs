@@ -9430,6 +9430,20 @@ const DATA_MODULES = [
   // only; no new claim beyond imp-35654 F3; changes no bound; NO QED;
   // Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35711-postport-parity-no-beat-honest-status-banner.js',
+  // imp-35695: TABULATE the imp-35652 resolution-floor factor delta_res/s_min =
+  // M^{1/3} across the ticket-named power-of-ten gap-count ladder M in
+  // {10, 1e2, 1e4, 1e6, 1e8}, quantifying how many multiples below the band-limited
+  // |alpha|<1 mean-spacing floor (delta_res~1) the near-minimal-collision scale
+  // s_min(M)~M^{-1/3} (Ben Arous-Bourgade 2013) sits: ~2.15x at M=10, ~21.5x at
+  // M=1e4, ~100x at M=1e6, ~464x at M=1e8 -- a log-log slope of exactly 1/3 and a
+  // per-decade multiplier 10^{1/3}~2.1544x, monotone, NO plateau. Distinct from
+  // imp-35673 (same law over verified-height landmarks N); here the variable is M,
+  // the direct Ben Arous-Bourgade gap count. Import-light (baked imp-35652 anchors,
+  // no zeros bundle, per [[no_heavy_imports_in_pages]]). Six self-executing
+  // assertions. Measurement only; confirms imp-35652 quantitatively; changes no
+  // bound; C_C=(1/8)sqrt(3 pi) (imp-2642/imp-2643) and E_trunc=3.06e-5 (imp-2631)
+  // UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35695-resolution-floor-factor-M-ladder.js',
 ];
 
 let ALL_MODULES = FAST_MODE

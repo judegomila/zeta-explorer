@@ -18615,6 +18615,44 @@ export const glossary = [
       'imp-1323 supplies both the Platt-Trudgian T_PT = 3e12 ceiling and the Odlyzko ~10^22 spot-check context (imp-1323)',
     ],
   },
+  {
+    term: 'imp-35556 g_true-vs-E_coll order mismatch (KL is second-order, E_coll is first-order)',
+    category: 'numerical',
+    definition:
+      'imp-35530 projected the true GUE spacing-deviation g_true (a KL divergence) as ~10.5x the ' +
+      'surrogate collision term E_coll at the crossover height, flagging a "different units" caveat. ' +
+      'imp-35556 shows the mismatch is not physical units at all -- both quantities are dimensionless ' +
+      'pure numbers -- but a mismatch of FUNCTIONAL ORDER. With eps the spacing-pdf deviation amplitude, ' +
+      'the KL divergence g_true = (1/2) integral (dp)^2/p_GUE ds + O(eps^3) = O(eps^2), a SECOND-order ' +
+      'whole-pdf functional, while E_coll is a FIRST-order amplitude bound on a single scalar collision/' +
+      'sigma-share observable, O(eps). Comparing 3.214e-4 (an eps^2 quantity) to 3.060e-5 (an eps ' +
+      'quantity) compares different powers of the same small deviation -- a category mismatch, not a ' +
+      'meaningful inequality in one common functional.\n\n' +
+      'PINSKER BRIDGE: the natural common-functional reduction is Pinsker’s inequality ' +
+      'TV(p_emp,p_GUE) <= sqrt(KL/2), which reduces the quadratic KL to a first-order total-variation ' +
+      'amplitude sharing E_coll’s order. At the crossover this gives TV <= 1.2677e-2 (free-exponent ' +
+      'fit KL=3.214e-4), ~414x E_coll -- completely different from the raw 10.5x. Because Pinsker only ' +
+      'UPPER-bounds TV, the reduction cannot even certify the direction g_true > E_coll, let alone a ' +
+      'multiplier: E_coll = 3.060e-5 merely sits well inside the admissible first-order band ' +
+      '[0, ~1.27e-2] the projected KL permits.\n\n' +
+      'HOW TO APPLY: treat the imp-35530 ~10.5x (and any raw KL-vs-amplitude ratio) as a diagnostic ' +
+      'flag, never a certified inequality, until a common first-order functional lower-bounds the ' +
+      'E_coll observable from KL -- that surrogate-to-observable dictionary is left OPEN as sub-gap ' +
+      'imp-35556a (it inherits imp-35337a).\n\n' +
+      'HONEST SCOPE: assessment only, reuses the imp-35530 baked literals with no new measurement; ' +
+      'confirms/sharpens imp-35530b and imp-35488b; discharges nothing; imp-35488a, imp-35530a, ' +
+      'imp-35530b, imp-35337a stay OPEN; C_mb GUE-conditional per imp-486, C_C = (1/8) sqrt(3 pi) ' +
+      '(imp-2642/imp-2643), and E_trunc = 3.06e-5 (imp-2631) are UNTOUCHED; changes no bound; no ' +
+      'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35625 (glossary/Concepts headword for the imp-35556 g_true-vs-E_coll order mismatch), 2026',
+    relatedTerms: [
+      'imp-35556 is the assessment module this headword documents (imp-35556)',
+      'imp-35530 supplies the projected ~10.5x gap and the imp-35530a/imp-35530b caveats this entry disambiguates (imp-35530)',
+      'imp-35488 is the units-mismatch origin (imp-35488b) this entry confirms (imp-35488)',
+      'imp-35337 is the source of the OPEN surrogate-to-observable dictionary (imp-35337a) the Pinsker bridge cannot close (imp-35337)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this order-mismatch reading (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

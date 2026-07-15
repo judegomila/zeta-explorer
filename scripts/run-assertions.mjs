@@ -4935,6 +4935,16 @@ const DATA_MODULES = [
   // no-QED honesty gate -- were only documented, never EXECUTED by this runner (the module had no
   // real importer anywhere in the build). Verification/test-coverage only; changes no bound; NO QED.
   '/src/data/imp-35199-eflow-etrunc-landmark-crosscheck.js',
+  // imp-35318: LIGHT STANDALONE cross-check tying the imp-35210 four-E-component landmark literals
+  // (L1 1.597752e6, L2 3.246862e7, L3 3.280294e9, L4 1.754552e10) back to their imp-35153/imp-35154/
+  // imp-33723 source constants. Re-declares the four source literals verbatim, imports ONLY the
+  // imp-35210 landmark array for comparison (pulls NO heavy zeros bundle), and asserts (a) each baked
+  // literal reproduces its source with max relative drift < 1e-6 (in fact 0), and (b) the decade-gap
+  // and strict-ordering annotations recompute to the imp-35154 figures 2.0044 (L2 below N_cross) /
+  // 0.7283 (L4 above N_cross), L1 < L2 < L3 < L4. Wired here so its 5 tripwires -- plus imp-35210s own
+  // 3 self-assertions, previously never executed by this runner -- run every build. Verification /
+  // accuracy cross-check only; changes no bound; C_mb GUE-conditional per imp-486; NO QED.
+  '/src/data/imp-35318-four-landmark-source-crosscheck.js',
   // imp-34248: derives the small-thr asymptotic of the imp-34174 surplus by SEPARATING the two
   // vanishing factors -- surplus(thr) = P(thr).r(thr), P(thr) = thr(1-thr)/(1+(1-thr)r). The prefactor
   // P -> thr is asymptotically linear (surplus/(thr.r) climbs 0.4995 -> 0.9900), and the E_flow ratio

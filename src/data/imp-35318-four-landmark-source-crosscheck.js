@@ -94,13 +94,17 @@ export const IMP35318_FOUR_LANDMARK_SOURCE_CROSSCHECK_ASSERTIONS = [
   },
   {
     id: 'imp35318-L2-decades-below-ncross',
+    // imp-35508: tightened from 1e-3 to 1e-4 -- the recompute reproduces the imp-35154
+    // figure to all 4 baked decimal places (verified diff 0), so 1e-3 was 10x looser
+    // than the precision this assertion is actually meant to guard.
     description: 'L2 recomputes to ~2.00 decades below N_cross (imp-35154 reports 2.0044)',
-    holds: () => Math.abs(L2_DECADES_BELOW_NCROSS - 2.0044) < 1e-3,
+    holds: () => Math.abs(L2_DECADES_BELOW_NCROSS - 2.0044) < 1e-4,
   },
   {
     id: 'imp35318-L4-decades-above-ncross',
+    // imp-35508: same tightening as the L2 check above (1e-3 -> 1e-4).
     description: 'L4 recomputes to ~0.73 decades above N_cross (imp-35154 reports 0.7283)',
-    holds: () => Math.abs(L4_DECADES_ABOVE_NCROSS - 0.7283) < 1e-3,
+    holds: () => Math.abs(L4_DECADES_ABOVE_NCROSS - 0.7283) < 1e-4,
   },
   {
     id: 'imp35318-strict-ordering',

@@ -840,6 +840,9 @@ const Imp35544SigmaThreeInputDecompositionViz = lazy(() =>
 const Imp35549HeightMapDivergenceViz = lazy(() =>
   import('./pages/Imp35549HeightMapDivergenceViz.jsx')
 );
+const Imp35561PeakHeightMapSensitivityViz = lazy(() =>
+  import('./pages/Imp35561PeakHeightMapSensitivityViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2371,6 +2374,10 @@ function AppShell() {
           <Route
             path="/viz-imp35549-height-map-divergence"
             element={<Imp35549HeightMapDivergenceViz />}
+          />
+          <Route
+            path="/viz-imp35561-peak-height-map-sensitivity"
+            element={<Imp35561PeakHeightMapSensitivityViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -1266,6 +1266,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive diagnostic re-plot computing both height maps live from their existing formulas (no fresh derivation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate family; does NOT establish which map is more accurate; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35561-peak-height-map-sensitivity',
+      title: 'Sigma-Peak Height-Map Sensitivity: Robust Height, Drifting Location',
+      oneLine:
+        'Table of the imp-35536 six-height-map sensitivity sweep of the imp-35337 sigma interior peak, showing sigma_max robust to under 1 percent ([0.9417, 0.9507]) while N_max drifts up to +0.16 decades under the full RvM-inverse-to-surrogate swap.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35561-peak-height-map-sensitivity-viz-data.js',
+      paperSourcePath: 'src/data/imp-35536-peak-height-map-sensitivity.js (imp-35561 viz page)',
+      ticket: 'imp-35561',
+      pedagogicalStep: 86,
+      honestCeiling:
+        'Descriptive table re-exporting the imp-35536 peakLadder literals verbatim (no new computation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; the imp-35337a surrogate-vs-true fidelity sub-gap REMAINS OPEN; C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

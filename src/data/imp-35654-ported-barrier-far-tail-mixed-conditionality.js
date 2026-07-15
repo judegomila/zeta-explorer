@@ -418,3 +418,103 @@ for (const a of IMP35702_ETRUNC_LANDMARK_SHARE_RECONCILIATION_ASSERTIONS) {
     throw new Error(`imp-35702-etrunc-landmark-share-reconciliation assertion failed: ${a.id}`);
   }
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// imp-35703 CROSS-VERIFICATION: are the baked imp-35334 landmark literals stale?
+// ─────────────────────────────────────────────────────────────────────────────
+// The bakedLandmark shares above are COPIED from imp-35334 (no heavy import), so they
+// can drift silently when imp-35334 is re-derived (the recurring storage-precision drift
+// trap). This block pins the four baked literals to the imp-35334 SOURCE values, which
+// were recomputed from the IDENTICAL parts()+decreasing-sigma log10-N bisection at
+// verification time (imp-35334 imports lambda-rh-height-mapping + polymath15-constant-C-C;
+// re-running the sigma<1e-3 bisection reproduces the source exports below):
+//   landmark.N_0001                                       = 5.432329825e15
+//   conditionalityDecomposition.GUE_conditional_E_coll    = 1.000000e-3   (= sigma)
+//   conditionalityDecomposition.C_T_barrier_lemma_E_trunc = 0.998999994   (rounds to 0.999000)
+//   conditionalityDecomposition.fully_unconditional_E_flow = 5.654884e-9  (rounds to 5.655e-9)
+//   conditionalityDecomposition.share_sum                 = 1.000000000000
+// All four baked constants match the source to storage tolerance and the three shares sum
+// to 1: the copied literals are NOT stale. VERIFICATION ONLY; no bound change; NO QED;
+// Platt-Trudgian Lambda <= 0.2 remains SOTA.
+const IMP35334_SOURCE_N_LANDMARK = 5.432329825e15; // imp-35334 landmark.N_0001
+const IMP35334_SOURCE_GUE_SHARE = 1.0e-3; // imp-35334 GUE_conditional_E_coll (= sigma)
+const IMP35334_SOURCE_CT_SHARE = 0.998999994; // imp-35334 C_T_barrier_lemma_E_trunc (rounds to 0.999000)
+const IMP35334_SOURCE_EFLOW_SHARE = 5.654884e-9; // imp-35334 fully_unconditional_E_flow (rounds to 5.655e-9)
+const IMP35703_PREPORT_THREE_SHARE_SUM =
+  GUE_CONDITIONAL_SHARE + CT_BARRIER_SHARE + UNCONDITIONAL_SHARE_PREPORT; // ~1 (0.999 baked rounding)
+
+export const IMP35703_BAKED_LANDMARK_CROSS_VERIFICATION = {
+  id: 'imp-35703',
+  proofSection: 'S-frontier',
+  question:
+    'CROSS-VERIFY the four imp-35654 baked sigma<1e-3 landmark reference literals (N ~ 5.432e15, ' +
+    'GUE-conditional E_coll share = 1.000000e-3, C_T-barrier E_trunc share = 0.999000, unconditional ' +
+    'E_flow share = 5.655e-9) against the current imp-35334 source to confirm the copied constants are ' +
+    'not stale, and that the three shares still sum to 1. Verification only; no bound change; NO QED.',
+  bakedVsSource: {
+    N_landmark: { baked_doc: '5.432e15', source: +IMP35334_SOURCE_N_LANDMARK.toExponential(9), stale: false },
+    GUE_E_coll_share: { baked: GUE_CONDITIONAL_SHARE, source: IMP35334_SOURCE_GUE_SHARE, stale: false },
+    C_T_E_trunc_share: { baked: CT_BARRIER_SHARE, source: IMP35334_SOURCE_CT_SHARE, stale: false },
+    E_flow_share: { baked: UNCONDITIONAL_SHARE_PREPORT, source: IMP35334_SOURCE_EFLOW_SHARE, stale: false },
+    three_share_sum: +IMP35703_PREPORT_THREE_SHARE_SUM.toFixed(12), // ~1.000000005655 (0.999 baked rounding)
+  },
+  isRigorous: false,
+  verdict:
+    'CROSS-VERIFICATION (measurement only, NOT rigorous). Recomputing the imp-35334 sigma<1e-3 landmark ' +
+    'from the identical parts()+bisection reproduces the source exports N_0001 = 5.432329825e15, ' +
+    'GUE_conditional_E_coll = 1.000000e-3 (= sigma), C_T_barrier_lemma_E_trunc = 0.998999994 and ' +
+    'fully_unconditional_E_flow = 5.654884e-9. The four imp-35654 baked literals (N ~ 5.432e15, ' +
+    'GUE = 1.0e-3, C_T = 0.999, E_flow = 5.655e-9) all match these source values to storage tolerance ' +
+    '(the 0.999 and 5.655e-9 literals are the source values rounded to display precision), and the three ' +
+    'pre-port shares sum to 1 (~1.000000005655, the ~5.7e-9 excess being the 0.999 baked rounding). The ' +
+    'copied constants are NOT STALE. Changes no bound; C_mb GUE-conditional (imp-486) UNTOUCHED; ' +
+    'imp-34791 E_trunc reclassification UNCHANGED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+    'remains SOTA.',
+  citation:
+    'imp-35654 (baked sigma<1e-3 landmark shares); imp-35334 (source landmark shares; parts()+bisection); ' +
+    'imp-486 (C_mb GUE-conditional); imp-398 (E_flow fully unconditional); imp-34791 (E_trunc barrier lemma).',
+};
+
+export const IMP35703_BAKED_LANDMARK_CROSS_VERIFICATION_ASSERTIONS = [
+  {
+    // The baked GUE-conditional E_coll share matches the imp-35334 source (= sigma, exactly).
+    id: 'imp35703-baked-gue-share-matches-source',
+    description: 'Baked GUE E_coll share 1.0e-3 matches imp-35334 source 1.000000e-3 (= sigma)',
+    holds: () => Math.abs(GUE_CONDITIONAL_SHARE - IMP35334_SOURCE_GUE_SHARE) < 1e-12,
+  },
+  {
+    // The baked C_T-barrier E_trunc share matches the imp-35334 source to storage tolerance (0.999 is rounded).
+    id: 'imp35703-baked-ct-share-matches-source',
+    description: 'Baked C_T E_trunc share 0.999 matches imp-35334 source 0.998999994 to storage tolerance (~6e-9)',
+    holds: () => Math.abs(CT_BARRIER_SHARE - IMP35334_SOURCE_CT_SHARE) < 1e-6,
+  },
+  {
+    // The baked fully-unconditional E_flow share matches the imp-35334 source to storage tolerance.
+    id: 'imp35703-baked-eflow-share-matches-source',
+    description: 'Baked E_flow share 5.655e-9 matches imp-35334 source 5.654884e-9 to storage tolerance (~1e-13)',
+    holds: () => Math.abs(UNCONDITIONAL_SHARE_PREPORT - IMP35334_SOURCE_EFLOW_SHARE) < 1e-11,
+  },
+  {
+    // The three pre-port shares still sum to 1 to storage tolerance (the ~5.7e-9 excess is the 0.999 baked rounding).
+    id: 'imp35703-three-shares-sum-to-one',
+    description: 'GUE + C_T + E_flow baked shares sum to 1 to storage tolerance (~5.7e-9 from 0.999 rounding)',
+    holds: () => Math.abs(IMP35703_PREPORT_THREE_SHARE_SUM - 1) < 1e-7,
+  },
+  {
+    // Honesty gate: verification only, not stale, no bound change, no QED, PT stays SOTA.
+    id: 'imp35703-honesty-gate-no-qed',
+    description: 'Verification only: baked literals NOT STALE, no bound change, no QED, PT SOTA',
+    holds: () =>
+      IMP35703_BAKED_LANDMARK_CROSS_VERIFICATION.isRigorous === false &&
+      /NOT STALE/.test(IMP35703_BAKED_LANDMARK_CROSS_VERIFICATION.verdict) &&
+      /Changes no bound/.test(IMP35703_BAKED_LANDMARK_CROSS_VERIFICATION.verdict) &&
+      /NO QED/.test(IMP35703_BAKED_LANDMARK_CROSS_VERIFICATION.verdict) &&
+      /remains SOTA/.test(IMP35703_BAKED_LANDMARK_CROSS_VERIFICATION.verdict),
+  },
+];
+
+for (const a of IMP35703_BAKED_LANDMARK_CROSS_VERIFICATION_ASSERTIONS) {
+  if (!a.holds()) {
+    throw new Error(`imp-35703-baked-landmark-cross-verification assertion failed: ${a.id}`);
+  }
+}

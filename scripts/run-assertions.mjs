@@ -203,6 +203,8 @@ const DATA_MODULES = [
   '/src/data/imp-35221-r2-n1000-flow-reference.js',
   // imp-35324: finer-base-grid (tauC/4000) re-run resolves the imp-35235 DP45 dt/2 gate-skip; worst-case envelope clears t_c_hi marginally, ladder stays at N=1000.
   '/src/data/imp-35324-r2-n2000-finer-grid-reference.js',
+  // imp-35325: DIAGNOSES the imp-35235 DP45 dt/2 gate-skip as a PHYSICAL near-collision (not a label swap) -- tracking the signed diff d=gamma[1496]-gamma[1495] (no re-sort), a direct sub-step probe crosses zero (min|d|=8.8e-7 << gate, first crossing frac 0.664) and the RK4 dt/2 reference confirms the sign change (+1.775e-3 -> -5.44e-5 in-gate -> +1.45e-2); re-approach at 1.3238e-3 is spurious; DIAGNOSTIC ONLY, ladder stays N=1000, NO QED.
+  '/src/data/imp-35325-n2000-signed-crossing-diagnostic.js',
   // imp-35281: extends the imp-35238 real-ordinate three-factor invariant beta*g_min*(x_2-x_0)->1 to N=250,300,350,400 -- invariant stays pinned at 1 (|dev|<=1e-4, spread ~7.7e-5), bare-product band widens past the three-point 0.36-0.64; MEASUREMENT ONLY, I3/M2/M5 OPEN.
   '/src/data/imp-35281-real-ordinate-three-factor-invariant-larger-N.js',
   // imp-35282: ties the imp-35238 non-monotone span x_2-x_0 (2.83/1.88/2.25) to the RvM mean spacing 2pi/log(T/2pi) at the collapse height -- RvM is MONOTONE (2.18->1.77->1.54) but span/RvM stays non-monotone (1.30->1.07->1.46), so the band is a COLLAPSE-LOCATION effect not a mean-spacing effect; MEASUREMENT ONLY, M2/M5 OPEN.
@@ -7712,6 +7714,14 @@ const DATA_MODULES = [
   // reaches 0.499 only near N ~ 1.28e218 (~212 decades past the 10^6 ceiling). E_trunc overtakes
   // the vanishing E_coll only in the logarithmically-slow limit. Measurement only; no bound; NO QED.
   '/src/data/imp-35036-sigma-decay-exponent-ladder-extension.js',
+  // imp-35333: ASSESSES whether the imp-35036/imp-35183 residual-gap law g = 1/2 - p_dec ~
+  // 1/(2 ln N) is DERIVABLE from the imp-3463 far-tail leading form of sigma(N) = E_coll/E(N).
+  // Finds the leading-form gap collapses to the EXACT closed identity g = alpha(N)/(2 ln T0(N))
+  // (identity ratio 1.000000); the 1/2 prefactor is the L-exponent (the sqrt(log T0) factor in
+  // E_coll), independent of the far-tail N-exponent; but a residual-free 1/(2 ln N) does NOT
+  // close -- the residual factor R = alpha*ln N/ln T0 > 1 shrinks only ~1/ln N slowly (1.018 at
+  // 1e20 -> 1.007 at 1e200), a slowly-varying RvM height-map correction. Assessment only; NO QED.
+  '/src/data/imp-35333-sigma-gap-law-analytic-derivability.js',
   // imp-34967 orphan-wiring sweep (imp-34878/imp-34724/imp-34802 lineage): the following four
   // imp-34922..imp-34933 cohort modules define self-executing *_ASSERTIONS arrays but were not yet
   // wired into this MATH_MODULES sweep.

@@ -8752,6 +8752,18 @@ const DATA_MODULES = [
   // imp-35337a. RANKING ONLY; derives no remainder; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no
   // bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35551-route-i-requirement-severity-ranking.js',
+  // imp-35571: LITERATURE-SCOPES whether any GUE local law carries a strictly SUBLEADING finite-N rate better
+  // than the natural LEADING O(1/log T0) rate (imp-35493) that imp-35538 REQ-4 uses to pin log T0 >= 200
+  // (T0 >= e^200 ~ 7.23e86) for the imp-35475 0.5% crossover budget. Threshold-collapse arithmetic: a poly-log
+  // rate O(1/(log T0)^a) needs log T0 >= 200^(1/a) and a power-law rate O(T0^{-delta}) needs log T0 >=
+  // 5.2983/delta, so an a=2 rate collapses the threshold from 200 to ~14.14 (14.1x lower, just above the peak
+  // log-height ~13.23 and below the crossover ~20.86 and PT anchor ~28.73) -- the e^200 wall is a LEADING-rate
+  // artifact, not fundamental. Proved status: NO subleading rate is proved for the zeta zeros (Montgomery/
+  // Rudnick-Sarnak are asymptotic-only, no finite-T rate), and the PROVED power-law rates (GUE ensemble optimal
+  // rigidity N^{-1+eps}) live on the ensemble whose transfer to zeta is the conjectural Montgomery step. So
+  // REQ-4 e^200 STANDS; route-(ii) (imp-35488) remains the only viable partial for OPEN imp-35337a. SCOPING
+  // ONLY; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35571-route-i-subleading-rate-scope.js',
   // imp-35537: SCOPES what CLOSING the OPEN true-dynamic residue R1t (the true-dynamic half of the imp-35357
   // R1s/R1t reentry-band pure-artifact split; certificate imp-35243a OPEN) concretely requires, mirroring the
   // imp-35475 sigma-fidelity template but for the reentry band. Part A: the three surrogate inputs by class --

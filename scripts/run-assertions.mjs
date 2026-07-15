@@ -9109,6 +9109,21 @@ const DATA_MODULES = [
   // place the peak on the ladder (diagnostic reparametrise, NOT a re-anchoring); surrogate-vs-true
   // fidelity (imp-35337a) OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35633-peak-location-damping-height-ladder.js',
+  // imp-35635: EXTENDS the imp-35609 peak-LOCATION damping input-sensitivity to the THIRD fixed input
+  // the study never varied -- the Gronwall / A1-trap factor g = exp(TC_A1_TRAP), TC_A1_TRAP = 2.37e-4,
+  // which multiplies the direct-height term E_flow ~ (log T0 / T0) g. Re-runs the imp-35574/imp-35609
+  // damping computation verbatim (same double-surrogate sigma, RvM vs closed surrogate maps, bracket
+  // [1e4,1e7], baseline E_trunc = 3.06e-5) while sweeping ONLY g over TC_A1_TRAP in {2.37e-4, 1.5e-4,
+  // 3.0e-4} plus the trap-off control g = 1: the damping factor is invariant to ~5 significant figures
+  // (range [0.553039, 0.553050], absolute spread ~1.15e-5) and the trap-off control moves it only
+  // ~1.6e-5 relative (~700x smaller than the imp-35609 E_trunc move), staying below 1 in every case, so
+  // the AMPLIFICATION-not-damping verdict is stable to ALL THREE fixed inputs and the A1-trap is the
+  // WEAKEST lever (g multiplies only the negligible E_flow ~ O(1) E_trunc at the peak per imp-35594).
+  // Five self-executing assertions. Import-light (inlined effectiveHeightForN + surrogate, no zeros
+  // bundle). Measurement only; the 1.5e-4/3.0e-4/g=1 values are probes not re-anchorings; baseline
+  // TC_A1_TRAP = 2.37e-4 UNTOUCHED; surrogate-vs-true fidelity (imp-35337a) UNTOUCHED; changes no
+  // bound; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35635-peak-damping-a1trap-sensitivity.js',
 ];
 
 let ALL_MODULES = FAST_MODE

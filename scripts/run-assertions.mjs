@@ -9460,6 +9460,20 @@ const DATA_MODULES = [
   // C_C (imp-2642/imp-2643) and E_trunc=3.06e-5 (imp-2631) UNTOUCHED; imp-35337a
   // stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35696-collision-exponent-consistency-check.js',
+  // imp-35697: MEASUREMENT -- tabulate the imp-35653 Part C FINITE B1 winding-barrier
+  // mesh cost at T_PT=3e12. The certificate resolves every enclosed zero with k
+  // boundary samples each at local density rho=(1/2pi)log(T_PT/2pi)~4.28 zeros/unit,
+  // so a window of height Delta encloses rho*Delta zeros and costs k*rho*Delta
+  // interval-arithmetic H_t=A+B-C evaluations. Across Delta in {1,1e2,1e4,1e6} and
+  // k in {4,8,16} the total runs ~17 to ~6.85e7 (largest rung Delta=1e6,k=16); cost
+  // is LINEAR in Delta and k and grows with log(height) not height (density constant
+  // over each window to ~1e-8). Quantifies the "O(Delta log T_PT)" imp-35653 Part C
+  // only named. Import-light (baked imp-35653 density anchor, no zeros bundle). Six
+  // self-executing assertions. Measurement only; does NOT make S_barrier finite --
+  // the B2/W3 analytic tail lemma |A+B|>|C| for all x>=T_PT+Delta stays the non-finite
+  // obstruction; changes no bound; imp-35653 stays breakthrough-tier OPEN; NO QED;
+  // Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35697-winding-barrier-mesh-cost-ladder.js',
 ];
 
 let ALL_MODULES = FAST_MODE

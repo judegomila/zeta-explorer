@@ -9124,6 +9124,23 @@ const DATA_MODULES = [
   // TC_A1_TRAP = 2.37e-4 UNTOUCHED; surrogate-vs-true fidelity (imp-35337a) UNTOUCHED; changes no
   // bound; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35635-peak-damping-a1trap-sensitivity.js',
+  // imp-35636: DECOMPOSES the imp-35594 Derivation-1 residual ~5 percent gap between the predicted
+  // crossover height-map shift (-0.94 percent, ~19x) and the imp-35458 measured shift (-0.983 percent,
+  // ~18x). Derives the fixed-point sensitivity of N* = kappa log T0 under a T0 -> r T0 map swap by one
+  // Newton step (general form dNstar-over-Nstar = log r/(L - s), s = log-height elasticity). FINDING: the
+  // ~5 percent gap is NOT an O(1/L) second-order term -- it is dominated by a leading-order L
+  // substitution, since imp-35594 evaluated log r/(L-1) with L = log N* = 21.911 (the log COUNT) whereas
+  // the closed form requires L = log T0 = 20.858 (the log HEIGHT). That inflates the (L-1) denominator by
+  // ~5.3 percent and shrinks the shift ~5 percent; restoring L = log T0 gives -0.985 percent (gap ~0.2
+  // percent). The GENUINE next-order term is the RvM height-map curvature d log T0/dN = (1/N)(1 - 1/u),
+  // u = log(T0/2pi), which corrects the denominator (L-1) -> (L-1+1/u): it is only ~0.27 percent (>10x
+  // below the ~5 percent gap), has the right SIGN (reduces |shift| from -0.9847 toward the measured
+  // -0.9826 percent), and closes the fit to ~0.06 percent (damping 18.037 -> 18.085 brackets the measured
+  // 18.074). Seven self-executing assertions. Import-light (inlined effectiveHeightForN + imp-35458 solver,
+  // no zeros bundle). Analysis only on the imp-3220/imp-3406 surrogate; the imp-35594 mechanism verdict
+  // (crossover damping ~ log T0) UNCHANGED; imp-35337a stays OPEN; C_C ansatz and E_trunc = 3.06e-5
+  // UNTOUCHED; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35636-crossover-damping-residual-gap-decomposition.js',
 ];
 
 let ALL_MODULES = FAST_MODE

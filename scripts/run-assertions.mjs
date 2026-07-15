@@ -9155,6 +9155,21 @@ const DATA_MODULES = [
   // gamma_max literal, no zeros bundle). Assessment/scoping only; imp-35337a stays OPEN; C_C ansatz and
   // E_trunc=3.06e-5 UNTOUCHED; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35637-peak-single-point-true-dynamic-spotcheck-scope.js',
+  // imp-35638: DERIVES the closed-form E_trunc sensitivity of the imp-35594 Derivation-1 / imp-33723
+  // Banach crossover N_cross = (C_C/E_trunc)^2 log T0(N_cross). Implicit-differentiating the fixed point
+  // gives dN_cross/dE_trunc = -(2 N_cross/E_trunc) L/(L-1): the bare -2 log-derivative of
+  // kappa = (C_C/E_trunc)^2 (height frozen) times the fixed-point self-consistency factor L/(L-1) = 1.0504
+  // (L moves with N), i.e. d logN/d logE = -2.10 at the anchor. CROSS-CHECK: a direct Banach recompute on
+  // the exact RvM inverse gives N_cross 3.280281e9 (matching imp-33723 ~3.28e9) -> 2.333355e9 under
+  // E_trunc 3.06e-5 -> 3.6e-5, a -28.87% shift the closed-form log-slope predicts as -28.92% (~0.06pp) and
+  // the exact self-consistent form (E1/E2)^2 L2/L1 reproduces to six digits. CONTRAST: under the same swap
+  // the imp-35609 peak location moves 9.22e5 -> 7.37e5 (log-slope -1.38), so the crossover is ~1.52x more
+  // E_trunc-sensitive -- the imp-35594 Derivation-1-vs-2 dichotomy on the E_trunc axis (E_trunc the
+  // crossover sole quadratic lever vs an O(1) balance term at the peak). Six self-executing assertions.
+  // Import-light (inlined effectiveHeightForN, no zeros bundle). Measurement/derivation only on the
+  // imp-3220/imp-3406 surrogate; the 3.6e-5 value is a probe, not a re-anchoring; anchor E_trunc = 3.06e-5
+  // and C_C ansatz UNTOUCHED; imp-35337a stays OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35638-crossover-N-etrunc-sensitivity.js',
 ];
 
 let ALL_MODULES = FAST_MODE

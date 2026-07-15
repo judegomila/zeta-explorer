@@ -9517,6 +9517,22 @@ const DATA_MODULES = [
   // strictly TIGHTER, so these widths are OPTIMISTIC); changes no bound; imp-35653 stays
   // breakthrough-tier OPEN; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35698-b2-tail-lemma-margin-ladder.js',
+  // imp-35717: ENUMERATE the t-sign reconciliation prerequisites between the repo
+  // HELD heat-flow structure (de Bruijn flow at NEGATIVE time t=-4 tau_repo, imp-35674)
+  // and the positive-time Polymath15 barrier H_t=A+B-C, before the held structure can
+  // seed the imp-35653 W1 interval-bounded approximation at T_PT=3e12. Four prerequisites:
+  // R1 parameter-normalization (finite relabel to the shared Riemann-xi endpoint t=0, no
+  // margin); R2 (pivotal) flow-direction well-posedness (backward heat is ill-posed, so the
+  // gap CANNOT be bridged by running the flow backward -- only a fresh FORWARD-evolution
+  // certificate works); R3 de Bruijn Thm 13 survives the sign flip only as the inequality
+  // DIRECTION (all-real preserved forward not backward), its benefit-sign FLIPS so the
+  // negative-time proxy inherits a strictly TIGHTER margin (imp-35674 Part C); R4 the
+  // positive-t A+B-C interval error caps at T_PT are the greenfield seed (imp-35681 Part A).
+  // RESIDUAL: reconciliation leaves W1 greenfield and ADDS the R2 obligation -- a scoping
+  // prerequisite, not a lever. Import-light; five self-executing assertions. Enumeration
+  // only; derives nothing; discharges nothing; changes no bound; NO QED; Platt-Trudgian
+  // Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35717-w1-tsign-reconciliation-scope.js',
 ];
 
 let ALL_MODULES = FAST_MODE

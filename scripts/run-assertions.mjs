@@ -9093,6 +9093,22 @@ const DATA_MODULES = [
   // reparametrise, NOT a re-anchoring); surrogate-vs-true fidelity (imp-35337a) OPEN; changes no
   // bound; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35632-crossover-damping-height-ladder.js',
+  // imp-35633: MEASURES the imp-35574 interior sigma-PEAK LOCATION height-map DAMPING factor across
+  // the SAME log-T0 ladder (L = 10, 13.23 peak, 20.858 crossover, 24, 28.73 PT), extending the
+  // imp-35594 Derivation-2 check from ONE height to a range. For each target height T0 the peak is
+  // placed there by choosing E_trunc from the stationarity balance (*) E_coll_prime (E_trunc + E_flow)
+  // = E_coll E_flow_prime at N_A = RvM count at T0 (the RvM peak locator lands back at N_A to <1e-4),
+  // then re-located on the imp-35413 closed surrogate; the damping (1 - H_B(N_A)/T0)/|(N_B - N_A)/N_A|
+  // stays SUB-UNITY at every rung (0.42-0.77, mean ~0.63, max ~0.77 < 1 => amplification) with a
+  // near-zero fit slope ~0.018 (~50x flatter than the imp-35632 crossover ~0.966) and damping/L FALLING
+  // ~0.042 -> ~0.027, CONFIRMING the Derivation-2 prediction that the peak LACKS log-proportional
+  // insulation (L-independent in the leading-order sense) and REFINING the literal flat ~0.55 to a
+  // peak-neighbourhood approximation with a weak O(1) L-drift below 1. The L~13.23 rung recovers
+  // E_trunc ~3.06e-5 (imp-2631) and damping ~0.553 (imp-35574). Seven self-executing assertions.
+  // Import-light (inlined RvM count/surrogate, no zeros bundle). Measurement only; the E_trunc values
+  // place the peak on the ladder (diagnostic reparametrise, NOT a re-anchoring); surrogate-vs-true
+  // fidelity (imp-35337a) OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35633-peak-location-damping-height-ladder.js',
 ];
 
 let ALL_MODULES = FAST_MODE

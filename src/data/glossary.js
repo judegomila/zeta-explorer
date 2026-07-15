@@ -17831,6 +17831,42 @@ export const glossary = [
       'imp-2528 the one-sided true-flow upper-bound predicate this principle governs (imp-2528)',
     ],
   },
+  {
+    term: 'imp-35415 reentry-band landmark disposal classification: floor-DETERMINED absolute coordinates demoted, floor-STRUCTURAL relative diagnostics survive',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35415 scoping of which reentry-band landmarks the imp-35356 route (ii) ' +
+      'disposal (band = pure artifact of the discrete ceil against the machine floor, not a true-dynamic ' +
+      'excursion) demotes versus which it leaves intact. Route (ii) deletes only the DYNAMIC-REALITY reading ' +
+      'of the band; it does not delete the surrogate MAP (the imp-3220/imp-3406 single-rate log-law), so each ' +
+      'inherited landmark splits by its content, not by association with the band.\n\n' +
+      'CLASSIFICATION PRINCIPLE: a landmark whose value is FLOOR-DETERMINED -- an absolute coordinate whose ' +
+      'whole magnitude is set by EPS_FP (imp-35243 D1: slides ~11.99 decades per factor-2 change in the ' +
+      'floor) -- carries no floor-independent content and demotes to a machine-precision surrogate coordinate. ' +
+      'A landmark that encodes FLOOR-STRUCTURAL information -- a relative geometry, an internal self-' +
+      'consistency relation, or a comparative-frame diagnostic isolating the floor-invariant part -- is ' +
+      'independent of the dynamic-reality claim and survives as a legitimate surrogate-map diagnostic.\n\n' +
+      'VERDICT on the five inherited landmarks: the two ABSOLUTE edge positions (reentry 10^27.08, exit ' +
+      '10^37.17, log10 N) are ARTIFACT-LABELED / demoted. The other THREE -- the ~10.08-decade width, the ' +
+      'imp-35332 drift-integral self-consistency, and the imp-35263 co-moving-vs-fixed-window comparison -- ' +
+      'SURVIVE, because each describes the surrogate map itself rather than a floor-set absolute position.\n\n' +
+      'HOW TO APPLY: when a floor-anchored assessment disposes of a dynamic-reality claim, do not assume every ' +
+      'associated landmark is discharged along with it -- separate absolute (floor-determined) coordinates ' +
+      'from relative or self-consistency (floor-structural) diagnostics before deciding what the disposal ' +
+      'demotes.\n\n' +
+      'HONEST SCOPE: assessment only; discharges nothing; imp-35243a stays OPEN pending the imp-35357 ' +
+      'formalization of route (ii); changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-35480 (glossary headword recording the imp-35415 reentry-band landmark disposal classification), 2026',
+    relatedTerms: [
+      'imp-35415 the scoping this entry records verbatim, including the five-landmark classification (imp-35415)',
+      'imp-35356 established the route (ii) disposal direction this scoping is downstream of (imp-35356)',
+      'imp-35357 formalizes route (ii) itself; imp-35243a stays OPEN until then (imp-35357)',
+      'imp-35243 D1 supplies the ~11.99-decades-per-factor-2 floor sensitivity used to identify floor-determined landmarks (imp-35243)',
+      'imp-35332 supplies the surviving drift-integral self-consistency landmark (imp-35332)',
+      'imp-35263 supplies the surviving co-moving-vs-fixed-window comparison landmark (imp-35263)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -183,6 +183,26 @@ export default function Imp33549SigmaFarTailVsInteriorMaxViz() {
         Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
       </div>
 
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>Precision certification:</strong> imp-35337 recomputed
+        both the interior peak (N_max &sim; 9.22e5, sigma_max &sim; 0.949429) and the imp-3444
+        crossover (N_cross &sim; 3.280294352e9) in cancellation-free double-double arithmetic and
+        found both GENUINE, not IEEE-754 rounding artifacts &mdash; the double-vs-dd agreement is
+        &sim;1e-16 on the hair-thin below-ceiling margin. The DEEPER surrogate-vs-true fidelity
+        question stays OPEN as sub-gap imp-35337a: the dd certification covers the ARITHMETIC only,
+        not whether the imp-3220/imp-3406 surrogate map is a faithful proxy at these heights.
+      </div>
+
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>
         <strong>Related:</strong>{' '}
         <Link to="/viz-imp33628-etrunc-ecoll-crossover" style={{ color: '#7c3aed' }}>

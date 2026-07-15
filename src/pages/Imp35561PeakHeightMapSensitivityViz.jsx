@@ -77,7 +77,27 @@ export default function Imp35561PeakHeightMapSensitivityViz() {
 
       <div
         style={{
-          marginTop: '1.25rem',
+          marginTop: '1rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(217,119,6,0.06)',
+          borderLeft: '3px solid #d97706',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+        }}
+      >
+        <strong style={{ color: '#d97706' }}>Honest-status sharpening (imp-35574):</strong>{' '}
+        "Quoted to one significant figure" does NOT mean height-map-insensitive. imp-35574 forms
+        the imp-35458 crossover damping factor for the peak LOCATION itself and finds it below 1
+        (~0.55) -- a ~24 percent raw height-map gap maps to a ~44 percent N_max shift, mild
+        AMPLIFICATION rather than the ~18x log-damping the E_coll = E_trunc crossover enjoys. Only
+        the peak HEIGHT sigma_max is height-map-robust; the peak LOCATION N_max is NOT a
+        log-damped landmark and must keep being quoted only to ~one significant figure.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
           padding: '0.75rem 1rem',
           background: 'rgba(148,163,184,0.04)',
           borderLeft: '3px solid #334155',

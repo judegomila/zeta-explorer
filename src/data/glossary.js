@@ -15369,21 +15369,30 @@ export const glossary = [
       '12, phase wraps back below W), giving a single bounded band of ~10.08 decades; the wider directly-measured ' +
       'residual band (driven by the Picard iterate count itself incrementing) spans [10^19.75, 10^37.17], ~17.42 ' +
       'decades, with the imp-34997 reentry marking only the frac-window models LOWER edge.\n\n' +
+      'HONEST CAVEAT (imp-35332): the ~0.0187/decade figure quoted above is an EDGE value, not a band-constant. ' +
+      'imp-35332 analytically derived DRIFT(N) = ln(10).K.(L-1)/L / (LN_INV_R.(K log T0 - log(N)pi)) and showed it ' +
+      'DECREASES monotonically across the band, from ~0.01864 at the reentry (10^27.08, matching the grid figure ' +
+      'to <1e-3) down to ~0.01183 at the exit (10^37.17), a factor ~1.574. Treating 0.0187 as constant would ' +
+      'predict a band width of OFFSET/0.0187 ~ 7.97 decades; the actual band is ~10.08 decades, reconciled only by ' +
+      'integrating the decreasing drift over the band rather than dividing by the single edge value.\n\n' +
       'HOW TO APPLY: when a measured population statistic on this surrogate reads as identically zero over an ' +
       'extended N-range, do not default to reading that as asymptotic extinction -- check whether the underlying ' +
       'driver is a bounded, slowly-drifting phase quantity that can re-cross its trigger threshold arbitrarily far ' +
-      'out, as here. The precision sub-gap imp-34997a (higher-precision certification of the drift/reentry) is now ' +
-      'discharged by imp-35109; imp-35111a (certifying the exit/onset split) remains OPEN.\n\n' +
-      'HONEST SCOPE: a glossary headword restating the imp-34997/imp-35109/imp-35111 findings verbatim, not a new ' +
-      'bound; measurement only on the inherited imp-3220/imp-3406 surrogate; C_C = (1/8)sqrt(3pi) (imp-2642) and ' +
-      'C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; no RH ' +
-      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'out, as here. Also do not quote the drift as a single constant outside the immediate reentry neighbourhood; ' +
+      'use the drift INTEGRAL over the band (imp-35332). The precision sub-gap imp-34997a (higher-precision ' +
+      'certification of the drift/reentry) is now discharged by imp-35109; imp-35111a (certifying the exit/onset ' +
+      'split) remains OPEN.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-34997/imp-35109/imp-35111/imp-35332 findings verbatim, ' +
+      'not a new bound; measurement only on the inherited imp-3220/imp-3406 surrogate; C_C = (1/8)sqrt(3pi) ' +
+      '(imp-2642) and C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator ' +
+      'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
     firstUsed: 'imp-35124 (glossary headword recording the imp-34997 finite ceil-phase gap finding), 2026',
     relatedTerms: [
       'imp-34997 refined the seed grid 50x above 1e12, found the zero off-by-one tail is genuine depletion but a FINITE ceil-phase gap, not asymptotic vanishing, with reentry at N~10^27.08 (imp-34997)',
       'imp-35109 certified the imp-34997 ceil-phase drift (~0.0187/decade) and the 10^27.08 reentry in double-double arithmetic, confirming it is a genuine analytic feature, not a double-rounding artifact (imp-35109)',
       'imp-35111 showed the repopulated band above the reentry is itself bounded, exiting again at N~10^37.17 (~10.08-decade band), with a wider ~17.42-decade measured census band (imp-35111)',
       'imp-34903 and imp-34951 established the original off-by-one iters-to-floor population this headword tracks the tail-extinction question for (imp-34903, imp-34951)',
+      'imp-35332 analytically derived the drift and showed the inherited 0.0187 is an EDGE value at the reentry, not a band-constant -- it decreases ~1.574x from reentry to exit (imp-35332)',
     ],
   },
   {

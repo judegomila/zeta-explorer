@@ -19229,6 +19229,44 @@ export const glossary = [
       'imp-486 supplies the GUE-conditional caveat that is the only surviving residual (imp-486)',
     ],
   },
+  {
+    term: 'imp-35652 route taxonomy for the OPEN imp-35337a: option (a) killed, option (b) still forced, route (ii) sole partial',
+    category: 'proof-status',
+    definition:
+      'A headword recording the three-way route taxonomy that governs how the OPEN imp-35337a ' +
+      'surrogate -> observable dictionary (does the sigma GUE surrogate track the true zero statistics) ' +
+      'could be closed, after imp-35652 ruled one branch out.\n\n' +
+      'OPTION (a) -- restricted-support surrogate: re-express the collision functional E_coll via a ' +
+      'statistic reachable INSIDE the proven |alpha| < 1 Montgomery/Rudnick-Sarnak n-level correlations, ' +
+      'avoiding any conjectural full-support input. imp-35652 rules this NOT VIABLE: any |alpha| < 1 proxy ' +
+      'is necessarily BAND-LIMITED (resolution ~ one mean spacing), whereas the near-minimal-collision scale ' +
+      's_min ~ M^{-1/3} -> 0 (Ben Arous-Bourgade 2013) sits strictly below that resolution floor by ~M^{1/3} ' +
+      '(~97x at the interior peak N ~ 9.22e5, ~1486x at the E_coll = E_trunc crossover N ~ 3.28e9); the ' +
+      'short-range constant C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643) is likewise carried by the ' +
+      '|alpha| >= 1 tail a restricted-support proxy cannot see.\n\n' +
+      'OPTION (b) -- full-support law: since option (a) does not dissolve it, imp-35538 REQ-2/REQ-3 still ' +
+      'FORCES the conjectural full-support Montgomery pair-correlation law as the only route-(i) input; the ' +
+      'route-(i) literature obstruction (imp-35493/imp-35538) stands untouched.\n\n' +
+      'ROUTE (ii) -- data-anchored spot-check: with option (a) killed, the imp-35488 two-height g_true ' +
+      'spot-check (imp-35672 scopes what it can/cannot certify) is left as the SOLE remaining viable partial ' +
+      'for imp-35337a -- a bounded, small distributional consistency check at one in-repo-reachable height, ' +
+      'not a certification and not a closure.\n\n' +
+      'HOW TO APPLY: when asking how imp-35337a could be closed, cite this three-way split -- option (a) is ' +
+      'closed off (dead end), option (b) remains an open conjectural dependency, and route (ii) is the only ' +
+      'live partial, itself incomplete on four counts (imp-35672).\n\n' +
+      'HONEST SCOPE: assessment/scoping only; discharges nothing; changes no bound; establishes no operator ' +
+      'positivity; C_C = (1/8) sqrt(3 pi), C_H = 1/8 (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631) and ' +
+      'C_mb GUE-conditional (imp-486) UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35691 (glossary headword recording the imp-35652 route taxonomy for imp-35337a), 2026',
+    relatedTerms: [
+      'imp-35652 rules option (a) NOT viable via the resolution-floor obstruction recorded here (imp-35652)',
+      'imp-35538 supplies REQ-2/REQ-3 which option (a) failed to dissolve, still forcing option (b) (imp-35538)',
+      'imp-35488 executes the route-(ii) two-height g_true spot-check, the sole remaining partial (imp-35488)',
+      'imp-35672 scopes precisely what the imp-35488 route-(ii) spot-check can and cannot certify (imp-35672)',
+      'imp-35337 names the OPEN imp-35337a surrogate -> observable dictionary this taxonomy targets (imp-35337)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

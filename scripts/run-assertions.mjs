@@ -8433,6 +8433,22 @@ const DATA_MODULES = [
   // B1; touches nothing in the NON-finite tail lemma B2/W3 (imp-35674). Measurement only; discharges nothing;
   // changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35675-finite-winding-mesh-cost-vs-delta.js',
+  // imp-35676: SCOPES imp-35653 work-item W4 -- reading the off-line contribution above T_PT=3e12 as
+  // EXACTLY ZERO from (B1) finite winding + (B2) the analytic tail lemma, retiring the unsound 2/gamma
+  // (imp-397) count kernel (the 3.06e-5/5.106e-5 E_trunc artifact) and making the numeric E_trunc
+  // vestigial. Resolves two open questions. (Q1) CONSISTENT with the imp-34791 reclassification of
+  // E_trunc from "effective constant C_T" to "unported barrier lemma + effective constant": W4 is the
+  // port-time CONSUMER of the very barrier lemma imp-34791 named as unported (pre-port conditional lemma
+  // -> post-port discharged -> reads zero), and retiring the 2/gamma kernel is consistent with imp-34791
+  // having ALREADY refuted it (a single admissible deep zero is mispriced ~3.75e11x via realness time
+  // (2 beta-1)^2/2), so W4 discharges no NEW numeric bound. CAVEAT: W4 zeroes only the barrier-lemma
+  // component, NOT the effective approximation-error constant of H_t=A+B-C (the two-E_trunc split). (Q2)
+  // W4 is GATED on the non-finite W3, NOT independent: the zero-reading is conditional on B1+B2 and PT
+  // N_off(T_PT)=0 alone is necessary-not-sufficient; the imp-35653 "finite/mechanical" label is about the
+  // OPERATION (delete artifact, substitute 0), the LICENSE is gated on W3 -- both true, not in tension.
+  // Post-port zero is PARITY with PT, not a beat. Scoping only; the imp-34791 reclassification stays
+  // UNCHANGED; ports nothing; discharges nothing; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35676-w4-etrunc-zero-reading-consistency-scope.js',
   // imp-35402: literal-verification (imp-35339-style) audit of the imp-35279/imp-35280 E_flow
   // far-tail four-rung ladder. Cross-module remnant agreement is EXACT; the reconstruction
   // identity holds to <5e-4; the swapFraction column, however, is NOT reproducible to tight

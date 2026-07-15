@@ -1126,6 +1126,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive contraction-curve chart baking the imp-35243 single-rate log-law literals verbatim (no new computation, no data-module import); shows the iterate-to-floor convergence and drift context only; does not certify surrogate fidelity (R1-R4 stay OPEN), does not discharge imp-35111a/imp-35174a; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35362-n2000-collision-envelope',
+      title: 'N=2000 Collision-Envelope Bracket: Four Finer-Grid References vs t_c_hi',
+      oneLine:
+        'Plots the four imp-35324 finer-grid (tauC/4000) N=2000 collision references (RK4 and DP45, each at dt and dt/2) as slack below the imp-857 map bracket t_c_hi=1.2e-3 on a log scale, visualizing the DP45 dt/2 worst-case +6.16e-8 knife-edge clearance against the other three references at ~7.5e-6.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35324-r2-n2000-finer-grid-reference.js',
+      paperSourcePath:
+        'src/data/imp-35324-r2-n2000-finer-grid-reference.js (imp-35362 viz page)',
+      ticket: 'imp-35362',
+      pedagogicalStep: 76,
+      honestCeiling:
+        'Descriptive envelope chart baking the imp-35324 finer-grid t_c literals verbatim (no new computation, no data-module import); visualizes the razor-thin worst-case clearance only; does not advance the R2 ladder past N=1000 (imp-35221 stays the largest robustly-certified rung), does not extend the C_mb certificate, does not remove the imp-486 GUE conditional; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

@@ -8816,6 +8816,14 @@ const DATA_MODULES = [
   // imp-35410 parts()/bisection verbatim. MEASUREMENT ONLY, ports nothing, C_mb GUE-conditional
   // per imp-486 UNTOUCHED, changes no bound, NO QED.
   '/src/data/imp-35699-post-port-unconditional-share-9999-99999-crossings.js',
+  // imp-35700: DERIVES + MEASURES an explicit N-decay rate for the imp-35654 F3 sigma-TRACKING
+  // residual. Past the imp-3406 peak the constant E_trunc floor outlives the vanishing E_coll, so
+  // E(N) -> E_trunc and sigma(N) -> (C_C/E_trunc) sqrt(log T0/N) ~ N^(-1/2) sqrt(log T0); the local
+  // exponent d ln sigma/d ln N -> -1/2 from above and decades/nine = -1/p -> 2 from above, whose
+  // value across the imp-35699 crossings (~2.048) DERIVES imp-35699's empirical ~2.05 rate. Reuses
+  // the imp-35410 parts() verbatim. DERIVATION/MEASUREMENT ONLY, ports nothing, C_mb GUE-conditional
+  // per imp-486 UNTOUCHED, changes no bound, NO QED.
+  '/src/data/imp-35700-sigma-tracking-residual-decay-rate.js',
   // imp-35413: locates the imp-35371 E_flow far-tail fd-vs-analytic remnant sub-1e-3
   // crossing at N ~ 4.17e25 (log10 N ~ 25.6205) on the closed T0 = 2 pi N / log N
   // surrogate channel. MEASUREMENT ONLY, C_mb GUE-conditional per imp-486 UNTOUCHED,

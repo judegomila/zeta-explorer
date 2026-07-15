@@ -1252,6 +1252,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive three-line share chart baking offline-reproduced imp-35475 surrogate-formula literals (no fresh computation at load, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; the imp-35337a surrogate-vs-true fidelity sub-gap REMAINS OPEN; the E_coll share is GUE-conditional and inherits imp-486; C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and E_trunc = 3.06e-5 (imp-2631) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35549-height-map-divergence',
+      title: 'Height-Map Divergence: effectiveHeightForN vs Closed Surrogate T0=2piN/logN',
+      oneLine:
+        'Line chart and table of the relative divergence between the Newton-iterated effectiveHeightForN map (imp-35476) and the closed surrogate T0=2*pi*N/logN (imp-35473/imp-35280) across N=1e6..1e200, falling monotonically from ~32.0% to ~1.57% but never vanishing.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35549-height-map-divergence-viz-data.js',
+      paperSourcePath:
+        'src/data/lambda-rh-height-mapping.js, src/data/imp-35473-eflow-fartail-remnant-sub1e4-crossing.js (imp-35549 viz page)',
+      ticket: 'imp-35549',
+      pedagogicalStep: 85,
+      honestCeiling:
+        'Descriptive diagnostic re-plot computing both height maps live from their existing formulas (no fresh derivation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate family; does NOT establish which map is more accurate; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

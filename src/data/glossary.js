@@ -19194,6 +19194,40 @@ export const glossary = [
     ],
   },
   {
+    term: 'imp-35696 exponent/coefficient consistency check: the imp-35652 resolution floor (M^{-1/3}) and constant mismatch (C_C) are the SAME cubic-repulsion structure',
+    category: 'proof-frontier',
+    definition:
+      'A headword recording the imp-35696 result that the two short-range facts imp-35652 uses to kill the ' +
+      'imp-35538 REQ-3 option-(a) route -- the resolution floor s_min ~ M^{-1/3} (Ben Arous-Bourgade) and the ' +
+      'constant mismatch C_C = (1/8) sqrt(3 pi) (imp-35680) -- are NOT independent obstructions, but the ' +
+      'EXPONENT and the COEFFICIENT of one shared cubic-repulsion structure.\n\n' +
+      'CHECK: under GUE cubic (beta = 2) level repulsion, the nearest-neighbour spacing density vanishes as ' +
+      'p(s) ~ c s^2. Reading C_C (and, separately, the imp-35680 curvature pi^2/3) as this density coefficient c, ' +
+      'the smallest of M consecutive gaps solves the extreme-value balance M F(s_min) = 1 with F(s) = c s^3 / 3, ' +
+      'giving s_min(M; c) = (3 / (c M))^{1/3} -- recomputed here by BISECTION (not the closed form). A least-' +
+      'squares log-log slope over M in {1e2 .. 1e10} measures the M-exponent for both c = pi^2/3 and c = C_C: ' +
+      'BOTH come out at -1/3 (matching Ben Arous-Bourgade), differing by ~0. The exponent is fixed purely by the ' +
+      'cubic-repulsion POWER, coefficient-INDEPENDENT; the amplitude only sets the prefactor (3/c)^{1/3}.\n\n' +
+      'CONSEQUENCE: the imp-35680 amplitude mismatch ratio (pi^2/3)/C_C ~ 8.573 enters the collision scale ONLY ' +
+      'via its cube root, prefCC/prefStd ~ 2.047 -- the exponent is untouched. So the resolution floor and the ' +
+      'constant mismatch agree on scale (same M-exponent) and differ only in amplitude, exactly the ' +
+      '"corroborating" relation imp-35652 asserted qualitatively, now confirmed quantitatively.\n\n' +
+      'HOW TO APPLY: when citing the imp-35652 obstruction pair, note they are one structure (exponent + ' +
+      'coefficient) rather than two independent facts -- the resolution-floor gap and the constant-mismatch ' +
+      'overshoot are two readings of the same beta=2 cubic short-range repulsion.\n\n' +
+      'HONEST SCOPE: consistency check only, NOT rigorous; derives no remainder, discharges nothing, changes no ' +
+      'bound; establishes no operator positivity; C_C, C_H, E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional ' +
+      '(imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-35743 (glossary headword recording the imp-35696 consistency-check result), 2026',
+    relatedTerms: [
+      'imp-35696 supplies the bisection-measured coefficient-independent -1/3 exponent and the ~2.047 cube-root prefactor ratio recorded here (imp-35696)',
+      'imp-35652 poses the resolution-floor/constant-mismatch pairing this headword shows is one shared structure (imp-35652)',
+      'imp-35680 supplies the amplitude mismatch ratio (pi^2/3)/C_C ~ 8.573 whose cube root is the prefactor ratio here (imp-35680)',
+      'Ben Arous-Bourgade (2013) fixes the s_min ~ M^{-1/3} smallest-GUE-gap exponent this check matches',
+    ],
+  },
+  {
     term: 'imp-35653 S_barrier decomposition: FINITE bounded-rectangle winding check (B1) PLUS a NON-finite semi-infinite analytic tail lemma (B2)',
     category: 'proof-status',
     definition:

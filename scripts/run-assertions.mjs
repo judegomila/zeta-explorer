@@ -9711,6 +9711,19 @@ const DATA_MODULES = [
   // GREENFIELD (imp-35681 Part A). Five self-executing assertions. Allocation / OOM scoping
   // only; evaluates no sum; verifies no inequality; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35760-w1-margin-allocation-scope.js',
+  // imp-35761: ESTIMATE the absolute certified-rounding cost of the N ~ 4.886e5-term
+  // interval sum imp-35725 names as the MECHANICAL W1 obstruction at T_PT = 3e12.
+  // Models the worst-case recursive-sum forward error gamma_{N-1} ~ N u (Higham), so the
+  // certified interval WIDTH grows like O(N * eps): double ~1.08e-10, extended ~5.30e-14,
+  // quad ~9.41e-29, pairwise-double ceiling ~4.20e-15. This accumulation EXCEEDS the
+  // shrinking analytic tail (E_A, E_B) as the dominant numerical contributor at fixed
+  // precision, but even plain double sits ~10 orders below the O(1) barrier margin
+  // |A_t+B_t| - |C_t|. CONCLUSION: precision is NOT the binding constraint -- the wall is
+  // the ENGINEERING of the certified length-N interval sum plus the strict-inequality
+  // check, exactly the MECHANICAL classification of imp-35725, so A+B-C stays GREENFIELD.
+  // Five self-executing assertions. OOM estimate only; evaluates no sum; verifies no
+  // inequality; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35761-w1-certified-rounding-cost-scope.js',
   // imp-35728: QUANTIFY the necessary-not-sufficient gap between the EXTERNAL
   // Platt-Trudgian certificate N_off(T_PT) = 0 (verified to T_PT = 3e12) and the
   // imp-35681/imp-35676 W4 mechanical zero-substitution (off-line contribution

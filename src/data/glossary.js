@@ -18987,6 +18987,48 @@ export const glossary = [
       'imp-35473 the remnant*log N product datapoints (imp-35473)',
     ],
   },
+  {
+    term: 'imp-35577 far-tail-crossing height-map NON-robustness: log-damping fails and GROWS deeper (+15.31 to +46.84 decades)',
+    category: 'numerical',
+    definition:
+      'imp-35458 found the E_coll = E_trunc floor-crossover shifts by only ~-0.98% under the ' +
+      'imp-35458 height-map swap (exact RvM inverse effectiveHeightForN vs the closed surrogate ' +
+      'T0 = 2 pi N / log N), an ~18x compression of the ~18% raw-height gap because the crossover ' +
+      'sees the height map only through log T0 (LOG-DAMPED). This entry records that the SAME ' +
+      'swap does NOT rescue the E_flow far-tail fd-vs-analytic remnant crossings, and the failure ' +
+      'GROWS deeper: the imp-35413 sub-1e-3 crossing shifts +15.31 decades (log10 N: 25.6205 -> ' +
+      '40.9350, N-ratio ~2.06e15, reproducing imp-35497) and the imp-35473 sub-1e-4 crossing ' +
+      'shifts +46.84 decades (log10 N: 109.1892 -> 156.0294, N-ratio ~6.92e46, NEW in imp-35577), ' +
+      'even though the raw height-map divergence itself SHRINKS deeper (~9.24% at the sub-1e-3 ' +
+      'scale down to ~2.65% at the sub-1e-4 scale).\n\n' +
+      'MECHANISM: the far-tail remnant compares a map-swapped finite-difference exponent against ' +
+      'the imp-35198 analytic reference -1 + 3/log N, which was DERIVED on the surrogate channel ' +
+      'and is the wrong leading form for the RvM-inverse exponent. Swapping the map inflates the ' +
+      'remnant by a near-constant factor (~2.13x at sub-1e-3, ~1.87x at sub-1e-4) rather than ' +
+      'damping it through a logarithm, and this roughly-constant inflation rides an ever-SLOWER ' +
+      '~1/log N remnant decay, so recovering the threshold costs more decades of N the deeper the ' +
+      'crossing sits -- the opposite of the crossover/peak, where the height enters only through ' +
+      'log T0 and a large raw disagreement compresses to sub-1%.\n\n' +
+      'HOW TO APPLY: never quote either far-tail crossing-N (imp-35413 sub-1e-3, imp-35473 ' +
+      'sub-1e-4) as height-map-robust; always flag it as a surrogate-channel-derived artifact, in ' +
+      'contrast to the imp-35458 crossover and imp-35536 peak, which may be cited as robust to ' +
+      'the same swap.\n\n' +
+      'HONEST SCOPE: measurement only (frontier-direction, NOT rigorous) on the inherited ' +
+      'imp-3220/imp-3406 surrogate extrapolation; derives nothing, changes no bound; the ' +
+      'slow-decay reading of the remnant survives under both maps; E_flow > 0 strictness ' +
+      '(imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail ' +
+      'exponent 1/2 per imp-3463 untouched; no operator positivity; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35667 (glossary headword recording the imp-35577 far-tail-crossing height-map non-robustness finding), 2026',
+    relatedTerms: [
+      'imp-35577 measures the two far-tail crossing shifts recorded here (imp-35577)',
+      'imp-35458 measures the log-damped crossover this entry contrasts against (imp-35458)',
+      'imp-35497 first located the sub-1e-3 far-tail crossing shift, reproduced here (imp-35497)',
+      'imp-35198 supplies the surrogate-channel analytic reference -1 + 3/log N whose mismatch drives the growth (imp-35198)',
+      'imp-35413 locates the sub-1e-3 surrogate-channel crossing (imp-35413)',
+      'imp-35473 locates the sub-1e-4 surrogate-channel crossing (imp-35473)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

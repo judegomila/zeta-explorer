@@ -232,6 +232,17 @@ export default function Imp35288R2FlowLadderSlackViz() {
         LARGEST tested collision time as its worst case, so the more-faithful but earlier dense
         interior crossing (imp-35351) is recorded only as a diagnostic, never adopted in the slack
         denominator.
+        <br />
+        <br />
+        <strong style={{ color: '#94a3b8' }}>imp-35477 third-family corroboration:</strong> a
+        THIRD, distinct integrator family &mdash; Bogacki-Shampine BS3 (order 3, FSAL) with a
+        natural cubic-Hermite dense output &mdash; independently catches the identical step
+        (1004 at dt, 2007 at dt/2) and identical pair (1495), with t_c agreeing to within
+        &sim;1e-4 relative of both the DP45 (order 5) and RK4 (order 4) families. The within-step
+        crossing is therefore scheme-invariant across integrator orders 3, 4, and 5, not an
+        artifact of any single high-order scheme. As with imp-35416, this strengthens the
+        crossing&apos;s scheme-independence only &mdash; it does not change the reported worst-case
+        slack, which per imp-35412&apos;s KEEP verdict still bakes the DP45 dt/2 endpoint value.
       </div>
     </div>
   );

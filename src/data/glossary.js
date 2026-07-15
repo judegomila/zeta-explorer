@@ -18074,6 +18074,7 @@ export const glossary = [
       'imp-35351 the DP45 dense-output envelope whose four members are re-folded (imp-35351)',
       'imp-35278 supplies the RK4 endpoint crossings folded into the imp-35351 envelope (imp-35278)',
       'imp-35416 supplies the RK4 + cubic-Hermite dense variant used for the definition-sensitivity cross-check (imp-35416)',
+      'imp-35542 requested this same envelope-definition-dependence headword independently; already satisfied by this entry (imp-35507) -- no duplicate added',
     ],
   },
   {

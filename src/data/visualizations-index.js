@@ -1370,6 +1370,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive ranked tier chart re-exporting the imp-35551 severity ranking literals verbatim (no new derivation, no heavy data-module import); scoping only -- assesses reachability, discharges nothing; route-(i) stays imp-486 GUE-conditional; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35663-decade-span-growth',
+      title: 'E_flow Far-Tail Remnant Decade-Span-Growth Ladder',
+      oneLine:
+        'Bar chart of the imp-35553 decade span to shed each further factor of ten from the E_flow far-tail fd-vs-analytic remnant (83.5687, 300.8583, 1057.6875), plus the declining span ratio (3.6001 -> 3.5156) and the constant-ratio projection overshoot (~25.44 decades) against the sqrt(10) asymptote.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35663-eflow-fartail-decade-span-growth-viz-data.js',
+      paperSourcePath: 'src/data/imp-35553-eflow-fartail-remnant-decade-span-growth-fit.js (imp-35663 viz page)',
+      ticket: 'imp-35663',
+      pedagogicalStep: 94,
+      honestCeiling:
+        'Descriptive bar chart re-exporting the imp-35553 span ladder literals verbatim (no new derivation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

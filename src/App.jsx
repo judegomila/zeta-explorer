@@ -864,6 +864,9 @@ const Imp35597ThresholdCollapseViz = lazy(() =>
 const Imp35628ReqSeverityRankingViz = lazy(() =>
   import('./pages/Imp35628ReqSeverityRankingViz.jsx')
 );
+const Imp35663DecadeSpanGrowthViz = lazy(() =>
+  import('./pages/Imp35663DecadeSpanGrowthViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2427,6 +2430,10 @@ function AppShell() {
           <Route
             path="/viz-imp35628-req-severity-ranking"
             element={<Imp35628ReqSeverityRankingViz />}
+          />
+          <Route
+            path="/viz-imp35663-decade-span-growth"
+            element={<Imp35663DecadeSpanGrowthViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

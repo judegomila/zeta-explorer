@@ -17352,6 +17352,96 @@ export const glossary = [
       'imp-35263 is the ticket assigned to R1 floor-independence, the requirement this mechanism binds (imp-35263)',
     ],
   },
+  {
+    term: 'imp-35261 K_{7/2} compensated deep-rung confirmation: independently reproduces K_{7/2} = -8 sqrt(2)/(3 pi) = -1.20042 on eps rungs the imp-35244 fixed-interval Simpson quadrature could not reach (eps down to 1e-6, N up to ~6.3e12)',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35261 re-read of the imp-35244 eps^{7/2} coefficient on a DIFFERENT, ' +
+      'deeper-reaching quadrature. imp-35244 pinned r1/eps^{7/2} -> K_{7/2} on the imp-35193 fixed-unit-interval ' +
+      'Simpson branch quadrature but had to stop at eps ~ 2.5e-3 (N up to 1e6) because smaller eps hit that ' +
+      'quadrature\'s noise floor. imp-35261 reuses the imp-35240 rescaled compensated finite-cutoff quadrature ' +
+      '(accurate at arbitrarily small eps) together with a cancellation-free deviation formula to re-read the ' +
+      'SAME ratio on rungs eps in [1e-6, 1e-3], all below the imp-35244 floor.\n\n' +
+      'FINDING (measurement only): r1/eps^{7/2} converges to -1.200422 = K_{7/2} = -8/(3 A_1) = ' +
+      '-8 sqrt(2)/(3 pi) across the deep ladder, matching the imp-35244 value to distToImp35244 ~ 1.4e-7 at ' +
+      'the best clean rung (eps = 3e-5, N ~ 7e9) and to 6-7 sig figs over eps in [3e-5, 1e-4]. The empty ' +
+      'eps^{5/2} slot also survives past eps = 1e-6 (r1/eps^{5/2} keeps decaying toward zero rather than ' +
+      'settling on a nonzero constant).\n\n' +
+      'HOW TO APPLY: cite this entry as an INDEPENDENT confirmation of the imp-35244 K_{7/2} value on rungs ' +
+      'that quadrature could not itself certify -- a second, differently-constructed instrument agreeing with ' +
+      'the first, not a re-derivation from first principles (that is imp-35265).\n\n' +
+      'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406/imp-33646 model-cusp surrogate; a ' +
+      'deeper numerical read of the same surrogate, certifying no constant, no N-uniform inequality, and no ' +
+      'error bar; does NOT discharge O3 or G6a_shock_lipschitz, both stay OPEN; establishes no operator ' +
+      'positivity; imp-3066 K_a >= 0 UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; ' +
+      'no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35403 (glossary headword summarising the imp-35261 verdict), 2026',
+    relatedTerms: [
+      'imp-35244 established the K_{7/2} value this entry independently confirms on deeper rungs (imp-35244)',
+      'imp-35240 supplies the compensated finite-cutoff quadrature this confirmation is read on (imp-35240)',
+      'imp-35265 upgrades the same eps^{5/2}-slot question from grid confirmation to an exact closed-form derivation (imp-35265)',
+    ],
+  },
+  {
+    term: 'imp-35265 exact eps^{5/2}-cancellation identity: (i-t^2)^{-3}+(i+t^2)^{-3} = -2i(3t^4-1)/(1+t^4)^3, an EXACT rational identity upgrading the imp-35244/imp-35313 4-sig-fig grid read to a closed-form derivation',
+    category: 'numerical',
+    definition:
+      'A headword recording that the odd-p conjugate-branch cancellation named at imp-35313 -- offered there ' +
+      'only as a 4-sig-fig grid confirmation -- is now DERIVED in exact closed form. With a = t^2 the shared ' +
+      'denominator factors as (i-a)(i+a) = -(1+a^2), so [(i-a)(i+a)]^3 = -(1+t^4)^3, and the numerator ' +
+      '(i+a)^3+(i-a)^3 = 2i(3a^2-1) = 2i(3t^4-1), giving the EXACT rational identity ' +
+      '(i-t^2)^{-3}+(i+t^2)^{-3} = -2i(3t^4-1)/(1+t^4)^3 (verified to <1e-22 at four test points).\n\n' +
+      'FINDING (derivation, not just measurement): the large-t expansion of this exact identity is ' +
+      '-6i t^{-8} + 20i t^{-12} + O(t^{-16}) -- the leading t^{-6} that either single branch carries alone ' +
+      'cancels IDENTICALLY between the conjugate branches, so the |F_3| curvature tail integrates as ' +
+      'integral_L^infty t^{-8} dt = (1/7) L^{-7} = (1/7) eps^{7/2} EXACTLY (L = eps^{-1/2}), meaning the ' +
+      'eps^{5/2} slot is now PROVABLY empty rather than merely observed-empty to four significant figures. ' +
+      'Assembling K_{7/2} through this exact route reproduces -8 sqrt(2)/(3 pi) = -1.20042, matching the ' +
+      'imp-35244 grid value.\n\n' +
+      'HOW TO APPLY: cite this entry (rather than imp-35313 or imp-35244) whenever the eps^{5/2}-slot claim ' +
+      'needs to rest on an exact algebraic identity instead of a finite-precision grid read -- it closes the ' +
+      '"still-open exact-identity derivation" gap that the imp-35313 and imp-35244 headwords both flagged.\n\n' +
+      'HONEST SCOPE: derivation only on the inherited imp-3220/imp-3406/imp-33646 model-cusp surrogate; pins ' +
+      'the remainder SHAPE an O3 proof must target but supplies neither the uniform inequality nor a certified ' +
+      'bound, so O3/G6a_shock_lipschitz stay OPEN; imp-3066 K_a >= 0 UNTOUCHED; C_mb GUE-conditional per ' +
+      'imp-486 UNTOUCHED; changes no bound; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the ' +
+      'rigorous SOTA.',
+    firstUsed: 'imp-35403 (glossary headword summarising the imp-35265 verdict), 2026',
+    relatedTerms: [
+      'imp-35313 named the same cancellation mechanism as a 4-sig-fig grid confirmation this entry upgrades to an exact identity (imp-35313)',
+      'imp-35244 reported the eps^{5/2}-slot-empty result this entry now derives in closed form (imp-35244)',
+      'imp-35261 independently confirms the K_{7/2} coefficient this identity assembles, on a deeper numerical ladder (imp-35261)',
+    ],
+  },
+  {
+    term: 'imp-35266 Krawczyk headroom 2:1 cancellation: the band-top surplus ~55.18 above the closed-form floor S_inf = 1/(2 delta) = 2500 is the residue of a near-exact 2:1 cancellation between a +110.34 finite-N push (FP_LO) and a -55.16 asymptotic-floor pull (G-factor)',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35266 decomposition of the imp-35241 band-top Krawczyk contraction-validity ' +
+      'headroom surplus (S ~ 2555.18, i.e. ~55.18 above the floor S_inf = 1/(2 delta) = 2500) into its two ' +
+      'multiplicative sources, S = S_inf . M_G . M_FP, split additively as S - S_inf = dG + dFP where ' +
+      'M_G = 2G/(1+G) is the asymptotic-floor G-factor piece and M_FP = 1/FP_LO is the finite-N piece.\n\n' +
+      'FINDING (measurement only): the net +55.18 surplus is NOT a single dominant term but the residue of a ' +
+      'near-exact 2:1 CANCELLATION -- the finite-N piece dFP ~ +110.34 pushes S above the floor (FP_LO < 1 so ' +
+      '1/FP_LO > 1) while the asymptotic-floor piece dG ~ -55.16 pulls it back down (G = 1-a < 1 so ' +
+      '2G/(1+G) < 1), summing to +55.18. The ratio -dFP/dG ~ 2.00042 is essentially N-flat across the whole ' +
+      'band (band-bottom, N_cross, and band-top all agree), because to leading order M_G - 1 ~ -a/2 and ' +
+      'M_FP - 1 ~ a, so dFP ~ S_inf.a is always about twice the magnitude of dG ~ -S_inf.a/2.\n\n' +
+      'HOW TO APPLY: cite this entry when the question is specifically WHY the band-top surplus is as small ' +
+      'as ~55 rather than the ~110 the finite-N correction alone would predict -- the answer is that a same-order ' +
+      'asymptotic-floor deficit cancels roughly half of it, not that the finite-N correction is small.\n\n' +
+      'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 surrogate, reproducing the imp-35241/ ' +
+      'imp-35176/imp-34996 machinery; certifies no constant, supplies no N-uniform inequality, establishes no ' +
+      'operator positivity, changes no bound. The imp-34714a machine certificate REMAINS OPEN; C_mb ' +
+      'GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 UNTOUCHED; no RH verdict; NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35403 (glossary headword summarising the imp-35266 verdict), 2026',
+    relatedTerms: [
+      'imp-35241 located the band-top headroom surplus this entry decomposes (imp-35241)',
+      'imp-35300 sweeps the bracket half-width delta itself using this same headroom-ratio near-invariance (imp-35300)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this decomposition (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

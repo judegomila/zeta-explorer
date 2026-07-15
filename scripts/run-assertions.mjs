@@ -8403,6 +8403,16 @@ const DATA_MODULES = [
   // beat it); net height-tail frontier gain = ZERO, beat content lives in the window legs. Scoping only;
   // discharges nothing; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35419-etrunc-barrier-lemma-porting-scope.js',
+  // imp-35653: SCOPES imp-35419 P2 option-a -- whether the Polymath15 argument-principle/winding-number
+  // barrier certificate (the S_barrier statement) is a FINITE verifiable check at T_PT=3e12. Finding: the
+  // winding count is finite/interval-verifiable but ONLY over a BOUNDED rectangle (what Polymath15 actually
+  // evaluates); the full S_barrier over the semi-infinite tail t>T_PT is NOT a finite check -- it decomposes
+  // into a FINITE winding barrier on a bounded transition rectangle (cost O(Delta log T_PT); local density
+  // ~4.28 zeros/unit at T_PT) PLUS a NON-finite analytic tail lemma |A+B|>|C| for all large x. Platt-Trudgian
+  // N_off(T_PT)=0 is a NECESSARY base but does NOT suffice. Port = W1..W4, only W3 (tail lemma) is the
+  // breakthrough-tier obligation; W4 retires the 3.06e-5/5.106e-5 count artifact to EXACTLY ZERO. Scoping
+  // only; discharges nothing; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35653-sbarrier-finite-check-porting-scope.js',
   // imp-35402: literal-verification (imp-35339-style) audit of the imp-35279/imp-35280 E_flow
   // far-tail four-rung ladder. Cross-module remnant agreement is EXACT; the reconstruction
   // identity holds to <5e-4; the swapFraction column, however, is NOT reproducible to tight

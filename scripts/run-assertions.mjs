@@ -6043,6 +6043,17 @@ const DATA_MODULES = [
   // Measurement only; component model NOT rigorous; C_mb GUE-conditional per imp-486 untouched;
   // PT Lambda<=0.2 SOTA; no bound change; NO QED.
   '/src/data/imp-34474-far-tail-en-headline-slack-vs-lpt.js',
+  // imp-35334: MEASUREMENT + ASSESSMENT -- locates the sigma < 1e-3 landmark (sigma = E_coll/E(N))
+  // at N ~ 5.432e15 (log10 N ~ 15.735, ~2.07 decades past imp-33620 sigma<0.01) by the identical
+  // imp-34474 bisection, then decomposes E(N) three ways: GUE-conditional (E_coll, share = sigma,
+  // imp-486), C_T barrier-lemma (E_trunc, share ~0.999, imp-34791 unported barrier lemma), fully
+  // unconditional (E_flow, share ~5.65e-9). ANSWER to the ticket binary: the far-tail bridge is
+  // effectively unconditional RELATIVE TO GUE (its GUE share is exactly sigma and vanishes) but NOT
+  // unconditional simpliciter -- the surviving E_trunc floor carries a DISTINCT, sigma-blind
+  // C_T conditionality (imp-34791). Two orthogonal conditionalities; sigma removes only the GUE one.
+  // Reuses imp-34474 parts()/bisection verbatim. 5 assertions. Assessment only; component model NOT
+  // rigorous; C_mb GUE-conditional per imp-486 untouched; imp-34791 barrier-lemma unchanged; no bound; NO QED.
+  '/src/data/imp-35334-far-tail-effectively-unconditional-vs-etrunc-conditionality.js',
   // imp-34488: MEASUREMENT -- tabulates the conditionality-gap ratio L_pt/E(N) across three named
   // landmarks (imp-3444 crossover, imp-33582 sigma<0.1, imp-33620 sigma<0.01); the gap grows 1975x
   // -> 3559x -> 3915x but SATURATES toward the ceiling L_pt/E_trunc=3954.25, governed by 1-sigma.

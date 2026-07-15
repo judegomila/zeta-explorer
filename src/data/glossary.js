@@ -19154,6 +19154,7 @@ export const glossary = [
       'imp-35488 supplies route-(ii), the only viable partial for imp-35337a (imp-35488)',
       'imp-2642/imp-2643 fix the C_C = (1/8) sqrt(3 pi), C_H = 1/8 short-range amplitude ansatz (imp-2642, imp-2643)',
       'imp-486 supplies the GUE-conditional caveat inherited by any pair-correlation remainder (imp-486)',
+      'imp-35706 re-requested this exact headword; confirmed already satisfied by this entry (no duplicate added)',
     ],
   },
   {

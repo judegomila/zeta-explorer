@@ -209,6 +209,8 @@ const DATA_MODULES = [
   '/src/data/imp-35325-n2000-signed-crossing-diagnostic.js',
   // imp-35351: a TRUE DP45 dense-output (DOPRI5 CONTD5) interpolant sampled at 256 interior sub-step nodes CATCHES the within-step pair-1495 step-over at N=2000 that both the imp-35235 endpoint gate and the imp-35278 endpoint signed-crossing miss -- DP45 dt/2 fires at step 2007 (endpoint gap POSITIVE) with t_c=1.1919828898e-3 below t_c_hi, superseding the imp-35278 spurious step-2228 re-approach; envelope clears (slack ~7.506e-6). MEASUREMENT ONLY, ladder stays N=1000, NO QED.
   '/src/data/imp-35351-n2000-dense-output-flow-reference.js',
+  // imp-35412: ASSESSMENT of which N=2000 collision time RUNGS[5] slack should report -- KEEP the imp-35324 endpoint DP45 dt-over-2 worst-case (1.1999384320e-3, slack +6.16e-8) rather than the imp-35351 dense interior crossing (1.1919828898e-3): the R2 predicate is a one-sided UPPER bound so the conservative worst case is the LARGEST tested collision time; the dense crossing is a faithful diagnostic (below t_c_hi) but is smaller AND not even the dense-envelope max (RK4 dt-over-2 = 1.1924935719e-3). ASSESSMENT ONLY, ladder stays N=1000, NO QED.
+  '/src/data/imp-35412-r2-ladder-slack-dense-vs-endpoint-assessment.js',
   // imp-35281: extends the imp-35238 real-ordinate three-factor invariant beta*g_min*(x_2-x_0)->1 to N=250,300,350,400 -- invariant stays pinned at 1 (|dev|<=1e-4, spread ~7.7e-5), bare-product band widens past the three-point 0.36-0.64; MEASUREMENT ONLY, I3/M2/M5 OPEN.
   '/src/data/imp-35281-real-ordinate-three-factor-invariant-larger-N.js',
   // imp-35282: ties the imp-35238 non-monotone span x_2-x_0 (2.83/1.88/2.25) to the RvM mean spacing 2pi/log(T/2pi) at the collapse height -- RvM is MONOTONE (2.18->1.77->1.54) but span/RvM stays non-monotone (1.30->1.07->1.46), so the band is a COLLAPSE-LOCATION effect not a mean-spacing effect; MEASUREMENT ONLY, M2/M5 OPEN.
@@ -8222,6 +8224,14 @@ const DATA_MODULES = [
   // (imp-2642), E_trunc=3.06e-5 (imp-2631) and the imp-398 C_F prefactor UNTOUCHED; surrogate-fidelity half
   // re-pointed imp-35337a stays OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35337-sigma-landmarks-double-double-certification.js',
+  // imp-35411: QUANTIFY the ln-N plateau WIDTH of the imp-35337 flat-cap interior sigma-peak. imp-35337
+  // dd-certified the peak VALUE (sigma_max~0.94942901 at N_max~9.219e5) but flagged the argmax as
+  // ill-conditioned without measuring the plateau. At the 1e-5 tolerance (matching its 2.1e-5 below-ceiling
+  // margin) the peak spans ~0.0484 decades of N (N in [8.72e5, 9.75e5], factor ~1.118x); W(tol)/sqrt(tol)
+  // is constant ~15.3165 across tol in {1e-4..1e-7}, the quadratic-flat-max signature (curvature k~6.43e-3).
+  // Located on the imp-35337 double surrogate (dd-certified to ~1e-16); MEASUREMENT ONLY; imp-35337a stays
+  // OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35411-sigma-peak-plateau-width.js',
   // imp-35338: CROSS-MODULE constant-consistency AUDIT of the iters-to-floor / reentry-band cohort
   // (imp-34997/35109/35111/35174/35243). imp-35243 asserted K_AMPL~1.5727e8, N_CROSS_FP~3.2803e9,
   // R_CONTRACT~0.0454235, EPS_FP=2.3e-16, PENULT=1.4536413720400559e-16 are "bit-identical" across all five,

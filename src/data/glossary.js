@@ -18810,6 +18810,35 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this mechanism (imp-486)',
     ],
   },
+  {
+    term: 'imp-35608 two-rate census EXIT edge: FINITE and LOCATED, ~141-185 decades above nominal',
+    category: 'method',
+    definition:
+      'A headword recording that the two-rate direct-census EXIT edge imp-35572 left as an open lower bound ' +
+      '(resid still -1 at 10^60, ">20 decades" above nominal) is now LOCATED exactly by exponent bisection. ' +
+      'Under the imp-34862 two-rate ceil map n_two = 1 + ceil(x_two) on the inherited imp-3220/imp-3406 double ' +
+      'surrogate, the census residual steps -1 -> 0 at a finite, well-defined crossing for each early-rate ' +
+      'fit window p: p=1 at 10^178.3477 (+141.18 decades above the nominal 10^37.167107 exit), p=2 at ' +
+      '10^219.4919 (+182.32 decades), p=3 at 10^221.7751 (+184.61 decades). All three edges sit comfortably ' +
+      'below the IEEE-754 10^308 double-overflow ceiling, so each is a genuine ceil crossing rather than an ' +
+      'artifact of running out of representable range, and the edge grows monotonically with p because a ' +
+      'larger early-rate window deepens the negative two-rate phase offset.\n\n' +
+      'HOW TO APPLY: cite this entry (sharpening [[imp-35572 in-band rate-robustness]]) whenever a future ' +
+      'module needs the EXACT two-rate census exit location rather than the open ">20 decades" bound -- the ' +
+      'edge sits far above the reentry band and so changes NO in-band seed count.\n\n' +
+      'HONEST SCOPE: measurement only on the surrogate iterate-count (IEEE-754 double, point rate estimates, ' +
+      'no interval enclosure); discharges nothing; imp-35111a / imp-35174a / imp-35243a stay OPEN; the reentry ' +
+      'band stays NOT ESTABLISHED as a feature of the true dynamic; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643) ' +
+      'and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-30664 (glossary/method headword for the imp-35608 two-rate census exit-edge location), 2026',
+    relatedTerms: [
+      'imp-35608 is the exponent-bisection module this headword documents (imp-35608)',
+      'imp-35572 left the exit edge as an open ">20 decades" lower bound this entry sharpens (imp-35572)',
+      'imp-34862 is the two-rate law and exact-peel control the exit edge is bisected under (imp-34862)',
+      'imp-35331 frac-window relocation is the same exit-edge movement located exactly here (imp-35331)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

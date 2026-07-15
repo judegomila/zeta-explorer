@@ -18207,6 +18207,44 @@ export const glossary = [
       'imp-35453 is the sibling closed-form derivation of the same lemma threshold (imp-35453)',
     ],
   },
+  {
+    term: 'imp-35475 sigma-fidelity closure scope: three-input epistemic split and two admissible routes',
+    category: 'concept',
+    definition:
+      'A headword recording the imp-35475 SCOPE (not proof) of what closing the OPEN sub-gap imp-35337a ' +
+      '(surrogate-vs-true fidelity of sigma(N) = E_coll/E(N)) would concretely require.\n\n' +
+      'THREE-INPUT EPISTEMIC SPLIT: sigma(N) = E_coll(N)/(E_trunc + E_flow(N) + E_coll(N)) is assembled ' +
+      'from inputs of DIFFERENT epistemic status. (1) E_coll(N) = C_C sqrt(log T0/N), C_C = (1/8) sqrt(3 pi) ' +
+      '(imp-2642/imp-2643) -- a MODELED GUE-conditional single-rate log-law asymptotic, NOT the true finite-N ' +
+      'collision gap; this is the ONLY input the fidelity question is about, and where imp-486 enters. ' +
+      '(2) E_flow(N) (imp-398) -- unconditionally rigorous; needs no replacement. (3) E_trunc = 3.06e-5 ' +
+      '(imp-2631) -- a fixed floor that is itself a separate vestigial barrier-lemma artifact (imp-35459), ' +
+      'not a fidelity blocker per se, but it sets the crossover-landmark location.\n\n' +
+      'TWO ADMISSIBLE ROUTES to replacing the surrogate E_coll by the true empirical-vs-analytic collision ' +
+      'gap g_true(N): route (i) a RIGOROUS unconditional asymptotic with an explicit bounded finite-N ' +
+      'remainder -- does NOT currently exist at these heights; route (ii) a DATA-anchored spot check of ' +
+      'g_true at the two landmark heights (both below the Platt-Trudgian verified height T_PT = 3e12, so ' +
+      'feasible) -- unconditional but certifies only two points, not the surrogate map for all N. Route (i) ' +
+      'INHERITS the imp-486 GUE conditional; route (ii) does not, but still needs the GUE ansatz to define ' +
+      'what "the analytic prediction" is.\n\n' +
+      'HOW TO APPLY: when scoping or attempting to close imp-35337a, cite this split to keep the three inputs ' +
+      'separate (only E_coll is the fidelity target) and cite the two routes to avoid conflating a modeled ' +
+      'closure (GUE-conditional) with a data-anchored one (unconditional but two-point). See the sibling ' +
+      '"sigma(N): a DIAGNOSTIC conditional-share readout, NOT a Lambda lever" headword for why neither route, ' +
+      'even if completed, moves the Platt-Trudgian bound.\n\n' +
+      'HONEST SCOPE: assessment/scoping only; discharges nothing; changes no bound; establishes no operator ' +
+      'positivity; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631) and ' +
+      'C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-35550 (glossary/Concepts headword for the imp-35475 sigma-fidelity closure scope), 2026',
+    relatedTerms: [
+      'imp-35475 is the assessment module this headword documents (imp-35475)',
+      'imp-35337 dd-certifies the sigma(N) landmarks and names the surrogate-vs-true fidelity sub-gap imp-35337a (imp-35337)',
+      'imp-35459 scopes E_trunc as a separate barrier-lemma artifact, not a sigma-fidelity blocker (imp-35459)',
+      'imp-486 the GUE-conditional caveat inherited by route (i) of any modeled E_coll asymptotic (imp-486)',
+      'sigma(N) = E_coll/E(N): a DIAGNOSTIC conditional-share readout, NOT a Lambda lever (companion no-bound-moves headword)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

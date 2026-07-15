@@ -397,6 +397,15 @@ export default function RHProofStateDashboardPage() {
             </div>
           </div>
 
+          {/* imp-35687 honest-status banner: imp-35653 Part D necessary-not-sufficient */}
+          <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.28)', fontSize: 11.5, color: '#94a3b8', lineHeight: 1.6 }}>
+            <strong style={{ color: '#fbbf24' }}>S_barrier caveat:</strong> E_trunc becomes{' '}
+            <em>vestigial / read as EXACTLY ZERO above T_PT</em> only after the non-finite argument-
+            principle tail lemma (imp-35653 Part D, work-item W3) is discharged. Platt&ndash;Trudgian
+            verified-to-T_PT N_off(T_PT)=0 is the necessary floor this stands on, <strong>not</strong>{' '}
+            a substitute for that semi-infinite-tail lemma. No bound is asserted here; PT Λ≤0.2 remains SOTA.
+          </div>
+
           {/* E_flow */}
           <div style={{ display: 'flex', gap: 12, padding: '9px 12px', borderRadius: 6, background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.2)', alignItems: 'flex-start' }}>
             <div style={{ flexShrink: 0, width: 80 }}>

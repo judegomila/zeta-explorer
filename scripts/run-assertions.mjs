@@ -209,6 +209,8 @@ const DATA_MODULES = [
   '/src/data/imp-35244-rho-eps52-coefficient-measurement.js',
   // imp-35256: reconciles imp-35240 O(eps) vs imp-35244 O(eps^2) K-residual -- symmetric route p~1, true odd-p route p~2.
   '/src/data/imp-35256-k-residual-decay-exponent-reconciliation.js',
+  // imp-35265: DERIVES the imp-35244 empty-eps^{5/2}-slot as an exact identity -- odd-p pair = -2i(3t^4-1)/(1+t^4)^3 = -6i t^{-8}+..., K_{7/2} = -8 sqrt(2)/(3 pi) assembled analytically.
+  '/src/data/imp-35265-eps52-cancellation-exact-identity.js',
   // imp-35258: dd re-measurement of the imp-34714 certificate residual F(m) -- F(m)=0 is a double artifact, F_dd genuinely nonzero (~1 ulp), imp-34714a still OPEN.
   '/src/data/imp-35258-krawczyk-residual-double-double-measurement.js',
   // imp-903 27-point H_raw-update sweep: rescue satisfied from N_0 = 100.
@@ -8030,6 +8032,27 @@ const DATA_MODULES = [
   // inherited imp-3220/imp-3406 surrogate; the C_C ansatz (imp-2642) UNTOUCHED; imp-35243a / imp-35111a /
   // imp-35174a stay OPEN; light imports; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35260-reentry-band-cc-prefactor-sensitivity.js',
+  // imp-35264: cross-checks the imp-35240 confirmed prefactor K = 8 sqrt(2)/(9 pi) against the imp-35076
+  // finite-ladder 2/3 margin. The imp-35076 measured margin equals 2/3 + K eps^{3/2} across its N in
+  // 1e3..1e7 ladder to <= 1.68e-4 (worst, coarsest rung) and to ~1e-7 mid-ladder; the empirical prefactor
+  // brackets 0.40014 to ~5e-4 in the resolvable N = 1e4..1e5 window. Coarsest-rung deficit is the physical
+  // O(eps) term (imp-35256); finest-rung excess is the imp-35076 6-decimal storage / coarse-quadrature floor
+  // (the floor imp-35240 pushed past) -- neither a prefactor discrepancy. Cross-validation only on the
+  // inherited imp-3220/imp-3406 surrogate; discharges nothing; O3/H3/H4/G6a stay OPEN; NO QED; PT SOTA.
+  '/src/data/imp-35264-rho-prefactor-vs-imp35076-margin-crosscheck.js',
+  // imp-35263: DIRECTLY sweeps the machine-epsilon floor EPS_FP over factor-2 multiples (k in {-1,0,1,2}) and
+  // TABULATES the imp-34997/imp-35111 REENTRY-band edges, turning imp-35243 DEMONSTRATION D1 (a ~11.99-decade-per-
+  // factor-2 slide, asserted analytically) into a MEASURED table -- the imp-35243 R1 (floor-independence)
+  // diagnostic. R1 is CONFIRMED binding: doubling EPS_FP slides the fixed-window reentry edge +17.29 decades
+  // (10^27.08 -> 10^44.38) and the exit edge +27.25 decades. D1s ~11.99 figure is EXACTLY the reentry-edge local
+  // rate (measured drift 0.0186273 at 10^27.08 -> L2/drift = 12.036 decades/factor-2). The slide is NOT constant:
+  // the ceil-phase drift decays with N (imp-35332: 0.0186273 -> 0.0118306), so the exit edge slides ~18.95
+  // decades/factor-2 and each octave slides more (reentry increments 8.72 -> 17.29 -> 34.39). Under the windows
+  // OWN co-moving definition W_k = 1 - OFFSET(eps_k) the reentry edge is EXACTLY EPS_FP-invariant (spread ~1e-13),
+  // with all sensitivity in the exit edge / band width -- the band anchors at reentry and stretches. Self-executing
+  // module (five assertions). Measurement only on the inherited imp-3220/imp-3406 surrogate; the C_C ansatz
+  // (imp-2642) UNTOUCHED; imp-35243a / imp-35111a / imp-35174a stay OPEN; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35263-reentry-band-eps-floor-sweep.js',
 ];
 
 let ALL_MODULES = FAST_MODE

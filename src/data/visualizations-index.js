@@ -1396,6 +1396,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive table re-exporting the imp-35577 crossings literals verbatim (no new derivation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; the imp-35337a surrogate-vs-true fidelity sub-gap REMAINS OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35665-pinsker-common-functional-bridge',
+      title: 'Pinsker Common-Functional Bridge: an Upper Bound Only',
+      oneLine:
+        'Table of the imp-35556 Pinsker common-first-order-functional bridge: the three KL g_true values (free 3.214e-4, 1/logT0 1.146e-3, 1/logT0^2 6.816e-4), their Pinsker TV <= sqrt(KL/2) upper bounds (1.2677e-2, 2.3938e-2, 1.8460e-2), and the E_coll-multiple ratios (414.3x, 782.3x, 603.3x), with a banner stating the bound is UPPER-ONLY and cannot certify the g_true >> E_coll gap.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35665-pinsker-common-functional-bridge-viz-data.js',
+      paperSourcePath: 'src/data/imp-35556-gtrue-ecoll-dimensional-comparability.js (imp-35665 viz page)',
+      ticket: 'imp-35665',
+      pedagogicalStep: 96,
+      honestCeiling:
+        'Descriptive table re-exporting the imp-35556 Pinsker-bridge literals verbatim (no new derivation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; imp-35556a and imp-35337a stay OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

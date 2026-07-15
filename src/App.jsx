@@ -870,6 +870,9 @@ const Imp35663DecadeSpanGrowthViz = lazy(() =>
 const Imp35664FartailCrossingHeightMapSensitivityViz = lazy(() =>
   import('./pages/Imp35664FartailCrossingHeightMapSensitivityViz.jsx')
 );
+const Imp35665PinskerBridgeViz = lazy(() =>
+  import('./pages/Imp35665PinskerBridgeViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2441,6 +2444,10 @@ function AppShell() {
           <Route
             path="/viz-imp35664-fartail-crossing-height-map-sensitivity"
             element={<Imp35664FartailCrossingHeightMapSensitivityViz />}
+          />
+          <Route
+            path="/viz-imp35665-pinsker-common-functional-bridge"
+            element={<Imp35665PinskerBridgeViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

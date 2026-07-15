@@ -18173,6 +18173,40 @@ export const glossary = [
       'imp-35280 supplies the four-rung fd-vs-analytic remnant origin both crossing modules inherit (imp-35280)',
     ],
   },
+  {
+    term: 'imp-35472 R1s baked-constants reconstruction fidelity',
+    category: 'method',
+    definition:
+      'A verification headword for the imp-35472 module, which independently RE-VERIFIES the four numerical ' +
+      'inputs the imp-35414 R1s zero-residue surrogate lemma bakes VERBATIM as literals with no re-import: the ' +
+      'contraction rate r ~ 0.0454235, the log-law constant ln(1/r) ~ 3.09173, the machine-epsilon relative floor ' +
+      'EPS_FP = 2.3e-16, and the additive count coupling -log(EPS_FP)/ln(1/r). Rather than re-typing these ' +
+      'literals, imp-35472 RE-IMPORTS the imp-35243/imp-35357 contraction-map source chain (effectiveHeightForN, ' +
+      'C_C_PINNED -> the DOUBLE surrogate gD -> its fixed point N_CROSS_FP -> the central-difference derivative ' +
+      'there) and re-runs it end to end.\n\n' +
+      'The reconstructed chain gives r = 0.0454235077 and ln(1/r) = 3.09172552, whose 6-significant-figure ' +
+      'roundings are EXACTLY the imp-35414 baked 0.0454235 and 3.09173 (relative deviations ~1.7e-7 and ~1.5e-6, ' +
+      'precisely the 6-sig-fig quantization, not drift). EPS_FP = 2.3e-16 is bit-identical to its imp-34755/34903 ' +
+      'machine-epsilon origin. The additive count term reconstructs to 11.6467171 (full-precision ln(1/r)) versus ' +
+      '11.6467002 from the baked 6-sig-fig ln(1/r) -- agreeing to 5 sig figs, the small residual being exactly the ' +
+      'ln(1/r) rounding, not a re-derivation error. The exact seed-independent sensitivity -1/ln(1/r) reconstructs ' +
+      'to -0.3234439779, matching the baked -0.323443509 to the same floor.\n\n' +
+      'HOW TO APPLY: cite imp-35472 whenever the imp-35414 R1s lemma is reused or extended, to confirm its baked ' +
+      'literals are faithful roundings of the live source chain rather than independently hand-typed values that ' +
+      'could silently drift from imp-35243/imp-35357 if either module changes.\n\n' +
+      'HONEST SCOPE: verification of the lemma NUMERICAL INPUTS only (H1 r, H2 EPS_FP, H3 ln(1/r) plus additive ' +
+      'term). Discharges NOTHING on R1t (the OPEN true-dynamic residue); imp-35243a stays OPEN; the C_C = ' +
+      '(1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and the C_mb GUE-conditional (imp-486) are UNTOUCHED; far-tail ' +
+      'exponent stays 1/2 (imp-3463); changes no bound; no operator positivity; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35548 (glossary/method headword for the imp-35472 R1s constant-reconstruction fidelity), 2026',
+    relatedTerms: [
+      'imp-35414 is the lemma whose baked r, ln(1/r), EPS_FP and additive count coupling this reconstructs (imp-35414)',
+      'imp-35243 supplies the source chain gD/N_CROSS_FP/gPrimeAtStep that imp-35472 re-imports and re-runs (imp-35243)',
+      'imp-35357 supplies the R1s/R1t split imp-35414 formalizes and imp-35472 leaves untouched (imp-35357)',
+      'imp-35453 is the sibling closed-form derivation of the same lemma threshold (imp-35453)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

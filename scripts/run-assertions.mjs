@@ -9402,6 +9402,34 @@ const DATA_MODULES = [
   // (1/8) sqrt(3 pi) (imp-2642/imp-2643) and C_mb GUE-conditional (imp-486)
   // UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35680-constant-mismatch-magnitude.js',
+  // imp-35681: INVENTORY which of the imp-35653 Part E finite/mechanical porting
+  // items W1 (instantiate H_t=A+B-C with interval error bound), W2 (finite winding
+  // barrier on the transition rectangle), W4 (retire the imp-397 2/gamma count kernel,
+  // read off-line as zero) are already realized in existing repo infra vs greenfield.
+  // Finding: NONE fully held. W1 -- heat-flow H_t STRUCTURE held but at the wrong
+  // t-sign (repo proxy = de Bruijn at NEGATIVE time, imp-35674); Polymath15 interval-
+  // bounded A+B-C greenfield. W2 -- winding/argument-principle scaffolding held but
+  // EXPERIMENTAL (imp-2696/imp-33923/imp-33968/winding-thread, all isRigorous:false);
+  // certified rectangle count greenfield. W4 -- analytic kernel-retirement HELD
+  // (imp-34791 refuted the 2/gamma kernel ~3.75e11x) but the zero-substitution is
+  // GATED on the non-finite W3 (imp-35676 Q2). CORRECTION: the barrier base
+  // N_off(T_PT)=0 is EXTERNAL Platt-Trudgian 2021, NOT repo imp-341 (which is Close
+  // G5_burgers -- a scout misattribution). Import-light; five self-executing
+  // assertions. Assessment/scoping only; ports nothing; discharges nothing; changes
+  // no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35681-w1-w2-w4-existing-infra-inventory.js',
+  // imp-35711: HONEST-STATUS BANNER for the imp-35654 F3 verdict -- the ported
+  // far-tail bridge becomes ASYMPTOTICALLY unconditional (residual
+  // GUE-conditional share sigma -> 0, sigma-tracking not sigma-blind) but this
+  // is STILL ONLY PARITY-WITH-PT (imp-35419 C2: the ported machinery IS PT own
+  // Lambda<=0.2 barrier theorem, so it matches 0.2, it does not beat it),
+  // GUE-conditional on a NONZERO share for every finite N, and leaves C_mb
+  // GUE-conditional per imp-486 UNTOUCHED. Prominent standalone companion so
+  // the "collapse to one conditionality" framing is never over-read as an
+  // unconditional-RH beat. Five self-executing assertions. Documentation
+  // only; no new claim beyond imp-35654 F3; changes no bound; NO QED;
+  // Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35711-postport-parity-no-beat-honest-status-banner.js',
 ];
 
 let ALL_MODULES = FAST_MODE

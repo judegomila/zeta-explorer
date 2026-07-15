@@ -849,6 +849,9 @@ const Imp35564FartailProductDecayViz = lazy(() =>
 const Imp35580Req4HeightGapViz = lazy(() =>
   import('./pages/Imp35580Req4HeightGapViz.jsx')
 );
+const Imp35582ReentryBandDataUnreachabilityViz = lazy(() =>
+  import('./pages/Imp35582ReentryBandDataUnreachabilityViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2392,6 +2395,10 @@ function AppShell() {
           <Route
             path="/viz-imp35580-req4-height-gap"
             element={<Imp35580Req4HeightGapViz />}
+          />
+          <Route
+            path="/viz-imp35582-reentry-band-data-unreachability"
+            element={<Imp35582ReentryBandDataUnreachabilityViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

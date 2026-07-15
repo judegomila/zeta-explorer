@@ -1305,6 +1305,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive bar chart re-exporting the imp-35538 REQ-4 heightRegime literals verbatim (no new computation, no heavy data-module import); the needed log-height is a scoping estimate under a GUE local-law rate that does not yet rigorously exist (imp-35538 REQ 2); measurement only on the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35582-reentry-band-data-unreachability',
+      title: 'Reentry-Band Data Unreachability: log10(N) vs the Verified Frontier',
+      oneLine:
+        'Places the Platt-Trudgian verified frontier (log10 N ~12.48) and the imp-35537 R1t reentry-band edges (log10 N ~27.08 reentry, ~37.17 exit) on a shared log10(N) axis, showing the whole band sits ~14.6-24.7 decades above the frontier so route-(ii) direct measurement is infeasible.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35582-reentry-band-data-unreachability-viz-data.js',
+      paperSourcePath: 'src/data/imp-35537-r1t-reentry-band-closure-scope.js (imp-35582 viz page)',
+      ticket: 'imp-35582',
+      pedagogicalStep: 89,
+      honestCeiling:
+        'Descriptive log10(N) marker chart re-exporting the imp-35537 Part D operativeSwap literals verbatim (no new computation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; the reentry band is a diagnostic iterate-count not a Lambda lever; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

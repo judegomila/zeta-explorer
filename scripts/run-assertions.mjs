@@ -203,6 +203,8 @@ const DATA_MODULES = [
   '/src/data/imp-35221-r2-n1000-flow-reference.js',
   // imp-35324: finer-base-grid (tauC/4000) re-run resolves the imp-35235 DP45 dt/2 gate-skip; worst-case envelope clears t_c_hi marginally, ladder stays at N=1000.
   '/src/data/imp-35324-r2-n2000-finer-grid-reference.js',
+  // imp-35281: extends the imp-35238 real-ordinate three-factor invariant beta*g_min*(x_2-x_0)->1 to N=250,300,350,400 -- invariant stays pinned at 1 (|dev|<=1e-4, spread ~7.7e-5), bare-product band widens past the three-point 0.36-0.64; MEASUREMENT ONLY, I3/M2/M5 OPEN.
+  '/src/data/imp-35281-real-ordinate-three-factor-invariant-larger-N.js',
   // imp-35240: finer smaller-eps re-measurement confirms rho prefactor K = 8 sqrt(2)/(9 pi), not 2/5.
   '/src/data/imp-35240-rho-prefactor-finer-grid-remeasurement.js',
   // imp-35244: eps^{5/2} slot is EMPTY -- implied -16/(15 A_2) falsified; next term eps^{7/2} = -8 sqrt(2)/(3 pi).
@@ -4885,6 +4887,16 @@ const DATA_MODULES = [
   // Measurement only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; changes no
   // bound; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-35157-landmark-cluster-width-stability.js',
+  // imp-35199: LIGHT STANDALONE cross-check that the imp-35153 closed-form E_flow=E_trunc height
+  // fixed point T0*~9.213669e5 reproduces the imp-35105 downslope-bisection landmark N*~1.597752e6
+  // by an INDEPENDENT codepath (re-declared constants, from-scratch Banach iteration of the height
+  // map, inline Riemann-von Mangoldt count) sharing no code with imp-35153 and pulling NO heavy
+  // zeros bundle (imports only the imp-35153 landmark object for comparison). Wired here (imp-35285)
+  // after audit found the 5 self-executing assertions -- (V1) landmark match <1e-6, (V3) agreement
+  // with imp-35153 exports <1e-6, (V2) contraction modulus ~0.150 to <1e-3, finite-step convergence,
+  // no-QED honesty gate -- were only documented, never EXECUTED by this runner (the module had no
+  // real importer anywhere in the build). Verification/test-coverage only; changes no bound; NO QED.
+  '/src/data/imp-35199-eflow-etrunc-landmark-crosscheck.js',
   // imp-34248: derives the small-thr asymptotic of the imp-34174 surplus by SEPARATING the two
   // vanishing factors -- surplus(thr) = P(thr).r(thr), P(thr) = thr(1-thr)/(1+(1-thr)r). The prefactor
   // P -> thr is asymptotically linear (surplus/(thr.r) climbs 0.4995 -> 0.9900), and the E_flow ratio

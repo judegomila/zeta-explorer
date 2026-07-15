@@ -6066,6 +6066,17 @@ const DATA_MODULES = [
   // Reuses imp-34474 parts()/bisection verbatim. 5 assertions. Assessment only; component model NOT
   // rigorous; C_mb GUE-conditional per imp-486 untouched; imp-34791 barrier-lemma unchanged; no bound; NO QED.
   '/src/data/imp-35334-far-tail-effectively-unconditional-vs-etrunc-conditionality.js',
+  // imp-35418: MEASUREMENT -- tabulates the imp-35334 three-way E-component share decomposition
+  // (E_coll GUE-conditional / E_flow fully-unconditional / E_trunc C_T-barrier-lemma, each /E(N))
+  // across the full prior sigma ladder: sigma<0.1 (N ~ 3.213e11, shares 1e-1/3.19e-5/0.899968),
+  // sigma<0.01 (N ~ 4.624e13, 1e-2/4.21e-7/0.989999), sigma<1e-3 (N ~ 5.432e15, imp-35334 landmark,
+  // 1e-3/5.65e-9/0.999000). The fully-unconditional E_flow share decays ~1.87 decades per rung and the
+  // C_T barrier-lemma E_trunc share rises monotonically toward dominance. LOCATES where the E_flow
+  // share first drops below 1e-9: N ~ 3.611e16 (log10 N ~ 16.5576, sigma ~ 3.98e-4), between the
+  // imp-35334 sigma<1e-3 and imp-35410 sigma<1e-4 rungs. Reuses imp-34474 parts()/bisection verbatim.
+  // 6 assertions. Measurement only; component model NOT rigorous; C_mb GUE-conditional per imp-486
+  // untouched; imp-34791 barrier-lemma unchanged; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35418-far-tail-three-way-share-ladder-eflow-1e-9-landmark.js',
   // imp-34488: MEASUREMENT -- tabulates the conditionality-gap ratio L_pt/E(N) across three named
   // landmarks (imp-3444 crossover, imp-33582 sigma<0.1, imp-33620 sigma<0.01); the gap grows 1975x
   // -> 3559x -> 3915x but SATURATES toward the ceiling L_pt/E_trunc=3954.25, governed by 1-sigma.
@@ -8253,6 +8264,16 @@ const DATA_MODULES = [
   // reentry-band landmark desynchronized. Read-only; changes no bound; the surrogate-fidelity sub-gap
   // imp-35243a stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35338-cohort-constant-consistency-audit.js',
+  // imp-35419: SCOPING assessment of what porting the imp-34791 E_trunc unported barrier lemma would
+  // require. imp-35334 showed E_trunc dominates the far-tail bridge (share -> 1 as sigma -> 0). This
+  // module identifies the operative statement E_trunc encodes (S_barrier: deterministic realness control
+  // above T_PT, NOT the unsound 2/gamma count 3.06e-5, mispriced ~3.75e11x vs a single deep zero), names
+  // the port source (Polymath15 2019 barrier + Platt-Trudgian 2021, received by the imp-3933 / de Bruijn
+  // Thm 13 repo machinery lifted above T_PT), and assesses the upgrade: porting WOULD make the far-tail
+  // bridge unconditional -- but only to PARITY with PT (matches Lambda<=0.2 by PT own machinery, does NOT
+  // beat it); net height-tail frontier gain = ZERO, beat content lives in the window legs. Scoping only;
+  // discharges nothing; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35419-etrunc-barrier-lemma-porting-scope.js',
   // imp-35402: literal-verification (imp-35339-style) audit of the imp-35279/imp-35280 E_flow
   // far-tail four-rung ladder. Cross-module remnant agreement is EXACT; the reconstruction
   // identity holds to <5e-4; the swapFraction column, however, is NOT reproducible to tight

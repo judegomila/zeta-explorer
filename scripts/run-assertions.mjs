@@ -8387,6 +8387,28 @@ const DATA_MODULES = [
   // inherited imp-3220/imp-3406 surrogate; discharges nothing; imp-35243a / imp-35111a / imp-35174a /
   // imp-34997a stay OPEN; the C_C ansatz (imp-2642) UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35436-reentry-band-drift-past-exit-tail.js',
+  // imp-35453: DERIVES + TABULATES the explicit closed form of the imp-35414 R1s threshold EPS_FP*(N) -- the floor
+  // below which the reentry-band indicator B_N(EPS_FP) = 0 for all smaller floors. From the ceil-phase reentry-edge
+  // condition and the exact count identity (EPS_FP enters xArg only via -log(EPS_FP)/ln(1/r)):
+  // EPS_FP*(N) = EPS_FP_BASELINE * 2^{-(log10 N - REENTRY_EXP)/DECADE_SHIFT}, with the floor decaying at a constant
+  // -log10(2)/DECADE_SHIFT ~ -0.0251068 per decade of N that compounds to exactly the imp-35243 D1 factor-2/11.99-
+  // decade slide. Tabulated on a grid of sample seeds: STRICTLY DECREASING from 2.3e-16 at the baseline reentry edge
+  // to 3.40e-18 at log10 N = 100. Seven self-executing assertions. Derivation on the inherited imp-3220/imp-3406
+  // surrogate; discharges nothing; R1t / imp-35243a / imp-35111a / imp-35174a / imp-34997a stay OPEN; changes no
+  // bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35453-r1s-eps-fp-threshold-closed-form.js',
+  // imp-35454: CONTINUES the imp-35413/imp-35371 E_flow far-tail fd-vs-analytic remnant surrogate ladder
+  // (closed T0 = 2 pi N / log N channel, no heavy import) past N = 1e28 to N = 1e60 to DISTINGUISH whether
+  // remnant*log N tends to ZERO (remnant faster than 1/log N) or a POSITIVE FLOOR (remnant ~ c/log N). The
+  // product keeps drifting DOWN monotonically (0.05671 at 1e28 -> 0.03729 at 1e60, a further ~34% over 32
+  // decades) and the DECISIVE discriminator -- the local decay exponent p in remnant ~ (log N)^{-p} -- sits
+  // at ~1.459 (1e28) and RISES to ~1.621 (1e60), comfortably above 1 and trending UP. A positive floor needs
+  // p -> 1; p > 1 forces remnant*log N -> 0. VERDICT: the product VANISHES, NOT a positive floor (true decay
+  // p in (1,2), since remnant*(log N)^2 grows 3.66 -> 5.15). Resolves the imp-35413/imp-35371 open drift;
+  // complements the imp-35431 decay-rate LAW fit. Seven self-executing assertions. Measurement only on the
+  // inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail
+  // exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35454-eflow-fartail-remnant-product-limit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

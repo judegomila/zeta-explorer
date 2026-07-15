@@ -8683,6 +8683,19 @@ const DATA_MODULES = [
   // the OPEN imp-35337a. SCOPING ONLY; derives no remainder; C_mb GUE-conditional per imp-486 UNTOUCHED;
   // changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35538-route-i-remainder-derivation-requirements.js',
+  // imp-35537: SCOPES what CLOSING the OPEN true-dynamic residue R1t (the true-dynamic half of the imp-35357
+  // R1s/R1t reentry-band pure-artifact split; certificate imp-35243a OPEN) concretely requires, mirroring the
+  // imp-35475 sigma-fidelity template but for the reentry band. Part A: the three surrogate inputs by class --
+  // the single rate r ~ 0.0454235 (R2 target; imp-34862 found a two-rate law), the C_C-derived height map
+  // g = K log T0(N) (R3 target; where imp-486 enters), the machine floor EPS_FP (R1s-discharged artifact). Part
+  // B: swap for the TRUE nonlinear dynamic via either a certified true-model (does not exist) or a data check --
+  // but UNLIKE the sigma landmarks (both below T_PT = 3e12), the band [10^27.08, 10^37.17] sits ~14.6-24.7
+  // decades ABOVE the ~3e12 frontier so route (ii) is INFEASIBLE (R4/D2). Part C: imp-34862 exact-peel shows the
+  // off-by-one is TERMINAL not transient, so a second rate cannot span it; R1t needs an all-band residue
+  // certificate, not a two-point check. Part D: a modeled closure is BOTH GUE-conditional (imp-486) AND
+  // data-unreachable -- strictly worse than the sigma case. Assessment only; discharges nothing; imp-35243a stays
+  // OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35537-r1t-reentry-band-closure-scope.js',
 ];
 
 let ALL_MODULES = FAST_MODE

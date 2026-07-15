@@ -19194,6 +19194,7 @@ export const glossary = [
       'imp-35419 supplies the S_barrier statement this module decomposes (imp-35419)',
       'imp-34791 reclassifies E_trunc as the unported barrier lemma that W4 retires (imp-34791)',
       'imp-35334 shows E_trunc dominates the far-tail bridge as sigma -> 0 (imp-35334)',
+      'imp-35707 re-requested this exact headword; confirmed already satisfied by this entry (no duplicate added)',
     ],
   },
   {

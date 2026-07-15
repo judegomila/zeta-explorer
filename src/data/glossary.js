@@ -19115,6 +19115,46 @@ export const glossary = [
       'imp-35411 locates the asymmetric plateau endpoints around the same interior peak (imp-35411)',
     ],
   },
+  {
+    term: 'imp-35652 resolution-floor obstruction: a band-limited |alpha| < 1 surrogate cannot resolve the M^{-1/3} minimal-collision scale',
+    category: 'proof-frontier',
+    definition:
+      'A headword recording the imp-35652 scoping of the imp-35538 REQ-3 option-(a) route: whether E_coll can be ' +
+      're-expressed via a restricted-Fourier-support (|alpha| < 1) surrogate reachable inside the PROVEN ' +
+      'Montgomery (1973) / Rudnick-Sarnak (1996) n-level correlations, which -- if viable -- would also dissolve ' +
+      'REQ 2 (no full-support explicit-rate E_GUE(T0) local law would be needed).\n\n' +
+      'DECISIVE OBSTRUCTION -- RESOLUTION FLOOR: a statistic reachable inside |alpha| < 1 is necessarily ' +
+      'BAND-LIMITED in the unfolded spacing variable (mean spacing = 1), so it cannot resolve structure finer ' +
+      'than one mean spacing (delta_res ~ 1) -- a MEAN-SCALE statistic only. Under GUE cubic level repulsion ' +
+      '(Ben Arous-Bourgade 2013), the smallest of M consecutive gaps scales as s_min(M) ~ M^{-1/3} -> 0 in ' +
+      'mean-spacing units, so the near-minimal-collision functional sits strictly BELOW the band-limited floor ' +
+      'by delta_res/s_min ~ M^{1/3} (~97.3x at the interior peak N ~ 9.22e5, ~1486x at the crossover ' +
+      'N ~ 3.28e9). A support-limited proxy simply cannot see the scale where the collision lives.\n\n' +
+      'CORROBORATING -- CONSTANT MISMATCH: the leading constant C_C = (1/8) sqrt(3 pi) ~ 0.38374752 ' +
+      '(C_H = 1/8, imp-2642/imp-2643) is a SHORT-RANGE (near-coincidence) amplitude of the pair-correlation, ' +
+      'carried by the |alpha| >= 1 tail of R_2 -- precisely where Montgomery leaves the transform of R_2 - 1 ' +
+      'unpinned. A support-limited proxy would report a mean-scale constant, not C_C.\n\n' +
+      'VERDICT: option (a) is NOT viable and does NOT dissolve REQ 2; REQ 3 still forces option (b), the ' +
+      'conjectural full-support Montgomery pair-correlation law, so the route-(i) obstruction (imp-35538/' +
+      'imp-35493) stands. Route-(ii) (the imp-35488 two-height data-anchored spot check) remains the only ' +
+      'viable partial for the OPEN imp-35337a.\n\n' +
+      'HOW TO APPLY: never treat a band-limited/|alpha| < 1 surrogate as a candidate near-minimal-collision ' +
+      'statistic -- its resolution floor sits orders of magnitude above s_min ~ M^{-1/3}; cite this resolution-' +
+      'floor gap (not just the constant mismatch) as the decisive reason option (a) fails.\n\n' +
+      'HONEST SCOPE: assessment/scoping only, NOT rigorous; derives no remainder, discharges nothing, changes ' +
+      'no bound; establishes no operator positivity; C_C, C_H, the E_trunc = 3.06e-5 floor (imp-2631) and ' +
+      'C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35682 (glossary headword recording the imp-35652 resolution-floor obstruction), 2026',
+    relatedTerms: [
+      'imp-35652 scopes option (a) and establishes the resolution-floor verdict recorded here (imp-35652)',
+      'imp-35538 poses REQ-2/REQ-3 and the two-option route (a)/(b) that imp-35652 assesses (imp-35538)',
+      'imp-35493 documents route-(i) is absent from the literature (imp-35493)',
+      'imp-35488 supplies route-(ii), the only viable partial for imp-35337a (imp-35488)',
+      'imp-2642/imp-2643 fix the C_C = (1/8) sqrt(3 pi), C_H = 1/8 short-range amplitude ansatz (imp-2642, imp-2643)',
+      'imp-486 supplies the GUE-conditional caveat inherited by any pair-correlation remainder (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

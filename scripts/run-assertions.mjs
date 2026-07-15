@@ -8264,6 +8264,13 @@ const DATA_MODULES = [
   // Located on the imp-35337 double surrogate (dd-certified to ~1e-16); MEASUREMENT ONLY; imp-35337a stays
   // OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35411-sigma-peak-plateau-width.js',
+  // imp-35476: CORROBORATES the imp-35411 W(tol)/sqrt(tol)=15.3165 flat-max constancy on an INDEPENDENT,
+  // OFF-GRID (non-decade-aligned) tolerance set {2e-5, 5e-6, 3e-7}, ruling out that the four-point decade
+  // law was a sampling coincidence. Re-running the imp-35411 endpoint locator on the same imp-35337 double
+  // surrogate gives W/sqrt(tol) = 15.316495 / 15.316493 / 15.316492 (off-grid spread ~3.1e-6; seven-tol-union
+  // spread ~1.6e-5; curvature k~6.43e-3 matches). MEASUREMENT ONLY; imp-35337a stays OPEN; changes no bound;
+  // NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35476-sigma-peak-plateau-sqrt-tol-offgrid.js',
   // imp-35450: DIRECTLY measures the imp-35411 interior sigma-peak curvature k=-d^2 sigma/d(lnN)^2 by a central
   // finite-difference second derivative at N_max~9.219e5 (FD-step sweep converges monotonically to ~6.43191e-3),
   // and cross-checks it against the imp-35411 width-INFERRED k~6.4319e-3 (agree to ~2e-7 relative -- two
@@ -8285,6 +8292,19 @@ const DATA_MODULES = [
   // over the half-decade ladder stays ~1e-16 -- so the imp-35337 deltas are NOT sensitive to the specific
   // imp-35109 dd path. VERIFICATION ONLY; imp-35337a stays OPEN; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35417-sigma-landmark-distinct-dd-grid-cross-check.js',
+  // imp-35475: SCOPES what CLOSING the OPEN sub-gap imp-35337a (surrogate-vs-true fidelity of the
+  // GUE-conditional share sigma(N) landmarks) would require. Enumerates (A) the three surrogate inputs by
+  // class -- E_coll = C_C sqrt(log T0/N) (C_H=1/8, GUE-conditional, the ONLY fidelity target), E_flow already
+  // rigorous (imp-398), E_trunc=3.06e-5 a separate barrier artifact (imp-2631/imp-35459); (B) the operative
+  // swap = replace modeled E_coll by the TRUE empirical-vs-analytic gap g_true(N) with an explicit finite-N
+  // remainder, via a rigorous asymptotic (does not exist) or a two-height data check (both landmark heights
+  // T0~5.6e5 and T0~1.14e9 sit BELOW T_PT=3e12, so feasible but two-point); (C) tight error budgets -- the
+  // PEAK needs absolute sigma fidelity < the 2.14e-5 flat-cap margin (flat max, k~6.43e-3), the CROSSOVER
+  // needs ~0.5% relative E_coll fidelity (2x-amplified into N since E_coll~N^{-1/2}); (D) a modeled closure
+  // INHERITS the imp-486 GUE conditional, only the finite two-height check is unconditional, and either way
+  // sigma is a diagnostic share not a Lambda lever so NO bound moves. Assessment/scoping only; discharges
+  // nothing; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35475-sigma-fidelity-closure-scope.js',
   // imp-35338: CROSS-MODULE constant-consistency AUDIT of the iters-to-floor / reentry-band cohort
   // (imp-34997/35109/35111/35174/35243). imp-35243 asserted K_AMPL~1.5727e8, N_CROSS_FP~3.2803e9,
   // R_CONTRACT~0.0454235, EPS_FP=2.3e-16, PENULT=1.4536413720400559e-16 are "bit-identical" across all five,

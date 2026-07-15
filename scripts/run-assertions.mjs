@@ -9697,6 +9697,20 @@ const DATA_MODULES = [
   // assertions. OOM scoping only; establishes no positivity; certifies no delta>0;
   // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35758-i3-modulus-floor-margin-tie-scope.js',
+  // imp-35760: DERIVE a concrete triangle-inequality margin ALLOCATION for the imp-35725
+  // effective-error cap. imp-35725 stated the cap must fit STRICTLY inside the margin
+  // M = |A_t+B_t| - |C_t| with each term claiming only a fraction, but left the split as
+  // an unmet REQUIREMENT with no numbers. This module supplies a candidate schematic split
+  // scale-consistent with the imp-35725 weights w_A:w_B:w_{C_0} = 1:1:1/N: with total cap
+  // fraction RHO = 1/2, the dominant pair E_A, E_B each claim the largest equal share
+  // f_A = f_B ~ 0.25 and E_{C_0} the subordinate share f_{C_0} ~ 5.1e-7 (a factor ~N
+  // smaller, N ~ 4.886e5). The shares sum to RHO = 0.5 < 1 strictly, leaving a full 0.5 of
+  // the margin as STRICT headroom. Resolves the ambiguity in the imp-35725 requirement but
+  // proves nothing: fitting the actual caps needs the same greenfield certified interval
+  // evaluation of the ~4.886e5-term sums plus the per-panel strict check, so A+B-C stays
+  // GREENFIELD (imp-35681 Part A). Five self-executing assertions. Allocation / OOM scoping
+  // only; evaluates no sum; verifies no inequality; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35760-w1-margin-allocation-scope.js',
   // imp-35728: QUANTIFY the necessary-not-sufficient gap between the EXTERNAL
   // Platt-Trudgian certificate N_off(T_PT) = 0 (verified to T_PT = 3e12) and the
   // imp-35681/imp-35676 W4 mechanical zero-substitution (off-line contribution

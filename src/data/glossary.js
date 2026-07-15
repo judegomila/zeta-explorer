@@ -18769,6 +18769,47 @@ export const glossary = [
       'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this envelope (imp-486)',
     ],
   },
+  {
+    term: 'imp-35594 peak-vs-crossover log-proportional insulation mechanism',
+    category: 'concept',
+    definition:
+      'A headword documenting the imp-35594 analytic DERIVATION of the imp-35574 F2 prose ' +
+      'mechanism explaining why the imp-35458 ~18x crossover height-map log-damping does not ' +
+      'carry to the interior sigma-peak location: WHICH quantity each landmark pins under the ' +
+      'imp-35017/imp-3406 double-surrogate sigma(N) = E_coll/(E_trunc + E_flow + E_coll).\n\n' +
+      'THE CROSSOVER (log-proportional insulation): the floor crossover solves E_coll = E_trunc ' +
+      'in closed form, N = kappa * log T0 with kappa = (C_C/E_trunc)^2, so the height enters ONLY ' +
+      'through its logarithm. A T0 -> r T0 height-map swap shifts the landmark by dNstar/Nstar = ' +
+      'log r / (L - 1), giving DAMPING_crossover = (1 - r)(L - 1)/|log r| ~ L = log T0 -- the ' +
+      'damping GROWS with log T0 (predicted ~18.99x at L ~ 21.9, matching the imp-35458 measured ' +
+      '~18x within 5 percent; predicted shift -0.94 percent vs measured -0.98 percent).\n\n' +
+      'THE PEAK (no insulation): the interior peak instead solves the stationarity dg_sigma/dN = ' +
+      '0, which reduces at leading order to E_coll_prime (E_trunc + E_flow) = E_coll E_flow_prime, ' +
+      'pinning the DIRECT-height term E_flow = C_F (L/T0) g to an O(1) multiple of E_trunc (ratio ' +
+      '~1.53). Because E_flow carries a first power of the height (not its logarithm), pinning it ' +
+      'fixes T0 up to a log, so a height-map swap moves the peak location close to one-for-one: ' +
+      'DAMPING_peak ~ O(1) (measured ~0.55), NOT ~ log T0.\n\n' +
+      'HOW TO APPLY: this confirms and derives the imp-35574 F2 mechanism from first principles -- ' +
+      'the two dampings differ by a factor ~ log T0 (measured ~32.55x) because the crossover pins ' +
+      'N ~ log T0 while the peak pins E_flow ~ L/T0 = O(1) E_trunc. Cite this entry alongside the ' +
+      '[[imp-35574 peak-location amplification vs crossover log-damping contrast]] headword ' +
+      'whenever the MECHANISM (not just the measurement) behind the insulation asymmetry is at ' +
+      'issue.\n\n' +
+      'HONEST SCOPE: DERIVATION/ASSESSMENT of a mechanism only (frontier-direction, NOT rigorous) ' +
+      'on the inherited imp-3220/imp-3406 surrogate; surrogate-vs-true fidelity (imp-35337a) ' +
+      'UNTOUCHED; C_C ansatz (imp-2642/imp-2643) and E_trunc = 3.06e-5 (imp-2631/imp-447) ' +
+      'UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; discharges nothing; changes no ' +
+      'bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
+      'the rigorous SOTA.',
+    firstUsed: 'imp-30659 (glossary/Concepts headword for the imp-35594 peak-vs-crossover insulation mechanism), 2026',
+    relatedTerms: [
+      'imp-35594 derives the log-proportional-insulation mechanism documented here (imp-35594)',
+      'imp-35574 supplies the prose F2 mechanism this entry shows derived analytically (imp-35574)',
+      'imp-35458 measures the ~18x crossover log-damping the derivation reproduces (imp-35458)',
+      'imp-35017 is the sigma double-surrogate formula the derivation expands (imp-35017)',
+      'imp-486 is the C_mb GUE-conditional caveat, UNTOUCHED by this mechanism (imp-486)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

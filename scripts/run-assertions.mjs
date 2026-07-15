@@ -8690,6 +8690,17 @@ const DATA_MODULES = [
   // surrogate; C_C ansatz and E_trunc = 3.06e-5 UNTOUCHED; surrogate-vs-true fidelity (imp-35337a) OPEN;
   // C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35615-cubic-skew-height-map-5pct-arms.js',
+  // imp-35616: reconciles why the imp-35458/imp-35413 closed-surrogate T0 = 2 pi N / log N -0.98 percent
+  // E_coll = E_trunc crossover shift lands OUTSIDE the imp-35555 +/- 5 percent RvM bracket envelope
+  // (~0.50 percent span). Since the crossover sees the height map only through log T0(N), the surrogate is
+  // EXACTLY an RvM x mult_eff map with mult_eff = T0_surrogate / T0_rvm = 0.822398 at the crossover height --
+  // a -17.76 percent effective perturbation, ~3.55x beyond the widest +/- 5 percent arm; |ln(mult_eff)| is
+  // 3.81x the widest bracket-arm ln-magnitude and 1.95x the full bracket ln-span; and the imp-35555 mean
+  // slope 0.05022 applied to ln(mult_eff) predicts -9.8195e-3, matching the measured -9.826376e-3 to ~7e-4.
+  // The surrogate is outside the bracket RANGE, not the bracket MODEL. Four self-executing assertions.
+  // Measurement only on the inherited imp-3220/imp-3406 surrogate; C_C ansatz and E_trunc = 3.06e-5
+  // UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35616-crossover-surrogate-effective-mult-reconciliation.js',
   // imp-35317: derives Banach-fixed-point CLOSED FORMS for the imp-35210 L2 (E_flow share < 1% of the
   // above-floor residual E_coll + E_flow, ~3.246862e7) and L4 (share < 0.1%, ~1.754552e10) landmarks,
   // which imp-35154 M2/M3 located by downslope bisection only -- mirroring the imp-35153 (L1) and
@@ -8971,6 +8982,20 @@ const DATA_MODULES = [
   // imp-398 C_F prefactor UNTOUCHED; surrogate-vs-true fidelity (imp-35337a) stays OPEN; C_mb
   // GUE-conditional per imp-486 UNTOUCHED; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35612-cubic-skew-height-map-literals-assertion.js',
+  // imp-35629: CROSS-REFERENCE INTEGRITY AUDIT (imp-35186 method) on the src/data files whose
+  // leading numeric id falls in [35539, 35590] (picks up where the imp-35589 audit of
+  // [35505, 35538] left off). Checked every filename-suffixed @see target, ES-module import
+  // specifier, named import against its target's exports, bare imp-NNNNN ticket citation (130
+  // distinct ids), and scripts/*.mjs offline-producer citation across all 30 audited files.
+  // FINDING: two dangling @see references -- imp-35545 cites imp-35484-imp35410x-registration-
+  // reachability-audit, a file that was never created (imp-35484 was completed inline, no
+  // dedicated data file); imp-35561 cites imp-35337-sigma-peak-crossover-dd-certification instead
+  // of imp-35337-sigma-landmarks-double-double-certification, a third occurrence of the typo the
+  // imp-35589 audit already found in imp-35531/imp-35536. Both name the correct ticket id, wrong
+  // file suffix only -- documentation drift, not a broken import or missing export. AUDIT ONLY;
+  // no source file corrected by this ticket (per the imp-35186/imp-35309 flag-then-fix
+  // convention); changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35629-imp3554x-imp3558x-frontier-crossref-integrity-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

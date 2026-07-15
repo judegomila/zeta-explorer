@@ -1344,6 +1344,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive paired-bar chart re-exporting the imp-35574 peak/rawHeightGapAtPeak/dampingComparison fields verbatim (no new computation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; the imp-35337a surrogate-vs-true fidelity sub-gap REMAINS OPEN; C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35597-threshold-collapse',
+      title: 'Route-(i) Subleading-Rate Threshold-Collapse Curve',
+      oneLine:
+        'Bars of the imp-35571 required log T0 threshold vs the poly-log exponent a and power-law rate delta, against the sigma-peak (~13.23), crossover (~20.86), and Platt-Trudgian anchor (~28.73) landmark log-heights and the e^200 leading-rate baseline (log T0 = 200).',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-35597-threshold-collapse-viz-data.js',
+      paperSourcePath: 'src/data/imp-35571-route-i-subleading-rate-scope.js (imp-35597 viz page)',
+      ticket: 'imp-35597',
+      pedagogicalStep: 92,
+      honestCeiling:
+        'Descriptive bar chart re-exporting the imp-35571 candidates/landmark table verbatim plus dense curve series (no new derivation, no heavy data-module import); scoping only -- no subleading rate is proved for the zeta zeros; route-(i) stays imp-486 GUE-conditional; the imp-35337a surrogate-vs-true fidelity sub-gap REMAINS OPEN; C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

@@ -858,6 +858,9 @@ const Imp35587ArmAsymmetryViz = lazy(() =>
 const Imp35593PeakDampingViz = lazy(() =>
   import('./pages/Imp35593PeakDampingViz.jsx')
 );
+const Imp35597ThresholdCollapseViz = lazy(() =>
+  import('./pages/Imp35597ThresholdCollapseViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2413,6 +2416,10 @@ function AppShell() {
           <Route
             path="/viz-imp35593-peak-damping"
             element={<Imp35593PeakDampingViz />}
+          />
+          <Route
+            path="/viz-imp35597-threshold-collapse"
+            element={<Imp35597ThresholdCollapseViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

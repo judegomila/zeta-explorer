@@ -8462,6 +8462,23 @@ const DATA_MODULES = [
   // discharges nothing; changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-34791 E_trunc
   // reclassification UNCHANGED; the ported bridge stays PARITY-WITH-PT, no beat; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35677-postport-residual-share-sigma-ladder.js',
+  // imp-35678: ASSESSES whether the imp-35654 (F3) "parity-with-PT, no beat" verdict for the ported
+  // far-tail bridge (matches Lambda<=0.2) is CONSISTENT with the imp-452/459 finite-height BEAT
+  // L_pt~0.121<0.2, and characterizes the regime boundary. Verdict: COMPATIBLE, NOT in tension --
+  // (A1) DIFFERENT OBJECTS/REGIMES: Reading 1 grades the finite-N NUMERIC VALUE of the assembled E(N)
+  // bound (0.121, finite N); Reading 2 grades the CONDITIONALITY-DISCHARGE machinery of the sigma->0
+  // far-tail bridge (0.2, asymptotic limit); no single (N,sigma) carries both. (A2) CONDITIONALITY
+  // differs: Reading 1 is CONDITIONAL/C_H-GUE-gated (roadmap CORRECTION 2026-07-03; measured C_mb is an
+  // OLS fit, not a rigorous N-uniform bound), an ESTIMATE not an unconditional beat; Reading 2 is the
+  // UNCONDITIONAL ported barrier route whose machinery IS PT own Lambda<=0.2 theorem, so no INDEPENDENT
+  // beat -- no single object is both unconditional AND <0.2. (A3) REGIME BOUNDARY = the VANISHING of the
+  // GUE-conditional BEAT CARRIER: the sub-0.2 margin is carried by the dominant E_coll (GUE-conditional)
+  // term whose far-tail share = sigma; as sigma->0 that carrier vanishes and the ported (PT-own) barrier
+  // dominates, handing the finite-height beat off to asymptotic parity-with-PT (same assembly, opposite
+  // ends of sigma). Import-light (baked literals). Assessment only; asserts no beat beyond the recorded
+  // one; changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-34791 UNCHANGED; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-35678-finite-height-beat-vs-parity-regime-boundary.js',
   // imp-35402: literal-verification (imp-35339-style) audit of the imp-35279/imp-35280 E_flow
   // far-tail four-rung ladder. Cross-module remnant agreement is EXACT; the reconstruction
   // identity holds to <5e-4; the swapFraction column, however, is NOT reproducible to tight

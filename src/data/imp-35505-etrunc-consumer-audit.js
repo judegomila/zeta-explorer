@@ -136,6 +136,17 @@ export const IMP35505_ETRUNC_CONSUMER_AUDIT_ASSERTIONS = [
     },
   },
   {
+    // imp-35560: regression guard -- ALL FIVE named cohort rows (not just the four
+    // citing rows) must carry treatsAsLever=false, locking the zero-violations
+    // verdict against any future edit that flips a row (e.g. a stray true on the
+    // NOT-APPLICABLE imp-35413 row) without updating the audit prose above.
+    id: 'imp35560-all-five-rows-treats-as-lever-false',
+    description: 'all five named cohort rows (citing and non-citing) carry treatsAsLever=false',
+    holds: () =>
+      IMP35505_ETRUNC_CONSUMER_AUDIT.length === 5 &&
+      IMP35505_ETRUNC_CONSUMER_AUDIT.every((c) => c.treatsAsLever === false),
+  },
+  {
     // Honesty gate: audit only, no bound change, no QED, PT stays SOTA.
     id: 'imp35505-honesty-gate-no-derivation-change',
     description: 'audit only: isRigorous false, no QED, PT stays SOTA',

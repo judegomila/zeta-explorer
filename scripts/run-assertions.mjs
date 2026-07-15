@@ -8329,6 +8329,19 @@ const DATA_MODULES = [
   // sigma is a diagnostic share not a Lambda lever so NO bound moves. Assessment/scoping only; discharges
   // nothing; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35475-sigma-fidelity-closure-scope.js',
+  // imp-35488: EXECUTES the imp-35475 route-(ii) two-height data-anchored fidelity spot-check of the
+  // surrogate E_coll = C_C sqrt(log T0/N). Both sigma landmarks sit below T_PT=3e12, but in-repo only the
+  // PEAK (N~9.2186e5, height 5.57e5) is inside the 10^6-zero table (last ordinate ~6.0e5); the CROSSOVER
+  // (N~3.28e9, height 1.14e9) is ~3280x beyond it (sub-gap imp-35488a: needs an external zero table). At the
+  // peak, g_true = the empirical-vs-GUE nearest-neighbour spacing pdf deviation over a 100001-real-zero
+  // window (RvM-unfolded): max residual 0.049026, KL 0.0014321, Hellinger 0.019198 -- TIGHTER than the
+  // first-10000 reference (KL 0.008118, which reproduces gue-vs-zeros-comparison.js), so GUE holds well at
+  // the peak height. But that is a DISTRIBUTIONAL deviation, not the sigma-unit fidelity the 2.14e-5 flat-cap
+  // PEAK budget asks for (sub-gap imp-35488b: the observable->sigma dictionary is un-executed). Surrogate
+  // E_coll: PEAK 1.453810e-3, CROSSOVER 3.060000e-5 (= E_trunc). HONEST PARTIAL; spot check of one reachable
+  // height only; sigma is a diagnostic share not a Lambda lever so NO bound moves; C_mb GUE-conditional per
+  // imp-486 UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35488-route-ii-two-height-gtrue-spotcheck.js',
   // imp-35338: CROSS-MODULE constant-consistency AUDIT of the iters-to-floor / reentry-band cohort
   // (imp-34997/35109/35111/35174/35243). imp-35243 asserted K_AMPL~1.5727e8, N_CROSS_FP~3.2803e9,
   // R_CONTRACT~0.0454235, EPS_FP=2.3e-16, PENULT=1.4536413720400559e-16 are "bit-identical" across all five,

@@ -9444,6 +9444,22 @@ const DATA_MODULES = [
   // bound; C_C=(1/8)sqrt(3 pi) (imp-2642/imp-2643) and E_trunc=3.06e-5 (imp-2631)
   // UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35695-resolution-floor-factor-M-ladder.js',
+  // imp-35696: CONSISTENCY CHECK -- do the two short-range facts imp-35652 uses to
+  // kill option (a) describe the SAME scale? Reading C_C=(1/8)sqrt(3 pi) as a
+  // small-gap density coefficient p(s)~c s^2 and solving the extreme-value balance
+  // M F(s_min)=1 by BISECTION, the measured M-exponent of the collision scale is
+  // -1/3 for BOTH c=pi^2/3 and c=C_C (fits differing by ~0), matching Ben Arous-
+  // Bourgade s_min~M^{-1/3}. The exponent is set by the cubic (beta=2) repulsion
+  // power alone and is coefficient-INDEPENDENT; the imp-35680 amplitude mismatch
+  // ((pi^2/3)/C_C~8.573) enters only the O(1) prefactor as its cube root (~2.047).
+  // So the resolution floor and constant mismatch are the EXPONENT and COEFFICIENT
+  // of one shared cubic-repulsion structure -- same scale, different amplitude,
+  // exactly the "corroborating" relation imp-35652 asserted. Import-light (baked
+  // imp-35652/imp-35680 anchors, no zeros bundle). Six self-executing assertions.
+  // Consistency check only; confirms imp-35652 quantitatively; changes no bound;
+  // C_C (imp-2642/imp-2643) and E_trunc=3.06e-5 (imp-2631) UNTOUCHED; imp-35337a
+  // stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35696-collision-exponent-consistency-check.js',
 ];
 
 let ALL_MODULES = FAST_MODE

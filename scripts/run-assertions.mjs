@@ -9207,6 +9207,20 @@ const DATA_MODULES = [
   // E_trunc = 3.06e-5 (imp-2631) UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian
   // Lambda<=0.2 remains SOTA.
   '/src/data/imp-35685-resolution-shortfall-literal-guard.js',
+  // imp-35686: REGRESSION-GUARD pinning the imp-35654 post-port share literals so a silent
+  // literal drift trips the build. imp-35654 characterized the mixed conditionality surviving
+  // the S_barrier port at the imp-35334 sigma < 1e-3 landmark: C_T-barrier share = 0.999,
+  // residual GUE-conditional share = sigma = 1e-3, E_flow unconditional share ~5.655e-9, and
+  // the conditional-class count collapsing 2 -> 1 with share_sum ~1.000000006. This
+  // import-light module INDEPENDENTLY recomputes the post-port unconditional/residual shares
+  // from the baked imp-35334 landmark literals and cross-checks the imp-35654 baked record
+  // reproduces the same figures. Four self-executing assertions. Import-light (imports only
+  // the import-light imp-35654 record, no zeros bundle, per [[no_heavy_imports_in_pages]] /
+  // [[verify_heavy_assertion_modules]]). Regression-guard only; recomputes an established
+  // assessment figure; changes no bound; C_mb GUE-conditional (imp-486) UNTOUCHED; imp-34791
+  // E_trunc reclassification UNCHANGED; imp-35337a stays OPEN; NO QED; Platt-Trudgian
+  // Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35686-postport-share-literal-guard.js',
 ];
 
 let ALL_MODULES = FAST_MODE

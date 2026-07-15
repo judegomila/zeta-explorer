@@ -8281,6 +8281,15 @@ const DATA_MODULES = [
   // bounded double-rounding/small-denominator amplification artifact, not a computation bug.
   // Read-only; changes no bound; NO QED.
   '/src/data/imp-35402-eflow-fartail-ladder-literal-reconstruction-check.js',
+  // imp-35434: EXTENDS the imp-35402 two-component additivity check (fdVsAnalyticGap +
+  // inverseSwapGap = analyticResidual) from the original four rungs onto the deep rungs
+  // N = 1e18/1e20/1e24 and the imp-35370 crossover log10 N = 44.7593. The full-precision defect
+  // is EXACTLY 0 at every one (fdSurr stays inside the [fdTrue, analyticLead] bracket, making the
+  // absolute-value split algebraically additive), and under the 4-decimal storage convention it
+  // stays below 5e-4. At the 50/50 crossover the two components are each exactly half the residual
+  // with the split still exactly additive -- a symmetric bisection, NOT a growing additivity
+  // defect. Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35434-eflow-fartail-additivity-deep-rungs.js',
   // imp-35356: ENUMERATES and ASSESSES the concrete candidate routes to MEET R1 (floor-independence) -- the
   // imp-35330 DAG root and sole live lever for the imp-34997/35111 reentry band. Of the three named routes,
   // exactly ONE is self-contained and non-circular: route (ii), the pure-artifact proof, which resolves R1 in

@@ -9546,6 +9546,23 @@ const DATA_MODULES = [
   // only; derives nothing; discharges nothing; changes no bound; NO QED; Platt-Trudgian
   // Lambda<=0.2 remains SOTA.
   '/src/data/imp-35717-w1-tsign-reconciliation-scope.js',
+  // imp-35719: AUDIT/INVENTORY the imp-341 barrier-base misattribution fan-out.
+  // imp-35681 Part D corrected the scout premise -- the imp-35653 barrier BASE
+  // (N_off(T_PT)=0, RH verified to T_PT=3e12) is EXTERNAL Platt-Trudgian 2021 the
+  // repo CITES, NOT internal imp-341 (the Close G5_burgers Koksma-Hlawka thread) --
+  // but never inventoried the consumers. This import-light module greps the whole
+  // src surface for imp-341 and classifies every citation as CORRECT-USE: (C1) the
+  // Koksma-Hlawka lim sup |t_c(N)|=0 thread, (C2) the Selberg constant C_1=C_KH=3 pi,
+  // (C3) the Slater-determinant Burgers envelope shape. FINDING: the src
+  // misattribution surface is EMPTY -- NONE of the ~15 imp-341 citations conflates it
+  // with the T_PT off-line zero-verification; the two actual barrier-base consumers
+  // (finite-height-lambda-bound.js, finite-height-beats-platt-trudgian.js) already
+  // cite Platt & Trudgian 2021. The conflation lived only in scout ticket prose,
+  // retired by imp-35681 Part D and surfaced by imp-35741. Null-result fan-out: ZERO
+  // src modules need re-pointing; the three correct-use classes are catalogued as a
+  // guard against silent re-seeding. Five self-executing assertions. Audit only;
+  // re-points nothing; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35719-imp341-barrier-base-misattribution-fanout-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

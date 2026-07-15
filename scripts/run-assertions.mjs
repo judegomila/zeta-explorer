@@ -8184,6 +8184,17 @@ const DATA_MODULES = [
   // (imp-2642), E_trunc=3.06e-5 (imp-2631) and the imp-398 C_F prefactor UNTOUCHED; surrogate-fidelity half
   // re-pointed imp-35337a stays OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35337-sigma-landmarks-double-double-certification.js',
+  // imp-35338: CROSS-MODULE constant-consistency AUDIT of the iters-to-floor / reentry-band cohort
+  // (imp-34997/35109/35111/35174/35243). imp-35243 asserted K_AMPL~1.5727e8, N_CROSS_FP~3.2803e9,
+  // R_CONTRACT~0.0454235, EPS_FP=2.3e-16, PENULT=1.4536413720400559e-16 are "bit-identical" across all five,
+  // but never measured it. This module re-derives the canonical chain (byte-identical E_TRUNC_PT=3.06e-5,
+  // K=(C_C/E_TRUNC_PT)^2 from one C_C source, N_cross=iterate(1e9,200) from one effectiveHeightForN source,
+  // R=|central-diff g at h=1|) and cross-reads all 21 exposed (module, field) pairs. RESULT: NO divergence --
+  // full-precision EPS_FP/PENULT bit-equal, derived LN_INV_R/OFFSET/W/R_CONTRACT agree to stored 6/9 sig figs
+  // across all five, transitively witnessing K_AMPL/N_CROSS_FP identity. imp-35243 claim CONFIRMED; no
+  // reentry-band landmark desynchronized. Read-only; changes no bound; the surrogate-fidelity sub-gap
+  // imp-35243a stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35338-cohort-constant-consistency-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

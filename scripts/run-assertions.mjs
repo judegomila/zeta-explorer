@@ -9474,6 +9474,20 @@ const DATA_MODULES = [
   // obstruction; changes no bound; imp-35653 stays breakthrough-tier OPEN; NO QED;
   // Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35697-winding-barrier-mesh-cost-ladder.js',
+  // imp-35698: MEASUREMENT -- the COMPLEMENT of imp-35697. Measure the imp-35653 B2
+  // tail-lemma normalized margin m(x)=|A+B|/|A^(1)| - |C|/|A^(1)| = 1 - E0 sqrt(X0/x)
+  // (Polymath15 mollified triangle inequality) across a height ladder above T_PT=3e12,
+  // with the imp-35674 retained-term scaling E(x)=E0 N(X0)/N(x), N(x)=floor(sqrt(x/4pi)),
+  // anchored at the illustrative barrier X0=6e10 with a SCHEMATIC deficit E0=0.2. The
+  // margin is MONOTONE increasing (~0.972 at the base T_PT), and the closed-form handoff
+  // x_c=X0(E0/(1-mc))^2 gives Delta=0 at mc=0.9, ~2.1e13 at 0.99, ~2.40e15 at 0.999 -- a
+  // FINITE crossover width near the base. Six self-executing assertions. Measurement only;
+  // does NOT discharge B2 -- the tail lemma is the UNIFORM-in-x positivity for ALL
+  // x>=T_PT+Delta (semi-infinite, not this sampled ladder) and is gated on the imp-35674
+  // heat-sign caveat (repo proxy = de Bruijn NEGATIVE time, the harder side, margin
+  // strictly TIGHTER, so these widths are OPTIMISTIC); changes no bound; imp-35653 stays
+  // breakthrough-tier OPEN; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35698-b2-tail-lemma-margin-ladder.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -169,6 +169,16 @@ export const IMP35280_EFLOW_FARTAIL_FD_VS_ANALYTIC_SURROGATE_GAP = {
       '1e16). imp-35236 whole-residual-is-inverse-swap is thus only approximate, and least so deep.',
   },
   isRigorous: false,
+  honestStatus:
+    'The ~0.002 fd-vs-analytic remnant is a NON-VANISHING closed-form/prefactor floor, not a ' +
+    'transient artifact that shrinks away with N: it sits in a tight 0.0019..0.0031 band at ' +
+    'every rung from N = 1e6 to N = 1e16 while the inverse-swap gap it is compared against ' +
+    'shrinks monotonically (0.0093 -> 0.0025). Because the floor stays roughly flat while the ' +
+    'residual it is a component of keeps shrinking, the floor is a GROWING FRACTION of that ' +
+    'residual deep down the ladder (~21% at N = 1e6 rising to ~44% at N = 1e16), not a shrinking ' +
+    'one. The imp-35236 whole-residual-is-inverse-swap attribution must therefore be read as an ' +
+    'approximation that degrades (not improves) as N grows, and any extrapolation of this ladder ' +
+    'past N = 1e16 should assume the ~0.002 floor persists rather than assuming it vanishes.',
   verdict:
     'MEASUREMENT ONLY (frontier-direction, NOT rigorous). Measuring the fd-vs-analytic surrogate ' +
     'exponent gap directly across the full N = 1e6..1e16 ladder gives 0.0025 / 0.0031 / 0.0026 / ' +
@@ -226,6 +236,15 @@ export const IMP35280_EFLOW_FARTAIL_FD_VS_ANALYTIC_SURROGATE_GAP_ASSERTIONS = [
     holds: () =>
       TOP.inverseSwapGap > 2 * TOP.fdVsAnalyticGap && // swap dominant at the top
       DEEP.fdVsAnalyticGap / DEEP.analyticResidual > TOP.fdVsAnalyticGap / TOP.analyticResidual, // floor share grows deep
+  },
+  {
+    // imp-35389: the fd-vs-analytic remnant is documented as a non-vanishing, growing-share floor.
+    id: 'imp35280-honest-status-field-present',
+    description: 'honestStatus field states the remnant is a non-vanishing floor with a growing residual fraction',
+    holds: () =>
+      typeof IMP35280_EFLOW_FARTAIL_FD_VS_ANALYTIC_SURROGATE_GAP.honestStatus === 'string' &&
+      /NON-VANISHING/.test(IMP35280_EFLOW_FARTAIL_FD_VS_ANALYTIC_SURROGATE_GAP.honestStatus) &&
+      /GROWING FRACTION/.test(IMP35280_EFLOW_FARTAIL_FD_VS_ANALYTIC_SURROGATE_GAP.honestStatus),
   },
   {
     // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.

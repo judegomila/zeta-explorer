@@ -7994,6 +7994,18 @@ const DATA_MODULES = [
   // VERDICT: the min-gap route RELOCATES M5 rather than removing it; the one form that genuinely closes
   // closes onto the collision. Six THROWing assertions; I3/M5 stay OPEN; changes no bound; NO QED.
   '/src/data/imp-35284-apriori-gmin-bound-forms-assessment.js',
+  // imp-35355: RESTORES the ambient-spacing dependence the imp-35215 unit-spacing identity beta*g_min->1
+  // dropped (true identity beta*g_min*h->1, h = x_2-x_0) and asks whether it flips the imp-35284 C2
+  // verdict. Substituting beta = 1/(h sqrt(u)) into du/ds = -8 + 4 B_p u gives the GENERAL C2 ODE
+  // du/ds = -8 + (4/h) sqrt(u), reducing to the imp-35284 form -8 + 4 sqrt(u) at h = 1. Ambient enters
+  // ONLY the feedback (4 -> 4/h); the collapse -8 is ambient-independent. (F1) fixed point rescales to
+  // u* = 4h^2 (g* = 2h) but stays UNSTABLE; (F2) it is unreachable by construction (g* = 2h needs
+  // g_min = 2(g_min+g_1), impossible); (F3) sign LOCKED negative across the whole admissible band
+  // h >= g_min: -8 <= du/ds <= -4 < 0 (tightest admissible only halves the rate), horizon T_SR^h -> u0/8
+  // ambient-independent. So no admissible ambient profile stabilizes the fixed point into a reachable
+  // floor -- C2 stays collision-reproducing, CONFIRMING imp-35284. Seven THROWing assertions; I3/M5 stay
+  // OPEN; changes no bound; NO QED.
+  '/src/data/imp-35355-ambient-spacing-c2-verdict-assessment.js',
   // imp-35167: SCOPES the imp-35127 I2 ingredient -- what a CERTIFIED non-collision minimum-gap lower
   // bound g_min(t) > 0 along the WHOLE backward Dyson trajectory to the front would need. Enumerates
   // five machinery pieces M1..M5: M1 the exact gap ODE du/ds = -8 + 4 B(s) u + Gronwall lower branch

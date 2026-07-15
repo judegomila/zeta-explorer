@@ -75944,13 +75944,15 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Cross-reference note linking imp-35653 (S_barrier finite-check scope) and imp-35419 (breakthrough-tier port classification): the NON-FINITE B2 tail lemma is precisely why imp-35419 classes the S_barrier port as breakthrough-tier rather than engine-closable',
     category: 'content',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S-frontier',
     description: "imp-35653 Part B ends by noting that S_barrier's semi-infinite B2 tail lemma being non-finite 'is the exact reason imp-35419 classes the port as breakthrough-tier rather than engine-closable'. ADD a short cross-reference note tying imp-35653's finite/non-finite decomposition to imp-35419's port classification so the reasoning is discoverable from the imp-35419 side. Documentation only; no bound change; NO QED; PT Lambda<=0.2 SOTA.",
     rationale: 'Frontier scout: imp-35653 explicitly links B2-non-finite to imp-35419 breakthrough-tier classification but no cross-reference note exists on the imp-35419 side',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'sonnet-4-6',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
 ];
 

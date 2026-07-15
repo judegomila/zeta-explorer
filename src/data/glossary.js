@@ -19076,6 +19076,7 @@ export const glossary = [
       'imp-3933 supplies the gap law d(s^2)/dt = -8 and isolated-pair realness time (2 beta - 1)^2/2 (imp-3933)',
       'winding-thread supplies the de Bruijn Thm 13 monotonicity + jet lemma that is the repo-side receiver of the port (imp-winding-thread)',
       'imp-397 supplies the 2/gamma per-zero kernel shown to be an unsound realness price (imp-397)',
+      'imp-35653 decomposes the port into a FINITE bounded-rectangle winding check (B1) plus the NON-FINITE analytic tail lemma (B2) that is precisely why this port is breakthrough-tier, not engine-closable (imp-35653)',
     ],
   },
   {

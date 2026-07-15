@@ -8820,6 +8820,17 @@ const DATA_MODULES = [
   // peak. Six self-executing assertions. Measurement only on the inherited imp-3220/imp-3406
   // surrogate; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35577-fartail-crossings-height-map-sensitivity.js',
+  // imp-35578: ASSERTION-ONLY tripwire pinning the imp-35538 REQ-4 baked shortfall literals
+  // (LOG_T0_NEEDED = 1/0.005 = 200, T0_NEEDED = e^200 ~ 7.23e86, SHORTFALL_VS_CROSS ~ 9.59,
+  // SHORTFALL_VS_T_PT ~ 6.96) against a silent effectiveHeightForN / budget drift. Independently
+  // recomputes all four from the 0.5% budget, effectiveHeightForN(N_cross) and T_PT, asserting
+  // (a) the full-precision recompute matches 7-sig-fig reference literals within 1e-6 relative
+  // (storage-precision tolerance) and (b) every baked imp-35538 heightRegime field reproduces
+  // EXACTLY when the source display rounding is re-applied to the independent recompute. Import-light
+  // (effectiveHeightForN + the imp-35538 record only, no zeros bundle). Verification tooling only;
+  // recomputes established figures; changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED;
+  // NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35578-req4-shortfall-literals-assertion.js',
 ];
 
 let ALL_MODULES = FAST_MODE

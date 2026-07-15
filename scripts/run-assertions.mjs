@@ -9681,6 +9681,22 @@ const DATA_MODULES = [
   // rate). Five self-executing assertions. OOM scoping only; certifies no count;
   // instantiates no enclosure; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35757-i2-panel-width-count-scope.js',
+  // imp-35758: ASSESS the imp-35727 ingredient-I3 modulus-floor requirement (|f| >=
+  // delta > 0 on the rectangle boundary dR certifying no zero on the contour) by TYING
+  // it to the imp-35725 barrier margin |A_t+B_t| - |C_t|. FINDING: by the reverse
+  // triangle inequality |H_t| >= (|A_t+B_t| - |C_t|) - (E_A+E_B+E_{C_0}), the pointwise
+  // floor delta(z) is EXACTLY the surplus of the imp-35725 strict barrier inequality,
+  // and the contour floor is its minimum over dR -- so I3 is NOT a new ingredient, it
+  // reads the SAME cap check as a lower bound on |H_t| and is downstream of the I1 / W1
+  // enclosure. OOM: since imp-35725 budgets the cap many orders below the O(1) main
+  // term, wherever A_t+B_t does not nearly cancel C_t the margin is of main-term scale
+  // and delta ~ margin, a robust floor clearing the cap by the full separation. CAVEAT:
+  // delta is the worst-boundary-point minimum, collapsing toward 0 where dR grazes a
+  // would-be zero; delta > 0 is certified iff the interval strict inequality clears the
+  // cap at EVERY panel -- the SAME greenfield check imp-35725 named. Five self-executing
+  // assertions. OOM scoping only; establishes no positivity; certifies no delta>0;
+  // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35758-i3-modulus-floor-margin-tie-scope.js',
   // imp-35728: QUANTIFY the necessary-not-sufficient gap between the EXTERNAL
   // Platt-Trudgian certificate N_off(T_PT) = 0 (verified to T_PT = 3e12) and the
   // imp-35681/imp-35676 W4 mechanical zero-substitution (off-line contribution

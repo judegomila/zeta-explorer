@@ -211,6 +211,8 @@ const DATA_MODULES = [
   '/src/data/imp-35301-three-factor-invariant-convergence-rate.js',
   // imp-35305: tests the imp-35238 three-factor invariant beta*g_min*(x_2-x_0)->1 on a THIRD ensemble -- GUE-simulated ordinates (sorted eigenvalues of a Dumitriu-Edelman beta=2 tridiagonal Hermite matrix, the imp-486 C_mb-conditional law) at N=50,100,200; invariant -> 1 (|dev|<=4e-5, spread ~3e-5, N-uniform) matching the unit-spacing and real-ordinate cases, eigensolver self-certified by trace + sum-of-squares invariants; MEASUREMENT ONLY, certifies nothing about C_mb, I3/M2/M5 OPEN, NO QED.
   '/src/data/imp-35305-gue-ordinate-three-factor-invariant.js',
+  // imp-35326: recompute the imp-35219 beta-independent M5 horizon-front onset gap g_cross(N)=sqrt(8*t_c(N)) up to the PT verified height N~3e12 using the inherited imp-325 t_c=0.0066+4.91/N -- the onset gap decays to a FIXED floor 0.229783 (t_c has an N-independent floor), N-frozen by N~1e6, span only ~3.65% over 1e4..3e12, sits ~6x ABOVE the accessible g_min band; MEASUREMENT ONLY, I2/M5 OPEN, NO QED.
+  '/src/data/imp-35326-horizon-front-onset-gap-verified-height.js',
   // imp-35240: finer smaller-eps re-measurement confirms rho prefactor K = 8 sqrt(2)/(9 pi), not 2/5.
   '/src/data/imp-35240-rho-prefactor-finer-grid-remeasurement.js',
   // imp-35244: eps^{5/2} slot is EMPTY -- implied -16/(15 A_2) falsified; next term eps^{7/2} = -8 sqrt(2)/(3 pi).
@@ -7812,6 +7814,14 @@ const DATA_MODULES = [
   // for n>=5 (magnitudes collapse ~5e-10 per order below the round-off floor; sign becomes
   // step-dependent) -- a differencing ceiling, not a sign change. Measurement only; no bound change.
   '/src/data/imp-35113-crossover-deriv-sign-ladder-finite-difference.js',
+  // imp-35315: RECOMPUTES the imp-35113 sign ladder in compensated / double-double (cancellation-free)
+  // stencil arithmetic to MEASURE whether the resolved-order ceiling extends past the double-precision
+  // n*=4. NEGATIVE result: dd does NOT extend the ceiling (measured dd n*=3, one lower) because it
+  // compensates only the summation cancellation while the binding noise floor is set by the
+  // double-precision evaluation of g = log o effectiveHeightForN, which both methods share; dd and
+  // double agree on n=1..4 (relDiff 0 for n<=3). Names the lever SG-imp-35315-dd-g (a dd-precision g).
+  // Measurement only; no operator positivity; changes no bound; NO QED.
+  '/src/data/imp-35315-crossover-deriv-sign-ladder-double-double.js',
   // imp-35114: EXTRACTS the imp-35012 Bernstein / Levy-Khintchine representation ingredients for the
   // surrogate g = K log T0(N): confirms g_prime is completely monotone (>0, decreasing, convex) across
   // N in {1e7 .. 1e18} from source, and estimates the drift b = lim g_prime(N) = 0 (matching the

@@ -9904,6 +9904,12 @@ const DATA_MODULES = [
   // off every would-be zero. Five self-executing assertions. Measurement on the OOM model only;
   // certifies no cap; bounds no B; lower-bounds no delta; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35801-i2-panel-amplification-vs-grazing-distance.js',
+  // imp-35835: ticket asked to add a glossary headword for the imp-35778 delta_short/delta_long
+  // two-knob I3 floor prescription. Audit found it ALREADY EXISTS (added by imp-35819) and is a
+  // near-duplicate ticket the frontier scout re-seeded. Adds no new glossary content; pins a
+  // regression guard confirming the imp-35819 headword stays present. Audit only; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-35835-glossary-duplicate-ticket-audit.js',
   // imp-35779: DERIVE the REQUIRED-fraction allocation of the barrier margin
   // M = |A_t+B_t| - |C_t| among the imp-35725 cap terms E_A, E_B, E_{C_0} that keeps the
   // strict triangle inequality strict at T_PT. imp-35760 gave one SUFFICIENT point (an

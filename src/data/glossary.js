@@ -19831,6 +19831,45 @@ export const glossary = [
       'imp-35778 scopes the I3 edge-type (short/long) floor decomposition that this coupling delta feeds into (imp-35778)',
     ],
   },
+  {
+    term: 'imp-35778 I3 edge-type floor decomposition (delta_short vs delta_long)',
+    category: 'proof-frontier',
+    definition:
+      'A headword recording the imp-35778 SCOPING of the imp-35727 ingredient I3 modulus floor |H_t| >= delta > 0 ' +
+      'on the transition-rectangle boundary dR of R = [T_PT, T_PT + Delta] x [-h, h] at T_PT = 3e12, by ' +
+      'DECOMPOSING the contour floor BY EDGE TYPE rather than leaving it a single monolithic worst-point minimum ' +
+      '(the imp-35758 "min over dR").\n\n' +
+      'THE TWO EDGE FAMILIES: the rectangle straddles the real axis y = 0 where the enclosed real zeros live. Its ' +
+      'boundary has two SHORT EDGES (x = T_PT and x = T_PT + Delta, y in [-h, h]) that CROSS the axis at y = 0, ' +
+      'and two LONG EDGES (y = +h and y = -h, x in [T_PT, T_PT + Delta]) entirely OFF the axis at transverse ' +
+      'distance h. delta = min(delta_short, delta_long): the imp-35758 monolithic floor is the smaller of two ' +
+      'floors with different governing scales.\n\n' +
+      'THE TWO KNOBS: delta_short is the on-axis endpoint value, EXACTLY the imp-35758 reverse-triangle margin ' +
+      'surplus (|A_t+B_t| - |C_t|) - cap; it is robust only when the endpoints x = T_PT, T_PT + Delta are placed ' +
+      'BETWEEN consecutive real zeros (at an inter-zero |H_t| maximum) -- so the imp-35758 grazing-collapse ' +
+      'caveat LIVES on the short edges, and this placement QUANTIZES Delta to ~ an integer number of mean zero ' +
+      'gaps delta(T_PT) ~ 0.2336 (imp-35757). delta_long is a NEW, h-LINEAR scale: to leading order ' +
+      '|H_t(x_0 +- i h)| ~ |H_t prime(x_0)| . h, so using the imp-35777 derivative proxy B = sup|H_t prime| ~ ' +
+      '|H_t| . w(T_PT) (w(T_PT) ~ 13.446), delta_long reaches main-term scale once h ~ 1/w (a fixed fraction of ' +
+      'the mean gap) -- the SAME zero-spacing scale imp-35757 used for the I2 panel width.\n\n' +
+      'HOW TO APPLY: cite this decomposition whenever a certificate treats the I3 floor as a single line item -- ' +
+      'it splits into an ENDPOINT-PLACEMENT knob (fixes Delta, short edges) and an OFF-AXIS-HEIGHT knob (fixes h, ' +
+      'long edges), a concrete two-knob refinement of the imp-35758 "position the rectangle to avoid dips" that ' +
+      'localizes exactly where the imp-35758 collapse caveat binds.\n\n' +
+      'HONEST SCOPE: ORDER-OF-MAGNITUDE SCOPING ONLY. ADDS NO greenfield mechanism -- both floors read from the ' +
+      'SAME I1/W1 interval enclosure (imp-35681 Part A). Evaluates no modulus; lower-bounds no inf|H_t prime|; ' +
+      'fixes no Delta or h; positions no rectangle; certifies no delta > 0; establishes no positivity; no RH ' +
+      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35819 (glossary headword recording the imp-35778 I3 edge-type floor decomposition), 2026',
+    relatedTerms: [
+      'imp-35778 derives the edge-type split delta = min(delta_short, delta_long) recorded here (imp-35778)',
+      'imp-35758 supplies the monolithic min-over-dR floor and reverse-triangle surplus that delta_short specializes (imp-35758)',
+      'imp-35777 supplies the B = sup|H_t prime| ~ |H_t| . w proxy that delta_long rests on (imp-35777)',
+      'imp-35757 supplies the mean zero gap delta(T_PT) ~ 0.2336 governing both the short-edge quantization and the long-edge h scale (imp-35757)',
+      'imp-35727 names I3 as a GREENFIELD ledger ingredient this headword scopes in structural detail (imp-35727)',
+      'imp-35681 Part A supplies the I1/W1 interval enclosure both edge floors are read from (imp-35681)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

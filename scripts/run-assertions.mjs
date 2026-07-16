@@ -11971,6 +11971,11 @@ const DATA_MODULES = [
   // OPEN and imp-34687a UNIMPLEMENTED -- plus an explicit derived-vs-open list. Note
   // only; imports each stage verbatim; NO QED.
   '/src/data/imp-36166-residual-node-storyline-cross-reference.js',
+  // imp-36167 (ux, sonnet-4-6, sonnet): honest-status finding that ticket imp-36167 itself
+  // duplicates the already-completed imp-36144 (import-light viz-data module baking the
+  // 25-rung imp-36095 KBN-vs-classic-Kahan intermittency ladder across N in [34000,40000]);
+  // no new module built, records the finding and cross-references the original. NO QED.
+  '/src/data/imp-36167-duplicate-ticket-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

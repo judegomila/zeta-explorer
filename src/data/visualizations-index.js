@@ -1476,6 +1476,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Descriptive chart re-exporting the imp-35677 sigma-share model verbatim (no new derivation, no heavy data-module import); presentation only; C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
     Object.freeze({
+      route: '/viz-imp35772-collision-scale-prefactor-propagation',
+      title: 'Collision-Scale Prefactor Propagation Onto Sigma-Landmarks',
+      oneLine:
+        'Log-log line chart of the imp-35724 propagation of the imp-35696 cube-root collision-scale prefactor ((pi^2/3)/C_C)^{1/3} ~ 2.047 onto the two imp-35337 sigma-landmark heights N_peak (~9.22e5) and N_cross (~3.28e9): the standard-vs-C_C s_min shift is the identical O(1) factor at both landmarks while the -1/3 log-log slope of s_min against N is untouched.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-35772-collision-scale-prefactor-propagation-viz-data.js',
+      paperSourcePath: 'src/data/imp-35724-collision-scale-landmark-prefactor-propagation.js (imp-35772 viz page)',
+      ticket: 'imp-35772',
+      pedagogicalStep: 110,
+      honestCeiling:
+        'Descriptive chart re-exporting the imp-35724 propagation measurement verbatim (no new derivation, no heavy data-module import); presentation only; C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
+    Object.freeze({
       route: '/viz-imp35823-required-height-ladder',
       title: 'Merged Required-Height Ladder Across Peak / Sigma / PT Rungs',
       oneLine:

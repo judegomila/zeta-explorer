@@ -19756,6 +19756,44 @@ export const glossary = [
       'imp-35575 measures the next-order (even) quartic term c4 and finds it immaterial to this odd-order skew (imp-35575)',
     ],
   },
+  {
+    term: 'imp-35727 W2 certified-winding-count ingredient ledger (I1-I5)',
+    category: 'proof-frontier',
+    definition:
+      'A headword recording the imp-35727 enumeration of what a rigorous, interval-arithmetic-CERTIFIED ' +
+      'winding (argument-principle) zero count on the boundary dR of the transition rectangle ' +
+      'R = [T_PT, T_PT + Delta] x [-h, h] at T_PT = 3e12 requires BEYOND the held-but-experimental winding ' +
+      'scaffolding the repo already carries (imp-2696 winding-Lyapunov, imp-33923 off-axis phase-winding ' +
+      'quadrature, imp-33968 winding-rate-vs-alpha), each an isRigorous:false point-sampled double-precision ' +
+      'measurement that unwraps a sampled phase and reads a slope/count by least-squares or sign-change tally.\n\n' +
+      'THE FIVE INGREDIENTS: I1 between-node interval ENCLOSURE of f = H_t = A + B - C along each edge of dR ' +
+      '(not node sampling), GATED on the greenfield imp-35681 Part A / imp-35725 A + B - C interval evaluator; ' +
+      'I2 a certified per-panel argument-increment cap |Delta arg f| < pi, the guarantee the experimental ' +
+      'unwrap silently assumes but never certifies; I3 an interval lower bound |f| >= delta > 0 on every ' +
+      'boundary segment, certifying f != 0 on dR (the argument principle demands no zero on the contour); ' +
+      'I4 closure of the accumulated per-segment increments around the closed dR to a UNIQUE integer within a ' +
+      '< pi (strictly < 2 pi) error budget, so N = total / (2 pi) needs no human interpretation; I5 continuous ' +
+      'corner composition of the four edge increments across the four rectangle corners so they compose into ' +
+      'one closed-loop total. All FIVE are GREENFIELD -- the held experimental scaffolding reduces none of them.\n\n' +
+      'HOW TO APPLY: cite this ledger as the complete B1 obligation list for a certified boundary zero count ' +
+      'downstream of the W1 barrier (I1 is explicitly gated on the imp-35725/imp-35681 Part A evaluator, so W2 ' +
+      'cannot even start its enclosure step until W1 is discharged); imp-35757/imp-35777 scope I2 (the ' +
+      'per-panel cap) and imp-35758/imp-35778 scope I3 (the modulus floor) in more numerical/structural detail, ' +
+      'but neither closes I1, I4, or I5.\n\n' +
+      'HONEST SCOPE: ASSESSMENT / SCOPING ONLY. Ports nothing; certifies nothing; counts no zeros; changes no ' +
+      'bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35817 (glossary headword recording the imp-35727 W2 certified-winding-count ingredient ledger), 2026',
+    relatedTerms: [
+      'imp-35727 enumerates the five-ingredient ledger recorded here (imp-35727)',
+      'imp-35681 Part B grades the winding scaffolding held-vs-greenfield; Part A supplies the I1-gating A + B - C evaluator (imp-35681)',
+      'imp-35725 supplies the effective-error cap C_t = E_A + E_B + E_C0 the I1/I3 enclosure error rests on (imp-35725)',
+      'imp-35757 scopes the I2 per-panel argument-increment cap in numerical detail (imp-35757)',
+      'imp-35777 scopes the I2/I3 log-derivative panel-cap coupling in structural detail (imp-35777)',
+      'imp-35758 scopes the I3 modulus-floor margin tie in numerical detail (imp-35758)',
+      'imp-35778 scopes the I3 edge-type (short/long) floor decomposition in structural detail (imp-35778)',
+      'imp-2696 supplies the held isRigorous:false winding-Lyapunov sign-change/unwrap experiment I1-I5 must supersede (imp-2696)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

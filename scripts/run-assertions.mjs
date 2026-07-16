@@ -10219,6 +10219,15 @@ const DATA_MODULES = [
   // under `npm run assert`. Registering it here as the minimal fix, alongside the audit module
   // recording the finding. Audit + minimal fix only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35813-req4-required-height-sigma-landmark-extend.js',
+  // imp-35853 (accuracy, measurement): TABULATE the imp-35813 REQ-4 required-height multiple
+  // 200/log T0 CONTINUOUSLY versus sigma on the peak-to-PT downslope (fine grid interpolating the
+  // discrete imp-35813 rungs). FINDING: the multiple does NOT flatten ONTO the ~6.96x PT-anchor
+  // value in sigma-space -- |d mult/d sigma| peaks near the peak (~62), reaches a mid-downslope
+  // minimum (~3.5) at sigma~0.407 (~9.25x), then RE-STEEPENS on the deep approach (~19 near
+  // sigma~0.019). Kneedle elbow at sigma~0.78 (~10.95x); within 10%/5% of ~6.96x only at
+  // sigma~0.065/0.035. So ~6.96x is the value AT the PT height, not an asymptotic floor.
+  // Measurement only; interpolates imp-35813; changes no bound; imp-35337a OPEN; NO QED; PT 0.2 SOTA.
+  '/src/data/imp-35853-req4-required-height-continuous-sigma-knee.js',
   // imp-35859 (meta, verify): VERIFY the newer heavy-assertion cohort imp-35809/35810/
   // 35811/35812/35813 imports import-light and its self-executing assertions pass under
   // the esbuild-bundle + plain-node path (per [[verify_heavy_assertion_modules]]), making

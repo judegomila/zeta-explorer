@@ -9970,6 +9970,18 @@ const DATA_MODULES = [
   // independence (NOT deterministic); the CERTIFIED bound stays imp-35890 ~6.4e-14. Assessment
   // only; instantiates no interval; changes no bound; A+B-C GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35948-w1-probabilistic-sqrtN-apriori-scale.js',
+  // imp-35949 (numerical, measurement): MEASURE the robustness of the imp-35890 O(1)
+  // running-accumulator magnitude max_i|S_i| ~ 1.05 across an (alpha,beta) frequency grid for
+  // t_k = cos(alpha k + beta sqrt(k))/sqrt(k) at fixed N ~ 488602, locating where the accumulator
+  // ceases to be O(1). FINDING: the O(1) flatness is NOT generic -- the q=1 resonance (alpha = 2 pi,
+  // beta = 0) drives r = max_i|S_i|/Sum|t_k| -> 1 (max_i|S_i| = Sum|t_k| ~ 1398), collapsing the
+  // imp-35890 running-accumulator bound gamma_{N-1}*r onto the classic pessimistic gamma_{N-1};
+  // restoring a moderate sqrt drift beta at the SAME alpha restores cancellation (r drops ~160x).
+  // The O(1) accumulator is contingent on the frequencies and must be run-time MONITORED, not
+  // assumed. Even at r = 1 the classic gamma_{N-1} ~ 5.4e-11 stays ~4 orders under the imp-35760
+  // barrier margin, so precision is NOT binding at any (alpha,beta). Measurement only; instantiates
+  // no interval; changes no bound; A+B-C GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35949-w1-accumulator-frequency-grid-robustness.js',
   // imp-35871 (numerical, measurement): CONFIRM the imp-35812 reading (naive summation
   // error tracks the O(sqrt(N) u) random walk, NOT the O(N u) coherent worst case) is not
   // an artifact of the single kappa ~ 1.4e3 imp-35812 chose, by re-reading the imp-35854

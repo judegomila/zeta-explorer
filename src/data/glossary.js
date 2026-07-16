@@ -19911,6 +19911,40 @@ export const glossary = [
       'imp-35727 names the W2 certified-count ingredient ledger (I1-I5) this inventory says is fully greenfield (imp-35727)',
     ],
   },
+  {
+    term: 'imp-35808 value-vs-derivative distinction (VALUE floor delivers ZERO derivative-modulus information)',
+    category: 'proof-frontier',
+    definition:
+      'A headword recording the imp-35808 finding that a modulus floor on the VALUE |H_t| >= M gives ZERO ' +
+      'information about the DERIVATIVE modulus |H_t prime|: |H_t| can be bounded away from 0 while |H_t ' +
+      'prime| dips to 0 at a modulus-critical point (and vice versa), since value and derivative are ' +
+      'DISTINCT properties of H_t and H_t prime respectively.\n\n' +
+      'CONCRETE CONSEQUENCE: the imp-35681 Part A / imp-35725 certified interval enclosure evaluates H_t = ' +
+      'A_t + B_t - C_t at real argument and delivers the UNDIFFERENTIATED barrier margin M = |A_t + B_t| - ' +
+      '|C_t| (the value floor |H_t| >= M, imp-35758), carrying only undifferentiated coefficients. It does ' +
+      'NOT deliver imp-35799 M_prime = inf(|A_t prime + B_t prime| - |C_t prime|), the object the imp-35778 ' +
+      'long-edge floor delta_long >= inf|H_t prime| . h actually needs -- answer: NO, not as instantiated.\n\n' +
+      'THE GAP RESOLVES INTO TWO ADDED CHANNELS: (D1) differentiated coefficients -- each of the N ~ ' +
+      '4.886e5 retained terms times its z-derivative log-frequency factor (<= log N ~ w), a term-by-term ' +
+      're-weighting of the SAME retained sum; (D2) an INDEPENDENT differentiated truncation cap C_t prime = ' +
+      'E_A prime + E_B prime + E_{C_0} prime, NOT recyclable from the value cap C_t because differentiation ' +
+      'and truncation do not commute for the error bound (the derivative tail is its own object, ~ w larger).\n\n' +
+      'HOW TO APPLY: cite this headword whenever a repo module tries to read a derivative-modulus floor off ' +
+      'an enclosure that only certifies the VALUE -- the two are not interchangeable, and closing the gap ' +
+      'is a MECHANICAL re-instantiation (same machinery, not the same instance), not a free corollary.\n\n' +
+      'HONEST SCOPE: ASSESSMENT / DELIVERY-FEASIBILITY SCOPING ONLY. Builds no differentiated enclosure; ' +
+      'evaluates no derivative; produces no numeric M_prime; establishes no positivity; changes no bound; ' +
+      'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35874 (glossary headword recording the imp-35808 value-vs-derivative distinction), 2026',
+    relatedTerms: [
+      'imp-35808 derives the value-vs-derivative distinction and the D1/D2 delivery-gap decomposition recorded here (imp-35808)',
+      'imp-35799 names the object M_prime this headword shows the imp-35725 enclosure cannot deliver as instantiated (imp-35799)',
+      'imp-35725 supplies the UNDIFFERENTIATED margin M / cap C_t = E_A+E_B+E_{C_0} that carries no derivative information (imp-35725)',
+      'imp-35758 supplies the value floor |H_t| >= M this headword contrasts against the derivative floor |H_t prime| >= M_prime (imp-35758)',
+      'imp-35778 supplies the long-edge floor delta_long >= inf|H_t prime| . h that needs M_prime, not M (imp-35778)',
+      'imp-35803 identifies the differentiated enclosure (I1b) as the SOLE delivery blocker this headword documents (imp-35803)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

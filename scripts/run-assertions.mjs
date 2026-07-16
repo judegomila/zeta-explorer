@@ -10373,6 +10373,16 @@ const DATA_MODULES = [
   // "log T0 >= 200 met" is an e^200-height, sigma~0 corner, not a finite-N target.
   // Measurement only; continues imp-35853; changes no bound; imp-35337a OPEN; NO QED; PT 0.2 SOTA.
   '/src/data/imp-35888-req4-required-height-multiple-reaches-1x.js',
+  // imp-35889 (accuracy, measurement): DECOMPOSE the full E(N) = E_trunc + E_flow + E_coll
+  // three-way split at the two imp-35853 knees (Kneedle elbow sigma~0.783, flattest point
+  // sigma~0.407), since sigma = E_coll/E(N) pins only the collision share. FINDING: the
+  // dominant term FLIPS -- E_coll dominates at the elbow (share ~0.783, N~2.13e8), E_trunc
+  // dominates at the flattest point (share ~0.592, N~7.20e9), E_coll dropping to ~0.407.
+  // E_flow is negligible at both (<0.5%, decaying with height), so sigma ~ E_coll/(E_trunc+
+  // E_coll) and the E_trunc = E_coll crossover (imp-35337 sigma=0.5) sits BETWEEN the two
+  // knees. Measurement only; reuses imp-35853 locators; changes no bound; imp-35337a OPEN;
+  // NO QED; PT 0.2 SOTA.
+  '/src/data/imp-35889-e-share-decomposition-at-knees.js',
   // imp-35859 (meta, verify): VERIFY the newer heavy-assertion cohort imp-35809/35810/
   // 35811/35812/35813 imports import-light and its self-executing assertions pass under
   // the esbuild-bundle + plain-node path (per [[verify_heavy_assertion_modules]]), making
@@ -10471,6 +10481,14 @@ const DATA_MODULES = [
   // self-executing assertions. Measurement only; extends no evaluator; evaluates no true H_0 at
   // high precision; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35870-precision-tier-reachable-height-table.js',
+  // imp-35773 (content, honest-status note): standalone note restating the imp-35726
+  // Part E cost verdict -- seeding the imp-35653 W1 interval-bounded approximation from
+  // the repo's held negative-time heat-flow proxy is NET-NEGATIVE versus constructing the
+  // Polymath15 barrier H_t = A + B - C directly at T_PT = 3e12, since neither candidate
+  // route (Route (a) ill-posed inversion, Route (b) well-posed but a fresh forward-
+  // evolution certificate) reuses the held object. Imports imp-35726 verbatim, no new
+  // numerics. Note only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35773-w1-proxy-seeding-net-negative-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

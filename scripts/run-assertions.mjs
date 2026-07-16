@@ -10917,6 +10917,11 @@ const DATA_MODULES = [
   // exactly that (registered above). AUDIT ONLY; no new viz-data module needed; changes no
   // bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35978-rdirect-floor-viz-duplicate-audit.js',
+  // imp-35980 (content, duplicate-ticket audit): imp-35980 asked to add a glossary/Concepts
+  // headword for the imp-35892 representability cliff of effectiveHeightForN -- imp-35961
+  // already delivered exactly that term in glossary.js. AUDIT ONLY; no new headword needed;
+  // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35980-representability-cliff-glossary-duplicate-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

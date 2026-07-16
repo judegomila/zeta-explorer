@@ -10001,6 +10001,23 @@ const DATA_MODULES = [
   // Import-light, six self-executing assertions. Scoping only; composes no increments; certifies
   // no count; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35805-i5-corner-composition-scope.js',
+  // imp-35806 (proof/S-frontier): DERIVE the single coupled two-knob (Delta, h) placement of
+  // R = [T_PT, T_PT+Delta] x [-h,h] that SIMULTANEOUSLY keeps the imp-35777 per-panel cap
+  // L_panel < pi.delta/B satisfiable with a finite panel count AND the imp-35778 modulus floor
+  // delta off zero, EDGE BY EDGE on dR. Writing the cap as a per-edge count N_edge =
+  // L_edge.B/(pi.delta_edge) and summing gives the JOINT budget N_total(Delta,h) =
+  // 2.Delta.B/(pi.delta_long) + 4.h.B/(pi.delta_short) with BOTH floors in the denominators (the
+  // imp-35777 coupling). Minimising over h at Delta = m mean gaps (delta_short = 1), the interior
+  // stationary point h_interior* = sqrt(m pi/2)/w lies PAST saturation for every m>=1, so the
+  // constrained minimum is the BOUNDARY h* = 1/w -- the SAME height imp-35800 found maximises the
+  // I3 floor. Derived corner (Delta*,h*) = (m.g, 1/w), total budget N_total = 2m + 4/pi (-> 2
+  // panels per enclosed zero). FINDING: the coupling is BENIGN in the robust (free-slide) regime
+  // (I2-optimal and I3-optimal knobs COINCIDE, no residual trade-off); the imp-35777 tension
+  // re-appears only in the grazing/pinned regime (imp-35801 1/d pole) where I3 already fails, so
+  // I2 and I3 succeed together. ADDS NO greenfield mechanism (same I1/W1 quantities). Import-light,
+  // six self-executing assertions. Derivation on the OOM model only; certifies no cap; certifies no
+  // delta>0; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35806-i2-i3-coupled-placement-derivation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

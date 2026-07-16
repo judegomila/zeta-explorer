@@ -10654,6 +10654,13 @@ const DATA_MODULES = [
   // -> imp-35725 (budgets that seed: E_A/E_B dominant pair, E_{C_0} subordinate). Imports
   // all three verbatim, no new numerics. Note only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35774-w1-obligation-cluster-crossref.js',
+  // imp-35896 (content, ticket audit): imp-35896 asked to add a glossary/Concepts headword for
+  // the imp-35855 M_G-1 = -a/(2-a) node-level de-cancellation identity. Audit found glossary.js
+  // ALREADY carries this headword ("Node-Level De-Cancellation and the Subtraction Condition
+  // Number kappa_sub = (|x|+|y|)/|x-y|", authored by imp-35939) -- a duplicate ticket. Adds no
+  // new headword; pins a regression guard confirming the duplicate finding stays consistent.
+  // Audit only; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35896-glossary-headword-duplicate-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

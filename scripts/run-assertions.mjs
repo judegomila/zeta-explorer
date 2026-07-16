@@ -9895,6 +9895,11 @@ const DATA_MODULES = [
   // pairwise is robust to both. Seven self-executing assertions. Measurement only; certifies
   // no W1 bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35893-w1-summation-pairwise-tree-shape.js',
+  // imp-35962 (content, honest-status note): standalone note restating the imp-35893
+  // worst-shape verdict (caterpillarR, depth 3817, reaches only ~4.42e-4 of the
+  // log2(N)*eps ceiling) -- precision stays NON-binding, W1 obstruction stays MECHANICAL.
+  // Note only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35962-w1-pairwise-tree-shape-robust-honest-status.js',
   // imp-35945 (numerical, S-frontier): COMPLEMENT imp-35893 by re-running the same seven
   // pairing-tree SHAPES at the same N ~ 488602 on a MONOTONE same-sign multiset
   // t_k = 1/sqrt(k) (all positive, cond ~1, no cancellation, accumulator grows). The worst

@@ -21121,6 +21121,40 @@ export const glossary = [
       'E(N) = E_trunc + E_flow + E_coll: the three-way bridge-error split, its sigma = 1/2 crossover, and its fractional-share tail landmarks is the companion orientation headword this entry disambiguates within',
     ],
   },
+  {
+    term: 'surrogate vs LAYER model (Krawczyk residual node): imp-35969 nextafter width and imp-36017 a-priori width are BOTH double-precision models, neither is the imp-34687a directed-rounding layer',
+    category: 'numerical',
+    definition:
+      'A disambiguating headword for the Krawczyk residual node [F(m)] = [m] - [K log T0(m)]: two DIFFERENT ' +
+      'double-precision width figures exist for it, and a reader must not mistake either one -- or their ' +
+      '~2x ratio -- for a machine certificate.\n\n' +
+      '  - The imp-35969 SURROGATE: a bit-level nextafter (nextUp/nextDown) outward-rounding evaluation of ' +
+      'the residual node, self-flagged "surrogate, NOT a machine certificate".\n' +
+      '  - The imp-36017 LAYER model: a SECOND, a-priori correctly-rounded directed-rounding formula for the ' +
+      'same op-DAG, built to compare against the surrogate -- NOT the real imp-34687a directed-rounding ' +
+      'layer, which JavaScript lacks natively and which remains UNIMPLEMENTED.\n\n' +
+      'imp-36017 measured that the surrogate over-estimates the layer model by an a-independent ratio ' +
+      'converging to exactly 2.0 up the height axis. imp-36066 then stated the point this headword exists ' +
+      'to name: that 2x comparison is MODEL vs MODEL, not model vs certificate. Neither figure instantiates ' +
+      'a certified interval, and neither closes the imp-34714a Krawczyk existence/uniqueness sub-gap, which ' +
+      'STAYS OPEN pending the unimplemented imp-34687a layer.\n\n' +
+      'HOW TO APPLY: when a module reports a residual-node width or a surrogate-over-layer ratio near this ' +
+      'node, check which of the two MODELS it names before treating the figure as certified -- both trace ' +
+      'to double-precision approximations of what the real directed-rounding layer would emit, not to that ' +
+      'layer itself.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-35969/imp-36017/imp-36066 verdicts verbatim, not ' +
+      'a new derivation; imp-34687a stays UNIMPLEMENTED; imp-34714a stays OPEN; changes no bound; no ' +
+      'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-36207 (glossary headword for the imp-36017/imp-36066 surrogate-vs-LAYER-model distinction), 2026',
+    relatedTerms: [
+      'imp-35969 measured the nextafter outward-rounding surrogate width of the residual node (imp-35969)',
+      'imp-36017 measured the a-priori LAYER-model width and the a-independent 2x surrogate-over-layer ratio (imp-36017)',
+      'imp-36066 stated plainly that both figures are models, not a machine certificate (imp-36066)',
+      'imp-36166 assembles the three-stage storyline (surrogate, layer ratio, honest ceiling) into one cross-reference arc (imp-36166)',
+      'imp-34687a named sub-gap: supply an actual directed-rounding / error-bounded arithmetic layer, still UNIMPLEMENTED (imp-34687a)',
+      'imp-34714 separation of concerns: exact Krawczyk existence-uniqueness lemma vs unimplemented directed-rounding machine-certificate layer',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

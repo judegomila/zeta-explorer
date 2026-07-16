@@ -12042,6 +12042,11 @@ const DATA_MODULES = [
   '/src/data/imp-36125-w1-accumulator-recovery-margin-honest-status.js',
   '/src/data/imp-36189-imp36098-166-registration-reachability-audit.js',
   '/src/data/imp-36190-imp36098-166-cross-reference-integrity-audit.js',
+  // imp-36191 (meta, sonnet-4-6, sonnet): verifies the six imp-361xx
+  // duplicate-ticket-honest-status modules (imp-36106/36107/36122/36123/36161/36162) each
+  // genuinely duplicate a real, completed, topically-matching original ticket -- zero
+  // false-positive dup flags found.
+  '/src/data/imp-36191-duplicate-ticket-audit-verification.js',
 ];
 
 let ALL_MODULES = FAST_MODE

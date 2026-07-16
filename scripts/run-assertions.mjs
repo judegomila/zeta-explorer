@@ -10065,6 +10065,20 @@ const DATA_MODULES = [
   // barrier margin, so precision is NOT binding at any (alpha,beta). Measurement only; instantiates
   // no interval; changes no bound; A+B-C GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35949-w1-accumulator-frequency-grid-robustness.js',
+  // imp-35996 (numerical, measurement): DECOMPOSE the frequency-sensitivity of the imp-35890 normalized
+  // running-accumulator bound gamma_{N-1}*max_i|S_i|/Sum|t_k| into its numerator (max_i|S_i|) vs
+  // denominator (Sum|t_k|) contributions across the imp-35949 24-point (alpha,beta) grid at fixed
+  // N ~ 488602 (imp-35949 reported only the composite ratio r). Since gamma_{N-1} is frequency-
+  // independent, log10 B splits additively into log10(max_i|S_i|) - log10(Sum|t_k|). FINDING: the
+  // NUMERATOR max_i|S_i| swings ~0.42 -> ~1396.5 (~3.52-decade log-range, std ~1.02 dex) while the
+  // DENOMINATOR Sum|t_k| swings only ~888 -> ~1396.5 (~0.20-decade log-range, std ~0.054 dex), so the
+  // numerator DOMINATES the bound frequency-sensitivity ~18x by log-range and carries ~95% of it. The
+  // denominator swing imp-35949 flagged is second-order (~5%), hard-bounded by the fixed ~pi/2 = ~1.57x
+  // ratio of coherent |cos|=1 to generic |cos|~2/pi averages; the two factors are mildly correlated
+  // (~0.43). So the bound frequency dependence is an ACCUMULATOR-PEAK story and the imp-35890 run-time
+  // monitor is essentially a monitor of max_i|S_i|. Precision still NOT binding (imp-35949). Measurement
+  // only; instantiates no interval; changes no bound; A+B-C GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35996-w1-accumulator-bound-sensitivity-decomposition.js',
   // imp-35991 (numerical, measurement): MEASURE the margin in (alpha,beta) frequency space from the
   // imp-35812 baseline (0.618.., 2.400..) to the nearest q=1 resonant breakdown corner (alpha -> 2 pi,
   // beta -> 0) at which the imp-35890 ratio r = max_i|S_i|/Sum|t_k| departs from ~1.2e-3 toward 1, at

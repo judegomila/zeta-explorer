@@ -11480,6 +11480,20 @@ const DATA_MODULES = [
   // `npm run assert`. See src/data/imp-35969-krawczyk-residual-directed-rounding-width.js for
   // the measurement (directed-rounding residual enclosure width, a-independent, few-ULP).
   '/src/data/imp-35969-krawczyk-residual-directed-rounding-width.js',
+  // imp-36062 (numerical, opus-4-8, api-pool): locates WHERE full Kahan-Babuska-Neumaier (KBN)
+  // first strictly separates from classic Kahan on the imp-35852 clustered worst order, closing
+  // the imp-36023 gap (bit-identical at N<=1e4, ~10x tighter by N~488602 -- crossover never
+  // located). A finer eleven-rung ladder against the same per-N exact 2^-96 dyadic-BigInt
+  // reference finds the FIRST strict separation at N~34000 (kappa~361), bit-identical at every
+  // rung below it, deepening from KBN/Kahan~0.96 at onset to ~0.08 at N~488602 (reproducing
+  // imp-36023). Onset tracks N (clean boundary near N~34000) not a hard kappa cutoff, and is a
+  // soft rounding-gated threshold. Measurement only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36062-kbn-kahan-separation-onset.js',
+  // imp-36046 (ux, sonnet-4-6, sonnet): import-light viz-data module extending the imp-35977
+  // two-knee E(N) fractional-share bars down the sigma -> 0 tail to the imp-35971 sole-survivor
+  // height N* ~4.7214e13, baking three tail landmarks (E_flow-1pct crossing, sigma<0.1 landmark,
+  // sole-survivor). Presentation only; changes no bound; NO QED.
+  '/src/data/imp-36046-e-share-tail-landmarks-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

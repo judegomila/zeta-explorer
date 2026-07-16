@@ -11783,6 +11783,14 @@ const DATA_MODULES = [
   // detuning-margin monitor is N-robust; an absolute-baseline monitor must rescale by 1/sqrt(N).
   // Baked offline literals (scripts/imp-36103-nstability-offline.mjs). Measurement only; NO QED.
   '/src/data/imp-36103-w1-accumulator-recovery-nstability.js',
+  // imp-36146 (content, sonnet-4-6, sonnet): CONSOLIDATED honest-status note restating the
+  // recurring cross-channel finding that summation PRECISION is NON-BINDING N-uniformly across
+  // ALL measured W1 numerical channels -- the deterministic KBN floor (imp-36083, ~3.9-6.5 orders
+  // under the certified rung), the joint (alpha,beta) recovery basin (imp-36096, even r=1 stays
+  // orders under the barrier margin), and the intermittency band (imp-36095, ~1e-19 floor
+  // throughout). So the SOLE obstruction is the ENGINEERING of the certified length-N interval sum
+  // (imp-35725 MECHANICAL / imp-35681 Part A GREENFIELD). Note only; NO QED.
+  '/src/data/imp-36146-precision-non-binding-consolidated-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

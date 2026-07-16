@@ -9930,6 +9930,20 @@ const DATA_MODULES = [
   // imp-35952, while the bound grows linearly in d). Seven self-executing assertions.
   // Assessment only; certifies no W1 bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35970-w1-pairwise-apriori-depth-bound-slack.js',
+  // imp-35973 (numerical, S-frontier): MEASURE the CROSS-TERM of the two adversarial
+  // pairwise stresses -- imp-35852 varied the term ORDER at a fixed balanced tree, imp-35893
+  // varied the pairing-tree SHAPE at a fixed order, but the two-at-once cross was never
+  // measured. Summing the fixed imp-35812 N ~ 488602 multiset under the imp-35852 worst
+  // ORDER (clustered same-sign runs) THROUGH the imp-35893 worst SHAPE (caterpillarR, depth
+  // 3817) against the same exact BigInt reference, the combined pairwise error ~4.32e-16 is
+  // ~13.7x the order-only worst (~3.15e-17), ~233x the shape-only worst (~1.85e-18), and
+  // ~13x the SUM of the two singles -- the stresses COMPOUND SUPER-ADDITIVELY, reaching
+  // ~10% of the log2(N)*eps ceiling (closest any pairwise measurement has come; under the
+  // clustered order the worst SHAPE flips to caterpillarL ~41%). YET the combined worst
+  // stays ~9.7x BELOW the ceiling -- pairwise does NOT attain it even with both levers on;
+  // Kahan on the same order stays at the roundoff floor. Seven self-executing assertions.
+  // Measurement only; certifies no W1 bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35973-w1-summation-order-shape-cross-term.js',
   // imp-35953: CROSS-CHECK the stability of the imp-35891 ~1-decade offset between the
   // imp-35853 flattest-point knee (N_flat ~ 7.20e9) and the imp-33701 sigma-exponent
   // inflection decade ([1e10,1e11]) under an INDEPENDENT raw Riemann-von Mangoldt height
@@ -10842,6 +10856,12 @@ const DATA_MODULES = [
   // self-executing assertions but was never added to this DATA_MODULES list,
   // so its imp-35893 tree-shape-ladder tripwires never ran in CI. Registered here.
   '/src/data/imp-35956-pairwise-tree-shape-ladder-viz-data.js',
+  // imp-35982: registration/reachability + import-light guard audit of the imp-3589x cohort
+  // (imp-35889, imp-35890, imp-35891, imp-35892, imp-35893). FINDING: all five already carry a
+  // direct DATA_MODULES entry and none imports the 16.7MB zeros-to-1e6 bundle (checked module +
+  // full direct dependency chain). AUDIT ONLY; no source file required correction; changes no
+  // bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35982-imp3589x-registration-reachability-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

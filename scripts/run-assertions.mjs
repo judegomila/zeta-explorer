@@ -9721,6 +9721,20 @@ const DATA_MODULES = [
   // assertions. OOM scoping only; establishes no positivity; certifies no delta>0;
   // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35758-i3-modulus-floor-margin-tie-scope.js',
+  // imp-35777: ASSESS the imp-35727 ingredient-I2 per-panel argument cap |Delta arg H_t| <
+  // pi via the CERTIFIABLE form imp-35757 flagged its mean-rate counts lacked: an interval
+  // bound on |f prime|/|f| times panel length. Since d/ds arg f = Im(f prime/f), a
+  // sufficient cap is L_panel . sup|f prime/f| < pi. FINDING: factoring sup|f prime/f| <=
+  // (sup|f prime|)/(inf|f|) = B/delta with delta = the I3 modulus floor gives L_panel <
+  // pi . delta / B, so I2 and I3 are the SAME obstruction -- a certificate cannot budget
+  // them independently. In the robust regime (delta ~ main-term scale, B ~ |H_t| . (1/2)
+  // log(T_PT/2pi)) the ratio B/delta ~ w(T_PT) ~ 13.446 and L_panel ~ pi/w ~ 0.234,
+  // EXACTLY the imp-35757 borderline (~4.28 panels per unit height): two independent routes
+  // agree. Where dR grazes a would-be zero delta -> 0, B/delta blows up, and the local
+  // panel count spikes without bound (multiplier delta_robust/delta_local) -- I2 is finite
+  // exactly when I3 holds. Five self-executing assertions. OOM scoping only; bounds no B;
+  // lower-bounds no delta; certifies no count; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35777-i2-logderivative-panel-cap-scope.js',
   // imp-35760: DERIVE a concrete triangle-inequality margin ALLOCATION for the imp-35725
   // effective-error cap. imp-35725 stated the cap must fit STRICTLY inside the margin
   // M = |A_t+B_t| - |C_t| with each term claiming only a fraction, but left the split as

@@ -11958,6 +11958,12 @@ const DATA_MODULES = [
   // rate r(N) -> its CONSUMABLE-MODULO-ANCHOR bridge blocker -> imp-36045 C > B > A ranking --
   // plus an explicit derived-vs-open list. Note only; imports each stage verbatim; NO QED.
   '/src/data/imp-36164-perN-translation-storyline-cross-reference.js',
+  // imp-36165 (content, sonnet-4-6, sonnet): standalone honest-status note clarifying that the
+  // imp-36097 shareColl < 1% crossing height (N ~ 4.624381e13) sits STRICTLY BELOW, not AT, the
+  // imp-35971 E_trunc sole-survivor height (N* ~ 4.7214e13) -- the two are distinct thresholds
+  // ~1.021x apart (~0.0089 decades), close but not coincident. Note only; imports both source
+  // modules verbatim; NO QED.
+  '/src/data/imp-36165-sharecoll-vs-sole-survivor-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

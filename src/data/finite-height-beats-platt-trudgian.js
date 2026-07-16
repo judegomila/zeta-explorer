@@ -1165,6 +1165,23 @@ export const FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN = {
     "scaffolding (imp-2696 / imp-33923 / imp-33968); none of the five ingredients is discharged " +
     "by it. This note changes no bound, ports nothing, and claims no progress toward W2 -- NO QED.",
 
+  whatRemainsI3DerivativeDeliveryGap:
+    "WHAT REMAINS (imp-35883, honest status). Alongside the imp-35727 I1-I5 ingredient ledger above, " +
+    "ingredient I3 (the long-edge modulus floor on H_t prime, imp-35799 / imp-35778) has a specific " +
+    "delivery gap identified by imp-35808: the imp-35681 Part A / imp-35725 interval evaluator " +
+    "delivers only the UNDIFFERENTIATED value margin M = |A_t + B_t| - |C_t| (the value floor " +
+    "|H_t| >= M, imp-35758), which carries ZERO information about the derivative modulus |H_t prime| " +
+    "-- a value floor and a derivative floor are distinct objects (|H_t| can stay bounded off 0 while " +
+    "|H_t prime| dips to 0 at a modulus-critical point, and vice versa). A certified inf|H_t prime| " +
+    "therefore needs TWO added GREENFIELD channels, neither discharged by the existing enclosure: " +
+    "(D1) differentiated coefficients -- each of the N ~ 4.886e5 retained terms re-weighted by its " +
+    "z-derivative log-frequency factor (<= log N ~ w); and (D2) an independent differentiated " +
+    "truncation cap C_t prime = E_A prime + E_B prime + E_{C_0} prime, NOT recyclable from the " +
+    "imp-35725 cap C_t because differentiation and truncation do not commute for the error bound. " +
+    "This is a MECHANICAL re-instantiation (same term count, same reverse-triangle architecture) that " +
+    "adds no new mechanism beyond I3's existing GREENFIELD status, but it is real added work: this " +
+    "note changes no bound, builds no enclosure, and claims no progress toward I3 -- NO QED.",
+
   fitConstants: {
     source: "PATH_C_BASELINE_FIT_V2 (imp-400)",
     intercept_a: A_INTERCEPT,

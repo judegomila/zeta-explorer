@@ -885,6 +885,9 @@ const Imp35386KempBracketingLadderViz = lazy(() =>
 const Imp35750BeatParityHandoffSigmaViz = lazy(() =>
   import('./pages/Imp35750BeatParityHandoffSigmaViz.jsx')
 );
+const Imp35751PostportSharesSigmaViz = lazy(() =>
+  import('./pages/Imp35751PostportSharesSigmaViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2472,6 +2475,10 @@ function AppShell() {
           <Route
             path="/viz-imp35750-beat-parity-handoff-sigma"
             element={<Imp35750BeatParityHandoffSigmaViz />}
+          />
+          <Route
+            path="/viz-imp35751-postport-shares-sigma"
+            element={<Imp35751PostportSharesSigmaViz />}
           />
           <Route
             path="/viz-imp35386-kemp-bracketing-ladder"

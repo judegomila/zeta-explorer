@@ -1462,6 +1462,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive chart re-exporting the imp-35677/imp-35678 sigma-share model verbatim (no new derivation, no heavy data-module import); presentation only, illustrates continuation of an already-completed handoff rather than the crossing point; C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35751-postport-shares-sigma',
+      title: 'Post-Port Provenance Shares Across the Sigma-Ladder',
+      oneLine:
+        'Line chart of the imp-35677 post-port error-budget partition: the residual GUE-conditional share (=sigma, imp-486) vanishing by a factor 10 per rung against the surviving unconditional share (=1-sigma, covering E_trunc+E_flow) rising from 0.999 toward 0.999999 across the four-rung far-tail sigma ladder.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-35751-postport-shares-sigma-viz-data.js',
+      paperSourcePath: 'src/data/imp-35677-postport-residual-share-sigma-ladder.js (imp-35751 viz page)',
+      ticket: 'imp-35751',
+      pedagogicalStep: 100,
+      honestCeiling:
+        'Descriptive chart re-exporting the imp-35677 sigma-share model verbatim (no new derivation, no heavy data-module import); presentation only; C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

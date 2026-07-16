@@ -20019,6 +20019,39 @@ export const glossary = [
       'imp-35760 supplies the O(1) barrier margin every measured/pessimistic error sits >=10 orders under (imp-35760)',
     ],
   },
+  {
+    term: 'imp-35762 S3 Scope Correction: Band-Local Not Height-Global',
+    category: 'numerical',
+    definition:
+      'A headword recording the imp-35809 scope correction to the imp-35762 assertion S3, which claimed the ' +
+      '~98/2 Krawczyk band-top surplus curvature/shift split (imp-35762: the O(a^2) curvature term is ~98.1% ' +
+      'of the D3 ~1.2 residual, the a-shift only ~1.9%) "is N-stable across the band".\n\n' +
+      'HONEST CORRECTION: imp-35809 shows S3 is CORRECT but scope-limited. (P1) WITHIN the imp-34693 admissible ' +
+      'seed band the split is indeed flat: an 11-point fine grid from band-bottom to band-top holds the ' +
+      'curvature fraction at ~98.10-98.28% and the shift fraction at ~1.72-1.90%, a drift of only ~0.18 ' +
+      'percentage point. (P2) Extended along the HEIGHT axis toward the Platt-Trudgian anchor N(T_PT) ~ ' +
+      '1.236e13, the split is emphatically NOT flat -- it INVERTS. As N climbs from the band (a ~ 0.0432) to ' +
+      'the PT anchor (a ~ 1.23e-5) the contraction factor a shrinks ~3500x, so the QUADRATIC curvature piece ' +
+      '(~a^2) decays far faster than the LINEAR shift piece (~a . delta): the curvature share collapses from ' +
+      '~98% to ~1.5% and the shift share rises to ~98.5%, a near-mirror of the band-top split. (P3) The 50/50 ' +
+      'crossover lands at a = 4 . delta ~ 8.0e-4 (N ~ 1.88e11), matching the closed-form small-a ratio ' +
+      'shift_fraction ~ delta/(delta + a/4) governed by the single ratio a/(4 delta).\n\n' +
+      'HOW TO APPLY: cite imp-35809, not imp-35762 S3 alone, whenever the "~98/2 split is N-stable" reading is ' +
+      'invoked outside the imp-34693 seed band -- the flatness is a band-local artifact of a barely moving, ' +
+      'not a height-global property of the Krawczyk headroom surplus.\n\n' +
+      'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 surrogate; reproduces the ' +
+      'imp-35762/imp-35266/imp-35241 machinery; imp-34714a machine certificate REMAINS OPEN; C_C 1/8 ' +
+      '(imp-2642/imp-2643) untouched; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; ' +
+      'far-tail exponent 1/2 (imp-3463) untouched; changes no bound; establishes no operator positivity; no RH ' +
+      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35876 (glossary headword recording the imp-35809 scope correction to imp-35762 S3), 2026',
+    relatedTerms: [
+      'imp-35762 defined the additive shift/curvature split of the D3 ~1.2 band-top residual and asserted S3 (N-stable across the band) (imp-35762)',
+      'imp-35809 measured the split on a fine in-band grid (flat) and along the height axis (inverts by the PT anchor), correcting S3s scope (imp-35809)',
+      'imp-35266 supplies the D3 leading estimate S_inf . a/2 and the original ~1.2 residual this split partitions (imp-35266)',
+      'imp-34693 defines the admissible seed band within which imp-35762 S3 flatness actually holds (imp-34693)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

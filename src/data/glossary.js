@@ -20826,6 +20826,38 @@ export const glossary = [
       'imp-35950 supplies the sigma = 0.5 crossover value imp-36022 confirms agrees with imp-35968 stored value (imp-35950)',
     ],
   },
+  {
+    term: 'sole-survivor height N* ~ 4.7214e13 (imp-35971)',
+    category: 'accuracy',
+    definition:
+      'A headword naming the imp-35971 deep-parity height N* ~ 4.7214e13 (log10 N* ~ 13.674) at which ' +
+      'the fixed truncation floor E_trunc = 3.06e-5 becomes the SOLE non-negligible term of the ' +
+      'three-way split E(N) = E_trunc + E_flow + E_coll -- i.e. the first height at which BOTH E_flow ' +
+      'and E_coll have fallen below 1% of E_trunc, so E(N*) / E_trunc ~ 1.010.\n\n' +
+      'WHAT THE LANDMARK MEANS: the threshold is set ENTIRELY by the collision term. E_flow falls below ' +
+      '1% of E_trunc far earlier, at N ~ 4.62e8 (~5 decades below N*), while E_coll only reaches 1% of ' +
+      'E_trunc at N* itself -- so E_coll is the LAST survivor before E_trunc stands alone, since the ' +
+      'sqrt(1/N) collision tail decays far more slowly than the exponentially-suppressed flow term. ' +
+      'At N* the collision share sigma ~ 9.90e-3 (just under the sigma < 0.1 roadmap bar), and N* sits ' +
+      '~2.17 decades ABOVE the roadmap sigma < 0.1 landmark N ~ 3.21e11 (there E_coll / E_trunc ~ 0.111, ' +
+      'still ~11x above the 1% bar).\n\n' +
+      'HOW TO APPLY: cite this headword when a repo module needs the height past which the E(N) ' +
+      'three-way decomposition can be treated as effectively single-term (E_trunc alone, to within 1%), ' +
+      'or when explaining why the collision term, not the flow term, governs how far down the ' +
+      'sigma -> 0 tail one must go before E_trunc dominates alone.\n\n' +
+      'HONEST SCOPE: MEASUREMENT ONLY. Reuses the pinned imp-3406/imp-33582 sub-terms (E_trunc = 3.06e-5, ' +
+      'imp-2631; C_C = (1/8) sqrt(3 pi), imp-2642/imp-2643) and the imp-35889/imp-35853 sigma -> 0 ' +
+      'downslope locator unchanged; derives no remainder; discharges nothing; changes no bound; ' +
+      'establishes no operator positivity; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-36027 (glossary headword for the imp-35971 sole-survivor height N* ~ 4.7214e13), 2026',
+    relatedTerms: [
+      'imp-35971 locates the sole-survivor height N* ~ 4.7214e13 where E_trunc becomes the last non-negligible term (imp-35971)',
+      'imp-35889 supplies the three-way E(N) share decomposition at the two knees this height extends down the tail (imp-35889)',
+      'imp-35950 supplies the E_trunc = E_coll sigma = 0.5 crossover height N ~ 3.27e9, five decades above N* (imp-35950)',
+      'imp-35853 supplies the sigma -> 0 downslope locator reused here unchanged (imp-35853)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

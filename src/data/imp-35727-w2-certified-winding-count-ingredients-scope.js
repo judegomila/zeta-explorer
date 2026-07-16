@@ -96,6 +96,10 @@
  * @see imp-35681-w1-w2-w4-existing-infra-inventory (Part B graded W2: experimental code held, certified count greenfield)
  * @see imp-35725-w1-effective-error-cap-budget (C_t = E_A + E_B + E_C0; the enclosure error I1/I3 rest on)
  * @see imp-35726-w1-sign-reconciliation-cost-scope (sibling W1 scoping module)
+ * @see imp-35757-i2-panel-width-count-scope (I2 downstream quantification: mean winding rate, counts flagged LOWER bounds)
+ * @see imp-35758-i3-modulus-floor-margin-tie-scope (I3 downstream quantification: floor tied to the imp-35725 margin surplus)
+ * @see imp-35777-i2-logderivative-panel-cap-scope (I2 downstream quantification: log-derivative panel cap)
+ * @see imp-35778-i3-edge-type-floor-decomposition-scope (I3 downstream quantification: short/long edge-type floor split)
  * @see Polymath15 2019 (effective approximation H_t = A + B - C; barrier method); Platt-Trudgian 2021
  */
 
@@ -181,7 +185,8 @@ export const IMP35727_W2_CERTIFIED_WINDING_COUNT_INGREDIENTS_SCOPE = {
     'imp-2696 (winding-Lyapunov, arg H_tau sampled, isRigorous:false); imp-33923 (off-axis phase-winding ' +
     'quadrature, model cusp); imp-33968 (winding-rate-vs-alpha least-squares slope); imp-35681 Part B ' +
     '(graded W2: experimental code held, certified count greenfield) and Part A (interval-bounded A + B - C); ' +
-    'imp-35725 (effective-error cap C_t = E_A + E_B + E_C0); imp-35726 (sibling W1 scoping); Polymath15 2019 ' +
+    'imp-35725 (effective-error cap C_t = E_A + E_B + E_C0); imp-35726 (sibling W1 scoping); imp-35757/imp-35777 ' +
+    '(I2 downstream quantification); imp-35758/imp-35778 (I3 downstream quantification); Polymath15 2019 ' +
     '(effective approximation H_t = A + B - C; barrier method); Platt-Trudgian 2021.',
 };
 

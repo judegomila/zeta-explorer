@@ -19794,6 +19794,43 @@ export const glossary = [
       'imp-2696 supplies the held isRigorous:false winding-Lyapunov sign-change/unwrap experiment I1-I5 must supersede (imp-2696)',
     ],
   },
+  {
+    term: 'imp-35777 I2<->I3 log-derivative panel-cap coupling',
+    category: 'proof-frontier',
+    definition:
+      'A headword recording the imp-35777 structural finding that the imp-35727 ingredients I2 (per-panel ' +
+      'argument-increment cap |Delta arg H_t| < pi) and I3 (modulus floor |H_t| >= delta > 0) on the ' +
+      'transition-rectangle boundary dR at T_PT = 3e12 are the SAME obstruction read two ways, not two ' +
+      'independent budgets.\n\n' +
+      'THE COUPLING IDENTITY: writing f = H_t, the per-panel argument increment obeys |Delta arg f| <= ' +
+      'L . sup_panel |f prime / f|, so a sufficient certified I2 cap is a panel length L < pi / sup_panel ' +
+      '|f prime / f|. Factoring |f prime / f| = |f prime| / |f| <= B / delta, where B = sup |H_t prime| and ' +
+      'delta = the I3 floor, gives the panel-length bound L_panel < pi . delta / B: the admissible I2 panel ' +
+      'length is SET by the I3 floor delta and a derivative bound B, so a certificate cannot budget I2 and I3 ' +
+      'independently -- shrinking the rectangle to lift delta off the floor also lengthens the admissible ' +
+      'panels, and grazing a near-zero shrinks both at once.\n\n' +
+      'OOM AT T_PT: in the robust regime (dR not grazing a would-be zero, delta ~ main-term scale) the ratio ' +
+      'B / delta ~ (1/2) log(T_PT / 2 pi) = w(T_PT) ~ 13.446 recovers the mean winding rate, giving L_panel ' +
+      '~ pi / w ~ 0.2336 -- EXACTLY the imp-35757 borderline width (~4.28 panels per unit height), so the two ' +
+      'independent routes (mean winding rate and log-derivative bound) agree on the scale. In the grazing ' +
+      'regime the I3 floor delta -> 0 while B stays main-term scale, so the local panel count spikes without ' +
+      'bound by the multiplier G = delta_robust / delta_local: I2 resolution is finite exactly when I3 holds, ' +
+      'infinite exactly where I3 fails.\n\n' +
+      'HOW TO APPLY: cite this coupling whenever a certificate treats I2 and I3 as separable line items -- a ' +
+      'rectangle placement that improves one automatically constrains the other, so W2 planning must budget ' +
+      'them jointly, not in sequence.\n\n' +
+      'HONEST SCOPE: ASSESSMENT / OOM SCOPING ONLY. Bounds no B; lower-bounds no delta; instantiates no ' +
+      'interval enclosure; fixes no Delta or h; certifies no count; changes no bound; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35818 (glossary headword recording the imp-35777 I2<->I3 log-derivative panel-cap coupling), 2026',
+    relatedTerms: [
+      'imp-35777 derives the coupling identity L_panel < pi . delta / B recorded here (imp-35777)',
+      'imp-35727 names I2 and I3 as separate ledger ingredients this headword shows are structurally tied (imp-35727)',
+      'imp-35757 supplies the mean-winding-rate route that the log-derivative route independently recovers (imp-35757)',
+      'imp-35758 supplies the I3 modulus-floor margin tie that B/delta rests on in the robust regime (imp-35758)',
+      'imp-35778 scopes the I3 edge-type (short/long) floor decomposition that this coupling delta feeds into (imp-35778)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

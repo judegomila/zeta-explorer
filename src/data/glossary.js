@@ -20451,6 +20451,39 @@ export const glossary = [
       'imp-35653 Part D established N_off(T_PT)=0 is necessary-not-sufficient for the barrier certificate (imp-35653)',
     ],
   },
+  {
+    term: 'imp-35764 collision-scale coefficient shift at the PT anchor: swapping C_C for pi^2/3 lifts s_min by the fixed factor ~2.0467, exponent -1/3 unchanged',
+    category: 'numerical-frontier',
+    definition:
+      'A headword recording the imp-35764 finding that replacing the standard GUE small-gap density ' +
+      'coefficient pi^2/3 (cubic beta=2 extreme-value law p(s) ~ (pi^2/3) s^2) with the imp-2642/imp-2643 ' +
+      'short-range collision constant C_C = (1/8) sqrt(3 pi) shifts the smallest-of-M-gaps collision ' +
+      'scale s_min by the fixed O(1) factor ((pi^2/3)/C_C)^{1/3} ~ 2.0467, while leaving the -1/3 ' +
+      'N-exponent of s_min completely untouched, all the way up to the Platt-Trudgian verified-barrier ' +
+      'height.\n\n' +
+      'MEASUREMENT: imp-35724 first read this ~2.0467 shift at two lower landmarks -- the interior ' +
+      'flat-cap sigma peak (N ~ 9.22e5) and the E_coll = E_trunc crossover (N ~ 3.28e9). imp-35764 ' +
+      'carries the same bisection-solved extreme-value balance M F(s_min) = 1 (F(s) = c s^3/3) up to ' +
+      'N(T_PT) ~ 1.236e13, the exact Riemann-von Mangoldt zero count of the T_PT = 3e12 Platt-Trudgian ' +
+      'anchor -- ~3.8 decades above the crossover -- and finds s_min moves from ~4.194e-5 (c = pi^2/3) ' +
+      'to ~8.583e-5 (c = C_C), the SAME ratio ~2.0467 because it is a pure M-independent amplitude (the ' +
+      'cube root of the imp-35680/imp-35696 amplitude mismatch (pi^2/3)/C_C ~ 8.573); the log-log slope ' +
+      'of s_min against N stays -1/3 for both coefficient readings across the full cross -> PT span.\n\n' +
+      'HOW TO APPLY: cite this headword whenever the collision-scale prefactor is read under either ' +
+      'coefficient convention -- the ~2.0467 shift is a fixed amplitude that survives extension to any ' +
+      'height, including the actual verified-barrier height, so it needs deriving only once.\n\n' +
+      'HONEST SCOPE: MEASUREMENT ONLY; propagates the imp-35696 prefactor onto the PT anchor; derives no ' +
+      'remainder; discharges nothing; changes no bound; establishes no operator positivity; C_C = (1/8) ' +
+      'sqrt(3 pi) (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631), and C_mb GUE-conditional (imp-486) ' +
+      'are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35843 (glossary headword for the imp-35764 collision-scale coefficient shift propagated onto the PT anchor), 2026',
+    relatedTerms: [
+      'imp-35764 measures the ~2.0467 O(1) shift and the untouched -1/3 exponent at the PT-anchor height N(T_PT) ~ 1.236e13 (imp-35764)',
+      'imp-35724 first read the same ~2.0467 shift at the lower peak (N ~ 9.22e5) and crossover (N ~ 3.28e9) landmarks (imp-35724)',
+      'imp-35696 supplies the M-independent cube-root prefactor ((pi^2/3)/C_C)^{1/3} ~ 2.047 (imp-35696)',
+      'imp-2642/imp-2643 pin the short-range collision constant C_C = (1/8) sqrt(3 pi) this coefficient shift is measured against (imp-2642)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

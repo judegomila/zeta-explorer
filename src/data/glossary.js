@@ -19272,6 +19272,42 @@ export const glossary = [
     ],
   },
   {
+    term: 'imp-35721 reading-separation factor: the fixed GUE constant 2 pi^2/3 ~ 6.5797 separating the imp-35680 A_band and curvature amplitude-mismatch readings against C_C',
+    category: 'proof-frontier',
+    definition:
+      'A headword recording WHY the two imp-35680 amplitude-mismatch ratios against the short-range collision ' +
+      'constant C_C = (1/8) sqrt(3 pi) -- the band-mean ratio A_band/C_C ~ 1.3029 (Reading A) and the curvature ' +
+      'ratio (pi^2/3)/C_C ~ 8.573 (Reading B) -- can never coincide.\n\n' +
+      'THE TWO OBJECTS. Reading A is A_band = (1/2) INT_{-1}^{1} |alpha| d alpha = 1/2, a momentum/Fourier-space ' +
+      'MEAN: the band-averaged value of the Montgomery structure-factor ramp S(alpha) = |alpha| over the proven ' +
+      'support |alpha| < 1, a first-order spectral moment. Reading B is pi^2/3 ~ 3.28987, a position-space small-x ' +
+      'CURVATURE: the leading Taylor coefficient of the connected pair correlation R_2(x) = 1 - (sin(pi x)/(pi x))^2 ' +
+      'as x -> 0, a second-order (cubic-repulsion density) datum. A_band and pi^2/3 are Fourier-conjugate ' +
+      'descriptors of the SAME cluster function at DIFFERENT orders (mean vs. curvature), so their own ratio ' +
+      '(pi^2/3)/(1/2) = 2 pi^2/3 ~ 6.5797 is a PURE GUE number carrying no C_C content -- equivalently ' +
+      'ratioCurvatureToCC / ratioBandToCC ~ 8.573 / 1.3029 ~ 6.5797. The two mismatch ratios therefore differ by ' +
+      'exactly this fixed factor and can never report the same amplitude.\n\n' +
+      'WHY NEITHER EQUALS C_C (ORTHOGONAL REASONS): A_band = 1/2 is band-limited to |alpha| < 1 and captures ZERO ' +
+      'of the |alpha| >= 1 diagonal collision plateau that carries C_C (a spectral-SUPPORT reason); pi^2/3 is the ' +
+      'real-space near-coincidence SHAPE curvature of the connected cluster, not the diagonal collision amplitude ' +
+      '(a near-coincidence-SHAPE reason) -- C_C is a third, distinct object neither reading measures.\n\n' +
+      'HOW TO APPLY: when the imp-35680 A_band/C_C ~ 1.3029 and imp-35696 (pi^2/3)/C_C ~ 8.573 ratios appear ' +
+      'side by side, cite this 2 pi^2/3 ~ 6.5797 factor as the reason they read differently -- a fixed GUE constant ' +
+      'reflecting Fourier-conjugate order, not a sign of disagreement or error.\n\n' +
+      'HONEST SCOPE: measurement/reconciliation only, NOT rigorous; derives no remainder, discharges nothing, ' +
+      'changes no bound; establishes no operator positivity; C_C, C_H = 1/8, E_trunc = 3.06e-5 (imp-2631) and C_mb ' +
+      'GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35770 (glossary headword recording the imp-35721 reading-separation factor), 2026',
+    relatedTerms: [
+      'imp-35721 measures the reading-separation factor 2 pi^2/3 ~ 6.5797 recorded here (imp-35721)',
+      'imp-35680 supplies Reading A, the band-averaged in-band amplitude A_band=1/2 and its ratio A_band/C_C ~ 1.3029 (imp-35680)',
+      'imp-35696 supplies Reading B context, the pi^2/3 curvature coefficient as the cubic-repulsion density coefficient (imp-35696)',
+      'imp-2642/imp-2643 fix the C_C = (1/8) sqrt(3 pi), C_H = 1/8 short-range amplitude ansatz both readings are measured against (imp-2642, imp-2643)',
+      'imp-486 supplies the GUE-conditional caveat inherited by any pair-correlation remainder (imp-486)',
+    ],
+  },
+  {
     term: 'imp-35653 S_barrier decomposition: FINITE bounded-rectangle winding check (B1) PLUS a NON-finite semi-infinite analytic tail lemma (B2)',
     category: 'proof-status',
     definition:

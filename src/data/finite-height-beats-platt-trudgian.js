@@ -140,6 +140,15 @@ function ecollAtNAndT0(N, T0) {
 // ALL non-trivial Riemann zeros up to height T_PT = 3e12 lie on the critical
 // line Re(rho) = 1/2.  Therefore N_off(sigma_N, T_PT) = 0 for any sigma_N > 1/2.
 //
+// imp-35765 cross-verify: this barrier base N_off(T_PT) = 0 is an EXTERNAL
+// Platt-Trudgian 2021 result, NOT an internal imp-341 quantity. Confirmed by
+// direct re-read of both barrier-base consumers -- here and
+// finite-height-lambda-bound.js (which cites PT 2021 as PT_BOUND = 0.2 and does
+// not reference imp-341 at all). imp-341 appears in THIS file only in the
+// correct-use C_KH = 3*pi Koksma-Hlawka collision-energy class (see below,
+// C_C = (1/8)*sqrt(3*pi)), never as the barrier base. No misattribution found;
+// nothing re-pointed. imp-35719 Part-D assertion CONFIRMED.
+//
 // The Ingham (1940) density bound N_off(sigma, T) <= T^{e_I(sigma)} then
 // applies only for T > T_PT.  Integrating:
 //

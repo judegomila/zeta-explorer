@@ -11817,6 +11817,14 @@ const DATA_MODULES = [
   // unconditional finite-N anchor on t_c(m_inf), and supplying one re-imports GUE/ESY. Note only;
   // NO QED.
   '/src/data/imp-36147-routeB-consumable-modulo-anchor-honest-status.js',
+  // imp-36148 (meta, sonnet-4-6, sonnet): cross-reference integrity audit (imp-35186/imp-36127
+  // method) on the imp-3608x/imp-3609x frontier batch (imp-36081, 36082, 36083, 36084, 36086,
+  // 36087, 36088, 36092, 36093, 36094, 36095, 36096, 36097 -- 13 files). FINDING: CLEAN -- zero
+  // dangling @see/import targets or bare imp-NNNNN citations; all 36 distinct filename-suffixed
+  // targets resolve to real src/data files, all named imports resolve to real exports, and all
+  // 61 distinct bare ticket citations resolve to real ids in improvements.js/improvement-queue.js.
+  // Audit only; no bound touched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-36148-imp3608x9x-cross-reference-integrity-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

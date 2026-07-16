@@ -11895,6 +11895,19 @@ const DATA_MODULES = [
   // against the imp-35991 r<1e-2 basin edge (widening ~15.7x alpha / ~11.9x beta) and the
   // imp-35812 baseline detuning on that axis. Viz-data only; changes no bound; NO QED.
   '/src/data/imp-36105-recovery-detuning-width-viz-data.js',
+  // imp-36109 (meta, sonnet-4-6, sonnet): registration/reachability + import-light guard audit
+  // over the newest S-frontier cohort (imp-36033/34/46/61/62 plus every imp-3606x/imp-3607x
+  // module since) -- found TWO orphaned modules (no direct entry, not imported anywhere):
+  // imp-36068-clustered-order-shape-sweep-viz-data.js and
+  // imp-36077-tc-rk4-dp5-gap-dt-n-scaling.js. Both fixed below in the same commit. Audit only;
+  // changes no bound; NO QED.
+  '/src/data/imp-36109-imp3603x46x61x62x-registration-reachability-audit.js',
+  // imp-36068: was ORPHANED (no direct entry, never imported) -- its self-executing THROW
+  // assertions never ran under `npm run assert`. Fixed by imp-36109.
+  '/src/data/imp-36068-clustered-order-shape-sweep-viz-data.js',
+  // imp-36077: was ORPHANED (no direct entry, never imported) -- its self-executing THROW
+  // assertions never ran under `npm run assert`. Fixed by imp-36109.
+  '/src/data/imp-36077-tc-rk4-dp5-gap-dt-n-scaling.js',
 ];
 
 let ALL_MODULES = FAST_MODE

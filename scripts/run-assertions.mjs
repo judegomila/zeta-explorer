@@ -10010,6 +10010,11 @@ const DATA_MODULES = [
   // assertions. Measurement only; changes no bound; W1 certificate GREENFIELD; imp-486 untouched;
   // NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-36023-kbn-combined-worst-ladder.js',
+  // imp-36086: standalone honest-status note restating imp-36023 -- the imp-35973 combined
+  // worst-case compensated floor is N-ROBUST (KBN N-flat across the imp-35812 ladder), not an
+  // N-endpoint coincidence of the single N ~ 488602 rung. Read-only restatement; seven
+  // self-executing assertions; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-36086-kbn-floor-n-robust-honest-status.js',
   // imp-35953: CROSS-CHECK the stability of the imp-35891 ~1-decade offset between the
   // imp-35853 flattest-point knee (N_flat ~ 7.20e9) and the imp-33701 sigma-exponent
   // inflection decade ([1e10,1e11]) under an INDEPENDENT raw Riemann-von Mangoldt height

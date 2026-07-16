@@ -20153,6 +20153,41 @@ export const glossary = [
       'imp-34693 defines the admissible seed band where a is large and curvature dominates (imp-34693)',
     ],
   },
+  {
+    term: 'Negative-to-Positive de Bruijn Time Bridge: Two Routes, Both Net-Negative',
+    category: 'proof-frontier',
+    definition:
+      'A headword naming the imp-35726 finding that only two operations could carry the repo held ' +
+      'NEGATIVE-time heat-flow proxy (de Bruijn t = -4 . tau_repo, winding-thread) across t = 0 to seed the ' +
+      'POSITIVE-time Polymath15 barrier H_t = A + B - C at T_PT = 3e12, and that BOTH are net-negative.\n\n' +
+      'ROUTE (a) ANALYTIC CONTINUATION / DECONVOLUTION: apply the inverse heat operator to sharpen the proxy ' +
+      'past t = 0. This is ILL-POSED -- the inverse operator multiplies the u-spectrum by the UNBOUNDED ' +
+      'factor exp(+(dt) u^2), amplifying any proxy error eps in mode u to eps . exp((dt) u^2) with no ' +
+      'continuous dependence on the data (canonical backward-heat ill-posedness). The cost is not a bounded ' +
+      're-anchoring constant -- it is an unbounded amplification. REJECTED.\n\n' +
+      'ROUTE (b) FORWARD-EVOLUTION CERTIFICATE: treat the held proxy as an initial datum and evolve it ' +
+      'FORWARD through t = 0 up to the positive barrier time (the well-posed imp-35717 R2 fork). This is ' +
+      'well-posed in principle, but the cost is a FRESH uniform-in-x no-lift-off certificate transporting ' +
+      'H_t across [t_repo, 0, t_PM15] at T_PT -- of the same breakthrough tier as building the positive-t ' +
+      'barrier directly. The held object earns nothing beyond serving as initial datum.\n\n' +
+      'REPO INFRASTRUCTURE SUPPORTS NEITHER: the Gaussian-convolution proxy (heatEvolvedXi, ' +
+      'src/math/supercritical.js) is structurally one-sided (multiplies the spectrum by exp(-w^2 u^2/2), ' +
+      'reaching only t <= 0); the exact de Bruijn integral evaluator (scripts/imp-34813-...offline.mjs) is ' +
+      'height-capped at x ~< 104, astronomically below T_PT.\n\n' +
+      'HOW TO APPLY: cite this headword whenever a repo module proposes re-anchoring the negative-time ' +
+      'winding-thread proxy to a positive de Bruijn time -- both bridging routes are costed and closed here; ' +
+      'the cheapest path to W1 BYPASSES the proxy and builds the positive-t A + B - C interval seed directly.\n\n' +
+      'HONEST SCOPE: ASSESSMENT / SCOPING ONLY. Continues nothing; discharges nothing; changes no bound; ' +
+      'establishes no positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35911 (glossary headword recording the imp-35726 two-route bridge cost verdict), 2026',
+    relatedTerms: [
+      'imp-35726 costs both candidate routes and inventories repo infrastructure against them (imp-35726)',
+      'imp-35717 enumerates the sign-reconciliation prerequisites R1-R4 and names the R2 well-posedness fork (imp-35717)',
+      'imp-35674 identifies the negative de Bruijn time as the structurally harder side (imp-35674)',
+      'imp-35681 inventories the held structure as sitting at the wrong t-sign relative to W1 (imp-35681)',
+      'project winding-thread records the Gaussian conv proxy as the exact de Bruijn flow at negative time t = -4 . tau_repo',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

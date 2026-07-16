@@ -2975,6 +2975,19 @@ const DATA_MODULES = [
   // discharges no gap; imp-2519 no-overclaim guard; no QED; PT Lambda<=0.2 SOTA.
   // 7 self-executing assertions.
   '/src/data/imp-36045-perN-translation-route-readiness-assessment.js',
+  // imp-36082 (proof): DERIVES the explicit per-N rate r(N) that the Route-B
+  // (imp-341/344) UNCONDITIONAL Koksma-Hlawka lim-sup supplies, and ASSESSES E(N)-
+  // bridge consumability. Discrepancy at strip y_N^sharp=sqrt(2pi/N):
+  // D(N)=(pi C_Selberg/sqrt(2pi)) log gamma_N/sqrt(N) [per-N, unconditional, ->0];
+  // Whitham Holder-1/2 (imp-354) composes to r(N)=C_prime sqrt(log gamma_N) N^{-1/4}
+  // [Theta(sqrt(log N) N^{-1/4})]. VERDICT: r(N) bounds the shock-time DEVIATION
+  // |t_c(m_N)-t_c(m_inf)|, NOT |t_c(N)| absolutely; the E(N) bridge needs the
+  // absolute bound, so it cannot consume r(N) per-N without a per-N anchor on
+  // t_c(m_inf) -- forcing that anchor re-imports the GUE/ESY local-law rigidity
+  // the lim-sup avoided. Status CONSUMABLE-MODULO-ANCHOR; matches imp-36045 Route-B.
+  // Closes NOTHING; per-N stays OPEN; imp-2519 no-overclaim guard; no QED;
+  // PT Lambda<=0.2 SOTA. 7 self-executing assertions.
+  '/src/data/imp-36082-routeB-perN-rate-form-and-bridge-consumability.js',
   // imp-3369 (accuracy): AUDIT of modules exporting *_ASSERTIONS that are absent
   // from this list, so their build-time assertions never fire (the imp-3274 /
   // imp-3371 imp-861 silent-assertion class). Snapshot 2026-07-02: 114 exporters

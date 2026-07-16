@@ -11456,6 +11456,15 @@ const DATA_MODULES = [
   // Five self-executing assertions. Viz-data only; changes no bound; NO QED; Platt-Trudgian
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-36030-order-shape-stress-matrix-viz-data.js',
+  // imp-36033 (meta, assessment): assesses how many recent frontier-scout viz-data
+  // tickets were confirmed duplicates of already-delivered modules (2: imp-35976
+  // duplicating imp-35956, imp-35978 duplicating imp-35957) and proposes a
+  // lightweight non-blocking pre-seed guard (grep src/data/*.js for an existing
+  // "@see imp-NNNNN" + "viz-data" co-occurrence before minting a new viz-data
+  // ticket for the same source id). Proposal only -- NOT implemented in
+  // seed-ticket.mjs per the ticket's explicit scope. Changes no bound; NO QED;
+  // Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-36033-viz-data-duplicate-guard-proposal.js',
 ];
 
 let ALL_MODULES = FAST_MODE

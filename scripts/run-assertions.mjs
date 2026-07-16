@@ -11981,6 +11981,11 @@ const DATA_MODULES = [
   // comparison -- the three same-signed slack axes and the w/logN ~ 1.0265
   // frequency-gap factor at T_PT. Presentation only; NO QED.
   '/src/data/imp-36168-route-derivative-cap-tightness-viz-data.js',
+  // imp-36169 (meta, sonnet-4-6, sonnet): registration/reachability + import-light guard
+  // audit (imp-36007/imp-35982/imp-35905 method) over the imp-3606x-3609x S-frontier
+  // cohort (imp-36066/36067/36082/36095/36096/36097) -- all six clean, no orphans,
+  // no heavy-bundle imports. Audit only; NO QED.
+  '/src/data/imp-36169-imp3606x82x95x96x97x-registration-reachability-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -21041,6 +21041,46 @@ export const glossary = [
       'imp-35852 supplies the clustered same-sign worst order this band is measured on (imp-35852)',
     ],
   },
+  {
+    term: 'E(N) = E_trunc + E_flow + E_coll: the three-way bridge-error split, its sigma = 1/2 crossover, and its fractional-share tail landmarks',
+    category: 'accuracy',
+    definition:
+      'A companion orientation headword for a reader landing cold on any E(N) tail module ' +
+      '(imp-35889 onward). The Platt-Trudgian bridge error decomposes as E(N) = E_trunc + ' +
+      'E_flow + E_coll: E_trunc = 3.06e-5 (imp-2631, N-independent fixed-strip route), ' +
+      'E_flow = C_F (log T0 / T0) exp|t_c| with C_F = (log(T0/2pi)+1)/2pi (imp-398), and ' +
+      'E_coll = C_C sqrt(log T0 / N) with C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643, ' +
+      'GUE-conditional per imp-486). sigma = E_coll / E(N) tracks the collision share alone.\n\n' +
+      'THE LANDMARK CHAIN, ordered by height N (log10 N in parentheses):\n' +
+      '  - N ~ 2.13e8 (~8.33): Kneedle elbow knee, sigma ~ 0.783, E_coll dominates (imp-35853, imp-35889).\n' +
+      '  - N ~ 3.28e9 (~9.52): the E_trunc = E_coll crossover, sigma = 1/2 exactly -- the regime ' +
+      'divider between collision-dominated (above) and truncation-dominated (below) (imp-35337, imp-35968).\n' +
+      '  - N ~ 3.01e9-7.20e9: also brackets the shareFlow < 1e-3 crossing (~3.01e9) and the ' +
+      'flattest-point knee (~7.20e9, sigma ~ 0.407, E_trunc dominates) (imp-36097, imp-35853).\n' +
+      '  - N ~ 1.266e12 (~12.10): shareFlow < 1e-5 (imp-36097).\n' +
+      '  - N ~ 1.754e13 (~13.24): shareFlow < 1e-6 (imp-36097).\n' +
+      '  - N ~ 4.624e13 (~13.66): shareColl < 1% (imp-36097), essentially COINCIDING with the ' +
+      'imp-35971 sole-survivor height N* ~ 4.7214e13 (~13.674) where E_trunc alone carries the ' +
+      'mass to within 1% (E_coll/E_trunc = 1.00e-2 exactly at N*, E_flow/E_trunc ~ 4.18e-7).\n\n' +
+      'HOW TO APPLY: cite this headword as the single entry point tying the fractional-share ' +
+      'ladder together -- the shareColl < 1% crossing (imp-36097) sits strictly BELOW the ' +
+      'sole-survivor height N* (imp-35971), not AT it, even though the two coincide to the ' +
+      'tabulated precision; do not conflate a share-threshold crossing with the sole-survivor ' +
+      'definition itself (both-terms-below-1%) when citing either landmark precisely.\n\n' +
+      'HONEST SCOPE: ORIENTATION / CROSS-REFERENCE ONLY -- derives no new remainder, reuses every ' +
+      'pinned imp-3406/imp-33582/imp-2642/imp-2631/imp-398 constant unchanged, changes no bound, ' +
+      'establishes no operator positivity; C_C GUE-conditional (imp-486) stays a standing caveat; ' +
+      'imp-35337a surrogate-vs-true fidelity sub-gap stays OPEN; no RH verdict, NO QED; ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-36150 (glossary companion entry for the E(N) three-way bridge-error split and its fractional-share landmarks), 2026',
+    relatedTerms: [
+      'imp-35889 e-share-decomposition-at-knees supplies the three-way split at the two imp-35853 knees (imp-35889)',
+      'imp-35968 e-trunc-coll-crossover-location pins the sigma = 1/2 crossover at N ~ 3.28e9 (imp-35968)',
+      'imp-36097 e-share-threshold-crossings-viz-data locates the shareFlow<1e-3/1e-5/1e-6 and shareColl<1% crossing heights (imp-36097)',
+      'imp-35971 etrunc-sole-survivor-height locates N* ~ 4.7214e13 where E_trunc alone carries the mass (imp-35971)',
+      'E_trunc = E_coll (sigma = 1/2) crossover as a regime divider: collision-dominated ABOVE, truncation-dominated BELOW names the crossover-as-regime-label headword this entry orients around',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

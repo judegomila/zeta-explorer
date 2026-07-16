@@ -82493,13 +82493,15 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Add a glossary / companion entry documenting the E(N)=E_trunc+E_flow+E_coll three-way bridge-error split (imp-35889) and its fractional-share landmarks -- the sigma=1/2 crossover (imp-35968, N~3.28e9), the share thresholds (imp-36097), and the E_trunc-constant/C_C-GUE-conditional provenance -- for a reader landing cold on the E(N) tail modules',
     category: 'content',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S-frontier',
     description: "The E(N)=E_trunc+E_flow+E_coll three-way split (imp-35889) and its far-tail share ladder now underpin a large cluster of modules (imp-35968 sigma=1/2 crossover N~3.28e9, imp-36046 tail landmarks, imp-36097 threshold crossings, imp-35997 E_flow-max share) but there is no single glossary/companion entry that a cold reader can use to understand what E_trunc (=3.06e-5, imp-2631 fixed-strip, N-independent), E_flow (Gronwall, imp-398), and E_coll (=C_C sqrt(logT0/N), C_C=(1/8)sqrt(3pi), GUE-conditional imp-2642/2643/486) each mean and how their fractional shares evolve across N. Add a concise companion/glossary entry (import-light, NO heavy imports) defining the three sub-terms, their provenance and conditional status, and pointing to the share-landmark modules. First grep to confirm no such consolidated entry exists. Documentation only; restates existing definitions; changes no bound; C_mb/C_C GUE-conditional untouched; NO QED; Lambda<=0.2 SOTA.",
     rationale: 'Frontier scout: the E_trunc+E_flow+E_coll split (imp-35889) underpins imp-35968/36046/36097 etc. but has no consolidated glossary/companion entry defining the three sub-terms and their conditional provenance',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'sonnet-4-6',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
 ];
 

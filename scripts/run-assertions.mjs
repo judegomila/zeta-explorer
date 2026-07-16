@@ -9855,6 +9855,21 @@ const DATA_MODULES = [
   // every rung; all >=10 orders below the O(1) barrier margin. Measurement only; certifies no
   // W1 bound; changes no bound; A+B-C stays GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35854-w1-summation-kappa-sweep.js',
+  // imp-35871 (numerical, measurement): CONFIRM the imp-35812 reading (naive summation
+  // error tracks the O(sqrt(N) u) random walk, NOT the O(N u) coherent worst case) is not
+  // an artifact of the single kappa ~ 1.4e3 imp-35812 chose, by re-reading the imp-35854
+  // kappa sweep (imported verbatim, NOT re-run) through the random-walk-vs-coherent
+  // ENVELOPE lens at rungs BOTH above and below kappa ~ 1.4e3. For each rung it expresses
+  // the naive normalized error as a multiple of sqrt(N) u and a fraction of N u: at NO
+  // kappa does it approach N u (fraction <= ~9.3e-4 everywhere, >= 3 decades headroom,
+  // smallest at the deepest cancellation), so the coherent worst case is decisively
+  // excluded across the sweep -- the reading is NOT a kappa artifact. Honest refinement
+  // (from imp-35854): sqrt(N) u is an upper ENVELOPE not a tracked law -- the random-walk
+  // multiple is O(1) (~0.45) near kappa ~ 1 and DROPS to ~5e-4 at kappa ~ 2e5, never rising
+  // above ~1; both below-1.4e3 and above-1.4e3 groups agree. All rungs >= 10 orders below
+  // the O(1) barrier margin. Seven self-executing assertions. Measurement only; certifies
+  // no W1 bound; changes no bound; A+B-C stays GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35871-w1-summation-kappa-envelope.js',
   // imp-35728: QUANTIFY the necessary-not-sufficient gap between the EXTERNAL
   // Platt-Trudgian certificate N_off(T_PT) = 0 (verified to T_PT = 3e12) and the
   // imp-35681/imp-35676 W4 mechanical zero-substitution (off-line contribution

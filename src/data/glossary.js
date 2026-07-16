@@ -20642,6 +20642,44 @@ export const glossary = [
       'imp-35812 supplies the fixed term multiset and balanced-tree baseline the shape sweep varies (imp-35812)',
     ],
   },
+  {
+    term: 'Krawczyk Operator Node Catalogue: kappa_sub at Every Difference Node, and Why Only dG Diverges',
+    category: 'numerical',
+    definition:
+      'A headword for the imp-35885 NODE-LEVEL AUDIT that forms the subtraction condition number ' +
+      'kappa_sub = (|x|+|y|)/|x-y| at EVERY difference node of the open imp-34714a Krawczyk operator ' +
+      'K(m) = m - [F-prime]^{-1} F(m), not just the one node (dG, the surplus-split ratio) that ' +
+      'imp-35855 already de-cancelled, to check whether any OTHER node hides the same a(N)->0 ' +
+      'divergence.\n\n' +
+      'THE CATALOGUE (imp-35885): NODE A, the Jacobian [F-prime] = 1 - a, subtracts the SMALL a ' +
+      'directly from 1, so kappa_A = (1+a)/(1-a) -> 1 -- BOUNDED, the polar opposite of dG (which ' +
+      'subtracts a NEAR-1 quantity from 1). NODE B, the residual F(m) = m - g(m), is exactly 0 at the ' +
+      'certificate centre m = N_cross -- the ALREADY-KNOWN F(m)=0 residual-at-root artifact -- but ' +
+      'this is root-proximity at a FIXED a ~ 0.045, not an a->0 divergence: off-root up the height ' +
+      'axis it DE-conditions, kappa_F_axis -> 1. NODE C, the g/F-prime quotient, is a DIVISION with no ' +
+      'subtraction condition number at all (denominator bounded away from 0 by the contraction gap). ' +
+      'NODE D, the Krawczyk update m - q, has q = 0 at the fixed point, so kappa_D = 1. Only the ' +
+      'de-cancelled dG node (imp-35855) diverges up the same axis, kappa_dG ~ 4/a, from ~1e5 at ' +
+      'N ~ 1e13 to ~1e13 at N ~ 1e21.\n\n' +
+      'WHY THIS MATTERS: it shows the dG divergence was not an arbitrary spot-fix but the UNIQUE ' +
+      'a->0-divergent subtraction in the base operator -- every other difference node is already ' +
+      'O(1)-conditioned by construction (small-minus-1, division, or zero-at-root), so no further ' +
+      'node-level de-cancellation of the dG kind is needed anywhere else in K(m).\n\n' +
+      'HOW TO APPLY: cite this headword when a reader asks whether de-cancelling dG (imp-35855) was ' +
+      'a complete fix or just one of several ill-conditioned nodes; the imp-35885 catalogue answers ' +
+      'that it was the ONLY one, while leaving the F(m)=0 residual-at-root artifact classified ' +
+      '(a-independent) but not discharged.\n\n' +
+      'HONEST SCOPE: ASSESSMENT / MEASUREMENT ONLY. Instantiates no interval; ports no certificate; ' +
+      'imp-34714a REMAINS OPEN; changes no bound; establishes no operator positivity; no RH verdict, ' +
+      'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35984 (glossary headword for the imp-35885 Krawczyk operator node catalogue), 2026',
+    relatedTerms: [
+      'imp-35885 krawczyk-node-cancellation-audit forms kappa_sub at every K(m) difference node and finds only dG diverges (imp-35885)',
+      'Node-Level De-Cancellation and the Subtraction Condition Number kappa_sub = (|x|+|y|)/|x-y| names the dG rewrite this catalogue confirms was the only one needed',
+      'imp-35855 de-cancels the dG surplus-split node the imp-35885 catalogue confirms is uniquely divergent (imp-35855)',
+      'imp-35925 krawczyk-interior-subtraction-audit descends one granularity finer, into the interior of F(m)/[F-prime]/g, confirming the same verdict (imp-35925)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

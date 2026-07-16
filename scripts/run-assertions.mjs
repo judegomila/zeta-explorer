@@ -10313,6 +10313,21 @@ const DATA_MODULES = [
   // headword; pins a regression guard confirming the duplicate finding stays consistent. Audit
   // only; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35884-glossary-headword-duplicate-audit.js',
+  // imp-35767 (content, ticket audit): imp-35767 asked to add a glossary/Concepts headword for
+  // the imp-35727 certified-winding ingredient ledger I1-I5. Audit found glossary.js ALREADY
+  // carries this headword ("imp-35727 W2 certified-winding-count ingredient ledger (I1-I5)",
+  // authored by imp-35817) -- a duplicate ticket. Adds no new headword; pins a regression guard
+  // confirming the duplicate finding stays consistent. Audit only; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35767-glossary-headword-duplicate-audit.js',
+  // imp-35866 (numerical, ticket audit): imp-35866 asked to tabulate the imp-35810
+  // cancellation-onset height N_onset and |dG_onset| as tol sweeps 1e-4..1e-8, confirm the
+  // a_onset ~ eps_mach/tol envelope, and quantify the PT-anchor safety margin. Audit found
+  // imp-35848-cancellation-onset-tol-ladder.js ALREADY sweeps exactly that tol ladder and
+  // tabulates every requested quantity (cross-validated by imp-35849) -- a duplicate the frontier
+  // scout re-seeded from the shared imp-35810 module. Seeds no second ladder; pins a regression
+  // guard confirming the imp-35848 ladder stays present and complete. Audit only; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-35866-cancellation-onset-tol-ladder-duplicate-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

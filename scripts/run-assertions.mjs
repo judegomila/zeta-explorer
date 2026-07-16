@@ -9999,6 +9999,20 @@ const DATA_MODULES = [
   // Eight self-executing assertions. Measurement only; certifies no W1 bound; changes no
   // bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36081-w1-pairwise-slack-depth-densified-fit.js',
+  // imp-36084 (numerical, S-frontier): REFIT the imp-36018 slack-vs-depth power law under the
+  // imp-35852 CLUSTERED same-sign worst term ORDER (imp-36018 fit the DEFAULT order only), to
+  // report whether the depth-scaling EXPONENT stays sub-linear or steepens toward d^1. Using the
+  // imp-36020 clustered-order seven-shape error/depth sweep as the slack denominator, the
+  // clustered-order exponent is ~0.417 (R^2 ~0.44) -- it does NOT steepen toward 1 but FLATTENS
+  // FURTHER from the default-order ~0.748 (R^2 ~0.66), because the hostile order makes the DEEPEST
+  // tree caterpillarL the arg-max error shape (imp-36020 flip), collapsing its a-priori
+  // over-prediction slack ~1.2e4x (from ~5.9e6 to ~4.9e2) and dragging the high-depth end of the
+  // trend DOWN. Removing that same-depth flip driver lifts the exponent only to ~0.617 -- still
+  // sub-linear, the mirror of imp-36018 (where removing caterpillarR LIFTED it toward 1). So the
+  // imp-36018 sub-linearity PERSISTS and DEEPENS under the adversarial order; precision stays
+  // NON-binding (~2.7 orders over-prediction even at the tightened caterpillarL). Six self-executing
+  // assertions. Measurement only; certifies no W1 bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36084-w1-pairwise-slack-depth-clustered-order-refit.js',
   // imp-35973 (numerical, S-frontier): MEASURE the CROSS-TERM of the two adversarial
   // pairwise stresses -- imp-35852 varied the term ORDER at a fixed balanced tree, imp-35893
   // varied the pairing-tree SHAPE at a fixed order, but the two-at-once cross was never

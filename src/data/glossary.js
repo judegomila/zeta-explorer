@@ -20605,6 +20605,43 @@ export const glossary = [
       'imp-33723 closed-form-crossover recasts the same crossover as a Banach fixed point (imp-33723)',
     ],
   },
+  {
+    term: 'Pairing-Tree SHAPE (Balanced vs Caterpillar) and the depth*eps vs log2(N)*eps Forward-Error Ceiling',
+    category: 'numerical',
+    definition:
+      'A headword naming the two DISTINCT a-priori forward-error ceilings a pairwise ' +
+      '(divide-and-conquer) summation scheme can be held to, depending on the SHAPE of its ' +
+      'pairing tree over a fixed length-N term multiset: the log2(N)*eps ceiling that applies ' +
+      'when the tree is BALANCED (midpoint split, depth ~log2(N)), and the depth*eps ceiling ' +
+      'that applies to a tree of ARBITRARY depth, which degrades toward the caterpillar extreme ' +
+      '(peel one leaf block per level, depth ~N/leaf) where depth*eps approaches the naive ' +
+      'coherent N*eps ceiling.\n\n' +
+      'The log2(N)*eps figure quoted for pairwise summation (imp-35761) is therefore a property ' +
+      'of the BALANCED tree specifically, not of the pairwise scheme in the abstract: an ' +
+      'adversarially unbalanced pairing tree has a larger worst-case depth*eps bound, so citing ' +
+      'log2(N)*eps without specifying tree shape silently assumes balance.\n\n' +
+      'MEASUREMENT (imp-35893, N ~ 488602, fixed imp-35812 term multiset and order): sweeping ' +
+      'the pairing-tree shape from balanced(0.5) (depth 12) through four skewed splits to two ' +
+      'maximal caterpillars (depth 3817) -- a ~300x depth increase -- the achieved pairwise error ' +
+      'stayed NON-MONOTONE in depth and never exceeded ~4.42e-4 of the BALANCED log2(N)*eps ' +
+      'ceiling, under-realizing even its OWN depth*eps bound (~8.5e-13 at depth 3817) by ~4.6e-6. ' +
+      'So on this benign cancellation-heavy data, the depth-proportional worst case the caterpillar ' +
+      'shape is entitled to invoke is not attained in practice.\n\n' +
+      'HOW TO APPLY: cite this headword whenever a repo module states a pairwise summation error ' +
+      'ceiling, to make explicit WHICH ceiling (log2(N)*eps for balanced, depth*eps for general ' +
+      'shape) is in force, and to distinguish the a-priori worst-case bound (a property of tree ' +
+      'shape) from the achieved error (which imp-35893 found robust to shape).\n\n' +
+      'HONEST SCOPE: DEFINITIONAL / MEASUREMENT-SUPPORT ONLY. Certifies no W1 bound; changes no ' +
+      'bound; establishes no positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-35979 (glossary headword for the pairing-tree SHAPE and depth*eps vs log2(N)*eps forward-error ceiling distinction), 2026',
+    relatedTerms: [
+      'imp-35893 measures the pairwise error across balanced-to-caterpillar tree shapes and finds neither ceiling attained (imp-35893)',
+      'imp-35761 supplies the log2(N)*eps pairwise and N*eps naive ceilings this headword distinguishes by tree shape (imp-35761)',
+      'Summation Associativity: Term ORDER vs Pairing-Tree SHAPE as Independent Adversarial Levers names the companion order/shape distinction (imp-35960)',
+      'imp-35812 supplies the fixed term multiset and balanced-tree baseline the shape sweep varies (imp-35812)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

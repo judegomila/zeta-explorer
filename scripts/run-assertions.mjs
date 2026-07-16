@@ -9830,6 +9830,15 @@ const DATA_MODULES = [
   // Five self-executing assertions. OOM estimate only; evaluates no sum; verifies no
   // inequality; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35761-w1-certified-rounding-cost-scope.js',
+  // imp-35852 (numerical, S-frontier, orphan fixed by imp-35941): MEASURE whether the
+  // imp-35812 naive-summation random-walk O(sqrt(N)*u) error growth degrades toward the
+  // COHERENT O(N*u) ceiling under four ADVERSARIALLY-ORDERED permutations of the SAME
+  // multiset (signedAsc/magAsc/magDesc/clustered), each checked against the same exact
+  // BigInt reference. Was missing from this list despite exporting a correct
+  // *_ASSERTIONS array, so its five self-executing assertions silently never ran under
+  // `npm run assert` -- the same orphan class imp-35827/imp-35858 fixed for earlier
+  // cohorts. Measurement only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35852-w1-summation-adversarial-ordering.js',
   // imp-35812: MEASURE the achievable rounding-error growth of pairwise and Kahan-
   // compensated summation on a representative N ~ 4.886e5-term oscillatory sum at
   // T_PT = 3e12, against an EXACT BigInt reference, versus the imp-35761 pessimistic
@@ -10311,6 +10320,16 @@ const DATA_MODULES = [
   // Verification only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35859-heavy-assertion-cohort-verification.js',
   '/src/data/imp-35858-newer-cohort-registration-reachability-audit.js',
+  // imp-35941 (meta, audit): registration/reachability + import-light audit of the
+  // imp-35852/imp-35853/imp-35854/imp-35855 four-module numerical cohort. FINDING: ONE
+  // ORPHAN -- imp-35852-w1-summation-adversarial-ordering.js exported a correct result
+  // const and *_ASSERTIONS array but was never added to this DATA_MODULES list, so its
+  // assertions never ran under `npm run assert`; fixed by adding it above (identical
+  // orphan class imp-35827/imp-35858 fixed for earlier cohorts). No viz-status
+  // mismatch (three have viz pages, imp-35855 is intentionally registry-only via
+  // glossary.js). No module transitively imports the 16.7MB zeros bundle. Audit +
+  // minimal fix only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35941-numerical-cohort-registration-reachability-audit.js',
   // imp-35833 (numerical, measurement): MEASURE the PLACEMENT SENSITIVITY of the imp-35778
   // short-edge modulus floor delta_short as the endpoint slides across an inter-zero |H_t|
   // interval -- how fast the floor decays off the local-maximum placement and how WIDE the

@@ -11864,6 +11864,15 @@ const DATA_MODULES = [
   // asymmetry (Route S proxies only the off-axis LONG edges, silent on the SHORT edges). Viz-data
   // only; changes no bound; NO QED.
   '/src/data/imp-36073-i3-two-route-floor-comparison-viz-data.js',
+  // imp-36074 (content, sonnet-4-6, sonnet): standalone honest-status note restating imp-36021 --
+  // the ~6.2e-4-decade two-cliff gap is CONSTANT-ROBUST (dlog10(gap)/dlog(K,delta,S_inf)=0 to the
+  // last bit, gap spread zero over a +/-4-order K sweep). ALSO independently re-bisects the
+  // only-if underflow edge on the aOf seed directly (rather than trusting imp-36021's exported
+  // K_underflow_edge_below_which_cliffB_moves field, which is computed from MIN_NORMAL_DOUBLE and
+  // does not match imp-36021's own prose derivation): the edge lands at K~7.07e-17, ~24.35 orders
+  // below the pinned K, confirming this ticket's ~1.4e-16/~24-orders framing. Note + one
+  // independent numeric check; changes no bound; NO QED.
+  '/src/data/imp-36074-two-cliff-gap-constant-robustness-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

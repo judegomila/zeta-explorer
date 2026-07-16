@@ -9879,6 +9879,20 @@ const DATA_MODULES = [
   // the O(1) barrier margin. Seven self-executing assertions. Measurement only; certifies
   // no W1 bound; changes no bound; A+B-C stays GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35871-w1-summation-kappa-envelope.js',
+  // imp-35873 (numerical, measurement): MEASURE the imp-35808 (D1) differentiated-sum
+  // directed-rounding accumulation cost by re-running the imp-35812 naive/pairwise/Kahan
+  // schemes on the SAME length-N sum with each of the N ~ 4.886e5 retained terms re-weighted
+  // by its log-frequency factor w_k = ~w * log(k+1)/log(N+1) in (0, ~w ~ 13.446], against an
+  // EXACT BigInt reference. FINDING: the effective magnitude re-weighting wScale =
+  // Sum|t_prime|/Sum|t| lands in ~9.9 .. 11.4 across the N = 1e3 .. 4.886e5 ladder -- O(w) and
+  // ALWAYS <= ~w -- while the NORMALIZED errors stay SCALE-INVARIANT in the imp-35812
+  // ~1e-17..1e-20 band. Hence the achieved differentiated ABSOLUTE error = baseline absolute
+  // error times wScale <= ~w, CONFIRMING the imp-35808 D1 "times ~w" model as an UPPER
+  // ENVELOPE; every differentiated normalized error stays < 1e-15, ~9.9 orders below the
+  // differentiated ceiling N*eps*w ~ 1.45e-9 and far below the O(1) M_prime barrier margin.
+  // Five self-executing assertions. Measurement only; certifies no derivative floor; builds no
+  // enclosure; produces no numeric M_prime; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35873-differentiated-sum-reweighted-rounding-cost.js',
   // imp-35728: QUANTIFY the necessary-not-sufficient gap between the EXTERNAL
   // Platt-Trudgian certificate N_off(T_PT) = 0 (verified to T_PT = 3e12) and the
   // imp-35681/imp-35676 W4 mechanical zero-substitution (off-line contribution

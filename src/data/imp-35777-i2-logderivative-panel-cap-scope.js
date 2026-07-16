@@ -178,8 +178,9 @@ export const IMP35777_I2_LOGDERIVATIVE_PANEL_CAP_SCOPE = {
     'L_panel ~ pi/w ~ 0.234, EXACTLY the imp-35757 borderline (~4.28 panels per unit height) -- the two routes agree. ' +
     'Where dR grazes a would-be zero the I3 floor delta -> 0, B/delta blows up, and the local panel count spikes without ' +
     'bound (multiplier delta_robust/delta_local), so I2 is finite exactly when I3 holds. Bounds no B; lower-bounds no ' +
-    'delta; instantiates no enclosure; fixes no Delta or h; certifies no count; changes no bound; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'delta; instantiates no enclosure; fixes no Delta or h; certifies no count; establishes no positivity; certifies ' +
+    'no non-vanishing; evaluates no |H_t| or |H_t prime| directly (only the ratio B/delta); I2 remains GREENFIELD ' +
+    'downstream of W1; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
   citation:
     'imp-35727 (I2 named GREENFIELD); imp-35757 (I2 via mean winding rate, counts flagged LOWER bounds); imp-35758 ' +
     '(I3 floor delta = barrier-margin surplus); imp-35725 (effective-error cap C_t); imp-2696 / imp-33968 (sampled ' +
@@ -237,6 +238,17 @@ export const IMP35777_I2_LOGDERIVATIVE_PANEL_CAP_SCOPE_ASSERTIONS = [
       /certifies no count/.test(IMP35777_I2_LOGDERIVATIVE_PANEL_CAP_SCOPE.verdict) &&
       /NO QED/.test(IMP35777_I2_LOGDERIVATIVE_PANEL_CAP_SCOPE.verdict) &&
       /remains SOTA/.test(IMP35777_I2_LOGDERIVATIVE_PANEL_CAP_SCOPE.verdict),
+  },
+  {
+    // Honesty gate: the I2/I3 caveat template (positivity, non-vanishing, |H_t|/|H_t prime|, W1 downstream)
+    // must be prominent in this module's own verdict, not just in downstream citers.
+    id: 'imp35777-honesty-gate-caveat-template',
+    description: 'Verdict prominently states no positivity, no non-vanishing, no direct |H_t|/|H_t prime| evaluation, GREENFIELD downstream of W1',
+    holds: () =>
+      /establishes no positivity/.test(IMP35777_I2_LOGDERIVATIVE_PANEL_CAP_SCOPE.verdict) &&
+      /certifies no non-vanishing/.test(IMP35777_I2_LOGDERIVATIVE_PANEL_CAP_SCOPE.verdict) &&
+      /evaluates no \|H_t\| or \|H_t prime\|/.test(IMP35777_I2_LOGDERIVATIVE_PANEL_CAP_SCOPE.verdict) &&
+      /GREENFIELD\s+downstream of W1/.test(IMP35777_I2_LOGDERIVATIVE_PANEL_CAP_SCOPE.verdict),
   },
 ];
 

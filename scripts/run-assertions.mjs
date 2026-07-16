@@ -11579,6 +11579,14 @@ const DATA_MODULES = [
   // conditioning (~1.07e-16 at N=1000 to ~4.86e-15 at N~488602, ~45x, tracking kappa ~62->~1391)
   // while both Kahan and KBN compensation stay N-flat, 3-4 orders below unit roundoff. NO QED.
   '/src/data/imp-36130-naive-vs-compensated-conditioning-growth-honest-status.js',
+  // imp-36080 (numerical, opus-4-8, api-pool): discharge the lambda-roadmap
+  // conditionalBookkeeping B2-effective-height-Tstar clerical residue -- substitute the
+  // achieved verified zero-height rung (primary N*=1e6, cross-check 5e5) into the imp-327
+  // effectiveHeightForN RvM inverse, report T_star ~ 6.0e5 as the finite-height
+  // RH-up-to-T_star MEASUREMENT (BLOCKED on OPEN Step-4/per-N/C_mb, never unconditional RH),
+  // cross-checked by zeroCountAtHeight and sitting ~7 decades below Platt-Trudgian 3e12 and
+  // ~301.7 decades below the imp-35972 twin overflow cliffs. Bookkeeping only; NO QED.
+  '/src/data/imp-36080-tstar-at-achieved-rung.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -10157,6 +10157,13 @@ const DATA_MODULES = [
   // under `npm run assert`. Registering it here as the minimal fix, alongside the audit module
   // recording the finding. Audit + minimal fix only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35813-req4-required-height-sigma-landmark-extend.js',
+  // imp-35859 (meta, verify): VERIFY the newer heavy-assertion cohort imp-35809/35810/
+  // 35811/35812/35813 imports import-light and its self-executing assertions pass under
+  // the esbuild-bundle + plain-node path (per [[verify_heavy_assertion_modules]]), making
+  // the one-off check a permanent build-time regression guard as imp-35826 did for the
+  // earlier cohort. All five bundle to 11-175KB (no zeros-bundle import) and exit 0.
+  // Verification only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35859-heavy-assertion-cohort-verification.js',
   '/src/data/imp-35858-newer-cohort-registration-reachability-audit.js',
   // imp-35833 (numerical, measurement): MEASURE the PLACEMENT SENSITIVITY of the imp-35778
   // short-edge modulus floor delta_short as the endpoint slides across an inter-zero |H_t|

@@ -11316,6 +11316,15 @@ const DATA_MODULES = [
   // Imports the pre-existing imp-36020 export and pins a regression guard. Audit only; no
   // new sweep; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36037-clustered-order-shape-sweep-duplicate-audit.js',
+  // imp-36092: standalone honest-status note restating imp-36021 -- the imp-35972
+  // effective-height twin overflow cliff position is CONSTANT-INVARIANT. K, delta,
+  // and S_inf never enter effectiveHeightForN or the T . u product, so neither
+  // cliff (cliff A, RvM numerator overflow; cliff B, a -> 0 denominator overflow,
+  // which coincides exactly with the R_direct NaN cliff) moves by a single bit
+  // under a +/-4-order K sweep or delta in [1e-4, 4e-4]. Read-only restatement;
+  // six self-executing assertions; changes no bound; NO QED; Platt-Trudgian
+  // Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-36092-two-cliff-constant-invariance-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

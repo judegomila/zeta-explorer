@@ -11465,6 +11465,21 @@ const DATA_MODULES = [
   // seed-ticket.mjs per the ticket's explicit scope. Changes no bound; NO QED;
   // Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-36033-viz-data-duplicate-guard-proposal.js',
+  // imp-36034 (meta, audit): registration/reachability + import-light guard sweep
+  // (imp-35982/imp-35905/imp-35986 method) over the imp-3596x/imp-3597x measurement cohort
+  // (imp-35968, imp-35969, imp-35970, imp-35971, imp-35972, imp-35973). FINDING: five of six
+  // reachable (four direct DATA_MODULES entries, imp-35968 transitively via imp-36022/imp-36088);
+  // imp-35969-krawczyk-residual-directed-rounding-width.js is an ORPHANED module -- no direct
+  // entry, not imported anywhere -- so its assertions never ran under `npm run assert` until now.
+  // All six import-light (no zeros-to-1e6 matches). Audit only; no bound touched; NO QED;
+  // Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-36034-imp3596x97x-registration-reachability-audit.js',
+  // imp-35969 (numerical, opus-4-8, api-pool): registered here as part of the imp-36034 audit
+  // fix -- this module carried no direct DATA_MODULES entry and was not imported by any
+  // registered module, so its five self-executing THROWing assertions never ran under
+  // `npm run assert`. See src/data/imp-35969-krawczyk-residual-directed-rounding-width.js for
+  // the measurement (directed-rounding residual enclosure width, a-independent, few-ULP).
+  '/src/data/imp-35969-krawczyk-residual-directed-rounding-width.js',
 ];
 
 let ALL_MODULES = FAST_MODE

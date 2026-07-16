@@ -11574,6 +11574,11 @@ const DATA_MODULES = [
   // registered it. Documents the orphan failure mode and the registration-audit guard against
   // it. Meta finding only; NO QED.
   '/src/data/imp-36129-orphaned-module-registration-audit-honest-status.js',
+  // imp-36130 (content, sonnet-4-6, sonnet): standalone honest-status note restating imp-36094 --
+  // on the imp-35973 clustered worst order, the naive left-to-right W1 sum error grows with
+  // conditioning (~1.07e-16 at N=1000 to ~4.86e-15 at N~488602, ~45x, tracking kappa ~62->~1391)
+  // while both Kahan and KBN compensation stay N-flat, 3-4 orders below unit roundoff. NO QED.
+  '/src/data/imp-36130-naive-vs-compensated-conditioning-growth-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

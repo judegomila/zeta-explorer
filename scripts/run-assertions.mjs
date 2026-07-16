@@ -10041,6 +10041,14 @@ const DATA_MODULES = [
   // N-endpoint coincidence of the single N ~ 488602 rung. Read-only restatement; seven
   // self-executing assertions; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-36086-kbn-floor-n-robust-honest-status.js',
+  // imp-36094: import-light viz-data module (baked literals) for the imp-36023
+  // KBN-vs-classic-Kahan-vs-naive normalized error ladder across the imp-35812 N ladder
+  // [1000, 10000, 100000, 488602] -- naive grows with conditioning kappa (~1.07e-16 to
+  // ~4.86e-15), both compensated series stay N-flat ~3-4 orders below unit roundoff
+  // u ~ 1.11e-16, classic Kahan endpoint (~2.31e-19) reproduces imp-35973. Six
+  // self-executing assertions. Viz-data only; changes no bound; NO QED; Platt-Trudgian
+  // Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-36094-kbn-kahan-naive-error-ladder-viz-data.js',
   // imp-35953: CROSS-CHECK the stability of the imp-35891 ~1-decade offset between the
   // imp-35853 flattest-point knee (N_flat ~ 7.20e9) and the imp-33701 sigma-exponent
   // inflection decade ([1e10,1e11]) under an INDEPENDENT raw Riemann-von Mangoldt height
@@ -11178,6 +11186,13 @@ const DATA_MODULES = [
   // Measurement only; reuses imp-35889 / imp-35853 locators; changes no bound; imp-35337a OPEN;
   // imp-486 untouched; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35971-etrunc-sole-survivor-height.js',
+  // imp-36043 (numerical): instantiate the imp-33743 thr-generalized Banach fixed-point template
+  // for the imp-35971 sole-survivor balance E_coll = 0.01 * E_trunc -- N_SS = (C_C/(0.01 E_trunc))^2
+  // log T0(N_SS). Closed form reproduces the imp-35971 bisection N* ~ 4.7214e13 to ~3.6e-15 (exact,
+  // ~2e10x tighter than the ~7.4e-5 imp-33743 thr=0.1 residual) because the DIRECT E_coll/E_trunc
+  // balance drops no E_flow term (unlike the sigma = E_coll/E_N threshold). Derivation only; changes
+  // no bound; imp-486 untouched; imp-35337a OPEN; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36043-etrunc-sole-survivor-closed-form.js',
   // imp-35976: imp-35956-pairwise-tree-shape-ladder-viz-data.js existed with 6
   // self-executing assertions but was never added to this DATA_MODULES list,
   // so its imp-35893 tree-shape-ladder tripwires never ran in CI. Registered here.

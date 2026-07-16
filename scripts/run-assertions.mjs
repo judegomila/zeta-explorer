@@ -11934,6 +11934,12 @@ const DATA_MODULES = [
   // across all five landmarks (0.783 -> 0.716 -> 0.407 -> 0.100 -> 0.0099). Note only; changes
   // no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-36111-e-share-tail-storyline-crossref.js',
+  // imp-36185 (ux, sonnet-4-6, sonnet): import-light viz-data module baking the imp-36111
+  // five-landmark E(N) shareColl/shareTrunc/shareFlow tail-decay sequence as plain literals
+  // (no re-import of the imp-36111 crossref chain), so an analysis tab can render the
+  // three-term share stacked-area/decay chart without the 16.7MB zeros bundle. Presentation
+  // only; changes no bound; NO QED.
+  '/src/data/imp-36185-e-share-five-landmark-tail-decay-viz-data.js',
   // imp-36112 (content, sonnet-4-6, sonnet): standalone cross-reference note reconciling the
   // imp-36062 persistent-separation onset (N~34000) with the imp-36076 finer-ladder finding of an
   // EARLIER transient separation episode (N~1500-3000) -- merging both recorded ladders in N

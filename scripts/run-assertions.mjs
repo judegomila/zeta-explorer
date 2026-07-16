@@ -9891,6 +9891,19 @@ const DATA_MODULES = [
   // I1/W1 enclosure, imp-35681 Part A). Five self-executing assertions. Measurement on the OOM
   // model only; certifies no delta>0; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35800-i3-two-knob-floor-balance-point.js',
+  // imp-35801: QUANTIFY the imp-35777 I2/I3 panel-count amplification factor
+  // G = delta_robust/delta_local as a function of the contour-to-would-be-zero grazing
+  // distance d, tabulating the local panel-budget blow-up L_panel < pi.delta/B -> 0 imp-35777
+  // named unbounded but never mapped to a distance. Modelling a SIMPLE would-be zero by linear
+  // vanishing |H_t(z0+d)| ~ B.d gives delta_local ~ B.d and the closed forms G(d) = 1/(w d) =
+  // d_robust/d, L_panel(d) = pi d, density(d) = 1/(pi d) -- three FIRST-ORDER poles at d=0, so the
+  // budget diverges as 1/d (halving the standoff doubles G and the count; an order-m zero would
+  // give an order-m pole). Robust standoff d_robust = 1/w ~ 0.0744 height units = 1/pi of the mean
+  // zero gap (~0.2336), at which the laws recover the imp-35777 robust regime (G=1, L~0.2336,
+  // density~4.28). To keep G <= G_max the certificate must position dR a standoff d >= 1/(w G_max)
+  // off every would-be zero. Five self-executing assertions. Measurement on the OOM model only;
+  // certifies no cap; bounds no B; lower-bounds no delta; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35801-i2-panel-amplification-vs-grazing-distance.js',
   // imp-35779: DERIVE the REQUIRED-fraction allocation of the barrier margin
   // M = |A_t+B_t| - |C_t| among the imp-35725 cap terms E_A, E_B, E_{C_0} that keeps the
   // strict triangle inequality strict at T_PT. imp-35760 gave one SUFFICIENT point (an

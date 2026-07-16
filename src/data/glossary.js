@@ -19985,6 +19985,40 @@ export const glossary = [
       'imp-34813 supplies the exact de Bruijn evaluator whose precision wall this headword documents (imp-34813)',
     ],
   },
+  {
+    term: 'imp-35812 W1 summation-scheme cost hierarchy (naive/pairwise/Kahan, all >=10 orders under margin)',
+    category: 'proof-frontier',
+    definition:
+      'A headword recording the imp-35812 MEASURED (not merely modeled) rounding-error hierarchy for the ' +
+      'three candidate summation schemes on the W1 A_t + B_t - C_t certified sum at T_PT = 3e12 (N ~ ' +
+      '4.886e5 retained terms, imp-35674 Part D): naive recursive summation tracks O(sqrt(N) * u) -- a ' +
+      'RANDOM-WALK accumulation, not the pessimistic COHERENT O(N * u) worst case imp-35761 modeled -- ' +
+      'landing ~6 orders below that linear ceiling; pairwise divide-and-conquer summation tracks O(log2(N) ' +
+      '* u), buying a further ~2 orders; Kahan-Babuska compensated summation is FLAT at the unit-roundoff ' +
+      'floor with no measurable N-dependence at all.\n\n' +
+      'HOW MEASURED: a representative deterministic oscillatory sum t_k = cos(alpha k + beta sqrt(k)) / ' +
+      'sqrt(k) (condition number kappa ~ 1.4e3 at N = 488602) is run through all three schemes and checked ' +
+      'against an EXACT reference -- each IEEE-754 double summed as a dyadic rational on a BigInt ' +
+      'fixed-point grid, so the reference itself carries no rounding error.\n\n' +
+      'WHY IT MATTERS: all three measured errors, and even the pessimistic linear ceiling itself, sit ' +
+      '>=10 orders of magnitude below the O(1) barrier margin |A_t + B_t| - |C_t| (imp-35760 allocation). ' +
+      'So precision is CONCLUSIVELY not the binding W1 constraint at any of the three candidate schemes -- ' +
+      'the real obstruction stays the ENGINEERING of the certified length-N interval sum, the same ' +
+      'MECHANICAL classification imp-35725 already gave it.\n\n' +
+      'HOW TO APPLY: cite this headword whenever a repo module is tempted to treat summation-scheme choice ' +
+      'as a live lever on the W1 budget -- measurement closes that question for all three candidates; the ' +
+      'remaining gap is mechanical (building the certified interval sum), not numerical.\n\n' +
+      'HONEST SCOPE: MEASUREMENT ONLY. Certifies no W1 bound; evaluates no true H_0; instantiates no ' +
+      'interval; changes no bound; establishes no positivity; no RH verdict, NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35862 (glossary headword recording the imp-35812 measured summation-scheme cost hierarchy), 2026',
+    relatedTerms: [
+      'imp-35812 runs and measures the naive/pairwise/Kahan summation-scheme hierarchy recorded here (imp-35812)',
+      'imp-35761 supplies the pessimistic linear-in-N ceiling imp-35812 measures against and confirms pessimistic (imp-35761)',
+      'imp-35725 names the MECHANICAL certified length-N interval-sum obstruction that remains binding (imp-35725)',
+      'imp-35760 supplies the O(1) barrier margin every measured/pessimistic error sits >=10 orders under (imp-35760)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

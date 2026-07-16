@@ -19690,6 +19690,37 @@ export const glossary = [
       'imp-35359 confirmed RUNGS[5] already bakes the endpoint worst-case, so no page edit follows (imp-35359)',
     ],
   },
+  {
+    term: 'imp-35356/imp-35415 R1 disposal DIRECTION -> SCOPE chain',
+    category: 'numerical',
+    definition:
+      'A headword pairing two adjacent findings on the imp-35243a reentry-band front so the two-step DAG reads ' +
+      'as a single chain rather than two isolated entries. imp-35356 supplies the DIRECTION: of the candidate ' +
+      'routes to meet requirement R1 (floor-independence), only route (ii) -- the pure-artifact proof -- is ' +
+      'self-contained and non-circular, and it resolves R1 by DISPOSAL (the reentry band is a pure artifact of ' +
+      'the discrete ceil against the machine floor EPS_FP, not a true-dynamic excursion). imp-35415 takes that ' +
+      'direction as given and supplies the SCOPE: which of the five inherited reentry-band landmarks the ' +
+      'disposal actually demotes versus which survive as legitimate surrogate-map diagnostics. Direction without ' +
+      'scope would leave it unclear whether disposal erases the whole reentry-band study; scope without ' +
+      'direction would have nothing to scope.\n\n' +
+      'THE CHAIN: imp-35356 (which route, which direction) -> imp-35415 (which landmarks that direction ' +
+      'demotes vs. spares). Neither step discharges imp-35243a: imp-35356 identifies route (ii) but does not ' +
+      'itself formalize it (chartered to imp-35357), and imp-35415 scopes the consequence of a direction that ' +
+      'is not yet formalized.\n\n' +
+      'HOW TO APPLY: when reading either finding in isolation, follow this pairing to recover the other half of ' +
+      'the DAG edge -- a direction finding should be checked against its downstream scope, and a scope finding ' +
+      'should be traced back to the direction it presumes.\n\n' +
+      'HONEST SCOPE: cross-reference note only; discharges nothing; imp-35243a stays OPEN pending the imp-35357 ' +
+      'formalization of route (ii); changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-35469 (glossary headword pairing the imp-35356 disposal direction with the imp-35415 landmark scope), 2026',
+    relatedTerms: [
+      'imp-35356 supplies the DIRECTION half of the chain -- route (ii), disposal by pure-artifact proof (imp-35356)',
+      'imp-35415 supplies the SCOPE half of the chain -- which landmarks demote vs. survive (imp-35415)',
+      'imp-35357 formalizes route (ii) itself; both chain halves presume this is pending (imp-35357)',
+      'imp-35243a the reentry-band surrogate-fidelity obstruction both chain halves keep OPEN (imp-35243)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

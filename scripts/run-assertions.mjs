@@ -10856,12 +10856,31 @@ const DATA_MODULES = [
   // self-executing assertions but was never added to this DATA_MODULES list,
   // so its imp-35893 tree-shape-ladder tripwires never ran in CI. Registered here.
   '/src/data/imp-35956-pairwise-tree-shape-ladder-viz-data.js',
+  // imp-35976 (ux, duplicate-ticket audit): imp-35976 asked to add an import-light viz-data
+  // module for the imp-35893 pairing-tree SHAPE depth-vs-error table -- imp-35956 already
+  // delivered exactly that (registered above). AUDIT ONLY; no new viz-data module needed;
+  // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35976-tree-shape-viz-duplicate-audit.js',
   // imp-35982: registration/reachability + import-light guard audit of the imp-3589x cohort
   // (imp-35889, imp-35890, imp-35891, imp-35892, imp-35893). FINDING: all five already carry a
   // direct DATA_MODULES entry and none imports the 16.7MB zeros-to-1e6 bundle (checked module +
   // full direct dependency chain). AUDIT ONLY; no source file required correction; changes no
   // bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35982-imp3589x-registration-reachability-audit.js',
+  // imp-35988 (proof/assessment): COMPARE the two admissible derivative-error-cap routes imp-35832
+  // named for certifying B = sup|H_t prime| feeding the imp-35777 I2 panel cap L_panel.(B/delta)<pi
+  // -- (I) a separate additive cap C_t prime = E_A prime + E_B prime + E_{C_0} prime (main terms
+  // differentiated EXACTLY termwise) vs (II) a Cauchy estimate sup_disk|H_t|/r on the I1 value
+  // enclosure. DERIVES the ordering B_I <= B_II from THREE same-signed slack sources: (1) exact
+  // termwise main terms beat coarse Cauchy-analytic 1/r; (2) route I error amp log N = w-(1/2)log2
+  // is below route II 1/r = w by half a nat (w/logN ~ 1.0265 at N ~ 4.886e5); (3) route II folds
+  // main+error and sups over a 2D disk. PANEL COST: L_panel = pi/(B/delta) makes n scale LINEARLY
+  // with B (delta shared), so n_II/n_I = B_II/B_I, floor w/logN ~ 1.0265 -- route II ~2.65% MORE
+  // panels, MARGINAL not an OOM. VERDICT: route I tighter but must re-run a Polymath15 differentiated-
+  // tail budget; route II looser but CHEAPER (reuses I1) -- a tightness-vs-effort trade. Six self-
+  // executing assertions. Assessment only; certifies no cap; instantiates no enclosure; changes no
+  // bound; imp-35337a OPEN; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35988-i2-derivative-cap-route-comparison.js',
 ];
 
 let ALL_MODULES = FAST_MODE

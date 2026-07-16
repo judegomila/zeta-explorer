@@ -10600,6 +10600,22 @@ const DATA_MODULES = [
   // rho=|x|^{-1/2}, NOT the true H_t on dR; instantiates no interval enclosure; certifies no cap;
   // counts no zeros; I2 stays GREENFIELD; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36008-i2-theta-arclength-jacobian-decomposition.js',
+  // imp-36009 (accuracy/S-frontier): MEASURE the sensitivity of the imp-35951 sized I2 intrinsic
+  // margin (~12 at the held 10-node sample) and the I3 modulus-floor proxy delta=C_PS=pi/sqrt(2)
+  // to the imp-33923 theta-sweep NODE COUNT by actually RE-RUNNING the same scale-free complex
+  // Simpson quadrature at 10/20/40/80 nodes over the identical {45..135} deg arc (inner panel
+  // budget fixed). FINDINGS: (i) the least-squares winding slope stays -3/2 to ~1e-12 at EVERY
+  // node count (the quadrature amplitude is exactly constant-modulus / linear-phase, C_PS
+  // e^{i(3pi/4 - 3 theta/2)}), so the per-node arg increment = 3pi/(4(N-1)) shrinks as 1/(N-1)
+  // and the intrinsic I2 margin pi/increment = 4(N-1)/3 GROWS LINEARLY (12, 25.33, 52, 105.33) --
+  // the ~12 imp-35951 read is a SPACING ARTIFACT of the 10-node sample, not an intrinsic cushion;
+  // the refinement-INVARIANT I2 content is the total winding 3pi/4 (spread ~1e-13), hence the
+  // node-count-independent panel formula n=ceil(3m/4). (ii) min |A_quad| stays PINNED at C_PS
+  // ~2.2214 to ~1e-13 at every node count (no drift) -- the I3 floor is a genuine refinement-stable
+  // property, not a spacing artifact. Six self-executing THROWing assertions; import-light. All on
+  // the OFF-AXIS MODEL CUSP rho=|x|^{-1/2}, NOT the true H_t on dR; certifies no cap; certifies no
+  // delta>0; counts no zeros; I2/I3 stay GREENFIELD; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36009-i2-i3-node-count-sensitivity.js',
   // imp-35844 (meta): AUDIT the imp-35763/imp-35764 honesty-gate assertion guards (imp-486
   // kept, imp-35337a OPEN, NO QED, PT SOTA regexes). SPLIT FINDING: the imp-486/OPEN/NO-QED
   // text guards are LIVE and PROTECTIVE (test the modules' own verdict strings, would fail

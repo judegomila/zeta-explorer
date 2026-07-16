@@ -10235,6 +10235,21 @@ const DATA_MODULES = [
   // only; reuses the imp-35811 recovery; extends no evaluator; evaluates no true H_0 at quad
   // precision; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35851-quad-precision-x-ceiling-measured.js',
+  // imp-35868 (numerical, estimate): ASSESS/ESTIMATE the three arbitrary-precision cost
+  // channels imp-35811 EXCLUDED from its underflow-only digit table -- integrand node count,
+  // Phi-series term count, oscillatory argument-reduction precision -- as functions of x=2gamma,
+  // and bound how much they compound the underflow-only ~1e12-digit T_PT wall. FINDINGS: node
+  // count is LINEAR O(x) (asymptotic log-log slope ~1.08, the residual above 1 the slow
+  // log-support drift), Phi-series term count is SQUARE-ROOT O(sqrt(x)) (slope 0.5, n_phi~sqrt(x/8)),
+  // and argument-reduction precision is ADDITIVE +O(log10 x). Only arg reduction touches the
+  // per-value DIGIT budget, adding ~12.8 digits to the ~1.02e12-digit floor at x=6e12 (a ~1.3e-11
+  // relative bump) -- so the imp-35811 ~425 GB/value floor stands. But the two COUNT channels
+  // multiply the per-value cost by N_nodes.n_phi ~ O(x^{3/2}) ~ 2.3e19 high-precision (~1e12-digit)
+  // term-evaluations at T_PT, ~19 orders of magnitude of TIME beyond the storage-only figure --
+  // quantifying imp-35811 "only worsen the picture". Six self-executing assertions. Estimate only;
+  // runs no arbitrary-precision quadrature; evaluates no true H_0; extends no evaluator; changes
+  // no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35868-excluded-cost-channels-estimate.js',
   // imp-35816 (accuracy, measurement): MEASURE the deviation of the imp-35778 short-edge
   // rectangle width Delta from an EXACT integer number of mean zero gaps delta(T_PT) ~ 0.2336,
   // quantifying the endpoint-placement quantization on the mean-gap surrogate spacing. Both short

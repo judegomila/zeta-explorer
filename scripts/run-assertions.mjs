@@ -10088,6 +10088,13 @@ const DATA_MODULES = [
   // LAMBDA_RH_BRIDGE.sotaUpperBound.value. Audit only; adds no mechanism; changes no bound;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35844-honesty-gate-live-artifact-audit.js',
+  // imp-35857 (meta, ticket audit): imp-35857 asked to extend the imp-35844 honesty-gate
+  // audit to the newer cohort imp-35809/35810/35811/35812/35813. Audit found this
+  // ALREADY EXISTS: imp-35856 (the commit landed immediately before this ticket was
+  // picked up) performs exactly this extension on exactly this cohort. DUPLICATE
+  // TICKET -- adds no new audit, pins a regression guard confirming the citation stays
+  // consistent. Audit only; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35857-honesty-gate-audit-duplicate.js',
   // imp-35731: ticket asked to add a page rendering the imp-35710 winding mesh-cost
   // Delta-ladder table. Audit found it ALREADY EXISTS (Imp35710WindingMeshCostDeltaLadderViz.jsx,
   // routed at /viz-imp35710-winding-mesh-cost-delta-ladder, registered in

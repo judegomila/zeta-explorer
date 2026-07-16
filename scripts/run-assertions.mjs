@@ -10298,6 +10298,14 @@ const DATA_MODULES = [
   // all six. Every file bundles to 10-171KB (no zeros-bundle import) and exits 0.
   // Verification only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35880-frontier-batch-cohort-verification.js',
+  // imp-35881 (meta, audit): registration/reachability audit on the FULL six-module
+  // frontier-batch cohort imp-35808/35809/35810/35811/35812/35813. The earlier imp-35858
+  // audit covered only five (missing imp-35808). FINDING: all six are already listed in
+  // DATA_MODULES, each exports a result-object const plus a *_ASSERTIONS array, and viz
+  // status matches (imp-35809/35811/35812 feed registered downstream viz pages imp-35863/
+  // 35864/35865; imp-35808/35810/35813 are correctly registry-only). Zero orphans, zero
+  // mismatches found. Audit only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35881-full-six-cohort-registration-reachability-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

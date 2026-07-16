@@ -10023,6 +10023,16 @@ const DATA_MODULES = [
   // Seven self-executing assertions. Measurement only; certifies no W1 bound; changes no
   // bound; C_mb GUE-conditional (imp-486) untouched; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36020-w1-clustered-order-shape-argmax.js',
+  // imp-36063 (numerical, S-frontier): DERIVE a per-shape COHERENCE metric that orders the
+  // imp-36020 clustered-order seven-shape pairwise error better than tree DEPTH. Instrumenting
+  // every internal-node combine with a 2Sum error-free transform gives coherenceFraction =
+  // |Sum e_i|/Sum|e_i| and coherentNormError = |Sum e_i|/Sum|t_k|. The coherence-weighted error
+  // orders the imp-36020 measured errors at Spearman rho ~0.96 vs ~0.73 for depth, reproduces
+  // caterpillarL as the arg-max (~1.73e-15), and its coherence FRACTION breaks the
+  // caterpillarL/caterpillarR depth-3817 tie (~4x more coherent) that depth cannot. Eight
+  // self-executing assertions. Measurement/regression only; changes no bound; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-36063-w1-clustered-order-coherence-metric.js',
   // imp-36022 (accuracy, S-frontier): RECONCILE the apparent ~0.024-decade gap between the
   // imp-35968 E_trunc = E_coll crossover height (quoted 3.1e9, log10 9.49) and the
   // imp-35950 / imp-35994 value (3.267e9, log10 9.514) for the SAME sigma = 1/2 landmark.

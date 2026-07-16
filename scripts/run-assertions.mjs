@@ -7247,6 +7247,11 @@ const DATA_MODULES = [
   // the net surplus tracks S_inf . a/2. FP_LO finite-N is the dominant driver. Measurement on the surrogate;
   // imp-34714a REMAINS OPEN; changes no bound; NO QED.
   '/src/data/imp-35266-krawczyk-headroom-surplus-decomposition.js',
+  // imp-35794: VERIFIES imp-35266 reconstructs its D1-D3 band-top literals consistently (dFP ~ +110.34,
+  // dG ~ -55.16, ratio -dFP/dG ~ 2.00042, net surplus ~ +55.18) and stays import-light (17-module
+  // transitive closure, zero hits on the heavy zeros-to-1e6/improvements/improvement-queue bundles).
+  // Verification only; imp-34714a REMAINS OPEN; changes no bound; NO QED.
+  '/src/data/imp-35794-krawczyk-headroom-surplus-decomposition-verification.js',
   // imp-35300: DUAL of imp-35241 -- holding the imp-34693 band and K fixed, sweeps the bracket half-width delta
   // upward in the band-top headroom S(delta) = G/((1+G) delta FP_LO) and locates delta* ~ 5.1115e-3 (~25.56x the
   // current delta = 2e-4) where band-top S first falls to the 100x safety factor: the bracket could widen ~25.6x

@@ -10573,6 +10573,15 @@ const DATA_MODULES = [
   // knees. Measurement only; reuses imp-35853 locators; changes no bound; imp-35337a OPEN;
   // NO QED; PT 0.2 SOTA.
   '/src/data/imp-35889-e-share-decomposition-at-knees.js',
+  // imp-35950 (accuracy, measurement): LOCATE the exact height of the E_trunc = E_coll
+  // (sigma = 0.5) crossover that imp-35889 placed BETWEEN its two knees but never located,
+  // on the same imp-3406 / imp-33582 surrogate. FINDING: N_cross ~ 3.267e9 (log10 ~ 9.514,
+  // log T0 ~ 20.85); shareTrunc ~ 0.499, shareColl ~ 0.500 (= sigma), so E_trunc / E_coll ~
+  // 0.998 (~ 1) and E_flow is the tiny residual (share ~ 9.5e-4). log10 N_cross ~ 9.514 sits
+  // strictly between the elbow (~ 8.328, N ~ 2.13e8) and flattest-point (~ 9.857, N ~ 7.20e9)
+  // knees, confirming the imp-35889 between-the-knees claim. Measurement only; reuses
+  // imp-35853 / imp-35889 locators; changes no bound; imp-35337a OPEN; NO QED; PT 0.2 SOTA.
+  '/src/data/imp-35950-etrunc-ecoll-crossover-height.js',
   // imp-35891 (accuracy, cross-validation): CROSS-CHECK whether the imp-35853 REQ-4
   // required-height-multiple flattest point (sigma ~ 0.407) coincides in N with the
   // imp-33701 sigmoid decay-rate inflection knee ([1e10,1e11]). FINDING: they do NOT

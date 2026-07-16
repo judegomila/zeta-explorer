@@ -20530,6 +20530,42 @@ export const glossary = [
       'Clustered Sign-Run Adversarial Ordering names the worst ORDER-lever permutation imp-35852 measures',
     ],
   },
+  {
+    term: 'Representability Cliff of the RvM Height Inverse T(N): the double-precision N ~ 10^307.46 hard NaN boundary of effectiveHeightForN, distinct from a soft conditioning ramp',
+    category: 'numerical',
+    definition:
+      'A headword naming the hard double-precision failure boundary of effectiveHeightForN, the ' +
+      'Riemann-von Mangoldt height inverse T(N) solved by Newton iteration from the seed ' +
+      'T ~ 2 pi N / log N.\n\n' +
+      'WHAT THE CLIFF IS: imp-35892 swept the cancellation-free surplus-split ratio R_direct far ' +
+      'past its prior N ~ 1e21 stopping point (imp-35855) and found NO soft departure anywhere in ' +
+      'the finite double range -- R_direct tracks its independent reference to <= 2 ULP from ' +
+      'N = 1e13 all the way to the last finite representable height N ~ 10^307.46 (T ~ 2.563e305, ' +
+      'a ~ 5.50e-300, still a NORMAL double). The failure instead arrives abruptly: once the Newton ' +
+      'seed T ~ 2 pi N / log N exceeds Number.MAX_VALUE ~ 1.798e308, effectiveHeightForN overflows ' +
+      'to +Infinity, forcing a -> 0, the de-cancelled node dG_direct -> 0, and R_direct -> NaN.\n\n' +
+      'WHY IT IS A CLIFF, NOT A RAMP: a conditioning ramp would show the relative error climbing ' +
+      'gradually as a precision-limited quantity (here, a itself) approaches its own underflow ' +
+      'floor near Number.MIN_VALUE ~ 4.94e-324. That is NOT what happens -- a is still ~24 orders ' +
+      'above the minimum denormal at the last finite point, so the -a/(2-a) node never enters a ' +
+      'soft-departure regime. The binding limit is instead the REPRESENTABILITY of the upstream ' +
+      'height inverse T(N) itself hitting the double-precision overflow ceiling, reached well ' +
+      'BEFORE the downstream quantity a would underflow.\n\n' +
+      'HOW TO APPLY: cite this headword whenever a repo module needs to state precisely where ' +
+      'effectiveHeightForN (or any RvM-height-mapping computation built on it) stops being usable ' +
+      'in double precision, and to distinguish a hard N ~ 10^307.46 overflow-to-NaN cliff from a ' +
+      'gradual loss-of-digits conditioning ramp elsewhere in the same computation.\n\n' +
+      'HONEST SCOPE: DEFINITIONAL / MEASUREMENT-SUPPORT ONLY. A double-precision diagnostic ' +
+      'boundary, not an interval certificate; certifies no W1 bound; changes no bound; establishes ' +
+      'no positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35961 (glossary headword for the imp-35892 double-precision representability cliff of the RvM height inverse T(N)), 2026',
+    relatedTerms: [
+      'imp-35892 located the hard N ~ 10^307.46 overflow cliff and confirmed a stays a normal double there, ruling out underflow as the cause (imp-35892)',
+      'imp-35855 swept R_direct only to N ~ 1e21 and never located this cliff (imp-35855)',
+      'lambda-rh-height-mapping supplies effectiveHeightForN, the RvM inverse whose overflow this headword names (lambda-rh-height-mapping)',
+      'imp-34714a the open Krawczyk machine certificate this diagnostic measurement does not touch (imp-34714a)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

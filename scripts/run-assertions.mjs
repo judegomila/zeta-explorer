@@ -11722,6 +11722,11 @@ const DATA_MODULES = [
   // finer 11-rung KBN-vs-classic-Kahan separation-onset ladder); no new module derived, records
   // the finding and cross-references the original. NO QED.
   '/src/data/imp-36122-duplicate-ticket-honest-status.js',
+  // imp-36123 (ux, sonnet-4-6, sonnet): honest-status finding that ticket imp-36123 itself
+  // duplicates the already-completed imp-36105 (import-light viz-data module for the imp-36061
+  // two-axis W1 accumulator-ratio recovery-width vs the imp-35812 baseline / imp-35991 basin
+  // edge); no new module derived, records the finding and cross-references the original. NO QED.
+  '/src/data/imp-36123-duplicate-ticket-honest-status.js',
   // imp-36129 (meta, sonnet-4-6, sonnet): standalone honest-status note recording the imp-36034
   // finding that imp-35969-krawczyk-residual-directed-rounding-width.js was a genuinely ORPHANED
   // module (no direct DATA_MODULES entry, imported nowhere -- only cited by @see prose in four

@@ -19945,6 +19945,46 @@ export const glossary = [
       'imp-35803 identifies the differentiated enclosure (I1b) as the SOLE delivery blocker this headword documents (imp-35803)',
     ],
   },
+  {
+    term: 'Exact-de-Bruijn arbitrary-precision digit-cost wall',
+    category: 'proof-frontier',
+    definition:
+      'A headword consolidating three modules that separately estimated, calibrated, then MEASURED the same ' +
+      'categorical obstruction: the exact de Bruijn evaluator (scripts/imp-34813-exact-debruijn-winding-offline.mjs) ' +
+      'forms H_0(x) from O(1) intermediates that cancel to an exponentially small result |H_0(x)| ~ exp(-pi x/8), ' +
+      'so the working-digit count needed to keep that result resolvable grows LINEARLY in x: ' +
+      'D_underflow(x) = (pi/(8 ln10)) x ~ 0.17055 x decimal digits.\n\n' +
+      'THE THREE-STAGE PROGRESSION: (1) imp-35759 derived the OOM linear law from the cancellation mechanism alone ' +
+      'and calibrated it against the observed double-precision cap (D_underflow(104) ~ 17.74 digits ~ the double ' +
+      'budget), but ran no arbitrary-precision arithmetic. (2) imp-35781 MEASURED the empirical double-precision ' +
+      'x-ceiling directly (x ~< 104, gamma ~< 52, |H_0| under the ~1e-17 roundoff floor) and cross-checked it ' +
+      'against the imp-35759 law, still without running any high-precision arithmetic. (3) imp-35811 upgraded both ' +
+      'to a MEASURED digit table by actually running ~520-digit BigInt arithmetic (Machin-series pi, range-reduced ' +
+      'repeated-squaring exp) across x in [104, 1000]: D* ~ 20 at the double edge x = 104, rising at measured slope ' +
+      '~0.1705 digits per unit x (matching pi/(8 ln10) ~ 0.17055 to within a few percent, with a ~+2 guard offset), ' +
+      'to D* ~ 172 at x = 1000.\n\n' +
+      'T_PT EXTRAPOLATION: quad precision (IEEE binary128, ~33.9 digits) reaches only x ~ 199-200 (gamma ~ 100), ' +
+      'roughly doubling the double-precision height. Extrapolating the imp-35811 MEASURED slope to the T_PT target ' +
+      'x = 6e12 needs ~1.02e12 decimal digits (~425 GB of mantissa per evaluated value) -- the same categorical ' +
+      'wall imp-35759 and imp-35781 named, now anchored to a measured (not merely estimated) slope. imp-35811 also ' +
+      'flags that this measures ONLY the exp(-pi x/8) underflow-driven digit requirement; the separate growing ' +
+      'costs of a real high-x run (integrand node count, Phi-series term count, oscillatory argument reduction) ' +
+      'are excluded and only worsen the picture.\n\n' +
+      'HOW TO APPLY: cite this headword as the single navigable entry point for the exact-de-Bruijn precision wall ' +
+      '-- point to imp-35759 for the derivation, imp-35781 for the double-edge measurement, and imp-35811 for the ' +
+      'measured arbitrary-precision digit table and T_PT extrapolation, rather than re-deriving the law per module.\n\n' +
+      'HONEST SCOPE: MEASUREMENT / COST-SCOPING ONLY across all three modules. Extends no evaluator to T_PT scale; ' +
+      'evaluates no true H_0 at high precision; certifies no value at any height; changes no bound; establishes no ' +
+      'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35861 (glossary headword consolidating the imp-35759/imp-35781/imp-35811 digit-cost progression), 2026',
+    relatedTerms: [
+      'imp-35759 derives the OOM linear digit law D_underflow(x) ~ 0.17055 x from the cancellation mechanism (imp-35759)',
+      'imp-35781 measures the empirical double-precision x-ceiling (x ~< 104) this headword’s law is calibrated against (imp-35781)',
+      'imp-35811 upgrades both to a MEASURED BigInt digit table and the T_PT extrapolation to ~1.02e12 digits (imp-35811)',
+      'imp-35726 Part D(2) named the x ~< 104 double-precision ceiling this whole progression quantifies (imp-35726)',
+      'imp-34813 supplies the exact de Bruijn evaluator whose precision wall this headword documents (imp-34813)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

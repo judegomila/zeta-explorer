@@ -10735,6 +10735,12 @@ const DATA_MODULES = [
   // and every bare imp-NNNNN citation (the imp-58685 typo class) -- zero dangling references
   // found. Audit only; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35904-s-frontier-crossref-integrity-audit.js',
+  // imp-35905 (meta, verify): permanent build-time cohort import-guard for the
+  // imp-35852/imp-35853/imp-35854/imp-35855 S-frontier measurement cohort (imp-35880
+  // pattern). Re-verified via esbuild bundle + plain node (all four bundle to
+  // 12.8-183.9KB, no zeros-bundle import); every bundle exits 0. Verification only;
+  // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35905-frontier-measurement-cohort-import-guard.js',
 ];
 
 let ALL_MODULES = FAST_MODE

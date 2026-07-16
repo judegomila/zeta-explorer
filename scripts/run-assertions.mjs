@@ -11945,6 +11945,12 @@ const DATA_MODULES = [
   // plain literals so an analysis tab can render it without the 16.7MB zeros bundle.
   // Presentation only; changes no bound; NO QED.
   '/src/data/imp-36186-kbn-kahan-two-episode-separation-viz-data.js',
+  // imp-36187 (ux, sonnet-4-6, sonnet): import-light viz-data module baking the imp-36166 /
+  // imp-36017 Krawczyk residual-node surrogate-vs-layer width ladder (N_cross plus the
+  // N=1e13..1e21 decade sweep) as plain literals so an analysis tab can render the
+  // surrogate/layer comparison and its a-independent 2x ratio without the 16.7MB zeros bundle.
+  // Presentation only; changes no bound; NO QED.
+  '/src/data/imp-36187-krawczyk-surrogate-layer-width-ladder-viz-data.js',
   // imp-36112 (content, sonnet-4-6, sonnet): standalone cross-reference note reconciling the
   // imp-36062 persistent-separation onset (N~34000) with the imp-36076 finer-ladder finding of an
   // EARLIER transient separation episode (N~1500-3000) -- merging both recorded ladders in N

@@ -9950,6 +9950,18 @@ const DATA_MODULES = [
   // sub-decade. Six self-executing assertions. Cross-check only; surrogate; imp-34714a stays OPEN; changes no
   // bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35849-cancellation-onset-cross-validation.js',
+  // imp-35855 (proof, assessment/scoping): assess whether the imp-35810 cancellation-free ratio
+  // R_clean lets the OPEN imp-34714a Krawczyk certificate AVOID the dG = S_inf(M_G-1) near-equal
+  // subtraction, not just diagnose it. FINDING: YES at the dG node -- the subtraction is removable
+  // in CLOSED FORM (M_G-1 = -a/(2-a), from G=1-a), so dG = -S_inf a/(2-a) evaluates a directly and
+  // 2-a is well-conditioned. The node subtraction condition number collapses from kappa_cancel ~ 4/a
+  // (~3e5 at PT, ~2.6e13 at N~1e21, divergent) to kappa_direct ~ 1 (bounded). Double-precision demo:
+  // R_direct tracks R_clean to the machine floor (~4.4e-16) up to N~1e21 while R_measured departs on
+  // the eps_mach/a envelope (~8.7e-4 at top). Five self-executing assertions. SUB-GAP: node-level
+  // de-cancellation is NECESSARY not SUFFICIENT; the full K(m) operator/imp-34687a layer is not ported,
+  // no interval instantiated, F(m)=0 stays an artifact; imp-34714a stays OPEN; changes no bound; NO QED;
+  // PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35855-rclean-interval-de-cancellation-assessment.js',
   // imp-35778: SCOPE the imp-35727 ingredient-I3 modulus floor |H_t| >= delta > 0 on dR by
   // DECOMPOSING the contour floor BY EDGE TYPE -- the split imp-35758 left monolithic as
   // "min over dR". delta = min(delta_short, delta_long). SHORT edges (x = const) cross the

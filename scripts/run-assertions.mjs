@@ -10428,6 +10428,19 @@ const DATA_MODULES = [
   // both markers pin the same two-decade [1e9,1e11] window. Cross-validation only;
   // reuses both models; changes no bound; imp-35337a OPEN; NO QED; PT 0.2 SOTA.
   '/src/data/imp-35891-flattest-point-vs-sigmoid-knee-crosslocation.js',
+  // imp-35894 (accuracy, measurement/cross-validation): COMPARE the imp-35538 REQ-4 FIXED
+  // natural-rate binding log-height 1/b (200, 100, 50, 20 for b = 0.5, 1, 2, 5%) against the
+  // height read off the imp-35853 EMPIRICAL required-height multiple 200/log T0 (b-scaled
+  // binding 200/log T0 = 1/(200 b) => empiricalLogT0 = b/b0^2 = 200, 400, 800, 2000). FINDING:
+  // the two coincide EXACTLY at the anchoring budget b0 = 0.5% (both log T0 = 200, T0 = e^200,
+  // reproducing the imp-35888 1x binding N ~ 2.27e88, sigma ~ 1.18e-39) but DIVERGE
+  // QUADRATICALLY -- ratio = (b/b0)^2 = 1, 4, 16, 100 -- a measurement artifact of the frozen
+  // 200-numerator, not a genuine rate difference; rescaling the numerator to 1/b restores
+  // agreement at every budget. The empirical height leaves the double-precision range at
+  // b > ~1.77% (b/b0^2 > log(MAX_VALUE) ~ 709.78), so only b = 0.5% / 1% are reachable on the
+  // surrogate. Measurement only; reuses imp-35538 / imp-35853 / imp-35888; changes no bound;
+  // imp-35337a OPEN; imp-486 untouched; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35894-empirical-vs-natural-rate-required-height.js',
   // imp-35859 (meta, verify): VERIFY the newer heavy-assertion cohort imp-35809/35810/
   // 35811/35812/35813 imports import-light and its self-executing assertions pass under
   // the esbuild-bundle + plain-node path (per [[verify_heavy_assertion_modules]]), making

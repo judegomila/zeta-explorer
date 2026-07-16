@@ -10717,6 +10717,12 @@ const DATA_MODULES = [
   // obstruction is the MECHANICAL engineering of the certified length-N interval sum (imp-35725).
   // Imports all four verbatim, no new numerics. Note only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35903-w1-summation-cost-cluster-crossref.js',
+  // imp-35904 (meta, cross-reference integrity audit): imp-35186/imp-35327/imp-35776 method
+  // applied to the newest S-frontier six-module cohort imp-35852/imp-35853/imp-35854/
+  // imp-35855/imp-35865/imp-35880. Checked every @see filename target, every named ES import,
+  // and every bare imp-NNNNN citation (the imp-58685 typo class) -- zero dangling references
+  // found. Audit only; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35904-s-frontier-crossref-integrity-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

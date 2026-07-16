@@ -11020,6 +11020,23 @@ const DATA_MODULES = [
   // already delivered exactly that note. AUDIT ONLY; no new note needed; changes no
   // bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35981-pairwise-shape-honest-status-duplicate-audit.js',
+  // imp-35999 (ux, S-frontier): import-light viz-data module (baked literals, no heavy
+  // imports) for the imp-35951 I2 panel-count-vs-margin ladder (n = ceil(3m/4): 1, 2, 3
+  // panels at margin 1, 2, 4) and the I3 modulus-floor proxy C_PS = pi/sqrt(2) ~ 2.2214,
+  // both read from the HELD imp-33923 sampled off-axis phase-winding proxy. Five
+  // self-executing assertions. VIZ-DATA ONLY; both remain PROXIES on the off-axis model
+  // cusp rho=|x|^{-1/2}, NOT the true H_t on dR; I2/I3 stay GREENFIELD; changes no
+  // bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35999-i2-i3-panel-margin-viz-data.js',
+  // imp-35997 (accuracy, S-frontier): LOCATE the height N maximizing the middle-term share
+  // E_flow/E(N) of the imp-35889 split E(N)=E_trunc+E_flow+E_coll. Golden-section max on log N
+  // finds the peak at N* ~ 9.65e1 (log T0 ~ 5.45), peak share only ~ 0.1587 -- E_flow NEVER
+  // dominates (E_coll leads, sigma ~ 0.841). The peak sits ~ 3.98 / ~ 6.34 / ~ 7.53 decades
+  // BELOW the interior sigma peak / Kneedle elbow / sigma=0.5 crossover, so the ~ 9.51e-4
+  // crossover figure imp-35950 reported is ~ 167x below the true max. Seven self-executing
+  // assertions. MEASUREMENT ONLY; reuses pinned imp-3406/imp-33582 sub-terms; changes no bound;
+  // imp-486 untouched; imp-35337a OPEN; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35997-eflow-max-share-height.js',
 ];
 
 let ALL_MODULES = FAST_MODE

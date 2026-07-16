@@ -10489,6 +10489,13 @@ const DATA_MODULES = [
   // evolution certificate) reuses the held object. Imports imp-35726 verbatim, no new
   // numerics. Note only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35773-w1-proxy-seeding-net-negative-honest-status.js',
+
+  // imp-35774: standalone cross-reference note tying together the W1 obligation cluster
+  // imp-35681 Part A (structural-overlap-only, A+B-C interval bound greenfield) ->
+  // imp-35717 R1-R4 (sign-reconciliation prerequisites, R4 names the E_A/E_B/E_{C_0} seed)
+  // -> imp-35725 (budgets that seed: E_A/E_B dominant pair, E_{C_0} subordinate). Imports
+  // all three verbatim, no new numerics. Note only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35774-w1-obligation-cluster-crossref.js',
 ];
 
 let ALL_MODULES = FAST_MODE

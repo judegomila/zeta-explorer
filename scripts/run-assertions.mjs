@@ -9973,6 +9973,19 @@ const DATA_MODULES = [
   // between the two named hypotheses. Seven self-executing assertions. Measurement / model
   // selection only; certifies no W1 bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36039-w1-pairwise-slack-depth-law-adjudication.js',
+  // imp-36081 (numerical, S-frontier): DENSIFY the imp-36018 seven-point slack-vs-depth fit
+  // by GENERATING 37 intermediate-depth pairing trees (regenerating the imp-35893 machinery:
+  // same fixed N~488602 multiset, LEAF=128, exact BigInt reference -- the seven original
+  // shapes reconcile the imp-36018 slack literals bit-for-bit) spanning depth 12..4099, then
+  // re-fitting log10(slack) on log10(depth). The point estimate barely moves (~0.748 -> ~0.753)
+  // but the nominal 95% slope interval narrows ~2.4x, from the seven-point [~0.28, ~1.22]
+  // (containing both sqrt 0.5 and linear 1.0 -- the imp-36039 tie) to [~0.557, ~0.949], which
+  // lies strictly below linear and above sqrt. So the sub-linearity is GENUINE, not a
+  // small-sample artifact; R^2 does not improve (~0.66 -> ~0.62) so the gain is from sample n,
+  // not tighter scatter, and the symmetric RSS test still cannot separate sqrt from linear.
+  // Eight self-executing assertions. Measurement only; certifies no W1 bound; changes no
+  // bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36081-w1-pairwise-slack-depth-densified-fit.js',
   // imp-35973 (numerical, S-frontier): MEASURE the CROSS-TERM of the two adversarial
   // pairwise stresses -- imp-35852 varied the term ORDER at a fixed balanced tree, imp-35893
   // varied the pairing-tree SHAPE at a fixed order, but the two-at-once cross was never
@@ -11592,6 +11605,12 @@ const DATA_MODULES = [
   // cross-checked by zeroCountAtHeight and sitting ~7 decades below Platt-Trudgian 3e12 and
   // ~301.7 decades below the imp-35972 twin overflow cliffs. Bookkeeping only; NO QED.
   '/src/data/imp-36080-tstar-at-achieved-rung.js',
+  // imp-36050 (meta, sonnet-4-6, sonnet): registration/reachability + import-light guard sweep
+  // (imp-35905/imp-35986/imp-36034 method) over the newest S-frontier cohort imp-35969/35970/
+  // 35971/35972/35973/35988/35989/35990. FINDING: all eight already carry a direct
+  // DATA_MODULES entry (imp-35969 via the fix applied in the prior imp-36034 sweep, still in
+  // place) and none imports the 16.7MB zeros-to-1e6.js bundle. No new orphans; no fix needed.
+  '/src/data/imp-36050-s-frontier-cohort-registration-reachability-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

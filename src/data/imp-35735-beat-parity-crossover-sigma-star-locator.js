@@ -55,6 +55,10 @@
  * remains SOTA.
  *
  * @see imp-35678-finite-height-beat-vs-parity-regime-boundary (the mechanical handoff this LOCATES)
+ * @see imp-35723-beat-parity-regime-boundary-Nsigma-locator (SAME crossover, located by mapping the imp-35750
+ *   sigma = 0.5 handoff onto the sigma(N) ladder: N_cross ~ 3.267e9 there vs N* ~ 3.280294e9 here, agreeing to
+ *   the N-decade -- the N-space framing (imp-35723) and the sigma-space framing (THIS module) of the identical
+ *   beat-carrier-to-barrier handoff)
  * @see imp-35677-postport-residual-share-sigma-ladder (the deep-tail E_coll share = sigma ladder)
  * @see imp-35732-eflow-share-true-nscaling-interior-bucket-split (parts()/bisection source; true E_flow N-scaling)
  * @see imp-35334-far-tail-effectively-unconditional-vs-etrunc-conditionality (the landmark ladder sigma<=1e-3)

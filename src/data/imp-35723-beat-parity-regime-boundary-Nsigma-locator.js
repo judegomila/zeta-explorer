@@ -76,6 +76,10 @@
  *
  * @see imp-35678-finite-height-beat-vs-parity-regime-boundary (named the boundary; never located it)
  * @see imp-35750-beat-parity-handoff-sigma-viz-data (sigma = 0.5 mathematical crossover, sigma-axis only)
+ * @see imp-35735-beat-parity-crossover-sigma-star-locator (SAME crossover, located directly in sigma-space by
+ *   E_coll(N) = E_trunc bisection rather than mapping the N-ladder: N* ~ 3.280294e9 there vs N_cross ~ 3.267e9
+ *   here, agreeing to the N-decade -- the N-space framing (THIS module) and the sigma-space framing (imp-35735)
+ *   of the identical beat-carrier-to-barrier handoff)
  * @see imp-3406-sigma-highN-extrapolation (the sigma(N) ladder + sub-terms this reuses; N_half ~ 3.27e9)
  * @see imp-486 / imp-35334 (E_coll/E(N) = sigma -- the beat carrier share); imp-398 (E_flow C_F prefactor)
  * @see lambda-rh-height-mapping (effectiveHeightForN); polymath15-constant-C-C (C_C_PINNED)

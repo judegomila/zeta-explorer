@@ -9945,6 +9945,19 @@ const DATA_MODULES = [
   // assertions. Measurement only; certifies no W1 bound; changes no bound; NO QED; PT
   // Lambda<=0.2 SOTA.
   '/src/data/imp-36018-w1-pairwise-slack-depth-scaling-exponent.js',
+  // imp-36039 (accuracy, S-frontier): ADJUDICATE which of the three NAMED candidate
+  // depth-scaling laws -- FLAT (slack ~ d^0), SQRT (slack ~ d^0.5), LINEAR (slack ~ d^1) --
+  // best describes how the imp-35970 a-priori pairwise bound over-predicts the imp-35893
+  // measured error vs tree depth d, by comparing constrained-slope residual sums of squares.
+  // FLAT is decisively rejected (RSS ~5.07, ~2.92x the free-fit minimum ~1.73): the
+  // over-prediction factor grows with depth. But SQRT (RSS ~2.10) and LINEAR (RSS ~2.11) are a
+  // statistical TIE (ratio ~0.994, sqrt marginally lower), both worse than the free exponent,
+  // because the free OLS exponent ~0.748 lands almost exactly at the sqrt-linear midpoint
+  // (equidistant to within ~0.004). So the honest verdict is NOT flat, with sqrt-vs-linear
+  // unresolvable on this seven-point family -- locating the imp-36018 sub-linear ~0.75 exponent
+  // between the two named hypotheses. Seven self-executing assertions. Measurement / model
+  // selection only; certifies no W1 bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36039-w1-pairwise-slack-depth-law-adjudication.js',
   // imp-35973 (numerical, S-frontier): MEASURE the CROSS-TERM of the two adversarial
   // pairwise stresses -- imp-35852 varied the term ORDER at a fixed balanced tree, imp-35893
   // varied the pairing-tree SHAPE at a fixed order, but the two-at-once cross was never

@@ -13740,6 +13740,32 @@ export const glossary = [
     link: '/viz-imp34825-winding-count-ladder',
   },
   {
+    term: 'Exact de Bruijn Evaluator Double-Precision x-Ceiling',
+    category: 'numerical',
+    definition:
+      'A disambiguation headword: the imp-34813 exact de Bruijn integral evaluator ' +
+      '(scripts/imp-34813-exact-debruijn-winding-offline.mjs, the same H_t(x) = int e^{t u^2} Phi(u) cos(xu) du ' +
+      'that seeds the Exact-Flow Collision-Time Meter) has a MEASURED double-precision reach limit, not an ' +
+      'assumed one: |H_0(x)| ~ exp(-pi x/8) tracks its envelope cleanly to x <~ 94 (gamma <~ 47), retains only ' +
+      '~34x headroom over the ~1.38e-17 roundoff-noise floor at the script window edge x = 104 (gamma = 52), and ' +
+      'is signal-submerged beyond x ~ 106 -- an empirical detach band x in [94,106] (imp-35781) that confirms the ' +
+      'imp-35759 linear digit law D_underflow(x) = (pi/8 ln10) x ~ 0.17055 x (imp-35726 Part D(2) first named the ' +
+      'x <~ 104 cap). Reach only DOUBLES to x ~ 199 under quad (binary128); reaching the Platt-Trudgian anchor ' +
+      'x_TPT = 2 T_PT = 6e12 would need ~1.0e12 decimal digits (~425 GB per value), a categorical wall, not a ' +
+      'tunable precision setting. So the evaluator is properly read as an infinite-system COLLISION METER on a ' +
+      '~10-zero window (gamma <~ 52), the ground-truth clock behind the Exact-Flow Collision-Time Meter -- it is ' +
+      'not, and cannot by any attainable precision be widened into, a T_PT = 3e12 height-verification tool. ' +
+      'Measurement + OOM cross-check only; no new bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    firstUsed: 'imp-34813 (evaluator origin); x <~ 104 cap named by imp-35726 Part D(2); costed by imp-35759; empirically measured by imp-35781, 2026',
+    relatedTerms: [
+      'imp-34813 the exact de Bruijn flow evaluator whose double-precision ceiling this headword documents (imp-34813)',
+      'Exact-Flow Collision-Time Meter (the collision-clock use of this same evaluator on gamma <~ 52)',
+      'imp-35759 the theoretical digit law D_underflow(x) = 0.17055 x this measurement confirms (imp-35759)',
+      'imp-35781 the empirical re-measurement locating the detach band x in [94,106] (imp-35781)',
+      'de Bruijn-Newman Constant Λ',
+    ],
+  },
+  {
     term: 'imp-34799 Contraction-Gap Amplification 1/(1-|g_prime|) ~ 1.0476',
     category: 'numerical',
     definition:

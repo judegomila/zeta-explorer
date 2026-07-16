@@ -12003,6 +12003,12 @@ const DATA_MODULES = [
   // the ~0.4% N-space proximity of the two landmarks is model-internal, not proven. Note only;
   // imports the imp-35102 source module verbatim; NO QED.
   '/src/data/imp-36182-nhalf-ncross-component-model-honest-status.js',
+  // imp-36184 (content, sonnet-4-6, sonnet): cross-reference narrative assembling the
+  // sigma(N) far-tail decay-exponent-ramp storyline -- imp-33582 (six-decade ladder) ->
+  // imp-33701 (sigmoid curvature) -> imp-33721 (sub-decade knee relocation) -> imp-33744
+  // (closed-form inflection-vs-half derivation) -- for a reader landing on any single
+  // stage cold. Note only; imports all four source records verbatim; NO QED.
+  '/src/data/imp-36184-sigma-fartail-decay-ramp-storyline-cross-reference.js',
 ];
 
 let ALL_MODULES = FAST_MODE

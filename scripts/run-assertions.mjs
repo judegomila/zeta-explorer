@@ -11707,6 +11707,11 @@ const DATA_MODULES = [
   // shipped in scripts/seed-ticket.mjs checkVizDataDuplicate()); no code change, records the
   // finding and the category:'ux'-only scope of that guard as a known blind spot. NO QED.
   '/src/data/imp-36128-duplicate-ticket-honest-status.js',
+  // imp-36106 (content, sonnet-4-6, sonnet): honest-status finding that ticket imp-36106 itself
+  // duplicates the already-completed imp-36124 (standalone honest-status note restating the
+  // imp-36062 SOFT/N-keyed KBN-vs-Kahan separation-onset finding); no new note derived, records
+  // the finding and cross-references the original. NO QED.
+  '/src/data/imp-36106-duplicate-ticket-honest-status.js',
   // imp-36129 (meta, sonnet-4-6, sonnet): standalone honest-status note recording the imp-36034
   // finding that imp-35969-krawczyk-residual-directed-rounding-width.js was a genuinely ORPHANED
   // module (no direct DATA_MODULES entry, imported nowhere -- only cited by @see prose in four

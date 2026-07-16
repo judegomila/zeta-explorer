@@ -9906,6 +9906,18 @@ const DATA_MODULES = [
   // every rung; all >=10 orders below the O(1) barrier margin. Measurement only; certifies no
   // W1 bound; changes no bound; A+B-C stays GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35854-w1-summation-kappa-sweep.js',
+  // imp-35930 (accuracy, cross-validation): CROSS-VALIDATE the imp-35854 large-kappa ~4e-17
+  // naive-NORMALIZED plateau against INDEPENDENT finer references. imp-35854/imp-35852/imp-35812
+  // use a single 2^{-96} fixed-point BigInt dyadic reference; at the large-kappa rungs the exact
+  // sum is O(4e-17 x Sum|t_k|) small, so the plateau could in principle be reference-grid-limited.
+  // Re-computing the exact reference on 2^{-128} and 2^{-160} grids for the large-kappa rungs (plus
+  // a kappa~1 control): every naive/pairwise/Kahan normalized error is BIT-IDENTICAL across all
+  // three grids -- the min 2^{-96} fixed-point shift is +14 (a left shift), so the baseline grid
+  // already stores every double LOSSLESSLY and a finer grid merely rescales numerators by a power
+  // of two. The ~4e-17 plateau is REFERENCE-INDEPENDENT: a genuine double-precision accumulator
+  // effect, NOT a 2^{-96} grid artifact; imp-35854 stands. Cross-validation only; certifies no W1
+  // bound; changes no bound; A+B-C stays GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35930-w1-summation-reference-precision-crossval.js',
   // imp-35887 (numerical, measurement): TABULATE the naive-summation coherence fraction vs the
   // NUMBER of maximal same-sign runs r on the fixed imp-35812 N=488602 multiset, interpolating
   // between the imp-35852 clustered r=2 worst case and the r~N oscillatory extreme via

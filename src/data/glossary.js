@@ -19648,6 +19648,48 @@ export const glossary = [
       'imp-35339 is the literal-verification method template imp-35402 applied to surface this caveat (imp-35339)',
     ],
   },
+  {
+    term: 'One-Sided-Slack Worst-Case Principle (imp-35412: larger t_c, not more-faithful t_c, is the conservative reading)',
+    category: 'method',
+    definition:
+      'A methodological principle for reporting the slack (margin) of a one-sided UPPER bound: ' +
+      'the conservative worst-case reading is whichever candidate value is LARGEST (closest to the ' +
+      'bound from below), not whichever candidate is measured with the finer or more physically ' +
+      'faithful method.\n\n' +
+      'imp-35412 confronted this directly for the R2 true-flow ladder predicate t_c_flow(N) <= ' +
+      't_c_hi(N) (imp-2528) at N=2000. The baked N=2000 rung reports the imp-35324 endpoint DP45 ' +
+      'dt-over-2 worst-case t_c = 1.1999384320e-3 (slack +6.16e-8). imp-35351 later built a true DP45 ' +
+      'continuous-extension (CONTD5) dense-output interpolant and caught an interior within-step ' +
+      'crossing at t_c = 1.1919828898e-3 -- a MORE FAITHFUL detection of the physical collision time, ' +
+      'since it resolves the interior dip that endpoint sampling is blind to, and it would report a ' +
+      'much larger ~8.0e-6 slack.\n\n' +
+      'VERDICT: KEEP the endpoint value, do NOT adopt the dense interior crossing, for three reasons. ' +
+      '(R1) DIRECTION: for a one-sided upper bound the worst case is the LARGEST tested collision ' +
+      'time; the endpoint value (1.1999384320e-3) exceeds the dense value (1.1919828898e-3), so ' +
+      'swapping in the dense crossing REPLACES a conservative +6.16e-8 margin with an over-optimistic ' +
+      '+8.0e-6 one -- it understates the endpoint-quantization risk the slack exists to bound. (R2) ' +
+      'NOT-EVEN-THE-DENSE-WORST-CASE: within imp-35351\'s own dense envelope the DP45 dt-over-2 ' +
+      'crossing is not the max -- the RK4 dt-over-2 endpoint crossing (1.1924935719e-3) is, so the ' +
+      'naive dense figure also mis-selects its own reference. (R3) GRID MISMATCH: the endpoint value ' +
+      'is a finer-grid (tauC/4000) endpoint-gate detection with no step-over, while the dense value is ' +
+      'a coarser-grid (tauC/1000) interior crossing -- different resolutions and detection roles, not ' +
+      'two readings of one event that can be swapped in place.\n\n' +
+      'GENERAL RULE: a more-accurate (earlier/smaller) reading of a quantity being tested against a ' +
+      'one-sided upper bound is the WRONG quantity for a conservative worst-case slack, even when it ' +
+      'is the more physically faithful measurement -- it belongs in the record as a diagnostic, not as ' +
+      'the reported margin.\n\n' +
+      'HONEST SCOPE: methodological assessment only; recommends no page edit (RUNGS[5] already keeps ' +
+      'the endpoint value per imp-35359); does not advance the R2 ladder (stays certified through ' +
+      'N=1000, N=2000 provisional); does not touch the imp-486 GUE conditional; changes no bound; ' +
+      'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35464 (glossary/method headword documenting the imp-35412 one-sided-slack worst-case principle), 2026',
+    relatedTerms: [
+      'imp-35412 ran the dense-vs-endpoint assessment this principle generalizes from (imp-35412)',
+      'imp-35324 supplies the kept endpoint DP45 dt-over-2 worst-case (imp-35324)',
+      'imp-35351 supplies the more-faithful but wrongly-conservative dense interior crossing (imp-35351)',
+      'imp-35359 confirmed RUNGS[5] already bakes the endpoint worst-case, so no page edit follows (imp-35359)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

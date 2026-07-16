@@ -10834,6 +10834,16 @@ const DATA_MODULES = [
   // PROXIES for the true H_t=A+B-C on dR at T_PT=3e12; certifies no delta>0; counts no zeros; I3 stays
   // GREENFIELD; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36011-i3-floor-cusp-vs-geometry-reconciliation.js',
+  // imp-36058 (numerical/derivation): DIMENSIONALIZE the scale-free imp-33923 cusp modulus C_PS=pi/sqrt(2)
+  // ~2.2214 (imp-36011 Route S) into a |H_t| floor on dR via the imp-35993/imp-36008 mean-gap map. The
+  // imp-35778 off-axis long-edge floor delta_long(h)=M(T).w.h EQUALS C_PS at the height h_eq=C_PS/(M.w)=
+  // meanGap/sqrt(2)~0.16521 (exactly 1/sqrt(2) mean gaps off axis), giving a POINT dimensional floor
+  // candidate M(T).C_PS~2.2214 at M=1. SHORTFALL to certified delta>0 is INFINITE/categorical: (A) M(T) is
+  // an uncertified normalization (greenfield A+B-C, imp-35681 Part A); (B) C_PS is h-flat but delta_long
+  // collapses as h->0 so inf_{h in [0,h_eq]} delta_long=0 (point, not h-uniform); (C) silent on the
+  // axis-crossing short edges (delta_short). Five self-executing THROWing assertions; import-light. PROXY on
+  // the model cusp, NOT true H_t=A+B-C; certifies no delta>0; I3 stays GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36058-i3-cusp-modulus-dimensionalization.js',
   // imp-35844 (meta): AUDIT the imp-35763/imp-35764 honesty-gate assertion guards (imp-486
   // kept, imp-35337a OPEN, NO QED, PT SOTA regexes). SPLIT FINDING: the imp-486/OPEN/NO-QED
   // text guards are LIVE and PROTECTIVE (test the modules' own verdict strings, would fail
@@ -11419,6 +11429,13 @@ const DATA_MODULES = [
   // sequential-KBN floor; the deep left-caterpillar spine does NOT defeat compensation.
   // Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-36056-kbn-caterpillarL-argmax-shape.js',
+  // imp-36030: import-light viz-data module (baked literals) for the imp-35973 order-x-shape
+  // STRESS MATRIX at N ~ 488602 -- order-only (~3.15e-17, ~0.75% of ceiling), shape-only
+  // (~1.85e-18, ~0.044%), combined (~4.32e-16, ~10.3%, worst row), and the Kahan-Babuska
+  // floor (~2.31e-19, ~0.0055%), all normalized against the log2(N)*eps pairwise ceiling.
+  // Five self-executing assertions. Viz-data only; changes no bound; NO QED; Platt-Trudgian
+  // Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-36030-order-shape-stress-matrix-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -380,6 +380,23 @@ export const IMP35854_W1_SUMMATION_KAPPA_SWEEP_ASSERTIONS = [
       /valid UPPER BOUND/.test(IMP35854_W1_SUMMATION_KAPPA_SWEEP.honestStatus),
   },
   {
+    // imp-35906: the docstring-quoted literals (naiveNorm~3.5e-14 at kappa~1; naiveRel~8.4e-12
+    // and kahanRel~2.4e-15 at kappa~2e5) must reproduce from the live SWEEP, guarding against
+    // transcription drift between the comment table and the exported kappaSweep object.
+    id: 'imp35906-docstring-literals-no-drift',
+    description: 'Docstring-quoted kappa~1 and kappa~2e5 literals reproduce from the live SWEEP within 5% (no transcription drift)',
+    holds: () => {
+      const nearKappa1 = SWEEP[0];
+      const nearKappa2e5 = SWEEP[SWEEP.length - 1];
+      const relClose = (measured, quoted) => Math.abs(measured - quoted) / quoted < 0.05;
+      return (
+        relClose(nearKappa1.naiveNorm, 3.5e-14) &&
+        relClose(nearKappa2e5.naiveRel, 8.4e-12) &&
+        relClose(nearKappa2e5.kahanRel, 2.4e-15)
+      );
+    },
+  },
+  {
     // Honesty gate: measurement only; hypothesis REFINED not confirmed; no QED; PT SOTA.
     id: 'imp35854-honesty-gate',
     description: 'Measurement only; hypothesis refined; greenfield; no QED; PT Lambda<=0.2 SOTA',

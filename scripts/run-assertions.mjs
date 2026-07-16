@@ -11124,6 +11124,13 @@ const DATA_MODULES = [
   // headword; pins a regression guard confirming the duplicate finding stays consistent.
   // Audit only; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36001-glossary-headword-duplicate-audit.js',
+  // imp-36006 (content, S-frontier): standalone cross-reference note tying together the
+  // W2 certified-winding-count ingredient-sizing cohort -- imp-35727 (SCOPE: names I1-I5,
+  // all GREENFIELD) sized by imp-35757/imp-35777/imp-35832/imp-35951 (I2, four routes),
+  // imp-35758/imp-35778 (I3, two routes), imp-35804 (I4), and imp-35805 (I5). Distinct from
+  // the W1 summation-robustness cluster (imp-35987). Imports all nine verdicts verbatim, no
+  // new numerics. Note only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36006-w2-winding-ingredient-sizing-cohort-crossref.js',
 ];
 
 let ALL_MODULES = FAST_MODE

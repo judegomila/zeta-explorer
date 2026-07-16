@@ -10616,6 +10616,19 @@ const DATA_MODULES = [
   // the OFF-AXIS MODEL CUSP rho=|x|^{-1/2}, NOT the true H_t on dR; certifies no cap; certifies no
   // delta>0; counts no zeros; I2/I3 stay GREENFIELD; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36009-i2-i3-node-count-sensitivity.js',
+  // imp-36010 (numerical, S-frontier): EXPLAIN the imp-35893/imp-35956 non-monotone pairwise-error
+  // vs pairing-tree DEPTH ordering. Re-runs the seven shapes against the same exact BigInt reference
+  // and instruments the combine-layer magnitude budget B_combine=Sum_v|s_hat_v| plus its realization
+  // ratio rho=E/(u*B_combine/Sum|t|). FINDING: every shape realizes only rho~0.5%..12% of its budget
+  // (all <0.2, ~21x spread) so the SCALE is set by signed-error cancellation, not magnitude; the best
+  // shape skew0.25 does NOT have the smallest budget (caterpillarL/balanced are as small yet ~8-19x
+  // worse) so its win is a cancellation-alignment coincidence -- a GENUINE effect; the worst shape
+  // caterpillarR IS partly magnitude (right-peel grows the left block => ~100x budget). Budget rank-
+  // correlates only moderately (Pearson~0.67) and beats depth (~0.42) but neither orders the error, so
+  // the non-monotonicity is PRIMARILY a genuine cancellation effect, NOT a pure magnitude artifact.
+  // Seven self-executing THROWing assertions; import-light. Measurement only; A+B-C stays GREENFIELD
+  // (imp-35681 Part A); changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36010-pairwise-tree-shape-partial-sum-magnitude-mechanism.js',
   // imp-35844 (meta): AUDIT the imp-35763/imp-35764 honesty-gate assertion guards (imp-486
   // kept, imp-35337a OPEN, NO QED, PT SOTA regexes). SPLIT FINDING: the imp-486/OPEN/NO-QED
   // text guards are LIVE and PROTECTIVE (test the modules' own verdict strings, would fail

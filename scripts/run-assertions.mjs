@@ -10122,6 +10122,20 @@ const DATA_MODULES = [
   // Math.PI/Math.exp). Measurement only; extends no evaluator; evaluates no true H_0 at high
   // precision; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35811-exact-debruijn-arbitrary-precision-digit-table.js',
+  // imp-35816 (accuracy, measurement): MEASURE the deviation of the imp-35778 short-edge
+  // rectangle width Delta from an EXACT integer number of mean zero gaps delta(T_PT) ~ 0.2336,
+  // quantifying the endpoint-placement quantization on the mean-gap surrogate spacing. Both short
+  // edges must land at inter-zero |H_t| maxima (one gap apart on the uniform surrogate), so a naive
+  // width W snaps to k = round(W/delta), Delta_q = k . delta. FINDING: the ABSOLUTE snap residual is
+  // bounded by half a mean gap (delta/2 ~ 0.1168) independently of the width (worst ~0.1120 at W=16),
+  // and the RELATIVE residual |residual|/W <= delta/(2W) = 1/(2k) DECAYS inversely with the width in
+  // gaps (worst ~0.0654 at the narrowest rectangle; snapping can enlarge W=2 up from 8.56 to 9 gaps
+  // or shrink it) -- so imp-35778s "near an integer number of gaps" is a delta/2 absolute / 1/(2k)
+  // relative endpoint cost, cheap for wide rectangles. Uses the UNIFORM mean-gap surrogate; real
+  // zeros fluctuate (GUE-conditional, imp-486) adding a secondary deviation this model omits. Six
+  // self-executing assertions. Measurement only; positions no rectangle; certifies no floor; changes
+  // no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35816-short-edge-delta-integer-gap-deviation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

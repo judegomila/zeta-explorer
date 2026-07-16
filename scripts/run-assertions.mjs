@@ -10019,6 +10019,15 @@ const DATA_MODULES = [
   // no interval instantiated, F(m)=0 stays an artifact; imp-34714a stays OPEN; changes no bound; NO QED;
   // PT Lambda<=0.2 SOTA.
   '/src/data/imp-35855-rclean-interval-de-cancellation-assessment.js',
+  // imp-35892 (numerical, measurement): extend the imp-35855 sweep FAR past N~1e21 to locate where the
+  // de-cancelled R_direct = -S_inf a/(2-a) form s OWN double-precision relative error first exceeds 1e-12.
+  // FINDING: it NEVER does -- R_direct vs R_clean stays <=2 ULP (~4.4e-16) across all finite N in
+  // [1e13, ~1e307]. The residual a->0 conditioning limit of the O(1)-conditioned 2-a form is not reached
+  // in double precision; R_direct instead fails at a HARD NaN cliff at N~10^307.5 where effectiveHeightForN
+  // overflows to +Infinity (T>MAX_VALUE) and drives a->0 -- representability of the RvM height inverse,
+  // reached before a would underflow. Four self-executing assertions. imp-34714a stays OPEN; no interval;
+  // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35892-rdirect-own-floor-departure-height.js',
   // imp-35885 (numerical, assessment): audit the OTHER nodes of the OPEN imp-34714a Krawczyk certificate
   // K(m) = m - [F-prime]^{-1} F(m) that imp-35855 left un-checked -- F(m), the [F-prime] Jacobian, and the
   // g(m)/F-prime enclosures -- for dG-type near-equal cancellations, forming kappa_sub = (|x|+|y|)/|x-y| at

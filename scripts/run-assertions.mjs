@@ -10733,6 +10733,19 @@ const DATA_MODULES = [
   // knees, confirming the imp-35889 between-the-knees claim. Measurement only; reuses
   // imp-35853 / imp-35889 locators; changes no bound; imp-35337a OPEN; NO QED; PT 0.2 SOTA.
   '/src/data/imp-35950-etrunc-ecoll-crossover-height.js',
+  // imp-35994 (accuracy, measurement): MEASURE the sensitivity of the imp-35950 sigma = 0.5
+  // crossover height N_cross ~ 3.267e9 (log10 ~ 9.514) to perturbations of the pinned inputs
+  // E_trunc = 3.06e-5 (imp-2631) and C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643). Reusing the
+  // identical imp-35950 downslope bisection (parameterized in the two constants) and a symmetric
+  // log-space central finite difference, the crossover height is a near-perfect power law:
+  // dlog N_cross / dlog E_trunc ~ -2.098 and dlog N_cross / dlog C_C ~ +2.102, both flat to 4
+  // sig figs over relative steps 1% / 5% / 10%. These sit just above the naive frozen-log-height
+  // value 2 (balance N_cross ~ C_C^2 L / E_trunc^2); the ~5% excess is the L = log T0 drift plus
+  // the ~0.1% E_flow tilt. A 10% relative perturbation of either constant moves N_cross only
+  // ~0.087 decades (log10 N_cross ~ 9.42..9.61 over the +/-10% box), so the crossover stays
+  // strictly between the two imp-35853 knees (log10 N 8.328 and 9.857). Measurement only;
+  // changes no bound; imp-35337a OPEN; NO QED; PT 0.2 SOTA.
+  '/src/data/imp-35994-crossover-height-elasticities.js',
   // imp-35891 (accuracy, cross-validation): CROSS-CHECK whether the imp-35853 REQ-4
   // required-height-multiple flattest point (sigma ~ 0.407) coincides in N with the
   // imp-33701 sigmoid decay-rate inflection knee ([1e10,1e11]). FINDING: they do NOT

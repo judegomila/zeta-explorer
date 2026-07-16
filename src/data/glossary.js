@@ -20052,6 +20052,41 @@ export const glossary = [
       'imp-34693 defines the admissible seed band within which imp-35762 S3 flatness actually holds (imp-34693)',
     ],
   },
+  {
+    term: 'imp-35806 benign I2-I3 coupling corner (joint (Delta, h) placement)',
+    category: 'proof-frontier',
+    definition:
+      'A headword recording the imp-35806 finding that the imp-35777 I2<->I3 panel-cap/floor coupling, though ' +
+      'REAL, forces NO trade-off at the derived joint operating corner: the (Delta, h) placement that MINIMISES ' +
+      'the total boundary panel budget COINCIDES with the imp-35800 placement that MAXIMISES the I3 floor.\n\n' +
+      'THE JOINT OBJECTIVE: writing the whole-boundary panel count as N_total(Delta, h) = 2 . N_long + 2 . ' +
+      'N_short with N_long = Delta . B/(pi . delta_long(h)) and N_short = 2h . B/(pi . delta_short(Delta)) puts ' +
+      'BOTH imp-35778 edge floors in the denominators, so lifting either floor (I3) mechanically shrinks the ' +
+      'required panel count (I2) -- the imp-35777 coupling made explicit as one objective.\n\n' +
+      'THE DERIVED CORNER: taking Delta = m mean zero gaps (delta_short = 1, enclosing ~m real zeros) and ' +
+      'minimising over h, the unconstrained stationary point h_interior* = sqrt(m pi/2)/w lies PAST the ' +
+      'saturation height 1/w for every m >= 1 (sqrt(m pi/2) >= sqrt(pi/2) ~ 1.2533 in units of 1/w), so the ' +
+      'constrained minimum sits at the BOUNDARY h* = 1/w -- EXACTLY the imp-35800 floor-saturation height. At ' +
+      'this corner (Delta*, h*) = (m . g, 1/w), both floors sit at main-term scale and the total budget is ' +
+      'N_total = 2m + 4/pi, i.e. 2 + 4/(pi m) panels per enclosed zero, -> 2 as m -> infinity.\n\n' +
+      'HOW TO APPLY: cite this corner whenever a certificate worries that lifting the I3 floor must cost extra ' +
+      'I2 panels -- in the ROBUST (free-slide) regime it does not, because the I2-optimal and I3-optimal knobs ' +
+      'are the SAME knob; the imp-35777 tension re-appears only in the GRAZING regime (imp-35801s 1/d panel ' +
+      'pole), which is exactly where I3 itself already fails, so I2 and I3 fail together and succeed together.\n\n' +
+      'HONEST SCOPE: DERIVATION ON THE SHARED NORMALISED OOM MODEL ONLY. Evaluates no true |H_t| or |H_t ' +
+      'prime|; fixes no Delta or h for any real rectangle; certifies no cap; certifies no delta > 0; ' +
+      'establishes no positivity; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-35877 (glossary headword recording the imp-35806 benign I2-I3 coupling corner), 2026',
+    relatedTerms: [
+      'imp-35806 derives the joint (Delta*, h*) = (m.g, 1/w) corner and the N_total = 2m + 4/pi budget recorded here (imp-35806)',
+      'imp-35777 flags the I2<->I3 panel-cap/floor coupling that this corner shows is benign in the robust regime (imp-35777)',
+      'imp-35778 supplies the delta_short/delta_long edge-type floor decomposition the joint objective is built from (imp-35778)',
+      'imp-35800 supplies the floor-only argmax (saturation corner h = 1/w, Delta = integer gaps) the joint I2 optimum coincides with (imp-35800)',
+      'imp-35801 supplies the grazing-regime 1/d panel-budget pole where the coupling tension re-appears (imp-35801)',
+      'imp-35757 supplies the mean zero gap g ~ 0.2336 that quantizes Delta and sets the h_sat = 1/w scale (imp-35757)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -21083,6 +21083,44 @@ export const glossary = [
       'imp-36111 ties this three-way split to the full five-landmark tail-storyline arc, from the imp-35853 Kneedle elbow down to the imp-35971 sole-survivor height (imp-36111)',
     ],
   },
+  {
+    term: 'imp-36046 E_flow-1pct-of-E_trunc crossing (N ~ 4.623e8, shareColl ~ 0.716): a third landmark distinct from the two imp-35853 knees and the imp-35337 sigma=1/2 balance crossover',
+    category: 'accuracy',
+    definition:
+      'A disambiguating headword for the imp-36046 tail landmark where E_flow first falls below 1% of ' +
+      'E_trunc (N ~ 4.623e8, log10 N ~ 8.665). At this height E(N) = E_trunc + E_flow + E_coll is still ' +
+      'COLLISION-dominated: shareColl ~ 0.7157, shareTrunc ~ 0.2815, shareFlow ~ 2.81e-3 (the term that ' +
+      'just crossed below the 1% mark). This is a DIFFERENT landmark from three nearby, easily-confused ' +
+      'ones on the same downslope:\n\n' +
+      '  - imp-35853 Kneedle elbow knee: N ~ 2.13e8, shareColl ~ 0.783 -- BELOW this landmark in N.\n' +
+      '  - imp-35337 E_trunc = E_coll balance crossover (sigma = 1/2 exactly): N ~ 3.28e9 -- ABOVE this ' +
+      'landmark in N; the E_flow-1pct crossing sits strictly on the collision-dominated side of that ' +
+      'balance point, not at or past it.\n' +
+      '  - imp-35853 flattest-point knee: N ~ 7.20e9, shareColl ~ 0.407 -- further ABOVE still, already ' +
+      'truncation-dominated.\n\n' +
+      'So the N-ordering is: Kneedle elbow (2.13e8) < E_flow-1pct crossing (4.623e8) < balance crossover ' +
+      '(3.28e9) < flattest-point knee (7.20e9). imp-36111 assembles this landmark as the second of five ' +
+      'successive samples of one monotonically decaying shareColl arc past the roadmap sigma(N) peak: ' +
+      '0.783 (elbow) -> 0.716 (this landmark) -> 0.407 (flattest point) -> 0.100 (sigma<0.1) -> 0.0099 ' +
+      '(imp-35971 sole survivor).\n\n' +
+      'HOW TO APPLY: when citing a shareColl figure near ~0.7, confirm which of the elbow (0.783), this ' +
+      'crossing (0.716), or the balance crossover (exactly 0.5) is meant -- the three are numerically ' +
+      'close enough on a coarse log-N plot to be conflated, but name three distinct heights over an ' +
+      'order-of-magnitude N range (2.13e8 to 3.28e9).\n\n' +
+      'HONEST SCOPE: presentation/orientation only; reuses the imp-35971/imp-3406/imp-33582 literals ' +
+      'verbatim; derives no new remainder; changes no bound; C_C GUE-conditional (imp-2642/imp-2643/' +
+      'imp-486) untouched; imp-35337a surrogate-vs-true fidelity sub-gap stays OPEN; no RH verdict, ' +
+      'NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-36202 (glossary headword disambiguating the imp-36046 E_flow-1pct crossing from the imp-35853 knees and the imp-35337 balance crossover), 2026',
+    relatedTerms: [
+      'imp-36046 e-share-tail-landmarks-viz-data bakes the E_flow-1pct crossing (N ~ 4.623e8, shareColl ~ 0.716) this headword names (imp-36046)',
+      'imp-36111 assembles this landmark as the second of five successive shareColl samples on the tail storyline arc (imp-36111)',
+      'imp-35853 req4-required-height-continuous-sigma-knee supplies the two knee locators (Kneedle elbow, flattest point) this landmark sits between/past (imp-35853)',
+      'imp-35337 sigma-landmarks-double-double-certification dd-certifies the sigma = 1/2 balance crossover this landmark sits below (imp-35337)',
+      'imp-35889 e-share-decomposition-at-knees supplies the three-way share decomposition reused at every landmark (imp-35889)',
+      'E(N) = E_trunc + E_flow + E_coll: the three-way bridge-error split, its sigma = 1/2 crossover, and its fractional-share tail landmarks is the companion orientation headword this entry disambiguates within',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

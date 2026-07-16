@@ -20288,6 +20288,7 @@ export const glossary = [
       'imp-35854 sweeps kappa across ~5.3 decades and finds the naive relative error grows sublinearly, not linearly (imp-35854)',
       'imp-35761 supplies the pessimistic linear-in-N normalized ceiling that kappa converts to a relative-error ceiling (imp-35761)',
       'imp-35812 W1 summation-scheme cost hierarchy names the naive/pairwise/Kahan measured hierarchy this kappa scaling applies to',
+      'imp-35852 stresses adversarial term ORDER at this same fixed kappa ~1.4e3, the companion adversarial lever to imp-35854 kappa sweep (imp-35852)',
     ],
   },
   {

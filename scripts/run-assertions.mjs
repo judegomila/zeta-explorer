@@ -9369,6 +9369,19 @@ const DATA_MODULES = [
   // assessment identity; changes no bound; C_mb GUE-conditional (imp-486) UNTOUCHED; imp-34791
   // E_trunc reclassification UNCHANGED; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35704-postport-share-identity-guard.js',
+  // imp-35745: REGRESSION-GUARD pinning the imp-35679 UN-ROUNDED provenance partition (distinct
+  // from the imp-35704 ROUNDED-literal share IDENTITY guard). imp-35679 reconciled the imp-35654
+  // SHARE_SUM_POSTPORT ~1.000000006 excess: with the un-rounded C_T_true = 1 - sigma - E_flow_share
+  // = 0.998999994345, the three baked imp-35334 shares GUE (1e-3) + C_T_true (0.998999994345) +
+  // E_flow (5.655e-9) sum to EXACTLY 1 (residual < 1e-15) -- tighter than the imp-35704 guard, which
+  // pins the ROUNDED 0.999 literal to storage tolerance (~1e-6). This import-light module
+  // INDEPENDENTLY recomputes the un-rounded partition and cross-checks the imp-35679 baked
+  // reconciliation record reproduces it. Four self-executing assertions. Import-light (imports only
+  // the import-light imp-35679 record, no zeros bundle, per [[no_heavy_imports_in_pages]] /
+  // [[verify_heavy_assertion_modules]]). Regression-guard only; recomputes an established
+  // reconciliation identity; changes no bound; C_mb GUE-conditional (imp-486) UNTOUCHED; imp-34791
+  // E_trunc reclassification UNCHANGED; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35745-unrounded-partition-unity-guard.js',
   // imp-35660: REGRESSION-GUARD pinning the imp-35577 far-tail-crossing HEIGHT-MAP sensitivity
   // literals so a silent literal drift trips the build (the sibling of the imp-35619 span-growth
   // guard, which the imp-35577 cohort lacked). imp-35577 measured both E_flow far-tail remnant

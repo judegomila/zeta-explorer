@@ -11857,6 +11857,13 @@ const DATA_MODULES = [
   // cross-module conflicts on the five shared landmarks (T_PT=3e12, N~488602, N_cross~3.27..
   // 3.28e9, C_PS~2.2214, ceiling fraction ~41.2%). Audit only; no fix needed; NO QED.
   '/src/data/imp-36071-imp3601x2x-see-integrity-audit.js',
+  // imp-36073 (ux, sonnet-4-6, sonnet): import-light viz-data module (baked literals) for the
+  // imp-36011 I3 two-route modulus-floor comparison on the shared main-term |H_t| ~ 1
+  // normalization -- Route S single-cusp C_PS ~ 2.2214 vs Route G O(1) four-edge geometric
+  // floor ~1, residual factor ~2.2214 (~0.347 decades, same order of magnitude), and the edge
+  // asymmetry (Route S proxies only the off-axis LONG edges, silent on the SHORT edges). Viz-data
+  // only; changes no bound; NO QED.
+  '/src/data/imp-36073-i3-two-route-floor-comparison-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

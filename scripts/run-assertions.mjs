@@ -9913,6 +9913,11 @@ const DATA_MODULES = [
   // produces no numeric M_prime; certifies no positivity; changes no bound; NO QED; PT
   // Lambda<=0.2 SOTA.
   '/src/data/imp-35799-i3-long-edge-derivative-floor-scope.js',
+  // imp-35827: registration/reachability audit for the imp-3576x/imp-3577x cohort found
+  // imp-35826 (the cohort's own regression-guard module, re-importing all six and asserting
+  // their ids resolved) was itself MISSING from DATA_MODULES, so its guard never ran under
+  // npm run assert. Registers it. Audit/fix only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35826-heavy-assertion-cohort-verification.js',
 ];
 
 let ALL_MODULES = FAST_MODE

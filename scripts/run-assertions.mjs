@@ -9961,6 +9961,15 @@ const DATA_MODULES = [
   // intrinsic coherent-vs-random-walk pessimism. Assessment only; instantiates no interval;
   // changes no bound; A+B-C stays GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35890-w1-running-accumulator-apriori-bound.js',
+  // imp-35948 (numerical, assessment): ESTIMATE the intermediate Wilkinson-style PROBABILISTIC
+  // sqrt(N)*u a-priori scale -- the rung between the imp-35890 CERTIFIED deterministic run-max
+  // bound (~6.4e-14) and the imp-35812/imp-35852 achieved random-walk error (~3.0e-17). Replacing
+  // the coherent (N-1) factor by the random-walk sqrt(N-1) on the O(1) accumulator peak lands at
+  // ~9.2e-17, recovering ~85% (~2.84 of ~3.33 orders) of the imp-35890 residual; the sharper
+  // Higham-Mary mean-square form ~5.6e-17 recovers ~92%. Certifiable ONLY under roundoff
+  // independence (NOT deterministic); the CERTIFIED bound stays imp-35890 ~6.4e-14. Assessment
+  // only; instantiates no interval; changes no bound; A+B-C GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35948-w1-probabilistic-sqrtN-apriori-scale.js',
   // imp-35871 (numerical, measurement): CONFIRM the imp-35812 reading (naive summation
   // error tracks the O(sqrt(N) u) random walk, NOT the O(N u) coherent worst case) is not
   // an artifact of the single kappa ~ 1.4e3 imp-35812 chose, by re-reading the imp-35854

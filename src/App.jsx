@@ -852,6 +852,9 @@ const Imp35564FartailProductDecayViz = lazy(() =>
 const Imp35580Req4HeightGapViz = lazy(() =>
   import('./pages/Imp35580Req4HeightGapViz.jsx')
 );
+const Imp35771Req4HeightMultipleViz = lazy(() =>
+  import('./pages/Imp35771Req4HeightMultipleViz.jsx')
+);
 const Imp35582ReentryBandDataUnreachabilityViz = lazy(() =>
   import('./pages/Imp35582ReentryBandDataUnreachabilityViz.jsx')
 );
@@ -2539,6 +2542,10 @@ function AppShell() {
           <Route
             path="/viz-imp35386-kemp-bracketing-ladder"
             element={<Imp35386KempBracketingLadderViz />}
+          />
+          <Route
+            path="/viz-imp35771-req4-height-multiple"
+            element={<Imp35771Req4HeightMultipleViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -1579,6 +1579,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive chart re-exporting the imp-35853 measurement verbatim (no new derivation, no heavy data-module import, no re-running the bisection sweep at page load); measurement only; the multiple does not flatten onto the PT-anchor value in sigma-space; establishes no operator positivity; imp-35337a stays OPEN.',
     }),
+    Object.freeze({
+      route: '/viz-imp35771-req4-height-multiple',
+      title: 'REQ-4 Required-Height Multiple Ladder (200 / log T0)',
+      oneLine:
+        'Bar chart of the imp-35722 required-height multiple 200/log T0 across the three base landmarks (sigma-peak ~15.12x, E_coll=E_trunc crossover ~9.59x, Platt-Trudgian anchor ~6.96x), with the residual log-height gap (200 - log T0) column that imp-35580 bar-charted the raw log-heights for but never turned into a ratio.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-35771-req4-required-height-multiple-viz-data.js',
+      paperSourcePath: 'src/data/imp-35722-req4-required-height-landmark-ladder.js (imp-35771 viz page)',
+      ticket: 'imp-35771',
+      pedagogicalStep: 109,
+      honestCeiling:
+        'Descriptive chart re-exporting the imp-35722 required-height ladder verbatim (no new derivation, no heavy data-module import); presentation only; C_mb GUE-conditional (imp-486) UNTOUCHED; imp-35337a stays OPEN; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

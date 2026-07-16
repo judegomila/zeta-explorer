@@ -9974,6 +9974,18 @@ const DATA_MODULES = [
   // I1b (differentiated F_prime = imp-35799 SG-1). Import-light, five self-executing
   // assertions. Scoping only; builds no enclosure; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35803-i1-interval-enclosure-per-edge-scope.js',
+  // imp-35808: ASSESS whether the imp-35681 Part A / imp-35725 enclosure CAN DELIVER a
+  // certified inf|H_t prime| lower bound for the imp-35778 long-edge floor. FINDING: NO, not
+  // as instantiated -- that enclosure evaluates the VALUE H_t and produces the UNDIFFERENTIATED
+  // margin M = |A+B|-|C| (value floor |H_t| >= M), which carries ZERO info about the DERIVATIVE
+  // modulus |H_t prime|. Re-instantiating the SAME evaluator on H_t prime requires exactly two
+  // additions: (D1) log-frequency-scaled coefficients (each of ~4.886e5 terms times its d/dz
+  // factor <= log N ~ w) and (D2) an INDEPENDENT differentiated cap C_t prime, NOT recyclable
+  // from the imp-35725 cap C_t (differentiation and truncation do not commute). Same MACHINERY,
+  // NOT the same INSTANCE; adds NO greenfield mechanism (I3 downstream of W1); isolates imp-35799
+  // SG-1 (= imp-35803 I1b) as the SOLE delivery blocker, resolved into D1 + D2. Five self-executing
+  // assertions. Delivery-feasibility scoping only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35808-i3-long-edge-derivative-delivery-scope.js',
   // imp-35804: scopes the imp-35727 ingredient I4 (closure of the accumulated per-panel
   // argument increment around dR to a UNIQUE integer N). Integrality is a FREE EXACT fact
   // (argument principle: true total = 2pi*N given the I3 no-boundary-zero precondition), so

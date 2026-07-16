@@ -9910,6 +9910,13 @@ const DATA_MODULES = [
   // regression guard confirming the imp-35819 headword stays present. Audit only; NO QED; PT
   // Lambda<=0.2 SOTA.
   '/src/data/imp-35835-glossary-duplicate-ticket-audit.js',
+  // imp-35836: ticket asked to seed a viz-data module + routed page for the imp-35763 merged
+  // six-rung REQ-4 required-height ladder, conditional on none already existing. Audit found one
+  // ALREADY EXISTS (imp-35823-required-height-ladder-viz-data.js + routed page at
+  // /viz-imp35823-required-height-ladder) and is a near-duplicate ticket the frontier scout
+  // re-seeded. Adds no new viz-data module or page; pins a regression guard confirming the
+  // imp-35823 six-rung ladder stays present and complete. Audit only; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35836-viz-duplicate-ticket-audit.js',
   // imp-35779: DERIVE the REQUIRED-fraction allocation of the barrier margin
   // M = |A_t+B_t| - |C_t| among the imp-35725 cap terms E_A, E_B, E_{C_0} that keeps the
   // strict triangle inequality strict at T_PT. imp-35760 gave one SUFFICIENT point (an
@@ -9950,6 +9957,14 @@ const DATA_MODULES = [
   // their ids resolved) was itself MISSING from DATA_MODULES, so its guard never ran under
   // npm run assert. Registers it. Audit/fix only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35826-heavy-assertion-cohort-verification.js',
+  // imp-35803: scopes the imp-35727 ingredient I1 (validated interval extension of
+  // f = H_t = A + B - C bracketing f over each whole panel of dR, carrying truncation +
+  // rounding error) -- the last un-scoped W2 ingredient. Structural finding: I1 is the
+  // base engine, I3 floor = inf|F| (modulus projection) and I2 cap = argwidth F < pi
+  // (argument projection) are read-outs of the SAME box; splits into I1a (base F) and
+  // I1b (differentiated F_prime = imp-35799 SG-1). Import-light, five self-executing
+  // assertions. Scoping only; builds no enclosure; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35803-i1-interval-enclosure-per-edge-scope.js',
 ];
 
 let ALL_MODULES = FAST_MODE

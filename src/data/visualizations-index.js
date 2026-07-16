@@ -1566,6 +1566,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive chart re-exporting the imp-35852 exact-BigInt-referenced adversarial-ordering measurement verbatim (no new derivation, no heavy data-module import, no re-running the summation schemes at page load); measurement only; certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no inequality; establishes no positivity; the W1 A+B-C certificate at T_PT stays GREENFIELD (imp-35681 Part A).',
     }),
+    Object.freeze({
+      route: '/viz-imp35936-req4-height-multiple-sigma',
+      title: 'REQ-4 Required-Height Multiple vs Sigma',
+      oneLine:
+        'Line chart of the imp-35853 continuous REQ-4 required-height multiple 200/log T0 versus sigma on the peak-to-PT downslope, marking the Kneedle elbow (sigma~0.783), flattest point (sigma~0.407), and PT-anchor (sigma~0.019, ~6.96x) locators.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-35936-req4-height-multiple-sigma-viz-data.js',
+      paperSourcePath: 'src/data/imp-35853-req4-required-height-continuous-sigma-knee.js (imp-35936 viz page)',
+      ticket: 'imp-35936',
+      pedagogicalStep: 108,
+      honestCeiling:
+        'Descriptive chart re-exporting the imp-35853 measurement verbatim (no new derivation, no heavy data-module import, no re-running the bisection sweep at page load); measurement only; the multiple does not flatten onto the PT-anchor value in sigma-space; establishes no operator positivity; imp-35337a stays OPEN.',
+    }),
   ]),
 });
 

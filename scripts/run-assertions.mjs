@@ -11510,6 +11510,16 @@ const DATA_MODULES = [
   // overflow, T->+Infinity, log10 N~307.456536), baking a and T at each boundary. Presentation
   // only; changes no bound; NO QED.
   '/src/data/imp-36047-two-cliff-bisection-viz-data.js',
+  // imp-36064 (accuracy, opus-4-8, api-pool): CLOSED-FORM derivation of the imp-36022
+  // E_flow-inclusion tilt 1/2 - sigma(N_cross) = f/(2(2+f)), f = E_flow/E_trunc at the raw-ratio
+  // crossover; confirms tilt/slope reproduces the pinned ~0.0017-decade gap between imp-35968
+  // (log10 9.5159) and imp-35950 (log10 9.5142). Derivation only; changes no bound; NO QED.
+  '/src/data/imp-36064-eflow-inclusion-tilt-closed-form.js',
+  // imp-36124 (content, sonnet-4-6, sonnet): standalone honest-status note restating imp-36062 --
+  // the KBN-vs-classic-Kahan separation onset near N~34000 tracks N (bit-identical everywhere
+  // below), not a hard conditioning-kappa cutoff, and is a SOFT/intermittent threshold. Note
+  // only; changes no bound; NO QED.
+  '/src/data/imp-36124-kbn-kahan-soft-onset-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -12060,6 +12060,14 @@ const DATA_MODULES = [
   // traceable via the file-path-keyed registration-reachability method -- only via a plain
   // id-string grep. Distinct from the imp-36129 orphaned-FILE failure mode. Scoping only; NO QED.
   '/src/data/imp-36209-docstring-only-ticket-reachability-honest-status.js',
+  // imp-36210 (content, sonnet-4-6, sonnet): cross-reference narrative assembling the
+  // LAMBDA_CHAIN_STEPS Step-4 Polymath15-bridge rigorous-upgrade storyline (imp-35098) --
+  // the three OPEN obligations G6a-holder-modulus (imp-3671, STRUCTURALLY SILENT),
+  // G-Etrunc-Eflow-constants (imp-34791, PARTIAL), G-EN-ladder-verify (imp-35100, E(N)
+  // floors at E_trunc not 0) -- naming the shared E_trunc pivot and differing maturity
+  // stages for a reader landing on any one obligation cold. Note only; imports all four
+  // source modules verbatim; NO QED.
+  '/src/data/imp-36210-step4-obligations-storyline-crossref.js',
 ];
 
 let ALL_MODULES = FAST_MODE

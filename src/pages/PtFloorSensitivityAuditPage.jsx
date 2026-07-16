@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { PT_FLOOR_AUDIT } from '../data/pt-floor-sensitivity-audit-2026-07-08.js';
+import { IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER } from '../data/imp-35711-postport-parity-no-beat-honest-status-banner.js';
+import { IMP35678_FINITE_HEIGHT_BEAT_VS_PARITY_REGIME_BOUNDARY } from '../data/imp-35678-finite-height-beat-vs-parity-regime-boundary.js';
 
 const {
   meta, marginTable, marginTableNote, documentedMinCorridorMargin,
@@ -136,6 +138,29 @@ export default function PtFloorSensitivityAuditPage() {
           {theLever.nature} {theLever.gap}
         </p>
       </div>
+
+      <h2>§5 · No-beat banner vs. the recorded finite-height beat</h2>
+      <div style={{
+        border: '1px solid #f59e0b55', background: 'rgba(245,158,11,0.06)',
+        borderRadius: 10, padding: '14px 18px', maxWidth: 820,
+      }}>
+        <div style={{ fontSize: 12, fontFamily: 'ui-monospace, monospace', color: '#f59e0b', marginBottom: 6 }}>
+          {IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER.headline}
+        </div>
+        <p style={{ margin: 0, color: '#cbd5e1', fontSize: 13, lineHeight: 1.6 }}>
+          {IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER.statements.S1_still_only_parity.claim}
+        </p>
+      </div>
+      <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7, maxWidth: 820, marginTop: 10 }}>
+        This is reconciled against the recorded finite-height beat (L_pt ≈{' '}
+        {IMP35678_FINITE_HEIGHT_BEAT_VS_PARITY_REGIME_BOUNDARY.twoReadings.reading1_finiteHeightBeat.value}
+        {' '}&lt; 0.2) on three orthogonal axes — the two readings are DIFFERENT OBJECTS in DIFFERENT REGIMES, not in tension:
+      </p>
+      <ul style={{ color: '#cbd5e1', fontSize: 12.5, lineHeight: 1.7, maxWidth: 820 }}>
+        <li><strong>regime</strong> — {IMP35678_FINITE_HEIGHT_BEAT_VS_PARITY_REGIME_BOUNDARY.reconciliation.axesOfDifference.regime}</li>
+        <li><strong>object</strong> — {IMP35678_FINITE_HEIGHT_BEAT_VS_PARITY_REGIME_BOUNDARY.reconciliation.axesOfDifference.object}</li>
+        <li><strong>conditionality</strong> — {IMP35678_FINITE_HEIGHT_BEAT_VS_PARITY_REGIME_BOUNDARY.reconciliation.axesOfDifference.conditionality}</li>
+      </ul>
 
       <h2>Fidelity caveats</h2>
       <ol style={{ color: '#94a3b8', fontSize: 12.5, lineHeight: 1.65, maxWidth: 840 }}>

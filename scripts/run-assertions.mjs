@@ -11781,6 +11781,7 @@ const DATA_MODULES = [
   // imp-36061 single-axis detuning edges under-state the coupled margin by up to ~2.5x and a monitor
   // keyed on either axis alone would be UNSAFE across most of the plane. Note only; NO QED.
   '/src/data/imp-36142-joint-basin-non-convex-single-axis-unsafe-honest-status.js',
+  '/src/data/imp-36115-joint-2d-recovery-locus-duplicate-audit.js',
   // imp-36144 (ux, sonnet-4-6, sonnet): import-light viz-data module (baked literals) for the
   // imp-36095 fine step-250 KBN-vs-classic-Kahan intermittency band across N in [34000, 40000]
   // (25 rungs) -- 15 separated, 10 bit-identical, alternating rung-to-rung; genuine identical
@@ -11832,6 +11833,13 @@ const DATA_MODULES = [
   // Kneedle elbow, sigma=0.5 crossover). So the split is effectively TWO-way (E_trunc + E_coll)
   // at every height that matters. Note only; NO QED.
   '/src/data/imp-36069-eflow-never-dominates-honest-status.js',
+  // imp-36070 (meta, sonnet-4-6, sonnet): registration/reachability + import-light guard audit
+  // (imp-36007/imp-35982/imp-35905 method) over the imp-3601x/imp-3602x cohort imp-36008,
+  // imp-36011, imp-36017, imp-36020, imp-36021, imp-36022, imp-36023. FINDING: six of seven
+  // directly registered; imp-36017 has no direct entry but is transitively reachable via its two
+  // directly-registered importers imp-36057/imp-36066, so its assertions still run. Zero orphans;
+  // none imports the 16.7MB zeros-to-1e6.js bundle. Audit only; no fix needed; NO QED.
+  '/src/data/imp-36070-imp3601x2x-second-cohort-registration-reachability-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -9164,6 +9164,15 @@ const DATA_MODULES = [
   // registrations, zero orphaned assertion modules (the imp-35610 failure mode). AUDIT ONLY; no
   // source file required correction; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35630-imp3555x-imp3557x-registration-reachability-audit.js',
+  // imp-35590: REGISTRATION/REACHABILITY CHECK (imp-35472..imp-35477/imp-35545 method) on the
+  // imp-35537 (R1t reentry-band closure scope) and imp-35538 (route-i remainder derivation
+  // requirements) assessment modules. FINDING: both export their result const and paired
+  // *_ASSERTIONS array (no default export), both filepaths are live DATA_MODULES entries, and
+  // neither carries a `-viz-data` suffix so neither is expected to have its own routed page --
+  // both are registry-only reference modules correctly cited by prose from other viz-data pages
+  // (imp-35580, imp-35582). Zero orphans. AUDIT ONLY; no source file required correction; changes
+  // no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35590-imp35537-imp35538-registration-reachability-audit.js',
   // imp-35619: REGRESSION-GUARD pinning the imp-35553 E_flow far-tail remnant span-growth ladder.
   // imp-35553 baked the four-threshold crossing ladder (log10 N 25.6205 / 109.1892 / 410.0475 /
   // 1467.7351 through the sub-1e-6 direct bisection), the three decade spans (83.5687 / 300.8583 /
@@ -9823,6 +9832,22 @@ const DATA_MODULES = [
   // evaluates no modulus; fixes no Delta or h; certifies no delta>0; changes no bound; NO QED;
   // PT Lambda<=0.2 SOTA.
   '/src/data/imp-35778-i3-edge-type-floor-decomposition-scope.js',
+  // imp-35779: DERIVE the REQUIRED-fraction allocation of the barrier margin
+  // M = |A_t+B_t| - |C_t| among the imp-35725 cap terms E_A, E_B, E_{C_0} that keeps the
+  // strict triangle inequality strict at T_PT. imp-35760 gave one SUFFICIENT point (an
+  // arbitrary RHO = 1/2 that entangles the intra-cap split with the total budget). This
+  // module SEPARATES them: (a) the RHO-free intra-cap shares dictated purely by the OOM
+  // ordering -- s_A = s_B = 1/(2 + 1/N) ~ 0.5 (dominant pair) and s_{C_0} = (1/N)/(2 + 1/N)
+  // ~ 1.02e-6, so the dominant pair owns ~99.99979% of the cap and the requirement collapses
+  // to E_A + E_B < M; and (b) the NECESSARY total-margin ceiling -- strictness holds IFF
+  // RHO = (E_A+E_B+E_{C_0})/M < 1 (open boundary), of which imp-35760 RHO = 1/2 is only a
+  // factor-2 interior sub-case. The imp-35725 OOM puts the realized RHO many orders below 1
+  // (deep interior); RHO -> 1 only where M itself collapses (imp-35758 grazing caveat), a
+  // margin failure not a cap failure. ADDS NO greenfield mechanism -- confirming the realized
+  // point needs the SAME certified ~4.886e5-term interval sums, so A+B-C stays GREENFIELD
+  // (imp-35681 Part A). Five self-executing assertions. Allocation / OOM scoping only;
+  // evaluates no sum; verifies no inequality; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35779-w1-required-fraction-allocation-scope.js',
 ];
 
 let ALL_MODULES = FAST_MODE

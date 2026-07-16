@@ -9970,6 +9970,19 @@ const DATA_MODULES = [
   // rung -- precision stays NON-binding across the whole ladder. Seven self-executing asserts.
   // Measurement only; certifies no W1 bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36019-order-shape-cross-N-ladder.js',
+  // imp-36038 (numerical, S-frontier): MEASURE whether the imp-35973 combined worst-SHAPE
+  // (caterpillarR) x worst-ORDER (clustered) CROSS pairwise CEILING FRACTION cross/(log2(N)*eps)
+  // (~0.10 at N~488602) GROWS with N toward the ceiling across the imp-35948 DENSE 7-rung
+  // half-decade ladder N=[1000,3162,10000,31623,100000,316228,~488602]. The fraction is
+  // [3.83e-2, 1.16e-2, 4.64e-3, 1.93e-2, 1.41e-1, 1.08e-1, 1.03e-1]: it does NOT grow toward
+  // the ceiling -- it swings ~30x non-monotonically (dips to ~4.64e-3 at N=10000, ~216x under)
+  // then SATURATES on an O(0.1) plateau across the upper three half-decades; the nominal +0.36
+  // log-log slope is a phase artifact of the deep N=10000 trough, not a march to the ceiling.
+  // The fraction stays >= ~7x under the log2(N)*eps ceiling at EVERY rung, so the two stresses
+  // do NOT compound super-linearly in the large-N limit; the imp-35973 ~0.10 endpoint is
+  // REPRESENTATIVE of the plateau. Six self-executing assertions; import-light (no zeros bundle).
+  // Measurement only; certifies no W1 bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36038-cross-ceiling-fraction-ladder.js',
   // imp-36020 (numerical, S-frontier): LOCATE and CONFIRM the worst-SHAPE FLIP to
   // caterpillarL under the imp-35852 CLUSTERED same-sign term ORDER by sweeping the FULL
   // imp-35893 seven pairing-tree shape set (balanced, four skews, left/right caterpillar) at

@@ -11825,6 +11825,13 @@ const DATA_MODULES = [
   // 61 distinct bare ticket citations resolve to real ids in improvements.js/improvement-queue.js.
   // Audit only; no bound touched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-36148-imp3608x9x-cross-reference-integrity-audit.js',
+  // imp-36069 (content, sonnet-4-6, sonnet): standalone honest-status note restating imp-35997 --
+  // the middle flow term E_flow NEVER dominates the imp-35889 three-way split E(N) =
+  // E_trunc + E_flow + E_coll: its own peak share is only ~15.9% at a very low height N* ~ 96.5,
+  // and the share only falls further at every landmark height above ~100 (interior sigma peak,
+  // Kneedle elbow, sigma=0.5 crossover). So the split is effectively TWO-way (E_trunc + E_coll)
+  // at every height that matters. Note only; NO QED.
+  '/src/data/imp-36069-eflow-never-dominates-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

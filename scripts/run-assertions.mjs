@@ -11635,6 +11635,11 @@ const DATA_MODULES = [
   // conditioning (~1.07e-16 at N=1000 to ~4.86e-15 at N~488602, ~45x, tracking kappa ~62->~1391)
   // while both Kahan and KBN compensation stay N-flat, 3-4 orders below unit roundoff. NO QED.
   '/src/data/imp-36130-naive-vs-compensated-conditioning-growth-honest-status.js',
+  // imp-36066 (content, sonnet-4-6, sonnet): standalone honest-status note recording that BOTH
+  // the imp-35969 nextafter surrogate and the imp-36017 a-priori LAYER width model of the
+  // Krawczyk residual node are correctly-rounded MODELS, not a machine certificate -- the
+  // imp-34687a directed-rounding layer remains unimplemented and imp-34714a stays OPEN. NO QED.
+  '/src/data/imp-36066-residual-node-no-machine-certificate-honest-status.js',
   // imp-36049 (content, sonnet-4-6, sonnet): standalone honest-status note restating imp-35969 --
   // the imp-34714a Krawczyk residual node [F(m)] outward-rounded enclosure width is a-INDEPENDENT
   // (flat at a few eps across N=1e13..1e21) while the dG surplus-split node relative width
@@ -11689,6 +11694,12 @@ const DATA_MODULES = [
   // panel counts (roundoff-only crossover n* ~ 4.50e15, ~14 orders beyond the ~17..1e6 physical
   // range), so the operative I4 constraint is TRUNCATION (reduced by subdivision), not rounding.
   '/src/data/imp-36055-i4-rounding-never-threatens-pi-budget-honest-status.js',
+  // imp-36097 (numerical, opus-4-8, api-pool): import-light viz-data module extending the imp-36046
+  // E(N)=E_trunc+E_flow+E_coll tail with the four MISSING threshold-crossing heights it never
+  // located -- shareFlow<1e-3 (N~3.010e9), <1e-5 (N~1.266e12), <1e-6 (N~1.754e13), and shareColl<1%
+  // (N~4.624e13, coinciding with the imp-35971 sole-survivor). Bisection on log N over the same
+  // imp-3406/imp-33582/imp-2642 sub-terms. Measurement only; changes no bound; NO QED.
+  '/src/data/imp-36097-e-share-threshold-crossings-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

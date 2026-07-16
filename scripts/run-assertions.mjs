@@ -10393,6 +10393,15 @@ const DATA_MODULES = [
   // knees. Measurement only; reuses imp-35853 locators; changes no bound; imp-35337a OPEN;
   // NO QED; PT 0.2 SOTA.
   '/src/data/imp-35889-e-share-decomposition-at-knees.js',
+  // imp-35891 (accuracy, cross-validation): CROSS-CHECK whether the imp-35853 REQ-4
+  // required-height-multiple flattest point (sigma ~ 0.407) coincides in N with the
+  // imp-33701 sigmoid decay-rate inflection knee ([1e10,1e11]). FINDING: they do NOT
+  // coincide -- the flattest point maps to N_flat ~ 7.20e9 (decade [1e9,1e10]), ONE
+  // decade below the [1e10,1e11] inflection decade, but ADJACENT: N_flat sits at the
+  // lower edge of the imp-33701 steepest-ramp step k=9 ([1e9,1e10]->[1e10,1e11]), so
+  // both markers pin the same two-decade [1e9,1e11] window. Cross-validation only;
+  // reuses both models; changes no bound; imp-35337a OPEN; NO QED; PT 0.2 SOTA.
+  '/src/data/imp-35891-flattest-point-vs-sigmoid-knee-crosslocation.js',
   // imp-35859 (meta, verify): VERIFY the newer heavy-assertion cohort imp-35809/35810/
   // 35811/35812/35813 imports import-light and its self-executing assertions pass under
   // the esbuild-bundle + plain-node path (per [[verify_heavy_assertion_modules]]), making

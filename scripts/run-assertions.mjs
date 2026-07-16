@@ -10118,6 +10118,15 @@ const DATA_MODULES = [
   // reached before a would underflow. Four self-executing assertions. imp-34714a stays OPEN; no interval;
   // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35892-rdirect-own-floor-departure-height.js',
+  // imp-35947 (numerical, measurement): does a LOG-domain Newton seed for effectiveHeightForN (solving for
+  // x = log T, so the finite double 2 pi . N is never materialized) push the imp-35892 R_direct NaN cliff
+  // past N ~ 10^307.46? FINDING: the log-domain seed defers the RvM inverse s OWN overflow (T stays finite
+  // to N=MAX_VALUE), but the R_direct cliff barely moves -- the downstream aOf = 2 pi K/(T . u) product
+  // overflows at the SAME 10^307.46 decade. Only a FULL log-domain a node clears it, landing at the
+  // representability of N itself (10^308.25, a~8.7e-301 still a NORMAL double). So NEITHER a delayed
+  // height-overflow NOR the a-denormal underflow binds -- gain is ~0.8 decade. Four self-executing
+  // assertions. imp-34714a stays OPEN; no interval; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35947-log-domain-height-seed-cliff-deferral.js',
   // imp-35885 (numerical, assessment): audit the OTHER nodes of the OPEN imp-34714a Krawczyk certificate
   // K(m) = m - [F-prime]^{-1} F(m) that imp-35855 left un-checked -- F(m), the [F-prime] Jacobian, and the
   // g(m)/F-prime enclosures -- for dG-type near-equal cancellations, forming kappa_sub = (|x|+|y|)/|x-y| at

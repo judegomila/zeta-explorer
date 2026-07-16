@@ -9776,6 +9776,15 @@ const DATA_MODULES = [
   // on the crossover rung (imp-33582 F3). Five self-executing assertions. Measurement only;
   // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35763-req4-required-height-sigma-landmark-fill.js',
+  // imp-35766 (numerical, measurement): test whether the imp-35266 2:1 surplus-split ratio
+  // -dFP/dG ~ 2.00042 stays N-independent BEYOND the imp-34693 seed band. The ratio collapses
+  // algebraically to R(N) = 2 . (aLo/a)(1-a)/(1-aLo), deviation R - 2 = 2 eps/(1-a) with
+  // eps = aLo/a - 1 an O(delta) shift. From band-top (R-2 ~ 4.17e-4) up to the PT anchor
+  // N(T_PT) ~ 1.236e13 (R-2 ~ 3.995e-4) the deviation SHRINKS -- the balance tightens, does not
+  // break; the residual is O(delta) N-frozen (spread ~1.7e-5). The only apparent break past
+  // N ~ 1e18 is double-precision cancellation in dG (spurious). Five self-executing assertions.
+  // Measurement only; surrogate; imp-34714a stays OPEN; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35766-krawczyk-cancellation-ratio-beyond-band.js',
 ];
 
 let ALL_MODULES = FAST_MODE

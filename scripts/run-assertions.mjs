@@ -11942,6 +11942,12 @@ const DATA_MODULES = [
   // measurement (KBN floor stays ~3.9-6.5 orders below the certified run-max regardless). Note
   // only; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-36112-compensated-summation-storyline-crossref.js',
+  // imp-36161 (content, sonnet-4-6, sonnet): honest-status finding that ticket imp-36161 itself
+  // duplicates the already-completed imp-36142 (standalone honest-status note restating the
+  // imp-36096 non-convex joint (alpha,beta) recovery-basin finding and the imp-36061 single-axis
+  // under-statement by up to ~2.5x); no new note derived, records the finding and cross-references
+  // the original. NO QED.
+  '/src/data/imp-36161-duplicate-ticket-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

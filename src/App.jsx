@@ -888,6 +888,9 @@ const Imp35750BeatParityHandoffSigmaViz = lazy(() =>
 const Imp35751PostportSharesSigmaViz = lazy(() =>
   import('./pages/Imp35751PostportSharesSigmaViz.jsx')
 );
+const Imp35823RequiredHeightLadderViz = lazy(() =>
+  import('./pages/Imp35823RequiredHeightLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2479,6 +2482,10 @@ function AppShell() {
           <Route
             path="/viz-imp35751-postport-shares-sigma"
             element={<Imp35751PostportSharesSigmaViz />}
+          />
+          <Route
+            path="/viz-imp35823-required-height-ladder"
+            element={<Imp35823RequiredHeightLadderViz />}
           />
           <Route
             path="/viz-imp35386-kemp-bracketing-ladder"

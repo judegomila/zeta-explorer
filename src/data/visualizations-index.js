@@ -1475,6 +1475,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive chart re-exporting the imp-35677 sigma-share model verbatim (no new derivation, no heavy data-module import); presentation only; C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35823-required-height-ladder',
+      title: 'Merged Required-Height Ladder Across Peak / Sigma / PT Rungs',
+      oneLine:
+        'Line chart of the imp-35763 merged six-rung REQ-4 required-height ladder: the required-height multiple 200/log T0 descending monotonically across the sigma-peak, sigma<0.9/0.5/0.1 downslope landmarks, the E_coll=E_trunc crossover, and the Platt-Trudgian anchor, none of which reach the imp-35538 binding log-height 200.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-35823-required-height-ladder-viz-data.js',
+      paperSourcePath: 'src/data/imp-35763-req4-required-height-sigma-landmark-fill.js (imp-35823 viz page)',
+      ticket: 'imp-35823',
+      pedagogicalStep: 101,
+      honestCeiling:
+        'Descriptive chart re-exporting the imp-35763/imp-35722 required-height ladder verbatim (no new derivation, no heavy data-module import); presentation only; C_mb GUE-conditional (imp-486) UNTOUCHED; imp-35337a stays OPEN; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

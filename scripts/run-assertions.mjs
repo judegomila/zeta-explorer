@@ -11562,6 +11562,11 @@ const DATA_MODULES = [
   // ticket citations resolve to real ids in improvement-queue.js/improvements.js/lambda-roadmap.js.
   // Audit only; no bound touched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-36127-imp3603x-3606x-cross-reference-integrity-audit.js',
+  // imp-36128 (meta, sonnet-4-6, sonnet): honest-status finding that ticket imp-36128 itself
+  // duplicates the already-completed imp-36108 (pre-seed viz-data duplicate-detection guard,
+  // shipped in scripts/seed-ticket.mjs checkVizDataDuplicate()); no code change, records the
+  // finding and the category:'ux'-only scope of that guard as a known blind spot. NO QED.
+  '/src/data/imp-36128-duplicate-ticket-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

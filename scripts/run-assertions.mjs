@@ -9915,6 +9915,18 @@ const DATA_MODULES = [
   // the O(1) barrier margin. Seven self-executing assertions. Measurement only; certifies
   // no W1 bound; changes no bound; A+B-C stays GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35871-w1-summation-kappa-envelope.js',
+  // imp-35895 (numerical, measurement): TABULATE the imp-35854 PAIRWISE relative-error kappa-
+  // scaling across the same ten (alpha,beta) rungs -- imp-35854 tabulated only naiveRel and
+  // kahanRel vs kappa and reported pairwise via its normalized error, leaving its relative-error
+  // scaling blank. Re-reading the imp-35854 sweep verbatim (NOT re-run): pairwiseRel grows FAR
+  // SUBLINEARLY (~3.5 decades over ~5.3 of kappa) because the pairwise NORMALIZED error is not
+  // kappa-constant (stays below unit roundoff u, drifts DOWN as cancellation deepens). pairwiseRel
+  // sits FAR below the naive sqrt(N)*u*kappa ceiling (fraction <= ~6.5e-4) and at/below the
+  // 2u*kappa Kahan floor reference (multiple <= ~0.23); on the RELATIVE axis the hierarchy
+  // Kahan<=pairwise<=naive holds at every rung (ties near kappa~1). Pairwise is kappa-robust; all
+  // >=10 orders below the O(1) barrier margin. Measurement only; certifies no W1 bound; changes no
+  // bound; A+B-C stays GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35895-w1-summation-pairwise-relative-kappa.js',
   // imp-35873 (numerical, measurement): MEASURE the imp-35808 (D1) differentiated-sum
   // directed-rounding accumulation cost by re-running the imp-35812 naive/pairwise/Kahan
   // schemes on the SAME length-N sum with each of the N ~ 4.886e5 retained terms re-weighted

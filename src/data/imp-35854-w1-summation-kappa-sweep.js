@@ -285,6 +285,14 @@ export const IMP35854_W1_SUMMATION_KAPPA_SWEEP = {
       'A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A) and MECHANICAL (imp-35725)',
   },
   isRigorous: false,
+  honestStatus:
+    'The naive relative error grows with kappa but FAR SUBLINEARLY (~' + NAIVE_REL_DECADES.toFixed(1) +
+    ' decades of naiveRel growth over ~' + KAPPA_DECADES.toFixed(1) + ' decades of kappa), so the ' +
+    'pessimistic sqrt(N) u kappa Wilkinson ceiling is a valid UPPER BOUND (every rung sits below it) ' +
+    'but is NOT TRACKED as a predictive law -- it increasingly OVERESTIMATES the achieved naive ' +
+    'relative error as kappa rises, because the naive NORMALIZED error itself drops from ~sqrt(N) u ' +
+    'at kappa ~ 1 toward a ~4e-17 plateau at kappa ~ 2e5, rather than staying kappa-constant. Downstream ' +
+    'readers should not treat sqrt(N) u kappa as the achieved naive error, only as a safe ceiling.',
   verdict:
     'NUMERICAL MEASUREMENT (frontier-direction, NOT a certified bound). Sweeping (alpha, beta) so the measured ' +
     'condition number kappa = (Sum |t_k|) / |Sum t_k| ladders from ~' + KAPPA_MIN.toFixed(2) + ' to ~' +
@@ -360,6 +368,16 @@ export const IMP35854_W1_SUMMATION_KAPPA_SWEEP_ASSERTIONS = [
     id: 'imp35854-hierarchy-preserved',
     description: 'Kahan < pairwise < naive on the normalized scale at every kappa rung',
     holds: () => HIERARCHY_HOLDS,
+  },
+  {
+    // Honest-status note: sqrt(N) u kappa is a valid ceiling but NOT tracked as kappa rises (imp-35942).
+    id: 'imp35854-honest-status-ceiling-not-tracked',
+    description: 'honestStatus states sqrt(N) u kappa is a valid ceiling but not tracked, overestimating as kappa rises',
+    holds: () =>
+      typeof IMP35854_W1_SUMMATION_KAPPA_SWEEP.honestStatus === 'string' &&
+      /NOT TRACKED/.test(IMP35854_W1_SUMMATION_KAPPA_SWEEP.honestStatus) &&
+      /OVERESTIMATES/.test(IMP35854_W1_SUMMATION_KAPPA_SWEEP.honestStatus) &&
+      /valid UPPER BOUND/.test(IMP35854_W1_SUMMATION_KAPPA_SWEEP.honestStatus),
   },
   {
     // Honesty gate: measurement only; hypothesis REFINED not confirmed; no QED; PT SOTA.

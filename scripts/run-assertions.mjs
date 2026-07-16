@@ -10310,6 +10310,15 @@ const DATA_MODULES = [
   // Four self-executing assertions. imp-34714a stays OPEN; no interval; changes no bound; NO QED; PT
   // Lambda<=0.2 SOTA.
   '/src/data/imp-35972-effective-height-overflow-cliff-bisection.js',
+  // imp-36021 (accuracy, measurement): PERTURB the pinned K, delta, S_inf across (and beyond) provenance
+  // and measure dlog10(N_cliff)/dlog(each) for BOTH imp-35972 cliffs. FINDING: the two-cliff gap is EXACTLY
+  // constant-robust. Cliff A (effectiveHeightForN -> +Infinity) depends only on the RvM seed numerator
+  // 2 pi . N > MAX_VALUE (no K/delta/S_inf); cliff B (a -> 0) is where the DENOMINATOR T . u overflows, and
+  // K is numerator-only while delta/S_inf never enter aOf -- so N_A and N_B are BIT-IDENTICAL over a +/-4
+  // order K sweep and delta in [1e-4,4e-4] (S_inf coupled and decoupled). dlog10(N_B)/dlnK = 0, gap spread
+  // = 0; the R_direct NaN cliff coincides EXACTLY with cliff B. Four self-executing assertions. imp-34714a
+  // stays OPEN; no interval; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36021-two-cliff-gap-constant-sensitivity.js',
   // imp-35947 (numerical, measurement): does a LOG-domain Newton seed for effectiveHeightForN (solving for
   // x = log T, so the finite double 2 pi . N is never materialized) push the imp-35892 R_direct NaN cliff
   // past N ~ 10^307.46? FINDING: the log-domain seed defers the RvM inverse s OWN overflow (T stays finite

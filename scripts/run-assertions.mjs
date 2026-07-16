@@ -10421,6 +10421,18 @@ const DATA_MODULES = [
   // "log T0 >= 200 met" is an e^200-height, sigma~0 corner, not a finite-N target.
   // Measurement only; continues imp-35853; changes no bound; imp-35337a OPEN; NO QED; PT 0.2 SOTA.
   '/src/data/imp-35888-req4-required-height-multiple-reaches-1x.js',
+  // imp-35907 (accuracy, measurement): TABULATE the imp-35853 REQ-4 required-height multiple
+  // 200/log T0 along the DEEP-HEIGHT tail (sigma << the ~0.019 PT-anchor share, N far past
+  // T_PT=3e12) indexed BY log T0 (the sibling imp-35888 indexed by multiple). FINDING: along the
+  // log-height axis the multiple is the EXACT hyperbola multiple*log T0 = 200, so it decays like
+  // 1/log T0 with slope -200/(log T0)^2 (|slope| ~0.242 at PT, ~0.02 at 100, ~0.005 at the 200
+  // binding) -- shrinking but NEVER floors above 0, no inflection (the flatten-then-re-steepen
+  // imp-35853 saw is a sigma<->log T0 map artifact). Halves to ~3.48x by merely doubling log T0
+  // to ~57.46, hits 1x at the log T0=200 binding, and CONTINUES below 1x (~0.89x/0.80x at
+  // 225/250). sigma collapses to ~1e-39 at the binding. So ~6.96x is a POINT value at sigma~0.019,
+  // not an asymptote. Measurement only; reuses imp-35853/imp-35888; changes no bound; imp-35337a
+  // OPEN; NO QED; PT 0.2 SOTA.
+  '/src/data/imp-35907-req4-required-height-multiple-deep-height-tail.js',
   // imp-35889 (accuracy, measurement): DECOMPOSE the full E(N) = E_trunc + E_flow + E_coll
   // three-way split at the two imp-35853 knees (Kneedle elbow sigma~0.783, flattest point
   // sigma~0.407), since sigma = E_coll/E(N) pins only the collision share. FINDING: the

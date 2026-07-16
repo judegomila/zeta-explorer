@@ -9970,6 +9970,18 @@ const DATA_MODULES = [
   // rung -- precision stays NON-binding across the whole ladder. Seven self-executing asserts.
   // Measurement only; certifies no W1 bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36019-order-shape-cross-N-ladder.js',
+  // imp-36020 (numerical, S-frontier): LOCATE and CONFIRM the worst-SHAPE FLIP to
+  // caterpillarL under the imp-35852 CLUSTERED same-sign term ORDER by sweeping the FULL
+  // imp-35893 seven pairing-tree shape set (balanced, four skews, left/right caterpillar) at
+  // N ~ 488602 -- imp-35973 reported the flip and ~41% figure only for its fixed shape set.
+  // Against the same order/association-invariant exact BigInt reference the sweep CONFIRMS
+  // caterpillarL is the arg-max (~1.73e-15, ~41.2% of the log2(N)*eps ceiling), ~4.0x the
+  // caterpillarR cross-term (~1.03e-1) and ~55x the shallow-tree order-only worst (~7.5e-3).
+  // Non-monotone in depth (skew0.03 depth 276 sits BELOW balanced depth 12); YET even the
+  // arg-max stays ~2.4x BELOW the ceiling -- both levers on the best shape still miss it.
+  // Seven self-executing assertions. Measurement only; certifies no W1 bound; changes no
+  // bound; C_mb GUE-conditional (imp-486) untouched; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36020-w1-clustered-order-shape-argmax.js',
   // imp-35953: CROSS-CHECK the stability of the imp-35891 ~1-decade offset between the
   // imp-35853 flattest-point knee (N_flat ~ 7.20e9) and the imp-33701 sigma-exponent
   // inflection decade ([1e10,1e11]) under an INDEPENDENT raw Riemann-von Mangoldt height
@@ -11142,6 +11154,16 @@ const DATA_MODULES = [
   // the W1 summation-robustness cluster (imp-35987). Imports all nine verdicts verbatim, no
   // new numerics. Note only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36006-w2-winding-ingredient-sizing-cohort-crossref.js',
+  // imp-36007 (meta, audit): registration/reachability + import-light audit of the
+  // seven-module imp-3594x/imp-3595x cohort -- imp-35946, imp-35947, imp-35948,
+  // imp-35949, imp-35950, imp-35951, imp-35956 -- which postdated the imp-35982/
+  // imp-35986 reachability audits and had no coverage. FINDING: ZERO GAPS -- all
+  // seven already listed above with correct result-const + assertions-array export
+  // pairs, all seven self-executing assertion sets pass, none imports the 16.7MB
+  // zeros bundle, and none has a viz-status mismatch (all registry-only, matching
+  // the imp-35855 precedent). Audit only; no fix needed; changes no bound; NO QED;
+  // PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36007-frontier-cohort-registration-reachability-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

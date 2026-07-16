@@ -20266,6 +20266,47 @@ export const glossary = [
       'Summation-Cost Condition Number kappa = Sum|t_k| / |Sum t_k| names the companion cancellation-scale headword used across the same W1 summation-scheme cohort',
     ],
   },
+  {
+    term: 'Node-Level De-Cancellation and the Subtraction Condition Number kappa_sub = (|x|+|y|)/|x-y|',
+    category: 'numerical',
+    definition:
+      'A headword for repairing a single ill-conditioned SUBTRACTION inside a larger expression by ' +
+      'rewriting it, in closed form, as an algebraically identical expression that never forms the ' +
+      'near-equal difference. The diagnostic for how badly a subtraction x - y is conditioned is ' +
+      'kappa_sub = (|x| + |y|) / |x - y|: kappa_sub ~ 1 when x and y are not close (well-conditioned), ' +
+      'and kappa_sub DIVERGES as x -> y (catastrophic cancellation), because a directed-rounding or ' +
+      'floating-point enclosure built on the x - y form then carries relative width/error amplified by ' +
+      'a factor ~ kappa_sub.\n\n' +
+      'THE WORKED EXAMPLE (imp-35855): the Krawczyk surplus-split ratio needs dG = S_inf . (M_G - 1), ' +
+      'where M_G = 2G/(1+G) and G = 1 - a for a small parameter a(N) -> 0 as height N grows. Evaluated ' +
+      'directly, this subtracts M_G (~1) from 1, so kappa_cancel = (|M_G|+1)/|M_G-1| ~ 4/a -- DIVERGES ' +
+      'as a -> 0. But M_G - 1 is removable in closed form: M_G - 1 = 2G/(1+G) - 1 = (G-1)/(1+G) = ' +
+      '-a/(2-a) (using G = 1-a). The identical real number dG can therefore be evaluated as ' +
+      'dG = -S_inf . a/(2-a), where a is computed DIRECTLY (never as a difference of ~1 numbers) and ' +
+      'the only remaining subtraction, 2 - a, has kappa_direct = (2+|a|)/|2-a| ~ 1 -- O(1) and BOUNDED ' +
+      'at every height. Double precision confirms the two forms are the same real number where a is ' +
+      'well resolved, and that the direct form tracks the cancellation-free reference to the machine ' +
+      'floor while the cancel form departs on the eps_mach/a envelope predicted by kappa_cancel.\n\n' +
+      'WHY THIS IS NODE-LEVEL, NOT A FULL CERTIFICATE: de-cancelling one subtraction node removes ONE ' +
+      'source of interval-width inflation; it says nothing about OTHER near-equal subtractions ' +
+      'elsewhere in a larger operator (e.g. the imp-34714a Krawczyk certificate also evaluates F(m), ' +
+      '[F-prime], and g/F-prime enclosures that this rewrite does not touch or audit). Necessary, not ' +
+      'sufficient, for a full machine certificate.\n\n' +
+      'HOW TO APPLY: cite this headword whenever a repo module needs to explain why an algebraic ' +
+      'rewrite of a near-equal subtraction (rather than higher precision or reordering) removes ' +
+      'catastrophic cancellation at a specific node, and to name the kappa_sub diagnostic used to ' +
+      'quantify the conditioning before and after the rewrite.\n\n' +
+      'HONEST SCOPE: DEFINITIONAL / MEASUREMENT-SUPPORT ONLY. Certifies no W1 bound; changes no bound; ' +
+      'establishes no positivity; imp-34714a REMAINS OPEN; no RH verdict, NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35939 (glossary headword for node-level de-cancellation and the subtraction condition number), 2026',
+    relatedTerms: [
+      'imp-35855 derives the -a/(2-a) closed form for M_G - 1 and demonstrates the node conditioning drops from ~4/a to ~1 (imp-35855)',
+      'imp-35810 first measured the ~eps_mach/a departure envelope of the naively-evaluated dG = S_inf(M_G-1) form (imp-35810)',
+      'imp-34714a names the OPEN Krawczyk machine certificate this node-level rewrite is necessary but not sufficient for (imp-34714a)',
+      'Summation-Cost Condition Number kappa = Sum|t_k| / |Sum t_k| names the companion cancellation-scale diagnostic for SUMS rather than a single subtraction',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

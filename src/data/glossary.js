@@ -20307,6 +20307,50 @@ export const glossary = [
       'Summation-Cost Condition Number kappa = Sum|t_k| / |Sum t_k| names the companion cancellation-scale diagnostic for SUMS rather than a single subtraction',
     ],
   },
+  {
+    term: 'imp-35725 Polymath15 Effective-Error Cap C_t = E_A + E_B + E_{C_0}',
+    category: 'proof-frontier',
+    definition:
+      'A headword for the Polymath15 effective-approximation error cap that bounds H_t(x) = ' +
+      'A_t(x) + B_t(x) - C_t(x) + (approximation error), where A_t, B_t are the two MOLLIFIED ' +
+      'Dirichlet-sum main terms (each N = floor(sqrt(x / 4 pi)) retained terms) and C_t is a ' +
+      'lower-order Riemann-Siegel-type correction. The approximation error is capped above by ' +
+      'C_t^{cap} = E_A + E_B + E_{C_0}, a sum of three per-term interval-error budgets.\n\n' +
+      'THE THREE TERMS (imp-35725): E_A bounds |A_t - A_t^{eff}|, governed by the tail beyond the ' +
+      'N-th retained term plus a Gaussian t-damping exp(t/4 . (log n)^2)-type factor; E_B bounds ' +
+      '|B_t - B_t^{eff}| symmetrically, tracking E_A to leading order under the identical governing ' +
+      'structure. Both are the DOMINANT pair -- their RELATIVE size shrinks as N grows, so at ' +
+      'T_PT = 3e12 (N ~ 4.886e5 retained terms per mollified sum) the relative error sits many ' +
+      'orders below the O(1) main term, leaving the certified rounding of the N-term interval sum, ' +
+      'not the analytic tail, as the binding absolute cost. E_{C_0} bounds the remainder of the C_t ' +
+      'correction after its leading C_0 piece is retained -- the next-order term of the asymptotic ' +
+      'correction expansion, relatively O(1/N)-ish smaller than C_t itself -- making it the ' +
+      'SUBORDINATE (smallest) of the three, a correction-of-a-correction that does not dominate the ' +
+      'cap.\n\n' +
+      'THE REQUIRED MARGIN: to certify H_t has no off-line zeros in the barrier region, the triangle ' +
+      'inequality must hold STRICTLY: |A_t + B_t| - |C_t| > E_A + E_B + E_{C_0}. The cap is therefore ' +
+      'not budgeted in isolation -- each term must consume only a FRACTION of this effective barrier ' +
+      'margin, with the dominant pair E_A, E_B claiming the largest share and E_{C_0} a subordinate ' +
+      'share, leaving strict headroom. This is a REQUIREMENT the instantiation must MEET, not a bound ' +
+      'imp-35725 derives.\n\n' +
+      'HOW TO APPLY: cite this headword whenever a repo module needs to name the three-term error cap ' +
+      'gating the Polymath15 A+B-C effective approximation, or to distinguish the dominant (E_A, E_B) ' +
+      'from the subordinate (E_{C_0}) share of the required barrier margin.\n\n' +
+      'HONEST SCOPE: ORDER-OF-MAGNITUDE BUDGET ONLY. imp-35725 scopes the three terms; it does NOT ' +
+      'evaluate A_t^{eff}, B_t^{eff}, C_0 as certified interval sums and does NOT check the strict ' +
+      'inequality -- the obstruction is MECHANICAL (instantiating ~4.886e5-term certified interval ' +
+      'sums at the sign-reconciled positive barrier time), so the interval-bounded A+B-C certificate ' +
+      'stays GREENFIELD exactly as imp-35681 Part A found. Ports nothing; discharges nothing; ' +
+      'instantiates no sum; verifies no inequality; changes no bound; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35769 (glossary headword recording the imp-35725 effective-error cap C_t = E_A+E_B+E_{C_0} budget), 2026',
+    relatedTerms: [
+      'imp-35725 budgets the order of magnitude of the three per-term caps and the required strict-inequality margin recorded here (imp-35725)',
+      'imp-35681 Part A found the A+B-C interval-bound instantiation STRUCTURAL-overlap-only / GREENFIELD, the residual imp-35725 confirms (imp-35681)',
+      'imp-35717 R4 first named E_A, E_B, E_{C_0} as the greenfield seed without budgeting them (imp-35717)',
+      'imp-35674 Part D supplies the N(x) = floor(sqrt(x/4 pi)) retained-term formula anchoring N ~ 4.886e5 at T_PT (imp-35674)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

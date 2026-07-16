@@ -10013,6 +10013,22 @@ const DATA_MODULES = [
   // no interval instantiated, F(m)=0 classified not discharged; imp-34714a stays OPEN; changes no bound; NO
   // QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35885-krawczyk-node-cancellation-audit.js',
+  // imp-35886 (numerical, measurement): LOCATE the crossover condition number kappa at which the
+  // imp-35854 naive NORMALIZED summation error departs the sqrt(N)*u random-walk ceiling (~7.76e-14
+  // at N~488602) and settles onto the ~4e-17 O(1)-accumulator plateau, by refining the imp-35854
+  // (alpha,beta) sweep to 69 rungs between kappa~1 and ~2e5 on the SAME oscillatory sum, each vs a
+  // per-rung EXACT BigInt reference, reading a denoised (half-decade geometric-mean) naiveNorm(kappa)
+  // curve. FINDING: there is NO sharp knee -- the naive normalized error departs the ceiling as a
+  // near-perfect kappa^{-1} POWER LAW (descent slope d(log naiveNorm)/d(log kappa) ~ -1.03), crossing
+  // the log-midpoint MID~1.52e-15 (between the sqrt(N)*u ceiling and the measured ~2.98e-17 floor) at
+  // CROSSOVER kappa ~ 9.4, and flattening onto the roundoff floor (plateau slope ~ 0.05) only once
+  // kappa >~ a few hundred. The crossover is a POINT on a continuous slope (a locator, not a
+  // threshold); the -1 exponent is exactly why imp-35854 saw the naive RELATIVE error grow far
+  // sublinearly (naiveNorm~kappa^{-1} cancels the explicit kappa). All rungs >= 10 orders below the
+  // O(1) barrier margin. Eight self-executing assertions. HONEST: crossover is convention- and
+  // binning-dependent, read it as an order-10 locator. Measurement only; certifies no W1 bound;
+  // changes no bound; A+B-C stays GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35886-w1-summation-kappa-crossover.js',
   // imp-35778: SCOPE the imp-35727 ingredient-I3 modulus floor |H_t| >= delta > 0 on dR by
   // DECOMPOSING the contour floor BY EDGE TYPE -- the split imp-35758 left monolithic as
   // "min over dR". delta = min(delta_short, delta_long). SHORT edges (x = const) cross the

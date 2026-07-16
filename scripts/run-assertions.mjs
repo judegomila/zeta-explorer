@@ -10030,6 +10030,16 @@ const DATA_MODULES = [
   // six self-executing assertions. Derivation on the OOM model only; certifies no cap; certifies no
   // delta>0; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35806-i2-i3-coupled-placement-derivation.js',
+  // imp-35844 (meta): AUDIT the imp-35763/imp-35764 honesty-gate assertion guards (imp-486
+  // kept, imp-35337a OPEN, NO QED, PT SOTA regexes). SPLIT FINDING: the imp-486/OPEN/NO-QED
+  // text guards are LIVE and PROTECTIVE (test the modules' own verdict strings, would fail
+  // if a future edit stripped the caveat); the "PT SOTA" numeric guard in both source
+  // modules is TAUTOLOGICAL (`const L_PT = 0.2` compared to the literal 0.2 -- passes
+  // unconditionally, references no live artifact, cannot catch canonical-value drift).
+  // This module supplies the missing cross-check against the canonical
+  // LAMBDA_RH_BRIDGE.sotaUpperBound.value. Audit only; adds no mechanism; changes no bound;
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35844-honesty-gate-live-artifact-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

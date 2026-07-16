@@ -1488,6 +1488,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive chart re-exporting the imp-35763/imp-35722 required-height ladder verbatim (no new derivation, no heavy data-module import); presentation only; C_mb GUE-conditional (imp-486) UNTOUCHED; imp-35337a stays OPEN; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35824-surplus-waterfall',
+      title: 'Krawczyk Surplus Waterfall: Shift vs Curvature Residual',
+      oneLine:
+        'Stacked-bar waterfall of the imp-35762 D3 residual split across the imp-34693 band-bottom/N_cross/band-top anchors: the leading estimate S_inf.a/2 plus a thin a-shift sliver (~1.7-2.6%) plus the dominant O(a^2) curvature residual (~97-98%) reproduces the exact Krawczyk headroom surplus at every anchor.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-35824-krawczyk-surplus-waterfall-viz-data.js',
+      paperSourcePath: 'src/data/imp-35762-krawczyk-surplus-shift-residual-isolation.js (imp-35824 viz page)',
+      ticket: 'imp-35824',
+      pedagogicalStep: 102,
+      honestCeiling:
+        'Descriptive chart re-exporting the imp-35762 additive surplus split verbatim (no new derivation, no heavy data-module import); presentation only; measurement on the inherited imp-3220/imp-3406 surrogate; imp-34714a REMAINS OPEN; C_C 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

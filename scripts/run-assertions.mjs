@@ -9982,6 +9982,20 @@ const DATA_MODULES = [
   // Seven self-executing assertions. Measurement only; certifies no W1 bound; changes no
   // bound; C_mb GUE-conditional (imp-486) untouched; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36020-w1-clustered-order-shape-argmax.js',
+  // imp-36022 (accuracy, S-frontier): RECONCILE the apparent ~0.024-decade gap between the
+  // imp-35968 E_trunc = E_coll crossover height (quoted 3.1e9, log10 9.49) and the
+  // imp-35950 / imp-35994 value (3.267e9, log10 9.514) for the SAME sigma = 1/2 landmark.
+  // Both modules use byte-identical imp-3406 / imp-33582 sub-terms and the same 300-step
+  // downslope bisection, differing ONLY in the balance solved: imp-35968 solves the raw ratio
+  // E_coll/E_trunc = 1 (log10 9.5159) while imp-35950 solves sigma = 0.5 = E_coll/(E_trunc +
+  // E_flow + E_coll), i.e. E_coll = E_trunc + E_flow (log10 9.5142). The two STORED objects
+  // AGREE to ~0.0017 decade -- exactly the E_flow-inclusion tilt (sigma = 0.5 sits just below
+  // ratio = 1). The nominal ~0.024 gap is a STALE-DOCSTRING artifact: imp-35968 prose quotes
+  // 3.1e9 / 9.49, contradicting its OWN stored value (3.28e9 / 9.516) by ~0.026 decade. NOT a
+  // bisection-tolerance artifact, NOT an input difference. Reconciled log10 N_cross ~ 9.515.
+  // Seven self-executing assertions. Reconciliation only; changes no bound; imp-486 untouched;
+  // imp-35337a OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-36022-etrunc-ecoll-crossover-reconciliation.js',
   // imp-35953: CROSS-CHECK the stability of the imp-35891 ~1-decade offset between the
   // imp-35853 flattest-point knee (N_flat ~ 7.20e9) and the imp-33701 sigma-exponent
   // inflection decade ([1e10,1e11]) under an INDEPENDENT raw Riemann-von Mangoldt height

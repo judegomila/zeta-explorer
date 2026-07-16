@@ -10583,6 +10583,23 @@ const DATA_MODULES = [
   // no interval enclosure; certifies no cap; counts no zeros; I2 stays GREENFIELD; changes no
   // bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35993-i2-panel-proxy-reconciliation-per-unit-height.js',
+  // imp-36008 (numerical/S-frontier): DERIVE the explicit theta -> arclength/height Jacobian for
+  // the imp-33923 model-cusp geometry that puts the imp-35757 along-line I2 rate (~13.45 rad per
+  // unit height) and the imp-35951 theta-slope proxy (|s|=3/2 rad per rad of theta) on a shared
+  // axis. The imp-33923 observation point w(theta)=e^{i theta} traces the UNIT CIRCLE, so its
+  // arclength Jacobian J_geo = ds_model/dtheta = |i e^{i theta}| = 1 EXACTLY (constant to ~1e-15
+  // across {45..135} deg): model arclength equals theta radian-for-radian and the pure geometry
+  // carries NO height scale. The theta -> height Jacobian FACTORS as dt/dtheta = lambda * J_geo =
+  // lambda, isolating ALL the imp-35951 non-comparability in the imported similarity scale lambda =
+  // dt/ds_model (= 1/Omega of imp-35993). Under the mean-gap closure lambda = 2/w, so route B per
+  // unit height = (3/2)/lambda = 3w/4 ~10.084 rad and the residual R = (2/3) w lambda = 4/3 EXACTLY
+  // (T-independent) -- equivalently on the model-arclength axis route B books 3/2 and route A books
+  // w*lambda = 2, ratio 4/3. Reproduces the imp-35993 residual read off the Jacobian product; the
+  // geometry contributes 1, lambda carries the scale. Import-light, six self-executing assertions.
+  // 4/3 exact only under the mean-gap closure; BOTH remain PROXIES on the off-axis model cusp
+  // rho=|x|^{-1/2}, NOT the true H_t on dR; instantiates no interval enclosure; certifies no cap;
+  // counts no zeros; I2 stays GREENFIELD; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36008-i2-theta-arclength-jacobian-decomposition.js',
   // imp-35844 (meta): AUDIT the imp-35763/imp-35764 honesty-gate assertion guards (imp-486
   // kept, imp-35337a OPEN, NO QED, PT SOTA regexes). SPLIT FINDING: the imp-486/OPEN/NO-QED
   // text guards are LIVE and PROTECTIVE (test the modules' own verdict strings, would fail
@@ -11043,6 +11060,13 @@ const DATA_MODULES = [
   // assertions. MEASUREMENT ONLY; reuses pinned imp-3406/imp-33582 sub-terms; changes no bound;
   // imp-486 untouched; imp-35337a OPEN; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35997-eflow-max-share-height.js',
+  // imp-36001 (content, ticket audit): imp-36001 asked to add a glossary/Concepts headword for
+  // the argument-principle certified winding-count ingredient ledger (imp-35727 I1-I5). Audit
+  // found glossary.js ALREADY carries this headword ("imp-35727 W2 certified-winding-count
+  // ingredient ledger (I1-I5)", authored by imp-35817) -- a duplicate ticket. Adds no new
+  // headword; pins a regression guard confirming the duplicate finding stays consistent.
+  // Audit only; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36001-glossary-headword-duplicate-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

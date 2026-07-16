@@ -20188,6 +20188,46 @@ export const glossary = [
       'project winding-thread records the Gaussian conv proxy as the exact de Bruijn flow at negative time t = -4 . tau_repo',
     ],
   },
+  {
+    term: 'Summation-Cost Condition Number kappa = Sum|t_k| / |Sum t_k|',
+    category: 'numerical',
+    definition:
+      'A headword for the condition number kappa used across the imp-35812/imp-35854 W1 ' +
+      'oscillatory-sum accuracy analysis to convert a NORMALIZED rounding-error bound (the ' +
+      'natural output of the Higham forward-error analysis, scaled against the sum of magnitudes ' +
+      'Sum|t_k|) into a RELATIVE error bound (scaled against the actual summed value Sum t_k, the ' +
+      'quantity a reader would compare a result against). By definition relative error = ' +
+      'normalized error * kappa, so kappa >= 1 measures how much cancellation the sum undergoes: ' +
+      'kappa ~ 1 for an essentially same-sign sum where Sum|t_k| ~ |Sum t_k|, growing without ' +
+      'bound as the terms cancel more deeply and |Sum t_k| shrinks relative to Sum|t_k|.\n\n' +
+      'THE TWO CEILINGS: for the recursive (naive) summation scheme, the rigorous forward bound ' +
+      'gamma_{N-1} Sum|t_k| combined with the Wilkinson random-walk heuristic (replacing the ' +
+      'coherent N with sqrt(N)) gives a relative-error ceiling of sqrt(N) * u * kappa; for Kahan-' +
+      'Babuska compensated summation the forward bound collapses to an N-independent ~2u ' +
+      '(normalized), giving a relative-error ceiling of ~2u * kappa. Both ceilings scale LINEARLY ' +
+      'in kappa when the normalized error is held fixed at its worst case -- the linear-in-kappa ' +
+      'form is a modeling assumption, not a measured law.\n\n' +
+      'WHY IT MATTERS (imp-35854 refinement): the measured naive relative error grows with kappa ' +
+      'far SUBLINEARLY versus the sqrt(N) * u * kappa ceiling, because the normalized error itself ' +
+      'is not kappa-constant -- it is largest (~sqrt(N) * u) at kappa ~ 1 and drops toward a ~4e-17 ' +
+      'accumulator-floor plateau as kappa grows, since deep cancellation keeps the running ' +
+      'accumulator magnitude O(1) rather than tracking Sum|t_k|. So the sqrt(N) * u * kappa model ' +
+      'remains a valid CEILING at every kappa but is increasingly loose (not tracked) as cancellation ' +
+      'deepens, while the Kahan ~2u * kappa ceiling stays a close, kappa-robust description.\n\n' +
+      'HOW TO APPLY: cite this headword whenever a repo module reports a W1 summation-scheme error ' +
+      'in relative rather than normalized terms, or needs to explain why a linear-in-kappa error ' +
+      'model can be a correct ceiling yet a poor tracker of the achieved error.\n\n' +
+      'HONEST SCOPE: DEFINITIONAL / MEASUREMENT-SUPPORT ONLY. Certifies no W1 bound; changes no ' +
+      'bound; establishes no positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-35937 (glossary headword for the summation-cost condition number kappa), 2026',
+    relatedTerms: [
+      'imp-35812 introduces the term family and the fixed-kappa ~1.4e3 baseline measurement (imp-35812)',
+      'imp-35854 sweeps kappa across ~5.3 decades and finds the naive relative error grows sublinearly, not linearly (imp-35854)',
+      'imp-35761 supplies the pessimistic linear-in-N normalized ceiling that kappa converts to a relative-error ceiling (imp-35761)',
+      'imp-35812 W1 summation-scheme cost hierarchy names the naive/pairwise/Kahan measured hierarchy this kappa scaling applies to',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -11768,6 +11768,12 @@ const DATA_MODULES = [
   // run 34250-35000; last identical rung N=39000; persistence from N~39250. Six self-executing
   // assertions. Viz-data only; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-36144-kbn-kahan-intermittency-band-viz-data.js',
+  // imp-36145 (ux, sonnet-4-6, sonnet): import-light viz-data module re-exporting the imp-36096
+  // JOINT (alpha,beta) recovery-basin normalized (u,v) contour points verbatim (10% and 1%
+  // targets, nine points each) plus the axis-diamond (u+v=1) and quarter-ellipse (u^2+v^2=1)
+  // reference curves, so a viz page can render the lobed non-convexity (bulge to u+v~2.48/2.52
+  // near v~0.375, cave to ~0.60/0.59 near v~0.125). Presentation only; changes no bound; NO QED.
+  '/src/data/imp-36145-joint-recovery-contour-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

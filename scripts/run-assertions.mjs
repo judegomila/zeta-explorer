@@ -11337,6 +11337,13 @@ const DATA_MODULES = [
   // six self-executing assertions; changes no bound; NO QED; Platt-Trudgian
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-36092-two-cliff-constant-invariance-honest-status.js',
+  // imp-36093: standalone honest-status note restating imp-36018 -- the
+  // pairwise-summation slack-vs-depth relation is SUB-LINEAR (full-set OLS
+  // exponent ~0.748, R^2 ~0.658), NOT the strict slack ~ d^1 imp-35970 assumed,
+  // so the a-priori depth-proportional bound over-predicts the measured error
+  // with a depth-dependent margin. Read-only restatement; six self-executing
+  // assertions; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+  '/src/data/imp-36093-pairwise-slack-depth-sublinear-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

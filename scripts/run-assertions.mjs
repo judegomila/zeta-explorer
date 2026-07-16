@@ -11976,6 +11976,11 @@ const DATA_MODULES = [
   // 25-rung imp-36095 KBN-vs-classic-Kahan intermittency ladder across N in [34000,40000]);
   // no new module built, records the finding and cross-references the original. NO QED.
   '/src/data/imp-36167-duplicate-ticket-honest-status.js',
+  // imp-36168 (ux, sonnet-4-6, sonnet): import-light viz-data module (baked literals)
+  // for the imp-36054 / imp-35988 Route I vs Route II derivative-cap tightness
+  // comparison -- the three same-signed slack axes and the w/logN ~ 1.0265
+  // frequency-gap factor at T_PT. Presentation only; NO QED.
+  '/src/data/imp-36168-route-derivative-cap-tightness-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -9878,6 +9878,19 @@ const DATA_MODULES = [
   // evaluates no modulus; fixes no Delta or h; certifies no delta>0; changes no bound; NO QED;
   // PT Lambda<=0.2 SOTA.
   '/src/data/imp-35778-i3-edge-type-floor-decomposition-scope.js',
+  // imp-35800: MEASURE the imp-35778 two-knob I3 floor delta = min(delta_short, delta_long)
+  // as the off-axis height h and endpoint spacing Delta vary at T_PT=3e12, and LOCATE the
+  // (h, Delta) maximizing the min. On the shared normalised OOM model: delta_short(Delta),
+  // phase-optimised over a free rectangle slide, = cos(pi d/2) with d = dist(Delta/gap, int),
+  // ranging [1/sqrt2, 1] -- NEVER collapses (the imp-35758 grazing caveat bites only when
+  // endpoints are externally pinned); delta_long(h) = min(w h, 1) is Delta-independent,
+  // linear to the envelope at h = 1/w ~ 0.0744, then saturated. The argmax is the saturation
+  // corner (h* = 1/w, Delta* = one mean gap ~ 0.2336) where both floors balance at the
+  // normalised main-term scale 1 -- a saturation, not a tension (disjoint knobs). TABULATES
+  // and LOCATES what imp-35778 prescribed qualitatively; ADDS NO greenfield mechanism (same
+  // I1/W1 enclosure, imp-35681 Part A). Five self-executing assertions. Measurement on the OOM
+  // model only; certifies no delta>0; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35800-i3-two-knob-floor-balance-point.js',
   // imp-35779: DERIVE the REQUIRED-fraction allocation of the barrier margin
   // M = |A_t+B_t| - |C_t| among the imp-35725 cap terms E_A, E_B, E_{C_0} that keeps the
   // strict triangle inequality strict at T_PT. imp-35760 gave one SUFFICIENT point (an

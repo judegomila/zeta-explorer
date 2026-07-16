@@ -11566,6 +11566,15 @@ const DATA_MODULES = [
   // imp-36023). Onset tracks N (clean boundary near N~34000) not a hard kappa cutoff, and is a
   // soft rounding-gated threshold. Measurement only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36062-kbn-kahan-separation-onset.js',
+  // imp-36095 (numerical, opus-4-8, api-pool): TABULATES the imp-36062 KBN-vs-classic-Kahan
+  // separation intermittency band [34000,40000] that imp-36062 asserted but did NOT store. A fine
+  // step-250 ladder (25 rungs) against the same per-N exact 2^-96 dyadic-BigInt reference finds 15
+  // separated and 10 bit-identical rungs alternating rung-to-rung; the genuine identical run is
+  // 34250-35000 (NOT the coarse "35000-37000" imp-36062 asserted -- there are separated rungs
+  // inside 35000-37000), the last bit-identical rung is N=39000, and persistence sets in from
+  // N~39250. Verdict does not track kappa (rounding-level, not conditioning). Measurement only;
+  // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36095-kbn-kahan-intermittency-band.js',
   // imp-36046 (ux, sonnet-4-6, sonnet): import-light viz-data module extending the imp-35977
   // two-knee E(N) fractional-share bars down the sigma -> 0 tail to the imp-35971 sole-survivor
   // height N* ~4.7214e13, baking three tail landmarks (E_flow-1pct crossing, sigma<0.1 landmark,

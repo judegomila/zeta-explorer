@@ -35,7 +35,7 @@
  * Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
  * @see imp-35853-req4-required-height-continuous-sigma-knee (the two knee locators)
- * @see imp-35337-sigma-crossover-landmarks (E_trunc = E_coll crossover at sigma = 0.5)
+ * @see imp-35337-sigma-landmarks-double-double-certification (E_trunc = E_coll crossover at sigma = 0.5)
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (source sigma model)
  * @see lambda-rh-height-mapping.js (effectiveHeightForN: N -> T0 RvM inverse)
  * Literature: Riemann-von Mangoldt counting formula; Platt-Trudgian 2021 (Lambda <= 0.2).

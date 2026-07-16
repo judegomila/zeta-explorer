@@ -11986,6 +11986,11 @@ const DATA_MODULES = [
   // cohort (imp-36066/36067/36082/36095/36096/36097) -- all six clean, no orphans,
   // no heavy-bundle imports. Audit only; NO QED.
   '/src/data/imp-36169-imp3606x82x95x96x97x-registration-reachability-audit.js',
+  // imp-36170 (meta, sonnet-4-6, sonnet): cross-reference @see integrity audit (imp-35186/
+  // imp-35327/imp-35776 method) on the imp-3606x-3609x S-frontier cohort (imp-36066/36067/
+  // 36082/36095/36096/36097) -- all 21 filename @see targets, both named ES imports, and
+  // all 39 bare imp-NNNNN citations resolve. Audit only; NO QED.
+  '/src/data/imp-36170-imp3606x67x82x95x96x97-cross-reference-integrity-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

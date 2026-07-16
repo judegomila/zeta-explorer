@@ -11591,6 +11591,16 @@ const DATA_MODULES = [
   // EXACTLY on both grids, so the 2^-96 reference was NOT a precision limiter. Validation only; changes
   // no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36098-kbn-kahan-onset-2e128-crossvalidation.js',
+  // imp-36099 (numerical, opus-4-8, api-pool): fit the N-scaling law of the imp-36062 KBN/classic-Kahan
+  // normalized-error ratio across the seven SEPARATED rungs [34000..488602] on the imp-35852 clustered
+  // worst order. Least-squares fitting ratio(N) to power N^-p / 1-over-log N / exponential / linear:
+  // NONE fits -- best is a weak power law (p~0.53) explaining only ~36% of variance (R^2~0.36). The
+  // ratio is NON-MONOTONE rung-to-rung (0.965,0.198,0.122,0.417,0.163,0.260,0.082 -- dips to 0.122 at
+  // 40000, rebounds to 0.417 at 50000), a fine ROUNDING-level fluctuation matching imp-36062's soft
+  // onset. The "0.96 -> 0.08" headline is just the endpoints of a fluctuating sequence, not a clean law;
+  // KBN grows in an averaged sense (mean ~0.21 above onset) but admits no power/log/exp fit. Measurement
+  // only; precision non-binding; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36099-kbn-kahan-ratio-scaling-fit.js',
   // imp-36096 (numerical, opus-4-8, api-pool): trace the JOINT (alpha,beta) two-parameter recovery
   // contour at which the imp-35890 running-accumulator ratio r returns within 10%/1% of the imp-35812
   // baseline r_base~1.18e-3, extending the imp-36061 two single-axis edges to the coupled plane. Joint

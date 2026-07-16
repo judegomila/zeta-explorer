@@ -1540,6 +1540,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive chart re-exporting the imp-35812 exact-BigInt-referenced summation-scheme measurement verbatim (no new derivation, no heavy data-module import, no re-running the summation schemes at page load); measurement only; certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no inequality; establishes no positivity; the W1 A+B-C certificate at T_PT stays GREENFIELD (imp-35681 Part A).',
     }),
+    Object.freeze({
+      route: '/viz-imp35934-kappa-sweep-ladder',
+      title: 'Summation-Scheme Error vs Condition Number kappa',
+      oneLine:
+        'Log-log line chart of the imp-35854 exact-BigInt-referenced naive/pairwise/Kahan-Babuska relative-error sweep vs the condition number kappa=Sum|t_k|/|Sum t_k| ~1 to ~2e5, showing the naive relative error grows far sublinearly in kappa.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-35934-kappa-sweep-viz-data.js',
+      paperSourcePath: 'src/data/imp-35854-w1-summation-kappa-sweep.js (imp-35934 viz page)',
+      ticket: 'imp-35934',
+      pedagogicalStep: 106,
+      honestCeiling:
+        'Descriptive chart re-exporting the imp-35854 exact-BigInt-referenced kappa-sweep measurement verbatim (no new derivation, no heavy data-module import, no re-running the summation schemes at page load); measurement only; certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no inequality; establishes no positivity; the W1 A+B-C certificate at T_PT stays GREENFIELD (imp-35681 Part A).',
+    }),
   ]),
 });
 

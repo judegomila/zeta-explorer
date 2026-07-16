@@ -20485,6 +20485,51 @@ export const glossary = [
       'imp-2642/imp-2643 pin the short-range collision constant C_C = (1/8) sqrt(3 pi) this coefficient shift is measured against (imp-2642)',
     ],
   },
+  {
+    term: 'Summation Associativity: Term ORDER vs Pairing-Tree SHAPE as Independent Adversarial Levers',
+    category: 'numerical',
+    definition:
+      'A headword distinguishing the two independent ways a fixed multiset of double-precision ' +
+      'summands can be adversarially rearranged without changing the mathematically exact sum: ' +
+      'the term ORDER (the sequence in which summands are visited) and the pairing-tree SHAPE ' +
+      '(the association -- i.e. which partial sums combine with which -- for a divide-and-conquer ' +
+      'scheme). Floating-point addition is commutative but NOT associative, so both levers can, in ' +
+      'principle, change the rounded result even though the exact (real-number) sum is invariant ' +
+      'under either.\n\n' +
+      'imp-35852 varies ORDER: it holds the pairwise divide-and-conquer TREE STRUCTURE fixed ' +
+      '(balanced midpoint split, base block 128) and permutes the term multiset through five ' +
+      'orderings (original, signedAsc, magAsc, magDesc, clustered), stressing whether hostile ' +
+      'orderings push the naive running-sum error from its observed O(sqrt(N) . u) random-walk ' +
+      'growth toward the coherent O(N . u) directed-rounding ceiling. imp-35893 varies SHAPE: it ' +
+      'holds the term multiset and order FIXED (the imp-35812 oscillatory ordering) and instead ' +
+      'varies the pairing tree itself, from the balanced midpoint split (depth ~log2(N) ~12) to a ' +
+      'maximally unbalanced caterpillar (depth ~N/leaf ~3817), stressing whether an unbalanced ' +
+      'tree pushes the pairwise error from its log2(N) . eps ceiling toward the depth-proportional ' +
+      'worst case.\n\n' +
+      'Because the exact BigInt-dyadic reference sum is invariant under BOTH re-ordering and ' +
+      're-association, imp-35852 and imp-35893 reuse the identical error-measurement machinery ' +
+      'against the same reference and can be read side by side: order stress raised the naive ' +
+      'scheme error ~160x (imp-35852, clustered ordering) while shape stress raised the pairwise ' +
+      'scheme error only ~5.2x (imp-35893, caterpillarR, worst ~4.42e-4 of ceiling vs balanced ' +
+      '~8.48e-5) -- both levers narrow the gap to their respective ceilings without closing it, so ' +
+      'neither ORDER nor SHAPE alone is sufficient to make achieved precision approach its ' +
+      'worst-case bound on this benign cancellation-heavy data.\n\n' +
+      'HOW TO APPLY: cite this headword whenever a repo module needs to state precisely which ' +
+      'summation lever (order vs association) an adversarial stress test varies, or needs to ' +
+      'explain why floating-point non-associativity makes tree SHAPE a distinct axis from term ' +
+      'ORDER even though both preserve the exact mathematical sum.\n\n' +
+      'HONEST SCOPE: DEFINITIONAL / MEASUREMENT-SUPPORT ONLY. Certifies no W1 bound; changes no ' +
+      'bound; establishes no positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-35960 (glossary headword distinguishing term-ORDER and pairing-tree-SHAPE as independent adversarial levers), 2026',
+    relatedTerms: [
+      'imp-35852 varies term ORDER at fixed pairing-tree shape, the companion adversarial lever to imp-35893 (imp-35852)',
+      'imp-35893 varies pairing-tree SHAPE at fixed term order, the companion adversarial lever to imp-35852 (imp-35893)',
+      'imp-35812 supplies the shared fixed term multiset and balanced-tree, original-order baseline both levers stress (imp-35812)',
+      'imp-35761 supplies the log2(N) . eps pairwise and N . eps naive ceilings neither lever closes the gap to',
+      'Clustered Sign-Run Adversarial Ordering names the worst ORDER-lever permutation imp-35852 measures',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

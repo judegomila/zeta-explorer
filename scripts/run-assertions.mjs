@@ -9809,6 +9809,20 @@ const DATA_MODULES = [
   // N ~ 1e18 is double-precision cancellation in dG (spurious). Five self-executing assertions.
   // Measurement only; surrogate; imp-34714a stays OPEN; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35766-krawczyk-cancellation-ratio-beyond-band.js',
+  // imp-35778: SCOPE the imp-35727 ingredient-I3 modulus floor |H_t| >= delta > 0 on dR by
+  // DECOMPOSING the contour floor BY EDGE TYPE -- the split imp-35758 left monolithic as
+  // "min over dR". delta = min(delta_short, delta_long). SHORT edges (x = const) cross the
+  // axis y = 0: delta_short = (|A_t+B_t| - |C_t|) - cap is the imp-35758 reverse-triangle
+  // surplus, robust only when endpoints sit BETWEEN consecutive real zeros -- so the
+  // imp-35758 grazing-collapse caveat LIVES here (Delta quantized to ~ integer mean gaps
+  // ~0.2336). LONG edges (y = +-h) are OFF the axis: delta_long ~ |H_t prime| . h is LINEAR
+  // in h, a different mechanism, main-term once h ~ 1/w with the imp-35777 proxy B ~ |H_t| . w
+  // (w ~ 13.446). A TWO-KNOB refinement (Delta via endpoints, h via off-axis distance) of the
+  // imp-35758 single "avoid dips"; ADDS NO greenfield mechanism -- both floors read from the
+  // SAME I1/W1 enclosure (imp-35681 Part A). Five self-executing assertions. OOM scoping only;
+  // evaluates no modulus; fixes no Delta or h; certifies no delta>0; changes no bound; NO QED;
+  // PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35778-i3-edge-type-floor-decomposition-scope.js',
 ];
 
 let ALL_MODULES = FAST_MODE

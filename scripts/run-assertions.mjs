@@ -11774,6 +11774,15 @@ const DATA_MODULES = [
   // reference curves, so a viz page can render the lobed non-convexity (bulge to u+v~2.48/2.52
   // near v~0.375, cave to ~0.60/0.59 near v~0.125). Presentation only; changes no bound; NO QED.
   '/src/data/imp-36145-joint-recovery-contour-viz-data.js',
+  // imp-36103 (accuracy, opus-4-8, api-pool): MEASURE whether the imp-36061 accumulator
+  // recovery-width edges (alpha ~0.560/0.611 rad, beta ~3.19/3.32) and the baseline r_base
+  // ~1.18e-3 are N-STABLE, recomputing them at N=1e5 and N=1e6 bracketing the imp-36061 fixed
+  // N~488602. FINDING: the four recovery EDGES are N-STABLE to ~4 sig figs (max rel spread
+  // <5e-4 across the 10x span) because each edge is relative to r_base(N); but r_base itself is
+  // NOT N-stable -- it decays ~1/sqrt(N) (r_base*sqrt(N)~0.826 invariant), falling ~3.17x. So a
+  // detuning-margin monitor is N-robust; an absolute-baseline monitor must rescale by 1/sqrt(N).
+  // Baked offline literals (scripts/imp-36103-nstability-offline.mjs). Measurement only; NO QED.
+  '/src/data/imp-36103-w1-accumulator-recovery-nstability.js',
 ];
 
 let ALL_MODULES = FAST_MODE

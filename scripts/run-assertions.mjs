@@ -11924,6 +11924,14 @@ const DATA_MODULES = [
   // across all five landmarks (0.783 -> 0.716 -> 0.407 -> 0.100 -> 0.0099). Note only; changes
   // no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-36111-e-share-tail-storyline-crossref.js',
+  // imp-36112 (content, sonnet-4-6, sonnet): standalone cross-reference note reconciling the
+  // imp-36062 persistent-separation onset (N~34000) with the imp-36076 finer-ladder finding of an
+  // EARLIER transient separation episode (N~1500-3000) -- merging both recorded ladders in N
+  // order shows two separation episodes (transient, then a tie plateau N~10000-33000, then
+  // persistent from N~34000), not a contradiction. Cross-references the imp-36083 headroom
+  // measurement (KBN floor stays ~3.9-6.5 orders below the certified run-max regardless). Note
+  // only; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-36112-compensated-summation-storyline-crossref.js',
 ];
 
 let ALL_MODULES = FAST_MODE

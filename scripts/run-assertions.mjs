@@ -10182,6 +10182,16 @@ const DATA_MODULES = [
   // reached before a would underflow. Four self-executing assertions. imp-34714a stays OPEN; no interval;
   // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35892-rdirect-own-floor-departure-height.js',
+  // imp-35972 (numerical, measurement): refine the imp-35892 coarse STEP=1 decade-grid cliff estimate
+  // N ~ 10^307.46 to SUB-DECADE precision by bisecting on the double N ITSELF (imp-35892 s log10 bisection
+  // was defeated by ~1e291 double spacing). FINDING: the coarse edge splits into TWO distinct cliffs. The
+  // R_direct NaN cliff (a -> 0, the aOf = 2 pi K/(T . u) PRODUCT overflows) BINDS FIRST at log10 N ~
+  // 307.4559 with a ~ 5.5e-300 still a NORMAL double; the effectiveHeightForN -> +Infinity cliff sits
+  // ~6.2e-4 decade above at log10 N ~ 307.4565, driven by the seed numerator 2 pi . N hitting MAX_VALUE
+  // EXACTLY once N > MAX_VALUE/(2 pi) -- NOT by T (a normal double ~2.567e305, T/MAX ~1.4e-3) overflowing.
+  // Four self-executing assertions. imp-34714a stays OPEN; no interval; changes no bound; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-35972-effective-height-overflow-cliff-bisection.js',
   // imp-35947 (numerical, measurement): does a LOG-domain Newton seed for effectiveHeightForN (solving for
   // x = log T, so the finite double 2 pi . N is never materialized) push the imp-35892 R_direct NaN cliff
   // past N ~ 10^307.46? FINDING: the log-domain seed defers the RvM inverse s OWN overflow (T stays finite
@@ -10828,6 +10838,10 @@ const DATA_MODULES = [
   // Measurement only; reuses imp-35889 / imp-35853 locators; changes no bound; imp-35337a OPEN;
   // imp-486 untouched; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35971-etrunc-sole-survivor-height.js',
+  // imp-35976: imp-35956-pairwise-tree-shape-ladder-viz-data.js existed with 6
+  // self-executing assertions but was never added to this DATA_MODULES list,
+  // so its imp-35893 tree-shape-ladder tripwires never ran in CI. Registered here.
+  '/src/data/imp-35956-pairwise-tree-shape-ladder-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

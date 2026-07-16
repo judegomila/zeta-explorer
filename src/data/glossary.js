@@ -20895,6 +20895,39 @@ export const glossary = [
       'imp-35853 supplies the sigma -> 0 downslope locator reused here unchanged (imp-35853)',
     ],
   },
+  {
+    term: 'interval-subtraction width additivity: width([x]-[y]) = width([x]) + width([y]) is value-independent',
+    category: 'numerical',
+    definition:
+      'A headword for the identity, exercised by imp-35969, that the outward-rounded width of an interval ' +
+      'DIFFERENCE [x]-[y] is the SUM of the operand widths, width([x]-[y]) = width([x]) + width([y]), ' +
+      'regardless of where the result interval sits -- even when the result straddles or collapses to ' +
+      'exactly 0. Width additivity is a property of the SUBTRACTION OPERATION, not of the result value.\n\n' +
+      'WHY THIS MATTERS: it is easy to conflate two distinct quantities at a near-zero-result difference ' +
+      'node -- the RESULT VALUE (which can cancel to ~ 0) and the RESULT ENCLOSURE WIDTH (which does not). ' +
+      'imp-35969 measured exactly this at the Krawczyk residual node [F(m)] = [m] - [K log T0(m)]: at the ' +
+      'certificate centre m = N_cross the residual VALUE F(m) collapses to exactly 0 in double precision, ' +
+      'yet the outward-rounded enclosure [F(m)] still carries a small NONZERO width (a few ULP of the ' +
+      'operand m) -- because that width is width([m]) + width([g]), which never depended on the ~ 0 result ' +
+      'in the first place. The same identity explains the CONTRAST imp-35969 draws with the imp-35810 dG ' +
+      'node: that near-equal subtraction node has a relative width that DOES inflate (~ (4/a) eps as ' +
+      'a -> 0), not because additivity fails there but because the operand magnitude in the denominator of ' +
+      'the RELATIVE width shrinks toward the cancelling result while the absolute width stays additive.\n\n' +
+      'HOW TO APPLY: cite this headword whenever a repo module needs to explain why a difference node\'s ' +
+      'enclosure width stays bounded (or fails to) independent of how close the computed value sits to ' +
+      'zero -- the width tracks the OPERAND widths, not the result magnitude.\n\n' +
+      'HONEST SCOPE: a standard floating-point / interval-arithmetic fact (IEEE-754 outward rounding, ' +
+      'Moore/Neumaier interval analysis), not a new result. It underlies the imp-35969 measurement but ' +
+      'derives no remainder, discharges no sub-gap, and changes no bound; imp-34714a stays OPEN; NO QED; ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-36031 (glossary headword for the imp-35969 width-additivity mechanism), 2026',
+    relatedTerms: [
+      'imp-35969 measures the outward-rounded residual-node enclosure width at a value-zero root using this identity (imp-35969)',
+      'imp-35810 supplies the eps_mach/a dG-node departure envelope this identity contrasts against (imp-35810)',
+      'imp-34714 separation of concerns: exact Krawczyk existence-uniqueness lemma vs unimplemented directed-rounding machine-certificate layer names the open sub-gap this width feeds',
+      'double-precision surrogate enclosure width vs certified outward-rounded interval-arithmetic enclosure draws the parallel modelled-vs-certified distinction for the crossover map itself',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -11582,6 +11582,15 @@ const DATA_MODULES = [
   // N~39250. Verdict does not track kappa (rounding-level, not conditioning). Measurement only;
   // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36095-kbn-kahan-intermittency-band.js',
+  // imp-36098 (accuracy, opus-4-8, api-pool): cross-validate the imp-36062 KBN-vs-Kahan "first strict
+  // separation at N~34000" onset against an INDEPENDENT stricter 2^-128 exact dyadic-BigInt reference.
+  // Recomputing Kahan/KBN + the 2^-96 and 2^-128 references at the seven onset rungs [33000..40000]:
+  // NO rung flips verdict (34000/38000/40000 stay SEPARATED, 33000/35000/36000/37000 stay identical),
+  // normalized errors match to full 7-sig-fig display. The verdict is driven entirely by whether the
+  // two Float64 scheme-results differ as doubles, and every O(1) sum / 1/sqrt(k) term is represented
+  // EXACTLY on both grids, so the 2^-96 reference was NOT a precision limiter. Validation only; changes
+  // no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36098-kbn-kahan-onset-2e128-crossvalidation.js',
   // imp-36096 (numerical, opus-4-8, api-pool): trace the JOINT (alpha,beta) two-parameter recovery
   // contour at which the imp-35890 running-accumulator ratio r returns within 10%/1% of the imp-35812
   // baseline r_base~1.18e-3, extending the imp-36061 two single-axis edges to the coupled plane. Joint

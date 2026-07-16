@@ -45,14 +45,18 @@
  * imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED.
  * Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
- * SCOPE NOTE (imp-35466 audit): the sibling sigma(N)-landmark modules (imp-35411, imp-35417)
- * name their surrogate-vs-true fidelity gap as the tracked sub-gap imp-35337a. This module
- * measures a DIFFERENT quantity (the E_flow far-tail remnant, not sigma(N)), and imp-35337a
- * is scoped specifically to "surrogate-vs-true fidelity of the sigma(N) landmarks" -- so it
- * does not cover this remnant. This module's own surrogate-vs-true fidelity gap (whether the
- * fd-vs-analytic remnant on the closed T0 = 2 pi N / log N proxy tracks the TRUE E_flow far
- * tail) is real but currently UNNAMED as a tracked sub-gap; do not cite imp-35337a here as if
- * it already covered it.
+ * NAMED RESIDUAL SUB-GAP (imp-35413a) (formalized per imp-35834, from the imp-35466 scope note)
+ * -----------------------------------------------------------------------------------------
+ * The sibling sigma(N)-landmark modules (imp-35411, imp-35417) name their surrogate-vs-true
+ * fidelity gap as the tracked sub-gap imp-35337a, scoped specifically to "surrogate-vs-true
+ * fidelity of the sigma(N) landmarks" -- it does NOT cover this module's remnant quantity.
+ * This module's own surrogate-vs-true fidelity gap -- whether the fd-vs-analytic remnant on
+ * the closed T0 = 2 pi N / log N proxy tracks the TRUE E_flow far tail -- is now formalized as
+ * its own named tracked sub-gap, imp-35413a: certify surrogate-vs-true fidelity of the E_flow
+ * far-tail remnant (and every downstream module continuing this same surrogate ladder, e.g.
+ * imp-35454/imp-35473/imp-35496/imp-35497/imp-35552/imp-35553). It inherits, and does not
+ * discharge, the imp-3220/imp-3406 assessment-only caveats. Do not cite imp-35337a here as if
+ * it already covered it -- cite imp-35413a instead.
  *
  * VIZ-DATA STATUS (imp-35467 audit): imp-35467 asked for an import-light viz-data module
  * exposing this five-rung threshold-crossing ladder for a page to plot. That module ALREADY
@@ -192,7 +196,20 @@ export const IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING = {
   scopeNote_imp35466_audit:
     'imp-35337a is scoped to the surrogate-vs-true fidelity of the sigma(N) landmarks ' +
     '(imp-35411, imp-35417) and does NOT cover this remnant quantity; this module’s own ' +
-    'surrogate-vs-true fidelity gap is real but remains an UNNAMED tracked sub-gap.',
+    'surrogate-vs-true fidelity gap is now formalized as tracked sub-gap imp-35413a (see ' +
+    'residual_sub_gap_imp_35413a below).',
+  residual_sub_gap_imp_35413a:
+    'Sub-gap imp-35413a = certify surrogate-vs-true fidelity of the E_flow far-tail remnant: ' +
+    'this module (and every downstream module continuing its surrogate ladder -- imp-35454, ' +
+    'imp-35473, imp-35496, imp-35497, imp-35552, imp-35553) measures the fd-vs-analytic ' +
+    'remnant entirely on the closed T0 = 2 pi N / log N surrogate height map (both the fd ' +
+    'exponent and the imp-35198 analytic -1 + 3/log N exponent live on that same inverse). ' +
+    'It does NOT establish that this surrogate remnant tracks the TRUE empirical-vs-analytic ' +
+    'E_flow far-tail gap under the exact RvM height map -- imp-35497 in fact measured that the ' +
+    'sub-1e-3 crossing shifts by +15.31 decades under the exact inverse, confirming the ' +
+    'surrogate reading is NOT height-map-robust. Distinct from imp-35337a, which is scoped to ' +
+    'the sigma(N) landmarks, not this remnant. Formalized per imp-35834; inherits, and does ' +
+    'not discharge, the imp-3220/imp-3406 assessment-only caveats.',
   vizDataStatus_imp35467_audit:
     'imp-35467 requested an import-light viz-data module for this ladder; that module already ' +
     'exists as imp-35483-eflow-fartail-remnant-sub1e3-crossing-viz-data.js (identical five-rung ' +
@@ -253,7 +270,17 @@ export const IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING_ASSERTIONS = [
       /imp-35337a/.test(IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.scopeNote_imp35466_audit) &&
       /imp-35411/.test(IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.scopeNote_imp35466_audit) &&
       /imp-35417/.test(IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.scopeNote_imp35466_audit) &&
-      /does NOT cover/.test(IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.scopeNote_imp35466_audit),
+      /imp-35413a/.test(IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.scopeNote_imp35466_audit),
+  },
+  {
+    // imp-35834: formalize the imp-35466 UNNAMED fidelity gap as its own tracked sub-gap
+    // imp-35413a, distinct from imp-35337a (which scopes only the sigma(N) landmarks).
+    id: 'imp35413-names-sub-gap-imp35413a',
+    description: 'residual_sub_gap_imp_35413a names the sub-gap and distinguishes it from imp-35337a',
+    holds: () =>
+      /imp-35413a/.test(IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.residual_sub_gap_imp_35413a) &&
+      /imp-35337a/.test(IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.residual_sub_gap_imp_35413a) &&
+      /surrogate-vs-true fidelity/.test(IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.residual_sub_gap_imp_35413a),
   },
   {
     // imp-35467 audit: the requested viz-data module already exists as imp-35483 -- record

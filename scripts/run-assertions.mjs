@@ -10173,6 +10173,21 @@ const DATA_MODULES = [
   // fluctuate (GUE-conditional, imp-486), a secondary deviation omitted. Measurement only;
   // positions no rectangle; certifies no floor; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35833-short-edge-placement-sensitivity-window.js',
+  // imp-35845 (proof/assessment): QUANTIFY the imp-35808 channel D2 differentiated truncation
+  // cap C_t prime = E_A prime + E_B prime + E_{C_0} prime as an independent budget and the ~ w
+  // amplification over the imp-35725 undifferentiated value cap C_t. MECHANISM: C_t bounds a
+  // value tail sum_{n>N} b_n; differentiation pulls down -log n per term, so the differentiated
+  // tail is sum_{n>N} (log n) b_n -- the SAME tail log-weighted (differentiation and truncation
+  // do NOT commute). AMPLIFICATION: A_amp = C_t prime / C_t ~ tail-weighted average of log n,
+  // pinned at the largest surviving term n = N+1, so A_amp ~ log N ~ 13.10 at N ~ 4.886e5 vs
+  // w ~ 13.446, tied by the EXACT identity log N = w - (1/2)log2, i.e. A_amp ~ 0.974 w (WITHIN
+  // (0.9 w, w)) -- "~ w" CONFIRMED to OOM, sharp constant log N marginally BELOW w. ROUNDING:
+  // the imp-35761 RELATIVE width ~ N.eps is uniform-rescale invariant and does NOT inherit ~ w
+  // (stays ~1.08e-10 at double); the ABSOLUTE width DOES (~ w larger, ~1.5e-9), both ~9 orders
+  // below O(1), precision non-binding. Six self-executing assertions. Estimate/OOM only;
+  // differentiates no series numerically; budgets no C_t prime; changes no bound; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-35845-d2-differentiated-truncation-cap-amplification.js',
 ];
 
 let ALL_MODULES = FAST_MODE

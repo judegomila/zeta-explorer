@@ -1501,6 +1501,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive chart re-exporting the imp-35762 additive surplus split verbatim (no new derivation, no heavy data-module import); presentation only; measurement on the inherited imp-3220/imp-3406 surrogate; imp-34714a REMAINS OPEN; C_C 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35863-krawczyk-split-inversion',
+      title: 'Krawczyk Surplus-Split Height-Axis Inversion',
+      oneLine:
+        'Line chart of the imp-35809 shift_fraction and curvature_fraction vs log10(N) from the imp-34693 band-top (~98.1% curvature) to the Platt-Trudgian anchor N~1.236e13 (~98.5% shift), marking the 50/50 crossover at a=4.delta (N~1.88e11) and the near-mirror band-top/PT-anchor split.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-35863-krawczyk-split-inversion-viz-data.js',
+      paperSourcePath: 'src/data/imp-35809-krawczyk-surplus-split-band-and-height-profile.js (imp-35863 viz page)',
+      ticket: 'imp-35863',
+      pedagogicalStep: 103,
+      honestCeiling:
+        'Descriptive chart re-exporting the imp-35809 height-axis split-inversion measurement verbatim (no new derivation, no heavy data-module import); presentation only; measurement on the inherited imp-3220/imp-3406 surrogate; imp-34714a REMAINS OPEN; C_C 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

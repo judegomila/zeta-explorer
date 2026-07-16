@@ -894,6 +894,9 @@ const Imp35823RequiredHeightLadderViz = lazy(() =>
 const Imp35824SurplusWaterfallViz = lazy(() =>
   import('./pages/Imp35824SurplusWaterfallViz.jsx')
 );
+const Imp35863KrawczykSplitInversionViz = lazy(() =>
+  import('./pages/Imp35863KrawczykSplitInversionViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2493,6 +2496,10 @@ function AppShell() {
           <Route
             path="/viz-imp35824-surplus-waterfall"
             element={<Imp35824SurplusWaterfallViz />}
+          />
+          <Route
+            path="/viz-imp35863-krawczyk-split-inversion"
+            element={<Imp35863KrawczykSplitInversionViz />}
           />
           <Route
             path="/viz-imp35386-kemp-bracketing-ladder"

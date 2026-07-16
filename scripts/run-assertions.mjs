@@ -11615,6 +11615,15 @@ const DATA_MODULES = [
   // toggling on a scale of ~1; verdict does not track kappa. Measurement only; changes no bound;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36113-kbn-kahan-intermittency-fine-resolution.js',
+  // imp-36114 (numerical, opus-4-8, api-pool): fit the imp-36062 KBN/classic-Kahan normalized-error
+  // RATIO versus N above the ~34000 onset across a 12-rung ladder [35000..488602]. Result: NONE of
+  // three candidate forms fits -- power law in N (R^2~0.15), power law in kappa (R^2~0.15), and
+  // log-linear (R^2~0.15) all have ~zero explanatory power. The per-N ratio is a floor-level ROUNDING
+  // coin-flip, not a decay: bit-identical rungs (ratio=1.0) recur at N=35000 AND N=220000, so the
+  // imp-36062 "0.96->0.08" deepening was an ENDPOINT ARTIFACT of noisy scatter, not a trend (geo-mean
+  // ~0.26, range [0.065,1.0]). Matches imp-36095/imp-36113 intermittency. Measurement only; changes no
+  // bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36114-kbn-kahan-ratio-decay-law-fit.js',
   // imp-36098 (accuracy, opus-4-8, api-pool): cross-validate the imp-36062 KBN-vs-Kahan "first strict
   // separation at N~34000" onset against an INDEPENDENT stricter 2^-128 exact dyadic-BigInt reference.
   // Recomputing Kahan/KBN + the 2^-96 and 2^-128 references at the seven onset rungs [33000..40000]:

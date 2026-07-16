@@ -20717,6 +20717,43 @@ export const glossary = [
       'imp-35761 supplies the pessimistic N*eps naive ceiling this trichotomy refines with a tighter running-accumulator peak (imp-35761)',
     ],
   },
+  {
+    term: 'Winding-Density UNITS: theta-Cusp Slope (3/2, per radian) vs Along-Line RS Rate (~13.45, per unit height)',
+    category: 'numerical',
+    definition:
+      'A headword distinguishing the TWO different winding-density notions the imp-35951 and ' +
+      'imp-35757 I2 panel-sizing modules each use, flagged by imp-35951 as "not one-to-one ' +
+      'comparable." (1) THETA-CUSP DENSITY (imp-35951, from the held imp-33923 quadrature): the ' +
+      'least-squares phase-winding slope |d arg / d theta| = 3/2 of the scale-free off-axis leading ' +
+      'amplitude A(theta) = int |u|^{-1/2}/(w-u)^2 du on the theta in {45..135} deg sweep -- a ' +
+      'DIMENSIONLESS argument-increment density per RADIAN of the sweep parameter theta, giving a ' +
+      'panel count of ceil(3m/4) (1 borderline, 2 at margin 2, 3 at margin 4) over the pi/2 sweep ' +
+      'arc. (2) ALONG-LINE RS RATE (imp-35757, from the smooth Riemann-Siegel mean rate): ' +
+      'w(t) = (1/2) log(t / 2 pi) ~ 13.45 rad per unit HEIGHT t at T_PT = 3e12, giving ~4.28 panels ' +
+      'per unit height.\n\n' +
+      'WHY THE TWO PANEL COUNTS ARE NOT ONE-TO-ONE COMPARABLE: the two rates live on different ' +
+      'parameterizations with a Jacobian mismatch between them -- theta (an off-axis model-cusp ' +
+      'sweep angle, dimensionless) is not the along-line height t (a physical unit with its own ' +
+      'log-growing density). Converting one panel budget into the other would require the (unknown, ' +
+      'uninstantiated) derivative d theta / dt relating the two parameterizations; absent that, a ' +
+      "reader must not conflate imp-35951's ~3 theta-arc panels with imp-35757's ~4.28 " +
+      'panels-per-unit-height figure as if they measured the same quantity.\n\n' +
+      'HOW TO APPLY: cite this headword when a reader compares the imp-35951 and imp-35757 I2 panel ' +
+      'counts and asks why they differ -- the two counts size the SAME ingredient (the I2 per-panel ' +
+      '|Delta arg f| < pi cap) on DIFFERENT parameterizations, so their raw numeric values are not ' +
+      'interchangeable without an explicit units conversion neither module supplies.\n\n' +
+      'HONEST SCOPE: DEFINITIONAL ONLY. Both underlying panel counts remain ESTIMATE / SIZING, not ' +
+      'certified (imp-35951 is a PROXY on the off-axis model cusp rho = |x|^{-1/2}, not the true ' +
+      'H_t = A + B - C on dR); I2 stays GREENFIELD; changes no bound; no RH verdict, NO QED. ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-36014 (glossary headword for the imp-35951/imp-35757 winding-density units mismatch), 2026',
+    relatedTerms: [
+      'imp-35951 i2-i3-sizing-from-imp33923-sampled-proxy sizes I2 from the theta-cusp slope 3/2 and flags the two counts as not one-to-one comparable (imp-35951)',
+      'imp-35757 i2-panel-width-count-scope sizes I2 from the smooth Riemann-Siegel mean rate ~13.45 rad per unit height (imp-35757)',
+      'imp-33923 off-axis phase-winding quadrature supplies the held sampled theta-cusp slope -3/2 imp-35951 reads as its density proxy (imp-33923)',
+      'imp-35727 w2-certified-winding-count-ingredients-scope enumerates I2 as one of the I1-I5 GREENFIELD ingredients both modules size (imp-35727)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

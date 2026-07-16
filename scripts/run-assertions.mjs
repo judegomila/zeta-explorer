@@ -11573,6 +11573,16 @@ const DATA_MODULES = [
   // imp-36023). Onset tracks N (clean boundary near N~34000) not a hard kappa cutoff, and is a
   // soft rounding-gated threshold. Measurement only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36062-kbn-kahan-separation-onset.js',
+  // imp-36100 (numerical, opus-4-8, api-pool): does the imp-36062 KBN-vs-classic-Kahan separation
+  // onset (N~34000 on the imp-35852 CLUSTERED worst order) SHIFT on the imp-35812 NATURAL order
+  // (k=1..N)? Re-running the byte-identical schemes + per-N exact 2^-96 reference over the same
+  // eleven-rung ladder on the natural order, the onset SHIFTS EARLIER to N~30000 (kappa~347, 4000
+  // rungs below N~34000) -- BUT the natural-order separation is even more intermittent (strictly
+  // tighter at only {30000,34000,50000}) and does NOT persist: at the endpoint N~488602 the two
+  // schemes are BIT-IDENTICAL (both ~1.89e-20), whereas on the clustered order KBN stayed ~10x
+  // tighter. So the imp-36062 "gap deepens with N" reading is ORDER-SPECIFIC to the clustered worst
+  // order. Measurement only; precision non-binding; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36100-kbn-kahan-onset-natural-order.js',
   // imp-36095 (numerical, opus-4-8, api-pool): TABULATES the imp-36062 KBN-vs-classic-Kahan
   // separation intermittency band [34000,40000] that imp-36062 asserted but did NOT store. A fine
   // step-250 ladder (25 rungs) against the same per-N exact 2^-96 dyadic-BigInt reference finds 15
@@ -11726,6 +11736,12 @@ const DATA_MODULES = [
   // (N~4.624e13, coinciding with the imp-35971 sole-survivor). Bisection on log N over the same
   // imp-3406/imp-33582/imp-2642 sub-terms. Measurement only; changes no bound; NO QED.
   '/src/data/imp-36097-e-share-threshold-crossings-viz-data.js',
+  // imp-36142 (content, sonnet-4-6, sonnet): standalone honest-status note restating imp-36096 --
+  // the joint (alpha,beta) W1-accumulator recovery basin is strongly NON-CONVEX / lobed (bulging to
+  // u+v~2.48-2.52 outside the axis diamond, caving to ~0.59-0.60 in a narrow beta-axis lobe), so the
+  // imp-36061 single-axis detuning edges under-state the coupled margin by up to ~2.5x and a monitor
+  // keyed on either axis alone would be UNSAFE across most of the plane. Note only; NO QED.
+  '/src/data/imp-36142-joint-basin-non-convex-single-axis-unsafe-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

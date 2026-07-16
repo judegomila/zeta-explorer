@@ -10816,6 +10816,18 @@ const DATA_MODULES = [
   // cross-ref. Imports all three imp-35852/imp-35893/imp-35890 verdicts verbatim, no
   // new numerics. Note only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35964-w1-precision-robustness-cluster-crossref.js',
+  // imp-35971 (numerical, measurement): LOCATE the deep-parity height at which the fixed floor
+  // E_trunc = 3.06e-5 becomes the SOLE non-negligible term of E(N) = E_trunc + E_flow + E_coll --
+  // the first N where BOTH E_coll and E_flow drop below 1% of E_trunc -- extending the imp-35889
+  // three-way split into the sigma -> 0 tail on the same imp-3406 / imp-33582 surrogate. FINDING:
+  // N* ~ 4.72e13 (log10 ~ 13.67, log T0 ~ 30.0), sigma ~ 9.90e-3, E_coll / E_trunc = 1.00e-2
+  // (binding), E_flow / E_trunc ~ 4.18e-7, E(N*) / E_trunc ~ 1.010. E_coll is the LAST survivor:
+  // E_flow < 1% at N ~ 4.62e8 (~ 5 decades earlier), E_coll only at N ~ 4.72e13 = N*. Cross-check
+  // vs the roadmap sigma < 0.1 landmark N ~ 3.21e11: sigma ~ 0.10 there but E_coll / E_trunc ~ 0.111
+  // (~ 11x the 1% bar), so N* sits ~ 2.17 decades higher; far tail decays like N^(-1/2) log-corrected.
+  // Measurement only; reuses imp-35889 / imp-35853 locators; changes no bound; imp-35337a OPEN;
+  // imp-486 untouched; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35971-etrunc-sole-survivor-height.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -714,6 +714,42 @@ export const LAMBDA_CHAIN_STEPS = [
           machinery: 'imp-486, imp-462',
           feedsInto: 'conditions the per-N route-A translation; leaves RH conditional on GUE',
           closed: false,
+          // imp-36079 (assessment/scoping ONLY; changes NO bound, closes NOTHING,
+          // respects the imp-2519 no-overclaim guard, NO QED): does the irreducible
+          // C_mb correction admit a finite-N NON-GUE surrogate over a bounded window,
+          // and how far does that surrogate sit from the GUE-conditional constant?
+          surrogateAssessment: {
+            answer:
+              'YES on a bounded window, NO uniformly. A purely finite-N, non-GUE, ' +
+              'non-ESY-local-law surrogate for C_mb ALREADY exists over bounded ' +
+              'unfolding windows and is directly computable: (i) the imp-963 OLS-' +
+              'measured C_mb on [100, 1e4] (imp-2632, a fit not an N-uniform bound), ' +
+              'and (ii) the STRONGER imp-3725 true-flow two-sided enclosure of t_c(N) ' +
+              'per H_raw plateau, certifying K_paper <= 2.4238e-6 uniformly on the ' +
+              'CLOSED window [1e4, 1e6] with zero GUE input (a real-analysis lemma). ' +
+              'Both are genuine finite-N non-GUE surrogate bounds on the window they ' +
+              'cover.',
+            residualGap:
+              'The gap to the GUE-conditional constant is exactly the uncomputable ' +
+              'asymptotic (N -> infinity) tail N > N_hi. The surrogate is window-LOCAL: ' +
+              'it supplies NO N-uniform control past its computed ceiling N_hi, and the ' +
+              'imp-3725 enclosure is a per-plateau interval-RK4 measurement whose cost ' +
+              'is O(N^2) per rung (heavy-offline-compute-pool-starvation), so extending ' +
+              'N_hi is bounded compute, never a limit. The GUE conditional is precisely ' +
+              'what supplies the N -> infinity universality (ESY local law) that the ' +
+              'per-N route-A translation needs beyond any finite window; that tail is ' +
+              'the irreducible residue. Quantitatively the surrogate value 2.4238e-6 ' +
+              'sits arbitrarily far (in the extrapolation sense) from the GUE-conditional ' +
+              'constant because no finite N_hi bounds the sup over N > N_hi without a ' +
+              'universality input.',
+            verdict:
+              'Surrogate DOES NOT discharge the imp-486 irreducible reduction: it ' +
+              'replaces the conditional ONLY on the bounded window it computes, leaving ' +
+              'the asymptotic tail GUE-conditional. The assembled Step-5 claim stays ' +
+              'RH-MODULO-GUE-UNIVERSALITY; Platt-Trudgian Lambda <= 0.2 remains SOTA; ' +
+              'NO QED. This confirms (does not weaken) the irreducible grade.',
+            by: 'imp-36079',
+          },
         },
       ],
       caveat:

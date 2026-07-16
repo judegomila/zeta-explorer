@@ -11879,6 +11879,12 @@ const DATA_MODULES = [
   // at N=34000 (kappa~361.5), KBN/Kahan ratio deepening ~0.96 -> ~0.08 by N~488602. Viz-data
   // only; changes no bound; NO QED.
   '/src/data/imp-36104-kbn-kahan-separation-onset-viz-data.js',
+  // imp-36105 (ux, sonnet-4-6, sonnet): import-light viz-data module (baked literals) for the
+  // imp-36061 two-axis running-accumulator recovery-detuning-width measurement -- alpha-axis
+  // edges (|delta|~0.560 at 10%, ~0.611 at 1%) and beta-axis edges (~3.19, ~3.32), each plotted
+  // against the imp-35991 r<1e-2 basin edge (widening ~15.7x alpha / ~11.9x beta) and the
+  // imp-35812 baseline detuning on that axis. Viz-data only; changes no bound; NO QED.
+  '/src/data/imp-36105-recovery-detuning-width-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

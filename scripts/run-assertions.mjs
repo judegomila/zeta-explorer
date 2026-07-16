@@ -10355,6 +10355,18 @@ const DATA_MODULES = [
   // guard confirming the imp-35848 ladder stays present and complete. Audit only; NO QED; PT
   // Lambda<=0.2 SOTA.
   '/src/data/imp-35866-cancellation-onset-tol-ladder-duplicate-audit.js',
+  // imp-35870 (numerical, measurement): using the imp-35811 ~520-digit BigInt sig-digit engine
+  // verbatim (with the replicated D*(x) reproducing the imp-35811 exported table exactly at every
+  // shared rung), MEASURE the exact x at which each standard IEEE-754 tier is exhausted for the
+  // exp(-pi x/8) underflow cancellation, and tabulate D*(x) + mantissa-byte cost per value across
+  // x in [104,1000]. double (binary64, ~15.95 digits, 8 B) reaches x~94, quad (binary128, ~34.02
+  // digits, 16 B) x~200, octuple (binary256, ~71.34 digits, 32 B) x~418 by the offset-free reach
+  // M/slope; the stricter g=3 measured exhaustion (first x with D*(x)>M) sits ~+2 guard digits
+  // below each. Byte cost rises ~8.3 B at x=104 to ~71 B at x=1000; T_PT x=6e12 needs ~1.02e12
+  // digits (~425 GB/value), exceeding octuple by ~1.3e10x, so NO standard tier reaches T_PT. Six
+  // self-executing assertions. Measurement only; extends no evaluator; evaluates no true H_0 at
+  // high precision; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35870-precision-tier-reachable-height-table.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -9941,6 +9941,14 @@ const DATA_MODULES = [
   // off every would-be zero. Five self-executing assertions. Measurement on the OOM model only;
   // certifies no cap; bounds no B; lower-bounds no delta; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35801-i2-panel-amplification-vs-grazing-distance.js',
+  // imp-35832: ASSESS whether the imp-35777 I2-cap derivative bound B = sup|H_t prime| comes free by
+  // termwise-differentiating the imp-35681 Part A / I1 enclosure of H_t = A_t+B_t-C_t. FINDING: the
+  // main-term half is FREE (finite Dirichlet sum, exact termwise, per-term log n <= log N_eff = w),
+  // but the error half is NOT (scalar cap C_t carries no info on |E prime|), so B needs a genuinely
+  // NEW ingredient -- a separate derivative-error cap C_t prime OR a 2D Cauchy estimate off I1; both
+  // give B ~ |H_t| . w. Six self-executing assertions. Assessment only; certifies no cap; changes
+  // no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35832-i2-derivative-bound-from-i1-enclosure-scope.js',
   // imp-35815: TABULATE the imp-35777 robust-regime log-derivative panel width L_panel = pi/(B/delta)
   // against the imp-35757 mean zero gap Delta_panel = 2pi/log(t/2pi) side by side across a seven-rung
   // height ladder (3e11..3e15) around T_PT = 3e12, and quantify the agreement of the two independent OOM

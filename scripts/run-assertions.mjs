@@ -11494,6 +11494,12 @@ const DATA_MODULES = [
   // height N* ~4.7214e13, baking three tail landmarks (E_flow-1pct crossing, sigma<0.1 landmark,
   // sole-survivor). Presentation only; changes no bound; NO QED.
   '/src/data/imp-36046-e-share-tail-landmarks-viz-data.js',
+  // imp-36047 (ux, sonnet-4-6, sonnet): import-light viz-data module presenting the imp-35972
+  // double-resolved twin-cliff structure of the RvM height surrogate: cliff B (R_direct NaN,
+  // a->0, log10 N~307.455916) binds FIRST, ~6.196e-4 decade below cliff A (effectiveHeightForN
+  // overflow, T->+Infinity, log10 N~307.456536), baking a and T at each boundary. Presentation
+  // only; changes no bound; NO QED.
+  '/src/data/imp-36047-two-cliff-bisection-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

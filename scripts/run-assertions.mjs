@@ -9499,6 +9499,16 @@ const DATA_MODULES = [
   // only; no new claim beyond imp-35654 F3; changes no bound; NO QED;
   // Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35711-postport-parity-no-beat-honest-status-banner.js',
+  // imp-35740: HONEST-STATUS BANNER for the imp-35678 Reading 1 finite-height
+  // beat -- L_pt~0.121<0.2 (imp-452/459) is a CONDITIONAL / C_H-gated ESTIMATE
+  // (roadmap CORRECTION 2026-07-03), not an unconditional beat: the dominant
+  // E_coll term rests on the RH-hard shock modulus C_H, the measured C_mb is
+  // an OLS fit (imp-2632), and the beat holds only at finite N -- as sigma ->
+  // 0 it hands off to the imp-35711 asymptotic parity-with-PT. Prominent
+  // standalone companion to imp-35711. Four self-executing assertions.
+  // Documentation only; no new claim beyond imp-35678; changes no bound; NO
+  // QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35740-finite-height-beat-honest-status-banner.js',
   // imp-35695: TABULATE the imp-35652 resolution-floor factor delta_res/s_min =
   // M^{1/3} across the ticket-named power-of-ten gap-count ladder M in
   // {10, 1e2, 1e4, 1e6, 1e8}, quantifying how many multiples below the band-limited
@@ -9684,6 +9694,19 @@ const DATA_MODULES = [
   // W1 from the proxy is NET-NEGATIVE vs building the positive-t A+B-C directly. Four
   // self-executing assertions. Assessment only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35726-w1-sign-reconciliation-cost-scope.js',
+  // imp-35780: ENUMERATE the ingredients of the imp-35726 Route (b) forward-evolution
+  // no-lift-off certificate transporting the held negative-time proxy across
+  // [t_repo, 0, t_PM15] at T_PT=3e12. Five ingredients: I1 initial-datum regularity
+  // (HELD but PARTIAL -- proxy IS an H_t member at t=-4 tau_repo so it supplies the
+  // Laguerre-Polya class, but only over the double-precision window x ~< 104), I2
+  // uniform-in-x forward-flow control (greenfield), I3 endpoint-crossing continuity at
+  // t=0 (greenfield, circularity-flagged: t=0 IS xi), I4 x-uniform no-lift-off =
+  // |A+B|>|C| = W1 (load-bearing, greenfield, same tier as the direct barrier per
+  // imp-35726 Part C), I5 quantitative margin E_A,E_B,E_{C_0} at T_PT (greenfield,
+  // imp-35717 R4 seed). Tally 1-of-5 held (partial), 4 greenfield; grounds the Part C
+  // "~ cost of direct barrier" verdict as a line-item ledger. Five self-executing
+  // assertions. Enumeration only; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35780-route-b-noliftoff-certificate-ingredient-ledger-scope.js',
   // imp-35727: ENUMERATE the ingredients a rigorous interval-arithmetic-CERTIFIED
   // winding (argument-principle) zero count on the boundary of the transition
   // rectangle R = [T_PT, T_PT+Delta] x [-h, h] needs BEYOND the held-but-EXPERIMENTAL

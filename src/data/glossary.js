@@ -20968,6 +20968,79 @@ export const glossary = [
       'The W1 A-Priori Forward-Error Trichotomy: COHERENT (N-1)*u vs WILKINSON sqrt(N)*u vs Higham-Mary MEAN-SQUARE names the three scales this tail model applies to',
     ],
   },
+  {
+    term: 'Recovery Basin (running-accumulator)',
+    category: 'numerical',
+    definition:
+      'For the imp-35890 running-accumulator ratio r = max_i|S_i| / Sum|t_k| on the oscillatory ' +
+      'family t_k = cos(alpha k + beta sqrt k)/sqrt k, the CONNECTED region in (alpha, beta) around ' +
+      'the q=1 resonance (alpha = 2 pi, beta = 0, where r = 1: full breakdown) where r stays ABOVE ' +
+      'a chosen recovery target -- e.g. r < 1e-2 (imp-35991) or r within 10%/1% of the imp-35812 ' +
+      'strong-cancellation baseline r_base ~ 1.18e-3 (imp-36061). Its boundary is the first-crossing ' +
+      'contour a run-time monitor keys on.\n\n' +
+      'HOW TO APPLY: cite this headword whenever a repo module needs to describe the region of ' +
+      'oscillation parameters over which the accumulator ratio has not yet recovered from resonant ' +
+      'breakdown; the DETUNING EDGE is the boundary distance of this basin along a single axis.\n\n' +
+      'HONEST SCOPE: imp-36096 found the JOINT (alpha, beta) basin is strongly NON-CONVEX and ' +
+      'non-elliptical, so the imp-36061 single-axis edges under-state the coupled recovery margin ' +
+      'by up to ~2.5x across most of the plane -- treat single-axis edges as a lower bound on the ' +
+      'true joint margin, not the margin itself. Measurement only; changes no bound; NO QED; ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-36149 (glossary headword for the imp-35991/imp-36061/imp-36096 recovery-basin family), 2026',
+    relatedTerms: [
+      'imp-35991 locates the r < 1e-2 basin edge on each single axis (imp-35991)',
+      'imp-36061 measures the single-axis DETUNING EDGE recovering to the imp-35812 baseline (imp-36061)',
+      'imp-36096 traces the joint (alpha,beta) basin shape and finds it non-convex (imp-36096)',
+      'imp-35890 supplies the running-accumulator O(1) a-priori bound this ratio instruments (imp-35890)',
+    ],
+  },
+  {
+    term: 'Detuning Edge',
+    category: 'numerical',
+    definition:
+      'The smallest perturbation (delta on the alpha axis, or beta itself on the sqrt-drift axis) ' +
+      'away from the imp-35949 q=1 resonance at which the running-accumulator ratio r first drops ' +
+      'to a chosen recovery target, located by an outward bracketing scan plus bisection (imp-36061). ' +
+      'Two edges are reported per axis: the 10%-of-baseline edge and the tighter 1%-of-baseline edge.\n\n' +
+      'HOW TO APPLY: cite this headword for the boundary DISTANCE of the RECOVERY BASIN along a ' +
+      'single fixed axis (the other frequency held at its resonant / zero value); it is a lower ' +
+      'bound on, not equal to, the true joint-plane margin once both axes detune together.\n\n' +
+      'HONEST SCOPE: measured at fixed N ~ 488602 (the Platt-Trudgian T_PT retained-term count) for ' +
+      'one specific oscillatory family; sizes only the run-time-monitor window imp-36004/imp-35949 ' +
+      'flagged. Instantiates no directed-rounding interval; changes no bound; NO QED; Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-36149 (glossary headword for the imp-36061 detuning-width measurement), 2026',
+    relatedTerms: [
+      'imp-36061 measures both alpha-axis and beta-axis detuning edges at the 10% and 1% targets (imp-36061)',
+      'imp-35949 locates the q=1 resonant corner this edge is measured from (imp-35949)',
+      'Recovery Basin (running-accumulator) names the region this edge bounds along one axis',
+      'imp-36096 shows the single-axis edges under-state the coupled joint-plane margin (imp-36096)',
+    ],
+  },
+  {
+    term: 'Intermittency Band (KBN vs Kahan)',
+    category: 'numerical',
+    definition:
+      'The N-range over which the strict separation between Kahan-Babuska-Neumaier (KBN) summation ' +
+      'and classic Kahan summation, on a fixed clustered same-sign worst order, ALTERNATES rung-to-' +
+      'rung -- some N values bit-identical, others strictly separated -- before the separation ' +
+      'becomes persistent at larger N. imp-36062 first noted the band (N ~ 34000 to ~40000, soft ' +
+      'onset) without tabulating it; imp-36095 measured it explicitly on a fine step-250 N ladder, ' +
+      'confirming genuine intermittency (e.g. bit-identical again at 35000-37000) rather than a ' +
+      'single clean onset.\n\n' +
+      'HOW TO APPLY: cite this headword whenever a repo module needs to describe a KBN/Kahan onset ' +
+      'that is SOFT (intermittent) rather than a sharp N* threshold; do not treat the first observed ' +
+      'separation as the point past which separation is guaranteed to persist.\n\n' +
+      'HONEST SCOPE: measured on one specific clustered worst order (imp-35852/imp-36023); ' +
+      'certifies no W1 bound, instantiates no interval, changes no bound; NO QED; Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-36149 (glossary headword for the imp-36062/imp-36095 KBN-Kahan intermittency finding), 2026',
+    relatedTerms: [
+      'imp-36062 first located the soft KBN-vs-Kahan separation onset near N ~ 34000 (imp-36062)',
+      'imp-36095 tabulates the fine step-250 intermittency ladder across [34000, 40000] (imp-36095)',
+      'imp-35852 supplies the clustered same-sign worst order this band is measured on (imp-35852)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

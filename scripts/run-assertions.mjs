@@ -11252,6 +11252,14 @@ const DATA_MODULES = [
   // FAITHFUL. Measurement only; changes no bound; C_H stays the ansatz; imp-486 kept;
   // imp-35337a OPEN; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36024-surrogate-vs-assembled-EN-crossvalidation.js',
+  // imp-36087 (meta, audit): registration/reachability + import-light guard sweep
+  // (imp-35982/imp-35905/imp-35986 method) over the imp-3601x/imp-3602x cohort --
+  // imp-36018, imp-36020, imp-36021, imp-36022, imp-36023. FINDING: ZERO GAPS -- all
+  // five already carry a direct DATA_MODULES entry, all self-executing assertions
+  // pass, and walking each module's full direct dependency chain (12 distinct files)
+  // found zero references to the 20.8MB zeros-to-1e6.js bundle. Audit only; no fix
+  // needed; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36087-imp3601x2x-registration-reachability-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

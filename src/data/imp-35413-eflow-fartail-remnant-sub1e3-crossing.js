@@ -54,6 +54,12 @@
  * tail) is real but currently UNNAMED as a tracked sub-gap; do not cite imp-35337a here as if
  * it already covered it.
  *
+ * VIZ-DATA STATUS (imp-35467 audit): imp-35467 asked for an import-light viz-data module
+ * exposing this five-rung threshold-crossing ladder for a page to plot. That module ALREADY
+ * EXISTS -- imp-35483-eflow-fartail-remnant-sub1e3-crossing-viz-data.js bakes this exact ladder
+ * (1e24/1e25/crossing/1e26/1e28, same literals) and is registered in visualizations-index.js at
+ * route /viz-imp35483-eflow-fartail-remnant-sub1e3-crossing. Do not build a second copy.
+ *
  * @see imp-35371-eflow-fartail-remnant-deep-extension (the ladder this continues, endpoint 1e24)
  * @see imp-35280-eflow-fartail-fd-vs-analytic-surrogate-gap (the four-rung remnant origin)
  * @see imp-35198-eflow-fartail-exponent-logn-correction (the analytic -1 + 3/log N leading form)
@@ -187,6 +193,11 @@ export const IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING = {
     'imp-35337a is scoped to the surrogate-vs-true fidelity of the sigma(N) landmarks ' +
     '(imp-35411, imp-35417) and does NOT cover this remnant quantity; this module’s own ' +
     'surrogate-vs-true fidelity gap is real but remains an UNNAMED tracked sub-gap.',
+  vizDataStatus_imp35467_audit:
+    'imp-35467 requested an import-light viz-data module for this ladder; that module already ' +
+    'exists as imp-35483-eflow-fartail-remnant-sub1e3-crossing-viz-data.js (identical five-rung ' +
+    'ladder, registered at route /viz-imp35483-eflow-fartail-remnant-sub1e3-crossing in ' +
+    'visualizations-index.js). imp-35467 is satisfied by imp-35483; do not build a duplicate.',
 };
 
 export const IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING_ASSERTIONS = [
@@ -243,6 +254,16 @@ export const IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING_ASSERTIONS = [
       /imp-35411/.test(IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.scopeNote_imp35466_audit) &&
       /imp-35417/.test(IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.scopeNote_imp35466_audit) &&
       /does NOT cover/.test(IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.scopeNote_imp35466_audit),
+  },
+  {
+    // imp-35467 audit: the requested viz-data module already exists as imp-35483 -- record
+    // that so the frontier scout does not re-queue a duplicate build.
+    id: 'imp35413-viz-data-status-names-imp35483',
+    description: 'the imp-35467 viz-data status note names imp-35483 as the already-existing module',
+    holds: () =>
+      /imp-35467/.test(IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.vizDataStatus_imp35467_audit) &&
+      /imp-35483/.test(IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.vizDataStatus_imp35467_audit) &&
+      /already exists/.test(IMP35413_EFLOW_FARTAIL_REMNANT_SUB1E3_CROSSING.vizDataStatus_imp35467_audit),
   },
 ];
 

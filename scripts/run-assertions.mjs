@@ -9959,6 +9959,17 @@ const DATA_MODULES = [
   // Kahan on the same order stays at the roundoff floor. Seven self-executing assertions.
   // Measurement only; certifies no W1 bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35973-w1-summation-order-shape-cross-term.js',
+  // imp-36019 (numerical, S-frontier): MEASURE whether the imp-35973 super-additive
+  // order-x-shape compounding FACTOR (~13x at N~488602) is N-stable across the imp-35812 N
+  // ladder [1000, 10000, 100000, 488602]. Re-running the combined worst-ORDER x worst-SHAPE
+  // cross against a per-N exact BigInt reference, the factor cross/(shapeOnly+orderOnly) is
+  // [6.365, 0.200, 9.266, 12.969]: NOT N-stable, NOT monotone -- swings ~65x, and at N=10000
+  // is SUB-additive (~0.20, below the worse single stress: the levers CANCEL). The ~13x
+  // endpoint is a phase-coincidence, not a law. YET the barrier invariant IS N-robust: cross
+  // stays below the log2(N)*eps ceiling (max ~0.141) and Kahan at the roundoff floor at every
+  // rung -- precision stays NON-binding across the whole ladder. Seven self-executing asserts.
+  // Measurement only; certifies no W1 bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36019-order-shape-cross-N-ladder.js',
   // imp-35953: CROSS-CHECK the stability of the imp-35891 ~1-decade offset between the
   // imp-35853 flattest-point knee (N_flat ~ 7.20e9) and the imp-33701 sigma-exponent
   // inflection decade ([1e10,1e11]) under an INDEPENDENT raw Riemann-von Mangoldt height

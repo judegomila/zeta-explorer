@@ -9894,6 +9894,25 @@ const DATA_MODULES = [
   // (imp-35681 Part A). Five self-executing assertions. Allocation / OOM scoping only;
   // evaluates no sum; verifies no inequality; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35779-w1-required-fraction-allocation-scope.js',
+  // imp-35799: DERIVE the certifiable STRUCTURE of a rigorous lower bound on inf|H_t prime|
+  // along a LONG edge |y| = h of dR, to replace the imp-35778 sup-B OOM proxy in the
+  // long-edge floor delta_long ~ inf|H_t prime| . h. The sup-B scale comes from the FORWARD
+  // triangle inequality, so it is an UPPER bound (what I2 wants) and carries NO infimum
+  // information. The correct object is a DIFFERENTIATED barrier margin via the reverse
+  // triangle: inf|H_t prime| >= M_prime = inf(|A_t prime + B_t prime| - |C_t prime|), the
+  // z-derivative analogue of the imp-35725 / imp-35681 Part A margin M = |A_t+B_t| - |C_t|,
+  // certifiable by the SAME interval machinery on the differentiated ~4.886e5-term retained
+  // sum (differentiation adds <= log N = w - (1/2)log 2 ~ w). Since that multiplies each
+  // coefficient by ~ w, M_prime ~ w . M and
+  // delta_long >= M_prime . h ~ (w . M) . h -- the SAME |H_t| . w . h OOM the proxy reported,
+  // now a certified LOWER bound (proxy SCALING right, DIRECTION wrong). M_prime collapses at
+  // the edge modulus-critical points (derivative-side counterpart of the imp-35778 short-edge
+  // grazing caveat), leaving two open sub-gaps: SG-1 a differentiated A+B-C enclosure
+  // (GREENFIELD) and SG-2 a non-grazing edge-placement condition. ADDS NO greenfield
+  // MECHANISM. Five self-executing assertions. Assessment/scoping only; builds no enclosure;
+  // produces no numeric M_prime; certifies no positivity; changes no bound; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-35799-i3-long-edge-derivative-floor-scope.js',
 ];
 
 let ALL_MODULES = FAST_MODE

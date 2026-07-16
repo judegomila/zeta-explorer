@@ -31,3 +31,7 @@ mathexplorer-claude-sessions-*.tar.gz
 # (large, ephemeral) — keep only the .gitkeep marker.
 thinking/transcripts/*
 !thinking/transcripts/.gitkeep
+
+# Vercel deploy hook (secret) + publisher state — never commit
+scripts/.deploy-hook-url
+scripts/.deploy-hook-state

@@ -55,6 +55,7 @@ mkdir -p "$SCRIPT_DIR/logs" "$STATE_DIR"
 ENGINES=(
   "auto-improve-sonnet.sh"
   "frontier-scout.sh"
+  "deploy-hook-publisher.sh"
 )
 
 # ── helpers ─────────────────────────────────────────────────────────────────

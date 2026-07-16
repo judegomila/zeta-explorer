@@ -1514,6 +1514,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive chart re-exporting the imp-35809 height-axis split-inversion measurement verbatim (no new derivation, no heavy data-module import); presentation only; measurement on the inherited imp-3220/imp-3406 surrogate; imp-34714a REMAINS OPEN; C_C 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35864-debruijn-digit-ladder',
+      title: 'Exact de Bruijn Working-Digit Ladder D*(x)',
+      oneLine:
+        'Line chart of the imp-35811 BigInt-measured working-digit count D*(x) vs x on [104,1000], with the pi/(8 ln10) linear digit law, the double (~15.95 digit) and quad (~33.9 digit) precision bands, and the T_PT=6e12 extrapolation to ~1.02e12 digits/value annotated.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-35864-debruijn-digit-ladder-viz-data.js',
+      paperSourcePath: 'src/data/imp-35811-exact-debruijn-arbitrary-precision-digit-table.js (imp-35864 viz page)',
+      ticket: 'imp-35864',
+      pedagogicalStep: 104,
+      honestCeiling:
+        'Descriptive chart re-exporting the imp-35811 BigInt digit-ladder measurement verbatim (no new derivation, no heavy data-module import, no ~520-digit recomputation at page load); measures ONLY the exp(-pi x/8) underflow-driven mantissa-digit requirement off the imp-35781-measured accumulator scale K; evaluates no true H_0 at high precision, extends no evaluator, certifies no value at any height, changes no bound.',
+    }),
   ]),
 });
 

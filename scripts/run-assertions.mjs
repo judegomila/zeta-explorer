@@ -10052,6 +10052,19 @@ const DATA_MODULES = [
   // barrier margin, so precision is NOT binding at any (alpha,beta). Measurement only; instantiates
   // no interval; changes no bound; A+B-C GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35949-w1-accumulator-frequency-grid-robustness.js',
+  // imp-35991 (numerical, measurement): MEASURE the margin in (alpha,beta) frequency space from the
+  // imp-35812 baseline (0.618.., 2.400..) to the nearest q=1 resonant breakdown corner (alpha -> 2 pi,
+  // beta -> 0) at which the imp-35890 ratio r = max_i|S_i|/Sum|t_k| departs from ~1.2e-3 toward 1, at
+  // fixed N ~ 488602. FINDING: the resonance basin is BROAD (a slow power law, not a razor-thin 1/N
+  // width, because the 1/sqrt(k) weight concentrates magnitude at low k) -- the r < 1e-2 edge sits at
+  // an alpha detuning ~0.0356 rad (~1.7e4 linear-phase windings) and, at exact resonant alpha, at
+  // beta ~0.269 (drift span ~188 rad). The baseline sits ~ONE DECADE of margin from the corner along
+  // each axis (~17x past the alpha edge, ~9x past the beta edge), and its r ~ 1.18e-3 is carried
+  // almost entirely by the alpha detuning (beta = 0 at the baseline alpha already gives ~1.18e-3).
+  // The corner is reachable within one decade, so the O(1) accumulator must be run-time MONITORED,
+  // not assumed. Measurement only; instantiates no interval; changes no bound; A+B-C GREENFIELD;
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35991-w1-accumulator-baseline-margin-to-resonance.js',
   // imp-35871 (numerical, measurement): CONFIRM the imp-35812 reading (naive summation
   // error tracks the O(sqrt(N) u) random walk, NOT the O(N u) coherent worst case) is not
   // an artifact of the single kappa ~ 1.4e3 imp-35812 chose, by re-reading the imp-35854
@@ -10922,6 +10935,11 @@ const DATA_MODULES = [
   // already delivered exactly that term in glossary.js. AUDIT ONLY; no new headword needed;
   // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35980-representability-cliff-glossary-duplicate-audit.js',
+  // imp-35981 (content, duplicate-ticket audit): imp-35981 asked to add a standalone
+  // honest-status note recording the imp-35893 shape-robustness finding -- imp-35962
+  // already delivered exactly that note. AUDIT ONLY; no new note needed; changes no
+  // bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35981-pairwise-shape-honest-status-duplicate-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

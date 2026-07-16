@@ -10027,6 +10027,19 @@ const DATA_MODULES = [
   // independence (NOT deterministic); the CERTIFIED bound stays imp-35890 ~6.4e-14. Assessment
   // only; instantiates no interval; changes no bound; A+B-C GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35948-w1-probabilistic-sqrtN-apriori-scale.js',
+  // imp-35990 (numerical, calibration): CALIBRATE the O(1) confidence constant lambda that imp-35948
+  // carried SYMBOLICALLY in its two probabilistic a-priori scales for the certified length-N W1 sum --
+  // Wilkinson sqrt(N-1)*u*max|S_i| (~9.17e-17) and Higham-Mary u*sqrt(Sum S_i^2) (~5.58e-17) -- against
+  // the imp-35812 achieved single-realization error (~3.0e-17) at N ~ 488602. FINDING: both scales cover
+  // the achieved error with lambda BELOW 1 (~0.327 Wilkinson, ~0.538 Higham-Mary), so the achieved error
+  // sits inside one ensemble standard deviation (~0.54 sigma); under the Higham-Mary 2019 Azuma-Hoeffding
+  // two-sided tail p(lambda) = 2 exp(-lambda^2/2) those covering lambdas give a VACUOUS failure probability
+  // (>= 1, clamped) -- non-vacuous only past lambda_star = sqrt(2 ln 2) ~ 1.1774. This resolves the imp-35948
+  // ~0.3..0.5-order residual as exactly the sub-unit lambda_required (single-realization-vs-std gap), NOT a
+  // missing confidence margin. Certifiable ONLY under the independence model (NOT deterministic); the
+  // CERTIFIED bound stays imp-35890 ~6.41e-14. Calibration only; instantiates no interval; changes no bound;
+  // A+B-C GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35990-w1-lambda-confidence-calibration.js',
   // imp-35949 (numerical, measurement): MEASURE the robustness of the imp-35890 O(1)
   // running-accumulator magnitude max_i|S_i| ~ 1.05 across an (alpha,beta) frequency grid for
   // t_k = cos(alpha k + beta sqrt(k))/sqrt(k) at fixed N ~ 488602, locating where the accumulator
@@ -10895,6 +10908,15 @@ const DATA_MODULES = [
   // executing assertions. Assessment only; certifies no cap; instantiates no enclosure; changes no
   // bound; imp-35337a OPEN; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35988-i2-derivative-cap-route-comparison.js',
+  // imp-35978: imp-35957-rdirect-floor-height-sweep-viz-data.js existed with baked
+  // imp-35892 R_direct plateau/cliff literals but was never added to this DATA_MODULES
+  // list. Registered here.
+  '/src/data/imp-35957-rdirect-floor-height-sweep-viz-data.js',
+  // imp-35978 (ux, duplicate-ticket audit): imp-35978 asked to add an import-light viz-data
+  // module for the imp-35892 R_direct floor-departure sweep -- imp-35957 already delivered
+  // exactly that (registered above). AUDIT ONLY; no new viz-data module needed; changes no
+  // bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35978-rdirect-floor-viz-duplicate-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

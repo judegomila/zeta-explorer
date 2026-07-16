@@ -9928,6 +9928,16 @@ const DATA_MODULES = [
   // N~1.4e16 at tol=1e-8). Five self-executing assertions. Measurement only; surrogate; imp-34714a stays
   // OPEN; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35848-cancellation-onset-tol-ladder.js',
+  // imp-35849 (accuracy, cross-check): CROSS-VALIDATE the two independent locators of the SAME float-cancellation
+  // onset -- imp-35766 (B3) coarse-grid "spurious divergence near N~1e18" vs imp-35810 sustained-3-point envelope
+  // onset N~6.31e18 at tol=1e-6. Reusing measure() verbatim on ONE depart(N)~eps_mach/a envelope: the imp-35766
+  // first single-point 1e-6 crossing lands at N~1.78e18 and the imp-35810 sustained-3-point crossing at N~6.31e18,
+  // a gap of only ~0.55 decade (both in [1e18,1e19)), the difference being the crossing RULE, not the physics.
+  // imp-35766s coarse grid brackets the crossing (depart 6.8e-8 at 1e17 < tol, 6.9e-6 at 1e19 > tol) and the tol
+  // that puts imp-35810s onset at N~1e18 is tol*=eps/a(1e18)~1.45e-6, the SAME 1e-6-class tol -- so they AGREE to
+  // sub-decade. Six self-executing assertions. Cross-check only; surrogate; imp-34714a stays OPEN; changes no
+  // bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35849-cancellation-onset-cross-validation.js',
   // imp-35778: SCOPE the imp-35727 ingredient-I3 modulus floor |H_t| >= delta > 0 on dR by
   // DECOMPOSING the contour floor BY EDGE TYPE -- the split imp-35758 left monolithic as
   // "min over dR". delta = min(delta_short, delta_long). SHORT edges (x = const) cross the

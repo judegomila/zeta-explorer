@@ -10290,6 +10290,14 @@ const DATA_MODULES = [
   // differentiates no series numerically; budgets no C_t prime; changes no bound; NO QED; PT
   // Lambda<=0.2 SOTA.
   '/src/data/imp-35845-d2-differentiated-truncation-cap-amplification.js',
+  // imp-35880 (meta, verify): VERIFY the imp-35808/35809/35810/35811/35812/35813 frontier-
+  // batch cohort imports import-light and its self-executing assertions pass under the
+  // esbuild-bundle + plain-node path (per [[verify_heavy_assertion_modules]]). The earlier
+  // imp-35859 guard covered only five of the six (missing imp-35808, the I3 long-edge
+  // derivative-delivery-scope module); this registers a permanent regression guard for
+  // all six. Every file bundles to 10-171KB (no zeros-bundle import) and exits 0.
+  // Verification only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35880-frontier-batch-cohort-verification.js',
 ];
 
 let ALL_MODULES = FAST_MODE

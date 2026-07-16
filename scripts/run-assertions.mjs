@@ -12041,6 +12041,7 @@ const DATA_MODULES = [
   // by registering it directly here. No other orphans, no heavy-bundle imports found.
   '/src/data/imp-36125-w1-accumulator-recovery-margin-honest-status.js',
   '/src/data/imp-36189-imp36098-166-registration-reachability-audit.js',
+  '/src/data/imp-36190-imp36098-166-cross-reference-integrity-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

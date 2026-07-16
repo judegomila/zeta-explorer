@@ -10701,6 +10701,13 @@ const DATA_MODULES = [
   // (worst approaches log2(N)*eps ceiling ~0.647 but NOT the depth*eps bound ~0.3%) -- a duplicate
   // ticket. Adds no new measurement; pins a regression guard on the imp-35945 delivery. NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35946-tree-shape-duplicate-audit.js',
+  // imp-35903: standalone cross-reference note tying together the W1 summation-scheme COST
+  // cluster imp-35812 (single-kappa baseline) / imp-35852 (adversarial ordering) / imp-35854
+  // (kappa sweep) / imp-35865 (viz-data), stating the shared throughline: floating-point
+  // precision stays NON-BINDING under every ordering and condition number, so the sole
+  // obstruction is the MECHANICAL engineering of the certified length-N interval sum (imp-35725).
+  // Imports all four verbatim, no new numerics. Note only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35903-w1-summation-cost-cluster-crossref.js',
 ];
 
 let ALL_MODULES = FAST_MODE

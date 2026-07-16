@@ -63,6 +63,10 @@
  * @see imp-35109-ceil-phase-drift-precision-certification (source dd toolkit / RvM Newton inverse)
  * @see imp-35174-reentry-band-precision-certification (same certification pattern for the reentry band)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 Riemann-von Mangoldt inverse)
+ * @see imp-35417-sigma-landmark-distinct-dd-grid-cross-check (SECOND-PATH corroboration of these same
+ *   double-vs-dd agreement figures on a distinct dd evaluation order and a distinct half-decade node grid --
+ *   together the two modules form the TWO-PATH double-vs-dd certification of the sigma(N) landmarks; both
+ *   inherit and leave OPEN the same imp-35337a surrogate-vs-true fidelity sub-gap)
  */
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';

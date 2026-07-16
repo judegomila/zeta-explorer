@@ -18,6 +18,12 @@
  *
  *   Ticket: imp-35865 (ux, medium). Viz-data only, presentation/no-bound-change;
  *   RH-equivalent untouched; NO QED.
+ *
+ *   imp-35878 (audit-close, duplicate): imp-35878 asked to seed this exact module
+ *   (same naive/pairwise/Kahan trio, same N=1e3..4.886e5 ladder, same imp-35761
+ *   ceiling comparison) "if none already exists" -- this module + its routed page
+ *   already satisfy that request, so imp-35878 is closed as a duplicate of imp-35865
+ *   rather than seeding a redundant second module.
  */
 
 const U_ROUNDOFF = 2 ** -53; // unit roundoff u (half ulp)

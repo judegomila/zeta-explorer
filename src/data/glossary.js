@@ -20928,6 +20928,46 @@ export const glossary = [
       'double-precision surrogate enclosure width vs certified outward-rounded interval-arithmetic enclosure draws the parallel modelled-vs-certified distinction for the crossover map itself',
     ],
   },
+  {
+    term: 'Higham-Mary Azuma-Hoeffding failure-probability model and its vacuity threshold lambda_star = sqrt(2 ln 2)',
+    category: 'numerical',
+    definition:
+      'A headword for the two-sided tail bound p(lambda) = 2 exp(-lambda^2/2) that the Higham-Mary ' +
+      '2019 probabilistic rounding-error model implies once a forward-error confidence interval is ' +
+      'written as t = lambda * u * sqrt(Sum S_i^2) (the mean-square scale). Treating each roundoff ' +
+      'delta_i as independent, mean-zero, |delta_i| <= u, Azuma-Hoeffding gives ' +
+      'P(|E_N| >= t) <= 2 exp(-t^2 / (2 u^2 Sum S_i^2)); substituting the mean-square scale collapses ' +
+      'the exponent to exactly lambda^2/2. THE VACUITY THRESHOLD: this tail bound is VACUOUS ' +
+      '(p >= 1, clamped, carries no information) for every lambda <= lambda_star = sqrt(2 ln 2) ~ ' +
+      '1.1774 -- it only becomes a non-trivial statement past that point (p = 0.1 needs lambda ~ ' +
+      '2.45, p = 0.01 needs ~3.26, p = 1e-9 needs ~6.55).\n\n' +
+      'WHY THIS MATTERS: imp-35990 calibrated the O(1) confidence constant lambda that imp-35948 had ' +
+      'carried symbolically (lambda ~ 1) against the imp-35812 ACHIEVED single-realization W1 forward ' +
+      'error (~3.0e-17 normalized) at N ~ 488602, and found the covering lambda_required is SUB-UNIT ' +
+      'for both probabilistic scales (~0.327 Wilkinson, ~0.538 Higham-Mary) -- the achieved error sits ' +
+      'at only ~0.54 of the Higham-Mary ensemble standard deviation, comfortably inside one sigma. ' +
+      'Because 0.538 < lambda_star ~ 1.1774, the Azuma-Hoeffding tail at that covering lambda is ' +
+      'VACUOUS: covering a typical sub-1-sigma single realization needs no confidence margin at all, ' +
+      'so the imp-35948 ~0.3..0.5-order residual is exactly this sub-unit lambda_required -- the ' +
+      'ordinary single-realization-vs-standard-deviation gap -- and NOT a missing confidence margin.\n\n' +
+      'HOW TO APPLY: cite this headword whenever a repo module needs to interpret a calibrated ' +
+      'confidence constant lambda against a probabilistic tail bound -- a lambda below lambda_star ' +
+      'means the tail statement is vacuous at that lambda, so a small lambda_required signals a ' +
+      'typical (not a rare) realization, never a certified failure-probability guarantee.\n\n' +
+      'HONEST SCOPE: the failure-probability reading is certifiable ONLY under the Higham-Mary 2019 ' +
+      'independence model (roundoffs independent, mean-zero, bounded by u), NOT a deterministic ' +
+      'worst-case certificate; it instantiates no directed-rounding interval and changes no bound. The ' +
+      'CERTIFIED a-priori bound stays imp-35890 ~6.41e-14; the W1 A+B-C certificate at T_PT stays ' +
+      'GREENFIELD (imp-35681 Part A) and MECHANICAL (imp-35725); NO QED; Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-36053 (glossary headword for the imp-35990 lambda-calibration vacuity finding), 2026',
+    relatedTerms: [
+      'imp-35990 calibrates lambda_required (~0.327 Wilkinson, ~0.538 Higham-Mary) against the achieved error using this model (imp-35990)',
+      'imp-35948 supplies the two probabilistic a-priori scales this model assigns a failure probability to (imp-35948)',
+      'imp-35812 supplies the achieved single-realization naive error this calibration covers (imp-35812)',
+      'The W1 A-Priori Forward-Error Trichotomy: COHERENT (N-1)*u vs WILKINSON sqrt(N)*u vs Higham-Mary MEAN-SQUARE names the three scales this tail model applies to',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

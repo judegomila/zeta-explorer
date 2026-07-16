@@ -9873,6 +9873,16 @@ const DATA_MODULES = [
   // ceiling); pairwise/Kahan stay run-count-robust. Measurement only; changes no bound; A+B-C
   // stays GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35887-w1-summation-runcount-coherence.js',
+  // imp-35890 (numerical, assessment): ESTIMATE the tightest USABLE a-priori forward-error bound
+  // for the certified length-N W1 sum -- Higham gamma_{N-1} scaled by the RUNNING accumulator
+  // magnitude max_i|S_i| (~1.05, O(1) and flat across the ladder) instead of the pessimistic
+  // Sum|t_k| (~889 at N~488602) -- and compare it against the imp-35761 N*eps ceiling and the
+  // imp-35812/imp-35852/imp-35854 achieved errors. The running-accumulator bound ~6.4e-14
+  // (normalized) sits ~3.2 orders below the pessimistic ceiling yet ~3.3 orders above the
+  // achieved ~3.0e-17; the ~6.5-order gap splits into recovered magnitude-scale pessimism and
+  // intrinsic coherent-vs-random-walk pessimism. Assessment only; instantiates no interval;
+  // changes no bound; A+B-C stays GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35890-w1-running-accumulator-apriori-bound.js',
   // imp-35871 (numerical, measurement): CONFIRM the imp-35812 reading (naive summation
   // error tracks the O(sqrt(N) u) random walk, NOT the O(N u) coherent worst case) is not
   // an artifact of the single kappa ~ 1.4e3 imp-35812 chose, by re-reading the imp-35854

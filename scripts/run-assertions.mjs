@@ -9707,6 +9707,18 @@ const DATA_MODULES = [
   // "~ cost of direct barrier" verdict as a line-item ledger. Five self-executing
   // assertions. Enumeration only; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35780-route-b-noliftoff-certificate-ingredient-ledger-scope.js',
+  // imp-35781: MEASURE the empirical double-precision x-ceiling of the exact de Bruijn
+  // evaluator (scripts/imp-34813-...offline.mjs) by re-running its t=0 Kahan-Simpson
+  // quadrature across x in [20,140] and locating where |H_0(x)| ~ exp(-pi x/8) detaches
+  // into the roundoff floor. Noise scale eps*sum|w| ~ 1.38e-17; |H_0| tracks its envelope
+  // to x~94, keeps only ~34x headroom at the script edge x=104 (~1.5 decades), submerged
+  // beyond x~106 -- an empirical detach band x in [94,106] that MEASURES (not just names,
+  // per imp-35726 Part D) the x~<104 cap and lands on the imp-35759 digit-law bracket
+  // (16 digits -> x~93.8, 18 -> x~105.5), confirming D_underflow(x)=0.17055 x. T_PT target
+  // x=6e12 still needs ~1e12 digits (~425 GB/value) -- categorical wall. Five self-executing
+  // assertions (with in-module re-measurement). Measurement + OOM cross-check only; extends
+  // no evaluator; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35781-exact-debruijn-empirical-x-ceiling-scope.js',
   // imp-35727: ENUMERATE the ingredients a rigorous interval-arithmetic-CERTIFIED
   // winding (argument-principle) zero count on the boundary of the transition
   // rectangle R = [T_PT, T_PT+Delta] x [-h, h] needs BEYOND the held-but-EXPERIMENTAL

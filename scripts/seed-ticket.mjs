@@ -96,6 +96,51 @@ function findExistingIds(text) {
   return ids;
 }
 
+// ── Pre-seed viz-data duplicate guard (imp-36108, proposed by imp-36033) ────
+// Heuristic hint only, NOT a hard gate: for a category 'ux' ticket naming a
+// source imp-NNNNN, warn if src/data/ already has a filename or an
+// '@see imp-NNNNN' docstring co-occurring with 'viz-data' for that source.
+// The ticket is still inserted either way.
+
+function checkVizDataDuplicate(args) {
+  if (args.category !== 'ux') return;
+
+  const haystack = `${args.title} ${args.description}`;
+  const sourceIds = new Set();
+  for (const m of haystack.matchAll(/imp-\d+/g)) {
+    if (m[0] !== args.id) sourceIds.add(m[0]);
+  }
+  if (sourceIds.size === 0) return;
+
+  const dataDir = path.join(PROJECT_ROOT, 'src/data');
+  let files;
+  try {
+    files = fs.readdirSync(dataDir).filter(f => f.endsWith('.js'));
+  } catch {
+    return;
+  }
+
+  for (const sourceId of sourceIds) {
+    const filenameMatch = files.find(f => f.includes(sourceId) && f.includes('viz-data'));
+    if (filenameMatch) {
+      console.warn(`Warning: possible duplicate -- src/data/${filenameMatch} already delivers a viz-data module for ${sourceId}`);
+      continue;
+    }
+    const docstringMatch = files.find(f => {
+      let text;
+      try {
+        text = fs.readFileSync(path.join(dataDir, f), 'utf8');
+      } catch {
+        return false;
+      }
+      return text.includes(`@see ${sourceId}`) && text.includes('viz-data');
+    });
+    if (docstringMatch) {
+      console.warn(`Warning: possible duplicate -- src/data/${docstringMatch} already delivers a viz-data module for ${sourceId} (@see ${sourceId} + 'viz-data')`);
+    }
+  }
+}
+
 // ── Ticket entry builder ─────────────────────────────────────────────────────
 
 function escapeForSingleQuote(str) {
@@ -157,6 +202,8 @@ if (existingIds.has(ticketId)) {
   console.error(`Duplicate ID: ${ticketId} already exists in improvement-queue.js`);
   process.exit(1);
 }
+
+checkVizDataDuplicate(args);
 
 // Suggest next ID from the actual ticket-id tail in improvement-queue.js.
 // imp-35146: this used to read idx.nextImprovementId from queue-index.json,

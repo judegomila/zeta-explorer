@@ -9865,6 +9865,16 @@ const DATA_MODULES = [
   // N ~ 1e18 is double-precision cancellation in dG (spurious). Five self-executing assertions.
   // Measurement only; surrogate; imp-34714a stays OPEN; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35766-krawczyk-cancellation-ratio-beyond-band.js',
+  // imp-35810 (numerical, measurement): pin the exact height at which the imp-35766 (B3)
+  // float-cancellation artifact onsets. Evaluate the same exact ratio two ways -- R_measured
+  // via dG = S_inf(M_G-1) with M_G=2G/(1+G) formed explicitly (cancellation-carrying) vs the
+  // cancellation-free R_clean = 2(aLo/a)(1-a)/(1-aLo) -- and scan N for where the relative
+  // departure first sustains above tol=1e-6. Onset at N ~ 6.3e18 (a ~ 2.4e-11, |dG| ~ 3e-8),
+  // matching the eps_mach/a envelope (a_onset ~ eps_mach/tol). The PT anchor N(T_PT) ~ 1.236e13
+  // (|dG| ~ 1.5e-2) sits ~5.7 decades below, departure ~1e-11 -- comfortably reliable. Five
+  // self-executing assertions. Measurement only; surrogate; imp-34714a stays OPEN; changes no
+  // bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35810-cancellation-onset-height.js',
   // imp-35778: SCOPE the imp-35727 ingredient-I3 modulus floor |H_t| >= delta > 0 on dR by
   // DECOMPOSING the contour floor BY EDGE TYPE -- the split imp-35758 left monolithic as
   // "min over dR". delta = min(delta_short, delta_long). SHORT edges (x = const) cross the

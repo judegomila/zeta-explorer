@@ -9915,6 +9915,18 @@ const DATA_MODULES = [
   // worst-case bound WIDENS with N. Seven self-executing assertions. Measurement only;
   // certifies no W1 bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35952-w1-caterpillar-worst-tree-n-ladder.js',
+  // imp-35953: CROSS-CHECK the stability of the imp-35891 ~1-decade offset between the
+  // imp-35853 flattest-point knee (N_flat ~ 7.20e9) and the imp-33701 sigma-exponent
+  // inflection decade ([1e10,1e11]) under an INDEPENDENT raw Riemann-von Mangoldt height
+  // inverse (T0 = 2pi exp(1 + W(N/e)), the closed-form Lambert-W inverse of
+  // N = (T0/2pi)(log(T0/2pi)-1)) in place of the Newton effectiveHeightForN. FINDING: the
+  // two height inverses agree to ~1e-15 relative (effectiveHeightForN is itself a Newton
+  // inversion of the same raw law), so N_flat ~ 7.1985e9 (decade [1e9,1e10]) and the
+  // inflection [1e10,1e11] are UNCHANGED -- the ~1-decade offset is a STABLE feature, NOT a
+  // surrogate artifact. Six self-executing assertions. Cross-validation/measurement only;
+  // changes no bound; imp-486 GUE-conditional untouched; imp-35337a OPEN; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-35953-knee-offset-raw-rvm-height-crosscheck.js',
   // imp-35812: MEASURE the achievable rounding-error growth of pairwise and Kahan-
   // compensated summation on a representative N ~ 4.886e5-term oscillatory sum at
   // T_PT = 3e12, against an EXACT BigInt reference, versus the imp-35761 pessimistic

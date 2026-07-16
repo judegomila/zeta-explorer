@@ -10064,6 +10064,27 @@ const DATA_MODULES = [
   // scout re-seeded before the entry landed. Adds no new headword; pins a regression guard
   // confirming the duplicate finding stays consistent. Audit only; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35738-glossary-headword-duplicate-audit.js',
+  // imp-35739: ticket asked to add a glossary/reference headword for the imp-35538 five route-(i)
+  // derivation requirements (REQ-1..REQ-5) as a single named obstruction ladder. Audit found
+  // glossary.js ALREADY carries this headword (authored by imp-35570) -- a duplicate ticket the
+  // frontier scout re-seeded before the entry landed. Adds no new headword; pins a regression
+  // guard confirming the duplicate finding stays consistent. Audit only; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35739-glossary-headword-duplicate-audit.js',
+  // imp-35811 (numerical, measurement): TABULATE, by actually RUNNING arbitrary-precision
+  // (BigInt) arithmetic, the working-digit count D*(x) the exact de Bruijn evaluator needs to
+  // keep exp(-pi x/8) resolvable, at a ladder of x above the double x~<104 (gamma~<52) ceiling.
+  // imp-35759 gave the OOM law and imp-35781 measured the double ceiling, but BOTH ran no
+  // arbitrary-precision arithmetic. This module performs a genuine ~520-digit BigInt computation
+  // (Machin pi; range-reduced repeated-squaring exp(-pi x/8)) and measures the minimum working
+  // significant digits D*(x) to recover the signal to 3 sig figs off the O(1) accumulator scale
+  // K=sum|w|~6.214e-2 (imp-35781). MEASURED ladder: D*~20 at x=104, rising LINEARLY at slope
+  // ~0.1705 digits per unit x (matching pi/(8 ln10)~0.17055 within a few percent, ~+2 guard) to
+  // D*~172 at x=1000 (gamma=500). Quad (~33.9 digits) reaches x~200; the measured slope
+  // extrapolates x_TPT=6e12 to ~1.02e12 digits (~423 GB/value) -- the same categorical wall,
+  // now anchored to a measured slope. Six self-executing assertions (engine calibrated vs
+  // Math.PI/Math.exp). Measurement only; extends no evaluator; evaluates no true H_0 at high
+  // precision; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35811-exact-debruijn-arbitrary-precision-digit-table.js',
 ];
 
 let ALL_MODULES = FAST_MODE

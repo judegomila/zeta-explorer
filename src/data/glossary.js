@@ -19870,6 +19870,45 @@ export const glossary = [
       'imp-35681 Part A supplies the I1/W1 interval enclosure both edge floors are read from (imp-35681)',
     ],
   },
+  {
+    term: 'imp-35681 W1/W2/W4 S_barrier porting inventory verdicts (held vs greenfield)',
+    category: 'proof-frontier',
+    definition:
+      'A headword recording the imp-35681 grading of the imp-35653 Part E finite/mechanical S_barrier ' +
+      'porting work-items W1, W2, W4 as held-vs-greenfield against existing repo infrastructure, plus a ' +
+      'Part D correction to the barrier-base provenance.\n\n' +
+      'W1 (instantiate H_t = A + B - C with an interval error bound near T_PT = 3e12): STRUCTURAL OVERLAP ' +
+      'ONLY. The repo holds the heat-flow H_t as an object (the winding-thread de Bruijn / Gaussian-conv ' +
+      'proxy), but per imp-35674 that proxy is de Bruijn flow at NEGATIVE time (t = -4 tau_repo) -- the ' +
+      'wrong t-sign versus the Polymath15 barrier -- so even the held H_t needs sign-reconciliation before ' +
+      'it can seed W1; the interval-bounded Polymath15 A_t + B_t - C_t at T_PT is greenfield.\n\n' +
+      'W2 (finite winding barrier on the transition rectangle R = [T_PT, T_PT + Delta] x [-h, h]): CONCEPT ' +
+      '+ EXPERIMENTAL CODE HELD. The repo carries argument-principle / winding scaffolding (imp-2696, ' +
+      'imp-33923, imp-33968, de Bruijn Thm 13), all isRigorous:false phase/winding-rate MEASUREMENTS, not ' +
+      'interval-arithmetic-CERTIFIED counts; the certified rectangle-boundary count (the B1 certificate) is ' +
+      'greenfield.\n\n' +
+      'W4 (retire the imp-397 2/gamma count kernel, read off-line contribution as EXACTLY ZERO): SPLIT ' +
+      'verdict. The ANALYTIC half is HELD -- imp-34791 already reclassified E_trunc and refuted the 2/gamma ' +
+      'mispricing (~3.75e11x on a single deep zero); the MECHANICAL half (substituting off-line to exactly ' +
+      'zero) is NOT independently dischargeable, per imp-35676 Q2 it is GATED on the non-finite W3.\n\n' +
+      'PART D CORRECTION: the barrier BASE N_off(T_PT) = 0 is an EXTERNAL Platt-Trudgian 2021 result the ' +
+      'repo cites, NOT an internal repo module -- and NOT imp-341 (which is the unrelated Close G5_burgers ' +
+      'Koksma-Hlawka thread), correcting a scout misattribution.\n\n' +
+      'HOW TO APPLY: cite this ledger whenever scoping how much of the S_barrier port is already-held versus ' +
+      'greenfield work -- none of W1/W2/W4 is fully already-held, so all three still require dedicated ' +
+      'construction (W1/W2 greenfield certificates, W4 mechanical half W3-gated).\n\n' +
+      'HONEST SCOPE: ASSESSMENT / SCOPING ONLY. Ports nothing; discharges nothing; changes no bound; ' +
+      'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-30858 (glossary headword recording the imp-35681 W1/W2/W4 porting inventory verdicts), 2026',
+    relatedTerms: [
+      'imp-35681 derives the W1/W2/W4 held-vs-greenfield verdicts and the Part D barrier-base correction recorded here (imp-35681)',
+      'imp-35653 itemizes the W1/W2/W4 finite/mechanical porting work-items this inventory grades (imp-35653)',
+      'imp-35674 supplies the negative-time (wrong t-sign) obstruction underlying the W1 verdict (imp-35674)',
+      'imp-35676 supplies the W3-gating of the W4 mechanical zero-substitution half (imp-35676)',
+      'imp-34791 supplies the held analytic E_trunc reclassification / 2/gamma refutation underlying the W4 verdict (imp-34791)',
+      'imp-35727 names the W2 certified-count ingredient ledger (I1-I5) this inventory says is fully greenfield (imp-35727)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

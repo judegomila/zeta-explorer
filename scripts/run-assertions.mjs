@@ -10040,6 +10040,19 @@ const DATA_MODULES = [
   // CERTIFIED bound stays imp-35890 ~6.41e-14. Calibration only; instantiates no interval; changes no bound;
   // A+B-C GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35990-w1-lambda-confidence-calibration.js',
+  // imp-35995 (numerical, measurement): SWEEP the imp-35948 sharper Higham-Mary a-priori scale
+  // u*sqrt(Sum S_i^2)/Sum|t_k| across a 7-rung half-decade ladder in [1e3, 4.886e5] (imp-35948
+  // tabulated it at the single N~488602 endpoint only). FINDING: the Higham-Mary NORMALIZED scale
+  // is N-FLAT (log-log slope ~ -0.0036, ~2.5% drift over ~2.7 decades) because its raw numerator
+  // sqrt(Sum S_i^2) (slope ~ +0.499) and denominator Sum|t_k| (slope ~ +0.503) both grow ~sqrt(N)
+  // and CANCEL; the Wilkinson rung is equally flat (slope ~ -0.0027). By contrast the imp-35890
+  // CERTIFIED deterministic run-max bound GROWS ~sqrt(N) (slope ~ +0.497, ~21.7x across the ladder),
+  // the (N-1) coherent vs sqrt(N-1) random-walk factor shown across the whole ladder. So the
+  // imp-35948 endpoint ~5.58e-17 is representative, and the Higham-Mary scale tracks the achieved
+  // random-walk error UNIFORMLY, not just asymptotically. Certifiable ONLY under roundoff
+  // independence (NOT deterministic); the CERTIFIED bound stays imp-35890 ~6.4e-14. Measurement
+  // only; instantiates no interval; changes no bound; A+B-C GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35995-w1-higham-mary-scale-ladder-trajectory.js',
   // imp-35949 (numerical, measurement): MEASURE the robustness of the imp-35890 O(1)
   // running-accumulator magnitude max_i|S_i| ~ 1.05 across an (alpha,beta) frequency grid for
   // t_k = cos(alpha k + beta sqrt(k))/sqrt(k) at fixed N ~ 488602, locating where the accumulator
@@ -10954,6 +10967,12 @@ const DATA_MODULES = [
   // pull) and directly registered. AUDIT ONLY; no source file required correction; changes no
   // bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35986-imp3588x89x-cohort-import-guard-audit.js',
+  // imp-35987: standalone cross-reference note tying together the W1 summation-robustness
+  // three-angle storyline imp-35812 (raw scheme COST) -> imp-35852 (adversarial term ORDER) ->
+  // imp-35893 (adversarial pairing-tree SHAPE), distinct from both imp-35903 (cost/kappa cluster)
+  // and imp-35964 (order/shape/bound cluster). Imports all three verdicts verbatim, no new
+  // numerics. Note only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35987-w1-summation-cost-order-shape-crossref.js',
   // imp-35988 (proof/assessment): COMPARE the two admissible derivative-error-cap routes imp-35832
   // named for certifying B = sup|H_t prime| feeding the imp-35777 I2 panel cap L_panel.(B/delta)<pi
   // -- (I) a separate additive cap C_t prime = E_A prime + E_B prime + E_{C_0} prime (main terms

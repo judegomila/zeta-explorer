@@ -11801,6 +11801,13 @@ const DATA_MODULES = [
   // throughout). So the SOLE obstruction is the ENGINEERING of the certified length-N interval sum
   // (imp-35725 MECHANICAL / imp-35681 Part A GREENFIELD). Note only; NO QED.
   '/src/data/imp-36146-precision-non-binding-consolidated-honest-status.js',
+  // imp-36147 (content, sonnet-4-6, sonnet): standalone honest-status note restating imp-36082 --
+  // the Route-B per-N rate r(N) = C_prime sqrt(log gamma_N) N^{-1/4} EXISTS unconditionally but
+  // bounds the shock-time DEVIATION |t_c(m_N)-t_c(m_inf)|, not the absolute |t_c(N)| the Step-4
+  // E(N) bridge needs, so it is CONSUMABLE-MODULO-ANCHOR: the missing ingredient is an
+  // unconditional finite-N anchor on t_c(m_inf), and supplying one re-imports GUE/ESY. Note only;
+  // NO QED.
+  '/src/data/imp-36147-routeB-consumable-modulo-anchor-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

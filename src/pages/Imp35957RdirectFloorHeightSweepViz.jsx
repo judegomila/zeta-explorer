@@ -94,6 +94,28 @@ export default function Imp35957RdirectFloorHeightSweepViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="R_direct Floor-vs-Height Sweep: a <= 2 ULP Plateau Then a HARD NaN Cliff at N ~ 10^307.46 (imp-35892/imp-35957)" />
 
+      <div
+        style={{
+          marginBottom: '1.25rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(251,191,36,0.06)',
+          borderLeft: '3px solid #fbbf24',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+          maxWidth: 700,
+        }}
+      >
+        <strong style={{ color: '#fbbf24' }}>Honest status -- TWIN cliffs, not one:</strong> imp-35972/imp-36021
+        resolved this NaN cliff into TWO distinct, sub-decade-adjacent IEEE-754 boundaries: cliff B (a
+        {' → '}0 via the T{'·'}u denominator overflow, plotted here at log10 N {'≈'} 307.4559, and cliff A
+        (the effectiveHeightForN Newton-seed numerator 2{'π'}N overflow) {'≈'}6.2e-4 decade above it at
+        log10 N {'≈'} 307.4565. Cliff B binds FIRST. Both locations are constant-robust (imp-36021: invariant
+        under +/-4 orders of K and the full delta/S_inf provenance range). Any T_star(N) readout at or above
+        log10 N {'≈'} 307.4559 is IEEE-754-invalid -- not a physical or RH-relevant bound, just a double-precision
+        representability wall of this surrogate.
+      </div>
+
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-35892 extended the imp-35855 de-cancelled surplus-split ratio R_direct = -S_inf . a/(2-a)
         sweep far past its N ~ 1e21 stopping point, out to the last representable finite height. The

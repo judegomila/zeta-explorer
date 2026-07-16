@@ -19721,6 +19721,41 @@ export const glossary = [
       'imp-35243a the reentry-band surrogate-fidelity obstruction both chain halves keep OPEN (imp-35243)',
     ],
   },
+  {
+    term: 'imp-35451 interior sigma-peak cubic-skew asymmetry: A_skew = -4 c3 / (k^2 ln10) ~ 11.02',
+    category: 'numerical-frontier',
+    definition:
+      'A headword recording the imp-35451 finding that the imp-35411/imp-35337 interior sigma-share peak ' +
+      '(sigma_max ~ 0.949429014 at N_max ~ 9.219e5) is NOT symmetric about ln N_max: the rising (low-N) ' +
+      'plateau arm is slightly WIDER than the falling (high-N) arm at every resolvable depth tol, a signature ' +
+      'that the local Taylor expansion carries a nonzero odd (cubic) term beyond the imp-35450 quadratic ' +
+      'curvature k ~ 6.43191e-3.\n\n' +
+      'MEASUREMENT: a direct 5-point third-derivative stencil at u0 = ln N_max, Richardson-extrapolated, gives ' +
+      'sigma-triple-prime(u0) ~ -1.574206e-3, so the cubic coefficient c3 = sigma-triple-prime(u0)/6 ~ ' +
+      '-2.623677e-4 (NEGATIVE, so the cubic drops the falling arm faster than the rising arm). Perturbing the ' +
+      'local root balance sigma_max - tol ~ sigma_max - (k/2) d^2 + c3 d^3 predicts an arm-imbalance slope ' +
+      'A_skew_pred = -4 c3 / (k^2 ln10) ~ 11.017 decades per unit tol, matching the directly-measured slope ' +
+      '(~11.015 decades/tol, read off the well-resolved tol = 1e-5 plateau endpoints) to ~2.5e-4 relative -- ' +
+      'two INDEPENDENT routes (the local third derivative and the far-field arm-width imbalance) pinning the ' +
+      'same skew.\n\n' +
+      'HOW TO APPLY: cite A_skew ~ 11.02 decades/tol as the leading-order rising-vs-falling arm-width ' +
+      'imbalance rate of the interior sigma-peak; the skew is thirteen orders above the imp-35337 double-double ' +
+      'noise floor, so it is a genuine surrogate feature, not a rounding artifact (the imp-35575 quartic term ' +
+      'is even and does not alter this odd-order skew prediction).\n\n' +
+      'HONEST SCOPE: MEASUREMENT ONLY on the inherited imp-3220/imp-3406 double surrogate; the C_C = (1/8) ' +
+      'sqrt(3 pi) ansatz (imp-2642/imp-2643), E_trunc = 3.06e-5 floor (imp-2631) and the imp-398 C_F prefactor ' +
+      'are UNTOUCHED; the surrogate-vs-true fidelity half (imp-35337a) stays OPEN; changes no bound; ' +
+      'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35588 (glossary headword recording the imp-35451 interior sigma-peak cubic-skew asymmetry), 2026',
+    relatedTerms: [
+      'imp-35451 measures the cubic coefficient and establishes the arm-skew cross-check recorded here (imp-35451)',
+      'imp-35450 supplies the direct quadratic curvature k ~ 6.43191e-3 the cubic term sits atop (imp-35450)',
+      'imp-35411 locates the asymmetric plateau endpoints that first evidenced this skew (imp-35411)',
+      'imp-35492 supplies the arm-difference linear-in-tol law W_rise - W_fall ~ A_skew tol (imp-35492)',
+      'imp-35337 dd-certifies the interior peak value to ~1e-16 that the cubic stencil relies on (imp-35337)',
+      'imp-35575 measures the next-order (even) quartic term c4 and finds it immaterial to this odd-order skew (imp-35575)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -9930,6 +9930,21 @@ const DATA_MODULES = [
   // imp-35952, while the bound grows linearly in d). Seven self-executing assertions.
   // Assessment only; certifies no W1 bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35970-w1-pairwise-apriori-depth-bound-slack.js',
+  // imp-36018 (numerical, S-frontier): FIT the imp-35970 a-priori-vs-measured slack ratio
+  // (gamma_{d_max} depth-bound over-prediction of the measured pairwise error) against
+  // pairing-tree DEPTH d across the seven imp-35893 shapes and extract the depth-scaling
+  // exponent, TESTING the imp-35970 "slack widens linearly in d" assertion. OLS of
+  // log10(slack) on log10(d) over d = 12..3817 (fixed N ~ 488602) gives a fitted exponent
+  // ~0.748 with R^2 ~0.658 -- SUB-linear, so the STRICT linear-in-d claim (exponent 1) is
+  // NOT confirmed; the slack does widen with depth (positive exponent, caterpillarL loosest
+  // ~5.9e6x) so the qualitative claim holds. The sub-linearity is a shape-floor artifact:
+  // the measured error spans ~98x across shapes (not a strict depth-independent floor) and
+  // the two caterpillars at the SAME depth 3817 differ ~12.9x in slack (caterpillarR carries
+  // the family-max floor, flattening the trend at large d); removing that same-depth outlier
+  // lifts the exponent to ~0.936 (R^2 ~0.773), close to linear. Seven self-executing
+  // assertions. Measurement only; certifies no W1 bound; changes no bound; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-36018-w1-pairwise-slack-depth-scaling-exponent.js',
   // imp-35973 (numerical, S-frontier): MEASURE the CROSS-TERM of the two adversarial
   // pairwise stresses -- imp-35852 varied the term ORDER at a fixed balanced tree, imp-35893
   // varied the pairing-tree SHAPE at a fixed order, but the two-at-once cross was never

@@ -19233,6 +19233,7 @@ export const glossary = [
       'imp-35652 poses the qualitative constant-mismatch claim this headword quantifies (imp-35652)',
       'imp-2642/imp-2643 fix the C_C = (1/8) sqrt(3 pi), C_H = 1/8 short-range amplitude ansatz (imp-2642, imp-2643)',
       'imp-35696 shows the curvature ratio ~8.573 is the SAME cubic-repulsion coefficient as C_C, entering only via a cube root (imp-35696)',
+      'imp-35721 reconciles WHY the A_band/C_C~1.3029 and (pi^2/3)/C_C~8.573 readings differ: Fourier-conjugate mean vs. curvature of the same GUE structure, not conflicting numbers (imp-35721)',
     ],
   },
   {
@@ -19267,6 +19268,7 @@ export const glossary = [
       'imp-35652 poses the resolution-floor/constant-mismatch pairing this headword shows is one shared structure (imp-35652)',
       'imp-35680 supplies the amplitude mismatch ratio (pi^2/3)/C_C ~ 8.573 whose cube root is the prefactor ratio here (imp-35680)',
       'Ben Arous-Bourgade (2013) fixes the s_min ~ M^{-1/3} smallest-GUE-gap exponent this check matches',
+      'imp-35721 reconciles WHY the imp-35680 A_band/C_C~1.3029 mean-scale ratio and the pi^2/3-based ~8.573 curvature ratio differ: Fourier-conjugate descriptors at different orders, not conflicting numbers (imp-35721)',
     ],
   },
   {

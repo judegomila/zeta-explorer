@@ -10141,6 +10141,7 @@ const DATA_MODULES = [
   // the certified a-priori bound stays imp-35890 coherent (N-1)u*max|S_i|. Eight self-executing
   // assertions. Derivation only; changes no bound; A+B-C stays GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35926-w1-accumulator-magnitude-derivation.js',
+  '/src/data/imp-35929-w1-summation-deep-cancellation.js',
   // imp-35778: SCOPE the imp-35727 ingredient-I3 modulus floor |H_t| >= delta > 0 on dR by
   // DECOMPOSING the contour floor BY EDGE TYPE -- the split imp-35758 left monolithic as
   // "min over dR". delta = min(delta_short, delta_long). SHORT edges (x = const) cross the

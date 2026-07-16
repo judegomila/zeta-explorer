@@ -9875,6 +9875,16 @@ const DATA_MODULES = [
   // surrogate; imp-34714a stays OPEN; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35762-krawczyk-surplus-shift-residual-isolation.js',
   '/src/data/imp-35809-krawczyk-surplus-split-band-and-height-profile.js',
+  // imp-35846 (numerical, measurement): sweep the imp-35809 shift/curvature 50/50 crossover
+  // over the fixed bracket half-width delta. (M1) a_cross/(4 delta) stays in ~[0.9985, 1.0028]
+  // across delta in {5e-5..1e-3}, so the closed-form a = 4 . delta law holds across the ladder;
+  // (M2) N_cross50(delta) . delta is a near-invariant ~3.76e7 (drift < 1.1%), i.e. the crossover
+  // height falls as ~1/delta; (M3) at a fixed height the shift fraction rises monotonically with
+  // delta (band top ~0.5%->~9.3%, PT anchor ~94.2%->~99.7%). The imp-35762/imp-35809 ~98/2 split
+  // is a delta = 2e-4 slice of a one-parameter family. Four self-executing assertions. Measurement
+  // only on the imp-3220/imp-3406 surrogate; imp-34714a stays OPEN; changes no bound; NO QED;
+  // PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35846-crossover-height-sensitivity-to-delta.js',
   // imp-35763 (numerical, measurement): fill the interior of the imp-35722 REQ-4 required-height
   // ladder with the imp-33582 sigma<0.9/0.5/0.1 downslope landmarks (N~2.57e7/3.27e9/3.21e11),
   // forming 200/log T0 on the same imp-3220/imp-3406 RvM surrogate: multiples ~12.27/9.59/7.93x,

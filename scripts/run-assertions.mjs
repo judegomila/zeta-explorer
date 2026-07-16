@@ -10685,6 +10685,13 @@ const DATA_MODULES = [
   // new headword; pins a regression guard confirming the duplicate finding stays consistent.
   // Audit only; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35896-glossary-headword-duplicate-audit.js',
+  // imp-35946 (numerical, ticket audit): imp-35946 asked to measure whether adversarial
+  // pairing-tree SHAPE pushes pairwise summation toward its depth*eps ceiling on a NON-cancelling
+  // t_k = 1/sqrt(k) multiset at N ~ 488602 (complement of imp-35893). Audit found imp-35945
+  // ALREADY delivers exactly this seven-shape sweep + depth*eps-ratio tabulation + assessment
+  // (worst approaches log2(N)*eps ceiling ~0.647 but NOT the depth*eps bound ~0.3%) -- a duplicate
+  // ticket. Adds no new measurement; pins a regression guard on the imp-35945 delivery. NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35946-tree-shape-duplicate-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -35,6 +35,10 @@
  *        S - S_inf ~ S_inf . a(N)/2 = 2500 . 0.043176/2 ~ 53.97 at the band-top, within ~2% of the exact 55.18
  *        (the a(N(1-delta)) > a(N) shift lifts it the last ~1.2). So the band-top surplus is SET BY the band-top
  *        local contraction factor a, not by an independent FP_LO scale: both pieces are governed by a.
+ *        CORRECTION (imp-35762): the parenthetical above mis-assigns the ~1.2 residual. imp-35762 isolates the
+ *        pure a(N(1-delta)) > a(N) shift contribution directly and finds it is only ~0.023 (~1.9% of the
+ *        residual) -- the ~1.2 is overwhelmingly the O(a^2) CURVATURE term S_inf . a^2/4 ~ 1.165, not the seed
+ *        shift. D3's conclusion that the surplus is governed by a stands; only this internal attribution is wrong.
  *
  * CONSEQUENCE: the ~55.18 band-top headroom surplus above the 2500 floor is NOT a small residual of large-N decay
  * of a single term -- it is the net of a +110.34 FP_LO finite-N push against a -55.16 asymptotic-floor G-factor
@@ -56,6 +60,8 @@
  * @see imp-3463 (far-tail exponent 1/2)
  * @see lambda-rh-height-mapping (effectiveHeightForN: N -> T0 RvM inverse)
  * @see imp-35404-krawczyk-headroom-cancellation-viz-data (viz data + rendered page visualizing this 2:1 cancellation)
+ * @see imp-35762-krawczyk-surplus-shift-residual-isolation (CORRECTS the D3 "~1.2" attribution above: it is the
+ *   O(a^2) curvature term S_inf . a^2/4, not the a-shift, which contributes only ~0.023)
  */
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';

@@ -10151,6 +10151,13 @@ const DATA_MODULES = [
   // self-executing assertions. Measurement only; positions no rectangle; certifies no floor; changes
   // no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35816-short-edge-delta-integer-gap-deviation.js',
+  // imp-35858 (meta, audit): registration/reachability audit on the imp-35809/35810/35811/
+  // 35812/35813 cohort found imp-35813-req4-required-height-sigma-landmark-extend.js was
+  // NEVER added to this DATA_MODULES list -- its self-executing assertions silently never ran
+  // under `npm run assert`. Registering it here as the minimal fix, alongside the audit module
+  // recording the finding. Audit + minimal fix only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35813-req4-required-height-sigma-landmark-extend.js',
+  '/src/data/imp-35858-newer-cohort-registration-reachability-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -11915,6 +11915,15 @@ const DATA_MODULES = [
   // imp-36077: was ORPHANED (no direct entry, never imported) -- its self-executing THROW
   // assertions never ran under `npm run assert`. Fixed by imp-36109.
   '/src/data/imp-36077-tc-rk4-dp5-gap-dt-n-scaling.js',
+  // imp-36111 (content, sonnet-4-6, sonnet): standalone cross-reference note assembling the
+  // full E(N) = E_trunc + E_flow + E_coll TAIL storyline -- the roadmap sigma(N) U-shape peak
+  // (imp-3220/imp-3406/imp-33582, sigma_max ~0.9494 at N~9.22e5) through the two imp-35853
+  // knees (imp-35977 bars), the imp-35337 balance crossover (imp-35889), and the three
+  // imp-36046 tail landmarks down to the imp-35971 sole-survivor height. Merging the imp-35977
+  // and imp-36046 bars into one N-ordered sequence shows shareColl decaying monotonically
+  // across all five landmarks (0.783 -> 0.716 -> 0.407 -> 0.100 -> 0.0099). Note only; changes
+  // no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-36111-e-share-tail-storyline-crossref.js',
 ];
 
 let ALL_MODULES = FAST_MODE

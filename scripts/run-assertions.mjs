@@ -11575,6 +11575,13 @@ const DATA_MODULES = [
   // N~39250. Verdict does not track kappa (rounding-level, not conditioning). Measurement only;
   // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36095-kbn-kahan-intermittency-band.js',
+  // imp-36096 (numerical, opus-4-8, api-pool): trace the JOINT (alpha,beta) two-parameter recovery
+  // contour at which the imp-35890 running-accumulator ratio r returns within 10%/1% of the imp-35812
+  // baseline r_base~1.18e-3, extending the imp-36061 two single-axis edges to the coupled plane. Joint
+  // basin is STRONGLY NON-CONVEX/NON-elliptical: normalized u+v bulges to ~2.5 (single-axis edges
+  // NON-conservative by ~2.5x) with a narrow inner beta-axis lobe caving to ~0.6. Measurement only;
+  // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36096-w1-accumulator-joint-recovery-contour.js',
   // imp-36046 (ux, sonnet-4-6, sonnet): import-light viz-data module extending the imp-35977
   // two-knee E(N) fractional-share bars down the sigma -> 0 tail to the imp-35971 sole-survivor
   // height N* ~4.7214e13, baking three tail landmarks (E_flow-1pct crossing, sigma<0.1 landmark,

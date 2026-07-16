@@ -21043,6 +21043,34 @@ export const glossary = [
     ],
   },
   {
+    term: 'Two Separation Episodes (transient vs persistent KBN-vs-Kahan)',
+    category: 'numerical',
+    definition:
+      'imp-36112 reconciles an apparent conflict between imp-36062 and imp-36076 by showing the ' +
+      'merged, N-ordered KBN-vs-classic-Kahan record actually contains TWO distinct separation ' +
+      'episodes, not one: a TRANSIENT episode at N ~ 1500-3000 (found only by imp-36076s finer ' +
+      'small-N ladder, invisible to imp-36062 because its own ladder skips straight from N = 1000 ' +
+      'to N = 10000), followed by a TIE PLATEAU at N ~ 10000-33000 (bit-identical again on both ' +
+      'ladders), followed by a PERSISTENT separation from N ~ 34000 upward (imp-36062s reported ' +
+      '"onset"). So imp-36062s N ~ 34000 figure correctly locates where separation becomes ' +
+      'PERMANENT, but is NOT the first-ever separation event -- that occurred earlier and only ' +
+      'transiently, at N ~ 1500, as imp-36076 shows.\n\n' +
+      'HOW TO APPLY: cite this headword whenever a repo module needs to distinguish the FIRST-EVER ' +
+      '(transient) KBN-vs-Kahan separation from the PERMANENT-ONSET separation; do not read ' +
+      'imp-36062s N ~ 34000 onset as the first separation event -- it is only the first PERSISTENT ' +
+      'one on the rungs imp-36062 sampled.\n\n' +
+      'HONEST SCOPE: a read-only reconciliation note (imp-36112), no re-derivation or new numerics; ' +
+      'WHY the transient episode fires remains an open conditioning/rounding-level question, not a ' +
+      'derived law; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-36208 (glossary headword for the imp-36112 two-episode reconciliation), 2026',
+    relatedTerms: [
+      'imp-36112 merges the imp-36062/imp-36076 ladders and confirms the two-episode structure (imp-36112)',
+      'Intermittency Band (KBN vs Kahan) names the persistent-onset side of this same record',
+      'imp-36076 first found the earlier transient N ~ 1500-3000 episode (imp-36076)',
+      'imp-36083 shows precision stays NON-binding regardless of this intermittency (imp-36083)',
+    ],
+  },
+  {
     term: 'E(N) = E_trunc + E_flow + E_coll: the three-way bridge-error split, its sigma = 1/2 crossover, and its fractional-share tail landmarks',
     category: 'accuracy',
     definition:

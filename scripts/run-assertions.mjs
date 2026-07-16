@@ -10629,6 +10629,19 @@ const DATA_MODULES = [
   // Seven self-executing THROWing assertions; import-light. Measurement only; A+B-C stays GREENFIELD
   // (imp-35681 Part A); changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36010-pairwise-tree-shape-partial-sum-magnitude-mechanism.js',
+  // imp-36011 (accuracy/S-frontier): RECONCILE the two imp-35727 ingredient-I3 modulus-floor routes
+  // for dR and report OOM agreement. Route S (imp-35951): a SINGLE angle-robust floor C_PS=pi/sqrt(2)
+  // ~2.2214 (constant modulus of the scale-free off-axis model cusp). Route G (imp-35778): a two-knob
+  // edge decomposition delta=min(delta_short, delta_long), both edge floors reaching main-term O(1)
+  // scale. At the shared |H_t|~1 normalization the ratio C_PS/1=2.2214 has |log10 ratio|~0.347<1, so
+  // the single-cusp SAMPLED floor is CONSISTENT with the four-edge GEOMETRIC floor -- SAME order of
+  // magnitude, sitting ~2.2x ABOVE the illustrative O(1) geometric floor. STRUCTURAL ASYMMETRY: the
+  // off-axis single-cusp sample characterizes ONLY the imp-35778 LONG edges y=+-h (delta_long) and is
+  // SILENT on the axis-crossing SHORT edges (delta_short, an ON-AXIS inter-zero surplus), so the min
+  // could bind on either family. Five self-executing THROWing assertions; import-light. BOTH remain
+  // PROXIES for the true H_t=A+B-C on dR at T_PT=3e12; certifies no delta>0; counts no zeros; I3 stays
+  // GREENFIELD; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36011-i3-floor-cusp-vs-geometry-reconciliation.js',
   // imp-35844 (meta): AUDIT the imp-35763/imp-35764 honesty-gate assertion guards (imp-486
   // kept, imp-35337a OPEN, NO QED, PT SOTA regexes). SPLIT FINDING: the imp-486/OPEN/NO-QED
   // text guards are LIVE and PROTECTIVE (test the modules' own verdict strings, would fail

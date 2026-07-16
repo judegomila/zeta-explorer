@@ -10306,6 +10306,13 @@ const DATA_MODULES = [
   // 35864/35865; imp-35808/35810/35813 are correctly registry-only). Zero orphans, zero
   // mismatches found. Audit only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35881-full-six-cohort-registration-reachability-audit.js',
+  // imp-35884 (content, ticket audit): imp-35884 asked to add a glossary/Concepts headword for
+  // the imp-35811 measured exp(-pi x/8) precision wall. Audit found glossary.js ALREADY carries
+  // this headword ("Exact-de-Bruijn arbitrary-precision digit-cost wall", authored by imp-35861)
+  // -- a duplicate ticket the frontier scout re-seeded before the entry landed. Adds no new
+  // headword; pins a regression guard confirming the duplicate finding stays consistent. Audit
+  // only; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35884-glossary-headword-duplicate-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

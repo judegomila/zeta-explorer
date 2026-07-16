@@ -927,6 +927,9 @@ const Imp35936ReqHeightMultipleSigmaViz = lazy(() =>
 const Imp35957RdirectFloorHeightSweepViz = lazy(() =>
   import('./pages/Imp35957RdirectFloorHeightSweepViz.jsx')
 );
+const Imp36025EShareStackedBarViz = lazy(() =>
+  import('./pages/Imp36025EShareStackedBarViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2574,6 +2577,10 @@ function AppShell() {
           <Route
             path="/viz-imp35771-req4-height-multiple"
             element={<Imp35771Req4HeightMultipleViz />}
+          />
+          <Route
+            path="/viz-imp36025-e-share-stacked-bar"
+            element={<Imp36025EShareStackedBarViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

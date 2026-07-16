@@ -11677,6 +11677,11 @@ const DATA_MODULES = [
   // the imp-35988 module verbatim; no re-derivation. Note only; changes no bound; NO QED;
   // Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-36054-route-i-tighter-than-route-ii-honest-status.js',
+  // imp-36055 (content, sonnet-4-6, sonnet): standalone honest-status note restating imp-35989 --
+  // the I4 pi integer-closure budget is never threatened by per-panel rounding accrual at physical
+  // panel counts (roundoff-only crossover n* ~ 4.50e15, ~14 orders beyond the ~17..1e6 physical
+  // range), so the operative I4 constraint is TRUNCATION (reduced by subdivision), not rounding.
+  '/src/data/imp-36055-i4-rounding-never-threatens-pi-budget-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

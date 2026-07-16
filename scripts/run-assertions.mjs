@@ -10158,6 +10158,21 @@ const DATA_MODULES = [
   // recording the finding. Audit + minimal fix only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35813-req4-required-height-sigma-landmark-extend.js',
   '/src/data/imp-35858-newer-cohort-registration-reachability-audit.js',
+  // imp-35833 (numerical, measurement): MEASURE the PLACEMENT SENSITIVITY of the imp-35778
+  // short-edge modulus floor delta_short as the endpoint slides across an inter-zero |H_t|
+  // interval -- how fast the floor decays off the local-maximum placement and how WIDE the
+  // robust window is (orthogonal to imp-35816s width quantization). Modelling |H_t| between
+  // consecutive zeros as a single-hump cosine g(u)=cos(pi u/delta) normalised to peak 1:
+  // FINDING the floor is FLAT (quadratic, g prime(0)=0) at the maximum -- a tenth-of-the-way
+  // slide costs only ~1.2% of the peak -- and collapses LINEARLY near a zero (slope pi/delta
+  // ~13.45 per height unit, the grazing-collapse caveat as a rate). The robust window has the
+  // closed form W(L)=(2/pi) arccos(L) as a fraction of the interval: >= half the peak floor
+  // tolerates placement over 2/3 of the interval, >= 90% over ~29%, >= 99% over ~9% -- wide,
+  // not knife-edge, except in the last sliver next to a zero. Six self-executing assertions.
+  // Uses a single-hump COSINE surrogate on UNIFORM spacing; real |H_t| skewed and zeros
+  // fluctuate (GUE-conditional, imp-486), a secondary deviation omitted. Measurement only;
+  // positions no rectangle; certifies no floor; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35833-short-edge-placement-sensitivity-window.js',
 ];
 
 let ALL_MODULES = FAST_MODE

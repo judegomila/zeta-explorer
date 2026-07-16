@@ -11964,6 +11964,13 @@ const DATA_MODULES = [
   // ~1.021x apart (~0.0089 decades), close but not coincident. Note only; imports both source
   // modules verbatim; NO QED.
   '/src/data/imp-36165-sharecoll-vs-sole-survivor-honest-status.js',
+  // imp-36166 (content, sonnet-4-6, sonnet): cross-reference narrative assembling the
+  // Krawczyk residual-node storyline -- imp-35969 nextafter surrogate width ->
+  // imp-36017 a-priori LAYER-model width and its a-independent 2x surrogate-over-layer
+  // ratio -> imp-36066 honest-status verdict that both are MODELS with imp-34714a
+  // OPEN and imp-34687a UNIMPLEMENTED -- plus an explicit derived-vs-open list. Note
+  // only; imports each stage verbatim; NO QED.
+  '/src/data/imp-36166-residual-node-storyline-cross-reference.js',
 ];
 
 let ALL_MODULES = FAST_MODE

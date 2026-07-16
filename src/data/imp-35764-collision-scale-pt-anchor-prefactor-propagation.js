@@ -59,6 +59,7 @@
  */
 
 import { IMP35724_COLLISION_SCALE_LANDMARK_PREFACTOR_PROPAGATION } from './imp-35724-collision-scale-landmark-prefactor-propagation.js';
+import { IMP35304_ECOLL_EXPONENT_RESIDUAL_CROSSOVER_ANCHOR_CROSSVALIDATION } from './imp-35304-ecoll-exponent-residual-crossover-anchor-crossvalidation.js';
 import { zeroCountAtHeight } from './lambda-rh-height-mapping.js';
 
 const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
@@ -242,6 +243,23 @@ export const IMP35764_COLLISION_SCALE_PT_ANCHOR_PREFACTOR_PROPAGATION_ASSERTIONS
         Math.abs(+PEAK.sMinCC.toExponential(4) - p.peak.sMinCC) < 1e-9 &&
         Math.abs(+CROSS.sMinStd.toExponential(4) - p.cross.sMinStd) < 1e-9 &&
         Math.abs(+CROSS.sMinCC.toExponential(4) - p.cross.sMinCC) < 1e-9
+      );
+    },
+  },
+  {
+    // (imp-35840) drift/stray-typo guard: the hard-coded N_PEAK/N_CROSS literals here must reproduce
+    // the SAME values carried by their own source modules (imp-35724 peak/cross landmarks, imp-35304
+    // crossover cross-validation), not just be independently plausible. Traps the drift/stray-typo
+    // class flagged in imp-58685 if either literal is ever hand-edited out of sync.
+    id: 'imp35840-peak-cross-literals-match-source-modules',
+    description: 'N_PEAK/N_CROSS reproduce the imp-35724 peak/cross landmark values and the imp-35304 crossover anchor (imp-58685 drift guard)',
+    holds: () => {
+      const src724 = IMP35724_COLLISION_SCALE_LANDMARK_PREFACTOR_PROPAGATION.measurement;
+      const src304 = IMP35304_ECOLL_EXPONENT_RESIDUAL_CROSSOVER_ANCHOR_CROSSVALIDATION.measurement;
+      return (
+        N_PEAK === src724.peak.N &&
+        N_CROSS === src724.cross.N &&
+        Math.abs(N_CROSS - src304.N_cross) / src304.N_cross < 1e-6
       );
     },
   },

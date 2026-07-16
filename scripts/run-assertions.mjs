@@ -10655,6 +10655,18 @@ const DATA_MODULES = [
   // reading does NOT hinge on the illustrative constants. Import-light, six self-executing
   // assertions. Surrogate only; certifies no count; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36041-i4-landmark-sensitivity-to-surrogate-constants.js',
+  // imp-36042 (numerical/S-frontier): MEASURE how the imp-35989 two-channel I4 accrual landmarks move
+  // as the winding-count N grows from the N=1 anchor to the true T_PT retained-term count N ~ 488602
+  // (= floor(sqrt(T_PT/4pi)), imp-35674 Part D), since only E_round = ((n-1)+RHO_EVAL)*u*2pi*N carries
+  // N (E_trunc = K_TRUNC/n does not). Three clean power laws: the roundoff-only pi crossover n*(N) ~ 1/N
+  // (4.50e15 -> 9.22e9), the U-minimum location n_min(N) ~ 1/sqrt(N) (1.56e8 -> 2.23e5), the U-minimum
+  // value E_min(N) ~ sqrt(N) (2.18e-7 -> 1.52e-4 rad). FINDING: at the true count the U-minimum MIGRATES
+  // into the physical panel range (crossing below n=1e6 at N ~ 2.44e4), so the imp-35989 monotone-help
+  // reading holds only up to n ~ 2.23e5; but the pi budget SURVIVES -- E_min and the physical-max total
+  // (~3.58e-4 rad) both stay ~4 orders below pi, n* stays ~4 orders above the physical max. Margin thins
+  // from ~7 to ~4 orders. Import-light, seven self-executing assertions. Surrogate only; sums no real
+  // increments; certifies no count; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36042-i4-landmarks-vs-winding-count-scale.js',
   // imp-35839: ticket asked to add a glossary headword for the imp-35777 I2<->I3 coupling
   // identity L_panel < pi.delta/B. Audit found it ALREADY EXISTS (added by imp-35818) and is a
   // near-duplicate ticket the frontier scout re-seeded. Adds no new glossary content; pins a

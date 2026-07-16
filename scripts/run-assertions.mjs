@@ -10541,6 +10541,21 @@ const DATA_MODULES = [
   // certifies no cap; certifies no delta > 0; counts no zeros; I2/I3 stay GREENFIELD; changes
   // no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35951-i2-i3-sizing-from-imp33923-sampled-proxy.js',
+  // imp-35993 (accuracy/S-frontier): RECONCILE the two imp-35727 ingredient-I2 panel-count
+  // proxies onto a common per-unit-height figure and MEASURE the residual. Route A (imp-35757)
+  // is the smooth along-line Riemann-Siegel mean rate w(T)=(1/2)log(T/2pi)~13.446 rad per unit
+  // HEIGHT (~4.28 panels/unit); route B (imp-35951, from held imp-33923) is |s|=3/2 rad per rad
+  // of the model-cusp THETA -- different DIMENSIONS, so imp-35951 flagged them not one-to-one
+  // comparable. Bridge with Omega = d theta / dt; under the natural mean-gap map (the pi/2 model
+  // arc identified with one mean gap delta = pi/w) Omega = w/2, route B per unit height = 3w/4
+  // ~10.084 rad (~3.21 panels), and the residual R = w/(3w/4) = 4/3 EXACTLY, T-independent. Per
+  // atom: route A books pi (half-turn per mean gap), route B books 3pi/4 (three-quarter turn per
+  // arc), ratio 4/3 -- a signature that imp-33923 is a BRANCH cusp (winding 3/2), not a zero.
+  // Import-light, six self-executing assertions. 4/3 exact only under the mean-gap closure; BOTH
+  // remain PROXIES on the off-axis model cusp rho=|x|^{-1/2}, NOT the true H_t on dR; instantiates
+  // no interval enclosure; certifies no cap; counts no zeros; I2 stays GREENFIELD; changes no
+  // bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35993-i2-panel-proxy-reconciliation-per-unit-height.js',
   // imp-35844 (meta): AUDIT the imp-35763/imp-35764 honesty-gate assertion guards (imp-486
   // kept, imp-35337a OPEN, NO QED, PT SOTA regexes). SPLIT FINDING: the imp-486/OPEN/NO-QED
   // text guards are LIVE and PROTECTIVE (test the modules' own verdict strings, would fail

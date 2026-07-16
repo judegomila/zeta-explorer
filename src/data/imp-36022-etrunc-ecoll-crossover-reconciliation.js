@@ -49,7 +49,7 @@
  * @see imp-35968-e-trunc-coll-crossover-location (raw ratio E_coll/E_trunc = 1; stale docstring prose)
  * @see imp-35950-etrunc-ecoll-crossover-height (sigma = 0.5 bisection; N_cross ~ 3.267e9)
  * @see imp-35994-crossover-height-elasticities (same sigma = 0.5 locator; reused N_cross ~ 3.267e9)
- * @see imp-35337-sigma-crossover-landmarks (E_trunc = E_coll crossover at sigma = 0.5)
+ * @see imp-35337-sigma-landmarks-double-double-certification (E_trunc = E_coll crossover at sigma = 0.5)
  * @see lambda-rh-height-mapping.js (effectiveHeightForN: N -> T0 RvM inverse)
  * Literature: Riemann-von Mangoldt counting formula; Platt-Trudgian 2021 (Lambda <= 0.2).
  */

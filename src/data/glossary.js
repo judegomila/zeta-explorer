@@ -20228,6 +20228,44 @@ export const glossary = [
       'imp-35812 W1 summation-scheme cost hierarchy names the naive/pairwise/Kahan measured hierarchy this kappa scaling applies to',
     ],
   },
+  {
+    term: 'Clustered Sign-Run Adversarial Ordering',
+    category: 'numerical',
+    definition:
+      'A headword for the imp-35852 hostile permutation that re-orders a FIXED multiset of ' +
+      'summands into a stable sign partition -- all negative terms (original relative order) ' +
+      'followed by all positive terms (original relative order) -- so that summation must pass ' +
+      'through two long same-sign RUNS before the runs cancel, instead of interleaving signs as ' +
+      'the natural (e.g. oscillatory) term order does.\n\n' +
+      'WHY HOSTILE ORDERINGS PUSH NAIVE SUMMATION TOWARD THE O(N . u) CEILING: recursive (naive) ' +
+      'summation accumulates one running partial sum. Under an interleaved-sign order, the ' +
+      'per-step rounding errors partially cancel like a random walk, giving the empirically-' +
+      'observed O(sqrt(N) . u) growth (imp-35812). Under the clustered order, the partial sum ' +
+      'grows monotonically in magnitude through each same-sign run BEFORE the opposite-sign run ' +
+      'pulls it back -- so the per-step rounding errors accumulate COHERENTLY (same sign) across ' +
+      'each run instead of partially cancelling, moving the achieved error toward the pessimistic ' +
+      'directed-rounding ceiling N . u the coherence argument predicts for the worst case.\n\n' +
+      'MEASURED (imp-35852, N ~ 488602, same multiset as imp-35812): the clustered ordering is the ' +
+      'worst of five orderings tested, raising the naive normalized error ~160x above the ' +
+      'oscillatory baseline (from ~6.55 to ~4.35 orders below the coherent N . eps ceiling ' +
+      '~1.08e-10) -- yet even this worst case stays > 1e4x (>4 orders) BELOW the coherent ceiling: ' +
+      'full sign-coherence of the N rounding errors is NOT realizable on this data, so the ' +
+      'pessimistic linear ceiling is narrowed toward but never attained. Pairwise and Kahan-' +
+      'Babuska summation stay ORDERING-ROBUST under the same clustered stress (each stays below ' +
+      'its own scheme-specific ceiling).\n\n' +
+      'HOW TO APPLY: cite this headword whenever a repo module needs a concrete worst-ordering ' +
+      'stress test for a fixed-multiset summation-scheme measurement, or needs to explain why an ' +
+      'ordering can narrow the gap to a coherent-accumulation ceiling without closing it.\n\n' +
+      'HONEST SCOPE: MEASUREMENT-SUPPORT ONLY. Certifies no W1 bound; changes no bound; ' +
+      'establishes no positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35938 (glossary headword for the imp-35852 clustered sign-run adversarial ordering), 2026',
+    relatedTerms: [
+      'imp-35852 introduces the clustered ordering alongside four other adversarial permutations and measures the ~160x naive degradation (imp-35852)',
+      'imp-35812 supplies the oscillatory-order random-walk O(sqrt(N) . u) baseline this ordering stresses (imp-35812)',
+      'imp-35761 supplies the pessimistic coherent N . eps ceiling the clustered ordering narrows the gap to but does not close (imp-35761)',
+      'Summation-Cost Condition Number kappa = Sum|t_k| / |Sum t_k| names the companion cancellation-scale headword used across the same W1 summation-scheme cohort',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

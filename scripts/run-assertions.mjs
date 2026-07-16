@@ -9830,6 +9830,19 @@ const DATA_MODULES = [
   // Five self-executing assertions. OOM estimate only; evaluates no sum; verifies no
   // inequality; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35761-w1-certified-rounding-cost-scope.js',
+  // imp-35812: MEASURE the achievable rounding-error growth of pairwise and Kahan-
+  // compensated summation on a representative N ~ 4.886e5-term oscillatory sum at
+  // T_PT = 3e12, against an EXACT BigInt reference, versus the imp-35761 pessimistic
+  // linear-in-N ceiling ~ N * eps. Actually RUNS the three schemes: measured normalized
+  // errors naive ~3.0e-17 (imp-35761 linear ceiling N*eps ~1.08e-10), pairwise ~3.6e-19,
+  // Kahan ~1.9e-20. Naive sits ~6 orders BELOW the linear ceiling and tracks O(sqrt(N)*u)
+  // (random-walk, not coherent O(N*u)) across the N = 1e3..4.886e5 ladder; pairwise tracks
+  // O(log2(N)*u); Kahan is flat at the unit-roundoff floor. CONFIRMS by measurement the
+  // imp-35761 linear model is pessimistic; all schemes ~10+ orders below the O(1) barrier
+  // margin, so precision is NOT binding -- obstruction stays MECHANICAL (imp-35725) and
+  // A+B-C GREENFIELD. Six self-executing assertions. Measurement only; certifies no W1
+  // bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35812-w1-summation-scheme-measured-cost.js',
   // imp-35728: QUANTIFY the necessary-not-sufficient gap between the EXTERNAL
   // Platt-Trudgian certificate N_off(T_PT) = 0 (verified to T_PT = 3e12) and the
   // imp-35681/imp-35676 W4 mechanical zero-substitution (off-line contribution

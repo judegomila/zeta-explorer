@@ -1489,6 +1489,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Descriptive chart re-exporting the imp-35724 propagation measurement verbatim (no new derivation, no heavy data-module import); presentation only; C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
     Object.freeze({
+      route: '/viz-imp35975-beat-parity-nsigma-ladder',
+      title: 'Beat-to-Parity Handoff Ladder on the N-Axis',
+      oneLine:
+        'Log-N line chart of the imp-35723 beat-to-parity handoff ladder: three landmark rungs (interior beat peak N~9.22e5 sigma~0.9494, imp-35750 handoff midpoint N~3.27e9 sigma=0.5, deep parity onset N~3.21e11 sigma=0.1) baked by imp-35791 as an N-ordered ladder, now rendered on a routed page.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-35791-beat-parity-Nsigma-ladder-viz-data.js',
+      paperSourcePath: 'src/data/imp-35723-beat-parity-regime-boundary-Nsigma-locator.js (imp-35975 viz page)',
+      ticket: 'imp-35975',
+      pedagogicalStep: 111,
+      honestCeiling:
+        'Descriptive chart re-exporting the imp-35791 N-sigma ladder verbatim (no new derivation, no heavy data-module import); presentation only; C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
+    Object.freeze({
       route: '/viz-imp35823-required-height-ladder',
       title: 'Merged Required-Height Ladder Across Peak / Sigma / PT Rungs',
       oneLine:

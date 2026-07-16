@@ -894,6 +894,9 @@ const Imp35772CollisionScalePrefactorPropagationViz = lazy(() =>
 const Imp35751PostportSharesSigmaViz = lazy(() =>
   import('./pages/Imp35751PostportSharesSigmaViz.jsx')
 );
+const Imp35975BeatParityNsigmaLadderViz = lazy(() =>
+  import('./pages/Imp35975BeatParityNsigmaLadderViz.jsx')
+);
 const Imp35823RequiredHeightLadderViz = lazy(() =>
   import('./pages/Imp35823RequiredHeightLadderViz.jsx')
 );
@@ -2513,6 +2516,10 @@ function AppShell() {
           <Route
             path="/viz-imp35772-collision-scale-prefactor-propagation"
             element={<Imp35772CollisionScalePrefactorPropagationViz />}
+          />
+          <Route
+            path="/viz-imp35975-beat-parity-nsigma-ladder"
+            element={<Imp35975BeatParityNsigmaLadderViz />}
           />
           <Route
             path="/viz-imp35823-required-height-ladder"

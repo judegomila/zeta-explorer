@@ -10405,6 +10405,22 @@ const DATA_MODULES = [
   // model only; evaluates no true |H_t| on any edge; certifies no cap; certifies no delta>0; I3
   // stays GREENFIELD; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35867-boundary-panel-count-tabulation.js',
+  // imp-35951 (numerical/S-frontier): SIZE the two quantitatively sizeable imp-35727
+  // greenfield ingredients -- I2 (per-panel |Delta arg f| < pi cap) and I3 (modulus floor
+  // |f| >= delta > 0 on dR) -- for the transition rectangle dR = [T_PT, T_PT + Delta] x [-h, h],
+  // using the HELD imp-33923 off-axis phase-winding quadrature (isRigorous:false) as the
+  // double-precision PROXY. From the sampled slope |d arg / d theta| = 3/2 the total winding
+  // over the pi/2 sweep arc is 3 pi / 4 ~ 2.356 rad, so |Delta arg| < pi per panel needs
+  // n = ceil(3 m / 4) panels (1 borderline, 2 at margin 2, 3 at margin 4); the held 10-node
+  // sample already sits at per-node pi/12 ~ 0.2618 rad -- intrinsic margin ~12. The empirical
+  // modulus floor on the sampled traversal is min |A_quad| = C_PS = pi/sqrt(2) ~ 2.2214, the
+  // candidate delta for I3. Contrasts imp-35757 (which sized I2 from the SMOOTH Riemann-Siegel
+  // mean rate ~13.45, touching no held numerics) and adds the I3 floor imp-35757 never touched.
+  // Import-light, five self-executing assertions. BOTH are PROXIES on the off-axis model cusp
+  // rho = |x|^{-1/2}, NOT the true H_t = A + B - C on dR; instantiates no interval enclosure;
+  // certifies no cap; certifies no delta > 0; counts no zeros; I2/I3 stay GREENFIELD; changes
+  // no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35951-i2-i3-sizing-from-imp33923-sampled-proxy.js',
   // imp-35844 (meta): AUDIT the imp-35763/imp-35764 honesty-gate assertion guards (imp-486
   // kept, imp-35337a OPEN, NO QED, PT SOTA regexes). SPLIT FINDING: the imp-486/OPEN/NO-QED
   // text guards are LIVE and PROTECTIVE (test the modules' own verdict strings, would fail

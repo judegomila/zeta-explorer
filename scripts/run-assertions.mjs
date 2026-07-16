@@ -9905,6 +9905,16 @@ const DATA_MODULES = [
   // not fully align the rounding-error signs along the caterpillar spine. Seven self-executing
   // assertions. Measurement only; certifies no W1 bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35945-w1-summation-monotone-tree-shape.js',
+  // imp-35952 (numerical, S-frontier): EXTEND imp-35893 by sweeping the FIXED worst-tree
+  // caterpillarR SHAPE across the imp-35890 N-ladder (N = 1e3, 1e4, 1e5, 488602) instead of
+  // the single fixed N = 488602. The caterpillarR depth grows ~545x (7 -> 3817, tracking
+  // N/leaf) so its depth*eps worst-case bound grows ~linearly with N, yet the ACHIEVED
+  // normalized error stays in a ~4.3x band [~1.85e-18, ~8.06e-18] and DECREASES with N (top
+  // rung is the LOWEST) -- an N-INDEPENDENT FLOOR, not growth. The ratio to the depth*eps
+  // envelope COLLAPSES ~2400x across the ladder (~5.19e-3 -> ~2.19e-6); the gap to the
+  // worst-case bound WIDENS with N. Seven self-executing assertions. Measurement only;
+  // certifies no W1 bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35952-w1-caterpillar-worst-tree-n-ladder.js',
   // imp-35812: MEASURE the achievable rounding-error growth of pairwise and Kahan-
   // compensated summation on a representative N ~ 4.886e5-term oscillatory sum at
   // T_PT = 3e12, against an EXACT BigInt reference, versus the imp-35761 pessimistic

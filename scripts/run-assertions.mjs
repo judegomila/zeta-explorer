@@ -11270,6 +11270,14 @@ const DATA_MODULES = [
   // imp-35968 alone (fix queued separately as imp-36065). Sweep/audit only; no bound touched;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36088-crossover-lambdabounds-stale-prose-sweep.js',
+  // imp-36037 (numerical, S-frontier ticket audit): imp-36037 asked to sweep the full
+  // imp-35893 seven-shape pairing-tree family under the imp-35852 clustered worst term
+  // ORDER at N ~ 488602 to locate the worst shape-by-order combination. FINDING: DUPLICATE
+  // -- imp-36020-w1-clustered-order-shape-argmax already runs exactly that sweep and pins
+  // caterpillarL as the arg-max (~41.2% of the log2(N)*eps ceiling, still ~2.4x below it).
+  // Imports the pre-existing imp-36020 export and pins a regression guard. Audit only; no
+  // new sweep; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36037-clustered-order-shape-sweep-duplicate-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

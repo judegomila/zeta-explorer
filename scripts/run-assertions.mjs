@@ -11948,6 +11948,11 @@ const DATA_MODULES = [
   // under-statement by up to ~2.5x); no new note derived, records the finding and cross-references
   // the original. NO QED.
   '/src/data/imp-36161-duplicate-ticket-honest-status.js',
+  // imp-36162 (ux, sonnet-4-6, sonnet): honest-status finding that ticket imp-36162 itself
+  // duplicates the already-completed imp-36145 (import-light viz-data module re-exporting the
+  // imp-36096 normalized (u,v) joint recovery contour points for the 10% and 1% targets); no new
+  // module built, records the finding and cross-references the original. NO QED.
+  '/src/data/imp-36162-duplicate-ticket-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

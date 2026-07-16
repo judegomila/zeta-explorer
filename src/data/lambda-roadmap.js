@@ -1418,6 +1418,19 @@ export function lambdaDepMatrixClosure(startId, matrix = LAMBDA_DEPENDENCY_MATRI
 export const LAMBDA_ROADMAP = {
   id: 'lambda-roadmap',
   targetSOTA: 'Λ ≤ 0.02 unconditional, beating Platt-Trudgian 2021 Λ ≤ 0.2 by 10x',
+  // imp-35860: leading TL;DR banner so a reader sees the headline before the
+  // long append-only measurement log below (currentStatus). Keep in sync by
+  // hand -- this does not parse currentStatus, it just restates its opening.
+  currentStatusTLDR:
+    'CLOSED MODULO GUE UNIVERSALITY: Steps 1 and 3 of LAMBDA_CHAIN_STEPS are rigorous ' +
+    'unconditionally (zero-verification; imp-341 lim-sup |t_c(N)| = 0 + Rodgers-Tao ' +
+    'Lambda >= 0). The sole irreducible conditional is the many-body correction constant ' +
+    'C_mb, which requires GUE universality (Erdos-Schlein-Yau local law; imp-486 confirmed ' +
+    'no unconditional bound exists). Step 4 (Polymath15 bridge, sub-gap G6a_shock_lipschitz) ' +
+    'remains open and Step 5 (final RH combination) is unverified, so RH does NOT yet follow ' +
+    'unconditionally. Everything after the opening paragraph of currentStatus below is a ' +
+    'measurement-only refinement appendix (imp-33xxx/imp-35xxx landmark quantifications) -- ' +
+    'it changes no bound and discharges no open gap.',
   currentStatus:
     'CLOSED MODULO GUE UNIVERSALITY (Phase 37 final, reframed per imp-2564): per LAMBDA_CHAIN_STEPS, ' +
     'Steps 1 and 3 are rigorous (Step 1 zero-verification; Step 3 imp-341 lim-sup |t_c(N)| = 0 + ' +

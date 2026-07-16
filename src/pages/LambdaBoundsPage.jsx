@@ -190,6 +190,23 @@ export default function LambdaBoundsPage() {
         style={{ ...cardBaseLeft('#facc15'), marginBottom: 24 }}
       >
         <div style={cardLabel}>Current status / strategy</div>
+        {LAMBDA_ROADMAP.currentStatusTLDR && (
+          <div
+            style={{
+              fontSize: 13,
+              color: 'var(--text-primary)',
+              lineHeight: 1.5,
+              marginBottom: 10,
+              padding: '8px 12px',
+              background: 'var(--bg-primary)',
+              borderRadius: 6,
+              border: '1px solid #facc15',
+            }}
+          >
+            <strong style={{ color: '#facc15' }}>TL;DR:</strong>{' '}
+            {LAMBDA_ROADMAP.currentStatusTLDR}
+          </div>
+        )}
         <div style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.5 }}>
           {LAMBDA_ROADMAP.currentStatus}
         </div>

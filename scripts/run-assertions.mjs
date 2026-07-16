@@ -11567,6 +11567,13 @@ const DATA_MODULES = [
   // shipped in scripts/seed-ticket.mjs checkVizDataDuplicate()); no code change, records the
   // finding and the category:'ux'-only scope of that guard as a known blind spot. NO QED.
   '/src/data/imp-36128-duplicate-ticket-honest-status.js',
+  // imp-36129 (meta, sonnet-4-6, sonnet): standalone honest-status note recording the imp-36034
+  // finding that imp-35969-krawczyk-residual-directed-rounding-width.js was a genuinely ORPHANED
+  // module (no direct DATA_MODULES entry, imported nowhere -- only cited by @see prose in four
+  // other modules), so its self-executing THROWing assertions were dead code until imp-36034
+  // registered it. Documents the orphan failure mode and the registration-audit guard against
+  // it. Meta finding only; NO QED.
+  '/src/data/imp-36129-orphaned-module-registration-audit-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

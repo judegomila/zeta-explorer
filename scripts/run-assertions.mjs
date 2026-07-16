@@ -10174,6 +10174,19 @@ const DATA_MODULES = [
   // Math.PI/Math.exp). Measurement only; extends no evaluator; evaluates no true H_0 at high
   // precision; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35811-exact-debruijn-arbitrary-precision-digit-table.js',
+  // imp-35850 (numerical, measurement): CHARACTERIZE the imp-35811 measured working-digit
+  // guard offset R(x) = D*(x) - (pi/(8 ln10)) x across x in [104,1000]. imp-35811 asserted a
+  // "small O(1) guard offset (~+2, g minus ~1 free digit from K<1)" but never tabulated its
+  // x-dependence or split it. This module RERUNS the same ~520-digit BigInt sig-digit recovery,
+  // tabulates R(x), and decomposes it via the closed form D*(x) >= (pi/(8 ln10)) x + [g+log10(K)]
+  // into a g=3 significant-figure-target term (+3) and a K<1 free-digit term log10(6.214e-2)~-1.207,
+  // predicting +1.79. MEASURED residual hovers mean ~+1.67, spread ~1.2 digits, least-squares drift
+  // ~-9e-4 digits/unit x (< 1 working digit across the 896-wide window) -- the guard is CONFIRMED
+  // x-FLAT (a genuine constant O(1), not a drifting term; largest R=+2.26 at x=104 is pure integer
+  // ceiling). Five self-executing assertions. Measurement only; reuses the imp-35811 recovery;
+  // extends no evaluator; evaluates no true H_0 at high precision; changes no bound; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-35850-debruijn-digit-guard-offset-decomposition.js',
   // imp-35816 (accuracy, measurement): MEASURE the deviation of the imp-35778 short-edge
   // rectangle width Delta from an EXACT integer number of mean zero gaps delta(T_PT) ~ 0.2336,
   // quantifying the endpoint-placement quantization on the mean-gap surrogate spacing. Both short

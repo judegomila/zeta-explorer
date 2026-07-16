@@ -12033,6 +12033,14 @@ const DATA_MODULES = [
   // (closed-form inflection-vs-half derivation) -- for a reader landing on any single
   // stage cold. Note only; imports all four source records verbatim; NO QED.
   '/src/data/imp-36184-sigma-fartail-decay-ramp-storyline-cross-reference.js',
+  // imp-36189 (meta, sonnet-4-6, sonnet): registration/reachability + import-light guard
+  // audit (imp-36109/imp-35982/imp-35905 method) over the imp-36098..imp-36166 S-frontier
+  // cohort -- found ONE orphan, imp-36125-w1-accumulator-recovery-margin-honest-status.js
+  // (no DATA_MODULES entry, no real importer -- only prose @see mentions in imp-36107/
+  // imp-36130), whose self-executing assertions never ran under `npm run assert`. Fixed
+  // by registering it directly here. No other orphans, no heavy-bundle imports found.
+  '/src/data/imp-36125-w1-accumulator-recovery-margin-honest-status.js',
+  '/src/data/imp-36189-imp36098-166-registration-reachability-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

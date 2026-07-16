@@ -20754,6 +20754,40 @@ export const glossary = [
       'imp-35727 w2-certified-winding-count-ingredients-scope enumerates I2 as one of the I1-I5 GREENFIELD ingredients both modules size (imp-35727)',
     ],
   },
+  {
+    term: 'Kahan-Babuska-Neumaier (KBN) compensated summation and its N-FLAT error floor',
+    category: 'numerical',
+    definition:
+      'A headword for the improved compensated-summation variant (Neumaier 1974) used to floor the ' +
+      'imp-35973 combined worst-case (adversarial term ORDER x adversarial pairing-tree SHAPE) W1 ' +
+      'summation stress. KBN differs from classic Kahan summation by choosing which operand feeds the ' +
+      'correction term based on relative magnitude -- c += (s - t) + x when |s| >= |x|, else ' +
+      'c += (x - t) + s -- so the compensation stays correct even when the running sum s is smaller in ' +
+      'magnitude than the incoming term x, a case where classic Kahan silently loses accuracy.\n\n' +
+      'MEASURED (imp-36023): across the imp-35812 N ladder [1000, 10000, 100000, 488602] on the ' +
+      'imp-35852 clustered same-sign worst term ORDER, the KBN normalized error is ' +
+      '[3.74e-19, 3.51e-19, 9.73e-20, 1.89e-20] -- ~3-4 orders of magnitude BELOW the unit roundoff ' +
+      'u = 2^-53 ~ 1.11e-16 at EVERY rung, with NO upward drift (N-FLAT; if anything the floor tightens ' +
+      'at larger N). By contrast the naive clustered sum GROWS with the condition number kappa (~62 to ' +
+      '~1391 across the same ladder), from ~1.07e-16 to ~4.86e-15 normalized error -- it is the ' +
+      'compensation, not the sign structure, that pins the floor. Classic Kahan at the N ~ 488602 ' +
+      'endpoint (~2.31e-19) reproduces the imp-35973 single-endpoint figure; full KBN there is ' +
+      '~1.89e-20, roughly an order tighter still.\n\n' +
+      'HOW TO APPLY: cite this headword whenever a repo module needs the N-uniform (not merely ' +
+      'single-endpoint) compensated-summation floor for the combined worst-case W1 stress -- the KBN ' +
+      'floor is confirmed N-robust across nearly three decades of N, not an artifact of the single ' +
+      'N ~ 488602 rung imp-35973 originally checked.\n\n' +
+      'HONEST SCOPE: MEASUREMENT ONLY. Certifies no W1 bound; evaluates no true H_0; instantiates no ' +
+      'interval; verifies no inequality; changes no bound; establishes no positivity; no RH verdict, ' +
+      'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-36085 (glossary headword for the imp-36023 KBN N-flat compensated-summation floor), 2026',
+    relatedTerms: [
+      'imp-36023 measures the KBN N-flat floor across the imp-35812 ladder recorded here (imp-36023)',
+      'imp-35973 reported the single-endpoint combined worst-case compensated floor (~2.31e-19 at N~488602) that imp-36023 confirms is N-robust (imp-35973)',
+      'imp-35852 supplies the clustered same-sign worst term ORDER this floor is measured against (imp-35852)',
+      'imp-35812 W1 summation-scheme cost hierarchy names the naive/pairwise/Kahan measured hierarchy KBN improves on (imp-35812)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

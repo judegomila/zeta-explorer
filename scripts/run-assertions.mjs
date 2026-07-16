@@ -11940,6 +11940,11 @@ const DATA_MODULES = [
   // three-term share stacked-area/decay chart without the 16.7MB zeros bundle. Presentation
   // only; changes no bound; NO QED.
   '/src/data/imp-36185-e-share-five-landmark-tail-decay-viz-data.js',
+  // imp-36186 (ux, sonnet-4-6, sonnet): import-light viz-data module baking the imp-36112 merged
+  // two-episode KBN-vs-classic-Kahan separation record (transient/tie-plateau/persistent) as
+  // plain literals so an analysis tab can render it without the 16.7MB zeros bundle.
+  // Presentation only; changes no bound; NO QED.
+  '/src/data/imp-36186-kbn-kahan-two-episode-separation-viz-data.js',
   // imp-36112 (content, sonnet-4-6, sonnet): standalone cross-reference note reconciling the
   // imp-36062 persistent-separation onset (N~34000) with the imp-36076 finer-ladder finding of an
   // EARLIER transient separation episode (N~1500-3000) -- merging both recorded ladders in N

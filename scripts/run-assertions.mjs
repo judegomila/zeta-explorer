@@ -11873,6 +11873,12 @@ const DATA_MODULES = [
   // below the pinned K, confirming this ticket's ~1.4e-16/~24-orders framing. Note + one
   // independent numeric check; changes no bound; NO QED.
   '/src/data/imp-36074-two-cliff-gap-constant-robustness-honest-status.js',
+  // imp-36104 (ux, sonnet-4-6, sonnet): import-light viz-data module (baked literals) for the
+  // imp-36062 finer 11-rung KBN-vs-classic-Kahan separation-onset ladder straddling the
+  // imp-36023 identical/separated gap -- bit-identical below N=34000, first strict separation
+  // at N=34000 (kappa~361.5), KBN/Kahan ratio deepening ~0.96 -> ~0.08 by N~488602. Viz-data
+  // only; changes no bound; NO QED.
+  '/src/data/imp-36104-kbn-kahan-separation-onset-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

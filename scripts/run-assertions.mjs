@@ -11532,6 +11532,14 @@ const DATA_MODULES = [
   // below), not a hard conditioning-kappa cutoff, and is a SOFT/intermittent threshold. Note
   // only; changes no bound; NO QED.
   '/src/data/imp-36124-kbn-kahan-soft-onset-honest-status.js',
+  // imp-36126 (meta, sonnet-4-6, sonnet): registration/reachability audit over the imp-3603x..
+  // imp-3606x cohort found three modules with no DATA_MODULES entry and no importer among
+  // registered modules, so their self-executing THROWing assertions never ran under
+  // `npm run assert` -- imp-36034-style orphan fix, registered here. All three are import-light
+  // (effectiveHeightForN + C_C_PINNED only, no zeros-to-1e6 match).
+  '/src/data/imp-36057-krawczyk-residual-2x-tightening-headroom.js',
+  '/src/data/imp-36060-eflow-share-frontier-heights.js',
+  '/src/data/imp-36061-w1-accumulator-recovery-detuning-width.js',
 ];
 
 let ALL_MODULES = FAST_MODE

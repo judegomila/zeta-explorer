@@ -11579,6 +11579,11 @@ const DATA_MODULES = [
   // conditioning (~1.07e-16 at N=1000 to ~4.86e-15 at N~488602, ~45x, tracking kappa ~62->~1391)
   // while both Kahan and KBN compensation stay N-flat, 3-4 orders below unit roundoff. NO QED.
   '/src/data/imp-36130-naive-vs-compensated-conditioning-growth-honest-status.js',
+  // imp-36049 (content, sonnet-4-6, sonnet): standalone honest-status note restating imp-35969 --
+  // the imp-34714a Krawczyk residual node [F(m)] outward-rounded enclosure width is a-INDEPENDENT
+  // (flat at a few eps across N=1e13..1e21) while the dG surplus-split node relative width
+  // INFLATES ~(4/a) eps and diverges, so the certificate cost lives entirely in the dG node. NO QED.
+  '/src/data/imp-36049-residual-tightens-dG-inflates-honest-status.js',
   // imp-36080 (numerical, opus-4-8, api-pool): discharge the lambda-roadmap
   // conditionalBookkeeping B2-effective-height-Tstar clerical residue -- substitute the
   // achieved verified zero-height rung (primary N*=1e6, cross-check 5e5) into the imp-327

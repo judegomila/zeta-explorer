@@ -9876,6 +9876,19 @@ const DATA_MODULES = [
   // Five self-executing assertions. OOM estimate only; evaluates no sum; verifies no
   // inequality; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35761-w1-certified-rounding-cost-scope.js',
+  // imp-36101 (proof, S-frontier): ENUMERATE and SCOPE the discrete construction steps
+  // the MECHANICAL certified length-N interval sum requires, at a reduced N=1000
+  // prototype, grounding the imp-36062 / imp-35725 MECHANICAL-vs-open claim. Five steps:
+  // S1 term index loop, S2 sqrt enclosure, S5 directed-rounding accumulator + aggregation
+  // are ROUTINE (finite control flow + standard interval arithmetic, imp-35761-budgeted);
+  // the residual concentrates in S3 (certified transcendental enclosures -- power/exp/trig
+  // with argument reduction via an Arb/MPFI-style verified backend) and S4 (porting the
+  // Polymath15 analytic-tail lemmas E_A/E_B/E_C with certified constants). Neither residual
+  // is an OPEN mathematical problem, so MECHANICAL is correct -- but NOT trivial: even the
+  // N=1000 prototype needs ~3000 certified transcendental evals + ~1000 certified sqrt plus
+  // the tail-lemma instantiation. A+B-C at T_PT stays GREENFIELD. Five self-executing
+  // assertions. Scoping only; constructs no certificate; changes no bound; NO QED; PT SOTA.
+  '/src/data/imp-36101-w1-certified-sum-construction-steps-scope.js',
   // imp-35852 (numerical, S-frontier, orphan fixed by imp-35941): MEASURE whether the
   // imp-35812 naive-summation random-walk O(sqrt(N)*u) error growth degrades toward the
   // COHERENT O(N*u) ceiling under four ADVERSARIALLY-ORDERED permutations of the SAME

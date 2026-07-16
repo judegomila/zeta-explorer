@@ -9996,6 +9996,20 @@ const DATA_MODULES = [
   // Seven self-executing assertions. Reconciliation only; changes no bound; imp-486 untouched;
   // imp-35337a OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-36022-etrunc-ecoll-crossover-reconciliation.js',
+  // imp-36023 (numerical, S-frontier): does Kahan-Babuska-Neumaier (KBN) compensated summation
+  // on the imp-35973 COMBINED worst-case configuration (the imp-35852 clustered same-sign ORDER)
+  // stay at the unit-roundoff floor across the imp-35812 N ladder, or DRIFT with N? imp-35973
+  // measured the floor only at the single N ~ 488602 endpoint. Recomputing naive / Kahan / KBN
+  // on the clustered worst order against a per-N exact BigInt reference at N = [1000, 10000,
+  // 100000, 488602], KBN is [3.74e-19, 3.51e-19, 9.73e-20, 1.89e-20]: ~3-4 orders BELOW unit
+  // roundoff u ~ 1.11e-16 at EVERY rung (KBN / u from ~3.4e-3 to ~1.7e-4) with NO upward drift --
+  // N-FLAT. Classic Kahan at N ~ 488602 (~2.31e-19) reproduces the imp-35973 endpoint figure; the
+  // naive clustered sum grows with kappa (~62..1391) from ~1.07e-16 to ~4.86e-15. So the imp-35973
+  // floor is N-robust, not an endpoint coincidence; precision stays NON-binding under the combined
+  // stress. Distinct from imp-35955 (Kahan on caterpillarR shape-only). Six self-executing
+  // assertions. Measurement only; changes no bound; W1 certificate GREENFIELD; imp-486 untouched;
+  // NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-36023-kbn-combined-worst-ladder.js',
   // imp-35953: CROSS-CHECK the stability of the imp-35891 ~1-decade offset between the
   // imp-35853 flattest-point knee (N_flat ~ 7.20e9) and the imp-33701 sigma-exponent
   // inflection decade ([1e10,1e11]) under an INDEPENDENT raw Riemann-von Mangoldt height
@@ -11187,6 +11201,13 @@ const DATA_MODULES = [
   // the imp-35855 precedent). Audit only; no fix needed; changes no bound; NO QED;
   // PT Lambda<=0.2 SOTA.
   '/src/data/imp-36007-frontier-cohort-registration-reachability-audit.js',
+  // imp-36015 (meta, S-frontier): permanent build-time cohort import-guard for the
+  // newest measurement/viz modules imp-35950/imp-35951/imp-35956 (imp-35905/imp-35880
+  // pattern). Re-verified via esbuild bundle (--bundle --platform=node --format=esm) +
+  // plain node: all three bundle to 8.7-132.0KB with zero "zeros-to-1e6" references in
+  // their transitive closure, and every bundle's self-executing assertions pass.
+  // Guard only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36015-etrunc-crossover-i2i3-treeshape-cohort-import-guard.js',
 ];
 
 let ALL_MODULES = FAST_MODE

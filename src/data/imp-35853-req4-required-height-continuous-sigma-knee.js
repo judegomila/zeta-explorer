@@ -42,6 +42,15 @@
  * GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian
  * Lambda <= 0.2 remains SOTA.
  *
+ * imp-35943 HONEST-STATUS ADDENDUM: the three markers above are NOT three views of one knee --
+ * they are LOCATOR-DEPENDENT and disagree by more than a decade in sigma (Kneedle elbow
+ * sigma ~ 0.783, flattest point sigma ~ 0.407, PT-approach-within-5% sigma ~ 0.035). No single
+ * canonical "knee" exists; each marker answers a different question (steepest initial bend,
+ * slowest local rate, proximity to the anchor value). Read ~6.96x as the multiple AT the
+ * Platt-Trudgian verified height, a point value, not an asymptotic floor -- the curve keeps
+ * descending below 6.96x for smaller sigma / larger height, so no reachable interior sigma
+ * marks a settled-onto knee.
+ *
  * @see imp-35813-req4-required-height-sigma-landmark-extend (discrete rungs interpolated here)
  * @see imp-35763-req4-required-height-sigma-landmark-fill (the six-rung filled ladder)
  * @see imp-35722-req4-required-height-landmark-ladder (base peak/crossover/PT ladder)
@@ -221,6 +230,19 @@ export const IMP35853_REQ4_REQUIRED_HEIGHT_CONTINUOUS_SIGMA_KNEE = {
   // a mid-downslope minimum then RE-STEEPENS on the deep approach, so ~6.96x is the value AT the PT height, not a floor.
   multipleFlattensOntoPtFloor: false,
   slopeReSteepensOnDeepApproach: flattestPoint.minAbsSlope < maxSlope,
+  // imp-35943: the three markers are LOCATOR-DEPENDENT, not three readings of one knee -- they span
+  // more than a decade in sigma, so no single canonical knee exists.
+  kneeIsLocatorDependent: {
+    claim:
+      'The Kneedle elbow (sigma ~ 0.783), flattest point (sigma ~ 0.407), and PT-approach-within-5% ' +
+      '(sigma ~ 0.035) locators disagree by more than a decade in sigma. No single canonical "knee" exists -- ' +
+      'each answers a different question, and ~6.96x is the multiple AT the PT-verified height, a point value, ' +
+      'not an asymptotic floor.',
+    kneedleElbowSigma: kneeMaxCurvature.sigma,
+    flattestPointSigma: flattestPoint.sigma,
+    ptApproach5pctSigma: floorApproach.within5pct.sigma,
+    spanOrdersOfMagnitude: +Math.log10(kneeMaxCurvature.sigma / floorApproach.within5pct.sigma).toFixed(2),
+  },
   isRigorous: false,
   isUnconditional: false,
   verdict:
@@ -303,7 +325,23 @@ export const IMP35853_REQ4_REQUIRED_HEIGHT_CONTINUOUS_SIGMA_KNEE_ASSERTIONS = [
       floorApproach.within5pct.sigma > SIGMA_PT,
   },
   {
-    // (7) honesty gate: measurement only, conditional, no bound moves, PT SOTA, imp-35337a OPEN, imp-486 kept, NO QED.
+    // (7) imp-35943: the three knee markers are locator-dependent, spanning more than a decade in sigma.
+    id: 'imp35943-knee-is-locator-dependent',
+    description: 'Kneedle elbow / flattest point / PT-approach-within-5% locators disagree by > 1 decade in sigma',
+    holds: () => {
+      const k = IMP35853_REQ4_REQUIRED_HEIGHT_CONTINUOUS_SIGMA_KNEE.kneeIsLocatorDependent;
+      return (
+        k.spanOrdersOfMagnitude > 1 &&
+        Math.abs(k.kneedleElbowSigma - 0.783) < 0.02 &&
+        Math.abs(k.flattestPointSigma - 0.407) < 0.03 &&
+        Math.abs(k.ptApproach5pctSigma - 0.035) < 0.01 &&
+        /disagree by more than a decade/.test(k.claim) &&
+        /No single canonical "knee" exists/.test(k.claim)
+      );
+    },
+  },
+  {
+    // (8) honesty gate: measurement only, conditional, no bound moves, PT SOTA, imp-35337a OPEN, imp-486 kept, NO QED.
     id: 'imp35853-measurement-only-no-qed',
     description: 'measurement only: not rigorous/unconditional, changes no bound, keeps imp-486 caveat, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {

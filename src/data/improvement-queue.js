@@ -79053,13 +79053,15 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Add an honest-status note documenting that the imp-35853 downslope knee is LOCATOR-DEPENDENT (Kneedle sigma~0.783, min-slope sigma~0.407, PT-approach sigma~0.035 span over a decade) so no single canonical knee exists and ~6.96x is a point value not an asymptote',
     category: 'content',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S-frontier',
     description: "imp-35853 reports three knee/flatness locators that disagree by more than a decade in sigma, and its own finding is that the required-height multiple does not settle onto ~6.96x. Add a short honest-status note (in the imp-35853 module documentation or the required-height narrative, no heavy imports; per [[no_heavy_imports_in_pages]]) stating explicitly that the 'knee' depends on the locator chosen, that ~6.96x is the multiple AT the Platt-Trudgian verified height rather than an asymptote, and that the curve keeps descending for larger height. Documentation only; asserts no bound; C_mb GUE-conditional (imp-486) UNTOUCHED; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
     rationale: 'Frontier scout: imp-35853 gives three decade-spanning knee locators and the finding \'6.96x is the multiple AT the PT-verified height, not an asymptote\' -- no honest-status note captures the locator-dependence',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'sonnet-4-6',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
 ];
 

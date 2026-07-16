@@ -483,6 +483,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp34964-eflow-pinned-product-invariance',
   '/viz-imp34965-iters-to-floor-ceil-boundary-geometry',
   '/viz-imp36025-e-share-stacked-bar',
+  '/viz-imp36203-e-share-five-landmark-decay-curve',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

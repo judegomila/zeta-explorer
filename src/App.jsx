@@ -933,6 +933,9 @@ const Imp36025EShareStackedBarViz = lazy(() =>
 const Imp36143EShareThresholdCrossingLadderViz = lazy(() =>
   import('./pages/Imp36143EShareThresholdCrossingLadderViz.jsx')
 );
+const Imp36203EShareFiveLandmarkDecayCurveViz = lazy(() =>
+  import('./pages/Imp36203EShareFiveLandmarkDecayCurveViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2588,6 +2591,10 @@ function AppShell() {
           <Route
             path="/viz-imp36143-e-share-threshold-crossing-ladder"
             element={<Imp36143EShareThresholdCrossingLadderViz />}
+          />
+          <Route
+            path="/viz-imp36203-e-share-five-landmark-decay-curve"
+            element={<Imp36203EShareFiveLandmarkDecayCurveViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

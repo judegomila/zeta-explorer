@@ -10428,6 +10428,20 @@ const DATA_MODULES = [
   // six self-executing assertions. Scoping only; sums no increments; certifies no count;
   // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35804-i4-integer-closure-error-budget-scope.js',
+  // imp-35989 (numerical/S-frontier): MEASURE (double-precision surrogate) how the imp-35804 I4
+  // accumulated argument-error half-width E scales with the imp-35757/imp-35951 I2 panel count n
+  // as the four edges of dR are subdivided, and whether the closed-loop total stays under the pi
+  // integer-closure budget across a plausible n range at T_PT=3e12. Two-channel accrual surrogate:
+  // E_round = ((n-1)+RHO_EVAL)*u*|S| GROWS linearly in n (per-panel arg evaluation + naive
+  // summation), E_trunc = K_TRUNC/n FALLS as 1/n (I1 enclosure width -> 0 under subdivision). A
+  // shallow U. FINDING: the rounding accrual reaches pi only at n* ~ 4.50e15 panels (~14 orders
+  // beyond the ~4.28-per-unit-height physical count), the U-minimum sits at ~ 2.18e-7 rad near
+  // n ~ 1.56e8 (~7 orders below pi), and across the whole plausible range (n ~ 17 .. 1e6) E stays
+  // 6+ orders below pi, dominated by the DECREASING truncation channel -- so subdividing helps I4
+  // and the closed-loop total comfortably clears the pi budget at every plausible n. Import-light,
+  // six self-executing assertions. Surrogate only; sums no real increments; certifies no count;
+  // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35989-i4-accumulated-error-vs-panel-count-scale.js',
   // imp-35839: ticket asked to add a glossary headword for the imp-35777 I2<->I3 coupling
   // identity L_panel < pi.delta/B. Audit found it ALREADY EXISTS (added by imp-35818) and is a
   // near-duplicate ticket the frontier scout re-seeded. Adds no new glossary content; pins a

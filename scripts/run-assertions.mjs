@@ -10799,6 +10799,13 @@ const DATA_MODULES = [
   // 12.8-183.9KB, no zeros-bundle import); every bundle exits 0. Verification only;
   // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35905-frontier-measurement-cohort-import-guard.js',
+  // imp-35964: standalone cross-reference note tying together the W1 summation
+  // PRECISION-robustness cluster imp-35852 (adversarial term ORDER) / imp-35893
+  // (adversarial pairing-tree SHAPE) / imp-35890 (tightest a-priori BOUND still
+  // overshoots the achieved error), distinct from the imp-35903 summation-COST
+  // cross-ref. Imports all three imp-35852/imp-35893/imp-35890 verdicts verbatim, no
+  // new numerics. Note only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35964-w1-precision-robustness-cluster-crossref.js',
 ];
 
 let ALL_MODULES = FAST_MODE

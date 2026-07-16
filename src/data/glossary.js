@@ -20680,6 +20680,43 @@ export const glossary = [
       'imp-35925 krawczyk-interior-subtraction-audit descends one granularity finer, into the interior of F(m)/[F-prime]/g, confirming the same verdict (imp-35925)',
     ],
   },
+  {
+    term: 'The W1 A-Priori Forward-Error Trichotomy: COHERENT (N-1)*u vs WILKINSON sqrt(N)*u vs Higham-Mary MEAN-SQUARE',
+    category: 'numerical',
+    definition:
+      'A headword for the imp-35948 THREE-WAY classification of a-priori forward-error scales ' +
+      'available for the same Higham (2002) recursive-sum ensemble E_N = Sum_{i=2}^{N} S_i * delta_i, ' +
+      'each bounding |E_N| differently depending on what is assumed about the N-1 roundoffs delta_i:\n\n' +
+      '(1) DET-coherent, |E_N| <= (N-1) u * max_i|S_i| -- the CERTIFIABLE deterministic worst case ' +
+      '(imp-35890 running-accumulator bound), which assumes the N-1 roundoffs add COHERENTLY (all ' +
+      'same sign, all at the accumulator peak). (2) PROB-Wilkinson, |E_N| ~ lambda * sqrt(N-1) u * ' +
+      'max_i|S_i| -- the classic Wilkinson rule-of-thumb, replacing the coherent factor (N-1) by the ' +
+      'random-walk factor sqrt(N-1) under a statistical-independence assumption. (3) PROB-HighamMary, ' +
+      '|E_N| ~ lambda * u * sqrt(Sum_i S_i^2) -- the sharper Higham-Mary (2019) mean-square form, ' +
+      'using the actual accumulator second moment rather than its peak. Only rung (1) is a ' +
+      'deterministic worst-case CERTIFICATE; rungs (2) and (3) are certifiable ONLY under the ' +
+      'roundoff-independence assumption and so remain STATISTICAL, not certified.\n\n' +
+      'MEASUREMENT (imp-35948, N ~ 488602 at T_PT): the Wilkinson rung lands ~2.84 orders below the ' +
+      'imp-35890 certified deterministic bound and only ~0.49 orders above the imp-35812 achieved ' +
+      'naive error, recovering ~85% of the ~3.3-order residual gap imp-35890 left open; the sharper ' +
+      'Higham-Mary rung recovers ~92%. This identifies that residual as almost entirely the ' +
+      '(N-1) -> sqrt(N-1) statistical factor, not recoverable deterministic slack.\n\n' +
+      'HOW TO APPLY: cite this headword when a reader asks which of several quoted W1 forward-error ' +
+      'scales is CERTIFIED versus which is a statistical estimate -- only the coherent (N-1)*u rung ' +
+      'is a certificate; the sqrt(N)*u and mean-square rungs are independence-conditional estimates ' +
+      'that explain, but do not certify, why the achieved error sits far below the certified bound.\n\n' +
+      'HONEST SCOPE: DEFINITIONAL / MEASUREMENT-SUPPORT ONLY. Instantiates no interval; certifies no ' +
+      'W1 bound; changes no bound; the W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 ' +
+      'Part A) and MECHANICAL (imp-35725); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-36002 (glossary headword for the imp-35948 deterministic-vs-probabilistic a-priori forward-error trichotomy), 2026',
+    relatedTerms: [
+      'imp-35948 w1-probabilistic-sqrtN-apriori-scale derives the Wilkinson and Higham-Mary rungs and quantifies the residual-gap recovery (imp-35948)',
+      'imp-35890 w1-running-accumulator-apriori-bound supplies the CERTIFIED deterministic coherent rung this trichotomy sits below (imp-35890)',
+      'imp-35812 w1-summation-scheme-measured-cost supplies the achieved naive error the probabilistic rungs bracket from above (imp-35812)',
+      'imp-35761 supplies the pessimistic N*eps naive ceiling this trichotomy refines with a tighter running-accumulator peak (imp-35761)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -20788,6 +20788,44 @@ export const glossary = [
       'imp-35812 W1 summation-scheme cost hierarchy names the naive/pairwise/Kahan measured hierarchy KBN improves on (imp-35812)',
     ],
   },
+  {
+    term: 'documentation artifact vs computational artifact',
+    category: 'meta',
+    definition:
+      'A headword distinguishing two failure modes a reconciliation ticket can uncover when two ' +
+      'modules appear to disagree on a landmark value. A COMPUTATIONAL ARTIFACT is a genuine numerical ' +
+      'discrepancy: different inputs, a different model, or a convergence/tolerance gap between the ' +
+      'two STORED, dynamically-computed values themselves. A DOCUMENTATION ARTIFACT is a mismatch that ' +
+      'exists only in hand-written prose -- a docstring or comment that quotes a number which has since ' +
+      'gone stale relative to the module\'s own live computed/exported object -- while the two STORED ' +
+      'values in fact agree.\n\n' +
+      'MEASURED (imp-36022): the apparent ~0.024-decade gap between the imp-35968 quoted E_trunc = ' +
+      'E_coll crossover (docstring prose: N_cross ~ 3.1e9, log10 ~ 9.49) and the imp-35950 / imp-35994 ' +
+      'value (N_cross ~ 3.267e9, log10 ~ 9.514) was reconciled by re-running both balances on the ' +
+      'byte-identical imp-3406 / imp-33582 sub-terms. The two modules\' STORED objects in fact AGREE to ' +
+      '~0.0017 decade (imp-35968 log10 9.5159 vs imp-35950 log10 9.5142) -- a residual fully explained ' +
+      'by a tiny, genuine E_flow-inclusion definitional choice (sigma(N) = 0.5 vs raw ratio E_coll / ' +
+      'E_trunc = 1). The nominal ~0.024-decade gap came solely from imp-35968 STALE DOCSTRING PROSE ' +
+      '(3.1e9 / 9.49), which itself disagreed with imp-35968 OWN computed / stored value (3.28e9 / ' +
+      '9.5159) by ~0.026 decade -- the frontier-scout ticket that raised the discrepancy had read the ' +
+      'stale prose, not the stored value. So this case classifies as a DOCUMENTATION ARTIFACT: nothing ' +
+      'computational needed correcting, only the docstring prose.\n\n' +
+      'HOW TO APPLY: before treating a cross-module numeric mismatch as a computational bug (a model ' +
+      'error, a bisection-tolerance issue, or a genuine input difference), first compare the two ' +
+      'modules\' dynamically-formatted STORED/exported values against each other. Only if the STORED ' +
+      'values themselves disagree is the gap a computational artifact needing a model or input fix; if ' +
+      'they agree and only hand-quoted prose disagrees, it is a documentation artifact needing a prose ' +
+      'correction, not a recomputation.\n\n' +
+      'HONEST SCOPE: MEASUREMENT/RECONCILIATION ONLY. Certifies no bound; evaluates no true H_0; ' +
+      'changes no bound; establishes no positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-36090 (glossary headword distinguishing documentation vs computational artifacts, grounded in imp-36022), 2026',
+    relatedTerms: [
+      'imp-36022 reconciles the imp-35968/imp-35950 crossover gap as a documentation artifact, not a computational one (imp-36022)',
+      'imp-35968 supplies the stale docstring prose (3.1e9 / 9.49) that disagrees with its own stored value (imp-35968)',
+      'imp-35950 supplies the sigma = 0.5 crossover value imp-36022 confirms agrees with imp-35968 stored value (imp-35950)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

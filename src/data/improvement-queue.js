@@ -83075,13 +83075,15 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Seed an import-light viz-data module (baked literals) + routed page rendering the imp-36045/imp-36164 G5-perN-translation three-route readiness ranking C > B > A as a comparison, recording each route\'s source (imp-337/342/343 density squeeze, imp-348 rate, imp-336 monotonicity) and its named blocker',
     category: 'ux',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S-frontier',
     description: "imp-36164 stages the imp-36045 C>B>A route ranking but there is no visualization of the comparison. Bake the ranking and per-route blockers into an import-light module and route a page. No heavy imports. Viz only; changes no bound; NO QED.",
     rationale: 'Frontier scout: imp-36164/imp-36045 C>B>A route readiness ranking, no viz',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'sonnet-4-6',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
 ];
 

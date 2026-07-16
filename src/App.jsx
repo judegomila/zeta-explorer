@@ -939,6 +939,9 @@ const Imp36203EShareFiveLandmarkDecayCurveViz = lazy(() =>
 const Imp36204KbnKahanTwoEpisodeSeparationViz = lazy(() =>
   import('./pages/Imp36204KbnKahanTwoEpisodeSeparationViz.jsx')
 );
+const Imp36211RouteReadinessComparisonViz = lazy(() =>
+  import('./pages/Imp36211RouteReadinessComparisonViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2602,6 +2605,10 @@ function AppShell() {
           <Route
             path="/viz-imp36204-kbn-kahan-two-episode-separation"
             element={<Imp36204KbnKahanTwoEpisodeSeparationViz />}
+          />
+          <Route
+            path="/viz-imp36211-route-readiness-comparison"
+            element={<Imp36211RouteReadinessComparisonViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

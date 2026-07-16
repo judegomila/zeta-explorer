@@ -485,6 +485,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp36025-e-share-stacked-bar',
   '/viz-imp36203-e-share-five-landmark-decay-curve',
   '/viz-imp36204-kbn-kahan-two-episode-separation',
+  '/viz-imp36211-route-readiness-comparison',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

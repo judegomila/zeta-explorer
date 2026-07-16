@@ -20566,6 +20566,45 @@ export const glossary = [
       'imp-34714a the open Krawczyk machine certificate this diagnostic measurement does not touch (imp-34714a)',
     ],
   },
+  {
+    term: 'E_trunc = E_coll (sigma = 1/2) crossover as a regime divider: collision-dominated ABOVE, truncation-dominated BELOW (imp-35337, imp-35889)',
+    category: 'accuracy',
+    definition:
+      'A headword naming the imp-3444 / imp-35337 E_trunc = E_coll crossover height (N ~ 3.280e9, ' +
+      'sigma = E_coll / E(N) = 1/2 exactly) not merely as a numeric landmark but as the DIVIDING LINE ' +
+      'between two distinct dominance regimes on the imp-3220/imp-3406 sigma(N) downslope.\n\n' +
+      'WHAT THE DIVIDER MEANS: imp-35889 decomposed the full E(N) = E_trunc + E_flow + E_coll split ' +
+      'at the two imp-35853 knee heights and found the dominant remainder term FLIPS across this exact ' +
+      'crossover. At the Kneedle elbow (sigma ~ 0.783, N ~ 2.13e8, sitting ABOVE the crossover on the ' +
+      'high-sigma side), E_coll dominates with share ~ 0.783 and E_trunc is the runner-up (~ 0.213). At ' +
+      'the flattest point (sigma ~ 0.407, N ~ 7.20e9, sitting BELOW the crossover), E_trunc dominates with ' +
+      'share ~ 0.592 and E_coll drops to runner-up (~ 0.407). E_flow is negligible at both heights (<= ' +
+      '0.0041), so sigma ~ E_coll / (E_trunc + E_coll) to good approximation, and the E_trunc-vs-E_coll ' +
+      'balance crosses EXACTLY at sigma = 1/2 -- the same height imp-35337 certified (double-vs-dd, ' +
+      'relative ~0) as the E_coll = E_trunc crossover.\n\n' +
+      'WHY THIS MATTERS: it converts a single numeric coincidence (sigma = 1/2 <=> E_coll = E_trunc) into ' +
+      'a REGIME LABEL usable anywhere on the downslope -- any height with sigma(N) > 1/2 is collision-' +
+      'dominated (the vanishing GUE-conditional E_coll term still outweighs the fixed truncation floor), ' +
+      'and any height with sigma(N) < 1/2 is truncation-dominated (the fixed E_trunc floor has overtaken ' +
+      'the shrinking E_coll term). The two imp-35853 knees happen to straddle this crossover, giving a ' +
+      'concrete worked example of the flip either side of it.\n\n' +
+      'HOW TO APPLY: cite this headword when a repo module needs to classify a given height N (or sigma ' +
+      'value) as collision-dominated or truncation-dominated, or to explain WHY a three-way E(N) share ' +
+      'decomposition flips its dominant term between two heights straddling N ~ 3.28e9.\n\n' +
+      'HONEST SCOPE: MEASUREMENT / LABELING ONLY. Reuses the pinned imp-3406/imp-33582 sub-terms ' +
+      '(E_trunc = 3.06e-5, imp-2631; C_C = (1/8) sqrt(3 pi), imp-2642/imp-2643) and the imp-35853 knee ' +
+      'locators unchanged; derives no remainder; discharges nothing; changes no bound; establishes no ' +
+      'operator positivity; imp-35337a surrogate-vs-true fidelity sub-gap stays OPEN; NO QED; ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35965 (glossary headword for the E_trunc = E_coll crossover as a collision-vs-truncation regime divider), 2026',
+    relatedTerms: [
+      'imp-35889 e-share-decomposition-at-knees found the dominant E(N) term flips across this crossover at the two imp-35853 knees (imp-35889)',
+      'imp-35337 sigma-landmarks-double-double-certification certified the E_coll = E_trunc crossover height double-vs-dd (imp-35337)',
+      'imp-35853 req4-required-height-continuous-sigma-knee supplies the two knee heights that straddle this crossover (imp-35853)',
+      'imp-3444 sigma-nshape-landmark-ladder first located the E_coll = E_trunc crossover on double (N ~ 3.280e9) (imp-3444)',
+      'imp-33723 closed-form-crossover recasts the same crossover as a Banach fixed point (imp-33723)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

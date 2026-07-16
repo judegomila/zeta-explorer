@@ -9843,6 +9843,18 @@ const DATA_MODULES = [
   // A+B-C GREENFIELD. Six self-executing assertions. Measurement only; certifies no W1
   // bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35812-w1-summation-scheme-measured-cost.js',
+  // imp-35854 (numerical, measurement): SWEEP the imp-35812 schemes over the condition
+  // number kappa = (Sum|t_k|)/|Sum t_k| by varying (alpha,beta) so kappa ladders from ~1.0
+  // to ~2e5 (~5.3 decades) on the SAME N~488602 sum, each vs a per-rung EXACT BigInt
+  // reference. FINDING (hypothesis REFINED, not confirmed): the naive RELATIVE error grows
+  // FAR SUBLINEARLY (~3 decades over ~5.3 of kappa) -- the pessimistic sqrt(N)*u*kappa model
+  // is a valid ceiling (every rung below it) but is NOT tracked, because the naive NORMALIZED
+  // error is largest (~sqrt(N)*u) at kappa~1 and DROPS to a ~4e-17 plateau as cancellation
+  // deepens (accumulator stays O(1)). Pairwise/Kahan ARE kappa-robust: normalized errors show
+  // no kappa growth, Kahan flat at the unit-roundoff floor, hierarchy Kahan<pairwise<naive at
+  // every rung; all >=10 orders below the O(1) barrier margin. Measurement only; certifies no
+  // W1 bound; changes no bound; A+B-C stays GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35854-w1-summation-kappa-sweep.js',
   // imp-35728: QUANTIFY the necessary-not-sufficient gap between the EXTERNAL
   // Platt-Trudgian certificate N_off(T_PT) = 0 (verified to T_PT = 3e12) and the
   // imp-35681/imp-35676 W4 mechanical zero-substitution (off-line contribution

@@ -10792,6 +10792,19 @@ const DATA_MODULES = [
   // rho=|x|^{-1/2}, NOT the true H_t on dR; instantiates no interval enclosure; certifies no cap;
   // counts no zeros; I2 stays GREENFIELD; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36008-i2-theta-arclength-jacobian-decomposition.js',
+  // imp-36059 (numerical/S-frontier): COMBINE the imp-36008 J_geo=1 off-axis density (3/2 per unit
+  // model arclength) with the imp-35757 along-line Riemann-Siegel rate (~13.446 rad/unit height) via
+  // the imp-35993 mean-gap map (lambda=2/w) into a SINGLE imp-35777 I2 per-panel increment / panel
+  // count on dR at T_PT. Both proxies land on a common per-unit-height axis as rho_A=w/pi~4.28 and
+  // rho_B=3w/(4pi)~3.21 panels/unit, ratio 4/3. Since the |Delta arg f|<pi cap is a CEILING, the single
+  // combined budget uses the ENVELOPE max(rho_A,rho_B)=rho_A: over one borderline panel route A books
+  // exactly pi (binding) and route B only 3pi/4 (25% under), so route A alone sets the combined
+  // increment; safety s=2 -> pi/2. For the imp-35757 unit window the envelope count on dR is ~5 long,
+  // ~9 short, ~28 total (~54 at s=2), REPRODUCING imp-35757; route B alone asks only ~22, strictly
+  // fewer, so the estimate collapses onto route A. Import-light, six self-executing assertions. 4/3 /
+  // route-A-binds holds only under the mean-gap closure; BOTH remain PROXIES on the off-axis model
+  // cusp, NOT the true H_t on dR; certifies no cap; counts no zeros; I2 GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36059-i2-combined-panel-count-envelope.js',
   // imp-36009 (accuracy/S-frontier): MEASURE the sensitivity of the imp-35951 sized I2 intrinsic
   // margin (~12 at the held 10-node sample) and the I3 modulus-floor proxy delta=C_PS=pi/sqrt(2)
   // to the imp-33923 theta-sweep NODE COUNT by actually RE-RUNNING the same scale-free complex
@@ -11406,6 +11419,13 @@ const DATA_MODULES = [
   // with a depth-dependent margin. Read-only restatement; six self-executing
   // assertions; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
   '/src/data/imp-36093-pairwise-slack-depth-sublinear-honest-status.js',
+  // imp-36032: standalone honest-status note restating imp-35972 plainly -- the
+  // effectiveHeightForN overflow edge is TWO distinct cliffs a fraction of a
+  // decade apart. Cliff B (R_direct a -> 0 NaN cliff, log10 N ~ 307.4559) BINDS
+  // FIRST; cliff A (effectiveHeightForN -> +Infinity, log10 N ~ 307.4565) sits
+  // ~6.2e-4 decade above it. Read-only restatement; five self-executing
+  // assertions; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+  '/src/data/imp-36032-two-cliff-decade-honest-status.js',
   // imp-36026: import-light viz-data module (baked literals) for the imp-35971 E(N)
   // TERM-ELIMINATION CASCADE -- the three landmark heights where E_flow drops below
   // 1% of E_trunc (N ~ 4.62e8), the E_trunc = E_coll sigma = 0.5 crossover (N ~ 3.267e9,

@@ -1553,6 +1553,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive chart re-exporting the imp-35854 exact-BigInt-referenced kappa-sweep measurement verbatim (no new derivation, no heavy data-module import, no re-running the summation schemes at page load); measurement only; certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no inequality; establishes no positivity; the W1 A+B-C certificate at T_PT stays GREENFIELD (imp-35681 Part A).',
     }),
+    Object.freeze({
+      route: '/viz-imp35935-adversarial-ordering',
+      title: 'Summation-Scheme Error Under Adversarial Orderings',
+      oneLine:
+        'Grouped log-scale bar chart of the imp-35852 exact-BigInt-referenced naive/pairwise/Kahan-Babuska normalized error under five hostile term orderings (original/signedAsc/magAsc/magDesc/clustered), showing the worst ordering climbs but never reaches the coherent N*eps ceiling.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-35935-adversarial-ordering-viz-data.js',
+      paperSourcePath: 'src/data/imp-35852-w1-summation-adversarial-ordering.js (imp-35935 viz page)',
+      ticket: 'imp-35935',
+      pedagogicalStep: 107,
+      honestCeiling:
+        'Descriptive chart re-exporting the imp-35852 exact-BigInt-referenced adversarial-ordering measurement verbatim (no new derivation, no heavy data-module import, no re-running the summation schemes at page load); measurement only; certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no inequality; establishes no positivity; the W1 A+B-C certificate at T_PT stays GREENFIELD (imp-35681 Part A).',
+    }),
   ]),
 });
 

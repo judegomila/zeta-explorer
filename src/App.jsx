@@ -906,6 +906,9 @@ const Imp35865SummationSchemeLadderViz = lazy(() =>
 const Imp35934KappaSweepLadderViz = lazy(() =>
   import('./pages/Imp35934KappaSweepLadderViz.jsx')
 );
+const Imp35935AdversarialOrderingViz = lazy(() =>
+  import('./pages/Imp35935AdversarialOrderingViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2521,6 +2524,10 @@ function AppShell() {
           <Route
             path="/viz-imp35934-kappa-sweep-ladder"
             element={<Imp35934KappaSweepLadderViz />}
+          />
+          <Route
+            path="/viz-imp35935-adversarial-ordering"
+            element={<Imp35935AdversarialOrderingViz />}
           />
           <Route
             path="/viz-imp35386-kemp-bracketing-ladder"

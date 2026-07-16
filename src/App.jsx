@@ -924,6 +924,9 @@ const Imp35935AdversarialOrderingViz = lazy(() =>
 const Imp35936ReqHeightMultipleSigmaViz = lazy(() =>
   import('./pages/Imp35936ReqHeightMultipleSigmaViz.jsx')
 );
+const Imp35957RdirectFloorHeightSweepViz = lazy(() =>
+  import('./pages/Imp35957RdirectFloorHeightSweepViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2559,6 +2562,10 @@ function AppShell() {
           <Route
             path="/viz-imp35936-req4-height-multiple-sigma"
             element={<Imp35936ReqHeightMultipleSigmaViz />}
+          />
+          <Route
+            path="/viz-imp35957-rdirect-floor-height-sweep"
+            element={<Imp35957RdirectFloorHeightSweepViz />}
           />
           <Route
             path="/viz-imp35386-kemp-bracketing-ladder"

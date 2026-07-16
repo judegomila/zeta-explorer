@@ -1631,6 +1631,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive chart re-exporting the imp-35722 required-height ladder verbatim (no new derivation, no heavy data-module import); presentation only; C_mb GUE-conditional (imp-486) UNTOUCHED; imp-35337a stays OPEN; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35957-rdirect-floor-height-sweep',
+      title: 'R_direct Floor-vs-Height Sweep: Plateau Then a Hard NaN Cliff',
+      oneLine:
+        'Line chart of the imp-35892 extended height sweep of the de-cancelled surplus-split ratio R_direct = -S_inf . a/(2-a) against its independent R_clean reference, showing a <= 2 ULP plateau from N = 1e13 to N ~ 2.857e307 followed by an abrupt NaN cliff at N ~ 10^307.46 once the effectiveHeightForN RvM height inverse overflows past Number.MAX_VALUE.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-35957-rdirect-floor-height-sweep-viz-data.js',
+      paperSourcePath: 'src/data/imp-35892-rdirect-own-floor-departure-height.js (imp-35957 viz page)',
+      ticket: 'imp-35957',
+      pedagogicalStep: 113,
+      honestCeiling:
+        'Descriptive chart re-exporting the imp-35892 measurement literals verbatim (no new computation, no heavy data-module import); measurement/diagnostic only, double precision; instantiates no interval; imp-34714a REMAINS OPEN; C_mb stays GUE-conditional per imp-486; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

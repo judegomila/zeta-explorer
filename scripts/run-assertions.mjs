@@ -2960,6 +2960,21 @@ const DATA_MODULES = [
   // which lives one normalization removed. Does NOT touch K_a>=0; no reduction; no RH
   // verdict; PT Lambda<=0.2 SOTA. 6 self-executing assertions.
   '/src/data/imp-3331-ceiling-lift-per-n-deficit-assessment.js',
+  // imp-36045 (proof): ASSESSES which of the three roadmap G5-perN-translation
+  // candidate routes is CLOSEST to a usable per-N rate r(N) on |t_c(N)| that the
+  // Step-4 E(N) bridge can consume, from the Step-3 UNCONDITIONAL lim-sup
+  // (imp-341/344, no GUE). VERDICT: ROUTE C (imp-337/342/343 density squeeze) --
+  // it produces per-N BY CONSTRUCTION (integrate strict drift dg_{k*}/dt<0, no
+  // lim-sup detour), has 2 of 3 sub-gaps closed unconditionally from pure Weyl
+  // density (G4 imp-343, G3b imp-342 c_tail~1.290<2), and its sole residual
+  // G3a_max_gap is a concrete NOT-proven-irreducible target. Route A (imp-336
+  // monotonicity) gives the per-N SHAPE but is permanently GUE-conditional (C_mb
+  // irreducible, imp-486); Route B (imp-341 Burgers) is the unconditional lim-sup
+  // SOURCE but only microscopic ABSOLUTE rate, per-N upgrade needs local-law
+  // rigidity re-importing GUE. Readiness ranking C > B > A. Closes NOTHING;
+  // discharges no gap; imp-2519 no-overclaim guard; no QED; PT Lambda<=0.2 SOTA.
+  // 7 self-executing assertions.
+  '/src/data/imp-36045-perN-translation-route-readiness-assessment.js',
   // imp-3369 (accuracy): AUDIT of modules exporting *_ASSERTIONS that are absent
   // from this list, so their build-time assertions never fire (the imp-3274 /
   // imp-3371 imp-861 silent-assertion class). Snapshot 2026-07-02: 114 exporters

@@ -11845,6 +11845,13 @@ const DATA_MODULES = [
   // 61 distinct bare ticket citations resolve to real ids in improvements.js/improvement-queue.js.
   // Audit only; no bound touched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-36148-imp3608x9x-cross-reference-integrity-audit.js',
+  // imp-36110 (meta, sonnet-4-6, sonnet): cross-reference @see integrity audit (imp-35186/imp-36127
+  // method) on the S-frontier cohort imp-36033/36034/36046/36061/36062/36064/36065. imp-36127
+  // already swept 36033/36034/36046/36061/36062 clean; this audit covers the two members it did
+  // not reach (imp-36064 and the imp-36065 fix inside imp-35968). FINDING: CLEAN -- zero dangling
+  // @see/import targets or bare imp-NNNNN citations. Audit only; no bound touched; NO QED;
+  // Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-36110-imp3603x46x61x62x64x65x-cross-reference-integrity-audit.js',
   // imp-36069 (content, sonnet-4-6, sonnet): standalone honest-status note restating imp-35997 --
   // the middle flow term E_flow NEVER dominates the imp-35889 three-way split E(N) =
   // E_trunc + E_flow + E_coll: its own peak share is only ~15.9% at a very low height N* ~ 96.5,

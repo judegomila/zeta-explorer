@@ -9885,6 +9885,13 @@ const DATA_MODULES = [
   // only on the imp-3220/imp-3406 surrogate; imp-34714a stays OPEN; changes no bound; NO QED;
   // PT Lambda<=0.2 SOTA.
   '/src/data/imp-35846-crossover-height-sensitivity-to-delta.js',
+  // imp-35847 (accuracy, measurement): replot the imp-35809 shift/curvature split from BOTH families
+  // (band grid + height ladder) against the single reduced variable x=a/(4 delta) and show they COLLAPSE
+  // onto the one closed-form master curve shift_fraction=1/(1+x); families agree bit-identically at their
+  // shared band-top point; relative departure from the small-a curve tightens ~2500x (band-bottom ~4.5%
+  // -> PT anchor ~1.8e-5), the residual being the smooth O(a) expansion tail. Measurement only on the
+  // imp-3220/imp-3406 surrogate; imp-34714a stays OPEN; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35847-shift-fraction-reduced-variable-collapse.js',
   // imp-35763 (numerical, measurement): fill the interior of the imp-35722 REQ-4 required-height
   // ladder with the imp-33582 sigma<0.9/0.5/0.1 downslope landmarks (N~2.57e7/3.27e9/3.21e11),
   // forming 200/log T0 on the same imp-3220/imp-3406 RvM surrogate: multiples ~12.27/9.59/7.93x,

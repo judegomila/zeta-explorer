@@ -11420,6 +11420,13 @@ const DATA_MODULES = [
   // headword; pins a regression guard confirming the duplicate finding stays consistent.
   // Audit only; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36001-glossary-headword-duplicate-audit.js',
+  // imp-36067 (content, ticket audit): imp-36067 asked to add a glossary/Concepts headword
+  // distinguishing KBN compensated summation from classic Kahan summation. Audit found
+  // glossary.js ALREADY carries this headword ("Kahan-Babuska-Neumaier (KBN) compensated
+  // summation and its N-FLAT error floor", authored by imp-36085) -- a duplicate ticket. Adds
+  // no new headword; pins a regression guard confirming the duplicate finding stays consistent.
+  // Audit only; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36067-glossary-headword-duplicate-audit.js',
   // imp-36006 (content, S-frontier): standalone cross-reference note tying together the
   // W2 certified-winding-count ingredient-sizing cohort -- imp-35727 (SCOPE: names I1-I5,
   // all GREENFIELD) sized by imp-35757/imp-35777/imp-35832/imp-35951 (I2, four routes),

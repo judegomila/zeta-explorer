@@ -11951,6 +11951,13 @@ const DATA_MODULES = [
   // surrogate/layer comparison and its a-independent 2x ratio without the 16.7MB zeros bundle.
   // Presentation only; changes no bound; NO QED.
   '/src/data/imp-36187-krawczyk-surrogate-layer-width-ladder-viz-data.js',
+  // imp-36188 (ux, sonnet-4-6, sonnet): import-light viz-data module baking the roadmap
+  // sigma(N) rise-and-decay arc (imp-3220/imp-3406/imp-33582) as plain literals -- rise-arm
+  // decade ladder N=2..1e5, interior peak N~9.22e5 (sigma_max~0.9494), post-peak decade
+  // ladder N=1e6..1e12 with the ramping local decay exponent, plus the threshold-crossing
+  // landmarks -- so an analysis tab can render the full arc without the 16.7MB zeros bundle.
+  // Presentation only; changes no bound; NO QED.
+  '/src/data/imp-36188-sigma-n-ushape-arc-viz-data.js',
   // imp-36112 (content, sonnet-4-6, sonnet): standalone cross-reference note reconciling the
   // imp-36062 persistent-separation onset (N~34000) with the imp-36076 finer-ladder finding of an
   // EARLIER transient separation episode (N~1500-3000) -- merging both recorded ladders in N

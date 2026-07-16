@@ -9857,6 +9857,20 @@ const DATA_MODULES = [
   // `npm run assert` -- the same orphan class imp-35827/imp-35858 fixed for earlier
   // cohorts. Measurement only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35852-w1-summation-adversarial-ordering.js',
+  // imp-35933 (numerical, S-frontier): ADD a fifth, OPTIMIZED adversarial ordering -- a
+  // greedy / Steinitz worst-partial-sum permutation (at each step append the remaining term
+  // maximizing |running partial sum|) plus a deterministic randomized-restart worst-of-24 --
+  // to the imp-35852 harness on the SAME N=488602 multiset and SAME exact 2^{-96} BigInt
+  // reference, to test whether the hand-designed clustered sign-run ordering is genuinely the
+  // naive worst case. FINDING (imp-35852 STANDS): the greedy ordering reaches only ~2.21e-15
+  // naive (~0.45x of clustered ~4.86e-15) and does NOT exceed clustered; random permutations
+  // stay near the O(sqrt(N)*u) baseline (~1.06e-16). Clustered is CONFIRMED the naive worst
+  // among all tested permutations including an optimized adversary (not a hand-picking
+  // artifact); every ordering stays >1e4x below the coherent N*eps ceiling, and pairwise/Kahan
+  // stay ordering-robust under the greedy ordering too. Seven self-executing assertions.
+  // Measurement only; certifies no W1 bound; changes no bound; A+B-C GREENFIELD; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-35933-w1-greedy-steinitz-adversarial-ordering.js',
   // imp-35927 (numerical, S-frontier): SCALE the imp-35852 four hostile orderings up an N
   // ladder (1e4, 1e5, 4.886e5, 1e6, 1e7) against the same exact BigInt 2^{-96} reference and
   // measure how the clustered-ordering naive error and its orders-below-ceiling margin scale

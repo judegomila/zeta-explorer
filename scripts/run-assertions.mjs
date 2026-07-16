@@ -9658,6 +9658,13 @@ const DATA_MODULES = [
   // shortfallVsTPT. Import-light; six self-executing assertions. Measurement only;
   // derives nothing; discharges nothing; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35722-req4-required-height-landmark-ladder.js',
+  // imp-35796: REGISTERS the imp-35723 beat-to-parity (N, sigma) boundary locator so its
+  // five self-executing assertions run in the build-time sweep, pinning the three landmark
+  // literals: beat-regime peak N_peak ~ 9.22e5 (sigma ~ 0.9494), handoff crossover N_cross ~
+  // 3.27e9 (sigma = 0.5, == E_coll=E_trunc to one N-decade), and parity-regime onset N ~
+  // 3.21e11 (sigma = 0.1). The module existed but was absent from DATA_MODULES until this
+  // ticket. Meta/coverage fix only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35723-beat-parity-regime-boundary-Nsigma-locator.js',
   // imp-35724: PROPAGATE the imp-35696 cube-root collision-scale prefactor
   // ((pi^2/3)/C_C)^{1/3} ~ 2.047 onto the actual imp-35337 sigma-landmark heights
   // N_peak ~ 9.22e5 and N_cross ~ 3.28e9. RvM surrogate M = N (gap count over the
@@ -10106,6 +10113,21 @@ const DATA_MODULES = [
   // binning-dependent, read it as an order-10 locator. Measurement only; certifies no W1 bound;
   // changes no bound; A+B-C stays GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35886-w1-summation-kappa-crossover.js',
+  // imp-35926 (numerical, derivation): DERIVE why the imp-35854 naive NORMALIZED summation error
+  // decays from ~sqrt(N)*u at kappa~1 to a ~4e-17 plateau, by giving the analytic scaling of the
+  // running accumulator magnitude and connecting it to the per-step u|s_i| term. Modelling the
+  // achieved error as a random walk of per-step roundoffs gives naiveNorm ~ u*sqrt(N)*rms(|s_i|)/M,
+  // so the whole kappa dependence lives in rms(|s_i|)/M. MEASURING rms(|s_i|), max|s_i|, net sum S
+  // and mass M across the SAME imp-35854 (alpha,beta) rungs: through the descent rms(|s_i|) TRACKS
+  // the net sum S=M/kappa (rms/S ~0.7..1.4), so accumRatio=rms/M ~ kappa^{-1} (measured slope -0.95,
+  // matching imp-35886 -1.03) -- the analytic origin of the drop AND imp-35854 far-sublinear relative
+  // error; once S falls below the O(1) oscillation floor a_0~1.9 (kappa >~ few hundred) rms saturates
+  // (rms/S balloons to ~30..430) and naiveNorm plateaus. Derived naiveNorm reproduces imp-35854
+  // measured anchors to within ~1 decade; crossover kappa*~44 (log-midpoint, order-10 locator, cf.
+  // imp-35886 ~9.4). HONEST: random-walk HEURISTIC scale (prefactor O(1)), NOT a certified bound --
+  // the certified a-priori bound stays imp-35890 coherent (N-1)u*max|S_i|. Eight self-executing
+  // assertions. Derivation only; changes no bound; A+B-C stays GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35926-w1-accumulator-magnitude-derivation.js',
   // imp-35778: SCOPE the imp-35727 ingredient-I3 modulus floor |H_t| >= delta > 0 on dR by
   // DECOMPOSING the contour floor BY EDGE TYPE -- the split imp-35758 left monolithic as
   // "min over dR". delta = min(delta_short, delta_long). SHORT edges (x = const) cross the

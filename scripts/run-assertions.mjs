@@ -9988,6 +9988,12 @@ const DATA_MODULES = [
   // intrinsic coherent-vs-random-walk pessimism. Assessment only; instantiates no interval;
   // changes no bound; A+B-C stays GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35890-w1-running-accumulator-apriori-bound.js',
+  // imp-35963 (content, honest-status note): standalone note restating the imp-35890 finding
+  // that even the tightest CERTIFIED deterministic bound (~3.9e-14, sum-of-partials form)
+  // stays ~3.3 orders ABOVE the achieved error, because no deterministic bound recovers the
+  // sqrt(N) random-walk cancellation of the N-1 roundoffs. Note only; changes no bound; NO QED;
+  // PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35963-w1-apriori-bound-vs-random-walk-honest-status.js',
   // imp-35948 (numerical, assessment): ESTIMATE the intermediate Wilkinson-style PROBABILISTIC
   // sqrt(N)*u a-priori scale -- the rung between the imp-35890 CERTIFIED deterministic run-max
   // bound (~6.4e-14) and the imp-35812/imp-35852 achieved random-walk error (~3.0e-17). Replacing

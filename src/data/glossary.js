@@ -20789,6 +20789,43 @@ export const glossary = [
     ],
   },
   {
+    term: 'super-additive compounding of summation rounding stresses',
+    category: 'numerical',
+    definition:
+      'A headword for the imp-35973 finding that pulling two adversarial W1 pairwise-summation levers ' +
+      'at once -- the term ORDER (imp-35852) and the pairing-tree SHAPE (imp-35893) -- does not merely ' +
+      'ADD their individual worst-case errors, but MULTIPLIES the interaction beyond that sum. At ' +
+      'N ~ 488602: order-only worst (clustered order, balanced tree) is ~3.15e-17 normalized error; ' +
+      'shape-only worst (original order, caterpillarR tree) is ~1.85e-18; the naive SUM of these two ' +
+      'single-stress errors is ~3.33e-17. But the COMBINED worst case (clustered order AND caterpillarR ' +
+      'tree together) reaches ~4.32e-16 -- about 13x the naive sum, ~13.7x the order-only worst alone, ' +
+      'and ~233x the shape-only worst alone. A mirror configuration (clustered order with caterpillarL, ' +
+      'the opposite-handed worst shape once order is also adversarial) climbs further, to ~41% of the ' +
+      'log2(N)*eps ceiling, versus ~10% for the caterpillarR combination.\n\n' +
+      'WHY SUPER-ADDITIVE, NOT ADDITIVE: the two levers are not independent perturbations that merely ' +
+      'stack. The clustered order feeds a long run of same-sign partial sums into the deep caterpillar ' +
+      'spine, so the tree SHAPE amplifies exactly the coherent error the ORDER creates, rather than ' +
+      'each lever contributing its own error in isolation. This is why the interaction term dwarfs ' +
+      'either single-stress figure -- the mechanisms reinforce rather than merely coexist.\n\n' +
+      'HOW TO APPLY: cite this headword whenever a repo module reasons about combining independently-' +
+      'measured worst-case perturbations (order stress, shape stress, or any other pair of adversarial ' +
+      'summation levers) -- do not assume the combined worst case is bounded by the sum of the single-' +
+      'lever worst cases; imp-35973 shows the combined figure can be an order of magnitude larger. Even ' +
+      'so, the compensated (Kahan-Babuska-Neumaier) channel stays at its unaffected floor (~2.31e-19) ' +
+      'under the same combined stress -- see the KBN headword above.\n\n' +
+      'HONEST SCOPE: MEASUREMENT ONLY. Certifies no W1 bound; evaluates no true H_0; instantiates no ' +
+      'interval; verifies no inequality; changes no bound; establishes no positivity; no RH verdict, ' +
+      'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-36029 (glossary headword for the imp-35973 super-additive order-x-shape compounding finding), 2026',
+    relatedTerms: [
+      'imp-35973 measured the combined order-x-shape worst case (~4.32e-16) recorded here and its ~13x super-additive gap over the naive sum (imp-35973)',
+      'imp-35852 supplies the clustered adversarial term ORDER that is one half of the compounding pair (imp-35852)',
+      'imp-35893 supplies the caterpillar pairing-tree SHAPE that is the other half of the compounding pair (imp-35893)',
+      'Summation Associativity: Term ORDER vs Pairing-Tree SHAPE as Independent Adversarial Levers frames the two levers singly (imp-35960); this headword extends it to the combined case',
+      'Kahan-Babuska-Neumaier (KBN) compensated summation and its N-FLAT error floor stays unaffected by this combined stress (imp-36023)',
+    ],
+  },
+  {
     term: 'documentation artifact vs computational artifact',
     category: 'meta',
     definition:

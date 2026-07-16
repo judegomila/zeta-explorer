@@ -9624,6 +9624,20 @@ const DATA_MODULES = [
   // self-executing assertions. Measurement only; derives nothing; discharges
   // nothing; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35724-collision-scale-landmark-prefactor-propagation.js',
+  // imp-35764: CARRY the imp-35724 cube-root collision-scale prefactor propagation onto
+  // the Platt-Trudgian VERIFIED-BARRIER height. imp-35724 stopped at the crossover
+  // N ~ 3.28e9, but the barrier lives at T_PT = 3e12; its exact RvM zero count
+  // N(T_PT) = zeroCountAtHeight(3e12) ~ 1.236e13 is ~3.6 decades (log10) higher.
+  // Applying the identical M = N surrogate and bisection on M F(s_min)=1 for
+  // c = pi^2/3 and c = C_C: s_min moves ~4.194e-5 -> ~8.583e-5, an O(1) shift ~2.0467 =
+  // ((pi^2/3)/C_C)^{1/3} IDENTICAL to the imp-35724 peak/crossover value (N cancels;
+  // cube root of the imp-35680 amplitude mismatch ~8.573). The cross -> PT and peak -> PT
+  // log-log slopes are -1/3 for BOTH readings, so the amplitude-only ratio and the -1/3
+  // exponent persist at the height the barrier actually lives at. Import-light; six
+  // self-executing assertions (incl. row-for-row tie-back to imp-35724). Measurement only;
+  // derives nothing; discharges nothing; changes no bound; C_C (imp-2642/imp-2643) and
+  // imp-486 UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35764-collision-scale-pt-anchor-prefactor-propagation.js',
   // imp-35734: TABULATE the imp-35696 ABSOLUTE collision-scale prefactors (3/c)^{1/3}
   // for the two small-gap density coefficients c = pi^2/3 (standard cubic GUE
   // curvature) and c = C_C = (1/8)sqrt(3 pi), which imp-35696 gave only as the RATIO

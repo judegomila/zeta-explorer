@@ -20087,6 +20087,42 @@ export const glossary = [
       'imp-35757 supplies the mean zero gap g ~ 0.2336 that quantizes Delta and sets the h_sat = 1/w scale (imp-35757)',
     ],
   },
+  {
+    term: 'imp-35813 REQ-4 interior sigma-landmark ladder: deepest reachable rung still ~8.7x short',
+    category: 'proof-frontier',
+    definition:
+      'A headword recording the imp-35813 finding that EXTENDING the imp-35763 REQ-4 required-height ladder ' +
+      'with three additional imp-33582 sigma-decay downslope landmarks (sigma < 0.99, 0.75, 0.25) still leaves ' +
+      'every reachable interior rung far short of the imp-35538 binding log-height log T0 >= 200.\n\n' +
+      'THE DEGENERATE BOUNDARY: the sigma < 0.99 landmark is UNREACHABLE -- the imp-33582/imp-3406 interior peak ' +
+      'sigma_max ~ 0.9494 never climbs to 0.99, so there is no downslope crossing at all; the bisection pins to ' +
+      'the peak N ~ 9.22e5 itself (log T0 ~ 13.23, multiple ~15.12x), exactly coinciding with the imp-35722 peak ' +
+      'rung rather than opening a genuinely new interior point.\n\n' +
+      'THE TWO GENUINE NEW RUNGS: sigma < 0.75 crosses at N ~ 3.17e8 (log T0 ~ 18.65, required multiple ~10.72x) ' +
+      'and sigma < 0.25 crosses at N ~ 3.26e10 (log T0 ~ 23.04, required multiple ~8.68x). Merged with the ' +
+      'imp-35763 six-rung filled ladder the two interleave cleanly and monotonically: peak(15.12x) > s0.9(12.27x) ' +
+      '> s0.75(10.72x) > cross~s0.5(9.59x) > s0.25(8.68x) > s0.1(7.93x) > PT(6.96x).\n\n' +
+      'THE HEADLINE: even the DEEPEST new interior rung (sigma < 0.25) still needs the log-height to grow ~8.7x ' +
+      'to reach log T0 >= 200 -- no reachable sigma-decay landmark, however deep into the downslope, binds the ' +
+      'route-(i) remainder natural rate; only the externally-verified Platt-Trudgian anchor (log T0 ~ 28.73, ' +
+      '~6.96x short) comes anywhere close, and even that falls short.\n\n' +
+      'HOW TO APPLY: cite this ladder whenever a sigma-decay landmark (peak, crossover, or any downslope ' +
+      'threshold) is proposed as a shortcut past the imp-35538 REQ-4 height requirement -- every populated rung ' +
+      'on the imp-33582 model, interior or PT-anchored, still needs several-fold more log-height.\n\n' +
+      'HONEST SCOPE: measurement only, re-reading the imp-33582 model and the imp-35763/imp-35722/imp-35538 ' +
+      'log-heights on the same imp-3220/imp-3406 RvM surrogate; derives no remainder; discharges nothing; ' +
+      'changes no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), ' +
+      'E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) UNTOUCHED; imp-35337a stays OPEN; no RH ' +
+      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35879 (glossary headword recording the imp-35813 REQ-4 interior sigma-landmark ladder extension), 2026',
+    relatedTerms: [
+      'imp-35813 derives the sigma<0.99 degenerate boundary and the sigma<0.75/0.25 new interior rungs recorded here (imp-35813)',
+      'imp-35763 supplies the six-rung filled REQ-4 ladder (peak/s0.9/cross/s0.5/s0.1/PT) that imp-35813 extends (imp-35763)',
+      'imp-35722 supplies the base peak/crossover/PT-anchor required-height ladder (imp-35722)',
+      'imp-35538 names the REQ-4 binding log-height log T0 >= 200 every rung is measured against (imp-35538)',
+      'imp-33582 supplies the sigma-decay model (peak sigma_max ~ 0.9494) the downslope crossings are located on (imp-33582)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

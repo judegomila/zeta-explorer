@@ -9941,6 +9941,17 @@ const DATA_MODULES = [
   // off every would-be zero. Five self-executing assertions. Measurement on the OOM model only;
   // certifies no cap; bounds no B; lower-bounds no delta; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35801-i2-panel-amplification-vs-grazing-distance.js',
+  // imp-35815: TABULATE the imp-35777 robust-regime log-derivative panel width L_panel = pi/(B/delta)
+  // against the imp-35757 mean zero gap Delta_panel = 2pi/log(t/2pi) side by side across a seven-rung
+  // height ladder (3e11..3e15) around T_PT = 3e12, and quantify the agreement of the two independent OOM
+  // routes. FINDING: the routes agree to MACHINE PRECISION at every rung (max relative difference ~ 0)
+  // because both REDUCE to the same closed form pi/w(t) in the robust regime -- the log-derivative ratio
+  // B/delta collapses onto the mean winding rate w -- so imp-35777s "EXACTLY matches" claim is an
+  // algebraic identity, not a coincidental numerical closeness. At T_PT both give width ~0.2336 and density
+  // w/pi ~ 4.28 panels per unit height; four decades move the width only ~0.2555 -> ~0.1859 (logarithmic
+  // drift). Six self-executing assertions. Measurement only; certifies no count; bounds no B; lower-bounds
+  // no delta; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35815-panel-width-mean-gap-agreement-table.js',
   // imp-35835: ticket asked to add a glossary headword for the imp-35778 delta_short/delta_long
   // two-knob I3 floor prescription. Audit found it ALREADY EXISTS (added by imp-35819) and is a
   // near-duplicate ticket the frontier scout re-seeded. Adds no new glossary content; pins a

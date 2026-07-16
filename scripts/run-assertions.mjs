@@ -10643,6 +10643,18 @@ const DATA_MODULES = [
   // six self-executing assertions. Surrogate only; sums no real increments; certifies no count;
   // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35989-i4-accumulated-error-vs-panel-count-scale.js',
+  // imp-36041 (numerical/S-frontier): ASSESS how sensitive the imp-35989 two-channel I4 accrual
+  // landmarks are to the ILLUSTRATIVE surrogate constants RHO_EVAL and K_TRUNC. Closed forms:
+  // n_min = sqrt(K_TRUNC/(u*|S|)) so d log n_min / d log K_TRUNC = +1/2 EXACTLY and d log n_min /
+  // d log RHO_EVAL = 0 EXACTLY (n_min carries no RHO_EVAL); n* = pi/(u*|S|) + (1 - RHO_EVAL) so
+  // d log n* / d log RHO_EVAL = -RHO_EVAL/n* ~ -8.9e-16 (RHO_EVAL is an O(1) additive shift against
+  // a ~4.5e15 baseline, essentially zero) and d log n* / d log K_TRUNC = 0 EXACTLY. Both cross
+  // elasticities exactly zero, no landmark elasticity exceeds 1/2: dragging n_min to n=1e6 needs
+  // K_TRUNC ~ 7e-4, dragging n* to n=1e6 needs RHO_EVAL ~ 4.5e15 -- so no plausible perturbation
+  // moves either landmark into the physical range and the imp-35989 pi-budget-never-threatened
+  // reading does NOT hinge on the illustrative constants. Import-light, six self-executing
+  // assertions. Surrogate only; certifies no count; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36041-i4-landmark-sensitivity-to-surrogate-constants.js',
   // imp-35839: ticket asked to add a glossary headword for the imp-35777 I2<->I3 coupling
   // identity L_panel < pi.delta/B. Audit found it ALREADY EXISTS (added by imp-35818) and is a
   // near-duplicate ticket the frontier scout re-seeded. Adds no new glossary content; pins a

@@ -11991,6 +11991,12 @@ const DATA_MODULES = [
   // 36082/36095/36096/36097) -- all 21 filename @see targets, both named ES imports, and
   // all 39 bare imp-NNNNN citations resolve. Audit only; NO QED.
   '/src/data/imp-36170-imp3606x67x82x95x96x97-cross-reference-integrity-audit.js',
+  // imp-36181 (content, sonnet-4-6, sonnet): cross-reference narrative assembling the
+  // LAMBDA_CHAIN_STEPS Step-5 six-item obligation chain -- the three OPEN research
+  // links (G5-perN-translation, G5-step4-bridge, G5-cmb-gue) plus the three blocked
+  // clerical bookkeeping items (B1-B3) -- for a reader landing on Step 5 cold. Note
+  // only; imports both source blocks verbatim; NO QED.
+  '/src/data/imp-36181-step5-obligation-chain-cross-reference.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -20413,6 +20413,44 @@ export const glossary = [
       'imp-35674 Part D supplies the N(x) = floor(sqrt(x/4 pi)) retained-term formula anchoring N ~ 4.886e5 at T_PT (imp-35674)',
     ],
   },
+  {
+    term: 'imp-341 vs T_PT=3e12 barrier-base disambiguation: imp-341 is the G5_burgers Koksma-Hlawka Stieltjes-uniformity thread, NOT the off-line zero verification supplying the barrier base',
+    category: 'proof',
+    definition:
+      'A disambiguation headword recording that repo imp-341 ("Close G5_burgers") and the ' +
+      'T_PT = 3e12 off-line zero-verification barrier base are two UNRELATED things that share no ' +
+      'derivation, only a superficial numeric-neighbourhood proximity in ticket prose.\n\n' +
+      'WHAT imp-341 ACTUALLY IS: the S7 Koksma-Hlawka discrepancy-bound thread giving ' +
+      'lim sup_{N to inf} |t_c(N)| = 0 for the finite-N empirical Stieltjes transform of the ' +
+      'Dyson-Burgers flow on the Riemann-von Mangoldt density, using strip height ' +
+      'y_sharp(N) = sqrt(2 pi / N) and Selberg constant C_1 = pi C_Selberg = 3 pi (a.k.a. C_KH). ' +
+      'It has NO bearing on off-line zero verification to any height.\n\n' +
+      'WHAT THE BARRIER BASE ACTUALLY IS: N_off(T_PT) = 0 -- the statement that no non-trivial ' +
+      'zeta zero off the critical line has been found up to height T_PT = 3e12 -- is an EXTERNAL ' +
+      'result, Platt & Trudgian 2021 (Bull. Lond. Math. Soc. 53, 792-797), which the repo CITES ' +
+      '(finite-height-lambda-bound.js, finite-height-beats-platt-trudgian.js) and never re-derives.\n\n' +
+      'WHERE THE CONFLATION LIVED: imp-35681 Part D first flagged that a frontier-scout ticket ' +
+      'PREMISE had conflated the two; imp-35719 then inventoried the full src citation surface (~15 ' +
+      'imp-341 references) and found the conflation NEVER propagated into a computed bound, an @see ' +
+      'chain, or a constant -- every citation falls into one of three correct-use classes (Koksma-' +
+      'Hlawka lim-sup thread; the Selberg constant C_KH = 3 pi; the Slater-determinant Burgers ' +
+      'envelope shape), and the two actual barrier-base consumers already cite Platt-Trudgian ' +
+      'correctly. The misattribution was confined to scout ticket prose, already retired.\n\n' +
+      'HOW TO APPLY: cite this headword whenever imp-341 is mentioned near T_PT = 3e12 or the ' +
+      'barrier base, to make clear imp-341 supplies an unconditional asymptotic lim-sup statement ' +
+      'about the Burgers/Dyson flow, while the barrier base is a distinct, external, finite-height ' +
+      'zero-counting fact the repo only cites.\n\n' +
+      'HONEST SCOPE: a content/glossary disambiguation restating the imp-35681/imp-35719 findings; ' +
+      'not a new measurement or bound; changes no bound; establishes no operator positivity; no RH ' +
+      'verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-35797 (glossary headword disambiguating imp-341 from the T_PT=3e12 barrier base), 2026',
+    relatedTerms: [
+      'imp-35681 Part D first flagged the barrier base as EXTERNAL Platt-Trudgian 2021, not imp-341 (imp-35681)',
+      'imp-35719 inventoried the full src imp-341 citation surface and found the conflation confined to retired scout prose (imp-35719)',
+      'imp-341 the canonical G5_burgers Koksma-Hlawka lim-sup |t_c(N)|=0 closure this disambiguates from (imp-341)',
+      'imp-35653 Part D established N_off(T_PT)=0 is necessary-not-sufficient for the barrier certificate (imp-35653)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

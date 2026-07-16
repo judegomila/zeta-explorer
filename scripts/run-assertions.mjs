@@ -11260,6 +11260,16 @@ const DATA_MODULES = [
   // found zero references to the 20.8MB zeros-to-1e6.js bundle. Audit only; no fix
   // needed; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36087-imp3601x2x-registration-reachability-audit.js',
+  // imp-36088 (meta, sweep): does the imp-36022 stale-docstring-prose defect (imp-35968's
+  // hand-quoted N_cross ~ 3.1e9 / log10 ~ 9.49 vs its own stored 3.28e9 / 9.5159) recur
+  // elsewhere -- specifically in LAMBDA_ROADMAP.currentStatus, the LambdaBoundsPage.jsx
+  // narrative. FINDING: CLEAN SWEEP -- none of the three known-stale literal patterns recur;
+  // the roadmap prose consistently cites the correct closed-form N_cross = 3.280294e9 across
+  // all five separate mentions of the landmark, and imp-35968/imp-35950 stored values still
+  // agree to the imp-36022 ~0.0017-decade residual. The stale header stays isolated to
+  // imp-35968 alone (fix queued separately as imp-36065). Sweep/audit only; no bound touched;
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36088-crossover-lambdabounds-stale-prose-sweep.js',
 ];
 
 let ALL_MODULES = FAST_MODE

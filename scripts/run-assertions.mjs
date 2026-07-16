@@ -10041,6 +10041,13 @@ const DATA_MODULES = [
   // LAMBDA_RH_BRIDGE.sotaUpperBound.value. Audit only; adds no mechanism; changes no bound;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35844-honesty-gate-live-artifact-audit.js',
+  // imp-35731: ticket asked to add a page rendering the imp-35710 winding mesh-cost
+  // Delta-ladder table. Audit found it ALREADY EXISTS (Imp35710WindingMeshCostDeltaLadderViz.jsx,
+  // routed at /viz-imp35710-winding-mesh-cost-delta-ladder, registered in
+  // visualizations-index.js) -- a near-duplicate ticket the frontier scout re-seeded before the
+  // page landed. Adds no new page; pins a regression guard confirming the route/file references
+  // stay consistent. Audit only; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35731-mesh-cost-page-duplicate-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -18107,6 +18107,7 @@ export const glossary = [
       'imp-35411 measures the sigma(N) flat-cap PEAK plateau width on the surrogate (imp-35411)',
       'imp-35417 independently cross-checks the sigma(N) landmarks on a distinct dd grid (imp-35417)',
       'imp-486 the GUE-conditional caveat inherited by any modeled E_coll asymptotic feeding sigma(N) (imp-486)',
+      'imp-36111 assembles this share into the full five-landmark tail storyline, from the imp-35853 Kneedle elbow down to the imp-35971 sole-survivor height (imp-36111)',
     ],
   },
   {
@@ -21079,6 +21080,7 @@ export const glossary = [
       'imp-36097 e-share-threshold-crossings-viz-data locates the shareFlow<1e-3/1e-5/1e-6 and shareColl<1% crossing heights (imp-36097)',
       'imp-35971 etrunc-sole-survivor-height locates N* ~ 4.7214e13 where E_trunc alone carries the mass (imp-35971)',
       'E_trunc = E_coll (sigma = 1/2) crossover as a regime divider: collision-dominated ABOVE, truncation-dominated BELOW names the crossover-as-regime-label headword this entry orients around',
+      'imp-36111 ties this three-way split to the full five-landmark tail-storyline arc, from the imp-35853 Kneedle elbow down to the imp-35971 sole-survivor height (imp-36111)',
     ],
   },
 ];

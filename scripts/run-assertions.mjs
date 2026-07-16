@@ -10187,6 +10187,18 @@ const DATA_MODULES = [
   // extends no evaluator; evaluates no true H_0 at high precision; changes no bound; NO QED; PT
   // Lambda<=0.2 SOTA.
   '/src/data/imp-35850-debruijn-digit-guard-offset-decomposition.js',
+  // imp-35851 (numerical, measurement): MEASURE the exact quad-precision (IEEE binary128,
+  // ~33.9 decimal digits) x-ceiling for the imp-35811 exp(-pi x/8)-on-K cancellation. imp-35811
+  // read off a quad reach as REACH_QUAD128 = 33.9/slope ~ 200 (gamma ~ 100), a one-line OOM that
+  // inverted the measured slope and dropped its own ~+2 guard offset. This module reruns the same
+  // ~520-digit BigInt recovery holding the digit budget FIXED at the integers bracketing quad
+  // (D = 33, 34) and scans x to the sharp detach point: xCeiling = 185 (gamma 92.5) at D = 33 and
+  // 189 (gamma 94.5) at D = 34, interpolating the quad D = 33.9 ceiling to x ~ 188.6 (gamma ~ 94.3)
+  // -- MEASURABLY BELOW the OOM ~200, the ~11-unit gap being exactly the dropped guard offset
+  // ((33.9-2)/(pi/(8 ln10)) ~ 187.0 reproduces it). Five self-executing assertions. Measurement
+  // only; reuses the imp-35811 recovery; extends no evaluator; evaluates no true H_0 at quad
+  // precision; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35851-quad-precision-x-ceiling-measured.js',
   // imp-35816 (accuracy, measurement): MEASURE the deviation of the imp-35778 short-edge
   // rectangle width Delta from an EXACT integer number of mean zero gaps delta(T_PT) ~ 0.2336,
   // quantifying the endpoint-placement quantization on the mean-gap surrogate spacing. Both short

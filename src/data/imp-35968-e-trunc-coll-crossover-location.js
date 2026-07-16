@@ -15,10 +15,10 @@
  * bisects the ratio E_trunc / E_coll = 1 directly to pin the crossover height.
  *
  * WHAT THE LOCATION SHOWS (the honest finding).
- *   - The E_trunc = E_coll crossover sits at N_cross ~ 3.1e9 (log10 N ~ 9.49, log T0 ~ 21.28),
+ *   - The E_trunc = E_coll crossover sits at N_cross ~ 3.28e9 (log10 N ~ 9.516, log T0 ~ 20.858),
  *     where sigma ~ 0.4999 (just below 1/2 because the tiny positive E_flow pushes the collision
  *     share fractionally under one half). This CONFIRMS the imp-35889 ordering
- *     N_elbow (~2.13e8) < N_cross (~3.1e9) < N_flat (~7.20e9).
+ *     N_elbow (~2.13e8) < N_cross (~3.28e9) < N_flat (~7.20e9).
  *   - Distance to the knees (log10 N): the crossover lies ~1.16 decades ABOVE the Kneedle
  *     elbow and ~0.37 decade BELOW the flattest point, so it is markedly closer to the flattest
  *     (truncation-dominated) knee -- the E_trunc = E_coll balance is nearly at the flattest bend,

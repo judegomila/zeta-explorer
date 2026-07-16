@@ -1151,6 +1151,20 @@ export const FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN = {
     "genuinely UNCONDITIONAL (no GUE input). Full assembly: imp-452 (lambda-N1e6-final-assembly.js); " +
     "payoff record: imp-470 (lambda-N1e6-unconditional-beat.js).",
 
+  whatRemainsW2WindingIngredients:
+    "WHAT REMAINS (imp-35820, honest status). This B1/B2/E_trunc closure narrative above " +
+    "answers the imp-440 Lambda-bound question via the Dyson-ladder / interval-RK4 route; it " +
+    "does NOT by itself certify a rigorous zero count on any transition rectangle boundary. A " +
+    "separate B1-style argument-principle winding certificate needs five GREENFIELD ingredients " +
+    "enumerated by imp-35727: (I1) between-node interval ENCLOSURE of f = H_t = A + B - C along " +
+    "each boundary edge, gated on the greenfield imp-35681 Part A / imp-35725 interval evaluator; " +
+    "(I2) a certified per-panel argument-increment cap |Delta arg f| < pi; (I3) a modulus floor " +
+    "|f| >= delta > 0 certifying f != 0 on the boundary; (I4) closure of the accumulated argument " +
+    "increment to a UNIQUE integer within a < pi error budget; (I5) continuous corner composition " +
+    "around the closed rectangle. The repo holds only qualitative, isRigorous:false winding " +
+    "scaffolding (imp-2696 / imp-33923 / imp-33968); none of the five ingredients is discharged " +
+    "by it. This note changes no bound, ports nothing, and claims no progress toward W2 -- NO QED.",
+
   fitConstants: {
     source: "PATH_C_BASELINE_FIT_V2 (imp-400)",
     intercept_a: A_INTERCEPT,

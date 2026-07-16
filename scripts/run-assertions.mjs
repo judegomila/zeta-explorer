@@ -11605,6 +11605,16 @@ const DATA_MODULES = [
   // N~39250. Verdict does not track kappa (rounding-level, not conditioning). Measurement only;
   // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36095-kbn-kahan-intermittency-band.js',
+  // imp-36113 (numerical, opus-4-8, api-pool): refine the imp-36095 KBN-vs-classic-Kahan
+  // intermittency band [34000,40000] to a 10x finer step-25 grid (241 rungs) + an integer-
+  // resolution zoom, against the same per-N exact 2^-96 dyadic-BigInt reference. Result: 156
+  // separated / 85 identical, with bit-identical rungs scattered to N=39975 -- so the imp-36095
+  // step-250 "last-identical N=39000, persistence from N~39250" picture is a GRID-ALIASING
+  // ARTIFACT (no persistence onset within the band). Integer zoom on [39250,39320] flips verdict
+  // 21x over 71 consecutive N (31 identical), so the separation is a per-N rounding coin-flip
+  // toggling on a scale of ~1; verdict does not track kappa. Measurement only; changes no bound;
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36113-kbn-kahan-intermittency-fine-resolution.js',
   // imp-36098 (accuracy, opus-4-8, api-pool): cross-validate the imp-36062 KBN-vs-Kahan "first strict
   // separation at N~34000" onset against an INDEPENDENT stricter 2^-128 exact dyadic-BigInt reference.
   // Recomputing Kahan/KBN + the 2^-96 and 2^-128 references at the seven onset rungs [33000..40000]:

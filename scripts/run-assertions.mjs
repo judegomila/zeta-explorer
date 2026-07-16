@@ -9895,6 +9895,16 @@ const DATA_MODULES = [
   // pairwise is robust to both. Seven self-executing assertions. Measurement only; certifies
   // no W1 bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35893-w1-summation-pairwise-tree-shape.js',
+  // imp-35945 (numerical, S-frontier): COMPLEMENT imp-35893 by re-running the same seven
+  // pairing-tree SHAPES at the same N ~ 488602 on a MONOTONE same-sign multiset
+  // t_k = 1/sqrt(k) (all positive, cond ~1, no cancellation, accumulator grows). The worst
+  // tree (caterpillarR, depth 3817) now reaches ~0.647 of the log2(N)*eps ceiling -- a
+  // ~1460x jump over imp-35893 ~4.42e-4 on the cancellation-heavy multiset -- CORROBORATING
+  // that multiset structure, not tree shape alone, governs attainment. But the tree own
+  // depth*eps worst-case bound stays far from realized (~0.3%): all-positive terms alone do
+  // not fully align the rounding-error signs along the caterpillar spine. Seven self-executing
+  // assertions. Measurement only; certifies no W1 bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35945-w1-summation-monotone-tree-shape.js',
   // imp-35812: MEASURE the achievable rounding-error growth of pairwise and Kahan-
   // compensated summation on a representative N ~ 4.886e5-term oscillatory sum at
   // T_PT = 3e12, against an EXACT BigInt reference, versus the imp-35761 pessimistic

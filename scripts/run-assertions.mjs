@@ -11028,6 +11028,12 @@ const DATA_MODULES = [
   // cusp rho=|x|^{-1/2}, NOT the true H_t on dR; I2/I3 stay GREENFIELD; changes no
   // bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35999-i2-i3-panel-margin-viz-data.js',
+  // imp-36000 (ux, S-frontier): import-light viz-data module (baked literals, no heavy
+  // imports) for the imp-35949 (alpha,beta) accumulator-ratio r=max|S_i|/Sum|t_k| corners:
+  // the imp-35812 strong-cancellation baseline (r~1.2e-3) vs the q=1 resonant breakdown
+  // corner (r->1, alpha=2pi beta=0) at N~488602. Six self-executing assertions. VIZ-DATA
+  // ONLY; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36000-accumulator-ratio-corners-viz-data.js',
   // imp-35997 (accuracy, S-frontier): LOCATE the height N maximizing the middle-term share
   // E_flow/E(N) of the imp-35889 split E(N)=E_trunc+E_flow+E_coll. Golden-section max on log N
   // finds the peak at N* ~ 9.65e1 (log T0 ~ 5.45), peak share only ~ 0.1587 -- E_flow NEVER

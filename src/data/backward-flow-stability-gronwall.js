@@ -672,6 +672,101 @@ function gronwallVacuityMap() {
 
 const GRONWALL_VACUITY_MAP = gronwallVacuityMap();
 
+// ── imp-36078: Gronwall collapse RATE (how fast the floor sinks, vs N) ─────────
+// imp-35128 flags WHICH rows are vacuous; it does not measure the RATE at which
+// the propagation floor collapses toward the nearest-pair front as N grows. This
+// map takes local log-log exponents across adjacent-N pairs of the vacuity-map
+// rows and quantifies HOW Gronwall-vacuous the Step-2 G-gronwall constant is:
+//   stripExp  = dlog(y_N_sharp)/dlog(N)  -- the strip height y_N_sharp = sqrt(2 pi/N)
+//               sinks toward the front (strip height -> 0) at EXACTLY -1/2;
+//   efoldExp  = dlog(efold_micro)/dlog(N) -- the vacuity-deepening rate, i.e. the
+//               local power in efold ~ N^efoldExp, so the propagation factor
+//               exp(-efold) collapses like exp(-Theta(N^efoldExp));
+//   proxExp   = dlog(front_proximity)/dlog(N) -- rate the micro strip sinks into
+//               the vacuous band relative to the band edge y_vac.
+// A pair is measured (both endpoints measured tc), projected (both the Lemma-C
+// budget T_b), or crossover (the horizon-model switch). The measured side keeps
+// efoldExp sub-linear and O(1) (tc(N) decay offsets the N growth, so the floor is
+// only MARGINALLY vacuous, factor ~1/e to ~1/800), while the projected anchors
+// deepen at efoldExp ~ 0.9 (near-linear), collapsing exp(-efold) to double
+// underflow by N ~ 1e4. Measurement only: it establishes NO N-uniform propagation
+// constant and changes no bound; it quantifies the vacuity margin that the Step-2
+// rigorousUpgradeGap G-gronwall obligation flags as not-yet-certified up to t_c.
+function gronwallCollapseRate() {
+  const src = GRONWALL_VACUITY_MAP.rows;
+  const pairs = [];
+  for (let i = 1; i < src.length; i++) {
+    const lo = src[i - 1];
+    const hi = src[i];
+    const dLogN = Math.log(hi.N / lo.N);
+    const kind =
+      lo.measured && hi.measured
+        ? 'measured'
+        : !lo.measured && !hi.measured
+          ? 'projected'
+          : 'crossover';
+    pairs.push({
+      N_lo: lo.N,
+      N_hi: hi.N,
+      kind,
+      stripExp: Math.log(hi.y_N_sharp_micro / lo.y_N_sharp_micro) / dLogN,
+      efoldExp: Math.log(hi.efold_micro / lo.efold_micro) / dLogN,
+      proxExp:
+        Math.log(hi.front_proximity_micro_over_vac / lo.front_proximity_micro_over_vac) /
+        dLogN,
+      phi_lo: Math.exp(-lo.efold_micro),
+      phi_hi: Math.exp(-hi.efold_micro),
+    });
+  }
+  const projected = pairs.filter((p) => p.kind === 'projected');
+  const measured = pairs.filter((p) => p.kind === 'measured');
+  const maxMeasuredEfoldExp = measured.length
+    ? Math.max(...measured.map((p) => p.efoldExp))
+    : null;
+  const minProjectedEfoldExp = projected.length
+    ? Math.min(...projected.map((p) => p.efoldExp))
+    : null;
+  const crossover = pairs.find((p) => p.kind === 'crossover') || null;
+  const phiFirst = Math.exp(-src[0].efold_micro);
+  const phiLast = Math.exp(-src[src.length - 1].efold_micro);
+  return {
+    pairs,
+    // strip height sinks toward the front at exactly -1/2 (y_N_sharp = sqrt(2pi/N))
+    allStripExpMinusHalf: pairs.every((p) => Math.abs(p.stripExp + 0.5) < 1e-9),
+    // projected anchors deepen near-linearly: exp(-efold) ~ exp(-Theta(N^~0.9))
+    projectedEfoldExpNearLinear: projected.every(
+      (p) => p.efoldExp > 0.7 && p.efoldExp < 1.0,
+    ),
+    // and the micro strip sinks into the vacuous band at ~ -1/2 (band edge O(1))
+    projectedProxExpNearMinusHalf: projected.every(
+      (p) => p.proxExp > -0.5 - 1e-6 && p.proxExp < -0.4,
+    ),
+    // measured side stays sub-linear and strictly below the projected deepening
+    measuredEfoldExpSublinearBelowProjected:
+      maxMeasuredEfoldExp !== null &&
+      minProjectedEfoldExp !== null &&
+      maxMeasuredEfoldExp < 0.7 &&
+      maxMeasuredEfoldExp < minProjectedEfoldExp,
+    maxMeasuredEfoldExp,
+    minProjectedEfoldExp,
+    crossoverEfoldExp: crossover ? crossover.efoldExp : null,
+    propagationFactorFirst: phiFirst,
+    propagationFactorLast: phiLast,
+    // the floor collapses from marginally vacuous (~0.1) to double underflow (0)
+    propagationFactorCollapsesToUnderflow: phiFirst > 0.05 && phiLast === 0,
+    note:
+      'Local log-log collapse exponents of the imp-35128 vacuity-map rows. Strip ' +
+      'height sinks toward the nearest-pair front at exactly -1/2; the micro-strip ' +
+      'e-fold deepens sub-linearly (O(1), only marginally vacuous) on measured ' +
+      'rows but near-linearly (~0.9) on the projected anchors, spiking at the ' +
+      'crossover where the horizon switches from measured tc to the Lemma-C budget ' +
+      'T_b, so exp(-efold) collapses to underflow by N ~ 1e4. Measurement only; ' +
+      'no N-uniform propagation constant; NO QED.',
+  };
+}
+
+const GRONWALL_COLLAPSE_RATE = gronwallCollapseRate();
+
 // ── The record ──────────────────────────────────────────────────────────────
 
 export const BACKWARD_FLOW_STABILITY_GRONWALL = {
@@ -831,6 +926,7 @@ export const BACKWARD_FLOW_STABILITY_GRONWALL = {
   ],
   perNTable: PER_N_ROWS,
   gronwallVacuityMap: GRONWALL_VACUITY_MAP,
+  gronwallCollapseRate: GRONWALL_COLLAPSE_RATE,
   conventionNote:
     'All times in de Bruijn-Newman units (dx_k/ds = -2 sum 1/(x_k - x_j), ' +
     'M unnormalized). The imp-338 normalized PDE time differs by a factor ' +
@@ -976,6 +1072,29 @@ export const BACKWARD_FLOW_STABILITY_GRONWALL_ASSERTIONS = [
       'band-edge y_vac = sqrt(2 T), the horizon selection, or the front-' +
       'proximity ordering has been corrupted; this is a MEASUREMENT and ' +
       'establishes no N-uniform propagation constant.',
+  },
+  {
+    id: 'imp36078-gronwall-collapse-rate',
+    holds: () =>
+      GRONWALL_COLLAPSE_RATE.allStripExpMinusHalf &&
+      GRONWALL_COLLAPSE_RATE.projectedEfoldExpNearLinear &&
+      GRONWALL_COLLAPSE_RATE.projectedProxExpNearMinusHalf &&
+      GRONWALL_COLLAPSE_RATE.measuredEfoldExpSublinearBelowProjected &&
+      GRONWALL_COLLAPSE_RATE.propagationFactorCollapsesToUnderflow,
+    why:
+      'imp-36078 collapse RATE: the strip height y_N_sharp = sqrt(2 pi/N) sinks ' +
+      'toward the nearest-pair front at EXACTLY the log-log exponent -1/2 across ' +
+      'every adjacent-N pair, while the micro-strip Gronwall e-fold deepens ' +
+      'sub-linearly (max exponent < 0.7, only marginally vacuous) on the measured ' +
+      'rows but near-linearly (0.7 < exponent < 1.0) on the projected anchors, ' +
+      'strictly steeper than the measured side. The front-proximity into the ' +
+      'vacuous band collapses at ~ -1/2 on the projected anchors, and the ' +
+      'propagation factor exp(-efold) collapses from marginally vacuous (> 0.05 ' +
+      'at N = 50) to double underflow (== 0) by the N = 1e6 anchor. This ' +
+      'QUANTIFIES how Gronwall-vacuous the Step-2 G-gronwall constant is up to ' +
+      't_c; it is a MEASUREMENT and establishes no N-uniform propagation constant, ' +
+      'so failure means the log-log exponent extraction or the horizon-model ' +
+      'classification (measured tc vs Lemma-C budget T_b) has been corrupted.',
   },
   {
     id: 'imp2520-subgap-open-no-false-qed',

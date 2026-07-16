@@ -11195,6 +11195,18 @@ const DATA_MODULES = [
   // executing assertions. Assessment only; certifies no cap; instantiates no enclosure; changes no
   // bound; imp-35337a OPEN; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35988-i2-derivative-cap-route-comparison.js',
+  // imp-36040 (proof/derivation): DERIVE the Cauchy radius r that MINIMIZES the imp-35988 Route-II
+  // derivative-cap B_II(r) = M(r)/r, M(r) = sup over the radius-r disk of |H_t|, and ASSESS how much
+  // of the ~2.65% Route-II frequency-factor slack (w/logN ~ 1.0265) the optimal r recovers. Under the
+  // Gronwall disk-sup model M(r) <= M(0) e^{g r} (g <= w) the objective log M(0) + g r - log r is
+  // minimized at r* = 1/g (stationarity g - 1/r = 0, strict). At the WORST case g = w the optimizer
+  // r* = 1/w is EXACTLY imp-35988 naive radius, so 1/r* = w is UNCHANGED and 0% of the w/logN gap is
+  // recovered. Worse, the M(r) growth the naive comparison dropped is a factor e ~ 2.718: the true
+  // optimal factor per |H_t| is e.w ~ 36.6, ratio (e.w)/logN ~ 2.79 -- Route II ~179% looser, NOT
+  // 2.65%. Optimizing r beats naive w only for g < w/e ~ 0.368 w. Seven self-executing assertions.
+  // Derivation only; certifies no cap; instantiates no enclosure; changes no bound; imp-35337a OPEN;
+  // NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-36040-route-ii-optimal-cauchy-radius.js',
   // imp-35978: imp-35957-rdirect-floor-height-sweep-viz-data.js existed with baked
   // imp-35892 R_direct plateau/cliff literals but was never added to this DATA_MODULES
   // list. Registered here.

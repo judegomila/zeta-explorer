@@ -1183,6 +1183,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Descriptive diverging-bar chart baking the imp-35266 measurement literals verbatim (no new computation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; the imp-34714a machine certificate REMAINS OPEN; C_mb stays GUE-conditional per imp-486; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
     Object.freeze({
+      route: '/viz-imp35837-krawczyk-cancellation-ratio',
+      title: 'Krawczyk Cancellation Ratio Above the Band: Tightens, Then a Float Artifact',
+      oneLine:
+        'Line chart of the imp-35766 measurement of the imp-35266 surplus-split ratio -dFP/dG above the imp-34693 admissible seed band, showing the deviation R - 2 decreasing monotonically from band-top (~4.170e-4) to the Platt-Trudgian anchor N(T_PT) ~ 1.236e13 (~3.995e-4) and staying flat out to N ~ 1e17, then diverging spuriously upward beyond N ~ 1e18 as double-precision cancellation in dG takes over.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-35837-krawczyk-cancellation-ratio-viz-data.js',
+      paperSourcePath: 'src/data/imp-35766-krawczyk-cancellation-ratio-beyond-band.js (imp-35837 viz page)',
+      ticket: 'imp-35837',
+      pedagogicalStep: 112,
+      honestCeiling:
+        'Descriptive line chart baking the imp-35766 measurement literals verbatim (no new computation, no heavy data-module import); measurement only on the inherited imp-3220/imp-3406 surrogate; the imp-34714a machine certificate REMAINS OPEN; C_mb stays GUE-conditional per imp-486; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
+    Object.freeze({
       route: '/viz-imp35460-reentry-band-landmark-disposal',
       title: 'Reentry-Band Landmark Disposal Split: 2 Demoted vs 3 Surviving',
       oneLine:

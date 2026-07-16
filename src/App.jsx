@@ -825,6 +825,9 @@ const Imp35404KrawczykHeadroomCancellationViz = lazy(() =>
 const Imp35460ReentryBandLandmarkDisposalViz = lazy(() =>
   import('./pages/Imp35460ReentryBandLandmarkDisposalViz.jsx')
 );
+const Imp35837KrawczykCancellationRatioViz = lazy(() =>
+  import('./pages/Imp35837KrawczykCancellationRatioViz.jsx')
+);
 const Imp35482SigmaPeakPlateauWidthSqrtScalingViz = lazy(() =>
   import('./pages/Imp35482SigmaPeakPlateauWidthSqrtScalingViz.jsx')
 );
@@ -2428,6 +2431,10 @@ function AppShell() {
           <Route
             path="/viz-imp35404-krawczyk-headroom-cancellation"
             element={<Imp35404KrawczykHeadroomCancellationViz />}
+          />
+          <Route
+            path="/viz-imp35837-krawczyk-cancellation-ratio"
+            element={<Imp35837KrawczykCancellationRatioViz />}
           />
           <Route
             path="/viz-imp35460-reentry-band-landmark-disposal"

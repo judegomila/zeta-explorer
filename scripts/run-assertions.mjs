@@ -11410,6 +11410,15 @@ const DATA_MODULES = [
   // N ~ 4.62e8). Read-only restatement; seven self-executing assertions; changes no
   // bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-36028-etrunc-sole-survivor-honest-status.js',
+  // imp-36056 (numerical, S-frontier): applies KBN compensated summation to the imp-36020
+  // caterpillarL ARG-MAX pairing tree (worst SHAPE under the imp-35852 clustered order,
+  // ~41.2% of the log2(N)*eps ceiling) at N ~ 488602 -- imp-36023 measured the KBN floor only
+  // on the clustered SEQUENTIAL order, never on the worst-shape tree. FINDING: KBN floors the
+  // worst shape too, driving the arg-max error from ~1.73e-15 (~41.2% of the ceiling) to
+  // ~1.892e-20 (~9.1e4x reduction, ~1.70e-4 of unit roundoff) -- IDENTICAL to the imp-36023
+  // sequential-KBN floor; the deep left-caterpillar spine does NOT defeat compensation.
+  // Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-36056-kbn-caterpillarL-argmax-shape.js',
 ];
 
 let ALL_MODULES = FAST_MODE

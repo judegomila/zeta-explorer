@@ -20123,6 +20123,36 @@ export const glossary = [
       'imp-33582 supplies the sigma-decay model (peak sigma_max ~ 0.9494) the downslope crossings are located on (imp-33582)',
     ],
   },
+  {
+    term: 'Curvature/Shift Crossover Ratio a/(4 . delta)',
+    category: 'numerical',
+    definition:
+      'A headword naming the SINGLE dimensionless ratio a/(4 . delta) that imp-35809 identified as governing ' +
+      'which of the two imp-35762 D3 Krawczyk-residual pieces dominates at any given height: the LINEAR ' +
+      'a-shift piece (~S_inf . a . delta) versus the QUADRATIC curvature piece (~S_inf . a^2/4).\n\n' +
+      'THE RATIO: dividing the two pieces gives shift_fraction ~ delta/(delta + a/4), so the split depends on ' +
+      'height ONLY through a/(4 . delta) with delta = 2e-4 FIXED. Below the crossover (a > 4 . delta, small ' +
+      'height, large contraction factor a) the curvature piece dominates; above the crossover (a < 4 . delta, ' +
+      'large height, small a) the shift piece dominates -- exactly the imp-35809 P1/P2 band-flat-then-inverts ' +
+      'behaviour is this ratio moving through 1.\n\n' +
+      'THE CROSSOVER: the 50/50 point sits at a = 4 . delta = 8.0e-4 (measured 7.99e-4), at N ~ 1.88e11 -- ' +
+      'about two orders of magnitude above the imp-34693 seed band and ~65x below the PT anchor N ~ 1.236e13. ' +
+      'At the band (a ~ 0.0432) the ratio is >>1 and curvature dominates (~98%); at the PT anchor (a ~ 1.23e-5) ' +
+      'the ratio is <<1 and the shift dominates (~98.5%).\n\n' +
+      'HOW TO APPLY: use this ratio, not a raw N or a value in isolation, whenever comparing which D3 residual ' +
+      'piece is binding at a given height -- it is the single reduced variable the whole band-to-PT-anchor ' +
+      'profile collapses onto.\n\n' +
+      'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 surrogate; reproduces the ' +
+      'imp-35762/imp-35266 machinery; imp-34714a machine certificate REMAINS OPEN; changes no bound; ' +
+      'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-35882 (glossary headword naming the imp-35809 governing ratio a/(4 . delta)), 2026',
+    relatedTerms: [
+      'imp-35809 derives the ratio a/(4 . delta) and locates the 50/50 crossover at N ~ 1.88e11 recorded here (imp-35809)',
+      'imp-35762 S3 Scope Correction records the full band-flat-then-inverts narrative this ratio governs (imp-35762 S3 Scope Correction: Band-Local Not Height-Global)',
+      'imp-35266 supplies the D3 leading estimate S_inf . a/2 the shift/curvature pieces are measured against (imp-35266)',
+      'imp-34693 defines the admissible seed band where a is large and curvature dominates (imp-34693)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

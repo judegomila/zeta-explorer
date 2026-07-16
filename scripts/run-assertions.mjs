@@ -10065,6 +10065,19 @@ const DATA_MODULES = [
   // not assumed. Measurement only; instantiates no interval; changes no bound; A+B-C GREENFIELD;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35991-w1-accumulator-baseline-margin-to-resonance.js',
+  // imp-35992 (accuracy, measurement): MEASURE the far-tail local log-log slope of the conditional
+  // share sigma(N) = E_coll/E(N) past the imp-33582 interior peak (N > 9.22e5) and test the
+  // E_coll ~ sqrt(L/N) => sigma ~ sqrt(L/N)/E_trunc prediction (effective exponent ~ -1/2). FINDING:
+  // on the pinned imp-3406/imp-33582 surrogate the slope is NOT a clean -1/2: it steepens
+  // MONOTONICALLY from ~0 at the peak toward -1/2 (m ~ -0.02, -0.17, -0.40, -0.47, -0.48 at
+  // log10 N = 7,9,11,13,15) tracking the truncation-share ramp, so the root law only emerges once
+  // truncation dominates (log10 N >~ 13). Even then it settles at ~ -0.484 not -1/2: the slow
+  // L = log T0 growth adds a POSITIVE bend (1/2) dlogL/dlogN ~ 1/(2 log T0) (~ +0.034 near the peak
+  // shrinking to ~ +0.015 at log10 N = 15), so the effective exponent approaches -1/2 FROM ABOVE only
+  // logarithmically. Once shareTrunc ~ 1 the observed slope matches -1/2 + bend within ~0.001.
+  // Measurement only; reuses pinned constants + effectiveHeightForN; changes no bound; imp-35337a
+  // OPEN; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35992-sigma-fartail-loglog-slope.js',
   // imp-35871 (numerical, measurement): CONFIRM the imp-35812 reading (naive summation
   // error tracks the O(sqrt(N) u) random walk, NOT the O(N u) coherent worst case) is not
   // an artifact of the single kappa ~ 1.4e3 imp-35812 chose, by re-reading the imp-35854

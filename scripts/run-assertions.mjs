@@ -9719,6 +9719,17 @@ const DATA_MODULES = [
   // assertions (with in-module re-measurement). Measurement + OOM cross-check only; extends
   // no evaluator; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35781-exact-debruijn-empirical-x-ceiling-scope.js',
+  // imp-35783: MEASURE whether the imp-35266 D3 ticket-literal correction (a(N(1-delta))
+  // - a(N)) . S_inf = da . S_inf closes the ~1.2 band-top Krawczyk headroom-surplus gap
+  // (exact 55.18 vs leading S_inf.a/2 ~ 53.97). It does NOT: da . S_inf = 0.021533 at the
+  // band-top is only 1.77% of the 1.2138 gap (~50x too small), reproducing the imp-35396
+  // refutation with the ticket-named product itself. The raw term also under-counts even
+  // the exact offset daContrib by the Krawczyk G-amplification daContrib/daRaw =
+  // 2/((2-a)(1-a)) ~ 1.068 (recovers ~93.6%; the missing ~6.4% is the (2-a)(1-a)
+  // denominator); the offset is ~2%, the dominant ~98% is the S_inf.a^2/(2(2-a)) curvature
+  // of a/(2-a). Four self-executing assertions. Measurement only on the inherited
+  // surrogate; imp-34714a stays OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35783-krawczyk-surplus-raw-da-times-sinf.js',
   // imp-35727: ENUMERATE the ingredients a rigorous interval-arithmetic-CERTIFIED
   // winding (argument-principle) zero count on the boundary of the transition
   // rectangle R = [T_PT, T_PT+Delta] x [-h, h] needs BEYOND the held-but-EXPERIMENTAL

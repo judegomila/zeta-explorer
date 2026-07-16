@@ -9845,6 +9845,17 @@ const DATA_MODULES = [
   // `npm run assert` -- the same orphan class imp-35827/imp-35858 fixed for earlier
   // cohorts. Measurement only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35852-w1-summation-adversarial-ordering.js',
+  // imp-35893 (numerical, S-frontier): COMPLEMENT imp-35852 (which varied only the term
+  // ORDER, balanced tree) by holding the terms FIXED and varying the pairwise pairing-tree
+  // SHAPE from balanced midpoint toward left/right caterpillars, tabulating pairwise error
+  // vs the log2(N)*eps ceiling against empirical tree depth. Sweeping depth 12 -> 3817
+  // (~300x) the pairwise error stays in [~1.9e-20, ~1.85e-18] and is NON-MONOTONE in depth
+  // (skew0.25 deeper than balanced yet lower error); worst tree reaches only ~4.42e-4 of the
+  // log2(N)*eps ceiling (>2000x below), ~16x below even the naive-original error. Adversarial
+  // tree SHAPE, like adversarial term ORDER, does NOT push pairwise toward its ceiling --
+  // pairwise is robust to both. Seven self-executing assertions. Measurement only; certifies
+  // no W1 bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35893-w1-summation-pairwise-tree-shape.js',
   // imp-35812: MEASURE the achievable rounding-error growth of pairwise and Kahan-
   // compensated summation on a representative N ~ 4.886e5-term oscillatory sum at
   // T_PT = 3e12, against an EXACT BigInt reference, versus the imp-35761 pessimistic

@@ -10675,6 +10675,16 @@ const DATA_MODULES = [
   // from ~7 to ~4 orders. Import-light, seven self-executing assertions. Surrogate only; sums no real
   // increments; certifies no count; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36042-i4-landmarks-vs-winding-count-scale.js',
+  // imp-36044 (numerical/S-frontier): LOCATE the height N at which the imp-35810/imp-35855 de-cancelled
+  // Krawczyk dG-node relative interval width kappa_dG*eps ~ (4/a) eps reaches O(1) and the enclosure goes
+  // vacuous. imp-35969 measured the divergence as a->0 but never located it. Bisecting on N for a(N) = 4
+  // eps_mach on the imp-3220/imp-3406 RvM map (same imp-34774/imp-35855/imp-35969 K_AMPL, aOf): vacuity at
+  // log10 N* ~ 23.24 (N* ~ 1.74e23, T* ~ 2.24e22, kappa_dG ~ 4.50e15 ~ 1/eps). FINDING: this is ~2.24
+  // decades ABOVE the imp-35969 charted axis top (N=1e21, dG width still ~5.8e-3 << 1) and ~10 orders in T
+  // ABOVE the Platt-Trudgian verified height, so the a->0 divergence reaches vacuity only in the large-N
+  // tail, far from where the certificate is evaluated. Import-light, five self-executing assertions.
+  // Surrogate only; instantiates no interval; imp-34714a OPEN; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36044-krawczyk-dG-node-vacuity-height.js',
   // imp-35839: ticket asked to add a glossary headword for the imp-35777 I2<->I3 coupling
   // identity L_panel < pi.delta/B. Audit found it ALREADY EXISTS (added by imp-35818) and is a
   // near-duplicate ticket the frontier scout re-seeded. Adds no new glossary content; pins a
@@ -11371,6 +11381,13 @@ const DATA_MODULES = [
   // with a depth-dependent margin. Read-only restatement; six self-executing
   // assertions; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
   '/src/data/imp-36093-pairwise-slack-depth-sublinear-honest-status.js',
+  // imp-36026: import-light viz-data module (baked literals) for the imp-35971 E(N)
+  // TERM-ELIMINATION CASCADE -- the three landmark heights where E_flow drops below
+  // 1% of E_trunc (N ~ 4.62e8), the E_trunc = E_coll sigma = 0.5 crossover (N ~ 3.267e9,
+  // imp-35950), and E_coll drops below 1% of E_trunc leaving E_trunc the sole
+  // non-negligible term (N ~ 4.7214e13). Viz-data only; changes no bound; NO QED;
+  // Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-36026-eN-term-elimination-cascade-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

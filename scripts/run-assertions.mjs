@@ -10948,6 +10948,12 @@ const DATA_MODULES = [
   // full direct dependency chain). AUDIT ONLY; no source file required correction; changes no
   // bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35982-imp3589x-registration-reachability-audit.js',
+  // imp-35986: build-time cohort import-guard/verification of the newest S-frontier modules
+  // imp-35885/35889/35891/35892/35893 (imp-35775/imp-35880 pattern). FINDING: all five -- and
+  // their full traced transitive dependency closure -- are import-light (no zeros-to-1e6.js
+  // pull) and directly registered. AUDIT ONLY; no source file required correction; changes no
+  // bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35986-imp3588x89x-cohort-import-guard-audit.js',
   // imp-35988 (proof/assessment): COMPARE the two admissible derivative-error-cap routes imp-35832
   // named for certifying B = sup|H_t prime| feeding the imp-35777 I2 panel cap L_panel.(B/delta)<pi
   // -- (I) a separate additive cap C_t prime = E_A prime + E_B prime + E_{C_0} prime (main terms

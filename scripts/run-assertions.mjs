@@ -11636,6 +11636,13 @@ const DATA_MODULES = [
   // height N* ~4.7214e13, baking three tail landmarks (E_flow-1pct crossing, sigma<0.1 landmark,
   // sole-survivor). Presentation only; changes no bound; NO QED.
   '/src/data/imp-36046-e-share-tail-landmarks-viz-data.js',
+  // imp-36102 (numerical, opus-4-8, api-pool): EVALUABILITY check of the imp-36046 baked tail
+  // landmark logT0 ~30.021 at the sole-survivor height N* ~4.7214e13. effectiveHeightForN(N*)
+  // = T ~1.0913e13 is a finite NORMAL double (T/MAX ~6.1e-296); direct log(T)=30.020992613
+  // reproduces the baked 30.021 to ~7.4e-6, RvM round-trip recovers N* to rel err 0, and N*
+  // sits ~293.78 decades BELOW the imp-35972 twin overflow cliffs -- EVALUABLE with an enormous
+  // margin, that cliff is an artifact of astronomically larger N. Measurement only; NO QED.
+  '/src/data/imp-36102-sole-survivor-height-evaluability.js',
   // imp-36047 (ux, sonnet-4-6, sonnet): import-light viz-data module presenting the imp-35972
   // double-resolved twin-cliff structure of the RvM height surrogate: cliff B (R_direct NaN,
   // a->0, log10 N~307.455916) binds FIRST, ~6.196e-4 decade below cliff A (effectiveHeightForN
@@ -11755,6 +11762,12 @@ const DATA_MODULES = [
   // imp-36061 single-axis detuning edges under-state the coupled margin by up to ~2.5x and a monitor
   // keyed on either axis alone would be UNSAFE across most of the plane. Note only; NO QED.
   '/src/data/imp-36142-joint-basin-non-convex-single-axis-unsafe-honest-status.js',
+  // imp-36144 (ux, sonnet-4-6, sonnet): import-light viz-data module (baked literals) for the
+  // imp-36095 fine step-250 KBN-vs-classic-Kahan intermittency band across N in [34000, 40000]
+  // (25 rungs) -- 15 separated, 10 bit-identical, alternating rung-to-rung; genuine identical
+  // run 34250-35000; last identical rung N=39000; persistence from N~39250. Six self-executing
+  // assertions. Viz-data only; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-36144-kbn-kahan-intermittency-band-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

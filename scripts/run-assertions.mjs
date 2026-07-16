@@ -11611,6 +11611,12 @@ const DATA_MODULES = [
   // DATA_MODULES entry (imp-35969 via the fix applied in the prior imp-36034 sweep, still in
   // place) and none imports the 16.7MB zeros-to-1e6.js bundle. No new orphans; no fix needed.
   '/src/data/imp-36050-s-frontier-cohort-registration-reachability-audit.js',
+  // imp-36051 (meta, sonnet-4-6, sonnet): cross-reference integrity audit (imp-35186/
+  // imp-35327/imp-35776 method) on the newest S-frontier cohort imp-35988/35989/35990/
+  // 35970/35973. FINDING: every @see target resolves to an existing module and the
+  // cited landmark values (T_PT=3e12, N~488602, ~6.41e-14 certified rung, ~3.0e-17
+  // achieved) are internally consistent. Zero dangling references.
+  '/src/data/imp-36051-imp3598x97x-crossref-integrity-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

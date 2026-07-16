@@ -9759,6 +9759,12 @@ const DATA_MODULES = [
   // I5 continuous corner composition. Five self-executing assertions. Assessment only;
   // ports nothing; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35727-w2-certified-winding-count-ingredients-scope.js',
+  // imp-35789 (content, S-frontier): HONEST-STATUS BANNER restating the imp-35727
+  // verdict prominently -- the held winding scaffolding (imp-2696/imp-33923/imp-33968)
+  // is qualitative isRigorous:false measurement, NOT a certified count, and reduces
+  // ZERO of the five GREENFIELD W2 ingredients (I1-I5). Four self-executing assertions.
+  // Documentation only; ports nothing; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35789-w2-ingredients-greenfield-honest-status-banner.js',
   // imp-35757: ESTIMATE the imp-35727 ingredient-I2 per-panel argument-increment
   // budget. From the measured winding rate w(t) = (1/2) log(t/2pi) the held-but-
   // experimental modules read (imp-2696 W_pp, imp-33968 slope -(1+alpha)), charge it

@@ -10285,6 +10285,15 @@ const DATA_MODULES = [
   // under `npm run assert`. Registering it here as the minimal fix, alongside the audit module
   // recording the finding. Audit + minimal fix only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35813-req4-required-height-sigma-landmark-extend.js',
+  // imp-35872 (accuracy, verify/guard): VERIFY the two imp-35813 new interior REQ-4 rungs
+  // (sigma<0.75 logT0~18.65 ~10.72x; sigma<0.25 logT0~23.04 ~8.68x) by INDEPENDENTLY recomputing
+  // them from effectiveHeightForN and the imp-33582 sigma model, then GUARD the hard-coded
+  // landmark log-heights against the drift/stray-typo class: the recompute reproduces the imp-35813
+  // exported rows to storage precision AND the baked literals to 2 decimals, each satisfies
+  // requiredMultiple*logT0~200, and both interleave STRICTLY monotonically between the imp-35763
+  // rungs (peak<s0.9<s0.75<cross~s0.5<s0.25<s0.1<PT). Verify/guard only; changes no bound;
+  // imp-35337a OPEN; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35872-req4-extend-rung-interleave-drift-guard.js',
   // imp-35853 (accuracy, measurement): TABULATE the imp-35813 REQ-4 required-height multiple
   // 200/log T0 CONTINUOUSLY versus sigma on the peak-to-PT downslope (fine grid interpolating the
   // discrete imp-35813 rungs). FINDING: the multiple does NOT flatten ONTO the ~6.96x PT-anchor

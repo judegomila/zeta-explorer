@@ -403,7 +403,12 @@ export default function LambdaBoundsPage() {
           <strong style={{ color: stepColor('unverified') }}>UNVERIFIED</strong>, and
           Steps 2 and 4 are only numerical, so{' '}
           <strong>RH does NOT yet follow unconditionally</strong> from this chain.
-          The grades are stated, not assumed away.
+          The grades are stated, not assumed away. Even if Step 5 closed, the
+          assembled claim would still carry the C_mb GUE-universality caveat
+          (imp-486): every known route to bounding the many-body correction
+          term is equivalent to or weaker than assuming GUE universality for
+          the Riemann zero process, so the best achievable endpoint here is
+          RH-modulo-GUE-universality, not unconditional RH.
         </div>
       </div>
       <div style={{ display: 'grid', gap: 14, marginBottom: 24 }}>

@@ -930,6 +930,9 @@ const Imp35957RdirectFloorHeightSweepViz = lazy(() =>
 const Imp36025EShareStackedBarViz = lazy(() =>
   import('./pages/Imp36025EShareStackedBarViz.jsx')
 );
+const Imp36143EShareThresholdCrossingLadderViz = lazy(() =>
+  import('./pages/Imp36143EShareThresholdCrossingLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2581,6 +2584,10 @@ function AppShell() {
           <Route
             path="/viz-imp36025-e-share-stacked-bar"
             element={<Imp36025EShareStackedBarViz />}
+          />
+          <Route
+            path="/viz-imp36143-e-share-threshold-crossing-ladder"
+            element={<Imp36143EShareThresholdCrossingLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

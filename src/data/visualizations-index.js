@@ -1644,6 +1644,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive chart re-exporting the imp-35892 measurement literals verbatim (no new computation, no heavy data-module import); measurement/diagnostic only, double precision; instantiates no interval; imp-34714a REMAINS OPEN; C_mb stays GUE-conditional per imp-486; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp36143-e-share-threshold-crossing-ladder',
+      title: 'E-Share Threshold-Crossing Ladder',
+      oneLine:
+        'Line chart of the imp-35889 E(N) = E_trunc + E_flow + E_coll fractional share vs log10 N, combining the imp-36046 tail landmarks with the imp-36097 threshold crossings (shareFlow < 1e-3/1e-5/1e-6, shareColl < 1%), marking the imp-35971 sole-survivor height where the shareColl < 1% crossing lands.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-36097-e-share-threshold-crossings-viz-data.js',
+      paperSourcePath: 'src/data/imp-36046-e-share-tail-landmarks-viz-data.js (imp-36143 viz page)',
+      ticket: 'imp-36143',
+      pedagogicalStep: 114,
+      honestCeiling:
+        'Descriptive chart re-exporting the baked imp-36097 and imp-36046 viz-data literals verbatim (no new computation, no heavy data-module import); measurement/presentation only; C_C GUE-conditional (imp-2642 / imp-2643 / imp-486) untouched; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

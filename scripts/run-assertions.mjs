@@ -11997,6 +11997,12 @@ const DATA_MODULES = [
   // clerical bookkeeping items (B1-B3) -- for a reader landing on Step 5 cold. Note
   // only; imports both source blocks verbatim; NO QED.
   '/src/data/imp-36181-step5-obligation-chain-cross-reference.js',
+  // imp-36182 (content, sonnet-4-6, sonnet): standalone honest-status note clarifying that the
+  // imp-33848 strict N_half < N_cross ordering is a COMPONENT-MODEL closed-form derivation
+  // (extrapolation model only, imp-3066 untouched, C_mb GUE-conditional), not a rigorous result --
+  // the ~0.4% N-space proximity of the two landmarks is model-internal, not proven. Note only;
+  // imports the imp-35102 source module verbatim; NO QED.
+  '/src/data/imp-36182-nhalf-ncross-component-model-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

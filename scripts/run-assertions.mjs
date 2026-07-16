@@ -11849,6 +11849,14 @@ const DATA_MODULES = [
   // directly-registered importers imp-36057/imp-36066, so its assertions still run. Zero orphans;
   // none imports the 16.7MB zeros-to-1e6.js bundle. Audit only; no fix needed; NO QED.
   '/src/data/imp-36070-imp3601x2x-second-cohort-registration-reachability-audit.js',
+  // imp-36071 (meta, sonnet-4-6, sonnet): cross-reference @see integrity audit (imp-35186/
+  // imp-35327/imp-35776 method) on the SAME imp-3601x/imp-3602x cohort imp-36008, imp-36011,
+  // imp-36017, imp-36020, imp-36021, imp-36022, imp-36023 that imp-36070 registration-audited.
+  // FINDING: CLEAN -- zero dangling @see/import targets or bare imp-NNNNN[a] citations (31
+  // distinct filename targets, 16 distinct bare/lettered citations, all resolve); zero
+  // cross-module conflicts on the five shared landmarks (T_PT=3e12, N~488602, N_cross~3.27..
+  // 3.28e9, C_PS~2.2214, ceiling fraction ~41.2%). Audit only; no fix needed; NO QED.
+  '/src/data/imp-36071-imp3601x2x-see-integrity-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

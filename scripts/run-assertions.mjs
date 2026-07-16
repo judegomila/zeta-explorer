@@ -10106,6 +10106,21 @@ const DATA_MODULES = [
   // CERTIFIED bound stays imp-35890 ~6.41e-14. Calibration only; instantiates no interval; changes no bound;
   // A+B-C GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35990-w1-lambda-confidence-calibration.js',
+  // imp-36035 (numerical, measurement): MEASURE the maximum confidence constant lambda the imp-35948
+  // Higham-Mary probabilistic W1 scale (~5.58e-17 normalized at lambda=1) can carry before scale times
+  // lambda reaches the imp-35890 CERTIFIED deterministic run-max rung (~6.41e-14 normalized) at N~488602,
+  // and the Higham-Mary 2019 failure probability p_HM(lambda)=2 exp(-lambda^2/2) at that crossover.
+  // imp-35990 calibrated lambda only DOWNWARD to the achieved error (lambda_req ~0.538<1); this asks the
+  // UPWARD question. FINDING: crossover lambda_max = runMax/highamMary ~1148 (ticket estimate ~1149) --
+  // ~175x the lambda ~6.55 that pins a conventional p=1e-9 level and ~2134x the imp-35990 covering lambda
+  // ~0.538. p_HM(lambda_max) ~10^-286273 (underflows to 0.0 in double; carried in log10), ~286264 orders
+  // below the conventional p=1e-9 level: because lambda is QUADRATIC in the exponent, the ~3-order
+  // scale-vs-certified gap (imp-35890 / imp-35995) becomes hundreds of thousands of orders of confidence
+  // margin, so the probabilistic estimate is nowhere near stressing the certified ceiling. Certifiable
+  // ONLY under the Higham-Mary independence model (NOT deterministic); the CERTIFIED bound stays imp-35890
+  // ~6.41e-14. Measurement only; instantiates no interval; changes no bound; A+B-C GREENFIELD; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-36035-w1-lambda-headroom-to-certified-rung.js',
   // imp-35995 (numerical, measurement): SWEEP the imp-35948 sharper Higham-Mary a-priori scale
   // u*sqrt(Sum S_i^2)/Sum|t_k| across a 7-rung half-decade ladder in [1e3, 4.886e5] (imp-35948
   // tabulated it at the single N~488602 endpoint only). FINDING: the Higham-Mary NORMALIZED scale

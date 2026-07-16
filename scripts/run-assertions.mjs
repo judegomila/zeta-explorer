@@ -9857,6 +9857,19 @@ const DATA_MODULES = [
   // `npm run assert` -- the same orphan class imp-35827/imp-35858 fixed for earlier
   // cohorts. Measurement only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35852-w1-summation-adversarial-ordering.js',
+  // imp-35927 (numerical, S-frontier): SCALE the imp-35852 four hostile orderings up an N
+  // ladder (1e4, 1e5, 4.886e5, 1e6, 1e7) against the same exact BigInt 2^{-96} reference and
+  // measure how the clustered-ordering naive error and its orders-below-ceiling margin scale
+  // with N. FINDING: the clustered naive normalized error grows FAR sub-linearly (~N^0.6,
+  // near the sqrt(N) random-walk rate, well below the coherent rate 1.0) -- only ~38x over the
+  // 1000x ladder -- so the adversarial amplification SATURATES; because the coherent ceiling
+  // N eps grows linearly, the orders-below-ceiling safety margin does NOT erode, it WIDENS from
+  // ~3.66 (N=1e4) to ~5.08 (N=1e7) at ~+0.4 orders/decade, every rung >1e3x below the ceiling.
+  // Clustered is worst only at the anchor N; signedAsc dominates off-anchor. Pairwise/Kahan
+  // stay N-robust. Grid baked offline (scripts/imp-35927-probe.mjs, N=1e7 too heavy to recompute
+  // at import); a live N=1e4 recompute re-verifies the machinery. Measurement only; changes no
+  // bound; A+B-C stays GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35927-w1-adversarial-ordering-n-ladder.js',
   // imp-35893 (numerical, S-frontier): COMPLEMENT imp-35852 (which varied only the term
   // ORDER, balanced tree) by holding the terms FIXED and varying the pairwise pairing-tree
   // SHAPE from balanced midpoint toward left/right caterpillars, tabulating pairwise error

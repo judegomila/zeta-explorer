@@ -51,7 +51,12 @@
  *   caterpillarR    3817     ~1.85e-18        ~8.48e-13               ~4.6e5   (worst error)
  * -- and the slack WIDENS with depth: the measured error is a depth-independent FLOOR
  * (imp-35952), while the a-priori bound grows linearly in d, so the deeper the tree the
- * looser the a-priori d*eps bound. Even the worst-error tree (caterpillarR, the tree the
+ * looser the a-priori d*eps bound. CORRECTION (imp-36018): fitting the slack ratio itself
+ * against depth (OLS of log10(slack) on log10(d) across the seven shapes) finds a
+ * SUB-linear exponent ~0.748 (R^2 ~0.658), not the strict slack ~ d^1 this depth-independent
+ * -floor idealization predicts, because the measured error is not a perfectly constant floor
+ * across shapes; excluding the same-depth high-floor caterpillarR outlier lifts the fitted
+ * exponent to ~0.936, close to linear. Even the worst-error tree (caterpillarR, the tree the
  * a-priori bound would flag as most dangerous) leaves ~4.6e5x (~5.7 orders) of unused
  * a-priori headroom. The complete Higham gamma_{d+LEAF-1} bound (B) and the coarse d*eps
  * form (A) CROSS near d ~ LEAF (= 128): for shallow trees (balanced d=12 .. skew0.1 d=79)
@@ -71,6 +76,7 @@
  * (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
  * @see imp-35893-w1-summation-pairwise-tree-shape.js (source: the tree-SHAPE sweep + measured errors)
+ * @see imp-36018-w1-pairwise-slack-depth-scaling-exponent.js (CORRECTS the "linearly in d" prose below to SUB-linear, exponent ~0.748)
  * @see imp-35952-w1-caterpillar-worst-tree-n-ladder (the measured error is an N-independent FLOOR)
  * @see imp-35761-w1-certified-rounding-cost-scope (log2(N)*eps pairwise + N*eps naive ceilings)
  * @see imp-35760-w1-margin-allocation-scope (O(1) barrier margin all errors sit under)
@@ -166,7 +172,10 @@ export const IMP35970_W1_PAIRWISE_APRIORI_DEPTH_BOUND_SLACK = {
       'pessimistic on this cancellation-heavy oscillatory data',
     slackWidensWithDepth:
       'the slack WIDENS with tree depth: the measured error is a depth-independent FLOOR (imp-35952) while ' +
-      'the a-priori bound grows linearly in d, so deeper trees leave proportionally more unused headroom',
+      'the a-priori bound grows linearly in d, so deeper trees leave proportionally more unused headroom -- ' +
+      'CORRECTED per imp-36018: the fitted slack-vs-depth exponent measured directly is SUB-linear (~0.748, ' +
+      'R^2 ~0.658), not the strict d^1 this floor idealization predicts, rising to ~0.936 once the ' +
+      'same-depth high-floor caterpillarR outlier is excluded',
     worstErrorStillLoose:
       'even the worst-error tree (caterpillarR, depth 3817 -- the tree the a-priori bound flags as most ' +
       'dangerous) leaves ~4.6e5x (~5.7 orders) of unused a-priori headroom',

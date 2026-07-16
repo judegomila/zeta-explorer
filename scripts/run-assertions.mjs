@@ -11208,6 +11208,16 @@ const DATA_MODULES = [
   // their transitive closure, and every bundle's self-executing assertions pass.
   // Guard only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36015-etrunc-crossover-i2i3-treeshape-cohort-import-guard.js',
+  // imp-36024 (accuracy, measurement): cross-validate the imp-35889 / imp-35971 SURROGATE
+  // split E(N) = E_trunc + E_flow + E_coll (imp-3406 / imp-33582 sub-terms) against the
+  // lambda-roadmap Step-4 ASSEMBLED E(N) (E_trunc imp-963/447/459, E_flow imp-398, C_C
+  // imp-2642/2643) at every imp-321 ladder N. FINDING: E_flow and E_coll residuals are
+  // EXACTLY zero (shared C_F / C_C_PINNED and the same RvM height map), so the whole
+  // discrepancy is the E_trunc convention (imp-2631 3.06e-5 vs imp-2643 3.1e-5) -- a fixed
+  // N-independent -4.0e-7 total residual, below 0.21% of E(N) across the ladder. VERDICT:
+  // FAITHFUL. Measurement only; changes no bound; C_H stays the ansatz; imp-486 kept;
+  // imp-35337a OPEN; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36024-surrogate-vs-assembled-EN-crossvalidation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

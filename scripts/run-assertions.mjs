@@ -11630,6 +11630,21 @@ const DATA_MODULES = [
   // cited landmark values (T_PT=3e12, N~488602, ~6.41e-14 certified rung, ~3.0e-17
   // achieved) are internally consistent. Zero dangling references.
   '/src/data/imp-36051-imp3598x97x-crossref-integrity-audit.js',
+  // imp-36052 (content, sonnet-4-6, sonnet): standalone cross-reference note assembling the
+  // full W1 forward-error LADDER storyline as one measured-to-a-priori arc: MEASURED achieved
+  // error (imp-35812/imp-35852) -> CERTIFIED deterministic running-accumulator run-max bound
+  // (imp-35890, ~6.41e-14) -> PROBABILISTIC Wilkinson/Higham-Mary sqrt(N) scales (imp-35948) ->
+  // pairwise-tree DEPTH-BOUND slack (imp-35970) -> CONFIDENCE-CONSTANT calibration (imp-35990).
+  // Imports all six verdicts verbatim, no new numerics. Note only; changes no bound; NO QED;
+  // PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36052-w1-forward-error-ladder-crossref.js',
+  // imp-36083 (numerical, opus-4-8, api-pool): MEASURE the distance the imp-36023 DETERMINISTIC KBN
+  // compensated-summation floor keeps below the imp-35890 CERTIFIED deterministic run-max rung across
+  // the imp-35812 ladder. Ratio cert/KBN = [~7.9e3, ~2.63e4, ~2.98e5, ~3.39e6] (~3.9 to ~6.5 orders,
+  // ~5 avg); headroom WIDENS with N (certified grows ~sqrt(N), KBN N-flat), tightest ~3.9 orders at
+  // N=1000. The deterministic compensated channel never approaches the certified bound. Distinct from
+  // imp-36035 (PROBABILISTIC Higham-Mary). Measurement only; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36083-kbn-floor-headroom-to-certified-rung.js',
 ];
 
 let ALL_MODULES = FAST_MODE

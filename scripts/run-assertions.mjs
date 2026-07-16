@@ -10364,6 +10364,15 @@ const DATA_MODULES = [
   // sigma~0.065/0.035. So ~6.96x is the value AT the PT height, not an asymptotic floor.
   // Measurement only; interpolates imp-35813; changes no bound; imp-35337a OPEN; NO QED; PT 0.2 SOTA.
   '/src/data/imp-35853-req4-required-height-continuous-sigma-knee.js',
+  // imp-35888 (accuracy, measurement): LOCATE where the imp-35853 REQ-4 required-height
+  // multiple 200/log T0 crosses BELOW 1x by continuing the sigma sweep past the ~6.96x PT
+  // anchor. FINDING: the multiple descends monotonically with NO asymptote and reaches 1x
+  // (log T0 = 200 met) only at N ~ 2.27e88, T0 = e^200 ~ 7.23e86 (matching imp-35538 to full
+  // precision), where the collision share collapses to sigma ~ 1.18e-39 (E_coll ~ 3.6e-44
+  // astronomically below E_trunc = 3.06e-5) -- > 37 orders in sigma below the PT anchor. So
+  // "log T0 >= 200 met" is an e^200-height, sigma~0 corner, not a finite-N target.
+  // Measurement only; continues imp-35853; changes no bound; imp-35337a OPEN; NO QED; PT 0.2 SOTA.
+  '/src/data/imp-35888-req4-required-height-multiple-reaches-1x.js',
   // imp-35859 (meta, verify): VERIFY the newer heavy-assertion cohort imp-35809/35810/
   // 35811/35812/35813 imports import-light and its self-executing assertions pass under
   // the esbuild-bundle + plain-node path (per [[verify_heavy_assertion_modules]]), making

@@ -10074,6 +10074,18 @@ const DATA_MODULES = [
   // self-executing assertions. Viz-data only; changes no bound; NO QED; Platt-Trudgian
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-36094-kbn-kahan-naive-error-ladder-viz-data.js',
+  // imp-36075: closes the imp-36023 gap (verdict "never checked positivity" of the compensated
+  // running sum). On the same imp-35852 clustered worst order / imp-35812 ladder / exact BigInt
+  // reference, tracks the SIGNED KBN running estimate s_i + c_i and measures sign-margin
+  // preservation: at every rung the exact sum is negative and KBN reproduces that sign with a
+  // final margin (|exact| / |KBN error|) of ~1.5e16 to ~4.3e16 error-widths. The running estimate
+  // is same-signed throughout -- it descends to a deep negative trough (~ -20 to ~ -445) then
+  // recovers monotonically but ends still negative, so it never crosses zero; the closest approach
+  // to zero is the endpoint, with the KBN local error there ~16 orders below the distance to zero.
+  // Positivity/sign preserved N-uniformly under the combined worst config. Six self-executing
+  // assertions. Measurement only; NO positivity theorem; changes no bound; W1 certificate
+  // GREENFIELD/MECHANICAL; imp-486 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-36075-kbn-positivity-sign-margin.js',
   // imp-35953: CROSS-CHECK the stability of the imp-35891 ~1-decade offset between the
   // imp-35853 flattest-point knee (N_flat ~ 7.20e9) and the imp-33701 sigma-exponent
   // inflection decade ([1e10,1e11]) under an INDEPENDENT raw Riemann-von Mangoldt height

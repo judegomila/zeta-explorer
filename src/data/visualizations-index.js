@@ -1527,6 +1527,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive chart re-exporting the imp-35811 BigInt digit-ladder measurement verbatim (no new derivation, no heavy data-module import, no ~520-digit recomputation at page load); measures ONLY the exp(-pi x/8) underflow-driven mantissa-digit requirement off the imp-35781-measured accumulator scale K; evaluates no true H_0 at high precision, extends no evaluator, certifies no value at any height, changes no bound.',
     }),
+    Object.freeze({
+      route: '/viz-imp35865-summation-scheme-ladder',
+      title: 'Summation-Scheme Error Ladder',
+      oneLine:
+        'Log-log line chart of the imp-35812 exact-BigInt-referenced naive/pairwise/Kahan-Babuska summation error ladder vs N=[1e3,4.886e5], against the imp-35761 pessimistic N.eps/log2(N).eps ceilings, with the imp-35760 O(1) barrier-margin headroom annotated.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-35865-summation-scheme-ladder-viz-data.js',
+      paperSourcePath: 'src/data/imp-35812-w1-summation-scheme-measured-cost.js (imp-35865 viz page)',
+      ticket: 'imp-35865',
+      pedagogicalStep: 105,
+      honestCeiling:
+        'Descriptive chart re-exporting the imp-35812 exact-BigInt-referenced summation-scheme measurement verbatim (no new derivation, no heavy data-module import, no re-running the summation schemes at page load); measurement only; certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no inequality; establishes no positivity; the W1 A+B-C certificate at T_PT stays GREENFIELD (imp-35681 Part A).',
+    }),
   ]),
 });
 

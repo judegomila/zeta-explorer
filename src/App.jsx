@@ -900,6 +900,9 @@ const Imp35863KrawczykSplitInversionViz = lazy(() =>
 const Imp35864DebruijnDigitLadderViz = lazy(() =>
   import('./pages/Imp35864DebruijnDigitLadderViz.jsx')
 );
+const Imp35865SummationSchemeLadderViz = lazy(() =>
+  import('./pages/Imp35865SummationSchemeLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2507,6 +2510,10 @@ function AppShell() {
           <Route
             path="/viz-imp35864-debruijn-digit-ladder"
             element={<Imp35864DebruijnDigitLadderViz />}
+          />
+          <Route
+            path="/viz-imp35865-summation-scheme-ladder"
+            element={<Imp35865SummationSchemeLadderViz />}
           />
           <Route
             path="/viz-imp35386-kemp-bracketing-ladder"

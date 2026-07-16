@@ -11403,6 +11403,13 @@ const DATA_MODULES = [
   // non-negligible term (N ~ 4.7214e13). Viz-data only; changes no bound; NO QED;
   // Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-36026-eN-term-elimination-cascade-viz-data.js',
+  // imp-36028: standalone honest-status note restating imp-35971 -- E_trunc = 3.06e-5
+  // becomes the SOLE non-negligible term of E(N) at N* ~ 4.7214e13 (log10 ~ 13.674),
+  // ~2.17 decades above the sigma < 0.1 roadmap landmark N ~ 3.21e11, with the collision
+  // term E_coll the LAST survivor (E_flow already negligible ~5 decades earlier, at
+  // N ~ 4.62e8). Read-only restatement; seven self-executing assertions; changes no
+  // bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-36028-etrunc-sole-survivor-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

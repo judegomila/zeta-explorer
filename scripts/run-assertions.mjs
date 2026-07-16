@@ -9864,6 +9864,15 @@ const DATA_MODULES = [
   // every rung; all >=10 orders below the O(1) barrier margin. Measurement only; certifies no
   // W1 bound; changes no bound; A+B-C stays GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35854-w1-summation-kappa-sweep.js',
+  // imp-35887 (numerical, measurement): TABULATE the naive-summation coherence fraction vs the
+  // NUMBER of maximal same-sign runs r on the fixed imp-35812 N=488602 multiset, interpolating
+  // between the imp-35852 clustered r=2 worst case and the r~N oscillatory extreme via
+  // neg-chunk/pos-chunk interleaving; the coherence fraction is highest at r=2 (~4.48e-5) and
+  // decays ~175x as a near-inverse power law (slope ~ -1.06 over r in [2,64]) then flattens onto
+  // the random-walk floor ~2.8e-17, never exceeding ~4.5e-5 (>2e4x below the coherent N*eps
+  // ceiling); pairwise/Kahan stay run-count-robust. Measurement only; changes no bound; A+B-C
+  // stays GREENFIELD; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35887-w1-summation-runcount-coherence.js',
   // imp-35871 (numerical, measurement): CONFIRM the imp-35812 reading (naive summation
   // error tracks the O(sqrt(N) u) random walk, NOT the O(N u) coherent worst case) is not
   // an artifact of the single kappa ~ 1.4e3 imp-35812 chose, by re-reading the imp-35854

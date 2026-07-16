@@ -8952,6 +8952,16 @@ const DATA_MODULES = [
   // reference modules per the established imp-35412 convention. AUDIT ONLY; no source file
   // required correction; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35545-imp354xx-registration-reachability-audit.js',
+  // imp-35468: REGISTRATION/REACHABILITY AUDIT (imp-35484/imp-35545 method) of the two named
+  // modules imp-35411 (sigma-peak-plateau-width) and imp-35417 (sigma-landmark-distinct-dd-grid-
+  // cross-check). Both have their *_ASSERTIONS array wired into this DATA_MODULES sweep. Neither
+  // is directly ES-imported anywhere in src/ (by design, per the no-heavy-imports convention),
+  // but imp-35411's literals are baked into the imp-35482 viz-data module which backs a routed
+  // App.jsx page, and imp-35417 is cited by the imp-35505 registry module; both are also cited
+  // by src/data/glossary.js headwords reachable via ConceptsPage.jsx/WikiPage.jsx. Zero orphans;
+  // AUDIT ONLY; no source file required correction; changes no bound; NO QED; Platt-Trudgian
+  // Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35468-imp35411-imp35417-registration-reachability-audit.js',
   // imp-35569: AUDITS whether the only rendered sigma-peak analysis page
   // (Imp35561PeakHeightMapSensitivityViz.jsx) surfaces both the imp-35536 peak
   // height-map-ROBUSTNESS verdict and the imp-35451 arm-asymmetry cubic-skew (c3 ~ -2.62e-4).

@@ -10058,6 +10058,12 @@ const DATA_MODULES = [
   // page landed. Adds no new page; pins a regression guard confirming the route/file references
   // stay consistent. Audit only; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35731-mesh-cost-page-duplicate-audit.js',
+  // imp-35738: ticket asked to add a glossary headword for the imp-35696 coefficient-independent
+  // collision-scale M-exponent (-1/3) and its ~2.047 cube-root prefactor. Audit found glossary.js
+  // ALREADY carries this headword (authored by imp-35743) -- a duplicate ticket the frontier
+  // scout re-seeded before the entry landed. Adds no new headword; pins a regression guard
+  // confirming the duplicate finding stays consistent. Audit only; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35738-glossary-headword-duplicate-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

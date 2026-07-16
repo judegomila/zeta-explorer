@@ -10075,6 +10075,21 @@ const DATA_MODULES = [
   // no interval instantiated, F(m)=0 classified not discharged; imp-34714a stays OPEN; changes no bound; NO
   // QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35885-krawczyk-node-cancellation-audit.js',
+  // imp-35925 (numerical, assessment): descend ONE granularity below imp-35885 (which left g(N)/a(N)
+  // atomic) into the INTERIOR subtraction sites of the F(m)/[F-prime]/(g/F-prime) enclosures -- the RvM
+  // inverse T0(N) solving N(T)=(T/2pi)(u-1), u=log(T/2pi) -- forming kappa_sub=(|x|+|y|)/|x-y| at each over
+  // the a(N)->0 sweep. FINDING: NONE of the interior nodes diverges as a->0. NODE E the RvM main-term
+  // factor (u-1) subtracts 1 from the LARGE, GROWING u (~26.7..44.6), so kappa=(u+1)/(u-1)->1 (bounded, max
+  // ~1.08); it would only diverge if u->1 (T0->2pi e~17.08), unreachably below the verified regime. NODE F
+  // the argument u=log(T0/2pi) is a log of a DIVISION with no interior subtraction (even the equal-split
+  // logT0-log2pi stays bounded, max ~1.14). NODE G the Newton residual N(T)-N is the already-known
+  // a-independent residual-at-root (imp-35885 NODE B F(m)=0 artifact). CONTRAST: dG diverges up the same
+  // axis, kappa~4/a ~2.6e13 at N~1e21. So across BOTH the operator-level (imp-35885) and interior-level
+  // (this) audits the imp-35855 dG surplus-split node is the UNIQUE a->0-divergent subtraction; no interior
+  // sub-node needs de-cancellation. Five self-executing assertions. SUB-GAP: conditioning catalogue only,
+  // no interval instantiated, F(m)=0 classified not discharged; imp-34714a stays OPEN; changes no bound; NO
+  // QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35925-krawczyk-interior-subtraction-audit.js',
   // imp-35886 (numerical, measurement): LOCATE the crossover condition number kappa at which the
   // imp-35854 naive NORMALIZED summation error departs the sqrt(N)*u random-walk ceiling (~7.76e-14
   // at N~488602) and settles onto the ~4e-17 O(1)-accumulator plateau, by refining the imp-35854

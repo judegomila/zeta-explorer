@@ -9920,6 +9920,16 @@ const DATA_MODULES = [
   // worst-case bound WIDENS with N. Seven self-executing assertions. Measurement only;
   // certifies no W1 bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35952-w1-caterpillar-worst-tree-n-ladder.js',
+  // imp-35970 (accuracy, S-frontier): DERIVE/ASSESS the tightest a-priori pairwise
+  // forward-error bound as a function of tree DEPTH d (the depth-proportional d*eps /
+  // Higham gamma_d form, not the balanced log2(N)*eps ceiling) per imp-35893 pairing-tree
+  // SHAPE, and tabulate its slack vs the measured error. The a-priori depth bound
+  // over-predicts the measured error by ~3.7 orders (balanced, ~7.5e3x) to ~6.8 orders
+  // (caterpillarL, ~5.9e6x); even the worst-error tree (caterpillarR) leaves ~4.6e5x unused
+  // headroom, and the slack WIDENS with depth (measured error is a depth-independent FLOOR,
+  // imp-35952, while the bound grows linearly in d). Seven self-executing assertions.
+  // Assessment only; certifies no W1 bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35970-w1-pairwise-apriori-depth-bound-slack.js',
   // imp-35953: CROSS-CHECK the stability of the imp-35891 ~1-decade offset between the
   // imp-35853 flattest-point knee (N_flat ~ 7.20e9) and the imp-33701 sigma-exponent
   // inflection decade ([1e10,1e11]) under an INDEPENDENT raw Riemann-von Mangoldt height

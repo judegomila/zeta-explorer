@@ -10086,6 +10086,21 @@ const DATA_MODULES = [
   // assertions. Measurement only; NO positivity theorem; changes no bound; W1 certificate
   // GREENFIELD/MECHANICAL; imp-486 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-36075-kbn-positivity-sign-margin.js',
+  // imp-36076 (numerical, S-frontier): locate the N at which CLASSIC single-compensation Kahan
+  // summation error begins to exceed the imp-36023 N-flat KBN floor (~3.7e-19) on the imp-35852
+  // clustered worst order. Densifying the coarse imp-36023 ladder to N = [1000, 1500, 2000, 3000,
+  // 10000, 20000, 30000, 50000, 100000, 200000, 488602] against a per-N exact BigInt reference:
+  // classic Kahan FIRST exceeds the ~3.7e-19 floor at a SMALL N ~ 1500 (~1.59e-18), NOT via a
+  // large-N drift onset. The Kahan-vs-KBN separation is INTERMITTENT -- bit-identical (ratio =
+  // 1.000) at N = 1000, 10000, 20000, 30000 but separated (ratio 2.3 to 12.2) at N = 1500, 2000,
+  // 3000 and every rung from 50000 up -- because the compensation-order event fires only when the
+  // clustered running-sum magnitude dips below an incoming term (the case KBN corrects). So there
+  // is NO clean crossover N: the imp-36023 N~488602 endpoint gap (~12x) is a sample of a
+  // conditioning-driven scatter, not a monotone-drift terminus. Both schemes stay far below unit
+  // roundoff u ~ 1.11e-16 (worst classic Kahan / u ~ 2.0e-2), so precision stays NON-binding. Six
+  // self-executing assertions. Measurement only; changes no bound; W1 certificate GREENFIELD;
+  // imp-486 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-36076-kahan-kbn-separation-onset.js',
   // imp-35953: CROSS-CHECK the stability of the imp-35891 ~1-decade offset between the
   // imp-35853 flattest-point knee (N_flat ~ 7.20e9) and the imp-33701 sigma-exponent
   // inflection decade ([1e10,1e11]) under an INDEPENDENT raw Riemann-von Mangoldt height
@@ -11540,6 +11555,13 @@ const DATA_MODULES = [
   '/src/data/imp-36057-krawczyk-residual-2x-tightening-headroom.js',
   '/src/data/imp-36060-eflow-share-frontier-heights.js',
   '/src/data/imp-36061-w1-accumulator-recovery-detuning-width.js',
+  // imp-36127 (meta, sonnet-4-6, sonnet): cross-reference integrity audit (imp-35186/imp-36088
+  // method) on the imp-3603x/imp-3604x/imp-3605x/imp-3606x cohort (imp-36030..imp-36062, 24
+  // files). FINDING: CLEAN -- zero dangling @see targets or bare imp-NNNNN citations; all 20
+  // distinct filename-suffixed targets resolve to real src/data files and all 109 distinct bare
+  // ticket citations resolve to real ids in improvement-queue.js/improvements.js/lambda-roadmap.js.
+  // Audit only; no bound touched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-36127-imp3603x-3606x-cross-reference-integrity-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

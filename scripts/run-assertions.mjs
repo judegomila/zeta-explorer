@@ -9918,6 +9918,16 @@ const DATA_MODULES = [
   // self-executing assertions. Measurement only; surrogate; imp-34714a stays OPEN; changes no
   // bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35810-cancellation-onset-height.js',
+  // imp-35848 (numerical, measurement): TABULATE the imp-35810 float-cancellation onset across the tol
+  // ladder {1e-4,1e-5,1e-6,1e-7,1e-8}, quantifying the (C2) envelope match and (C3) tol-robustness that
+  // imp-35810 asserted only qualitatively. Reusing measure()/sustained-3-point crossing verbatim: the
+  // measured a_onset tracks eps_mach/tol with a residual ratio in [0.11, 0.49] (spread ~4.5x from log-grid
+  // quantization, systematically below unity) -- CONFIRMING (not beating) the (C2) order-of-magnitude match.
+  // The PT safety margin a_PT/a_onset erodes ~one decade per tol decade (~2.5e7 at 1e-4 to ~1.1e3 at 1e-8,
+  // ~4.3 decades), yet N_onset stays >2 decades above the PT anchor at every rung (>1e17 for 4 of 5 tol;
+  // N~1.4e16 at tol=1e-8). Five self-executing assertions. Measurement only; surrogate; imp-34714a stays
+  // OPEN; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35848-cancellation-onset-tol-ladder.js',
   // imp-35778: SCOPE the imp-35727 ingredient-I3 modulus floor |H_t| >= delta > 0 on dR by
   // DECOMPOSING the contour floor BY EDGE TYPE -- the split imp-35758 left monolithic as
   // "min over dR". delta = min(delta_short, delta_long). SHORT edges (x = const) cross the

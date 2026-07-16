@@ -9917,6 +9917,15 @@ const DATA_MODULES = [
   // re-seeded. Adds no new viz-data module or page; pins a regression guard confirming the
   // imp-35823 six-rung ladder stays present and complete. Audit only; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35836-viz-duplicate-ticket-audit.js',
+  // imp-35838: registration/reachability audit (imp-35590/imp-35447 method) on the freshly
+  // committed frontier assessment batch imp-35762/imp-35763/imp-35764/imp-35766/imp-35777/
+  // imp-35778. FINDING: all six are DATA_MODULES-listed, export a result-object const plus a
+  // *_ASSERTIONS array (auto-discovered generically by the processOne() loader). imp-35762
+  // and imp-35763 have registered viz pages (imp-35824, imp-35823, both wired in App.jsx and
+  // visualizations-index.js); imp-35764/imp-35766/imp-35777/imp-35778 are registry-only and
+  // correctly absent from visualizations-index.js. No orphans, no viz-status mismatch. Six
+  // self-executing assertions. AUDIT ONLY; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35838-frontier-batch-registration-reachability-audit.js',
   // imp-35779: DERIVE the REQUIRED-fraction allocation of the barrier margin
   // M = |A_t+B_t| - |C_t| among the imp-35725 cap terms E_A, E_B, E_{C_0} that keeps the
   // strict triangle inequality strict at T_PT. imp-35760 gave one SUFFICIENT point (an
@@ -9965,6 +9974,18 @@ const DATA_MODULES = [
   // I1b (differentiated F_prime = imp-35799 SG-1). Import-light, five self-executing
   // assertions. Scoping only; builds no enclosure; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35803-i1-interval-enclosure-per-edge-scope.js',
+  // imp-35804: scopes the imp-35727 ingredient I4 (closure of the accumulated per-panel
+  // argument increment around dR to a UNIQUE integer N). Integrality is a FREE EXACT fact
+  // (argument principle: true total = 2pi*N given the I3 no-boundary-zero precondition), so
+  // I4 needs only PRECISION: half-width E < pi (error interval width < 2pi) pins
+  // N = round(S/2pi) with no interpretation. Structural finding: this is a SECOND distinct
+  // "< pi" condition -- the I2 pi is a LOCAL per-panel increment cap, the I4 pi is a GLOBAL
+  // accumulated ERROR budget, so I4 is NOT "I2 summed". Splits over the four edges (equal
+  // pi/4), a FUNCTIONAL of the I1 argument projection, sharpening the per-panel demand from
+  // O(1) to O(pi/P). Removes the imp-2696 W_pp=6.413 human-read non-integer. Import-light,
+  // six self-executing assertions. Scoping only; sums no increments; certifies no count;
+  // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35804-i4-integer-closure-error-budget-scope.js',
 ];
 
 let ALL_MODULES = FAST_MODE

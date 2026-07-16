@@ -882,6 +882,9 @@ const Imp35710WindingMeshCostDeltaLadderViz = lazy(() =>
 const Imp35386KempBracketingLadderViz = lazy(() =>
   import('./pages/Imp35386KempBracketingLadderViz.jsx')
 );
+const Imp35750BeatParityHandoffSigmaViz = lazy(() =>
+  import('./pages/Imp35750BeatParityHandoffSigmaViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2465,6 +2468,10 @@ function AppShell() {
           <Route
             path="/viz-imp35710-winding-mesh-cost-delta-ladder"
             element={<Imp35710WindingMeshCostDeltaLadderViz />}
+          />
+          <Route
+            path="/viz-imp35750-beat-parity-handoff-sigma"
+            element={<Imp35750BeatParityHandoffSigmaViz />}
           />
           <Route
             path="/viz-imp35386-kemp-bracketing-ladder"

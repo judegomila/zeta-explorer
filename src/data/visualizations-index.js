@@ -1449,6 +1449,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive chart re-exporting the imp-35264 crosscheck table verbatim (no new derivation, no heavy data-module import); presentation only on the inherited imp-3220/imp-3406/imp-33646 model-cusp surrogate; does NOT discharge O3 / H3 / H4 / G6a; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp35750-beat-parity-handoff-sigma',
+      title: 'Beat -> Parity Handoff Along the Sigma-Axis',
+      oneLine:
+        'Line chart of the imp-35678 beat-carrier-to-parity handoff: the GUE-conditional beat-carrier share (=sigma) falling toward zero against the surviving C_T-barrier share (=1-sigma-E_flow_share) rising toward one across the imp-35677 four-rung far-tail sigma ladder, with the mathematical crossover at sigma=0.5 noted as lying far above the measured ladder range.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-35750-beat-parity-handoff-sigma-viz-data.js',
+      paperSourcePath: 'src/data/imp-35678-finite-height-beat-vs-parity-regime-boundary.js (imp-35750 viz page)',
+      ticket: 'imp-35750',
+      pedagogicalStep: 99,
+      honestCeiling:
+        'Descriptive chart re-exporting the imp-35677/imp-35678 sigma-share model verbatim (no new derivation, no heavy data-module import); presentation only, illustrates continuation of an already-completed handoff rather than the crossing point; C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

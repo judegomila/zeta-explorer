@@ -10480,6 +10480,14 @@ const DATA_MODULES = [
   // sigma~0.065/0.035. So ~6.96x is the value AT the PT height, not an asymptotic floor.
   // Measurement only; interpolates imp-35813; changes no bound; imp-35337a OPEN; NO QED; PT 0.2 SOTA.
   '/src/data/imp-35853-req4-required-height-continuous-sigma-knee.js',
+  // imp-35932 (numerical, measurement): MEASURE which of the three DISAGREEING imp-35853 knee
+  // locators is STABLE under sigma-grid refinement (halving spacing to gridN 3200) and chord-
+  // endpoint / smoothing choice. FINDING: the FLATTEST POINT is robust (sigma in [0.4065,0.408],
+  // ~0.4% move across grid+endpoint+smoothing); the PT-anchor approach is a stable level-set
+  // (within-10% sigma in [0.0648,0.0661], within-5% [0.0349,0.0364]); the KNEEDLE elbow is grid-
+  // stable but ENDPOINT-unstable (swings [0.712,0.8156], ~13.5%), a locator artifact per imp-35943.
+  // Measurement only; changes no bound; imp-35337a OPEN; imp-486 kept; NO QED; PT 0.2 SOTA.
+  '/src/data/imp-35932-knee-locator-stability.js',
   // imp-35888 (accuracy, measurement): LOCATE where the imp-35853 REQ-4 required-height
   // multiple 200/log T0 crosses BELOW 1x by continuing the sigma sweep past the ~6.96x PT
   // anchor. FINDING: the multiple descends monotonically with NO asymptote and reaches 1x

@@ -9848,6 +9848,7 @@ const DATA_MODULES = [
   // are governed by a. Four self-executing assertions. Measurement only on the imp-3220/imp-3406
   // surrogate; imp-34714a stays OPEN; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35762-krawczyk-surplus-shift-residual-isolation.js',
+  '/src/data/imp-35809-krawczyk-surplus-split-band-and-height-profile.js',
   // imp-35763 (numerical, measurement): fill the interior of the imp-35722 REQ-4 required-height
   // ladder with the imp-33582 sigma<0.9/0.5/0.1 downslope landmarks (N~2.57e7/3.27e9/3.21e11),
   // forming 200/log T0 on the same imp-3220/imp-3406 RvM surrogate: multiples ~12.27/9.59/7.93x,

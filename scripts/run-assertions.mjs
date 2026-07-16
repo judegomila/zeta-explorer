@@ -11953,6 +11953,11 @@ const DATA_MODULES = [
   // imp-36096 normalized (u,v) joint recovery contour points for the 10% and 1% targets); no new
   // module built, records the finding and cross-references the original. NO QED.
   '/src/data/imp-36162-duplicate-ticket-honest-status.js',
+  // imp-36164 (content, sonnet-4-6, sonnet): cross-reference narrative assembling the
+  // G5-perN-translation storyline -- Step-3 unconditional lim-sup -> imp-36082 explicit Route-B
+  // rate r(N) -> its CONSUMABLE-MODULO-ANCHOR bridge blocker -> imp-36045 C > B > A ranking --
+  // plus an explicit derived-vs-open list. Note only; imports each stage verbatim; NO QED.
+  '/src/data/imp-36164-perN-translation-storyline-cross-reference.js',
 ];
 
 let ALL_MODULES = FAST_MODE

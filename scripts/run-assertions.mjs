@@ -12047,6 +12047,14 @@ const DATA_MODULES = [
   // genuinely duplicate a real, completed, topically-matching original ticket -- zero
   // false-positive dup flags found.
   '/src/data/imp-36191-duplicate-ticket-audit-verification.js',
+  // imp-36205 (content, sonnet-4-6, sonnet): cross-reference narrative assembling the
+  // LAMBDA_CHAIN_STEPS Step-2 backward-Dyson-ODE rigorous-upgrade storyline (imp-35058) --
+  // the three OPEN obligations G-step-error (imp-35127, SCOPING only), G-gronwall (imp-2520,
+  // HONEST PARTIAL CLOSURE, materially further along), G-interval-enclosure (imp-35129,
+  // SCOPING only) -- naming their couplings and their DIFFERING maturity stages for a reader
+  // landing on any one obligation cold. Note only; imports all four source modules verbatim;
+  // NO QED.
+  '/src/data/imp-36205-step2-obligations-storyline-crossref.js',
 ];
 
 let ALL_MODULES = FAST_MODE

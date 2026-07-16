@@ -10147,6 +10147,18 @@ const DATA_MODULES = [
   // six self-executing assertions. Derivation on the OOM model only; certifies no cap; certifies no
   // delta>0; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35806-i2-i3-coupled-placement-derivation.js',
+  // imp-35867 (numerical/S-frontier): MEASURE the imp-35806 total boundary panel count
+  // N_total(Delta, h) = 2 N_long + 2 N_short at the derived benign corner (Delta = m mean gaps,
+  // h ~ 1/w) on the T_PT = 3e12 OOM model, reusing the imp-35806 nLong/nShort/nTotal machinery
+  // verbatim. Two tables: (A) CORNER ladder over m = {1..100} at h = 1/w confirms N_long = m,
+  // N_short = 2/pi ~ 0.6366, N_total = 2m + 4/pi with per-zero budget 2 + 4/(pi m) -> 2; (B)
+  // HEIGHT ladder over u = w h in {0.25..2.0} at m = 5 shows N_total(u) = 2m/min(u,1) + 4u/pi is
+  // convex with its numeric minimum AT the corner u = 1. FINDING: the finite budget the I2/I3
+  // certificate needs is O(m), smallest at the corner (m=5 => ~11.27 panels, ~2.25/zero), never
+  // diverges on either ladder. Import-light, six self-executing assertions. Measurement on the OOM
+  // model only; evaluates no true |H_t| on any edge; certifies no cap; certifies no delta>0; I3
+  // stays GREENFIELD; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35867-boundary-panel-count-tabulation.js',
   // imp-35844 (meta): AUDIT the imp-35763/imp-35764 honesty-gate assertion guards (imp-486
   // kept, imp-35337a OPEN, NO QED, PT SOTA regexes). SPLIT FINDING: the imp-486/OPEN/NO-QED
   // text guards are LIVE and PROTECTIVE (test the modules' own verdict strings, would fail

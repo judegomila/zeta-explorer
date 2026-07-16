@@ -10126,6 +10126,20 @@ const DATA_MODULES = [
   // ~6.41e-14. Measurement only; instantiates no interval; changes no bound; A+B-C GREENFIELD; NO QED; PT
   // Lambda<=0.2 SOTA.
   '/src/data/imp-36035-w1-lambda-headroom-to-certified-rung.js',
+  // imp-36036 (numerical, measurement): FORM the ensemble imp-35990 only INFERRED -- resample the
+  // oscillatory phase (alpha, beta) over independent draws and measure the naive length-N W1 forward
+  // error per draw against a double-double reference at N~488602. FINDING: the naive error is
+  // mean-zero and the scale-free per-draw ratio E_j/HM_j against each draw own Higham-Mary scale has
+  // sigma~0.44 (STABLE across M and N), NOT 1.0, so the Higham-Mary u*sqrt(Sum S_i^2) scale OVER-
+  // predicts the conditional ensemble error std by ~2.3x (worst-case |delta|<=u Hoeffding vs ~uniform
+  // round-to-nearest). The HM scale is heavy-tailed across phase (mean ~1.05e-16, median ~5.28e-17);
+  // the imp-35990 golden-ratio draw (~5.58e-17) is near-median. imp-35990 0.54 is achieved/HM-SCALE
+  // (3.0e-17/5.58e-17~0.538), so vs the true ensemble std (~0.44xHM) the achieved draw is ~1.2 sigma:
+  // imp-35990 qualitative reading CONFIRMED, its "0.54 sigma" label CORRECTED. SUB-GAP imp-36036a:
+  // double-double (not exact-BigInt) reference + reduced-N/M import-light re-derivation (within ~5%).
+  // Measurement only; instantiates no interval; changes no bound; A+B-C GREENFIELD; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-36036-w1-ensemble-sigma-resampled-phase.js',
   // imp-35995 (numerical, measurement): SWEEP the imp-35948 sharper Higham-Mary a-priori scale
   // u*sqrt(Sum S_i^2)/Sum|t_k| across a 7-rung half-decade ladder in [1e3, 4.886e5] (imp-35948
   // tabulated it at the single N~488602 endpoint only). FINDING: the Higham-Mary NORMALIZED scale

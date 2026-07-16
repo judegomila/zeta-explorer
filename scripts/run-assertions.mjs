@@ -9986,6 +9986,21 @@ const DATA_MODULES = [
   // six self-executing assertions. Scoping only; sums no increments; certifies no count;
   // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35804-i4-integer-closure-error-budget-scope.js',
+  // imp-35839: ticket asked to add a glossary headword for the imp-35777 I2<->I3 coupling
+  // identity L_panel < pi.delta/B. Audit found it ALREADY EXISTS (added by imp-35818) and is a
+  // near-duplicate ticket the frontier scout re-seeded. Adds no new glossary content; pins a
+  // regression guard confirming the imp-35818 headword stays present. Audit only; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-35839-glossary-duplicate-ticket-audit.js',
+  // imp-35805 (proof/S-frontier): scope the imp-35727 W2 ingredient I5 -- continuous CORNER
+  // COMPOSITION of the four edge argument-increments around the closed rectangle boundary dR
+  // into ONE closed-loop total. STRUCTURAL FINDING: I5 adds no new enclosure -- corner overlap
+  // is automatic (adjacent edges share the identical I1 corner box) and the branch is pinned by
+  // the I2 corner-panel cap under the I3 floor, so I5 own content is only closed-loop TOPOLOGY
+  // (orientation + loop-closure), the LIGHTEST ingredient, logically prior to the I4 rounding.
+  // Import-light, six self-executing assertions. Scoping only; composes no increments; certifies
+  // no count; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35805-i5-corner-composition-scope.js',
 ];
 
 let ALL_MODULES = FAST_MODE

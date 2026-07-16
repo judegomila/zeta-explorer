@@ -10000,6 +10000,19 @@ const DATA_MODULES = [
   // no interval instantiated, F(m)=0 stays an artifact; imp-34714a stays OPEN; changes no bound; NO QED;
   // PT Lambda<=0.2 SOTA.
   '/src/data/imp-35855-rclean-interval-de-cancellation-assessment.js',
+  // imp-35885 (numerical, assessment): audit the OTHER nodes of the OPEN imp-34714a Krawczyk certificate
+  // K(m) = m - [F-prime]^{-1} F(m) that imp-35855 left un-checked -- F(m), the [F-prime] Jacobian, and the
+  // g(m)/F-prime enclosures -- for dG-type near-equal cancellations, forming kappa_sub = (|x|+|y|)/|x-y| at
+  // every difference node over the a(N)->0 height sweep. FINDING: NONE of the other nodes diverges as a->0.
+  // NODE A [F-prime] = 1 - a: kappa = (1+a)/(1-a) -> 1 (bounded, max <1.01) since it subtracts a SMALL a
+  // from 1 (contrast dG, which subtracts near-1 M_G from 1 -> kappa ~ 4/a, ~2.6e13 at N~1e21). NODE B
+  // residual F(m)=m-g(m): the ALREADY-KNOWN F(m)=0 artifact at N_cross (a-independent root-proximity at
+  // fixed a~0.045); off-root kappa_residual -> 1 (g grows only logarithmically). NODE C g/F-prime: a
+  // DIVISION, no subtraction. NODE D update m-q: q=0 at fixed point, kappa=1. So imp-35855 de-cancelled the
+  // ONLY a->0-divergent subtraction. Six self-executing assertions. SUB-GAP: conditioning catalogue only,
+  // no interval instantiated, F(m)=0 classified not discharged; imp-34714a stays OPEN; changes no bound; NO
+  // QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35885-krawczyk-node-cancellation-audit.js',
   // imp-35778: SCOPE the imp-35727 ingredient-I3 modulus floor |H_t| >= delta > 0 on dR by
   // DECOMPOSING the contour floor BY EDGE TYPE -- the split imp-35758 left monolithic as
   // "min over dR". delta = min(delta_short, delta_long). SHORT edges (x = const) cross the

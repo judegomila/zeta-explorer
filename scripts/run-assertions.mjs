@@ -11659,6 +11659,15 @@ const DATA_MODULES = [
   // N=1000. The deterministic compensated channel never approaches the certified bound. Distinct from
   // imp-36035 (PROBABILISTIC Higham-Mary). Measurement only; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36083-kbn-floor-headroom-to-certified-rung.js',
+  // imp-36054 (content, sonnet-4-6, sonnet): standalone honest-status note restating the
+  // imp-35988 finding that Route I (separate additive derivative-error cap) is PROVABLY TIGHTER
+  // than Route II (Cauchy estimate) for the imp-35777 I2 sup|H_t prime| cap on all three
+  // structural axes -- exact termwise main terms, a smaller frequency constant (log N versus w,
+  // exactly half a nat apart via log N = w - (1/2) log 2, ~2.65% at T_PT), and no uniform-fold +
+  // disk-sup penalty. Panel-count cost of the looser Route II is MARGINAL, not an OOM. Imports
+  // the imp-35988 module verbatim; no re-derivation. Note only; changes no bound; NO QED;
+  // Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-36054-route-i-tighter-than-route-ii-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

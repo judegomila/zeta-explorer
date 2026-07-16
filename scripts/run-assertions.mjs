@@ -12055,6 +12055,11 @@ const DATA_MODULES = [
   // landing on any one obligation cold. Note only; imports all four source modules verbatim;
   // NO QED.
   '/src/data/imp-36205-step2-obligations-storyline-crossref.js',
+  // imp-36209 (meta, sonnet-4-6, sonnet): honest-status finding that DOCSTRING-ONLY tickets
+  // (a prose fix landing inside an existing module, e.g. imp-36065 inside imp-35968) are NOT
+  // traceable via the file-path-keyed registration-reachability method -- only via a plain
+  // id-string grep. Distinct from the imp-36129 orphaned-FILE failure mode. Scoping only; NO QED.
+  '/src/data/imp-36209-docstring-only-ticket-reachability-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

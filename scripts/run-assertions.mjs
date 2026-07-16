@@ -11643,6 +11643,15 @@ const DATA_MODULES = [
   // KBN grows in an averaged sense (mean ~0.21 above onset) but admits no power/log/exp fit. Measurement
   // only; precision non-binding; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36099-kbn-kahan-ratio-scaling-fit.js',
+  // imp-36116 (numerical, opus-4-8, api-pool): is the per-N conditioning kappa(N)=Sum|t_k|/|Sum t_k|
+  // NON-MONOTONE across the full imp-35812 clustered-order ladder? Fine-grid (624 checkpoints) single
+  // exact-BigInt pass: YES ladder-wide -- 34% of the 623 rung-to-rung steps decrease, 302 below the
+  // running max, max drop ~7.82 near N=486000, grid max ~1392.7 at an interior rung (gt endpoint 1391.0);
+  // the imp-36062 dip (361.5 lt 362.8) reproduces as one instance. Smooth envelope ~1.99*sqrt(N)
+  // (R^2~0.9999, beats log N ~0.94) but the per-rung value oscillates gt 1 unit, so a hard kappa cutoff
+  // is ill-posed and the onset is properly keyed to N. Measurement only; kappa order-independent;
+  // precision non-binding; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36116-kappa-monotonicity-ladder.js',
   // imp-36096 (numerical, opus-4-8, api-pool): trace the JOINT (alpha,beta) two-parameter recovery
   // contour at which the imp-35890 running-accumulator ratio r returns within 10%/1% of the imp-35812
   // baseline r_base~1.18e-3, extending the imp-36061 two single-axis edges to the coupled plane. Joint

@@ -56,6 +56,7 @@ ENGINES=(
   "auto-improve-sonnet.sh"
   "frontier-scout.sh"
   "deploy-hook-publisher.sh"
+  "rh-lit-monitor-daemon.sh"
 )
 
 # ── helpers ─────────────────────────────────────────────────────────────────

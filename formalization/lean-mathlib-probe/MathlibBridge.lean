@@ -206,42 +206,183 @@ theorem hasOnlyRealRoots_iterate_derivative {p : ℝ[X]} (hp : HasOnlyRealRoots 
       rw [Function.iterate_succ', Function.comp_apply]
       exact hasOnlyRealRoots_derivative (hasOnlyRealRoots_iterate_derivative hp n)
 
-/-! ### The remaining honest gap: the Hermite–Poulain / Pólya–Schur multiplier theorem
+/-! ### The heat / Laguerre–Pólya multiplier operator, made CONCRETE
 
-The heat semigroup acts on polynomials as `e^{t·D²} = ∑ₖ (tᵏ/k!)·D^{2k}`, a
-*diagonal (Hermite–Poulain) multiplier operator*.  The Pólya–Schur theorem
-identifies exactly which such operators preserve the Laguerre–Pólya class, and
-`e^{t·D²}` is one of them.  The FINITE ingredients of this are now proved above
-(`hasOnlyRealRoots_derivative`, `hasOnlyRealRoots_iterate_derivative`); what mathlib
-still lacks — and what stays an explicit, cited `sorry` — is the multiplier theorem
-itself: the passage from the finite differential operators to the full multiplier and
-its LP-preservation. -/
+The core project (and the previous version of this file) left the heat multiplier
+`opaque`.  That made `heat_preserves_LP` *unfalsifiable*: nothing could be said about
+a black box.  Here we replace it with the genuine finite differential operator and
+prove its algebraic structure `sorry`-free, so the single remaining `sorry` isolates
+exactly one deep analytic fact (de Bruijn 1950 / Pólya–Schur) about a concrete,
+computable operator.
 
-/-- The heat/Hermite–Poulain multiplier operator `e^{t·D²}` applied to a polynomial.
-Declared `opaque`: mathlib lacks the Pólya–Schur construction of this operator as a
-map `ℝ[X] → ℝ[X]` (it is the limit `∑ₖ (tᵏ/k!)·D^{2k}`, which coincides with the
-finite differential operators `hasOnlyRealRoots_derivative` proves things about, but
-whose convergence/definition needs entire-function multiplier theory). -/
-noncomputable opaque heatMultiplier : ℝ → ℝ[X] → ℝ[X]
+`heatOp t p = ∑ₖ ((−t)ᵏ/k!)·D^{2k} p` is the operator `e^{−t·D²}` (Fourier/Weierstrass
+symbol `e^{−t x²}`).  The sum is genuinely finite: `D^{2k} p = 0` once `2k > deg p`,
+so summing `k` over `range (natDegree p + 1)` captures every nonzero term.
+
+**Why the sign.**  For `t ≥ 0` the symbol `e^{−t x²}` lies in the Laguerre–Pólya
+class, so `e^{−t·D²}` is exactly the direction that PRESERVES real-rootedness (the
+polynomial de Bruijn theorem).  The forward operator `e^{+t·D²}` does NOT: e.g.
+`e^{t·D²}(X²−1) = X² + (2t−1)` acquires a conjugate pair of non-real roots for
+`t > 1/2`.  This is why the preservation theorem carries the hypothesis `0 ≤ t`. -/
+
+/-- Fixed-cutoff heat partial sum `∑_{k<N} ((−t)ᵏ/k!)·D^{2k} p`.  Introduced as a
+separate definition (with an *explicit* cutoff `N`) so that additivity/`smul` can be
+proved at a cutoff independent of `natDegree` — which changes under `+` and `•`. -/
+noncomputable def heatPartial (N : ℕ) (t : ℝ) (p : ℝ[X]) : ℝ[X] :=
+  ∑ k ∈ Finset.range N, ((-t) ^ k / (Nat.factorial k : ℝ)) • Polynomial.derivative^[2 * k] p
+
+/-- Iterated formal derivative is additive (helper; mathlib has `iterate_derivative_sum`
+and `iterate_derivative_smul` but no bare `iterate_derivative_add`). -/
+theorem iterate_derivative_add (k : ℕ) (p q : ℝ[X]) :
+    Polynomial.derivative^[k] (p + q)
+      = Polynomial.derivative^[k] p + Polynomial.derivative^[k] q := by
+  induction k with
+  | zero => simp
+  | succ k ih =>
+      simp only [Function.iterate_succ_apply', ih, Polynomial.derivative_add]
+
+/-- `heatPartial N t` is additive (at a fixed cutoff `N`). -/
+theorem heatPartial_add (N : ℕ) (t : ℝ) (p q : ℝ[X]) :
+    heatPartial N t (p + q) = heatPartial N t p + heatPartial N t q := by
+  unfold heatPartial
+  rw [← Finset.sum_add_distrib]
+  refine Finset.sum_congr rfl fun k _ => ?_
+  rw [iterate_derivative_add, smul_add]
+
+/-- `heatPartial N t` is `ℝ`-homogeneous (at a fixed cutoff `N`). -/
+theorem heatPartial_smul (N : ℕ) (t c : ℝ) (p : ℝ[X]) :
+    heatPartial N t (c • p) = c • heatPartial N t p := by
+  unfold heatPartial
+  rw [Finset.smul_sum]
+  refine Finset.sum_congr rfl fun k _ => ?_
+  rw [Polynomial.iterate_derivative_smul]
+  exact smul_comm _ _ _
+
+/-- **Cutoff stability.**  Enlarging the cutoff `N` beyond `natDegree p + 1` adds only
+zero terms (`D^{2k} p = 0` for `2k > natDegree p`), so `heatPartial` is independent of
+`N` once `N ≥ natDegree p + 1`.  This is what makes `heatOp` well-defined and lets
+additivity transfer from the fixed-cutoff `heatPartial`. -/
+theorem heatPartial_stable {N : ℕ} {t : ℝ} {p : ℝ[X]} (h : p.natDegree + 1 ≤ N) :
+    heatPartial N t p = heatPartial (p.natDegree + 1) t p := by
+  unfold heatPartial
+  refine (Finset.sum_subset (Finset.range_subset.mpr h) ?_).symm
+  intro k _ hk
+  simp only [Finset.mem_range, not_lt] at hk
+  rw [Polynomial.iterate_derivative_eq_zero (by omega : p.natDegree < 2 * k), smul_zero]
+
+/-- **The heat / Laguerre–Pólya multiplier operator** `e^{−t·D²}` on `ℝ[X]`, as a
+genuine (finite, computable) polynomial map — the concrete replacement for the former
+`opaque heatMultiplier`. -/
+noncomputable def heatOp (t : ℝ) (p : ℝ[X]) : ℝ[X] := heatPartial (p.natDegree + 1) t p
+
+/-- `heatOp 0 = id`: at `t = 0` every `k ≥ 1` term vanishes and the `k = 0` term is `p`.
+Sorry-free. -/
+@[simp] theorem heatOp_zero (p : ℝ[X]) : heatOp 0 p = p := by
+  unfold heatOp heatPartial
+  rw [Finset.sum_eq_single (0 : ℕ)]
+  · simp
+  · intro k _ hk
+    rw [neg_zero, zero_pow hk, zero_div, zero_smul]
+  · intro h
+    exact absurd (Finset.mem_range.mpr (Nat.succ_pos _)) h
+
+/-- `heatOp t` is additive.  Sorry-free (transfers from `heatPartial_add` via cutoff
+stability at a common cutoff). -/
+theorem heatOp_add (t : ℝ) (p q : ℝ[X]) :
+    heatOp t (p + q) = heatOp t p + heatOp t q := by
+  obtain ⟨N, hpq, hp, hq⟩ :
+      ∃ N, (p + q).natDegree + 1 ≤ N ∧ p.natDegree + 1 ≤ N ∧ q.natDegree + 1 ≤ N :=
+    ⟨(p + q).natDegree + p.natDegree + q.natDegree + 1, by omega, by omega, by omega⟩
+  unfold heatOp
+  rw [← heatPartial_stable hpq, ← heatPartial_stable hp, ← heatPartial_stable hq,
+      heatPartial_add]
+
+/-- `heatOp t` is `ℝ`-homogeneous.  Sorry-free. -/
+theorem heatOp_smul (t c : ℝ) (p : ℝ[X]) :
+    heatOp t (c • p) = c • heatOp t p := by
+  obtain ⟨N, hcp, hp⟩ : ∃ N, (c • p).natDegree + 1 ≤ N ∧ p.natDegree + 1 ≤ N :=
+    ⟨(c • p).natDegree + p.natDegree + 1, by omega, by omega⟩
+  unfold heatOp
+  rw [← heatPartial_stable hcp, ← heatPartial_stable hp, heatPartial_smul]
+
+/-- **`heatOp` preserves degree.**  `heatOp t p = p + (lower-degree terms)`: the `k = 0`
+term is `p` and every `k ≥ 1` term has degree `≤ natDegree p − 2 < natDegree p`.  So
+`(heatOp t p).natDegree = p.natDegree`.  Sorry-free.  (In particular `heatOp t` sends
+nonzero polynomials to nonzero polynomials of the same degree — a genuine multiplier
+property, and exactly the degree bookkeeping the LP-preservation statement needs.) -/
+theorem heatOp_natDegree (t : ℝ) (p : ℝ[X]) : (heatOp t p).natDegree = p.natDegree := by
+  have hrw : heatOp t p =
+      (∑ k ∈ Finset.range p.natDegree,
+        ((-t) ^ (k + 1) / (Nat.factorial (k + 1) : ℝ))
+          • Polynomial.derivative^[2 * (k + 1)] p) + p := by
+    unfold heatOp heatPartial
+    rw [Finset.sum_range_succ']
+    congr 1
+    simp
+  rcases Nat.eq_zero_or_pos p.natDegree with hN | hN
+  · rw [hrw]; simp [hN]
+  · have hlt : (∑ k ∈ Finset.range p.natDegree,
+          ((-t) ^ (k + 1) / (Nat.factorial (k + 1) : ℝ))
+            • Polynomial.derivative^[2 * (k + 1)] p).natDegree < p.natDegree := by
+      have hbound : (∑ k ∈ Finset.range p.natDegree,
+            ((-t) ^ (k + 1) / (Nat.factorial (k + 1) : ℝ))
+              • Polynomial.derivative^[2 * (k + 1)] p).natDegree ≤ p.natDegree - 1 := by
+        refine Polynomial.natDegree_sum_le_of_forall_le (Finset.range p.natDegree)
+          (fun k => ((-t) ^ (k + 1) / (Nat.factorial (k + 1) : ℝ))
+            • Polynomial.derivative^[2 * (k + 1)] p) (fun k _ => ?_)
+        show (((-t) ^ (k + 1) / (Nat.factorial (k + 1) : ℝ))
+            • Polynomial.derivative^[2 * (k + 1)] p).natDegree ≤ p.natDegree - 1
+        have h1 : (((-t) ^ (k + 1) / (Nat.factorial (k + 1) : ℝ))
+            • Polynomial.derivative^[2 * (k + 1)] p).natDegree
+            ≤ (Polynomial.derivative^[2 * (k + 1)] p).natDegree :=
+          Polynomial.natDegree_smul_le _ _
+        have h2 : (Polynomial.derivative^[2 * (k + 1)] p).natDegree ≤ p.natDegree - 2 * (k + 1) :=
+          Polynomial.natDegree_iterate_derivative _ _
+        omega
+      omega
+    rw [hrw, add_comm]
+    exact Polynomial.natDegree_add_eq_left_of_natDegree_lt hlt
+
+/-! ### The remaining honest gap: the polynomial de Bruijn / Pólya–Schur theorem
+
+With `heatOp` concrete, the ONE deep analytic fact still missing from mathlib is
+crisply isolated below.  The finite ingredients are proved sorry-free above
+(`hasOnlyRealRoots_derivative`, `hasOnlyRealRoots_iterate_derivative`, and the whole
+`heatOp` algebra); what remains is the *reality of the roots of the finite sum*, which
+does NOT follow termwise (a sum of real-rooted polynomials need not be real-rooted). -/
 
 /-- **Heat semigroup preserves the (polynomial) Laguerre–Pólya class** — `heat_preserves_LP`.
 
-If `p` has only real roots then so does `e^{t·D²} p` for every `t`.  This is the
-Hermite–Poulain / Pólya–Schur multiplier theorem, the honest remaining gap:
+For `t ≥ 0`, if `p` has only real roots then so does `e^{−t·D²} p = heatOp t p`.  This
+is the polynomial case of de Bruijn's theorem (equivalently the Pólya–Schur
+characterization of the LP-multiplier `e^{−t x²}`).  It is now a genuine, falsifiable
+statement about a CONCRETE operator (`heatOp`), not the former opaque black box.
 
-* **mathlib GAP** (the `sorry`): the Pólya–Schur / Hermite–Poulain multiplier
-  theorem — that the diagonal operator `e^{t·D²} = ∑ₖ (tᵏ/k!) D^{2k}` maps the
-  Laguerre–Pólya class into itself.  Reference: Pólya–Schur (*J. reine angew. Math.*
-  144, 1914); N. Obreschkoff, *Verteilung und Berechnung der Nullstellen reeller
-  Polynome* (1963), Hermite–Poulain theorem; see also Rahman–Schmeisser,
-  *Analytic Theory of Polynomials* (2002), Ch. 5.
-* **PROVED, sorry-free, reachable ingredients**: the finite Hermite–Poulain
-  differentiation operators `D^n` preserve real-rootedness in FULL general degree —
-  `hasOnlyRealRoots_derivative` and `hasOnlyRealRoots_iterate_derivative` above.
-  These are the genuine ℝ-analogs (via mathlib Rolle) of the core project's affine
-  shadow, and are the atomic content the multiplier theorem assembles by summation. -/
-theorem heat_preserves_LP (t : ℝ) {p : ℝ[X]} (hp : HasOnlyRealRoots p) :
-    HasOnlyRealRoots (heatMultiplier t p) := by
+**The single remaining `sorry` — precise missing mathlib input.**  The standard proof
+factors the symbol and passes to a limit:
+
+  `e^{−t·D²} = limₙ (1 − (t/n)·D²)ⁿ`,   and for `t ≥ 0, n > 0`,
+  `1 − (t/n)·D² = −(t/n)·(D − √(n/t))·(D + √(n/t))`  (real shifts, since `t ≥ 0`),
+
+a Hermite–Poulain product of **linear real-shift factors** `p ↦ p′ ± √(n/t)·p`.  Two
+mathlib gaps block a sorry-free finish, either of which is the smallest reachable
+sub-step:
+
+* **(atomic Hermite–Poulain step)** for real `c`, `p ↦ Polynomial.derivative p + c • p`
+  preserves real-rootedness.  Mathlib has the *derivative* interlacing
+  (`Polynomial.card_roots_le_derivative`, used above) but NOT the shifted operator
+  `p′ + c·p` (its interlacing needs the sign/Rolle analysis of `e^{c x} p`, whose
+  factor `e^{c x}` is not a polynomial).
+* **(the limit)** continuity of `Polynomial.roots` under coefficient limits
+  (Hurwitz's theorem) — mathlib has no `roots`-continuity / `ContinuousMultilinearMap`
+  bridge from convergence of coefficients to convergence of the (real) root multiset.
+
+Reference: N. G. de Bruijn, *The roots of trigonometric integrals*, Duke Math. J. 17
+(1950), 197–226; Pólya–Schur, *J. reine angew. Math.* 144 (1914); N. Obreschkoff,
+*Verteilung und Berechnung der Nullstellen reeller Polynome* (1963), Hermite–Poulain
+theorem; Rahman–Schmeisser, *Analytic Theory of Polynomials* (2002), Ch. 5. -/
+theorem heat_preserves_LP (t : ℝ) (ht : 0 ≤ t) {p : ℝ[X]} (hp : HasOnlyRealRoots p) :
+    HasOnlyRealRoots (heatOp t p) := by
   sorry
 
 /-! ## 3. Axiom audit -/
@@ -259,8 +400,18 @@ theorem heat_preserves_LP (t : ℝ) {p : ℝ[X]} (hp : HasOnlyRealRoots p) :
 #print axioms hasOnlyRealRoots_derivative
 #print axioms hasOnlyRealRoots_iterate_derivative
 
--- The single deep-analytic gap: this SHOULD report `sorryAx` (Hermite–Poulain /
--- Pólya–Schur multiplier theorem, not in mathlib).
+-- The concrete heat-operator algebra (all sorry-free).
+#print axioms iterate_derivative_add
+#print axioms heatPartial_add
+#print axioms heatPartial_smul
+#print axioms heatPartial_stable
+#print axioms heatOp_zero
+#print axioms heatOp_add
+#print axioms heatOp_smul
+#print axioms heatOp_natDegree
+
+-- The single deep-analytic gap: this SHOULD report `sorryAx` (polynomial de Bruijn /
+-- Pólya–Schur LP-multiplier theorem, not in mathlib).
 #print axioms heat_preserves_LP
 
 end MathlibBridge

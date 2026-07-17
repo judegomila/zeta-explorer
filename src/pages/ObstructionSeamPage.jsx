@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { RH_OBSTRUCTION_SEAM } from '../data/rh-obstruction-seam-2026-07-16.js';
 
-const { meta, bracket, principle, literatureLandsInert, caughtFabrications, conclusion } = RH_OBSTRUCTION_SEAM;
+const { meta, bracket, principle, literatureLandsInert, caughtFabrications, outOfFramework, conclusion } = RH_OBSTRUCTION_SEAM;
 
 export default function ObstructionSeamPage() {
   return (
@@ -65,6 +65,20 @@ export default function ObstructionSeamPage() {
       <ul style={{ color: '#94a3b8', fontSize: 12.5, lineHeight: 1.6, maxWidth: 860 }}>
         {caughtFabrications.map((c, i) => <li key={i} style={{ marginBottom: 4 }}>{c}</li>)}
       </ul>
+
+      {outOfFramework && (
+        <>
+          <h2>Out-of-framework follow-up — the overlap is provably empty</h2>
+          <div style={{ border: '1px solid #f8717155', background: 'rgba(248,113,113,0.06)', borderRadius: 8, padding: '12px 16px', maxWidth: 860 }}>
+            <div style={{ fontFamily: 'ui-monospace, monospace', fontSize: 12, color: '#f87171', marginBottom: 6 }}>{outOfFramework.verdict}</div>
+            <ul style={{ color: '#cbd5e1', fontSize: 12.5, lineHeight: 1.6, margin: '4px 0' }}>
+              {outOfFramework.failureModes.map((f, i) => <li key={i} style={{ marginBottom: 3 }}>{f}</li>)}
+            </ul>
+            <p style={{ margin: '8px 0 0', fontSize: 12.5, color: '#e2e8f0', lineHeight: 1.6 }}><strong>Sharpest case:</strong> {outOfFramework.sharpestCase}</p>
+            <p style={{ margin: '6px 0 0', fontSize: 12, color: '#94a3b8', lineHeight: 1.55 }}>{outOfFramework.conj221Note}</p>
+          </div>
+        </>
+      )}
 
       <h2>Honest conclusion</h2>
       <p style={{ color: '#e2e8f0', fontSize: 14, lineHeight: 1.75, maxWidth: 860 }}>{conclusion}</p>

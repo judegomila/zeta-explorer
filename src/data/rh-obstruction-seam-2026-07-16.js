@@ -59,6 +59,20 @@ export const CAUGHT_FABRICATIONS = [
   'CMR (2310.01913) cited as unconditional — it literally opens "Assuming the Riemann hypothesis".',
 ];
 
+// Follow-up round (2026-07-16): search OUTSIDE the framework for the forbidden
+// overlap. 14 routes, all killed — the overlap is not just unreached, it is empty.
+export const OUT_OF_FRAMEWORK = {
+  verdict: 'NO ESCAPE — framework exhausted (in AND out). All 14 out-of-framework routes self-concede landsInOverlap:false.',
+  failureModes: [
+    'REDUCES-TO-PCC/C_H: the sufficient half is Weil explicit-formula positivity or wide-support Montgomery PCC or the L∞ min-gap shock (Hodge-index/F₁, Connes–van Suijlekom truncated Weil, Connes prolate/Sonin, Bombieri–Garrett, design-the-potential, Jensen–Pólya/Turán, shifted-LP, DBN Λ<0.2).',
+    'CIRCULAR: the sufficient statement presupposes reality of the zeros to be well-posed (Berry–Keating xp, Bender–Brody–Müller).',
+    'QUASI-RH-UNPROVABLE: the sufficient half is a bare restatement of RH / a Hilbert–Pólya realization (semilocal Weil, prolate/metaplectic Hamiltonian).',
+  ],
+  sharpestCase:
+    'Bombieri–Garrett / Colin de Verdière pseudo-Laplacian: its provable half (Friedrichs self-adjointness, discrete spectrum {s(s−1)}) is GENUINELY unconditional and non-circular — yet the bridge "every zero is an eigenvalue" is provably FALSE: wide-support PCC caps the capturable fraction near 94%, so an off-line zero would be silently dropped from the spectrum, not contradicted. The overlap is EMPTY, not merely hard.',
+  conj221Note: 'The follow-up suggested probing Conjecture 22.1 — but it was already FALSIFIED earlier (coefficient-dimension obstruction, D≥1.24×10¹³). That lead is closed.',
+};
+
 export const SEAM_HONEST_CONCLUSION =
   'Within the de Bruijn–Newman / barrier / pair-correlation framework there is no crack: the ' +
   'provable and sufficient sides are provably disjoint, bracketed explicitly (#4 vs #14). A breach ' +
@@ -73,5 +87,6 @@ export const RH_OBSTRUCTION_SEAM = {
   principle: SEAM_PRINCIPLE,
   literatureLandsInert: LITERATURE_LANDS_INERT,
   caughtFabrications: CAUGHT_FABRICATIONS,
+  outOfFramework: OUT_OF_FRAMEWORK,
   conclusion: SEAM_HONEST_CONCLUSION,
 };

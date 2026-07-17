@@ -45,6 +45,15 @@ import Mathlib.Order.Filter.AtTopBot.Field
 import Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral
 import Mathlib.Topology.Algebra.Polynomial
 import Mathlib.Data.Complex.Basic
+import Mathlib.Analysis.Polynomial.CauchyBound
+import Mathlib.RingTheory.Polynomial.Vieta
+import Mathlib.Topology.MetricSpace.Sequences
+import Mathlib.Data.Nat.Choose.Sum
+import Mathlib.Data.Nat.Factorial.BigOperators
+import Mathlib.Analysis.Normed.Module.FiniteDimension
+import Mathlib.Analysis.SpecificLimits.Basic
+import Mathlib.Algebra.Module.LinearMap.End
+import Mathlib.Algebra.Polynomial.BigOperators
 
 open scoped Polynomial
 
@@ -887,23 +896,346 @@ theorem heatOp_natDegree (t : ℝ) (p : ℝ[X]) : (heatOp t p).natDegree = p.nat
     rw [hrw, add_comm]
     exact Polynomial.natDegree_add_eq_left_of_natDegree_lt hlt
 
-/-! ### The remaining honest gap: the analytic `n → ∞` limit (Hurwitz)
+/-! ### PIECE B — the coefficient limit `(1 − (t/n)·D²)ⁿ p → heatOp t p`
 
-With `heatOp` concrete AND the whole FINITE side now closed sorry-free, the ONE deep
-analytic fact still missing from mathlib is crisply isolated below.  The finite
-ingredients are all proved sorry-free above:
+The finite operator `(1 − c·D²)ⁿ` expands (operator binomial, `1` and `D²` commute) as
+`∑ⱼ C(n,j)(−c)ʲ·D^{2j}`.  With `c = t/n` the scalar `C(n,j)(−t/n)ʲ → (−t)ʲ/j!` per fixed
+`j`, and since `D^{2j}p = 0` for `2j > deg p` the whole sum converges coefficient-wise to
+`heatOp t p = ∑ⱼ ((−t)ʲ/j!)·D^{2j}p`.  All sorry-free. -/
+
+section HeatLimit
+open Filter Topology Polynomial
+open scoped NNReal
+
+/-- **Operator binomial expansion (Piece B, step 1).**  `(1 − c·D²)ⁿ p = ∑ⱼ C(n,j)(−c)ʲ·D^{2j}p`.
+Proved in the endomorphism ring `Module.End ℝ ℝ[X]` via `Commute.add_pow` (the identity commutes
+with `c·D²`), then evaluated at `p`. -/
+theorem oneMinusCD2_iterate_eq_sum (c : ℝ) (p : ℝ[X]) (n : ℕ) :
+    (oneMinusCD2 c)^[n] p
+      = ∑ j ∈ Finset.range (n + 1),
+          ((n.choose j : ℝ) * (-c) ^ j) • Polynomial.derivative^[2 * j] p := by
+  classical
+  set Δ : Module.End ℝ ℝ[X] := Polynomial.derivative * Polynomial.derivative with hΔ
+  set T : Module.End ℝ ℝ[X] := -(c • Δ) + 1 with hT
+  have hTapp : ⇑T = oneMinusCD2 c := by
+    funext q
+    rw [hT]
+    simp only [LinearMap.add_apply, LinearMap.neg_apply, LinearMap.smul_apply,
+      Module.End.one_apply, hΔ, Module.End.mul_apply]
+    unfold oneMinusCD2
+    abel
+  have hiter : (oneMinusCD2 c)^[n] p = (T ^ n) p := by
+    rw [Module.End.pow_apply, hTapp]
+  rw [hiter, hT]
+  have hbin : (-(c • Δ) + 1) ^ n
+      = ∑ m ∈ Finset.range (n + 1), (-(c • Δ)) ^ m * (n.choose m : Module.End ℝ ℝ[X]) := by
+    rw [(Commute.one_right (-(c • Δ))).add_pow]
+    refine Finset.sum_congr rfl (fun m _ => ?_)
+    rw [one_pow, mul_one]
+  rw [hbin, LinearMap.sum_apply]
+  refine Finset.sum_congr rfl (fun m _ => ?_)
+  have hpow : (-(c • Δ)) ^ m = (-c) ^ m • Δ ^ m := by
+    have hns : (-(c • Δ) : Module.End ℝ ℝ[X]) = (-c) • Δ := (neg_smul c Δ).symm
+    rw [hns, smul_pow]
+  have hΔm : (Δ ^ m) p = Polynomial.derivative^[2 * m] p := by
+    have h1 : Δ ^ m = (Polynomial.derivative : Module.End ℝ ℝ[X]) ^ (2 * m) := by
+      rw [hΔ, pow_mul, pow_two]
+    rw [h1, Module.End.pow_apply]
+  rw [Module.End.mul_apply, Module.End.natCast_apply, ← Nat.cast_smul_eq_nsmul ℝ,
+    LinearMap.map_smul, hpow, LinearMap.smul_apply, hΔm, smul_smul]
+
+/-- **Scalar limit (Piece B, step 2).**  `C(n,j)·(−t/n)ʲ → (−t)ʲ/j!` as `n → ∞`.
+Via `n.choose j / nʲ → 1/j!` (a finite product `∏_{i<j}(1 − i/n) → 1`). -/
+theorem choose_mul_pow_tendsto (t : ℝ) (j : ℕ) :
+    Tendsto (fun n : ℕ => (n.choose j : ℝ) * (-(t / n)) ^ j) atTop
+      (𝓝 ((-t) ^ j / j.factorial)) := by
+  have hg : Tendsto (fun n : ℕ => (n.choose j : ℝ) / (n : ℝ) ^ j) atTop
+      (𝓝 (1 / j.factorial)) := by
+    have hfac : ∀ i : ℕ, Tendsto (fun n : ℕ => ((n : ℝ) - i) / n) atTop (𝓝 1) := by
+      intro i
+      have h0 : Tendsto (fun n : ℕ => (1 : ℝ) - (i : ℝ) / n) atTop (𝓝 (1 - 0)) :=
+        tendsto_const_nhds.sub (tendsto_const_div_atTop_nhds_zero_nat (i : ℝ))
+      rw [sub_zero] at h0
+      refine h0.congr' ?_
+      filter_upwards [eventually_gt_atTop 0] with n hn
+      have hn0 : (n : ℝ) ≠ 0 := Nat.cast_ne_zero.mpr hn.ne'
+      field_simp
+    have hprod : Tendsto (fun n : ℕ => ∏ i ∈ Finset.range j, ((n : ℝ) - (i : ℝ)) / (n : ℝ))
+        atTop (𝓝 1) := by
+      have h := tendsto_finset_prod (Finset.range j)
+        (f := fun (i : ℕ) (n : ℕ) => ((n : ℝ) - (i : ℝ)) / (n : ℝ))
+        (a := fun (_ : ℕ) => (1 : ℝ)) (x := atTop) (fun i _ => hfac i)
+      simpa using h
+    have hlim1 : Tendsto (fun n : ℕ => (1 / (j.factorial : ℝ)) * ∏ i ∈ Finset.range j, ((n : ℝ) - i) / n)
+        atTop (𝓝 (1 / (j.factorial : ℝ))) := by
+      have := hprod.const_mul (1 / (j.factorial : ℝ))
+      rwa [mul_one] at this
+    refine hlim1.congr' ?_
+    filter_upwards [eventually_ge_atTop j] with n hn
+    have hcast : (∏ i ∈ Finset.range j, ((n : ℝ) - i)) = (j.factorial : ℝ) * (n.choose j : ℝ) := by
+      have h1 : (n.descFactorial j : ℝ) = ∏ i ∈ Finset.range j, ((n : ℝ) - i) := by
+        rw [Nat.descFactorial_eq_prod_range, Nat.cast_prod]
+        refine Finset.prod_congr rfl (fun i hi => ?_)
+        rw [Nat.cast_sub (le_of_lt (lt_of_lt_of_le (Finset.mem_range.mp hi) hn))]
+      rw [← h1, Nat.descFactorial_eq_factorial_mul_choose, Nat.cast_mul]
+    rw [Finset.prod_div_distrib, Finset.prod_const, Finset.card_range, hcast, one_div,
+      ← mul_div_assoc, inv_mul_cancel_left₀ (Nat.cast_ne_zero.mpr (Nat.factorial_ne_zero j))]
+  have hpt : ∀ n : ℕ, (-(t / n)) ^ j = (-t) ^ j / (n : ℝ) ^ j := by
+    intro n; rw [← neg_div, div_pow]
+  have hrw : (fun n : ℕ => (n.choose j : ℝ) * (-(t / n)) ^ j)
+      = (fun n : ℕ => (-t) ^ j * ((n.choose j : ℝ) / (n : ℝ) ^ j)) := by
+    funext n; rw [hpt]; ring
+  rw [hrw]
+  have := hg.const_mul ((-t) ^ j)
+  rwa [mul_one_div] at this
+
+/-- **The coefficient limit (Piece B, main).**  For every `m`,
+`((1 − (t/n)·D²)ⁿ p).coeff m → (heatOp t p).coeff m`. -/
+theorem oneMinusCD2_iterate_tendsto_heatOp (t : ℝ) (p : ℝ[X]) (m : ℕ) :
+    Tendsto (fun n : ℕ => ((oneMinusCD2 (t / n))^[n] p).coeff m) atTop
+      (𝓝 ((heatOp t p).coeff m)) := by
+  -- target coefficient as a finite sum over `range (natDegree p + 1)`
+  have hheat : (heatOp t p).coeff m
+      = ∑ j ∈ Finset.range (p.natDegree + 1),
+          ((-t) ^ j / (j.factorial : ℝ)) * (Polynomial.derivative^[2 * j] p).coeff m := by
+    unfold heatOp heatPartial
+    rw [Polynomial.finset_sum_coeff]
+    refine Finset.sum_congr rfl (fun j _ => ?_)
+    rw [Polynomial.coeff_smul, smul_eq_mul]
+  rw [hheat]
+  -- eventual equality of qₙ.coeff m with the fixed-range sum
+  refine Tendsto.congr' ?_
+    (tendsto_finset_sum (Finset.range (p.natDegree + 1))
+      (f := fun j (n : ℕ) =>
+        ((n.choose j : ℝ) * (-(t / n)) ^ j) * (Polynomial.derivative^[2 * j] p).coeff m)
+      (a := fun j => ((-t) ^ j / (j.factorial : ℝ)) * (Polynomial.derivative^[2 * j] p).coeff m)
+      (fun j _ => (choose_mul_pow_tendsto t j).mul_const _))
+  filter_upwards [eventually_ge_atTop p.natDegree] with n hn
+  rw [oneMinusCD2_iterate_eq_sum, Polynomial.finset_sum_coeff,
+    ← Finset.sum_subset (Finset.range_subset.mpr (show p.natDegree + 1 ≤ n + 1 by omega))
+      (fun j _ hj => by
+        simp only [Finset.mem_range, not_lt] at hj
+        rw [Polynomial.coeff_smul,
+          Polynomial.iterate_derivative_eq_zero (show p.natDegree < 2 * j by omega),
+          Polynomial.coeff_zero, smul_zero])]
+  refine Finset.sum_congr rfl (fun j _ => ?_)
+  rw [Polynomial.coeff_smul, smul_eq_mul]
+
+end HeatLimit
+
+/-- **The finite heat factor preserves the leading coefficient** (Task 3 support, sorry-free).
+`(1 − c·D²)p = p − c·p″` and `c·p″` has strictly smaller degree, so the leading term survives. -/
+theorem oneMinusCD2_leadingCoeff (c : ℝ) (p : ℝ[X]) :
+    (oneMinusCD2 c p).leadingCoeff = p.leadingCoeff := by
+  have hz : (Polynomial.derivative (Polynomial.derivative p)).coeff p.natDegree = 0 := by
+    rcases Nat.eq_zero_or_pos p.natDegree with h0 | hpos
+    · rw [Polynomial.derivative_of_natDegree_zero h0, Polynomial.derivative_zero,
+        Polynomial.coeff_zero]
+    · refine Polynomial.coeff_eq_zero_of_natDegree_lt ?_
+      have h1 := Polynomial.natDegree_derivative_le (Polynomial.derivative p)
+      have h2 := Polynomial.natDegree_derivative_le p
+      omega
+  unfold Polynomial.leadingCoeff
+  rw [oneMinusCD2_natDegree, oneMinusCD2, Polynomial.coeff_sub, Polynomial.coeff_smul,
+    smul_eq_mul, hz, mul_zero, sub_zero]
+
+/-- **Every finite power `(1 − c·D²)ⁿ` preserves the leading coefficient** (sorry-free). -/
+theorem oneMinusCD2_iterate_leadingCoeff (c : ℝ) (p : ℝ[X]) :
+    ∀ n : ℕ, ((oneMinusCD2 c)^[n] p).leadingCoeff = p.leadingCoeff
+  | 0 => by simp
+  | n + 1 => by
+      rw [Function.iterate_succ', Function.comp_apply, oneMinusCD2_leadingCoeff,
+        oneMinusCD2_iterate_leadingCoeff c p n]
+
+/-! ### PIECE A — real-rootedness is CLOSED under coefficient limits (root-vector compactness)
+
+This is the Hurwitz replacement, WITHOUT complex analysis.  If real-rooted `pₙ` of a common
+degree `d` and fixed nonzero leading coefficient `a` converge coefficient-wise to `p`, then `p`
+is real-rooted.  Each `pₙ = C a · ∏ᵢ(X − rₙ,ᵢ)` with real roots; the roots are uniformly bounded
+(Cauchy's bound, `Polynomial.IsRoot.norm_lt_cauchyBound`), so the root-vectors live in a compact
+box.  Bolzano–Weierstrass (`tendsto_subseq_of_bounded`) extracts a convergent subsequence
+`rₙₖ → s`, and continuity of Vieta (`w ↦ (∏ᵢ(X − wᵢ)).coeff k`) gives `p = C a · ∏ᵢ(X − sᵢ)` —
+manifestly real-rooted. -/
+
+section HurwitzReplacement
+open Filter Topology Polynomial
+open scoped NNReal
+
+/-- **Continuity of Vieta coefficients.**  For every `k`, the `k`-th coefficient of the
+parametrised product `∏ᵢ∈s (X − wᵢ)` is a continuous function of the root vector `w`. -/
+theorem continuous_prod_X_sub_C_coeff {d : ℕ} (s : Finset (Fin d)) :
+    ∀ k : ℕ, Continuous (fun w : Fin d → ℝ => (∏ i ∈ s, (X - C (w i))).coeff k) := by
+  induction s using Finset.induction_on with
+  | empty =>
+      intro k
+      simp only [Finset.prod_empty]
+      exact continuous_const
+  | @insert a s ha ih =>
+      intro k
+      simp only [Finset.prod_insert ha]
+      have hExpand : (fun w : Fin d → ℝ => ((X - C (w a)) * ∏ i ∈ s, (X - C (w i))).coeff k)
+          = (fun w : Fin d → ℝ =>
+              ((X : ℝ[X]) * ∏ i ∈ s, (X - C (w i))).coeff k
+                - (w a) * (∏ i ∈ s, (X - C (w i))).coeff k) := by
+        funext w
+        rw [sub_mul, Polynomial.coeff_sub, Polynomial.C_mul', Polynomial.coeff_smul, smul_eq_mul]
+      rw [hExpand]
+      apply Continuous.sub
+      · cases k with
+        | zero => simp only [Polynomial.coeff_X_mul_zero]; exact continuous_const
+        | succ k => simp only [Polynomial.coeff_X_mul]; exact ih k
+      · exact (continuous_apply a).mul (ih k)
+
+/-- **Real-rootedness is closed under coefficient limits (Piece A, main, sorry-free).**
+The polynomial Hurwitz limit via root-vector compactness (no complex analysis). -/
+theorem hasOnlyRealRoots_of_tendsto_coeff {d : ℕ} {a : ℝ} (ha : a ≠ 0)
+    {P : ℕ → ℝ[X]} {p : ℝ[X]}
+    (hPdeg : ∀ n, (P n).natDegree = d) (hPlead : ∀ n, (P n).leadingCoeff = a)
+    (hPrr : ∀ n, HasOnlyRealRoots (P n)) (hpdeg : p.natDegree = d)
+    (hlim : ∀ m, Tendsto (fun n => (P n).coeff m) atTop (𝓝 (p.coeff m))) :
+    HasOnlyRealRoots p := by
+  classical
+  rcases Nat.eq_zero_or_pos d with hd0 | hdpos
+  · -- degree 0: card roots ≤ natDegree = 0
+    unfold HasOnlyRealRoots
+    have hcr := Polynomial.card_roots' p
+    rw [hpdeg, hd0] at hcr ⊢
+    omega
+  -- basic facts
+  have hPne : ∀ n, P n ≠ 0 := fun n =>
+    Polynomial.leadingCoeff_ne_zero.mp (by rw [hPlead n]; exact ha)
+  have hcoeffd : p.coeff d = a := by
+    have h2 : (fun n => (P n).coeff d) = (fun _ : ℕ => a) := by
+      funext n; rw [← hPdeg n]; exact hPlead n
+    have h1 := hlim d
+    rw [h2] at h1
+    exact tendsto_nhds_unique h1 tendsto_const_nhds
+  have hplead : p.leadingCoeff = a := by
+    rw [Polynomial.leadingCoeff, hpdeg]; exact hcoeffd
+  -- root vectors from each Pₙ
+  have hcardn : ∀ n, Multiset.card (P n).roots = d := fun n => (hPrr n).trans (hPdeg n)
+  have hlenL : ∀ n, ((P n).roots.toList).length = d := fun n => by
+    rw [Multiset.length_toList, hcardn n]
+  have hlistprod : ∀ (L : List ℝ),
+      (L.map (fun r => (X : ℝ[X]) - C r)).prod = ∏ i : Fin L.length, ((X : ℝ[X]) - C (L.get i)) := by
+    intro L
+    conv_lhs => rw [← List.finRange_map_get L, List.map_map]
+    rw [← List.prod_ofFn, List.ofFn_eq_map]
+    rfl
+  set v : ℕ → Fin d → ℝ :=
+    fun n i => ((P n).roots.toList).get (Fin.cast (hlenL n).symm i) with hvdef
+  have hprod : ∀ n, P n = Polynomial.C a * ∏ i : Fin d, ((X : ℝ[X]) - C (v n i)) := by
+    intro n
+    have hbase := (Polynomial.C_leadingCoeff_mul_prod_multiset_X_sub_C (hPrr n)).symm
+    rw [hPlead n] at hbase
+    rw [hbase]
+    congr 1
+    rw [← Multiset.coe_toList (P n).roots, Multiset.map_coe, Multiset.prod_coe, hlistprod]
+    simp only [hvdef]
+    exact (Fin.prod_congr' (fun j => (X : ℝ[X]) - C ((P n).roots.toList.get j)) (hlenL n).symm).symm
+  have hroot : ∀ n i, (P n).IsRoot (v n i) := by
+    intro n i
+    have hmem : v n i ∈ (P n).roots := by
+      rw [hvdef, ← Multiset.mem_toList]
+      exact List.get_mem _ _
+    rw [← Polynomial.mem_roots (hPne n)]
+    exact hmem
+  -- uniform coefficient bound (convergent ⇒ bounded)
+  have hbdd : ∀ k, ∃ Cb : ℝ, ∀ n, |(P n).coeff k| ≤ Cb := by
+    intro k
+    have hb : Bornology.IsBounded (Set.range (fun n => (P n).coeff k)) :=
+      Metric.isBounded_range_of_tendsto_cofinite (by rw [Nat.cofinite_eq_atTop]; exact hlim k)
+    rw [isBounded_iff_forall_norm_le] at hb
+    obtain ⟨Cb, hCb⟩ := hb
+    exact ⟨Cb, fun n => by have := hCb _ (Set.mem_range_self n); rwa [Real.norm_eq_abs] at this⟩
+  choose Cb hCb using hbdd
+  -- uniform Cauchy bound
+  set R : ℝ := (((∑ k ∈ Finset.range d, ‖Cb k‖₊) / ‖a‖₊ + 1 : ℝ≥0) : ℝ) with hRdef
+  have hcb : ∀ n, (Polynomial.cauchyBound (P n) : ℝ) ≤ R := by
+    intro n
+    have hsup : Finset.sup (Finset.range d) (fun k => ‖(P n).coeff k‖₊)
+        ≤ ∑ k ∈ Finset.range d, ‖Cb k‖₊ := by
+      refine Finset.sup_le (fun k hk => ?_)
+      refine le_trans ?_ (Finset.single_le_sum (fun i _ => zero_le _) hk)
+      rw [← NNReal.coe_le_coe]
+      simp only [coe_nnnorm, Real.norm_eq_abs]
+      exact le_trans (hCb k n) (le_abs_self _)
+    have hle : Polynomial.cauchyBound (P n) ≤ (∑ k ∈ Finset.range d, ‖Cb k‖₊) / ‖a‖₊ + 1 := by
+      unfold Polynomial.cauchyBound
+      rw [hPdeg n, hPlead n]
+      gcongr
+    rw [hRdef, NNReal.coe_le_coe]
+    exact hle
+  have hbound : ∀ n i, |v n i| ≤ R := by
+    intro n i
+    have hlt := Polynomial.IsRoot.norm_lt_cauchyBound (hPne n) (hroot n i)
+    have h2 : |v n i| < (Polynomial.cauchyBound (P n) : ℝ) := by
+      have := NNReal.coe_lt_coe.mpr hlt
+      simpa [Real.norm_eq_abs] using this
+    exact le_of_lt (lt_of_lt_of_le h2 (hcb n))
+  -- Bolzano–Weierstrass
+  have hR0 : 0 ≤ R := le_trans (abs_nonneg _) (hbound 0 ⟨0, hdpos⟩)
+  have hmem : ∀ n, v n ∈ Metric.closedBall (0 : Fin d → ℝ) R := by
+    intro n
+    rw [mem_closedBall_zero_iff, pi_norm_le_iff_of_nonneg hR0]
+    intro i; rw [Real.norm_eq_abs]; exact hbound n i
+  obtain ⟨w, -, φ, hφ, hvφ⟩ :=
+    tendsto_subseq_of_bounded Metric.isBounded_closedBall hmem
+  -- the limit product equals p
+  have hpeq : p = Polynomial.C a * ∏ i : Fin d, ((X : ℝ[X]) - C (w i)) := by
+    apply Polynomial.ext
+    intro k
+    have hlimP : Tendsto (fun m => (P (φ m)).coeff k) atTop (𝓝 (p.coeff k)) :=
+      (hlim k).comp hφ.tendsto_atTop
+    have hcont : Continuous
+        (fun w : Fin d → ℝ => (∏ i : Fin d, ((X : ℝ[X]) - C (w i))).coeff k) :=
+      continuous_prod_X_sub_C_coeff Finset.univ k
+    have hlimQ : Tendsto
+        (fun m => (∏ i : Fin d, ((X : ℝ[X]) - C (v (φ m) i))).coeff k) atTop
+        (𝓝 ((∏ i : Fin d, ((X : ℝ[X]) - C (w i))).coeff k)) :=
+      (hcont.tendsto w).comp hvφ
+    have heq : ∀ m, (P (φ m)).coeff k
+        = a * (∏ i : Fin d, ((X : ℝ[X]) - C (v (φ m) i))).coeff k := by
+      intro m; rw [hprod (φ m), Polynomial.coeff_C_mul]
+    have hlimP' : Tendsto (fun m => (P (φ m)).coeff k) atTop
+        (𝓝 (a * (∏ i : Fin d, ((X : ℝ[X]) - C (w i))).coeff k)) := by
+      simp only [heq]; exact hlimQ.const_mul a
+    have huniq := tendsto_nhds_unique hlimP hlimP'
+    rw [Polynomial.coeff_C_mul]; exact huniq
+  -- conclude real-rootedness of the limit product
+  have hprodms : (∏ i : Fin d, ((X : ℝ[X]) - C (w i)))
+      = (((Finset.univ : Finset (Fin d)).val.map w).map (fun r => (X : ℝ[X]) - C r)).prod := by
+    rw [Finset.prod_eq_multiset_prod, Multiset.map_map]; rfl
+  have hroots_p : p.roots = (Finset.univ : Finset (Fin d)).val.map w := by
+    rw [hpeq, hprodms, Polynomial.C_mul', Polynomial.roots_smul_nonzero _ ha,
+      Polynomial.roots_multiset_prod_X_sub_C]
+  unfold HasOnlyRealRoots
+  rw [hroots_p, Multiset.card_map, hpdeg]
+  simp
+
+end HurwitzReplacement
+
+/-! ### The analytic `n → ∞` limit (Hurwitz) — NOW CLOSED sorry-free
+
+With `heatOp` concrete AND the whole FINITE side closed sorry-free, the previously-missing
+analytic passage `heatOp t p = limₙ (1 − (t/n)·D²)ⁿ p` (coefficient-wise) plus the survival
+of real-rootedness under that limit is now discharged above (Pieces A & B).  The finite
+ingredients:
 
 * `hasOnlyRealRoots_derivative` / `hasOnlyRealRoots_iterate_derivative` — `Dⁿ` preserves LP;
 * `hermitePoulain_shift` — the atomic real shift `p ↦ p′ + c·p` preserves LP;
 * `oneMinusCD2_realRooted` / `oneMinusCD2_iterate_realRooted` — the **entire finite heat
-  factor `(1 − c·D²)ⁿ`** preserves LP (Tasks 1 & 2), together with degree preservation
-  `oneMinusCD2_iterate_natDegree`;
+  factor `(1 − c·D²)ⁿ`** preserves LP (Tasks 1 & 2), together with degree/leading-coefficient
+  preservation `oneMinusCD2_iterate_natDegree` / `oneMinusCD2_iterate_leadingCoeff`;
 * the whole `heatOp` algebra (`heatOp_add`, `heatOp_smul`, `heatOp_natDegree`, …).
 
-What remains is a SINGLE analytic passage: `heatOp t p = limₙ (1 − (t/n)·D²)ⁿ p`
-coefficient-wise, and real-rootedness survives that coefficient limit (Hurwitz's theorem).
-The reality does NOT follow termwise (a sum of real-rooted polynomials need not be
-real-rooted), which is why the finite-factor closure above does not by itself finish. -/
+The analytic passage (reality does NOT follow termwise — a sum of real-rooted polynomials
+need not be real-rooted) is supplied by:
+
+* **Piece B** `oneMinusCD2_iterate_tendsto_heatOp` — the coefficient-wise limit
+  `(1 − (t/n)·D²)ⁿ p → heatOp t p`;
+* **Piece A** `hasOnlyRealRoots_of_tendsto_coeff` — real-rootedness is closed under
+  coefficient limits (root-vector compactness; the Hurwitz replacement, no complex analysis). -/
 
 /-- **Heat semigroup preserves the (polynomial) Laguerre–Pólya class** — `heat_preserves_LP`.
 
@@ -925,26 +1257,53 @@ The finite operator `(1 − (t/n)·D²)ⁿ` is now PROVED to preserve real-roote
   composition of two shifts and a nonzero rescaling;
 * every power `(1 − c·D²)ⁿ` (`oneMinusCD2_iterate_realRooted`), by induction.
 
-**The single remaining `sorry` — precise missing mathlib input (the `n → ∞` limit,
-Hurwitz).**  Instantiate `qₙ := (1 − (t/n)·D²)ⁿ p` (for `t > 0`; the `t = 0` case is
-`heatOp_zero`).  Then:
+**NOW FULLY CLOSED — sorry-free (`#print axioms` shows only `propext`,
+`Classical.choice`, `Quot.sound`; no `sorryAx`).**  Instantiate
+`qₙ := (1 − (t/n)·D²)ⁿ p` (for `t > 0`; the `t = 0` case is `heatOp_zero`, `p = 0` is
+degenerate).  Then:
   1. every `qₙ` is real-rooted — `oneMinusCD2_iterate_realRooted` (PROVED);
-  2. `natDegree qₙ = natDegree p` for all `n` — `oneMinusCD2_iterate_natDegree` (PROVED);
-  3. `(qₙ).coeff m → (heatOp t p).coeff m` as `n → ∞`, for every `m` — the classical
-     coefficient-wise `(1 − x/n)ⁿ → e^{−x}` (NOT in mathlib as a `roots`/coefficient bridge);
-  4. real-rootedness passes to the coefficient limit of a bounded-degree family — **Hurwitz's
-     theorem on continuity of roots** (mathlib has `Polynomial.coeff_le_of_roots_le` /
-     `coeff_bdd_of_roots_le` and continuity of `eval`, but NO continuity of the `roots`
-     multiset in the coefficients, and NO `tendsto_roots`).
+  2. `natDegree qₙ = natDegree p` for all `n` — `oneMinusCD2_iterate_natDegree` (PROVED),
+     and `leadingCoeff qₙ = leadingCoeff p` — `oneMinusCD2_iterate_leadingCoeff` (PROVED);
+  3. **PIECE B** `(qₙ).coeff m → (heatOp t p).coeff m` as `n → ∞`, for every `m` —
+     `oneMinusCD2_iterate_tendsto_heatOp` (PROVED): operator binomial
+     `oneMinusCD2_iterate_eq_sum` + the scalar limit `choose_mul_pow_tendsto`
+     (`C(n,j)(−t/n)ʲ → (−t)ʲ/j!`), a `Nat.choose` asymptotic done from first principles;
+  4. **PIECE A** real-rootedness passes to the coefficient limit of a bounded-degree
+     family — `hasOnlyRealRoots_of_tendsto_coeff` (PROVED): the **Hurwitz replacement via
+     root-vector compactness**, WITHOUT complex analysis.  Each `qₙ = C a·∏ᵢ(X − rₙ,ᵢ)`
+     with real roots uniformly bounded by Cauchy's bound
+     (`Polynomial.IsRoot.norm_lt_cauchyBound`); Bolzano–Weierstrass
+     (`tendsto_subseq_of_bounded`) extracts `rₙₖ → s`, and continuity of Vieta
+     (`continuous_prod_X_sub_C_coeff`) forces `p = C a·∏ᵢ(X − sᵢ)`, manifestly real-rooted.
 
-Steps 3–4 are the entire content of this `sorry`; steps 1–2 are discharged sorry-free
-above.  This is exactly the polynomial Hurwitz limit, absent from mathlib as of v4.22.0. -/
+This is the full polynomial de Bruijn / Pólya–Schur LP-multiplier theorem; the entire
+analytic gap that mathlib v4.22.0 lacked (polynomial Hurwitz + the `(1 − x/n)ⁿ → e^{−x}`
+coefficient bridge) is discharged here from mathlib primitives. -/
 theorem heat_preserves_LP (t : ℝ) (ht : 0 ≤ t) {p : ℝ[X]} (hp : HasOnlyRealRoots p) :
     HasOnlyRealRoots (heatOp t p) := by
-  -- FINITE side (sorry-free): for every n, qₙ := (1 − (t/n)·D²)ⁿ p is real-rooted of degree
-  -- natDegree p (`oneMinusCD2_iterate_realRooted`, `oneMinusCD2_iterate_natDegree`).  The ONLY
-  -- gap is the analytic n → ∞ coefficient limit + Hurwitz continuity of roots (steps 3–4).
-  sorry
+  rcases eq_or_lt_of_le ht with rfl | htpos
+  · -- t = 0: heatOp 0 = id
+    rw [heatOp_zero]; exact hp
+  rcases eq_or_ne p 0 with rfl | hp0
+  · -- p = 0: heatOp t 0 has degree 0, so real-rooted
+    unfold HasOnlyRealRoots
+    have hcr := Polynomial.card_roots' (heatOp t (0 : ℝ[X]))
+    rw [heatOp_natDegree, Polynomial.natDegree_zero] at hcr ⊢
+    omega
+  -- p ≠ 0, t > 0: qₙ := (1 − (t/n)·D²)ⁿ p → heatOp t p (Piece B), each real-rooted of
+  -- constant degree and leading coefficient (finite side); apply the Hurwitz replacement.
+  have ha : p.leadingCoeff ≠ 0 := Polynomial.leadingCoeff_ne_zero.mpr hp0
+  refine hasOnlyRealRoots_of_tendsto_coeff (d := p.natDegree) (a := p.leadingCoeff)
+    (P := fun n => (oneMinusCD2 (t / n))^[n] p) (p := heatOp t p) ha ?_ ?_ ?_ ?_ ?_
+  · intro n; exact oneMinusCD2_iterate_natDegree _ p n
+  · intro n; exact oneMinusCD2_iterate_leadingCoeff _ p n
+  · intro n
+    rcases Nat.eq_zero_or_pos n with rfl | hn
+    · simpa using hp
+    · exact oneMinusCD2_iterate_realRooted
+        (div_pos htpos (by exact_mod_cast hn)) hp n
+  · exact heatOp_natDegree t p
+  · intro m; exact oneMinusCD2_iterate_tendsto_heatOp t p m
 
 /-! ## 3. Axiom audit -/
 
@@ -990,8 +1349,21 @@ theorem heat_preserves_LP (t : ℝ) (ht : 0 ≤ t) {p : ℝ[X]} (hp : HasOnlyRea
 #print axioms heatOp_smul
 #print axioms heatOp_natDegree
 
--- The single deep-analytic gap: this SHOULD report `sorryAx` (polynomial de Bruijn /
--- Pólya–Schur LP-multiplier theorem, not in mathlib).
+-- PIECE B — the coefficient limit `(1 − (t/n)·D²)ⁿ p → heatOp t p` (sorry-free).
+-- Operator binomial + `Nat.choose` scalar asymptotic; MUST report only standard axioms.
+#print axioms oneMinusCD2_iterate_eq_sum
+#print axioms choose_mul_pow_tendsto
+#print axioms oneMinusCD2_iterate_tendsto_heatOp
+#print axioms oneMinusCD2_leadingCoeff
+#print axioms oneMinusCD2_iterate_leadingCoeff
+
+-- PIECE A — real-rootedness closed under coefficient limits (the Hurwitz replacement via
+-- root-vector compactness, NO complex analysis; sorry-free).  MUST report only standard axioms.
+#print axioms continuous_prod_X_sub_C_coeff
+#print axioms hasOnlyRealRoots_of_tendsto_coeff
+
+-- The polynomial de Bruijn / Pólya–Schur LP-multiplier theorem.  Both Pieces A & B are now
+-- closed, so this reports ONLY `propext`, `Classical.choice`, `Quot.sound` — NO `sorryAx`.
 #print axioms heat_preserves_LP
 
 end MathlibBridge

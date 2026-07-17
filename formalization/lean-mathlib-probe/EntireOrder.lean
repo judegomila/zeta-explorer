@@ -278,33 +278,162 @@ theorem order_polynomial_eq_zero (p : Polynomial ℂ) : order (fun z => p.eval z
 theorem order_polynomial_le_zero (p : Polynomial ℂ) : order (fun z => p.eval z) ≤ 0 :=
   (order_polynomial_eq_zero p).le
 
-/-- **Sub-multiplicativity of order.**  `order (f · g) ≤ max (order f) (order g)`.
+/-- **Sub-multiplicativity of the maximum modulus** (brick 2).
 
-HONEST SCOPE — this is `sorry` this round, and the obstruction is genuine (not mere
-bookkeeping), split into TWO parts:
+For CONTINUOUS `f g : ℂ → ℂ`, `M_{fg}(r) ≤ M_f(r) · M_g(r)`.  Continuity is the essential
+hypothesis: `Metric.sphere 0 r` is compact (`isCompact_sphere`, `ℂ` is a `ProperSpace`), so
+`z ↦ ‖f z‖` attains a bounded sup on it (`IsCompact.bddAbove_image`), i.e. each sphere-sup is
+a genuine `BddAbove` supremum and `le_ciSup`/`ciSup_le` apply.  For arbitrary (possibly
+discontinuous) `f` the pointwise norm can be unbounded on the sphere, `Real.sSup` collapses to
+its junk value `0`, and the inequality fails — which is exactly why brick 1 left this deferred. -/
+theorem maxModulus_mul_le {f g : ℂ → ℂ} (hf : Continuous f) (hg : Continuous g) (r : ℝ) :
+    maxModulus (fun z => f z * g z) r ≤ maxModulus f r * maxModulus g r := by
+  rcases lt_or_ge r 0 with hr | hr
+  · -- `r < 0`: the sphere is empty and every `maxModulus` is the `sSup ∅ = 0` junk value.
+    have hemp : ¬ (Metric.sphere (0 : ℂ) r).Nonempty := by
+      rw [NormedSpace.sphere_nonempty]; exact not_le.2 hr
+    haveI hE : IsEmpty (Metric.sphere (0 : ℂ) r) := by
+      rw [Set.isEmpty_coe_sort]; exact Set.not_nonempty_iff_eq_empty.1 hemp
+    have hz : ∀ h : ℂ → ℂ, maxModulus h r = 0 := by
+      intro h; unfold maxModulus; rw [iSup, Set.range_eq_empty, Real.sSup_empty]
+    rw [hz (fun z => f z * g z), hz f, hz g, mul_zero]
+  · -- `r ≥ 0`: nonempty compact sphere; both sphere-sups are `BddAbove`.
+    haveI hne : Nonempty (Metric.sphere (0 : ℂ) r) :=
+      ((NormedSpace.sphere_nonempty (x := (0 : ℂ)) (r := r)).2 hr).to_subtype
+    have hcpt := isCompact_sphere (0 : ℂ) r
+    have hbf : BddAbove (Set.range fun z : Metric.sphere (0 : ℂ) r => ‖f z‖) := by
+      have h := hcpt.bddAbove_image hf.norm.continuousOn
+      rwa [Set.image_eq_range] at h
+    have hbg : BddAbove (Set.range fun z : Metric.sphere (0 : ℂ) r => ‖g z‖) := by
+      have h := hcpt.bddAbove_image hg.norm.continuousOn
+      rwa [Set.image_eq_range] at h
+    refine ciSup_le fun z => ?_
+    simp only [norm_mul]
+    exact mul_le_mul (le_ciSup hbf z) (le_ciSup hbg z) (norm_nonneg _) (maxModulus_nonneg f r)
 
-1. **The submultiplicativity `M_{fg}(r) ≤ M_f(r) · M_g(r)` is FALSE as stated for
-   arbitrary `f g : ℂ → ℂ`.**  `maxModulus` is a *real* `iSup`; when the pointwise norm is
-   unbounded on the sphere (allowed for a non-continuous `f`), `Real.sSup` returns the junk
-   value `0`, breaking `⨆ ‖f·g‖ ≤ (⨆‖f‖)·(⨆‖g‖)`.  The theorem needs a
-   `Continuous f`/`Continuous g` (a fortiori `Entire`) hypothesis so each sphere-sup is a
-   genuine attained max with `BddAbove` (`IsCompact.bddAbove_image`,
-   `IsCompact.exists_isMaxOn` on `Metric.sphere` which is compact in `ℂ`).  Missing input:
-   this file states `order` for the whole of `ℂ → ℂ`; the multiplicativity lemma should be
-   restated as `order_mul_le (hf : Continuous f) (hg : Continuous g)` in brick 2, then
-   `ciSup_mul_le`/`Finset`-free `iSup_mul_le`-style bounds apply.
+/-- **Sub-multiplicativity of order** (brick 2, sorry-free) — `order (f · g) ≤ max (order f)
+(order g)` for continuous `f g`.
 
-2. **The `EReal`-limsup step** `limsup (u ⊔ v) = limsup u ⊔ limsup v` /
-   `limsup (u + v) ≤ limsup u + limsup v`.  Mathlib HAS the pieces:
-   `Filter.limsup_max` (or `Filter.limsup_sup`) and `EReal.limsup_add_le`, combined with the
-   numerator estimate `log⁺ log⁺ (a·b) ≤ log 2 + (log⁺ log⁺ a ⊔ log⁺ log⁺ b)` built from
-   `Real.posLog_mul` / `Real.posLog_add`.  This part is bookkeeping.
+Two ingredients:
 
-So the *fundamental* missing ingredient is the compactness/continuity hypothesis making the
-sphere-sup well-behaved — deferred to brick 2 alongside `IsCompact (Metric.sphere)` +
-`Continuous.exists_forall_ge_of_...` usage. -/
-theorem order_mul_le (f g : ℂ → ℂ) :
+1. `maxModulus_mul_le` (continuity hypothesis) gives `M_{fg}(r) ≤ M_f(r) · M_g(r)`.  Two
+   applications of `Real.posLog_mul` and monotonicity of `log⁺` turn this into the real
+   estimate
+   `log⁺ log⁺ M_{fg}(r) ≤ log⁺ 2 + max (log⁺ log⁺ M_f(r)) (log⁺ log⁺ M_g(r))`
+   (using `a + b ≤ 2 · max a b` and that `log⁺` preserves `max` on `[0,∞)`).  Dividing by
+   `log r > 0` (`max_div_div_right`) yields, eventually,
+   `w r ≤ corr r + (u r ⊔ v r)` in `EReal`, where `corr r = log⁺2 / log r → 0`.
+
+2. The `EReal`-limsup step: `EReal.limsup_add_le` (with `limsup corr = 0`) splits the sum, and
+   `Filter.limsup_max` turns `limsup (u ⊔ v)` into `max (limsup u) (limsup v) = max (order f)
+   (order g)`. -/
+theorem order_mul_le {f g : ℂ → ℂ} (hf : Continuous f) (hg : Continuous g) :
     order (fun z => f z * g z) ≤ max (order f) (order g) := by
-  sorry
+  -- the three EReal ratio-sequences and the vanishing correction term
+  set u : ℝ → EReal :=
+    fun r => ((Real.posLog (Real.posLog (maxModulus f r)) / Real.log r : ℝ) : EReal) with hu
+  set v : ℝ → EReal :=
+    fun r => ((Real.posLog (Real.posLog (maxModulus g r)) / Real.log r : ℝ) : EReal) with hv
+  set w : ℝ → EReal :=
+    fun r => ((Real.posLog (Real.posLog (maxModulus (fun z => f z * g z) r)) / Real.log r : ℝ)
+      : EReal) with hw
+  set corr : ℝ → EReal := fun r => ((Real.posLog 2 / Real.log r : ℝ) : EReal) with hcorr
+  set U : ℝ → EReal := fun r => max (u r) (v r) with hU
+  -- the real coercion sends `max` to `max`
+  have coe_max : ∀ a b : ℝ, ((max a b : ℝ) : EReal) = max (a : EReal) (b : EReal) := by
+    intro a b
+    rcases le_total a b with h | h
+    · rw [max_eq_right h, max_eq_right (EReal.coe_le_coe h)]
+    · rw [max_eq_left h, max_eq_left (EReal.coe_le_coe h)]
+  -- `limsup corr = 0`
+  have hcorr0 : limsup corr atTop = 0 := by
+    have ht : Tendsto (fun r : ℝ => Real.posLog 2 / Real.log r) atTop (𝓝 0) :=
+      tendsto_const_nhds.div_atTop Real.tendsto_log_atTop
+    have htc : Tendsto corr atTop (𝓝 (0 : EReal)) := by
+      have := (continuous_coe_real_ereal.tendsto 0).comp ht
+      simpa [hcorr, Function.comp] using this
+    exact htc.limsup_eq
+  -- eventual bound `w ≤ corr + U`
+  have hev : w ≤ᶠ[atTop] corr + U := by
+    filter_upwards [eventually_gt_atTop (1 : ℝ)] with r hr
+    have hlogr : 0 < Real.log r := Real.log_pos hr
+    have hA : 0 ≤ maxModulus f r := maxModulus_nonneg f r
+    have hB : 0 ≤ maxModulus g r := maxModulus_nonneg g r
+    have hP : 0 ≤ maxModulus (fun z => f z * g z) r := maxModulus_nonneg _ r
+    have hPAB : maxModulus (fun z => f z * g z) r ≤ maxModulus f r * maxModulus g r :=
+      maxModulus_mul_le hf hg r
+    set pA := Real.posLog (maxModulus f r) with hpA
+    set pB := Real.posLog (maxModulus g r) with hpB
+    -- `log⁺ M_{fg} ≤ log⁺ M_f + log⁺ M_g ≤ 2 · max (log⁺ M_f) (log⁺ M_g)`
+    have h1 : Real.posLog (maxModulus (fun z => f z * g z) r) ≤ pA + pB :=
+      (Real.monotoneOn_posLog (Set.mem_Ici.2 hP) (Set.mem_Ici.2 (mul_nonneg hA hB)) hPAB).trans
+        Real.posLog_mul
+    have h2 : pA + pB ≤ 2 * max pA pB := by
+      have := le_max_left pA pB; have := le_max_right pA pB; linarith
+    have hPle : Real.posLog (maxModulus (fun z => f z * g z) r) ≤ 2 * max pA pB := h1.trans h2
+    -- apply `log⁺` again and use `log⁺ (2 · M) ≤ log⁺ 2 + log⁺ M`
+    have h3 : Real.posLog (Real.posLog (maxModulus (fun z => f z * g z) r))
+                ≤ Real.posLog (2 * max pA pB) :=
+      Real.monotoneOn_posLog (Set.mem_Ici.2 Real.posLog_nonneg)
+        (Set.mem_Ici.2 (mul_nonneg (by norm_num)
+          (le_trans Real.posLog_nonneg (le_max_left pA pB)))) hPle
+    have h4 : Real.posLog (2 * max pA pB) ≤ Real.posLog 2 + Real.posLog (max pA pB) :=
+      Real.posLog_mul
+    -- `log⁺` preserves `max` on `[0,∞)`
+    have h5 : Real.posLog (max pA pB) = max (Real.posLog pA) (Real.posLog pB) := by
+      rcases le_total pA pB with h | h
+      · rw [max_eq_right h,
+          max_eq_right (Real.monotoneOn_posLog (Set.mem_Ici.2 Real.posLog_nonneg)
+            (Set.mem_Ici.2 Real.posLog_nonneg) h)]
+      · rw [max_eq_left h,
+          max_eq_left (Real.monotoneOn_posLog (Set.mem_Ici.2 Real.posLog_nonneg)
+            (Set.mem_Ici.2 Real.posLog_nonneg) h)]
+    have hnum : Real.posLog (Real.posLog (maxModulus (fun z => f z * g z) r))
+                  ≤ Real.posLog 2 + max (Real.posLog pA) (Real.posLog pB) := by
+      calc Real.posLog (Real.posLog (maxModulus (fun z => f z * g z) r))
+          ≤ Real.posLog 2 + Real.posLog (max pA pB) := h3.trans h4
+        _ = Real.posLog 2 + max (Real.posLog pA) (Real.posLog pB) := by rw [h5]
+    -- divide by `log r > 0`
+    have hreal : Real.posLog (Real.posLog (maxModulus (fun z => f z * g z) r)) / Real.log r
+        ≤ Real.posLog 2 / Real.log r
+          + max (Real.posLog pA / Real.log r) (Real.posLog pB / Real.log r) := by
+      calc Real.posLog (Real.posLog (maxModulus (fun z => f z * g z) r)) / Real.log r
+          ≤ (Real.posLog 2 + max (Real.posLog pA) (Real.posLog pB)) / Real.log r :=
+            div_le_div_of_nonneg_right hnum hlogr.le
+        _ = Real.posLog 2 / Real.log r
+              + max (Real.posLog pA) (Real.posLog pB) / Real.log r := by rw [add_div]
+        _ = Real.posLog 2 / Real.log r
+              + max (Real.posLog pA / Real.log r) (Real.posLog pB / Real.log r) := by
+            rw [max_div_div_right hlogr.le]
+    -- coerce the real inequality into `EReal`
+    show w r ≤ (corr + U) r
+    simp only [hw, hcorr, hU, hu, hv, Pi.add_apply]
+    rw [← coe_max, ← EReal.coe_add]
+    exact EReal.coe_le_coe hreal
+  -- assemble via `EReal.limsup_add_le` and `Filter.limsup_max`
+  have hne1 : limsup corr atTop ≠ ⊥ ∨ limsup U atTop ≠ ⊤ :=
+    Or.inl (by rw [hcorr0]; exact EReal.bot_lt_zero.ne')
+  have hne2 : limsup corr atTop ≠ ⊤ ∨ limsup U atTop ≠ ⊥ :=
+    Or.inl (by rw [hcorr0]; exact EReal.zero_lt_top.ne)
+  have key : limsup w atTop ≤ max (limsup u atTop) (limsup v atTop) := by
+    calc limsup w atTop
+        ≤ limsup (corr + U) atTop :=
+          limsup_le_limsup hev isCobounded_le_of_bot isBounded_le_of_top
+      _ ≤ limsup corr atTop + limsup U atTop := EReal.limsup_add_le hne1 hne2
+      _ = limsup U atTop := by rw [hcorr0, zero_add]
+      _ = max (limsup u atTop) (limsup v atTop) := by
+          rw [hU]
+          exact limsup_max isCobounded_le_of_bot isCobounded_le_of_bot
+            isBounded_le_of_top isBounded_le_of_top
+  -- `limsup w = order (f·g)`, `limsup u = order f`, `limsup v = order g` (definitional)
+  have e0 : order (fun z => f z * g z) = limsup w atTop := rfl
+  have ef : order f = limsup u atTop := rfl
+  have eg : order g = limsup v atTop := rfl
+  rw [e0, ef, eg]; exact key
+
+-- Axiom audit for the two brick-2 theorems (should be the standard three:
+-- `propext`, `Classical.choice`, `Quot.sound` — no `sorryAx`).
+#print axioms EntireOrder.maxModulus_mul_le
+#print axioms EntireOrder.order_mul_le
 
 end EntireOrder

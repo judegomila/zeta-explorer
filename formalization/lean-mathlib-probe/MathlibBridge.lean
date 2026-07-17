@@ -38,6 +38,10 @@ import Mathlib.Analysis.Calculus.LocalExtr.Rolle
 import Mathlib.Analysis.Calculus.Deriv.Polynomial
 import Mathlib.Analysis.Calculus.LocalExtr.Polynomial
 import Mathlib.Analysis.SpecialFunctions.ExpDeriv
+import Mathlib.Analysis.SpecialFunctions.PolynomialExp
+import Mathlib.Analysis.Calculus.LocalExtr.Basic
+import Mathlib.Topology.Order.Compact
+import Mathlib.Order.Filter.AtTopBot.Field
 import Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral
 import Mathlib.Topology.Algebra.Polynomial
 import Mathlib.Data.Complex.Basic
@@ -248,37 +252,362 @@ theorem exists_shifted_root_between (c : ℝ) {p : ℝ[X]} {a b : ℝ}
   · exact absurd h (Real.exp_ne_zero _)
   · exact h
 
-/-- **The one remaining arithmetic gap of the Hermite–Poulain shift** — a root-count
-*lower* bound.  For `c ≠ 0` and `p ≠ 0`, the shifted polynomial `q := p′ + c·p` (which
-has `natDegree q = natDegree p =: n`, see `hermitePoulain_shift`) has at least `n` real
-roots counted with multiplicity.
+open Filter Topology in
+/-- **Root at `−∞` (the `n`-th root), case `c > 0`.**  If `a` is a root of `p` below which
+`p` has no roots, then `q := p′ + c·p` has a root strictly below `a`.
 
-This is the ONLY piece of `hermitePoulain_shift` still missing from mathlib.  The
-reachable parts are already proved sorry-free:
+Analytic content (the piece Rolle-between-roots cannot see): put `g x = e^{c x}·p(x)`, so
+`g′ x = e^{c x}·q(x)` and `g(a) = 0`.  For `c > 0` the exponential decay beats the
+polynomial, so `g → 0` at `−∞`; and `g` is nonzero just left of `a`.  Hence on a closed
+interval `[b, a]` (with `b` far enough left that `g b` is small) `g` attains an *interior*
+extremum `ξ ∈ (b, a)`, where Fermat's theorem gives `g′ ξ = 0`, i.e. `e^{c ξ}·q(ξ) = 0`,
+i.e. `q(ξ) = 0` — a real root of `q` strictly below `a`. -/
+theorem exists_shifted_root_atBot {c : ℝ} (hc : 0 < c) {p : ℝ[X]} {a : ℝ}
+    (ha : p.eval a = 0) (hmin : ∀ x : ℝ, x < a → p.eval x ≠ 0) :
+    ∃ z, z < a ∧ (Polynomial.derivative p + c • p).eval z = 0 := by
+  classical
+  set g : ℝ → ℝ := fun x => Real.exp (c * x) * p.eval x with hgdef
+  have hcont : Continuous g :=
+    (Real.continuous_exp.comp (continuous_const.mul continuous_id)).mul p.continuous
+  have hderiv : ∀ x : ℝ,
+      HasDerivAt g (Real.exp (c * x) * (Polynomial.derivative p + c • p).eval x) x := by
+    intro x
+    have h1 : HasDerivAt (fun x : ℝ => Real.exp (c * x)) (Real.exp (c * x) * c) x := by
+      simpa using ((hasDerivAt_id x).const_mul c).exp
+    have h2 : HasDerivAt (fun x => p.eval x) ((Polynomial.derivative p).eval x) x := p.hasDerivAt x
+    have hval : Real.exp (c * x) * c * p.eval x + Real.exp (c * x) * (Polynomial.derivative p).eval x
+        = Real.exp (c * x) * (Polynomial.derivative p + c • p).eval x := by
+      rw [Polynomial.eval_add, Polynomial.eval_smul, smul_eq_mul]; ring
+    exact hval ▸ h1.mul h2
+  have hcne : c ≠ 0 := ne_of_gt hc
+  have hlim : Tendsto g atBot (𝓝 0) := by
+    have hφ : Tendsto (fun x : ℝ => -c * x) atBot atTop :=
+      (tendsto_const_mul_atTop_of_neg (by linarith : -c < 0)).mpr tendsto_id
+    have hcomp := (Polynomial.tendsto_div_exp_atTop
+        (p.comp (Polynomial.C (-c⁻¹) * Polynomial.X))).comp hφ
+    refine hcomp.congr (fun x => ?_)
+    simp only [Function.comp_apply, Polynomial.eval_comp, Polynomial.eval_mul,
+      Polynomial.eval_C, Polynomial.eval_X]
+    have hxx : -c⁻¹ * (-c * x) = x := by field_simp
+    rw [hxx, hgdef, show -c * x = -(c * x) by ring, Real.exp_neg, div_inv_eq_mul, mul_comm]
+  have ha0 : g a = 0 := by simp [hgdef, ha]
+  have hx0 : g (a - 1) ≠ 0 := by
+    have hp1 : p.eval (a - 1) ≠ 0 := hmin _ (by linarith)
+    exact mul_ne_zero (Real.exp_ne_zero _) hp1
+  rcases lt_or_gt_of_ne hx0 with hlt | hgt
+  · -- `g (a-1) < 0`: `g` has an interior minimum
+    have hev : (g ⁻¹' Set.Ioi (g (a - 1))) ∈ atBot := hlim (Ioi_mem_nhds hlt)
+    obtain ⟨N, hN⟩ := eventually_atBot.1 hev
+    set b : ℝ := min N (a - 2) with hbdef
+    have hbN : b ≤ N := min_le_left _ _
+    have hba2 : b ≤ a - 2 := min_le_right _ _
+    have hba : b < a := by linarith
+    have hgb : g (a - 1) < g b := hN b hbN
+    have hmem1 : a - 1 ∈ Set.Icc b a := ⟨by linarith, by linarith⟩
+    obtain ⟨ξ, hξmem, hξmin⟩ :=
+      isCompact_Icc.exists_isMinOn (Set.nonempty_Icc.2 hba.le) hcont.continuousOn
+    have hle1 : g ξ ≤ g (a - 1) := hξmin hmem1
+    have hlea : g ξ ≤ g a := hξmin ⟨by linarith, le_refl a⟩
+    have hleb : g ξ ≤ g b := hξmin ⟨le_refl b, hba.le⟩
+    have hξa : ξ ≠ a := fun h => by rw [h, ha0] at hle1; linarith
+    have hξb : ξ ≠ b := fun h => by rw [h] at hle1; linarith
+    have hξIoo : ξ ∈ Set.Ioo b a :=
+      ⟨lt_of_le_of_ne hξmem.1 (fun h => hξb h.symm), lt_of_le_of_ne hξmem.2 hξa⟩
+    have hloc : IsLocalMin g ξ := hξmin.isLocalMin (Icc_mem_nhds hξIoo.1 hξIoo.2)
+    have hd0 : Real.exp (c * ξ) * (Polynomial.derivative p + c • p).eval ξ = 0 :=
+      hloc.hasDerivAt_eq_zero (hderiv ξ)
+    exact ⟨ξ, hξIoo.2, (mul_eq_zero.1 hd0).resolve_left (Real.exp_ne_zero _)⟩
+  · -- `g (a-1) > 0`: `g` has an interior maximum
+    have hev : (g ⁻¹' Set.Iio (g (a - 1))) ∈ atBot := hlim (Iio_mem_nhds hgt)
+    obtain ⟨N, hN⟩ := eventually_atBot.1 hev
+    set b : ℝ := min N (a - 2) with hbdef
+    have hbN : b ≤ N := min_le_left _ _
+    have hba2 : b ≤ a - 2 := min_le_right _ _
+    have hba : b < a := by linarith
+    have hgb : g b < g (a - 1) := hN b hbN
+    have hmem1 : a - 1 ∈ Set.Icc b a := ⟨by linarith, by linarith⟩
+    obtain ⟨ξ, hξmem, hξmax⟩ :=
+      isCompact_Icc.exists_isMaxOn (Set.nonempty_Icc.2 hba.le) hcont.continuousOn
+    have hge1 : g (a - 1) ≤ g ξ := hξmax hmem1
+    have hgea : g a ≤ g ξ := hξmax ⟨by linarith, le_refl a⟩
+    have hgeb : g b ≤ g ξ := hξmax ⟨le_refl b, hba.le⟩
+    have hξa : ξ ≠ a := fun h => by rw [h, ha0] at hge1; linarith
+    have hξb : ξ ≠ b := fun h => by rw [h] at hge1; linarith
+    have hξIoo : ξ ∈ Set.Ioo b a :=
+      ⟨lt_of_le_of_ne hξmem.1 (fun h => hξb h.symm), lt_of_le_of_ne hξmem.2 hξa⟩
+    have hloc : IsLocalMax g ξ := hξmax.isLocalMax (Icc_mem_nhds hξIoo.1 hξIoo.2)
+    have hd0 : Real.exp (c * ξ) * (Polynomial.derivative p + c • p).eval ξ = 0 :=
+      hloc.hasDerivAt_eq_zero (hderiv ξ)
+    exact ⟨ξ, hξIoo.2, (mul_eq_zero.1 hd0).resolve_left (Real.exp_ne_zero _)⟩
 
-* the **interior** roots come from `exists_shifted_root_between` (Rolle on `e^{c x}·p`),
-  which — mirroring mathlib's `Polynomial.card_roots_le_derivative` bookkeeping — yields
-  exactly `n − 1` real roots of `q` (the `k − 1` interval gaps between the `k` distinct
-  roots of `p`, plus the `n − k` roots inherited with multiplicity `m − 1` at each root
-  of `p` of multiplicity `m`, via `Polynomial.rootMultiplicity_add`);
-* the **degree** bookkeeping `natDegree q = n` is proved sorry-free below.
+open Filter Topology in
+/-- **Root at `+∞` (the `n`-th root), case `c < 0`.**  Mirror of `exists_shifted_root_atBot`:
+if `a` is a root of `p` above which `p` has no roots, then `q := p′ + c·p` has a root
+strictly above `a`.  Now `g x = e^{c x}·p(x) → 0` at `+∞` (as `c < 0`), giving the interior
+extremum on some `[a, b]`. -/
+theorem exists_shifted_root_atTop {c : ℝ} (hc : c < 0) {p : ℝ[X]} {a : ℝ}
+    (ha : p.eval a = 0) (hmax : ∀ x : ℝ, a < x → p.eval x ≠ 0) :
+    ∃ z, a < z ∧ (Polynomial.derivative p + c • p).eval z = 0 := by
+  classical
+  set g : ℝ → ℝ := fun x => Real.exp (c * x) * p.eval x with hgdef
+  have hcont : Continuous g :=
+    (Real.continuous_exp.comp (continuous_const.mul continuous_id)).mul p.continuous
+  have hderiv : ∀ x : ℝ,
+      HasDerivAt g (Real.exp (c * x) * (Polynomial.derivative p + c • p).eval x) x := by
+    intro x
+    have h1 : HasDerivAt (fun x : ℝ => Real.exp (c * x)) (Real.exp (c * x) * c) x := by
+      simpa using ((hasDerivAt_id x).const_mul c).exp
+    have h2 : HasDerivAt (fun x => p.eval x) ((Polynomial.derivative p).eval x) x := p.hasDerivAt x
+    have hval : Real.exp (c * x) * c * p.eval x + Real.exp (c * x) * (Polynomial.derivative p).eval x
+        = Real.exp (c * x) * (Polynomial.derivative p + c • p).eval x := by
+      rw [Polynomial.eval_add, Polynomial.eval_smul, smul_eq_mul]; ring
+    exact hval ▸ h1.mul h2
+  have hcne : c ≠ 0 := ne_of_lt hc
+  have hlim : Tendsto g atTop (𝓝 0) := by
+    have hφ : Tendsto (fun x : ℝ => -c * x) atTop atTop :=
+      Tendsto.const_mul_atTop (by linarith : 0 < -c) tendsto_id
+    have hcomp := (Polynomial.tendsto_div_exp_atTop
+        (p.comp (Polynomial.C (-c⁻¹) * Polynomial.X))).comp hφ
+    refine hcomp.congr (fun x => ?_)
+    simp only [Function.comp_apply, Polynomial.eval_comp, Polynomial.eval_mul,
+      Polynomial.eval_C, Polynomial.eval_X]
+    have hxx : -c⁻¹ * (-c * x) = x := by field_simp
+    rw [hxx, hgdef, show -c * x = -(c * x) by ring, Real.exp_neg, div_inv_eq_mul, mul_comm]
+  have ha0 : g a = 0 := by simp [hgdef, ha]
+  have hx0 : g (a + 1) ≠ 0 := by
+    have hp1 : p.eval (a + 1) ≠ 0 := hmax _ (by linarith)
+    exact mul_ne_zero (Real.exp_ne_zero _) hp1
+  rcases lt_or_gt_of_ne hx0 with hlt | hgt
+  · -- `g (a+1) < 0`: interior minimum on `[a, b]`
+    have hev : (g ⁻¹' Set.Ioi (g (a + 1))) ∈ atTop := hlim (Ioi_mem_nhds hlt)
+    obtain ⟨N, hN⟩ := eventually_atTop.1 hev
+    set b : ℝ := max N (a + 2) with hbdef
+    have hbN : N ≤ b := le_max_left _ _
+    have hba2 : a + 2 ≤ b := le_max_right _ _
+    have hba : a < b := by linarith
+    have hgb : g (a + 1) < g b := hN b hbN
+    have hmem1 : a + 1 ∈ Set.Icc a b := ⟨by linarith, by linarith⟩
+    obtain ⟨ξ, hξmem, hξmin⟩ :=
+      isCompact_Icc.exists_isMinOn (Set.nonempty_Icc.2 hba.le) hcont.continuousOn
+    have hle1 : g ξ ≤ g (a + 1) := hξmin hmem1
+    have hlea : g ξ ≤ g a := hξmin ⟨le_refl a, hba.le⟩
+    have hleb : g ξ ≤ g b := hξmin ⟨hba.le, le_refl b⟩
+    have hξa : ξ ≠ a := fun h => by rw [h, ha0] at hle1; linarith
+    have hξb : ξ ≠ b := fun h => by rw [h] at hle1; linarith
+    have hξIoo : ξ ∈ Set.Ioo a b :=
+      ⟨lt_of_le_of_ne hξmem.1 (fun h => hξa h.symm), lt_of_le_of_ne hξmem.2 hξb⟩
+    have hloc : IsLocalMin g ξ := hξmin.isLocalMin (Icc_mem_nhds hξIoo.1 hξIoo.2)
+    have hd0 : Real.exp (c * ξ) * (Polynomial.derivative p + c • p).eval ξ = 0 :=
+      hloc.hasDerivAt_eq_zero (hderiv ξ)
+    exact ⟨ξ, hξIoo.1, (mul_eq_zero.1 hd0).resolve_left (Real.exp_ne_zero _)⟩
+  · -- `g (a+1) > 0`: interior maximum on `[a, b]`
+    have hev : (g ⁻¹' Set.Iio (g (a + 1))) ∈ atTop := hlim (Iio_mem_nhds hgt)
+    obtain ⟨N, hN⟩ := eventually_atTop.1 hev
+    set b : ℝ := max N (a + 2) with hbdef
+    have hbN : N ≤ b := le_max_left _ _
+    have hba2 : a + 2 ≤ b := le_max_right _ _
+    have hba : a < b := by linarith
+    have hgb : g b < g (a + 1) := hN b hbN
+    have hmem1 : a + 1 ∈ Set.Icc a b := ⟨by linarith, by linarith⟩
+    obtain ⟨ξ, hξmem, hξmax⟩ :=
+      isCompact_Icc.exists_isMaxOn (Set.nonempty_Icc.2 hba.le) hcont.continuousOn
+    have hge1 : g (a + 1) ≤ g ξ := hξmax hmem1
+    have hgea : g a ≤ g ξ := hξmax ⟨le_refl a, hba.le⟩
+    have hgeb : g b ≤ g ξ := hξmax ⟨hba.le, le_refl b⟩
+    have hξa : ξ ≠ a := fun h => by rw [h, ha0] at hge1; linarith
+    have hξb : ξ ≠ b := fun h => by rw [h] at hge1; linarith
+    have hξIoo : ξ ∈ Set.Ioo a b :=
+      ⟨lt_of_le_of_ne hξmem.1 (fun h => hξa h.symm), lt_of_le_of_ne hξmem.2 hξb⟩
+    have hloc : IsLocalMax g ξ := hξmax.isLocalMax (Icc_mem_nhds hξIoo.1 hξIoo.2)
+    have hd0 : Real.exp (c * ξ) * (Polynomial.derivative p + c • p).eval ξ = 0 :=
+      hloc.hasDerivAt_eq_zero (hderiv ξ)
+    exact ⟨ξ, hξIoo.1, (mul_eq_zero.1 hd0).resolve_left (Real.exp_ne_zero _)⟩
 
-The single missing `n`-th root is the "root at infinity": for `c > 0` the factor
-`e^{c x}·p(x) → 0` as `x → −∞`, and `g(a₁) = 0` at the least root `a₁` of `p`, so `g`
-has an interior extremum on `(−∞, a₁)` — hence `g′` (and `q`) a further real root below
-all roots of `p` (symmetrically above them for `c < 0`).  Formalizing this requires a
-Rolle-at-infinity / extreme-value argument (mathlib has the finite two-sided-limit form
-`exists_deriv_eq_zero'` but no `atBot`/`atTop` polynomial-times-exponential instance),
-i.e. the extremum of `g` on an unbounded interval given its decay at infinity.  This is
-the smallest honest sorry; it is a real-analysis fact, not an arithmetic shortcut, so it
-is left explicit rather than faked.
+open Finset in
+/-- **The `n`-th-root count lower bound** — the last piece of the Hermite–Poulain shift.
+For a real-rooted `p ≠ 0` and `c ≠ 0`, the shifted polynomial `q := p′ + c·p` has at least
+`natDegree p =: n` real roots counted with multiplicity.
+
+Proof (mirroring mathlib's `Polynomial.card_roots_le_derivative`, but *without* the `+1`
+because the root at infinity supplies the missing `n`-th root):
+
+* **Inherited multiplicity.** `p.rootMultiplicity x − 1 ≤ q.rootMultiplicity x` for every
+  `x` (`rootMultiplicity_sub_one_le_derivative_rootMultiplicity` for `p′`,
+  `roots_smul_nonzero` for `c·p`, combined by `rootMultiplicity_add`).
+* **Interior + boundary distinct roots.** Writing `s := p.roots.toFinset` (the `k` distinct
+  roots) and `t := q.roots.toFinset`, we show `s.card ≤ (t \ s).card`.  The `k − 1` interval
+  gaps give roots of `q` in `t \ s` (`exists_shifted_root_between`), and the *root at
+  infinity* (`exists_shifted_root_atBot` for `c > 0`, `exists_shifted_root_atTop` for
+  `c < 0`) supplies one more, beyond the extreme root of `p`; feeding an auxiliary point
+  past it into mathlib's `Finset.card_le_diff_of_interleaved` removes its `+1`.
+* **Assembly.** `card p.roots = ∑_{x∈s}(rootMult x p − 1) + s.card ≤ ∑_{x∈s} rootMult x q +
+  (t \ s).card ≤ ∑_{x∈t} rootMult x q = card q.roots`, and `card p.roots = n` since `p` is
+  real-rooted.
 
 Reference: N. Obreschkoff, *Verteilung und Berechnung der Nullstellen reeller Polynome*
 (1963), Hermite–Poulain theorem; Rahman–Schmeisser, *Analytic Theory of Polynomials*
-(2002), Thm 5.4.4 (the shift `D + c` preserves the class of hyperbolic polynomials). -/
-theorem hermitePoulain_card_lower {c : ℝ} (hc : c ≠ 0) {p : ℝ[X]} (hp0 : p ≠ 0) :
+(2002), Thm 5.4.4. -/
+theorem hermitePoulain_card_lower {c : ℝ} (hc : c ≠ 0) {p : ℝ[X]}
+    (hp : HasOnlyRealRoots p) (hp0 : p ≠ 0) :
     p.natDegree ≤ Multiset.card (Polynomial.derivative p + c • p).roots := by
-  sorry
+  classical
+  set q : ℝ[X] := Polynomial.derivative p + c • p with hqdef
+  -- `q ≠ 0`: its `natDegree p`-coefficient is `c * leadingCoeff p ≠ 0`.
+  have hq0 : q ≠ 0 := by
+    have hpd : (Polynomial.derivative p).coeff p.natDegree = 0 := by
+      rcases Nat.eq_zero_or_pos p.natDegree with h0 | hpos
+      · rw [Polynomial.derivative_of_natDegree_zero h0, Polynomial.coeff_zero]
+      · exact Polynomial.coeff_eq_zero_of_natDegree_lt
+          (lt_of_le_of_lt (Polynomial.natDegree_derivative_le p) (by omega))
+    have hcoeff : q.coeff p.natDegree = c * p.leadingCoeff := by
+      rw [hqdef, Polynomial.coeff_add, hpd, Polynomial.coeff_smul, smul_eq_mul, zero_add]
+      rfl
+    intro h
+    rw [h, Polynomial.coeff_zero] at hcoeff
+    exact (mul_ne_zero hc (Polynomial.leadingCoeff_ne_zero.2 hp0)) hcoeff.symm
+  -- Inherited-multiplicity bound.
+  have hmult : ∀ x : ℝ, p.rootMultiplicity x - 1 ≤ q.rootMultiplicity x := by
+    intro x
+    have h1 : p.rootMultiplicity x - 1 ≤ (Polynomial.derivative p).rootMultiplicity x :=
+      Polynomial.rootMultiplicity_sub_one_le_derivative_rootMultiplicity p x
+    have h2 : (c • p).rootMultiplicity x = p.rootMultiplicity x := by
+      rw [← Polynomial.count_roots, ← Polynomial.count_roots, Polynomial.roots_smul_nonzero p hc]
+    have h3 : min ((Polynomial.derivative p).rootMultiplicity x) ((c • p).rootMultiplicity x)
+        ≤ q.rootMultiplicity x := Polynomial.rootMultiplicity_add x hq0
+    have h4 : p.rootMultiplicity x - 1 ≤ min ((Polynomial.derivative p).rootMultiplicity x)
+        ((c • p).rootMultiplicity x) := le_min h1 (by rw [h2]; omega)
+    exact h4.trans h3
+  -- Distinct-roots bound: `s.card ≤ (t \ s).card`.
+  set s : Finset ℝ := p.roots.toFinset with hsdef
+  set t : Finset ℝ := q.roots.toFinset with htdef
+  -- interior interleaving (both orientations, from `exists_shifted_root_between`).
+  have hmemt : ∀ z : ℝ, q.eval z = 0 → z ∈ t := by
+    intro z hz; rw [htdef, Multiset.mem_toFinset, Polynomial.mem_roots hq0]; exact hz
+  have hmems : ∀ {x : ℝ}, x ∈ s → p.eval x = 0 := by
+    intro x hx; rw [hsdef, Multiset.mem_toFinset, Polynomial.mem_roots hp0] at hx; exact hx
+  have hinterior : ∀ x ∈ s, ∀ y ∈ s, x < y → ∃ z ∈ t, x < z ∧ z < y := by
+    intro x hx y hy hxy
+    obtain ⟨z, hz1, hz2, hz3⟩ := exists_shifted_root_between c hxy (hmems hx) (hmems hy)
+    exact ⟨z, hmemt z hz3, hz1, hz2⟩
+  have hkey : s.card ≤ (t \ s).card := by
+    -- The interior `k-1` roots plus the root at infinity give `k` roots of `q` off `s`.
+    rcases s.eq_empty_or_nonempty with hsempty | hsne
+    · simp [hsempty]
+    · -- `s` is nonempty; pick the extreme root and the root beyond it.
+      rcases lt_or_gt_of_ne hc with hcneg | hcpos
+      · -- `c < 0`: the extra root sits *above* `max s`.
+        set a : ℝ := s.max' hsne with hadef
+        have hamem : a ∈ s := s.max'_mem hsne
+        have hale : ∀ x ∈ s, x ≤ a := fun x hx => s.le_max' x hx
+        obtain ⟨w, haw, hwq⟩ :=
+          exists_shifted_root_atTop hcneg (hmems hamem)
+            (fun x hax hpx => by
+              have : x ≤ a := hale x (by
+                rw [hsdef, Multiset.mem_toFinset, Polynomial.mem_roots hp0]; exact hpx)
+              linarith)
+        have hwt : w ∈ t := hmemt w hwq
+        have hws : w ∉ s := fun h => by have := hale w h; linarith
+        -- an auxiliary point above everything in `t`, off `t`.
+        obtain ⟨u, huw, hut⟩ : ∃ u : ℝ, w < u ∧ ∀ z ∈ t, z < u := by
+          refine ⟨(insert w t).max' ⟨w, mem_insert_self _ _⟩ + 1, ?_, fun z hz => ?_⟩
+          · have := (insert w t).le_max' w (mem_insert_self _ _); linarith
+          · have := (insert w t).le_max' z (mem_insert_of_mem hz); linarith
+        have hus : u ∉ s := fun h => by have := hale u h; linarith
+        have hut' : u ∉ t := fun h => lt_irrefl u (hut u h)
+        have hinter' : ∀ x ∈ insert u s, ∀ y ∈ insert u s, x < y →
+            (∀ z ∈ insert u s, z ∉ Set.Ioo x y) → ∃ z ∈ t, x < z ∧ z < y := by
+          intro x hx y hy hxy _
+          rcases mem_insert.1 hx with hxu | hxs
+          · -- `x = u` is the maximum, so `x < y` is impossible.
+            subst hxu
+            rcases mem_insert.1 hy with hyu | hys
+            · exact absurd (hyu ▸ hxy) (lt_irrefl _)
+            · exact absurd (lt_trans hxy (lt_of_le_of_lt (hale y hys) (lt_trans haw huw))) (by
+                have := hale y hys; linarith)
+          · rcases mem_insert.1 hy with hyu | hys
+            · -- `y = u`: use the root `w` with `x < w < u`.
+              subst hyu
+              refine ⟨w, hwt, ?_, huw⟩
+              exact lt_of_le_of_lt (hale x hxs) haw
+            · exact hinterior x hxs y hys hxy
+        have hcard := Finset.card_le_diff_of_interleaved hinter'
+        rw [Finset.card_insert_of_notMem hus, Finset.sdiff_insert,
+          Finset.erase_eq_of_notMem (by simp [hut']), Nat.add_le_add_iff_right] at hcard
+        exact hcard
+      · -- `c > 0`: the extra root sits *below* `min s`.
+        set a : ℝ := s.min' hsne with hadef
+        have hamem : a ∈ s := s.min'_mem hsne
+        have hage : ∀ x ∈ s, a ≤ x := fun x hx => s.min'_le x hx
+        obtain ⟨w, hwa, hwq⟩ :=
+          exists_shifted_root_atBot hcpos (hmems hamem)
+            (fun x hxa hpx => by
+              have : a ≤ x := hage x (by
+                rw [hsdef, Multiset.mem_toFinset, Polynomial.mem_roots hp0]; exact hpx)
+              linarith)
+        have hwt : w ∈ t := hmemt w hwq
+        have hws : w ∉ s := fun h => by have := hage w h; linarith
+        obtain ⟨u, huw, hut⟩ : ∃ u : ℝ, u < w ∧ ∀ z ∈ t, u < z := by
+          refine ⟨(insert w t).min' ⟨w, mem_insert_self _ _⟩ - 1, ?_, fun z hz => ?_⟩
+          · have := (insert w t).min'_le w (mem_insert_self _ _); linarith
+          · have := (insert w t).min'_le z (mem_insert_of_mem hz); linarith
+        have hus : u ∉ s := fun h => by have := hage u h; linarith
+        have hut' : u ∉ t := fun h => lt_irrefl u (hut u h)
+        have hinter' : ∀ x ∈ insert u s, ∀ y ∈ insert u s, x < y →
+            (∀ z ∈ insert u s, z ∉ Set.Ioo x y) → ∃ z ∈ t, x < z ∧ z < y := by
+          intro x hx y hy hxy _
+          rcases mem_insert.1 hx with hxu | hxs
+          · -- `x = u` is the minimum: use the root `w` with `u < w < y`.
+            subst hxu
+            rcases mem_insert.1 hy with hyu | hys
+            · exact absurd (hyu ▸ hxy) (lt_irrefl _)
+            · refine ⟨w, hwt, huw, ?_⟩
+              exact lt_of_lt_of_le hwa (hage y hys)
+          · rcases mem_insert.1 hy with hyu | hys
+            · -- `y = u` is the minimum, so `x < y` is impossible.
+              subst hyu
+              exact absurd (lt_trans (lt_of_lt_of_le (lt_trans huw hwa) (hage x hxs)) hxy)
+                (lt_irrefl _)
+            · exact hinterior x hxs y hys hxy
+        have hcard := Finset.card_le_diff_of_interleaved hinter'
+        rw [Finset.card_insert_of_notMem hus, Finset.sdiff_insert,
+          Finset.erase_eq_of_notMem (by simp [hut']), Nat.add_le_add_iff_right] at hcard
+        exact hcard
+  -- Final assembly: `card p.roots = ∑ (rootMult p - 1) + s.card ≤ card q.roots`.
+  have hsum_p : Multiset.card p.roots = (∑ x ∈ s, (p.rootMultiplicity x - 1)) + s.card := by
+    rw [hsdef]
+    conv_lhs => rw [← Multiset.toFinset_sum_count_eq p.roots]
+    rw [Finset.card_eq_sum_ones, ← Finset.sum_add_distrib]
+    refine Finset.sum_congr rfl (fun x hx => ?_)
+    rw [Polynomial.count_roots]
+    have : 1 ≤ p.rootMultiplicity x := by
+      rw [← Polynomial.count_roots]
+      exact Multiset.one_le_count_iff_mem.2 (Multiset.mem_toFinset.1 hx)
+    omega
+  have hDcard : (t \ s).card ≤ ∑ x ∈ t \ s, q.rootMultiplicity x := by
+    rw [Finset.card_eq_sum_ones]
+    refine Finset.sum_le_sum (fun x hx => ?_)
+    rw [← Polynomial.count_roots]
+    exact Multiset.one_le_count_iff_mem.2 (Multiset.mem_toFinset.1 (Finset.mem_sdiff.1 hx).1)
+  have hcard_q : Multiset.card q.roots = ∑ x ∈ t, q.rootMultiplicity x := by
+    rw [htdef, ← Multiset.toFinset_sum_count_eq q.roots]
+    exact Finset.sum_congr rfl (fun x _ => Polynomial.count_roots q)
+  have hunion : ∑ x ∈ s ∪ t, q.rootMultiplicity x = ∑ x ∈ t, q.rootMultiplicity x :=
+    (Finset.sum_subset Finset.subset_union_right (fun x _ hx =>
+      Polynomial.rootMultiplicity_eq_zero (fun hroot => hx (hmemt x hroot)))).symm
+  have hsplit : (∑ x ∈ s, q.rootMultiplicity x) + (∑ x ∈ t \ s, q.rootMultiplicity x)
+      = Multiset.card q.roots := by
+    rw [← Finset.sum_union Finset.disjoint_sdiff, Finset.union_sdiff_self_eq_union, hunion,
+      hcard_q]
+  have hfinal : Multiset.card p.roots ≤ Multiset.card q.roots := by
+    rw [hsum_p, ← hsplit]
+    have hle1 : (∑ x ∈ s, (p.rootMultiplicity x - 1)) ≤ ∑ x ∈ s, q.rootMultiplicity x :=
+      Finset.sum_le_sum (fun x _ => hmult x)
+    calc (∑ x ∈ s, (p.rootMultiplicity x - 1)) + s.card
+        ≤ (∑ x ∈ s, q.rootMultiplicity x) + s.card := by omega
+      _ ≤ (∑ x ∈ s, q.rootMultiplicity x) + (t \ s).card := by omega
+      _ ≤ (∑ x ∈ s, q.rootMultiplicity x) + (∑ x ∈ t \ s, q.rootMultiplicity x) := by omega
+  have hpe : Multiset.card p.roots = p.natDegree := hp
+  exact hpe ▸ hfinal
 
 /-- **Atomic Hermite–Poulain shift step** (`hermitePoulain_shift`, gap 1 of
 `heat_preserves_LP`).  For every real `c`, the operator `p ↦ p′ + c·p` preserves
@@ -314,7 +643,7 @@ theorem hermitePoulain_shift (c : ℝ) {p : ℝ[X]} (hp : HasOnlyRealRoots p) :
   have hle : Multiset.card (Polynomial.derivative p + c • p).roots
       ≤ (Polynomial.derivative p + c • p).natDegree := Polynomial.card_roots' _
   have hge : p.natDegree ≤ Multiset.card (Polynomial.derivative p + c • p).roots :=
-    hermitePoulain_card_lower hc hp0
+    hermitePoulain_card_lower hc hp hp0
   unfold HasOnlyRealRoots at hp ⊢
   omega
 
@@ -476,19 +805,22 @@ factors the symbol and passes to a limit:
   `e^{−t·D²} = limₙ (1 − (t/n)·D²)ⁿ`,   and for `t ≥ 0, n > 0`,
   `1 − (t/n)·D² = −(t/n)·(D − √(n/t))·(D + √(n/t))`  (real shifts, since `t ≥ 0`),
 
-a Hermite–Poulain product of **linear real-shift factors** `p ↦ p′ ± √(n/t)·p`.  Two
-mathlib gaps block a sorry-free finish, either of which is the smallest reachable
-sub-step:
+a Hermite–Poulain product of **linear real-shift factors** `p ↦ p′ ± √(n/t)·p`.  Of the
+two mathlib gaps this factorization once needed, **gap 1 is now CLOSED**; only gap 2 (the
+limit) remains:
 
-* **(atomic Hermite–Poulain step — gap 1, now isolated)** for real `c`,
+* **(atomic Hermite–Poulain step — gap 1, CLOSED, `sorry`-free)** for real `c`,
   `p ↦ Polynomial.derivative p + c • p` preserves real-rootedness.  This is the theorem
-  `hermitePoulain_shift` above.  Its Rolle interlacing on `e^{c x} p` is proved sorry-free
-  (`exists_shifted_root_between`) and its degree bookkeeping is complete; the entire gap is
-  now reduced to the single arithmetic sorry `hermitePoulain_card_lower` (the "root at
-  infinity" — the one `n`-th real root the interior Rolle argument cannot see).
-* **(the limit)** continuity of `Polynomial.roots` under coefficient limits
-  (Hurwitz's theorem) — mathlib has no `roots`-continuity / `ContinuousMultilinearMap`
-  bridge from convergence of coefficients to convergence of the (real) root multiset.
+  `hermitePoulain_shift` above, now fully proved: Rolle interlacing on `e^{c x} p`
+  (`exists_shifted_root_between`) gives the interior `n − 1` roots, and the "root at
+  infinity" (`exists_shifted_root_atBot` for `c > 0`, `exists_shifted_root_atTop` for
+  `c < 0` — extreme-value theorem + Fermat's theorem + exp-beats-polynomial decay) supplies
+  the last `n`-th root; `hermitePoulain_card_lower` assembles them.  `#print axioms
+  hermitePoulain_shift` reports no `sorryAx`.
+* **(the limit — gap 2, the ONLY remaining `sorry`)** continuity of `Polynomial.roots`
+  under coefficient limits (Hurwitz's theorem) — mathlib has no `roots`-continuity /
+  `ContinuousMultilinearMap` bridge from convergence of coefficients to convergence of the
+  (real) root multiset.
 
 Reference: N. G. de Bruijn, *The roots of trigonometric integrals*, Duke Math. J. 17
 (1950), 197–226; Pólya–Schur, *J. reine angew. Math.* 144 (1914); N. Obreschkoff,
@@ -514,9 +846,13 @@ theorem heat_preserves_LP (t : ℝ) (ht : 0 ≤ t) {p : ℝ[X]} (hp : HasOnlyRea
 #print axioms hasOnlyRealRoots_iterate_derivative
 #print axioms exists_shifted_root_between
 
--- Gap 1 (Hermite–Poulain shift) reduced to ONE arithmetic sorry (`hermitePoulain_card_lower`):
--- `hermitePoulain_shift` therefore still reports `sorryAx`, but every other ingredient
--- (Rolle interlacing + degree bookkeeping) is sorry-free.
+-- Gap 1 (Hermite–Poulain shift) is now FULLY CLOSED and `sorry`-free.  The "root at
+-- infinity" (`exists_shifted_root_atBot` / `exists_shifted_root_atTop`, EVT + Fermat +
+-- exp-beats-polynomial decay) supplies the missing `n`-th root, so `hermitePoulain_card_lower`
+-- and hence `hermitePoulain_shift` report ONLY the standard mathlib axioms — no `sorryAx`.
+#print axioms exists_shifted_root_atBot
+#print axioms exists_shifted_root_atTop
+#print axioms hermitePoulain_card_lower
 #print axioms hermitePoulain_shift
 
 -- The concrete heat-operator algebra (all sorry-free).

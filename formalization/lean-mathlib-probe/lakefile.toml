@@ -8,3 +8,6 @@ version = "git#v4.22.0"
 
 [[lean_lib]]
 name = "MathlibBridge"
+
+[[lean_lib]]
+name = "EntireLP"

@@ -39,6 +39,14 @@ echo 'import MathlibBridge
 ## Status of the main statements
 - `heat_preserves_LP` (polynomial `e^{−tD²}` preserves real-rootedness) — **proved, sorry-free.**
 - `hermitePoulain_shift` (`p ↦ p′+c·p` preserves real-rootedness, incl. root-at-infinity) — **proved.**
-- `deBruijn_monotone`, `exists_dbn_constant`, `heat_preserves_LP_entire` (entire version),
-  `rodgers_tao` — **stated, with precise `sorry`s** naming their missing ingredients
-  (Laguerre–Pólya class on `ℂ→ℂ`, Hadamard factorization, the real `Ξ` / flow, Rodgers–Tao 2020).
+- `isLaguerrePolya_heat_of_flow` (`EntireLP.lean`) — the finite→entire **bridge**: any flow that
+  restricts to `heatOp` on polynomials and is continuous for locally-uniform convergence preserves
+  the Laguerre–Pólya class — **proved, sorry-free**, routing through the polynomial theorem.
+- `heat_preserves_LP_entire` (`EntireLP.lean`) — **proved from the bridge**, modulo two precisely
+  *named axioms* (not `sorry`s): `heatFlow_poly` (flow = `heatOp` on polynomials) and
+  `heatFlow_continuous` (loc-unif continuity). `#print axioms` shows exactly these.
+- `deBruijn_monotone`, `exists_dbn_constant`, `rodgers_tao` — **stated, with precise `sorry`s /
+  named inputs**. The genuine remaining distance now lives in *building entire-function analysis
+  mathlib does not have*: order/genus + Hadamard factorization, the complex Gaussian convolution
+  discharging the two `heatFlow` axioms, the real `Ξ` as a loc-unif limit of real-rooted polynomials,
+  and the de Bruijn differential inequality (→ Rodgers–Tao `Λ≥0`).

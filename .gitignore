@@ -35,3 +35,4 @@ thinking/transcripts/*
 # Vercel deploy hook (secret) + publisher state — never commit
 scripts/.deploy-hook-url
 scripts/.deploy-hook-state
+scripts/.rh-lit-seen.json

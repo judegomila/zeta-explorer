@@ -647,6 +647,109 @@ theorem hermitePoulain_shift (c : ℝ) {p : ℝ[X]} (hp : HasOnlyRealRoots p) :
   unfold HasOnlyRealRoots at hp ⊢
   omega
 
+/-! ### The finite heat factor `1 − c·D²` (Task 1 & 2 — the FINITE side, sorry-free)
+
+The heat operator is the `n → ∞` limit of the finite operator `(1 − (t/n)·D²)ⁿ`.  Each
+factor `1 − c·D²` (for `c > 0`) is itself a *product of two real Hermite–Poulain shifts*
+via `1 − c·D² = (1 + √c·D)(1 − √c·D)`.  Since `hermitePoulain_shift` is now fully
+sorry-free, so is the statement that `1 − c·D²` (and every finite power of it) preserves
+real-rootedness.  This closes the entire FINITE side of the polynomial de Bruijn theorem;
+the sole remaining gap is the analytic `n → ∞` limit (Hurwitz), isolated below. -/
+
+/-- **Scaling by a nonzero constant preserves real-rootedness.**  If `p` is real-rooted and
+`a ≠ 0` then `a • p` is real-rooted: `roots (a • p) = roots p` (`roots_smul_nonzero`) and
+`natDegree (a • p) = natDegree p` (`natDegree_smul`).  Sorry-free. -/
+theorem hasOnlyRealRoots_smul {a : ℝ} (ha : a ≠ 0) {p : ℝ[X]}
+    (hp : HasOnlyRealRoots p) : HasOnlyRealRoots (a • p) := by
+  unfold HasOnlyRealRoots at hp ⊢
+  rw [Polynomial.roots_smul_nonzero p ha, Polynomial.natDegree_smul p ha]
+  exact hp
+
+/-- The finite heat factor `1 − c·D²` acting on `p`, i.e. `p − c·p″`.  For `t ≥ 0` the
+`n`-th iterate `(1 − (t/n)·D²)ⁿ` converges to the heat operator `e^{−t·D²} = heatOp t`. -/
+noncomputable def oneMinusCD2 (c : ℝ) (p : ℝ[X]) : ℝ[X] :=
+  p - c • Polynomial.derivative (Polynomial.derivative p)
+
+/-- **The finite heat factor preserves real-rootedness (Task 1, sorry-free).**  For `c > 0`,
+`1 − c·D²` maps real-rooted polynomials to real-rooted polynomials.
+
+Proof via the factorization `1 − c·D² = (1 + √c·D)(1 − √c·D)`, realised as a composition of
+two `hermitePoulain_shift`s and a constant rescaling (all real, since `c > 0`).  Writing
+`s := √c` (`s² = c`, `s ≠ 0`), the two shift factors and the scaling are:
+
+* inner shift `q := p′ + (−1/s)·p`  — real-rooted by `hermitePoulain_shift (−1/s)`;
+* outer shift `p′ + (1/s)·q` (`= D²p − (1/c)·p`) — real-rooted by `hermitePoulain_shift (1/s)`;
+* scale by `−c` (nonzero) — real-rooted by `hasOnlyRealRoots_smul`.
+
+The algebraic identity `p − c·p″ = (−c)·(q′ + (1/s)·q)` (the cross `p′` terms cancel because
+the two shift constants `±1/s` sum to `0`, and `(−c)·(−1/c) = 1`) is discharged by the `module`
+tactic after eliminating the two `s²=c` / `c≠0` scalar facts. -/
+theorem oneMinusCD2_realRooted {c : ℝ} (hc : 0 < c) {p : ℝ[X]}
+    (hp : HasOnlyRealRoots p) : HasOnlyRealRoots (oneMinusCD2 c p) := by
+  have hcne : c ≠ 0 := ne_of_gt hc
+  set s : ℝ := Real.sqrt c with hsdef
+  have hspos : 0 < s := Real.sqrt_pos.mpr hc
+  have hs : s ≠ 0 := ne_of_gt hspos
+  have hss : s * s = c := Real.mul_self_sqrt hc.le
+  set q : ℝ[X] := Polynomial.derivative p + (-1/s) • p with hqdef
+  have hq : HasOnlyRealRoots q := by
+    rw [hqdef]; exact hermitePoulain_shift (-1/s) hp
+  have hcomp : HasOnlyRealRoots (Polynomial.derivative q + (1/s) • q) :=
+    hermitePoulain_shift (1/s) hq
+  have hfin : HasOnlyRealRoots ((-c) • (Polynomial.derivative q + (1/s) • q)) :=
+    hasOnlyRealRoots_smul (neg_ne_zero.mpr hcne) hcomp
+  have hid : oneMinusCD2 c p = (-c) • (Polynomial.derivative q + (1/s) • q) := by
+    have ecomp : Polynomial.derivative q + (1/s) • q
+        = Polynomial.derivative (Polynomial.derivative p) + (-(1/c)) • p := by
+      rw [hqdef, Polynomial.derivative_add, Polynomial.derivative_smul, smul_add, smul_smul,
+        show (1/s) * (-1/s) = -(1/c) by
+          rw [show (1/s) * (-1/s) = -(1/(s*s)) by ring, hss]]
+      module
+    rw [ecomp]
+    unfold oneMinusCD2
+    rw [smul_add, smul_smul, show (-c) * (-(1/c)) = 1 by
+      rw [neg_mul_neg, mul_one_div, div_self hcne], one_smul]
+    module
+  rw [hid]; exact hfin
+
+/-- **Every finite power `(1 − c·D²)ⁿ` preserves real-rootedness (Task 2, sorry-free).**
+Induction on `n`, each step being `oneMinusCD2_realRooted`. -/
+theorem oneMinusCD2_iterate_realRooted {c : ℝ} (hc : 0 < c) {p : ℝ[X]}
+    (hp : HasOnlyRealRoots p) : ∀ n : ℕ, HasOnlyRealRoots ((oneMinusCD2 c)^[n] p)
+  | 0 => by simpa using hp
+  | n + 1 => by
+      rw [Function.iterate_succ', Function.comp_apply]
+      exact oneMinusCD2_realRooted hc (oneMinusCD2_iterate_realRooted hc hp n)
+
+/-- **The finite heat factor preserves degree (Task 3 support, sorry-free).**  Because
+`c·p″` has strictly smaller degree than `p` (or `p″ = 0` when `deg p = 0`), the leading term
+of `p` survives: `(1 − c·D²)p` has the same degree as `p`.  This is the bounded-degree
+bookkeeping the Hurwitz limit requires — the whole approximating sequence stays at degree
+`natDegree p`. -/
+theorem oneMinusCD2_natDegree (c : ℝ) (p : ℝ[X]) :
+    (oneMinusCD2 c p).natDegree = p.natDegree := by
+  unfold oneMinusCD2
+  rcases Nat.eq_zero_or_pos p.natDegree with hN | hN
+  · rw [Polynomial.derivative_of_natDegree_zero hN, Polynomial.derivative_zero, smul_zero,
+      sub_zero]
+  · have hd2 : (Polynomial.derivative (Polynomial.derivative p)).natDegree < p.natDegree := by
+      have h1 := Polynomial.natDegree_derivative_le (Polynomial.derivative p)
+      have h2 := Polynomial.natDegree_derivative_le p
+      omega
+    exact Polynomial.natDegree_sub_eq_left_of_natDegree_lt
+      (lt_of_le_of_lt (Polynomial.natDegree_smul_le _ _) hd2)
+
+/-- **Every finite power `(1 − c·D²)ⁿ` preserves degree (Task 3 support, sorry-free).**
+The whole approximating family `(1 − (t/n)·D²)ⁿ p` therefore has constant degree `natDegree p`
+in `n`, so the coefficient limit lands in the same bounded-degree stratum — exactly the
+hypothesis the Hurwitz limit lemma needs. -/
+theorem oneMinusCD2_iterate_natDegree (c : ℝ) (p : ℝ[X]) :
+    ∀ n : ℕ, ((oneMinusCD2 c)^[n] p).natDegree = p.natDegree
+  | 0 => by simp
+  | n + 1 => by
+      rw [Function.iterate_succ', Function.comp_apply, oneMinusCD2_natDegree,
+        oneMinusCD2_iterate_natDegree c p n]
+
 /-! ### The heat / Laguerre–Pólya multiplier operator, made CONCRETE
 
 The core project (and the previous version of this file) left the heat multiplier
@@ -784,13 +887,23 @@ theorem heatOp_natDegree (t : ℝ) (p : ℝ[X]) : (heatOp t p).natDegree = p.nat
     rw [hrw, add_comm]
     exact Polynomial.natDegree_add_eq_left_of_natDegree_lt hlt
 
-/-! ### The remaining honest gap: the polynomial de Bruijn / Pólya–Schur theorem
+/-! ### The remaining honest gap: the analytic `n → ∞` limit (Hurwitz)
 
-With `heatOp` concrete, the ONE deep analytic fact still missing from mathlib is
-crisply isolated below.  The finite ingredients are proved sorry-free above
-(`hasOnlyRealRoots_derivative`, `hasOnlyRealRoots_iterate_derivative`, and the whole
-`heatOp` algebra); what remains is the *reality of the roots of the finite sum*, which
-does NOT follow termwise (a sum of real-rooted polynomials need not be real-rooted). -/
+With `heatOp` concrete AND the whole FINITE side now closed sorry-free, the ONE deep
+analytic fact still missing from mathlib is crisply isolated below.  The finite
+ingredients are all proved sorry-free above:
+
+* `hasOnlyRealRoots_derivative` / `hasOnlyRealRoots_iterate_derivative` — `Dⁿ` preserves LP;
+* `hermitePoulain_shift` — the atomic real shift `p ↦ p′ + c·p` preserves LP;
+* `oneMinusCD2_realRooted` / `oneMinusCD2_iterate_realRooted` — the **entire finite heat
+  factor `(1 − c·D²)ⁿ`** preserves LP (Tasks 1 & 2), together with degree preservation
+  `oneMinusCD2_iterate_natDegree`;
+* the whole `heatOp` algebra (`heatOp_add`, `heatOp_smul`, `heatOp_natDegree`, …).
+
+What remains is a SINGLE analytic passage: `heatOp t p = limₙ (1 − (t/n)·D²)ⁿ p`
+coefficient-wise, and real-rootedness survives that coefficient limit (Hurwitz's theorem).
+The reality does NOT follow termwise (a sum of real-rooted polynomials need not be
+real-rooted), which is why the finite-factor closure above does not by itself finish. -/
 
 /-- **Heat semigroup preserves the (polynomial) Laguerre–Pólya class** — `heat_preserves_LP`.
 
@@ -799,35 +912,38 @@ is the polynomial case of de Bruijn's theorem (equivalently the Pólya–Schur
 characterization of the LP-multiplier `e^{−t x²}`).  It is now a genuine, falsifiable
 statement about a CONCRETE operator (`heatOp`), not the former opaque black box.
 
-**The single remaining `sorry` — precise missing mathlib input.**  The standard proof
+**The FINITE side is now fully closed (Tasks 1 & 2, sorry-free).**  The standard proof
 factors the symbol and passes to a limit:
 
   `e^{−t·D²} = limₙ (1 − (t/n)·D²)ⁿ`,   and for `t ≥ 0, n > 0`,
-  `1 − (t/n)·D² = −(t/n)·(D − √(n/t))·(D + √(n/t))`  (real shifts, since `t ≥ 0`),
+  `1 − (t/n)·D² = (1 + √(t/n)·D)(1 − √(t/n)·D)`  (real shifts, since `t ≥ 0`).
 
-a Hermite–Poulain product of **linear real-shift factors** `p ↦ p′ ± √(n/t)·p`.  Of the
-two mathlib gaps this factorization once needed, **gap 1 is now CLOSED**; only gap 2 (the
-limit) remains:
+The finite operator `(1 − (t/n)·D²)ⁿ` is now PROVED to preserve real-rootedness sorry-free:
 
-* **(atomic Hermite–Poulain step — gap 1, CLOSED, `sorry`-free)** for real `c`,
-  `p ↦ Polynomial.derivative p + c • p` preserves real-rootedness.  This is the theorem
-  `hermitePoulain_shift` above, now fully proved: Rolle interlacing on `e^{c x} p`
-  (`exists_shifted_root_between`) gives the interior `n − 1` roots, and the "root at
-  infinity" (`exists_shifted_root_atBot` for `c > 0`, `exists_shifted_root_atTop` for
-  `c < 0` — extreme-value theorem + Fermat's theorem + exp-beats-polynomial decay) supplies
-  the last `n`-th root; `hermitePoulain_card_lower` assembles them.  `#print axioms
-  hermitePoulain_shift` reports no `sorryAx`.
-* **(the limit — gap 2, the ONLY remaining `sorry`)** continuity of `Polynomial.roots`
-  under coefficient limits (Hurwitz's theorem) — mathlib has no `roots`-continuity /
-  `ContinuousMultilinearMap` bridge from convergence of coefficients to convergence of the
-  (real) root multiset.
+* the atomic shift `p ↦ p′ + c·p` (`hermitePoulain_shift`);
+* one factor `1 − c·D² = (1 + √c·D)(1 − √c·D)` (`oneMinusCD2_realRooted`, `c > 0`), a
+  composition of two shifts and a nonzero rescaling;
+* every power `(1 − c·D²)ⁿ` (`oneMinusCD2_iterate_realRooted`), by induction.
 
-Reference: N. G. de Bruijn, *The roots of trigonometric integrals*, Duke Math. J. 17
-(1950), 197–226; Pólya–Schur, *J. reine angew. Math.* 144 (1914); N. Obreschkoff,
-*Verteilung und Berechnung der Nullstellen reeller Polynome* (1963), Hermite–Poulain
-theorem; Rahman–Schmeisser, *Analytic Theory of Polynomials* (2002), Ch. 5. -/
+**The single remaining `sorry` — precise missing mathlib input (the `n → ∞` limit,
+Hurwitz).**  Instantiate `qₙ := (1 − (t/n)·D²)ⁿ p` (for `t > 0`; the `t = 0` case is
+`heatOp_zero`).  Then:
+  1. every `qₙ` is real-rooted — `oneMinusCD2_iterate_realRooted` (PROVED);
+  2. `natDegree qₙ = natDegree p` for all `n` — `oneMinusCD2_iterate_natDegree` (PROVED);
+  3. `(qₙ).coeff m → (heatOp t p).coeff m` as `n → ∞`, for every `m` — the classical
+     coefficient-wise `(1 − x/n)ⁿ → e^{−x}` (NOT in mathlib as a `roots`/coefficient bridge);
+  4. real-rootedness passes to the coefficient limit of a bounded-degree family — **Hurwitz's
+     theorem on continuity of roots** (mathlib has `Polynomial.coeff_le_of_roots_le` /
+     `coeff_bdd_of_roots_le` and continuity of `eval`, but NO continuity of the `roots`
+     multiset in the coefficients, and NO `tendsto_roots`).
+
+Steps 3–4 are the entire content of this `sorry`; steps 1–2 are discharged sorry-free
+above.  This is exactly the polynomial Hurwitz limit, absent from mathlib as of v4.22.0. -/
 theorem heat_preserves_LP (t : ℝ) (ht : 0 ≤ t) {p : ℝ[X]} (hp : HasOnlyRealRoots p) :
     HasOnlyRealRoots (heatOp t p) := by
+  -- FINITE side (sorry-free): for every n, qₙ := (1 − (t/n)·D²)ⁿ p is real-rooted of degree
+  -- natDegree p (`oneMinusCD2_iterate_realRooted`, `oneMinusCD2_iterate_natDegree`).  The ONLY
+  -- gap is the analytic n → ∞ coefficient limit + Hurwitz continuity of roots (steps 3–4).
   sorry
 
 /-! ## 3. Axiom audit -/
@@ -854,6 +970,15 @@ theorem heat_preserves_LP (t : ℝ) (ht : 0 ≤ t) {p : ℝ[X]} (hp : HasOnlyRea
 #print axioms exists_shifted_root_atTop
 #print axioms hermitePoulain_card_lower
 #print axioms hermitePoulain_shift
+
+-- Tasks 1 & 2 — the ENTIRE finite heat factor `(1 − c·D²)ⁿ` (and its degree bookkeeping)
+-- now preserves real-rootedness sorry-free (built from `hermitePoulain_shift`).  These MUST
+-- report ONLY the standard mathlib axioms — no `sorryAx`.
+#print axioms hasOnlyRealRoots_smul
+#print axioms oneMinusCD2_realRooted
+#print axioms oneMinusCD2_iterate_realRooted
+#print axioms oneMinusCD2_natDegree
+#print axioms oneMinusCD2_iterate_natDegree
 
 -- The concrete heat-operator algebra (all sorry-free).
 #print axioms iterate_derivative_add

@@ -51,8 +51,12 @@ echo 'import MathlibBridge
   continuity hypothesis). First prerequisite toward Hadamard/LP-on-ℂ that mathlib lacked.
   NOTE: mathlib *does* have a Nevanlinna `Analysis/Complex/ValueDistribution/` folder (characteristic,
   proximity, counting, FirstMainTheorem) — a potential accelerator for the genus/factorization bricks.
+- `order_mul_le` (`EntireOrder.lean`) — proved sorry-free (with continuity hypotheses); brick 2.
 - `deBruijn_monotone`, `exists_dbn_constant`, `rodgers_tao` — **stated, with precise `sorry`s /
-  named inputs**. The genuine remaining distance now lives in *building entire-function analysis
-  mathlib does not have*: order/genus + Hadamard factorization, the complex Gaussian convolution
-  discharging the two `heatFlow` axioms, the real `Ξ` as a loc-unif limit of real-rooted polynomials,
-  and the de Bruijn differential inequality (→ Rodgers–Tao `Λ≥0`).
+  named inputs**. See **[ENTIRE_ROADMAP.md](./ENTIRE_ROADMAP.md)** for the grounded brick-by-brick map.
+  **Honest bottom line:** a fully axiom-free `heat_preserves_LP_entire` (the de Bruijn monotonicity/
+  forward structure — discharging the two `heatFlow` axioms via an order-≤2 Gaussian convolution) is
+  **reachable in ~5 bricks (weeks–months)**. But **`Λ≥0` is research-open for formalization**: it is
+  Rodgers–Tao (2018), not a corollary of monotonicity (which only bounds Λ from *above*), with no
+  mathlib foundation — a multi-year, FLT/PFR-tier project. This build reaches de Bruijn's classical
+  upper structure, not `Λ≥0` itself.

@@ -26,6 +26,7 @@ const MollifiedBarrierCertificatePage = lazy(() => import('./pages/MollifiedBarr
 const FormalizationStatusPage = lazy(() => import('./pages/FormalizationStatusPage.jsx'));
 const ZeroDensityScopingPage = lazy(() => import('./pages/ZeroDensityScopingPage.jsx'));
 const GuthMaynardScopingPage = lazy(() => import('./pages/GuthMaynardScopingPage.jsx'));
+const ObstructionSeamPage = lazy(() => import('./pages/ObstructionSeamPage.jsx'));
 const DocsPage = lazy(() => import('./pages/DocsPage.jsx'));
 const ImprovementsPage = lazy(() => import('./pages/ImprovementsPage.jsx'));
 const WaveSimPage = lazy(() => import('./pages/WaveSimPage.jsx'));
@@ -1496,6 +1497,7 @@ function AppShell() {
           <Route path="/formalization-status" element={<FormalizationStatusPage />} />
           <Route path="/zero-density-scoping" element={<ZeroDensityScopingPage />} />
           <Route path="/guth-maynard-scoping" element={<GuthMaynardScopingPage />} />
+          <Route path="/obstruction-seam" element={<ObstructionSeamPage />} />
           <Route path="/docs" element={<DocsPage />} />
           <Route path="/waves" element={<WaveSimPage />} />
           <Route path="/rigor" element={<RHRigorPage />} />

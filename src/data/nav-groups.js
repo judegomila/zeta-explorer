@@ -82,6 +82,7 @@ export const NAV_GROUPS = [
       { to: '/mollified-barrier-certificate', label: 'Mollified Barrier Certificate (survivor)' },
       { to: '/zero-density-scoping', label: 'Can Zero-Density Move Λ? (no)' },
       { to: '/guth-maynard-scoping', label: 'α=1/2 Large-Value Bottleneck (RH-adjacent)' },
+      { to: '/obstruction-seam', label: 'The RH Obstruction Seam (why every route splits)' },
       { to: '/formalization-status', label: 'Lean Formalization Status' },
       { to: '/viz-phase-cylinder', label: 'Phase Cylinder: Unwrapped Rays' },
       { to: '/viz-unwrapped-rays', label: 'Unwrapped Prime Phase Rays' },

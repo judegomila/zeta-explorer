@@ -1,0 +1,2 @@
+# Build artifacts and downloaded mathlib cache (multi-GB) — never commit.
+/.lake/

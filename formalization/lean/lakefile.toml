@@ -6,11 +6,20 @@ defaultTargets = ["DeBruijnNewman"]
 # NOTE ON DEPENDENCIES.  This project is deliberately built on **plain Lean 4 core
 # only** (no mathlib), so that `lake build` succeeds offline and reproducibly with
 # the pinned toolchain.  We first attempted a mathlib dependency (pinned to tag
-# v4.9.0, matching lean-toolchain), but mathlib's prebuilt `cache` binary aborts on
-# this macOS ("__DATA_CONST segment missing SG_READ_ONLY flag", SIGABRT), so the
-# prebuilt `.olean`s cannot be downloaded, and compiling mathlib from source is
-# impractical here.  The faithful ℝ/ℂ version — real heat kernel, entire functions,
-# Laguerre–Pólya class — is future work and is flagged as such in the source.
+# v4.9.0, matching lean-toolchain), but the v4.9.0 prebuilt `cache` binary aborts on
+# this macOS ("__DATA_CONST segment missing SG_READ_ONLY flag", SIGABRT — that dyld
+# hard-fail hits Mach-O binaries linked before the SG_READ_ONLY requirement), so the
+# prebuilt `.olean`s cannot be downloaded with the pinned toolchain.
+#
+# UPDATE (2026-07): mathlib is UNBLOCKED on this machine — bumping to toolchain
+# v4.22.0 (whose `cache` binary was linked with a current macOS linker) downloads the
+# full prebuilt mathlib cache with NO dyld abort.  See the sibling sandbox
+# `../lean-mathlib-probe/` (mathlib v4.22.0), which proves the genuine analytic
+# finite→analytic bridge — `MathlibBridge.derivative_hasRoot_between` (Rolle/MVT root
+# interlacing, false over ℤ hence unreachable here) and `heatKernel_pos` — sorry-free
+# and `#print axioms`-clean.  THIS core project is intentionally left on v4.9.0 / core
+# only so its `lake build` stays offline-reproducible; the ℝ/ℂ port proceeds in the
+# mathlib-backed sandbox.
 
 [[lean_lib]]
 name = "DeBruijnNewman"

@@ -11,3 +11,6 @@ name = "MathlibBridge"
 
 [[lean_lib]]
 name = "EntireLP"
+
+[[lean_lib]]
+name = "EntireOrder"

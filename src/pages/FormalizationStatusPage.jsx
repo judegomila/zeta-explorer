@@ -69,6 +69,7 @@ export default function FormalizationStatusPage() {
             <p style={{ margin: '2px 0', fontSize: 12.5, color: '#94a3b8', lineHeight: 1.55 }}><strong>Cause:</strong> {mathlibUnblock.cause}</p>
             <p style={{ margin: '2px 0', fontSize: 12.5, color: '#94a3b8', lineHeight: 1.55 }}><strong>Fix:</strong> {mathlibUnblock.fix}</p>
             <p style={{ margin: '4px 0 0', fontSize: 13, color: '#e2e8f0', lineHeight: 1.6 }}><strong>New sorry-free lemmas:</strong> {mathlibUnblock.newLemmas}</p>
+            {mathlibUnblock.reduction && <p style={{ margin: '6px 0 0', fontSize: 13, color: '#22d3ee', lineHeight: 1.6 }}><strong>Reduction:</strong> {mathlibUnblock.reduction}</p>}
           </div>
         </>
       )}

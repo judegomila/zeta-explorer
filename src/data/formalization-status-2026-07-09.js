@@ -56,7 +56,8 @@ export const MATHLIB_UNBLOCK = {
   status: 'UNBLOCKED (commit 392f46ba1)',
   cause: 'The dyld abort was macOS 26.x rejecting the v4.9.0 mathlib `cache` binary’s linker flags (SG_READ_ONLY) — a linker issue, not a signature one (codesign cannot fix it).',
   fix: 'Toolchain v4.22.0 (already installed) has a macOS-26-compatible cache binary; `lake exe cache get` downloads all 7067 oleans clean. The mathlib-enabled project lives in formalization/lean-mathlib-probe/ (core project stays intact).',
-  newLemmas: 'With mathlib, proved sorry-free the analytic bridge core Lean could NOT reach: derivative_hasRoot_between (Rolle/MVT root-interlacing — general-degree derivative-real-rootedness, true over ℝ though false over ℤ) and heatKernel_pos (Gaussian kernel positivity). Axioms: propext + Classical.choice + Quot.sound only.',
+  newLemmas: 'With mathlib, proved sorry-free the analytic bridge core Lean could NOT reach: derivative_hasRoot_between (Rolle/MVT root-interlacing) and heatKernel_pos (Gaussian kernel positivity). Then (commit 5d108df3d): hasOnlyRealRoots_derivative — the derivative of a real-rooted real polynomial is real-rooted, FULL general degree with multiplicities (false over ℤ, true over ℝ) — plus hasOnlyRealRoots_iterate_derivative (every Dⁿ preserves real-rootedness), and all 4 DBN order-lemmas re-proved against the REAL zero predicate ∀z,H t z=0→z.im=0. Axioms: propext + Classical.choice + Quot.sound only.',
+  reduction: 'heat_preserves_LP is now reduced to ONE named classical theorem: the Pólya–Schur / Hermite–Poulain MULTIPLIER theorem (that e^{tD²}=Σ(tᵏ/k!)D^{2k} preserves the Laguerre–Pólya class). Every finite operator Dⁿ is proved; only the finite→infinite multiplier passage remains a sorry. That plus defining Ξ / the flow H_t=Ξ∗G_t, and Rodgers–Tao 0≤Λ (an explicit hypothesis), are the entire honest remaining distance.',
 };
 
 export const MATHLIB_GAP = {

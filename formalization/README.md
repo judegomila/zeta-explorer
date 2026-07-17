@@ -45,6 +45,12 @@ echo 'import MathlibBridge
 - `heat_preserves_LP_entire` (`EntireLP.lean`) — **proved from the bridge**, modulo two precisely
   *named axioms* (not `sorry`s): `heatFlow_poly` (flow = `heatOp` on polynomials) and
   `heatFlow_continuous` (loc-unif continuity). `#print axioms` shows exactly these.
+- `order_polynomial_eq_zero` (`EntireOrder.lean`) — **foundations brick 1, proved sorry-free**: the
+  *order* of an entire function is defined (`limsup log⁺log⁺ M_f(r)/log r`, EReal-valued) and the
+  polynomial base case (`order = 0`) is proved; one deferred `sorry` (`order_mul_le`, needs a
+  continuity hypothesis). First prerequisite toward Hadamard/LP-on-ℂ that mathlib lacked.
+  NOTE: mathlib *does* have a Nevanlinna `Analysis/Complex/ValueDistribution/` folder (characteristic,
+  proximity, counting, FirstMainTheorem) — a potential accelerator for the genus/factorization bricks.
 - `deBruijn_monotone`, `exists_dbn_constant`, `rodgers_tao` — **stated, with precise `sorry`s /
   named inputs**. The genuine remaining distance now lives in *building entire-function analysis
   mathlib does not have*: order/genus + Hadamard factorization, the complex Gaussian convolution

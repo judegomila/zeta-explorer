@@ -242,4 +242,133 @@ theorem isRealRooted_prod :
       simp only [prodFns, List.map_cons, evalProd_cons, prodRoots] at ih ⊢
       rw [Int.mul_eq_zero, hp x, ih, List.mem_append]
 
+/-! ### The heat-step operator `(1 + t·D²)` on polynomials (Hermite–Poulain shadow)
+
+A single heat step `H_t ↦ H_s` (`s = t + Δ`) acts on polynomials as the differential
+operator `e^{Δ·d²/dx²}`, whose first nontrivial multiplier piece is the `(1 + Δ·D²)`
+operator named in the Hermite–Poulain / Pólya–Schur calculus.  Here we make the
+`(1 + t·D²)` operator **concrete on polynomials in coefficient form** and prove the
+genuine algebraic facts about it that are reachable in plain Lean 4 core:
+
+* the formal derivative `deriv` lowers degree by one (`deriv_length`) and its second
+  iterate annihilates affine polynomials (`d2_eq_nil_of_length_le_two`);
+* consequently the heat step `(1 + t·D²)` **fixes every affine polynomial**
+  (`heatStep_eq_eval_of_affine`), hence **preserves real-rootedness of affine
+  polynomials** (`heatStep_preserves_realRooted_of_affine`).
+
+This is the honest degenerate-degree shadow of `heat_preserves_LP`.  The
+general-degree statement — that `(1 + t·D²)` (indeed the full `e^{t·D²}`) maps a
+real-rooted polynomial to a real-rooted one — is exactly Rolle / Hermite–Poulain and
+is **NOT** closeable in plain core: it rests on the mean value theorem and the
+interlacing of real roots (`ℝ`-completeness / IVT), which live in mathlib.  Over the
+integral domain `ℤ` used here it is even FALSE pointwise (e.g. the derivative of
+`X(X-1)(X-2) = X³ - 3X² + 2X` is `3X² - 6X + 2`, whose roots `1 ± 1/√3` are
+irrational, so a `ℤ`-real-rooted cubic has a derivative with no integer roots).  Thus
+the affine case below is the honest ceiling for a `sorry`-free heat-step
+real-rootedness lemma in core. -/
+
+/--
+Coefficient-form evaluation: `eval [a₀,a₁,a₂,…] x = a₀ + a₁·x + a₂·x² + ⋯`
+(the list index is the degree).  The empty list is the zero polynomial.
+-/
+def eval (c : List Int) (x : Int) : Int :=
+  c.foldr (fun a acc => a + x * acc) 0
+
+@[simp] theorem eval_nil (x : Int) : eval [] x = 0 := rfl
+
+/--
+Helper for the formal derivative: differentiate a coefficient tail whose lowest term
+sits at exponent `k`, i.e. `derivFrom k [b₀,b₁,…] = [k·b₀, (k+1)·b₁, …]`.
+-/
+def derivFrom : Nat → List Int → List Int
+  | _, [] => []
+  | k, a :: as => (Int.ofNat k) * a :: derivFrom (k + 1) as
+
+/--
+Formal derivative in coefficient form: `deriv [a₀,a₁,a₂,a₃,…] = [a₁, 2·a₂, 3·a₃, …]`.
+This is the operator `D` of the Hermite–Poulain calculus, defined purely
+algebraically (no analytic limit), so all facts below are `sorry`-free in core.
+-/
+def deriv : List Int → List Int
+  | [] => []
+  | _ :: as => derivFrom 1 as
+
+/-- `derivFrom` preserves list length (it maps each coefficient to one coefficient). -/
+theorem derivFrom_length (k : Nat) (as : List Int) :
+    (derivFrom k as).length = as.length := by
+  induction as generalizing k with
+  | nil => rfl
+  | cons _a as ih => simp only [derivFrom, List.length_cons, ih]
+
+/--
+**Degree drop.**  The formal derivative lowers length (degree) by one.  This is the
+structural fact that each Hermite–Poulain differentiation step strictly reduces
+degree — the finite-dimensional analog of the heat flow not raising the order.
+-/
+theorem deriv_length (c : List Int) : (deriv c).length = c.length - 1 := by
+  cases c with
+  | nil => rfl
+  | cons a as => rw [deriv, derivFrom_length, List.length_cons, Nat.succ_sub_one]
+
+/--
+The derivative of a polynomial of degree ≤ 0 (a constant, `length ≤ 1`) is the zero
+polynomial.  Base algebraic fact `D(const) = 0`.
+-/
+theorem deriv_eq_nil_of_length_le_one {l : List Int} (h : l.length ≤ 1) :
+    deriv l = [] := by
+  cases l with
+  | nil => rfl
+  | cons _a as =>
+      cases as with
+      | nil => rfl
+      | cons b bs =>
+          exfalso
+          simp only [List.length_cons] at h
+          omega
+
+/--
+The second derivative annihilates affine polynomials (`length ≤ 2`, i.e. degree
+≤ 1): `D²(a + b·X) = 0`.  This is what makes the `(1 + t·D²)` heat step act as the
+identity on affine polynomials.
+-/
+theorem d2_eq_nil_of_length_le_two {c : List Int} (h : c.length ≤ 2) :
+    deriv (deriv c) = [] := by
+  apply deriv_eq_nil_of_length_le_one
+  rw [deriv_length]
+  omega
+
+/--
+The **single heat step** `(1 + t·D²)` applied to the polynomial `c`, evaluated at `x`:
+`heatStep t c x = eval c x + t · eval (D²c) x`.  This is the first-order Hermite–
+Poulain multiplier piece of the heat operator `e^{t·D²}`.
+-/
+def heatStep (t : Int) (c : List Int) (x : Int) : Int :=
+  eval c x + t * eval (deriv (deriv c)) x
+
+/--
+**The heat step fixes affine polynomials.**  For a polynomial of degree ≤ 1
+(`length ≤ 2`), `D²c = 0`, so `(1 + t·D²)c = c` as functions.  (Honest degenerate
+case of "the heat flow preserves the polynomial's leading behaviour".)
+-/
+theorem heatStep_eq_eval_of_affine {c : List Int} (h : c.length ≤ 2) (t x : Int) :
+    heatStep t c x = eval c x := by
+  unfold heatStep
+  rw [d2_eq_nil_of_length_le_two h, eval_nil, Int.mul_zero, Int.add_zero]
+
+/--
+**Heat step preserves real-rootedness of affine polynomials.**  If the affine
+polynomial `c` (degree ≤ 1) is real-rooted with root list `L`, then so is its image
+`(1 + t·D²)c` under the single heat step — trivially, because the heat step fixes it.
+
+This is the `sorry`-free finite-dimensional shadow of `heat_preserves_LP` in the
+degenerate (affine) degree.  The general-degree version is Rolle / Hermite–Poulain
+and needs mathlib's real analysis (see the section note above).
+-/
+theorem heatStep_preserves_realRooted_of_affine {c : List Int} {L : List Int}
+    (hc : c.length ≤ 2) (t : Int) (hrr : IsRealRootedWith (eval c) L) :
+    IsRealRootedWith (heatStep t c) L := by
+  intro x
+  rw [heatStep_eq_eval_of_affine hc t x]
+  exact hrr x
+
 end DeBruijnNewman.RealRooted

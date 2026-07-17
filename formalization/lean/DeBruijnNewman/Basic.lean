@@ -188,11 +188,21 @@ Poulain theorem that the diagonal heat multiplier operator maps the Laguerre–P
 class into itself.  (Equivalently: an energy/Newton-flow argument showing the
 imaginary parts of the zeros of `H_t` are non-increasing in `t`.)
 
-* mathlib GAP: Hermite–Poulain / Pólya–Schur multiplier theory, LP closure.
-* FINITE-DIMENSIONAL SHADOW (PROVED, no `sorry`): `RealRooted.isRealRooted_mul`
-  — the LP class is closed under products; a product of real-rooted polynomials is
-  real-rooted.  Product-closure is the structural core that the heat multiplier
-  preserves (LP functions are limits of products of real linear factors).
+* mathlib GAP: Hermite–Poulain / Pólya–Schur multiplier theory, LP closure.  The
+  general-degree heat step maps a real-rooted polynomial to a real-rooted one via
+  Rolle / root interlacing, which needs the mean value theorem and `ℝ`-completeness
+  (over `ℤ` it is even false: the derivative of `X(X-1)(X-2)` has irrational roots).
+* FINITE-DIMENSIONAL SHADOWS (PROVED, no `sorry`):
+  - `RealRooted.isRealRooted_mul` — the LP class is closed under products; a product
+    of real-rooted polynomials is real-rooted.  Product-closure is the structural
+    core the heat multiplier preserves (LP functions are limits of products of real
+    linear factors).
+  - `RealRooted.heatStep_preserves_realRooted_of_affine` — the actual single heat
+    step `(1 + t·D²)`, made concrete on coefficient-form polynomials, PRESERVES
+    real-rootedness of affine polynomials (degree ≤ 1), because `D²` annihilates them
+    (`RealRooted.d2_eq_nil_of_length_le_two`) so the step fixes them.  This is the
+    honest degenerate-degree shadow of this very theorem; the derivative-degree-drop
+    lemma `RealRooted.deriv_length` is its supporting structural fact.
 -/
 theorem heat_preserves_LP {t s : Int}
     (h : InLaguerrePolya t) (hle : t ≤ s) : InLaguerrePolya s := by

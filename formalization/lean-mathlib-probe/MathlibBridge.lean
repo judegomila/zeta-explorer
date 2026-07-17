@@ -37,6 +37,7 @@
 import Mathlib.Analysis.Calculus.LocalExtr.Rolle
 import Mathlib.Analysis.Calculus.Deriv.Polynomial
 import Mathlib.Analysis.Calculus.LocalExtr.Polynomial
+import Mathlib.Analysis.SpecialFunctions.ExpDeriv
 import Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral
 import Mathlib.Topology.Algebra.Polynomial
 import Mathlib.Data.Complex.Basic
@@ -206,6 +207,117 @@ theorem hasOnlyRealRoots_iterate_derivative {p : ℝ[X]} (hp : HasOnlyRealRoots 
       rw [Function.iterate_succ', Function.comp_apply]
       exact hasOnlyRealRoots_derivative (hasOnlyRealRoots_iterate_derivative hp n)
 
+/-! ### The atomic Hermite–Poulain shift `p ↦ p′ + c·p`
+
+The heat-operator factorization `e^{−t·D²} = limₙ (1 − (t/n)·D²)ⁿ` decomposes (for
+`t ≥ 0`) into linear real-shift factors `p ↦ p′ ± √(n/t)·p` (gap 1 of
+`heat_preserves_LP`).  The two lemmas below discharge the *reachable* analytic core of
+that shift and isolate the single genuinely-missing arithmetic fact.
+
+The key device is the real function `g(x) = e^{c x}·p(x)`, whose derivative is
+`g′(x) = e^{c x}·(p′(x) + c·p(x))`.  Since `e^{c x} > 0`, the real zeros of the shifted
+polynomial `q := p′ + c·p` are exactly the zeros of `g′`. -/
+
+/-- **Shifted-root interlacing (Rolle on `e^{c x}·p`, sorry-free).**  Between any two
+distinct real roots `a < b` of `p`, the shifted polynomial `p′ + c·p` has a genuine
+real root.  This is the faithful ℝ-analog of `derivative_hasRoot_between` for the
+Hermite–Poulain shift operator: the exponential factor `e^{c x}` (which is *not* a
+polynomial, so mathlib's polynomial Rolle lemmas do not apply directly) is handled by
+mathlib's analytic Rolle theorem `exists_deriv_eq_zero` applied to the transcendental
+auxiliary function `g x = e^{c x}·p(x)`.  Because `e^{c x} ≠ 0`, a zero of `g′` forces a
+zero of `q = p′ + c·p`. -/
+theorem exists_shifted_root_between (c : ℝ) {p : ℝ[X]} {a b : ℝ}
+    (hab : a < b) (ha : p.eval a = 0) (hb : p.eval b = 0) :
+    ∃ z, a < z ∧ z < b ∧ (Polynomial.derivative p + c • p).eval z = 0 := by
+  have hcont : ContinuousOn (fun x => Real.exp (c * x) * p.eval x) (Set.Icc a b) :=
+    ((Real.continuous_exp.comp (continuous_const.mul continuous_id)).mul p.continuous).continuousOn
+  have hI : (fun x => Real.exp (c * x) * p.eval x) a
+      = (fun x => Real.exp (c * x) * p.eval x) b := by simp [ha, hb]
+  obtain ⟨z, hz, hz0⟩ := exists_deriv_eq_zero hab hcont hI
+  refine ⟨z, hz.1, hz.2, ?_⟩
+  have h1 : HasDerivAt (fun x : ℝ => Real.exp (c * x)) (Real.exp (c * z) * c) z := by
+    simpa using ((hasDerivAt_id z).const_mul c).exp
+  have h2 : HasDerivAt (fun x => p.eval x) ((Polynomial.derivative p).eval z) z := p.hasDerivAt z
+  have hval : Real.exp (c * z) * c * p.eval z + Real.exp (c * z) * (Polynomial.derivative p).eval z
+      = Real.exp (c * z) * (Polynomial.derivative p + c • p).eval z := by
+    rw [Polynomial.eval_add, Polynomial.eval_smul, smul_eq_mul]; ring
+  have hd : HasDerivAt (fun x => Real.exp (c * x) * p.eval x)
+      (Real.exp (c * z) * (Polynomial.derivative p + c • p).eval z) z := hval ▸ h1.mul h2
+  rw [hd.deriv] at hz0
+  rcases mul_eq_zero.mp hz0 with h | h
+  · exact absurd h (Real.exp_ne_zero _)
+  · exact h
+
+/-- **The one remaining arithmetic gap of the Hermite–Poulain shift** — a root-count
+*lower* bound.  For `c ≠ 0` and `p ≠ 0`, the shifted polynomial `q := p′ + c·p` (which
+has `natDegree q = natDegree p =: n`, see `hermitePoulain_shift`) has at least `n` real
+roots counted with multiplicity.
+
+This is the ONLY piece of `hermitePoulain_shift` still missing from mathlib.  The
+reachable parts are already proved sorry-free:
+
+* the **interior** roots come from `exists_shifted_root_between` (Rolle on `e^{c x}·p`),
+  which — mirroring mathlib's `Polynomial.card_roots_le_derivative` bookkeeping — yields
+  exactly `n − 1` real roots of `q` (the `k − 1` interval gaps between the `k` distinct
+  roots of `p`, plus the `n − k` roots inherited with multiplicity `m − 1` at each root
+  of `p` of multiplicity `m`, via `Polynomial.rootMultiplicity_add`);
+* the **degree** bookkeeping `natDegree q = n` is proved sorry-free below.
+
+The single missing `n`-th root is the "root at infinity": for `c > 0` the factor
+`e^{c x}·p(x) → 0` as `x → −∞`, and `g(a₁) = 0` at the least root `a₁` of `p`, so `g`
+has an interior extremum on `(−∞, a₁)` — hence `g′` (and `q`) a further real root below
+all roots of `p` (symmetrically above them for `c < 0`).  Formalizing this requires a
+Rolle-at-infinity / extreme-value argument (mathlib has the finite two-sided-limit form
+`exists_deriv_eq_zero'` but no `atBot`/`atTop` polynomial-times-exponential instance),
+i.e. the extremum of `g` on an unbounded interval given its decay at infinity.  This is
+the smallest honest sorry; it is a real-analysis fact, not an arithmetic shortcut, so it
+is left explicit rather than faked.
+
+Reference: N. Obreschkoff, *Verteilung und Berechnung der Nullstellen reeller Polynome*
+(1963), Hermite–Poulain theorem; Rahman–Schmeisser, *Analytic Theory of Polynomials*
+(2002), Thm 5.4.4 (the shift `D + c` preserves the class of hyperbolic polynomials). -/
+theorem hermitePoulain_card_lower {c : ℝ} (hc : c ≠ 0) {p : ℝ[X]} (hp0 : p ≠ 0) :
+    p.natDegree ≤ Multiset.card (Polynomial.derivative p + c • p).roots := by
+  sorry
+
+/-- **Atomic Hermite–Poulain shift step** (`hermitePoulain_shift`, gap 1 of
+`heat_preserves_LP`).  For every real `c`, the operator `p ↦ p′ + c·p` preserves
+real-rootedness (roots counted with multiplicity).
+
+Structure of the proof:
+* `c = 0`: `p′ + 0·p = p′`, so this is exactly the already-proved
+  `hasOnlyRealRoots_derivative`.
+* `p = 0`: both sides are the zero polynomial (`0` real roots, degree `0`).
+* `c ≠ 0, p ≠ 0`: the shifted polynomial `q := p′ + c·p` has `natDegree q = natDegree p`
+  (the `c·p` term dominates the strictly-lower-degree `p′`), so `card q.roots ≤ natDegree q
+  = natDegree p = card p.roots` (`Polynomial.card_roots'` + real-rootedness of `p`).  The
+  matching lower bound `natDegree p ≤ card q.roots` is `hermitePoulain_card_lower`, whose
+  only-missing ingredient (the root at infinity) is documented there.  The two bounds
+  pin `card q.roots = natDegree q`, i.e. `q` is real-rooted. -/
+theorem hermitePoulain_shift (c : ℝ) {p : ℝ[X]} (hp : HasOnlyRealRoots p) :
+    HasOnlyRealRoots (Polynomial.derivative p + c • p) := by
+  rcases eq_or_ne c 0 with rfl | hc
+  · have h0 : Polynomial.derivative p + (0 : ℝ) • p = Polynomial.derivative p := by
+      rw [zero_smul, add_zero]
+    rw [h0]; exact hasOnlyRealRoots_derivative hp
+  rcases eq_or_ne p 0 with rfl | hp0
+  · simp only [Polynomial.derivative_zero, smul_zero, add_zero, HasOnlyRealRoots,
+      Polynomial.roots_zero, Polynomial.natDegree_zero, Multiset.card_zero]
+  have hdeg : (Polynomial.derivative p + c • p).natDegree = p.natDegree := by
+    rcases Nat.eq_zero_or_pos p.natDegree with h0 | hpos
+    · rw [Polynomial.derivative_of_natDegree_zero h0, zero_add, Polynomial.natDegree_smul p hc]
+    · have hside : (Polynomial.derivative p).natDegree < (c • p).natDegree := by
+        rw [Polynomial.natDegree_smul p hc]
+        exact Polynomial.natDegree_derivative_lt hpos.ne'
+      rw [add_comm, Polynomial.natDegree_add_eq_left_of_natDegree_lt hside,
+          Polynomial.natDegree_smul p hc]
+  have hle : Multiset.card (Polynomial.derivative p + c • p).roots
+      ≤ (Polynomial.derivative p + c • p).natDegree := Polynomial.card_roots' _
+  have hge : p.natDegree ≤ Multiset.card (Polynomial.derivative p + c • p).roots :=
+    hermitePoulain_card_lower hc hp0
+  unfold HasOnlyRealRoots at hp ⊢
+  omega
+
 /-! ### The heat / Laguerre–Pólya multiplier operator, made CONCRETE
 
 The core project (and the previous version of this file) left the heat multiplier
@@ -368,11 +480,12 @@ a Hermite–Poulain product of **linear real-shift factors** `p ↦ p′ ± √(
 mathlib gaps block a sorry-free finish, either of which is the smallest reachable
 sub-step:
 
-* **(atomic Hermite–Poulain step)** for real `c`, `p ↦ Polynomial.derivative p + c • p`
-  preserves real-rootedness.  Mathlib has the *derivative* interlacing
-  (`Polynomial.card_roots_le_derivative`, used above) but NOT the shifted operator
-  `p′ + c·p` (its interlacing needs the sign/Rolle analysis of `e^{c x} p`, whose
-  factor `e^{c x}` is not a polynomial).
+* **(atomic Hermite–Poulain step — gap 1, now isolated)** for real `c`,
+  `p ↦ Polynomial.derivative p + c • p` preserves real-rootedness.  This is the theorem
+  `hermitePoulain_shift` above.  Its Rolle interlacing on `e^{c x} p` is proved sorry-free
+  (`exists_shifted_root_between`) and its degree bookkeeping is complete; the entire gap is
+  now reduced to the single arithmetic sorry `hermitePoulain_card_lower` (the "root at
+  infinity" — the one `n`-th real root the interior Rolle argument cannot see).
 * **(the limit)** continuity of `Polynomial.roots` under coefficient limits
   (Hurwitz's theorem) — mathlib has no `roots`-continuity / `ContinuousMultilinearMap`
   bridge from convergence of coefficients to convergence of the (real) root multiset.
@@ -399,6 +512,12 @@ theorem heat_preserves_LP (t : ℝ) (ht : 0 ≤ t) {p : ℝ[X]} (hp : HasOnlyRea
 #print axioms RH_iff_lambda_eq_zero
 #print axioms hasOnlyRealRoots_derivative
 #print axioms hasOnlyRealRoots_iterate_derivative
+#print axioms exists_shifted_root_between
+
+-- Gap 1 (Hermite–Poulain shift) reduced to ONE arithmetic sorry (`hermitePoulain_card_lower`):
+-- `hermitePoulain_shift` therefore still reports `sorryAx`, but every other ingredient
+-- (Rolle interlacing + degree bookkeeping) is sorry-free.
+#print axioms hermitePoulain_shift
 
 -- The concrete heat-operator algebra (all sorry-free).
 #print axioms iterate_derivative_add

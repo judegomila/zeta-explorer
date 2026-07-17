@@ -51,6 +51,14 @@ export const STUBBED_THEOREMS = [
   { name: 'rodgers_tao', statement: 'IsDBNConstant Λ → 0 ≤ Λ', needs: 'the full Rodgers–Tao (2020) zero-dynamics + pair-correlation argument. Far beyond current formalization reach.' },
 ];
 
+// 2026-07-16: mathlib UNBLOCKED — the tool gate on all analytic progress is cleared.
+export const MATHLIB_UNBLOCK = {
+  status: 'UNBLOCKED (commit 392f46ba1)',
+  cause: 'The dyld abort was macOS 26.x rejecting the v4.9.0 mathlib `cache` binary’s linker flags (SG_READ_ONLY) — a linker issue, not a signature one (codesign cannot fix it).',
+  fix: 'Toolchain v4.22.0 (already installed) has a macOS-26-compatible cache binary; `lake exe cache get` downloads all 7067 oleans clean. The mathlib-enabled project lives in formalization/lean-mathlib-probe/ (core project stays intact).',
+  newLemmas: 'With mathlib, proved sorry-free the analytic bridge core Lean could NOT reach: derivative_hasRoot_between (Rolle/MVT root-interlacing — general-degree derivative-real-rootedness, true over ℝ though false over ℤ) and heatKernel_pos (Gaussian kernel positivity). Axioms: propext + Classical.choice + Quot.sound only.',
+};
+
 export const MATHLIB_GAP = {
   present: 'ℝ/ℂ, entire & analytic functions, complex differentiability, integration, enough real analysis that the companion Gaussian heat-kernel positivity fact is a one-line `positivity` proof.',
   absent: 'Laguerre–Pólya class; Hermite–Biehler theorem; entire-function order/genus + Hadamard factorization specialized to Ξ; heat-flow dynamics of zeros; the pair-correlation inputs Rodgers–Tao rely on.',
@@ -61,6 +69,7 @@ export const FORMALIZATION_STATUS = {
   meta: FORMALIZATION_META,
   proved: PROVED_LEMMAS,
   realRootedShadow: REALROOTED_SHADOW,
+  mathlibUnblock: MATHLIB_UNBLOCK,
   stubbed: STUBBED_THEOREMS,
   mathlibGap: MATHLIB_GAP,
 };

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { FORMALIZATION_STATUS } from '../data/formalization-status-2026-07-09.js';
 
-const { meta, proved, realRootedShadow, stubbed, mathlibGap } = FORMALIZATION_STATUS;
+const { meta, proved, realRootedShadow, mathlibUnblock, stubbed, mathlibGap } = FORMALIZATION_STATUS;
 
 export default function FormalizationStatusPage() {
   return (
@@ -60,6 +60,18 @@ export default function FormalizationStatusPage() {
           </div>
         ))}
       </div>
+
+      {mathlibUnblock && (
+        <>
+          <h2>2026-07-16 — mathlib unblocked</h2>
+          <div style={{ border: '1px solid #10b98155', background: 'rgba(16,185,129,0.06)', borderRadius: 8, padding: '12px 16px', maxWidth: 860 }}>
+            <div style={{ fontFamily: 'ui-monospace, monospace', fontSize: 12, color: '#10b981', marginBottom: 4 }}>{mathlibUnblock.status}</div>
+            <p style={{ margin: '2px 0', fontSize: 12.5, color: '#94a3b8', lineHeight: 1.55 }}><strong>Cause:</strong> {mathlibUnblock.cause}</p>
+            <p style={{ margin: '2px 0', fontSize: 12.5, color: '#94a3b8', lineHeight: 1.55 }}><strong>Fix:</strong> {mathlibUnblock.fix}</p>
+            <p style={{ margin: '4px 0 0', fontSize: 13, color: '#e2e8f0', lineHeight: 1.6 }}><strong>New sorry-free lemmas:</strong> {mathlibUnblock.newLemmas}</p>
+          </div>
+        </>
+      )}
 
       <h2>How far is a full Λ ≥ 0 formalization?</h2>
       <p style={{ color: '#cbd5e1', lineHeight: 1.7, maxWidth: 820 }}>

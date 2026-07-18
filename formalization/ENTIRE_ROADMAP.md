@@ -119,7 +119,7 @@ Gaussian-integral track) and leaves exactly **one** analytic gap, H5 = `heatFlow
 |---|---|---|---|---|
 | H1–H3 | ~~Complex Gaussian integrability / entire-convolution / differentiation under ∫~~ | **RETIRED** | — | superseded by the order-≤2 series construction (no ℂ-convolution needed) |
 | H4 | `heatFlow_poly`: `e^{−tD²}p = heatOp t p` on polynomials | **DONE (sorry-free)** | done | `EntireLP.heatFlow_poly` — via `iteratedDeriv_toEntire` (complex `Dⁿ` of a polynomial image = `toEntire (D^n p)`, `Polynomial.deriv_aeval` iterated) + `tsum_eq_sum` (finite support) + `map_sum`/`map_smul`.  `#print axioms` = `[propext, Classical.choice, Quot.sound]` |
-| H5 | ~~`heatFlow_continuous`: loc-unif continuity of the order-≤2 series~~ | **FALSE — DISPROVED** | — | brick 4, THIS round.  The statement is FALSE even for entire `F` (see below); it is NOT a missing lemma.  The B2 "uniform summable majorant" that H5 rested on **does not exist** — the counterexample is its disproof. |
+| H5 | ~~`heatFlow_continuous`: loc-unif continuity of the order-≤2 series~~ | **FALSE — DISPROVED (machine-checked)** | — | brick 4.  The statement is FALSE even for entire `F` (see below); it is NOT a missing lemma.  The B2 "uniform summable majorant" that H5 rested on **does not exist** — the counterexample is its disproof.  **Now BANKED sorry-free** as `EntireLP.not_heatFlow_continuous` in `HeatFlowCounterexample.lean`; `#print axioms` = `[propext, Classical.choice, Quot.sound]`. |
 | B2′ | Weierstrass loc-unif convergence of *iterated* derivatives (`iteratedDeriv_tendstoLocallyUniformlyOn`) | **DONE (sorry-free)** | done | `EntireOrder.lean` — iterate mathlib `TendstoLocallyUniformlyOn.deriv`.  A correct, reusable ingredient the eventual (type-controlled) proof will need.  NECESSARY but NOT SUFFICIENT for H5. |
 | H5′ | `exists_heatOp_approx_tendsto`: for `f ∈ LP`, a *type-controlled* real-rooted sequence `Pₙ → f` with `heatOp t Pₙ → heatFlow t f` loc-unif | **[must-build]** | ~big | the corrected, TRUE remaining gap (one precise `sorry`).  Needs genuine Hadamard/LP order-and-type control (B2–B8), NOT a uniform majorant.  A *generic* `f`-approximating sequence provably fails. |
 
@@ -133,6 +133,12 @@ the previous "one named axiom away" milestone was resting on a false premise.
 (by `heatFlow_poly`, only the `k = n` term `((-1)ⁿ/n!)·D^{2n}(·)` survives at `0`, giving
 `(n!/(2n)!)·((-1)ⁿ/n!)·(2n)! = (-1)ⁿ`).  Loc-unif convergence of entire functions gives NO control
 on the infinite sum of high-order derivatives, so no uniform tail majorant (B2) can exist.
+
+*This impossibility is now MACHINE-CHECKED* (`formalization/lean-mathlib-probe/HeatFlowCounterexample.lean`):
+`not_heatFlow_continuous : ¬ ∀ (t : ℝ) {f : ℕ → ℂ → ℂ} {g : ℂ → ℂ}, TendstoLocallyUniformly f g atTop →
+TendstoLocallyUniformly (fun n => heatFlow t (f n)) (heatFlow t g) atTop`, proved sorry-free from the two
+computational lemmas `toEntire_F_tendsto_zero` (loc-unif → 0) and `heatFlow_F_at_zero` (value `(-1)ⁿ`).
+`#print axioms not_heatFlow_continuous` = `[propext, Classical.choice, Quot.sound]` (NO `sorryAx`).
 
 *Corrected architecture (`EntireLP.lean`):* the false axiom is removed.  The sorry-free bridge
 `isLaguerrePolya_heat_of_flow` is a correct *conditional* theorem but cannot be instantiated at

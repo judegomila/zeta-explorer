@@ -54,9 +54,12 @@ echo 'import MathlibBridge
 - `order_mul_le` (`EntireOrder.lean`) — proved sorry-free (with continuity hypotheses); brick 2.
 - `deBruijn_monotone`, `exists_dbn_constant`, `rodgers_tao` — **stated, with precise `sorry`s /
   named inputs**. See **[ENTIRE_ROADMAP.md](./ENTIRE_ROADMAP.md)** for the grounded brick-by-brick map.
-  **Honest bottom line:** a fully axiom-free `heat_preserves_LP_entire` (the de Bruijn monotonicity/
-  forward structure — discharging the two `heatFlow` axioms via an order-≤2 Gaussian convolution) is
-  **reachable in ~5 bricks (weeks–months)**. But **`Λ≥0` is research-open for formalization**: it is
-  Rodgers–Tao (2018), not a corollary of monotonicity (which only bounds Λ from *above*), with no
-  mathlib foundation — a multi-year, FLT/PFR-tier project. This build reaches de Bruijn's classical
-  upper structure, not `Λ≥0` itself.
+  **Honest bottom line (CORRECTED, brick 4):** an earlier estimate said the axiom-free
+  `heat_preserves_LP_entire` was "~2–5 bricks" away via a locally-uniform-continuous heat operator.
+  **That was wrong — it rested on a FALSE axiom.** `heatFlow_continuous` is *false*: `e^{−tD²}` is not
+  loc-unif continuous (counterexample `Fₙ=(n!/(2n)!)X^{2n}→0` loc-unif but `heatFlow 1 Fₙ(0)=(−1)ⁿ`).
+  The false axiom is now removed; `heat_preserves_LP_entire` rests on ONE precise **true** `sorry`
+  (`exists_heatOp_approx_tendsto`: a *type-controlled* de Bruijn approximating sequence — a generic one
+  fails). Closing it needs the full Hadamard / Laguerre–Pólya **order-and-type structure theory**
+  (roadmap B2–B8) — **genuinely months**, the same deep theory this lift always required; not a quick
+  finish. And **`Λ≥0` itself remains research-open** (Rodgers–Tao 2018, multi-year, FLT/PFR-tier).

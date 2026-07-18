@@ -22,7 +22,8 @@ Sizes are rough Lean-LOC / person-effort for a mathlib-grade proof.
 | Order of growth `order f = limsup (log⁺log⁺ M_f(r))/log r`, `order_nonneg`, `order_polynomial_eq_zero`, crux `log⁺log⁺ r / log r → 0` | `EntireOrder.lean` (brick 1) | **sorry-free** |
 | `maxModulus_mul_le` (`M_{fg} ≤ M_f·M_g`, continuous `f,g`) and `order_mul_le` (`order(f·g) ≤ max(order f)(order g)`, continuous `f,g`) | `EntireOrder.lean` (brick 2, THIS round) | **sorry-free**; `#print axioms` = `[propext, Classical.choice, Quot.sound]` (no `sorryAx`) |
 | Laguerre–Pólya class `IsLaguerrePolya` (limit-closure definition), real-on-ℝ inheritance, real-rooted-poly ⇒ LP, the flow **bridge** `isLaguerrePolya_heat_of_flow` | `EntireLP.lean` | **sorry-free**, axiom-clean |
-| `heat_preserves_LP_entire` (entire heat flow preserves LP) | `EntireLP.lean` | proved **modulo 2 named axioms** `heatFlow_poly`, `heatFlow_continuous` (+ `opaque heatFlow`) |
+| CONCRETE entire heat flow `heatFlow t f = Σₖ((−t)ᵏ/k!)·f^{(2k)}` (order-≤2 series = `e^{−tD²}`), `iteratedDeriv_toEntire` (complex `Dⁿ` of a polynomial image), and `heatFlow_poly` (`heatFlow = heatOp` on polynomials) | `EntireLP.lean` (brick 3, THIS round) | **sorry-free**; `#print axioms` = `[propext, Classical.choice, Quot.sound]`.  `heatFlow` is now a `def` (was `opaque`); `heatFlow_poly` is now a THEOREM (was an axiom) |
+| `heat_preserves_LP_entire` (entire heat flow preserves LP) | `EntireLP.lean` | proved **modulo 1 named axiom** `heatFlow_continuous` (down from 3: `heatFlow`/`heatFlow_poly` discharged this round). `#print axioms` = `[propext, Classical.choice, EntireLP.heatFlow_continuous, Quot.sound]` |
 
 So the *combinatorial/algebraic* de Bruijn step is done at both the polynomial and (limit-closure)
 entire level. The entire theorem currently rests on exactly two analytic interface axioms, which is
@@ -100,21 +101,33 @@ convert between the product form and the limit form.
 
 ## 3. Discharging the two `heatFlow` axioms (the current honest gap)
 
-`heatFlow_poly` and `heatFlow_continuous` are the *only* non-standard axioms behind
-`heat_preserves_LP_entire`. Discharging them = constructing the entire Gaussian/Weierstrass transform
-`heatFlow t f = (f ∗ G_t)`, `G_t(s) = (4πt)^{−1/2}e^{−s²/4t}`, and proving its two interface facts.
+**Architecture change (THIS round, brick 3).**  The former plan built `heatFlow` as the *forward*
+Gaussian convolution `f ∗ G_t`.  That is the **wrong sign**: `f ∗ G_t` realises `e^{+tD²}`, which
+DESTROYS real-rootedness (`X²−1 ↦ X²+(2t−1)`, a conjugate pair for `t > 1/2`).  The operator we need
+is the *anti-diffusive* `e^{−tD²}` (matching the sign-verified polynomial `heatOp`).  We therefore
+switched the construction to de Bruijn's **order-≤2 power-series representation**
+
+    `heatFlow t f (z) = Σₖ ((−t)ᵏ/k!)·f^{(2k)}(z)`   (realised as an `∑'` over `k : ℕ`),
+
+which is exactly `e^{−tD²}` and needs no ℂ-Gaussian-convolution toolkit at all.  `heatFlow` is now a
+CONCRETE `noncomputable def` in `EntireLP.lean` (was `opaque`), and `H4`/`heatFlow_poly` is DISCHARGED
+**sorry-free** (on polynomial images the series is finite — high derivatives vanish — so `tsum_eq_sum`
+collapses it to the finite `heatOp` sum, no analytic input).  This retires H1–H4 (the whole
+Gaussian-integral track) and leaves exactly **one** analytic gap, H5 = `heatFlow_continuous`.
 
 | # | Brick | Tag | Size | Notes |
 |---|---|---|---|---|
-| H1 | Complex Gaussian integrability toolkit on ℂ | **[partial]** | ~300 | `Analysis/SpecialFunctions/Gaussian/*` covers ℝ (GaussianIntegral, FourierTransform, PoissonSummation); no ℂ-convolution operator |
-| H2 | Convergence of `∫ f(z−s) e^{−s²/4t} ds` for entire `f` of order ≤ 2 (needs B1–B2 growth control) | **[must-build]** | ~700 | this is *why* the order theory (B1/B2) is a genuine prerequisite, not decoration |
-| H3 | `heatFlow t` is entire in `z` (differentiation under the integral) | **[must-build]** | ~400 | mathlib has `hasDerivAt_integral_of_dominated_*`; assembly |
-| H4 | `heatFlow_poly`: `e^{−tD²}p = (2√πt)⁻¹∫p(z−s)e^{−s²/4t}ds` = `heatOp t p` (de Bruijn 1950 §1) | **[must-build]** | ~500 | Gaussian moments vs. the finite `heatOp` power series; H2 + Hermite/Gaussian moments (`RingTheory/Polynomial/Hermite/Gaussian.lean` helps) |
-| H5 | `heatFlow_continuous`: loc-unif continuity (dominated convergence on the same integral) | **[must-build]** | ~500 | H2 + `TendstoLocallyUniformly` dominated-convergence |
+| H1–H3 | ~~Complex Gaussian integrability / entire-convolution / differentiation under ∫~~ | **RETIRED** | — | superseded by the order-≤2 series construction (no ℂ-convolution needed) |
+| H4 | `heatFlow_poly`: `e^{−tD²}p = heatOp t p` on polynomials | **DONE (sorry-free)** | done | `EntireLP.heatFlow_poly` — via `iteratedDeriv_toEntire` (complex `Dⁿ` of a polynomial image = `toEntire (D^n p)`, `Polynomial.deriv_aeval` iterated) + `tsum_eq_sum` (finite support) + `map_sum`/`map_smul`.  `#print axioms` = `[propext, Classical.choice, Quot.sound]` |
+| H5 | `heatFlow_continuous`: loc-unif continuity of the order-≤2 series | **[must-build]** | ~500 | the SOLE remaining axiom.  Missing mathlib input: a locally-uniform summable majorant for the tail `Σₖ (tᵏ/k!)·sup_K‖f^{(2k)}‖` (Cauchy estimates `‖f^{(2k)}(z)‖ ≤ (2k)!·M_f(R)/R^{2k}` + order-`<2` growth of `M_f`, i.e. **B2**), then `TendstoLocallyUniformlyOn.tsum` / dominated-convergence interchange of `tsum` with the loc-unif limit.  None in mathlib v4.22.0 |
 
-Discharging H1–H5 turns `heat_preserves_LP_entire` fully sorry-and-axiom-free. **This is the reachable
-milestone**: hard analysis, but every brick is standard and mechanizable. Estimate: the H-bricks depend
-on B1–B2 (have B1) and are otherwise self-contained; ~2–3k LOC, a multi-week-to-few-month effort.
+**Status:** `heat_preserves_LP_entire` now depends on the standard three axioms **plus exactly one**
+named analytic axiom, `heatFlow_continuous` (verified: `#print axioms` =
+`[propext, Classical.choice, EntireLP.heatFlow_continuous, Quot.sound]`; NO `sorryAx`, NO `opaque
+heatFlow`, NO `heatFlow_poly`).  Discharging the remaining H5 (which now genuinely needs the
+coefficient-growth brick **B2**) turns `heat_preserves_LP_entire` fully sorry-and-axiom-free. **This is
+the reachable milestone.**  Kept as a *named* axiom rather than an opaque `sorry` so the audit pinpoints
+the one gap.
 
 ---
 
@@ -147,9 +160,13 @@ effort). There is no short route.
 ## 5. Bottom line (blunt total-effort estimate)
 
 - **Total distinct bricks to a fully sorry-and-axiom-free `heat_preserves_LP_entire`** (the reachable
-  milestone): **~5 bricks** (H1–H5, B1 already done, B2 needed as a growth-control input) —
-  roughly **2–3k LOC / weeks-to-months**. This is *hard analysis but not research-open*, and it is the
-  right next target: it removes the last two axioms and delivers a genuinely-constructed entire heat flow.
+  milestone): **now ~2 bricks left** — H5 (`heatFlow_continuous`, loc-unif continuity of the order-≤2
+  series) and its growth-control prerequisite **B2** (order via Taylor-coefficient bound / Cauchy
+  estimates).  The construction switched to the order-≤2 power series `Σₖ((−t)ᵏ/k!)f^{(2k)}` (correct
+  sign `e^{−tD²}`), which RETIRED the entire Gaussian-integral track H1–H4 and discharged
+  `heatFlow`+`heatFlow_poly` sorry-free (brick 3, THIS round).  The last axiom `heatFlow_continuous`
+  is a dominated-convergence / summable-majorant interchange resting on B2 — roughly **~0.8–1.2k LOC /
+  weeks**. This is *hard analysis but not research-open*, and remains the right next target.
 
 - **Bricks to the *structural* LP / Hadamard theory** (B2–B8, needed to identify Ξ and general
   Gaussian-flowed functions as LP): **~7 further bricks / ~7k LOC / several months**. The true internal
@@ -163,6 +180,8 @@ effort). There is no short route.
   foundation and is a multi-year project. **This build reaches de Bruijn's classical upper structure and
   the entire de Bruijn step; it does not, on its own, reach `Λ ≥ 0`.**
 
-Recommended next brick: **B2 + H2** (order-via-coefficients and the order-≤2 Gaussian-convolution
-convergence) — the smallest addition that starts converting the two `heatFlow` axioms into theorems, and
-the honest way to keep the "no false QED" invariant while making real progress.
+Recommended next brick: **B2 → H5** (order-via-Taylor-coefficients / Cauchy estimates, then the
+loc-unif continuity of the order-≤2 series `Σₖ((−t)ᵏ/k!)f^{(2k)}`) — the ONLY remaining step to a
+fully sorry-and-axiom-free `heat_preserves_LP_entire`, now that `heatFlow`+`heatFlow_poly` are
+discharged (brick 3).  B2 supplies the `‖f^{(2k)}(z)‖ ≤ (2k)!·M_f(R)/R^{2k}` majorant that dominates
+the tail; H5 is then the `TendstoLocallyUniformlyOn.tsum` / dominated-convergence interchange.

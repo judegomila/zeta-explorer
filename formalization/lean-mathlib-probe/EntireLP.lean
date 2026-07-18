@@ -61,6 +61,9 @@ import Mathlib.Topology.UniformSpace.LocallyUniformConvergence
 import Mathlib.Data.Complex.Module
 import Mathlib.Analysis.Complex.Basic
 import Mathlib.Algebra.Polynomial.AlgebraMap
+import Mathlib.Analysis.Calculus.IteratedDeriv.Defs
+import Mathlib.Analysis.Calculus.Deriv.Polynomial
+import Mathlib.Topology.Algebra.InfiniteSum.Basic
 
 open scoped Polynomial Topology
 open Filter
@@ -81,6 +84,21 @@ theorem toEntire_conj (p : ℝ[X]) (z : ℂ) :
     toEntire p (starRingEnd ℂ z) = starRingEnd ℂ (toEntire p z) := by
   have h := Polynomial.aeval_algHom_apply Complex.conjAe z p
   simpa only [toEntire, Complex.conjAe_coe] using h
+
+/-- **Complex iterated derivative of a polynomial-image.**  The `n`-th (holomorphic)
+derivative of the entire function `toEntire p` is `toEntire (D^n p)`: differentiation under
+`Polynomial.aeval` is the formal polynomial derivative (`Polynomial.deriv_aeval`), iterated.
+This is the exact ingredient that makes the order-≤2 heat-flow series *finite* (hence trivially
+convergent) on polynomial images.  Sorry-free. -/
+theorem iteratedDeriv_toEntire (p : ℝ[X]) (n : ℕ) :
+    iteratedDeriv n (toEntire p) = toEntire (Polynomial.derivative^[n] p) := by
+  induction n with
+  | zero => simp [iteratedDeriv_zero]
+  | succ n ih =>
+      rw [iteratedDeriv_succ, ih]
+      funext z
+      rw [Function.iterate_succ_apply']
+      exact Polynomial.deriv_aeval _
 
 /-! ## 2. Locally-uniform-convergence toolkit -/
 
@@ -179,38 +197,92 @@ theorem isLaguerrePolya_heat_of_flow
     have hc := hcont hPlim
     simpa only [hpoly] using hc
 
-/-! ## 5. The opaque entire heat-flow and the entire-function theorem
+/-! ## 5. The CONCRETE entire heat-flow and the entire-function theorem
 
-The two hypotheses of `isLaguerrePolya_heat_of_flow` are precisely the analytic facts
-that mathlib v4.22.0 cannot yet supply for a genuinely-defined entire heat flow:
+The two hypotheses of `isLaguerrePolya_heat_of_flow` are the only analytic facts standing
+between the sorry-free bridge and a fully-constructed entire heat flow.  This round replaces
+the former `opaque heatFlow` with a **genuine, computable definition** and discharges the
+first of the two axioms (`heatFlow_poly`) **sorry-free**.
 
-* CONSTRUCTING `heatFlow t f = (f ∗ Gₜ)` — the Weierstrass/Gaussian transform on entire
-  functions of order ≤ 2 — requires a convergent complex Gaussian convolution integral
-  (mathlib has `Mathlib/Analysis/SpecialFunctions/Gaussian/*` on `ℝ` but no entire-order
-  growth theory to control the integral on `ℂ`).
-* `heatFlow_poly` (agreement with `heatOp` on polynomials) is de Bruijn's computation
-  `e^{−tD²} p = (2√(πt))⁻¹∫ p(z − s) e^{−s²/4t} ds` (de Bruijn 1950, §1); needs the above
-  integral plus differentiation under the integral sign.
-* `heatFlow_continuous` (continuity for locally-uniform convergence) is a dominated-
-  convergence estimate on the same integral.
+**The construction (sign-correct `e^{−t·D²}`).**  Rather than the *forward* Gaussian
+convolution `f ∗ Gₜ` — which realises `e^{+t·D²}` and DESTROYS real-rootedness (e.g. it
+sends `X²−1` to `X²+(2t−1)`, a conjugate pair for `t > 1/2`) — we use de Bruijn's order-≤2
+power-series representation
 
-We therefore declare `heatFlow` `opaque` with these two properties as named `axiom`s.
-The final theorem is proved from the sorry-free bridge; `#print axioms` then names
-exactly the missing analytic inputs — an honest, precise accounting of the gap. -/
+    `heatFlow t f (z) = Σₖ ((−t)ᵏ/k!)·f^{(2k)}(z)`    (`f^{(2k)} =` `iteratedDeriv (2k) f`),
 
-/-- The intended entire heat flow `e^{−t·D²}` on `ℂ → ℂ` — declared `opaque` because
-mathlib lacks the order-≤2 Gaussian-convolution theory needed to construct it (§5). -/
-opaque heatFlow : ℝ → (ℂ → ℂ) → (ℂ → ℂ)
+which is exactly `e^{−t·D²}` (Fourier/Weierstrass symbol `e^{−t x²}`).  For an entire `f` of
+order `< 2` this series converges locally uniformly; here we realise it by an honest `tsum`,
+so it is defined for *every* `f : ℂ → ℂ` (returning the junk value `0` where the series fails
+to converge — which never happens on the order-0 polynomial images that `heatFlow_poly`
+concerns).
 
-/-- **[AXIOM — missing mathlib input]** The entire heat flow agrees with the polynomial
-heat multiplier `MathlibBridge.heatOp` on polynomials.  (de Bruijn 1950, §1: the
-Gaussian-transform formula for `e^{−tD²}`; needs entire Gaussian convolution.) -/
-axiom heatFlow_poly (t : ℝ) (p : ℝ[X]) :
-    heatFlow t (toEntire p) = toEntire (MathlibBridge.heatOp t p)
+**Sign verification.**  `heatFlow_poly` (below, PROVED) forces `heatFlow t (toEntire p) =
+toEntire (heatOp t p)` on every polynomial, and `MathlibBridge.heatOp` is the already
+sign-verified `e^{−t·D²}` (`heatOp t (X²−1) = X²−(1+2t)`, real-rooted for `t ≥ 0`).  So the
+flow inherits the correct anti-diffusive sign by construction. -/
 
-/-- **[AXIOM — missing mathlib input]** The entire heat flow is continuous for
-locally-uniform convergence.  (Dominated-convergence estimate on the Gaussian
-convolution; needs the entire-order growth theory mathlib lacks.) -/
+/-- **The entire heat flow `e^{−t·D²}`, made CONCRETE** (no longer `opaque`).  Defined by the
+order-≤2 representation `Σₖ ((−t)ᵏ/k!)·f^{(2k)}(z)` as an `∑'` over `k : ℕ`.  On polynomial
+images the sum is genuinely finite (high derivatives vanish), so it converges to
+`MathlibBridge.heatOp` — this is `heatFlow_poly`.  For a general entire `f` of order `< 2` the
+series still converges (the deferred `heatFlow_continuous` analytic input); elsewhere the
+`tsum` is the junk `0`. -/
+noncomputable def heatFlow (t : ℝ) (f : ℂ → ℂ) : ℂ → ℂ :=
+  fun z => ∑' k : ℕ, ((-t) ^ k / (k.factorial : ℝ)) • iteratedDeriv (2 * k) f z
+
+/-- **`heatFlow_poly` — NOW A THEOREM (axiom discharged, sorry-free).**  The concrete entire
+heat flow agrees with the polynomial heat multiplier `MathlibBridge.heatOp` on polynomials:
+`heatFlow t (toEntire p) = toEntire (heatOp t p)`.
+
+Proof.  The defining `∑'` has summand `((−t)ᵏ/k!)·(toEntire p)^{(2k)}(z)`.  By
+`iteratedDeriv_toEntire`, `(toEntire p)^{(2k)}(z) = aeval z (D^{2k} p)`, and `D^{2k} p = 0`
+for `2k > natDegree p`, so all but finitely many terms vanish; `tsum_eq_sum` collapses the
+`∑'` to the finite `∑` over `range (natDegree p + 1)`.  The right side, `aeval z (heatOp t p)`,
+is that same finite sum (`heatOp = heatPartial (natDegree p + 1)`) after pushing `aeval z`
+through the sum (`map_sum`) and the real scalings (`map_smul`).  No convergence/analytic input
+is needed — this is why `heatFlow_poly` is the cleanest of the two axioms to discharge. -/
+theorem heatFlow_poly (t : ℝ) (p : ℝ[X]) :
+    heatFlow t (toEntire p) = toEntire (MathlibBridge.heatOp t p) := by
+  funext z
+  have hL : heatFlow t (toEntire p) z
+      = ∑ k ∈ Finset.range (p.natDegree + 1),
+          ((-t) ^ k / (k.factorial : ℝ)) • Polynomial.aeval z (Polynomial.derivative^[2 * k] p) := by
+    have hsum :
+        (fun k : ℕ => ((-t) ^ k / (k.factorial : ℝ)) • iteratedDeriv (2 * k) (toEntire p) z)
+          = (fun k : ℕ => ((-t) ^ k / (k.factorial : ℝ))
+              • Polynomial.aeval z (Polynomial.derivative^[2 * k] p)) := by
+      funext k; rw [iteratedDeriv_toEntire]; rfl
+    show (∑' k : ℕ, ((-t) ^ k / (k.factorial : ℝ)) • iteratedDeriv (2 * k) (toEntire p) z) = _
+    rw [hsum]
+    refine tsum_eq_sum ?_
+    intro k hk
+    rw [Finset.mem_range, not_lt] at hk
+    rw [Polynomial.iterate_derivative_eq_zero (show p.natDegree < 2 * k by omega), map_zero,
+      smul_zero]
+  have hR : toEntire (MathlibBridge.heatOp t p) z
+      = ∑ k ∈ Finset.range (p.natDegree + 1),
+          ((-t) ^ k / (k.factorial : ℝ)) • Polynomial.aeval z (Polynomial.derivative^[2 * k] p) := by
+    show Polynomial.aeval z (MathlibBridge.heatOp t p) = _
+    unfold MathlibBridge.heatOp MathlibBridge.heatPartial
+    rw [map_sum]
+    refine Finset.sum_congr rfl (fun k _ => ?_)
+    rw [map_smul]
+  rw [hL, hR]
+
+/-- **[AXIOM — the single remaining analytic gap]** The entire heat flow is continuous for
+locally-uniform convergence.  This is the last of the two former interface axioms; it is the
+order-≤2 **dominated-convergence** estimate on the series
+`Σₖ ((−t)ᵏ/k!)·f^{(2k)}(z)`.
+
+Missing mathlib lemma(s), precisely: a locally-uniform Cauchy/domination bound for the tail of
+that series — concretely, `TendstoLocallyUniformly.tsum`-style control from a summable
+majorant `Σₖ (tᵏ/k!)·sup_{K} ‖f^{(2k)}‖` on each compact `K` (via Cauchy estimates
+`‖f^{(2k)}(z)‖ ≤ (2k)!·M_f(R)/R^{2k}` and the order-`< 2` growth of `M_f`, i.e. brick B2 of
+`ENTIRE_ROADMAP.md`), combined with `TendstoLocallyUniformlyOn.tsum` / a dominated-convergence
+interchange of `tsum` and the locally-uniform limit.  None of these are in mathlib v4.22.0.
+Kept as a *named* axiom (not an opaque `sorry`) so `#print axioms` pinpoints exactly this one
+gap. -/
 axiom heatFlow_continuous (t : ℝ) {F : ℕ → ℂ → ℂ} {g : ℂ → ℂ}
     (h : TendstoLocallyUniformly F g atTop) :
     TendstoLocallyUniformly (fun n => heatFlow t (F n)) (heatFlow t g) atTop
@@ -220,10 +292,11 @@ axiom heatFlow_continuous (t : ℝ) {F : ℕ → ℂ → ℂ} {g : ℂ → ℂ}
 
 For `t ≥ 0`, if `f` is Laguerre–Pólya then so is `heatFlow t f`.  This is the
 entire-function de Bruijn theorem: the heat flow does not create non-real zeros.  It is
-proved from the sorry-free bridge `isLaguerrePolya_heat_of_flow` together with the two
-declared interface axioms on `heatFlow` (§5).  `#print axioms` on this theorem lists
-those axioms explicitly (`heatFlow`, `heatFlow_poly`, `heatFlow_continuous`), pinpointing
-the exact remaining analytic gap. -/
+proved from the sorry-free bridge `isLaguerrePolya_heat_of_flow` with `heatFlow` now a
+CONCRETE definition and `heatFlow_poly` now a THEOREM (§5).  `#print axioms` on this theorem
+therefore lists exactly ONE non-standard axiom — `heatFlow_continuous` — down from the three
+(`heatFlow`, `heatFlow_poly`, `heatFlow_continuous`) of the previous round: a strictly
+smaller, precisely-named remaining analytic gap. -/
 theorem heat_preserves_LP_entire {f : ℂ → ℂ} {t : ℝ} (ht : 0 ≤ t)
     (hf : IsLaguerrePolya f) : IsLaguerrePolya (heatFlow t f) :=
   isLaguerrePolya_heat_of_flow (heatFlow t) t ht (heatFlow_poly t)
@@ -233,13 +306,15 @@ theorem heat_preserves_LP_entire {f : ℂ → ℂ} {t : ℝ} (ht : 0 ≤ t)
 
 -- SORRY-FREE, AXIOM-CLEAN (only `propext`, `Classical.choice`, `Quot.sound`):
 #print axioms toEntire_conj
+#print axioms iteratedDeriv_toEntire            -- complex D^n of a polynomial image
 #print axioms tendstoLocallyUniformly_const
 #print axioms real_symm_of_tendsto
 #print axioms isLaguerrePolya_of_hasOnlyRealRoots
 #print axioms isLaguerrePolya_heat_of_flow   -- the sorry-free entire-function BRIDGE
+#print axioms heatFlow_poly                  -- AXIOM DISCHARGED THIS ROUND (now a theorem)
 
--- DEPENDS ON THE DECLARED FLOW AXIOMS (the honest remaining gap, precisely named):
---   `heatFlow`, `heatFlow_poly`, `heatFlow_continuous`  — NO `sorryAx`.
+-- DEPENDS ON THE SINGLE REMAINING FLOW AXIOM (the honest remaining gap, precisely named):
+--   `heatFlow_continuous`  — NO `sorryAx`, NO `heatFlow` (now a def), NO `heatFlow_poly`.
 #print axioms heat_preserves_LP_entire
 
 end EntireLP

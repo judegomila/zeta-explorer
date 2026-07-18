@@ -55,6 +55,9 @@ import Mathlib.Analysis.SpecialFunctions.Log.PosLog
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
 import Mathlib.Analysis.Polynomial.Basic
 import Mathlib.Analysis.Complex.AbsMax
+import Mathlib.Analysis.Complex.LocallyUniformLimit
+import Mathlib.Analysis.Complex.CauchyIntegral
+import Mathlib.Analysis.Calculus.IteratedDeriv.Defs
 import Mathlib.Topology.Instances.EReal.Lemmas
 import Mathlib.Topology.Order.LiminfLimsup
 
@@ -431,9 +434,43 @@ theorem order_mul_le {f g : ℂ → ℂ} (hf : Continuous f) (hg : Continuous g)
   have eg : order g = limsup v atTop := rfl
   rw [e0, ef, eg]; exact key
 
+/-! ## Weierstrass: locally-uniform convergence of iterated derivatives
+
+A genuine, sorry-free analytic ingredient for the entire heat-flow theory: if a sequence of
+ENTIRE functions converges locally uniformly on an open set, then so does every one of their
+iterated (complex) derivatives.  Proof: iterate mathlib's Weierstrass
+`TendstoLocallyUniformlyOn.deriv` (a loc-unif limit of holomorphic functions has a
+loc-unif-convergent derivative), using that an entire function's iterated derivatives are
+themselves entire (`ContDiff.differentiable_iteratedDeriv'`).
+
+**Honest scope.**  This is NECESSARY but NOT SUFFICIENT for the (now-known-FALSE, see the
+counterexample in `EntireLP.lean`) locally-uniform continuity of the order-≤2 heat-flow series
+`Σₖ ((−t)ᵏ/k!)·f^{(2k)}`: loc-unif convergence of each individual derivative *term* does NOT
+control the infinite `k`-sum, and no uniform majorant for that sum exists across all
+loc-unif-convergent entire sequences (the counterexample disproves it).  The lemma is kept
+because it is a correct, reusable Weierstrass fact that the eventual (type-controlled) proof of
+`heat_preserves_LP_entire` will need. -/
+theorem iteratedDeriv_tendstoLocallyUniformlyOn
+    {F : ℕ → ℂ → ℂ} {g : ℂ → ℂ} {U : Set ℂ} (hU : IsOpen U)
+    (hF : ∀ n, Differentiable ℂ (F n))
+    (h : TendstoLocallyUniformlyOn F g Filter.atTop U) (m : ℕ) :
+    TendstoLocallyUniformlyOn
+      (fun n => iteratedDeriv m (F n)) (iteratedDeriv m g) Filter.atTop U := by
+  induction m with
+  | zero => simpa only [iteratedDeriv_zero] using h
+  | succ m ih =>
+      have hdiff : ∀ᶠ n in (Filter.atTop : Filter ℕ),
+          DifferentiableOn ℂ (iteratedDeriv m (F n)) U :=
+        Filter.Eventually.of_forall fun n =>
+          (((hF n).contDiff).differentiable_iteratedDeriv' m).differentiableOn
+      have hd := ih.deriv hdiff hU
+      simpa only [iteratedDeriv_succ, Function.comp_def] using hd
+
 -- Axiom audit for the two brick-2 theorems (should be the standard three:
 -- `propext`, `Classical.choice`, `Quot.sound` — no `sorryAx`).
 #print axioms EntireOrder.maxModulus_mul_le
 #print axioms EntireOrder.order_mul_le
+-- Weierstrass iterated-derivative convergence (sorry-free reachable analytic brick):
+#print axioms EntireOrder.iteratedDeriv_tendstoLocallyUniformlyOn
 
 end EntireOrder

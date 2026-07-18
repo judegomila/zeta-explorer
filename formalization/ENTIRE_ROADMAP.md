@@ -23,7 +23,7 @@ Sizes are rough Lean-LOC / person-effort for a mathlib-grade proof.
 | `maxModulus_mul_le` (`M_{fg} ≤ M_f·M_g`, continuous `f,g`) and `order_mul_le` (`order(f·g) ≤ max(order f)(order g)`, continuous `f,g`) | `EntireOrder.lean` (brick 2, THIS round) | **sorry-free**; `#print axioms` = `[propext, Classical.choice, Quot.sound]` (no `sorryAx`) |
 | Laguerre–Pólya class `IsLaguerrePolya` (limit-closure definition), real-on-ℝ inheritance, real-rooted-poly ⇒ LP, the flow **bridge** `isLaguerrePolya_heat_of_flow` | `EntireLP.lean` | **sorry-free**, axiom-clean |
 | CONCRETE entire heat flow `heatFlow t f = Σₖ((−t)ᵏ/k!)·f^{(2k)}` (order-≤2 series = `e^{−tD²}`), `iteratedDeriv_toEntire` (complex `Dⁿ` of a polynomial image), and `heatFlow_poly` (`heatFlow = heatOp` on polynomials) | `EntireLP.lean` (brick 3, THIS round) | **sorry-free**; `#print axioms` = `[propext, Classical.choice, Quot.sound]`.  `heatFlow` is now a `def` (was `opaque`); `heatFlow_poly` is now a THEOREM (was an axiom) |
-| `heat_preserves_LP_entire` (entire heat flow preserves LP) | `EntireLP.lean` | proved **modulo 1 named axiom** `heatFlow_continuous` (down from 3: `heatFlow`/`heatFlow_poly` discharged this round). `#print axioms` = `[propext, Classical.choice, EntireLP.heatFlow_continuous, Quot.sound]` |
+| `heat_preserves_LP_entire` (entire heat flow preserves LP) | `EntireLP.lean` | proved **modulo 1 precise `sorry`** `exists_heatOp_approx_tendsto` (a TRUE statement). `#print axioms` = `[propext, Classical.choice, Quot.sound, sorryAx]`. **The previous `axiom heatFlow_continuous` was FALSE and has been REMOVED** — see brick 4 below. |
 
 So the *combinatorial/algebraic* de Bruijn step is done at both the polynomial and (limit-closure)
 entire level. The entire theorem currently rests on exactly two analytic interface axioms, which is
@@ -119,15 +119,33 @@ Gaussian-integral track) and leaves exactly **one** analytic gap, H5 = `heatFlow
 |---|---|---|---|---|
 | H1–H3 | ~~Complex Gaussian integrability / entire-convolution / differentiation under ∫~~ | **RETIRED** | — | superseded by the order-≤2 series construction (no ℂ-convolution needed) |
 | H4 | `heatFlow_poly`: `e^{−tD²}p = heatOp t p` on polynomials | **DONE (sorry-free)** | done | `EntireLP.heatFlow_poly` — via `iteratedDeriv_toEntire` (complex `Dⁿ` of a polynomial image = `toEntire (D^n p)`, `Polynomial.deriv_aeval` iterated) + `tsum_eq_sum` (finite support) + `map_sum`/`map_smul`.  `#print axioms` = `[propext, Classical.choice, Quot.sound]` |
-| H5 | `heatFlow_continuous`: loc-unif continuity of the order-≤2 series | **[must-build]** | ~500 | the SOLE remaining axiom.  Missing mathlib input: a locally-uniform summable majorant for the tail `Σₖ (tᵏ/k!)·sup_K‖f^{(2k)}‖` (Cauchy estimates `‖f^{(2k)}(z)‖ ≤ (2k)!·M_f(R)/R^{2k}` + order-`<2` growth of `M_f`, i.e. **B2**), then `TendstoLocallyUniformlyOn.tsum` / dominated-convergence interchange of `tsum` with the loc-unif limit.  None in mathlib v4.22.0 |
+| H5 | ~~`heatFlow_continuous`: loc-unif continuity of the order-≤2 series~~ | **FALSE — DISPROVED** | — | brick 4, THIS round.  The statement is FALSE even for entire `F` (see below); it is NOT a missing lemma.  The B2 "uniform summable majorant" that H5 rested on **does not exist** — the counterexample is its disproof. |
+| B2′ | Weierstrass loc-unif convergence of *iterated* derivatives (`iteratedDeriv_tendstoLocallyUniformlyOn`) | **DONE (sorry-free)** | done | `EntireOrder.lean` — iterate mathlib `TendstoLocallyUniformlyOn.deriv`.  A correct, reusable ingredient the eventual (type-controlled) proof will need.  NECESSARY but NOT SUFFICIENT for H5. |
+| H5′ | `exists_heatOp_approx_tendsto`: for `f ∈ LP`, a *type-controlled* real-rooted sequence `Pₙ → f` with `heatOp t Pₙ → heatFlow t f` loc-unif | **[must-build]** | ~big | the corrected, TRUE remaining gap (one precise `sorry`).  Needs genuine Hadamard/LP order-and-type control (B2–B8), NOT a uniform majorant.  A *generic* `f`-approximating sequence provably fails. |
 
-**Status:** `heat_preserves_LP_entire` now depends on the standard three axioms **plus exactly one**
-named analytic axiom, `heatFlow_continuous` (verified: `#print axioms` =
-`[propext, Classical.choice, EntireLP.heatFlow_continuous, Quot.sound]`; NO `sorryAx`, NO `opaque
-heatFlow`, NO `heatFlow_poly`).  Discharging the remaining H5 (which now genuinely needs the
-coefficient-growth brick **B2**) turns `heat_preserves_LP_entire` fully sorry-and-axiom-free. **This is
-the reachable milestone.**  Kept as a *named* axiom rather than an opaque `sorry` so the audit pinpoints
-the one gap.
+**Status (brick 4 — corrected):** the previous round's `axiom heatFlow_continuous` — the claim that
+`heatFlow t` is continuous for locally-uniform convergence of arbitrary sequences — **is FALSE**, so
+the previous "one named axiom away" milestone was resting on a false premise.
+
+*Counterexample* (`t = 1`): `F n (z) = (n!/(2n)!)·z^{2n}` are real-rooted real polynomials with
+`F n → 0` locally uniformly (the double factorial beats `R^{2n}`), yet
+`heatFlow 1 (F n)(0) = (-1)ⁿ ↛ 0 = heatFlow 1 0 (0)`
+(by `heatFlow_poly`, only the `k = n` term `((-1)ⁿ/n!)·D^{2n}(·)` survives at `0`, giving
+`(n!/(2n)!)·((-1)ⁿ/n!)·(2n)! = (-1)ⁿ`).  Loc-unif convergence of entire functions gives NO control
+on the infinite sum of high-order derivatives, so no uniform tail majorant (B2) can exist.
+
+*Corrected architecture (`EntireLP.lean`):* the false axiom is removed.  The sorry-free bridge
+`isLaguerrePolya_heat_of_flow` is a correct *conditional* theorem but cannot be instantiated at
+`Φ = heatFlow t` (that operator is not loc-unif continuous).  `heat_preserves_LP_entire` is now proved
+sorry-free FROM a single TRUE `sorry`, `exists_heatOp_approx_tendsto` (H5′): for `f ∈ LP` there is a
+*specifically chosen*, type-controlled real-rooted approximating sequence whose heat images converge
+to `heatFlow t f`.  `#print axioms heat_preserves_LP_entire` = `[propext, Classical.choice, Quot.sound,
+sorryAx]` (one `sorryAx`, for a true statement — strictly more honest than the former false axiom).
+
+**Revised distance to the milestone.**  The fully sorry-and-axiom-free `heat_preserves_LP_entire` is
+NOT ~2 bricks away via H5/B2; the naive route is dead.  The remaining gap H5′ requires the
+type-controlled approximation (real Hadamard/LP structure, bricks B2–B8), i.e. the milestone is
+substantially further than the previous round claimed.
 
 ---
 
@@ -160,13 +178,16 @@ effort). There is no short route.
 ## 5. Bottom line (blunt total-effort estimate)
 
 - **Total distinct bricks to a fully sorry-and-axiom-free `heat_preserves_LP_entire`** (the reachable
-  milestone): **now ~2 bricks left** — H5 (`heatFlow_continuous`, loc-unif continuity of the order-≤2
-  series) and its growth-control prerequisite **B2** (order via Taylor-coefficient bound / Cauchy
-  estimates).  The construction switched to the order-≤2 power series `Σₖ((−t)ᵏ/k!)f^{(2k)}` (correct
-  sign `e^{−tD²}`), which RETIRED the entire Gaussian-integral track H1–H4 and discharged
-  `heatFlow`+`heatFlow_poly` sorry-free (brick 3, THIS round).  The last axiom `heatFlow_continuous`
-  is a dominated-convergence / summable-majorant interchange resting on B2 — roughly **~0.8–1.2k LOC /
-  weeks**. This is *hard analysis but not research-open*, and remains the right next target.
+  milestone): **the previous "~2 bricks (B2 → H5)" estimate was WRONG** — brick 4 (THIS round) found
+  that `heatFlow_continuous` is FALSE (see §3 counterexample), so the naive loc-unif-continuity route
+  is dead and the "uniform summable majorant" B2 it needed provably does not exist.  What remains is
+  the *type-controlled* approximation H5′ (`exists_heatOp_approx_tendsto`): choosing, for `f ∈ LP`, a
+  real-rooted approximating sequence with uniform order/type control whose heat images converge to
+  `heatFlow t f`.  That genuinely needs the Hadamard/Laguerre–Pólya structure theory (bricks B2–B8) —
+  **months, not weeks** — so the milestone is materially further off than the prior round claimed.
+  What DID land this round, sorry-free: `iteratedDeriv_tendstoLocallyUniformlyOn` (Weierstrass
+  convergence of all iterated derivatives, `EntireOrder.lean`), a correct reusable ingredient; and the
+  removal of the false axiom in favour of one precise TRUE `sorry`.
 
 - **Bricks to the *structural* LP / Hadamard theory** (B2–B8, needed to identify Ξ and general
   Gaussian-flowed functions as LP): **~7 further bricks / ~7k LOC / several months**. The true internal

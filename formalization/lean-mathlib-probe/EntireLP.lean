@@ -270,37 +270,86 @@ theorem heatFlow_poly (t : ℝ) (p : ℝ[X]) :
     rw [map_smul]
   rw [hL, hR]
 
-/-- **[AXIOM — the single remaining analytic gap]** The entire heat flow is continuous for
-locally-uniform convergence.  This is the last of the two former interface axioms; it is the
-order-≤2 **dominated-convergence** estimate on the series
-`Σₖ ((−t)ᵏ/k!)·f^{(2k)}(z)`.
+/-! ### The former `heatFlow_continuous` axiom is FALSE — corrected architecture
 
-Missing mathlib lemma(s), precisely: a locally-uniform Cauchy/domination bound for the tail of
-that series — concretely, `TendstoLocallyUniformly.tsum`-style control from a summable
-majorant `Σₖ (tᵏ/k!)·sup_{K} ‖f^{(2k)}‖` on each compact `K` (via Cauchy estimates
-`‖f^{(2k)}(z)‖ ≤ (2k)!·M_f(R)/R^{2k}` and the order-`< 2` growth of `M_f`, i.e. brick B2 of
-`ENTIRE_ROADMAP.md`), combined with `TendstoLocallyUniformlyOn.tsum` / a dominated-convergence
-interchange of `tsum` and the locally-uniform limit.  None of these are in mathlib v4.22.0.
-Kept as a *named* axiom (not an opaque `sorry`) so `#print axioms` pinpoints exactly this one
-gap. -/
-axiom heatFlow_continuous (t : ℝ) {F : ℕ → ℂ → ℂ} {g : ℂ → ℂ}
-    (h : TendstoLocallyUniformly F g atTop) :
-    TendstoLocallyUniformly (fun n => heatFlow t (F n)) (heatFlow t g) atTop
+**Critical finding (THIS round).**  The previous round left ONE named axiom,
+`heatFlow_continuous`, stating that the entire heat flow is continuous for locally-uniform
+convergence *for arbitrary sequences* `F n → g`:
+
+    `TendstoLocallyUniformly F g atTop → TendstoLocallyUniformly (heatFlow t ∘ F) (heatFlow t g)`.
+
+**This statement is FALSE** — even when every `F n` is entire (indeed a real-rooted real
+polynomial).  Explicit counterexample (`t = 1`):
+
+    `F n (z) = (n! / (2n)!) · z^{2n}`   (a real polynomial, only real zeros — `z = 0` of
+    multiplicity `2n`),      `g = 0`.
+
+* `F n → 0` locally uniformly: on `‖z‖ ≤ R`, `‖F n z‖ ≤ (n!/(2n)!) R^{2n}`, and the ratio of
+  consecutive bounds is `(n+1)R² / ((2n+1)(2n+2)) → 0`, so `(n!/(2n)!) R^{2n} → 0` (the
+  double factorial dominates).  Hence `sup_{‖z‖≤R} ‖F n z‖ → 0` on every closed ball.
+* But `heatFlow 1 (F n) (0) = (-1)ⁿ`, which does NOT converge (it does not tend to
+  `heatFlow 1 0 (0) = 0`).  Indeed by `heatFlow_poly`, `heatFlow 1 (F n) = toEntire (heatOp 1 (F n))`,
+  and `aeval 0 (heatOp 1 (c·X^{2n})) = c · ((-1)ⁿ/n!) · (2n)!` because among the terms
+  `((-1)ᵏ/k!)·D^{2k}(c·X^{2n})` only `k = n` contributes a nonzero constant term
+  (`D^{2n}(X^{2n}) = (2n)!`); with `c = n!/(2n)!` this is exactly `(-1)ⁿ`.
+
+**Why this is fatal to the roadmap's H5/B2 plan.**  The plan was to dominate the tail of
+`Σₖ ((−t)ᵏ/k!)·f^{(2k)}` by a locally-uniform summable majorant (brick B2, Cauchy estimates)
+uniform over the approximating sequence.  The counterexample is a *disproof that any such
+uniform majorant exists*: loc-unif convergence of a sequence of entire functions gives NO
+control on the infinite sum of their high-order derivatives.  So `heatFlow_continuous` cannot
+be discharged — it is not a missing lemma, it is a false statement — and the naive
+"loc-unif-continuous operator" route to `heat_preserves_LP_entire` is dead.
+
+**The corrected interface.**  The bridge `isLaguerrePolya_heat_of_flow` above remains a
+correct, sorry-free, axiom-clean theorem (a *conditional*: any poly-compatible operator that
+IS loc-unif continuous preserves LP).  It simply cannot be instantiated at `Φ = heatFlow t`,
+because `heatFlow t` is not loc-unif continuous.  The genuine de Bruijn content that survives
+is the following TRUE statement: for `f ∈ LP` one can choose a *specific, type-controlled*
+sequence of real-rooted approximants whose heat images converge to `heatFlow t f` (a general
+approximating sequence does NOT work — that is exactly what the counterexample shows).  This
+choice is the real remaining hard work (it needs the Hadamard/Laguerre–Pólya structure theory,
+bricks B2–B8 with genuine order/type control — NOT the impossible uniform majorant), and is
+isolated below as the single precise `sorry`. -/
+
+/-- **[THE SINGLE REMAINING GAP — a precise `sorry`, and a TRUE statement].**  The genuine
+de Bruijn content of `heat_preserves_LP_entire`, stated at the approximation level.
+
+For `t ≥ 0` and `f ∈ LP`, there is a sequence `P n` of real-rooted real polynomials such that
+`toEntire (P n) → f` locally uniformly AND the heat images `toEntire (heatOp t (P n))` converge
+locally uniformly to `heatFlow t f`.  (The second convergence is the content: by the
+counterexample above it FAILS for a generic `f`-approximating sequence, so `P n` must be chosen
+with uniform order/type control — the Hadamard/LP structure theory, bricks B2–B8.)
+
+This is TRUE (de Bruijn) and precisely names the remaining analytic work.  It replaces the
+previous, FALSE, `axiom heatFlow_continuous`.  Left as ONE `sorry` (not an axiom) so the audit
+shows a single `sorryAx` for a *true* statement, rather than propping the theorem on a false
+premise. -/
+theorem exists_heatOp_approx_tendsto {f : ℂ → ℂ} {t : ℝ} (ht : 0 ≤ t)
+    (hf : IsLaguerrePolya f) :
+    ∃ P : ℕ → ℝ[X], (∀ n, MathlibBridge.HasOnlyRealRoots (P n)) ∧
+      TendstoLocallyUniformly (fun n => toEntire (P n)) f atTop ∧
+      TendstoLocallyUniformly
+        (fun n => toEntire (MathlibBridge.heatOp t (P n))) (heatFlow t f) atTop := by
+  sorry
 
 /-- **The heat semigroup preserves the Laguerre–Pólya class of ENTIRE functions**
 (`heat_preserves_LP_entire`) — the entire-function lift of `MathlibBridge.heat_preserves_LP`.
 
-For `t ≥ 0`, if `f` is Laguerre–Pólya then so is `heatFlow t f`.  This is the
-entire-function de Bruijn theorem: the heat flow does not create non-real zeros.  It is
-proved from the sorry-free bridge `isLaguerrePolya_heat_of_flow` with `heatFlow` now a
-CONCRETE definition and `heatFlow_poly` now a THEOREM (§5).  `#print axioms` on this theorem
-therefore lists exactly ONE non-standard axiom — `heatFlow_continuous` — down from the three
-(`heatFlow`, `heatFlow_poly`, `heatFlow_continuous`) of the previous round: a strictly
-smaller, precisely-named remaining analytic gap. -/
+For `t ≥ 0`, if `f` is Laguerre–Pólya then so is `heatFlow t f`.  This is the entire-function
+de Bruijn theorem: the heat flow does not create non-real zeros.
+
+The reduction to `exists_heatOp_approx_tendsto` is sorry-free: the chosen `heatOp t (P n)` are
+real-rooted (`MathlibBridge.heat_preserves_LP`), their images converge loc-uniformly to
+`heatFlow t f`, and real-on-`ℝ` is inherited via `real_symm_of_tendsto`.  The ONLY remaining
+`sorry` (hence the only `sorryAx` in `#print axioms` below) is `exists_heatOp_approx_tendsto`,
+a TRUE statement — this replaces the previous, FALSE, `heatFlow_continuous` axiom. -/
 theorem heat_preserves_LP_entire {f : ℂ → ℂ} {t : ℝ} (ht : 0 ≤ t)
-    (hf : IsLaguerrePolya f) : IsLaguerrePolya (heatFlow t f) :=
-  isLaguerrePolya_heat_of_flow (heatFlow t) t ht (heatFlow_poly t)
-    (fun {_F _g} h => heatFlow_continuous t h) hf
+    (hf : IsLaguerrePolya f) : IsLaguerrePolya (heatFlow t f) := by
+  obtain ⟨P, hPrr, _hPf, hQconv⟩ := exists_heatOp_approx_tendsto ht hf
+  exact ⟨real_symm_of_tendsto (fun n z => toEntire_conj _ z) hQconv,
+         fun n => MathlibBridge.heatOp t (P n),
+         fun n => MathlibBridge.heat_preserves_LP t ht (hPrr n), hQconv⟩
 
 /-! ## 6. Axiom audit -/
 
@@ -313,8 +362,10 @@ theorem heat_preserves_LP_entire {f : ℂ → ℂ} {t : ℝ} (ht : 0 ≤ t)
 #print axioms isLaguerrePolya_heat_of_flow   -- the sorry-free entire-function BRIDGE
 #print axioms heatFlow_poly                  -- AXIOM DISCHARGED THIS ROUND (now a theorem)
 
--- DEPENDS ON THE SINGLE REMAINING FLOW AXIOM (the honest remaining gap, precisely named):
---   `heatFlow_continuous`  — NO `sorryAx`, NO `heatFlow` (now a def), NO `heatFlow_poly`.
-#print axioms heat_preserves_LP_entire
+-- DEPENDS ON THE SINGLE REMAINING GAP `exists_heatOp_approx_tendsto` (one `sorryAx`, a TRUE
+-- statement).  The previous `axiom heatFlow_continuous` was FALSE (see the counterexample in §5)
+-- and has been removed; the reduction below is sorry-free apart from that one gap.
+#print axioms exists_heatOp_approx_tendsto     -- the one precise remaining `sorry` (TRUE stmt)
+#print axioms heat_preserves_LP_entire          -- now [propext, Classical.choice, Quot.sound, sorryAx]
 
 end EntireLP

@@ -6,6 +6,11 @@ mathlib-worthy** results from the project file `MathlibBridge.lean`. It is prepa
 submission to [mathlib4](https://github.com/leanprover-community/mathlib4). **No PR has been
 opened** — that requires the user's GitHub account and mathlib maintainer review.
 
+> **For the turn-key submission process** (ready-to-post Zulip draft, PR breakdown,
+> PR description template, and the pre-submit checklist) see the companion file
+> `formalization/SUBMISSION.md`. This document covers the *mathematics*; that one
+> covers the *process*.
+
 ## Honest scope
 
 These are **classical** results. Nothing here is new mathematics and nothing here concerns
@@ -179,8 +184,13 @@ not general results:
 ## Style / API checklist before opening the PR
 
 - [ ] Decide `HasOnlyRealRoots` vs. `Splits (RingHom.id ℝ)` (see above) with a maintainer.
-- [ ] Trim imports to the minimum (the extracted file keeps a superset for build robustness in
-      the probe; run `scripts/lint-style` / `Mathlib.Tactic.Linter` unused-import check).
+- [x] Trim imports to the minimum. **Done**: the import list was minimized from 18 to 6 by
+      greedy one-by-one removal with re-verification (`lake env lean`); the file still compiles
+      and all 30 declarations remain `#print axioms`-clean. Final set:
+      `Analysis.Calculus.LocalExtr.Polynomial`, `Analysis.SpecialFunctions.ExpDeriv`,
+      `Analysis.SpecialFunctions.PolynomialExp`, `Analysis.Polynomial.CauchyBound`,
+      `Topology.MetricSpace.Sequences`, `Data.Nat.Factorial.BigOperators`. When the code lands in
+      real mathlib files, re-run `lake exe shake` since the surrounding imports differ.
 - [ ] Add copyright header with the real author(s) and confirm Apache-2.0 (already stubbed).
 - [ ] Confirm module docstring format (`/-! # … -/`), `## Main definitions`, `## References`,
       `## Tags` — already present.

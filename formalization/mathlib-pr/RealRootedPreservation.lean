@@ -3,24 +3,12 @@ Copyright (c) 2026 Jude Gomila. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Jude Gomila
 -/
-import Mathlib.Analysis.Calculus.LocalExtr.Rolle
-import Mathlib.Analysis.Calculus.Deriv.Polynomial
 import Mathlib.Analysis.Calculus.LocalExtr.Polynomial
 import Mathlib.Analysis.SpecialFunctions.ExpDeriv
 import Mathlib.Analysis.SpecialFunctions.PolynomialExp
-import Mathlib.Analysis.Calculus.LocalExtr.Basic
-import Mathlib.Topology.Order.Compact
-import Mathlib.Order.Filter.AtTopBot.Field
-import Mathlib.Topology.Algebra.Polynomial
 import Mathlib.Analysis.Polynomial.CauchyBound
-import Mathlib.RingTheory.Polynomial.Vieta
 import Mathlib.Topology.MetricSpace.Sequences
-import Mathlib.Data.Nat.Choose.Sum
 import Mathlib.Data.Nat.Factorial.BigOperators
-import Mathlib.Analysis.Normed.Module.FiniteDimension
-import Mathlib.Analysis.SpecificLimits.Basic
-import Mathlib.Algebra.Module.LinearMap.End
-import Mathlib.Algebra.Polynomial.BigOperators
 
 /-!
 # Preservation of real-rootedness: Hermite–Poulain and the heat operator

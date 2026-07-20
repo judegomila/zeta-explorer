@@ -20,3 +20,6 @@ name = "EntireCauchy"
 
 [[lean_lib]]
 name = "HeatFlowCounterexample"
+
+[[lean_lib]]
+name = "HeatCorollaries"

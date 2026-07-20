@@ -113,8 +113,8 @@ Hermite--Poulain}, and reserve ``P\'olya--Schur'' for the (distinct) multiplier-
 \paragraph{Honest scope.}
 We make exactly one mathematical claim: the machine-checked statement below, for the concrete
 operator $\heatop$. It is \emph{not} the Riemann Hypothesis, \emph{not} $\Lambda \ge 0$, and says
-nothing about the sign of the de~Bruijn--Newman constant. \S\ref{sec:distance} maps the distance
-honestly. Platt--Trudgian $\Lambda \le 0.2$ remains the rigorous state of the art.
+nothing about the sign of the de~Bruijn--Newman constant (\S\ref{sec:distance}). The de~Bruijn
+attribution is historical, for the origin of the operator.
 
 \section{The formal statement}\label{sec:statement}
 
@@ -226,43 +226,20 @@ polynomials, but it has none of the following, which this development supplies:
 The Hurwitz-by-compactness lemma in particular is a general-purpose brick on which future
 formalizations (log-concavity, strongly Rayleigh measures, Jensen-polynomial hyperbolicity) can rest.
 
-\section{The de Bruijn--Newman flow, and the honest distance to RH}\label{sec:distance}
+\section{Scope}\label{sec:distance}
 
-The de~Bruijn--Newman family is defined~\cite{rodgers-tao} by
+This is stated and proved for \emph{polynomials}. The entire-function (Laguerre--P\'olya) version is
+\emph{not} addressed here and does not follow naively: $e^{-t\D^2}$ is an infinite-order operator, so
+passing to entire functions requires explicit growth / domain control. For instance $f(z)=e^{-az^2}\in
+\LP$, yet
 \[
-  H_t(x) = \int_0^\infty e^{t u^2}\,\Phi(u)\cos(xu)\,du,
+  (e^{-t\D^2}f)(0) = \sum_{k\ge0}\binom{2k}{k}(at)^k
 \]
-from which $\partial_t H_t = -\partial_x^2 H_t$, i.e.\ $H_t = e^{-(t-s)\D^2}H_s$. \emph{Increasing the
-de~Bruijn--Newman parameter is backward heat} --- it is not ordinary positive-time Gaussian
-convolution of $\Xi$. The polynomial theorem formalized here models the \emph{upward-closure}
-implication
-\[
-  H_s \text{ real-rooted} \implies H_t \text{ real-rooted} \quad (t \ge s),
-\]
-but does \emph{not} establish that any particular Riemann time slice is real-rooted (that is RH).
-
-Extending the polynomial operator to entire functions requires explicit growth and domain conditions.
-Local uniform convergence and Hurwitz's theorem alone are \emph{insufficient}, because $e^{-t\D^2}$ is
-an infinite-order operator. Concretely, $f(z) = e^{-az^2}\in\LP$ but
-\[
-  (e^{-t\D^2}f)(0) = \sum_{k\ge0}\binom{2k}{k}(at)^k,
-\]
-which \emph{diverges} for $t \ge 1/(4a)$ (radius of convergence $\tfrac1{4a}$). So the unrestricted
-statement ``$e^{-t\D^2}$ preserves every $\LP$ entire function for all $t \ge 0$'' is \emph{false}: a
-Riemann development must specialize directly to the super-exponentially decaying kernel $\Phi$, where
-$H_t$ is well-defined, and carry the growth / order-and-type control explicitly. Not present here,
-each a substantial standalone development mathlib lacks:
-\begin{enumerate}
-  \item the Laguerre--P\'olya class on entire functions $\C\!\to\!\C$ (Hadamard genus $\le 1$);
-  \item the lift of Theorem~\ref{thm:main} to that class \emph{on the correct growth space} (not via
-  naive locally-uniform limits);
-  \item the actual Riemann $\Xi$ and its flow $H_t$;
-  \item the Rodgers--Tao lower bound $\Lambda \ge 0$~\cite{rodgers-tao}, itself a deep theorem.
-\end{enumerate}
-As partial progress toward (1)--(2) we have separately formalized (\texttt{sorry}-free) the
-$n$-th-order Cauchy derivative and coefficient estimates $\|f^{(n)}(c)\| \le n!\,C/R^n$ and
-$\|a_n\| \le M_f(R)/R^n$ for entire $f$ --- estimates mathlib had only in first-derivative form.
-Realistically the entire lift is a matter of months, and does not by itself approach RH.
+\emph{diverges} for $t \ge 1/(4a)$ (radius of convergence $\tfrac1{4a}$) --- so local uniform
+convergence and Hurwitz's theorem alone are insufficient, and the unrestricted statement
+``$e^{-t\D^2}$ preserves every $\LP$ entire function for all $t \ge 0$'' is false. No
+Riemann-Hypothesis claim is made; the de~Bruijn attribution is historical, for the origin of the
+operator.
 
 \section{Verification and reproducibility}\label{sec:verify}
 
@@ -298,8 +275,6 @@ London Math.\ Soc.\ Monographs \textbf{26}, Oxford Univ.\ Press, 2002 (Ch.~5: He
 Laguerre--P\'olya class).
 \bibitem{obreschkoff} N.~Obreschkoff, \emph{Verteilung und Berechnung der Nullstellen reeller
 Polynome}, VEB Deutscher Verlag der Wissenschaften, 1963.
-\bibitem{rodgers-tao} B.~Rodgers and T.~Tao, \emph{The de~Bruijn--Newman constant is non-negative},
-Forum Math.\ Pi \textbf{8} (2020), e6.
 \bibitem{gorz} M.~Griffin, K.~Ono, L.~Rolen, and D.~Zagier, \emph{Jensen polynomials for the Riemann
 zeta function and other sequences}, Proc.\ Natl.\ Acad.\ Sci.\ USA \textbf{116} (2019), 11103--11110.
 \bibitem{borcea-branden} J.~Borcea and P.~Br\"and\'en, \emph{P\'olya--Schur master theorems for

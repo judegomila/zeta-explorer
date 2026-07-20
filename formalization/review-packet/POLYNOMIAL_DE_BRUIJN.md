@@ -36,10 +36,9 @@ fixed-degree real-rooted polynomials under coefficient limits.
 > real-rootedness (it sends `(x−1)(x−2)(x−3)(x+1)` to `12t²x⁴ − 10t x² − 6`, which has a nonreal
 > conjugate pair). The operator formalized here is `φ(D)`, not `T_γ`.
 
-> **Honest scope.** This is a **polynomial** hyperbolicity-preservation theorem and a
-> finite-dimensional analogue of the zero-preservation mechanism in de Bruijn's work. It is **not** the
-> Riemann Hypothesis, **not** `Λ ≥ 0`, and makes **no** claim about the sign of the de Bruijn–Newman
-> constant. Platt–Trudgian `Λ ≤ 0.2` remains the rigorous state of the art.
+> **Scope.** A **polynomial** theorem. It is **not** the Riemann Hypothesis and **not** `Λ ≥ 0`, and
+> makes no claim about the de Bruijn–Newman constant; the de Bruijn attribution is historical, for the
+> origin of the operator.
 
 ---
 
@@ -107,50 +106,23 @@ Two genuinely hard ideas carry the proof; everything else is bookkeeping.
 
 ---
 
-## Relation to the de Bruijn–Newman flow, and the honest distance to RH
+## Scope
 
-The de Bruijn–Newman family is defined by
-```
-H_t(x) = ∫₀^∞ e^{t u²} Φ(u) cos(x u) du,
-```
-from which `∂_t H_t = −∂_x² H_t`, i.e. `H_t = e^{−(t−s) D²} H_s`. **Increasing the de Bruijn–Newman
-parameter is backward heat** — it is *not* ordinary positive-time Gaussian convolution of `Ξ`. The
-polynomial theorem here models the **upward-closure** implication
-```
-H_s real-rooted  ⟹  H_t real-rooted   (t ≥ s),
-```
-but it does **not** establish that any particular Riemann time slice is real-rooted (that is RH).
-
-**Extending the polynomial operator to entire functions requires explicit growth and domain
-conditions.** Local uniform convergence and Hurwitz's theorem alone are *insufficient*, because
-`e^{−tD²}` is an infinite-order operator. Warning example:
-```
-f(z) = e^{−a z²} ∈ LP,   (e^{−tD²} f)(0) = Σ_{k≥0} C(2k,k) (a t)^k,
-```
-which **diverges for `t ≥ 1/(4a)`**. So the unrestricted statement "`e^{−tD²}` preserves every LP
-entire function for all `t ≥ 0`" is *false*. A Riemann development must specialize directly to the
-super-exponentially decaying kernel `Φ`, where `H_t` is well-defined, and carry the growth/order-and-type
-control explicitly. Not present here, each a substantial standalone development mathlib lacks:
-1. the Laguerre–Pólya class on entire functions `ℂ→ℂ` (Hadamard genus ≤ 1);
-2. the lift of `heat_preserves_LP` to that class **on the correct growth space** (not via naive limits);
-3. the actual Riemann `Ξ` and its flow `H_t`;
-4. the Rodgers–Tao lower bound `Λ ≥ 0` (2020).
-
-As partial progress toward (1)–(2) we have separately formalized (`sorry`-free) the `n`-th-order Cauchy
-derivative/coefficient estimates `‖f⁽ⁿ⁾(c)‖ ≤ n!·C/Rⁿ`, `‖aₙ‖ ≤ M_f(R)/Rⁿ` — but the entire lift is
-realistically a matter of months and does not by itself approach RH.
+This is stated and proved for **polynomials**. The entire-function (Laguerre–Pólya) version is *not*
+addressed here and does not follow naively: `e^{−tD²}` is an infinite-order operator, so passing to
+entire functions needs explicit growth/domain control — e.g. `f(z)=e^{−az²} ∈ LP` already has
+`(e^{−tD²}f)(0) = Σ_{k≥0} C(2k,k)(at)^k`, which diverges for `t ≥ 1/(4a)` — not merely
+locally-uniform limits. No Riemann-Hypothesis claim is made.
 
 ---
 
 ## Citations
 - N. G. de Bruijn, *The roots of trigonometric integrals*, Duke Math. J. 17 (1950).
-- E. Laguerre; and the Hermite–Poulain theorem — see Rahman–Schmeisser Ch. 5 below.
-- N. Obreschkoff, *Verteilung und Berechnung der Nullstellen reeller Polynome* (1963).
+- N. Obreschkoff, *Verteilung und Berechnung der Nullstellen reeller Polynome* (1963)
+  (Hermite–Poulain theorem).
 - Q. I. Rahman, G. Schmeisser, *Analytic Theory of Polynomials* (2002), Ch. 5 (Hermite–Poulain,
   Laguerre–Pólya class).
-- B. Rodgers, T. Tao, *The de Bruijn–Newman constant is non-negative*, Forum Math. Pi 8 (2020).
-- G. Pólya, J. Schur (1914) — for historical context on the *multiplier-sequence* program, a
+- G. Pólya, J. Schur (1914) — historical context on the *multiplier-sequence* program, a
   **distinct** (diagonal) construction; not the theorem proved here.
-- (Lift, future) B. Ya. Levin, *Distribution of Zeros of Entire Functions*.
 
-*No claim of proving RH or `Λ ≥ 0` is made. Platt–Trudgian `Λ ≤ 0.2` remains the rigorous SOTA.*
+*No claim of proving RH or `Λ ≥ 0` is made.*

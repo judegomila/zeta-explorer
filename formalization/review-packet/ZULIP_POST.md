@@ -4,13 +4,9 @@
 start a **new topic** named `real-rootedness preservation (Hermite–Poulain / heat operator)`.
 (Alternatively `#Is there code for X?` if you only want the existence check first.)
 
-**Before posting:** attach a link to the code so a maintainer can glance at it. Easiest is a
-GitHub gist of `RealRootedPreservation.lean` — from `formalization/review-packet/`:
-```
-gh gist create --desc "Real-rootedness preservation (sorry-free, mathlib v4.22.0)" RealRootedPreservation.lean
-```
-(unlisted by default; add `--public` only if you want it indexed). Paste the returned URL where the
-post says `[GIST URL]`. — I can run this for you on your go.
+**Code link (done):** unlisted gist with the source + REVIEW + writeup + build files:
+**https://gist.github.com/judegomila/7fcce4803c58844a166d04123b0f2aae** (already inserted in the
+message below). It's unlisted (shareable by link, not indexed); make it public later if you prefer.
 
 ---
 
@@ -20,7 +16,7 @@ post says `[GIST URL]`. — I can run this for you on your go.
 >
 > Hi all — I'd like to check whether a small body of classical *real-rootedness preservation* lemmas
 > is wanted in mathlib before I split it into PRs. I have a self-contained, **`sorry`-free** file
-> (~1150 lines, builds on mathlib `v4.22.0`) — code: **[GIST URL]**.
+> (~1150 lines, builds on mathlib `v4.22.0`) — code: **https://gist.github.com/judegomila/7fcce4803c58844a166d04123b0f2aae**.
 >
 > **What it proves.** Closure properties of real-rooted real polynomials (the polynomial part of the
 > Laguerre–Pólya class) under a family of operators:

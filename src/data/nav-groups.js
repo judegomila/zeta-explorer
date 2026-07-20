@@ -84,6 +84,7 @@ export const NAV_GROUPS = [
       { to: '/guth-maynard-scoping', label: 'α=1/2 Large-Value Bottleneck (RH-adjacent)' },
       { to: '/obstruction-seam', label: 'The RH Obstruction Seam (why every route splits)' },
       { to: '/formalization-status', label: 'Lean Formalization Status' },
+      { to: '/formalization-review', label: 'Formalization Review Dashboard (shareable)' },
       { to: '/viz-phase-cylinder', label: 'Phase Cylinder: Unwrapped Rays' },
       { to: '/viz-unwrapped-rays', label: 'Unwrapped Prime Phase Rays' },
       { to: '/zoom-hierarchy', label: 'Zoom Hierarchy of the Prime Spiral' },

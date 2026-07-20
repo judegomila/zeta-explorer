@@ -43,6 +43,23 @@ export const SIGNIFICANCE = [
   },
 ];
 
+export const UNLOCKS = [
+  {
+    name: 'Hermite polynomials are real-rooted',
+    status: 'proved',
+    desc: 'HeatCorollaries.hermite_map_hasOnlyRealRoots — stated on mathlib’s own Polynomial.hermite, ' +
+      'proved sorry-free and axiom-audited via the operator identity He_n = e^{−D²/2}·xⁿ = heatOp(1/2)(Xⁿ). ' +
+      'A direct application of the theorem: Xⁿ is real-rooted, the heat operator preserves that. New to mathlib.',
+  },
+  {
+    name: 'Real-rooted ⇒ log-concave coefficients (Newton’s inequalities)',
+    status: 'in-progress',
+    desc: 'HeatCorollaries.newton_inequality — the correct statement is committed with one honest, documented ' +
+      'sorry; the proof (repeated-differentiation reduction to the degree-2 discriminant base case) is not yet built. ' +
+      'mathlib has the symmetric-function Newton identities but not the polynomial inequalities.',
+  },
+];
+
 export const VERIFY = [
   'Toolchain pinned: leanprover/lean4 v4.22.0 + mathlib v4.22.0 (lean-toolchain + lakefile.toml in the packet).',
   'lake exe cache get   # one-time mathlib oleans',
@@ -60,6 +77,7 @@ export const OPEN_QUESTIONS = [
 export const FORMALIZATION_REVIEW = {
   meta: REVIEW_META,
   results: RESULTS,
+  unlocks: UNLOCKS,
   significance: SIGNIFICANCE,
   verify: VERIFY,
   openQuestions: OPEN_QUESTIONS,

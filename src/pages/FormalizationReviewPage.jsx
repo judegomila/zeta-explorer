@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { FORMALIZATION_REVIEW } from '../data/formalization-review-2026-07-20.js';
 
-const { meta, results, significance, verify, openQuestions } = FORMALIZATION_REVIEW;
+const { meta, results, unlocks, significance, verify, openQuestions } = FORMALIZATION_REVIEW;
 
 export default function FormalizationReviewPage() {
   return (
@@ -51,6 +51,23 @@ export default function FormalizationReviewPage() {
             <div style={{ fontSize: 12.5, color: '#cbd5e1', marginTop: 3 }}>{r.desc}</div>
           </div>
         ))}
+      </div>
+
+      <h2>What it unlocks (built on the theorem)</h2>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+        {unlocks.map((u) => {
+          const proved = u.status === 'proved';
+          const col = proved ? '#10b981' : '#f59e0b';
+          return (
+            <div key={u.name} style={{ border: `1px solid ${col}55`, background: `${proved ? 'rgba(16,185,129,0.06)' : 'rgba(245,158,11,0.06)'}`, borderRadius: 8, padding: '10px 14px' }}>
+              <div style={{ fontSize: 13.5, fontWeight: 600, color: col }}>
+                {proved ? '✓ ' : '○ '}{u.name}
+                <span style={{ fontSize: 11, color: '#64748b', marginLeft: 8, fontWeight: 400 }}>{proved ? 'proved, sorry-free' : 'statement + honest sorry'}</span>
+              </div>
+              <div style={{ fontSize: 12.5, color: '#cbd5e1', marginTop: 3 }}>{u.desc}</div>
+            </div>
+          );
+        })}
       </div>
 
       <h2>Significance for mathematics</h2>

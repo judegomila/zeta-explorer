@@ -20,7 +20,8 @@ Sizes are rough Lean-LOC / person-effort for a mathlib-grade proof.
 |---|---|---|
 | Polynomial de Bruijn / Pólya–Schur: `heatOp t` preserves real-rootedness | `MathlibBridge.lean` `heat_preserves_LP` | **sorry-free** (transitively certified: it is the only non-axiom input to the axiom-clean `EntireLP.isLaguerrePolya_heat_of_flow`) |
 | Order of growth `order f = limsup (log⁺log⁺ M_f(r))/log r`, `order_nonneg`, `order_polynomial_eq_zero`, crux `log⁺log⁺ r / log r → 0` | `EntireOrder.lean` (brick 1) | **sorry-free** |
-| `maxModulus_mul_le` (`M_{fg} ≤ M_f·M_g`, continuous `f,g`) and `order_mul_le` (`order(f·g) ≤ max(order f)(order g)`, continuous `f,g`) | `EntireOrder.lean` (brick 2, THIS round) | **sorry-free**; `#print axioms` = `[propext, Classical.choice, Quot.sound]` (no `sorryAx`) |
+| `maxModulus_mul_le` (`M_{fg} ≤ M_f·M_g`, continuous `f,g`) and `order_mul_le` (`order(f·g) ≤ max(order f)(order g)`, continuous `f,g`) | `EntireOrder.lean` (brick 2) | **sorry-free**; `#print axioms` = `[propext, Classical.choice, Quot.sound]` (no `sorryAx`) |
+| **Cauchy estimates** (brick B2, coefficient half): `norm_iteratedDeriv_le_of_forall_mem_sphere_norm_le` (`‖f^{(n)}(c)‖ ≤ n!·C/Rⁿ` for entire `f`, `‖f‖≤C` on `‖z−c‖=R`), `norm_iteratedDeriv_le_maxModulus` (`≤ n!·M_f(R)/Rⁿ`, ties to brick-B1 `maxModulus`), `norm_taylorCoeff_le_maxModulus` (`‖aₙ‖ ≤ M_f(R)/Rⁿ`) | `EntireCauchy.lean` (THIS round) | **sorry-free**; `#print axioms` = `[propext, Classical.choice, Quot.sound]` (no `sorryAx`) |
 | Laguerre–Pólya class `IsLaguerrePolya` (limit-closure definition), real-on-ℝ inheritance, real-rooted-poly ⇒ LP, the flow **bridge** `isLaguerrePolya_heat_of_flow` | `EntireLP.lean` | **sorry-free**, axiom-clean |
 | CONCRETE entire heat flow `heatFlow t f = Σₖ((−t)ᵏ/k!)·f^{(2k)}` (order-≤2 series = `e^{−tD²}`), `iteratedDeriv_toEntire` (complex `Dⁿ` of a polynomial image), and `heatFlow_poly` (`heatFlow = heatOp` on polynomials) | `EntireLP.lean` (brick 3, THIS round) | **sorry-free**; `#print axioms` = `[propext, Classical.choice, Quot.sound]`.  `heatFlow` is now a `def` (was `opaque`); `heatFlow_poly` is now a THEOREM (was an axiom) |
 | `heat_preserves_LP_entire` (entire heat flow preserves LP) | `EntireLP.lean` | proved **modulo 1 precise `sorry`** `exists_heatOp_approx_tendsto` (a TRUE statement). `#print axioms` = `[propext, Classical.choice, Quot.sound, sorryAx]`. **The previous `axiom heatFlow_continuous` was FALSE and has been REMOVED** — see brick 4 below. |
@@ -84,7 +85,7 @@ Hadamard/Laguerre–Pólya characterization (needed to identify Ξ, Gaussian flo
 | # | Brick | Tag | Size | Nevanlinna helps? |
 |---|---|---|---|---|
 | B1 | Order of growth of an entire `f` via `M_f(r)` (`order`, `order_mul_le`, `order 0`) | **done** (`EntireOrder.lean`) | — | replaces it |
-| B2 | Order via a Taylor/coefficient bound `ρ = limsup n log n / log(1/‖aₙ‖)`; equivalence with B1 (Cauchy estimates) | **[must-build]** | ~400 | no |
+| B2 | Order via a Taylor/coefficient bound `ρ = limsup n log n / log(1/‖aₙ‖)`; equivalence with B1 (Cauchy estimates) | **[partial]** — Cauchy-estimate majorant `‖aₙ‖ ≤ M_f(R)/Rⁿ` **DONE sorry-free** (`EntireCauchy.lean`, THIS round); the `ρ_coeff = ρ_M` equivalence (optimize `R`, `log log`-asymptotics both directions) still **[must-build]** | ~250 left | no |
 | B3 | Exponent of convergence of zeros; genus; `Σ|aₖ|^{−(ρ+ε)} < ∞` | **[must-build]** | ~500 | partially (divisors give the zero multiset) |
 | B4 | Jensen's formula `(1/2π)∫log‖f(re^{iθ})‖dθ = log‖f(0)‖ + Σ log(r/‖aₖ‖)` | **[must-build]** | ~600 | **yes, most** — `circleAverage` + `circleAverage_log_norm_sub_const₁` + FMT scaffolding are the raw materials; still a real proof |
 | B5 | Weierstrass elementary factors `E_p`, convergence of canonical products with prescribed zeros | **[partial]** | ~700 | no (uses `MultipliableUniformlyOn`, `differentiableOn_tsum` — see §3) |
@@ -207,8 +208,15 @@ effort). There is no short route.
   foundation and is a multi-year project. **This build reaches de Bruijn's classical upper structure and
   the entire de Bruijn step; it does not, on its own, reach `Λ ≥ 0`.**
 
-Recommended next brick: **B2 → H5** (order-via-Taylor-coefficients / Cauchy estimates, then the
-loc-unif continuity of the order-≤2 series `Σₖ((−t)ᵏ/k!)f^{(2k)}`) — the ONLY remaining step to a
-fully sorry-and-axiom-free `heat_preserves_LP_entire`, now that `heatFlow`+`heatFlow_poly` are
-discharged (brick 3).  B2 supplies the `‖f^{(2k)}(z)‖ ≤ (2k)!·M_f(R)/R^{2k}` majorant that dominates
-the tail; H5 is then the `TendstoLocallyUniformlyOn.tsum` / dominated-convergence interchange.
+Recommended next brick (CORRECTED — the old "B2 → H5" plan is dead, `heatFlow_continuous` is FALSE):
+now that the **Cauchy-estimate majorant `‖aₙ‖ ≤ M_f(R)/Rⁿ` is banked sorry-free** (`EntireCauchy.lean`,
+THIS round), the reachable next steps are the two remaining halves of the *structure* theory that do
+NOT route through the impossible uniform majorant:
+- **B2 completion** — the order/coefficient equivalence `ρ_M = ρ_coeff = limsup n·log n / log(1/‖aₙ‖)`.
+  Upper bound `ρ_coeff ≤ ρ_M` is now within reach (optimize `R` in the banked Cauchy estimate); the
+  reverse `ρ_M ≤ ρ_coeff` needs a max-modulus-from-coefficients bound (`M_f(R) ≤ Σ‖aₙ‖Rⁿ`) plus the
+  `log log`-asymptotics.  This is the natural next sorry-free target (~250 LOC).
+- **B3 (exponent of convergence of zeros)** consumes the Cauchy coefficient bound directly.
+The order-≤2-series continuity route to `heat_preserves_LP_entire` remains dead (see brick 4); the
+Cauchy estimate is a load-bearing ingredient for the B2–B8 *structure* line and for L1's Ξ
+factorization, NOT for the retired H5 interchange.

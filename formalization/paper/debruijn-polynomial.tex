@@ -1,0 +1,315 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+
+\definecolor{codebg}{RGB}{245,246,248}
+\definecolor{codekw}{RGB}{30,90,160}
+\definecolor{codecm}{RGB}{100,110,120}
+\lstset{
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{codebg},
+  keywordstyle=\color{codekw}\bfseries,
+  commentstyle=\color{codecm}\itshape,
+  frame=single, rulecolor=\color{codebg},
+  breaklines=true, columns=fullflexible,
+  keepspaces=true, showstringspaces=false,
+  xleftmargin=6pt, xrightmargin=6pt, aboveskip=8pt, belowskip=8pt,
+  morekeywords={theorem,lemma,def,by,fun,intro,exact,have,let,match,with},
+  morecomment=[l]{--},
+}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\heatop}{\mathrm{heatOp}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\LP}{\mathrm{LP}}
+
+\title{\bf Backward Heat Preserves Real-Rooted Polynomials:\\ A Lean~4 Formalization}
+\author{Jude Gomila\thanks{The proofs described here were drafted with substantial AI
+assistance (Anthropic's Claude) under human direction, and then compiled and axiom-audited by the
+Lean~4 kernel. \emph{The certificate of correctness is the kernel, not the author}: the
+\texttt{\#print axioms} output reported in \S\ref{sec:verify} is the guarantee, and it is
+independently reproducible.}}
+\date{July 2026}
+
+\begin{document}
+\maketitle
+\sloppy
+
+\begin{abstract}
+We report a Lean~4 (mathlib) formalization, fully \texttt{sorry}-free and axiom-clean, that for every
+$t \ge 0$ the finite differential operator $e^{-t\D^2} = \sum_k \frac{(-t)^k}{k!}\D^{2k}$ ($\D=d/dx$)
+maps every real-rooted real polynomial to a real-rooted real polynomial. Here $e^{-t z^2}$ is the
+\emph{constant-coefficient differential-operator symbol}; under the Fourier transform the operator
+has multiplier $e^{+t\xi^2}$, so it is the \emph{backward-heat} operator, not Gaussian smoothing.
+The result belongs to Hermite--Poulain / Laguerre--P\'olya hyperbolicity-preserver theory and is a
+finite-dimensional analogue of the zero-preservation mechanism in de~Bruijn's work; it is
+\emph{not} the classical P\'olya--Schur multiplier-\emph{sequence} theorem, and it makes no claim
+about the Riemann Hypothesis or the sign of the de~Bruijn--Newman constant. The mathematics is
+classical; the contribution is the machine-checked formalization and a body of reusable
+infrastructure that mathlib did not previously contain --- in particular a real-variable Hurwitz
+theorem proved by root-vector compactness rather than the argument principle, and the
+Hermite--Poulain shift with its ``root at infinity''. As a direct application we derive,
+machine-checked, that the Hermite polynomials are real-rooted.
+\end{abstract}
+
+\section{Introduction}
+
+A real polynomial is \emph{real-rooted} (equivalently, hyperbolic; equivalently, in the polynomial
+part of the Laguerre--P\'olya class) if all of its complex roots are real. Real-rootedness is
+load-bearing across mathematics: in combinatorics it forces log-concave, unimodal coefficient
+sequences (Newton's inequalities); in probability it characterizes negative dependence / strongly
+Rayleigh measures (Borcea--Br\"and\'en~\cite{borcea-branden}); in optimization the hyperbolic
+polynomials underlie hyperbolic programming; and in analytic number theory the Laguerre--P\'olya
+class is precisely where the Riemann $\Xi$-function must lie, with the Jensen-polynomial
+hyperbolicity program of Griffin--Ono--Rolen--Zagier~\cite{gorz} turning on exactly this property.
+
+A cornerstone of the classical theory is that certain differential operators \emph{preserve}
+real-rootedness. We formalize the sharpest such statement for the Gaussian-symbol operator:
+
+\begin{quote}
+For $t \ge 0$, the operator $e^{-t\D^2}$ sends real-rooted real polynomials to real-rooted real
+polynomials.
+\end{quote}
+
+This is entirely classical --- it is the polynomial case of the Hermite--Poulain theorem (an entire
+symbol $\varphi$ in the Laguerre--P\'olya class makes $\varphi(\D)$ a real-rootedness preserver;
+see~\cite{rahman-schmeisser}), and it is the finite-dimensional shadow of the analytic engine behind
+de~Bruijn's 1950 work~\cite{debruijn}. What is new is a complete, kernel-checked formalization in
+Lean~4, together with the supporting lemmas, which fill a genuine gap in mathlib.
+
+\paragraph{The sign that matters: this is backward heat.}
+With $\D = d/dx$ one has $\widehat{\D^2 f}(\xi) = -\xi^2 \widehat{f}(\xi)$, so the operator
+$e^{-t\D^2}$ has Fourier multiplier $e^{+t\xi^2}$: it \emph{amplifies} high frequencies. It is the
+\emph{backward-heat} operator, not Gaussian smoothing. (Concretely $e^{-t\D^2}(x^2) = x^2 - 2t$, real
+roots $\pm\sqrt{2t}$ for $t\ge 0$.) The \emph{forward} heat operator $e^{+t\D^2}$, whose multiplier is
+$e^{-t\xi^2}$ (ordinary Gaussian convolution), does \emph{not} in general preserve real-rootedness:
+$e^{+t\D^2}(x^2) = x^2 + 2t$ has imaginary roots. Thus $t\ge 0$ is essential and the direction is the
+backward one.
+
+\paragraph{Not the P\'olya--Schur multiplier-sequence theorem.}
+A P\'olya--Schur multiplier sequence is a \emph{diagonal} operator $T_\gamma(x^n) = \gamma_n x^n$; the
+operator here is the differential operator $\varphi(\D)$, a different construction. These are genuinely
+distinct: the diagonal sequence whose exponential generating function is $e^{-tz^2}$ does \emph{not}
+preserve real-rootedness. Indeed with $\gamma_0=1,\gamma_2=-2t,\gamma_4=12t^2$ (odd terms zero), the
+real-rooted $p(x)=(x-1)(x-2)(x-3)(x+1)$ maps to $T_\gamma p = 12t^2x^4 - 10t\,x^2 - 6$, whose
+$y=x^2$ roots are $(5\pm\sqrt{97})/(12t)$ --- one negative, forcing a nonreal conjugate pair. So we
+describe the result as \emph{hyperbolicity preservation by the backward-heat operator, via
+Hermite--Poulain}, and reserve ``P\'olya--Schur'' for the (distinct) multiplier-sequence program.
+
+\paragraph{Honest scope.}
+We make exactly one mathematical claim: the machine-checked statement below, for the concrete
+operator $\heatop$. It is \emph{not} the Riemann Hypothesis, \emph{not} $\Lambda \ge 0$, and says
+nothing about the sign of the de~Bruijn--Newman constant. \S\ref{sec:distance} maps the distance
+honestly. Platt--Trudgian $\Lambda \le 0.2$ remains the rigorous state of the art.
+
+\section{The formal statement}\label{sec:statement}
+
+Working over $\R[X]$, we use the predicate
+\[
+  \texttt{HasOnlyRealRoots}\;p \;:=\; \bigl(\operatorname{card}(p.\mathrm{roots}) = p.\mathrm{natDegree}\bigr),
+\]
+i.e.\ $p$ splits over $\R$ with all multiplicities accounted for (over a field this is equivalent to
+mathlib's \texttt{p.Splits (RingHom.id~R)} via \texttt{splits\_iff\_card\_roots}). The operator is
+the finite sum
+\[
+  \heatop\,t\,p \;:=\; \sum_{k} \frac{(-t)^k}{k!}\,\D^{2k} p,
+\]
+which terminates because $\D^{2k}p = 0$ once $2k > \deg p$; it is the polynomial realization of the
+backward-heat operator $e^{-t\D^2}$.
+
+\begin{theorem}[\texttt{Polynomial.heat\_preserves\_LP}]\label{thm:main}
+For all $t \in \R$ with $t \ge 0$ and all $p \in \R[X]$, if $p$ is real-rooted then $\heatop\,t\,p$
+is real-rooted.
+\end{theorem}
+
+\begin{lstlisting}
+theorem Polynomial.heat_preserves_LP (t : R) (ht : 0 <= t) {p : R[X]}
+    (hp : HasOnlyRealRoots p) : HasOnlyRealRoots (heatOp t p)
+\end{lstlisting}
+
+The Lean source (\texttt{RealRootedPreservation.lean}) contains 30 declarations; every one reports
+the same three standard classical axioms and nothing else (\S\ref{sec:verify}).
+
+\begin{remark}[naming]
+The identifiers use \texttt{heatOp} / \texttt{heat\_preserves\_LP}. For a mathlib submission these
+would be renamed to reflect the backward-heat classification (\texttt{backwardHeatOp},
+\texttt{backwardHeatEulerStep}, \texttt{backwardHeatOp\_preserves\_realRooted}), with the public
+statement phrased through \texttt{p.Splits (RingHom.id~R)}. The names above match the current source
+so the audit commands reproduce verbatim.
+\end{remark}
+
+\section{Proof architecture}\label{sec:proof}
+
+Two genuinely nontrivial ideas carry the proof; the rest is bookkeeping.
+
+\subsection{The Hermite--Poulain shift}
+The map $p \mapsto p' + c\,p$ preserves real-rootedness for every $c \in \R$. Plain Rolle
+interlacing (\texttt{derivative\_hasRoot\_between}, via mathlib's mean value theorem) locates only
+$n-1$ of the $n$ required roots. The missing root is obtained by running the argument on the
+\emph{transcendental} auxiliary $g(x) = e^{cx}p(x)$, whose derivative $e^{cx}(p'+c\,p)$ has the same
+real zeros as $p'+c\,p$ (since $e^{cx}>0$). For $c>0$, $g \to 0$ at $-\infty$ (the exponential beats
+the polynomial) while $g$ vanishes at the least root of $p$; the extreme value theorem
+(\texttt{IsCompact.exists\_isMinOn}) plus Fermat's stationary-point lemma
+(\texttt{IsLocalExtr.hasDerivAt\_eq\_zero}) then force an interior critical point below all roots of
+$p$ --- the ``root at infinity'' that supplies the $n$-th root. (We note a subtlety caught in
+formalization: the root count is \emph{false} without the real-rootedness hypothesis, e.g.\ $x^2+2$.)
+
+\subsection{Real-rootedness is closed under coefficient limits (Hurwitz without complex analysis)}
+If real-rooted polynomials $p_n$ of a fixed degree $d$ with a fixed nonzero leading coefficient
+converge coefficient-wise to $p$, then $p$ is real-rooted (\texttt{hasOnlyRealRoots\_of\_tendsto\_coeff}).
+The usual proof invokes root continuity via the argument principle, which mathlib lacks. Instead:
+write $p_n = a\prod_i (X - r_{n,i})$ with $r_{n,i}\in\R$; the roots are uniformly bounded (Cauchy's
+bound, using that convergent coefficients are bounded); Bolzano--Weierstrass
+(\texttt{tendsto\_subseq\_of\_bounded}) extracts a convergent root-subvector $\to s_i \in \R$; and
+Vieta continuity (\texttt{continuous\_prod\_X\_sub\_C\_coeff}) with uniqueness of limits identifies
+$p = a\prod_i(X-s_i)$, all roots real.
+
+\subsection{The finish}
+The two ideas combine through the finite backward-heat factor.
+\begin{itemize}
+  \item \texttt{oneMinusCD2\_realRooted}: $1 - c\D^2 = (1+\sqrt{c}\,\D)(1-\sqrt{c}\,\D)$ is a
+  composition of two Hermite--Poulain shifts (with a scalar rescale), hence preserves real-rootedness.
+  \item \texttt{oneMinusCD2\_iterate\_realRooted}: therefore so does $(1-c\D^2)^n$, by induction, at
+  constant degree.
+  \item \texttt{oneMinusCD2\_iterate\_tendsto\_heatOp}: $(1-\tfrac{t}{n}\D^2)^n p \to \heatop\,t\,p$
+  coefficient-wise, via the operator binomial (\texttt{Commute.add\_pow}) and the elementary
+  asymptotic $\binom{n}{j}(-t/n)^j \to (-t)^j/j!$.
+  \item \textbf{Theorem~\ref{thm:main}}: the approximants $q_n = (1-\tfrac{t}{n}\D^2)^n p$ are
+  real-rooted of constant degree and converge to $\heatop\,t\,p$; by the coefficient-limit lemma the
+  limit is real-rooted. $\qed$
+\end{itemize}
+
+\section{A machine-checked application: Hermite polynomials}\label{sec:hermite}
+
+The probabilist's Hermite polynomial satisfies the operator identity $\mathrm{He}_n =
+e^{-\D^2/2}x^n = \heatop(\tfrac12)(X^n)$. Since $X^n$ is trivially real-rooted, Theorem~\ref{thm:main}
+applies directly.
+
+\begin{corollary}[\texttt{hermite\_map\_hasOnlyRealRoots}]\label{cor:hermite}
+For every $n$, the Hermite polynomial $\mathrm{He}_n$ is real-rooted.
+\end{corollary}
+
+This is proved \texttt{sorry}-free and axiom-clean in \texttt{HeatCorollaries.lean}, stated on
+mathlib's own \texttt{Polynomial.hermite} (which lives over $\mathbb{Z}$, so the statement is on its
+image under $\mathbb{Z}\hookrightarrow\R$). The operator identity itself was not present in mathlib;
+we prove it from the finite-sum definition of $\heatop$ via the creation-operator recursion
+$\heatop(\tfrac12)(X\cdot q) = X\cdot \heatop(\tfrac12)q - \D(\heatop(\tfrac12)q)$, which matches
+mathlib's \texttt{hermite\_succ} after transport along the cast. A companion statement, the Newton
+(log-concavity) inequalities for real-rooted polynomials, is present as a correct statement with a
+single documented \texttt{sorry}; its proof is left as future work.
+
+\section{Relation to mathlib and reusability}
+
+mathlib~v4.22.0 has the Rolle root-count interlacing
+(\texttt{Polynomial.card\_roots\_le\_derivative}) and the \texttt{Splits} API, and it has Hermite
+polynomials, but it has none of the following, which this development supplies:
+\begin{itemize}
+  \item the derivative / Hermite--Poulain / backward-heat \emph{preservation} statements;
+  \item a polynomial Hurwitz theorem (real-rootedness closed under coefficient limits) --- proved by
+  compactness, needing no complex analysis;
+  \item real-rootedness of the Hermite polynomials, and the operator identity underlying it.
+\end{itemize}
+The Hurwitz-by-compactness lemma in particular is a general-purpose brick on which future
+formalizations (log-concavity, strongly Rayleigh measures, Jensen-polynomial hyperbolicity) can rest.
+
+\section{The de Bruijn--Newman flow, and the honest distance to RH}\label{sec:distance}
+
+The de~Bruijn--Newman family is defined~\cite{rodgers-tao} by
+\[
+  H_t(x) = \int_0^\infty e^{t u^2}\,\Phi(u)\cos(xu)\,du,
+\]
+from which $\partial_t H_t = -\partial_x^2 H_t$, i.e.\ $H_t = e^{-(t-s)\D^2}H_s$. \emph{Increasing the
+de~Bruijn--Newman parameter is backward heat} --- it is not ordinary positive-time Gaussian
+convolution of $\Xi$. The polynomial theorem formalized here models the \emph{upward-closure}
+implication
+\[
+  H_s \text{ real-rooted} \implies H_t \text{ real-rooted} \quad (t \ge s),
+\]
+but does \emph{not} establish that any particular Riemann time slice is real-rooted (that is RH).
+
+Extending the polynomial operator to entire functions requires explicit growth and domain conditions.
+Local uniform convergence and Hurwitz's theorem alone are \emph{insufficient}, because $e^{-t\D^2}$ is
+an infinite-order operator. Concretely, $f(z) = e^{-az^2}\in\LP$ but
+\[
+  (e^{-t\D^2}f)(0) = \sum_{k\ge0}\binom{2k}{k}(at)^k,
+\]
+which \emph{diverges} for $t \ge 1/(4a)$ (radius of convergence $\tfrac1{4a}$). So the unrestricted
+statement ``$e^{-t\D^2}$ preserves every $\LP$ entire function for all $t \ge 0$'' is \emph{false}: a
+Riemann development must specialize directly to the super-exponentially decaying kernel $\Phi$, where
+$H_t$ is well-defined, and carry the growth / order-and-type control explicitly. Not present here,
+each a substantial standalone development mathlib lacks:
+\begin{enumerate}
+  \item the Laguerre--P\'olya class on entire functions $\C\!\to\!\C$ (Hadamard genus $\le 1$);
+  \item the lift of Theorem~\ref{thm:main} to that class \emph{on the correct growth space} (not via
+  naive locally-uniform limits);
+  \item the actual Riemann $\Xi$ and its flow $H_t$;
+  \item the Rodgers--Tao lower bound $\Lambda \ge 0$~\cite{rodgers-tao}, itself a deep theorem.
+\end{enumerate}
+As partial progress toward (1)--(2) we have separately formalized (\texttt{sorry}-free) the
+$n$-th-order Cauchy derivative and coefficient estimates $\|f^{(n)}(c)\| \le n!\,C/R^n$ and
+$\|a_n\| \le M_f(R)/R^n$ for entire $f$ --- estimates mathlib had only in first-derivative form.
+Realistically the entire lift is a matter of months, and does not by itself approach RH.
+
+\section{Verification and reproducibility}\label{sec:verify}
+
+The development is self-contained on a pinned toolchain (\texttt{leanprover/lean4:v4.22.0}, mathlib
+\texttt{v4.22.0}, exact commits in \texttt{lake-manifest.json}). To reproduce the axiom audit:
+
+\begin{lstlisting}
+lake exe cache get      -- one-time mathlib oleans
+lake build              -- compiles, exit 0
+echo 'import RealRootedPreservation
+#print axioms Polynomial.heat_preserves_LP' | lake env lean /dev/stdin
+\end{lstlisting}
+
+Expected output:
+\begin{lstlisting}
+'Polynomial.heat_preserves_LP' depends on axioms:
+  [propext, Classical.choice, Quot.sound]
+\end{lstlisting}
+
+i.e.\ the three standard classical axioms and \textbf{no} \texttt{sorryAx}. A clean
+\texttt{\#print axioms} transitively certifies the entire dependency chain. All 30 declarations report
+the same three axioms. Corollary~\ref{cor:hermite} is audited the same way
+(\texttt{HeatCorollaries.hermite\_map\_hasOnlyRealRoots}).
+
+The source is available as an unlisted gist:
+\url{https://gist.github.com/judegomila/7fcce4803c58844a166d04123b0f2aae}.
+
+\begin{thebibliography}{9}
+\bibitem{debruijn} N.~G.~de~Bruijn, \emph{The roots of trigonometric integrals}, Duke Math.\ J.\
+\textbf{17} (1950), 197--226.
+\bibitem{rahman-schmeisser} Q.~I.~Rahman and G.~Schmeisser, \emph{Analytic Theory of Polynomials},
+London Math.\ Soc.\ Monographs \textbf{26}, Oxford Univ.\ Press, 2002 (Ch.~5: Hermite--Poulain,
+Laguerre--P\'olya class).
+\bibitem{obreschkoff} N.~Obreschkoff, \emph{Verteilung und Berechnung der Nullstellen reeller
+Polynome}, VEB Deutscher Verlag der Wissenschaften, 1963.
+\bibitem{rodgers-tao} B.~Rodgers and T.~Tao, \emph{The de~Bruijn--Newman constant is non-negative},
+Forum Math.\ Pi \textbf{8} (2020), e6.
+\bibitem{gorz} M.~Griffin, K.~Ono, L.~Rolen, and D.~Zagier, \emph{Jensen polynomials for the Riemann
+zeta function and other sequences}, Proc.\ Natl.\ Acad.\ Sci.\ USA \textbf{116} (2019), 11103--11110.
+\bibitem{borcea-branden} J.~Borcea and P.~Br\"and\'en, \emph{P\'olya--Schur master theorems for
+circular domains and their boundaries}, Ann.\ of Math.\ \textbf{170} (2009), 465--492.
+\bibitem{polya-schur} G.~P\'olya and J.~Schur, \emph{\"Uber zwei Arten von Faktorenfolgen in der
+Theorie der algebraischen Gleichungen}, J.~Reine Angew.\ Math.\ \textbf{144} (1914), 89--113
+(historical context: the \emph{multiplier-sequence} program, a distinct diagonal construction).
+\bibitem{levin} B.~Ya.~Levin, \emph{Distribution of Zeros of Entire Functions}, Amer.\ Math.\ Soc.,
+1980.
+\bibitem{mathlib} The mathlib Community, \emph{The Lean mathematical library}, CPP 2020.
+\end{thebibliography}
+
+\end{document}

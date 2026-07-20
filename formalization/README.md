@@ -2,7 +2,7 @@
 
 Lean 4 formalization of parts of the de Bruijn–Newman / Riemann-Hypothesis circle.
 
-**Headline result:** the polynomial de Bruijn / Pólya–Schur multiplier theorem is fully proved,
+**Headline result:** the polynomial backward-heat real-rootedness theorem (Hermite–Poulain; de Bruijn 1950) is fully proved,
 `sorry`-free and axiom-clean — see **[POLYNOMIAL_DE_BRUIJN.md](./POLYNOMIAL_DE_BRUIJN.md)**.
 
 > Honest scope: this is a *polynomial* theorem and machine-checked scaffolding — **not** RH and

@@ -10,8 +10,9 @@ export default function FormalizationReviewPage() {
     <div className="page">
       <h1>Formalization — Pre-Submission Review Dashboard</h1>
       <p style={{ color: '#94a3b8', fontSize: 15, lineHeight: 1.7, maxWidth: 820 }}>
-        A shareable review page for the machine-checked <strong>polynomial de Bruijn / Pólya–Schur
-        theorem</strong>, packaged for external review before any mathlib submission. The result, why
+        A shareable review page for the machine-checked <strong>backward-heat real-rootedness
+        theorem</strong> (Hermite–Poulain; the polynomial mechanism behind de Bruijn 1950), packaged
+        for external review before any mathlib submission. The result, why
         it matters, how to verify it independently, and the open questions for a maintainer.
       </p>
 
@@ -19,7 +20,7 @@ export default function FormalizationReviewPage() {
         variant="ESTIMATE"
         title="A classical theorem, machine-checked — NOT the Riemann Hypothesis"
         body={
-          'Every result here is classical (Pólya–Schur 1914 / de Bruijn 1950). This is verified, reusable ' +
+          'Every result here is classical (Hermite–Poulain; de Bruijn 1950). This is verified, reusable ' +
           'foundational infrastructure that fills a mathlib gap — it is NOT new mathematics and NOT progress ' +
           'on RH or on Λ ≥ 0. Platt–Trudgian Λ ≤ 0.2 remains the rigorous SOTA. No QED.'
         }
@@ -37,6 +38,12 @@ export default function FormalizationReviewPage() {
           <div style={{ fontSize: 12, color: '#64748b', marginBottom: 3 }}>Shareable code (unlisted gist — no repo access needed)</div>
           <a href={meta.gist} target="_blank" rel="noreferrer" style={{ color: '#38bdf8', fontFamily: 'ui-monospace, monospace', fontSize: 13, wordBreak: 'break-all' }}>{meta.gist}</a>
         </div>
+        {meta.paperPdf && (
+          <div style={{ border: '1px solid #a855f755', background: 'rgba(168,85,247,0.06)', borderRadius: 8, padding: '10px 14px' }}>
+            <div style={{ fontSize: 12, color: '#64748b', marginBottom: 3 }}>Formalization note (PDF)</div>
+            <a href={meta.paperPdf} target="_blank" rel="noreferrer" style={{ color: '#c084fc', fontFamily: 'ui-monospace, monospace', fontSize: 13 }}>{meta.paperPdf}</a>
+          </div>
+        )}
         <div style={{ border: '1px solid #33415555', borderRadius: 8, padding: '10px 14px' }}>
           <div style={{ fontSize: 12, color: '#64748b', marginBottom: 3 }}>In-repo review packet</div>
           <div style={{ fontFamily: 'ui-monospace, monospace', fontSize: 12.5, color: '#cbd5e1' }}>{meta.repoPath}</div>

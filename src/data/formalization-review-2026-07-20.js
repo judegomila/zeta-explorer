@@ -1,18 +1,20 @@
 /**
  * @module formalization-review-2026-07-20
  * @fileoverview Shareable review dashboard for the machine-checked polynomial
- * de Bruijn / Pólya–Schur formalization: the result, its significance, the
+ * de Bruijn / Hermite–Poulain backward-heat formalization: the result, its significance, the
  * shareable gist, and how to verify. Pre-submission review artifact.
  */
 
 export const REVIEW_META = {
-  title: 'Polynomial de Bruijn / Pólya–Schur theorem — machine-checked in Lean 4',
+  title: 'Backward heat preserves real-rooted polynomials — machine-checked in Lean 4',
   oneLiner:
-    'The heat operator e^{−t·D²} preserves real-rootedness of real polynomials (t ≥ 0) — proved ' +
-    'sorry-free, axiom-clean, on mathlib v4.22.0. Classical (Pólya–Schur 1914 / de Bruijn 1950); ' +
-    'fills a genuine mathlib gap. NOT the Riemann Hypothesis.',
+    'The backward-heat operator e^{−t·D²} (Fourier multiplier e^{+tξ²}, not Gaussian smoothing) ' +
+    'preserves real-rootedness of real polynomials (t ≥ 0) — proved sorry-free, axiom-clean, on ' +
+    'mathlib v4.22.0. Classical (Hermite–Poulain; de Bruijn 1950); fills a genuine mathlib gap. ' +
+    'NOT the Pólya–Schur multiplier-sequence theorem, and NOT the Riemann Hypothesis.',
   statement: 'theorem heat_preserves_LP (t : ℝ) (ht : 0 ≤ t) {p : ℝ[X]} (hp : HasOnlyRealRoots p) : HasOnlyRealRoots (heatOp t p)',
   gist: 'https://gist.github.com/judegomila/7fcce4803c58844a166d04123b0f2aae',
+  paperPdf: '/debruijn-polynomial.pdf',
   repoPath: 'formalization/review-packet/  (RealRootedPreservation.lean · REVIEW.md · POLYNOMIAL_DE_BRUIJN.md · SUBMISSION.md · ZULIP_POST.md)',
 };
 
@@ -21,13 +23,13 @@ export const RESULTS = [
   { name: 'hermitePoulain_shift', desc: 'The Hermite–Poulain shift p ↦ p′ + c·p preserves real-rootedness (incl. the “root at infinity” via EVT/Fermat on e^{cx}·p).' },
   { name: 'oneMinusCD2_realRooted', desc: 'The finite heat factor 1 − c·D² preserves real-rootedness (via (1+√c·D)(1−√c·D)).' },
   { name: 'hasOnlyRealRoots_of_tendsto_coeff', desc: 'Real-rootedness is closed under coefficient-wise limits — a real-variable Hurwitz theorem via root-vector compactness (no complex analysis).' },
-  { name: 'heat_preserves_LP', desc: 'The heat operator e^{−t·D²} preserves real-rootedness for t ≥ 0 (headline; polynomial case of Pólya–Schur / de Bruijn).' },
+  { name: 'heat_preserves_LP', desc: 'The backward-heat operator e^{−t·D²} preserves real-rootedness for t ≥ 0 (headline; polynomial case via Hermite–Poulain, the mechanism behind de Bruijn 1950).' },
 ];
 
 export const SIGNIFICANCE = [
   {
     h: 'A cornerstone of classical analysis',
-    b: 'The Laguerre–Pólya class and the Pólya–Schur (1914) theory of multiplier sequences are foundational in the theory of entire functions and real-rooted ("hyperbolic") polynomials. That the heat/Gaussian multiplier e^{−t·D²} preserves real-rootedness is the structural fact underlying de Bruijn’s 1950 work on the de Bruijn–Newman constant. This is bedrock, not a niche curiosity.',
+    b: 'The Laguerre–Pólya class and the Hermite–Poulain theory of real-rootedness-preserving differential operators φ(D) are foundational in the theory of entire functions and real-rooted ("hyperbolic") polynomials. That the backward-heat operator e^{−t·D²} (symbol e^{−tz²} ∈ Laguerre–Pólya; Fourier multiplier e^{+tξ²}, so backward heat, not Gaussian smoothing) preserves real-rootedness is the structural fact underlying de Bruijn’s 1950 work on the de Bruijn–Newman constant. It is distinct from the classical Pólya–Schur multiplier-SEQUENCE theorem (the diagonal maps xⁿ↦γₙxⁿ). This is bedrock, not a niche curiosity.',
   },
   {
     h: 'Real-rootedness is load-bearing across mathematics',

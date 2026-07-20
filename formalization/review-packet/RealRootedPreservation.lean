@@ -20,8 +20,16 @@ root is real.  The class of real-rooted real polynomials is the polynomial part 
 
 This file proves, `sorry`-free and with only the standard axioms
 (`propext`, `Classical.choice`, `Quot.sound`), the classical closure properties of this
-class under a family of differential operators, culminating in the polynomial case of
-**de Bruijn's theorem** / the **Pólya–Schur** characterization of the multiplier `e^{-t x²}`:
+class under a family of **Hermite–Poulain** differential operators `φ(D)` with `φ` in the
+Laguerre–Pólya class, culminating in the polynomial case of the **backward-heat** operator
+`e^{-t D²}` — the finite-dimensional analogue of the zero-preservation mechanism in
+**de Bruijn's** work (1950).
+
+Note on classification: `e^{-t D²}` is a constant-coefficient differential operator `φ(D)`
+with symbol `φ(z) = e^{-t z²}`; under the Fourier transform `D ↦ iξ` its multiplier is
+`e^{+t ξ²}`, so it is *backward* heat, not Gaussian smoothing. This is a Hermite–Poulain /
+Laguerre–Pólya preserver result. It is **not** the classical Pólya–Schur multiplier-*sequence*
+theorem, which concerns the *diagonal* operators `T_γ(xⁿ) = γₙ xⁿ` — a different construction.
 
 * `Polynomial.hasOnlyRealRoots_derivative` — differentiation `D` preserves real-rootedness
   (a multiplicity-counting form of Rolle's theorem);
@@ -32,8 +40,9 @@ class under a family of differential operators, culminating in the polynomial ca
 * `Polynomial.hasOnlyRealRoots_of_tendsto_coeff` — real-rootedness is closed under
   coefficient-wise limits within a fixed-degree, fixed-leading-coefficient family
   (a real-variable, root-vector-compactness form of Hurwitz's theorem — no complex analysis);
-* `Polynomial.heat_preserves_LP` — for `t ≥ 0` the heat operator `e^{-t D²}`
+* `Polynomial.heat_preserves_LP` — for `t ≥ 0` the backward-heat operator `e^{-t D²}`
   (`Polynomial.heatOp`) preserves real-rootedness.
+  (Intended mathlib name: `backwardHeatOp_preserves_realRooted`; see the naming note below.)
 
 ## Main definitions
 
@@ -41,8 +50,9 @@ class under a family of differential operators, culminating in the polynomial ca
   this predicate coincides with `p.Splits (RingHom.id K)`; see
   `Polynomial.splits_iff_card_roots`.
 * `Polynomial.oneMinusCD2 c p` : the finite heat factor `p - c • D²p = (1 - c • D²) p`.
-* `Polynomial.heatOp t p` : the heat / Laguerre–Pólya multiplier
+* `Polynomial.heatOp t p` : the backward-heat operator `φ(D)` with symbol `φ(z) = e^{-t z²}`,
   `e^{-t D²} p = ∑ₖ ((-t)ᵏ / k!) • D^{2k} p` (a finite sum since `D^{2k} p = 0` for `2k > deg p`).
+  Fourier multiplier `e^{+t ξ²}` — backward heat, not Gaussian smoothing.
 
 ## Implementation notes
 
@@ -58,18 +68,29 @@ The passage to the limit is split into two purely real-variable ingredients:
   extracting a convergent subsequence of root vectors (Bolzano–Weierstrass) and using
   continuity of the Vieta map.
 
+## Naming note
+
+The identifiers use `heatOp` / `heat_preserves_LP` for the operator `e^{-t D²}`. For a mathlib
+submission these would be renamed to reflect the backward-heat classification —
+`backwardHeatOp`, `backwardHeatEulerStep` (for the `1 - c • D²` factor),
+`backwardHeatOp_preserves_realRooted` — and the public statement phrased through
+`p.Splits (RingHom.id ℝ)`, keeping `HasOnlyRealRoots` only as an internal cardinality lemma.
+
 ## References
 
-* G. Pólya and J. Schur, *Über zwei Arten von Faktorenfolgen in der Theorie der
-  algebraischen Gleichungen*, J. Reine Angew. Math. **144** (1914), 89–113.
 * N. G. de Bruijn, *The roots of trigonometric integrals*, Duke Math. J. **17** (1950), 197–226.
 * N. Obreschkoff, *Verteilung und Berechnung der Nullstellen reeller Polynome*, VEB, 1963
   (Hermite–Poulain theorem).
-* Q. I. Rahman and G. Schmeisser, *Analytic Theory of Polynomials*, Oxford, 2002, Thm 5.4.4.
+* Q. I. Rahman and G. Schmeisser, *Analytic Theory of Polynomials*, Oxford, 2002, Thm 5.4.4
+  (Hermite–Poulain, Laguerre–Pólya class).
+* B. Rodgers and T. Tao, *The de Bruijn–Newman constant is non-negative*, Forum Math. Pi **8** (2020).
+* G. Pólya and J. Schur, *Über zwei Arten von Faktorenfolgen …*, J. Reine Angew. Math. **144**
+  (1914), 89–113 — historical context for the *multiplier-sequence* program, a **distinct**
+  (diagonal) construction, not the theorem proved here.
 
 ## Tags
 
-polynomial, real roots, real-rooted, Laguerre–Pólya, Hermite–Poulain, Pólya–Schur,
+polynomial, real roots, real-rooted, Laguerre–Pólya, Hermite–Poulain, backward heat,
 de Bruijn, heat operator, Rolle, Hurwitz
 -/
 
@@ -645,14 +666,18 @@ theorem oneMinusCD2_iterate_leadingCoeff (c : ℝ) (p : ℝ[X]) :
       rw [Function.iterate_succ', Function.comp_apply, oneMinusCD2_leadingCoeff,
         oneMinusCD2_iterate_leadingCoeff c p n]
 
-/-! ## The heat / Laguerre–Pólya multiplier operator `e^{-t D²}`
+/-! ## The backward-heat operator `e^{-t D²}`
 
-`heatOp t p = ∑ₖ ((-t)ᵏ / k!) • D^{2k} p` is the operator `e^{-t D²}` (Fourier symbol
-`e^{-t x²}`).  The sum is genuinely finite: `D^{2k} p = 0` once `2k > deg p`.  For `t ≥ 0`
-the symbol lies in the Laguerre–Pólya class, so `e^{-t D²}` preserves real-rootedness; the
-forward operator `e^{+t D²}` does not (e.g. `e^{t D²}(X² - 1) = X² + (2t - 1)` acquires a
-conjugate pair of non-real roots for `t > 1/2`), which is why `heat_preserves_LP` requires
-`0 ≤ t`. -/
+`heatOp t p = ∑ₖ ((-t)ᵏ / k!) • D^{2k} p`.  The entire function `φ(z) = e^{-t z²}` is the
+constant-coefficient differential-operator symbol, meaning `heatOp t = φ(D)` on polynomials.
+With the Fourier convention `D ↦ iξ`, the Fourier multiplier is `φ(iξ) = e^{+t ξ²}`.  Thus
+`heatOp` is *backward* heat, not Gaussian smoothing.  The forward heat operator `e^{+tD²}` has
+multiplier `e^{-tξ²}` and need not preserve real-rootedness (e.g. `e^{+tD²}(X² - 1) =
+X² + (2t - 1)` acquires a conjugate pair of non-real roots for `t > 1/2`).
+
+The sum is genuinely finite: `D^{2k} p = 0` once `2k > deg p`.  For `t ≥ 0` the symbol `φ`
+lies in the Laguerre–Pólya class, so by the Hermite–Poulain mechanism `φ(D) = e^{-t D²}`
+preserves real-rootedness — which is why `heat_preserves_LP` requires `0 ≤ t`. -/
 
 /-- Fixed-cutoff heat partial sum `∑_{k<N} ((-t)ᵏ / k!) • D^{2k} p`, with an *explicit*
 cutoff `N` so that additivity / homogeneity can be proved at a cutoff independent of
@@ -1056,13 +1081,14 @@ theorem hasOnlyRealRoots_of_tendsto_coeff {d : ℕ} {a : ℝ} (ha : a ≠ 0)
 
 end HurwitzReplacement
 
-/-! ## The polynomial de Bruijn / Pólya–Schur theorem -/
+/-! ## The polynomial backward-heat theorem (de Bruijn / Hermite–Poulain) -/
 
-/-- **The heat operator preserves real-rootedness (polynomial de Bruijn / Pólya–Schur).**
+/-- **The backward-heat operator preserves real-rootedness.**
 
 For `t ≥ 0`, if `p` has only real roots then so does `e^{-t D²} p = heatOp t p`.  This is
-the polynomial case of de Bruijn's theorem, equivalently the Pólya–Schur characterization
-of the Laguerre–Pólya multiplier `e^{-t x²}`.
+the polynomial case of the zero-preservation mechanism in de Bruijn's work, proved via the
+Hermite–Poulain factorization (the symbol `e^{-t z²}` lies in the Laguerre–Pólya class).
+It is *not* the Pólya–Schur multiplier-*sequence* theorem (a distinct, diagonal construction).
 
 Proof: for `t > 0, p ≠ 0`, the approximants `qₙ := (1 - (t/n) • D²)ⁿ p` are real-rooted
 (`oneMinusCD2_iterate_realRooted`) of constant degree and leading coefficient

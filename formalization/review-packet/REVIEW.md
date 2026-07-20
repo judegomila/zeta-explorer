@@ -1,11 +1,13 @@
-# External review packet — a Lean 4 formalization of the polynomial de Bruijn / Pólya–Schur theorem
+# External review packet — a Lean 4 formalization: backward heat preserves real-rooted polynomials
 
 ## What this is (in one sentence)
-A self-contained, `sorry`-free Lean 4 + mathlib formalization proving that the heat operator
-`e^{−t·D²}` (`D = d/dx`) preserves real-rootedness of real polynomials for `t ≥ 0` — the polynomial
-case of **de Bruijn's 1950 theorem** and of the **Pólya–Schur (1914)** theory of the multiplier
-`e^{−t x²}` — together with its supporting classical lemmas (Rolle interlacing, the Hermite–Poulain
-shift, and a real-variable Hurwitz theorem).
+A self-contained, `sorry`-free Lean 4 + mathlib formalization proving that the **backward-heat**
+operator `e^{−t·D²}` (`D = d/dx`; Fourier multiplier `e^{+tξ²}`, not Gaussian smoothing) preserves
+real-rootedness of real polynomials for `t ≥ 0` — the polynomial case of the zero-preservation
+mechanism in **de Bruijn's 1950 work**, proved via the **Hermite–Poulain** factorization (the symbol
+`e^{−t z²}` lies in the Laguerre–Pólya class) — together with its supporting classical lemmas (Rolle
+interlacing, the Hermite–Poulain shift, and a real-variable Hurwitz theorem). It is **not** the
+classical Pólya–Schur multiplier-*sequence* theorem (a distinct, diagonal construction).
 
 ## What it is NOT
 It is **not** the Riemann Hypothesis, and **not** `Λ ≥ 0` (the Rodgers–Tao lower bound on the
@@ -57,15 +59,22 @@ echo 'import RealRootedPreservation
 # expected: 'Polynomial.heat_preserves_LP' depends on axioms:
 #           [propext, Classical.choice, Quot.sound]      -- NO sorryAx
 ```
-Toolchain is pinned in `lean-toolchain` (`leanprover/lean4:v4.22.0`) and `lakefile.toml`
-(mathlib `git#v4.22.0`). All 30 declarations report `[propext, Classical.choice, Quot.sound]`;
-`#lint` (mathlib's linter) passes clean.
+Toolchain is pinned in `lean-toolchain` (`leanprover/lean4:v4.22.0`), `lakefile.toml`
+(mathlib `git#v4.22.0`), and `lake-manifest.json` (exact dependency commits). All 30 declarations
+report `[propext, Classical.choice, Quot.sound]`. To run mathlib's linter yourself:
+```
+echo 'import RealRootedPreservation
+#lint' | lake env lean /dev/stdin      # or: append `#lint` in the file and rebuild
+```
 
 ## Open questions for the reviewer / before any mathlib PR
 1. **API choice**: use the ad-hoc `HasOnlyRealRoots p := card p.roots = p.natDegree`, or express
    everything through mathlib's existing `p.Splits (RingHom.id ℝ)` API (`splits_iff_card_roots`)?
-2. **Naming/placement**: `heatOp` / `oneMinusCD2` (`CD2` abbreviation) need mathlib-conforming names;
-   suggested homes are in `SUBMISSION.md` / `CONTRIBUTION.md` (shipped alongside).
+2. **Naming/placement**: `heatOp` / `oneMinusCD2` (`CD2` abbreviation) need mathlib-conforming names.
+   The intended renames reflect the backward-heat classification — `backwardHeatOp`,
+   `backwardHeatEulerStep`, `backwardHeatOp_preserves_realRooted` — with the public statement phrased
+   through `p.Splits (RingHom.id ℝ)`. (A fuller split/placement plan is kept in the project's
+   `SUBMISSION.md`, not included in this packet.)
 3. **Correctness**: independent confirmation of the two non-obvious steps above.
 
 ## Provenance / honesty disclosure
@@ -73,5 +82,5 @@ This formalization was produced by AI agents (Claude) under human direction, the
 axiom-audited by the Lean kernel. **The proof of correctness is the kernel, not the author** — the
 `#print axioms` output above is the guarantee; please re-run it. Contents:
 `RealRootedPreservation.lean` (source), `POLYNOMIAL_DE_BRUIJN.md` (paper-grade writeup with proof
-architecture + citations: Pólya–Schur 1914, de Bruijn 1950, Obreschkoff, Rahman–Schmeisser Ch. 5),
-`lean-toolchain`, `lakefile.toml`.
+architecture + citations: de Bruijn 1950, Obreschkoff, Rahman–Schmeisser Ch. 5, Rodgers–Tao 2020),
+`lean-toolchain`, `lakefile.toml`, `lake-manifest.json`, `LICENSE` (Apache-2.0).

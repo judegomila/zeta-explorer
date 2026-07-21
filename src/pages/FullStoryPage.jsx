@@ -433,6 +433,26 @@ function S3_Collision() {
       <Para>
         so if <InlineMath tex="|t_c(N)| \to 0" /> we get <InlineMath tex="\Lambda = 0" /> and RH follows. The rest of this page is an accounting of <em>which</em> of those steps are rigorous, which are conditional on GUE universality, and what the best current numerical value of each quantity actually is.
       </Para>
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(248,113,113,0.06)',
+          borderLeft: '3px solid #f87171',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+        }}
+      >
+        <strong style={{ color: '#f87171' }}>Honest status -- E(N) does NOT currently vanish:</strong>{' '}
+        the <InlineMath tex="E(N) \to 0" /> line above states the idealized target of the program, not
+        the current surrogate's behavior. On the surrogate as built today, E(N) FLOORS at the
+        fixed-strip constant E_trunc = 3.06e-5 instead of tending to 0 (imp-35164, imp-35100), so this
+        step cannot yet be discharged as written. The only scoped route that would change this is
+        Knob A -- growing the verified height T_v(N) at a fixed abscissa (imp-35149) -- whose own
+        obligation R3 (an unconditional supply of T_v(N) beyond the Platt-Trudgian verified height)
+        remains OPEN. No RH verdict, NO QED; Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+      </div>
     </Section>
   );
 }

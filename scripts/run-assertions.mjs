@@ -10151,6 +10151,17 @@ const DATA_MODULES = [
   // Six self-executing assertions. Measurement only; changes no bound; imp-486 untouched; per-N + anchor
   // stay OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-36140-routeB-rate-vs-ecoll-collision-rate-comparison.js',
+  // imp-36141 (numerical, S-frontier): converts the imp-36054 qualitative "few percent marginal"
+  // Route-II-vs-Route-I panel-count verdict for the imp-35777 I2 sup|H_t prime| cap into a tabulated
+  // ratio. The I2 cap L_panel.(B/delta) < pi fixes panel WIDTH = pi.delta/B, so with shared delta the
+  // panel count scales linearly with B and n_II/n_I = B_II/B_I. imp-35988 pins the frequency-factor
+  // component of B_II/B_I to the exact w/logN via logN = w - (1/2)log2, giving panel-count ratio floor
+  // ~1.0265 (+2.65% panels) and reciprocal panel-width ratio ~0.9742 (~2.58% narrower). Same-signed
+  // main-term and disk-sup axes (imp-36054) make 1.0265 an EXACT LOWER BOUND on the full ratio, not the
+  // exact value -- confirming "MARGINAL, not an order of magnitude" as a number. Seven self-executing
+  // assertions. Measurement only; certifies no cap; changes no bound; imp-486 untouched; NO QED;
+  // Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-36141-route-ii-vs-route-i-panel-count-ratio.js',
   // imp-36023 (numerical, S-frontier): does Kahan-Babuska-Neumaier (KBN) compensated summation
   // on the imp-35973 COMBINED worst-case configuration (the imp-35852 clustered same-sign ORDER)
   // stay at the unit-roundoff floor across the imp-35812 N ladder, or DRIFT with N? imp-35973

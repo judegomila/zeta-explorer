@@ -10042,6 +10042,20 @@ const DATA_MODULES = [
   // NON-binding (~2.7 orders over-prediction even at the tightened caterpillarL). Six self-executing
   // assertions. Measurement only; certifies no W1 bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36084-w1-pairwise-slack-depth-clustered-order-refit.js',
+  // imp-36132 (numerical, S-frontier): DENSIFY the imp-36084 CLUSTERED-order slack-vs-depth fit
+  // beyond the seven imp-35893 shapes (the analog of the imp-36081 default-order densification) to
+  // 37 pairing trees under the imp-35852 clustered order, re-run OLS, and PIN whether the clustered
+  // exponent ~0.417 is genuine or a seven-point / same-depth-3817-outlier artifact. The seven
+  // originals reproduce the imp-36020 clustered errors bit-for-bit; densifying 7 -> 37 trees LIFTS
+  // the exponent to ~0.532 (shift ~0.115, ~23x the imp-36081 default-order ~0.005), so the PRECISE
+  // 0.417 was partly a thin-sample / same-depth-outlier artifact: removing caterpillarL swung the
+  // seven-point exponent ~0.20 (0.417 -> 0.617) but the 37-point exponent only ~0.04 (0.532 ->
+  // 0.573) -- leverage diluted. YET the imp-36084 headline SURVIVES: the clustered exponent stays
+  // sub-linear (95% CI ~[0.33,0.73] excludes 1.0) and below the default-order ~0.748, and
+  // densification RESOLVES it as sqrt-consistent (RSS(0.5) ~= free) and linear-inconsistent. Nine
+  // self-executing assertions. Measurement only; certifies no W1 bound; changes no bound; NO QED;
+  // PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36132-w1-pairwise-slack-depth-clustered-densified-fit.js',
   // imp-35973 (numerical, S-frontier): MEASURE the CROSS-TERM of the two adversarial
   // pairwise stresses -- imp-35852 varied the term ORDER at a fixed balanced tree, imp-35893
   // varied the pairing-tree SHAPE at a fixed order, but the two-at-once cross was never

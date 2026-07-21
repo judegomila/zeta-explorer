@@ -10140,6 +10140,17 @@ const DATA_MODULES = [
   // self-executing assertions. Measurement only; changes no bound; imp-486 untouched; imp-35337a
   // OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-36139-etrunc-coll-crossover-sensitivity.js',
+  // imp-36140 (numerical, S-frontier): cross-compares the imp-36082 Route-B per-N DEVIATION rate
+  // r(N) = C_prime sqrt(log gamma_N) N^{-1/4} against the E(N)-bridge GUE-conditional COLLISION rate
+  // E_coll = C_C sqrt(log gamma_N / N) = Theta(sqrt(log N) N^{-1/2}) at/beyond T_PT. Headline: the shared
+  // sqrt(log gamma_N) dressing CANCELS EXACTLY in the ratio, leaving the pure power law
+  // r/E_coll = (C_prime/C_C) N^{1/4} (wide log-log slope exactly +1/4). N-exponent gap 1/2 - 1/4 = 1/4:
+  // E_coll decays faster by N^{1/4}, so the ratio diverges, exceeds 1 at every physical rung (~51x at
+  // T_PT), and the notional crossing sits at N* ~ 0.07 << 1 term -- Route B never falls below E_coll and
+  // cannot supersede it per-N. Sharpens (does not resolve) the imp-36082 CONSUMABLE-MODULO-ANCHOR verdict.
+  // Six self-executing assertions. Measurement only; changes no bound; imp-486 untouched; per-N + anchor
+  // stay OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-36140-routeB-rate-vs-ecoll-collision-rate-comparison.js',
   // imp-36023 (numerical, S-frontier): does Kahan-Babuska-Neumaier (KBN) compensated summation
   // on the imp-35973 COMBINED worst-case configuration (the imp-35852 clustered same-sign ORDER)
   // stay at the unit-roundoff floor across the imp-35812 N ladder, or DRIFT with N? imp-35973

@@ -962,6 +962,9 @@ const Imp36251KrawczykResidualOperatorFixedpointViz = lazy(() =>
 const Imp36267CrossoverSensitivityViz = lazy(() =>
   import('./pages/Imp36267CrossoverSensitivityViz.jsx')
 );
+const Imp36268PanelCountRatioViz = lazy(() =>
+  import('./pages/Imp36268PanelCountRatioViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2655,6 +2658,10 @@ function AppShell() {
           <Route
             path="/viz-imp36267-crossover-sensitivity"
             element={<Imp36267CrossoverSensitivityViz />}
+          />
+          <Route
+            path="/viz-imp36268-panel-count-ratio"
+            element={<Imp36268PanelCountRatioViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

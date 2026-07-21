@@ -1722,6 +1722,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive chart re-exporting the imp-36139 grid verbatim (no new numerics, no heavy data-module import); presentation only; the imp-35968 quote N_cross ~ 3.28e9 is a floor-sensitivity readout of the pinned imp-2631 value, not an intrinsic landmark; C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643) and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; changes no bound, establishes no operator positivity, no RH verdict; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp36268-panel-count-ratio',
+      title: 'Route II vs Route I Panel-Count / Panel-Width Ratio',
+      oneLine:
+        'Bar comparison of the imp-36141 frequency-floor panel ratios for the imp-35777 I2 sup|H_t prime| cap: Route II needs >= 1.0265x the panels of Route I (+2.65%), equivalently 0.9742x the panel width (-2.58%), pinned by the exact identity w - log N = (1/2) log 2.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-36141-route-ii-vs-route-i-panel-count-ratio.js',
+      paperSourcePath: 'src/data/imp-36141-route-ii-vs-route-i-panel-count-ratio.js (panel-count ratio tabulation; imp-36268 viz page)',
+      ticket: 'imp-36268',
+      pedagogicalStep: 120,
+      honestCeiling:
+        'Descriptive chart re-exporting the imp-36141 tabulation verbatim (no new numerics, no heavy data-module import); presentation only; 1.0265 is a frequency-floor LOWER bound on the true panel-count ratio, not the exact ratio; certifies no derivative bound B, certifies no I2 cap; C_mb GUE-conditional (imp-486) is UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict; NO QED.',
+    }),
   ]),
 });
 

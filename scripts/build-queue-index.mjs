@@ -141,6 +141,28 @@ function dependsOnField(chunk) {
     .filter(Boolean);
 }
 
+// imp-36222: nextImprovementId (a plain-integer counter for
+// improvements.js log entries) and the imp-NNNNN ticket ids in
+// improvement-queue.js are two DIFFERENT, unrelated namespaces that
+// diverged long ago -- see the header comment above. That gap has been
+// mistaken for staleness three times (imp-33785, imp-35025, imp-35166).
+// Surfacing the ticket-namespace max here, side by side with
+// nextImprovementId, lets a reader see both counters at a glance instead
+// of re-deriving the confusion from scratch a fourth time.
+function maxTicketIdField(items) {
+  let max = 0;
+  for (const chunk of items) {
+    const id = field(chunk, 'id');
+    if (!id) continue;
+    const m = id.match(/^imp-(\d+)$/);
+    if (m) {
+      const n = parseInt(m[1], 10);
+      if (n > max) max = n;
+    }
+  }
+  return max;
+}
+
 // ── Parse improvements.js: just count entries + find the highest id ──────
 //
 // We avoid loading the whole file into memory by streaming it and grepping
@@ -378,12 +400,19 @@ function main() {
   const { total: improvementsTotal, maxId } = parseImprovementsStats(
     improvementsText,
   );
+  const maxTicketId = maxTicketIdField(items);
 
   const index = {
     generatedAt: new Date().toISOString(),
     sourceQueueSha256: sha256(queueText),
     sourceImprovementsSha256: sha256(improvementsText),
     nextImprovementId: maxId + 1,
+    maxTicketId,
+    ticketNamespaceNote:
+      'nextImprovementId (improvements.js log-entry counter) and ' +
+      'maxTicketId (highest imp-NNNNN ticket id in improvement-queue.js) ' +
+      'are different, unrelated namespaces that diverged long ago -- a ' +
+      'large gap between them is expected, not staleness (imp-36222).',
     improvementsTotal,
     totalPending,
     totalCompleted,

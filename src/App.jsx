@@ -944,6 +944,9 @@ const Imp36204KbnKahanTwoEpisodeSeparationViz = lazy(() =>
 const Imp36211RouteReadinessComparisonViz = lazy(() =>
   import('./pages/Imp36211RouteReadinessComparisonViz.jsx')
 );
+const Imp36226ClusteredVsDefaultDepthScalingViz = lazy(() =>
+  import('./pages/Imp36226ClusteredVsDefaultDepthScalingViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2613,6 +2616,10 @@ function AppShell() {
           <Route
             path="/viz-imp36211-route-readiness-comparison"
             element={<Imp36211RouteReadinessComparisonViz />}
+          />
+          <Route
+            path="/viz-imp36226-clustered-vs-default-depth-scaling"
+            element={<Imp36226ClusteredVsDefaultDepthScalingViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

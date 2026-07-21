@@ -12141,6 +12141,14 @@ const DATA_MODULES = [
   // deliverable) verbatim, naming E3 (interval pole reduction) as circularly coupled to
   // G-gronwall. Documentation only; G-interval-enclosure stays OPEN; NO QED.
   '/src/data/imp-36242-g-interval-enclosure-e1-e5-glossary-headword.js',
+  // imp-36246 (meta, sonnet-4-6, sonnet): import-light cross-walk over the five
+  // recent S-frontier scoping modules (imp-36154 R1-R6, imp-36172 S1-S5, imp-36180
+  // three-layer, imp-36192 I1-I5, imp-36193 E1-E5), surfacing two shared cruxes --
+  // the imp-34687a directed-rounding layer (R5/I5/E2) and the certified min-gap
+  // floor delta_lo(t) circularly shared between imp-36192 I4 and imp-36193 E3,
+  // both gated on the open G-gronwall obligation (imp-2520). Navigation only;
+  // discharges no obligation; NO QED.
+  '/src/data/imp-36246-s-frontier-scoping-module-overview.js',
 ];
 
 let ALL_MODULES = FAST_MODE

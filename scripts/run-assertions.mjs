@@ -12085,6 +12085,10 @@ const DATA_MODULES = [
   // source modules verbatim; NO QED.
   '/src/data/imp-36210-step4-obligations-storyline-crossref.js',
   '/src/data/imp-36121-step5-per-step-upgrade-dependency.js',
+  // imp-36152: scope whether the imp-36082 Whitham fold-catastrophe constant C_W is the SAME
+  // modulus G6a_shock_lipschitz (imp-1264/imp-345) requires. Verdict SAME-MODULUS (imp-354
+  // C_W = sqrt(2/|u_0''|)); residual gap = still-open G6a-sub-constant valuation. Scoping only; NO QED.
+  '/src/data/imp-36152-whitham-cw-vs-g6a-modulus-scoping.js',
 ];
 
 let ALL_MODULES = FAST_MODE

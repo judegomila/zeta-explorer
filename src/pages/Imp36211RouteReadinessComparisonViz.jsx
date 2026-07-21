@@ -4,6 +4,7 @@ import {
   IMP36211_ROUTE_COMPARISON,
   IMP36211_RANKING_ORDER,
 } from '../data/imp-36211-perN-route-readiness-comparison-viz-data.js';
+import { IMP36151_ROUTEC_VS_ROUTEB_PERN_EXPONENT_COMPARISON } from '../data/imp-36151-routeC-vs-routeB-perN-exponent-comparison.js';
 
 const ROUTE_COLORS = { C: '#34d399', B: '#38bdf8', A: '#f87171' };
 
@@ -106,6 +107,29 @@ export default function Imp36211RouteReadinessComparisonViz() {
         G3a_max_gap is not proven irreducible; Route A's residual C_mb is proven IRREDUCIBLE (imp-486);
         Route B's per-N upgrade re-imports GUE/ESY. Ranking closes NOTHING; discharges no gap; no RH
         verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(248,113,113,0.04)',
+          borderLeft: '3px solid #7f1d1d',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>What the ranking does NOT mean (imp-36151):</strong> the
+        C&nbsp;&gt;&nbsp;B&nbsp;&gt;&nbsp;A order above is scored on readiness axes -- per-N form,
+        unconditionality, gaps closed, residual tractability -- none of which measures per-N decay
+        SPEED. Route&nbsp;B is the only route with a pinned per-N exponent
+        (r_B(N) = C&prime; &radic;(log &gamma;_N) N<sup>-1/4</sup>, leading exponent&nbsp;-1/4). Route&nbsp;C
+        has NO pinned exponent: its bound magnitude and N-scaling are fixed by the still-open
+        G3a_max_gap extremal max-gap statistics, so there is no r_C(N) power to compare against -1/4.
+        {' '}{IMP36151_ROUTEC_VS_ROUTEB_PERN_EXPONENT_COMPARISON.resolution.answer} Reading &ldquo;C&nbsp;&gt;&nbsp;B&rdquo;
+        as &ldquo;C decays faster&rdquo; is unconditional-consumability readiness masquerading as a rate
+        claim -- it is NOT. Closes nothing; NO QED.
       </div>
     </div>
   );

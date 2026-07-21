@@ -19,6 +19,9 @@ name = "EntireOrder"
 name = "EntireCauchy"
 
 [[lean_lib]]
+name = "EntireOrderEquiv"
+
+[[lean_lib]]
 name = "HeatFlowCounterexample"
 
 [[lean_lib]]

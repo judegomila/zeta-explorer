@@ -307,7 +307,10 @@ export const LAMBDA_CHAIN_STEPS = [
       caveat:
         'Discharging all three would elevate Step 2 to rigorous but changes NO ' +
         'Lambda bound on its own: Step 2 feeds the E(N) bridge constants (Step 4), ' +
-        'not the headline inequality. This field is a scoping map only.',
+        'not the headline inequality. The imp-36192 (G-step-error) and imp-36193 ' +
+        '(G-interval-enclosure) scope modules ENUMERATE these obligations without ' +
+        'discharging any -- they too are scoping-only, NO QED. This field is a ' +
+        'scoping map only; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
       by: 'imp-35058',
     },
   },

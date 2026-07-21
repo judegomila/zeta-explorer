@@ -12050,6 +12050,11 @@ const DATA_MODULES = [
   // surrogate/layer comparison and its a-independent 2x ratio without the 16.7MB zeros bundle.
   // Presentation only; changes no bound; NO QED.
   '/src/data/imp-36187-krawczyk-surrogate-layer-width-ladder-viz-data.js',
+  // imp-36153 (numerical): sweeps the certificate half-width a on a fine geometric grid and finds the
+  // imp-36017/imp-36066 surrogate-over-layer ratio W_surr/W_layer is the a -> 0 tight-certificate 2x limit
+  // ONLY -- it DRIFTS strictly monotonically to exactly 1 as a grows (the shared 2a(1+g') propagated-input
+  // width dilutes the per-op rounding slack), and the crossover half-width scales with ULP(N). Measurement.
+  '/src/data/imp-36153-krawczyk-residual-surrogate-layer-ratio-a-dependence.js',
   // imp-36188 (ux, sonnet-4-6, sonnet): import-light viz-data module baking the roadmap
   // sigma(N) rise-and-decay arc (imp-3220/imp-3406/imp-33582) as plain literals -- rise-arm
   // decade ladder N=2..1e5, interior peak N~9.22e5 (sigma_max~0.9494), post-peak decade

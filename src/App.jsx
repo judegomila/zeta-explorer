@@ -956,6 +956,9 @@ const Imp36173B2TstarChecklistLadderViz = lazy(() =>
 const Imp36192I2TruncationBlowupViz = lazy(() =>
   import('./pages/Imp36192I2TruncationBlowupViz.jsx')
 );
+const Imp36251KrawczykResidualOperatorFixedpointViz = lazy(() =>
+  import('./pages/Imp36251KrawczykResidualOperatorFixedpointViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2641,6 +2644,10 @@ function AppShell() {
           <Route
             path="/viz-imp36192-i2-truncation-blowup"
             element={<Imp36192I2TruncationBlowupViz />}
+          />
+          <Route
+            path="/viz-imp36251-krawczyk-residual-operator-fixedpoint"
+            element={<Imp36251KrawczykResidualOperatorFixedpointViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -1696,6 +1696,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Illustrative curve reusing the baked imp-36192 crux exponents (dt^5, delta^-9) and representative dt = 1e-5 (no new numerics, no heavy data-module import); presentation only; G-step-error stays OPEN and NOT independently dischargeable (coupled to G-gronwall and G-interval-enclosure); changes no bound, establishes no operator positivity, no RH verdict; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp36251-krawczyk-residual-operator-fixedpoint',
+      title: 'Krawczyk Residual Operator F(m) and F-prime(m) at N_cross',
+      oneLine:
+        'Line charts of the imp-36154 residual operator F(m) = m - K log T0(m) crossing zero at its fixed point N_cross ~ 3.28e9, and its exact derivative F-prime(m) staying in [0.924, 0.968] across a +/-40% window, illustrating the (H1) nonvanishing margin (~0.9546 at the centre) for the Krawczyk existence/uniqueness template.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-36251-krawczyk-residual-operator-fixedpoint-viz-data.js',
+      paperSourcePath: 'src/data/imp-36154-krawczyk-existence-uniqueness-subgap-requirements.js (F(m)/F-prime(m); imp-36251 viz page)',
+      ticket: 'imp-36251',
+      pedagogicalStep: 118,
+      honestCeiling:
+        'Illustrative double-precision grid reusing the imp-36154 F(m)/F-prime(m) closed forms and constants (no new numerics, no heavy data-module import at runtime); presentation only; certifies no interval, constructs no [F-prime] enclosure; the imp-36154 R1-R6 requirements are untouched, imp-34687a stays UNIMPLEMENTED and imp-34714a stays OPEN; changes no bound, establishes no operator positivity, no RH verdict; NO QED.',
+    }),
   ]),
 });
 

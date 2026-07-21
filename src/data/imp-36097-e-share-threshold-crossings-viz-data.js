@@ -10,6 +10,14 @@
  * WHERE shareFlow crosses 1e-3 / 1e-5 / 1e-6 nor WHERE shareColl first drops below 1%.
  * This module fills those four missing crossing heights by bisection on log N over the
  * EXACT same imp-3406 / imp-33582 / imp-2642 sub-terms imp-36046 / imp-35997 use.
+ * imp-36157 EXTENDS the shareFlow ladder to the two skipped decades shareFlow < 1e-2 and
+ * shareFlow < 1e-4, completing the geometric threshold sequence 1e-2 / 1e-3 / 1e-4 / 1e-5 /
+ * 1e-6: shareFlow < 1e-2 first at N ~2.470e7 (log10 N ~7.393, log T0 ~16.263), still deep
+ * in the collision regime (shareColl ~0.901, shareTrunc ~0.089); shareFlow < 1e-4 first at
+ * N ~7.867e10 (log10 N ~10.896, log T0 ~23.880), just past the sigma = 0.5 elbow into
+ * truncation dominance (shareTrunc ~0.821, shareColl ~0.179). Same bisection reproduces the
+ * imp-36097 1e-3 (N ~3.010e9) and 1e-5 (N ~1.266e12) crossings bit-for-bit, so the two new
+ * rungs interleave cleanly between the previously-located decades.
  *
  * SETUP (identical sub-terms to imp-35997 / imp-36046; no fresh model).
  *   E_trunc = 3.06e-5 (imp-2631, N-independent fixed-strip route),
@@ -49,6 +57,19 @@
 
 export const IMP36097_E_SHARE_THRESHOLD_CROSSINGS = [
   {
+    label: 'shareFlow<1e-2',
+    quantity: 'E_flow',
+    threshold: 1e-2,
+    N: 2.470394e7,
+    log10_N: 7.3928,
+    logT0: 16.2632,
+    shareTrunc: 0.088589,
+    shareFlow: 1.0000e-2,
+    shareColl: 0.901411,
+    dominant: 'E_coll',
+    note: 'E_flow share first below 1e-2 (imp-36157): still deep in the collision-dominated regime (shareColl ~0.901), the flat E_trunc floor only ~0.089.',
+  },
+  {
     label: 'shareFlow<1e-3',
     quantity: 'E_flow',
     threshold: 1e-3,
@@ -60,6 +81,19 @@ export const IMP36097_E_SHARE_THRESHOLD_CROSSINGS = [
     shareColl: 0.509740,
     dominant: 'E_coll',
     note: 'E_flow share first below 1e-3 near the sigma = 0.5 elbow: still collision-heavy (shareColl ~0.510), shareTrunc ~0.489.',
+  },
+  {
+    label: 'shareFlow<1e-4',
+    quantity: 'E_flow',
+    threshold: 1e-4,
+    N: 7.866681e10,
+    log10_N: 10.8958,
+    logT0: 23.8798,
+    shareTrunc: 0.820602,
+    shareFlow: 1.0000e-4,
+    shareColl: 0.179298,
+    dominant: 'E_trunc',
+    note: 'E_flow share first below 1e-4 (imp-36157): truncation has just taken the lead (shareTrunc ~0.821), E_coll runner-up ~0.179 -- the sigma = 0.5 elbow sits between the 1e-2 and 1e-4 crossings.',
   },
   {
     label: 'shareFlow<1e-5',
@@ -132,7 +166,7 @@ const IMP36097_ASSERTIONS = [
     id: 'imp36097-coll-crossing-hits-1pct',
     description: 'At the E_coll crossing the recorded shareColl equals 1% to tabulation precision',
     holds: () => {
-      const c = IMP36097_E_SHARE_THRESHOLD_CROSSINGS[3];
+      const c = IMP36097_E_SHARE_THRESHOLD_CROSSINGS.find((x) => x.quantity === 'E_coll');
       return c.quantity === 'E_coll' && Math.abs(c.shareColl - 1e-2) < 1e-5;
     },
   },
@@ -140,16 +174,36 @@ const IMP36097_ASSERTIONS = [
     id: 'imp36097-coll-1pct-coincides-with-sole-survivor',
     description: 'The E_coll < 1% crossing (N ~4.624e13) sits just below the imp-35971 sole-survivor N* ~4.7214e13',
     holds: () => {
-      const c = IMP36097_E_SHARE_THRESHOLD_CROSSINGS[3];
+      const c = IMP36097_E_SHARE_THRESHOLD_CROSSINGS.find((x) => x.quantity === 'E_coll');
       return c.N < 4.7214e13 && c.N > 4.5e13;
     },
   },
   {
     id: 'imp36097-flow-share-becomes-truncation-dominated',
-    description: 'The E_flow crossing at 1e-3 is still collision-heavy while the 1e-5 and 1e-6 crossings are truncation-dominated',
+    description: 'The E_flow crossings at 1e-2 and 1e-3 are still collision-heavy while the 1e-4, 1e-5 and 1e-6 crossings are truncation-dominated',
     holds: () => {
-      const [f3, f5, f6] = IMP36097_E_SHARE_THRESHOLD_CROSSINGS;
-      return f3.dominant === 'E_coll' && f5.dominant === 'E_trunc' && f6.dominant === 'E_trunc';
+      const byLabel = (lbl) => IMP36097_E_SHARE_THRESHOLD_CROSSINGS.find((c) => c.label === lbl);
+      return (
+        byLabel('shareFlow<1e-2').dominant === 'E_coll' &&
+        byLabel('shareFlow<1e-3').dominant === 'E_coll' &&
+        byLabel('shareFlow<1e-4').dominant === 'E_trunc' &&
+        byLabel('shareFlow<1e-5').dominant === 'E_trunc' &&
+        byLabel('shareFlow<1e-6').dominant === 'E_trunc'
+      );
+    },
+  },
+  {
+    id: 'imp36097-flow-geometric-decade-ladder-complete',
+    description: 'The E_flow crossings form the complete geometric decade sequence 1e-2, 1e-3, 1e-4, 1e-5, 1e-6 (imp-36157 filled the 1e-2 and 1e-4 rungs)',
+    holds: () => {
+      const flow = IMP36097_E_SHARE_THRESHOLD_CROSSINGS.filter((c) => c.quantity === 'E_flow');
+      const labels = flow.map((c) => c.label);
+      const expected = ['shareFlow<1e-2', 'shareFlow<1e-3', 'shareFlow<1e-4', 'shareFlow<1e-5', 'shareFlow<1e-6'];
+      return (
+        expected.every((l) => labels.includes(l)) &&
+        // each tighter threshold is located at a strictly higher N (share decreasing on the tail)
+        flow.every((c, i, arr) => i === 0 || (c.N > arr[i - 1].N && c.threshold < arr[i - 1].threshold))
+      );
     },
   },
 ];

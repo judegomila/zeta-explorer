@@ -12103,6 +12103,14 @@ const DATA_MODULES = [
   // modulus G6a_shock_lipschitz (imp-1264/imp-345) requires. Verdict SAME-MODULUS (imp-354
   // C_W = sqrt(2/|u_0''|)); residual gap = still-open G6a-sub-constant valuation. Scoping only; NO QED.
   '/src/data/imp-36152-whitham-cw-vs-g6a-modulus-scoping.js',
+  // imp-36173 (proof, opus-4-8, subscription): makes the lambda-roadmap
+  // conditionalBookkeeping item B2-effective-height-Tstar CONCRETE by tabulating a
+  // full finite-N ladder of T_star(N) = effectiveHeightForN(N) (imp-327 RvM inverse),
+  // every row labelled RH-up-to-T_star(N) (FINITE, never unconditional RH), pinning
+  // the PT-scale N ~ 1.236e13 at which T_star first reaches Platt-Trudgian 3e12. B2 is
+  // NOT executed (achieved-N undefined while Steps 3-4 OPEN); no status string touched;
+  // imp-2519 no-overclaim guard preserved; NO QED.
+  '/src/data/imp-36173-b2-tstar-checklist-ladder.js',
 ];
 
 let ALL_MODULES = FAST_MODE

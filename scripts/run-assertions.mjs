@@ -10130,6 +10130,16 @@ const DATA_MODULES = [
   // Seven self-executing assertions. Reconciliation only; changes no bound; imp-486 untouched;
   // imp-35337a OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-36022-etrunc-ecoll-crossover-reconciliation.js',
+  // imp-36139 (numerical, S-frontier): MEASURE the sensitivity of the imp-35968 E_trunc = E_coll
+  // crossover height N_cross ~ 3.28e9 (the imp-35337 sigma = 1/2 landmark) to the pinned E_trunc =
+  // 3.06e-5 (imp-2631) across its fixed-strip uncertainty. Re-runs the imp-35968 E_coll = E_trunc
+  // bisector on a 9-point half-to-double E_trunc grid (the imp-3443 range): N_cross obeys a clean
+  // power law N_cross ~ E_trunc^{-2.095} (OLS R^2 ~ 0.9999993), fractionally steeper than the
+  // imp-33723 closed-form -2 because logT0(N_cross) grows as N_cross rises; the crossover swings
+  // ~18x (~1.26 decades) over the 4x floor range while sigma stays ~0.4995 at every rung. Seven
+  // self-executing assertions. Measurement only; changes no bound; imp-486 untouched; imp-35337a
+  // OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-36139-etrunc-coll-crossover-sensitivity.js',
   // imp-36023 (numerical, S-frontier): does Kahan-Babuska-Neumaier (KBN) compensated summation
   // on the imp-35973 COMBINED worst-case configuration (the imp-35852 clustered same-sign ORDER)
   // stay at the unit-roundoff floor across the imp-35812 N ladder, or DRIFT with N? imp-35973

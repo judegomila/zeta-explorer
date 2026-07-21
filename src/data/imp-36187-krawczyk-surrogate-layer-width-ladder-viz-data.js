@@ -23,6 +23,11 @@
  * changes no bound; imp-34714a (Krawczyk existence/uniqueness) and imp-34687a (directed-rounding
  * layer) REMAIN OPEN/UNIMPLEMENTED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
+ * HONEST-STATUS BANNER (imp-36283). The "layer" column is an a-priori correctly-rounded
+ * directed-rounding MODEL only -- NOT the unimplemented imp-34687a layer -- and the surrogate
+ * column instantiates NO certified interval. The 2x ratio therefore shows the surrogate is a
+ * NECESSARY conservative upper model at every ladder rung, not a SUFFICIENT machine certificate.
+ *
  * @see imp-36017-krawczyk-residual-surrogate-vs-layer-discrepancy.js (source: the surrogate/layer width sweep and N_cross figures)
  * @see imp-36166-residual-node-storyline-cross-reference.js (narrative assembling this ladder into the three-stage residual-node storyline)
  * @see imp-36186-kbn-kahan-two-episode-separation-viz-data.js (the import-light pattern this module follows)

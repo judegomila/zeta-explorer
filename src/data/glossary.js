@@ -21296,6 +21296,46 @@ export const glossary = [
       'G6a_shock_lipschitz: the Step-4 Polymath15 bridge open sub-gap this classification assesses',
     ],
   },
+  {
+    term: 'imp-36180 three ESY-local-law input layers for the deterministic Calogero-Moser seed',
+    category: 'concept',
+    definition:
+      'A headword naming the three concrete input layers the idealized "ESY (Erdos-Schlein-Yau) local ' +
+      'law" black box (the G5-cmb-gue conditional gating the irreducible C_mb many-body correction, ' +
+      'imp-486) decomposes into for the Calogero-Moser (CM) particle system, and what each layer ' +
+      'supplies for random/regular ensemble data versus what stays OPEN for the DETERMINISTIC ' +
+      'arithmetic seed {gamma_k}.\n\n' +
+      'LAYER I -- spectral-measure statement: a local semicircle law for the CM empirical spectral ' +
+      'measure down to the microscopic (mean-spacing) scale. Proven for Wigner-type ensembles and ' +
+      'analytic-potential beta-ensembles (the CM flow is beta=2 Dyson dynamics); OPEN for the ' +
+      'deterministic seed, since the standard random/regular-data input does not transfer to a CM ' +
+      'system seeded by the arithmetic zeros.\n\n' +
+      'LAYER II -- rigidity scale: microscopic-scale rigidity of particle locations, N-uniformly, at ' +
+      'the optimal fluctuation scale. A theorem for Wigner matrices and post-relaxation DBM; the ' +
+      'imp-3725 true-flow enclosure gives only WINDOW-LOCAL control on [1e4, 1e6] (imp-36079 ' +
+      'surrogate, zero GUE input); N-uniform rigidity as N -> infinity stays OPEN.\n\n' +
+      'LAYER III -- coupling to C_mb: the map from local spacing statistics to the collision-drift ' +
+      'average that IS C_mb. Computable given a GUE local-statistics input (imp-462/imp-486 ' +
+      'machinery), but only as strong as the (open) universality feeding it: imp-486 exhaustive ' +
+      'search found no unconditional substitute (GGM, Huxley both fail), so C_mb stays ' +
+      'GUE-conditional.\n\n' +
+      'HOW TO APPLY: when a module invokes "the ESY local law" for the CM measure as if it were a ' +
+      'single citable theorem, check which of the three layers it actually needs and whether that ' +
+      'layer is asking for the random/regular-data result (available) or the deterministic-seed ' +
+      'analogue (open) before treating the input as available.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-36180 read-only SCOPING enumeration ' +
+      'verbatim (via its imp-36229 glossary companion); establishes nothing, discharges no ' +
+      'conditional, claims no input available, changes no bound; C_mb stays GUE-conditional ' +
+      '(imp-486); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-36248 (glossary headword for the imp-36180 three ESY-local-law input layers), 2026',
+    relatedTerms: [
+      'imp-36180 enumerated the three ESY-input layers this headword restates (imp-36180)',
+      'imp-36229 is the import-light glossary-companion module this headword draws from verbatim (imp-36229)',
+      'imp-486 exhaustive search found no unconditional C_mb substitute, the irreducible conditional all three layers feed (imp-486)',
+      'imp-3725 supplies the window-local rigidity surrogate for Layer II on [1e4, 1e6] (imp-3725)',
+      'G5-cmb-gue: the Step-5 obligation this three-layer scoping breaks down',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

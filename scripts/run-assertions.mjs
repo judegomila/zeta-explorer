@@ -9889,6 +9889,22 @@ const DATA_MODULES = [
   // the tail-lemma instantiation. A+B-C at T_PT stays GREENFIELD. Five self-executing
   // assertions. Scoping only; constructs no certificate; changes no bound; NO QED; PT SOTA.
   '/src/data/imp-36101-w1-certified-sum-construction-steps-scope.js',
+  // imp-36120 (proof/scoping, S-frontier): enumerate the concrete directed-rounding
+  // engineering steps to convert the imp-36023/imp-36062 measured KBN summation floor
+  // (~1.89e-20 MIDPOINT at N~488602 vs classic Kahan ~2.31e-19) into a machine-checked
+  // length-N interval-sum certificate. CRUX: that floor is a MIDPOINT accuracy, not a
+  // certified WIDTH. (A) a step-by-step directed-rounding trace of the KBN accumulator
+  // (interval [s],[c]; outward-rounded add for t; the Neumaier residual (s-t)+t_k is NO
+  // LONGER exact once s,t are intervals and must be ENCLOSED; ~4 outward ops/term) is
+  // ROUTINE but yields only a loose width ~O(N*eps) ~4.34e-10 -- the KBN midpoint advantage
+  // does NOT survive into the width (reverts to the imp-35761 N-linear ceiling). (B) a TIGHT
+  // ~N-independent certified width needs the a-priori compensated running-error bound
+  // ~2*eps*Sum|t_k| ~3.95e-13 with a certified Sum|t_k| (~889) enclosure -- MECHANICAL, no
+  // open math (imp-35725/imp-36101 class). Both widths ~10 orders below the O(1) barrier
+  // margin, so precision stays NON-binding; obstruction is ENGINEERING; A+B-C at T_PT stays
+  // GREENFIELD. Five self-executing assertions. Scoping only; constructs no interval; verifies
+  // no inequality; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36120-kbn-floor-to-interval-certificate-scope.js',
   // imp-35852 (numerical, S-frontier, orphan fixed by imp-35941): MEASURE whether the
   // imp-35812 naive-summation random-walk O(sqrt(N)*u) error growth degrades toward the
   // COHERENT O(N*u) ceiling under four ADVERSARIALLY-ORDERED permutations of the SAME

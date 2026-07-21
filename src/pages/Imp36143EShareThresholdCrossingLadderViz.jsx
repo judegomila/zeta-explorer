@@ -2,6 +2,11 @@ import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP36097_E_SHARE_THRESHOLD_CROSSINGS } from '../data/imp-36097-e-share-threshold-crossings-viz-data.js';
 import { IMP36046_E_SHARE_TAIL_BARS } from '../data/imp-36046-e-share-tail-landmarks-viz-data.js';
+import { IMP36138_SHARECOLL_SUBPERCENT_CROSSINGS } from '../data/imp-36138-sharecoll-subpercent-threshold-crossings-viz-data.js';
+
+// The imp-36138 sub-1% shareColl crossings (1e-3, 1e-4); the 1e-2 rung is dropped here
+// since it already appears via IMP36097_E_SHARE_THRESHOLD_CROSSINGS (same anchor point).
+const IMP36138_NEW_CROSSINGS = IMP36138_SHARECOLL_SUBPERCENT_CROSSINGS.filter((c) => c.isNew);
 
 const SOLE_SURVIVOR_LOG10_N = 13.6741;
 
@@ -16,6 +21,7 @@ const SERIES = [
 const LADDER_POINTS = [
   ...IMP36046_E_SHARE_TAIL_BARS.map((b) => ({ ...b, isCrossing: false })),
   ...IMP36097_E_SHARE_THRESHOLD_CROSSINGS.map((c) => ({ ...c, isCrossing: true })),
+  ...IMP36138_NEW_CROSSINGS.map((c) => ({ ...c, isCrossing: true, isSubPercent: true })),
 ].sort((a, b) => a.log10_N - b.log10_N);
 
 // Line chart of shareTrunc / shareFlow / shareColl vs log10 N across the combined
@@ -37,7 +43,7 @@ function ShareLadderChart() {
   const xOf = (v) => padL + ((v - minX) / (maxX - minX)) * plotW;
   const yOf = (v) => padT + plotH - v * plotH;
 
-  const xTicks = [9, 10, 11, 12, 13];
+  const xTicks = [9, 11, 13, 15, 17];
   const yTicks = [0, 0.25, 0.5, 0.75, 1];
 
   return (
@@ -121,9 +127,10 @@ function ShareLadderChart() {
 
 export default function Imp36143EShareThresholdCrossingLadderViz() {
   const crossings = IMP36097_E_SHARE_THRESHOLD_CROSSINGS;
+  const [subPct1e3, subPct1e4] = IMP36138_NEW_CROSSINGS;
   return (
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
-      <PageHeader title="E-Share Threshold-Crossing Ladder (imp-36097 / imp-36046 / imp-35971)" />
+      <PageHeader title="E-Share Threshold-Crossing Ladder (imp-36097 / imp-36046 / imp-35971 / imp-36138)" />
 
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-35889 E(N) = E_trunc + E_flow + E_coll fractional-share split, traced from the
@@ -132,7 +139,11 @@ export default function Imp36143EShareThresholdCrossingLadderViz() {
         &lt; 1% crossing (log10 N &asymp; {crossings[3].log10_N}) sits essentially at the imp-35971
         sole-survivor height N* &asymp; {SOLE_SURVIVOR_LOG10_N} (marked with the dashed guide), where
         E_trunc stands alone and E_coll (the last surviving competitor) has fallen to &asymp;1% of
-        the mass.
+        the mass. The imp-36138 extension continues the shareColl ladder past 1% down to
+        &lt; 0.1% (log10 N &asymp; {subPct1e3.log10_N}) and &lt; 0.01% (log10 N &asymp;{' '}
+        {subPct1e4.log10_N}), where shareTrunc rises to &asymp;99.9% and &asymp;99.99% of the mass
+        respectively -- each 10x tightening of shareColl costs &asymp;2.06 decades of N, just above
+        the naive N^(-1/2) prediction of 2.0.
       </p>
 
       <ShareLadderChart />
@@ -158,9 +169,10 @@ export default function Imp36143EShareThresholdCrossingLadderViz() {
         }}
       >
         <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation-only consumer of
-        the baked imp-36097 and imp-36046 viz-data literals (both reusing the recorded imp-35971
-        / imp-35889 shares); no new derivation, no bound changed. C_C GUE-conditional (imp-2642 /
-        imp-2643 / imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2
+        the baked imp-36097, imp-36046, and imp-36138 viz-data literals (all reusing the recorded
+        imp-35971 / imp-35889 shares); no new derivation, no bound changed. C_C GUE-conditional
+        (imp-2642 / imp-2643 / imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian
+        Lambda&nbsp;&le;&nbsp;0.2
         remains SOTA.
       </div>
     </div>

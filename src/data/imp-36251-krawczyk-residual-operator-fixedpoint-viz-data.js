@@ -18,6 +18,8 @@
  * Ticket: imp-36251 (ux, medium). Presentation only, RH-free; NO QED.
  */
 
+import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
+
 export const IMP36251_N_CROSS = 3.28029435165241e9;
 export const IMP36251_K_AMPL = 1.5727e8; // (C_C_pinned / E_trunc)^2, imp-36154
 export const IMP36251_FP_AT_CENTER = 0.954576623040045; // F-prime(N_cross), (H1) margin
@@ -60,3 +62,54 @@ export const IMP36251_FINDING = {
     'derived; it certifies no interval, constructs no [F-prime] enclosure, and does not discharge the ' +
     'imp-36154 R1-R6 requirements',
 };
+
+// imp-36269: regression guard against source drift. Independently re-derives K, F(m), F-prime(m)
+// from effectiveHeightForN and the imp-36154 definitions (F(m) = m - K log T0(m), F-prime(m) =
+// 1 - K * 2pi / (T0 log(T0/2pi))) and checks the baked grid rows + IMP36251_FP_AT_CENTER against
+// the live recomputation. Tolerance is relative (~1e-6) rather than an absolute epsilon: the F(m)
+// column baked here is full-precision but effectiveHeightForN's Newton solve introduces ~1e-3
+// absolute noise at this scale, while a genuine drift in K or E_trunc would move F(m) by orders of
+// magnitude more than that noise floor.
+const TWO_PI = 2 * Math.PI;
+const C_C_PINNED = (1 / 8) * Math.sqrt(3 * Math.PI);
+const E_TRUNC_PT = 3.06e-5;
+const K_AMPL_LIVE = (C_C_PINNED / E_TRUNC_PT) ** 2;
+
+function liveResidualF(m) {
+  return m - K_AMPL_LIVE * Math.log(effectiveHeightForN(m));
+}
+function liveResidualFPrime(m) {
+  const t0 = effectiveHeightForN(m);
+  return 1 - K_AMPL_LIVE * (TWO_PI / (t0 * Math.log(t0 / TWO_PI)));
+}
+
+const REL_TOL = 1e-6;
+
+export const IMP36251_RESIDUAL_OPERATOR_GRID_ASSERTIONS = [
+  {
+    id: 'imp36251-grid-matches-live-F-and-Fprime',
+    description:
+      'each baked [m, F(m), F-prime(m)] grid row re-derives from effectiveHeightForN and the ' +
+      'imp-36154 F(m)=m-K log T0(m) / F-prime(m)=1-K*2pi/(T0 log(T0/2pi)) definitions within ~1e-6 ' +
+      'relative tolerance',
+    holds: () =>
+      IMP36251_RESIDUAL_OPERATOR_GRID.every(([m, fBaked, fpBaked]) => {
+        const fLive = liveResidualF(m);
+        const fpLive = liveResidualFPrime(m);
+        const fScale = Math.max(Math.abs(m), Math.abs(fBaked), 1);
+        const fpScale = Math.max(Math.abs(fpBaked), 1);
+        return (
+          Math.abs(fLive - fBaked) < REL_TOL * fScale &&
+          Math.abs(fpLive - fpBaked) < REL_TOL * fpScale
+        );
+      }),
+  },
+  {
+    id: 'imp36251-fp-at-center-matches-live',
+    description:
+      'IMP36251_FP_AT_CENTER matches live F-prime(IMP36251_N_CROSS) within ~1e-6 relative tolerance',
+    holds: () =>
+      Math.abs(liveResidualFPrime(IMP36251_N_CROSS) - IMP36251_FP_AT_CENTER) <
+      REL_TOL * Math.max(Math.abs(IMP36251_FP_AT_CENTER), 1),
+  },
+];

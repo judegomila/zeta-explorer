@@ -5,7 +5,7 @@ start a **new topic** named `real-rootedness preservation (Hermite–Poulain / h
 (Alternatively `#Is there code for X?` if you only want the existence check first.)
 
 **Code link (done):** unlisted gist with the source + REVIEW + writeup + build files:
-**https://gist.github.com/judegomila/7fcce4803c58844a166d04123b0f2aae** (already inserted in the
+**https://gist.github.com/judegomila/a8ad20c0e43781cdaf993ec32f123e80** (already inserted in the
 message below). It's unlisted (shareable by link, not indexed); make it public later if you prefer.
 
 ---
@@ -16,7 +16,7 @@ message below). It's unlisted (shareable by link, not indexed); make it public l
 >
 > Hi all — I'd like to check whether a small body of classical *real-rootedness preservation* lemmas
 > is wanted in mathlib before I split it into PRs. I have a self-contained, **`sorry`-free** file
-> (~1150 lines, builds on mathlib `v4.22.0`) — code: **https://gist.github.com/judegomila/7fcce4803c58844a166d04123b0f2aae**.
+> (~1150 lines, builds on mathlib `v4.22.0`) — code: **https://gist.github.com/judegomila/a8ad20c0e43781cdaf993ec32f123e80**.
 >
 > **What it proves.** Closure properties of real-rooted real polynomials (the polynomial part of the
 > Laguerre–Pólya class) under a family of operators:

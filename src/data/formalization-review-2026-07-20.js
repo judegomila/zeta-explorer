@@ -13,7 +13,7 @@ export const REVIEW_META = {
     'mathlib v4.22.0. Classical (Hermite–Poulain; de Bruijn 1950); fills a genuine mathlib gap. ' +
     'NOT the Pólya–Schur multiplier-sequence theorem, and NOT the Riemann Hypothesis.',
   statement: 'theorem heat_preserves_LP (t : ℝ) (ht : 0 ≤ t) {p : ℝ[X]} (hp : HasOnlyRealRoots p) : HasOnlyRealRoots (heatOp t p)',
-  gist: 'https://gist.github.com/judegomila/7fcce4803c58844a166d04123b0f2aae',
+  gist: 'https://gist.github.com/judegomila/a8ad20c0e43781cdaf993ec32f123e80',
   paperPdf: '/debruijn-polynomial.pdf',
   repoPath: 'formalization/review-packet/  (RealRootedPreservation.lean · REVIEW.md · POLYNOMIAL_DE_BRUIJN.md · SUBMISSION.md · ZULIP_POST.md)',
 };

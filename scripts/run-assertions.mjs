@@ -12238,6 +12238,14 @@ const DATA_MODULES = [
   // vacuous exactly at the front where E3/I4 need it, so none of the three
   // obligations is independently dischargeable. Documentation only; NO QED.
   '/src/data/imp-36250-shared-delta-lo-triad-cross-reference.js',
+  // imp-36156 (accuracy, opus-4-8, subscription): CROSS-VALIDATES the four imp-36097
+  // E-share threshold crossings (located by log-N bisection) against an INDEPENDENT
+  // grid-bracketed secant root-find on the identical imp-35889 parts(N) sub-terms. The
+  // secant solver -- seeded only from the fixed tail window [1e6,1e18] and the threshold,
+  // never from the baked height -- reproduces all four heights to < 3e-7 relative (the
+  // 7-sig-fig tabulation floor) and recovers each target share to ~1e-14, confirming the
+  // bisection converged to the true roots. Cross-validation only; changes no bound; NO QED.
+  '/src/data/imp-36156-e-share-crossings-secant-crossvalidation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -21255,6 +21255,47 @@ export const glossary = [
       'imp-2466 is the DP5 cross-integrator whose disagreement with RK4 is the two-method gap, not a certificate (imp-2466)',
     ],
   },
+  {
+    term: 'G6a weakerGapAssessment: the C1-C6 sub-RH minimal-gap classification (imp-35147)',
+    category: 'numerical',
+    definition:
+      'A cross-reference note assembling the imp-35147 weakerGapAssessment verdict, which grades six ' +
+      'candidate minimal-gap objects against the G6a_shock_lipschitz Hoelder-1/2 modulus (a POINTWISE, ' +
+      'sup-over-x, worst-case spacing bound at the nearest-pair shock front) to see whether any ' +
+      'strictly-weaker-than-RH input can discharge it.\n\n' +
+      '  - C1 uniform pointwise minimal-gap floor at every height: EQUIVALENT-TO-RH (this IS the fitting ' +
+      'object -- route R2 / imp-2520 front / imp-348 local law -- RH-hard, no known sub-RH route).\n' +
+      '  - C2 averaged / mean minimal-gap bound: INSUFFICIENT (wrong aggregation -- an average washes ' +
+      'out the single smallest-spacing point the modulus is graded on).\n' +
+      '  - C3 positive-proportion minimal-gap bound: INSUFFICIENT (wrong front -- excludes exactly the ' +
+      'exceptional smallest-gap point a proportion statement is silent on).\n' +
+      '  - C4 GUE-conditional minimal-gap floor (imp-348, imp-486): NOT-WEAKER (right uniform pointwise ' +
+      'object, but itself proved conditional on RH-level pair-correlation input; this is the current ' +
+      'imp-486 status, not a sub-RH lever).\n' +
+      '  - C5 zero-free-region / zero-density input: INSUFFICIENT (wrong axis -- bounds horizontal ' +
+      'distance to the critical line or counts exceptional zeros, not vertical consecutive spacing).\n' +
+      '  - C6 finite-height minimal-gap floor read off the verified zero list up to X ~ 3e12: ' +
+      'STRICTLY-WEAKER-THAN-RH and SUFFICIENT ON THE VERIFIED STRIP ONLY -- INSUFFICIENT for the ' +
+      'asymptotic N -> inf modulus.\n\n' +
+      'The STRICTLY-WEAKER-BUT-SUFFICIENT bucket is EMPTY asymptotically: G6a is effectively ' +
+      'RH-equivalent, and the only sub-RH lever at all (C6) binds solely up to the verified height -- ' +
+      'the same "more verified height, not a softer analytic input" mechanism as the Platt-Trudgian floor.\n\n' +
+      'HOW TO APPLY: when a candidate minimal-gap input for G6a_shock_lipschitz is proposed, check which ' +
+      'of C1-C6 it falls under before treating it as a sub-RH lever -- only C6 (more finite verified ' +
+      'height) is genuinely sub-RH and non-vacuous, and even it saturates at the verified strip.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-35147 weakerGapAssessment verdict verbatim, ' +
+      'not a new derivation; G6a_shock_lipschitz stays OPEN; changes no bound; C_mb stays GUE-conditional ' +
+      '(imp-486); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-36225 (glossary cross-reference note for the imp-35147 G6a weakerGapAssessment C1-C6 classification), 2026',
+    relatedTerms: [
+      'imp-35147 posed and graded the six candidate sub-RH minimal-gap inputs C1-C6 against the G6a modulus (imp-35147)',
+      'imp-35101 named the minimal-gap lower bound as the sole object type fitting the G6a modulus (imp-35101)',
+      'imp-2520 supplies the nearest-pair front where the Gronwall discharge is vacuous, the C1 route (imp-2520)',
+      'imp-348 supplies the microscopic local law behind the C1/C4 GUE-conditional floors (imp-348)',
+      'imp-486 is the GUE-conditional C_mb input the C4 candidate rests on (imp-486)',
+      'G6a_shock_lipschitz: the Step-4 Polymath15 bridge open sub-gap this classification assesses',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

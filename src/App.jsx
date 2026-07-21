@@ -968,6 +968,9 @@ const Imp36268PanelCountRatioViz = lazy(() =>
 const Imp36287KbnFloorHeadroomDivergenceViz = lazy(() =>
   import('./pages/Imp36287KbnFloorHeadroomDivergenceViz.jsx')
 );
+const Imp36288RouteBSlopeConvergenceViz = lazy(() =>
+  import('./pages/Imp36288RouteBSlopeConvergenceViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2669,6 +2672,10 @@ function AppShell() {
           <Route
             path="/viz-imp36287-kbn-floor-headroom-divergence"
             element={<Imp36287KbnFloorHeadroomDivergenceViz />}
+          />
+          <Route
+            path="/viz-imp36288-routeb-slope-convergence"
+            element={<Imp36288RouteBSlopeConvergenceViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

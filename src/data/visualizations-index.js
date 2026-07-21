@@ -1748,6 +1748,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive chart baking the imp-36083 measured ladder and the imp-36135 extrapolation + crossing solve verbatim (no new numerics, no heavy data-module import); presentation only; N_cross < 1 is an algebraic artifact of solving C sqrt(N) = floor, not a physical event; certifies no W1 bound, instantiates no directed-rounding interval; C_mb GUE-conditional (imp-486) is UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp36288-routeb-slope-convergence',
+      title: 'Route-B Rate Slope Convergence to -1/4',
+      oneLine:
+        'Chart of the imp-36082 Route-B rate r_B(N) local log-log slope across ten consecutive windows spanning N = 1e2 through 1e300, showing the slope monotonically tightening toward the pinned -1/4 leading exponent from above, making the imp-36151 slope-convergence witness a chart.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-36288-routeB-slope-convergence-viz-data.js',
+      paperSourcePath: 'src/data/imp-36151-routeC-vs-routeB-perN-exponent-comparison.js (slope-convergence witness; imp-36288 viz page)',
+      ticket: 'imp-36288',
+      pedagogicalStep: 122,
+      honestCeiling:
+        'Descriptive chart baking the imp-36082/imp-36151 r_B(N) rate machinery verbatim across a wider ladder (no new numerics, no heavy data-module import); presentation only; r_B(N) bounds a shock-time DEVIATION, not |t_c(N)| absolutely (imp-36082 CONSUMABLE-MODULO-ANCHOR); does not imply the imp-36045 Route-C > Route-B ranking reflects a faster exponent (imp-36151); C_mb GUE-conditional (imp-486) is UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict; NO QED.',
+    }),
   ]),
 });
 

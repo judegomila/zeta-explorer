@@ -12092,6 +12092,12 @@ const DATA_MODULES = [
   // ~1.021x apart (~0.0089 decades), close but not coincident. Note only; imports both source
   // modules verbatim; NO QED.
   '/src/data/imp-36165-sharecoll-vs-sole-survivor-honest-status.js',
+  // imp-36155 (numerical, opus-4-8, subscription): QUANTIFIES the exact gap between the imp-36097
+  // shareColl < 1% crossing (N ~ 4.624381e13) and the imp-35971 sole-survivor height
+  // (N* ~ 4.7214e13) -- ratio ~1.020980 (~2.098% in N, ~0.009017 decades) -- and proves the
+  // ordering is STRUCTURAL: the two divide the same E_coll by E(N) vs E_trunc, and E(N) > E_trunc
+  // forces the share crossing to always PRECEDE the sole-survivor. Measurement only; NO QED.
+  '/src/data/imp-36155-sharecoll-crossing-precedes-sole-survivor.js',
   // imp-36166 (content, sonnet-4-6, sonnet): cross-reference narrative assembling the
   // Krawczyk residual-node storyline -- imp-35969 nextafter surrogate width ->
   // imp-36017 a-priori LAYER-model width and its a-independent 2x surrogate-over-layer

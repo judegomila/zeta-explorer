@@ -62,7 +62,12 @@ export default function Imp36211RouteReadinessComparisonViz() {
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         Three candidate routes were assessed (imp-36045) for readiness to supply a usable UNCONDITIONAL
         per-N rate r(N) that the Step-4 E(N) bridge can consume. Weighted readiness ranking:{' '}
-        <strong style={{ color: '#e2e8f0' }}>{IMP36211_RANKING_ORDER}</strong>.
+        <strong style={{ color: '#e2e8f0' }}>{IMP36211_RANKING_ORDER}</strong>{' '}
+        <span style={{ color: '#64748b', fontStyle: 'italic' }}>
+          (unconditional-consumability readiness -- perNForm / unconditional / gapsClosed /
+          residualTractable -- NOT a demonstrated faster N-exponent; see caveat below)
+        </span>
+        .
       </p>
 
       <ScoreBars />

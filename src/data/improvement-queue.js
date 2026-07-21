@@ -84272,13 +84272,15 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Audit whether the imp-36045 G5-perN-translation route-readiness page states clearly that the Route-C > Route-B > Route-A ranking reflects UNCONDITIONAL-CONSUMABILITY READINESS (perNForm, unconditional, gapsClosed, residualTractable axes) and NOT a demonstrated faster N-exponent, per the imp-36151 resolution, adding the clarifying banner if missing',
     category: 'ux',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S-frontier',
     description: "imp-36151 resolves that the imp-36045 C > B > A ranking was scored on readiness axes -- none of which measures decay SPEED -- so the ranking cannot assert a faster N-exponent; the only pinned exponent in play is Route-B's -1/4, and Route-C has no pinned exponent to be faster with until G3a_max_gap closes. Audit the routed page rendering the imp-36045 readiness ranking and confirm it does not mislead a reader into inferring Route-C decays faster; if the readiness-not-speed distinction is absent, specify a clarifying banner citing imp-36151. UX/audit only; changes no bound; respects the imp-2519 no-overclaim guard; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
     rationale: 'Frontier scout: imp-36151 warns the imp-36045 C>B ranking is readiness not faster-exponent; unverified whether the readiness page carries that clarification',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'sonnet-4-6',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
 ];
 

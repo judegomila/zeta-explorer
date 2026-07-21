@@ -21183,6 +21183,40 @@ export const glossary = [
       'imp-34714 separation of concerns: exact Krawczyk existence-uniqueness lemma vs unimplemented directed-rounding machine-certificate layer',
     ],
   },
+  {
+    term: 'density-floor vs minimal-gap-ceiling: the wrong-monotone-direction obstruction at the G6a shock (imp-35101)',
+    category: 'numerical',
+    definition:
+      'A disambiguating headword for why a lower bound on eigenvalue density (a "density floor") cannot ' +
+      'supply the Step-4 G6a_shock_lipschitz Hoelder-1/2 modulus, even after fixing its object TYPE.\n\n' +
+      '  - DENSITY FLOOR: a lower bound on local eigenvalue density, equivalently an UPPER bound on local ' +
+      'spacing (spacing <= 1 / density). Cheap direction: density floors are common in random-matrix and ' +
+      'zeta-zero repulsion arguments.\n' +
+      '  - MINIMAL-GAP CEILING: a lower bound on local spacing itself (the dual direction). This is the ' +
+      'RH-hard nearest-pair control (imp-2520 / imp-348), available only GUE-conditionally.\n\n' +
+      'tau_c at the Burgers shock front is set by the NEAREST pair -- the SMALLEST spacing, i.e. the ' +
+      'HIGHEST-density region. A density floor bounds density from below everywhere EXCEPT at exactly the ' +
+      'high-density shock point, where it is already satisfied trivially and carries no (x - x_prime) ' +
+      'two-point information. So even a right-TYPE, two-point density-floor object stays Gronwall-vacuous ' +
+      'there: the floor is monotone in the wrong direction for a worst-point (smallest-spacing) modulus, ' +
+      'which needs a spacing LOWER bound (the minimal-gap ceiling), not a density LOWER bound.\n\n' +
+      'HOW TO APPLY: when a candidate object for the G6a modulus is described as a "density floor" or ' +
+      '"density lower bound", check whether the modulus is controlled at the sparsest or the densest point. ' +
+      'G6a is controlled at the densest (smallest-spacing) point, so density-floor objects of ANY type are ' +
+      'the wrong dual object; only a minimal-gap ceiling (spacing lower bound) fits, and no unconditional ' +
+      'such object exists in the toolkit.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-35101 densityFloorAssessment verdict verbatim, ' +
+      'not a new derivation; G6a_shock_lipschitz stays OPEN; changes no bound; no operator positivity; no ' +
+      'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-36223 (glossary headword for the imp-35101 density-floor vs minimal-gap-ceiling distinction), 2026',
+    relatedTerms: [
+      'imp-35101 assessed whether any density-floor object of the correct spatial-modulus type could discharge G6a, verdict NO (imp-35101)',
+      'imp-2520 named the nearest-pair front as the point where the Gronwall discharge is vacuous (imp-2520)',
+      'imp-3671 established the two independent obstructions S1 (wrong type) and S2 (Gronwall-vacuous at the front) that imp-35101 built on (imp-3671)',
+      'imp-35147 asked whether a strictly-weaker-than-RH minimal-gap input could still supply the same modulus (imp-35147)',
+      'G6a_shock_lipschitz: the Step-4 Polymath15 bridge open sub-gap this headword documents an obstruction to',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

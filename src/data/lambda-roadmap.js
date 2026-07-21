@@ -461,6 +461,63 @@ export const LAMBDA_CHAIN_STEPS = [
               'Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.',
             by: 'imp-35101',
           },
+          // imp-36214 (independent verification ONLY; discharges nothing, no
+          // operator positivity, respects the imp-2519 no-overclaim guard, NO
+          // QED): re-derive the imp-35101 route-R1 verdict
+          // (fixesTypeS1 = true, fixesSignS2 = false) from first principles via
+          // the density/spacing monotone duality, to confirm S1 and S2 are
+          // independent and that the type fix does NOT touch the sign defect.
+          densityFloorR1Verification: {
+            question:
+              'Does retyping V0(gamma) from a strip-sup density SCALAR into a ' +
+              'genuine two-point spatial density difference |rho(x) - rho(x_prime)| ' +
+              'discharge BOTH imp-3671 obstructions, or only S1 (wrong TYPE) while ' +
+              'S2 (wrong monotone direction at the nearest-pair front) survives?',
+            verdict:
+              'VERIFIED: R1 fixes S1 but NOT S2. The type fix and the sign fix are ' +
+              'independent; retyping cannot repair the monotone direction.',
+            s1Argument:
+              'S1 (wrong TYPE) is a purely structural mismatch: the G6a modulus ' +
+              'needs a two-point spatial statement ' +
+              '|tau_c(x) - tau_c(x_prime)| <= C_H |x - x_prime|^{1/2}, whereas the ' +
+              'imp-3642/imp-3671 V0(gamma) is a single strip-sup scalar with no ' +
+              'x-dependence. Replacing it by a two-point density difference ' +
+              '|rho(x) - rho(x_prime)| is, BY CONSTRUCTION, an object of the right ' +
+              'spatial-modulus type, so S1 is discharged. This step is unconditional ' +
+              'and costs nothing -- it is a change of the object being estimated, ' +
+              'not a new bound.',
+            s2Argument:
+              'S2 survives because the retyped object is still a density FLOOR, and ' +
+              'a floor is the wrong monotone direction at the shock. Duality: a ' +
+              'density floor (rho >= rho_min, a LOWER bound on density) is ' +
+              'equivalent to an UPPER bound on the local spacing (spacing <= ' +
+              '1/rho_min). But tau_c is set by the nearest pair -- the SMALLEST ' +
+              'spacing, i.e. the HIGHEST-density point -- and controlling the ' +
+              'Hoelder modulus there requires a LOWER bound on that smallest ' +
+              'spacing, equivalently a density CEILING (rho <= rho_max). A floor ' +
+              'delivers the OPPOSITE inequality at exactly the front that governs ' +
+              'the modulus, so it carries no information where it is needed. The ' +
+              'retyping changed the type of the object but not its inequality ' +
+              'sense, so S2 is untouched.',
+            independenceCheck:
+              'S1 is about the shape of the object (scalar vs two-point spatial); ' +
+              'S2 is about the sense of its inequality (floor vs ceiling). These ' +
+              'are orthogonal: one can hold a right-type object that is a floor ' +
+              '(this is precisely R1) or a wrong-type object that were it typed ' +
+              'would be a ceiling. Hence fixing S1 leaves S2 exactly as it was, ' +
+              'confirming the imp-35101 R1 row (fixesTypeS1 = true, ' +
+              'fixesSignS2 = false) and sharpening the original imp-3671 ' +
+              '"Gronwall-vacuous" reading of S2 into the precise WRONG-MONOTONE-' +
+              'DIRECTION statement.',
+            conclusion:
+              'R1 is confirmed as a genuine but PARTIAL repair: it discharges the ' +
+              'type obstruction S1 and nothing else. The sole route repairing both ' +
+              'S1 and S2 remains R2, a minimal-gap LOWER bound (density ceiling), ' +
+              'which is the RH-hard nearest-pair front (imp-2520 / imp-348, ' +
+              'GUE-conditional). G6a_shock_lipschitz stays OPEN; changes no bound; ' +
+              'Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.',
+            by: 'imp-36214',
+          },
           // imp-35147 (assessment/classification ONLY; discharges nothing, no
           // operator positivity, respects the imp-2519 no-overclaim guard, NO
           // QED): imp-35101 left ONE minimal-gap object (route R2) as the sole

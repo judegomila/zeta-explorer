@@ -82094,7 +82094,6 @@ export const IMPROVEMENT_QUEUE = [
     title: 'EXTRAPOLATE the imp-36083 sqrt(N)-widening deterministic KBN-floor-to-certified-rung headroom past the imp-35812 ladder to the full T_PT term count N~4.886e5 and beyond, DETERMINING the height (if any) at which the N-flat KBN compensated floor would rise to meet the growing certified run-max rung',
     category: 'numerical',
     priority: 'medium',
-    status: 'pending',
     status: 'completed',
     completedByModel: 'opus-4-7',
     completedByChannel: 'subscription',

@@ -11843,6 +11843,12 @@ const DATA_MODULES = [
   // (N~4.624e13, coinciding with the imp-35971 sole-survivor). Bisection on log N over the same
   // imp-3406/imp-33582/imp-2642 sub-terms. Measurement only; changes no bound; NO QED.
   '/src/data/imp-36097-e-share-threshold-crossings-viz-data.js',
+  // imp-36138 (numerical, opus-4-7, subscription): CONTINUES the imp-36097 E_coll ladder to the finer
+  // shareColl SUB-1% crossings imp-36097 never located -- shareColl<1e-3 (N~5.432e15, shareTrunc~0.999)
+  // and shareColl<1e-4 (N~6.165e17, shareTrunc~0.9999), plus the 1e-2 anchor reproducing imp-36097
+  // bit-for-bit. Same imp-3406/imp-33582/imp-2642 sub-terms; each 10x tightening costs ~2.06 decades of
+  // N (just above the naive 2.0 the N^{-1/2} law predicts). Measurement only; changes no bound; NO QED.
+  '/src/data/imp-36138-sharecoll-subpercent-threshold-crossings-viz-data.js',
   // imp-36142 (content, sonnet-4-6, sonnet): standalone honest-status note restating imp-36096 --
   // the joint (alpha,beta) W1-accumulator recovery basin is strongly NON-CONVEX / lobed (bulging to
   // u+v~2.48-2.52 outside the axis diamond, caving to ~0.59-0.60 in a narrow beta-axis lobe), so the

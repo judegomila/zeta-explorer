@@ -28,6 +28,11 @@
  *   figure is a machine certificate -- both are double-precision MODELS of what the
  *   imp-34687a directed-rounding layer would emit, that layer remains UNIMPLEMENTED,
  *   and imp-34714a (Krawczyk existence/uniqueness) STAYS OPEN.
+ *   Stage 4 -- REFINEMENT (the a-scope): imp-36153 found the Stage-2 "a-independent
+ *   2x" ratio is the a -> 0 (ULP-floor) reading ONLY -- it DRIFTS monotonically to
+ *   exactly 1.0 as the certificate half-width a grows past the local ULP scale.
+ *   Nothing above is threatened (the surrogate stays conservative, ratio >= 1, at
+ *   every a); this only scopes WHERE the clean 2x reading holds.
  *
  *   WHAT IS DERIVED VS STILL-OPEN (the clarification this note exists to state)
  *   ------------------------------------------------------------------------
@@ -44,6 +49,7 @@
  *   @see src/data/imp-35969-krawczyk-residual-directed-rounding-width.js (Stage 1 source: nextafter surrogate width)
  *   @see src/data/imp-36017-krawczyk-residual-surrogate-vs-layer-discrepancy.js (Stage 2 source: a-priori LAYER-model width and the 2x ratio)
  *   @see src/data/imp-36066-residual-node-no-machine-certificate-honest-status.js (Stage 3 source: honest-status verdict that both are models)
+ *   @see src/data/imp-36153-krawczyk-residual-surrogate-layer-ratio-a-dependence.js (Stage 4 source: refines the "a-independent 2x" to an a -> 0 / ULP-floor-only reading)
  *   @see src/data/imp-34687-crossover-interval-arithmetic-scope.js (the directed-rounding layer this arc's models stand in for; sub-gap imp-34687a unimplemented)
  *   @see src/data/imp-34714-krawczyk-existence-uniqueness-lemma.js (Krawczyk lemma; sub-gap imp-34714a open)
  *
@@ -54,10 +60,12 @@
 import { IMP35969_KRAWCZYK_RESIDUAL_DIRECTED_ROUNDING_WIDTH } from './imp-35969-krawczyk-residual-directed-rounding-width.js';
 import { IMP36017_KRAWCZYK_RESIDUAL_SURROGATE_VS_LAYER_DISCREPANCY } from './imp-36017-krawczyk-residual-surrogate-vs-layer-discrepancy.js';
 import { IMP36066_RESIDUAL_NODE_NO_MACHINE_CERTIFICATE_HONEST_STATUS } from './imp-36066-residual-node-no-machine-certificate-honest-status.js';
+import { IMP36153_KRAWCZYK_RESIDUAL_SURROGATE_LAYER_RATIO_A_DEPENDENCE } from './imp-36153-krawczyk-residual-surrogate-layer-ratio-a-dependence.js';
 
 const SURROGATE = IMP35969_KRAWCZYK_RESIDUAL_DIRECTED_ROUNDING_WIDTH;
 const LAYER_DISCREPANCY = IMP36017_KRAWCZYK_RESIDUAL_SURROGATE_VS_LAYER_DISCREPANCY;
 const HONEST_STATUS = IMP36066_RESIDUAL_NODE_NO_MACHINE_CERTIFICATE_HONEST_STATUS;
+const A_DEPENDENCE = IMP36153_KRAWCZYK_RESIDUAL_SURROGATE_LAYER_RATIO_A_DEPENDENCE;
 
 export const IMP36166_RESIDUAL_NODE_STORYLINE_CROSS_REFERENCE = Object.freeze({
   id: 'imp-36166',
@@ -105,6 +113,21 @@ export const IMP36166_RESIDUAL_NODE_STORYLINE_CROSS_REFERENCE = Object.freeze({
         'REMAINS UNIMPLEMENTED and the imp-34714a Krawczyk existence/uniqueness sub-gap STAYS OPEN.',
       source: 'imp-36066',
     }),
+    Object.freeze({
+      stage: 4,
+      name: 'imp-36153 a-scope refinement',
+      state: 'REFINEMENT (the a-scope)',
+      statement:
+        'The Stage-2 "a-independent 2x" ratio is the a -> 0 (tight-certificate / ULP-floor) reading ONLY: ' +
+        'sweeping the certificate half-width a directly, the ratio DRIFTS strictly monotonically to exactly ' +
+        '1.0 (~' +
+        A_DEPENDENCE.measurement.ratio_at_a_1.toFixed(4) +
+        ' by a=1 at N_cross) as a grows past the local ULP scale, because the shared propagated-input width ' +
+        'dilutes the per-op rounding-slack gap. For any macroscopic a >> ULP(N) the 2x conservatism headroom ' +
+        'shrinks to zero; the surrogate stays conservative (ratio >= 1) at every a -- nothing above is ' +
+        'threatened, only scoped.',
+      source: 'imp-36153',
+    }),
   ]),
 
   derivedVsOpen: Object.freeze({
@@ -112,6 +135,7 @@ export const IMP36166_RESIDUAL_NODE_STORYLINE_CROSS_REFERENCE = Object.freeze({
       'imp-35969 nextafter surrogate width of the residual node (a-independent, small nonzero)',
       'imp-36017 surrogate-over-layer ratio (a-independent, converges to exactly 2x up the axis)',
       'imp-36066 restatement that both figures are models, not a certificate',
+      'imp-36153 a-scope refinement: the 2x ratio is an a -> 0 / ULP-floor reading, drifting to 1.0 for macroscopic a',
     ]),
     open: Object.freeze([
       'The imp-34687a directed-rounding layer itself (unimplemented)',
@@ -142,11 +166,20 @@ export const IMP36166_RESIDUAL_NODE_STORYLINE_CROSS_REFERENCE = Object.freeze({
 // -- Tripwire assertions ------------------------------------------------------
 export const IMP36166_RESIDUAL_NODE_STORYLINE_CROSS_REFERENCE_ASSERTIONS = [
   {
-    id: 'imp36166-storyline-has-three-stages-in-order',
-    why: 'The arc must record exactly the three stages (surrogate, layer ratio, honest ceiling) in narrative order.',
+    id: 'imp36166-storyline-has-four-stages-in-order',
+    why: 'The arc must record exactly the four stages (surrogate, layer ratio, honest ceiling, a-scope refinement) in narrative order.',
     holds: () => {
       const s = IMP36166_RESIDUAL_NODE_STORYLINE_CROSS_REFERENCE.storyline;
-      return s.length === 3 && s[0].stage === 1 && s[1].stage === 2 && s[2].stage === 3;
+      return s.length === 4 && s[0].stage === 1 && s[1].stage === 2 && s[2].stage === 3 && s[3].stage === 4;
+    },
+  },
+  {
+    id: 'imp36166-a-scope-refinement-present',
+    why: 'imp-36153 refined the Stage-2 "a-independent 2x" to an a -> 0 / ULP-floor-only reading; the arc ' +
+         'must carry Stage 4 stating the ratio drifts to 1.0 for macroscopic a.',
+    holds: () => {
+      const s4 = IMP36166_RESIDUAL_NODE_STORYLINE_CROSS_REFERENCE.storyline[3];
+      return s4.source === 'imp-36153' && /drifts/i.test(s4.statement) && /macroscopic/.test(s4.statement);
     },
   },
   {

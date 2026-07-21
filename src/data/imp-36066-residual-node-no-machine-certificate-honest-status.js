@@ -17,20 +17,32 @@
  *   Krawczyk existence/uniqueness sub-gap STAYS OPEN. Read-only note: imports both
  *   source objects verbatim (no re-derivation, no new numerics).
  *
+ *   imp-36153 QUALIFICATION: the "a-independent 2x" above is the a -> 0
+ *   (tight-certificate / ULP-floor) reading ONLY. imp-36153 swept the certificate
+ *   half-width a directly and found the surrogate/layer ratio DRIFTS monotonically
+ *   to exactly 1.0 as a grows past the local ULP scale -- so for any macroscopic
+ *   certificate half-width a >> ULP(N) the "2x conservatism headroom" this note
+ *   restates shrinks to zero. Nothing here is threatened (the surrogate stays
+ *   conservative, ratio >= 1, at every a); the qualification only scopes WHERE the
+ *   clean 2x reading applies.
+ *
  *   Ticket: imp-36066 (content, low). Note only; ports nothing; changes no bound;
  *   Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
  *
  * @see imp-35969-krawczyk-residual-directed-rounding-width (source: the nextafter SURROGATE width; "NOT a machine certificate")
  * @see imp-36017-krawczyk-residual-surrogate-vs-layer-discrepancy (source: the a-priori LAYER-model width; surrogate over-estimates it 2x)
+ * @see imp-36153-krawczyk-residual-surrogate-layer-ratio-a-dependence (REFINES the "a-independent 2x" here to an a -> 0 / ULP-floor-only reading; ratio drifts to 1.0 for macroscopic a)
  * @see imp-34687-crossover-interval-arithmetic-scope (the directed-rounding layer both models stand in for; sub-gap imp-34687a unimplemented)
  * @see imp-34714-krawczyk-existence-uniqueness-lemma (Krawczyk lemma; sub-gap imp-34714a open)
  */
 
 import { IMP35969_KRAWCZYK_RESIDUAL_DIRECTED_ROUNDING_WIDTH } from './imp-35969-krawczyk-residual-directed-rounding-width.js';
 import { IMP36017_KRAWCZYK_RESIDUAL_SURROGATE_VS_LAYER_DISCREPANCY } from './imp-36017-krawczyk-residual-surrogate-vs-layer-discrepancy.js';
+import { IMP36153_KRAWCZYK_RESIDUAL_SURROGATE_LAYER_RATIO_A_DEPENDENCE } from './imp-36153-krawczyk-residual-surrogate-layer-ratio-a-dependence.js';
 
 const SURROGATE = IMP35969_KRAWCZYK_RESIDUAL_DIRECTED_ROUNDING_WIDTH;
 const LAYER_DISCREPANCY = IMP36017_KRAWCZYK_RESIDUAL_SURROGATE_VS_LAYER_DISCREPANCY;
+const A_DEPENDENCE = IMP36153_KRAWCZYK_RESIDUAL_SURROGATE_LAYER_RATIO_A_DEPENDENCE;
 
 export const IMP36066_RESIDUAL_NODE_NO_MACHINE_CERTIFICATE_HONEST_STATUS = Object.freeze({
   id: 'imp-36066',
@@ -68,6 +80,18 @@ export const IMP36066_RESIDUAL_NODE_NO_MACHINE_CERTIFICATE_HONEST_STATUS = Objec
     'the same node, not a model against a certificate: no run of either module instantiates a certified ' +
     'interval, ports the imp-34687a layer, or discharges the F(m) = 0 residual-at-root artifact. The ' +
     'imp-34714a Krawczyk existence/uniqueness sub-gap STAYS OPEN.',
+
+  aQualification:
+    'imp-36153 REFINES the "a-independent 2x" above: that reading is the a -> 0 (tight-certificate / ' +
+    'ULP-floor) limit ONLY, reproducing the imp-36017 point ratio ~' +
+    A_DEPENDENCE.measurement.ratio_at_a_zero.toFixed(4) +
+    '. Sweeping the certificate half-width a directly, imp-36153 found the ratio DRIFTS strictly ' +
+    'monotonically down to exactly 1.0 as a grows past the local ULP scale (~' +
+    A_DEPENDENCE.measurement.ratio_at_a_1.toFixed(4) +
+    ' by a=1 at N_cross): the shared propagated-input width dilutes the per-op rounding-slack gap. For any ' +
+    'macroscopic certificate half-width a >> ULP(N) the "2x conservatism headroom" this note restates ' +
+    'shrinks to zero. The surrogate stays a CONSERVATIVE upper model at every a (ratio >= 1); nothing above ' +
+    'is threatened, only scoped.',
 
   honestCaveat: Object.freeze({
     isProof: false,
@@ -123,6 +147,15 @@ export const IMP36066_RESIDUAL_NODE_NO_MACHINE_CERTIFICATE_HONEST_STATUS_ASSERTI
     holds: () =>
       /NO MACHINE CERTIFICATE/.test(IMP36066_RESIDUAL_NODE_NO_MACHINE_CERTIFICATE_HONEST_STATUS.verdict) &&
       /NO QED/.test(IMP36066_RESIDUAL_NODE_NO_MACHINE_CERTIFICATE_HONEST_STATUS.verdict),
+  },
+  {
+    id: 'imp36066-a-independent-qualification-present',
+    why: 'imp-36153 refined the "a-independent 2x" claim to an a -> 0 / ULP-floor-only reading; this note ' +
+         'must carry that qualification so readers do not treat 2x as a global-a constant.',
+    holds: () =>
+      /imp-36153/.test(IMP36066_RESIDUAL_NODE_NO_MACHINE_CERTIFICATE_HONEST_STATUS.aQualification) &&
+      /drifts/i.test(IMP36066_RESIDUAL_NODE_NO_MACHINE_CERTIFICATE_HONEST_STATUS.aQualification) &&
+      /macroscopic/.test(IMP36066_RESIDUAL_NODE_NO_MACHINE_CERTIFICATE_HONEST_STATUS.aQualification),
   },
 ];
 

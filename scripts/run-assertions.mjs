@@ -12246,6 +12246,15 @@ const DATA_MODULES = [
   // 7-sig-fig tabulation floor) and recovers each target share to ~1e-14, confirming the
   // bisection converged to the true roots. Cross-validation only; changes no bound; NO QED.
   '/src/data/imp-36156-e-share-crossings-secant-crossvalidation.js',
+  // imp-36264 (meta, sonnet-4-6, sonnet): cross-reference integrity audit (imp-35186/
+  // imp-36148/imp-36190/imp-36231 method) over the imp-36135..imp-36160 and
+  // imp-36246..imp-36251 frontier batch (24 real src/data files in that range). Zero
+  // dangling references: all 66 distinct filename-suffixed @see/import targets resolve
+  // verbatim, all 13 named ES imports resolve to real exports, and of 136 distinct
+  // referenced imp-ids only the 5 already-established exceptions (2 wildcard cohort-range
+  // tokens, 2 sub-gap labels, the imp-58685 typo exemplar) fail to resolve. Audit only;
+  // no source file required correction; NO QED.
+  '/src/data/imp-36264-imp36135-160-36246-251-cross-reference-integrity-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -11814,6 +11814,15 @@ const DATA_MODULES = [
   // N=1000. The deterministic compensated channel never approaches the certified bound. Distinct from
   // imp-36035 (PROBABILISTIC Higham-Mary). Measurement only; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36083-kbn-floor-headroom-to-certified-rung.js',
+  // imp-36134 (numerical, opus-4-8, subscription): RE-MEASURE the imp-36083 KBN-floor-to-certified
+  // run-max headroom with BOTH quantities on the SAME term ORDER (imp-36083 mixed the clustered KBN
+  // floor with the natural-order certified rung). The KBN floor is BIT-IDENTICAL on natural vs
+  // clustered orders (rel diff exactly 0), so the imp-36083 mismatch ladder equals the same-order
+  // NATURAL ladder [~3.90, ~4.42, ~5.47, ~6.53] orders exactly -- NO bias. The certified rung is the
+  // sole order-sensitive channel (~19x to ~424x larger on the clustered order), so both-on-clustered
+  // gives a STRICTLY WIDER headroom [~5.18, ~6.20, ~7.76, ~9.16]; imp-36083 reported the tighter,
+  // conservative coherent ladder. Re-measurement only; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36134-kbn-floor-headroom-same-order.js',
   // imp-36054 (content, sonnet-4-6, sonnet): standalone honest-status note restating the
   // imp-35988 finding that Route I (separate additive derivative-error cap) is PROVABLY TIGHTER
   // than Route II (Cauchy estimate) for the imp-35777 I2 sup|H_t prime| cap on all three
@@ -12149,6 +12158,11 @@ const DATA_MODULES = [
   // both gated on the open G-gronwall obligation (imp-2520). Navigation only;
   // discharges no obligation; NO QED.
   '/src/data/imp-36246-s-frontier-scoping-module-overview.js',
+  // imp-36247 (ux, sonnet-4-6, sonnet): renders the imp-36154 R1-R6 requirement list
+  // as a dependency checklist (R1->R5; R2->R5; R3->R2; R4->R1,R2; R6->R1-R5; R5->none),
+  // showing R1, R2, R3, R4, and R6 are all transitively gated by the single UNIMPLEMENTED
+  // primitive R5 (imp-34687a directed-rounding layer). Documentation/UX only; NO QED.
+  '/src/data/imp-36247-krawczyk-r1-r6-dependency-checklist.js',
 ];
 
 let ALL_MODULES = FAST_MODE

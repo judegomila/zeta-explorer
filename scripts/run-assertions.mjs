@@ -12117,6 +12117,20 @@ const DATA_MODULES = [
   // for random/regular data vs leaves OPEN for the deterministic arithmetic seed.
   // Documentation only; C_mb stays GUE-conditional; NO QED.
   '/src/data/imp-36229-esy-input-layers-glossary-companion.js',
+  // imp-36241 (proof, opus-4-8): deep-dive SCOPING of imp-36180 LAYER I (the local
+  // semicircle / spectral-measure statement) into four concrete sub-inputs (Ia
+  // equilibrium density / Ib self-consistent Stieltjes stability / Ic mesoscopic
+  // a-priori density / Id deterministic replacement of the probabilistic engine),
+  // distinguishing what DBM/ESY supplies for random/regular data (not transferring)
+  // from the OPEN residue for the deterministic arithmetic seed. Imports the parent
+  // layer verbatim; claims NO sub-input established; C_mb stays GUE-conditional; NO QED.
+  '/src/data/imp-36241-layer-i-local-semicircle-input-scope.js',
+  // imp-36242 (content, sonnet-4-6, sonnet): import-light glossary/Concepts headword
+  // restating the imp-36193 G-interval-enclosure five-ingredient E1-E5 requirement list
+  // (certified seed / directed rounding / pole reduction crux / width control / N-dependence
+  // deliverable) verbatim, naming E3 (interval pole reduction) as circularly coupled to
+  // G-gronwall. Documentation only; G-interval-enclosure stays OPEN; NO QED.
+  '/src/data/imp-36242-g-interval-enclosure-e1-e5-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

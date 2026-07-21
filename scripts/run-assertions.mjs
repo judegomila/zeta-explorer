@@ -10162,6 +10162,18 @@ const DATA_MODULES = [
   // assertions. Measurement only; certifies no cap; changes no bound; imp-486 untouched; NO QED;
   // Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-36141-route-ii-vs-route-i-panel-count-ratio.js',
+  // imp-36151 (numerical, S-frontier): compares the imp-36082 Route-B explicit per-N rate r_B(N) =
+  // C_prime sqrt(log gamma_N) N^{-1/4} (leading exponent -1/4, witnessed by the wide-window log-log
+  // slope converging to -1/4 from above) against the per-N candidate implied by Route-C, which
+  // imp-36045 ranked ABOVE B (C > B > A). VERDICT: the C > B ranking reflects UNCONDITIONAL-
+  // consumability READINESS, NOT a strictly faster N-exponent -- the imp-36045 scoring axes
+  // (perNForm, unconditional, gapsClosed, residualTractable) do not measure decay speed. Route-B owns
+  // the only pinned exponent (-1/4); Route-C produces a per-N bound BY CONSTRUCTION but its N-scaling
+  // is gated on the OPEN G3a_max_gap extremal max-gap statistics, so it has no pinned exponent to be
+  // faster WITH. Mapped onto the ticket binary: NOT a faster exponent; the C > B edge is structural /
+  // "better constant". Six self-executing assertions. Assessment only; closes nothing; per-N
+  // translation and G3a_max_gap stay OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-36151-routeC-vs-routeB-perN-exponent-comparison.js',
   // imp-36023 (numerical, S-frontier): does Kahan-Babuska-Neumaier (KBN) compensated summation
   // on the imp-35973 COMBINED worst-case configuration (the imp-35852 clustered same-sign ORDER)
   // stay at the unit-roundoff floor across the imp-35812 N ladder, or DRIFT with N? imp-35973

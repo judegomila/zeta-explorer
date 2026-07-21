@@ -12170,6 +12170,13 @@ const DATA_MODULES = [
   // module; cross-checks imp-36173's own non-drift declaration against the
   // actual source records. Audit only; NO QED.
   '/src/data/imp-36249-b1b2b3-caveat-integrity-audit.js',
+  // imp-36250 (content, sonnet-4-6, sonnet): explicit cross-reference closing
+  // the triad -- imp-36193 E3, imp-36192 I4, and imp-2520 G-gronwall all name
+  // the SAME open object delta_lo(t) (min pairwise gap up to just-before t_c).
+  // G-gronwall is the sole candidate supplier of delta_lo(t) but is documented
+  // vacuous exactly at the front where E3/I4 need it, so none of the three
+  // obligations is independently dischargeable. Documentation only; NO QED.
+  '/src/data/imp-36250-shared-delta-lo-triad-cross-reference.js',
 ];
 
 let ALL_MODULES = FAST_MODE

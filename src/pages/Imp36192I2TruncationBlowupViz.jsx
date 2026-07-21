@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP36192_STEP2_G_STEP_ERROR_APRIORI_TRUNCATION_SCOPE } from '../data/imp-36192-step2-g-step-error-apriori-truncation-scope.js';
+import { IMP36250_SHARED_DELTA_LO_TRIAD_CROSS_REFERENCE } from '../data/imp-36250-shared-delta-lo-triad-cross-reference.js';
 
 // Illustrative curve only -- reuses the imp-36192 baked crux exponents (dt^5, delta^-9) and the
 // same representative dt = 1e-5 used to derive localTruncScaleBulk / localTruncScaleFront there.
@@ -160,6 +161,27 @@ export default function Imp36192I2TruncationBlowupViz() {
         }}
       >
         <strong style={{ color: '#94a3b8' }}>Honest status:</strong> {data.verdict}
+      </div>
+
+      <div
+        style={{
+          marginTop: '1rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(248,113,113,0.04)',
+          borderLeft: '3px solid #f87171',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#fca5a5' }}>Shared-crux circularity (imp-36250):</strong> the delta
+        floor this page charts is not a standalone I4 concern &mdash; it is the SAME certified
+        min-gap object delta_lo(t) needed by the imp-36193 E3 interval pole-reduction crux, and the
+        only candidate supplier of delta_lo(t) is the imp-2520 G-gronwall reading, which is itself
+        documented Gronwall-vacuous exactly at this collision front. So none of the three
+        obligations (G-step-error here, G-interval-enclosure, G-gronwall) is independently
+        dischargeable. {IMP36250_SHARED_DELTA_LO_TRIAD_CROSS_REFERENCE.circularityStatement} All
+        three stay OPEN; NO QED; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA.
       </div>
     </div>
   );

@@ -12111,6 +12111,12 @@ const DATA_MODULES = [
   // NOT executed (achieved-N undefined while Steps 3-4 OPEN); no status string touched;
   // imp-2519 no-overclaim guard preserved; NO QED.
   '/src/data/imp-36173-b2-tstar-checklist-ladder.js',
+  // imp-36229 (content, sonnet-4-6, sonnet): import-light glossary-companion entry
+  // restating the imp-36180 three ESY-input layers (I spectral-measure statement /
+  // II rigidity scale / III C_mb coupling) verbatim, naming what each layer supplies
+  // for random/regular data vs leaves OPEN for the deterministic arithmetic seed.
+  // Documentation only; C_mb stays GUE-conditional; NO QED.
+  '/src/data/imp-36229-esy-input-layers-glossary-companion.js',
 ];
 
 let ALL_MODULES = FAST_MODE

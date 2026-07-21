@@ -1709,6 +1709,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Illustrative double-precision grid reusing the imp-36154 F(m)/F-prime(m) closed forms and constants (no new numerics, no heavy data-module import at runtime); presentation only; certifies no interval, constructs no [F-prime] enclosure; the imp-36154 R1-R6 requirements are untouched, imp-34687a stays UNIMPLEMENTED and imp-34714a stays OPEN; changes no bound, establishes no operator positivity, no RH verdict; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp36267-crossover-sensitivity',
+      title: 'E_trunc = E_coll Crossover Height Power Law',
+      oneLine:
+        'Log-log chart of the imp-36139 sensitivity sweep: the E_trunc = E_coll crossover height N_cross re-located over a 9-point half-to-double grid of the imp-2631 fixed-strip floor, obeying a clean power law N_cross ~ E_trunc^-2.095 (R^2 ~ 0.9999993) and swinging ~18.3x across the 4x floor range.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-36139-etrunc-coll-crossover-sensitivity.js',
+      paperSourcePath: 'src/data/imp-36139-etrunc-coll-crossover-sensitivity.js (crossover sensitivity sweep; imp-36267 viz page)',
+      ticket: 'imp-36267',
+      pedagogicalStep: 119,
+      honestCeiling:
+        'Descriptive chart re-exporting the imp-36139 grid verbatim (no new numerics, no heavy data-module import); presentation only; the imp-35968 quote N_cross ~ 3.28e9 is a floor-sensitivity readout of the pinned imp-2631 value, not an intrinsic landmark; C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643) and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; changes no bound, establishes no operator positivity, no RH verdict; NO QED.',
+    }),
   ]),
 });
 

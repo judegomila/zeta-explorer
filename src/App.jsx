@@ -959,6 +959,9 @@ const Imp36192I2TruncationBlowupViz = lazy(() =>
 const Imp36251KrawczykResidualOperatorFixedpointViz = lazy(() =>
   import('./pages/Imp36251KrawczykResidualOperatorFixedpointViz.jsx')
 );
+const Imp36267CrossoverSensitivityViz = lazy(() =>
+  import('./pages/Imp36267CrossoverSensitivityViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2648,6 +2651,10 @@ function AppShell() {
           <Route
             path="/viz-imp36251-krawczyk-residual-operator-fixedpoint"
             element={<Imp36251KrawczykResidualOperatorFixedpointViz />}
+          />
+          <Route
+            path="/viz-imp36267-crossover-sensitivity"
+            element={<Imp36267CrossoverSensitivityViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -1670,6 +1670,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive chart of baked imp-35889 / imp-35968 sub-term literals evaluated on the imp-321 ladder (no heavy data-module import); measurement/presentation only; E_trunc = 3.06e-5 (imp-2631), C_C GUE-conditional (imp-2642 / imp-2643 / imp-486) untouched; E(N) does NOT tend to 0 on the current surrogate (imp-35164); changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp36173-b2-tstar-checklist-ladder',
+      title: 'B2 Effective-Height T_star(N) Finite-N Ladder',
+      oneLine:
+        'Line chart of the imp-327 Riemann-von Mangoldt inverse T_star(N) = effectiveHeightForN(N) swept across the imp-36173 twelve-rung finite-N ladder (N = 2458 to 1.236e13), marking the Platt-Trudgian verified-height crossover at 3e12 and labelling every rung RH-up-to-height (FINITE, never unconditional RH).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-36173-b2-tstar-checklist-ladder.js',
+      paperSourcePath: 'src/data/lambda-rh-height-mapping.js (imp-327 inverse; imp-36173 viz page)',
+      ticket: 'imp-36173',
+      pedagogicalStep: 116,
+      honestCeiling:
+        'Descriptive chart re-exporting the imp-36173 tabulation verbatim (no new numerics, no heavy data-module import); tabulation/bookkeeping only; B2-effective-height-Tstar (imp-35099) stays BLOCKED since the achieved-N of Steps 3-4 is undefined; upgrades no status string; changes no bound, establishes no operator positivity, no RH verdict; NO QED.',
+    }),
   ]),
 });
 

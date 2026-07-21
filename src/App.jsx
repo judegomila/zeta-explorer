@@ -950,6 +950,9 @@ const Imp36226ClusteredVsDefaultDepthScalingViz = lazy(() =>
 const Imp36227EnThreefoldImp321LadderViz = lazy(() =>
   import('./pages/Imp36227EnThreefoldImp321LadderViz.jsx')
 );
+const Imp36173B2TstarChecklistLadderViz = lazy(() =>
+  import('./pages/Imp36173B2TstarChecklistLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2627,6 +2630,10 @@ function AppShell() {
           <Route
             path="/viz-imp36227-en-threefold-imp321-ladder"
             element={<Imp36227EnThreefoldImp321LadderViz />}
+          />
+          <Route
+            path="/viz-imp36173-b2-tstar-checklist-ladder"
+            element={<Imp36173B2TstarChecklistLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

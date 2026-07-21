@@ -10174,6 +10174,16 @@ const DATA_MODULES = [
   // "better constant". Six self-executing assertions. Assessment only; closes nothing; per-N
   // translation and G3a_max_gap stay OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-36151-routeC-vs-routeB-perN-exponent-comparison.js',
+  // imp-36160 (numerical, S-frontier): assesses whether the imp-36082 UNCONDITIONAL Route-B rate
+  // r(N) ~ N^{-1/4} is a strictly WEAKER N-exponent than the imp-36097 GUE-CONDITIONAL collision
+  // term E_coll ~ N^{-1/2}, and traces WHERE the gap comes from. Answer: YES, gap exactly 1/4 (a
+  // less-negative exponent decays slower). Deeper finding: the raw discrepancy D(N) ~ N^{-1/2}
+  // (r's provenance) shares E_coll's -1/2 core exponent EXACTLY (gap 0), so the full 1/4 gap is
+  // manufactured entirely by the imp-354 Whitham Holder-1/2 step r = C_W sqrt(D), which halves the
+  // exponent -1/2 -> -1/4. De-dressed wide log-log slopes confirm -1/2, -1/2, -1/4 to machine
+  // precision. Five self-executing assertions. Measurement only; gap independent of constants;
+  // changes no bound; per-N + imp-36082 anchor stay OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+  '/src/data/imp-36160-routeB-unconditional-vs-conditional-exponent-gap.js',
   // imp-36023 (numerical, S-frontier): does Kahan-Babuska-Neumaier (KBN) compensated summation
   // on the imp-35973 COMBINED worst-case configuration (the imp-35852 clustered same-sign ORDER)
   // stay at the unit-roundoff floor across the imp-35812 N ladder, or DRIFT with N? imp-35973

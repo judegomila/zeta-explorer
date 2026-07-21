@@ -1657,6 +1657,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive chart re-exporting the baked imp-36097 and imp-36046 viz-data literals verbatim (no new computation, no heavy data-module import); measurement/presentation only; C_C GUE-conditional (imp-2642 / imp-2643 / imp-486) untouched; changes no bound, establishes no operator positivity, no RH verdict.',
     }),
+    Object.freeze({
+      route: '/viz-imp36227-en-threefold-imp321-ladder',
+      title: 'E(N) Threefold Across the imp-321 Ladder',
+      oneLine:
+        'Line chart of the pinned-constants E(N) = E_trunc + E_flow + E_coll (imp-35889 / imp-35968 sub-terms) across the seven imp-321 ladder rungs (N = 2458 to 1e8), marking the fixed imp-2631 / imp-35164 E_trunc = 3.06e-5 floor and the imp-35968 E_trunc = E_coll crossover at N_cross ~ 3.28e9, ~1.52 decades beyond the ladder top.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-36227-en-threefold-imp321-ladder-viz-data.js',
+      paperSourcePath: 'src/data/lambda-pt-scale-extrapolation.js (imp-321 ladder; imp-36227 viz page)',
+      ticket: 'imp-36227',
+      pedagogicalStep: 115,
+      honestCeiling:
+        'Descriptive chart of baked imp-35889 / imp-35968 sub-term literals evaluated on the imp-321 ladder (no heavy data-module import); measurement/presentation only; E_trunc = 3.06e-5 (imp-2631), C_C GUE-conditional (imp-2642 / imp-2643 / imp-486) untouched; E(N) does NOT tend to 0 on the current surrogate (imp-35164); changes no bound, establishes no operator positivity, no RH verdict.',
+    }),
   ]),
 });
 

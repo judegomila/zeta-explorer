@@ -21217,6 +21217,44 @@ export const glossary = [
       'G6a_shock_lipschitz: the Step-4 Polymath15 bridge open sub-gap this headword documents an obstruction to',
     ],
   },
+  {
+    term: 'Step-2 a-priori RK4/DP5 step-budget truncation bound: three OPEN obligations (G-step-error, G-gronwall, G-interval-enclosure) and why the two-method gap is not a certificate (imp-36192)',
+    category: 'proof',
+    definition:
+      'A disambiguating headword for the CERTIFIED object the Step-2 rigorousUpgradeGap obligation ' +
+      'G-step-error actually needs, and why it is not the same as the empirical imp-2466 two-method gap ' +
+      '|t_c_RK4 - t_c_DP5|.\n\n' +
+      '  - THE RIGHT OBJECT: an ABSOLUTE a-priori bound E_step(dt, N) on a SINGLE integrator (fixed-step ' +
+      'RK4), with |x_num(t) - x_exact(t)| <= E_step up to the collision front, common-mode error included.\n' +
+      '  - THE WRONG PROXY: writing x_RK4 = x_exact + e4 and x_DP5 = x_exact + e5, the two-method gap reads ' +
+      'off (e4 - e5) and so CANCELS any error shared by both tableaux; imp-36077 measured that gap ' +
+      'quantization-dominated and NON-monotone in dt, so refining dt cannot sharpen it into an absolute ' +
+      'certificate (GAP-36077-common-mode-uncertified).\n\n' +
+      'An absolute bound needs FIVE ingredients (imp-36192): I1 a 1/delta Lipschitz bound on a tube, I2 the ' +
+      'CRUX order-5 elementary-differential term ~ dt^5 * delta^{-9} (vacuous as the min gap delta -> 0 at ' +
+      'the front), I3 accumulated error via discrete Gronwall (needs the N-uniform Lipschitz constant that ' +
+      'is the SEPARATE obligation G-gronwall, imp-2520 -- Gronwall-vacuous at the nearest-pair front), I4 a ' +
+      'certified gap floor delta_lo(t) (the SEPARATE obligation G-interval-enclosure, imp-362 single-N ' +
+      'witness only), and I5 per-step O(stages*N*eps) rounding. I2 and I4 are CIRCULARLY COUPLED: the ' +
+      'truncation bound needs a gap floor, and the gap floor needs a certified flow.\n\n' +
+      'HOW TO APPLY: when a Step-2 module cites the RK4-vs-DP5 agreement as evidence of numerical accuracy, ' +
+      'check whether it is being used as a disagreement CROSS-CHECK (valid, but blind to common-mode error) ' +
+      'or misread as an absolute CERTIFICATE (invalid) -- and note that discharging G-step-error requires ' +
+      'first discharging the two other Step-2 obligations it is coupled to.\n\n' +
+      'HONEST SCOPE: a glossary headword restating the imp-36192 scoping verdict verbatim, not a new ' +
+      'derivation; G-step-error stays OPEN and not independently dischargeable; changes no bound; ' +
+      'discharging all three Step-2 obligations would feed the E(N) bridge constants at Step 4, not the ' +
+      'headline inequality; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-36224 (glossary headword for the imp-36192 Step-2 a-priori truncation-bound scope), 2026',
+    relatedTerms: [
+      'imp-36192 scoped the three-obligation coupling and the dt^5 * delta^{-9} boundary-layer blow-up (imp-36192)',
+      'imp-36077 measured the RK4-vs-DP5 gap quantization-dominated and non-monotone in dt, GAP-36077-common-mode-uncertified (imp-36077)',
+      'imp-2520 supplies the Gronwall propagation lemma consumed as G-gronwall, vacuous at the nearest-pair front (imp-2520)',
+      'imp-362 supplies the single-N LAMBDA_INTERVAL_DYSON interval-RK4 witness consumed as G-interval-enclosure (imp-362)',
+      'imp-2466 is the DP5 cross-integrator whose disagreement with RK4 is the two-method gap, not a certificate (imp-2466)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

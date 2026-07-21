@@ -965,6 +965,9 @@ const Imp36267CrossoverSensitivityViz = lazy(() =>
 const Imp36268PanelCountRatioViz = lazy(() =>
   import('./pages/Imp36268PanelCountRatioViz.jsx')
 );
+const Imp36287KbnFloorHeadroomDivergenceViz = lazy(() =>
+  import('./pages/Imp36287KbnFloorHeadroomDivergenceViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2662,6 +2665,10 @@ function AppShell() {
           <Route
             path="/viz-imp36268-panel-count-ratio"
             element={<Imp36268PanelCountRatioViz />}
+          />
+          <Route
+            path="/viz-imp36287-kbn-floor-headroom-divergence"
+            element={<Imp36287KbnFloorHeadroomDivergenceViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

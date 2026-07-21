@@ -1735,6 +1735,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive chart re-exporting the imp-36141 tabulation verbatim (no new numerics, no heavy data-module import); presentation only; 1.0265 is a frequency-floor LOWER bound on the true panel-count ratio, not the exact ratio; certifies no derivative bound B, certifies no I2 cap; C_mb GUE-conditional (imp-486) is UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp36287-kbn-floor-headroom-divergence',
+      title: 'KBN Floor vs Certified Run-Max Headroom Divergence',
+      oneLine:
+        'Log-log chart of the imp-36083 / imp-36135 KBN-compensated-floor (N-flat, ~1.89e-20) against the sqrt(N)-rising certified run-max rung, widening at ~+0.5 orders per decade of N, with the algebraic N_cross ~ 4e-8 (< 1 retained term) crossing annotated as unphysical.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-36287-kbn-floor-headroom-divergence-viz-data.js',
+      paperSourcePath: 'src/data/imp-36135-kbn-floor-headroom-extrapolation.js (headroom extrapolation + crossing solve; imp-36287 viz page)',
+      ticket: 'imp-36287',
+      pedagogicalStep: 121,
+      honestCeiling:
+        'Descriptive chart baking the imp-36083 measured ladder and the imp-36135 extrapolation + crossing solve verbatim (no new numerics, no heavy data-module import); presentation only; N_cross < 1 is an algebraic artifact of solving C sqrt(N) = floor, not a physical event; certifies no W1 bound, instantiates no directed-rounding interval; C_mb GUE-conditional (imp-486) is UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict; NO QED.',
+    }),
   ]),
 });
 

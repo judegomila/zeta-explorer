@@ -11862,6 +11862,16 @@ const DATA_MODULES = [
   // detuning-margin monitor is N-robust; an absolute-baseline monitor must rescale by 1/sqrt(N).
   // Baked offline literals (scripts/imp-36103-nstability-offline.mjs). Measurement only; NO QED.
   '/src/data/imp-36103-w1-accumulator-recovery-nstability.js',
+  // imp-36133 (numerical, opus-4-8, subscription): MEASURE the N-STABILITY of the imp-36096 JOINT
+  // (alpha,beta) recovery-basin CONTOUR by re-tracing the lobed r<=1.10/1.01 r_base first-crossing
+  // contours at N=1e6, since imp-36096 traced the non-convex basin only at N~488602 and imp-36103
+  // checked the SINGLE-axis edges only. FINDING: the whole lobed contour is N-STABLE to ~4 sig figs
+  // across N~488602->1e6 -- the bulge holds maxU+V 2.480/2.524 and the cave holds 0.602/0.586
+  // (headline indicators <2e-4, max interior u spread ~6.1e-4). Extends imp-36103 to the coupled
+  // interior: N-invariant because every point is relative to the 1/sqrt(N)-scaling r_base(N). So the
+  // imp-36096 lobed monitor window (and its ~2.5x under-statement of the single-axis edges) is
+  // N-robust. Baked offline literals (scripts/imp-36133-joint-contour-nstability-offline.mjs). NO QED.
+  '/src/data/imp-36133-w1-joint-recovery-contour-nstability.js',
   // imp-36146 (content, sonnet-4-6, sonnet): CONSOLIDATED honest-status note restating the
   // recurring cross-channel finding that summation PRECISION is NON-BINDING N-uniformly across
   // ALL measured W1 numerical channels -- the deterministic KBN floor (imp-36083, ~3.9-6.5 orders

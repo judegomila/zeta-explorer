@@ -12084,6 +12084,7 @@ const DATA_MODULES = [
   // stages for a reader landing on any one obligation cold. Note only; imports all four
   // source modules verbatim; NO QED.
   '/src/data/imp-36210-step4-obligations-storyline-crossref.js',
+  '/src/data/imp-36121-step5-per-step-upgrade-dependency.js',
 ];
 
 let ALL_MODULES = FAST_MODE

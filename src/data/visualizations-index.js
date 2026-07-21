@@ -1683,6 +1683,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive chart re-exporting the imp-36173 tabulation verbatim (no new numerics, no heavy data-module import); tabulation/bookkeeping only; B2-effective-height-Tstar (imp-35099) stays BLOCKED since the achieved-N of Steps 3-4 is undefined; upgrades no status string; changes no bound, establishes no operator positivity, no RH verdict; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp36192-i2-truncation-blowup',
+      title: 'I2 Local-Truncation Blow-up dt^5 delta^-9 vs Min Gap',
+      oneLine:
+        'Log-log chart of the imp-36192 I2 crux ingredient: RK4 local truncation scale dt^5 * delta^-9 against the min particle gap delta, tiny in the bulk (delta ~ O(1)) and vacuous (>1) as delta -> 1e-4 near the collision front.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-36192-step2-g-step-error-apriori-truncation-scope.js',
+      paperSourcePath: 'src/data/imp-36192-step2-g-step-error-apriori-truncation-scope.js (I2 crux; imp-36244 viz page)',
+      ticket: 'imp-36244',
+      pedagogicalStep: 117,
+      honestCeiling:
+        'Illustrative curve reusing the baked imp-36192 crux exponents (dt^5, delta^-9) and representative dt = 1e-5 (no new numerics, no heavy data-module import); presentation only; G-step-error stays OPEN and NOT independently dischargeable (coupled to G-gronwall and G-interval-enclosure); changes no bound, establishes no operator positivity, no RH verdict; NO QED.',
+    }),
   ]),
 });
 

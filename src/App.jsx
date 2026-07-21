@@ -953,6 +953,9 @@ const Imp36227EnThreefoldImp321LadderViz = lazy(() =>
 const Imp36173B2TstarChecklistLadderViz = lazy(() =>
   import('./pages/Imp36173B2TstarChecklistLadderViz.jsx')
 );
+const Imp36192I2TruncationBlowupViz = lazy(() =>
+  import('./pages/Imp36192I2TruncationBlowupViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2634,6 +2637,10 @@ function AppShell() {
           <Route
             path="/viz-imp36173-b2-tstar-checklist-ladder"
             element={<Imp36173B2TstarChecklistLadderViz />}
+          />
+          <Route
+            path="/viz-imp36192-i2-truncation-blowup"
+            element={<Imp36192I2TruncationBlowupViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

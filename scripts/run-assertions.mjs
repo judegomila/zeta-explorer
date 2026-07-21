@@ -12163,6 +12163,13 @@ const DATA_MODULES = [
   // showing R1, R2, R3, R4, and R6 are all transitively gated by the single UNIMPLEMENTED
   // primitive R5 (imp-34687a directed-rounding layer). Documentation/UX only; NO QED.
   '/src/data/imp-36247-krawczyk-r1-r6-dependency-checklist.js',
+  // imp-36249 (content, sonnet-4-6, sonnet): integrity audit confirming
+  // SOTA_LAMBDA_CLAIM.status/rigorLevel/headline.statement and the
+  // conditionalBookkeeping B1/B2/B3 items still carry the finite-height /
+  // RH-modulo-GUE caveat and remain BLOCKED after imp-36173's B2 T_star ladder
+  // module; cross-checks imp-36173's own non-drift declaration against the
+  // actual source records. Audit only; NO QED.
+  '/src/data/imp-36249-b1b2b3-caveat-integrity-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

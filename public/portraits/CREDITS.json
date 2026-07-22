@@ -1,5 +1,5 @@
 {
-  "_note": "Portrait photographs of de Bruijn-Newman constant contributors. Only Public Domain / Creative Commons images from Wikimedia Commons. Identity verified against Wikipedia/Commons metadata before download.",
+  "_note": "Portrait photographs for the History of the Riemann Hypothesis / de Bruijn-Newman contributors page. Only Public Domain / Creative Commons (CC0/CC-BY/CC-BY-SA) images, preferably from Wikimedia Commons. Identity verified against Wikipedia/Commons metadata (dates/field) before download. CC-BY / CC-BY-SA images require the listed attribution to be displayed. People with no confidently-correct freely-licensed image are listed under 'skipped' and fall back to a colored-initials avatar.",
   "generated": "2026-07-22",
   "portraits": [
     {
@@ -37,18 +37,251 @@
       "license": "CC BY-SA 2.0 DE",
       "attribution": "Konrad Jacobs, Erlangen; copyright Mathematisches Forschungsinstitut Oberwolfach (MFO). Oberwolfach Photo Collection, 1988.",
       "confidence": "high"
+    },
+    {
+      "key": "euler",
+      "file": "portraits/euler.jpg",
+      "person": "Leonhard Euler (Swiss mathematician, 1707-1783)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Leonhard_Euler_-_Jakob_Emanuel_Handmann_(Kunstmuseum_Basel).jpg",
+      "license": "Public Domain",
+      "attribution": "Jakob Emanuel Handmann (1753), Kunstmuseum Basel. PD (author d. 1781).",
+      "confidence": "high"
+    },
+    {
+      "key": "gauss",
+      "file": "portraits/gauss.jpg",
+      "person": "Carl Friedrich Gauss (German mathematician, 1777-1855)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Carl_Friedrich_Gauss_1840_by_Jensen.jpg",
+      "license": "Public Domain",
+      "attribution": "Christian Albrecht Jensen (1840). PD.",
+      "confidence": "high"
+    },
+    {
+      "key": "dirichlet",
+      "file": "portraits/dirichlet.jpg",
+      "person": "Peter Gustav Lejeune Dirichlet (German mathematician, 1805-1859)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Gustav_Lejeune_Dirichlet.jpg",
+      "license": "Public Domain",
+      "attribution": "Unknown (19th c.). PD (life+70).",
+      "confidence": "high"
+    },
+    {
+      "key": "chebyshev",
+      "file": "portraits/chebyshev.jpg",
+      "person": "Pafnuty Chebyshev (Russian mathematician, 1821-1894)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:M._Tchebycheef_-_btv1b53181332k_(cropped).jpg",
+      "license": "Public Domain",
+      "attribution": "Atelier Nadar / Bibliotheque nationale de France. PD.",
+      "confidence": "high"
+    },
+    {
+      "key": "riemann",
+      "file": "portraits/riemann.jpg",
+      "person": "Bernhard Riemann (German mathematician, 1826-1866)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Georg_Friedrich_Bernhard_Riemann.jpeg",
+      "license": "Public Domain",
+      "attribution": "Unknown (1863 photograph), Smithsonian Institution. PD (life+70).",
+      "confidence": "high"
+    },
+    {
+      "key": "hilbert",
+      "file": "portraits/hilbert.jpg",
+      "person": "David Hilbert (German mathematician, 1862-1943)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Hilbert.jpg",
+      "license": "Public Domain",
+      "attribution": "Unknown (University of Gottingen postcard, before 1912). PD.",
+      "confidence": "high"
+    },
+    {
+      "key": "hadamard",
+      "file": "portraits/hadamard.jpg",
+      "person": "Jacques Hadamard (French mathematician, 1865-1963)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Hadamard2_cropped.jpg",
+      "license": "Public Domain (PD Mark 1.0)",
+      "attribution": "Unknown; marked free of known copyright restrictions.",
+      "confidence": "high"
+    },
+    {
+      "key": "vallee-poussin",
+      "file": "portraits/vallee-poussin.jpg",
+      "person": "Charles-Jean de la Vallee Poussin (Belgian mathematician, 1866-1962)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:De_La_Vall%C3%A9e_Poussin.jpg",
+      "license": "Public Domain (PD Mark 1.0)",
+      "attribution": "Unknown author (c. 1900). PD.",
+      "confidence": "high"
+    },
+    {
+      "key": "hardy",
+      "file": "portraits/hardy.jpg",
+      "person": "G. H. Hardy (English mathematician, 1877-1947)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Ghhardy@72.jpg",
+      "license": "Public Domain",
+      "attribution": "Unknown author (c. 1927). PD (faithful reproduction of 2D PD work).",
+      "confidence": "high"
+    },
+    {
+      "key": "landau",
+      "file": "portraits/landau.jpg",
+      "person": "Edmund Landau (German mathematician, 1877-1938)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Edmund_Landau.jpg",
+      "license": "Public Domain (PD Mark 1.0)",
+      "attribution": "Unknown author (1920s or earlier). PD. (NOT the physicist Lev Landau.)",
+      "confidence": "high"
+    },
+    {
+      "key": "littlewood",
+      "file": "portraits/littlewood.jpg",
+      "person": "John Edensor Littlewood (English mathematician, 1885-1977)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:John_Edensor_Littlewood_(The_Illustrated_London_News,_1905).png",
+      "license": "Public Domain",
+      "attribution": "Stearn & Sons, Cambridge (published 1905, The Illustrated London News). PD (pre-1931). NOTE: file is .png.",
+      "confidence": "high"
+    },
+    {
+      "key": "polya",
+      "file": "portraits/polya.jpg",
+      "person": "George Polya (Hungarian-American mathematician, 1887-1985)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:ETH-BIB-Polya,_Georg_(1887-1985)-Portrait-Portr_13887-19-AL.tif",
+      "license": "Public Domain (PD Mark 1.0)",
+      "attribution": "Unknown photographer (before 1935); source ETH-Bibliothek. Downloaded as rendered JPEG from the .tif.",
+      "confidence": "high"
+    },
+    {
+      "key": "weil",
+      "file": "portraits/weil.jpg",
+      "person": "Andre Weil (French mathematician, 1906-1998)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Andr%C3%A9_Weil,_1968_(cropped).jpg",
+      "license": "CC BY-SA 2.0 DE",
+      "attribution": "Konrad Jacobs, Erlangen; Mathematisches Forschungsinstitut Oberwolfach (MFO). Oberwolfach 1968 (cropped). NOT Hermann Weyl. Small image (172px wide, largest free version).",
+      "confidence": "high"
+    },
+    {
+      "key": "siegel",
+      "file": "portraits/siegel.jpg",
+      "person": "Carl Ludwig Siegel (German mathematician, 1896-1981)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Carl_Ludwig_Siegel.jpeg",
+      "license": "CC BY-SA 2.0 DE",
+      "attribution": "Konrad Jacobs; Mathematisches Forschungsinstitut Oberwolfach (MFO). Gottingen 1975.",
+      "confidence": "high"
+    },
+    {
+      "key": "turing",
+      "file": "portraits/turing.jpg",
+      "person": "Alan Turing (English mathematician/computer scientist, 1912-1954)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Alan_Turing_(1951).jpg",
+      "license": "Public Domain (PD Mark 1.0)",
+      "attribution": "Elliott & Fry (29 March 1951). PD.",
+      "confidence": "high"
+    },
+    {
+      "key": "turan",
+      "file": "portraits/turan.jpg",
+      "person": "Paul (Pal) Turan (Hungarian mathematician, 1910-1976)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_183-33149-0001,_Leipzig,_Universit%C3%A4t,_Professor_Turan.jpg",
+      "license": "CC BY-SA 3.0 DE",
+      "attribution": "Bundesarchiv, Bild 183-33149-0001 (Leipzig, 1955).",
+      "confidence": "high"
+    },
+    {
+      "key": "selberg",
+      "file": "portraits/selberg.jpg",
+      "person": "Atle Selberg (Norwegian-American mathematician, 1917-2007)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Atle_Selberg.jpg",
+      "license": "CC BY-SA 2.0 DE",
+      "attribution": "Konrad Jacobs, Erlangen; Mathematisches Forschungsinstitut Oberwolfach (MFO).",
+      "confidence": "high"
+    },
+    {
+      "key": "penrose",
+      "file": "portraits/penrose.jpg",
+      "person": "Roger Penrose (English mathematical physicist, b. 1931)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Roger_Penrose_9671.JPG",
+      "license": "CC BY 3.0 (also GFDL 1.2+)",
+      "attribution": "Biswarup Ganguly (7 January 2011).",
+      "confidence": "high"
+    },
+    {
+      "key": "berry",
+      "file": "portraits/berry.jpg",
+      "person": "Michael Berry (British physicist, Bristol, b. 1941)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Michael_Berry,_Yerevan_-_Ashtarak,_Armenia,_FOP-2014,_03.09.2014_(cropped).jpg",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Vahram Mekhitarian (photo); cropped by Jakob Gottfried.",
+      "confidence": "high"
+    },
+    {
+      "key": "montgomery",
+      "file": "portraits/montgomery.jpg",
+      "person": "Hugh L. Montgomery (American number theorist, Univ. Michigan, b. 1944)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Hugh_Montgomery_at_Oberwolfach_2008.jpg",
+      "license": "CC BY-SA 2.0 DE",
+      "attribution": "Renate Schmid; Mathematisches Forschungsinstitut Oberwolfach (MFO), 2008.",
+      "confidence": "high"
+    },
+    {
+      "key": "connes",
+      "file": "portraits/connes.jpg",
+      "person": "Alain Connes (French mathematician, Fields 1982, b. 1947)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Alain_Connes.jpg",
+      "license": "CC BY-SA 2.0 DE",
+      "attribution": "Renate Schmid; Mathematisches Forschungsinstitut Oberwolfach (MFO), 2004.",
+      "confidence": "high"
+    },
+    {
+      "key": "chaitin",
+      "file": "portraits/chaitin.jpg",
+      "person": "Gregory Chaitin (Argentine-American mathematician/CS, b. 1947)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Gregory_Chaitin_hiking.jpg",
+      "license": "CC BY-SA 4.0",
+      "attribution": "LeibnizOmega (Wikimedia Commons), White Mountains NH, 2008.",
+      "confidence": "medium (correct person confirmed; informal outdoor hiking photo, not a formal headshot)"
+    },
+    {
+      "key": "sarnak",
+      "file": "portraits/sarnak.jpg",
+      "person": "Peter Sarnak (South-African-American mathematician, Princeton/IAS, b. 1953)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Sarnak_(ICM_2018).jpg",
+      "license": "Public Domain (CC Public Domain Mark; Flickr-reviewed)",
+      "attribution": "ICM 2018, Rio (photographer Christian Rodrigues). PD.",
+      "confidence": "high"
+    },
+    {
+      "key": "conrey",
+      "file": "portraits/conrey.jpg",
+      "person": "Brian Conrey (American mathematician, AIM director, b. 1955)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Brian_Conrey.JPG",
+      "license": "CC BY-SA 3.0 (dual with GFDL 1.2+)",
+      "attribution": "Sandrobt (Wikimedia Commons).",
+      "confidence": "high"
+    },
+    {
+      "key": "maynard",
+      "file": "portraits/maynard.jpg",
+      "person": "James Maynard (British mathematician, Oxford, Fields 2022, b. 1987)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:James_Maynard_MFO_2013.jpg",
+      "license": "CC BY-SA 2.0 DE",
+      "attribution": "Petra Lein; Mathematisches Forschungsinstitut Oberwolfach (MFO), 2013.",
+      "confidence": "high"
+    },
+    {
+      "key": "guth",
+      "file": "portraits/guth.jpg",
+      "person": "Larry Guth (American mathematician, MIT, b. 1977)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Larry_Guth_at_Oberwolfach,_2025_(cropped).jpg",
+      "license": "CC BY-SA 2.0 DE",
+      "attribution": "Marlene Ruf; Mathematisches Forschungsinstitut Oberwolfach (MFO), 2025 (cropped).",
+      "confidence": "medium-high"
     }
   ],
   "skipped": [
-    { "key": "newman", "reason": "No free-licensed standalone portrait found. Wikipedia article has no infobox photo; only appears in an ambiguous group photo (Newman_molchanov_gaertner.jpg) where cropping the correct face would be a guess." },
-    { "key": "rodgers", "reason": "No free image found. Only copyrighted university/personal profile pages (Queen's University, UZH)." },
-    { "key": "platt", "reason": "No free image found. Only copyrighted university profile pages (Univ. Bristol)." },
-    { "key": "trudgian", "reason": "No free image found. Only copyrighted institutional profile pages (UNSW Canberra)." },
-    { "key": "csordas", "reason": "No free image found. Only copyrighted Univ. Hawaii page / obituary." },
-    { "key": "norfolk", "reason": "No free image found; no Wikimedia Commons presence." },
-    { "key": "smith", "reason": "No free image found; name too common to disambiguate a confidently-correct free image." },
-    { "key": "saouter", "reason": "No free image found; no Wikimedia Commons presence." },
-    { "key": "papanikolaou", "reason": "No free image found; no reliable disambiguated identity/image located." },
-    { "key": "demichel", "reason": "No free image found; only ResearchGate (copyrighted)." }
+    { "key": "bohr", "reason": "Harald Bohr (mathematician, 1887-1951): no confidently-correct freely-licensed SOLO portrait on Commons. The en-Wikipedia infobox image is a non-free/fair-use local upload; Commons Category:Harald Bohr has only group photos. Skipped to avoid a non-free or ambiguous image (and to avoid confusion with his brother Niels Bohr)." },
+    { "key": "apery", "reason": "Roger Apery (1916-1994): no freely-licensed portrait on Commons (only a grave plaque); Wikidata Q965545 has no P18 image." },
+    { "key": "levinson", "reason": "Norman Levinson (1912-1975): no freely-licensed portrait on Commons; Wikidata Q795335 has no P18 image; known MIT Museum photos not confirmed free." },
+    { "key": "newman", "reason": "Charles M. Newman (probabilist, b. 1946): no Commons category and no clean unambiguous solo free image; only the previously-identified ambiguous 3-person group photo exists. Skipped per instructions." },
+    { "key": "li", "reason": "Xian-Jin Li (number theorist): no freely-licensed image found on Commons/Wikidata; common name raises misidentification risk. Skipped per caution rules." },
+    { "key": "keating", "reason": "Jon Keating (mathematician, b. 1963): no Commons category (404), no Wikidata P18 image, no Commons media-search hit, no Wikipedia infobox photo." },
+    { "key": "sierra", "reason": "German Sierra (physicist, IFT Madrid): no freely-licensed image on Commons/Wikidata." },
+    { "key": "rodgers", "reason": "Brad Rodgers (number theorist): no freely-licensed image found (consistent with prior attempt)." },
+    { "key": "platt", "reason": "David J. Platt (computational number theorist, Bristol): no freely-licensed image found; only copyrighted university profile pages (consistent with prior attempt)." }
   ]
 }

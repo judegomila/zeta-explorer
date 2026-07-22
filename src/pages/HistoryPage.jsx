@@ -371,6 +371,63 @@ const PEOPLE = [
   },
 ];
 
+// Portrait key per person name. A face at /portraits/<key>.jpg is shown when the key is
+// listed in PORTRAIT_KEYS below (a freely-licensed Wikimedia PD/CC portrait was sourced);
+// otherwise the person's colored-initials avatar is used. Attributions: /portraits/CREDITS.json.
+const NAME_TO_KEY = {
+  'Leonhard Euler': 'euler',
+  'Carl Friedrich Gauss': 'gauss',
+  'Peter Gustav Lejeune Dirichlet': 'dirichlet',
+  'Pafnuty Chebyshev': 'chebyshev',
+  'Bernhard Riemann': 'riemann',
+  'David Hilbert': 'hilbert',
+  'Jacques Hadamard': 'hadamard',
+  'Charles de la Vallee-Poussin': 'vallee-poussin',
+  'G.H. Hardy': 'hardy',
+  'Edmund Landau': 'landau',
+  'J.E. Littlewood': 'littlewood',
+  'Harald Bohr': 'bohr',
+  'George Polya': 'polya',
+  'Andre Weil': 'weil',
+  'Carl Ludwig Siegel': 'siegel',
+  'Alan Turing': 'turing',
+  'Paul Turan': 'turan',
+  'Norman Levinson': 'levinson',
+  'Roger Apery': 'apery',
+  'Atle Selberg': 'selberg',
+  'Nicolaas de Bruijn': 'debruijn',
+  'Roger Penrose': 'penrose',
+  'Michael Berry': 'berry',
+  'Hugh Montgomery': 'montgomery',
+  'Charles Newman': 'newman',
+  'Alain Connes': 'connes',
+  'Gregory Chaitin': 'chaitin',
+  'Andrew Odlyzko': 'odlyzko',
+  'Peter Sarnak': 'sarnak',
+  'Brian Conrey': 'conrey',
+  'Xian-Jin Li': 'li',
+  'Jon Keating': 'keating',
+  'German Sierra': 'sierra',
+  'Terence Tao': 'tao',
+  'Brad Rodgers': 'rodgers',
+  'James Maynard': 'maynard',
+  'Larry Guth': 'guth',
+  'David Platt': 'platt',
+};
+
+// Keys with a sourced, freely-licensed portrait file in public/portraits/.
+// Expanded as portraits are verified + downloaded (Wikimedia PD/CC only).
+const PORTRAIT_KEYS = new Set([
+  // Public domain
+  'euler', 'gauss', 'dirichlet', 'chebyshev', 'riemann', 'hilbert', 'hadamard',
+  'vallee-poussin', 'hardy', 'landau', 'littlewood', 'polya', 'turing', 'sarnak',
+  // CC-BY / CC-BY-SA (attributions in /portraits/CREDITS.json + on-page credit)
+  'weil', 'siegel', 'turan', 'selberg', 'penrose', 'berry', 'montgomery', 'connes',
+  'chaitin', 'conrey', 'maynard', 'guth', 'debruijn', 'tao', 'odlyzko',
+  // (skipped — no freely-licensed portrait, initials fallback:
+  //  bohr, apery, levinson, newman, li, keating, sierra, rodgers, platt)
+]);
+
 const ERAS = [
   { id: 'origins', label: 'Origins', color: '#f59e0b' },
   { id: 'classical', label: 'Classical', color: '#3b82f6' },
@@ -656,6 +713,9 @@ const TIMELINE = [
 ];
 
 function PersonCard({ person }) {
+  const [imgFailed, setImgFailed] = React.useState(false);
+  const key = NAME_TO_KEY[person.name];
+  const photo = key && PORTRAIT_KEYS.has(key) && !imgFailed ? `/portraits/${key}.jpg` : null;
   return (
     <div style={{
       display: 'flex', gap: 14, padding: 16,
@@ -710,19 +770,35 @@ function PersonCard({ person }) {
         </a>
       )}
 
-      {/* Initials avatar */}
+      {/* Portrait: photo when a freely-licensed one exists, else colored-initials avatar */}
       <div style={{ flexShrink: 0 }}>
-        <div style={{
-          width: 48, height: 48, borderRadius: '50%',
-          background: person.color,
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontSize: 18, fontWeight: 700, color: '#ffffff',
-          fontFamily: 'var(--font-mono)',
-          letterSpacing: '-0.5px',
-          boxShadow: `0 0 12px ${person.color}30`,
-        }}>
-          {person.initials}
-        </div>
+        {photo ? (
+          <img
+            src={photo}
+            alt={person.name}
+            title={person.name}
+            loading="lazy"
+            onError={() => setImgFailed(true)}
+            style={{
+              width: 48, height: 48, borderRadius: '50%',
+              objectFit: 'cover', display: 'block',
+              border: `2px solid ${person.color}`,
+              boxShadow: `0 0 12px ${person.color}30`,
+            }}
+          />
+        ) : (
+          <div style={{
+            width: 48, height: 48, borderRadius: '50%',
+            background: person.color,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            fontSize: 18, fontWeight: 700, color: '#ffffff',
+            fontFamily: 'var(--font-mono)',
+            letterSpacing: '-0.5px',
+            boxShadow: `0 0 12px ${person.color}30`,
+          }}>
+            {person.initials}
+          </div>
+        )}
       </div>
 
       {/* Bio */}
@@ -992,6 +1068,13 @@ export default function HistoryPage() {
             </div>
           );
         })}
+        <p style={{ fontSize: 10.5, color: '#475569', lineHeight: 1.5, marginTop: 4 }}>
+          Portrait credits: photographs from Wikimedia Commons — Public Domain for the historical
+          figures (Euler through Turing) and Creative Commons (CC-BY / CC-BY-SA, several from the
+          Mathematisches Forschungsinstitut Oberwolfach / Konrad Jacobs) for the modern ones; full
+          per-image attributions in <a href="/portraits/CREDITS.json" target="_blank" rel="noreferrer" style={{ color: '#64748b' }}>/portraits/CREDITS.json</a>.
+          Contributors with no freely-licensed portrait are shown as initials.
+        </p>
       </div>
 
       {/* ─── Key Results Explained (TLDRs) ─── */}

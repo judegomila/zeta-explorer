@@ -16,6 +16,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { scaleLog, scaleLinear } from 'd3-scale';
 import { LAMBDA_BOUNDS } from '../data/lambda-roadmap.js';
+import { LAMBDA_TIMELINE } from '../data/lambda-historical-timeline.js';
+import { personFor } from '../data/lambda-timeline-people.js';
+import FaceAvatar from '../components/FaceAvatar.jsx';
 // IMPORTANT: do NOT import (statically OR via dynamic import()) the modules
 // finite-k-c-mb-unconditional.js or finite-height-beats-platt-trudgian.js
 // here. Both transitively import imp-962-plateau-structure-N10k-to-N1e6.js,
@@ -314,6 +317,80 @@ export default function LambdaTimelinePage() {
             <div style={{ fontSize: 11, color: 'var(--text-secondary)' }}>{r.method}</div>
           </div>
         ))}
+      </div>
+
+      {/* ── Historical contributors timeline (chronological, with faces) ────── */}
+      <div style={{ marginTop: 32 }}>
+        <h2 style={{ marginBottom: 4 }}>Historical Contributors</h2>
+        <p style={{ fontSize: 12.5, color: 'var(--text-secondary)', marginTop: 0, maxWidth: 760, lineHeight: 1.6 }}>
+          Every published de Bruijn–Newman (Λ) bound, in chronological order, with the people behind it.
+          A face links to the contributor’s Wikipedia page where one exists; where no freely-licensed
+          portrait is available a monogram is shown, and machine/engine entries carry no face.
+        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 2, marginTop: 14 }}>
+          {LAMBDA_TIMELINE.map((entry, i) => {
+            const persons = entry.authors.map(personFor).filter(Boolean);
+            const isMachine = persons.length === 0;
+            const rel = entry.direction === 'upper' ? '≤' : '≥';
+            return (
+              <div
+                key={entry.year + '-' + i}
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '58px auto 1fr',
+                  gap: 14,
+                  alignItems: 'start',
+                  padding: '12px 4px',
+                  borderTop: i === 0 ? 'none' : '1px solid var(--border)',
+                }}
+              >
+                {/* Year */}
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 15, fontWeight: 700, color: '#a855f7', paddingTop: 6 }}>
+                  {entry.year}
+                </div>
+
+                {/* Faces */}
+                <div style={{ display: 'flex', gap: -6, minWidth: 52 }}>
+                  {isMachine ? (
+                    <div
+                      title="mathexplorer engine (not a person)"
+                      style={{
+                        width: 44, height: 44, borderRadius: '50%', flexShrink: 0,
+                        border: '2px dashed #475569', display: 'flex', alignItems: 'center',
+                        justifyContent: 'center', color: '#64748b', fontSize: 18,
+                      }}
+                    >⚙</div>
+                  ) : (
+                    persons.map((p, j) => (
+                      <div key={p.key} style={{ marginLeft: j === 0 ? 0 : -8, zIndex: persons.length - j }}>
+                        <FaceAvatar person={p} size={44} />
+                      </div>
+                    ))
+                  )}
+                </div>
+
+                {/* Body */}
+                <div>
+                  <div style={{ fontSize: 13.5, color: 'var(--text-primary)', fontWeight: 600 }}>
+                    {entry.authors.join(', ')}
+                    <span style={{ fontFamily: 'var(--font-mono)', color: entry.direction === 'upper' ? '#fca5a5' : '#86efac', marginLeft: 8 }}>
+                      Λ {rel} {entry.bound}
+                    </span>
+                  </div>
+                  <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 3, lineHeight: 1.55 }}>
+                    {entry.method}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <div style={{ marginTop: 10, fontSize: 10.5, color: 'var(--text-muted)', lineHeight: 1.5 }}>
+          Portrait credits: de Bruijn, Odlyzko, Varga — photos by Konrad Jacobs, Mathematisches
+          Forschungsinstitut Oberwolfach (MFO), CC&nbsp;BY-SA&nbsp;2.0&nbsp;DE. Tao — Institute for Pure &amp;
+          Applied Mathematics (IPAM), CC&nbsp;BY&nbsp;4.0. Other contributors shown as monograms (no
+          freely-licensed portrait found). Full attributions: /portraits/CREDITS.json.
+        </div>
       </div>
 
       {/* Numeric reference table. */}

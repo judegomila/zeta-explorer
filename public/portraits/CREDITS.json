@@ -1,0 +1,54 @@
+{
+  "_note": "Portrait photographs of de Bruijn-Newman constant contributors. Only Public Domain / Creative Commons images from Wikimedia Commons. Identity verified against Wikipedia/Commons metadata before download.",
+  "generated": "2026-07-22",
+  "portraits": [
+    {
+      "key": "debruijn",
+      "file": "portraits/debruijn.jpg",
+      "person": "Nicolaas Govert de Bruijn (Dutch mathematician, 1918-2012)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Nicolaas_de_Bruijn.jpg",
+      "license": "CC BY-SA 2.0 DE",
+      "attribution": "Konrad Jacobs, Erlangen; copyright Mathematisches Forschungsinstitut Oberwolfach (MFO). Oberwolfach Photo Collection.",
+      "confidence": "high"
+    },
+    {
+      "key": "tao",
+      "file": "portraits/tao.jpg",
+      "person": "Terence Tao (UCLA, Fields Medalist, b. 1975)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Terence_Tao_at_IPAM%27s_Fireside_Chat_2026_(50m16s)_(cropped).jpg",
+      "license": "CC BY 4.0",
+      "attribution": "Institute for Pure & Applied Mathematics (IPAM), cropped from IPAM Fireside Chat 2026.",
+      "confidence": "high"
+    },
+    {
+      "key": "odlyzko",
+      "file": "portraits/odlyzko.jpg",
+      "person": "Andrew M. Odlyzko (mathematician/computer scientist, Univ. Minnesota, b. 1949)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Andrew_Odlyzko.jpg",
+      "license": "CC BY-SA 2.0 DE",
+      "attribution": "Konrad Jacobs, Erlangen; copyright Mathematisches Forschungsinstitut Oberwolfach (MFO). Oberwolfach Photo Collection, 1986.",
+      "confidence": "high"
+    },
+    {
+      "key": "varga",
+      "file": "portraits/varga.jpg",
+      "person": "Richard S. Varga (American numerical analyst, Kent State, 1928-2022)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Richard_Varga.jpg",
+      "license": "CC BY-SA 2.0 DE",
+      "attribution": "Konrad Jacobs, Erlangen; copyright Mathematisches Forschungsinstitut Oberwolfach (MFO). Oberwolfach Photo Collection, 1988.",
+      "confidence": "high"
+    }
+  ],
+  "skipped": [
+    { "key": "newman", "reason": "No free-licensed standalone portrait found. Wikipedia article has no infobox photo; only appears in an ambiguous group photo (Newman_molchanov_gaertner.jpg) where cropping the correct face would be a guess." },
+    { "key": "rodgers", "reason": "No free image found. Only copyrighted university/personal profile pages (Queen's University, UZH)." },
+    { "key": "platt", "reason": "No free image found. Only copyrighted university profile pages (Univ. Bristol)." },
+    { "key": "trudgian", "reason": "No free image found. Only copyrighted institutional profile pages (UNSW Canberra)." },
+    { "key": "csordas", "reason": "No free image found. Only copyrighted Univ. Hawaii page / obituary." },
+    { "key": "norfolk", "reason": "No free image found; no Wikimedia Commons presence." },
+    { "key": "smith", "reason": "No free image found; name too common to disambiguate a confidently-correct free image." },
+    { "key": "saouter", "reason": "No free image found; no Wikimedia Commons presence." },
+    { "key": "papanikolaou", "reason": "No free image found; no reliable disambiguated identity/image located." },
+    { "key": "demichel", "reason": "No free image found; only ResearchGate (copyrighted)." }
+  ]
+}

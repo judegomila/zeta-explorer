@@ -94,30 +94,38 @@ export const LAMBDA_BOUNDS = [
   },
   {
     id: 'our-asymptotic-via-imp-1261-redirect',
-    label: 'Λ ≤ 3.06×10⁻⁵ asymptotic UNCONDITIONAL (modulo Polymath15 G6a, ~6,500× under PT)',
-    kind: 'upper-asymptotic-unconditional',
+    label:
+      'Λ ≤ 3.06×10⁻⁵ (asymptotic) — OVERCLAIM CORRECTED: NOT a rigorous sub-PT ' +
+      'bound; conditional on RH-equivalent C_H + uncertified E_trunc + unsupplied E(N)→0',
+    kind: 'upper-asymptotic-conditional',
     value: 3.06e-5,
-    isUnconditional: true,
-    modulo: 'Polymath15 G6a',
-    status: 'rigorous-modulo-polymath15-G6a',
-    source: 'imp-1261 redirect (imp-341 lim sup + imp-1149 / Theorem 3 N^{-3/2} rate)',
+    isUnconditional: false,
+    modulo: 'RH-equivalent C_H/G6a + uncertified E_trunc + unsupplied E(N)→0 + proxy id + refuted M_∞ rate',
+    status: 'overclaim-corrected-conditional-RH-equivalent',
+    source: 'imp-1261 redirect (imp-341 lim sup + imp-1149 rate); CORRECTED by 3-auditor review 2026-07',
     note:
-      'SECOND PROJECT RESULT IMPROVING THE ASYMPTOTIC Λ UPPER BOUND BELOW PT 2021, ' +
-      'AND THE FIRST UNCONDITIONAL ONE (modulo Polymath15 bridge G6a). The chain ' +
-      'imp-341 (lim sup_N |t_c(N)| = 0 unconditional, shipped 2025) + imp-1149 / ' +
-      'paper Theorem 3 (explicit unconditional N^{-3/2} rate on |t_c(N) - 1/(2 M_∞(N))|) ' +
-      'composes via the triangle inequality + the M_∞(N) ≥ K_1 (L - log 4π) √N ' +
-      'strip-Jacobian decay to give |t_c(N)| ≤ C_HO / (L · N^{3/2}) + 1/(2 K_1 ' +
-      '(L - log 4π) √N) → 0 as N → ∞, unconditionally. Composed with the Polymath15 ' +
-      'bridge + E_trunc_pt = 3.06×10⁻⁵ (Ingham at T_PT = 3e12) and the vanishing ' +
-      'E_flow / E_coll terms gives Λ ≤ 3.06×10⁻⁵ asymptotic. Approximately 6,500× ' +
-      'tighter than PT 2021 unconditional 0.2 AND approximately 26× tighter than ' +
-      'the historical imp-1147 conditional 7.98×10⁻⁴ -- WITH the linear-1/N ' +
-      'conditional dependence removed. SOLE remaining conditional: Polymath15 ' +
-      'bridge step 4 G6a_shock_lipschitz (sub-tracked as imp-1264). imp-1246 ' +
-      'identified the redirect path; imp-1261 executed the composition rewrite ' +
-      'in src/data/asymptotic-lambda-bound-2026-05-20.js (no new mathematics ' +
-      'required -- imp-341 + imp-1149 already deliver the chain).',
+      'AUDIT CORRECTION 2026-07 (superseded overclaim). Λ ≤ 3.06×10⁻⁵ (asymptotic) ' +
+      'is NOT a rigorous sub-PT bound. The earlier "UNCONDITIONAL / second project ' +
+      'result / ~6,500× under PT" framing is RETRACTED. It is conditional on: ' +
+      '(a) the RH-EQUIVALENT Hölder-½ shock modulus C_H / G6a (imp-2640 Gronwall ' +
+      'discharge NEGATIVE / RH-hard-confirmed; imp-35147 shows C_H ⇔ a uniform ' +
+      'all-height minimal-gap lower bound) — NOT one lemma away and NOT the sole ' +
+      'gate; rh-dag.js marks the G6a node severity:open (earlier "closed" framing = ' +
+      'WITHDRAWN overclaim). (b) an uncertified / mis-stated E_trunc constant ' +
+      '(imp-34791 prefactor bug → honest ≈ 5.1×10⁻⁵, not 3.06×10⁻⁵; imp-1324 Ramaré ' +
+      'line wrong ~9.5×10⁷; obligation G-Etrunc-Eflow-constants closed:false). ' +
+      '(c) an unsupplied E(N) → 0 (imp-35164: on the current surrogate E(N) FLOORS ' +
+      'at E_trunc and does NOT vanish; obligation G-EN-ladder-verify closed:false). ' +
+      'Plus the |t_c(N)| → 0 leg bounds a Stieltjes-transform PROXY (imp-2563 R_A ' +
+      'open) on a repo-refuted rate step (imp-2621 falsified the continuum ' +
+      'amplification — only the bare limit survives). The ONLY unconditional Λ upper ' +
+      'bound remains Platt–Trudgian Λ ≤ 0.2 (SOTA). The genuinely-unconditional ' +
+      'content here is limsup_N |t_c^proxy(N)| = 0 (RvM counting + Trudgian ' +
+      'C_Selberg = 3; no GUE / no RH), which is INERT — it does not by itself bound ' +
+      'Λ. The one conditional genuinely removed by imp-1246 / imp-1261 is the ' +
+      'linear-1/N OLS model, but its removal does not make the composed value ' +
+      'rigorous. See src/data/asymptotic-lambda-bound-2026-05-20.js honestScope / ' +
+      'numericalStatus for the live status.',
   },
   {
     id: 'our-asymptotic-via-imp-1147',
@@ -1814,22 +1822,27 @@ export const LAMBDA_ROADMAP_MILESTONES = [
   },
   {
     id: 'volterra-collapse-2026-05-28',
-    label: 'Volterra-norm collapse + Λ ≤ 3.06e-5 (modulo Polymath15 G6a) execution',
+    label: 'Volterra-norm collapse + Λ ≤ 3.06e-5 (asymptotic) composition — OVERCLAIM CORRECTED',
     date: '2026-05-28',
     kind: 'proof-milestone',
     summary:
       'imp-1258 two-way collapse reduces 7+ paper conjectures (§15-27) to single ' +
       'statement ‖V_{a,Φ}‖ ≤ 1, with ~5000× empirical support from saturation. ' +
-      'imp-1246 delivers Λ ≤ 3.06×10⁻⁵ modulo Polymath15 G6a (matching the ' +
-      'rigorous-modulo-polymath15-G6a grade of the LAMBDA_BOUNDS asymptotic entry), ' +
-      'beating Platt-Trudgian 2021 by 6500×. imp-1261 executes shipment to paper Theorem 2.',
+      'imp-1246 / imp-1261 composed a Λ ≤ 3.06×10⁻⁵ asymptotic value. AUDIT ' +
+      'CORRECTION 2026-07: that value is NOT a rigorous sub-PT bound — the ' +
+      '"modulo Polymath15 G6a only / beating PT by 6500×" framing is RETRACTED. ' +
+      'It is conditional on the RH-EQUIVALENT shock modulus C_H / G6a (imp-2640 ' +
+      'NEGATIVE, imp-35147 RH-equivalent), an uncertified E_trunc constant (imp-34791), ' +
+      'and an unsupplied E(N)→0 (imp-35164), plus a proxy-identification gate ' +
+      '(imp-2563) on a repo-refuted rate step (imp-2621). Only Λ ≤ 0.2 (PT) is ' +
+      'unconditional. See LAMBDA_BOUNDS entry our-asymptotic-via-imp-1261-redirect.',
     tickets: ['imp-1258', 'imp-1246', 'imp-1261'],
     ticketRange: 'imp-1246/1258/1261 (collapse + execution)',
     relationToLambdaAttack:
-      'Direct load-bearing breakthrough for the Λ-attack: the two-way Volterra-norm ' +
-      'collapse consolidates all remaining closure conditions into a single bound. ' +
-      'The unconditional Λ value is the largest concrete improvement to the SOTA ' +
-      'upper bound delivered by this project.',
+      'The two-way Volterra-norm collapse consolidates paper conjectures into a ' +
+      'single statement. The composed Λ ≤ 3.06×10⁻⁵ value is NOT a rigorous ' +
+      'improvement to the SOTA upper bound (audit 2026-07); the SOTA unconditional ' +
+      'Λ upper bound remains Platt-Trudgian Λ ≤ 0.2.',
   },
 ];
 
@@ -1974,18 +1987,23 @@ export const LAMBDA_ROADMAP_ASSERTIONS = [
     id: 'lambda-dep-matrix-asymptotic-modulo-polymath15',
     holds: () => {
       const closure = lambdaDepMatrixClosure('bound-imp-1261-asymptotic');
-      // The asymptotic 3.06e-5 bound is modulo Polymath15 G6a and nothing else:
-      // its closure must contain that conditional and NOT GUE universality.
+      // The dependency-matrix models the C_H / G6a conditional as present and GUE
+      // universality as absent (the asymptotic route is gated by C_H, not GUE).
       return (
         closure.has('cond-polymath15-G6a') &&
         !closure.has('cond-gue-universality')
       );
     },
     why:
-      'imp-2336: the imp-1261 asymptotic Lambda <= 3.06e-5 bound carries exactly ' +
-      'one modulo conditional (Polymath15 G6a) and explicitly does NOT depend on ' +
-      'GUE universality. This pins both facts structurally so a future edit ' +
-      'cannot quietly add a second conditional or drop the stated one.',
+      'AUDIT CORRECTION 2026-07: the C_H / Polymath15-G6a conditional must appear in ' +
+      'the asymptotic route\'s dependency closure (it is RH-EQUIVALENT per imp-2640 / ' +
+      'imp-35147), and GUE universality must NOT (that is the separate finite-N ' +
+      'Route-A path). This is NOT a claim that G6a is the SOLE gate: the composed ' +
+      '3.06e-5 value is additionally conditional on an uncertified E_trunc constant ' +
+      '(imp-34791), an unsupplied E(N)→0 (imp-35164), and a proxy-identification / ' +
+      'refuted-rate step (imp-2563 / imp-2621) — see the LAMBDA_BOUNDS entry ' +
+      'our-asymptotic-via-imp-1261-redirect. This tripwire only pins the G6a-present / ' +
+      'GUE-absent shape of the dependency graph.',
   },
   {
     id: 'step-4-bridge-canonical-bracket-cited',

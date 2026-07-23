@@ -517,10 +517,15 @@ function S5_TwelveStepChain() {
       subtitle="Live from src/data/proof-chain-snapshot-2026-04-12.js (verified 2026-04-14). The actual sequence of papers + tickets that closed each link.">
       <Para>
         This is the expansion of step 3 and step 4 of the high-level 5-step chain
-        into the 12 publication-grade lemmas they decompose into. Route B delivers
-        the asymptotic unconditional result; Route A + finite-height assembly
+        into the 12 publication-grade lemmas they decompose into. Route B's
+        unconditional asymptotic content is the (inert) limit
+        <InlineMath tex="\limsup_N |t_c^{\text{proxy}}(N)| = 0" /> — it does
+        <em>not</em> by itself yield a rigorous sub-PT <InlineMath tex="\Lambda" />
+        bound (audit 2026-07); Route A + finite-height assembly
         deliver the improved finite-<InlineMath tex="N" /> beat
-        <InlineMath tex="\Lambda \leq 0.121" />.
+        <InlineMath tex="\Lambda \leq 0.121" />. The only unconditional
+        <InlineMath tex="\Lambda" /> upper bound remains Platt–Trudgian
+        <InlineMath tex="\Lambda \leq 0.2" />.
       </Para>
       <div style={{
         display: 'grid',
@@ -599,7 +604,7 @@ function S6_Routes() {
       </Para>
       <BlockMath tex="\|m_N - m_\infty\|_{L^\infty(\{\mathrm{Im}\,z \geq y\})} \;\leq\; \frac{\pi \, C_{\text{Selberg}} \, \log \gamma_N}{N \, y}, \qquad y_N^{\sharp} = \sqrt{\tfrac{2\pi}{N}}." />
       <Para>
-        The only analytical input is Selberg's bound <InlineMath tex="|S(T)| = O(\log T / \log \log T)" />. No GUE, no local law, no Erdős-Schlein-Yau. This is why Route B's asymptotic claim is <strong>unconditional</strong>.
+        The only analytical input is Selberg's bound <InlineMath tex="|S(T)| = O(\log T / \log \log T)" />. No GUE, no local law, no Erdős-Schlein-Yau. This is why Route B's <InlineMath tex="\limsup_N |t_c| = 0" /> claim is <strong>unconditional</strong>. Caveat (audit 2026-07): this bounds a Stieltjes-transform <em>proxy</em> <InlineMath tex="m_N" />, not the true first-collision time — the particle-vs-proxy identification (imp-2563) is open, and the quantitative rate step is repo-refuted (imp-2621); only the bare, <em>inert</em> limit survives, so it does not by itself bound <InlineMath tex="\Lambda" />.
       </Para>
     </Section>
   );

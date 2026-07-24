@@ -111,10 +111,11 @@ export default function RouteMapPage() {
           <strong>{FULL_ROUTE_MAP.totalRoutes} routes</strong> across 5 clusters, classified by
           status and genuine remaining opportunity (full-route-map workflow, {FULL_ROUTE_MAP.date}).
           The honest one-line truth: <strong>there is no shortcut below RH anywhere in the map</strong> —
-          every route that could give an actual Λ&nbsp;&lt;&nbsp;0.2 funnels into one object, the{' '}
+          the inherited Dyson/collision routes seeking to drive Λ to zero funnel into the{' '}
           <strong style={{ color: '#a78bfa' }}>C_H Hölder-½ shock modulus</strong> (RH-hard at the
           modulus). Platt–Trudgian Λ ≤ 0.2 remains the peer-reviewed benchmark;
-          the public 0.1875 certificate-package claim remains unrefereed.
+          the public 0.1875 certificate-package claim remains unrefereed. Separately, the root
+          repository proves Λ ≤ 0.1787854 by an unpublished, unpeer-reviewed computer-assisted route.
         </p>
       </div>
 

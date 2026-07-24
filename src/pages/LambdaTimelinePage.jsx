@@ -176,10 +176,10 @@ export default function LambdaTimelinePage() {
           href="https://doi.org/10.5281/zenodo.21175533"
         />
         <EvidenceCard
-          label="local review candidate"
+          label="repository theorem · unreviewed"
           value="Λ ≤ 0.1787854"
-          detail="Not part of the historical theorem ledger. Stored gates pass; eight interfaces remain open."
-          color="#f59e0b"
+          detail="Computer-assisted theorem sealed in the root repository. Not part of the peer-reviewed historical ledger; unpublished and unpeer-reviewed."
+          color="#22d3ee"
           route="/newman-lambda-01787854-candidate"
         />
       </div>
@@ -291,8 +291,8 @@ export default function LambdaTimelinePage() {
         }}
       >
         A ledger entry records that a claim and package exist. It is not a correctness
-        endorsement. The app keeps the accepted, public-unrefereed, and local-candidate layers
-        separate throughout.
+        endorsement. The app keeps the accepted, public-unrefereed, and
+        local-repository-theorem layers separate throughout.
       </div>
     </div>
   );

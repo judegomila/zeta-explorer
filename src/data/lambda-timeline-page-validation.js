@@ -28,7 +28,7 @@ export const LAMBDA_TIMELINE_PAGE_VALIDATION = Object.freeze({
   routePath: '/lambda-timeline',
   consumes: ['src/data/lambda-historical-timeline.js (LAMBDA_TIMELINE)'],
   description:
-    'Evidence-graded chronology separating peer-reviewed bounds, public unrefereed packages, and the local unpublished candidate.',
+    'Evidence-graded chronology separating peer-reviewed bounds, public unrefereed packages, and the unpublished, unpeer-reviewed repository theorem.',
 });
 
 export const LAMBDA_TIMELINE_PAGE_VALIDATION_ASSERTIONS = [
@@ -57,10 +57,11 @@ export const LAMBDA_TIMELINE_PAGE_VALIDATION_ASSERTIONS = [
       return src != null
         && src.includes('peer-reviewed')
         && src.includes('public package claim')
+        && src.includes('repository theorem')
         && src.includes('/newman-lambda-01787854-candidate');
     },
     why:
-      'Readers must be able to distinguish the peer-reviewed 0.2 benchmark, public unrefereed package claims, and the local candidate audit.',
+      'Readers must be able to distinguish the peer-reviewed 0.2 benchmark, public unrefereed package claims, and the unreviewed repository theorem.',
   },
   {
     id: 'lambda-timeline-excludes-internal-finite-n-bounds',

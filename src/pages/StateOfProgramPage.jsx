@@ -27,8 +27,8 @@ export default function StateOfProgramPage() {
           exists so a reader cannot over-read any single partial page. The summary was reconciled on{' '}
           <strong>{STATE_OF_PROGRAM_SUMMARY_DATE}</strong> against the{' '}
           <strong>full route map ({FULL_ROUTE_MAP.date}, {FULL_ROUTE_MAP.totalRoutes} routes)</strong>,
-          the public fixed-height package, and the local candidate audit. The one-line truth:{' '}
-          <strong>there is no shortcut below RH anywhere in the map.</strong>
+          the public fixed-height package, and the sealed root theorem. The one-line truth:{' '}
+          <strong>Λ ≤ 0.1787854 is proved in the repository, while RH remains open.</strong>
         </p>
       </div>
 

@@ -25,8 +25,9 @@
  *             linear-1/N model.
  *
  * Current context: the peer-reviewed unconditional benchmark remains 0.2.
- * The public 0.1875 package and local 0.1787854 package are review claims /
- * candidates, not entries in this legacy arithmetic registry.
+ * The public 0.1875 package is an unrefereed claim.  The stronger 0.1787854
+ * result is proved in the root repository, but is unpublished and
+ * unpeer-reviewed. Neither is an entry in this legacy arithmetic registry.
  *
  * This module is intentionally NOT imported by any page (it uses node:fs which
  * is unavailable in the browser bundle). The assertion runner
@@ -88,8 +89,8 @@ export const CURRENT_LAMBDA_STATUS = Object.freeze({
   peerReviewedUpperBoundStatus: 'established-unconditional-benchmark',
   publicUnrefereedClaim: 0.1875,
   publicUnrefereedClaimStatus: 'review-open-not-accepted',
-  localCandidate: 0.1787854,
-  localCandidateStatus: 'unpublished-review-candidate',
+  localRepositoryTheorem: 0.1787854,
+  localRepositoryTheoremStatus: 'proved-in-repository-unpublished-unreviewed',
 });
 
 const DATA_DIR = __dirname;
@@ -169,11 +170,14 @@ HEADLINE_NUMBERS_ASSERTIONS.push(
         'established-unconditional-benchmark',
   },
   {
-    id: 'headline-review-claims-not-promoted',
-    why: 'The 0.1875 public package and 0.1787854 local package must remain explicitly review-open',
+    id: 'headline-external-evidence-grades-remain-distinct',
+    why:
+      'The 0.1875 public claim must remain review-open, while 0.1787854 must be graded as a repository theorem without implying publication or peer review',
     holds: () =>
       CURRENT_LAMBDA_STATUS.publicUnrefereedClaimStatus === 'review-open-not-accepted' &&
-      CURRENT_LAMBDA_STATUS.localCandidateStatus === 'unpublished-review-candidate',
+      CURRENT_LAMBDA_STATUS.localRepositoryTheorem === 0.1787854 &&
+      CURRENT_LAMBDA_STATUS.localRepositoryTheoremStatus ===
+        'proved-in-repository-unpublished-unreviewed',
   },
   {
     id: 'headline-heavy-cross-validation-row-remains-withdrawn',

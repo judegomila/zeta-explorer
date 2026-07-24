@@ -84,7 +84,7 @@ export default function ProofStatusCard() {
       { label: 'Accepted RH Proofs', value: '0', color: '#ef4444' },
       { label: 'Peer-Reviewed Λ Cap', value: '0.2', color: '#10b981' },
       { label: 'Public Λ Claim', value: '0.1875', color: '#f59e0b' },
-      { label: 'Local Candidate', value: '0.1787854', color: '#8b5cf6' },
+      { label: 'Repo Theorem*', value: '0.1787854', color: '#22d3ee' },
     ];
 
     stats.forEach((s, i) => {
@@ -97,6 +97,11 @@ export default function ProofStatusCard() {
       ctx.fillStyle = '#64748b';
       ctx.fillText(s.label, x + (w - 40) / 8, statsY + 36);
     });
+
+    ctx.font = '9px "JetBrains Mono", monospace';
+    ctx.fillStyle = '#64748b';
+    ctx.textAlign = 'right';
+    ctx.fillText('* computer-assisted; unpublished and unpeer-reviewed', w - 20, statsY + 52);
 
     // Key result
     ctx.fillStyle = '#1e293b';

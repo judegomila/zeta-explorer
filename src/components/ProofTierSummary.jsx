@@ -1,10 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// Single-source three-tier honest picture shared by /rh-proof-state and /rigor-dashboard.
-// "Two rigorous islands + one estimate" framing: both the published floor and the Volterra
-// RH-equivalence verdict are definitively established; only the finite-N* beat is an estimate.
+// Single-source evidence-grade picture shared by /rh-proof-state and /rigor-dashboard.
+// Publication, repository proof, RH-equivalence, and numerical estimation stay distinct.
 export const PROOF_TIER_DATA = [
+  {
+    key: 'repository-theorem',
+    tier: 'PROVED IN REPOSITORY — Unreviewed',
+    color: '#22d3ee',
+    bg: 'rgba(34,211,238,0.08)',
+    headline: 'Λ ≤ 0.1787854',
+    subhead: 'Computer-assisted theorem — unpublished and unpeer-reviewed',
+    bullets: [
+      'Root commit 9cc69d4775fa seals the complete proof and exact criterion assembly.',
+      'A fresh material replay covers all 3,149,013 finite rows; corrected finite and tail errors use 10.50.',
+      'The compact slab and final-time half-strip are proved; all eight former candidate interfaces are closed.',
+      'The bound is positive and therefore does not prove RH, which requires Λ ≤ 0.',
+    ],
+    link: '/newman-lambda-01787854-candidate',
+  },
   {
     key: 'peer-reviewed-benchmark',
     tier: 'RIGOROUS — Peer-reviewed benchmark',
@@ -62,7 +76,7 @@ export default function ProofTierSummary() {
         fontSize: 11, color: '#94a3b8', fontFamily: 'var(--font-mono)',
         marginBottom: 14, letterSpacing: 0.5,
       }}>
-        TWO RIGOROUS ISLANDS + ONE ESTIMATE &mdash; HONEST PROOF-TIER SUMMARY
+        EVIDENCE-GRADED THEOREMS, EQUIVALENCES, AND ESTIMATES
       </div>
       <div style={{
         display: 'grid',

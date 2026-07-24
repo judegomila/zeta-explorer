@@ -101,7 +101,7 @@ export const NAV_GROUPS = [
       { to: '/what-we-know', label: 'What We Know ★' },
       { to: '/route-b-limsup', label: 'Route B: limsup t_c = 0 ★' },
       { to: '/lambda-bounds', label: 'Λ Bounds & RH Roadmap' },
-      { to: '/newman-lambda-01787854-candidate', label: 'Λ ≤ 0.1787854 Candidate Audit' },
+      { to: '/newman-lambda-01787854-candidate', label: 'Λ ≤ 0.1787854 Theorem Certificate' },
       { to: '/lambda-timeline', label: 'Λ Timeline' },
       { to: '/rh-dag', label: 'RH Dependency DAG' },
       { to: '/route-map', label: 'Route Map' },

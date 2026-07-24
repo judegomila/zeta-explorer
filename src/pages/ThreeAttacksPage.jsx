@@ -246,13 +246,13 @@ export default function ThreeAttacksPage() {
       <div className="card" style={{ marginTop: 24 }}>
         <h3 style={{ color: '#94a3b8', marginTop: 0 }}>Where the rigorous work now lives</h3>
         <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
-          The strongest concrete result integrated in this update is the fixed-height
-          <InlineMath tex="\Lambda\le0.1787854" /> candidate package. Its scripts pass, but eight
-          analytic and independent-review obligations remain, so it is explicitly labeled unpublished
-          and non-rigorous.
+          The strongest concrete result integrated in this update is the sealed computer-assisted
+          theorem <InlineMath tex="\Lambda\le0.1787854" /> in the root repository. Its compact slab,
+          final-time half-strip, material replay, corrected error bounds, and exact criterion weld
+          are closed. It remains unpublished and unpeer-reviewed, and its positive bound does not prove RH.
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-          <Link to="/newman-lambda-01787854-candidate">Open the candidate audit →</Link>
+          <Link to="/newman-lambda-01787854-candidate">Open the theorem certificate →</Link>
           <Link to="/proof-overview">Read the evidence-graded proof overview →</Link>
           <Link to="/closure-routes">Inspect the corrected closure routes →</Link>
         </div>

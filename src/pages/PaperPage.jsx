@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
-import { NEWMAN_LAMBDA_01787854_CANDIDATE } from '../data/newman-lambda-01787854-candidate.js';
+import { NEWMAN_LAMBDA_01787854_THEOREM } from '../data/newman-lambda-01787854-candidate.js';
 
 function Section({ number, title, children }) {
   return (
@@ -78,7 +78,7 @@ function StatusRow({ label, value, status, color }) {
 }
 
 export default function PaperPage() {
-  const candidate = NEWMAN_LAMBDA_01787854_CANDIDATE;
+  const theorem = NEWMAN_LAMBDA_01787854_THEOREM;
 
   return (
     <div className="page" style={{ maxWidth: 940, margin: '0 auto', paddingBottom: 80 }}>
@@ -106,11 +106,11 @@ export default function PaperPage() {
       </header>
 
       <Callout color="#f59e0b" label="Standing">
-        This page does not claim a proof of RH or an accepted improvement of the
-        de Bruijn–Newman upper bound. The peer-reviewed benchmark used by the app is
+        This page does not claim a proof of RH. The peer-reviewed benchmark used by the app is
         <InlineMath tex="\Lambda\le0.2" />. The public <InlineMath tex="0.1875" /> package is
-        unrefereed, and the local <InlineMath tex="0.1787854" /> package remains an unpublished
-        review candidate.
+        unrefereed. The root repository proves the stronger{' '}
+        <InlineMath tex="\Lambda\le0.1787854" /> bound by a sealed computer-assisted argument,
+        but that result remains unpublished and unpeer-reviewed.
       </Callout>
 
       <Section number={1} title="Classical foundation">
@@ -244,16 +244,16 @@ export default function PaperPage() {
             color="#facc15"
           />
           <StatusRow
-            label="local candidate"
-            value="candidate: Λ ≤ 0.1787854"
-            status={`${candidate.finiteEvidence.rowCount.toLocaleString()} stored finite rows and ${candidate.tailEvidence.checksPassed}/${candidate.tailEvidence.checksTotal} tail gates pass; eight theorem interfaces remain open.`}
-            color="#f59e0b"
+            label="repository theorem"
+            value="Λ ≤ 0.1787854"
+            status={`${theorem.finiteEvidence.rowCount.toLocaleString()} freshly replayed finite rows; corrected tail passes ${theorem.tailEvidence.checksPassed}/${theorem.tailEvidence.checksTotal} gates per precision. Unpublished and unpeer-reviewed.`}
+            color="#22d3ee"
           />
         </div>
         <P>
-          A passing finite sweep is not a theorem until its producer functional, normalization,
-          analytic error estimates, winding/endpoint conditions, and final criterion are shown to
-          match exactly. That is the purpose of the candidate review page.
+          The root seal checks the producer functional, normalization, analytic error estimates,
+          closed compact slab, final-time half-strip, verified height, endpoints, and final
+          criterion together. The certificate page records that proof and its external-review boundary.
         </P>
       </Section>
 
@@ -261,9 +261,10 @@ export default function PaperPage() {
         <P>
           The twin-ladder program has produced useful coordinates, explicit algebraic
           self-corrections, a strict <InlineMath tex="PF_2" /> kernel result, a rigorous
-          <InlineMath tex="PF_5" /> obstruction, and reproducible candidate computations. It has
+          <InlineMath tex="PF_5" /> obstruction, and the repository theorem{' '}
+          <InlineMath tex="\Lambda\le0.1787854" />. It has
           not supplied the non-circular all-shifts positivity theorem or the complete
-          de Bruijn–Newman criterion weld needed for RH.
+          global residual inequality needed for RH; the surviving frontier is equivalent to RH.
         </P>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14, marginTop: 18 }}>
           <Link to="/full-story" style={{ color: '#a5b4fc' }}>
@@ -273,7 +274,7 @@ export default function PaperPage() {
             v52 ledger + v70 correction audit
           </Link>
           <Link to="/newman-lambda-01787854-candidate" style={{ color: '#fbbf24' }}>
-            0.1787854 candidate audit
+            0.1787854 theorem certificate
           </Link>
           <Link to="/lambda-bounds" style={{ color: '#a5b4fc' }}>
             Bounds and evidence grades

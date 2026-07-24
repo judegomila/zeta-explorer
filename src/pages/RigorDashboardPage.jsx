@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  HEADLINE,
+  HEADLINE as LEGACY_HEADLINE,
   PROOF_CHAIN,
   ROUTE_STATUS,
   CONDITIONS,
@@ -17,6 +17,7 @@ import { CH_WALL_FRONTIER } from '../data/ch-wall-frontier-verdict-2026-06-26.js
 import { CH_LIP_THREE_PROOFS } from '../data/ch-lip-three-proofs-table-2026-06-30.js';
 import { CH_LIP_BASIN_CONDITIONAL, CH_LIP_DIVERGENCE_DECOMPOSITION } from '../data/ch-lip-basin-conditional-2026-06-30.js';
 import { IMP3110_SECTION26_GRAM_VS_MONOMIAL_GAP } from '../data/imp-3110-section26-gram-vs-monomial-gap.js';
+import { NEWMAN_LAMBDA_01787854_THEOREM } from '../data/newman-lambda-01787854-candidate.js';
 
 // ── Assertion freshness stamp (imp-2999) ─────────────────────────────────────
 function FreshnessStamp() {
@@ -357,13 +358,14 @@ function TransparencyLedger() {
 const SOTA_TIERS = [
   {
     key: 'rigorous',
-    label: 'RIGOROUS',
+    label: 'BOUND EVIDENCE GRADES',
     color: '#10b981',
     bg: 'rgba(16,185,129,0.08)',
     items: [
       'Rodgers–Tao (2020): Λ ≥ 0 — unconditional.',
       'Platt–Trudgian (2021): Λ ≤ 0.2 — peer-reviewed upper-bound benchmark.',
       'Public 2026 package claim: Λ ≤ 0.1875 — listed and locally repaired, but unrefereed.',
+      'Root repository: Λ ≤ 0.1787854 — computer-assisted theorem; unpublished and unpeer-reviewed.',
     ],
   },
   {
@@ -383,7 +385,7 @@ const SOTA_TIERS = [
     bg: 'rgba(239,68,68,0.07)',
     items: [
       CAUGHT_OVERCLAIMS.length + ' claims overreached the evidence and were corrected (see Corrections Log below).',
-      'No live claim beats Platt–Trudgian Λ ≤ 0.2; the thin-strip "beats P–T" framing is structurally dead (imp-2630).',
+      'No legacy Dyson/Volterra overclaim beats its stated benchmark; the thin-strip framing is structurally dead (imp-2630). The separate sealed root theorem Λ ≤ 0.1787854 uses a different fixed-height route.',
     ],
   },
 ];
@@ -908,7 +910,7 @@ export default function RigorDashboardPage() {
 
   return (
     <div className="page">
-      <HonestCeilingBanner variant="ESTIMATE" />
+      <HonestCeilingBanner variant="REPOSITORY-THEOREM" />
       <div className="page-header">
         <h1>Rigor Dashboard</h1>
         <FreshnessStamp />
@@ -920,7 +922,7 @@ export default function RigorDashboardPage() {
         </p>
       </div>
 
-      {/* Shared two-rigorous-islands + one-estimate tier panel (imp-2791) */}
+      {/* Shared evidence-grade tier panel (updated after the 0.1787854 root seal) */}
       <ProofTierSummary />
 
       {/* Honest SOTA banner (imp-2670) */}
@@ -929,25 +931,28 @@ export default function RigorDashboardPage() {
       {/* Three Lambda cross-validation estimators side by side (imp-2991) */}
       <EstimatorTriptych />
 
-      {/* Headline claim */}
+      {/* Current theorem; the older chain panels below retain their dated snapshot. */}
       <div style={{
         background: 'rgba(16,185,129,0.06)', border: '1px solid #10b98140',
         borderRadius: 10, padding: '14px 18px', marginBottom: 24,
       }}>
         <div style={{ fontSize: 11, color: '#10b981', fontFamily: 'var(--font-mono)', marginBottom: 6 }}>
-          HEADLINE CLAIM
+          CURRENT REPOSITORY RESULT
         </div>
         <div style={{ fontSize: 22, fontWeight: 700, color: '#f8fafc', marginBottom: 4 }}>
-          {HEADLINE.bound}
+          Λ ≤ {NEWMAN_LAMBDA_01787854_THEOREM.exactTarget.decimal}
         </div>
         <div style={{ fontSize: 13, color: '#94a3b8', marginBottom: 6 }}>
-          {HEADLINE.improvement} &nbsp;|&nbsp; {HEADLINE.scale}
+          {NEWMAN_LAMBDA_01787854_THEOREM.finiteEvidence.rowCount.toLocaleString()}-row material replay
+          &nbsp;|&nbsp; root commit {NEWMAN_LAMBDA_01787854_THEOREM.identity.packageCommit.slice(0, 12)}
         </div>
         <div style={{ fontSize: 12, color: '#f59e0b', fontFamily: 'var(--font-mono)' }}>
-          {HEADLINE.rigorLevel}
+          COMPUTER-ASSISTED THEOREM · UNPUBLISHED · UNPEER-REVIEWED
         </div>
         <div style={{ fontSize: 12, color: '#64748b', marginTop: 4 }}>
-          {HEADLINE.condition}
+          The sealed compact slab, final-time half-strip, finite/tail bounds, and
+          exact criterion weld prove this positive upper bound. RH remains open and
+          requires Λ ≤ 0.
         </div>
       </div>
 
@@ -1081,7 +1086,8 @@ export default function RigorDashboardPage() {
 
       {/* Data provenance footer */}
       <div style={{ fontSize: 11, color: '#475569', textAlign: 'center', marginTop: 24, paddingTop: 12, borderTop: '1px solid #1e293b' }}>
-        Sourced from <code style={{ color: '#64748b' }}>proof-chain-snapshot-2026-06-23.js</code> · snapshot date {HEADLINE.snapshotDate}
+        Legacy chain panels retain <code style={{ color: '#64748b' }}>proof-chain-snapshot-2026-06-23.js</code>
+        {' '}· snapshot date {LEGACY_HEADLINE.snapshotDate}. Current Λ status is sourced from the sealed theorem registry.
       </div>
     </div>
   );

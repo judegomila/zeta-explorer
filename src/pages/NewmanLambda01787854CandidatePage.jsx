@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
-import { NEWMAN_LAMBDA_01787854_CANDIDATE as CANDIDATE } from '../data/newman-lambda-01787854-candidate.js';
+import { NEWMAN_LAMBDA_01787854_THEOREM as THEOREM } from '../data/newman-lambda-01787854-candidate.js';
 
 const mono = 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace';
 
@@ -40,50 +40,58 @@ function ReplayBlock({ commands, expected }) {
 }
 
 export default function NewmanLambda01787854CandidatePage() {
-  const { identity, exactTarget, finiteEvidence, tailEvidence, verifiedHeight, reviewObligations, replay, environment } =
-    CANDIDATE;
+  const {
+    identity,
+    exactTarget,
+    certifiedRegions,
+    finiteEvidence,
+    tailEvidence,
+    verifiedHeight,
+    closedAuditItems,
+    replay,
+    environment,
+  } = THEOREM;
 
   return (
     <div className="page">
       <div className="page-header">
-        <h1>Λ ≤ 0.1787854 — Local Review Candidate</h1>
+        <h1>Λ ≤ 0.1787854 — Repository Theorem</h1>
         <p className="page-subtitle" style={{ maxWidth: 880 }}>
-          A replayable fixed-height computer-assisted package below the published{' '}
-          <InlineMath tex="\\Lambda\\le 0.2" /> benchmark. Its numerical gates pass locally,
-          but theorem-level interfaces remain open. This page records evidence and review
-          boundaries; it does not announce a new theorem.
+          An unreviewed computer-assisted theorem proved and sealed in the root research
+          repository. It improves numerically on the published{' '}
+          <InlineMath tex="\\Lambda\\le 0.2" /> benchmark, but it has not been published or
+          peer reviewed and is not presented as an accepted literature result.
         </p>
       </div>
 
       <HonestCeilingBanner
-        variant="ESTIMATE"
-        title="Review-open candidate — not rigorous, published, peer reviewed, or SOTA"
+        variant="REPOSITORY-THEOREM"
+        title="Proved in the repository — unpublished, unpeer-reviewed, and not RH"
         body={
-          'The package conditionally assembles Λ ≤ 0.1787854 and its stored checks pass, but the native ' +
-          'Triangle-to-|f_t| identification and inherited winding/criterion interfaces require independent ' +
-          'mathematical review. The strongest located public preprint claim is Λ ≤ 0.1875; Platt–Trudgian ' +
-          'Λ ≤ 0.2 remains the peer-reviewed literature benchmark.'
+          'Root commit 9cc69d4775fa seals the compact slab, final-time half-strip, full finite material ' +
+          'replay, corrected finite and tail errors, verified-height check, and exact Polymath criterion ' +
+          'assembly. Independent external review remains welcome. The result is positive; RH requires Λ ≤ 0.'
         }
       />
 
       <div
         style={{
           ...card,
-          borderColor: '#f59e0b88',
-          borderLeft: '4px solid #f59e0b',
+          borderColor: '#22d3ee88',
+          borderLeft: '4px solid #22d3ee',
           marginBottom: 20,
         }}
       >
-        <div style={{ color: '#fbbf24', fontFamily: mono, fontWeight: 800, fontSize: 12, marginBottom: 8 }}>
-          CANDIDATE · INDEPENDENT REVIEW OPEN
+        <div style={{ color: '#67e8f9', fontFamily: mono, fontWeight: 800, fontSize: 12, marginBottom: 8 }}>
+          REPOSITORY-PROVED · COMPUTER-ASSISTED · EXTERNAL REVIEW OPEN
         </div>
         <BlockMath tex="\\boxed{\\Lambda\\le\\frac{893927}{5000000}=0.1787854}" />
         <BlockMath tex={exactTarget.identityTex} />
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7, margin: '8px 0 0' }}>
-          Exact row: <InlineMath tex={`X=${exactTarget.X}`} />,{' '}
+          Exact criterion row: <InlineMath tex={`X=${exactTarget.X}`} />,{' '}
           <InlineMath tex="t_0=129/800" />, and{' '}
           <InlineMath tex="y_0^2=87677/2500000" />. The positive result does not
-          imply RH; RH would require an accepted upper bound <InlineMath tex="\\Lambda\\le 0" />.
+          imply RH; RH would require <InlineMath tex="\\Lambda\\le 0" />.
         </p>
       </div>
 
@@ -96,19 +104,40 @@ export default function NewmanLambda01787854CandidatePage() {
       >
         <Metric label="finite rows" value={finiteEvidence.rowCount.toLocaleString()} />
         <Metric label="finite N range" value={`${finiteEvidence.firstN}–${finiteEvidence.lastN}`} />
-        <Metric label="finite slack ≥" value="5.57871094787×10⁻⁷" color="#86efac" />
-        <Metric label="tail slack ≥" value="1.73520942813×10⁻⁴" color="#86efac" />
+        <Metric label="finite slack ≥" value="5.578710947877067×10⁻⁷" color="#86efac" />
+        <Metric label="tail slack >" value="1.735209373337×10⁻⁴" color="#86efac" />
       </div>
 
-      <h2>What the local package checks</h2>
+      <h2>Certified zero-free regions</h2>
+      <div className="card-grid" style={{ marginBottom: 28 }}>
+        <div style={{ ...card, borderTop: '2px solid #22d3ee' }}>
+          <h3 style={{ color: '#67e8f9', fontSize: 15, marginTop: 0 }}>Closed compact slab</h3>
+          <BlockMath tex={certifiedRegions.compactSlab.theoremTex} />
+          <p style={{ color: '#94a3b8', fontSize: 12.5, lineHeight: 1.65, marginBottom: 0 }}>
+            All space and time endpoints are included. The repaired Arb barrier covers{' '}
+            {certifiedRegions.compactSlab.prismCount} closed prisms; its minimum strict-margin
+            lower endpoint is {certifiedRegions.compactSlab.minimumStrictMargin}.
+          </p>
+        </div>
+        <div style={{ ...card, borderTop: '2px solid #10b981' }}>
+          <h3 style={{ color: '#86efac', fontSize: 15, marginTop: 0 }}>Final-time half-strip</h3>
+          <BlockMath tex={certifiedRegions.finalTimeHalfStrip.theoremTex} />
+          <p style={{ color: '#94a3b8', fontSize: 12.5, lineHeight: 1.65, marginBottom: 0 }}>
+            Here <InlineMath tex={`x_0=${certifiedRegions.finalTimeHalfStrip.x0Tex}`} />. Symmetry gives{' '}
+            <InlineMath tex={certifiedRegions.finalTimeHalfStrip.symmetricTex} />. No claim is made
+            below <InlineMath tex="|\\Im z|<y_0" />.
+          </p>
+        </div>
+      </div>
+
+      <h2>Certificate evidence</h2>
       <p style={{ color: '#cbd5e1', fontSize: 13.5, lineHeight: 1.75, maxWidth: 900 }}>
-        The finite sweep stores every integer in the closed range with no gaps,
+        A fresh material replay reproduced every integer in the closed range with no gaps,
         duplicates, nonpositive rows, or <code>UNCERT</code> rows. A direct Arb
         upper-Dini calculation covers all active divisor patterns at 180 and 256
-        bits and supports monotonicity of the exact Triangle mass. A separate
-        interval gate controls the native normalizer and correction. Subject to the
-        open functional-identification review, this transfers the fixed-height
-        lower bound across the full height interval.
+        bits and controls the exact Triangle mass across the full height interval.
+        Separate 256- and 512-bit Arb certificates apply the conservative
+        coefficient 10.50 = 3.58 + 6.92 to the finite and tail errors.
       </p>
 
       <div style={{ overflowX: 'auto', margin: '14px 0 24px' }}>
@@ -140,16 +169,24 @@ export default function NewmanLambda01787854CandidatePage() {
           <ul style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.75, paddingLeft: 20, marginBottom: 0 }}>
             <li>Arb precision: {finiteEvidence.dini.precisionsBits.join(' and ')} bits</li>
             <li>Pattern counts: {finiteEvidence.dini.divisorPatternCounts.join(', ')}</li>
-            <li>Worst Dini ratio: {finiteEvidence.dini.worstCertifiedRatio} &lt; 1</li>
+            <li>
+              Worst Dini ratio: {finiteEvidence.dini.worstCertifiedRatioLiteral} &lt; 1
+            </li>
             <li>Correction log-rate: ≤ {finiteEvidence.correctionLogRateUpperBound} &lt; 0</li>
-            <li>Effective error: ≤ {finiteEvidence.effectiveErrorUpperBound}</li>
+            <li>Raw floor: {finiteEvidence.rawFloorLiteral}</li>
+            <li>Effective error: ≤ {finiteEvidence.effectiveErrorUpperBoundLiteral}</li>
+            <li>Post-error margin: ≥ {finiteEvidence.finiteMarginLowerBoundLiteral}</li>
+            <li>
+              {finiteEvidence.errorCertificate.checksPassed}/{finiteEvidence.errorCertificate.checksTotal}{' '}
+              finite-error checks at {finiteEvidence.errorCertificate.precisionsBits.join(' and ')} bits
+            </li>
           </ul>
         </div>
         <div style={{ ...card, borderTop: '2px solid #10b981' }}>
           <h3 style={{ color: '#86efac', fontSize: 15, marginTop: 0 }}>Tail and height gate</h3>
           <ul style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.75, paddingLeft: 20, marginBottom: 0 }}>
-            <li>{tailEvidence.checksPassed}/{tailEvidence.checksTotal} checks at {tailEvidence.precisionsBits.join(' and ')} bits</li>
-            <li>D ≤ {tailEvidence.contractionUpperBound} &lt; 1</li>
+            <li>{tailEvidence.checksPassed}/{tailEvidence.checksTotal} checks per precision at {tailEvidence.precisionsBits.join(' and ')} bits</li>
+            <li>D ≤ {tailEvidence.contractionUpperBoundLiteral} &lt; 1</li>
             <li>flow ≥ {tailEvidence.flowLowerBound}</li>
             <li>error ≤ {tailEvidence.errorUpperBound}</li>
             <li><InlineMath tex="X/2\\le T_{\\rm PT}" /> with T<sub>PT</sub> = {verifiedHeight.TPT}</li>
@@ -157,16 +194,17 @@ export default function NewmanLambda01787854CandidatePage() {
         </div>
       </div>
 
-      <h2>The eight open referee obligations</h2>
+      <h2>Eight formerly open interfaces, closed in the root seal</h2>
       <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7, maxWidth: 880 }}>
-        These are load-bearing mathematical questions, not editorial cleanup. A green
-        replay does not discharge them.
+        These were the load-bearing review questions on the former candidate page.
+        Each now has explicit certificate evidence and is checked by the root assembly.
+        External mathematical review of the resulting theorem remains open.
       </p>
       <div className="card-grid" style={{ marginBottom: 28 }}>
-        {reviewObligations.map((item, index) => (
-          <div key={item.title} style={{ ...card, borderLeft: '3px solid #f59e0b' }}>
-            <div style={{ color: '#fbbf24', fontFamily: mono, fontSize: 11, marginBottom: 6 }}>
-              REVIEW {index + 1}
+        {closedAuditItems.map((item, index) => (
+          <div key={item.title} style={{ ...card, borderLeft: '3px solid #22d3ee' }}>
+            <div style={{ color: '#67e8f9', fontFamily: mono, fontSize: 11, marginBottom: 6 }}>
+              SEALED {index + 1}
             </div>
             <h3 style={{ color: '#e2e8f0', fontSize: 14, margin: '0 0 7px' }}>{item.title}</h3>
             <p style={{ color: '#94a3b8', fontSize: 12.5, lineHeight: 1.65, margin: 0 }}>{item.detail}</p>
@@ -176,15 +214,18 @@ export default function NewmanLambda01787854CandidatePage() {
 
       <h2>Reproducibility boundary</h2>
       <p style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.7, maxWidth: 900 }}>
-        The private review snapshot is pinned by commit{' '}
-        <code>{identity.packageCommit}</code> and seal <code>{identity.sealSha256}</code>.
-        Its recorded environment is {environment.base}, FLINT {environment.flint},
+        The root proof is pinned by commit <code>{identity.packageCommit}</code> and top-manifest
+        SHA-256 <code>{identity.sealSha256}</code>. Its immutable finite release is commit{' '}
+        <code>{identity.releaseCommit}</code>, tree <code>{identity.releaseTree}</code>, in container{' '}
+        <code>{identity.containerImage}</code>. The recorded environment is {environment.base}{' '}
+        ({environment.architecture}), FLINT {environment.flint},
         Python {environment.python}, mpmath {environment.mpmath}, and SymPy {environment.sympy}.
-        Reviewers with the package can replay either path below.
+        The release path checks committed evidence against a clean immutable release; the
+        material path additionally compares every row of a fresh full sweep.
       </p>
       <div className="card-grid" style={{ marginBottom: 28 }}>
-        <ReplayBlock commands={replay.stored} expected={replay.storedExpected} />
-        <ReplayBlock commands={replay.container} expected={replay.containerExpected} />
+        <ReplayBlock commands={replay.release} expected={replay.releaseExpected} />
+        <ReplayBlock commands={replay.material} expected={replay.materialExpected} />
       </div>
 
       <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginTop: 24 }}>

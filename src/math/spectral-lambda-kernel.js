@@ -173,7 +173,8 @@ export function spectralLambdaKernelTest() {
   // Λ ~ s_min² ~ (N^{-1/3} × 2π/log T)²
   // At T~10^12, N~3×10^11: s_min ~ (3e11)^{-1/3} × 2π/27.6 ~ 1e-4 × 0.23 ~ 2.3e-5
   // Λ ~ (2.3e-5)² / 4 ~ 1.3e-10
-  // This is MUCH smaller than SOTA 0.2, suggesting Λ is indeed very close to 0.
+  // This heuristic is much smaller than the 0.2 peer-reviewed benchmark and the
+  // unreviewed 0.1787854 repository theorem, but is not itself a rigorous bound.
 
   return {
     framework: {
@@ -191,7 +192,7 @@ export function spectralLambdaKernelTest() {
     comparison: {
       'Our Dyson ODE (imp-304)': dysonResult,
       'Analytical kernel hack': predictedLambda.lambda,
-      'SOTA Platt-Trudgian': sotaResult,
+      'Peer-reviewed Platt-Trudgian benchmark': sotaResult,
       'RH (Λ=0)': 0,
     },
 
@@ -209,7 +210,7 @@ export function spectralLambdaKernelTest() {
       `Validation: actual Λ from spacing = ${validation.actual_lambda_from_spacing} vs predicted ${validation.predicted_lambda} (ratio ${validation.ratio}).`,
       `SCALING LAW: Λ ~ N^{-2/3} × (2π/log T)² / 4 → 0 as T → ∞.`,
       `This is the KERNEL HACK: GUE spacing statistics + spectral theory bypass brute-force zero enumeration.`,
-      `At T=10^12: Λ_analytical ~ 10^{-10}, orders below SOTA 0.2.`,
+      `At T=10^12: Λ_analytical ~ 10^{-10}, orders below the peer-reviewed 0.2 benchmark and the repository theorem 0.1787854.`,
       `The analytical bound says: if GUE statistics hold exactly, Λ is ASTRONOMICALLY small.`,
       `GAP: GUE gives STATISTICAL bound; Polymath15 needs RIGOROUS bound on every pair.`,
     ],

@@ -2,12 +2,13 @@
 // both StateOfProgramPage (full page) and DashboardPage (compact summary card),
 // so the top-line status cannot drift between the two surfaces.
 //
-// Facts mirror the full route map and the fixed-height candidate review package
-// (status reconciliation, 2026-07-23):
+// Facts mirror the full route map and the sealed fixed-height proof package
+// (status reconciliation, 2026-07-24):
 //   PEER-REVIEWED = Platt-Trudgian Lambda <= 0.2 (NOT this program)
 //   PUBLIC CLAIM  = Lambda <= 0.1875 certificate package, locally repaired,
 //                   listed publicly but unrefereed
-//   LOCAL CANDIDATE = Lambda <= 0.1787854, independent review open
+//   REPOSITORY THEOREM = Lambda <= 0.1787854, computer-assisted,
+//                        unpublished and unpeer-reviewed
 //   ESTIMATE      = finite-N* = 1e4 modeled figure, gated on the undischargeable C_H
 //   RH-EQUIVALENT = Volterra ||V|| <= 1 collapse (a rename, not a reduction)
 //   REFUTED       = the thin-strip sub-RH shortcut is a dead artifact (imp-2630)
@@ -16,11 +17,11 @@
 // Intentionally has NO imports so it stays light and never drags in the
 // 16.7MB zeros bundle through a page import.
 
-export const STATE_OF_PROGRAM_SUMMARY_DATE = '2026-07-23';
+export const STATE_OF_PROGRAM_SUMMARY_DATE = '2026-07-24';
 
 export const STATE_OF_PROGRAM_TRUTHS = [
   {
-    badge: 'RIGOROUS SOTA',
+    badge: 'PEER-REVIEWED BENCHMARK',
     color: '#34d399',
     title: 'The peer-reviewed upper-bound benchmark is Platt-Trudgian Λ ≤ 0.2 — and the project did NOT produce it',
     body:
@@ -38,14 +39,15 @@ export const STATE_OF_PROGRAM_TRUTHS = [
       'located public, locally repaired preprint claim—not a peer-reviewed theorem or an endorsement by the ledger.',
   },
   {
-    badge: 'LOCAL CANDIDATE',
-    color: '#f59e0b',
-    title: 'A fixed-height package proposes Λ ≤ 0.1787854 — independent review is open',
+    badge: 'REPOSITORY THEOREM',
+    color: '#22d3ee',
+    title: 'The sealed root repository proves Λ ≤ 0.1787854 — computer-assisted, unpublished, and unpeer-reviewed',
     body:
-      'The finite sweep, direct-Dini monotonicity, normalizer/correction, effective-error, tail, and exact-assembly ' +
-      'checks pass in the pinned local package. It is not yet rigorous or published: the native Triangle-to-|f_t| ' +
-      'identification and inherited winding, site, effective-approximation, and criterion interfaces are load-bearing ' +
-      'review obligations. Passing scripts do not promote it to a theorem or SOTA.',
+      'The proof seals a closed compact slab, a final-time zero-free half-strip, a fresh replay of all 3,149,013 ' +
+      'finite rows, corrected 10.50 finite and tail error bounds, and the exact Polymath criterion weld. The eight ' +
+      'formerly open interfaces are closed in root commit 9cc69d4775fa. This is a theorem proved in the repository, ' +
+      'not a claim of publication, peer review, or acceptance by the literature; independent external review remains ' +
+      'open. The bound is positive and does not prove RH, which requires Λ ≤ 0.',
   },
   {
     badge: 'ESTIMATE',
@@ -85,7 +87,7 @@ export const STATE_OF_PROGRAM_TRUTHS = [
     body:
       'The established Dyson/collision compositions funnel into the C_H / G6a Hölder-½ shock modulus ' +
       '(Step-4 bridge / Polymath15). An N-uniform bound would upgrade their finite estimate and asymptotic target. ' +
-      'The separate fixed-height 0.1787854 candidate does not consume C_H, but it has its own unresolved native-binding, ' +
-      'winding, interval-independence, tail, and criterion obligations. No route is presently an accepted project beat.',
+      'The separate fixed-height 0.1787854 repository theorem does not consume C_H and does not close this older route. ' +
+      'The exact global Twin Ladder residual inequality remains equivalent to RH rather than a strict reduction.',
   },
 ];

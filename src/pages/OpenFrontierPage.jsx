@@ -50,9 +50,11 @@ const CHANNEL_SPLIT_CERTIFICATE = {
   compensation: '−1.5588799×10⁻⁹ + 4.1550097×10⁻⁹ = 2.5961298×10⁻⁹',
   coupledTarget:
     'Radial and shear are symmetric and skew combinations of one exact theta tensor. ' +
-    'The coupled form balances interval energy against two finite-difference squares. ' +
-    'Its cellwise bracket can be strictly negative, so positivity must emerge only ' +
-    'after integration against the genuine theta weight.',
+    'The interval-energy and finite-difference terms cancel algebraically to one real ' +
+    'symmetric correlation kernel, whose parity blocks preserve the full coupling. ' +
+    'Each fixed integration slice is indefinite, and a generic positive weight has an ' +
+    'exact negative block, so any positivity must be theta-specific and emerge only ' +
+    'after integration.',
   method:
     '256-bit Arb · exact one-dimensional Laplace-product factorization · ' +
     'combined omission error < 10⁻²² · independent acb_dirichlet_xi cross-check',
@@ -66,6 +68,23 @@ const CHANNEL_SPLIT_CERTIFICATE = {
   jetMethod:
     '768-bit Arb · Laplace moments through order eight · all omission bounds ' +
     '< 7.776×10⁻⁶⁹ · independent completed-ξ power-series check',
+};
+
+const ONE_POINT_JET_HIERARCHY = {
+  status: 'PROVED EXACT REFORMULATION',
+  title: 'One point is enough only when every jet order is controlled',
+  fixedA: '∀d ≥ 0:  Jₐ⁽ᵈ⁾(z*) ⪰ 0  ⇔  Kₐ ⪰ 0 globally  (fixed a)',
+  sequence: '∀n,d:  Jₐₙ⁽ᵈ⁾(z*) ⪰ 0 with aₙ ↓ 0  ⇔  RH',
+  caveat:
+    'The two-variable kernel is entire after its diagonal singularity is removed, so ' +
+    'global Taylor convergence proves the reverse implication and confluent ' +
+    'Vandermonde limits prove the forward implication. This removes the need to scan ' +
+    'evaluation centers; it does not provide a finite-order bound.',
+  finiteWarning:
+    'A rigorous de Branges toy kernel can have a positive jet through any prescribed ' +
+    'finite order at a fixed center while remaining globally negative at a distant ' +
+    'upper-half-plane zero. This rules out a universal cutoff based only on entireness ' +
+    'and kernel structure; it does not rule out new zeta-specific input.',
 };
 
 const DYSON_LANE_RESIDUALS = [
@@ -402,6 +421,70 @@ export default function OpenFrontierPage() {
             method: {CHANNEL_SPLIT_CERTIFICATE.jetMethod}.
           </p>
         </div>
+      </div>
+
+      <div
+        className="card"
+        style={{ marginBottom: 22, borderLeft: '4px solid #a78bfa' }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10, flexWrap: 'wrap' }}>
+          <span
+            style={{
+              fontFamily: 'var(--font-mono, monospace)',
+              fontSize: 10.5,
+              fontWeight: 700,
+              letterSpacing: 0.45,
+              color: '#c4b5fd',
+              border: '1px solid #8b5cf6',
+              borderRadius: 4,
+              padding: '2px 7px',
+            }}
+          >
+            {ONE_POINT_JET_HIERARCHY.status}
+          </span>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T13–T15 · full coupled kernel</code>
+        </div>
+        <strong style={{ color: '#ddd6fe', fontSize: 15, display: 'block', marginBottom: 8 }}>
+          {ONE_POINT_JET_HIERARCHY.title}
+        </strong>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.65, margin: 0 }}>
+          {ONE_POINT_JET_HIERARCHY.caveat}
+        </p>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
+            gap: 8,
+            margin: '12px 0',
+          }}
+        >
+          {[ONE_POINT_JET_HIERARCHY.fixedA, ONE_POINT_JET_HIERARCHY.sequence].map((value) => (
+            <code
+              key={value}
+              style={{
+                padding: '9px 10px',
+                borderRadius: 5,
+                background: 'rgba(139,92,246,0.08)',
+                border: '1px solid rgba(167,139,250,0.25)',
+                color: '#ddd6fe',
+                fontSize: 11.5,
+                overflowX: 'auto',
+              }}
+            >
+              {value}
+            </code>
+          ))}
+        </div>
+        <p style={{ color: '#a78bfa', fontSize: 12.5, lineHeight: 1.65, margin: 0 }}>
+          {ONE_POINT_JET_HIERARCHY.finiteWarning}
+        </p>
+        <p style={{ color: '#64748b', fontSize: 11.5, lineHeight: 1.55, margin: '9px 0 0' }}>
+          A single fixed-a hierarchy may also be weaker than strict
+          Hermite–Biehler positivity when shifted zeros cancel. The exact
+          RH-equivalent obligation remains the all-order hierarchy along
+          thicknesses tending to zero; neither the current finite certificates
+          nor this reformulation proves RH.
+        </p>
       </div>
 
       <div className="card" style={{ marginBottom: 18, borderLeft: '3px solid #38bdf8' }}>

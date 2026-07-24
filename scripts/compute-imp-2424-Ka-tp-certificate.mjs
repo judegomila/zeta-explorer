@@ -1,14 +1,29 @@
 #!/usr/bin/env node
-// imp-2424: explicit total-positivity / PSD certificate for a finite
-// truncation of the ghost-absence kernel K_a (Attack I, Conjecture 18.1).
+// imp-2424: historical finite-matrix experiment.
 //
-// CLAIM under test (src/data/three-attacks-section.js, Attack I):
+// NORMALIZATION RETRACTION (2026-07-24)
+// --------------------------------------
+// This script does NOT evaluate the exact completed-Riemann/T3 kernel. It uses
+// the surrogate
+//   sum_n (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})
+// and channels with cosh(au), cos(zu), sinh(au), sin(zu). The canonical
+// normalization is
+//   Phi(u) = sum_n (2 pi^2 n^4 e^{9u} - 3 pi n^2 e^{5u})
+//                    exp(-pi n^2 e^{4u}),
+//   X(w) = 8 integral_0^infinity Phi(u) cosh(2wu) du,
+// so the transform arguments also require the factor 2. The historical
+// negative pivots below therefore belong only to this surrogate discretization
+// and are INVALID FOR T3. A correctly normalized 60-digit four-node numerical
+// check is positive, but is not a proof.
+//
+// HISTORICAL CLAIM under test (now retracted for the exact kernel):
 //   B_a^+ = 1 is equivalent to the de Branges Wronskian kernel
 //     K_a(w, z) = ( A_a(z) B_a(w) - B_a(z) A_a(w) ) / ( pi (w - z) )   (w, z real)
 //   being positive semidefinite, where
 //     A_a(z) = integral_0^inf Phi(u) cosh(au) cos(zu) du     (even in z)
 //     B_a(z) = integral_0^inf Phi(u) sinh(au) sin(zu) du     (odd in z)
-//   and Phi is the de Bruijn-Newman completed-Riemann kernel.
+//   The implemented Phi/channels were incorrectly identified as the exact
+//   de Bruijn-Newman completed-Riemann normalization.
 //
 //   This script builds the n x n Gram matrix G[j,k] = K_a(z_j, z_k) on a
 //   real grid and computes an explicit certificate via the symmetric LDL^T
@@ -17,11 +32,12 @@
 //   We report the smallest pivot, the smallest leading principal minor, and
 //   how the smallest pivot scales as the truncation dimension n grows.
 //
-//   NUMERICAL EVIDENCE toward the B_a^+ = 1 / PSD claim, NOT a proof.
+//   SURROGATE NUMERICS ONLY. No inference about exact K_a, T3, B_a^+ or RH.
 //
 // METHOD
 // ------
-//   - Phi(u) = sum_{n=1..N_PHI} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u}),
+//   - Historical surrogate Phi(u) =
+//     sum_{n=1..N_PHI} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u}),
 //     N_PHI = 10 (double-exponential decay; tail << 1e-30 for u > 0).
 //   - A_a, B_a and their z-derivatives via composite Simpson on [0, U_MAX].
 //   - Off-diagonal entries use the divided-difference form directly; the
@@ -35,7 +51,7 @@
 
 import { performance } from 'node:perf_hooks';
 
-// ── de Bruijn-Newman Phi kernel ─────────────────────────────────────────────
+// ── Historical surrogate (not the canonical completed-Riemann Phi) ─────────
 const N_PHI = 10;
 function Phi(u) {
   let sum = 0;
@@ -222,7 +238,30 @@ function main() {
   const allPD = rows.every((r) => r.series.every((s) => s.normalized.isPositiveDefinite));
   const out = {
     ticket: 'imp-2424',
-    kernel: 'K_a(w,z) = (A_a(z)B_a(w) - B_a(z)A_a(w)) / (pi (w - z)), de Branges Wronskian form',
+    status: 'SURROGATE / INVALID FOR T3',
+    kernelModel: 'historical-surrogate-normalization',
+    appliesToExactRiemannKernel: false,
+    kernel: 'surrogate Wronskian matrix built from the imp-2424 Phi/channels',
+    normalizationAudit: {
+      implementedPhi: '(2 pi^2 n^4 e^(4u) - 3 pi n^2 e^(2u)) exp(-pi n^2 e^(4u))',
+      canonicalPhi: '(2 pi^2 n^4 e^(9u) - 3 pi n^2 e^(5u)) exp(-pi n^2 e^(4u))',
+      canonicalTransform: 'X(w) = 8 integral Phi(u) cosh(2 w u) du',
+      omittedTransformArgumentFactor: 2,
+    },
+    correctedCanonicalFourNodeNumericalCheck: {
+      status: 'positive-numerical-only',
+      rigorous: false,
+      precisionDigits: 60,
+      a: 0.5,
+      realNodes: [-6, -2, 2, 6],
+      smallestNormalizedEigenvalue: 4.66922095265e-5,
+      normalizedLeadingPrincipalMinors: [
+        1,
+        0.0387394724,
+        0.000150634109,
+        1.4487899474e-7,
+      ],
+    },
     grid: { halfSpan: HALF_SPAN, points: 'n symmetric midpoints on [-halfSpan, halfSpan]' },
     quadrature: { uMax: U_MAX, nodes: NU, rule: 'composite Simpson' },
     aValues: A_VALUES,
@@ -230,7 +269,9 @@ function main() {
     allTruncationsPositiveDefinite_normalized: allPD,
     rows,
     elapsedMs: Math.round(performance.now() - t0),
-    scope: 'NUMERICAL EVIDENCE toward B_a^+ = 1 (PSD of K_a). Not a proof.',
+    scope:
+      'SURROGATE NUMERICS ONLY. The negative pivots do not apply to the exact ' +
+      'Riemann kernel or T3 and imply no cone-boundary, B_a^+, Lambda, or RH verdict.',
   };
   process.stdout.write(JSON.stringify(out, null, 2) + '\n');
 }

@@ -2002,6 +2002,7 @@ const DATA_MODULES = [
   '/src/data/queue-gc-audit-2026-04-19.js',
   '/src/data/review-5-findings-audit.js',
   '/src/data/soft-gaps-cleanup-log.js',
+  '/src/data/imp-2456-Ka-minor-extrapolation-2026-06.js',
   '/src/data/three-attacks-section.js',
   '/src/data/turing-zero-count-verification.js',
   '/src/data/zero-free-region-from-lambda.js',

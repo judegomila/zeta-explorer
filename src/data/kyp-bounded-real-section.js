@@ -11,11 +11,12 @@
  *   - KYP_ASSERTIONS — build-time tripwires (at least 8 no-arg holds() checks)
  *     that re-verify the record shape and the recorded certificate values.
  *
- * Proof-chain role: computational certification supporting the bridge-ratio
- * Schur condition (sup over the imaginary axis of |Theta_a| at most 1), which is
- * the losslessness statement equivalent to RH along these appendix routes. It is
- * a reference/QA data file, not itself a mathematical step in the analytic
- * Lambda argument.
+ * Proof-chain role: finite computational diagnostics for proposed
+ * control-theoretic realizations of the bridge ratio. Boundary modulus one is
+ * automatic from the real-even symmetry of X and carries no RH strength. The
+ * RH-strength condition is a stable analytic Schur function contractive
+ * throughout the half-plane for every a > 0. This is a reference/QA data file,
+ * not itself a mathematical step in the analytic Lambda argument.
  *
  * Key assertions: the bridge ratio E_a / Theta_a setup matches the paper, the
  * KYP LMI / delay bounded-real / delay-Gram Cholesky pilots are recorded with
@@ -45,8 +46,8 @@ export const KYP_BOUNDED_REAL = Object.freeze({
   paperRef: 'research-inputs/twin_ladder_consolidated_v52.pdf, Apps M-O, pp 97-110',
   title: 'KYP State-Space + Bounded-Real Delay + Delay-Gram Positivity',
   subtitle:
-    'Computational certification of bridge losslessness via KYP LMI, ' +
-    'delay-system bounded-real, and Gram-matrix Cholesky pilots',
+    'Finite diagnostics for proposed KYP, delay-system, and Gram-matrix ' +
+    'realizations of the RH-equivalent stable Schur condition',
 
   // Shared setup: the bridge ratio whose Schur property is equivalent to RH
   setup: Object.freeze({
@@ -54,17 +55,26 @@ export const KYP_BOUNDED_REAL = Object.freeze({
       'E_a(z) := X(a - iz), \\quad ' +
       '\\Theta_a(z) := \\frac{E_a^{\\#}(z)}{E_a(z)}, \\quad ' +
       'X(w) := \\xi\\!\\bigl(\\tfrac{1}{2}+w\\bigr)',
+    boundaryModulusLaTeX:
+      '|\\Theta_a(x)| = 1 \\quad (x\\in\\mathbb R,\\ \\text{where defined/removable})',
+    boundaryStatus:
+      'Automatic: real-even symmetry gives boundary modulus one wherever the ' +
+      'ratio is defined (or after a removable common zero is cancelled). ' +
+      'Boundary samples therefore do not certify RH.',
     schurConditionLaTeX:
-      '\\sup_{\\omega \\in \\mathbb{R}} |\\Theta_a(i\\omega)| \\leq 1 ' +
-      '\\;\\iff\\; K_a \\succeq 0 ' +
-      '\\;\\iff\\; \\mathrm{RH}',
+      '\\underbrace{|\\Theta_a(x)|=1}_{\\text{automatic on the boundary}}\\,;\\qquad ' +
+      '\\underbrace{\\Theta_a\\in H^\\infty(\\mathbb C_+),\\ ' +
+      '\\sup_{\\operatorname{Im}z>0}|\\Theta_a(z)|\\leq 1}_{\\text{analytic/stable Schur contractivity}} ' +
+      '\\quad\\text{for every }a>0\\;\\iff\\;\\mathrm{RH}',
     primeDelayLaTeX:
       '\\Theta_a(z) = \\exp\\!\\Bigl(-\\sum_p \\sum_{m \\geq 1} c_{p,m}(a)\\, ' +
-      'e^{-m(\\log p) z}\\Bigr), \\quad \\tau_{p,m} := m \\log p',
+      'e^{-m(\\log p) z}\\Bigr), \\quad \\tau_{p,m} := m \\log p ' +
+      '\\quad\\text{(formal Euler expansion in its absolute-convergence region)}',
     kypGoal:
-      'Certify that Theta_a is Schur (bounded-real, sup-norm at most 1) ' +
-      'for every a > 0 via a state-space LMI, a delay-system Lyapunov ' +
-      'functional, or a finite-N Gram-matrix Cholesky pilot.',
+      'Certify that Theta_a has no unstable half-plane poles and is analytic ' +
+      'and contractive throughout C_+ for every a > 0. Boundary modulus and ' +
+      'finite frequency samples are automatic or diagnostic; they do not ' +
+      'supply the required stability.',
   }),
 
   apps: Object.freeze([
@@ -81,8 +91,10 @@ export const KYP_BOUNDED_REAL = Object.freeze({
         'Theta_a is a passive lift if the associated Lure -- KYP linear matrix ' +
         'inequality (LMI) is feasible: there exists P > 0 such that ' +
         'A-top P + PA + (PB + C-top)(I - D-top D)^{-1} (B-top P + D-top C) <= 0. ' +
-        'Feasibility of the KYP LMI is equivalent to Theta_a being bounded-real ' +
-        '(||Theta_a||_inf <= 1), which implies K_a >= 0 and hence RH.',
+        'For a valid stable realization, feasibility of the KYP LMI gives an ' +
+        'analytic bounded-real Theta_a (||Theta_a||_inf <= 1). The global ' +
+        'all-a statement implies K_a >= 0 and hence RH; a boundary identity ' +
+        'or a finite realization alone does not.',
       currentStatus:
         'Open for all a > 0 in the infinite-dimensional setting. Finite-N ' +
         'truncations of the prime-delay ladder at N = 20 and N = 50 primes ' +
@@ -96,9 +108,10 @@ export const KYP_BOUNDED_REAL = Object.freeze({
         'for the full system would live in B(l^2), not R^{NxN}, and the ' +
         'operator LMI A-top P + PA + ... <= 0 must hold on an infinite-dimensional ' +
         'Hilbert space. The truncation certificates P_N do not converge ' +
-        'unconditionally: convergence in operator norm requires a uniform ' +
-        'passivity margin across all N, which is exactly the content of ' +
-        'Conjecture M.1 below.',
+        'unconditionally. A uniform passivity margin is necessary to preserve ' +
+        'coercivity in a positive operator-norm limit, but it is not sufficient ' +
+        'for convergence; compatible embeddings and operator-norm Cauchy ' +
+        'control are also missing.',
       principle:
         'App M converts RH into an operator LMI: find P > 0 solving the ' +
         'infinite-dimensional Lure equation for the prime-delay ladder system.',
@@ -115,33 +128,34 @@ export const KYP_BOUNDED_REAL = Object.freeze({
         'system Sigma_a is L^2-dissipative (lossless at input-output level) ' +
         'if and only if there exists a Lyapunov-Krasovskii functional V >= 0 ' +
         'satisfying dV/dt <= -||y||^2 along every trajectory of Sigma_a. ' +
-        'Dissipativity is equivalent to ||Theta_a||_inf <= 1, i.e. K_a >= 0. ' +
-        'The signed-Mobius barrier is an auxiliary positivity condition on ' +
-        'the boundary argument: Im(log Theta_a(i*omega)) does not change sign ' +
-        'as omega ranges over R, which would imply the Schur condition via ' +
-        'the argument principle applied on the imaginary axis.',
+        'For an analytic stable transfer function, dissipativity is equivalent ' +
+        'to ||Theta_a||_inf <= 1, i.e. K_a >= 0. Boundary modulus one is already ' +
+        'automatic. A signed-Mobius condition on the boundary argument can be ' +
+        'a diagnostic, but without a separate pole-free analytic continuation ' +
+        'it cannot imply the half-plane Schur condition.',
       currentStatus:
         'Open. For any FINITE collection of N prime delays, the ' +
         'Lyapunov-Krasovskii LMI is a standard quadratic delay-differential ' +
         'program (Park 1999, Gu-Kharitonov-Chen 2003 LMI toolbox). Numerical ' +
         'pilots at N = 10 and N = 20 primes, a = 0.1, confirm feasibility of ' +
         'the delay-LMI with a certified passivity margin epsilon_N > 0.003. ' +
-        'The signed-Mobius barrier has been verified numerically at a = 0.025 ' +
-        'over the frequency range |omega| <= 10^4.',
+        'The signed-Mobius boundary phase has been sampled numerically at ' +
+        'a = 0.025 over |omega| <= 10^4. This finite boundary diagnostic does ' +
+        'not test half-plane poles or establish stable Schur contractivity.',
       blocker:
         'The countably infinite prime-delay set requires the Lyapunov-Krasovskii ' +
         'functional to be an integral-kernel form V[x] = int_0^infty int_0^infty ' +
         'K_V(s,t) x(-s) x(-t) ds dt. The positivity condition on K_V is ' +
         'equivalent to K_a >= 0 by the same Gram-matrix duality argument as ' +
         'App O. The route is therefore circular: one cannot exhibit K_V without ' +
-        'already knowing K_a >= 0. The signed-Mobius barrier avoids this ' +
-        'circularity only for finitely many primes; extending it to all primes ' +
-        'requires uniform convergence of the argument function, which is open.',
+        'already knowing K_a >= 0. Since boundary modulus is automatic, extending ' +
+        'a signed-Mobius phase plot to more frequencies cannot replace the ' +
+        'missing analytic, pole-free, contractive half-plane realization.',
       principle:
         'App N recasts RH as a dissipativity certification for the prime-delay ' +
-        'system Sigma_a. The signed-Mobius barrier offers an alternative route ' +
-        'via the argument principle, but both face the same infinite-dimensional ' +
-        'obstruction as Routes A-D in para 16.',
+        'system Sigma_a. Boundary data alone is not an alternative proof route; ' +
+        'the infinite-dimensional stable analytic realization is the same ' +
+        'RH-strength obstruction as Routes A-D in para 16.',
     }),
     Object.freeze({
       label: 'App O',
@@ -149,16 +163,17 @@ export const KYP_BOUNDED_REAL = Object.freeze({
       sectionRef: 'App O, pp 107-110',
       latexFormula:
         'G_{a,N} := \\bigl[K_a(\\tau_p, \\tau_q)\\bigr]_{p,q=1}^{N} \\succeq 0 ' +
-        '\\;\\forall\\, N \\;\\Longrightarrow\\; K_a \\succeq 0 ' +
+        '\\;\\forall\\, N \\;\\overset{\\text{Conjecture O.1}}{\\Longrightarrow}\\; K_a \\succeq 0 ' +
         '\\;\\Longrightarrow\\; \\mathrm{RH}',
       statement:
         'The delay-Gram matrix G_{a,N} is the N-by-N matrix whose (p,q) entry ' +
         'is the shifted bridge kernel K_a evaluated at the prime-delay nodes ' +
         'tau_p = log p_{p-th prime}: G_{a,N}[p,q] = K_a(tau_p, tau_q). ' +
-        'If G_{a,N} >= 0 for all N and a > 0, then K_a is a positive ' +
-        'semidefinite kernel (by RKHS density of the prime-delay evaluation ' +
-        'functionals), which implies RH. A successful Cholesky factorization ' +
-        'of G_{a,N} at each N serves as a numerical certificate.',
+        'Conjecture O.1 proposes that positivity of G_{a,N} for all N and ' +
+        'a > 0 extends to positivity of the full kernel K_a and hence RH. ' +
+        'That extension needs an RKHS density or analytic-continuation theorem ' +
+        'which is not proved. A successful Cholesky factorization at fixed N ' +
+        'is only a numerical certificate for that finite delay-node matrix.',
       currentStatus:
         'Cholesky pilots confirm G_{a,N} > 0 for all tested parameters: ' +
         'a = 0.025 and N = 50 (lambda_min ~ 1.4e-4); ' +
@@ -195,9 +210,11 @@ export const KYP_BOUNDED_REAL = Object.freeze({
         'The sequence of N-th truncation KYP certificates P_N converges ' +
         'in operator norm on the sequence space l^2 to a positive definite ' +
         'operator P_infty that satisfies the infinite-dimensional Lure ' +
-        'equation for the prime-delay system Sigma_a. Equivalently, the ' +
-        'passivity margin epsilon_N = lambda_min(P_N) is bounded away from ' +
-        'zero uniformly in N.',
+        'equation for the prime-delay system Sigma_a. A uniform passivity ' +
+        'margin epsilon_N = lambda_min(P_N) bounded away from zero is a ' +
+        'necessary coercivity condition for such a positive limit, not an ' +
+        'equivalent convergence criterion; compatible embeddings and Cauchy ' +
+        'control remain part of the conjecture.',
       impliesRH: true,
       note:
         'If Conjecture M.1 holds, Theta_a is bounded-real for every a > 0, ' +
@@ -251,9 +268,10 @@ export const KYP_BOUNDED_REAL = Object.freeze({
       'ladder is countably infinite and Baker-independent, so finite-dimensional ' +
       'certificates cannot directly close any of the three routes.',
     controlTheoreticEquivalence:
-      'Schur on Theta_a  <=>  K_a >= 0  <=>  Delta = 0  <=>  RH ' +
-      '(para 16, Theorem 16.1). Apps M-O add three control-theoretic ' +
-      'certificates each sufficient for the Schur condition: ' +
+      'Stable analytic Schur contractivity of Theta_a in the half-plane for ' +
+      'every a > 0  <=>  K_a >= 0  <=>  Delta = 0  <=>  RH. Boundary modulus ' +
+      'one is automatic and is not part of this equivalence. Apps M-O propose ' +
+      'three control-theoretic certificates for the full Schur condition: ' +
       'KYP LMI (App M), Lyapunov-Krasovskii dissipativity (App N), ' +
       'Gram-matrix Cholesky pilot (App O).',
     numericalCertificates:
@@ -345,11 +363,26 @@ export const KYP_ASSERTIONS = [
         s &&
         typeof s.schurConditionLaTeX === 'string' &&
         s.schurConditionLaTeX.includes('\\leq 1') &&
+        s.schurConditionLaTeX.includes('H^\\infty') &&
         typeof s.kypGoal === 'string' &&
         s.kypGoal.length >= 40
       );
     },
-    why: 'Setup must include the Schur condition (<=1) and a non-empty kypGoal description.',
+    why: 'Setup must state analytic H-infinity half-plane contractivity, not merely a boundary inequality.',
+  },
+  {
+    id: 'imp1201-boundary-modulus-is-automatic-not-rh-test',
+    holds: () => {
+      const s = KYP_BOUNDED_REAL.setup;
+      return (
+        typeof s.boundaryModulusLaTeX === 'string' &&
+        s.boundaryModulusLaTeX.includes('= 1') &&
+        /Automatic/.test(s.boundaryStatus) &&
+        /do not certify RH/.test(s.boundaryStatus) &&
+        /Boundary modulus/.test(s.kypGoal)
+      );
+    },
+    why: 'The truth-sync must lock that boundary modulus is automatic and carries no RH-strength verdict.',
   },
   {
     id: 'imp1201-app-m-blocker-mentions-baker',
@@ -373,5 +406,42 @@ export const KYP_ASSERTIONS = [
       );
     },
     why: 'parallelDelayDiagram must include at least 8 primes starting with 2, 3, and a delayFormula string.',
+  },
+  {
+    id: 'imp1201-prime-delay-expansion-scoped-to-safe-region',
+    holds: () =>
+      KYP_BOUNDED_REAL.setup.primeDelayLaTeX.includes('absolute-convergence region'),
+    why:
+      'The prime-delay Euler expansion must be scoped to its safe convergence ' +
+      'region; using it globally would assume the analytic continuation at issue.',
+  },
+  {
+    id: 'imp1201-app-o-global-extension-is-conjectural',
+    holds: () => {
+      const appO = KYP_BOUNDED_REAL.apps.find((a) => a.label === 'App O');
+      return appO &&
+        appO.latexFormula.includes('Conjecture O.1') &&
+        appO.statement.includes('which is not proved') &&
+        appO.statement.includes('fixed N');
+    },
+    why:
+      'Sparse prime-delay Gram positivity does not imply global kernel ' +
+      'positivity without the unproved Conjecture O.1 density extension.',
+  },
+  {
+    id: 'imp1201-uniform-margin-is-not-convergence',
+    holds: () => {
+      const appM = KYP_BOUNDED_REAL.apps.find((a) => a.label === 'App M');
+      const conjectureM = KYP_BOUNDED_REAL.conjectures.find(
+        (c) => c.label === 'Conjecture M.1'
+      );
+      return appM &&
+        appM.blocker.includes('not sufficient') &&
+        conjectureM &&
+        conjectureM.statement.includes('not an equivalent convergence criterion');
+    },
+    why:
+      'A uniform eigenvalue floor preserves coercivity but does not establish ' +
+      'operator-norm convergence across changing finite-dimensional spaces.',
   },
 ];

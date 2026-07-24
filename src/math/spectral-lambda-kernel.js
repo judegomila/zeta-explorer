@@ -1,31 +1,21 @@
 /**
- * Spectral Lambda Kernel: Bridge Supercritical Operators to Polymath15
+ * Spectral Lambda Kernel: finite GUE / spacing diagnostics
  *
- * THE KERNEL HACK: Instead of computing 10^12 individual zeros for Λ,
- * use spectral theory to get ANALYTICAL bounds on minimum zero spacing.
- * Feed these into the Dyson ODE barrier → rigorous Λ bound without
- * brute-force zero enumeration.
+ * HONEST STATUS: every GUE spacing input in this module is heuristic, and the
+ * cascade Hamiltonian is a numerical surrogate with no proved spectral
+ * correspondence to zeta zeros. The two-body value s_min^2 / 4 is a collision
+ * proxy, not a rigorous upper bound for the de Bruijn-Newman constant.
  *
- * KEY INSIGHT: The cascade Hamiltonian H_N (from spectral-gap.js) has
- * eigenvalues that approximate ζ-zero spacings. The spectral gap
- * Δ_N = λ_2 - λ_1 gives a LOWER BOUND on minimum zero spacing at
- * the scale of the N-th prime.
+ * The module is useful for exploring scales and falsifying numerical models.
+ * It cannot replace a uniform all-zero spacing theorem, the many-body Dyson
+ * dynamics, or the exact Polymath15 hypotheses.
  *
- * BRIDGE:
- *   1. Spectral gap Δ_N from cascade Hamiltonian → min spacing bound
- *   2. Min spacing bound → barrier function B(t) ≥ f(t, Δ_N)
- *   3. Barrier function → collision time t_c from B(t_c) = 0
- *   4. Collision time → Λ ≤ |t_c|
- *
- * This bypasses the zero-counting bottleneck by replacing:
- *   "compute 10^12 zeros" → "bound spectral gap analytically"
- *
- * APPROACH:
+ * HEURISTIC MODEL:
  *   - The GUE level repulsion gives P(spacing < s) ~ s^2 for small s
  *   - For N zeros up to height T: min spacing ~ 1/(N·density) ~ 1/N·(2π/log T)
  *   - Under backward heat flow: spacing shrinks at rate ~1/s
  *   - Collision time: t_c ~ -s_min^2 / 4 (from ds/dt = +2/s → s^2 = s_0^2 + 4t → t_c = -s_0^2/4)
- *   - So Λ ~ s_min^2 / 4 where s_min is the minimum raw spacing at t=0
+ * None of these bullets supplies the uniform inequalities needed for Λ.
  */
 
 import { ZETA_ZEROS } from './zeta.js';
@@ -77,7 +67,7 @@ function tridiagonalEigenvalues(H) {
   return Array.from({length:N},(_,i)=>M[i][i]).sort((a,b)=>a-b);
 }
 
-// ── Analytical min-spacing bound from GUE statistics ──────────────────
+// ── Heuristic min-spacing scale from GUE statistics ───────────────────
 
 // For N zeros in [0, T]: mean spacing δ = 2π/log(T/(2π))
 // GUE prediction: P(normalized spacing < s) ≈ (π²/6)·s³ for small s
@@ -92,25 +82,30 @@ function meanSpacingAtHeight(T) {
   return 2 * Math.PI / Math.log(T / (2 * Math.PI));
 }
 
-// ── The Kernel Hack: spectral bound on collision time ─────────────────
+// ── Two-body collision proxy (not a Lambda bound) ─────────────────────
 
 // Under forward heat flow the tightest pair repels: dx_j/dt = Σ 1/(x_j-x_k).
 // For the closest pair separated by s, the two-body leading-order ODE is:
 //   ds/dt ≈ +2/s  (repulsion: integrate s·ds=2dt → s²=s₀²+4t)
 //   Backward to t<0: s(t)²=s₀²+4t → collision at t_c=-s₀²/4
 //
-// So Λ = |t_c| = s₀²/4 where s₀ = minimum RAW spacing at t=0.
+// The proxy |t_c| = s₀²/4 ignores the many-body terms and does not bound Λ.
 //
 // But s₀ = s_min_normalized × mean_spacing
 // And s_min_normalized ~ N^{-1/3} from GUE
 // And mean_spacing = 2π/log(T/(2π))
 
-function analyticalLambdaBound(T, N_zeros) {
+function gueHeuristicSpacingProxy(T, N_zeros) {
   const meanS = meanSpacingAtHeight(T);
   const minNorm = expectedMinNormalizedSpacing(N_zeros);
   const s0 = minNorm * meanS;
-  const lambda = s0 * s0 / 4;
-  return { meanSpacing: meanS, minNormalized: minNorm, s0_raw: s0, lambda };
+  const twoBodyCollisionProxy = s0 * s0 / 4;
+  return {
+    meanSpacing: meanS,
+    minNormalized: minNorm,
+    s0_raw: s0,
+    twoBodyCollisionProxy,
+  };
 }
 
 export function spectralLambdaKernelTest() {
@@ -125,7 +120,7 @@ export function spectralLambdaKernelTest() {
     return { K, min_spectral_gap: +minGap.toFixed(6), eig_1: +eigs[0].toFixed(4), eig_2: +eigs[1].toFixed(4) };
   });
 
-  // Part 2: Analytical Λ bound from GUE spacing statistics
+  // Part 2: heuristic GUE spacing/collision proxies
   const scenarios = [
     { T: 1000, N: 649, label: 'Our T=1000' },
     { T: 1e6, N: 620000, label: 'T=10^6' },
@@ -134,90 +129,104 @@ export function spectralLambdaKernelTest() {
     { T: Infinity, N: Infinity, label: 'N→∞ (RH)' },
   ];
 
-  const analyticalBounds = scenarios.filter(s => isFinite(s.T)).map(s => {
-    const result = analyticalLambdaBound(s.T, s.N);
+  const gueHeuristicEstimates = scenarios.filter(s => isFinite(s.T)).map(s => {
+    const result = gueHeuristicSpacingProxy(s.T, s.N);
     return {
       label: s.label,
       T: s.T >= 1e6 ? s.T.toExponential(0) : s.T,
       N: s.N >= 1e6 ? s.N.toExponential(0) : s.N,
       mean_spacing: +result.meanSpacing.toFixed(4),
-      min_normalized: +result.minNormalized.toFixed(6),
-      s0_raw: +result.s0_raw.toFixed(6),
-      'Λ_analytical': +result.lambda.toFixed(6),
+      gue_expected_min_normalized: +result.minNormalized.toFixed(6),
+      gue_expected_s0_raw: +result.s0_raw.toFixed(6),
+      two_body_collision_proxy: +result.twoBodyCollisionProxy.toFixed(6),
+      rigorous_lambda_bound: false,
     };
   });
 
-  // Part 3: Compare to our Dyson ODE result
-  const dysonResult = 0.011;  // from imp-304
-  const sotaResult = 0.2;     // Platt-Trudgian
+  // Part 3: reference values. Only the last two entries are rigorous bounds.
+  const finiteDysonEstimate = 0.011;       // imp-304 numerical estimate
+  const repositoryBound = 0.1787854;       // unreviewed computer-assisted theorem
+  const peerReviewedBound = 0.2;           // Platt-Trudgian
 
-  // Part 4: Verify analytical formula against actual data
+  // Part 4: compare the heuristic scale with the finite stored zero sample
   const actual = ZETA_ZEROS;
   let actualMinSpacing = Infinity;
   for (let i = 1; i < actual.length; i++) {
     const s = actual[i] - actual[i-1];
     if (s < actualMinSpacing) actualMinSpacing = s;
   }
-  const actualLambda = actualMinSpacing * actualMinSpacing / 4;
-  const predictedLambda = analyticalLambdaBound(actual[actual.length-1], actual.length);
+  const actualSampleTwoBodyProxy = actualMinSpacing * actualMinSpacing / 4;
+  const predictedProxy = gueHeuristicSpacingProxy(actual[actual.length-1], actual.length);
 
   const validation = {
     actual_min_spacing: +actualMinSpacing.toFixed(6),
-    actual_lambda_from_spacing: +actualLambda.toFixed(6),
-    predicted_min_spacing: +predictedLambda.s0_raw.toFixed(6),
-    predicted_lambda: +predictedLambda.lambda.toFixed(6),
-    ratio: +(actualLambda / predictedLambda.lambda).toFixed(4),
+    actual_sample_two_body_proxy: +actualSampleTwoBodyProxy.toFixed(6),
+    gue_predicted_min_spacing: +predictedProxy.s0_raw.toFixed(6),
+    gue_predicted_two_body_proxy: +predictedProxy.twoBodyCollisionProxy.toFixed(6),
+    proxy_ratio: +(actualSampleTwoBodyProxy / predictedProxy.twoBodyCollisionProxy).toFixed(4),
+    interpretation:
+      'Finite-sample calibration of a two-body GUE heuristic; it is not a ' +
+      'validation of a Lambda bound or a theorem about all zeta-zero gaps.',
   };
 
-  // Part 5: The scaling law
-  // Λ ~ s_min² ~ (N^{-1/3} × 2π/log T)²
+  // Part 5: heuristic scaling only
+  // proxy ~ s_min² ~ (N^{-1/3} × 2π/log T)²
   // At T~10^12, N~3×10^11: s_min ~ (3e11)^{-1/3} × 2π/27.6 ~ 1e-4 × 0.23 ~ 2.3e-5
-  // Λ ~ (2.3e-5)² / 4 ~ 1.3e-10
-  // This heuristic is much smaller than the 0.2 peer-reviewed benchmark and the
-  // unreviewed 0.1787854 repository theorem, but is not itself a rigorous bound.
+  // two-body proxy ~ (2.3e-5)² / 4 ~ 1.3e-10. This is not a Lambda bound.
 
   return {
     framework: {
-      name: 'Spectral Lambda Kernel (Bridge: Operators → Polymath15)',
-      insight: 'Replace 10^12 zero computation with analytical spacing bound from GUE + spectral gap',
-      formula: 'Λ ≈ s_min²/4 where s_min = N^{-1/3} × 2π/log(T/(2π))',
-      bridge: 'Cascade Hamiltonian spectral gap → min spacing → barrier → collision → Λ',
+      name: 'Spectral Lambda Kernel (GUE / spacing diagnostic)',
+      status: 'HEURISTIC AND NUMERICAL — NO RIGOROUS LAMBDA BOUND',
+      insight:
+        'Explore a two-body collision scale using GUE-predicted minimum ' +
+        'spacing and a numerical cascade-Hamiltonian surrogate.',
+      formula:
+        'two-body proxy = s_min²/4 with heuristic ' +
+        's_min = N^{-1/3} × 2π/log(T/(2π))',
+      missingTheorem:
+        'No proved map sends cascade eigenvalue gaps to zeta-zero gaps, GUE ' +
+        'does not give a uniform every-pair lower bound, and the two-body ODE ' +
+        'does not control the full many-body Newman flow.',
     },
 
     cascade_spectral_gaps: spectralGaps,
-    analytical_lambda_bounds: analyticalBounds,
+    gue_heuristic_estimates: gueHeuristicEstimates,
 
-    validation_against_data: validation,
+    finite_sample_calibration: validation,
 
     comparison: {
-      'Our Dyson ODE (imp-304)': dysonResult,
-      'Analytical kernel hack': predictedLambda.lambda,
-      'Peer-reviewed Platt-Trudgian benchmark': sotaResult,
+      'Finite Dyson estimate imp-304 (not rigorous)': finiteDysonEstimate,
+      'GUE two-body proxy (not a bound)': predictedProxy.twoBodyCollisionProxy,
+      'Repository computer-assisted bound (unreviewed)': repositoryBound,
+      'Peer-reviewed Platt-Trudgian bound': peerReviewedBound,
       'RH (Λ=0)': 0,
     },
 
-    scaling_law: {
-      formula: 'Λ ~ (N^{-2/3} × (2π/log T)²) / 4',
-      at_T_1e12: 'Λ ~ 1.3×10^{-10} (analytically)',
-      at_T_1e20: 'Λ ~ 10^{-14} (analytically)',
-      limit: 'Λ → 0 as T → ∞ (consistent with RH)',
+    heuristic_scaling_law: {
+      formula: 'two-body proxy ~ (N^{-2/3} × (2π/log T)²) / 4',
+      at_T_1e12: 'proxy ~ 1.3×10^{-10} under the GUE model',
+      at_T_1e20: 'proxy ~ 10^{-14} under the GUE model',
+      limit:
+        'The model proxy tends to zero. This is consistent with RH but does ' +
+        'not imply Lambda <= 0 or any rigorous Lambda upper bound.',
     },
 
     keyFindings: [
       `Cascade Hamiltonian spectral gaps: K=5:${spectralGaps[0].min_spectral_gap}, K=50:${spectralGaps[3].min_spectral_gap}.`,
-      `Analytical Λ at our scale (T=1000): ${analyticalBounds[0]['Λ_analytical']}.`,
-      `Analytical Λ at Platt scale (T=10^12): ${analyticalBounds[2]['Λ_analytical']}.`,
-      `Validation: actual Λ from spacing = ${validation.actual_lambda_from_spacing} vs predicted ${validation.predicted_lambda} (ratio ${validation.ratio}).`,
-      `SCALING LAW: Λ ~ N^{-2/3} × (2π/log T)² / 4 → 0 as T → ∞.`,
-      `This is the KERNEL HACK: GUE spacing statistics + spectral theory bypass brute-force zero enumeration.`,
-      `At T=10^12: Λ_analytical ~ 10^{-10}, orders below the peer-reviewed 0.2 benchmark and the repository theorem 0.1787854.`,
-      `The analytical bound says: if GUE statistics hold exactly, Λ is ASTRONOMICALLY small.`,
-      `GAP: GUE gives STATISTICAL bound; Polymath15 needs RIGOROUS bound on every pair.`,
+      `GUE two-body proxy at T=1000: ${gueHeuristicEstimates[0].two_body_collision_proxy} (not a bound).`,
+      `GUE two-body proxy at T=10^12: ${gueHeuristicEstimates[2].two_body_collision_proxy} (not a bound).`,
+      `Finite-sample two-body proxy ${validation.actual_sample_two_body_proxy} versus GUE proxy ${validation.gue_predicted_two_body_proxy} (ratio ${validation.proxy_ratio}).`,
+      'The GUE input is statistical and conjectural for this use; Polymath15 needs rigorous uniform control.',
+      'The cascade Hamiltonian is a numerical surrogate, not a proved operator model for zeta zeros.',
+      'No value computed by this module improves or establishes a rigorous Lambda bound.',
     ],
 
     verdict:
-      `SPECTRAL KERNEL: analytical Λ ~ N^{-2/3}·(2π/logT)²/4. At T=10^12: ~10^{-10}. ` +
-      `Actual/predicted ratio: ${validation.ratio}. Scaling → 0 (consistent with RH). ` +
-      'Bridge built: spectral theory + GUE → Dyson barrier → Λ bound.',
+      'HEURISTIC / NUMERICAL DIAGNOSTIC ONLY. GUE spacing statistics, ' +
+      'finite stored zeros, and cascade-Hamiltonian gaps do not produce a ' +
+      'rigorous de Bruijn-Newman bound. The rigorous displayed references ' +
+      'remain the repository theorem Lambda <= 0.1787854 (unreviewed) and ' +
+      'the peer-reviewed Platt-Trudgian Lambda <= 0.2.',
   };
 }

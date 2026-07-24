@@ -1,29 +1,27 @@
 #!/usr/bin/env node
-// imp-2456: continuum-limit sign of the smallest truncated minor of the
-// ghost-absence kernel K_a (Attack I, Conjecture 18.1) -- follow-on to imp-2424.
+// imp-2456: historical extrapolation of the imp-2424 SURROGATE matrix.
 //
-// imp-2424 found that the smallest diagonal-normalized leading principal minor
-// of the n x n truncation of K_a stays NEGATIVE, with the indefinite margin
-// shrinking roughly like n^{-1.7}, and reported NO n-uniform positive
-// certificate. This script pushes the truncation to larger n and a finer
-// a-grid, fits the margin decay as a power law |margin_n| ~ C n^{-p}, and
-// extrapolates the SIGNED margin to n -> infinity to decide between three
-// possibilities:
-//   (PSD)        the margin extrapolates to a strictly POSITIVE floor
-//                  -> Attack I positivity certificate is achievable;
-//   (MARGINAL)   the margin -> 0 from below (p > 0, signed limit ~ 0)
-//                  -> K_a sits exactly ON the PSD-cone boundary, no provable
-//                     strictly-positive floor but no bounded-away obstruction;
-//   (INDEFINITE) the margin extrapolates to a bounded-away NEGATIVE value
-//                  -> positivity is structurally blocked.
+// NORMALIZATION RETRACTION (2026-07-24)
+// --------------------------------------
+// imp-2424 and this script use
+//   (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})
+// with unscaled cosh(au), cos(zu), sinh(au), sin(zu). The canonical kernel is
+//   Phi(u) = sum_n (2 pi^2 n^4 e^{9u} - 3 pi n^2 e^{5u})
+//                    exp(-pi n^2 e^{4u}),
+//   X(w) = 8 integral_0^infinity Phi(u) cosh(2wu) du.
+// Thus the fitted negative pivots and any "cone boundary" language describe
+// only the historical surrogate. They are INVALID FOR T3 and cannot constrain
+// the exact Riemann kernel. A correctly normalized 60-digit four-node numerical
+// check is positive, but is not a proof.
 //
 // The kernel, quadrature and LDL^T certificate are identical to
 // scripts/compute-imp-2424-Ka-tp-certificate.mjs (re-derived inline so this
-// script is self-contained). HONEST NUMERICS -- not a proof of B_a^+ = 1.
+// script is self-contained). The historical numbers are retained for
+// reproducibility, with all exact-kernel inference retracted.
 
 import { performance } from 'node:perf_hooks';
 
-// dg_de Bruijn-Newman Phi kernel (same as imp-2424).
+// Historical imp-2424 surrogate (not the canonical completed-Riemann Phi).
 const N_PHI = 10;
 function Phi(u) {
   let sum = 0;
@@ -213,16 +211,15 @@ function main() {
       });
     }
     const fit = powerLawFit(series);
-    // Power-law extrapolation of the SIGNED margin to n -> infinity.
-    // If p > 0 the magnitude -> 0; the signed limit is 0 to within the
-    // largest-n residual. We report that residual as the achievable floor.
+    // Power-law fit of the SURROGATE signed margin. It has no exact-kernel
+    // continuum interpretation.
     const last = series[series.length - 1];
     let limitVerdict = 'inconclusive';
     if (fit && fit.decayExponent !== null) {
-      if (fit.decayExponent > 0.15 && fit.marginSign === -1) limitVerdict = 'marginal-cone-boundary';
-      else if (fit.decayExponent > 0.15 && fit.marginSign === 1) limitVerdict = 'positive-floor-shrinking';
-      else if (fit.marginSign === 1) limitVerdict = 'positive-floor';
-      else if (fit.marginSign === -1) limitVerdict = 'bounded-away-negative';
+      if (fit.decayExponent > 0.15 && fit.marginSign === -1) limitVerdict = 'surrogate-marginal-fit';
+      else if (fit.decayExponent > 0.15 && fit.marginSign === 1) limitVerdict = 'surrogate-positive-shrinking';
+      else if (fit.marginSign === 1) limitVerdict = 'surrogate-positive';
+      else if (fit.marginSign === -1) limitVerdict = 'surrogate-bounded-negative';
     }
     rows.push({
       a,
@@ -234,16 +231,39 @@ function main() {
   }
 
   const allMarginal = rows.every((r) =>
-    r.limitVerdict === 'marginal-cone-boundary' || r.limitVerdict === 'positive-floor');
-  const anyBoundedNeg = rows.some((r) => r.limitVerdict === 'bounded-away-negative');
+    r.limitVerdict === 'surrogate-marginal-fit' || r.limitVerdict === 'surrogate-positive');
+  const anyBoundedNeg = rows.some((r) => r.limitVerdict === 'surrogate-bounded-negative');
   const anyPositiveFloor = rows.some((r) =>
-    r.limitVerdict === 'positive-floor' || r.limitVerdict === 'positive-floor-shrinking');
+    r.limitVerdict === 'surrogate-positive' || r.limitVerdict === 'surrogate-positive-shrinking');
 
   const out = {
     ticket: 'imp-2456',
     builtOn: 'imp-2424 (scripts/compute-imp-2424-Ka-tp-certificate.mjs)',
-    kernel: 'K_a(w,z) = (A_a(z)B_a(w) - B_a(z)A_a(w)) / (pi (w - z)), de Branges Wronskian form',
-    quantity: 'smallest SIGNED pivot of the diagonal-normalized correlation matrix C (conditioning-robust minor margin)',
+    status: 'SURROGATE / INVALID FOR T3',
+    kernelModel: 'historical-surrogate-normalization',
+    appliesToExactRiemannKernel: false,
+    kernel: 'surrogate Wronskian matrix inherited from imp-2424',
+    normalizationAudit: {
+      implementedPhi: '(2 pi^2 n^4 e^(4u) - 3 pi n^2 e^(2u)) exp(-pi n^2 e^(4u))',
+      canonicalPhi: '(2 pi^2 n^4 e^(9u) - 3 pi n^2 e^(5u)) exp(-pi n^2 e^(4u))',
+      canonicalTransform: 'X(w) = 8 integral Phi(u) cosh(2 w u) du',
+      omittedTransformArgumentFactor: 2,
+    },
+    correctedCanonicalFourNodeNumericalCheck: {
+      status: 'positive-numerical-only',
+      rigorous: false,
+      precisionDigits: 60,
+      a: 0.5,
+      realNodes: [-6, -2, 2, 6],
+      smallestNormalizedEigenvalue: 4.66922095265e-5,
+      normalizedLeadingPrincipalMinors: [
+        1,
+        0.0387394724,
+        0.000150634109,
+        1.4487899474e-7,
+      ],
+    },
+    quantity: 'smallest signed pivot of the SURROGATE diagonal-normalized matrix',
     grid: { halfSpan: HALF_SPAN },
     quadrature: { uMax: U_MAX, nodes: NU, rule: 'composite Simpson' },
     aValues: A_VALUES,
@@ -260,7 +280,9 @@ function main() {
       })(),
     },
     elapsedMs: Math.round(performance.now() - t0),
-    scope: 'NUMERICAL extrapolation of the K_a minor margin. Not a proof of B_a^+ = 1.',
+    scope:
+      'SURROGATE FIT ONLY. No negative-minor or PSD-cone-boundary inference ' +
+      'applies to exact K_a or T3; no B_a^+, Lambda, or RH conclusion follows.',
   };
   process.stdout.write(JSON.stringify(out, null, 2) + '\n');
 }

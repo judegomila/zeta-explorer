@@ -2,13 +2,56 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 
-// Constants referenced across the three open residuals
+// Constants referenced by the separate Dyson / collision-flow research lane.
 const C_ASYM = 0.9027902227683418;
-const C_GLOB_LO = 0.9015828375;
+const C_OBSERVED_MIN = 0.9015828375;
 const EXCURSION_CAP = 0.5073;
 const THEOREM_A_CAP = 0.25;
 
-const RESIDUALS = [
+const GLOBAL_FRONTIER = {
+  id: 'T3',
+  tag: 'twin-ladder-exact-residual',
+  color: '#ef4444',
+  badge: 'SOLE GLOBAL RH FRONTIER',
+  title: 'T3: exact Twin Ladder residual inequality',
+  status: 'OPEN · RH-EQUIVALENT',
+  body: [
+    'For every a > 0 and every finite test in the upper half-plane C_+, prove the ' +
+    'Hermitian-form inequality D_{a,R} + K_a^(S) ⪰ -K_{a,0}. Equivalently, the ' +
+    'finite matrix associated to D_{a,R} + K_a^(S) + K_{a,0} must be positive ' +
+    'semidefinite for every choice of test points and coefficients.',
+    'The exact kernel decomposition is K_a = K_{a,0} + D_{a,R} + K_a^(S), where ' +
+    'K_{a,0} ⪰ 0 is the genuine positive core. The residual D_{a,R} has a ' +
+    'second-order cancellation through cos(ps) - 1, while K_a^(S) is the second ' +
+    'indefinite channel. A crude absolute-value estimate spends the entire ' +
+    'positive core, so the missing step is a cancellation-sensitive ' +
+    'Volterra/derivative estimate controlling both channels together.',
+    'This statement is equivalent to RH, not a strict reduction. Relabelling it ' +
+    'as passivity, Schur contractivity, a determinant test, or positivity does ' +
+    'not make the obligation smaller. Promotable progress must supply a new ' +
+    'zeta-specific lemma, rigorously refute a proposed exact-kernel bridge, or ' +
+    'replace T3 by a genuinely narrower statement with a complete implication proof.',
+  ],
+  links: [
+    { to: '/twin-ladder', label: 'Twin Ladder Explorer' },
+    { to: '/closure-routes', label: 'Closure Routes' },
+    { to: '/route-map', label: 'Route Map' },
+  ],
+};
+
+const CHANNEL_SPLIT_CERTIFICATE = {
+  status: 'RIGOROUS FINITE ROUTE COUNTEREXAMPLE',
+  title: 'Independent scalar radial/shear budgets cannot close T3',
+  configuration: 'a = 1/4,  z = (−1/2, 0, 1/2) + i/5',
+  betaR: 'βR > 1.027286016',
+  betaS: 'βS > 0.42200180358',
+  betaSum: 'βR + βS > 1.449287819 > 1',
+  method:
+    '256-bit Arb · exact one-dimensional Laplace-product factorization · ' +
+    'combined omission error < 10⁻²² · independent acb_dirichlet_xi cross-check',
+};
+
+const DYSON_LANE_RESIDUALS = [
   {
     id: 'R1',
     tag: 'sg1c-r1-excursion-cap',
@@ -25,8 +68,9 @@ const RESIDUALS = [
       'started from genuine real-zero-like data ever drive the minimal-gap locus onto a long ' +
       'near-uniform lattice — the sole route by which Theta_exc could drop below 1? ' +
       'The dressed static excursion ceiling is ' + EXCURSION_CAP + ' (empirical, config set) ' +
-      'with dynamical excursion evidence 0.51, both well inside the Theorem-A basin ' +
-      '(trap at Theta <= ' + THEOREM_A_CAP + '). ' +
+      'with dynamical excursion evidence 0.51. Neither number is inside the ' +
+      'stated Theorem-A trap Theta <= ' + THEOREM_A_CAP + ' on its face; any ' +
+      'basin implication needs a separately proved map between the quantities. ' +
       'But this is an empirical bound on a finite config set, not a global proof that ' +
       'arbitrary real-zero configurations avoid the near-uniform-lattice locus.',
     ],
@@ -40,24 +84,25 @@ const RESIDUALS = [
     id: 'R2',
     tag: 'sg1c-r2-isolation-persistence',
     color: '#a78bfa',
-    badge: 'GLOBAL BRACKET OPEN',
-    title: 'R2: c_glob bracket — asymmetric isolation onset (' +
-      C_GLOB_LO.toFixed(7) + ', ' + C_ASYM.toFixed(7) + ')',
+    badge: 'OBSERVED RANGE · NO LOWER BOUND',
+    title: 'R2: sampled asymmetric isolation onsets (' +
+      C_OBSERVED_MIN.toFixed(7) + ', ' + C_ASYM.toFixed(7) + ')',
     status: 'OPEN',
     body: [
       'The global asymmetric multi-body isolation constant c_glob is defined as the infimum of ' +
       'all worsening-onset values rho(c) over all asymmetric multi-body environments. ' +
       'Every numerically located onset is only an UPPER BOUND on c_glob; no rigorous lower bound ' +
       'below the basin constant 0.72 has been proven.',
-      'Current bracket: lower structured floor ' + C_GLOB_LO.toFixed(7) +
-      ' (imp-3172 Config-B smooth onset, the lowest computationally located onset) ' +
-      'and upper end c_asym = ' + C_ASYM.toFixed(10) +
-      ' (transcendental closed form, asymmetric R-to-infinity class, imp-3170). ' +
+      'Observed values include ' + C_OBSERVED_MIN.toFixed(7) +
+      ' (imp-3172 Config-B smooth onset, the lowest computationally located ' +
+      'onset) and c_asym = ' + C_ASYM.toFixed(10) +
+      ' (the asymmetric R-to-infinity class, imp-3170). Both are witnesses ' +
+      'that upper-bound the infimum; they are not a rigorous lower/upper bracket. ' +
       'The Theorem-C basin (C_Lip) only requires c <= 0.72, so closing c_glob is NOT needed ' +
-      'for the current load-bearing Lipschitz argument — the bracket matters for the program ' +
+      'for the current load-bearing Lipschitz argument — the observed range matters for the program ' +
       'isolation record, not for the core proof chain.',
-      'Closing the bracket requires either a proven lower bound derivation or a structured ' +
-      'search that exhausts the class and certifies the infimum.',
+      'Turning the observations into a bracket requires either a proven lower ' +
+      'bound or a structured search that exhausts the class and certifies the infimum.',
     ],
     links: [
       { to: '/onset-bracket-ledger', label: 'Onset Bracket Ledger' },
@@ -78,17 +123,17 @@ const RESIDUALS = [
       'G6a-sub-hyperbolic (hyperbolic region bound) and G6a-sub-constant (constant region). ' +
       'Per imp-2640 NEGATIVE, C_H is undischargeable via the current approach, so the ' +
       'finite-N beat on Lambda remains an ESTIMATE, not a rigorous unconditional result. ' +
-      'The rigorous deliverable on the Polymath15 route is only the floor PT 0.2.',
-      'Closing G6a fully would require either a direct port of Polymath15 Lemma 5.2 ' +
-      'or one of the parallel routes (imp-368+369+336 Route A, or imp-342+337 Route C). ' +
-      'All three remain open.',
-      'Honest-status note (imp-33637): the "Polymath15 Lemma 5.2" label above is under ' +
-      'correction. imp-33637 found that arXiv:1904.12438 (the corrected, real Polymath15 ' +
-      'paper id) contains only a Lemma 5.1 in Section 5 — no Lemma 5.2 matching this ' +
-      'Hölder-1/2 subject exists in the actual paper. imp-33649 traced the fold-catastrophe ' +
-      'exponent instead to Whitham, Linear and Nonlinear Waves (1974). This citation ' +
-      'correction changes no math or verdict here: G6a_shock_lipschitz stays OPEN (PARTIAL) ' +
-      'exactly as stated above, independent of the citation error.',
+      'The peer-reviewed benchmark remains Lambda <= 0.2; separately, this repository ' +
+      'now proves the unreviewed computer-assisted theorem Lambda <= 0.1787854 through ' +
+      'an independent sealed route. That theorem does not close G6a or descend to zero.',
+      'Closing G6a fully requires the actual missing strip-uniform fold estimate or one ' +
+      'of the parallel routes (imp-368+369+336 Route A, or imp-342+337 Route C). ' +
+      'Those routes remain open.',
+      'Citation audit (imp-33637): arXiv:1904.12438 contains only Lemma 5.1 in ' +
+      'Section 5, not a Lemma 5.2 matching this Hölder-1/2 claim. imp-33649 ' +
+      'traced the fold-catastrophe exponent instead to Whitham, Linear and ' +
+      'Nonlinear Waves (1974). The nonexistent lemma is not a live closure ' +
+      'route; G6a_shock_lipschitz remains OPEN (PARTIAL).',
       'Honest-status note (imp-33766): H4 (the strip-height fold-reading derivative m_prime) ' +
       'is NOT independently dischargeable -- the Holder-modulus back-conversion couples it to ' +
       'H3 (the curvature coefficient m_double_prime) through the same quadratic fold expansion, ' +
@@ -126,22 +171,167 @@ export default function OpenFrontierPage() {
     <div className="page">
       <PageHeader
         title="Open Frontier"
-        subtitle="Three live open residuals — the complete remaining gap between current results and a closed proof"
+        subtitle="One exact global RH-equivalent frontier, with separate subsidiary research lanes"
       />
 
       <div className="card" style={{ marginBottom: 20, borderLeft: '3px solid #64748b' }}>
         <p style={{ fontSize: 13, color: '#94a3b8', margin: 0, lineHeight: 1.65 }}>
-          This page consolidates the three genuine open residuals of the Twin-Ladder Bridge / RH-attack program in one place.
-          Everything else in the route map is either{' '}
-          <strong style={{ color: '#22c55e' }}>closed</strong> (rigorous),{' '}
-          <strong style={{ color: '#ef4444' }}>refuted</strong>, or{' '}
-          <strong style={{ color: '#64748b' }}>superseded</strong>.
-          The items here are the only things standing between the current state and a complete program.
-          Each is honestly labelled with its status and what closing it would require.
+          The canonical global frontier is the exact T3 residual below. It is the
+          current full-strength Twin Ladder formulation of RH and is not yet a
+          simplification of RH. The R1, R2, and G6a questions remain useful
+          research inside a distinct Dyson / collision-flow lane, but they are
+          not the complete global gap and do not replace T3.
         </p>
       </div>
 
-      {RESIDUALS.map((r) => (
+      <div
+        className="card"
+        style={{ marginBottom: 22, borderLeft: `4px solid ${GLOBAL_FRONTIER.color}` }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10, flexWrap: 'wrap' }}>
+          <span
+            style={{
+              fontFamily: 'var(--font-mono, monospace)',
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: 0.5,
+              color: GLOBAL_FRONTIER.color,
+              border: `1px solid ${GLOBAL_FRONTIER.color}`,
+              borderRadius: 4,
+              padding: '2px 7px',
+            }}
+          >
+            {GLOBAL_FRONTIER.badge}
+          </span>
+          <span
+            style={{
+              fontFamily: 'var(--font-mono, monospace)',
+              fontSize: 10.5,
+              fontWeight: 700,
+              color: '#ef4444',
+              border: '1px solid #ef4444',
+              borderRadius: 4,
+              padding: '1px 6px',
+            }}
+          >
+            {GLOBAL_FRONTIER.status}
+          </span>
+          <code style={{ fontSize: 11, color: '#64748b' }}>{GLOBAL_FRONTIER.tag}</code>
+        </div>
+        <strong style={{ color: '#f8fafc', fontSize: 15, display: 'block', marginBottom: 10 }}>
+          {GLOBAL_FRONTIER.title}
+        </strong>
+        <div
+          style={{
+            marginBottom: 12,
+            padding: '10px 12px',
+            borderRadius: 6,
+            background: 'rgba(239,68,68,0.07)',
+            color: '#fecaca',
+            fontFamily: 'var(--font-mono, monospace)',
+            fontSize: 13,
+            overflowX: 'auto',
+          }}
+        >
+          D<sub>a,R</sub> + K<sub>a</sub><sup>(S)</sup> ⪰ −K<sub>a,0</sub>
+        </div>
+        {GLOBAL_FRONTIER.body.map((para, i) => (
+          <p key={i} style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.65, marginTop: i === 0 ? 0 : 10, marginBottom: 0 }}>
+            {para}
+          </p>
+        ))}
+        <div style={{ marginTop: 12, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+          {GLOBAL_FRONTIER.links.map((lnk) => (
+            <Link
+              key={lnk.to}
+              to={lnk.to}
+              style={{ fontSize: 12, color: GLOBAL_FRONTIER.color, textDecoration: 'none', borderBottom: `1px solid ${GLOBAL_FRONTIER.color}` }}
+            >
+              {lnk.label} →
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      <div
+        className="card"
+        style={{ marginBottom: 22, borderLeft: '4px solid #f59e0b' }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10, flexWrap: 'wrap' }}>
+          <span
+            style={{
+              fontFamily: 'var(--font-mono, monospace)',
+              fontSize: 10.5,
+              fontWeight: 700,
+              letterSpacing: 0.45,
+              color: '#fbbf24',
+              border: '1px solid #f59e0b',
+              borderRadius: 4,
+              padding: '2px 7px',
+            }}
+          >
+            {CHANNEL_SPLIT_CERTIFICATE.status}
+          </span>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T11 · exact Riemann kernel</code>
+        </div>
+        <strong style={{ color: '#fde68a', fontSize: 15, display: 'block', marginBottom: 8 }}>
+          {CHANNEL_SPLIT_CERTIFICATE.title}
+        </strong>
+        <p style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.65, margin: 0 }}>
+          On the certified block <code>{CHANNEL_SPLIT_CERTIFICATE.configuration}</code>,
+          the coupled matrix K<sub>a,0</sub> + D<sub>a,R</sub> +
+          K<sub>a</sub><sup>(S)</sup> is positive definite. But any separate
+          scalar-multiple estimates D<sub>a,R</sub> ⪰ −β<sub>R</sub>K<sub>a,0</sub> and
+          K<sub>a</sub><sup>(S)</sup> ⪰ −β<sub>S</sub>K<sub>a,0</sub> must obey:
+        </p>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+            gap: 8,
+            margin: '12px 0',
+          }}
+        >
+          {[CHANNEL_SPLIT_CERTIFICATE.betaR, CHANNEL_SPLIT_CERTIFICATE.betaS, CHANNEL_SPLIT_CERTIFICATE.betaSum].map((value) => (
+            <code
+              key={value}
+              style={{
+                padding: '8px 10px',
+                borderRadius: 5,
+                background: 'rgba(245,158,11,0.08)',
+                border: '1px solid rgba(245,158,11,0.25)',
+                color: '#fde68a',
+                fontSize: 12,
+              }}
+            >
+              {value}
+            </code>
+          ))}
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.65, margin: 0 }}>
+          These scalar bounds therefore need more than one copy of the single
+          positive-core budget even though the exact coupled sum is positive.
+          This refutes that precise scalar split, not structured non-scalar
+          allocations, T3, or RH. The live target is now sharper: preserve
+          radial/shear cancellation, add matrix structure, or find a different
+          zeta-specific mechanism.
+        </p>
+        <p style={{ color: '#64748b', fontSize: 11.5, lineHeight: 1.55, margin: '10px 0 0' }}>
+          Certificate method: {CHANNEL_SPLIT_CERTIFICATE.method}.
+        </p>
+      </div>
+
+      <div className="card" style={{ marginBottom: 18, borderLeft: '3px solid #38bdf8' }}>
+        <strong style={{ color: '#7dd3fc', fontSize: 13 }}>Separate Dyson / collision-flow lane</strong>
+        <p style={{ fontSize: 13, color: '#94a3b8', margin: '8px 0 0', lineHeight: 1.65 }}>
+          The three records below track internal residuals of the dynamical
+          de Bruijn–Newman program. They can sharpen subsidiary flow estimates
+          or eliminate proposed mechanisms. Closing them would not, by itself,
+          discharge the exact T3 kernel inequality or prove RH.
+        </p>
+      </div>
+
+      {DYSON_LANE_RESIDUALS.map((r) => (
         <div
           key={r.id}
           className="card"
@@ -201,13 +391,15 @@ export default function OpenFrontierPage() {
         </div>
       ))}
 
-      <div className="card" style={{ marginTop: 8, borderLeft: '3px solid #22c55e' }}>
+      <div className="card" style={{ marginTop: 8, borderLeft: '3px solid #64748b' }}>
         <div style={{ fontSize: 12.5, color: '#94a3b8', lineHeight: 1.65 }}>
-          <strong style={{ color: '#22c55e' }}>What is not open:</strong>{' '}
-          The Theorem-C Lipschitz basin (C_Lip, requires only c &le; 0.72) is load-bearing and does NOT
-          depend on closing R2 (c_glob). The static-obstruction chain (R1-T2/T3) is rigorous.
-          The 34-run empirical excursion data is honest. The partial G6a closure is accurately labelled partial.
-          The program has no withdrawn overclaims on these three items — only honest open status.
+          <strong style={{ color: '#cbd5e1' }}>Scope separation:</strong>{' '}
+          The Theorem-C Lipschitz basin (C_Lip, requiring only c &le; 0.72) does
+          not depend on closing R2. The static-obstruction chain inside R1 is
+          rigorous, while the 34-run excursion study remains finite empirical
+          evidence. G6a remains a subsidiary open flow estimate. None of these
+          statements changes the global verdict: RH is open, and T3 is the sole
+          exact global frontier recorded here.
         </div>
       </div>
 

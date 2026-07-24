@@ -65,7 +65,7 @@ export default function RHEquivalentsPage() {
           A curated catalog of {countAll} statements either equivalent to RH or one-way
           implication-related to RH. Each entry pins the precise statement, the direction
           of implication, the principal published reference, and how (if at all) the
-          mathexplorer project relates to it.
+          Twin Ladder Explorer project relates to it.
         </p>
         <p
           style={{

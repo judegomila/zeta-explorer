@@ -1,4 +1,6 @@
-# Math Explorer — A Computational Attack on the de Bruijn–Newman Constant Λ
+# Twin Ladder Explorer
+
+*Interactive experiments in zeta-zero geometry and the Riemann hypothesis.*
 
 [![status](https://img.shields.io/badge/status-active-brightgreen)]() [![commits](https://img.shields.io/badge/commits-2469%2B-blue)]() [![paper](https://img.shields.io/badge/paper-v1%20withdrawn-red)]() [![tickets](https://img.shields.io/badge/queue-1218%20tickets%20%C2%B7%201131%20closed-blue)]() [![License](https://img.shields.io/badge/license-MIT-green)]()
 

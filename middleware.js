@@ -51,7 +51,7 @@ function loginPage({ failed } = {}) {
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex" />
-<title>Sign in</title>
+<title>Sign in | Twin Ladder Explorer</title>
 <style>
   :root { color-scheme: dark; }
   * { box-sizing: border-box; }
@@ -90,8 +90,8 @@ function loginPage({ failed } = {}) {
 </head>
 <body>
   <form class="card" method="POST" action="${LOGIN_PATH}">
-    <h1>ζ Private access</h1>
-    <p class="sub">Sign in to view the explorer.</p>
+    <h1>ζ Twin Ladder Explorer</h1>
+    <p class="sub">Interactive experiments in zeta-zero geometry and the Riemann hypothesis.</p>
     <label for="username">Username</label>
     <input id="username" name="username" type="text" autocomplete="username" autocapitalize="none" autocorrect="off" required autofocus />
     <label for="password">Password</label>

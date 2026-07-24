@@ -9,7 +9,7 @@
  */
 
 /**
- * ZPO Math Explorer — Internal Glossary & Wiki
+ * Twin Ladder Explorer — Internal Glossary & Wiki
  *
  * imp-141: Definitions of every term and concept used in the project.
  * Serves as the backbone for understanding the full proof framework.

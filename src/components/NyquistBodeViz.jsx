@@ -4,7 +4,7 @@ import { BlockMath, InlineMath } from './KaTeXMath.jsx';
 /**
  * Audit-safe replacement for the former Nyquist plot.
  *
- * With the functional-equation convention used by MathExplorer,
+ * With the functional-equation convention used by Twin Ladder Explorer,
  *   zeta(s) = chi(s) zeta(1-s),
  * the old loop expression is identically one wherever the quotient is defined.
  * Plotting it as a nontrivial feedback loop and counting encirclements was

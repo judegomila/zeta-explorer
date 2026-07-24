@@ -1,8 +1,9 @@
 /**
  * @module closure-routes-section
- * @fileoverview Structured reference doc for §16 of the user paper
- * `research-inputs/twin_ladder_consolidated_v52.pdf` (pages 16-22) titled
+ * @fileoverview Structured reference doc for §16 of the user paper, carried
+ * forward in `twin_ladder_consolidated_v70.tex` (lines 821-1129), titled
  * "Four Equivalent Closure Routes for the Zero-Bridge-Thickness Problem".
+ * The original app mapping used the historic v52 PDF pages 16-22.
  *
  * The shifted-bridge threshold theorem of §15 reduces RH to the gap statement
  *
@@ -52,7 +53,10 @@
  */
 export const CLOSURE_ROUTES = Object.freeze({
   ticketId: 'imp-1197',
-  paperRef: 'research-inputs/twin_ladder_consolidated_v52.pdf, §16, pages 16-22',
+  paperRef: 'twin_ladder_consolidated_v70.tex, §16, lines 821-1129',
+  paperVersion: 'v70',
+  historicalPaperRef:
+    'research-inputs/twin_ladder_consolidated_v52.pdf, §16, pages 16-22',
   title: 'Four Equivalent Closure Routes for the Zero-Bridge-Thickness Problem',
 
   // Setup variables shared by all four routes.
@@ -76,11 +80,15 @@ export const CLOSURE_ROUTES = Object.freeze({
   equivalenceTheoremName: 'Theorem 16.1 (Equivalent closure routes)',
   equivalenceProofSketch:
     'Route A iff Route B: shift-bridge threshold theorem (§15). Route B iff ' +
-    'Route C: Hermite-Biehler / de Branges criterion -- Theta_a is Schur in ' +
-    'the upper half-plane iff K_a is positive definite. Route C iff Route D: ' +
+    'Route C: Hermite-Biehler / de Branges criterion -- after common shifted ' +
+    'factors are handled, Theta_a is Schur in the upper half-plane iff K_a is ' +
+    'positive semidefinite. The exact fixed-a threshold a >= Delta belongs to ' +
+    'strict diagonal positivity; without coprimality it is not a fixed-a PSD ' +
+    'converse. The all-a equivalence used by these routes remains valid. ' +
+    'Route C iff Route D: ' +
     'Kolmogorov factorization for positive kernels (kernel is positive ' +
     'definite iff it is a Gram kernel of vectors in a Hilbert space). ' +
-    'Route A iff Route E (Weil): Weil positivity criterion in log-coordinate ' +
+    'Route A iff Route D (Weil): Weil positivity criterion in log-coordinate ' +
     'coherent-shell variables -- a delay r = m log p is a rung of the ' +
     'prime-delay ladder, so the twin-ladder quadratic form is the Weil ' +
     'explicit formula in ladder coordinates.',
@@ -99,16 +107,19 @@ export const CLOSURE_ROUTES = Object.freeze({
         '\\left|\\frac{X(w - a)}{X(w + a)}\\right| < 1, \\quad ' +
         '\\Re w > 0, \\quad a > 0',
       currentStatus:
-        'RH-equivalent and open for arbitrarily small a > 0. Proven by the ' +
-        'maximum principle when a > Delta (i.e. when the right-half-plane is ' +
-        'already known zero-free past horizontal displacement a), which is ' +
-        'unconditional only for a sufficiently large.',
+        'RH-equivalent and open for arbitrarily small a > 0. The corrected ' +
+        'fixed-shift threshold for strict interior contractivity is a >= Delta, ' +
+        'including the endpoint. A direct maximum-principle proof is clean for ' +
+        'a > Delta; the endpoint a = Delta is supplied by the symmetric-product ' +
+        'argument because shifted zeros may sit on the boundary.',
       blocker:
         'The candidate proof is a maximum-principle argument on R_a(w) = ' +
         'X(w-a)/X(w+a). The boundary modulus is unitary (|R_a| = 1 on Re(w)=0 ' +
         'by evenness + real-symmetry of X), so the maximum principle would ' +
         'close the route -- but only after one knows R_a is analytic in the ' +
-        'right half-plane, which requires X(w+a) =/= 0 there, i.e. a > Delta. ' +
+        'right half-plane, which requires X(w+a) =/= 0 there, i.e. a >= Delta ' +
+        'for the open half-plane. At equality, boundary zeros require a separate ' +
+        'endpoint argument rather than the naive boundary-modulus proof. ' +
         'For arbitrarily small a > 0 this is exactly what one is trying to ' +
         'prove. Route A is therefore circular without an independent zero-free ' +
         'region.',
@@ -124,19 +135,22 @@ export const CLOSURE_ROUTES = Object.freeze({
       name: 'de Branges positivity',
       sectionRef: '§16.3',
       statement:
-        'For every a > 0, the shifted bridge kernel K_a is positive definite ' +
-        'on the upper half-plane C_+. Equivalently, E_a(z) = X(a - iz) is a ' +
-        'Hermite-Biehler / de Branges structure function for every a > 0, ' +
-        'i.e. |E_a(z)| > |E_a^#(z)| for z in C_+.',
+        'For every a > 0, the shifted bridge kernel K_a is positive ' +
+        'semidefinite on the upper half-plane C_+. In the strict, coprime ' +
+        'Hermite-Biehler setting this is represented by ' +
+        '|E_a(z)| > |E_a^#(z)| for z in C_+, but fixed-a semidefiniteness must ' +
+        'not be identified with that strict condition when common shifted zeros occur.',
       equivalentStatement:
-        '|E_a(z)| > |E_a^{\\#}(z)| \\;\\text{for}\\; z \\in \\mathbb{C}_+ \\;\\iff\\; K_a \\succeq 0',
+        '\\bigl[\\,K_a\\succeq0\\ \\forall a>0\\,\\bigr] \\;\\iff\\; \\Delta=0, \\qquad ' +
+        '\\bigl[\\,K_a(z,z)>0\\ \\forall z\\in\\mathbb C_+\\,\\bigr] \\;\\iff\\; a\\ge\\Delta',
       currentStatus:
-        'RH-equivalent and open. Proven for a > Delta (exact threshold ' +
-        'route): if X has a zero lambda = delta + i*gamma with delta > a, then ' +
-        'E_a vanishes at z = -gamma + i(delta - a) in C_+, destroying the ' +
-        'Hermite-Biehler property. So K_a positive iff there is no zero of X ' +
-        'with delta > a. Hence K_a > 0 holds for a > Delta and fails for ' +
-        'a < Delta.',
+        'RH-equivalent and open as an all-shifts statement. Strict diagonal ' +
+        'positivity has the exact fixed-shift threshold a >= Delta. If X has a ' +
+        'zero lambda = delta + i*gamma with delta > a, then E_a vanishes at ' +
+        'z = -gamma + i(delta - a) in C_+, so strict positivity fails. A common ' +
+        'zero of E_a and E_a^# can instead create a zero row that remains ' +
+        'positive semidefinite; therefore fixed-a PSD has no exact threshold ' +
+        'without a coprimality hypothesis.',
       blocker:
         'A shifted de Branges space exists unconditionally outside the ' +
         'critical strip, but extending the construction to every positive ' +
@@ -144,9 +158,9 @@ export const CLOSURE_ROUTES = Object.freeze({
         'beyond "no zero with horizontal displacement > a" -- that is the ' +
         'statement Delta = 0 itself.',
       principle:
-        'Principle 16.3: A shifted de Branges space exists unconditionally ' +
-        'outside the critical strip, but extending the construction to every ' +
-        'positive shift is equivalent to RH.',
+        'Principle 16.3: Strict diagonal positivity holds exactly for a >= ' +
+        'Delta. Positive semidefiniteness for every positive shift is equivalent ' +
+        'to RH, while a single fixed shift requires the common-zero caveat.',
       lastReviewed: '2026-06-24',
     }),
     Object.freeze({
@@ -225,13 +239,15 @@ export const CLOSURE_ROUTES = Object.freeze({
     godelianWitnessPrinciple:
       'If an off-critical zero rho = 1/2 + delta + i*gamma exists with ' +
       'delta > 0, and 0 < a < delta, then z_rho(a) := -gamma + i(delta - a) ' +
-      'lies in the upper half-plane and satisfies E_a(z_rho(a)) = 0. The ' +
-      'forbidden zero therefore creates a bridge-internal certificate (an ' +
-      'upper-half-plane zero of E_a) that certifies failure of the Schur / ' +
-      'de Branges condition. This is the "internal witness" structural ' +
-      'pattern: off-critical zero implies internal certificate of failed ' +
-      'positivity. The word "Godelian" is used analogically -- no logical ' +
-      'incompleteness is imported.',
+      'lies in the upper half-plane and satisfies E_a(z_rho(a)) = 0. This ' +
+      'always certifies failure of the strict Hermite-Biehler condition. It ' +
+      'certifies a pole of the reduced Schur ratio, a negative square, or ' +
+      'failure of positive semidefiniteness only when the zero is not cancelled ' +
+      'by a common zero of E_a^#. A common zero may instead leave a removable ' +
+      'ratio singularity and a PSD zero row. This is the "internal witness" ' +
+      'structural pattern, with residual multiplicity rather than raw zero ' +
+      'count controlling the negative index. The word "Godelian" is used ' +
+      'analogically -- no logical incompleteness is imported.',
     why:
       'The four routes are equivalent (Theorem 16.1), so any successful proof ' +
       'must establish one of them WITHOUT using another RH-equivalent ' +
@@ -334,20 +350,24 @@ export const CLOSURE_ROUTES = Object.freeze({
 
   // imp-2423: deposition of the Phragmen-Lindelof / maximum-modulus proof
   // ATTEMPT for Route A Schur contractivity |Theta_a| < 1 on the right
-  // half-plane. This is an HONEST PARTIAL: a complete argument on a > Delta
+  // half-plane. This is an HONEST PARTIAL: a clean maximum-principle argument
+  // on a > Delta plus the separately proved a = Delta product endpoint
   // plus a single, sharply-named remaining gap. No fabricated QED.
   routeAMaximumPrincipleAttempt: Object.freeze({
     ticketId: 'imp-2423',
     target: 'Conjecture 16.4 / 16.6 (Route A): |R_a(w)| < 1 for Re(w) > 0, a > 0, where R_a(w) = X(w-a)/X(w+a) and Theta_a is the same ratio in z-coordinates.',
     candidateArgument: Object.freeze({
       step1_boundaryIsUnimodular:
-        'On the imaginary axis w = it the ratio is unimodular: |R_a(it)| = 1. ' +
+        'On the imaginary axis w = it the reduced ratio is unimodular wherever ' +
+        'it is defined: |R_a(it)| = 1. At a common boundary zero the raw quotient ' +
+        'is 0/0 and this statement applies only after cancelling the common factor. ' +
         'Proof: X(w) = xi(1/2 + w) is EVEN (X(-w) = X(w), from the functional ' +
         'equation xi(s) = xi(1-s)) and REAL on the real axis (X(conj w) = ' +
         'conj X(w)). Hence X(it - a) = X(a - it) by evenness, and ' +
         'X(a - it) = conj X(a + it) by reality, so |X(it - a)| = |X(it + a)| ' +
-        'and |R_a(it)| = 1 exactly. The boundary modulus equals 1 with no ' +
-        'assumptions -- this is the natural input to a maximum-modulus argument.',
+        'and |R_a(it)| = 1 exactly wherever the quotient is defined. The reduced ' +
+        'boundary modulus is therefore 1 -- the natural input to a ' +
+        'maximum-modulus argument.',
       step2_decayAlongRealAxis:
         'Along the positive real axis w -> +infinity the ratio DECAYS: ' +
         'R_a(w) = xi(1/2 + w - a) / xi(1/2 + w + a) -> 0, because xi grows ' +
@@ -365,12 +385,20 @@ export const CLOSURE_ROUTES = Object.freeze({
     }),
     // The valuable part: pinning down exactly what is missing, and ruling out
     // a tempting false obstruction.
-    completeOn: 'a > Delta. When the right half-plane {Re w > a} is zero-free past horizontal displacement a, E_a(z) = X(a - iz) is a Hermite-Biehler structure function, R_a / Theta_a is holomorphic and an inner (Schur) function of bounded type automatically, and steps 1-3 go through unconditionally. This reproduces the known unconditional result; it is RH-vacuous because a > Delta presupposes the zero-free region.',
+    completeOn:
+      'The strict interior inequality is valid for a >= Delta. For a > Delta ' +
+      'the right half-plane is separated from all denominator zeros, so the ' +
+      'maximum-principle steps go through cleanly. At a = Delta, possible ' +
+      'boundary zeros prevent that naive proof from being used verbatim; the ' +
+      'endpoint follows instead from the symmetric-product threshold identity. ' +
+      'Neither argument helps at arbitrarily small a unless Delta = 0 is known.',
     remainingGap:
       'SINGLE GAP (circular, Principle 16.2): for arbitrarily small a > 0 both ' +
       'hypotheses of step 3 -- holomorphy of R_a and its bounded type in the ' +
       'open right half-plane -- require X(w + a) =/= 0 for Re(w) > 0, i.e. no ' +
-      'zero of X with real part > a, i.e. Delta < a. For a -> 0 that is exactly ' +
+      'zero of X with real part > a, i.e. Delta <= a in the open half-plane. ' +
+      'The equality case still needs separate control of boundary zeros. For ' +
+      'a -> 0 that is exactly ' +
       'Delta = 0, the statement (RH) one is trying to prove. The maximum ' +
       'principle supplies no independent zero-free region, so the argument is ' +
       'circular without an external input.',

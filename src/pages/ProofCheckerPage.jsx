@@ -228,8 +228,9 @@ export default function ProofCheckerPage() {
           The checker identifies that the <strong>Euler product structure</strong> (multiplicativity of coefficients,
           Selberg class membership) is the <strong>only</strong> property that discriminates ζ from D-H.
           All other Twin-Ladder Bridge arguments (Hamiltonian, bridge, information theory) follow from the functional equation
-          alone, which D-H also satisfies. This means the proof path must go through Darlington synthesis
-          or the Euler product directly — not through surrogate measures.
+          alone, which D-H also satisfies. Any proof path therefore needs an arithmetic discriminator
+          such as the Euler product. Darlington remains a heuristic route until a valid bridge from
+          transmission-zero confinement to the displayed cascade&apos;s zeta-denominator poles is supplied.
         </p>
       </div>
 

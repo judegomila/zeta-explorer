@@ -1,7 +1,8 @@
 // ShiftBridgePositivityPage.jsx -- imp-1196
 // Renders Section 15 ("Shift-Bridge Reflection Positivity and a Godelian
 // Witness Principle") of the user's paper "Twin-Ladder Deformations of xi"
-// v52 (research-inputs/twin_ladder_consolidated_v52.pdf, pages 22-26):
+// as carried forward in v70. Historic audit provenance remains the v52 PDF
+// pages 22-26; endpoint/common-zero corrections come from the v70 audit:
 //
 //   - Centered completed function X(w) = xi(1/2 + w)
 //   - Horizontal displacement parameter Delta
@@ -107,9 +108,13 @@ export default function ShiftBridgePositivityPage() {
           className="page-subtitle"
           style={{ fontFamily: mono, color: 'var(--text-secondary)' }}
         >
-          §{S.paperSection} of the twin-ladder consolidated draft v52 ·
-          pages {S.paperPageRange[0]}–{S.paperPageRange[1]} · ticket{' '}
+          §{S.paperSection} of the twin-ladder consolidated draft {S.paperVersion} ·
+          source lines {S.paperLineRange[0]}–{S.paperLineRange[1]} · ticket{' '}
           <code style={{ color: '#93c5fd' }}>{S.ticketId}</code>
+        </p>
+        <p style={{ marginTop: 6, color: '#64748b', fontFamily: mono, fontSize: 11 }}>
+          Historic audit provenance: <code>{S.historicalPaperSource}</code>,
+          pages {S.historicalPaperPageRange[0]}–{S.historicalPaperPageRange[1]}
         </p>
       </div>
 
@@ -284,6 +289,29 @@ export default function ShiftBridgePositivityPage() {
         </p>
         <div style={{ marginTop: 8, overflowX: 'auto' }}>
           <BlockMath tex={S.thresholdTheorem.keyIdentityLaTeX} />
+        </div>
+      </div>
+
+      {/* ─── v70 endpoint / common-zero correction ─── */}
+      <div
+        className="card"
+        style={{ marginTop: 16, borderLeft: '3px solid #ef4444' }}
+      >
+        <SectionHeader tag="v70 audit" color="#f87171">
+          {S.endpointAndCoprimalityCaveat.title}
+        </SectionHeader>
+        <p
+          style={{
+            color: 'var(--text-secondary)',
+            fontSize: 13,
+            lineHeight: 1.75,
+          }}
+        >
+          {S.endpointAndCoprimalityCaveat.statement}
+        </p>
+        <div style={{ marginTop: 12, overflowX: 'auto' }}>
+          <BlockMath tex={S.endpointAndCoprimalityCaveat.endpointLaTeX} />
+          <BlockMath tex={S.endpointAndCoprimalityCaveat.poleOrderLaTeX} />
         </div>
       </div>
 
@@ -482,7 +510,7 @@ export default function ShiftBridgePositivityPage() {
         style={{ marginTop: 24, background: 'rgba(16, 185, 129, 0.04)' }}
       >
         <h3 style={{ color: '#10b981', fontSize: 14, marginBottom: 10 }}>
-          Continue to sibling sections of the v52 paper
+          Continue to sibling sections carried into v70
         </h3>
         <ul
           style={{
@@ -572,9 +600,12 @@ export default function ShiftBridgePositivityPage() {
           borderTop: '1px solid #1e293b',
         }}
       >
-        Source: <code>{S.paperSource}</code>, §{S.paperSection} (
-        {S.paperSectionTitle}), pages {S.paperPageRange[0]}–
-        {S.paperPageRange[1]}. Rendered by{' '}
+        Current source: <code>{S.paperSource}</code>, §{S.paperSection} (
+        {S.paperSectionTitle}), lines {S.paperLineRange[0]}–
+        {S.paperLineRange[1]}. Historic audit source:{' '}
+        <code>{S.historicalPaperSource}</code>, pages{' '}
+        {S.historicalPaperPageRange[0]}–{S.historicalPaperPageRange[1]}.
+        Correction audit: <code>{S.correctionAuditSource}</code>. Rendered by{' '}
         <code>src/pages/ShiftBridgePositivityPage.jsx</code>; tripwires in{' '}
         <code>src/data/shift-bridge-positivity-section.js</code>.
       </div>

@@ -2,21 +2,15 @@
  * @module data/papers-release-manifest
  * @fileoverview Ordered manifest of releasable papers (and planned future
  * releases). Consumed by src/pages/PapersDownloadPage.jsx for the
- * in-app downloads index. Each entry has a release-readiness status
- * (ready / draft / planned) plus the file path served by Vite.
+ * in-app downloads index. Withdrawn artifacts remain in repository history
+ * for provenance but are not offered as current downloads.
  *
  * RELEASE PHILOSOPHY
  * ------------------
  * The mathematical results compose in stages, each defensible standalone:
  *
- *   v1 (READY): the rigorous unconditional finite-N beat at N* = 10^4
- *       (Theorem 1). Foundational result. SAFE to release alone.
- *
- *   v1.x (current — READY): adds Theorem 2 (conditional asymptotic
- *       Lambda <= 8e-4, 250x tighter than PT) and Theorem 3
- *       (unconditional N^{-3/2} rate from imp-1149), plus the candidate
- *       ESY linear-statistics empirical positive in Section 4.5.
- *       SAFE to release; comprehensive.
+ *   v1 (WITHDRAWN): its finite-N headline depended on undischarged C_H
+ *       and was incorrectly labeled an unconditional theorem.
  *
  *   v2 (PLANNED): companion note converting Theorem 2 conditional to
  *       UNCONDITIONAL via either (a) cloud-extended N=10^7 sweep
@@ -62,34 +56,26 @@ export const PAPERS_RELEASE_MANIFEST = Object.freeze([
   Object.freeze({
     id: 'gomila-finite-height-beat-2026-05',
     releaseOrder: 1,
-    status: 'ready',
-    title:
-      'A rigorous unconditional finite-height beat of the ' +
-      'Platt-Trudgian bound on the de Bruijn-Newman constant Λ',
+    status: 'withdrawn',
+    title: '[WITHDRAWN] May 2026 finite-height manuscript',
     authors: ['Jude Gomila'],
     abstractSummary:
-      'Three results on the de Bruijn-Newman invariant Λ: (1) Λ(10⁴) ≤ 0.018 ' +
-      'rigorous unconditional finite-N beat of PT 2021 (11.1× margin). ' +
-      '(2) Λ ≤ 8×10⁻⁴ asymptotic, conditional on linear-1/N model ' +
-      '(250× tighter than PT). (3) Unconditional N⁻³ᐟ² decay rate ' +
-      'on |t_c(N) - 1/(2 M_∞(N))| via 2nd-moment Koksma-Hlawka (√N ' +
-      'improvement over imp-341). Plus a candidate ESY-positive empirical ' +
-      'observable identified for follow-up.',
-    pdfPath: '/papers/gomila-finite-height-beat-2026-05.pdf',
+      'Withdrawn from the release surface after audit: the claimed Λ(10⁴) ≤ 0.018 ' +
+      'unconditional beat depends on the undischarged many-body constant C_H. It is a ' +
+      'model estimate, not a theorem or a state-of-the-art improvement. The binary remains ' +
+      'in repository history for provenance but is not a current publication.',
+    pdfPath: null,
     fileSizeBytes: PAPER_PUBLICATION_META.fileSizeBytes,
     pageCount: PAPER_PUBLICATION_META.pageCount,
     builtAt: PAPER_PUBLICATION_META.builtAt,
     latexCompilerUsed: PAPER_PUBLICATION_META.latexCompilerUsed,
     sectionsIncluded: V1_SECTIONS_INCLUDED,
     citationKey: 'gomila2026',
-    bibtexSuggestion:
-      '@unpublished{gomila2026,\n' +
-      '  author       = {Jude Gomila},\n' +
-      '  title        = {A rigorous unconditional finite-height beat of the\n' +
-      '                  Platt-Trudgian bound on the de Bruijn-Newman constant Λ},\n' +
-      '  note         = {Preprint, 2026, available at https://github.com/judegomila/mathexplorer},\n' +
-      '  year         = {2026},\n' +
-      '}',
+    bibtexSuggestion: null,
+    blockers: Object.freeze([
+      'Discharge C_H with a rigorous N-uniform theorem',
+      'Rewrite and independently review every headline claim before republication',
+    ]),
     releaseChecklist: Object.freeze([
       Object.freeze({ item: 'Build passes', done: true }),
       Object.freeze({ item: '8+ build-time tripwires', done: true }),
@@ -168,11 +154,12 @@ export const PAPERS_RELEASE_MANIFEST = Object.freeze([
 
 export const PAPERS_RELEASE_MANIFEST_ASSERTIONS = [
   {
-    id: 'papers-manifest-has-at-least-one-ready-paper',
-    holds: () => PAPERS_RELEASE_MANIFEST.some((p) => p.status === 'ready'),
+    id: 'papers-manifest-has-no-promoted-withdrawn-paper',
+    holds: () => PAPERS_RELEASE_MANIFEST.every(
+      (p) => p.id !== 'gomila-finite-height-beat-2026-05' || p.status === 'withdrawn',
+    ),
     why:
-      'The /papers page is only useful if at least one paper is in the ' +
-      'ready state. As of 2026-05-20 the primary v1 paper is ready.',
+      'The May 2026 manuscript must remain withdrawn until its undischarged C_H dependency is replaced by a theorem.',
   },
   {
     id: 'papers-manifest-release-order-strictly-increasing',
@@ -214,10 +201,10 @@ export const PAPERS_RELEASE_MANIFEST_ASSERTIONS = [
     id: 'papers-manifest-statuses-pinned',
     holds: () =>
       PAPERS_RELEASE_MANIFEST.every((p) =>
-        ['ready', 'draft', 'planned', 'research-grade-open'].includes(p.status),
+        ['ready', 'draft', 'withdrawn', 'planned', 'research-grade-open'].includes(p.status),
       ),
     why:
-      'Status field must be one of the four pinned values so the UI can ' +
+      'Status field must be one of the pinned values so the UI can ' +
       'render the correct badge color.',
   },
 ];

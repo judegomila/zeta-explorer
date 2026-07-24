@@ -1,8 +1,7 @@
 // PaperAuditDashboardPage.jsx -- imp-1218
-// Renders the running tracker of every named conjecture in
-// research-inputs/twin_ladder_consolidated_v52.pdf Sections 15-22 with its
-// audit verdict (SUBSUMED-BY-RH / SUBSUMED-BY-LITERATURE / PARTIALLY-RELATED
-// / INDEPENDENT-NOVEL / UNAUDITED).
+// Renders the running tracker of every named conjecture in the historic v52
+// ledger plus the current v70 correction overlay. The per-conjecture verdicts
+// retain their original v52 provenance.
 //
 // Pure rendering. All structural facts + tripwires live in
 // src/data/paper-audit-dashboard.js.
@@ -302,14 +301,23 @@ export default function PaperAuditDashboardPage() {
             margin: '0 0 8px 0',
           }}
         >
-          Paper Audit Dashboard
+          Paper Audit Dashboard · {D.currentReviewVersion} Review
         </h1>
         <div style={{ color: '#94a3b8', fontSize: 14, lineHeight: 1.6 }}>
-          Running tracker of every named conjecture in{' '}
+          Current review source:{' '}
           <code style={{ color: '#cbd5e1', fontFamily: mono }}>
-            research-inputs/twin_ladder_consolidated_v52.pdf
+            {D.currentReviewPaper}
           </code>{' '}
-          Sections {D.paperSectionsCovered.join(', ')} with its audit verdict.
+          · correction audit <code style={{ color: '#cbd5e1', fontFamily: mono }}>
+            {D.currentCorrectionAudit}
+          </code>
+        </div>
+        <div style={{ color: '#64748b', fontSize: 13, marginTop: 4 }}>
+          Historic verdict ledger preserved from{' '}
+          <code style={{ color: '#94a3b8', fontFamily: mono }}>
+            {D.historicalAuditPaper}
+          </code>{' '}
+          Sections {D.paperSectionsCovered.join(', ')}.
         </div>
         <div style={{ color: '#64748b', fontSize: 13, marginTop: 6, fontFamily: mono }}>
           {D.auditedCount} of {D.totalCount} audited
@@ -329,6 +337,40 @@ export default function PaperAuditDashboardPage() {
           )}
         </div>
       </header>
+
+      {/* ── v70 correction overlay; historic rows below remain v52 records ── */}
+      <section
+        style={{
+          marginBottom: 20,
+          padding: '14px 18px',
+          background: 'rgba(14,165,233,0.07)',
+          border: '1px solid rgba(14,165,233,0.30)',
+          borderRadius: 8,
+        }}
+      >
+        <div style={{ color: '#7dd3fc', fontFamily: mono, fontSize: 12, fontWeight: 700 }}>
+          v70 correction overlay
+        </div>
+        <p style={{ margin: '8px 0 0', color: '#cbd5e1', fontSize: 13, lineHeight: 1.6 }}>
+          {D.currentReview.scope}
+        </p>
+        <ul
+          style={{
+            margin: '10px 0 0',
+            paddingLeft: 20,
+            color: '#94a3b8',
+            fontSize: 13,
+            lineHeight: 1.65,
+          }}
+        >
+          {D.currentReview.corrections.map((correction) => (
+            <li key={correction.id} style={{ marginBottom: 7 }}>
+              <strong style={{ color: '#bae6fd' }}>{correction.affects}:</strong>{' '}
+              {correction.correctedStatement}
+            </li>
+          ))}
+        </ul>
+      </section>
 
       {/* ── RH-EQUIVALENT re-characterization banner (imp-3213) ────────── */}
       <section
@@ -384,7 +426,7 @@ export default function PaperAuditDashboardPage() {
         <div style={{ color: '#64748b', fontSize: 12, fontFamily: mono, lineHeight: 1.5 }}>
           RH-equivalent items: {D.openGapRecharacterization.rhEquivalent.items.join(' · ')}
           <span style={{ marginLeft: 12, color: '#475569' }}>
-            PT Lambda ≤ 0.2 remains SOTA · no QED
+            PT Lambda ≤ 0.2 remains the peer-reviewed benchmark · public 0.1875 package unrefereed · no QED
           </span>
         </div>
       </section>

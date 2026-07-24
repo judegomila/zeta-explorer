@@ -1,6 +1,17 @@
 /**
- * @fileoverview SOTA de Bruijn-Newman Lambda upper-bound claim assembly.
+ * @fileoverview Historical de Bruijn-Newman Lambda claim assembly.
  * @module data/sota-lambda-claim
+ *
+ * AUDIT CORRECTION 2026-07
+ * ------------------------
+ * This file is retained as a historical assembly/audit trail, not as a live
+ * theorem statement. Its `historicalStatus`, `historicalRigorLevel`,
+ * `latestClosures`, and historical audit strings record what the project
+ * claimed at those commits. The
+ * current machine-readable verdict is `SOTA_LAMBDA_CLAIM.liveStatus` /
+ * `auditCorrection`: neither the 0.0166/0.121 finite assemblies nor the
+ * former "Lambda = 0 asymptotic" composition is an established Lambda bound.
+ * The live peer-reviewed unconditional benchmark remains Lambda <= 0.2.
  *
  * Exports
  * -------
@@ -375,8 +386,9 @@ const RIGOR_CHAIN = [
 // ── Cross-check against independent methods ─────────────────────────────────
 
 const CROSS_CHECK = {
+  countsAsLambdaCrossValidation: false,
   pathCHybrid: {
-    label: 'Path C hybrid (project headline central value)',
+    label: 'Path C hybrid (legacy finite-particle proxy)',
     centralValue: PATH_C_CENTRAL,
     errorBar: PATH_C_ERROR,
     upperEnvelope: HEADLINE_VALUE,
@@ -395,7 +407,7 @@ const CROSS_CHECK = {
     agreementWithHeadline: 'consistent within the 0.01 error bar',
   },
   kernelHackAnalytical: {
-    label: 'Kernel-hack analytical (imp-292 heat-flow)',
+    label: 'Kernel-hack analytical proxy (imp-292 heat-flow)',
     reportedValue: PATH_C_CENTRAL,
     method:
       'Analytical Lambda estimate via the Polymath15 spectral kernel hack ' +
@@ -405,10 +417,9 @@ const CROSS_CHECK = {
     agreementWithHeadline: 'exact agreement with the Path C central value',
   },
   verdict:
-    'Three methods with three independent numerical backbones all sit at ' +
-    '0.0066 to 0.011, comfortably inside the Path C upper envelope 0.0166. ' +
-    'No pair contradicts the others. The spread 0.0066 to 0.011 is the ' +
-    'realistic method-spread; the headline 0.0166 is conservative.',
+    'These historical computations are mutually close as internal finite-model ' +
+    'proxies. That numerical agreement does not identify any of them with the ' +
+    'de Bruijn-Newman constant and is not independent proof of a Lambda bound.',
 };
 
 // ── Platt-Trudgian comparison ────────────────────────────────────────────────
@@ -417,24 +428,20 @@ const PLATT_TRUDGIAN_COMPARISON = {
   ptBound: PLATT_TRUDGIAN,
   ptCitation: 'Platt-Trudgian 2021, Bull. Lond. Math. Soc. 53, 792-797',
   ptVerifiedHeight: 3e12,
-  ourBound: HEADLINE_VALUE,
+  ourBound: null,
+  legacyInternalEnvelope: HEADLINE_VALUE,
   ourEffectiveHeight: T_STAR,
-  tighteningFactor: TIGHTENING_FACTOR,
+  tighteningFactor: null,
+  legacyNumericalRatioToPt: TIGHTENING_FACTOR,
   headlineCompare:
-    'The project headline number 0.0166 is 12.05x smaller than the ' +
-    'Platt-Trudgian 2021 bound 0.2. At the current PARTIAL rigor level ' +
-    '(C_H symbolic), this is not yet a theorem-grade strict improvement ' +
-    'over PT. Under PT the effective height for the unconditional bound ' +
-    'is 3e12; under the imp-321 roadmap the project effective height at ' +
-    'N_max = 2458 is only T*(2458) ~ 3000 via the imp-327 inversion. ' +
-    'So the project is trading a much weaker finite-height coverage ' +
-    'for a tighter numerical envelope on Lambda.',
+    'The historical internal envelope 0.0166 is numerically smaller than 0.2, ' +
+    'but it is not an established Lambda bound and therefore cannot be compared ' +
+    'as a theorem-grade improvement. Platt-Trudgian 0.2 remains the ' +
+    'peer-reviewed unconditional benchmark.',
   honestVerdict:
-    'Not a strict unconditional beat of Platt-Trudgian. The PT bound ' +
-    'covers T <= 3e12 and is fully rigorous; the project bound covers ' +
-    'T ~ 3000 with a symbolic C_H. To claim a strict improvement the ' +
-    'project must (a) close imp-366 openWork item 1 (rigorous C_H) ' +
-    'and (b) scale N up via imp-360 until T*(N) exceeds 3e12.',
+    'Not a strict unconditional beat of Platt-Trudgian. The former project ' +
+    'comparison is withdrawn because the bridge, truncation, convergence-rate, ' +
+    'and proxy-identification obligations are open.',
 };
 
 // ── Open work for a full unconditional theorem ──────────────────────────────
@@ -490,20 +497,47 @@ const OPEN_WORK = [
 export const SOTA_LAMBDA_CLAIM = {
   id: 'imp-375',
   title:
-    'SOTA Lambda claim: final upper bound assembly with full rigor chain ' +
-    'and independent cross-check',
-  status: 'rigorous-asymptotic (adversarially reviewed)',
+    'Historical Lambda claim assembly and 2026-07 withdrawal audit',
+  liveStatus: 'withdrawn-overclaim-historical-record-only',
+  auditCorrection: Object.freeze({
+    auditDate: '2026-07',
+    countsAsProof: false,
+    countsAsEstablishedLambdaUpperBound: false,
+    peerReviewedUnconditionalUpperBound: 0.2,
+    withdrawnValues: Object.freeze([0.0166, 0.121, 3.06e-5, 0]),
+    openGates: Object.freeze([
+      'RH-equivalent C_H / G6a shock modulus',
+      'uncertified E_trunc constant',
+      'unsupplied E(N) -> 0',
+      'finite-particle/proxy to de Bruijn-Newman identification',
+      'refuted quantitative M_infinity rate step',
+    ]),
+    note:
+      'Historical fields below are preserved for provenance and API compatibility. ' +
+      'They must not be cited as a proof, a SOTA improvement, or an RH result.',
+  }),
+  status: 'withdrawn-overclaim-historical-record-only',
+  historicalStatus: 'rigorous-asymptotic (adversarially reviewed)',
 
   headline: {
-    lambdaUpperBound: HEADLINE_VALUE,
+    countsAsLambdaUpperBound: false,
+    legacyInternalEnvelope: HEADLINE_VALUE,
+    lambdaUpperBound: null,
     centralValue: PATH_C_CENTRAL,
+    centralValueKind: 'legacy-finite-particle-proxy',
     errorBar: PATH_C_ERROR,
     nMax: N_MAX,
     effectiveHeight: T_STAR,
     effectiveHeightProvenance:
       'Riemann-von Mangoldt inversion from imp-327 effectiveHeightForN(2458)',
-    conditionalBackupBound: CONDITIONAL_BOUND,
+    conditionalBackupBound: null,
+    legacyConditionalBackupEstimate: CONDITIONAL_BOUND,
     statement:
+      'WITHDRAWN (audit 2026-07): the 0.0166 envelope, 0.121 assembly, and ' +
+      'former asymptotic Lambda = 0 composition are historical internal records, ' +
+      'not established bounds on the de Bruijn-Newman constant. The peer-reviewed ' +
+      'unconditional benchmark remains Lambda <= 0.2.',
+    historicalStatement:
       'TERMINAL STATE (2026-04-30): ' +
       'PRIMARY (asymptotic, unconditional): Lambda = 0 via Route B — ' +
       'imp-341 Koksma-Hlawka + imp-387 G6 bridge + Rodgers-Tao 2020; ' +
@@ -531,8 +565,14 @@ export const SOTA_LAMBDA_CLAIM = {
       'Lean: 6 axioms, 10 sorrys (all Lean/Mathlib formalization gaps, not mathematical gaps).',
   },
 
-  rigorLevel: 'rigorous-asymptotic (adversarially reviewed)',
+  rigorLevel: 'not-established-historical-record-only',
   rigorLevelReason:
+    'The July 2026 audit retracted the former proof classification: the bridge ' +
+    'contains RH-equivalent/open modulus obligations, E_trunc is not certified, ' +
+    'E(N) -> 0 was not supplied, and the finite-particle proxy was not identified ' +
+    'rigorously with the de Bruijn-Newman constant.',
+  historicalRigorLevel: 'rigorous-asymptotic (adversarially reviewed)',
+  historicalRigorLevelReason:
     'After imp-387 closed G6_polymath15_bridge and imp-397/398/399 pinned all ' +
     'three bridge constants numerically (C_T < 1.5 via Ingham 1940, ' +
     'C_F = (log(T_0/2pi)+1)/(2pi) via imp-322 boundary identity, ' +
@@ -551,7 +591,13 @@ export const SOTA_LAMBDA_CLAIM = {
   openWork: OPEN_WORK,
 
   asymptoticResult: {
+    liveStatus: 'withdrawn-not-a-proof-of-Lambda-zero',
+    countsAsProof: false,
     claim:
+      'WITHDRAWN: this historical finite-N limiting composition does not prove ' +
+      'Lambda = 0. Its bridge, truncation, convergence-rate, and proxy-identification ' +
+      'obligations remain open.',
+    historicalClaim:
       'lim sup_{N -> infinity} |t_c(N)| = 0 with bridge error E(N) -> 0 ' +
       '(C_T, C_F, C_C all pinned numerically by imp-397/398/399; no ' +
       'symbolic placeholders remain). REPHRASED by imp-2519 (referee audit ' +
@@ -561,7 +607,7 @@ export const SOTA_LAMBDA_CLAIM = {
       'content is the lim-sup statement about the finite-N collision times ' +
       't_c(N); it yields a bound on Lambda itself only once the per-N ' +
       'translation (Route A-prime) closes.',
-    via: [
+    historicalVia: [
       'imp-341 Koksma-Hlawka: lim sup_N |t_c(N)| = 0 UNCONDITIONALLY',
       'imp-387 G6_polymath15_bridge closure: |Lambda - (-t_c(N))| <= E(N) -> 0 unconditionally',
       'Rodgers-Tao 2020: Lambda >= 0, so Lambda = 0 follows from lim t_c(N) = 0',
@@ -570,22 +616,27 @@ export const SOTA_LAMBDA_CLAIM = {
       'imp-399 C_C pinned: C_C = (1/8)*sqrt(3*pi) ~ 0.3837 (rigorous), closes E_coll symbolic gap',
       'imp-400 baseline refit: 25-point measured Dyson ladder confirms 1/N ansatz on PATH_C_BASELINE_FIT_V2',
     ],
-    rigorLevel:
+    rigorLevel: 'not-established-withdrawn-by-2026-07-audit',
+    historicalRigorLevel:
       'rigorous — all three bridge error constants (C_T, C_F, C_C) are now ' +
       'numerically pinned via imp-397/398/399; C_H resolved within C_C to ' +
       '(1/8)*sqrt(3*pi) by the imp-399 quadratic-tangency regularization. ' +
       'The asymptotic direction Lambda = 0 is established without monotonicity ' +
       'or density-squeeze input.',
-    pinnedConstants: {
+    historicalPinnedConstants: {
       C_T: POLYMATH15_CONSTANT_C_T.universalBound.C_T_max,
       C_F: 'logarithmic in T_0; see POLYMATH15_CONSTANT_C_F.numericalValues',
       C_C: POLYMATH15_CONSTANT_C_C.numericalValues.C_C_PINNED,
       pinnedBy: ['imp-397', 'imp-398', 'imp-399'],
     },
-    g6Status: LAMBDA_INTERCEPT_UNCONDITIONAL.newOpenGap.status,
-    upgradedFrom: 'partial Lambda <= 0.0166 (pre-imp-387)',
-    addedBy: 'imp-401',
+    g6Status: 'reopened-by-2026-07-audit',
+    historicalG6Status: LAMBDA_INTERCEPT_UNCONDITIONAL.newOpenGap.status,
+    historicalUpgradedFrom: 'partial Lambda <= 0.0166 (pre-imp-387)',
+    historicalAddedBy: 'imp-401',
     note:
+      'The values and closure records below are retained only to reproduce the ' +
+      'project history. They do not establish a Lambda bound or RH.',
+    historicalNote:
       'This is the capstone result of imp-401. imp-387 closed G6_polymath15_bridge; ' +
       'imp-397/398/399 pinned all three bridge constants numerically (C_T, C_F, C_C). ' +
       'The convergent chain imp-341 lim-sup = 0 + G6 bridge E(N) -> 0 + Rodgers-Tao ' +
@@ -776,7 +827,9 @@ export const SOTA_LAMBDA_CLAIM = {
         'form (derived in imp-398 by integration by parts) rather than the opaque ' +
         'label "RvM density integral". pinnedConstants and Theorem 10.2 updated.',
       file: 'src/math/proof-paper.js',
-      impactOnSota: 'strengthens the C_F citation already in asymptoticResult.pinnedConstants',
+      impactOnSota:
+        'historically strengthened the C_F citation now retained in ' +
+        'asymptoticResult.historicalPinnedConstants',
     },
     {
       ticket: 'imp-447',
@@ -1505,38 +1558,55 @@ export const SOTA_LAMBDA_CLAIM = {
 
 export const SOTA_LAMBDA_CLAIM_ASSERTIONS = [
   {
-    id: 'imp375-headline-value-pinned',
+    id: 'sota-live-status-withdraws-historical-overclaim',
     holds: () =>
-      SOTA_LAMBDA_CLAIM.headline.lambdaUpperBound === HEADLINE_VALUE &&
+      SOTA_LAMBDA_CLAIM.liveStatus === 'withdrawn-overclaim-historical-record-only' &&
+      SOTA_LAMBDA_CLAIM.auditCorrection.countsAsProof === false &&
+      SOTA_LAMBDA_CLAIM.auditCorrection.countsAsEstablishedLambdaUpperBound === false &&
+      SOTA_LAMBDA_CLAIM.headline.countsAsLambdaUpperBound === false &&
+      SOTA_LAMBDA_CLAIM.headline.lambdaUpperBound === null &&
+      SOTA_LAMBDA_CLAIM.headline.conditionalBackupBound === null &&
+      SOTA_LAMBDA_CLAIM.asymptoticResult.countsAsProof === false,
+    why:
+      'The 2026-07 audit correction must dominate the preserved historical claim fields: ' +
+      'none of the internal finite/asymptotic records is an established Lambda theorem.',
+  },
+  {
+    id: 'sota-live-peer-reviewed-benchmark-remains-0p2',
+    holds: () =>
+      SOTA_LAMBDA_CLAIM.auditCorrection.peerReviewedUnconditionalUpperBound === 0.2,
+    why:
+      'The live peer-reviewed unconditional Lambda upper-bound benchmark remains 0.2.',
+  },
+  {
+    id: 'imp375-legacy-internal-envelope-pinned',
+    holds: () =>
+      SOTA_LAMBDA_CLAIM.headline.lambdaUpperBound === null &&
+      SOTA_LAMBDA_CLAIM.headline.legacyInternalEnvelope === HEADLINE_VALUE &&
       Math.abs(HEADLINE_VALUE - 0.0166) < 1e-9,
     why:
-      'The headline Lambda upper bound must be exactly 0.0166 (Path C ' +
-      'central 0.0066 + error bar 0.01). Any drift indicates the error ' +
-      'budget or the central value has silently regressed.',
+      'The withdrawn 0.0166 Path C arithmetic remains reproducible only as a ' +
+      'legacy internal envelope; the active lambdaUpperBound field must stay null.',
   },
   {
     id: 'imp375-central-value-pinned',
     holds: () => Math.abs(PATH_C_CENTRAL - 0.0066) < 1e-9,
     why:
-      'The Path C central value is the project headline number and must ' +
-      'remain 0.0066. If the error budget export drifts this value, the ' +
-      'cross-check versus barrier extrapolation (0.011) and kernel-hack ' +
-      '(0.0066) silently breaks.',
+      'The legacy Path C finite-particle proxy must remain 0.0066 so the ' +
+      'historical arithmetic can be reproduced. It is not a Lambda estimate.',
   },
   {
-    id: 'imp375-rigor-level-pinned-rigorous-asymptotic',
+    id: 'imp375-live-rigor-level-pinned-withdrawn',
     holds: () =>
-      SOTA_LAMBDA_CLAIM.rigorLevel === 'rigorous-asymptotic (adversarially reviewed)' &&
-      SOTA_LAMBDA_CLAIM.status === 'rigorous-asymptotic (adversarially reviewed)',
+      SOTA_LAMBDA_CLAIM.rigorLevel === 'not-established-historical-record-only' &&
+      SOTA_LAMBDA_CLAIM.status === 'withdrawn-overclaim-historical-record-only' &&
+      SOTA_LAMBDA_CLAIM.historicalRigorLevel ===
+        'rigorous-asymptotic (adversarially reviewed)' &&
+      SOTA_LAMBDA_CLAIM.historicalStatus ===
+        'rigorous-asymptotic (adversarially reviewed)',
     why:
-      'TRIPWIRE: rigor level was upgraded from PARTIAL to RIGOROUS-ASYMPTOTIC ' +
-      'by imp-401 after imp-387/397/398/399 pinned all bridge constants ' +
-      'numerically (C_T < 1.5, C_F derivable from T_0, C_C = (1/8)*sqrt(3*pi)). ' +
-      'imp-428 appended the "adversarially reviewed" qualifier after all 4 ' +
-      'adversarial-review gaps from imp-417 (skp-001, skp-006, skp-002, ' +
-      'skp-007) were closed by imp-424/425/426/427. If a future commit ' +
-      'reverts this without re-opening G6_polymath15_bridge or un-pinning ' +
-      'C_T/C_F/C_C, the honest scope has silently drifted backward.',
+      'The July audit must control the live status while preserving the former ' +
+      'rigor label only as historical provenance.',
   },
   {
     id: 'imp375-n-max-pinned',
@@ -1580,19 +1650,18 @@ export const SOTA_LAMBDA_CLAIM_ASSERTIONS = [
       'lambda-intercept-unconditional.js.',
   },
   {
-    id: 'imp375-pt-comparison-consistent',
+    id: 'imp375-pt-comparison-withdrawn-consistently',
     holds: () =>
       PLATT_TRUDGIAN_COMPARISON.ptBound === 0.2 &&
-      PLATT_TRUDGIAN_COMPARISON.ourBound === HEADLINE_VALUE &&
+      PLATT_TRUDGIAN_COMPARISON.ourBound === null &&
+      PLATT_TRUDGIAN_COMPARISON.legacyInternalEnvelope === HEADLINE_VALUE &&
       Math.abs(
-        PLATT_TRUDGIAN_COMPARISON.tighteningFactor -
+        PLATT_TRUDGIAN_COMPARISON.legacyNumericalRatioToPt -
           PLATT_TRUDGIAN / HEADLINE_VALUE,
       ) < 1e-9,
     why:
-      'Platt-Trudgian comparison must pin PT = 0.2 and our-bound = ' +
-      'headline, and the tightening factor must be the exact ratio. A ' +
-      'drift here means the comparison arithmetic has diverged from the ' +
-      'headline arithmetic.',
+      'Platt-Trudgian 0.2 stays active; the 0.0166 value and its numerical ' +
+      'ratio are retained only as withdrawn legacy arithmetic.',
   },
   {
     id: 'imp375-pt-honest-not-strict-beat',
@@ -1613,10 +1682,8 @@ export const SOTA_LAMBDA_CLAIM_ASSERTIONS = [
       Array.isArray(SOTA_LAMBDA_CLAIM.openWork) &&
       SOTA_LAMBDA_CLAIM.openWork.length >= 4,
     why:
-      'Partial rigor requires a non-empty open work list. At least four ' +
-      'items must be named (rigorous C_H, G3_density, imp-360 scaling, ' +
-      'imp-336 monotonicity). Dropping any silently is a regression of ' +
-      'the honest-scope narrative.',
+      'The withdrawn record must keep a non-empty list of unresolved work. ' +
+      'Dropping those obligations would erase why the old claim is not a proof.',
   },
   {
     id: 'imp375-rigor-chain-has-all-anchors',
@@ -1651,10 +1718,9 @@ export const SOTA_LAMBDA_CLAIM_ASSERTIONS = [
       );
     },
     why:
-      'All three cross-check methods (Path C hybrid 0.0066, barrier ' +
-      'extrapolation 0.011, kernel-hack 0.0066) must be strictly positive ' +
-      'and at most the headline envelope. A method going negative or ' +
-      'exceeding the envelope means the spread has blown out.',
+      'The three legacy finite-model proxy values must remain internally ' +
+      'consistent for historical reproducibility; agreement does not validate ' +
+      'them as estimates of Lambda.',
   },
   {
     id: 'imp375-g6a-closed-by-imp366',
@@ -1662,10 +1728,8 @@ export const SOTA_LAMBDA_CLAIM_ASSERTIONS = [
       G6A_SHOCK_LIPSCHITZ_CLOSURE.status === 'closed' &&
       G6A_SHOCK_LIPSCHITZ_CLOSURE.closedBy === 'imp-366',
     why:
-      'The imp-366 closure of G6a_shock_lipschitz is the load-bearing ' +
-      'step in Route B. If G6a re-opens without a same-commit update to ' +
-      'SOTA_LAMBDA_CLAIM.rigorLevel, the assembly is silently drifting ' +
-      'away from its upstream.',
+      'Preserve the old imp-366 source status as historical provenance. The ' +
+      '2026-07 live withdrawal supersedes that ticket-level closure label.',
   },
   {
     id: 'imp375-effective-height-positive',
@@ -1677,30 +1741,28 @@ export const SOTA_LAMBDA_CLAIM_ASSERTIONS = [
       'indicate effectiveHeightForN has drifted.',
   },
   {
-    id: 'imp375-tightening-factor-order-10',
+    id: 'imp375-legacy-pt-ratio-order-10',
     holds: () => {
-      const f = PLATT_TRUDGIAN_COMPARISON.tighteningFactor;
+      const f = PLATT_TRUDGIAN_COMPARISON.legacyNumericalRatioToPt;
       return f > 10 && f < 15;
     },
     why:
-      'Tightening factor PT / headline = 0.2 / 0.0166 ~ 12.05 must stay ' +
-      'in (10, 15). Outside this range the headline has drifted in a ' +
-      'way that would either under-sell (f > 15) or over-sell (f < 10) ' +
-      'the project against PT.',
+      'The historical arithmetic ratio 0.2 / 0.0166 ~ 12.05 must remain ' +
+      'reproducible, while carrying no tightening-factor theorem claim.',
   },
   {
-    id: 'imp375-asymptotic-lambda-zero-from-imp387',
+    id: 'imp375-asymptotic-claim-withdrawal-dominates-imp387-history',
     holds: () =>
       SOTA_LAMBDA_CLAIM.asymptoticResult != null &&
-      SOTA_LAMBDA_CLAIM.asymptoticResult.g6Status === 'closed (imp-387)' &&
+      SOTA_LAMBDA_CLAIM.asymptoticResult.countsAsProof === false &&
+      SOTA_LAMBDA_CLAIM.asymptoticResult.g6Status ===
+        'reopened-by-2026-07-audit' &&
+      SOTA_LAMBDA_CLAIM.asymptoticResult.historicalG6Status ===
+        'closed (imp-387)' &&
       LAMBDA_INTERCEPT_UNCONDITIONAL.newOpenGap.status === 'closed (imp-387)',
     why:
-      'After imp-387 closed G6_polymath15_bridge, the asymptotic result ' +
-      'Lambda = 0 is established via imp-341 + G6 + Rodgers-Tao (imp-401 ' +
-      'upgrade). This cross-checks the asymptoticResult.g6Status field ' +
-      'against the actual G6 closure in lambda-intercept-unconditional.js. ' +
-      'If G6 re-opens without a same-commit retraction of asymptoticResult, ' +
-      'this assertion fires as a consistency guard.',
+      'The old imp-387 closure string remains reproducible as provenance, but ' +
+      'the live result must stay withdrawn after the 2026-07 bridge audit.',
   },
   {
     id: 'sota-adversarial-review-fatal-gaps-closed',

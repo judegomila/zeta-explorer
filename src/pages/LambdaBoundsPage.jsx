@@ -7,7 +7,6 @@ import {
   VERIFICATION_EFFORTS,
   OPEN_GAPS,
 } from '../data/lambda-roadmap.js';
-import { PAPER_PUBLICATION_META as PAPER_PUBLICATION } from '../data/paper-publication-meta.js';
 
 // Lambda Bounds & RH Roadmap — the plan, the status, the verification.
 // Read interface for src/data/lambda-roadmap.js.
@@ -36,6 +35,10 @@ const CHIPS = {
   closed: chip('rgba(34,197,94,0.12)', '#86efac', 'rgba(34,197,94,0.35)'),
   open: chip('rgba(239,68,68,0.12)', '#fca5a5', 'rgba(239,68,68,0.35)'),
   partial: chip('rgba(234,179,8,0.12)', '#facc15', 'rgba(234,179,8,0.35)'),
+  'public-preprint-review-open': chip('rgba(56,189,248,0.14)', '#7dd3fc', 'rgba(56,189,248,0.45)'),
+  'candidate-review-open': chip('rgba(245,158,11,0.14)', '#fbbf24', 'rgba(245,158,11,0.45)'),
+  'conditional-g6a-open': chip('rgba(239,68,68,0.12)', '#fca5a5', 'rgba(239,68,68,0.35)'),
+  'estimate-c-h-open': chip('rgba(234,179,8,0.12)', '#facc15', 'rgba(234,179,8,0.35)'),
   critical: chip('rgba(239,68,68,0.18)', '#fca5a5', 'rgba(239,68,68,0.5)'),
   high: chip('rgba(234,179,8,0.12)', '#facc15', 'rgba(234,179,8,0.35)'),
 };
@@ -112,31 +115,22 @@ export default function LambdaBoundsPage() {
           >
             Λ Timeline →
           </Link>
-          <a
-            href={PAPER_PUBLICATION.pdfPath}
-            target="_blank"
-            rel="noopener noreferrer"
-            download="gomila-finite-height-beat-2026-05.pdf"
-            title={PAPER_PUBLICATION.title}
-            style={{
-              color: '#facc15',
-              fontFamily: 'var(--font-mono)',
-              fontSize: 12,
-              textDecoration: 'none',
-              padding: '4px 10px',
-              border: '1px solid #facc15',
-              borderRadius: 6,
-              background: 'rgba(234,179,8,0.08)',
-            }}
-          >
-            ↓ Download paper PDF (draft, {PAPER_PUBLICATION.pageCount} pp,
-            {' '}{Math.round(PAPER_PUBLICATION.fileSizeBytes / 1024)} KB)
-          </a>
+          <span style={{
+            color: '#fca5a5',
+            fontFamily: 'var(--font-mono)',
+            fontSize: 11,
+            padding: '4px 10px',
+            border: '1px solid rgba(239,68,68,0.45)',
+            borderRadius: 6,
+            background: 'rgba(239,68,68,0.08)',
+          }}>
+            May 2026 “unconditional beat” manuscript withdrawn: C_H was not discharged
+          </span>
         </div>
       </div>
 
       {/* ── Top banner: current bounds ─────────────────────────────────── */}
-      <h2 style={{ marginTop: 8, marginBottom: 12 }}>Current bounds on Λ</h2>
+      <h2 style={{ marginTop: 8, marginBottom: 12 }}>Bounds, estimates, and review candidates</h2>
       <div className="card-grid" style={{ marginBottom: 24 }}>
         {LAMBDA_BOUNDS.map((b) => (
           <div
@@ -145,8 +139,10 @@ export default function LambdaBoundsPage() {
             style={cardBaseLeft(
               b.kind === 'lower'
                 ? '#22c55e'
-                : b.kind === 'upper-sota'
+                : b.kind === 'upper-peer-reviewed-benchmark'
                 ? '#ef4444'
+                : b.kind === 'upper-public-preprint'
+                ? '#38bdf8'
                 : b.kind === 'our-numerical'
                 ? '#facc15'
                 : '#06b6d4',
@@ -162,8 +158,10 @@ export default function LambdaBoundsPage() {
                 color:
                   b.kind === 'lower'
                     ? '#86efac'
-                    : b.kind === 'upper-sota'
+                    : b.kind === 'upper-peer-reviewed-benchmark'
                     ? '#fca5a5'
+                    : b.kind === 'upper-public-preprint'
+                    ? '#7dd3fc'
                     : b.kind === 'our-numerical'
                     ? '#facc15'
                     : '#67e8f9',
@@ -180,6 +178,38 @@ export default function LambdaBoundsPage() {
             <div style={{ fontSize: 11, color: 'var(--text-secondary)' }}>
               {b.note}
             </div>
+            {b.route && (
+              <Link
+                to={b.route}
+                style={{
+                  display: 'inline-block',
+                  marginTop: 10,
+                  color: '#fbbf24',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: 11,
+                  textDecoration: 'none',
+                }}
+              >
+                Open candidate audit →
+              </Link>
+            )}
+            {b.href && (
+              <a
+                href={b.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-block',
+                  marginTop: 10,
+                  color: '#7dd3fc',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: 11,
+                  textDecoration: 'none',
+                }}
+              >
+                Open public certificate package ↗
+              </a>
+            )}
           </div>
         ))}
       </div>

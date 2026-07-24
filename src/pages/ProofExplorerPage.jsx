@@ -38,8 +38,8 @@ function useAsyncComputation(computeFn, deps) {
 const PROOF_STEPS = [
   {
     id: 'S1',
-    title: 'Transfer Matrix Structure',
-    claim: 'Each Euler factor defines T_p ∈ SL(2,ℝ) with det(T_p) = 1.',
+    title: 'Physical-proxy matrix structure',
+    claim: 'Each displayed trigonometric LC proxy T_p has determinant one; it is not the Euler-factor embedding.',
     formula: '\\det(T_p) = \\cos^2(\\omega\\log p) + \\sin^2(\\omega\\log p) = 1',
     theorem: 'Pythagorean identity',
     reference: 'Elementary trigonometry',
@@ -63,8 +63,8 @@ const PROOF_STEPS = [
   },
   {
     id: 'S2',
-    title: 'Cascade Determinant',
-    claim: 'det(S_N) = Π det(T_{p_k}) = 1 for all N.',
+    title: 'Physical-proxy product determinant',
+    claim: 'For finite products of those LC proxy matrices, det(S_N) = Π det(T_{p_k}) = 1.',
     formula: '\\det(S_N) = \\prod_{k=1}^N \\det(T_{p_k}) = 1^N = 1',
     theorem: 'Multiplicativity of determinant',
     reference: 'Linear algebra: det(AB) = det(A)·det(B)',
@@ -94,49 +94,27 @@ const PROOF_STEPS = [
   },
   {
     id: 'S3',
-    title: 'Cauchy Sequence',
-    claim: '||S_{N+1} − S_N|| is summable → {S_N} is Cauchy → S_∞ exists.',
-    formula: '\\sum_{k=1}^{\\infty} \\|S_{k+1} - S_k\\|_F < \\infty',
-    theorem: 'Cauchy criterion + Banach space completeness',
-    reference: 'cauchy-sequence.js (imp-095)',
-    confidence: 0.95,
-    status: 'numerical',
-    gap: 'Summability verified numerically (R² > 0.99) but not proved analytically. See alternative Trotter-Kato path.',
-    color: '#f59e0b',
-    computeLabel: 'Measure ||D_k|| decay and tail sums for N ≤ 200',
-    compute: async () => {
-      const { getPrimes } = await import('../math/primes.js');
-      const primes = getPrimes(200);
-      let S = [[1, 0], [0, 1]];
-      const diffs = [];
-      let tailSum = 0;
-      for (let k = 0; k < 200; k++) {
-        const Sp = [[S[0][0], S[0][1]], [S[1][0], S[1][1]]];
-        const logP = Math.log(primes[k]);
-        const arg = 1.0 * logP;
-        const c = Math.cos(arg), s = Math.sin(arg), Zp = 1 / logP;
-        const T = [[c, Zp*s], [-s/Zp, c]];
-        S = [[Sp[0][0]*T[0][0]+Sp[0][1]*T[1][0], Sp[0][0]*T[0][1]+Sp[0][1]*T[1][1]],
-             [Sp[1][0]*T[0][0]+Sp[1][1]*T[1][0], Sp[1][0]*T[0][1]+Sp[1][1]*T[1][1]]];
-        if (k > 0) {
-          const d = Math.sqrt((S[0][0]-Sp[0][0])**2+(S[0][1]-Sp[0][1])**2+(S[1][0]-Sp[1][0])**2+(S[1][1]-Sp[1][1])**2);
-          tailSum += d;
-          if ([5,10,20,50,100,200].includes(k+1)) diffs.push({ N: k+1, diff: +d.toExponential(3), tailSum: +tailSum.toFixed(4) });
-        }
-      }
-      return { totalSum: +tailSum.toFixed(4), samples: diffs, converges: tailSum < 1e6 };
-    },
+    title: 'Physical-cascade convergence claim (refuted)',
+    claim: 'The displayed undamped physical factors do not support a Cauchy limit for their partial products.',
+    formula: 'S_{N+1}=S_NT_{p_{N+1}},\\quad S_N\\to S_\\infty\\in GL_2\\Longrightarrow T_{p_{N+1}}\\to I',
+    theorem: 'Necessary condition for convergence of products to an invertible limit',
+    reference: 'Direct factor-limit audit of the physical LC proxy',
+    confidence: 0,
+    status: 'refuted',
+    gap:
+      'Here T_p has entries cos(log p), sin(log p)/log p, and −log p·sin(log p); it does not approach the identity. The former 200-step tail-sum test used the vacuous condition tailSum < 1e6 and has been removed.',
+    color: '#ef4444',
   },
   {
     id: 'S4',
     title: 'SL(2,ℝ) Closure',
-    claim: 'det(S_∞) = 1 because SL(2,ℝ) is closed.',
+    claim: 'If the matrix sequence converges, det(S_∞) = 1 because SL(2,ℝ) is closed.',
     formula: '\\operatorname{SL}(2,\\mathbb{R}) = \\det^{-1}(\\{1\\}) \\text{ is closed}',
     theorem: 'Preimage of closed set under continuous map is closed',
     reference: 'sl2r-closure.js (imp-093)',
-    confidence: 1.0,
-    status: 'proven',
-    gap: null,
+    confidence: 0.75,
+    status: 'conditional',
+    gap: 'The closure theorem is exact, but it cannot be applied to the displayed physical factors because the S3 convergence premise is refuted.',
     color: '#10b981',
     computeLabel: 'Verify det continuity (Lipschitz bound)',
     compute: async () => {
@@ -151,14 +129,14 @@ const PROOF_STEPS = [
   },
   {
     id: 'S5',
-    title: 'Mertens Unitarity Bound',
-    claim: 'δ(P) = O(1/log P) → 0 by Mertens\' theorems.',
+    title: 'Model Mertens Deficit Bound',
+    claim: 'A selected model deficit obeys an O(1/log P) upper bound.',
     formula: '\\delta(P) \\leq \\frac{4}{\\gamma_1^2 \\log^2 P} + \\frac{1}{\\log P} + \\frac{2.51}{\\sqrt{P}\\log P} + \\frac{1}{P}',
     theorem: 'Mertens (1874) + Rosser-Schoenfeld (1962)',
     reference: 'rigorous-mertens.js (imp-084)',
-    confidence: 1.0,
-    status: 'proven',
-    gap: null,
+    confidence: 0.45,
+    status: 'model-only',
+    gap: 'The bound has not been shown to equal the unitarity deficit of a realizable analytic continuation of the cascade.',
     color: '#10b981',
     computeLabel: 'Compute δ(P) at P = 100, 10⁴, 10⁶, 10⁸',
     compute: async () => {
@@ -173,14 +151,14 @@ const PROOF_STEPS = [
   },
   {
     id: 'S6',
-    title: 'Inherited Unitarity',
-    claim: 'δ(S_∞) = 0 by sequential continuity.',
+    title: 'Conditional Inherited Unitarity',
+    claim: 'If S_N → S_∞ and the actual deficits tend to zero, sequential continuity gives δ(S_∞) = 0.',
     formula: 'S \\mapsto \\|S^\\top S - I\\| \\text{ is continuous; } \\delta(S_N) \\to 0 \\Rightarrow \\delta(S_\\infty) = 0',
     theorem: 'Sequential continuity',
     reference: 'inherited-unitarity.js (imp-096)',
-    confidence: 0.95,
-    status: 'proven',
-    gap: null,
+    confidence: 0.6,
+    status: 'conditional',
+    gap: 'Both convergence and identification of the model deficit with the cascade deficit are required premises.',
     color: '#10b981',
     computeLabel: 'Verify orthogonality SᵀS ≈ I for cascade',
     compute: async () => {
@@ -198,75 +176,58 @@ const PROOF_STEPS = [
   {
     id: 'S7',
     title: 'S_∞ ∈ SO(2)',
-    claim: 'det = 1 + orthogonal → S_∞ ∈ SO(2): a lossless 2-port.',
+    claim: 'Conditionally, det = 1 plus orthogonality would place a matrix limit in SO(2).',
     formula: 'S_\\infty \\in O(2) \\cap \\operatorname{SL}(2,\\mathbb{R}) = \\operatorname{SO}(2)',
     theorem: 'Definition of SO(2)',
     reference: 'Combination of Steps 4 + 6',
-    confidence: 0.95,
-    status: 'proven',
-    gap: null,
+    confidence: 0.55,
+    status: 'conditional',
+    gap: 'A matrix in SO(2) is not by itself a proved causal, analytic, physically realizable two-port transfer function.',
     color: '#10b981',
     computeLabel: null,
     compute: null,
   },
   {
     id: 'S8',
-    title: 'Zero Identification',
-    claim: 'S₂₁ ∝ 1/ζ globally by the identity theorem.',
-    formula: 'S_{21}(s) \\cdot \\zeta(s) = c \\quad \\forall s \\in \\mathbb{C}',
-    theorem: 'Identity theorem for meromorphic functions',
-    reference: 'zero-identification.js (imp-098); carlson-identification.js (imp-101)',
-    confidence: 0.9,
+    title: 'Separate algebraic embedding',
+    claim: 'For M_p=[[1,p^{-s}],[p^{-s},1]], finite-product induction gives S₂₁^(A)(s) = ζ(2s)/ζ(s); this is not the physical LC product in S1–S3.',
+    formula: 'S_{21}(s)\\,\\zeta(s)=\\zeta(2s)',
+    theorem: 'Finite-product induction plus the Euler product',
+    reference: 's21-euler-induction.js (imp-121); physical-cascade-induction.js (imp-134)',
+    confidence: 1.0,
     status: 'proven',
-    gap: null,
+    gap: 'Common numerator/denominator zeros require residual multiplicity. No realization theorem identifies this algebraic embedding with the physical proxy.',
     color: '#10b981',
-    computeLabel: 'Verify |S₂₁| at first 10 ζ-zeros',
-    compute: async () => {
-      const { s21ZeroVerificationTest } = await import('../math/s21-zero-verification.js');
-      const r = s21ZeroVerificationTest();
-      return {
-        decreasingRate: r.zeroResults.rate,
-        avgBestMag: r.zeroResults.avgBestMag,
-        controlNonVanishing: r.nonZeroControl.rate,
-        discriminates: r.discrimination.discriminates,
-      };
-    },
+    computeLabel: null,
+    compute: null,
   },
   {
     id: 'S9',
-    title: 'Darlington → RH',
-    claim: 'Lossless 2-port → transmission zeros on jω axis → σ = ½.',
-    formula: 'S_\\infty \\in \\operatorname{SO}(2) \\;\\Longrightarrow\\; \\text{zeros of } \\zeta \\text{ on } \\operatorname{Re}(s) = \\tfrac{1}{2}',
+    title: 'Darlington Zero/Pole Obstruction',
+    claim: 'Darlington addresses transmission zeros, whereas RH zeros occur as poles of this S₂₁.',
+    formula: '\\zeta(s_0)=0,\\ \\zeta(2s_0)\\ne0 \\;\\Longrightarrow\\; S_{21}\\text{ has a pole at }s_0',
     theorem: 'Darlington synthesis theorem (1939)',
     reference: 'S. Darlington, J. Math. Phys. 18 (1939), 257–353',
-    confidence: 0.9,
-    status: 'proven (classical)',
-    gap: 'Darlington is for finite networks; we apply it to S_∞ as a well-defined SO(2) element.',
-    color: '#3b82f6',
+    confidence: 1.0,
+    status: 'blocked',
+    gap: 'A valid pole-confinement or reciprocal-transfer theorem is missing, in addition to infinite-network realizability.',
+    color: '#ef4444',
     computeLabel: null,
     compute: null,
   },
   {
     id: 'ALT',
     title: 'Alternative: Trotter-Kato / Lax-Phillips',
-    claim: 'Resolvent convergence → semigroup convergence → contraction → zero confinement.',
+    claim: 'A possible operator route requires generator/domain control, resolvent convergence, and a separate identification of the resulting scattering divisor with ζ.',
     formula: '(H_N - z)^{-1} \\to (H_\\infty - z)^{-1} \\;\\Longrightarrow\\; e^{iH_N t} \\to e^{iH_\\infty t}',
     theorem: 'Trotter-Kato (1958) + Lax-Phillips (1967)',
     reference: 'gronwall-semigroup.js (imp-094)',
-    confidence: 0.9,
-    status: 'verified',
-    gap: 'Resolvent convergence verified numerically. Analytical proof requires bounding spectral shift of rank-2 perturbation.',
+    confidence: 0.3,
+    status: 'conditional',
+    gap: 'Finite numerical resolvent diagnostics do not verify the Trotter-Kato hypotheses, construct Lax-Phillips incoming/outgoing spaces, or identify/constrain the ζ divisor.',
     color: '#8b5cf6',
-    computeLabel: 'Verify resolvent convergence',
-    compute: async () => {
-      const { gronwallSemigroupTest } = await import('../math/gronwall-semigroup.js');
-      const r = gronwallSemigroupTest(100);
-      return {
-        trotterKatoApplies: r.trotterKato.applies,
-        resolventDecays: r.trotterKato.conditions.resolventConverges,
-        tests: r.trotterKato.resolventTests,
-      };
-    },
+    computeLabel: null,
+    compute: null,
   },
 ];
 
@@ -312,9 +273,12 @@ function ProofStepCard({ step }) {
         <span style={{
           fontSize: 10, padding: '2px 8px', borderRadius: 4, fontWeight: 600,
           background: step.status === 'proven' || step.status === 'proven (classical)'
-            ? 'rgba(16,185,129,0.15)' : step.status === 'numerical' ? 'rgba(245,158,11,0.15)' : 'rgba(59,130,246,0.15)',
+            ? 'rgba(16,185,129,0.15)' : step.status === 'numerical'
+              ? 'rgba(245,158,11,0.15)' : step.status === 'refuted'
+                ? 'rgba(239,68,68,0.15)' : 'rgba(59,130,246,0.15)',
           color: step.status === 'proven' || step.status === 'proven (classical)'
-            ? '#10b981' : step.status === 'numerical' ? '#f59e0b' : '#3b82f6',
+            ? '#10b981' : step.status === 'numerical' ? '#f59e0b'
+              : step.status === 'refuted' ? '#ef4444' : '#3b82f6',
         }}>
           {step.status.toUpperCase()}
         </span>
@@ -386,7 +350,7 @@ function ProofStepCard({ step }) {
           {/* Confidence bar */}
           <div style={{ marginTop: 12 }}>
             <div style={{ color: '#64748b', fontSize: 11, marginBottom: 4 }}>
-              CONFIDENCE: {(step.confidence * 100).toFixed(0)}%
+              INTERNAL EVIDENCE SCORE: {(step.confidence * 100).toFixed(0)}%
             </div>
             <div style={{
               height: 4, borderRadius: 2, background: 'rgba(255,255,255,0.05)',
@@ -405,52 +369,6 @@ function ProofStepCard({ step }) {
   );
 }
 
-// ── Download buttons ─────────────────────────────────────────────────────────
-
-function DownloadButton({ label, format }) {
-  const [loading, setLoading] = useState(false);
-
-  const handleClick = async () => {
-    setLoading(true);
-    try {
-      if (format === 'tex') {
-        const { generateDefinitiveProof } = await import('../math/definitive-proof.js');
-        const proof = generateDefinitiveProof();
-        downloadFile('rh-proof-darlington.tex', proof.latex, 'application/x-latex');
-      } else if (format === 'json') {
-        const { verifyProof } = await import('../math/verify-proof.js');
-        const cert = verifyProof();
-        downloadFile('rh-proof-certificate.json', JSON.stringify(cert, null, 2), 'application/json');
-      }
-    } catch (err) {
-      console.error('Download error:', err);
-    }
-    setLoading(false);
-  };
-
-  return (
-    <button onClick={handleClick} disabled={loading} style={{
-      padding: '8px 16px', borderRadius: 6, cursor: loading ? 'wait' : 'pointer',
-      background: format === 'tex' ? 'rgba(16,185,129,0.15)' : 'rgba(59,130,246,0.15)',
-      color: format === 'tex' ? '#6ee7b7' : '#93c5fd',
-      border: `1px solid ${format === 'tex' ? 'rgba(16,185,129,0.3)' : 'rgba(59,130,246,0.3)'}`,
-      fontSize: 12, fontWeight: 600, fontFamily: 'var(--font-mono)',
-    }}>
-      {loading ? 'Generating...' : label}
-    </button>
-  );
-}
-
-function downloadFile(filename, content, mimeType) {
-  const blob = new Blob([content], { type: mimeType });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = filename;
-  a.click();
-  URL.revokeObjectURL(url);
-}
-
 // ── Main page ────────────────────────────────────────────────────────────────
 
 export default function ProofExplorerPage() {
@@ -466,7 +384,9 @@ export default function ProofExplorerPage() {
         <h1>Interactive Proof Explorer</h1>
         <p>
           Click any step to expand: see the claim, theorem, reference, live computation, and gap assessment.
-          The proof has {provenCount}/{mainSteps.length} steps proven, average confidence {(avgConfidence * 100).toFixed(0)}%.
+          {provenCount}/{mainSteps.length} entries are finite or classical identities; the chain is blocked
+          and does not prove RH. The displayed {(avgConfidence * 100).toFixed(0)}% is an internal evidence
+          score, not a mathematical confidence level.
         </p>
       </div>
 
@@ -476,7 +396,7 @@ export default function ProofExplorerPage() {
       }}>
         {[
           { label: 'Steps', value: `${provenCount}/${mainSteps.length}`, color: '#10b981' },
-          { label: 'Confidence', value: `${(avgConfidence * 100).toFixed(0)}%`, color: '#3b82f6' },
+          { label: 'Evidence score', value: `${(avgConfidence * 100).toFixed(0)}%`, color: '#3b82f6' },
           { label: 'Gaps', value: mainSteps.filter(s => s.gap).length, color: '#f59e0b' },
           { label: 'Theorems', value: new Set(mainSteps.map(s => s.theorem)).size, color: '#8b5cf6' },
         ].map(m => (
@@ -490,16 +410,20 @@ export default function ProofExplorerPage() {
         ))}
       </div>
 
-      {/* Download buttons */}
-      <div style={{ display: 'flex', gap: 8, marginBottom: 24 }}>
-        <DownloadButton label="Download LaTeX (.tex)" format="tex" />
-        <DownloadButton label="Download Certificate (JSON)" format="json" />
+      <div className="card" style={{ borderLeft: '3px solid #ef4444', marginBottom: 24 }}>
+        <strong style={{ color: '#fca5a5' }}>Legacy proof downloads withdrawn.</strong>
+        <p style={{ color: '#94a3b8', fontSize: 12.5, lineHeight: 1.7, marginBottom: 0 }}>
+          The former LaTeX and JSON generators asserted that the Darlington chain proved RH.
+          They depended on the refuted physical-cascade convergence claim and confused poles of
+          <InlineMath tex="S_{21}(s)=\zeta(2s)/\zeta(s)" /> with transmission zeros.
+          Passing finite computations below verifies only their named finite identities.
+        </p>
       </div>
 
       {/* Main proof chain */}
       <div className="card" style={{ borderLeft: '3px solid #10b981', marginBottom: 24 }}>
         <h3 style={{ color: '#10b981', fontSize: 14, marginBottom: 16 }}>
-          Main Chain: Pythagorean Identity → Darlington → RH
+          Audited Chain: Finite Identities → Conditional Limit → Zero/Pole Obstruction
         </h3>
         {mainSteps.map(step => <ProofStepCard key={step.id} step={step} />)}
       </div>
@@ -511,9 +435,10 @@ export default function ProofExplorerPage() {
         </h3>
         <ProofStepCard step={altStep} />
         <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginTop: 12 }}>
-          The Trotter-Kato path gives semigroup convergence via Hamiltonian resolvents,
-          bypassing the matrix-level summability question in Step S3. If resolvent convergence
-          is established analytically, the proof has <strong>no numerical dependencies</strong>.
+          Trotter–Kato could bypass the refuted matrix-product limit only after its
+          generator, domain, and resolvent hypotheses are proved. A further theorem must then
+          identify the operator scattering divisor with the algebraic zeta ratio; contraction
+          alone does not confine zeta zeros.
         </p>
       </div>
     </div>

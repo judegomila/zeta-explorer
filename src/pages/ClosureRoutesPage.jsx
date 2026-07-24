@@ -1,5 +1,6 @@
 // ClosureRoutesPage.jsx -- imp-1197
-// Companion page rendering §16 of research-inputs/twin_ladder_consolidated_v52.pdf:
+// Companion page rendering §16 as carried forward in v70, while retaining
+// the historic v52 app-mapping provenance in the data module:
 // "Four Equivalent Closure Routes for the Zero-Bridge-Thickness Problem".
 //
 // Structure:
@@ -7561,6 +7562,9 @@ export default function ClosureRoutesPage() {
         <h1>Four Equivalent Closure Routes (§16)</h1>
         <p className="page-subtitle" style={{ fontFamily: mono, color: 'var(--text-secondary)' }}>
           {R.title} — {R.paperRef}
+        </p>
+        <p style={{ marginTop: 6, color: '#64748b', fontFamily: mono, fontSize: 11 }}>
+          Historic app-mapping source: {R.historicalPaperRef}
         </p>
       </div>
 

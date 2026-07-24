@@ -1,435 +1,298 @@
-// LambdaTimelinePage — imp-1093
-// Horizontal log-N timeline visualizing the three Lambda-bound regimes:
-//   GREEN  [100, 1e4]      rigorous unconditional MEASURED        (imp-440 + imp-963)
-//   YELLOW (1e4, 1e6]      rigorous unconditional CARRYFORWARD    (imp-1082 + imp-1087 + imp-1088)
-//   RED    (1e6, infinity) GUE-conditional / ESY-open             (imp-486 barrier; imp-370 named)
-//
-// Renders LAMBDA_BOUNDS (lambda-roadmap.js) as horizontal reference lines,
-// K_PLATEAU_LADDER (finite-k-c-mb-unconditional.js) as per-plateau rescue
-// margin markers on a secondary axis, and the rigorousUnconditionalBeat /
-// rigorousUnconditionalBeatCarryforwardN1e6 entries from
-// finite-height-beats-platt-trudgian.js as the regime transitions.
-//
-// Pure SVG + React. d3-scale used for the log-N axis.
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { scaleLog, scaleLinear } from 'd3-scale';
-import { LAMBDA_BOUNDS } from '../data/lambda-roadmap.js';
 import { LAMBDA_TIMELINE } from '../data/lambda-historical-timeline.js';
 import { personFor } from '../data/lambda-timeline-people.js';
 import FaceAvatar from '../components/FaceAvatar.jsx';
-// IMPORTANT: do NOT import (statically OR via dynamic import()) the modules
-// finite-k-c-mb-unconditional.js or finite-height-beats-platt-trudgian.js
-// here. Both transitively import imp-962-plateau-structure-N10k-to-N1e6.js,
-// which imports ZEROS_EXTENDED from zeros-to-1e6.js — the ~16.7 MB data-zeros
-// bundle. Pulling that in (even lazily) forces the browser to download +
-// parse + evaluate 16.7 MB of array literals on the main thread, which wedges
-// the renderer (the page goes blank / unresponsive with no JS error). See
-// MEMORY: "No heavy imports in pages". The two small pieces of data this chart
-// needs (the 9-row K_PLATEAU_LADDER rescue margins and the two beats-PT
-// L_star values) are deterministic published constants and are inlined below.
 
-// PT 2021 SOTA upper bound.
-const PT_BOUND = 0.2;
-
-// X-axis log-N range.
-const N_MIN = 100;
-const N_MAX = 1e9;
-
-// Y-axis Lambda range.
-const LAMBDA_MIN = 0;
-const LAMBDA_MAX = 0.25;
-
-// Margin-factor (secondary axis) range.
-const MARGIN_MIN = 0;
-const MARGIN_MAX = 60;
-
-// SVG geometry.
-const W = 960;
-const H = 460;
-const M = { top: 50, right: 80, bottom: 80, left: 70 };
-const IW = W - M.left - M.right;
-const IH = H - M.top - M.bottom;
-
-// Regime bands (start and end N).
-const REGIMES = [
-  {
-    id: 'measured',
-    label: 'rigorous unconditional MEASURED',
-    nLo: 100,
-    nHi: 1e4,
-    fill: 'rgba(34,197,94,0.18)',
-    stroke: 'rgba(34,197,94,0.55)',
-    text: '#86efac',
-    tickets: ['imp-440', 'imp-963'],
-    method: 'measured interval-RK4 sweep on [100, 1e4]',
+const GRADE = {
+  'peer-reviewed': {
+    label: 'peer reviewed',
+    fg: '#86efac',
+    bg: 'rgba(34,197,94,0.10)',
+    border: 'rgba(34,197,94,0.35)',
   },
-  {
-    id: 'carryforward',
-    label: 'rigorous unconditional CARRYFORWARD',
-    nLo: 1e4,
-    nHi: 1e6,
-    fill: 'rgba(234,179,8,0.16)',
-    stroke: 'rgba(234,179,8,0.55)',
-    text: '#facc15',
-    tickets: ['imp-1082', 'imp-1087', 'imp-1088'],
-    method: 'K_PLATEAU_LADDER conservative-carryforward (rescue formula holds)',
+  'public-unrefereed': {
+    label: 'public · unrefereed',
+    fg: '#fde047',
+    bg: 'rgba(234,179,8,0.10)',
+    border: 'rgba(234,179,8,0.35)',
   },
-  {
-    id: 'esy-open',
-    label: 'GUE-CONDITIONAL / ESY-open',
-    nLo: 1e6,
-    nHi: N_MAX,
-    fill: 'rgba(239,68,68,0.14)',
-    stroke: 'rgba(239,68,68,0.55)',
-    text: '#fca5a5',
-    tickets: ['imp-486', 'imp-370'],
-    method: 'imp-486 rate barrier; ESY arithmetic-input port (imp-370 partial)',
+  'public-unrefereed-local-repair': {
+    label: 'public · local repair · unrefereed',
+    fg: '#facc15',
+    bg: 'rgba(245,158,11,0.10)',
+    border: 'rgba(245,158,11,0.35)',
   },
-];
-
-// Style helpers.
-const labelStyle = {
-  fontFamily: 'var(--font-mono)',
-  fontSize: 10,
-  fill: 'var(--text-secondary)',
 };
 
-const tickStyle = {
-  fontFamily: 'var(--font-mono)',
-  fontSize: 9,
-  fill: '#94a3b8',
-};
-
-function fmtN(n) {
-  if (n >= 1e9) return '1e9';
-  if (n >= 1e6) return '1e' + Math.round(Math.log10(n));
-  if (n >= 1e3) return n.toExponential(0).replace('+0', '').replace('e', 'e');
-  return String(n);
+function GradeBadge({ status }) {
+  const grade = GRADE[status] || GRADE['public-unrefereed'];
+  return (
+    <span
+      style={{
+        display: 'inline-block',
+        padding: '2px 8px',
+        borderRadius: 999,
+        color: grade.fg,
+        background: grade.bg,
+        border: `1px solid ${grade.border}`,
+        fontFamily: 'var(--font-mono)',
+        fontSize: 10,
+        fontWeight: 700,
+      }}
+    >
+      {grade.label}
+    </span>
+  );
 }
 
-// ── Inlined K_PLATEAU_LADDER rescue margins (imp-1082/1087/1088) ─────────────
-// Mirrors finite-k-c-mb-unconditional.js K_PLATEAU_LADDER, but computed inline
-// from the published rescue formula so this page never imports that module
-// (which drags in the 16.7 MB zeros bundle — see note at top of file).
-//   rescue_margin_factor(N) = RESCUE_THRESHOLD / (K * ln(N) / sqrt(N))
-// with the imp-963-headline carryforward K = 0.2014 and the imp-486 rescue
-// threshold 0.12751. The 9 ladder N values are the batch-1/2/3 plateau
-// interiors. Verified to match the module's emitted rescue_margin_factor
-// values (e.g. 45.83 at N = 1e6, 34.12 at N = 5e5, 9.04 at N = 2e4).
-const RESCUE_THRESHOLD = 0.12751;
-const CARRYFORWARD_K = 0.2014;
-const K_PLATEAU_LADDER_NS = [
-  20000, 50000, 100000, 200000, 300000, 500000, 600000, 800000, 1000000,
-];
-const K_PLATEAU_LADDER = K_PLATEAU_LADDER_NS.map((N) => {
-  const lhs = (CARRYFORWARD_K * Math.log(N)) / Math.sqrt(N);
-  return {
-    N,
-    rescue_margin_factor: lhs > 0 ? +(RESCUE_THRESHOLD / lhs).toFixed(2) : null,
-  };
-});
+function EvidenceCard({ label, value, detail, color, route, href }) {
+  const body = (
+    <div
+      className="card"
+      style={{
+        height: '100%',
+        boxSizing: 'border-box',
+        borderLeft: `3px solid ${color}`,
+        padding: 16,
+      }}
+    >
+      <div
+        style={{
+          color,
+          fontFamily: 'var(--font-mono)',
+          fontSize: 10,
+          fontWeight: 700,
+          letterSpacing: 0.6,
+          textTransform: 'uppercase',
+        }}
+      >
+        {label}
+      </div>
+      <div style={{ color: '#e2e8f0', fontFamily: 'var(--font-mono)', fontSize: 20, marginTop: 8 }}>
+        {value}
+      </div>
+      <div style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.55, marginTop: 7 }}>
+        {detail}
+      </div>
+    </div>
+  );
 
-// ── Inlined beats-Platt-Trudgian L_star values ──────────────────────────────
-// Mirrors finite-height-beats-platt-trudgian.js rigorousUnconditionalBeat
-// (.L_star at N = 1e4) and rigorousUnconditionalBeatCarryforwardN1e6 (.L_star
-// at N = 1e6). These are the published MEASURED (0.02, imp-440+imp-963) and
-// CARRYFORWARD (0.121, imp-1088) Lambda upper bounds used as the two regime-
-// transition dots. Inlined to avoid importing that module (it imports
-// finite-k-c-mb-unconditional.js → the 16.7 MB zeros bundle).
-const LAMBDA_1E4_MEASURED = 0.02;
-const LAMBDA_1E6_CARRYFORWARD = 0.121;
+  if (route) {
+    return (
+      <Link to={route} style={{ color: 'inherit', textDecoration: 'none' }}>
+        {body}
+      </Link>
+    );
+  }
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+        {body}
+      </a>
+    );
+  }
+  return body;
+}
 
-// Reference card chip.
-function pill(color, text) {
+function ContributorFaces({ authors }) {
+  const people = authors.map(personFor).filter(Boolean);
+  if (people.length === 0) {
+    return (
+      <div
+        title="Institutional or collective author"
+        style={{
+          width: 44,
+          height: 44,
+          borderRadius: '50%',
+          border: '2px dashed #475569',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: '#64748b',
+          fontSize: 17,
+        }}
+      >
+        ◇
+      </div>
+    );
+  }
   return (
-    <span style={{
-      display: 'inline-block',
-      padding: '2px 8px',
-      borderRadius: 6,
-      fontSize: 10,
-      fontFamily: 'var(--font-mono)',
-      background: 'rgba(255,255,255,0.04)',
-      color,
-      border: '1px solid ' + color + '40',
-      marginRight: 6,
-    }}>{text}</span>
+    <div style={{ display: 'flex', minWidth: 48 }}>
+      {people.map((person, index) => (
+        <div
+          key={person.key}
+          style={{ marginLeft: index === 0 ? 0 : -8, zIndex: people.length - index }}
+        >
+          <FaceAvatar person={person} size={44} />
+        </div>
+      ))}
+    </div>
   );
 }
 
 export default function LambdaTimelinePage() {
-  const x = scaleLog().domain([N_MIN, N_MAX]).range([0, IW]);
-  const y = scaleLinear().domain([LAMBDA_MIN, LAMBDA_MAX]).range([IH, 0]);
-  const yMargin = scaleLinear().domain([MARGIN_MIN, MARGIN_MAX]).range([IH, 0]);
-
-  const xTicks = [100, 1e3, 1e4, 1e5, 1e6, 1e7, 1e8, 1e9];
-  const yTicks = [0, 0.05, 0.1, 0.15, 0.2, 0.25];
-  const yMarginTicks = [0, 10, 20, 30, 40, 50];
-
-  // Ladder rescue-margin markers and the two regime-transition Lambda dots are
-  // sourced from the inlined published constants above (NOT from a dynamic
-  // import — that pulled the 16.7 MB zeros bundle and wedged the renderer).
-  const ladderRows = K_PLATEAU_LADDER;
-  const lambda1e4 = LAMBDA_1E4_MEASURED;
-  const lambda1e6 = LAMBDA_1E6_CARRYFORWARD;
-
-  // Helper for plotting Lambda dot at (N, value).
-  function dotL(N, val, color, label) {
-    return (
-      <g key={N + '-' + label}>
-        <circle cx={x(N)} cy={y(val)} r={5} fill={color} stroke="#0f172a" strokeWidth={1.5} />
-        <text x={x(N) + 8} y={y(val) - 6} style={{ ...labelStyle, fill: color }}>
-          {label}
-        </text>
-      </g>
-    );
-  }
+  const acceptedUpper = LAMBDA_TIMELINE.filter(
+    (entry) => entry.direction === 'upper' && entry.accepted,
+  );
+  const publicClaims = LAMBDA_TIMELINE.filter(
+    (entry) => entry.direction === 'upper' && !entry.accepted,
+  );
 
   return (
-    <div className="page">
+    <div className="page" style={{ maxWidth: 1080, margin: '0 auto' }}>
       <div className="page-header">
-        <h1>Lambda Timeline (imp-1093)</h1>
-        <p className="page-subtitle">
-          Horizontal log-N timeline of the three rigorous-regime bands for
-          Lambda upper bounds: MEASURED on [100, 1e4] (imp-440 + imp-963),
-          CARRYFORWARD on (1e4, 1e6] (imp-1082 + imp-1087 + imp-1088), and
-          GUE-CONDITIONAL above the imp-486 rate barrier at N = 1e6.
-          The reference SOTA bound from Platt-Trudgian 2021 (Lambda &le; 0.2)
-          is shown across the entire x-axis.
+        <h1>de Bruijn–Newman Bound Timeline</h1>
+        <p className="page-subtitle" style={{ maxWidth: 900 }}>
+          A chronological, evidence-graded ledger. Internal finite-N model values are deliberately
+          excluded from the historical bound sequence.
         </p>
         <div style={{ marginTop: 10 }}>
           <Link to="/lambda-bounds" style={{ color: '#a855f7', fontFamily: 'var(--font-mono)', fontSize: 12 }}>
-            &larr; back to Lambda Bounds &amp; RH Roadmap
+            ← bounds and RH roadmap
           </Link>
         </div>
       </div>
 
-      <div style={{ overflowX: 'auto', marginTop: 16, background: 'var(--bg-panel)', border: '1px solid var(--border)', borderRadius: 8, padding: 12 }}>
-        <svg width={W} height={H} role="img" aria-label="Lambda bound timeline by log-N">
-          <g transform={'translate(' + M.left + ',' + M.top + ')'}>
-            {/* Regime band rectangles. */}
-            {REGIMES.map((r) => {
-              const xLo = x(Math.max(r.nLo, N_MIN));
-              const xHi = x(Math.min(r.nHi, N_MAX));
-              return (
-                <g key={r.id}>
-                  <rect x={xLo} y={0} width={xHi - xLo} height={IH} fill={r.fill} stroke={r.stroke} strokeDasharray="2,3" />
-                  <text x={(xLo + xHi) / 2} y={18} textAnchor="middle" style={{ ...labelStyle, fill: r.text, fontWeight: 700 }}>
-                    {r.label}
-                  </text>
-                </g>
-              );
-            })}
-
-            {/* PT 2021 reference line across full x-axis. */}
-            <line x1={0} x2={IW} y1={y(PT_BOUND)} y2={y(PT_BOUND)} stroke="#ef4444" strokeWidth={2} strokeDasharray="6,4" />
-            <text x={IW - 4} y={y(PT_BOUND) - 6} textAnchor="end" style={{ ...labelStyle, fill: '#fca5a5', fontWeight: 700 }}>
-              Lambda &le; 0.2 (Platt-Trudgian 2021 = PT_BOUND)
-            </text>
-
-            {/* Rodgers-Tao Lambda >= 0 reference line. */}
-            <line x1={0} x2={IW} y1={y(0)} y2={y(0)} stroke="#22c55e" strokeWidth={1.5} strokeDasharray="3,3" />
-            <text x={IW - 4} y={y(0) + 14} textAnchor="end" style={{ ...labelStyle, fill: '#86efac' }}>
-              Lambda &ge; 0 (Rodgers-Tao 2020)
-            </text>
-
-            {/* Our target bound. */}
-            <line x1={0} x2={IW} y1={y(0.02)} y2={y(0.02)} stroke="#06b6d4" strokeWidth={1} strokeDasharray="2,4" />
-            <text x={4} y={y(0.02) - 4} style={{ ...labelStyle, fill: '#67e8f9' }}>
-              target Lambda &le; 0.02
-            </text>
-
-            {/* imp-486 barrier vertical at N = 1e6. */}
-            <line x1={x(1e6)} x2={x(1e6)} y1={0} y2={IH} stroke="#ef4444" strokeWidth={1.5} strokeDasharray="4,4" />
-            <text x={x(1e6) + 6} y={IH - 8} style={{ ...labelStyle, fill: '#fca5a5', fontWeight: 700 }}>
-              imp-486 rate barrier (N = 1e6)
-            </text>
-
-            {/* Rescue-margin secondary axis: render K_PLATEAU_LADDER plateau margins. */}
-            {ladderRows.map((row) => {
-              if (row == null || row.rescue_margin_factor == null) return null;
-              const m = Math.min(row.rescue_margin_factor, MARGIN_MAX);
-              return (
-                <g key={'plateau-' + row.N}>
-                  <line x1={x(row.N)} x2={x(row.N)} y1={IH} y2={yMargin(m)} stroke="#facc15" strokeOpacity={0.4} strokeWidth={1} />
-                  <circle cx={x(row.N)} cy={yMargin(m)} r={3.5} fill="#facc15" stroke="#0f172a" strokeWidth={1} />
-                </g>
-              );
-            })}
-
-            {/* Plot Lambda(N) MEASURED dot at N = 1e4. */}
-            {dotL(1e4, lambda1e4, '#86efac', 'imp-440 L*=' + lambda1e4.toFixed(4))}
-
-            {/* Plot Lambda(N) CARRYFORWARD dot at N = 1e6. */}
-            {dotL(1e6, lambda1e6, '#facc15', 'imp-1088 L*=' + lambda1e6.toFixed(4))}
-
-            {/* X-axis. */}
-            <line x1={0} x2={IW} y1={IH} y2={IH} stroke="#475569" />
-            {xTicks.map((t) => (
-              <g key={'xt-' + t} transform={'translate(' + x(t) + ',' + IH + ')'}>
-                <line y1={0} y2={5} stroke="#475569" />
-                <text y={18} textAnchor="middle" style={tickStyle}>{fmtN(t)}</text>
-              </g>
-            ))}
-            <text x={IW / 2} y={IH + 42} textAnchor="middle" style={{ ...labelStyle, fontSize: 11 }}>N (log scale)</text>
-
-            {/* Left y-axis (Lambda). */}
-            <line x1={0} x2={0} y1={0} y2={IH} stroke="#475569" />
-            {yTicks.map((t) => (
-              <g key={'yt-' + t} transform={'translate(0,' + y(t) + ')'}>
-                <line x1={-5} x2={0} stroke="#475569" />
-                <text x={-8} y={3} textAnchor="end" style={tickStyle}>{t.toFixed(2)}</text>
-              </g>
-            ))}
-            <text transform={'translate(-46,' + IH / 2 + ') rotate(-90)'} textAnchor="middle" style={{ ...labelStyle, fontSize: 11 }}>
-              Lambda upper bound
-            </text>
-
-            {/* Right y-axis (rescue margin). */}
-            <line x1={IW} x2={IW} y1={0} y2={IH} stroke="#facc15" strokeOpacity={0.5} />
-            {yMarginTicks.map((t) => (
-              <g key={'ym-' + t} transform={'translate(' + IW + ',' + yMargin(t) + ')'}>
-                <line x1={0} x2={5} stroke="#facc15" strokeOpacity={0.5} />
-                <text x={8} y={3} textAnchor="start" style={{ ...tickStyle, fill: '#facc15' }}>{t}x</text>
-              </g>
-            ))}
-            <text transform={'translate(' + (IW + 58) + ',' + IH / 2 + ') rotate(90)'} textAnchor="middle" style={{ ...labelStyle, fontSize: 11, fill: '#facc15' }}>
-              rescue margin factor
-            </text>
-          </g>
-        </svg>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
+          gap: 14,
+          marginTop: 22,
+        }}
+      >
+        <EvidenceCard
+          label="accepted upper benchmark"
+          value="Λ ≤ 0.2"
+          detail="Platt–Trudgian 2021; peer reviewed."
+          color="#86efac"
+        />
+        <EvidenceCard
+          label="public package claim"
+          value="Λ ≤ 0.1875"
+          detail="Unrefereed. A local audit reconstructed an omitted finite tile; that repair is not peer review."
+          color="#facc15"
+          href="https://doi.org/10.5281/zenodo.21175533"
+        />
+        <EvidenceCard
+          label="local review candidate"
+          value="Λ ≤ 0.1787854"
+          detail="Not part of the historical theorem ledger. Stored gates pass; eight interfaces remain open."
+          color="#f59e0b"
+          route="/newman-lambda-01787854-candidate"
+        />
       </div>
 
-      {/* Legend cards for each regime. */}
-      <div className="card-grid" style={{ marginTop: 24, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>
-        {REGIMES.map((r) => (
-          <div key={r.id} className="card" style={{ borderLeft: '3px solid ' + r.text, padding: 14 }}>
-            <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: 0.5, marginBottom: 6 }}>
-              {fmtN(r.nLo)} to {fmtN(r.nHi)}
-            </div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, fontWeight: 700, color: r.text, marginBottom: 8 }}>
-              {r.label}
-            </div>
-            <div style={{ marginBottom: 8 }}>
-              {r.tickets.map((tid) => pill(r.text, tid))}
-            </div>
-            <div style={{ fontSize: 11, color: 'var(--text-secondary)' }}>{r.method}</div>
-          </div>
-        ))}
-      </div>
-
-      {/* ── Historical contributors timeline (chronological, with faces) ────── */}
-      <div style={{ marginTop: 32 }}>
-        <h2 style={{ marginBottom: 4 }}>Historical Contributors</h2>
-        <p style={{ fontSize: 12.5, color: 'var(--text-secondary)', marginTop: 0, maxWidth: 760, lineHeight: 1.6 }}>
-          Every published de Bruijn–Newman (Λ) bound, in chronological order, with the people behind it.
-          A face links to the contributor’s Wikipedia page where one exists; where no freely-licensed
-          portrait is available a monogram is shown, and machine/engine entries carry no face.
+      <div className="card" style={{ marginTop: 24, padding: 16 }}>
+        <h2 style={{ color: '#e2e8f0', fontSize: 18, marginTop: 0 }}>Upper-bound progression</h2>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.6 }}>
+          Solid green rows are accepted results. Yellow rows are public claims and are not used as
+          substitutes for the peer-reviewed benchmark.
         </p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 2, marginTop: 14 }}>
-          {LAMBDA_TIMELINE.map((entry, i) => {
-            const persons = entry.authors.map(personFor).filter(Boolean);
-            const isMachine = persons.length === 0;
-            const rel = entry.direction === 'upper' ? '≤' : '≥';
-            return (
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: 'var(--font-mono)', fontSize: 12 }}>
+            <thead>
+              <tr style={{ color: '#64748b', textTransform: 'uppercase', fontSize: 10 }}>
+                <th style={{ textAlign: 'left', padding: 8 }}>Year</th>
+                <th style={{ textAlign: 'left', padding: 8 }}>Bound</th>
+                <th style={{ textAlign: 'left', padding: 8 }}>Authors</th>
+                <th style={{ textAlign: 'left', padding: 8 }}>Grade</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[...acceptedUpper, ...publicClaims]
+                .sort((left, right) => left.year - right.year || right.bound - left.bound)
+                .map((entry) => (
+                  <tr key={`${entry.year}-${entry.bound}-${entry.status}`} style={{ borderTop: '1px solid #1e293b' }}>
+                    <td style={{ padding: 8, color: '#a5b4fc' }}>{entry.year}</td>
+                    <td style={{ padding: 8, color: entry.accepted ? '#86efac' : '#facc15' }}>
+                      Λ {entry.relation || '≤'} {entry.bound}
+                    </td>
+                    <td style={{ padding: 8, color: '#cbd5e1' }}>{entry.authors.join(', ')}</td>
+                    <td style={{ padding: 8 }}><GradeBadge status={entry.status} /></td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <section style={{ marginTop: 34 }}>
+        <h2 style={{ color: '#e2e8f0', marginBottom: 4 }}>Chronological ledger</h2>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.6, marginTop: 0 }}>
+          Bounds follow the Optimization Problems chronology; each public 2026 package keeps an
+          explicit unrefereed grade.
+        </p>
+        <div style={{ marginTop: 14 }}>
+          {LAMBDA_TIMELINE.map((entry, index) => {
+            const color = entry.accepted
+              ? entry.direction === 'upper' ? '#86efac' : '#67e8f9'
+              : '#facc15';
+            const body = (
               <div
-                key={entry.year + '-' + i}
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: '58px auto 1fr',
-                  gap: 14,
+                  gridTemplateColumns: '58px 58px minmax(0, 1fr)',
+                  gap: 12,
                   alignItems: 'start',
-                  padding: '12px 4px',
-                  borderTop: i === 0 ? 'none' : '1px solid var(--border)',
+                  padding: '14px 5px',
+                  borderTop: index === 0 ? 'none' : '1px solid #1e293b',
                 }}
               >
-                {/* Year */}
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 15, fontWeight: 700, color: '#a855f7', paddingTop: 6 }}>
+                <div style={{ color: '#a855f7', fontFamily: 'var(--font-mono)', fontWeight: 800, paddingTop: 8 }}>
                   {entry.year}
                 </div>
-
-                {/* Faces */}
-                <div style={{ display: 'flex', gap: -6, minWidth: 52 }}>
-                  {isMachine ? (
-                    <div
-                      title="mathexplorer engine (not a person)"
-                      style={{
-                        width: 44, height: 44, borderRadius: '50%', flexShrink: 0,
-                        border: '2px dashed #475569', display: 'flex', alignItems: 'center',
-                        justifyContent: 'center', color: '#64748b', fontSize: 18,
-                      }}
-                    >⚙</div>
-                  ) : (
-                    persons.map((p, j) => (
-                      <div key={p.key} style={{ marginLeft: j === 0 ? 0 : -8, zIndex: persons.length - j }}>
-                        <FaceAvatar person={p} size={44} />
-                      </div>
-                    ))
-                  )}
-                </div>
-
-                {/* Body */}
+                <ContributorFaces authors={entry.authors} />
                 <div>
-                  <div style={{ fontSize: 13.5, color: 'var(--text-primary)', fontWeight: 600 }}>
-                    {entry.authors.join(', ')}
-                    <span style={{ fontFamily: 'var(--font-mono)', color: entry.direction === 'upper' ? '#fca5a5' : '#86efac', marginLeft: 8 }}>
-                      Λ {rel} {entry.bound}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center' }}>
+                    <strong style={{ color: '#e2e8f0', fontSize: 14 }}>{entry.authors.join(', ')}</strong>
+                    <span style={{ color, fontFamily: 'var(--font-mono)', fontWeight: 700 }}>
+                      Λ {entry.relation || (entry.direction === 'upper' ? '≤' : '≥')} {entry.bound}
                     </span>
+                    <GradeBadge status={entry.status} />
                   </div>
-                  <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 3, lineHeight: 1.55 }}>
+                  <div style={{ color: '#cbd5e1', fontSize: 12.5, lineHeight: 1.6, marginTop: 5 }}>
                     {entry.method}
+                  </div>
+                  <div style={{ color: '#64748b', fontSize: 11, lineHeight: 1.55, marginTop: 5 }}>
+                    {entry.citation} {entry.notes}
                   </div>
                 </div>
               </div>
             );
+            return entry.href ? (
+              <a
+                key={`${entry.year}-${entry.bound}-${index}`}
+                href={entry.href}
+                target="_blank"
+                rel="noreferrer"
+                style={{ color: 'inherit', textDecoration: 'none' }}
+              >
+                {body}
+              </a>
+            ) : (
+              <div key={`${entry.year}-${entry.bound}-${index}`}>{body}</div>
+            );
           })}
         </div>
-        <div style={{ marginTop: 10, fontSize: 10.5, color: 'var(--text-muted)', lineHeight: 1.5 }}>
-          Portrait credits: de Bruijn, Odlyzko, Varga — photos by Konrad Jacobs, Mathematisches
-          Forschungsinstitut Oberwolfach (MFO), CC&nbsp;BY-SA&nbsp;2.0&nbsp;DE. Tao — Institute for Pure &amp;
-          Applied Mathematics (IPAM), CC&nbsp;BY&nbsp;4.0. Other contributors shown as monograms (no
-          freely-licensed portrait found). Full attributions: /portraits/CREDITS.json.
-        </div>
-      </div>
+      </section>
 
-      {/* Numeric reference table. */}
-      <div className="card" style={{ marginTop: 24, padding: 14 }}>
-        <div style={{ fontSize: 11, textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: 0.5, marginBottom: 8 }}>
-          LAMBDA_BOUNDS (from lambda-roadmap.js)
-        </div>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 11, fontFamily: 'var(--font-mono)' }}>
-          <thead>
-            <tr style={{ background: 'var(--bg-primary)' }}>
-              <th style={{ textAlign: 'left', padding: 6 }}>id</th>
-              <th style={{ textAlign: 'left', padding: 6 }}>label</th>
-              <th style={{ textAlign: 'left', padding: 6 }}>status</th>
-              <th style={{ textAlign: 'left', padding: 6 }}>source</th>
-            </tr>
-          </thead>
-          <tbody>
-            {LAMBDA_BOUNDS.map((b) => (
-              <tr key={b.id} style={{ borderTop: '1px solid var(--border)' }}>
-                <td style={{ padding: 6, color: '#a855f7' }}>{b.id}</td>
-                <td style={{ padding: 6 }}>{b.label}</td>
-                <td style={{ padding: 6, color: 'var(--text-secondary)' }}>{b.status}</td>
-                <td style={{ padding: 6, color: 'var(--text-muted)' }}>{b.source}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      {/* Source citation. */}
-      <div style={{ marginTop: 16, fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.6 }}>
-        Data sources: LAMBDA_BOUNDS (src/data/lambda-roadmap.js),
-        K_PLATEAU_LADDER (src/data/finite-k-c-mb-unconditional.js),
-        FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN.rigorousUnconditionalBeat and
-        rigorousUnconditionalBeatCarryforwardN1e6 (src/data/finite-height-beats-platt-trudgian.js).
-        Closing tickets: imp-440 (measured beat at N = 1e4), imp-1082 / imp-1087 / imp-1088
-        (batch-1 / batch-2 / batch-3 CAPSTONE conservative carryforward to N = 1e6),
-        imp-486 (asymptotic-rate barrier at N = 1e6), imp-370 (ESY arithmetic-input port,
-        partial closure of obstacle O1).
+      <div
+        style={{
+          marginTop: 22,
+          padding: 14,
+          border: '1px solid rgba(245,158,11,0.35)',
+          borderRadius: 9,
+          color: '#fcd34d',
+          background: 'rgba(245,158,11,0.06)',
+          fontSize: 12.5,
+          lineHeight: 1.65,
+        }}
+      >
+        A ledger entry records that a claim and package exist. It is not a correctness
+        endorsement. The app keeps the accepted, public-unrefereed, and local-candidate layers
+        separate throughout.
       </div>
     </div>
   );

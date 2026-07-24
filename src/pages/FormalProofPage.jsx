@@ -242,7 +242,7 @@ export default function FormalProofPage() {
             border: '1px solid #f9731640',
           }}>
             <h4 style={{ color: '#f97316', fontSize: 12, marginBottom: 8 }}>
-              Path B: Network Synthesis (Darlington)
+              Path B: Network Synthesis (audited obstruction)
             </h4>
             <ol style={{ marginLeft: 14, color: '#94a3b8', fontSize: 11, lineHeight: 1.9 }}>
               <li>S1 + S2: Twin-ladder = cascade network <span style={{ color: '#10b981' }}>[Done]</span></li>
@@ -251,7 +251,10 @@ export default function FormalProofPage() {
               <li style={{ color: '#f97316', fontWeight: 600 }}>
                 S7: Prove exact Darlington conditions <span>[GAP]</span>
               </li>
-              <li>S8: Transmission zeros confined to <InlineMath tex={"j\\omega"} /> axis</li>
+              <li style={{ color: '#ef4444' }}>
+                S8: Blocked — zeta zeros are poles of
+                <InlineMath tex={"S_{21}=\\zeta(2s)/\\zeta(s)"} />, not transmission zeros
+              </li>
             </ol>
           </div>
 
@@ -281,7 +284,7 @@ export default function FormalProofPage() {
         }}>
           <strong>Bottom line:</strong> The Twin-Ladder Bridge framework reduces the Riemann Hypothesis to a question
           in spectral theory (construct a self-adjoint operator), network synthesis
-          (prove Darlington conditions for an infinite analytic network), or Weil positivity
+          (prove an infinite analytic realization <em>and</em> a valid pole-confinement bridge), or Weil positivity
           (prove non-negativity of <InlineMath tex={"W(g * \\tilde{g})"} /> for all admissible{' '}
           <InlineMath tex={"g"} />). All three are deep open problems,
           but they provide concrete mathematical targets rather than vague aspirations.

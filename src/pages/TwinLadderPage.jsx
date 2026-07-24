@@ -8,7 +8,7 @@ export default function TwinLadderPage() {
   return (
     <div className="page">
       <div className="page-header">
-        <h1>Twin Ladder Explorer <FreshnessStamp date="2026-05-10" note="v52 paper" /></h1>
+        <h1>Twin Ladder Explorer <FreshnessStamp date="2026-07-23" note="v70 review" /></h1>
         <p>
           Each prime <InlineMath tex="p" /> generates a <strong>ladder</strong> of rungs{' '}
           <InlineMath tex={"m = 0, 1, 2, \\ldots"} /> with amplitude <InlineMath tex="p^{-m/2}" /> and

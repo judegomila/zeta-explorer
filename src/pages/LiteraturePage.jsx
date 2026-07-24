@@ -134,8 +134,9 @@ export default function LiteraturePage() {
           <p style={{ marginTop: 8 }}>
             A complementary approach interprets the Euler product as a cascade of
             impedance-matched stages — an LC ladder network. The functional equation becomes
-            a lossless bridge condition, RH becomes a passivity criterion, and zero
-            statistics correspond to stability margins. Control theory contributes Nyquist
+            a boundary-symmetry condition, and the model explores passivity analogies. Passivity
+            of the displayed <InlineMath tex={"S_{21}=\\zeta(2s)/\\zeta(s)"} /> does not by itself
+            locate its zeta-denominator poles. Control theory contributes Nyquist
             and Bode analyses; signal processing provides the Fourier-dual perspective
             linking prime gaps to spectral energy.
           </p>

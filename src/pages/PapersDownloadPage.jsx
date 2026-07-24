@@ -16,6 +16,7 @@ import {
 const STATUS_PALETTE = {
   ready:                { fg: '#10b981', bg: 'rgba(16,185,129,0.10)', border: 'rgba(16,185,129,0.35)', label: 'READY' },
   draft:                { fg: '#f59e0b', bg: 'rgba(245,158,11,0.10)', border: 'rgba(245,158,11,0.35)', label: 'DRAFT' },
+  withdrawn:            { fg: '#ef4444', bg: 'rgba(239,68,68,0.10)', border: 'rgba(239,68,68,0.35)', label: 'WITHDRAWN' },
   planned:              { fg: '#3b82f6', bg: 'rgba(59,130,246,0.10)', border: 'rgba(59,130,246,0.35)', label: 'PLANNED' },
   'research-grade-open':{ fg: '#ef4444', bg: 'rgba(239,68,68,0.10)',  border: 'rgba(239,68,68,0.35)',  label: 'RESEARCH OPEN' },
 };
@@ -168,6 +169,7 @@ export default function PapersDownloadPage() {
     (a, b) => a.releaseOrder - b.releaseOrder,
   );
   const readyCount = sorted.filter((p) => p.status === 'ready').length;
+  const withdrawnCount = sorted.filter((p) => p.status === 'withdrawn').length;
   const plannedCount = sorted.filter((p) => p.status === 'planned' || p.status === 'research-grade-open').length;
 
   return (
@@ -180,11 +182,9 @@ export default function PapersDownloadPage() {
           Papers — release-ordered downloads
         </h1>
         <p style={{ color: '#94a3b8', fontSize: 14, margin: '8px 0 0 0' }}>
-          {readyCount} ready, {plannedCount} planned / research-grade-open. Each
-          paper composes the rigorous results from this project at a particular
-          stage of completeness. Release them in order: v1 is the foundational
-          unconditional finite-N beat; later versions add asymptotic
-          improvements as their dependencies close.
+          {readyCount} ready, {withdrawnCount} withdrawn, {plannedCount} planned /
+          research-grade-open. Withdrawn artifacts are retained for provenance
+          and are not offered as current mathematical results.
         </p>
       </header>
 

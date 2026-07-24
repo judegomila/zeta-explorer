@@ -69,7 +69,9 @@
  * @module data/pair-correlation-montgomery-numerical
  */
 
-import { ZEROS_EXTENDED } from './zeros-to-1e6.js';
+// The first-1000-zero sweep is an offline computation input. The browser
+// module ships its rounded form-factor snapshot and rebuilds only the light
+// analytic comparison curve/residuals.
 
 // ── Parameters ────────────────────────────────────────────────────────────────
 
@@ -159,15 +161,31 @@ function gueFormFactor(alpha) {
 
 // ── Computation ───────────────────────────────────────────────────────────────
 
-const zerosUsed = ZEROS_EXTENDED.slice(0, N);
-const { unfolded, meanSpacingRaw } = unfoldZeros(zerosUsed);
 const alphaGrid = buildAlphaGrid();
-const { counts, totalPairsCounted } = computeRawHistogram(unfolded, alphaGrid);
-const empiricalRaw = counts.map((c) => c / (N * ALPHA_STEP));
-const empiricalSmoothed = gaussianSmooth(empiricalRaw, SMOOTH_SIGMA_BINS);
-const empiricalF = empiricalSmoothed.map((v) => +v.toFixed(6));
+const empiricalF = [
+  0.955348, 0.954938, 0.961674, 0.981858, 1.014141, 1.044659, 1.056244,
+  1.043313, 1.016718, 0.992889, 0.982266, 0.982329, 0.983684, 0.979629,
+  0.971149, 0.964479, 0.963843, 0.96963, 0.978263, 0.983771, 0.98122,
+  0.973181, 0.969218, 0.974955, 0.985866, 0.993209, 0.994493, 0.993825,
+  0.994828, 0.996797, 0.99452, 0.984747, 0.967978, 0.948171, 0.928301,
+  0.910173, 0.898226, 0.902002, 0.927569, 0.968647, 1.009312, 1.035914,
+  1.045349, 1.042487, 1.029282, 0.999692, 0.943553, 0.85713, 0.748275,
+  0.632027, 0.521352, 0.422053, 0.333679, 0.254797, 0.185966, 0.128808,
+  0.083987, 0.050759, 0.027946, 0.014826, 0.01051, 0.014826, 0.027946,
+  0.050759, 0.083987, 0.128808, 0.185966, 0.254797, 0.333679, 0.422053,
+  0.521352, 0.632027, 0.748275, 0.85713, 0.943553, 0.999692, 1.029282,
+  1.042487, 1.045349, 1.035914, 1.009312, 0.968647, 0.927569, 0.902002,
+  0.898226, 0.910173, 0.928301, 0.948171, 0.967978, 0.984747, 0.99452,
+  0.996797, 0.994828, 0.993825, 0.994493, 0.993209, 0.985866, 0.974955,
+  0.969218, 0.973181, 0.98122, 0.983771, 0.978263, 0.96963, 0.963843,
+  0.964479, 0.971149, 0.979629, 0.983684, 0.982329, 0.982266, 0.992889,
+  1.016718, 1.043313, 1.056244, 1.044659, 1.014141, 0.981858, 0.961674,
+  0.954938, 0.955348,
+];
 const gueF = alphaGrid.map((a) => +gueFormFactor(a).toFixed(6));
 const residual = alphaGrid.map((_, i) => +(empiricalF[i] - gueF[i]).toFixed(6));
+const totalPairsCounted = 5044;
+const meanSpacingRaw = 1.223851;
 
 // Kolmogorov sup-norm restricted to |alpha| <= 1 (Montgomery proved regime).
 let kolmogorovDistance = 0;

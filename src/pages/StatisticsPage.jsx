@@ -10,9 +10,9 @@ export default function StatisticsPage() {
       <div className="page-header">
         <h1>Zero Statistics & Spectral Criteria</h1>
         <p>
-          The statistical distribution of zeta zeros matches the GUE universality class
-          from random matrix theory. The Li criterion and de Bruijn-Newman constant provide
-          equivalent formulations of RH as passivity/stability conditions.
+          Computed zeta zeros display striking GUE-like statistics. Li's criterion and the
+          de Bruijn-Newman constant give rigorous formulations related to RH; the circuit
+          passivity language on this page is an analogy unless an exact realization is supplied.
         </p>
       </div>
 
@@ -23,14 +23,13 @@ export default function StatisticsPage() {
         </p>
         <ul style={{ marginTop: 8, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8, paddingLeft: 20 }}>
           <li>
-            <strong style={{ color: '#10b981' }}>PROVEN (unconditional):</strong> Montgomery (1973) established the pair-correlation
-            asymptotic <InlineMath tex={"R_2(x) = 1 - (\\sin\\pi x/\\pi x)^2"} /> only for test functions whose Fourier transform
-            is supported in <InlineMath tex={"(-1,1)"} /> — and even that is <em>conditional on RH</em>. The Rodgers-Tao theorem
-            <InlineMath tex={"\\Lambda \\ge 0"} /> (de Bruijn-Newman constant non-negative) is fully proven, unconditionally.
+            <strong style={{ color: '#10b981' }}>PROVEN (unconditional):</strong> Rodgers-Tao proved
+            <InlineMath tex={"\\Lambda \\ge 0"} />. This item should not be conflated with pair correlation.
           </li>
           <li>
-            <strong style={{ color: '#f59e0b' }}>CONDITIONAL on RH:</strong> Montgomery's restricted pair-correlation result, the Hilbert-Polya
-            spectral picture, and most spacing statements assume RH as a hypothesis. They do not prove it.
+            <strong style={{ color: '#f59e0b' }}>CONDITIONAL on RH:</strong> Montgomery established the restricted-support
+            pair-correlation asymptotic <InlineMath tex={"R_2(x) = 1 - (\\sin\\pi x/\\pi x)^2"} /> under RH.
+            The full pair-correlation conjecture and GUE universality remain open.
           </li>
           <li>
             <strong style={{ color: '#ef4444' }}>CONJECTURAL / NUMERICAL only:</strong> full GUE universality for <em>all</em> test functions is the
@@ -39,8 +38,10 @@ export default function StatisticsPage() {
           </li>
           <li>
             <strong style={{ color: '#8b5cf6' }}>OPEN:</strong> RH itself is equivalent to <InlineMath tex={"\\Lambda \\le 0"} /> (hence
-            <InlineMath tex={"\\Lambda = 0"} />) and to all Li coefficients <InlineMath tex={"\\lambda_n \\ge 0"} />. The rigorous SOTA upper
-            bound is Platt-Trudgian <InlineMath tex={"\\Lambda \\le 0.2"} /> (2020), still far from <InlineMath tex={"0"} />.
+            <InlineMath tex={"\\Lambda = 0"} />) and to all Li coefficients <InlineMath tex={"\\lambda_n \\ge 0"} />.
+            The peer-reviewed upper-bound benchmark is Platt-Trudgian
+            <InlineMath tex={"\\Lambda\\le0.2"} />; a public unrefereed package claims
+            <InlineMath tex={"\\Lambda\\le0.1875"} />, still far from <InlineMath tex={"0"} />.
           </li>
         </ul>
         <p style={{ marginTop: 8, color: 'var(--text-secondary)', fontSize: 13, fontStyle: 'italic' }}>
@@ -66,9 +67,8 @@ export default function StatisticsPage() {
           <BlockMath tex={"R_2(x) = 1 - \\left(\\frac{\\sin\\pi x}{\\pi x}\\right)^2"} />
           <p style={{ marginTop: 8 }}>
             Montgomery (1973) conjectured and Odlyzko (1987) numerically verified that zeta zeros
-            follow GUE statistics. In our model, GUE emerges because the oscillator coupling
-            matrix (determined by prime gaps) breaks time-reversal symmetry through the PT-structure,
-            selecting GUE over GOE.
+            follow GUE statistics. The visualization explores whether a finite oscillator coupling
+            can mimic that behavior; it does not derive GUE from the twin-ladder model.
           </p>
         </div>
         <div className="card">
@@ -172,9 +172,9 @@ export default function StatisticsPage() {
         <p style={{ marginTop: 12 }}>
           The GUE connection extends far beyond the two-point pair correlation. The <strong>n-point
           correlation functions</strong> of zeta zeros also match the GUE prediction, as shown by
-          Rudnick and Sarnak (1996) for the <InlineMath tex="n" />-point correlations of
-          <InlineMath tex="L" />-functions in the function field setting, and numerically for
-          <InlineMath tex={"\\zeta(s)"} /> by Odlyzko.
+          restricted-support <InlineMath tex="n" />-level correlation results of Rudnick and Sarnak,
+          together with numerical experiments for <InlineMath tex={"\\zeta(s)"} />. Full zeta GUE
+          universality is still conjectural.
         </p>
         <BlockMath tex={"p_0(s) = \\frac{d^2}{ds^2} E_2(s) \\quad \\text{(Gaudin distribution for nearest-neighbor spacing)}"} />
         <p style={{ marginTop: 12 }}>
@@ -203,13 +203,14 @@ export default function StatisticsPage() {
       </div>
 
       <div className="card" style={{ marginTop: 32, borderColor: '#10b981' }}>
-        <h3 style={{ color: '#10b981' }}>Circuit Interpretation of Li's Criterion</h3>
-        <BlockMath tex={"\\lambda_n \\geq 0 \\iff S^{\\dagger} S \\leq I \\iff \\text{bridge is passive (contractive)}"} />
+        <h3 style={{ color: '#10b981' }}>Circuit Analogy for Li's Criterion</h3>
+        <BlockMath tex={"\\lambda_n \\geq 0\\ \\forall n \\iff \\mathrm{RH}\\qquad\\text{(Li's theorem)}"} />
         <p style={{ marginTop: 12 }}>
-          The Li coefficients are the Schur-Cohn coefficients of the bridge transfer function.
-          Their non-negativity is equivalent to the bridge scattering matrix being contractive
-          (passive) — it never amplifies. Each <InlineMath tex={"\\lambda_n"} /> tests passivity at the n-th angular momentum
-          mode. The Keiper-Li asymptotic shows logarithmic growth, matching the zero density.
+          One may compare non-negative Li coefficients with a hierarchy of passivity tests, but the
+          project has not constructed a transfer realization whose Schur-Cohn data are the Li
+          coefficients. Therefore <InlineMath tex={"S^\\dagger S\\le I"} /> is an open model target,
+          not an equivalent step in Li's theorem. The Keiper-Li growth shown here is a separate
+          zero-density diagnostic.
         </p>
         <div style={{ marginTop: 16, padding: 16, background: 'rgba(245,158,11,0.08)', borderRadius: 8, borderLeft: '3px solid #f59e0b' }}>
           <p style={{ fontSize: 14, color: '#f59e0b' }}>

@@ -1,9 +1,11 @@
 /**
  * @module kernel-vs-dyson-crossverify
- * @fileoverview Cross-verification of two independent routes to Lambda at
- * N = 10K: PATH A kernel-hack pair-ODE (t_c = d_min^2 / 8) vs PATH B full
- * N-body Dyson RK4. Exports {@link KERNEL_VS_DYSON_CROSSVERIFY} (verdict +
- * data) and {@link KERNEL_VS_DYSON_ASSERTIONS} (consistency tripwires).
+ * @fileoverview Cross-verification of two finite-particle collision-scale
+ * computations at N = 10K: PATH A isolated-pair ODE (t_c = d_min^2 / 8)
+ * vs PATH B full N-body Dyson RK4. This validates an internal numerical
+ * surrogate only; it is not a bound on the de Bruijn-Newman constant.
+ * Exports {@link KERNEL_VS_DYSON_CROSSVERIFY} (verdict + data) and
+ * {@link KERNEL_VS_DYSON_ASSERTIONS} (consistency tripwires).
  * Belongs to the PATH C hybrid proof chain at the cross-path consistency
  * step (imp-515). Module-doc added by imp-908.
  * @see imp-515
@@ -11,9 +13,9 @@
  */
 
 /**
- * imp-515: Cross-verify kernel-hack Lambda vs measured Dyson Lambda
+ * imp-515: Cross-verify isolated-pair vs measured Dyson collision scales
  *
- * Cross-verification of two independent routes to Lambda at N = 10K:
+ * Cross-verification of two finite-model routes at N = 10K:
  *
  *   PATH A (kernel-hack pair-ODE):  t_c = d_min² / 8
  *     Uses the observed minimum gap d_min from imp-514 extended cache.
@@ -23,16 +25,17 @@
  *   PATH B (full N-body Dyson ODE): t_c measured by RK4
  *     All N*(N-1)/2 pairwise interactions, Float64 RK4, from imp-514.
  *
- * Outcome at N = 10K: 3-4 sig figs agreement (residual 0.04% from many-body
- * corrections O(d_min / delta_next) where delta_next is the second-nearest gap).
- * This confirms both computational paths are consistent.
+ * Outcome at N = 10K: 3-4 sig figs agreement. The residual 0.04% is consistent
+ * with a many-body correction but can also contain PATH B discretization,
+ * collision-threshold, and rounded-cache error; this floating-point comparison
+ * does not separate or certify those contributions.
  *
  * N = 1M status: pending imp514b/c (C/Rust backend for compute feasibility).
  *
  * SYNTAX NOTE: avoid (star)(slash) sequences inside JSDoc block text.
  */
 
-import EXTENDED_CACHE from './dyson-ladder-extended-cache.json';
+import N10K_SNAPSHOT from './dyson-n10k-crosscheck-snapshot.json';
 
 // ── Kernel-hack pair-ODE formula ─────────────────────────────────────────────
 // Backward Calogero-Moser flow for an isolated nearest pair:
@@ -45,7 +48,7 @@ function pairCollisionTime(d_min) {
 // Mean spacing at height T: delta = 2pi / log(T / (2pi))
 // GUE min normalised spacing: s_norm ~ N^{-1/3} * 1.5
 // Raw min: s0 = s_norm * delta
-// GUE Lambda (kernel file convention): lambda_gue = s0² / 4
+// GUE-derived collision proxy (legacy kernel convention): lambda_gue = s0² / 4
 // Note: pair-ODE gives /8 (more precise for isolated pair); /4 is in the kernel file.
 function meanSpacingAt(T) {
   return (2.0 * Math.PI) / Math.log(T / (2.0 * Math.PI));
@@ -63,8 +66,12 @@ function gueAnalytical(T, N) {
   };
 }
 
-// ── Pull N = 10K row from imp-514 extended cache ─────────────────────────────
-const ROW_10K    = (EXTENDED_CACHE.rows || []).find(r => r.N === 10000) || null;
+// ── Pull the immutable N = 10K imp-514 cross-check snapshot ──────────────────
+// dyson-ladder-extended-cache.json is a rolling offline-compute cache: later
+// high-N runs replaced its row set, so it is not a stable provenance record.
+// This dedicated snapshot pins the exact historical N=10K input and source
+// commit/cache hash used by the cross-check.
+const ROW_10K    = N10K_SNAPSHOT.row || null;
 const D_MIN_10K  = ROW_10K ? ROW_10K.initialMinGap          : null;
 const TC_MEAS    = (ROW_10K && ROW_10K.reason === 'gap-nonpositive') ? ROW_10K.t_c : null;
 
@@ -79,18 +86,18 @@ const REL_ERR    = (ABS_ERR !== null && TC_MEAS > 0)
 const SIG_FIGS   = (REL_ERR !== null && REL_ERR > 0)
   ? Math.max(0, Math.floor(-Math.log10(REL_ERR))) : null;
 
-// ── PATH C: independent third integrator (imp-2743) ──────────────────────────
-// Triangulates the two-route N=10K agreement: a two-integrator match can hide a
-// shared discretization bug a third, DIFFERENT-FAMILY method would catch. PATH C
-// is a Bulirsch-Stoer scheme (Gragg modified-midpoint sub-stepping + polynomial
-// Richardson extrapolation, effective order >= 8) integrating the SAME isolated-
-// pair backward CM flow dd/dtau = -4/d. It is run OFFLINE via
+// ── PATH C: isolated-pair implementation check (imp-2743) ────────────────────
+// PATH C is a Bulirsch-Stoer scheme (Gragg modified-midpoint sub-stepping +
+// polynomial Richardson extrapolation, effective order >= 8) integrating the
+// SAME isolated-pair backward CM flow dd/dtau = -4/d as PATH A. It therefore
+// checks that pair-flow implementation against the analytic solution; it does
+// not re-integrate the full N-body PATH B system and cannot diagnose PATH B's
+// discretization or collision-threshold error. It is run OFFLINE via
 // scripts/kernel-dyson-third-integrator.mjs and the collision time baked here as
 // a literal -- so this build-time module stays light (no integration, no heavy
-// imports). It fills the DOP853-role third-integrator slot with an extrapolation
-// family that is independent of PATH B RK4 (an even stronger cross-check than a
-// second RK would give). Sidecar diagnostics: single-step error vs exact ~9e-16,
-// max path residual |d^2 - (d_min^2 - 8 tau)| ~ 3.6e-18 (machine precision).
+// imports). Sidecar diagnostics for the pair equation: single-step error vs
+// exact ~9e-16, max path residual |d^2 - (d_min^2 - 8 tau)| ~ 3.6e-18
+// (machine precision).
 const TC_THIRD_10K = 0.0001776471127812501;  // PATH C collision time t_c (offline-baked, full double)
 
 const REL_ERR_C_RK4  = (TC_MEAS > 0)
@@ -113,12 +120,14 @@ const GUE_1M = gueAnalytical(T_1M, 1e6);
 // ── Export ────────────────────────────────────────────────────────────────────
 export const KERNEL_VS_DYSON_CROSSVERIFY = {
   id:    'imp-515',
-  title: 'Cross-verify kernel-hack Lambda vs measured Dyson Lambda (N=10K measured; N=1M pending)',
+  title: 'Cross-verify isolated-pair vs full-Dyson collision scales (N=10K; numerical only)',
 
   crossVerify10K: {
     N:            10000,
     heightApprox: T_10K,
-    provenance:   'imp-514 dyson-ladder-extended-cache.json (source=measured-float64-rk4)',
+    provenance:
+      'imp-514 immutable N=10K snapshot (source commit ' +
+      N10K_SNAPSHOT.sourceCommit.slice(0, 8) + '; measured Float64 RK4, not certified)',
 
     pathA_pairODE: {
       label:    'kernel-hack pair-ODE: t_c = d_min² / 8',
@@ -138,8 +147,10 @@ export const KERNEL_VS_DYSON_CROSSVERIFY = {
       t_c:    +TC_THIRD_10K.toPrecision(7),
       method: 'Gragg modified-midpoint + polynomial Richardson extrapolation (imp-2743)',
       note:
-        'Different method FAMILY than PATH B RK4, so a shared RK discretization bug ' +
-        'cannot survive. Baked offline via scripts/kernel-dyson-third-integrator.mjs.',
+        'Independent numerical integration of the isolated-pair equation used by PATH A. ' +
+        'It checks that pair-flow implementation, but it does not independently integrate ' +
+        'the full N-body system used by PATH B. Baked offline via ' +
+        'scripts/kernel-dyson-third-integrator.mjs.',
     },
 
     agreement: {
@@ -150,7 +161,7 @@ export const KERNEL_VS_DYSON_CROSSVERIFY = {
     },
 
     threeWayAgreement: {
-      label:        'PATH A (analytic) vs PATH B (RK4) vs PATH C (BS extrapolation) at N=10K',
+      label:        'PATH A/C isolated-pair model vs PATH B full N-body RK4 at N=10K',
       relErr_C_vs_RK4:    REL_ERR_C_RK4  !== null ? +REL_ERR_C_RK4.toExponential(3)  : null,
       relErr_C_vs_pairA:  REL_ERR_C_PAIR !== null ? +REL_ERR_C_PAIR.toExponential(3) : null,
       sigFigs_C_vs_RK4:   SIG_FIGS_C_RK4,
@@ -158,8 +169,10 @@ export const KERNEL_VS_DYSON_CROSSVERIFY = {
                            && REL_ERR_C_RK4 !== null && REL_ERR_C_RK4 < 0.01,
       note:
         'PATH C reproduces PATH A analytic to ~3e-16 (the isolated-pair flow is exactly ' +
-        'integrable) and agrees with PATH B RK4 to ~4.1e-4 (3 sig figs), the SAME residual ' +
-        'PATH A shows -- i.e. the 0.04% gap is genuine many-body physics, not an RK4 artifact.',
+        'integrable) and both pair-model values differ from PATH B by ~4.1e-4. ' +
+        'Because PATH C does not re-integrate the full N-body system, this comparison ' +
+        'cannot determine whether that residual is a many-body effect, a PATH B ' +
+        'discretization error, or a mixture of both.',
     },
 
     gueReference: {
@@ -167,13 +180,16 @@ export const KERNEL_VS_DYSON_CROSSVERIFY = {
       meanSpacing: +GUE_10K.meanSpacing.toFixed(6),
       s0Raw:       +GUE_10K.s0Raw.toFixed(6),
       lambdaGUE:   +GUE_10K.lambdaGUE.toExponential(4),
-      note:        'Uses N^{-1/3} statistical estimate, not observed d_min -- much less accurate than PATH A.',
+      note:
+        'Uses an N^{-1/3} statistical spacing proxy rather than the observed d_min; ' +
+        'it is a different heuristic reference, not an accuracy certificate.',
     },
 
     interpretation:
       'Pair-ODE formula and full N-body Dyson ODE agree to 3-4 sig figs at N=10K. ' +
-      'Residual 0.04% arises from many-body corrections O(d_min / delta_next). ' +
-      'Two independent paths confirm Lambda ~ d_min²/8 at this scale.',
+      'This cross-check validates a finite-model collision-scale computation only. ' +
+      'It is not an interval certificate and does not identify that scale with the ' +
+      'de Bruijn-Newman constant Lambda.',
   },
 
   crossVerify1M: {
@@ -203,7 +219,9 @@ export const KERNEL_VS_DYSON_CROSSVERIFY = {
       'Pair-ODE formula t_c = d_min²/8 and full N-body Dyson ODE agree to 3-4 sig figs at N=10K, ' +
       'confirming both paths are consistent at the scale where measured data exists.',
     scalingLaw:
-      'Lambda ~ d_min²/8 ~ (N^{-2/3} * (2pi / log T)²) / 8 → 0 as N → infinity',
+      'Under the GUE spacing model, the isolated-pair proxy scales like ' +
+      'd_min²/8 ~ (N^{-2/3} * (2pi / log T)²) / 8. This heuristic proxy ' +
+      'scaling is not a theorem about the de Bruijn-Newman constant.',
   },
 };
 
@@ -212,7 +230,7 @@ export const KERNEL_VS_DYSON_ASSERTIONS = [
   {
     id:    'imp515-row-10k-present',
     holds: () => ROW_10K !== null,
-    why:   'dyson-ladder-extended-cache.json must contain a N=10000 row from imp-514.',
+    why:   'The immutable imp-514 N=10000 cross-check snapshot must retain its pinned row.',
   },
   {
     id:    'imp515-gap-nonpositive',
@@ -239,10 +257,10 @@ export const KERNEL_VS_DYSON_ASSERTIONS = [
     holds: () => REL_ERR !== null && REL_ERR < 0.01
                  && REL_ERR_C_RK4 !== null && REL_ERR_C_RK4 < 0.01,
     why:
-      'All three independent integrators (analytic pair-ODE, full N-body RK4, and the ' +
-      'DOP853-role Bulirsch-Stoer extrapolation) must agree on |t_c| to < 1% at N=10K. ' +
-      'Triangulation: a discretization bug shared by only two routes cannot survive a third ' +
-      'from a different method family. (imp-2743)',
+      'The analytic pair value, its Bulirsch-Stoer implementation check, and the full ' +
+      'N-body RK4 measurement must remain within the recorded 1% numerical tolerance. ' +
+      'PATH A and PATH C share the isolated-pair model, so this is not three-model ' +
+      'triangulation and does not certify PATH B error. (imp-2743)',
   },
   {
     id:    'imp2878-three-integrator-any-pairwise-1pct',
@@ -254,10 +272,8 @@ export const KERNEL_VS_DYSON_ASSERTIONS = [
       'Single self-contained tripwire reading the three baked t_c literals (TC_PAIR=PATH A, ' +
       'TC_MEAS=PATH B, TC_THIRD_10K=PATH C) and failing if ANY of the three pairwise relErrs ' +
       'exceeds the published 1% agreement tolerance. Complements imp2743-three-way-agree-1pct ' +
-      '(which guards only A-B and C-B) by also pinning the C-vs-A pair at the 1% level -- the ' +
-      'C-A pair is otherwise only checked at machine precision (1e-12), which guards a ' +
-      'different property and would behave wrongly if PATH C legitimately drifted toward ' +
-      'PATH B. This consolidated any-pairwise guard survives refactors of the individual ' +
-      'derived-quantity assertions. (imp-2878)',
+      '(which guards only A-B and C-B) by also pinning the C-vs-A implementation check. ' +
+      'This is numerical-regression coverage only: A and C share a model, and none of ' +
+      'these floating-point comparisons is an interval certificate. (imp-2878)',
   },
 ];

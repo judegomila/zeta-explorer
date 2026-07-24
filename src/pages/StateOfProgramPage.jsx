@@ -2,12 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FULL_ROUTE_MAP } from '../data/full-route-map-2026-06-19.js';
 import RelatedLinks from '../components/RelatedLinks.jsx';
-import { STATE_OF_PROGRAM_TRUTHS } from '../data/state-of-program-truths.js';
+import {
+  STATE_OF_PROGRAM_SUMMARY_DATE,
+  STATE_OF_PROGRAM_TRUTHS,
+} from '../data/state-of-program-truths.js';
 import { CAUGHT_OVERCLAIMS, OVERCLAIM_COUNT } from '../data/overclaim-ledger.js';
 
 // The honest, single canonical top-of-funnel summary. Facts are sourced from
-// the shared STATE_OF_PROGRAM_TRUTHS data module (mirroring FULL_ROUTE_MAP,
-// 2026-06-19) so this page and the DashboardPage summary card cannot drift.
+// the shared STATE_OF_PROGRAM_TRUTHS data module, reconciled against the route
+// map and the fixed-height certificate packages, so this page and DashboardPage
+// cannot drift.
 // No heavy zeros-bundle import.
 
 const TRUTHS = STATE_OF_PROGRAM_TRUTHS;
@@ -20,9 +24,10 @@ export default function StateOfProgramPage() {
         <p>
           One honest, plain-language summary of where this RH / de&nbsp;Bruijn-Newman Λ attack actually stands.
           The truth is otherwise scattered across the route map, dashboards and withdrawn-claims notes — this page
-          exists so a reader cannot over-read any single partial page. Facts are sourced directly from the{' '}
-          <strong>full route map ({FULL_ROUTE_MAP.date})</strong>, which enumerates{' '}
-          <strong>{FULL_ROUTE_MAP.totalRoutes} routes</strong>. The one-line truth:{' '}
+          exists so a reader cannot over-read any single partial page. The summary was reconciled on{' '}
+          <strong>{STATE_OF_PROGRAM_SUMMARY_DATE}</strong> against the{' '}
+          <strong>full route map ({FULL_ROUTE_MAP.date}, {FULL_ROUTE_MAP.totalRoutes} routes)</strong>,
+          the public fixed-height package, and the local candidate audit. The one-line truth:{' '}
           <strong>there is no shortcut below RH anywhere in the map.</strong>
         </p>
       </div>

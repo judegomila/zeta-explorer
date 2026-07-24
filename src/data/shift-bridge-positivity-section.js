@@ -1,9 +1,11 @@
 /**
  * @module shift-bridge-positivity-section
- * @fileoverview Structured rendering of paragraph 15 of the user's paper
- * "Twin-Ladder Deformations of xi" v52
- * (research-inputs/twin_ladder_consolidated_v52.pdf, pages 22-26 of body /
- * pages 11-16 of cumulative ToC index). Section title:
+ * @fileoverview Structured rendering of Section 15 of the user's paper
+ * "Twin-Ladder Deformations of xi", carried forward in consolidated v70
+ * (`twin_ladder_consolidated_v70.tex`, lines 454-819). The original app page
+ * audited the historic v52 PDF (pages 22-26); v70 provenance and the
+ * corrections in `twin_ladder_rh_attack_report.md` now govern the claims.
+ * Section title:
  *   "15 Shift-Bridge Reflection Positivity and a Godelian Witness Principle".
  *
  * The section gives an RH-equivalent positivity formulation:
@@ -15,9 +17,11 @@
  *     after the substitution w = -iz.
  *   - de Branges reproducing kernel K_a(w, z) attached to (E_a, E_a^#).
  *
- * Threshold theorem (Theorem 15.1): K_a is positive definite for every a > 0
- *   iff Delta = 0 iff RH. The bridge "thickness" needed for positivity is
- *   exactly the horizontal zero displacement Delta.
+ * Corrected threshold theorem: strict diagonal positivity for a fixed shift
+ *   holds exactly when a >= Delta. Positive semidefiniteness at one fixed a
+ *   does not have that exact threshold without a coprimality hypothesis:
+ *   common shifted zeros can cancel in the ratio and leave zero kernel rows.
+ *   Positivity for every a > 0 remains equivalent to Delta = 0 iff RH.
  *
  * Godelian witness (Section 15.5): an off-critical zero rho = 1/2 + delta + i gamma
  *   with delta > 0 manufactures, for every 0 < a < delta, an internal point
@@ -45,9 +49,11 @@
  *           rightward drift of xi dominates the coherent prime-delay echo
  *           train in the half-plane to the right of the critical line.
  *
- * Principle 15.5 (No-ghost twin ladder): off-critical zero <=> upper-half-plane
- *   zero of E_a for some a > 0 <=> negative-norm / ghost witness in the
- *   shifted bridge. RH <=> absence of such witnesses for all a > 0.
+ * Principle 15.5 (No-ghost twin ladder): an off-critical zero gives an
+ *   upper-half-plane zero of E_a for every sufficiently small shift. It gives
+ *   an actual pole/negative-square witness when that denominator zero is not
+ *   cancelled by a common numerator zero. RH remains equivalent to positivity
+ *   across every a > 0.
  *
  * **What this file exports**
  * - `SHIFT_BRIDGE_POSITIVITY` — frozen record consumed by
@@ -64,14 +70,18 @@ export const SHIFT_BRIDGE_POSITIVITY = Object.freeze({
   ticketId: 'imp-1196',
   title: 'Shift-Bridge Reflection Positivity (§15)',
   shortName: 'shift-bridge positivity',
-  paperSource: 'research-inputs/twin_ladder_consolidated_v52.pdf',
+  paperSource: 'twin_ladder_consolidated_v70.tex',
+  paperVersion: 'v70',
+  paperLineRange: [454, 819],
+  historicalPaperSource: 'research-inputs/twin_ladder_consolidated_v52.pdf',
+  historicalPaperPageRange: [22, 26],
+  correctionAuditSource: 'twin_ladder_rh_attack_report.md, §§1.3 and 2',
   paperSection: '15',
-  paperPageRange: [22, 26],
   paperSectionTitle:
     'Shift-Bridge Reflection Positivity and a Godelian Witness Principle',
 
   summary:
-    'Section 15 of the v52 paper sharpens the informal "twin ladder admits ' +
+    'Section 15, carried forward in the v70 paper, sharpens the informal "twin ladder admits ' +
     'only globally self-consistent zero configurations" idea into a precise ' +
     'and falsifiable positivity criterion. The completed function xi is ' +
     're-centered on the critical line as X(w) := xi(1/2 + w); X is even ' +
@@ -81,12 +91,16 @@ export const SHIFT_BRIDGE_POSITIVITY = Object.freeze({
     'lies in [0, 1/2] and equals zero iff RH. For each a > 0 the shifted ' +
     'bridge E_a(z) := X(a - iz) is built with reflected companion ' +
     'E_a^#(z) = X(-a - iz); the de Branges ratio Theta_a = E_a^# / E_a is ' +
-    'a Schur function on the upper half-plane iff |X(w - a)| < |X(w + a)| ' +
-    'for every w with Re(w) > 0. The shift-bridge threshold theorem ' +
-    '(Theorem 15.1) proves that a Schur Theta_a holds for every a > Delta ' +
-    'and fails for every 0 < a < Delta; hence Delta = 0 iff K_a is positive ' +
-    'definite for every a > 0 iff RH. The bridge "thickness" needed for ' +
-    'positivity is exactly the maximum horizontal zero displacement Delta. ' +
+    'strictly contractive on the upper half-plane exactly when ' +
+    '|X(w - a)| < |X(w + a)| for every w with Re(w) > 0. The corrected ' +
+    'fixed-shift theorem proves this strict inequality exactly for a >= Delta, ' +
+    'including the endpoint a = Delta, and shows it fails for 0 < a < Delta. ' +
+    'That is an exact threshold for strict diagonal positivity, not an exact ' +
+    'per-shift threshold for positive semidefiniteness: common zeros of ' +
+    'X(w-a) and X(w+a) can cancel and leave zero rows in the kernel. With that ' +
+    'distinction made, Delta = 0 iff K_a is positive semidefinite for every ' +
+    'a > 0 iff RH. The bridge "thickness" needed for strict positivity is ' +
+    'exactly the maximum horizontal zero displacement Delta. ' +
     'An off-critical zero is a "Godelian witness": it manufactures a point ' +
     'z_rho(a) = -gamma + i(delta - a) in the upper half-plane at which ' +
     'E_a(z_rho(a)) = 0, i.e. an internal certificate of failed positivity ' +
@@ -129,25 +143,30 @@ export const SHIFT_BRIDGE_POSITIVITY = Object.freeze({
     description:
       'For each thickness a > 0 the shifted bridge pair (E_a, E_a^#) is a ' +
       'candidate Hermite-Biehler / de Branges structure pair. Its reproducing ' +
-      'kernel K_a is positive definite iff Theta_a is a Schur function on ' +
-      'the upper half-plane, iff the contractivity inequality ' +
-      '|X(w - a)| < |X(w + a)| holds for every w with Re(w) > 0. In the ' +
+      'kernel has strictly positive diagonal iff the contractivity inequality ' +
+      '|X(w - a)| < |X(w + a)| holds for every w with Re(w) > 0. If numerator ' +
+      'and denominator share shifted zeros, the quotient must first be reduced: ' +
+      'its Schur kernel may be positive semidefinite even though the raw de ' +
+      'Branges kernel has zero rows and is not strictly Hermite-Biehler. In the ' +
       'original variable s = 1/2 + w this is the pointwise horizontal ' +
       'domination |xi(s - a)| < |xi(s + a)| on Re(s) > 1/2.',
   },
 
   thresholdTheorem: {
-    label: 'Theorem 15.1 (Shift-bridge threshold)',
+    label: 'Corrected Theorem 15.1 (strict shift-bridge threshold)',
     statement:
       'Let X(w) := xi(1/2 + w) and Delta := sup_{lambda : X(lambda) = 0} |Re lambda|. ' +
-      'If a > Delta, then for every w with Re(w) > 0 one has ' +
-      '|X(w - a)| < |X(w + a)|; consequently Theta_a is a Schur function ' +
-      'on the upper half-plane and the kernel K_a is positive definite. ' +
-      'Conversely, if 0 < a < Delta, then E_a has a zero in the upper ' +
-      'half-plane and K_a is NOT positive definite. Hence ' +
-      'K_a >= 0 for every a > 0 if and only if Delta = 0 if and only if RH.',
+      'For a fixed a > 0, |X(w - a)| < |X(w + a)| for every Re(w) > 0 ' +
+      'if and only if a >= Delta. This includes the endpoint a = Delta, even ' +
+      'when the supremum Delta is attained only on the boundary after shifting. ' +
+      'If 0 < a < Delta, a zero with horizontal displacement delta > a makes ' +
+      'the strict inequality fail. This is exactly a threshold for strict ' +
+      'diagonal positivity K_a(z,z) > 0. It is not, without coprimality, an ' +
+      'exact threshold for fixed-a positive semidefiniteness of the full kernel. ' +
+      'Nevertheless K_a >= 0 for every a > 0 if and only if Delta = 0 if and only if RH.',
     statementLaTeX:
-      'K_a \\succeq 0 \\text{ for every } a > 0 \\;\\Longleftrightarrow\\; \\Delta = 0 \\;\\Longleftrightarrow\\; \\text{RH}',
+      '\\bigl[\\,K_a(z,z)>0\\ \\forall z\\in\\mathbb C_+\\,\\bigr] \\;\\Longleftrightarrow\\; a\\ge\\Delta, \\qquad ' +
+      '\\bigl[\\,K_a\\succeq0\\ \\forall a>0\\,\\bigr] \\;\\Longleftrightarrow\\; \\Delta=0 \\;\\Longleftrightarrow\\; \\mathrm{RH}',
     proofSketch:
       'Even and real-entire X has zeros in symmetric packets ' +
       '{lambda, -lambda, conj(lambda), -conj(lambda)}. For a same-height ' +
@@ -155,25 +174,49 @@ export const SHIFT_BRIDGE_POSITIVITY = Object.freeze({
       'associated quadratic factor Q_{delta,gamma}(w) = (w - i gamma)^2 - delta^2 ' +
       'satisfies the explicit identity ' +
       '|Q_{delta,gamma}(w + a)|^2 - |Q_{delta,gamma}(w - a)|^2 = 8 a x (x^2 + Y^2 + a^2 - delta^2), ' +
-      'where w = x + iy and Y = y - gamma. For a > delta this is strictly ' +
+      'where w = x + iy and Y = y - gamma. For a >= delta this is strictly ' +
       'positive. For a critical-line factor lambda = i gamma the corresponding ' +
-      'identity 4ax > 0 again gives strict growth under w - a -> w + a. ' +
+      'paired identity is also strictly positive. ' +
       'Grouping the symmetric Hadamard product for X by these packets and ' +
-      'passing from finite products to the locally uniform limit yields ' +
-      '|X(w + a)| > |X(w - a)| on Re(w) > 0 whenever a > Delta. Conversely, ' +
-      'if delta > a then a - iz = delta + i gamma is solvable with ' +
-      'z = -gamma + i(delta - a) in the upper half-plane, so E_a vanishes ' +
-      'there and the Hermite-Biehler / de Branges structure fails.',
+      'retaining one fixed strict packet factor while passing to the locally ' +
+      'uniform limit yields |X(w + a)| > |X(w - a)| on Re(w) > 0 whenever ' +
+      'a >= Delta. Conversely, if delta > a, set w_0 = delta - a + i gamma: ' +
+      'then X(w_0 + a) = 0, so the strict inequality fails whether or not ' +
+      'X(w_0 - a) also vanishes. The possible common zero is exactly why this ' +
+      'fixed-a strict theorem must not be restated as a fixed-a PSD converse.',
     keyIdentityLaTeX:
       '|Q_{\\delta,\\gamma}(w + a)|^2 - |Q_{\\delta,\\gamma}(w - a)|^2 \\;=\\; 8 a x \\left(x^2 + Y^2 + a^2 - \\delta^2\\right)',
+  },
+
+  endpointAndCoprimalityCaveat: {
+    title: 'Endpoint and common-zero caveat (v70 audit correction)',
+    endpointLaTeX:
+      '\\forall\\,\\Re w>0:\\ |X(w-a)|<|X(w+a)| \\quad\\Longleftrightarrow\\quad a\\ge\\Delta',
+    poleOrderLaTeX:
+      '\\operatorname{ord}_{\\lambda-a}^{\\mathrm{pole}} R_a ' +
+      '= \\bigl[m(\\lambda)-m(\\lambda-2a)\\bigr]_+',
+    statement:
+      'The endpoint a = Delta belongs to the strict interior threshold. At a ' +
+      '= Delta, shifted zeros may lie on the boundary, so interior ' +
+      'contractivity must not be conflated with a boundary-zero-free ' +
+      'Hermite-Biehler statement. At a fixed shift below Delta, a common zero ' +
+      'of X(w-a) and X(w+a) can be removable in R_a and create a zero row in ' +
+      'K_a; positive semidefiniteness permits that row. Therefore a single ' +
+      'interior zero of E_a proves failure of strict positivity, but proves a ' +
+      'pole or negative square only when E_a and E_a^# are coprime there. ' +
+      'Negative-index counts must use uncancelled pole orders and a coprime ' +
+      'Krein-Langer factorization.',
   },
 
   godelianWitness:
     'Suppose RH fails. Then there exists a zero rho = 1/2 + delta + i gamma ' +
     'with delta > 0. For any 0 < a < delta the zero itself manufactures an ' +
     'internal upper-half-plane point z_rho(a) = -gamma + i(delta - a) at ' +
-    'which E_a(z_rho(a)) = 0. Equivalently, the putative Schur ratio ' +
-    'Theta_a(z) = E_a^#(z) / E_a(z) has a pole in the upper half-plane. ' +
+    'which E_a(z_rho(a)) = 0. This always certifies failure of strict ' +
+    'Hermite-Biehler positivity. It gives a pole of the reduced Schur ratio ' +
+    'Theta_a(z) = E_a^#(z) / E_a(z), and hence a negative-square witness, ' +
+    'only when E_a^# does not vanish at the same point. Common shifted zeros ' +
+    'must be cancelled before the pole index is counted. ' +
     'This is the "Godelian" aspect of the construction: a forbidden off-critical ' +
     'zero does not merely violate the desired positivity conclusion externally; ' +
     'it creates a WITNESS INSIDE the bridge formalism that certifies the ' +
@@ -181,24 +224,27 @@ export const SHIFT_BRIDGE_POSITIVITY = Object.freeze({
     'analogical, witness-producing sense — the argument does not invoke ' +
     'Godel\'s incompleteness theorem; it imports the structural pattern ' +
     '"off-critical zero  ==>  internal certificate of failed positivity." ' +
-    'In twin-ladder language, z_rho(a) is a negative-norm / ghost witness ' +
-    'for the completed ladder.',
+    'In twin-ladder language, z_rho(a) is always a strict-positivity witness ' +
+    'and is a negative-norm / ghost witness when its shifted zero is uncancelled.',
 
   godelianWitnessPointLaTeX:
     'z_\\rho(a) \\;=\\; -\\gamma + i(\\delta - a), \\qquad 0 < a < \\delta \\;\\Longrightarrow\\; E_a(z_\\rho(a)) = 0',
 
   primeDelayInterpretation:
-    'In the Euler region the logarithmic derivative ' +
+    'In the Euler region Re(s) > 1 the logarithmic derivative ' +
     '-(zeta\'/zeta)(s) = sum_n Lambda(n)/n^s = sum_{p,m>=1} (log p) e^{-s m log p} ' +
     'expands as a Dirichlet sum over prime-delay rungs of length m log p. ' +
-    'On the critical line s = 1/2 + iT the m-th rung at prime p contributes ' +
+    'Formally, the m-th rung evaluated at s = 1/2 + iT would contribute ' +
     'e^{-s m log p} = p^{-m/2} e^{-iTm log p}, i.e. the closed-loop transfer ' +
-    'of an ideal delay-feedback cell with delay tau_p = log p. The shift-bridge ' +
+    'of an ideal delay-feedback cell with delay tau_p = log p; the raw double ' +
+    'series does not converge there and requires a named smoothing, test ' +
+    'function, or analytic-continuation prescription. The shift-bridge ' +
     'inequality |X(w - a)| < |X(w + a)| can therefore be read as the pointwise ' +
     'DOMINATION PRINCIPLE "completed gamma/kernel drift > coherent prime-delay pull": ' +
     'the rightward drift of the completed gamma/kernel side dominates the ' +
     'coherent (log p) p^{-m/2} e^{-iTm log p} echo train on the half-plane to ' +
-    'the right of the critical line. Letting a -> 0+ formally turns this into ' +
+    'the right of the critical line only after such a prescription is supplied. ' +
+    'Letting a -> 0+ formally turns this into ' +
     'the infinitesimal form Re (xi\'/xi)(sigma + it) > 0 for sigma > 1/2, ' +
     'which is the pointwise drift version of Conjecture 15.4 — the pointwise ' +
     'counterpart of the quadratic Weil / twin-ladder positivity form.',
@@ -254,13 +300,14 @@ export const SHIFT_BRIDGE_POSITIVITY = Object.freeze({
     label: 'Principle 15.5 (No-ghost twin ladder)',
     statement:
       'An off-critical zero is equivalent to an upper-half-plane zero of E_a ' +
-      'for some a > 0, hence to a negative-norm / ghost witness in the shifted ' +
-      'bridge. RH is equivalent to the absence of such witnesses for ALL ' +
-      'bridge thicknesses a > 0.',
+      'for some a > 0, hence to failure of strict shift positivity. It becomes ' +
+      'a negative-norm / ghost pole after common shifted factors are removed ' +
+      'and only if a non-cancelling pole remains. RH is equivalent to positivity ' +
+      'across ALL bridge thicknesses a > 0.',
   },
 
   whyItMatters: [
-    'Section 15 supplies the load-bearing positivity bridge for the v52 paper. ' +
+    'Section 15 supplies the load-bearing positivity bridge carried into v70. ' +
     'Where the Riemann Hypothesis is classically posed as a statement about ' +
     'the locations of zeros, the shift-bridge threshold theorem recasts it as ' +
     'a one-parameter family of POSITIVITY statements: K_a >= 0 for every ' +
@@ -284,7 +331,7 @@ export const SHIFT_BRIDGE_POSITIVITY = Object.freeze({
     'Re(s) > 1/2 (Conjecture 15.4) is the pointwise counterpart of the ' +
     'quadratic Weil/twin-ladder positivity form built from log-prime delays. ' +
     'It is also tractable from existing project infrastructure: the ' +
-    'finite-N* unconditional beat (imp-1086) and the imp-963 plateau data ' +
+    'finite-N* C_H-gated estimate (imp-1086) and the imp-963 plateau data ' +
     'can be reused as a numerical audit (imp-1202 is queued for this).',
   ],
 
@@ -336,11 +383,13 @@ export const SHIFT_BRIDGE_POSITIVITY = Object.freeze({
     {
       authors: ['J. Gomila'],
       year: 2026,
-      title: 'Twin-Ladder Deformations of xi, Consolidated draft v52',
-      venue: 'research-inputs/twin_ladder_consolidated_v52.pdf (pages 22-26)',
+      title: 'Twin-Ladder Deformations of xi, Consolidated draft v70',
+      venue: 'twin_ladder_consolidated_v70.tex (§15, lines 454-819)',
       role: 'primary-source',
       note:
-        'Section 15 of the user\'s own paper; the source this page renders.',
+        'Current Section 15 source. The original app audit used the historic ' +
+        'v52 PDF pages 22-26; the endpoint and common-zero corrections shown ' +
+        'here come from twin_ladder_rh_attack_report.md §§1.3 and 2.',
     },
   ],
 
@@ -385,20 +434,20 @@ export const SHIFT_BRIDGE_POSITIVITY = Object.freeze({
       ticket: 'imp-1196',
       title: 'This ticket — ship /shift-bridge-positivity page',
       relation:
-        'Renders Section 15 of the v52 paper as a dedicated app page so the ' +
+        'Renders Section 15, carried forward and corrected in v70, as a dedicated app page so the ' +
         'shift-bridge positivity criterion is discoverable from the app nav.',
     },
     {
       ticket: 'imp-1202',
       title:
-        'Audit Conjecture 15.4 (prime-delay domination) vs imp-1086 finite-N* beat',
+        'Audit Conjecture 15.4 (prime-delay domination) vs imp-1086 finite-N* estimate',
       relation:
         'Numerical cross-check of Conjecture 15.4 against the imp-1086 finite-N* ' +
-        'unconditional beat infrastructure; honest-partial verdict acceptable.',
+        'C_H-gated estimate infrastructure; honest-partial verdict acceptable.',
     },
     {
       ticket: 'imp-1086',
-      title: 'Finite-N* unconditional beat infrastructure',
+      title: 'Finite-N* C_H-gated estimate infrastructure',
       relation:
         'Existing finite-N* infrastructure that imp-1202 reuses to test the ' +
         'infinitesimal prime-delay domination form (Conjecture 15.4) at ' +
@@ -417,27 +466,31 @@ export default SHIFT_BRIDGE_POSITIVITY;
 
 export const SHIFT_BRIDGE_POSITIVITY_ASSERTIONS = [
   {
-    id: 'imp1196-paper-page-range-section15',
+    id: 'imp1196-v70-source-and-historic-v52-provenance',
     holds: () => {
-      const r = SHIFT_BRIDGE_POSITIVITY.paperPageRange;
+      const lines = SHIFT_BRIDGE_POSITIVITY.paperLineRange;
+      const pages = SHIFT_BRIDGE_POSITIVITY.historicalPaperPageRange;
       return (
-        Array.isArray(r) &&
-        r.length === 2 &&
-        Number.isInteger(r[0]) &&
-        Number.isInteger(r[1]) &&
-        r[0] < r[1] &&
-        r[0] >= 10 &&
-        r[1] <= 35 &&
+        Array.isArray(lines) &&
+        lines.length === 2 &&
+        lines[0] === 454 &&
+        lines[1] === 819 &&
+        Array.isArray(pages) &&
+        pages.length === 2 &&
+        pages[0] === 22 &&
+        pages[1] === 26 &&
         SHIFT_BRIDGE_POSITIVITY.paperSection === '15' &&
-        typeof SHIFT_BRIDGE_POSITIVITY.paperSource === 'string' &&
-        SHIFT_BRIDGE_POSITIVITY.paperSource.includes('twin_ladder_consolidated_v52')
+        SHIFT_BRIDGE_POSITIVITY.paperVersion === 'v70' &&
+        SHIFT_BRIDGE_POSITIVITY.paperSource.includes('twin_ladder_consolidated_v70') &&
+        SHIFT_BRIDGE_POSITIVITY.historicalPaperSource.includes('twin_ladder_consolidated_v52') &&
+        SHIFT_BRIDGE_POSITIVITY.correctionAuditSource.includes('twin_ladder_rh_attack_report')
       );
     },
     why:
-      'Section 15 of the v52 paper lives on pages 22-26 of the body. The page ' +
-      'range, the section number "15", and the paper-source filename must all ' +
-      'be locked so an accidental rewrite (e.g. pointing at the wrong section ' +
-      'or the wrong paper draft) is caught at build time.',
+      'The current claim source is v70 Section 15 (TeX lines 454-819), while ' +
+      'the original app audit provenance remains the historic v52 PDF pages ' +
+      '22-26. The independent correction report must remain named so a version ' +
+      'label cannot silently erase either side of that provenance.',
   },
   {
     id: 'imp1196-threshold-theorem-non-empty-and-rh-equivalent',
@@ -464,6 +517,27 @@ export const SHIFT_BRIDGE_POSITIVITY_ASSERTIONS = [
       'Section 15: Delta = 0 <=> K_a >= 0 for every a > 0 <=> RH. Statement ' +
       'and proof sketch must be substantive (>= 300 chars each) and must ' +
       'name both Delta = 0 and RH so an accidental truncation is caught.',
+  },
+  {
+    id: 'imp1196-v70-endpoint-and-coprimality-caveat',
+    holds: () => {
+      const t = SHIFT_BRIDGE_POSITIVITY.thresholdTheorem;
+      const c = SHIFT_BRIDGE_POSITIVITY.endpointAndCoprimalityCaveat;
+      return (
+        t.statement.includes('a >= Delta') &&
+        t.proofSketch.includes('a >= Delta') &&
+        c &&
+        c.statement.includes('common zero') &&
+        c.statement.includes('coprime') &&
+        c.endpointLaTeX.includes('a\\ge\\Delta') &&
+        c.poleOrderLaTeX.includes('m(\\lambda)-m(\\lambda-2a)')
+      );
+    },
+    why:
+      'The v70 audit corrects the strict fixed-shift endpoint to a >= Delta ' +
+      'and separates it from fixed-a positive semidefiniteness when common ' +
+      'shifted zeros cancel. Both corrections, including the uncancelled pole ' +
+      'order, are load-bearing and must remain visible.',
   },
   {
     id: 'imp1196-three-conjectures-15-2-15-3-15-4',
@@ -612,8 +686,8 @@ export const SHIFT_BRIDGE_POSITIVITY_ASSERTIONS = [
     why:
       'The reference list must include de Branges 1968 (the foundational ' +
       'Hilbert-Spaces-of-Entire-Functions text the bridge construction rests ' +
-      'on) and the primary-source pointer back to the v52 paper. Without ' +
-      'these the attribution chain breaks. Minimum 3 references with a ' +
+      'on) and the primary-source pointer to the v70 paper. Without these ' +
+      'the attribution chain breaks. Minimum 3 references with a ' +
       'fully-populated record per entry.',
   },
   {

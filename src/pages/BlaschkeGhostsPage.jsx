@@ -10,8 +10,8 @@ import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx
  * research-inputs/twin_ladder_consolidated_v52.pdf (pages 22-26).
  *
  * Includes an interactive demo: move a hypothetical off-critical zero
- * around in the right half-plane and watch the negative-square count
- * update according to Corollary 17.2.
+ * around in the right half-plane and inspect the candidate negative-square
+ * witness, with the fixed-shift common-factor caveat stated explicitly.
  */
 
 const S = BLASCHKE_GHOSTS_SECTION;
@@ -33,18 +33,22 @@ function GhostInteractiveDemo() {
   const [gamma, setGamma] = useState(14.13);  // imaginary part (default near γ_1)
   const [a, setA] = useState(0.05);           // bridge thickness
 
-  const ghostPresent = delta > a;
-  const negativeSquareWeight = ghostPresent ? 2 * (delta - a) : 0;
+  // The slider only locates a denominator zero. It cannot test whether the
+  // numerator also vanishes at λ-2a, so a displayed ghost is conditional on
+  // the denominator zero surviving common-factor cancellation.
+  const ghostPresentUnderNoCancellation = delta > a;
+  const negativeSquareWeight = ghostPresentUnderNoCancellation ? 2 * (delta - a) : 0;
 
   return (
     <Card accent="#7c3aed">
       <h3 style={{ color: '#a78bfa', fontSize: 18, margin: '0 0 12px 0' }}>
-        Interactive: Ghost negative-square witness
+        Interactive: Candidate ghost negative-square witness
       </h3>
       <p style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.6, margin: '0 0 16px 0' }}>
         Place a hypothetical off-critical zero <InlineMath math="\rho = 1/2 + \delta + i\gamma" /> and
-        choose a bridge thickness <InlineMath math="a > 0" />. The Corollary 17.2 witness fires iff{' '}
-        <InlineMath math="\delta > a" />.
+        choose a bridge thickness <InlineMath math="a > 0" />. The condition <InlineMath math="\delta > a" />{' '}
+        places a denominator zero in the right half-plane. It becomes a ghost pole only if its multiplicity
+        exceeds that of any numerator zero at <InlineMath math="\lambda-2a" />.
       </p>
 
       <div style={{ display: 'grid', gap: 12, gridTemplateColumns: '1fr', marginBottom: 16 }}>
@@ -76,25 +80,29 @@ function GhostInteractiveDemo() {
 
       <div style={{
         padding: 12,
-        background: ghostPresent ? 'rgba(239,68,68,0.10)' : 'rgba(16,185,129,0.10)',
-        border: `1px solid ${ghostPresent ? 'rgba(239,68,68,0.4)' : 'rgba(16,185,129,0.4)'}`,
+        background: ghostPresentUnderNoCancellation ? 'rgba(239,68,68,0.10)' : 'rgba(16,185,129,0.10)',
+        border: `1px solid ${ghostPresentUnderNoCancellation ? 'rgba(239,68,68,0.4)' : 'rgba(16,185,129,0.4)'}`,
         borderRadius: 6,
       }}>
         <div style={{
-          color: ghostPresent ? '#fca5a5' : '#86efac',
+          color: ghostPresentUnderNoCancellation ? '#fca5a5' : '#86efac',
           fontWeight: 700, fontSize: 13, fontFamily: 'var(--font-mono, monospace)',
           letterSpacing: 0.5,
         }}>
-          {ghostPresent ? 'GHOST PRESENT — POSITIVITY FAILS' : 'NO GHOST — BRIDGE IS SCHUR'}
+          {ghostPresentUnderNoCancellation
+            ? 'CANDIDATE GHOST — CHECK COMMON-FACTOR CANCELLATION'
+            : 'NO RIGHT-HALF-PLANE DENOMINATOR ZERO FROM THIS λ'}
         </div>
         <div style={{ color: '#cbd5e1', fontSize: 13, marginTop: 8, lineHeight: 1.6 }}>
-          {ghostPresent ? (
+          {ghostPresentUnderNoCancellation ? (
             <>
-              Pole of <InlineMath math="R_a" /> at <InlineMath math={`\\alpha = (${delta.toFixed(3)} - ${a.toFixed(3)}) + i \\cdot ${gamma.toFixed(2)} = ${(delta - a).toFixed(3)} + ${gamma.toFixed(2)} i`} />.
-              <br />Negative-square weight: <InlineMath math={`-2(\\delta - a) = -${negativeSquareWeight.toFixed(3)}`} />.
+              Candidate pole location for <InlineMath math="R_a" />:{' '}
+              <InlineMath math={`\\alpha = (${delta.toFixed(3)} - ${a.toFixed(3)}) + i \\cdot ${gamma.toFixed(2)} = ${(delta - a).toFixed(3)} + ${gamma.toFixed(2)} i`} />.
+              If the zero survives reduction, its negative-square weight is{' '}
+              <InlineMath math={`-2(\\delta - a) = -${negativeSquareWeight.toFixed(3)}`} />.
             </>
           ) : (
-            <>The zero’s horizontal displacement δ = {delta.toFixed(3)} ≤ a = {a.toFixed(3)}, so no right-half-plane pole appears in <InlineMath math="R_a" />.</>
+            <>The zero’s horizontal displacement δ = {delta.toFixed(3)} ≤ a = {a.toFixed(3)}, so it creates no right-half-plane denominator zero in <InlineMath math="R_a" />.</>
           )}
         </div>
       </div>
@@ -123,7 +131,7 @@ function FourRouteDecomposition() {
       {/* Shared bottleneck */}
       <rect x="400" y="110" width="160" height="40" rx="8" fill="#dc2626" fillOpacity="0.15" stroke="#dc2626" strokeWidth="2" />
       <text x="480" y="128" fill="#fca5a5" textAnchor="middle" fontSize="13" fontWeight="700">Ghost-absence</text>
-      <text x="480" y="142" fill="#cbd5e1" textAnchor="middle" fontSize="10">B⁺_a ≡ 1 ⇔ RH (a → 0)</text>
+      <text x="480" y="142" fill="#cbd5e1" textAnchor="middle" fontSize="10">B⁺_a ≡ 1 for every a &gt; 0 ⇔ RH</text>
     </svg>
   );
 }
@@ -151,25 +159,31 @@ export default function BlaschkeGhostsPage() {
         <BlockMath math="R_a(w) := \frac{X(w-a)}{X(w+a)}, \quad \mathfrak{R}w > 0,\ a > 0,\quad X(w) := \xi(\tfrac{1}{2} + w)" />
         <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>
           On the boundary <InlineMath math="\mathfrak{R}w = 0" /> the functional equation gives <InlineMath math="|R_a(it)|=1" />.
-          If <InlineMath math="X(\lambda)=0" /> with <InlineMath math="\lambda=\delta+i\gamma" />,
-          then <InlineMath math="R_a" /> has a right-half-plane pole at <InlineMath math="\alpha=(\delta-a)+i\gamma" /> exactly when <InlineMath math="\delta>a" />.
+          If <InlineMath math="X(\lambda)=0" /> with <InlineMath math="\lambda=\delta+i\gamma" /> and{' '}
+          <InlineMath math="\delta>a" />, the denominator vanishes at <InlineMath math="\alpha=(\delta-a)+i\gamma" />.
+          This is a pole of the reduced ratio only when its multiplicity exceeds that of the possible
+          numerator zero <InlineMath math="X(\lambda-2a)=0" />.
         </p>
       </Card>
 
       {/* Blaschke ghost factor + pole-clearing */}
       <Card>
         <h3 style={{ color: '#60a5fa', fontSize: 18, margin: '0 0 12px 0' }}>§17.2 Right-half-plane Blaschke ghosts</h3>
-        <BlockMath math="b_\alpha(w) := \frac{w-\alpha}{w+\alpha} \quad (\mathfrak{R}\alpha > 0)" />
+        <BlockMath math="b_\alpha(w) := \frac{w-\alpha}{w+\bar{\alpha}} \quad (\mathfrak{R}\alpha > 0)" />
         <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>
           <InlineMath math="|b_\alpha(it)|=1" /> on the boundary; <InlineMath math="b_\alpha" /> has a zero at <InlineMath math="w=\alpha" />,
           so multiplying <InlineMath math="R_a" /> by <InlineMath math="b_\alpha" /> removes the pole there.
-          The ghost Blaschke product over all off-critical-zero poles:
+          The ghost Blaschke product runs over the residual poles after common-factor cancellation:
         </p>
-        <BlockMath math="B_a^+(w) := \prod_{\alpha \in P_a} b_\alpha(w), \qquad P_a := \{\lambda - a : X(\lambda)=0,\ \mathfrak{R}\lambda > a\}" />
+        <BlockMath math="B_a^+(w) := \prod_{\alpha \in P_a} b_\alpha(w), \qquad P_a := \{\alpha\in\mathbb{C}_+ : \operatorname{ord}_\alpha X(w+a) > \operatorname{ord}_\alpha X(w-a)\}" />
         <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6, marginTop: 12 }}>
           <strong style={{ color: '#fbbf24' }}>Proposition 17.1 (pole-clearing decomposition):</strong>
-          <InlineMath math=" R_a = \widetilde{R}_a / B_a^+" />, where <InlineMath math="\widetilde{R}_a" /> is meromorphic-free in the right half-plane.
-          If <InlineMath math="B_a^+ \equiv 1" /> the bridge is Schur; otherwise positivity fails by explicit negative-square channels.
+          <InlineMath math=" R_a = \widetilde{R}_a / B_a^+" />, where <InlineMath math="\widetilde{R}_a" /> is pole-free in the right half-plane.
+          This identity requires a finite residual-pole set or a convergent Blaschke product.
+          The condition <InlineMath math="B_a^+ \equiv 1" /> removes residual right-half-plane poles,
+          but Schur membership additionally requires analytic bounded-type contractivity. A nontrivial
+          inverse-Blaschke factor supplies a local negative-square witness only inside a valid coprime
+          generalized-Schur factorization.
         </p>
       </Card>
 
@@ -180,12 +194,12 @@ export default function BlaschkeGhostsPage() {
         </h3>
         <BlockMath math="K_S(z,w) = \frac{1 - S(z)\overline{S(w)}}{z+\bar{w}}" />
         <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>
-          For a single inverse Blaschke factor <InlineMath math="S(w) = 1/b_\alpha(w) = (w+\alpha)/(w-\alpha)" />:
+          For a single inverse Blaschke factor <InlineMath math="S(w) = 1/b_\alpha(w) = (w+\bar{\alpha})/(w-\alpha)" />:
         </p>
-        <BlockMath math="K_S(z,w) = -\frac{2\,\mathfrak{R}\alpha}{(z-\alpha)(\bar{w}-\bar{\alpha})} = -k_\alpha(z)\,\overline{k_\alpha(\bar{w})},\quad k_\alpha(z) = \frac{\sqrt{2\,\mathfrak{R}\alpha}}{z-\alpha}" />
+        <BlockMath math="K_S(z,w) = -\frac{2\,\mathfrak{R}\alpha}{(z-\alpha)(\bar{w}-\bar{\alpha})} = -k_\alpha(z)\,\overline{k_\alpha(w)},\quad k_\alpha(z) = \frac{\sqrt{2\,\mathfrak{R}\alpha}}{z-\alpha}" />
         <p style={{ color: '#fbbf24', fontSize: 15, fontWeight: 700, lineHeight: 1.6, marginTop: 12 }}>
-          ONE inverse Blaschke ghost contributes EXACTLY ONE rank-one negative square. This is the operator-theoretic
-          form of the Gödelian witness principle from §15.
+          The kernel of ONE isolated inverse Blaschke factor has EXACTLY ONE rank-one negative square.
+          Extending that local calculation to the full bridge requires the factorization hypotheses stated below.
         </p>
       </Card>
 
@@ -195,11 +209,15 @@ export default function BlaschkeGhostsPage() {
       {/* Generalized Schur */}
       <Card>
         <h3 style={{ color: '#60a5fa', fontSize: 18, margin: '0 0 12px 0' }}>§17.4 Negative-index identity (Krein-Langer)</h3>
-        <BlockMath math="\mathrm{ind}_-\!\bigl(K_{R_a}\bigr) = \#\bigl\{\lambda : X(\lambda)=0,\ \mathfrak{R}\lambda > a\bigr\}\quad\text{(with multiplicity)}" />
+        <BlockMath math="\mathrm{ind}_-\!\bigl(K_{R_a}\bigr) = \sum_{\alpha\in P_a}\operatorname{mult}(\alpha),\qquad P_a=\{\text{residual poles of }R_a\text{ in }\mathbb{C}_+\}" />
         <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>
-          The number of negative squares in the Schur kernel of <InlineMath math="R_a" /> is EXACTLY the number of off-critical zeros
-          whose horizontal displacement exceeds <InlineMath math="a" />. The Riemann Hypothesis is the statement that
-          this count is 0 for every <InlineMath math="a > 0" /> (equivalently, in the limit <InlineMath math="a \to 0" />).
+          This is the Krein-Langer identity only after one proves that the reduced quotient has a
+          coprime generalized-Schur factorization with finite negative index (or a rigorously controlled
+          finite-window analogue). It is not automatic for the analytically continued zeta quotient.
+          Under a no-common-zero hypothesis the pole count then equals the number of off-critical denominator
+          zeros beyond the shift. Without that hypothesis, the fixed-<InlineMath math="a" /> statement retains
+          the cancellation caveat. Requiring an empty residual pole set for every <InlineMath math="a>0" />
+          is the cancellation-aware RH-strength statement; it still does not establish Schur contractivity.
         </p>
       </Card>
 

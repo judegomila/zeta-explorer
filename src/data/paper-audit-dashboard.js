@@ -1,6 +1,6 @@
 /**
  * @module data/paper-audit-dashboard
- * @fileoverview Single source of truth for the v52-paper conjecture audit verdicts.
+ * @fileoverview Historic v52 conjecture-audit verdicts with a v70 review overlay.
  *
  * Exports:
  *   - PAPER_AUDIT_DASHBOARD (also the default export) — frozen object holding the
@@ -9,10 +9,10 @@
  *   - PAPER_AUDIT_DASHBOARD_ASSERTIONS — checkable claims the dashboard makes,
  *     consumable by tripwires that re-verify audit bookkeeping.
  *
- * Proof-chain role: audit/bookkeeping, not a mathematical step. It tracks how
- * each numbered conjecture from twin_ladder_consolidated_v52.pdf (Sections
- * 15, 16, 17, 18, 22) relates to RH or the literature; it does not itself
- * advance the analytic Lambda argument.
+ * Proof-chain role: audit/bookkeeping, not a mathematical step. The individual
+ * rows preserve their original twin_ladder_consolidated_v52.pdf provenance.
+ * The v70 overlay records later corrections without rewriting those historic
+ * audit records as if they had originally audited v70.
  *
  * Key assertions: each conjecture carries one verdict from the controlled
  * vocabulary (SUBSUMED-BY-RH, SUBSUMED-BY-LITERATURE, PARTIALLY-RELATED,
@@ -223,17 +223,21 @@ const CONJECTURE_ENTRIES = [
     paperSection: '§17.6',
     paperPage: 25,
     statement:
-      'For every a > 0, the right-half-plane ghost Blaschke product B_a^+(w) ' +
-      'is identically 1. Equivalently: no off-critical zeros with ' +
-      '|Re rho - 1/2| > a; equivalently RH in the limit a -> 0.',
+      'Historic v52 form: for every a > 0, the raw right-half-plane ghost ' +
+      'product B_a^+(w) is identically 1. The v70 correction replaces raw ' +
+      'shifted-zero counts by residual, uncancelled pole orders; all-a residual ' +
+      'ghost absence is RH-equivalent, while a fixed-a raw statement needs ' +
+      'coprimality and bounded-type hypotheses.',
     auditStatus: 'SUBSUMED-BY-RH',
     auditTicket: 'imp-1232',
     auditDate: '2026-05-27',
     recommendationForPaper:
-      'CONFIRMED SUBSUMED-BY-RH (imp-1232). B_a^+(w) = 1 iff P_a empty iff ' +
-      'xi has no zeros with Re(s) > 1/2 + a; for every a > 0 this is RH. ' +
-      'The §17.4 Krein-Langer identity ind_-(K_{R_a}) = #{off-critical zeros} ' +
-      'makes the equivalence exact. Move out of theorem-target list into the ' +
+      'CONFIRMED SUBSUMED-BY-RH (imp-1232) as an all-shifts statement after ' +
+      'the v70 residual-pole correction. At a fixed shift, B_a^+ = 1 and the ' +
+      'Krein-Langer index must be formulated for the reduced ratio using ' +
+      '[m(lambda)-m(lambda-2a)]_+, not all raw off-critical zeros. Exact index ' +
+      'equalities also require the stated finite-pole/finite-window and ' +
+      'bounded-type hypotheses. Move the all-a target out of theorem list into the ' +
       'unified RH-equivalent reformulations subsection alongside 15.2, 15.4, ' +
       '18.4, 22.4. Cite de Branges (1968), Krein-Langer (1973, 1977), ' +
       'Lagarias (2007). The genuinely open content in §17-18 is in the three ' +
@@ -522,8 +526,85 @@ export const PAPER_AUDIT_DASHBOARD = Object.freeze({
   id: 'paper-audit-dashboard',
   ticket: 'imp-1229',
   builtAt: '2026-05-27T00:00:00Z',
+  reviewedAt: '2026-07-23T00:00:00Z',
   paper: 'twin_ladder_consolidated_v52.pdf',
+  historicalAuditPaper: 'research-inputs/twin_ladder_consolidated_v52.pdf',
+  currentReviewPaper: 'twin_ladder_consolidated_v70.tex',
+  currentReviewVersion: 'v70',
+  currentCorrectionAudit: 'twin_ladder_rh_attack_report.md',
   paperSectionsCovered: Object.freeze(['§15', '§16', '§17', '§18', '§22']),
+
+  currentReview: Object.freeze({
+    scope:
+      'The conjecture rows below are the historic v52 audit ledger. The v70 ' +
+      'review does not relabel them as newly audited; it overlays corrections ' +
+      'that affect how the carried-forward claims may now be stated.',
+    corrections: Object.freeze([
+      Object.freeze({
+        id: 'v70-shift-endpoint',
+        affects: '§15 strict shift threshold',
+        correctedStatement:
+          'For fixed a > 0, strict interior shift contractivity holds exactly ' +
+          'when a >= Delta, not only when a > Delta.',
+      }),
+      Object.freeze({
+        id: 'v70-common-shifted-zeros',
+        affects: '§15 fixed-a PSD converse',
+        correctedStatement:
+          'A common zero of X(w-a) and X(w+a) may cancel in the quotient and ' +
+          'leave a zero kernel row. The exact a >= Delta threshold is for ' +
+          'strict diagonal positivity; a fixed-a PSD converse needs a ' +
+          'coprimality hypothesis. Positivity for every a > 0 remains RH-equivalent.',
+      }),
+      Object.freeze({
+        id: 'v70-ghost-index',
+        affects: '§17-18 inverse-Blaschke / negative-index count',
+        correctedStatement:
+          'Ghost counts use uncancelled pole orders ' +
+          '[m(lambda)-m(lambda-2a)]_+ and a coprime Krein-Langer factorization, ' +
+          'not the raw multiplicity of every shifted denominator zero.',
+      }),
+      Object.freeze({
+        id: 'v70-numerics-transferability',
+        affects: 'v70 rigorous-numerics certificate summaries',
+        correctedStatement:
+          'The supplied v70 source does not include the named leaf files, raw ' +
+          'JSON, coverage ledger, or independent verifier needed to transfer ' +
+          'its finite-region certificate tables. Summary hashes alone do not ' +
+          'recompute ACB leaves or prove coverage.',
+      }),
+      Object.freeze({
+        id: 'v70-rigorous-pf2',
+        affects: '§28 midpoint / log-concavity route',
+        correctedStatement:
+          'The correction audit proves the unconditional quantitative bound ' +
+          '(log Phi)\'\' < -68 on [0,infinity). Consequently the even bilateral ' +
+          'Riemann kernel and every exponential tilt are PF_2. Under Newman ' +
+          'heat flow the bound becomes (log Phi_t)\'\' < -68 + 2t. This proves ' +
+          'the scalar midpoint inequality, but PF_2 alone gives no Newman bound ' +
+          'and does not imply shifted Hermite-Biehler positivity or RH.',
+      }),
+      Object.freeze({
+        id: 'v70-pf5-counterexample',
+        affects: '§29 raw total-positivity route',
+        correctedStatement:
+          'An independently reproduced negative 5-by-5 Toeplitz minor, checked ' +
+          'with a separate 384-bit Arb implementation, shows that the actual ' +
+          'Riemann kernel and every exponential tilt fail PF_5 and therefore ' +
+          'fail PF_infinity. Global PF_3 and PF_4 are not decided by this witness.',
+      }),
+      Object.freeze({
+        id: 'v70-offdiagonal-reduction',
+        affects: '§24-27 measure-domination / Volterra reduction',
+        correctedStatement:
+          'The proposed scalar measure-domination argument controls only one ' +
+          'of two indefinite off-diagonal channels. Its positive diagonal ' +
+          'comparison object is not an actual summand of the bridge kernel, so ' +
+          'the asserted absorption does not follow. The full two-channel ' +
+          'cancellation-sensitive operator remains open.',
+      }),
+    ]),
+  }),
 
   verdictVocabulary: VERDICT_VOCABULARY,
 
@@ -681,6 +762,34 @@ export default PAPER_AUDIT_DASHBOARD;
 // ── Build-time tripwires ──────────────────────────────────────────────────
 
 export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
+  {
+    id: 'paper-audit-v70-overlay-preserves-v52-provenance',
+    why:
+      'The dashboard must identify v70 as the current review source while ' +
+      'preserving v52 as the provenance of its historic per-conjecture ledger. ' +
+      'The overlay must lock the endpoint, common-zero, uncancelled ghost-index, ' +
+      'certificate-transferability, PF_2, PF_5, and off-diagonal corrections ' +
+      'from the correction audit.',
+    holds: () => {
+      const d = PAPER_AUDIT_DASHBOARD;
+      const corrections = d.currentReview?.corrections || [];
+      const ids = new Set(corrections.map((c) => c.id));
+      return (
+        d.currentReviewVersion === 'v70' &&
+        d.currentReviewPaper.includes('twin_ladder_consolidated_v70') &&
+        d.historicalAuditPaper.includes('twin_ladder_consolidated_v52') &&
+        d.currentCorrectionAudit.includes('twin_ladder_rh_attack_report') &&
+        corrections.length === 7 &&
+        ids.has('v70-shift-endpoint') &&
+        ids.has('v70-common-shifted-zeros') &&
+        ids.has('v70-ghost-index') &&
+        ids.has('v70-numerics-transferability') &&
+        ids.has('v70-rigorous-pf2') &&
+        ids.has('v70-pf5-counterexample') &&
+        ids.has('v70-offdiagonal-reduction')
+      );
+    },
+  },
   {
     id: 'paper-audit-fourteen-conjectures-present',
     why:

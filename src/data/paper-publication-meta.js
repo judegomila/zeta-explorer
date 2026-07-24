@@ -14,8 +14,7 @@
 // the paper" link or footer line.
 
 export const PAPER_TITLE =
-  'A rigorous unconditional finite-height beat of the Platt-Trudgian bound ' +
-  'on the de Bruijn-Newman constant Lambda';
+  '[WITHDRAWN] May 2026 finite-height manuscript — the claimed unconditional beat depends on undischarged C_H';
 
 export const PAPER_AUTHORS = Object.freeze(['Jude Gomila']);
 

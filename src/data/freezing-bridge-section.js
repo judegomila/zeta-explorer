@@ -81,9 +81,12 @@ export const FREEZING_BRIDGE_SECTION = Object.freeze({
     id: '23.1',
     name: 'What a freeze can and cannot do',
     paperContent:
-      'Let P_a denote the right-half-plane ghost set P_a = { alpha = lambda - a : ' +
-      'X(lambda) = 0, Re(lambda) > a }. For each alpha in P_a the right-half-plane ' +
-      'Blaschke factor b_alpha(w) = (w - alpha) / (w + alpha) is unitary on the ' +
+      'Let P_a denote the residual right-half-plane pole set of the reduced ratio R_a, ' +
+      'with multiplicity after cancelling any common numerator and denominator zeros. ' +
+      'Zeros X(lambda) = 0 with Re(lambda) > a give candidate locations alpha = lambda - a, ' +
+      'but a candidate survives only when its denominator multiplicity exceeds the numerator ' +
+      'multiplicity at X(lambda - 2a). For each alpha in P_a the right-half-plane ' +
+      'Blaschke factor b_alpha(w) = (w - alpha) / (w + conjugate(alpha)) is unitary on the ' +
       'imaginary axis. For a finite subset G of P_a, the product B_G(w) = prod_{alpha in G} b_alpha(w) ' +
       'multiplies R_a to a pole-cleared function R_a,G^fr(w) = B_G(w) R_a(w) whose ' +
       'poles in the right half-plane are exactly those of P_a \\ G. Proposition 23.1 ' +
@@ -102,7 +105,7 @@ export const FREEZING_BRIDGE_SECTION = Object.freeze({
       'pole. Total pole removal (G = P_a) is equivalent to KNOWING the offending ' +
       'zeros, hence is not available without RH.',
     kaTeXFormula:
-      '\\mathcal P_a \\;=\\; \\{\\, \\alpha = \\lambda - a \\,:\\, X(\\lambda) = 0,\\; \\Re\\lambda > a \\,\\}, \\qquad b_\\alpha(w) = \\frac{w - \\alpha}{w + \\alpha}, \\qquad B_G(w) = \\prod_{\\alpha \\in G} b_\\alpha(w), \\qquad R_{a,G}^{\\mathrm{fr}}(w) = B_G(w)\\,R_a(w).',
+      '\\mathcal P_a \\;=\\; \\{\\,\\alpha\\in\\mathbb C_+ : \\operatorname{ord}_\\alpha X(w+a)>\\operatorname{ord}_\\alpha X(w-a)\\,\\}, \\qquad b_\\alpha(w) = \\frac{w - \\alpha}{w + \\bar\\alpha}, \\qquad B_G(w) = \\prod_{\\alpha \\in G} b_\\alpha(w), \\qquad R_{a,G}^{\\mathrm{fr}}(w) = B_G(w)\\,R_a(w).',
     verdict: 'diagnostic-not-proof',
   }),
 
@@ -392,8 +395,8 @@ export const FREEZING_BRIDGE_SECTION = Object.freeze({
       route: '/blaschke-ghosts',
       label: 'Inverse Blaschke Ghosts and the Pontryagin Decomposition (§17)',
       description:
-        'Identifies each off-critical zero with an explicit inverse Blaschke ' +
-        'ghost contributing a rank-one negative square. Section 23 asks ' +
+        'Identifies each residual right-half-plane pole arising from an off-critical ' +
+        'zero with an inverse Blaschke ghost contributing a rank-one negative square. Section 23 asks ' +
         'whether freezing those ghosts can prove their absence.',
     },
     {
@@ -418,6 +421,19 @@ export default FREEZING_BRIDGE_SECTION;
 // ── Build-time tripwires ──────────────────────────────────────────────────────
 
 export const FREEZING_BRIDGE_SECTION_ASSERTIONS = [
+  {
+    id: 'imp1221-half-plane-blaschke-and-residual-pole-set-correct',
+    holds: () => {
+      const s = FREEZING_BRIDGE_SECTION.s23_1;
+      return s.kaTeXFormula.includes('w + \\bar\\alpha') &&
+             !s.kaTeXFormula.includes('w + \\alpha}') &&
+             s.paperContent.includes('lambda - 2a') &&
+             s.paperContent.includes('after cancelling');
+    },
+    why:
+      'The right-half-plane Blaschke reflection is -conjugate(alpha), and the frozen set ' +
+      'must contain residual poles after common-factor cancellation rather than every denominator zero.',
+  },
   {
     id: 'imp1221-paper-page-range-section23',
     holds: () => {

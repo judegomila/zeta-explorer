@@ -6,8 +6,9 @@ import React, { useRef, useEffect, useState, useCallback } from 'react';
  *
  * Topology: direct and dual ladders run in parallel, coupled at EVERY prime
  * through a bridge node χ_p. Energy flows vertically between ladders through
- * the bridge at each stage. At σ=½ the coupling is lossless (|χ|=1);
- * away from ½, energy is partially reflected back.
+ * the bridge at each stage. The animation uses a normalized linear coupling
+ * score c_σ = max(0, 1 - 2|σ - 1/2|), maximal at σ=1/2. This is a visual
+ * control parameter, not an evaluation of the functional-equation factor χ(s).
  */
 
 const PRIMES = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47];
@@ -59,6 +60,12 @@ function glowSprite(key, r, g, b) {
 
 // Background gradients — rebuilt only when the canvas CSS size changes
 const _bgCache = { key: '', grad: null, vignette: null };
+
+// Deliberately a display-only score. It has no t-dependence and therefore must
+// never be presented as the actual modulus of the functional-equation factor.
+export function visualCouplingScore(sigma) {
+  return Math.max(0, 1 - 2 * Math.abs(sigma - 0.5));
+}
 
 export default function HeroSignalFlow() {
   const canvasRef = useRef();
@@ -156,8 +163,8 @@ export default function HeroSignalFlow() {
     const totalLadderW = numPrimes * stageW + (numPrimes - 1) * gap;
     const offsetX = ladderStartX + ((ladderEndX - ladderStartX) - totalLadderW) / 2;
 
-    // Unitarity at current sigma
-    const unitarity = Math.max(0, 1 - 2 * sigmaDeviation);
+    // Normalized visual coupling at the current sigma (not |χ(s)|).
+    const couplingScore = visualCouplingScore(sigma);
 
     // ─── Subtle grid (single batched path) ───
     ctx.strokeStyle = 'rgba(15, 23, 42, 0.75)';
@@ -174,12 +181,12 @@ export default function HeroSignalFlow() {
     ctx.fillRect(0, 0, w, h);
 
     // ─── Luminous field along the bridge axis ───
-    // Radiant at σ=½ (lossless coupling saturates the whole bridge), fading
+    // Radiant at σ=½ (the display score saturates the whole bridge), fading
     // smoothly as σ moves off-critical — the single strongest visual cue that
     // the critical line is the special state.
     const bridgeFieldSprite = glowSprite('bridge', 16, 185, 129);
     ctx.globalCompositeOperation = 'lighter';
-    ctx.globalAlpha = (0.04 + 0.20 * unitarity * unitarity) * Math.min(1.6, pres);
+    ctx.globalAlpha = (0.04 + 0.20 * couplingScore * couplingScore) * Math.min(1.6, pres);
     ctx.drawImage(bridgeFieldSprite, offsetX - 40, midY - 36, totalLadderW + 80, 72);
     ctx.globalCompositeOperation = 'source-over';
     ctx.globalAlpha = 1;
@@ -193,7 +200,7 @@ export default function HeroSignalFlow() {
     ctx.fillText('DUAL  ζ(1−s)', margin, dualY + 32);
 
     // ─── Horizontal wires — glow with signal energy ───
-    // Base wire in dark gray, then overlay a colored glow proportional to unitarity
+    // Base wire in dark gray, then overlay a colored glow proportional to the display score
     ctx.lineWidth = 1;
     ctx.strokeStyle = '#1e293b';
     ctx.beginPath();
@@ -207,8 +214,8 @@ export default function HeroSignalFlow() {
     // piles up on one side: σ>½ → direct wire brightens, σ<½ → dual wire.
     // At σ=½ the two wires glow identically (perfect balance).
     const hotBoost = 0.22 * sigmaDeviation * 2;
-    const dirWireGlow = 0.05 + 0.12 * unitarity + (sigma > 0.5 ? hotBoost : 0);
-    const dualWireGlow = 0.05 + 0.12 * unitarity + (sigma < 0.5 ? hotBoost : 0);
+    const dirWireGlow = 0.05 + 0.12 * couplingScore + (sigma > 0.5 ? hotBoost : 0);
+    const dualWireGlow = 0.05 + 0.12 * couplingScore + (sigma < 0.5 ? hotBoost : 0);
     ctx.lineWidth = 1.5;
     ctx.strokeStyle = `rgba(59, 130, 246, ${dirWireGlow})`;
     ctx.beginPath();
@@ -223,7 +230,7 @@ export default function HeroSignalFlow() {
 
     // ─── Input signal arrows (left end of each ladder) ───
     const arrowX = offsetX - 16;
-    const arrowPulse = 0.4 + 0.3 * unitarity + 0.15 * Math.sin(t * 2.5);
+    const arrowPulse = 0.4 + 0.3 * couplingScore + 0.15 * Math.sin(t * 2.5);
     // Direct input arrow (blue)
     ctx.fillStyle = `rgba(59, 130, 246, ${arrowPulse})`;
     ctx.beginPath();
@@ -250,12 +257,12 @@ export default function HeroSignalFlow() {
     // Dash flow direction encodes net energy transfer:
     //   σ > ½ → direct is "hotter", net flow downward (direct → dual)
     //   σ < ½ → dual is "hotter", net flow upward (dual → direct)
-    //   σ = ½ → no net flow, dashes stationary (lossless equilibrium)
+    //   σ = ½ → no net flow, dashes stationary (balanced visual state)
     const bridgeR = 14;
-    const bridgeAlpha = 0.5 + 0.3 * unitarity;
+    const bridgeAlpha = 0.5 + 0.3 * couplingScore;
     // Precompute bridge color strings reused for every prime
     const bridgeStroke = `rgba(16, 185, 129, ${bridgeAlpha})`;
-    const bridgeFill = `rgba(16, 185, 129, ${(0.04 + 0.10 * unitarity).toFixed(3)})`;
+    const bridgeFill = `rgba(16, 185, 129, ${(0.04 + 0.10 * couplingScore).toFixed(3)})`;
     const dashLen = 5;
     const dashGap = 4;
     const mismatchSign = sigma > 0.5 ? -1 : 1;
@@ -298,11 +305,11 @@ export default function HeroSignalFlow() {
       drawEnergyPackets(ctx, cx, dirY, dualY, stageW, t, p, logP, col, sigma, i, pres, temp);
 
       // === Bridge coupling node χ_p (center) ===
-      // Bridge node circle — smooth glow and breathing that scale with unitarity
+      // Bridge node circle — smooth glow and breathing that scale with the display score
       const breathe = Math.sin(t * 2.5 + i * 1.2);  // subtle oscillation per prime
-      const breatheR = bridgeR + 1.5 * unitarity * breathe; // ±1.5px at full unitarity
+      const breatheR = bridgeR + 1.5 * couplingScore * breathe; // ±1.5px at full visual coupling
       // Pressure scales the bridge glow intensity (higher P → tighter, brighter coupling)
-      const glowPulse = Math.min(0.55, (0.03 + unitarity * (0.12 + 0.08 * breathe)) * pres);
+      const glowPulse = Math.min(0.55, (0.03 + couplingScore * (0.12 + 0.08 * breathe)) * pres);
       // Additive radial bloom — soft real-gradient falloff via cached sprite
       ctx.globalCompositeOperation = 'lighter';
       ctx.globalAlpha = glowPulse;
@@ -313,16 +320,16 @@ export default function HeroSignalFlow() {
 
       ctx.fillStyle = bridgeFill;
       ctx.strokeStyle = bridgeStroke;
-      ctx.lineWidth = 1.2 + 0.6 * unitarity; // thicker stroke when coupled
+      ctx.lineWidth = 1.2 + 0.6 * couplingScore; // thicker stroke when visually coupled
       ctx.beginPath();
       ctx.arc(cx, midY, breatheR, 0, Math.PI * 2);
       ctx.fill();
       ctx.stroke();
 
-      // Loss ring — a red arc that fills around the node as reflection grows.
-      // At σ=½ it vanishes (|χ|=1, lossless); fully off-critical it closes
-      // into a complete ring. Reads as a per-node "energy leak" gauge.
-      const nodeReflection = 1 - unitarity;
+      // Mismatch ring — a red arc that fills as the visual coupling score falls.
+      // At σ=½ it vanishes; at the ends of the display range it closes into a
+      // complete ring. It is an animation gauge, not a computed scattering loss.
+      const nodeReflection = 1 - couplingScore;
       if (nodeReflection > 0.03) {
         ctx.strokeStyle = `rgba(239, 68, 68, ${0.22 + 0.45 * nodeReflection})`;
         ctx.lineWidth = 1.5;
@@ -343,20 +350,20 @@ export default function HeroSignalFlow() {
       ctx.fillText(BRIDGE_LABELS[i], cx, bridgeLabelY);
 
       // === Energy particles flowing through bridge ===
-      drawBridgeEnergy(ctx, cx, dirY + 20, dualY - 20, midY, t, i, p, sigma, unitarity, logP, pres);
+      drawBridgeEnergy(ctx, cx, dirY + 20, dualY - 20, midY, t, i, p, sigma, couplingScore, logP, pres);
     }
 
     // ─── Horizontal coupling bus (connecting all χ_p) ───
-    // Animated dashes propagate left-to-right, speed ∝ unitarity:
-    // at equilibrium the coupling is fully active; off-critical it weakens.
+    // Animated dashes propagate left-to-right, speed ∝ the visual coupling score:
+    // at equilibrium the animation is fully active; off-critical it weakens.
     if (numPrimes > 1) {
       const busX1 = offsetX + stageW / 2;
       const busX2 = offsetX + (numPrimes - 1) * (stageW + gap) + stageW / 2;
       // Pressure scales the horizontal coupling bus brightness/thickness.
-      ctx.strokeStyle = `rgba(16, 185, 129, ${Math.min(0.85, (0.12 + 0.15 * unitarity) * pres)})`;
-      ctx.lineWidth = (0.8 + 0.6 * unitarity) * Math.sqrt(pres);
+      ctx.strokeStyle = `rgba(16, 185, 129, ${Math.min(0.85, (0.12 + 0.15 * couplingScore) * pres)})`;
+      ctx.lineWidth = (0.8 + 0.6 * couplingScore) * Math.sqrt(pres);
       ctx.setLineDash([4, 3]);
-      ctx.lineDashOffset = -(t * 20 * unitarity) % 7;
+      ctx.lineDashOffset = -(t * 20 * couplingScore) % 7;
       ctx.beginPath();
       ctx.moveTo(busX1, midY);
       ctx.lineTo(busX2, midY);
@@ -372,8 +379,8 @@ export default function HeroSignalFlow() {
     ctx.fillText('ξ(s) = ξ(1−s) — distributed coupling at every prime', w / 2, midY + 28);
 
     // ─── Equilibrium indicator (fixed-width box) ───
-    const eqText = sigmaDeviation < 0.02 ? 'EQUILIBRIUM — LOSSLESS' :
-                   sigma < 0.5 ? 'SUB-CRITICAL — ENERGY LEAKS' : 'SUPER-CRITICAL — ENERGY LEAKS';
+    const eqText = sigmaDeviation < 0.02 ? 'EQUILIBRIUM — MAX VISUAL COUPLING' :
+                   sigma < 0.5 ? 'SUB-CRITICAL — VISUAL MISMATCH' : 'SUPER-CRITICAL — VISUAL MISMATCH';
     // Smooth color interpolation: green(16,185,129) → yellow(245,158,11) → red(239,68,68)
     // based on sigmaDeviation as continuous 0 → 0.4 range
     const devNorm = Math.min(sigmaDeviation / 0.4, 1); // 0 at equilibrium, 1 at extremes
@@ -407,10 +414,10 @@ export default function HeroSignalFlow() {
     ctx.textAlign = 'center';
     ctx.fillText(eqText, w / 2, eqBoxY + 15);
 
-    // ─── |χ| value — color matches equilibrium indicator ───
+    // ─── Display-only coupling score — color matches equilibrium indicator ───
     ctx.fillStyle = `rgba(${eqR | 0}, ${eqG | 0}, ${eqB | 0}, 0.6)`;
     ctx.font = '10px "JetBrains Mono", monospace';
-    ctx.fillText(`|χ| = ${unitarity.toFixed(2)}   σ = ${sigma.toFixed(2)}`, w / 2, eqBoxY + 34);
+    ctx.fillText(`visual cσ = ${couplingScore.toFixed(2)}   σ = ${sigma.toFixed(2)}`, w / 2, eqBoxY + 34);
 
     // ─── Signal particles along ladders (horizontal propagation) ───
     drawLadderSignals(ctx, offsetX, totalLadderW, dirY, t, numPrimes, sigma, '#3b82f6', 'direct', temp);
@@ -471,7 +478,7 @@ export default function HeroSignalFlow() {
       <canvas
         ref={canvasRef}
         role="img"
-        aria-label={`Twin ladder signal flow animation: ${PRIMES.length} prime oscillators coupled through bridge nodes. σ = ${sigma.toFixed(2)}, |χ| = ${(Math.max(0, 1 - 2 * Math.abs(sigma - 0.5))).toFixed(2)}, T = ${temperature.toFixed(2)}, P = ${pressure.toFixed(2)}. Double-click to reset σ to equilibrium.`}
+        aria-label={`Twin ladder signal flow animation: ${PRIMES.length} prime oscillators coupled through bridge nodes. σ = ${sigma.toFixed(2)}, visual coupling score = ${visualCouplingScore(sigma).toFixed(2)} (not the modulus of χ(s)), T = ${temperature.toFixed(2)}, P = ${pressure.toFixed(2)}. Double-click to reset σ to equilibrium.`}
         onDoubleClick={() => setSigma(0.5)}
         title="Double-click to reset σ to ½"
         style={{
@@ -601,10 +608,10 @@ function drawLCStage(ctx, x, y, w, prime, color, type, t, sigma, logP) {
 
 // ─── Bridge energy particles (vertical flow between ladders) ─────────────────
 
-function drawBridgeEnergy(ctx, cx, topY, botY, midY, t, stageIdx, prime, sigma, unitarity, logP, pressure = 1) {
-  // At σ=½, energy flows freely BOTH ways (lossless bidirectional coupling).
-  // Away from ½, partial reflection at the bridge node.
-  const transmission = unitarity;
+function drawBridgeEnergy(ctx, cx, topY, botY, midY, t, stageIdx, prime, sigma, couplingScore, logP, pressure = 1) {
+  // At σ=½, the animation sends energy freely in both directions.
+  // Away from ½, the display depicts increasing reflection at the bridge node.
+  const transmission = couplingScore;
   const reflection = 1 - transmission;
 
   // Phase offset per prime so particles don't all move in sync
@@ -861,10 +868,11 @@ function drawLadderSignals(ctx, startX, totalW, y, t, numPrimes, sigma, color, t
 // k = 0, 1, 2, ... with term weight p^{-kσ}. Moving the σ dial is the
 // physical act of reweighting these packets:
 //
-//    σ = ½  → clean geometric decay with ratio p^{-½}, every term contributes
-//    σ > ½  → higher-k packets shrink faster; energy concentrates in k=1
-//    σ < ½  → higher-k packets GROW, risk of divergence (ζ pole at σ→1⁻ for direct,
-//             at σ→0⁺ for dual side); we flag this visually with an instability tint
+// For each fixed prime, the k-series is geometric and converges for every
+// σ > 0. Higher-k packets shrink faster as σ increases. The sum/product over
+// all primes is absolutely convergent only for σ > 1; σ = 1/2 is the
+// functional-equation symmetry line, not a convergence boundary. The tint
+// below visualizes departure from that symmetry line only.
 //
 // The packets orbit the stage center at the prime's natural frequency
 // ω = 2π/log(p) so each prime has its own rhythm. Pressure slightly
@@ -878,29 +886,27 @@ function drawEnergyPackets(ctx, cx, dirY, dualY, stageW, t, prime, logP, color, 
   const omega = 2 * Math.PI / logP;
   const primePhase = stageIdx * 0.618; // golden-ratio phase offset so primes desync
 
-  // Instability tint — when σ is far from ½, the geometric sum ratio p^{-σ}
-  // drifts away from p^{-½} and packets either collapse (σ>½) or blow up (σ<½).
-  // We don't let radii actually diverge; we clamp and redshift the tint instead.
+  // Symmetry-imbalance tint — when σ is far from ½, the geometric weight
+  // p^{-σ} differs from its reflected critical-line value. This is not a
+  // convergence test for the Euler product.
   const sigmaDev = sigma - 0.5;
-  const instability = Math.min(1, Math.abs(sigmaDev) * 2.2); // 0 at ½, 1 at σ≈0.05 or 0.95
-  // For σ<½ the sum diverges toward the ζ pole — paint those packets red-shifted.
-  // For σ>½ the sum converges cleanly — packets just fade, keep the prime color.
-  const divergent = sigmaDev < 0;
+  const imbalance = Math.min(1, Math.abs(sigmaDev) * 2.2); // 0 at ½
+  const lowerSigmaSide = sigmaDev < 0;
 
   // Orbit envelope: packets travel around the stage box along an elliptical
   // trajectory — x wobble is bounded by stage width; y is stacked by k above
   // the direct ladder so higher-k packets appear further from the wire.
   const orbitRx = Math.max(6, stageW * 0.28);
 
-  // Color: prime color at equilibrium, red-shift toward instability if σ<½
-  // so a user dragging σ downward SEES the divergent regime as a warning.
+  // Color: prime color at the symmetry line, red-shift on the lower-σ side
+  // to make the two directions visually distinct. It does not denote divergence.
   // (Constant across k and side — hoisted out of the loops.)
   const [pr, pg, pb] = PRIME_RGB[stageIdx];
   let r = pr, g = pg, b = pb;
-  if (divergent && instability > 0.05) {
-    r = Math.round(pr + (239 - pr) * instability);
-    g = Math.round(pg + (68 - pg) * instability);
-    b = Math.round(pb + (68 - pb) * instability);
+  if (lowerSigmaSide && imbalance > 0.05) {
+    r = Math.round(pr + (239 - pr) * imbalance);
+    g = Math.round(pg + (68 - pg) * imbalance);
+    b = Math.round(pb + (68 - pb) * imbalance);
   }
 
   // Draw direct-side packets (σ), then dual-side packets (1-σ)

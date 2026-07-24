@@ -362,7 +362,8 @@ const SOTA_TIERS = [
     bg: 'rgba(16,185,129,0.08)',
     items: [
       'Rodgers–Tao (2020): Λ ≥ 0 — unconditional.',
-      'Platt–Trudgian (2021): Λ ≤ 0.2 — current SOTA upper bound, unconditional.',
+      'Platt–Trudgian (2021): Λ ≤ 0.2 — peer-reviewed upper-bound benchmark.',
+      'Public 2026 package claim: Λ ≤ 0.1875 — listed and locally repaired, but unrefereed.',
     ],
   },
   {

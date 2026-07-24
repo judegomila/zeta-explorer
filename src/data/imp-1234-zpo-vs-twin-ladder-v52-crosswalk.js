@@ -315,21 +315,23 @@ const CROSSWALK_ENTRIES = Object.freeze([
     zpoLocation: 'src/pages/OscillatorsPage.jsx (Q regime) + src/pages/ModesPage.jsx (mode decay)',
     v52Equivalent:
       'IDENTICAL in spirit, RELATED in literal mathematical content. v52 §17 ' +
-      'shows that an off-critical zero of X manufactures, for every 0 < a < ' +
-      '|Re lambda|, an inverse Blaschke ghost b_alpha = (w - alpha)/(w + alpha) ' +
-      'in the factorisation R_a = R-tilde / B_a^+. Each ghost contributes ' +
+      'locates a candidate denominator zero for every off-critical zero of X ' +
+      'and every 0 < a < |Re lambda|. After common numerator-denominator factors ' +
+      'are cancelled, each residual pole gives an inverse half-plane Blaschke ghost ' +
+      'with b_alpha = (w - alpha)/(w + conjugate(alpha)) in the factorisation ' +
+      'R_a = R-tilde / B_a^+. Each residual ghost contributes ' +
       'exactly ONE rank-one negative square (Krein-Langer negative-index ' +
       'identity). This is the rigorous v52 anchor for the ZPO "amplifying ' +
-      'mode" intuition: a Q>1 (sigma<1/2) oscillator IS a ghost in the ' +
-      'shifted-bridge formalism. The ZPO version is qualitative; v52 §17 ' +
-      'is the rigorous operator-theoretic statement.',
+      'mode" intuition, subject to the explicit fixed-shift cancellation caveat. ' +
+      'The ZPO version is qualitative; the corrected §17 statement is a ' +
+      'residual-pole operator-theoretic accounting.',
     v52Location: PAPER_REF + ', §17 (Blaschke ghosts), §15.5 (Godelian witness)',
     verdict: VERDICTS.RELATED,
     rationale:
       'The ZPO "amplifying mode" and v52 "Blaschke ghost" describe the ' +
       'same physical event (off-critical zero = unstable channel). The ' +
-      'v52 rendering provides the precise operator-theoretic accounting ' +
-      '(one ghost = one negative square); the ZPO rendering is a circuit-' +
+      'corrected rendering provides the precise residual-pole accounting ' +
+      '(one uncancelled ghost = one negative square); the ZPO rendering is a circuit-' +
       'theory analogy without the rank-one quantification.',
   }),
 

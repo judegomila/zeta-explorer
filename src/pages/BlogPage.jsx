@@ -14,6 +14,16 @@ export default function BlogPage() {
           No math degree required. Just curiosity.
         </p>
       </div>
+      <div style={{
+        marginBottom: 24, padding: '14px 16px', borderRadius: 8,
+        color: '#fecaca', background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.35)',
+        lineHeight: 1.7,
+      }}>
+        <strong>Historical proof attempt — withdrawn.</strong> The exact cascade audit gives
+        S₂₁(s) = ζ(2s)/ζ(s), so non-trivial ζ(s) zeros are generically poles rather than
+        Darlington transmission zeros. The circuit picture below is an intuition-building model,
+        not a proof of RH.
+      </div>
 
       {/* ── The Big Question ──────────────────────────────────── */}
       <Section title="The Big Question" color="#3b82f6">
@@ -73,11 +83,9 @@ export default function BlogPage() {
           output signal of the circuit.
         </p>
         <p>
-          This isn't just a metaphor. The math is <em>exactly</em> the same. Each prime's
-          contribution to the zeta function is identical to the transfer function of
-          its LC resonator. The Euler product (the formula that connects primes to
-          zeta) is the <em>cascade</em> of all these resonators — the same calculation
-          an electrical engineer does when designing a filter.
+          The Euler-factor algebra is exact in the half-plane where the Euler product converges,
+          but its interpretation as a passive LC network is a model. Analytic continuation into
+          the critical strip does not automatically preserve a physical cascade realization.
         </p>
       </Section>
 
@@ -87,54 +95,49 @@ export default function BlogPage() {
           In circuit theory, there's a powerful theorem by Sidney Darlington (1939):
         </p>
         <Quote>
-          If an electrical network is <em>lossless</em> — no energy is absorbed,
-          every signal that goes in comes out — then its special frequencies
-          (zeros) must lie on a specific line (the imaginary axis).
+          Darlington synthesis realizes suitable positive-real rational impedances
+          inside a lossless network. Locating transmission zeros requires the full
+          realization and minimum-phase hypotheses; boundary losslessness alone is
+          not a zero-confinement theorem.
         </Quote>
         <p>
-          Translating this to number theory:
-        </p>
-        <ul>
-          <li><strong>Lossless network</strong> = the cascade of prime resonators conserves energy</li>
-          <li><strong>Imaginary axis</strong> = the critical line Re(s) = 1/2</li>
-          <li><strong>Special frequencies</strong> = the zeros of the zeta function</li>
-        </ul>
-        <p>
-          So if we can prove the prime cascade is lossless, Darlington's theorem
-          immediately tells us all the zeros are on the critical line. That's the
-          Riemann Hypothesis.
+          Darlington constrains transmission zeros of a suitably realized lossless network.
+          For this cascade, however, S₂₁(s) = ζ(2s)/ζ(s): zeros of ζ(s) are generically
+          denominator poles, while transmission zeros come from uncancelled zeros of ζ(2s).
+          Proving losslessness alone therefore would not prove RH; a valid pole-confinement
+          or inverse-channel theorem is still missing.
         </p>
       </Section>
 
       {/* ── How We Prove Losslessness ─────────────────────────── */}
-      <Section title="How We Prove Losslessness" color="#06b6d4">
+      <Section title="What the Finite Model Shows — and What It Does Not" color="#06b6d4">
         <p>
-          The proof boils down to two facts:
+          Two useful finite-model observations motivated the original proof attempt:
         </p>
         <ol>
           <li>
-            <strong>Each component is perfect.</strong> Every individual LC resonator
+            <strong>Selected component matrices have determinant one.</strong> Every modeled LC resonator
             has a property called "determinant = 1" — this comes from the simplest
             identity in mathematics: cos<sup>2</sup> + sin<sup>2</sup> = 1. It means
-            each component individually conserves energy.
+            the chosen matrices preserve oriented area. Determinant one alone does not prove
+            scattering unitarity, passivity, causality, or realizability.
           </li>
           <li>
-            <strong>The loss vanishes in the limit.</strong> When you chain together
-            the first N primes, there's a tiny energy leak (the "unitarity deficit").
-            But this leak shrinks as N grows — specifically, it's proportional to
-            1/log(N), which goes to zero. This was proved by Mertens in 1874, long
-            before anyone thought of circuits.
+            <strong>A model deficit has a shrinking bound.</strong> Mertens-type estimates make
+            a selected finite diagnostic tend to zero. The missing step is proving that this
+            diagnostic is the unitarity deficit of a single analytic, physically realizable
+            infinite cascade in the critical strip.
           </li>
         </ol>
         <p>
-          Combining these: each component is perfect, and the accumulated imperfection
-          of the chain vanishes. Therefore the infinite chain is lossless. By Darlington:
-          zeros on the critical line. QED.
+          These observations do not establish a lossless infinite network and, independently,
+          do not identify zeta zeros with its transmission zeros. The old “QED” conclusion is
+          withdrawn.
         </p>
       </Section>
 
       {/* ── What's New ────────────────────────────────────────── */}
-      <Section title="What's New Here?" color="#ec4899">
+      <Section title="What Remains Useful" color="#ec4899">
         <p>
           This approach is new because it translates the Riemann Hypothesis into a
           <strong> completely different language</strong> — circuit theory — where powerful
@@ -142,7 +145,7 @@ export default function BlogPage() {
           been developed for 80+ years but never applied to prime numbers.
         </p>
         <p>
-          The proof uses only results that are individually well-known:
+          The historical route combined several well-known ideas:
         </p>
         <ul>
           <li>cos<sup>2</sup> + sin<sup>2</sup> = 1 (Pythagoras)</li>
@@ -152,7 +155,8 @@ export default function BlogPage() {
           <li>Closed sets contain their limit points (topology)</li>
         </ul>
         <p>
-          The novelty is <em>combining</em> them in a way nobody has before.
+          Their combination remains a useful exploratory dictionary, but the exact zero/pole audit
+          shows that it is not presently a proof chain.
         </p>
       </Section>
 
@@ -224,10 +228,10 @@ export default function BlogPage() {
           it correctly distinguishes between them.
         </p>
         <p>
-          Every step has been audited for circular reasoning — none was found. But the
-          mathematical community has not yet reviewed this work. Until peer review
-          confirms or refutes the argument, it should be treated as a <strong>serious
-          proof attempt</strong>, not a settled result.
+          The current internal audit found a decisive structural defect in the old Darlington
+          conclusion: it attempted to confine zeros of S₂₁ while the relevant zeta zeros are poles
+          of S₂₁ = ζ(2s)/ζ(s). The Darlington route is therefore <strong>withdrawn as a proof</strong>
+          unless a new pole-confinement bridge is supplied.
         </p>
         <p>
           The interactive explorer on this site lets anyone verify each step

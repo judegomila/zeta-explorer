@@ -7,221 +7,107 @@ import PageHeader from '../components/PageHeader.jsx';
 export default function WaveSimPage() {
   return (
     <div className="page">
-      <PageHeader title="Wave & Energy Flow Simulator">
+      <PageHeader title="Wave Simulator — Finite Model">
         <p>
-          Visualize how energy and waves propagate through the prime oscillator ladder network.
-          The key control is <InlineMath tex={"\\sigma = \\operatorname{Re}(s)"} />: at <InlineMath tex={"\\sigma = 0.5"} /> the
-          direct and dual ladders are conjugate-matched, the bridge is lossless, and signals flow through
-          with minimum reflection. Move <InlineMath tex={"\\sigma"} /> away from 0.5 to see energy reflecting off the
-          bridge, waves decohering, and delays becoming asymmetric.
+          Explore a finite oscillator visualization inspired by prime logarithms and the
+          functional equation. The animation is a model diagnostic, not a physical realization
+          of the analytically continued zeta function.
         </p>
       </PageHeader>
 
-      <BlockMath tex={"\\text{Bridge pressure: } P(\\sigma, t) = \\bigl(1 - |\\chi(\\sigma + it)|\\bigr)^2 = 0 \\iff \\sigma = \\tfrac{1}{2}"} />
-
-      <div style={{ marginTop: 8 }}>
-        <BlockMath tex={"\\text{Conjugate match: } Z_{\\text{dir}} = Z_{\\text{dual}}^* \\;\\text{ at } \\sigma = \\tfrac{1}{2} \\quad (\\text{magnitudes equal, phases reflected})"} />
-      </div>
-
-      {/* Wave Physics in the Twin-Ladder Bridge Model */}
-      <div className="card" style={{ marginTop: 32, borderColor: '#06b6d4' }}>
-        <h3 style={{ color: '#06b6d4' }}>Wave Physics in the Twin-Ladder Bridge Model</h3>
-        <ul style={{ marginLeft: 16, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 2.2 }}>
-          <li>
-            Each prime <InlineMath tex="p" /> creates a standing wave with wavelength{' '}
-            <InlineMath tex={"\\lambda_p = \\frac{2\\pi}{\\log p}"} />.
-          </li>
-          <li>
-            The superposition of all prime waves creates the zeta function's behavior:{' '}
-            <InlineMath tex={"\\zeta(s) = \\prod_p \\bigl(1 - p^{-s}\\bigr)^{-1}"} />.
-          </li>
-          <li>
-            At <InlineMath tex={"\\sigma = 1/2"} />, direct and reflected waves are in <strong>perfect balance</strong> (conjugate matching).
-          </li>
-          <li>
-            Off the critical line, one direction dominates (impedance mismatch) — the reflected wave
-            carries energy back toward the source.
-          </li>
-          <li>
-            The transmission zeros (where <InlineMath tex={"\\zeta(s) = 0"} />) are the <strong>destructive interference points</strong> —
-            all prime waves cancel exactly.
-          </li>
-        </ul>
-        <BlockMath tex={"\\zeta\\!\\left(\\tfrac{1}{2} + it\\right) = 0 \\;\\;\\Longleftrightarrow\\;\\; \\sum_p \\frac{\\sin\\bigl(t \\log p\\bigr)}{\\sqrt{p}} \\;\\text{ destructively interferes}"} />
+      <div className="card" style={{ borderLeft: '3px solid #f59e0b' }}>
+        <h3 style={{ color: '#fbbf24', marginTop: 0 }}>Interpretation boundary</h3>
+        <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+          The exact statement is that the standard functional-equation factor satisfies
+          <InlineMath tex="|\chi(\tfrac12+it)|=1" /> for every real <InlineMath tex="t" />.
+          This makes the critical line a global unit-modulus symmetry line. A single point with
+          <InlineMath tex="|\chi(\sigma+it)|=1" /> does not characterize
+          <InlineMath tex="\sigma=\tfrac12" />, and scalar unit modulus does not establish
+          impedance matching, zero reflection, passivity, or a causal two-port realization.
+        </p>
+        <BlockMath tex="\zeta(s)=\chi(s)\zeta(1-s),\qquad |\chi(\tfrac12+it)|=1\quad(t\in\mathbb R)" />
       </div>
 
       <div style={{ marginTop: 32 }}>
         <WaveSimViz />
       </div>
 
-      {/* Phase Velocity and Group Delay */}
-      <div className="card" style={{ marginTop: 32, borderColor: '#10b981' }}>
-        <h3 style={{ color: '#10b981' }}>Phase Velocity and Group Delay</h3>
-        <ul style={{ marginLeft: 16, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 2.2 }}>
+      <div className="card" style={{ marginTop: 32, borderColor: '#06b6d4' }}>
+        <h3 style={{ color: '#06b6d4' }}>What the controls actually compute</h3>
+        <ul style={{ marginLeft: 18, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 2 }}>
           <li>
-            <strong>Phase velocity:</strong>{' '}
-            <InlineMath tex={"v_{\\varphi} = \\frac{\\omega}{k}"} /> where <InlineMath tex={"k = \\log p"} /> for
-            the <InlineMath tex="p" />-th oscillator.
+            Prime labels use the formal frequencies <InlineMath tex="\log p" /> and finite weights
+            such as <InlineMath tex="p^{-k\sigma}" />.
           </li>
           <li>
-            <strong>Group delay:</strong>{' '}
-            <InlineMath tex={"\\tau_g = -\\frac{d\\varphi}{d\\omega}"} /> measures how long a signal spends at each frequency.
+            For each fixed prime, <InlineMath tex="\sum_{k\ge1}p^{-k\sigma}" /> converges when
+            <InlineMath tex="\sigma>0" />. The sum/product over all primes is absolutely convergent
+            only when <InlineMath tex="\sigma>1" />.
           </li>
           <li>
-            At zeros of <InlineMath tex={"\\zeta"} />, the group delay <strong>diverges</strong> — the signal gets "trapped"
-            at the resonant frequency.
+            Direct/dual colors visualize the reflection <InlineMath tex="s\mapsto1-s" />. They do
+            not numerically evaluate two convergent Euler products inside the critical strip.
           </li>
           <li>
-            This connects to <strong>Fisher information</strong>: information about <InlineMath tex={"\\sigma"} /> diverges at zeros,
-            making the critical line maximally detectable.
+            Adding more displayed primes changes a finite truncation. On
+            <InlineMath tex="\sigma=\tfrac12" /> it must not be described as convergence to the raw
+            Euler product.
           </li>
         </ul>
-        <BlockMath tex={"\\tau_g(\\omega) = -\\frac{\\partial}{\\partial \\omega} \\arg H(j\\omega) \\;\\;\\xrightarrow{\\;\\omega \\to \\gamma_n\\;} \\;\\infty"} />
-      </div>
-
-      <div className="card" style={{ marginTop: 32, borderColor: '#8b5cf6' }}>
-        <h3 style={{ color: '#8b5cf6' }}>What This Simulator Shows</h3>
-        <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
-          <strong style={{ color: '#3b82f6' }}>Signal Flow</strong> — animated energy pulses showing transmission vs reflection at the bridge.
-          <strong style={{ color: '#f59e0b' }}> Per-Prime Waves</strong> — individual oscillator waveforms for direct and dual ladders side by side.
-          <strong style={{ color: '#10b981' }}> Wave Interference</strong> — superposition of all prime oscillators showing constructive/destructive patterns.
-          <strong style={{ color: '#06b6d4' }}> Phase & Delay</strong> — group delay per prime, showing symmetric timing at <InlineMath tex={"\\sigma = 0.5"} />.
-          <strong style={{ color: '#ec4899' }}> Component Diagram</strong> — circuit schematics at individual prime, ladder, and full system levels.
-        </p>
+        <BlockMath tex="\prod_p(1-p^{-s})^{-1}=\zeta(s)\quad\text{only as a convergent Euler product for }\operatorname{Re}s>1" />
       </div>
 
       <div className="two-col" style={{ marginTop: 24 }}>
         <div className="card">
-          <h3 style={{ color: '#3b82f6' }}>Impedance Matching & Perfect Transmission</h3>
-          <p style={{ marginBottom: 12 }}>
-            In the oscillator model, each prime <InlineMath tex="p" /> contributes a stage with impedance
-            that depends on <InlineMath tex={"\\sigma"} />. The direct ladder sees <InlineMath tex={"Z_p^{\\text{dir}}(\\sigma)"} /> while the dual
-            ladder sees <InlineMath tex={"Z_p^{\\text{dual}}(\\sigma) = Z_p^{\\text{dir}}(1-\\sigma)"} />.
+          <h3 style={{ color: '#10b981' }}>Phase and delay: model quantities</h3>
+          <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+            The interface can plot phases and derivatives of its finite proxy. In engineering,
+            group delay <InlineMath tex="\tau_g=-d\arg H(i\omega)/d\omega" /> has a physical
+            interpretation only after a causal transfer function and its realization are defined.
+            This project has not proved that the finite proxy extends to such a zeta realization.
           </p>
-          <p style={{ marginBottom: 12 }}>
-            At <InlineMath tex={"\\sigma = 1/2"} />, the functional equation symmetry
-            forces <InlineMath tex={"Z^{\\text{dir}} = (Z^{\\text{dual}})^*"} /> (conjugate match):
-            magnitudes match but phases are reflected. Combined with the bridge
-            losslessness (<InlineMath tex={"|\\chi| = 1"} />), energy flows through without net loss:
-          </p>
-          <BlockMath tex={"|Z^{\\text{dir}}| = |Z^{\\text{dual}}|, \\quad |\\chi(\\tfrac{1}{2}+it)| = 1 \\;\\;\\forall\\, t"} />
-          <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.7 }}>
-            This is the wave-propagation interpretation of RH: if all zeros sit on <InlineMath tex={"\\sigma = 1/2"} />,
-            the network transmits every frequency without loss. Move <InlineMath tex={"\\sigma"} /> off 1/2 in the Signal Flow
-            tab to watch energy reflect back from the bridge.
+          <p style={{ color: '#fca5a5', fontSize: 13, lineHeight: 1.7 }}>
+            In particular, neither divergent group delay nor divergent Fisher information at zeta
+            zeros has been established by the twin-ladder construction.
           </p>
         </div>
+
         <div className="card">
-          <h3 style={{ color: '#f59e0b' }}>What to Look For</h3>
-          <ul style={{ marginLeft: 16, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 2 }}>
-            <li>
-              <strong style={{ color: '#10b981' }}>At <InlineMath tex={"\\sigma = 0.5"} />:</strong> direct and dual waveforms are mirror
-              images, interference is constructive, group delays are symmetric across primes, and
-              the bridge transmits 100%.
-            </li>
-            <li>
-              <strong style={{ color: '#ef4444' }}>Away from 0.5:</strong> waveforms diverge in amplitude (one
-              ladder gains energy, the other loses it), interference becomes irregular, group delays
-              split apart, and reflected energy appears.
-            </li>
-            <li>
-              <strong style={{ color: '#06b6d4' }}>Near a zero</strong> (<InlineMath tex={"t \\approx \\gamma_n"} />): the oscillator modes
-              resonate — wave amplitudes peak, the scattering matrix exhibits phase jumps of <InlineMath tex={"\\pi"} />,
-              and the Per-Prime tab reveals which harmonics dominate.
-            </li>
-            <li>
-              <strong style={{ color: '#8b5cf6' }}>More primes:</strong> adding oscillators sharpens the resonance
-              peaks near zeros and makes the interference pattern converge toward the analytic
-              Euler product.
-            </li>
-          </ul>
+          <h3 style={{ color: '#8b5cf6' }}>Scattering: unresolved realization</h3>
+          <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+            A conjugate-match or maximum-power-transfer claim needs defined impedances with
+            positivity, causality, and port normalization. The identity
+            <InlineMath tex="|\chi|=1" /> on the line supplies none of those by itself.
+            For the algebraic cascade used elsewhere in the app,
+            <InlineMath tex="S_{21}(s)=\zeta(2s)/\zeta(s)" />, so generic nontrivial zeta zeros
+            are poles rather than transmission zeros.
+          </p>
         </div>
       </div>
 
-      {/* Worked Example: First Zeta Zero */}
       <div className="card" style={{ marginTop: 32, borderLeft: '3px solid #a855f7' }}>
-        <h3 style={{ color: '#a855f7', fontSize: 14, marginBottom: 12 }}>
-          Worked Example: Destructive Interference at <InlineMath tex={"\\gamma_1 \\approx 14.134"} />
+        <h3 style={{ color: '#c4b5fd', marginTop: 0 }}>
+          First zero: what may and may not be inferred
         </h3>
-        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
-          At the first zeta zero <InlineMath tex={"t = \\gamma_1 \\approx 14.134"} />, the oscillator
-          phases from each prime conspire to cancel. Each prime <InlineMath tex="p" /> contributes a
-          phasor <InlineMath tex={"p^{-1/2} e^{-i \\gamma_1 \\log p}"} /> to the Euler product. Here are the
-          individual phases (in degrees) for the first few primes:
+        <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.8 }}>
+          The analytic continuation satisfies
+          <InlineMath tex="\zeta(\tfrac12+i\gamma_1)=0" /> at
+          <InlineMath tex="\gamma_1\approx14.134725" />. Finite prime phasors can be displayed at
+          that height, but their vector sum is not the zeta value and the divergent product
+          <InlineMath tex="\prod_p(1-p^{-1/2-i\gamma_1})^{-1}" /> must not be set equal to zero.
+          Any prime-side reconstruction on the critical line requires an explicit summation or
+          regularization theorem.
         </p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 8, marginBottom: 16 }}>
-          {[
-            { p: 2, phase: -9.795, deg: '-561.2°' },
-            { p: 3, phase: -15.525, deg: '-889.5°' },
-            { p: 5, phase: -22.741, deg: '-1302.8°' },
-            { p: 7, phase: -27.506, deg: '-1575.6°' },
-            { p: 11, phase: -33.880, deg: '-1941.0°' },
-          ].map(({ p, deg }) => (
-            <div key={p} style={{ padding: '8px', background: '#0a0e1a', borderRadius: 6, textAlign: 'center', border: '1px solid #1e293b' }}>
-              <div style={{ color: '#06b6d4', fontSize: 14, fontWeight: 700 }}>p = {p}</div>
-              <div style={{ color: '#94a3b8', fontSize: 11, marginTop: 4 }}>
-                phase: {deg}
-              </div>
-              <div style={{ color: '#64748b', fontSize: 10, marginTop: 2 }}>
-                amp: {(1/Math.sqrt(p)).toFixed(3)}
-              </div>
-            </div>
-          ))}
-        </div>
-        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 8 }}>
-          Each phasor points in a different direction, and at <InlineMath tex={"t = \\gamma_1"} /> they
-          are distributed around the complex plane so that their vector sum cancels. This is the
-          "destructive interference" condition: no single prime dominates — instead, the cumulative
-          product of all <InlineMath tex="(1 - p^{-s})^{-1}" /> factors reaches zero magnitude.
-        </p>
-        <BlockMath tex={"\\prod_{p} \\frac{1}{1 - p^{-1/2 - i\\gamma_1}} = 0 \\quad \\Longleftrightarrow \\quad \\text{phasors cancel in the Euler product}"} />
-        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginTop: 8 }}>
-          Use the <strong style={{ color: '#f59e0b' }}>Per-Prime Waves</strong> tab with{' '}
-          <InlineMath tex={"t \\approx 14.13"} /> to see this cancellation visually. Each row shows
-          a prime's direct and dual waveforms; the{' '}
-          <strong style={{ color: '#10b981' }}>Wave Interference</strong> tab then shows the
-          superposition plunging toward zero at this frequency.
-        </p>
+        <BlockMath tex="\zeta(\tfrac12+i\gamma_1)=0\qquad\not\Longrightarrow\qquad \prod_p(1-p^{-1/2-i\gamma_1})^{-1}=0" />
       </div>
 
-      {/* Impedance Matching */}
-      <div className="card" style={{ marginTop: 32, borderColor: '#f59e0b' }}>
-        <h3 style={{ color: '#f59e0b' }}>Impedance Matching</h3>
-        <ul style={{ marginLeft: 16, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 2.2 }}>
-          <li>
-            <strong>Characteristic impedance:</strong>{' '}
-            <InlineMath tex={"Z_0 = \\sqrt{L/C}"} /> for each prime oscillator stage,
-            where <InlineMath tex="L" /> and <InlineMath tex="C" /> encode the prime's contribution to the Euler product.
-          </li>
-          <li>
-            At <InlineMath tex={"\\sigma = 1/2"} />: impedances of the direct and dual ladders are <strong>complex conjugates</strong>,{' '}
-            <InlineMath tex={"Z_{\\text{dir}} = Z_{\\text{dual}}^*"} />.
-          </li>
-          <li>
-            The <strong>maximum power transfer theorem</strong> applies: all energy passes through the bridge
-            with zero reflection, analogous to perfect transmission line termination.
-          </li>
-          <li>
-            This is the engineering interpretation of the functional equation symmetry{' '}
-            <InlineMath tex={"\\xi(s) = \\xi(1 - s)"} />.
-          </li>
-        </ul>
-        <BlockMath tex={"\\Gamma = \\frac{Z_{\\text{dir}} - Z_{\\text{dual}}^*}{Z_{\\text{dir}} + Z_{\\text{dual}}^*} = 0 \\;\\;\\text{ at } \\sigma = \\tfrac{1}{2} \\quad \\Longrightarrow \\quad |T|^2 = 1 \\;\\text{ (perfect transmission)}"} />
-      </div>
-
-      {/* Related Pages */}
       <div className="card" style={{ marginTop: 24, background: 'rgba(59,130,246,0.04)' }}>
-        <h3 style={{ color: '#64748b', fontSize: 13, marginBottom: 10 }}>Related Pages</h3>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-          <Link to="/oscillators" style={{ color: '#3b82f6', fontSize: 13 }}>Prime Oscillators (per-stage view)</Link>
-          <span style={{ color: '#334155' }}>|</span>
-          <Link to="/fourier" style={{ color: '#8b5cf6', fontSize: 13 }}>Fourier (frequency response)</Link>
-          <span style={{ color: '#334155' }}>|</span>
-          <Link to="/control" style={{ color: '#ef4444', fontSize: 13 }}>Control Theory (scattering matrix)</Link>
-          <span style={{ color: '#334155' }}>|</span>
-          <Link to="/gap-closing" style={{ color: '#f97316', fontSize: 13 }}>Gap Closing (Darlington S7)</Link>
-          <span style={{ color: '#334155' }}>|</span>
-          <Link to="/twistor" style={{ color: '#ec4899', fontSize: 13 }}>Twistor (duality view)</Link>
+        <h3 style={{ color: '#94a3b8', fontSize: 13, marginBottom: 10 }}>Continue the audited path</h3>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+          <Link to="/paper">Model vs. theorem boundary</Link>
+          <Link to="/control">Corrected control-theory audit</Link>
+          <Link to="/proof-overview">Evidence-graded proof overview</Link>
+          <Link to="/closure-routes">Open closure routes</Link>
         </div>
       </div>
     </div>

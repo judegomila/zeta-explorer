@@ -1,10 +1,11 @@
 /**
  * @module data/headline-numbers-registry
- * @fileoverview imp-2739 single-source registry for the project headline
- * numbers, each carrying an EXPLICIT honest status + scope label, plus a
- * build-time cross-file consistency tripwire.
+ * @fileoverview imp-2739 registry for legacy internal numerical quantities,
+ * each carrying an explicit honest status + scope label, plus a build-time
+ * cross-file consistency tripwire. Audit correction 2026-07: none of the four
+ * legacy values below is an established Lambda upper bound.
  *
- * The four headline constants (0.121, 0.2014, 3.06e-5, 7.98e-4) are duplicated
+ * The four legacy constants (0.121, 0.2014, 3.06e-5, 7.98e-4) are duplicated
  * across 20+ files with no source-of-truth. An inconsistent edit can silently
  * drift one copy from its honest scope label (e.g. dropping the C_H gating
  * caveat from the 0.121 finite-height beat). This module is the canonical
@@ -13,12 +14,19 @@
  * in that source file. If a source drops its caveat while keeping the number,
  * the build fails.
  *
- * Honest-scope summary (do NOT promote any of these to a bare rigorous claim):
- *   - 0.121   finite-height beat, ESTIMATE gated on the symbolic constant C_H
- *             (undischargeable per imp-2640); scope N in [100, 1e4].
- *   - 0.2014  worst-case K over [100, 1e4], interval-RK4 certified (imp-933).
- *   - 3.06e-5 asymptotic UNCONDITIONAL modulo Polymath15 G6a (imp-1261).
- *   - 7.98e-4 HISTORICAL imp-1147 intercept, CONDITIONAL on the linear-1/N model.
+ * Honest-scope summary (do NOT promote any of these to a Lambda theorem):
+ *   - 0.121   withdrawn finite-height assembly estimate; RH-equivalent/open
+ *             bridge obligations remain.
+ *   - 0.2014  an internal finite-K coefficient bound over [100, 1e4], not
+ *             itself a Lambda bound.
+ *   - 3.06e-5 retracted asymptotic composition; the July audit found multiple
+ *             open gates and an uncertified truncation constant.
+ *   - 7.98e-4 historical imp-1147 intercept, conditional on a superseded
+ *             linear-1/N model.
+ *
+ * Current context: the peer-reviewed unconditional benchmark remains 0.2.
+ * The public 0.1875 package and local 0.1787854 package are review claims /
+ * candidates, not entries in this legacy arithmetic registry.
  *
  * This module is intentionally NOT imported by any page (it uses node:fs which
  * is unavailable in the browser bundle). The assertion runner
@@ -40,26 +48,29 @@ export const HEADLINE_NUMBERS = {
   finiteBeatEstimate: {
     value: 0.121,
     valueLiteral: '0.121',
-    status: 'ESTIMATE-gated-on-C_H',
-    scope: 'N in [100, 1e4]',
-    canonicalSource: 'sota-lambda-claim.js',
-    qualifierKeyword: 'C_H',
+    status: 'WITHDRAWN-conditional-assembly-estimate',
+    scope: 'historical finite-height assembly; not an established Lambda bound',
+    canonicalSource: 'lambda-roadmap.js',
+    qualifierKeyword: 'historical',
+    countsAsEstablishedUpperBound: false,
   },
   kBound: {
     value: 0.2014,
     valueLiteral: '0.2014',
-    status: 'INTERVAL-RK4-CERTIFIED-worst-case-K',
-    scope: 'N in [100, 1e4]',
+    status: 'INTERNAL-finite-K-coefficient-bound',
+    scope: 'internal coefficient K on N in [100, 1e4]; not Lambda',
     canonicalSource: 'finite-k-c-mb-unconditional.js',
     qualifierKeyword: 'interval',
+    countsAsEstablishedUpperBound: false,
   },
   asymptoticConditional: {
     value: 3.06e-5,
     valueLiteral: '3.06e-5',
-    status: 'ASYMPTOTIC-unconditional-modulo-Polymath15-G6a',
-    scope: 'asymptotic (N -> infinity)',
+    status: 'RETRACTED-overclaim-conditional-on-open-gates',
+    scope: 'superseded asymptotic composition; not a rigorous Lambda bound',
     canonicalSource: 'lambda-roadmap.js',
-    qualifierKeyword: 'modulo',
+    qualifierKeyword: 'retracted',
+    countsAsEstablishedUpperBound: false,
   },
   intercept7e4: {
     value: 7.98e-4,
@@ -67,9 +78,19 @@ export const HEADLINE_NUMBERS = {
     status: 'CONDITIONAL-historical-imp1147-linear-1overN-model',
     scope: 'intercept under the linear-1/N OLS model (superseded)',
     canonicalSource: 'asymptotic-lambda-bound-2026-05-20.js',
-    qualifierKeyword: 'conditional',
+    qualifierKeyword: 'historical',
+    countsAsEstablishedUpperBound: false,
   },
 };
+
+export const CURRENT_LAMBDA_STATUS = Object.freeze({
+  peerReviewedUpperBound: 0.2,
+  peerReviewedUpperBoundStatus: 'established-unconditional-benchmark',
+  publicUnrefereedClaim: 0.1875,
+  publicUnrefereedClaimStatus: 'review-open-not-accepted',
+  localCandidate: 0.1787854,
+  localCandidateStatus: 'unpublished-review-candidate',
+});
 
 const DATA_DIR = __dirname;
 
@@ -98,6 +119,11 @@ export const HEADLINE_NUMBERS_ASSERTIONS = Object.entries(HEADLINE_NUMBERS).flat
         typeof h.scope === 'string' && h.scope.length > 0,
     },
     {
+      id: 'headline-' + key + '-not-an-established-upper-bound',
+      why: key + ' is a legacy/internal quantity and must not be graded as an established Lambda bound',
+      holds: () => h.countsAsEstablishedUpperBound === false,
+    },
+    {
       // (c1) the literal still appears in its declared canonical source file.
       id: 'headline-' + key + '-literal-in-canonical-source',
       why: h.valueLiteral + ' must appear in canonical source ' + h.canonicalSource,
@@ -107,20 +133,65 @@ export const HEADLINE_NUMBERS_ASSERTIONS = Object.entries(HEADLINE_NUMBERS).flat
       },
     },
     {
-      // (c2) cross-file consistency: the canonical source must still carry the
-      // honest-caveat keyword, so the number cannot drift from its scope label.
+      // (c2) cross-file consistency: at least one occurrence of the canonical
+      // literal must carry the honest-caveat keyword in its local context.
       id: 'headline-' + key + '-honest-qualifier-in-canonical-source',
       why:
         h.canonicalSource + ' must still contain the honest qualifier "' +
-        h.qualifierKeyword + '" near the ' + h.valueLiteral + ' headline (status: ' +
-        h.status + ')',
+        h.qualifierKeyword + '" within 600 characters of a ' + h.valueLiteral +
+        ' occurrence (status: ' + h.status + ')',
       holds: () => {
         const src = readSource(h.canonicalSource);
         if (src === null) return false;
-        return src.toLowerCase().includes(h.qualifierKeyword.toLowerCase());
+        const lower = src.toLowerCase();
+        const literal = h.valueLiteral.toLowerCase();
+        const qualifier = h.qualifierKeyword.toLowerCase();
+        let at = lower.indexOf(literal);
+        while (at >= 0) {
+          const lo = Math.max(0, at - 600);
+          const hi = Math.min(lower.length, at + literal.length + 600);
+          if (lower.slice(lo, hi).includes(qualifier)) return true;
+          at = lower.indexOf(literal, at + literal.length);
+        }
+        return false;
       },
     },
   ]
+);
+
+HEADLINE_NUMBERS_ASSERTIONS.push(
+  {
+    id: 'headline-current-peer-reviewed-upper-bound-is-pt-0p2',
+    why: 'The current peer-reviewed unconditional Lambda upper-bound benchmark must remain 0.2',
+    holds: () =>
+      CURRENT_LAMBDA_STATUS.peerReviewedUpperBound === 0.2 &&
+      CURRENT_LAMBDA_STATUS.peerReviewedUpperBoundStatus ===
+        'established-unconditional-benchmark',
+  },
+  {
+    id: 'headline-review-claims-not-promoted',
+    why: 'The 0.1875 public package and 0.1787854 local package must remain explicitly review-open',
+    holds: () =>
+      CURRENT_LAMBDA_STATUS.publicUnrefereedClaimStatus === 'review-open-not-accepted' &&
+      CURRENT_LAMBDA_STATUS.localCandidateStatus === 'unpublished-review-candidate',
+  },
+  {
+    id: 'headline-heavy-cross-validation-row-remains-withdrawn',
+    why:
+      'The heavyweight legacy cross-validation row must stay source-graded as ' +
+      'withdrawn even when its full zero-corpus assertion module is skipped in bounded PR CI',
+    holds: () => {
+      const src = readSource('lambda-cross-validation.js');
+      return (
+        src !== null &&
+        src.includes("label: 'WITHDRAWN historical Lambda = 0 composition") &&
+        src.includes("boundKind: 'withdrawn-historical-claim'") &&
+        src.includes("verificationLevel: 'withdrawn'") &&
+        src.includes('countsAsProof: false') &&
+        src.includes('countsAsLambdaResult: false')
+      );
+    },
+  },
 );
 
 // Fail the build immediately on any violation (mirrors sibling tripwire modules).

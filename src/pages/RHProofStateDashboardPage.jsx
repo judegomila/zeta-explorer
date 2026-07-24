@@ -192,9 +192,16 @@ export default function RHProofStateDashboardPage() {
       }}>
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
           <div>
-            <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>RIGOROUS SOTA</div>
+            <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>PEER-REVIEWED BENCHMARK</div>
             <div style={{ fontSize: 20, fontWeight: 700, color: '#10b981', fontFamily: 'var(--font-mono)' }}>&#923; &le; 0.2</div>
             <div style={{ fontSize: 11, color: '#94a3b8' }}>Platt&#8211;Trudgian 2021 &#8212; unconditional</div>
+          </div>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+          <div>
+            <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>PUBLIC PREPRINT CLAIM</div>
+            <div style={{ fontSize: 20, fontWeight: 700, color: '#38bdf8', fontFamily: 'var(--font-mono)' }}>&#923; &le; 0.1875</div>
+            <div style={{ fontSize: 11, color: '#94a3b8' }}>Listed; locally repaired; unrefereed</div>
           </div>
         </div>
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
@@ -263,9 +270,9 @@ export default function RHProofStateDashboardPage() {
           path="B"
           title="Darlington Synthesis"
           status="conditional"
-          statusLabel="BLOCKED ON PCC"
-          description="Uses classical network synthesis theory: transmission zeros of lossless reciprocal networks lie on the imaginary axis. The Twin-Ladder Bridge network should be lossless at σ=1/2, but requires Montgomery PCC at 2-point to guarantee the cascade converges."
-          progress={25}
+          statusLabel="ZERO/POLE MISMATCH"
+          description="Classical network synthesis constrains transmission zeros. For the exact cascade S₂₁(s)=ζ(2s)/ζ(s), non-trivial zeta zeros are generic poles, so losslessness and convergence would still not supply RH without a new pole-confinement bridge."
+          progress={15}
           blockedBy={['S4', 'S7']}
           links={[{ label: 'Attack Strategies', to: '/rh-attack' }]}
         />
@@ -341,11 +348,16 @@ export default function RHProofStateDashboardPage() {
       {/* E(N) Breakdown and Constants */}
       <Section title="E(N) / Lambda-Bound Status at N* = 10⁴" borderColor="#38bdf8">
         {/* Two-level headline: rigorous SOTA vs numerical estimate */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: 16, marginBottom: 16 }}>
           <div style={{ padding: 12, background: 'rgba(16,185,129,0.08)', borderRadius: 8, border: '1px solid rgba(16,185,129,0.3)' }}>
-            <div style={{ fontSize: 11, color: '#64748b', marginBottom: 4, fontFamily: 'var(--font-mono)' }}>RIGOROUS SOTA</div>
+            <div style={{ fontSize: 11, color: '#64748b', marginBottom: 4, fontFamily: 'var(--font-mono)' }}>PEER-REVIEWED BENCHMARK</div>
             <div style={{ fontSize: 20, fontWeight: 700, color: '#10b981', fontFamily: 'var(--font-mono)' }}>Λ ≤ 0.2</div>
             <div style={{ fontSize: 12, color: '#94a3b8', marginTop: 4 }}>Platt–Trudgian 2021 — unconditional</div>
+          </div>
+          <div style={{ padding: 12, background: 'rgba(56,189,248,0.08)', borderRadius: 8, border: '1px solid rgba(56,189,248,0.3)' }}>
+            <div style={{ fontSize: 11, color: '#64748b', marginBottom: 4, fontFamily: 'var(--font-mono)' }}>PUBLIC PREPRINT CLAIM</div>
+            <div style={{ fontSize: 20, fontWeight: 700, color: '#38bdf8', fontFamily: 'var(--font-mono)' }}>Λ ≤ 0.1875</div>
+            <div style={{ fontSize: 12, color: '#94a3b8', marginTop: 4 }}>Listed; locally repaired; unrefereed</div>
           </div>
           <div style={{ padding: 12, background: 'rgba(245,158,11,0.08)', borderRadius: 8, border: '1px solid rgba(245,158,11,0.3)' }}>
             <div style={{ fontSize: 11, color: '#64748b', marginBottom: 4, fontFamily: 'var(--font-mono)' }}>NUMERICAL ONLY (rigor gated)</div>
@@ -406,7 +418,8 @@ export default function RHProofStateDashboardPage() {
             <em>vestigial / read as EXACTLY ZERO above T_PT</em> only after the non-finite argument-
             principle tail lemma (imp-35653 Part D, work-item W3) is discharged. Platt&ndash;Trudgian
             verified-to-T_PT N_off(T_PT)=0 is the necessary floor this stands on, <strong>not</strong>{' '}
-            a substitute for that semi-infinite-tail lemma. No bound is asserted here; PT Λ≤0.2 remains SOTA.
+            a substitute for that semi-infinite-tail lemma. No bound is asserted here; PT Λ≤0.2 remains
+            the peer-reviewed benchmark.
           </div>
 
           {/* imp-35690: imp-35653 S_barrier porting work-list W1..W4 status table */}
@@ -451,7 +464,7 @@ export default function RHProofStateDashboardPage() {
             note misattributed this base to repo <strong>imp-341</strong>, but canonical imp-341 is the
             Close G5_burgers Koksma&ndash;Hlawka result (S7 uniformity of the finite-N empirical Stieltjes
             transform) &mdash; a different thread with no bearing on off-line zero verification to T_PT.
-            No bound is asserted here; PT Λ≤0.2 remains SOTA.
+            No bound is asserted here; PT Λ≤0.2 remains the peer-reviewed benchmark.
           </div>
 
           {/* imp-35749: imp-35711 PROMINENT-level post-port parity-no-beat honest-status banner */}
@@ -512,8 +525,9 @@ export default function RHProofStateDashboardPage() {
               <strong style={{ color: '#e2e8f0' }}>
                 {(0.2 / (IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE.recomputed.E_coll_rigorous + IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_flow.value + 3.1e-5)).toFixed(0)}×
               </strong>{' '}
-              below Platt–Trudgian 0.2 — not yet rigorous (C_H + E-T bridge constant pending). Rigorous SOTA unchanged:{' '}
-              <strong style={{ color: '#10b981' }}>Λ ≤ 0.2</strong>.
+              below Platt–Trudgian 0.2 — not yet rigorous (C_H + E-T bridge constant pending).
+              Peer-reviewed benchmark: <strong style={{ color: '#10b981' }}>Λ ≤ 0.2</strong>;
+              public unrefereed package claim: <strong style={{ color: '#38bdf8' }}>Λ ≤ 0.1875</strong>.
             </div>
           </div>
         </div>
@@ -582,7 +596,8 @@ export default function RHProofStateDashboardPage() {
       <Section title="Corrections Log: claims since corrected" borderColor="#ef4444">
         <p style={{ color: '#94a3b8', fontSize: 13, marginBottom: 16, lineHeight: 1.6 }}>
           Internal record of claims that overreached the evidence during development and have since
-          been corrected. Rigorous SOTA unchanged: <strong style={{ color: '#10b981' }}>Λ ≤ 0.2 (Platt–Trudgian 2021)</strong>.
+          been corrected. Peer-reviewed benchmark: <strong style={{ color: '#10b981' }}>Λ ≤ 0.2 (Platt–Trudgian 2021)</strong>;
+          strongest located public preprint claim: <strong style={{ color: '#38bdf8' }}>Λ ≤ 0.1875</strong>.
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 24 }}>
           {CAUGHT_OVERCLAIMS.map((oc) => (
@@ -614,9 +629,14 @@ export default function RHProofStateDashboardPage() {
         <h3 style={{ color: '#e2e8f0', fontSize: 14, marginBottom: 10, fontFamily: 'var(--font-mono)' }}>Honest Gap-Map</h3>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12 }}>
           <div style={{ padding: 12, borderRadius: 8, background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.28)' }}>
-            <div style={{ fontSize: 10, color: '#10b981', fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: 6 }}>RIGOROUS SOTA</div>
+            <div style={{ fontSize: 10, color: '#10b981', fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: 6 }}>PEER-REVIEWED BENCHMARK</div>
             <div style={{ fontSize: 18, fontWeight: 700, color: '#10b981', fontFamily: 'var(--font-mono)', marginBottom: 6 }}>Λ ≤ 0.2</div>
-            <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.5 }}>{MAXFANOUT_STATUS.rigorousSOTA}</div>
+            <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.5 }}>Platt–Trudgian 2021; {MAXFANOUT_STATUS.rigorousSOTA}</div>
+          </div>
+          <div style={{ padding: 12, borderRadius: 8, background: 'rgba(56,189,248,0.08)', border: '1px solid rgba(56,189,248,0.28)' }}>
+            <div style={{ fontSize: 10, color: '#38bdf8', fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: 6 }}>PUBLIC, UNREFEREED PACKAGE</div>
+            <div style={{ fontSize: 18, fontWeight: 700, color: '#38bdf8', fontFamily: 'var(--font-mono)', marginBottom: 6 }}>Λ ≤ 0.1875</div>
+            <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.5 }}>Optimization Problems ledger entry; omitted finite tile repaired locally; not peer review.</div>
           </div>
           <div style={{ padding: 12, borderRadius: 8, background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.28)' }}>
             <div style={{ fontSize: 10, color: '#f59e0b', fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: 6 }}>NUMERICAL ESTIMATE — NOT RIGOROUS</div>
@@ -657,9 +677,9 @@ export default function RHProofStateDashboardPage() {
             </Link>
           </div>
           <div style={{ padding: 12, background: 'rgba(15,23,42,0.5)', borderRadius: 8 }}>
-            <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 4 }}>CURRENT PAPER</div>
+            <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 4 }}>HISTORIC PAPER ROADMAP</div>
             <Link to="/papers" style={{ color: '#38bdf8', fontSize: 13, textDecoration: 'none' }}>
-              v52 Paper Details →
+              Historic v52 Paper Details →
             </Link>
           </div>
           <div style={{ padding: 12, background: 'rgba(15,23,42,0.5)', borderRadius: 8 }}>

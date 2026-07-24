@@ -26,8 +26,9 @@
  *
  * Scope is NOT the same thing as compatibility
  * --------------------------------------------
- * The estimates do not all apply to the same object. Path C and the
- * capstone are upper bounds derived from ~2500 zeros at T_0 ≈ 3000.
+ * The records do not all apply to the same object. Path C and the former
+ * capstone are withdrawn finite-particle proxies derived from ~2500 zeros
+ * at T_0 ≈ 3000, not upper bounds on Lambda.
  * The analytical kernel-hack number is an asymptotic GUE-spacing
  * estimate evaluated at T ≈ 10^{12} (Platt scale). The CSV lower bound
  * from our in-repo 870-zero list is informative but dominated
@@ -438,8 +439,8 @@ const BARRIER_OLS_V2 = BARRIER_EXTRAPOLATION_V2.barrierOls;
 const BARRIER_V2_INTERCEPT_A = BARRIER_OLS_V2 ? BARRIER_OLS_V2.intercept_a : null;
 const BARRIER_V2_SE_A = BARRIER_OLS_V2 ? BARRIER_OLS_V2.seA : null;
 
-// SOTA_LAMBDA_CLAIM asymptotic result (imp-387): Lambda = 0 asymptotically
-const ASYMPTOTIC_LAMBDA_0 = SOTA_LAMBDA_CLAIM.asymptoticResult;
+// Historical imp-387 Lambda=0 row, withdrawn by the 2026-07 audit.
+const WITHDRAWN_ASYMPTOTIC_LAMBDA_0 = SOTA_LAMBDA_CLAIM.asymptoticResult;
 
 // The baseline 5-point Path C fit (imp-323, imp-331, imp-333, imp-334)
 // is the common N-regime that the finite-N numerical estimates share:
@@ -693,22 +694,26 @@ const CONSOLIDATED_ROWS = [
   },
   {
     methodId: 'asymptotic-lambda-zero',
-    label: 'Asymptotic Lambda = 0 (imp-387 G6 closure + imp-341 lim-sup)',
-    metric: 'Lambda',
+    label: 'WITHDRAWN historical Lambda = 0 composition (imp-387/imp-341)',
+    metric: 'historical-claim',
     value: 0,
     errorBar: 0,
-    boundKind: 'asymptotic-equality',
+    boundKind: 'withdrawn-historical-claim',
     N: Infinity,
-    regime: 'asymptotic',
-    verificationLevel: 'rigorous',
+    regime: 'historical',
+    verificationLevel: 'withdrawn',
+    countsAsProof: false,
+    countsAsLambdaResult: false,
     sourceFile: 'src/data/sota-lambda-claim.js (SOTA_LAMBDA_CLAIM.asymptoticResult)',
     ticketId: 'imp-387',
     citation:
-      'imp-387 G6_polymath15_bridge closure; imp-341 Koksma-Hlawka lim-sup = 0; ' +
-      'imp-397/398/399 pin C_T, C_F, C_C; Rodgers-Tao Lambda >= 0',
-    notes: ASYMPTOTIC_LAMBDA_0
-      ? ASYMPTOTIC_LAMBDA_0.claim
-      : 'Lambda = 0 asymptotically — rigorous-asymptotic via Route B chain.',
+      'Historical imp-387/imp-341 composition; withdrawn by the 2026-07 audit',
+    notes:
+      SOTA_LAMBDA_CLAIM.auditCorrection.note + ' Open gates: ' +
+      SOTA_LAMBDA_CLAIM.auditCorrection.openGates.join('; ') + '. ' +
+      (WITHDRAWN_ASYMPTOTIC_LAMBDA_0
+        ? WITHDRAWN_ASYMPTOTIC_LAMBDA_0.claim
+        : 'Withdrawn historical claim; no Lambda bound or RH result.'),
   },
 ];
 
@@ -784,8 +789,9 @@ export const LAMBDA_CROSS_VALIDATION_TABLE = {
     'honest, pooled naive, quadratic, analytic conditional UB, Burgers ' +
     'lim-sup, Platt-Trudgian) are joined by 3 post-imp-387 rows: the ' +
     'PATH_C_BASELINE_FIT_V2 measured OLS (imp-400), the barrier-v2 OLS ' +
-    'cross-check (imp-404), and the asymptotic Lambda = 0 rigorous result ' +
-    '(imp-387). All finite-N numerical rows sit within 0.01 of each other. ' +
+    'cross-check (imp-404), and the withdrawn historical Lambda = 0 row ' +
+    '(imp-387). The last row is retained for provenance and is not a proof or ' +
+    'Lambda result. All finite-N numerical rows sit within 0.01 of each other. ' +
     'One disagreement (D1, OLS vs WLS) remains at the strict interval-overlap ' +
     'level; it does not trip the build.',
 };
@@ -793,6 +799,25 @@ export const LAMBDA_CROSS_VALIDATION_TABLE = {
 // ── Build-time assertions (at least four, per imp-374 ticket) ───────────
 
 export const LAMBDA_CROSS_VALIDATION_TABLE_ASSERTIONS = [
+  {
+    id: 'imp406-asymptotic-row-remains-withdrawn',
+    holds: () => {
+      const row = CONSOLIDATED_ROWS.find(
+        (r) => r.methodId === 'asymptotic-lambda-zero',
+      );
+      return (
+        row != null &&
+        row.boundKind === 'withdrawn-historical-claim' &&
+        row.verificationLevel === 'withdrawn' &&
+        row.countsAsProof === false &&
+        row.countsAsLambdaResult === false &&
+        /Open gates:/.test(row.notes)
+      );
+    },
+    why:
+      'The historical imp-387 row must never re-enter the cross-validation ' +
+      'table as a rigorous Lambda=0 result.',
+  },
   {
     id: 'imp374-A-finite-N-rows-agree-within-epsilon',
     holds: () => {
@@ -916,8 +941,9 @@ export const LAMBDA_CROSS_VALIDATION_TABLE_ASSERTIONS = [
     holds: () => CONSOLIDATED_ROWS.length === 13,
     why:
       'imp-374 shipped 10 rows; imp-406 adds 3 post-imp-387 rows ' +
-      '(PATH_C_BASELINE_FIT_V2 measured OLS, barrier-v2 OLS, asymptotic ' +
-      'Lambda = 0), bringing the total to 13. A row count drift means ' +
+      '(PATH_C_BASELINE_FIT_V2 measured OLS, barrier-v2 OLS, and the now-' +
+      'withdrawn historical Lambda = 0 composition), bringing the total to 13. ' +
+      'A row count drift means ' +
       'either a new method was added without updating this check, or an ' +
       'existing row was silently removed.',
   },

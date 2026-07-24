@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "snapshotId": "imp-514-n10k-2026-04-12",
+  "sourceCommit": "d4785029007ef13cda366063089260b71f157391",
+  "sourceCacheSha256": "eb22119b8bfbf509bae4101d6a43aec3c06d8f8309bdd9cecca5c02fc198d213",
+  "generatedAt": "2026-04-12T23:08:03.604Z",
+  "zerosProvenance": "Odlyzko zeta tables (zeros6 dataset)",
+  "method": "Float64 full N-body backward-Dyson RK4 with adaptive gap-safe step cap",
+  "certification": "numerical measurement only; not an interval certificate and not a Lambda bound",
+  "row": {
+    "N": 10000,
+    "source": "measured-float64-rk4",
+    "t_c": 0.00017772,
+    "reason": "gap-nonpositive",
+    "dt": 0.00001776471033634661,
+    "nSteps": 300,
+    "stepsRun": 37,
+    "wallTimeMs": 26621,
+    "olsProjection": 0.00714,
+    "initialMinGap": 0.0376985
+  }
+}

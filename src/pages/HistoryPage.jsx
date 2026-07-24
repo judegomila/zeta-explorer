@@ -1204,7 +1204,7 @@ export default function HistoryPage() {
             math={"N(\\sigma, T) \\ll T^{A(\\sigma)(1-\\sigma)+\\varepsilon}, \\quad A(\\sigma) \\text{ improved over Ingham (1940)}"}
             explanation="Zero density estimates bound how many zeros can exist with Re(ρ) = σ ≠ ½. The classical Ingham bound (1940) gives N(σ,T) ≪ T^{3(1-σ)/(2-σ)}. Guth and Maynard improved the exponent using new techniques from decoupling and harmonic analysis. Fewer off-line zeros means better estimates for primes in short intervals."
             whyItMatters="This is the most significant recent progress toward RH. While it doesn't prove RH, it tightens the constraints on where zeros can be, making a counterexample to RH harder to construct."
-            zpoConnection="In the network model, zero density bounds constrain how many 'transmission zeros' can exist away from the critical line. Tighter bounds = the Darlington condition is closer to being satisfied."
+            zpoConnection="In the network analogy, zero-density bounds constrain how many zeta resonances may lie away from the critical line. For the displayed S₂₁ = ζ(2s)/ζ(s), those zeros are generic poles, so this does not measure completion of a Darlington transmission-zero condition."
           />
         </div>
       </div>

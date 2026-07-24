@@ -16,13 +16,14 @@ function MertensProofSection() {
   return (
     <div className="card" style={{ marginTop: 8, marginBottom: 24, borderLeft: '3px solid #10b981' }}>
       <h3 style={{ color: '#10b981', fontSize: 16, marginBottom: 16 }}>
-        S7 Analytical Proof: Mertens-Based Unitarity Convergence
+        S7 Model Estimate: Mertens-Based Deficit Convergence
       </h3>
 
       <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 16 }}>
-        We prove that the Darlington unitarity deficit <InlineMath tex="\delta(P)" /> converges to zero
-        as <InlineMath tex="P \to \infty" /> using Mertens' theorems. This is the core analytical
-        result needed to close Gap S7.
+        This section studies a model Darlington unitarity deficit
+        <InlineMath tex="\delta(P)" /> and a Mertens-based upper bound that tends to zero as
+        <InlineMath tex="P \to \infty" />. Even if that model estimate is accepted, it does not
+        close Gap S7: realizability and the cascade&apos;s zero-versus-pole mismatch remain.
       </p>
 
       <BlockMath tex="\delta(P) \leq \frac{4}{\gamma_1^2 \log^2 P} + \frac{1}{\log P} + \frac{2}{\sqrt{P}\log P} + \frac{1}{P} \;\xrightarrow{P\to\infty}\; 0" />
@@ -411,12 +412,12 @@ export default function GapClosingPage() {
             <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 4 }}>Total Gaps Identified</div>
           </div>
           <div style={{ textAlign: 'center', padding: 12, background: 'rgba(0,0,0,0.2)', borderRadius: 8 }}>
-            <div style={{ fontSize: 28, fontWeight: 700, color: '#10b981' }}>1</div>
-            <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 4 }}>Resolved (S4)</div>
+            <div style={{ fontSize: 28, fontWeight: 700, color: '#10b981' }}>0</div>
+            <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 4 }}>Fully Resolved</div>
           </div>
           <div style={{ textAlign: 'center', padding: 12, background: 'rgba(0,0,0,0.2)', borderRadius: 8 }}>
-            <div style={{ fontSize: 28, fontWeight: 700, color: '#f97316' }}>1</div>
-            <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 4 }}>Partially Addressed (S7)</div>
+            <div style={{ fontSize: 28, fontWeight: 700, color: '#f97316' }}>2</div>
+            <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 4 }}>Partially Addressed (S4, S7)</div>
           </div>
           <div style={{ textAlign: 'center', padding: 12, background: 'rgba(0,0,0,0.2)', borderRadius: 8 }}>
             <div style={{ fontSize: 28, fontWeight: 700, color: '#ef4444' }}>1</div>
@@ -430,8 +431,8 @@ export default function GapClosingPage() {
             Composite Proof Progress
           </div>
           {[
-            { label: 'S4: Analytic Continuation', pct: 90, color: '#10b981', note: 'Largely closed via eta regularization' },
-            { label: 'S7: Darlington Synthesis', pct: 60, color: '#f97316', note: 'Numerically compelling; infinite-product limit open' },
+            { label: 'S4: Analytic Continuation', pct: 50, color: '#10b981', note: 'Zeta continuation is exact; network realization is not established' },
+            { label: 'S7: Darlington Synthesis', pct: 25, color: '#f97316', note: 'Structural zero/pole mismatch plus realizability remain open' },
             { label: 'S5: Hilbert-Polya Operator', pct: 15, color: '#ef4444', note: 'Deep open problem; no rigorous spectral proof' },
           ].map(({ label, pct, color, note }) => (
             <div key={label} style={{ marginBottom: 10 }}>
@@ -451,7 +452,9 @@ export default function GapClosingPage() {
           <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(16,185,129,0.12)', border: '1px solid rgba(16,185,129,0.3)' }}>
             <div style={{ fontSize: 12, fontWeight: 600, color: '#10b981' }}>S4: Analytic Continuation</div>
             <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 2 }}>
-              Resolved via eta regularization. The relation <InlineMath tex={"\\zeta(s) = \\eta(s)/(1-2^{1-s})"} /> extends into the critical strip.
+              The eta relation <InlineMath tex={"\\zeta(s)=\\eta(s)/(1-2^{1-s})"} /> continues
+              zeta into the strip, but does not automatically continue the prime cascade as a
+              physical lossless network.
             </div>
           </div>
           <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(239,68,68,0.12)', border: '1px solid rgba(239,68,68,0.3)' }}>
@@ -463,7 +466,8 @@ export default function GapClosingPage() {
           <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(249,115,22,0.12)', border: '1px solid rgba(249,115,22,0.3)' }}>
             <div style={{ fontSize: 12, fontWeight: 600, color: '#f97316' }}>S7: Darlington Synthesis</div>
             <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 2 }}>
-              Numerically promising (unitarity error <InlineMath tex={"< 10^{-6}"} />). Exact losslessness for infinite products remains open.
+              Finite-model unitarity is suggestive, but the infinite realization and a theorem
+              controlling the poles of <InlineMath tex={"S_{21}=\\zeta(2s)/\\zeta(s)"} /> remain open.
             </div>
           </div>
         </div>
@@ -475,8 +479,9 @@ export default function GapClosingPage() {
         <div className="card" style={{ borderLeft: '3px solid #f59e0b' }}>
           <h3 style={{ color: '#f59e0b', fontSize: 14 }}>Gap S4: Analytic Continuation</h3>
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8 }}>
-            The Euler product diverges for {'\u03C3'} {'\u2264'} 1. The regularized eta relation
-            <InlineMath tex={"\\zeta(s) = \\eta(s)/(1-2^{1-s})"} /> extends the cascade into the critical strip.
+            The Euler product diverges for {'\u03C3'} {'\u2264'} 1. The eta relation
+            <InlineMath tex={"\\zeta(s)=\\eta(s)/(1-2^{1-s})"} /> extends zeta into the critical
+            strip, but identifying that continuation with a realizable cascade is an additional step.
           </p>
           <BlockMath tex={"\\eta(s) = \\sum_{n=1}^{\\infty} \\frac{(-1)^{n-1}}{n^s}"} />
         </div>
@@ -499,7 +504,7 @@ export default function GapClosingPage() {
             The twin-ladder must satisfy exact unitarity:
             <InlineMath tex={"|S_{11}|^2 + |S_{21}|^2 = 1"} /> on the critical line.
           </p>
-          <BlockMath tex={"S^\\dagger S = I \\implies \\text{zeros on } \\sigma = \\tfrac{1}{2}"} />
+          <BlockMath tex={"S^\\dagger S=I \\;\\not\\Longrightarrow\\; \\text{confinement of the poles of } S_{21}"} />
         </div>
       </div>
 
@@ -618,7 +623,8 @@ export default function GapClosingPage() {
           <BlockMath tex={"S(s) = \\begin{pmatrix} S_{11}(s) & S_{12}(s) \\\\ S_{21}(s) & S_{22}(s) \\end{pmatrix}"} />
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginTop: 4, marginBottom: 8 }}>
             where <InlineMath tex={"S_{11}"} /> is the reflection coefficient (related to <InlineMath tex={"\\zeta(s)/\\zeta(1-s)"} />)
-            and <InlineMath tex={"S_{21}"} /> is the transmission coefficient (related to <InlineMath tex={"1/\\zeta(s)"} />).
+            and the displayed cascade transmission ratio is
+            <InlineMath tex={"S_{21}(s)=\\zeta(2s)/\\zeta(s)"} />.
           </p>
 
           <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 8 }}>
@@ -634,22 +640,22 @@ export default function GapClosingPage() {
           </p>
 
           <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 8 }}>
-            <strong style={{ color: '#e2e8f0' }}>Step 3 — Transmission zeros.</strong> A zero of <InlineMath tex={"\\zeta(s)"} />
-            corresponds to a transmission zero: <InlineMath tex={"S_{21}(s_0) = 0"} />. By unitarity:
+            <strong style={{ color: '#e2e8f0' }}>Step 3 — Zero/pole audit.</strong> For this ratio,
+            a non-trivial zero <InlineMath tex={"\\zeta(s_0)=0"} /> is generically a pole, not a
+            transmission zero. Transmission zeros instead come from uncancelled numerator zeros:
           </p>
-          <BlockMath tex={"S_{21}(s_0) = 0 \\implies |S_{11}(s_0)|^2 = 1 \\implies s_0 \\text{ lies on } \\sigma = \\tfrac{1}{2}"} />
+          <BlockMath tex={"\\zeta(s_0)=0,\\ \\zeta(2s_0)\\ne0 \\Rightarrow S_{21}\\text{ has a pole at }s_0,\\qquad \\zeta(2u)=0,\\ \\zeta(u)\\ne0 \\Rightarrow S_{21}(u)=0"} />
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginTop: 4, marginBottom: 8 }}>
-            <strong style={{ color: '#e2e8f0' }}>Reasoning:</strong> If the network is exactly lossless, then at a
-            transmission zero all energy is reflected (<InlineMath tex={"|S_{11}| = 1"} />). For a rational
-            lossless network, transmission zeros must lie on the imaginary axis of the Darlington
-            variable, which corresponds to <InlineMath tex={"\\sigma = \\frac{1}{2}"} /> in the s-plane.
+            Common numerator/denominator zeros must be treated by multiplicity. Classical
+            transmission-zero confinement therefore does not locate the zeta zeros in the
+            denominator; a separate pole-confinement or reciprocal-transfer theorem would be needed.
           </p>
 
           <p style={{ color: '#f97316', fontSize: 13, lineHeight: 1.8, marginTop: 8, fontWeight: 600 }}>
-            The gap: The Euler product gives a cascade of Darlington sections (one per prime), and each
-            finite truncation is exactly lossless. But the <InlineMath tex={"P \\to \\infty"} /> limit
-            requires careful analysis — does exact unitarity survive the infinite product? The
-            numerical unitarity error <InlineMath tex={"< 10^{-6}"} /> is encouraging but not a proof.
+            The gap has two independent parts: justify a realizable lossless infinite-network limit,
+            and repair the structural mismatch between the transmission zeros Darlington addresses
+            and the poles that encode non-trivial zeta zeros. Small finite-model unitarity error does
+            not settle either part.
           </p>
         </div>
 
@@ -780,11 +786,11 @@ export default function GapClosingPage() {
           </h4>
           <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 8 }}>
             The Twin-Ladder Bridge scattering matrix provides a concrete realization of the Weil distribution. The
-            Darlington unitarity condition <InlineMath tex={"S^\\dagger S = I"} /> on
-            <InlineMath tex={"\\sigma = \\frac{1}{2}"} /> is equivalent to a "power conservation"
-            identity that, when decomposed spectrally, yields exactly the Weil positivity:
+            Darlington unitarity condition <InlineMath tex={"S^\\dagger S=I"} /> on
+            <InlineMath tex={"\\sigma=\\frac{1}{2}"} /> suggests a power-conservation analogy with
+            Weil positivity. An equality between these forms has not been proved:
           </p>
-          <BlockMath tex={"\\|S_{21} f\\|^2 + \\|S_{11} f\\|^2 = \\|f\\|^2 \\iff W_S(f, f) \\geq 0"} />
+          <BlockMath tex={"\\|S_{21}f\\|^2+\\|S_{11}f\\|^2=\\|f\\|^2 \\quad\\stackrel{?}{\\Longleftrightarrow}\\quad W_S(f,f)\\geq0"} />
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginTop: 4, marginBottom: 8 }}>
             This suggests the three paths (Hilbert-Polya, Darlington, and Weil) are not independent
             but are different facets of the same underlying structure — the self-adjointness of the
@@ -933,17 +939,20 @@ export default function GapClosingPage() {
       <div className="card" style={{ marginTop: 24, borderColor: '#8b5cf6' }}>
         <h3 style={{ color: '#8b5cf6', fontSize: 14 }}>What Closing These Gaps Would Mean</h3>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
-          <strong>S4 (Closed):</strong> The regularized Euler product extends the cascade analogy into the critical strip,
-          removing the convergence objection. The eta relation provides a rigorous bridge.
-          <strong style={{ color: '#10b981' }}> Status: Largely resolved via eta regularization.</strong>
+          <strong>S4 (Partial):</strong> The eta relation rigorously continues zeta into the critical
+          strip, but it does not by itself realize the continued function as the same lossless prime
+          cascade.
+          <strong style={{ color: '#f59e0b' }}> Status: Function continuation closed; network identification open.</strong>
         </p>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
           <strong>S5 (Open):</strong> Constructing the Hilbert-Polya operator would immediately prove RH via self-adjointness {'\u2192'} real eigenvalues {'\u2192'} zeros on the critical line. The Twin-Ladder Bridge matrix provides a candidate but needs rigorous spectral analysis.
           <strong style={{ color: '#ef4444' }}> Status: Deep open problem.</strong>
         </p>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
-          <strong>S7 (Open):</strong> Proving exact Darlington conditions would prove RH via classical network synthesis. The numerical evidence is compelling (unitarity error &lt; 10{'\u207B\u2076'}) but exact losslessness for infinite networks is unproven.
-          <strong style={{ color: '#f97316' }}> Status: Promising but requires new techniques.</strong>
+          <strong>S7 (Open):</strong> Exact infinite-network losslessness is unproved, and even exact
+          losslessness would confine transmission zeros rather than the poles of
+          <InlineMath tex={"S_{21}=\\zeta(2s)/\\zeta(s)"} /> that encode zeta zeros.
+          <strong style={{ color: '#f97316' }}> Status: structurally blocked pending a valid pole-confinement bridge.</strong>
         </p>
       </div>
 
@@ -992,8 +1001,9 @@ export default function GapClosingPage() {
           Advanced S7 Closure Paths (Wave 5)
         </h3>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 16 }}>
-          Five independent mathematical frameworks for proving the Darlington infinite closure axiom.
-          Each provides a self-contained path from finite cascades to the infinite limit.
+          Five candidate mathematical frameworks for studying an infinite-network closure axiom.
+          None currently supplies a complete finite-to-infinite realization or repairs the
+          zero-versus-pole mismatch.
         </p>
 
         {[
@@ -1044,11 +1054,10 @@ export default function GapClosingPage() {
             Combined Status
           </p>
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.6 }}>
-            5 independent paths target the Darlington axiom (S7). The Szeg&#337; path provides an
-            algebraic proof (det = 1 for all N), while Kato-Rellich and Weyl law provide analytic
-            convergence. Marchenko gives inverse scattering closure, and de Branges gives Hilbert space
-            closure. If <em>any one</em> of these 5 paths is made fully rigorous, S7 is resolved and
-            RH follows from the remaining 6 proven steps.
+            These five paths are research prompts, not five completed proofs. Finite determinant one
+            does not imply unitary convergence, and the named analytic frameworks require hypotheses
+            not established for this cascade. Even a successful closure argument would still need a
+            theorem connecting the relevant cascade poles to RH.
           </p>
         </div>
       </div>

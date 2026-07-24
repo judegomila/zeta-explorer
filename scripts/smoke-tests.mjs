@@ -43,7 +43,8 @@ async function main() {
       root:    ROOT,
       logLevel: 'error',
       appType:  'custom',
-      server:   { middlewareMode: true },
+      server:   { middlewareMode: true, hmr: false, ws: false },
+      optimizeDeps: { noDiscovery: true },
     });
   } catch (e) {
     console.error('FATAL: could not create Vite server:', e.message);

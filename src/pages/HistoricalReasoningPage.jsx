@@ -13,7 +13,9 @@ const reasoningEntries = [
     epoch: 1,
     title: 'The Central Problem Is Finite → Infinite Convergence',
     category: 'meta-strategy',
-    status: 'active',
+    status: 'superseded',
+    auditNote:
+      'Superseded by the later realization audit. Finite-to-infinite convergence is not the sole shared gap: the physical LC proxy and algebraic Euler embedding are different objects, and the exact algebraic ratio encodes zeta zeros as denominator poles.',
     content: `Both the Twin-Ladder Bridge framework and Connes' latest work (Zeta Spectral Triples, Nov 2025; Letter to Riemann, Feb 2026) face the SAME core challenge: proving that properties verified for finitely many primes persist in the infinite limit.
 
 **Twin-Ladder Bridge version:** For N primes, the scattering matrix satisfies S_N†S_N ≈ I with deficit O(p_N^{-1}). We need lim_{N→∞} S_N†S_N = I (exact unitarity).
@@ -35,7 +37,9 @@ const reasoningEntries = [
     epoch: 1,
     title: 'Connes\' Rank-One Perturbation ↔ Twin-Ladder Bridge Bridge Coupling',
     category: 'novel-connection',
-    status: 'active',
+    status: 'superseded',
+    auditNote:
+      'No theorem identifies the scalar bridge factor with Connes rank-one perturbations, or Carathéodory-Fejér positivity with Darlington losslessness. The dictionary below is a historical analogy, not an equivalence.',
     content: `In the Zeta Spectral Triples paper (arXiv:2511.22755), Connes constructs self-adjoint operators via rank-one perturbations of a scaling operator. In Twin-Ladder Bridge language:
 
 - The scaling operator = the direct ladder (free evolution of prime oscillators)
@@ -64,7 +68,9 @@ This is remarkable: Connes' rank-one perturbation is exactly what we call the "b
     epoch: 1,
     title: 'Why 5 Primes Encode 50 Zeros — The Small-Prime Dominance',
     category: 'key-observation',
-    status: 'active',
+    status: 'speculative',
+    auditNote:
+      'The small-prime numerical observation does not prove tail dominance for the proposed scattering object. In particular, the raw Euler tail is not absolutely convergent in the critical strip.',
     content: `Connes showed that using only primes {2, 3, 5, 7, 11}, the Weil quadratic form's extremization yields approximations to the first 50 zeros with accuracy ranging from 2.6 × 10^{-55} to 10^{-3}.
 
 In Twin-Ladder Bridge terms, this means the first 5 stages of the ladder chain carry essentially ALL the information about zero locations. Why?
@@ -90,8 +96,12 @@ In Twin-Ladder Bridge terms, this means the first 5 stages of the ladder chain c
     epoch: 1,
     title: 'Darlington ↔ Carathéodory-Fejér: The Dictionary',
     category: 'novel-connection',
-    status: 'active',
-    content: `Two theorems that may be equivalent in the context of zeta zeros:
+    status: 'superseded',
+    auditNote:
+      'The “equivalently” clauses below were too broad. Boundary-unitary reciprocal two-ports can have off-axis all-pass transmission zeros, and finite Toeplitz positivity is not by itself the full Weil criterion.',
+    content: `Historical note: the direct Darlington-to-RH identification below was superseded by the exact cascade calculation S_21(s) = zeta(2s)/zeta(s). Non-trivial zeta zeros are generic poles of that ratio, not its transmission zeros. The remaining dictionary is heuristic and is retained to show how the research route evolved.
+
+Two theorems that were conjectured to be equivalent in the context of zeta zeros:
 
 **Darlington's theorem (1939):** A rational positive-real impedance function Z(s) can be realized as the input impedance of a lossless 2-port terminated in a resistance. Equivalently: a lossless network's transmission zeros lie on the jω axis.
 
@@ -102,7 +112,7 @@ In Twin-Ladder Bridge terms, this means the first 5 stages of the ladder chain c
 - Dual ladder impedance Z_dual(s) = ζ(1-s)
 - Bridge: χ(s) = ξ(1-s)/ξ(s), with |χ(½+it)| = 1
 
-Darlington says: if the twin-ladder is lossless, transmission zeros (= zeta zeros) are on σ = ½.
+The superseded step identified transmission zeros with zeta zeros; the exact cascade identity refutes that identification.
 C-F says: if the associated Toeplitz matrix is PSD, the spectral triple is self-adjoint with real eigenvalues (= zeta zeros on critical line).
 
 **Both reduce to:** Proving a positivity condition on a function derived from the Euler product. This is exactly Weil positivity: W[f] ≥ 0 for all test functions f.
@@ -129,7 +139,9 @@ If ANY of these can be proven, all follow. The Twin-Ladder Bridge framework sugg
     epoch: 1,
     title: 'The Monotone Convergence Strategy',
     category: 'proof-strategy',
-    status: 'active',
+    status: 'speculative',
+    auditNote:
+      'This is a model contraction conjecture, not a proved monotonicity law. Its prime product would give logarithmic-scale decay rather than geometric decay in N, and boundary unitarity still would not repair the cascade zero/pole mismatch.',
     content: `**Core idea:** If we define a sequence of "positivity measures" P_N indexed by the number of primes N, and show:
 1. P_1 ≥ 0 (trivially true for a single oscillator)
 2. P_{N+1} ≥ P_N (adding a prime preserves positivity)
@@ -164,7 +176,9 @@ for some constant c > 0. This gives geometric convergence: the deficit after N p
     epoch: 1,
     title: 'Guth-Maynard Zero-Density ↔ Twin-Ladder Bridge Sub-Ladder Statistics',
     category: 'novel-connection',
-    status: 'active',
+    status: 'speculative',
+    auditNote:
+      'Dirichlet-polynomial bounds are rigorous arithmetic results, but identifying those polynomials with a physical S-matrix is additional model structure. No such translation currently closes S7.',
     content: `Guth and Maynard (2024) proved new large value estimates for Dirichlet polynomials, breaking an 84-year-old record. Their key innovation: combining harmonic analysis with multiplicative structure.
 
 **Twin-Ladder Bridge translation:** A Dirichlet polynomial D(s) = Σ_{n≤N} a_n n^{-s} is the transfer function of a FINITE sub-ladder. Large values of |D(s)| correspond to resonances of the sub-ladder.
@@ -196,7 +210,9 @@ In Twin-Ladder Bridge terms:
     epoch: 1,
     title: 'The Hilbert-Pólya Problem: Three Candidate Operators Compared',
     category: 'gap-analysis',
-    status: 'active',
+    status: 'superseded',
+    auditNote:
+      'The candidate constructions do not reduce to one convergence problem. Domain/self-adjointness, resolvent convergence, and identification of the complete zeta divisor remain separate load-bearing interfaces.',
     content: `Three candidate operators now exist for the Hilbert-Pólya conjecture. Comparing them reveals the essential difficulty:
 
 **Candidate 1: Berry-Keating H = xp (1999)**
@@ -232,31 +248,25 @@ In Twin-Ladder Bridge terms:
     id: 'R008',
     date: '2026-03-06',
     epoch: 1,
-    title: 'The Davenport-Heilbronn Warning: Why Euler Product Is Essential',
+    title: 'The Davenport-Heilbronn Warning: Functional Equation Alone Is Insufficient',
     category: 'key-observation',
-    status: 'active',
-    content: `The Davenport-Heilbronn function satisfies the functional equation but LACKS an Euler product — and it has zeros OFF the critical line. This is the crucial negative example that tells us WHERE the proof must use the multiplicative structure.
+    status: 'confirmed',
+    auditNote:
+      'Confirmed only in the narrow sense that functional-equation symmetry alone is insufficient. The example does not prove that every RH proof must explicitly use an Euler product, nor does it validate a Darlington realization.',
+    content: `The Davenport-Heilbronn example satisfies a zeta-like functional equation but lacks an Euler product and has zeros off the critical line. It is therefore a clean warning about what functional-equation symmetry cannot establish.
 
-**What the D-H example teaches:**
-1. The functional equation ALONE (ξ(s) = ξ(1-s)) does NOT force zeros onto σ = ½
-2. The bridge unitarity |χ(½+it)| = 1 is NECESSARY but NOT SUFFICIENT
-3. The Euler product (= factorization into prime oscillators) is the essential additional ingredient
+**What the example does establish:**
+1. A functional equation by itself does not force zeros onto σ = ½.
+2. The boundary identity |χ(½+it)| = 1 is likewise insufficient.
+3. Any proposed reduction using only those shared properties needs an additional hypothesis that excludes Davenport-Heilbronn-type counterexamples.
 
-**Twin-Ladder Bridge interpretation:** In a twin-ladder without Euler product structure, the bridge can be unitary but the ladder itself is not constructed from independent oscillator stages. Without independence, you can't do Darlington synthesis (which requires realizability as a cascade of 2-ports). The D-H function is a "non-physical" network — it satisfies the port conditions but has no internal structure to decompose.
+**What it does not establish:** It does not prove that every possible RH proof must explicitly invoke the Euler product, nor does it provide a passive network realization. The Euler product is a distinctive and potentially essential source of arithmetic structure, but a Twin-Ladder argument must still prove that its physical cascade represents the exact analytic object and that the relevant zeta divisor is preserved.
 
-**Proof constraint:** Any valid proof of RH MUST at some point use the prime factorization. Arguments based solely on:
-- Functional equation ✗
-- Bridge unitarity alone ✗
-- Growth bounds alone ✗
-- Analytic properties alone ✗
-
-...will fail because D-H provides a counterexample. The proof must use that ζ(s) = ∏_p (1-p^{-s})^{-1}.
-
-**This validates the Twin-Ladder Bridge approach:** The ladder chain IS the Euler product. Every step of the Twin-Ladder Bridge construction uses the prime factorization. The Darlington synthesis argument uses the cascade structure (independent stages). This is precisely the ingredient that D-H lacks and that makes RH true for ζ but false for D-H.`,
+**Current model lesson:** Prime-factor structure remains a legitimate ingredient to explore. It is not, by itself, a Darlington synthesis theorem or a proof that boundary losslessness confines zeta zeros.`,
     implications: [
-      'Any proof attempt that doesn\'t use the Euler product is guaranteed to fail (D-H counterexample)',
-      'The Twin-Ladder Bridge cascade structure is not optional decoration — it\'s the mathematical core',
-      'Gap S7 (Darlington) explicitly requires cascade realizability, which is exactly the right condition',
+      'Functional-equation symmetry alone is insufficient to imply RH',
+      'Critical-line boundary modulus alone is also insufficient',
+      'Euler-product structure is a relevant discriminator, but realization and divisor preservation remain open',
     ],
     relatedGaps: ['S7'],
     references: [],
@@ -268,6 +278,8 @@ In Twin-Ladder Bridge terms:
     title: 'Information-Theoretic Attack: Channel Capacity at Critical Line',
     category: 'proof-strategy',
     status: 'speculative',
+    auditNote:
+      'No communication channel, rate, or finite total capacity has been constructed. The raw prime product and capacity sum used below do not converge on the critical line.',
     content: `The six measures in the spectral attack all minimize at σ = ½. But can we turn this observation into a proof?
 
 **Proposed argument (speculative):**
@@ -299,7 +311,9 @@ In Twin-Ladder Bridge terms:
     epoch: 1,
     title: 'Prolate Wave Operators ↔ Twin Ladder Normal Modes',
     category: 'novel-connection',
-    status: 'active',
+    status: 'speculative',
+    auditNote:
+      'The prolate/Sonin and twin-ladder identifications below are analogies. No unitary equivalence or theorem turns Sonin-space stability into scattering losslessness for the app cascade.',
     content: `Connes-Consani-Moscovici (2024, arXiv:2310.18423) introduced prolate wave operators in their semilocal trace formula. The prolate operator's positive spectrum gives the spectral realization of low-lying zeta zeros, while the negative spectrum (Sonin space) governs UV behavior.
 
 **Twin-Ladder Bridge translation:**
@@ -329,8 +343,10 @@ This means Connes' prolate wave operator IS a harmonic oscillator on the space o
     epoch: 1,
     title: 'de Bruijn-Newman Λ = 0: What It Means for ZPO',
     category: 'key-observation',
-    status: 'active',
-    content: `Rodgers-Tao proved Λ ≥ 0 (2020). The best upper bound is Λ ≤ 0.2 (Platt-Trudgian 2020). RH ⟺ Λ = 0.
+    status: 'superseded',
+    auditNote:
+      'The de Bruijn-Newman heat parameter is not an S-matrix unitarity deficit. Improving an upper bound on Lambda does not mean proving the proposed circuit unitary to higher precision.',
+    content: `Rodgers-Tao proved Λ ≥ 0 (2020). The peer-reviewed upper-bound benchmark is Λ ≤ 0.2 (Platt-Trudgian 2021). RH ⟺ Λ = 0.
 
 **Physical meaning in ZPO:** The de Bruijn-Newman constant measures how much "heat" (backward diffusion) you can apply to ξ(s) before zeros fall off the critical line. Λ = 0 means the system is at the KNIFE-EDGE — any perturbation away from the Euler product structure would dislodge zeros.
 
@@ -362,7 +378,9 @@ The fact that Λ = 0 (not Λ < 0 or Λ > 0) means the prime oscillator cascade i
     epoch: 1,
     title: 'Why the Proof Should Go Through Darlington, Not Hilbert-Pólya',
     category: 'meta-strategy',
-    status: 'active',
+    status: 'superseded',
+    auditNote:
+      'Withdrawn strategy. Convergence is not the only missing step, boundary unitarity alone does not confine transmission zeros, and the exact cascade places the relevant zeta zeros in the denominator as poles.',
     content: `After analyzing all five attack paths, the Darlington route (Gap S7) appears more tractable than the Hilbert-Pólya route (Gap S5). Here's why:
 
 **Hilbert-Pólya (S5) requires:**
@@ -437,9 +455,9 @@ export default function HistoricalReasoningPage() {
       <div className="page-header">
         <h1>Historical Reasoning</h1>
         <p>
-          Evolving log of our proof strategy, novel ideas, and mathematical reasoning about the
-          Riemann Hypothesis through the Twin-Ladder Bridge framework. Each entry records a key insight, connection,
-          or strategy decision — building a chain of reasoning that guides our attack.
+          A dated log of how the Twin-Ladder research strategy evolved. Superseded arguments are
+          retained for provenance, not as current claims; the evidence-grade badge and audit note
+          on each entry control how its historical prose should be read.
         </p>
       </div>
 
@@ -449,35 +467,34 @@ export default function HistoricalReasoningPage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16, marginBottom: 16 }}>
           <div style={{ padding: 12, background: 'rgba(239,68,68,0.05)', borderRadius: 8, border: '1px solid rgba(239,68,68,0.15)' }}>
             <div style={{ fontSize: 11, fontWeight: 700, color: '#f87171', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 6 }}>
-              Primary Target
+              Current Load-Bearing Target
             </div>
             <div style={{ fontSize: 13, color: '#e2e8f0', lineHeight: 1.7 }}>
-              <strong>Gap S7 (Darlington Convergence):</strong> Prove that{' '}
-              <InlineMath tex={"\\|S_N^\\dagger S_N - I\\| \\to 0"} /> as{' '}
-              <InlineMath tex={"N \\to \\infty"} />. Numerical evidence: deficit{' '}
-              <InlineMath tex={"\\sim O(p_N^{-1})"} />, six orders of magnitude better than worst-case bounds.
+              <strong>All-shifts bridge positivity:</strong>{' '}
+              <InlineMath tex={"K_a\\succeq0\\ \\forall a>0"} /> is an RH-equivalent target,
+              not a completed reduction below RH. The separate 0.1787854 fixed-height candidate
+              also retains eight theorem-level review interfaces.
             </div>
           </div>
           <div style={{ padding: 12, background: 'rgba(139,92,246,0.05)', borderRadius: 8, border: '1px solid rgba(139,92,246,0.15)' }}>
             <div style={{ fontSize: 11, fontWeight: 700, color: '#a78bfa', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 6 }}>
-              Key Insight (March 2026)
+              July 2026 Realization Audit
             </div>
             <div style={{ fontSize: 13, color: '#e2e8f0', lineHeight: 1.7 }}>
-              <strong>Twin-Ladder Bridge Bridge = Connes' Rank-One Perturbation.</strong> The bridge{' '}
-              <InlineMath tex={"\\chi(s)"} /> coupling direct and dual ladders is exactly
-              Connes' rank-one perturbation of the scaling operator. Self-adjointness is
-              proven for finite truncations via Carathéodory-Fejér.
+              <strong>The physical and algebraic cascades are different.</strong> The exact
+              algebraic ratio is <InlineMath tex={"S_{21}^{(A)}=\\zeta(2s)/\\zeta(s)"} />;
+              generic zeta zeros are its poles. No functor identifies the scalar bridge,
+              Connes&apos; operators, and a passive LC scattering realization.
             </div>
           </div>
           <div style={{ padding: 12, background: 'rgba(16,185,129,0.05)', borderRadius: 8, border: '1px solid rgba(16,185,129,0.15)' }}>
             <div style={{ fontSize: 11, fontWeight: 700, color: '#6ee7b7', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 6 }}>
-              Proposed Strategy
+              What Convergence Would—and Would Not—Do
             </div>
             <div style={{ fontSize: 13, color: '#e2e8f0', lineHeight: 1.7 }}>
-              <strong>Monotone Contraction:</strong> Show{' '}
-              <InlineMath tex={"\\|\\Delta_{N+1}\\| \\leq \\|\\Delta_N\\| \\cdot (1 - c/p_{N+1})"} />.
-              Combined with <InlineMath tex={"\\sum 1/p = \\infty"} /> (Euler 1737),
-              this gives geometric convergence to unitarity → RH.
+              A proved contraction bound for a precisely defined physical model could establish
+              convergence of that model. It would still need a causal passive realization and a
+              pole-confinement/divisor theorem before implying anything about RH.
             </div>
           </div>
         </div>
@@ -485,31 +502,31 @@ export default function HistoricalReasoningPage() {
         {/* The proof chain */}
         <div style={{ marginTop: 8 }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 8 }}>
-            Proof Chain
+            Corrected Logical Boundary
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', fontSize: 12, fontFamily: 'var(--font-mono)' }}>
             <span style={{ padding: '4px 10px', background: 'rgba(59,130,246,0.1)', border: '1px solid rgba(59,130,246,0.3)', borderRadius: 6, color: '#60a5fa' }}>
-              Euler Product
+              Euler Product (Re s &gt; 1)
             </span>
             <span style={{ color: '#475569' }}>{'\u2192'}</span>
             <span style={{ padding: '4px 10px', background: 'rgba(59,130,246,0.1)', border: '1px solid rgba(59,130,246,0.3)', borderRadius: 6, color: '#60a5fa' }}>
-              Prime Cascade
+              Algebraic Ratio
             </span>
             <span style={{ color: '#475569' }}>{'\u2192'}</span>
             <span style={{ padding: '4px 10px', background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.3)', borderRadius: 6, color: '#a78bfa' }}>
-              S-matrix
+              ζ(2s)/ζ(s)
             </span>
             <span style={{ color: '#475569' }}>{'\u2192'}</span>
             <span style={{ padding: '4px 10px', background: 'rgba(249,115,22,0.1)', border: '1px solid rgba(249,115,22,0.3)', borderRadius: 6, color: '#fb923c' }}>
-              Contraction Bound
+              ζ zero = generic pole
             </span>
             <span style={{ color: '#475569' }}>{'\u2192'}</span>
             <span style={{ padding: '4px 10px', background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.3)', borderRadius: 6, color: '#6ee7b7' }}>
-              S{'\u2020'}S = I
+              Darlington inference unavailable
             </span>
             <span style={{ color: '#475569' }}>{'\u2192'}</span>
             <span style={{ padding: '4px 10px', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: 6, color: '#f87171' }}>
-              RH
+              RH remains open
             </span>
           </div>
         </div>
@@ -524,7 +541,7 @@ export default function HistoricalReasoningPage() {
             { title: 'Connes Letter to Riemann', date: 'Feb 2026', desc: '5 primes encode 50 zeros to accuracy 10⁻⁵⁵. Weil form extremization with small primes.', color: '#a78bfa', link: 'arXiv:2602.04022' },
             { title: 'Guth-Maynard Zero Density', date: 'May 2024', desc: 'Improved Ingham bound from 0.6 to 0.52, breaking 84-year record. Dirichlet polynomial large values.', color: '#3b82f6', link: 'arXiv:2405.20552' },
             { title: 'Yao Hilbert-Pólya Hamiltonian', date: '2024', desc: 'Candidate H with eigenvalues = zeta zeros. Similarity transform to self-adjoint. Spectrum preservation unproven.', color: '#10b981', link: 'JPhysA 57 235204' },
-            { title: 'de Bruijn-Newman Bound', date: '2020', desc: '0 ≤ Λ ≤ 0.2. RH ⟺ Λ = 0. No improvement since Platt-Trudgian.', color: '#f59e0b', link: 'arXiv:1801.05914' },
+            { title: 'de Bruijn-Newman Bounds', date: '2020–2021', desc: 'Rodgers–Tao proved Λ ≥ 0; Platt–Trudgian supplies the peer-reviewed Λ ≤ 0.2 benchmark. Later public package claims are separately graded.', color: '#f59e0b', link: 'arXiv:1801.05914' },
             { title: 'Platt Zero Verification', date: '2021', desc: 'All 12.4 trillion zeros verified on critical line up to height 3×10¹².', color: '#ef4444', link: '' },
           ].map((item, i) => (
             <div key={i} style={{ padding: 10, background: `${item.color}08`, borderRadius: 8, border: `1px solid ${item.color}25` }}>
@@ -544,9 +561,9 @@ export default function HistoricalReasoningPage() {
         </div>
         <div className="stat-box">
           <div className="stat-value" style={{ color: 'var(--accent-green)' }}>
-            {reasoningEntries.filter(e => e.status === 'active').length}
+            {reasoningEntries.filter(e => e.status === 'active' || e.status === 'confirmed').length}
           </div>
-          <div className="stat-label">Active Lines</div>
+          <div className="stat-label">Current / Confirmed</div>
         </div>
         <div className="stat-box">
           <div className="stat-value" style={{ color: 'var(--accent-purple)' }}>
@@ -679,6 +696,21 @@ export default function HistoricalReasoningPage() {
             {/* Expanded content */}
             {isExpanded && (
               <div style={{ marginTop: 16 }}>
+                {entry.auditNote && (
+                  <div style={{
+                    marginBottom: 14,
+                    padding: '10px 12px',
+                    borderRadius: 7,
+                    border: `1px solid ${stCfg.color}45`,
+                    background: `${stCfg.color}0d`,
+                    color: '#cbd5e1',
+                    fontSize: 12,
+                    lineHeight: 1.65,
+                  }}>
+                    <strong style={{ color: stCfg.color }}>Current audit:</strong>{' '}
+                    {entry.auditNote}
+                  </div>
+                )}
                 <div style={{
                   whiteSpace: 'pre-wrap', fontSize: 13, color: '#94a3b8',
                   lineHeight: 1.8, fontFamily: 'inherit',
@@ -703,14 +735,16 @@ export default function HistoricalReasoningPage() {
                 {entry.implications && entry.implications.length > 0 && (
                   <div style={{
                     marginTop: 16, padding: '12px 16px',
-                    background: 'rgba(16,185,129,0.05)', borderRadius: 8,
-                    border: '1px solid rgba(16,185,129,0.15)',
+                    background: `${stCfg.color}0d`, borderRadius: 8,
+                    border: `1px solid ${stCfg.color}30`,
                   }}>
                     <h4 style={{
-                      fontSize: 11, fontWeight: 700, color: '#10b981',
+                      fontSize: 11, fontWeight: 700, color: stCfg.color,
                       textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 8, marginTop: 0,
                     }}>
-                      Implications
+                      {entry.status === 'confirmed'
+                        ? 'Confirmed takeaway'
+                        : 'Recorded implications (historical)'}
                     </h4>
                     <ul style={{ margin: 0, paddingLeft: 18, fontSize: 12, color: '#94a3b8', lineHeight: 1.8 }}>
                       {entry.implications.map((imp, i) => (
@@ -725,33 +759,34 @@ export default function HistoricalReasoningPage() {
             {/* Collapsed preview */}
             {!isExpanded && (
               <p style={{ marginTop: 8, fontSize: 12, color: '#64748b', lineHeight: 1.6 }}>
-                {entry.content.slice(0, 200).replace(/\*\*/g, '')}...
+                {(entry.auditNote || entry.content).slice(0, 220).replace(/\*\*/g, '')}
+                {(entry.auditNote || entry.content).length > 220 ? '…' : ''}
               </p>
             )}
           </div>
         );
       })}
 
-      {/* The Equivalence Web */}
+      {/* Corrected relationship map */}
       <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #8b5cf6' }}>
-        <h3 style={{ color: '#8b5cf6', fontSize: 16, marginTop: 0 }}>The Equivalence Web</h3>
+        <h3 style={{ color: '#8b5cf6', fontSize: 16, marginTop: 0 }}>Corrected Relationship Map</h3>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 16 }}>
-          A central finding of this reasoning: five seemingly different mathematical conditions are all
-          equivalent to RH, and can be understood as the same positivity/unitarity condition viewed
-          from different frameworks:
+          The March log conflated established RH criteria, RH-equivalent bridge formulations,
+          and physical analogies. They now carry different evidence grades:
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12 }}>
           {[
-            { framework: 'Number Theory', condition: 'All zeros on σ = ½', math: '\\zeta(\\rho) = 0 \\Rightarrow \\text{Re}(\\rho) = \\tfrac{1}{2}' },
-            { framework: 'Algebraic Geometry', condition: 'Weil Positivity', math: 'W[f * \\tilde{f}] \\geq 0' },
-            { framework: 'Circuit Theory', condition: 'Darlington Losslessness', math: 'S^\\dagger S = I' },
-            { framework: 'Functional Analysis', condition: 'C-F Positivity', math: 'T_N \\succeq 0' },
-            { framework: 'Spectral Theory', condition: 'Self-Adjoint Spectrum', math: 'A = A^\\dagger,\\; \\text{Spec}(A) \\subset \\mathbb{R}' },
+            { framework: 'Number Theory', grade: 'Definition of RH', condition: 'All nontrivial zeros on σ = ½', math: '\\zeta(\\rho)=0\\Rightarrow\\Re\\rho=\\tfrac12' },
+            { framework: 'Weil Criterion', grade: 'Established equivalent', condition: 'Positivity on the full admissible class', math: 'W[f*\\tilde f]\\ge0\\quad\\forall f' },
+            { framework: 'v70 Shift Bridge', grade: 'RH-equivalent and open', condition: 'Positive for every shift', math: 'K_a\\succeq0\\quad\\forall a>0' },
+            { framework: 'Circuit Theory', grade: 'Analogy; insufficient', condition: 'Boundary losslessness alone', math: 'S^\\dagger S=I\\;\\not\\Rightarrow\\;\\mathrm{RH}' },
+            { framework: 'Spectral Theory', grade: 'Open identification target', condition: 'Self-adjoint operator plus exact divisor map', math: '\\operatorname{Spec}(A)\\stackrel{?}{=}\\{\\gamma_\\rho\\}' },
           ].map((item, i) => (
             <div key={i} style={{ padding: 10, background: 'rgba(139,92,246,0.05)', borderRadius: 8, border: '1px solid rgba(139,92,246,0.15)' }}>
               <div style={{ fontSize: 10, fontWeight: 700, color: '#8b5cf6', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 4 }}>
                 {item.framework}
               </div>
+              <div style={{ fontSize: 10, color: '#fbbf24', marginBottom: 5 }}>{item.grade}</div>
               <div style={{ fontSize: 12, color: '#e2e8f0', fontWeight: 600, marginBottom: 6 }}>{item.condition}</div>
               <BlockMath tex={item.math} />
             </div>

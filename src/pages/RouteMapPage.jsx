@@ -113,7 +113,8 @@ export default function RouteMapPage() {
           The honest one-line truth: <strong>there is no shortcut below RH anywhere in the map</strong> —
           every route that could give an actual Λ&nbsp;&lt;&nbsp;0.2 funnels into one object, the{' '}
           <strong style={{ color: '#a78bfa' }}>C_H Hölder-½ shock modulus</strong> (RH-hard at the
-          modulus). Platt–Trudgian Λ ≤ 0.2 remains the rigorous SOTA.
+          modulus). Platt–Trudgian Λ ≤ 0.2 remains the peer-reviewed benchmark;
+          the public 0.1875 certificate-package claim remains unrefereed.
         </p>
       </div>
 
@@ -314,7 +315,8 @@ export default function RouteMapPage() {
           </div>
           <div style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.6 }}>
             {C_SHOCK_N_DEPENDENCE_IMP3070.honestNote} This viz certifies the uniformity of an
-            already-proven cap; it does NOT close C_H. Platt-Trudgian Λ ≤ 0.2 remains the rigorous SOTA.
+            already-proven cap; it does NOT close C_H. Platt-Trudgian Λ ≤ 0.2 remains
+            the peer-reviewed benchmark; the separate public 0.1875 claim does not close this route.
           </div>
         </div>
       </div>

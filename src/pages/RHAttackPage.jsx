@@ -6,8 +6,15 @@ import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 export default function RHAttackPage() {
   const [selectedPath, setSelectedPath] = useState(null);
 
-  // Which gaps block each proof path
-  const pathGaps = { A: ['S5'], B: ['S4', 'S7'], C: ['S4'], D: [], E: [] };
+  // Which broad open interfaces block each proof path. S4 is the
+  // route-specific passage from finite evidence to a global criterion.
+  const pathGaps = {
+    A: ['S5'],
+    B: ['S4', 'S7'],
+    C: ['S4'],
+    D: ['S4'],
+    E: ['S4'],
+  };
   const gapActive = (gapId) =>
     selectedPath !== null && (pathGaps[selectedPath] || []).includes(gapId);
   const togglePath = (pathId) =>
@@ -46,13 +53,15 @@ export default function RHAttackPage() {
               <InlineMath tex={"\\lambda_n"} /> from known zeros. <InlineMath tex={"\\lambda_n > 0 \\;\\forall n \\iff \\text{RH}"} />.
             </li>
             <li>
-              <strong style={{ color: '#3b82f6' }}>Hamiltonian Convexity</strong> — Test{' '}
+              <strong style={{ color: '#3b82f6' }}>Finite Energy Diagnostics</strong> — Test{' '}
               <InlineMath tex={"\\partial^2 H / \\partial\\sigma^2 > 0"} /> at{' '}
-              <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> (Twin-Ladder Bridge energy minimum).
+              <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> for explicitly defined truncations.
+              The formerly displayed infinite positive prime sum diverges and is not a Hamiltonian.
             </li>
             <li>
               <strong style={{ color: '#8b5cf6' }}>S-Matrix Confinement</strong> — Darlington synthesis:
-              transmission zeros of lossless networks lie on the <InlineMath tex={"j\\omega"} /> axis.
+              transmission-zero confinement is a useful comparison, but it does not confine the
+              poles of the displayed cascade ratio.
             </li>
             <li>
               <strong style={{ color: '#f59e0b' }}>de Bruijn–Newman</strong> — Heat flow parameter{' '}
@@ -65,22 +74,24 @@ export default function RHAttackPage() {
           </ol>
         </div>
         <div className="card">
-          <h3 style={{ color: '#f59e0b', fontSize: 14 }}>The Central Gap</h3>
+          <h3 style={{ color: '#f59e0b', fontSize: 14 }}>What Is Exact vs Model-Only</h3>
           <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7, marginBottom: 12 }}>
-            The Twin-Ladder Bridge model shows that at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />:
+            On <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />, the exact analytic statements are:
           </p>
           <ul style={{ marginLeft: 16, color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
-            <li>The bridge <InlineMath tex={"\\chi(s)"} /> is unitary (<InlineMath tex={"|\\chi| = 1"} />)</li>
-            <li>Direct and dual ladders are conjugate impedance-matched</li>
-            <li>The Hamiltonian is minimized</li>
-            <li>The S-matrix is on the unitarity boundary</li>
+            <li><InlineMath tex={"|\\chi(\\tfrac12+it)| = 1"} /> for every real <InlineMath tex="t" /></li>
+            <li>The functional equation pairs <InlineMath tex="s" /> with <InlineMath tex="1-s" /></li>
+            <li>Finite Euler factors at conjugate points are conjugate when used as truncations</li>
           </ul>
+          <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7, marginTop: 10 }}>
+            A physical impedance match, a full unitary scattering matrix, and a Hamiltonian minimum
+            are model interpretations or finite diagnostics. None follows from the scalar modulus
+            identity without a causal passive realization.
+          </p>
           <p style={{ color: '#ef4444', fontSize: 13, marginTop: 12, fontWeight: 600 }}>
-            But this only shows the model is <em>consistent</em> with zeros at{' '}
-            <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />. It does not prove zeros{' '}
-            <em>must</em> be there. The missing link: a rigorous proof that zeros of{' '}
-            <InlineMath tex={"\\zeta(s)"} /> correspond to resonances of the Hamiltonian{' '}
-            <InlineMath tex={"\\mathcal{H}"} />.
+            The missing links are a rigorous realization and an exact divisor map. For the
+            algebraic ratio used in the app, zeta zeros are generically poles—not transmission
+            zeros—so even exact boundary losslessness would not by itself prove RH.
           </p>
         </div>
       </div>
@@ -90,20 +101,28 @@ export default function RHAttackPage() {
       </div>
 
       <div className="card" style={{ marginTop: 32, borderColor: '#8b5cf6' }}>
-        <h3 style={{ color: '#8b5cf6' }}>The Darlington Synthesis Strategy</h3>
+        <h3 style={{ color: '#8b5cf6' }}>The Darlington Comparison — Corrected</h3>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
-          The most promising path from the Twin-Ladder Bridge model to RH uses a classical result from
-          microwave network synthesis:
+          Darlington synthesis is a useful comparison only after stability, minimality,
+          normalization, and the relevant zero type have been specified. Boundary losslessness
+          and reciprocity alone do not force every transmission zero onto the boundary. For example,
         </p>
-        <BlockMath tex={"\\text{Darlington (1939): For a lossless reciprocal 2-port, zeros of } S_{21} \\text{ lie on the } j\\omega \\text{ axis.}"} />
+        <BlockMath tex={"h_a(s)=\\frac{s-a}{s+a},\\qquad S_a(s)=\\begin{pmatrix}0&h_a(s)\\\\h_a(s)&0\\end{pmatrix},\\qquad S_a(i\\omega)^*S_a(i\\omega)=I"} />
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 12 }}>
-          In the Twin-Ladder Bridge mapping: <InlineMath tex="S_{21}" /> is the transmission through the twin-ladder
-          (proportional to <InlineMath tex={"\\zeta(s)"} />), and the{' '}
-          <InlineMath tex={"j\\omega"} /> axis is the critical line <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />.
-          If the Twin-Ladder Bridge network satisfies Darlington's conditions <em>exactly</em>, then RH follows.
+          is reciprocal and boundary-unitary for <InlineMath tex="a>0" />, yet
+          <InlineMath tex="\;h_a(a)=0" /> is an off-axis transmission zero. Any confinement theorem
+          used here therefore needs additional hypotheses; it cannot be inferred from
+          <InlineMath tex="\;S^\dagger S=I" /> alone.
+        </p>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 12 }}>
+          The exact cascade identity is
+          <InlineMath tex={"S_{21}(s)=\\zeta(2s)/\\zeta(s)"} />. Thus a generic non-trivial zero
+          of <InlineMath tex={"\\zeta(s)"} /> is a pole of <InlineMath tex={"S_{21}"} />, while a
+          transmission zero comes from <InlineMath tex={"\\zeta(2s)=0"} />. Exact Darlington
+          conditions alone would therefore not prove RH; a separate pole-confinement theorem is needed.
         </p>
         <div style={{ marginTop: 16, padding: '12px 16px', background: 'rgba(239,68,68,0.08)', borderRadius: 8, border: '1px solid #ef444440' }}>
-          <h4 style={{ color: '#ef4444', fontSize: 12, marginBottom: 8 }}>Three Obstacles:</h4>
+          <h4 style={{ color: '#ef4444', fontSize: 12, marginBottom: 8 }}>Four independent obstacles:</h4>
           <ol style={{ marginLeft: 16, color: '#94a3b8', fontSize: 12, lineHeight: 1.8 }}>
             <li>
               <strong>Convergence:</strong> The Euler product (= cascade) only converges for{' '}
@@ -111,15 +130,19 @@ export default function RHAttackPage() {
               "cascade" is defined by analytic continuation, not direct circuit computation.
             </li>
             <li>
-              <strong>Exactness:</strong> Darlington requires <em>exact</em> losslessness, not
-              approximate. The bridge satisfies <InlineMath tex={"|\\chi| = 1"} /> exactly at{' '}
-              <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />, but one must show the full network
-              (not just the bridge) is lossless.
+              <strong>Realization:</strong> The symmetric Euler matrices and the physical
+              LC/ABCD proxies have different transfer functions. No theorem identifies the
+              algebraic ratio with a causal passive network.
             </li>
             <li>
-              <strong>Realizability:</strong> Darlington's theorem applies to physically realizable
-              networks. The Twin-Ladder Bridge network has infinitely many stages (one per prime), requiring
-              a limiting argument.
+              <strong>Exactness and synthesis hypotheses:</strong> A finite diagnostic approaching
+              zero is not exact scattering unitarity, and unitarity alone does not supply
+              minimum-phase transmission-zero confinement.
+            </li>
+            <li>
+              <strong>Wrong divisor:</strong> The zeta zeros to be confined occur as denominator
+              poles of <InlineMath tex="S_{21}=\zeta(2s)/\zeta(s)" />. Darlington-style
+              transmission-zero statements target uncancelled numerator zeros instead.
             </li>
           </ol>
         </div>
@@ -187,16 +210,16 @@ export default function RHAttackPage() {
         >
           <h4 style={{ color: '#10b981', fontSize: 13, marginBottom: 6, display: 'flex', justifyContent: 'space-between' }}>
             <span>Path B: Darlington</span>
-            {selectedPath === 'B' && <span style={{ fontSize: 10, background: '#10b98130', padding: '2px 8px', borderRadius: 4 }}>selected — blocks: S4, S7</span>}
+            {selectedPath === 'B' && <span style={{ fontSize: 10, background: '#10b98130', padding: '2px 8px', borderRadius: 4 }}>selected — realization + divisor gaps</span>}
           </h4>
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8 }}>
-            Prove the Twin-Ladder Bridge twin ladder satisfies exact losslessness. Transmission zeros of a lossless
-            network lie on the <InlineMath tex={"j\\omega"} /> axis, which maps to{' '}
-            <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />.
+            Study exact losslessness and infinite-network realizability. Even if transmission zeros
+            lie on the <InlineMath tex={"j\\omega"} /> axis, the zeta zeros represented by this
+            cascade are poles rather than transmission zeros.
           </p>
-          <BlockMath tex={"S^\\dagger S = I \\;\\;(\\text{exact losslessness}) \\;\\Longrightarrow\\; \\text{zeros of } S_{21} \\text{ on } j\\omega \\text{ axis}"} />
+          <BlockMath tex={"S^\\dagger S=I\\quad\\not\\Longrightarrow\\quad\\text{all zeros or poles of }S_{21}\\text{ lie on }j\\omega"} />
           <p style={{ color: '#ef4444', fontSize: 11, marginTop: 8, fontWeight: 600 }}>
-            Status: Convergence (S4) and realizability (S7) gaps remain.
+            Status: convergence, realizability, and the zero/pole identification gap remain.
           </p>
         </div>
 
@@ -221,12 +244,13 @@ export default function RHAttackPage() {
             {selectedPath === 'C' && <span style={{ fontSize: 10, background: '#06b6d430', padding: '2px 8px', borderRadius: 4 }}>selected — blocks: S4</span>}
           </h4>
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8 }}>
-            Prove <InlineMath tex={"W(g * \\tilde{g}) \\geq 0"} /> for all test functions{' '}
-            <InlineMath tex={"g"} />. Connes (2026) shows this is equivalent to RH.
+            Prove <InlineMath tex={"W(g * \\tilde{g}) \\geq 0"} /> for the full admissible
+            test-function class. The classical Weil criterion makes that global positivity
+            statement equivalent to RH.
           </p>
-          <BlockMath tex={"W(g * \\tilde{g}) = \\sum_{\\rho} |\\hat{g}(\\rho)|^2 \\geq 0 \\quad \\forall g \\;\\;\\Longleftrightarrow\\;\\; \\text{RH}"} />
+          <BlockMath tex={"W(g * \\tilde{g}) \\geq 0 \\quad \\text{for every admissible }g \\;\\;\\Longleftrightarrow\\;\\; \\text{RH}"} />
           <p style={{ color: '#f59e0b', fontSize: 11, marginTop: 8, fontWeight: 600 }}>
-            Status: Proven for Gaussian tests, open in general.
+            Status: finite sampled families provide evidence only; the all-test-function theorem is open.
           </p>
         </div>
 
@@ -248,7 +272,7 @@ export default function RHAttackPage() {
         >
           <h4 style={{ color: '#f59e0b', fontSize: 13, marginBottom: 6, display: 'flex', justifyContent: 'space-between' }}>
             <span>Path D: Nyman-Beurling</span>
-            {selectedPath === 'D' && <span style={{ fontSize: 10, background: '#f59e0b30', padding: '2px 8px', borderRadius: 4 }}>selected — no blocking gaps</span>}
+            {selectedPath === 'D' && <span style={{ fontSize: 10, background: '#f59e0b30', padding: '2px 8px', borderRadius: 4 }}>selected — all-N L² limit open</span>}
           </h4>
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8 }}>
             Show that fractional parts <InlineMath tex={"\\{\\theta / x\\}"} /> are{' '}
@@ -257,8 +281,8 @@ export default function RHAttackPage() {
           </p>
           <BlockMath tex={"d_N = \\inf\\left\\| 1 - \\sum_{k=1}^{N} a_k \\left\\{ \\frac{\\theta_k}{x} \\right\\} \\right\\|_{L^2(0,1)} \\;\\to\\; 0 \\;\\;\\Longleftrightarrow\\;\\; \\text{RH}"} />
           <p style={{ color: '#f59e0b', fontSize: 11, marginTop: 8, fontWeight: 600 }}>
-            Status: <InlineMath tex={"d_N \\to 0"} /> computationally verified for{' '}
-            <InlineMath tex={"N \\leq 10^6"} />, rate consistent with RH.
+            Status: finite <InlineMath tex="d_N" /> computations are consistent with the criterion;
+            no finite cutoff proves the required limit.
           </p>
         </div>
 
@@ -279,7 +303,7 @@ export default function RHAttackPage() {
         >
           <h4 style={{ color: '#3b82f6', fontSize: 13, marginBottom: 6, display: 'flex', justifyContent: 'space-between' }}>
             <span>Path E: Li Criterion</span>
-            {selectedPath === 'E' && <span style={{ fontSize: 10, background: '#3b82f630', padding: '2px 8px', borderRadius: 4 }}>selected — no blocking gaps</span>}
+            {selectedPath === 'E' && <span style={{ fontSize: 10, background: '#3b82f630', padding: '2px 8px', borderRadius: 4 }}>selected — all-n positivity open</span>}
           </h4>
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8 }}>
             Prove <InlineMath tex={"\\lambda_n \\geq 0"} /> for all <InlineMath tex={"n \\geq 1"} />,
@@ -287,7 +311,8 @@ export default function RHAttackPage() {
           </p>
           <BlockMath tex={"\\lambda_n = \\sum_{\\rho} \\left[ 1 - \\left(1 - \\frac{1}{\\rho}\\right)^n \\right] \\geq 0 \\;\\;\\forall n \\;\\;\\Longleftrightarrow\\;\\; \\text{RH}"} />
           <p style={{ color: '#f59e0b', fontSize: 11, marginTop: 8, fontWeight: 600 }}>
-            Status: Verified computationally for <InlineMath tex={"n \\leq 10^5"} />.
+            Status: finite positivity checks are evidence only; the statement for every
+            <InlineMath tex="n" /> remains equivalent to RH.
           </p>
         </div>
       </div>
@@ -296,8 +321,8 @@ export default function RHAttackPage() {
       <div className="card" style={{ marginTop: 32, borderLeft: '3px solid #ef4444' }}>
         <h3 style={{ color: '#ef4444' }}>Proof Gap Status Matrix</h3>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7, marginBottom: 16 }}>
-          Three critical gaps stand between current knowledge and a complete proof. Each gap
-          blocks one or more of the five proof paths above.
+          Three broad interfaces organize the open work. Each route instantiates the global
+          closure interface differently; these cards are not percentages of a proof.
           {selectedPath && (
             <span style={{ color: '#64748b', fontSize: 12, marginLeft: 8 }}>
               (Gaps blocked by Path {selectedPath} are highlighted)
@@ -319,19 +344,21 @@ export default function RHAttackPage() {
               <span style={{ color: '#f59e0b', fontWeight: 700, fontSize: 14 }}>S4</span>
               <span style={{ background: '#f59e0b30', color: '#f59e0b', fontSize: 10, padding: '2px 8px', borderRadius: 4, fontWeight: 600 }}>AMBER</span>
             </div>
-            <h4 style={{ color: '#e2e8f0', fontSize: 12, marginBottom: 6 }}>Regularization</h4>
+            <h4 style={{ color: '#e2e8f0', fontSize: 12, marginBottom: 6 }}>Global Closure</h4>
             <p style={{ color: '#94a3b8', fontSize: 11, lineHeight: 1.7 }}>
-              Extend Euler product to critical strip via analytic continuation of the cascade.
+              Upgrade finite or truncated evidence to the route&apos;s complete all-input,
+              all-height, or all-index statement. Zeta&apos;s meromorphic continuation is classical;
+              it does not continue a physical circuit realization.
             </p>
-            <BlockMath tex={"\\prod_{p}\\left(1 - p^{-s}\\right)^{-1} \\;\\xrightarrow{\\text{S4}}\\; \\zeta(s), \\quad 0 < \\sigma < 1"} />
+            <BlockMath tex={"\\text{finite checks}\\quad\\not\\Longrightarrow\\quad\\text{the global RH-equivalent criterion}"} />
             <p style={{ color: '#f59e0b', fontSize: 11, marginTop: 6, fontWeight: 600 }}>
-              Eta relation provides partial solution.
+              Route-specific uniform estimates remain open.
             </p>
             <div style={{ marginTop: 10, padding: '6px 8px', background: 'rgba(0,0,0,0.2)', borderRadius: 4 }}>
               <span style={{ color: '#64748b', fontSize: 10 }}>Blocks: </span>
               <span style={{ color: '#10b981', fontSize: 10, fontWeight: 600 }}>B</span>
               <span style={{ color: '#64748b', fontSize: 10 }}>, </span>
-              <span style={{ color: '#06b6d4', fontSize: 10, fontWeight: 600 }}>C</span>
+              <span style={{ color: '#06b6d4', fontSize: 10, fontWeight: 600 }}>C, D, E</span>
             </div>
           </div>
 
@@ -376,14 +403,14 @@ export default function RHAttackPage() {
               <span style={{ color: '#ef4444', fontWeight: 700, fontSize: 14 }}>S7</span>
               <span style={{ background: '#ef444430', color: '#ef4444', fontSize: 10, padding: '2px 8px', borderRadius: 4, fontWeight: 600 }}>RED</span>
             </div>
-            <h4 style={{ color: '#e2e8f0', fontSize: 12, marginBottom: 6 }}>Darlington</h4>
+            <h4 style={{ color: '#e2e8f0', fontSize: 12, marginBottom: 6 }}>Physical Realization &amp; Divisor Map</h4>
             <p style={{ color: '#94a3b8', fontSize: 11, lineHeight: 1.7 }}>
-              Prove infinite losslessness: the twin-ladder with infinitely many prime stages remains
-              exactly lossless.
+              Construct a causal passive infinite network for the relevant function and prove a
+              theorem that constrains the denominator poles encoding zeta zeros.
             </p>
-            <BlockMath tex={"\\lim_{N \\to \\infty} S_N^\\dagger S_N = I \\quad (\\text{not just } \\approx I)"} />
+            <BlockMath tex={"S_{21}^{(A)}=\\frac{\\zeta(2s)}{\\zeta(s)},\\qquad \\zeta(\\rho)=0\\Rightarrow \\rho\\text{ is generically a pole}"} />
             <p style={{ color: '#ef4444', fontSize: 11, marginTop: 6, fontWeight: 600 }}>
-              Finite truncations satisfy; limit argument needed.
+              Convergence alone cannot repair the zero/pole mismatch.
             </p>
             <div style={{ marginTop: 10, padding: '6px 8px', background: 'rgba(0,0,0,0.2)', borderRadius: 4 }}>
               <span style={{ color: '#64748b', fontSize: 10 }}>Blocks: </span>
@@ -405,14 +432,14 @@ export default function RHAttackPage() {
             <tbody>
               {[
                 ['A: Hilbert-Polya', 'S5', '#ef4444', 'Blocked — no operator'],
-                ['B: Darlington', 'S4, S7', '#ef4444', 'Blocked — convergence + limit'],
-                ['C: Weil Positivity', 'S4', '#f59e0b', 'Partially blocked — general tests open'],
-                ['D: Nyman-Beurling', '(none)', '#10b981', 'Open — independent approach'],
-                ['E: Li Criterion', '(none)', '#10b981', 'Open — computational only'],
+                ['B: Darlington', 'S4, S7', '#ef4444', 'Blocked — realization + wrong divisor'],
+                ['C: Weil Positivity', 'S4', '#f59e0b', 'Open — full admissible test class'],
+                ['D: Nyman-Beurling', 'S4', '#f59e0b', 'Open — all-N L² limit'],
+                ['E: Li Criterion', 'S4', '#f59e0b', 'Open — all-n positivity'],
               ].map(([path, gaps, color, verdict], i) => (
                 <tr key={i} style={{ borderBottom: '1px solid #1e293b' }}>
                   <td style={{ padding: '5px 8px', fontWeight: 600, color }}>{path}</td>
-                  <td style={{ padding: '5px 8px', color: gaps === '(none)' ? '#10b981' : '#ef4444' }}>{gaps}</td>
+                  <td style={{ padding: '5px 8px', color: '#ef4444' }}>{gaps}</td>
                   <td style={{ padding: '5px 8px', color: '#64748b', fontSize: 10 }}>{verdict}</td>
                 </tr>
               ))}
@@ -439,7 +466,7 @@ export default function RHAttackPage() {
               ['Nyman–Beurling–Báez-Duarte', 'No', 'Requires L² approximation bounds'],
               ['Robin inequality: σ(n) < eᵞ n ln ln n', 'No', 'Requires computing σ(n) for large n'],
               ['Lagarias: σ(n) ≤ Hₙ + eᴴⁿ ln Hₙ', 'No', 'Requires harmonic number bounds'],
-              ['Selberg: N(T) = (T/2π)log(T/2πe) + S(T)', 'Partial', 'S(T) = O(log T) follows from RH'],
+              ['Riemann–von Mangoldt: N(T) = (T/2π)log(T/2πe) + O(log T)', 'No', 'The O(log T) remainder is classical and unconditional; RH gives sharper conditional control'],
               ['GUE hypothesis (pair correlation)', 'Yes (Statistics)', 'NOT an equivalence — related but independent conjecture (Montgomery 1973, Odlyzko 1987)'],
             ].map(([criterion, tested, status], i) => (
               <tr key={i} style={{ borderBottom: '1px solid #1e293b' }}>
@@ -456,17 +483,17 @@ export default function RHAttackPage() {
 
       {/* Four Closure Routes */}
       <div className="card" style={{ marginTop: 32, borderLeft: '3px solid #06b6d4' }}>
-        <h3 style={{ color: '#06b6d4' }}>Four Equivalent Closure Routes</h3>
+        <h3 style={{ color: '#06b6d4' }}>The Separate v70 Shift-Bridge Closure Routes</h3>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7, marginBottom: 12 }}>
-          The five classical proof strategies above can be organized into four <strong>logically equivalent closure routes</strong>,
-          each providing a distinct mathematical framework for completing the RH proof. Though superficially different,
-          these routes are fundamentally equivalent at their core.
+          The dedicated closure-routes page studies four formulations of the corrected
+          all-shifts bridge target: Schur contractivity, de Branges positivity, a hidden-square
+          factorization, and the Weil/twin-ladder form. Their equivalence uses the hypotheses
+          stated there and should not be conflated with the five broad strategies above.
         </p>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7, marginBottom: 12 }}>
-          Each closure route begins with a different foundational assumption but converges to the same conclusion:
-          the non-trivial zeros of <InlineMath tex={"\\zeta(s)"} /> lie on the critical line <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />.
-          Understanding the equivalence reveals deep connections between spectral analysis, network theory, harmonic analysis,
-          and number theory.
+          The all-shifts positivity target is RH-equivalent and open. At one fixed shift,
+          common shifted zeros and residual multiplicities require the endpoint, coprimality,
+          and bounded-type caveats recorded in the v70 audit.
         </p>
         <div style={{ marginTop: 16, padding: '14px', background: 'rgba(6,182,212,0.08)', borderRadius: 8, border: '1px solid #06b6d420' }}>
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, margin: 0 }}>

@@ -14,8 +14,8 @@
  *   ladder of T_star(N), but explicitly declared b2Executed:false and
  *   upgradesAnyStatusString:false. This audit cross-checks that declaration
  *   against the actual source records it claims not to have touched: the
- *   SOTA_LAMBDA_CLAIM.status/rigorLevel/headline.statement strings (must stay
- *   finite-height/asymptotic-modulo-constants, never unconditional RH) and the
+ *   SOTA_LAMBDA_CLAIM live withdrawal/non-proof fields (must never promote the
+ *   historical finite-height/asymptotic records to a Lambda theorem) and the
  *   three B-items in lambda-roadmap.js (must stay closed:false with their
  *   original blockedOn links intact).
  *
@@ -44,9 +44,16 @@ export const IMP36249_B1B2B3_CAVEAT_INTEGRITY_AUDIT = Object.freeze({
     'imp-36173 B2 T_star ladder module',
 
   headlineSnapshot: Object.freeze({
+    liveStatus: SOTA_LAMBDA_CLAIM.liveStatus,
     status: SOTA_LAMBDA_CLAIM.status,
     rigorLevel: SOTA_LAMBDA_CLAIM.rigorLevel,
     statement: SOTA_LAMBDA_CLAIM.headline.statement,
+    lambdaUpperBound: SOTA_LAMBDA_CLAIM.headline.lambdaUpperBound,
+    countsAsProof: SOTA_LAMBDA_CLAIM.auditCorrection.countsAsProof,
+    countsAsEstablishedLambdaUpperBound:
+      SOTA_LAMBDA_CLAIM.auditCorrection.countsAsEstablishedLambdaUpperBound,
+    historicalStatus: SOTA_LAMBDA_CLAIM.historicalStatus,
+    historicalRigorLevel: SOTA_LAMBDA_CLAIM.historicalRigorLevel,
   }),
 
   bItemsSnapshot: Object.freeze([
@@ -73,13 +80,13 @@ export const IMP36249_B1B2B3_CAVEAT_INTEGRITY_AUDIT = Object.freeze({
   }),
 
   verdict:
-    'CONFIRMED: SOTA_LAMBDA_CLAIM.status/rigorLevel remain "rigorous-asymptotic (adversarially ' +
-    'reviewed)" and headline.statement still reports the finite-height (unconditional on N in ' +
-    '[100, 10^4]) + asymptotic Route B record, NOT unconditional RH. All three conditionalBookkeeping ' +
-    'items (B1, B2, B3) remain closed:false with their original blockedOn links intact. The imp-36173 ' +
-    'module non-drift declaration (b2Executed:false, upgradesAnyStatusString:false) is CONSISTENT with ' +
-    'the actual source records. NO status string drifted toward closure. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA; NO QED.',
+    'CONFIRMED: SOTA_LAMBDA_CLAIM is withdrawn, counts as neither proof nor an ' +
+    'established Lambda upper bound, and exposes no active lambdaUpperBound. Its ' +
+    'former rigorous-asymptotic labels remain historical provenance only. All ' +
+    'three conditionalBookkeeping items (B1, B2, B3) remain closed:false with ' +
+    'their original blockedOn links intact. The imp-36173 non-drift declaration ' +
+    '(b2Executed:false, upgradesAnyStatusString:false) is consistent with those ' +
+    'blocked items. Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
 
   honestCaveat: Object.freeze({
     isProof: false,
@@ -99,14 +106,19 @@ export const IMP36249_B1B2B3_CAVEAT_INTEGRITY_AUDIT = Object.freeze({
 export const IMP36249_B1B2B3_CAVEAT_INTEGRITY_AUDIT_ASSERTIONS = [
   {
     id: 'imp36249-headline-not-unconditional-rh',
-    why: 'The headline status/rigorLevel/statement must never read as an unconditional RH claim.',
+    why: 'The live headline must remain withdrawn and expose neither an RH proof nor a Lambda bound.',
     holds: () => {
       const h = IMP36249_B1B2B3_CAVEAT_INTEGRITY_AUDIT.headlineSnapshot;
       return (
-        h.status === 'rigorous-asymptotic (adversarially reviewed)' &&
-        h.rigorLevel === 'rigorous-asymptotic (adversarially reviewed)' &&
-        /finite-height/.test(h.statement) &&
-        !/unconditional RH\b/.test(h.statement)
+        h.liveStatus === 'withdrawn-overclaim-historical-record-only' &&
+        h.status === 'withdrawn-overclaim-historical-record-only' &&
+        h.rigorLevel === 'not-established-historical-record-only' &&
+        h.lambdaUpperBound === null &&
+        h.countsAsProof === false &&
+        h.countsAsEstablishedLambdaUpperBound === false &&
+        /^WITHDRAWN/.test(h.statement) &&
+        h.historicalStatus === 'rigorous-asymptotic (adversarially reviewed)' &&
+        h.historicalRigorLevel === 'rigorous-asymptotic (adversarially reviewed)'
       );
     },
   },

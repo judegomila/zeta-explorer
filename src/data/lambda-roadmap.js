@@ -72,13 +72,46 @@ export const LAMBDA_BOUNDS = [
   {
     id: 'platt-trudgian-2021',
     label: 'Λ ≤ 0.2',
-    kind: 'upper-sota',
+    kind: 'upper-peer-reviewed-benchmark',
     value: 0.2,
     status: 'rigorous',
     source: 'Platt & Trudgian, Bull. LMS 2021',
     note:
-      'Current unconditional SOTA upper bound. Uses verified Riemann zeros ' +
-      'to T = 3·10^12 plus a heat-flow barrier argument on H_t.',
+      'Peer-reviewed upper-bound benchmark. Uses verified Riemann zeros ' +
+      'to T = 3·10^12 plus the Polymath15 heat-flow barrier criterion.',
+  },
+  {
+    id: 'mosaic-public-preprint-01875',
+    label: 'Public preprint claim: Λ ≤ 3/16 = 0.1875',
+    kind: 'upper-public-preprint',
+    value: 0.1875,
+    claimedUnconditional: true,
+    accepted: false,
+    status: 'public-preprint-review-open',
+    href: 'https://doi.org/10.5281/zenodo.21175533',
+    source: 'Mosaic Intelligence, Zenodo 21175533 (2026); Optimization Problems ledger',
+    note:
+      'PUBLIC, UNREFEREED CERTIFICATE-PACKAGE CLAIM. A local forensic replay found ' +
+      'one omitted load-bearing finite sweep and reconstructed the exact 2,054,013-row ' +
+      'tile needed by the final assembly. The repaired chain is reproducible and the ' +
+      '0.1875 entry is publicly listed, but neither the ledger nor the local repair is ' +
+      'peer review or a correctness endorsement.',
+  },
+  {
+    id: 'local-fixed-height-candidate-01787854',
+    label: 'Candidate: Λ ≤ 0.1787854',
+    kind: 'upper-local-candidate',
+    value: 0.1787854,
+    isUnconditional: false,
+    status: 'candidate-review-open',
+    route: '/newman-lambda-01787854-candidate',
+    source: 'Local replay package, commit 5c4d7a7 (prepared 2026-07-23)',
+    note:
+      'UNPUBLISHED REVIEW CANDIDATE — not an established theorem or SOTA claim. ' +
+      'The finite, direct-Dini, normalizer, error, tail, and exact-assembly checks ' +
+      'pass locally, but the native Triangle-to-|f_t| identification and inherited ' +
+      'winding, site, effective-approximation, and criterion bindings remain open ' +
+      'for independent mathematical review.',
   },
   {
     id: 'our-target-sota',
@@ -136,8 +169,8 @@ export const LAMBDA_BOUNDS = [
     status: 'historical-conditional-superseded-by-imp-1261',
     source: 'imp-1147 via imp-1136 BH-multipole sweep + imp-1137 interval OLS refit (HISTORICAL)',
     note:
-      'HISTORICAL CONDITIONAL bound, SUPERSEDED by the imp-1261 unconditional ' +
-      '3.06×10⁻⁵ redirect (entry "our-asymptotic-via-imp-1261-redirect" above). ' +
+      'HISTORICAL CONDITIONAL bound, superseded as a program target by the imp-1261 ' +
+      '3.06×10⁻⁵ conditional redirect (entry "our-asymptotic-via-imp-1261-redirect" above). ' +
       'Retained as a reference entry to preserve the conditional 7.98×10⁻⁴ ' +
       'narrative and the imp-1136 sweep / imp-1137 OLS refit provenance. ' +
       '9 plateau brackets measured at N ∈ {2e4..1e6} via BH-multipole CLI ' +
@@ -153,19 +186,17 @@ export const LAMBDA_BOUNDS = [
   {
     id: 'our-finite-N-1e4-via-imp-440',
     label: 'Λ(1e4) ≤ 0.02 — finite-N ESTIMATE, C_H-gated (not a rigorous PT beat)',
-    kind: 'upper-rigorous-finite-N',
+    kind: 'upper-estimate-finite-N',
     value: 0.02,
-    status: 'rigorous-measured',
+    status: 'estimate-c-h-open',
     source: 'imp-440 capstone via imp-963 measured C_mb on [100, 1e4]',
     note:
-      'FIRST PROJECT RESULT STRICTLY IMPROVING ON PT 2021 RIGOROUSLY AND ' +
-      'UNCONDITIONALLY AT A FINITE N. L_pt(N* = 1e4) ~ 0.02 < 0.2 = PT_BOUND ' +
-      'with margin factor ~10x. The 6-link rigor chain (V2 fit + measured C_mb ' +
+      'PROJECT ESTIMATE BELOW PT 2021 AT A FINITE N, not a rigorous or ' +
+      'unconditional bound. L_pt(N* = 1e4) ~ 0.02 < 0.2 = PT_BOUND numerically, ' +
+      'with margin factor ~10x. The 6-link modeled chain (V2 fit + measured C_mb ' +
       'from imp-963 + E_trunc_pt from imp-447 + imp-459 + E_flow from imp-398 + ' +
-      'E_coll from imp-399 + rho_min from imp-469) is DISCHARGED at N = 1e4 ' +
-      'without any GUE assumption. ⚠ CORRECTION (2026-07-03, systematic wall-map + ' +
-      'anti-overclaim guard): the "rigorous unconditional at finite N" framing is ' +
-      'C_H-GATED and is therefore an ESTIMATE, not an unconditional beat. The dominant ' +
+      'E_coll from imp-399 + rho_min from imp-469) is numerically assembled at N = 1e4. ' +
+      'The dominant ' +
       'E_coll term rests on the shock modulus C_H = C_shock*C_Lip/4 whose N-uniform ' +
       'bound is RH-HARD (imp-2640 Gronwall discharge NEGATIVE; ch-wall-frontier-verdict-' +
       '2026-06-26 RH-HARD-CONFIRMED), and the "measured" C_mb / |t_c_proj| is an OLS fit ' +
@@ -187,7 +218,7 @@ export const LAMBDA_BOUNDS = [
     source: 'imp-1088 capstone via imp-963 rescue formula',
     note:
       'Conservative-carryforward extension of the imp-440 / imp-963 ' +
-      'rigorous unconditional finite-N* beat from the measured N* = 1e4 ' +
+      'C_H-gated finite-N* estimate from the measured N* = 1e4 ' +
       'to the capstone N* = 1e6 (the original imp-440 spec ceiling). C_mb ' +
       'is held by the K_PLATEAU_LADDER carryforward K = 0.2014 at every ' +
       'N up to 1e6 (rescue formula K * log(N) / sqrt(N) < 0.12751 holds ' +
@@ -318,7 +349,7 @@ export const LAMBDA_CHAIN_STEPS = [
         'not the headline inequality. The imp-36192 (G-step-error) and imp-36193 ' +
         '(G-interval-enclosure) scope modules ENUMERATE these obligations without ' +
         'discharging any -- they too are scoping-only, NO QED. This field is a ' +
-        'scoping map only; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+        'scoping map only; Platt-Trudgian Lambda <= 0.2 remains the peer-reviewed benchmark.',
       by: 'imp-35058',
     },
   },
@@ -814,7 +845,7 @@ export const LAMBDA_CHAIN_STEPS = [
               'Surrogate DOES NOT discharge the imp-486 irreducible reduction: it ' +
               'replaces the conditional ONLY on the bounded window it computes, leaving ' +
               'the asymptotic tail GUE-conditional. The assembled Step-5 claim stays ' +
-              'RH-MODULO-GUE-UNIVERSALITY; Platt-Trudgian Lambda <= 0.2 remains SOTA; ' +
+              'RH-MODULO-GUE-UNIVERSALITY; Platt-Trudgian Lambda <= 0.2 remains the peer-reviewed benchmark; ' +
               'NO QED. This confirms (does not weaken) the irreducible grade.',
             by: 'imp-36079',
           },
@@ -824,7 +855,7 @@ export const LAMBDA_CHAIN_STEPS = [
         'Scoping map only. Step 5 establishes no operator positivity and changes ' +
         'NO Lambda bound; it is inert until Steps 3-perN and 4 are rigorous. Even ' +
         'then the C_mb GUE conditional (imp-486) caps the reachable claim at RH-' +
-        'modulo-GUE. Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'modulo-GUE. Platt-Trudgian Lambda <= 0.2 remains the peer-reviewed benchmark; NO QED.',
       by: 'imp-35074',
     },
     // imp-35099 (scoping/assessment ONLY; changes no bound, closes nothing,
@@ -891,7 +922,7 @@ export const LAMBDA_CHAIN_STEPS = [
         'Scoping checklist only. NONE of B1-B3 is executable today: all are ' +
         'BLOCKED on the OPEN Step-4 / per-N / C_mb links (see rigorousUpgradeGap). ' +
         'Listing the clerical residue changes NO Lambda bound and does NOT make RH ' +
-        'follow. Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'follow. Platt-Trudgian Lambda <= 0.2 remains the peer-reviewed benchmark; NO QED.',
       by: 'imp-35099',
     },
   },
@@ -1194,32 +1225,34 @@ export const OPEN_GAPS = [
   {
     id: 'G6',
     label: 'Polymath15 bridge |Λ − (−t_c(N))| ≤ E(N)',
-    status: 'closed (imp-387: imp-345 bridge + imp-366 G6a + coordinated flip)',
-    owner: 'imp-345 + imp-366 + imp-387',
-    nextTickets: [],
-    severity: 'closed',
-    blocks: null,
+    status:
+      'STRUCTURAL PORT CLOSED; QUANTITATIVE BRIDGE OPEN. The imp-345/366/387 ' +
+      'composition records the bridge form, but its E_coll constant still consumes ' +
+      'the unresolved N-uniform C_H / G6a shock modulus.',
+    owner: 'imp-345 + imp-366 + imp-387; quantitative residual imp-1264 / imp-2640 / imp-2674',
+    nextTickets: ['imp-1264', 'imp-35056'],
+    severity: 'open',
+    blocks: 'unconditional quantitative Λ bounds assembled through the Dyson/collision route family',
   },
   {
     id: 'G6a',
     label: 'Hölder-1/2 modulus of τ_c at the Burgers shock',
     status:
-      'LEDGER-PORT CLOSED, ASYMPTOTIC MODULO STILL LIVE (imp-35056 reconciliation). ' +
-      'imp-366 ported Polymath15 Lemma 5.2 and closed the ledger PORT, but that ' +
-      'port did NOT discharge the asymptotic modulo: the SAME Holder-1/2 shock ' +
-      'modulus supplies C_H in E_coll, and C_H is RH-HARD / undischargeable ' +
+      'LEDGER PORT CLOSED; QUANTITATIVE BRIDGE OPEN (2026-07 audit). ' +
+      'imp-366 ported Polymath15 Lemma 5.2, but that port did NOT discharge the ' +
+      'Holder-1/2 shock modulus supplying C_H in E_coll. C_H is RH-HARD / ' +
+      'undischargeable ' +
       '(imp-2640 gap-Lipschitz Gronwall discharge NEGATIVE, imp-2674, ' +
-      'ch-wall-frontier-verdict-2026-06-26 RH-HARD-CONFIRMED). So G6a remains the ' +
-      'SOLE live modulo of the imp-1261 asymptotic Lambda <= 3.06e-5 bound, ' +
-      'consistent with the headline status rigorous-modulo-polymath15-G6a, the ' +
-      'LAMBDA_CHAIN_STEPS Step-4 NUMERICAL grade / open sub-gap G6a_shock_lipschitz, ' +
-      'and the cond-polymath15-G6a dependency-matrix leaf. The former bare ' +
-      'closed (imp-366) framing was the outlier and overstated closure. Assessment ' +
-      'only; changes no bound; NO QED.',
+      'ch-wall-frontier-verdict-2026-06-26 RH-HARD-CONFIRMED). G6a is therefore ' +
+      'one load-bearing open gate in the RETRACTED imp-1261 3.06e-5 composition; ' +
+      'other independent gates include the uncertified E_trunc constant, the ' +
+      'unsupplied E(N)->0 limit, and finite-proxy identification. The former ' +
+      '"sole modulo / bound" framing was an overclaim. Assessment only; changes ' +
+      'no bound; NO QED.',
     owner: 'imp-366 (Lemma 5.2 port) + imp-2640 / imp-2674 (modulo persistence) + imp-35056 (reconcile)',
     nextTickets: [],
     severity: 'open',
-    blocks: 'the sole modulo of the imp-1261 asymptotic Lambda <= 3.06e-5 bound',
+    blocks: 'one of several gates in the withdrawn imp-1261 3.06e-5 composition',
   },
   {
     // imp-3401: formalizes the recurring imp-3066 "lone obstruction" (cited in the
@@ -1386,10 +1419,12 @@ export const LAMBDA_DEPENDENCY_MATRIX = {
     },
     {
       id: 'blk-ingham-447-459',
-      label: 'imp-447 / imp-459 E_trunc_pt = 3.06e-5 (Ingham at T_PT)',
+      label: 'imp-447 / imp-459 formal E_trunc_pt = 3.06e-5 (uncertified)',
       kind: 'block',
       dependsOn: ['ext-verified-zeros-T3e12'],
-      note: 'Ingham truncation constant evaluated at T_PT = 3e12.',
+      note:
+        'Historical formal value at T_PT = 3e12; the 2026-07 audit found the ' +
+        'constant chain uncertified, so this is not an established error bound.',
     },
     {
       id: 'blk-imp-398',
@@ -1422,22 +1457,35 @@ export const LAMBDA_DEPENDENCY_MATRIX = {
     },
     {
       id: 'bound-platt-trudgian-2021',
-      label: 'Lambda <= 0.2 (SOTA)',
+      label: 'Lambda <= 0.2 (peer-reviewed benchmark)',
       kind: 'bound',
       dependsOn: ['ext-verified-zeros-T3e12'],
       note: 'Heat-flow barrier on verified zeros; unconditional.',
     },
     {
-      id: 'bound-imp-1261-asymptotic',
-      label: 'Lambda <= 3.06e-5 asymptotic (modulo Polymath15 G6a)',
+      id: 'bound-public-preprint-01875',
+      label: 'Lambda <= 0.1875 (public unrefereed claim)',
       kind: 'bound',
+      dependsOn: ['bound-platt-trudgian-2021'],
+      note:
+        'Public certificate package listed by Optimization Problems; one omitted ' +
+        'finite tile was repaired locally. Reproducible claim, not peer review.',
+    },
+    {
+      id: 'bound-imp-1261-asymptotic',
+      label: 'WITHDRAWN 3.06e-5 asymptotic composition (not a Lambda bound)',
+      kind: 'withdrawn-claim',
+      countsAsBound: false,
       dependsOn: [
         'blk-imp-341',
         'blk-imp-1149',
         'blk-ingham-447-459',
         'cond-polymath15-G6a',
       ],
-      note: 'Sole modulo conditional: cond-polymath15-G6a.',
+      note:
+        'Historical arithmetic only. Open gates include RH-equivalent G6a/C_H, ' +
+        'uncertified E_trunc, unsupplied E(N)->0, proxy identification, and a ' +
+        'refuted quantitative rate step.',
     },
     {
       id: 'bound-imp-440-finite-1e4',
@@ -1521,39 +1569,37 @@ export function lambdaDepMatrixClosure(startId, matrix = LAMBDA_DEPENDENCY_MATRI
 
 export const LAMBDA_ROADMAP = {
   id: 'lambda-roadmap',
-  targetSOTA: 'Λ ≤ 0.02 unconditional, beating Platt-Trudgian 2021 Λ ≤ 0.2 by 10x',
+  targetSOTA: 'Λ ≤ 0.02 unconditional, below both the public 0.1875 claim and the peer-reviewed 0.2 benchmark',
   // imp-35860: leading TL;DR banner so a reader sees the headline before the
   // long append-only measurement log below (currentStatus). Keep in sync by
   // hand -- this does not parse currentStatus, it just restates its opening.
   currentStatusTLDR:
-    'CLOSED MODULO GUE UNIVERSALITY: Steps 1 and 3 of LAMBDA_CHAIN_STEPS are rigorous ' +
-    'unconditionally (zero-verification; imp-341 lim-sup |t_c(N)| = 0 + Rodgers-Tao ' +
-    'Lambda >= 0). The sole irreducible conditional is the many-body correction constant ' +
-    'C_mb, which requires GUE universality (Erdos-Schlein-Yau local law; imp-486 confirmed ' +
-    'no unconditional bound exists). Step 4 (Polymath15 bridge, sub-gap G6a_shock_lipschitz) ' +
-    'remains open and Step 5 (final RH combination) is unverified, so RH does NOT yet follow ' +
-    'unconditionally. Everything after the opening paragraph of currentStatus below is a ' +
+    'STATUS GRADES: Platt-Trudgian Lambda <= 0.2 remains the peer-reviewed upper-bound benchmark. ' +
+    'A public, unrefereed certificate package claims Lambda <= 0.1875; the Optimization Problems ' +
+    'ledger lists it, and a local audit repaired one omitted finite sweep without substituting for ' +
+    'expert review. A separate fixed-height local package proposes Lambda <= 0.1787854; its numerical ' +
+    'and direct-Dini gates pass, but eight theorem-level interfaces remain under independent ' +
+    'review, so it is not yet a theorem or SOTA. In the inherited Dyson/collision family, ' +
+    'Steps 1 and 3 supply an unconditional lim-sup skeleton, while the quantitative Step-4 ' +
+    'G6/G6a/C_H bridge remains open; Route A also carries a GUE conditional. Step 5 is ' +
+    'unverified, and RH does not follow. Everything after the opening paragraph of ' +
+    'currentStatus below is a ' +
     'measurement-only refinement appendix (imp-33xxx/imp-35xxx landmark quantifications) -- ' +
     'it changes no bound and discharges no open gap.',
   currentStatus:
-    'CLOSED MODULO GUE UNIVERSALITY (Phase 37 final, reframed per imp-2564): per LAMBDA_CHAIN_STEPS, ' +
-    'Steps 1 and 3 are rigorous (Step 1 zero-verification; Step 3 imp-341 lim-sup |t_c(N)| = 0 + ' +
-    'Rodgers-Tao Lambda >= 0 give the asymptotic statement lim sup t_c(N) = 0 UNCONDITIONALLY). ' +
-    'CRITICAL REFRAMING (imp-2564 direction audit): the headline inequality Lambda <= E(N) needs only ' +
-    't_c >= 0 (trivial) plus the Step-4 bridge; per-N collision bounds (SG1/Theta/imp-2520+descendants) ' +
-    'control the BRIDGE CONSTANTS E(N) (fidelity of the connection), not the headline inequality. ' +
-    'Step 2 (backward Dyson ODE) and Step 4 (Polymath15 bridge, open sub-gap G6a_shock_lipschitz) ' +
-    'are graded NUMERICAL and Step 5 (final RH combination) is UNVERIFIED. FINITE-HEIGHT BEAT ' +
-    '(imp-452/459): L_pt ~ 0.121 < 0.2, beating Platt-Trudgian 2021. Route A closed modulo GUE: ' +
-    'G1 CLOSED (imp-450), G2 CLOSED (imp-450), N-coverage extended to 9999 (imp-476), Bridge M_raw ' +
-    '<==> M_uf via RvM Jacobian (imp-462), B1 unconditional (imp-470). Route B rigorous unconditionally ' +
-    '(imp-341 + imp-344). Route C all sub-gaps closed (G3a diagnostic imp-451, G3b imp-342, G4 imp-343). ' +
-    'SOLE IRREDUCIBLE CONDITIONAL: many-body CM correction constant C_mb requires GUE universality ' +
-    '(Erdos-Schlein-Yau local law). imp-486 exhaustive search confirmed no unconditional C_mb bound ' +
-    'exists — GUE universality is irreducible. Routes B+C close the Step-3 lim-sup UNCONDITIONALLY, ' +
-    'but the per-N translation and the Step-4 Polymath15 bridge (G6a_shock_lipschitz) remain open, ' +
-    'so RH does NOT yet follow unconditionally; Route A additionally requires the named GUE conditional. ' +
-    'PHASE 51 (2026-04-19): three-path UNCOND-Λ sequence delivered, extended to 10^6. PATH 1 ' +
+    'STATUS RECONCILED 2026-07-23: Platt-Trudgian Lambda <= 0.2 remains the peer-reviewed benchmark. ' +
+    'The public 0.1875 Zenodo certificate-package claim is reproducible after a local finite-sweep repair ' +
+    'and appears in the Optimization Problems ledger, but is unrefereed and not treated here as an accepted theorem. ' +
+    'The local fixed-height package at 0.1787854 is an unpublished review candidate: finite, direct-Dini, ' +
+    'normalizer, error, tail, and exact-assembly checks pass, while native-functional, winding, site, ' +
+    'interval-independence, tail-theorem, and criterion interfaces remain load-bearing review items. ' +
+    'For the inherited LAMBDA_CHAIN_STEPS, Steps 1 and 3 provide the unconditional zero-verification / ' +
+    'lim-sup skeleton. Step 2 is numerical, the quantitative Step-4 Polymath15 bridge remains open at ' +
+    'G6/G6a/C_H, and Step 5 is unverified. Historical finite values near 0.121 and 0.02 are estimates, ' +
+    'not rigorous beats. Route A additionally requires GUE universality; Routes B and C close only the ' +
+    'Step-3 lim-sup statement, not the bridge to an unconditional Lambda theorem. RH does not follow. ' +
+    'PHASE 51 (2026-04-19, historical measurement log; no unconditional Λ theorem): ' +
+    'three-path numerical sequence extended to 10^6. PATH 1 ' +
     '(imp-833 + imp-858): empirical floor widened 870 -> 1,000,000 via direct sweep on Odlyzko ' +
     'zeros6 combined file (1,149x original); both predicates (E1 rho non-decreasing, E2 tau_c_est ' +
     'non-increasing) hold with ZERO violations on the full N ∈ {2,...,10^6} range. M_uf leading-order ' +
@@ -1815,8 +1861,8 @@ export const LAMBDA_ROADMAP_MILESTONES = [
     relationToLambdaAttack:
       'The v52 paper is the SECOND RH-attack track in this project ' +
       '(twin-ladder / closure-routes / shift-bridge), distinct from the ' +
-      'Λ-attack track (Λ ≤ 0 unconditional via Calogero-Moser flow + ' +
-      'Polymath15 bridge). Both tracks share the same target (RH) but ' +
+      'Dyson/collision Λ-attack track (an unconditional lim-sup skeleton plus ' +
+      'a quantitatively open Polymath15 bridge). Both tracks share the same target (RH) but ' +
       'operate via different mathematical machinery; this milestone ' +
       'records the v52 landing without re-organising the Λ chain.',
   },
@@ -1861,36 +1907,90 @@ export const LAMBDA_ROADMAP_ASSERTIONS = [
       'LambdaBoundsPage.jsx step renderer.',
   },
   {
-    id: 'roadmap-platt-trudgian-sota',
+    id: 'roadmap-platt-trudgian-peer-reviewed-benchmark',
     holds: () =>
-      LAMBDA_BOUNDS.some((b) => b.id === 'platt-trudgian-2021' && b.value === 0.2),
+      LAMBDA_BOUNDS.some(
+        (b) =>
+          b.id === 'platt-trudgian-2021' &&
+          b.value === 0.2 &&
+          b.kind === 'upper-peer-reviewed-benchmark' &&
+          b.status === 'rigorous'
+      ),
     why:
-      'Platt-Trudgian 2021 Λ ≤ 0.2 is the reference SOTA. Any future SOTA ' +
-      'improvement must ADD a new entry, not edit this one.',
+      'Platt-Trudgian 2021 Λ ≤ 0.2 is the peer-reviewed benchmark. New public ' +
+      'claims must be added with their own review grade rather than overwriting it.',
+  },
+  {
+    id: 'roadmap-public-01875-remains-unrefereed',
+    holds: () => {
+      const publicClaim = LAMBDA_BOUNDS.find(
+        (b) => b.id === 'mosaic-public-preprint-01875'
+      );
+      return (
+        publicClaim &&
+        publicClaim.value === 0.1875 &&
+        publicClaim.claimedUnconditional === true &&
+        publicClaim.accepted === false &&
+        publicClaim.status === 'public-preprint-review-open' &&
+        /21175533/.test(publicClaim.href)
+      );
+    },
+    why:
+      'The public 0.1875 package is a reproducible but unrefereed claim. Its ledger ' +
+      'listing and local repair must never silently promote it to an accepted theorem.',
   },
   {
     id: 'roadmap-target-better-than-sota',
     holds: () => {
-      const sota = LAMBDA_BOUNDS.find((b) => b.id === 'platt-trudgian-2021');
+      const publicClaim = LAMBDA_BOUNDS.find(
+        (b) => b.id === 'mosaic-public-preprint-01875'
+      );
       const target = LAMBDA_BOUNDS.find((b) => b.id === 'our-target-sota');
-      return sota && target && target.value < sota.value;
+      return publicClaim && target && target.value < publicClaim.value;
     },
     why:
-      'The target Λ must be strictly better than the current SOTA; otherwise ' +
+      'The target Λ must be strictly below the strongest public ledger claim; otherwise ' +
       'the roadmap is not a roadmap.',
   },
   {
-    id: 'roadmap-G5-and-G6-both-closed',
+    id: 'roadmap-local-candidate-remains-review-open',
+    holds: () => {
+      const candidate = LAMBDA_BOUNDS.find(
+        (b) => b.id === 'local-fixed-height-candidate-01787854'
+      );
+      return (
+        candidate &&
+        candidate.value === 0.1787854 &&
+        candidate.isUnconditional === false &&
+        candidate.status === 'candidate-review-open' &&
+        candidate.route === '/newman-lambda-01787854-candidate'
+      );
+    },
+    why:
+      'The 0.1787854 package is a local review candidate, not an established ' +
+      'unconditional bound. Its roadmap entry must retain the review-open status ' +
+      'and the route that exposes its unresolved obligations.',
+  },
+  {
+    id: 'roadmap-G5-closed-G6-and-G6a-quantitatively-open',
     holds: () => {
       const g5 = OPEN_GAPS.find((g) => g.id === 'G5');
       const g6 = OPEN_GAPS.find((g) => g.id === 'G6');
-      return g5 && g5.severity === 'closed' && g6 && g6.severity === 'closed';
+      const g6a = OPEN_GAPS.find((g) => g.id === 'G6a');
+      return (
+        g5 &&
+        g5.severity === 'closed' &&
+        g6 &&
+        g6.severity === 'open' &&
+        g6a &&
+        g6a.severity === 'open'
+      );
     },
     why:
-      'After imp-387 coordinated flip: G5 was closed by imp-341 + imp-344 + ' +
-      'imp-347; G6 was closed by imp-345 + imp-366 + imp-387. Both must remain ' +
-      'closed. A future edit that reopens either gap must update the ' +
-      'corresponding proof file and this assertion in the same commit.',
+      'G5 is closed at the lim-sup skeleton. The G6 bridge has a structural port, ' +
+      'but G6 and G6a remain quantitatively open because the N-uniform C_H shock ' +
+      'modulus is not discharged. This prevents a structural port from being ' +
+      'misreported as an unconditional numerical Λ theorem.',
   },
   {
     id: 'roadmap-twin-ladder-v52-milestone-present',

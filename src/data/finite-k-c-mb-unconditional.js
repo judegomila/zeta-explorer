@@ -367,17 +367,19 @@ export const FINITE_K_C_MB_UNCONDITIONAL = Object.freeze({
   },
 
   consequences: [
-    'imp-440 finite-height beat: Λ ≤ 0.121 at N* = 1e6 with 24.9× margin ' +
-      'over Platt-Trudgian 0.2 — the conditional-on-M condition is now ' +
-      'discharged unconditionally on N ∈ [100, 10⁴].',
+    'Historical imp-440 assembly estimate 0.121: this module discharges only ' +
+      'its finite-K condition on N ∈ [100, 10⁴]. It does not close the ' +
+      'RH-equivalent bridge, certify the truncation term, or establish a ' +
+      'Lambda upper bound.',
     'imp-835: imp-440 completion sub-gap closed at the N ∈ [100, 10⁴] level.',
     'imp-856: ANY finite K answered with K = 0.2014 (no GUE).',
   ],
 
   remainingOpenWork: [
-    'imp-962 — extend imp-933 per-plateau sweep above N = 10⁴ to push the ' +
-      'unconditional Λ ≤ 0.121 from N ∈ [100, 10⁴] up to the full N* = 10⁶ ' +
-      'headline. Compute-bound (~9-18 h CPU per sweep, parallelizable).',
+    'imp-962 — extend the finite-K certificate sweep above N = 10⁴ to the ' +
+      'full N* = 10⁶ internal assembly range. This would extend only that ' +
+      'sub-certificate, not turn the withdrawn 0.121 assembly into a Lambda bound. ' +
+      'Compute-bound (~9-18 h CPU per sweep, parallelizable).',
     'imp-360 / imp-423 — extend the measured Dyson backward ODE ladder ' +
       'from N = 10⁴ to N = 10⁶ to feed the extended sweep.',
     'imp-486 asymptotic-rate impossibility stands — GUE irreducible at the ' +

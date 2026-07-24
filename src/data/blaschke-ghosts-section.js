@@ -13,16 +13,17 @@
  *     headline, the generalized-Schur / Krein-Langer negative-index identity,
  *     the four-route consequences (A, B, C, D), Conjecture 17.3, the three
  *     attempted non-circular closures, and the interactive demo parameters.
- *   - BLASCHKE_GHOSTS_SECTION_ASSERTIONS — 7 build-time tripwires re-checking
+ *   - BLASCHKE_GHOSTS_SECTION_ASSERTIONS — 9 build-time tripwires re-checking
  *     paper-source path, the negative-square headline, the four-route list, the
  *     negative-index identity, Conjecture 17.3 wording, the three named attacks,
- *     and the demo parameter ranges.
+ *     the demo parameter ranges, the conjugated half-plane reflection, and the
+ *     fixed-shift common-factor caveat.
  *
  * Proof-chain role: reference / QA data file, not a step in the analytic Lambda
- * argument. §17 sharpens the no-ghost statement (each off-critical zeta zero is
- * an explicit inverse Blaschke factor contributing one rank-one negative square),
- * making the RH obstruction localised to identifiable ghost channels rather than
- * diffuse.
+ * argument. §17 sharpens the no-ghost statement (each uncancelled right-half-plane
+ * pole is an explicit inverse Blaschke factor contributing one rank-one negative
+ * square), making the RH obstruction localised to identifiable ghost channels
+ * rather than diffuse.
  *
  * Tickets: created by imp-1198; module-doc navigation block added by this audit.
  */
@@ -32,11 +33,13 @@
 //
 // PURPOSE
 // -------
-// §17 sharpens the no-ghost theorem: every off-critical zero of ξ contributes
-// an explicit inverse Blaschke factor and hence an explicit negative square
-// in the shifted bridge kernel. The proof obstruction to RH is therefore
-// NOT diffuse — it is carried by identifiable "ghost channels" indexed by
-// the (hypothetical) off-critical zeros.
+// §17 sharpens the no-ghost theorem: every uncancelled right-half-plane pole
+// contributes an explicit inverse Blaschke factor and hence an explicit
+// negative square in the shifted bridge kernel. At a fixed shift, denominator
+// zeros shared by the numerator must first be cancelled. The proof obstruction
+// to RH is therefore NOT diffuse — it is carried by identifiable "ghost
+// channels" indexed by residual poles arising from hypothetical off-critical
+// zeros.
 //
 // This file is the structured source-of-truth for the /blaschke-ghosts
 // app page (imp-1198). It does NOT prove anything new; it records the
@@ -49,62 +52,82 @@ export const BLASCHKE_GHOSTS_SECTION = Object.freeze({
   paperSection: '§17',
   paperPageRange: '22-26',
   generatedAt: '2026-05-26T17:00:00Z',
+  correctionBasis:
+    'v70 audit correction: use the conjugate-reflected half-plane Blaschke factor and count poles only after common-factor cancellation',
 
   title: 'Inverse Blaschke Ghosts and the Pontryagin Decomposition',
   oneLine:
-    "Off-critical zeros of ξ are not diffuse obstructions — each is an explicit " +
-    "inverse Blaschke factor contributing exactly one negative square to the shifted " +
-    "bridge kernel.",
+    "Uncancelled right-half-plane poles arising from off-critical zeros are not diffuse " +
+    "obstructions — each residual pole is an explicit inverse Blaschke factor contributing " +
+    "exactly one negative square to the shifted bridge kernel.",
 
   // ── §17.1: The shifted scattering ratio ────────────────────────────────
   shiftedScatteringRatio: Object.freeze({
     definition: 'R_a(w) := X(w - a) / X(w + a),  for ℜw > 0, a > 0, where X(w) = ξ(1/2 + w)',
     boundaryProperty: '|R_a(it)| = 1 for all t ∈ ℝ (functional equation makes it unitary on the imaginary axis)',
     polesAreOffCriticalZeros:
-      'If X(λ) = 0 with λ = δ + iγ, then R_a has a right-half-plane pole at α = (δ - a) + iγ ' +
-      'exactly when δ > a. So right-half-plane poles of R_a are precisely the off-critical zero ' +
-      'witnesses whose horizontal displacement exceeds the bridge thickness a.',
+      'If X(λ) = 0 with λ = δ + iγ and δ > a, then the denominator of R_a has a right-half-plane ' +
+      'zero at α = (δ - a) + iγ. After reducing common factors, α is a pole only to the extent that ' +
+      'ord_λ X exceeds ord_{λ-2a} X, since the numerator at α is X(λ - 2a). Thus uncancelled ' +
+      'right-half-plane poles are off-critical witnesses; identifying every such zero with a pole ' +
+      'requires an explicit no-common-zero (coprimality) hypothesis.',
   }),
 
   // ── §17.2: Right-half-plane Blaschke ghosts + pole-clearing ────────────
   blaschkeGhost: Object.freeze({
-    factor: 'b_α(w) := (w - α) / (w + α)',
+    factor: 'b_α(w) := (w - α) / (w + ᾱ)',
     properties: [
       '|b_α(it)| = 1 for t ∈ ℝ (unitary boundary)',
       'zero at w = α',
       'multiplying R_a by b_α removes the pole at α',
     ],
     ghostBlaschkeProduct: 'B_a^+(w) := ∏_{α ∈ P_a} b_α(w)',
-    poleSet: 'P_a := { λ - a : X(λ) = 0, ℜλ > a }  (with multiplicity)',
+    candidatePoleLocations: '{ λ - a : X(λ) = 0, ℜλ > a }',
+    poleSet:
+      'P_a := { α ∈ ℂ_+ : ord_α X(w+a) > ord_α X(w-a) }  (with residual multiplicity after cancellation)',
     poleClearedBridge: 'R̃_a(w) := B_a^+(w) · R_a(w)',
     decompositionStatement:
-      'Proposition 17.1 (Pole-clearing decomposition): R_a = R̃_a / B_a^+. ' +
-      'If B_a^+ ≡ 1, the bridge is Schur. If B_a^+ is nontrivial, positivity fails by explicit negative-square channels.',
+      'Proposition 17.1 (pole-clearing identity, under a finite-pole or convergent Blaschke-product hypothesis): ' +
+      'R_a = R̃_a / B_a^+. The condition B_a^+ ≡ 1 removes residual right-half-plane poles, but it does not by itself ' +
+      'make R_a Schur: holomorphy of the reduced quotient plus the required boundary/growth or bounded-type contractivity ' +
+      'still have to be proved. A nontrivial residual inverse-Blaschke factor supplies a local negative-square witness ' +
+      'when a valid coprime generalized-Schur factorization is available.',
   }),
 
   // ── §17.3: Single ghost = single negative square ───────────────────────
   singleGhostNegativeSquare: Object.freeze({
     schurKernel: 'K_S(z, w) := (1 - S(z) S̄(w)) / (z + w̄)',
-    forSingleInverseBlaschke: 'S(w) = 1 / b_α(w) = (w + α) / (w - α)',
-    computation: 'K_S(z, w) = − 2·ℜα / ((z - α)(w̄ - ᾱ)) = − k_α(z) k̄_α(w̄)',
+    forSingleInverseBlaschke: 'S(w) = 1 / b_α(w) = (w + ᾱ) / (w - α)',
+    computation: 'K_S(z, w) = − 2·ℜα / ((z - α)(w̄ - ᾱ)) = − k_α(z) overline(k_α(w))',
     rankOneFactorization: 'k_α(z) := √(2·ℜα) / (z - α)',
     headlineResult:
       "ONE inverse Blaschke ghost = ONE rank-one negative square. This is the " +
-      "operator-theoretic version of the Gödelian witness principle: a forbidden " +
-      "off-critical zero produces an internal certificate of failed bridge positivity.",
+      "operator-theoretic version of the Gödelian witness principle: an uncancelled " +
+      "pole arising from a forbidden off-critical zero produces an internal certificate " +
+      "of failed bridge positivity.",
     corollary17_2:
-      'Corollary 17.2 (Ghost witness): If X has a zero λ = δ + iγ with δ > a, then R_a has a pole at α = (δ - a) + iγ ' +
-      'and this pole contributes a negative square −2(δ - a) / ((z - α)(w̄ - ᾱ)) to the indefinite Schur kernel.',
+      'Corrected ghost witness: If X has a zero λ = δ + iγ with δ > a and its multiplicity exceeds ' +
+      'that of the possible numerator zero at λ - 2a, then reduced R_a has a pole at α = (δ - a) + iγ. ' +
+      'Each unit of residual pole multiplicity contributes the negative square ' +
+      '−2(δ - a) / ((z - α)(w̄ - ᾱ)) to the indefinite Schur kernel.',
   }),
 
   // ── §17.4: Generalized Schur interpretation (Krein-Langer) ─────────────
   generalizedSchur: Object.freeze({
-    classMembership: 'R_a = R̃_a / B_a^+ places R_a in a generalized Schur class',
+    classMembership:
+      'If R_a admits a coprime Krein-Langer factorization with a finite Blaschke denominator (or a certified ' +
+      'finite-window analogue), R_a = R̃_a / B_a^+ places it in a generalized Schur class',
     negativeIndexIdentity:
-      'ind_− (K_{R_a}) = #{ λ : X(λ) = 0, ℜλ > a },  with multiplicity (the exact Krein-Langer / Pontryagin identity)',
+      'Under those generalized-Schur, coprimeness, and finite-negative-index hypotheses, ' +
+      'ind_− (K_{R_a}) = Σ_{α ∈ P_a} mult(α), where P_a consists of residual poles arising from ' +
+      'zeros λ with ℜλ > a after common-factor cancellation',
     interpretation:
-      "The number of negative squares in R_a's Schur kernel is EXACTLY the number of " +
-      "off-critical zeros whose horizontal displacement exceeds a. RH ⇔ this count is 0 for every a > 0.",
+      "The Krein-Langer identity counts residual right-half-plane poles, with multiplicity, only after " +
+      "the required generalized-Schur factorization has been established; it is not an automatic global identity " +
+      "for the analytically continued zeta quotient. At a fixed a, identifying this count with all " +
+      "off-critical zeros beyond the shift requires a no-common-zero hypothesis. Requiring the residual " +
+      "count to vanish for every a > 0 is RH-equivalent: one off-critical zero cannot be cancelled for " +
+      "a continuum of shifts because the zero set of nonzero entire X is discrete.",
   }),
 
   // ── §17.5: Consequences for the four closure routes ────────────────────
@@ -112,26 +135,26 @@ export const BLASCHKE_GHOSTS_SECTION = Object.freeze({
     Object.freeze({
       route: 'A',
       name: 'Schur contractivity',
-      consequence: 'R_a ∈ Schur ⇔ B_a^+ ≡ 1',
-      reading: 'Schur contractivity is exactly NO inverse Blaschke ghosts.',
+      consequence: 'R_a ∈ Schur ⇒ B_a^+ ≡ 1',
+      reading: 'No residual ghost is necessary; the converse also needs analytic bounded-type contractivity.',
     }),
     Object.freeze({
       route: 'B',
       name: 'de Branges positivity',
-      consequence: 'K_a ⪰ 0 ⇔ P_a = ∅',
-      reading: 'de Branges positivity is exactly NO right-half-plane ghost poles.',
+      consequence: 'K_a ⪰ 0 ⇒ P_a = ∅',
+      reading: 'Kernel positivity excludes residual poles; pole absence alone does not establish positivity.',
     }),
     Object.freeze({
       route: 'C',
       name: 'Hidden-square factorization',
       consequence: 'K_a = B*_{passive} B_{passive} − B*_{ghost} B_{ghost}',
-      reading: 'The hidden square becomes an INDEFINITE square; true Hilbert square ⇔ B_ghost = 0.',
+      reading: 'Schematic under a proved Pontryagin-space factorization; it is not yet an identity for R_a.',
     }),
     Object.freeze({
       route: 'D',
       name: 'Weil / twin-ladder positivity',
       consequence: 'Q_{TL,a}[h] = ‖B_passive h‖² − Σ_{α ∈ P_a} |⟨h, g_α⟩|²',
-      reading: 'Weil-style quadratic form decomposes into passive part minus ghost contributions.',
+      reading: 'A target decomposition requiring the exact Weil test class, archimedean term, and convergence control.',
     }),
   ]),
 
@@ -141,10 +164,10 @@ export const BLASCHKE_GHOSTS_SECTION = Object.freeze({
       "Conjecture 17.3 (Ghost-absence theorem): For every a > 0, the right-half-plane ghost " +
       "Blaschke product B_a^+(w) is identically 1.",
     equivalentReformulations: [
-      'No off-critical zeros with |ℜρ - 1/2| > a (for the given a > 0)',
-      'No right-half-plane poles in the shifted scattering ratio R_a',
+      'No uncancelled right-half-plane poles in the reduced shifted scattering ratio R_a',
       'Empty pole set P_a',
-      'Equivalent to RH in the limit a → 0',
+      'Under an explicit no-common-zero hypothesis: no off-critical zeros with |ℜρ - 1/2| > a',
+      'For every a > 0, empty residual pole set is RH-equivalent; fixed-a zero counts retain the cancellation caveat',
     ],
   }),
 
@@ -180,7 +203,8 @@ export const BLASCHKE_GHOSTS_SECTION = Object.freeze({
     aRange:     { min: 0.001, max: 0.5, step: 0.001 },
     note:
       "Move δ (horizontal displacement) and γ (imaginary part) of a hypothetical off-critical zero ρ = 1/2 + δ + iγ " +
-      "and watch the negative-square count update: ghosts appear iff δ > a.",
+      "and inspect the candidate pole location. The condition δ > a puts the denominator zero in the right half-plane; " +
+      "a genuine ghost appears only if that zero survives numerator-denominator cancellation.",
   }),
 
   references: Object.freeze({
@@ -208,6 +232,32 @@ export const BLASCHKE_GHOSTS_SECTION_ASSERTIONS = [
          'Misrendering would invert the operator-theoretic statement.',
     holds: () => BLASCHKE_GHOSTS_SECTION.singleGhostNegativeSquare.headlineResult.includes('ONE') &&
                  BLASCHKE_GHOSTS_SECTION.singleGhostNegativeSquare.headlineResult.includes('negative square'),
+  },
+  {
+    id: 'imp1198-half-plane-blaschke-uses-conjugate-reflection',
+    why: 'For complex α in the right half-plane, boundary unitarity requires the reflected pole at −ᾱ. ' +
+         'Using −α is unitary only when α is real and corrupts the ghost-kernel calculation.',
+    holds: () => {
+      const b = BLASCHKE_GHOSTS_SECTION.blaschkeGhost;
+      const s = BLASCHKE_GHOSTS_SECTION.singleGhostNegativeSquare;
+      return b.factor.includes('w + ᾱ') &&
+             !b.factor.includes('w + α)') &&
+             s.forSingleInverseBlaschke.includes('w + ᾱ');
+    },
+  },
+  {
+    id: 'imp1198-fixed-shift-poles-counted-after-cancellation',
+    why: 'At α = λ-a, the numerator equals X(λ-2a). A shared numerator zero can cancel the ' +
+         'denominator zero, so the Krein-Langer index must count residual poles rather than every λ blindly.',
+    holds: () => {
+      const ratio = BLASCHKE_GHOSTS_SECTION.shiftedScatteringRatio.polesAreOffCriticalZeros;
+      const poles = BLASCHKE_GHOSTS_SECTION.blaschkeGhost.poleSet;
+      const index = BLASCHKE_GHOSTS_SECTION.generalizedSchur.negativeIndexIdentity;
+      return ratio.includes('λ - 2a') &&
+             ratio.includes('coprimality') &&
+             poles.includes('residual multiplicity after cancellation') &&
+             index.includes('after common-factor cancellation');
+    },
   },
   {
     id: 'imp1198-four-route-consequences-listed',

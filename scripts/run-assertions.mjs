@@ -11,6 +11,7 @@
 //   node scripts/run-assertions.mjs                   # full sweep
 //   node scripts/run-assertions.mjs --fast            # skip modules known to be slow
 //   node scripts/run-assertions.mjs --since-changed   # only changed files (fast pre-commit)
+//   node scripts/run-assertions.mjs --since-ref=REF   # directly changed registered modules (PR/CI)
 //
 // Exit codes:
 //   0 -- all assertions pass
@@ -20,7 +21,7 @@
 // Output:
 //   scripts/logs/assertions-<ISO>.md
 
-import { execSync } from 'node:child_process';
+import { execFileSync, execSync } from 'node:child_process';
 import fs from 'node:fs';
 import net from 'node:net';
 import path from 'node:path';
@@ -46,6 +47,13 @@ const FAIL_INJECT_MODE  = process.argv.includes('--fail-inject');
 // imp-2749: --since-changed restricts the sweep to modules whose source files
 // have changed vs HEAD (staged + unstaged). Useful as a fast pre-commit check.
 const SINCE_CHANGED = process.argv.includes('--since-changed');
+// PR/CI counterpart to --since-changed. This is deliberately a direct-file
+// gate, not a reverse-dependency sweep: build, smoke, reproduction, and
+// specialized guards cover shared infrastructure, while registered assertion
+// modules edited by the PR run here. An invalid/missing ref is a configuration
+// error, and a clean diff is a legitimate zero-module sweep.
+const SINCE_REF_FLAG = process.argv.find((a) => a.startsWith('--since-ref='));
+const SINCE_REF = SINCE_REF_FLAG ? SINCE_REF_FLAG.slice('--since-ref='.length) : '';
 // imp-1171: concurrent module loading via shared-Vite-server promise.all pool.
 // Worker_threads would require one Vite SSR server per thread (port conflicts)
 // so we instead use a concurrency-capped Promise.all against the single server,
@@ -92,6 +100,11 @@ const inFlightModules = new Set();
 // Vite cache is warm and subsequent re-imports are instant.
 const HEAVY_MODULES = [
   '/src/math/d-monotone-analytic-proof.js',
+  // Imports the rolling measured-Dyson ladder and the 20 MB zero corpus through
+  // several historical estimator owners. The lightweight source-level
+  // withdrawal guard lives in headline-numbers-registry.js, while this full
+  // numerical cross-validation module remains available to manual sweeps.
+  '/src/data/lambda-cross-validation.js',
 ];
 
 // All modules that export *_ASSERTIONS arrays (auto-detected at runtime).
@@ -169,6 +182,7 @@ const MATH_MODULES = [
 // (Kept local to the change in case the top-level list becomes stale.)
 
 const DATA_MODULES = [
+  '/src/data/newman-lambda-01787854-candidate.js',
   '/src/data/lambda-N1e6-final-assembly.js',
   '/src/data/lambda-N1e6-unconditional-beat.js',
   '/src/data/lambda-max-gap-extremal.js',
@@ -12299,6 +12313,28 @@ if (SINCE_CHANGED) {
   } catch { /* git unavailable — run full sweep */ }
 }
 
+if (SINCE_REF) {
+  if (SINCE_REF.startsWith('-') || !/^[A-Za-z0-9._/-]+$/.test(SINCE_REF)) {
+    console.error('INVALID --since-ref value: ' + SINCE_REF);
+    process.exit(2);
+  }
+  try {
+    const out = execFileSync(
+      'git',
+      ['diff', '--name-only', SINCE_REF + '...HEAD', '--'],
+      { cwd: ROOT, encoding: 'utf8' },
+    );
+    const changedSet = new Set(out.trim().split('\n').filter(Boolean));
+    ALL_MODULES = ALL_MODULES.filter((m) => changedSet.has(m.slice(1)));
+  } catch (e) {
+    console.error(
+      'COULD NOT COMPUTE --since-ref=' + SINCE_REF + ': ' +
+      String(e && e.message ? e.message : e).slice(0, 240),
+    );
+    process.exit(2);
+  }
+}
+
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 function isoTimestamp() {
@@ -12453,9 +12489,11 @@ async function main() {
           root:     ROOT,
           logLevel: 'error',
           appType:  'custom',
-          // ws:false silences the HMR WebSocket port-bind warning when N>1
-          // servers run concurrently in the same process.
-          server:   { middlewareMode: true, ws: false },
+          // Assertion SSR loads need neither HMR nor an App.jsx dependency
+          // crawl. Disabling both avoids port warnings and a noisy background
+          // dep-scan racing server.close() after a short PR-scoped sweep.
+          server:   { middlewareMode: true, hmr: false, ws: false },
+          optimizeDeps: { noDiscovery: true },
         },
       });
     } catch (e) {
@@ -12468,7 +12506,8 @@ async function main() {
         root:    ROOT,
         logLevel: 'error',
         appType:  'custom',
-        server:   { middlewareMode: true },
+        server:   { middlewareMode: true, hmr: false, ws: false },
+        optimizeDeps: { noDiscovery: true },
       });
     } catch (e) {
       console.error('FATAL: could not create Vite server:', e.message);
@@ -12490,6 +12529,7 @@ async function main() {
   log('# Assertion sweep — ' + new Date().toISOString());
   log('Mode: ' + (FAST_MODE ? 'fast (heavy modules skipped)' : 'full') +
       (SINCE_CHANGED ? ' · since-changed (' + ALL_MODULES.length + ' modules)' : '') +
+      (SINCE_REF ? ' · since-ref=' + SINCE_REF + ' (' + ALL_MODULES.length + ' modules)' : '') +
       ' · parallel: ' + PARALLEL +
       (pool ? ' · ssr-pool: ' + SSR_POOL_N : ''));
   log('');
@@ -12727,7 +12767,8 @@ async function runSelfTest() {
   const t0 = Date.now();
   const single = await createServer({
     root: ROOT, logLevel: 'error', appType: 'custom',
-    server: { middlewareMode: true },
+    server: { middlewareMode: true, hmr: false, ws: false },
+    optimizeDeps: { noDiscovery: true },
   });
   await loadAll(single, SUBSET);
   const baselineMs = Date.now() - t0;
@@ -12742,7 +12783,8 @@ async function runSelfTest() {
     cap: 4,
     viteOptions: {
       root: ROOT, logLevel: 'error', appType: 'custom',
-      server: { middlewareMode: true, ws: false },
+      server: { middlewareMode: true, hmr: false, ws: false },
+      optimizeDeps: { noDiscovery: true },
     },
   });
   // Concurrency-cap-4 worker race over SUBSET ++ SUBSET (so each slot reused).

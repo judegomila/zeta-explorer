@@ -64,6 +64,7 @@ const ProjectIndexPage = lazy(() => import('./pages/ProjectIndexPage.jsx'));
 const ResearchJournalPage = lazy(() => import('./pages/ResearchJournalPage.jsx'));
 const MetaAccelerationPage = lazy(() => import('./pages/MetaAccelerationPage.jsx'));
 const LambdaBoundsPage = lazy(() => import('./pages/LambdaBoundsPage.jsx'));
+const NewmanLambda01787854CandidatePage = lazy(() => import('./pages/NewmanLambda01787854CandidatePage.jsx'));
 const LambdaTimelinePage = lazy(() => import('./pages/LambdaTimelinePage.jsx'));
 const RhDagPage = lazy(() => import('./pages/RhDagPage.jsx'));
 const RigorDashboardPage = lazy(() => import('./pages/RigorDashboardPage.jsx'));
@@ -1691,6 +1692,7 @@ function AppShell() {
           <Route path="/research-journal" element={<ResearchJournalPage />} />
           <Route path="/meta-acceleration" element={<MetaAccelerationPage />} />
           <Route path="/lambda-bounds" element={<LambdaBoundsPage />} />
+          <Route path="/newman-lambda-01787854-candidate" element={<NewmanLambda01787854CandidatePage />} />
           <Route path="/lambda-timeline" element={<LambdaTimelinePage />} />
           <Route path="/rh-dag" element={<RhDagPage />} />
           <Route path="/rigor-dashboard" element={<RigorDashboardPage />} />

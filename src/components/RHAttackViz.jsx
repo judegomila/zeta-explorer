@@ -561,7 +561,7 @@ function SMatrixTab() {
     ctx.fillStyle = '#94a3b8';
     ctx.font = '9px sans-serif';
     ctx.textAlign = 'left';
-    ctx.fillText('|ζ(½+it)| (transmission)', margin.left + 24, margin.top + 12);
+    ctx.fillText('|ζ(½+it)| (scalar zero diagnostic)', margin.left + 24, margin.top + 12);
 
     ctx.fillStyle = '#10b981';
     ctx.fillRect(margin.left + 8, margin.top + 18, 12, 8);
@@ -580,11 +580,12 @@ function SMatrixTab() {
   return (
     <div>
       <div className="tab-explainer accent-cyan">
-        The S-matrix / Darlington synthesis models <InlineMath tex={"\\zeta(s)"} /> as the transmission coefficient of
-        a lossless scattering network. At known zeros (red bars), <InlineMath tex={"|\\zeta(\\tfrac{1}{2}+it)| \\to 0"} /> (no
-        transmission), while the bridge function <InlineMath tex={"|\\chi| = 1"} /> (fully unitary). At non-zero
-        frequencies (blue bars), transmission is nonzero. The zero deviation table below cross-checks each
-        known <InlineMath tex={"\\gamma_n"} /> against the Riemann&ndash;Siegel formula.
+        This panel compares the scalar diagnostic <InlineMath tex={"|\\zeta(\\tfrac{1}{2}+it)|"} />
+        with the bridge symmetry <InlineMath tex={"|\\chi|=1"} />; it is not plotting
+        <InlineMath tex={"|S_{21}|"} />. At a zeta zero the blue diagnostic vanishes, while
+        <InlineMath tex={"S_{21}=\\zeta(2s)/\\zeta(s)"} /> generically has a pole. The zero
+        deviation table below cross-checks each known <InlineMath tex={"\\gamma_n"} /> against the
+        Riemann&ndash;Siegel formula.
         <strong> Look for:</strong> red "ZERO" labels only at known <InlineMath tex={"\\gamma_n"} />;
         green bridge bars reaching full height (unitarity).
       </div>
@@ -598,11 +599,10 @@ function SMatrixTab() {
         border: '1px solid #3b82f640',
         fontSize: 12,
       }}>
-        <strong style={{ color: '#3b82f6' }}>Darlington Zero Confinement</strong>
+        <strong style={{ color: '#3b82f6' }}>Zero/pole bookkeeping</strong>
         <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 11 }}>
-          At known zeros (red bars), the transmission coefficient |ζ(½+it)| vanishes while the
-          bridge |χ| = 1 (unitary). At non-zeros (blue bars), transmission is non-zero.
-          The bridge is always unitary at σ = ½ regardless of t.
+          At known zeros, |ζ(½+it)| vanishes while the bridge factor retains unit modulus.
+          This is a zero/symmetry diagnostic, not Darlington transmission-zero confinement.
         </div>
         <div style={{ color: '#ef4444', marginTop: 6, fontSize: 11, fontWeight: 600 }}>
           GAP: {data.gap}

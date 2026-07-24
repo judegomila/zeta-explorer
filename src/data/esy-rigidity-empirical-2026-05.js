@@ -101,7 +101,9 @@
 // @see src/data/gue-vs-zeros-comparison.js (imp-1099 sibling)
 // @see src/data/pair-correlation-montgomery-numerical.js (imp-1098 sibling)
 
-import { ZEROS_EXTENDED } from './zeros-to-1e6.js';
+// The browser ships the result snapshot below, not the 16.7 MB source-zero
+// corpus. Offline tooling can pass that corpus explicitly to
+// regenerateEsyRigidityMeasurements; this module never imports it.
 
 // -- Configuration -------------------------------------------------------
 
@@ -125,10 +127,17 @@ function unfoldOne(gamma) {
   return (gamma / TWO_PI) * Math.log(gamma / TWO_PI);
 }
 
-function unfoldFirstN(N) {
+function assertZeroCorpus(zeros) {
+  const required = N_VALUES[N_VALUES.length - 1];
+  if (!zeros || typeof zeros.length !== 'number' || zeros.length < required) {
+    throw new RangeError(`Expected at least ${required} zero ordinates`);
+  }
+}
+
+function unfoldFirstN(zeros, N) {
   const xs = new Array(N);
   for (let k = 0; k < N; k++) {
-    xs[k] = unfoldOne(ZEROS_EXTENDED[k]);
+    xs[k] = unfoldOne(zeros[k]);
   }
   return xs;
 }
@@ -152,8 +161,8 @@ function stieltjesAt(xs, E, eta) {
 
 // -- Per-N psi_N measurement --------------------------------------------
 
-function measurePsiNAtScale(N, c, eta) {
-  const xs = unfoldFirstN(N);
+function measurePsiNAtScale(zeros, N, c, eta) {
+  const xs = unfoldFirstN(zeros, N);
 
   // Bulk window indices [floor(N/4), floor(3*N/4) - 1] so the midpoint
   // x_{idx+1} is well-defined.
@@ -209,19 +218,32 @@ function measurePsiNAtScale(N, c, eta) {
 }
 
 // Microscopic scale (ticket-fixed): eta = c/N.
-function measurePsiNMicro(N, c) {
-  return measurePsiNAtScale(N, c, c / N);
+function measurePsiNMicro(zeros, N, c) {
+  return measurePsiNAtScale(zeros, N, c, c / N);
 }
 
 // Macroscopic scale (auxiliary, well-posed ESY regime): eta = c.
-function measurePsiNMacro(N, c) {
-  return measurePsiNAtScale(N, c, c);
+function measurePsiNMacro(zeros, N, c) {
+  return measurePsiNAtScale(zeros, N, c, c);
 }
 
 // -- Sweep across the 5 ticket-specified N values -----------------------
 
-const RAW_MEASUREMENTS = N_VALUES.map((N) => measurePsiNMicro(N, C_PARAM));
-const MACRO_MEASUREMENTS = N_VALUES.map((N) => measurePsiNMacro(N, C_PARAM));
+const RAW_MEASUREMENTS = [
+  { N: 100, c: 1, E_representative: 73.56638141359866, eta: 0.01, sampleSize: 49, psiRepresentative: 3.041435305830425, psiRMS: 3.0591796271581915, psiMedian: 3.080490194623301 },
+  { N: 500, c: 1, E_representative: 325.5712612712848, eta: 0.002, sampleSize: 50, psiRepresentative: 3.1185537227836106, psiRMS: 3.1117573202355757, psiMedian: 3.125981982607052 },
+  { N: 1000, c: 1, E_representative: 629.6003597517399, eta: 0.001, sampleSize: 50, psiRepresentative: 3.1345067947572374, psiRMS: 3.130416525415669, psiMedian: 3.134569947107643 },
+  { N: 5000, c: 1, E_representative: 2982.901003037662, eta: 0.0002, sampleSize: 50, psiRepresentative: 3.1355577075474317, psiRMS: 3.1387985054910583, psiMedian: 3.139897356995649 },
+  { N: 10000, c: 1, E_representative: 5867.323478622979, eta: 0.0001, sampleSize: 50, psiRepresentative: 3.1395246031025756, psiRMS: 3.140268103310669, psiMedian: 3.140885460290636 },
+];
+
+const MACRO_MEASUREMENTS = [
+  { N: 100, c: 1, E_representative: 73.56638141359866, eta: 1, sampleSize: 49, psiRepresentative: 0.6418234745766531, psiRMS: 0.8368181047692472, psiMedian: 0.7694044729409231 },
+  { N: 500, c: 1, E_representative: 325.5712612712848, eta: 1, sampleSize: 50, psiRepresentative: 0.45886440788448324, psiRMS: 0.662561461184562, psiMedian: 0.5265726287031196 },
+  { N: 1000, c: 1, E_representative: 629.6003597517399, eta: 1, sampleSize: 50, psiRepresentative: 0.4934011145302062, psiRMS: 0.5898473140594773, psiMedian: 0.45703464442354935 },
+  { N: 5000, c: 1, E_representative: 2982.901003037662, eta: 1, sampleSize: 50, psiRepresentative: 0.02143141778358082, psiRMS: 0.45006234740847834, psiMedian: 0.32471846723841535 },
+  { N: 10000, c: 1, E_representative: 5867.323478622979, eta: 1, sampleSize: 50, psiRepresentative: 0.23513191671345002, psiRMS: 0.5683992863473971, psiMedian: 0.41234473160996155 },
+];
 
 // -- Log-log slope fit on (log N, log psi_RMS) --------------------------
 // Ordinary least squares on the 5 datapoints. Returns slope, intercept,
@@ -292,6 +314,22 @@ function fitLogLogRepr(rows) {
   }
   const r2 = 1 - ssRes / ssTot;
   return { slope, intercept, R2: r2 };
+}
+
+// Opt-in offline regeneration boundary. Callers supply the zero corpus;
+// importing this module for the browser snapshot never loads it.
+export function regenerateEsyRigidityMeasurements(zeros) {
+  assertZeroCorpus(zeros);
+  const measuredPsiN = N_VALUES.map((N) => measurePsiNMicro(zeros, N, C_PARAM));
+  const measuredPsiNMacro = N_VALUES.map((N) => measurePsiNMacro(zeros, N, C_PARAM));
+  return Object.freeze({
+    cParam: C_PARAM,
+    measuredPsiN: Object.freeze(measuredPsiN.map(Object.freeze)),
+    measuredPsiNMacro: Object.freeze(measuredPsiNMacro.map(Object.freeze)),
+    fittedRate: Object.freeze(fitLogLog(measuredPsiNMacro)),
+    fittedRateMicro: Object.freeze(fitLogLog(measuredPsiN)),
+    fittedRateRepresentative: Object.freeze(fitLogLogRepr(measuredPsiN)),
+  });
 }
 
 const FIT_REPRESENTATIVE = fitLogLogRepr(RAW_MEASUREMENTS);

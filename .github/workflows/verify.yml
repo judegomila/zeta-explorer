@@ -24,6 +24,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Keep checkout bounded; this repository's full history is large.
+          fetch-depth: 50
+
+      - name: Fetch bounded PR base for assertion diff
+        if: github.event_name == 'pull_request'
+        run: git fetch --no-tags --depth=50 origin +refs/heads/${{ github.base_ref }}:refs/remotes/origin/${{ github.base_ref }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -37,7 +44,12 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Assert (fail-inject self-test + assertion sweep + reproduce headline numbers)
+      - name: Assert bounded changed modules + headline reproduction + smoke
+        if: github.event_name == 'pull_request'
+        run: npm run assert:pr
+
+      - name: Assert full historical sweep (manual dispatch)
+        if: github.event_name == 'workflow_dispatch'
         run: npm run assert
 
       - name: Heavy-import tripwire (pages must not import zeros-to-1e6.js)

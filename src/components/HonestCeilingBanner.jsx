@@ -23,10 +23,11 @@ import { Link } from 'react-router-dom';
 const VARIANTS = {
   'RIGOROUS-SOTA': {
     color: '#34d399',
-    title: 'The rigorous floor is Platt-Trudgian Λ ≤ 0.2 — this program did NOT produce it',
+    title: 'Peer-reviewed benchmark: Platt-Trudgian Λ ≤ 0.2 — this program did NOT produce it',
     body:
-      'The best unconditional de Bruijn-Newman upper bound the field has is Platt-Trudgian (Λ ≤ 0.2), ' +
-      'with Rodgers-Tao (Λ ≥ 0) on the lower side. Both are cited results, not outputs of this program.',
+      'A public unrefereed package claims Λ ≤ 0.1875 and is listed in the Optimization Problems ledger; a local ' +
+      'audit repaired an omitted finite sweep. Platt-Trudgian Λ ≤ 0.2 remains the peer-reviewed benchmark, with ' +
+      'Rodgers-Tao Λ ≥ 0 on the lower side.',
   },
   ESTIMATE: {
     color: '#fbbf24',
@@ -49,14 +50,16 @@ const VARIANTS = {
     title: 'Exploratory / refuted route — not a shortcut below RH',
     body:
       'This page is an exploratory attempt or a faithful reformulation of RH — not a proof and not a shortcut ' +
-      'below it. Any bound it discusses is an estimate; the rigorous SOTA toward Λ stays Platt-Trudgian (Λ ≤ 0.2).',
+      'below it. Any bound it discusses is an estimate unless separately certified; Platt-Trudgian Λ ≤ 0.2 is ' +
+      'the peer-reviewed benchmark and the public 0.1875 package remains unrefereed.',
   },
   'OPEN-HARD': {
     color: '#22d3ee',
-    title: 'C_H / G6a is the #1 genuine wall',
+    title: 'C_H / G6a is the main wall for the Dyson/collision route family',
     body:
-      'Every route that could deliver an actual Λ number short of RH funnels into one object: the C_H / G6a ' +
-      'Hölder-½ shock modulus. It is RH-hard at the modulus and the naive Gronwall discharge is refuted.',
+      'The inherited Dyson/collision routes funnel into the C_H / G6a Hölder-½ shock modulus. ' +
+      'The separate fixed-height review candidate has different open interfaces. No project route is ' +
+      'presently an accepted beat, and the naive C_H Gronwall discharge is refuted.',
   },
 };
 

@@ -2,19 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Single-source three-tier honest picture shared by /rh-proof-state and /rigor-dashboard.
-// "Two rigorous islands + one estimate" framing: both the SOTA floor and the Volterra
+// "Two rigorous islands + one estimate" framing: both the published floor and the Volterra
 // RH-equivalence verdict are definitively established; only the finite-N* beat is an estimate.
 export const PROOF_TIER_DATA = [
   {
-    key: 'rigorous-sota',
-    tier: 'RIGOROUS — Island 1',
+    key: 'peer-reviewed-benchmark',
+    tier: 'RIGOROUS — Peer-reviewed benchmark',
     color: '#10b981',
     bg: 'rgba(16,185,129,0.08)',
     headline: 'Λ ≤ 0.2',
     subhead: 'Platt–Trudgian 2021 — unconditional upper bound',
     bullets: [
       'Rodgers–Tao (2020): Λ ≥ 0 unconditional lower bound.',
-      'Platt–Trudgian (2021): Λ ≤ 0.2 — verified at T_PT = 3×10¹², current rigorous SOTA.',
+      'Platt–Trudgian (2021): Λ ≤ 0.2 — verified at T_PT = 3×10¹², peer-reviewed benchmark.',
+      'A public 0.1875 certificate package is listed and locally repaired, but remains unrefereed.',
       'Route B Burgers lim-sup: PCC-free unconditional contribution (no GUE hypothesis needed).',
       'Heath-Brown–Titchmarsh certified zero census at T = 10⁶ contributes to rigorous floor.',
     ],

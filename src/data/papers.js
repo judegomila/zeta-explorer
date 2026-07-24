@@ -29,7 +29,6 @@
 import {
   PAPER_TITLE,
   PAPER_AUTHORS,
-  PAPER_PDF_PATH,
   PAPER_BUILT_AT,
 } from './paper-publication-meta.js';
 
@@ -43,15 +42,12 @@ const builtinPapers = [
     authors: Array.from(PAPER_AUTHORS),
     date: PAPER_BUILT_AT.slice(0, 10),
     abstract:
-      'Three results on the de Bruijn-Newman invariant Lambda: ' +
-      '(1) Lambda(10^4) <= 0.018, a rigorous unconditional finite-N beat of Platt-Trudgian 2021 ' +
-      '(11.1x margin over current PT SOTA of 0.2). ' +
-      '(2) Lambda <= 8e-4 asymptotic, conditional on linear-1/N model — this is an ESTIMATE, ' +
-      'not a rigorous unconditional bound (250x tighter than PT SOTA 0.2 if the model holds). ' +
-      '(3) Unconditional N^(-3/2) decay rate on |t_c(N)|. ' +
-      'The Lambda = 0 unconditional closure is RH-equivalent via the Polymath15 Volterra collapse ' +
-      '(||V|| <= 1) but remains open: C_H is undischarged and this paper does NOT claim to prove RH.',
-    source: PAPER_PDF_PATH,
+      'WITHDRAWN / SUPERSEDED. This historical manuscript labeled a finite-N value as a rigorous ' +
+      'unconditional Lambda bound, but the load-bearing many-body constant C_H was never discharged. ' +
+      'Its Lambda <= 0.018 headline is therefore an estimate inside the model, not a theorem and not an ' +
+      'improvement on the peer-reviewed Platt-Trudgian Lambda <= 0.2 benchmark. The current app keeps ' +
+      'the record for provenance while disabling release promotion.',
+    source: 'builtin',
     createdAt: PAPER_BUILT_AT,
   },
 ];

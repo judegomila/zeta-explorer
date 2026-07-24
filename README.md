@@ -1,23 +1,23 @@
 # Math Explorer — A Computational Attack on the de Bruijn–Newman Constant Λ
 
-[![status](https://img.shields.io/badge/status-active-brightgreen)]() [![commits](https://img.shields.io/badge/commits-2469%2B-blue)]() [![paper](https://img.shields.io/badge/paper-v1%20ready-orange)]() [![tickets](https://img.shields.io/badge/queue-1218%20tickets%20%C2%B7%201131%20closed-blue)]() [![License](https://img.shields.io/badge/license-MIT-green)]()
+[![status](https://img.shields.io/badge/status-active-brightgreen)]() [![commits](https://img.shields.io/badge/commits-2469%2B-blue)]() [![paper](https://img.shields.io/badge/paper-v1%20withdrawn-red)]() [![tickets](https://img.shields.io/badge/queue-1218%20tickets%20%C2%B7%201131%20closed-blue)]() [![License](https://img.shields.io/badge/license-MIT-green)]()
 
-This repository hosts (a) a **24/7 AI-driven research engine** attacking the de Bruijn–Newman constant Λ — the most direct numerical proxy for the Riemann Hypothesis — and (b) a **large-scale interactive web explorer** (80 pages, 4 new visualization pages) that documents both the Λ attack AND a 191-page research-program companion paper ("Twin-Ladder Deformations of ξ") in public.
+This repository hosts (a) an exploratory computational program around the de Bruijn–Newman constant Λ and (b) a large interactive web explorer documenting the calculations, failed routes, review candidates, and the Twin-Ladder research program.
 
-> **Result in this repository (v1, finite-N regime):** A rigorous unconditional improvement of the Platt–Trudgian 2021 bound on Λ in the finite-height regime, an asymptotic candidate `Λ ≤ 7.98 × 10⁻⁴` (≈ 250× tighter than the rigorous SOTA `Λ ≤ 0.2`, conditional on a linear-1/N model), an unconditional `N⁻³ᐟ²` rate refinement, and a sharpened §4.5 Proposition with conservative block-bootstrap CI `[−1.076, −0.912]` containing the Hughes–Rudnick universality target `−1.000` after Conrey–Snaith correction.
+> **Current honest status (2026-07-23):** This repository does not prove RH and does not contain an accepted project theorem improving Λ. The peer-reviewed benchmark is Platt–Trudgian `Λ ≤ 0.2`. A public, unrefereed certificate package claims `Λ ≤ 0.1875` and is now listed in the Optimization Problems ledger; a local audit repaired one omitted finite sweep but did not replace expert review. A stronger local package proposes `Λ ≤ 0.1787854`; its stored finite and tail gates pass, while eight theorem-level interfaces remain open for independent review.
 
-**Author:** Jude Gomila · **Paper PDF:** `paper/main.pdf` (also at `/papers` in the live app) · **Research-program paper:** `research-inputs/twin_ladder_consolidated_v52.pdf` (191pp, integrated into the app via 9 new sections) · **Live site:** `npm run dev`
+**Author:** Jude Gomila · **Withdrawn historical artifact:** `paper/main.pdf` (its “unconditional beat” headline depends on undischarged `C_H`; it is not offered as a current result) · **Bundled historical research-program paper:** `research-inputs/twin_ladder_consolidated_v52.pdf` · **Current app review overlay:** v70 · **Live site:** `npm run dev`
 
 ---
 
 ## Why this exists
 
-The Riemann Hypothesis is equivalent to `Λ ≤ 0`. The current rigorous record is the Platt–Trudgian 2021 bound `Λ ≤ 0.2`. Beating that record — even by a small amount, even only in the finite-height regime — is a publishable contribution to analytic number theory. Beating it asymptotically would be a major one.
+The Riemann Hypothesis is equivalent to `Λ ≤ 0` (and, with Rodgers–Tao `Λ ≥ 0`, to `Λ = 0`). It is important to separate three grades used in the app: the peer-reviewed `0.2` benchmark, the public but unrefereed `0.1875` record-package claim, and the unpublished local `0.1787854` review candidate.
 
 This project does both of the following simultaneously, in public:
 
-1. **Pushes the bound.** Rigorous interval-arithmetic backward heat flow on actual Riemann zeros, accelerated by Barnes–Hut multipole drift, refit with closed-form rigorous OLS, and composed with Polymath15-style energy bridges.
-2. **Operationalizes a research-program paper.** The "Twin-Ladder Deformations of ξ" v52 paper (191 pages, 29 main sections + appendices A-T+) is wired into the app via 9 dedicated sections + a master roadmap + an audit dashboard.
+1. **Audits candidate bounds.** It records replayable finite and tail computations while keeping their analytic interfaces and publication status explicit.
+2. **Operationalizes a research-program paper.** The historical v52 paper is wired into dedicated sections, with a v70 correction overlay rather than silently rewriting the old audit ledger.
 3. **Visualizes the structure.** 80 interactive pages, 4 new visualization pages (log-phase spiral, twin-ladder tomography, Euler transport flow, hyperbolic prime spiral) connecting twin-ladder coordinates to spiral / interferometric / flow representations, 80+ exploration journal entries, a 33-node insight DAG, and a live improvement queue so a reader can follow the proof attempt as it evolves.
 
 The framing of the visualization side — the **Twin-Ladder Bridge model** — reinterprets ζ(s) as a cascade of prime harmonic oscillators coupled by a lossless bridge, giving every classical RH attack route a single geometric home. The v52 research-program paper sharpens this into a **shift-bridge / four-route / Blaschke-ghost / three-attack** decomposition.
@@ -26,16 +26,16 @@ The framing of the visualization side — the **Twin-Ladder Bridge model** — r
 
 | # | Result | Bound | Regime | Status | Source |
 |---|---|---|---|---|---|
-| 1 | **Finite-N beat** of Platt–Trudgian 2021 | `Λ < 0.2 − ε` for fixed N | Finite height | ✓ Rigorous, paper v1 | `paper/main.pdf` §3 (Theorem 1) |
-| 2 | **Composed asymptotic candidate** | `Λ ≤ 7.98 × 10⁻⁴` | Asymptotic | ✗ One gap (research-grade-open) | `src/data/asymptotic-lambda-bound-2026-05-20.js` |
-| 3 | **Unconditional N⁻³ᐟ² discrepancy rate** | Koksma–Hlawka 2nd-moment refinement | Asymptotic prep | ✓ Rigorous, paper v1 | `paper/main.pdf` §4.3 (Theorem 3) |
-| 4 | **Hughes–Rudnick universality after Conrey–Snaith correction** | slope `−0.997` (CI block-bootstrap `[−1.076, −0.912]` contains target `−1.000`) | ESY linear-statistics observable | ✓ Empirical (Proposition 4.5) | `paper/main.pdf` §4.5 |
-| 5 | **Unconditional variance upper bound** (Proposition 4.5b) | `Var(L_N(f)) ≤ 8·A²‖f'‖²·C_Selberg·log log N / N` | All N | ✓ Rigorous, paper appendix candidate | `src/data/imp-1161-costin-lebowitz-port-attempt.js` |
-| 6 | **3-point Riemann ↔ GUE Pearson 0.978** | 7 grid points on 1e6 verified zeros | Microscopic scale | ✓ Empirical | `src/data/imp-1183-3point-correlation-empirical.js` |
+| 1 | **Peer-reviewed benchmark** | `Λ ≤ 0.2` | Global | ✓ Published theorem | Platt–Trudgian 2021 |
+| 2 | **Public certificate-package claim** | `Λ ≤ 3/16 = 0.1875` | Fixed height + tail | Public, reproducible, unrefereed; locally repaired | Zenodo `21175533` |
+| 3 | **Local direct-Triangle candidate** | `Λ ≤ 0.1787854` | Fixed height + tail | Review open; not published or accepted | `/newman-lambda-01787854-candidate` |
+| 4 | **Older finite-N “beat”** | about `0.02` at `N=10⁴` | Finite model | Estimate only; gated on open `C_H` | `src/data/lambda-roadmap.js` |
+| 5 | **Conditional asymptotic target** | `Λ ≤ 3.06 × 10⁻⁵` | Asymptotic program | Conditional on Polymath15 G6a | `src/data/asymptotic-lambda-bound-2026-05-20.js` |
+| 6 | **3-point Riemann ↔ GUE Pearson 0.978** | 7 grid points on 1e6 verified zeros | Microscopic scale | Empirical | `src/data/imp-1183-3point-correlation-empirical.js` |
 
-The asymptotic candidate (#2) decomposes into a high-N analytic part `a_hi = 7.673 × 10⁻⁴` plus a Polymath15 truncation bridge `E_trunc_pt = 3.06 × 10⁻⁵`, both with rigorous interval-arithmetic error bars. The remaining gap is the closure of one of three named sub-paths in §4: the ESY rigidity route via Hughes–Rudnick / Bourgade linear-statistics universality (the other two — `L²→L∞` Sobolev cost and sub-Selberg discrepancy — have been ruled out by independent attacks; per `imp-1184`, **all three live ESY-closure routes share Montgomery PCC at 2-point as the same unconditional obstruction**).
+The older asymptotic program target (#5) is retained as a conditional research path, not as a current bound. Its numerical value depends on the Polymath15 `G6a` bridge and therefore must not be compared with the three evidence-graded headline rows as if it were an established theorem.
 
-## Twin-Ladder Research Program (v52 paper integration)
+## Twin-Ladder Research Program (v70 review over the v52 integration)
 
 The repository hosts a 191-page consolidated research-program paper (`research-inputs/twin_ladder_consolidated_v52.pdf`) operationalizing the twin-ladder framework. The app wires it into **9 dedicated sections**:
 
@@ -49,9 +49,9 @@ The repository hosts a 191-page consolidated research-program paper (`research-i
 | `/kyp-bounded-real` | Apps M–O | KYP state-space passive lifts, delay-Gram certificates |
 | `/rigorous-numerics-stages` | §20 | Stage I/II/III maps to existing Rust + Lean infrastructure |
 | `/twin-ladder-paper-roadmap` | — | Master index: 71 entries with coverage + audit status per section |
-| `/paper-audit-dashboard` | — | 13 named conjectures tracked: **2 SUBSUMED-BY-RH**, 2 PARTIALLY-RELATED, 1 INDEPENDENT-NOVEL, 8 UNAUDITED |
+| `/paper-audit-dashboard` | — | 14 named conjectures tracked: **7 SUBSUMED-BY-RH**, 5 PARTIALLY-RELATED, 2 INDEPENDENT-NOVEL, 0 UNAUDITED |
 
-**Audit findings to date**: paper §4.5 Conjecture 1 (SUBSUMED by Hughes–Rudnick + Bourgade per imp-1163), Conjecture 15.4 (TRIVIALLY IMPLIED BY RH via paired Hadamard per imp-1202), Conjecture 22.4 (SUBSUMED — direct restatement of RH per imp-1210). Audits 15.2, 17.3, 18.4 in flight, expected similar SUBSUMED-BY-RH verdicts.
+**Audit status**: all 14 dashboard conjectures now have verdicts. Seven are RH-equivalent reformulations, five are partially related to existing theory, and two retain independent-novel classifications. The v70 overlay adds mathematical corrections without rewriting the historical v52 audit provenance.
 
 ## Visualizations (new section)
 
@@ -136,7 +136,7 @@ npm run build      # → dist/
 
 Every prime `p` defines a harmonic oscillator with energy levels `E_k = k · log p`. Summing over excitations gives `H_p(s) = 1/(1 − p⁻ˢ)` — simultaneously a partition function (statistical mechanics) and a transfer function (circuit theory). Cascading all primes recovers the Euler product. The **twin-ladder system** pairs ζ(s) with the dual ladder ζ(1−s) coupled by a bridge χ(s) satisfying `|χ(½+it)|=1` on the critical line — but note this on-line unimodularity is *just the functional equation*, true whether or not RH holds.
 
-> ⚠ **Honest correction (the circuit slogan is a heuristic, not a theorem).** The tempting statement "RH ⇔ the twin-ladder network is Darlington-lossless" does **not** hold rigorously: Darlington's theorem confines transmission *zeros*, whereas ζ-zeros are *poles* of S₂₁ = ζ(2s)/ζ(s) (imp-129); and off-line passivity — the only RH-strength reading — is *equivalent to RH itself*, not an independent lever. The circuit picture is the **heuristic that generated** the real model; the rigorous content lives entirely in the **shift-bridge / de Branges layer** (Theorem 15.1, the a-dial, the four-route equivalence). See the [Project Results](#) and the systematic wall map: every route reduces to RH-hard objects, and Platt–Trudgian Λ ≤ 0.2 remains the unbeaten rigorous SOTA.
+> ⚠ **Honest correction (the circuit slogan is a heuristic, not a theorem).** The tempting statement "RH ⇔ the twin-ladder network is Darlington-lossless" does **not** hold rigorously. Darlington theory constrains transmission *zeros*, but for S₂₁(s) = ζ(2s)/ζ(s), a generic nontrivial zero ρ of the denominator produces a *pole* at ρ—not a transmission zero—unless a numerator zero cancels it. Off-line passivity, the only RH-strength reading, is itself equivalent to RH rather than an independent lever. The circuit picture is the **heuristic that generated** the model; the rigorous content lives in the **shift-bridge / de Branges layer** and must state any common-zero or coprimality hypothesis explicitly. See the [Project Results](#) and the systematic wall map for the remaining RH-hard objects.
 
 This gives every classical RH attack a network-theoretic interpretation:
 

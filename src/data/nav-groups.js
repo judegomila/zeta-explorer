@@ -35,7 +35,7 @@ export const NAV_GROUPS = [
     ],
   },
   {
-    label: 'Twin-Ladder v52',
+    label: 'Twin-Ladder v70',
     items: [
       { to: '/shift-bridge-positivity', label: 'Shift-Bridge (§15)' },
       { to: '/closure-routes', label: 'Four Closure Routes (§16)' },
@@ -43,9 +43,9 @@ export const NAV_GROUPS = [
       { to: '/three-attacks', label: 'Three Attacks (§18)' },
       { to: '/freezing-bridge', label: 'Freezing Bridge (§23)' },
       { to: '/kyp-bounded-real', label: 'KYP / Bounded-Real' },
-      { to: '/twin-ladder-paper-roadmap', label: 'Paper Roadmap' },
+      { to: '/twin-ladder-paper-roadmap', label: 'Historic v52 Paper Roadmap' },
       { to: '/rigorous-numerics-stages', label: 'Rigorous Numerics (§20)' },
-      { to: '/paper-audit-dashboard', label: 'Paper Audit Dashboard' },
+      { to: '/paper-audit-dashboard', label: 'v70 Review + v52 Audit Ledger' },
       { to: '/pcc-route-exhaustion', label: 'PCC Route Exhaustion' },
       { to: '/ht-corridor-certificates', label: 'H_t Corridor Certificates (rigorous)' },
       { to: '/ht-window-census', label: 'H_t Finite-Window Census (exactly 8)' },
@@ -101,6 +101,7 @@ export const NAV_GROUPS = [
       { to: '/what-we-know', label: 'What We Know ★' },
       { to: '/route-b-limsup', label: 'Route B: limsup t_c = 0 ★' },
       { to: '/lambda-bounds', label: 'Λ Bounds & RH Roadmap' },
+      { to: '/newman-lambda-01787854-candidate', label: 'Λ ≤ 0.1787854 Candidate Audit' },
       { to: '/lambda-timeline', label: 'Λ Timeline' },
       { to: '/rh-dag', label: 'RH Dependency DAG' },
       { to: '/route-map', label: 'Route Map' },

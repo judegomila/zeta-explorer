@@ -1,7 +1,7 @@
 import React, { useRef, useCallback, useEffect } from 'react';
 
 /**
- * Shareable proof status card — generates a canvas image
+ * Shareable research status card — generates a canvas image
  * that can be saved/shared on social media.
  */
 export default function ProofStatusCard() {
@@ -32,21 +32,22 @@ export default function ProofStatusCard() {
     ctx.font = 'bold 22px "JetBrains Mono", monospace';
     ctx.fillStyle = '#e2e8f0';
     ctx.textAlign = 'center';
-    ctx.fillText('RIEMANN HYPOTHESIS', w / 2, 36);
+    ctx.fillText('RIEMANN HYPOTHESIS RESEARCH', w / 2, 36);
     ctx.font = '13px "JetBrains Mono", monospace';
     ctx.fillStyle = '#64748b';
-    ctx.fillText('Twin-Ladder Bridge Proof Framework — Status Report', w / 2, 56);
+    ctx.fillText('Twin-Ladder Evidence & Open-Gap Report', w / 2, 56);
 
-    // Proof sections grid
+    // Evidence-graded sections. "Exact" applies only to the stated
+    // mathematical identity/domain; it is not a claim that RH is proved.
     const sections = [
-      { id: 'S1', name: 'Euler Product', status: 'proven', color: '#10b981' },
-      { id: 'S2', name: 'Cascade', status: 'proven', color: '#10b981' },
-      { id: 'S3', name: 'Func. Equation', status: 'proven', color: '#10b981' },
-      { id: 'S4', name: 'Continuation', status: 'proven', color: '#10b981' },
-      { id: 'S5', name: 'Operator', status: 'conditional', color: '#f59e0b' },
-      { id: 'S6', name: 'Hamiltonian', status: 'verified', color: '#3b82f6' },
-      { id: 'S7', name: 'Darlington', status: '6/7 rigorous', color: '#8b5cf6' },
-      { id: 'S8', name: 'RH', status: 'follows S7', color: '#8b5cf6' },
+      { id: 'S1', name: 'Euler Product', status: 'EXACT: RE S > 1', color: '#10b981' },
+      { id: 'S2', name: 'Zeta Ratio', status: 'EXACT / ALGEBRAIC', color: '#10b981' },
+      { id: 'S3', name: 'LC Cascade', status: 'MODEL ONLY', color: '#f59e0b' },
+      { id: 'S4', name: 'Continuation', status: 'CIRCUIT OPEN', color: '#f59e0b' },
+      { id: 'S5', name: 'Operator', status: 'OPEN', color: '#ef4444' },
+      { id: 'S6', name: 'Energy Proxy', status: 'FINITE ONLY', color: '#3b82f6' },
+      { id: 'S7', name: 'Realization', status: 'BLOCKED', color: '#ef4444' },
+      { id: 'S8', name: 'RH', status: 'OPEN', color: '#ef4444' },
     ];
 
     const startY = 75;
@@ -80,18 +81,10 @@ export default function ProofStatusCard() {
     // Stats
     const statsY = 195;
     const stats = [
-      { label: 'Closure Paths', value: '6', color: '#10b981' },
-      { label: 'Verified Zeros', value: '870+', color: '#3b82f6' },
-      { label: 'Math Modules', value: '35+', color: '#8b5cf6' },
-      // Source of truth: src/data/improvements.js (logged entries from the
-      // auto-improve engine). The card previously hard-coded '70+' which was
-      // correct in the card's earliest days but silently drifted: by 2026-04
-      // the engine had logged over 1100 entries, so the shareable/Twitter
-      // card was under-representing the project's scale by more than an order
-      // of magnitude. Use a conservative '1100+' floor (rather than the exact
-      // running count) so future logged improvements keep the claim true
-      // without needing to re-edit this file every run.
-      { label: 'Improvements', value: '1100+', color: '#f59e0b' },
+      { label: 'Accepted RH Proofs', value: '0', color: '#ef4444' },
+      { label: 'Peer-Reviewed Λ Cap', value: '0.2', color: '#10b981' },
+      { label: 'Public Λ Claim', value: '0.1875', color: '#f59e0b' },
+      { label: 'Local Candidate', value: '0.1787854', color: '#8b5cf6' },
     ];
 
     stats.forEach((s, i) => {
@@ -111,18 +104,18 @@ export default function ProofStatusCard() {
     ctx.roundRect(20, 248, w - 40, 40, 6);
     ctx.fill();
     ctx.font = '11px "JetBrains Mono", monospace';
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = '#f59e0b';
     ctx.textAlign = 'center';
-    ctx.fillText('RH reduces to one axiom: infinite Darlington closure', w / 2, 265);
+    ctx.fillText('ζ zeros are generic poles of ζ(2s)/ζ(s)', w / 2, 265);
     ctx.fillStyle = '#64748b';
     ctx.font = '9px "JetBrains Mono", monospace';
-    ctx.fillText('6 independent paths verify it • Mertens bound proves convergence', w / 2, 280);
+    ctx.fillText('Realization + an exact divisor theorem remain open', w / 2, 280);
 
     // Footer
     ctx.fillStyle = '#334155';
     ctx.font = '9px "JetBrains Mono", monospace';
     ctx.textAlign = 'center';
-    ctx.fillText('Twin-Ladder Bridge by Jude Gomila • localhost:3002', w / 2, h - 8);
+    ctx.fillText('Twin-Ladder research • mathexplorer-rho.vercel.app', w / 2, h - 8);
   }, []);
 
   // Draw once on mount so the card is visible without requiring a user click —
@@ -135,7 +128,7 @@ export default function ProofStatusCard() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const link = document.createElement('a');
-    link.download = 'rh-proof-status.png';
+    link.download = 'rh-research-status.png';
     link.href = canvas.toDataURL('image/png');
     link.click();
   };

@@ -1,8 +1,10 @@
 /**
  * @module rigorous-numerics-stages
- * @fileoverview Structured reference doc for §20 of the user paper
- * `research-inputs/twin_ladder_consolidated_v52.pdf` (page 42), titled
- * "Rigorous-numerics program".
+ * @fileoverview Structured reference doc for §20 of the user paper, carried
+ * forward in `twin_ladder_consolidated_v70.tex` (lines 1598-1618), titled
+ * "Rigorous-numerics program". The original app mapping was made against
+ * `research-inputs/twin_ladder_consolidated_v52.pdf` (page 42); that historic
+ * provenance remains explicit instead of being silently relabelled v70.
  *
  * Section 20 declares a three-stage rigorous-numerics program:
  *
@@ -62,7 +64,21 @@
  */
 export const RIGOROUS_NUMERICS_STAGES = Object.freeze({
   ticketId: 'imp-1220',
-  paperRef: 'research-inputs/twin_ladder_consolidated_v52.pdf, §20, page 42',
+  paperRef: 'twin_ladder_consolidated_v70.tex, §20, lines 1598-1618',
+  paperVersion: 'v70',
+  historicalPaperRef:
+    'research-inputs/twin_ladder_consolidated_v52.pdf, §20, page 42',
+  correctionAuditRef:
+    'twin_ladder_rh_attack_report.md, §6.7 (numerical coverage and reproducibility)',
+  transferabilityCaveat:
+    'Section 20 is textually carried forward in v70, but the supplied v70 ' +
+    'artifacts do not include the named ACB leaf files, raw JSON, coverage ' +
+    'ledger, or independent verifier for its later finite-region tables. A ' +
+    'summary-hash verifier does not recompute leaves or certify box coverage. ' +
+    'Those v70 tables are therefore not independently transferable certificates ' +
+    'from the supplied material. This does not downgrade separate in-repo local ' +
+    'certificates that ship their own verifier inputs; each must be judged from ' +
+    'its own artifact chain.',
   title: 'Rigorous-numerics program (three stages)',
   oneLine:
     'Three-stage rigorous-numerics program: classical benchmark (Stage I), ' +
@@ -113,10 +129,10 @@ export const RIGOROUS_NUMERICS_STAGES = Object.freeze({
         Object.freeze({
           path: 'src/data/finite-height-beats-platt-trudgian.js',
           brief:
-            'Frozen-ladder K_PLATEAU_LADDER consumer; rigorous-unconditional-' +
-            'beat at N* = 1e4 and conservative carryforward to N* = 1e6 — ' +
-            'the load-bearing classical-point benchmark this stage is meant ' +
-            'to tighten.',
+            'Frozen-ladder K_PLATEAU_LADDER consumer for the conditional ' +
+            'finite-N estimate chain. Its collision term depends on an ' +
+            'undischarged C_H hypothesis, so it is an engineering benchmark ' +
+            'for this stage, not a rigorous unconditional Lambda beat.',
         }),
       ]),
       gaps: Object.freeze([
@@ -210,7 +226,8 @@ export const RIGOROUS_NUMERICS_STAGES = Object.freeze({
             'rk4.rs (classical RK4), dp45.rs (Dormand-Prince adaptive), ' +
             'verner87.rs (Verner 8(7)), barnes_hut*.rs (multipole O(N log N)), ' +
             'chain.rs (long-horizon chains), parallel.rs (Rayon sweep) — ' +
-            'the ball-arithmetic substrate for Stage III.',
+            'a directed-interval ODE substrate for Stage III. It is not by ' +
+            'itself complex ball arithmetic for the v70 ACB zero-cell tables.',
         }),
         Object.freeze({
           path: 'lean/LambdaAttack/',
@@ -225,8 +242,9 @@ export const RIGOROUS_NUMERICS_STAGES = Object.freeze({
           path: 'scripts/run-assertions.mjs',
           brief:
             'Build-time assertion sweep harness that runs every ' +
-            'exported *_ASSERTIONS array — the runtime tripwire layer ' +
-            'that catches regressions in the chain numerics.',
+            'exported *_ASSERTIONS array — an engineering regression layer. ' +
+            'Record/text assertions are not a substitute for interval leaf ' +
+            'recomputation, coverage verification, or a proof certificate.',
         }),
         Object.freeze({
           path: 'src/data/rust-port-phase1-validation.js',
@@ -238,9 +256,9 @@ export const RIGOROUS_NUMERICS_STAGES = Object.freeze({
         Object.freeze({
           path: 'src/data/rust-port-phase3-pilot-validation.js',
           brief:
-            'imp-1092 Phase 3 pilot at N = 2e4: certified bracket ' +
+            'imp-1092 Phase 3 pilot at N = 2e4: interval-enclosed finite-N bracket ' +
             't_c in [0.0001, 0.0002] with max interval width 4.91e-10 ' +
-            '(replaces conservative carryforward at first plateau).',
+            'inside the stated numerical model. This is not a global Lambda bound.',
         }),
       ]),
       gaps: Object.freeze([
@@ -258,6 +276,10 @@ export const RIGOROUS_NUMERICS_STAGES = Object.freeze({
           'at matched precision) is not in-tree; only the Lambda <= 0.2 ' +
           'Platt-Trudgian 2021 bound is compared to, not the Polymath15 ' +
           'interval-arithmetic runtime ledger.',
+        'The supplied v70 material does not contain the named ACB leaves, raw ' +
+          'JSON, coverage ledger, or independent verifier for its later ' +
+          'finite-region tables; summary hashes alone cannot transfer those ' +
+          'tables as independently checkable certificates.',
       ]),
       status: 'stage-partial',
       rigorTier: 'conditional',
@@ -292,6 +314,24 @@ export function findStage(numeral) {
 // reason.
 
 export const RIGOROUS_NUMERICS_STAGES_ASSERTIONS = [
+  {
+    id: 'imp1220-v70-source-preserves-v52-mapping-provenance',
+    holds: () => {
+      const r = RIGOROUS_NUMERICS_STAGES;
+      return (
+        r.paperVersion === 'v70' &&
+        r.paperRef.includes('twin_ladder_consolidated_v70.tex') &&
+        r.paperRef.includes('lines 1598-1618') &&
+        r.historicalPaperRef.includes('twin_ladder_consolidated_v52.pdf') &&
+        r.correctionAuditRef.includes('twin_ladder_rh_attack_report') &&
+        /not independently transferable certificates/.test(r.transferabilityCaveat)
+      );
+    },
+    why:
+      'The §20 text is carried forward in v70, but the app-to-code mapping was ' +
+      'originally audited against v52. Both references and the v70 artifact-' +
+      'transferability caveat must remain explicit.',
+  },
   {
     id: 'imp1220-three-stages-present',
     holds: () =>
@@ -397,8 +437,8 @@ export const RIGOROUS_NUMERICS_STAGES_ASSERTIONS = [
     },
     why:
       'Stage III (interval certification) must cite the rust/interval-rk4/ ' +
-      'ball-arithmetic crate AND the lean/ formal-verification scaffolding. ' +
-      'These are the two named substrates of the certification stage.',
+      'directed-interval ODE crate AND the lean/ formal-verification ' +
+      'scaffolding. Neither is to be mislabeled as the missing ACB leaf bundle.',
   },
   {
     id: 'imp1220-stage-III-cites-tripwire-harness',
@@ -410,9 +450,9 @@ export const RIGOROUS_NUMERICS_STAGES_ASSERTIONS = [
       );
     },
     why:
-      'Stage III must cite scripts/run-assertions.mjs (the runtime ' +
-      'tripwire harness named in §20.3 as the "verify zero cells with ' +
-      'local interval slacks" infrastructure).',
+      'Stage III must cite scripts/run-assertions.mjs as an engineering ' +
+      'regression harness while keeping it distinct from interval leaf ' +
+      'recomputation and coverage verification.',
   },
   {
     id: 'imp1220-no-stage-overclaims-complete',

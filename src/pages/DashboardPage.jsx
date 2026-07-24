@@ -9,7 +9,10 @@ import FreshnessBanner from '../components/FreshnessBanner.jsx';
 import { EMPIRICAL_M_SWEEP_EXTENDED_SUMMARY as EMPIRICAL_M_SWEEP_EXTENDED } from '../data/empirical-m-sweep-extended-summary.js';
 // imp-2956: honest top-line status, sourced from the same canonical data module
 // as /state-of-program so the two surfaces cannot drift. Light, no heavy imports.
-import { STATE_OF_PROGRAM_TRUTHS } from '../data/state-of-program-truths.js';
+import {
+  STATE_OF_PROGRAM_SUMMARY_DATE,
+  STATE_OF_PROGRAM_TRUTHS,
+} from '../data/state-of-program-truths.js';
 
 const ProofStatusCard = lazy(() => import('../components/ProofStatusCard.jsx'));
 
@@ -342,7 +345,7 @@ export default function DashboardPage() {
         </p>
       </PageHeader>
 
-      <FreshnessBanner date="2026-06-23" note="latest research session; metrics computed live on load" />
+      <FreshnessBanner date={STATE_OF_PROGRAM_SUMMARY_DATE} note="status reconciliation; metrics computed live on load" />
 
       {/* imp-2956: honest "state of the program" summary, sourced from the
           canonical STATE_OF_PROGRAM_TRUTHS data module (same facts as

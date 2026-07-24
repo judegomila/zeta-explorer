@@ -32,25 +32,25 @@ export const LAMBDA_TIMELINE_PEOPLE = {
   'G. Csordas': {
     key: 'csordas', display: 'George Csordas', photo: null,
     wiki: 'https://en.wikipedia.org/wiki/Laguerre%E2%80%93P%C3%B3lya_class',
-    life: '', role: 'Laguerre–Pólya / Jensen-polynomial upper bounds (1988–1993).',
+    life: '', role: 'Laguerre–Pólya methods and lower bounds for Λ.',
   },
   'T.S. Norfolk': {
     key: 'norfolk', display: 'Timothy S. Norfolk', photo: null,
-    wiki: null, life: '', role: 'Co-author, 1988 upper bound.',
+    wiki: null, life: '', role: 'Co-author of the 1987 lower bound.',
   },
   'R.S. Varga': {
     key: 'varga', display: 'Richard S. Varga', photo: '/portraits/varga.jpg',
     wiki: 'https://en.wikipedia.org/wiki/Richard_S._Varga',
-    life: '1928–2022', role: 'Numerical analyst; several 1988–1993 upper bounds.',
+    life: '1928–2022', role: 'Numerical analyst; several early lower bounds.',
   },
   'A.M. Odlyzko': {
     key: 'odlyzko', display: 'Andrew M. Odlyzko', photo: '/portraits/odlyzko.jpg',
     wiki: 'https://en.wikipedia.org/wiki/Andrew_Odlyzko',
-    life: 'b. 1949', role: 'Large-scale zeta-zero computation → sharper bounds (1991, 2000).',
+    life: 'b. 1949', role: 'Large-scale zeta-zero computation → sharper lower bounds.',
   },
   'W. Smith': {
     key: 'smith', display: 'Wayne Smith', photo: null,
-    wiki: null, life: '', role: 'Co-author, 1991 & 1993 upper bounds.',
+    wiki: null, life: '', role: 'Co-author of the 1993 lower bound.',
   },
   'X. Saouter': {
     key: 'saouter', display: 'Xavier Saouter', photo: null,
@@ -63,6 +63,34 @@ export const LAMBDA_TIMELINE_PEOPLE = {
   'P. Demichel': {
     key: 'demichel', display: 'Patrick Demichel', photo: null,
     wiki: null, life: '', role: 'Co-author, 2007 & 2011 upper bounds.',
+  },
+  'H.J.J. te Riele': {
+    key: 'teriele', display: 'Herman te Riele', photo: null,
+    wiki: null, life: '', role: 'Proved the 1990 lower bound Λ > −5.',
+  },
+  'A. Ruttan': {
+    key: 'ruttan', display: 'Alan Ruttan', photo: null,
+    wiki: null, life: '', role: 'Co-author of the 1991 lower bound.',
+  },
+  'Y. Saouter': {
+    key: 'ysaouter', display: 'Yannick Saouter', photo: null,
+    wiki: null, life: '', role: 'Co-author of the 2011 Lehmer-pair lower bound.',
+  },
+  'X. Gourdon': {
+    key: 'gourdon', display: 'Xavier Gourdon', photo: null,
+    wiki: null, life: '', role: 'Co-author of the 2011 Lehmer-pair lower bound.',
+  },
+  'H. Ki': {
+    key: 'ki', display: 'Haseo Ki', photo: null,
+    wiki: null, life: '', role: 'Co-author of the strict 2009 upper-bound improvement.',
+  },
+  'Y.-O. Kim': {
+    key: 'kim', display: 'Young-One Kim', photo: null,
+    wiki: null, life: '', role: 'Co-author of the strict 2009 upper-bound improvement.',
+  },
+  'J. Lee': {
+    key: 'lee', display: 'Jungseob Lee', photo: null,
+    wiki: null, life: '', role: 'Co-author of the strict 2009 upper-bound improvement.',
   },
   'B. Rodgers': {
     key: 'rodgers', display: 'Brad Rodgers', photo: null,
@@ -83,7 +111,7 @@ export const LAMBDA_TIMELINE_PEOPLE = {
     key: 'platt', display: 'David J. Platt', photo: null,
     wiki: null, life: '', role: 'With Trudgian, current SOTA upper bound Λ ≤ 0.2 (2021).',
   },
-  'L. Trudgian': {
+  'T. Trudgian': {
     key: 'trudgian', display: 'Timothy S. Trudgian', photo: null,
     wiki: null, life: '', role: 'With Platt, current SOTA upper bound Λ ≤ 0.2 (2021).',
   },
@@ -93,6 +121,7 @@ export const LAMBDA_TIMELINE_PEOPLE = {
 const NON_PERSON = new Set([
   'ZPO Engine (mathexplorer project)',
   'Twin-Ladder v52 paper integration team',
+  'Mosaic Intelligence',
 ]);
 
 /** @returns {Person|null} the person record for an author string, or null if not a person. */

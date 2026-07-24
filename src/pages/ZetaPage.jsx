@@ -296,18 +296,20 @@ export default function ZetaPage() {
         <div className="two-col" style={{ marginTop: 12, gap: 16 }}>
           <div style={{ padding: 12, background: 'rgba(245,158,11,0.08)', borderRadius: 8 }}>
             <p style={{ fontSize: 13, color: '#fbbf24' }}>
-              <strong>Circuit interpretation:</strong> A zeta zero is a <em>transmission zero</em> -- a
-              frequency at which no signal passes through the network. The transfer
-              function <InlineMath tex={"H(s) = \\zeta(s)"} /> drops to zero, and 100% of the input energy
-              is reflected back.
+              <strong>Circuit interpretation:</strong> If one chooses the scalar analogy
+              <InlineMath tex={"H(s)=\\zeta(s)"} />, then a zeta zero is a zero of that abstract
+              transfer function. It is not a transmission zero of the app&apos;s cascade ratio
+              <InlineMath tex={"S_{21}(s)=\\zeta(2s)/\\zeta(s)"} />: absent cancellation, it is a
+              pole of that ratio. A claim of complete reflection would additionally require a
+              rigorously realized lossless two-port.
             </p>
           </div>
           <div style={{ padding: 12, background: 'rgba(139,92,246,0.08)', borderRadius: 8 }}>
             <p style={{ fontSize: 13, color: '#a78bfa' }}>
-              <strong>Unitarity at the critical line:</strong> The bridge connecting direct and dual ladders
-              is unitary at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />, so energy is perfectly reflected
-              at each zero. No energy is lost or created -- the scattering matrix satisfies <InlineMath tex={"S^\\dagger S = I"} /> exactly
-              on the critical line.
+              <strong>What is exact:</strong> The functional equation pairs the direct and dual
+              zeros, and its bridge factor has unit modulus at
+              <InlineMath tex={"\\sigma=\\tfrac{1}{2}"} />. That boundary identity does not by itself
+              prove that the full infinite cascade is a realizable unitary scattering network.
             </p>
           </div>
         </div>

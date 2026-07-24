@@ -74,8 +74,8 @@ const GAP_CLOSERS = [
   },
   {
     id: 'S8',
-    title: 'Spectral Confinement (RH)',
-    result: 'Complete either proof path. Path A: close S5 (operator construction). Path B: close S7 (Darlington extension). Either yields Re(rho) = 1/2 for all nontrivial zeros.',
+    title: 'Spectral or Pole Identification (RH)',
+    result: 'Path A may imply RH if a correct spectral identification is proved. Closing S7 alone does not: for S21 = zeta(2s)/zeta(s), zeta zeros are generic poles, so Path B additionally needs a valid pole-confinement or inverse-channel theorem.',
   },
   {
     id: 'S9',
@@ -157,8 +157,9 @@ export default function ProofPlannerPage() {
             </div>
             <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7 }}>
               Requires extending Darlington's synthesis theorem to infinite analytically-continued
-              networks. <strong>Bottleneck:</strong> S7 at 30% tractability -- slightly more tractable
-              than S5 because the problem is more constrained (network theory vs. general spectral theory).
+              networks and repairing the zero/pole divisor mismatch.
+              <strong> Bottleneck:</strong> losslessness constrains transmission zeros, while the
+              displayed cascade encodes zeta zeros as denominator poles.
             </p>
           </div>
         </div>

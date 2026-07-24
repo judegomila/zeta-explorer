@@ -1,5 +1,6 @@
 // RigorousNumericsStagesPage.jsx -- imp-1220
-// Companion page rendering §20 of research-inputs/twin_ladder_consolidated_v52.pdf:
+// Companion page rendering §20 as carried forward in v70. The data module
+// retains the historic v52 mapping provenance and the v70 transferability audit.
 // "Rigorous-numerics program" (Stage I / II / III).
 //
 // Structure:
@@ -270,6 +271,30 @@ export default function RigorousNumericsStagesPage() {
           style={{ fontFamily: mono, color: 'var(--text-secondary)' }}
         >
           {R.title} — {R.paperRef}
+        </p>
+        <p style={{ marginTop: 6, color: '#64748b', fontFamily: mono, fontSize: 11 }}>
+          Historic app-mapping source: {R.historicalPaperRef}
+        </p>
+      </div>
+
+      <div
+        className="card"
+        style={{ marginTop: 12, borderLeft: '3px solid #f59e0b' }}
+      >
+        <h3 style={{ color: '#fbbf24', marginBottom: 8 }}>
+          v70 certificate-transferability boundary
+        </h3>
+        <p
+          style={{
+            color: 'var(--text-secondary)',
+            fontSize: 13,
+            lineHeight: 1.75,
+          }}
+        >
+          {R.transferabilityCaveat}
+        </p>
+        <p style={{ marginTop: 8, color: '#64748b', fontFamily: mono, fontSize: 11 }}>
+          Audit source: {R.correctionAuditRef}
         </p>
       </div>
 

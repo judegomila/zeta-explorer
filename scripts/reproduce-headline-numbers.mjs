@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * imp-2741 -- Reproducibility driver for the cross-checkable headline numbers.
+ * imp-2741 -- Reproducibility driver for legacy/internal numerical records.
  *
- * No script today recomputes the frozen headline numbers FROM SOURCE; a stale
+ * No script today recomputes these frozen arithmetic records FROM SOURCE; a stale
  * cache or an arithmetic regression would slip past the build. This driver
  * re-runs the source computations for three independently cross-checkable
  * headline numbers and diffs each against its frozen published literal with an
@@ -10,8 +10,8 @@
  * MEMORY.md -- published numbers are 7-sig-fig / 4-sig-fig snapshots, so a
  * tighter tol would false-positive on the rounding):
  *
- *   1. kernel-hack pair-ODE  t_c = d_min^2 / 8  recomputed from the N=10000 row
- *      of dyson-ladder-extended-cache.json, vs the frozen pathA t_c published
+ *   1. kernel-hack pair-ODE  t_c = d_min^2 / 8  recomputed from the immutable
+ *      imp-514 N=10000 snapshot, vs the frozen pathA t_c published
  *      in kernel-vs-dyson-crossverify.js (imp-515).
  *   2. imp-963 K=0.2014 plateau-12 cert: max rk4.K_paper_cert_floor over the
  *      closed-on-both-sides rows of imp-1086-crosscheck-rows.json, vs the frozen
@@ -20,9 +20,10 @@
  *      t_c and pathB measured Dyson RK4 t_c, vs the published 4.101e-4 and the
  *      headline "< 1%" agreement claim.
  *
- * imp-2876 extends coverage to the remaining 3 of the 4 headline-numbers-registry
- * constants, which previously had NO from-source leg (each recomputed as an
- * ESTIMATE with an explicit honest-scope label, NOT promoted to a bound):
+ * imp-2876 extends coverage to the remaining 3 of the 4 legacy registry
+ * constants, which previously had NO from-source leg. Audit correction
+ * 2026-07: reproducing their historical arithmetic does not validate their
+ * former Lambda-bound interpretations:
  *
  *   4a. 7.98e-4 HISTORICAL imp-1147 intercept = a_hi + E_trunc_pt, recomposed
  *       from the two pinned constants in asymptotic-lambda-bound-2026-05-20.js
@@ -63,10 +64,10 @@ const FROZEN = {
   dyson_relErr: 4.101e-4,   // kernel-vs-dyson-crossverify agreement.relErr (toExponential 3)
   kBound_precise: 0.2014118, // finite-k-c-mb-crosscheck IMP963_HEADLINE_K (N=113, plateau 12)
   kBound_registry: 0.2014,  // headline-numbers-registry kBound.value (4-figure)
-  // imp-2876: the remaining 3 registry constants that previously had NO from-source leg.
-  finiteBeat_estimate: 0.121,  // headline-numbers-registry finiteBeatEstimate (C_H-gated ESTIMATE)
-  intercept_hist: 7.98e-4,     // headline-numbers-registry intercept7e4 (linear-1/N CONDITIONAL, historical)
-  asymptotic_cond: 3.06e-5,    // headline-numbers-registry asymptoticConditional (modulo Polymath15 G6a)
+  // imp-2876: the remaining 3 legacy registry constants.
+  finiteBeat_estimate: 0.121,  // withdrawn conditional assembly estimate
+  intercept_hist: 7.98e-4,     // linear-1/N conditional historical intercept
+  asymptotic_cond: 3.06e-5,    // retracted composition value; not a rigorous bound
   // imp-2887: pin the N=10000 cache-row INPUTS (provenance floor). Checks 1+3
   // recompute t_c FROM these two raw fields, so a silently-regenerated-but-wrong
   // cache would still self-consistently 'reproduce' a matching number. Pinning the
@@ -109,9 +110,9 @@ for (const [name, frozenVal, regVal] of REGISTRY_PINS) {
 }
 
 // ── 1+3. kernel-hack pair-ODE t_c and the N=10K agreement ────────────────────
-const cache = readJSON('dyson-ladder-extended-cache.json');
-const row10k = (cache.rows || []).find((r) => r.N === 10000) || null;
-if (!row10k) throw new Error('[imp-2741] dyson-ladder-extended-cache.json missing N=10000 row');
+const n10kSnapshot = readJSON('dyson-n10k-crosscheck-snapshot.json');
+const row10k = n10kSnapshot.row || null;
+if (!row10k) throw new Error('[imp-2741] immutable N=10000 cross-check snapshot is missing its row');
 if (row10k.reason !== 'gap-nonpositive') {
   throw new Error('[imp-2741] N=10000 row is not a gap-nonpositive collision (reason=' + row10k.reason + ')');
 }
@@ -124,10 +125,10 @@ const tcMeas = row10k.t_c;
 // fails loudly and is distinguished from an arithmetic regression.
 record('imp-2887 cache provenance: N=10K initialMinGap pinned to published literal',
   dMin, FROZEN.cache_dMin, 1e-7,
-  'raw dyson-ladder-extended-cache.json N=10000 initialMinGap must equal published 0.0376985');
+  'immutable N=10000 snapshot initialMinGap must equal published 0.0376985');
 record('imp-2887 cache provenance: N=10K measured t_c pinned to published literal',
   tcMeas, FROZEN.cache_tcMeas, 1e-8,
-  'raw dyson-ladder-extended-cache.json N=10000 t_c must equal published 0.00017772');
+  'immutable N=10000 snapshot t_c must equal published 0.00017772');
 const tcPair = (dMin * dMin) / 8.0; // backward CM pair flow: |tau_c| = d_min^2 / 8
 const tcPairPublished = +tcPair.toPrecision(7); // same rounding the module publishes
 record('kernel-hack pair-ODE t_c = d_min^2/8 (N=10K)', tcPairPublished, FROZEN.pairODE_tc, TOL,
@@ -155,8 +156,8 @@ record('imp-963 K plateau cert (max rk4 K_paper_cert_floor)', kMax, FROZEN.kBoun
 record('imp-963 K rounds to registry headline 0.2014', +kMax.toFixed(4), FROZEN.kBound_registry, TOL,
   'precise=' + kMax + ' -> toFixed(4)=' + kMax.toFixed(4));
 
-// ── 4. imp-2876: the remaining 3 registry constants (0.121, 7.98e-4, 3.06e-5) ──
-// The headline-numbers-registry declares 4 canonical constants; checks 1-3 above
+// ── 4. imp-2876: the remaining 3 legacy constants (0.121, 7.98e-4, 3.06e-5) ──
+// The legacy registry declares 4 canonical constants; checks 1-3 above
 // cover only the pair-ODE / Dyson / K=0.2014 numbers. The finite-beat ESTIMATE
 // 0.121, the HISTORICAL imp-1147 intercept 7.98e-4 and the asymptotic-conditional
 // 3.06e-5 had NO from-source reproducibility leg. We add them here, recomputing
@@ -196,21 +197,23 @@ function etruncPT(sigma) {
   return ((2 * eI) / kappa) * Math.pow(T_PT, -kappa);
 }
 
-// 4b. asymptotic-conditional 3.06e-5 at the variational optimum sigma_opt = 0.75
-// (Ingham boundary sigma = 3/4). HONEST SCOPE: asymptotic, modulo Polymath15 G6a.
+// 4b. Historical formal 3.06e-5 composition at sigma_opt = 0.75.
+// AUDIT 2026-07: this is not a certified E_trunc constant or a rigorous Lambda
+// bound; the composition also has RH-equivalent/open bridge and proxy gates.
 const eTruncOpt = +etruncPT(0.75).toExponential(2); // registry publishes 3.06e-5 (3 sig fig)
-record('asymptotic-conditional E_trunc_pt 3.06e-5 (closed form, sigma_opt=0.75)',
+record('RETRACTED composition arithmetic 3.06e-5 (formal closed form, sigma_opt=0.75)',
   eTruncOpt, FROZEN.asymptotic_cond, TOL,
-  'E_trunc_PT(0.75)=' + etruncPT(0.75).toExponential(4) + ' modulo Polymath15 G6a');
+  'formal E_trunc_PT(0.75)=' + etruncPT(0.75).toExponential(4) +
+  '; value reproduced, former Lambda-bound interpretation retracted');
 
 // 4c. finite-beat ESTIMATE 0.121 = L_cond(1e6) + E_trunc_PT(sigma=0.61), the
 // imp-447 historical assembly (sigma=0.61 gives E_trunc_PT ~ 0.1127). E_trunc_PT
 // is recomputed from the same closed form; L_cond(1e6) is the published literal
-// (sub-gap above). HONEST SCOPE: ESTIMATE gated on the symbolic constant C_H --
-// recompute the ESTIMATE, do NOT read it as a rigorous unconditional bound.
+// (sub-gap above). HONEST SCOPE: withdrawn conditional assembly estimate with
+// RH-equivalent/open bridge obligations; do not read it as a Lambda bound.
 const eTrunc061 = etruncPT(0.61);                      // ~0.1127 imp-447 historical E_trunc_pt
 const lambdaFiniteBeat = +(L_COND_1E6_LITERAL + eTrunc061).toFixed(3);
-record('finite-beat ESTIMATE 0.121 = L_cond + E_trunc_PT(0.61) [C_H-gated ESTIMATE]',
+record('WITHDRAWN assembly ESTIMATE 0.121 = L_cond + formal E_trunc_PT(0.61)',
   lambdaFiniteBeat, FROZEN.finiteBeat_estimate, TOL,
   'L_cond(1e6)=' + L_COND_1E6_LITERAL + ' (literal, imp-449 xverify) + E_trunc_PT(0.61)=' +
   eTrunc061.toFixed(5) + ' = ' + (L_COND_1E6_LITERAL + eTrunc061).toFixed(5));
@@ -219,11 +222,12 @@ record('finite-beat ESTIMATE 0.121 = L_cond + E_trunc_PT(0.61) [C_H-gated ESTIMA
 const iso = new Date().toISOString().replace(/[:.]/g, '-');
 const allPass = checks.every((c) => c.pass);
 const lines = [];
-lines.push('# imp-2741 headline-number reproducibility report');
+lines.push('# imp-2741 legacy-number reproducibility report');
 lines.push('');
 lines.push('Generated: ' + new Date().toISOString());
 lines.push('Tolerance: ' + TOL + ' (storage-precision, MEMORY.md note)');
-lines.push('Verdict: ' + (allPass ? 'PASS -- all recomputed-from-source numbers match the frozen registry' : 'FAIL -- out-of-tolerance mismatch (see below)'));
+lines.push('Scope: arithmetic/provenance regression check only; this report certifies no Lambda bound.');
+lines.push('Verdict: ' + (allPass ? 'PASS -- all recomputed arithmetic matches the frozen legacy registry' : 'FAIL -- out-of-tolerance mismatch (see below)'));
 lines.push('');
 lines.push('| check | recomputed | frozen | abs diff | tol | result |');
 lines.push('| --- | --- | --- | --- | --- | --- |');
@@ -236,7 +240,7 @@ for (const c of checks) {
   lines.push('- **' + c.name + '** -- ' + c.extra);
 }
 lines.push('');
-lines.push('Sources: dyson-ladder-extended-cache.json (imp-514), imp-1086-crosscheck-rows.json (imp-933 RK4), asymptotic-lambda-bound-2026-05-20.js (imp-1147 a_hi/E_trunc_pt literals), E_trunc_PT(sigma) closed form (imp-447/imp-459).');
+lines.push('Sources: dyson-n10k-crosscheck-snapshot.json (imp-514 immutable snapshot), imp-1086-crosscheck-rows.json (imp-933 RK4), asymptotic-lambda-bound-2026-05-20.js (historical imp-1147 literals), formal E_trunc_PT(sigma) expression (imp-447/imp-459; bound interpretation retracted).');
 
 if (!fs.existsSync(LOG_DIR)) fs.mkdirSync(LOG_DIR, { recursive: true });
 const outPath = path.join(LOG_DIR, 'reproduce-' + iso + '.md');
@@ -246,7 +250,7 @@ console.log(lines.join('\n'));
 console.log('\nReport written to ' + path.relative(path.join(__dirname, '..'), outPath));
 
 if (!allPass) {
-  console.error('\n[imp-2741] FAIL: one or more headline numbers drifted out of tolerance.');
+  console.error('\n[imp-2741] FAIL: one or more legacy numbers drifted out of tolerance.');
   process.exit(1);
 }
-console.log('\n[imp-2741] PASS: all headline numbers reproduced from source within tolerance.');
+console.log('\n[imp-2741] PASS: all legacy arithmetic reproduced from source within tolerance (no bound certified).');

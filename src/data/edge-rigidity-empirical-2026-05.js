@@ -102,8 +102,11 @@
 // @see src/data/esy-rigidity-empirical-2026-05.js
 // @see src/data/zeros-to-1e6.js
 
-import { ZEROS_EXTENDED } from './zeros-to-1e6.js';
 import { ESY_RIGIDITY_EMPIRICAL } from './esy-rigidity-empirical-2026-05.js';
+
+// The browser ships the result snapshot below, not the 16.7 MB source-zero
+// corpus. Offline tooling can pass that corpus explicitly to
+// regenerateEdgeRigidityMeasurements; this module never imports it.
 
 // -- Configuration -------------------------------------------------------
 
@@ -127,10 +130,17 @@ function unfoldOne(gamma) {
   return (gamma / TWO_PI) * Math.log(gamma / TWO_PI);
 }
 
-function unfoldFirstN(N) {
+function assertZeroCorpus(zeros) {
+  const required = N_VALUES[N_VALUES.length - 1];
+  if (!zeros || typeof zeros.length !== 'number' || zeros.length < required) {
+    throw new RangeError(`Expected at least ${required} zero ordinates`);
+  }
+}
+
+function unfoldFirstN(zeros, N) {
   const xs = new Array(N);
   for (let k = 0; k < N; k++) {
-    xs[k] = unfoldOne(ZEROS_EXTENDED[k]);
+    xs[k] = unfoldOne(zeros[k]);
   }
   return xs;
 }
@@ -153,8 +163,8 @@ function stieltjesAt(xs, E, eta) {
 
 // -- Per-N edge psi_N measurement ----------------------------------------
 
-function measureEdgePsiNAtScale(N, c, eta) {
-  const xs = unfoldFirstN(N);
+function measureEdgePsiNAtScale(zeros, N, c, eta) {
+  const xs = unfoldFirstN(zeros, N);
 
   // Edge window: [x_0, x_{edgeWidth - 1}]. Width grows with N so the
   // sample size M stays balanced with the bulk measurement at large N.
@@ -207,18 +217,31 @@ function measureEdgePsiNAtScale(N, c, eta) {
   };
 }
 
-function measureEdgeMicro(N, c) {
-  return measureEdgePsiNAtScale(N, c, c / N);
+function measureEdgeMicro(zeros, N, c) {
+  return measureEdgePsiNAtScale(zeros, N, c, c / N);
 }
 
-function measureEdgeMacro(N, c) {
-  return measureEdgePsiNAtScale(N, c, c);
+function measureEdgeMacro(zeros, N, c) {
+  return measureEdgePsiNAtScale(zeros, N, c, c);
 }
 
 // -- Sweep at the 5 N values --------------------------------------------
 
-const EDGE_MICRO_ROWS = N_VALUES.map((N) => measureEdgeMicro(N, C_PARAM));
-const EDGE_MACRO_ROWS = N_VALUES.map((N) => measureEdgeMacro(N, C_PARAM));
+const EDGE_MICRO_ROWS = [
+  { N: 100, c: 1, edgeWindowEnd: 50, windowSize: 50, E_representative: 2.932273230227646, eta: 0.01, sampleSize: 50, psiRepresentative: 3.1221062391128838, psiRMS: 3.0709001451327533, psiMedian: 3.086273174887455 },
+  { N: 500, c: 1, edgeWindowEnd: 50, windowSize: 50, E_representative: 2.932273230227646, eta: 0.002, sampleSize: 50, psiRepresentative: 3.1376856891974625, psiRMS: 3.127366860862997, psiMedian: 3.1305149582572516 },
+  { N: 1000, c: 1, edgeWindowEnd: 50, windowSize: 50, E_representative: 2.932273230227646, eta: 0.001, sampleSize: 50, psiRepresentative: 3.139638514531815, psiRMS: 3.1344748398914204, psiMedian: 3.1360530839022807 },
+  { N: 5000, c: 1, edgeWindowEnd: 249, windowSize: 249, E_representative: 2.932273230227646, eta: 0.0002, sampleSize: 50, psiRepresentative: 3.1412017147585254, psiRMS: 3.1398407115365754, psiMedian: 3.1401923816946127 },
+  { N: 10000, c: 1, edgeWindowEnd: 499, windowSize: 499, E_representative: 2.932273230227646, eta: 0.0001, sampleSize: 50, psiRepresentative: 3.1413971768072653, psiRMS: 3.1408922075169436, psiMedian: 3.1409744804688495 },
+];
+
+const EDGE_MACRO_ROWS = [
+  { N: 100, c: 1, edgeWindowEnd: 50, windowSize: 50, E_representative: 2.932273230227646, eta: 1, sampleSize: 50, psiRepresentative: 1.9468184034339533, psiRMS: 1.0158721182668484, psiMedian: 0.8953239421349211 },
+  { N: 500, c: 1, edgeWindowEnd: 50, windowSize: 50, E_representative: 2.932273230227646, eta: 1, sampleSize: 50, psiRepresentative: 1.9421075262743825, psiRMS: 1.0095093985273584, psiMedian: 0.8894259704542171 },
+  { N: 1000, c: 1, edgeWindowEnd: 50, windowSize: 50, E_representative: 2.932273230227646, eta: 1, sampleSize: 50, psiRepresentative: 1.9414547208322992, psiRMS: 1.0088516771685472, psiMedian: 0.8887352582150188 },
+  { N: 5000, c: 1, edgeWindowEnd: 249, windowSize: 249, E_representative: 2.932273230227646, eta: 1, sampleSize: 50, psiRepresentative: 1.940900920353259, psiRMS: 0.7873851693693101, psiMedian: 0.6357197669227839 },
+  { N: 10000, c: 1, edgeWindowEnd: 499, windowSize: 499, E_representative: 2.932273230227646, eta: 1, sampleSize: 50, psiRepresentative: 1.940827291970241, psiRMS: 0.7835779800111091, psiMedian: 0.6511396469128337 },
+];
 
 // -- OLS log-log fit -----------------------------------------------------
 
@@ -251,6 +274,21 @@ function fitLogLogOn(rows, yKey) {
   }
   const r2 = ssTot === 0 ? 1 : 1 - ssRes / ssTot;
   return { slope, intercept, R2: r2 };
+}
+
+// Opt-in offline regeneration boundary. Callers supply the zero corpus;
+// importing this module for the browser snapshot never loads it.
+export function regenerateEdgeRigidityMeasurements(zeros) {
+  assertZeroCorpus(zeros);
+  const measuredPsiNEdge = N_VALUES.map((N) => measureEdgeMicro(zeros, N, C_PARAM));
+  const measuredPsiNEdgeMacro = N_VALUES.map((N) => measureEdgeMacro(zeros, N, C_PARAM));
+  return Object.freeze({
+    cParam: C_PARAM,
+    measuredPsiNEdge: Object.freeze(measuredPsiNEdge.map(Object.freeze)),
+    measuredPsiNEdgeMacro: Object.freeze(measuredPsiNEdgeMacro.map(Object.freeze)),
+    fittedSlopeEdge: Object.freeze(fitLogLogOn(measuredPsiNEdgeMacro, 'psiRMS')),
+    fittedSlopeEdgeMicro: Object.freeze(fitLogLogOn(measuredPsiNEdge, 'psiRMS')),
+  });
 }
 
 const FIT_EDGE_MACRO = fitLogLogOn(EDGE_MACRO_ROWS, 'psiRMS');

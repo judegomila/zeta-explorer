@@ -14,13 +14,70 @@
 //
 // Pure SVG + React. d3-scale used for the x and y axes.
 //
-// Data source: src/data/gue-vs-zeros-comparison.js (GUE_VS_ZEROS_COMPARISON).
+// Data source: pinned browser snapshot derived offline from
+// src/data/gue-vs-zeros-comparison.js (GUE_VS_ZEROS_COMPARISON).
 
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { scaleLinear } from 'd3-scale';
-import { GUE_VS_ZEROS_COMPARISON } from '../data/gue-vs-zeros-comparison.js';
 import RelatedLinks from '../components/RelatedLinks.jsx';
+
+// Browser-light snapshot of the offline first-10000-zero sweep. Keeping the
+// 50 sufficient-statistic bins here avoids importing the 16.7 MB zero corpus;
+// the analytic GUE curve and displayed residuals are rebuilt deterministically.
+const SNAPSHOT_BIN_COUNTS = Object.freeze([
+  2, 18, 61, 121, 243, 311, 490, 597, 696, 819,
+  795, 809, 800, 740, 643, 578, 492, 416, 349, 239,
+  208, 158, 133, 89, 59, 46, 38, 25, 11, 5,
+  7, 1, 0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+]);
+
+function makeGueComparisonSnapshot() {
+  const nZerosUsed = 10000;
+  const nSpacings = nZerosUsed - 1;
+  const nBins = SNAPSHOT_BIN_COUNTS.length;
+  const sMax = 4;
+  const binWidth = sMax / nBins;
+  const gueWigner = (s) => (
+    (32 / (Math.PI * Math.PI)) * s * s * Math.exp((-4 * s * s) / Math.PI)
+  );
+  const binEdges = Array.from({ length: nBins + 1 }, (_, i) => i * binWidth);
+  const binCenters = Array.from({ length: nBins }, (_, i) => (i + 0.5) * binWidth);
+  const binPdfGue = binCenters.map(gueWigner);
+  const sGrid = Array.from({ length: 401 }, (_, i) => (sMax * i) / 400);
+  const p_s = sGrid.map(gueWigner);
+  const empiricalPdf = SNAPSHOT_BIN_COUNTS.map((count) => count / nSpacings / binWidth);
+  const residuals = empiricalPdf.map((p, i) => p - binPdfGue[i]);
+
+  return Object.freeze({
+    nZerosUsed,
+    nSpacings,
+    meanSpacingUnfolded: 0.9998987588864481,
+    histogram: Object.freeze({
+      binEdges: Object.freeze(binEdges),
+      counts: SNAPSHOT_BIN_COUNTS,
+      binWidth,
+      nBins,
+      sMax,
+      inRange: nSpacings,
+      total: nSpacings,
+    }),
+    gueWignerCurve: Object.freeze({
+      sGrid: Object.freeze(sGrid),
+      p_s: Object.freeze(p_s),
+      binCenters: Object.freeze(binCenters),
+      binPdfGue: Object.freeze(binPdfGue),
+    }),
+    empiricalPdf: Object.freeze(empiricalPdf),
+    residuals: Object.freeze(residuals),
+    residualMaxAbs: 0.1262433886634584,
+    klDivergence: 0.008132830923779937,
+    hellingerDistance: 0.04832497883222528,
+  });
+}
+
+const GUE_VS_ZEROS_COMPARISON = makeGueComparisonSnapshot();
 
 // ── SVG geometry for the histogram + GUE overlay ────────────────────────────
 
@@ -148,7 +205,7 @@ export default function GueComparisonPage() {
           label="N zeros used"
           value={D.nZerosUsed.toLocaleString()}
           tone="#a855f7"
-          hint="from ZEROS_EXTENDED in zeros-to-1e6.js"
+          hint="pinned snapshot from the offline zero sweep"
         />
         <SummaryCard
           label="N spacings"
@@ -389,9 +446,11 @@ export default function GueComparisonPage() {
 
       {/* Source citation. */}
       <div style={{ marginTop: 16, fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.6 }}>
-        Data source: ZEROS_EXTENDED (src/data/zeros-to-1e6.js, first
-        {' '}{D.nZerosUsed.toLocaleString()} Odlyzko zeros). Derived data:
-        GUE_VS_ZEROS_COMPARISON (src/data/gue-vs-zeros-comparison.js).
+        Browser data: pinned histogram snapshot derived offline from the first
+        {' '}{D.nZerosUsed.toLocaleString()} Odlyzko zeros in ZEROS_EXTENDED
+        (src/data/zeros-to-1e6.js) by GUE_VS_ZEROS_COMPARISON
+        (src/data/gue-vs-zeros-comparison.js). This page does not import the
+        raw zero corpus.
         Build-time tripwires: GUE_VS_ZEROS_COMPARISON_ASSERTIONS (7 checks,
         wired into scripts/run-assertions.mjs). Ticket: imp-1099.
       </div>

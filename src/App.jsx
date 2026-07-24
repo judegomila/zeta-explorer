@@ -1179,7 +1179,7 @@ function DocumentTitle() {
   const { pathname } = useLocation();
   useEffect(() => {
     const match = ALL_ROUTES.find(r => r.to === pathname);
-    document.title = match ? `${match.label} | Twin-Ladder Bridge` : 'Twin-Ladder Bridge';
+    document.title = match ? `${match.label} | Twin Ladder Explorer` : 'Twin Ladder Explorer';
   }, [pathname]);
   return null;
 }
@@ -1430,8 +1430,14 @@ function NavBar({ onShowShortcuts, onShowPalette }) {
 
   return (
     <div className="nav-bar" ref={navRef}>
-      <NavLink to="/" end className="nav-logo" style={{ textDecoration: 'none' }}>
-        Twin-Ladder<span className="nav-logo-text"> Bridge</span>
+      <NavLink
+        to="/"
+        end
+        className="nav-logo"
+        style={{ textDecoration: 'none' }}
+        aria-label="Twin Ladder Explorer home"
+      >
+        Twin Ladder<span className="nav-logo-text"> Explorer</span>
       </NavLink>
       <button
         onClick={onShowPalette}

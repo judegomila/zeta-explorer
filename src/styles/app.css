@@ -769,6 +769,18 @@ input[type="range"]:disabled {
   margin: 0 auto;
 }
 
+.hero .hero-tagline {
+  color: var(--text-primary);
+  font-size: 18px;
+  font-style: italic;
+  max-width: 760px;
+}
+
+.hero .hero-description {
+  font-size: 15px;
+  margin-top: 12px;
+}
+
 /* Stat boxes on home */
 .stat-grid {
   display: grid;

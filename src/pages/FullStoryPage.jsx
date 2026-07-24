@@ -458,7 +458,7 @@ function BottomLine() {
     <Section id="bottom-line" number={7} title="Bottom line">
       <Card tone="open">
         <div style={{ color: '#e2e8f0', fontSize: 21, fontWeight: 800 }}>
-          No current MathExplorer result proves RH or <InlineMath tex="\Lambda=0" />.
+          No current Twin Ladder Explorer result proves RH or <InlineMath tex="\Lambda=0" />.
         </div>
         <Paragraph>
           The defensible outputs are: a corrected v70 structural model, clearer zero/pole and

@@ -605,12 +605,15 @@ export default function HomePage() {
     <div className="page">
       {/* ── Hero ── */}
       <div className="hero">
-        <h1>Twin-Ladder Bridge Explorer</h1>
-        <p>
-          Exploring the Riemann Hypothesis through the lens of circuit theory, spectral geometry,
-          and scattering matrices — a personal investigation by Jude Gomila into connections between
-          prime oscillator networks, Calabi-Yau geometry, information theory, and random matrices.
-          Interactive visualizations, computational proof attempts, and adversarial testing.
+        <h1>Twin Ladder Explorer</h1>
+        <p className="hero-tagline">
+          Interactive experiments in zeta-zero geometry and the Riemann hypothesis.
+        </p>
+        <p className="hero-description">
+          Explore circuit theory, spectral geometry, and scattering matrices through interactive
+          visualizations, computational proof attempts, and adversarial testing. A personal
+          investigation by Jude Gomila into prime oscillator networks, Calabi–Yau geometry,
+          information theory, and random matrices.
         </p>
       </div>
 

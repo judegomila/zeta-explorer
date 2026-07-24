@@ -40,12 +40,19 @@ const GLOBAL_FRONTIER = {
 };
 
 const CHANNEL_SPLIT_CERTIFICATE = {
-  status: 'RIGOROUS FINITE ROUTE COUNTEREXAMPLE',
-  title: 'Independent scalar radial/shear budgets cannot close T3',
+  status: 'RIGOROUS FINITE ALLOCATION COUNTEREXAMPLE',
+  title: 'No PSD partition of the positive core repairs both channels',
   configuration: 'a = 1/4,  z = (−1/2, 0, 1/2) + i/5',
   betaR: 'βR > 1.027286016',
   betaS: 'βS > 0.42200180358',
   betaSum: 'βR + βS > 1.449287819 > 1',
+  radialFullCore: 'vR*(GR + G0)vR < 0',
+  compensation: '−1.5588799×10⁻⁹ + 4.1550097×10⁻⁹ = 2.5961298×10⁻⁹',
+  coupledTarget:
+    'Radial and shear are symmetric and skew combinations of one exact theta tensor. ' +
+    'The coupled form balances interval energy against two finite-difference squares. ' +
+    'Its cellwise bracket can be strictly negative, so positivity must emerge only ' +
+    'after integration against the genuine theta weight.',
   method:
     '256-bit Arb · exact one-dimensional Laplace-product factorization · ' +
     'combined omission error < 10⁻²² · independent acb_dirichlet_xi cross-check',
@@ -280,7 +287,7 @@ export default function OpenFrontierPage() {
         <p style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.65, margin: 0 }}>
           On the certified block <code>{CHANNEL_SPLIT_CERTIFICATE.configuration}</code>,
           the coupled matrix K<sub>a,0</sub> + D<sub>a,R</sub> +
-          K<sub>a</sub><sup>(S)</sup> is positive definite. But any separate
+          K<sub>a</sub><sup>(S)</sup> is positive definite. Separate
           scalar-multiple estimates D<sub>a,R</sub> ⪰ −β<sub>R</sub>K<sub>a,0</sub> and
           K<sub>a</sub><sup>(S)</sup> ⪰ −β<sub>S</sub>K<sub>a,0</sub> must obey:
         </p>
@@ -309,12 +316,18 @@ export default function OpenFrontierPage() {
           ))}
         </div>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.65, margin: 0 }}>
-          These scalar bounds therefore need more than one copy of the single
-          positive-core budget even though the exact coupled sum is positive.
-          This refutes that precise scalar split, not structured non-scalar
-          allocations, T3, or RH. The live target is now sharper: preserve
-          radial/shear cancellation, add matrix structure, or find a different
-          zeta-specific mechanism.
+          The radial witness is stronger: <code>{CHANNEL_SPLIT_CERTIFICATE.radialFullCore}</code>.
+          Any PSD partition P<sub>R</sub> + P<sub>S</sub> = G<sub>0</sub> has
+          P<sub>R</sub> ⪯ G<sub>0</sub>, so that same witness remains negative
+          after every matrix-valued radial suballocation. This refutes all
+          independent PSD partitions of the same core, not the coupled T3
+          inequality or RH. On that same witness, the exact interval certificate
+          isolates the shear rescue as <code>{CHANNEL_SPLIT_CERTIFICATE.compensation}</code>.
+          The live target is direct radial/shear cancellation, a genuinely new
+          positive resource, or a different zeta-specific mechanism.
+        </p>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.65, margin: '10px 0 0' }}>
+          {CHANNEL_SPLIT_CERTIFICATE.coupledTarget}
         </p>
         <p style={{ color: '#64748b', fontSize: 11.5, lineHeight: 1.55, margin: '10px 0 0' }}>
           Certificate method: {CHANNEL_SPLIT_CERTIFICATE.method}.

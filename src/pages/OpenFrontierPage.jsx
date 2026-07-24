@@ -56,6 +56,16 @@ const CHANNEL_SPLIT_CERTIFICATE = {
   method:
     '256-bit Arb · exact one-dimensional Laplace-product factorization · ' +
     'combined omission error < 10⁻²² · independent acb_dirichlet_xi cross-check',
+  jetConfiguration: 'a = 1/4,  z* = i/5,  Taylor jets through derivative order four',
+  jetOrder2: 'inertia(J0 + JR) = (2 positive, 1 negative, 0 zero)',
+  jetOrder2Rescue:
+    '−6.25849035165×10⁻⁹ + 1.59019647623×10⁻⁸ ≈ 9.64347441063×10⁻⁹',
+  jetOrder4: 'R = N + Q,  N ⪯ 0 has rank 4,  Q ⪰ 0 has rank 1',
+  jetOrder4Rescue:
+    '−0.00274013664134 + 0.00419290185547 ≈ 0.00145276521413',
+  jetMethod:
+    '768-bit Arb · Laplace moments through order eight · all omission bounds ' +
+    '< 7.776×10⁻⁶⁹ · independent completed-ξ power-series check',
 };
 
 const DYSON_LANE_RESIDUALS = [
@@ -332,6 +342,66 @@ export default function OpenFrontierPage() {
         <p style={{ color: '#64748b', fontSize: 11.5, lineHeight: 1.55, margin: '10px 0 0' }}>
           Certificate method: {CHANNEL_SPLIT_CERTIFICATE.method}.
         </p>
+        <div
+          style={{
+            marginTop: 14,
+            padding: '12px 14px',
+            borderRadius: 7,
+            background: 'rgba(14,165,233,0.06)',
+            border: '1px solid rgba(56,189,248,0.22)',
+          }}
+        >
+          <strong style={{ color: '#7dd3fc', fontSize: 13 }}>
+            Confluent derivative-jet refinement
+          </strong>
+          <p style={{ color: '#cbd5e1', fontSize: 12.5, lineHeight: 1.65, margin: '8px 0 0' }}>
+            The obstruction survives after all evaluation points coalesce:
+            <code style={{ marginLeft: 5 }}>{CHANNEL_SPLIT_CERTIFICATE.jetConfiguration}</code>.
+            At order two, <code>{CHANNEL_SPLIT_CERTIFICATE.jetOrder2}</code>, while the
+            full core/radial/shear jet is positive definite. One exact rational
+            direction records the same-vector channel rescue:
+          </p>
+          <code
+            style={{
+              display: 'block',
+              marginTop: 8,
+              padding: '7px 9px',
+              borderRadius: 5,
+              color: '#bae6fd',
+              background: 'rgba(14,165,233,0.08)',
+              fontSize: 11.5,
+              overflowX: 'auto',
+            }}
+          >
+            {CHANNEL_SPLIT_CERTIFICATE.jetOrder2Rescue}
+          </code>
+          <p style={{ color: '#94a3b8', fontSize: 12.5, lineHeight: 1.65, margin: '9px 0 0' }}>
+            Order four is stricter: under one fixed rational, basis-dependent
+            Schur/LDL split, <code>{CHANNEL_SPLIT_CERTIFICATE.jetOrder4}</code>.
+            Core plus shear plus N has a negative witness; restoring Q gives the
+            positive-definite full jet and flips that witness:
+          </p>
+          <code
+            style={{
+              display: 'block',
+              marginTop: 8,
+              padding: '7px 9px',
+              borderRadius: 5,
+              color: '#bae6fd',
+              background: 'rgba(14,165,233,0.08)',
+              fontSize: 11.5,
+              overflowX: 'auto',
+            }}
+          >
+            {CHANNEL_SPLIT_CERTIFICATE.jetOrder4Rescue}
+          </code>
+          <p style={{ color: '#64748b', fontSize: 11.5, lineHeight: 1.55, margin: '9px 0 0' }}>
+            This refutes discarding that positive radial component before
+            estimating the negative component. It is not a universal statement
+            about every radial split and does not prove T3 or RH. Certificate
+            method: {CHANNEL_SPLIT_CERTIFICATE.jetMethod}.
+          </p>
+        </div>
       </div>
 
       <div className="card" style={{ marginBottom: 18, borderLeft: '3px solid #38bdf8' }}>

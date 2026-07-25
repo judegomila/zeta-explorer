@@ -134,6 +134,16 @@ const MARKOV_NORMALIZATION = {
     'T53: the causal Jacobi log-kernel has a zero-free symbol, but |ĥ(τ)| ≍ (1+|τ|)¹³ᐟ⁸e⁻π|τ|ᐟ². It preserves every forbidden zeta pole while admitting no finite-measure or tempered inverse. A smooth positive PNT density can satisfy the two-sided averaged bound while its normalized triangular error is unbounded',
   primeRenewal:
     'T54: exact prime-power renewal changes the prime-only causal trace by −ζ(3/2)Q∞ + Γ(3/4)π¹ᐟ⁴t¹ᐟ⁴log(1/t) + O(t¹ᐟ⁴). This bounded lower-order correction cannot create or cancel the missing t⁻¹ᐟ⁸ term',
+  thetaFeatures:
+    'T56: Kₐ is an exact difference of two Laplace-feature Gram kernels, but on every tail |⟨f,(Kₐ−H)f⟩|/⟨f,Hf⟩ is unbounded over finite evaluation tests. The witness sign is not determined, so one-sided PSD remains open',
+  phaseSpace:
+    'T57: the homogeneous feature quotient is ξ(2s−1/2−a)/ξ(2s−1/2+a), unimodular on the unitary Mellin line. The Wigner/Weyl relay is the exact shifted completed-ξ modulus difference; endpoint compression is load-bearing',
+  finiteHeight:
+    'T58: critical-line verification through height H gives |Vθ(x)| ≪ x¹⁵ᐟ⁸ only for x ≤ [H/(log H+2)]⁸. The imported height reaches about 8.25×10⁸⁷, but this is finite-range only',
+  pascalCriterion:
+    'T59: RH ⇔ ∏p≤N pᴺ⁻ᵖ ≤ ∏k=0ᴺ C(N,k) for every sufficiently large N. Prime-square bias proves the forward sign; the global radix cancellation remains RH-equivalent and open',
+  fixedMajorant:
+    'T60: every fixed strict PNT-admissible majorant of (1−u)₊ adds δx². For an x-dependent family with target-scale uniform prime sampling, preserving the bound requires ∫(Fₓ−w)=O(x⁻¹ᐟ⁸)',
   finiteModes:
     'any nonzero fixed reflected finite raw packet: qF,p(t) = −4(r+1)p/t² + O(t⁻³)',
   gaussian:
@@ -147,7 +157,7 @@ const MARKOV_NORMALIZATION = {
   finiteRadialLayers:
     'every fixed finite family of modular/radial shifts with a nonzero fixed PSD coupling in the audited kernel family has a negative 2×2 principal minor sufficiently far in the tail',
   continuumTail:
-    'T45/T48/T55: after normalization the exact continuum block converges uniformly in every fixed Cᵐ tail norm to 1/[2 cosh(t−b)]. Every fixed order is eventually positive, but the half-sech spectral floor is zero. Generic Cᵐ-small analytic perturbations can remain indefinite on every tail, while tail PSD of the exact analytic kernel is already equivalent to global fixed-thickness positivity',
+    'T45/T48/T55–T57: after normalization the exact continuum block converges uniformly in every fixed Cᵐ tail norm to 1/[2 cosh(t−b)]. Every fixed order is eventually positive, but the spectral floor is zero and every finite absolute H-relative bound fails. Tail PSD is already global fixed-thickness positivity; the one-sided endpoint-compressed feature contraction remains open',
   criticalTail:
     'a nonzero pole share needs an eʰᐟ² non-tempered cross-tail; translation-invariant tempered-lag compensation forces its coefficient a = 0, while an unrestricted Hilbert/GNS factorization exists iff RH',
   levy:
@@ -183,7 +193,8 @@ const MARKOV_NORMALIZATION = {
     'T50 preserves the right-hand poles on square scales but gives no absolute attenuation; ' +
     'T51/T52 identify the exact positive Jacobi bridge and why its uncentered sign is insufficient. ' +
     'T53/T54 show that stable Jacobi deconvolution and prime-power renewal cannot supply the centered gain. ' +
-    'T55 shows that fixed-order continuum positivity cannot be promoted without a relative-form estimate.',
+    'T55–T57 close fixed-order and absolute-relative continuum promotion while exposing the exact endpoint-compressed feature contraction. ' +
+    'T58 gives a finite verified range, T59 an RH-equivalent Pascal comparator, and T60 excludes every fixed strict PNT-admissible majorant.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -205,7 +216,7 @@ const MARKOV_NORMALIZATION = {
     'principal positivity uniformly on the whole tail but no order-uniform threshold; ' +
     'far-separated cross minors refute total positivity. Positive all-integer scale completion ' +
     'erases the zero divisor, exact deaveraging requires fixed-power Mertens cancellation, ' +
-    'square-scale averaging preserves but does not attenuate the poles, and its exact Jacobi heat trace is positive only before the load-bearing main term is subtracted; its causal smoother has no bounded or tempered inverse, exact prime-power renewal is lower order, fixed-Cᵐ half-sech asymptotics have no all-order spectral gap, and translation-invariant tempered-lag compensation cannot ' +
+    'square-scale averaging preserves but does not attenuate the poles, and its exact Jacobi heat trace is positive only before the load-bearing main term is subtracted; its causal smoother has no bounded or tempered inverse, exact prime-power renewal is lower order, fixed-Cᵐ half-sech asymptotics have no all-order spectral gap, every finite absolute half-sech relative bound fails, fixed PNT-admissible triangular majorants lose the centered scale, and translation-invariant tempered-lag compensation cannot ' +
     'carry a nonzero pole share; and an unrestricted Hilbert factorization ' +
     'is only an RH-equivalent repackaging. Infinite-order smoothing, infinite non-tempered ' +
     'cancellation inside one block, couplings without positive readout, adaptive/continuous ' +
@@ -293,6 +304,56 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     detail:
       'The half-sech multiplier has spectral infimum zero, and an analytic counterkernel is indefinite on every tail despite fixed-order positivity. ' +
       'For the exact kernel, real analyticity propagates tail PSD globally; along aₙ→0, infinitely many such claims are RH-equivalent.',
+  },
+  {
+    id: 'T56',
+    color: '#ef4444',
+    status: 'ROUTE COUNTEREXAMPLE · ONE-SIDED SIGN OPEN',
+    title: 'Every finite absolute half-sech relative bound fails',
+    formula: 'sup |⟨f,(Kₐ−H)f⟩| / ⟨f,Hf⟩ = +∞ on every tail',
+    detail:
+      'Exact theta features and oscillatory radial tests make the absolute relative form unbounded on every tail. ' +
+      'The finite evaluation witness has no proved sign, so this neither proves nor refutes Kₐ ⪰ 0 or RH.',
+  },
+  {
+    id: 'T57',
+    color: '#c084fc',
+    status: 'EXACT PHASE-SPACE RELAY · NOT NARROWER',
+    title: 'Center frequency returns to the completed-ξ modulus',
+    formula: '∫e²ᵛᵀΣₐ(T,ω)dT = (|X(v+a+iω)|²−|X(v−a+iω)|²)/v',
+    detail:
+      'The homogeneous feature quotient is the unimodular completed-ξ phase, while the finite endpoint compression is load-bearing. ' +
+      'Signed divisor shells and Gaussian smoothing do not supply a smaller positivity theorem.',
+  },
+  {
+    id: 'T58',
+    color: '#60a5fa',
+    status: 'RIGOROUS FINITE TRANSFER · NO STRIP',
+    title: 'Verified zero height reaches a huge finite triangular range',
+    formula: 'x ≤ [H/(log H+2)]⁸ ≈ 8.25×10⁸⁷',
+    detail:
+      'The first-Riesz formula transfers critical-line verification through H to the staged x¹⁵ᐟ⁸ estimate on this bounded range. ' +
+      'A fixed height cannot prove the asymptotic inequality or any new zero strip.',
+  },
+  {
+    id: 'T59',
+    color: '#f97316',
+    status: 'EXACT FINITE CRITERION · RH-EQUIVALENT',
+    title: 'One complete Pascal row measures the prime-square bias',
+    formula: 'RH ⇔ ∏p≤N pᴺ⁻ᵖ ≤ ∏k=0ᴺ C(N,k) eventually',
+    detail:
+      'Prime squares dominate the complete critical-zero boundary under RH; Landau positivity gives the converse. ' +
+      'The equivalent global radix cancellation remains open and is not a proof of RH.',
+  },
+  {
+    id: 'T60',
+    color: '#a3e635',
+    status: 'FIXED-MAJORANT ROUTE REFUTED',
+    title: 'Fixed majorants lose the triangular scale',
+    formula: 'uniform target-scale sampling ⇒ ∫(Fₓ−w)du = O(x⁻¹ᐟ⁸)',
+    detail:
+      'Every fixed strict PNT-admissible majorant adds δx² by weighted-PNT partial summation, overwhelming x¹⁵ᐟ⁸. ' +
+      'For an x-dependent family with target-scale uniform sampling, preserving the bound requires vanishing excess; standard bandlimited extremal families then require growing bandwidth.',
   },
 ];
 
@@ -445,7 +506,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T55 · 2026-07-24</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T60 · 2026-07-24</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -798,7 +859,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T55 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T60 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -838,6 +899,11 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.jacobiHeat,
             MARKOV_NORMALIZATION.jacobiDeconvolution,
             MARKOV_NORMALIZATION.primeRenewal,
+            MARKOV_NORMALIZATION.thetaFeatures,
+            MARKOV_NORMALIZATION.phaseSpace,
+            MARKOV_NORMALIZATION.finiteHeight,
+            MARKOV_NORMALIZATION.pascalCriterion,
+            MARKOV_NORMALIZATION.fixedMajorant,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -903,8 +969,17 @@ export default function OpenFrontierPage() {
           contributes only a constant and a vanishing cusp. T55 shows that the
           half-sech continuum limit has no spectral floor: fixed-order tail positivity
           cannot be promoted by fixed-C<sup>m</sup> control, and tail PSD of the exact
-          analytic kernel is already its global fixed-thickness divisor condition.
-          No positive fractional rung or such one-sided estimate is currently proved.
+          analytic kernel is already its global fixed-thickness divisor condition. T56
+          refutes every finite absolute half-sech relative bound, without determining
+          the sign of its finite evaluation witness. T57 identifies the exact feature
+          and phase-space quotient with the completed-ξ boundary condition, so the
+          one-sided endpoint-compressed contraction remains the live continuum target.
+          T58 transfers the imported verified height only to a finite range; T59 gives
+          an RH-equivalent Pascal-row comparator; and T60 excludes every fixed strict
+          PNT-admissible majorant. An x-dependent family with target-scale uniform
+          sampling would need vanishing excess (and, for standard bandlimited
+          extremal families, growing bandwidth). No positive fractional
+          rung or one-sided continuum estimate is currently proved.
           A successful argument must use arithmetic beyond
           symmetry, divisor recursion, ordinary inner-function positivity, separate
           modes, individual Hankel factors, boundary traces, entrywise cross-scale

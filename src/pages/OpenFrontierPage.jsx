@@ -88,27 +88,32 @@ const ONE_POINT_JET_HIERARCHY = {
 };
 
 const MARKOV_NORMALIZATION = {
-  status: 'PROVED EXACT HILBERT-SPACE CLOSURE',
-  title: 'The remaining sign is negative spectrum of a reversible Markov operator',
+  status: 'PROVED EXACT FRONTIER MAP',
+  title: 'The fixed-thickness frontier is one Wiener–Hopf phase condition',
   rowMass: 'mₐ(t) = 2(∫₀∞ Pₐ(u)du)(∫|t|∞ Qₐ(u)du)',
   equivalence: 'fixed a:  Twin Ladder positivity  ⇔  𝖯ₐ ⪰ 0 on L²(mₐ dt)',
-  modular:
-    'Jacobi completion: parity blocks become differences of truncated bilateral autocorrelations',
+  sameSign:
+    'fixed a:  𝒜ₐ ⪰ 0  ⇔  X(w−a)/X(w+a) is Schur on Re w > 0  ⇔  full kernel PSD',
+  edge:
+    'Jacobi edge redraw:  ℛₐ*ℛₐ = (I + 𝖯ₐ)/2;  𝖯ₐ ⪰ 0 ⇔ ℛₐ*ℛₐ ⪰ I/2',
+  infinitesimal:
+    'a ↓ 0:  𝖳₀ ⪰ 0  ⇔  −Im(Ξ′/Ξ) ≥ 0 on C₊  ⇔  RH',
+  cubic:
+    'v = (4,−10,7):  vᵀ𝒜⁽³⁾v < −6.1770462820×10⁻⁵  (certified)',
   structure:
     'After row normalization, the complete correlation kernel is always a ' +
     'positivity-preserving, self-adjoint Markov contraction with spectrum in [−1,1]. ' +
-    'A fixed horizontal line of upper-half-plane exponentials is dense in its natural ' +
-    'weighted space. The missing assertion is exactly that the contraction has no ' +
-    'negative spectrum; requiring it for every a > 0 remains RH-equivalent.',
+    'The new Wiener–Hopf identity writes the same-sign block as one half of a Toeplitz ' +
+    'self-commutator. Cowen rigidity removes every analytic remainder for the completed-ξ ' +
+    'symbol, so same-sign positivity alone is already the complete fixed-a obligation. ' +
+    'This collapses the bookkeeping, but it does not prove the missing sign.',
   routeAudit:
-    'Certified falsification now rules out five tempting shortcuts. The dominant raw ' +
-    'theta mode n = 1 is indefinite in both parity sectors, an independent n = 2 even ' +
-    'mode is indefinite, and the full theta-summed same-sign block has a negative ' +
-    'non-principal cross-minor. Exact arithmetic regrouping also leaves an indefinite ' +
-    'gcd-two block and an indefinite sum-of-two-squares shell. Thus modewise SOS, a ' +
-    'positive-first-mode perturbation, total positivity, gcd-block positivity, and ' +
-    'shellwise positivity all fail. None of these results is a negative principal ' +
-    'minor of the full theta kernel, so full PSD, T3, and RH remain open.',
+    'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
+    'factors only the lazy operator. The correctly conjugated small-a limit is itself ' +
+    'RH-equivalent and has no coercive lower gap. The exact cubic thickness coefficient ' +
+    'is indefinite, while raw-mode, total-positivity, gcd-block, and shellwise SOS routes ' +
+    'also fail by certificate. None of these obstructions is a negative principal minor ' +
+    'of the resummed full-theta block, so T3 and RH remain open.',
 };
 
 const DYSON_LANE_RESIDUALS = [
@@ -530,7 +535,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T21 · natural weighted closure</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T25 · Markov / Wiener–Hopf frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -549,7 +554,10 @@ export default function OpenFrontierPage() {
           {[
             MARKOV_NORMALIZATION.rowMass,
             MARKOV_NORMALIZATION.equivalence,
-            MARKOV_NORMALIZATION.modular,
+            MARKOV_NORMALIZATION.sameSign,
+            MARKOV_NORMALIZATION.edge,
+            MARKOV_NORMALIZATION.infinitesimal,
+            MARKOV_NORMALIZATION.cubic,
           ].map((value) => (
             <code
               key={value}
@@ -571,10 +579,12 @@ export default function OpenFrontierPage() {
           {MARKOV_NORMALIZATION.routeAudit}
         </p>
         <p style={{ color: '#64748b', fontSize: 11.5, lineHeight: 1.55, margin: '9px 0 0' }}>
-          Surviving target: exploit the full Jacobi completion inside its pair-dependent
-          truncated autocorrelations while mixing distinct gcd blocks and shells, or
-          find another mechanism excluding negative Markov spectrum. Markov contractivity
-          by itself is not enough.
+          Surviving target: prove the exact full-theta same-sign block 𝒜<sub>a</sub> is
+          positive for every a &gt; 0. Wiener–Hopf rigidity says that result alone would
+          discharge full T3. A Gram construction built from the current theta
+          decomposition must mix radial fibers, while separate mode, gcd, and shell
+          pieces cannot stay independent. Modulus-only, local-edge, and coefficientwise
+          arguments are now closed.
         </p>
       </div>
 

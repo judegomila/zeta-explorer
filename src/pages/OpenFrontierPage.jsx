@@ -26,11 +26,11 @@ const GLOBAL_FRONTIER = {
     'indefinite channel. A crude absolute-value estimate spends the entire ' +
     'positive core, so the missing step is a cancellation-sensitive ' +
     'Volterra/derivative estimate controlling both channels together.',
-    'This statement is equivalent to RH, not a strict reduction. Relabelling it ' +
-    'as passivity, Schur contractivity, a determinant test, or positivity does ' +
-    'not make the obligation smaller. Promotable progress must supply a new ' +
-    'zeta-specific lemma, rigorously refute a proposed exact-kernel bridge, or ' +
-    'replace T3 by a genuinely narrower statement with a complete implication proof.',
+    'T26 sharpens the quantifier: for any prescribed positive sequence a_n → 0, ' +
+    'positivity at infinitely many indices already implies RH. This replaces the ' +
+    'all-thickness continuum by a discrete exact target, but does not prove one ' +
+    'missing small-thickness sign. Promotable progress must supply a new zeta-specific ' +
+    'lemma or rigorously refute a proposed exact-kernel bridge.',
   ],
   links: [
     { to: '/twin-ladder', label: 'Twin Ladder Explorer' },
@@ -94,10 +94,27 @@ const MARKOV_NORMALIZATION = {
   equivalence: 'fixed a:  Twin Ladder positivity  ⇔  𝖯ₐ ⪰ 0 on L²(mₐ dt)',
   sameSign:
     'fixed a:  𝒜ₐ ⪰ 0  ⇔  X(w−a)/X(w+a) is Schur on Re w > 0  ⇔  full kernel PSD',
+  divisor:
+    'fixed a:  𝒜ₐ ⪰ 0  ⇔  m(λ) ≤ m(λ−2a) for every zero with Re λ > a',
+  sequence:
+    'any aₙ → 0⁺:  𝒜ₐₙ ⪰ 0 for infinitely many n  ⇔  RH',
+  outer: 'unconditional outer ray:  a ≥ 1/2  ⇒  𝒜ₐ ⪰ 0 and full kernel PSD',
+  halfAnchor:
+    'a = 1/2:  B(w) = ξ(w)/ξ(w+1) is inner unconditionally; ordinary Clark positivity is automatic',
+  poisson:
+    'RH  ⇔  q(t) = ∫ dμ(u)/((t−u)² + 1/4) for one positive weighted measure μ',
+  dyadic:
+    'R₂ₐ(w) = Rₐ(w−a)Rₐ(w+a); arbitrary-depth counterpackets block descent to a/2',
   edge:
     'Jacobi edge redraw:  ℛₐ*ℛₐ = (I + 𝖯ₐ)/2;  𝖯ₐ ⪰ 0 ⇔ ℛₐ*ℛₐ ⪰ I/2',
+  douglas:
+    'Douglas:  Γ₋ₐ = DₐΓₐ, ‖Dₐ‖ ≤ 1; uniqueness forces Dₐ = TΘₐ*',
+  hankel:
+    'certified:  Ψ(0)Ψ(1/5) − Ψ(1/10)² < −0.4695376253506527',
   infinitesimal:
     'a ↓ 0:  𝖳₀ ⪰ 0  ⇔  −Im(Ξ′/Ξ) ≥ 0 on C₊  ⇔  RH',
+  boundary:
+    'off-axis zero dipoles vanish on the real boundary; boundary sign cannot detect them',
   cubic:
     'v = (4,−10,7):  vᵀ𝒜⁽³⁾v < −6.1770462820×10⁻⁵  (certified)',
   structure:
@@ -106,14 +123,19 @@ const MARKOV_NORMALIZATION = {
     'The new Wiener–Hopf identity writes the same-sign block as one half of a Toeplitz ' +
     'self-commutator. Cowen rigidity removes every analytic remainder for the completed-ξ ' +
     'symbol, so same-sign positivity alone is already the complete fixed-a obligation. ' +
-    'This collapses the bookkeeping, but it does not prove the missing sign.',
+    'The residual zero divisor reduces the continuous family to infinitely many points of ' +
+    'any one sequence tending to zero. At the unconditional half-thickness anchor, the ' +
+    'boundary phase gives a scalar positive-Poisson criterion—but that criterion is itself ' +
+    'equivalent to RH, not yet the missing arithmetic estimate.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
-    'factors only the lazy operator. The correctly conjugated small-a limit is itself ' +
-    'RH-equivalent and has no coercive lower gap. The exact cubic thickness coefficient ' +
-    'is indefinite, while raw-mode, total-positivity, gcd-block, and shellwise SOS routes ' +
-    'also fail by certificate. None of these obstructions is a negative principal minor ' +
-    'of the resummed full-theta block, so T3 and RH remain open.',
+    'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
+    'Schur phase, and both tilted Hankel kernels are individually indefinite. At a = 0, ' +
+    'off-axis zero dipoles are invisible on the real boundary, so boundary/PDE shortcuts ' +
+    'are circular. Exact polynomial and positive-Schwartz counterpackets also show that ' +
+    'the dyadic quotient identity has no generic downward sign propagation. The cubic ' +
+    'coefficient, raw modes, total positivity, gcd blocks, and shellwise SOS routes fail ' +
+    'as well. T3 and RH remain open.',
 };
 
 const DYSON_LANE_RESIDUALS = [
@@ -535,7 +557,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T25 · Markov / Wiener–Hopf frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T30 · Markov / divisor frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -555,8 +577,17 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.rowMass,
             MARKOV_NORMALIZATION.equivalence,
             MARKOV_NORMALIZATION.sameSign,
+            MARKOV_NORMALIZATION.divisor,
+            MARKOV_NORMALIZATION.sequence,
+            MARKOV_NORMALIZATION.outer,
+            MARKOV_NORMALIZATION.halfAnchor,
+            MARKOV_NORMALIZATION.poisson,
+            MARKOV_NORMALIZATION.dyadic,
             MARKOV_NORMALIZATION.edge,
+            MARKOV_NORMALIZATION.douglas,
+            MARKOV_NORMALIZATION.hankel,
             MARKOV_NORMALIZATION.infinitesimal,
+            MARKOV_NORMALIZATION.boundary,
             MARKOV_NORMALIZATION.cubic,
           ].map((value) => (
             <code
@@ -579,12 +610,13 @@ export default function OpenFrontierPage() {
           {MARKOV_NORMALIZATION.routeAudit}
         </p>
         <p style={{ color: '#64748b', fontSize: 11.5, lineHeight: 1.55, margin: '9px 0 0' }}>
-          Surviving target: prove the exact full-theta same-sign block 𝒜<sub>a</sub> is
-          positive for every a &gt; 0. Wiener–Hopf rigidity says that result alone would
-          discharge full T3. A Gram construction built from the current theta
-          decomposition must mix radial fibers, while separate mode, gcd, and shell
-          pieces cannot stay independent. Modulus-only, local-edge, and coefficientwise
-          arguments are now closed.
+          Sharpened surviving target: either prove the exact full-theta same-sign block
+          𝒜<sub>aₙ</sub> is positive at infinitely many points of one explicit sequence
+          a<sub>n</sub> → 0, or construct the positive half-Poisson measure directly from
+          the Jacobi theta ratio. Each target would discharge RH, but each is currently
+          an exact reformulation. A successful argument must use arithmetic beyond
+          symmetry, divisor recursion, ordinary inner-function positivity, separate
+          modes, individual Hankel factors, and boundary traces.
         </p>
       </div>
 

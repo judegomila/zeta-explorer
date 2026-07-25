@@ -154,6 +154,14 @@ const MARKOV_NORMALIZATION = {
     'T64: Uₐ*QUₐ−Q = P_{I·conj(J)·K_J}−P_{K_I}. Residual poles have the positive sign, fixed bands have vanishing overlap with poles escaping in height, and half-strip Schur positivity alone does not sign the original linear-denominator endpoint kernel',
   radicalKernel:
     'T65: L_N⁽¹⁾=log(ℜ_N/P_N), with Mellin kernel 𝒦(s)=((s−1)ζ(s)−1)/(s(s+1)). It kills the PNT pole but no zeta zero; ∃Cσ with L_N⁽¹⁾≥−CσN¹⁺σ eventually exactly when Re ρ≤σ, while exact recurrences rule out eventual monotonicity and log-convexity',
+  carryRow:
+    'T68: with G(n)=∏r≤n rad(r), Cᴿ(N,j)=G(N)/[G(j)G(N−j)] is the squarefree product of least-digit base-p carries, divides C(N,j), and loses only O(√N) logarithmically from higher carries. Its row product is ℜ_N; coordinatewise domination already fails at N=5',
+  blockAverage:
+    'T69: for W_N=⌊√N/log(2N)⌋, RH ⇔ Σₕ≤W_N L⁽¹⁾_{N+h}≥0 eventually ⇔ ∏ₕ≤W_N ℜ_{N+h}≥∏ₕ≤W_N P_{N+h} eventually. This is a weaker-looking averaged target, but its recovery uses T65 and the sign remains open',
+  carryObstruction:
+    'T70: critical carry-block columns are not uniformly monotone at all N, complete low-prime residue cycles have negative p-adic balance for m≥2, and the summed worst-case Pascal loss costs coefficient 1·N³ᐟ²—too much even under RH. Eventual column structure remains unexcluded',
+  positivePotential:
+    'T71: the first-radix kernel has a nonnegative potential 𝔘(x)→γ_E/2 with N³𝔘′₊(N)=L_N⁽¹⁾. Its prime component already decreases at x=3.99, so positivity and convergence of the potential do not sign its sampled right tangents',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -215,7 +223,11 @@ const MARKOV_NORMALIZATION = {
     'T64 decomposes the endpoint defect into model spaces and rules out fixed-band high-pole detection; ' +
     'T65 exposes the first-radix Mellin kernel and its complete zero obstruction; ' +
     'T66 constructs common-domain quasimodes consistent with the divisor obstruction; ' +
-    'T67 transfers their strict compact-smooth defects to finite exponential matrices and proves the corresponding compact graph theorem, without supplying zero-uniform control or a maximal-domain core.',
+    'T67 transfers their strict compact-smooth defects to finite exponential matrices and proves the corresponding compact graph theorem; ' +
+    'T68 factorizes the first-radix quotient into a squarefree least-carry row; ' +
+    'T69 gives its critical RH-equivalent consecutive-row average; ' +
+    'T70 rules out uniform/all-N column, primewise, and worst-case-loss proofs of that sign; ' +
+    'T71 turns the same defect into sampled tangents of a positive convergent potential, without proving the tangent sign.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -237,7 +249,7 @@ const MARKOV_NORMALIZATION = {
     'principal positivity uniformly on the whole tail but no order-uniform threshold; ' +
     'far-separated cross minors refute total positivity. Positive all-integer scale completion ' +
     'erases the zero divisor, exact deaveraging requires fixed-power Mertens cancellation, ' +
-    'square-scale averaging preserves but does not attenuate the poles, and its exact Jacobi heat trace is positive only before the load-bearing main term is subtracted; its causal smoother has no bounded or tempered inverse, exact prime-power renewal is lower order, fixed-Cᵐ half-sech asymptotics have no all-order spectral gap, every finite signed upper half-sech relative bound fails, every tight positive adaptive majorant remains at the centered T47 scale, the natural sinh-to-linear multiplier for the finite-height Schur window has a negative real 2×2 minor, strip-Schur positivity can still leave the original endpoint kernel indefinite, fixed bands lose high residual poles, and one zero-adaptive common-domain family yields finite exponential witnesses only with zero-dependent support and approximation complexity; the first-radix Mellin kernel retains every zeta-zero pole while its exact sequence has no eventual monotonicity or log-convexity. Translation-invariant tempered-lag compensation cannot ' +
+    'square-scale averaging preserves but does not attenuate the poles, and its exact Jacobi heat trace is positive only before the load-bearing main term is subtracted; its causal smoother has no bounded or tempered inverse, exact prime-power renewal is lower order, fixed-Cᵐ half-sech asymptotics have no all-order spectral gap, every finite signed upper half-sech relative bound fails, every tight positive adaptive majorant remains at the centered T47 scale, the natural sinh-to-linear multiplier for the finite-height Schur window has a negative real 2×2 minor, strip-Schur positivity can still leave the original endpoint kernel indefinite, fixed bands lose high residual poles, and one zero-adaptive common-domain family yields finite exponential witnesses only with zero-dependent support and approximation complexity; the first-radix Mellin kernel retains every zeta-zero pole, its exact sequence has no eventual monotonicity or log-convexity, its squarefree carry-row factors have no coordinatewise sign, and uniform local or primewise block estimates do not repair that sign. Translation-invariant tempered-lag compensation cannot ' +
     'carry a nonzero pole share, and an unrestricted Hilbert factorization ' +
     'is only an RH-equivalent repackaging. Infinite-order smoothing, infinite non-tempered ' +
     'cancellation inside one block, couplings without positive readout, uniform infinite/continuous ' +
@@ -447,6 +459,46 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'Weighted-supremum bounds and Weierstrass approximation give compressed graph convergence for compact continuous inputs. ' +
       'Boundary-jet polynomial approximation plus Mellin Plancherel upgrades compact smooth inputs to full homogeneous graph convergence; this is not a core theorem for the entire maximal domain.',
   },
+  {
+    id: 'T68',
+    color: '#f59e0b',
+    status: 'PROVED SQUAREFREE CARRY FACTORIZATION',
+    title: 'The radical quotient is one least-digit carry row',
+    formula: 'Cᴿ(N,j)=G(N)/[G(j)G(N−j)],  vₚ(Cᴿ(N,j))∈{0,1},  ∏ⱼCᴿ(N,j)=ℜ_N',
+    detail:
+      'Each entry is squarefree, records the least base-p carry, divides its Pascal-row counterpart, and loses only O(√N) logarithmically from higher carries. ' +
+      'The comparator is the primorial staircase ∏j#, but coordinatewise domination fails and ℜ₈/P₈ = 2401/24300 < 1.',
+  },
+  {
+    id: 'T69',
+    color: '#84cc16',
+    status: 'CRITICAL BLOCK AVERAGE · RH-EQUIVALENT',
+    title: 'A √N/log N consecutive-row sign is still zero-complete',
+    formula: 'W_N=⌊√N/log(2N)⌋:  RH ⇔ Σ(h=0…W_N) L⁽¹⁾(N+h) ≥ 0 eventually',
+    detail:
+      'The one-sided recurrence converts block nonnegativity into L_N⁽¹⁾ ≥ −N³ᐟ², while RH gives eventual positivity term by term. ' +
+      'This is a weaker-looking averaged arithmetic target, but its reverse direction uses T65 and the averaged sign remains unproved.',
+  },
+  {
+    id: 'T70',
+    color: '#fb7185',
+    status: 'UNIFORM LOCAL CARRY SHORTCUTS FAIL',
+    title: 'All-N and primewise block proofs break',
+    formula: 'm≥2: Σ(r=0…p−1) vₚ(ℜ_{mp+r}/P_{mp+r}) = −p(m−1)(p+1)/2',
+    detail:
+      'Critical block columns can decrease before their midpoint, refuting a uniform/all-N monotonicity shortcut; every completed low-prime residue cycle is strictly negative once m≥2. ' +
+      'The summed worst-case Pascal loss also costs coefficient 1·N³ᐟ², too large even under RH. Eventual column structure, T69, and RH remain unrefuted.',
+  },
+  {
+    id: 'T71',
+    color: '#38bdf8',
+    status: 'POSITIVE POTENTIAL · DERIVATIVE SIGN OPEN',
+    title: 'The first-radix defect is a sampled right tangent',
+    formula: '𝔘(x) ≥ 0,  𝔘(x)→γ_E/2,  N³𝔘′₊(N)=L_N⁽¹⁾',
+    detail:
+      'Integrating the sawtooth kernel exposes a nonnegative primitive and an exact convergent arithmetic potential. ' +
+      'Its prime component already decreases at x=3.99, so potential positivity controls neither the derivative nor RH.',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -598,7 +650,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T67 · 2026-07-25</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T71 · 2026-07-25</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -951,7 +1003,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T67 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T71 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1003,6 +1055,10 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.radicalKernel,
             MARKOV_NORMALIZATION.adaptiveEndpoint,
             MARKOV_NORMALIZATION.graphCore,
+            MARKOV_NORMALIZATION.carryRow,
+            MARKOV_NORMALIZATION.blockAverage,
+            MARKOV_NORMALIZATION.carryObstruction,
+            MARKOV_NORMALIZATION.positivePotential,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -1090,7 +1146,16 @@ export default function OpenFrontierPage() {
           positivity alone does not sign the original endpoint kernel. T65 identifies
           the first-radix radical quotient and its Mellin kernel: it cancels the PNT
           pole but retains every zeta-zero obstruction, with no eventual monotonicity
-          or log-convexity shortcut. T66 constructs common-domain zero-adaptive
+          or log-convexity shortcut. T68 factorizes that quotient into a squarefree
+          least-digit carry row whose product is compared with a primorial staircase;
+          factorwise Pascal divisibility gives no coordinatewise sign. T69 replaces
+          pointwise row domination by a critical √N/log N consecutive-row average,
+          but that averaged condition is still RH-equivalent and unproved. T70 shows
+          that uniform/all-N block-column monotonicity, primewise residue averaging,
+          and the uniform local Pascal loss cannot prove it; eventual column structure
+          and other global mechanisms remain open. T71 packages the defect as integer right tangents of
+          a nonnegative potential converging to γ<sub>E</sub>/2, but the potential’s
+          prime component can decrease and supplies no tangent sign. T66 constructs common-domain zero-adaptive
           theta quasimodes that geometrically isolate residual directions. T67 proves
           compact continuous compressed-graph approximation and compact smooth full
           homogeneous graph approximation by finite tail exponentials, transferring

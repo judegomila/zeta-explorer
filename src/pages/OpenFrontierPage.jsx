@@ -112,13 +112,15 @@ const MARKOV_NORMALIZATION = {
   landen:
     'tested nome-power / even-index identities translate t and preserve |a|',
   explicitFormula:
-    'direct half-Poisson deconvolution = full Guinand–Weil; individual p-power blocks are indefinite',
+    'direct half-Poisson deconvolution = full Guinand–Weil; every nonempty pure prime grouping is indefinite',
   tempered:
     'RH ⇔ e^{|u|/2} q̂(u)/(2π) admits a tempered distributional extension',
   weightedPnt:
     'RH ⇔ 2√x − 2 − Σₙ≤ₓ Λ(n)/√n = O((log x)³)',
   finiteModes:
-    'fixed reflected raw-mode gN: qN,1/2(t) = −2/t² + O(t⁻³) eventually',
+    'any nonzero fixed reflected finite raw packet: qF,p(t) = −4(r+1)p/t² + O(t⁻³)',
+  cellQuotient:
+    'positive Jacobi cells C*c=A with ℱ₂c=q/2>0; e^{|u|}c is exactly the RH-equivalent Weil target',
   levy:
     'certified κ₄ = (log ξ)⁽⁴⁾(1) = −0.00044176332757…; not classically infinitely divisible',
   edge:
@@ -153,13 +155,14 @@ const MARKOV_NORMALIZATION = {
     'are circular. Exact polynomial and positive-Schwartz counterpackets also show that ' +
     'the dyadic quotient identity has no generic downward sign propagation. The exact ' +
     'theta cross-scale quotient is not a PSD Schur multiplier, while the tested nome-power and ' +
-    'even-index identities preserve thickness. Prime-power blocks have both signs; fixed reflected ' +
-    'raw-mode truncations gN eventually lose phase positivity; and the exact tilted law is not ' +
+    'even-index identities preserve thickness. Every nonempty pure grouping of inherited prime ' +
+    'atoms is indefinite; every nonzero fixed reflected finite raw packet eventually loses phase ' +
+    'positivity; and the exact tilted law is not ' +
     'classically infinitely divisible. The cubic ' +
     'coefficient, raw modes, total positivity, gcd blocks, and shellwise SOS routes fail ' +
     'as well. The tested direct and raw-mode routes retain full cross-mode or ' +
-    'archimedean/prime cancellation; smooth, tail-corrected, and grouped-prime alternatives ' +
-    'remain unexcluded. T3 and RH remain open.',
+    'archimedean/prime cancellation; smooth, tail-corrected, compensated-prime, and nonlocal ' +
+    'alternatives remain unexcluded. T3 and RH remain open.',
 };
 
 const DYSON_LANE_RESIDUALS = [
@@ -581,7 +584,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T33 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T36 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -614,6 +617,7 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.tempered,
             MARKOV_NORMALIZATION.weightedPnt,
             MARKOV_NORMALIZATION.finiteModes,
+            MARKOV_NORMALIZATION.cellQuotient,
             MARKOV_NORMALIZATION.levy,
             MARKOV_NORMALIZATION.edge,
             MARKOV_NORMALIZATION.douglas,
@@ -649,10 +653,10 @@ export default function OpenFrontierPage() {
           an exact reformulation. A successful argument must use arithmetic beyond
           symmetry, divisor recursion, ordinary inner-function positivity, separate
           modes, individual Hankel factors, boundary traces, entrywise cross-scale
-          multipliers, fixed reflected raw-mode truncations, and termwise prime positivity.
+          multipliers, fixed reflected finite raw-mode packets, and pure prime-group positivity.
           The current exact reformulations retain global Jacobi cancellation and the
-          complete archimedean/prime explicit formula; smooth, tail-corrected, and
-          grouped-prime alternatives remain unexcluded.
+          complete archimedean/prime explicit formula; smooth, tail-corrected,
+          compensated-prime, and nonlocal-transform alternatives remain unexcluded.
         </p>
       </div>
 

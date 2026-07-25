@@ -122,6 +122,10 @@ const MARKOV_NORMALIZATION = {
   oneSidedRung:
     'Eₐ(x) = (xᵃ−1)/a − Σₙ≤ₓΛ(n)nᵃ⁻¹. For 0 < a ≤ 1/2 and 0 ≤ b ≤ a, either Eₐ(x) ≤ Cxᵃ⁻ᵇ(1+log x)ᴺ or Eₐ(x) ≥ −Cxᵃ⁻ᵇ(1+log x)ᴺ already forces the zero strip [b, 1−b]; at a = b = 1/4 it is enough to prove ' +
     '4(x¹ᐟ⁴−1) − Σₙ≤ₓΛ(n)n⁻³ᐟ⁴ ≥ −C(1+log x)ᴺ',
+  primeRiesz:
+    'T44: at a = 1/4, the one-sided rung criterion is equivalent, up to a bounded higher-prime-power tail, to its prime-only form; averaging over [x, x+x³ᐟ⁴] or applying a causal Riesz kernel makes the zero sum absolute without losing any fixed zero pole. For fixed η > 0, a strict staged target is b = 1/8: ℛη,1/4(x) ≥ −Cx¹ᐟ⁸(1+log x)ᴺ',
+  scaleAverage:
+    'T46: the exact positive divisor-scale completion converges only because multiplication by ζ cancels the complete zero divisor; signed Möbius inversion restores every pole and costs O(xᵃ) under absolute bounds, while nontrivial signed cancellation remains open',
   finiteModes:
     'any nonzero fixed reflected finite raw packet: qF,p(t) = −4(r+1)p/t² + O(t⁻³)',
   gaussian:
@@ -134,6 +138,8 @@ const MARKOV_NORMALIZATION = {
     'e^{λ|u|}c tempered/PD ⇔ λ/2 ≤ Re ρ ≤ 1−λ/2; any positive rung would prove a uniform zero strip',
   finiteRadialLayers:
     'every fixed finite family of modular/radial shifts with a nonzero fixed PSD coupling in the audited kernel family has a negative 2×2 principal minor sufficiently far in the tail',
+  continuumTail:
+    'T45: the exact continuum block has the opposite fixed-offset tail: after positive diagonal normalization, 𝒜ₐ(T+s,T+r) → 1/(e²ˢ+e²ʳ); normalized fixed minors with strictly increasing row/column offsets converge to positive Cauchy determinants, so the original minors are eventually positive',
   criticalTail:
     'a nonzero pole share needs an eʰᐟ² non-tempered cross-tail; translation-invariant tempered-lag compensation forces its coefficient a = 0, while an unrestricted Hilbert/GNS factorization exists iff RH',
   levy:
@@ -163,7 +169,9 @@ const MARKOV_NORMALIZATION = {
     'even tempered extendibility recovers the full von Koch/RH threshold. Fractional ' +
     'backward weighting now supplies an exact graded target: either one-sided weighted-prime ' +
     'power bound proves the corresponding zero strip, one positive rung proves a uniform ' +
-    'zero strip, and the endpoint is RH.',
+    'zero strip, and the endpoint is RH. T44 makes that target prime-only and losslessly ' +
+    'Riesz-smoothed; T45 proves a genuine continuum Cauchy-tail rescue; T46 identifies ' +
+    'positive divisor-scale averaging as zero-blind.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -181,7 +189,9 @@ const MARKOV_NORMALIZATION = {
     'as well. Exact Gaussian smoothing adds only an origin atom, and any even probability ' +
     'smoother with entire finite-order MGF that preserves the exact zero divisor is Gaussian ' +
     'or degenerate. Fixed finite PSD modular/radial shift couplings in the audited kernel ' +
-    'family fail in the far tail; translation-invariant tempered-lag compensation cannot ' +
+    'family fail in the far tail, while the exact continuum block instead has a positive ' +
+    'fixed-offset Cauchy limit that is not yet uniform; positive divisor-scale completion ' +
+    'erases the zero divisor, so bounds on that exact completion plus absolute deaveraging cannot recover a rung; translation-invariant tempered-lag compensation cannot ' +
     'carry a nonzero pole share; and an unrestricted Hilbert factorization ' +
     'is only an RH-equivalent repackaging. Infinite-order smoothing, infinite non-tempered ' +
     'cancellation inside one block, couplings without positive readout, adaptive/continuous ' +
@@ -607,7 +617,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T43 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T46 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -641,12 +651,15 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.tempered,
             MARKOV_NORMALIZATION.weightedPnt,
             MARKOV_NORMALIZATION.oneSidedRung,
+            MARKOV_NORMALIZATION.primeRiesz,
+            MARKOV_NORMALIZATION.scaleAverage,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
             MARKOV_NORMALIZATION.cellQuotient,
             MARKOV_NORMALIZATION.gradedBackward,
             MARKOV_NORMALIZATION.finiteRadialLayers,
+            MARKOV_NORMALIZATION.continuumTail,
             MARKOV_NORMALIZATION.criticalTail,
             MARKOV_NORMALIZATION.levy,
             MARKOV_NORMALIZATION.edge,
@@ -682,9 +695,16 @@ export default function OpenFrontierPage() {
           the Jacobi theta ratio. A strict intermediate target is now explicit: prove
           temperedness of e<sup>λ|u|</sup>c(u) for one 0 &lt; λ &lt; 1 to obtain a
           uniform zero strip, then increase λ toward one. A concrete first-rung route is
-          the T40 lower bound
-          4(x<sup>1/4</sup>−1) − Σ<sub>n≤x</sub>Λ(n)n<sup>−3/4</sup>
+          the prime-only T44 lower bound
+          4(x<sup>1/4</sup>−1) − Σ<sub>p≤x</sub>(log p)p<sup>−3/4</sup>
           ≥ −C(1+log x)<sup>N</sup>, which would force the strip [1/4, 3/4].
+          Its forward and causal Riesz smoothings are lossless; proving the causal
+          version with the weaker power x<sup>1/8</sup> would already force the new
+          strip [1/8, 7/8]. The continuum radial tail now has a positive fixed-offset
+          Cauchy limit, but no uniform tail or coupled-block sign theorem. Positive
+          bounds on the exact divisor-scale completion plus absolute deaveraging
+          cannot supply a descent because the completion cancels the complete zero
+          divisor; nontrivial signed Möbius cancellation remains open.
           No positive fractional rung or such one-sided estimate is currently proved.
           A successful argument must use arithmetic beyond
           symmetry, divisor recursion, ordinary inner-function positivity, separate

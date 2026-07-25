@@ -162,6 +162,12 @@ const MARKOV_NORMALIZATION = {
     'T70: critical carry-block columns are not uniformly monotone at all N, complete low-prime residue cycles have negative p-adic balance for m≥2, and the summed worst-case Pascal loss costs coefficient 1·N³ᐟ²—too much even under RH. Eventual column structure remains unexcluded',
   positivePotential:
     'T71: the first-radix kernel has a nonnegative potential 𝔘(x)→γ_E/2 with N³𝔘′₊(N)=L_N⁽¹⁾. Its prime component already decreases at x=3.99, so positivity and convergence of the potential do not sign its sampled right tangents',
+  potentialBlock:
+    'T72: on each unit cell, G=x³𝔘′ is affine with negative drift 𝒞ₙ and a positive radical jump at the next integer. Exact quadrature writes the T69 block as a local potential functional plus (1/2+o(1))N³ᐟ²; eventual potential increase is RH-equivalent, not proved',
+  carryThreshold:
+    'T73: every positive block exponent lies above p=√N. The top fixed harmonic cell has positive leading mass, every fixed lower cell has negative mass, and a true positive block still fails descending-prefix domination through prefix 17. Growing cells and regrouped transport remain open',
+  primeTransport:
+    'T74: the complete p≤W_N sector has an explicit negative load between Q₋θ(W_N) and Q₊θ(W_N). One-wrap reset and entrant formulas isolate a sufficient high-prime transport inequality, but that inequality remains open and is stronger than T69',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -227,7 +233,10 @@ const MARKOV_NORMALIZATION = {
     'T68 factorizes the first-radix quotient into a squarefree least-carry row; ' +
     'T69 gives its critical RH-equivalent consecutive-row average; ' +
     'T70 rules out uniform/all-N column, primewise, and worst-case-loss proofs of that sign; ' +
-    'T71 turns the same defect into sampled tangents of a positive convergent potential, without proving the tangent sign.',
+    'T71 turns the same defect into sampled tangents of a positive convergent potential; ' +
+    'T72 derives the exact cell drift and block quadrature; ' +
+    'T73 forces positive carry mass above the prime-square threshold and refutes uniform/all-N weak log-majorization; ' +
+    'T74 brackets the low-prime load and isolates the still-open high-prime transport inequality.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -499,6 +508,36 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'Integrating the sawtooth kernel exposes a nonnegative primitive and an exact convergent arithmetic potential. ' +
       'Its prime component already decreases at x=3.99, so potential positivity controls neither the derivative nor RH.',
   },
+  {
+    id: 'T72',
+    color: '#22d3ee',
+    status: 'EXACT BLOCK CALCULUS · SIGN STILL OPEN',
+    title: 'The positive potential has affine drift and radical resets',
+    formula: 'G(x)=L⁽¹⁾ₙ−𝒞ₙ(x−n);  S(N,H)=∫x³𝔘′(x)dx + ½Σ𝒞ₙ',
+    detail:
+      'The integer jumps are n·log rad(n+1), and the critical block receives a positive (1/2+o(1))N³ᐟ² sampling correction. ' +
+      'PNT control is too coarse at the required local scale; eventual continuum or sampled increase of 𝔘 is itself RH-equivalent.',
+  },
+  {
+    id: 'T73',
+    color: '#fbbf24',
+    status: 'PRIME-SQUARE TRANSPORT · LOCAL SHORTCUTS FAIL',
+    title: 'Positive carry mass lives above √N',
+    formula: 'p²≤M ⇒ vₚ(ℜ_M/P_M)≤0;  Δ₁=1/8,  Δₘ<0 for every fixed m≥2',
+    detail:
+      'Every proof using the prime decomposition must compensate the nonpositive p≤√N sector from above the prime-square threshold. ' +
+      'Fixed-cell asymptotics are not uniform in growing m, and the positive N=10,11 block defeats descending-prefix product domination through prefix 17.',
+  },
+  {
+    id: 'T74',
+    color: '#c084fc',
+    status: 'QUANTIFIED TRANSPORT BRACKET · SUFFICIENT BOUND OPEN',
+    title: 'Low primes impose an exact load on reset intervals',
+    formula: '−Q₊θ(H) ≤ Σₚ≤H Eₚlog p ≤ −Q₋θ(H);  High≥Q₊θ(H) ⇒ block≥0',
+    detail:
+      'One-wrap formulas isolate positive additive reset corrections on short harmonic intervals, while entering primes contribute t(p−t). ' +
+      'When Q₋>0 (in particular at critical windows eventually), a Q₋ payment is necessary and a Q₊ payment is sufficient; the two are not equivalent, and the sufficient high-prime inequality is unproved.',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -650,7 +689,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T71 · 2026-07-25</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T74 · 2026-07-25</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1003,7 +1042,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T71 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T74 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1059,6 +1098,9 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.blockAverage,
             MARKOV_NORMALIZATION.carryObstruction,
             MARKOV_NORMALIZATION.positivePotential,
+            MARKOV_NORMALIZATION.potentialBlock,
+            MARKOV_NORMALIZATION.carryThreshold,
+            MARKOV_NORMALIZATION.primeTransport,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -1155,7 +1197,13 @@ export default function OpenFrontierPage() {
           and the uniform local Pascal loss cannot prove it; eventual column structure
           and other global mechanisms remain open. T71 packages the defect as integer right tangents of
           a nonnegative potential converging to γ<sub>E</sub>/2, but the potential’s
-          prime component can decrease and supplies no tangent sign. T66 constructs common-domain zero-adaptive
+          prime component can decrease and supplies no tangent sign. T72 derives the exact affine
+          unit-cell drift, positive radical resets, and critical-block quadrature; its
+          continuum, sampled, and terminal-maximum targets are still RH-equivalent.
+          T73 confines positive carry exponents above √N and shows that fixed lower
+          harmonic cells and uniform/all-N weak log-majorization do not prove the sign. T74 brackets
+          the complete low-prime load and identifies one-wrap reset and entrant terms,
+          but the sufficient high-prime transport inequality remains open. T66 constructs common-domain zero-adaptive
           theta quasimodes that geometrically isolate residual directions. T67 proves
           compact continuous compressed-graph approximation and compact smooth full
           homogeneous graph approximation by finite tail exponentials, transferring

@@ -148,6 +148,10 @@ const MARKOV_NORMALIZATION = {
     'T62: RH ⇔ Σp≤N[Cₚ(N)−(N−p)]log p ≥ 0 eventually. The omitted higher-radix tail is nonnegative and asymptotic to −ζ(1/2)N³ᐟ²/3; under RH the first layer retains margin 0.1336904124…N³ᐟ². This exact criterion remains RH-equivalent and open',
   fixedMajorant:
     'T60: every fixed strict PNT-admissible majorant of (1−u)₊ adds δx². For an x-dependent family with target-scale uniform prime sampling, preserving the bound requires ∫(Fₓ−w)=O(x⁻¹ᐟ⁸)',
+  adaptiveSelberg:
+    'T63: the canonical adaptive Selberg majorant has supp ĜΩ ⊂ [−Ω,Ω], exact excess π/(2Ω), and sampled excess O(Ω⁻¹). At Ω ≍ x¹ᐟ⁸ its centered sampling inequality is quantitatively equivalent to T47, so the construction preserves the staged scale but does not prove it',
+  endpointModel:
+    'T64: Uₐ*QUₐ−Q = P_{I·conj(J)·K_J}−P_{K_I}. Residual poles have the positive sign, fixed bands have vanishing overlap with poles escaping in height, and half-strip Schur positivity alone does not sign the original linear-denominator endpoint kernel',
   finiteModes:
     'any nonzero fixed reflected finite raw packet: qF,p(t) = −4(r+1)p/t² + O(t⁻³)',
   gaussian:
@@ -200,7 +204,9 @@ const MARKOV_NORMALIZATION = {
     'T55–T57 close fixed-order and absolute-relative continuum promotion while exposing the exact endpoint-compressed feature contraction. ' +
     'T58 gives a finite verified range, T59 an RH-equivalent Pascal comparator, and T60 excludes every fixed strict PNT-admissible majorant. ' +
     'T61 proves a conformally corrected finite-height Schur/Pick window but refutes its natural bridge to the original kernel; ' +
-    'T62 reduces the Pascal comparator to its first radix layer, which remains exactly RH-equivalent.',
+    'T62 reduces the Pascal comparator to its first radix layer, which remains exactly RH-equivalent; ' +
+    'T63 constructs the target-scale adaptive Selberg family but proves its centered sample is still T47; ' +
+    'T64 decomposes the endpoint defect into model spaces and rules out fixed-band high-pole detection.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -222,7 +228,7 @@ const MARKOV_NORMALIZATION = {
     'principal positivity uniformly on the whole tail but no order-uniform threshold; ' +
     'far-separated cross minors refute total positivity. Positive all-integer scale completion ' +
     'erases the zero divisor, exact deaveraging requires fixed-power Mertens cancellation, ' +
-    'square-scale averaging preserves but does not attenuate the poles, and its exact Jacobi heat trace is positive only before the load-bearing main term is subtracted; its causal smoother has no bounded or tempered inverse, exact prime-power renewal is lower order, fixed-Cᵐ half-sech asymptotics have no all-order spectral gap, every finite absolute half-sech relative bound fails, fixed PNT-admissible triangular majorants lose the centered scale, the natural sinh-to-linear multiplier for the finite-height Schur window has a negative real 2×2 minor, and removing every higher radix layer leaves an open first-layer criterion still equivalent to RH. Translation-invariant tempered-lag compensation cannot ' +
+    'square-scale averaging preserves but does not attenuate the poles, and its exact Jacobi heat trace is positive only before the load-bearing main term is subtracted; its causal smoother has no bounded or tempered inverse, exact prime-power renewal is lower order, fixed-Cᵐ half-sech asymptotics have no all-order spectral gap, every finite absolute half-sech relative bound fails, fixed PNT-admissible triangular majorants lose the centered scale, the adaptive Selberg family preserves but does not improve T47, the natural sinh-to-linear multiplier for the finite-height Schur window has a negative real 2×2 minor, strip-Schur positivity can still leave the original endpoint kernel indefinite, fixed bands lose high residual poles, and removing every higher radix layer leaves an open first-layer criterion still equivalent to RH. Translation-invariant tempered-lag compensation cannot ' +
     'carry a nonzero pole share, and an unrestricted Hilbert factorization ' +
     'is only an RH-equivalent repackaging. Infinite-order smoothing, infinite non-tempered ' +
     'cancellation inside one block, couplings without positive readout, adaptive/continuous ' +
@@ -382,6 +388,26 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'The omitted higher-radix tail satisfies H_N≥0 and H_N∼−ζ(1/2)N³ᐟ²/3; under RH the first layer retains normalized margin 0.1336904124…. ' +
       'Conversely its eventual sign implies the T59 Pascal comparison. This exact criterion remains open and is not a proof of RH.',
   },
+  {
+    id: 'T63',
+    color: '#84cc16',
+    status: 'ADAPTIVE SELBERG · EXACT NO-GAIN THEOREM',
+    title: 'Growing bandwidth reaches—but does not beat—the staged scale',
+    formula: '∫(GΩ−g)=π/(2Ω), sample(GΩ−g)=O(Ω⁻¹), Ω ≍ x¹ᐟ⁸',
+    detail:
+      'Layered Selberg interval majorants give a positive bandlimited cover with target-scale continuous and sampled excess. ' +
+      'After centering, its upper sampling estimate is quantitatively equivalent to T47 and the strip [1/8, 7/8]; the required arithmetic cancellation remains open.',
+  },
+  {
+    id: 'T64',
+    color: '#2dd4bf',
+    status: 'ENDPOINT MODEL SPACES · FIXED-BAND ROUTE CLOSED',
+    title: 'High residual poles escape every fixed detector band',
+    formula: 'Uₐ*QUₐ−Q = P_{I·conj(J)·K_J} − P_{K_I}',
+    detail:
+      'Residual poles are the positive model-space component, but their compression into any fixed band tends to zero as height escapes. ' +
+      'An explicit half-strip Schur function also has an indefinite original linear-denominator kernel, so adaptive ξ-specific endpoint overlap remains the live obligation.',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -533,7 +559,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T62 · 2026-07-25</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T64 · 2026-07-25</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -886,7 +912,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T62 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T64 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -933,6 +959,8 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.pascalCriterion,
             MARKOV_NORMALIZATION.firstRadix,
             MARKOV_NORMALIZATION.fixedMajorant,
+            MARKOV_NORMALIZATION.adaptiveSelberg,
+            MARKOV_NORMALIZATION.endpointModel,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -1012,6 +1040,11 @@ export default function OpenFrontierPage() {
           natural 2×2-indefinite bridge does not recover the original global kernel.
           T62 removes every higher radix layer from the Pascal statement, leaving a
           prime-only first-layer sign that is still exactly RH-equivalent and open.
+          T63 supplies the canonical adaptive Selberg family at Ω ≍ x<sup>1/8</sup>,
+          but its centered sampling inequality is still exactly T47. T64 writes the
+          endpoint defect as a residual-pole model space minus a base-zero model
+          space; fixed bands lose poles escaping in height, and strip-Schur
+          positivity alone does not sign the original endpoint kernel.
           No positive fractional
           rung or one-sided continuum estimate is currently proved.
           A successful argument must use arithmetic beyond

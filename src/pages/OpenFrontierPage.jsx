@@ -87,6 +87,30 @@ const ONE_POINT_JET_HIERARCHY = {
     'and kernel structure; it does not rule out new zeta-specific input.',
 };
 
+const MARKOV_NORMALIZATION = {
+  status: 'PROVED EXACT HILBERT-SPACE CLOSURE',
+  title: 'The remaining sign is negative spectrum of a reversible Markov operator',
+  rowMass: 'mₐ(t) = 2(∫₀∞ Pₐ(u)du)(∫|t|∞ Qₐ(u)du)',
+  equivalence: 'fixed a:  Twin Ladder positivity  ⇔  𝖯ₐ ⪰ 0 on L²(mₐ dt)',
+  modular:
+    'Jacobi completion: parity blocks become differences of truncated bilateral autocorrelations',
+  structure:
+    'After row normalization, the complete correlation kernel is always a ' +
+    'positivity-preserving, self-adjoint Markov contraction with spectrum in [−1,1]. ' +
+    'A fixed horizontal line of upper-half-plane exponentials is dense in its natural ' +
+    'weighted space. The missing assertion is exactly that the contraction has no ' +
+    'negative spectrum; requiring it for every a > 0 remains RH-equivalent.',
+  routeAudit:
+    'Certified falsification now rules out five tempting shortcuts. The dominant raw ' +
+    'theta mode n = 1 is indefinite in both parity sectors, an independent n = 2 even ' +
+    'mode is indefinite, and the full theta-summed same-sign block has a negative ' +
+    'non-principal cross-minor. Exact arithmetic regrouping also leaves an indefinite ' +
+    'gcd-two block and an indefinite sum-of-two-squares shell. Thus modewise SOS, a ' +
+    'positive-first-mode perturbation, total positivity, gcd-block positivity, and ' +
+    'shellwise positivity all fail. None of these results is a negative principal ' +
+    'minor of the full theta kernel, so full PSD, T3, and RH remain open.',
+};
+
 const DYSON_LANE_RESIDUALS = [
   {
     id: 'R1',
@@ -484,6 +508,73 @@ export default function OpenFrontierPage() {
           RH-equivalent obligation remains the all-order hierarchy along
           thicknesses tending to zero; neither the current finite certificates
           nor this reformulation proves RH.
+        </p>
+      </div>
+
+      <div
+        className="card"
+        style={{ marginBottom: 22, borderLeft: '4px solid #14b8a6' }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10, flexWrap: 'wrap' }}>
+          <span
+            style={{
+              fontFamily: 'var(--font-mono, monospace)',
+              fontSize: 10.5,
+              fontWeight: 700,
+              letterSpacing: 0.45,
+              color: '#5eead4',
+              border: '1px solid #14b8a6',
+              borderRadius: 4,
+              padding: '2px 7px',
+            }}
+          >
+            {MARKOV_NORMALIZATION.status}
+          </span>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T21 · natural weighted closure</code>
+        </div>
+        <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
+          {MARKOV_NORMALIZATION.title}
+        </strong>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.65, margin: 0 }}>
+          {MARKOV_NORMALIZATION.structure}
+        </p>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
+            gap: 8,
+            margin: '12px 0',
+          }}
+        >
+          {[
+            MARKOV_NORMALIZATION.rowMass,
+            MARKOV_NORMALIZATION.equivalence,
+            MARKOV_NORMALIZATION.modular,
+          ].map((value) => (
+            <code
+              key={value}
+              style={{
+                padding: '9px 10px',
+                borderRadius: 5,
+                background: 'rgba(20,184,166,0.08)',
+                border: '1px solid rgba(45,212,191,0.25)',
+                color: '#ccfbf1',
+                fontSize: 11.5,
+                overflowX: 'auto',
+              }}
+            >
+              {value}
+            </code>
+          ))}
+        </div>
+        <p style={{ color: '#5eead4', fontSize: 12.5, lineHeight: 1.65, margin: 0 }}>
+          {MARKOV_NORMALIZATION.routeAudit}
+        </p>
+        <p style={{ color: '#64748b', fontSize: 11.5, lineHeight: 1.55, margin: '9px 0 0' }}>
+          Surviving target: exploit the full Jacobi completion inside its pair-dependent
+          truncated autocorrelations while mixing distinct gcd blocks and shells, or
+          find another mechanism excluding negative Markov spectrum. Markov contractivity
+          by itself is not enough.
         </p>
       </div>
 

@@ -135,7 +135,7 @@ const MARKOV_NORMALIZATION = {
   primeRenewal:
     'T54: exact prime-power renewal changes the prime-only causal trace by −ζ(3/2)Q∞ + Γ(3/4)π¹ᐟ⁴t¹ᐟ⁴log(1/t) + O(t¹ᐟ⁴). This bounded lower-order correction cannot create or cancel the missing t⁻¹ᐟ⁸ term',
   thetaFeatures:
-    'T56: Kₐ is an exact difference of two Laplace-feature Gram kernels, but on every tail |⟨f,(Kₐ−H)f⟩|/⟨f,Hf⟩ is unbounded over finite evaluation tests. The witness sign is not determined, so one-sided PSD remains open',
+    'T56: Kₐ is an exact difference of two Laplace-feature Gram kernels. On every tail and for every finite C, a finite evaluation test satisfies ⟨f,(Kₐ−H)f⟩ > C⟨f,Hf⟩. Even the signed upper relative bound fails; the positive witness does not decide Kₐ ⪰ 0',
   phaseSpace:
     'T57: the homogeneous feature quotient is ξ(2s−1/2−a)/ξ(2s−1/2+a), unimodular on the unitary Mellin line. The Wigner/Weyl relay is the exact shifted completed-ξ modulus difference; endpoint compression is load-bearing',
   finiteHeight:
@@ -155,7 +155,9 @@ const MARKOV_NORMALIZATION = {
   radicalKernel:
     'T65: L_N⁽¹⁾=log(ℜ_N/P_N), with Mellin kernel 𝒦(s)=((s−1)ζ(s)−1)/(s(s+1)). It kills the PNT pole but no zeta zero; ∃Cσ with L_N⁽¹⁾≥−CσN¹⁺σ eventually exactly when Re ρ≤σ, while exact recurrences rule out eventual monotonicity and log-convexity',
   adaptiveEndpoint:
-    'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. A polynomial factor supplies a direction for each strict multiplicity excess, but finite-exponential graph approximation and any uniform estimate remain open',
+    'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
+  graphCore:
+    'T67: finite tail exponentials graph-approximate every compact continuous input for the compressed theta features and every compact smooth input for the full homogeneous features. No core theorem for the entire maximal domain or uniform degree/conditioning bound follows',
   finiteModes:
     'any nonzero fixed reflected finite raw packet: qF,p(t) = −4(r+1)p/t² + O(t⁻³)',
   gaussian:
@@ -169,7 +171,7 @@ const MARKOV_NORMALIZATION = {
   finiteRadialLayers:
     'every fixed finite family of modular/radial shifts with a nonzero fixed PSD coupling in the audited kernel family has a negative 2×2 principal minor sufficiently far in the tail',
   continuumTail:
-    'T45/T48/T55–T57/T64/T66: after normalization the exact continuum block converges uniformly in every fixed Cᵐ tail norm to 1/[2 cosh(t−b)]. Every fixed order is eventually positive, but the spectral floor is zero and every finite absolute H-relative bound fails. Common-domain zero-adaptive quasimodes isolate residual directions only with zero-dependent support; finite-exponential control and the global one-sided contraction remain open',
+    'T45/T48/T55–T57/T64/T66–T67: after normalization the exact continuum block converges uniformly in every fixed Cᵐ tail norm to 1/[2 cosh(t−b)]. Every fixed order is eventually positive, but the spectral floor is zero and every finite signed upper H-relative bound fails. Compact-smooth graph approximation yields finite residual-pole witnesses, while zero-uniform control and the global one-sided contraction remain open',
   criticalTail:
     'a nonzero pole share needs an eʰᐟ² non-tempered cross-tail; translation-invariant tempered-lag compensation forces its coefficient a = 0, while an unrestricted Hilbert/GNS factorization exists iff RH',
   levy:
@@ -212,7 +214,8 @@ const MARKOV_NORMALIZATION = {
     'T63 proves every tight positive adaptive majorant is still T47; ' +
     'T64 decomposes the endpoint defect into model spaces and rules out fixed-band high-pole detection; ' +
     'T65 exposes the first-radix Mellin kernel and its complete zero obstruction; ' +
-    'T66 constructs common-domain quasimodes consistent with the divisor obstruction, without closing the finite-exponential range or global adaptive inequalities.',
+    'T66 constructs common-domain quasimodes consistent with the divisor obstruction; ' +
+    'T67 transfers their strict compact-smooth defects to finite exponential matrices and proves the corresponding compact graph theorem, without supplying zero-uniform control or a maximal-domain core.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -234,7 +237,7 @@ const MARKOV_NORMALIZATION = {
     'principal positivity uniformly on the whole tail but no order-uniform threshold; ' +
     'far-separated cross minors refute total positivity. Positive all-integer scale completion ' +
     'erases the zero divisor, exact deaveraging requires fixed-power Mertens cancellation, ' +
-    'square-scale averaging preserves but does not attenuate the poles, and its exact Jacobi heat trace is positive only before the load-bearing main term is subtracted; its causal smoother has no bounded or tempered inverse, exact prime-power renewal is lower order, fixed-Cᵐ half-sech asymptotics have no all-order spectral gap, every finite absolute half-sech relative bound fails, every tight positive adaptive majorant remains at the centered T47 scale, the natural sinh-to-linear multiplier for the finite-height Schur window has a negative real 2×2 minor, strip-Schur positivity can still leave the original endpoint kernel indefinite, fixed bands lose high residual poles, one zero-adaptive common-domain family isolates residual directions only with zero-dependent support and without finite-exponential graph control, and the first-radix Mellin kernel retains every zeta-zero pole while its exact sequence has no eventual monotonicity or log-convexity. Translation-invariant tempered-lag compensation cannot ' +
+    'square-scale averaging preserves but does not attenuate the poles, and its exact Jacobi heat trace is positive only before the load-bearing main term is subtracted; its causal smoother has no bounded or tempered inverse, exact prime-power renewal is lower order, fixed-Cᵐ half-sech asymptotics have no all-order spectral gap, every finite signed upper half-sech relative bound fails, every tight positive adaptive majorant remains at the centered T47 scale, the natural sinh-to-linear multiplier for the finite-height Schur window has a negative real 2×2 minor, strip-Schur positivity can still leave the original endpoint kernel indefinite, fixed bands lose high residual poles, and one zero-adaptive common-domain family yields finite exponential witnesses only with zero-dependent support and approximation complexity; the first-radix Mellin kernel retains every zeta-zero pole while its exact sequence has no eventual monotonicity or log-convexity. Translation-invariant tempered-lag compensation cannot ' +
     'carry a nonzero pole share, and an unrestricted Hilbert factorization ' +
     'is only an RH-equivalent repackaging. Infinite-order smoothing, infinite non-tempered ' +
     'cancellation inside one block, couplings without positive readout, uniform infinite/continuous ' +
@@ -326,12 +329,12 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   {
     id: 'T56',
     color: '#ef4444',
-    status: 'ROUTE COUNTEREXAMPLE · ONE-SIDED SIGN OPEN',
-    title: 'Every finite absolute half-sech relative bound fails',
-    formula: 'sup |⟨f,(Kₐ−H)f⟩| / ⟨f,Hf⟩ = +∞ on every tail',
+    status: 'SIGNED ROUTE COUNTEREXAMPLE · PSD STILL OPEN',
+    title: 'Even every finite upper half-sech relative bound fails',
+    formula: 'sup ⟨f,(Kₐ−H)f⟩ / ⟨f,Hf⟩ = +∞ on every tail',
     detail:
-      'Exact theta features and oscillatory radial tests make the absolute relative form unbounded on every tail. ' +
-      'The finite evaluation witness has no proved sign, so this neither proves nor refutes Kₐ ⪰ 0 or RH.',
+      'Exact theta features, oscillatory radial tests, and T67 graph approximation preserve a positive finite-evaluation sign. ' +
+      'This refutes the signed upper comparison and therefore the absolute one, but the witness points toward Kₐ ⪰ 0 and proves neither PSD nor RH.',
   },
   {
     id: 'T57',
@@ -427,12 +430,22 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   {
     id: 'T66',
     color: '#a78bfa',
-    status: 'COMMON-DOMAIN QUASIMODES · NO UNIFORM GAIN',
+    status: 'FINITE RESIDUAL WITNESSES · NO UNIFORM GAIN',
     title: 'A zero-adaptive family geometrically isolates a residual direction',
     formula: 'k_X(x) ∝ e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X]  ⇒  ‖P_KI A_X‖→0, |⟨A_X,wρ⟩|→|M_S|',
     detail:
       'Exact theta and beta-integral cancellation suppress the base-zero model space and isolate one residual-pole coordinate; a polynomial factor supplies a direction for each strict multiplicity excess. ' +
-      'Support, convergence rate, and shifted-zeta margin depend on the individual zero. The construction is not shown to lie in the finite-exponential graph closure and proves no uniform inequality.',
+      'T67 transfers the strict defect to an actual finite exponential matrix. Support, rate, margin, approximation degree, and conditioning remain zero-dependent, so no uniform inequality follows.',
+  },
+  {
+    id: 'T67',
+    color: '#14b8a6',
+    status: 'PROVED COMPACT GRAPH THEOREM',
+    title: 'Tail exponentials capture both theta feature graphs',
+    formula: 'g∈C_c^∞  ⇒  eⱼ∈ℰ_L,  ‖T̃ₐE(eⱼ−g)‖₂+‖S̃ₐE(eⱼ−g)‖₂→0',
+    detail:
+      'Weighted-supremum bounds and Weierstrass approximation give compressed graph convergence for compact continuous inputs. ' +
+      'Boundary-jet polynomial approximation plus Mellin Plancherel upgrades compact smooth inputs to full homogeneous graph convergence; this is not a core theorem for the entire maximal domain.',
   },
 ];
 
@@ -585,7 +598,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T66 · 2026-07-25</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T67 · 2026-07-25</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -938,7 +951,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T66 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T67 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -989,6 +1002,7 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.endpointModel,
             MARKOV_NORMALIZATION.radicalKernel,
             MARKOV_NORMALIZATION.adaptiveEndpoint,
+            MARKOV_NORMALIZATION.graphCore,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -1055,8 +1069,8 @@ export default function OpenFrontierPage() {
           half-sech continuum limit has no spectral floor: fixed-order tail positivity
           cannot be promoted by fixed-C<sup>m</sup> control, and tail PSD of the exact
           analytic kernel is already its global fixed-thickness divisor condition. T56
-          refutes every finite absolute half-sech relative bound, without determining
-          the sign of its finite evaluation witness. T57 identifies the exact feature
+          refutes every finite signed upper half-sech relative bound with a positive
+          finite evaluation witness; that sign still does not decide PSD. T57 identifies the exact feature
           and phase-space quotient with the completed-ξ boundary condition, so the
           one-sided endpoint-compressed contraction remains the live continuum target.
           T58 transfers the imported verified height only to a finite range; T59 gives
@@ -1077,9 +1091,12 @@ export default function OpenFrontierPage() {
           the first-radix radical quotient and its Mellin kernel: it cancels the PNT
           pole but retains every zeta-zero obstruction, with no eventual monotonicity
           or log-convexity shortcut. T66 constructs common-domain zero-adaptive
-          theta quasimodes that geometrically isolate residual directions, but only
-          with zero-dependent support and margin; finite-exponential graph control
-          and global adaptive inequalities remain open.
+          theta quasimodes that geometrically isolate residual directions. T67 proves
+          compact continuous compressed-graph approximation and compact smooth full
+          homogeneous graph approximation by finite tail exponentials, transferring
+          the strict T66 defect to a finite matrix. The construction still has
+          zero-dependent support, margin, degree, and conditioning; maximal-domain
+          graph density and global adaptive inequalities remain open.
           No positive fractional
           rung or one-sided continuum estimate is currently proved.
           A successful argument must use arithmetic beyond

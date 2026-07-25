@@ -130,6 +130,10 @@ const MARKOV_NORMALIZATION = {
     'T50: square-scale averaging multiplies by ζ(2s), preserves every excluded right-hand pole, and yields an equivalent prime-times-square causal target; functional-equation symmetry supplies the left edge. Its square-Möbius inverse is bounded on two-sided target norms, so absolute averaging does not attenuate the obstruction',
   jacobiHeat:
     'T51/T52: the prime-times-square target is exactly the positive Jacobi heat trace ℋ(u)=Σm,p(log p)e⁻πm²pu; its associated differentiated carrier Jₚ is a positive translate mixture of Ψ. The needed centered bound ℋ(u)≤ζ(2)/(πu)+Cu⁻⁷ᐟ⁸ remains open; its raw positivity, complete monotonicity, and modular splitting do not control the centered remainder',
+  jacobiDeconvolution:
+    'T53: the causal Jacobi log-kernel has a zero-free symbol, but |ĥ(τ)| ≍ (1+|τ|)¹³ᐟ⁸e⁻π|τ|ᐟ². It preserves every forbidden zeta pole while admitting no finite-measure or tempered inverse. A smooth positive PNT density can satisfy the two-sided averaged bound while its normalized triangular error is unbounded',
+  primeRenewal:
+    'T54: exact prime-power renewal changes the prime-only causal trace by −ζ(3/2)Q∞ + Γ(3/4)π¹ᐟ⁴t¹ᐟ⁴log(1/t) + O(t¹ᐟ⁴). This bounded lower-order correction cannot create or cancel the missing t⁻¹ᐟ⁸ term',
   finiteModes:
     'any nonzero fixed reflected finite raw packet: qF,p(t) = −4(r+1)p/t² + O(t⁻³)',
   gaussian:
@@ -143,7 +147,7 @@ const MARKOV_NORMALIZATION = {
   finiteRadialLayers:
     'every fixed finite family of modular/radial shifts with a nonzero fixed PSD coupling in the audited kernel family has a negative 2×2 principal minor sufficiently far in the tail',
   continuumTail:
-    'T45/T48: after normalization the exact continuum block converges uniformly in every fixed Cᵐ tail norm to 1/[2 cosh(t−b)]. Every fixed order of distinct principal matrices is eventually positive, but the threshold depends on the order; far-separated nonprincipal 2×2 minors remain negative, so TP₂ fails',
+    'T45/T48/T55: after normalization the exact continuum block converges uniformly in every fixed Cᵐ tail norm to 1/[2 cosh(t−b)]. Every fixed order is eventually positive, but the half-sech spectral floor is zero. Generic Cᵐ-small analytic perturbations can remain indefinite on every tail, while tail PSD of the exact analytic kernel is already equivalent to global fixed-thickness positivity',
   criticalTail:
     'a nonzero pole share needs an eʰᐟ² non-tempered cross-tail; translation-invariant tempered-lag compensation forces its coefficient a = 0, while an unrestricted Hilbert/GNS factorization exists iff RH',
   levy:
@@ -177,7 +181,9 @@ const MARKOV_NORMALIZATION = {
     'losslessly Riesz-smoothed, and exactly triangular; T45/T48 promote the continuum ' +
     'rescue to every fixed principal order; T46/T49 isolate the signed Mertens bottleneck; ' +
     'T50 preserves the right-hand poles on square scales but gives no absolute attenuation; ' +
-    'T51/T52 identify the exact positive Jacobi bridge and why its uncentered sign is insufficient.',
+    'T51/T52 identify the exact positive Jacobi bridge and why its uncentered sign is insufficient. ' +
+    'T53/T54 show that stable Jacobi deconvolution and prime-power renewal cannot supply the centered gain. ' +
+    'T55 shows that fixed-order continuum positivity cannot be promoted without a relative-form estimate.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -199,7 +205,7 @@ const MARKOV_NORMALIZATION = {
     'principal positivity uniformly on the whole tail but no order-uniform threshold; ' +
     'far-separated cross minors refute total positivity. Positive all-integer scale completion ' +
     'erases the zero divisor, exact deaveraging requires fixed-power Mertens cancellation, ' +
-    'square-scale averaging preserves but does not attenuate the poles, and its exact Jacobi heat trace is positive only before the load-bearing main term is subtracted; translation-invariant tempered-lag compensation cannot ' +
+    'square-scale averaging preserves but does not attenuate the poles, and its exact Jacobi heat trace is positive only before the load-bearing main term is subtracted; its causal smoother has no bounded or tempered inverse, exact prime-power renewal is lower order, fixed-Cᵐ half-sech asymptotics have no all-order spectral gap, and translation-invariant tempered-lag compensation cannot ' +
     'carry a nonzero pole share; and an unrestricted Hilbert factorization ' +
     'is only an RH-equivalent repackaging. Infinite-order smoothing, infinite non-tempered ' +
     'cancellation inside one block, couplings without positive readout, adaptive/continuous ' +
@@ -257,6 +263,36 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     detail:
       'The displayed bound is equivalent to the staged strip, and its associated differentiated carrier Jₚ is an exact positive translate mixture of Ψ. ' +
       'Its u⁻¹ main term consumes the positivity; complete monotonicity and modular splitting do not control the centered remainder.',
+  },
+  {
+    id: 'T53',
+    color: '#fb7185',
+    status: 'EXACT SYMBOL · GENERIC CONVERSE REFUTED',
+    title: 'Jacobi smoothing is pole-faithful but exponentially unstable',
+    formula: '|ĥ(τ)| ≍ (1+|τ|)¹³ᐟ⁸e⁻π|τ|ᐟ²',
+    detail:
+      'The symbol never vanishes, so no forbidden zeta pole is canceled, but no finite-measure or tempered inverse exists. ' +
+      'A smooth positive PNT density satisfies the averaged bound while its pointwise triangular error is unbounded.',
+  },
+  {
+    id: 'T54',
+    color: '#fbbf24',
+    status: 'EXACT RENEWAL · LOWER ORDER',
+    title: 'Prime extraction contributes only a bounded cusp correction',
+    formula: 'ℋₚᶜ = ℋΛᶜ − ζ(3/2)Q∞ + Γ(3/4)π¹ᐟ⁴t¹ᐟ⁴log(1/t) + O(t¹ᐟ⁴)',
+    detail:
+      'The k=2 Möbius/Jacobi term collapses to an explicit positive trace, and every k≥3 term is constant plus O(t¹ᐟ⁴). ' +
+      'Renewal cannot touch the open t⁻¹ᐟ⁸ frontier.',
+  },
+  {
+    id: 'T55',
+    color: '#2dd4bf',
+    status: 'TAIL RIGIDITY · GENERIC PROMOTION REFUTED',
+    title: 'Eventual PSD is already the global fixed-thickness condition',
+    formula: 'Kₐ|[L,∞) ⪰ 0 for some L  ⇔  𝒜ₐ ⪰ 0 globally',
+    detail:
+      'The half-sech multiplier has spectral infimum zero, and an analytic counterkernel is indefinite on every tail despite fixed-order positivity. ' +
+      'For the exact kernel, real analyticity propagates tail PSD globally; along aₙ→0, infinitely many such claims are RH-equivalent.',
   },
 ];
 
@@ -409,7 +445,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T52 · 2026-07-24</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T55 · 2026-07-24</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -762,7 +798,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T52 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T55 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -800,6 +836,8 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.scaleAverage,
             MARKOV_NORMALIZATION.squareScale,
             MARKOV_NORMALIZATION.jacobiHeat,
+            MARKOV_NORMALIZATION.jacobiDeconvolution,
+            MARKOV_NORMALIZATION.primeRenewal,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -858,7 +896,14 @@ export default function OpenFrontierPage() {
           T51 makes that support an exact positive Twin Ladder/Jacobi heat trace
           whose associated differentiated carrier is a positive translate mixture;
           T52 shows that its raw positivity, complete monotonicity, and modular
-          splitting are consumed by the main term and do not center the error.
+          splitting are consumed by the main term and do not center the error. T53
+          shows that causal Jacobi smoothing preserves every forbidden pole but is
+          exponentially ill-conditioned, with a smooth positive-PNT countermodel to
+          generic pointwise deaveraging. T54 proves that exact prime-power renewal
+          contributes only a constant and a vanishing cusp. T55 shows that the
+          half-sech continuum limit has no spectral floor: fixed-order tail positivity
+          cannot be promoted by fixed-C<sup>m</sup> control, and tail PSD of the exact
+          analytic kernel is already its global fixed-thickness divisor condition.
           No positive fractional rung or such one-sided estimate is currently proved.
           A successful argument must use arithmetic beyond
           symmetry, divisor recursion, ordinary inner-function positivity, separate

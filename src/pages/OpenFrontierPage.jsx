@@ -140,8 +140,12 @@ const MARKOV_NORMALIZATION = {
     'T57: the homogeneous feature quotient is ξ(2s−1/2−a)/ξ(2s−1/2+a), unimodular on the unitary Mellin line. The Wigner/Weyl relay is the exact shifted completed-ξ modulus difference; endpoint compression is load-bearing',
   finiteHeight:
     'T58: critical-line verification through height H gives |Vθ(x)| ≪ x¹⁵ᐟ⁸ only for x ≤ [H/(log H+2)]⁸. The imported height reaches about 8.25×10⁸⁷, but this is finite-range only',
+  finiteHeightSchur:
+    'T61: with Y = H−1/2 = 3000175332799.5 and c = π/(2Y), verified zeros through H give |X(w−a)/X(w+a)| < 1 on Re w > 0, |Im w| < Y. The pulled-back sinh-denominator Pick kernel is PSD, but the original linear-denominator kernel is not established: the natural bridge has a negative real 2×2 minor',
   pascalCriterion:
     'T59: RH ⇔ ∏p≤N pᴺ⁻ᵖ ≤ ∏k=0ᴺ C(N,k) for every sufficiently large N. Prime-square bias proves the forward sign; the global radix cancellation remains RH-equivalent and open',
+  firstRadix:
+    'T62: RH ⇔ Σp≤N[Cₚ(N)−(N−p)]log p ≥ 0 eventually. The omitted higher-radix tail is nonnegative and asymptotic to −ζ(1/2)N³ᐟ²/3; under RH the first layer retains margin 0.1336904124…N³ᐟ². This exact criterion remains RH-equivalent and open',
   fixedMajorant:
     'T60: every fixed strict PNT-admissible majorant of (1−u)₊ adds δx². For an x-dependent family with target-scale uniform prime sampling, preserving the bound requires ∫(Fₓ−w)=O(x⁻¹ᐟ⁸)',
   finiteModes:
@@ -194,7 +198,9 @@ const MARKOV_NORMALIZATION = {
     'T51/T52 identify the exact positive Jacobi bridge and why its uncentered sign is insufficient. ' +
     'T53/T54 show that stable Jacobi deconvolution and prime-power renewal cannot supply the centered gain. ' +
     'T55–T57 close fixed-order and absolute-relative continuum promotion while exposing the exact endpoint-compressed feature contraction. ' +
-    'T58 gives a finite verified range, T59 an RH-equivalent Pascal comparator, and T60 excludes every fixed strict PNT-admissible majorant.',
+    'T58 gives a finite verified range, T59 an RH-equivalent Pascal comparator, and T60 excludes every fixed strict PNT-admissible majorant. ' +
+    'T61 proves a conformally corrected finite-height Schur/Pick window but refutes its natural bridge to the original kernel; ' +
+    'T62 reduces the Pascal comparator to its first radix layer, which remains exactly RH-equivalent.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -216,8 +222,8 @@ const MARKOV_NORMALIZATION = {
     'principal positivity uniformly on the whole tail but no order-uniform threshold; ' +
     'far-separated cross minors refute total positivity. Positive all-integer scale completion ' +
     'erases the zero divisor, exact deaveraging requires fixed-power Mertens cancellation, ' +
-    'square-scale averaging preserves but does not attenuate the poles, and its exact Jacobi heat trace is positive only before the load-bearing main term is subtracted; its causal smoother has no bounded or tempered inverse, exact prime-power renewal is lower order, fixed-Cᵐ half-sech asymptotics have no all-order spectral gap, every finite absolute half-sech relative bound fails, fixed PNT-admissible triangular majorants lose the centered scale, and translation-invariant tempered-lag compensation cannot ' +
-    'carry a nonzero pole share; and an unrestricted Hilbert factorization ' +
+    'square-scale averaging preserves but does not attenuate the poles, and its exact Jacobi heat trace is positive only before the load-bearing main term is subtracted; its causal smoother has no bounded or tempered inverse, exact prime-power renewal is lower order, fixed-Cᵐ half-sech asymptotics have no all-order spectral gap, every finite absolute half-sech relative bound fails, fixed PNT-admissible triangular majorants lose the centered scale, the natural sinh-to-linear multiplier for the finite-height Schur window has a negative real 2×2 minor, and removing every higher radix layer leaves an open first-layer criterion still equivalent to RH. Translation-invariant tempered-lag compensation cannot ' +
+    'carry a nonzero pole share, and an unrestricted Hilbert factorization ' +
     'is only an RH-equivalent repackaging. Infinite-order smoothing, infinite non-tempered ' +
     'cancellation inside one block, couplings without positive readout, adaptive/continuous ' +
     'layers, and nontranslation-invariant global transforms remain unexcluded. T3 and RH remain open.',
@@ -354,6 +360,27 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     detail:
       'Every fixed strict PNT-admissible majorant adds δx² by weighted-PNT partial summation, overwhelming x¹⁵ᐟ⁸. ' +
       'For an x-dependent family with target-scale uniform sampling, preserving the bound requires vanishing excess; standard bandlimited extremal families then require growing bandwidth.',
+  },
+  {
+    id: 'T61',
+    color: '#06b6d4',
+    status: 'FINITE-HEIGHT SCHUR PSD · GLOBAL BRIDGE REFUTED',
+    title: 'Verified height yields a conformal Schur window',
+    formula:
+      'Y=H−1/2, c=π/(2Y): |X(w−a)/X(w+a)|<1 on Re w>0, |Im w|<Y',
+    detail:
+      'At the imported height, Y=3000175332799.5. The pulled-back Pick kernel with conj(sinh(cw))+sinh(cz) in the denominator is PSD throughout this finite strip. ' +
+      'The original linear-denominator kernel is not established: its natural bridge has a negative real 2×2 minor, so this proves neither global kernel PSD nor RH.',
+  },
+  {
+    id: 'T62',
+    color: '#e879f9',
+    status: 'FIRST RADIX LAYER · RH-EQUIVALENT',
+    title: 'The first radix layer already carries the full criterion',
+    formula: 'RH ⇔ Σp≤N [Cₚ(N)−(N−p)]log p ≥ 0 eventually',
+    detail:
+      'The omitted higher-radix tail satisfies H_N≥0 and H_N∼−ζ(1/2)N³ᐟ²/3; under RH the first layer retains normalized margin 0.1336904124…. ' +
+      'Conversely its eventual sign implies the T59 Pascal comparison. This exact criterion remains open and is not a proof of RH.',
   },
 ];
 
@@ -506,7 +533,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T60 · 2026-07-24</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T62 · 2026-07-25</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -859,7 +886,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T60 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T62 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -902,7 +929,9 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.thetaFeatures,
             MARKOV_NORMALIZATION.phaseSpace,
             MARKOV_NORMALIZATION.finiteHeight,
+            MARKOV_NORMALIZATION.finiteHeightSchur,
             MARKOV_NORMALIZATION.pascalCriterion,
+            MARKOV_NORMALIZATION.firstRadix,
             MARKOV_NORMALIZATION.fixedMajorant,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
@@ -978,7 +1007,12 @@ export default function OpenFrontierPage() {
           an RH-equivalent Pascal-row comparator; and T60 excludes every fixed strict
           PNT-admissible majorant. An x-dependent family with target-scale uniform
           sampling would need vanishing excess (and, for standard bandlimited
-          extremal families, growing bandwidth). No positive fractional
+          extremal families, growing bandwidth). T61 turns the verified height into a
+          genuine Schur/Pick window only with the conformal sinh denominator; the
+          natural 2×2-indefinite bridge does not recover the original global kernel.
+          T62 removes every higher radix layer from the Pascal statement, leaving a
+          prime-only first-layer sign that is still exactly RH-equivalent and open.
+          No positive fractional
           rung or one-sided continuum estimate is currently proved.
           A successful argument must use arithmetic beyond
           symmetry, divisor recursion, ordinary inner-function positivity, separate

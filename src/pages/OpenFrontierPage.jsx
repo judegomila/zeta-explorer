@@ -113,14 +113,20 @@ const MARKOV_NORMALIZATION = {
     'tested nome-power / even-index identities translate t and preserve |a|',
   explicitFormula:
     'direct half-Poisson deconvolution = full Guinand–Weil; every nonempty pure prime grouping is indefinite',
+  compensatedPrime:
+    'all-positive finite-group compact repair needs infinite aggregate charge; no convergent scalar allocation reconstructs Weil',
   tempered:
     'RH ⇔ e^{|u|/2} q̂(u)/(2π) admits a tempered distributional extension',
   weightedPnt:
     'RH ⇔ 2√x − 2 − Σₙ≤ₓ Λ(n)/√n = O((log x)³)',
   finiteModes:
     'any nonzero fixed reflected finite raw packet: qF,p(t) = −4(r+1)p/t² + O(t⁻³)',
+  gaussian:
+    'Gσ=Ψ*φσ: qσ=q+σ² and Wσ=W+σ²δ₀; positivity of its inverse half-Poisson target ⇔ RH',
   cellQuotient:
     'positive Jacobi cells C*c=A with ℱ₂c=q/2>0; e^{|u|}c is exactly the RH-equivalent Weil target',
+  gradedBackward:
+    'e^{λ|u|}c tempered/PD ⇔ λ/2 ≤ Re ρ ≤ 1−λ/2; any positive rung would prove a uniform zero strip',
   levy:
     'certified κ₄ = (log ξ)⁽⁴⁾(1) = −0.00044176332757…; not classically infinitely divisible',
   edge:
@@ -145,8 +151,9 @@ const MARKOV_NORMALIZATION = {
     'any one sequence tending to zero. At the unconditional half-thickness anchor, the ' +
     'boundary phase gives a scalar positive-Poisson criterion—but that criterion is itself ' +
     'equivalent to RH. Its exact Fourier deconvolution is the Guinand–Weil functional, and ' +
-    'even tempered extendibility recovers the full von Koch/RH threshold rather than a ' +
-    'smaller arithmetic estimate.',
+    'even tempered extendibility recovers the full von Koch/RH threshold. Fractional ' +
+    'backward weighting now supplies an exact graded target: one positive rung proves a ' +
+    'uniform zero strip, while the endpoint is RH.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -156,13 +163,14 @@ const MARKOV_NORMALIZATION = {
     'the dyadic quotient identity has no generic downward sign propagation. The exact ' +
     'theta cross-scale quotient is not a PSD Schur multiplier, while the tested nome-power and ' +
     'even-index identities preserve thickness. Every nonempty pure grouping of inherited prime ' +
-    'atoms is indefinite; every nonzero fixed reflected finite raw packet eventually loses phase ' +
+    'atoms is indefinite; finite-budget local and exact-reconstruction scalar partitions fail; every nonzero ' +
+    'fixed reflected finite raw packet eventually loses phase ' +
     'positivity; and the exact tilted law is not ' +
     'classically infinitely divisible. The cubic ' +
     'coefficient, raw modes, total positivity, gcd blocks, and shellwise SOS routes fail ' +
-    'as well. The tested direct and raw-mode routes retain full cross-mode or ' +
-    'archimedean/prime cancellation; smooth, tail-corrected, compensated-prime, and nonlocal ' +
-    'alternatives remain unexcluded. T3 and RH remain open.',
+    'as well. Exact Gaussian smoothing adds only an origin atom. Non-Gaussian tail corrections, ' +
+    'infinite or non-scalar/noncompact compensation, coupled groups, and nonlocal transforms ' +
+    'remain unexcluded. T3 and RH remain open.',
 };
 
 const DYSON_LANE_RESIDUALS = [
@@ -584,7 +592,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T36 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T39 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -614,10 +622,13 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.crossScaleScope,
             MARKOV_NORMALIZATION.landen,
             MARKOV_NORMALIZATION.explicitFormula,
+            MARKOV_NORMALIZATION.compensatedPrime,
             MARKOV_NORMALIZATION.tempered,
             MARKOV_NORMALIZATION.weightedPnt,
             MARKOV_NORMALIZATION.finiteModes,
+            MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.cellQuotient,
+            MARKOV_NORMALIZATION.gradedBackward,
             MARKOV_NORMALIZATION.levy,
             MARKOV_NORMALIZATION.edge,
             MARKOV_NORMALIZATION.douglas,
@@ -649,14 +660,19 @@ export default function OpenFrontierPage() {
           Sharpened surviving target: either prove the exact full-theta same-sign block
           𝒜<sub>aₙ</sub> is positive at infinitely many points of one explicit sequence
           a<sub>n</sub> → 0, or construct the positive half-Poisson measure directly from
-          the Jacobi theta ratio. Each target would discharge RH, but each is currently
-          an exact reformulation. A successful argument must use arithmetic beyond
+          the Jacobi theta ratio. A strict intermediate target is now explicit: prove
+          temperedness of e<sup>λ|u|</sup>c(u) for one 0 &lt; λ &lt; 1 to obtain a
+          uniform zero strip, then increase λ toward one. No positive fractional rung is
+          currently proved. A successful argument must use arithmetic beyond
           symmetry, divisor recursion, ordinary inner-function positivity, separate
           modes, individual Hankel factors, boundary traces, entrywise cross-scale
-          multipliers, fixed reflected finite raw-mode packets, and pure prime-group positivity.
+          multipliers, fixed reflected finite raw-mode packets, pure prime-group positivity,
+          finite-budget local and exact-reconstruction scalar prime partitions, and
+          exact Gaussian smoothing.
           The current exact reformulations retain global Jacobi cancellation and the
-          complete archimedean/prime explicit formula; smooth, tail-corrected,
-          compensated-prime, and nonlocal-transform alternatives remain unexcluded.
+          complete archimedean/prime explicit formula; non-Gaussian tail corrections,
+          infinite or non-scalar/noncompact compensation, coupled groups, and nonlocal
+          transforms remain unexcluded.
         </p>
       </div>
 

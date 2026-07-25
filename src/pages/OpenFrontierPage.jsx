@@ -105,6 +105,22 @@ const MARKOV_NORMALIZATION = {
     'RH  ⇔  q(t) = ∫ dμ(u)/((t−u)² + 1/4) for one positive weighted measure μ',
   dyadic:
     'R₂ₐ(w) = Rₐ(w−a)Rₐ(w+a); arbitrary-depth counterpackets block descent to a/2',
+  crossScale:
+    'exact Qₐ = 𝒜ₐ⁄₂/𝒜ₐ:  det Q₁⁄₂(0, 1/10) = −0.0001676906566…  (certified)',
+  crossScaleScope:
+    'same test: det 𝒜₁⁄₂ > 6.2560×10⁻⁵ and det 𝒜₁⁄₄ > 1.4539×10⁻⁵',
+  landen:
+    'tested nome-power / even-index identities translate t and preserve |a|',
+  explicitFormula:
+    'direct half-Poisson deconvolution = full Guinand–Weil; individual p-power blocks are indefinite',
+  tempered:
+    'RH ⇔ e^{|u|/2} q̂(u)/(2π) admits a tempered distributional extension',
+  weightedPnt:
+    'RH ⇔ 2√x − 2 − Σₙ≤ₓ Λ(n)/√n = O((log x)³)',
+  finiteModes:
+    'fixed reflected raw-mode gN: qN,1/2(t) = −2/t² + O(t⁻³) eventually',
+  levy:
+    'certified κ₄ = (log ξ)⁽⁴⁾(1) = −0.00044176332757…; not classically infinitely divisible',
   edge:
     'Jacobi edge redraw:  ℛₐ*ℛₐ = (I + 𝖯ₐ)/2;  𝖯ₐ ⪰ 0 ⇔ ℛₐ*ℛₐ ⪰ I/2',
   douglas:
@@ -126,16 +142,24 @@ const MARKOV_NORMALIZATION = {
     'The residual zero divisor reduces the continuous family to infinitely many points of ' +
     'any one sequence tending to zero. At the unconditional half-thickness anchor, the ' +
     'boundary phase gives a scalar positive-Poisson criterion—but that criterion is itself ' +
-    'equivalent to RH, not yet the missing arithmetic estimate.',
+    'equivalent to RH. Its exact Fourier deconvolution is the Guinand–Weil functional, and ' +
+    'even tempered extendibility recovers the full von Koch/RH threshold rather than a ' +
+    'smaller arithmetic estimate.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
     'Schur phase, and both tilted Hankel kernels are individually indefinite. At a = 0, ' +
     'off-axis zero dipoles are invisible on the real boundary, so boundary/PDE shortcuts ' +
     'are circular. Exact polynomial and positive-Schwartz counterpackets also show that ' +
-    'the dyadic quotient identity has no generic downward sign propagation. The cubic ' +
+    'the dyadic quotient identity has no generic downward sign propagation. The exact ' +
+    'theta cross-scale quotient is not a PSD Schur multiplier, while the tested nome-power and ' +
+    'even-index identities preserve thickness. Prime-power blocks have both signs; fixed reflected ' +
+    'raw-mode truncations gN eventually lose phase positivity; and the exact tilted law is not ' +
+    'classically infinitely divisible. The cubic ' +
     'coefficient, raw modes, total positivity, gcd blocks, and shellwise SOS routes fail ' +
-    'as well. T3 and RH remain open.',
+    'as well. The tested direct and raw-mode routes retain full cross-mode or ' +
+    'archimedean/prime cancellation; smooth, tail-corrected, and grouped-prime alternatives ' +
+    'remain unexcluded. T3 and RH remain open.',
 };
 
 const DYSON_LANE_RESIDUALS = [
@@ -557,7 +581,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T30 · Markov / divisor frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T33 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -583,6 +607,14 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.halfAnchor,
             MARKOV_NORMALIZATION.poisson,
             MARKOV_NORMALIZATION.dyadic,
+            MARKOV_NORMALIZATION.crossScale,
+            MARKOV_NORMALIZATION.crossScaleScope,
+            MARKOV_NORMALIZATION.landen,
+            MARKOV_NORMALIZATION.explicitFormula,
+            MARKOV_NORMALIZATION.tempered,
+            MARKOV_NORMALIZATION.weightedPnt,
+            MARKOV_NORMALIZATION.finiteModes,
+            MARKOV_NORMALIZATION.levy,
             MARKOV_NORMALIZATION.edge,
             MARKOV_NORMALIZATION.douglas,
             MARKOV_NORMALIZATION.hankel,
@@ -616,7 +648,11 @@ export default function OpenFrontierPage() {
           the Jacobi theta ratio. Each target would discharge RH, but each is currently
           an exact reformulation. A successful argument must use arithmetic beyond
           symmetry, divisor recursion, ordinary inner-function positivity, separate
-          modes, individual Hankel factors, and boundary traces.
+          modes, individual Hankel factors, boundary traces, entrywise cross-scale
+          multipliers, fixed reflected raw-mode truncations, and termwise prime positivity.
+          The current exact reformulations retain global Jacobi cancellation and the
+          complete archimedean/prime explicit formula; smooth, tail-corrected, and
+          grouped-prime alternatives remain unexcluded.
         </p>
       </div>
 

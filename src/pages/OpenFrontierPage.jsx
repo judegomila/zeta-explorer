@@ -119,14 +119,23 @@ const MARKOV_NORMALIZATION = {
     'RH ⇔ e^{|u|/2} q̂(u)/(2π) admits a tempered distributional extension',
   weightedPnt:
     'RH ⇔ 2√x − 2 − Σₙ≤ₓ Λ(n)/√n = O((log x)³)',
+  oneSidedRung:
+    'Eₐ(x) = (xᵃ−1)/a − Σₙ≤ₓΛ(n)nᵃ⁻¹. For 0 < a ≤ 1/2 and 0 ≤ b ≤ a, either Eₐ(x) ≤ Cxᵃ⁻ᵇ(1+log x)ᴺ or Eₐ(x) ≥ −Cxᵃ⁻ᵇ(1+log x)ᴺ already forces the zero strip [b, 1−b]; at a = b = 1/4 it is enough to prove ' +
+    '4(x¹ᐟ⁴−1) − Σₙ≤ₓΛ(n)n⁻³ᐟ⁴ ≥ −C(1+log x)ᴺ',
   finiteModes:
     'any nonzero fixed reflected finite raw packet: qF,p(t) = −4(r+1)p/t² + O(t⁻³)',
   gaussian:
     'Gσ=Ψ*φσ: qσ=q+σ² and Wσ=W+σ²δ₀; positivity of its inverse half-Poisson target ⇔ RH',
+  finiteOrderSmoothing:
+    'an even probability convolution with entire finite-order MGF that preserves the exact zero divisor (with multiplicity) is Gaussian or δ₀; its inverse half-Poisson target remains RH-equivalent',
   cellQuotient:
     'positive Jacobi cells C*c=A with ℱ₂c=q/2>0; e^{|u|}c is exactly the RH-equivalent Weil target',
   gradedBackward:
     'e^{λ|u|}c tempered/PD ⇔ λ/2 ≤ Re ρ ≤ 1−λ/2; any positive rung would prove a uniform zero strip',
+  finiteRadialLayers:
+    'every fixed finite family of modular/radial shifts with a nonzero fixed PSD coupling in the audited kernel family has a negative 2×2 principal minor sufficiently far in the tail',
+  criticalTail:
+    'a nonzero pole share needs an eʰᐟ² non-tempered cross-tail; translation-invariant tempered-lag compensation forces its coefficient a = 0, while an unrestricted Hilbert/GNS factorization exists iff RH',
   levy:
     'certified κ₄ = (log ξ)⁽⁴⁾(1) = −0.00044176332757…; not classically infinitely divisible',
   edge:
@@ -152,8 +161,9 @@ const MARKOV_NORMALIZATION = {
     'boundary phase gives a scalar positive-Poisson criterion—but that criterion is itself ' +
     'equivalent to RH. Its exact Fourier deconvolution is the Guinand–Weil functional, and ' +
     'even tempered extendibility recovers the full von Koch/RH threshold. Fractional ' +
-    'backward weighting now supplies an exact graded target: one positive rung proves a ' +
-    'uniform zero strip, while the endpoint is RH.',
+    'backward weighting now supplies an exact graded target: either one-sided weighted-prime ' +
+    'power bound proves the corresponding zero strip, one positive rung proves a uniform ' +
+    'zero strip, and the endpoint is RH.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -168,9 +178,14 @@ const MARKOV_NORMALIZATION = {
     'positivity; and the exact tilted law is not ' +
     'classically infinitely divisible. The cubic ' +
     'coefficient, raw modes, total positivity, gcd blocks, and shellwise SOS routes fail ' +
-    'as well. Exact Gaussian smoothing adds only an origin atom. Non-Gaussian tail corrections, ' +
-    'infinite or non-scalar/noncompact compensation, coupled groups, and nonlocal transforms ' +
-    'remain unexcluded. T3 and RH remain open.',
+    'as well. Exact Gaussian smoothing adds only an origin atom, and any even probability ' +
+    'smoother with entire finite-order MGF that preserves the exact zero divisor is Gaussian ' +
+    'or degenerate. Fixed finite PSD modular/radial shift couplings in the audited kernel ' +
+    'family fail in the far tail; translation-invariant tempered-lag compensation cannot ' +
+    'carry a nonzero pole share; and an unrestricted Hilbert factorization ' +
+    'is only an RH-equivalent repackaging. Infinite-order smoothing, infinite non-tempered ' +
+    'cancellation inside one block, couplings without positive readout, adaptive/continuous ' +
+    'layers, and nontranslation-invariant global transforms remain unexcluded. T3 and RH remain open.',
 };
 
 const DYSON_LANE_RESIDUALS = [
@@ -592,7 +607,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T39 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T43 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -625,10 +640,14 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.compensatedPrime,
             MARKOV_NORMALIZATION.tempered,
             MARKOV_NORMALIZATION.weightedPnt,
+            MARKOV_NORMALIZATION.oneSidedRung,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
+            MARKOV_NORMALIZATION.finiteOrderSmoothing,
             MARKOV_NORMALIZATION.cellQuotient,
             MARKOV_NORMALIZATION.gradedBackward,
+            MARKOV_NORMALIZATION.finiteRadialLayers,
+            MARKOV_NORMALIZATION.criticalTail,
             MARKOV_NORMALIZATION.levy,
             MARKOV_NORMALIZATION.edge,
             MARKOV_NORMALIZATION.douglas,
@@ -662,16 +681,23 @@ export default function OpenFrontierPage() {
           a<sub>n</sub> → 0, or construct the positive half-Poisson measure directly from
           the Jacobi theta ratio. A strict intermediate target is now explicit: prove
           temperedness of e<sup>λ|u|</sup>c(u) for one 0 &lt; λ &lt; 1 to obtain a
-          uniform zero strip, then increase λ toward one. No positive fractional rung is
-          currently proved. A successful argument must use arithmetic beyond
+          uniform zero strip, then increase λ toward one. A concrete first-rung route is
+          the T40 lower bound
+          4(x<sup>1/4</sup>−1) − Σ<sub>n≤x</sub>Λ(n)n<sup>−3/4</sup>
+          ≥ −C(1+log x)<sup>N</sup>, which would force the strip [1/4, 3/4].
+          No positive fractional rung or such one-sided estimate is currently proved.
+          A successful argument must use arithmetic beyond
           symmetry, divisor recursion, ordinary inner-function positivity, separate
           modes, individual Hankel factors, boundary traces, entrywise cross-scale
           multipliers, fixed reflected finite raw-mode packets, pure prime-group positivity,
           finite-budget local and exact-reconstruction scalar prime partitions, and
-          exact Gaussian smoothing.
+          exact Gaussian smoothing or the audited even finite-order-MGF
+          zero-preserving smoothing class, fixed finite PSD modular/radial shift couplings
+          in the audited kernel family, and translation-invariant tempered-lag pole compensation.
           The current exact reformulations retain global Jacobi cancellation and the
-          complete archimedean/prime explicit formula; non-Gaussian tail corrections,
-          infinite or non-scalar/noncompact compensation, coupled groups, and nonlocal
+          complete archimedean/prime explicit formula; infinite-order smoothing,
+          infinite non-tempered cancellation inside one block, couplings without positive
+          readout, adaptive or continuous layers, and nontranslation-invariant global
           transforms remain unexcluded.
         </p>
       </div>

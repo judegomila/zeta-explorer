@@ -149,9 +149,13 @@ const MARKOV_NORMALIZATION = {
   fixedMajorant:
     'T60: every fixed strict PNT-admissible majorant of (1−u)₊ adds δx². For an x-dependent family with target-scale uniform prime sampling, preserving the bound requires ∫(Fₓ−w)=O(x⁻¹ᐟ⁸)',
   adaptiveSelberg:
-    'T63: the canonical adaptive Selberg majorant has supp ĜΩ ⊂ [−Ω,Ω], exact excess π/(2Ω), and sampled excess O(Ω⁻¹). At Ω ≍ x¹ᐟ⁸ its centered sampling inequality is quantitatively equivalent to T47, so the construction preserves the staged scale but does not prove it',
+    'T63: every positive x-dependent majorant Fₓ≥g with excess εₓ obeys 𝒮g(x)≤𝒮Fₓ(x)+εₓ. The canonical Selberg family has exact excess π/(2Ω) and sampled excess O(Ω⁻¹), but at Ω ≍ x¹ᐟ⁸ its centered estimate is still T47; its residual Fourier phase survives every constant translation',
   endpointModel:
     'T64: Uₐ*QUₐ−Q = P_{I·conj(J)·K_J}−P_{K_I}. Residual poles have the positive sign, fixed bands have vanishing overlap with poles escaping in height, and half-strip Schur positivity alone does not sign the original linear-denominator endpoint kernel',
+  radicalKernel:
+    'T65: L_N⁽¹⁾=log(ℜ_N/P_N), with Mellin kernel 𝒦(s)=((s−1)ζ(s)−1)/(s(s+1)). It kills the PNT pole but no zeta zero; ∃Cσ with L_N⁽¹⁾≥−CσN¹⁺σ eventually exactly when Re ρ≤σ, while exact recurrences rule out eventual monotonicity and log-convexity',
+  adaptiveEndpoint:
+    'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. A polynomial factor supplies a direction for each strict multiplicity excess, but finite-exponential graph approximation and any uniform estimate remain open',
   finiteModes:
     'any nonzero fixed reflected finite raw packet: qF,p(t) = −4(r+1)p/t² + O(t⁻³)',
   gaussian:
@@ -165,7 +169,7 @@ const MARKOV_NORMALIZATION = {
   finiteRadialLayers:
     'every fixed finite family of modular/radial shifts with a nonzero fixed PSD coupling in the audited kernel family has a negative 2×2 principal minor sufficiently far in the tail',
   continuumTail:
-    'T45/T48/T55–T57: after normalization the exact continuum block converges uniformly in every fixed Cᵐ tail norm to 1/[2 cosh(t−b)]. Every fixed order is eventually positive, but the spectral floor is zero and every finite absolute H-relative bound fails. Tail PSD is already global fixed-thickness positivity; the one-sided endpoint-compressed feature contraction remains open',
+    'T45/T48/T55–T57/T64/T66: after normalization the exact continuum block converges uniformly in every fixed Cᵐ tail norm to 1/[2 cosh(t−b)]. Every fixed order is eventually positive, but the spectral floor is zero and every finite absolute H-relative bound fails. Common-domain zero-adaptive quasimodes isolate residual directions only with zero-dependent support; finite-exponential control and the global one-sided contraction remain open',
   criticalTail:
     'a nonzero pole share needs an eʰᐟ² non-tempered cross-tail; translation-invariant tempered-lag compensation forces its coefficient a = 0, while an unrestricted Hilbert/GNS factorization exists iff RH',
   levy:
@@ -205,8 +209,10 @@ const MARKOV_NORMALIZATION = {
     'T58 gives a finite verified range, T59 an RH-equivalent Pascal comparator, and T60 excludes every fixed strict PNT-admissible majorant. ' +
     'T61 proves a conformally corrected finite-height Schur/Pick window but refutes its natural bridge to the original kernel; ' +
     'T62 reduces the Pascal comparator to its first radix layer, which remains exactly RH-equivalent; ' +
-    'T63 constructs the target-scale adaptive Selberg family but proves its centered sample is still T47; ' +
-    'T64 decomposes the endpoint defect into model spaces and rules out fixed-band high-pole detection.',
+    'T63 proves every tight positive adaptive majorant is still T47; ' +
+    'T64 decomposes the endpoint defect into model spaces and rules out fixed-band high-pole detection; ' +
+    'T65 exposes the first-radix Mellin kernel and its complete zero obstruction; ' +
+    'T66 constructs common-domain quasimodes consistent with the divisor obstruction, without closing the finite-exponential range or global adaptive inequalities.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -228,11 +234,11 @@ const MARKOV_NORMALIZATION = {
     'principal positivity uniformly on the whole tail but no order-uniform threshold; ' +
     'far-separated cross minors refute total positivity. Positive all-integer scale completion ' +
     'erases the zero divisor, exact deaveraging requires fixed-power Mertens cancellation, ' +
-    'square-scale averaging preserves but does not attenuate the poles, and its exact Jacobi heat trace is positive only before the load-bearing main term is subtracted; its causal smoother has no bounded or tempered inverse, exact prime-power renewal is lower order, fixed-Cᵐ half-sech asymptotics have no all-order spectral gap, every finite absolute half-sech relative bound fails, fixed PNT-admissible triangular majorants lose the centered scale, the adaptive Selberg family preserves but does not improve T47, the natural sinh-to-linear multiplier for the finite-height Schur window has a negative real 2×2 minor, strip-Schur positivity can still leave the original endpoint kernel indefinite, fixed bands lose high residual poles, and removing every higher radix layer leaves an open first-layer criterion still equivalent to RH. Translation-invariant tempered-lag compensation cannot ' +
+    'square-scale averaging preserves but does not attenuate the poles, and its exact Jacobi heat trace is positive only before the load-bearing main term is subtracted; its causal smoother has no bounded or tempered inverse, exact prime-power renewal is lower order, fixed-Cᵐ half-sech asymptotics have no all-order spectral gap, every finite absolute half-sech relative bound fails, every tight positive adaptive majorant remains at the centered T47 scale, the natural sinh-to-linear multiplier for the finite-height Schur window has a negative real 2×2 minor, strip-Schur positivity can still leave the original endpoint kernel indefinite, fixed bands lose high residual poles, one zero-adaptive common-domain family isolates residual directions only with zero-dependent support and without finite-exponential graph control, and the first-radix Mellin kernel retains every zeta-zero pole while its exact sequence has no eventual monotonicity or log-convexity. Translation-invariant tempered-lag compensation cannot ' +
     'carry a nonzero pole share, and an unrestricted Hilbert factorization ' +
     'is only an RH-equivalent repackaging. Infinite-order smoothing, infinite non-tempered ' +
-    'cancellation inside one block, couplings without positive readout, adaptive/continuous ' +
-    'layers, and nontranslation-invariant global transforms remain unexcluded. T3 and RH remain open.',
+    'cancellation inside one block, couplings without positive readout, uniform infinite/continuous ' +
+    'fiber mixing, and non-majorant nontranslation-invariant global transforms remain unexcluded. T3 and RH remain open.',
 };
 
 const LATEST_TWIN_LADDER_CHECKPOINT = [
@@ -396,7 +402,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     formula: '∫(GΩ−g)=π/(2Ω), sample(GΩ−g)=O(Ω⁻¹), Ω ≍ x¹ᐟ⁸',
     detail:
       'Layered Selberg interval majorants give a positive bandlimited cover with target-scale continuous and sampled excess. ' +
-      'After centering, its upper sampling estimate is quantitatively equivalent to T47 and the strip [1/8, 7/8]; the required arithmetic cancellation remains open.',
+      'More generally, any tight positive x-dependent majorant satisfies 𝒮g≤𝒮F+ε, even without translation invariance. The canonical Fourier multiplier also retains a nonlinear residual phase, so the required arithmetic cancellation remains open.',
   },
   {
     id: 'T64',
@@ -406,7 +412,27 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     formula: 'Uₐ*QUₐ−Q = P_{I·conj(J)·K_J} − P_{K_I}',
     detail:
       'Residual poles are the positive model-space component, but their compression into any fixed band tends to zero as height escapes. ' +
-      'An explicit half-strip Schur function also has an indefinite original linear-denominator kernel, so adaptive ξ-specific endpoint overlap remains the live obligation.',
+      'An explicit half-strip Schur function also has an indefinite original linear-denominator kernel. T66 analyzes one zero-adaptive common-domain family; global and uniform adaptive inequalities remain open.',
+  },
+  {
+    id: 'T65',
+    color: '#f59e0b',
+    status: 'RADICAL MELLIN KERNEL · ZERO-COMPLETE',
+    title: 'The first-radix shell retains every zeta-zero obstruction',
+    formula: '𝒦(s) = ((s−1)ζ(s)−1)/(s(s+1));  𝒦(1)=0, 𝒦(ρ)=−1/[ρ(ρ+1)]',
+    detail:
+      'The first-radix defect is log(ℜ_N/P_N), including an exact divisor endpoint correction. The existence of a one-sided −CσN¹⁺σ lower bound is equivalent to Re ρ≤σ, ' +
+      'while exact radical recurrences prove the sequence is neither eventually monotone, log-convex, nor log-concave.',
+  },
+  {
+    id: 'T66',
+    color: '#a78bfa',
+    status: 'COMMON-DOMAIN QUASIMODES · NO UNIFORM GAIN',
+    title: 'A zero-adaptive family geometrically isolates a residual direction',
+    formula: 'k_X(x) ∝ e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X]  ⇒  ‖P_KI A_X‖→0, |⟨A_X,wρ⟩|→|M_S|',
+    detail:
+      'Exact theta and beta-integral cancellation suppress the base-zero model space and isolate one residual-pole coordinate; a polynomial factor supplies a direction for each strict multiplicity excess. ' +
+      'Support, convergence rate, and shifted-zeta margin depend on the individual zero. The construction is not shown to lie in the finite-exponential graph closure and proves no uniform inequality.',
   },
 ];
 
@@ -559,7 +585,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T64 · 2026-07-25</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T66 · 2026-07-25</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -912,7 +938,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T64 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T66 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -961,6 +987,8 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.fixedMajorant,
             MARKOV_NORMALIZATION.adaptiveSelberg,
             MARKOV_NORMALIZATION.endpointModel,
+            MARKOV_NORMALIZATION.radicalKernel,
+            MARKOV_NORMALIZATION.adaptiveEndpoint,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -1041,10 +1069,17 @@ export default function OpenFrontierPage() {
           T62 removes every higher radix layer from the Pascal statement, leaving a
           prime-only first-layer sign that is still exactly RH-equivalent and open.
           T63 supplies the canonical adaptive Selberg family at Ω ≍ x<sup>1/8</sup>,
-          but its centered sampling inequality is still exactly T47. T64 writes the
+          but its centered sampling inequality is still exactly T47; the same no-gain
+          inequality holds for every tight positive adaptive majorant. T64 writes the
           endpoint defect as a residual-pole model space minus a base-zero model
           space; fixed bands lose poles escaping in height, and strip-Schur
-          positivity alone does not sign the original endpoint kernel.
+          positivity alone does not sign the original endpoint kernel. T65 identifies
+          the first-radix radical quotient and its Mellin kernel: it cancels the PNT
+          pole but retains every zeta-zero obstruction, with no eventual monotonicity
+          or log-convexity shortcut. T66 constructs common-domain zero-adaptive
+          theta quasimodes that geometrically isolate residual directions, but only
+          with zero-dependent support and margin; finite-exponential graph control
+          and global adaptive inequalities remain open.
           No positive fractional
           rung or one-sided continuum estimate is currently proved.
           A successful argument must use arithmetic beyond

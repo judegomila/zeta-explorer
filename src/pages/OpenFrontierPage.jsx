@@ -123,9 +123,13 @@ const MARKOV_NORMALIZATION = {
     'Eₐ(x) = (xᵃ−1)/a − Σₙ≤ₓΛ(n)nᵃ⁻¹. For 0 < a ≤ 1/2 and 0 ≤ b ≤ a, either Eₐ(x) ≤ Cxᵃ⁻ᵇ(1+log x)ᴺ or Eₐ(x) ≥ −Cxᵃ⁻ᵇ(1+log x)ᴺ already forces the zero strip [b, 1−b]; at a = b = 1/4 it is enough to prove ' +
     '4(x¹ᐟ⁴−1) − Σₙ≤ₓΛ(n)n⁻³ᐟ⁴ ≥ −C(1+log x)ᴺ',
   primeRiesz:
-    'T44: at a = 1/4, the one-sided rung criterion is equivalent, up to a bounded higher-prime-power tail, to its prime-only form; averaging over [x, x+x³ᐟ⁴] or applying a causal Riesz kernel makes the zero sum absolute without losing any fixed zero pole. For fixed η > 0, a strict staged target is b = 1/8: ℛη,1/4(x) ≥ −Cx¹ᐟ⁸(1+log x)ᴺ',
+    'T44/T47: at a = 1/4, prime powers cost only a bounded causal correction. At η = 1 and b = 1/8 the exact no-log target is Σp≤x(x−p)log p ≤ (x²−1)/2 + Cx¹⁵ᐟ⁸, equivalent to ℛ1,1/4(x) ≥ −Cx¹ᐟ⁸ and to the strip [1/8, 7/8]',
   scaleAverage:
-    'T46: the exact positive divisor-scale completion converges only because multiplication by ζ cancels the complete zero divisor; signed Möbius inversion restores every pole and costs O(xᵃ) under absolute bounds, while nontrivial signed cancellation remains open',
+    'T46/T49: the positive all-integer scale completion converges because ζ cancels the complete zero divisor. Exact Abel deaveraging shows M(x)=O(x⁷ᐟ⁸logᴷx), equivalently Σn≤x μ(n)n⁻³ᐟ⁴=O(x¹ᐟ⁸logᴷx), would recover the staged Riesz rung; neither bound is proved',
+  squareScale:
+    'T50: square-scale averaging multiplies by ζ(2s), preserves every excluded right-hand pole, and yields an equivalent prime-times-square causal target; functional-equation symmetry supplies the left edge. Its square-Möbius inverse is bounded on two-sided target norms, so absolute averaging does not attenuate the obstruction',
+  jacobiHeat:
+    'T51/T52: the prime-times-square target is exactly the positive Jacobi heat trace ℋ(u)=Σm,p(log p)e⁻πm²pu; its associated differentiated carrier Jₚ is a positive translate mixture of Ψ. The needed centered bound ℋ(u)≤ζ(2)/(πu)+Cu⁻⁷ᐟ⁸ remains open; its raw positivity, complete monotonicity, and modular splitting do not control the centered remainder',
   finiteModes:
     'any nonzero fixed reflected finite raw packet: qF,p(t) = −4(r+1)p/t² + O(t⁻³)',
   gaussian:
@@ -139,7 +143,7 @@ const MARKOV_NORMALIZATION = {
   finiteRadialLayers:
     'every fixed finite family of modular/radial shifts with a nonzero fixed PSD coupling in the audited kernel family has a negative 2×2 principal minor sufficiently far in the tail',
   continuumTail:
-    'T45: the exact continuum block has the opposite fixed-offset tail: after positive diagonal normalization, 𝒜ₐ(T+s,T+r) → 1/(e²ˢ+e²ʳ); normalized fixed minors with strictly increasing row/column offsets converge to positive Cauchy determinants, so the original minors are eventually positive',
+    'T45/T48: after normalization the exact continuum block converges uniformly in every fixed Cᵐ tail norm to 1/[2 cosh(t−b)]. Every fixed order of distinct principal matrices is eventually positive, but the threshold depends on the order; far-separated nonprincipal 2×2 minors remain negative, so TP₂ fails',
   criticalTail:
     'a nonzero pole share needs an eʰᐟ² non-tempered cross-tail; translation-invariant tempered-lag compensation forces its coefficient a = 0, while an unrestricted Hilbert/GNS factorization exists iff RH',
   levy:
@@ -169,9 +173,11 @@ const MARKOV_NORMALIZATION = {
     'even tempered extendibility recovers the full von Koch/RH threshold. Fractional ' +
     'backward weighting now supplies an exact graded target: either one-sided weighted-prime ' +
     'power bound proves the corresponding zero strip, one positive rung proves a uniform ' +
-    'zero strip, and the endpoint is RH. T44 makes that target prime-only and losslessly ' +
-    'Riesz-smoothed; T45 proves a genuine continuum Cauchy-tail rescue; T46 identifies ' +
-    'positive divisor-scale averaging as zero-blind.',
+    'zero strip, and the endpoint is RH. T44/T47 make the staged target prime-only, ' +
+    'losslessly Riesz-smoothed, and exactly triangular; T45/T48 promote the continuum ' +
+    'rescue to every fixed principal order; T46/T49 isolate the signed Mertens bottleneck; ' +
+    'T50 preserves the right-hand poles on square scales but gives no absolute attenuation; ' +
+    'T51/T52 identify the exact positive Jacobi bridge and why its uncentered sign is insufficient.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -189,14 +195,70 @@ const MARKOV_NORMALIZATION = {
     'as well. Exact Gaussian smoothing adds only an origin atom, and any even probability ' +
     'smoother with entire finite-order MGF that preserves the exact zero divisor is Gaussian ' +
     'or degenerate. Fixed finite PSD modular/radial shift couplings in the audited kernel ' +
-    'family fail in the far tail, while the exact continuum block instead has a positive ' +
-    'fixed-offset Cauchy limit that is not yet uniform; positive divisor-scale completion ' +
-    'erases the zero divisor, so bounds on that exact completion plus absolute deaveraging cannot recover a rung; translation-invariant tempered-lag compensation cannot ' +
+    'family fail in the far tail, while the exact continuum block instead has fixed-order ' +
+    'principal positivity uniformly on the whole tail but no order-uniform threshold; ' +
+    'far-separated cross minors refute total positivity. Positive all-integer scale completion ' +
+    'erases the zero divisor, exact deaveraging requires fixed-power Mertens cancellation, ' +
+    'square-scale averaging preserves but does not attenuate the poles, and its exact Jacobi heat trace is positive only before the load-bearing main term is subtracted; translation-invariant tempered-lag compensation cannot ' +
     'carry a nonzero pole share; and an unrestricted Hilbert factorization ' +
     'is only an RH-equivalent repackaging. Infinite-order smoothing, infinite non-tempered ' +
     'cancellation inside one block, couplings without positive readout, adaptive/continuous ' +
     'layers, and nontranslation-invariant global transforms remain unexcluded. T3 and RH remain open.',
 };
+
+const LATEST_TWIN_LADDER_CHECKPOINT = [
+  {
+    id: 'T47',
+    color: '#38bdf8',
+    status: 'EXACT CRITERION · BOUND OPEN',
+    title: 'The staged strip is one triangular prime inequality',
+    formula: 'Σp≤x (x−p)log p ≤ (x²−1)/2 + Cx¹⁵ᐟ⁸',
+    detail:
+      'This is equivalent to the causal lower bound at x¹ᐟ⁸ and to the closed zero strip [1/8, 7/8]. ' +
+      'The first Riesz factor makes the zero sum absolute, so no logarithmic loss is needed. The inequality itself is unproved.',
+  },
+  {
+    id: 'T48',
+    color: '#22c55e',
+    status: 'PROVED FIXED-ORDER TAIL THEOREM',
+    title: 'Continuum principal minors survive clustering and separation',
+    formula: '∀n ∃Lₐ,ₙ: [𝒜ₐ(tᵢ,tⱼ)] ≻ 0 for distinct tᵢ ≥ Lₐ,ₙ',
+    detail:
+      'The normalized block converges in fixed Cᵐ norms to the half-sech kernel. The threshold depends on n, ' +
+      'and far-separated ordered cross minors are negative, so this proves neither one global tail PSD statement nor total positivity.',
+  },
+  {
+    id: 'T49',
+    color: '#f59e0b',
+    status: 'PROVED RELAY · INPUT OPEN',
+    title: 'Möbius deaveraging has an exact fixed-power price',
+    formula: 'M(x)=O(x⁷ᐟ⁸logᴷx) ⇒ ℛ₁,₁⁄₄(x)=O(x¹ᐟ⁸logᴷx)',
+    detail:
+      'Abel summation makes the signed bottleneck explicit. This Mertens estimate would prove the staged strip, ' +
+      'but it is stronger at boundary multiplicities and is not currently known.',
+  },
+  {
+    id: 'T50',
+    color: '#a78bfa',
+    status: 'EXACT THETA-ALIGNED ROUTE · BOUND OPEN',
+    title: 'Square scales preserve the right-hand zero obstruction',
+    formula:
+      '16ζ(2)x¹ᐟ⁴/5 − 4ζ(3/2) − Σm²p≤x (log p)(m²p)⁻³ᐟ⁴(1−m²p/x) ≥ −Cx¹ᐟ⁸',
+    detail:
+      'The multiplier ζ(2s) cannot cancel an excluded right-half zero, and the sparse support is exactly prime-times-square. ' +
+      'The transform is boundedly invertible for two-sided target estimates, so any gain must be genuinely one-sided.',
+  },
+  {
+    id: 'T51/T52',
+    color: '#f472b6',
+    status: 'EXACT JACOBI BRIDGE · CENTERED SIGN OPEN',
+    title: 'The sparse target is a positive Twin Ladder heat trace',
+    formula: 'ℋ(u)=Σm,p(log p)e⁻πm²pu ≤ ζ(2)/(πu) + Cu⁻⁷ᐟ⁸',
+    detail:
+      'The displayed bound is equivalent to the staged strip, and its associated differentiated carrier Jₚ is an exact positive translate mixture of Ψ. ' +
+      'Its u⁻¹ main term consumes the positivity; complete monotonicity and modular splitting do not control the centered remainder.',
+  },
+];
 
 const DYSON_LANE_RESIDUALS = [
   {
@@ -329,6 +391,89 @@ export default function OpenFrontierPage() {
           research inside a distinct Dyson / collision-flow lane, but they are
           not the complete global gap and do not replace T3.
         </p>
+      </div>
+
+      <div className="card" style={{ marginBottom: 22, borderLeft: '4px solid #38bdf8' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8, flexWrap: 'wrap' }}>
+          <span
+            style={{
+              fontFamily: 'var(--font-mono, monospace)',
+              fontSize: 10.5,
+              fontWeight: 700,
+              letterSpacing: 0.45,
+              color: '#7dd3fc',
+              border: '1px solid #38bdf8',
+              borderRadius: 4,
+              padding: '2px 7px',
+            }}
+          >
+            LATEST AUDITED CHECKPOINT
+          </span>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T52 · 2026-07-24</code>
+        </div>
+        <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
+          What the resumed Twin Ladder attack actually established
+        </h2>
+        <p style={{ color: '#94a3b8', fontSize: 12.5, lineHeight: 1.65, margin: '8px 0 12px' }}>
+          These are proved equivalences, relays, and tail theorems. None supplies
+          the missing arithmetic bound, and RH remains open.
+        </p>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(245px, 1fr))',
+            gap: 10,
+          }}
+        >
+          {LATEST_TWIN_LADDER_CHECKPOINT.map((item) => (
+            <div
+              key={item.id}
+              style={{
+                padding: '12px 13px',
+                borderRadius: 7,
+                background: `${item.color}0d`,
+                border: `1px solid ${item.color}40`,
+                minWidth: 0,
+              }}
+            >
+              <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+                <code style={{ color: item.color, fontSize: 12, fontWeight: 800 }}>{item.id}</code>
+                <span
+                  style={{
+                    color: item.color,
+                    fontFamily: 'var(--font-mono, monospace)',
+                    fontSize: 9.5,
+                    fontWeight: 700,
+                    letterSpacing: 0.3,
+                  }}
+                >
+                  {item.status}
+                </span>
+              </div>
+              <h3 style={{ color: '#e2e8f0', fontSize: 12.5, margin: '7px 0 0' }}>
+                {item.title}
+              </h3>
+              <code
+                style={{
+                  display: 'block',
+                  color: '#cbd5e1',
+                  fontSize: 10.5,
+                  lineHeight: 1.5,
+                  marginTop: 8,
+                  padding: '7px 8px',
+                  borderRadius: 5,
+                  background: 'rgba(15,23,42,0.52)',
+                  overflowX: 'auto',
+                }}
+              >
+                {item.formula}
+              </code>
+              <p style={{ color: '#94a3b8', fontSize: 11.5, lineHeight: 1.55, margin: '8px 0 0' }}>
+                {item.detail}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div
@@ -617,7 +762,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T46 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T52 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -653,6 +798,8 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.oneSidedRung,
             MARKOV_NORMALIZATION.primeRiesz,
             MARKOV_NORMALIZATION.scaleAverage,
+            MARKOV_NORMALIZATION.squareScale,
+            MARKOV_NORMALIZATION.jacobiHeat,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -700,11 +847,18 @@ export default function OpenFrontierPage() {
           ≥ −C(1+log x)<sup>N</sup>, which would force the strip [1/4, 3/4].
           Its forward and causal Riesz smoothings are lossless; proving the causal
           version with the weaker power x<sup>1/8</sup> would already force the new
-          strip [1/8, 7/8]. The continuum radial tail now has a positive fixed-offset
-          Cauchy limit, but no uniform tail or coupled-block sign theorem. Positive
-          bounds on the exact divisor-scale completion plus absolute deaveraging
-          cannot supply a descent because the completion cancels the complete zero
-          divisor; nontrivial signed Möbius cancellation remains open.
+          strip [1/8, 7/8]. T47 makes this exactly the no-log triangular prime
+          inequality displayed above. The continuum radial tail now has fixed-order
+          principal positivity uniformly through clustered and unbounded gaps, but
+          its threshold depends on the matrix order and far-separated cross minors
+          remain negative. Positive all-integer scale completion cancels the complete
+          zero divisor; T49 isolates the required signed Mertens cancellation. T50
+          preserves the right-hand poles on square scales and exposes prime-times-square support,
+          but absolute averaging is boundedly invertible and supplies no descent.
+          T51 makes that support an exact positive Twin Ladder/Jacobi heat trace
+          whose associated differentiated carrier is a positive translate mixture;
+          T52 shows that its raw positivity, complete monotonicity, and modular
+          splitting are consumed by the main term and do not center the error.
           No positive fractional rung or such one-sided estimate is currently proved.
           A successful argument must use arithmetic beyond
           symmetry, divisor recursion, ordinary inner-function positivity, separate

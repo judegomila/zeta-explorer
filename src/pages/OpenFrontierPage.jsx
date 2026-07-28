@@ -202,6 +202,12 @@ const MARKOV_NORMALIZATION = {
     'T90: the positive annular tent has an exact lcm factorization. RH ⇔ L₊Vψ(N)≤log Q₂,N eventually, where Q₂,N is the explicit prime-square layer and every cube-or-higher layer is O(N⁴ᐟ³). This is a pointwise strengthening of T88 whose extra tail is absorbed by its RH margin; the central-binomial route still loses (6log2−3)N²',
   geometricAnnulus:
     'T91: the zero-complete family Qₐ(s)=(aˢ−1)(aˢ−a) retains a positive RH margin for a>1.882453339…. The explicit a=17/9 comparator uses only primes in (81N,289N], has support ratio 289/81<4 and RH margin 48.820170…N³ᐟ², but its eventual sign remains unproved',
+  jointAnnulus:
+    'T92: two positive rational-mesh tents are jointly zero-complete at support 3.4517217537. The global absolute-amplitude method has sharp support infimum 3.4513363850 for every concave positive piecewise-linear annular kernel, but neither eventual sign is proved',
+  verifiedZeroAnnulus:
+    'T93: peeling 1,000 rigorously isolated critical zeros from the exact Hadamard budget gives one zero-complete a=23/15 tent. RH ⇔ its positive prime inequality on (225N,529N] eventually; support 529/225=2.351111 and the certified RH deficit exceeds 50.625N³ᐟ²',
+  factorwiseAnnularBarrier:
+    'T94: rowwise factorial and multinomial covers of the rational annular cofactor lose at main order. For a=17/9 the universal factorwise gap is at least 49,173.726993N², so escaping this rowwise cover barrier requires cross-factor carry transport or cancellation',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -287,7 +293,8 @@ const MARKOV_NORMALIZATION = {
     'T88 then localizes the full RH criterion to a positive prime tent on the single annulus (N,4N], with an explicit N³ᐟ² margin under RH but no unconditional proof of the sign. ' +
     'T89 proves the complementary structural barrier: every finite 3/2-notch changes sign, an exact annular notch oscillates on RH, and harmonic cross-cell summation restores every fixed first-Riesz zero coefficient. ' +
     'T90 factors the positive annulus exactly into lcm and prime-power layers, producing a square-only strengthening and a Pascal comparator while proving the natural binomial majorant loses at main order. ' +
-    'T91 then narrows the zero-complete positive support from factor 4 to 289/81, with a certified RH margin but still no unconditional sign.',
+    'T91 narrows the zero-complete positive support from factor 4 to 289/81. T92 makes two generic tents jointly zero-complete and determines the sharp 3.451336… floor for the global absolute-amplitude method for every concave positive piecewise-linear annular kernel. ' +
+    'T93 then spends the rigorously isolated first 1,000 zeros individually, shrinking one zero-complete tent to support 529/225=2.351111…. T94 proves every rowwise factorial/multinomial cover still loses at main order, so the eventual prime sign remains open.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -765,6 +772,36 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'For the geometric family Qₐ(s)=(aˢ−1)(aˢ−a), every multiplier zero lies on Re s=0 or 1, while the prime kernel stays nonnegative. The certified RH margin turns positive at a=1.882453339…, so rational supports can approach the ratio 3.543630574… from above. ' +
       'The low-complexity choice a=17/9 has support ratio 289/81=3.567901… and RH deficit (48.820170…−o(1))N³ᐟ². Generic positive tents need not be zero-complete, and this narrower eventual inequality is still unproved. RH remains open.',
   },
+  {
+    id: 'T92',
+    color: '#818cf8',
+    status: 'JOINT ZERO-COMPLETENESS · SHARP METHOD FLOOR',
+    title: 'Two positive tents remove each other’s blind multiplier zeros',
+    formula: 'c=124/123; m=61,62; support c¹⁵³=3.4517217537; sharp concave-spline absolute-budget floor b*=3.4513363850',
+    detail:
+      'The two rational-mesh multiplier polynomials have exact common gcd (z−1)(z−c), certified by a degree-two gcd modulo 1,000,003. Their RH margins are separately positive, so the conjunction of their eventual prime signs is RH-equivalent even though a generic single positive tent may hide an off-critical mode. ' +
+      'A Green-measure decomposition shows that the certified amplitude ratio of every concave positive piecewise-linear annular kernel is a denominator-weighted average of single-tent ratios. Thus no number of scales reaches support b≤3.4513363850 under the global absolute-amplitude certificate, while three consecutive filters approach that floor from above. Nonconcave kernels are outside this obstruction. This classifies the concave piecewise-linear sector of the method; it does not prove either eventual sign.',
+  },
+  {
+    id: 'T93',
+    color: '#4ade80',
+    status: 'VERIFIED-ZERO ANNULUS · STRICT SUPPORT REDUCTION',
+    title: 'The first 1,000 zeros cut the positive support to 529/225',
+    formula: 'RH ⇔ 23Σ₂₂₅N<p≤₃₄₅N(p−225N)log p + 15Σ₃₄₅N<p≤₅₂₉N(529N−p)log p ≤ 419520N² eventually',
+    detail:
+      'A 256-bit FLINT/Arb certificate isolates the first 1,000 nontrivial zeros, independently counts exactly 1,000 zeros through the midpoint after γ₁₀₀₀, and spends those conjugate-pair amplitudes exactly. Under RH, every remaining zero is covered by the residual completed-zeta budget. ' +
+      'For a=23/15 the rigorous margin is δ=0.00104911306566…>0.001, giving an integer-scaled RH deficit above 50.625N³ᐟ² and support ratio 529/225=2.351111…. The converse is the same zero-complete dilation argument. The displayed eventual inequality remains unproved, so RH remains open.',
+  },
+  {
+    id: 'T94',
+    color: '#fb7185',
+    status: 'FACTORIAL-COVER BARRIER · CROSS-FACTOR ROUTE OPEN',
+    title: 'Rowwise binomial and multinomial covers overpay before the RH scale',
+    formula: 'factorwise cost ≥2log2·127296N²; allowance=127296N²; unavoidable gap=49173.726993…N²',
+    detail:
+      'The rational annular cofactor factors exactly into paired primorial quotients. Each 17/9 quotient fits inside a true binomial coefficient, but uniform Stirling summation costs 187030.814660…N², already 59734.814660…N² too much. ' +
+      'More generally, packing denominator parts proves a 2log2 lower cost per unit primorial-index gap for every factorwise multinomial cover. Prime squares and higher powers are lower order and cannot repay the N² loss. Any cofactor-factorial proof of T93 must exploit cancellation or carry transport across factors, not independent row covers.',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -916,7 +953,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T91 · 2026-07-27</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T94 · 2026-07-27</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1269,7 +1306,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T91 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T94 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1599,7 +1636,25 @@ export default function OpenFrontierPage() {
           supported only on (81N,289N], with ratio 289/81&lt;4 and
           deficit 48.820170…N<sup>3/2</sup> under RH. The resulting
           eventual prime inequality is still RH-equivalent and
-          unproved.
+          unproved. T92 shows that two generic positive tents can
+          remove each other&apos;s blind zeros: the explicit
+          c=124/123 pair is jointly zero-complete at support
+          3.4517217537, and 3.4513363850 is the sharp support floor
+          for concave positive piecewise-linear annular kernels when
+          every zero is charged at the global worst-case amplitude.
+          T93 breaks that method floor by charging the
+          first 1,000 rigorously isolated zeros individually. The
+          single geometric choice a=23/15 gives an RH-equivalent
+          positive tent on (225N,529N], support ratio
+          529/225=2.351111…, and a certified conditional deficit
+          above 50.625N<sup>3/2</sup>. It still does not prove the
+          eventual prime sign. T94 then rules out the direct rowwise
+          factorial rescue: every factorwise multinomial cover pays
+          at least 2log2 per unit primorial-index gap, an
+          order-N<sup>2</sup> overcharge that prime-power corrections
+          cannot repair. Any continuation of this arithmetic cofactor
+          route therefore needs cross-factor carry transport or
+          cancellation.
           T66 constructs common-domain zero-adaptive
           theta quasimodes that geometrically isolate residual directions. T67 proves
           compact continuous compressed-graph approximation and compact smooth full

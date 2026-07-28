@@ -226,6 +226,8 @@ const MARKOV_NORMALIZATION = {
     'T102: both sharp ratios satisfy 2r=3s+1, so e(k)=⌊rk/s⌋ has the exact residue-step word (1,2)^m,2 and ΔF=(𝒯−I)q for an expanding block transport 𝒯. Exact rational K-products give F(3)<F(2), F(4)>2F(2), and pair-specific failures of superadditivity. Thus the global all-k forms of ordinary/orbit monotonicity, 𝒯q≥q, subadditivity, and superadditivity fail. Eventual versions and genuinely global arithmetic control remain open',
   localCarryFilter:
     'T103: for any normalized real local filter with uniformly bounded ℓ¹ coefficient norm and width H_k=k^(δ+o(1)), δ<1, RH makes the filtered buffer eventually positive. Conversely, eventual nonnegativity forces Re ρ≤max(1/2,δ). Every such filter through δ=1/2—including rolling averages on the T99/T101 √k·exp(0.8√log k) length—is still RH-equivalent, so bounded-memory smoothing does not close the gaps',
+  localFilterConditioning:
+    'T104: for a normalized real mass-one additive local filter, if width has exponent δ and coefficient ℓ¹ norm has exponent τ, eventual nonnegativity forces Re ρ≤max(1/2,δ+τ), while RH proves the filtered sign for δ+τ<1. The response bound |M_k(z)−1|≤C_z(H_k/k)‖a_k‖₁ shows that attenuating even one fixed zeta-pole transfer amplitude by a constant factor requires δ+τ≥1. Thus every safely conditioned subcritical filter asymptotically leaves each fixed pole response intact; cross-mode, growing-height, multiplicative-scale, and nonlinear global mechanisms remain unclassified',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -312,7 +314,7 @@ const MARKOV_NORMALIZATION = {
     'T89 proves the complementary structural barrier: every finite 3/2-notch changes sign, an exact annular notch oscillates on RH, and harmonic cross-cell summation restores every fixed first-Riesz zero coefficient. ' +
     'T90 factors the positive annulus exactly into lcm and prime-power layers, producing a square-only strengthening and a Pascal comparator while proving the natural binomial majorant loses at main order. ' +
     'T91 narrows the zero-complete positive support from factor 4 to 289/81. T92 makes two generic tents jointly zero-complete, and T95 extends the sharp 3.451336… global-amplitude floor from concave splines to every finite nonnegative piecewise-linear annular kernel. ' +
-    'T93 spends the rigorously isolated first 1,000 zeros individually, shrinking one zero-complete tent to support 529/225=2.351111…. T94 proves every rowwise factorial/multinomial cover still loses at main order. T96 then certifies the first 50,000 zeros and shrinks the support again to 1024/441=2.321995…. T97 identifies the remaining arithmetic target exactly as an adjacent cross-factor carry ballot and rules out its naive monotonicity, divisibility, pairwise, and independent-cover proofs. T98 proves two unconditional subsidiary results for the T93 slack. T99 strengthens recurrence to deep N³ᐟ² checkpoints for both sharp annuli and propagates them into explicit super-√N valid blocks, while T100 derives the exact 32/21 carry ballot and rules out the same local shortcuts at the sharpest support. T101 packages both annuli into an exact all-integer proportional buffer and nonnegative trapezoidal kernel, proves that every fixed residue lane remains RH-complete, and transfers T99 to long consecutive buffer-positive intervals. T102 identifies their shared Beatty word pattern and exactly refutes the global all-k scalar laws. T103 proves every bounded-ℓ¹ local filter through square-root depth remains RH-complete. The gaps remain uncontrolled, so RH remains open.',
+    'T93 spends the rigorously isolated first 1,000 zeros individually, shrinking one zero-complete tent to support 529/225=2.351111…. T94 proves every rowwise factorial/multinomial cover still loses at main order. T96 then certifies the first 50,000 zeros and shrinks the support again to 1024/441=2.321995…. T97 identifies the remaining arithmetic target exactly as an adjacent cross-factor carry ballot and rules out its naive monotonicity, divisibility, pairwise, and independent-cover proofs. T98 proves two unconditional subsidiary results for the T93 slack. T99 strengthens recurrence to deep N³ᐟ² checkpoints for both sharp annuli and propagates them into explicit super-√N valid blocks, while T100 derives the exact 32/21 carry ballot and rules out the same local shortcuts at the sharpest support. T101 packages both annuli into an exact all-integer proportional buffer and nonnegative trapezoidal kernel, proves that every fixed residue lane remains RH-complete, and transfers T99 to long consecutive buffer-positive intervals. T102 identifies their shared Beatty word pattern and exactly refutes the global all-k scalar laws. T103 proves every bounded-ℓ¹ local filter through square-root depth remains RH-complete. T104 quantifies the escape cost: constant attenuation of one fixed pole already requires critical local conditioning δ+τ≥1. The gaps remain uncontrolled, so RH remains open.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -910,6 +912,16 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'For real weights with Σa=1, uniformly bounded Σ|a|, and H_k=k^(δ+o(1)), RH makes 𝒜(k)>0 for every δ<1. The converse forces the displayed zero strip. ' +
       'Hence every such signed or positive filter through δ=1/2 is exactly RH-equivalent, including rolling averages over √k·exp(0.8√log k), the T99/T101 block length. Growing coefficient ℓ¹ norms, wider fixed-power windows, and nonlinear global transforms are not classified as equivalences. RH remains open.',
   },
+  {
+    id: 'T104',
+    color: '#f59e0b',
+    status: 'FIXED-MODE CONDITIONING BOUND · CRITICAL COMPLEXITY REQUIRED',
+    title: 'Attenuating one pole already leaves the safe local regime',
+    formula: '|Mₖ(z)−1|≤C_z(Hₖ/k)‖aₖ‖₁;  |Mₖ(z)|≤η<1 ⇒ ‖aₖ‖₁≳k/Hₖ',
+    detail:
+      'For a normalized real mass-one additive local filter, let width be k^(δ+o(1)) and coefficient ℓ¹ norm be k^(τ+o(1)). RH preserves the filtered positive margin when δ+τ<1; an eventual nonnegative sign forces Re ρ≤max(1/2,δ+τ), so δ+τ≤1/2 is still RH-equivalent. ' +
+      'More sharply, fixed-factor attenuation of even one fixed zeta-pole transfer amplitude along an unbounded sequence requires δ+τ≥1. The exact floored T101 multiplier has the same conditioning scale. Equality is only necessary, not sufficient, and the theorem does not rule out cross-mode cancellation, growing-height modes, multiplicative windows, or nonlinear global transforms. RH remains open.',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -1061,7 +1073,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T103 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T104 · 2026-07-28</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1414,7 +1426,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T103 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T104 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1502,6 +1514,7 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.proportionalCarryBuffer,
             MARKOV_NORMALIZATION.beattyCarryTransducer,
             MARKOV_NORMALIZATION.localCarryFilter,
+            MARKOV_NORMALIZATION.localFilterConditioning,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -1827,7 +1840,16 @@ export default function OpenFrontierPage() {
           k<sup>δ+o(1)</sup> window forces
           Re ρ≤max(1/2,δ) if its sign is eventually nonnegative.
           Through δ=1/2—including the T99/T101 block length—the
-          filtered sign is still RH-equivalent. None of T99–T103
+          filtered sign is still RH-equivalent. T104 adds the
+          conditioning budget: for normalized mass-one additive
+          filters, if the window exponent is δ and the
+          coefficient-ℓ<sup>1</sup> exponent is τ, fixed-factor
+          attenuation of even one fixed zeta-pole transfer amplitude
+          along an unbounded sequence requires δ+τ≥1. Below that
+          threshold each fixed normalized response tends to one.
+          This leaves cross-mode cancellation, growing-height modes,
+          multiplicative windows, and nonlinear global transforms
+          outside the classification. None of T99–T104
           controls the gaps or supplies an eventual sign.
           If RH is false both strict
           signs recur infinitely often; if RH is true the certified

@@ -266,6 +266,8 @@ const MARKOV_NORMALIZATION = {
     'T122: a 1,152-bit, 10,000-zero adaptive Arb/Turing certificate proves three nested continuum bounds around μ₀=113/105: Wμ(t*)<−10⁻⁶ on |μ−μ₀|≤1/64, <−1/1000 on |μ−μ₀|≤1/72, and <−1/200 on |μ−μ₀|≤1/128. Its five exact-rational subdivisions use 649 cell evaluations and 327 certified leaves with zero failures, not a finite-grid inference. On RH, recurrence gives nested negative prefix blocks of k/32+O(1), k/36+O(1), and k/64+O(1) terms. The widest separates bounding sign changes linearly; the deepest forces variation at least (151/1000−o(1))D_N and the strongest negative-area bound. This is conditional route geometry, not a contradiction or an RH proof',
   wholeBlockAggregate:
     'T123 multiplies every ordered prefix in a symmetric interior block into one exact factorial/prime/Kᵥ ballot. Unconditionally its prime-square pole forces limsup log Y_N,δ/N⁵ᐟ²≥𝔅δ>0, so Y_N,δ>1 infinitely often. For δ=1/128, RH and the T122 deep interval also force log Y_N,1/128≤−(21/2560−o(1))ND_N<0 infinitely often; under RH the exact product therefore takes both strict signs around one, with no contradiction. The averaged multiplier has a blind lattice with Re z→log 2/log(32/21)=1.645595…, which blocks only the standard zero-free-multiplier/Landau converse: it neither locates a zeta zero nor proves non-equivalence. At N=128, opposite v₂/v₅ signs and the prime/composite curvature switch rule out direct divisibility and global Jensen routes without determining real order',
+  exactMellinRigidity:
+    'T124: if finite positive log-scale measures share an open exponential-moment strip and their scalar response Rτ(w)=∫eʷʸdντ(y) is τ-independent on a determining subset, analytic continuation and Fourier uniqueness force ντ to be one fixed measure. Separately, a continuous nonnegative degree-d homogeneous rule on finitely many channels of one conjugate pure mode either annihilates its whole phase orbit or creates a simple real Mellin pole at s=dσ with positive residue. Positive part, absolute value, and square are basic examples. Discrete zero values, variable symbols, full multi-mode waves, adaptive nonlinearities, and global arithmetic transforms remain outside; this is a route classification, not an RH proof or non-equivalence theorem',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -357,6 +359,8 @@ const MARKOV_NORMALIZATION = {
     'T122 upgrades the T119 point phase to three rigorously covered real intervals [113/105±1/64], [113/105±1/72], and [113/105±1/128], with progressively stronger negative margins 10⁻⁶, 1/1000, and 1/200. Under RH, recurrence turns them into nested linear blocks of consecutive negative prefixes with a width-versus-depth tradeoff, forced macroscopic variation, and many increments of both signs. This remains an RH-conditional route diagnostic, not a contradiction or a proof or disproof of RH.',
   structureT123:
     'T123 aggregates any fixed symmetric prefix block into an exact finite product. A shifted Mellin/Landau argument forces that product above one infinitely often unconditionally, while RH and the certified 1/128 block force it below one infinitely often. Spectral blind spots prevent the standard converse, and exact arithmetic no-gos prevent simple divisibility or Jensen promotion. The result is conditional sign recurrence plus unconditional positive limsup, not an RH contradiction, proof, disproof, or non-equivalence theorem.',
+  structureT124:
+    'T124 classifies two formal escape routes. One exact scale-independent scalar response on a determining subset of a common open Mellin strip freezes every positive log-scale measure; finite continuous nonnegative homogeneous rectification of one pure conjugate mode either erases the full orbit or manufactures the real pole with positive residue required by Landau. Discrete zeta-zero matching, variable symbols, full multi-mode or adaptive nonlinear behavior, and genuinely global arithmetic remain unclassified, so this proves neither RH nor non-equivalence.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -1176,6 +1180,20 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     certificate:
       'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
   },
+  {
+    id: 'T124',
+    color: '#14b8a6',
+    status:
+      'OPEN-STRIP RESPONSE RIGIDITY · PURE-MODE HOMOGENEOUS RECTIFICATION NO-GO',
+    title: 'An exact fixed-symbol adaptation freezes; rectification creates Landau’s real pole',
+    formula:
+      'Rτ|E independent of τ ⇒ ντ=ν;  Φ(U)=x^(dσ)h(log x) ⇒ 𝓜(Φ∘U)(s)=mΦ,b/(s−dσ)+O(1)',
+    detail:
+      'Let ντ be finite positive Borel measures with exponential moments on one common open strip, and let E have a limit point inside that strip. If Rτ(w)=∫eʷʸdντ(y) is independent of τ on E, the identity theorem extends that equality across the strip; tilting on one vertical line and applying Fourier-transform uniqueness then gives ντ=ν. Thus a positive multiplicative architecture with one exact scale-independent open-strip scalar response is not genuinely adaptive. ' +
+      'For finitely many channels Uj(x)=bjx^(σ+iγ)+conj with γ≠0 and a continuous nonnegative positively homogeneous Φ of degree d>0, Φ(U(x))=x^(dσ)h(log x) with h periodic and nonnegative. Either h vanishes on the entire phase orbit, or its mean mΦ,b is positive and periodic summation gives a simple real Mellin pole at s=dσ with residue mΦ,b. For scalar amplitude A, positive part, absolute value, and square have residues A/π, 2A/π, and A²/2. Equality only on the discrete zeta-zero set, variable symbols, full multi-mode waves, adaptive nonlinearities, and genuinely global arithmetic transforms are outside the theorem. It proves neither RH nor that another RH equivalence is impossible.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -1327,7 +1345,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T123 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T124 · 2026-07-28</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1695,7 +1713,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T123 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T124 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1703,7 +1721,8 @@ export default function OpenFrontierPage() {
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.65, margin: 0 }}>
           {MARKOV_NORMALIZATION.structure}{' '}
           {MARKOV_NORMALIZATION.structureT122}{' '}
-          {MARKOV_NORMALIZATION.structureT123}
+          {MARKOV_NORMALIZATION.structureT123}{' '}
+          {MARKOV_NORMALIZATION.structureT124}
         </p>
         <div
           style={{
@@ -1805,6 +1824,7 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.selfSimilarRadixObstruction,
             MARKOV_NORMALIZATION.uniformNegativePhaseInterval,
             MARKOV_NORMALIZATION.wholeBlockAggregate,
+            MARKOV_NORMALIZATION.exactMellinRigidity,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -2374,6 +2394,28 @@ export default function OpenFrontierPage() {
           both orientations. The exact prime/composite curvature switch
           separately rules out global convexity, concavity, and a direct
           Jensen proof. Neither arithmetic no-go determines the real sign.
+          T124 then classifies two formal adaptive and nonlinear escape
+          routes. Let ν<sub>τ</sub> be finite positive log-scale measures
+          sharing one open exponential-moment strip. If
+          R<sub>τ</sub>(w)=∫e<sup>wy</sup>dν<sub>τ</sub>(y) is independent
+          of τ on a set with a limit point inside that strip, the identity
+          theorem and Fourier-transform uniqueness force every
+          ν<sub>τ</sub> to equal one fixed measure. An exact fixed
+          open-strip scalar response therefore cannot be genuinely
+          scale-adaptive. Separately, apply a continuous nonnegative
+          degree-d homogeneous rule Φ to finitely many channels of one
+          conjugate pure mode. The result is
+          x<sup>dσ</sup>h(log x), with h periodic and nonnegative. Either
+          h vanishes on the entire phase orbit, or its mean is positive and
+          the Mellin transform has a simple real pole at s=dσ with positive
+          residue. For a scalar amplitude A, positive part, absolute value,
+          and square have residues A/π, 2A/π, and A<sup>2</sup>/2.
+          This supplies the real singularity required by Landau rather
+          than contradicting the mode. Agreement only at discrete zeta
+          zeros, variable symbols, full multi-mode waves, adaptive
+          nonlinearities, and genuinely global arithmetic transforms lie
+          outside T124. It proves neither RH nor that another RH
+          equivalence is impossible.
           RH is therefore still unresolved.
           Separately, for the T93/T96 annular deficit, if RH is false
           both strict signs recur infinitely often; if RH is true the

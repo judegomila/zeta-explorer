@@ -37,6 +37,10 @@ export default function PapersListPage() {
           Browse saved papers.{' '}
           <Link to="/paper-upload" style={{ color: 'var(--accent-blue)', textDecoration: 'none' }}>
             Upload New →
+          </Link>{' '}
+          ·{' '}
+          <Link to="/papers-download" style={{ color: '#fbbf24', textDecoration: 'none' }}>
+            Referee PDFs and release status →
           </Link>
         </p>
       </div>
@@ -46,12 +50,14 @@ export default function PapersListPage() {
         <strong style={{ color: '#fbbf24', fontSize: 12, textTransform: 'uppercase', letterSpacing: '1px' }}>Honest scope — read first</strong>
         <p style={{ marginTop: 8, marginBottom: 0, fontSize: 13.5, lineHeight: 1.75, color: '#fcd34d' }}>
           Nothing in this collection proves the Riemann Hypothesis. Platt &amp; Trudgian (2021),
-          &Lambda;&nbsp;&le;&nbsp;0.2, remains the peer-reviewed benchmark. The companion root repository
-          proves &Lambda;&nbsp;&le;&nbsp;0.1787854 by a sealed computer-assisted argument, but that theorem
-          is unpublished and unpeer-reviewed. The older finite-N Dyson &ldquo;beat&rdquo; remains an estimate:
+          &Lambda;&nbsp;&le;&nbsp;0.2, remains the peer-reviewed benchmark. The standalone private review repository
+          presents &Lambda;&nbsp;&le;&nbsp;0.1787854 as an unreviewed computer-assisted candidate for an
+          unconditional proof. The bound is not established, has not been peer reviewed, and is not RH.
+          The older finite-N Dyson &ldquo;beat&rdquo; remains an estimate:
           it rests on a many-body constant C_H that remains undischarged (no rigorous upper bound). The
           Volterra-operator collapse (&#8741;V&#8741;&nbsp;&le;&nbsp;1) is equivalent to RH, not a proof of it.
-          Treat saved papers as expository or conditional unless explicitly marked rigorous.
+          Treat each saved paper according to its displayed evidence grade. The 0.1787854
+          draft has an intended unconditional logical form but remains unreviewed and unestablished.
         </p>
       </div>
 
@@ -128,28 +134,55 @@ export default function PapersListPage() {
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',
+                  flexWrap: 'wrap',
+                  gap: 10,
                   marginTop: 12,
                 }}>
-                  <span className={`tag ${paper.source === 'builtin' ? 'tag-purple' : 'tag-blue'}`}>
-                    {paper.source === 'builtin' ? 'Built-in' : 'User'}
-                  </span>
-                  {paper.source !== 'builtin' && (
-                    <button
-                      onClick={(e) => { e.stopPropagation(); handleDelete(paper.id); }}
-                      style={{
-                        background: 'transparent',
-                        border: '1px solid rgba(239,68,68,0.2)',
-                        color: '#ef4444',
-                        padding: '4px 12px',
-                        borderRadius: 6,
-                        fontSize: 11,
-                        cursor: 'pointer',
-                        transition: 'all 0.2s',
-                      }}
-                    >
-                      Delete
-                    </button>
-                  )}
+                  <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                    <span className={`tag ${paper.source === 'builtin' ? 'tag-purple' : 'tag-blue'}`}>
+                      {paper.source === 'builtin' ? 'Built-in' : 'User'}
+                    </span>
+                    {paper.status && <span className="tag tag-blue">{paper.status}</span>}
+                  </div>
+                  <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+                    {paper.pdfPath && (
+                      <a
+                        href={paper.pdfPath}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        style={{ color: '#fbbf24', fontSize: 12, textDecoration: 'none' }}
+                      >
+                        PDF ↗
+                      </a>
+                    )}
+                    {paper.reviewRoute && (
+                      <Link
+                        to={paper.reviewRoute}
+                        onClick={(e) => e.stopPropagation()}
+                        style={{ color: '#67e8f9', fontSize: 12, textDecoration: 'none' }}
+                      >
+                        Review record →
+                      </Link>
+                    )}
+                    {paper.source !== 'builtin' && (
+                      <button
+                        onClick={(e) => { e.stopPropagation(); handleDelete(paper.id); }}
+                        style={{
+                          background: 'transparent',
+                          border: '1px solid rgba(239,68,68,0.2)',
+                          color: '#ef4444',
+                          padding: '4px 12px',
+                          borderRadius: 6,
+                          fontSize: 11,
+                          cursor: 'pointer',
+                          transition: 'all 0.2s',
+                        }}
+                      >
+                        Delete
+                      </button>
+                    )}
+                  </div>
                 </div>
 
                 {/* Expanded: full paper render */}

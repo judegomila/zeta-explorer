@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { LAMBDA_BOUNDS } from '../data/lambda-roadmap.js';
-import { NEWMAN_LAMBDA_01787854_THEOREM } from '../data/newman-lambda-01787854-candidate.js';
+import { NEWMAN_LAMBDA_01787854_CANDIDATE } from '../data/newman-lambda-01787854-candidate.js';
 
 const COLORS = {
   established: {
@@ -38,8 +38,8 @@ const SECTIONS = [
   ['lambda', 'RH and Λ'],
   ['model', 'Twin-ladder model'],
   ['v70', 'v70 corrections'],
-  ['candidate', '0.1787854 theorem'],
-  ['obligations', 'Closed interfaces'],
+  ['candidate', '0.1787854 candidate'],
+  ['obligations', 'Claimed interfaces'],
   ['bottom-line', 'Bottom line'],
 ];
 
@@ -203,7 +203,7 @@ function Contents() {
 function CurrentStatus() {
   const peerReviewed = LAMBDA_BOUNDS.find((entry) => entry.id === 'platt-trudgian-2021');
   const publicClaim = LAMBDA_BOUNDS.find((entry) => entry.id === 'mosaic-public-preprint-01875');
-  const theorem = LAMBDA_BOUNDS.find(
+  const candidateEntry = LAMBDA_BOUNDS.find(
     (entry) => entry.id === 'local-fixed-height-candidate-01787854',
   );
 
@@ -220,7 +220,7 @@ function CurrentStatus() {
           tone="established"
           label="peer reviewed"
           value={peerReviewed?.label || 'Λ ≤ 0.2'}
-          detail="Published, peer-reviewed benchmark. The stronger repository theorem is graded separately because it is unpublished and unpeer-reviewed."
+          detail="Published, peer-reviewed benchmark. The standalone private-review 0.1787854 candidate is graded separately because its bound is not established and it has not been peer reviewed."
         />
         <StatusCard
           tone="publicClaim"
@@ -231,15 +231,15 @@ function CurrentStatus() {
         />
         <StatusCard
           tone="repository"
-          label="repository theorem · unreviewed"
-          value={theorem?.label || 'Repository theorem: Λ ≤ 0.1787854'}
-          detail="The sealed computer-assisted proof closes its theorem interfaces. It remains unpublished and unpeer-reviewed."
-          route={theorem?.route}
+          label="unreviewed computer-assisted candidate"
+          value="Candidate: Λ ≤ 0.1787854"
+          detail="A candidate for an unconditional proof. The bound is not established, has not been peer reviewed, and is not RH."
+          route={candidateEntry?.route}
         />
       </div>
       <Paragraph>
         These rows are intentionally not collapsed into a single “best known” number. A public
-        package, a theorem proved in this repository, and a peer-reviewed theorem have different
+        package, an unreviewed private-review candidate, and a peer-reviewed theorem have different
         evidentiary status.
       </Paragraph>
       <Card tone="open">
@@ -362,20 +362,20 @@ function V70Corrections() {
   );
 }
 
-function RepositoryTheoremEvidence() {
-  const theorem = NEWMAN_LAMBDA_01787854_THEOREM;
-  const target = theorem.exactTarget;
-  const finite = theorem.finiteEvidence;
-  const tail = theorem.tailEvidence;
+function RepositoryCandidateEvidence() {
+  const candidate = NEWMAN_LAMBDA_01787854_CANDIDATE;
+  const target = candidate.exactTarget;
+  const finite = candidate.finiteEvidence;
+  const tail = candidate.tailEvidence;
 
   return (
-    <Section id="candidate" number={5} title="What the 0.1787854 repository theorem proves">
+    <Section id="candidate" number={5} title="What the standalone 0.1787854 candidate claims">
       <Card tone="repository">
-        <Badge tone="repository">repository-proved · computer-assisted · peerReviewed=false</Badge>
+        <Badge tone="repository">unreviewed candidate · computer-assisted · bound not established · not RH</Badge>
         <BlockMath tex={target.identityTex} />
-        The headline value is an exact rational assembly, not a rounded fit. The proof is pinned to
-        root commit <code>{theorem.identity.packageCommit.slice(0, 12)}</code>, immutable release{' '}
-        <code>{theorem.identity.releaseCommit.slice(0, 12)}</code>, and a SHA-256 seal.
+        The headline value is an exact rational assembly, not a rounded fit. The candidate package is pinned to
+        candidate commit <code>{candidate.identity.packageCommit.slice(0, 12)}</code>, immutable release{' '}
+        <code>{candidate.identity.releaseCommit.slice(0, 12)}</code>, and a SHA-256 seal.
       </Card>
 
       <div
@@ -412,24 +412,28 @@ function RepositoryTheoremEvidence() {
       </div>
 
       <Paragraph>
-        The root assembly checks these numerical certificates together with the closed compact
-        slab, final-time half-strip, Platt–Trudgian verified height, and exact Polymath criterion
-        weld. The resulting theorem is unpublished and unpeer-reviewed, and its positive bound
-        does not imply RH.
+        The standalone v3 assembly presents these numerical certificates together with claimed compact-slab
+        and final-time-half-strip closures, the Platt–Trudgian verified height, and an exact Polymath
+        criterion weld. Together they form an unreviewed computer-assisted candidate for an unconditional
+        proof. The bound is not established and has not been peer reviewed. It is not RH.
       </Paragraph>
       <Link
         to="/newman-lambda-01787854-candidate"
         style={{ color: '#fbbf24', fontFamily: 'var(--font-mono)', fontSize: 13 }}
       >
-        Open the complete theorem certificate and replay record →
+        Open the candidate package and replay record →
       </Link>
     </Section>
   );
 }
 
-function ClosedInterfaces() {
+function CandidateInterfaces() {
   return (
-    <Section id="obligations" number={6} title="The eight formerly open interfaces">
+    <Section id="obligations" number={6} title="The candidate's eight supplied interfaces">
+      <Paragraph>
+        These are claims and artifacts supplied by the candidate package, not independently established
+        theorems. Their mathematics and source-to-proof correspondence remain external-review obligations.
+      </Paragraph>
       <div
         style={{
           display: 'grid',
@@ -437,7 +441,7 @@ function ClosedInterfaces() {
           gap: 12,
         }}
       >
-        {NEWMAN_LAMBDA_01787854_THEOREM.closedAuditItems.map((item, index) => (
+        {NEWMAN_LAMBDA_01787854_CANDIDATE.closedAuditItems.map((item, index) => (
           <Card key={item.title} tone="repository">
             <div style={{ display: 'flex', gap: 10, alignItems: 'baseline' }}>
               <span style={{ color: '#22d3ee', fontFamily: 'var(--font-mono)', fontWeight: 800 }}>
@@ -465,9 +469,9 @@ function BottomLine() {
         <Paragraph>
           The defensible outputs are: a corrected v70 structural model, clearer zero/pole and
           positivity bookkeeping, a reproducible public <InlineMath tex="0.1875" /> package with
-          an explicitly noted local repair, and a stronger <InlineMath tex="0.1787854" />
-          computer-assisted theorem proved in the root repository. That theorem is unpublished
-          and unpeer-reviewed. The global Twin Ladder residual inequality remains exactly
+          an explicitly noted local repair, and an <InlineMath tex="0.1787854" /> unreviewed
+          computer-assisted candidate for an unconditional proof in the standalone private review repository. Its bound
+          is not established, has not been peer reviewed, and is not RH. The global Twin Ladder residual inequality remains exactly
           equivalent to RH, so no current result proves <InlineMath tex="\Lambda=0" />.
         </Paragraph>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
@@ -546,8 +550,8 @@ export default function FullStoryPage() {
           <LambdaContext />
           <TwinLadderModel />
           <V70Corrections />
-          <RepositoryTheoremEvidence />
-          <ClosedInterfaces />
+          <RepositoryCandidateEvidence />
+          <CandidateInterfaces />
           <BottomLine />
         </main>
       </div>

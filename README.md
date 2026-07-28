@@ -6,7 +6,7 @@
 
 This repository hosts (a) an exploratory computational program around the de Bruijn–Newman constant Λ and (b) a large interactive web explorer documenting the calculations, failed routes, review candidates, and the Twin-Ladder research program.
 
-> **Current honest status (2026-07-24):** This project does not prove RH. The companion root research repository proves `Λ ≤ 0.1787854` by a sealed computer-assisted argument at commit `9cc69d4775fa`; the proof closes a compact slab, a final-time half-strip, a fresh 3,149,013-row replay, corrected `10.50` error bounds, and the exact Polymath criterion weld. The theorem is unpublished and unpeer-reviewed. Platt–Trudgian `Λ ≤ 0.2` remains the peer-reviewed benchmark, while the public `Λ ≤ 0.1875` certificate package remains an unrefereed claim.
+> **Current honest status (2026-07-28):** This project does not prove RH. The standalone private review repository [`judegomila/dbn-lambda-01787854-candidate-audit`](https://github.com/judegomila/dbn-lambda-01787854-candidate-audit) presents `Λ ≤ 0.1787854` as an unreviewed computer-assisted candidate for an unconditional proof, pinned to tag `review-01787854-v3` and commit `2e9976c4becbf97e31c56fe75fce07cdff5dd4ea`. Its package, [referee PDF](public/papers/dbn-lambda-01787854-candidate-audit-v3.pdf), and [provenance sidecar](public/papers/dbn-lambda-01787854-candidate-audit-v3.provenance.txt) aim to certify a compact slab, a final-time half-strip, a fresh 3,149,013-row replay, corrected `10.50` error bounds, and the exact Polymath criterion weld. The bound is not established and has not been peer reviewed. It is not a proof of RH. Platt–Trudgian `Λ ≤ 0.2` remains the peer-reviewed benchmark, while the public `Λ ≤ 0.1875` certificate package remains an unrefereed claim.
 
 **Author:** Jude Gomila · **Withdrawn historical artifact:** `paper/main.pdf` (its “unconditional beat” headline depends on undischarged `C_H`; it is not offered as a current result) · **Bundled historical research-program paper:** `research-inputs/twin_ladder_consolidated_v52.pdf` · **Current app review overlay:** v70 · **Live site:** `npm run dev`
 
@@ -14,11 +14,11 @@ This repository hosts (a) an exploratory computational program around the de Bru
 
 ## Why this exists
 
-The Riemann Hypothesis is equivalent to `Λ ≤ 0` (and, with Rodgers–Tao `Λ ≥ 0`, to `Λ = 0`). It is important to separate three grades used in the app: the peer-reviewed `0.2` benchmark, the public but unrefereed `0.1875` record-package claim, and the unpublished, unpeer-reviewed `0.1787854` theorem proved in the root repository.
+The Riemann Hypothesis is equivalent to `Λ ≤ 0` (and, with Rodgers–Tao `Λ ≥ 0`, to `Λ = 0`). It is important to separate three grades used in the app: the peer-reviewed `0.2` benchmark, the public but unrefereed `0.1875` record-package claim, and the unreviewed computer-assisted `0.1787854` candidate for an unconditional proof in the standalone private review repository. The candidate bound is not established, has not been peer reviewed, and is not RH.
 
 This project does both of the following simultaneously, in public:
 
-1. **Displays evidence-graded bounds.** It records replayable finite and tail computations while keeping repository proof, publication, and peer-review status explicit.
+1. **Displays evidence-graded bounds and candidates.** It records replayable finite and tail computations while keeping candidate, establishment, and peer-review status explicit.
 2. **Operationalizes a research-program paper.** The historical v52 paper is wired into dedicated sections, with a v70 correction overlay rather than silently rewriting the old audit ledger.
 3. **Visualizes the structure.** 80 interactive pages, 4 new visualization pages (log-phase spiral, twin-ladder tomography, Euler transport flow, hyperbolic prime spiral) connecting twin-ladder coordinates to spiral / interferometric / flow representations, 80+ exploration journal entries, a 33-node insight DAG, and a live improvement queue so a reader can follow the proof attempt as it evolves.
 
@@ -30,7 +30,7 @@ The framing of the visualization side — the **Twin-Ladder Bridge model** — r
 |---|---|---|---|---|---|
 | 1 | **Peer-reviewed benchmark** | `Λ ≤ 0.2` | Global | ✓ Published theorem | Platt–Trudgian 2021 |
 | 2 | **Public certificate-package claim** | `Λ ≤ 3/16 = 0.1875` | Fixed height + tail | Public, reproducible, unrefereed; locally repaired | Zenodo `21175533` |
-| 3 | **Root repository theorem** | `Λ ≤ 0.1787854` | Compact slab + final-time half-strip + criterion weld | Computer-assisted; unpublished and unpeer-reviewed | `/newman-lambda-01787854-candidate` |
+| 3 | **Standalone private-review candidate** | `Λ ≤ 0.1787854` | Compact slab + final-time half-strip + criterion weld | Unreviewed computer-assisted candidate for an unconditional proof; bound not established; not peer reviewed; not RH | `/newman-lambda-01787854-candidate` |
 | 4 | **Older finite-N “beat”** | about `0.02` at `N=10⁴` | Finite model | Estimate only; gated on open `C_H` | `src/data/lambda-roadmap.js` |
 | 5 | **Conditional asymptotic target** | `Λ ≤ 3.06 × 10⁻⁵` | Asymptotic program | Conditional on Polymath15 G6a | `src/data/asymptotic-lambda-bound-2026-05-20.js` |
 | 6 | **3-point Riemann ↔ GUE Pearson 0.978** | 7 grid points on 1e6 verified zeros | Microscopic scale | Empirical | `src/data/imp-1183-3point-correlation-empirical.js` |

@@ -36,7 +36,7 @@ const CHIPS = {
   open: chip('rgba(239,68,68,0.12)', '#fca5a5', 'rgba(239,68,68,0.35)'),
   partial: chip('rgba(234,179,8,0.12)', '#facc15', 'rgba(234,179,8,0.35)'),
   'public-preprint-review-open': chip('rgba(56,189,248,0.14)', '#7dd3fc', 'rgba(56,189,248,0.45)'),
-  'repository-theorem-unreviewed': chip('rgba(34,211,238,0.14)', '#67e8f9', 'rgba(34,211,238,0.45)'),
+  'unreviewed-proof-candidate': chip('rgba(34,211,238,0.14)', '#67e8f9', 'rgba(34,211,238,0.45)'),
   'conditional-g6a-open': chip('rgba(239,68,68,0.12)', '#fca5a5', 'rgba(239,68,68,0.35)'),
   'estimate-c-h-open': chip('rgba(234,179,8,0.12)', '#facc15', 'rgba(234,179,8,0.35)'),
   critical: chip('rgba(239,68,68,0.18)', '#fca5a5', 'rgba(239,68,68,0.5)'),
@@ -143,7 +143,7 @@ export default function LambdaBoundsPage() {
                 ? '#ef4444'
                 : b.kind === 'upper-public-preprint'
                 ? '#38bdf8'
-                : b.kind === 'upper-local-repository-theorem'
+                : b.kind === 'upper-private-proof-candidate'
                 ? '#22d3ee'
                 : b.kind === 'our-numerical'
                 ? '#facc15'
@@ -164,7 +164,7 @@ export default function LambdaBoundsPage() {
                     ? '#fca5a5'
                     : b.kind === 'upper-public-preprint'
                     ? '#7dd3fc'
-                    : b.kind === 'upper-local-repository-theorem'
+                    : b.kind === 'upper-private-proof-candidate'
                     ? '#67e8f9'
                     : b.kind === 'our-numerical'
                     ? '#facc15'
@@ -188,14 +188,14 @@ export default function LambdaBoundsPage() {
                 style={{
                   display: 'inline-block',
                   marginTop: 10,
-                  color: b.kind === 'upper-local-repository-theorem' ? '#67e8f9' : '#fbbf24',
+                  color: b.kind === 'upper-private-proof-candidate' ? '#67e8f9' : '#fbbf24',
                   fontFamily: 'var(--font-mono)',
                   fontSize: 11,
                   textDecoration: 'none',
                 }}
               >
-                {b.kind === 'upper-local-repository-theorem'
-                  ? 'Open theorem certificate →'
+                {b.kind === 'upper-private-proof-candidate'
+                  ? 'Open candidate audit →'
                   : 'Open claim audit →'}
               </Link>
             )}

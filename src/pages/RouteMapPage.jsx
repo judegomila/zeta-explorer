@@ -114,8 +114,9 @@ export default function RouteMapPage() {
           the inherited Dyson/collision routes seeking to drive Λ to zero funnel into the{' '}
           <strong style={{ color: '#a78bfa' }}>C_H Hölder-½ shock modulus</strong> (RH-hard at the
           modulus). Platt–Trudgian Λ ≤ 0.2 remains the peer-reviewed benchmark;
-          the public 0.1875 certificate-package claim remains unrefereed. Separately, the root
-          repository proves Λ ≤ 0.1787854 by an unpublished, unpeer-reviewed computer-assisted route.
+          the public 0.1875 certificate-package claim remains unrefereed. Separately, the standalone
+          private review repository presents Λ ≤ 0.1787854 as an unreviewed computer-assisted candidate for an
+          unconditional proof. The bound is not established, has not been peer reviewed, and is not RH.
         </p>
       </div>
 

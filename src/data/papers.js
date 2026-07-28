@@ -31,6 +31,9 @@ import {
   PAPER_AUTHORS,
   PAPER_BUILT_AT,
 } from './paper-publication-meta.js';
+import {
+  NEWMAN_LAMBDA_01787854_CANDIDATE,
+} from './newman-lambda-01787854-candidate.js';
 
 const STORAGE_KEY = 'zpo-papers';
 
@@ -49,6 +52,25 @@ const builtinPapers = [
       'the record for provenance while disabling release promotion.',
     source: 'builtin',
     createdAt: PAPER_BUILT_AT,
+  },
+  {
+    id: 'dbn-lambda-01787854-candidate-audit-v3',
+    title: NEWMAN_LAMBDA_01787854_CANDIDATE.refereePaper.title,
+    authors: ['Jude Gomila'],
+    date: NEWMAN_LAMBDA_01787854_CANDIDATE.identity.datePrepared,
+    abstract:
+      'PRIVATE REFEREE DRAFT. The immutable review-01787854-v3 package proposes an ' +
+      'unconditional computer-assisted proof of Lambda <= 0.1787854. Its exact-commit ' +
+      'replay lanes pass, but theorem transcription, handwritten reductions, proof-to-code ' +
+      'fidelity, interval computations, and independent recomputation remain review ' +
+      'obligations. The proposed bound is not an established theorem, has not been peer ' +
+      'reviewed, and does not prove RH.',
+    pdfPath: NEWMAN_LAMBDA_01787854_CANDIDATE.refereePaper.publicPath,
+    releaseUrl: NEWMAN_LAMBDA_01787854_CANDIDATE.identity.releaseUrl,
+    reviewRoute: '/newman-lambda-01787854-candidate',
+    status: 'draft',
+    source: 'builtin',
+    createdAt: `${NEWMAN_LAMBDA_01787854_CANDIDATE.identity.datePrepared}T00:00:00Z`,
   },
 ];
 

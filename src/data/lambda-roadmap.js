@@ -75,6 +75,9 @@ export const LAMBDA_BOUNDS = [
     kind: 'upper-peer-reviewed-benchmark',
     value: 0.2,
     status: 'rigorous',
+    accepted: true,
+    published: true,
+    peerReviewed: true,
     source: 'Platt & Trudgian, Bull. LMS 2021',
     note:
       'Peer-reviewed upper-bound benchmark. Uses verified Riemann zeros ' +
@@ -99,22 +102,33 @@ export const LAMBDA_BOUNDS = [
   },
   {
     id: 'local-fixed-height-candidate-01787854',
-    label: 'Repository theorem: Λ ≤ 0.1787854',
-    kind: 'upper-local-repository-theorem',
+    label: 'Unreviewed proof candidate: Λ ≤ 0.1787854',
+    kind: 'upper-private-proof-candidate',
     value: 0.1787854,
-    isUnconditional: true,
-    repositoryProved: true,
+    claimedUnconditional: true,
+    established: false,
+    countsAsEstablishedUpperBound: false,
     accepted: false,
     published: false,
     peerReviewed: false,
-    status: 'repository-theorem-unreviewed',
+    status: 'unreviewed-proof-candidate',
     route: '/newman-lambda-01787854-candidate',
-    source: 'Root research repository, commit 9cc69d4775fa (sealed 2026-07-24)',
+    repository: 'judegomila/dbn-lambda-01787854-candidate-audit',
+    repositoryVisibility: 'private',
+    tag: 'review-01787854-v3',
+    commit: '2e9976c4becbf97e31c56fe75fce07cdff5dd4ea',
+    tree: '7f15ecf8c3dbc73d547a2d4a3f2287bd87802f44',
+    manifestSha256: '89a201565d5b4a0f02ab49092e3189c7a6d3b0bfaa4e93630c68cf8c4155ae1c',
+    source:
+      'Private candidate-audit repository, review-01787854-v3 at ' +
+      '2e9976c4becbf97e31c56fe75fce07cdff5dd4ea',
     note:
-      'UNREVIEWED COMPUTER-ASSISTED REPOSITORY THEOREM. The root seal closes the compact ' +
-      'slab, final-time half-strip, 3,149,013-row finite replay, corrected 10.50 error ' +
-      'bounds, tail, height, and exact Polymath assembly interfaces. It has not been ' +
-      'published or peer reviewed, and it does not prove RH.',
+      'UNREVIEWED COMPUTER-ASSISTED PROOF CANDIDATE for an unconditional upper bound. ' +
+      'The v3 package presents certificates for the compact slab, final-time half-strip, ' +
+      '3,149,013-row finite replay, corrected 10.50 error bounds, tail, height, and exact ' +
+      'Polymath assembly interfaces. Packaging, replay, and sealing do not establish the ' +
+      'mathematics: the claim is private, unpublished, unpeer-reviewed, not accepted, and ' +
+      'does not prove RH. Platt–Trudgian Λ ≤ 0.2 remains the accepted peer-reviewed benchmark.',
   },
   {
     id: 'our-target-sota',
@@ -1318,7 +1332,7 @@ export const OPEN_GAPS = [
 // Edges are dependsOn: an edge A -> B means "A requires B". Every edge points
 // UPSTREAM toward axioms, so a correct matrix is a DAG. The bound-to-bound
 // edges are public-preprint -> Platt-Trudgian and imp-1088 -> imp-440. The
-// repository theorem points instead to its sealed proof/provenance block.
+// private proof candidate points instead to its immutable v3 package/provenance block.
 
 export const LAMBDA_DEPENDENCY_MATRIX = {
   nodes: [
@@ -1452,17 +1466,18 @@ export const LAMBDA_DEPENDENCY_MATRIX = {
       note: 'RvM Jacobian floor used in the finite-N composition.',
     },
     {
-      id: 'blk-newman-01787854-sealed-proof',
-      label: 'Sealed 0.1787854 proof and immutable replay provenance',
+      id: 'blk-newman-01787854-v3-candidate-package',
+      label: 'v3 0.1787854 candidate package and immutable replay provenance',
       kind: 'block',
       dependsOn: ['ext-verified-zeros-T3e12'],
       note:
-        'Root commit 9cc69d4775fafe3a9083c8b606ea9ad390e55fb2; immutable release ' +
-        '737d14f3212d09d1a14c12f57f518fe00418c7f6; release tree ' +
-        '9f532f3c0708788be898c63599e1455d9c7a7399; top manifest SHA-256 ' +
-        '9d3edd9825d9231183094e035eb695c333f5d344615da896038667d75c597ce8. ' +
-        'Closes the compact slab, final-time half-strip, finite/tail error, ' +
-        'material replay, height, and exact criterion-weld interfaces.',
+        'Private repository judegomila/dbn-lambda-01787854-candidate-audit; tag ' +
+        'review-01787854-v3; commit 2e9976c4becbf97e31c56fe75fce07cdff5dd4ea; ' +
+        'tree 7f15ecf8c3dbc73d547a2d4a3f2287bd87802f44; top manifest SHA-256 ' +
+        '89a201565d5b4a0f02ab49092e3189c7a6d3b0bfaa4e93630c68cf8c4155ae1c. ' +
+        'The package presents the compact-slab, final-time half-strip, finite/tail ' +
+        'error, material-replay, height, and criterion-weld certificates for review. ' +
+        'Immutable provenance and successful replay do not establish mathematical correctness.',
     },
     // ── The six enumerated bounds ──
     {
@@ -1489,13 +1504,15 @@ export const LAMBDA_DEPENDENCY_MATRIX = {
         'finite tile was repaired locally. Reproducible claim, not peer review.',
     },
     {
-      id: 'bound-repository-theorem-01787854',
-      label: 'Lambda <= 0.1787854 (computer-assisted repository theorem)',
-      kind: 'bound',
-      dependsOn: ['blk-newman-01787854-sealed-proof'],
+      id: 'bound-proof-candidate-01787854',
+      label: 'Lambda <= 0.1787854 (unreviewed computer-assisted proof candidate)',
+      kind: 'candidate-bound',
+      countsAsEstablishedBound: false,
+      dependsOn: ['blk-newman-01787854-v3-candidate-package'],
       note:
-        'Unconditional theorem proved in the root repository. The proof is ' +
-        'unpublished and unpeer-reviewed, and the positive bound does not prove RH.',
+        'Candidate for an unconditional theorem, not an established bound. The private ' +
+        'v3 package is unpublished, unpeer-reviewed, and unaccepted; the positive ' +
+        'candidate bound would not prove RH even if validated.',
     },
     {
       id: 'bound-imp-1261-asymptotic',
@@ -1596,7 +1613,7 @@ export function lambdaDepMatrixClosure(startId, matrix = LAMBDA_DEPENDENCY_MATRI
 export const LAMBDA_ROADMAP = {
   id: 'lambda-roadmap',
   targetSOTA:
-    'Λ ≤ 0.02 unconditional, below the 0.1787854 repository theorem, public 0.1875 claim, and peer-reviewed 0.2 benchmark',
+    'Λ ≤ 0.02 unconditional target, below the private 0.1787854 proof candidate, public 0.1875 claim, and accepted peer-reviewed 0.2 benchmark',
   // imp-35860: leading TL;DR banner so a reader sees the headline before the
   // long append-only measurement log below (currentStatus). Keep in sync by
   // hand -- this does not parse currentStatus, it just restates its opening.
@@ -1604,8 +1621,9 @@ export const LAMBDA_ROADMAP = {
     'STATUS GRADES: Platt-Trudgian Lambda <= 0.2 remains the peer-reviewed upper-bound benchmark. ' +
     'A public, unrefereed certificate package claims Lambda <= 0.1875; the Optimization Problems ' +
     'ledger lists it, and a local audit repaired one omitted finite sweep without substituting for ' +
-    'expert review. A separate sealed root proof establishes Lambda <= 0.1787854 as an unreviewed ' +
-    'computer-assisted repository theorem; it is unpublished and unpeer-reviewed, and RH still ' +
+    'expert review. A separate private v3 package proposes Lambda <= 0.1787854 as an unreviewed ' +
+    'computer-assisted proof candidate for an unconditional bound; it is not established, published, ' +
+    'peer-reviewed, or accepted, and RH still ' +
     'requires Lambda <= 0. In the inherited Dyson/collision family, ' +
     'Steps 1 and 3 supply an unconditional lim-sup skeleton, while the quantitative Step-4 ' +
     'G6/G6a/C_H bridge remains open; Route A also carries a GUE conditional. Step 5 is ' +
@@ -1614,13 +1632,14 @@ export const LAMBDA_ROADMAP = {
     'measurement-only refinement appendix (imp-33xxx/imp-35xxx landmark quantifications) -- ' +
     'it changes no bound and discharges no open gap.',
   currentStatus:
-    'STATUS RECONCILED 2026-07-24: Platt-Trudgian Lambda <= 0.2 remains the peer-reviewed benchmark. ' +
+    'STATUS RECONCILED 2026-07-28: Platt-Trudgian Lambda <= 0.2 remains the accepted peer-reviewed benchmark. ' +
     'The public 0.1875 Zenodo certificate-package claim is reproducible after a local finite-sweep repair ' +
     'and appears in the Optimization Problems ledger, but is unrefereed and not treated here as an accepted theorem. ' +
-    'The sealed root fixed-height proof at 0.1787854 is an unreviewed computer-assisted repository theorem: ' +
-    'the compact slab, final-time half-strip, full finite material replay, direct-Dini, corrected 10.50 error, ' +
-    'tail, height, and exact criterion interfaces are closed in commit 9cc69d4775fa. It is unpublished and ' +
-    'unpeer-reviewed, and it does not prove RH. ' +
+    'The private review-01787854-v3 fixed-height package at commit 2e9976c4becbf97e31c56fe75fce07cdff5dd4ea ' +
+    'is an unreviewed computer-assisted proof candidate for an unconditional 0.1787854 bound. It presents ' +
+    'compact-slab, final-time half-strip, full finite-material replay, direct-Dini, corrected 10.50-error, ' +
+    'tail, height, and exact-criterion certificates, but neither their seal nor replay establishes the theorem. ' +
+    'The candidate is unpublished, unpeer-reviewed, unaccepted, and it does not prove RH. ' +
     'For the inherited LAMBDA_CHAIN_STEPS, Steps 1 and 3 provide the unconditional zero-verification / ' +
     'lim-sup skeleton. Step 2 is numerical, the quantitative Step-4 Polymath15 bridge remains open at ' +
     'G6/G6a/C_H, and Step 5 is unverified. Historical finite values near 0.121 and 0.02 are estimates, ' +
@@ -1942,7 +1961,10 @@ export const LAMBDA_ROADMAP_ASSERTIONS = [
           b.id === 'platt-trudgian-2021' &&
           b.value === 0.2 &&
           b.kind === 'upper-peer-reviewed-benchmark' &&
-          b.status === 'rigorous'
+          b.status === 'rigorous' &&
+          b.accepted === true &&
+          b.published === true &&
+          b.peerReviewed === true
       ),
     why:
       'Platt-Trudgian 2021 Λ ≤ 0.2 is the peer-reviewed benchmark. New public ' +
@@ -1973,43 +1995,52 @@ export const LAMBDA_ROADMAP_ASSERTIONS = [
       const publicClaim = LAMBDA_BOUNDS.find(
         (b) => b.id === 'mosaic-public-preprint-01875'
       );
-      const repositoryTheorem = LAMBDA_BOUNDS.find(
+      const privateCandidate = LAMBDA_BOUNDS.find(
         (b) => b.id === 'local-fixed-height-candidate-01787854'
       );
       const target = LAMBDA_BOUNDS.find((b) => b.id === 'our-target-sota');
       return (
         publicClaim &&
-        repositoryTheorem &&
+        privateCandidate &&
         target &&
         target.value < publicClaim.value &&
-        target.value < repositoryTheorem.value
+        target.value < privateCandidate.value
       );
     },
     why:
       'The target Λ must be strictly below both the strongest public ledger claim and ' +
-      'the stronger repository theorem; otherwise the roadmap is not a roadmap.',
+      'the stronger private proof candidate; otherwise the roadmap is not a roadmap.',
   },
   {
-    id: 'roadmap-local-repository-theorem-remains-externally-unreviewed',
+    id: 'roadmap-private-01787854-remains-an-unreviewed-proof-candidate',
     holds: () => {
-      const theorem = LAMBDA_BOUNDS.find(
+      const candidate = LAMBDA_BOUNDS.find(
         (b) => b.id === 'local-fixed-height-candidate-01787854'
       );
       return (
-        theorem &&
-        theorem.value === 0.1787854 &&
-        theorem.isUnconditional === true &&
-        theorem.repositoryProved === true &&
-        theorem.accepted === false &&
-        theorem.published === false &&
-        theorem.peerReviewed === false &&
-        theorem.status === 'repository-theorem-unreviewed' &&
-        theorem.route === '/newman-lambda-01787854-candidate'
+        candidate &&
+        candidate.value === 0.1787854 &&
+        candidate.claimedUnconditional === true &&
+        candidate.established === false &&
+        candidate.countsAsEstablishedUpperBound === false &&
+        candidate.accepted === false &&
+        candidate.published === false &&
+        candidate.peerReviewed === false &&
+        candidate.status === 'unreviewed-proof-candidate' &&
+        candidate.repository === 'judegomila/dbn-lambda-01787854-candidate-audit' &&
+        candidate.repositoryVisibility === 'private' &&
+        candidate.tag === 'review-01787854-v3' &&
+        candidate.commit === '2e9976c4becbf97e31c56fe75fce07cdff5dd4ea' &&
+        candidate.tree === '7f15ecf8c3dbc73d547a2d4a3f2287bd87802f44' &&
+        candidate.manifestSha256 ===
+          '89a201565d5b4a0f02ab49092e3189c7a6d3b0bfaa4e93630c68cf8c4155ae1c' &&
+        candidate.route === '/newman-lambda-01787854-candidate'
       );
     },
     why:
-      'The 0.1787854 result must be presented as proved in the repository without ' +
-      'silently promoting it to a published, peer-reviewed, or accepted literature result.',
+      'The 0.1787854 entry must remain an unreviewed candidate for an unconditional ' +
+      'proof, pinned to the private v3 package without being promoted to an established, ' +
+      'published, peer-reviewed, or accepted result.',
   },
   {
     id: 'roadmap-G5-closed-G6-and-G6a-quantitatively-open',
@@ -2102,37 +2133,40 @@ export const LAMBDA_ROADMAP_ASSERTIONS = [
       'so any future edit that introduces a cycle must fail the build here.',
   },
   {
-    id: 'lambda-dep-matrix-repository-theorem-is-seal-backed',
+    id: 'lambda-dep-matrix-proof-candidate-is-v3-provenance-backed',
     holds: () => {
-      const bound = LAMBDA_DEPENDENCY_MATRIX.nodes.find(
-        (node) => node.id === 'bound-repository-theorem-01787854'
+      const candidate = LAMBDA_DEPENDENCY_MATRIX.nodes.find(
+        (node) => node.id === 'bound-proof-candidate-01787854'
       );
-      const seal = LAMBDA_DEPENDENCY_MATRIX.nodes.find(
-        (node) => node.id === 'blk-newman-01787854-sealed-proof'
+      const packageNode = LAMBDA_DEPENDENCY_MATRIX.nodes.find(
+        (node) => node.id === 'blk-newman-01787854-v3-candidate-package'
       );
       const closure = lambdaDepMatrixClosure(
-        'bound-repository-theorem-01787854'
+        'bound-proof-candidate-01787854'
       );
       return (
-        bound &&
-        seal &&
-        bound.dependsOn.join(',') === 'blk-newman-01787854-sealed-proof' &&
-        seal.dependsOn.join(',') === 'ext-verified-zeros-T3e12' &&
-        seal.note.includes('9cc69d4775fafe3a9083c8b606ea9ad390e55fb2') &&
-        seal.note.includes('737d14f3212d09d1a14c12f57f518fe00418c7f6') &&
-        seal.note.includes('9f532f3c0708788be898c63599e1455d9c7a7399') &&
-        seal.note.includes(
-          '9d3edd9825d9231183094e035eb695c333f5d344615da896038667d75c597ce8'
+        candidate &&
+        packageNode &&
+        candidate.kind === 'candidate-bound' &&
+        candidate.countsAsEstablishedBound === false &&
+        candidate.dependsOn.join(',') === 'blk-newman-01787854-v3-candidate-package' &&
+        packageNode.dependsOn.join(',') === 'ext-verified-zeros-T3e12' &&
+        packageNode.note.includes('judegomila/dbn-lambda-01787854-candidate-audit') &&
+        packageNode.note.includes('review-01787854-v3') &&
+        packageNode.note.includes('2e9976c4becbf97e31c56fe75fce07cdff5dd4ea') &&
+        packageNode.note.includes('7f15ecf8c3dbc73d547a2d4a3f2287bd87802f44') &&
+        packageNode.note.includes(
+          '89a201565d5b4a0f02ab49092e3189c7a6d3b0bfaa4e93630c68cf8c4155ae1c'
         ) &&
-        closure.has('blk-newman-01787854-sealed-proof') &&
+        closure.has('blk-newman-01787854-v3-candidate-package') &&
         closure.has('ext-verified-zeros-T3e12') &&
         !closure.has('cond-CH') &&
         !closure.has('cond-gue-universality')
       );
     },
     why:
-      'The 0.1787854 bound must remain represented in the dependency DAG as a ' +
-      'seal-backed theorem with exact immutable provenance and no legacy C_H/GUE gate.',
+      'The 0.1787854 claim must remain represented as an unestablished proof candidate ' +
+      'with exact private-v3 provenance and no accidental dependency on the legacy C_H/GUE lane.',
   },
   {
     id: 'lambda-dep-matrix-finite-N-modulo-C_H',

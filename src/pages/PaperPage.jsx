@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
-import { NEWMAN_LAMBDA_01787854_THEOREM } from '../data/newman-lambda-01787854-candidate.js';
+import { NEWMAN_LAMBDA_01787854_CANDIDATE } from '../data/newman-lambda-01787854-candidate.js';
 
 function Section({ number, title, children }) {
   return (
@@ -78,7 +78,7 @@ function StatusRow({ label, value, status, color }) {
 }
 
 export default function PaperPage() {
-  const theorem = NEWMAN_LAMBDA_01787854_THEOREM;
+  const candidate = NEWMAN_LAMBDA_01787854_CANDIDATE;
 
   return (
     <div className="page" style={{ maxWidth: 940, margin: '0 auto', paddingBottom: 80 }}>
@@ -108,9 +108,9 @@ export default function PaperPage() {
       <Callout color="#f59e0b" label="Standing">
         This page does not claim a proof of RH. The peer-reviewed benchmark used by the app is
         <InlineMath tex="\Lambda\le0.2" />. The public <InlineMath tex="0.1875" /> package is
-        unrefereed. The root repository proves the stronger{' '}
-        <InlineMath tex="\Lambda\le0.1787854" /> bound by a sealed computer-assisted argument,
-        but that result remains unpublished and unpeer-reviewed.
+        unrefereed. The standalone private review repository presents the stronger{' '}
+        <InlineMath tex="\Lambda\le0.1787854" /> value as an unreviewed computer-assisted candidate
+        for an unconditional proof. The bound is not established, has not been peer reviewed, and is not RH.
       </Callout>
 
       <Section number={1} title="Classical foundation">
@@ -244,16 +244,16 @@ export default function PaperPage() {
             color="#facc15"
           />
           <StatusRow
-            label="repository theorem"
+            label="private-review candidate"
             value="Λ ≤ 0.1787854"
-            status={`${theorem.finiteEvidence.rowCount.toLocaleString()} freshly replayed finite rows; corrected tail passes ${theorem.tailEvidence.checksPassed}/${theorem.tailEvidence.checksTotal} gates per precision. Unpublished and unpeer-reviewed.`}
+            status={`${candidate.finiteEvidence.rowCount.toLocaleString()} freshly replayed finite rows; corrected tail reports ${candidate.tailEvidence.checksPassed}/${candidate.tailEvidence.checksTotal} gates per precision. Unreviewed computer-assisted candidate for an unconditional proof; bound not established; not peer reviewed; not RH.`}
             color="#22d3ee"
           />
         </div>
         <P>
-          The root seal checks the producer functional, normalization, analytic error estimates,
-          closed compact slab, final-time half-strip, verified height, endpoints, and final
-          criterion together. The certificate page records that proof and its external-review boundary.
+          The standalone package checks the producer functional, normalization, analytic error estimates,
+          claimed compact-slab and final-time-half-strip closures, verified height, endpoints, and final
+          criterion together. The candidate page records those claims and their external-review boundary.
         </P>
       </Section>
 
@@ -261,8 +261,9 @@ export default function PaperPage() {
         <P>
           The twin-ladder program has produced useful coordinates, explicit algebraic
           self-corrections, a strict <InlineMath tex="PF_2" /> kernel result, a rigorous
-          <InlineMath tex="PF_5" /> obstruction, and the repository theorem{' '}
-          <InlineMath tex="\Lambda\le0.1787854" />. It has
+          <InlineMath tex="PF_5" /> obstruction, and an unreviewed computer-assisted candidate for an
+          unconditional proof of <InlineMath tex="\Lambda\le0.1787854" />. That candidate bound is not
+          established, has not been peer reviewed, and is not RH. The program has
           not supplied the non-circular all-shifts positivity theorem or the complete
           global residual inequality needed for RH; the surviving frontier is equivalent to RH.
         </P>
@@ -274,7 +275,7 @@ export default function PaperPage() {
             v52 ledger + v70 correction audit
           </Link>
           <Link to="/newman-lambda-01787854-candidate" style={{ color: '#fbbf24' }}>
-            0.1787854 theorem certificate
+            0.1787854 candidate package
           </Link>
           <Link to="/lambda-bounds" style={{ color: '#a5b4fc' }}>
             Bounds and evidence grades

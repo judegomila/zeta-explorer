@@ -165,11 +165,11 @@ function Section({ title, children, borderColor = '#334155' }) {
 }
 
 export default function RHProofStateDashboardPage() {
-  const dashboardDate = ['2026-07-24', SECTION26_VERDICT.date, MAXFANOUT_STATUS.date, STRATEGIC_REFRAME.date, SECTION27_REFUTATION.date]
+  const dashboardDate = ['2026-07-28', SECTION26_VERDICT.date, MAXFANOUT_STATUS.date, STRATEGIC_REFRAME.date, SECTION27_REFUTATION.date]
     .filter(Boolean).sort().pop() || '2026-06-18';
   return (
     <div className="page">
-      <HonestCeilingBanner variant="REPOSITORY-THEOREM" />
+      <HonestCeilingBanner variant="PROOF-CANDIDATE" />
       <div className="page-header">
         <h1>RH Proof State Dashboard</h1>
         <p>
@@ -206,9 +206,9 @@ export default function RHProofStateDashboardPage() {
         </div>
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
           <div>
-            <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>ROOT REPOSITORY THEOREM</div>
+            <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>STANDALONE PRIVATE-REVIEW CANDIDATE</div>
             <div style={{ fontSize: 20, fontWeight: 700, color: '#22d3ee', fontFamily: 'var(--font-mono)' }}>&#923; &le; 0.1787854</div>
-            <div style={{ fontSize: 11, color: '#94a3b8' }}>Computer-assisted; unpublished; unpeer-reviewed; not RH</div>
+            <div style={{ fontSize: 11, color: '#94a3b8' }}>Unreviewed computer-assisted candidate for an unconditional proof; bound not established; not peer reviewed; not RH</div>
           </div>
         </div>
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
@@ -535,9 +535,11 @@ export default function RHProofStateDashboardPage() {
               below Platt–Trudgian 0.2 — not yet rigorous (C_H + E-T bridge constant pending).
               Peer-reviewed benchmark: <strong style={{ color: '#10b981' }}>Λ ≤ 0.2</strong>;
               public unrefereed package claim: <strong style={{ color: '#38bdf8' }}>Λ ≤ 0.1875</strong>.
-              This is the older Dyson lane; the separate root theorem{' '}
+              This is the older Dyson lane; the separate standalone private-review candidate{' '}
               <strong style={{ color: '#22d3ee' }}>Λ ≤ 0.1787854</strong> uses the fixed-height
-              barrier route and does not discharge C_H.
+              barrier route and does not discharge C_H. It is an unreviewed computer-assisted
+              candidate for an unconditional proof; the bound is not established, has not been
+              peer reviewed, and is not RH.
             </div>
           </div>
         </div>

@@ -26,8 +26,8 @@
  *
  * Current context: the peer-reviewed unconditional benchmark remains 0.2.
  * The public 0.1875 package is an unrefereed claim.  The stronger 0.1787854
- * result is proved in the root repository, but is unpublished and
- * unpeer-reviewed. Neither is an entry in this legacy arithmetic registry.
+ * value is an unreviewed proof candidate in a private audit repository, not
+ * an established result. Neither is an entry in this legacy arithmetic registry.
  *
  * This module is intentionally NOT imported by any page (it uses node:fs which
  * is unavailable in the browser bundle). The assertion runner
@@ -87,10 +87,19 @@ export const HEADLINE_NUMBERS = {
 export const CURRENT_LAMBDA_STATUS = Object.freeze({
   peerReviewedUpperBound: 0.2,
   peerReviewedUpperBoundStatus: 'established-unconditional-benchmark',
+  peerReviewedUpperBoundAccepted: true,
   publicUnrefereedClaim: 0.1875,
   publicUnrefereedClaimStatus: 'review-open-not-accepted',
-  localRepositoryTheorem: 0.1787854,
-  localRepositoryTheoremStatus: 'proved-in-repository-unpublished-unreviewed',
+  privateProofCandidate: 0.1787854,
+  privateProofCandidateStatus: 'unreviewed-proof-candidate-not-established',
+  privateProofCandidateCountsAsEstablishedUpperBound: false,
+  privateProofCandidateRepository: 'judegomila/dbn-lambda-01787854-candidate-audit',
+  privateProofCandidateRepositoryVisibility: 'private',
+  privateProofCandidateTag: 'review-01787854-v3',
+  privateProofCandidateCommit: '2e9976c4becbf97e31c56fe75fce07cdff5dd4ea',
+  privateProofCandidateTree: '7f15ecf8c3dbc73d547a2d4a3f2287bd87802f44',
+  privateProofCandidateManifestSha256:
+    '89a201565d5b4a0f02ab49092e3189c7a6d3b0bfaa4e93630c68cf8c4155ae1c',
 });
 
 const DATA_DIR = __dirname;
@@ -167,17 +176,29 @@ HEADLINE_NUMBERS_ASSERTIONS.push(
     holds: () =>
       CURRENT_LAMBDA_STATUS.peerReviewedUpperBound === 0.2 &&
       CURRENT_LAMBDA_STATUS.peerReviewedUpperBoundStatus ===
-        'established-unconditional-benchmark',
+        'established-unconditional-benchmark' &&
+      CURRENT_LAMBDA_STATUS.peerReviewedUpperBoundAccepted === true,
   },
   {
     id: 'headline-external-evidence-grades-remain-distinct',
     why:
-      'The 0.1875 public claim must remain review-open, while 0.1787854 must be graded as a repository theorem without implying publication or peer review',
+      'The 0.1875 public claim must remain review-open, while 0.1787854 must remain an unestablished private proof candidate pinned to the v3 package',
     holds: () =>
       CURRENT_LAMBDA_STATUS.publicUnrefereedClaimStatus === 'review-open-not-accepted' &&
-      CURRENT_LAMBDA_STATUS.localRepositoryTheorem === 0.1787854 &&
-      CURRENT_LAMBDA_STATUS.localRepositoryTheoremStatus ===
-        'proved-in-repository-unpublished-unreviewed',
+      CURRENT_LAMBDA_STATUS.privateProofCandidate === 0.1787854 &&
+      CURRENT_LAMBDA_STATUS.privateProofCandidateStatus ===
+        'unreviewed-proof-candidate-not-established' &&
+      CURRENT_LAMBDA_STATUS.privateProofCandidateCountsAsEstablishedUpperBound === false &&
+      CURRENT_LAMBDA_STATUS.privateProofCandidateRepository ===
+        'judegomila/dbn-lambda-01787854-candidate-audit' &&
+      CURRENT_LAMBDA_STATUS.privateProofCandidateRepositoryVisibility === 'private' &&
+      CURRENT_LAMBDA_STATUS.privateProofCandidateTag === 'review-01787854-v3' &&
+      CURRENT_LAMBDA_STATUS.privateProofCandidateCommit ===
+        '2e9976c4becbf97e31c56fe75fce07cdff5dd4ea' &&
+      CURRENT_LAMBDA_STATUS.privateProofCandidateTree ===
+        '7f15ecf8c3dbc73d547a2d4a3f2287bd87802f44' &&
+      CURRENT_LAMBDA_STATUS.privateProofCandidateManifestSha256 ===
+        '89a201565d5b4a0f02ab49092e3189c7a6d3b0bfaa4e93630c68cf8c4155ae1c',
   },
   {
     id: 'headline-heavy-cross-validation-row-remains-withdrawn',

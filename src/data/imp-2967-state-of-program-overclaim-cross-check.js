@@ -7,8 +7,9 @@
  *
  *   1. The peer-reviewed truth entry still names Platt-Trudgian Λ≤0.2.
  *
- *   2. The repository theorem entry records Λ≤0.1787854 while denying
- *      publication, peer review, and an RH conclusion.
+ *   2. The standalone private candidate entry records Λ≤0.1787854 as an unreviewed
+ *      computer-assisted candidate while denying establishment, peer review,
+ *      and an RH conclusion.
  *
  *   3. Every imp-XXXX id mentioned in the REFUTED badge entry of TRUTHS
  *      exists in CAUGHT_OVERCLAIMS with a non-active addressed status
@@ -55,21 +56,22 @@ export const IMP_2967_STATE_OVERCLAIM_CROSS_CHECK_ASSERTIONS = [
     why: 'The literature benchmark entry must still cite Platt-Trudgian Λ≤0.2 as peer reviewed',
   },
   {
-    id: 'imp-2967-repository-theorem-has-honest-external-grade',
+    id: 'imp-2967-repository-candidate-has-honest-external-grade',
     holds: () => {
-      const entry = STATE_OF_PROGRAM_TRUTHS.find(t => t.badge === 'REPOSITORY THEOREM');
+      const entry = STATE_OF_PROGRAM_TRUTHS.find(t => t.badge === 'UNREVIEWED CANDIDATE');
       if (!entry) return false;
       const text = (entry.title + ' ' + entry.body).toLowerCase();
       return (
         text.includes('0.1787854') &&
         text.includes('computer-assisted') &&
-        text.includes('unpublished') &&
-        text.includes('unpeer-reviewed') &&
-        text.includes('does not prove rh')
+        text.includes('candidate for an unconditional proof') &&
+        text.includes('bound is not established') &&
+        text.includes('not been peer reviewed') &&
+        text.includes('not a proof of rh')
       );
     },
     why:
-      'The new theorem must be visible without implying publication, peer review, or a proof of RH',
+      'The candidate must be visible without implying an established bound, peer review, or a proof of RH',
   },
   {
     id: 'imp-2967-refuted-badge-entry-exists',

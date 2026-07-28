@@ -1,29 +1,79 @@
 /**
- * Immutable public-facing summary of the sealed de Bruijn--Newman result.
+ * Public-facing summary of the immutable v3 de Bruijn--Newman review package.
  *
- * The filename and compatibility export retain the former "candidate" name so
- * old routes and imports do not break.  The evidence grade changed on
- * 2026-07-24: this is now a theorem proved in the root research repository,
- * while remaining unpublished, unpeer-reviewed, and open to external review.
+ * Two independent axes are deliberately kept separate:
+ *   1. the proposed proof has an unconditional logical form (it is designed
+ *      not to assume RH or another unproved conjecture); and
+ *   2. the package is still an unreviewed proof candidate, so the proposed
+ *      bound is not an established theorem.
+ *
+ * The legacy THEOREM export is retained only so old imports do not break.
  */
 
-export const NEWMAN_LAMBDA_01787854_THEOREM = {
+export const NEWMAN_LAMBDA_01787854_CANDIDATE = {
   identity: {
-    label: 'Repository theorem: Λ ≤ 0.1787854',
-    datePrepared: '2026-07-24',
-    packageCommit: '9cc69d4775fafe3a9083c8b606ea9ad390e55fb2',
-    releaseCommit: '737d14f3212d09d1a14c12f57f518fe00418c7f6',
-    releaseTree: '9f532f3c0708788be898c63599e1455d9c7a7399',
-    sealSha256: '9d3edd9825d9231183094e035eb695c333f5d344615da896038667d75c597ce8',
+    label: 'Unreviewed proof candidate: Λ ≤ 0.1787854',
+    datePrepared: '2026-07-27',
+    dateReconciled: '2026-07-28',
+    repositoryUrl:
+      'https://github.com/judegomila/dbn-lambda-01787854-candidate-audit',
+    releaseTag: 'review-01787854-v3',
+    releaseUrl:
+      'https://github.com/judegomila/dbn-lambda-01787854-candidate-audit/releases/tag/review-01787854-v3',
+    packageCommit: '2e9976c4becbf97e31c56fe75fce07cdff5dd4ea',
+    releaseCommit: '2e9976c4becbf97e31c56fe75fce07cdff5dd4ea',
+    releaseTree: '7f15ecf8c3dbc73d547a2d4a3f2287bd87802f44',
+    annotatedTagObject: '585586bb0e6fd576710be704fda9500284b24bc7',
+    sealSha256: '89a201565d5b4a0f02ab49092e3189c7a6d3b0bfaa4e93630c68cf8c4155ae1c',
     containerImage:
-      'sha256:8da4b264d3ca9c4630782d99c806886332987a5e7f882c09b7afdb2ba7214ef8',
-    candidate: false,
-    repositoryProved: true,
-    rigorous: true,
+      'ghcr.io/judegomila/dbn-lambda-01787854-review@sha256:6e29bc53adc5a4337802da2b5a219720e3da9dcc1b87c546b96b6126d8b9975d',
+    candidate: true,
+    intendedLogicalForm: 'unconditional',
+    assumesUnprovedConjecture: false,
+    established: false,
+    accepted: false,
+    repositoryProved: false,
+    rigorous: false,
+    artifactSealed: true,
+    encodedChecksPassed: true,
     computerAssisted: true,
     published: false,
     peerReviewed: false,
     independentReviewOpen: true,
+  },
+  refereePaper: {
+    title:
+      'A Candidate for an Unconditional Computer-Assisted Proof of Lambda <= 0.1787854',
+    publicPath: '/papers/dbn-lambda-01787854-candidate-audit-v3.pdf',
+    provenancePath:
+      '/papers/dbn-lambda-01787854-candidate-audit-v3.provenance.txt',
+    repositoryPath: 'output/pdf/dbn_lambda_01787854_candidate_audit.pdf',
+    releaseAssetUrl:
+      'https://github.com/judegomila/dbn-lambda-01787854-candidate-audit/releases/download/review-01787854-v3/dbn_lambda_01787854_candidate_audit.pdf',
+    sha256: 'b1151d56bc2917d98e3ff4047c0426f44ee88e6cf7edd1a6ca3c47ef324b1172',
+    pages: 21,
+    bytes: 73703,
+    format: 'PDF 1.4',
+    visuallyInspected: true,
+  },
+  verification: {
+    mainReplay: {
+      runId: '30317899517',
+      url:
+        'https://github.com/judegomila/dbn-lambda-01787854-candidate-audit/actions/runs/30317899517',
+      fullReviewPassed: true,
+      completeFiniteReplayPassed: true,
+    },
+    tagImageReplay: {
+      runId: '30322974859',
+      url:
+        'https://github.com/judegomila/dbn-lambda-01787854-candidate-audit/actions/runs/30322974859',
+      exactImageBuiltOnce: true,
+      criticalReplayPassed: true,
+      completeFiniteReplayPassed: true,
+    },
+    offlinePublishedImageMarker: 'RESULT: OFFLINE PUBLISHED-IMAGE REVIEW PASS',
+    sealEntryCount: 362,
   },
   exactTarget: {
     numerator: 893927,
@@ -113,10 +163,10 @@ export const NEWMAN_LAMBDA_01787854_THEOREM = {
     correctionLogRateUpperBound: -1.36311215475764,
     rawFloor: 0.000000791366,
     rawFloorLiteral: '0.000000791366',
-    effectiveErrorUpperBound: 2.3349490521229325e-7,
-    effectiveErrorUpperBoundLiteral: '2.33494905212293253172e-7',
-    finiteMarginLowerBound: 5.578710947877067e-7,
-    finiteMarginLowerBoundLiteral: '5.57871094787706746828e-7',
+    effectiveErrorUpperBound: 2.3349490521233785e-7,
+    effectiveErrorUpperBoundLiteral: '2.33494905212337849e-7',
+    finiteMarginLowerBound: 5.57871094787e-7,
+    finiteMarginLowerBoundLiteral: '5.57871094787e-7',
     conservativeErrorCoefficient: 10.5,
     errorCertificate: {
       precisionsBits: [256, 512],
@@ -147,73 +197,117 @@ export const NEWMAN_LAMBDA_01787854_THEOREM = {
     exactSurplusNumerator: 350479773,
     exactSurplusDenominator: 2,
   },
+  barrierEvidence: {
+    approximationAllowance: 0.00125,
+    effectiveErrorUpperBoundLiteral: '0.000356523011600040',
+    prismCount: 883,
+    minimumRecomputedPrismMargin: '0.519849894613872543374989997',
+    windingLower: '-8.95e-13',
+    windingUpper: '8.95e-13',
+    coefficientComponents: 7688,
+    coefficientContainmentFailures: 0,
+  },
   closedAuditItems: [
     {
       title: 'Native Triangle-to-|f_t| binding',
       detail:
-        'Closed in the immutable release and root attestation: the producer, normalization, corrected effective-error budget, runner, comparator, and payload hashes are bound together.',
-      status: 'closed-in-root-seal',
+        'The v3 candidate supplies a sealed exact-convolution binding from the producer floor to normalized |f_t| units. Its mathematics and source-to-proof correspondence remain external-review obligations.',
+      status: 'supplied-in-v3-candidate',
     },
     {
       title: 'Closed compact slab',
       detail:
-        'Closed by the repaired 883-prism Arb barrier, fail-closed interval comparisons, whole-prism time control, analytic quadrature callbacks, and the t=0 endpoint lemma.',
-      status: 'closed-in-root-seal',
+        'The v3 candidate supplies a repaired 883-prism Arb barrier with fail-closed interval comparisons, whole-prism time control, analytic quadrature callbacks, and a t=0 endpoint argument.',
+      status: 'supplied-in-v3-candidate',
     },
     {
       title: 'Direct Dini reduction',
       detail:
-        'Closed by the direct all-height transfer bound over every active divisor pattern at 180 and 256 bits, retained in the immutable release and checked by the assembly verifier.',
-      status: 'closed-in-root-seal',
+        'The v3 candidate supplies a direct all-height transfer bound over every active divisor pattern at 180 and 256 bits. Independent review must validate the reduction and its implementation.',
+      status: 'supplied-in-v3-candidate',
     },
     {
       title: 'Conservative error transcription',
       detail:
-        'Closed by deriving 10.50 = 3.58 + 6.92 directly from Polymath Proposition 6.6(vi), auditing x−6.66 and the conservative x−12 replacement, and avoiding the unexplained printed 10.44.',
-      status: 'closed-in-root-seal',
+        'The v3 candidate derives 10.50 = 3.58 + 6.92 from Polymath Proposition 6.6(vi), audits x−6.66 and the conservative x−12 replacement, and does not rely on the displayed 10.44.',
+      status: 'supplied-in-v3-candidate',
     },
     {
       title: 'Tail theorem and implementation',
       detail:
-        'Closed by the source-bound conservative patch and 36/36 strict tail gates at both 256 and 512 bits, yielding a positive post-error margin.',
-      status: 'closed-in-root-seal',
+        'The v3 candidate supplies a source-bound conservative tail implementation and 36/36 strict gates at both 256 and 512 bits, yielding a positive encoded post-error margin.',
+      status: 'supplied-in-v3-candidate',
     },
     {
       title: 'Independent interval implementation',
       detail:
-        'Closed by decisive Arb/FLINT checks for the barrier, finite error, tail error, and exact assembly rather than relying on the earlier mpmath.iv review path.',
-      status: 'closed-in-root-seal',
+        'The release includes multiple precisions, two barrier platforms, and Python/FLINT-Arb paths. Truly independent recomputation with different sources, partitions, or algorithms is still requested.',
+      status: 'supplied-in-v3-candidate',
     },
     {
       title: 'Full finite material replay',
       detail:
-        'Closed by a fresh clean replay of all 3,149,013 rows, including every prime-set joint and shard boundary, with byte and normalized-payload comparisons against the immutable release.',
-      status: 'closed-in-root-seal',
+        'GitHub Actions regenerated all 3,149,013 rows against the exact v3 commit and image, including every prime-set joint and shard boundary, and matched the immutable release payloads.',
+      status: 'verified-execution-in-v3',
     },
     {
       title: 'Criterion weld',
       detail:
-        'Closed by the exact Polymath Theorem 1.2 assembly: the compact slab, final-time half-strip, Platt–Trudgian verified height, closed endpoints, and exact rational target are checked together.',
-      status: 'closed-in-root-seal',
+        'The v3 candidate encodes the three Polymath Theorem 1.2 suppliers and exact rational substitution together. Direct referee verification of the theorem transcription and weld remains load-bearing.',
+      status: 'supplied-in-v3-candidate',
     },
+  ],
+  implementationReviewItems: [
+    {
+      title: 'Window-freeze C6/C7 are documentary gates',
+      detail:
+        'In v3, verify_window_freeze.py passes C6 and C7 with literal True after checking the surrounding exact hypotheses and interval derivative signs. The claimed freeze directions and half-open endpoint convention therefore still require direct review of the written proof; the PASS labels are not independent computations of those two conclusions.',
+      severity: 'review-required',
+    },
+    {
+      title: 'Earlier differential spot-check is not sealed evidence',
+      detail:
+        'An eight-point, 5.5-million-summand barrier differential experiment was run during preparation, but its temporary artifacts are not in the v3 362-entry seal or release assets. It is deliberately excluded from the v3 evidence count.',
+      severity: 'scope-boundary',
+    },
+  ],
+  reviewBoundary: [
+    'Published-theorem transcription and the exact three-hypothesis criterion weld.',
+    'Mathematical validity of the native binding, Dini transfer, 10.50 error weld, window freeze, all-N tail, closed barrier, and t=0 continuity.',
+    'Proof-to-code fidelity and the absence of a conceptual error shared by all replay paths.',
+    'Independent recomputation using different source, partitions, intermediate data, or algorithms.',
+    'Mutation-test kill rates, parameter-perturbation calibration, and independent referee sign-off.',
   ],
   replay: {
     release: [
-      'bash proof/certificates/verify_newman_01787854.sh \\',
-      '  /path/to/clean/release',
+      'git clone https://github.com/judegomila/dbn-lambda-01787854-candidate-audit.git',
+      'cd dbn-lambda-01787854-candidate-audit',
+      'git checkout --detach review-01787854-v3',
+      'test "$(git rev-parse HEAD)" = "2e9976c4becbf97e31c56fe75fce07cdff5dd4ea"',
+      'python3 -m venv .venv',
+      '. .venv/bin/activate',
+      'python3 -m pip install --require-hashes -r requirements.txt',
+      './verify.sh',
     ],
     releaseExpected:
-      'RESULT: FINITE REPLAY ATTESTATION PASS mode=RELEASE · RESULT: NEWMAN 0.1787854 ASSEMBLY PASS',
+      'RESULT: STORED UNCONDITIONAL-CANDIDATE REVIEW PASS',
     material: [
-      'bash proof/certificates/verify_newman_01787854.sh \\',
-      '  /path/to/clean/release /path/to/fresh/full-sweep',
+      'git clone https://github.com/judegomila/dbn-lambda-01787854-candidate-audit.git',
+      'cd dbn-lambda-01787854-candidate-audit',
+      'git checkout --detach review-01787854-v3',
+      'test "$(git rev-parse HEAD)" = "2e9976c4becbf97e31c56fe75fce07cdff5dd4ea"',
+      'docker build --platform linux/amd64 -t dbn-lambda-01787854-review .',
+      "review_image_id=$(docker image inspect --format '{{.Id}}' \\",
+      '  dbn-lambda-01787854-review)',
+      'IMAGE=dbn-lambda-01787854-review EXPECTED_IMAGE_ID="$review_image_id" \\',
+      '  ./scripts/run_full_sweep.sh replay/full_sweep',
     ],
     materialExpected:
-      'RESULT: FINITE REPLAY ATTESTATION PASS mode=MATERIAL · RESULT: NEWMAN 0.1787854 ASSEMBLY PASS',
+      'all 3,149,013 canonical rows regenerate and exactly match the 15 sealed shards',
   },
   environment: {
     base: 'Ubuntu 24.04',
-    architecture: 'Linux/arm64',
+    architecture: 'Linux/amd64',
     flint: '3.0.1',
     python: '3.12',
     mpmath: '1.4.1',
@@ -221,15 +315,11 @@ export const NEWMAN_LAMBDA_01787854_THEOREM = {
   },
 };
 
-// Compatibility alias: the route and filename predate the theorem seal.
-export const NEWMAN_LAMBDA_01787854_CANDIDATE =
-  NEWMAN_LAMBDA_01787854_THEOREM;
-
 export const NEWMAN_LAMBDA_01787854_ASSERTIONS = [
   {
     id: 'lambda-01787854-exact-rational-assembly',
     holds: () => {
-      const c = NEWMAN_LAMBDA_01787854_THEOREM;
+      const c = NEWMAN_LAMBDA_01787854_CANDIDATE;
       const t = c.exactTarget;
       const slab = c.certifiedRegions.compactSlab;
       const halfStrip = c.certifiedRegions.finalTimeHalfStrip;
@@ -270,13 +360,19 @@ export const NEWMAN_LAMBDA_01787854_ASSERTIONS = [
       'The headline decimal and both certified zero-free regions must retain the exact sealed integers, endpoints, and rational identity.',
   },
   {
-    id: 'lambda-01787854-repository-theorem-flags-remain-honest',
+    id: 'lambda-01787854-proof-candidate-flags-remain-honest',
     holds: () => {
-      const i = NEWMAN_LAMBDA_01787854_THEOREM.identity;
+      const i = NEWMAN_LAMBDA_01787854_CANDIDATE.identity;
       return (
-        i.candidate === false &&
-        i.repositoryProved === true &&
-        i.rigorous === true &&
+        i.candidate === true &&
+        i.intendedLogicalForm === 'unconditional' &&
+        i.assumesUnprovedConjecture === false &&
+        i.established === false &&
+        i.accepted === false &&
+        i.repositoryProved === false &&
+        i.rigorous === false &&
+        i.artifactSealed === true &&
+        i.encodedChecksPassed === true &&
         i.computerAssisted === true &&
         i.published === false &&
         i.peerReviewed === false &&
@@ -284,12 +380,12 @@ export const NEWMAN_LAMBDA_01787854_ASSERTIONS = [
       );
     },
     why:
-      'The result is proved in the repository, but remains computer-assisted, unpublished, unpeer-reviewed, and open to external review.',
+      'The package proposes an unconditional logical form, but the bound remains an unreviewed computer-assisted candidate rather than an established theorem.',
   },
   {
     id: 'lambda-01787854-finite-coverage-is-contiguous',
     holds: () => {
-      const f = NEWMAN_LAMBDA_01787854_THEOREM.finiteEvidence;
+      const f = NEWMAN_LAMBDA_01787854_CANDIDATE.finiteEvidence;
       return (
         f.firstN === 690988 &&
         f.lastN === 3840000 &&
@@ -313,17 +409,17 @@ export const NEWMAN_LAMBDA_01787854_ASSERTIONS = [
   {
     id: 'lambda-01787854-decisive-margins-are-strict',
     holds: () => {
-      const f = NEWMAN_LAMBDA_01787854_THEOREM.finiteEvidence;
-      const t = NEWMAN_LAMBDA_01787854_THEOREM.tailEvidence;
-      const h = NEWMAN_LAMBDA_01787854_THEOREM.verifiedHeight;
+      const f = NEWMAN_LAMBDA_01787854_CANDIDATE.finiteEvidence;
+      const t = NEWMAN_LAMBDA_01787854_CANDIDATE.tailEvidence;
+      const h = NEWMAN_LAMBDA_01787854_CANDIDATE.verifiedHeight;
       return (
         f.dini.worstCertifiedRatio < 1 &&
         f.dini.worstCertifiedRatio === 0.999998607672751 &&
         f.dini.worstCertifiedRatioLiteral === '0.99999860767275095' &&
         f.correctionLogRateUpperBound < 0 &&
         f.rawFloorLiteral === '0.000000791366' &&
-        f.effectiveErrorUpperBoundLiteral === '2.33494905212293253172e-7' &&
-        f.finiteMarginLowerBoundLiteral === '5.57871094787706746828e-7' &&
+        f.effectiveErrorUpperBoundLiteral === '2.33494905212337849e-7' &&
+        f.finiteMarginLowerBoundLiteral === '5.57871094787e-7' &&
         f.rawFloor - f.effectiveErrorUpperBound >= f.finiteMarginLowerBound &&
         f.finiteMarginLowerBound > 0 &&
         f.conservativeErrorCoefficient === 10.5 &&
@@ -345,29 +441,48 @@ export const NEWMAN_LAMBDA_01787854_ASSERTIONS = [
         h.halfXAtMostTPT === true &&
         h.exactSurplusNumerator === 350479773 &&
         h.exactSurplusDenominator === 2 &&
-        NEWMAN_LAMBDA_01787854_THEOREM.exactTarget.X / 2 <= h.TPT
+        NEWMAN_LAMBDA_01787854_CANDIDATE.exactTarget.X / 2 <= h.TPT
       );
     },
     why:
-      'The repository theorem depends on strict finite and tail inequalities with the corrected conservative 10.50 error coefficient.',
+      'The proof candidate depends on strict finite and tail inequalities with the corrected conservative 10.50 error coefficient.',
   },
   {
-    id: 'lambda-01787854-seal-and-closed-audit-record-are-complete',
+    id: 'lambda-01787854-v3-seal-paper-and-review-boundary-are-pinned',
     holds: () => {
-      const c = NEWMAN_LAMBDA_01787854_THEOREM;
+      const c = NEWMAN_LAMBDA_01787854_CANDIDATE;
       return (
         c.closedAuditItems.length === 8 &&
-        c.closedAuditItems.every((item) => item.status === 'closed-in-root-seal') &&
-        c.identity.packageCommit === '9cc69d4775fafe3a9083c8b606ea9ad390e55fb2' &&
-        c.identity.releaseCommit === '737d14f3212d09d1a14c12f57f518fe00418c7f6' &&
-        c.identity.releaseTree === '9f532f3c0708788be898c63599e1455d9c7a7399' &&
+        c.closedAuditItems.every((item) =>
+          ['supplied-in-v3-candidate', 'verified-execution-in-v3'].includes(item.status)
+        ) &&
+        c.identity.releaseTag === 'review-01787854-v3' &&
+        c.identity.packageCommit === '2e9976c4becbf97e31c56fe75fce07cdff5dd4ea' &&
+        c.identity.releaseCommit === '2e9976c4becbf97e31c56fe75fce07cdff5dd4ea' &&
+        c.identity.releaseTree === '7f15ecf8c3dbc73d547a2d4a3f2287bd87802f44' &&
+        c.identity.annotatedTagObject === '585586bb0e6fd576710be704fda9500284b24bc7' &&
         c.identity.sealSha256 ===
-          '9d3edd9825d9231183094e035eb695c333f5d344615da896038667d75c597ce8' &&
+          '89a201565d5b4a0f02ab49092e3189c7a6d3b0bfaa4e93630c68cf8c4155ae1c' &&
         c.identity.containerImage ===
-          'sha256:8da4b264d3ca9c4630782d99c806886332987a5e7f882c09b7afdb2ba7214ef8'
+          'ghcr.io/judegomila/dbn-lambda-01787854-review@sha256:6e29bc53adc5a4337802da2b5a219720e3da9dcc1b87c546b96b6126d8b9975d' &&
+        c.refereePaper.sha256 ===
+          'b1151d56bc2917d98e3ff4047c0426f44ee88e6cf7edd1a6ca3c47ef324b1172' &&
+        c.refereePaper.pages === 21 &&
+        c.refereePaper.bytes === 73703 &&
+        c.refereePaper.publicPath ===
+          '/papers/dbn-lambda-01787854-candidate-audit-v3.pdf' &&
+        c.refereePaper.provenancePath ===
+          '/papers/dbn-lambda-01787854-candidate-audit-v3.provenance.txt' &&
+        c.verification.mainReplay.fullReviewPassed === true &&
+        c.verification.mainReplay.completeFiniteReplayPassed === true &&
+        c.verification.tagImageReplay.criticalReplayPassed === true &&
+        c.verification.tagImageReplay.completeFiniteReplayPassed === true &&
+        c.verification.sealEntryCount === 362 &&
+        c.implementationReviewItems.length === 2 &&
+        c.reviewBoundary.length === 5
       );
     },
     why:
-      'The display must retain the eight closed audit interfaces and immutable root, release, tree, manifest, and container provenance.',
+      'The display must pin the exact v3 release, paper, image, green replay records, supplied candidate interfaces, and the work that still requires independent review.',
   },
 ];

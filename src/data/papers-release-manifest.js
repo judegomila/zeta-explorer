@@ -9,16 +9,21 @@
  * ------------------
  * The mathematical results compose in stages, each defensible standalone:
  *
- *   v1 (WITHDRAWN): its finite-N headline depended on undischarged C_H
+ *   Entry 1 (WITHDRAWN): its finite-N headline depended on undischarged C_H
  *       and was incorrectly labeled an unconditional theorem.
  *
- *   v2 (PLANNED): companion note converting Theorem 2 conditional to
+ *   Entry 2 (PRIVATE REFEREE DRAFT): the immutable review-01787854-v3
+ *       standalone package proposes an unconditional computer-assisted proof
+ *       of Lambda <= 0.1787854. Its exact replays pass, but the mathematics
+ *       remains unreviewed and the bound is not established.
+ *
+ *   Entry 3 (PLANNED): companion note converting Theorem 2 conditional to
  *       UNCONDITIONAL via either (a) cloud-extended N=10^7 sweep
  *       (imp-1150) + tighter V2 OLS interval that strictly excludes
  *       upper-region of the asymptotic deviation, OR (b) rigorous
  *       ESY linear-statistics bound for the imp-1149 conjecture.
  *
- *   v3 (RESEARCH-GRADE OPEN): Lambda = 0 unconditional (RH-equivalent
+ *   Entry 4 (RESEARCH-GRADE OPEN): Lambda = 0 unconditional (RH-equivalent
  *       via Polymath15 bridge step 4 G6a_shock_lipschitz closure).
  */
 
@@ -96,8 +101,63 @@ export const PAPERS_RELEASE_MANIFEST = Object.freeze([
   }),
 
   Object.freeze({
-    id: 'gomila-asymptotic-unconditional-2026-companion',
+    id: 'dbn-lambda-01787854-candidate-audit-v3',
     releaseOrder: 2,
+    status: 'draft',
+    title:
+      'A Candidate for an Unconditional Computer-Assisted Proof of Lambda <= 0.1787854',
+    authors: ['Jude Gomila'],
+    abstractSummary:
+      'PRIVATE REFEREE DRAFT. The immutable review-01787854-v3 package proposes ' +
+      'an unconditional computer-assisted proof of Lambda <= 0.1787854. Both exact-commit ' +
+      'replay lanes pass, but the cited-theorem applications, handwritten reductions, ' +
+      'proof-to-code maps, and interval computations still require independent validation. ' +
+      'The proposed bound is not an established theorem and does not prove RH.',
+    pdfPath: '/papers/dbn-lambda-01787854-candidate-audit-v3.pdf',
+    provenancePath:
+      '/papers/dbn-lambda-01787854-candidate-audit-v3.provenance.txt',
+    fileSizeBytes: 73703,
+    pageCount: 21,
+    builtAt: '2026-07-27',
+    pdfSha256: 'b1151d56bc2917d98e3ff4047c0426f44ee88e6cf7edd1a6ca3c47ef324b1172',
+    releaseTag: 'review-01787854-v3',
+    releaseCommit: '2e9976c4becbf97e31c56fe75fce07cdff5dd4ea',
+    releaseUrl:
+      'https://github.com/judegomila/dbn-lambda-01787854-candidate-audit/releases/tag/review-01787854-v3',
+    sectionsIncluded: Object.freeze([
+      'Abstract and review status',
+      'Criterion and exact candidate row',
+      'Proof architecture and dependency discipline',
+      'Verified-height hypothesis',
+      'Finite final-time corpus',
+      'Native binding, height transfer, and window freeze',
+      'Infinite all-N tail theorem',
+      'Closed barrier, derivative bounds, prisms, and winding',
+      'Final theorem weld',
+      'Evidence hierarchy, reproduction protocol, and referee protocol',
+      'Risk register, conclusion, references, and exact numerical ledger',
+    ]),
+    citationKey: null,
+    bibtexSuggestion: null,
+    blockers: Object.freeze([
+      'Independent line-by-line review of the published-theorem applications and all new analytic reductions',
+      'Independent proof-to-code audit and genuinely separate recomputation',
+      'Referee sign-off before any theorem, publication, or public-priority claim',
+    ]),
+    releaseChecklist: Object.freeze([
+      Object.freeze({ item: 'Immutable v3 release and 362-entry seal', done: true }),
+      Object.freeze({ item: 'Exact-commit full-review workflow', done: true }),
+      Object.freeze({ item: 'Complete 3,149,013-row replay', done: true }),
+      Object.freeze({ item: 'Exact-image and offline cold replay', done: true }),
+      Object.freeze({ item: 'Independent mathematical referee report', done: false }),
+      Object.freeze({ item: 'Independent computational referee report', done: false }),
+    ]),
+    relatedTickets: Object.freeze([]),
+  }),
+
+  Object.freeze({
+    id: 'gomila-asymptotic-unconditional-2026-companion',
+    releaseOrder: 3,
     status: 'planned',
     title:
       'Unconditional asymptotic improvement of the de Bruijn-Newman ' +
@@ -127,7 +187,7 @@ export const PAPERS_RELEASE_MANIFEST = Object.freeze([
 
   Object.freeze({
     id: 'gomila-lambda-equals-zero-research-grade-open',
-    releaseOrder: 3,
+    releaseOrder: 4,
     status: 'research-grade-open',
     title:
       'A rigorous unconditional proof of Λ = 0 (RH-equivalent)',
@@ -160,6 +220,31 @@ export const PAPERS_RELEASE_MANIFEST_ASSERTIONS = [
     ),
     why:
       'The May 2026 manuscript must remain withdrawn until its undischarged C_H dependency is replaced by a theorem.',
+  },
+  {
+    id: 'papers-manifest-v3-candidate-paper-is-pinned-and-not-promoted',
+    holds: () => {
+      const paper = PAPERS_RELEASE_MANIFEST.find(
+        (p) => p.id === 'dbn-lambda-01787854-candidate-audit-v3',
+      );
+      return (
+        paper?.status === 'draft' &&
+        paper?.pdfPath === '/papers/dbn-lambda-01787854-candidate-audit-v3.pdf' &&
+        paper?.provenancePath ===
+          '/papers/dbn-lambda-01787854-candidate-audit-v3.provenance.txt' &&
+        paper?.pageCount === 21 &&
+        paper?.fileSizeBytes === 73703 &&
+        paper?.pdfSha256 ===
+          'b1151d56bc2917d98e3ff4047c0426f44ee88e6cf7edd1a6ca3c47ef324b1172' &&
+        paper?.releaseTag === 'review-01787854-v3' &&
+        paper?.releaseCommit === '2e9976c4becbf97e31c56fe75fce07cdff5dd4ea' &&
+        paper?.releaseChecklist?.some(
+          (item) => item.item === 'Independent mathematical referee report' && item.done === false,
+        )
+      );
+    },
+    why:
+      'The referee manuscript must remain downloadable as a pinned private-review draft without being promoted to an established or publication-ready theorem.',
   },
   {
     id: 'papers-manifest-release-order-strictly-increasing',

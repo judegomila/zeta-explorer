@@ -143,9 +143,10 @@ export function spectralLambdaKernelTest() {
     };
   });
 
-  // Part 3: reference values. Only the last two entries are rigorous bounds.
+  // Part 3: reference values. Only the peer-reviewed value is an established
+  // upper bound; 0.1787854 is an unreviewed candidate target.
   const finiteDysonEstimate = 0.011;       // imp-304 numerical estimate
-  const repositoryBound = 0.1787854;       // unreviewed computer-assisted theorem
+  const candidateBound = 0.1787854;        // private, unreviewed computer-assisted candidate
   const peerReviewedBound = 0.2;           // Platt-Trudgian
 
   // Part 4: compare the heuristic scale with the finite stored zero sample
@@ -198,7 +199,7 @@ export function spectralLambdaKernelTest() {
     comparison: {
       'Finite Dyson estimate imp-304 (not rigorous)': finiteDysonEstimate,
       'GUE two-body proxy (not a bound)': predictedProxy.twoBodyCollisionProxy,
-      'Repository computer-assisted bound (unreviewed)': repositoryBound,
+      'Private computer-assisted candidate (not established)': candidateBound,
       'Peer-reviewed Platt-Trudgian bound': peerReviewedBound,
       'RH (Λ=0)': 0,
     },
@@ -225,8 +226,10 @@ export function spectralLambdaKernelTest() {
     verdict:
       'HEURISTIC / NUMERICAL DIAGNOSTIC ONLY. GUE spacing statistics, ' +
       'finite stored zeros, and cascade-Hamiltonian gaps do not produce a ' +
-      'rigorous de Bruijn-Newman bound. The rigorous displayed references ' +
-      'remain the repository theorem Lambda <= 0.1787854 (unreviewed) and ' +
-      'the peer-reviewed Platt-Trudgian Lambda <= 0.2.',
+      'rigorous de Bruijn-Newman bound. The established displayed upper bound ' +
+      'remains the peer-reviewed Platt-Trudgian Lambda <= 0.2. A private standalone ' +
+      'audit proposes Lambda <= 0.1787854 as an unreviewed computer-assisted candidate ' +
+      'for an unconditional proof; the bound is not established, has not been peer reviewed, ' +
+      'and is not a proof of RH.',
   };
 }

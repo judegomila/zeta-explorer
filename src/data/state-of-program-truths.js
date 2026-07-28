@@ -2,13 +2,14 @@
 // both StateOfProgramPage (full page) and DashboardPage (compact summary card),
 // so the top-line status cannot drift between the two surfaces.
 //
-// Facts mirror the full route map and the sealed fixed-height proof package
-// (status reconciliation, 2026-07-24):
+// Facts mirror the full route map and the fixed-height candidate proof package
+// (status reconciliation, 2026-07-28):
 //   PEER-REVIEWED = Platt-Trudgian Lambda <= 0.2 (NOT this program)
 //   PUBLIC CLAIM  = Lambda <= 0.1875 certificate package, locally repaired,
 //                   listed publicly but unrefereed
-//   REPOSITORY THEOREM = Lambda <= 0.1787854, computer-assisted,
-//                        unpublished and unpeer-reviewed
+//   PRIVATE CANDIDATE = Lambda <= 0.1787854, an unreviewed
+//                       computer-assisted candidate for an unconditional proof;
+//                       bound not established, not peer reviewed, and not RH
 //   ESTIMATE      = finite-N* = 1e4 modeled figure, gated on the undischargeable C_H
 //   RH-EQUIVALENT = Volterra ||V|| <= 1 collapse (a rename, not a reduction)
 //   REFUTED       = the thin-strip sub-RH shortcut is a dead artifact (imp-2630)
@@ -17,7 +18,7 @@
 // Intentionally has NO imports so it stays light and never drags in the
 // 16.7MB zeros bundle through a page import.
 
-export const STATE_OF_PROGRAM_SUMMARY_DATE = '2026-07-24';
+export const STATE_OF_PROGRAM_SUMMARY_DATE = '2026-07-28';
 
 export const STATE_OF_PROGRAM_TRUTHS = [
   {
@@ -39,15 +40,14 @@ export const STATE_OF_PROGRAM_TRUTHS = [
       'located public, locally repaired preprint claim—not a peer-reviewed theorem or an endorsement by the ledger.',
   },
   {
-    badge: 'REPOSITORY THEOREM',
+    badge: 'UNREVIEWED CANDIDATE',
     color: '#22d3ee',
-    title: 'The sealed root repository proves Λ ≤ 0.1787854 — computer-assisted, unpublished, and unpeer-reviewed',
+    title: 'The standalone private review repository presents Λ ≤ 0.1787854 as an unreviewed computer-assisted candidate for an unconditional proof',
     body:
-      'The proof seals a closed compact slab, a final-time zero-free half-strip, a fresh replay of all 3,149,013 ' +
-      'finite rows, corrected 10.50 finite and tail error bounds, and the exact Polymath criterion weld. The eight ' +
-      'formerly open interfaces are closed in root commit 9cc69d4775fa. This is a theorem proved in the repository, ' +
-      'not a claim of publication, peer review, or acceptance by the literature; independent external review remains ' +
-      'open. The bound is positive and does not prove RH, which requires Λ ≤ 0.',
+      'Standalone tag review-01787854-v3 at commit 2e9976c4becbf97e31c56fe75fce07cdff5dd4ea packages claimed certificates for a compact slab, a final-time zero-free half-strip, ' +
+      'a fresh replay of all 3,149,013 finite rows, corrected 10.50 finite and tail error bounds, and an exact Polymath ' +
+      'criterion weld. These ingredients form an unreviewed computer-assisted candidate for an unconditional proof. ' +
+      'The bound is not established and has not been peer reviewed. It is not a proof of RH, which requires Λ ≤ 0.',
   },
   {
     badge: 'ESTIMATE',
@@ -87,7 +87,8 @@ export const STATE_OF_PROGRAM_TRUTHS = [
     body:
       'The established Dyson/collision compositions funnel into the C_H / G6a Hölder-½ shock modulus ' +
       '(Step-4 bridge / Polymath15). An N-uniform bound would upgrade their finite estimate and asymptotic target. ' +
-      'The separate fixed-height 0.1787854 repository theorem does not consume C_H and does not close this older route. ' +
+      'The separate fixed-height 0.1787854 candidate package does not consume C_H and does not close this older route. ' +
+      'Its bound is not established, has not been peer reviewed, and is not RH. ' +
       'The exact global Twin Ladder residual inequality remains equivalent to RH rather than a strict reduction.',
   },
 ];

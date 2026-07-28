@@ -7,10 +7,11 @@ import {
  * PapersDownloadPage — ordered index of releasable papers from this project.
  *
  * Listed in release order (releaseOrder field on each manifest entry).
- * Each row exposes either a download link (if status: 'ready') or a
- * placeholder card showing blockers + ETA (if status: planned / research-grade-open).
+ * Any entry with a served PDF exposes that artifact, including referee
+ * drafts; status and blockers remain visible so a downloadable draft cannot
+ * be mistaken for an accepted result.
  *
- * Route: /papers
+ * Route: /papers-download
  */
 
 const STATUS_PALETTE = {
@@ -48,6 +49,7 @@ function formatBytes(n) {
 
 function PaperRow({ paper }) {
   const isReady = paper.status === 'ready';
+  const hasPdf = Boolean(paper.pdfPath);
   return (
     <article style={{
       background: 'rgba(15,23,42,0.7)',
@@ -65,7 +67,7 @@ function PaperRow({ paper }) {
       }}>
         <div>
           <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono, monospace)' }}>
-            Release v{paper.releaseOrder} · {paper.id}
+            Release order {paper.releaseOrder} · {paper.id}
           </div>
           <h2 style={{ fontSize: 18, fontWeight: 700, color: '#e2e8f0', margin: '6px 0 4px 0' }}>
             {paper.title}
@@ -81,7 +83,7 @@ function PaperRow({ paper }) {
         {paper.abstractSummary}
       </p>
 
-      {isReady ? (
+      {hasPdf && (
         <div style={{
           display: 'flex',
           gap: 12,
@@ -105,16 +107,43 @@ function PaperRow({ paper }) {
               fontFamily: 'var(--font-mono, monospace)',
             }}
           >
-            ↓ Download PDF ({formatBytes(paper.fileSizeBytes)}, {paper.pageCount} pages)
+            ↓ {isReady ? 'Download PDF' : 'Download referee PDF'} ({formatBytes(paper.fileSizeBytes)}, {paper.pageCount} pages)
           </a>
           <span style={{ fontSize: 12, color: '#64748b', fontFamily: 'var(--font-mono, monospace)' }}>
             built {paper.builtAt}
           </span>
+          {paper.provenancePath && (
+            <a
+              href={paper.provenancePath}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#7dd3fc', fontSize: 12, textDecoration: 'none' }}
+            >
+              Provenance sidecar ↗
+            </a>
+          )}
         </div>
-      ) : (
+      )}
+
+      {paper.releaseUrl && (
+        <div style={{ marginTop: 10, fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono, monospace)', overflowWrap: 'anywhere' }}>
+          <a
+            href={paper.releaseUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#7dd3fc', textDecoration: 'none' }}
+          >
+            immutable {paper.releaseTag} ↗
+          </a>
+          {' · '}commit {paper.releaseCommit?.slice(0, 12)}
+          {' · '}PDF SHA-256 {paper.pdfSha256}
+        </div>
+      )}
+
+      {!isReady && (
         <div style={{ marginTop: 14 }}>
           <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 6, fontFamily: 'var(--font-mono, monospace)' }}>
-            Blockers ({(paper.blockers || []).length}):
+            {paper.status === 'draft' ? 'Review required' : 'Blockers'} ({(paper.blockers || []).length}):
           </div>
           <ul style={{ margin: '4px 0 0 0', paddingLeft: 22, color: '#cbd5e1', fontSize: 13 }}>
             {(paper.blockers || []).map((b, i) => (
@@ -169,6 +198,7 @@ export default function PapersDownloadPage() {
     (a, b) => a.releaseOrder - b.releaseOrder,
   );
   const readyCount = sorted.filter((p) => p.status === 'ready').length;
+  const draftCount = sorted.filter((p) => p.status === 'draft').length;
   const withdrawnCount = sorted.filter((p) => p.status === 'withdrawn').length;
   const plannedCount = sorted.filter((p) => p.status === 'planned' || p.status === 'research-grade-open').length;
 
@@ -176,15 +206,16 @@ export default function PapersDownloadPage() {
     <main style={{ maxWidth: 920, margin: '0 auto', padding: '32px 24px' }}>
       <header style={{ borderBottom: '1px solid #1e293b', paddingBottom: 18, marginBottom: 24 }}>
         <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono, monospace)', textTransform: 'uppercase', letterSpacing: 1 }}>
-          /papers
+          /papers-download
         </div>
         <h1 style={{ fontSize: 26, fontWeight: 700, color: '#e2e8f0', margin: '8px 0 4px 0' }}>
           Papers — release-ordered downloads
         </h1>
         <p style={{ color: '#94a3b8', fontSize: 14, margin: '8px 0 0 0' }}>
-          {readyCount} ready, {withdrawnCount} withdrawn, {plannedCount} planned /
-          research-grade-open. Withdrawn artifacts are retained for provenance
-          and are not offered as current mathematical results.
+          {readyCount} ready, {draftCount} referee draft, {withdrawnCount} withdrawn,{' '}
+          {plannedCount} planned / research-grade-open. Downloadability records
+          artifact availability, not mathematical acceptance; draft and withdrawn
+          status labels remain controlling.
         </p>
       </header>
 

@@ -149,12 +149,12 @@ export default function ProofOverviewPage() {
               <li>Functional equation and critical-line boundary modulus.</li>
               <li>Finite induction for the separate algebraic zeta ratio.</li>
               <li>Correct zero/pole divisor of that ratio.</li>
-              <li>Repository theorem <InlineMath tex="\Lambda\le0.1787854" /> (computer-assisted).</li>
             </ul>
           </div>
           <div className="card" style={{ borderLeft: '3px solid #eab308', padding: 16 }}>
             <h3 style={{ color: '#facc15', marginTop: 0 }}>Evidence, not proof</h3>
             <ul style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.75, paddingLeft: 18 }}>
+              <li>Standalone private-review candidate <InlineMath tex="\Lambda\le0.1787854" /> (unreviewed and computer-assisted; bound not established).</li>
               <li>Finite energy and curvature plots.</li>
               <li>GUE-like numerical statistics for computed zeros.</li>
               <li>Li coefficients checked over finite ranges.</li>
@@ -167,7 +167,7 @@ export default function ProofOverviewPage() {
               <li>Physical realization of the arithmetic ratio.</li>
               <li>Self-adjoint spectral identification.</li>
               <li>All-shifts Schur/de Branges positivity.</li>
-              <li>Publication and independent peer review of the 0.1787854 theorem.</li>
+              <li>Independent mathematical validation and peer review of the 0.1787854 candidate.</li>
             </ul>
           </div>
         </div>
@@ -187,14 +187,15 @@ export default function ProofOverviewPage() {
           The old eight-step chain does not prove RH. Its most important self-correction is the
           separation between the exact algebraic Euler embedding and the physical LC analogy. The
           v70 shift-bridge formulation supplies a cleaner RH-equivalent target. Separately, the
-          root repository proves the positive bound <InlineMath tex="\Lambda\le0.1787854" />;
-          that computer-assisted theorem is unpublished and unpeer-reviewed and does not prove RH.
+          standalone private review repository presents the positive bound <InlineMath tex="\Lambda\le0.1787854" /> as
+          an unreviewed computer-assisted candidate for an unconditional proof. The bound is not
+          established, has not been peer reviewed, and is not RH.
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
           <Link to="/full-story" style={{ color: '#a5b4fc' }}>Corrected full story</Link>
           <Link to="/control" style={{ color: '#a5b4fc' }}>Control-theory correction</Link>
           <Link to="/paper-audit-dashboard" style={{ color: '#a5b4fc' }}>v70 audit</Link>
-          <Link to="/newman-lambda-01787854-candidate" style={{ color: '#67e8f9' }}>Theorem certificate</Link>
+          <Link to="/newman-lambda-01787854-candidate" style={{ color: '#67e8f9' }}>Candidate package</Link>
         </div>
       </div>
     </div>

@@ -2,20 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Single-source evidence-grade picture shared by /rh-proof-state and /rigor-dashboard.
-// Publication, repository proof, RH-equivalence, and numerical estimation stay distinct.
+// Publication, repository candidacy, RH-equivalence, and numerical estimation stay distinct.
 export const PROOF_TIER_DATA = [
   {
-    key: 'repository-theorem',
-    tier: 'PROVED IN REPOSITORY — Unreviewed',
+    key: 'proof-candidate',
+    tier: 'UNREVIEWED CANDIDATE — Bound not established',
     color: '#22d3ee',
     bg: 'rgba(34,211,238,0.08)',
     headline: 'Λ ≤ 0.1787854',
-    subhead: 'Computer-assisted theorem — unpublished and unpeer-reviewed',
+    subhead: 'Computer-assisted candidate for an unconditional proof — not peer reviewed; not RH',
     bullets: [
-      'Root commit 9cc69d4775fa seals the complete proof and exact criterion assembly.',
-      'A fresh material replay covers all 3,149,013 finite rows; corrected finite and tail errors use 10.50.',
-      'The compact slab and final-time half-strip are proved; all eight former candidate interfaces are closed.',
-      'The bound is positive and therefore does not prove RH, which requires Λ ≤ 0.',
+      'Standalone tag review-01787854-v3 at commit 2e9976c4becb packages the candidate proof and exact criterion assembly for review.',
+      'The package reports a fresh material replay over all 3,149,013 finite rows; corrected finite and tail errors use 10.50.',
+      'Its claimed compact-slab and final-time half-strip closures still require independent mathematical review.',
+      'The candidate bound is not established, has not been peer reviewed, and is not RH, which requires Λ ≤ 0.',
     ],
     link: '/newman-lambda-01787854-candidate',
   },

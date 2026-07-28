@@ -270,6 +270,8 @@ const MARKOV_NORMALIZATION = {
     'T124: if finite positive log-scale measures share an open exponential-moment strip and their scalar response Rτ(w)=∫eʷʸdντ(y) is τ-independent on a determining subset, analytic continuation and Fourier uniqueness force ντ to be one fixed measure. Separately, a continuous nonnegative degree-d homogeneous rule on finitely many channels of one conjugate pure mode either annihilates its whole phase orbit or creates a simple real Mellin pole at s=dσ with positive residue. Positive part, absolute value, and square are basic examples. Discrete zero values, variable symbols, full multi-mode waves, adaptive nonlinearities, and global arithmetic transforms remain outside; this is a route classification, not an RH proof or non-equivalence theorem',
   fixedBlockBlindLattice:
     'T125: for a>1 and every fixed density ϖ∈L¹([α,β]) on a positive compact interval, ℬϖ(z)=a^z−2+∫ϖ(μ)μ^z dμ has exactly one simple zero z_n=log 2/log a+2πin/log a+o_ϖ(1) near each sufficiently high base-lattice point. Compact-uniform Riemann–Lebesgue decay and Rouché prove this; bounded variation in the log coordinate restores O_ϖ(1/|n|), while bare L¹ has no universal rate. Exact integer-multiplicity weighted prefix products have normalized atomic empirical measures and the exact response in (493); weak limits recover the continuous symbol locally, but no uniform finite-N vertical decay or inherited Mellin-transfer estimate follows. Atomic, non-Rajchman, scale-adaptive, and fully discrete weights remain outside; no zeta zero is located and RH remains open',
+  fixedMeasureBlindPoints:
+    'T126: for a>1 and every fixed finite complex Borel measure ν with supp|ν| contained in [α,β] compactly inside (1,a), ℬν(z)=a^z−2+∫μ^z dν(μ) has infinitely many zeros in every half-plane Re z>c with c<σ*=log 2/log a. T125 localizes one zero at every large base-lattice index for L¹ densities; discrete Wiener theory gives an asymptotic lattice subsequence for atomless measures; the general result is nonlocalized. A positive atomic probability measure has positive vertical zero density strictly right of σ*, as δ_{√a} shows on Re z=2σ*. Wasserstein transfer toward one fixed L¹-density target works through heights T_N only when T_NW₁→0; prefix grids permit T_N=o(min{N,M_N}). Endpoint atoms, scale-adaptive weights, and the missing arithmetic Mellin error remain outside; these are multiplier blind points, not zeta zeros, and RH remains open',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -365,6 +367,8 @@ const MARKOV_NORMALIZATION = {
     'T124 classifies two formal escape routes. One exact scale-independent scalar response on a determining subset of a common open Mellin strip freezes every positive log-scale measure; finite continuous nonnegative homogeneous rectification of one pure conjugate mode either erases the full orbit or manufactures the real pole with positive residue required by Landau. Discrete zeta-zero matching, variable symbols, full multi-mode or adaptive nonlinear behavior, and genuinely global arithmetic remain unclassified, so this proves neither RH nor non-equivalence.',
   structureT125:
     'T125 proves that every fixed absolutely continuous reweighting of the T123 block retains the asymptotic blind lattice: compact-uniform Riemann–Lebesgue decay and Rouché give one simple zero near each high root of a^z−2. Exact weighted prefix products converge locally to this symbol when their normalized empirical measures converge weakly on the fixed prefix interval, but each finite response is atomic and no uniform high-frequency or Mellin-error transfer is proved. This is a fixed-weight route no-go, not an RH proof or non-equivalence theorem.',
+  structureT126:
+    'T126 closes the fixed atomic and singular-measure loopholes at weaker localization: Jessen convexity for the atomic almost-periodic part and a Wiener–Rouché transfer for the atomless part force infinitely many blind points in every half-plane Re z>c with c<σ*=log 2/log a. Positive atomic probabilities even have positive zero density strictly to the right of σ*. A quantitative Wasserstein theorem transfers a growing lattice window only toward one fixed L¹ target when T_NW₁→0. Endpoint support, scale adaptation, and the required discrete Mellin estimate remain outside, so this is still not an RH proof.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -1210,6 +1214,21 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'For a>1, 0<α<β<∞, and one fixed density ϖ∈L¹([α,β]), the Mellin term I_ϖ and its derivative decay uniformly on every fixed disk translated to ζ_n=log 2/log a+2πin/log a. Rouché’s theorem then gives exactly one simple zero z_n=ζ_n+o_ϖ(1). For a=32/21, Re z_n→1.645595…>3/2. Bare L¹ regularity supplies no universal rate; bounded variation of the log-coordinate density restores O_ϖ(1/|n|). ' +
       'For exact integer multiplicities m_{N,u}, let M_N=Σ_um_{N,u} and ν_N=M_N⁻¹Σ_um_{N,u}δ_{u/(105N)}. The weighted-prefix response is exactly Q_{N,m}(z)=21^(z+1)(105N)^zM_N(a^z−a){a^z−2+∫μ^z dν_N(μ)}. Weak convergence ν_N⇒ϖ(μ)dμ on the fixed normalized prefix interval gives local-uniform convergence to ℬϖ. Every finite ν_N is nevertheless atomic and almost periodic vertically, so there is no uniform high-frequency finite-N lattice, and growing multiplicities require new discrete-Mellin estimates rather than inheriting T123’s O(N²) transfer. Atomic or non-Rajchman limits, scale-adaptive densities, and fully discrete strategies remain outside. No blind point is asserted to be a zeta zero, and RH remains open.',
   },
+  {
+    id: 'T126',
+    color: '#f472b6',
+    status:
+      'EVERY FIXED INTERIOR MEASURE · INFINITELY MANY RIGHT-HALF BLIND POINTS · RH OPEN',
+    title: 'Atomic and singular fixed weights cannot remove every blind point',
+    formula:
+      'supp|ν|⊂[α,β]⊂⊂(1,a) ⇒ ∀c<σ*=log 2/log a, #{z: ℬν(z)=0, Re z>c}=∞',
+    detail:
+      'For any fixed finite complex Borel measure ν with strict interior support, no positivity or mass normalization is needed: ℬν(z)=a^z−2+∫μ^z dν(μ) has infinitely many zeros in every half-plane Re z>c with c<σ*. For a=32/21 this includes infinitely many zeros with Re z>3/2. The proof splits ν into atomic and atomless parts, uses Jessen convexity on the analytic almost-periodic atomic symbol, and then combines its positive-density almost periods with a continuous Wiener mean-square estimate and two Rouché comparisons. ' +
+      'Localization depends on regularity. T125 gives one simple zero near every sufficiently high base-lattice point for an L¹ density; atomless measures, including singular-continuous ones, retain a subsequence z_{n_j}=ζ_{n_j}+o(1); a general finite complex measure gets infinitely many right-half zeros without a universal lattice or rate. Every positive atomic probability measure has positive vertical zero density in Re z>σ*+εν for some εν>0. The exact example ν=δ_{√a} factorizes ℬν=(a^(z/2)−1)(a^(z/2)+2), placing its second zero family on Re z=2σ*. ' +
+      'For empirical measures converging to one fixed L¹-density target in logarithmic W₁ distance d_N, a growing lattice window transfers only under T_Nd_N→0. Cumulative rounding on prefix grids gives d_N=O(1/N+1/M_N), hence T_N=o(min{N,M_N}) is sufficient. Endpoint atoms can put every zero on Re z=0, scale-dependent measures remain outside, and the zero statement supplies neither the missing weighted Mellin error nor a zeta zero. The verifier’s δ_{√a} factorization is only a normalization fixture; the general theorem is analytic. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -1362,7 +1381,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T125 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T126 · 2026-07-28</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1730,7 +1749,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T125 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T126 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1740,7 +1759,8 @@ export default function OpenFrontierPage() {
           {MARKOV_NORMALIZATION.structureT122}{' '}
           {MARKOV_NORMALIZATION.structureT123}{' '}
           {MARKOV_NORMALIZATION.structureT124}{' '}
-          {MARKOV_NORMALIZATION.structureT125}
+          {MARKOV_NORMALIZATION.structureT125}{' '}
+          {MARKOV_NORMALIZATION.structureT126}
         </p>
         <div
           style={{
@@ -1844,6 +1864,7 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.wholeBlockAggregate,
             MARKOV_NORMALIZATION.exactMellinRigidity,
             MARKOV_NORMALIZATION.fixedBlockBlindLattice,
+            MARKOV_NORMALIZATION.fixedMeasureBlindPoints,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -2455,6 +2476,42 @@ export default function OpenFrontierPage() {
           over. Thus fixed absolutely continuous smoothing cannot cure
           this blind lattice, while atomic, singular, scale-adaptive, and
           fully discrete strategies remain outside.
+          T126 closes those fixed atomic and singular-measure loopholes
+          at a weaker level of localization. For any fixed finite complex
+          Borel measure ν with
+          supp|ν|⊂[α,β]⊂⊂(1,a), the symbol
+          ℬ<sub>ν</sub>(z)=a<sup>z</sup>−2+
+          ∫μ<sup>z</sup>dν(μ) has infinitely many zeros in every
+          half-plane Re z&gt;c with
+          c&lt;σ<sub>*</sub>=log 2/log a. No positivity or normalization
+          is required, and at a=32/21 this gives infinitely many blind
+          points with real part above 3/2. The proof applies Jessen
+          convexity to the analytic almost-periodic atomic symbol, then
+          uses a continuous Wiener mean-square estimate and Rouché
+          comparisons to transfer its positive-density almost periods
+          past the atomless remainder.
+          The localization hierarchy depends on regularity: an
+          L<sup>1</sup> density has one simple zero near every sufficiently
+          high base-lattice point; an atomless measure retains a
+          subsequence z<sub>n_j</sub>=ζ<sub>n_j</sub>+o(1); a general
+          measure has infinitely many right-half zeros but no universal
+          lattice or rate. A positive atomic probability measure has
+          positive vertical zero density strictly right of
+          σ<sub>*</sub>. For ν=δ<sub>√a</sub>, the exact factorization
+          ℬ<sub>ν</sub>=(a<sup>z/2</sup>−1)
+          (a<sup>z/2</sup>+2) puts the second family on
+          Re z=2σ<sub>*</sub>.
+          Quantitative finite-grid transfer is available only toward one
+          fixed L<sup>1</sup>-density target. If d<sub>N</sub> is the
+          logarithmic W<sub>1</sub> distance, a growing height must
+          satisfy T<sub>N</sub>d<sub>N</sub>→0; cumulative rounding on
+          prefix grids makes
+          T<sub>N</sub>=o(min{'{'}N,M<sub>N</sub>{'}'}) sufficient.
+          Endpoint atoms show why strict interior support is essential,
+          while scale-adaptive measures remain outside. The verifier
+          checks the δ<sub>√a</sub> factorization only as a normalization
+          fixture; the general result is analytic. None of this supplies
+          the missing weighted Mellin estimate or identifies a zeta zero.
           RH is therefore still unresolved.
           Separately, for the T93/T96 annular deficit, if RH is false
           both strict signs recur infinitely often; if RH is true the

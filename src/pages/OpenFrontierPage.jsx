@@ -262,6 +262,8 @@ const MARKOV_NORMALIZATION = {
     'T120: at the exact T119 phase, a shared 1,152-bit Arb/Turing certificate proves W₁>47/1000, W₁₀₆⁄₁₀₅>9/250, and W₁₁₃⁄₁₀₅<−9/1000; T111 gives W₃₀⁄₂₁>1/20 at every phase, while W₃₂⁄₂₁=2W₁ exactly. Joint almost-periodic recurrence therefore gives, on RH, infinitely many rows with signs +,+,−,+,+ at u=(105,106,113,150,160)N. Each has a down-crossing in [106N,113N) and an up-crossing in [113N,150N). This is an RH-conditional route diagnostic, not an RH proof',
   selfSimilarRadixObstruction:
     'T121: the exact T112 product X_N=e^Δ_N has a negative 850N<p≤975N prime sector and a positive 975N<p≤1326N sector. The natural cross-prime quotient and its residual have opposite ±(9,643,725/2)N² leading terms, so the proposed N² transport payment cancels before the N³ᐟ² square layer. The balanced tail obeys J(1/n)=0, J(4/(4n+1))=−7/(4n+1)², and J(2/(2n+1))=7/(2n+1)² in every reciprocal shell; at N=18, threshold Kᵤ≥2¹⁵⁴ has a Hall deficit 155727−155600=127. Equal-or-larger monotone transport is therefore impossible. This is an unconditional route no-go, not a sign theorem or RH proof',
+  uniformNegativePhaseInterval:
+    'T122: a 1,152-bit, 10,000-zero Arb/Turing certificate proves sup Wμ(t*)<−0.0084387337…<−1/125 for every real μ∈[113/105−1/20000,113/105+1/20000], not merely a grid. On RH, recurrence therefore gives infinitely many rows whose exact block A_N=113N−⌊21N/4000⌋ through B_N=113N+⌊21N/4000⌋ is wholly negative; its 2⌊21N/4000⌋+1=k/10000+O(1) prefixes have total variation at least (157/1000−o(1))D_N around them and Ω(N/log²N) increments of each sign. This is conditional route geometry, not a contradiction or an RH proof',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -349,6 +351,8 @@ const MARKOV_NORMALIZATION = {
     'T90 factors the positive annulus exactly into lcm and prime-power layers, producing a square-only strengthening and a Pascal comparator while proving the natural binomial majorant loses at main order. ' +
     'T91 narrows the zero-complete positive support from factor 4 to 289/81. T92 makes two generic tents jointly zero-complete, and T95 extends the sharp 3.451336… global-amplitude floor from concave splines to every finite nonnegative piecewise-linear annular kernel. ' +
     'T93 spends the rigorously isolated first 1,000 zeros individually, shrinking one zero-complete tent to support 529/225=2.351111…. T94 proves every rowwise factorial/multinomial cover still loses at main order. T96 then certifies the first 50,000 zeros and shrinks the support again to 1024/441=2.321995…. T97 identifies the remaining arithmetic target exactly as an adjacent cross-factor carry ballot and rules out its naive monotonicity, divisibility, pairwise, and independent-cover proofs. T98 proves two unconditional subsidiary results for the T93 slack. T99 strengthens recurrence to deep N³ᐟ² checkpoints for both sharp annuli and propagates them into explicit super-√N valid blocks, while T100 derives the exact 32/21 carry ballot and rules out the same local shortcuts at the sharpest support. T101 packages both annuli into an exact all-integer proportional buffer and nonnegative trapezoidal kernel, proves that every fixed residue lane remains RH-complete, and transfers T99 to long consecutive buffer-positive intervals. T102 identifies their shared Beatty word pattern and exactly refutes the global all-k scalar laws. T103 proves every bounded-ℓ¹ local filter through square-root depth remains RH-complete. T104 quantifies the local escape cost; T105 constructs an RH-safe multiplicative escape but proves every finite notch spectrum-incomplete; T106 shows strong real cancellation of one complex local mode has a still higher quadratic conditioning cost; T107 proves subcritical adaptive local postfilters preserve the entire square-notched zero wave. T108 converts the surviving scalar buffer exactly into a compensated difference of floor-aligned geometric θ−x means and rules out convexity shortcuts. T109 builds the maximally damped global positive-kernel cumulative: it has unconditional positive logarithmic limsup, but any tail floor would already prove RH. T110 isolates the ordered terminal-buffer drawdown that survived a numerical scan through k=100,000,000; T119 now proves that its eventual all-u conjecture is false. T111 proves that two strictly interior samples nevertheless form a joint RH equivalence because their multipliers have no common off-line blind spot, with four rigorous positive Hadamard margins. T112 collapses the paired obligation to one strict-interior difference band: a 10,000-zero Arb/Turing budget proves its RH-side margin, its multiplier is zero-free for Re z>1, and its exact support ratio is 1326/625=2.1216. T113 proves that exact product comparison unconditionally on infinitely many whole N^(1/2+o(1))-length blocks with restored prime-square margin 59279.380606…N³ᐟ², while exact local and valuation audits close the naive termwise, divisibility, pairwise, and canonical-prime-jump fixed-step routes. T114 extends the same exact band to every power cumulative α≤5/2: the positive square-pole recurrence persists, but even a −CX^(5/2−α) tail floor is RH-equivalent. T115 uses a moving positive log-Gaussian to extract the prime-square residue unconditionally and proves a deep valid comparator in every power interval [Y,Y^(29/25)], while showing that every fixed finite positive weighting retains mixed arithmetic signs. T116 spends the full Platt–Trudgian verified height to reduce the exact power exponent to 1.0000000000006666277…, upgrades every such window to a whole deep block, and proves a deep-win counting exponent at least 0.4999999999996666861…. T117 classifies the fixed infinite alternative: a positive zero-adaptive notch cancels the complete critical wave and preserves every off-line pole, so even its natural-scale lower floor remains RH-equivalent. T118 returns to the ordered arithmetic buffer: infinitely many deep row blocks carry two growing positive endpoint layers, while a 1,000-zero negative absolute-margin certificate rules out the proposed uniform coefficientwise absolute-amplitude proof across the middle. T119 replaces the provisional independence argument with an explicit 1,152-bit, 10,000-zero phase certificate. On RH it forces normalized Λ₃₂,₂₁(105N,113N) below −9/1000 infinitely often by almost-periodic recurrence; if RH is false, the endpoint equivalence forces negative endpoints infinitely often. Thus eventual all-u positivity is unconditionally false. Exact valuations also close both same-prime divisibility orientations across all 17 aligned middle channels. T120 uses the same exact phase to bracket an RH-conditional negative island between positive channels at 106N and 150N, forcing one down-crossing and one up-crossing on infinitely many common recurrent rows. T121 proves that the T112 comparator’s natural monotone cross-prime transport pays and loses equal N² leading terms, has a sign-changing self-similar tail in every reciprocal shell, and already has a Hall deficit of 127 at N=18. Both are route diagnostics, not proofs or disproofs of RH.',
+  structureT122:
+    'T122 upgrades the T119 point phase to the full real interval [113/105±1/20000]. Under RH, recurrence turns it into a linear block of consecutive negative prefixes with forced macroscopic variation and many increments of both signs. This remains an RH-conditional route diagnostic, not a contradiction or a proof or disproof of RH.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -1140,6 +1144,20 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     certificate:
       'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
   },
+  {
+    id: 'T122',
+    color: '#06b6d4',
+    status:
+      'UNIFORM NEGATIVE INTERVAL · RH-CONDITIONAL MACROSCOPIC BLOCK',
+    title: 'One certified phase interval controls a linear block of prefixes',
+    formula:
+      'RH ⇒ infinitely often Λ₃₂,₂₁(105N,u)/D_N ≤ −1/125+o(1)<0 for every A_N≤u≤B_N',
+    detail:
+      'For I=[113/105−1/20000,113/105+1/20000]=[451979/420000,452021/420000], a full 1,152-bit Arb computation with the first 10,000 zeros and an exact Turing count proves sup_{μ∈I} W_μ(t*)<−0.00843873376937999949…<−1/125. The selected-mode derivative variation is below 0.000975612 and the residual Hadamard tail is included, so this certifies the entire continuous real interval, not a finite μ grid. C([1,a])-valued almost-periodic recurrence then gives, assuming RH and with no divisibility condition on N, infinitely many N for which every prefix from A_N=113N−⌊21N/4000⌋ through B_N=113N+⌊21N/4000⌋ is negative after normalization by D_N=21⁵ᐟ²(105N)³ᐟ². ' +
+      'The block has exactly 2⌊21N/4000⌋+1=105N/10000+O(1)=k/10000+O(1) prefixes, where k=105N. The positive endpoint margins force total variation TV_[105N,160N] Λ≥(157/1000−o(1))D_N, with Ω(N/log²N) negative increments before the block and Ω(N/log²N) positive increments after it. These are macroscopic consequences conditional on RH; they yield neither an unconditional contradiction nor a proof or disproof of RH.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_terminal_buffer_phase_interval.c',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -1291,7 +1309,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T121 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T122 · 2026-07-28</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1659,13 +1677,14 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T121 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T122 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
         </strong>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.65, margin: 0 }}>
-          {MARKOV_NORMALIZATION.structure}
+          {MARKOV_NORMALIZATION.structure}{' '}
+          {MARKOV_NORMALIZATION.structureT122}
         </p>
         <div
           style={{
@@ -1765,6 +1784,7 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.explicitPhaseReversal,
             MARKOV_NORMALIZATION.recurrentBracketedIsland,
             MARKOV_NORMALIZATION.selfSimilarRadixObstruction,
+            MARKOV_NORMALIZATION.uniformNegativePhaseInterval,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -2282,6 +2302,25 @@ export default function OpenFrontierPage() {
           155727 lower factors, a Hall deficit of 127. This excludes
           equal-or-larger monotone prime/factor matching, but it neither
           signs the T112 product nor decides RH.
+          T122 strengthens the T119 point phase to a continuous interval.
+          A full 1,152-bit, first-10,000-zero certificate with exact
+          Turing counting proves
+          sup<sub>μ∈[113/105−1/20000,113/105+1/20000]</sub>
+          W<sub>μ</sub>(t<sub>*</sub>)&lt;−0.00843873376937999949…
+          &lt;−1/125. The derivative and residual-tail budget covers
+          every real μ in that interval, not a finite grid. Under RH,
+          function-valued almost-periodic recurrence therefore gives
+          infinitely many N for which every prefix from
+          A<sub>N</sub>=113N−⌊21N/4000⌋ through
+          B<sub>N</sub>=113N+⌊21N/4000⌋ is negative after normalization
+          by D<sub>N</sub>=21<sup>5/2</sup>(105N)<sup>3/2</sup>.
+          This is exactly 2⌊21N/4000⌋+1=k/10000+O(1) consecutive
+          prefixes, with k=105N. The endpoint margins force total
+          variation at least (157/1000−o(1))D<sub>N</sub> on
+          [105N,160N], together with Ω(N/log<sup>2</sup>N) increments
+          of each sign on the two sides. These conclusions are
+          RH-conditional; they produce no unconditional contradiction
+          and neither prove nor disprove RH.
           RH is therefore still unresolved.
           Separately, for the T93/T96 annular deficit, if RH is false
           both strict signs recur infinitely often; if RH is true the

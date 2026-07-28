@@ -163,11 +163,13 @@ const MARKOV_NORMALIZATION = {
   positivePotential:
     'T71: the first-radix kernel has a nonnegative potential 𝔘(x)→γ_E/2 with N³𝔘′₊(N)=L_N⁽¹⁾. Its prime component already decreases at x=3.99, so positivity and convergence of the potential do not sign its sampled right tangents',
   potentialBlock:
-    'T72: on each unit cell, G=x³𝔘′ is affine with negative drift 𝒞ₙ and a positive radical jump at the next integer. Exact quadrature writes the T69 block as a local potential functional plus (1/2+o(1))N³ᐟ²; eventual potential increase is RH-equivalent, not proved',
+    'T72: on each unit cell, G=x³𝔘′₊ is affine with negative drift 𝒞ₙ and a positive radical jump at the next integer. Exact quadrature writes the T69 block as a local potential functional plus (1/2+o(1))N³ᐟ²; eventual potential increase is RH-equivalent, not proved',
   carryThreshold:
     'T73: every positive block exponent lies above p=√N. The top fixed harmonic cell has positive leading mass, every fixed lower cell has negative mass, and a true positive block still fails descending-prefix domination through prefix 17. Growing cells and regrouped transport remain open',
   primeTransport:
-    'T74: the complete p≤W_N sector has an explicit negative load between Q₋θ(W_N) and Q₊θ(W_N). One-wrap reset and entrant formulas isolate a sufficient high-prime transport inequality, but that inequality remains open and is stronger than T69',
+    'T74: the complete p≤W_N sector has an explicit negative load between Q₋θ(W_N) and Q₊θ(W_N). These give distinct pointwise necessary and sufficient transport thresholds; the positive N=152 block misses the sufficient Q₊ threshold',
+  transportEquivalence:
+    'T75: RH ⇔ High(N,W_N)≥Q₊(N,W_N)θ(W_N) eventually. Under RH the N²/log N block margin dominates the O(N²/log²N) transport budget; T74 and T69 give the converse, so this is no asymptotic reduction',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -236,7 +238,8 @@ const MARKOV_NORMALIZATION = {
     'T71 turns the same defect into sampled tangents of a positive convergent potential; ' +
     'T72 derives the exact cell drift and block quadrature; ' +
     'T73 forces positive carry mass above the prime-square threshold and refutes uniform/all-N weak log-majorization; ' +
-    'T74 brackets the low-prime load and isolates the still-open high-prime transport inequality.',
+    'T74 brackets the low-prime load and isolates exact reset transport; ' +
+    'T75 proves its eventual critical-window Q₊ condition is RH-equivalent.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -531,12 +534,22 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   {
     id: 'T74',
     color: '#c084fc',
-    status: 'QUANTIFIED TRANSPORT BRACKET · SUFFICIENT BOUND OPEN',
+    status: 'QUANTIFIED POINTWISE TRANSPORT BRACKET',
     title: 'Low primes impose an exact load on reset intervals',
     formula: '−Q₊θ(H) ≤ Σₚ≤H Eₚlog p ≤ −Q₋θ(H);  High≥Q₊θ(H) ⇒ block≥0',
     detail:
       'One-wrap formulas isolate positive additive reset corrections on short harmonic intervals, while entering primes contribute t(p−t). ' +
-      'When Q₋>0 (in particular at critical windows eventually), a Q₋ payment is necessary and a Q₊ payment is sufficient; the two are not equivalent, and the sufficient high-prime inequality is unproved.',
+      'When Q₋>0, a Q₋ payment is necessary and a Q₊ payment is sufficient. These are distinct pointwise thresholds: the positive N=152, H=2 block still falls below the Q₊ budget.',
+  },
+  {
+    id: 'T75',
+    color: '#2dd4bf',
+    status: 'CRITICAL TRANSPORT · RH-EQUIVALENT',
+    title: 'The sufficient transport endpoint gives no asymptotic shortcut',
+    formula: 'RH ⇔ High(N,W_N) ≥ Q₊(N,W_N)θ(W_N) eventually',
+    detail:
+      'Under RH the critical block is at least cN²/log N, while the Q₊ budget is only O(N²/log²N) and the low sector is nonpositive. ' +
+      'Conversely the Q₊ threshold implies T69, hence RH. The exact reset split remains useful, but its full eventual endpoint is not a reduced target.',
   },
 ];
 
@@ -689,7 +702,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T74 · 2026-07-25</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T75 · 2026-07-27</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1042,7 +1055,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T74 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T75 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1101,6 +1114,7 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.potentialBlock,
             MARKOV_NORMALIZATION.carryThreshold,
             MARKOV_NORMALIZATION.primeTransport,
+            MARKOV_NORMALIZATION.transportEquivalence,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -1203,7 +1217,8 @@ export default function OpenFrontierPage() {
           T73 confines positive carry exponents above √N and shows that fixed lower
           harmonic cells and uniform/all-N weak log-majorization do not prove the sign. T74 brackets
           the complete low-prime load and identifies one-wrap reset and entrant terms,
-          but the sufficient high-prime transport inequality remains open. T66 constructs common-domain zero-adaptive
+          while T75 proves its eventual critical-window Q<sub>+</sub> condition is
+          RH-equivalent and therefore not an asymptotic reduction. T66 constructs common-domain zero-adaptive
           theta quasimodes that geometrically isolate residual directions. T67 proves
           compact continuous compressed-graph approximation and compact smooth full
           homogeneous graph approximation by finite tail exponentials, transferring

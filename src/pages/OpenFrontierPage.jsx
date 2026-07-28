@@ -182,6 +182,8 @@ const MARKOV_NORMALIZATION = {
     'T80: every nonnegative smoothing on a fixed C₀√N outer window satisfies 𝒜_N(ω)=L_N^(1)+o(N³ᐟ²). For the uniform convolution, covariance improves to O(N/log³N), but the Vθ baseline retains coefficient one and each fixed zero-mode multiplier is 1+O_ρ(N⁻¹ᐟ²)',
   sublinearBootstrap:
     'T81: for fixed 0≤δ<1 and κ<5/2, the existence of some C and one Ξ≥−CM^κ in every sufficiently late [N,N+⌊N^δ⌋] is equivalent to Re ρ≤max{1/2,κ−3/2} for every nontrivial zero. Square-kernel feedback removes the one-pass gap loss; at δ=1 this feedback has no contraction',
+  squareKernelBallot:
+    'T82: H_N=(N−1)J_N−2Σm<N J_m=Σn≤N(2n−N−1)b(n)≥0 and L_N^(1)=ℓ_N−H_N. The local repeated-prime ballot is exactly the known higher-radix correction; the complementary p>√N first-layer channel remains zero-strip complete up to O(N³ᐟ²)',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -257,7 +259,8 @@ const MARKOV_NORMALIZATION = {
     'T78 sharpens one-sided recovery to D_N≤(𝔮+o(1))N and proves the sampled zero-strip phase law, with one valid centered checkpoint per outer square-root interval still exactly RH-equivalent; ' +
     'T79 classifies the square-kernel increments and proves that their local positive majority cancels at full N³ᐟ² scale; ' +
     'T80 proves every positive outer smoothing retains the same inherited zero wave, despite a one-log covariance gain; ' +
-    'T81 feeds the local cancellation back through the provisional zero strip and removes the sampling-gap exponent for every fixed power window N^δ with 0≤δ<1.',
+    'T81 feeds the local cancellation back through the provisional zero strip and removes the sampling-gap exponent for every fixed power window N^δ with 0≤δ<1; ' +
+    'T82 identifies the natural repeated-prime ballot exactly with the higher-radix correction and isolates a complementary high-prime first-layer channel that retains the full zero-strip obstruction.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -279,7 +282,8 @@ const MARKOV_NORMALIZATION = {
     'principal positivity uniformly on the whole tail but no order-uniform threshold; ' +
     'far-separated cross minors refute total positivity. Positive all-integer scale completion ' +
     'erases the zero divisor, exact deaveraging requires fixed-power Mertens cancellation, ' +
-    'square-scale averaging preserves but does not attenuate the poles, and its exact Jacobi heat trace is positive only before the load-bearing main term is subtracted; its causal smoother has no bounded or tempered inverse, exact prime-power renewal is lower order, fixed-Cᵐ half-sech asymptotics have no all-order spectral gap, every finite signed upper half-sech relative bound fails, every tight positive adaptive majorant remains at the centered T47 scale, the natural sinh-to-linear multiplier for the finite-height Schur window has a negative real 2×2 minor, strip-Schur positivity can still leave the original endpoint kernel indefinite, fixed bands lose high residual poles, and one zero-adaptive common-domain family yields finite exponential witnesses only with zero-dependent support and approximation complexity; the first-radix Mellin kernel retains every zeta-zero pole, its exact sequence has no eventual monotonicity or log-convexity, its squarefree carry-row factors have no coordinatewise sign, and uniform local or primewise block estimates do not repair that sign. Translation-invariant tempered-lag compensation cannot ' +
+    'square-scale averaging preserves but does not attenuate the poles, and its exact Jacobi heat trace is positive only before the load-bearing main term is subtracted; its causal smoother has no bounded or tempered inverse, exact prime-power renewal is lower order, fixed-Cᵐ half-sech asymptotics have no all-order spectral gap, every finite signed upper half-sech relative bound fails, every tight positive adaptive majorant remains at the centered T47 scale, the natural sinh-to-linear multiplier for the finite-height Schur window has a negative real 2×2 minor, strip-Schur positivity can still leave the original endpoint kernel indefinite, fixed bands lose high residual poles, and one zero-adaptive common-domain family yields finite exponential witnesses only with zero-dependent support and approximation complexity; the first-radix Mellin kernel retains every zeta-zero pole, its exact sequence has no eventual monotonicity or log-convexity, its squarefree carry-row factors have no coordinatewise sign, and uniform local or primewise block estimates do not repair that sign. ' +
+    'The exact repeated-prime ballot is the already-accounted higher-radix correction, while its algebraically disjoint high-prime first-layer complement remains zero-strip complete. Translation-invariant tempered-lag compensation cannot ' +
     'carry a nonzero pole share, and an unrestricted Hilbert factorization ' +
     'is only an RH-equivalent repackaging. Infinite-order smoothing, infinite non-tempered ' +
     'cancellation inside one block, couplings without positive readout, uniform infinite/continuous ' +
@@ -633,6 +637,16 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'Feeding a provisional rightmost-zero exponent B through the local transport gives B≤max{1/2,κ−3/2,B+δ−1}, so every fixed power gap N^δ with δ<1 contracts away. ' +
       'A nonnegative checkpoint—or, for some C, even Ξ≥−CM²—in every sufficiently late such interval is RH-equivalent. This does not prove the checkpoints exist; at δ=1 this feedback has no contraction.',
   },
+  {
+    id: 'T82',
+    color: '#f59e0b',
+    status: 'EXACT SQUARE-KERNEL BALLOT · WRONG-SIGN DEBT',
+    title: 'The natural radical ballot sum is already the higher-radix correction',
+    formula: 'H_N=(N−1)J_N−2Σm<N J_m=Σn≤N(2n−N−1)b(n)≥0;  L_N^(1)=ℓ_N−H_N',
+    detail:
+      'The sign is prime-powerwise, not a generic consequence of the signed ballot weights. H_N helps the full Pascal quantity ℓ_N, but is subtractive relative to the stronger first-radix target L_N^(1), and it changes by only o(N³ᐟ²) across every fixed sublinear power window. ' +
+      'The local b-word sees only primes p≤√(N+N^δ). Its complementary high-prime first-layer sum differs from L_N^(1) by O(N³ᐟ²), so the corresponding lower bound remains zero-strip complete—and RH-equivalent at the endpoint. This is method-specific algebraic blindness, not an independence claim.',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -784,7 +798,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T81 · 2026-07-27</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T82 · 2026-07-27</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1137,7 +1151,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T81 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T82 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1203,6 +1217,7 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.squareKernel,
             MARKOV_NORMALIZATION.outerSmoothing,
             MARKOV_NORMALIZATION.sublinearBootstrap,
+            MARKOV_NORMALIZATION.squareKernelBallot,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -1339,6 +1354,21 @@ export default function OpenFrontierPage() {
           nearly linear fixed-power search window is valid for an
           RH-equivalent sign target. The theorem does not supply the
           checkpoint, and no contraction remains at δ=1.
+          T82 evaluates the most natural signed ballot of the
+          repeated-prime word exactly:
+          H<sub>N</sub>=(N−1)J<sub>N</sub>−2Σ<sub>m&lt;N</sub>J<sub>m</sub>
+          =Σ<sub>n≤N</sub>(2n−N−1)b(n)≥0. This is the higher-radix
+          correction already present in the Pascal decomposition.
+          It helps the full Pascal quantity ℓ<sub>N</sub>, but is
+          subtractive in L<sub>N</sub><sup>(1)</sup>=ℓ<sub>N</sub>−H<sub>N</sub>
+          and varies by only o(N<sup>3/2</sup>) across every fixed
+          sublinear power window. The local b-word directly uses only
+          primes below √(N+N<sup>δ</sup>); the complementary high-prime
+          first-layer sum differs from L<sub>N</sub><sup>(1)</sup> by
+          O(N<sup>3/2</sup>) and therefore retains the exact zero-strip
+          lower-bound criterion. This identifies a method-specific
+          blind channel; it neither proves independence nor supplies
+          the missing RH sign.
           T66 constructs common-domain zero-adaptive
           theta quasimodes that geometrically isolate residual directions. T67 proves
           compact continuous compressed-graph approximation and compact smooth full

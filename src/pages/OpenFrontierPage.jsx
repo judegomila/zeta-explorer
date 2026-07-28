@@ -296,6 +296,16 @@ const MARKOV_NORMALIZATION = {
     'T137: adjacent-depth subtraction recovers T135 exactly: ℬ_(d+1)(v)−ℬ_d(32v)=A(21^d v) and ℬ_(d+1)(v)−ℬ_d(21v)=A(32^d v). The corresponding cross-products of X_d,v/Y_d,v are identically the original micro-cell ratios, so either buffered orientation is RH-equivalent for every fixed d. Rigorous prime-log enclosures realize all eight sign triples across depths 1–3 by v≤14, ruling out a universal finite-depth sign rule. Any nondecreasing unbounded depth schedule also has infinitely many top-endpoint jumps by a factor >32, making ordinary interpolation supercritical. Only a genuinely nonlocal coupling among overlapping annuli remains outside this no-go',
   adaptiveFiniteOverlapOscillation:
     'T138: every nonzero fixed finite same-scale depth coupling is one finite dilation with exact step kernel W_c(u)=Σ_dc_d·1_(21^d,32^d](u). One primitive is an exact finite combination of Vψ. On RH its x^(−3/2)-normalized value is a nonzero mean-zero uniformly almost-periodic critical-zero wave: the finite exponential multiplier has only O(T) zeros and cannot cancel the TlogT zeta zeros. Hence the primitive is Ω±(x^(3/2)), the coupling takes both signs infinitely often at integer scales, and every exact finite factorial/lcm product orientation crosses one infinitely often on RH. Fixed finite overlap therefore cannot supply an eventual-sign proof; adaptive, infinite-depth, critical-size, or nonhomogeneous coupling remains outside',
+  adaptiveSummableInfiniteOverlap:
+    'T139: let c_d be a fixed nonzero infinite depth sequence with Σ(d+1)32^d|c_d|<∞. The exact Λ−1 step kernel and first-Riesz primitive still converge absolutely. Writing C(z)=Σc_dz^d, the multiplier is M_c(s)=C(32^s)−C(21^s). Its vertical-translate hull is compact on Re s<1 and contains no identically zero function, because the least active depth has two distinct exponential rates. Jensen therefore gives only O_c(T) multiplier zeros near the critical line, too few to cancel the TlogT zeta zeros. On RH the primitive remains Ω±(x^(3/2)); the weighted cost gives O_c(log x) unit-cell transfer, so the exact integer coupling takes both signs infinitely often. Integer coefficients under this summability are automatically finite. Only scale-dependent, non-summable, critical-size, or nonlinear couplings remain outside',
+  adaptiveSubcriticalProfileDrift:
+    'T140: row-dependent profiles c^[v] still cannot settle to one sign when their cumulative motion around one fixed nonzero summable profile c is subcritical: Σ_(v≤X)√v(1+log(2v))²||c^[v]−c||_A=o(X^(3/2)), where ||c||_A=Σ_d(d+1)32^d|c_d|. On RH the Chebyshev bound makes the adaptive cumulative differ from the fixed T139 cumulative by o(X^(3/2)); the latter is Ω±(X^(3/2)), so adaptive rows take both signs infinitely often. The same conclusion holds for exact rowwise factorial/lcm products with finite-support integer profiles, including sufficiently sparse edits. A viable adaptive rule must pay critical cumulative profile cost relative to every fixed profile, keep a non-summable tail, or use nonlinear/nonhomogeneous arithmetic information',
+  adaptiveExactDualCost:
+    'T141: the critical adaptive price is exact. With w_d=(d+1)32^d and q(v)=sup_d|ℬ_d(v)|/w_d, q(v) is the operator norm of the row functional on the weighted profile space. The least profile cost needed to repair a negative row is exactly {−𝒞_c(v)}_+/q(v), attained by placing the correction at a depth maximizing normalized response. On RH, any eventually one-sided adaptive rule must spend limsup X^(−3/2)Σ_(v≤X)q(v)||c^[v]−c||_A>0 against every fixed nonzero profile. The formal cheapest controller simply reads and cancels the target Chebyshev annuli, so it is circular. The remaining task is an independent arithmetic mechanism that supplies correctly directed critical budget, or a nonlinear rule outside this dual problem',
+  adaptivePeriodicControllerNoGo:
+    'T142: every fixed periodic depth controller remains sign-recurrent on RH. For every nonzero profile c, modulus q, and residue r, bounded-gap quadrature gives Σ_(v≤X,v≡r mod q)𝒞_c(v)=q^(−1)𝓘_c(X)+O_(c,q)(Xlog X)=Ω±(X^(3/2)). Hence 𝒞_c(v) takes both signs infinitely often on each residue class. Assigning arbitrary fixed profiles to the q states cannot help, even if their mean is zero or the states alternate c,−c; choose any active state and apply its residue theorem. Exact periodic factorial/lcm products likewise cross one in both directions. A surviving independent controller needs unbounded or genuinely aperiodic state, increasing period, non-summable profiles, or nonlinear arithmetic input',
+  adaptiveLowDiscrepancyNoGo:
+    'T143: genuinely aperiodic low-discrepancy state also preserves the critical wave. If a_v selects one fixed nonzero profile with A(X)=Σ_(v≤X)a_v=δX+E(X) and max_(n≤X)|E(n)|=o(√X/log X), discrete Abel summation plus the O(log v) row increment gives Σ_(v≤X)a_v𝒞_c(v)=δS_c(X)+o(X^(3/2))=Ω±(X^(3/2)) on RH. Hence both row signs recur inside the selected state. Applied state by state, this closes every finite-state controller whose active states meet the discrepancy threshold. Irrational mechanical/Sturmian words have bounded discrepancy, so they are included, as are exact product versions. Surviving state must have critical discrepancy, zero density, unboundedly many states, changing or non-summable profiles, or nonlinear arithmetic input',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -417,6 +427,16 @@ const MARKOV_NORMALIZATION = {
     'T137 closes adjacent-depth deconvolution, sign persistence, and naive endpoint interpolation. Subtracting two neighboring depths returns one T135 cell exactly, including its integer comparator. All eight depth-1/2/3 sign patterns occur in certified finite fixtures, and every monotone unbounded depth schedule has macroscopic endpoint jumps. A surviving growing-depth strategy must therefore exploit a new nonlocal relation among overlapping annuli rather than ordinary products, cross-ratios, or sampled signs.',
   structureT138:
     'T138 closes every fixed finite linear overlap as an eventual-sign route. Its exact first-Riesz primitive retains infinitely many critical-zero frequencies, forming a nonzero mean-zero almost-periodic wave on RH; neither the arithmetic depth sum nor its exact factorial/lcm product can settle to one sign. The remaining overlap frontier must change with scale, use infinitely many depths with uniform control, prove a two-sided critical bound, or introduce a genuinely nonhomogeneous global coupling.',
+  structureT139:
+    'T139 closes the uniformly summable infinite-depth escape. A compact translate-hull argument extends the O(T) multiplier-zero bound from finite exponential polynomials to every fixed sequence with finite Σ(d+1)32^d|c_d|, while that same norm controls integer interpolation. The RH critical wave and both-sign recurrence therefore survive. A genuinely infinite product or overlap must now have growing arithmetic cost, change with scale, seek a two-sided critical bound, or use nonlinear nonhomogeneous structure.',
+  structureT140:
+    'T140 closes subcritical scale adaptation around every fixed nonzero summable depth profile. The exact RH error estimate converts weighted profile drift into a cumulative perturbation of the T139 wave; below X^(3/2) that perturbation cannot erase its positive and negative excursions. Even sparse rowwise integer product edits obey the no-go when their weighted cost is subcritical. Surviving adaptation must move at critical cumulative size, remain non-summable, or use nonlinear arithmetic data.',
+  structureT141:
+    'T141 solves the linear adaptive optimization problem itself. Weighted l1/linfinity duality identifies the cheapest depth and exact cost for correcting each row, while T139 recurrence forces every eventual-sign rule to accumulate positive critical X^(3/2) response budget on RH. The optimizer is not a proof mechanism: it explicitly measures and cancels the unknown signed annulus. A viable critical-cost construction must generate the direction independently from arithmetic structure.',
+  structureT142:
+    'T142 closes fixed periodic arithmetic control, a critical-drift class not covered by T140. Every active residue class is a bounded-gap Riemann sampling of its fixed-profile T139 primitive, so it inherits positive and negative X^(3/2) cumulative excursions and both row signs. Zero-mean, alternating, and arbitrary finite periodic state assignments all fail; an independent controller must have genuinely growing or aperiodic state.',
+  structureT143:
+    'T143 extends that closure to genuinely aperiodic finite-state control with positive density and discrepancy o(sqrt(X)/log X). Exact Abel summation transfers each active state to its density-scaled T139 cumulative with only subcritical error. Balanced mechanical, Sturmian, and other low-discrepancy selectors therefore retain both signs, even for exact products. Any remaining state mechanism must have critical discrepancy, zero-density or unbounded state, changing/non-summable profiles, or nonlinear arithmetic input.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -1454,6 +1474,81 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     certificate:
       'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
   },
+  {
+    id: 'T139',
+    color: '#38bdf8',
+    status:
+      'UNIFORMLY SUMMABLE INFINITE DEPTH IS SIGN-RECURRENT ON RH · NON-SUMMABLE FRONTIER OPEN',
+    title: 'Finite arithmetic cost cannot hide the infinite critical wave',
+    formula:
+      'Σ_d(d+1)32^d|c_d|<∞;  M_c(s)=C(32^s)−C(21^s);  N_M(T)=O_c(T)',
+    detail:
+      'Let c_d be any fixed nonzero real sequence with finite uniform arithmetic cost Σ(d+1)32^d|c_d|. The infinite Λ−1 step kernel, its Chebyshev annulus sum, and its first-Riesz primitive then converge absolutely. If C(z)=Σc_dz^d, the exact Mellin multiplier is M_c(s)=C(32^s)−C(21^s). ' +
+      'Vertical translates of M_c form a compact analytic hull on every closed substrip of Re s<1. No hull element is identically zero: the least active depth contributes two distinct exponential rates 32^(d₀s) and 21^(d₀s). A compactness/Jensen argument consequently bounds multiplier zeros near the critical line by O_c(T), while zeta has TlogT critical zeros on RH. The normalized primitive is therefore a nonzero mean-zero almost-periodic wave and has Ω±(x³ᐟ²) excursions. ' +
+      'The same weighted norm bounds unit-cell variation by O_c(log x), forcing positive and negative values at infinitely many integer scales on RH. Integer coefficient sequences satisfying the norm are automatically finite, so a genuinely infinite exact factorial/lcm product must have growing cost or scale-dependent normalization. This closes uniformly summable infinite depth, not non-summable, adaptive, critical-size, or nonlinear coupling; RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T140',
+    color: '#f59e0b',
+    status:
+      'SUBCRITICAL ADAPTIVE PROFILE DRIFT CANNOT FIX THE SIGN · CRITICAL-COST FRONTIER OPEN',
+    title: 'Slow depth adaptation cannot outrun the T139 wave',
+    formula:
+      'Σ_(v≤X)√v(1+log(2v))²||c^[v]−c||_A=o(X³ᐟ²) ⇒ S_ad(X)=Ω±(X³ᐟ²) on RH',
+    detail:
+      'Let c^[v] be a row-dependent summable depth profile and c one fixed nonzero profile, with ||c||_A=Σ_d(d+1)32^d|c_d|. Under RH, |ℬ_d(v)| is bounded by √v·32^(d/2)(d+log(2v))², so the A-norm converts profile motion directly into an error in the row coupling. ' +
+      'If the cumulative weighted motion through X is o(X³ᐟ²), the adaptive partial sum differs by o(X³ᐟ²) from the fixed T139 partial sum. The latter is Ω±(X³ᐟ²), hence the adaptive rows must still be positive and negative infinitely often. Pointwise convergence ||c^[v]−c||_A=o(log⁻²v) is sufficient but not required; sparse changes are allowed. ' +
+      'For finite-support integer profiles the same estimate applies to the exact rowwise factorial/lcm products, because their accumulated archimedean correction is subcritical as well. Thus sparse integer edits cannot manufacture one eventual orientation unless their weighted cost reaches the critical scale. This closes slow or cumulatively subcritical adaptation, not critical-cost, non-summable, data-dependent nonlinear, or nonhomogeneous rules; RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T141',
+    color: '#a78bfa',
+    status:
+      'EXACT ADAPTIVE DUAL COST · CRITICAL BUDGET NECESSARY · INDEPENDENT DIRECTION OPEN',
+    title: 'The cheapest sign controller is exact—and circular',
+    formula:
+      'q(v)=sup_d |ℬ_d(v)|/((d+1)32^d);  cost_+(v;c)={−𝒞_c(v)}_+/q(v)',
+    detail:
+      'Equip depth profiles with ||c||_A=Σ_d(d+1)32^d|c_d|. Weighted ℓ¹/ℓ∞ duality makes q(v) the exact operator norm of the v-th row functional. Therefore the least profile change that turns a negative row nonnegative is exactly {−𝒞_c(v)}_+/q(v), attained by putting all correction on a depth maximizing |ℬ_d(v)|/((d+1)32^d). Under RH this maximizing depth exists because normalized responses decay exponentially with depth. ' +
+      'T139 supplies positive and negative X³ᐟ² cumulative excursions. Hence any eventually nonnegative or eventually nonpositive adaptive rule must spend positive critical response budget: limsup X^(−3/2)Σ_(v≤X)q(v)||c^[v]−c||_A>0 against every fixed nonzero profile. This sharpens T140 from a coarse sufficient no-go to the intrinsic necessary cost. ' +
+      'The formal optimizer can zero every row, but only by reading the exact signed Chebyshev annuli and canceling the target itself. It is a feedback identity, not an independent arithmetic proof. The surviving linear route must generate a correctly directed critical budget from separate exact structure; otherwise one must leave the linear profile class. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T142',
+    color: '#22d3ee',
+    status:
+      'EVERY FIXED PERIODIC CONTROLLER IS SIGN-RECURRENT ON RH · APERIODIC STATE FRONTIER OPEN',
+    title: 'Residue-class control cannot escape the critical wave',
+    formula:
+      'Σ_(v≤X, v≡r mod q)𝒞_c(v)=q⁻¹𝓘_c(X)+O_(c,q)(Xlog X)=Ω±(X³ᐟ²)',
+    detail:
+      'Fix a nonzero summable depth profile c, a modulus q, and one residue r. The O_c(log x) unit-cell variation from T139 turns one sample per q-block into a bounded-gap quadrature: its partial sum equals 1/q of the T139 primitive plus O_(c,q)(Xlog X). On RH the primitive has positive and negative X³ᐟ² excursions, so 𝒞_c(v) takes both signs infinitely often even after restricting to v≡r mod q. ' +
+      'Now assign any fixed profiles c^[0],…,c^[q−1] to the q residue states. Choose one nonzero state and apply its residue theorem; the full periodic controller must take both signs. No nonzero mean assumption is used, so alternating c,−c and arbitrary zero-mean state families also fail even though their profile motion can be critical and T140 need not apply. ' +
+      'Finite-support integer profiles give the same result for exact periodic factorial/lcm products: both strict orders recur on RH. Thus fixed or eventually periodic arithmetic control is closed. A surviving independent controller needs unbounded or genuinely aperiodic state, increasing periods, a non-summable depth tail, or nonlinear arithmetic input. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T143',
+    color: '#34d399',
+    status:
+      'LOW-DISCREPANCY APERIODIC CONTROL IS SIGN-RECURRENT ON RH · CRITICAL-DISCREPANCY FRONTIER OPEN',
+    title: 'Balanced aperiodic state still samples the whole wave',
+    formula:
+      'D_a(X)=o(√X/log X) ⇒ Σ_(v≤X)a_v𝒞_c(v)=δS_c(X)+o(X³ᐟ²)=Ω±(X³ᐟ²)',
+    detail:
+      'Let a_v select one fixed nonzero summable profile with positive density δ, and let D_a(X)=max_(n≤X)|Σ_(v≤n)a_v−δn|. Exact discrete Abel summation expresses the selected cumulative as δ times the T139 integer cumulative plus a discrepancy term involving only the endpoint value and adjacent row increments. ' +
+      'On RH, 𝒞_c(X)=O(√Xlog²X) and 𝒞_c(v+1)−𝒞_c(v)=O(log v). Therefore D_a(X)=o(√X/log X) makes the entire selector error o(X³ᐟ²), leaving the positive and negative T139 excursions intact. Both row signs recur within that selected state. Applying this separately to each active state closes every finite-state controller satisfying the threshold, without a mean-profile assumption. ' +
+      'This is genuinely aperiodic: irrational mechanical and Sturmian words have bounded discrepancy, and exact finite-support product profiles inherit the same result. A surviving state mechanism must have critical discrepancy, zero-density or unboundedly many states, changing or non-summable profiles, or nonlinear/nonhomogeneous arithmetic input. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -1606,7 +1701,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T138 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T143 · 2026-07-28</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1974,7 +2069,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T138 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T143 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1998,6 +2093,11 @@ export default function OpenFrontierPage() {
           {MARKOV_NORMALIZATION.structureT136}{' '}
           {MARKOV_NORMALIZATION.structureT137}{' '}
           {MARKOV_NORMALIZATION.structureT138}
+          {' '}{MARKOV_NORMALIZATION.structureT139}{' '}
+          {MARKOV_NORMALIZATION.structureT140}{' '}
+          {MARKOV_NORMALIZATION.structureT141}{' '}
+          {MARKOV_NORMALIZATION.structureT142}{' '}
+          {MARKOV_NORMALIZATION.structureT143}
         </p>
         <div
           style={{
@@ -2114,6 +2214,11 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.adaptiveFixedDepthComposition,
             MARKOV_NORMALIZATION.adaptiveAdjacentDepthDeconvolution,
             MARKOV_NORMALIZATION.adaptiveFiniteOverlapOscillation,
+            MARKOV_NORMALIZATION.adaptiveSummableInfiniteOverlap,
+            MARKOV_NORMALIZATION.adaptiveSubcriticalProfileDrift,
+            MARKOV_NORMALIZATION.adaptiveExactDualCost,
+            MARKOV_NORMALIZATION.adaptivePeriodicControllerNoGo,
+            MARKOV_NORMALIZATION.adaptiveLowDiscrepancyNoGo,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -2989,6 +3094,53 @@ export default function OpenFrontierPage() {
           must now be scale-adaptive, genuinely infinite-depth,
           two-sided at critical size, or nonlinear and
           nonhomogeneous.
+          T139 closes the first genuinely infinite-depth regime as
+          well. If the fixed coefficients have finite uniform
+          arithmetic cost
+          Σ<sub>d</sub>(d+1)32<sup>d</sup>|c<sub>d</sub>|, their
+          analytic multiplier has a compact vertical-translate hull
+          containing no zero function. Its critical-strip zero count
+          is only O(T), so it cannot cancel the T log T critical
+          zeros; the RH almost-periodic wave and both integer signs
+          survive. The same summability is impossible for an
+          infinite integer exponent vector. Thus a remaining
+          infinite-depth route must pay growing arithmetic cost or
+          change with scale; uniformly summable overlap is no longer
+          an escape.
+          T140 quantifies that change-with-scale requirement. A
+          row-dependent profile whose cumulative weighted motion
+          around one fixed nonzero profile is
+          o(X<sup>3/2</sup>) changes the T139 cumulative wave by only
+          o(X<sup>3/2</sup>) on RH. Both excursions and both row
+          signs survive, including for exact products with sparse
+          integer profile edits. A viable adaptive construction must
+          therefore move at critical cumulative cost relative to
+          every fixed profile, retain a non-summable tail, or use
+          genuinely nonlinear arithmetic information.
+          T141 then solves the linear adaptive optimization problem.
+          The normalized annular response is the exact dual norm, so
+          the cheapest row correction and its maximizing depth are
+          explicit. Any eventual sign must spend positive critical
+          response budget along the T139 excursions. The cheapest
+          controller is circular, however: it reads the signed
+          Chebyshev annulus and cancels it. What remains is not an
+          optimization problem but an independent arithmetic source
+          of correctly directed critical budget.
+          T142 rules out fixed periodic arithmetic state as that
+          source. Every active residue class is a bounded-gap
+          sampling of its own fixed-profile T139 primitive, so both
+          critical excursions and both row signs survive there.
+          Zero-mean and alternating state profiles do not help. The
+          next independent controller must have genuinely aperiodic
+          or growing state, increasing period, a non-summable tail,
+          or nonlinear arithmetic input.
+          T143 closes the balanced aperiodic case too. Exact Abel
+          summation shows that any positive-density state with
+          discrepancy o(√X/log X) retains its density-scaled T139
+          wave up to o(X<sup>3/2</sup>). Mechanical and Sturmian
+          selectors therefore keep both signs. Remaining state must
+          have critical discrepancy, zero density, unboundedly many
+          states, changing profiles, or nonlinear arithmetic input.
           Separately, for the T93/T96 annular deficit, if RH is false
           both strict signs recur infinitely often; if RH is true the
           certified annular deficit is eventually negative. This is

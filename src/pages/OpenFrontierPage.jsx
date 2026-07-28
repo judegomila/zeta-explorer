@@ -170,6 +170,8 @@ const MARKOV_NORMALIZATION = {
     'T74: the complete p≤W_N sector has an explicit negative load between Q₋θ(W_N) and Q₊θ(W_N). These give distinct pointwise necessary and sufficient transport thresholds; the positive N=152 block misses the sufficient Q₊ threshold',
   transportEquivalence:
     'T75: RH ⇔ High(N,W_N)≥Q₊(N,W_N)θ(W_N) eventually. Under RH the N²/log N block margin dominates the O(N²/log²N) transport budget; T74 and T69 give the converse, so this is no asymptotic reduction',
+  centeredTransport:
+    'T76: D_low=D_cent+C_cov with |C_cov|≤3HΘ₁(H)/16=O(H³), and every reset interval collapses into weighted log rad_{>H}(N+d) terms. This narrows the finite corridor, but RH ⇔ Ξ(N,W_N)≥−E_{W_N} eventually',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -239,7 +241,8 @@ const MARKOV_NORMALIZATION = {
     'T72 derives the exact cell drift and block quadrature; ' +
     'T73 forces positive carry mass above the prime-square threshold and refutes uniform/all-N weak log-majorization; ' +
     'T74 brackets the low-prime load and isolates exact reset transport; ' +
-    'T75 proves its eventual critical-window Q₊ condition is RH-equivalent.',
+    'T75 proves its eventual critical-window Q₊ condition is RH-equivalent; ' +
+    'T76 centers the load to an O(H³) corridor and collapses resets into truncated radicals, while its lower edge remains RH-equivalent.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -551,6 +554,16 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'Under RH the critical block is at least cN²/log N, while the Q₊ budget is only O(N²/log²N) and the low sector is nonpositive. ' +
       'Conversely the Q₊ threshold implies T69, hence RH. The exact reset split remains useful, but its full eventual endpoint is not a reduced target.',
   },
+  {
+    id: 'T76',
+    color: '#60a5fa',
+    status: 'EXACT CENTERED CORRIDOR · ENDPOINT RH-EQUIVALENT',
+    title: 'Residue centering isolates a thin modular covariance',
+    formula: 'D_low=D_cent+C_cov,  |C_cov|≤E_H=3HΘ₁(H)/16;  |S−Ξ|≤E_H',
+    detail:
+      'Cyclic-prefix summation shrinks T74’s pointwise uncertainty from Θ(NH²) to O(H³), or O(N³ᐟ²/log³N) at the critical window. ' +
+      'Reset intervals collapse into weighted truncated radicals of N+d with an exact entrant correction. The covariance has both signs, and Ξ≥−E eventually is still RH-equivalent.',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -702,7 +715,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T75 · 2026-07-27</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T76 · 2026-07-27</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1055,7 +1068,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T75 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T76 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1115,6 +1128,7 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.carryThreshold,
             MARKOV_NORMALIZATION.primeTransport,
             MARKOV_NORMALIZATION.transportEquivalence,
+            MARKOV_NORMALIZATION.centeredTransport,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -1218,7 +1232,10 @@ export default function OpenFrontierPage() {
           harmonic cells and uniform/all-N weak log-majorization do not prove the sign. T74 brackets
           the complete low-prime load and identifies one-wrap reset and entrant terms,
           while T75 proves its eventual critical-window Q<sub>+</sub> condition is
-          RH-equivalent and therefore not an asymptotic reduction. T66 constructs common-domain zero-adaptive
+          RH-equivalent and therefore not an asymptotic reduction. T76 residue-centers
+          that load to an O(H<sup>3</sup>) corridor and collapses reset intervals into
+          weighted truncated radicals; its critical lower edge remains RH-equivalent.
+          T66 constructs common-domain zero-adaptive
           theta quasimodes that geometrically isolate residual directions. T67 proves
           compact continuous compressed-graph approximation and compact smooth full
           homogeneous graph approximation by finite tail exponentials, transferring

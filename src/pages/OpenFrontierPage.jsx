@@ -192,6 +192,8 @@ const MARKOV_NORMALIZATION = {
     'T85: adaptive drift splits exactly as A_{r+1}−A_r=−Δ_rVθ−Δ_rH+Δ_rΓ. The deterministic term is O(√N log N), the ballot term is O(N⁴ᐟ³(log N)¹ᐟ³), and Δ_rVθ≤CN log²N is itself RH-equivalent. Only a direct N·polylog N cross-channel bound remains a genuinely new sufficient target',
   primePowerRenormalization:
     'T86: with W=Vψ−Vθ and K=H−W, the cross channel is Vθ+H=Vψ+K. Its N·polylog bound is exactly RH conjoined with the separate one-sided K-drift bound. K has only scaled renewal copies ρ/j, while fixed-width repeated-prime tents have variance ≫√H log H; the diagonal adaptive transfer remains open',
+  dilationHarmonicLadder:
+    'T87: every fixed signed local filter retains a prime-square variance tail, and one exact adaptive ladder is sparse and nonuniform mod 4. A fixed macroscopic dilation 𝔇ₐF=N⁻¹ᐟ²(F(aN)−a³ᐟ²F(N)) instead absorbs the higher-radix channel at O(N): Re ρ≤σ ⇔ 𝔇ₐVθ≤CN^(σ+1/2) eventually. Separately, RH proves G_floor(N^α)^cell>0 for α<1/3, while α=1/8 positivity implies T47',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -272,7 +274,8 @@ const MARKOV_NORMALIZATION = {
     'T83 proves that signed Haar cancellation attenuates fixed modes by half a power, while additive reconstruction restores that loss and turns an O(N) drift bound into a sufficient—but unproved and not known necessary—condition for RH; ' +
     'T84 telescopes the complementary high-prime channel and shows that its top-cell subsidy is canceled into an RH-complete square-root-depth quadrature; ' +
     'T85 separates adaptive drift into prime-error and repeated-prime channels, sharpens the ballot bound to O(N⁴ᐟ³(log N)¹ᐟ³), and isolates the still-open N·polylog N cross-channel correlation; ' +
-    'T86 completes θ to ψ and proves that target is RH plus a separate prime-power radix-discrepancy bound, with a rigorous fixed-width variance warning but no diagonal adaptive transfer.',
+    'T86 completes θ to ψ and proves that target is RH plus a separate prime-power radix-discrepancy bound, with a rigorous fixed-width variance warning but no diagonal adaptive transfer; ' +
+    'T87 extends that warning to every fixed signed filter, proves the adaptive selector is sparse and nonuniform, then removes the extra radix condition with a macroscopic dilation. The resulting prime-only weighted-PNT bound is exactly zero-strip complete, while polynomial harmonic depth supplies an RH-intermediate sign for T47 rather than an unconditional proof.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -295,7 +298,8 @@ const MARKOV_NORMALIZATION = {
     'far-separated cross minors refute total positivity. Positive all-integer scale completion ' +
     'erases the zero divisor, exact deaveraging requires fixed-power Mertens cancellation, ' +
     'square-scale averaging preserves but does not attenuate the poles, and its exact Jacobi heat trace is positive only before the load-bearing main term is subtracted; its causal smoother has no bounded or tempered inverse, exact prime-power renewal is lower order, fixed-Cᵐ half-sech asymptotics have no all-order spectral gap, every finite signed upper half-sech relative bound fails, every tight positive adaptive majorant remains at the centered T47 scale, the natural sinh-to-linear multiplier for the finite-height Schur window has a negative real 2×2 minor, strip-Schur positivity can still leave the original endpoint kernel indefinite, fixed bands lose high residual poles, and one zero-adaptive common-domain family yields finite exponential witnesses only with zero-dependent support and approximation complexity; the first-radix Mellin kernel retains every zeta-zero pole, its exact sequence has no eventual monotonicity or log-convexity, its squarefree carry-row factors have no coordinatewise sign, and uniform local or primewise block estimates do not repair that sign. ' +
-    'The exact repeated-prime ballot is the already-accounted higher-radix correction, while its algebraically disjoint high-prime first-layer complement remains zero-strip complete. Signed mass-zero Haar smoothing loses absolute zero-sum convergence, and reconstructing its additive level restores the attenuated half-power; no converse drift theorem is known. Translation-invariant tempered-lag compensation cannot ' +
+    'The exact repeated-prime ballot is the already-accounted higher-radix correction, while its algebraically disjoint high-prime first-layer complement remains zero-strip complete. Signed mass-zero Haar smoothing loses absolute zero-sum convergence, and reconstructing its additive level restores the attenuated half-power; no converse drift theorem is known. ' +
+    'The fixed-filter prime-square variance persists for arbitrary signed weights, but its natural-density limit does not restrict the sparse nonuniform adaptive starts. A fixed multiplicative dilation escapes that local obstruction only by becoming macroscopic; its surviving prime kernel is again an RH-equivalent weighted-PNT remainder. Translation-invariant tempered-lag compensation cannot ' +
     'carry a nonzero pole share, and an unrestricted Hilbert factorization ' +
     'is only an RH-equivalent repackaging. Infinite-order smoothing, infinite non-tempered ' +
     'cancellation inside one block, couplings without positive readout, uniform infinite/continuous ' +
@@ -699,6 +703,16 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'The exact defect K=H−(Vψ−Vθ) is a first-radix sum over higher prime powers. Its renewal summands place copied singularities at scaled locations 1/j and ρ/j, so it has no copy of the original right-half zero pole at ρ and cannot provide mode-by-mode cancellation of Vψ. ' +
       'The proposed cross-channel N·polylog bound is therefore exactly RH conjoined with a separate one-sided N·polylog bound for ΔK. A natural-density calculation proves fixed equal-width tent variance ≫√H log H, but the limit takes the averaging range to infinity before H grows; it neither reaches H≈√N on the adaptive starts nor refutes the one-sided target. RH remains open.',
   },
+  {
+    id: 'T87',
+    color: '#22c55e',
+    status: 'MACRO DILATION ESCAPE · HARMONIC SIGN LADDER',
+    title: 'A nonlocal secant removes the extra radix condition but remains zero-complete',
+    formula: '𝔇₄F=N⁻¹ᐟ²(F(4N)−8F(N));  Re ρ≤σ ⇔ 𝔇₄Vθ≤CN^(σ+1/2)',
+    detail:
+      'Every finite signed local filter retains an exact large-prime-square variance tail, while the adaptive starts form a zero-density quadratic set that is already nonuniform modulo 4. Those facts block a naive density transfer but do not prove a one-sided failure. ' +
+      'At macroscopic width, the entire higher-radix secant is O(N), every off-critical zero mode survives, and the remaining prime-only weighted-PNT estimate is exactly the zero-strip criterion; at σ=1/2 it is RH-equivalent and unproved. In a separate intermediate theorem, RH implies G_floor(N^α)^cell>0 for α<1/3, and the α=1/8 sign implies T47. RH remains open.',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -850,7 +864,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T86 · 2026-07-27</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T87 · 2026-07-27</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1203,7 +1217,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T86 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T87 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1271,6 +1285,10 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.sublinearBootstrap,
             MARKOV_NORMALIZATION.squareKernelBallot,
             MARKOV_NORMALIZATION.signedHaar,
+            MARKOV_NORMALIZATION.harmonicCompensation,
+            MARKOV_NORMALIZATION.adaptiveDriftSplit,
+            MARKOV_NORMALIZATION.primePowerRenormalization,
+            MARKOV_NORMALIZATION.dilationHarmonicLadder,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -1468,6 +1486,23 @@ export default function OpenFrontierPage() {
           before averaging N. It does not reach the diagonal H≈√N,
           the sparse adaptive starts, or the required one-sided bound.
           The result is a sharper obstruction map, not an RH proof.
+          T87 extends the variance identity to every finite signed
+          filter. For the adaptive ladder begun at 4, the starts in a
+          dyadic square epoch form an explicit zero-density quadratic
+          set and omit residue 3 modulo 4, so the natural-density
+          theorem cannot simply be restricted to those starts.
+          A fixed macroscopic dilation does escape the separate radix
+          condition:
+          𝔇<sub>a</sub>F(N)=N<sup>−1/2</sup>
+          [F(aN)−a<sup>3/2</sup>F(N)]. The higher-radix channel is
+          O(N), and Re ρ≤σ is equivalent to
+          𝔇<sub>a</sub>V<sub>θ</sub>(N)≤CN<sup>σ+1/2</sup> at every
+          sufficiently large integer. At σ=1/2 this is RH-equivalent,
+          not a proof; the surviving prime expression is a signed
+          weighted-PNT remainder. Separately, RH proves eventual
+          positivity of the harmonic channel at depth N<sup>α</sup>
+          for α&lt;1/3, while the α=1/8 sign implies the T47 strip.
+          No unconditional polynomial-depth sign is proved.
           T66 constructs common-domain zero-adaptive
           theta quasimodes that geometrically isolate residual directions. T67 proves
           compact continuous compressed-graph approximation and compact smooth full

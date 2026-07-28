@@ -176,6 +176,10 @@ const MARKOV_NORMALIZATION = {
     'T77: Ξ=B̂+R⁺ with R⁺≥0, but B̂=(H+1)L_N^(1)−H(H+1)(A_N+θ(N))/2 retains the RH-complete defect. At H=W_N, S/(H+1)=L_N^(1)+O(N³ᐟ²/log N), so block smoothing is sub-RH-scale',
   sampledPhase:
     'T78: D_N≤(𝔮+o(1))N and Ξ(N,W_N)/(W_N+1)=L_N^(1)+O(N³ᐟ²/log N). A sampled gap N^δ with deficit N^κ forces Re ρ≤max{1/2,δ,κ−3/2}; at (δ,κ)=(1/2,2), one good checkpoint—and the corresponding local negative-part mean square—per outer √N interval is exactly RH-equivalent',
+  squareKernel:
+    'T79: D_n/n=𝔮−log(n/rad n)+o(1); sufficiently late positive steps have local √N-window density 7/π², but their positive and negative N³ᐟ² masses cancel and every centered sample remains o(N³ᐟ²)-close to one inherited baseline',
+  outerSmoothing:
+    'T80: every nonnegative smoothing on a fixed C₀√N outer window satisfies 𝒜_N(ω)=L_N^(1)+o(N³ᐟ²). For the uniform convolution, covariance improves to O(N/log³N), but the Vθ baseline retains coefficient one and each fixed zero-mode multiplier is 1+O_ρ(N⁻¹ᐟ²)',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -248,7 +252,9 @@ const MARKOV_NORMALIZATION = {
     'T75 proves its eventual critical-window Q₊ condition is RH-equivalent; ' +
     'T76 centers the load to an O(H³) corridor and collapses resets into truncated radicals; ' +
     'T77 absorbs all resets into a positive correction but proves the critical average localizes back to the pointwise defect below the RH scale; ' +
-    'T78 sharpens one-sided recovery to D_N≤(𝔮+o(1))N and proves the sampled zero-strip phase law, with one valid centered checkpoint per outer square-root interval still exactly RH-equivalent.',
+    'T78 sharpens one-sided recovery to D_N≤(𝔮+o(1))N and proves the sampled zero-strip phase law, with one valid centered checkpoint per outer square-root interval still exactly RH-equivalent; ' +
+    'T79 classifies the square-kernel increments and proves that their local positive majority cancels at full N³ᐟ² scale; ' +
+    'T80 proves every positive outer smoothing retains the same inherited zero wave, despite a one-log covariance gain.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -592,6 +598,27 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'At δ=1/2, one Ξ≥−CM² (or the stronger sign Ξ≥0) in every sufficiently late outer interval is RH-equivalent. ' +
       'The matching every-window negative-part mean-square target is equivalent too. Exact starts 125 and 126 fail, so “eventually” is essential; the inner ladder still has width W_M≈√M/log M.',
   },
+  {
+    id: 'T79',
+    color: '#22d3ee',
+    status: 'SQUARE-KERNEL MAJORITY · EXACT CANCELLATION',
+    title: 'Most radical steps are positive, but square-kernel spikes cancel them',
+    formula: 'H=⌊√N⌋: #{N<n≤N+H:D_n>0}=7H/π²+O(N¹ᐟ³)',
+    detail:
+      'Since D_n/n=𝔮−log(n/rad n)+o(1) and log 2<𝔮<log 3, sufficiently late positive steps are exactly the squarefree class and n=4m with m odd and squarefree. ' +
+      'Their positive N³ᐟ² mass is canceled by the rarer negative square-kernel spikes, and the whole outer window remains o(N³ᐟ²)-close to one inherited baseline. ' +
+      'The exact all-negative Ξ window [126,137] still contains three primes and a squarefree majority.',
+  },
+  {
+    id: 'T80',
+    color: '#a78bfa',
+    status: 'POSITIVE OUTER SMOOTHING · ZERO WAVE RETAINED',
+    title: 'A second averaging layer changes covariance, not the RH baseline',
+    formula: '𝒜_N(ω)=L_N^(1)+o(N³ᐟ²);  zero multiplier=1+O_ρ(N⁻¹ᐟ²)',
+    detail:
+      'Every nonnegative weighting on a fixed C₀√N outer window retains the pointwise first-radix baseline with coefficient one. ' +
+      'For the uniform double convolution, periodicity improves only the normalized covariance to O(N/log³N); it does not attenuate any fixed zero mode, so eventual positivity remains RH-equivalent.',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -743,7 +770,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T78 · 2026-07-27</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T80 · 2026-07-27</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1096,7 +1123,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T78 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T80 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1159,6 +1186,8 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.centeredTransport,
             MARKOV_NORMALIZATION.positiveReset,
             MARKOV_NORMALIZATION.sampledPhase,
+            MARKOV_NORMALIZATION.squareKernel,
+            MARKOV_NORMALIZATION.outerSmoothing,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -1274,6 +1303,17 @@ export default function OpenFrontierPage() {
           RH is equivalent to one nonnegative centered checkpoint in every
           sufficiently late outer interval [N,N+√N]. Exact failures at starts
           125 and 126 keep the qualifier “eventually” load-bearing.
+          T79 identifies the local arithmetic behind those samples:
+          D<sub>n</sub>/n=𝔮−log(n/rad n)+o(1), so a density 7/π² of
+          sufficiently late steps is positive. Their N<sup>3/2</sup>
+          mass is canceled by the square-kernel spikes, leaving every
+          outer √N window o(N<sup>3/2</sup>)-flat around the inherited
+          pointwise defect. T80 then shows that every nonnegative
+          averaging rule on a fixed C<sub>0</sub>√N window retains that
+          same baseline. In the uniform convolution, periodicity saves
+          one logarithm in the modular covariance, but each fixed zero mode still has multiplier
+          1+O<sub>ρ</sub>(N<sup>−1/2</sup>), so the smoothed sign remains
+          RH-equivalent.
           T66 constructs common-domain zero-adaptive
           theta quasimodes that geometrically isolate residual directions. T67 proves
           compact continuous compressed-graph approximation and compact smooth full

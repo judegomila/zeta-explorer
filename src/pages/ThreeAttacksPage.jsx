@@ -244,15 +244,15 @@ export default function ThreeAttacksPage() {
       </div>
 
       <div className="card" style={{ marginTop: 24 }}>
-        <h3 style={{ color: '#94a3b8', marginTop: 0 }}>Where the rigorous work now lives</h3>
+        <h3 style={{ color: '#94a3b8', marginTop: 0 }}>Where the standalone review candidate lives</h3>
         <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
-          The strongest concrete result integrated in this update is the fixed-height
-          <InlineMath tex="\Lambda\le0.1787854" /> candidate package. Its scripts pass, but eight
-          analytic and independent-review obligations remain, so it is explicitly labeled unpublished
-          and non-rigorous.
+          The standalone private review repository presents <InlineMath tex="\Lambda\le0.1787854" /> as an unreviewed
+          computer-assisted candidate for an unconditional proof. Its package claims compact-slab and
+          final-time-half-strip closures, a material replay, corrected error bounds, and an exact criterion
+          weld. The bound is not established, has not been peer reviewed, and is not RH.
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-          <Link to="/newman-lambda-01787854-candidate">Open the candidate audit →</Link>
+          <Link to="/newman-lambda-01787854-candidate">Open the candidate package →</Link>
           <Link to="/proof-overview">Read the evidence-graded proof overview →</Link>
           <Link to="/closure-routes">Inspect the corrected closure routes →</Link>
         </div>

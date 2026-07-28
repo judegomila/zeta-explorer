@@ -12,8 +12,9 @@ import { Link } from 'react-router-dom';
  * just the guardrail surfaced and a link to the one canonical /state-of-program page.
  *
  * Props:
- *   variant  one of VARIANTS keys (RIGOROUS-SOTA | ESTIMATE | RH-EQUIVALENT |
- *            REFUTED | OPEN-HARD). Default RIGOROUS-SOTA.
+ *   variant  one of VARIANTS keys (RIGOROUS-SOTA | PROOF-CANDIDATE |
+ *            ESTIMATE | RH-EQUIVALENT | REFUTED | OPEN-HARD).
+ *            Default RIGOROUS-SOTA.
  *   title    optional override for the headline line.
  *   body     optional override for the body text.
  */
@@ -26,8 +27,19 @@ const VARIANTS = {
     title: 'Peer-reviewed benchmark: Platt-Trudgian Λ ≤ 0.2 — this program did NOT produce it',
     body:
       'A public unrefereed package claims Λ ≤ 0.1875 and is listed in the Optimization Problems ledger; a local ' +
-      'audit repaired an omitted finite sweep. Platt-Trudgian Λ ≤ 0.2 remains the peer-reviewed benchmark, with ' +
-      'Rodgers-Tao Λ ≥ 0 on the lower side.',
+      'audit repaired an omitted finite sweep. The standalone private review repository presents Λ ≤ 0.1787854 as an unreviewed ' +
+      'computer-assisted candidate for an unconditional proof; the bound is not established, has not been peer reviewed, ' +
+      'and is not RH. Platt-Trudgian ' +
+      'Λ ≤ 0.2 therefore remains the peer-reviewed benchmark, with Rodgers-Tao Λ ≥ 0 on the lower side.',
+  },
+  'PROOF-CANDIDATE': {
+    color: '#22d3ee',
+    title: 'Standalone private-review candidate: Λ ≤ 0.1787854 — unreviewed and not established',
+    body:
+      'The package presents a computer-assisted candidate for an unconditional proof using a compact slab, a ' +
+      'final-time zero-free half-strip, a fresh 3,149,013-row material replay, corrected 10.50 error bounds, and ' +
+      'an exact Polymath criterion weld. The bound is not established and has not been peer reviewed. It is not RH; ' +
+      'RH still requires Λ ≤ 0.',
   },
   ESTIMATE: {
     color: '#fbbf24',
@@ -58,8 +70,9 @@ const VARIANTS = {
     title: 'C_H / G6a is the main wall for the Dyson/collision route family',
     body:
       'The inherited Dyson/collision routes funnel into the C_H / G6a Hölder-½ shock modulus. ' +
-      'The separate fixed-height review candidate has different open interfaces. No project route is ' +
-      'presently an accepted beat, and the naive C_H Gronwall discharge is refuted.',
+      'The separate fixed-height Λ ≤ 0.1787854 package does not consume C_H and does not close the older Dyson route. ' +
+      'It is an unreviewed computer-assisted candidate for an unconditional proof; the bound is not established, has ' +
+      'not been peer reviewed, and is not RH. The naive C_H Gronwall discharge is refuted.',
   },
 };
 

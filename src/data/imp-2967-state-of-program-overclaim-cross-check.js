@@ -3,12 +3,15 @@
  * @description imp-2967: freshness/consistency assertion between
  * STATE_OF_PROGRAM_TRUTHS and the overclaim-ledger.
  *
- * Two invariants enforced at build time:
+ * Three invariants enforced at build time:
  *
- *   1. The RIGOROUS SOTA truth entry still names Platt-Trudgian Λ≤0.2
- *      (prevents silent drift back to an overclaim headline).
+ *   1. The peer-reviewed truth entry still names Platt-Trudgian Λ≤0.2.
  *
- *   2. Every imp-XXXX id mentioned in the REFUTED badge entry of TRUTHS
+ *   2. The standalone private candidate entry records Λ≤0.1787854 as an unreviewed
+ *      computer-assisted candidate while denying establishment, peer review,
+ *      and an RH conclusion.
+ *
+ *   3. Every imp-XXXX id mentioned in the REFUTED badge entry of TRUTHS
  *      exists in CAUGHT_OVERCLAIMS with a non-active addressed status
  *      (WITHDRAWN / CORRECTED / REGRADED / RETRACTED / DOWNGRADED).
  *      Guarantees the canonical honesty page cannot name an overclaim id
@@ -32,19 +35,43 @@ function impIdsIn(text) {
 
 export const IMP_2967_STATE_OVERCLAIM_CROSS_CHECK_ASSERTIONS = [
   {
-    id: 'imp-2967-rigorous-sota-badge-exists',
-    holds: () => STATE_OF_PROGRAM_TRUTHS.filter(t => t.badge === 'RIGOROUS SOTA').length === 1,
-    why: 'TRUTHS must have exactly one RIGOROUS SOTA entry — removing or renaming it silently strips the honest floor',
+    id: 'imp-2967-peer-reviewed-benchmark-badge-exists',
+    holds: () => (
+      STATE_OF_PROGRAM_TRUTHS.filter(
+        t => t.badge === 'PEER-REVIEWED BENCHMARK',
+      ).length === 1
+    ),
+    why: 'TRUTHS must have exactly one peer-reviewed benchmark entry',
   },
   {
-    id: 'imp-2967-rigorous-sota-names-platt-trudgian',
+    id: 'imp-2967-peer-reviewed-benchmark-names-platt-trudgian',
     holds: () => {
-      const entry = STATE_OF_PROGRAM_TRUTHS.find(t => t.badge === 'RIGOROUS SOTA');
+      const entry = STATE_OF_PROGRAM_TRUTHS.find(
+        t => t.badge === 'PEER-REVIEWED BENCHMARK',
+      );
       if (!entry) return false;
       const text = entry.title + ' ' + entry.body;
       return text.includes('Platt-Trudgian') && text.includes('0.2');
     },
-    why: "RIGOROUS SOTA badge text must still cite Platt-Trudgian Λ≤0.2 as the rigorous floor; drift to a different claim would re-introduce the overclaim this entry was written to prevent",
+    why: 'The literature benchmark entry must still cite Platt-Trudgian Λ≤0.2 as peer reviewed',
+  },
+  {
+    id: 'imp-2967-repository-candidate-has-honest-external-grade',
+    holds: () => {
+      const entry = STATE_OF_PROGRAM_TRUTHS.find(t => t.badge === 'UNREVIEWED CANDIDATE');
+      if (!entry) return false;
+      const text = (entry.title + ' ' + entry.body).toLowerCase();
+      return (
+        text.includes('0.1787854') &&
+        text.includes('computer-assisted') &&
+        text.includes('candidate for an unconditional proof') &&
+        text.includes('bound is not established') &&
+        text.includes('not been peer reviewed') &&
+        text.includes('not a proof of rh')
+      );
+    },
+    why:
+      'The candidate must be visible without implying an established bound, peer review, or a proof of RH',
   },
   {
     id: 'imp-2967-refuted-badge-entry-exists',

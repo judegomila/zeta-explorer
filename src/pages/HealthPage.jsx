@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { useAsyncMetric } from '../hooks/useAsyncMetric.js';
 import FreshnessBanner from '../components/FreshnessBanner.jsx';
 import {
-  HEADLINE,
   PROOF_CHAIN,
   ROUTE_STATUS,
   CONDITIONS,
   LEAN_STATUS,
 } from '../data/proof-chain-snapshot-2026-04-12.js';
+import { NEWMAN_LAMBDA_01787854_CANDIDATE } from '../data/newman-lambda-01787854-candidate.js';
 
 /**
  * imp-591: /health — site-wide health check page.
@@ -444,7 +444,7 @@ export default function HealthPage() {
         </div>
       </div>
 
-      {/* Headline claim */}
+      {/* Current candidate status; legacy chain rows below retain their dated snapshot. */}
       <div style={{
         background: 'rgba(59,130,246,0.06)', border: '1px solid #1e40af',
         borderRadius: 8, padding: '12px 16px', marginBottom: 4,
@@ -452,14 +452,14 @@ export default function HealthPage() {
       }}>
         <div>
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: 16, fontWeight: 700, color: '#60a5fa' }}>
-            {HEADLINE.bound}
+            Λ ≤ {NEWMAN_LAMBDA_01787854_CANDIDATE.exactTarget.decimal}
           </span>
           <span style={{ color: '#64748b', fontSize: 12, marginLeft: 10 }}>
-            ({HEADLINE.improvement} vs {HEADLINE.baseline})
+            (unreviewed computer-assisted candidate for an unconditional proof)
           </span>
         </div>
         <div style={{ color: '#94a3b8', fontSize: 11, fontFamily: 'var(--font-mono)' }}>
-          {HEADLINE.rigorLevel}
+          BOUND NOT ESTABLISHED · NOT PEER REVIEWED · NOT RH
         </div>
       </div>
 

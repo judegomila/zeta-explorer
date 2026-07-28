@@ -16,10 +16,10 @@ const COLORS = {
     bg: 'rgba(234,179,8,0.10)',
     border: 'rgba(234,179,8,0.35)',
   },
-  candidate: {
-    fg: '#f59e0b',
-    bg: 'rgba(245,158,11,0.10)',
-    border: 'rgba(245,158,11,0.35)',
+  repository: {
+    fg: '#67e8f9',
+    bg: 'rgba(34,211,238,0.10)',
+    border: 'rgba(34,211,238,0.35)',
   },
   open: {
     fg: '#fca5a5',
@@ -39,7 +39,7 @@ const SECTIONS = [
   ['model', 'Twin-ladder model'],
   ['v70', 'v70 corrections'],
   ['candidate', '0.1787854 candidate'],
-  ['obligations', 'What remains'],
+  ['obligations', 'Claimed interfaces'],
   ['bottom-line', 'Bottom line'],
 ];
 
@@ -203,7 +203,7 @@ function Contents() {
 function CurrentStatus() {
   const peerReviewed = LAMBDA_BOUNDS.find((entry) => entry.id === 'platt-trudgian-2021');
   const publicClaim = LAMBDA_BOUNDS.find((entry) => entry.id === 'mosaic-public-preprint-01875');
-  const candidate = LAMBDA_BOUNDS.find(
+  const candidateEntry = LAMBDA_BOUNDS.find(
     (entry) => entry.id === 'local-fixed-height-candidate-01787854',
   );
 
@@ -220,7 +220,7 @@ function CurrentStatus() {
           tone="established"
           label="peer reviewed"
           value={peerReviewed?.label || 'Λ ≤ 0.2'}
-          detail="Published benchmark. This is the strongest upper bound treated here as an established theorem."
+          detail="Published, peer-reviewed benchmark. The standalone private-review 0.1787854 candidate is graded separately because its bound is not established and it has not been peer reviewed."
         />
         <StatusCard
           tone="publicClaim"
@@ -230,17 +230,17 @@ function CurrentStatus() {
           href={publicClaim?.href}
         />
         <StatusCard
-          tone="candidate"
-          label="local review candidate"
-          value={candidate?.label || 'Candidate: Λ ≤ 0.1787854'}
-          detail="Stored numerical gates pass. Eight theorem-level interfaces remain open, so this is not an accepted bound."
-          route={candidate?.route}
+          tone="repository"
+          label="unreviewed computer-assisted candidate"
+          value="Candidate: Λ ≤ 0.1787854"
+          detail="A candidate for an unconditional proof. The bound is not established, has not been peer reviewed, and is not RH."
+          route={candidateEntry?.route}
         />
       </div>
       <Paragraph>
         These rows are intentionally not collapsed into a single “best known” number. A public
-        package, a locally repaired replay, and a peer-reviewed theorem have different evidentiary
-        status.
+        package, an unreviewed private-review candidate, and a peer-reviewed theorem have different
+        evidentiary status.
       </Paragraph>
       <Card tone="open">
         <strong style={{ color: '#f87171' }}>
@@ -362,19 +362,20 @@ function V70Corrections() {
   );
 }
 
-function CandidateEvidence() {
+function RepositoryCandidateEvidence() {
   const candidate = NEWMAN_LAMBDA_01787854_CANDIDATE;
   const target = candidate.exactTarget;
   const finite = candidate.finiteEvidence;
   const tail = candidate.tailEvidence;
 
   return (
-    <Section id="candidate" number={5} title="What the 0.1787854 package actually establishes locally">
-      <Card tone="candidate">
-        <Badge tone="candidate">candidate · rigorous=false · published=false</Badge>
+    <Section id="candidate" number={5} title="What the standalone 0.1787854 candidate claims">
+      <Card tone="repository">
+        <Badge tone="repository">unreviewed candidate · computer-assisted · bound not established · not RH</Badge>
         <BlockMath tex={target.identityTex} />
-        The headline value is an exact rational assembly, not a rounded fit. The package is pinned to
-        commit <code>{candidate.identity.packageCommit.slice(0, 12)}</code> and a SHA-256 seal.
+        The headline value is an exact rational assembly, not a rounded fit. The candidate package is pinned to
+        candidate commit <code>{candidate.identity.packageCommit.slice(0, 12)}</code>, immutable release{' '}
+        <code>{candidate.identity.releaseCommit.slice(0, 12)}</code>, and a SHA-256 seal.
       </Card>
 
       <div
@@ -396,38 +397,43 @@ function CandidateEvidence() {
         <Card tone="model">
           <strong style={{ color: '#e2e8f0' }}>Finite margin</strong>
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: 19, marginTop: 8 }}>
-            ≥ {finite.finiteMarginLowerBound}
+            ≥ {finite.finiteMarginLowerBoundLiteral}
           </div>
-          Direct-Dini ratio {finite.dini.worstCertifiedRatio} &lt; 1 at 180 and 256 bits.
+          Direct-Dini ratio {finite.dini.worstCertifiedRatioLiteral} &lt; 1 at 180 and 256 bits.
         </Card>
         <Card tone="model">
           <strong style={{ color: '#e2e8f0' }}>Tail gate</strong>
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: 19, marginTop: 8 }}>
             {tail.checksPassed}/{tail.checksTotal}
           </div>
-          Stored slack ≥ {tail.slackLowerBound}; contraction upper bound{' '}
-          {tail.contractionUpperBound} &lt; 1.
+          Conservative slack &gt; {tail.slackLowerBound}; contraction upper bound{' '}
+          {tail.contractionUpperBoundLiteral} &lt; 1.
         </Card>
       </div>
 
       <Paragraph>
-        These checks are meaningful evidence for the candidate package. They do not independently
-        prove that every implemented quantity matches the hypotheses and normalization of the
-        cited de Bruijn–Newman criterion.
+        The standalone v3 assembly presents these numerical certificates together with claimed compact-slab
+        and final-time-half-strip closures, the Platt–Trudgian verified height, and an exact Polymath
+        criterion weld. Together they form an unreviewed computer-assisted candidate for an unconditional
+        proof. The bound is not established and has not been peer reviewed. It is not RH.
       </Paragraph>
       <Link
         to="/newman-lambda-01787854-candidate"
         style={{ color: '#fbbf24', fontFamily: 'var(--font-mono)', fontSize: 13 }}
       >
-        Open the complete candidate audit and replay record →
+        Open the candidate package and replay record →
       </Link>
     </Section>
   );
 }
 
-function OpenObligations() {
+function CandidateInterfaces() {
   return (
-    <Section id="obligations" number={6} title="The eight interfaces still requiring review">
+    <Section id="obligations" number={6} title="The candidate's eight supplied interfaces">
+      <Paragraph>
+        These are claims and artifacts supplied by the candidate package, not independently established
+        theorems. Their mathematics and source-to-proof correspondence remain external-review obligations.
+      </Paragraph>
       <div
         style={{
           display: 'grid',
@@ -435,16 +441,16 @@ function OpenObligations() {
           gap: 12,
         }}
       >
-        {NEWMAN_LAMBDA_01787854_CANDIDATE.reviewObligations.map((obligation, index) => (
-          <Card key={obligation.title} tone="open">
+        {NEWMAN_LAMBDA_01787854_CANDIDATE.closedAuditItems.map((item, index) => (
+          <Card key={item.title} tone="repository">
             <div style={{ display: 'flex', gap: 10, alignItems: 'baseline' }}>
-              <span style={{ color: '#ef4444', fontFamily: 'var(--font-mono)', fontWeight: 800 }}>
+              <span style={{ color: '#22d3ee', fontFamily: 'var(--font-mono)', fontWeight: 800 }}>
                 {String(index + 1).padStart(2, '0')}
               </span>
-              <strong style={{ color: '#e2e8f0' }}>{obligation.title}</strong>
+              <strong style={{ color: '#e2e8f0' }}>{item.title}</strong>
             </div>
             <div style={{ color: '#94a3b8', fontSize: 13, marginTop: 8 }}>
-              {obligation.detail}
+              {item.detail}
             </div>
           </Card>
         ))}
@@ -463,10 +469,10 @@ function BottomLine() {
         <Paragraph>
           The defensible outputs are: a corrected v70 structural model, clearer zero/pole and
           positivity bookkeeping, a reproducible public <InlineMath tex="0.1875" /> package with
-          an explicitly noted local repair, and a stronger local <InlineMath tex="0.1787854" />
-          candidate whose numerical gates pass but whose theorem interfaces remain review-open.
-          The next useful work is independent reproduction of those eight interfaces—not another
-          decimal extrapolation.
+          an explicitly noted local repair, and an <InlineMath tex="0.1787854" /> unreviewed
+          computer-assisted candidate for an unconditional proof in the standalone private review repository. Its bound
+          is not established, has not been peer reviewed, and is not RH. The global Twin Ladder residual inequality remains exactly
+          equivalent to RH, so no current result proves <InlineMath tex="\Lambda=0" />.
         </Paragraph>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
           <Link to="/lambda-bounds" style={{ color: '#a5b4fc' }}>
@@ -544,8 +550,8 @@ export default function FullStoryPage() {
           <LambdaContext />
           <TwinLadderModel />
           <V70Corrections />
-          <CandidateEvidence />
-          <OpenObligations />
+          <RepositoryCandidateEvidence />
+          <CandidateInterfaces />
           <BottomLine />
         </main>
       </div>

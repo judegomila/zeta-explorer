@@ -36,7 +36,7 @@ const CHIPS = {
   open: chip('rgba(239,68,68,0.12)', '#fca5a5', 'rgba(239,68,68,0.35)'),
   partial: chip('rgba(234,179,8,0.12)', '#facc15', 'rgba(234,179,8,0.35)'),
   'public-preprint-review-open': chip('rgba(56,189,248,0.14)', '#7dd3fc', 'rgba(56,189,248,0.45)'),
-  'candidate-review-open': chip('rgba(245,158,11,0.14)', '#fbbf24', 'rgba(245,158,11,0.45)'),
+  'unreviewed-proof-candidate': chip('rgba(34,211,238,0.14)', '#67e8f9', 'rgba(34,211,238,0.45)'),
   'conditional-g6a-open': chip('rgba(239,68,68,0.12)', '#fca5a5', 'rgba(239,68,68,0.35)'),
   'estimate-c-h-open': chip('rgba(234,179,8,0.12)', '#facc15', 'rgba(234,179,8,0.35)'),
   critical: chip('rgba(239,68,68,0.18)', '#fca5a5', 'rgba(239,68,68,0.5)'),
@@ -130,7 +130,7 @@ export default function LambdaBoundsPage() {
       </div>
 
       {/* ── Top banner: current bounds ─────────────────────────────────── */}
-      <h2 style={{ marginTop: 8, marginBottom: 12 }}>Bounds, estimates, and review candidates</h2>
+      <h2 style={{ marginTop: 8, marginBottom: 12 }}>Bounds, estimates, and evidence grades</h2>
       <div className="card-grid" style={{ marginBottom: 24 }}>
         {LAMBDA_BOUNDS.map((b) => (
           <div
@@ -143,6 +143,8 @@ export default function LambdaBoundsPage() {
                 ? '#ef4444'
                 : b.kind === 'upper-public-preprint'
                 ? '#38bdf8'
+                : b.kind === 'upper-private-proof-candidate'
+                ? '#22d3ee'
                 : b.kind === 'our-numerical'
                 ? '#facc15'
                 : '#06b6d4',
@@ -162,6 +164,8 @@ export default function LambdaBoundsPage() {
                     ? '#fca5a5'
                     : b.kind === 'upper-public-preprint'
                     ? '#7dd3fc'
+                    : b.kind === 'upper-private-proof-candidate'
+                    ? '#67e8f9'
                     : b.kind === 'our-numerical'
                     ? '#facc15'
                     : '#67e8f9',
@@ -184,13 +188,15 @@ export default function LambdaBoundsPage() {
                 style={{
                   display: 'inline-block',
                   marginTop: 10,
-                  color: '#fbbf24',
+                  color: b.kind === 'upper-private-proof-candidate' ? '#67e8f9' : '#fbbf24',
                   fontFamily: 'var(--font-mono)',
                   fontSize: 11,
                   textDecoration: 'none',
                 }}
               >
-                Open candidate audit →
+                {b.kind === 'upper-private-proof-candidate'
+                  ? 'Open candidate audit →'
+                  : 'Open claim audit →'}
               </Link>
             )}
             {b.href && (

@@ -245,7 +245,7 @@ export function sMatrixZeroConfinement(tValues, numPrimes = 15) {
  *   - For τ ≥ Λ, the function H_τ(t) has only real zeros
  *   - RH ⟺ Λ ≤ 0
  *   - Rodgers–Tao (2020): Λ ≥ 0
- *   - Therefore Λ = 0 exactly
+ *   - Therefore RH ⟺ Λ = 0; establishing Λ = 0 remains open
  *
  * H_τ is defined by heat-flowing the Xi function:
  *   H_τ(t) = ∫ Φ(u) exp(τu²) cos(tu) du
@@ -283,8 +283,9 @@ export function deBruijnNewmanScan(tRange = [10, 50], steps = 200, tauValues = [
   return {
     results,
     tauValues,
-    gap: 'Rodgers–Tao (2020) proved Λ ≥ 0. The best known upper bound is Λ ≤ 0.2 (Platt–Trudgian, 2021). ' +
-         'So we know 0 ≤ Λ ≤ 0.2, but Λ = 0 is equivalent to RH and remains open. ' +
+    gap: 'Rodgers–Tao (2020) proved Λ ≥ 0, while Λ ≤ 0.2 (Platt–Trudgian, 2021) is the accepted peer-reviewed upper bound. ' +
+         'A private standalone audit proposes Λ ≤ 0.1787854 as an unreviewed computer-assisted candidate for an unconditional proof. ' +
+         'That candidate bound is not established, has not been peer reviewed, and is not a proof of RH; Λ = 0 remains open. ' +
          'The ZPO connection: the heat parameter τ corresponds to the "temperature" 1/σ in the ' +
          'thermodynamic interpretation. At τ = 0 (σ = ½), the system is at the critical temperature ' +
          'where zeros are exactly real. Positive τ (lower σ) smooths zeros but keeps them real; ' +
@@ -443,7 +444,7 @@ export function proofGapAnalysis() {
       {
         claim: 'de Bruijn–Newman constant Λ ≥ 0',
         status: 'theorem',
-        detail: 'Proved by Rodgers–Tao (2020). Combined with the best upper bound Λ ≤ 0.2 (Platt–Trudgian, 2021), we know 0 ≤ Λ ≤ 0.2. The stronger claim Λ = 0 is equivalent to RH and remains open.',
+        detail: 'Proved by Rodgers–Tao (2020). Platt–Trudgian Λ ≤ 0.2 remains the accepted peer-reviewed upper bound. A private standalone audit proposes Λ ≤ 0.1787854 as an unreviewed computer-assisted candidate for an unconditional proof, but that bound is not established or peer reviewed and does not prove RH. The claim Λ = 0 is equivalent to RH and remains open.',
       },
     ],
     gaps: [

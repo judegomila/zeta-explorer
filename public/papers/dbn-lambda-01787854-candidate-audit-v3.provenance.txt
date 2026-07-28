@@ -1,0 +1,59 @@
+DE BRUIJN–NEWMAN LAMBDA <= 0.1787854 CANDIDATE — V3 PROVENANCE
+================================================================
+
+Status
+------
+Unreviewed computer-assisted candidate for an unconditional proof.
+The proposed bound is not established, has not been peer reviewed,
+and is not a proof of the Riemann Hypothesis.
+
+Immutable review package
+------------------------
+Private repository:
+  https://github.com/judegomila/dbn-lambda-01787854-candidate-audit
+Release tag:
+  review-01787854-v3
+Commit:
+  2e9976c4becbf97e31c56fe75fce07cdff5dd4ea
+Tree:
+  7f15ecf8c3dbc73d547a2d4a3f2287bd87802f44
+Annotated tag object:
+  585586bb0e6fd576710be704fda9500284b24bc7
+SHA256SUMS file SHA-256:
+  89a201565d5b4a0f02ab49092e3189c7a6d3b0bfaa4e93630c68cf8c4155ae1c
+Sealed entries:
+  362
+
+Exact replay image
+------------------
+ghcr.io/judegomila/dbn-lambda-01787854-review@sha256:6e29bc53adc5a4337802da2b5a219720e3da9dcc1b87c546b96b6126d8b9975d
+
+Recorded GitHub Actions runs
+----------------------------
+Main exact-commit replay:
+  https://github.com/judegomila/dbn-lambda-01787854-candidate-audit/actions/runs/30317899517
+Tag/image replay:
+  https://github.com/judegomila/dbn-lambda-01787854-candidate-audit/actions/runs/30322974859
+
+Referee PDF
+-----------
+Filename:
+  dbn-lambda-01787854-candidate-audit-v3.pdf
+Immutable release asset:
+  https://github.com/judegomila/dbn-lambda-01787854-candidate-audit/releases/download/review-01787854-v3/dbn_lambda_01787854_candidate_audit.pdf
+SHA-256:
+  b1151d56bc2917d98e3ff4047c0426f44ee88e6cf7edd1a6ca3c47ef324b1172
+Size:
+  73,703 bytes
+Format:
+  PDF 1.4, 21 pages
+
+Access note
+-----------
+The repository, release, Actions runs, and container image are private.
+An external reviewer must be granted access to the private repositories
+and GHCR package before those links and replay commands will work.
+
+This sidecar is a MathExplorer handoff record dated 2026-07-28. It is
+not part of the immutable 362-entry v3 seal; the hashes above bind the
+exact sealed package and PDF.

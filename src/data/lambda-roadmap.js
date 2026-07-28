@@ -75,6 +75,9 @@ export const LAMBDA_BOUNDS = [
     kind: 'upper-peer-reviewed-benchmark',
     value: 0.2,
     status: 'rigorous',
+    accepted: true,
+    published: true,
+    peerReviewed: true,
     source: 'Platt & Trudgian, Bull. LMS 2021',
     note:
       'Peer-reviewed upper-bound benchmark. Uses verified Riemann zeros ' +
@@ -99,19 +102,33 @@ export const LAMBDA_BOUNDS = [
   },
   {
     id: 'local-fixed-height-candidate-01787854',
-    label: 'Candidate: Λ ≤ 0.1787854',
-    kind: 'upper-local-candidate',
+    label: 'Unreviewed proof candidate: Λ ≤ 0.1787854',
+    kind: 'upper-private-proof-candidate',
     value: 0.1787854,
-    isUnconditional: false,
-    status: 'candidate-review-open',
+    claimedUnconditional: true,
+    established: false,
+    countsAsEstablishedUpperBound: false,
+    accepted: false,
+    published: false,
+    peerReviewed: false,
+    status: 'unreviewed-proof-candidate',
     route: '/newman-lambda-01787854-candidate',
-    source: 'Local replay package, commit 5c4d7a7 (prepared 2026-07-23)',
+    repository: 'judegomila/dbn-lambda-01787854-candidate-audit',
+    repositoryVisibility: 'private',
+    tag: 'review-01787854-v3',
+    commit: '2e9976c4becbf97e31c56fe75fce07cdff5dd4ea',
+    tree: '7f15ecf8c3dbc73d547a2d4a3f2287bd87802f44',
+    manifestSha256: '89a201565d5b4a0f02ab49092e3189c7a6d3b0bfaa4e93630c68cf8c4155ae1c',
+    source:
+      'Private candidate-audit repository, review-01787854-v3 at ' +
+      '2e9976c4becbf97e31c56fe75fce07cdff5dd4ea',
     note:
-      'UNPUBLISHED REVIEW CANDIDATE — not an established theorem or SOTA claim. ' +
-      'The finite, direct-Dini, normalizer, error, tail, and exact-assembly checks ' +
-      'pass locally, but the native Triangle-to-|f_t| identification and inherited ' +
-      'winding, site, effective-approximation, and criterion bindings remain open ' +
-      'for independent mathematical review.',
+      'UNREVIEWED COMPUTER-ASSISTED PROOF CANDIDATE for an unconditional upper bound. ' +
+      'The v3 package presents certificates for the compact slab, final-time half-strip, ' +
+      '3,149,013-row finite replay, corrected 10.50 error bounds, tail, height, and exact ' +
+      'Polymath assembly interfaces. Packaging, replay, and sealing do not establish the ' +
+      'mathematics: the claim is private, unpublished, unpeer-reviewed, not accepted, and ' +
+      'does not prove RH. Platt–Trudgian Λ ≤ 0.2 remains the accepted peer-reviewed benchmark.',
   },
   {
     id: 'our-target-sota',
@@ -151,8 +168,8 @@ export const LAMBDA_BOUNDS = [
       'at E_trunc and does NOT vanish; obligation G-EN-ladder-verify closed:false). ' +
       'Plus the |t_c(N)| → 0 leg bounds a Stieltjes-transform PROXY (imp-2563 R_A ' +
       'open) on a repo-refuted rate step (imp-2621 falsified the continuum ' +
-      'amplification — only the bare limit survives). The ONLY unconditional Λ upper ' +
-      'bound remains Platt–Trudgian Λ ≤ 0.2 (SOTA). The genuinely-unconditional ' +
+      'amplification — only the bare limit survives). This superseded route produces no ' +
+      'upper bound; Platt–Trudgian Λ ≤ 0.2 remains the peer-reviewed benchmark. The genuinely-unconditional ' +
       'content here is limsup_N |t_c^proxy(N)| = 0 (RvM counting + Trudgian ' +
       'C_Selberg = 3; no GUE / no RH), which is INERT — it does not by itself bound ' +
       'Λ. The one conditional genuinely removed by imp-1246 / imp-1261 is the ' +
@@ -1310,11 +1327,12 @@ export const OPEN_GAPS = [
 //   'external'   — an external data input (Platt verified zeros to T = 3e12).
 //   'conditional'— a modulo-X conditional / named open hypothesis (leaf axiom).
 //   'block'      — a project-internal building block (a shipped lemma/constant).
-//   'bound'      — one of the five enumerated Lambda bounds.
+//   'bound'      — one of the six enumerated Lambda bounds.
 //
 // Edges are dependsOn: an edge A -> B means "A requires B". Every edge points
-// UPSTREAM toward axioms, so a correct matrix is a DAG. The only bound-to-bound
-// edge is imp-1088 -> imp-440 (carryforward extends the finite-N* beat).
+// UPSTREAM toward axioms, so a correct matrix is a DAG. The bound-to-bound
+// edges are public-preprint -> Platt-Trudgian and imp-1088 -> imp-440. The
+// private proof candidate points instead to its immutable v3 package/provenance block.
 
 export const LAMBDA_DEPENDENCY_MATRIX = {
   nodes: [
@@ -1447,7 +1465,21 @@ export const LAMBDA_DEPENDENCY_MATRIX = {
       dependsOn: [],
       note: 'RvM Jacobian floor used in the finite-N composition.',
     },
-    // ── The five enumerated bounds ──
+    {
+      id: 'blk-newman-01787854-v3-candidate-package',
+      label: 'v3 0.1787854 candidate package and immutable replay provenance',
+      kind: 'block',
+      dependsOn: ['ext-verified-zeros-T3e12'],
+      note:
+        'Private repository judegomila/dbn-lambda-01787854-candidate-audit; tag ' +
+        'review-01787854-v3; commit 2e9976c4becbf97e31c56fe75fce07cdff5dd4ea; ' +
+        'tree 7f15ecf8c3dbc73d547a2d4a3f2287bd87802f44; top manifest SHA-256 ' +
+        '89a201565d5b4a0f02ab49092e3189c7a6d3b0bfaa4e93630c68cf8c4155ae1c. ' +
+        'The package presents the compact-slab, final-time half-strip, finite/tail ' +
+        'error, material-replay, height, and criterion-weld certificates for review. ' +
+        'Immutable provenance and successful replay do not establish mathematical correctness.',
+    },
+    // ── The six enumerated bounds ──
     {
       id: 'bound-rodgers-tao-2020',
       label: 'Lambda >= 0',
@@ -1470,6 +1502,17 @@ export const LAMBDA_DEPENDENCY_MATRIX = {
       note:
         'Public certificate package listed by Optimization Problems; one omitted ' +
         'finite tile was repaired locally. Reproducible claim, not peer review.',
+    },
+    {
+      id: 'bound-proof-candidate-01787854',
+      label: 'Lambda <= 0.1787854 (unreviewed computer-assisted proof candidate)',
+      kind: 'candidate-bound',
+      countsAsEstablishedBound: false,
+      dependsOn: ['blk-newman-01787854-v3-candidate-package'],
+      note:
+        'Candidate for an unconditional theorem, not an established bound. The private ' +
+        'v3 package is unpublished, unpeer-reviewed, and unaccepted; the positive ' +
+        'candidate bound would not prove RH even if validated.',
     },
     {
       id: 'bound-imp-1261-asymptotic',
@@ -1569,7 +1612,8 @@ export function lambdaDepMatrixClosure(startId, matrix = LAMBDA_DEPENDENCY_MATRI
 
 export const LAMBDA_ROADMAP = {
   id: 'lambda-roadmap',
-  targetSOTA: 'Λ ≤ 0.02 unconditional, below both the public 0.1875 claim and the peer-reviewed 0.2 benchmark',
+  targetSOTA:
+    'Λ ≤ 0.02 unconditional target, below the private 0.1787854 proof candidate, public 0.1875 claim, and accepted peer-reviewed 0.2 benchmark',
   // imp-35860: leading TL;DR banner so a reader sees the headline before the
   // long append-only measurement log below (currentStatus). Keep in sync by
   // hand -- this does not parse currentStatus, it just restates its opening.
@@ -1577,9 +1621,10 @@ export const LAMBDA_ROADMAP = {
     'STATUS GRADES: Platt-Trudgian Lambda <= 0.2 remains the peer-reviewed upper-bound benchmark. ' +
     'A public, unrefereed certificate package claims Lambda <= 0.1875; the Optimization Problems ' +
     'ledger lists it, and a local audit repaired one omitted finite sweep without substituting for ' +
-    'expert review. A separate fixed-height local package proposes Lambda <= 0.1787854; its numerical ' +
-    'and direct-Dini gates pass, but eight theorem-level interfaces remain under independent ' +
-    'review, so it is not yet a theorem or SOTA. In the inherited Dyson/collision family, ' +
+    'expert review. A separate private v3 package proposes Lambda <= 0.1787854 as an unreviewed ' +
+    'computer-assisted proof candidate for an unconditional bound; it is not established, published, ' +
+    'peer-reviewed, or accepted, and RH still ' +
+    'requires Lambda <= 0. In the inherited Dyson/collision family, ' +
     'Steps 1 and 3 supply an unconditional lim-sup skeleton, while the quantitative Step-4 ' +
     'G6/G6a/C_H bridge remains open; Route A also carries a GUE conditional. Step 5 is ' +
     'unverified, and RH does not follow. Everything after the opening paragraph of ' +
@@ -1587,12 +1632,14 @@ export const LAMBDA_ROADMAP = {
     'measurement-only refinement appendix (imp-33xxx/imp-35xxx landmark quantifications) -- ' +
     'it changes no bound and discharges no open gap.',
   currentStatus:
-    'STATUS RECONCILED 2026-07-23: Platt-Trudgian Lambda <= 0.2 remains the peer-reviewed benchmark. ' +
+    'STATUS RECONCILED 2026-07-28: Platt-Trudgian Lambda <= 0.2 remains the accepted peer-reviewed benchmark. ' +
     'The public 0.1875 Zenodo certificate-package claim is reproducible after a local finite-sweep repair ' +
     'and appears in the Optimization Problems ledger, but is unrefereed and not treated here as an accepted theorem. ' +
-    'The local fixed-height package at 0.1787854 is an unpublished review candidate: finite, direct-Dini, ' +
-    'normalizer, error, tail, and exact-assembly checks pass, while native-functional, winding, site, ' +
-    'interval-independence, tail-theorem, and criterion interfaces remain load-bearing review items. ' +
+    'The private review-01787854-v3 fixed-height package at commit 2e9976c4becbf97e31c56fe75fce07cdff5dd4ea ' +
+    'is an unreviewed computer-assisted proof candidate for an unconditional 0.1787854 bound. It presents ' +
+    'compact-slab, final-time half-strip, full finite-material replay, direct-Dini, corrected 10.50-error, ' +
+    'tail, height, and exact-criterion certificates, but neither their seal nor replay establishes the theorem. ' +
+    'The candidate is unpublished, unpeer-reviewed, unaccepted, and it does not prove RH. ' +
     'For the inherited LAMBDA_CHAIN_STEPS, Steps 1 and 3 provide the unconditional zero-verification / ' +
     'lim-sup skeleton. Step 2 is numerical, the quantitative Step-4 Polymath15 bridge remains open at ' +
     'G6/G6a/C_H, and Step 5 is unverified. Historical finite values near 0.121 and 0.02 are estimates, ' +
@@ -1914,7 +1961,10 @@ export const LAMBDA_ROADMAP_ASSERTIONS = [
           b.id === 'platt-trudgian-2021' &&
           b.value === 0.2 &&
           b.kind === 'upper-peer-reviewed-benchmark' &&
-          b.status === 'rigorous'
+          b.status === 'rigorous' &&
+          b.accepted === true &&
+          b.published === true &&
+          b.peerReviewed === true
       ),
     why:
       'Platt-Trudgian 2021 Λ ≤ 0.2 is the peer-reviewed benchmark. New public ' +
@@ -1945,15 +1995,24 @@ export const LAMBDA_ROADMAP_ASSERTIONS = [
       const publicClaim = LAMBDA_BOUNDS.find(
         (b) => b.id === 'mosaic-public-preprint-01875'
       );
+      const privateCandidate = LAMBDA_BOUNDS.find(
+        (b) => b.id === 'local-fixed-height-candidate-01787854'
+      );
       const target = LAMBDA_BOUNDS.find((b) => b.id === 'our-target-sota');
-      return publicClaim && target && target.value < publicClaim.value;
+      return (
+        publicClaim &&
+        privateCandidate &&
+        target &&
+        target.value < publicClaim.value &&
+        target.value < privateCandidate.value
+      );
     },
     why:
-      'The target Λ must be strictly below the strongest public ledger claim; otherwise ' +
-      'the roadmap is not a roadmap.',
+      'The target Λ must be strictly below both the strongest public ledger claim and ' +
+      'the stronger private proof candidate; otherwise the roadmap is not a roadmap.',
   },
   {
-    id: 'roadmap-local-candidate-remains-review-open',
+    id: 'roadmap-private-01787854-remains-an-unreviewed-proof-candidate',
     holds: () => {
       const candidate = LAMBDA_BOUNDS.find(
         (b) => b.id === 'local-fixed-height-candidate-01787854'
@@ -1961,15 +2020,27 @@ export const LAMBDA_ROADMAP_ASSERTIONS = [
       return (
         candidate &&
         candidate.value === 0.1787854 &&
-        candidate.isUnconditional === false &&
-        candidate.status === 'candidate-review-open' &&
+        candidate.claimedUnconditional === true &&
+        candidate.established === false &&
+        candidate.countsAsEstablishedUpperBound === false &&
+        candidate.accepted === false &&
+        candidate.published === false &&
+        candidate.peerReviewed === false &&
+        candidate.status === 'unreviewed-proof-candidate' &&
+        candidate.repository === 'judegomila/dbn-lambda-01787854-candidate-audit' &&
+        candidate.repositoryVisibility === 'private' &&
+        candidate.tag === 'review-01787854-v3' &&
+        candidate.commit === '2e9976c4becbf97e31c56fe75fce07cdff5dd4ea' &&
+        candidate.tree === '7f15ecf8c3dbc73d547a2d4a3f2287bd87802f44' &&
+        candidate.manifestSha256 ===
+          '89a201565d5b4a0f02ab49092e3189c7a6d3b0bfaa4e93630c68cf8c4155ae1c' &&
         candidate.route === '/newman-lambda-01787854-candidate'
       );
     },
     why:
-      'The 0.1787854 package is a local review candidate, not an established ' +
-      'unconditional bound. Its roadmap entry must retain the review-open status ' +
-      'and the route that exposes its unresolved obligations.',
+      'The 0.1787854 entry must remain an unreviewed candidate for an unconditional ' +
+      'proof, pinned to the private v3 package without being promoted to an established, ' +
+      'published, peer-reviewed, or accepted result.',
   },
   {
     id: 'roadmap-G5-closed-G6-and-G6a-quantitatively-open',
@@ -2060,6 +2131,42 @@ export const LAMBDA_ROADMAP_ASSERTIONS = [
       'topological order means a CIRCULAR dependency (some bound transitively ' +
       'requires itself) or a dangling edge. Both would invalidate the chain, ' +
       'so any future edit that introduces a cycle must fail the build here.',
+  },
+  {
+    id: 'lambda-dep-matrix-proof-candidate-is-v3-provenance-backed',
+    holds: () => {
+      const candidate = LAMBDA_DEPENDENCY_MATRIX.nodes.find(
+        (node) => node.id === 'bound-proof-candidate-01787854'
+      );
+      const packageNode = LAMBDA_DEPENDENCY_MATRIX.nodes.find(
+        (node) => node.id === 'blk-newman-01787854-v3-candidate-package'
+      );
+      const closure = lambdaDepMatrixClosure(
+        'bound-proof-candidate-01787854'
+      );
+      return (
+        candidate &&
+        packageNode &&
+        candidate.kind === 'candidate-bound' &&
+        candidate.countsAsEstablishedBound === false &&
+        candidate.dependsOn.join(',') === 'blk-newman-01787854-v3-candidate-package' &&
+        packageNode.dependsOn.join(',') === 'ext-verified-zeros-T3e12' &&
+        packageNode.note.includes('judegomila/dbn-lambda-01787854-candidate-audit') &&
+        packageNode.note.includes('review-01787854-v3') &&
+        packageNode.note.includes('2e9976c4becbf97e31c56fe75fce07cdff5dd4ea') &&
+        packageNode.note.includes('7f15ecf8c3dbc73d547a2d4a3f2287bd87802f44') &&
+        packageNode.note.includes(
+          '89a201565d5b4a0f02ab49092e3189c7a6d3b0bfaa4e93630c68cf8c4155ae1c'
+        ) &&
+        closure.has('blk-newman-01787854-v3-candidate-package') &&
+        closure.has('ext-verified-zeros-T3e12') &&
+        !closure.has('cond-CH') &&
+        !closure.has('cond-gue-universality')
+      );
+    },
+    why:
+      'The 0.1787854 claim must remain represented as an unestablished proof candidate ' +
+      'with exact private-v3 provenance and no accidental dependency on the legacy C_H/GUE lane.',
   },
   {
     id: 'lambda-dep-matrix-finite-N-modulo-C_H',

@@ -5,10 +5,9 @@ import { RECIPROCAL_PROGRAM_SECTION } from '../data/reciprocal-program-section.j
 import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx';
 
 /**
- * ReciprocalProgramPage — renders Apps B–G of the v52 paper as the CORRECTED
- * proof target: after the naive direct PF-∞ kernel is proven impossible (B.2),
- * the right Schoenberg/Schur objects are all reciprocal. The chain ends at the
- * App G restricted passive second-order-cone certificate (the live target).
+ * ReciprocalProgramPage — renders the audited Apps B–G record. The corrected
+ * Schoenberg variable is 1/X(is), while finite Möbius, Schur-lift, and SOC
+ * computations are compact diagnostics rather than a global proof target.
  */
 const S = RECIPROCAL_PROGRAM_SECTION;
 
@@ -44,14 +43,14 @@ function Claim({ id, color, children }) {
 
 function ChainDiagram() {
   const steps = [
-    { id: 'a-fail',     label: 'App A — direct kernel', sub: 'fails log-concavity audit',            color: '#64748b' },
+    { id: 'a-fail',     label: 'Kernel audit',          sub: 'negative PF₅ minor; no PF-∞ route',     color: '#64748b' },
     { id: 'b2-imposs',  label: 'App B.2 — direct PF-∞', sub: 'IMPOSSIBLE',                            color: '#dc2626' },
-    { id: 'b3-recip',   label: 'App B.3 — reciprocal',  sub: 'correct Schoenberg object',             color: '#f59e0b' },
-    { id: 'c-closure',  label: 'App C — Möbius ladders', sub: 'uniform mollifier closure',            color: '#eab308' },
-    { id: 'd-nb',       label: 'App D — Nyman–Beurling', sub: 'Hilbert-space closure',                color: '#a855f7' },
-    { id: 'e-schur',    label: 'App E — Schur lift',     sub: 'defect + non-circular margin',         color: '#ec4899' },
-    { id: 'f-nfl',      label: 'App F — no-free-lunch',  sub: 'unrestricted lift IMPOSSIBLE',          color: '#dc2626' },
-    { id: 'g-soc',      label: 'App G — restricted SOC', sub: 'exhaustion certificate (live target)',  color: '#10b981' },
+    { id: 'b3-recip',   label: 'App B.3 — reciprocal',  sub: 'rotation: 1/X(is), not 1/X(s)',         color: '#f59e0b' },
+    { id: 'c-closure',  label: 'App C — Möbius ladders', sub: 'global closure claim RETRACTED',        color: '#eab308' },
+    { id: 'd-nb',       label: 'App D — Nyman–Beurling', sub: 'RH-equivalent Hilbert criterion',       color: '#a855f7' },
+    { id: 'e-schur',    label: 'App E — Schur lift',     sub: 'conditional local template',            color: '#ec4899' },
+    { id: 'f-nfl',      label: 'App F — no-free-lunch',  sub: 'unrestricted fitting gives no shortcut', color: '#dc2626' },
+    { id: 'g-soc',      label: 'App G — restricted SOC', sub: 'COMPACT DIAGNOSTICS ONLY',              color: '#10b981' },
   ];
 
   return (
@@ -94,10 +93,11 @@ export default function ReciprocalProgramPage() {
         <h3 style={{ color: '#a78bfa', fontSize: 18, margin: '0 0 12px 0' }}>The corrected target chain</h3>
         <ChainDiagram />
         <p style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.6, marginTop: 12 }}>
-          The same shape appears <strong style={{ color: '#fca5a5' }}>twice</strong>: a naive target is
-          proven impossible and replaced by a restricted reciprocal object. First the direct
-          PF-<InlineMath math="\infty" /> kernel dies (B.2); then the <em>unrestricted</em> Schur lift dies
-          (F, no-free-lunch). What survives is the App G restricted passive second-order-cone certificate.
+          The direct PF-<InlineMath math="\infty" /> route is excluded, and the
+          reciprocal variable must be rotated to <InlineMath math="1/X(is)" />.
+          The finite restricted programs that survive the local no-go tests are
+          useful experiments, but universal exhaustion remains RH-equivalent.
+          They are not a replacement for the exact global Twin Ladder residual.
         </p>
       </Card>
 
@@ -118,7 +118,7 @@ export default function ReciprocalProgramPage() {
         <BlockMath math="\frac{1}{\zeta(s)} = \sum_{n\ge 1} \frac{\mu(n)}{n^{s}},\qquad M_X(s) = \sum_{n \le X} \frac{\mu(n)}{n^{s}}" />
         <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>{S.reciprocalMobiusLadders.mobiusBridge}</p>
         <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>{S.reciprocalMobiusLadders.safeRegionTails}</p>
-        <Claim id="Claim C — uniform mollifier closure" color="#eab308">{S.reciprocalMobiusLadders.keyClaimC}</Claim>
+        <Claim id="Claim C — global closure retracted" color="#eab308">{S.reciprocalMobiusLadders.keyClaimC}</Claim>
         <p style={{ color: '#94a3b8', fontSize: 13, fontStyle: 'italic', marginTop: 10 }}>{S.reciprocalMobiusLadders.verdict}</p>
       </Card>
 
@@ -126,7 +126,7 @@ export default function ReciprocalProgramPage() {
       <Card accent="#a855f7">
         <h3 style={{ color: '#c084fc', fontSize: 18, margin: '0 0 12px 0' }}>{S.reciprocalMollifierNymanBeurling.sectionId} — {S.reciprocalMollifierNymanBeurling.title}</h3>
         <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>{S.reciprocalMollifierNymanBeurling.exactFiniteDefect}</p>
-        <BlockMath math="d_X^2 = \inf_{c_1,\dots,c_X} \left\| \mathbf{1}_{(0,1)} - \sum_{n \le X} c_n\,\rho\!\left(\tfrac{\theta}{n}\right) \right\|_{L^2}^2,\qquad \text{RH} \iff d_X \to 0" />
+        <BlockMath math="d_X^2 = \inf_{c_1,\dots,c_X} \left\| \mathbf{1}_{(0,1]}(x) - \sum_{n \le X} c_n\,\rho\!\left(\tfrac{1}{nx}\right) \right\|_{L^2(0,\infty)}^2,\qquad \text{RH} \iff d_X \to 0" />
         <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>{S.reciprocalMollifierNymanBeurling.nymanBeurlingFit}</p>
         <Claim id="Claim D — Nyman–Beurling Hilbert closure" color="#a855f7">{S.reciprocalMollifierNymanBeurling.keyClaimD}</Claim>
         <p style={{ color: '#94a3b8', fontSize: 13, fontStyle: 'italic', marginTop: 10 }}>{S.reciprocalMollifierNymanBeurling.verdict}</p>
@@ -156,9 +156,9 @@ export default function ReciprocalProgramPage() {
         <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>{S.restrictedPassiveLifts.secondOrderConeCertificate}</p>
         <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>{S.restrictedPassiveLifts.constrainedExtremalNumber}</p>
         <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>{S.restrictedPassiveLifts.dualObstruction}</p>
-        <Claim id="Claim G — restricted-lift exhaustion certificate" color="#10b981">{S.restrictedPassiveLifts.keyClaimG}</Claim>
+        <Claim id="Claim G — finite restricted-lift diagnostic" color="#10b981">{S.restrictedPassiveLifts.keyClaimG}</Claim>
         <div style={{ marginTop: 14, padding: 12, background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: 6 }}>
-          <div style={{ color: '#86efac', fontSize: 11, fontWeight: 700, fontFamily: 'var(--font-mono, monospace)', marginBottom: 6 }}>LIVE TARGET</div>
+          <div style={{ color: '#86efac', fontSize: 11, fontWeight: 700, fontFamily: 'var(--font-mono, monospace)', marginBottom: 6 }}>COMPACT DIAGNOSTIC</div>
           <p style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.6, margin: 0 }}>{S.restrictedPassiveLifts.verdict}</p>
         </div>
       </Card>

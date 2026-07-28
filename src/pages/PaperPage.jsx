@@ -106,11 +106,11 @@ export default function PaperPage() {
       </header>
 
       <Callout color="#f59e0b" label="Standing">
-        This page does not claim a proof of RH or an accepted improvement of the
-        de Bruijn–Newman upper bound. The peer-reviewed benchmark used by the app is
+        This page does not claim a proof of RH. The peer-reviewed benchmark used by the app is
         <InlineMath tex="\Lambda\le0.2" />. The public <InlineMath tex="0.1875" /> package is
-        unrefereed, and the local <InlineMath tex="0.1787854" /> package remains an unpublished
-        review candidate.
+        unrefereed. The standalone private review repository presents the stronger{' '}
+        <InlineMath tex="\Lambda\le0.1787854" /> value as an unreviewed computer-assisted candidate
+        for an unconditional proof. The bound is not established, has not been peer reviewed, and is not RH.
       </Callout>
 
       <Section number={1} title="Classical foundation">
@@ -244,16 +244,16 @@ export default function PaperPage() {
             color="#facc15"
           />
           <StatusRow
-            label="local candidate"
-            value="candidate: Λ ≤ 0.1787854"
-            status={`${candidate.finiteEvidence.rowCount.toLocaleString()} stored finite rows and ${candidate.tailEvidence.checksPassed}/${candidate.tailEvidence.checksTotal} tail gates pass; eight theorem interfaces remain open.`}
-            color="#f59e0b"
+            label="private-review candidate"
+            value="Λ ≤ 0.1787854"
+            status={`${candidate.finiteEvidence.rowCount.toLocaleString()} freshly replayed finite rows; corrected tail reports ${candidate.tailEvidence.checksPassed}/${candidate.tailEvidence.checksTotal} gates per precision. Unreviewed computer-assisted candidate for an unconditional proof; bound not established; not peer reviewed; not RH.`}
+            color="#22d3ee"
           />
         </div>
         <P>
-          A passing finite sweep is not a theorem until its producer functional, normalization,
-          analytic error estimates, winding/endpoint conditions, and final criterion are shown to
-          match exactly. That is the purpose of the candidate review page.
+          The standalone package checks the producer functional, normalization, analytic error estimates,
+          claimed compact-slab and final-time-half-strip closures, verified height, endpoints, and final
+          criterion together. The candidate page records those claims and their external-review boundary.
         </P>
       </Section>
 
@@ -261,9 +261,11 @@ export default function PaperPage() {
         <P>
           The twin-ladder program has produced useful coordinates, explicit algebraic
           self-corrections, a strict <InlineMath tex="PF_2" /> kernel result, a rigorous
-          <InlineMath tex="PF_5" /> obstruction, and reproducible candidate computations. It has
+          <InlineMath tex="PF_5" /> obstruction, and an unreviewed computer-assisted candidate for an
+          unconditional proof of <InlineMath tex="\Lambda\le0.1787854" />. That candidate bound is not
+          established, has not been peer reviewed, and is not RH. The program has
           not supplied the non-circular all-shifts positivity theorem or the complete
-          de Bruijn–Newman criterion weld needed for RH.
+          global residual inequality needed for RH; the surviving frontier is equivalent to RH.
         </P>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14, marginTop: 18 }}>
           <Link to="/full-story" style={{ color: '#a5b4fc' }}>
@@ -273,7 +275,7 @@ export default function PaperPage() {
             v52 ledger + v70 correction audit
           </Link>
           <Link to="/newman-lambda-01787854-candidate" style={{ color: '#fbbf24' }}>
-            0.1787854 candidate audit
+            0.1787854 candidate package
           </Link>
           <Link to="/lambda-bounds" style={{ color: '#a5b4fc' }}>
             Bounds and evidence grades

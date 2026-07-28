@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  HEADLINE,
+  HEADLINE as LEGACY_HEADLINE,
   PROOF_CHAIN,
   ROUTE_STATUS,
   CONDITIONS,
@@ -17,6 +17,7 @@ import { CH_WALL_FRONTIER } from '../data/ch-wall-frontier-verdict-2026-06-26.js
 import { CH_LIP_THREE_PROOFS } from '../data/ch-lip-three-proofs-table-2026-06-30.js';
 import { CH_LIP_BASIN_CONDITIONAL, CH_LIP_DIVERGENCE_DECOMPOSITION } from '../data/ch-lip-basin-conditional-2026-06-30.js';
 import { IMP3110_SECTION26_GRAM_VS_MONOMIAL_GAP } from '../data/imp-3110-section26-gram-vs-monomial-gap.js';
+import { NEWMAN_LAMBDA_01787854_CANDIDATE } from '../data/newman-lambda-01787854-candidate.js';
 
 // ── Assertion freshness stamp (imp-2999) ─────────────────────────────────────
 function FreshnessStamp() {
@@ -357,13 +358,14 @@ function TransparencyLedger() {
 const SOTA_TIERS = [
   {
     key: 'rigorous',
-    label: 'RIGOROUS',
+    label: 'BOUND EVIDENCE GRADES',
     color: '#10b981',
     bg: 'rgba(16,185,129,0.08)',
     items: [
       'Rodgers–Tao (2020): Λ ≥ 0 — unconditional.',
       'Platt–Trudgian (2021): Λ ≤ 0.2 — peer-reviewed upper-bound benchmark.',
       'Public 2026 package claim: Λ ≤ 0.1875 — listed and locally repaired, but unrefereed.',
+      'Standalone private review repository: Λ ≤ 0.1787854 — unreviewed computer-assisted candidate for an unconditional proof; bound not established; not peer reviewed; not RH.',
     ],
   },
   {
@@ -383,7 +385,7 @@ const SOTA_TIERS = [
     bg: 'rgba(239,68,68,0.07)',
     items: [
       CAUGHT_OVERCLAIMS.length + ' claims overreached the evidence and were corrected (see Corrections Log below).',
-      'No live claim beats Platt–Trudgian Λ ≤ 0.2; the thin-strip "beats P–T" framing is structurally dead (imp-2630).',
+      'No legacy Dyson/Volterra overclaim beats its stated benchmark; the thin-strip framing is structurally dead (imp-2630). The separate Λ ≤ 0.1787854 package uses a different fixed-height route, but remains an unreviewed computer-assisted candidate whose bound is not established.',
     ],
   },
 ];
@@ -908,7 +910,7 @@ export default function RigorDashboardPage() {
 
   return (
     <div className="page">
-      <HonestCeilingBanner variant="ESTIMATE" />
+      <HonestCeilingBanner variant="PROOF-CANDIDATE" />
       <div className="page-header">
         <h1>Rigor Dashboard</h1>
         <FreshnessStamp />
@@ -920,7 +922,7 @@ export default function RigorDashboardPage() {
         </p>
       </div>
 
-      {/* Shared two-rigorous-islands + one-estimate tier panel (imp-2791) */}
+      {/* Shared evidence-grade tier panel for the 0.1787854 candidate package */}
       <ProofTierSummary />
 
       {/* Honest SOTA banner (imp-2670) */}
@@ -929,25 +931,28 @@ export default function RigorDashboardPage() {
       {/* Three Lambda cross-validation estimators side by side (imp-2991) */}
       <EstimatorTriptych />
 
-      {/* Headline claim */}
+      {/* Current candidate; the older chain panels below retain their dated snapshot. */}
       <div style={{
-        background: 'rgba(16,185,129,0.06)', border: '1px solid #10b98140',
+        background: 'rgba(34,211,238,0.06)', border: '1px solid #22d3ee66',
         borderRadius: 10, padding: '14px 18px', marginBottom: 24,
       }}>
-        <div style={{ fontSize: 11, color: '#10b981', fontFamily: 'var(--font-mono)', marginBottom: 6 }}>
-          HEADLINE CLAIM
+        <div style={{ fontSize: 11, color: '#67e8f9', fontFamily: 'var(--font-mono)', marginBottom: 6 }}>
+          CURRENT PRIVATE-REVIEW CANDIDATE
         </div>
         <div style={{ fontSize: 22, fontWeight: 700, color: '#f8fafc', marginBottom: 4 }}>
-          {HEADLINE.bound}
+          Λ ≤ {NEWMAN_LAMBDA_01787854_CANDIDATE.exactTarget.decimal}
         </div>
         <div style={{ fontSize: 13, color: '#94a3b8', marginBottom: 6 }}>
-          {HEADLINE.improvement} &nbsp;|&nbsp; {HEADLINE.scale}
+          {NEWMAN_LAMBDA_01787854_CANDIDATE.finiteEvidence.rowCount.toLocaleString()}-row material replay
+          &nbsp;|&nbsp; candidate commit {NEWMAN_LAMBDA_01787854_CANDIDATE.identity.packageCommit.slice(0, 12)}
         </div>
         <div style={{ fontSize: 12, color: '#f59e0b', fontFamily: 'var(--font-mono)' }}>
-          {HEADLINE.rigorLevel}
+          UNREVIEWED COMPUTER-ASSISTED CANDIDATE FOR AN UNCONDITIONAL PROOF · BOUND NOT ESTABLISHED · NOT PEER REVIEWED · NOT RH
         </div>
         <div style={{ fontSize: 12, color: '#64748b', marginTop: 4 }}>
-          {HEADLINE.condition}
+          The package supplies claimed compact-slab, final-time-half-strip, finite/tail,
+          and exact-criterion interfaces for review. A seal and green replay do not by
+          themselves establish the bound. RH remains open and requires Λ ≤ 0.
         </div>
       </div>
 
@@ -1081,7 +1086,8 @@ export default function RigorDashboardPage() {
 
       {/* Data provenance footer */}
       <div style={{ fontSize: 11, color: '#475569', textAlign: 'center', marginTop: 24, paddingTop: 12, borderTop: '1px solid #1e293b' }}>
-        Sourced from <code style={{ color: '#64748b' }}>proof-chain-snapshot-2026-06-23.js</code> · snapshot date {HEADLINE.snapshotDate}
+        Legacy chain panels retain <code style={{ color: '#64748b' }}>proof-chain-snapshot-2026-06-23.js</code>
+        {' '}· snapshot date {LEGACY_HEADLINE.snapshotDate}. Current Λ status is sourced from the candidate registry.
       </div>
     </div>
   );

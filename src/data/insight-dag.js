@@ -2,14 +2,18 @@
  * @module insight-dag
  *
  * The Connected Insights DAG (HomePage). Fine-grained 2026-06-21 (Opus 4.8
- * insight-dag-finegrain fan-out, 5 layer-mappers + synthesis): 52 nodes / 86 edges
+ * insight-dag-finegrain fan-out, 5 layer-mappers + synthesis), reconciled with
+ * the private review-01787854-v3 proof candidate. Nodes span the foundation through
+ * finding layers.
  * across 5 layers (FOUNDATION/MODEL/ANALYSIS/GAPS/TARGET). Each node carries its
  * own `layer` (0-4) so the renderer no longer drops nodes missing from a
  * hardcoded map. Statuses now include refuted/estimate/rh-equivalent and edges
  * include refutes/reformulates to carry the session's honest verdicts: the C_H
- * shock-Holder modulus is THE wall every Lambda route funnels into; the Volterra
+ * shock-Holder modulus is the wall for the inherited Dyson/collision lane; the Volterra
  * collapse is PCC-FREE but RH-EQUIVALENT (its Sec-27 LINK B identity REFUTED);
- * PT Lambda<=0.2 is the standing rigorous SOTA. No false QED.
+ * PT Lambda<=0.2 remains the accepted peer-reviewed benchmark, while the separate
+ * private package proposes Lambda<=0.1787854 as an unreviewed proof candidate
+ * without consuming C_H. It is not an established theorem. No false QED.
  */
 
 export const INSIGHT_NODES = [
@@ -51,16 +55,32 @@ export const INSIGHT_NODES = [
   { id: 'montgomery-pcc', label: 'Montgomery PCC', layer: 3, category: 'gap', status: 'open', page: '/pcc-route-exhaustion', description: 'Pair-correlation support>1 is the 50-yr wall every PCC zero-statistic route hits' },
   { id: 'selberg-trace-pcc', label: 'Selberg-Trace PCC', layer: 3, category: 'gap', status: 'refuted', page: '/pcc-route-exhaustion', description: 'ESY/Selberg-trace closure DEAD: arithmetic dichotomy funnels into Montgomery PCC' },
   { id: 'goldston-gonek-pcc', label: 'Goldston-Gonek 2pt', layer: 3, category: 'gap', status: 'refuted', page: '/pcc-route-exhaustion', description: 'Goldston-Gonek/Maynard 2-point PCC attack DEAD; one citation flagged fabricated' },
-  { id: 'gap-CH-shock-holder', label: 'C_H Shock-Holder', layer: 3, category: 'gap', status: 'gap', page: '/rigor-dashboard', description: 'THE wall: N-uniform Holder-1/2 shock modulus C_H; naive Gronwall refuted (imp-2640)' },
+  { id: 'gap-CH-shock-holder', label: 'C_H Shock-Holder', layer: 3, category: 'gap', status: 'gap', page: '/rigor-dashboard', description: 'Wall for the inherited Dyson/collision lane: N-uniform Holder-1/2 shock modulus C_H; naive Gronwall refuted (imp-2640)' },
   { id: 'gap-s27-blockpos-identity', label: 'S27 Block-Pos Identity', layer: 3, category: 'gap', status: 'refuted', page: '/route-map', description: 'LINK B: claimed block-positivity<=>K_a-PSD identity REFUTED (2026-06-17)' },
   { id: 'gap-volterra-L2-norm', label: 'L2 Volterra Norm 27.2', layer: 3, category: 'gap', status: 'rh-equivalent', page: '/route-map', description: '||V||<=1 collapse KILLED as a reduction; 5000x margin was a homogeneity artifact' },
   { id: 'gap-s26-normalized-R', label: 'S26 Normalized-R', layer: 3, category: 'gap', status: 'rh-equivalent', page: '/route-map', description: 'Conj-26.3: least-ruled-out direct target but information-preservingly RH-equivalent' },
   { id: 'gap-s5', label: 'S5: Hilbert-Polya', layer: 3, category: 'gap', status: 'gap', page: '/gap-closing', description: 'Construct self-adjoint operator with spectrum = zeros' },
   { id: 'gap-s7', label: 'S7: Darlington', layer: 3, category: 'gap', status: 'gap', page: '/gap-closing', description: 'Prove infinite twin-ladder satisfies Darlington losslessness' },
   { id: 'inverse-Blaschke-ghosts', label: 'Inverse Blaschke Ghosts', layer: 3, category: 'gap', status: 'rh-equivalent', page: '/blaschke-ghosts', description: 'B_a^+=1 <=> RH; ghost poles = off-critical zeros (Krein-Langer/Pontryagin)' },
-  { id: 'target-route-map-hub', label: 'Full Route Map (38)', layer: 4, category: 'target', status: 'open', page: '/route-map', description: 'Orientation hub: all 38 routes classified; everything funnels into C_H, no shortcut' },
+  { id: 'target-route-map-hub', label: 'Full Route Map (38)', layer: 4, category: 'target', status: 'open', page: '/route-map', description: 'Orientation hub: the inherited Dyson/collision lane hits C_H; the private fixed-height proof candidate is a separate lane; RH still has no shortcut' },
   { id: 'target-lambda-RT', label: 'Lambda>=0 Rodgers-Tao', layer: 4, category: 'target', status: 'proven', page: '/lambda-bounds', description: 'Rigorous floor Lambda>=0 (Rodgers-Tao); sharp under RH, closes the lower side' },
-  { id: 'target-lambda-PT', label: 'Lambda<=0.2 Platt-Trudg', layer: 4, category: 'target', status: 'proven', page: '/lambda-bounds', description: 'Rigorous SOTA upper bound Lambda<=0.2 (Platt-Trudgian); not beaten' },
+  { id: 'target-lambda-PT', label: 'Lambda<=0.2 Platt-Trudg', layer: 4, category: 'target', status: 'proven', accepted: true, peerReviewed: true, page: '/lambda-bounds', description: 'Accepted peer-reviewed upper-bound benchmark Lambda<=0.2 (Platt-Trudgian)' },
+  {
+    id: 'target-lambda-candidate-01787854',
+    label: 'Lambda<=0.1787854 Candidate',
+    layer: 4,
+    category: 'target',
+    status: 'candidate',
+    page: '/newman-lambda-01787854-candidate',
+    countsAsEstablishedUpperBound: false,
+    repository: 'judegomila/dbn-lambda-01787854-candidate-audit',
+    repositoryVisibility: 'private',
+    tag: 'review-01787854-v3',
+    commit: '2e9976c4becbf97e31c56fe75fce07cdff5dd4ea',
+    tree: '7f15ecf8c3dbc73d547a2d4a3f2287bd87802f44',
+    manifestSha256: '89a201565d5b4a0f02ab49092e3189c7a6d3b0bfaa4e93630c68cf8c4155ae1c',
+    description: 'Private v3 computer-assisted proof candidate for an unconditional bound; not established, unpublished, unpeer-reviewed, unaccepted, and not RH',
+  },
   { id: 'target-finite-1e4-beat', label: 'Finite-N*=1e4 Beat', layer: 4, category: 'target', status: 'estimate', page: '/lambda-bounds', description: 'PT-comparable finite beat but ESTIMATE: gated on undischargeable C_H (imp-2640)' },
   { id: 'rh', label: 'Riemann Hypothesis', layer: 4, category: 'target', status: 'open', page: '/formal-proof', description: 'All nontrivial zeros have Re(rho)=1/2' },
   { id: 'shift-bridge-positivity', label: 'Shift-Bridge Positivity', layer: 2, category: 'analysis', status: 'rh-equivalent', page: '/shift-bridge-positivity', description: 'v52 App: shift-bridge positivity certificate; equivalent to the four-route closure' },
@@ -93,7 +113,7 @@ export const INSIGHT_NODES = [
   { id: 'finding-r2t-isolation-c', label: 'R2-T Isolation c', layer: 6, category: 'finding', status: 'gap', page: '/what-we-know', description: 'The R2-T isolation constant c is the single DETERMINISTIC, PCC/GUE-free open forward move feeding the C_H wall; the one move not yet shown RH-hard.' },
   { id: 'finding-basin-conditional', label: 'Basin-Conditional C_Lip', layer: 6, category: 'finding', status: 'conditional', page: '/rigor-dashboard', description: 'imp-3006 finding: a local-energy C_Lip holds only inside the sg1c isolation basin (c*~0.9319); conditional, not N-uniform, does not discharge the wall.' },
   { id: 'finding-six-overclaim-ledger', label: '6-Overclaim Ledger', layer: 6, category: 'finding', status: 'refuted', page: '/what-we-know', description: 'Verification ledger that caught and refuted six prior overclaims (including the finite-N beat), enforcing no-false-QED discipline across the program.' },
-  { id: 'finding-no-shortcut-meta', label: 'No-Shortcut Meta', layer: 6, category: 'finding', status: 'refuted', page: '/route-map', description: 'Meta-verdict: every classified route is RH-hard, RH-equivalent, or dead — there is no shortcut, with C_H the wall they all funnel into.' },
+  { id: 'finding-no-shortcut-meta', label: 'No-Shortcut Meta', layer: 6, category: 'finding', status: 'refuted', page: '/route-map', description: 'Meta-verdict for RH: every classified global route is RH-hard, RH-equivalent, or dead. C_H is specifically the inherited Dyson/collision wall; the separate fixed-height package is only an unreviewed positive-Lambda proof candidate.' },
 ];
 
 export const INSIGHT_EDGES = [
@@ -162,11 +182,13 @@ export const INSIGHT_EDGES = [
   { from: 'ka-reproducing-kernel', to: 'inverse-Blaschke-ghosts', type: 'requires' },
   { from: 'EN-decomposition', to: 'gap-s7', type: 'supports' },
   { from: 'gap-CH-shock-holder', to: 'target-finite-1e4-beat', type: 'requires' },
-  { from: 'gap-CH-shock-holder', to: 'target-lambda-PT', type: 'requires' },
   { from: 'gap-CH-shock-holder', to: 'rh', type: 'requires' },
   { from: 'target-route-map-hub', to: 'gap-CH-shock-holder', type: 'requires' },
   { from: 'target-route-map-hub', to: 'rh', type: 'supports' },
   { from: 'target-lambda-PT', to: 'rh', type: 'supports' },
+  { from: 'target-lambda-PT', to: 'target-lambda-candidate-01787854', type: 'extends' },
+  { from: 'ht-heat-flow', to: 'target-lambda-candidate-01787854', type: 'supports' },
+  { from: 'target-lambda-candidate-01787854', to: 'rh', type: 'supports' },
   { from: 'target-lambda-RT', to: 'rh', type: 'supports' },
   { from: 'target-finite-1e4-beat', to: 'target-lambda-PT', type: 'analogous' },
   { from: 'rh-iff-lambda-zero', to: 'target-lambda-PT', type: 'supports' },
@@ -219,6 +241,7 @@ export const INSIGHT_EDGES = [
 
 export const STATUS_COLORS = {
   proven: '#10b981',
+  candidate: '#f59e0b',
   conditional: '#f59e0b',
   gap: '#f97316',
   open: '#ef4444',
@@ -461,6 +484,59 @@ export const INSIGHT_DAG_ASSERTIONS = [
       '(directly or through gap-s5/s7). A node disconnected from rh would ' +
       'be a dead branch in the proof chain and misrepresent the role of the ' +
       'twin-ladder v52 program.',
+  },
+  {
+    id: 'insight-dag-private-proof-candidate-is-separate-from-C_H-lane',
+    holds: () => {
+      const candidate = INSIGHT_NODES.find(
+        (node) => node.id === 'target-lambda-candidate-01787854'
+      );
+      const hasCandidateToRh = INSIGHT_EDGES.some(
+        (edge) =>
+          edge.from === 'target-lambda-candidate-01787854' &&
+          edge.to === 'rh'
+      );
+      const hasCHToCandidateOrPeerBenchmark = INSIGHT_EDGES.some(
+        (edge) =>
+          edge.from === 'gap-CH-shock-holder' &&
+          (
+            edge.to === 'target-lambda-candidate-01787854' ||
+            edge.to === 'target-lambda-PT'
+          )
+      );
+      const peerBenchmark = INSIGHT_NODES.find(
+        (node) => node.id === 'target-lambda-PT'
+      );
+      return (
+        candidate &&
+        candidate.status === 'candidate' &&
+        candidate.countsAsEstablishedUpperBound === false &&
+        candidate.repository === 'judegomila/dbn-lambda-01787854-candidate-audit' &&
+        candidate.repositoryVisibility === 'private' &&
+        candidate.tag === 'review-01787854-v3' &&
+        candidate.commit === '2e9976c4becbf97e31c56fe75fce07cdff5dd4ea' &&
+        candidate.tree === '7f15ecf8c3dbc73d547a2d4a3f2287bd87802f44' &&
+        candidate.manifestSha256 ===
+          '89a201565d5b4a0f02ab49092e3189c7a6d3b0bfaa4e93630c68cf8c4155ae1c' &&
+        candidate.description.includes('proof candidate') &&
+        candidate.description.includes('not established') &&
+        candidate.description.includes('unpublished') &&
+        candidate.description.includes('unpeer-reviewed') &&
+        candidate.description.includes('unaccepted') &&
+        candidate.description.includes('not RH') &&
+        peerBenchmark &&
+        peerBenchmark.status === 'proven' &&
+        peerBenchmark.accepted === true &&
+        peerBenchmark.peerReviewed === true &&
+        peerBenchmark.description.includes('peer-reviewed') &&
+        hasCandidateToRh &&
+        !hasCHToCandidateOrPeerBenchmark
+      );
+    },
+    why:
+      'The Home DAG must show 0.1787854 only as an unreviewed, unestablished proof ' +
+      'candidate while keeping it and the accepted Platt-Trudgian benchmark independent ' +
+      'of the legacy C_H lane.',
   },
   {
     id: 'insight-dag-status-and-category-valid',

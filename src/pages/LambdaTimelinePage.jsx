@@ -176,10 +176,10 @@ export default function LambdaTimelinePage() {
           href="https://doi.org/10.5281/zenodo.21175533"
         />
         <EvidenceCard
-          label="local review candidate"
+          label="private proof candidate · unreviewed"
           value="Λ ≤ 0.1787854"
-          detail="Not part of the historical theorem ledger. Stored gates pass; eight interfaces remain open."
-          color="#f59e0b"
+          detail="Candidate for an unconditional computer-assisted proof; not established, accepted, published, or peer reviewed. Private review-01787854-v3 at commit 2e9976c4becbf97e31c56fe75fce07cdff5dd4ea."
+          color="#22d3ee"
           route="/newman-lambda-01787854-candidate"
         />
       </div>
@@ -291,8 +291,8 @@ export default function LambdaTimelinePage() {
         }}
       >
         A ledger entry records that a claim and package exist. It is not a correctness
-        endorsement. The app keeps the accepted, public-unrefereed, and local-candidate layers
-        separate throughout.
+        endorsement. The app keeps the accepted, public-unrefereed, and
+        private-unreviewed-proof-candidate layers separate throughout.
       </div>
     </div>
   );

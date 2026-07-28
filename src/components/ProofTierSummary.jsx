@@ -1,10 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// Single-source three-tier honest picture shared by /rh-proof-state and /rigor-dashboard.
-// "Two rigorous islands + one estimate" framing: both the published floor and the Volterra
-// RH-equivalence verdict are definitively established; only the finite-N* beat is an estimate.
+// Single-source evidence-grade picture shared by /rh-proof-state and /rigor-dashboard.
+// Publication, repository candidacy, RH-equivalence, and numerical estimation stay distinct.
 export const PROOF_TIER_DATA = [
+  {
+    key: 'proof-candidate',
+    tier: 'UNREVIEWED CANDIDATE — Bound not established',
+    color: '#22d3ee',
+    bg: 'rgba(34,211,238,0.08)',
+    headline: 'Λ ≤ 0.1787854',
+    subhead: 'Computer-assisted candidate for an unconditional proof — not peer reviewed; not RH',
+    bullets: [
+      'Standalone tag review-01787854-v3 at commit 2e9976c4becb packages the candidate proof and exact criterion assembly for review.',
+      'The package reports a fresh material replay over all 3,149,013 finite rows; corrected finite and tail errors use 10.50.',
+      'Its claimed compact-slab and final-time half-strip closures still require independent mathematical review.',
+      'The candidate bound is not established, has not been peer reviewed, and is not RH, which requires Λ ≤ 0.',
+    ],
+    link: '/newman-lambda-01787854-candidate',
+  },
   {
     key: 'peer-reviewed-benchmark',
     tier: 'RIGOROUS — Peer-reviewed benchmark',
@@ -62,7 +76,7 @@ export default function ProofTierSummary() {
         fontSize: 11, color: '#94a3b8', fontFamily: 'var(--font-mono)',
         marginBottom: 14, letterSpacing: 0.5,
       }}>
-        TWO RIGOROUS ISLANDS + ONE ESTIMATE &mdash; HONEST PROOF-TIER SUMMARY
+        EVIDENCE-GRADED THEOREMS, EQUIVALENCES, AND ESTIMATES
       </div>
       <div style={{
         display: 'grid',

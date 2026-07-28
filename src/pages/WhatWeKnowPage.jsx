@@ -39,19 +39,20 @@ export default function WhatWeKnowPage() {
         <p className="page-subtitle">
           The consolidated, honest state of what this project has actually figured out about
           ζ, the Riemann Hypothesis, and the primes. The discipline throughout is calibrated
-          honesty — so the headline first: <strong>RH is not proved, and the rigorous record
-          Λ ≤ 0.2 (Platt–Trudgian) is not beaten.</strong> What the project <em>has</em> produced
-          is a rigorously honest map of exactly where the walls are and why — plus one genuine
-          new theorem. Across <strong>{ROUTE_COUNT} mapped routes</strong>, the deepest finding
-          is uniform: every route is either <em>not rigorous</em>, <em>RH-equivalent</em>
-          (a reformulation, not a shortcut), or dead.
+          honesty — so the headline first: <strong>RH is not proved. The standalone private review repository presents
+          Λ ≤ 0.1787854 as an unreviewed computer-assisted candidate for an unconditional proof.
+          The bound is not established, has not been peer reviewed, and is not RH. Λ ≤ 0.2
+          (Platt–Trudgian) remains the peer-reviewed benchmark.</strong> Across{' '}
+          <strong>{ROUTE_COUNT} mapped routes</strong>, every surviving route from a positive
+          Newman bound to RH is still open, RH-equivalent, or dead.
         </p>
       </div>
 
-      <Card accent="#10b981" title="① The rigorous floor — what is actually proven">
+      <Card accent="#10b981" title="① Established results and the separately graded candidate">
         <ul style={{ fontSize: 13.5, color: 'var(--text-secondary)', lineHeight: 1.75 }}>
-          <li><strong>Λ ≥ 0</strong> (Rodgers–Tao 2020) and <strong>Λ ≤ 0.2</strong> (Platt–Trudgian 2021) — the standing rigorous bracket. RH ⟺ Λ = 0. <em>Cited, not produced here.</em></li>
-          <li><strong>Route B (Burgers / Koksma–Hlawka lim-sup) — the project's one genuine new rigorous theorem:</strong> an unconditional, GUE-free, pair-correlation-free proof that lim supₙ |t_c(N)| = 0 for the N-particle Calogero–Moser/Dyson flow that models the zeros. Rests only on Riemann–von Mangoldt + an explicit Selberg/Trudgian bound.</li>
+          <li><strong>Standalone private-review Newman candidate:</strong> <strong>Λ ≤ 0.1787854</strong> is an unreviewed computer-assisted candidate for an unconditional proof. Its package claims a compact-slab and final-time-half-strip closure, full material replay, corrected errors, and exact Polymath weld. The bound is not established, has not been peer reviewed, and is not RH.</li>
+          <li><strong>Literature grades:</strong> <strong>Λ ≥ 0</strong> (Rodgers–Tao 2020) and the peer-reviewed upper benchmark <strong>Λ ≤ 0.2</strong> (Platt–Trudgian 2021). RH ⟺ Λ = 0.</li>
+          <li><strong>Route B (Burgers / Koksma–Hlawka lim-sup):</strong> an unconditional, GUE-free, pair-correlation-free proof that lim supₙ |t_c(N)| = 0 for the N-particle Calogero–Moser/Dyson flow that models the zeros. This subsidiary theorem does not close the bridge to RH.</li>
           <li><strong>The Θ-trap theorems:</strong> Θ ≤ 1/4 as an unconditional flow invariant; the exact identity dg/ds = −(4/g)(1−Θ); Corollary A1 (t_c^part ≤ g_min²/6). Rigorous CM-flow algebra.</li>
           <li><strong>The R2-T isolation constant</strong> closed in closed form: c* = √(2+√3) − 1 ≈ 0.9319 (the single-shell case) — the one deterministic frontier residual, resolved.</li>
         </ul>
@@ -59,8 +60,9 @@ export default function WhatWeKnowPage() {
 
       <Card accent="#a78bfa" title="② The two frontier walls — fully characterized">
         <p style={{ fontSize: 13, color: '#94a3b8', marginTop: 0 }}>
-          Every route that could give an actual Λ &lt; 0.2 funnels into one of two objects.
-          Both have now been driven to ground by deliberate adversarial assault.
+          Every surviving mapped route seeking to drive the positive bound all the way to
+          Λ = 0 funnels into one of two RH-hard objects. Both have been driven to ground by
+          deliberate adversarial assault.
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
           <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.3)' }}>
@@ -130,12 +132,11 @@ export default function WhatWeKnowPage() {
       </Card>
 
       <div className="card" style={{ background: 'rgba(59,130,246,0.04)', fontSize: 13, color: '#cbd5e1', lineHeight: 1.7 }}>
-        <strong>One-sentence version.</strong> The project's real contribution is not a step toward proving RH —
-        it is a rigorously honest map showing the finite-height Dyson-flow attack funnels entirely into one
-        provably-RH-hard constant, the elegant operator "collapse" is a reformulation rather than a reduction,
-        and every route meets the same pair-correlation wall — plus one genuine new lim-sup theorem (Route B)
-        and a precise diagnosis of <em>why</em> the wall is where it is. <strong>Platt–Trudgian Λ ≤ 0.2 remains
-        the rigorous record, untouched.</strong>
+        <strong>One-sentence version.</strong> The standalone private review repository presents
+        <strong> Λ ≤ 0.1787854</strong> as an unreviewed computer-assisted candidate for an
+        unconditional proof; the bound is not established, has not been peer reviewed, and is not RH.
+        The exact global Twin Ladder residual inequality remains equivalent to RH, Platt–Trudgian
+        <strong> Λ ≤ 0.2</strong> remains the peer-reviewed benchmark, and RH itself remains open.
       </div>
     </div>
   );

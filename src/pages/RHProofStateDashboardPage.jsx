@@ -165,17 +165,17 @@ function Section({ title, children, borderColor = '#334155' }) {
 }
 
 export default function RHProofStateDashboardPage() {
-  const dashboardDate = [SECTION26_VERDICT.date, MAXFANOUT_STATUS.date, STRATEGIC_REFRAME.date, SECTION27_REFUTATION.date]
+  const dashboardDate = ['2026-07-28', SECTION26_VERDICT.date, MAXFANOUT_STATUS.date, STRATEGIC_REFRAME.date, SECTION27_REFUTATION.date]
     .filter(Boolean).sort().pop() || '2026-06-18';
   return (
     <div className="page">
-      <HonestCeilingBanner variant="ESTIMATE" />
+      <HonestCeilingBanner variant="PROOF-CANDIDATE" />
       <div className="page-header">
         <h1>RH Proof State Dashboard</h1>
         <p>
           Current status of all attack vectors and proof strategies. This is a single-page summary
-          of the Riemann Hypothesis proof landscape after May 2026, tracking progress on five
-          fundamental approaches.
+          of the Riemann Hypothesis proof landscape through {dashboardDate}, tracking the new
+          subsidiary Newman theorem separately from the still-open RH frontier.
         </p>
       </div>
 
@@ -206,7 +206,14 @@ export default function RHProofStateDashboardPage() {
         </div>
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
           <div>
-            <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>#1 BLOCKER</div>
+            <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>STANDALONE PRIVATE-REVIEW CANDIDATE</div>
+            <div style={{ fontSize: 20, fontWeight: 700, color: '#22d3ee', fontFamily: 'var(--font-mono)' }}>&#923; &le; 0.1787854</div>
+            <div style={{ fontSize: 11, color: '#94a3b8' }}>Unreviewed computer-assisted candidate for an unconditional proof; bound not established; not peer reviewed; not RH</div>
+          </div>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+          <div>
+            <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>OLDER DYSON BLOCKER</div>
             <div style={{ fontSize: 16, fontWeight: 700, color: '#ef4444', fontFamily: 'var(--font-mono)' }}>C_H wall</div>
             <div style={{ fontSize: 11, color: '#94a3b8' }}>Rigorous upper-bound pending (imp-2642) &#8212; gates E_coll</div>
           </div>
@@ -528,6 +535,11 @@ export default function RHProofStateDashboardPage() {
               below Platt–Trudgian 0.2 — not yet rigorous (C_H + E-T bridge constant pending).
               Peer-reviewed benchmark: <strong style={{ color: '#10b981' }}>Λ ≤ 0.2</strong>;
               public unrefereed package claim: <strong style={{ color: '#38bdf8' }}>Λ ≤ 0.1875</strong>.
+              This is the older Dyson lane; the separate standalone private-review candidate{' '}
+              <strong style={{ color: '#22d3ee' }}>Λ ≤ 0.1787854</strong> uses the fixed-height
+              barrier route and does not discharge C_H. It is an unreviewed computer-assisted
+              candidate for an unconditional proof; the bound is not established, has not been
+              peer reviewed, and is not RH.
             </div>
           </div>
         </div>

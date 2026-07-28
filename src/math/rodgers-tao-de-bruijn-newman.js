@@ -28,7 +28,10 @@
  *   de Bruijn (1950): Λ ≤ 1/2
  *   Ki-Kim-Lee (2009): Λ < 1/2
  *   Rodgers-Tao (2020): Λ ≥ 0  (Newman's conjecture PROVED)
- *   Platt-Trudgian (2021): Λ ≤ 0.22
+ *   Platt-Trudgian (2021): Λ ≤ 0.2 (peer-reviewed benchmark)
+ *   Private standalone audit candidate (2026): Λ ≤ 0.1787854
+ *                           (computer-assisted candidate for an unconditional
+ *                           proof; not established or peer reviewed)
  *
  * THIS MODULE:
  *   1. Compute Φ(u) at grid points.
@@ -150,7 +153,11 @@ export function rodgersTaoDeBruijnNewmanTest() {
       newman1976: 'CONJECTURE: Λ ≥ 0 (equivalently: RH is "barely true" if at all)',
       rodgersTao2020: 'THEOREM: Λ ≥ 0 (Newman\'s conjecture PROVED)',
       combined: 'RH ⟺ Λ ≤ 0 (classical) AND Λ ≥ 0 (Rodgers-Tao) ⟹ RH ⟺ Λ = 0',
-      bestBounds: '0 ≤ Λ ≤ 0.22 (Platt-Trudgian 2021)',
+      bestBounds:
+        'Established results give Λ ≥ 0 and the peer-reviewed upper bound Λ ≤ 0.2 (Platt-Trudgian). ' +
+        'A private standalone audit contains an unreviewed computer-assisted candidate for an ' +
+        'unconditional proof of Λ ≤ 0.1787854; the bound is not established, has not been peer reviewed, ' +
+        'and is not a proof of RH.',
     },
 
     phi_kernel: phiSample,
@@ -175,7 +182,9 @@ export function rodgersTaoDeBruijnNewmanTest() {
       `At t=-0.1: ${zerosPerT[1].num_real_zeros_in_0_55} real zeros; t=-0.5: ${zerosPerT[0].num_real_zeros_in_0_55} real zeros.`,
       `Zero migration: γ_1(t) = ${zeroMigration.map(m => `${m.t}:${m['γ_1(t)']}`).join(', ')}.`,
       `RODGERS-TAO 2020: proved Λ ≥ 0 via showing H_{-t}(z) must have complex zeros for any t > 0.`,
-      `Combined with RH⟹Λ≤0: RH ⟺ Λ = 0. Currently 0 ≤ Λ ≤ 0.22.`,
+      `Combined with RH⟹Λ≤0: RH ⟺ Λ = 0. A private standalone audit proposes the unreviewed ` +
+        `computer-assisted candidate Λ ≤ 0.1787854; the bound is not established, has not been peer reviewed, ` +
+        `and is not a proof of RH.`,
     ],
 
     relationToRH: {
@@ -190,8 +199,10 @@ export function rodgersTaoDeBruijnNewmanTest() {
         'have ALL real zeros. They showed this implies incompatible conditions on zero behavior, ' +
         'using entropy-based arguments and barrier functions.',
       plattTrudgian:
-        'Platt-Trudgian (2021): computed Λ ≤ 0.22 by verifying RH for first 10^13 zeros + ' +
-        'zero-free region argument + barrier estimate. Narrowing 0 ≤ Λ ≤ 0.22.',
+        'Platt-Trudgian (2021): proved the peer-reviewed benchmark Λ ≤ 0.2 using a verified-height ' +
+        'calculation, zero-free region, and barrier estimate. A private standalone audit proposes the stronger ' +
+        'Λ ≤ 0.1787854 value as an unreviewed computer-assisted candidate for an unconditional proof. ' +
+        'It is not an established theorem, has not been peer reviewed, and is not a proof of RH.',
       proofStrategy:
         'RH proof ⟺ prove Λ = 0 ⟺ show H_t has real zeros for ALL t ≥ 0 (already known) AND ' +
         'that H_0 has only real zeros (= RH itself).',

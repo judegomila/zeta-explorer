@@ -271,7 +271,9 @@ const MARKOV_NORMALIZATION = {
   fixedBlockBlindLattice:
     'T125: for a>1 and every fixed density ϖ∈L¹([α,β]) on a positive compact interval, ℬϖ(z)=a^z−2+∫ϖ(μ)μ^z dμ has exactly one simple zero z_n=log 2/log a+2πin/log a+o_ϖ(1) near each sufficiently high base-lattice point. Compact-uniform Riemann–Lebesgue decay and Rouché prove this; bounded variation in the log coordinate restores O_ϖ(1/|n|), while bare L¹ has no universal rate. Exact integer-multiplicity weighted prefix products have normalized atomic empirical measures and the exact response in (493); weak limits recover the continuous symbol locally, but no uniform finite-N vertical decay or inherited Mellin-transfer estimate follows. Atomic, non-Rajchman, scale-adaptive, and fully discrete weights remain outside; no zeta zero is located and RH remains open',
   fixedMeasureBlindPoints:
-    'T126: for a>1 and every fixed finite complex Borel measure ν with supp|ν| contained in [α,β] compactly inside (1,a), ℬν(z)=a^z−2+∫μ^z dν(μ) has infinitely many zeros in every half-plane Re z>c with c<σ*=log 2/log a. T125 localizes one zero at every large base-lattice index for L¹ densities; discrete Wiener theory gives an asymptotic lattice subsequence for atomless measures; the general result is nonlocalized. A positive atomic probability measure has positive vertical zero density strictly right of σ*, as δ_{√a} shows on Re z=2σ*. Wasserstein transfer toward one fixed L¹-density target works through heights T_N only when T_NW₁→0; prefix grids permit T_N=o(min{N,M_N}). Endpoint atoms, scale-adaptive weights, and the missing arithmetic Mellin error remain outside; these are multiplier blind points, not zeta zeros, and RH remains open',
+    'T126: for a>1 and every fixed finite complex Borel measure ν with supp|ν| contained in [α,β] compactly inside (1,a), ℬν(z)=a^z−2+∫μ^z dν(μ) has infinitely many zeros in every half-plane Re z>c with c<σ*=log 2/log a. T125 localizes one zero at every large base-lattice index for L¹ densities; discrete Wiener theory gives an asymptotic lattice subsequence for atomless measures; the general result is nonlocalized. A positive atomic probability measure has positive vertical zero density strictly right of σ*, as δ_{√a} shows on Re z=2σ*. Wasserstein transfer toward one fixed L¹-density target works through heights T_N only when T_NW₁→0; prefix grids permit T_N=o(min{N,M_N}). Endpoint atoms, uncontrolled scale adaptation, and the missing arithmetic Mellin error remain outside; these are multiplier blind points, not zeta zeros, and RH remains open',
+  fixedMovingMeasureBlindRectangle:
+    'T127: fix K⊂⊂(1,a), a total-variation bound M, and c<σ*=log 2/log a. Weak-* compactness of the measure ball, compact-open continuity of ν↦ℬν, and Rouché’s theorem on a finite subcover give finitely many disks—and hence one common bounded rectangle c<Re z<R, |Im z|<T—meeting the zero set of every symbol. This includes arbitrary row-dependent normalized positive exact weights on K, without weak convergence or regularity in the row. The rectangle need not meet 3/2<Re z<2: δ_{√a} has its nonzero right-half family on Re z=2σ*>2 for a=32/21. The zero may move from row to row, supplies no fixed Mellin factor, and proves neither the weighted O(N²) error, an arithmetic sign, nor RH',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -368,7 +370,9 @@ const MARKOV_NORMALIZATION = {
   structureT125:
     'T125 proves that every fixed absolutely continuous reweighting of the T123 block retains the asymptotic blind lattice: compact-uniform Riemann–Lebesgue decay and Rouché give one simple zero near each high root of a^z−2. Exact weighted prefix products converge locally to this symbol when their normalized empirical measures converge weakly on the fixed prefix interval, but each finite response is atomic and no uniform high-frequency or Mellin-error transfer is proved. This is a fixed-weight route no-go, not an RH proof or non-equivalence theorem.',
   structureT126:
-    'T126 closes the fixed atomic and singular-measure loopholes at weaker localization: Jessen convexity for the atomic almost-periodic part and a Wiener–Rouché transfer for the atomless part force infinitely many blind points in every half-plane Re z>c with c<σ*=log 2/log a. Positive atomic probabilities even have positive zero density strictly to the right of σ*. A quantitative Wasserstein theorem transfers a growing lattice window only toward one fixed L¹ target when T_NW₁→0. Endpoint support, scale adaptation, and the required discrete Mellin estimate remain outside, so this is still not an RH proof.',
+    'T126 extends right-half zero existence to fixed atomic and singular measures, with a regularity-dependent localization hierarchy: Jessen convexity for the atomic almost-periodic part and a Wiener–Rouché transfer for the atomless part force infinitely many blind points in every half-plane Re z>c with c<σ*=log 2/log a. Positive atomic probabilities even have positive zero density strictly to the right of σ*. A quantitative Wasserstein theorem transfers a growing lattice window only toward one fixed L¹ target when T_NW₁→0. This does not close every atomic or singular Landau route; endpoint support, uncontrolled scale adaptation, and the required discrete Mellin estimate remain outside, so this is still not an RH proof.',
+  structureT127:
+    'T127 makes that existence theorem uniform over every weak-* compact family with fixed strict-interior support and bounded total variation. Compact-open continuity and a finite Rouché subcover put at least one symbol zero in a common bounded right-half rectangle, even for arbitrary normalized row-dependent positive exact weights with no convergence. The zero can move by row and the rectangle may lie beyond Re z=2, so no fixed multiplier, weighted Mellin transfer, arithmetic sign, or RH conclusion follows.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -1229,6 +1233,19 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     certificate:
       'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
   },
+  {
+    id: 'T127',
+    color: '#a78bfa',
+    status:
+      'BOUNDED MOVING MEASURE FAMILY · COMMON RIGHT-HALF ZERO RECTANGLE · RH OPEN',
+    title: 'Row-dependent interior weights cannot push every blind point away',
+    formula:
+      '∃R,T ∀ν [supp|ν|⊂K⊂⊂(1,a), ‖ν‖TV≤M] ∃z: ℬν(z)=0, c<Re z<R, |Im z|<T',
+    detail:
+      'Fix a>1, a compact K strictly inside (1,a), M<∞, and c<σ*=log 2/log a. The total-variation ball of measures supported on K is weak-* compact, and weak-* convergence there makes ℬν converge locally uniformly. T126 supplies a right-half zero for each limiting symbol; a disk around that zero, Rouché’s theorem, and a finite subcover then produce finitely many disks whose union meets every symbol zero set. One bounded rectangle c<Re z<R, |Im z|<T therefore works for the whole family. ' +
+      'Every normalized positive empirical measure from arbitrary row-dependent exact integer weights on the fixed block belongs to the M=1 family, so the rectangle is independent of the row, total multiplicity, and placement of the weights. No weak convergence, Rajchman condition, denominator bound, or row regularity is required. ' +
+      'This is only a uniform right-half-zero location theorem. The zero may move with the row, and the common rectangle need not meet 3/2<Re z<2: for ν=δ_{√a}, the nonzero right-half family lies on Re z=2σ*>2 when a=32/21. It gives no common zero, no fixed Mellin factor, no weighted O(N²) discrete Mellin error, no arithmetic sign, and no RH conclusion. The argument is analytic and has no separate deterministic certificate.',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -1381,7 +1398,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T126 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T127 · 2026-07-28</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1749,7 +1766,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T126 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T127 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1760,7 +1777,8 @@ export default function OpenFrontierPage() {
           {MARKOV_NORMALIZATION.structureT123}{' '}
           {MARKOV_NORMALIZATION.structureT124}{' '}
           {MARKOV_NORMALIZATION.structureT125}{' '}
-          {MARKOV_NORMALIZATION.structureT126}
+          {MARKOV_NORMALIZATION.structureT126}{' '}
+          {MARKOV_NORMALIZATION.structureT127}
         </p>
         <div
           style={{
@@ -1865,6 +1883,7 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.exactMellinRigidity,
             MARKOV_NORMALIZATION.fixedBlockBlindLattice,
             MARKOV_NORMALIZATION.fixedMeasureBlindPoints,
+            MARKOV_NORMALIZATION.fixedMovingMeasureBlindRectangle,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -2476,8 +2495,10 @@ export default function OpenFrontierPage() {
           over. Thus fixed absolutely continuous smoothing cannot cure
           this blind lattice, while atomic, singular, scale-adaptive, and
           fully discrete strategies remain outside.
-          T126 closes those fixed atomic and singular-measure loopholes
-          at a weaker level of localization. For any fixed finite complex
+          T126 extends right-half zero existence to fixed atomic and
+          singular measures, at a weaker level of localization. It does
+          not by itself close every Landau route available to those
+          weights. For any fixed finite complex
           Borel measure ν with
           supp|ν|⊂[α,β]⊂⊂(1,a), the symbol
           ℬ<sub>ν</sub>(z)=a<sup>z</sup>−2+
@@ -2512,6 +2533,22 @@ export default function OpenFrontierPage() {
           checks the δ<sub>√a</sub> factorization only as a normalization
           fixture; the general result is analytic. None of this supplies
           the missing weighted Mellin estimate or identifies a zeta zero.
+          T127 makes the rowwise zero-existence statement uniform over
+          bounded moving families. Fix K⊂⊂(1,a), a total-variation
+          bound M, and c&lt;σ<sub>*</sub>. Weak-* compactness of the
+          supported measure ball, compact-open continuity of
+          ν↦ℬ<sub>ν</sub>, and Rouché’s theorem on a finite subcover
+          give finitely many disks—and therefore one common bounded
+          rectangle c&lt;Re z&lt;R, |Im z|&lt;T—meeting every
+          symbol zero set. Arbitrary normalized row-dependent positive
+          exact weights on K are included, with no convergence or
+          regularity in the row.
+          The zero can move from row to row, so this supplies no common
+          zero and no fixed Mellin factor. The rectangle also need not
+          meet 3/2&lt;Re z&lt;2: for δ<sub>√a</sub>, the nonzero
+          right-half family lies on Re z=2σ<sub>*</sub>&gt;2 when
+          a=32/21. T127 is analytic and gives neither the weighted
+          O(N<sup>2</sup>) error, an arithmetic sign, nor a zeta zero.
           RH is therefore still unresolved.
           Separately, for the T93/T96 annular deficit, if RH is false
           both strict signs recur infinitely often; if RH is true the

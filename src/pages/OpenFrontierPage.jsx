@@ -264,6 +264,8 @@ const MARKOV_NORMALIZATION = {
     'T121: the exact T112 product X_N=e^Δ_N has a negative 850N<p≤975N prime sector and a positive 975N<p≤1326N sector. The natural cross-prime quotient and its residual have opposite ±(9,643,725/2)N² leading terms, so the proposed N² transport payment cancels before the N³ᐟ² square layer. The balanced tail obeys J(1/n)=0, J(4/(4n+1))=−7/(4n+1)², and J(2/(2n+1))=7/(2n+1)² in every reciprocal shell; at N=18, threshold Kᵤ≥2¹⁵⁴ has a Hall deficit 155727−155600=127. Equal-or-larger monotone transport is therefore impossible. This is an unconditional route no-go, not a sign theorem or RH proof',
   uniformNegativePhaseInterval:
     'T122: a 1,152-bit, 10,000-zero adaptive Arb/Turing certificate proves three nested continuum bounds around μ₀=113/105: Wμ(t*)<−10⁻⁶ on |μ−μ₀|≤1/64, <−1/1000 on |μ−μ₀|≤1/72, and <−1/200 on |μ−μ₀|≤1/128. Its five exact-rational subdivisions use 649 cell evaluations and 327 certified leaves with zero failures, not a finite-grid inference. On RH, recurrence gives nested negative prefix blocks of k/32+O(1), k/36+O(1), and k/64+O(1) terms. The widest separates bounding sign changes linearly; the deepest forces variation at least (151/1000−o(1))D_N and the strongest negative-area bound. This is conditional route geometry, not a contradiction or an RH proof',
+  wholeBlockAggregate:
+    'T123 multiplies every ordered prefix in a symmetric interior block into one exact factorial/prime/Kᵥ ballot. Unconditionally its prime-square pole forces limsup log Y_N,δ/N⁵ᐟ²≥𝔅δ>0, so Y_N,δ>1 infinitely often. For δ=1/128, RH and the T122 deep interval also force log Y_N,1/128≤−(21/2560−o(1))ND_N<0 infinitely often; under RH the exact product therefore takes both strict signs around one, with no contradiction. The averaged multiplier has a blind lattice with Re z→log 2/log(32/21)=1.645595…, which blocks only the standard zero-free-multiplier/Landau converse: it neither locates a zeta zero nor proves non-equivalence. At N=128, opposite v₂/v₅ signs and the prime/composite curvature switch rule out direct divisibility and global Jensen routes without determining real order',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -353,6 +355,8 @@ const MARKOV_NORMALIZATION = {
     'T93 spends the rigorously isolated first 1,000 zeros individually, shrinking one zero-complete tent to support 529/225=2.351111…. T94 proves every rowwise factorial/multinomial cover still loses at main order. T96 then certifies the first 50,000 zeros and shrinks the support again to 1024/441=2.321995…. T97 identifies the remaining arithmetic target exactly as an adjacent cross-factor carry ballot and rules out its naive monotonicity, divisibility, pairwise, and independent-cover proofs. T98 proves two unconditional subsidiary results for the T93 slack. T99 strengthens recurrence to deep N³ᐟ² checkpoints for both sharp annuli and propagates them into explicit super-√N valid blocks, while T100 derives the exact 32/21 carry ballot and rules out the same local shortcuts at the sharpest support. T101 packages both annuli into an exact all-integer proportional buffer and nonnegative trapezoidal kernel, proves that every fixed residue lane remains RH-complete, and transfers T99 to long consecutive buffer-positive intervals. T102 identifies their shared Beatty word pattern and exactly refutes the global all-k scalar laws. T103 proves every bounded-ℓ¹ local filter through square-root depth remains RH-complete. T104 quantifies the local escape cost; T105 constructs an RH-safe multiplicative escape but proves every finite notch spectrum-incomplete; T106 shows strong real cancellation of one complex local mode has a still higher quadratic conditioning cost; T107 proves subcritical adaptive local postfilters preserve the entire square-notched zero wave. T108 converts the surviving scalar buffer exactly into a compensated difference of floor-aligned geometric θ−x means and rules out convexity shortcuts. T109 builds the maximally damped global positive-kernel cumulative: it has unconditional positive logarithmic limsup, but any tail floor would already prove RH. T110 isolates the ordered terminal-buffer drawdown that survived a numerical scan through k=100,000,000; T119 now proves that its eventual all-u conjecture is false. T111 proves that two strictly interior samples nevertheless form a joint RH equivalence because their multipliers have no common off-line blind spot, with four rigorous positive Hadamard margins. T112 collapses the paired obligation to one strict-interior difference band: a 10,000-zero Arb/Turing budget proves its RH-side margin, its multiplier is zero-free for Re z>1, and its exact support ratio is 1326/625=2.1216. T113 proves that exact product comparison unconditionally on infinitely many whole N^(1/2+o(1))-length blocks with restored prime-square margin 59279.380606…N³ᐟ², while exact local and valuation audits close the naive termwise, divisibility, pairwise, and canonical-prime-jump fixed-step routes. T114 extends the same exact band to every power cumulative α≤5/2: the positive square-pole recurrence persists, but even a −CX^(5/2−α) tail floor is RH-equivalent. T115 uses a moving positive log-Gaussian to extract the prime-square residue unconditionally and proves a deep valid comparator in every power interval [Y,Y^(29/25)], while showing that every fixed finite positive weighting retains mixed arithmetic signs. T116 spends the full Platt–Trudgian verified height to reduce the exact power exponent to 1.0000000000006666277…, upgrades every such window to a whole deep block, and proves a deep-win counting exponent at least 0.4999999999996666861…. T117 classifies the fixed infinite alternative: a positive zero-adaptive notch cancels the complete critical wave and preserves every off-line pole, so even its natural-scale lower floor remains RH-equivalent. T118 returns to the ordered arithmetic buffer: infinitely many deep row blocks carry two growing positive endpoint layers, while a 1,000-zero negative absolute-margin certificate rules out the proposed uniform coefficientwise absolute-amplitude proof across the middle. T119 replaces the provisional independence argument with an explicit 1,152-bit, 10,000-zero phase certificate. On RH it forces normalized Λ₃₂,₂₁(105N,113N) below −9/1000 infinitely often by almost-periodic recurrence; if RH is false, the endpoint equivalence forces negative endpoints infinitely often. Thus eventual all-u positivity is unconditionally false. Exact valuations also close both same-prime divisibility orientations across all 17 aligned middle channels. T120 uses the same exact phase to bracket an RH-conditional negative island between positive channels at 106N and 150N, forcing one down-crossing and one up-crossing on infinitely many common recurrent rows. T121 proves that the T112 comparator’s natural monotone cross-prime transport pays and loses equal N² leading terms, has a sign-changing self-similar tail in every reciprocal shell, and already has a Hall deficit of 127 at N=18. Both are route diagnostics, not proofs or disproofs of RH.',
   structureT122:
     'T122 upgrades the T119 point phase to three rigorously covered real intervals [113/105±1/64], [113/105±1/72], and [113/105±1/128], with progressively stronger negative margins 10⁻⁶, 1/1000, and 1/200. Under RH, recurrence turns them into nested linear blocks of consecutive negative prefixes with a width-versus-depth tradeoff, forced macroscopic variation, and many increments of both signs. This remains an RH-conditional route diagnostic, not a contradiction or a proof or disproof of RH.',
+  structureT123:
+    'T123 aggregates any fixed symmetric prefix block into an exact finite product. A shifted Mellin/Landau argument forces that product above one infinitely often unconditionally, while RH and the certified 1/128 block force it below one infinitely often. Spectral blind spots prevent the standard converse, and exact arithmetic no-gos prevent simple divisibility or Jensen promotion. The result is conditional sign recurrence plus unconditional positive limsup, not an RH contradiction, proof, disproof, or non-equivalence theorem.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -1158,6 +1162,20 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     certificate:
       'proof/certificates/twin_ladder_first_radix/verify_terminal_buffer_phase_interval.c',
   },
+  {
+    id: 'T123',
+    color: '#f59e0b',
+    status:
+      'EXACT WHOLE-BLOCK PRODUCT · UNCONDITIONAL POSITIVE LIMSUP / RH-CONDITIONAL NEGATIVE RECURRENCE',
+    title: 'The deep prefix block aggregates to a sign-changing ballot',
+    formula:
+      'Y_N,δ=exp(Σ_{u=A_N}^{B_N}Λ₃₂,₂₁(105N,u)); unconditionally Y_N,δ>1 i.o.; RH ⇒ Y_N,1/128<1 i.o.',
+    detail:
+      'Let G_M=B_M/P_M=∏_{v<M}K_v and L_N=2⌊105δN⌋+1. Multiplying every exact ordered prefix gives Y_N,δ={G₅₁₂₀N²¹G₂₂₀₅N⁶⁴/G₃₃₆₀N⁷⁴}^L_N∏_{u=A_N}^{B_N}G₃₂ᵤ²¹/G₂₁ᵤ³², simultaneously a finite factorial, prime-power, and Kᵥ comparison. Its shifted prime-square pole and an Oδ(N²) discrete-transfer lemma prove limsup log Y_N,δ/N⁵ᐟ²≥𝔅δ>0 unconditionally, hence Y_N,δ>1 infinitely often. For δ=1/128, RH plus T122 gives log Y_N,1/128≤−(21/2560−o(1))ND_N<0 infinitely often. Thus RH makes the exact product take both strict signs around one; this is recurrence, not a contradiction. ' +
+      'The averaged multiplier has zeros z_n=log 2/log(32/21)+2πin/log(32/21)+O(1/n), with Re z_n→1.645595…>3/2. This blind lattice blocks the standard zero-free-multiplier/Landau converse only: no z_n is asserted to coincide with 1+ρ, and no alternative RH equivalence is disproved. At N=128, v₂(Y)=3544370084>0 while v₅(Y)=−9274951931<0, excluding divisibility in both orientations. Also G_{M+1}G_{M−1}/G_M² is >1 for composite M and <1 for prime M≥3, so neither global convexity nor concavity supports Jensen. These no-gos do not determine real order or RH.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -1309,7 +1327,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T122 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T123 · 2026-07-28</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1677,14 +1695,15 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T122 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T123 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
         </strong>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.65, margin: 0 }}>
           {MARKOV_NORMALIZATION.structure}{' '}
-          {MARKOV_NORMALIZATION.structureT122}
+          {MARKOV_NORMALIZATION.structureT122}{' '}
+          {MARKOV_NORMALIZATION.structureT123}
         </p>
         <div
           style={{
@@ -1785,6 +1804,7 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.recurrentBracketedIsland,
             MARKOV_NORMALIZATION.selfSimilarRadixObstruction,
             MARKOV_NORMALIZATION.uniformNegativePhaseInterval,
+            MARKOV_NORMALIZATION.wholeBlockAggregate,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -2329,6 +2349,31 @@ export default function OpenFrontierPage() {
           together with Ω(N/log<sup>2</sup>N) increments of each sign.
           These conclusions are RH-conditional; they produce no
           unconditional contradiction and neither prove nor disprove RH.
+          T123 now multiplies every prefix in one such symmetric block.
+          With G<sub>M</sub>=B<sub>M</sub>/P<sub>M</sub>
+          =∏<sub>v&lt;M</sub>K<sub>v</sub>, the exact product
+          Y<sub>N,δ</sub>=exp(Σ<sub>u=A_N</sub>
+          <sup>B_N</sup>Λ<sub>32,21</sub>(105N,u))
+          is a finite factorial, prime-power, and K<sub>v</sub> ballot.
+          A shifted Mellin/Landau argument forces
+          limsup log Y<sub>N,δ</sub>/N<sup>5/2</sup>≥𝔅<sub>δ</sub>
+          &gt;0 unconditionally, so Y<sub>N,δ</sub>&gt;1
+          infinitely often. For δ=1/128, RH and the T122 deep interval
+          also force log Y<sub>N,δ</sub>≤
+          −(21/2560−o(1))ND<sub>N</sub>&lt;0 infinitely often.
+          Under RH the exact aggregate therefore takes both strict signs
+          around one; that is sign recurrence, not a contradiction.
+          Its averaged multiplier has a blind lattice
+          z<sub>n</sub>=log 2/log(32/21)+2πin/log(32/21)+O(1/n),
+          with real parts tending to 1.645595…&gt;3/2. This blocks only
+          the standard zero-free-multiplier/Landau converse: it neither
+          asserts a matching zeta zero nor proves that a different RH
+          equivalence is impossible. At N=128, exact values
+          v<sub>2</sub>(Y)=3544370084&gt;0 and
+          v<sub>5</sub>(Y)=−9274951931&lt;0 rule out divisibility in
+          both orientations. The exact prime/composite curvature switch
+          separately rules out global convexity, concavity, and a direct
+          Jensen proof. Neither arithmetic no-go determines the real sign.
           RH is therefore still unresolved.
           Separately, for the T93/T96 annular deficit, if RH is false
           both strict signs recur infinitely often; if RH is true the

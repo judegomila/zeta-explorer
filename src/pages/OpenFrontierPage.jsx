@@ -230,6 +230,8 @@ const MARKOV_NORMALIZATION = {
     'T104: for a normalized real mass-one additive local filter, if width has exponent δ and coefficient ℓ¹ norm has exponent τ, eventual nonnegativity forces Re ρ≤max(1/2,δ+τ), while RH proves the filtered sign for δ+τ<1. The response bound |M_k(z)−1|≤C_z(H_k/k)‖a_k‖₁ shows that attenuating even one fixed zeta-pole transfer amplitude by a constant factor requires δ+τ≥1. Thus every safely conditioned subcritical filter asymptotically leaves each fixed pole response intact; cross-mode, growing-height, multiplicative-scale, and nonlinear global mechanisms remain unclassified',
   multiplicativePoleNotches:
     'T105: a fixed finite convex multiplicative filter has exponential-polynomial pole response P(z)=Σaνcν^z. If P is zero-free for 3/2<Re z<2, its eventual buffer sign is exactly RH-equivalent. Positive two-scale factors can cancel the continued Mellin poles for any prescribed finite set of verified critical-line modes, and their leading floored responses; the notch multiplier does not amplify another critical-line mode relative to its square response. Their scale span is exp(πΣ1/γ), their term count can reach 2^n, no finite multiplier erases the complete zeta spectrum, and no new eventual arithmetic sign has been proved',
+  realPhaseConditioning:
+    'T106: for real mass-one additive weights and one fixed nonreal mode z, attenuation below the tangent-line barrier d_z=|Im z|/|z| costs ‖a‖₁≳(k/H)². An exact signed three-node filter attains that pure-mode order. With the T101 floor correction, the necessary exponent is τ≥min(2(1−δ),1), so the total complexity never overlaps the RH-stable δ+τ<1 regime. This is a strong fixed-mode barrier, not a classification of complex, multiplicative, cross-mode, or global filters',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -316,7 +318,7 @@ const MARKOV_NORMALIZATION = {
     'T89 proves the complementary structural barrier: every finite 3/2-notch changes sign, an exact annular notch oscillates on RH, and harmonic cross-cell summation restores every fixed first-Riesz zero coefficient. ' +
     'T90 factors the positive annulus exactly into lcm and prime-power layers, producing a square-only strengthening and a Pascal comparator while proving the natural binomial majorant loses at main order. ' +
     'T91 narrows the zero-complete positive support from factor 4 to 289/81. T92 makes two generic tents jointly zero-complete, and T95 extends the sharp 3.451336… global-amplitude floor from concave splines to every finite nonnegative piecewise-linear annular kernel. ' +
-    'T93 spends the rigorously isolated first 1,000 zeros individually, shrinking one zero-complete tent to support 529/225=2.351111…. T94 proves every rowwise factorial/multinomial cover still loses at main order. T96 then certifies the first 50,000 zeros and shrinks the support again to 1024/441=2.321995…. T97 identifies the remaining arithmetic target exactly as an adjacent cross-factor carry ballot and rules out its naive monotonicity, divisibility, pairwise, and independent-cover proofs. T98 proves two unconditional subsidiary results for the T93 slack. T99 strengthens recurrence to deep N³ᐟ² checkpoints for both sharp annuli and propagates them into explicit super-√N valid blocks, while T100 derives the exact 32/21 carry ballot and rules out the same local shortcuts at the sharpest support. T101 packages both annuli into an exact all-integer proportional buffer and nonnegative trapezoidal kernel, proves that every fixed residue lane remains RH-complete, and transfers T99 to long consecutive buffer-positive intervals. T102 identifies their shared Beatty word pattern and exactly refutes the global all-k scalar laws. T103 proves every bounded-ℓ¹ local filter through square-root depth remains RH-complete. T104 quantifies the local escape cost; T105 constructs an RH-safe multiplicative escape, but proves that every finite notch is spectrum-incomplete. The arithmetic gaps remain uncontrolled, so RH remains open.',
+    'T93 spends the rigorously isolated first 1,000 zeros individually, shrinking one zero-complete tent to support 529/225=2.351111…. T94 proves every rowwise factorial/multinomial cover still loses at main order. T96 then certifies the first 50,000 zeros and shrinks the support again to 1024/441=2.321995…. T97 identifies the remaining arithmetic target exactly as an adjacent cross-factor carry ballot and rules out its naive monotonicity, divisibility, pairwise, and independent-cover proofs. T98 proves two unconditional subsidiary results for the T93 slack. T99 strengthens recurrence to deep N³ᐟ² checkpoints for both sharp annuli and propagates them into explicit super-√N valid blocks, while T100 derives the exact 32/21 carry ballot and rules out the same local shortcuts at the sharpest support. T101 packages both annuli into an exact all-integer proportional buffer and nonnegative trapezoidal kernel, proves that every fixed residue lane remains RH-complete, and transfers T99 to long consecutive buffer-positive intervals. T102 identifies their shared Beatty word pattern and exactly refutes the global all-k scalar laws. T103 proves every bounded-ℓ¹ local filter through square-root depth remains RH-complete. T104 quantifies the local escape cost; T105 constructs an RH-safe multiplicative escape but proves every finite notch spectrum-incomplete; T106 shows strong real cancellation of one complex local mode has a still higher quadratic conditioning cost. The arithmetic gaps remain uncontrolled, so RH remains open.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -934,6 +936,16 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'For fixed nonnegative mass-one dilation weights, a zero-free multiplier on 3/2<Re z<2 gives an exact RH-equivalent eventual buffer sign. Each positive two-scale factor exactly cancels one prescribed conjugate pair in the continued Mellin transform and cancels its leading floored power response; for verified critical-line modes its zeros stay on Re z=3/2 and |P(3/2+it)|/P(3/2)≤1. ' +
       'The construction costs multiplicative span exp(πΣ1/γℓ) and up to 2^n scales. A finite exponential polynomial has only O(T) zeros, so it cannot erase the T log T distinct zeta spectrum. Counting does not exclude cancellation of a finite or sparse off-line set; ruling that out requires a zero-free multiplier or a family with zero-free common set. The optimized arithmetic sign remains open, and RH is not proved.',
   },
+  {
+    id: 'T106',
+    color: '#fb7185',
+    status: 'REAL PHASE-CANCELLATION BARRIER · QUADRATIC CONDITIONING',
+    title: 'A real local filter needs second-order leverage to cancel one pole',
+    formula: '|M(z)|≤η<|Im z|/|z|  ⇒  ‖a‖₁≳(k/H)²',
+    detail:
+      'For one fixed nonreal mode and real mass-one additive weights, the first-order response lies on the affine line 1+zℝ, a positive distance from zero. Stronger attenuation therefore costs quadratic conditioning, and an exact signed three-node pure-mode nuller attains that order. ' +
+      'For the floored T101 response the necessary exponent is τ≥min(2(1−δ),1); hence δ+τ never enters the RH-stable subcritical regime. The bound applies only below the tangent-line threshold and is necessary—not a sign proof. Complex weights, cross-mode cancellation, multiplicative windows, and global transforms remain outside it. RH remains open.',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -1085,7 +1097,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T105 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T106 · 2026-07-28</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1438,7 +1450,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T105 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T106 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1528,6 +1540,7 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.localCarryFilter,
             MARKOV_NORMALIZATION.localFilterConditioning,
             MARKOV_NORMALIZATION.multiplicativePoleNotches,
+            MARKOV_NORMALIZATION.realPhaseConditioning,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -1876,6 +1889,14 @@ export default function OpenFrontierPage() {
           cancellation of a finite or sparse off-line set unless the
           multiplier, or a family's common zero set, is zero-free
           there. The resulting arithmetic sign is still open.
+          T106 sharpens the additive obstruction for real weights:
+          below the tangent-line threshold, attenuating one fixed
+          nonreal pole costs quadratic conditioning
+          ‖a‖<sub>1</sub>≳(k/H)<sup>2</sup>. Three signed nodes attain
+          that order for the pure mode, while the floored response
+          still requires complexity outside T104's RH-stable regime.
+          This remains a fixed-mode necessity theorem, not an
+          eventual sign.
           If RH is false both strict
           signs recur infinitely often; if RH is true the certified
           annular deficit is eventually negative. This is genuine

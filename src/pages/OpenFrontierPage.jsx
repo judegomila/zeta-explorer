@@ -234,6 +234,8 @@ const MARKOV_NORMALIZATION = {
     'T106: for real mass-one additive weights and one fixed nonreal mode z, attenuation below the tangent-line barrier d_z=|Im z|/|z| costs ‖a‖₁≳(k/H)². An exact signed three-node filter attains that pure-mode order. With the T101 floor correction, the necessary exponent is τ≥min(2(1−δ),1), so the total complexity never overlaps the RH-stable δ+τ<1 regime. This is a strong fixed-mode barrier, not a classification of complex, multiplicative, cross-mode, or global filters',
   adaptiveCompleteZeroWave:
     'T107: conditional on RH, every nonzero fixed finite square-notched dilation channel P(3/2)=0, after x^(−3/2) normalization, is asymptotic to a complete nonzero mean-zero almost-periodic zeta wave. Even arbitrary k-dependent real mass-one local postfilters with width exponent δ, ℓ¹ exponent τ, and δ+τ<1 differ from the whole unnormalized output by o(k^(3/2)), so both signs still recur infinitely often. This closes cross-mode and growing-height adaptation only for fixed finite square-notched channels—not the positive T101 buffer, critical conditioning, adaptive multiplicative scales, infinite-scale, nonlinear, or global transforms',
+  primeJumpAbel:
+    'T108: the T101 scalar increment is exactly a nonnegative one-step trapezoid applied to prime/composite jumps. Abel summation rewrites the full buffer as the difference of two floor-aligned geometric-block means of θ(x)−x, exactly adjacent when s divides k, minus a positive compensation whose normalized threshold is ½log(r/s)+O(1/k). The exact mean inequality remains RH-equivalent, while prime jumps force infinitely many curvature reversals and exclude eventual convexity or concavity of log K_u',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -320,7 +322,7 @@ const MARKOV_NORMALIZATION = {
     'T89 proves the complementary structural barrier: every finite 3/2-notch changes sign, an exact annular notch oscillates on RH, and harmonic cross-cell summation restores every fixed first-Riesz zero coefficient. ' +
     'T90 factors the positive annulus exactly into lcm and prime-power layers, producing a square-only strengthening and a Pascal comparator while proving the natural binomial majorant loses at main order. ' +
     'T91 narrows the zero-complete positive support from factor 4 to 289/81. T92 makes two generic tents jointly zero-complete, and T95 extends the sharp 3.451336… global-amplitude floor from concave splines to every finite nonnegative piecewise-linear annular kernel. ' +
-    'T93 spends the rigorously isolated first 1,000 zeros individually, shrinking one zero-complete tent to support 529/225=2.351111…. T94 proves every rowwise factorial/multinomial cover still loses at main order. T96 then certifies the first 50,000 zeros and shrinks the support again to 1024/441=2.321995…. T97 identifies the remaining arithmetic target exactly as an adjacent cross-factor carry ballot and rules out its naive monotonicity, divisibility, pairwise, and independent-cover proofs. T98 proves two unconditional subsidiary results for the T93 slack. T99 strengthens recurrence to deep N³ᐟ² checkpoints for both sharp annuli and propagates them into explicit super-√N valid blocks, while T100 derives the exact 32/21 carry ballot and rules out the same local shortcuts at the sharpest support. T101 packages both annuli into an exact all-integer proportional buffer and nonnegative trapezoidal kernel, proves that every fixed residue lane remains RH-complete, and transfers T99 to long consecutive buffer-positive intervals. T102 identifies their shared Beatty word pattern and exactly refutes the global all-k scalar laws. T103 proves every bounded-ℓ¹ local filter through square-root depth remains RH-complete. T104 quantifies the local escape cost; T105 constructs an RH-safe multiplicative escape but proves every finite notch spectrum-incomplete; T106 shows strong real cancellation of one complex local mode has a still higher quadratic conditioning cost; T107 proves subcritical adaptive local postfilters preserve the entire square-notched zero wave. The arithmetic gaps remain uncontrolled, so RH remains open.',
+    'T93 spends the rigorously isolated first 1,000 zeros individually, shrinking one zero-complete tent to support 529/225=2.351111…. T94 proves every rowwise factorial/multinomial cover still loses at main order. T96 then certifies the first 50,000 zeros and shrinks the support again to 1024/441=2.321995…. T97 identifies the remaining arithmetic target exactly as an adjacent cross-factor carry ballot and rules out its naive monotonicity, divisibility, pairwise, and independent-cover proofs. T98 proves two unconditional subsidiary results for the T93 slack. T99 strengthens recurrence to deep N³ᐟ² checkpoints for both sharp annuli and propagates them into explicit super-√N valid blocks, while T100 derives the exact 32/21 carry ballot and rules out the same local shortcuts at the sharpest support. T101 packages both annuli into an exact all-integer proportional buffer and nonnegative trapezoidal kernel, proves that every fixed residue lane remains RH-complete, and transfers T99 to long consecutive buffer-positive intervals. T102 identifies their shared Beatty word pattern and exactly refutes the global all-k scalar laws. T103 proves every bounded-ℓ¹ local filter through square-root depth remains RH-complete. T104 quantifies the local escape cost; T105 constructs an RH-safe multiplicative escape but proves every finite notch spectrum-incomplete; T106 shows strong real cancellation of one complex local mode has a still higher quadratic conditioning cost; T107 proves subcritical adaptive local postfilters preserve the entire square-notched zero wave. T108 then converts the surviving scalar buffer exactly into a compensated difference of floor-aligned geometric θ−x means and rules out convexity shortcuts. The arithmetic mean inequality remains uncontrolled, so RH remains open.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -958,6 +960,16 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'Assume RH and let a nonzero fixed finite dilation multiplier satisfy P(3/2)=0. After k^(−3/2) normalization, its square-notched output is asymptotic to a complete nonzero mean-zero almost-periodic zeta wave. For arbitrary k-dependent real mass-one postfilter weights with width exponent δ, coefficient-ℓ¹ exponent τ, and δ+τ<1, a direct RH increment bound makes the postfilter asymptotically the identity on the whole unnormalized output. ' +
       'Positive and negative values therefore recur at full k^(3/2) scale; no eventual sign is possible. This closes cross-mode and growing-height adaptation only inside fixed finite square-notched channels. The positive-biased T101 buffer, critical/supercritical conditioning, adaptive multiplicative or infinite-scale filters, and nonlinear global mechanisms remain open. This is conditional no-go progress, not a proof of RH.',
   },
+  {
+    id: 'T108',
+    color: '#2dd4bf',
+    status: 'EXACT PRIME-JUMP ABEL FORM · COMPENSATED MEAN FRONTIER',
+    title: 'The scalar carry buffer is a difference of floor-aligned prime-error means',
+    formula: 'eₖ=⌊rk/s⌋, H=eₖ−k;  Fᵣ,ₛ(k)=rsH{Ē[sk,seₖ]−Ē[rk,reₖ]−βᵣ,ₛ(k)}',
+    detail:
+      'The one-step q increment is exactly a nonnegative integer trapezoid applied to aₜ−1ℙ(t)log t. Here Ē[A,B] is the interval mean of ℰ(x)=θ(x)−x. Abel summation concatenates those steps into two floor-aligned geometric-block means, exactly adjacent when s divides k, minus an explicit positive compensation βᵣ,ₛ(k)=½log(r/s)+O(1/k). ' +
+      'The exact inequality Ēlow−Ēhigh≥βᵣ,ₛ(k) is pointwise equivalent to Fᵣ,ₛ(k)≥0 and therefore remains RH-equivalent eventually; the asymptotic threshold alone is not a sign proof. The sequence ℓ_u+θ(u) is strictly discretely convex, but each prime p≥5 creates consecutive negative/positive curvature flips in ℓ_u=log K_u, ruling out eventual convexity and concavity. The missing one-sided mean estimate remains open, so RH is not proved.',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -1109,7 +1121,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T107 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T108 · 2026-07-28</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1462,7 +1474,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T107 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T108 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1554,6 +1566,7 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.multiplicativePoleNotches,
             MARKOV_NORMALIZATION.realPhaseConditioning,
             MARKOV_NORMALIZATION.adaptiveCompleteZeroWave,
+            MARKOV_NORMALIZATION.primeJumpAbel,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -1920,6 +1933,14 @@ export default function OpenFrontierPage() {
           The theorem does not cover the positive-biased T101 buffer,
           critical conditioning, adaptive multiplicative or
           infinite-scale filters, or global nonlinear control.
+          T108 returns to that positive buffer and gives its exact
+          prime-jump Abel form: the sign is a compensated difference
+          of floor-aligned geometric-block means of θ(x)−x, exactly
+          adjacent when s divides k, with normalized compensation
+          ½log(r/s)+O(1/k). The exact mean inequality is still
+          RH-equivalent, and prime jumps force curvature flips that
+          rule out eventual convexity or concavity of log K_u.
+          This is a sharper arithmetic target, not its proof.
           Separately, for the T93/T96 annular deficit, if RH is false
           both strict signs recur infinitely often; if RH is true the
           certified annular deficit is eventually negative. This is

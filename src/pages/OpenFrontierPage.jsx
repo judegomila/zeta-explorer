@@ -221,7 +221,11 @@ const MARKOV_NORMALIZATION = {
   sharperCrossFactorCarry:
     'T100: the sharp T96 cofactor is itself an exact 32/21 adjacent Pascal/carry ballot. Negative 19-adic and 5-adic families, exact negative local factors, and N²-scale factorial-cover gaps remove the same tested local shortcuts and leave aggregate cross-factor transport open',
   proportionalCarryBuffer:
-    'T101: Fᵣ,ₛ(k)=Σₕ₌ₖ^⌊rk/s⌋⁻¹qᵣ,ₛ(h) is an exact proportional carry buffer with Fᵣ,ₛ(sN)=log(S_N/C_N). RH is equivalent to eventual positivity on all integers—or on any one fixed residue lane. Each buffer is a nonnegative trapezoidal prime/Pascal kernel whose endpoint dilation polynomial has zeros only on Re z=0,1. T99 transfers to infinitely many long consecutive positive intervals; negative local q-blocks rule out termwise induction, while the RH-complete terminal rank shows that full stop-loss majorization is no shortcut. The gaps remain open',
+    'T101: Fᵣ,ₛ(k)=Σₕ₌ₖ^⌊rk/s⌋⁻¹qᵣ,ₛ(h) is an exact proportional carry buffer with Fᵣ,ₛ(sN)=log(S_N/C_N). RH is equivalent to eventual positivity on all integers—or on any one fixed residue lane. Each buffer is a nonnegative trapezoidal prime/Pascal kernel whose endpoint dilation exponential polynomial has zeros only on Re z=0,1. T99 transfers to infinitely many long consecutive positive intervals; negative local q-blocks rule out termwise induction, while the RH-complete terminal rank shows that full stop-loss majorization is no shortcut. The gaps remain open',
+  beattyCarryTransducer:
+    'T102: both sharp ratios satisfy 2r=3s+1, so e(k)=⌊rk/s⌋ has the exact residue-step word (1,2)^m,2 and ΔF=(𝒯−I)q for an expanding block transport 𝒯. Exact rational K-products give F(3)<F(2), F(4)>2F(2), and pair-specific failures of superadditivity. Thus the global all-k forms of ordinary/orbit monotonicity, 𝒯q≥q, subadditivity, and superadditivity fail. Eventual versions and genuinely global arithmetic control remain open',
+  localCarryFilter:
+    'T103: for any normalized real local filter with uniformly bounded ℓ¹ coefficient norm and width H_k=k^(δ+o(1)), δ<1, RH makes the filtered buffer eventually positive. Conversely, eventual nonnegativity forces Re ρ≤max(1/2,δ). Every such filter through δ=1/2—including rolling averages on the T99/T101 √k·exp(0.8√log k) length—is still RH-equivalent, so bounded-memory smoothing does not close the gaps',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -308,7 +312,7 @@ const MARKOV_NORMALIZATION = {
     'T89 proves the complementary structural barrier: every finite 3/2-notch changes sign, an exact annular notch oscillates on RH, and harmonic cross-cell summation restores every fixed first-Riesz zero coefficient. ' +
     'T90 factors the positive annulus exactly into lcm and prime-power layers, producing a square-only strengthening and a Pascal comparator while proving the natural binomial majorant loses at main order. ' +
     'T91 narrows the zero-complete positive support from factor 4 to 289/81. T92 makes two generic tents jointly zero-complete, and T95 extends the sharp 3.451336… global-amplitude floor from concave splines to every finite nonnegative piecewise-linear annular kernel. ' +
-    'T93 spends the rigorously isolated first 1,000 zeros individually, shrinking one zero-complete tent to support 529/225=2.351111…. T94 proves every rowwise factorial/multinomial cover still loses at main order. T96 then certifies the first 50,000 zeros and shrinks the support again to 1024/441=2.321995…. T97 identifies the remaining arithmetic target exactly as an adjacent cross-factor carry ballot and rules out its naive monotonicity, divisibility, pairwise, and independent-cover proofs. T98 proves two unconditional subsidiary results for the T93 slack. T99 strengthens recurrence to deep N³ᐟ² checkpoints for both sharp annuli and propagates them into explicit super-√N valid blocks, while T100 derives the exact 32/21 carry ballot and rules out the same local shortcuts at the sharpest support. T101 packages both annuli into an exact all-integer proportional buffer and nonnegative trapezoidal kernel, proves that every fixed residue lane remains RH-complete, and transfers T99 to long consecutive buffer-positive intervals. Their gaps remain uncontrolled, so RH remains open.',
+    'T93 spends the rigorously isolated first 1,000 zeros individually, shrinking one zero-complete tent to support 529/225=2.351111…. T94 proves every rowwise factorial/multinomial cover still loses at main order. T96 then certifies the first 50,000 zeros and shrinks the support again to 1024/441=2.321995…. T97 identifies the remaining arithmetic target exactly as an adjacent cross-factor carry ballot and rules out its naive monotonicity, divisibility, pairwise, and independent-cover proofs. T98 proves two unconditional subsidiary results for the T93 slack. T99 strengthens recurrence to deep N³ᐟ² checkpoints for both sharp annuli and propagates them into explicit super-√N valid blocks, while T100 derives the exact 32/21 carry ballot and rules out the same local shortcuts at the sharpest support. T101 packages both annuli into an exact all-integer proportional buffer and nonnegative trapezoidal kernel, proves that every fixed residue lane remains RH-complete, and transfers T99 to long consecutive buffer-positive intervals. T102 identifies their shared Beatty word pattern and exactly refutes the global all-k scalar laws. T103 proves every bounded-ℓ¹ local filter through square-root depth remains RH-complete. The gaps remain uncontrolled, so RH remains open.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -883,8 +887,28 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     title: 'Proportional carry buffering exposes the exact aggregate frontier',
     formula: 'Fᵣ,ₛ(k)=Σₕ₌ₖ^⌊rk/s⌋⁻¹qᵣ,ₛ(h);  RH ⇔ Fᵣ,ₛ(sN+d)>0 eventually for each fixed d',
     detail:
-      'At aligned k=sN the buffer is exactly log(S_N/C_N); for every k≥2 it is also a nonnegative trapezoidal prime/Pascal kernel whose endpoint dilation polynomial has zeros only on Re z=0 and Re z=1. ' +
+      'At aligned k=sN the buffer is exactly log(S_N/C_N); for every k≥2 it is also a nonnegative trapezoidal prime/Pascal kernel whose endpoint dilation exponential polynomial has zeros only on Re z=0 and Re z=1. ' +
       'T99 now gives Fᵣ,ₛ(k)>0 on infinitely many consecutive intervals of length s√N·exp(0.8√log N)+O(1). Their gaps remain uncontrolled, and even one fixed residue lane is already RH-equivalent. Exact negative q-blocks defeat termwise induction, while full stop-loss majorization contains the same RH-complete terminal sum. No eventual sign is proved; RH remains open.',
+  },
+  {
+    id: 'T102',
+    color: '#fb7185',
+    status: 'EXACT BEATTY TRANSPORT · GLOBAL ALL-k SCALAR LAWS FAIL',
+    title: 'The shared floor-word pattern transports block mass—not sign',
+    formula: '2r=3s+1;  ΔF=(𝒯−I)q;  e(k+1)−e(k)=(1,2)^m,2',
+    detail:
+      'Both 23/15 and 32/21 use the same rational Beatty word. The exact operator 𝒯 expands q-blocks and telescopes complete cycles, but every residue transition compares mixed-sign lower and upper pieces. ' +
+      'Exact rational K-products prove F(3)<F(2) for both ratios, F(4)>2F(2) for both, and pair-specific failures of superadditivity. This defeats the global all-k forms of ordinary/orbit monotonicity, 𝒯q≥q, subadditivity, and superadditivity. Eventual versions, nonlinear transport, and genuinely global induction remain unexcluded. The aggregate gap remains open.',
+  },
+  {
+    id: 'T103',
+    color: '#a78bfa',
+    status: 'ZERO-STRIP THEOREM · SQUARE-ROOT LOCAL FILTERS RH-COMPLETE',
+    title: 'Bounded-ℓ¹ local smoothing cannot bridge the proved blocks',
+    formula: '𝒜(k)=Σⱼaₖ,ⱼF(k+j)≥0 eventually  ⇒  Re ρ≤max(1/2,δ)',
+    detail:
+      'For real weights with Σa=1, uniformly bounded Σ|a|, and H_k=k^(δ+o(1)), RH makes 𝒜(k)>0 for every δ<1. The converse forces the displayed zero strip. ' +
+      'Hence every such signed or positive filter through δ=1/2 is exactly RH-equivalent, including rolling averages over √k·exp(0.8√log k), the T99/T101 block length. Growing coefficient ℓ¹ norms, wider fixed-power windows, and nonlinear global transforms are not classified as equivalences. RH remains open.',
   },
 ];
 
@@ -1037,7 +1061,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T101 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T103 · 2026-07-28</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1390,7 +1414,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T101 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T103 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1476,6 +1500,8 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.deepAnnularBlocks,
             MARKOV_NORMALIZATION.sharperCrossFactorCarry,
             MARKOV_NORMALIZATION.proportionalCarryBuffer,
+            MARKOV_NORMALIZATION.beattyCarryTransducer,
+            MARKOV_NORMALIZATION.localCarryFilter,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -1789,8 +1815,20 @@ export default function OpenFrontierPage() {
           intervals of length s√N·exp(0.8√log N)+O(1). Exact negative
           q-blocks prevent termwise induction, and the proposed full
           stop-loss order contains the original RH-complete terminal
-          sum. None of T99–T101 controls the gaps or supplies an
-          eventual sign.
+          sum. T102 exposes the common rational Beatty word pattern:
+          both ratios obey 2r=3s+1, the floor increments follow
+          (1,2)<sup>m</sup>,2, and ΔF=(𝒯−I)q. The operator conserves
+          complete q-block mass, but exact rational counterfixtures
+          refute the global all-k forms of ordinary and orbit
+          monotonicity, 𝒯q≥q, subadditivity, and superadditivity.
+          Eventual versions remain unexcluded. T103 then proves a
+          quantitative no-smoothing theorem: every normalized
+          bounded-ℓ<sup>1</sup> signed filter on a
+          k<sup>δ+o(1)</sup> window forces
+          Re ρ≤max(1/2,δ) if its sign is eventually nonnegative.
+          Through δ=1/2—including the T99/T101 block length—the
+          filtered sign is still RH-equivalent. None of T99–T103
+          controls the gaps or supplies an eventual sign.
           If RH is false both strict
           signs recur infinitely often; if RH is true the certified
           annular deficit is eventually negative. This is genuine

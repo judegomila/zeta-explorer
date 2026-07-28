@@ -268,6 +268,8 @@ const MARKOV_NORMALIZATION = {
     'T123 multiplies every ordered prefix in a symmetric interior block into one exact factorial/prime/Kᵥ ballot. Unconditionally its prime-square pole forces limsup log Y_N,δ/N⁵ᐟ²≥𝔅δ>0, so Y_N,δ>1 infinitely often. For δ=1/128, RH and the T122 deep interval also force log Y_N,1/128≤−(21/2560−o(1))ND_N<0 infinitely often; under RH the exact product therefore takes both strict signs around one, with no contradiction. The averaged multiplier has a blind lattice with Re z→log 2/log(32/21)=1.645595…, which blocks only the standard zero-free-multiplier/Landau converse: it neither locates a zeta zero nor proves non-equivalence. At N=128, opposite v₂/v₅ signs and the prime/composite curvature switch rule out direct divisibility and global Jensen routes without determining real order',
   exactMellinRigidity:
     'T124: if finite positive log-scale measures share an open exponential-moment strip and their scalar response Rτ(w)=∫eʷʸdντ(y) is τ-independent on a determining subset, analytic continuation and Fourier uniqueness force ντ to be one fixed measure. Separately, a continuous nonnegative degree-d homogeneous rule on finitely many channels of one conjugate pure mode either annihilates its whole phase orbit or creates a simple real Mellin pole at s=dσ with positive residue. Positive part, absolute value, and square are basic examples. Discrete zero values, variable symbols, full multi-mode waves, adaptive nonlinearities, and global arithmetic transforms remain outside; this is a route classification, not an RH proof or non-equivalence theorem',
+  fixedBlockBlindLattice:
+    'T125: for a>1 and every fixed density ϖ∈L¹([α,β]) on a positive compact interval, ℬϖ(z)=a^z−2+∫ϖ(μ)μ^z dμ has exactly one simple zero z_n=log 2/log a+2πin/log a+o_ϖ(1) near each sufficiently high base-lattice point. Compact-uniform Riemann–Lebesgue decay and Rouché prove this; bounded variation in the log coordinate restores O_ϖ(1/|n|), while bare L¹ has no universal rate. Exact integer-multiplicity weighted prefix products have normalized atomic empirical measures and the exact response in (493); weak limits recover the continuous symbol locally, but no uniform finite-N vertical decay or inherited Mellin-transfer estimate follows. Atomic, non-Rajchman, scale-adaptive, and fully discrete weights remain outside; no zeta zero is located and RH remains open',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -361,6 +363,8 @@ const MARKOV_NORMALIZATION = {
     'T123 aggregates any fixed symmetric prefix block into an exact finite product. A shifted Mellin/Landau argument forces that product above one infinitely often unconditionally, while RH and the certified 1/128 block force it below one infinitely often. Spectral blind spots prevent the standard converse, and exact arithmetic no-gos prevent simple divisibility or Jensen promotion. The result is conditional sign recurrence plus unconditional positive limsup, not an RH contradiction, proof, disproof, or non-equivalence theorem.',
   structureT124:
     'T124 classifies two formal escape routes. One exact scale-independent scalar response on a determining subset of a common open Mellin strip freezes every positive log-scale measure; finite continuous nonnegative homogeneous rectification of one pure conjugate mode either erases the full orbit or manufactures the real pole with positive residue required by Landau. Discrete zeta-zero matching, variable symbols, full multi-mode or adaptive nonlinear behavior, and genuinely global arithmetic remain unclassified, so this proves neither RH nor non-equivalence.',
+  structureT125:
+    'T125 proves that every fixed absolutely continuous reweighting of the T123 block retains the asymptotic blind lattice: compact-uniform Riemann–Lebesgue decay and Rouché give one simple zero near each high root of a^z−2. Exact weighted prefix products converge locally to this symbol when their normalized empirical measures converge weakly on the fixed prefix interval, but each finite response is atomic and no uniform high-frequency or Mellin-error transfer is proved. This is a fixed-weight route no-go, not an RH proof or non-equivalence theorem.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -1194,6 +1198,18 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     certificate:
       'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
   },
+  {
+    id: 'T125',
+    color: '#38bdf8',
+    status:
+      'FIXED L¹ BLOCK REWEIGHTING · BLIND-LATTICE ROBUSTNESS · DISCRETE LIMIT CAVEAT',
+    title: 'Every fixed absolutely continuous block weight inherits the blind lattice',
+    formula:
+      'ℬϖ(z)=a^z−2+∫α^βϖ(μ)μ^z dμ;  z_n=log 2/log a+2πin/log a+o_ϖ(1)',
+    detail:
+      'For a>1, 0<α<β<∞, and one fixed density ϖ∈L¹([α,β]), the Mellin term I_ϖ and its derivative decay uniformly on every fixed disk translated to ζ_n=log 2/log a+2πin/log a. Rouché’s theorem then gives exactly one simple zero z_n=ζ_n+o_ϖ(1). For a=32/21, Re z_n→1.645595…>3/2. Bare L¹ regularity supplies no universal rate; bounded variation of the log-coordinate density restores O_ϖ(1/|n|). ' +
+      'For exact integer multiplicities m_{N,u}, let M_N=Σ_um_{N,u} and ν_N=M_N⁻¹Σ_um_{N,u}δ_{u/(105N)}. The weighted-prefix response is exactly Q_{N,m}(z)=21^(z+1)(105N)^zM_N(a^z−a){a^z−2+∫μ^z dν_N(μ)}. Weak convergence ν_N⇒ϖ(μ)dμ on the fixed normalized prefix interval gives local-uniform convergence to ℬϖ. Every finite ν_N is nevertheless atomic and almost periodic vertically, so there is no uniform high-frequency finite-N lattice, and growing multiplicities require new discrete-Mellin estimates rather than inheriting T123’s O(N²) transfer. Atomic or non-Rajchman limits, scale-adaptive densities, and fully discrete strategies remain outside. No blind point is asserted to be a zeta zero, and RH remains open.',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -1345,7 +1361,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T124 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T125 · 2026-07-28</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1713,7 +1729,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T124 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T125 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1722,7 +1738,8 @@ export default function OpenFrontierPage() {
           {MARKOV_NORMALIZATION.structure}{' '}
           {MARKOV_NORMALIZATION.structureT122}{' '}
           {MARKOV_NORMALIZATION.structureT123}{' '}
-          {MARKOV_NORMALIZATION.structureT124}
+          {MARKOV_NORMALIZATION.structureT124}{' '}
+          {MARKOV_NORMALIZATION.structureT125}
         </p>
         <div
           style={{
@@ -1825,6 +1842,7 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.uniformNegativePhaseInterval,
             MARKOV_NORMALIZATION.wholeBlockAggregate,
             MARKOV_NORMALIZATION.exactMellinRigidity,
+            MARKOV_NORMALIZATION.fixedBlockBlindLattice,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -2416,6 +2434,26 @@ export default function OpenFrontierPage() {
           nonlinearities, and genuinely global arithmetic transforms lie
           outside T124. It proves neither RH nor that another RH
           equivalence is impossible.
+          T125 asks whether a smoother fixed block weighting removes
+          T123’s blind lattice. For one fixed density
+          ϖ∈L<sup>1</sup>([α,β]), compact-uniform
+          Riemann–Lebesgue decay and Rouché’s theorem give one simple zero
+          z<sub>n</sub>=log 2/log a+2πin/log a+o<sub>ϖ</sub>(1)
+          near every high base-lattice point. At a=32/21 its real part
+          remains above 3/2 eventually. Bare L<sup>1</sup> supplies no
+          O(1/|n|) rate, while bounded variation in log μ does. Exact
+          integer-multiplicity prefix products have normalized atomic
+          measures ν<sub>N</sub> and the response
+          Q<sub>N,m</sub>(z)=21<sup>z+1</sup>(105N)<sup>z</sup>
+          M<sub>N</sub>(a<sup>z</sup>−a)
+          {'{'}a<sup>z</sup>−2+∫μ<sup>z</sup>dν<sub>N</sub>(μ){'}'}.
+          Weak convergence on the fixed prefix interval recovers the
+          continuous symbol only in the N→∞ then |n|→∞ order. Finite
+          atomic responses need not decay vertically, and T123’s
+          O(N<sup>2</sup>) Mellin transfer does not automatically carry
+          over. Thus fixed absolutely continuous smoothing cannot cure
+          this blind lattice, while atomic, singular, scale-adaptive, and
+          fully discrete strategies remain outside.
           RH is therefore still unresolved.
           Separately, for the T93/T96 annular deficit, if RH is false
           both strict signs recur infinitely often; if RH is true the

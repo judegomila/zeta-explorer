@@ -216,6 +216,10 @@ const MARKOV_NORMALIZATION = {
     'T97: the T93 cofactor is exactly an adjacent multiplicative-block Pascal/carry ballot. Its eventual sign is RH-equivalent, while prime/composite jumps, v₃(S/C)=−4923·3ᴸ+15 on N=3ᴸ, and negative local factors defeat monotonicity, divisibility, pairwise positivity, and independent covers',
   unconditionalAnnularRecurrence:
     'T98: the T93 slack is unconditionally negative for infinitely many integer N, and its full inverse-cubic average is machine-certified below −25,000. If RH is false the slack takes both signs infinitely often; neither subsidiary theorem proves the eventual negative sign required for RH',
+  deepAnnularBlocks:
+    'T99: the negative prime-square Mellin residue forces liminf D₂₃,₁₅(N)/N³ᐟ²≤−11081.705… and liminf D₃₂,₂₁(N)/N³ᐟ²≤−40805.171… unconditionally. Explicit PNT control expands infinitely many checkpoints into consecutive valid blocks of length ⌊√N·exp(0.8√log N)⌋, but their gaps remain uncontrolled',
+  sharperCrossFactorCarry:
+    'T100: the sharp T96 cofactor is itself an exact 32/21 adjacent Pascal/carry ballot. Negative 19-adic and 5-adic families, exact negative local factors, and N²-scale factorial-cover gaps remove the same tested local shortcuts and leave aggregate cross-factor transport open',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -302,7 +306,7 @@ const MARKOV_NORMALIZATION = {
     'T89 proves the complementary structural barrier: every finite 3/2-notch changes sign, an exact annular notch oscillates on RH, and harmonic cross-cell summation restores every fixed first-Riesz zero coefficient. ' +
     'T90 factors the positive annulus exactly into lcm and prime-power layers, producing a square-only strengthening and a Pascal comparator while proving the natural binomial majorant loses at main order. ' +
     'T91 narrows the zero-complete positive support from factor 4 to 289/81. T92 makes two generic tents jointly zero-complete, and T95 extends the sharp 3.451336… global-amplitude floor from concave splines to every finite nonnegative piecewise-linear annular kernel. ' +
-    'T93 spends the rigorously isolated first 1,000 zeros individually, shrinking one zero-complete tent to support 529/225=2.351111…. T94 proves every rowwise factorial/multinomial cover still loses at main order. T96 then certifies the first 50,000 zeros and shrinks the support again to 1024/441=2.321995…. T97 identifies the remaining arithmetic target exactly as an adjacent cross-factor carry ballot and rules out its naive monotonicity, divisibility, pairwise, and independent-cover proofs. T98 proves two unconditional subsidiary results—the T93 slack is negative infinitely often and its inverse-cubic average is below −25,000—but neither gives the eventual prime sign. RH remains open.',
+    'T93 spends the rigorously isolated first 1,000 zeros individually, shrinking one zero-complete tent to support 529/225=2.351111…. T94 proves every rowwise factorial/multinomial cover still loses at main order. T96 then certifies the first 50,000 zeros and shrinks the support again to 1024/441=2.321995…. T97 identifies the remaining arithmetic target exactly as an adjacent cross-factor carry ballot and rules out its naive monotonicity, divisibility, pairwise, and independent-cover proofs. T98 proves two unconditional subsidiary results for the T93 slack. T99 strengthens recurrence to deep N³ᐟ² checkpoints for both sharp annuli and propagates them into explicit super-√N valid blocks, while T100 derives the exact 32/21 carry ballot and rules out the same local shortcuts at the sharpest support. None controls the gaps or proves the eventual prime sign. RH remains open.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -850,6 +854,26 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'A Mellin/Landau argument proves eventual nonnegativity would force RH; the certified RH margin then contradicts it. Hence D(N)<0 infinitely often unconditionally, and if RH is false both strict signs occur infinitely often. ' +
       'A separate 256-bit prime-log interval certificate proves the absolutely convergent whole-range inverse-cubic average is below −25,000. This average has no tail or integer-sign implication. The precise missing PNT scale is also exposed: current unconditional errors remain far above the required N³ᐟ² bias. RH remains open.',
   },
+  {
+    id: 'T99',
+    color: '#22d3ee',
+    status: 'UNCONDITIONAL DEEP RECURRENCE · EXPLICIT LONG BLOCKS',
+    title: 'The prime-square pole forces super-√N runs of valid scales',
+    formula: 'liminf D₂₃,₁₅(N)/N³ᐟ²≤−11081.705…;  liminf D₃₂,₂₁(N)/N³ᐟ²≤−40805.171…',
+    detail:
+      'The negative real residue at the prime-square pole s=3/2 and Landau positivity force N³ᐟ²-scale negative checkpoints for both certified annuli, with no RH assumption and no appeal to their conditional margins. ' +
+      'The explicit Fiori–Kadiri–Swidinsky PNT error then keeps each sufficiently late checkpoint negative across ⌊√N·exp(0.8√log N)⌋ consecutive scales. These starts can remain arbitrarily sparse, so long valid runs do not supply the eventual sign required for RH.',
+  },
+  {
+    id: 'T100',
+    color: '#fbbf24',
+    status: 'SHARPEST EXACT CARRY BALLOT · AGGREGATE ROUTE OPEN',
+    title: 'The 32/21 annulus inherits the full cross-factor bottleneck',
+    formula: 'log(S*_N/C*_N)=7392N(mean₆₇₂N≤u<₁₀₂₄N log K_u − mean₄₄₁N≤u<₆₇₂N log K_u)',
+    detail:
+      'The T96 prime cofactor C*_N and Pascal ratio S*_N satisfy RH ⇔ C*_N≤S*_N eventually and telescope exactly into adjacent 32/21 blocks of K_u=(u+1)^u/(u!·rad(u!)). ' +
+      'The identities v₁₉(S*_{19ᴸ}/C*_{19ᴸ})=−174·19ᴸ−15 and v₅(S*_{5ᴸ}/C*_{5ᴸ})=−28082·5ᴸ+29, together with exact negative pair and block factors, defeat direct divisibility and universal pair/per-block positivity. Independent factorial covers still overpay by at least 832,374.7279…N². The aggregate eventual sign remains RH-equivalent and unproved; RH remains open.',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -1001,7 +1025,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T98 · 2026-07-27</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T100 · 2026-07-28</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1354,7 +1378,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T98 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T100 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1437,6 +1461,8 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.sharperVerifiedZeroAnnulus,
             MARKOV_NORMALIZATION.crossFactorCarry,
             MARKOV_NORMALIZATION.unconditionalAnnularRecurrence,
+            MARKOV_NORMALIZATION.deepAnnularBlocks,
+            MARKOV_NORMALIZATION.sharperCrossFactorCarry,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -1728,10 +1754,21 @@ export default function OpenFrontierPage() {
           the T93 slack is unconditionally
           negative for infinitely many integer scales, and a separate
           interval certificate puts its full inverse-cubic average
-          below −25,000. Neither result supplies an eventual sign.
-          If RH is false both strict signs recur infinitely often; if
-          RH is true the certified annular deficit is eventually
-          negative. This is genuine subsidiary progress, not QED.
+          below −25,000. T99 sharpens the recurrence: the real
+          prime-square pole forces deep N<sup>3/2</sup> negative
+          checkpoints for both certified annuli, and explicit PNT
+          control expands infinitely many of them into consecutive
+          blocks of length
+          √N·exp(0.8√log N). Their gaps are not controlled. T100
+          gives the exact 32/21 Pascal/carry comparator for the
+          sharpest annulus; two infinite negative valuation families,
+          exact negative local factors, and N<sup>2</sup>-scale cover
+          gaps leave aggregate cross-factor transport as the open
+          route tested here. Neither result supplies an eventual sign.
+          If RH is false both strict
+          signs recur infinitely often; if RH is true the certified
+          annular deficit is eventually negative. This is genuine
+          subsidiary progress, not QED.
           T66 constructs common-domain zero-adaptive
           theta quasimodes that geometrically isolate residual directions. T67 proves
           compact continuous compressed-graph approximation and compact smooth full

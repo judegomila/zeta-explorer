@@ -248,6 +248,8 @@ const MARKOV_NORMALIZATION = {
     'T113: the real prime-square pole forces the exact T112 product comparison to hold deeply and unconditionally on infinitely many whole blocks. With BΔ=650(√39−5)(34√34−125)=59279.380606…, limsup ΔN/N³ᐟ²≥BΔ. For every ε∈(0,BΔ), infinitely many blocks of consecutive n, each of length ⌊√N exp(0.8√log N)⌋, satisfy Δn>(BΔ−ε)n³ᐟ² and hence the T112 product inequality with that exponential margin. Exact audits rule out termwise q positivity, pairwise K ordering, same-prime divisibility in either direction, and a nonnegative canonical prime-jump fixed-step kernel. The starting points may have arbitrary gaps, so this proves recurrence—not eventual positivity or RH',
   powerCumulativeBand:
     'T114: for every fixed real α≤5/2, set κ=5/2−α and ℒα(X)=ΣN≤X ΔN/N^α. The exact Mellin transform has its positive square pole at w=κ and every off-line zero pole at w=κ+ρ−1/2. Hence RH is equivalent even to the natural-scale floor ℒα(X)≥−CX^κ on a tail. Unconditionally limsup ℒα(X)/Gκ(X)≥BΔ=59279.380606…, where Gκ=(X^κ−1)/κ and G0=log X. Its q-incidence weights are nonnegative but have both jump signs, its K coefficients remain mixed, and fixed-order Riesz smoothing cancels no pole. No such tail floor is proved',
+  movingHeatGap:
+    'T115: the positive moving log-Gaussian with T_X=2log X/783 preserves the real prime-square pole and suppresses every nonreal Mellin mode, including hypothetical off-line zeros. Its exact T112 average tends unconditionally to BΔ=59279.380606…. Sharp truncation then proves that every sufficiently large [Y,Y^(29/25)] contains an N with ΔN>(BΔ−ε)N³ᐟ² for every fixed ε>0. This is a rigorous power-gap theorem, not eventual positivity: the window changes with X and supplies only one deep comparator per power interval',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -334,7 +336,7 @@ const MARKOV_NORMALIZATION = {
     'T89 proves the complementary structural barrier: every finite 3/2-notch changes sign, an exact annular notch oscillates on RH, and harmonic cross-cell summation restores every fixed first-Riesz zero coefficient. ' +
     'T90 factors the positive annulus exactly into lcm and prime-power layers, producing a square-only strengthening and a Pascal comparator while proving the natural binomial majorant loses at main order. ' +
     'T91 narrows the zero-complete positive support from factor 4 to 289/81. T92 makes two generic tents jointly zero-complete, and T95 extends the sharp 3.451336… global-amplitude floor from concave splines to every finite nonnegative piecewise-linear annular kernel. ' +
-    'T93 spends the rigorously isolated first 1,000 zeros individually, shrinking one zero-complete tent to support 529/225=2.351111…. T94 proves every rowwise factorial/multinomial cover still loses at main order. T96 then certifies the first 50,000 zeros and shrinks the support again to 1024/441=2.321995…. T97 identifies the remaining arithmetic target exactly as an adjacent cross-factor carry ballot and rules out its naive monotonicity, divisibility, pairwise, and independent-cover proofs. T98 proves two unconditional subsidiary results for the T93 slack. T99 strengthens recurrence to deep N³ᐟ² checkpoints for both sharp annuli and propagates them into explicit super-√N valid blocks, while T100 derives the exact 32/21 carry ballot and rules out the same local shortcuts at the sharpest support. T101 packages both annuli into an exact all-integer proportional buffer and nonnegative trapezoidal kernel, proves that every fixed residue lane remains RH-complete, and transfers T99 to long consecutive buffer-positive intervals. T102 identifies their shared Beatty word pattern and exactly refutes the global all-k scalar laws. T103 proves every bounded-ℓ¹ local filter through square-root depth remains RH-complete. T104 quantifies the local escape cost; T105 constructs an RH-safe multiplicative escape but proves every finite notch spectrum-incomplete; T106 shows strong real cancellation of one complex local mode has a still higher quadratic conditioning cost; T107 proves subcritical adaptive local postfilters preserve the entire square-notched zero wave. T108 converts the surviving scalar buffer exactly into a compensated difference of floor-aligned geometric θ−x means and rules out convexity shortcuts. T109 builds the maximally damped global positive-kernel cumulative: it has unconditional positive logarithmic limsup, but any tail floor would already prove RH. T110 isolates the ordered terminal-buffer drawdown that survived a numerical scan through k=10,000,000 and leaves the all-u interior conjecture open. T111 proves that two strictly interior samples nevertheless form a joint RH equivalence because their multipliers have no common off-line blind spot, with four rigorous positive Hadamard margins. T112 collapses the paired obligation to one strict-interior difference band: a 10,000-zero Arb/Turing budget proves its RH-side margin, its multiplier is zero-free for Re z>1, and its exact support ratio is 1326/625=2.1216. T113 proves that exact product comparison unconditionally on infinitely many whole N^(1/2+o(1))-length blocks with restored prime-square margin 59279.380606…N³ᐟ², while exact local and valuation audits close the naive termwise, divisibility, pairwise, and canonical-prime-jump fixed-step routes. T114 extends the same exact band to every power cumulative α≤5/2: the positive square-pole recurrence persists, but even a −CX^(5/2−α) tail floor is RH-equivalent. Positive incidence, Abel summation, fixed Riesz smoothing, and the sparse T113 blocks do not prove that floor. The single eventual product sign and the stronger all-u T110 control remain open.',
+    'T93 spends the rigorously isolated first 1,000 zeros individually, shrinking one zero-complete tent to support 529/225=2.351111…. T94 proves every rowwise factorial/multinomial cover still loses at main order. T96 then certifies the first 50,000 zeros and shrinks the support again to 1024/441=2.321995…. T97 identifies the remaining arithmetic target exactly as an adjacent cross-factor carry ballot and rules out its naive monotonicity, divisibility, pairwise, and independent-cover proofs. T98 proves two unconditional subsidiary results for the T93 slack. T99 strengthens recurrence to deep N³ᐟ² checkpoints for both sharp annuli and propagates them into explicit super-√N valid blocks, while T100 derives the exact 32/21 carry ballot and rules out the same local shortcuts at the sharpest support. T101 packages both annuli into an exact all-integer proportional buffer and nonnegative trapezoidal kernel, proves that every fixed residue lane remains RH-complete, and transfers T99 to long consecutive buffer-positive intervals. T102 identifies their shared Beatty word pattern and exactly refutes the global all-k scalar laws. T103 proves every bounded-ℓ¹ local filter through square-root depth remains RH-complete. T104 quantifies the local escape cost; T105 constructs an RH-safe multiplicative escape but proves every finite notch spectrum-incomplete; T106 shows strong real cancellation of one complex local mode has a still higher quadratic conditioning cost; T107 proves subcritical adaptive local postfilters preserve the entire square-notched zero wave. T108 converts the surviving scalar buffer exactly into a compensated difference of floor-aligned geometric θ−x means and rules out convexity shortcuts. T109 builds the maximally damped global positive-kernel cumulative: it has unconditional positive logarithmic limsup, but any tail floor would already prove RH. T110 isolates the ordered terminal-buffer drawdown that survived a numerical scan through k=10,000,000 and leaves the all-u interior conjecture open. T111 proves that two strictly interior samples nevertheless form a joint RH equivalence because their multipliers have no common off-line blind spot, with four rigorous positive Hadamard margins. T112 collapses the paired obligation to one strict-interior difference band: a 10,000-zero Arb/Turing budget proves its RH-side margin, its multiplier is zero-free for Re z>1, and its exact support ratio is 1326/625=2.1216. T113 proves that exact product comparison unconditionally on infinitely many whole N^(1/2+o(1))-length blocks with restored prime-square margin 59279.380606…N³ᐟ², while exact local and valuation audits close the naive termwise, divisibility, pairwise, and canonical-prime-jump fixed-step routes. T114 extends the same exact band to every power cumulative α≤5/2: the positive square-pole recurrence persists, but even a −CX^(5/2−α) tail floor is RH-equivalent. T115 uses a moving positive log-Gaussian to extract the prime-square residue unconditionally and proves a deep valid comparator in every power interval [Y,Y^(29/25)], while showing that every fixed finite positive weighting retains mixed arithmetic signs. The moving window suppresses hypothetical off-line modes too, so the single eventual product sign and the stronger all-u T110 control remain open.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -1042,6 +1044,16 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'Set ℒα(X)=ΣN≤XΔN/N^α and Gκ(X)=(X^κ−1)/κ, with G₀(X)=log X. Its Mellin transform is ΦΔ(w+α)/w: the positive prime-square pole sits at w=κ, while every zero with Re ρ>1/2 creates a genuine pole at w=κ+ρ−1/2, strictly farther right. Landau’s theorem therefore makes even the natural-scale one-sided floor −CX^κ equivalent to RH. Unconditionally, the square residue proves limsup ℒα/Gκ≥BΔ=59279.380606…. ' +
       'Exactly, ℒα is a nonnegative-incidence transform of the signed q₃₉,₂₅ word. But the incidence rises at isolated multiples of 25 and falls at isolated multiples of 34, q₃₉,₂₅(28)<0 receives weight 1, and the induced K coefficients include λ(625)=−39 and λ(975)=25. Fixed-order Riesz smoothing cancels no pole. For 2<α≤5/2, the lower gain certified by one T113 block is only o(1), with uncontrolled gaps. No natural-scale tail floor is proved, so RH remains open.',
   },
+  {
+    id: 'T115',
+    color: '#2dd4bf',
+    status: 'UNCONDITIONAL MOVING-HEAT EXTRACTION · POWER-GAP THEOREM',
+    title: 'Every 29/25 power window contains a deep valid comparator',
+    formula: 'ℋΔ(X)=ΣN≥1 ΔN N⁻⁵ᐟ² 𝒦X(N/X) → BΔ;  ∀Y≫1 ∃N∈[Y,Y²⁹ᐟ²⁵]: ΔN>(BΔ−ε)N³ᐟ²',
+    detail:
+      'Take T_X=2log X/783 and the positive log-Gaussian 𝒦X(y)=(4πT_X)⁻¹ᐟ²exp(−(log y)²/(4T_X)). Its Mellin response is X^(w+2w²/783). A fixed finite-rectangle shift preserves the real prime-square residue BΔ=59279.380606… while every critical or hypothetical off-line zero residue decays; copied k=2 zero modes decay as well, and k≥3 renewal singularities stay left of the contour. Thus ℋΔ(X)=BΔ+o(1) unconditionally. ' +
+      'Using only ΔN=O(N²), the tails outside X^(1±2/27) are o(1), including the boundary’s (log X)⁻¹ᐟ² gain. The remaining positive weights have total mass 1+o(1), forcing some N in the window to satisfy ΔN/N³ᐟ²≥BΔ−o(1). Reparameterizing gives one exponentially deep T112 product win in every [Y,Y^(29/25)]. This closes arbitrary power-size gaps, but not all gaps or the eventual sign: the window changes with X and deliberately suppresses off-line modes too. RH remains open.',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -1193,7 +1205,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T114 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T115 · 2026-07-28</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1547,7 +1559,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T114 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T115 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1646,6 +1658,7 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.singleInteriorBand,
             MARKOV_NORMALIZATION.singleInteriorRecurrence,
             MARKOV_NORMALIZATION.powerCumulativeBand,
+            MARKOV_NORMALIZATION.movingHeatGap,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -2076,8 +2089,19 @@ export default function OpenFrontierPage() {
           limsup ℒ<sub>α</sub>/G<sub>κ</sub>≥59279.380606….
           The exact q-incidence is nonnegative but nonmonotone,
           the K coefficients still have both signs, and fixed-order
-          Riesz smoothing removes no pole. No such floor is known, so
-          RH is therefore still unresolved.
+          Riesz smoothing removes no pole. No such floor is known.
+          T115 then changes the scale of the smoothing itself. Its
+          positive log-Gaussian has variance proportional to log X,
+          preserves the real prime-square residue, and suppresses every
+          nonreal Mellin mode. A fixed finite contour proves that the
+          normalized average tends unconditionally to
+          B<sub>Δ</sub>=59279.380606…. Sharp tail control then forces
+          one N in every sufficiently large interval
+          [Y,Y<sup>29/25</sup>] with
+          Δ<sub>N</sub>&gt;(B<sub>Δ</sub>−ε)N<sup>3/2</sup>.
+          This removes arbitrary power-size gaps between deep wins, but
+          it does not prove all N: the moving filter also suppresses
+          hypothetical off-line zeros. RH is therefore still unresolved.
           Separately, for the T93/T96 annular deficit, if RH is false
           both strict signs recur infinitely often; if RH is true the
           certified annular deficit is eventually negative. This is

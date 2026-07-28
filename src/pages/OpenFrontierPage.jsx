@@ -306,6 +306,18 @@ const MARKOV_NORMALIZATION = {
     'T142: every fixed periodic depth controller remains sign-recurrent on RH. For every nonzero profile c, modulus q, and residue r, bounded-gap quadrature gives Σ_(v≤X,v≡r mod q)𝒞_c(v)=q^(−1)𝓘_c(X)+O_(c,q)(Xlog X)=Ω±(X^(3/2)). Hence 𝒞_c(v) takes both signs infinitely often on each residue class. Assigning arbitrary fixed profiles to the q states cannot help, even if their mean is zero or the states alternate c,−c; choose any active state and apply its residue theorem. Exact periodic factorial/lcm products likewise cross one in both directions. A surviving independent controller needs unbounded or genuinely aperiodic state, increasing period, non-summable profiles, or nonlinear arithmetic input',
   adaptiveLowDiscrepancyNoGo:
     'T143: genuinely aperiodic low-discrepancy state also preserves the critical wave. If a_v selects one fixed nonzero profile with A(X)=Σ_(v≤X)a_v=δX+E(X) and max_(n≤X)|E(n)|=o(√X/log X), discrete Abel summation plus the O(log v) row increment gives Σ_(v≤X)a_v𝒞_c(v)=δS_c(X)+o(X^(3/2))=Ω±(X^(3/2)) on RH. Hence both row signs recur inside the selected state. Applied state by state, this closes every finite-state controller whose active states meet the discrepancy threshold. Irrational mechanical/Sturmian words have bounded discrepancy, so they are included, as are exact product versions. Surviving state must have critical discrepancy, zero density, unboundedly many states, changing or non-summable profiles, or nonlinear arithmetic input',
+  adaptiveIndependentRandomNoGo:
+    'T144: independent random state also preserves the critical wave almost surely, even though its discrepancy is typically too large for T143. For iid Bernoulli selection, the centered error R_a(X)=Σ_(v≤X)(a_v−δ)𝒞_c(v) has variance O_c(X²log⁴X) on RH. Kolmogorov maximal inequality on dyadic blocks and Borel–Cantelli give R_a(X)=o(X^(3/2)) almost surely, so the selected cumulative is δS_c(X)+o(X^(3/2))=Ω±(X^(3/2)). Statewise application closes every input-independent iid controller with finitely or countably many fixed profiles, including exact products. Independence is essential: selecting by the observed sign of 𝒞_c(v) is precisely T141’s circular feedback. Dependent/nonstationary schedules, zero-density state, changing profiles, non-summable depth, and nonlinear arithmetic input remain open',
+  adaptiveMarkovControllerNoGo:
+    'T145: every finite time-homogeneous Markov controller is sign-recurrent on each nonzero recurrent class. For an aperiodic irreducible class, exponential covariance decay gives a uniform weighted block-variance bound; a dyadic maximal decomposition and Borel–Cantelli make each centered state sum o(X^(3/2)) on RH. For a period-q class, its q-step skeleton is aperiodic and T142 supplies the density-scaled residue main wave, so Σ_(v≤X,Z_v=j)𝒞_c(v)=π_j𝓘_c(X)+o(X^(3/2))=Ω±(X^(3/2)) almost surely. This includes deterministic cycles, arbitrary starts, transient states, reducible chains on every reached active recurrent class, and exact products. A surviving controller must be time-inhomogeneous or arithmetic-dependent, zero-density or infinite-state, profile-changing, non-summable, or nonlinear',
+  adaptiveNonhomogeneousMixingNoGo:
+    'T146: time-dependent finite-state mixing still cannot select one sign when every transition preserves one positive law π and all transition products contract mean-zero states uniformly. The product bound ||P_u⋯P_(v−1)f||_(2,π)≤Kr^(v−u)||f|| with r<1 gives exponential covariance decay even though the kernels vary arbitrarily. The T145 dyadic maximal argument then yields Σ_(v≤X,Z_v=j)𝒞_(c^[j])(v)=π_jS_(c^[j])(X)+o(X^(3/2))=Ω±(X^(3/2)) almost surely on RH. Kernels may even be chosen from deterministic arithmetic data: they cannot help while the common marginal law and uniform mixing survive. A finite-state stochastic escape must move its marginal law at critical arithmetic scale or lose uniform mixing; zero-density/infinite state, changing/non-summable profiles, and nonlinear coupling also remain',
+  adaptivePredictableMarginalBudget:
+    'T147: arbitrary history-dependent stochastic selection reduces to predictable marginal drift plus a subcritical martingale. For p_v=E(a_v|F_(v−1)), Doob maximal inequality and the RH pointwise bound give Σ_(v≤X)(a_v−p_v)𝒞_c(v)=o(X^(3/2)) almost surely, without independence, stationarity, Markov structure, or mixing. Thus selection equals δS_c(X)+Σ(p_v−δ)𝒞_c(v)+o(X^(3/2)). If Σ|p_v−δ||𝒞_c(v)|=o(X^(3/2)), both signs recur; any eventual sign must spend positive critical predictable response budget. This holds statewise for finite/countable history-dependent controllers and exact products. The formal p_v=1_(𝒞_c(v)≥0) escape has zero innovation but reads the target sign, reproducing T141 circularity. The remaining linear stochastic problem is independent arithmetic generation of critical sign-aligned marginal correlation',
+  adaptiveSquarefreeStateNoGo:
+    'T148: squarefree arithmetic state preserves both critical excursions even though its O(√X) counting discrepancy lies outside T143. Uniform dilation quadrature gives Σ_(m≤X/q)𝒞_c(qm)=q^(−1)𝓘_c(X)+O_c(Xlog X) on RH. Insert μ²(v)=Σ_(k²|v)μ(k), truncate at K=⌊log⁴(2X)⌋, and interchange sums. The K sublattices cost O(KXlog X); the omitted large-square divisors cost O(X^(3/2)log²X/K). Both are o(X^(3/2)), so Σ_(v≤X)μ²(v)𝒞_c(v)=ζ(2)^(−1)𝓘_c(X)+o(X^(3/2))=Ω±(X^(3/2)). The nonsquarefree complement carries coefficient 1−ζ(2)^(−1) and also both signs. Arbitrary fixed profiles and exact products inherit the result. A surviving arithmetic marginal needs critical divisor-tail mass, zero density, or closer correlation with primes inside the annuli',
+  adaptiveSummableDivisorStateNoGo:
+    'T149: every positive-density divisor-convolution state with a positive power margin preserves both critical excursions. If a(v)=Σ_(q|v)h(q), Σ_q|h(q)|q^(−1+η)<∞ for some 0<η<1, and δ_h=Σ_qh(q)/q lies strictly between 0 and 1, then uniform dilation quadrature and truncation at Q=X^α give Σ_(v≤X)a(v)𝒞_c(v)=δ_h𝓘_c(X)+o(X^(3/2))=Ω±(X^(3/2)) on RH. The complement has coefficient 1−δ_h and also both signs. This includes every r-free selector and finite sieve state, for arbitrary fixed profiles and exact products. A surviving arithmetic state must fail every positive power margin, have zero density, or correlate directly with the annular prime data',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -437,6 +449,18 @@ const MARKOV_NORMALIZATION = {
     'T142 closes fixed periodic arithmetic control, a critical-drift class not covered by T140. Every active residue class is a bounded-gap Riemann sampling of its fixed-profile T139 primitive, so it inherits positive and negative X^(3/2) cumulative excursions and both row signs. Zero-mean, alternating, and arbitrary finite periodic state assignments all fail; an independent controller must have genuinely growing or aperiodic state.',
   structureT143:
     'T143 extends that closure to genuinely aperiodic finite-state control with positive density and discrepancy o(sqrt(X)/log X). Exact Abel summation transfers each active state to its density-scaled T139 cumulative with only subcritical error. Balanced mechanical, Sturmian, and other low-discrepancy selectors therefore retain both signs, even for exact products. Any remaining state mechanism must have critical discrepancy, zero-density or unbounded state, changing/non-summable profiles, or nonlinear arithmetic input.',
+  structureT144:
+    'T144 closes input-independent iid random control beyond the T143 discrepancy range. The centered selected sum is a martingale whose RH variance is O(X²log⁴X); Kolmogorov maximal inequality and Borel–Cantelli make it o(X^(3/2)) almost surely. Every active nonzero state in a finite or countable fixed-profile law therefore retains both signs, including exact products. Randomness can help only by becoming arithmetic-dependent feedback, dependent/nonstationary, zero-density, profile-changing, non-summable, or nonlinear.',
+  structureT145:
+    'T145 closes every finite homogeneous Markov scheduler, including dependence and periodicity. Exponential covariance decay plus a dyadic maximal inequality controls aperiodic classes; periodic classes reduce through their skeletons to T142 residue waves. Every reached recurrent state with a fixed nonzero profile retains both signs almost surely. Only time-inhomogeneous or arithmetic-dependent transitions, zero-density/infinite state, changing or non-summable profiles, and nonlinear coupling remain.',
+  structureT146:
+    'T146 closes uniformly mixing time-inhomogeneous finite-state control with a common positive law. Uniform contraction of every transition product preserves exponential covariance decay, so the centered state error remains o(X^(3/2)) almost surely and the density-scaled T139 wave survives. Even deterministic arithmetic choice among such kernels fails. A stochastic escape must move its marginal law at critical scale or destroy uniform mixing.',
+  structureT147:
+    'T147 identifies the exact currency of every stochastic escape. After conditioning on the past, the innovation is always an o(X^(3/2)) martingale on RH; only the predictable marginal drift remains. Subcritical weighted drift preserves both signs, while eventual one-sidedness requires positive critical response budget. The sign-reading optimizer attains that budget circularly. A useful route must now manufacture the same critical correlation from independent arithmetic structure.',
+  structureT148:
+    'T148 tests a genuine independent arithmetic marginal at the critical discrepancy scale. Möbius square-divisor expansion plus uniform dilation quadrature shows that squarefree rows carry exactly 1/ζ(2) of the T139 wave and nonsquarefree rows the complement, up to o(X^(3/2)). Both states retain both signs and exact product crossings. Index factorization alone therefore does not manufacture the T147 critical correlation.',
+  structureT149:
+    'T149 lifts the squarefree calculation to every divisor-convolution indicator whose coefficients have any positive power of summability beyond the harmonic boundary. A power-scale truncation leaves the density times the T139 wave and only subcritical tails, so both the state and its complement remain sign-recurrent on RH. The remaining divisor frontier is genuinely borderline, zero-density, or prime-correlated.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -1549,6 +1573,96 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     certificate:
       'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
   },
+  {
+    id: 'T144',
+    color: '#60a5fa',
+    status:
+      'INPUT-INDEPENDENT RANDOM CONTROL IS SIGN-RECURRENT ALMOST SURELY ON RH · FEEDBACK FRONTIER OPEN',
+    title: 'Random state cannot decorrelate the critical wave',
+    formula:
+      'Var R_a(X)=O_c(X²log⁴X) ⇒ R_a(X)=o(X³ᐟ²) a.s. ⇒ S_(c,a)(X)=Ω±(X³ᐟ²)',
+    detail:
+      'Let a_v be iid Bernoulli with fixed density δ, chosen independently of the arithmetic data, and let it select one fixed nonzero summable depth profile. The centered selector error R_a(X)=Σ_(v≤X)(a_v−δ)𝒞_c(v) is a sum of independent mean-zero variables. ' +
+      'On RH the pointwise bound 𝒞_c(v)=O_c(√v log²v) gives Var R_a(X)=O_c(X²log⁴X). Kolmogorov maximal inequality at dyadic cutoffs has summable failure probability at the X³ᐟ² scale; Borel–Cantelli and dyadic interpolation therefore give R_a(X)=o(X³ᐟ²) almost surely. The density-scaled T139 cumulative survives, so both row signs recur on the selected state. ' +
+      'Applied state by state, the result holds simultaneously for every active nonzero profile in any finite or countable iid state law, including exact factorial/lcm products. This reaches random schedules whose typical √X discrepancy lies outside T143. Independence is load-bearing: a selector that reads the sign of 𝒞_c(v) can retain one sign and is exactly T141’s circular feedback. Dependent or nonstationary scheduling, zero-density selection, changing/non-summable profiles, and nonlinear arithmetic input remain open; RH remains unresolved.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T145',
+    color: '#f472b6',
+    status:
+      'FINITE HOMOGENEOUS MARKOV CONTROL IS SIGN-RECURRENT ON EACH ACTIVE RECURRENT CLASS · TIME-INHOMOGENEOUS FRONTIER OPEN',
+    title: 'Markov dependence still cannot select one sign',
+    formula:
+      'S_(c,j)(X)=π_j𝓘_c(X)+o(X³ᐟ²)=Ω±(X³ᐟ²) a.s. (RH)',
+    detail:
+      'Let Z_v be any finite irreducible time-homogeneous Markov chain and attach one fixed summable depth profile to each state. In an aperiodic class, the transition matrix contracts its finite-dimensional mean-zero subspace exponentially. This bounds every weighted block variance by a constant times Σ𝒞_c(v)². A dyadic interval decomposition adds only log²X to the maximal second moment, and the RH pointwise bound then makes the X³ᐟ² failure probabilities summable. ' +
+      'For a chain of period q, each state lives on one residue and the q-step skeleton is aperiodic. Its centered fluctuation is still o(X³ᐟ²), while T142 identifies the deterministic residue mean as π_j𝓘_c(X)+o(X³ᐟ²). Thus both critical excursions and both row signs survive almost surely. Deterministic cycles are included as zero-fluctuation skeletons. ' +
+      'The result extends to arbitrary starting states and, after the finite transient phase, to each closed recurrent class of a reducible chain; exact finite-support factorial/lcm products inherit both strict orders. Ordinary dependence therefore does not help. A remaining controller must use time-dependent or arithmetic-dependent transitions, zero-density or infinite state, changing/non-summable profiles, or nonlinear input. RH remains unresolved.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T146',
+    color: '#c084fc',
+    status:
+      'COMMON-LAW UNIFORMLY MIXING NONHOMOGENEOUS CONTROL IS SIGN-RECURRENT · MARGINAL-DRIFT FRONTIER OPEN',
+    title: 'Changing the transition kernel is not enough',
+    formula:
+      '||P_u⋯P_(v−1)||₀≤Kr^(v−u) ⇒ S_(c,j)(X)=π_jS_c(X)+o(X³ᐟ²)',
+    detail:
+      'Let the finite-state transition matrix vary arbitrarily with the row, while every matrix preserves one positive law π. Assume only that every transition product contracts the mean-zero L²(π) subspace by Kr^(v−u) for some r<1. This is the exact uniform-mixing condition needed to retain exponential covariance decay in the nonhomogeneous chain. ' +
+      'The weighted block-variance and dyadic maximal argument from T145 then applies without independent or identical transitions. On RH, each state’s centered selector error is o(X³ᐟ²) almost surely, leaving π_j times its fixed-profile T139 cumulative and therefore both critical excursions and both row signs. The result is simultaneous for all fixed profiles and extends to exact factorial/lcm products and arbitrary starting states. ' +
+      'The kernels may even be chosen using deterministic arithmetic data: variation alone cannot help while the common marginal law and uniform product contraction survive. The sign-reading T141 selector escapes only by moving the state law, and long nearly absorbing epochs escape only by destroying uniform mixing. A surviving finite-state stochastic route must therefore create critical arithmetic marginal drift or mixing loss; zero-density/infinite state, changing/non-summable profiles, and nonlinear input also remain. RH is still open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T147',
+    color: '#fb7185',
+    status:
+      'ARBITRARY HISTORY-DEPENDENT RANDOMNESS REDUCES TO CRITICAL PREDICTABLE MARGINAL BUDGET · INDEPENDENT CORRELATION OPEN',
+    title: 'Only the predictable marginal can carry the sign',
+    formula:
+      'Σ(a_v−p_v)𝒞_c(v)=o(X³ᐟ²) a.s.;  P_(c,δ)(X)=Σ|p_v−δ||𝒞_c(v)|',
+    detail:
+      'Let a_v be any binary selector adapted to an arbitrary history and let p_v=E(a_v|F_(v−1)) be its predictable selection probability. The centered innovation Σ(a_v−p_v)𝒞_c(v) is always a martingale. On RH its quadratic variation is O_c(X²log⁴X), so Doob maximal inequality and Borel–Cantelli make it o(X³ᐟ²) almost surely—without independence, stationarity, Markov structure, or mixing. ' +
+      'The selected cumulative therefore decomposes exactly into δ times the T139 wave, the predictable drift Σ(p_v−δ)𝒞_c(v), and a subcritical random error. If the absolute response budget Σ|p_v−δ||𝒞_c(v)| is o(X³ᐟ²), both critical excursions and both selected row signs survive. Conversely, eventual one-sidedness requires positive critical predictable response budget. This holds statewise for finite or countable history-dependent controllers and exact factorial/lcm products. ' +
+      'The formal choice p_v=a_v=1_(𝒞_c(v)≥0) has zero martingale noise and selects one sign, but only by reading the exact Chebyshev-annulus target; it is T141 feedback in probabilistic notation. T147 does not rule out every critical-budget rule. It proves that randomness and architecture themselves contribute no critical power: a viable stochastic proof must generate a sign-aligned marginal correlation from independent arithmetic structure. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T148',
+    color: '#2dd4bf',
+    status:
+      'SQUAREFREE AND NONSQUAREFREE ARITHMETIC STATES ARE SIGN-RECURRENT ON RH · PRIME-CORRELATED MARGINAL FRONTIER OPEN',
+    title: 'Squarefree index structure still samples the whole wave',
+    formula:
+      'S_sf(X)=ζ(2)⁻¹𝓘_c(X)+o(X³ᐟ²)=Ω±(X³ᐟ²)',
+    detail:
+      'Squarefree counting has an O(√X)-scale error, so T143’s low-discrepancy theorem does not apply. The multiplicative identity μ²(v)=Σ_(k²|v)μ(k) gives a stronger route. Uniformly in q, one q-sublattice samples q⁻¹ of the T139 primitive with O_c(Xlog X) error on RH. ' +
+      'Truncate the square-divisor expansion at K=⌊log⁴(2X)⌋. The K dilation errors total O(KXlog X), while the omitted large-square divisors cost O(X³ᐟ²log²X/K) by the RH pointwise annulus bound. Both are o(X³ᐟ²), and the absolutely convergent Möbius coefficient sum is ∏_p(1−p⁻²)=1/ζ(2). Thus squarefree rows retain exactly that positive fraction of the critical wave; nonsquarefree rows retain the complementary fraction. Each state has positive and negative X³ᐟ² excursions and both row signs. ' +
+      'The result applies separately to arbitrary fixed summable profiles on the two states and to exact factorial/lcm products. This is a deterministic multiplicative selector, not periodic, mechanical, or random, and it never reads the Chebyshev-annulus target. Index factorization alone therefore cannot generate T147’s critical sign alignment. A surviving arithmetic marginal needs critical divisor-tail mass, zero density, or direct correlation with primes inside the annuli. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T149',
+    color: '#fbbf24',
+    status:
+      'POWER-SUMMABLE DIVISOR STATES ARE SIGN-RECURRENT ON RH · HARMONIC-BORDERLINE / PRIME-CORRELATION FRONTIER OPEN',
+    title: 'Summable divisor arithmetic only rescales the wave',
+    formula:
+      'S_a(X)=δ_h𝓘_c(X)+o(X³ᐟ²)=Ω±(X³ᐟ²)',
+    detail:
+      'Let a(v)=Σ_(q|v)h(q) be a {0,1}-valued divisor-convolution state. Assume Σ_q|h(q)|q^(−1+η)<∞ for some 0<η<1 and that its density δ_h=Σ_qh(q)/q lies strictly between zero and one. Truncate the divisor expansion at Q=X^α, where 0<α<min(1,1/(2(1−η))). The T148 uniform dilation quadrature contributes O(H(Q)Xlog X), while the coefficient tail is bounded by H_ηQ^(−η) times the RH-scale wave. Both are o(X³ᐟ²). ' +
+      'Consequently the selected state carries δ_h times the T139 primitive up to subcritical error, and its complement carries 1−δ_h. Both have positive and negative X³ᐟ² excursions, both contain infinitely many rows of either sign, and exact finite-support factorial/lcm products cross one in both directions. The theorem contains all r-free selectors and finite sieve states. ' +
+      'This is not a claim for bare harmonic summability: a surviving divisor state may sit at that boundary, have zero density, or correlate directly with primes in the annuli. Those cases remain open, and RH remains unresolved.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -1701,7 +1815,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T143 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T149 · 2026-07-28</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -2069,7 +2183,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T143 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T149 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -2097,7 +2211,13 @@ export default function OpenFrontierPage() {
           {MARKOV_NORMALIZATION.structureT140}{' '}
           {MARKOV_NORMALIZATION.structureT141}{' '}
           {MARKOV_NORMALIZATION.structureT142}{' '}
-          {MARKOV_NORMALIZATION.structureT143}
+          {MARKOV_NORMALIZATION.structureT143}{' '}
+          {MARKOV_NORMALIZATION.structureT144}{' '}
+          {MARKOV_NORMALIZATION.structureT145}{' '}
+          {MARKOV_NORMALIZATION.structureT146}{' '}
+          {MARKOV_NORMALIZATION.structureT147}{' '}
+          {MARKOV_NORMALIZATION.structureT148}{' '}
+          {MARKOV_NORMALIZATION.structureT149}
         </p>
         <div
           style={{
@@ -2219,6 +2339,12 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.adaptiveExactDualCost,
             MARKOV_NORMALIZATION.adaptivePeriodicControllerNoGo,
             MARKOV_NORMALIZATION.adaptiveLowDiscrepancyNoGo,
+            MARKOV_NORMALIZATION.adaptiveIndependentRandomNoGo,
+            MARKOV_NORMALIZATION.adaptiveMarkovControllerNoGo,
+            MARKOV_NORMALIZATION.adaptiveNonhomogeneousMixingNoGo,
+            MARKOV_NORMALIZATION.adaptivePredictableMarginalBudget,
+            MARKOV_NORMALIZATION.adaptiveSquarefreeStateNoGo,
+            MARKOV_NORMALIZATION.adaptiveSummableDivisorStateNoGo,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -3141,6 +3267,53 @@ export default function OpenFrontierPage() {
           selectors therefore keep both signs. Remaining state must
           have critical discrepancy, zero density, unboundedly many
           states, changing profiles, or nonlinear arithmetic input.
+          T144 closes input-independent random scheduling beyond that
+          discrepancy range. The centered selector error is a
+          martingale with RH variance O(X<sup>2</sup>log<sup>4</sup>X);
+          Kolmogorov maximal inequality and Borel–Cantelli make it
+          o(X<sup>3/2</sup>) almost surely. This works simultaneously
+          for finitely or countably many fixed-profile states. Any
+          surviving randomness must be dependent or nonstationary,
+          zero-density, profile-changing, or correlated with the
+          arithmetic signal—the last option being T141 feedback.
+          T145 also closes ordinary finite-state dependence. For an
+          aperiodic Markov class, exponential covariance decay and a
+          dyadic maximal inequality make the centered state sum
+          o(X<sup>3/2</sup>) almost surely. A periodic class reduces
+          through its skeleton to the T142 residue wave. Thus every
+          reached recurrent state with a fixed nonzero profile keeps
+          both signs. Surviving control must be time-inhomogeneous or
+          arithmetic-dependent, zero-density or infinite-state,
+          profile-changing, non-summable, or nonlinear.
+          T146 closes uniformly mixing time-inhomogeneous control too.
+          If all transition kernels preserve one positive law and
+          their products contract mean-zero states uniformly, the same
+          covariance/maximal proof keeps the centered error
+          o(X<sup>3/2</sup>). Even deterministic arithmetic selection
+          among such kernels fails. A stochastic escape must move the
+          marginal law at critical scale or destroy uniform mixing.
+          T147 removes the remaining architectural ambiguity. For any
+          history-dependent selector, conditioning on the past splits
+          it into a predictable marginal and an o(X<sup>3/2</sup>)
+          martingale innovation. Eventual sign therefore requires
+          positive critical predictable response budget. The cheapest
+          example reads the annular sign itself and is circular; the
+          live task is independent arithmetic production of that
+          critical correlation.
+          T148 tests squarefreeness, a genuinely multiplicative
+          independent state whose raw discrepancy is too large for
+          T143. Möbius square-divisor expansion and uniform dilation
+          quadrature show that squarefree rows retain 1/ζ(2) of the
+          critical wave and nonsquarefree rows the complement. Both
+          signs survive. Index factorization alone therefore does not
+          supply the T147 correlation.
+          T149 generalizes this transfer to every positive-density
+          divisor-convolution indicator with a positive power margin
+          beyond harmonic summability. A power-scale truncation leaves
+          the density times the critical wave, so the selected state
+          and its complement both retain both signs. The harmonic
+          boundary, zero-density states, and direct prime correlation
+          remain open.
           Separately, for the T93/T96 annular deficit, if RH is false
           both strict signs recur infinitely often; if RH is true the
           certified annular deficit is eventually negative. This is

@@ -274,6 +274,22 @@ const MARKOV_NORMALIZATION = {
     'T126: for a>1 and every fixed finite complex Borel measure ν with supp|ν| contained in [α,β] compactly inside (1,a), ℬν(z)=a^z−2+∫μ^z dν(μ) has infinitely many zeros in every half-plane Re z>c with c<σ*=log 2/log a. T125 localizes one zero at every large base-lattice index for L¹ densities; discrete Wiener theory gives an asymptotic lattice subsequence for atomless measures; the general result is nonlocalized. A positive atomic probability measure has positive vertical zero density strictly right of σ*, as δ_{√a} shows on Re z=2σ*. Wasserstein transfer toward one fixed L¹-density target works through heights T_N only when T_NW₁→0; prefix grids permit T_N=o(min{N,M_N}). Endpoint atoms, uncontrolled scale adaptation, and the missing arithmetic Mellin error remain outside; these are multiplier blind points, not zeta zeros, and RH remains open',
   fixedMovingMeasureBlindRectangle:
     'T127: fix K⊂⊂(1,a), a total-variation bound M, and c<σ*=log 2/log a. Weak-* compactness of the measure ball, compact-open continuity of ν↦ℬν, and Rouché’s theorem on a finite subcover give finitely many disks—and hence one common bounded rectangle c<Re z<R, |Im z|<T—meeting the zero set of every symbol. This includes arbitrary row-dependent normalized positive exact weights on K, without weak convergence or regularity in the row. The rectangle need not meet 3/2<Re z<2: δ_{√a} has its nonzero right-half family on Re z=2σ*>2 for a=32/21. The zero may move from row to row, supplies no fixed Mellin factor, and proves neither the weighted O(N²) error, an arithmetic sign, nor RH',
+  adaptiveAlgebraicPrefix:
+    'T128: set μ₀=(32/21)^(2/3) and u_N=⌊105μ₀N+1/2⌋. The exact strict-interior prefix Λ₃₂,₂₁(105N,u_N) is O(N)-close to one fixed continuous comparator with Q₀(z)=(a^z−a)(a^z+a^(2z/3)−2). Writing y=a^(z/3) gives (y−1)(y²+2y+2), so the zero lines are Re z=0, 1, and 2.4683939547…>2. A direct algebraic 256-bit Arb/Turing fixture proves δ₁₀₀₀>1/20. Hence RH is equivalent to eventual positivity—or nonnegativity—of this one exact rounded prefix. The finite rounded symbols can still have dangerous-strip zeros at enormous heights; the converse uses only the fixed comparator and O(N) endpoint transfer. The eventual product sign is unproved, so RH remains open',
+  adaptivePrefixRecurrence:
+    'T129: the fixed T128 comparator has prime-square residue B_ad=727454.763559809…>724000. Unconditionally, every sufficiently large [Y,Y^θH], θH=1.0000000000006666277…, contains a whole √N·exp(0.8√log N)-length block with Λ_n>(B_ad−ε)n^(3/2); the deep-index counting exponent is at least 0.4999999999996666861…. The verified-height heat transfer is valid because the O(N) rounding correction is holomorphic for Re v>2 while its contour stays in Re v>7/3. The exact endpoint word has aperiodic 139/140 steps from ∛2688000−139, and the row update is a finite q/K-product recurrence. Exact sign and valuation fixtures defeat monotonicity, letter-sign, and divisibility shortcuts. A nonnegative asymmetric tent rewrites the open problem as one weighted prime-quadrature deficit. The heat filter suppresses hypothetical off-line modes too, so these near-unit power-window wins do not imply additive gaps, eventual positivity, or RH',
+  adaptiveNaturalScaleFloor:
+    'T130: either one-sided natural-scale bound Λ_N≥−CN^(3/2) or Λ_N≤CN^(3/2) is individually RH-equivalent. The same is true of either eventual local update bound Λ_N₊₁−Λ_N≥−C√N log²(2N) or Λ_N₊₁−Λ_N≤C√N log²(2N). The exact ξ=(32/21)^(1/3) split writes Λ as three nonnegative-kernel root cells with weights 2,2,1, but rigorous root-buffer signs S(4)>2504 and S(84)<−5991 and mixed prime valuations block a cellwise proof. The rounded row is one exact nonnegative integer tent, and its square-completed finite Pascal/lcm comparison is RH-equivalent. At N=3 the exact 2^93 Hall count is 179382<179424, ruling out monotone equal-or-larger K-factor matching. The moving heat suppresses hypothetical high off-line modes and cannot recover the raw floor. These are sharper arithmetic targets and no-gos, not an eventual floor or a proof of RH',
+  adaptivePrimePowerCompletedDrift:
+    'T131: complete every prime power and set 𝒵_N=log(𝒮_N/𝒜_N). The same exact 139/140 transducer survives with K̃_m=(m+1)^m/[m! lcm(1,…,m)], whose adjacent log jump is m log(1+1/m)−Λ_vM(m). Either one-sided O(√N log²(2N)) bound for Δ𝒵_N is individually RH-equivalent. The translated tent kernel g_N=h_{N+1}−h_N is supported on 2205N<t<5120(N+1), satisfies |g_N|≤685440, and has exact edge signs −64,+21. Its cube-and-higher update is O(N^(1/3)); its square update exceeds 1084000√N eventually for both Beatty letters. Thus the stronger sufficient-only floor Δ𝒵_N≥−10^6√N—or an explicit 2^(1400000⌈√N⌉) finite product comparison—would force RH. The remaining RH-complete object is one signed annular von-Mangoldt quadrature. No required eventual bound is proved',
+  adaptiveFiveBandAbel:
+    'T132: exact finite summation by parts collapses the broad signed quadrature 𝒬_N^loc to five fixed-width endpoint bands of Eψ(r)=ψ(r)−r. Their widths are 2205, 21s, 3360, 32s, and 5120, with coefficients 64, −32, −74, 21, and 21 for s∈{139,140}. For N≥7 the translated kernel has constant plateaus −141120, p_s∈{−47712,−47040}, q_s∈{200928,201600}, and 107520, with exactly one interior sign crossing. On the pure mode Eψ(x)=x^ρ its leading multiplier factors as (32/105)2205^(ρ+1)(y³−1)(160y³+s y²−210), y=(32/21)^(ρ/3), and has no zero for 0<Re ρ≤1. Thus neither Beatty letter can hide a hypothetical off-line zero at leading order. The five coefficients remain mixed, so nonvanishing supplies no eventual one-sided ballot and RH remains open',
+  adaptivePositiveLocalFilterNoGo:
+    'T133: every finite nonzero nonnegative average G_N^w=Σ_j w_jg_{N+j} is still pointwise signed. At the first active lower edge it equals −64w_j<0; at the last active upper edge it equals 21w_j>0. An L-row block telescopes exactly to h_{N+L}−h_N and has the same four plateaus with effective letter σ=(u_{N+L}−u_N)/L∈[139,140]. More generally, a normalized nonnegative stencil of width H_N has leading pure-mode multiplier M_{σ_N}, a convex letter average. A uniform root-distance bound keeps this multiplier away from zero throughout 1/2≤Re ρ≤1; if H_N=o(N), every fixed off-line mode therefore survives at its natural N^(Re ρ) order. Positive sublinear local smoothing can change the constant and phase, but cannot unsign the kernel or notch a fixed off-line mode. It proves no arithmetic ballot and RH remains open',
+  adaptiveDefectCurvature:
+    'T134: write δ_N=s_N−139 and C_N=𝒬_N^loc−𝒬_{N−1}^loc. The rare δ_N=1 rows have exact gaps 24 or 25. On each one, with v=u_N+139, C_N=𝒥(v)+R_N, where 𝒥(v)=21Σ_{32v≤r<32v+32}Eψ(r)−32Σ_{21v≤r<21v+21}Eψ(r) and R_N=O(log N) unconditionally. Consecutive defect v-values have gaps 3337 or 3476, while 𝒥(v+1)−𝒥(v)=O(log v), so a one-sided defect bound extends to every large integer v before any Mellin argument. The primitive 𝔉(X)=21ℋ(32X)−32ℋ(21X) satisfies Δ𝔉=𝒥 and has off-line multiplier 672(32^ρ−21^ρ)/(ρ+1), zero-free for Re ρ>0. Consequently either eventual inequality C_N≥−C√N log²(2N) or C_N≤C√N log²(2N), restricted only to 140 defects, is individually equivalent to RH. Equivalently, either orientation of the completed-row second-difference product is RH-complete. No such bound is proved',
+  adaptiveMicrocellComparator:
+    'T135: the universal defect cell has the exact reduction 𝒥(v)=672{ψ(32v)−ψ(21v)−11v}+R(v), with |R(v)|≤17136{1+log(32v+31)}. For v≥2 it is one nonnegative trapezoid applied to Λ−1, which does not determine its sign. Writing L_m=lcm(1,…,m), X_v=L_32v(21v)^(21v)(32v−1)!, Y_v=L_21v(32v)^(32v−1)(21v)!, and j_v=⌈√v⌉(1+⌈log₂(2v)⌉)², either eventual comparison 2^(Kj_v)X_v≥Y_v or 2^(Kj_v)Y_v≥X_v is individually RH-equivalent. Opposite 2-adic and intermediate-prime valuations rule out divisibility in either direction, but not real order. Neither comparison is proved',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -373,6 +389,22 @@ const MARKOV_NORMALIZATION = {
     'T126 extends right-half zero existence to fixed atomic and singular measures, with a regularity-dependent localization hierarchy: Jessen convexity for the atomic almost-periodic part and a Wiener–Rouché transfer for the atomless part force infinitely many blind points in every half-plane Re z>c with c<σ*=log 2/log a. Positive atomic probabilities even have positive zero density strictly to the right of σ*. A quantitative Wasserstein theorem transfers a growing lattice window only toward one fixed L¹ target when T_NW₁→0. This does not close every atomic or singular Landau route; endpoint support, uncontrolled scale adaptation, and the required discrete Mellin estimate remain outside, so this is still not an RH proof.',
   structureT127:
     'T127 makes that existence theorem uniform over every weak-* compact family with fixed strict-interior support and bounded total variation. Compact-open continuity and a finite Rouché subcover put at least one symbol zero in a common bounded right-half rectangle, even for arbitrary normalized row-dependent positive exact weights with no convergence. The zero can move by row and the rectangle may lie beyond Re z=2, so no fixed multiplier, weighted Mellin transfer, arithmetic sign, or RH conclusion follows.',
+  structureT128:
+    'T128 tunes one moving endpoint to the algebraic dilation μ₀=(32/21)^(2/3). Nearest-integer rounding changes the exact centered slack by only O(N), leaving a fixed comparator whose multiplier factors explicitly and is zero-free on 3/2<Re z<2. A direct algebraic Arb/Turing calculation supplies an RH-side margin above 1/20, while Landau gives the converse. Thus one exact rounded strict-interior prefix is RH-equivalent; its eventual sign remains unproved, and the rowwise rounded symbols themselves are not claimed zero-free.',
+  structureT129:
+    'T129 transfers the real prime-square residue and T116 verified-height moving heat to that exact adaptive prefix. Every sufficiently large near-unit power window contains a whole deep positive block, with explicit residue B_ad>724000 and logarithmic counting exponent almost 1/2. The exact ∛2688000 Beatty recurrence and positive asymmetric tent now isolate the arithmetic frontier. The moving heat also asymptotically suppresses hypothetical off-line modes, so it proves recurrence and power-gap coverage—not eventual positivity or RH.',
+  structureT130:
+    'T130 identifies either one-sided N^(3/2) floor—and either direction of a square-root-times-log-squared local drift bound—as an exact RH-complete bridge. A cubic-root positive-cell split, exact integer tent, and square-completed finite Pascal/lcm form make that bridge fully arithmetic; signed root-buffer fixtures and an exact Hall deficit rule out cellwise sign, divisibility, and monotone matching. The T129 heat still suppresses hypothetical off-line modes and cannot recover this raw floor, so RH remains open.',
+  structureT131:
+    'T131 completes all prime powers and isolates the zero channel 𝒵_N=log(𝒮_N/𝒜_N). It obeys the same 139/140 recurrence with lcm-completed K̃-factors. Either one-sided √N log²N update bound is RH-equivalent; a uniform >1084000√N square step makes the stronger −10^6√N completed floor sufficient. The exact local kernel has both edge signs, leaving one finite signed von-Mangoldt quadrature rather than a positive tent. No required bound is proved, so RH remains open.',
+  structureT132:
+    'T132 converts that quadrature exactly into five bounded-width sums of the Chebyshev error at moving endpoints. Its 139- and 140-letter leading multipliers factor explicitly and are zero-free throughout 0<Re ρ≤1, so no individual letter has an off-line leading-mode blind spot. This sharpens the arithmetic target but does not control the mixed-sign five-band ballot; no RH-complete one-sided estimate is proved.',
+  structureT133:
+    'T133 closes the obvious positive-local-averaging escape. Every finite nonnegative row stencil retains explicit negative and positive edge values, while every normalized stencil of sublinear width has an effective letter σ∈[139,140] and preserves each fixed off-line pure mode at natural order. This is a local-filter no-go, not a bound on the mixed arithmetic ballot or an RH proof.',
+  structureT134:
+    'T134 isolates the entire off-line obstruction on the rare 140-step defects. Their local-ballot curvature differs by only O(log N) from one universal 32/21 Chebyshev-error micro-cell; bounded defect gaps and an O(log v) unit-step law transfer either one-sided defect estimate to all scales. The resulting first-Riesz multiplier is zero-free off Re ρ=0, making either defect-curvature direction RH-equivalent. The criterion is exact but unproved.',
+  structureT135:
+    'T135 turns that universal micro-cell into one exact factorial/lcm comparison. The Chebyshev increment carries only an explicit logarithmic remainder, while the full Λ−1 coefficient sequence is a nonnegative trapezoid. A uniformly bounded archimedean deficit converts either one-sided square-root-log-squared bound into either orientation of the integer comparison, each individually RH-equivalent. Opposite prime valuations block divisibility shortcuts, and trapezoid positivity does not sign Λ−1, so no required comparison or RH is proved.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -1246,6 +1278,125 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'Every normalized positive empirical measure from arbitrary row-dependent exact integer weights on the fixed block belongs to the M=1 family, so the rectangle is independent of the row, total multiplicity, and placement of the weights. No weak convergence, Rajchman condition, denominator bound, or row regularity is required. ' +
       'This is only a uniform right-half-zero location theorem. The zero may move with the row, and the common rectangle need not meet 3/2<Re z<2: for ν=δ_{√a}, the nonzero right-half family lies on Re z=2σ*>2 when a=32/21. It gives no common zero, no fixed Mellin factor, no weighted O(N²) discrete Mellin error, no arithmetic sign, and no RH conclusion. The argument is analytic and has no separate deterministic certificate.',
   },
+  {
+    id: 'T128',
+    color: '#22d3ee',
+    status:
+      'ONE ROUNDED STRICT-INTERIOR PREFIX · RH-EQUIVALENT · SIGN OPEN',
+    title: 'A tuned moving endpoint recovers one zero-free fixed comparator',
+    formula:
+      'u_N=⌊105(32/21)^(2/3)N+1/2⌋;  RH ⇔ Λ₃₂,₂₁(105N,u_N)≥0 eventually',
+    detail:
+      'The exact prefix is the logarithm of [∏₃₃₆₀N≤v<₅₁₂₀N Kᵥ²¹ · ∏₃₃₆₀N≤v<₃₂u_N Kᵥ²¹]/[∏₂₂₀₅N≤v<₃₃₆₀N Kᵥ³² · ∏₂₂₀₅N≤v<₂₁u_N Kᵥ³²]. Replacing the nearest-integer endpoint by 105μ₀N changes its centered Vθ slack by only O(N). The resulting fixed comparator has Q₀(z)=(a^z−a)(a^z+a^(2z/3)−2). With y=a^(z/3), the second factor is (y−1)(y²+2y+2), so Q₀ has zero lines only at Re z=0, 1, and 3log 2/(2log a)=2.4683939547…; it is zero-free throughout 3/2<Re z<2. ' +
+      'A dedicated 256-bit FLINT/Arb calculation evaluates μ₀ directly as the positive cube root of a², proves the exact Turing count through the first 1,000 critical zeros, and certifies δ₁₀₀₀=0.051126409956071…>1/20. Therefore RH forces a positive ≍N³ᐟ² margin, while eventual nonnegativity and Landau force RH. The finite rounded row symbols may still recover dangerous-strip zeros at extremely large heights; only the fixed comparator is used in the converse. The eventual exact product sign is not proved, so this is a simpler one-prefix equivalence—not a solution of RH.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_low_zero_annulus.c · --mu-a-two-thirds',
+  },
+  {
+    id: 'T129',
+    color: '#f59e0b',
+    status:
+      'UNCONDITIONAL NEAR-UNIT POWER-WINDOW BLOCKS · EXACT BEATTY RECURRENCE · RH OPEN',
+    title: 'The tuned adaptive prefix wins deeply in every near-unit power window',
+    formula:
+      '∀ fixed 0<ε<B_ad, ∀Y≫1 ∃I⊂[Y,Y^θH]: ∀n∈I, Λ_n>(B_ad−ε)n³ᐟ²',
+    detail:
+      'The fixed T128 comparator has prime-square residue B_ad=(640/3)√5(4√42−21)(64√42−105)=727454.763559809…>724000. Landau gives limsup Λ_N/N³ᐟ²≥B_ad and, by telescoping, limsup(Λ_N₊₁−Λ_N)/√N≥3B_ad/2 unconditionally. The O(N) rounded-endpoint correction contributes a Dirichlet series holomorphic for Re v>2, while the T116 verified-height contour remains in Re v>7/3. The same moving heat therefore proves that every sufficiently large [Y,Y^θH], θH=6000350665601/6000350665597=1.0000000000006666277…, contains a whole block of ⌊√N exp(0.8√log N)⌋+1 consecutive indices with Λ_n>(B_ad−ε)n³ᐟ². The deep-index counting exponent is at least 1/(2θH)=0.4999999999996666861…. ' +
+      'Exactly, α=105(32/21)^(2/3)=∛2688000=139+β with 1/25<β<1/24, so u_N advances by an aperiodic mechanical 139/140 word. The finite q-recurrence is Λ_N₊₁−Λ_N=Σ₁₆₀N^₁₆₀N₊₁₅₉q(h)+ΣᵤN^ᵤN₊₁₋₁q(h)−2Σ₁₀₅N^₁₀₅N₊₁₀₄q(h). Rigorous rational-log fixtures give both increment signs for both step letters, and exact p-adic valuations have both signs, defeating monotonicity, letter-sign, and divisibility shortcuts. A compact nonnegative asymmetric tent rewrites −D̄(x) as x{x∫h−Σ_p h(p/x)log p}, isolating one weighted prime-quadrature deficit as the remaining target. ' +
+      'The result is recurrence, not a proof of RH. The heat filter suppresses hypothetical off-line modes too; H is fixed, the threshold is ineffective, and the theorem gives no additive o(N) gap, positive density, or eventual sign. A separate finite floating scan through N=800,000 observed no apparent nonpositive prefix but many long declines; it is evidence only, not an interval certificate.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py · verify_low_zero_annulus.c --mu-a-two-thirds',
+  },
+  {
+    id: 'T130',
+    color: '#34d399',
+    status:
+      'NATURAL-SCALE FLOOR / LOCAL DRIFT RH-EQUIVALENCE · EXACT CUBIC/TENT NO-GOS · RH OPEN',
+    title: 'The missing bridge is a natural-scale floor, not another positive kernel',
+    formula:
+      'RH ⇔ Λ_N=O(N³ᐟ²) ⇔ Λ_N₊₁−Λ_N=O(√N log²(2N))',
+    detail:
+      'Each one-sided estimate Λ_N≥−CN³ᐟ² or Λ_N≤CN³ᐟ² on a tail is already equivalent to RH. More generally, a one-sided O(N^κ) estimate for 3/2≤κ<2 confines every nontrivial zero to Re ρ≤κ−1. Consequently, false RH would force liminf Λ_N/N³ᐟ²=−∞ and limsup Λ_N/N³ᐟ²=+∞. Summing the exact recurrence proves that either local direction, Λ_N₊₁−Λ_N≥−C√N log²(2N) or Λ_N₊₁−Λ_N≤C√N log²(2N), is individually RH-equivalent. ' +
+      'The algebraic tuning gives an exact ξ=(32/21)^(1/3) decomposition into three nonnegative prime-jump trapezoids with weights 2,2,1. Kernel positivity is not a sign theorem: directed rational-log certificates prove S(4)>2504 and S(84)<−5991 for the shortest root buffer, with mixed exact prime valuations. Nearest-integer iteration changes the cubic orbit by only two local signed q-terms, not a contraction. ' +
+      'The same rounded row is encoded by one exact nonnegative five-knot integer tent. Its square layer contributes (B_ad+o(1))N³ᐟ², and RH is equivalent to the eventual square-completed finite comparison A_N/Q₂,N≤S_N. But at N=3 the exact threshold 2^93 has only 179382 eligible upper K-factors against 179424 lower factors; Hall’s condition therefore rules out monotone equal-or-larger matching. A high-frequency off-line-mode model remains unbounded in the raw prefix while the verified moving heat suppresses it. No natural-scale floor is proved, and RH remains unresolved.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T131',
+    color: '#60a5fa',
+    status:
+      'LCM-COMPLETED LOCAL BALLOT · EITHER ONE-SIDED DRIFT IS RH-EQUIVALENT · RH OPEN',
+    title: 'Prime-power completion isolates the zero channel in one exact row update',
+    formula:
+      '𝒵_N=log(𝒮_N/𝒜_N);  RH ⇔ Δ𝒵_N=O(√N log²(2N))',
+    detail:
+      'Complete every prime power in the T130 integer tent. Exactly, 𝒵_N=Λ_N−log 𝒬₂,N−log 𝒬≥3,N and exp(Δ𝒵_N)=𝒮_N₊₁𝒜_N/(𝒮_N𝒜_N₊₁). The same aperiodic 139/140 endpoint machine survives after replacing K_m by K̃_m=(m+1)^m/[m! lcm(1,…,m)]; its adjacent logarithmic jump is m log(1+1/m)−Λ_vM(m). Either an eventual lower or upper C√N log²(2N) bound on Δ𝒵_N is individually equivalent to RH. False RH forces the normalized completed update to be unbounded in both directions. ' +
+      'The local layer sizes are now explicit. For g_N=h_N₊₁−h_N, |g_N(t)|≤685440 on 2205N<t<5120(N+1), with g_N(2205N+1)=−64 and g_N(5120(N+1)−1)=21. The cube-and-higher update is O(N¹ᐟ³). Uniformly for both Beatty letters, the square update is σ_s√N+o(√N), with σ_s>1084040. Hence the stronger sufficient-only condition Δ𝒵_N≥−10⁶√N would make ΔΛ_N≫√N, force eventual Λ_N>0, and prove RH. Equivalently, 2^(1400000⌈√N⌉)𝒮_N₊₁𝒜_N≥𝒮_N𝒜_N₊₁ eventually is sufficient. It is not claimed necessary under RH. ' +
+      'After an archimedean correction whose row change is <1249000, the exact remaining obligation is one signed finite annular sum Σ_t g_N(t){Λ_vM(t)−1}. Either one-sided √N log²N bound for that von-Mangoldt quadrature is RH-equivalent. The opposite kernel edge signs explain why static positive tents do not settle it. No such eventual bound is proved, so this is a cleaner zero-channel target—not a solution of RH.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T132',
+    color: '#f472b6',
+    status:
+      'FIVE FIXED ENDPOINT BANDS · NO LETTER MULTIPLIER BLIND SPOT · RH OPEN',
+    title: 'The signed row kernel collapses to five bounded-width Chebyshev-error bands',
+    formula:
+      '𝒬_N^loc = 64Σ_A Eψ − 32Σ_B Eψ − 74Σ_C Eψ + 21Σ_D Eψ + 21Σ_E Eψ',
+    detail:
+      'Exact finite Abel summation rewrites the broad T131 quadrature using only five moving endpoint bands. For the row letter s=u_N₊₁−u_N∈{139,140}, their widths are 2205, 21s, 3360, 32s, and 5120. For N≥7 the intervening plateaus of g_N are −141120, p_s∈{−47712,−47040}, q_s∈{200928,201600}, and 107520; the sole interior sign change occurs inside the 3360-site central ramp. ' +
+      'For a pure explicit-formula mode Eψ(x)=x^ρ, the response on an s-row is N^ρM_s(ρ)+Oρ(N^(Re ρ−1)). With y=(32/21)^(ρ/3), M_s(ρ)=(32/105)2205^(ρ+1)(y³−1)(160y³+s y²−210). The positive root of the cubic is below 7/8, while its conjugate roots have modulus greater than (32/21)^(1/3); hence M_s has no zero for 0<Re ρ≤1. Neither the 139 nor the 140 lane can erase a hypothetical off-line zero at leading order. ' +
+      'This is a fixed-ρ leading-multiplier theorem, not a finite-row strip-wide zero theorem or a sign theorem: the asymptotic is not uniform at growing height. The five band coefficients remain mixed, and multiplier nonvanishing gives neither domination of the full explicit formula nor the eventual one-sided bound required by T131. RH remains unresolved.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T133',
+    color: '#a78bfa',
+    status:
+      'NONNEGATIVE LOCAL-FILTER NO-GO · FIXED OFF-LINE MODES SURVIVE · RH OPEN',
+    title: 'Positive local averaging cannot unsign or notch the completed row',
+    formula:
+      'G_N^w=Σ_jw_jg_N₊ⱼ:  G_N^w(t₋)=−64w_j₋<0<21w_j₊=G_N^w(t₊)',
+    detail:
+      'Let the first and last positive weights of any finite nonnegative row stencil occur at j₋ and j₊. At the first active lower edge every later row vanishes, giving −64w_j₋; at the last active upper edge every earlier row vanishes, giving 21w_j₊. Thus no such local average makes the translated kernel one-signed. For an unweighted L-row block, Σ_j<L g_N₊ⱼ=h_N₊L−h_N exactly. Once N≥7L it has the same five ramps and four plateaus, with effective letter σ=(u_N₊L−u_N)/L∈[139,140] and one central sign crossing. ' +
+      'For a normalized nonnegative stencil of width H_N, the leading pure-mode multiplier is the convex letter average M_σN. Uniformly for σ∈[139,140] and 1/2≤Re ρ≤1, its normalized polynomial has the explicit positive gap 160(√a−1)(a^(1/6)−7/8)(√(3/2)−a^(1/3))², a=32/21. Hence H_N=o(N) preserves every fixed off-line x^ρ mode at natural N^(Re ρ) order. The asymptotic remains fixed-ρ, not uniform at growing height. ' +
+      'Positive sublinear averaging may change the nonzero constant or phase; it does not provide an eventual arithmetic sign. Signed or mass-zero conditioning, a macroscopic window, or genuinely nonlinear/global arithmetic input lies outside this no-go. RH remains unresolved.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T134',
+    color: '#22d3ee',
+    status:
+      'RARE-DEFECT CURVATURE · EITHER ONE-SIDED BOUND IS RH-EQUIVALENT · RH OPEN',
+    title: 'The rare 140 step isolates one RH-complete 32/21 micro-cell',
+    formula:
+      'δ_N=1:  C_N=𝒥(u_N+139)+R_N,  R_N=O(log N);  RH ⇔ C_N=O(√N log²(2N))',
+    detail:
+      'Set δ_N=s_N−139 and C_N=𝒬_N^loc−𝒬_N₋₁^loc. The δ_N=1 indices are isolated and have exact gaps 24 or 25. Splitting the long 140 blocks from a hypothetical 139 row gives, exactly, C_N=𝒥(v)+R_N with v=u_N+139. Here 𝒥(v)=21Σ_[32v,32v+32)Eψ−32Σ_[21v,21v+21)Eψ, while the five paired equal-length blocks in R_N give the unconditional bound R_N=O(log N). ' +
+      'Successive defect values of v differ by only 3337 or 3476, and |𝒥(v+1)−𝒥(v)|=O(log v). Thus a one-sided √N log²N bound on C_N at the defects extends to all large v; no unsupported sparse-sampling argument is used. The consecutive primitive 𝔉(X)=21ℋ(32X)−32ℋ(21X) satisfies 𝔉(X+1)−𝔉(X)=𝒥(X). Its off-line multiplier is 672(32^ρ−21^ρ)/(ρ+1), which has no zero for Re ρ>0. The first-Riesz Landau argument therefore makes either defect lower bound or defect upper bound individually equivalent to RH. False RH forces normalized defect curvature to be unbounded in both directions. ' +
+      'Since Δ²𝒵_N=−C_N plus a uniformly bounded archimedean second difference, the same criterion is an exact completed-product comparison for 𝒮_N and 𝒜_N on only the 140 rows. The contrast kernel remains mixed, so this sharper target supplies no eventual bound. RH remains unresolved.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T135',
+    color: '#34d399',
+    status:
+      'EXACT MICRO-CELL INTEGER COMPARATOR · EITHER ORIENTATION IS RH-EQUIVALENT · RH OPEN',
+    title: 'One factorial/lcm comparison captures the universal 32/21 defect cell',
+    formula:
+      '𝒥(v)=672{ψ(32v)−ψ(21v)−11v}+R(v);  |R(v)|≤17136{1+log(32v+31)}',
+    detail:
+      'Let A(v)=ψ(32v)−ψ(21v)−11v. Expanding the two endpoint bands gives exactly 𝒥(v)=672A(v)+R(v), where the two triangular tails have total coefficient mass 17136 and hence |R(v)|≤17136{1+log(32v+31)}. For v≥2 the combined coefficients form one nonnegative trapezoid on q(n)=Λ(n)−1: a 32-slope rise from 21v, a plateau of height 672, and a 21-slope fall after 32v. The weights are nonnegative, but q has both signs, so this is not a sign proof. ' +
+      'Put L_m=lcm(1,…,m), P_v=∏_[21v,32v)(1+1/n)^n, and D_v=11v−log P_v. Then 0<D_v<11/42. For the exact integers X_v=L_32v(21v)^(21v)(32v−1)! and Y_v=L_21v(32v)^(32v−1)(21v)!, one has log(X_v/Y_v)=A(v)+D_v. With j_v=⌈√v⌉(1+⌈log₂(2v)⌉)², each eventual statement ∃K,v₀ ∀v≥v₀, 2^(Kj_v)X_v≥Y_v or 2^(Kj_v)Y_v≥X_v is individually equivalent to RH. ' +
+      'For every v≥1 the balance X_v/Y_v has negative 2-adic valuation, while a prime 21v<p<32v gives positive p-adic valuation: Nagura covers v≥2, and p=23 covers v=1. Thus neither integer ever divides the other, closing both direct-divisibility shortcuts without deciding their real order. No comparator bound is proved, and RH remains unresolved.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -1398,7 +1549,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T127 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T135 · 2026-07-28</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1766,7 +1917,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T127 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T135 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1778,7 +1929,15 @@ export default function OpenFrontierPage() {
           {MARKOV_NORMALIZATION.structureT124}{' '}
           {MARKOV_NORMALIZATION.structureT125}{' '}
           {MARKOV_NORMALIZATION.structureT126}{' '}
-          {MARKOV_NORMALIZATION.structureT127}
+          {MARKOV_NORMALIZATION.structureT127}{' '}
+          {MARKOV_NORMALIZATION.structureT128}{' '}
+          {MARKOV_NORMALIZATION.structureT129}{' '}
+          {MARKOV_NORMALIZATION.structureT130}{' '}
+          {MARKOV_NORMALIZATION.structureT131}{' '}
+          {MARKOV_NORMALIZATION.structureT132}{' '}
+          {MARKOV_NORMALIZATION.structureT133}{' '}
+          {MARKOV_NORMALIZATION.structureT134}{' '}
+          {MARKOV_NORMALIZATION.structureT135}
         </p>
         <div
           style={{
@@ -1884,6 +2043,14 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.fixedBlockBlindLattice,
             MARKOV_NORMALIZATION.fixedMeasureBlindPoints,
             MARKOV_NORMALIZATION.fixedMovingMeasureBlindRectangle,
+            MARKOV_NORMALIZATION.adaptiveAlgebraicPrefix,
+            MARKOV_NORMALIZATION.adaptivePrefixRecurrence,
+            MARKOV_NORMALIZATION.adaptiveNaturalScaleFloor,
+            MARKOV_NORMALIZATION.adaptivePrimePowerCompletedDrift,
+            MARKOV_NORMALIZATION.adaptiveFiveBandAbel,
+            MARKOV_NORMALIZATION.adaptivePositiveLocalFilterNoGo,
+            MARKOV_NORMALIZATION.adaptiveDefectCurvature,
+            MARKOV_NORMALIZATION.adaptiveMicrocellComparator,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -2549,7 +2716,182 @@ export default function OpenFrontierPage() {
           right-half family lies on Re z=2σ<sub>*</sub>&gt;2 when
           a=32/21. T127 is analytic and gives neither the weighted
           O(N<sup>2</sup>) error, an arithmetic sign, nor a zeta zero.
-          RH is therefore still unresolved.
+          T128 then identifies one tuned moving endpoint that does retain
+          a fixed comparator modulo O(N). Set
+          μ<sub>0</sub>=(32/21)<sup>2/3</sup> and
+          u<sub>N</sub>=⌊105μ<sub>0</sub>N+1/2⌋. The exact
+          strict-interior prefix Λ<sub>32,21</sub>(105N,u<sub>N</sub>)
+          is RH-equivalent under eventual positivity or nonnegativity.
+          Its fixed comparator has multiplier
+          (a<sup>z</sup>−a)(a<sup>z</sup>+
+          a<sup>2z/3</sup>−2); writing y=a<sup>z/3</sup> factors
+          the second bracket as (y−1)(y<sup>2</sup>+2y+2).
+          The resulting zero lines are Re z=0, 1, and
+          2.4683939547…&gt;2, so none meets 3/2&lt;Re z&lt;2.
+          A direct algebraic 256-bit Arb/Turing certificate proves the
+          normalized RH-side margin exceeds 1/20.
+          This does not claim the rounded row symbols are zero-free:
+          they may regain dangerous-strip zeros at very large height.
+          Landau uses the one fixed comparator and the O(N) endpoint
+          transfer. The eventual exact prefix sign is unproved, so RH
+          is still unresolved.
+          T129 now transfers the unconditional prime-square recurrence
+          and the full verified-height moving-heat localization to that
+          exact rounded prefix. Its residue is
+          B<sub>ad</sub>=(640/3)√5(4√42−21)(64√42−105)
+          =727454.763559809…&gt;724000. The O(N) endpoint correction
+          has an absolutely holomorphic Dirichlet series for
+          Re v&gt;2, while the heat contour stays in Re v&gt;7/3.
+          Therefore, for every fixed ε∈(0,B<sub>ad</sub>) and every
+          sufficiently large Y, the near-unit power window
+          [Y,Y<sup>θ<sub>H</sub></sup>] contains a whole consecutive
+          block of ⌊√N·exp(0.8√log N)⌋+1 exact prefixes satisfying
+          Λ<sub>n</sub>&gt;(B<sub>ad</sub>−ε)n<sup>3/2</sup>, where
+          θ<sub>H</sub>=6000350665601/6000350665597
+          =1.0000000000006666277…. The logarithmic counting exponent
+          is at least 0.4999999999996666861….
+          The endpoint arithmetic is also explicit:
+          105μ<sub>0</sub>=∛2688000=139+β with
+          1/25&lt;β&lt;1/24, so successive u<sub>N</sub> differ by
+          139 or 140 according to an aperiodic mechanical word. A
+          finite exact q/K-product recurrence updates Λ from one row
+          to the next. Rigorous rational-log fixtures produce positive
+          and negative updates for both step letters, while exact
+          prime valuations have both signs. Thus ordinary monotonicity,
+          a sign attached to the 139/140 symbol, and componentwise
+          divisibility cannot close the criterion.
+          The remaining target has a clean positive-kernel form.
+          A compact nonnegative asymmetric tent h gives
+          −D̄(x)=x{'{'}x∫h(r)dr−Σ<sub>p</sub>h(p/x)log p{'}'}.
+          Prime powers have the favorable sign and squares supply
+          B<sub>ad</sub>x<sup>3/2</sup>; the unresolved term is the
+          weighted ψ−x discrepancy. Current unconditional
+          zero-free-region estimates are larger than that square
+          margin. The moving heat avoids this obstruction only by
+          suppressing hypothetical off-line modes too, so it cannot
+          imply eventual positivity. Its threshold is ineffective and
+          fixed-H; there is no additive o(N) gap, positive-density, or
+          RH conclusion.
+          T130 identifies the exact scale of the missing bridge. Either
+          one-sided tail estimate
+          Λ<sub>N</sub>≥−CN<sup>3/2</sup> or
+          Λ<sub>N</sub>≤CN<sup>3/2</sup> is individually equivalent
+          to RH. Likewise, either local inequality
+          Λ<sub>N+1</sub>−Λ<sub>N</sub>≥−C√N log²(2N) or
+          Λ<sub>N+1</sub>−Λ<sub>N</sub>≤C√N log²(2N)
+          is separately complete. False RH would force
+          Λ<sub>N</sub>/N<sup>3/2</sup> to be unbounded in both
+          directions. The moving heat cannot supply this raw floor:
+          a hypothetical sufficiently high off-line mode is damped by
+          the heat while retaining unbounded negative troughs before
+          smoothing.
+          The algebraic endpoint still gives exact arithmetic
+          structure. With ξ=(32/21)<sup>1/3</sup>, Λ splits into
+          three nonnegative prime-jump trapezoids with weights 2,2,1,
+          but the shortest root buffer already has rigorously opposite
+          signs S(4)&gt;2504 and S(84)&lt;−5991 and mixed prime
+          valuations. One exact nonnegative five-knot integer tent
+          also packages the rounded row, making RH equivalent to an
+          eventual square-completed finite Pascal/lcm comparison.
+          This does not create a monotone transport: at N=3 the exact
+          2<sup>93</sup> threshold count has 179382 eligible upper
+          K-factors versus 179424 lower factors. The Hall deficit
+          rules out equal-or-larger matching only, not every global
+          cross-prime argument. No local drift floor or comparison
+          sign has been proved, so RH remains unresolved.
+          T131 removes the prime-power buffer from that local target.
+          Set 𝒵<sub>N</sub>=log(𝒮<sub>N</sub>/𝒜<sub>N</sub>).
+          It has the same exact 139/140 recurrence after replacing
+          K<sub>m</sub> by the lcm-completed factor
+          K̃<sub>m</sub>=(m+1)<sup>m</sup>/
+          [m! lcm(1,…,m)]. The adjacent K̃ jump is exactly
+          m log(1+1/m)−Λ<sub>vM</sub>(m), so this is the
+          all-prime-power zero channel rather than another smoothing.
+          Either one-sided O(√N log²(2N)) bound for
+          Δ𝒵<sub>N</sub> is individually RH-equivalent.
+          The translated tent kernel
+          g<sub>N</sub>=h<sub>N+1</sub>−h<sub>N</sub> satisfies
+          |g<sub>N</sub>|≤685440 on
+          2205N&lt;t&lt;5120(N+1), but it is signed:
+          g<sub>N</sub>(2205N+1)=−64 and
+          g<sub>N</sub>(5120(N+1)−1)=21. Its cube-and-higher
+          update is O(N<sup>1/3</sup>), while the square update is
+          uniformly greater than 1084000√N eventually for both
+          Beatty letters.
+          This makes the stronger floor
+          Δ𝒵<sub>N</sub>≥−10<sup>6</sup>√N sufficient for RH;
+          equivalently, one explicit
+          2<sup>1400000⌈√N⌉</sup> finite product comparison would
+          suffice. That stronger statement is not known and is not
+          claimed necessary on RH. After a bounded archimedean row
+          correction, the exact remaining task is a signed annular
+          von-Mangoldt quadrature
+          Σ<sub>t</sub>g<sub>N</sub>(t)
+          {'{'}Λ<sub>vM</sub>(t)−1{'}'}. No required eventual
+          one-sided bound is proved, so RH remains unresolved.
+          T132 applies exact finite Abel summation to that last
+          quadrature. It becomes five fixed-width bands of
+          E<sub>ψ</sub>(r)=ψ(r)−r at the moving endpoints, with
+          coefficients 64, −32, −74, 21, and 21. For N≥7 the broad
+          translated kernel has four constant plateaus and exactly
+          one interior sign crossing, so the apparent long support is
+          dual to bounded endpoint data but not to positive data.
+          On a pure mode x<sup>ρ</sup>, each letter s∈{'{'}139,140{'}'}
+          has the exact leading factor
+          (y<sup>3</sup>−1)
+          (160y<sup>3</sup>+sy<sup>2</sup>−210), where
+          y=(32/21)<sup>ρ/3</sup>. This factor has no zero for
+          0&lt;Re ρ≤1. Thus neither letter hides an off-line leading
+          mode, but the mixed band signs still give no domination of
+          the full explicit formula and no eventual one-sided ballot.
+          T133 shows that positive local averaging cannot repair either
+          defect. Every finite nonnegative stencil retains a negative
+          value at its first active lower edge and a positive value at
+          its last active upper edge. A consecutive L-row block
+          telescopes to h<sub>N+L</sub>−h<sub>N</sub> and has an
+          effective letter σ∈[139,140]. More generally, every
+          normalized nonnegative stencil of width H<sub>N</sub>=o(N)
+          has the convex leading multiplier M<sub>σ</sub>. An explicit
+          root-distance product bounds that multiplier away from zero
+          on 1/2≤Re ρ≤1, so each fixed hypothetical off-line mode
+          survives at its natural order. The statement is not uniform
+          at growing height and does not preclude a favorable
+          arithmetic cancellation; it only closes the positive
+          sublinear local-filter shortcut.
+          T134 then uses a signed second difference precisely where the
+          Beatty word changes. The 140-step defects occur every 24 or
+          25 rows. At each defect,
+          C<sub>N</sub>=𝒬<sub>N</sub><sup>loc</sup>−
+          𝒬<sub>N−1</sub><sup>loc</sup> differs by only O(log N)
+          from one universal 32/21 micro-cell 𝒥(u<sub>N</sub>+139).
+          Consecutive sampled micro-cells are only 3337 or 3476
+          integer steps apart, and 𝒥 changes by O(log v) per step.
+          Hence either one-sided square-root-log-squared defect bound
+          extends to every scale before applying Landau. The
+          consecutive primitive has multiplier
+          672(32<sup>ρ</sup>−21<sup>ρ</sup>)/(ρ+1), zero-free for
+          Re ρ&gt;0, so either defect direction is individually
+          RH-equivalent. This isolates a much sparser exact target;
+          it does not prove the required defect bound.
+          T135 expands that micro-cell exactly:
+          𝒥(v)=672[ψ(32v)−ψ(21v)−11v]+R(v), with
+          |R(v)|≤17136[1+log(32v+31)]. For v≥2 its coefficients
+          form one nonnegative trapezoid on
+          Λ<sub>vM</sub>(n)−1, but that arithmetic input has both
+          signs. Let L<sub>m</sub>=lcm(1,…,m),
+          X<sub>v</sub>=L<sub>32v</sub>(21v)<sup>21v</sup>(32v−1)!
+          and
+          Y<sub>v</sub>=L<sub>21v</sub>(32v)<sup>32v−1</sup>(21v)!.
+          The exact factorial telescope has only a bounded positive
+          deficit, so with
+          j<sub>v</sub>=⌈√v log<sup>2</sup>(2v)⌉ either eventual
+          orientation
+          2<sup>Kj<sub>v</sub></sup>X<sub>v</sub>≥Y<sub>v</sub> or
+          2<sup>Kj<sub>v</sub></sup>Y<sub>v</sub>≥X<sub>v</sub>
+          is individually RH-equivalent. Opposite 2-adic and
+          intermediate-prime valuations rule out divisibility in
+          both directions without deciding real order. Neither
+          comparison is proved.
           Separately, for the T93/T96 annular deficit, if RH is false
           both strict signs recur infinitely often; if RH is true the
           certified annular deficit is eventually negative. This is

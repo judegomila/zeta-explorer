@@ -198,6 +198,10 @@ const MARKOV_NORMALIZATION = {
     'T88: RH ⇔ 2Σ_{N<p≤2N}(p−N)log p+Σ_{2N<p≤4N}(4N−p)log p≤3N² eventually. Every prime weight is nonnegative and supported in (N,4N]; RH gives the explicit deficit (0.155951…−o(1))N³ᐟ², but the inequality remains unproved',
   dilationHarmonicResponse:
     'T89: for every finite dilation, the 3/2 notch Q(3/2)=0 forces the prime spline to change sign. An exact annular four-scale notch is Ω±(N³ᐟ²) on RH. Polynomial harmonic cross-cell summation likewise restores c_K,N(ρ)=1/[ρ(ρ+1)]+o_ρ(1) for every fixed zero rather than attenuating it',
+  annularArithmetic:
+    'T90: the positive annular tent has an exact lcm factorization. RH ⇔ L₊Vψ(N)≤log Q₂,N eventually, where Q₂,N is the explicit prime-square layer and every cube-or-higher layer is O(N⁴ᐟ³). This is a pointwise strengthening of T88 whose extra tail is absorbed by its RH margin; the central-binomial route still loses (6log2−3)N²',
+  geometricAnnulus:
+    'T91: the zero-complete family Qₐ(s)=(aˢ−1)(aˢ−a) retains a positive RH margin for a>1.882453339…. The explicit a=17/9 comparator uses only primes in (81N,289N], has support ratio 289/81<4 and RH margin 48.820170…N³ᐟ², but its eventual sign remains unproved',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -281,7 +285,9 @@ const MARKOV_NORMALIZATION = {
     'T86 completes θ to ψ and proves that target is RH plus a separate prime-power radix-discrepancy bound, with a rigorous fixed-width variance warning but no diagonal adaptive transfer; ' +
     'T87 extends that warning to every fixed signed filter, proves the adaptive selector is sparse and nonuniform, then removes the extra radix condition with a macroscopic dilation. The resulting prime-only weighted-PNT bound is exactly zero-strip complete, while polynomial harmonic depth supplies an RH-intermediate sign for T47 rather than an unconditional proof. ' +
     'T88 then localizes the full RH criterion to a positive prime tent on the single annulus (N,4N], with an explicit N³ᐟ² margin under RH but no unconditional proof of the sign. ' +
-    'T89 proves the complementary structural barrier: every finite 3/2-notch changes sign, an exact annular notch oscillates on RH, and harmonic cross-cell summation restores every fixed first-Riesz zero coefficient.',
+    'T89 proves the complementary structural barrier: every finite 3/2-notch changes sign, an exact annular notch oscillates on RH, and harmonic cross-cell summation restores every fixed first-Riesz zero coefficient. ' +
+    'T90 factors the positive annulus exactly into lcm and prime-power layers, producing a square-only strengthening and a Pascal comparator while proving the natural binomial majorant loses at main order. ' +
+    'T91 then narrows the zero-complete positive support from factor 4 to 289/81, with a certified RH margin but still no unconditional sign.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -727,7 +733,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     formula: 'RH ⇔ 2Σ_{N<p≤2N}(p−N)log p + Σ_{2N<p≤4N}(4N−p)log p ≤ 3N² eventually',
     detail:
       'The dilation L₊F=F(4N)−3F(2N)+2F(N) cancels every prime p≤N and leaves only nonnegative triangular weights in one fixed annulus. ' +
-      'On RH, the retained prime-square bias dominates the complete critical-zero wave and gives L₊Vθ≤−(0.155951…−o(1))N³ᐟ². Conversely, the eventual non-strict inequality recovers a one-sided Vψ=O(N³ᐟ²) bound and hence RH. This is the sharpest current prime-only reduction, not a proof: the annular inequality remains open.',
+      'On RH, the retained prime-square bias dominates the complete critical-zero wave and gives L₊Vθ≤−(0.155951…−o(1))N³ᐟ². Conversely, the eventual non-strict inequality recovers a one-sided Vψ=O(N³ᐟ²) bound and hence RH. This is the base positive-annular reduction that T91 narrows; its inequality remains open.',
   },
   {
     id: 'T89',
@@ -738,6 +744,26 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     detail:
       'Every nontrivial finite dilation that notches the N³ᐟ² prime-square mode has a sign-changing prime spline. The exact annular filter F(64N)−13F(16N)+44F(4N)−32F(N) preserves every off-critical zero and is Ω±(N³ᐟ²) on RH, so it cannot support an eventual-sign shortcut. ' +
       'The polynomial-depth harmonic quadrature behaves the same way spectrally: cross-cell summation cancels the artificial K-loss but restores each fixed zero’s first-Riesz coefficient. At α=1/8, failure of T47 forces unbounded normalized negative excursions. RH remains open.',
+  },
+  {
+    id: 'T90',
+    color: '#fbbf24',
+    status: 'ANNULAR LCM FACTORIZATION · SQUARE-ONLY STRENGTHENING',
+    title: 'The positive tent splits exactly into prime-power layers',
+    formula: 'RH ⇔ L₊Vψ(N)≤log Q₂,N eventually;  A_N=∏ₐQₐ,N=∏_{m=N}^{2N−1} lcm(1…2m)lcm(1…2m+1)/lcm(1…m)²',
+    detail:
+      'The full Λ-weighted annulus is one integer lcm quotient, and its square layer is an explicit product over √N<p<2√N. Cubes and higher contribute only O(N⁴ᐟ³), so the T88 RH margin proves the square-only ψ-completed inequality; conversely, subtracting every higher layer recovers the T88 prime sign. ' +
+      'Only the square factor cancels, leaving the cube-and-higher tail as a pointwise strengthening rather than an easier theorem. The annular Pascal-row comparison is RH-equivalent, while the canonical central-binomial divisibility majorant costs 6log2·N² instead of the allowed 3N². RH remains open.',
+  },
+  {
+    id: 'T91',
+    color: '#2dd4bf',
+    status: 'NARROWER POSITIVE ANNULUS · STRICT SUPPORT REFINEMENT',
+    title: 'A zero-complete rational tent shrinks the support below factor four',
+    formula: 'RH ⇔ 17Σ_{81N<p≤153N}(p−81N)log p + 9Σ_{153N<p≤289N}(289N−p)log p ≤ 127296N² eventually',
+    detail:
+      'For the geometric family Qₐ(s)=(aˢ−1)(aˢ−a), every multiplier zero lies on Re s=0 or 1, while the prime kernel stays nonnegative. The certified RH margin turns positive at a=1.882453339…, so rational supports can approach the ratio 3.543630574… from above. ' +
+      'The low-complexity choice a=17/9 has support ratio 289/81=3.567901… and RH deficit (48.820170…−o(1))N³ᐟ². Generic positive tents need not be zero-complete, and this narrower eventual inequality is still unproved. RH remains open.',
   },
 ];
 
@@ -890,7 +916,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T89 · 2026-07-27</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T91 · 2026-07-27</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1243,7 +1269,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T89 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T91 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1554,7 +1580,26 @@ export default function OpenFrontierPage() {
           polynomial-depth harmonic response tends to
           1/[ρ(ρ+1)] for every fixed zero: cross-cell summation removes
           a termwise K-loss but restores the original zero mode.
-          Neither mechanism proves RH.
+          Neither mechanism proves RH. T90 gives the T88 annulus an
+          exact arithmetic form: its full Λ-weighted value is one lcm
+          quotient, factored into nonnegative prime-power layers. RH
+          is equivalent to bounding that quotient by its explicit
+          prime-square layer after the deterministic main term.
+          The square factor cancels, but cubes and higher remain as a
+          nonnegative O(N<sup>4/3</sup>) penalty. The square-only form
+          is therefore a pointwise strengthening whose extra cost is
+          absorbed by the conditional N<sup>3/2</sup> margin. The parallel annular
+          Pascal-row comparator is exact; its natural central-binomial
+          divisibility majorant overshoots the target by
+          (6log2−3)N<sup>2</sup>. T91 then improves the actual
+          localization. In the zero-complete geometric family
+          Q<sub>a</sub>(s)=(a<sup>s</sup>−1)
+          (a<sup>s</sup>−a), a certified RH margin exists once
+          a&gt;1.882453339…. Choosing a=17/9 gives a positive tent
+          supported only on (81N,289N], with ratio 289/81&lt;4 and
+          deficit 48.820170…N<sup>3/2</sup> under RH. The resulting
+          eventual prime inequality is still RH-equivalent and
+          unproved.
           T66 constructs common-domain zero-adaptive
           theta quasimodes that geometrically isolate residual directions. T67 proves
           compact continuous compressed-graph approximation and compact smooth full

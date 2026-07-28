@@ -290,6 +290,12 @@ const MARKOV_NORMALIZATION = {
     'T134: write δ_N=s_N−139 and C_N=𝒬_N^loc−𝒬_{N−1}^loc. The rare δ_N=1 rows have exact gaps 24 or 25. On each one, with v=u_N+139, C_N=𝒥(v)+R_N, where 𝒥(v)=21Σ_{32v≤r<32v+32}Eψ(r)−32Σ_{21v≤r<21v+21}Eψ(r) and R_N=O(log N) unconditionally. Consecutive defect v-values have gaps 3337 or 3476, while 𝒥(v+1)−𝒥(v)=O(log v), so a one-sided defect bound extends to every large integer v before any Mellin argument. The primitive 𝔉(X)=21ℋ(32X)−32ℋ(21X) satisfies Δ𝔉=𝒥 and has off-line multiplier 672(32^ρ−21^ρ)/(ρ+1), zero-free for Re ρ>0. Consequently either eventual inequality C_N≥−C√N log²(2N) or C_N≤C√N log²(2N), restricted only to 140 defects, is individually equivalent to RH. Equivalently, either orientation of the completed-row second-difference product is RH-complete. No such bound is proved',
   adaptiveMicrocellComparator:
     'T135: the universal defect cell has the exact reduction 𝒥(v)=672{ψ(32v)−ψ(21v)−11v}+R(v), with |R(v)|≤17136{1+log(32v+31)}. For v≥2 it is one nonnegative trapezoid applied to Λ−1, which does not determine its sign. Writing L_m=lcm(1,…,m), X_v=L_32v(21v)^(21v)(32v−1)!, Y_v=L_21v(32v)^(32v−1)(21v)!, and j_v=⌈√v⌉(1+⌈log₂(2v)⌉)², either eventual comparison 2^(Kj_v)X_v≥Y_v or 2^(Kj_v)Y_v≥X_v is individually RH-equivalent. Opposite 2-adic and intermediate-prime valuations rule out divisibility in either direction, but not real order. Neither comparison is proved',
+  adaptiveFixedDepthComposition:
+    'T136: chaining any fixed depth d of adjacent 32/21 cells telescopes exactly to the single annulus [21^d v,32^d v]. The product of their T135 ratios is X_d,v/Y_d,v, with logarithm Eψ(32^d v)−Eψ(21^d v)+D_d,v and 0<D_d,v<(d/2)log(32/21). For every fixed d, either binary-buffered orientation remains individually RH-equivalent because 32^(dρ)−21^(dρ) is zero-free for Re ρ>0. Negative 2-adic and positive interval-prime valuations still rule out divisibility both ways. Fixed-depth composition therefore gives no new order theorem; only a genuinely uniform growing-depth argument remains outside this classification',
+  adaptiveAdjacentDepthDeconvolution:
+    'T137: adjacent-depth subtraction recovers T135 exactly: ℬ_(d+1)(v)−ℬ_d(32v)=A(21^d v) and ℬ_(d+1)(v)−ℬ_d(21v)=A(32^d v). The corresponding cross-products of X_d,v/Y_d,v are identically the original micro-cell ratios, so either buffered orientation is RH-equivalent for every fixed d. Rigorous prime-log enclosures realize all eight sign triples across depths 1–3 by v≤14, ruling out a universal finite-depth sign rule. Any nondecreasing unbounded depth schedule also has infinitely many top-endpoint jumps by a factor >32, making ordinary interpolation supercritical. Only a genuinely nonlocal coupling among overlapping annuli remains outside this no-go',
+  adaptiveFiniteOverlapOscillation:
+    'T138: every nonzero fixed finite same-scale depth coupling is one finite dilation with exact step kernel W_c(u)=Σ_dc_d·1_(21^d,32^d](u). One primitive is an exact finite combination of Vψ. On RH its x^(−3/2)-normalized value is a nonzero mean-zero uniformly almost-periodic critical-zero wave: the finite exponential multiplier has only O(T) zeros and cannot cancel the TlogT zeta zeros. Hence the primitive is Ω±(x^(3/2)), the coupling takes both signs infinitely often at integer scales, and every exact finite factorial/lcm product orientation crosses one infinitely often on RH. Fixed finite overlap therefore cannot supply an eventual-sign proof; adaptive, infinite-depth, critical-size, or nonhomogeneous coupling remains outside',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -405,6 +411,12 @@ const MARKOV_NORMALIZATION = {
     'T134 isolates the entire off-line obstruction on the rare 140-step defects. Their local-ballot curvature differs by only O(log N) from one universal 32/21 Chebyshev-error micro-cell; bounded defect gaps and an O(log v) unit-step law transfer either one-sided defect estimate to all scales. The resulting first-Riesz multiplier is zero-free off Re ρ=0, making either defect-curvature direction RH-equivalent. The criterion is exact but unproved.',
   structureT135:
     'T135 turns that universal micro-cell into one exact factorial/lcm comparison. The Chebyshev increment carries only an explicit logarithmic remainder, while the full Λ−1 coefficient sequence is a nonnegative trapezoid. A uniformly bounded archimedean deficit converts either one-sided square-root-log-squared bound into either orientation of the integer comparison, each individually RH-equivalent. Opposite prime valuations block divisibility shortcuts, and trapezoid positivity does not sign Λ−1, so no required comparison or RH is proved.',
+  structureT136:
+    'T136 closes the finite multiplicative-composition escape. Every fixed chain of adjacent micro-cells cancels at all internal endpoints and becomes one wider Chebyshev annulus and one wider factorial/lcm ratio. Its dilation multiplier still loses no off-line zero, while the same opposite valuation signs block divisibility. Thus finite ladder depth neither weakens the RH-complete bound nor supplies its real order; a growing-depth estimate would need new uniform arithmetic control.',
+  structureT137:
+    'T137 closes adjacent-depth deconvolution, sign persistence, and naive endpoint interpolation. Subtracting two neighboring depths returns one T135 cell exactly, including its integer comparator. All eight depth-1/2/3 sign patterns occur in certified finite fixtures, and every monotone unbounded depth schedule has macroscopic endpoint jumps. A surviving growing-depth strategy must therefore exploit a new nonlocal relation among overlapping annuli rather than ordinary products, cross-ratios, or sampled signs.',
+  structureT138:
+    'T138 closes every fixed finite linear overlap as an eventual-sign route. Its exact first-Riesz primitive retains infinitely many critical-zero frequencies, forming a nonzero mean-zero almost-periodic wave on RH; neither the arithmetic depth sum nor its exact factorial/lcm product can settle to one sign. The remaining overlap frontier must change with scale, use infinitely many depths with uniform control, prove a two-sided critical bound, or introduce a genuinely nonhomogeneous global coupling.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -1397,6 +1409,51 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     certificate:
       'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
   },
+  {
+    id: 'T136',
+    color: '#a78bfa',
+    status:
+      'FIXED-DEPTH COMPOSITION COLLAPSE · SAME RH-COMPLETE ORDER · RH OPEN',
+    title: 'Every finite 32/21 ladder chain is one wider annulus',
+    formula:
+      'Σₖ<d A(21ᵏ32ᵈ⁻¹⁻ᵏv)=Eψ(32ᵈv)−Eψ(21ᵈv);  ∏ₖ<d Xᵥₖ/Yᵥₖ=X_d,v/Y_d,v',
+    detail:
+      'Fix d≥1 and put vₖ=21ᵏ32ᵈ⁻¹⁻ᵏv. Adjacent endpoints satisfy 21vₖ=32vₖ₊₁, so all internal Chebyshev errors and all internal lcm/product boundaries cancel exactly. The d cells become the single interval [a,b)=[21ᵈv,32ᵈv), with P_d,v=∏_[a,b)(1+1/n)ⁿ and an archimedean deficit 0<D_d,v<(d/2)log(32/21). Hence the product of the d T135 integer balances is exactly X_d,v/Y_d,v. ' +
+      'For every fixed d, either eventual binary-buffered orientation is individually equivalent to RH: the pure-zero multiplier 32^(dρ)−21^(dρ) can vanish only on Re ρ=0, and the fixed d scale factor is absorbed into the comparison constant. Composition does not unlock divisibility. An exact two-adic formula makes ν₂(X_d,v/Y_d,v)<0, while Nagura for d=1 and Bertrand for d≥2 provide a prime with valuation +2. ' +
+      'This rules out every fixed-depth multiplicative iteration as a simplification of T135. It proves no real order and no RH result. A depth d=d(v) growing with scale is not covered: its RH-sized error grows like 32^(d/2)√v and would require a genuinely uniform arithmetic estimate.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T137',
+    color: '#f472b6',
+    status:
+      'ADJACENT-DEPTH DECONVOLUTION · ALL THREE-DEPTH SIGNS OCCUR · RH OPEN',
+    title: 'Crossing neighboring depths returns the original micro-cell',
+    formula:
+      'ℬ_d₊₁(v)−ℬ_d(32v)=A(21ᵈv);  (X_d₊₁,vY_d,32v)/(Y_d₊₁,vX_d,32v)=X_21ᵈv/Y_21ᵈv',
+    detail:
+      'Write ℬ_d(v)=Eψ(32ᵈv)−Eψ(21ᵈv). Subtracting the depth-d row evaluated at 32v from depth d+1 cancels the common top endpoint and leaves exactly A(21ᵈv); evaluating at 21v gives the symmetric upper cell A(32ᵈv). The factorial/lcm cross-products cancel identically to the corresponding T135 ratios, with no new error term. For every fixed d, either buffered orientation on either boundary sublattice is therefore individually RH-equivalent after fixed-gap interpolation. ' +
+      'Depth does not provide a universal sign bootstrap. Exact directed-log enclosures with absolute margin >1/4 certify all eight signs of (ℬ₁,ℬ₂,ℬ₃) at v=1,2,3,4,5,6,12,14. This is a finite no-go, not an asymptotic oscillation claim. In addition, every nondecreasing unbounded integer depth schedule has infinitely many top-endpoint jumps by a factor greater than 32, so ordinary interpolation costs far more than the RH scale. ' +
+      'A growing-depth route now needs a genuinely nonlocal coupling among overlapping annuli. Ordinary multiplication, adjacent cross-ratios, finite-depth sign persistence, and endpoint interpolation have all collapsed back to T135 or failed. No such nonlocal bound and no proof of RH is supplied.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T138',
+    color: '#fb7185',
+    status:
+      'EVERY FIXED FINITE OVERLAP IS SIGN-RECURRENT ON RH · ADAPTIVE FRONTIER OPEN',
+    title: 'No fixed finite depth coupling can settle to one orientation',
+    formula:
+      '𝒞_c(v)=Σ_d c_dℬ_d(v)=Σ_nW_c(n/v)(Λ(n)−1);  RH ⇒ ∫₁ˣ𝒞_c(t)dt=Ω±(x³ᐟ²)',
+    detail:
+      'For any nonzero fixed real vector c, the same-scale overlap kernel is exactly W_c(u)=Σ_dc_d1_(21^d,32^d](u). One primitive is an exact finite combination of Vψ with Mellin multiplier M_c(s)=Σ_dc_d(32^(ds)−21^(ds)). On RH, division by x³ᐟ² leaves an absolutely convergent real mean-zero almost-periodic critical-zero wave. The finite exponential polynomial M_c has only O(T) zeros and cannot cancel the TlogT zeta zeros, so this wave is nonzero and its primitive has recurrent positive and negative x³ᐟ² excursions. ' +
+      'Unit-cell variation costs only O_c(log x). Therefore 𝒞_c(v) itself must be positive and negative infinitely often on RH; either eventual sign would force a one-sided primitive contradicting those excursions. For an integer vector m, clearing signs in the exact X_d,v/Y_d,v balances gives positive integers U_m,v and V_m,v whose logarithmic ratio differs from 𝒞_m(v) by only a uniform constant. RH consequently forces both strict orders U>V and U<V infinitely often. ' +
+      'This closes every fixed finite linear overlap and fixed finite product as an eventual-sign proof route. It does not rule out a two-sided critical-size estimate, coefficients changing with v, infinitely many depths with uniform control, or a genuinely nonlinear nonhomogeneous global coupling. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -1549,7 +1606,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T135 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T138 · 2026-07-28</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1917,7 +1974,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T135 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T138 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1937,7 +1994,10 @@ export default function OpenFrontierPage() {
           {MARKOV_NORMALIZATION.structureT132}{' '}
           {MARKOV_NORMALIZATION.structureT133}{' '}
           {MARKOV_NORMALIZATION.structureT134}{' '}
-          {MARKOV_NORMALIZATION.structureT135}
+          {MARKOV_NORMALIZATION.structureT135}{' '}
+          {MARKOV_NORMALIZATION.structureT136}{' '}
+          {MARKOV_NORMALIZATION.structureT137}{' '}
+          {MARKOV_NORMALIZATION.structureT138}
         </p>
         <div
           style={{
@@ -2051,6 +2111,9 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.adaptivePositiveLocalFilterNoGo,
             MARKOV_NORMALIZATION.adaptiveDefectCurvature,
             MARKOV_NORMALIZATION.adaptiveMicrocellComparator,
+            MARKOV_NORMALIZATION.adaptiveFixedDepthComposition,
+            MARKOV_NORMALIZATION.adaptiveAdjacentDepthDeconvolution,
+            MARKOV_NORMALIZATION.adaptiveFiniteOverlapOscillation,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -2892,6 +2955,40 @@ export default function OpenFrontierPage() {
           intermediate-prime valuations rule out divisibility in
           both directions without deciding real order. Neither
           comparison is proved.
+          T136 tests the obvious next multiplicative move and closes
+          it at every fixed depth. A chain of d adjacent cells cancels
+          at every internal 21/32 boundary, leaving exactly one
+          [21<sup>d</sup>v,32<sup>d</sup>v] Chebyshev annulus and
+          one wider factorial/lcm ratio. Its zero multiplier
+          32<sup>dρ</sup>−21<sup>dρ</sup> is still nonzero for
+          Re ρ&gt;0, so either buffered real-order direction remains
+          RH-equivalent. The negative 2-adic and positive
+          interval-prime valuations persist as well. Thus finite
+          ladder iteration does not weaken the missing estimate;
+          only a scale-uniform growing-depth construction remains
+          outside this no-gain theorem.
+          T137 then audits that loophole. Subtracting adjacent depths
+          returns exactly one T135 cell at a boundary scale, and the
+          factorial/lcm cross-ratio returns exactly its integer
+          comparator. Exact prime-log enclosures realize all eight
+          sign triples across depths one through three, so no
+          universal finite-depth sign bootstrap exists. A monotone
+          unbounded depth schedule also jumps by a factor greater
+          than 32 infinitely often, putting ordinary interpolation
+          far above the RH scale. What remains is narrower: a new
+          nonlocal coupling among overlapping annuli, not products,
+          adjacent quotients, or sampled sign persistence.
+          T138 closes the fixed finite version of that coupling.
+          After one exact primitive, every nonzero fixed depth
+          combination retains infinitely many critical-zero
+          frequencies and becomes a nonzero mean-zero
+          almost-periodic wave on RH. It therefore has positive and
+          negative critical-scale excursions, forcing both signs in
+          the arithmetic coupling and both real orders in every exact
+          finite factorial/lcm product. The surviving overlap route
+          must now be scale-adaptive, genuinely infinite-depth,
+          two-sided at critical size, or nonlinear and
+          nonhomogeneous.
           Separately, for the T93/T96 annular deficit, if RH is false
           both strict signs recur infinitely often; if RH is true the
           certified annular deficit is eventually negative. This is

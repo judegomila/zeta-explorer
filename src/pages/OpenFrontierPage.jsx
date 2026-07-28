@@ -194,6 +194,10 @@ const MARKOV_NORMALIZATION = {
     'T86: with W=Vψ−Vθ and K=H−W, the cross channel is Vθ+H=Vψ+K. Its N·polylog bound is exactly RH conjoined with the separate one-sided K-drift bound. K has only scaled renewal copies ρ/j, while fixed-width repeated-prime tents have variance ≫√H log H; the diagonal adaptive transfer remains open',
   dilationHarmonicLadder:
     'T87: every fixed signed local filter retains a prime-square variance tail, and one exact adaptive ladder is sparse and nonuniform mod 4. A fixed macroscopic dilation 𝔇ₐF=N⁻¹ᐟ²(F(aN)−a³ᐟ²F(N)) instead absorbs the higher-radix channel at O(N): Re ρ≤σ ⇔ 𝔇ₐVθ≤CN^(σ+1/2) eventually. Separately, RH proves G_floor(N^α)^cell>0 for α<1/3, while α=1/8 positivity implies T47',
+  positiveAnnularComparator:
+    'T88: RH ⇔ 2Σ_{N<p≤2N}(p−N)log p+Σ_{2N<p≤4N}(4N−p)log p≤3N² eventually. Every prime weight is nonnegative and supported in (N,4N]; RH gives the explicit deficit (0.155951…−o(1))N³ᐟ², but the inequality remains unproved',
+  dilationHarmonicResponse:
+    'T89: for every finite dilation, the 3/2 notch Q(3/2)=0 forces the prime spline to change sign. An exact annular four-scale notch is Ω±(N³ᐟ²) on RH. Polynomial harmonic cross-cell summation likewise restores c_K,N(ρ)=1/[ρ(ρ+1)]+o_ρ(1) for every fixed zero rather than attenuating it',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -275,7 +279,9 @@ const MARKOV_NORMALIZATION = {
     'T84 telescopes the complementary high-prime channel and shows that its top-cell subsidy is canceled into an RH-complete square-root-depth quadrature; ' +
     'T85 separates adaptive drift into prime-error and repeated-prime channels, sharpens the ballot bound to O(N⁴ᐟ³(log N)¹ᐟ³), and isolates the still-open N·polylog N cross-channel correlation; ' +
     'T86 completes θ to ψ and proves that target is RH plus a separate prime-power radix-discrepancy bound, with a rigorous fixed-width variance warning but no diagonal adaptive transfer; ' +
-    'T87 extends that warning to every fixed signed filter, proves the adaptive selector is sparse and nonuniform, then removes the extra radix condition with a macroscopic dilation. The resulting prime-only weighted-PNT bound is exactly zero-strip complete, while polynomial harmonic depth supplies an RH-intermediate sign for T47 rather than an unconditional proof.',
+    'T87 extends that warning to every fixed signed filter, proves the adaptive selector is sparse and nonuniform, then removes the extra radix condition with a macroscopic dilation. The resulting prime-only weighted-PNT bound is exactly zero-strip complete, while polynomial harmonic depth supplies an RH-intermediate sign for T47 rather than an unconditional proof. ' +
+    'T88 then localizes the full RH criterion to a positive prime tent on the single annulus (N,4N], with an explicit N³ᐟ² margin under RH but no unconditional proof of the sign. ' +
+    'T89 proves the complementary structural barrier: every finite 3/2-notch changes sign, an exact annular notch oscillates on RH, and harmonic cross-cell summation restores every fixed first-Riesz zero coefficient.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -713,6 +719,26 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'Every finite signed local filter retains an exact large-prime-square variance tail, while the adaptive starts form a zero-density quadratic set that is already nonuniform modulo 4. Those facts block a naive density transfer but do not prove a one-sided failure. ' +
       'At macroscopic width, the entire higher-radix secant is O(N), every off-critical zero mode survives, and the remaining prime-only weighted-PNT estimate is exactly the zero-strip criterion; at σ=1/2 it is RH-equivalent and unproved. In a separate intermediate theorem, RH implies G_floor(N^α)^cell>0 for α<1/3, and the α=1/8 sign implies T47. RH remains open.',
   },
+  {
+    id: 'T88',
+    color: '#a3e635',
+    status: 'POSITIVE ANNULAR COMPARATOR · STRICT REDUCTION',
+    title: 'RH is equivalent to one nonnegative prime tent on (N, 4N]',
+    formula: 'RH ⇔ 2Σ_{N<p≤2N}(p−N)log p + Σ_{2N<p≤4N}(4N−p)log p ≤ 3N² eventually',
+    detail:
+      'The dilation L₊F=F(4N)−3F(2N)+2F(N) cancels every prime p≤N and leaves only nonnegative triangular weights in one fixed annulus. ' +
+      'On RH, the retained prime-square bias dominates the complete critical-zero wave and gives L₊Vθ≤−(0.155951…−o(1))N³ᐟ². Conversely, the eventual non-strict inequality recovers a one-sided Vψ=O(N³ᐟ²) bound and hence RH. This is the sharpest current prime-only reduction, not a proof: the annular inequality remains open.',
+  },
+  {
+    id: 'T89',
+    color: '#e879f9',
+    status: 'DILATION SIGN BARRIER · HARMONIC ZERO RESTORATION',
+    title: 'Removing the square bias necessarily restores a signed zero wave',
+    formula: 'Q(3/2)=0 ⇒ ∫w(u)u⁻¹ᐟ²du=0 ⇒ w changes sign;  c_K,N(ρ)=1/[ρ(ρ+1)]+o_ρ(1)',
+    detail:
+      'Every nontrivial finite dilation that notches the N³ᐟ² prime-square mode has a sign-changing prime spline. The exact annular filter F(64N)−13F(16N)+44F(4N)−32F(N) preserves every off-critical zero and is Ω±(N³ᐟ²) on RH, so it cannot support an eventual-sign shortcut. ' +
+      'The polynomial-depth harmonic quadrature behaves the same way spectrally: cross-cell summation cancels the artificial K-loss but restores each fixed zero’s first-Riesz coefficient. At α=1/8, failure of T47 forces unbounded normalized negative excursions. RH remains open.',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -864,7 +890,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T87 · 2026-07-27</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T89 · 2026-07-27</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1217,7 +1243,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T87 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T89 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1289,6 +1315,8 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.adaptiveDriftSplit,
             MARKOV_NORMALIZATION.primePowerRenormalization,
             MARKOV_NORMALIZATION.dilationHarmonicLadder,
+            MARKOV_NORMALIZATION.positiveAnnularComparator,
+            MARKOV_NORMALIZATION.dilationHarmonicResponse,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -1503,6 +1531,30 @@ export default function OpenFrontierPage() {
           positivity of the harmonic channel at depth N<sup>α</sup>
           for α&lt;1/3, while the α=1/8 sign implies the T47 strip.
           No unconditional polynomial-depth sign is proved.
+          T88 sharpens the nonlocal route into a positive annular
+          comparator. For
+          L<sub>+</sub>F(N)=F(4N)−3F(2N)+2F(N), every prime
+          p≤N cancels and the remaining weights are nonnegative:
+          2(p−N) on (N,2N] and 4N−p on (2N,4N]. RH is equivalent to
+          their weighted log-prime sum being at most 3N<sup>2</sup>
+          eventually. Under RH the prime-square mode gives the strict
+          deficit (0.155951…−o(1))N<sup>3/2</sup>, larger than the
+          total possible critical-zero wave. The converse recovers a
+          one-sided first-Riesz bound and hence RH. This is a strict
+          prime-only localization, not an unconditional proof of its
+          sign.
+          T89 identifies why canceling that square mode does not
+          improve the target. For every finite dilation, the 3/2 notch
+          is the zero moment ∫w(u)u<sup>−1/2</sup>du=0, forcing every
+          nonzero prime spline to change sign. The exact localized
+          four-scale notch
+          F(64N)−13F(16N)+44F(4N)−32F(N) preserves all off-critical
+          zeros and has recurrent positive and negative
+          N<sup>3/2</sup>-scale values on RH. Independently, the exact
+          polynomial-depth harmonic response tends to
+          1/[ρ(ρ+1)] for every fixed zero: cross-cell summation removes
+          a termwise K-loss but restores the original zero mode.
+          Neither mechanism proves RH.
           T66 constructs common-domain zero-adaptive
           theta quasimodes that geometrically isolate residual directions. T67 proves
           compact continuous compressed-graph approximation and compact smooth full

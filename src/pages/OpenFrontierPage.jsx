@@ -242,6 +242,8 @@ const MARKOV_NORMALIZATION = {
     'T110: Λᵣ,ₛ(k,u)=Fᵣ,ₛ(k)+Σₕ₌ₖᵘ⁻¹qᵣ,ₛ(h) is the exact terminal buffer after an ordered prefix drawdown. Its prime-jump kernel is the sum of a complete-buffer trapezoid and a prefix trapezoid, both nonnegative, with Λ(k,k)=F(k) and Λ(k,eₖ)=2F(k). The present RH estimate proves only o(k/log²k) boundary layers and does not control the full proportional-width interior. A segmented floating-point scan found no failure through k=10,000,000 for either sharp ratio, but this remains finite numerical evidence—not an interval certificate, an eventual theorem, or an RH proof',
   jointInteriorBuffer:
     'T111: two fixed strictly interior terminal samples recover an exact RH equivalence without using either endpoint. RH is equivalent to eventual positivity of both Λ₂₃,₁₅(15N,21N), Λ₂₃,₁₅(15N,22N), and separately to both Λ₃₂,₂₁(21N,30N), Λ₃₂,₂₁(21N,31N). Rigorous first-1000-zero normalized Hadamard margins are 0.0817561902…, 0.0806566762…, 0.0718293963…, and 0.0566386659…. Distinct interior multipliers have no common zero for Re z>1, although a single channel need not be zero-complete. Each line is unconditionally positive on infinitely many N^(1/2+o(1))-length scale blocks, but no eventual sign is proved. This proves the paired criteria, not the all-u T110 conjecture',
+  singleInteriorBand:
+    'T112: one difference of two strictly interior 39/25 terminal samples is already RH-complete. With outer row 24N, RH is equivalent to eventual positivity of Λ₃₉,₂₅(24N,34N)−Λ₃₉,₂₅(24N,25N), or exactly to ∏₉₇₅N≤u<₁₃₂₆N Kᵤ²⁵ ≥ ∏₆₂₅N≤u<₈₅₀N Kᵤ³⁹ eventually. Its nonnegative plateau-trapezoid has mass 3,624,075N² and support ratio 1326/625=2.1216. A rigorous first-10,000-zero Arb/Turing certificate gives normalized margin 0.000726680570605… and restored RH margin 283.859597892608…N³ᐟ². The eventual product sign remains open, so RH is not proved',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -328,7 +330,7 @@ const MARKOV_NORMALIZATION = {
     'T89 proves the complementary structural barrier: every finite 3/2-notch changes sign, an exact annular notch oscillates on RH, and harmonic cross-cell summation restores every fixed first-Riesz zero coefficient. ' +
     'T90 factors the positive annulus exactly into lcm and prime-power layers, producing a square-only strengthening and a Pascal comparator while proving the natural binomial majorant loses at main order. ' +
     'T91 narrows the zero-complete positive support from factor 4 to 289/81. T92 makes two generic tents jointly zero-complete, and T95 extends the sharp 3.451336… global-amplitude floor from concave splines to every finite nonnegative piecewise-linear annular kernel. ' +
-    'T93 spends the rigorously isolated first 1,000 zeros individually, shrinking one zero-complete tent to support 529/225=2.351111…. T94 proves every rowwise factorial/multinomial cover still loses at main order. T96 then certifies the first 50,000 zeros and shrinks the support again to 1024/441=2.321995…. T97 identifies the remaining arithmetic target exactly as an adjacent cross-factor carry ballot and rules out its naive monotonicity, divisibility, pairwise, and independent-cover proofs. T98 proves two unconditional subsidiary results for the T93 slack. T99 strengthens recurrence to deep N³ᐟ² checkpoints for both sharp annuli and propagates them into explicit super-√N valid blocks, while T100 derives the exact 32/21 carry ballot and rules out the same local shortcuts at the sharpest support. T101 packages both annuli into an exact all-integer proportional buffer and nonnegative trapezoidal kernel, proves that every fixed residue lane remains RH-complete, and transfers T99 to long consecutive buffer-positive intervals. T102 identifies their shared Beatty word pattern and exactly refutes the global all-k scalar laws. T103 proves every bounded-ℓ¹ local filter through square-root depth remains RH-complete. T104 quantifies the local escape cost; T105 constructs an RH-safe multiplicative escape but proves every finite notch spectrum-incomplete; T106 shows strong real cancellation of one complex local mode has a still higher quadratic conditioning cost; T107 proves subcritical adaptive local postfilters preserve the entire square-notched zero wave. T108 converts the surviving scalar buffer exactly into a compensated difference of floor-aligned geometric θ−x means and rules out convexity shortcuts. T109 builds the maximally damped global positive-kernel cumulative: it has unconditional positive logarithmic limsup, but any tail floor would already prove RH. T110 isolates the ordered terminal-buffer drawdown that survived a numerical scan through k=10,000,000 and leaves the all-u interior conjecture open. T111 proves that two strictly interior samples nevertheless form a joint RH equivalence because their multipliers have no common off-line blind spot, with four rigorous positive Hadamard margins. The required all-u one-sided control remains open.',
+    'T93 spends the rigorously isolated first 1,000 zeros individually, shrinking one zero-complete tent to support 529/225=2.351111…. T94 proves every rowwise factorial/multinomial cover still loses at main order. T96 then certifies the first 50,000 zeros and shrinks the support again to 1024/441=2.321995…. T97 identifies the remaining arithmetic target exactly as an adjacent cross-factor carry ballot and rules out its naive monotonicity, divisibility, pairwise, and independent-cover proofs. T98 proves two unconditional subsidiary results for the T93 slack. T99 strengthens recurrence to deep N³ᐟ² checkpoints for both sharp annuli and propagates them into explicit super-√N valid blocks, while T100 derives the exact 32/21 carry ballot and rules out the same local shortcuts at the sharpest support. T101 packages both annuli into an exact all-integer proportional buffer and nonnegative trapezoidal kernel, proves that every fixed residue lane remains RH-complete, and transfers T99 to long consecutive buffer-positive intervals. T102 identifies their shared Beatty word pattern and exactly refutes the global all-k scalar laws. T103 proves every bounded-ℓ¹ local filter through square-root depth remains RH-complete. T104 quantifies the local escape cost; T105 constructs an RH-safe multiplicative escape but proves every finite notch spectrum-incomplete; T106 shows strong real cancellation of one complex local mode has a still higher quadratic conditioning cost; T107 proves subcritical adaptive local postfilters preserve the entire square-notched zero wave. T108 converts the surviving scalar buffer exactly into a compensated difference of floor-aligned geometric θ−x means and rules out convexity shortcuts. T109 builds the maximally damped global positive-kernel cumulative: it has unconditional positive logarithmic limsup, but any tail floor would already prove RH. T110 isolates the ordered terminal-buffer drawdown that survived a numerical scan through k=10,000,000 and leaves the all-u interior conjecture open. T111 proves that two strictly interior samples nevertheless form a joint RH equivalence because their multipliers have no common off-line blind spot, with four rigorous positive Hadamard margins. T112 collapses the paired obligation to one strict-interior difference band: a 10,000-zero Arb/Turing budget proves its RH-side margin, its multiplier is zero-free for Re z>1, and its exact support ratio is 1326/625=2.1216. The single eventual product sign and the stronger all-u T110 control remain open.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -1006,6 +1008,16 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'For fixed a=r/s and μ=u/k, the aligned multiplier is Qₐ,μ(z)=(aᶻ−a)(aᶻ+μᶻ−2). A single interior channel is not known to be zero-complete, but two distinct μ values have no common zero for Re z>1. A joint Landau argument therefore makes each displayed pair exactly RH-equivalent without sampling u=k or u=eₖ. ' +
       'A rigorous first-1,000-zero Hadamard calculation gives normalized RH margins 0.081756190211… and 0.080656676211… for μ=21/15,22/15, and 0.071829396271… and 0.056638665860… for μ=30/21,31/21. These correspond to N³ᐟ² margins 4138.907…, 4083.244…, 13969.453…, and 11015.144…. The prime-square pole also proves sparse unconditional positive blocks of length N^(1/2+o(1)) on each line, not an eventual sign. This proves the paired interior criteria, not the all-u T110 conjecture; RH remains open.',
   },
+  {
+    id: 'T112',
+    color: '#fb7185',
+    status: 'SINGLE STRICT-INTERIOR RH EQUIVALENCE · ARB/TURING CERTIFIED',
+    title: 'One interior ordering carries the complete zero obstruction',
+    formula: 'RH ⇔ Λ₃₉,₂₅(24N,34N)−Λ₃₉,₂₅(24N,25N)>0 eventually ⇔ ∏₉₇₅N≤u<₁₃₂₆N Kᵤ²⁵ > ∏₆₂₅N≤u<₈₅₀N Kᵤ³⁹ eventually',
+    detail:
+      'Both endpoints are strict interior samples because 24N<25N<34N<⌊39·24N/25⌋. Their difference cancels the common terminal buffer and leaves one nonnegative plateau trapezoid on [625N,1326N], with exact mass 3,624,075N² and multiplier Q(z)=((39/25)ᶻ−39/25)((34/25)ᶻ−1). Its zeros lie only on Re z=1 or Re z=0, so a one-sided Landau converse has no off-line blind spot. ' +
+      'A 256-bit certificate isolates and exactly counts the first 10,000 zeros through height 9878.218713…, proving normalized margin 0.000726680570605…>7/10000 and restored RH margin 283.859597892608…N³ᐟ². The support ratio 1326/625=2.1216 improves T96’s 1024/441. No unconditional eventual product sign is proved: this is a sharper one-comparator RH equivalence, not a proof of RH.',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -1157,7 +1169,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T111 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T112 · 2026-07-28</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1511,7 +1523,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T111 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T112 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -2010,6 +2022,15 @@ export default function OpenFrontierPage() {
           This removes endpoint sampling but does not prove either
           paired inequality unconditionally or settle the full
           proportional-width T110 conjecture.
+          T112 then cancels the common terminal buffer between two
+          strict interior samples at outer row 24N. The resulting
+          39/25 band is a single RH-equivalent product comparison on
+          [625N,1326N], with nonnegative plateau-trapezoid kernel and
+          multiplier zeros only on Re z=0 or 1. A rigorous first-10,000-zero
+          Arb/Turing budget gives normalized margin 0.00072668057… and
+          restored margin 283.85959789…N<sup>3/2</sup>. Its support
+          ratio 1326/625=2.1216 improves T96, but the eventual product
+          sign itself remains open. RH is therefore still unresolved.
           Separately, for the T93/T96 annular deficit, if RH is false
           both strict signs recur infinitely often; if RH is true the
           certified annular deficit is eventually negative. This is

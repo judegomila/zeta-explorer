@@ -180,6 +180,8 @@ const MARKOV_NORMALIZATION = {
     'T79: D_n/n=𝔮−log(n/rad n)+o(1); sufficiently late positive steps have local √N-window density 7/π², but their positive and negative N³ᐟ² masses cancel and every centered sample remains o(N³ᐟ²)-close to one inherited baseline',
   outerSmoothing:
     'T80: every nonnegative smoothing on a fixed C₀√N outer window satisfies 𝒜_N(ω)=L_N^(1)+o(N³ᐟ²). For the uniform convolution, covariance improves to O(N/log³N), but the Vθ baseline retains coefficient one and each fixed zero-mode multiplier is 1+O_ρ(N⁻¹ᐟ²)',
+  sublinearBootstrap:
+    'T81: for fixed 0≤δ<1 and κ<5/2, the existence of some C and one Ξ≥−CM^κ in every sufficiently late [N,N+⌊N^δ⌋] is equivalent to Re ρ≤max{1/2,κ−3/2} for every nontrivial zero. Square-kernel feedback removes the one-pass gap loss; at δ=1 this feedback has no contraction',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -254,7 +256,8 @@ const MARKOV_NORMALIZATION = {
     'T77 absorbs all resets into a positive correction but proves the critical average localizes back to the pointwise defect below the RH scale; ' +
     'T78 sharpens one-sided recovery to D_N≤(𝔮+o(1))N and proves the sampled zero-strip phase law, with one valid centered checkpoint per outer square-root interval still exactly RH-equivalent; ' +
     'T79 classifies the square-kernel increments and proves that their local positive majority cancels at full N³ᐟ² scale; ' +
-    'T80 proves every positive outer smoothing retains the same inherited zero wave, despite a one-log covariance gain.',
+    'T80 proves every positive outer smoothing retains the same inherited zero wave, despite a one-log covariance gain; ' +
+    'T81 feeds the local cancellation back through the provisional zero strip and removes the sampling-gap exponent for every fixed power window N^δ with 0≤δ<1.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -619,6 +622,17 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'Every nonnegative weighting on a fixed C₀√N outer window retains the pointwise first-radix baseline with coefficient one. ' +
       'For the uniform double convolution, periodicity improves only the normalized covariance to O(N/log³N); it does not attenuate any fixed zero mode, so eventual positivity remains RH-equivalent.',
   },
+  {
+    id: 'T81',
+    color: '#f472b6',
+    status: 'SUBLINEAR BOOTSTRAP · GAP LOSS REMOVED',
+    title: 'Every fixed N^δ checkpoint window below linear scale is sharp',
+    formula: '0≤δ<1, κ<5/2: (∃C, one Ξ≥−CM^κ per late N^δ window) ⇔ Re ρ≤max{1/2,κ−3/2}',
+    detail:
+      'The generalized square-kernel discrepancy has exponent e(δ)=1/3 up to δ=2/3 and e(δ)=δ/2 thereafter, always below 1/2. ' +
+      'Feeding a provisional rightmost-zero exponent B through the local transport gives B≤max{1/2,κ−3/2,B+δ−1}, so every fixed power gap N^δ with δ<1 contracts away. ' +
+      'A nonnegative checkpoint—or, for some C, even Ξ≥−CM²—in every sufficiently late such interval is RH-equivalent. This does not prove the checkpoints exist; at δ=1 this feedback has no contraction.',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -770,7 +784,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T80 · 2026-07-27</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T81 · 2026-07-27</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1123,7 +1137,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T80 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T81 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1188,6 +1202,7 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.sampledPhase,
             MARKOV_NORMALIZATION.squareKernel,
             MARKOV_NORMALIZATION.outerSmoothing,
+            MARKOV_NORMALIZATION.sublinearBootstrap,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -1314,6 +1329,16 @@ export default function OpenFrontierPage() {
           one logarithm in the modular covariance, but each fixed zero mode still has multiplier
           1+O<sub>ρ</sub>(N<sup>−1/2</sup>), so the smoothed sign remains
           RH-equivalent.
+          T81 feeds the square-kernel estimate back through the
+          provisional zero strip. For every fixed 0≤δ&lt;1 and κ&lt;5/2,
+          the existence of some C and one checkpoint
+          Ξ≥−CM<sup>κ</sup> in every sufficiently late
+          [N,N+⌊N<sup>δ</sup>⌋] interval forces
+          Re ρ≤max(1/2, κ−3/2); the apparent gap exponent from the
+          one-pass T78 estimate contracts away. Thus even a
+          nearly linear fixed-power search window is valid for an
+          RH-equivalent sign target. The theorem does not supply the
+          checkpoint, and no contraction remains at δ=1.
           T66 constructs common-domain zero-adaptive
           theta quasimodes that geometrically isolate residual directions. T67 proves
           compact continuous compressed-graph approximation and compact smooth full

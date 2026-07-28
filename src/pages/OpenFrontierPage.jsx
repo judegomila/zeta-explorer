@@ -186,6 +186,10 @@ const MARKOV_NORMALIZATION = {
     'T82: H_N=(N−1)J_N−2Σm<N J_m=Σn≤N(2n−N−1)b(n)≥0 and L_N^(1)=ℓ_N−H_N. The local repeated-prime ballot is exactly the known higher-radix correction; the complementary p>√N first-layer channel remains zero-strip complete up to O(N³ᐟ²)',
   signedHaar:
     'T83: adjacent equal-block Haar cancellation has positive tent tails and attenuates each fixed zero mode by Y/N, but the new 1/ρ zero coefficients are not absolutely summable. If the adaptive L^(1) √N-block means eventually obey A_{r+1}−A_r≥−Cn_r^κ for 0≤κ≤3/2, then Re ρ≤max{1/2,κ−1/2}; this is one-way, not an equivalence',
+  harmonicCompensation:
+    'T84: the high-prime first-radix channel telescopes across harmonic cells. Its N²/8 top-cell subsidy is canceled down to N²K/[2(K+1)²]; PNT control reaches only subpower K, while at K≈√N the centered quadrature lower bound is zero-strip complete and RH-equivalent at N³ᐟ²',
+  adaptiveDriftSplit:
+    'T85: adaptive drift splits exactly as A_{r+1}−A_r=−Δ_rVθ−Δ_rH+Δ_rΓ. The deterministic term is O(√N log N), the ballot term is O(N⁴ᐟ³(log N)¹ᐟ³), and Δ_rVθ≤CN log²N is itself RH-equivalent. Only a direct N·polylog N cross-channel bound remains a genuinely new sufficient target',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -263,7 +267,9 @@ const MARKOV_NORMALIZATION = {
     'T80 proves every positive outer smoothing retains the same inherited zero wave, despite a one-log covariance gain; ' +
     'T81 feeds the local cancellation back through the provisional zero strip and removes the sampling-gap exponent for every fixed power window N^δ with 0≤δ<1; ' +
     'T82 identifies the natural repeated-prime ballot exactly with the higher-radix correction and isolates a complementary high-prime first-layer channel that retains the full zero-strip obstruction; ' +
-    'T83 proves that signed Haar cancellation attenuates fixed modes by half a power, while additive reconstruction restores that loss and turns an O(N) drift bound into a sufficient—but unproved and not known necessary—condition for RH.',
+    'T83 proves that signed Haar cancellation attenuates fixed modes by half a power, while additive reconstruction restores that loss and turns an O(N) drift bound into a sufficient—but unproved and not known necessary—condition for RH; ' +
+    'T84 telescopes the complementary high-prime channel and shows that its top-cell subsidy is canceled into an RH-complete square-root-depth quadrature; ' +
+    'T85 separates adaptive drift into prime-error and repeated-prime channels, sharpens the ballot bound to O(N⁴ᐟ³(log N)¹ᐟ³), and isolates the still-open N·polylog N cross-channel correlation.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -660,6 +666,26 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'Adjacent equal-block Haar weights have an exact positive-tent increment form. For fixed ρ and Y+H=o(N), each zero mode is multiplied by (ρ+1)Y/N+O_ρ(Y(Y+H)/N²), but the resulting 1/ρ coefficients are not absolutely summable. ' +
       'Telescoping adaptive L^(1) √N-block means restores the lost half-power: an eventual O(N) lower drift bound, a fixed polylogarithmic relaxation of it, or nonnegative drift would be sufficient for RH. No converse is proved—RH is not known to imply these drift conditions, and the two checked finite Haar signs do not decide an eventual sign.',
   },
+  {
+    id: 'T84',
+    color: '#fb923c',
+    status: 'HARMONIC COMPENSATION · RH-COMPLETE AT √N DEPTH',
+    title: 'The positive top cell is discharged by the lower harmonic cells',
+    formula: 'G_K^cell=M_K+Q_K;  M_K=N²K/[2(K+1)²]−N(ℋ_{K+1}−1);  K≈√N: Q_K≥−CN¹⁺σ ⇔ Re ρ≤σ',
+    detail:
+      'The first-radix coefficient is affine on each prime cell (N/(m+1),N/m], with positivity confined to a short terminal sliver. Exact telescoping cancels the N²/8 top-cell subsidy down to N²K/[2(K+1)²]. ' +
+      'Quantitative PNT control proves positivity only for subpower harmonic depth. At K≈√N, the centered quadrature differs from the complementary high-prime channel below the critical scale and its N¹⁺σ lower bound is exactly the zero-strip criterion—RH-equivalent at σ=1/2. This is a no-gain classification, not the missing bound.',
+  },
+  {
+    id: 'T85',
+    color: '#c084fc',
+    status: 'ADAPTIVE CHANNEL SPLIT · CROSS-CORRELATION OPEN',
+    title: 'The signed drift is prime error minus the repeated-prime ballot debt',
+    formula: 'A_{r+1}−A_r=−Δ_rVθ−Δ_rH+Δ_rΓ;  |Δ_rH|≪N⁴ᐟ³(log N)¹ᐟ³;  RH ⇔ Δ_rVθ≤CN log²N eventually',
+    detail:
+      'The exact unequal-width tent separates the adaptive L^(1) block drift into a prime-error channel, the higher-radix ballot channel, and a deterministic O(√N log N) Pascal term. A refined divisor switch improves the ballot estimate to O(N⁴ᐟ³(log N)¹ᐟ³), but its N¹ᐟ³ reset-count loss remains a method barrier. ' +
+      'Controlling the prime-error drift separately at N log²N is already RH-equivalent. The genuinely new sufficient target is a direct upper bound Δ_rH+Δ_rVθ≤CN(log N)^A; it is unproved and is not known to follow from RH.',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -811,7 +837,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T83 · 2026-07-27</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T85 · 2026-07-27</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1164,7 +1190,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T83 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T85 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1396,6 +1422,26 @@ export default function OpenFrontierPage() {
           prove RH, but it is unproved and no converse is known; the
           fixed-height covariance estimate also does not silently
           transfer to varying inner heights.
+          T84 resolves the high-prime blind channel into exact
+          harmonic cells. The positive N<sup>2</sup>/8 top-cell main
+          mass is canceled successively by the lower cells, leaving
+          N<sup>2</sup>K/[2(K+1)<sup>2</sup>] plus a centered
+          quadrature error. Quantitative PNT estimates control this
+          only for subpower K. At K≈√N, that centered error has exactly
+          the original zero-strip lower-bound criterion, including RH
+          at scale N<sup>3/2</sup>; the apparent top-cell subsidy is
+          therefore not an independent reserve.
+          T85 then decomposes the actual unequal-width adaptive drift:
+          A<sub>r+1</sub>−A<sub>r</sub>=−Δ<sub>r</sub>V<sub>θ</sub>
+          −Δ<sub>r</sub>H+Δ<sub>r</sub>Γ. The Pascal term is only
+          O(√N log N), while a refined prime-power divisor switch gives
+          |Δ<sub>r</sub>H|≪N<sup>4/3</sup>(log N)<sup>1/3</sup>.
+          The remaining prime-error bound
+          Δ<sub>r</sub>V<sub>θ</sub>≤CN log<sup>2</sup>N is itself
+          RH-equivalent. A direct cross-channel estimate
+          Δ<sub>r</sub>H+Δ<sub>r</sub>V<sub>θ</sub>≤CN(log N)<sup>A</sup>
+          would prove RH, but it remains unproved and is not known to
+          follow from RH.
           T66 constructs common-domain zero-adaptive
           theta quasimodes that geometrically isolate residual directions. T67 proves
           compact continuous compressed-graph approximation and compact smooth full

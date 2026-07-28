@@ -174,6 +174,8 @@ const MARKOV_NORMALIZATION = {
     'T76: D_low=D_cent+C_cov with |C_cov|≤3HΘ₁(H)/16=O(H³), and every reset interval collapses into weighted log rad_{>H}(N+d) terms. This narrows the finite corridor, but RH ⇔ Ξ(N,W_N)≥−E_{W_N} eventually',
   positiveReset:
     'T77: Ξ=B̂+R⁺ with R⁺≥0, but B̂=(H+1)L_N^(1)−H(H+1)(A_N+θ(N))/2 retains the RH-complete defect. At H=W_N, S/(H+1)=L_N^(1)+O(N³ᐟ²/log N), so block smoothing is sub-RH-scale',
+  sampledPhase:
+    'T78: D_N≤(𝔮+o(1))N and Ξ(N,W_N)/(W_N+1)=L_N^(1)+O(N³ᐟ²/log N). A sampled gap N^δ with deficit N^κ forces Re ρ≤max{1/2,δ,κ−3/2}; at (δ,κ)=(1/2,2), one good checkpoint—and the corresponding local negative-part mean square—per outer √N interval is exactly RH-equivalent',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -245,7 +247,8 @@ const MARKOV_NORMALIZATION = {
     'T74 brackets the low-prime load and isolates exact reset transport; ' +
     'T75 proves its eventual critical-window Q₊ condition is RH-equivalent; ' +
     'T76 centers the load to an O(H³) corridor and collapses resets into truncated radicals; ' +
-    'T77 absorbs all resets into a positive correction but proves the critical average localizes back to the pointwise defect below the RH scale.',
+    'T77 absorbs all resets into a positive correction but proves the critical average localizes back to the pointwise defect below the RH scale; ' +
+    'T78 sharpens one-sided recovery to D_N≤(𝔮+o(1))N and proves the sampled zero-strip phase law, with one valid centered checkpoint per outer square-root interval still exactly RH-equivalent.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -578,6 +581,17 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'Weighted Mertens cancellation shows the critical block changes that pointwise defect only below the RH scale. ' +
       'Even Ξ≥−CN² eventually for some C>0 remains RH-equivalent. So does, for every η>0, one Ξ≥−M^(2+η) in each sufficiently late mesoscopic interval.',
   },
+  {
+    id: 'T78',
+    color: '#a3e635',
+    status: 'SQUARE-ROOT SAMPLING · RH-EQUIVALENT',
+    title: 'One good centered checkpoint per outer √N interval is enough',
+    formula: 'RH ⇔ max_{N≤M≤N+⌊√N⌋} Ξ(M,W_M) ≥ 0 eventually',
+    detail:
+      'The sharper increment D_N≤(𝔮+o(1))N yields the phase law Re ρ≤max{1/2,δ,κ−3/2} for a gap N^δ and deficit N^κ. ' +
+      'At δ=1/2, one Ξ≥−CM² (or the stronger sign Ξ≥0) in every sufficiently late outer interval is RH-equivalent. ' +
+      'The matching every-window negative-part mean-square target is equivalent too. Exact starts 125 and 126 fail, so “eventually” is essential; the inner ladder still has width W_M≈√M/log M.',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -729,7 +743,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T77 · 2026-07-27</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T78 · 2026-07-27</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1082,7 +1096,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T77 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T78 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1144,6 +1158,7 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.transportEquivalence,
             MARKOV_NORMALIZATION.centeredTransport,
             MARKOV_NORMALIZATION.positiveReset,
+            MARKOV_NORMALIZATION.sampledPhase,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -1253,6 +1268,12 @@ export default function OpenFrontierPage() {
           T77 absorbs every wrap and entrant into a nonnegative correction, but the
           signed baseline contains the original first-radix defect and the critical
           average differs from it by only O(N<sup>3/2</sup>/log N).
+          T78 sharpens the one-sided increment to D<sub>N</sub>≤(𝔮+o(1))N
+          and classifies sampled recovery: a gap N<sup>δ</sup> with deficit
+          N<sup>κ</sup> forces Re ρ≤max(1/2, δ, κ−3/2). In particular,
+          RH is equivalent to one nonnegative centered checkpoint in every
+          sufficiently late outer interval [N,N+√N]. Exact failures at starts
+          125 and 126 keep the qualifier “eventually” load-bearing.
           T66 constructs common-domain zero-adaptive
           theta quasimodes that geometrically isolate residual directions. T67 proves
           compact continuous compressed-graph approximation and compact smooth full

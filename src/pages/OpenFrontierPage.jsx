@@ -238,6 +238,8 @@ const MARKOV_NORMALIZATION = {
     'T108: the T101 scalar increment is exactly a nonnegative one-step trapezoid applied to prime/composite jumps. Abel summation rewrites the full buffer as the difference of two floor-aligned geometric-block means of θ(x)−x, exactly adjacent when s divides k, minus a positive compensation whose normalized threshold is ½log(r/s)+O(1/k). The exact mean inequality remains RH-equivalent, while prime jumps force infinitely many curvature reversals and exclude eventual convexity or concavity of log K_u',
   criticalCumulativeBuffer:
     'T109: for any fixed residue lane, the critically damped global cumulative ℒ_d(X)=Σ_{N≤X}F(sN+d)N^(−5/2) is RH-equivalent under the mere requirement that it be bounded below by a fixed constant on a tail. Unconditionally limsup ℒ_d(X)/log X≥B_{r,s}, with B=11081.705… or 40805.171…, while false RH forces unbounded negative excursions. Its exact incidence weights on the signed q-word are nonnegative, and every fixed-order Riesz smoothing retains the same theorem',
+  terminalBufferDrawdown:
+    'T110: Λᵣ,ₛ(k,u)=Fᵣ,ₛ(k)+Σₕ₌ₖᵘ⁻¹qᵣ,ₛ(h) is the exact terminal buffer after an ordered prefix drawdown. Its prime-jump kernel is the sum of a complete-buffer trapezoid and a prefix trapezoid, both nonnegative, with Λ(k,k)=F(k) and Λ(k,eₖ)=2F(k). The present RH estimate proves only o(k/log²k) boundary layers and does not control the proportional-width interior. Positivity for every intermediate endpoint would imply RH; the converse is unproved. A numerical scan found no failure through k=200000 for both sharp ratios, but this is finite evidence for a conjectural sufficient condition whose converse is open, not an RH proof',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -324,7 +326,7 @@ const MARKOV_NORMALIZATION = {
     'T89 proves the complementary structural barrier: every finite 3/2-notch changes sign, an exact annular notch oscillates on RH, and harmonic cross-cell summation restores every fixed first-Riesz zero coefficient. ' +
     'T90 factors the positive annulus exactly into lcm and prime-power layers, producing a square-only strengthening and a Pascal comparator while proving the natural binomial majorant loses at main order. ' +
     'T91 narrows the zero-complete positive support from factor 4 to 289/81. T92 makes two generic tents jointly zero-complete, and T95 extends the sharp 3.451336… global-amplitude floor from concave splines to every finite nonnegative piecewise-linear annular kernel. ' +
-    'T93 spends the rigorously isolated first 1,000 zeros individually, shrinking one zero-complete tent to support 529/225=2.351111…. T94 proves every rowwise factorial/multinomial cover still loses at main order. T96 then certifies the first 50,000 zeros and shrinks the support again to 1024/441=2.321995…. T97 identifies the remaining arithmetic target exactly as an adjacent cross-factor carry ballot and rules out its naive monotonicity, divisibility, pairwise, and independent-cover proofs. T98 proves two unconditional subsidiary results for the T93 slack. T99 strengthens recurrence to deep N³ᐟ² checkpoints for both sharp annuli and propagates them into explicit super-√N valid blocks, while T100 derives the exact 32/21 carry ballot and rules out the same local shortcuts at the sharpest support. T101 packages both annuli into an exact all-integer proportional buffer and nonnegative trapezoidal kernel, proves that every fixed residue lane remains RH-complete, and transfers T99 to long consecutive buffer-positive intervals. T102 identifies their shared Beatty word pattern and exactly refutes the global all-k scalar laws. T103 proves every bounded-ℓ¹ local filter through square-root depth remains RH-complete. T104 quantifies the local escape cost; T105 constructs an RH-safe multiplicative escape but proves every finite notch spectrum-incomplete; T106 shows strong real cancellation of one complex local mode has a still higher quadratic conditioning cost; T107 proves subcritical adaptive local postfilters preserve the entire square-notched zero wave. T108 converts the surviving scalar buffer exactly into a compensated difference of floor-aligned geometric θ−x means and rules out convexity shortcuts. T109 builds the maximally damped global positive-kernel cumulative: it has unconditional positive logarithmic limsup, but any tail floor would already prove RH. The required lower control remains open.',
+    'T93 spends the rigorously isolated first 1,000 zeros individually, shrinking one zero-complete tent to support 529/225=2.351111…. T94 proves every rowwise factorial/multinomial cover still loses at main order. T96 then certifies the first 50,000 zeros and shrinks the support again to 1024/441=2.321995…. T97 identifies the remaining arithmetic target exactly as an adjacent cross-factor carry ballot and rules out its naive monotonicity, divisibility, pairwise, and independent-cover proofs. T98 proves two unconditional subsidiary results for the T93 slack. T99 strengthens recurrence to deep N³ᐟ² checkpoints for both sharp annuli and propagates them into explicit super-√N valid blocks, while T100 derives the exact 32/21 carry ballot and rules out the same local shortcuts at the sharpest support. T101 packages both annuli into an exact all-integer proportional buffer and nonnegative trapezoidal kernel, proves that every fixed residue lane remains RH-complete, and transfers T99 to long consecutive buffer-positive intervals. T102 identifies their shared Beatty word pattern and exactly refutes the global all-k scalar laws. T103 proves every bounded-ℓ¹ local filter through square-root depth remains RH-complete. T104 quantifies the local escape cost; T105 constructs an RH-safe multiplicative escape but proves every finite notch spectrum-incomplete; T106 shows strong real cancellation of one complex local mode has a still higher quadratic conditioning cost; T107 proves subcritical adaptive local postfilters preserve the entire square-notched zero wave. T108 converts the surviving scalar buffer exactly into a compensated difference of floor-aligned geometric θ−x means and rules out convexity shortcuts. T109 builds the maximally damped global positive-kernel cumulative: it has unconditional positive logarithmic limsup, but any tail floor would already prove RH. T110 isolates the ordered terminal-buffer drawdown that survived a scan through k=200000, proves its exact complete-plus-prefix kernel and RH boundary layers, and leaves the proportional-width interior as a conjectural sufficient condition whose converse is open. The required one-sided control remains open.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -982,6 +984,16 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'For each fixed residue lane, the Mellin transform of ℒ_d has a positive double square-pole term Bᵣ,ₛ/w², while every off-line zero becomes a genuine pole at w=ρ−1/2 and no positive real singularity is available. Landau therefore makes RH equivalent even to ℒ_d being bounded below by one fixed constant on a tail; RH itself forces ℒ_d→+∞. ' +
       'Unconditionally the logarithmic limsup is at least 11081.705… for 23/15 and 40805.171… for 32/21, so positive cutoffs recur. If RH were false, negative excursions would be unbounded. The cumulative is an exact nonnegative-weight transform of the signed q-word, not a proof of its lower floor; fixed-order Riesz smoothing does not change this frontier. RH remains open.',
   },
+  {
+    id: 'T110',
+    color: '#34d399',
+    status: 'FINITE SURVIVING CONJECTURE · EXACT BUFFER IDENTITY',
+    title: 'One terminal buffer absorbs every tested ordered drawdown',
+    formula: 'Λᵣ,ₛ(k,u)=Fᵣ,ₛ(k)+Σₕ₌ₖᵘ⁻¹qᵣ,ₛ(h)=R(eₖ)+R(u)−2R(k)',
+    detail:
+      'Exactly, Λ(k,k)=F(k), Λ(k,eₖ)=2F(k), and its prime-jump kernel is the sum of two nonnegative trapezoids. Thus eventual positivity for every intermediate endpoint would imply RH by taking u=k. The reverse implication is not proved: RH controls only o(k/log²k) boundary layers with the present estimates, while a proportional-width interior needs a new uniform phase-sensitive bound. ' +
+      'A reproducible numerical scan found no failure for either 23/15 or 32/21 through k=200000. The worst observed negative prefixes consumed 13.0588% and 16.7012% of F, while exact q₂₃,₁₅(12)<0 and q₃₂,₂₁(20)<0 fixtures show genuine drawdowns already occur. This finite scan is evidence only, not an interval certificate or an RH proof.',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -1133,14 +1145,15 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T109 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T110 · 2026-07-28</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
         </h2>
         <p style={{ color: '#94a3b8', fontSize: 12.5, lineHeight: 1.65, margin: '8px 0 12px' }}>
-          These are proved equivalences, relays, and tail theorems. None supplies
-          the missing arithmetic bound, and RH remains open.
+          These are proved identities, equivalences, and tail theorems together
+          with explicitly labeled finite conjectural evidence. None supplies the
+          missing arithmetic bound, and RH remains open.
         </p>
         <div
           style={{
@@ -1486,7 +1499,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T109 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T110 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1580,6 +1593,7 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.adaptiveCompleteZeroWave,
             MARKOV_NORMALIZATION.primeJumpAbel,
             MARKOV_NORMALIZATION.criticalCumulativeBuffer,
+            MARKOV_NORMALIZATION.terminalBufferDrawdown,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -1961,6 +1975,18 @@ export default function OpenFrontierPage() {
           bound equivalent to RH. False RH would force unbounded
           negative excursions, and fixed-order Riesz smoothing keeps
           the same poles. No such lower bound is proved.
+          T110 returns to one complete buffer and asks whether it
+          absorbs every ordered negative prefix before its terminal
+          endpoint. The exact quantity is
+          Λ(k,u)=F(k)+Σ<sub>k≤h&lt;u</sub>q(h), with endpoints F(k)
+          and 2F(k), and its prime-jump kernel is the sum of two
+          nonnegative trapezoids. RH proves its sign only in
+          o(k/log<sup>2</sup>k) boundary layers by the current
+          estimates. A finite scan found no interior failure through
+          k=200000 for either sharp ratio, with tens of thousands
+          of numerically observed drawdowns. Eventual positivity would imply RH,
+          but the converse and the proportional-width interior are
+          open; the scan is evidence, not proof.
           Separately, for the T93/T96 annular deficit, if RH is false
           both strict signs recur infinitely often; if RH is true the
           certified annular deficit is eventually negative. This is

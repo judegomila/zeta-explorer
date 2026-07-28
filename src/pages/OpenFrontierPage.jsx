@@ -203,11 +203,19 @@ const MARKOV_NORMALIZATION = {
   geometricAnnulus:
     'T91: the zero-complete family Qₐ(s)=(aˢ−1)(aˢ−a) retains a positive RH margin for a>1.882453339…. The explicit a=17/9 comparator uses only primes in (81N,289N], has support ratio 289/81<4 and RH margin 48.820170…N³ᐟ², but its eventual sign remains unproved',
   jointAnnulus:
-    'T92: two positive rational-mesh tents are jointly zero-complete at support 3.4517217537. The global absolute-amplitude method has sharp support infimum 3.4513363850 for every concave positive piecewise-linear annular kernel, but neither eventual sign is proved',
+    'T92: two positive rational-mesh tents are jointly zero-complete at support 3.4517217537. T95 closes the signed-curvature gap: the global absolute-amplitude method has sharp support infimum 3.4513363850 for every finite nonnegative piecewise-linear annular kernel, but no eventual sign is proved',
   verifiedZeroAnnulus:
     'T93: peeling 1,000 rigorously isolated critical zeros from the exact Hadamard budget gives one zero-complete a=23/15 tent. RH ⇔ its positive prime inequality on (225N,529N] eventually; support 529/225=2.351111 and the certified RH deficit exceeds 50.625N³ᐟ²',
   factorwiseAnnularBarrier:
     'T94: rowwise factorial and multinomial covers of the rational annular cofactor lose at main order. For a=17/9 the universal factorwise gap is at least 49,173.726993N², so escaping this rowwise cover barrier requires cross-factor carry transport or cancellation',
+  allSplineFloor:
+    'T95: the same 3.4513363850 support floor holds for every nonzero nonnegative continuous finite piecewise-linear annular kernel under the global coefficientwise amplitude bound. Negative curvature only spends extra amplitude; signed, smooth/infinite-scale, and zero-aware constructions remain outside this classification',
+  sharperVerifiedZeroAnnulus:
+    'T96: a 256-bit exact-count certificate peels 50,000 zeros at a=32/21. RH ⇔ the positive prime tent on (441N,1024N] is eventually below 2,154,768N²; support 1024/441=2.321995 and the certified RH deficit exceeds 136.1367N³ᐟ²',
+  crossFactorCarry:
+    'T97: the T93 cofactor is exactly an adjacent multiplicative-block Pascal/carry ballot. Its eventual sign is RH-equivalent, while prime/composite jumps, v₃(S/C)=−4923·3ᴸ+15 on N=3ᴸ, and negative local factors defeat monotonicity, divisibility, pairwise positivity, and independent covers',
+  unconditionalAnnularRecurrence:
+    'T98: the T93 slack is unconditionally negative for infinitely many integer N, and its full inverse-cubic average is machine-certified below −25,000. If RH is false the slack takes both signs infinitely often; neither subsidiary theorem proves the eventual negative sign required for RH',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -293,8 +301,8 @@ const MARKOV_NORMALIZATION = {
     'T88 then localizes the full RH criterion to a positive prime tent on the single annulus (N,4N], with an explicit N³ᐟ² margin under RH but no unconditional proof of the sign. ' +
     'T89 proves the complementary structural barrier: every finite 3/2-notch changes sign, an exact annular notch oscillates on RH, and harmonic cross-cell summation restores every fixed first-Riesz zero coefficient. ' +
     'T90 factors the positive annulus exactly into lcm and prime-power layers, producing a square-only strengthening and a Pascal comparator while proving the natural binomial majorant loses at main order. ' +
-    'T91 narrows the zero-complete positive support from factor 4 to 289/81. T92 makes two generic tents jointly zero-complete and determines the sharp 3.451336… floor for the global absolute-amplitude method for every concave positive piecewise-linear annular kernel. ' +
-    'T93 then spends the rigorously isolated first 1,000 zeros individually, shrinking one zero-complete tent to support 529/225=2.351111…. T94 proves every rowwise factorial/multinomial cover still loses at main order, so the eventual prime sign remains open.',
+    'T91 narrows the zero-complete positive support from factor 4 to 289/81. T92 makes two generic tents jointly zero-complete, and T95 extends the sharp 3.451336… global-amplitude floor from concave splines to every finite nonnegative piecewise-linear annular kernel. ' +
+    'T93 spends the rigorously isolated first 1,000 zeros individually, shrinking one zero-complete tent to support 529/225=2.351111…. T94 proves every rowwise factorial/multinomial cover still loses at main order. T96 then certifies the first 50,000 zeros and shrinks the support again to 1024/441=2.321995…. T97 identifies the remaining arithmetic target exactly as an adjacent cross-factor carry ballot and rules out its naive monotonicity, divisibility, pairwise, and independent-cover proofs. T98 proves two unconditional subsidiary results—the T93 slack is negative infinitely often and its inverse-cubic average is below −25,000—but neither gives the eventual prime sign. RH remains open.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -777,10 +785,10 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     color: '#818cf8',
     status: 'JOINT ZERO-COMPLETENESS · SHARP METHOD FLOOR',
     title: 'Two positive tents remove each other’s blind multiplier zeros',
-    formula: 'c=124/123; m=61,62; support c¹⁵³=3.4517217537; sharp concave-spline absolute-budget floor b*=3.4513363850',
+    formula: 'c=124/123; m=61,62; support c¹⁵³=3.4517217537; T92 concave-floor b*=3.4513363850',
     detail:
       'The two rational-mesh multiplier polynomials have exact common gcd (z−1)(z−c), certified by a degree-two gcd modulo 1,000,003. Their RH margins are separately positive, so the conjunction of their eventual prime signs is RH-equivalent even though a generic single positive tent may hide an off-critical mode. ' +
-      'A Green-measure decomposition shows that the certified amplitude ratio of every concave positive piecewise-linear annular kernel is a denominator-weighted average of single-tent ratios. Thus no number of scales reaches support b≤3.4513363850 under the global absolute-amplitude certificate, while three consecutive filters approach that floor from above. Nonconcave kernels are outside this obstruction. This classifies the concave piecewise-linear sector of the method; it does not prove either eventual sign.',
+      'A Green-measure decomposition shows that the certified amplitude ratio of every concave positive piecewise-linear annular kernel is a denominator-weighted average of single-tent ratios. Thus no number of scales reaches support b≤3.4513363850 under the global absolute-amplitude certificate, while three consecutive filters approach that floor from above. T95 extends the same floor to all finite nonnegative piecewise-linear kernels. Neither theorem proves an eventual sign.',
   },
   {
     id: 'T93',
@@ -801,6 +809,46 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     detail:
       'The rational annular cofactor factors exactly into paired primorial quotients. Each 17/9 quotient fits inside a true binomial coefficient, but uniform Stirling summation costs 187030.814660…N², already 59734.814660…N² too much. ' +
       'More generally, packing denominator parts proves a 2log2 lower cost per unit primorial-index gap for every factorwise multinomial cover. Prime squares and higher powers are lower order and cannot repay the N² loss. Any cofactor-factorial proof of T93 must exploit cancellation or carry transport across factors, not independent row covers.',
+  },
+  {
+    id: 'T95',
+    color: '#c084fc',
+    status: 'ALL-SPLINE METHOD FLOOR · GLOBAL-AMPLITUDE CLASSIFICATION',
+    title: 'Nonconcavity cannot beat the global absolute-amplitude floor',
+    formula: 'finite w≥0, PL on [1,B] ⇒ Qw(3/2)/‖Qw‖₁,₃ᐟ₂ ≤ max₁<u<B (L_B(u)−u³ᐟ²)/(L_B(u)+u³ᐟ²)',
+    detail:
+      'Writing μ=−w″ as signed curvature separates the positive-curvature gain from the negative-curvature amplitude cost. The exact endpoint moments show that negative curvature can only lower the certified response ratio; equality returns to the concave tent sector. ' +
+      'Therefore b*=3.451336384960… is the sharp floor for every nonzero nonnegative continuous finite piecewise-linear annular kernel under the global coefficientwise zero budget. Signed kernels, smooth or infinite-scale families, and zero-aware budgets are deliberately outside this theorem.',
+  },
+  {
+    id: 'T96',
+    color: '#34d399',
+    status: '50,000-ZERO ANNULUS · STRICT SUPPORT REDUCTION',
+    title: 'A certified a=32/21 tent cuts support to 1024/441',
+    formula: 'RH ⇔ 32Σ₄₄₁N<p≤₆₇₂N(p−441N)log p + 21Σ₆₇₂N<p≤₁₀₂₄N(1024N−p)log p ≤ 2154768N² eventually',
+    detail:
+      'A 256-bit FLINT/Arb run isolates the first 50,000 consecutive nontrivial zeros, independently proves the multiplicity-counted Turing total at height 40,433.958…, and leaves a nonnegative residual Hadamard budget. ' +
+      'At a=32/21 it certifies δ=0.000705772803290…>7/10000. The support ratio is 1024/441=2.32199546485…, and the integer-scaled conditional deficit exceeds 136.1367N³ᐟ². The converse remains zero-complete; the eventual inequality itself is unproved.',
+  },
+  {
+    id: 'T97',
+    color: '#f59e0b',
+    status: 'EXACT CROSS-FACTOR BALLOT · TESTED LOCAL SHORTCUTS FAIL',
+    title: 'The annular cofactor is an adjacent Pascal/carry mean comparison',
+    formula: 'log(S_N/C_N)=2760N(mean₃₄₅N≤u<₅₂₉N log K_u − mean₂₂₅N≤u<₃₄₅N log K_u)',
+    detail:
+      'The T93 prime product C_N and Pascal-row ratio S_N satisfy RH ⇔ C_N≤S_N eventually. Their quotient telescopes exactly into adjacent products of K_u=(u+1)^u/(u!·rad(u!)). ' +
+      'K_u rises at composites and falls at primes; v₃(S_{3ᴸ}/C_{3ᴸ})=−4923·3ᴸ+15, so the direct C_N | S_N route fails on an infinite subsequence. Exact negative pair and block fixtures also defeat universal pairwise and per-block positivity. The open route is genuinely cross-factor cancellation, not independent row covering.',
+  },
+  {
+    id: 'T98',
+    color: '#38bdf8',
+    status: 'UNCONDITIONAL RECURRENCE · CERTIFIED GLOBAL AVERAGE',
+    title: 'The T93 slack is negative infinitely often—but not yet eventually',
+    formula: 'D(N)<0 for infinitely many integer N;  ∫₁∞D(x)x⁻³dx < −25000',
+    detail:
+      'A Mellin/Landau argument proves eventual nonnegativity would force RH; the certified RH margin then contradicts it. Hence D(N)<0 infinitely often unconditionally, and if RH is false both strict signs occur infinitely often. ' +
+      'A separate 256-bit prime-log interval certificate proves the absolutely convergent whole-range inverse-cubic average is below −25,000. This average has no tail or integer-sign implication. The precise missing PNT scale is also exposed: current unconditional errors remain far above the required N³ᐟ² bias. RH remains open.',
   },
 ];
 
@@ -953,7 +1001,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T94 · 2026-07-27</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T98 · 2026-07-27</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1306,7 +1354,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T94 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T98 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1380,6 +1428,15 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.dilationHarmonicLadder,
             MARKOV_NORMALIZATION.positiveAnnularComparator,
             MARKOV_NORMALIZATION.dilationHarmonicResponse,
+            MARKOV_NORMALIZATION.annularArithmetic,
+            MARKOV_NORMALIZATION.geometricAnnulus,
+            MARKOV_NORMALIZATION.jointAnnulus,
+            MARKOV_NORMALIZATION.verifiedZeroAnnulus,
+            MARKOV_NORMALIZATION.factorwiseAnnularBarrier,
+            MARKOV_NORMALIZATION.allSplineFloor,
+            MARKOV_NORMALIZATION.sharperVerifiedZeroAnnulus,
+            MARKOV_NORMALIZATION.crossFactorCarry,
+            MARKOV_NORMALIZATION.unconditionalAnnularRecurrence,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -1640,8 +1697,10 @@ export default function OpenFrontierPage() {
           remove each other&apos;s blind zeros: the explicit
           c=124/123 pair is jointly zero-complete at support
           3.4517217537, and 3.4513363850 is the sharp support floor
-          for concave positive piecewise-linear annular kernels when
-          every zero is charged at the global worst-case amplitude.
+          for finite nonnegative piecewise-linear annular kernels when
+          every zero is charged at the global worst-case amplitude;
+          T95&apos;s signed-curvature decomposition proves that
+          nonconcavity only spends more amplitude.
           T93 breaks that method floor by charging the
           first 1,000 rigorously isolated zeros individually. The
           single geometric choice a=23/15 gives an RH-equivalent
@@ -1654,7 +1713,25 @@ export default function OpenFrontierPage() {
           order-N<sup>2</sup> overcharge that prime-power corrections
           cannot repair. Any continuation of this arithmetic cofactor
           route therefore needs cross-factor carry transport or
-          cancellation.
+          cancellation. T96 spends the first 50,000 rigorously
+          isolated zeros individually. The a=32/21 tent is supported
+          on (441N,1024N], has ratio 1024/441=2.321995…, and keeps a
+          certified conditional deficit above
+          136.1367N<sup>3/2</sup>. Its eventual prime inequality
+          remains unproved. T97 gives the requested cross-factor
+          arithmetic display: the T93 cofactor is exactly an adjacent
+          Pascal/carry mean comparison. Prime/composite jumps, an
+          infinite negative 3-adic valuation family, and exact
+          negative local factors rule out the tested monotonicity,
+          direct-divisibility, and universal pair/per-block positivity
+          shortcuts without deciding the global sign. T98 proves that
+          the T93 slack is unconditionally
+          negative for infinitely many integer scales, and a separate
+          interval certificate puts its full inverse-cubic average
+          below −25,000. Neither result supplies an eventual sign.
+          If RH is false both strict signs recur infinitely often; if
+          RH is true the certified annular deficit is eventually
+          negative. This is genuine subsidiary progress, not QED.
           T66 constructs common-domain zero-adaptive
           theta quasimodes that geometrically isolate residual directions. T67 proves
           compact continuous compressed-graph approximation and compact smooth full

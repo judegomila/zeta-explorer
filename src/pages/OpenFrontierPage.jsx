@@ -190,6 +190,8 @@ const MARKOV_NORMALIZATION = {
     'T84: the high-prime first-radix channel telescopes across harmonic cells. Its N²/8 top-cell subsidy is canceled down to N²K/[2(K+1)²]; PNT control reaches only subpower K, while at K≈√N the centered quadrature lower bound is zero-strip complete and RH-equivalent at N³ᐟ²',
   adaptiveDriftSplit:
     'T85: adaptive drift splits exactly as A_{r+1}−A_r=−Δ_rVθ−Δ_rH+Δ_rΓ. The deterministic term is O(√N log N), the ballot term is O(N⁴ᐟ³(log N)¹ᐟ³), and Δ_rVθ≤CN log²N is itself RH-equivalent. Only a direct N·polylog N cross-channel bound remains a genuinely new sufficient target',
+  primePowerRenormalization:
+    'T86: with W=Vψ−Vθ and K=H−W, the cross channel is Vθ+H=Vψ+K. Its N·polylog bound is exactly RH conjoined with the separate one-sided K-drift bound. K has only scaled renewal copies ρ/j, while fixed-width repeated-prime tents have variance ≫√H log H; the diagonal adaptive transfer remains open',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -269,7 +271,8 @@ const MARKOV_NORMALIZATION = {
     'T82 identifies the natural repeated-prime ballot exactly with the higher-radix correction and isolates a complementary high-prime first-layer channel that retains the full zero-strip obstruction; ' +
     'T83 proves that signed Haar cancellation attenuates fixed modes by half a power, while additive reconstruction restores that loss and turns an O(N) drift bound into a sufficient—but unproved and not known necessary—condition for RH; ' +
     'T84 telescopes the complementary high-prime channel and shows that its top-cell subsidy is canceled into an RH-complete square-root-depth quadrature; ' +
-    'T85 separates adaptive drift into prime-error and repeated-prime channels, sharpens the ballot bound to O(N⁴ᐟ³(log N)¹ᐟ³), and isolates the still-open N·polylog N cross-channel correlation.',
+    'T85 separates adaptive drift into prime-error and repeated-prime channels, sharpens the ballot bound to O(N⁴ᐟ³(log N)¹ᐟ³), and isolates the still-open N·polylog N cross-channel correlation; ' +
+    'T86 completes θ to ψ and proves that target is RH plus a separate prime-power radix-discrepancy bound, with a rigorous fixed-width variance warning but no diagonal adaptive transfer.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -684,7 +687,17 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     formula: 'A_{r+1}−A_r=−Δ_rVθ−Δ_rH+Δ_rΓ;  |Δ_rH|≪N⁴ᐟ³(log N)¹ᐟ³;  RH ⇔ Δ_rVθ≤CN log²N eventually',
     detail:
       'The exact unequal-width tent separates the adaptive L^(1) block drift into a prime-error channel, the higher-radix ballot channel, and a deterministic O(√N log N) Pascal term. A refined divisor switch improves the ballot estimate to O(N⁴ᐟ³(log N)¹ᐟ³), but its N¹ᐟ³ reset-count loss remains a method barrier. ' +
-      'Controlling the prime-error drift separately at N log²N is already RH-equivalent. The genuinely new sufficient target is a direct upper bound Δ_rH+Δ_rVθ≤CN(log N)^A; it is unproved and is not known to follow from RH.',
+      'Controlling the prime-error drift separately at N log²N is already RH-equivalent. The genuinely new sufficient target is a direct upper bound Δ_rH+Δ_rVθ≤CN(log N)^A; it is unproved, and T86 below identifies its exact extra condition.',
+  },
+  {
+    id: 'T86',
+    color: '#38bdf8',
+    status: 'PRIME-POWER RENORMALIZATION · SECOND CONDITION EXPOSED',
+    title: 'Completing θ to ψ preserves the zero wave and isolates the radix noise',
+    formula: 'Vθ+H=Vψ+K;  B_W ⇔ RH ∧ B_K;  Var_nat(R_H)≫√H log H (fixed H first)',
+    detail:
+      'The exact defect K=H−(Vψ−Vθ) is a first-radix sum over higher prime powers. Its renewal summands place copied singularities at scaled locations 1/j and ρ/j, so it has no copy of the original right-half zero pole at ρ and cannot provide mode-by-mode cancellation of Vψ. ' +
+      'The proposed cross-channel N·polylog bound is therefore exactly RH conjoined with a separate one-sided N·polylog bound for ΔK. A natural-density calculation proves fixed equal-width tent variance ≫√H log H, but the limit takes the averaging range to infinity before H grows; it neither reaches H≈√N on the adaptive starts nor refutes the one-sided target. RH remains open.',
   },
 ];
 
@@ -837,7 +850,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T85 · 2026-07-27</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T86 · 2026-07-27</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1190,7 +1203,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T85 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T86 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1440,8 +1453,21 @@ export default function OpenFrontierPage() {
           Δ<sub>r</sub>V<sub>θ</sub>≤CN log<sup>2</sup>N is itself
           RH-equivalent. A direct cross-channel estimate
           Δ<sub>r</sub>H+Δ<sub>r</sub>V<sub>θ</sub>≤CN(log N)<sup>A</sup>
-          would prove RH, but it remains unproved and is not known to
-          follow from RH.
+          would prove RH, but it remains unproved.
+          T86 completes the prime channel by writing
+          W<sub>N</sub>=V<sub>ψ</sub>(N)−V<sub>θ</sub>(N) and
+          K<sub>N</sub>=H<sub>N</sub>−W<sub>N</sub>. Then
+          V<sub>θ</sub>+H=V<sub>ψ</sub>+K exactly. The proposed
+          N·polylog cross bound is equivalent to RH together with a
+          separate one-sided N·polylog bound for Δ<sub>r</sub>K.
+          Mellin renewal copies in K occur at scaled locations ρ/j,
+          not at the original right-half zero pole ρ, so they do not
+          cancel the zero-complete V<sub>ψ</sub> mode by mode.
+          Fixed equal-width repeated-prime tents have rigorous
+          natural-density variance ≫√H log H, but this limit fixes H
+          before averaging N. It does not reach the diagonal H≈√N,
+          the sparse adaptive starts, or the required one-sided bound.
+          The result is a sharper obstruction map, not an RH proof.
           T66 constructs common-domain zero-adaptive
           theta quasimodes that geometrically isolate residual directions. T67 proves
           compact continuous compressed-graph approximation and compact smooth full

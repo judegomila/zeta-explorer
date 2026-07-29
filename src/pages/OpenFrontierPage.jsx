@@ -422,6 +422,8 @@ const MARKOV_NORMALIZATION = {
     'T194: positive diagonal scaling sends the exact translation kernel to sech(t−b) in every fixed whole-tail Cᵐ norm; each fixed packet count is eventually positive, so any three-packet obstruction must touch a bounded left interval',
   translationThreePacketCompactness:
     'T195: strict confluent two-packet positivity plus exponential bounded/far decoupling puts every possible nonpositive three-packet configuration inside one compact translation interval',
+  translationTripleCollisionFirstSegment:
+    'T196: a 768-bit shared-Taylor Arb cover proves the translated triple-collision jet positive definite for every 0≤T≤2; T>2 and the nonconfluent three-node interior remain open',
   continuumTail:
     'T45/T48/T55–T57/T64/T66–T67: after normalization the exact continuum block converges uniformly in every fixed Cᵐ tail norm to 1/[2 cosh(t−b)]. Every fixed order is eventually positive, but the spectral floor is zero and every finite signed upper H-relative bound fails. Compact-smooth graph approximation yields finite residual-pole witnesses, while zero-uniform control and the global one-sided contraction remain open',
   criticalTail:
@@ -640,7 +642,9 @@ const MARKOV_NORMALIZATION = {
   structureT194:
     'T194 closes the large-translation part at every fixed matrix order. Exact endpoint scaling gives K̃tr(t,b)=sech(t−b)+E with every fixed derivative family of E uniformly small on the whole tail. The exact sech determinant and the T48 divided-difference compactification handle collisions and unbounded gaps. Any three-packet obstruction must now touch a bounded left interval, but the tail threshold depends on packet count, so all-order PSD and RH remain open.',
   structureT195:
-    'T195 closes the remaining escape regimes specifically for three packets. T187 strict concavity gives a positive two-node confluent determinant at every finite translation, while normalized correlations and derivatives between bounded and escaping nodes decay polynomially times e^(−b). Every escaping triple splits into positive blocks, so the unresolved sign is one compact interval problem. Its triple-collision boundary has a stable jet determinant tending to 1 and an exactly computable sampled derivative that is negative for T>0; a correlated interval Taylor enclosure is still missing.',
+    'T195 closes the remaining escape regimes specifically for three packets. T187 strict concavity gives a positive two-node confluent determinant at every finite translation, while normalized correlations and derivatives between bounded and escaping nodes decay polynomially times e^(−b). Every escaping triple splits into positive blocks, so the unresolved sign is one compact interval problem.',
+  structureT196:
+    'T196 certifies the first two translation units of the triple-collision boundary. A 4,096-box, order-fourteen Arb cover retains one common translation variable through the jet, fixed endpoint gauge, and determinant. The origin box is directly positive, the exact determinant derivative is negative on every later box, and the normalized T=2 determinant is 0.939231127963760833±2.35×10⁻¹⁹. Thus the confluent 3×3 jet is positive definite on [0,2]; joining it to an explicit tail and certifying the nonconfluent interior remain open.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -2533,6 +2537,21 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     certificate:
       'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.20 · proof/certificates/twin_ladder_channel_split/scan_translation_three_packet_global.py',
   },
+  {
+    id: 'T196',
+    color: '#34d399',
+    status:
+      'RIGOROUS 0≤T≤2 COLLISION COVER · 4096 ARB BOXES · GLOBAL THREE-PACKET SIGN OPEN',
+    title: 'The translated triple-collision jet is positive on its first two units',
+    formula:
+      'Jtriple(T)≻0 for 0≤T≤2; Δ₃′(T)<0 after the origin box and Δ₃(2)/J₂(0,0)³=0.939231127963760833±2.35×10⁻¹⁹',
+    detail:
+      'The missing correlated enclosure is now implemented on a continuous interval. T196 partitions [0,2] into 4,096 boxes of width 1/2048 and carries one order-fourteen Taylor variable through all six entries of the translated degree-two jet, a fixed unit-triangular endpoint gauge, and determinant multilinearity. Twelve-mode center integrals to u=3 run at 768-bit precision with a uniform omitted-mode and tail allowance 1.26761753931×10⁻²¹¹ ± 3.68×10⁻²²³. ' +
+      'The box containing T=0 has normalized determinant 2.4848 ± 4.62×10⁻⁵ > 0. On each of the other 4,095 boxes, the exact lower-limit identity J′=−I certifies Δ₃′(T)<0. Since the normalized determinant at T=2 is still 0.939231127963760833 ± 2.35×10⁻¹⁹ > 0, Δ₃ stays positive throughout [0,2]. T190 supplies the strict leading two-node confluent minor, so Sylvester’s criterion gives the full 3×3 jet positive definite there. ' +
+      'This is one compact boundary segment, not global three-packet positivity. The sharp next tail target is explicit: for H(T)=Dtr(T)⁻²C(T)J(T)C(T)ᵀ and H∞=[[1,0,−1/2],[0,1,0],[−1/2,0,5/4]], proving supT≥2 ‖H(T)−H∞‖₂ < (9−√17)/16 would close the entire triple-collision face. That estimate, the nonconfluent compact interior, higher packet counts, and RH remain open.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.21 · proof/certificates/twin_ladder_channel_split/run_translation_triple_collision_taylor.sh',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -2685,7 +2704,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T195 · 2026-07-29</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T196 · 2026-07-29</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -2711,7 +2730,7 @@ export default function OpenFrontierPage() {
                 background: `${item.color}0d`,
                 border: `1px solid ${item.color}40`,
                 minWidth: 0,
-                gridColumn: ['T160', 'T161', 'T162', 'T163', 'T164', 'T165', 'T166', 'T167', 'T168', 'T169', 'T170', 'T171', 'T172', 'T173', 'T174', 'T175', 'T176', 'T177', 'T178', 'T179', 'T180', 'T181', 'T182', 'T183', 'T184', 'T185', 'T186', 'T187', 'T188', 'T189', 'T190', 'T191', 'T192', 'T193', 'T194', 'T195'].includes(item.id)
+                gridColumn: ['T160', 'T161', 'T162', 'T163', 'T164', 'T165', 'T166', 'T167', 'T168', 'T169', 'T170', 'T171', 'T172', 'T173', 'T174', 'T175', 'T176', 'T177', 'T178', 'T179', 'T180', 'T181', 'T182', 'T183', 'T184', 'T185', 'T186', 'T187', 'T188', 'T189', 'T190', 'T191', 'T192', 'T193', 'T194', 'T195', 'T196'].includes(item.id)
                   ? '1 / -1'
                   : undefined,
               }}
@@ -3056,7 +3075,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T195 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T196 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -3136,7 +3155,8 @@ export default function OpenFrontierPage() {
           {MARKOV_NORMALIZATION.structureT192}{' '}
           {MARKOV_NORMALIZATION.structureT193}{' '}
           {MARKOV_NORMALIZATION.structureT194}{' '}
-          {MARKOV_NORMALIZATION.structureT195}
+          {MARKOV_NORMALIZATION.structureT195}{' '}
+          {MARKOV_NORMALIZATION.structureT196}
         </p>
         <div
           style={{
@@ -3314,6 +3334,7 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.canonicalTruncationNoGo,
             MARKOV_NORMALIZATION.translationFixedOrderTail,
             MARKOV_NORMALIZATION.translationThreePacketCompactness,
+            MARKOV_NORMALIZATION.translationTripleCollisionFirstSegment,
             MARKOV_NORMALIZATION.continuumTail,
             MARKOV_NORMALIZATION.criticalTail,
             MARKOV_NORMALIZATION.levy,

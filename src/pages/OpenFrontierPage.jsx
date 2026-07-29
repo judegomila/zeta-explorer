@@ -401,9 +401,9 @@ const MARKOV_NORMALIZATION = {
   infinitesimalBoundaryJet:
     'T184: the 512-bit five-level first-variation jet ∂ₐJₐ|₀ is positive definite; the exact theta rescue persists infinitesimally, while all-degree uniformity remains open',
   infinitesimalHierarchy:
-    'T185: all finite infinitesimal boundary jets are PSD iff the de Branges kernel L₀ is PSD iff RH; the five certified T184 levels are not a strict reduction',
+    'T185/T192: all infinitesimal jets are PSD iff the de Branges kernel L₀ is PSD iff RH; seventeen certified levels remain finite evidence, not a strict reduction',
   infinitesimalJetFloor:
-    'T186: the normalized jet floor λd is nested; RH iff λd↓0, while non-RH forces a negative finite level. Translation packets rule out every uniform positive margin',
+    'T186/T192: the normalized jet floor λd is nested; RH iff λd↓0, while non-RH forces a negative finite level. The exact form is now Arb-positive through d=16, but no uniform margin exists',
   translationParityMargin:
     'T187: strict concavity of log Ψ(√s) proves both even and odd translated theta packets stay positive and approach the normalized zero margin from above',
   translationMixtureKernel:
@@ -411,7 +411,11 @@ const MARKOV_NORMALIZATION = {
   squareConcavityMixtureCounterexample:
     'T189: an Arb-certified three-packet difference-of-Gaussians model proves strict square-radius log-concavity and positive individual packets do not imply translation-mixture PSD',
   twoPacketConcavityTheorem:
-    'T190: square-radius log-concavity does prove every two-node translation matrix PSD, strictly at distinct theta nodes; the first possible mixture obstruction is exactly three packets',
+    'T190: square-radius log-concavity proves every two-node translation matrix PSD, strictly at distinct theta nodes; three packets are the first size not controlled by concavity',
+  localFivePacketProtection:
+    'T191: the certified order-four infinitesimal jet protects every theta translation matrix with at most five distinct nodes in one origin neighborhood; an arbitrarily fine negative witness would need at least six packets',
+  localSeventeenPacketProtection:
+    'T192: a dimension-parametric 512-bit Arb replay certifies the fixed-thickness and infinitesimal jets through degree sixteen; one origin neighborhood protects every matrix through seventeen packets, so a local negative witness needs at least eighteen',
   continuumTail:
     'T45/T48/T55–T57/T64/T66–T67: after normalization the exact continuum block converges uniformly in every fixed Cᵐ tail norm to 1/[2 cosh(t−b)]. Every fixed order is eventually positive, but the spectral floor is zero and every finite signed upper H-relative bound fails. Compact-smooth graph approximation yields finite residual-pole witnesses, while zero-uniform control and the global one-sided contraction remain open',
   criticalTail:
@@ -620,7 +624,11 @@ const MARKOV_NORMALIZATION = {
   structureT189:
     'T189 closes the concavity-only promotion. The positive model e^(−x²)−½e^(−2x²) satisfies the exact T187 strict concavity hypothesis, but its positive-entry three-translation matrix has a certified negative determinant. The theta kernel therefore needs genuinely zeta-specific interference control.',
   structureT190:
-    'T190 extracts the sharp theorem left by that counterexample. A square-radius reparameterization turns the mixed packet into an overlap dominated by the two diagonal tails; Cauchy–Schwarz proves every two-packet principal theta matrix positive definite. Three packets are the first live interference size.',
+    'T190 extracts the sharp theorem left by that counterexample. A square-radius reparameterization turns the mixed packet into an overlap dominated by the two diagonal tails; Cauchy–Schwarz proves every two-packet principal theta matrix positive definite. Three packets are the first unrestricted size not settled by concavity.',
+  structureT191:
+    'T191 reconnects translation mixtures to the theta-specific certified jet. Mixed divided differences converge uniformly to the positive T184 order-four matrix across every five-node collision pattern, so one origin neighborhood protects all mixtures through five packets. The unrestricted three-packet problem remains open, but an arbitrarily fine negative witness must begin at six.',
+  structureT192:
+    'T192 pushes that finite protection to the prior exploratory endpoint. The 512-bit degree-sixteen replay certifies all seventeen leading determinants of both the exact a=1/4 boundary jet and its a=0 first variation. Mixed divided differences now protect seventeen-packet origin clusters; any arbitrarily fine negative matrix must begin at eighteen packets.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -2329,7 +2337,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     detail:
       'Let hₐ(x)=e^(ax)Ψ(x). Differentiating the exact same-sign block gives the boundary coefficient matrix from T182. Exact theta evenness implies h₋ₐ(x)=hₐ(−x), kills every mixed even/odd jet entry, and converts each pure-parity polynomial quadratic form into the displayed signed energy identity. ' +
       'Therefore the complete boundary hierarchy is positive exactly when ‖P(D)hₐ‖L²(−∞,0)≤‖P(D)hₐ‖L²(0,∞) for every even polynomial and every odd polynomial. This condition is sufficient as well as necessary: normal convergence of the two-variable Taylor series yields PSD in a neighborhood of the boundary, real-analytic Gram continuation propagates it across the positive half-line, and Wiener-Hopf rigidity identifies same-sign positivity with the complete fixed-thickness Twin Ladder condition. ' +
-      'Imposing the hierarchy along any prescribed sequence aₙ↓0 is equivalent to RH by the divisor theorem. T182 verifies only degrees 0 through 4 at a=1/4, so T183 is an exact reformulation and a sharper attack surface—not a proof.',
+      'Imposing the hierarchy along any prescribed sequence aₙ↓0 is equivalent to RH by the divisor theorem. T182 first verified degrees 0 through 4 at a=1/4, and T192 extends that finite certificate through degree 16. T183 remains an exact reformulation and a sharper attack surface—not a proof.',
     certificate:
       'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.8',
   },
@@ -2359,7 +2367,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     detail:
       'Fourier transformation of the T184 signed-energy first variation identifies every polynomial jet quadratic form with the displayed integral against the infinitesimal de Branges kernel L₀(λ,μ)=[Ξ(λ)Ξ′(μ)−Ξ′(λ)Ξ(μ)]/[π(λ−μ)]. Its diagonal singularity is removable and completed-Ξ decay makes all polynomial integrals convergent. ' +
       'Under RH, the rank-one expansion over real zeros makes every form nonnegative. Conversely, positivity in every finite degree extends from polynomials to compact bumps by density in a suitable exponentially weighted L² space. Approximate identities recover all real evaluation matrices of L₀; confluent limits and the entire Taylor expansion recover the full complex kernel. The established de Branges criterion then gives RH. ' +
-      'Thus the all-degree infinitesimal hierarchy is a concrete exact reformulation, not an easier theorem. The 512-bit T184 calculation verifies only derivative degrees 0 through 4 and remains finite evidence rather than a proof of RH.',
+      'Thus the all-degree infinitesimal hierarchy is a concrete exact reformulation, not an easier theorem. T184 first certified derivative degrees 0 through 4, and T192 extends the exact 512-bit sign certificate through degree 16. Seventeen levels remain finite evidence rather than a proof of RH.',
     certificate:
       'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.10',
   },
@@ -2374,7 +2382,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     detail:
       'Whiten the infinitesimal jet by the positive parity-block Gram matrix G⁽ᵈ⁾ of Ψ⁽ᵐ⁾/m!. The coefficient spaces are nested, so their least generalized eigenvalues λd are nonincreasing. T185 already says that every λd is nonnegative exactly under RH. ' +
       'The translation symbol P_T(z)=e^(−Tz) gives P_T(D)Ψ(x)=Ψ(x−T). Its infinitesimal numerator is exactly 2∫_T^∞uΨ(u)²du, while the combined even/odd derivative energy is the fixed value ‖Ψ‖²/2. Taylor polynomials transfer this quotient into the finite jet spaces and force the attainable margin to zero. Thus RH means λd decreases to zero; failure of RH produces a negative witness at a finite degree. No degree-uniform coercive proof is possible. ' +
-      'A high-precision incomplete-gamma scan reproduces the certified T184 determinant and remains positive through d=16, where λ₁₆≈1.1366×10⁻¹⁰. The higher-degree signs are exploratory; Arb certification still stops at d=4. Raw determinant growth is therefore misleading—the remaining theorem must preserve sign at vanishing margin.',
+      'A high-precision incomplete-gamma scan gives λ₁₆≈1.1366×10⁻¹⁰. T192 now Arb-certifies positivity of the exact infinitesimal form through d=16, although that displayed generalized eigenvalue remains a non-interval conditioning diagnostic. Raw determinant growth is still misleading—the remaining theorem must preserve sign at vanishing margin for every degree.',
     certificate:
       'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.11',
   },
@@ -2427,16 +2435,46 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     id: 'T190',
     color: '#22d3ee',
     status:
-      'TWO-PACKET MATRICES POSITIVE · SHARP CONCAVITY THEOREM · THREE PACKETS FIRST OPEN',
+      'TWO-PACKET MATRICES POSITIVE · SHARP CONCAVITY THEOREM · THREE PACKETS FIRST UNRESTRICTED',
     title: 'Square-radius concavity controls exactly two translated packets',
     formula:
       'Kf(T,S)²≤Kf(T,T)Kf(S,S), strictly for T≠S; every 2×2 theta principal matrix ≻0',
     detail:
       'Let h(u)=log f(√u) be concave. For T≥S, write m=(T+S)/2, d=(T−S)/2, p=y²−m², and q=√(m²+p). Evenness rewrites the mixed kernel as ∫₀∞f(q−d)f(q+d)dp. ' +
       'The squared pair (q−d)²,(q+d)² has the same sum as S²+p,T²+p but is farther apart. Concavity therefore bounds the mixed integrand by f(√(S²+p))f(√(T²+p)). Cauchy–Schwarz gives Kf(T,S)²≤Kf(T,T)Kf(S,S); strict concavity makes it strict at distinct nodes. ' +
-      'The Riemann–Jacobi kernel has the required strict concavity, so every distinct two-node principal translation matrix is unconditionally positive definite. T189 proves the mechanism is sharp: three-node PSD does not follow for a general model. If RH is false, T188’s arbitrarily fine negative matrices must therefore use at least three distinct translated packets.',
+      'The Riemann–Jacobi kernel has the required strict concavity, so every distinct two-node principal translation matrix is unconditionally positive definite. T189 proves the mechanism is sharp: three-node PSD does not follow for a general model. T190 alone forces any negative translation matrix to use at least three distinct packets; T191 adds stronger theta-specific protection for sufficiently small clusters.',
     certificate:
       'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.15',
+  },
+  {
+    id: 'T191',
+    color: '#a3e635',
+    status:
+      'FIVE-PACKET ORIGIN NEIGHBORHOOD POSITIVE · DIVIDED DIFFERENCES · SIX PACKETS FIRST LOCAL RISK',
+    title: 'The certified infinitesimal jet protects every five-packet origin cluster',
+    formula:
+      '∂Tᵐ∂SⁿKtr(0,0)/(m!n!)=Lmn; ∃ε₅>0: N≤5 and distinct Tⱼ∈[0,ε₅] ⇒ [Ktr(Tⱼ,Tₖ)]≻0',
+    detail:
+      'Expanding the T188 kernel at the origin identifies its Taylor coefficient matrix exactly with the infinitesimal boundary jet L: the factors 2a, T, and S reproduce the three terms in the T184 integral formula. ' +
+      'For five ordered nodes, the invertible Newton divided-difference transformation acts by congruence on the evaluation matrix. The mixed Hermite–Genocchi formula expresses every transformed entry as an average of a mixed derivative inside the node interval. Consequently the transformed matrix converges uniformly to L⁽⁴⁾ as the whole interval shrinks, including arbitrarily uneven node collisions. ' +
+      'The 512-bit T184 certificate proves L⁽⁴⁾ positive definite, so openness gives an ε₅>0 on which every matrix of at most five distinct theta translations is positive definite. Thus if RH is false, T188 still forces negative matrices into every smaller origin interval, but each must use at least six packets. The interval is existential; three or more packets at unrestricted translations and all matrix sizes near zero remain open, so RH is not proved.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.16',
+  },
+  {
+    id: 'T192',
+    color: '#facc15',
+    status:
+      'DEGREE-SIXTEEN JETS POSITIVE · 512-BIT ARB · SEVENTEEN PACKETS LOCALLY PROTECTED',
+    title: 'The rigorous finite frontier now reaches seventeen translated packets',
+    formula:
+      'J₁⧸₄⁽¹⁶⁾≻0 and L⁽¹⁶⁾≻0; ∃ε₁₇>0: N≤17, Tⱼ∈[0,ε₁₇] distinct ⇒ [Ktr(Tⱼ,Tₖ)]≻0',
+    detail:
+      'The exact boundary-jet verifier is now dimension-parametric and is replayed at 512-bit precision with DIM=17. It retains twelve theta modes on [0,2], attaches derivative-order-dependent enclosures for all omitted modes and the x≥2 tail, and checks all seventeen leading principal determinants of both the fixed-thickness matrix J₁⧸₄⁽¹⁶⁾ and the infinitesimal matrix L⁽¹⁶⁾. ' +
+      'Every enclosure is strictly positive. The final determinants are 3.62192046532966786793×10⁻⁹ ± 1.03×10⁻³⁹ for J₁⧸₄⁽¹⁶⁾ and 33.5739665585352850204 ± 7.74×10⁻³¹ for L⁽¹⁶⁾. Sylvester’s criterion therefore certifies both 17×17 jets positive definite and upgrades every previously exploratory finite sign through d=16. ' +
+      'Applying T191’s mixed divided-difference theorem gives an ε₁₇>0 on which every theta translation matrix with at most seventeen distinct nodes is positive definite. If RH is false, T188 still forces negative matrices arbitrarily close to zero, but each must use at least eighteen packets, equivalently start at polynomial degree at least seventeen. This remains a finite-order existential neighborhood, not all-degree positivity or a proof of RH.',
+    certificate:
+      'proof/certificates/twin_ladder_channel_split/verify_exact_boundary_jet_arb.c · compile with -DDIM=17',
   },
 ];
 
@@ -2590,7 +2628,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T190 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T192 · 2026-07-28</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -2616,7 +2654,7 @@ export default function OpenFrontierPage() {
                 background: `${item.color}0d`,
                 border: `1px solid ${item.color}40`,
                 minWidth: 0,
-                gridColumn: ['T160', 'T161', 'T162', 'T163', 'T164', 'T165', 'T166', 'T167', 'T168', 'T169', 'T170', 'T171', 'T172', 'T173', 'T174', 'T175', 'T176', 'T177', 'T178', 'T179', 'T180', 'T181', 'T182', 'T183', 'T184', 'T185', 'T186', 'T187', 'T188', 'T189', 'T190'].includes(item.id)
+                gridColumn: ['T160', 'T161', 'T162', 'T163', 'T164', 'T165', 'T166', 'T167', 'T168', 'T169', 'T170', 'T171', 'T172', 'T173', 'T174', 'T175', 'T176', 'T177', 'T178', 'T179', 'T180', 'T181', 'T182', 'T183', 'T184', 'T185', 'T186', 'T187', 'T188', 'T189', 'T190', 'T191', 'T192'].includes(item.id)
                   ? '1 / -1'
                   : undefined,
               }}
@@ -2961,7 +2999,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T190 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T192 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -3036,7 +3074,9 @@ export default function OpenFrontierPage() {
           {MARKOV_NORMALIZATION.structureT187}{' '}
           {MARKOV_NORMALIZATION.structureT188}{' '}
           {MARKOV_NORMALIZATION.structureT189}{' '}
-          {MARKOV_NORMALIZATION.structureT190}
+          {MARKOV_NORMALIZATION.structureT190}{' '}
+          {MARKOV_NORMALIZATION.structureT191}{' '}
+          {MARKOV_NORMALIZATION.structureT192}
         </p>
         <div
           style={{
@@ -3209,6 +3249,8 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.translationMixtureKernel,
             MARKOV_NORMALIZATION.squareConcavityMixtureCounterexample,
             MARKOV_NORMALIZATION.twoPacketConcavityTheorem,
+            MARKOV_NORMALIZATION.localFivePacketProtection,
+            MARKOV_NORMALIZATION.localSeventeenPacketProtection,
             MARKOV_NORMALIZATION.continuumTail,
             MARKOV_NORMALIZATION.criticalTail,
             MARKOV_NORMALIZATION.levy,

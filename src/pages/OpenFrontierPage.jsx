@@ -416,6 +416,12 @@ const MARKOV_NORMALIZATION = {
     'T191: the certified order-four infinitesimal jet protects every theta translation matrix with at most five distinct nodes in one origin neighborhood; an arbitrarily fine negative witness would need at least six packets',
   localSeventeenPacketProtection:
     'T192: a dimension-parametric 512-bit Arb replay certifies the fixed-thickness and infinitesimal jets through degree sixteen; one origin neighborhood protects every matrix through seventeen packets, so a local negative witness needs at least eighteen',
+  canonicalTruncationNoGo:
+    'T193: near-null theta polynomials follow a deformed cosh/sinh root lattice, but pure-imaginary roots and positive complete translation packets do not sign finite canonical factors; the T189 model has the exact witness ℓf(z+z³/8)=−1/216',
+  translationFixedOrderTail:
+    'T194: positive diagonal scaling sends the exact translation kernel to sech(t−b) in every fixed whole-tail Cᵐ norm; each fixed packet count is eventually positive, so any three-packet obstruction must touch a bounded left interval',
+  translationThreePacketCompactness:
+    'T195: strict confluent two-packet positivity plus exponential bounded/far decoupling puts every possible nonpositive three-packet configuration inside one compact translation interval',
   continuumTail:
     'T45/T48/T55–T57/T64/T66–T67: after normalization the exact continuum block converges uniformly in every fixed Cᵐ tail norm to 1/[2 cosh(t−b)]. Every fixed order is eventually positive, but the spectral floor is zero and every finite signed upper H-relative bound fails. Compact-smooth graph approximation yields finite residual-pole witnesses, while zero-uniform control and the global one-sided contraction remain open',
   criticalTail:
@@ -629,6 +635,12 @@ const MARKOV_NORMALIZATION = {
     'T191 reconnects translation mixtures to the theta-specific certified jet. Mixed divided differences converge uniformly to the positive T184 order-four matrix across every five-node collision pattern, so one origin neighborhood protects all mixtures through five packets. The unrestricted three-packet problem remains open, but an arbitrarily fine negative witness must begin at six.',
   structureT192:
     'T192 pushes that finite protection to the prior exploratory endpoint. The 512-bit degree-sixteen replay certifies all seventeen leading determinants of both the exact a=1/4 boundary jet and its a=0 first variation. Mixed divided differences now protect seventeen-packet origin clusters; any arbitrarily fine negative matrix must begin at eighteen packets.',
+  structureT193:
+    'T193 audits the near-null eigenpolynomials instead of extending the finite degree again. Their roots closely follow the cosh/sinh canonical lattices, but a 99.8% energy overlap still misses the degree-24 minimum by a factor near 63. In the strict-concavity T189 model, the first sine factor z(1+z²/8) has only imaginary roots yet exact form −1/216. Finite root deformations therefore need a new theta-specific sign theorem.',
+  structureT194:
+    'T194 closes the large-translation part at every fixed matrix order. Exact endpoint scaling gives K̃tr(t,b)=sech(t−b)+E with every fixed derivative family of E uniformly small on the whole tail. The exact sech determinant and the T48 divided-difference compactification handle collisions and unbounded gaps. Any three-packet obstruction must now touch a bounded left interval, but the tail threshold depends on packet count, so all-order PSD and RH remain open.',
+  structureT195:
+    'T195 closes the remaining escape regimes specifically for three packets. T187 strict concavity gives a positive two-node confluent determinant at every finite translation, while normalized correlations and derivatives between bounded and escaping nodes decay polynomially times e^(−b). Every escaping triple splits into positive blocks, so the unresolved sign is one compact interval problem. Its triple-collision boundary has a stable jet determinant tending to 1 and an exactly computable sampled derivative that is negative for T>0; a correlated interval Taylor enclosure is still missing.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -2476,6 +2488,51 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     certificate:
       'proof/certificates/twin_ladder_channel_split/verify_exact_boundary_jet_arb.c · compile with -DDIM=17',
   },
+  {
+    id: 'T193',
+    color: '#fb7185',
+    status:
+      'CANONICAL-ROOT SHORTCUT REFUTED · EXACT −1/216 MODEL WITNESS · THETA DEFORMATIONS OPEN',
+    title: 'The near-null root lattice does not inherit translated-packet positivity',
+    formula:
+      'P(z)=z(1+z²/8), zeros(P)={0,±2√2i}, but ℓf(P)=−1/216 in the strict-concavity T189 model',
+    detail:
+      'Exploratory theta minimizers through degree 24 have negative y=z² roots close to the half-integer cosh and integer sinh Euler-product lattices. That geometry is real but not sign-stable: at degree 24 the best one-parameter canonical product has derivative-energy overlap 0.99806 with the true even minimizer, yet its Rayleigh value is about 62.85 times larger. The small root deformations are load-bearing at the collapsing T186 margin. ' +
+      'The generic shortcut fails exactly. For f(x)=e^(−x²)−½e^(−2x²), strict square-radius concavity makes every complete translated parity packet positive. Nevertheless the first sine factor at T=π/(2√2), P(z)=z+z³/8, has only pure-imaginary zeros and normalized odd block [[1/9,−25/162],[−25/162,50/243]], giving ℓf(P)=−1/216 by rational arithmetic. ' +
+      'This does not produce a negative theta polynomial. It proves that T187, imaginary-root geometry, and ordinary canonical-product convergence cannot control the finite theta minimizers; a successful proof must sign their finite root deformations directly at the vanishing eigenvalue scale. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_channel_split/verify_canonical_product_truncation_counterexample_exact.py',
+  },
+  {
+    id: 'T194',
+    color: '#38bdf8',
+    status:
+      'WHOLE-TAIL FIXED-ORDER POSITIVITY · SECH LIMIT · THREE-PACKET RISK TOUCHES LEFT INTERVAL',
+    title: 'Every fixed packet count is eventually positive on the translation tail',
+    formula:
+      'K̃tr(t,b)→sech(t−b); ∀n ∃Ltr,n: distinct tⱼ≥Ltr,n and N≤n ⇒ [Ktr(tⱼ,tₖ)]≻0',
+    detail:
+      'Factoring the first theta mode and using the exact endpoint variable y=(e²ᵗ+e²ᵇ)(e²ˣ−1) gives a boundary-layer formula valid uniformly even when |t−b| is unbounded. Division by Dtr(t)=4√2π³⧸²√t exp(7t/2−πe²ᵗ) leaves sech(t−b) plus an error that tends to zero in every fixed whole-tail derivative norm. ' +
+      'The limit has exact principal determinant ∏i<j tanh²(tⱼ−tᵢ). The T48 cluster/divided-difference compactification removes collision Vandermondes, while block splitting controls unbounded gaps. Thus every fixed matrix order is positive on one entire right tail. ' +
+      'An adaptive Gauss–Laguerre grid locates the hardest resolved three-packet point near (1.975,2.075,2.175), where separately scaled 80-digit quadrature gives normalized determinant 3.608853263731643×10⁻⁶. That scan is non-interval and not part of the proof. T194 forces any three-packet obstruction to touch a bounded left interval; Ltr,n depends on n, so no all-order tail PSD, all-degree origin theorem, or RH follows.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.19 · proof/certificates/twin_ladder_channel_split/scan_translation_three_packet_global.py',
+  },
+  {
+    id: 'T195',
+    color: '#c084fc',
+    status:
+      'STRICT THREE-PACKET REDUCTION · ALL ESCAPES POSITIVE · COMPACT INTERIOR CERTIFICATE OPEN',
+    title: 'Every possible three-packet obstruction lies in one compact interval',
+    formula:
+      'WΨ(T)>0 and Rtr(t,b)=poly(b)e^(−b)→0 for bounded t; ∃Mtr,3<∞ containing every nonpositive triple',
+    detail:
+      'The T190 comparison stays quantitatively strict when two translated packets collide. If h(u)=log f(√u), the determinant divided by the squared node gap is bounded below by 2Kf(T,T)∫₀∞f(√(T²+p))²[−p h″(T²+p)]dp, which is positive for theta by T187 strict concavity. ' +
+      'A separate one-sided endpoint expansion shows that the correlation-normalized kernel and every fixed derivative between a bounded node and b→∞ decay like a polynomial times e^(−b). Thus every escaping ordered triple decouples into positive blocks: T194 handles three far nodes and a far pair, while T190 plus the new confluent margin handles a bounded pair. ' +
+      'Therefore some finite Mtr,3 contains all nodes of every nonpositive three-packet matrix, if any. The triple-collision face is the translated degree-two jet; its stable endpoint-gauged determinant tends to 1, and the exact lower-limit derivative of its raw determinant is negative at every sampled T>0. Independent interval entry boxes lose those correlated cancellations, so a shared Taylor enclosure is required. The sech-relative exploratory grid reaches 0.89423611571 at (0,1.35,2.125), where scaled 100-digit quadrature gives normalized determinant 0.272485224924370778975865. None of these values are interval certificates. The explicit compact bound, compact-domain sign, higher packet counts, and RH remain open.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.20 · proof/certificates/twin_ladder_channel_split/scan_translation_three_packet_global.py',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -2628,7 +2685,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T192 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T195 · 2026-07-29</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -2654,7 +2711,7 @@ export default function OpenFrontierPage() {
                 background: `${item.color}0d`,
                 border: `1px solid ${item.color}40`,
                 minWidth: 0,
-                gridColumn: ['T160', 'T161', 'T162', 'T163', 'T164', 'T165', 'T166', 'T167', 'T168', 'T169', 'T170', 'T171', 'T172', 'T173', 'T174', 'T175', 'T176', 'T177', 'T178', 'T179', 'T180', 'T181', 'T182', 'T183', 'T184', 'T185', 'T186', 'T187', 'T188', 'T189', 'T190', 'T191', 'T192'].includes(item.id)
+                gridColumn: ['T160', 'T161', 'T162', 'T163', 'T164', 'T165', 'T166', 'T167', 'T168', 'T169', 'T170', 'T171', 'T172', 'T173', 'T174', 'T175', 'T176', 'T177', 'T178', 'T179', 'T180', 'T181', 'T182', 'T183', 'T184', 'T185', 'T186', 'T187', 'T188', 'T189', 'T190', 'T191', 'T192', 'T193', 'T194', 'T195'].includes(item.id)
                   ? '1 / -1'
                   : undefined,
               }}
@@ -2999,7 +3056,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T192 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T195 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -3076,7 +3133,10 @@ export default function OpenFrontierPage() {
           {MARKOV_NORMALIZATION.structureT189}{' '}
           {MARKOV_NORMALIZATION.structureT190}{' '}
           {MARKOV_NORMALIZATION.structureT191}{' '}
-          {MARKOV_NORMALIZATION.structureT192}
+          {MARKOV_NORMALIZATION.structureT192}{' '}
+          {MARKOV_NORMALIZATION.structureT193}{' '}
+          {MARKOV_NORMALIZATION.structureT194}{' '}
+          {MARKOV_NORMALIZATION.structureT195}
         </p>
         <div
           style={{
@@ -3251,6 +3311,9 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.twoPacketConcavityTheorem,
             MARKOV_NORMALIZATION.localFivePacketProtection,
             MARKOV_NORMALIZATION.localSeventeenPacketProtection,
+            MARKOV_NORMALIZATION.canonicalTruncationNoGo,
+            MARKOV_NORMALIZATION.translationFixedOrderTail,
+            MARKOV_NORMALIZATION.translationThreePacketCompactness,
             MARKOV_NORMALIZATION.continuumTail,
             MARKOV_NORMALIZATION.criticalTail,
             MARKOV_NORMALIZATION.levy,

@@ -406,6 +406,12 @@ const MARKOV_NORMALIZATION = {
     'T186: the normalized jet floor λd is nested; RH iff λd↓0, while non-RH forces a negative finite level. Translation packets rule out every uniform positive margin',
   translationParityMargin:
     'T187: strict concavity of log Ψ(√s) proves both even and odd translated theta packets stay positive and approach the normalized zero margin from above',
+  translationMixtureKernel:
+    'T188: the mixed-translation kernel has positive entries, but PSD on every finite grid in any [0,ε] is already equivalent to RH; a false RH would force negative matrices arbitrarily near zero',
+  squareConcavityMixtureCounterexample:
+    'T189: an Arb-certified three-packet difference-of-Gaussians model proves strict square-radius log-concavity and positive individual packets do not imply translation-mixture PSD',
+  twoPacketConcavityTheorem:
+    'T190: square-radius log-concavity does prove every two-node translation matrix PSD, strictly at distinct theta nodes; the first possible mixture obstruction is exactly three packets',
   continuumTail:
     'T45/T48/T55–T57/T64/T66–T67: after normalization the exact continuum block converges uniformly in every fixed Cᵐ tail norm to 1/[2 cosh(t−b)]. Every fixed order is eventually positive, but the spectral floor is zero and every finite signed upper H-relative bound fails. Compact-smooth graph approximation yields finite residual-pole witnesses, while zero-uniform control and the global one-sided contraction remain open',
   criticalTail:
@@ -609,6 +615,12 @@ const MARKOV_NORMALIZATION = {
     'T186 supplies the correct scale and closes the coercive shortcut. A translated theta packet has fixed derivative energy but infinitesimal form equal to a vanishing positive theta tail, so the least normalized jet eigenvalue must tend to zero under RH; any off-line zero instead appears as a negative finite-degree witness.',
   structureT187:
     'T187 proves that the canonical translated near-null family is safe in each parity. Strict square-radius log-concavity bounds its cross-overlap by its radial tail exactly; any negative jet witness must therefore use a genuinely non-translation derivative superposition.',
+  structureT188:
+    'T188 locates that interference obstruction exactly. Finite differences turn every polynomial jet into a mixture of arbitrarily small translations, so local matrix PSD would prove RH. Positive entries and positive exploratory grids are not a Gram factorization, and their collapsing eigenvalue floor blocks a fixed first-mode perturbation argument.',
+  structureT189:
+    'T189 closes the concavity-only promotion. The positive model e^(−x²)−½e^(−2x²) satisfies the exact T187 strict concavity hypothesis, but its positive-entry three-translation matrix has a certified negative determinant. The theta kernel therefore needs genuinely zeta-specific interference control.',
+  structureT190:
+    'T190 extracts the sharp theorem left by that counterexample. A square-radius reparameterization turns the mixed packet into an overlap dominated by the two diagonal tails; Cauchy–Schwarz proves every two-packet principal theta matrix positive definite. Three packets are the first live interference size.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -2381,6 +2393,51 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     certificate:
       'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.12',
   },
+  {
+    id: 'T188',
+    color: '#c084fc',
+    status:
+      'TRANSLATION MIXTURES · POSITIVE ENTRIES · LOCAL PSD IS RH-EQUIVALENT',
+    title: 'Interference between translated packets already contains the full problem',
+    formula:
+      'Ktr(T,S)=∫₀∞(2a+T+S)Ψ(a+T)Ψ(a+S)da>0; local finite-matrix PSD ⇔ RH',
+    detail:
+      'Polarize the infinitesimal form between e^(−Tz) and e^(−Sz). Evenness of Ψ cancels the signed central interval and gives the displayed positive-entry kernel. A finite exponential polynomial E(z)=Σcⱼe^(−Tⱼz) has form c*Ktr c, so T187 controls only its diagonal packets. ' +
+      'For every ε>0, PSD of all finite Ktr matrices with nodes in [0,ε] is equivalent to RH. The forward direction follows from the T185 polynomial criterion and Taylor convergence. Conversely, Δh(z)=(1−e^(−hz))/h tends to z, while P(Δh) uses only the nodes 0,h,…,(deg P)h. Local translation PSD therefore recovers every polynomial jet inequality and T185 gives RH. If RH is false, negative translation matrices must occur on arbitrarily fine grids at the origin. ' +
+      'The new high-precision scanner finds positive matrices on the tested one-mode and full-theta grids, but their confluent eigenvalues collapse toward zero. This is exploratory, not an interval certificate. Entrywise positivity does not imply PSD, and there is no uniform spectral gap for a first-mode-plus-small-tail perturbation proof.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.13',
+  },
+  {
+    id: 'T189',
+    color: '#f97316',
+    status:
+      'CONCAVITY-ONLY MIXTURE ROUTE REFUTED · 256-BIT ARB · MODEL CLASS ONLY',
+    title: 'Positive individual packets do not control three-packet interference',
+    formula:
+      'f=e^(−x²)−½e^(−2x²); (log f(√s))″<0, but det[Kf(2j/3,2k/3)]j,k=1³<0',
+    detail:
+      'Use the positive even model f(x)=e^(−x²)−½e^(−2x²). Writing r=e^(−s)/2 gives (d²/ds²)log f(√s)=−r/(1−r)²<0, exactly the strict square-radius log-concavity used in T187. The same argument therefore makes every individual even and odd translated packet positive. ' +
+      'Gaussian completion gives a closed erfc formula for every mixed kernel entry. At translation nodes 2/3, 4/3, and 2, the new 256-bit Arb verifier encloses the positive-entry 3×3 determinant at −1.86651773158276928117×10⁻¹¹ ± 3.42×10⁻⁶¹, strictly below zero. Its Fourier transform also has explicit nonreal zeros. ' +
+      'This is a rigorous model-class counterexample to the implication “T187 concavity ⇒ T188 mixture PSD.” It is not a counterexample to the Riemann–Jacobi theta kernel and does not disprove RH. Any successful translation-kernel proof must add zeta-specific structure that controls at least three-packet interference.',
+    certificate:
+      'proof/certificates/twin_ladder_channel_split/verify_square_concavity_mixture_counterexample_arb.c',
+  },
+  {
+    id: 'T190',
+    color: '#22d3ee',
+    status:
+      'TWO-PACKET MATRICES POSITIVE · SHARP CONCAVITY THEOREM · THREE PACKETS FIRST OPEN',
+    title: 'Square-radius concavity controls exactly two translated packets',
+    formula:
+      'Kf(T,S)²≤Kf(T,T)Kf(S,S), strictly for T≠S; every 2×2 theta principal matrix ≻0',
+    detail:
+      'Let h(u)=log f(√u) be concave. For T≥S, write m=(T+S)/2, d=(T−S)/2, p=y²−m², and q=√(m²+p). Evenness rewrites the mixed kernel as ∫₀∞f(q−d)f(q+d)dp. ' +
+      'The squared pair (q−d)²,(q+d)² has the same sum as S²+p,T²+p but is farther apart. Concavity therefore bounds the mixed integrand by f(√(S²+p))f(√(T²+p)). Cauchy–Schwarz gives Kf(T,S)²≤Kf(T,T)Kf(S,S); strict concavity makes it strict at distinct nodes. ' +
+      'The Riemann–Jacobi kernel has the required strict concavity, so every distinct two-node principal translation matrix is unconditionally positive definite. T189 proves the mechanism is sharp: three-node PSD does not follow for a general model. If RH is false, T188’s arbitrarily fine negative matrices must therefore use at least three distinct translated packets.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.15',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -2533,7 +2590,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T187 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T190 · 2026-07-28</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -2559,7 +2616,7 @@ export default function OpenFrontierPage() {
                 background: `${item.color}0d`,
                 border: `1px solid ${item.color}40`,
                 minWidth: 0,
-                gridColumn: ['T160', 'T161', 'T162', 'T163', 'T164', 'T165', 'T166', 'T167', 'T168', 'T169', 'T170', 'T171', 'T172', 'T173', 'T174', 'T175', 'T176', 'T177', 'T178', 'T179', 'T180', 'T181', 'T182', 'T183', 'T184', 'T185', 'T186', 'T187'].includes(item.id)
+                gridColumn: ['T160', 'T161', 'T162', 'T163', 'T164', 'T165', 'T166', 'T167', 'T168', 'T169', 'T170', 'T171', 'T172', 'T173', 'T174', 'T175', 'T176', 'T177', 'T178', 'T179', 'T180', 'T181', 'T182', 'T183', 'T184', 'T185', 'T186', 'T187', 'T188', 'T189', 'T190'].includes(item.id)
                   ? '1 / -1'
                   : undefined,
               }}
@@ -2904,7 +2961,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T187 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T190 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -2976,7 +3033,10 @@ export default function OpenFrontierPage() {
           {MARKOV_NORMALIZATION.structureT184}{' '}
           {MARKOV_NORMALIZATION.structureT185}{' '}
           {MARKOV_NORMALIZATION.structureT186}{' '}
-          {MARKOV_NORMALIZATION.structureT187}
+          {MARKOV_NORMALIZATION.structureT187}{' '}
+          {MARKOV_NORMALIZATION.structureT188}{' '}
+          {MARKOV_NORMALIZATION.structureT189}{' '}
+          {MARKOV_NORMALIZATION.structureT190}
         </p>
         <div
           style={{
@@ -3146,6 +3206,9 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.infinitesimalHierarchy,
             MARKOV_NORMALIZATION.infinitesimalJetFloor,
             MARKOV_NORMALIZATION.translationParityMargin,
+            MARKOV_NORMALIZATION.translationMixtureKernel,
+            MARKOV_NORMALIZATION.squareConcavityMixtureCounterexample,
+            MARKOV_NORMALIZATION.twoPacketConcavityTheorem,
             MARKOV_NORMALIZATION.continuumTail,
             MARKOV_NORMALIZATION.criticalTail,
             MARKOV_NORMALIZATION.levy,

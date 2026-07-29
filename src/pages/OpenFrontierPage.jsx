@@ -366,6 +366,10 @@ const MARKOV_NORMALIZATION = {
     'T172 proves that zero-free-multiplier derandomization cannot work anywhere in the current positive cube. A 384-bit uniform Rouché certificate compares every cube multiplier with the linearization of M_(c†) at its certified off-line blind spot. On the common radius-10^(−6) disk, the base Taylor remainder plus the complete three-coordinate perturbation is below 2.199393376973256903×10^(−7), while the linear boundary magnitude exceeds 1.697632526281556068×10^(−5). Every T170/T171 multiplier therefore has exactly one critical-strip zero in that disk. These are multiplier zeros, not zeta zeros; generic actual-zero avoidance remains valid. An explicit parameter must use genuine zeta noncoincidence, leave this positive component, or prove the arithmetic order directly',
   adaptiveDepth12BranchEscape:
     'T173 leaves the T172 cube along an exact negative depth-12 path. At α=41/200, scaling the rational profile by four gives a complete 10,000-zero, Turing-counted, Hadamard-tail RH-conditional margin 0.000321679025522368361>0.0003 for the same three-mode controller with retuned phase. A separate 512-bit Rouché disk places the tracked T162/T172 multiplier branch at 0.4999855998446+9924.9367162i, wholly left of the critical line. This constructively escapes the known blind branch while preserving the target response. It does not prove the entire depth-12 multiplier zero-free, exclude every shifted collision, prove the aggregate arithmetically, or prove RH',
+  adaptiveDepth12LowBlindSpot:
+    'T174 performs the missing global-zero-free stress at low height. A separate 512-bit Rouché certificate proves exactly one zero of the same exact depth-12 multiplier in the radius-10^(−12) disk around 0.5608496419737+1.2452344574602i, wholly inside 1/2<Re s<1 and below height 14. The completed first-zero/Turing ledger places the first nontrivial zeta ordinate above 14.1347, so this is a multiplier zero but not a zeta collision. Global multiplier zero-freeness for c♯ is rigorously false; actual zeta-divisor noncoincidence, paired-profile separation, and the arithmetic order remain open',
+  adaptiveDilationAlignedNoGain:
+    'T175 tests the only obvious endpoint-telescoping controller. The period LΔ=log(32/21) makes GΔ(log(32^d x))=GΔ(log(21^d x)) exactly, but its frequency ωΔ=2π/LΔ=14.9168671662… lies rigorously between the first two zeta ordinates. Turing counts also place 2ωΔ−γ₁ in the same zero-free gap, while M_(c♯)(ρ₁) is nonzero. The shifted first-zero mode is therefore a singleton. On RH the response is nonzero with mean zero and is Ω±, so exact ladder-endpoint alignment cannot produce an eventual one-sided aggregate',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -381,7 +385,23 @@ const MARKOV_NORMALIZATION = {
   gradedBackward:
     'e^{λ|u|}c tempered/PD ⇔ λ/2 ≤ Re ρ ≤ 1−λ/2; any positive rung would prove a uniform zero strip',
   finiteRadialLayers:
-    'every fixed finite family of modular/radial shifts with a nonzero fixed PSD coupling in the audited kernel family has a negative 2×2 principal minor sufficiently far in the tail',
+    'T42/T176/T177: finite PSD radial layers fail; for 0<a<1/2 the failure survives arbitrary finite derivative enrichment and every bounded PSD coupling of the full integer-modular tower at fixed derivative ceiling',
+  lowerEdgeTail:
+    'T178: atomless x^(ν−1)g(x) shift mass has normalized tail [2 cosh(s−r)]^(−ν)≻0; a lower-edge atom restores the negative 2×2 minor whenever 0<a<ν/2',
+  twoBranchHalfSech:
+    'T179: Bₐ=(1−e^(−2a(t+b)))/[2cosh(t−b)] is entrywise positive and fixed-order tail positive, but indefinite on every tail; the exact endpoint and theta corrections are load-bearing',
+  endpointOnlyNoGo:
+    'T180: restoring the complete endpoint y/S integral still leaves every tail indefinite for 0<a<1/2 when R≡1; the nontrivial theta-R cross-scale factor is load-bearing',
+  exactBoundaryRescue:
+    'T181: a 384-bit Arb replay proves ∂t∂b A₁⧸₄(0,0)=0.04453353300039674694…>0; the exact theta-R factor reverses the endpoint-only local obstruction',
+  exactBoundaryJet:
+    'T182: the 512-bit exact order-four boundary jet is positive definite; five confluent derivative levels pass, while order-uniform and interval PSD remain open',
+  boundaryEnergyHierarchy:
+    'T183: all boundary jets are PSD iff every even/odd P(D)e^(ax)Ψ has at least as much L² energy on x>0 as x<0; along aₙ↓0 this is RH-equivalent',
+  infinitesimalBoundaryJet:
+    'T184: the 512-bit five-level first-variation jet ∂ₐJₐ|₀ is positive definite; the exact theta rescue persists infinitesimally, while all-degree uniformity remains open',
+  infinitesimalHierarchy:
+    'T185: all finite infinitesimal boundary jets are PSD iff the de Branges kernel L₀ is PSD iff RH; the five certified T184 levels are not a strict reduction',
   continuumTail:
     'T45/T48/T55–T57/T64/T66–T67: after normalization the exact continuum block converges uniformly in every fixed Cᵐ tail norm to 1/[2 cosh(t−b)]. Every fixed order is eventually positive, but the spectral floor is zero and every finite signed upper H-relative bound fails. Compact-smooth graph approximation yields finite residual-pole witnesses, while zero-uniform control and the global one-sided contraction remain open',
   criticalTail:
@@ -556,7 +576,31 @@ const MARKOV_NORMALIZATION = {
   structureT172:
     'T172 closes one proposed selection shortcut. Every multiplier in the whole positive cube retains the same off-line blind spot by a uniform Rouché disk, so no parameter there can be certified by global multiplier zero-freeness. The certified roots are not zeta zeros.',
   structureT173:
-    'T173 escapes the small-cube obstruction. An exact depth-12 profile keeps a certified response above the public threshold while the known blind branch crosses left of the critical line. A global multiplier strip census is the next gate.',
+    'T173 escapes the small-cube obstruction. An exact depth-12 profile keeps a certified response above the public threshold while the known blind branch crosses left of the critical line.',
+  structureT174:
+    'T174 closes the hoped-for global zero-free follow-up: the same multiplier has a rigorously isolated low critical-strip zero. It lies below the first nontrivial zeta zero, so it is not an actual zeta collision; explicit noncoincidence or paired separation is now the analytic gate.',
+  structureT175:
+    'T175 closes the natural arithmetic telescoping shortcut. Matching the controller period to log(32/21) aligns every ladder endpoint but removes all zero-frequency zeta resonance; a certified singleton mode forces both aggregate signs even on RH. Any surviving arithmetic proof must use genuinely nonlocal prime correlation.',
+  structureT176:
+    'T176 returns to the sole coupled-kernel frontier and closes the remaining fixed finite derivative-layer shortcut below half thickness. Tail asymptotics isolate the least active shift and highest active derivative; the normalized 2×2 determinant stays strictly negative. Any surviving Gram construction must use infinite, continuous, test-adaptive, or genuinely nonlocal cross-fiber mixing.',
+  structureT177:
+    'T177 shows that merely making the modular layer set infinite is still insufficient. Any bounded PSD operator on the full integer tower has an isolated least active layer, while every later theta feature is superexponentially small in ℓ². The exact continuum rescue therefore requires lower-edge accumulation or another unbounded/nonlocal mechanism.',
+  structureT178:
+    'T178 classifies that lower-edge mechanism. Atomless power-law mass produces a strict fractional half-sech Gram limit, while any atom at the lower edge restores the discrete negative minor below the dimension threshold a=ν/2. Continuity helps locally in the tail but still supplies no global PSD theorem.',
+  structureT179:
+    'T179 closes the canonical two-branch promotion of that limit. Its boundary 2×2 minor is strictly negative, and real-analytic Gram continuation rules out PSD on every tail even though every fixed order eventually becomes positive. The exact endpoint, theta, and cross-scale corrections are therefore load-bearing.',
+  structureT180:
+    'T180 keeps the exact endpoint integral and closes that refinement too. A pointwise incomplete-gamma monotonicity makes the boundary mixed curvature negative throughout 0<a<1/2, so only the nontrivial theta-R factor and its cross-scale products remain as the exact continuum mechanism.',
+  structureT181:
+    'T181 certifies that the surviving theta factor really flips the first boundary sign at a=1/4. Nearby exact 2×2 minors are positive, unlike the R≡1 model; this is a local necessary-condition rescue, not higher-order or global PSD.',
+  structureT182:
+    'T182 proves that the rescue is not just a curvature accident. The full five-level confluent boundary jet is positive definite at a=1/4, moving the exact frontier from low fixed order to uniform control across all derivative orders or a whole interval.',
+  structureT183:
+    'T183 turns that uniformity gap into an explicit one-sided derivative-energy hierarchy. Taylor convergence, analytic Gram continuation, and Wiener-Hopf rigidity make the all-degree hierarchy equivalent to fixed-thickness Twin Ladder positivity.',
+  structureT184:
+    'T184 moves the finite certificate into the required a→0 regime. The full five-level first-variation jet is positive definite, so the local rescue survives infinitesimally; proving it at every degree and uniformly for small positive thickness is now the precise gap.',
+  structureT185:
+    'T185 classifies the all-degree infinitesimal target. Fourier transformation identifies its polynomial forms with the infinitesimal de Branges kernel L₀; weighted polynomial density recovers all kernel evaluations, so positivity at every degree is exactly equivalent to RH rather than a strict intermediate theorem.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -2108,16 +2152,196 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     id: 'T173',
     color: '#2dd4bf',
     status:
-      'EXACT DEPTH-12 POSITIVE ESCAPE · KNOWN BLIND BRANCH LEFT OF CRITICAL LINE · GLOBAL CENSUS OPEN',
+      'EXACT DEPTH-12 POSITIVE ESCAPE · KNOWN BLIND BRANCH LEFT OF CRITICAL LINE · T174 TESTS GLOBAL CENSUS',
     title: 'A larger positive path escapes the known blind branch',
     formula:
       'min H_(G♯,c♯)>0.0003216790 on RH; tracked M_(c♯) root has Re s<1/2',
     detail:
       'Set α=41/200 and take the exact rational depth-12 profile c♯=4{(1−α)c†−αq₁₂e₁₂}, with q₁₂=8.814659377234676…×10^(−10) represented by the terminating decimal in the proof. Retune only the phase of the same nonnegative three-mode controller. A 256-bit scan encloses the first 10,000 critical-line zeros, independently repeats their Turing count, charges every enclosed nonresonant pair, and charges the complete omitted Hadamard tail. Before scaling, the complete margin is above 8.041975638059209×10^(−5); scaling by four proves min H_(G♯,c♯)>0.000321679025522368361>0.0003 on RH. ' +
       'A separate 512-bit Rouché certificate follows the T162/T172 multiplier branch to s♯=0.49998559984461965+9924.936716166368i. On the radius-10^(−10) disk, the Taylor remainder is below 2.0032689573×10^(−17), versus a linear boundary magnitude above 2.6339690576×10^(−9), and the whole disk lies left of Re s=1/2. Thus the exact profile simultaneously retains the target positive response and removes the one known off-line blind branch. ' +
-      'This is a constructive escape from T172’s local cube, not a proof that M_(c♯) is globally zero-free. Other exponential-polynomial zeros may remain in the critical strip, and a single explicit profile may still cancel shifted multi-zero collision classes. The weighted aggregate is a rigorous RH consequence but is not proved unconditionally and is not yet an RH equivalence. The next gate is a global strip-zero census for M_(c♯).',
+      'This is a constructive escape from T172’s local cube, not a proof that M_(c♯) is globally zero-free. Other exponential-polynomial zeros may remain in the critical strip, and a single explicit profile may still cancel shifted multi-zero collision classes. The weighted aggregate is a rigorous RH consequence but is not proved unconditionally and is not yet an RH equivalence. T174 performs the global-zero-free stress and finds a rigorous low blind spot.',
     certificate:
       'proof/certificates/twin_ladder_first_radix/scan_alternative_finite_fourier_profiles.c + verify_depth12_escape.c',
+  },
+  {
+    id: 'T174',
+    color: '#fb7185',
+    status:
+      'RIGOROUS LOW MULTIPLIER BLIND SPOT · GLOBAL ZERO-FREE ESCAPE CLOSED · NOT A ZETA ZERO',
+    title: 'The depth-12 profile is not globally multiplier-zero-free',
+    formula:
+      '∃!s: |s−s_low|<10^(−12), M_(c♯)(s)=0, 1/2<Re s<1, 0<Im s<14',
+    detail:
+      'Use the exact T173 coefficients and center s_low=0.560849641973665926+1.245234457460175125i. A new 512-bit FLINT/Arb certificate bounds |M_(c♯)(s_low)| below 1.23×10^(−103), |M_(c♯)′(s_low)| above 124.0720378378863125, and the second derivative throughout the radius-10^(−12) disk below 31232.388068119852. The center residual plus Taylor remainder is below 1.561619403405993×10^(−20), versus a linear boundary magnitude above 1.240720378378863×10^(−10). Rouché therefore proves exactly one multiplier zero in the disk. ' +
+      'The interval geometry places the entire disk inside 1/2<Re s<1 and 0<Im s<14. The completed first-zero/Turing ledger used by T168 and T173 begins above 14.1347251417, so the certified point is not a nontrivial zeta zero and is not evidence against RH. It rigorously refutes only the stronger plan of proving M_(c♯) zero-free everywhere in the critical strip. ' +
+      'The generic one-profile criterion survives because it needs the multiplier to avoid actual zeta collision classes, not every point of the strip. The constructive frontier is now an explicit proof of zeta-divisor noncoincidence, a paired-profile separation mechanism, or a direct unconditional proof of the eventual weighted arithmetic order. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_depth12_low_blind_spot.c',
+  },
+  {
+    id: 'T175',
+    color: '#f59e0b',
+    status:
+      'EXACT DILATION-ALIGNED NO-GAIN · TURING-CERTIFIED NONRESONANCE · RH RESPONSE Ω±',
+    title: 'Endpoint periodicity removes the resonant bias',
+    formula:
+      'LΔ=log(32/21), GΔ(log(32^d x))=GΔ(log(21^d x)); S_(GΔ,c♯)=Ω±(X³ᐟ²) on RH',
+    detail:
+      'Choose the nonnegative three-mode controller G_(Δ,θ)(t)=(1+cos(ωΔ(t−θ)))/2 with ωΔ=2π/log(32/21). Its period is exactly the log gap between paired Twin Ladder endpoints, so its weights agree at 32^d x and 21^d x for every depth. This is the natural candidate for turning the prime-side aggregate into an endpoint telescope. ' +
+      'A new 256-bit FLINT/Arb certificate proves γ₁<ωΔ=14.91686716625114666865…<γ₂ and γ₁<2ωΔ−γ₁=15.69900919076759954685…<γ₂. Independent Turing counts give N(ωΔ)=N(2ωΔ−γ₁)=1. The same certificate proves |M_(c♯)(ρ₁)|>3.67259729251241891699. Thus the shifted frequency γ₁−ωΔ is a nonzero singleton class: neither the zero harmonic nor the opposite controller harmonic can cancel it. ' +
+      'No active shifted frequency is zero, so on RH the real uniformly almost-periodic response is nonzero with mean zero and takes both signs. The exact aggregate transfer gives Ω±(X^(3/2)) for every translate θ. Therefore exact endpoint periodicity cannot prove the required eventual positive order even if RH is true. This is a no-gain theorem for the telescoping controller, not a result about RH; a surviving Twin Ladder proof needs genuinely nonlocal prime correlation or another positive mechanism.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_dilation_aligned_controller.c',
+  },
+  {
+    id: 'T176',
+    color: '#fb7185',
+    status:
+      'FINITE DERIVATIVE-LAYER NO-GO · ALL 0<a<1/2 · EXACT CONTINUUM UNTOUCHED',
+    title: 'Finite derivative jets cannot repair the radial-layer tail',
+    formula:
+      'det J∂(T,T+h)=−c★²sinh²(ah)+O(e^((4a−2)T))<0, 0<a<1/2',
+    detail:
+      'Attach arbitrary finite derivative orders Ψ^(r)(t+x_j) to finitely many fixed radial or modular shifts and couple every resulting feature by any nonzero real PSD matrix. The exact theta tail gives Ψ^(r)(y)=(−2π)^r e^(2ry)Ψ(y)(1+O_r(e^(−2y))). PSD zero-row rigidity then isolates the least shift with positive diagonal mass and, at that shift, its highest active derivative. ' +
+      'After a real diagonal congruence, every lower derivative is O(e^(−2T)) and every later shift is superexponentially smaller. The normalized two-point matrix is therefore one hyperbolic layer plus O(e^((2a−2)T)); its determinant is −c★²sinh²(ah)+O(e^((4a−2)T)), which is strictly negative eventually for every 0<a<1/2. ' +
+      'This rigorously closes the natural fixed finite derivative-enriched extension of the T42 Gram ansatz throughout the small-thickness range needed for an RH descent. It does not classify a=1/2 or a>1/2, infinite derivative systems, continuous fibers, test-dependent or indefinite couplings, derivatives of a different carrier, or the exact continuum integral. The sole global Twin Ladder inequality and RH remain open.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.1',
+  },
+  {
+    id: 'T177',
+    color: '#fb7185',
+    status:
+      'FULL INTEGER-MODULAR TOWER NO-GO · BOUNDED PSD COUPLING · ALL 0<a<1/2',
+    title: 'Countably many isolated modular layers still cannot rescue the tail',
+    formula:
+      'Jmod=(eᵃ⁽ᵗ⁺ᵇ⁾⟨uₜ⁺,Cuᵦ⁺⟩−e⁻ᵃ⁽ᵗ⁺ᵇ⁾⟨uₜ⁻,Cuᵦ⁻⟩)/2; det₂→−c★²sinh²(ah)',
+    detail:
+      'Fix any finite derivative ceiling R and put u_t^±(k,r)=k^(±a)Ψ^(r)(t+log k) in ℓ²(N×{0,…,R}). Every nonzero bounded real PSD operator C defines the complete countable modular-layer kernel through the displayed Hilbert-space form; finite coordinate compressions recover the expected double modular sum without assuming absolute convergence of an unrestricted matrix series. ' +
+      'A positive operator has some positive diagonal entry. Choose the least active integer k★ and the highest active derivative r★ there; every earlier or higher zero-diagonal coordinate is killed exactly by C. Uniform theta decay bounds the complete k>k★ normalized feature tail by O(e^(CT−c e^(2T))) in ℓ², while the surviving lower derivatives at k★ are only O(e^(−2T)). Boundedness of C therefore reduces the entire infinite system to the same single hyperbolic layer as T176. ' +
+      'For every 0<a<1/2 and fixed h>0, the normalized 2×2 determinant is −c★²sinh²(ah)+O(e^((4a−2)T))<0 eventually. The exact continuum succeeds where this tower fails because its shifts accumulate at the lower integration edge. A surviving Gram route must use such lower-edge accumulation, unbounded effective derivative order or coupling, test dependence, a different carrier, or the genuine continuous radial integral. RH remains open.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.2',
+  },
+  {
+    id: 'T178',
+    color: '#22d3ee',
+    status:
+      'LOWER-EDGE DIMENSION CLASSIFIED · ATOMLESS TAIL RESCUE · GLOBAL PSD OPEN',
+    title: 'Atomlessness is the mechanism behind the continuum tail rescue',
+    formula:
+      'x^(ν−1)g(x)dx ⇒ Hν(s,r)=[2cosh(s−r)]^(−ν); m₀δ₀ ⇒ det₂<0 for a<ν/2',
+    detail:
+      'Replace the discrete radial layers by the shift density x^(ν−1)g(x)dx, where ν>0, g is nonnegative and continuous at zero, and g(0)>0. Exact first-mode theta asymptotics followed by endpoint Laplace scaling give a positive diagonal normalization converging at fixed offsets to H_ν(s,r)=[2cosh(s−r)]^(−ν). ' +
+      'The limit has an exact Gamma-integral Gram representation: H_ν(s,r)=Γ(ν)^(−1)∫y^(ν−1)(e^(νs)e^(−ye^(2s)))(e^(νr)e^(−ye^(2r)))dy. Distinct exponential rates make every fixed distinct-node principal matrix strictly positive. This recovers the ordinary continuum half-sech kernel at ν=1 and extends it to every positive lower-edge dimension. ' +
+      'Accumulation alone is not sufficient. Adding an atom m₀δ₀ and normalizing by its layer leaves the two-point determinant −m₀²sinh²(ah)+O(e^((4a−2ν)T)), which is strictly negative whenever 0<a<ν/2. For ordinary dimension ν=1, the atom blocks the entire inner range 0<a<1/2. This is a quantified tail architecture theorem, not global kernel positivity, T3, or RH.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.3',
+  },
+  {
+    id: 'T179',
+    color: '#a78bfa',
+    status:
+      'CANONICAL TWO-BRANCH MODEL NO-GO · INDEFINITE ON EVERY TAIL · FIXED ORDERS POSITIVE',
+    title: 'The half-sech limit plus its leading negative branch is not globally PSD',
+    formula:
+      'Bₐ(t,b)=(1−e^(−2a(t+b)))/(2cosh(t−b)); det₂(0,h)=−[(1−e^(−2ah))/(2cosh h)]²',
+    detail:
+      'The simplest attempted promotion of the fractional half-sech tail is symmetric, real analytic, and entrywise positive. Its relative Cᵐ error from H(t,b)=1/[2cosh(t−b)] is O(e^(−4aL)) on (L,∞)², so the fixed-order divided-difference argument makes every fixed distinct-node matrix order positive sufficiently far out. ' +
+      'Global positivity still fails. At the continuous boundary pair 0,h, the top-left entry vanishes while the off-diagonal entry is positive, giving the displayed strictly negative determinant. If the kernel were PSD on any tail, real-analytic Gram continuation would extend PSD across the connected positive quadrant and contradict that boundary minor. Therefore Bₐ is indefinite on every tail, with the least negative witness order escaping to infinity. ' +
+      'This rules out the half-sech limit plus only its leading negative-sinh branch as the missing global Gram kernel. The exact endpoint y/S dependence, theta-R remainder, and cross-scale corrections are load-bearing. It is a model obstruction, not an obstruction to the exact continuum kernel and not a proof or disproof of RH.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.4',
+  },
+  {
+    id: 'T180',
+    color: '#f472b6',
+    status:
+      'EXACT ENDPOINT-ONLY MODEL NO-GO · EVERY TAIL INDEFINITE · 0<a<1/2',
+    title: 'The full endpoint integral still needs the theta remainder',
+    formula:
+      '2I′(λ)=∫₁∞q^(λ−1)e^(−2πq)(1+λ+λlogq−2πq)dq<0, 4<λ<5',
+    detail:
+      'Set only R≡1 in the exact endpoint identity, retaining both hyperbolic branches and the complete y/S dependence. Equivalently use the pure leading carrier φ₀(v)=exp(9v/2−πe^(2v)). At the boundary the kernel is positive on the diagonal and has zero first derivative, while its mixed derivative is [I(9/2+a)−I(9/2−a)]/2 with I(λ)=∫₀∞[(exp(λx−πe^(2x)))′]²dx. ' +
+      'A substitution q=e^(2x) and one exact incomplete-gamma recurrence give the displayed derivative formula. Its final factor is negative at q=1 when λ<2π−1 and decreases thereafter because λ/q−2π<0. Thus I is strictly decreasing on 4<λ<5. For every 0<a<1/2 the boundary mixed derivative is negative, producing a negative 2×2 determinant at sufficiently close nodes; continuity moves it inside the positive quadrant and real-analytic Gram continuation rules out PSD on every tail. ' +
+      'The model still approaches the half-sech kernel in every fixed Cᵐ tail norm, so each fixed matrix order eventually becomes positive and the negative witness order escapes. Exact endpoint scaling is not the rescue: the nontrivial theta-R factor and its cross-scale products are now load-bearing. This does not decide the exact theta kernel, T3, or RH.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.5',
+  },
+  {
+    id: 'T181',
+    color: '#34d399',
+    status:
+      'EXACT THETA LOCAL RESCUE · 384-BIT ARB CERTIFICATE · GLOBAL PSD OPEN',
+    title: 'The theta remainder reverses the first boundary obstruction',
+    formula:
+      'κ₁⧸₄=∂ₜ∂ᵦA₁⧸₄(0,0)=0.0445335330003967469414106437971±1.91×10⁻³²>0',
+    detail:
+      'For the full even theta carrier, integration by parts gives κₐ=∫₀∞sinh(2ax)(Ψ′(x)²−a²Ψ(x)²)dx−aΨ(0)², while exact evenness forces ∂ₜAₐ(0,0)=0. A new Arb verifier evaluates the 12-mode theta head on [0,2] at 384-bit precision and adds explicit enclosures for all omitted modes and the x≥2 tail. It proves the displayed strictly positive interval at a=1/4. ' +
+      'Because A₁⧸₄(0,0)>0, the determinant for the nearby boundary pair 0,h equals A₁⧸₄(0,0)κ₁⧸₄h²+O(h³) and is positive for sufficiently small h. The endpoint-only R≡1 carrier has negative mixed curvature, so the exact theta remainder is rigorously a real local rescue mechanism rather than a cosmetic asymptotic correction. ' +
+      'This certifies one local two-point necessary condition only. It gives no uniform h range, no higher principal-minor control, no PSD on an interval, and no proof of T3 or RH.',
+    certificate:
+      'proof/certificates/twin_ladder_channel_split/verify_exact_boundary_curvature_arb.c',
+  },
+  {
+    id: 'T182',
+    color: '#2dd4bf',
+    status:
+      'FIVE-LEVEL EXACT BOUNDARY JET POSITIVE · 512-BIT ARB · UNIFORMITY OPEN',
+    title: 'The local theta rescue persists through order four',
+    formula:
+      'J₁⧸₄⁽⁴⁾(m,n)=∂ₜᵐ∂ᵦⁿA₁⧸₄(0,0)/(m!n!) ≻ 0; det=3.7381461390968124752×10⁻⁶',
+    detail:
+      'Differentiate the exact same-sign block before integration. With g±(x)=Ψ(x)e^(±x/4), the Taylor-normalized jet entry is [2m!n!]⁻¹∫₀∞(g₊⁽ᵐ⁾g₊⁽ⁿ⁾−g₋⁽ᵐ⁾g₋⁽ⁿ⁾)dx. Exact theta evenness gives g₋(x)=g₊(−x), so every entry with m+n odd vanishes after reflection and integration by parts; the matrix splits into even and odd derivative blocks. ' +
+      'A new 512-bit Arb verifier evaluates twelve theta modes on [0,2] and attaches explicit enclosures for every omitted mode and the x≥2 tail. All five leading principal determinants for derivative orders 0 through 4 are strictly positive. The full determinant is 3.73814613909681247520798344427×10⁻⁶ with radius 3.45×10⁻³⁶, so Sylvester’s criterion certifies positive definiteness. ' +
+      'This extends T181 from local curvature to five confluent derivative levels and implies positivity for sufficiently tight generic five-point boundary clusters. It supplies no order-uniform lower bound, no PSD interval, and no proof of T3 or RH.',
+    certificate:
+      'proof/certificates/twin_ladder_channel_split/verify_exact_boundary_jet_arb.c',
+  },
+  {
+    id: 'T183',
+    color: '#fbbf24',
+    status:
+      'EXACT ALL-ORDER BOUNDARY CRITERION · ONE-SIDED ENERGY · RH-EQUIVALENT SEQUENCE',
+    title: 'The remaining gap is positive-half-line dominance at every derivative degree',
+    formula:
+      'c*Jₐc=½∫ℝsgn(x)|P(D)(e^(ax)Ψ(x))|²dx ≥ 0 for every even/odd P',
+    detail:
+      'Let hₐ(x)=e^(ax)Ψ(x). Differentiating the exact same-sign block gives the boundary coefficient matrix from T182. Exact theta evenness implies h₋ₐ(x)=hₐ(−x), kills every mixed even/odd jet entry, and converts each pure-parity polynomial quadratic form into the displayed signed energy identity. ' +
+      'Therefore the complete boundary hierarchy is positive exactly when ‖P(D)hₐ‖L²(−∞,0)≤‖P(D)hₐ‖L²(0,∞) for every even polynomial and every odd polynomial. This condition is sufficient as well as necessary: normal convergence of the two-variable Taylor series yields PSD in a neighborhood of the boundary, real-analytic Gram continuation propagates it across the positive half-line, and Wiener-Hopf rigidity identifies same-sign positivity with the complete fixed-thickness Twin Ladder condition. ' +
+      'Imposing the hierarchy along any prescribed sequence aₙ↓0 is equivalent to RH by the divisor theorem. T182 verifies only degrees 0 through 4 at a=1/4, so T183 is an exact reformulation and a sharper attack surface—not a proof.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.8',
+  },
+  {
+    id: 'T184',
+    color: '#60a5fa',
+    status:
+      'INFINITESIMAL FIVE-LEVEL JET POSITIVE · 512-BIT ARB · ALL-DEGREE GAP',
+    title: 'The boundary rescue survives the zero-thickness first variation',
+    formula:
+      'L⁽⁴⁾=∂ₐJₐ⁽⁴⁾|ₐ₌₀ ≻ 0; det L⁽⁴⁾=0.00348304876648921553805367897840',
+    detail:
+      'Differentiate the T183 hierarchy at zero thickness. Since P(D)(e^(ax)Ψ)=e^(ax)P(D+a)Ψ, its first variation is xP(D)Ψ+P′(D)Ψ. Entrywise this gives L(m,n)=[m!n!]⁻¹∫₀∞[2xΨ⁽ᵐ⁾Ψ⁽ⁿ⁾+mΨ⁽ᵐ⁻¹⁾Ψ⁽ⁿ⁾+nΨ⁽ᵐ⁾Ψ⁽ⁿ⁻¹⁾]dx, omitting negative derivative indices. ' +
+      'The extended 512-bit Arb verifier evaluates the exact theta head and explicit mode/integration tails for derivative orders 0 through 4. All five leading principal determinants are positive; the full determinant is 0.00348304876648921553805367897840 with radius 3.06×10⁻³³. Thus the five-level exact rescue is not confined to a=1/4 but persists in the first variation at a=0. ' +
+      'This is finite-order evidence in the vanishing-thickness regime. It does not prove the all-degree infinitesimal hierarchy, a lower bound uniform for small positive a, fixed-thickness PSD, or RH.',
+    certificate:
+      'proof/certificates/twin_ladder_channel_split/verify_exact_boundary_jet_arb.c',
+  },
+  {
+    id: 'T185',
+    color: '#f59e0b',
+    status:
+      'ALL-DEGREE INFINITESIMAL HIERARCHY · EXACTLY RH-EQUIVALENT · NOT A STRICT REDUCTION',
+    title: 'Every infinitesimal jet level recovers the full de Branges criterion',
+    formula:
+      'c*Lc=(2/π)∬P(iλ)P(iμ)̅L₀(λ,μ)dλdμ; all d PSD ⇔ L₀ PSD ⇔ RH',
+    detail:
+      'Fourier transformation of the T184 signed-energy first variation identifies every polynomial jet quadratic form with the displayed integral against the infinitesimal de Branges kernel L₀(λ,μ)=[Ξ(λ)Ξ′(μ)−Ξ′(λ)Ξ(μ)]/[π(λ−μ)]. Its diagonal singularity is removable and completed-Ξ decay makes all polynomial integrals convergent. ' +
+      'Under RH, the rank-one expansion over real zeros makes every form nonnegative. Conversely, positivity in every finite degree extends from polynomials to compact bumps by density in a suitable exponentially weighted L² space. Approximate identities recover all real evaluation matrices of L₀; confluent limits and the entire Taylor expansion recover the full complex kernel. The established de Branges criterion then gives RH. ' +
+      'Thus the all-degree infinitesimal hierarchy is a concrete exact reformulation, not an easier theorem. The 512-bit T184 calculation verifies only derivative degrees 0 through 4 and remains finite evidence rather than a proof of RH.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.10',
   },
 ];
 
@@ -2271,7 +2495,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T173 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T185 · 2026-07-28</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -2297,7 +2521,7 @@ export default function OpenFrontierPage() {
                 background: `${item.color}0d`,
                 border: `1px solid ${item.color}40`,
                 minWidth: 0,
-                gridColumn: ['T160', 'T161', 'T162', 'T163', 'T164', 'T165', 'T166', 'T167', 'T168', 'T169', 'T170', 'T171', 'T172', 'T173'].includes(item.id)
+                gridColumn: ['T160', 'T161', 'T162', 'T163', 'T164', 'T165', 'T166', 'T167', 'T168', 'T169', 'T170', 'T171', 'T172', 'T173', 'T174', 'T175', 'T176', 'T177', 'T178', 'T179', 'T180', 'T181', 'T182', 'T183', 'T184', 'T185'].includes(item.id)
                   ? '1 / -1'
                   : undefined,
               }}
@@ -2642,7 +2866,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T173 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T185 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -2700,7 +2924,19 @@ export default function OpenFrontierPage() {
           {MARKOV_NORMALIZATION.structureT170}{' '}
           {MARKOV_NORMALIZATION.structureT171}{' '}
           {MARKOV_NORMALIZATION.structureT172}{' '}
-          {MARKOV_NORMALIZATION.structureT173}
+          {MARKOV_NORMALIZATION.structureT173}{' '}
+          {MARKOV_NORMALIZATION.structureT174}{' '}
+          {MARKOV_NORMALIZATION.structureT175}{' '}
+          {MARKOV_NORMALIZATION.structureT176}{' '}
+          {MARKOV_NORMALIZATION.structureT177}{' '}
+          {MARKOV_NORMALIZATION.structureT178}{' '}
+          {MARKOV_NORMALIZATION.structureT179}{' '}
+          {MARKOV_NORMALIZATION.structureT180}{' '}
+          {MARKOV_NORMALIZATION.structureT181}{' '}
+          {MARKOV_NORMALIZATION.structureT182}{' '}
+          {MARKOV_NORMALIZATION.structureT183}{' '}
+          {MARKOV_NORMALIZATION.structureT184}{' '}
+          {MARKOV_NORMALIZATION.structureT185}
         </p>
         <div
           style={{
@@ -2852,12 +3088,22 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.adaptiveOneParameterFiniteProfile,
             MARKOV_NORMALIZATION.adaptiveUniformMultiplierBlindSpot,
             MARKOV_NORMALIZATION.adaptiveDepth12BranchEscape,
+            MARKOV_NORMALIZATION.adaptiveDepth12LowBlindSpot,
+            MARKOV_NORMALIZATION.adaptiveDilationAlignedNoGain,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
             MARKOV_NORMALIZATION.cellQuotient,
             MARKOV_NORMALIZATION.gradedBackward,
             MARKOV_NORMALIZATION.finiteRadialLayers,
+            MARKOV_NORMALIZATION.lowerEdgeTail,
+            MARKOV_NORMALIZATION.twoBranchHalfSech,
+            MARKOV_NORMALIZATION.endpointOnlyNoGo,
+            MARKOV_NORMALIZATION.exactBoundaryRescue,
+            MARKOV_NORMALIZATION.exactBoundaryJet,
+            MARKOV_NORMALIZATION.boundaryEnergyHierarchy,
+            MARKOV_NORMALIZATION.infinitesimalBoundaryJet,
+            MARKOV_NORMALIZATION.infinitesimalHierarchy,
             MARKOV_NORMALIZATION.continuumTail,
             MARKOV_NORMALIZATION.criticalTail,
             MARKOV_NORMALIZATION.levy,
@@ -4019,9 +4265,23 @@ export default function OpenFrontierPage() {
           above 0.0003 after exact scaling, while a separate Rouché
           disk places the tracked blind branch strictly left of the
           critical line. This removes the one known blind branch
-          without sacrificing the target response. A global census of
-          the other multiplier zeros and collision residues remains
-          necessary before this one explicit profile yields a converse.
+          without sacrificing the target response. T174 performs the
+          global-zero-free stress and rigorously finds another
+          multiplier zero near 0.560850+1.245234i, wholly inside the
+          critical strip and below height 14. The completed first-zero
+          ledger shows it is not a zeta zero. Thus global multiplier
+          zero-freeness is closed for this profile, while actual
+          zeta-divisor noncoincidence, paired separation, and the
+          arithmetic order remain necessary for a converse.
+          T175 then tests the natural prime-side telescoping idea:
+          choose period log(32/21), so the controller repeats exactly
+          at every paired ladder endpoint. Its frequency 14.916867…
+          lies in the certified gap between the first two zeta
+          ordinates. A Turing-certified singleton shifted mode makes
+          the RH response nonzero with mean zero and therefore Ω±.
+          Exact endpoint alignment cannot supply the one-sided bias;
+          any surviving arithmetic proof must use a genuinely
+          nonlocal prime correlation.
           Separately, for the T93/T96 annular deficit, if RH is false
           both strict signs recur infinitely often; if RH is true the
           certified annular deficit is eventually negative. This is

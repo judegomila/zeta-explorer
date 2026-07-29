@@ -402,6 +402,10 @@ const MARKOV_NORMALIZATION = {
     'T184: the 512-bit five-level first-variation jet ∂ₐJₐ|₀ is positive definite; the exact theta rescue persists infinitesimally, while all-degree uniformity remains open',
   infinitesimalHierarchy:
     'T185: all finite infinitesimal boundary jets are PSD iff the de Branges kernel L₀ is PSD iff RH; the five certified T184 levels are not a strict reduction',
+  infinitesimalJetFloor:
+    'T186: the normalized jet floor λd is nested; RH iff λd↓0, while non-RH forces a negative finite level. Translation packets rule out every uniform positive margin',
+  translationParityMargin:
+    'T187: strict concavity of log Ψ(√s) proves both even and odd translated theta packets stay positive and approach the normalized zero margin from above',
   continuumTail:
     'T45/T48/T55–T57/T64/T66–T67: after normalization the exact continuum block converges uniformly in every fixed Cᵐ tail norm to 1/[2 cosh(t−b)]. Every fixed order is eventually positive, but the spectral floor is zero and every finite signed upper H-relative bound fails. Compact-smooth graph approximation yields finite residual-pole witnesses, while zero-uniform control and the global one-sided contraction remain open',
   criticalTail:
@@ -601,6 +605,10 @@ const MARKOV_NORMALIZATION = {
     'T184 moves the finite certificate into the required a→0 regime. The full five-level first-variation jet is positive definite, so the local rescue survives infinitesimally; proving it at every degree and uniformly for small positive thickness is now the precise gap.',
   structureT185:
     'T185 classifies the all-degree infinitesimal target. Fourier transformation identifies its polynomial forms with the infinitesimal de Branges kernel L₀; weighted polynomial density recovers all kernel evaluations, so positivity at every degree is exactly equivalent to RH rather than a strict intermediate theorem.',
+  structureT186:
+    'T186 supplies the correct scale and closes the coercive shortcut. A translated theta packet has fixed derivative energy but infinitesimal form equal to a vanishing positive theta tail, so the least normalized jet eigenvalue must tend to zero under RH; any off-line zero instead appears as a negative finite-degree witness.',
+  structureT187:
+    'T187 proves that the canonical translated near-null family is safe in each parity. Strict square-radius log-concavity bounds its cross-overlap by its radial tail exactly; any negative jet witness must therefore use a genuinely non-translation derivative superposition.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -2343,6 +2351,36 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     certificate:
       'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.10',
   },
+  {
+    id: 'T186',
+    color: '#fb7185',
+    status:
+      'NORMALIZED JET FLOOR · EXACT ZERO-MARGIN DICHOTOMY · COERCIVITY REFUTED',
+    title: 'The finite jet exhaustion must approach RH at zero margin',
+    formula:
+      'λd=min(c*L⁽ᵈ⁾c/c*G⁽ᵈ⁾c); RH ⇔ λd↓0, while ¬RH ⇔ λd<0 at finite d',
+    detail:
+      'Whiten the infinitesimal jet by the positive parity-block Gram matrix G⁽ᵈ⁾ of Ψ⁽ᵐ⁾/m!. The coefficient spaces are nested, so their least generalized eigenvalues λd are nonincreasing. T185 already says that every λd is nonnegative exactly under RH. ' +
+      'The translation symbol P_T(z)=e^(−Tz) gives P_T(D)Ψ(x)=Ψ(x−T). Its infinitesimal numerator is exactly 2∫_T^∞uΨ(u)²du, while the combined even/odd derivative energy is the fixed value ‖Ψ‖²/2. Taylor polynomials transfer this quotient into the finite jet spaces and force the attainable margin to zero. Thus RH means λd decreases to zero; failure of RH produces a negative witness at a finite degree. No degree-uniform coercive proof is possible. ' +
+      'A high-precision incomplete-gamma scan reproduces the certified T184 determinant and remains positive through d=16, where λ₁₆≈1.1366×10⁻¹⁰. The higher-degree signs are exploratory; Arb certification still stops at d=4. Raw determinant growth is therefore misleading—the remaining theorem must preserve sign at vanishing margin.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.11',
+  },
+  {
+    id: 'T187',
+    color: '#34d399',
+    status:
+      'TRANSLATED PARITY PACKETS POSITIVE · STRICT CONCAVITY · ZERO MARGIN FROM ABOVE',
+    title: 'The canonical near-null packets cannot hide a negative direction',
+    formula:
+      'Qeven(T)=R(T)+D(T)>0; Qodd(T)=R(T)−D(T)>0 because D(T)<R(T)',
+    detail:
+      'Split the T186 translation symbol e^(−Tz) into cosh(Tz) and −sinh(Tz). Their infinitesimal forms are exactly R+D and R−D, where R(T)=∫_T^∞uΨ(u)²du and D(T)=∫₀^∞xΨ(x−T)Ψ(x+T)dx. Only the odd difference has a possible sign issue. ' +
+      'A classical strict concavity theorem for the Riemann–Jacobi kernel states that s↦log Ψ(√s) is strictly concave. Apply it to (T−x)² and (T+x)²: Ψ(x−T)Ψ(x+T)<Ψ(√(T²+x²))². Multiplying by x and substituting u=√(T²+x²) proves D(T)<R(T) for every T>0. Both parity quotients therefore approach the T186 zero margin strictly from above. ' +
+      'This is an unconditional infinite-family sign theorem, not RH. It closes translated packets only. If an off-line zero exists, its finite-degree negative witness must use a genuinely non-translation derivative superposition.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.12',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -2495,7 +2533,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T185 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T187 · 2026-07-28</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -2521,7 +2559,7 @@ export default function OpenFrontierPage() {
                 background: `${item.color}0d`,
                 border: `1px solid ${item.color}40`,
                 minWidth: 0,
-                gridColumn: ['T160', 'T161', 'T162', 'T163', 'T164', 'T165', 'T166', 'T167', 'T168', 'T169', 'T170', 'T171', 'T172', 'T173', 'T174', 'T175', 'T176', 'T177', 'T178', 'T179', 'T180', 'T181', 'T182', 'T183', 'T184', 'T185'].includes(item.id)
+                gridColumn: ['T160', 'T161', 'T162', 'T163', 'T164', 'T165', 'T166', 'T167', 'T168', 'T169', 'T170', 'T171', 'T172', 'T173', 'T174', 'T175', 'T176', 'T177', 'T178', 'T179', 'T180', 'T181', 'T182', 'T183', 'T184', 'T185', 'T186', 'T187'].includes(item.id)
                   ? '1 / -1'
                   : undefined,
               }}
@@ -2866,7 +2904,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T185 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T187 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -2936,7 +2974,9 @@ export default function OpenFrontierPage() {
           {MARKOV_NORMALIZATION.structureT182}{' '}
           {MARKOV_NORMALIZATION.structureT183}{' '}
           {MARKOV_NORMALIZATION.structureT184}{' '}
-          {MARKOV_NORMALIZATION.structureT185}
+          {MARKOV_NORMALIZATION.structureT185}{' '}
+          {MARKOV_NORMALIZATION.structureT186}{' '}
+          {MARKOV_NORMALIZATION.structureT187}
         </p>
         <div
           style={{
@@ -3104,6 +3144,8 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.boundaryEnergyHierarchy,
             MARKOV_NORMALIZATION.infinitesimalBoundaryJet,
             MARKOV_NORMALIZATION.infinitesimalHierarchy,
+            MARKOV_NORMALIZATION.infinitesimalJetFloor,
+            MARKOV_NORMALIZATION.translationParityMargin,
             MARKOV_NORMALIZATION.continuumTail,
             MARKOV_NORMALIZATION.criticalTail,
             MARKOV_NORMALIZATION.levy,

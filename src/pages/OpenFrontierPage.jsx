@@ -318,6 +318,30 @@ const MARKOV_NORMALIZATION = {
     'T148: squarefree arithmetic state preserves both critical excursions even though its O(√X) counting discrepancy lies outside T143. Uniform dilation quadrature gives Σ_(m≤X/q)𝒞_c(qm)=q^(−1)𝓘_c(X)+O_c(Xlog X) on RH. Insert μ²(v)=Σ_(k²|v)μ(k), truncate at K=⌊log⁴(2X)⌋, and interchange sums. The K sublattices cost O(KXlog X); the omitted large-square divisors cost O(X^(3/2)log²X/K). Both are o(X^(3/2)), so Σ_(v≤X)μ²(v)𝒞_c(v)=ζ(2)^(−1)𝓘_c(X)+o(X^(3/2))=Ω±(X^(3/2)). The nonsquarefree complement carries coefficient 1−ζ(2)^(−1) and also both signs. Arbitrary fixed profiles and exact products inherit the result. A surviving arithmetic marginal needs critical divisor-tail mass, zero density, or closer correlation with primes inside the annuli',
   adaptiveSummableDivisorStateNoGo:
     'T149: every positive-density divisor-convolution state with a positive power margin preserves both critical excursions. If a(v)=Σ_(q|v)h(q), Σ_q|h(q)|q^(−1+η)<∞ for some 0<η<1, and δ_h=Σ_qh(q)/q lies strictly between 0 and 1, then uniform dilation quadrature and truncation at Q=X^α give Σ_(v≤X)a(v)𝒞_c(v)=δ_h𝓘_c(X)+o(X^(3/2))=Ω±(X^(3/2)) on RH. The complement has coefficient 1−δ_h and also both signs. This includes every r-free selector and finite sieve state, for arbitrary fixed profiles and exact products. A surviving arithmetic state must fail every positive power margin, have zero density, or correlate directly with the annular prime data',
+  adaptiveLogMomentDivisorStateNoGo:
+    'T150: the T149 positive power margin is not necessary. If Σ_q|h(q)|log²(2q)/q<∞ and 0<δ_h<1, use Q=⌊√X/log²(2X)⌋. The prefix dilation cost is O(Xlog X·H_h(Q))=o(X^(3/2)), while log²(2Q)A_h(Q)→0 makes the divisor tail subcritical. Hence the selected and complementary states carry δ_h and 1−δ_h of the T139 wave and both remain Ω±(X^(3/2)) on RH. This strictly extends T149: excluding r_k=p_(k+⌈klog³(k+1)⌉) gives an infinite positive-density sparse-prime sieve with the log-squared moment finite but every positive power moment divergent. The remaining divisor route requires balanced error at the log^(−2) tail boundary, zero density, or direct prime-annulus correlation',
+  adaptiveCriticalSparsePrimeCorrelation:
+    'T151: sparse forbidden primes r_(β,k)=p_(k+⌈klog^(β−1)(k+1)⌉) give an exact phase boundary. Their full divisor Euler tail is A_β(Q)≈log^(1−β)Q, so T150 applies exactly for β>3; every finite β still fails all positive power moments. At β=3 the tail is log^(−2)Q and the response is X^(3/2)-critical. With 𝒟_c(q;X)=S_c^(q)(X)−q^(−1)𝓘_c(X), the bounded RH observable 𝔎_c(X)=X^(−3/2)Σ_(q≤X)h_3(q)𝒟_c(q;X) gives selected wave δ_3G_c(log X)+𝔎_c(X)+o(1) and complementary wave (1−δ_3)G_c(log X)−𝔎_c(X)+o(1). If 𝔎_c=o(1), both states retain both signs; any eventual sign requires nonzero phase alignment. This is the first explicit independent critical prime-dilation correlation',
+  adaptiveFiniteZeroPacketDecorrelation:
+    'T152: the β=3 sieve has natural density δ_3 and Dirichlet series ζ(s)P_3(s), with P_3(s)=∏_(r∈P_3)(1−r^(−s)). Since Σ_r(log r)/r converges, centering cancels the pole at s=1. More directly, A_3(X)−δ_3X=o(X), so Abel summation gives Σ_(v≤X)(a_3(v)−δ_3)v^z=o_z(X^(3/2)) for every fixed Re z=1/2. Every fixed finite packet of critical zeta-zero modes therefore transfers with density δ_3 and contributes nothing to 𝔎_c. Any nonzero T151 response must escape to unbounded zero height through nonuniform resonance between high zeros and the boundary values P_3(1+it). Pole cancellation or bounded-height computation cannot close it; a uniform high-frequency convolution estimate is the live task',
+  adaptiveNaturalDensityLargeSieveNoGo:
+    'T153: every bounded selector with a natural mean preserves the density-scaled Twin Ladder wave for every fixed finite profile. Truncate the RH explicit formula at height X. Natural density makes each fixed zero mode o(X^(3/2)); for T<|γ|≤2T, color the zeros into O(log T) one-separated families and apply the multiplicative large sieve to b_v=(a_v−δ)√v. Cauchy–Schwarz bounds the normalized block by O_c(log(2T)/√T), uniformly for T≤X. The dyadic high tail vanishes, so Σ_(v≤X)(a_v−δ)𝒞_c(v)=o(X^(3/2)). Every positive-density binary state and its complement retain both signs and exact product crossings. In particular 𝔎_c=o(1), closing the β=3 critical sieve. Any remaining independent selector must have zero density, fail natural density, or use a nonuniform infinite profile',
+  adaptiveNaturalDensityInfiniteProfileNoGo:
+    'T154: natural density preserves the wave for every fixed uniformly summable infinite profile, not only finite depth. For the depth-d response, truncate the RH explicit formula at T_d=X32^d. The multiplicative large sieve and the explicit-formula remainder give the uniform normalized majorant O(32^(d/2)(d+1)^2). This is summable against c_d whenever ||c||_𝔄=Σ_d(d+1)32^d|c_d|<∞. Since each fixed-depth response is o(X^(3/2)) by T153, dominated convergence yields Σ_(v≤X)(a_v−δ)𝒞_c(v)=o(X^(3/2)) throughout the full T139 space. Positive-density states and complements preserve both signs. Any remaining escape needs zero or absent natural density, nonuniform row-dependent profiles, non-summable depth, or nonlinear coupling',
+  adaptiveBanachMeanProfileNoGo:
+    'T155: a row-dependent profile schedule with a coordinatewise T139-summable envelope and a natural Cesàro mean c̄ collapses to that fixed mean profile. Center each depth coefficient. T153 makes every fixed-depth centered response o(X^(3/2)), while T154 supplies the summable majorant g_d32^(d/2)(d+1)^2. Dominated convergence gives Σ_(v≤X)𝒞_(c^[v])(v)=𝓘_c̄(X)+o(X^(3/2)). If c̄≠0, the adaptive schedule retains the T139 Ω± wave. More strongly, in any deterministic finite-state schedule whose state densities exist, every positive-density nonzero state retains both signs separately, even when the mean profile cancels. A strict finite-state controller must lose natural state density or use an undominated/nonlinear rule',
+  adaptiveNondensityHydrodynamicLimit:
+    'T156: every bounded selector, even without natural density, has a complete subsequential X^(3/2)-scale description. The dilation measures μ_X=X^(−1)Σ_(v≤X)a_vδ_(v/X) are weak-* compact, and all zeta phases X^(iγ) can be extracted simultaneously. The multiplicative large sieve makes the high-zero tail uniformly O_c(log T/√T). Along the subsequence, X^(−3/2)Σa_v𝒞_c(v) tends to ℋ_c(μ,ω)=−Σ_ρM_c(ρ)ω_γρ^(−1)∫u^ρdμ. For binary selectors dμ=f(u)du with 0≤f≤1; natural density is the constant f case. Any nondensity one-sided controller must therefore phase-lock a macroscopic multiplicative-scale shape f to the zeta phase ω. Microscopic irregularity alone cannot steer the sign',
+  adaptiveLogPeriodicResonance:
+    'T157: the canonical T156 phase-locking attempt is a fixed log-periodic weight F(log v). If F has a weighted-absolutely-convergent Fourier series with period L, its RH response is X^(3/2)H_(F,c)(log X)+o(X^(3/2)), where H has shifted frequencies γ+2πk/L. Outside a countable measure-zero set generated by zeta ordinates and their differences, those frequencies are nonzero and distinct. The response is then a nonzero mean-zero almost-periodic wave and is Ω±(X^(3/2)). Only exact zeta-resonant periods can create a constant bias, and that bias must still dominate every off-resonant mode. Discontinuous binary log blocks and exceptional resonance remain open',
+  adaptiveBinaryLogBlockResonance:
+    'T158: the T157 theorem extends from smooth weights to every periodic bounded-variation weight, including exact binary logarithmic blocks. Replace termwise smooth Euler summation by the periodic exponential resolvent Q_(ρ,F)(t)=∫_0^∞F(t−y)e^(−(ρ+1)y)dy. BV Fourier decay |F̂_k|=O(1/|k|) combines with the shifted zero bound O(log²(2+|λ_k|)/(1+|λ_k|)) to make the full response absolutely convergent. Outside the same countable zeta-resonance set, both a nontrivial binary block and its complement have nonzero mean-zero almost-periodic responses and retain Ω±(X^(3/2)) and both exact row orders. Only exceptional resonance remains for fixed-period binary control',
+  adaptiveResonantBlockDesign:
+    'T159: an exceptional interval block resonant at L=2πm/γ_j has exact constant bias B_(j,m)=−(4/3)Re(F̂_(−m)M_c(ρ_j)/ρ_j). Optimizing block phase gives |B|_max=(4/3)|sin(πmδ)|/(πm)|M_c(ρ_j)/ρ_j|, so a half-duty first-harmonic block is strongest. A five-depth profile normalized at the first zero and chosen to cancel the second and third multipliers stayed positive in sampled 100- and 300-zero packets, but a 1,000-zero/1.2-million-phase scan found a negative value. The candidate is falsified before infinite-tail control. A viable design must co-optimize the multiplier and resonant block across every growing packet, rigorously dominate the tail, and transfer cumulative positivity to rows',
+  adaptiveResonantPairRayleigh:
+    'T160: the optimally phased half-duty contribution of the resonant conjugate zero pair is pointwise positive, not merely positive on average. Its exact piecewise exponential resolvent gives h_(ρ,c)(t)>|M_c(ρ)/ρ|·|γ|/(γ²+9/4), sharpened by the factor 149/50 for the certified first zero. All remaining failure is therefore in the other-zero spectrum. Exact collision grouping and Bohr Parseval make finite-depth profile design a positive-semidefinite generalized Rayleigh problem. A depth-nine RMS profile was stable across independently optimized 100-, 300-, and 1,000-zero packets, with sampled minima 0.01698, 0.01655, and 0.01573. This is the first resonant design to survive the T159 1,000-zero stress level, but it is still floating-point finite evidence: interval inputs, uniform phase enclosure, Fourier and infinite-zero tails, growing-packet stability, and cumulative-to-row transfer remain open',
+  adaptiveCertifiedResonantEnvelope:
+    'T161 upgrades the T160 candidate from finite sampling to a rigorous RH-conditional complete response. At each local block phase, a one-dimensional envelope lets every nonresonant conjugate pair choose its worst possible global phase. The exact half-block derivative gives a cyclic Lipschitz correction, and the residual Hadamard identity charges every zero above the first 10,000. A 256-bit Arb certificate with an independent Turing count and 1,001 phase cells proves min_t H_(F,c†)(t)>0.00092497785698634539 on RH for an exact terminating-decimal depth-nine profile. Thus RH implies an eventual strict cumulative factorial/lcm product order over the selected logarithmic-block rows. This is not RH: the exact aggregate order is not proved unconditionally, its converse is unknown, and no eventual individual-row sign follows',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -461,6 +485,30 @@ const MARKOV_NORMALIZATION = {
     'T148 tests a genuine independent arithmetic marginal at the critical discrepancy scale. Möbius square-divisor expansion plus uniform dilation quadrature shows that squarefree rows carry exactly 1/ζ(2) of the T139 wave and nonsquarefree rows the complement, up to o(X^(3/2)). Both states retain both signs and exact product crossings. Index factorization alone therefore does not manufacture the T147 critical correlation.',
   structureT149:
     'T149 lifts the squarefree calculation to every divisor-convolution indicator whose coefficients have any positive power of summability beyond the harmonic boundary. A power-scale truncation leaves the density times the T139 wave and only subcritical tails, so both the state and its complement remain sign-recurrent on RH. The remaining divisor frontier is genuinely borderline, zero-density, or prime-correlated.',
+  structureT150:
+    'T150 crosses the positive-power boundary itself. A log-squared harmonic coefficient moment is enough for a balanced square-root truncation, and an explicit infinite sparse-prime sieve shows this class is strictly larger than T149. Even that genuinely borderline multiplicative state preserves both critical excursions; only the balanced log-tail threshold, zero density, or direct prime correlation remains.',
+  structureT151:
+    'T151 identifies the first unresolved divisor controller rather than another diffuse class. The sparse-prime family has a sharp beta=3 transition, where its Euler tail is exactly log^(−2)Q. Exact interchange compresses the entire escape into one bounded signed dilation-error observable. Subcritical correlation closes the controller; eventual sign requires critical phase alignment with the T139 wave.',
+  structureT152:
+    'T152 rules out every low-frequency source of the T151 alignment. The critical sieve has density, its centered Dirichlet series loses the pole at one, and every fixed critical-line monomial—and therefore every finite zero packet—decorrelates at X^(3/2) scale. Any surviving response must be a genuinely nonuniform high-zero/boundary-frequency resonance.',
+  structureT153:
+    'T153 closes the high-frequency gap with the multiplicative large sieve. Local zero counts split each dyadic packet into separated families; their total normalized contribution decays like log T/sqrt(T). Natural density handles the fixed low packet. Thus every natural-density state samples the same critical wave, including the formerly critical beta=3 sieve.',
+  structureT154:
+    'T154 makes the large-sieve closure uniform across the complete T139 profile space. A depth-dependent cutoff gives a 32^(d/2)(d+1)^2 majorant, and the stronger T139 norm makes that majorant summable. Dominated convergence therefore transfers every natural-density state through infinite ladder depth.',
+  structureT155:
+    'T155 closes dominated row-dependent schedules with a stable profile mean. Depthwise centering plus the T154 majorant leaves exactly the fixed mean-profile wave. Statewise application also closes every deterministic finite-state schedule with natural state densities, even when its mean profile is zero.',
+  structureT156:
+    'T156 gives the compact limit space for every remaining nondensity selector. High zeros vanish uniformly, leaving only a macroscopic dilation-density profile coupled to the simultaneous zeta phase. The open controller is therefore a log-scale phase-locking problem, not arbitrary microscopic noise.',
+  structureT157:
+    'T157 solves the smooth fixed-period version of that phase-locking problem generically. Log-periodic Fourier modes shift each zeta frequency by 2πk/L; all but a countable set of periods leave a nonzero mean-zero wave. The exceptional periods are now explicit spectral resonance targets.',
+  structureT158:
+    'T158 removes the smoothness loophole. A periodic exponential resolvent handles exact binary block jumps, and BV Fourier decay still makes the response summable. Both the block and its complement remain sign-recurrent for every nonresonant period.',
+  structureT159:
+    'T159 enters the exceptional set constructively. It derives the sharp interval-block resonant bias, tests a five-depth first-zero filter, and finds that its encouraging 100/300-zero margins break in the 1,000-zero packet. Resonance is real, but the first co-design does not dominate.',
+  structureT160:
+    'T160 stops charging the resonant pair against itself. The exact half-block resolvent makes that full conjugate-pair response pointwise positive; only the other zeros need suppression. Their finite-depth Bohr energy is a generalized eigenproblem, and its first depth-nine profile survives the current 1,000-zero finite scan with a visible margin. Rigorous tail and row transfer are still missing.',
+  structureT161:
+    'T161 certifies the complete exceptional response conditional on RH. A worst-phase envelope dominates all nonresonant zero pairs, a Lipschitz grid covers every local phase, and a residual Hadamard budget covers the infinite tail. The resulting positive cumulative product is now a rigorous RH consequence; proving it directly or proving its converse is the remaining arithmetic gap.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -1663,6 +1711,186 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     certificate:
       'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
   },
+  {
+    id: 'T150',
+    color: '#a3e635',
+    status:
+      'LOG-SQUARED HARMONIC DIVISOR STATES ARE SIGN-RECURRENT ON RH · BALANCED LOG-TAIL / PRIME-CORRELATION FRONTIER OPEN',
+    title: 'Even power-borderline sieves rescale the wave',
+    formula:
+      '𝓛₂(h)<∞ ⇒ S_a(X)=δ_h𝓘_c(X)+o(X³ᐟ²)=Ω±(X³ᐟ²)',
+    detail:
+      'Write H_h(Q)=Σ_(q≤Q)|h(q)| and A_h(Q)=Σ_(q>Q)|h(q)|/q. The uncompressed divisor transfer has normalized error O(H_h(Q)log X/√X+A_h(Q)log²X). If Σ_q|h(q)|log²(2q)/q is finite, choose Q=⌊√X/log²(2X)⌋. Harmonic summability gives H_h(Q)≤QΣ|h(q)|/q, so the prefix term is O(1/log X); the logarithmic moment gives log²(2Q)A_h(Q)→0, so the tail term also vanishes. ' +
+      'The selected state therefore carries δ_h times the T139 critical primitive and the complement carries 1−δ_h. Both have Ω±(X³ᐟ²) excursions, both row signs recur, and exact finite-support products cross one in both directions on RH. This is strictly stronger than T149. Let r_k be the prime with index k+⌈klog³(k+1)⌉ and select integers divisible by none of the r_k. Then r_k≈klog⁴k: the log-squared harmonic moment converges, the density Euler product is positive, but every positive power moment diverges. ' +
+      'The theorem is still an RH-conditional obstruction, not the missing one-sided annular inequality. A surviving divisor mechanism must reach the balanced log-tail threshold, use zero density, or couple directly to primes inside the annuli. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T151',
+    color: '#38bdf8',
+    status:
+      'β=3 SPARSE-PRIME SIEVE IS EXACTLY X³ᐟ²-CRITICAL · SIGNED PRIME-DILATION CORRELATION OPEN',
+    title: 'The first critical arithmetic controller is explicit',
+    formula:
+      'S_a(X)/X³ᐟ²=δ₃G_c(log X)+𝔎_c(X)+o(1)',
+    detail:
+      'Let the forbidden primes be r_(β,k)=p_(k+⌈klog^(β−1)(k+1)⌉). Then r_(β,k)≈klog^βk, their reciprocal tail is asymptotic to 1/((β−1)log^(β−1)Q), and the full squarefree-product Euler tail has the same order. The log-squared divisor moment is finite exactly when β>3, while every finite β remains outside all T149 positive-power classes. Thus β=3 is the first exact critical boundary, not a loose exponent from the proof. ' +
+      'Define the dilation error 𝒟_c(q;X)=S_c^(q)(X)−q⁻¹𝓘_c(X). Exact divisor interchange writes the selected-minus-density response as Σ_(q≤X)h_3(q)𝒟_c(q;X), up to an o(X³ᐟ²) density tail on RH. Its normalized value 𝔎_c(X) is bounded at β=3. The selected and complementary states are therefore δ₃G_c(log X)+𝔎_c(X)+o(1) and (1−δ₃)G_c(log X)−𝔎_c(X)+o(1). ' +
+      'If 𝔎_c(X) tends to zero, both states retain both critical signs. Any eventual sign instead requires 𝔎_c to align with the opposite phase of the T139 almost-periodic wave on every relevant recurrence sequence. The sieve is defined only from ordinary prime indices and never reads the annular target, so such alignment would be genuinely arithmetic rather than feedback. Neither alignment nor decorrelation is proved; RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T152',
+    color: '#f472b6',
+    status:
+      'EVERY FIXED ZERO PACKET DECORRELATES FROM THE CRITICAL SIEVE · UNIFORM HIGH-ZERO RESONANCE OPEN',
+    title: 'Critical alignment must escape to infinite height',
+    formula:
+      'Σ_(v≤X)(a₃(v)−δ₃)v^ρ=o_ρ(X³ᐟ²)  (ρ fixed)',
+    detail:
+      'The β=3 forbidden-prime state has natural density δ₃. Its Dirichlet series factors as ζ(s)P₃(s), where P₃(s)=∏_(r∈P₃)(1−r⁻ˢ). The reciprocal-prime sum converges, and the stronger first logarithmic moment Σ_r(log r)/r is finite. Thus P₃ is differentiable at one and ζ(s)(P₃(s)−δ₃) has a finite boundary value there: centering removes the zeta pole. ' +
+      'Natural density alone gives the decisive fixed-mode statement. If E₃(X)=Σ_(v≤X)a₃(v)−δ₃X=o(X), discrete Abel summation shows Σ_(v≤X)(a₃(v)−δ₃)v^ρ=o_ρ(X³ᐟ²) for every fixed critical-line exponent ρ. Applying this termwise proves that every fixed finite packet of zeta zeros transfers with density δ₃ and contributes no limiting part of the T151 observable 𝔎_c. ' +
+      'The estimate is not uniform in zero height: the Abel difference costs |ρ|, and the centered Euler product still has nonzero boundary values on 1+it. A high zero can couple to an opposite high sieve frequency even when the combined outer frequency is small. Therefore any nonzero critical alignment must escape to unbounded zero height. A uniform large-sieve or boundary-convolution estimate would force 𝔎_c=o(1), but none is proved. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T153',
+    color: '#34d399',
+    status:
+      'EVERY NATURAL-DENSITY SELECTOR PRESERVES THE FIXED-PROFILE WAVE ON RH · ZERO/NONDENSITY/INFINITE-PROFILE FRONTIER',
+    title: 'The large sieve closes the critical arithmetic controller',
+    formula:
+      'A(X)=δX+o(X) ⇒ Σ(a_v−δ)𝒞_c(v)=o(X³ᐟ²)',
+    detail:
+      'Let a_v be any bounded selector with natural mean δ and let c be any fixed finite Twin Ladder profile. On RH, truncate the explicit formula for 𝒞_c(v) at zero height X. The remainder contributes only O_c(Xlog²X), which is subcritical. Natural density and Abel summation make every fixed low-zero mode o(X³ᐟ²). ' +
+      'For a dyadic packet T<|γ|≤2T, the local Riemann–von Mangoldt bound colors the ordinates into O(log T) one-separated families. Apply the multiplicative large sieve to the Dirichlet polynomial Σ_(v≤X)(a_v−δ)√v·v^(iγ). Its squared packet norm is O(log T·(X+T)X²). Cauchy–Schwarz and the 1/γ explicit-formula coefficient make the normalized packet O_c(log(2T)/√T) for T≤X. Summing dyadically and then sending the low/high split to infinity proves the centered response is o(X³ᐟ²). ' +
+      'Every positive-density binary state and its complement therefore retain both critical excursions, both row signs, and both exact finite-product orders. This proves 𝔎_c(X)→0 and closes the β=3 sparse-prime controller from T151. It also implies that the circular sign-reading selector cannot possess a natural density on RH. Remaining independent routes must have zero density, fail natural density, or use a genuinely nonuniform infinite profile. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T154',
+    color: '#60a5fa',
+    status:
+      'NATURAL-DENSITY SELECTORS PRESERVE EVERY UNIFORMLY SUMMABLE PROFILE ON RH · NONSUMMABLE / NONDENSITY FRONTIER',
+    title: 'Natural density also survives infinite ladder depth',
+    formula:
+      '||c||_𝔄<∞ ⇒ Σ(a_v−δ)𝒞_c(v)=o(X³ᐟ²)',
+    detail:
+      'Let c=(c_d) be any fixed T139 profile with ||c||_𝔄=Σ_d(d+1)32^d|c_d|<∞. For a bounded selector with natural mean δ, write its centered response as the depth sum Σ_dc_dR_d(X). T153 gives R_d(X)=o_d(X³ᐟ²) at every fixed depth, but passing to infinitely many depths requires a uniform summable bound. ' +
+      'At depth d, truncate the RH explicit formula at T_d=X32^d. The multiplier is bounded by 2·32^(d/2). Dyadic zero blocks below X have total normalized cost O(32^(d/2)); the O(d+1) blocks from X to T_d and the explicit-formula remainder enlarge this only to O(32^(d/2)(d+1)²), uniformly in X. This majorant is summable against |c_d| because (d+1)/32^(d/2) is bounded. Dominated convergence therefore proves the centered infinite-profile response is o(X³ᐟ²). ' +
+      'Every positive-density binary state and its complement retain their density-scaled T139 Ω± wave and both row signs. Integer profiles in this norm automatically have finite support, so their exact product crossings were already covered. The remaining linear frontier requires zero density, no natural density, row-dependent profiles without uniform domination, or non-summable depth; nonlinear constructions also remain outside. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T155',
+    color: '#c084fc',
+    status:
+      'DOMINATED NATURAL-MEAN PROFILE SCHEDULES COLLAPSE TO THEIR MEAN ON RH · NONDENSITY / UNDOMINATED FRONTIER',
+    title: 'A stable mean profile cannot steer the ladder',
+    formula:
+      'Cesàro c^[v]→c̄≠0 ⇒ Σ𝒞_(c^[v])(v)=Ω±(X³ᐟ²)',
+    detail:
+      'Let c^[v] be a row-dependent T139 profile with coordinatewise envelope g_d=sup_v|c_d^[v]| and Σ_d(d+1)32^dg_d<∞. Assume each coordinate has a natural Cesàro mean c̄_d. The envelope makes this convergence Banach-valued and places c̄ in the T139 profile space. ' +
+      'Center the coefficient at every depth. T153 makes the response of each fixed centered coordinate o(X³ᐟ²). The T154 depth calculation bounds it uniformly by O(g_d32^(d/2)(d+1)²X³ᐟ²), a summable majorant under the stronger envelope norm. Dominated convergence therefore gives Σ_(v≤X)𝒞_(c^[v])(v)=𝓘_c̄(X)+o(X³ᐟ²). If c̄ is nonzero, T139 forces both critical excursions and hence both row signs. ' +
+      'Finite-state schedules admit a stronger statewise conclusion. If every state has a natural density, T154 applied to its indicator shows that every positive-density state carrying a nonzero fixed profile has its own Ω± selected cumulative. Thus cancellations in a zero mean profile do not help: both row signs still occur inside that state. If all positive-density states carry the zero profile, equality holds on density one and no eventually strict comparison results. Remaining routes require failed natural state density, a missing summable envelope, non-summable depth, or a nonlinear/target-reading rule. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T156',
+    color: '#fb7185',
+    status:
+      'EVERY NONDENSITY SELECTOR HAS A MACROSCOPIC DILATION LIMIT ON RH · PHASE-LOCKED LOG-SCALE SHAPE OPEN',
+    title: 'Nondensity reduces to a hydrodynamic phase lock',
+    formula:
+      'μ_X⇒fdu, Xⁱᵞ⇒ω_γ ⇒ X⁻³ᐟ²Σa_v𝒞_c(v)→ℋ_c(f,ω)',
+    detail:
+      'For any bounded selector define its dilation measure μ_X=X^(−1)Σ_(v≤X)a_vδ_(v/X) on [0,1]. These measures have uniformly bounded variation. From every scale sequence one can extract a weak limit μ and, diagonally, simultaneous limits ω_γ of every zeta phase X^(iγ). ' +
+      'On RH, insert the truncated explicit formula into the selected Twin Ladder sum. Every fixed zero mode converges to ω_γ∫u^ρdμ. The multiplicative large sieve controls all modes above height T by O_c(log T/√T), uniformly in the selector and observation scale, while the explicit-formula remainder is o(X³ᐟ²). Hence every subsequential response converges to the explicit real functional ℋ_c(μ,ω)=−Σ_ρM_c(ρ)ω_γρ^(−1)∫u^ρdμ. The T154 depth majorant extends this from finite profiles to the full T139 space. ' +
+      'For a binary selector, μ=f(u)du with 0≤f≤1. Natural density δ is exactly the constant profile f=δ, recovering T153–T154. If selected rows are eventually one-sided, every cluster pair generated by that selector must give the same weak sign under ℋ_c. Thus a nondensity escape must phase-lock a nonconstant macroscopic multiplicative-scale density shape to the simultaneous zeta phase. High-frequency noise cannot do it. Logarithmic block schedules can attempt this coupling, and the circular sign selector achieves it by reading the target; independent arithmetic phase locking remains open. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T157',
+    color: '#fbbf24',
+    status:
+      'SMOOTH LOG-PERIODIC CONTROLLERS ARE SIGN-RECURRENT OFF A COUNTABLE ZETA-RESONANCE SET · EXCEPTIONAL BIAS OPEN',
+    title: 'Only zeta-resonant log periods can bias the wave',
+    formula:
+      'L∉ℰ_ζ ⇒ ΣF(log v)𝒞_c(v)=Ω±(X³ᐟ²)',
+    detail:
+      'Take a nonzero real L-periodic weight F with Σ_k(1+|k|)|F̂_k|<∞ and modulate a fixed nonzero T139 profile by F(log v). Euler summation of each fixed zero mode and the T156 uniform high-zero tail give Σ_(v≤X)F(log v)𝒞_c(v)=X³ᐟ²H_(F,c)(log X)+o(X³ᐟ²). The absolutely convergent almost-periodic response has frequencies γ+2πk/L and coefficients −F̂_kM_c(ρ)/(ρ(ρ+1+2πik/L)). ' +
+      'A frequency collision requires L=2π|m|/|γ−γ′|; a zero-frequency resonance requires L=2π|m|/|γ|. These periods form a countable measure-zero set ℰ_ζ. If L lies outside it, every active frequency is distinct and nonzero. T139 ensures M_c is nonzero at infinitely many zeros, so H is nonzero, while its Bohr mean is zero. Almost-periodic recurrence forces both X³ᐟ² excursions and both modulated row signs. ' +
+      'At an exceptional period the constant coefficient is explicit: −(2/3)Σ_(γ+2πk/L=0)F̂_kM_c(ρ)/ρ. Resonance is only necessary; this bias must still dominate the full off-resonant spectrum to yield one sign. Thus the first smooth nondensity design target is exact zeta resonance, not arbitrary logarithmic blocking. Discontinuous binary blocks, exceptional periods, and nonlinear target-reading rules remain open. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T158',
+    color: '#2dd4bf',
+    status:
+      'EXACT BINARY LOG BLOCKS ARE SIGN-RECURRENT OFF THE ZETA-RESONANCE SET · EXCEPTIONAL BLOCK BIAS OPEN',
+    title: 'Sharp logarithmic blocks do not evade generic recurrence',
+    formula:
+      'L∉ℰ_ζ ⇒ selected and complement = Ω±(X³ᐟ²)',
+    detail:
+      'Let F be any real L-periodic bounded-variation weight. This includes an exact half-open binary block F=1_I on any nonempty proper finite union of log-phase intervals. Its Fourier coefficients satisfy |F̂_k|≤Var(F)/(2π|k|). ' +
+      'For each zero mode, replace the smooth Fourier Euler step by the periodic exponential resolvent Q_(ρ,F)(t)=∫_0^∞F(t−y)e^(−(ρ+1)y)dy. Summation across geometric periods gives Σ_(v≤X)F(log v)v^ρ=X^(ρ+1)Q_(ρ,F)(log X)+O(X¹ᐟ²), including every jump. The shifted zero kernel is O(log²(2+|λ|)/(1+|λ|)); combined with the 1/|k| Fourier decay, the complete double response remains absolutely and uniformly convergent. ' +
+      'Therefore the T157 almost-periodic formula holds unchanged. Outside ℰ_ζ its frequencies are distinct and nonzero, so every nonzero BV weight has a nonzero mean-zero response. For a nontrivial binary block, both F and 1−F qualify: selected and complementary rows each retain Ω± critical excursions, both row signs, and both exact factorial/lcm product orders. Discontinuity, endpoint convention, and arbitrarily sharp block boundaries do not help. Only an exceptional zeta-resonant period whose constant bias dominates the full off-resonant spectrum remains in the fixed-period binary route. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T159',
+    color: '#f97316',
+    status:
+      'EXACT RESONANT BIAS DERIVED · FIVE-DEPTH FIRST-ZERO CANDIDATE BREACHED AT 1,000 ZEROS · TAIL / OPTIMIZATION OPEN',
+    title: 'The first resonant block almost works, then breaks',
+    formula:
+      'max|B_(j,m)|=(4/3)|sin(πmδ)|/(πm)·|M_c(ρ_j)/ρ_j|',
+    detail:
+      'For one interval of duty δ in a log period L, F̂_k=e^(−iλ_k(θ+δL/2))sin(πkδ)/(πk). If L=2πm/γ_j, the positive and negative j-th zero modes meet at frequency zero and create B_(j,m)=−(4/3)Re(F̂_(−m)M_c(ρ_j)/ρ_j). Optimizing the interval phase gives the displayed sharp magnitude. The strongest first harmonic uses m=1 and half duty. ' +
+      'The first co-design set L=2π/γ_1 and chose a five-depth real profile with |M_c(ρ_1)|=1 while numerically canceling M_c(ρ_2) and M_c(ρ_3). The phase was chosen for positive maximal first-zero bias. Using the exact periodic resolvent, the deterministic exploratory scanner observed minima +3.50×10^(−3) for 100 zeros/500,001 phases and +1.25×10^(−3) for 300 zeros/800,001 phases. At 1,000 zeros and 1,200,001 phases it found a negative sample, −3.27×10^(−4). ' +
+      'This is finite double-precision exploration, not an interval certificate. The 1,000-zero breach falsifies this particular candidate before the omitted infinite tail is considered. The constructive frontier is now precise: jointly optimize the resonant block and Twin Ladder multiplier across growing packets, prove an infinite-tail bound below the constant bias, then transfer cumulative positivity to every row. The scanner lives beside the deterministic certificate and labels its finite scope explicitly. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/scan_resonant_log_block.py',
+  },
+  {
+    id: 'T160',
+    color: '#22c55e',
+    status:
+      'EXACT RESONANT-PAIR POSITIVITY · DEPTH-9 RAYLEIGH LEAD SURVIVES 1,000-ZERO FINITE STRESS · TAIL / ROW TRANSFER OPEN',
+    title: 'The resonant pair is positive; optimize everything else',
+    formula:
+      'h_(ρ₁,c)(t)>(149/50)|M_c(ρ₁)/ρ₁|γ₁/(γ₁²+9/4)',
+    detail:
+      'For the half-duty block with L=2π/γ_1 and the T159 optimal phase, set q_γ(x)=e^(iγx)Q_(ρ,F)(x). Its exact two-piece resolvent obeys q_γ′+(3/2)q_γ=e^(iγx)F(x). The imaginary part is strictly positive through both half-periods. The certified γ_1>14.13 bound makes the displayed lower margin rigorous, so the complete resonant conjugate pair—not only its constant Fourier coefficient—is pointwise positive. The sharper design condition charges only the other zero pairs. ' +
+      'After exact shifted-frequency collision grouping, Bohr Parseval gives Mean|R|²=cᵀQ_neρc and |M_c(ρ_1)/ρ_1|²=cᵀP_ρc. Thus the finite-depth RMS design is the generalized eigenproblem λ_max(P_ρ,Q_neρ). A depth-nine profile independently optimized on 100, 300, and 1,000 positive-zero packets produced finite ratios 1012.5, 1007.6, and 1007.2, with sampled full-response minima +0.01698, +0.01655, and +0.01573. At 1,000 zeros the sampled other-zero residual sup was 0.01072, below the 0.01474 analytic pair lower bound evaluated from the floating inputs. ' +
+      'This is a materially stronger candidate than T159, but not a certificate or RH proof. The zeros and profile are floating point, the phase samples are finite, the Fourier optimizer is truncated, no uniform residual enclosure or infinite-zero tail bound exists, and cumulative positivity has not been transferred to every row. Those are now the explicit proof obligations. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/scan_resonant_log_block.py',
+  },
+  {
+    id: 'T161',
+    color: '#10b981',
+    status:
+      'RIGOROUS RH-CONDITIONAL COMPLETE RESPONSE · 10,000-ZERO ARB / TURING / HADAMARD CERTIFICATE · UNCONDITIONAL AGGREGATE OPEN',
+    title: 'The exceptional block response is positive—including its infinite tail',
+    formula:
+      'RH ⇒ min_t H_(F,c†)(t)>0.00092497785698634539',
+    detail:
+      'At a fixed local position x in the half-duty logarithmic block, the j-th nonresonant conjugate pair has magnitude at most 2|M_c(ρ_j)/ρ_j||Q_(ρ_j,F)(x)|. Summing these magnitudes gives a one-dimensional envelope that permits every other zero pair to align adversarially, so no linear-independence or random-phase assumption is used. The exact two-piece resolvent gives |Q_j′|≤|1+e^(−(ρ_j+1)L/2)|^(−1), producing a rigorous cyclic Lipschitz correction between phase-cell centers. ' +
+      'For all omitted zeros, |M_c(ρ)| is bounded by the exact depth-profile ℓ¹ norm and |Q| by a half-block resolvent constant. The residual Hadamard identity then charges the entire infinite tail at once. With exact terminating-decimal profile coefficients, 256-bit balls, 10,000 critical zeros, 1,001 cyclic cells, and an independent Turing count through height 9878.2187…, the certificate encloses the mesh cost as 0.00111217, the complete omitted-zero charge as 0.00210940, and the final worst lower endpoint above 0.0009249778. ' +
+      'Therefore RH rigorously implies an eventual positive X^(3/2)-scale cumulative response and, after clearing denominators, an exact aggregate factorial/lcm product order over the selected rows. This is the first certified one-sided exceptional-block response, but it is not a proof of RH: the calculation assumes RH for the critical-line explicit formula and Hadamard tail, the aggregate product inequality has no unconditional arithmetic proof, its converse is unknown, and individual rows are not eventually controlled. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_resonant_phase_envelope.c',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -1815,7 +2043,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T149 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T161 · 2026-07-28</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1841,6 +2069,9 @@ export default function OpenFrontierPage() {
                 background: `${item.color}0d`,
                 border: `1px solid ${item.color}40`,
                 minWidth: 0,
+                gridColumn: ['T160', 'T161'].includes(item.id)
+                  ? '1 / -1'
+                  : undefined,
               }}
             >
               <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
@@ -2183,7 +2414,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T149 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T161 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -2217,7 +2448,19 @@ export default function OpenFrontierPage() {
           {MARKOV_NORMALIZATION.structureT146}{' '}
           {MARKOV_NORMALIZATION.structureT147}{' '}
           {MARKOV_NORMALIZATION.structureT148}{' '}
-          {MARKOV_NORMALIZATION.structureT149}
+          {MARKOV_NORMALIZATION.structureT149}{' '}
+          {MARKOV_NORMALIZATION.structureT150}{' '}
+          {MARKOV_NORMALIZATION.structureT151}{' '}
+          {MARKOV_NORMALIZATION.structureT152}{' '}
+          {MARKOV_NORMALIZATION.structureT153}{' '}
+          {MARKOV_NORMALIZATION.structureT154}{' '}
+          {MARKOV_NORMALIZATION.structureT155}{' '}
+          {MARKOV_NORMALIZATION.structureT156}{' '}
+          {MARKOV_NORMALIZATION.structureT157}{' '}
+          {MARKOV_NORMALIZATION.structureT158}{' '}
+          {MARKOV_NORMALIZATION.structureT159}{' '}
+          {MARKOV_NORMALIZATION.structureT160}{' '}
+          {MARKOV_NORMALIZATION.structureT161}
         </p>
         <div
           style={{
@@ -2345,6 +2588,18 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.adaptivePredictableMarginalBudget,
             MARKOV_NORMALIZATION.adaptiveSquarefreeStateNoGo,
             MARKOV_NORMALIZATION.adaptiveSummableDivisorStateNoGo,
+            MARKOV_NORMALIZATION.adaptiveLogMomentDivisorStateNoGo,
+            MARKOV_NORMALIZATION.adaptiveCriticalSparsePrimeCorrelation,
+            MARKOV_NORMALIZATION.adaptiveFiniteZeroPacketDecorrelation,
+            MARKOV_NORMALIZATION.adaptiveNaturalDensityLargeSieveNoGo,
+            MARKOV_NORMALIZATION.adaptiveNaturalDensityInfiniteProfileNoGo,
+            MARKOV_NORMALIZATION.adaptiveBanachMeanProfileNoGo,
+            MARKOV_NORMALIZATION.adaptiveNondensityHydrodynamicLimit,
+            MARKOV_NORMALIZATION.adaptiveLogPeriodicResonance,
+            MARKOV_NORMALIZATION.adaptiveBinaryLogBlockResonance,
+            MARKOV_NORMALIZATION.adaptiveResonantBlockDesign,
+            MARKOV_NORMALIZATION.adaptiveResonantPairRayleigh,
+            MARKOV_NORMALIZATION.adaptiveCertifiedResonantEnvelope,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
@@ -3314,6 +3569,87 @@ export default function OpenFrontierPage() {
           and its complement both retain both signs. The harmonic
           boundary, zero-density states, and direct prime correlation
           remain open.
+          T150 crosses that positive-power boundary. A log-squared
+          harmonic coefficient moment still makes a balanced
+          square-root truncation subcritical. An explicit infinite
+          sparse-prime sieve satisfies this condition while failing
+          every T149 power moment, yet it too retains both critical
+          signs. Only the balanced log-tail threshold, zero density,
+          or direct prime-annulus correlation remains in this divisor
+          route.
+          T151 makes that threshold explicit. Sparse forbidden primes
+          with r_k≈klog³k have a full Euler tail of exact order
+          log<sup>−2</sup>Q. Their selected-minus-density response is
+          one bounded X<sup>3/2</sup>-scale signed dilation
+          correlation. If it is subcritical, both signs survive; any
+          eventual sign requires phase alignment with the T139 wave.
+          Proving or excluding that independent arithmetic alignment
+          is now the first critical divisor task.
+          T152 eliminates every bounded-height source of that
+          alignment. The critical sieve has natural density, its
+          centered Dirichlet series cancels the pole at one, and every
+          fixed finite zero packet decorrelates at X<sup>3/2</sup>
+          scale. Any surviving response must escape to unbounded zero
+          height through a nonuniform high-zero/sieve-boundary
+          resonance.
+          T153 closes that high-zero gap for every fixed finite
+          profile. A multiplicative large-sieve bound makes each
+          dyadic zero packet O(log T/√T) after normalization, while
+          natural density handles the fixed low zeros. Consequently
+          every natural-density selector retains the density-scaled
+          wave, and the β=3 critical sieve has 𝔎<sub>c</sub>→0.
+          T154 extends that closure from fixed finite depth to every
+          uniformly summable T139 profile. A depth-dependent
+          explicit-formula cutoff gives a summable
+          32<sup>d/2</sup>(d+1)<sup>2</sup> majorant, so dominated
+          convergence preserves the density-scaled wave through
+          infinite ladder depth.
+          T155 then allows the profile itself to vary by row. Under a
+          coordinatewise summable envelope and a stable Cesàro mean,
+          depthwise centering leaves exactly the fixed mean-profile
+          wave. Statewise application also rules out every
+          deterministic finite-state controller whose natural state
+          densities exist, even if its mean profile cancels.
+          T156 classifies what remains when those densities fail.
+          Every subsequential critical response is an explicit
+          functional of a macroscopic dilation-density profile and a
+          simultaneous zeta phase; the high-zero tail vanishes
+          uniformly. A surviving nondensity controller must therefore
+          phase-lock its logarithmic-scale shape to the zeta wave.
+          T157 solves smooth fixed-period modulation outside a
+          countable exceptional set. Its shifted frequencies are
+          γ+2πk/L, so only exact zeta resonance can create a constant
+          bias; every generic period retains a nonzero mean-zero wave.
+          T158 removes the smoothness loophole: an exponential
+          resolvent extends the same theorem to exact binary
+          logarithmic blocks and their complements. Only exceptional
+          resonant periods remain in the fixed-period block route.
+          T159 tests that exceptional route directly. The sharp
+          resonant bias is explicit, but a five-depth first-zero
+          design that survived 100 and 300 zero packets develops a
+          negative sample at 1,000 zeros. The co-design and rigorous
+          tail problem remain open.
+          T160 then separates the useful resonance from the damaging
+          spectrum. The exact half-block resolvent proves that the full
+          resonant conjugate pair is pointwise positive, with a
+          certified first-zero lower margin; only the other zeros need
+          suppression. Their finite-depth Bohr energy is a generalized
+          Rayleigh problem. Its first depth-nine profile survives the
+          current 100-, 300-, and 1,000-zero finite scans with positive
+          sampled margins, unlike T159. This is a stronger design lead,
+          not a certificate: interval inputs, uniform phase control,
+          Fourier and infinite-zero tails, growing-packet stability,
+          and cumulative-to-row transfer remain open.
+          T161 closes those analytic finite-sampling and tail
+          qualifications for one exact profile, conditional on RH.
+          A worst-phase envelope, cyclic Lipschitz mesh, 10,000-zero
+          Arb/Turing prefix, and complete residual Hadamard budget
+          prove the full limiting response uniformly positive. Hence
+          RH implies an eventual strict cumulative product order on
+          the resonant log-block rows. The remaining gap has moved:
+          prove that aggregate order directly from the arithmetic or
+          prove a zero-detecting converse. Neither is known, and
+          individual row signs remain uncontrolled.
           Separately, for the T93/T96 annular deficit, if RH is false
           both strict signs recur infinitely often; if RH is true the
           certified annular deficit is eventually negative. This is

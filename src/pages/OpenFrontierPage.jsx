@@ -424,6 +424,10 @@ const MARKOV_NORMALIZATION = {
     'T195: strict confluent two-packet positivity plus exponential bounded/far decoupling puts every possible nonpositive three-packet configuration inside one compact translation interval',
   translationTripleCollisionFirstSegment:
     'T196: a 768-bit shared-Taylor Arb cover proves the translated triple-collision jet positive definite for every 0≤T≤2; T>2 and the nonconfluent three-node interior remain open',
+  translationTripleCollisionComplete:
+    'T197: a 256-bit bivariate Arb boundary-layer bound proves the normalized translated jet within 0.237144302 of its positive limit for every T≥2; with T196, the complete triple-collision face is positive for all T≥0',
+  translationThreePacketOriginSlice:
+    'T198: a 384-bit boundary-layer cover proves the resolved origin-slice rectangle t₁=0, 49/40≤t₂, t₂+1/2≤t₃≤6 positive, including the exploratory minimum; complementary strips and common translations remain open',
   continuumTail:
     'T45/T48/T55–T57/T64/T66–T67: after normalization the exact continuum block converges uniformly in every fixed Cᵐ tail norm to 1/[2 cosh(t−b)]. Every fixed order is eventually positive, but the spectral floor is zero and every finite signed upper H-relative bound fails. Compact-smooth graph approximation yields finite residual-pole witnesses, while zero-uniform control and the global one-sided contraction remain open',
   criticalTail:
@@ -645,6 +649,10 @@ const MARKOV_NORMALIZATION = {
     'T195 closes the remaining escape regimes specifically for three packets. T187 strict concavity gives a positive two-node confluent determinant at every finite translation, while normalized correlations and derivatives between bounded and escaping nodes decay polynomially times e^(−b). Every escaping triple splits into positive blocks, so the unresolved sign is one compact interval problem.',
   structureT196:
     'T196 certifies the first two translation units of the triple-collision boundary. A 4,096-box, order-fourteen Arb cover retains one common translation variable through the jet, fixed endpoint gauge, and determinant. The origin box is directly positive, the exact determinant derivative is negative on every later box, and the normalized T=2 determinant is 0.939231127963760833±2.35×10⁻¹⁹. Thus the confluent 3×3 jet is positive definite on [0,2]; joining it to an explicit tail and certifying the nonconfluent interior remain open.',
+  structureT197:
+    'T197 supplies the tail join. The exact normalized kernel splits into an explicit algebraic-sech factor and one boundary-layer correction. A degree-(2,2) bivariate Arb jet covers [2,4] in 128 exact boxes and all T≥4 in one compact parameter rectangle. The algebraic and correction Frobenius errors sum to 0.237144301660067167, strictly below (9−√17)/16. Hence T196–T197 prove the translated triple-collision jet positive for every T≥0. The nonconfluent compact three-node interior remains open.',
+  structureT198:
+    'T198 enters that nonconfluent interior on the origin slice. A nonsingular positive endpoint scale keeps the exact boundary-layer kernel order one at t₁=0. Twelve-mode, 384-bit integration and exact 1/40-node boxes certify t₂≥49/40, t₃−t₂≥1/2, and t₃≤6 with determinant lower endpoint 0.000556506552749633686. This contains the exploratory minimum near (0,1.35625,2.1125); the complementary collision strips, long origin-slice tail, and common translations remain open.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -2548,9 +2556,39 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     detail:
       'The missing correlated enclosure is now implemented on a continuous interval. T196 partitions [0,2] into 4,096 boxes of width 1/2048 and carries one order-fourteen Taylor variable through all six entries of the translated degree-two jet, a fixed unit-triangular endpoint gauge, and determinant multilinearity. Twelve-mode center integrals to u=3 run at 768-bit precision with a uniform omitted-mode and tail allowance 1.26761753931×10⁻²¹¹ ± 3.68×10⁻²²³. ' +
       'The box containing T=0 has normalized determinant 2.4848 ± 4.62×10⁻⁵ > 0. On each of the other 4,095 boxes, the exact lower-limit identity J′=−I certifies Δ₃′(T)<0. Since the normalized determinant at T=2 is still 0.939231127963760833 ± 2.35×10⁻¹⁹ > 0, Δ₃ stays positive throughout [0,2]. T190 supplies the strict leading two-node confluent minor, so Sylvester’s criterion gives the full 3×3 jet positive definite there. ' +
-      'This is one compact boundary segment, not global three-packet positivity. The sharp next tail target is explicit: for H(T)=Dtr(T)⁻²C(T)J(T)C(T)ᵀ and H∞=[[1,0,−1/2],[0,1,0],[−1/2,0,5/4]], proving supT≥2 ‖H(T)−H∞‖₂ < (9−√17)/16 would close the entire triple-collision face. That estimate, the nonconfluent compact interior, higher packet counts, and RH remain open.',
+      'This is the compact first segment; T197 below supplies the tail join. The nonconfluent compact interior, higher packet counts, and RH remain open.',
     certificate:
       'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.21 · proof/certificates/twin_ladder_channel_split/run_translation_triple_collision_taylor.sh',
+  },
+  {
+    id: 'T197',
+    color: '#22d3ee',
+    status:
+      'RIGOROUS T≥2 TAIL JOIN · COMPLETE TRIPLE-COLLISION FACE · NONCONFLUENT INTERIOR OPEN',
+    title: 'The translated triple-collision jet is positive for every translation',
+    formula:
+      'supT≥2 ‖H(T)−H∞‖₂ ≤ 0.237144301660067167 < (9−√17)/16; therefore Jtriple(T)≻0 for all T≥0',
+    detail:
+      'T197 attacks the exact quantitative target left by T196. The T194 boundary-layer formula factors the normalized kernel into A(t,b)=(t+b)/(2√tb cosh(t−b)) and a theta correction B(t,b). A 256-bit bivariate degree-(2,2) Arb jet covers 128 exact T-boxes on [2,4], then encloses the entire T≥4 tail by 0≤1/T≤1/4 and 0≤e⁻²ᵀ≤e⁻⁸. It integrates 2,000 exact y-boxes through 40 and one box through 1,000; elementary estimates place the remaining y-tail and theta modes n≥2 far below the reserved 10⁻³⁰ allowance. ' +
+      'The explicit algebraic-sech jet differs from H∞ in Frobenius norm by at most 0.125278163400880268, while coefficient convolution bounds the correction by 0.111866138259186899. Their sum 0.237144301660067167 is strictly below half the limiting spectral gap, (9−√17)/16≈0.3048058984. Thus the normalized jet is positive for every T≥2. Together with T196 on [0,2], this proves the full triple-collision boundary J(T)≻0 for every T≥0. ' +
+      'This is not global three-packet positivity and not RH. The next finite-order obstruction is the nonconfluent compact three-node interior; higher packet counts also remain open.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.22 · proof/certificates/twin_ladder_channel_split/run_translation_triple_collision_tail.sh',
+  },
+  {
+    id: 'T198',
+    color: '#a78bfa',
+    status:
+      'RIGOROUS ORIGIN-SLICE INTERIOR RECTANGLE · EXPLORATORY MINIMUM INCLUDED · COMPLEMENT OPEN',
+    title: 'The hardest resolved origin-slice rectangle is positive',
+    formula:
+      't₁=0, 49/40≤t₂, t₂+1/2≤t₃≤6 ⇒ det K̄(tᵢ,tⱼ) > 0.000556506552749633686',
+    detail:
+      'T198 moves beyond collision boundaries into the nonconfluent three-node interior. The positive scale Etr(t)=4√2π³ᐟ² exp(7t/2−πe²ᵗ) is nonsingular at t=0 and turns the exact T194 boundary-layer kernel into an order-one matrix. The verifier evaluates twelve theta modes at 384-bit precision, integrates y through 40, reserves 10⁻³⁵ for the smaller mode and integral tails, and covers exact node boxes of width 1/40. ' +
+      'Every determinant is strictly positive throughout t₁=0, 49/40≤t₂, t₂+1/2≤t₃≤6. The certified lower endpoint is 0.000556506552749633686. This rectangle contains the exploratory sech-relative minimum near (0,1.35625,2.1125), so the numerically hardest resolved origin-slice region is no longer merely sampled. ' +
+      'This is still not the global three-packet theorem or RH. The checkpointed next sequence is: retain shared variables in the exact pair-collision Gram matrix and thicken through t₃−t₂≤1/2; join the small-t₂ origin strip to the certified triple-collision face; close the origin-slice tail beyond 6 by block splitting; then propagate the completed slice through common translations t₁>0. Higher packet counts remain a later obstruction, and none of these planned certificates is counted as proved.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.23 · proof/certificates/twin_ladder_channel_split/run_translation_three_packet_origin_slice.sh',
   },
 ];
 
@@ -2704,7 +2742,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T196 · 2026-07-29</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T198 · 2026-07-29</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -2730,7 +2768,7 @@ export default function OpenFrontierPage() {
                 background: `${item.color}0d`,
                 border: `1px solid ${item.color}40`,
                 minWidth: 0,
-                gridColumn: ['T160', 'T161', 'T162', 'T163', 'T164', 'T165', 'T166', 'T167', 'T168', 'T169', 'T170', 'T171', 'T172', 'T173', 'T174', 'T175', 'T176', 'T177', 'T178', 'T179', 'T180', 'T181', 'T182', 'T183', 'T184', 'T185', 'T186', 'T187', 'T188', 'T189', 'T190', 'T191', 'T192', 'T193', 'T194', 'T195', 'T196'].includes(item.id)
+                gridColumn: ['T160', 'T161', 'T162', 'T163', 'T164', 'T165', 'T166', 'T167', 'T168', 'T169', 'T170', 'T171', 'T172', 'T173', 'T174', 'T175', 'T176', 'T177', 'T178', 'T179', 'T180', 'T181', 'T182', 'T183', 'T184', 'T185', 'T186', 'T187', 'T188', 'T189', 'T190', 'T191', 'T192', 'T193', 'T194', 'T195', 'T196', 'T197', 'T198'].includes(item.id)
                   ? '1 / -1'
                   : undefined,
               }}
@@ -3075,7 +3113,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T196 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T198 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -3156,7 +3194,9 @@ export default function OpenFrontierPage() {
           {MARKOV_NORMALIZATION.structureT193}{' '}
           {MARKOV_NORMALIZATION.structureT194}{' '}
           {MARKOV_NORMALIZATION.structureT195}{' '}
-          {MARKOV_NORMALIZATION.structureT196}
+          {MARKOV_NORMALIZATION.structureT196}{' '}
+          {MARKOV_NORMALIZATION.structureT197}{' '}
+          {MARKOV_NORMALIZATION.structureT198}
         </p>
         <div
           style={{
@@ -3335,6 +3375,8 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.translationFixedOrderTail,
             MARKOV_NORMALIZATION.translationThreePacketCompactness,
             MARKOV_NORMALIZATION.translationTripleCollisionFirstSegment,
+            MARKOV_NORMALIZATION.translationTripleCollisionComplete,
+            MARKOV_NORMALIZATION.translationThreePacketOriginSlice,
             MARKOV_NORMALIZATION.continuumTail,
             MARKOV_NORMALIZATION.criticalTail,
             MARKOV_NORMALIZATION.levy,

@@ -270,6 +270,106 @@ const MARKOV_NORMALIZATION = {
     'T124: if finite positive log-scale measures share an open exponential-moment strip and their scalar response Rτ(w)=∫eʷʸdντ(y) is τ-independent on a determining subset, analytic continuation and Fourier uniqueness force ντ to be one fixed measure. Separately, a continuous nonnegative degree-d homogeneous rule on finitely many channels of one conjugate pure mode either annihilates its whole phase orbit or creates a simple real Mellin pole at s=dσ with positive residue. Positive part, absolute value, and square are basic examples. Discrete zero values, variable symbols, full multi-mode waves, adaptive nonlinearities, and global arithmetic transforms remain outside; this is a route classification, not an RH proof or non-equivalence theorem',
   fixedBlockBlindLattice:
     'T125: for a>1 and every fixed density ϖ∈L¹([α,β]) on a positive compact interval, ℬϖ(z)=a^z−2+∫ϖ(μ)μ^z dμ has exactly one simple zero z_n=log 2/log a+2πin/log a+o_ϖ(1) near each sufficiently high base-lattice point. Compact-uniform Riemann–Lebesgue decay and Rouché prove this; bounded variation in the log coordinate restores O_ϖ(1/|n|), while bare L¹ has no universal rate. Exact integer-multiplicity weighted prefix products have normalized atomic empirical measures and the exact response in (493); weak limits recover the continuous symbol locally, but no uniform finite-N vertical decay or inherited Mellin-transfer estimate follows. Atomic, non-Rajchman, scale-adaptive, and fully discrete weights remain outside; no zeta zero is located and RH remains open',
+  fixedMeasureBlindPoints:
+    'T126: for a>1 and every fixed finite complex Borel measure ν with supp|ν| contained in [α,β] compactly inside (1,a), ℬν(z)=a^z−2+∫μ^z dν(μ) has infinitely many zeros in every half-plane Re z>c with c<σ*=log 2/log a. T125 localizes one zero at every large base-lattice index for L¹ densities; discrete Wiener theory gives an asymptotic lattice subsequence for atomless measures; the general result is nonlocalized. A positive atomic probability measure has positive vertical zero density strictly right of σ*, as δ_{√a} shows on Re z=2σ*. Wasserstein transfer toward one fixed L¹-density target works through heights T_N only when T_NW₁→0; prefix grids permit T_N=o(min{N,M_N}). Endpoint atoms, uncontrolled scale adaptation, and the missing arithmetic Mellin error remain outside; these are multiplier blind points, not zeta zeros, and RH remains open',
+  fixedMovingMeasureBlindRectangle:
+    'T127: fix K⊂⊂(1,a), a total-variation bound M, and c<σ*=log 2/log a. Weak-* compactness of the measure ball, compact-open continuity of ν↦ℬν, and Rouché’s theorem on a finite subcover give finitely many disks—and hence one common bounded rectangle c<Re z<R, |Im z|<T—meeting the zero set of every symbol. This includes arbitrary row-dependent normalized positive exact weights on K, without weak convergence or regularity in the row. The rectangle need not meet 3/2<Re z<2: δ_{√a} has its nonzero right-half family on Re z=2σ*>2 for a=32/21. The zero may move from row to row, supplies no fixed Mellin factor, and proves neither the weighted O(N²) error, an arithmetic sign, nor RH',
+  adaptiveAlgebraicPrefix:
+    'T128: set μ₀=(32/21)^(2/3) and u_N=⌊105μ₀N+1/2⌋. The exact strict-interior prefix Λ₃₂,₂₁(105N,u_N) is O(N)-close to one fixed continuous comparator with Q₀(z)=(a^z−a)(a^z+a^(2z/3)−2). Writing y=a^(z/3) gives (y−1)(y²+2y+2), so the zero lines are Re z=0, 1, and 2.4683939547…>2. A direct algebraic 256-bit Arb/Turing fixture proves δ₁₀₀₀>1/20. Hence RH is equivalent to eventual positivity—or nonnegativity—of this one exact rounded prefix. The finite rounded symbols can still have dangerous-strip zeros at enormous heights; the converse uses only the fixed comparator and O(N) endpoint transfer. The eventual product sign is unproved, so RH remains open',
+  adaptivePrefixRecurrence:
+    'T129: the fixed T128 comparator has prime-square residue B_ad=727454.763559809…>724000. Unconditionally, every sufficiently large [Y,Y^θH], θH=1.0000000000006666277…, contains a whole √N·exp(0.8√log N)-length block with Λ_n>(B_ad−ε)n^(3/2); the deep-index counting exponent is at least 0.4999999999996666861…. The verified-height heat transfer is valid because the O(N) rounding correction is holomorphic for Re v>2 while its contour stays in Re v>7/3. The exact endpoint word has aperiodic 139/140 steps from ∛2688000−139, and the row update is a finite q/K-product recurrence. Exact sign and valuation fixtures defeat monotonicity, letter-sign, and divisibility shortcuts. A nonnegative asymmetric tent rewrites the open problem as one weighted prime-quadrature deficit. The heat filter suppresses hypothetical off-line modes too, so these near-unit power-window wins do not imply additive gaps, eventual positivity, or RH',
+  adaptiveNaturalScaleFloor:
+    'T130: either one-sided natural-scale bound Λ_N≥−CN^(3/2) or Λ_N≤CN^(3/2) is individually RH-equivalent. The same is true of either eventual local update bound Λ_N₊₁−Λ_N≥−C√N log²(2N) or Λ_N₊₁−Λ_N≤C√N log²(2N). The exact ξ=(32/21)^(1/3) split writes Λ as three nonnegative-kernel root cells with weights 2,2,1, but rigorous root-buffer signs S(4)>2504 and S(84)<−5991 and mixed prime valuations block a cellwise proof. The rounded row is one exact nonnegative integer tent, and its square-completed finite Pascal/lcm comparison is RH-equivalent. At N=3 the exact 2^93 Hall count is 179382<179424, ruling out monotone equal-or-larger K-factor matching. The moving heat suppresses hypothetical high off-line modes and cannot recover the raw floor. These are sharper arithmetic targets and no-gos, not an eventual floor or a proof of RH',
+  adaptivePrimePowerCompletedDrift:
+    'T131: complete every prime power and set 𝒵_N=log(𝒮_N/𝒜_N). The same exact 139/140 transducer survives with K̃_m=(m+1)^m/[m! lcm(1,…,m)], whose adjacent log jump is m log(1+1/m)−Λ_vM(m). Either one-sided O(√N log²(2N)) bound for Δ𝒵_N is individually RH-equivalent. The translated tent kernel g_N=h_{N+1}−h_N is supported on 2205N<t<5120(N+1), satisfies |g_N|≤685440, and has exact edge signs −64,+21. Its cube-and-higher update is O(N^(1/3)); its square update exceeds 1084000√N eventually for both Beatty letters. Thus the stronger sufficient-only floor Δ𝒵_N≥−10^6√N—or an explicit 2^(1400000⌈√N⌉) finite product comparison—would force RH. The remaining RH-complete object is one signed annular von-Mangoldt quadrature. No required eventual bound is proved',
+  adaptiveFiveBandAbel:
+    'T132: exact finite summation by parts collapses the broad signed quadrature 𝒬_N^loc to five fixed-width endpoint bands of Eψ(r)=ψ(r)−r. Their widths are 2205, 21s, 3360, 32s, and 5120, with coefficients 64, −32, −74, 21, and 21 for s∈{139,140}. For N≥7 the translated kernel has constant plateaus −141120, p_s∈{−47712,−47040}, q_s∈{200928,201600}, and 107520, with exactly one interior sign crossing. On the pure mode Eψ(x)=x^ρ its leading multiplier factors as (32/105)2205^(ρ+1)(y³−1)(160y³+s y²−210), y=(32/21)^(ρ/3), and has no zero for 0<Re ρ≤1. Thus neither Beatty letter can hide a hypothetical off-line zero at leading order. The five coefficients remain mixed, so nonvanishing supplies no eventual one-sided ballot and RH remains open',
+  adaptivePositiveLocalFilterNoGo:
+    'T133: every finite nonzero nonnegative average G_N^w=Σ_j w_jg_{N+j} is still pointwise signed. At the first active lower edge it equals −64w_j<0; at the last active upper edge it equals 21w_j>0. An L-row block telescopes exactly to h_{N+L}−h_N and has the same four plateaus with effective letter σ=(u_{N+L}−u_N)/L∈[139,140]. More generally, a normalized nonnegative stencil of width H_N has leading pure-mode multiplier M_{σ_N}, a convex letter average. A uniform root-distance bound keeps this multiplier away from zero throughout 1/2≤Re ρ≤1; if H_N=o(N), every fixed off-line mode therefore survives at its natural N^(Re ρ) order. Positive sublinear local smoothing can change the constant and phase, but cannot unsign the kernel or notch a fixed off-line mode. It proves no arithmetic ballot and RH remains open',
+  adaptiveDefectCurvature:
+    'T134: write δ_N=s_N−139 and C_N=𝒬_N^loc−𝒬_{N−1}^loc. The rare δ_N=1 rows have exact gaps 24 or 25. On each one, with v=u_N+139, C_N=𝒥(v)+R_N, where 𝒥(v)=21Σ_{32v≤r<32v+32}Eψ(r)−32Σ_{21v≤r<21v+21}Eψ(r) and R_N=O(log N) unconditionally. Consecutive defect v-values have gaps 3337 or 3476, while 𝒥(v+1)−𝒥(v)=O(log v), so a one-sided defect bound extends to every large integer v before any Mellin argument. The primitive 𝔉(X)=21ℋ(32X)−32ℋ(21X) satisfies Δ𝔉=𝒥 and has off-line multiplier 672(32^ρ−21^ρ)/(ρ+1), zero-free for Re ρ>0. Consequently either eventual inequality C_N≥−C√N log²(2N) or C_N≤C√N log²(2N), restricted only to 140 defects, is individually equivalent to RH. Equivalently, either orientation of the completed-row second-difference product is RH-complete. No such bound is proved',
+  adaptiveMicrocellComparator:
+    'T135: the universal defect cell has the exact reduction 𝒥(v)=672{ψ(32v)−ψ(21v)−11v}+R(v), with |R(v)|≤17136{1+log(32v+31)}. For v≥2 it is one nonnegative trapezoid applied to Λ−1, which does not determine its sign. Writing L_m=lcm(1,…,m), X_v=L_32v(21v)^(21v)(32v−1)!, Y_v=L_21v(32v)^(32v−1)(21v)!, and j_v=⌈√v⌉(1+⌈log₂(2v)⌉)², either eventual comparison 2^(Kj_v)X_v≥Y_v or 2^(Kj_v)Y_v≥X_v is individually RH-equivalent. Opposite 2-adic and intermediate-prime valuations rule out divisibility in either direction, but not real order. Neither comparison is proved',
+  adaptiveFixedDepthComposition:
+    'T136: chaining any fixed depth d of adjacent 32/21 cells telescopes exactly to the single annulus [21^d v,32^d v]. The product of their T135 ratios is X_d,v/Y_d,v, with logarithm Eψ(32^d v)−Eψ(21^d v)+D_d,v and 0<D_d,v<(d/2)log(32/21). For every fixed d, either binary-buffered orientation remains individually RH-equivalent because 32^(dρ)−21^(dρ) is zero-free for Re ρ>0. Negative 2-adic and positive interval-prime valuations still rule out divisibility both ways. Fixed-depth composition therefore gives no new order theorem; only a genuinely uniform growing-depth argument remains outside this classification',
+  adaptiveAdjacentDepthDeconvolution:
+    'T137: adjacent-depth subtraction recovers T135 exactly: ℬ_(d+1)(v)−ℬ_d(32v)=A(21^d v) and ℬ_(d+1)(v)−ℬ_d(21v)=A(32^d v). The corresponding cross-products of X_d,v/Y_d,v are identically the original micro-cell ratios, so either buffered orientation is RH-equivalent for every fixed d. Rigorous prime-log enclosures realize all eight sign triples across depths 1–3 by v≤14, ruling out a universal finite-depth sign rule. Any nondecreasing unbounded depth schedule also has infinitely many top-endpoint jumps by a factor >32, making ordinary interpolation supercritical. Only a genuinely nonlocal coupling among overlapping annuli remains outside this no-go',
+  adaptiveFiniteOverlapOscillation:
+    'T138: every nonzero fixed finite same-scale depth coupling is one finite dilation with exact step kernel W_c(u)=Σ_dc_d·1_(21^d,32^d](u). One primitive is an exact finite combination of Vψ. On RH its x^(−3/2)-normalized value is a nonzero mean-zero uniformly almost-periodic critical-zero wave: the finite exponential multiplier has only O(T) zeros and cannot cancel the TlogT zeta zeros. Hence the primitive is Ω±(x^(3/2)), the coupling takes both signs infinitely often at integer scales, and every exact finite factorial/lcm product orientation crosses one infinitely often on RH. Fixed finite overlap therefore cannot supply an eventual-sign proof; adaptive, infinite-depth, critical-size, or nonhomogeneous coupling remains outside',
+  adaptiveSummableInfiniteOverlap:
+    'T139: let c_d be a fixed nonzero infinite depth sequence with Σ(d+1)32^d|c_d|<∞. The exact Λ−1 step kernel and first-Riesz primitive still converge absolutely. Writing C(z)=Σc_dz^d, the multiplier is M_c(s)=C(32^s)−C(21^s). Its vertical-translate hull is compact on Re s<1 and contains no identically zero function, because the least active depth has two distinct exponential rates. Jensen therefore gives only O_c(T) multiplier zeros near the critical line, too few to cancel the TlogT zeta zeros. On RH the primitive remains Ω±(x^(3/2)); the weighted cost gives O_c(log x) unit-cell transfer, so the exact integer coupling takes both signs infinitely often. Integer coefficients under this summability are automatically finite. Only scale-dependent, non-summable, critical-size, or nonlinear couplings remain outside',
+  adaptiveSubcriticalProfileDrift:
+    'T140: row-dependent profiles c^[v] still cannot settle to one sign when their cumulative motion around one fixed nonzero summable profile c is subcritical: Σ_(v≤X)√v(1+log(2v))²||c^[v]−c||_A=o(X^(3/2)), where ||c||_A=Σ_d(d+1)32^d|c_d|. On RH the Chebyshev bound makes the adaptive cumulative differ from the fixed T139 cumulative by o(X^(3/2)); the latter is Ω±(X^(3/2)), so adaptive rows take both signs infinitely often. The same conclusion holds for exact rowwise factorial/lcm products with finite-support integer profiles, including sufficiently sparse edits. A viable adaptive rule must pay critical cumulative profile cost relative to every fixed profile, keep a non-summable tail, or use nonlinear/nonhomogeneous arithmetic information',
+  adaptiveExactDualCost:
+    'T141: the critical adaptive price is exact. With w_d=(d+1)32^d and q(v)=sup_d|ℬ_d(v)|/w_d, q(v) is the operator norm of the row functional on the weighted profile space. The least profile cost needed to repair a negative row is exactly {−𝒞_c(v)}_+/q(v), attained by placing the correction at a depth maximizing normalized response. On RH, any eventually one-sided adaptive rule must spend limsup X^(−3/2)Σ_(v≤X)q(v)||c^[v]−c||_A>0 against every fixed nonzero profile. The formal cheapest controller simply reads and cancels the target Chebyshev annuli, so it is circular. The remaining task is an independent arithmetic mechanism that supplies correctly directed critical budget, or a nonlinear rule outside this dual problem',
+  adaptivePeriodicControllerNoGo:
+    'T142: every fixed periodic depth controller remains sign-recurrent on RH. For every nonzero profile c, modulus q, and residue r, bounded-gap quadrature gives Σ_(v≤X,v≡r mod q)𝒞_c(v)=q^(−1)𝓘_c(X)+O_(c,q)(Xlog X)=Ω±(X^(3/2)). Hence 𝒞_c(v) takes both signs infinitely often on each residue class. Assigning arbitrary fixed profiles to the q states cannot help, even if their mean is zero or the states alternate c,−c; choose any active state and apply its residue theorem. Exact periodic factorial/lcm products likewise cross one in both directions. A surviving independent controller needs unbounded or genuinely aperiodic state, increasing period, non-summable profiles, or nonlinear arithmetic input',
+  adaptiveLowDiscrepancyNoGo:
+    'T143: genuinely aperiodic low-discrepancy state also preserves the critical wave. If a_v selects one fixed nonzero profile with A(X)=Σ_(v≤X)a_v=δX+E(X) and max_(n≤X)|E(n)|=o(√X/log X), discrete Abel summation plus the O(log v) row increment gives Σ_(v≤X)a_v𝒞_c(v)=δS_c(X)+o(X^(3/2))=Ω±(X^(3/2)) on RH. Hence both row signs recur inside the selected state. Applied state by state, this closes every finite-state controller whose active states meet the discrepancy threshold. Irrational mechanical/Sturmian words have bounded discrepancy, so they are included, as are exact product versions. Surviving state must have critical discrepancy, zero density, unboundedly many states, changing or non-summable profiles, or nonlinear arithmetic input',
+  adaptiveIndependentRandomNoGo:
+    'T144: independent random state also preserves the critical wave almost surely, even though its discrepancy is typically too large for T143. For iid Bernoulli selection, the centered error R_a(X)=Σ_(v≤X)(a_v−δ)𝒞_c(v) has variance O_c(X²log⁴X) on RH. Kolmogorov maximal inequality on dyadic blocks and Borel–Cantelli give R_a(X)=o(X^(3/2)) almost surely, so the selected cumulative is δS_c(X)+o(X^(3/2))=Ω±(X^(3/2)). Statewise application closes every input-independent iid controller with finitely or countably many fixed profiles, including exact products. Independence is essential: selecting by the observed sign of 𝒞_c(v) is precisely T141’s circular feedback. Dependent/nonstationary schedules, zero-density state, changing profiles, non-summable depth, and nonlinear arithmetic input remain open',
+  adaptiveMarkovControllerNoGo:
+    'T145: every finite time-homogeneous Markov controller is sign-recurrent on each nonzero recurrent class. For an aperiodic irreducible class, exponential covariance decay gives a uniform weighted block-variance bound; a dyadic maximal decomposition and Borel–Cantelli make each centered state sum o(X^(3/2)) on RH. For a period-q class, its q-step skeleton is aperiodic and T142 supplies the density-scaled residue main wave, so Σ_(v≤X,Z_v=j)𝒞_c(v)=π_j𝓘_c(X)+o(X^(3/2))=Ω±(X^(3/2)) almost surely. This includes deterministic cycles, arbitrary starts, transient states, reducible chains on every reached active recurrent class, and exact products. A surviving controller must be time-inhomogeneous or arithmetic-dependent, zero-density or infinite-state, profile-changing, non-summable, or nonlinear',
+  adaptiveNonhomogeneousMixingNoGo:
+    'T146: time-dependent finite-state mixing still cannot select one sign when every transition preserves one positive law π and all transition products contract mean-zero states uniformly. The product bound ||P_u⋯P_(v−1)f||_(2,π)≤Kr^(v−u)||f|| with r<1 gives exponential covariance decay even though the kernels vary arbitrarily. The T145 dyadic maximal argument then yields Σ_(v≤X,Z_v=j)𝒞_(c^[j])(v)=π_jS_(c^[j])(X)+o(X^(3/2))=Ω±(X^(3/2)) almost surely on RH. Kernels may even be chosen from deterministic arithmetic data: they cannot help while the common marginal law and uniform mixing survive. A finite-state stochastic escape must move its marginal law at critical arithmetic scale or lose uniform mixing; zero-density/infinite state, changing/non-summable profiles, and nonlinear coupling also remain',
+  adaptivePredictableMarginalBudget:
+    'T147: arbitrary history-dependent stochastic selection reduces to predictable marginal drift plus a subcritical martingale. For p_v=E(a_v|F_(v−1)), Doob maximal inequality and the RH pointwise bound give Σ_(v≤X)(a_v−p_v)𝒞_c(v)=o(X^(3/2)) almost surely, without independence, stationarity, Markov structure, or mixing. Thus selection equals δS_c(X)+Σ(p_v−δ)𝒞_c(v)+o(X^(3/2)). If Σ|p_v−δ||𝒞_c(v)|=o(X^(3/2)), both signs recur; any eventual sign must spend positive critical predictable response budget. This holds statewise for finite/countable history-dependent controllers and exact products. The formal p_v=1_(𝒞_c(v)≥0) escape has zero innovation but reads the target sign, reproducing T141 circularity. The remaining linear stochastic problem is independent arithmetic generation of critical sign-aligned marginal correlation',
+  adaptiveSquarefreeStateNoGo:
+    'T148: squarefree arithmetic state preserves both critical excursions even though its O(√X) counting discrepancy lies outside T143. Uniform dilation quadrature gives Σ_(m≤X/q)𝒞_c(qm)=q^(−1)𝓘_c(X)+O_c(Xlog X) on RH. Insert μ²(v)=Σ_(k²|v)μ(k), truncate at K=⌊log⁴(2X)⌋, and interchange sums. The K sublattices cost O(KXlog X); the omitted large-square divisors cost O(X^(3/2)log²X/K). Both are o(X^(3/2)), so Σ_(v≤X)μ²(v)𝒞_c(v)=ζ(2)^(−1)𝓘_c(X)+o(X^(3/2))=Ω±(X^(3/2)). The nonsquarefree complement carries coefficient 1−ζ(2)^(−1) and also both signs. Arbitrary fixed profiles and exact products inherit the result. A surviving arithmetic marginal needs critical divisor-tail mass, zero density, or closer correlation with primes inside the annuli',
+  adaptiveSummableDivisorStateNoGo:
+    'T149: every positive-density divisor-convolution state with a positive power margin preserves both critical excursions. If a(v)=Σ_(q|v)h(q), Σ_q|h(q)|q^(−1+η)<∞ for some 0<η<1, and δ_h=Σ_qh(q)/q lies strictly between 0 and 1, then uniform dilation quadrature and truncation at Q=X^α give Σ_(v≤X)a(v)𝒞_c(v)=δ_h𝓘_c(X)+o(X^(3/2))=Ω±(X^(3/2)) on RH. The complement has coefficient 1−δ_h and also both signs. This includes every r-free selector and finite sieve state, for arbitrary fixed profiles and exact products. A surviving arithmetic state must fail every positive power margin, have zero density, or correlate directly with the annular prime data',
+  adaptiveLogMomentDivisorStateNoGo:
+    'T150: the T149 positive power margin is not necessary. If Σ_q|h(q)|log²(2q)/q<∞ and 0<δ_h<1, use Q=⌊√X/log²(2X)⌋. The prefix dilation cost is O(Xlog X·H_h(Q))=o(X^(3/2)), while log²(2Q)A_h(Q)→0 makes the divisor tail subcritical. Hence the selected and complementary states carry δ_h and 1−δ_h of the T139 wave and both remain Ω±(X^(3/2)) on RH. This strictly extends T149: excluding r_k=p_(k+⌈klog³(k+1)⌉) gives an infinite positive-density sparse-prime sieve with the log-squared moment finite but every positive power moment divergent. The remaining divisor route requires balanced error at the log^(−2) tail boundary, zero density, or direct prime-annulus correlation',
+  adaptiveCriticalSparsePrimeCorrelation:
+    'T151: sparse forbidden primes r_(β,k)=p_(k+⌈klog^(β−1)(k+1)⌉) give an exact phase boundary. Their full divisor Euler tail is A_β(Q)≈log^(1−β)Q, so T150 applies exactly for β>3; every finite β still fails all positive power moments. At β=3 the tail is log^(−2)Q and the response is X^(3/2)-critical. With 𝒟_c(q;X)=S_c^(q)(X)−q^(−1)𝓘_c(X), the bounded RH observable 𝔎_c(X)=X^(−3/2)Σ_(q≤X)h_3(q)𝒟_c(q;X) gives selected wave δ_3G_c(log X)+𝔎_c(X)+o(1) and complementary wave (1−δ_3)G_c(log X)−𝔎_c(X)+o(1). If 𝔎_c=o(1), both states retain both signs; any eventual sign requires nonzero phase alignment. This is the first explicit independent critical prime-dilation correlation',
+  adaptiveFiniteZeroPacketDecorrelation:
+    'T152: the β=3 sieve has natural density δ_3 and Dirichlet series ζ(s)P_3(s), with P_3(s)=∏_(r∈P_3)(1−r^(−s)). Since Σ_r(log r)/r converges, centering cancels the pole at s=1. More directly, A_3(X)−δ_3X=o(X), so Abel summation gives Σ_(v≤X)(a_3(v)−δ_3)v^z=o_z(X^(3/2)) for every fixed Re z=1/2. Every fixed finite packet of critical zeta-zero modes therefore transfers with density δ_3 and contributes nothing to 𝔎_c. Any nonzero T151 response must escape to unbounded zero height through nonuniform resonance between high zeros and the boundary values P_3(1+it). Pole cancellation or bounded-height computation cannot close it; a uniform high-frequency convolution estimate is the live task',
+  adaptiveNaturalDensityLargeSieveNoGo:
+    'T153: every bounded selector with a natural mean preserves the density-scaled Twin Ladder wave for every fixed finite profile. Truncate the RH explicit formula at height X. Natural density makes each fixed zero mode o(X^(3/2)); for T<|γ|≤2T, color the zeros into O(log T) one-separated families and apply the multiplicative large sieve to b_v=(a_v−δ)√v. Cauchy–Schwarz bounds the normalized block by O_c(log(2T)/√T), uniformly for T≤X. The dyadic high tail vanishes, so Σ_(v≤X)(a_v−δ)𝒞_c(v)=o(X^(3/2)). Every positive-density binary state and its complement retain both signs and exact product crossings. In particular 𝔎_c=o(1), closing the β=3 critical sieve. Any remaining independent selector must have zero density, fail natural density, or use a nonuniform infinite profile',
+  adaptiveNaturalDensityInfiniteProfileNoGo:
+    'T154: natural density preserves the wave for every fixed uniformly summable infinite profile, not only finite depth. For the depth-d response, truncate the RH explicit formula at T_d=X32^d. The multiplicative large sieve and the explicit-formula remainder give the uniform normalized majorant O(32^(d/2)(d+1)^2). This is summable against c_d whenever ||c||_𝔄=Σ_d(d+1)32^d|c_d|<∞. Since each fixed-depth response is o(X^(3/2)) by T153, dominated convergence yields Σ_(v≤X)(a_v−δ)𝒞_c(v)=o(X^(3/2)) throughout the full T139 space. Positive-density states and complements preserve both signs. Any remaining escape needs zero or absent natural density, nonuniform row-dependent profiles, non-summable depth, or nonlinear coupling',
+  adaptiveBanachMeanProfileNoGo:
+    'T155: a row-dependent profile schedule with a coordinatewise T139-summable envelope and a natural Cesàro mean c̄ collapses to that fixed mean profile. Center each depth coefficient. T153 makes every fixed-depth centered response o(X^(3/2)), while T154 supplies the summable majorant g_d32^(d/2)(d+1)^2. Dominated convergence gives Σ_(v≤X)𝒞_(c^[v])(v)=𝓘_c̄(X)+o(X^(3/2)). If c̄≠0, the adaptive schedule retains the T139 Ω± wave. More strongly, in any deterministic finite-state schedule whose state densities exist, every positive-density nonzero state retains both signs separately, even when the mean profile cancels. A strict finite-state controller must lose natural state density or use an undominated/nonlinear rule',
+  adaptiveNondensityHydrodynamicLimit:
+    'T156: every bounded selector, even without natural density, has a complete subsequential X^(3/2)-scale description. The dilation measures μ_X=X^(−1)Σ_(v≤X)a_vδ_(v/X) are weak-* compact, and all zeta phases X^(iγ) can be extracted simultaneously. The multiplicative large sieve makes the high-zero tail uniformly O_c(log T/√T). Along the subsequence, X^(−3/2)Σa_v𝒞_c(v) tends to ℋ_c(μ,ω)=−Σ_ρM_c(ρ)ω_γρ^(−1)∫u^ρdμ. For binary selectors dμ=f(u)du with 0≤f≤1; natural density is the constant f case. Any nondensity one-sided controller must therefore phase-lock a macroscopic multiplicative-scale shape f to the zeta phase ω. Microscopic irregularity alone cannot steer the sign',
+  adaptiveLogPeriodicResonance:
+    'T157: the canonical T156 phase-locking attempt is a fixed log-periodic weight F(log v). If F has a weighted-absolutely-convergent Fourier series with period L, its RH response is X^(3/2)H_(F,c)(log X)+o(X^(3/2)), where H has shifted frequencies γ+2πk/L. Outside a countable measure-zero set generated by zeta ordinates and their differences, those frequencies are nonzero and distinct. The response is then a nonzero mean-zero almost-periodic wave and is Ω±(X^(3/2)). Only exact zeta-resonant periods can create a constant bias, and that bias must still dominate every off-resonant mode. Discontinuous binary log blocks and exceptional resonance remain open',
+  adaptiveBinaryLogBlockResonance:
+    'T158: the T157 theorem extends from smooth weights to every periodic bounded-variation weight, including exact binary logarithmic blocks. Replace termwise smooth Euler summation by the periodic exponential resolvent Q_(ρ,F)(t)=∫_0^∞F(t−y)e^(−(ρ+1)y)dy. BV Fourier decay |F̂_k|=O(1/|k|) combines with the shifted zero bound O(log²(2+|λ_k|)/(1+|λ_k|)) to make the full response absolutely convergent. Outside the same countable zeta-resonance set, both a nontrivial binary block and its complement have nonzero mean-zero almost-periodic responses and retain Ω±(X^(3/2)) and both exact row orders. Only exceptional resonance remains for fixed-period binary control',
+  adaptiveResonantBlockDesign:
+    'T159: an exceptional interval block resonant at L=2πm/γ_j has exact constant bias B_(j,m)=−(4/3)Re(F̂_(−m)M_c(ρ_j)/ρ_j). Optimizing block phase gives |B|_max=(4/3)|sin(πmδ)|/(πm)|M_c(ρ_j)/ρ_j|, so a half-duty first-harmonic block is strongest. A five-depth profile normalized at the first zero and chosen to cancel the second and third multipliers stayed positive in sampled 100- and 300-zero packets, but a 1,000-zero/1.2-million-phase scan found a negative value. The candidate is falsified before infinite-tail control. A viable design must co-optimize the multiplier and resonant block across every growing packet, rigorously dominate the tail, and transfer cumulative positivity to rows',
+  adaptiveResonantPairRayleigh:
+    'T160: the optimally phased half-duty contribution of the resonant conjugate zero pair is pointwise positive, not merely positive on average. Its exact piecewise exponential resolvent gives h_(ρ,c)(t)>|M_c(ρ)/ρ|·|γ|/(γ²+9/4), sharpened by the factor 149/50 for the certified first zero. All remaining failure is therefore in the other-zero spectrum. Exact collision grouping and Bohr Parseval make finite-depth profile design a positive-semidefinite generalized Rayleigh problem. A depth-nine RMS profile was stable across independently optimized 100-, 300-, and 1,000-zero packets, with sampled minima 0.01698, 0.01655, and 0.01573. This is the first resonant design to survive the T159 1,000-zero stress level, but it is still floating-point finite evidence: interval inputs, uniform phase enclosure, Fourier and infinite-zero tails, growing-packet stability, and cumulative-to-row transfer remain open',
+  adaptiveCertifiedResonantEnvelope:
+    'T161 upgrades the T160 candidate from finite sampling to a rigorous RH-conditional complete response. At each local block phase, a one-dimensional envelope lets every nonresonant conjugate pair choose its worst possible global phase. The exact half-block derivative gives a cyclic Lipschitz correction, and the residual Hadamard identity charges every zero above the first 10,000. A 256-bit Arb certificate with an independent Turing count and 1,001 phase cells proves min_t H_(F,c†)(t)>0.00092497785698634539 on RH for an exact terminating-decimal depth-nine profile. Thus RH implies an eventual strict cumulative factorial/lcm product order over the selected logarithmic-block rows. This is not RH: the exact aggregate order is not proved unconditionally, its converse is unknown, and no eventual individual-row sign follows',
+  adaptiveTwoProfileResonantRobustness:
+    'T162 removes the first concrete obstruction to a T161 converse. A Rouché certificate proves that the original exact multiplier M_(c†) has an off-line zero in a radius-10^(−30) disk centered at 0.5622659840+9924.9268719i, above the 10,000-zero Turing height; this is a multiplier zero, not a zeta zero. The exact profiles c±=c†±10^(−4)e₁ remain RH-positive because a complete Hadamard bound charges the depth-one perturbation by less than 0.000214126, leaving min_t H_(F,c±)(t)>0.00071085254508616933. Their multipliers cannot vanish together anywhere in 0<Re s<1, since their difference is 2·10^(−4)(32^s−21^s). The pair removes multiplier blindness, but neither aggregate product order is proved unconditionally and exceptional frequency resonance still blocks an RH converse',
+  adaptiveUnconditionalAggregateTransform:
+    'T163 derives the resonant aggregate without RH: S_(F,c)(X)=−Σ_ρm_ρM_c(ρ)ρ^(−1)X^(ρ+1)Q_(ρ,F)(log X)+O_(F,c)(Xlog(2X)), with the full zero sum absolutely convergent for every fixed X. The error comes only from discrete transfer and has Mellin transform holomorphic for Re z>1. A half-duty block has exactly the mean and odd Fourier harmonics. Therefore, if both T162 product inequalities were proved and a false-RH right edge were isolated and finite, Pringsheim–Landau forces either a right-edge ordinate at an odd multiple of γ₁ or an exact collision of two right-edge ordinates modulo γ₁. Every other isolated finite off-line configuration is excluded. The arithmetic inequalities, collision residues, exact resonances, and infinite/nonattained right edges remain open',
+  adaptiveAsymptoticOddResonance:
+    'T164 removes the generic infinite/nonattained-edge escape, conditionally on the same two unproved T162 product orders. Group every shifted collision by the joint residue vector (R_(c+),R_(c−)). Either all classes generated by zeros in a full strip below β*=sup Re ρ cancel simultaneously for both profiles—a joint collision shield—or uncanceled singularities approach Re z=1+β*. Normal convergence away from their divisor and Pringsheim–Landau then force zeros β_n+iγ_n with β_n→β* and dist(γ_n,(2Z+1)γ₁)→0. Thus every remaining false-RH configuration must use exact joint collision shielding or asymptotic odd resonance. Neither exceptional relation is ruled out, and neither arithmetic order is proved, so RH remains open',
+  adaptiveTwoPeriodNoGain:
+    'T165 proves that a second fixed log period does not close T164 by qualitative lattice separation. For H_a=(2Z+1)a, the distance to H_b is zero for every irrational a/b and for reduced odd/odd rational ratios; it is positive only for an opposite-parity rational ratio. More fundamentally, two separate Pringsheim–Landau arguments may select different zero subsequences approaching the same right edge, so even a positive lattice gap gives no contradiction. The next controller must couple visibility of the same zeros, force a quantitative resonance rate, vary its frequency with scale, or eliminate the joint collision shield directly',
+  adaptiveDepthProbeCollisionVisibility:
+    'T166 replaces extra periods by the base c^(0)=c† and one exact probe c^(d)=c†+10^(−6)64^(−d)e_d per depth. The T161 margin and complete Hadamard bound prove min H>0.00092494 for every d on RH. If an m-term shifted collision canceled the base and probes through depth 2m−1, their differences would annihilate all moments of a signed measure on at most 2m nodes; Vandermonde uniqueness and irrational log32/log21 force every residue weight to vanish. F. and M. Riesz gives finite-depth visibility for infinite absolutely summable classes too. Thus no fixed class is a universal shield, while any class canceling the first D probes must have more than (D+1)/2 terms. The remaining diagonal escape requires unbounded exact collision multiplicity near a nonattained edge',
+  adaptiveGenericGeometricProfile:
+    'T167 compresses all depth probes into c(t)=c†+10^(−6)Σ_(d≥1)(t/64)^de_d. The whole path 0≤t≤1 remains RH-positive above 0.00092494, and its multiplier increment is the zero-free critical-strip rational function 64·10^(−6)t(32^s−21^s)/((64−t32^s)(64−t21^s)). For each fixed collision class, the residue difference is a nonzero analytic function of t, so its exceptional parameters are discrete. Since collision classes are countable, almost every single t makes the base and c(t) jointly detect all classes simultaneously. Exact visibility is enough to remove a collision shield; a uniform residue size is not needed. The parameter remains nonconstructive and infinite-depth, and the half-duty controller still permits asymptotic odd resonance',
+  adaptiveFiniteSpectrumCriterion:
+    'T168 replaces the half-duty block by G_θ(t)=(1+cos(γ₁(t−θ)))/2, whose Fourier support is only {−1,0,1}. A 256-bit Arb certificate with 10,000 completed zeros and the full Hadamard tail proves an RH-conditional base margin above 0.000375507134470647016; five exact depth probes retain 0.000375496012016046695. Three-mode collision classes contain at most three terms, so depths 1,…,5 remove every shield. Bounded Fourier support makes the remaining Landau resonance sequence compact, where the Turing count excludes off-line resonance at 0 and ±γ₁. Therefore RH is equivalent to six eventual weighted aggregate inequalities. None is proved unconditionally, and the controller is tuned to the certified first zeta zero rather than constructed from prime data alone',
+  adaptiveThreeDepthCriterion:
+    'T169 exploits the rigid shifts k=−1,0,1 instead of the generic 2m−1 moment bound. The depth-1,2,3 collision determinant factors into three unit-circle linear roots and a cubic. A 256-bit Schur–Cohn certificate places all cubic roots strictly inside the unit disk, so the determinant cannot vanish when |(32/21)^ρ|>1. Every critical-strip collision is therefore detected by depths 1–3, reducing the T168 ledger from six equivalent inequalities to four. The four weighted arithmetic orders remain unproved and first-zero-tuned',
+  adaptiveGenericFiniteProfile:
+    'T170 mixes the three T169 depth directions into one finite cube c(u)=c†+10^(−6)Σ_(d=1)^3 64^(−d)u_de_d. A 256-bit interval ledger proves the complete cube stays RH-positive above 0.000375494942026486214. For each collision class, the parameters that cancel its affine residue form a proper null subspace because the T169 depth-residue vector is nonzero. Countably many classes still remove only a null set, so almost every single u detects them all. Compact three-mode resonance is already excluded by the T168 Turing count. Hence, for almost every u, RH is equivalent to one eventual weighted aggregate inequality. The parameter is nonconstructive, the order is unproved, and the controller remains first-zero-tuned',
+  adaptiveOneParameterFiniteProfile:
+    'T171 restricts the T170 cube to u=(t,t²,t³), 0≤t≤1. For each collision class its residue becomes a nonconstant complex polynomial of degree at most three, because T169 guarantees that one positive-degree coefficient is nonzero. Each class therefore excludes at most three real parameters. The union over countably many classes is countable, so every t outside that set gives the same single-inequality RH equivalence. This sharpens full-measure genericity to a co-countable one-parameter statement, but it still does not identify a rational or algebraic good t, prove the arithmetic order, or remove first-zero tuning',
+  adaptiveUniformMultiplierBlindSpot:
+    'T172 proves that zero-free-multiplier derandomization cannot work anywhere in the current positive cube. A 384-bit uniform Rouché certificate compares every cube multiplier with the linearization of M_(c†) at its certified off-line blind spot. On the common radius-10^(−6) disk, the base Taylor remainder plus the complete three-coordinate perturbation is below 2.199393376973256903×10^(−7), while the linear boundary magnitude exceeds 1.697632526281556068×10^(−5). Every T170/T171 multiplier therefore has exactly one critical-strip zero in that disk. These are multiplier zeros, not zeta zeros; generic actual-zero avoidance remains valid. An explicit parameter must use genuine zeta noncoincidence, leave this positive component, or prove the arithmetic order directly',
+  adaptiveDepth12BranchEscape:
+    'T173 leaves the T172 cube along an exact negative depth-12 path. At α=41/200, scaling the rational profile by four gives a complete 10,000-zero, Turing-counted, Hadamard-tail RH-conditional margin 0.000321679025522368361>0.0003 for the same three-mode controller with retuned phase. A separate 512-bit Rouché disk places the tracked T162/T172 multiplier branch at 0.4999855998446+9924.9367162i, wholly left of the critical line. This constructively escapes the known blind branch while preserving the target response. It does not prove the entire depth-12 multiplier zero-free, exclude every shifted collision, prove the aggregate arithmetically, or prove RH',
+  adaptiveDepth12LowBlindSpot:
+    'T174 performs the missing global-zero-free stress at low height. A separate 512-bit Rouché certificate proves exactly one zero of the same exact depth-12 multiplier in the radius-10^(−12) disk around 0.5608496419737+1.2452344574602i, wholly inside 1/2<Re s<1 and below height 14. The completed first-zero/Turing ledger places the first nontrivial zeta ordinate above 14.1347, so this is a multiplier zero but not a zeta collision. Global multiplier zero-freeness for c♯ is rigorously false; actual zeta-divisor noncoincidence, paired-profile separation, and the arithmetic order remain open',
+  adaptiveDilationAlignedNoGain:
+    'T175 tests the only obvious endpoint-telescoping controller. The period LΔ=log(32/21) makes GΔ(log(32^d x))=GΔ(log(21^d x)) exactly, but its frequency ωΔ=2π/LΔ=14.9168671662… lies rigorously between the first two zeta ordinates. Turing counts also place 2ωΔ−γ₁ in the same zero-free gap, while M_(c♯)(ρ₁) is nonzero. The shifted first-zero mode is therefore a singleton. On RH the response is nonzero with mean zero and is Ω±, so exact ladder-endpoint alignment cannot produce an eventual one-sided aggregate',
   adaptiveEndpoint:
     'T66: on the common graph domain, a residual-zero-centered profile k_X(x)∝e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X] suppresses K_I and isolates one residual-pole coordinate. T67 transfers its strict compact-smooth defect to an actual finite exponential matrix witness, but every quantitative parameter remains zero-dependent',
   graphCore:
@@ -285,7 +385,49 @@ const MARKOV_NORMALIZATION = {
   gradedBackward:
     'e^{λ|u|}c tempered/PD ⇔ λ/2 ≤ Re ρ ≤ 1−λ/2; any positive rung would prove a uniform zero strip',
   finiteRadialLayers:
-    'every fixed finite family of modular/radial shifts with a nonzero fixed PSD coupling in the audited kernel family has a negative 2×2 principal minor sufficiently far in the tail',
+    'T42/T176/T177: finite PSD radial layers fail; for 0<a<1/2 the failure survives arbitrary finite derivative enrichment and every bounded PSD coupling of the full integer-modular tower at fixed derivative ceiling',
+  lowerEdgeTail:
+    'T178: atomless x^(ν−1)g(x) shift mass has normalized tail [2 cosh(s−r)]^(−ν)≻0; a lower-edge atom restores the negative 2×2 minor whenever 0<a<ν/2',
+  twoBranchHalfSech:
+    'T179: Bₐ=(1−e^(−2a(t+b)))/[2cosh(t−b)] is entrywise positive and fixed-order tail positive, but indefinite on every tail; the exact endpoint and theta corrections are load-bearing',
+  endpointOnlyNoGo:
+    'T180: restoring the complete endpoint y/S integral still leaves every tail indefinite for 0<a<1/2 when R≡1; the nontrivial theta-R cross-scale factor is load-bearing',
+  exactBoundaryRescue:
+    'T181: a 384-bit Arb replay proves ∂t∂b A₁⧸₄(0,0)=0.04453353300039674694…>0; the exact theta-R factor reverses the endpoint-only local obstruction',
+  exactBoundaryJet:
+    'T182: the 512-bit exact order-four boundary jet is positive definite; five confluent derivative levels pass, while order-uniform and interval PSD remain open',
+  boundaryEnergyHierarchy:
+    'T183: all boundary jets are PSD iff every even/odd P(D)e^(ax)Ψ has at least as much L² energy on x>0 as x<0; along aₙ↓0 this is RH-equivalent',
+  infinitesimalBoundaryJet:
+    'T184: the 512-bit five-level first-variation jet ∂ₐJₐ|₀ is positive definite; the exact theta rescue persists infinitesimally, while all-degree uniformity remains open',
+  infinitesimalHierarchy:
+    'T185/T192: all infinitesimal jets are PSD iff the de Branges kernel L₀ is PSD iff RH; seventeen certified levels remain finite evidence, not a strict reduction',
+  infinitesimalJetFloor:
+    'T186/T192: the normalized jet floor λd is nested; RH iff λd↓0, while non-RH forces a negative finite level. The exact form is now Arb-positive through d=16, but no uniform margin exists',
+  translationParityMargin:
+    'T187: strict concavity of log Ψ(√s) proves both even and odd translated theta packets stay positive and approach the normalized zero margin from above',
+  translationMixtureKernel:
+    'T188: the mixed-translation kernel has positive entries, but PSD on every finite grid in any [0,ε] is already equivalent to RH; a false RH would force negative matrices arbitrarily near zero',
+  squareConcavityMixtureCounterexample:
+    'T189: an Arb-certified three-packet difference-of-Gaussians model proves strict square-radius log-concavity and positive individual packets do not imply translation-mixture PSD',
+  twoPacketConcavityTheorem:
+    'T190: square-radius log-concavity proves every two-node translation matrix PSD, strictly at distinct theta nodes; three packets are the first size not controlled by concavity',
+  localFivePacketProtection:
+    'T191: the certified order-four infinitesimal jet protects every theta translation matrix with at most five distinct nodes in one origin neighborhood; an arbitrarily fine negative witness would need at least six packets',
+  localSeventeenPacketProtection:
+    'T192: a dimension-parametric 512-bit Arb replay certifies the fixed-thickness and infinitesimal jets through degree sixteen; one origin neighborhood protects every matrix through seventeen packets, so a local negative witness needs at least eighteen',
+  canonicalTruncationNoGo:
+    'T193: near-null theta polynomials follow a deformed cosh/sinh root lattice, but pure-imaginary roots and positive complete translation packets do not sign finite canonical factors; the T189 model has the exact witness ℓf(z+z³/8)=−1/216',
+  translationFixedOrderTail:
+    'T194: positive diagonal scaling sends the exact translation kernel to sech(t−b) in every fixed whole-tail Cᵐ norm; each fixed packet count is eventually positive, so any three-packet obstruction must touch a bounded left interval',
+  translationThreePacketCompactness:
+    'T195: strict confluent two-packet positivity plus exponential bounded/far decoupling puts every possible nonpositive three-packet configuration inside one compact translation interval',
+  translationTripleCollisionFirstSegment:
+    'T196: a 768-bit shared-Taylor Arb cover proves the translated triple-collision jet positive definite for every 0≤T≤2; T>2 and the nonconfluent three-node interior remain open',
+  translationTripleCollisionComplete:
+    'T197: a 256-bit bivariate Arb boundary-layer bound proves the normalized translated jet within 0.237144302 of its positive limit for every T≥2; with T196, the complete triple-collision face is positive for all T≥0',
+  translationThreePacketOriginSlice:
+    'T198: a 384-bit boundary-layer cover proves the resolved origin-slice rectangle t₁=0, 49/40≤t₂, t₂+1/2≤t₃≤6 positive, including the exploratory minimum; complementary strips and common translations remain open',
   continuumTail:
     'T45/T48/T55–T57/T64/T66–T67: after normalization the exact continuum block converges uniformly in every fixed Cᵐ tail norm to 1/[2 cosh(t−b)]. Every fixed order is eventually positive, but the spectral floor is zero and every finite signed upper H-relative bound fails. Compact-smooth graph approximation yields finite residual-pole witnesses, while zero-uniform control and the global one-sided contraction remain open',
   criticalTail:
@@ -365,6 +507,152 @@ const MARKOV_NORMALIZATION = {
     'T124 classifies two formal escape routes. One exact scale-independent scalar response on a determining subset of a common open Mellin strip freezes every positive log-scale measure; finite continuous nonnegative homogeneous rectification of one pure conjugate mode either erases the full orbit or manufactures the real pole with positive residue required by Landau. Discrete zeta-zero matching, variable symbols, full multi-mode or adaptive nonlinear behavior, and genuinely global arithmetic remain unclassified, so this proves neither RH nor non-equivalence.',
   structureT125:
     'T125 proves that every fixed absolutely continuous reweighting of the T123 block retains the asymptotic blind lattice: compact-uniform Riemann–Lebesgue decay and Rouché give one simple zero near each high root of a^z−2. Exact weighted prefix products converge locally to this symbol when their normalized empirical measures converge weakly on the fixed prefix interval, but each finite response is atomic and no uniform high-frequency or Mellin-error transfer is proved. This is a fixed-weight route no-go, not an RH proof or non-equivalence theorem.',
+  structureT126:
+    'T126 extends right-half zero existence to fixed atomic and singular measures, with a regularity-dependent localization hierarchy: Jessen convexity for the atomic almost-periodic part and a Wiener–Rouché transfer for the atomless part force infinitely many blind points in every half-plane Re z>c with c<σ*=log 2/log a. Positive atomic probabilities even have positive zero density strictly to the right of σ*. A quantitative Wasserstein theorem transfers a growing lattice window only toward one fixed L¹ target when T_NW₁→0. This does not close every atomic or singular Landau route; endpoint support, uncontrolled scale adaptation, and the required discrete Mellin estimate remain outside, so this is still not an RH proof.',
+  structureT127:
+    'T127 makes that existence theorem uniform over every weak-* compact family with fixed strict-interior support and bounded total variation. Compact-open continuity and a finite Rouché subcover put at least one symbol zero in a common bounded right-half rectangle, even for arbitrary normalized row-dependent positive exact weights with no convergence. The zero can move by row and the rectangle may lie beyond Re z=2, so no fixed multiplier, weighted Mellin transfer, arithmetic sign, or RH conclusion follows.',
+  structureT128:
+    'T128 tunes one moving endpoint to the algebraic dilation μ₀=(32/21)^(2/3). Nearest-integer rounding changes the exact centered slack by only O(N), leaving a fixed comparator whose multiplier factors explicitly and is zero-free on 3/2<Re z<2. A direct algebraic Arb/Turing calculation supplies an RH-side margin above 1/20, while Landau gives the converse. Thus one exact rounded strict-interior prefix is RH-equivalent; its eventual sign remains unproved, and the rowwise rounded symbols themselves are not claimed zero-free.',
+  structureT129:
+    'T129 transfers the real prime-square residue and T116 verified-height moving heat to that exact adaptive prefix. Every sufficiently large near-unit power window contains a whole deep positive block, with explicit residue B_ad>724000 and logarithmic counting exponent almost 1/2. The exact ∛2688000 Beatty recurrence and positive asymmetric tent now isolate the arithmetic frontier. The moving heat also asymptotically suppresses hypothetical off-line modes, so it proves recurrence and power-gap coverage—not eventual positivity or RH.',
+  structureT130:
+    'T130 identifies either one-sided N^(3/2) floor—and either direction of a square-root-times-log-squared local drift bound—as an exact RH-complete bridge. A cubic-root positive-cell split, exact integer tent, and square-completed finite Pascal/lcm form make that bridge fully arithmetic; signed root-buffer fixtures and an exact Hall deficit rule out cellwise sign, divisibility, and monotone matching. The T129 heat still suppresses hypothetical off-line modes and cannot recover this raw floor, so RH remains open.',
+  structureT131:
+    'T131 completes all prime powers and isolates the zero channel 𝒵_N=log(𝒮_N/𝒜_N). It obeys the same 139/140 recurrence with lcm-completed K̃-factors. Either one-sided √N log²N update bound is RH-equivalent; a uniform >1084000√N square step makes the stronger −10^6√N completed floor sufficient. The exact local kernel has both edge signs, leaving one finite signed von-Mangoldt quadrature rather than a positive tent. No required bound is proved, so RH remains open.',
+  structureT132:
+    'T132 converts that quadrature exactly into five bounded-width sums of the Chebyshev error at moving endpoints. Its 139- and 140-letter leading multipliers factor explicitly and are zero-free throughout 0<Re ρ≤1, so no individual letter has an off-line leading-mode blind spot. This sharpens the arithmetic target but does not control the mixed-sign five-band ballot; no RH-complete one-sided estimate is proved.',
+  structureT133:
+    'T133 closes the obvious positive-local-averaging escape. Every finite nonnegative row stencil retains explicit negative and positive edge values, while every normalized stencil of sublinear width has an effective letter σ∈[139,140] and preserves each fixed off-line pure mode at natural order. This is a local-filter no-go, not a bound on the mixed arithmetic ballot or an RH proof.',
+  structureT134:
+    'T134 isolates the entire off-line obstruction on the rare 140-step defects. Their local-ballot curvature differs by only O(log N) from one universal 32/21 Chebyshev-error micro-cell; bounded defect gaps and an O(log v) unit-step law transfer either one-sided defect estimate to all scales. The resulting first-Riesz multiplier is zero-free off Re ρ=0, making either defect-curvature direction RH-equivalent. The criterion is exact but unproved.',
+  structureT135:
+    'T135 turns that universal micro-cell into one exact factorial/lcm comparison. The Chebyshev increment carries only an explicit logarithmic remainder, while the full Λ−1 coefficient sequence is a nonnegative trapezoid. A uniformly bounded archimedean deficit converts either one-sided square-root-log-squared bound into either orientation of the integer comparison, each individually RH-equivalent. Opposite prime valuations block divisibility shortcuts, and trapezoid positivity does not sign Λ−1, so no required comparison or RH is proved.',
+  structureT136:
+    'T136 closes the finite multiplicative-composition escape. Every fixed chain of adjacent micro-cells cancels at all internal endpoints and becomes one wider Chebyshev annulus and one wider factorial/lcm ratio. Its dilation multiplier still loses no off-line zero, while the same opposite valuation signs block divisibility. Thus finite ladder depth neither weakens the RH-complete bound nor supplies its real order; a growing-depth estimate would need new uniform arithmetic control.',
+  structureT137:
+    'T137 closes adjacent-depth deconvolution, sign persistence, and naive endpoint interpolation. Subtracting two neighboring depths returns one T135 cell exactly, including its integer comparator. All eight depth-1/2/3 sign patterns occur in certified finite fixtures, and every monotone unbounded depth schedule has macroscopic endpoint jumps. A surviving growing-depth strategy must therefore exploit a new nonlocal relation among overlapping annuli rather than ordinary products, cross-ratios, or sampled signs.',
+  structureT138:
+    'T138 closes every fixed finite linear overlap as an eventual-sign route. Its exact first-Riesz primitive retains infinitely many critical-zero frequencies, forming a nonzero mean-zero almost-periodic wave on RH; neither the arithmetic depth sum nor its exact factorial/lcm product can settle to one sign. The remaining overlap frontier must change with scale, use infinitely many depths with uniform control, prove a two-sided critical bound, or introduce a genuinely nonhomogeneous global coupling.',
+  structureT139:
+    'T139 closes the uniformly summable infinite-depth escape. A compact translate-hull argument extends the O(T) multiplier-zero bound from finite exponential polynomials to every fixed sequence with finite Σ(d+1)32^d|c_d|, while that same norm controls integer interpolation. The RH critical wave and both-sign recurrence therefore survive. A genuinely infinite product or overlap must now have growing arithmetic cost, change with scale, seek a two-sided critical bound, or use nonlinear nonhomogeneous structure.',
+  structureT140:
+    'T140 closes subcritical scale adaptation around every fixed nonzero summable depth profile. The exact RH error estimate converts weighted profile drift into a cumulative perturbation of the T139 wave; below X^(3/2) that perturbation cannot erase its positive and negative excursions. Even sparse rowwise integer product edits obey the no-go when their weighted cost is subcritical. Surviving adaptation must move at critical cumulative size, remain non-summable, or use nonlinear arithmetic data.',
+  structureT141:
+    'T141 solves the linear adaptive optimization problem itself. Weighted l1/linfinity duality identifies the cheapest depth and exact cost for correcting each row, while T139 recurrence forces every eventual-sign rule to accumulate positive critical X^(3/2) response budget on RH. The optimizer is not a proof mechanism: it explicitly measures and cancels the unknown signed annulus. A viable critical-cost construction must generate the direction independently from arithmetic structure.',
+  structureT142:
+    'T142 closes fixed periodic arithmetic control, a critical-drift class not covered by T140. Every active residue class is a bounded-gap Riemann sampling of its fixed-profile T139 primitive, so it inherits positive and negative X^(3/2) cumulative excursions and both row signs. Zero-mean, alternating, and arbitrary finite periodic state assignments all fail; an independent controller must have genuinely growing or aperiodic state.',
+  structureT143:
+    'T143 extends that closure to genuinely aperiodic finite-state control with positive density and discrepancy o(sqrt(X)/log X). Exact Abel summation transfers each active state to its density-scaled T139 cumulative with only subcritical error. Balanced mechanical, Sturmian, and other low-discrepancy selectors therefore retain both signs, even for exact products. Any remaining state mechanism must have critical discrepancy, zero-density or unbounded state, changing/non-summable profiles, or nonlinear arithmetic input.',
+  structureT144:
+    'T144 closes input-independent iid random control beyond the T143 discrepancy range. The centered selected sum is a martingale whose RH variance is O(X²log⁴X); Kolmogorov maximal inequality and Borel–Cantelli make it o(X^(3/2)) almost surely. Every active nonzero state in a finite or countable fixed-profile law therefore retains both signs, including exact products. Randomness can help only by becoming arithmetic-dependent feedback, dependent/nonstationary, zero-density, profile-changing, non-summable, or nonlinear.',
+  structureT145:
+    'T145 closes every finite homogeneous Markov scheduler, including dependence and periodicity. Exponential covariance decay plus a dyadic maximal inequality controls aperiodic classes; periodic classes reduce through their skeletons to T142 residue waves. Every reached recurrent state with a fixed nonzero profile retains both signs almost surely. Only time-inhomogeneous or arithmetic-dependent transitions, zero-density/infinite state, changing or non-summable profiles, and nonlinear coupling remain.',
+  structureT146:
+    'T146 closes uniformly mixing time-inhomogeneous finite-state control with a common positive law. Uniform contraction of every transition product preserves exponential covariance decay, so the centered state error remains o(X^(3/2)) almost surely and the density-scaled T139 wave survives. Even deterministic arithmetic choice among such kernels fails. A stochastic escape must move its marginal law at critical scale or destroy uniform mixing.',
+  structureT147:
+    'T147 identifies the exact currency of every stochastic escape. After conditioning on the past, the innovation is always an o(X^(3/2)) martingale on RH; only the predictable marginal drift remains. Subcritical weighted drift preserves both signs, while eventual one-sidedness requires positive critical response budget. The sign-reading optimizer attains that budget circularly. A useful route must now manufacture the same critical correlation from independent arithmetic structure.',
+  structureT148:
+    'T148 tests a genuine independent arithmetic marginal at the critical discrepancy scale. Möbius square-divisor expansion plus uniform dilation quadrature shows that squarefree rows carry exactly 1/ζ(2) of the T139 wave and nonsquarefree rows the complement, up to o(X^(3/2)). Both states retain both signs and exact product crossings. Index factorization alone therefore does not manufacture the T147 critical correlation.',
+  structureT149:
+    'T149 lifts the squarefree calculation to every divisor-convolution indicator whose coefficients have any positive power of summability beyond the harmonic boundary. A power-scale truncation leaves the density times the T139 wave and only subcritical tails, so both the state and its complement remain sign-recurrent on RH. The remaining divisor frontier is genuinely borderline, zero-density, or prime-correlated.',
+  structureT150:
+    'T150 crosses the positive-power boundary itself. A log-squared harmonic coefficient moment is enough for a balanced square-root truncation, and an explicit infinite sparse-prime sieve shows this class is strictly larger than T149. Even that genuinely borderline multiplicative state preserves both critical excursions; only the balanced log-tail threshold, zero density, or direct prime correlation remains.',
+  structureT151:
+    'T151 identifies the first unresolved divisor controller rather than another diffuse class. The sparse-prime family has a sharp beta=3 transition, where its Euler tail is exactly log^(−2)Q. Exact interchange compresses the entire escape into one bounded signed dilation-error observable. Subcritical correlation closes the controller; eventual sign requires critical phase alignment with the T139 wave.',
+  structureT152:
+    'T152 rules out every low-frequency source of the T151 alignment. The critical sieve has density, its centered Dirichlet series loses the pole at one, and every fixed critical-line monomial—and therefore every finite zero packet—decorrelates at X^(3/2) scale. Any surviving response must be a genuinely nonuniform high-zero/boundary-frequency resonance.',
+  structureT153:
+    'T153 closes the high-frequency gap with the multiplicative large sieve. Local zero counts split each dyadic packet into separated families; their total normalized contribution decays like log T/sqrt(T). Natural density handles the fixed low packet. Thus every natural-density state samples the same critical wave, including the formerly critical beta=3 sieve.',
+  structureT154:
+    'T154 makes the large-sieve closure uniform across the complete T139 profile space. A depth-dependent cutoff gives a 32^(d/2)(d+1)^2 majorant, and the stronger T139 norm makes that majorant summable. Dominated convergence therefore transfers every natural-density state through infinite ladder depth.',
+  structureT155:
+    'T155 closes dominated row-dependent schedules with a stable profile mean. Depthwise centering plus the T154 majorant leaves exactly the fixed mean-profile wave. Statewise application also closes every deterministic finite-state schedule with natural state densities, even when its mean profile is zero.',
+  structureT156:
+    'T156 gives the compact limit space for every remaining nondensity selector. High zeros vanish uniformly, leaving only a macroscopic dilation-density profile coupled to the simultaneous zeta phase. The open controller is therefore a log-scale phase-locking problem, not arbitrary microscopic noise.',
+  structureT157:
+    'T157 solves the smooth fixed-period version of that phase-locking problem generically. Log-periodic Fourier modes shift each zeta frequency by 2πk/L; all but a countable set of periods leave a nonzero mean-zero wave. The exceptional periods are now explicit spectral resonance targets.',
+  structureT158:
+    'T158 removes the smoothness loophole. A periodic exponential resolvent handles exact binary block jumps, and BV Fourier decay still makes the response summable. Both the block and its complement remain sign-recurrent for every nonresonant period.',
+  structureT159:
+    'T159 enters the exceptional set constructively. It derives the sharp interval-block resonant bias, tests a five-depth first-zero filter, and finds that its encouraging 100/300-zero margins break in the 1,000-zero packet. Resonance is real, but the first co-design does not dominate.',
+  structureT160:
+    'T160 stops charging the resonant pair against itself. The exact half-block resolvent makes that full conjugate-pair response pointwise positive; only the other zeros need suppression. Their finite-depth Bohr energy is a generalized eigenproblem, and its first depth-nine profile survives the current 1,000-zero finite scan with a visible margin. Rigorous tail and row transfer are still missing.',
+  structureT161:
+    'T161 certifies the complete exceptional response conditional on RH. A worst-phase envelope dominates all nonresonant zero pairs, a Lipschitz grid covers every local phase, and a residual Hadamard budget covers the infinite tail. The resulting positive cumulative product is now a rigorous RH consequence; proving it directly or proving its converse is the remaining arithmetic gap.',
+  structureT162:
+    'T162 makes the exceptional controller jointly zero-detecting at the multiplier level. Two tiny exact depth-one perturbations preserve a certified complete positive response and have no common multiplier zero in the critical strip. A Rouché disk proves why the pair is necessary. Frequency resonance and the unconditional aggregate signs remain open.',
+  structureT163:
+    'T163 supplies the unconditional transform needed for a converse. The half-duty spectrum contains only the mean and odd harmonics, so Landau reduces every isolated finite false-RH edge to an exact odd resonance or an exact ordinate collision modulo the first-zero frequency. Infinite right edges remain the analytic escape.',
+  structureT164:
+    'T164 classifies that infinite-edge escape. Under the two still-unproved aggregate orders, every false-RH edge is protected either by simultaneous two-profile cancellation throughout a full top strip or by zero ordinates approaching the odd first-zero harmonic lattice as their real parts approach the supremum. These exceptional arithmetic-frequency relations remain open.',
+  structureT165:
+    'T165 closes the naive second-period follow-up. Incommensurate odd harmonic lattices are asymptotically incident, while the rare positive-gap rational case still permits different Landau witness subsequences. Fixed-period duplication is therefore not a converse; the next step needs same-zero coupling, quantitative approximation, chirping, or direct collision algebra.',
+  structureT166:
+    'T166 makes depth variation useful. A countable uniformly RH-positive probe family detects every fixed shifted collision class, with an explicit 2m−1 depth bound for m terms. Only a diagonal shield of unbounded exact collision multiplicity can survive toward a nonattained edge; its arithmetic orders and exclusion remain open.',
+  structureT167:
+    'T167 compresses countably many depth directions into one generic geometric profile. Almost every parameter pairs with the T161 base to detect every collision class simultaneously; this removes exact shielding, though the parameter remains nonconstructive and infinite-depth and odd resonance survives.',
+  structureT168:
+    'T168 makes both sides finite. A three-mode nonnegative controller and the base plus five rational depth probes remove collision shielding and unbounded harmonic escape, proving a six-inequality RH equivalence. The six orders are still open, and the controller explicitly reads the certified first zero.',
+  structureT169:
+    'T169 uses the exact three-shift determinant to remove two redundant probes. Schur–Cohn stability proves depths one through three already separate every collision, leaving a four-inequality RH criterion. This sharpens the finite ledger, not RH itself.',
+  structureT170:
+    'T170 mixes those three separating directions into one finite profile. Every collision excludes only a proper affine null slice of parameter space, so almost every cube point sees all classes at once and gives a one-inequality RH criterion. No explicit good parameter or arithmetic proof is supplied.',
+  structureT171:
+    'T171 restricts the cube to one cubic path. Each collision excludes at most three scalar parameters, so only a countable exceptional set remains. Effective selection of a rational or algebraic good parameter is still open.',
+  structureT172:
+    'T172 closes one proposed selection shortcut. Every multiplier in the whole positive cube retains the same off-line blind spot by a uniform Rouché disk, so no parameter there can be certified by global multiplier zero-freeness. The certified roots are not zeta zeros.',
+  structureT173:
+    'T173 escapes the small-cube obstruction. An exact depth-12 profile keeps a certified response above the public threshold while the known blind branch crosses left of the critical line.',
+  structureT174:
+    'T174 closes the hoped-for global zero-free follow-up: the same multiplier has a rigorously isolated low critical-strip zero. It lies below the first nontrivial zeta zero, so it is not an actual zeta collision; explicit noncoincidence or paired separation is now the analytic gate.',
+  structureT175:
+    'T175 closes the natural arithmetic telescoping shortcut. Matching the controller period to log(32/21) aligns every ladder endpoint but removes all zero-frequency zeta resonance; a certified singleton mode forces both aggregate signs even on RH. Any surviving arithmetic proof must use genuinely nonlocal prime correlation.',
+  structureT176:
+    'T176 returns to the sole coupled-kernel frontier and closes the remaining fixed finite derivative-layer shortcut below half thickness. Tail asymptotics isolate the least active shift and highest active derivative; the normalized 2×2 determinant stays strictly negative. Any surviving Gram construction must use infinite, continuous, test-adaptive, or genuinely nonlocal cross-fiber mixing.',
+  structureT177:
+    'T177 shows that merely making the modular layer set infinite is still insufficient. Any bounded PSD operator on the full integer tower has an isolated least active layer, while every later theta feature is superexponentially small in ℓ². The exact continuum rescue therefore requires lower-edge accumulation or another unbounded/nonlocal mechanism.',
+  structureT178:
+    'T178 classifies that lower-edge mechanism. Atomless power-law mass produces a strict fractional half-sech Gram limit, while any atom at the lower edge restores the discrete negative minor below the dimension threshold a=ν/2. Continuity helps locally in the tail but still supplies no global PSD theorem.',
+  structureT179:
+    'T179 closes the canonical two-branch promotion of that limit. Its boundary 2×2 minor is strictly negative, and real-analytic Gram continuation rules out PSD on every tail even though every fixed order eventually becomes positive. The exact endpoint, theta, and cross-scale corrections are therefore load-bearing.',
+  structureT180:
+    'T180 keeps the exact endpoint integral and closes that refinement too. A pointwise incomplete-gamma monotonicity makes the boundary mixed curvature negative throughout 0<a<1/2, so only the nontrivial theta-R factor and its cross-scale products remain as the exact continuum mechanism.',
+  structureT181:
+    'T181 certifies that the surviving theta factor really flips the first boundary sign at a=1/4. Nearby exact 2×2 minors are positive, unlike the R≡1 model; this is a local necessary-condition rescue, not higher-order or global PSD.',
+  structureT182:
+    'T182 proves that the rescue is not just a curvature accident. The full five-level confluent boundary jet is positive definite at a=1/4, moving the exact frontier from low fixed order to uniform control across all derivative orders or a whole interval.',
+  structureT183:
+    'T183 turns that uniformity gap into an explicit one-sided derivative-energy hierarchy. Taylor convergence, analytic Gram continuation, and Wiener-Hopf rigidity make the all-degree hierarchy equivalent to fixed-thickness Twin Ladder positivity.',
+  structureT184:
+    'T184 moves the finite certificate into the required a→0 regime. The full five-level first-variation jet is positive definite, so the local rescue survives infinitesimally; proving it at every degree and uniformly for small positive thickness is now the precise gap.',
+  structureT185:
+    'T185 classifies the all-degree infinitesimal target. Fourier transformation identifies its polynomial forms with the infinitesimal de Branges kernel L₀; weighted polynomial density recovers all kernel evaluations, so positivity at every degree is exactly equivalent to RH rather than a strict intermediate theorem.',
+  structureT186:
+    'T186 supplies the correct scale and closes the coercive shortcut. A translated theta packet has fixed derivative energy but infinitesimal form equal to a vanishing positive theta tail, so the least normalized jet eigenvalue must tend to zero under RH; any off-line zero instead appears as a negative finite-degree witness.',
+  structureT187:
+    'T187 proves that the canonical translated near-null family is safe in each parity. Strict square-radius log-concavity bounds its cross-overlap by its radial tail exactly; any negative jet witness must therefore use a genuinely non-translation derivative superposition.',
+  structureT188:
+    'T188 locates that interference obstruction exactly. Finite differences turn every polynomial jet into a mixture of arbitrarily small translations, so local matrix PSD would prove RH. Positive entries and positive exploratory grids are not a Gram factorization, and their collapsing eigenvalue floor blocks a fixed first-mode perturbation argument.',
+  structureT189:
+    'T189 closes the concavity-only promotion. The positive model e^(−x²)−½e^(−2x²) satisfies the exact T187 strict concavity hypothesis, but its positive-entry three-translation matrix has a certified negative determinant. The theta kernel therefore needs genuinely zeta-specific interference control.',
+  structureT190:
+    'T190 extracts the sharp theorem left by that counterexample. A square-radius reparameterization turns the mixed packet into an overlap dominated by the two diagonal tails; Cauchy–Schwarz proves every two-packet principal theta matrix positive definite. Three packets are the first unrestricted size not settled by concavity.',
+  structureT191:
+    'T191 reconnects translation mixtures to the theta-specific certified jet. Mixed divided differences converge uniformly to the positive T184 order-four matrix across every five-node collision pattern, so one origin neighborhood protects all mixtures through five packets. The unrestricted three-packet problem remains open, but an arbitrarily fine negative witness must begin at six.',
+  structureT192:
+    'T192 pushes that finite protection to the prior exploratory endpoint. The 512-bit degree-sixteen replay certifies all seventeen leading determinants of both the exact a=1/4 boundary jet and its a=0 first variation. Mixed divided differences now protect seventeen-packet origin clusters; any arbitrarily fine negative matrix must begin at eighteen packets.',
+  structureT193:
+    'T193 audits the near-null eigenpolynomials instead of extending the finite degree again. Their roots closely follow the cosh/sinh canonical lattices, but a 99.8% energy overlap still misses the degree-24 minimum by a factor near 63. In the strict-concavity T189 model, the first sine factor z(1+z²/8) has only imaginary roots yet exact form −1/216. Finite root deformations therefore need a new theta-specific sign theorem.',
+  structureT194:
+    'T194 closes the large-translation part at every fixed matrix order. Exact endpoint scaling gives K̃tr(t,b)=sech(t−b)+E with every fixed derivative family of E uniformly small on the whole tail. The exact sech determinant and the T48 divided-difference compactification handle collisions and unbounded gaps. Any three-packet obstruction must now touch a bounded left interval, but the tail threshold depends on packet count, so all-order PSD and RH remain open.',
+  structureT195:
+    'T195 closes the remaining escape regimes specifically for three packets. T187 strict concavity gives a positive two-node confluent determinant at every finite translation, while normalized correlations and derivatives between bounded and escaping nodes decay polynomially times e^(−b). Every escaping triple splits into positive blocks, so the unresolved sign is one compact interval problem.',
+  structureT196:
+    'T196 certifies the first two translation units of the triple-collision boundary. A 4,096-box, order-fourteen Arb cover retains one common translation variable through the jet, fixed endpoint gauge, and determinant. The origin box is directly positive, the exact determinant derivative is negative on every later box, and the normalized T=2 determinant is 0.939231127963760833±2.35×10⁻¹⁹. Thus the confluent 3×3 jet is positive definite on [0,2]; joining it to an explicit tail and certifying the nonconfluent interior remain open.',
+  structureT197:
+    'T197 supplies the tail join. The exact normalized kernel splits into an explicit algebraic-sech factor and one boundary-layer correction. A degree-(2,2) bivariate Arb jet covers [2,4] in 128 exact boxes and all T≥4 in one compact parameter rectangle. The algebraic and correction Frobenius errors sum to 0.237144301660067167, strictly below (9−√17)/16. Hence T196–T197 prove the translated triple-collision jet positive for every T≥0. The nonconfluent compact three-node interior remains open.',
+  structureT198:
+    'T198 enters that nonconfluent interior on the origin slice. A nonsingular positive endpoint scale keeps the exact boundary-layer kernel order one at t₁=0. Twelve-mode, 384-bit integration and exact 1/40-node boxes certify t₂≥49/40, t₃−t₂≥1/2, and t₃≤6 with determinant lower endpoint 0.000556506552749633686. This contains the exploratory minimum near (0,1.35625,2.1125); the complementary collision strips, long origin-slice tail, and common translations remain open.',
   routeAudit:
     'The complete Jacobi lattice does give positive latent edges, but Gibbs resampling ' +
     'factors only the lazy operator. The direct Douglas factor is uniquely the missing ' +
@@ -1210,6 +1498,1098 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'For a>1, 0<α<β<∞, and one fixed density ϖ∈L¹([α,β]), the Mellin term I_ϖ and its derivative decay uniformly on every fixed disk translated to ζ_n=log 2/log a+2πin/log a. Rouché’s theorem then gives exactly one simple zero z_n=ζ_n+o_ϖ(1). For a=32/21, Re z_n→1.645595…>3/2. Bare L¹ regularity supplies no universal rate; bounded variation of the log-coordinate density restores O_ϖ(1/|n|). ' +
       'For exact integer multiplicities m_{N,u}, let M_N=Σ_um_{N,u} and ν_N=M_N⁻¹Σ_um_{N,u}δ_{u/(105N)}. The weighted-prefix response is exactly Q_{N,m}(z)=21^(z+1)(105N)^zM_N(a^z−a){a^z−2+∫μ^z dν_N(μ)}. Weak convergence ν_N⇒ϖ(μ)dμ on the fixed normalized prefix interval gives local-uniform convergence to ℬϖ. Every finite ν_N is nevertheless atomic and almost periodic vertically, so there is no uniform high-frequency finite-N lattice, and growing multiplicities require new discrete-Mellin estimates rather than inheriting T123’s O(N²) transfer. Atomic or non-Rajchman limits, scale-adaptive densities, and fully discrete strategies remain outside. No blind point is asserted to be a zeta zero, and RH remains open.',
   },
+  {
+    id: 'T126',
+    color: '#f472b6',
+    status:
+      'EVERY FIXED INTERIOR MEASURE · INFINITELY MANY RIGHT-HALF BLIND POINTS · RH OPEN',
+    title: 'Atomic and singular fixed weights cannot remove every blind point',
+    formula:
+      'supp|ν|⊂[α,β]⊂⊂(1,a) ⇒ ∀c<σ*=log 2/log a, #{z: ℬν(z)=0, Re z>c}=∞',
+    detail:
+      'For any fixed finite complex Borel measure ν with strict interior support, no positivity or mass normalization is needed: ℬν(z)=a^z−2+∫μ^z dν(μ) has infinitely many zeros in every half-plane Re z>c with c<σ*. For a=32/21 this includes infinitely many zeros with Re z>3/2. The proof splits ν into atomic and atomless parts, uses Jessen convexity on the analytic almost-periodic atomic symbol, and then combines its positive-density almost periods with a continuous Wiener mean-square estimate and two Rouché comparisons. ' +
+      'Localization depends on regularity. T125 gives one simple zero near every sufficiently high base-lattice point for an L¹ density; atomless measures, including singular-continuous ones, retain a subsequence z_{n_j}=ζ_{n_j}+o(1); a general finite complex measure gets infinitely many right-half zeros without a universal lattice or rate. Every positive atomic probability measure has positive vertical zero density in Re z>σ*+εν for some εν>0. The exact example ν=δ_{√a} factorizes ℬν=(a^(z/2)−1)(a^(z/2)+2), placing its second zero family on Re z=2σ*. ' +
+      'For empirical measures converging to one fixed L¹-density target in logarithmic W₁ distance d_N, a growing lattice window transfers only under T_Nd_N→0. Cumulative rounding on prefix grids gives d_N=O(1/N+1/M_N), hence T_N=o(min{N,M_N}) is sufficient. Endpoint atoms can put every zero on Re z=0, scale-dependent measures remain outside, and the zero statement supplies neither the missing weighted Mellin error nor a zeta zero. The verifier’s δ_{√a} factorization is only a normalization fixture; the general theorem is analytic. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T127',
+    color: '#a78bfa',
+    status:
+      'BOUNDED MOVING MEASURE FAMILY · COMMON RIGHT-HALF ZERO RECTANGLE · RH OPEN',
+    title: 'Row-dependent interior weights cannot push every blind point away',
+    formula:
+      '∃R,T ∀ν [supp|ν|⊂K⊂⊂(1,a), ‖ν‖TV≤M] ∃z: ℬν(z)=0, c<Re z<R, |Im z|<T',
+    detail:
+      'Fix a>1, a compact K strictly inside (1,a), M<∞, and c<σ*=log 2/log a. The total-variation ball of measures supported on K is weak-* compact, and weak-* convergence there makes ℬν converge locally uniformly. T126 supplies a right-half zero for each limiting symbol; a disk around that zero, Rouché’s theorem, and a finite subcover then produce finitely many disks whose union meets every symbol zero set. One bounded rectangle c<Re z<R, |Im z|<T therefore works for the whole family. ' +
+      'Every normalized positive empirical measure from arbitrary row-dependent exact integer weights on the fixed block belongs to the M=1 family, so the rectangle is independent of the row, total multiplicity, and placement of the weights. No weak convergence, Rajchman condition, denominator bound, or row regularity is required. ' +
+      'This is only a uniform right-half-zero location theorem. The zero may move with the row, and the common rectangle need not meet 3/2<Re z<2: for ν=δ_{√a}, the nonzero right-half family lies on Re z=2σ*>2 when a=32/21. It gives no common zero, no fixed Mellin factor, no weighted O(N²) discrete Mellin error, no arithmetic sign, and no RH conclusion. The argument is analytic and has no separate deterministic certificate.',
+  },
+  {
+    id: 'T128',
+    color: '#22d3ee',
+    status:
+      'ONE ROUNDED STRICT-INTERIOR PREFIX · RH-EQUIVALENT · SIGN OPEN',
+    title: 'A tuned moving endpoint recovers one zero-free fixed comparator',
+    formula:
+      'u_N=⌊105(32/21)^(2/3)N+1/2⌋;  RH ⇔ Λ₃₂,₂₁(105N,u_N)≥0 eventually',
+    detail:
+      'The exact prefix is the logarithm of [∏₃₃₆₀N≤v<₅₁₂₀N Kᵥ²¹ · ∏₃₃₆₀N≤v<₃₂u_N Kᵥ²¹]/[∏₂₂₀₅N≤v<₃₃₆₀N Kᵥ³² · ∏₂₂₀₅N≤v<₂₁u_N Kᵥ³²]. Replacing the nearest-integer endpoint by 105μ₀N changes its centered Vθ slack by only O(N). The resulting fixed comparator has Q₀(z)=(a^z−a)(a^z+a^(2z/3)−2). With y=a^(z/3), the second factor is (y−1)(y²+2y+2), so Q₀ has zero lines only at Re z=0, 1, and 3log 2/(2log a)=2.4683939547…; it is zero-free throughout 3/2<Re z<2. ' +
+      'A dedicated 256-bit FLINT/Arb calculation evaluates μ₀ directly as the positive cube root of a², proves the exact Turing count through the first 1,000 critical zeros, and certifies δ₁₀₀₀=0.051126409956071…>1/20. Therefore RH forces a positive ≍N³ᐟ² margin, while eventual nonnegativity and Landau force RH. The finite rounded row symbols may still recover dangerous-strip zeros at extremely large heights; only the fixed comparator is used in the converse. The eventual exact product sign is not proved, so this is a simpler one-prefix equivalence—not a solution of RH.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_low_zero_annulus.c · --mu-a-two-thirds',
+  },
+  {
+    id: 'T129',
+    color: '#f59e0b',
+    status:
+      'UNCONDITIONAL NEAR-UNIT POWER-WINDOW BLOCKS · EXACT BEATTY RECURRENCE · RH OPEN',
+    title: 'The tuned adaptive prefix wins deeply in every near-unit power window',
+    formula:
+      '∀ fixed 0<ε<B_ad, ∀Y≫1 ∃I⊂[Y,Y^θH]: ∀n∈I, Λ_n>(B_ad−ε)n³ᐟ²',
+    detail:
+      'The fixed T128 comparator has prime-square residue B_ad=(640/3)√5(4√42−21)(64√42−105)=727454.763559809…>724000. Landau gives limsup Λ_N/N³ᐟ²≥B_ad and, by telescoping, limsup(Λ_N₊₁−Λ_N)/√N≥3B_ad/2 unconditionally. The O(N) rounded-endpoint correction contributes a Dirichlet series holomorphic for Re v>2, while the T116 verified-height contour remains in Re v>7/3. The same moving heat therefore proves that every sufficiently large [Y,Y^θH], θH=6000350665601/6000350665597=1.0000000000006666277…, contains a whole block of ⌊√N exp(0.8√log N)⌋+1 consecutive indices with Λ_n>(B_ad−ε)n³ᐟ². The deep-index counting exponent is at least 1/(2θH)=0.4999999999996666861…. ' +
+      'Exactly, α=105(32/21)^(2/3)=∛2688000=139+β with 1/25<β<1/24, so u_N advances by an aperiodic mechanical 139/140 word. The finite q-recurrence is Λ_N₊₁−Λ_N=Σ₁₆₀N^₁₆₀N₊₁₅₉q(h)+ΣᵤN^ᵤN₊₁₋₁q(h)−2Σ₁₀₅N^₁₀₅N₊₁₀₄q(h). Rigorous rational-log fixtures give both increment signs for both step letters, and exact p-adic valuations have both signs, defeating monotonicity, letter-sign, and divisibility shortcuts. A compact nonnegative asymmetric tent rewrites −D̄(x) as x{x∫h−Σ_p h(p/x)log p}, isolating one weighted prime-quadrature deficit as the remaining target. ' +
+      'The result is recurrence, not a proof of RH. The heat filter suppresses hypothetical off-line modes too; H is fixed, the threshold is ineffective, and the theorem gives no additive o(N) gap, positive density, or eventual sign. A separate finite floating scan through N=800,000 observed no apparent nonpositive prefix but many long declines; it is evidence only, not an interval certificate.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py · verify_low_zero_annulus.c --mu-a-two-thirds',
+  },
+  {
+    id: 'T130',
+    color: '#34d399',
+    status:
+      'NATURAL-SCALE FLOOR / LOCAL DRIFT RH-EQUIVALENCE · EXACT CUBIC/TENT NO-GOS · RH OPEN',
+    title: 'The missing bridge is a natural-scale floor, not another positive kernel',
+    formula:
+      'RH ⇔ Λ_N=O(N³ᐟ²) ⇔ Λ_N₊₁−Λ_N=O(√N log²(2N))',
+    detail:
+      'Each one-sided estimate Λ_N≥−CN³ᐟ² or Λ_N≤CN³ᐟ² on a tail is already equivalent to RH. More generally, a one-sided O(N^κ) estimate for 3/2≤κ<2 confines every nontrivial zero to Re ρ≤κ−1. Consequently, false RH would force liminf Λ_N/N³ᐟ²=−∞ and limsup Λ_N/N³ᐟ²=+∞. Summing the exact recurrence proves that either local direction, Λ_N₊₁−Λ_N≥−C√N log²(2N) or Λ_N₊₁−Λ_N≤C√N log²(2N), is individually RH-equivalent. ' +
+      'The algebraic tuning gives an exact ξ=(32/21)^(1/3) decomposition into three nonnegative prime-jump trapezoids with weights 2,2,1. Kernel positivity is not a sign theorem: directed rational-log certificates prove S(4)>2504 and S(84)<−5991 for the shortest root buffer, with mixed exact prime valuations. Nearest-integer iteration changes the cubic orbit by only two local signed q-terms, not a contraction. ' +
+      'The same rounded row is encoded by one exact nonnegative five-knot integer tent. Its square layer contributes (B_ad+o(1))N³ᐟ², and RH is equivalent to the eventual square-completed finite comparison A_N/Q₂,N≤S_N. But at N=3 the exact threshold 2^93 has only 179382 eligible upper K-factors against 179424 lower factors; Hall’s condition therefore rules out monotone equal-or-larger matching. A high-frequency off-line-mode model remains unbounded in the raw prefix while the verified moving heat suppresses it. No natural-scale floor is proved, and RH remains unresolved.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T131',
+    color: '#60a5fa',
+    status:
+      'LCM-COMPLETED LOCAL BALLOT · EITHER ONE-SIDED DRIFT IS RH-EQUIVALENT · RH OPEN',
+    title: 'Prime-power completion isolates the zero channel in one exact row update',
+    formula:
+      '𝒵_N=log(𝒮_N/𝒜_N);  RH ⇔ Δ𝒵_N=O(√N log²(2N))',
+    detail:
+      'Complete every prime power in the T130 integer tent. Exactly, 𝒵_N=Λ_N−log 𝒬₂,N−log 𝒬≥3,N and exp(Δ𝒵_N)=𝒮_N₊₁𝒜_N/(𝒮_N𝒜_N₊₁). The same aperiodic 139/140 endpoint machine survives after replacing K_m by K̃_m=(m+1)^m/[m! lcm(1,…,m)]; its adjacent logarithmic jump is m log(1+1/m)−Λ_vM(m). Either an eventual lower or upper C√N log²(2N) bound on Δ𝒵_N is individually equivalent to RH. False RH forces the normalized completed update to be unbounded in both directions. ' +
+      'The local layer sizes are now explicit. For g_N=h_N₊₁−h_N, |g_N(t)|≤685440 on 2205N<t<5120(N+1), with g_N(2205N+1)=−64 and g_N(5120(N+1)−1)=21. The cube-and-higher update is O(N¹ᐟ³). Uniformly for both Beatty letters, the square update is σ_s√N+o(√N), with σ_s>1084040. Hence the stronger sufficient-only condition Δ𝒵_N≥−10⁶√N would make ΔΛ_N≫√N, force eventual Λ_N>0, and prove RH. Equivalently, 2^(1400000⌈√N⌉)𝒮_N₊₁𝒜_N≥𝒮_N𝒜_N₊₁ eventually is sufficient. It is not claimed necessary under RH. ' +
+      'After an archimedean correction whose row change is <1249000, the exact remaining obligation is one signed finite annular sum Σ_t g_N(t){Λ_vM(t)−1}. Either one-sided √N log²N bound for that von-Mangoldt quadrature is RH-equivalent. The opposite kernel edge signs explain why static positive tents do not settle it. No such eventual bound is proved, so this is a cleaner zero-channel target—not a solution of RH.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T132',
+    color: '#f472b6',
+    status:
+      'FIVE FIXED ENDPOINT BANDS · NO LETTER MULTIPLIER BLIND SPOT · RH OPEN',
+    title: 'The signed row kernel collapses to five bounded-width Chebyshev-error bands',
+    formula:
+      '𝒬_N^loc = 64Σ_A Eψ − 32Σ_B Eψ − 74Σ_C Eψ + 21Σ_D Eψ + 21Σ_E Eψ',
+    detail:
+      'Exact finite Abel summation rewrites the broad T131 quadrature using only five moving endpoint bands. For the row letter s=u_N₊₁−u_N∈{139,140}, their widths are 2205, 21s, 3360, 32s, and 5120. For N≥7 the intervening plateaus of g_N are −141120, p_s∈{−47712,−47040}, q_s∈{200928,201600}, and 107520; the sole interior sign change occurs inside the 3360-site central ramp. ' +
+      'For a pure explicit-formula mode Eψ(x)=x^ρ, the response on an s-row is N^ρM_s(ρ)+Oρ(N^(Re ρ−1)). With y=(32/21)^(ρ/3), M_s(ρ)=(32/105)2205^(ρ+1)(y³−1)(160y³+s y²−210). The positive root of the cubic is below 7/8, while its conjugate roots have modulus greater than (32/21)^(1/3); hence M_s has no zero for 0<Re ρ≤1. Neither the 139 nor the 140 lane can erase a hypothetical off-line zero at leading order. ' +
+      'This is a fixed-ρ leading-multiplier theorem, not a finite-row strip-wide zero theorem or a sign theorem: the asymptotic is not uniform at growing height. The five band coefficients remain mixed, and multiplier nonvanishing gives neither domination of the full explicit formula nor the eventual one-sided bound required by T131. RH remains unresolved.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T133',
+    color: '#a78bfa',
+    status:
+      'NONNEGATIVE LOCAL-FILTER NO-GO · FIXED OFF-LINE MODES SURVIVE · RH OPEN',
+    title: 'Positive local averaging cannot unsign or notch the completed row',
+    formula:
+      'G_N^w=Σ_jw_jg_N₊ⱼ:  G_N^w(t₋)=−64w_j₋<0<21w_j₊=G_N^w(t₊)',
+    detail:
+      'Let the first and last positive weights of any finite nonnegative row stencil occur at j₋ and j₊. At the first active lower edge every later row vanishes, giving −64w_j₋; at the last active upper edge every earlier row vanishes, giving 21w_j₊. Thus no such local average makes the translated kernel one-signed. For an unweighted L-row block, Σ_j<L g_N₊ⱼ=h_N₊L−h_N exactly. Once N≥7L it has the same five ramps and four plateaus, with effective letter σ=(u_N₊L−u_N)/L∈[139,140] and one central sign crossing. ' +
+      'For a normalized nonnegative stencil of width H_N, the leading pure-mode multiplier is the convex letter average M_σN. Uniformly for σ∈[139,140] and 1/2≤Re ρ≤1, its normalized polynomial has the explicit positive gap 160(√a−1)(a^(1/6)−7/8)(√(3/2)−a^(1/3))², a=32/21. Hence H_N=o(N) preserves every fixed off-line x^ρ mode at natural N^(Re ρ) order. The asymptotic remains fixed-ρ, not uniform at growing height. ' +
+      'Positive sublinear averaging may change the nonzero constant or phase; it does not provide an eventual arithmetic sign. Signed or mass-zero conditioning, a macroscopic window, or genuinely nonlinear/global arithmetic input lies outside this no-go. RH remains unresolved.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T134',
+    color: '#22d3ee',
+    status:
+      'RARE-DEFECT CURVATURE · EITHER ONE-SIDED BOUND IS RH-EQUIVALENT · RH OPEN',
+    title: 'The rare 140 step isolates one RH-complete 32/21 micro-cell',
+    formula:
+      'δ_N=1:  C_N=𝒥(u_N+139)+R_N,  R_N=O(log N);  RH ⇔ C_N=O(√N log²(2N))',
+    detail:
+      'Set δ_N=s_N−139 and C_N=𝒬_N^loc−𝒬_N₋₁^loc. The δ_N=1 indices are isolated and have exact gaps 24 or 25. Splitting the long 140 blocks from a hypothetical 139 row gives, exactly, C_N=𝒥(v)+R_N with v=u_N+139. Here 𝒥(v)=21Σ_[32v,32v+32)Eψ−32Σ_[21v,21v+21)Eψ, while the five paired equal-length blocks in R_N give the unconditional bound R_N=O(log N). ' +
+      'Successive defect values of v differ by only 3337 or 3476, and |𝒥(v+1)−𝒥(v)|=O(log v). Thus a one-sided √N log²N bound on C_N at the defects extends to all large v; no unsupported sparse-sampling argument is used. The consecutive primitive 𝔉(X)=21ℋ(32X)−32ℋ(21X) satisfies 𝔉(X+1)−𝔉(X)=𝒥(X). Its off-line multiplier is 672(32^ρ−21^ρ)/(ρ+1), which has no zero for Re ρ>0. The first-Riesz Landau argument therefore makes either defect lower bound or defect upper bound individually equivalent to RH. False RH forces normalized defect curvature to be unbounded in both directions. ' +
+      'Since Δ²𝒵_N=−C_N plus a uniformly bounded archimedean second difference, the same criterion is an exact completed-product comparison for 𝒮_N and 𝒜_N on only the 140 rows. The contrast kernel remains mixed, so this sharper target supplies no eventual bound. RH remains unresolved.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T135',
+    color: '#34d399',
+    status:
+      'EXACT MICRO-CELL INTEGER COMPARATOR · EITHER ORIENTATION IS RH-EQUIVALENT · RH OPEN',
+    title: 'One factorial/lcm comparison captures the universal 32/21 defect cell',
+    formula:
+      '𝒥(v)=672{ψ(32v)−ψ(21v)−11v}+R(v);  |R(v)|≤17136{1+log(32v+31)}',
+    detail:
+      'Let A(v)=ψ(32v)−ψ(21v)−11v. Expanding the two endpoint bands gives exactly 𝒥(v)=672A(v)+R(v), where the two triangular tails have total coefficient mass 17136 and hence |R(v)|≤17136{1+log(32v+31)}. For v≥2 the combined coefficients form one nonnegative trapezoid on q(n)=Λ(n)−1: a 32-slope rise from 21v, a plateau of height 672, and a 21-slope fall after 32v. The weights are nonnegative, but q has both signs, so this is not a sign proof. ' +
+      'Put L_m=lcm(1,…,m), P_v=∏_[21v,32v)(1+1/n)^n, and D_v=11v−log P_v. Then 0<D_v<11/42. For the exact integers X_v=L_32v(21v)^(21v)(32v−1)! and Y_v=L_21v(32v)^(32v−1)(21v)!, one has log(X_v/Y_v)=A(v)+D_v. With j_v=⌈√v⌉(1+⌈log₂(2v)⌉)², each eventual statement ∃K,v₀ ∀v≥v₀, 2^(Kj_v)X_v≥Y_v or 2^(Kj_v)Y_v≥X_v is individually equivalent to RH. ' +
+      'For every v≥1 the balance X_v/Y_v has negative 2-adic valuation, while a prime 21v<p<32v gives positive p-adic valuation: Nagura covers v≥2, and p=23 covers v=1. Thus neither integer ever divides the other, closing both direct-divisibility shortcuts without deciding their real order. No comparator bound is proved, and RH remains unresolved.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T136',
+    color: '#a78bfa',
+    status:
+      'FIXED-DEPTH COMPOSITION COLLAPSE · SAME RH-COMPLETE ORDER · RH OPEN',
+    title: 'Every finite 32/21 ladder chain is one wider annulus',
+    formula:
+      'Σₖ<d A(21ᵏ32ᵈ⁻¹⁻ᵏv)=Eψ(32ᵈv)−Eψ(21ᵈv);  ∏ₖ<d Xᵥₖ/Yᵥₖ=X_d,v/Y_d,v',
+    detail:
+      'Fix d≥1 and put vₖ=21ᵏ32ᵈ⁻¹⁻ᵏv. Adjacent endpoints satisfy 21vₖ=32vₖ₊₁, so all internal Chebyshev errors and all internal lcm/product boundaries cancel exactly. The d cells become the single interval [a,b)=[21ᵈv,32ᵈv), with P_d,v=∏_[a,b)(1+1/n)ⁿ and an archimedean deficit 0<D_d,v<(d/2)log(32/21). Hence the product of the d T135 integer balances is exactly X_d,v/Y_d,v. ' +
+      'For every fixed d, either eventual binary-buffered orientation is individually equivalent to RH: the pure-zero multiplier 32^(dρ)−21^(dρ) can vanish only on Re ρ=0, and the fixed d scale factor is absorbed into the comparison constant. Composition does not unlock divisibility. An exact two-adic formula makes ν₂(X_d,v/Y_d,v)<0, while Nagura for d=1 and Bertrand for d≥2 provide a prime with valuation +2. ' +
+      'This rules out every fixed-depth multiplicative iteration as a simplification of T135. It proves no real order and no RH result. A depth d=d(v) growing with scale is not covered: its RH-sized error grows like 32^(d/2)√v and would require a genuinely uniform arithmetic estimate.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T137',
+    color: '#f472b6',
+    status:
+      'ADJACENT-DEPTH DECONVOLUTION · ALL THREE-DEPTH SIGNS OCCUR · RH OPEN',
+    title: 'Crossing neighboring depths returns the original micro-cell',
+    formula:
+      'ℬ_d₊₁(v)−ℬ_d(32v)=A(21ᵈv);  (X_d₊₁,vY_d,32v)/(Y_d₊₁,vX_d,32v)=X_21ᵈv/Y_21ᵈv',
+    detail:
+      'Write ℬ_d(v)=Eψ(32ᵈv)−Eψ(21ᵈv). Subtracting the depth-d row evaluated at 32v from depth d+1 cancels the common top endpoint and leaves exactly A(21ᵈv); evaluating at 21v gives the symmetric upper cell A(32ᵈv). The factorial/lcm cross-products cancel identically to the corresponding T135 ratios, with no new error term. For every fixed d, either buffered orientation on either boundary sublattice is therefore individually RH-equivalent after fixed-gap interpolation. ' +
+      'Depth does not provide a universal sign bootstrap. Exact directed-log enclosures with absolute margin >1/4 certify all eight signs of (ℬ₁,ℬ₂,ℬ₃) at v=1,2,3,4,5,6,12,14. This is a finite no-go, not an asymptotic oscillation claim. In addition, every nondecreasing unbounded integer depth schedule has infinitely many top-endpoint jumps by a factor greater than 32, so ordinary interpolation costs far more than the RH scale. ' +
+      'A growing-depth route now needs a genuinely nonlocal coupling among overlapping annuli. Ordinary multiplication, adjacent cross-ratios, finite-depth sign persistence, and endpoint interpolation have all collapsed back to T135 or failed. No such nonlocal bound and no proof of RH is supplied.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T138',
+    color: '#fb7185',
+    status:
+      'EVERY FIXED FINITE OVERLAP IS SIGN-RECURRENT ON RH · ADAPTIVE FRONTIER OPEN',
+    title: 'No fixed finite depth coupling can settle to one orientation',
+    formula:
+      '𝒞_c(v)=Σ_d c_dℬ_d(v)=Σ_nW_c(n/v)(Λ(n)−1);  RH ⇒ ∫₁ˣ𝒞_c(t)dt=Ω±(x³ᐟ²)',
+    detail:
+      'For any nonzero fixed real vector c, the same-scale overlap kernel is exactly W_c(u)=Σ_dc_d1_(21^d,32^d](u). One primitive is an exact finite combination of Vψ with Mellin multiplier M_c(s)=Σ_dc_d(32^(ds)−21^(ds)). On RH, division by x³ᐟ² leaves an absolutely convergent real mean-zero almost-periodic critical-zero wave. The finite exponential polynomial M_c has only O(T) zeros and cannot cancel the TlogT zeta zeros, so this wave is nonzero and its primitive has recurrent positive and negative x³ᐟ² excursions. ' +
+      'Unit-cell variation costs only O_c(log x). Therefore 𝒞_c(v) itself must be positive and negative infinitely often on RH; either eventual sign would force a one-sided primitive contradicting those excursions. For an integer vector m, clearing signs in the exact X_d,v/Y_d,v balances gives positive integers U_m,v and V_m,v whose logarithmic ratio differs from 𝒞_m(v) by only a uniform constant. RH consequently forces both strict orders U>V and U<V infinitely often. ' +
+      'This closes every fixed finite linear overlap and fixed finite product as an eventual-sign proof route. It does not rule out a two-sided critical-size estimate, coefficients changing with v, infinitely many depths with uniform control, or a genuinely nonlinear nonhomogeneous global coupling. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T139',
+    color: '#38bdf8',
+    status:
+      'UNIFORMLY SUMMABLE INFINITE DEPTH IS SIGN-RECURRENT ON RH · NON-SUMMABLE FRONTIER OPEN',
+    title: 'Finite arithmetic cost cannot hide the infinite critical wave',
+    formula:
+      'Σ_d(d+1)32^d|c_d|<∞;  M_c(s)=C(32^s)−C(21^s);  N_M(T)=O_c(T)',
+    detail:
+      'Let c_d be any fixed nonzero real sequence with finite uniform arithmetic cost Σ(d+1)32^d|c_d|. The infinite Λ−1 step kernel, its Chebyshev annulus sum, and its first-Riesz primitive then converge absolutely. If C(z)=Σc_dz^d, the exact Mellin multiplier is M_c(s)=C(32^s)−C(21^s). ' +
+      'Vertical translates of M_c form a compact analytic hull on every closed substrip of Re s<1. No hull element is identically zero: the least active depth contributes two distinct exponential rates 32^(d₀s) and 21^(d₀s). A compactness/Jensen argument consequently bounds multiplier zeros near the critical line by O_c(T), while zeta has TlogT critical zeros on RH. The normalized primitive is therefore a nonzero mean-zero almost-periodic wave and has Ω±(x³ᐟ²) excursions. ' +
+      'The same weighted norm bounds unit-cell variation by O_c(log x), forcing positive and negative values at infinitely many integer scales on RH. Integer coefficient sequences satisfying the norm are automatically finite, so a genuinely infinite exact factorial/lcm product must have growing cost or scale-dependent normalization. This closes uniformly summable infinite depth, not non-summable, adaptive, critical-size, or nonlinear coupling; RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T140',
+    color: '#f59e0b',
+    status:
+      'SUBCRITICAL ADAPTIVE PROFILE DRIFT CANNOT FIX THE SIGN · CRITICAL-COST FRONTIER OPEN',
+    title: 'Slow depth adaptation cannot outrun the T139 wave',
+    formula:
+      'Σ_(v≤X)√v(1+log(2v))²||c^[v]−c||_A=o(X³ᐟ²) ⇒ S_ad(X)=Ω±(X³ᐟ²) on RH',
+    detail:
+      'Let c^[v] be a row-dependent summable depth profile and c one fixed nonzero profile, with ||c||_A=Σ_d(d+1)32^d|c_d|. Under RH, |ℬ_d(v)| is bounded by √v·32^(d/2)(d+log(2v))², so the A-norm converts profile motion directly into an error in the row coupling. ' +
+      'If the cumulative weighted motion through X is o(X³ᐟ²), the adaptive partial sum differs by o(X³ᐟ²) from the fixed T139 partial sum. The latter is Ω±(X³ᐟ²), hence the adaptive rows must still be positive and negative infinitely often. Pointwise convergence ||c^[v]−c||_A=o(log⁻²v) is sufficient but not required; sparse changes are allowed. ' +
+      'For finite-support integer profiles the same estimate applies to the exact rowwise factorial/lcm products, because their accumulated archimedean correction is subcritical as well. Thus sparse integer edits cannot manufacture one eventual orientation unless their weighted cost reaches the critical scale. This closes slow or cumulatively subcritical adaptation, not critical-cost, non-summable, data-dependent nonlinear, or nonhomogeneous rules; RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T141',
+    color: '#a78bfa',
+    status:
+      'EXACT ADAPTIVE DUAL COST · CRITICAL BUDGET NECESSARY · INDEPENDENT DIRECTION OPEN',
+    title: 'The cheapest sign controller is exact—and circular',
+    formula:
+      'q(v)=sup_d |ℬ_d(v)|/((d+1)32^d);  cost_+(v;c)={−𝒞_c(v)}_+/q(v)',
+    detail:
+      'Equip depth profiles with ||c||_A=Σ_d(d+1)32^d|c_d|. Weighted ℓ¹/ℓ∞ duality makes q(v) the exact operator norm of the v-th row functional. Therefore the least profile change that turns a negative row nonnegative is exactly {−𝒞_c(v)}_+/q(v), attained by putting all correction on a depth maximizing |ℬ_d(v)|/((d+1)32^d). Under RH this maximizing depth exists because normalized responses decay exponentially with depth. ' +
+      'T139 supplies positive and negative X³ᐟ² cumulative excursions. Hence any eventually nonnegative or eventually nonpositive adaptive rule must spend positive critical response budget: limsup X^(−3/2)Σ_(v≤X)q(v)||c^[v]−c||_A>0 against every fixed nonzero profile. This sharpens T140 from a coarse sufficient no-go to the intrinsic necessary cost. ' +
+      'The formal optimizer can zero every row, but only by reading the exact signed Chebyshev annuli and canceling the target itself. It is a feedback identity, not an independent arithmetic proof. The surviving linear route must generate a correctly directed critical budget from separate exact structure; otherwise one must leave the linear profile class. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T142',
+    color: '#22d3ee',
+    status:
+      'EVERY FIXED PERIODIC CONTROLLER IS SIGN-RECURRENT ON RH · APERIODIC STATE FRONTIER OPEN',
+    title: 'Residue-class control cannot escape the critical wave',
+    formula:
+      'Σ_(v≤X, v≡r mod q)𝒞_c(v)=q⁻¹𝓘_c(X)+O_(c,q)(Xlog X)=Ω±(X³ᐟ²)',
+    detail:
+      'Fix a nonzero summable depth profile c, a modulus q, and one residue r. The O_c(log x) unit-cell variation from T139 turns one sample per q-block into a bounded-gap quadrature: its partial sum equals 1/q of the T139 primitive plus O_(c,q)(Xlog X). On RH the primitive has positive and negative X³ᐟ² excursions, so 𝒞_c(v) takes both signs infinitely often even after restricting to v≡r mod q. ' +
+      'Now assign any fixed profiles c^[0],…,c^[q−1] to the q residue states. Choose one nonzero state and apply its residue theorem; the full periodic controller must take both signs. No nonzero mean assumption is used, so alternating c,−c and arbitrary zero-mean state families also fail even though their profile motion can be critical and T140 need not apply. ' +
+      'Finite-support integer profiles give the same result for exact periodic factorial/lcm products: both strict orders recur on RH. Thus fixed or eventually periodic arithmetic control is closed. A surviving independent controller needs unbounded or genuinely aperiodic state, increasing periods, a non-summable depth tail, or nonlinear arithmetic input. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T143',
+    color: '#34d399',
+    status:
+      'LOW-DISCREPANCY APERIODIC CONTROL IS SIGN-RECURRENT ON RH · CRITICAL-DISCREPANCY FRONTIER OPEN',
+    title: 'Balanced aperiodic state still samples the whole wave',
+    formula:
+      'D_a(X)=o(√X/log X) ⇒ Σ_(v≤X)a_v𝒞_c(v)=δS_c(X)+o(X³ᐟ²)=Ω±(X³ᐟ²)',
+    detail:
+      'Let a_v select one fixed nonzero summable profile with positive density δ, and let D_a(X)=max_(n≤X)|Σ_(v≤n)a_v−δn|. Exact discrete Abel summation expresses the selected cumulative as δ times the T139 integer cumulative plus a discrepancy term involving only the endpoint value and adjacent row increments. ' +
+      'On RH, 𝒞_c(X)=O(√Xlog²X) and 𝒞_c(v+1)−𝒞_c(v)=O(log v). Therefore D_a(X)=o(√X/log X) makes the entire selector error o(X³ᐟ²), leaving the positive and negative T139 excursions intact. Both row signs recur within that selected state. Applying this separately to each active state closes every finite-state controller satisfying the threshold, without a mean-profile assumption. ' +
+      'This is genuinely aperiodic: irrational mechanical and Sturmian words have bounded discrepancy, and exact finite-support product profiles inherit the same result. A surviving state mechanism must have critical discrepancy, zero-density or unboundedly many states, changing or non-summable profiles, or nonlinear/nonhomogeneous arithmetic input. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T144',
+    color: '#60a5fa',
+    status:
+      'INPUT-INDEPENDENT RANDOM CONTROL IS SIGN-RECURRENT ALMOST SURELY ON RH · FEEDBACK FRONTIER OPEN',
+    title: 'Random state cannot decorrelate the critical wave',
+    formula:
+      'Var R_a(X)=O_c(X²log⁴X) ⇒ R_a(X)=o(X³ᐟ²) a.s. ⇒ S_(c,a)(X)=Ω±(X³ᐟ²)',
+    detail:
+      'Let a_v be iid Bernoulli with fixed density δ, chosen independently of the arithmetic data, and let it select one fixed nonzero summable depth profile. The centered selector error R_a(X)=Σ_(v≤X)(a_v−δ)𝒞_c(v) is a sum of independent mean-zero variables. ' +
+      'On RH the pointwise bound 𝒞_c(v)=O_c(√v log²v) gives Var R_a(X)=O_c(X²log⁴X). Kolmogorov maximal inequality at dyadic cutoffs has summable failure probability at the X³ᐟ² scale; Borel–Cantelli and dyadic interpolation therefore give R_a(X)=o(X³ᐟ²) almost surely. The density-scaled T139 cumulative survives, so both row signs recur on the selected state. ' +
+      'Applied state by state, the result holds simultaneously for every active nonzero profile in any finite or countable iid state law, including exact factorial/lcm products. This reaches random schedules whose typical √X discrepancy lies outside T143. Independence is load-bearing: a selector that reads the sign of 𝒞_c(v) can retain one sign and is exactly T141’s circular feedback. Dependent or nonstationary scheduling, zero-density selection, changing/non-summable profiles, and nonlinear arithmetic input remain open; RH remains unresolved.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T145',
+    color: '#f472b6',
+    status:
+      'FINITE HOMOGENEOUS MARKOV CONTROL IS SIGN-RECURRENT ON EACH ACTIVE RECURRENT CLASS · TIME-INHOMOGENEOUS FRONTIER OPEN',
+    title: 'Markov dependence still cannot select one sign',
+    formula:
+      'S_(c,j)(X)=π_j𝓘_c(X)+o(X³ᐟ²)=Ω±(X³ᐟ²) a.s. (RH)',
+    detail:
+      'Let Z_v be any finite irreducible time-homogeneous Markov chain and attach one fixed summable depth profile to each state. In an aperiodic class, the transition matrix contracts its finite-dimensional mean-zero subspace exponentially. This bounds every weighted block variance by a constant times Σ𝒞_c(v)². A dyadic interval decomposition adds only log²X to the maximal second moment, and the RH pointwise bound then makes the X³ᐟ² failure probabilities summable. ' +
+      'For a chain of period q, each state lives on one residue and the q-step skeleton is aperiodic. Its centered fluctuation is still o(X³ᐟ²), while T142 identifies the deterministic residue mean as π_j𝓘_c(X)+o(X³ᐟ²). Thus both critical excursions and both row signs survive almost surely. Deterministic cycles are included as zero-fluctuation skeletons. ' +
+      'The result extends to arbitrary starting states and, after the finite transient phase, to each closed recurrent class of a reducible chain; exact finite-support factorial/lcm products inherit both strict orders. Ordinary dependence therefore does not help. A remaining controller must use time-dependent or arithmetic-dependent transitions, zero-density or infinite state, changing/non-summable profiles, or nonlinear input. RH remains unresolved.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T146',
+    color: '#c084fc',
+    status:
+      'COMMON-LAW UNIFORMLY MIXING NONHOMOGENEOUS CONTROL IS SIGN-RECURRENT · MARGINAL-DRIFT FRONTIER OPEN',
+    title: 'Changing the transition kernel is not enough',
+    formula:
+      '||P_u⋯P_(v−1)||₀≤Kr^(v−u) ⇒ S_(c,j)(X)=π_jS_c(X)+o(X³ᐟ²)',
+    detail:
+      'Let the finite-state transition matrix vary arbitrarily with the row, while every matrix preserves one positive law π. Assume only that every transition product contracts the mean-zero L²(π) subspace by Kr^(v−u) for some r<1. This is the exact uniform-mixing condition needed to retain exponential covariance decay in the nonhomogeneous chain. ' +
+      'The weighted block-variance and dyadic maximal argument from T145 then applies without independent or identical transitions. On RH, each state’s centered selector error is o(X³ᐟ²) almost surely, leaving π_j times its fixed-profile T139 cumulative and therefore both critical excursions and both row signs. The result is simultaneous for all fixed profiles and extends to exact factorial/lcm products and arbitrary starting states. ' +
+      'The kernels may even be chosen using deterministic arithmetic data: variation alone cannot help while the common marginal law and uniform product contraction survive. The sign-reading T141 selector escapes only by moving the state law, and long nearly absorbing epochs escape only by destroying uniform mixing. A surviving finite-state stochastic route must therefore create critical arithmetic marginal drift or mixing loss; zero-density/infinite state, changing/non-summable profiles, and nonlinear input also remain. RH is still open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T147',
+    color: '#fb7185',
+    status:
+      'ARBITRARY HISTORY-DEPENDENT RANDOMNESS REDUCES TO CRITICAL PREDICTABLE MARGINAL BUDGET · INDEPENDENT CORRELATION OPEN',
+    title: 'Only the predictable marginal can carry the sign',
+    formula:
+      'Σ(a_v−p_v)𝒞_c(v)=o(X³ᐟ²) a.s.;  P_(c,δ)(X)=Σ|p_v−δ||𝒞_c(v)|',
+    detail:
+      'Let a_v be any binary selector adapted to an arbitrary history and let p_v=E(a_v|F_(v−1)) be its predictable selection probability. The centered innovation Σ(a_v−p_v)𝒞_c(v) is always a martingale. On RH its quadratic variation is O_c(X²log⁴X), so Doob maximal inequality and Borel–Cantelli make it o(X³ᐟ²) almost surely—without independence, stationarity, Markov structure, or mixing. ' +
+      'The selected cumulative therefore decomposes exactly into δ times the T139 wave, the predictable drift Σ(p_v−δ)𝒞_c(v), and a subcritical random error. If the absolute response budget Σ|p_v−δ||𝒞_c(v)| is o(X³ᐟ²), both critical excursions and both selected row signs survive. Conversely, eventual one-sidedness requires positive critical predictable response budget. This holds statewise for finite or countable history-dependent controllers and exact factorial/lcm products. ' +
+      'The formal choice p_v=a_v=1_(𝒞_c(v)≥0) has zero martingale noise and selects one sign, but only by reading the exact Chebyshev-annulus target; it is T141 feedback in probabilistic notation. T147 does not rule out every critical-budget rule. It proves that randomness and architecture themselves contribute no critical power: a viable stochastic proof must generate a sign-aligned marginal correlation from independent arithmetic structure. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T148',
+    color: '#2dd4bf',
+    status:
+      'SQUAREFREE AND NONSQUAREFREE ARITHMETIC STATES ARE SIGN-RECURRENT ON RH · PRIME-CORRELATED MARGINAL FRONTIER OPEN',
+    title: 'Squarefree index structure still samples the whole wave',
+    formula:
+      'S_sf(X)=ζ(2)⁻¹𝓘_c(X)+o(X³ᐟ²)=Ω±(X³ᐟ²)',
+    detail:
+      'Squarefree counting has an O(√X)-scale error, so T143’s low-discrepancy theorem does not apply. The multiplicative identity μ²(v)=Σ_(k²|v)μ(k) gives a stronger route. Uniformly in q, one q-sublattice samples q⁻¹ of the T139 primitive with O_c(Xlog X) error on RH. ' +
+      'Truncate the square-divisor expansion at K=⌊log⁴(2X)⌋. The K dilation errors total O(KXlog X), while the omitted large-square divisors cost O(X³ᐟ²log²X/K) by the RH pointwise annulus bound. Both are o(X³ᐟ²), and the absolutely convergent Möbius coefficient sum is ∏_p(1−p⁻²)=1/ζ(2). Thus squarefree rows retain exactly that positive fraction of the critical wave; nonsquarefree rows retain the complementary fraction. Each state has positive and negative X³ᐟ² excursions and both row signs. ' +
+      'The result applies separately to arbitrary fixed summable profiles on the two states and to exact factorial/lcm products. This is a deterministic multiplicative selector, not periodic, mechanical, or random, and it never reads the Chebyshev-annulus target. Index factorization alone therefore cannot generate T147’s critical sign alignment. A surviving arithmetic marginal needs critical divisor-tail mass, zero density, or direct correlation with primes inside the annuli. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T149',
+    color: '#fbbf24',
+    status:
+      'POWER-SUMMABLE DIVISOR STATES ARE SIGN-RECURRENT ON RH · HARMONIC-BORDERLINE / PRIME-CORRELATION FRONTIER OPEN',
+    title: 'Summable divisor arithmetic only rescales the wave',
+    formula:
+      'S_a(X)=δ_h𝓘_c(X)+o(X³ᐟ²)=Ω±(X³ᐟ²)',
+    detail:
+      'Let a(v)=Σ_(q|v)h(q) be a {0,1}-valued divisor-convolution state. Assume Σ_q|h(q)|q^(−1+η)<∞ for some 0<η<1 and that its density δ_h=Σ_qh(q)/q lies strictly between zero and one. Truncate the divisor expansion at Q=X^α, where 0<α<min(1,1/(2(1−η))). The T148 uniform dilation quadrature contributes O(H(Q)Xlog X), while the coefficient tail is bounded by H_ηQ^(−η) times the RH-scale wave. Both are o(X³ᐟ²). ' +
+      'Consequently the selected state carries δ_h times the T139 primitive up to subcritical error, and its complement carries 1−δ_h. Both have positive and negative X³ᐟ² excursions, both contain infinitely many rows of either sign, and exact finite-support factorial/lcm products cross one in both directions. The theorem contains all r-free selectors and finite sieve states. ' +
+      'This is not a claim for bare harmonic summability: a surviving divisor state may sit at that boundary, have zero density, or correlate directly with primes in the annuli. Those cases remain open, and RH remains unresolved.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T150',
+    color: '#a3e635',
+    status:
+      'LOG-SQUARED HARMONIC DIVISOR STATES ARE SIGN-RECURRENT ON RH · BALANCED LOG-TAIL / PRIME-CORRELATION FRONTIER OPEN',
+    title: 'Even power-borderline sieves rescale the wave',
+    formula:
+      '𝓛₂(h)<∞ ⇒ S_a(X)=δ_h𝓘_c(X)+o(X³ᐟ²)=Ω±(X³ᐟ²)',
+    detail:
+      'Write H_h(Q)=Σ_(q≤Q)|h(q)| and A_h(Q)=Σ_(q>Q)|h(q)|/q. The uncompressed divisor transfer has normalized error O(H_h(Q)log X/√X+A_h(Q)log²X). If Σ_q|h(q)|log²(2q)/q is finite, choose Q=⌊√X/log²(2X)⌋. Harmonic summability gives H_h(Q)≤QΣ|h(q)|/q, so the prefix term is O(1/log X); the logarithmic moment gives log²(2Q)A_h(Q)→0, so the tail term also vanishes. ' +
+      'The selected state therefore carries δ_h times the T139 critical primitive and the complement carries 1−δ_h. Both have Ω±(X³ᐟ²) excursions, both row signs recur, and exact finite-support products cross one in both directions on RH. This is strictly stronger than T149. Let r_k be the prime with index k+⌈klog³(k+1)⌉ and select integers divisible by none of the r_k. Then r_k≈klog⁴k: the log-squared harmonic moment converges, the density Euler product is positive, but every positive power moment diverges. ' +
+      'The theorem is still an RH-conditional obstruction, not the missing one-sided annular inequality. A surviving divisor mechanism must reach the balanced log-tail threshold, use zero density, or couple directly to primes inside the annuli. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T151',
+    color: '#38bdf8',
+    status:
+      'β=3 SPARSE-PRIME SIEVE IS EXACTLY X³ᐟ²-CRITICAL · SIGNED PRIME-DILATION CORRELATION OPEN',
+    title: 'The first critical arithmetic controller is explicit',
+    formula:
+      'S_a(X)/X³ᐟ²=δ₃G_c(log X)+𝔎_c(X)+o(1)',
+    detail:
+      'Let the forbidden primes be r_(β,k)=p_(k+⌈klog^(β−1)(k+1)⌉). Then r_(β,k)≈klog^βk, their reciprocal tail is asymptotic to 1/((β−1)log^(β−1)Q), and the full squarefree-product Euler tail has the same order. The log-squared divisor moment is finite exactly when β>3, while every finite β remains outside all T149 positive-power classes. Thus β=3 is the first exact critical boundary, not a loose exponent from the proof. ' +
+      'Define the dilation error 𝒟_c(q;X)=S_c^(q)(X)−q⁻¹𝓘_c(X). Exact divisor interchange writes the selected-minus-density response as Σ_(q≤X)h_3(q)𝒟_c(q;X), up to an o(X³ᐟ²) density tail on RH. Its normalized value 𝔎_c(X) is bounded at β=3. The selected and complementary states are therefore δ₃G_c(log X)+𝔎_c(X)+o(1) and (1−δ₃)G_c(log X)−𝔎_c(X)+o(1). ' +
+      'If 𝔎_c(X) tends to zero, both states retain both critical signs. Any eventual sign instead requires 𝔎_c to align with the opposite phase of the T139 almost-periodic wave on every relevant recurrence sequence. The sieve is defined only from ordinary prime indices and never reads the annular target, so such alignment would be genuinely arithmetic rather than feedback. Neither alignment nor decorrelation is proved; RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T152',
+    color: '#f472b6',
+    status:
+      'EVERY FIXED ZERO PACKET DECORRELATES FROM THE CRITICAL SIEVE · UNIFORM HIGH-ZERO RESONANCE OPEN',
+    title: 'Critical alignment must escape to infinite height',
+    formula:
+      'Σ_(v≤X)(a₃(v)−δ₃)v^ρ=o_ρ(X³ᐟ²)  (ρ fixed)',
+    detail:
+      'The β=3 forbidden-prime state has natural density δ₃. Its Dirichlet series factors as ζ(s)P₃(s), where P₃(s)=∏_(r∈P₃)(1−r⁻ˢ). The reciprocal-prime sum converges, and the stronger first logarithmic moment Σ_r(log r)/r is finite. Thus P₃ is differentiable at one and ζ(s)(P₃(s)−δ₃) has a finite boundary value there: centering removes the zeta pole. ' +
+      'Natural density alone gives the decisive fixed-mode statement. If E₃(X)=Σ_(v≤X)a₃(v)−δ₃X=o(X), discrete Abel summation shows Σ_(v≤X)(a₃(v)−δ₃)v^ρ=o_ρ(X³ᐟ²) for every fixed critical-line exponent ρ. Applying this termwise proves that every fixed finite packet of zeta zeros transfers with density δ₃ and contributes no limiting part of the T151 observable 𝔎_c. ' +
+      'The estimate is not uniform in zero height: the Abel difference costs |ρ|, and the centered Euler product still has nonzero boundary values on 1+it. A high zero can couple to an opposite high sieve frequency even when the combined outer frequency is small. Therefore any nonzero critical alignment must escape to unbounded zero height. A uniform large-sieve or boundary-convolution estimate would force 𝔎_c=o(1), but none is proved. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T153',
+    color: '#34d399',
+    status:
+      'EVERY NATURAL-DENSITY SELECTOR PRESERVES THE FIXED-PROFILE WAVE ON RH · ZERO/NONDENSITY/INFINITE-PROFILE FRONTIER',
+    title: 'The large sieve closes the critical arithmetic controller',
+    formula:
+      'A(X)=δX+o(X) ⇒ Σ(a_v−δ)𝒞_c(v)=o(X³ᐟ²)',
+    detail:
+      'Let a_v be any bounded selector with natural mean δ and let c be any fixed finite Twin Ladder profile. On RH, truncate the explicit formula for 𝒞_c(v) at zero height X. The remainder contributes only O_c(Xlog²X), which is subcritical. Natural density and Abel summation make every fixed low-zero mode o(X³ᐟ²). ' +
+      'For a dyadic packet T<|γ|≤2T, the local Riemann–von Mangoldt bound colors the ordinates into O(log T) one-separated families. Apply the multiplicative large sieve to the Dirichlet polynomial Σ_(v≤X)(a_v−δ)√v·v^(iγ). Its squared packet norm is O(log T·(X+T)X²). Cauchy–Schwarz and the 1/γ explicit-formula coefficient make the normalized packet O_c(log(2T)/√T) for T≤X. Summing dyadically and then sending the low/high split to infinity proves the centered response is o(X³ᐟ²). ' +
+      'Every positive-density binary state and its complement therefore retain both critical excursions, both row signs, and both exact finite-product orders. This proves 𝔎_c(X)→0 and closes the β=3 sparse-prime controller from T151. It also implies that the circular sign-reading selector cannot possess a natural density on RH. Remaining independent routes must have zero density, fail natural density, or use a genuinely nonuniform infinite profile. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T154',
+    color: '#60a5fa',
+    status:
+      'NATURAL-DENSITY SELECTORS PRESERVE EVERY UNIFORMLY SUMMABLE PROFILE ON RH · NONSUMMABLE / NONDENSITY FRONTIER',
+    title: 'Natural density also survives infinite ladder depth',
+    formula:
+      '||c||_𝔄<∞ ⇒ Σ(a_v−δ)𝒞_c(v)=o(X³ᐟ²)',
+    detail:
+      'Let c=(c_d) be any fixed T139 profile with ||c||_𝔄=Σ_d(d+1)32^d|c_d|<∞. For a bounded selector with natural mean δ, write its centered response as the depth sum Σ_dc_dR_d(X). T153 gives R_d(X)=o_d(X³ᐟ²) at every fixed depth, but passing to infinitely many depths requires a uniform summable bound. ' +
+      'At depth d, truncate the RH explicit formula at T_d=X32^d. The multiplier is bounded by 2·32^(d/2). Dyadic zero blocks below X have total normalized cost O(32^(d/2)); the O(d+1) blocks from X to T_d and the explicit-formula remainder enlarge this only to O(32^(d/2)(d+1)²), uniformly in X. This majorant is summable against |c_d| because (d+1)/32^(d/2) is bounded. Dominated convergence therefore proves the centered infinite-profile response is o(X³ᐟ²). ' +
+      'Every positive-density binary state and its complement retain their density-scaled T139 Ω± wave and both row signs. Integer profiles in this norm automatically have finite support, so their exact product crossings were already covered. The remaining linear frontier requires zero density, no natural density, row-dependent profiles without uniform domination, or non-summable depth; nonlinear constructions also remain outside. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T155',
+    color: '#c084fc',
+    status:
+      'DOMINATED NATURAL-MEAN PROFILE SCHEDULES COLLAPSE TO THEIR MEAN ON RH · NONDENSITY / UNDOMINATED FRONTIER',
+    title: 'A stable mean profile cannot steer the ladder',
+    formula:
+      'Cesàro c^[v]→c̄≠0 ⇒ Σ𝒞_(c^[v])(v)=Ω±(X³ᐟ²)',
+    detail:
+      'Let c^[v] be a row-dependent T139 profile with coordinatewise envelope g_d=sup_v|c_d^[v]| and Σ_d(d+1)32^dg_d<∞. Assume each coordinate has a natural Cesàro mean c̄_d. The envelope makes this convergence Banach-valued and places c̄ in the T139 profile space. ' +
+      'Center the coefficient at every depth. T153 makes the response of each fixed centered coordinate o(X³ᐟ²). The T154 depth calculation bounds it uniformly by O(g_d32^(d/2)(d+1)²X³ᐟ²), a summable majorant under the stronger envelope norm. Dominated convergence therefore gives Σ_(v≤X)𝒞_(c^[v])(v)=𝓘_c̄(X)+o(X³ᐟ²). If c̄ is nonzero, T139 forces both critical excursions and hence both row signs. ' +
+      'Finite-state schedules admit a stronger statewise conclusion. If every state has a natural density, T154 applied to its indicator shows that every positive-density state carrying a nonzero fixed profile has its own Ω± selected cumulative. Thus cancellations in a zero mean profile do not help: both row signs still occur inside that state. If all positive-density states carry the zero profile, equality holds on density one and no eventually strict comparison results. Remaining routes require failed natural state density, a missing summable envelope, non-summable depth, or a nonlinear/target-reading rule. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T156',
+    color: '#fb7185',
+    status:
+      'EVERY NONDENSITY SELECTOR HAS A MACROSCOPIC DILATION LIMIT ON RH · PHASE-LOCKED LOG-SCALE SHAPE OPEN',
+    title: 'Nondensity reduces to a hydrodynamic phase lock',
+    formula:
+      'μ_X⇒fdu, Xⁱᵞ⇒ω_γ ⇒ X⁻³ᐟ²Σa_v𝒞_c(v)→ℋ_c(f,ω)',
+    detail:
+      'For any bounded selector define its dilation measure μ_X=X^(−1)Σ_(v≤X)a_vδ_(v/X) on [0,1]. These measures have uniformly bounded variation. From every scale sequence one can extract a weak limit μ and, diagonally, simultaneous limits ω_γ of every zeta phase X^(iγ). ' +
+      'On RH, insert the truncated explicit formula into the selected Twin Ladder sum. Every fixed zero mode converges to ω_γ∫u^ρdμ. The multiplicative large sieve controls all modes above height T by O_c(log T/√T), uniformly in the selector and observation scale, while the explicit-formula remainder is o(X³ᐟ²). Hence every subsequential response converges to the explicit real functional ℋ_c(μ,ω)=−Σ_ρM_c(ρ)ω_γρ^(−1)∫u^ρdμ. The T154 depth majorant extends this from finite profiles to the full T139 space. ' +
+      'For a binary selector, μ=f(u)du with 0≤f≤1. Natural density δ is exactly the constant profile f=δ, recovering T153–T154. If selected rows are eventually one-sided, every cluster pair generated by that selector must give the same weak sign under ℋ_c. Thus a nondensity escape must phase-lock a nonconstant macroscopic multiplicative-scale density shape to the simultaneous zeta phase. High-frequency noise cannot do it. Logarithmic block schedules can attempt this coupling, and the circular sign selector achieves it by reading the target; independent arithmetic phase locking remains open. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T157',
+    color: '#fbbf24',
+    status:
+      'SMOOTH LOG-PERIODIC CONTROLLERS ARE SIGN-RECURRENT OFF A COUNTABLE ZETA-RESONANCE SET · EXCEPTIONAL BIAS OPEN',
+    title: 'Only zeta-resonant log periods can bias the wave',
+    formula:
+      'L∉ℰ_ζ ⇒ ΣF(log v)𝒞_c(v)=Ω±(X³ᐟ²)',
+    detail:
+      'Take a nonzero real L-periodic weight F with Σ_k(1+|k|)|F̂_k|<∞ and modulate a fixed nonzero T139 profile by F(log v). Euler summation of each fixed zero mode and the T156 uniform high-zero tail give Σ_(v≤X)F(log v)𝒞_c(v)=X³ᐟ²H_(F,c)(log X)+o(X³ᐟ²). The absolutely convergent almost-periodic response has frequencies γ+2πk/L and coefficients −F̂_kM_c(ρ)/(ρ(ρ+1+2πik/L)). ' +
+      'A frequency collision requires L=2π|m|/|γ−γ′|; a zero-frequency resonance requires L=2π|m|/|γ|. These periods form a countable measure-zero set ℰ_ζ. If L lies outside it, every active frequency is distinct and nonzero. T139 ensures M_c is nonzero at infinitely many zeros, so H is nonzero, while its Bohr mean is zero. Almost-periodic recurrence forces both X³ᐟ² excursions and both modulated row signs. ' +
+      'At an exceptional period the constant coefficient is explicit: −(2/3)Σ_(γ+2πk/L=0)F̂_kM_c(ρ)/ρ. Resonance is only necessary; this bias must still dominate the full off-resonant spectrum to yield one sign. Thus the first smooth nondensity design target is exact zeta resonance, not arbitrary logarithmic blocking. Discontinuous binary blocks, exceptional periods, and nonlinear target-reading rules remain open. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T158',
+    color: '#2dd4bf',
+    status:
+      'EXACT BINARY LOG BLOCKS ARE SIGN-RECURRENT OFF THE ZETA-RESONANCE SET · EXCEPTIONAL BLOCK BIAS OPEN',
+    title: 'Sharp logarithmic blocks do not evade generic recurrence',
+    formula:
+      'L∉ℰ_ζ ⇒ selected and complement = Ω±(X³ᐟ²)',
+    detail:
+      'Let F be any real L-periodic bounded-variation weight. This includes an exact half-open binary block F=1_I on any nonempty proper finite union of log-phase intervals. Its Fourier coefficients satisfy |F̂_k|≤Var(F)/(2π|k|). ' +
+      'For each zero mode, replace the smooth Fourier Euler step by the periodic exponential resolvent Q_(ρ,F)(t)=∫_0^∞F(t−y)e^(−(ρ+1)y)dy. Summation across geometric periods gives Σ_(v≤X)F(log v)v^ρ=X^(ρ+1)Q_(ρ,F)(log X)+O(X¹ᐟ²), including every jump. The shifted zero kernel is O(log²(2+|λ|)/(1+|λ|)); combined with the 1/|k| Fourier decay, the complete double response remains absolutely and uniformly convergent. ' +
+      'Therefore the T157 almost-periodic formula holds unchanged. Outside ℰ_ζ its frequencies are distinct and nonzero, so every nonzero BV weight has a nonzero mean-zero response. For a nontrivial binary block, both F and 1−F qualify: selected and complementary rows each retain Ω± critical excursions, both row signs, and both exact factorial/lcm product orders. Discontinuity, endpoint convention, and arbitrarily sharp block boundaries do not help. Only an exceptional zeta-resonant period whose constant bias dominates the full off-resonant spectrum remains in the fixed-period binary route. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T159',
+    color: '#f97316',
+    status:
+      'EXACT RESONANT BIAS DERIVED · FIVE-DEPTH FIRST-ZERO CANDIDATE BREACHED AT 1,000 ZEROS · TAIL / OPTIMIZATION OPEN',
+    title: 'The first resonant block almost works, then breaks',
+    formula:
+      'max|B_(j,m)|=(4/3)|sin(πmδ)|/(πm)·|M_c(ρ_j)/ρ_j|',
+    detail:
+      'For one interval of duty δ in a log period L, F̂_k=e^(−iλ_k(θ+δL/2))sin(πkδ)/(πk). If L=2πm/γ_j, the positive and negative j-th zero modes meet at frequency zero and create B_(j,m)=−(4/3)Re(F̂_(−m)M_c(ρ_j)/ρ_j). Optimizing the interval phase gives the displayed sharp magnitude. The strongest first harmonic uses m=1 and half duty. ' +
+      'The first co-design set L=2π/γ_1 and chose a five-depth real profile with |M_c(ρ_1)|=1 while numerically canceling M_c(ρ_2) and M_c(ρ_3). The phase was chosen for positive maximal first-zero bias. Using the exact periodic resolvent, the deterministic exploratory scanner observed minima +3.50×10^(−3) for 100 zeros/500,001 phases and +1.25×10^(−3) for 300 zeros/800,001 phases. At 1,000 zeros and 1,200,001 phases it found a negative sample, −3.27×10^(−4). ' +
+      'This is finite double-precision exploration, not an interval certificate. The 1,000-zero breach falsifies this particular candidate before the omitted infinite tail is considered. The constructive frontier is now precise: jointly optimize the resonant block and Twin Ladder multiplier across growing packets, prove an infinite-tail bound below the constant bias, then transfer cumulative positivity to every row. The scanner lives beside the deterministic certificate and labels its finite scope explicitly. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/scan_resonant_log_block.py',
+  },
+  {
+    id: 'T160',
+    color: '#22c55e',
+    status:
+      'EXACT RESONANT-PAIR POSITIVITY · DEPTH-9 RAYLEIGH LEAD SURVIVES 1,000-ZERO FINITE STRESS · TAIL / ROW TRANSFER OPEN',
+    title: 'The resonant pair is positive; optimize everything else',
+    formula:
+      'h_(ρ₁,c)(t)>(149/50)|M_c(ρ₁)/ρ₁|γ₁/(γ₁²+9/4)',
+    detail:
+      'For the half-duty block with L=2π/γ_1 and the T159 optimal phase, set q_γ(x)=e^(iγx)Q_(ρ,F)(x). Its exact two-piece resolvent obeys q_γ′+(3/2)q_γ=e^(iγx)F(x). The imaginary part is strictly positive through both half-periods. The certified γ_1>14.13 bound makes the displayed lower margin rigorous, so the complete resonant conjugate pair—not only its constant Fourier coefficient—is pointwise positive. The sharper design condition charges only the other zero pairs. ' +
+      'After exact shifted-frequency collision grouping, Bohr Parseval gives Mean|R|²=cᵀQ_neρc and |M_c(ρ_1)/ρ_1|²=cᵀP_ρc. Thus the finite-depth RMS design is the generalized eigenproblem λ_max(P_ρ,Q_neρ). A depth-nine profile independently optimized on 100, 300, and 1,000 positive-zero packets produced finite ratios 1012.5, 1007.6, and 1007.2, with sampled full-response minima +0.01698, +0.01655, and +0.01573. At 1,000 zeros the sampled other-zero residual sup was 0.01072, below the 0.01474 analytic pair lower bound evaluated from the floating inputs. ' +
+      'This is a materially stronger candidate than T159, but not a certificate or RH proof. The zeros and profile are floating point, the phase samples are finite, the Fourier optimizer is truncated, no uniform residual enclosure or infinite-zero tail bound exists, and cumulative positivity has not been transferred to every row. Those are now the explicit proof obligations. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/scan_resonant_log_block.py',
+  },
+  {
+    id: 'T161',
+    color: '#10b981',
+    status:
+      'RIGOROUS RH-CONDITIONAL COMPLETE RESPONSE · 10,000-ZERO ARB / TURING / HADAMARD CERTIFICATE · UNCONDITIONAL AGGREGATE OPEN',
+    title: 'The exceptional block response is positive—including its infinite tail',
+    formula:
+      'RH ⇒ min_t H_(F,c†)(t)>0.00092497785698634539',
+    detail:
+      'At a fixed local position x in the half-duty logarithmic block, the j-th nonresonant conjugate pair has magnitude at most 2|M_c(ρ_j)/ρ_j||Q_(ρ_j,F)(x)|. Summing these magnitudes gives a one-dimensional envelope that permits every other zero pair to align adversarially, so no linear-independence or random-phase assumption is used. The exact two-piece resolvent gives |Q_j′|≤|1+e^(−(ρ_j+1)L/2)|^(−1), producing a rigorous cyclic Lipschitz correction between phase-cell centers. ' +
+      'For all omitted zeros, |M_c(ρ)| is bounded by the exact depth-profile ℓ¹ norm and |Q| by a half-block resolvent constant. The residual Hadamard identity then charges the entire infinite tail at once. With exact terminating-decimal profile coefficients, 256-bit balls, 10,000 critical zeros, 1,001 cyclic cells, and an independent Turing count through height 9878.2187…, the certificate encloses the mesh cost as 0.00111217, the complete omitted-zero charge as 0.00210940, and the final worst lower endpoint above 0.0009249778. ' +
+      'Therefore RH rigorously implies an eventual positive X^(3/2)-scale cumulative response and, after clearing denominators, an exact aggregate factorial/lcm product order over the selected rows. This is the first certified one-sided exceptional-block response, but it is not a proof of RH: the calculation assumes RH for the critical-line explicit formula and Hadamard tail, the aggregate product inequality has no unconditional arithmetic proof, its converse is unknown, and individual rows are not eventually controlled. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_resonant_phase_envelope.c',
+  },
+  {
+    id: 'T162',
+    color: '#2dd4bf',
+    status:
+      'RIGOROUS TWO-PROFILE RH-CONDITIONAL RESPONSE · NO COMMON MULTIPLIER ZERO IN THE CRITICAL STRIP · FREQUENCY CONVERSE OPEN',
+    title: 'Two positive profiles remove the multiplier blind spot',
+    formula:
+      'RH ⇒ min_t H_(F,c±)(t)>0.00071085254508616933',
+    detail:
+      'The original T161 multiplier is not globally zero-detecting. A separate 384-bit Arb/Rouché certificate proves exactly one zero of M_(c†) in the radius-10^(−30) disk centered at 0.562265984033223878…+9924.926871939817910…i. The disk lies strictly to the right of Re s=1/2 and above the T161 10,000-zero Turing height. It certifies a multiplier zero, not a zeta zero, but proves that one aggregate observable has a genuine spectral blind location. ' +
+      'Set c±=c†±10^(−4)e₁ exactly. On RH, the complete depth-one response is at most (√32+√21)C_L(2+γ_E−log(4π))<2.1412531191. The extended 256-bit phase-envelope certificate charges each perturbation by less than 0.000214125312, leaving a uniform lower endpoint above 0.000710852545 for both profiles, including all zeros and every block phase. Thus RH implies two eventual aggregate factorial/lcm product orders with a 0.0007X^(3/2) margin. ' +
+      'The pair has no common multiplier zero in 0<Re s<1: M_(c+)−M_(c−)=2·10^(−4)(32^s−21^s), and equality of 32^s and 21^s would force Re s=0 by absolute values. This removes multiplier blindness from a prospective joint converse. It is still not RH: neither aggregate inequality is proved arithmetically, and exceptional shifted-frequency resonance, collisions, and a possible nonattained right edge remain uncontrolled. Individual row signs also remain open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_multiplier_blind_spot.c + verify_resonant_phase_envelope.c',
+  },
+  {
+    id: 'T163',
+    color: '#38bdf8',
+    status:
+      'UNCONDITIONAL ZERO EXPANSION · ISOLATED FINITE RIGHT-EDGE LANDAU REDUCTION · EXACT RESONANCE / INFINITE EDGE OPEN',
+    title: 'The remaining frequency escape is now exact',
+    formula:
+      'two T162 orders + isolated finite false edge ⇒ odd resonance or γ-collision mod γ₁',
+    detail:
+      'The RH-conditional T158 asymptotic can be replaced by an unconditional formula. Insert the absolutely convergent first-Riesz explicit formula into the exact Twin Ladder primitive, integrate against the binary log block, and transfer back to integer rows. For every fixed finite profile, S_(F,c)(X)=−Σ_ρm_ρM_c(ρ)ρ^(−1)X^(ρ+1)Q_(ρ,F)(log X)+O_(F,c)(Xlog(2X)). The complete zero sum converges absolutely at each X because |M_c(ρ)| is uniformly bounded in the critical strip, |Q|≪|ρ+1|^(−1), and Σ_ρ1/(|ρ||ρ+1|) converges. No RH assumption enters this expansion. ' +
+      'For the translated half-duty controller, F̂_0=1/2 and F̂_k=e^(−ikγ₁(θ+L/4))sin(πk/2)/(πk). Thus only k=0 and odd k occur. A real shifted singularity above the RH line can come only from a zero whose ordinate is an odd multiple of γ₁. Two shifted zero terms can collide only when their ordinates differ by an integer multiple of γ₁; the exact combined residue is a finite multiplier-weighted collision sum. The O(Xlog X) transfer is Mellin-holomorphic for Re z>1 and cannot cancel either obstruction. ' +
+      'Assume the two exact T162 aggregate product orders are eventually true and a false-RH right edge β*>1/2 is attained with only finitely many zeros in a left neighborhood. If neither resonance relation occurs at that edge, every shifted class is a nonreal singleton. T162 makes at least one profile see it. Its nonnegative aggregate slack then has Mellin abscissa 1+β*, so Pringsheim–Landau requires a real singularity there, while the exact odd-harmonic classification makes the transform regular—a contradiction. This excludes every nonresonant isolated finite counterconfiguration. It is still not RH: neither arithmetic order is proved, collisions may cancel, and an infinite or nonattained right edge may accumulate shifted singularities.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T164',
+    color: '#a78bfa',
+    status:
+      'CONDITIONAL GLOBAL RIGHT-EDGE DICHOTOMY · JOINT COLLISION SHIELD OR ASYMPTOTIC ODD RESONANCE · BOTH EXCEPTIONS OPEN',
+    title: 'Every infinite right-edge escape must shield or resonate',
+    formula:
+      'two T162 orders + ¬RH ⇒ joint shield or β_n→β*, dist(γ_n,(2ℤ+1)γ₁)→0',
+    detail:
+      'Group every shifted collision point by its exact two-profile residue vector R(z₀)=(R_(c+)(z₀),R_(c−)(z₀)). A singleton class is always jointly visible because the T162 multipliers have no common critical-strip zero. Hence the uncanceled divisor can stop a fixed distance left of β*=sup_ρ Re ρ only if every class generated by zeros in a full top strip contains an exact ordinate collision and cancels simultaneously for both profiles. This is the joint collision shield; no independence of its two complex cancellation equations is assumed. ' +
+      'If no such shield exists, uncanceled shifted singularities approach Re z=1+β*. One of the two nonnegative aggregate slacks then has Mellin abscissa 1+β*. Pringsheim–Landau forces a singularity at the real boundary point. Split the zero sum below β*−ε and write the remaining response period by period: on every compact set separated from the shifted divisor, its terms have a summable O(|ρ|^(−2)) majorant, so the transform converges normally there. The required real singularity must therefore be approached by actual uncanceled shifted points. ' +
+      'Consequently there are zeros ρ_n=β_n+iγ_n and active half-duty indices k_n with β_n→β* and γ_n+k_nγ₁→0. Since nontrivial zero ordinates stay away from zero, the escaping indices are odd apart from a repeated exact resonance, giving dist(γ_n,(2ℤ+1)γ₁)→0. This closes the generic infinite-edge loophole but is still not RH: both aggregate product inequalities are unproved, and neither the exact joint collision shield nor the asymptotic Diophantine resonance has been excluded.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T165',
+    color: '#fb7185',
+    status:
+      'EXACT TWO-PERIOD NO-GAIN THEOREM · IRRATIONAL ODD LATTICES ASYMPTOTICALLY MEET · SAME-ZERO COUPLING OPEN',
+    title: 'A second fixed period does not separate the Landau escape',
+    formula:
+      'Δ(H_a,H_b)>0 ⇔ a/b=p/q reduced with p,q of opposite parity',
+    detail:
+      'For H_a=(2ℤ+1)a define Δ(a,b)=inf{|u−v|:u∈H_a,v∈H_b}. If a/b is irrational, the odd orbit (2n+1)a/b modulo 2 is dense and approaches the odd residue class, so odd multiples of a and b come arbitrarily close at unbounded height. If a/b=p/q is reduced with p and q both odd, the lattices intersect exactly. Only opposite parity gives a positive gap: writing a=pd and b=qd, parity makes every difference a nonzero odd multiple of d, and a parity-adjusted Bézout solution attains d. ' +
+      'This already invalidates the idea that an incommensurate second half-duty period has no common asymptotic harmonic lattice. There is a second logical obstruction: T164 applied to two separately nonnegative controller slacks need not select the same zeta zeros. One right-edge subsequence may approach H_a and another may approach H_b, so even the exceptional positive-gap case is not contradictory. ' +
+      'The result prevents an expensive second Arb certificate from being confused with an RH converse. A useful next construction must force the same right-edge zeros to be visible across controllers, derive a quantitative approximation rate incompatible with zero ordinates, chirp or otherwise vary the frequency set with scale, or rule out the joint collision shield directly. Neither T162 product order is proved, and RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T166',
+    color: '#34d399',
+    status:
+      'COUNTABLE RH-POSITIVE DEPTH PROBES · EVERY FIXED COLLISION CLASS DETECTED · UNBOUNDED-MULTIPLICITY DIAGONAL SHIELD OPEN',
+    title: 'Depth moments break every fixed collision shield',
+    formula:
+      '|J|=m ⇒ some d≤2m−1 has R_(e_d)(z₀)≠0',
+    detail:
+      'Extend the exact T161 profile by zeros, retain the base c^(0)=c†, and set c^(d)=c†+10^(−6)64^(−d)e_d. On RH the full depth-d response is bounded by B_d≤32^((d−1)/2)B₁. The perturbation cost is therefore at most B₁/(64·10⁶)<3.346875×10^(−8), uniformly in d, and the certified response remains above 0.00092494 for every member of this countable rational family. The base and each probe have an eventual 0.0009X^(3/2) aggregate order on RH, though none is proved arithmetically. ' +
+      'At a shifted collision point, cancellation for the base and depth-d probe forces their difference Σ_ja_j(32^(dρ_j)−21^(dρ_j))=0. For an m-term class this is the vanishing of moments 1,…,2m−1 of a signed measure on at most 2m nodes; moment zero vanishes automatically. The two base circles are disjoint, and at least one phase map is injective because γ₁log32/(2π) and γ₁log21/(2π) cannot both be rational—otherwise log32/log21 would be rational, contradicting unique factorization. Vandermonde uniqueness therefore forces all residue weights to vanish, which is impossible. ' +
+      'For an infinite class, the collision weights are absolutely summable. If every depth moment vanished, the 32-circle Fourier coefficients would decay exponentially relative to the 21-circle coefficients. Removing the corresponding analytic density and applying F. and M. Riesz makes the atomic measures absolutely continuous and hence zero; injectivity again contradicts nonzero residues. Thus every fixed class is visible at some finite depth. A nonattained edge can still diagonalize through collision classes whose multiplicities grow without bound while progressively more depths cancel. Proving the countable arithmetic orders or excluding that diagonal shield remains open; RH is not proved.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T167',
+    color: '#fbbf24',
+    status:
+      'GENERIC TWO-PROFILE COLLISION DETECTION · UNIFORM RH-POSITIVE PATH · PARAMETER / FINITE-PRODUCT / MOVING-EDGE MARGIN OPEN',
+    title: 'One geometric profile generically detects every fixed collision',
+    formula:
+      'a.e. t∈(0,1): (R_(c†)(C),R_(c(t))(C))≠(0,0) for every fixed C',
+    detail:
+      'Set c(t)=c†+10^(−6)Σ_(d≥1)(t/64)^de_d. The profile norm is uniformly summable for 0≤t≤1. Summing the T166 response bounds geometrically gives ||H_(F,c(t)−c†)||∞<10^(−6)B₁/58<3.6932×10^(−8), so the entire compact path retains the certified RH-conditional lower margin 0.00092494. ' +
+      'The geometric depth series has the exact multiplier increment M_(c(t)−c†)(s)=64·10^(−6)t(32^s−21^s)/((64−t32^s)(64−t21^s)). Its denominators cannot vanish in the open critical strip for 0<t≤1, and its numerator vanishes there only if 32^s=21^s, which would force Re s=0. Thus the base and every nontrivial path profile have no common multiplier zero. ' +
+      'For a fixed shifted collision class C, the residue difference Φ_C(t)=R_(c(t))(C)−R_(c†)(C) is analytic on a disk larger than the unit disk. T166 proves that at least one Taylor coefficient R_(e_d)(C) is nonzero, so Φ_C is not identically zero and its exceptional real parameters are discrete. For an m-term class, Φ_C is rational with numerator degree at most 2m−1, so any 2m distinct nonzero samples include a detecting value. There are only countably many collision classes; the union of all exceptional sets is therefore countable and null. Almost every single t pairs with the base to detect every fixed class simultaneously. ' +
+      'This is an analytic two-profile compression, not RH. The good parameter is nonconstructive and may not be rational, c(t) has infinite depth and no denominator-cleared finite factorial/lcm product, and neither aggregate inequality is proved unconditionally. Exact simultaneous visibility already removes a collision shield even if residue sizes tend to zero; the half-duty controller’s asymptotic odd resonance remains. T168 replaces both the infinite profile and infinite Fourier support by finite families.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T168',
+    color: '#22d3ee',
+    status:
+      'PROVED SIX-PROFILE RH CRITERION · FINITE FOURIER SUPPORT · SIX ARITHMETIC ORDERS OPEN · FIRST-ZERO-TUNED',
+    title: 'A finite-spectrum controller removes both analytic escapes',
+    formula:
+      'RH ⇔ ∀d=0,…,5: S_(G,c^(d))(X)>0.0003X^(3/2) eventually',
+    detail:
+      'Replace the half-duty block by the smooth nonnegative controller G_θ(t)=(1+cos(γ₁(t−θ)))/2. Its Fourier support is exactly {−1,0,1}; choose θ so the k=−1 mode of the first conjugate zero pair is positive. A 256-bit Arb certificate encloses the first 10,000 critical-line zeros, proves their completeness by a Turing count, bounds the first pair from below, charges every other enclosed pair termwise, and charges the full omitted Hadamard tail. It proves min_t H_(G,c†)(t)>0.000375507134470647016 on RH. ' +
+      'For c^(d)=c†+10^(−6)64^(−d)e_d, the complete scalar three-mode response makes the depth-one perturbation cost less than 1.1122454601×10^(−8); later depths cost less. Thus the base and five exact finite probes all retain 0.000375496012016046695. Every shifted collision class now has at most three distinct zero terms. If all six residues vanished, subtracting the base would kill moments d=1,…,5, contradicting the T166 depth bound d≤2m−1. No joint collision shield survives. ' +
+      'If the six eventual weighted aggregate inequalities hold, the vector-valued Landau argument has only its resonance branch left. Finite Fourier support forces γ_n+k_nγ₁→0 with k_n∈{−1,0,1}; bounded ordinates make a subsequence an exact resonance. The completed 10,000-zero count excludes any off-line zero at 0 or ±γ₁. This proves the displayed equivalence, not RH: none of the six aggregate inequalities is known unconditionally, and both γ₁ and θ are taken from the certified first zeta zero rather than from a zero-independent prime construction.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_resonant_phase_envelope.c',
+  },
+  {
+    id: 'T169',
+    color: '#a78bfa',
+    status:
+      'PROVED THREE-DEPTH COLLISION SEPARATION · FOUR-INEQUALITY RH CRITERION · ARITHMETIC ORDERS OPEN',
+    title: 'Three depths already separate every finite-spectrum collision',
+    formula:
+      'RH ⇔ ∀d=0,1,2,3: S_(G,c^(d))(X)>0.0003X^(3/2) eventually',
+    detail:
+      'For the T168 shifts k∈{−1,0,1}, write ρ_k=ρ−ikγ₁, a=e^(−iγ₁log32), b=e^(−iγ₁log21), and r=(32/21)^ρ. After removing 21^(dρ), the depth-d moment in column k is (ra^k)^d−(b^k)^d. The determinant with rows d=1,2,3 factors as Π_(k=−1)^1(ra^k−b^k)Q(r). The three linear roots lie on |r|=1. ' +
+      'A new 256-bit FLINT/Arb certificate constructs the cubic Q directly from the certified first zero and applies the strict Schur recursion. Its three leading-minus-constant modulus margins are 1.3687787580127637449, 3.1075604640523260467, and 0.3951335020560075122. Schur–Cohn therefore places every zero of Q in |r|<1. For every nontrivial zero parameter with Re ρ>0, |r|=(32/21)^(Re ρ)>1, so neither Q nor a linear factor can vanish. The three moment columns—and every subfamily—are linearly independent. ' +
+      'Depths one through three consequently detect every finite-spectrum collision, replacing the generic T166 depth bound through five. Combining this with T168 gives the displayed four-profile equivalence. This is a strict reduction of the controller ledger from six unproved orders to four, not a strict reduction of RH: all four inequalities remain unproved, and the controller still reads the certified first zeta zero.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_three_depth_collision_determinant.c',
+  },
+  {
+    id: 'T170',
+    color: '#34d399',
+    status:
+      'GENERIC SINGLE FINITE-PROFILE RH CRITERION · FULL-MEASURE PARAMETER SET · EXPLICIT PARAMETER OPEN',
+    title: 'One generic finite profile carries the whole criterion',
+    formula:
+      'a.e. u∈[−1,1]³: RH ⇔ S_(G,c(u))(X)>0.0003X^(3/2) eventually',
+    detail:
+      'Mix the three T169 directions into c(u)=c†+10^(−6)Σ_(d=1)^3 64^(−d)u_de_d. The complete critical-line perturbation costs at most the depth-one budget times 1+q+q², where q=√32/64. The updated 256-bit interval certificate gives a cube cost below 1.2192444161×10^(−8) and proves min_t H_(G,c(u))(t)>0.000375494942026486214 uniformly for every u∈[−1,1]³ on RH. ' +
+      'For any shifted collision class C, its residue is affine in u. T169 proves that the coefficient vector (R_(e₁)(C),R_(e₂)(C),R_(e₃)(C)) is nonzero, so the parameters canceling C form a proper real-affine subspace of the cube, of measure zero. Zeta zeros and the three Fourier shifts generate only countably many classes; outside their null union, one profile sees every class simultaneously. The scalar Landau converse then has no collision shield, while bounded three-mode resonance is excluded by the same completed 10,000-zero Turing count as T168. ' +
+      'This proves the displayed equivalence for a full-measure set of parameters, not RH. It does not exhibit a certified rational or algebraic u; the good set depends on the actual collision classes. The one eventual arithmetic inequality remains unproved, and G still uses the certified first zero in its frequency and phase.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_resonant_phase_envelope.c',
+  },
+  {
+    id: 'T171',
+    color: '#f59e0b',
+    status:
+      'ONE-PARAMETER FINITE-PROFILE RH CRITERION · COUNTABLE EXCEPTIONAL SET · EFFECTIVE PARAMETER OPEN',
+    title: 'A cubic path leaves only countably many bad parameters',
+    formula:
+      '∀t∈[0,1]∖E: RH ⇔ S_(G,c★(t))(X)>0.0003X^(3/2) eventually, |E|≤ℵ₀',
+    detail:
+      'Restrict the T170 cube to c★(t)=c†+10^(−6)Σ_(d=1)^3 64^(−d)t^de_d. The path u=(t,t²,t³) stays inside [−1,1]³, so the entire interval inherits the certified RH-conditional lower margin 0.000375494942026486214. ' +
+      'For a fixed shifted collision class C, the residue R_(c★(t))(C) is a complex polynomial of degree at most three. T169 says its three positive-degree coefficients cannot all vanish, so it is nonconstant and has at most three roots. Since there are only countably many collision classes, their real root sets have a countable union E. Every t outside E sees every class; the T170 Landau and compact-resonance argument then gives the displayed one-profile equivalence. ' +
+      'This is a stronger genericity statement, not an explicit controller or a proof of RH. The countable set E could contain every rational or algebraic point, so no exact good t is certified. The one eventual arithmetic inequality is unproved, and the frequency and phase still use the first zeta zero. Effective avoidance of E is now the precise derandomization problem.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
+  },
+  {
+    id: 'T172',
+    color: '#fb7185',
+    status:
+      'UNIFORM MULTIPLIER BLIND-SPOT NO-GO · ENTIRE POSITIVE CUBE · NOT A ZETA ZERO',
+    title: 'Every profile in the positive cube retains a blind location',
+    formula:
+      '∀u∈[−1,1]³: ∃!s, |s−s₀|<10^(−6), M_(c(u))(s)=0, 1/2<Re s<1',
+    detail:
+      'Use the certified T162 multiplier-zero center s₀=0.5622659840332+9924.9268719398i and compare every T170 multiplier with M_(c†)′(s₀)(s−s₀). On the radius-10^(−6) disk, a 384-bit FLINT/Arb certificate bounds the complete perturbation 10^(−6)Σ_(d=1)^3 64^(−d)u_d(32^(ds)−21^(ds)) by 2.177131667910347866×10^(−7). Adding the base center value and Taylor remainder gives less than 2.199393376973256903×10^(−7), while the linear reference is greater than 1.697632526281556068×10^(−5). Rouché therefore gives exactly one multiplier zero in the disk for every cube point, including the entire T171 cubic path. ' +
+      'This is a structural no-go for one derandomization strategy, not evidence of an off-line zeta zero and not a refutation of T170/T171. The disk is above the completed 10,000-zero Turing height, and the certificate concerns M_c rather than ζ. Almost every parameter still avoids all actual zeta collision classes. What fails is the stronger plan of selecting t by proving M_(c★(t)) zero-free throughout the strip. A successful explicit choice must prove noncoincidence with the actual zeta divisor, move to another RH-positive profile component, or establish the weighted arithmetic inequality directly.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_multiplier_blind_spot.c',
+  },
+  {
+    id: 'T173',
+    color: '#2dd4bf',
+    status:
+      'EXACT DEPTH-12 POSITIVE ESCAPE · KNOWN BLIND BRANCH LEFT OF CRITICAL LINE · T174 TESTS GLOBAL CENSUS',
+    title: 'A larger positive path escapes the known blind branch',
+    formula:
+      'min H_(G♯,c♯)>0.0003216790 on RH; tracked M_(c♯) root has Re s<1/2',
+    detail:
+      'Set α=41/200 and take the exact rational depth-12 profile c♯=4{(1−α)c†−αq₁₂e₁₂}, with q₁₂=8.814659377234676…×10^(−10) represented by the terminating decimal in the proof. Retune only the phase of the same nonnegative three-mode controller. A 256-bit scan encloses the first 10,000 critical-line zeros, independently repeats their Turing count, charges every enclosed nonresonant pair, and charges the complete omitted Hadamard tail. Before scaling, the complete margin is above 8.041975638059209×10^(−5); scaling by four proves min H_(G♯,c♯)>0.000321679025522368361>0.0003 on RH. ' +
+      'A separate 512-bit Rouché certificate follows the T162/T172 multiplier branch to s♯=0.49998559984461965+9924.936716166368i. On the radius-10^(−10) disk, the Taylor remainder is below 2.0032689573×10^(−17), versus a linear boundary magnitude above 2.6339690576×10^(−9), and the whole disk lies left of Re s=1/2. Thus the exact profile simultaneously retains the target positive response and removes the one known off-line blind branch. ' +
+      'This is a constructive escape from T172’s local cube, not a proof that M_(c♯) is globally zero-free. Other exponential-polynomial zeros may remain in the critical strip, and a single explicit profile may still cancel shifted multi-zero collision classes. The weighted aggregate is a rigorous RH consequence but is not proved unconditionally and is not yet an RH equivalence. T174 performs the global-zero-free stress and finds a rigorous low blind spot.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/scan_alternative_finite_fourier_profiles.c + verify_depth12_escape.c',
+  },
+  {
+    id: 'T174',
+    color: '#fb7185',
+    status:
+      'RIGOROUS LOW MULTIPLIER BLIND SPOT · GLOBAL ZERO-FREE ESCAPE CLOSED · NOT A ZETA ZERO',
+    title: 'The depth-12 profile is not globally multiplier-zero-free',
+    formula:
+      '∃!s: |s−s_low|<10^(−12), M_(c♯)(s)=0, 1/2<Re s<1, 0<Im s<14',
+    detail:
+      'Use the exact T173 coefficients and center s_low=0.560849641973665926+1.245234457460175125i. A new 512-bit FLINT/Arb certificate bounds |M_(c♯)(s_low)| below 1.23×10^(−103), |M_(c♯)′(s_low)| above 124.0720378378863125, and the second derivative throughout the radius-10^(−12) disk below 31232.388068119852. The center residual plus Taylor remainder is below 1.561619403405993×10^(−20), versus a linear boundary magnitude above 1.240720378378863×10^(−10). Rouché therefore proves exactly one multiplier zero in the disk. ' +
+      'The interval geometry places the entire disk inside 1/2<Re s<1 and 0<Im s<14. The completed first-zero/Turing ledger used by T168 and T173 begins above 14.1347251417, so the certified point is not a nontrivial zeta zero and is not evidence against RH. It rigorously refutes only the stronger plan of proving M_(c♯) zero-free everywhere in the critical strip. ' +
+      'The generic one-profile criterion survives because it needs the multiplier to avoid actual zeta collision classes, not every point of the strip. The constructive frontier is now an explicit proof of zeta-divisor noncoincidence, a paired-profile separation mechanism, or a direct unconditional proof of the eventual weighted arithmetic order. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_depth12_low_blind_spot.c',
+  },
+  {
+    id: 'T175',
+    color: '#f59e0b',
+    status:
+      'EXACT DILATION-ALIGNED NO-GAIN · TURING-CERTIFIED NONRESONANCE · RH RESPONSE Ω±',
+    title: 'Endpoint periodicity removes the resonant bias',
+    formula:
+      'LΔ=log(32/21), GΔ(log(32^d x))=GΔ(log(21^d x)); S_(GΔ,c♯)=Ω±(X³ᐟ²) on RH',
+    detail:
+      'Choose the nonnegative three-mode controller G_(Δ,θ)(t)=(1+cos(ωΔ(t−θ)))/2 with ωΔ=2π/log(32/21). Its period is exactly the log gap between paired Twin Ladder endpoints, so its weights agree at 32^d x and 21^d x for every depth. This is the natural candidate for turning the prime-side aggregate into an endpoint telescope. ' +
+      'A new 256-bit FLINT/Arb certificate proves γ₁<ωΔ=14.91686716625114666865…<γ₂ and γ₁<2ωΔ−γ₁=15.69900919076759954685…<γ₂. Independent Turing counts give N(ωΔ)=N(2ωΔ−γ₁)=1. The same certificate proves |M_(c♯)(ρ₁)|>3.67259729251241891699. Thus the shifted frequency γ₁−ωΔ is a nonzero singleton class: neither the zero harmonic nor the opposite controller harmonic can cancel it. ' +
+      'No active shifted frequency is zero, so on RH the real uniformly almost-periodic response is nonzero with mean zero and takes both signs. The exact aggregate transfer gives Ω±(X^(3/2)) for every translate θ. Therefore exact endpoint periodicity cannot prove the required eventual positive order even if RH is true. This is a no-gain theorem for the telescoping controller, not a result about RH; a surviving Twin Ladder proof needs genuinely nonlocal prime correlation or another positive mechanism.',
+    certificate:
+      'proof/certificates/twin_ladder_first_radix/verify_dilation_aligned_controller.c',
+  },
+  {
+    id: 'T176',
+    color: '#fb7185',
+    status:
+      'FINITE DERIVATIVE-LAYER NO-GO · ALL 0<a<1/2 · EXACT CONTINUUM UNTOUCHED',
+    title: 'Finite derivative jets cannot repair the radial-layer tail',
+    formula:
+      'det J∂(T,T+h)=−c★²sinh²(ah)+O(e^((4a−2)T))<0, 0<a<1/2',
+    detail:
+      'Attach arbitrary finite derivative orders Ψ^(r)(t+x_j) to finitely many fixed radial or modular shifts and couple every resulting feature by any nonzero real PSD matrix. The exact theta tail gives Ψ^(r)(y)=(−2π)^r e^(2ry)Ψ(y)(1+O_r(e^(−2y))). PSD zero-row rigidity then isolates the least shift with positive diagonal mass and, at that shift, its highest active derivative. ' +
+      'After a real diagonal congruence, every lower derivative is O(e^(−2T)) and every later shift is superexponentially smaller. The normalized two-point matrix is therefore one hyperbolic layer plus O(e^((2a−2)T)); its determinant is −c★²sinh²(ah)+O(e^((4a−2)T)), which is strictly negative eventually for every 0<a<1/2. ' +
+      'This rigorously closes the natural fixed finite derivative-enriched extension of the T42 Gram ansatz throughout the small-thickness range needed for an RH descent. It does not classify a=1/2 or a>1/2, infinite derivative systems, continuous fibers, test-dependent or indefinite couplings, derivatives of a different carrier, or the exact continuum integral. The sole global Twin Ladder inequality and RH remain open.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.1',
+  },
+  {
+    id: 'T177',
+    color: '#fb7185',
+    status:
+      'FULL INTEGER-MODULAR TOWER NO-GO · BOUNDED PSD COUPLING · ALL 0<a<1/2',
+    title: 'Countably many isolated modular layers still cannot rescue the tail',
+    formula:
+      'Jmod=(eᵃ⁽ᵗ⁺ᵇ⁾⟨uₜ⁺,Cuᵦ⁺⟩−e⁻ᵃ⁽ᵗ⁺ᵇ⁾⟨uₜ⁻,Cuᵦ⁻⟩)/2; det₂→−c★²sinh²(ah)',
+    detail:
+      'Fix any finite derivative ceiling R and put u_t^±(k,r)=k^(±a)Ψ^(r)(t+log k) in ℓ²(N×{0,…,R}). Every nonzero bounded real PSD operator C defines the complete countable modular-layer kernel through the displayed Hilbert-space form; finite coordinate compressions recover the expected double modular sum without assuming absolute convergence of an unrestricted matrix series. ' +
+      'A positive operator has some positive diagonal entry. Choose the least active integer k★ and the highest active derivative r★ there; every earlier or higher zero-diagonal coordinate is killed exactly by C. Uniform theta decay bounds the complete k>k★ normalized feature tail by O(e^(CT−c e^(2T))) in ℓ², while the surviving lower derivatives at k★ are only O(e^(−2T)). Boundedness of C therefore reduces the entire infinite system to the same single hyperbolic layer as T176. ' +
+      'For every 0<a<1/2 and fixed h>0, the normalized 2×2 determinant is −c★²sinh²(ah)+O(e^((4a−2)T))<0 eventually. The exact continuum succeeds where this tower fails because its shifts accumulate at the lower integration edge. A surviving Gram route must use such lower-edge accumulation, unbounded effective derivative order or coupling, test dependence, a different carrier, or the genuine continuous radial integral. RH remains open.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.2',
+  },
+  {
+    id: 'T178',
+    color: '#22d3ee',
+    status:
+      'LOWER-EDGE DIMENSION CLASSIFIED · ATOMLESS TAIL RESCUE · GLOBAL PSD OPEN',
+    title: 'Atomlessness is the mechanism behind the continuum tail rescue',
+    formula:
+      'x^(ν−1)g(x)dx ⇒ Hν(s,r)=[2cosh(s−r)]^(−ν); m₀δ₀ ⇒ det₂<0 for a<ν/2',
+    detail:
+      'Replace the discrete radial layers by the shift density x^(ν−1)g(x)dx, where ν>0, g is nonnegative and continuous at zero, and g(0)>0. Exact first-mode theta asymptotics followed by endpoint Laplace scaling give a positive diagonal normalization converging at fixed offsets to H_ν(s,r)=[2cosh(s−r)]^(−ν). ' +
+      'The limit has an exact Gamma-integral Gram representation: H_ν(s,r)=Γ(ν)^(−1)∫y^(ν−1)(e^(νs)e^(−ye^(2s)))(e^(νr)e^(−ye^(2r)))dy. Distinct exponential rates make every fixed distinct-node principal matrix strictly positive. This recovers the ordinary continuum half-sech kernel at ν=1 and extends it to every positive lower-edge dimension. ' +
+      'Accumulation alone is not sufficient. Adding an atom m₀δ₀ and normalizing by its layer leaves the two-point determinant −m₀²sinh²(ah)+O(e^((4a−2ν)T)), which is strictly negative whenever 0<a<ν/2. For ordinary dimension ν=1, the atom blocks the entire inner range 0<a<1/2. This is a quantified tail architecture theorem, not global kernel positivity, T3, or RH.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.3',
+  },
+  {
+    id: 'T179',
+    color: '#a78bfa',
+    status:
+      'CANONICAL TWO-BRANCH MODEL NO-GO · INDEFINITE ON EVERY TAIL · FIXED ORDERS POSITIVE',
+    title: 'The half-sech limit plus its leading negative branch is not globally PSD',
+    formula:
+      'Bₐ(t,b)=(1−e^(−2a(t+b)))/(2cosh(t−b)); det₂(0,h)=−[(1−e^(−2ah))/(2cosh h)]²',
+    detail:
+      'The simplest attempted promotion of the fractional half-sech tail is symmetric, real analytic, and entrywise positive. Its relative Cᵐ error from H(t,b)=1/[2cosh(t−b)] is O(e^(−4aL)) on (L,∞)², so the fixed-order divided-difference argument makes every fixed distinct-node matrix order positive sufficiently far out. ' +
+      'Global positivity still fails. At the continuous boundary pair 0,h, the top-left entry vanishes while the off-diagonal entry is positive, giving the displayed strictly negative determinant. If the kernel were PSD on any tail, real-analytic Gram continuation would extend PSD across the connected positive quadrant and contradict that boundary minor. Therefore Bₐ is indefinite on every tail, with the least negative witness order escaping to infinity. ' +
+      'This rules out the half-sech limit plus only its leading negative-sinh branch as the missing global Gram kernel. The exact endpoint y/S dependence, theta-R remainder, and cross-scale corrections are load-bearing. It is a model obstruction, not an obstruction to the exact continuum kernel and not a proof or disproof of RH.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.4',
+  },
+  {
+    id: 'T180',
+    color: '#f472b6',
+    status:
+      'EXACT ENDPOINT-ONLY MODEL NO-GO · EVERY TAIL INDEFINITE · 0<a<1/2',
+    title: 'The full endpoint integral still needs the theta remainder',
+    formula:
+      '2I′(λ)=∫₁∞q^(λ−1)e^(−2πq)(1+λ+λlogq−2πq)dq<0, 4<λ<5',
+    detail:
+      'Set only R≡1 in the exact endpoint identity, retaining both hyperbolic branches and the complete y/S dependence. Equivalently use the pure leading carrier φ₀(v)=exp(9v/2−πe^(2v)). At the boundary the kernel is positive on the diagonal and has zero first derivative, while its mixed derivative is [I(9/2+a)−I(9/2−a)]/2 with I(λ)=∫₀∞[(exp(λx−πe^(2x)))′]²dx. ' +
+      'A substitution q=e^(2x) and one exact incomplete-gamma recurrence give the displayed derivative formula. Its final factor is negative at q=1 when λ<2π−1 and decreases thereafter because λ/q−2π<0. Thus I is strictly decreasing on 4<λ<5. For every 0<a<1/2 the boundary mixed derivative is negative, producing a negative 2×2 determinant at sufficiently close nodes; continuity moves it inside the positive quadrant and real-analytic Gram continuation rules out PSD on every tail. ' +
+      'The model still approaches the half-sech kernel in every fixed Cᵐ tail norm, so each fixed matrix order eventually becomes positive and the negative witness order escapes. Exact endpoint scaling is not the rescue: the nontrivial theta-R factor and its cross-scale products are now load-bearing. This does not decide the exact theta kernel, T3, or RH.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.5',
+  },
+  {
+    id: 'T181',
+    color: '#34d399',
+    status:
+      'EXACT THETA LOCAL RESCUE · 384-BIT ARB CERTIFICATE · GLOBAL PSD OPEN',
+    title: 'The theta remainder reverses the first boundary obstruction',
+    formula:
+      'κ₁⧸₄=∂ₜ∂ᵦA₁⧸₄(0,0)=0.0445335330003967469414106437971±1.91×10⁻³²>0',
+    detail:
+      'For the full even theta carrier, integration by parts gives κₐ=∫₀∞sinh(2ax)(Ψ′(x)²−a²Ψ(x)²)dx−aΨ(0)², while exact evenness forces ∂ₜAₐ(0,0)=0. A new Arb verifier evaluates the 12-mode theta head on [0,2] at 384-bit precision and adds explicit enclosures for all omitted modes and the x≥2 tail. It proves the displayed strictly positive interval at a=1/4. ' +
+      'Because A₁⧸₄(0,0)>0, the determinant for the nearby boundary pair 0,h equals A₁⧸₄(0,0)κ₁⧸₄h²+O(h³) and is positive for sufficiently small h. The endpoint-only R≡1 carrier has negative mixed curvature, so the exact theta remainder is rigorously a real local rescue mechanism rather than a cosmetic asymptotic correction. ' +
+      'This certifies one local two-point necessary condition only. It gives no uniform h range, no higher principal-minor control, no PSD on an interval, and no proof of T3 or RH.',
+    certificate:
+      'proof/certificates/twin_ladder_channel_split/verify_exact_boundary_curvature_arb.c',
+  },
+  {
+    id: 'T182',
+    color: '#2dd4bf',
+    status:
+      'FIVE-LEVEL EXACT BOUNDARY JET POSITIVE · 512-BIT ARB · UNIFORMITY OPEN',
+    title: 'The local theta rescue persists through order four',
+    formula:
+      'J₁⧸₄⁽⁴⁾(m,n)=∂ₜᵐ∂ᵦⁿA₁⧸₄(0,0)/(m!n!) ≻ 0; det=3.7381461390968124752×10⁻⁶',
+    detail:
+      'Differentiate the exact same-sign block before integration. With g±(x)=Ψ(x)e^(±x/4), the Taylor-normalized jet entry is [2m!n!]⁻¹∫₀∞(g₊⁽ᵐ⁾g₊⁽ⁿ⁾−g₋⁽ᵐ⁾g₋⁽ⁿ⁾)dx. Exact theta evenness gives g₋(x)=g₊(−x), so every entry with m+n odd vanishes after reflection and integration by parts; the matrix splits into even and odd derivative blocks. ' +
+      'A new 512-bit Arb verifier evaluates twelve theta modes on [0,2] and attaches explicit enclosures for every omitted mode and the x≥2 tail. All five leading principal determinants for derivative orders 0 through 4 are strictly positive. The full determinant is 3.73814613909681247520798344427×10⁻⁶ with radius 3.45×10⁻³⁶, so Sylvester’s criterion certifies positive definiteness. ' +
+      'This extends T181 from local curvature to five confluent derivative levels and implies positivity for sufficiently tight generic five-point boundary clusters. It supplies no order-uniform lower bound, no PSD interval, and no proof of T3 or RH.',
+    certificate:
+      'proof/certificates/twin_ladder_channel_split/verify_exact_boundary_jet_arb.c',
+  },
+  {
+    id: 'T183',
+    color: '#fbbf24',
+    status:
+      'EXACT ALL-ORDER BOUNDARY CRITERION · ONE-SIDED ENERGY · RH-EQUIVALENT SEQUENCE',
+    title: 'The remaining gap is positive-half-line dominance at every derivative degree',
+    formula:
+      'c*Jₐc=½∫ℝsgn(x)|P(D)(e^(ax)Ψ(x))|²dx ≥ 0 for every even/odd P',
+    detail:
+      'Let hₐ(x)=e^(ax)Ψ(x). Differentiating the exact same-sign block gives the boundary coefficient matrix from T182. Exact theta evenness implies h₋ₐ(x)=hₐ(−x), kills every mixed even/odd jet entry, and converts each pure-parity polynomial quadratic form into the displayed signed energy identity. ' +
+      'Therefore the complete boundary hierarchy is positive exactly when ‖P(D)hₐ‖L²(−∞,0)≤‖P(D)hₐ‖L²(0,∞) for every even polynomial and every odd polynomial. This condition is sufficient as well as necessary: normal convergence of the two-variable Taylor series yields PSD in a neighborhood of the boundary, real-analytic Gram continuation propagates it across the positive half-line, and Wiener-Hopf rigidity identifies same-sign positivity with the complete fixed-thickness Twin Ladder condition. ' +
+      'Imposing the hierarchy along any prescribed sequence aₙ↓0 is equivalent to RH by the divisor theorem. T182 first verified degrees 0 through 4 at a=1/4, and T192 extends that finite certificate through degree 16. T183 remains an exact reformulation and a sharper attack surface—not a proof.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.8',
+  },
+  {
+    id: 'T184',
+    color: '#60a5fa',
+    status:
+      'INFINITESIMAL FIVE-LEVEL JET POSITIVE · 512-BIT ARB · ALL-DEGREE GAP',
+    title: 'The boundary rescue survives the zero-thickness first variation',
+    formula:
+      'L⁽⁴⁾=∂ₐJₐ⁽⁴⁾|ₐ₌₀ ≻ 0; det L⁽⁴⁾=0.00348304876648921553805367897840',
+    detail:
+      'Differentiate the T183 hierarchy at zero thickness. Since P(D)(e^(ax)Ψ)=e^(ax)P(D+a)Ψ, its first variation is xP(D)Ψ+P′(D)Ψ. Entrywise this gives L(m,n)=[m!n!]⁻¹∫₀∞[2xΨ⁽ᵐ⁾Ψ⁽ⁿ⁾+mΨ⁽ᵐ⁻¹⁾Ψ⁽ⁿ⁾+nΨ⁽ᵐ⁾Ψ⁽ⁿ⁻¹⁾]dx, omitting negative derivative indices. ' +
+      'The extended 512-bit Arb verifier evaluates the exact theta head and explicit mode/integration tails for derivative orders 0 through 4. All five leading principal determinants are positive; the full determinant is 0.00348304876648921553805367897840 with radius 3.06×10⁻³³. Thus the five-level exact rescue is not confined to a=1/4 but persists in the first variation at a=0. ' +
+      'This is finite-order evidence in the vanishing-thickness regime. It does not prove the all-degree infinitesimal hierarchy, a lower bound uniform for small positive a, fixed-thickness PSD, or RH.',
+    certificate:
+      'proof/certificates/twin_ladder_channel_split/verify_exact_boundary_jet_arb.c',
+  },
+  {
+    id: 'T185',
+    color: '#f59e0b',
+    status:
+      'ALL-DEGREE INFINITESIMAL HIERARCHY · EXACTLY RH-EQUIVALENT · NOT A STRICT REDUCTION',
+    title: 'Every infinitesimal jet level recovers the full de Branges criterion',
+    formula:
+      'c*Lc=(2/π)∬P(iλ)P(iμ)̅L₀(λ,μ)dλdμ; all d PSD ⇔ L₀ PSD ⇔ RH',
+    detail:
+      'Fourier transformation of the T184 signed-energy first variation identifies every polynomial jet quadratic form with the displayed integral against the infinitesimal de Branges kernel L₀(λ,μ)=[Ξ(λ)Ξ′(μ)−Ξ′(λ)Ξ(μ)]/[π(λ−μ)]. Its diagonal singularity is removable and completed-Ξ decay makes all polynomial integrals convergent. ' +
+      'Under RH, the rank-one expansion over real zeros makes every form nonnegative. Conversely, positivity in every finite degree extends from polynomials to compact bumps by density in a suitable exponentially weighted L² space. Approximate identities recover all real evaluation matrices of L₀; confluent limits and the entire Taylor expansion recover the full complex kernel. The established de Branges criterion then gives RH. ' +
+      'Thus the all-degree infinitesimal hierarchy is a concrete exact reformulation, not an easier theorem. T184 first certified derivative degrees 0 through 4, and T192 extends the exact 512-bit sign certificate through degree 16. Seventeen levels remain finite evidence rather than a proof of RH.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.10',
+  },
+  {
+    id: 'T186',
+    color: '#fb7185',
+    status:
+      'NORMALIZED JET FLOOR · EXACT ZERO-MARGIN DICHOTOMY · COERCIVITY REFUTED',
+    title: 'The finite jet exhaustion must approach RH at zero margin',
+    formula:
+      'λd=min(c*L⁽ᵈ⁾c/c*G⁽ᵈ⁾c); RH ⇔ λd↓0, while ¬RH ⇔ λd<0 at finite d',
+    detail:
+      'Whiten the infinitesimal jet by the positive parity-block Gram matrix G⁽ᵈ⁾ of Ψ⁽ᵐ⁾/m!. The coefficient spaces are nested, so their least generalized eigenvalues λd are nonincreasing. T185 already says that every λd is nonnegative exactly under RH. ' +
+      'The translation symbol P_T(z)=e^(−Tz) gives P_T(D)Ψ(x)=Ψ(x−T). Its infinitesimal numerator is exactly 2∫_T^∞uΨ(u)²du, while the combined even/odd derivative energy is the fixed value ‖Ψ‖²/2. Taylor polynomials transfer this quotient into the finite jet spaces and force the attainable margin to zero. Thus RH means λd decreases to zero; failure of RH produces a negative witness at a finite degree. No degree-uniform coercive proof is possible. ' +
+      'A high-precision incomplete-gamma scan gives λ₁₆≈1.1366×10⁻¹⁰. T192 now Arb-certifies positivity of the exact infinitesimal form through d=16, although that displayed generalized eigenvalue remains a non-interval conditioning diagnostic. Raw determinant growth is still misleading—the remaining theorem must preserve sign at vanishing margin for every degree.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.11',
+  },
+  {
+    id: 'T187',
+    color: '#34d399',
+    status:
+      'TRANSLATED PARITY PACKETS POSITIVE · STRICT CONCAVITY · ZERO MARGIN FROM ABOVE',
+    title: 'The canonical near-null packets cannot hide a negative direction',
+    formula:
+      'Qeven(T)=R(T)+D(T)>0; Qodd(T)=R(T)−D(T)>0 because D(T)<R(T)',
+    detail:
+      'Split the T186 translation symbol e^(−Tz) into cosh(Tz) and −sinh(Tz). Their infinitesimal forms are exactly R+D and R−D, where R(T)=∫_T^∞uΨ(u)²du and D(T)=∫₀^∞xΨ(x−T)Ψ(x+T)dx. Only the odd difference has a possible sign issue. ' +
+      'A classical strict concavity theorem for the Riemann–Jacobi kernel states that s↦log Ψ(√s) is strictly concave. Apply it to (T−x)² and (T+x)²: Ψ(x−T)Ψ(x+T)<Ψ(√(T²+x²))². Multiplying by x and substituting u=√(T²+x²) proves D(T)<R(T) for every T>0. Both parity quotients therefore approach the T186 zero margin strictly from above. ' +
+      'This is an unconditional infinite-family sign theorem, not RH. It closes translated packets only. If an off-line zero exists, its finite-degree negative witness must use a genuinely non-translation derivative superposition.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.12',
+  },
+  {
+    id: 'T188',
+    color: '#c084fc',
+    status:
+      'TRANSLATION MIXTURES · POSITIVE ENTRIES · LOCAL PSD IS RH-EQUIVALENT',
+    title: 'Interference between translated packets already contains the full problem',
+    formula:
+      'Ktr(T,S)=∫₀∞(2a+T+S)Ψ(a+T)Ψ(a+S)da>0; local finite-matrix PSD ⇔ RH',
+    detail:
+      'Polarize the infinitesimal form between e^(−Tz) and e^(−Sz). Evenness of Ψ cancels the signed central interval and gives the displayed positive-entry kernel. A finite exponential polynomial E(z)=Σcⱼe^(−Tⱼz) has form c*Ktr c, so T187 controls only its diagonal packets. ' +
+      'For every ε>0, PSD of all finite Ktr matrices with nodes in [0,ε] is equivalent to RH. The forward direction follows from the T185 polynomial criterion and Taylor convergence. Conversely, Δh(z)=(1−e^(−hz))/h tends to z, while P(Δh) uses only the nodes 0,h,…,(deg P)h. Local translation PSD therefore recovers every polynomial jet inequality and T185 gives RH. If RH is false, negative translation matrices must occur on arbitrarily fine grids at the origin. ' +
+      'The new high-precision scanner finds positive matrices on the tested one-mode and full-theta grids, but their confluent eigenvalues collapse toward zero. This is exploratory, not an interval certificate. Entrywise positivity does not imply PSD, and there is no uniform spectral gap for a first-mode-plus-small-tail perturbation proof.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.13',
+  },
+  {
+    id: 'T189',
+    color: '#f97316',
+    status:
+      'CONCAVITY-ONLY MIXTURE ROUTE REFUTED · 256-BIT ARB · MODEL CLASS ONLY',
+    title: 'Positive individual packets do not control three-packet interference',
+    formula:
+      'f=e^(−x²)−½e^(−2x²); (log f(√s))″<0, but det[Kf(2j/3,2k/3)]j,k=1³<0',
+    detail:
+      'Use the positive even model f(x)=e^(−x²)−½e^(−2x²). Writing r=e^(−s)/2 gives (d²/ds²)log f(√s)=−r/(1−r)²<0, exactly the strict square-radius log-concavity used in T187. The same argument therefore makes every individual even and odd translated packet positive. ' +
+      'Gaussian completion gives a closed erfc formula for every mixed kernel entry. At translation nodes 2/3, 4/3, and 2, the new 256-bit Arb verifier encloses the positive-entry 3×3 determinant at −1.86651773158276928117×10⁻¹¹ ± 3.42×10⁻⁶¹, strictly below zero. Its Fourier transform also has explicit nonreal zeros. ' +
+      'This is a rigorous model-class counterexample to the implication “T187 concavity ⇒ T188 mixture PSD.” It is not a counterexample to the Riemann–Jacobi theta kernel and does not disprove RH. Any successful translation-kernel proof must add zeta-specific structure that controls at least three-packet interference.',
+    certificate:
+      'proof/certificates/twin_ladder_channel_split/verify_square_concavity_mixture_counterexample_arb.c',
+  },
+  {
+    id: 'T190',
+    color: '#22d3ee',
+    status:
+      'TWO-PACKET MATRICES POSITIVE · SHARP CONCAVITY THEOREM · THREE PACKETS FIRST UNRESTRICTED',
+    title: 'Square-radius concavity controls exactly two translated packets',
+    formula:
+      'Kf(T,S)²≤Kf(T,T)Kf(S,S), strictly for T≠S; every 2×2 theta principal matrix ≻0',
+    detail:
+      'Let h(u)=log f(√u) be concave. For T≥S, write m=(T+S)/2, d=(T−S)/2, p=y²−m², and q=√(m²+p). Evenness rewrites the mixed kernel as ∫₀∞f(q−d)f(q+d)dp. ' +
+      'The squared pair (q−d)²,(q+d)² has the same sum as S²+p,T²+p but is farther apart. Concavity therefore bounds the mixed integrand by f(√(S²+p))f(√(T²+p)). Cauchy–Schwarz gives Kf(T,S)²≤Kf(T,T)Kf(S,S); strict concavity makes it strict at distinct nodes. ' +
+      'The Riemann–Jacobi kernel has the required strict concavity, so every distinct two-node principal translation matrix is unconditionally positive definite. T189 proves the mechanism is sharp: three-node PSD does not follow for a general model. T190 alone forces any negative translation matrix to use at least three distinct packets; T191 adds stronger theta-specific protection for sufficiently small clusters.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.15',
+  },
+  {
+    id: 'T191',
+    color: '#a3e635',
+    status:
+      'FIVE-PACKET ORIGIN NEIGHBORHOOD POSITIVE · DIVIDED DIFFERENCES · SIX PACKETS FIRST LOCAL RISK',
+    title: 'The certified infinitesimal jet protects every five-packet origin cluster',
+    formula:
+      '∂Tᵐ∂SⁿKtr(0,0)/(m!n!)=Lmn; ∃ε₅>0: N≤5 and distinct Tⱼ∈[0,ε₅] ⇒ [Ktr(Tⱼ,Tₖ)]≻0',
+    detail:
+      'Expanding the T188 kernel at the origin identifies its Taylor coefficient matrix exactly with the infinitesimal boundary jet L: the factors 2a, T, and S reproduce the three terms in the T184 integral formula. ' +
+      'For five ordered nodes, the invertible Newton divided-difference transformation acts by congruence on the evaluation matrix. The mixed Hermite–Genocchi formula expresses every transformed entry as an average of a mixed derivative inside the node interval. Consequently the transformed matrix converges uniformly to L⁽⁴⁾ as the whole interval shrinks, including arbitrarily uneven node collisions. ' +
+      'The 512-bit T184 certificate proves L⁽⁴⁾ positive definite, so openness gives an ε₅>0 on which every matrix of at most five distinct theta translations is positive definite. Thus if RH is false, T188 still forces negative matrices into every smaller origin interval, but each must use at least six packets. The interval is existential; three or more packets at unrestricted translations and all matrix sizes near zero remain open, so RH is not proved.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.16',
+  },
+  {
+    id: 'T192',
+    color: '#facc15',
+    status:
+      'DEGREE-SIXTEEN JETS POSITIVE · 512-BIT ARB · SEVENTEEN PACKETS LOCALLY PROTECTED',
+    title: 'The rigorous finite frontier now reaches seventeen translated packets',
+    formula:
+      'J₁⧸₄⁽¹⁶⁾≻0 and L⁽¹⁶⁾≻0; ∃ε₁₇>0: N≤17, Tⱼ∈[0,ε₁₇] distinct ⇒ [Ktr(Tⱼ,Tₖ)]≻0',
+    detail:
+      'The exact boundary-jet verifier is now dimension-parametric and is replayed at 512-bit precision with DIM=17. It retains twelve theta modes on [0,2], attaches derivative-order-dependent enclosures for all omitted modes and the x≥2 tail, and checks all seventeen leading principal determinants of both the fixed-thickness matrix J₁⧸₄⁽¹⁶⁾ and the infinitesimal matrix L⁽¹⁶⁾. ' +
+      'Every enclosure is strictly positive. The final determinants are 3.62192046532966786793×10⁻⁹ ± 1.03×10⁻³⁹ for J₁⧸₄⁽¹⁶⁾ and 33.5739665585352850204 ± 7.74×10⁻³¹ for L⁽¹⁶⁾. Sylvester’s criterion therefore certifies both 17×17 jets positive definite and upgrades every previously exploratory finite sign through d=16. ' +
+      'Applying T191’s mixed divided-difference theorem gives an ε₁₇>0 on which every theta translation matrix with at most seventeen distinct nodes is positive definite. If RH is false, T188 still forces negative matrices arbitrarily close to zero, but each must use at least eighteen packets, equivalently start at polynomial degree at least seventeen. This remains a finite-order existential neighborhood, not all-degree positivity or a proof of RH.',
+    certificate:
+      'proof/certificates/twin_ladder_channel_split/verify_exact_boundary_jet_arb.c · compile with -DDIM=17',
+  },
+  {
+    id: 'T193',
+    color: '#fb7185',
+    status:
+      'CANONICAL-ROOT SHORTCUT REFUTED · EXACT −1/216 MODEL WITNESS · THETA DEFORMATIONS OPEN',
+    title: 'The near-null root lattice does not inherit translated-packet positivity',
+    formula:
+      'P(z)=z(1+z²/8), zeros(P)={0,±2√2i}, but ℓf(P)=−1/216 in the strict-concavity T189 model',
+    detail:
+      'Exploratory theta minimizers through degree 24 have negative y=z² roots close to the half-integer cosh and integer sinh Euler-product lattices. That geometry is real but not sign-stable: at degree 24 the best one-parameter canonical product has derivative-energy overlap 0.99806 with the true even minimizer, yet its Rayleigh value is about 62.85 times larger. The small root deformations are load-bearing at the collapsing T186 margin. ' +
+      'The generic shortcut fails exactly. For f(x)=e^(−x²)−½e^(−2x²), strict square-radius concavity makes every complete translated parity packet positive. Nevertheless the first sine factor at T=π/(2√2), P(z)=z+z³/8, has only pure-imaginary zeros and normalized odd block [[1/9,−25/162],[−25/162,50/243]], giving ℓf(P)=−1/216 by rational arithmetic. ' +
+      'This does not produce a negative theta polynomial. It proves that T187, imaginary-root geometry, and ordinary canonical-product convergence cannot control the finite theta minimizers; a successful proof must sign their finite root deformations directly at the vanishing eigenvalue scale. RH remains open.',
+    certificate:
+      'proof/certificates/twin_ladder_channel_split/verify_canonical_product_truncation_counterexample_exact.py',
+  },
+  {
+    id: 'T194',
+    color: '#38bdf8',
+    status:
+      'WHOLE-TAIL FIXED-ORDER POSITIVITY · SECH LIMIT · THREE-PACKET RISK TOUCHES LEFT INTERVAL',
+    title: 'Every fixed packet count is eventually positive on the translation tail',
+    formula:
+      'K̃tr(t,b)→sech(t−b); ∀n ∃Ltr,n: distinct tⱼ≥Ltr,n and N≤n ⇒ [Ktr(tⱼ,tₖ)]≻0',
+    detail:
+      'Factoring the first theta mode and using the exact endpoint variable y=(e²ᵗ+e²ᵇ)(e²ˣ−1) gives a boundary-layer formula valid uniformly even when |t−b| is unbounded. Division by Dtr(t)=4√2π³⧸²√t exp(7t/2−πe²ᵗ) leaves sech(t−b) plus an error that tends to zero in every fixed whole-tail derivative norm. ' +
+      'The limit has exact principal determinant ∏i<j tanh²(tⱼ−tᵢ). The T48 cluster/divided-difference compactification removes collision Vandermondes, while block splitting controls unbounded gaps. Thus every fixed matrix order is positive on one entire right tail. ' +
+      'An adaptive Gauss–Laguerre grid locates the hardest resolved three-packet point near (1.975,2.075,2.175), where separately scaled 80-digit quadrature gives normalized determinant 3.608853263731643×10⁻⁶. That scan is non-interval and not part of the proof. T194 forces any three-packet obstruction to touch a bounded left interval; Ltr,n depends on n, so no all-order tail PSD, all-degree origin theorem, or RH follows.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.19 · proof/certificates/twin_ladder_channel_split/scan_translation_three_packet_global.py',
+  },
+  {
+    id: 'T195',
+    color: '#c084fc',
+    status:
+      'STRICT THREE-PACKET REDUCTION · ALL ESCAPES POSITIVE · COMPACT INTERIOR CERTIFICATE OPEN',
+    title: 'Every possible three-packet obstruction lies in one compact interval',
+    formula:
+      'WΨ(T)>0 and Rtr(t,b)=poly(b)e^(−b)→0 for bounded t; ∃Mtr,3<∞ containing every nonpositive triple',
+    detail:
+      'The T190 comparison stays quantitatively strict when two translated packets collide. If h(u)=log f(√u), the determinant divided by the squared node gap is bounded below by 2Kf(T,T)∫₀∞f(√(T²+p))²[−p h″(T²+p)]dp, which is positive for theta by T187 strict concavity. ' +
+      'A separate one-sided endpoint expansion shows that the correlation-normalized kernel and every fixed derivative between a bounded node and b→∞ decay like a polynomial times e^(−b). Thus every escaping ordered triple decouples into positive blocks: T194 handles three far nodes and a far pair, while T190 plus the new confluent margin handles a bounded pair. ' +
+      'Therefore some finite Mtr,3 contains all nodes of every nonpositive three-packet matrix, if any. The triple-collision face is the translated degree-two jet; its stable endpoint-gauged determinant tends to 1, and the exact lower-limit derivative of its raw determinant is negative at every sampled T>0. Independent interval entry boxes lose those correlated cancellations, so a shared Taylor enclosure is required. The sech-relative exploratory grid reaches 0.89423611571 at (0,1.35,2.125), where scaled 100-digit quadrature gives normalized determinant 0.272485224924370778975865. None of these values are interval certificates. The explicit compact bound, compact-domain sign, higher packet counts, and RH remain open.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.20 · proof/certificates/twin_ladder_channel_split/scan_translation_three_packet_global.py',
+  },
+  {
+    id: 'T196',
+    color: '#34d399',
+    status:
+      'RIGOROUS 0≤T≤2 COLLISION COVER · 4096 ARB BOXES · GLOBAL THREE-PACKET SIGN OPEN',
+    title: 'The translated triple-collision jet is positive on its first two units',
+    formula:
+      'Jtriple(T)≻0 for 0≤T≤2; Δ₃′(T)<0 after the origin box and Δ₃(2)/J₂(0,0)³=0.939231127963760833±2.35×10⁻¹⁹',
+    detail:
+      'The missing correlated enclosure is now implemented on a continuous interval. T196 partitions [0,2] into 4,096 boxes of width 1/2048 and carries one order-fourteen Taylor variable through all six entries of the translated degree-two jet, a fixed unit-triangular endpoint gauge, and determinant multilinearity. Twelve-mode center integrals to u=3 run at 768-bit precision with a uniform omitted-mode and tail allowance 1.26761753931×10⁻²¹¹ ± 3.68×10⁻²²³. ' +
+      'The box containing T=0 has normalized determinant 2.4848 ± 4.62×10⁻⁵ > 0. On each of the other 4,095 boxes, the exact lower-limit identity J′=−I certifies Δ₃′(T)<0. Since the normalized determinant at T=2 is still 0.939231127963760833 ± 2.35×10⁻¹⁹ > 0, Δ₃ stays positive throughout [0,2]. T190 supplies the strict leading two-node confluent minor, so Sylvester’s criterion gives the full 3×3 jet positive definite there. ' +
+      'This is the compact first segment; T197 below supplies the tail join. The nonconfluent compact interior, higher packet counts, and RH remain open.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.21 · proof/certificates/twin_ladder_channel_split/run_translation_triple_collision_taylor.sh',
+  },
+  {
+    id: 'T197',
+    color: '#22d3ee',
+    status:
+      'RIGOROUS T≥2 TAIL JOIN · COMPLETE TRIPLE-COLLISION FACE · NONCONFLUENT INTERIOR OPEN',
+    title: 'The translated triple-collision jet is positive for every translation',
+    formula:
+      'supT≥2 ‖H(T)−H∞‖₂ ≤ 0.237144301660067167 < (9−√17)/16; therefore Jtriple(T)≻0 for all T≥0',
+    detail:
+      'T197 attacks the exact quantitative target left by T196. The T194 boundary-layer formula factors the normalized kernel into A(t,b)=(t+b)/(2√tb cosh(t−b)) and a theta correction B(t,b). A 256-bit bivariate degree-(2,2) Arb jet covers 128 exact T-boxes on [2,4], then encloses the entire T≥4 tail by 0≤1/T≤1/4 and 0≤e⁻²ᵀ≤e⁻⁸. It integrates 2,000 exact y-boxes through 40 and one box through 1,000; elementary estimates place the remaining y-tail and theta modes n≥2 far below the reserved 10⁻³⁰ allowance. ' +
+      'The explicit algebraic-sech jet differs from H∞ in Frobenius norm by at most 0.125278163400880268, while coefficient convolution bounds the correction by 0.111866138259186899. Their sum 0.237144301660067167 is strictly below half the limiting spectral gap, (9−√17)/16≈0.3048058984. Thus the normalized jet is positive for every T≥2. Together with T196 on [0,2], this proves the full triple-collision boundary J(T)≻0 for every T≥0. ' +
+      'This is not global three-packet positivity and not RH. The next finite-order obstruction is the nonconfluent compact three-node interior; higher packet counts also remain open.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.22 · proof/certificates/twin_ladder_channel_split/run_translation_triple_collision_tail.sh',
+  },
+  {
+    id: 'T198',
+    color: '#a78bfa',
+    status:
+      'RIGOROUS ORIGIN-SLICE INTERIOR RECTANGLE · EXPLORATORY MINIMUM INCLUDED · COMPLEMENT OPEN',
+    title: 'The hardest resolved origin-slice rectangle is positive',
+    formula:
+      't₁=0, 49/40≤t₂, t₂+1/2≤t₃≤6 ⇒ det K̄(tᵢ,tⱼ) > 0.000556506552749633686',
+    detail:
+      'T198 moves beyond collision boundaries into the nonconfluent three-node interior. The positive scale Etr(t)=4√2π³ᐟ² exp(7t/2−πe²ᵗ) is nonsingular at t=0 and turns the exact T194 boundary-layer kernel into an order-one matrix. The verifier evaluates twelve theta modes at 384-bit precision, integrates y through 40, reserves 10⁻³⁵ for the smaller mode and integral tails, and covers exact node boxes of width 1/40. ' +
+      'Every determinant is strictly positive throughout t₁=0, 49/40≤t₂, t₂+1/2≤t₃≤6. The certified lower endpoint is 0.000556506552749633686. This rectangle contains the exploratory sech-relative minimum near (0,1.35625,2.1125), so the numerically hardest resolved origin-slice region is no longer merely sampled. ' +
+      'This is still not the global three-packet theorem or RH. The checkpointed next sequence is: retain shared variables in the exact pair-collision Gram matrix and thicken through t₃−t₂≤1/2; join the small-t₂ origin strip to the certified triple-collision face; close the origin-slice tail beyond 6 by block splitting; then propagate the completed slice through common translations t₁>0. Higher packet counts remain a later obstruction, and none of these planned certificates is counted as proved.',
+    certificate:
+      'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.23 · proof/certificates/twin_ladder_channel_split/run_translation_three_packet_origin_slice.sh',
+  },
 ];
 
 const DYSON_LANE_RESIDUALS = [
@@ -1362,7 +2742,7 @@ export default function OpenFrontierPage() {
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T125 · 2026-07-28</code>
+          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T198 · 2026-07-29</code>
         </div>
         <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
@@ -1388,6 +2768,9 @@ export default function OpenFrontierPage() {
                 background: `${item.color}0d`,
                 border: `1px solid ${item.color}40`,
                 minWidth: 0,
+                gridColumn: ['T160', 'T161', 'T162', 'T163', 'T164', 'T165', 'T166', 'T167', 'T168', 'T169', 'T170', 'T171', 'T172', 'T173', 'T174', 'T175', 'T176', 'T177', 'T178', 'T179', 'T180', 'T181', 'T182', 'T183', 'T184', 'T185', 'T186', 'T187', 'T188', 'T189', 'T190', 'T191', 'T192', 'T193', 'T194', 'T195', 'T196', 'T197', 'T198'].includes(item.id)
+                  ? '1 / -1'
+                  : undefined,
               }}
             >
               <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
@@ -1730,7 +3113,7 @@ export default function OpenFrontierPage() {
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T125 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T198 · Markov / divisor / explicit-formula frontier</code>
         </div>
         <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
@@ -1740,7 +3123,80 @@ export default function OpenFrontierPage() {
           {MARKOV_NORMALIZATION.structureT122}{' '}
           {MARKOV_NORMALIZATION.structureT123}{' '}
           {MARKOV_NORMALIZATION.structureT124}{' '}
-          {MARKOV_NORMALIZATION.structureT125}
+          {MARKOV_NORMALIZATION.structureT125}{' '}
+          {MARKOV_NORMALIZATION.structureT126}{' '}
+          {MARKOV_NORMALIZATION.structureT127}{' '}
+          {MARKOV_NORMALIZATION.structureT128}{' '}
+          {MARKOV_NORMALIZATION.structureT129}{' '}
+          {MARKOV_NORMALIZATION.structureT130}{' '}
+          {MARKOV_NORMALIZATION.structureT131}{' '}
+          {MARKOV_NORMALIZATION.structureT132}{' '}
+          {MARKOV_NORMALIZATION.structureT133}{' '}
+          {MARKOV_NORMALIZATION.structureT134}{' '}
+          {MARKOV_NORMALIZATION.structureT135}{' '}
+          {MARKOV_NORMALIZATION.structureT136}{' '}
+          {MARKOV_NORMALIZATION.structureT137}{' '}
+          {MARKOV_NORMALIZATION.structureT138}
+          {' '}{MARKOV_NORMALIZATION.structureT139}{' '}
+          {MARKOV_NORMALIZATION.structureT140}{' '}
+          {MARKOV_NORMALIZATION.structureT141}{' '}
+          {MARKOV_NORMALIZATION.structureT142}{' '}
+          {MARKOV_NORMALIZATION.structureT143}{' '}
+          {MARKOV_NORMALIZATION.structureT144}{' '}
+          {MARKOV_NORMALIZATION.structureT145}{' '}
+          {MARKOV_NORMALIZATION.structureT146}{' '}
+          {MARKOV_NORMALIZATION.structureT147}{' '}
+          {MARKOV_NORMALIZATION.structureT148}{' '}
+          {MARKOV_NORMALIZATION.structureT149}{' '}
+          {MARKOV_NORMALIZATION.structureT150}{' '}
+          {MARKOV_NORMALIZATION.structureT151}{' '}
+          {MARKOV_NORMALIZATION.structureT152}{' '}
+          {MARKOV_NORMALIZATION.structureT153}{' '}
+          {MARKOV_NORMALIZATION.structureT154}{' '}
+          {MARKOV_NORMALIZATION.structureT155}{' '}
+          {MARKOV_NORMALIZATION.structureT156}{' '}
+          {MARKOV_NORMALIZATION.structureT157}{' '}
+          {MARKOV_NORMALIZATION.structureT158}{' '}
+          {MARKOV_NORMALIZATION.structureT159}{' '}
+          {MARKOV_NORMALIZATION.structureT160}{' '}
+          {MARKOV_NORMALIZATION.structureT161}{' '}
+          {MARKOV_NORMALIZATION.structureT162}{' '}
+          {MARKOV_NORMALIZATION.structureT163}{' '}
+          {MARKOV_NORMALIZATION.structureT164}{' '}
+          {MARKOV_NORMALIZATION.structureT165}{' '}
+          {MARKOV_NORMALIZATION.structureT166}{' '}
+          {MARKOV_NORMALIZATION.structureT167}{' '}
+          {MARKOV_NORMALIZATION.structureT168}{' '}
+          {MARKOV_NORMALIZATION.structureT169}{' '}
+          {MARKOV_NORMALIZATION.structureT170}{' '}
+          {MARKOV_NORMALIZATION.structureT171}{' '}
+          {MARKOV_NORMALIZATION.structureT172}{' '}
+          {MARKOV_NORMALIZATION.structureT173}{' '}
+          {MARKOV_NORMALIZATION.structureT174}{' '}
+          {MARKOV_NORMALIZATION.structureT175}{' '}
+          {MARKOV_NORMALIZATION.structureT176}{' '}
+          {MARKOV_NORMALIZATION.structureT177}{' '}
+          {MARKOV_NORMALIZATION.structureT178}{' '}
+          {MARKOV_NORMALIZATION.structureT179}{' '}
+          {MARKOV_NORMALIZATION.structureT180}{' '}
+          {MARKOV_NORMALIZATION.structureT181}{' '}
+          {MARKOV_NORMALIZATION.structureT182}{' '}
+          {MARKOV_NORMALIZATION.structureT183}{' '}
+          {MARKOV_NORMALIZATION.structureT184}{' '}
+          {MARKOV_NORMALIZATION.structureT185}{' '}
+          {MARKOV_NORMALIZATION.structureT186}{' '}
+          {MARKOV_NORMALIZATION.structureT187}{' '}
+          {MARKOV_NORMALIZATION.structureT188}{' '}
+          {MARKOV_NORMALIZATION.structureT189}{' '}
+          {MARKOV_NORMALIZATION.structureT190}{' '}
+          {MARKOV_NORMALIZATION.structureT191}{' '}
+          {MARKOV_NORMALIZATION.structureT192}{' '}
+          {MARKOV_NORMALIZATION.structureT193}{' '}
+          {MARKOV_NORMALIZATION.structureT194}{' '}
+          {MARKOV_NORMALIZATION.structureT195}{' '}
+          {MARKOV_NORMALIZATION.structureT196}{' '}
+          {MARKOV_NORMALIZATION.structureT197}{' '}
+          {MARKOV_NORMALIZATION.structureT198}
         </p>
         <div
           style={{
@@ -1844,12 +3300,83 @@ export default function OpenFrontierPage() {
             MARKOV_NORMALIZATION.wholeBlockAggregate,
             MARKOV_NORMALIZATION.exactMellinRigidity,
             MARKOV_NORMALIZATION.fixedBlockBlindLattice,
+            MARKOV_NORMALIZATION.fixedMeasureBlindPoints,
+            MARKOV_NORMALIZATION.fixedMovingMeasureBlindRectangle,
+            MARKOV_NORMALIZATION.adaptiveAlgebraicPrefix,
+            MARKOV_NORMALIZATION.adaptivePrefixRecurrence,
+            MARKOV_NORMALIZATION.adaptiveNaturalScaleFloor,
+            MARKOV_NORMALIZATION.adaptivePrimePowerCompletedDrift,
+            MARKOV_NORMALIZATION.adaptiveFiveBandAbel,
+            MARKOV_NORMALIZATION.adaptivePositiveLocalFilterNoGo,
+            MARKOV_NORMALIZATION.adaptiveDefectCurvature,
+            MARKOV_NORMALIZATION.adaptiveMicrocellComparator,
+            MARKOV_NORMALIZATION.adaptiveFixedDepthComposition,
+            MARKOV_NORMALIZATION.adaptiveAdjacentDepthDeconvolution,
+            MARKOV_NORMALIZATION.adaptiveFiniteOverlapOscillation,
+            MARKOV_NORMALIZATION.adaptiveSummableInfiniteOverlap,
+            MARKOV_NORMALIZATION.adaptiveSubcriticalProfileDrift,
+            MARKOV_NORMALIZATION.adaptiveExactDualCost,
+            MARKOV_NORMALIZATION.adaptivePeriodicControllerNoGo,
+            MARKOV_NORMALIZATION.adaptiveLowDiscrepancyNoGo,
+            MARKOV_NORMALIZATION.adaptiveIndependentRandomNoGo,
+            MARKOV_NORMALIZATION.adaptiveMarkovControllerNoGo,
+            MARKOV_NORMALIZATION.adaptiveNonhomogeneousMixingNoGo,
+            MARKOV_NORMALIZATION.adaptivePredictableMarginalBudget,
+            MARKOV_NORMALIZATION.adaptiveSquarefreeStateNoGo,
+            MARKOV_NORMALIZATION.adaptiveSummableDivisorStateNoGo,
+            MARKOV_NORMALIZATION.adaptiveLogMomentDivisorStateNoGo,
+            MARKOV_NORMALIZATION.adaptiveCriticalSparsePrimeCorrelation,
+            MARKOV_NORMALIZATION.adaptiveFiniteZeroPacketDecorrelation,
+            MARKOV_NORMALIZATION.adaptiveNaturalDensityLargeSieveNoGo,
+            MARKOV_NORMALIZATION.adaptiveNaturalDensityInfiniteProfileNoGo,
+            MARKOV_NORMALIZATION.adaptiveBanachMeanProfileNoGo,
+            MARKOV_NORMALIZATION.adaptiveNondensityHydrodynamicLimit,
+            MARKOV_NORMALIZATION.adaptiveLogPeriodicResonance,
+            MARKOV_NORMALIZATION.adaptiveBinaryLogBlockResonance,
+            MARKOV_NORMALIZATION.adaptiveResonantBlockDesign,
+            MARKOV_NORMALIZATION.adaptiveResonantPairRayleigh,
+            MARKOV_NORMALIZATION.adaptiveCertifiedResonantEnvelope,
+            MARKOV_NORMALIZATION.adaptiveTwoProfileResonantRobustness,
+            MARKOV_NORMALIZATION.adaptiveUnconditionalAggregateTransform,
+            MARKOV_NORMALIZATION.adaptiveAsymptoticOddResonance,
+            MARKOV_NORMALIZATION.adaptiveTwoPeriodNoGain,
+            MARKOV_NORMALIZATION.adaptiveDepthProbeCollisionVisibility,
+            MARKOV_NORMALIZATION.adaptiveGenericGeometricProfile,
+            MARKOV_NORMALIZATION.adaptiveFiniteSpectrumCriterion,
+            MARKOV_NORMALIZATION.adaptiveThreeDepthCriterion,
+            MARKOV_NORMALIZATION.adaptiveGenericFiniteProfile,
+            MARKOV_NORMALIZATION.adaptiveOneParameterFiniteProfile,
+            MARKOV_NORMALIZATION.adaptiveUniformMultiplierBlindSpot,
+            MARKOV_NORMALIZATION.adaptiveDepth12BranchEscape,
+            MARKOV_NORMALIZATION.adaptiveDepth12LowBlindSpot,
+            MARKOV_NORMALIZATION.adaptiveDilationAlignedNoGain,
             MARKOV_NORMALIZATION.finiteModes,
             MARKOV_NORMALIZATION.gaussian,
             MARKOV_NORMALIZATION.finiteOrderSmoothing,
             MARKOV_NORMALIZATION.cellQuotient,
             MARKOV_NORMALIZATION.gradedBackward,
             MARKOV_NORMALIZATION.finiteRadialLayers,
+            MARKOV_NORMALIZATION.lowerEdgeTail,
+            MARKOV_NORMALIZATION.twoBranchHalfSech,
+            MARKOV_NORMALIZATION.endpointOnlyNoGo,
+            MARKOV_NORMALIZATION.exactBoundaryRescue,
+            MARKOV_NORMALIZATION.exactBoundaryJet,
+            MARKOV_NORMALIZATION.boundaryEnergyHierarchy,
+            MARKOV_NORMALIZATION.infinitesimalBoundaryJet,
+            MARKOV_NORMALIZATION.infinitesimalHierarchy,
+            MARKOV_NORMALIZATION.infinitesimalJetFloor,
+            MARKOV_NORMALIZATION.translationParityMargin,
+            MARKOV_NORMALIZATION.translationMixtureKernel,
+            MARKOV_NORMALIZATION.squareConcavityMixtureCounterexample,
+            MARKOV_NORMALIZATION.twoPacketConcavityTheorem,
+            MARKOV_NORMALIZATION.localFivePacketProtection,
+            MARKOV_NORMALIZATION.localSeventeenPacketProtection,
+            MARKOV_NORMALIZATION.canonicalTruncationNoGo,
+            MARKOV_NORMALIZATION.translationFixedOrderTail,
+            MARKOV_NORMALIZATION.translationThreePacketCompactness,
+            MARKOV_NORMALIZATION.translationTripleCollisionFirstSegment,
+            MARKOV_NORMALIZATION.translationTripleCollisionComplete,
+            MARKOV_NORMALIZATION.translationThreePacketOriginSlice,
             MARKOV_NORMALIZATION.continuumTail,
             MARKOV_NORMALIZATION.criticalTail,
             MARKOV_NORMALIZATION.levy,
@@ -2455,7 +3982,579 @@ export default function OpenFrontierPage() {
           over. Thus fixed absolutely continuous smoothing cannot cure
           this blind lattice, while atomic, singular, scale-adaptive, and
           fully discrete strategies remain outside.
-          RH is therefore still unresolved.
+          T126 extends right-half zero existence to fixed atomic and
+          singular measures, at a weaker level of localization. It does
+          not by itself close every Landau route available to those
+          weights. For any fixed finite complex
+          Borel measure ν with
+          supp|ν|⊂[α,β]⊂⊂(1,a), the symbol
+          ℬ<sub>ν</sub>(z)=a<sup>z</sup>−2+
+          ∫μ<sup>z</sup>dν(μ) has infinitely many zeros in every
+          half-plane Re z&gt;c with
+          c&lt;σ<sub>*</sub>=log 2/log a. No positivity or normalization
+          is required, and at a=32/21 this gives infinitely many blind
+          points with real part above 3/2. The proof applies Jessen
+          convexity to the analytic almost-periodic atomic symbol, then
+          uses a continuous Wiener mean-square estimate and Rouché
+          comparisons to transfer its positive-density almost periods
+          past the atomless remainder.
+          The localization hierarchy depends on regularity: an
+          L<sup>1</sup> density has one simple zero near every sufficiently
+          high base-lattice point; an atomless measure retains a
+          subsequence z<sub>n_j</sub>=ζ<sub>n_j</sub>+o(1); a general
+          measure has infinitely many right-half zeros but no universal
+          lattice or rate. A positive atomic probability measure has
+          positive vertical zero density strictly right of
+          σ<sub>*</sub>. For ν=δ<sub>√a</sub>, the exact factorization
+          ℬ<sub>ν</sub>=(a<sup>z/2</sup>−1)
+          (a<sup>z/2</sup>+2) puts the second family on
+          Re z=2σ<sub>*</sub>.
+          Quantitative finite-grid transfer is available only toward one
+          fixed L<sup>1</sup>-density target. If d<sub>N</sub> is the
+          logarithmic W<sub>1</sub> distance, a growing height must
+          satisfy T<sub>N</sub>d<sub>N</sub>→0; cumulative rounding on
+          prefix grids makes
+          T<sub>N</sub>=o(min{'{'}N,M<sub>N</sub>{'}'}) sufficient.
+          Endpoint atoms show why strict interior support is essential,
+          while scale-adaptive measures remain outside. The verifier
+          checks the δ<sub>√a</sub> factorization only as a normalization
+          fixture; the general result is analytic. None of this supplies
+          the missing weighted Mellin estimate or identifies a zeta zero.
+          T127 makes the rowwise zero-existence statement uniform over
+          bounded moving families. Fix K⊂⊂(1,a), a total-variation
+          bound M, and c&lt;σ<sub>*</sub>. Weak-* compactness of the
+          supported measure ball, compact-open continuity of
+          ν↦ℬ<sub>ν</sub>, and Rouché’s theorem on a finite subcover
+          give finitely many disks—and therefore one common bounded
+          rectangle c&lt;Re z&lt;R, |Im z|&lt;T—meeting every
+          symbol zero set. Arbitrary normalized row-dependent positive
+          exact weights on K are included, with no convergence or
+          regularity in the row.
+          The zero can move from row to row, so this supplies no common
+          zero and no fixed Mellin factor. The rectangle also need not
+          meet 3/2&lt;Re z&lt;2: for δ<sub>√a</sub>, the nonzero
+          right-half family lies on Re z=2σ<sub>*</sub>&gt;2 when
+          a=32/21. T127 is analytic and gives neither the weighted
+          O(N<sup>2</sup>) error, an arithmetic sign, nor a zeta zero.
+          T128 then identifies one tuned moving endpoint that does retain
+          a fixed comparator modulo O(N). Set
+          μ<sub>0</sub>=(32/21)<sup>2/3</sup> and
+          u<sub>N</sub>=⌊105μ<sub>0</sub>N+1/2⌋. The exact
+          strict-interior prefix Λ<sub>32,21</sub>(105N,u<sub>N</sub>)
+          is RH-equivalent under eventual positivity or nonnegativity.
+          Its fixed comparator has multiplier
+          (a<sup>z</sup>−a)(a<sup>z</sup>+
+          a<sup>2z/3</sup>−2); writing y=a<sup>z/3</sup> factors
+          the second bracket as (y−1)(y<sup>2</sup>+2y+2).
+          The resulting zero lines are Re z=0, 1, and
+          2.4683939547…&gt;2, so none meets 3/2&lt;Re z&lt;2.
+          A direct algebraic 256-bit Arb/Turing certificate proves the
+          normalized RH-side margin exceeds 1/20.
+          This does not claim the rounded row symbols are zero-free:
+          they may regain dangerous-strip zeros at very large height.
+          Landau uses the one fixed comparator and the O(N) endpoint
+          transfer. The eventual exact prefix sign is unproved, so RH
+          is still unresolved.
+          T129 now transfers the unconditional prime-square recurrence
+          and the full verified-height moving-heat localization to that
+          exact rounded prefix. Its residue is
+          B<sub>ad</sub>=(640/3)√5(4√42−21)(64√42−105)
+          =727454.763559809…&gt;724000. The O(N) endpoint correction
+          has an absolutely holomorphic Dirichlet series for
+          Re v&gt;2, while the heat contour stays in Re v&gt;7/3.
+          Therefore, for every fixed ε∈(0,B<sub>ad</sub>) and every
+          sufficiently large Y, the near-unit power window
+          [Y,Y<sup>θ<sub>H</sub></sup>] contains a whole consecutive
+          block of ⌊√N·exp(0.8√log N)⌋+1 exact prefixes satisfying
+          Λ<sub>n</sub>&gt;(B<sub>ad</sub>−ε)n<sup>3/2</sup>, where
+          θ<sub>H</sub>=6000350665601/6000350665597
+          =1.0000000000006666277…. The logarithmic counting exponent
+          is at least 0.4999999999996666861….
+          The endpoint arithmetic is also explicit:
+          105μ<sub>0</sub>=∛2688000=139+β with
+          1/25&lt;β&lt;1/24, so successive u<sub>N</sub> differ by
+          139 or 140 according to an aperiodic mechanical word. A
+          finite exact q/K-product recurrence updates Λ from one row
+          to the next. Rigorous rational-log fixtures produce positive
+          and negative updates for both step letters, while exact
+          prime valuations have both signs. Thus ordinary monotonicity,
+          a sign attached to the 139/140 symbol, and componentwise
+          divisibility cannot close the criterion.
+          The remaining target has a clean positive-kernel form.
+          A compact nonnegative asymmetric tent h gives
+          −D̄(x)=x{'{'}x∫h(r)dr−Σ<sub>p</sub>h(p/x)log p{'}'}.
+          Prime powers have the favorable sign and squares supply
+          B<sub>ad</sub>x<sup>3/2</sup>; the unresolved term is the
+          weighted ψ−x discrepancy. Current unconditional
+          zero-free-region estimates are larger than that square
+          margin. The moving heat avoids this obstruction only by
+          suppressing hypothetical off-line modes too, so it cannot
+          imply eventual positivity. Its threshold is ineffective and
+          fixed-H; there is no additive o(N) gap, positive-density, or
+          RH conclusion.
+          T130 identifies the exact scale of the missing bridge. Either
+          one-sided tail estimate
+          Λ<sub>N</sub>≥−CN<sup>3/2</sup> or
+          Λ<sub>N</sub>≤CN<sup>3/2</sup> is individually equivalent
+          to RH. Likewise, either local inequality
+          Λ<sub>N+1</sub>−Λ<sub>N</sub>≥−C√N log²(2N) or
+          Λ<sub>N+1</sub>−Λ<sub>N</sub>≤C√N log²(2N)
+          is separately complete. False RH would force
+          Λ<sub>N</sub>/N<sup>3/2</sup> to be unbounded in both
+          directions. The moving heat cannot supply this raw floor:
+          a hypothetical sufficiently high off-line mode is damped by
+          the heat while retaining unbounded negative troughs before
+          smoothing.
+          The algebraic endpoint still gives exact arithmetic
+          structure. With ξ=(32/21)<sup>1/3</sup>, Λ splits into
+          three nonnegative prime-jump trapezoids with weights 2,2,1,
+          but the shortest root buffer already has rigorously opposite
+          signs S(4)&gt;2504 and S(84)&lt;−5991 and mixed prime
+          valuations. One exact nonnegative five-knot integer tent
+          also packages the rounded row, making RH equivalent to an
+          eventual square-completed finite Pascal/lcm comparison.
+          This does not create a monotone transport: at N=3 the exact
+          2<sup>93</sup> threshold count has 179382 eligible upper
+          K-factors versus 179424 lower factors. The Hall deficit
+          rules out equal-or-larger matching only, not every global
+          cross-prime argument. No local drift floor or comparison
+          sign has been proved, so RH remains unresolved.
+          T131 removes the prime-power buffer from that local target.
+          Set 𝒵<sub>N</sub>=log(𝒮<sub>N</sub>/𝒜<sub>N</sub>).
+          It has the same exact 139/140 recurrence after replacing
+          K<sub>m</sub> by the lcm-completed factor
+          K̃<sub>m</sub>=(m+1)<sup>m</sup>/
+          [m! lcm(1,…,m)]. The adjacent K̃ jump is exactly
+          m log(1+1/m)−Λ<sub>vM</sub>(m), so this is the
+          all-prime-power zero channel rather than another smoothing.
+          Either one-sided O(√N log²(2N)) bound for
+          Δ𝒵<sub>N</sub> is individually RH-equivalent.
+          The translated tent kernel
+          g<sub>N</sub>=h<sub>N+1</sub>−h<sub>N</sub> satisfies
+          |g<sub>N</sub>|≤685440 on
+          2205N&lt;t&lt;5120(N+1), but it is signed:
+          g<sub>N</sub>(2205N+1)=−64 and
+          g<sub>N</sub>(5120(N+1)−1)=21. Its cube-and-higher
+          update is O(N<sup>1/3</sup>), while the square update is
+          uniformly greater than 1084000√N eventually for both
+          Beatty letters.
+          This makes the stronger floor
+          Δ𝒵<sub>N</sub>≥−10<sup>6</sup>√N sufficient for RH;
+          equivalently, one explicit
+          2<sup>1400000⌈√N⌉</sup> finite product comparison would
+          suffice. That stronger statement is not known and is not
+          claimed necessary on RH. After a bounded archimedean row
+          correction, the exact remaining task is a signed annular
+          von-Mangoldt quadrature
+          Σ<sub>t</sub>g<sub>N</sub>(t)
+          {'{'}Λ<sub>vM</sub>(t)−1{'}'}. No required eventual
+          one-sided bound is proved, so RH remains unresolved.
+          T132 applies exact finite Abel summation to that last
+          quadrature. It becomes five fixed-width bands of
+          E<sub>ψ</sub>(r)=ψ(r)−r at the moving endpoints, with
+          coefficients 64, −32, −74, 21, and 21. For N≥7 the broad
+          translated kernel has four constant plateaus and exactly
+          one interior sign crossing, so the apparent long support is
+          dual to bounded endpoint data but not to positive data.
+          On a pure mode x<sup>ρ</sup>, each letter s∈{'{'}139,140{'}'}
+          has the exact leading factor
+          (y<sup>3</sup>−1)
+          (160y<sup>3</sup>+sy<sup>2</sup>−210), where
+          y=(32/21)<sup>ρ/3</sup>. This factor has no zero for
+          0&lt;Re ρ≤1. Thus neither letter hides an off-line leading
+          mode, but the mixed band signs still give no domination of
+          the full explicit formula and no eventual one-sided ballot.
+          T133 shows that positive local averaging cannot repair either
+          defect. Every finite nonnegative stencil retains a negative
+          value at its first active lower edge and a positive value at
+          its last active upper edge. A consecutive L-row block
+          telescopes to h<sub>N+L</sub>−h<sub>N</sub> and has an
+          effective letter σ∈[139,140]. More generally, every
+          normalized nonnegative stencil of width H<sub>N</sub>=o(N)
+          has the convex leading multiplier M<sub>σ</sub>. An explicit
+          root-distance product bounds that multiplier away from zero
+          on 1/2≤Re ρ≤1, so each fixed hypothetical off-line mode
+          survives at its natural order. The statement is not uniform
+          at growing height and does not preclude a favorable
+          arithmetic cancellation; it only closes the positive
+          sublinear local-filter shortcut.
+          T134 then uses a signed second difference precisely where the
+          Beatty word changes. The 140-step defects occur every 24 or
+          25 rows. At each defect,
+          C<sub>N</sub>=𝒬<sub>N</sub><sup>loc</sup>−
+          𝒬<sub>N−1</sub><sup>loc</sup> differs by only O(log N)
+          from one universal 32/21 micro-cell 𝒥(u<sub>N</sub>+139).
+          Consecutive sampled micro-cells are only 3337 or 3476
+          integer steps apart, and 𝒥 changes by O(log v) per step.
+          Hence either one-sided square-root-log-squared defect bound
+          extends to every scale before applying Landau. The
+          consecutive primitive has multiplier
+          672(32<sup>ρ</sup>−21<sup>ρ</sup>)/(ρ+1), zero-free for
+          Re ρ&gt;0, so either defect direction is individually
+          RH-equivalent. This isolates a much sparser exact target;
+          it does not prove the required defect bound.
+          T135 expands that micro-cell exactly:
+          𝒥(v)=672[ψ(32v)−ψ(21v)−11v]+R(v), with
+          |R(v)|≤17136[1+log(32v+31)]. For v≥2 its coefficients
+          form one nonnegative trapezoid on
+          Λ<sub>vM</sub>(n)−1, but that arithmetic input has both
+          signs. Let L<sub>m</sub>=lcm(1,…,m),
+          X<sub>v</sub>=L<sub>32v</sub>(21v)<sup>21v</sup>(32v−1)!
+          and
+          Y<sub>v</sub>=L<sub>21v</sub>(32v)<sup>32v−1</sup>(21v)!.
+          The exact factorial telescope has only a bounded positive
+          deficit, so with
+          j<sub>v</sub>=⌈√v log<sup>2</sup>(2v)⌉ either eventual
+          orientation
+          2<sup>Kj<sub>v</sub></sup>X<sub>v</sub>≥Y<sub>v</sub> or
+          2<sup>Kj<sub>v</sub></sup>Y<sub>v</sub>≥X<sub>v</sub>
+          is individually RH-equivalent. Opposite 2-adic and
+          intermediate-prime valuations rule out divisibility in
+          both directions without deciding real order. Neither
+          comparison is proved.
+          T136 tests the obvious next multiplicative move and closes
+          it at every fixed depth. A chain of d adjacent cells cancels
+          at every internal 21/32 boundary, leaving exactly one
+          [21<sup>d</sup>v,32<sup>d</sup>v] Chebyshev annulus and
+          one wider factorial/lcm ratio. Its zero multiplier
+          32<sup>dρ</sup>−21<sup>dρ</sup> is still nonzero for
+          Re ρ&gt;0, so either buffered real-order direction remains
+          RH-equivalent. The negative 2-adic and positive
+          interval-prime valuations persist as well. Thus finite
+          ladder iteration does not weaken the missing estimate;
+          only a scale-uniform growing-depth construction remains
+          outside this no-gain theorem.
+          T137 then audits that loophole. Subtracting adjacent depths
+          returns exactly one T135 cell at a boundary scale, and the
+          factorial/lcm cross-ratio returns exactly its integer
+          comparator. Exact prime-log enclosures realize all eight
+          sign triples across depths one through three, so no
+          universal finite-depth sign bootstrap exists. A monotone
+          unbounded depth schedule also jumps by a factor greater
+          than 32 infinitely often, putting ordinary interpolation
+          far above the RH scale. What remains is narrower: a new
+          nonlocal coupling among overlapping annuli, not products,
+          adjacent quotients, or sampled sign persistence.
+          T138 closes the fixed finite version of that coupling.
+          After one exact primitive, every nonzero fixed depth
+          combination retains infinitely many critical-zero
+          frequencies and becomes a nonzero mean-zero
+          almost-periodic wave on RH. It therefore has positive and
+          negative critical-scale excursions, forcing both signs in
+          the arithmetic coupling and both real orders in every exact
+          finite factorial/lcm product. The surviving overlap route
+          must now be scale-adaptive, genuinely infinite-depth,
+          two-sided at critical size, or nonlinear and
+          nonhomogeneous.
+          T139 closes the first genuinely infinite-depth regime as
+          well. If the fixed coefficients have finite uniform
+          arithmetic cost
+          Σ<sub>d</sub>(d+1)32<sup>d</sup>|c<sub>d</sub>|, their
+          analytic multiplier has a compact vertical-translate hull
+          containing no zero function. Its critical-strip zero count
+          is only O(T), so it cannot cancel the T log T critical
+          zeros; the RH almost-periodic wave and both integer signs
+          survive. The same summability is impossible for an
+          infinite integer exponent vector. Thus a remaining
+          infinite-depth route must pay growing arithmetic cost or
+          change with scale; uniformly summable overlap is no longer
+          an escape.
+          T140 quantifies that change-with-scale requirement. A
+          row-dependent profile whose cumulative weighted motion
+          around one fixed nonzero profile is
+          o(X<sup>3/2</sup>) changes the T139 cumulative wave by only
+          o(X<sup>3/2</sup>) on RH. Both excursions and both row
+          signs survive, including for exact products with sparse
+          integer profile edits. A viable adaptive construction must
+          therefore move at critical cumulative cost relative to
+          every fixed profile, retain a non-summable tail, or use
+          genuinely nonlinear arithmetic information.
+          T141 then solves the linear adaptive optimization problem.
+          The normalized annular response is the exact dual norm, so
+          the cheapest row correction and its maximizing depth are
+          explicit. Any eventual sign must spend positive critical
+          response budget along the T139 excursions. The cheapest
+          controller is circular, however: it reads the signed
+          Chebyshev annulus and cancels it. What remains is not an
+          optimization problem but an independent arithmetic source
+          of correctly directed critical budget.
+          T142 rules out fixed periodic arithmetic state as that
+          source. Every active residue class is a bounded-gap
+          sampling of its own fixed-profile T139 primitive, so both
+          critical excursions and both row signs survive there.
+          Zero-mean and alternating state profiles do not help. The
+          next independent controller must have genuinely aperiodic
+          or growing state, increasing period, a non-summable tail,
+          or nonlinear arithmetic input.
+          T143 closes the balanced aperiodic case too. Exact Abel
+          summation shows that any positive-density state with
+          discrepancy o(√X/log X) retains its density-scaled T139
+          wave up to o(X<sup>3/2</sup>). Mechanical and Sturmian
+          selectors therefore keep both signs. Remaining state must
+          have critical discrepancy, zero density, unboundedly many
+          states, changing profiles, or nonlinear arithmetic input.
+          T144 closes input-independent random scheduling beyond that
+          discrepancy range. The centered selector error is a
+          martingale with RH variance O(X<sup>2</sup>log<sup>4</sup>X);
+          Kolmogorov maximal inequality and Borel–Cantelli make it
+          o(X<sup>3/2</sup>) almost surely. This works simultaneously
+          for finitely or countably many fixed-profile states. Any
+          surviving randomness must be dependent or nonstationary,
+          zero-density, profile-changing, or correlated with the
+          arithmetic signal—the last option being T141 feedback.
+          T145 also closes ordinary finite-state dependence. For an
+          aperiodic Markov class, exponential covariance decay and a
+          dyadic maximal inequality make the centered state sum
+          o(X<sup>3/2</sup>) almost surely. A periodic class reduces
+          through its skeleton to the T142 residue wave. Thus every
+          reached recurrent state with a fixed nonzero profile keeps
+          both signs. Surviving control must be time-inhomogeneous or
+          arithmetic-dependent, zero-density or infinite-state,
+          profile-changing, non-summable, or nonlinear.
+          T146 closes uniformly mixing time-inhomogeneous control too.
+          If all transition kernels preserve one positive law and
+          their products contract mean-zero states uniformly, the same
+          covariance/maximal proof keeps the centered error
+          o(X<sup>3/2</sup>). Even deterministic arithmetic selection
+          among such kernels fails. A stochastic escape must move the
+          marginal law at critical scale or destroy uniform mixing.
+          T147 removes the remaining architectural ambiguity. For any
+          history-dependent selector, conditioning on the past splits
+          it into a predictable marginal and an o(X<sup>3/2</sup>)
+          martingale innovation. Eventual sign therefore requires
+          positive critical predictable response budget. The cheapest
+          example reads the annular sign itself and is circular; the
+          live task is independent arithmetic production of that
+          critical correlation.
+          T148 tests squarefreeness, a genuinely multiplicative
+          independent state whose raw discrepancy is too large for
+          T143. Möbius square-divisor expansion and uniform dilation
+          quadrature show that squarefree rows retain 1/ζ(2) of the
+          critical wave and nonsquarefree rows the complement. Both
+          signs survive. Index factorization alone therefore does not
+          supply the T147 correlation.
+          T149 generalizes this transfer to every positive-density
+          divisor-convolution indicator with a positive power margin
+          beyond harmonic summability. A power-scale truncation leaves
+          the density times the critical wave, so the selected state
+          and its complement both retain both signs. The harmonic
+          boundary, zero-density states, and direct prime correlation
+          remain open.
+          T150 crosses that positive-power boundary. A log-squared
+          harmonic coefficient moment still makes a balanced
+          square-root truncation subcritical. An explicit infinite
+          sparse-prime sieve satisfies this condition while failing
+          every T149 power moment, yet it too retains both critical
+          signs. Only the balanced log-tail threshold, zero density,
+          or direct prime-annulus correlation remains in this divisor
+          route.
+          T151 makes that threshold explicit. Sparse forbidden primes
+          with r_k≈klog³k have a full Euler tail of exact order
+          log<sup>−2</sup>Q. Their selected-minus-density response is
+          one bounded X<sup>3/2</sup>-scale signed dilation
+          correlation. If it is subcritical, both signs survive; any
+          eventual sign requires phase alignment with the T139 wave.
+          Proving or excluding that independent arithmetic alignment
+          is now the first critical divisor task.
+          T152 eliminates every bounded-height source of that
+          alignment. The critical sieve has natural density, its
+          centered Dirichlet series cancels the pole at one, and every
+          fixed finite zero packet decorrelates at X<sup>3/2</sup>
+          scale. Any surviving response must escape to unbounded zero
+          height through a nonuniform high-zero/sieve-boundary
+          resonance.
+          T153 closes that high-zero gap for every fixed finite
+          profile. A multiplicative large-sieve bound makes each
+          dyadic zero packet O(log T/√T) after normalization, while
+          natural density handles the fixed low zeros. Consequently
+          every natural-density selector retains the density-scaled
+          wave, and the β=3 critical sieve has 𝔎<sub>c</sub>→0.
+          T154 extends that closure from fixed finite depth to every
+          uniformly summable T139 profile. A depth-dependent
+          explicit-formula cutoff gives a summable
+          32<sup>d/2</sup>(d+1)<sup>2</sup> majorant, so dominated
+          convergence preserves the density-scaled wave through
+          infinite ladder depth.
+          T155 then allows the profile itself to vary by row. Under a
+          coordinatewise summable envelope and a stable Cesàro mean,
+          depthwise centering leaves exactly the fixed mean-profile
+          wave. Statewise application also rules out every
+          deterministic finite-state controller whose natural state
+          densities exist, even if its mean profile cancels.
+          T156 classifies what remains when those densities fail.
+          Every subsequential critical response is an explicit
+          functional of a macroscopic dilation-density profile and a
+          simultaneous zeta phase; the high-zero tail vanishes
+          uniformly. A surviving nondensity controller must therefore
+          phase-lock its logarithmic-scale shape to the zeta wave.
+          T157 solves smooth fixed-period modulation outside a
+          countable exceptional set. Its shifted frequencies are
+          γ+2πk/L, so only exact zeta resonance can create a constant
+          bias; every generic period retains a nonzero mean-zero wave.
+          T158 removes the smoothness loophole: an exponential
+          resolvent extends the same theorem to exact binary
+          logarithmic blocks and their complements. Only exceptional
+          resonant periods remain in the fixed-period block route.
+          T159 tests that exceptional route directly. The sharp
+          resonant bias is explicit, but a five-depth first-zero
+          design that survived 100 and 300 zero packets develops a
+          negative sample at 1,000 zeros. The co-design and rigorous
+          tail problem remain open.
+          T160 then separates the useful resonance from the damaging
+          spectrum. The exact half-block resolvent proves that the full
+          resonant conjugate pair is pointwise positive, with a
+          certified first-zero lower margin; only the other zeros need
+          suppression. Their finite-depth Bohr energy is a generalized
+          Rayleigh problem. Its first depth-nine profile survives the
+          current 100-, 300-, and 1,000-zero finite scans with positive
+          sampled margins, unlike T159. This is a stronger design lead,
+          not a certificate: interval inputs, uniform phase control,
+          Fourier and infinite-zero tails, growing-packet stability,
+          and cumulative-to-row transfer remain open.
+          T161 closes those analytic finite-sampling and tail
+          qualifications for one exact profile, conditional on RH.
+          A worst-phase envelope, cyclic Lipschitz mesh, 10,000-zero
+          Arb/Turing prefix, and complete residual Hadamard budget
+          prove the full limiting response uniformly positive. Hence
+          RH implies an eventual strict cumulative product order on
+          the resonant log-block rows. The remaining gap has moved:
+          prove that aggregate order directly from the arithmetic or
+          prove a zero-detecting converse. Neither is known, and
+          individual row signs remain uncontrolled.
+          T162 repairs the first concrete converse defect. A rigorous
+          Rouché disk proves that the original depth-nine multiplier
+          itself has an off-line zero above the T161 verified height,
+          so one aggregate observable can miss a hypothetical zeta
+          zero. Two exact depth-one perturbations retain complete
+          RH-conditional positive margins above 0.0007108525, and their
+          multipliers have no common zero in the open critical strip.
+          The pair is therefore jointly detecting at the multiplier
+          level. The remaining obstruction is now frequency-side:
+          exceptional resonance, shifted collisions, and the global
+          right edge must be controlled after both arithmetic product
+          inequalities are proved. None of those steps is yet known.
+          T163 derives the required aggregate expansion without RH,
+          with an absolutely convergent all-zero response and only an
+          O(X log X) integer-transfer error. The half-duty controller
+          has precisely the mean and odd harmonics. Pringsheim–Landau
+          then excludes every isolated finite false-RH right edge
+          unless a zero ordinate is an odd multiple of γ₁ or two
+          right-edge ordinates collide modulo γ₁. This is a strict
+          frequency-side reduction, not a proof: the product orders
+          are still unproved, collision residues may cancel, and an
+          infinite or nonattained right edge remains possible.
+          T164 classifies that last generic edge escape. Grouping
+          shifted collisions by their two-profile residue vector gives
+          an exhaustive conditional dichotomy: either every class in a
+          full strip below the supremal zero line cancels
+          simultaneously for both profiles, or zeros approaching that
+          line have ordinates approaching the odd harmonic lattice
+          (2ℤ+1)γ₁. Normal convergence away from the uncanceled divisor
+          turns Landau&apos;s required real boundary singularity into
+          this asymptotic resonance. The two product orders, the joint
+          collision shield, and the Diophantine resonance exclusion are
+          all still open, so RH is not proved.
+          T165 rules out the naive response of adding one
+          incommensurate fixed period. Odd harmonic lattices at an
+          irrational frequency ratio approach one another arbitrarily
+          closely; a positive gap occurs only at a reduced rational
+          ratio of opposite parity. Even that exceptional gap does not
+          close the argument because separate nonnegative aggregates
+          may acquire their Landau boundary witnesses from different
+          zero subsequences. A real advance must couple the same zeros,
+          prove a quantitative resonance-rate obstruction, use a
+          scale-varying frequency, or eliminate the collision shield.
+          T166 attacks that shield by ladder depth instead of period.
+          The certified base plus one tiny exact coordinate perturbation
+          per depth keeps a uniform RH-positive margin. Their moment
+          differences detect every fixed collision class: an m-term
+          class is visible by depth 2m−1, and one-sided Fourier
+          uniqueness handles an infinite absolutely summable class.
+          The only collision escape left is diagonal—classes of
+          unbounded exact multiplicity approaching a nonattained edge
+          while canceling progressively more depths. The associated
+          arithmetic orders and exclusion of that configuration remain
+          open.
+          T167 compresses those depth probes into one geometric
+          infinite profile. Its entire parameter path remains
+          uniformly RH-positive, and the residue of every fixed
+          collision class is a nonzero analytic function of the
+          parameter. Outside a countable exceptional set, one profile
+          therefore pairs with the T161 base to detect every fixed
+          class simultaneously. The parameter is nonconstructive, the
+          profile is not a finite exact product, and the half-duty
+          controller still permits asymptotic odd resonance.
+          T168 makes both mechanisms finite. The nonnegative cosine
+          controller has only three Fourier modes, while the base and
+          five exact rational depth probes detect every resulting
+          collision class. A complete 10,000-zero Arb/Turing and
+          Hadamard-tail certificate leaves an RH-conditional margin
+          above 0.000375496 for all six profiles. Finite spectral
+          support also turns any Landau resonance escape into a bounded
+          exact resonance, excluded by the same Turing count. This
+          proves that RH is equivalent to six eventual weighted
+          aggregate inequalities. It does not prove those inequalities,
+          and the controller is tuned to the certified first zeta zero
+          rather than built independently from prime data.
+          T169 removes two redundant probes from that criterion. The
+          exact three-shift determinant for depths one through three
+          factors into unit-circle linear roots and a cubic whose roots
+          are all certified inside the unit disk by Schur–Cohn margins.
+          Because the critical-strip radial parameter has modulus
+          greater than one, those three depths detect every collision.
+          The resulting criterion needs four eventual orders—the base
+          plus depths one, two, and three—not six. Those four orders
+          remain RH-equivalent and unproved.
+          T170 mixes those three separating directions into one finite
+          profile cube. The complete cube retains an RH-conditional
+          margin above 0.0003754949. For each shifted collision class,
+          cancellation cuts out only a proper affine null slice because
+          its three depth residues cannot all vanish. Countably many
+          classes still remove only a null set, so almost every single
+          cube parameter sees every class at once. Together with the
+          finite-spectrum resonance exclusion, this gives a single
+          eventual-inequality RH criterion for almost every parameter. It does
+          not exhibit an explicit good parameter, prove that arithmetic
+          inequality, or remove the controller’s first-zero input.
+          T171 shows the three-dimensional genericity is unnecessary:
+          restrict the cube to u=(t,t²,t³). Each collision residue is
+          then a nonconstant cubic and excludes at most three values of
+          t. The total exceptional set is countable, so every parameter
+          outside it gives the same one-profile criterion. The gain is
+          a sharp scalar derandomization target, not a completed
+          derandomization: the exceptional set could still contain all
+          rational or algebraic parameters.
+          T172 rules out one attractive shortcut to selecting that
+          parameter. A uniform Rouché disk proves every multiplier in
+          the entire RH-positive cube retains one off-line blind
+          location near 0.562266+9924.926872i. These are multiplier
+          zeros, not zeta zeros, so the generic equivalence is intact.
+          But no point on the cubic path can be chosen by proving its
+          multiplier globally zero-free; explicit selection must use
+          actual zeta noncoincidence or a different positive component.
+          T173 finds that different component constructively. At the
+          exact depth-12 path value α=41/200, a complete 10,000-zero
+          and Hadamard-tail certificate retains an RH-positive margin
+          above 0.0003 after exact scaling, while a separate Rouché
+          disk places the tracked blind branch strictly left of the
+          critical line. This removes the one known blind branch
+          without sacrificing the target response. T174 performs the
+          global-zero-free stress and rigorously finds another
+          multiplier zero near 0.560850+1.245234i, wholly inside the
+          critical strip and below height 14. The completed first-zero
+          ledger shows it is not a zeta zero. Thus global multiplier
+          zero-freeness is closed for this profile, while actual
+          zeta-divisor noncoincidence, paired separation, and the
+          arithmetic order remain necessary for a converse.
+          T175 then tests the natural prime-side telescoping idea:
+          choose period log(32/21), so the controller repeats exactly
+          at every paired ladder endpoint. Its frequency 14.916867…
+          lies in the certified gap between the first two zeta
+          ordinates. A Turing-certified singleton shifted mode makes
+          the RH response nonzero with mean zero and therefore Ω±.
+          Exact endpoint alignment cannot supply the one-sided bias;
+          any surviving arithmetic proof must use a genuinely
+          nonlocal prime correlation.
           Separately, for the T93/T96 annular deficit, if RH is false
           both strict signs recur infinitely often; if RH is true the
           certified annular deficit is eventually negative. This is

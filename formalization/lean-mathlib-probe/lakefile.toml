@@ -26,3 +26,6 @@ name = "HeatFlowCounterexample"
 
 [[lean_lib]]
 name = "HeatCorollaries"
+
+[[lean_lib]]
+name = "BarrierAnalyticSkeleton"

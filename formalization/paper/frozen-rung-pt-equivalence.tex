@@ -1,0 +1,1189 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.05in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\usepackage{microtype}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{standing}[theorem]{Standing Input}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\CP}{\mathbb{C}_{+}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\indm}{\operatorname{ind}_{-}}
+\newcommand{\sq}{\operatorname{sq}_{-}}
+\newcommand{\re}{\operatorname{Re}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\band}[1]{\mathcal{W}_{#1}}
+\newcommand{\TPT}{T_{\mathrm{PT}}}
+\newcommand{\ord}{\operatorname{ord}}
+
+\title{The Platt--Trudgian verified-height bound as the winding-form
+frozen-rung index certificate of the twin-ladder kernel bridge\\[1ex]
+\large An inertia-preservation theorem, a winding identity, and two graded lemmas}
+
+\author{Jude Gomila\thanks{This document was drafted with substantial AI
+assistance (Anthropic's Claude, model Fable~5) under human direction.
+\emph{Kernel of honesty}: every assertion below carries an explicit grade ---
+\textsc{proven}, \textsc{conditional} (with the missing hypothesis named), or
+\textsc{open} --- and the status box on this page is the binding contract.
+Nothing here is a new bound on the de Bruijn--Newman constant $\Lambda$, and
+nothing here is a proof of the Riemann Hypothesis. Platt--Trudgian
+$\Lambda\le 0.2$ remains the accepted state of the art.}}
+\date{July 31, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent We prove, at explicitly graded levels of rigor, the proposition
+recorded in the repository module
+\texttt{frozen-rung-pt-equivalence-2026-07-31}: \emph{the Platt--Trudgian
+verified-height $\Lambda$ bound is the winding-form frozen-rung index
+certificate of the twin-ladder kernel bridge, and by inertia-preservation the
+frozen-rung certificate can never beat it.} The inertia half is a theorem
+(Sylvester's law of inertia plus the \S17.4 Krein--Langer index identity,
+stated here as a Standing Input). The winding-form identity is proven as an
+exact counting identity via the argument principle, and the Gram/$\lambda_{\min}$
+form of the certificate is proven \emph{strictly} weaker at any finite mesh by
+an explicit counterexample in the same kernel class. The tail-leakage lemma L1
+is proven with explicit constants \emph{conditional on} the Krein--Langer
+factorization framework (the single missing ingredient is named). The
+mesh-detection lemma L2 remains \textsc{open}: we prove the detection
+mechanism and a conditional explicit mesh density, isolate the obstruction (an
+effective zero-repulsion lower bound), and subject the partial results to an
+adversarial self-check.
+\end{abstract}
+
+\bigskip
+\noindent\fbox{\parbox{0.965\textwidth}{%
+\textbf{STATUS BOX (binding).}\par\smallskip
+\begin{tabular}{@{}p{0.27\textwidth}p{0.66\textwidth}@{}}
+\textbf{(1) Inertia half} &
+\textsc{proven} (Theorem~\ref{thm:no-beating}), unconditionally in its linear-algebra
+content (Prop.~\ref{prop:sylvester}, Prop.~\ref{prop:compression}) and relative to
+the stated Standing Input~\ref{si:kl} (Krein--Langer / \S17.4 index identity)
+in its zero-counting interpretation.\\[1ex]
+\textbf{(2) Winding identity} &
+\textsc{proven} (Theorem~\ref{thm:winding-identity},
+Prop.~\ref{prop:equivalences}) from the argument principle; the identification
+with the Platt--Trudgian computation uses the standard Turing-method facts,
+cited as Standing Input~\ref{si:pt}. Strict weakness of the
+Gram/$\lambda_{\min}$ form at finite mesh: \textsc{proven}
+(Prop.~\ref{prop:mesh-blind}) by explicit counterexample in the kernel class.\\[1ex]
+\textbf{(3) L1 tail leakage} &
+\textsc{conditional}. Fully proven with explicit constants
+(Theorem~\ref{thm:l1}) \emph{given} Hypothesis~\ref{hyp:klf} (Krein--Langer
+factorization of $R_a$ with Schur remainder). The missing piece --- an
+unconditional verification that $R_a$ admits this factorization --- is
+precisely identified in \S\ref{sec:l1-gap}; a proof route is sketched but
+\emph{not} completed.\\[1ex]
+\textbf{(4) L2 mesh detection} &
+\textsc{open}. The detection mechanism (Prop.~\ref{prop:modulus-witness}) and
+an explicit conditional mesh density (Theorem~\ref{thm:l2-conditional}) are
+proven; the load-bearing gap is Hypothesis~\ref{hyp:zr} (effective
+zero-repulsion), which we do \emph{not} prove. An adversarial self-check of the
+partial results is in \S\ref{sec:self-check}. \textbf{L2 is not closed.}\\[1ex]
+\textbf{Consequences} &
+No new $\Lambda$ bound. Fed the same verified zeros and the same $H_t$ flow
+certificates, the frozen-rung certificate reproduces exactly $\Lambda\le 0.2$
+(Polymath row) or $\Lambda\le 0.1787854$ (unreviewed candidate row) --- and by
+(1) it provably cannot do better. Not a proof of RH.
+\end{tabular}}}
+
+\section{Introduction and provenance}\label{sec:intro}
+
+The twin-ladder program recasts the Riemann Hypothesis as a one-parameter
+family of operator-positivity statements about the shifted bridge
+$R_a(w)=X(w-a)/X(w+a)$, $X(w)=\xi(\tfrac12+w)$, on the right half-plane
+(paper \S15, \S17, \S23; repository modules
+\texttt{shift-bridge-positivity-section.js},
+\texttt{freezing-bridge-section.js},
+\texttt{imp-1288-section23-freezing-bridge.js}). Section 23 of the paper
+establishes that ``freezing'' tools --- Schur-complement reduction, Blaschke
+pole clearing, passive frozen bridges, finite-window Gram certificates --- are
+an \emph{inertia-preserving reduction tool and finite-window certification
+engine, not a proof shortcut} (\S23.7).
+
+Separately, the strongest known unconditional bounds on the de Bruijn--Newman
+constant $\Lambda$ are obtained through Polymath Theorem~1.2
+\cite{Polymath15}, whose hypothesis~(i) is a \emph{verified height}: the
+Platt--Trudgian theorem \cite{PlattTrudgian} that every nontrivial zeta zero
+of height at most $\TPT=3\,000\,175\,332\,800$ lies on the critical line. The
+repository's independent audit (\texttt{PROOF\_NOTE.md} in the
+\texttt{dbn-lambda-audit-review} tree) instantiates that pipeline at
+$X=6\,000\,000\,185\,827$, consuming $X/2\le\TPT$ as hypothesis~(i) and
+proving hypotheses~(ii) and~(iii) by finite certificates --- hypothesis (iii)
+by an $883$-prism \emph{winding-number} certificate
+(\texttt{BARRIER\_CERTIFICATE.md}, \S6.3).
+
+This document proves, at honestly graded levels, the connecting proposition:
+\begin{quote}\itshape
+The Platt--Trudgian verified-height computation \emph{is} the frozen-rung
+index certificate of the twin-ladder bridge, in its winding (contour) form;
+and because freezing preserves inertia, no frozen-rung certificate fed data of
+height $T\le\TPT$ can ever certify a smaller $\Lambda$ bound than the
+verified-height bound. ``Freezing the rungs is Platt--Trudgian in operator
+language.''
+\end{quote}
+The value of the proposition is conceptual, not numerical: it is the
+operator-frame explanation of \emph{why} the entire barrier/positivity-tightening
+class (SOS, Carleman, Putinar, Schur/Blaschke freezing) is refuted as a
+$\Lambda<0.2$ lever, echoing the PT-floor sensitivity audit. The only
+$\Lambda$-moving lever on this side of the program remains raising the
+verified height.
+
+\section{Setup, notation, and standing inputs}\label{sec:setup}
+
+\subsection{Objects}
+
+Throughout, $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ is the
+completed zeta function and
+\[
+X(w)\;:=\;\xi\!\left(\tfrac12+w\right),
+\]
+an entire function of order $1$ satisfying $X(-w)=X(w)$ (functional equation)
+and $X(\bar w)=\overline{X(w)}$ (reality on $\R$). Zeros of $X$ are
+$\lambda=\delta+i\gamma$ with $\rho=\tfrac12+\delta+i\gamma$ a nontrivial zeta
+zero; the classical zero-free region gives $|\delta|\le\tfrac12$, and
+$X(x)\neq0$ for real $x$ (indeed $\zeta(\sigma)<0$ on $0<\sigma<1$; see
+\cite{ProofNote}, \S3). We write $m(\lambda)$ for the multiplicity of
+$\lambda$ as a zero of $X$ (with $m(\lambda)=0$ if $X(\lambda)\neq0$), and
+$N(T)$ for the usual counting function of zeta zeros with $0<\gamma\le T$.
+
+Fix a shift $a\in(0,\tfrac12)$ and set, on $\CP=\{\re w>0\}$,
+\[
+R_a(w)\;=\;\frac{X(w-a)}{X(w+a)}.
+\]
+Its \emph{uncancelled ghost pole set} is
+\[
+P_a=\Bigl\{\alpha=\lambda-a:\ X(\lambda)=0,\ \re\lambda>a\Bigr\},
+\qquad
+\text{with multiplicity }\;
+\mu(\alpha)=\bigl[m(\lambda)-m(\lambda-2a)\bigr]_{+},
+\]
+per the v70 coprimality correction: a common zero of numerator and denominator
+cancels before poles are counted.
+
+The Szeg\H{o} kernel of $\CP$ and the Schur-class kernel of a meromorphic
+$\Theta$ on $\CP$ are
+\[
+k(z,w)=\frac{1}{2\pi(z+\bar w)},
+\qquad
+K_{\Theta}(z,w)=\frac{1-\Theta(z)\overline{\Theta(w)}}{2\pi(z+\bar w)} .
+\]
+For $\alpha\in\CP$ the half-plane Blaschke factor is
+$b_{\alpha}(w)=(w-\alpha)/(w+\bar\alpha)$, with $|b_{\alpha}|\le1$ on
+$\overline{\CP}$ and $|b_{\alpha}|=1$ on $i\R$.
+
+For $T>0$ the \emph{band} is $\band{T}=\{w:\ |\im w|\le T\}$, and a
+\emph{mesh} is a finite set $Z=\{z_1,\dots,z_N\}\subset\CP\cap\band{T}$ of
+distinct points avoiding poles of the kernel entries. The \emph{Gram matrix}
+of a Hermitian kernel $K$ on $Z$ is $G_K(Z)=(K(z_j,z_k))_{j,k=1}^{N}$.
+
+\begin{definition}[negative squares; negative index]\label{def:sq}
+For a Hermitian matrix $M$, $\indm(M)$ is its number of negative eigenvalues
+with multiplicity. For a Hermitian kernel $K$ on a set $\Omega$,
+\[
+\sq(K)\;=\;\sup\Bigl\{\indm\bigl(G_K(Z)\bigr):\ Z\subset\Omega \text{ finite}\Bigr\}
+\;\in\;\{0,1,\dots,\infty\}.
+\]
+\end{definition}
+This is the standard definition of the number of negative squares of a kernel;
+it makes the compression monotonicity of \S\ref{sec:inertia} definitional
+rather than analytic.
+
+\subsection{Standing inputs}
+
+The following are the external facts this document consumes. Each is either
+classical or a previously recorded repository result; none is proven here, and
+every later grade is stated \emph{relative} to the standing inputs it uses.
+
+\begin{standing}[Krein--Langer / \S17.4 index identity]\label{si:kl}
+For every $a>0$, the kernel $K_{R_a}$ has
+\[
+\sq\bigl(K_{R_a}\bigr)\;=\;\sum_{\alpha\in P_a}\mu(\alpha)
+\;=\;\#\{\text{uncancelled ghosts at level }a\},
+\]
+finite or infinite on both sides simultaneously. In particular
+$\mathrm{RH}\iff \sq(K_{R_a})=0$ for all $a>0$ $\iff \Lambda\le0$.
+\emph{Source:} Krein--Langer generalized Schur/Pontryagin theory
+\cite{KreinLanger}, paper \S17.4, repository audits \texttt{imp-1232} and
+\texttt{imp-1289} (which record the identity with the coprime/uncancelled-order
+caveat).
+\end{standing}
+
+\begin{standing}[argument principle]\label{si:ap}
+If $f$ is holomorphic on a neighborhood of a closed rectangle $D$ and
+zero-free on $\partial D$, then
+$\frac{1}{2\pi i}\oint_{\partial D} f'/f\,dw$ equals the number of zeros of
+$f$ in $D$ counted with multiplicity. (Classical.)
+\end{standing}
+
+\begin{standing}[explicit zero counting]\label{si:rvm}
+$N(T)=\frac{T}{2\pi}\log\frac{T}{2\pi e}+O(\log T)$ with explicit constants
+(Rosser; Trudgian \cite{Trudgian}); in particular the crude bound
+$N(T)\le T\log T$ holds for all $T\ge2$, and
+$\sum_{\rho}\gamma_\rho^{-2}<\infty$.
+\end{standing}
+
+\begin{standing}[Platt--Trudgian; Turing's method]\label{si:pt}
+Every nontrivial zero of $\zeta$ with $0<\gamma\le\TPT=3\,000\,175\,332\,800$
+lies on the critical line and is simple \cite{PlattTrudgian}. The verification
+has the classical Turing-method logical shape \cite{Turing,Booker}: the total
+zero count $N(T)$ in the strip up to height $T$ is computed \emph{by the
+argument principle} (a winding number of $\xi$, evaluated via
+$\theta(T)/\pi+1+\pi^{-1}\Delta_{\partial}\arg\zeta$ with Turing's estimate
+controlling the boundary term), and is matched against a list of $N(T)$
+distinct sign changes of Hardy's function on the critical line; equality
+forces every zero to be real (on-line) and simple.
+\end{standing}
+
+\begin{standing}[Polymath Theorem 1.2 pipeline]\label{si:polymath}
+Theorem~1.2 of \cite{Polymath15}: if (i) $\zeta$ has no zeros with
+$\frac{1+y_0}{2}\le\sigma\le1$, $0\le T\le X/2$; (ii) $H_{t_0}$ has no zeros
+in the final-time right region; (iii) $H_t$ has no zeros on the intermediate
+barrier; then $\Lambda\le t_0+y_0^2/2$. The audited candidate instantiation
+\cite{ProofNote} consumes hypothesis~(i) with $X/2=3\,000\,000\,092\,913.5\le\TPT$
+and proves (ii), (iii) by finite certificates; hypothesis~(iii) is proven in
+\emph{winding form} (883 closed prisms, each with certified winding number
+zero; \cite{BarrierCert}, \S6.3).
+\end{standing}
+
+\begin{remark}[honesty about Standing Input \ref{si:kl}]\label{rem:kl-honesty}
+Standing Input~\ref{si:kl} presupposes that $R_a$ belongs to the generalized
+Schur framework in which negative squares count uncancelled half-plane poles.
+That presupposition reappears, isolated and named, as
+Hypothesis~\ref{hyp:klf} in \S\ref{sec:l1}; Theorem~\ref{thm:no-beating} uses
+only the \emph{inequality directions} of \ref{si:kl} that it explicitly cites.
+Where a result below is independent of \ref{si:kl} altogether (e.g.\
+Prop.~\ref{prop:sylvester}, Prop.~\ref{prop:compression},
+Theorem~\ref{thm:winding-identity}, Prop.~\ref{prop:modulus-witness}), we say
+so.
+\end{remark}
+
+\section{Part 1: the inertia theorem (\textsc{proven})}\label{sec:inertia}
+
+\subsection{Two unconditional propositions}
+
+\begin{proposition}[Sylvester--Schur inertia identity]\label{prop:sylvester}
+Let $Q=\begin{pmatrix}A&B\\ B^{*}&C\end{pmatrix}$ be Hermitian with $C$
+invertible, and let $Q_{\mathrm{eff}}=A-BC^{-1}B^{*}$ be the Schur complement
+(the ``frozen effective form''). Then
+\[
+\indm(Q)\;=\;\indm(C)+\indm(Q_{\mathrm{eff}}).
+\]
+In particular, if the frozen block is \emph{passive}, $C\succ0$, then
+$\indm(Q_{\mathrm{eff}})=\indm(Q)$ exactly.
+\end{proposition}
+
+\begin{proof}
+Let $L=\begin{pmatrix}I&BC^{-1}\\ 0&I\end{pmatrix}$, which is invertible. A
+direct block computation gives
+\[
+L\begin{pmatrix}Q_{\mathrm{eff}}&0\\ 0&C\end{pmatrix}L^{*}
+=\begin{pmatrix}Q_{\mathrm{eff}}+BC^{-1}B^{*}&B\\ B^{*}&C\end{pmatrix}
+=\begin{pmatrix}A&B\\ B^{*}&C\end{pmatrix}=Q .
+\]
+Thus $Q$ is $*$-congruent to $Q_{\mathrm{eff}}\oplus C$. Sylvester's law of
+inertia \cite{Sylvester} states that $*$-congruence by an invertible matrix
+preserves the inertia triple; the negative indices therefore add as claimed.
+The passive case is immediate since $\indm(C)=0$.
+\end{proof}
+
+\begin{proposition}[compression monotonicity]\label{prop:compression}
+For every Hermitian kernel $K$ on $\Omega$ and every finite mesh
+$Z\subset\Omega$,
+\[
+\indm\bigl(G_K(Z)\bigr)\;\le\;\sq(K),
+\]
+and more generally $\indm(V^{*}G_K(Z)V)\le\sq(K)$ for any matrix $V$.
+Compression can lose negative directions; it can never create them.
+\end{proposition}
+
+\begin{proof}
+The first inequality is Definition~\ref{def:sq} (the supremum dominates each
+term). For the second, $V^{*}G_K(Z)V$ is the Gram form restricted to a
+subspace of coefficient vectors; a $d$-dimensional negative-definite subspace
+for $V^{*}G_K(Z)V$ maps under $V$ to a $d$-dimensional subspace (injectivity
+on it is forced by negative-definiteness) on which $G_K(Z)$ is negative
+definite, so $d\le\indm(G_K(Z))\le\sq(K)$.
+\end{proof}
+
+Neither proposition uses any property of $\zeta$; both are unconditional.
+
+\subsection{The certificate class and its $\Lambda$-content}
+
+\begin{definition}[frozen-rung certificate at data height $T$]\label{def:cert}
+A \emph{frozen-rung certificate} at level $a>0$ and data height $T$ is either
+\begin{itemize}
+\item[(G)] \textbf{Gram/$\lambda_{\min}$ form} (paper Lemma~23.3): interval
+enclosures of a frozen approximation $G^{\mathrm{fr}}$ to $G_{K_{R_a}}(Z)$ on a mesh
+$Z\subset\CP\cap\band{T}$, together with a rigorous error bound
+$\|E\|_2\ge\|G_{K_{R_a}}(Z)-G^{\mathrm{fr}}\|_2$; verdict \textsc{pass} iff
+$\lambda_{\min}(G^{\mathrm{fr}})>\|E\|_2$; or
+\item[(W)] \textbf{winding form}: an interval enclosure of the contour
+integral $W_a(T)$ of Definition~\ref{def:winding} below (equivalently, of the
+band ghost count $g(a,T)$ of \S\ref{sec:winding}); verdict \textsc{pass} iff
+the enclosure certifies $g(a,T)=0$.
+\end{itemize}
+In both cases the certificate's inputs are finitely many interval enclosures
+of $\xi$-values (and derivatives) at points of $\band{T}$; this is what ``data
+height $T$'' means.
+\end{definition}
+
+\begin{definition}[$\Lambda$-content]\label{def:content}
+Fix the flow certificates for hypotheses (ii) and (iii) of Standing
+Input~\ref{si:polymath} (they are $\Lambda$-side inputs independent of the
+zero data). The \emph{verified-height functional} is
+\[
+\Lambda^{*}(T)\;=\;\inf\Bigl\{\,t_0+\tfrac{y_0^2}{2}\ :\
+(X,t_0,y_0)\ \text{admissible for Theorem 1.2 with } X/2\le T
+\text{ and (ii),(iii) certified}\Bigr\},
+\]
+a nonincreasing function of $T$ (the feasible set grows with $T$). The
+\emph{$\Lambda$-content} of a certificate is the infimum of $t_0+y_0^2/2$ over
+instantiations of Theorem~1.2 whose hypothesis~(i) is supplied by the
+certificate's certified conclusion (interpreted through Standing
+Input~\ref{si:kl}) and whose hypotheses (ii),(iii) are the fixed flow
+certificates.
+\end{definition}
+
+\subsection{The theorem}
+
+\begin{theorem}[inertia half: the frozen-rung certificate can never beat
+Platt--Trudgian]\label{thm:no-beating}
+Let $\mathcal{C}$ be any frozen-rung certificate (Definition~\ref{def:cert})
+at levels $a\in A\subset(0,\tfrac12)$ and data height $T$. Then:
+\begin{itemize}
+\item[(a)] \textbf{(soundness; no hidden ghosts)} If $\mathcal{C}$ is built
+through any passive freezing scheme --- i.e.\ the assembled Hermitian form $Q$
+is reduced by Schur complements whose frozen blocks are positive definite ---
+then the reported negative index equals $\indm(Q)$ exactly
+(Prop.~\ref{prop:sylvester}); and for the Gram form,
+$\indm(G_{K_{R_a}}(Z))\le\sq(K_{R_a})$ (Prop.~\ref{prop:compression}). No
+freezing or mesh rearrangement can certify a smaller ghost count than the
+assembled data supports, nor manufacture negativity absent from the data.
+\item[(b)] \textbf{(content ceiling)} The certified conclusion of a
+\textsc{pass} verdict of $\mathcal{C}$ is at most the statement
+\[
+\text{``no uncancelled ghosts }\alpha\in P_a\cap\band{T}
+\text{ for the tested levels }a\in A\text{''},
+\]
+which by Standing Input~\ref{si:kl} is at most the statement ``$\zeta$ has no
+zeros with $\re s>\tfrac12+\min A$ and $|\im s|\le T$''. For the Gram form the
+conclusion is strictly smaller still (positivity on the sampled subspace only;
+see Prop.~\ref{prop:mesh-blind}).
+\item[(c)] \textbf{(no-beating)} Consequently the $\Lambda$-content of
+$\mathcal{C}$ is at least $\Lambda^{*}(T)$; and since $\Lambda^{*}$ is
+nonincreasing, for every certificate with data height $T\le\TPT$,
+\[
+\Lambda\text{-content}(\mathcal{C})\;\ge\;\Lambda^{*}(T)\;\ge\;\Lambda^{*}(\TPT),
+\]
+the Platt--Trudgian verified-height bound. Equality of the two outer terms is
+attained by the winding form at $T=\TPT$ (Theorem~\ref{thm:winding-identity}):
+the certificate reproduces, and can never improve on, the verified-height
+bound.
+\end{itemize}
+\end{theorem}
+
+\begin{proof}
+(a) is Propositions~\ref{prop:sylvester} and~\ref{prop:compression} verbatim,
+applied to the two freezing modes of paper \S23: Schur-complement reduction
+(the frozen effective form $Q_{\mathrm{eff}}$ reports $\indm(Q)$ exactly when
+the frozen block is passive) and mesh compression (the Gram reports at most
+$\sq(K_{R_a})$). For the Lemma~23.3 acceptance gate specifically: if
+$\lambda_{\min}(G^{\mathrm{fr}})>\|E\|_2$ then for every coefficient vector $c$,
+$c^{*}G_{K_{R_a}}(Z)c\ge(\lambda_{\min}(G^{\mathrm{fr}})-\|E\|_2)\|c\|^2>0$, so a
+\textsc{pass} entails $G_{K_{R_a}}(Z)\succ0$; conversely if
+$\indm(G_{K_{R_a}}(Z))>0$ the gate cannot be passed by any frozen
+approximation with a rigorous error bound, since
+$\lambda_{\min}(G^{\mathrm{fr}})\le\lambda_{\min}(G_{K_{R_a}}(Z))+\|E\|_2\le\|E\|_2$.
+Thus the reported verdict is faithful to the assembled data in both modes.
+
+(b) The certificate's inputs are $\xi$-enclosures on $\band{T}$; its verdict
+semantics are, by construction (Definition~\ref{def:cert}), statements about
+$G_{K_{R_a}}(Z)$ with $Z\subset\band{T}$ (Gram form) or about $g(a,T)$
+(winding form). The strongest zero-location statement interpretable from
+these through Standing Input~\ref{si:kl} is the absence of uncancelled ghosts
+in $P_a\cap\band{T}$ for the tested $a$; translating $\alpha=\lambda-a$,
+$\rho=\tfrac12+\lambda$ gives the displayed zeta statement. Nothing in the
+verdict semantics refers to $|\im s|>T$.
+
+(c) By (b), any instantiation of Theorem~1.2 whose hypothesis~(i) is supplied
+by $\mathcal{C}$ satisfies the constraint $X/2\le T$: hypothesis~(i) demands
+zero-freeness of the region \eqref{eq:hyp-i-region} below for all
+$0\le\im\le X/2$, and the certificate certifies nothing above height $T$.
+Hence the infimum defining the $\Lambda$-content of $\mathcal{C}$ runs over a
+subset of the feasible set defining $\Lambda^{*}(T)$, giving
+$\Lambda\text{-content}(\mathcal{C})\ge\Lambda^{*}(T)$. Monotonicity of
+$\Lambda^{*}$ gives the second inequality. Here
+\begin{equation}\label{eq:hyp-i-region}
+\tfrac{1+y_0}{2}\le\sigma\le1,\qquad 0\le T'\le X/2,
+\end{equation}
+is the hypothesis-(i) region of Standing Input~\ref{si:polymath}. The
+attainment claim is Theorem~\ref{thm:winding-identity} plus Standing
+Input~\ref{si:pt}: at $T=\TPT$ the winding-form certificate's certified
+conclusion is exactly the Platt--Trudgian hypothesis~(i) content --- band
+zero-freeness for $0<T'\le X/2$, the $T'=0$ edge being supplied by the
+classical real-axis fact $\zeta(\sigma)<0$ on $0<\sigma<1$
+(\cite{ProofNote}, \S3) --- so its $\Lambda$-content equals
+$\Lambda^{*}(\TPT)$.
+\end{proof}
+
+\begin{remark}[scope; what the theorem does and does not say]\label{rem:scope}
+(i) The theorem is stated for the certificate class of
+Definition~\ref{def:cert} --- finite certificates whose inputs are
+$\xi$-data on $\band{T}$ and whose semantics factor through
+$\sq(K_{R_a})$-type statements. This is exactly the class paper \S23 calls the
+``inertia-preserving reduction tool + finite-window certification engine.''
+The theorem does not (and could not) rule out \emph{non-certificate} analytic
+progress; it rules out the freeze-cleverness class, in agreement with the
+PT-floor sensitivity audit (repository page \texttt{/pt-floor-audit}), which
+reached the same conclusion from the $\Lambda$ side.
+(ii) Running the winding form at $T>\TPT$ is not excluded --- but by
+Theorem~\ref{thm:winding-identity} that \emph{is} a verified-height
+computation (it is Platt--Trudgian continued upward), which is precisely the
+proposition's point: the only lever is more verified height.
+(iii) Fed the audited flow certificates of \cite{ProofNote}, the pipeline
+yields $\Lambda^{*}(\TPT)\le 893927/5000000=0.1787854$ (unreviewed candidate
+row) and, with the published Polymath~15 instantiation, $\Lambda\le0.2$
+(accepted row). The frozen-rung certificate reproduces these numbers and, by
+(c), cannot improve them.
+\end{remark}
+
+\section{Part 2: the winding-form identity (\textsc{proven})}\label{sec:winding}
+
+Throughout this section fix $a\in(0,\tfrac12)$ and $T>0$ such that $X$ has no
+zeros with $|\im\lambda|=T$ and none with $\re\lambda\in\{a,-a\}$ and
+$|\im\lambda|\le T$ (both conditions exclude at most a discrete set of
+parameters; Platt--Trudgian-style computations choose such $T$ as a matter of
+course). Define the \emph{band ghost count}
+\[
+g(a,T)\;=\;\#\{\lambda:\ X(\lambda)=0,\ \re\lambda>a,\ |\im\lambda|<T\}
+\quad\text{(with multiplicity)},
+\]
+and the total band count
+$N_X(T)=\#\{\lambda: X(\lambda)=0,\ |\im\lambda|<T\}=2N(T)$ (zeros of $X$
+come in quadruples $\{\pm\lambda,\pm\bar\lambda\}$, none real; $N_X$ counts
+both half-bands).
+
+\begin{definition}[winding form of the frozen-rung certificate]\label{def:winding}
+Let $D_T=\{0<\re w<1,\ |\im w|<T\}$ and
+\[
+W_a(T)\;=\;\frac{1}{2\pi i}\oint_{\partial D_T}\frac{R_a'(w)}{R_a(w)}\,dw ,
+\qquad
+V_a(T)\;=\;\frac{1}{2\pi i}\oint_{\partial D_{a,T}}\frac{X'(w)}{X(w)}\,dw ,
+\]
+where $D_{a,T}=\{a<\re w<1,\ |\im w|<T\}$. Both are finite sums of interval-computable
+contour integrals of ratios of $\xi$-values --- the same computational
+primitive class as the Turing method and as the barrier certificate of
+\cite{BarrierCert}.
+\end{definition}
+
+\begin{theorem}[winding identity]\label{thm:winding-identity}
+With the boundary-avoidance conventions above,
+\[
+g(a,T)\;=\;V_a(T)\;=\;\tfrac12\Bigl[\,N_X(T)-W_a(T)\,\Bigr]
+\;=\;N(T)-\tfrac12 W_a(T).
+\]
+In particular the winding-form certificate verdict ``$g(a,T)=0$ for all
+tested $a$'' is \emph{exactly} the argument-principle statement that every
+zeta zero of height $<T$ lies within $a$ of the critical line; and the
+Platt--Trudgian verification at height $T$ (Standing Input~\ref{si:pt}) is
+the evaluation of the same two winding data: the total count $N(T)$ by the
+argument principle, matched against the on-line count. Platt--Trudgian
+\emph{is} the frozen-rung index certificate in winding form.
+\end{theorem}
+
+\begin{proof}
+\emph{First equality.} $X$ is entire and, by the parameter conventions,
+zero-free on $\partial D_{a,T}$: the edge $\re w=1$ misses the zero strip
+$|\re\lambda|\le\tfrac12$; the edges $|\im w|=T$ and $\re w=a$ are zero-free
+by hypothesis. Standing Input~\ref{si:ap} gives
+$V_a(T)=\#\{\lambda\in D_{a,T}\}$ with multiplicity, and since all zeros have
+$\re\lambda\le\tfrac12<1$, that count is exactly $g(a,T)$.
+
+\emph{Second equality.} On $D_T$, $\log$-differentiate
+$R_a=X(\cdot-a)/X(\cdot+a)$:
+\[
+W_a(T)=\frac{1}{2\pi i}\oint_{\partial D_T}\frac{X'(w-a)}{X(w-a)}\,dw
+-\frac{1}{2\pi i}\oint_{\partial D_T}\frac{X'(w+a)}{X(w+a)}\,dw
+=Z_{\mathrm{num}}-Z_{\mathrm{den}},
+\]
+where $Z_{\mathrm{num}}=\#\{\lambda:\lambda+a\in D_T\}$ and
+$Z_{\mathrm{den}}=\#\{\lambda:\lambda-a\in D_T\}$ (argument principle again;
+boundary zero-freeness of $X(w\mp a)$ on $\partial D_T$: the vertical edges
+$\re w=0,1$ require no zeros with $\re\lambda\in\{\pm a\}$ or
+$\re\lambda\in\{1\mp a\}$ --- the former is our convention, the latter is
+automatic since $1-a>\tfrac12$; the horizontal edges are our $T$-convention).
+Now classify the band zeros by real part, using the evenness symmetry
+$\lambda\mapsto-\lambda$: with
+$g=g(a,T)$ ghosts on each side and $c$ central zeros
+($|\re\lambda|\le a$... more precisely $-a<\re\lambda<a$, the boundary cases
+being excluded by convention), $N_X(T)=c+2g$ and
+\[
+Z_{\mathrm{num}}=\#\{-a<\re\lambda\text{, i.e. }0<\re(\lambda+a)<1\}=c+g,
+\qquad
+Z_{\mathrm{den}}=\#\{a<\re\lambda\}=g .
+\]
+Hence $W_a(T)=c=N_X(T)-2g$, which rearranges to the claim; the last equality
+is $N_X(T)=2N(T)$.
+\end{proof}
+
+\begin{proposition}[the equivalence chain]\label{prop:equivalences}
+With the conventions above, the following are equivalent:
+\begin{itemize}
+\item[(i)] every zeta zero with $|\gamma|<T$ lies on the critical line
+(``RH to height $T$'', the Platt--Trudgian conclusion at $T\le\TPT$);
+\item[(ii)] $g(a,T)=0$ for all $a>0$ (winding-form certificate passes at
+every level);
+\item[(iii)] $P_a\cap\band{T}=\emptyset$ (no uncancelled band ghosts) for
+all $a>0$.
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+(i)$\Rightarrow$(ii): on the critical line $\re\lambda=0\not>a$.
+(ii)$\Rightarrow$(i): if some zero had $\re\lambda=\delta>0$ (by the
+$\lambda\mapsto-\lambda$ symmetry we may take the displacement positive),
+then $g(a,T)\ge1$ for every $a<\delta$ outside the discrete excluded set.
+(ii)$\Rightarrow$(iii): uncancelled ghost multiplicity
+$\mu=[m(\lambda)-m(\lambda-2a)]_+\le m(\lambda)$ is dominated by the zero
+count. (iii)$\Rightarrow$(ii): suppose $g(a_0,T)\ge1$, witnessed by a zero
+$\lambda_0$, $\re\lambda_0=\delta>a_0$. For $\lambda_0$ to be \emph{cancelled}
+at level $a$ requires $X(\lambda_0-2a)=0$ with
+$m(\lambda_0-2a)\ge m(\lambda_0)$; since the zeros on the horizontal line
+$\{\im=\im\lambda_0,\ |\re|\le\tfrac12\}$ form a finite set, cancellation
+occurs for at most finitely many $a$. Any $a\in(0,\delta)$ outside that
+finite set and the convention-excluded set puts an uncancelled ghost in
+$P_a\cap\band{T}$.
+\end{proof}
+
+\begin{remark}[quantifier honesty]\label{rem:quantifier}
+The $\forall a$ quantifier is essential in (ii),(iii): at a \emph{single}
+level $a$, cancellation ($X(\lambda_0-2a)=0$ with matching multiplicity) can
+hide a genuine off-critical zero from $P_a$, so single-level certificates are
+not equivalent to band zero-freeness. This is the certificate-side face of
+the v70 coprimality correction, and one of two independent reasons
+(cf.\ Prop.~\ref{prop:mesh-blind}) why the module records the full
+equivalence as conjectural.
+\end{remark}
+
+\subsection{The Gram form is strictly weaker at any finite mesh
+(\textsc{proven})}
+
+The Lemma~23.3 gate certifies $G_{K_{R_a}}(Z)\succ0$ --- positivity \emph{on
+the sampled subspace} $\operatorname{span}\{k_z:z\in Z\}$ only. The winding
+form computes an integer that counts every band ghost regardless of how faint
+its trace on a given mesh is. The following proposition shows the gap is
+real, not rhetorical: within the very kernel class in which the certificate
+operates, mesh positivity coexists with a ghost.
+
+\begin{proposition}[a mesh-blind ghost]\label{prop:mesh-blind}
+Let $Z=\{z_1,\dots,z_N\}\subset\CP$ be any finite mesh and let
+$\alpha\in\CP\setminus Z$. Then there exists a generalized Schur function
+$\Theta$ on $\CP$ with exactly one right-half-plane pole, located at $\alpha$
+(so $\sq(K_\Theta)=1$: a ghost is present), such that
+\[
+G_{K_\Theta}(Z)\;\succ\;0 .
+\]
+Hence no acceptance gate of the form
+``$\lambda_{\min}(G^{\mathrm{fr}})>\|E\|_2$ on the mesh $Z$'' can detect the
+ghost, while the winding form over any contour separating $\alpha$ from
+$\partial\CP$ counts it exactly.
+\end{proposition}
+
+\begin{proof}
+Let $B_Z(w)=\prod_{i=1}^{N}b_{z_i}(w)$ (a finite Blaschke product vanishing
+precisely on $Z$), fix any $c\in(0,1)$, and set
+\[
+\Theta\;=\;\frac{c\,B_Z}{b_{\alpha}} .
+\]
+$S:=cB_Z$ is Schur on $\CP$ ($|S|\le c<1$); $\Theta$ is meromorphic on $\CP$
+with a single (simple) pole at $\alpha$, since $B_Z(\alpha)\neq0$.
+
+\emph{Gram identity.} For any $\Theta=S/B$ with $B=b_\alpha$, pointwise
+algebra gives, wherever defined,
+\begin{equation}\label{eq:gram-split}
+K_{\Theta}(z,w)
+=\frac{B(z)\overline{B(w)}-S(z)\overline{S(w)}}{2\pi(z+\bar w)\,B(z)\overline{B(w)}}
+=\frac{1}{B(z)}\Bigl[K_S(z,w)-K_B(z,w)\Bigr]\frac{1}{\overline{B(w)}} ,
+\end{equation}
+so $G_{K_\Theta}(Z)=D\,[\,G_{K_S}(Z)-G_{K_B}(Z)\,]\,D^{*}$ with
+$D=\operatorname{diag}(1/b_\alpha(z_i))$ invertible. By
+Prop.~\ref{prop:sylvester} (congruence), positivity of
+$G_{K_S}(Z)-G_{K_B}(Z)$ suffices.
+
+\emph{The two pieces on the mesh.} Since $S(z_i)=0$ for every mesh point,
+$K_S(z_i,z_j)=k(z_i,z_j)$: the $S$-part restricts to the full Szeg\H{o} Gram
+$G_k(Z)$, which is positive definite (distinct points; $k$ is a positive
+definite kernel and $\{k_{z_i}\}$ are linearly independent in $H^2(\CP)$).
+For the $B$-part, the exact two-point identity
+\begin{equation}\label{eq:two-point}
+1-b_{\alpha}(z)\overline{b_{\alpha}(w)}
+=\frac{2(\re\alpha)\,(z+\bar w)}{(z+\bar\alpha)(\bar w+\alpha)}
+\end{equation}
+(expand both products; the cross terms cancel and the numerator collapses to
+$(\alpha+\bar\alpha)(z+\bar w)$) gives
+\[
+K_{b_\alpha}(z,w)=\frac{\re\alpha}{\pi}\,
+\frac{1}{z+\bar\alpha}\cdot\overline{\Bigl(\frac{1}{w+\bar\alpha}\Bigr)} ,
+\]
+a rank-one positive kernel: $G_{K_B}(Z)=\frac{\re\alpha}{\pi}\varphi\varphi^{*}$
+with $\varphi_i=1/(z_i+\bar\alpha)$.
+
+\emph{Rank-one comparison.} $G_k(Z)-\frac{\re\alpha}{\pi}\varphi\varphi^{*}\succ0$
+iff $\frac{\re\alpha}{\pi}\varphi^{*}G_k(Z)^{-1}\varphi<1$. Note
+$\varphi_i=2\pi\,k(z_i,\alpha)=2\pi\,\langle k_\alpha,k_{z_i}\rangle_{H^2}$,
+so $(2\pi)^{-2}\varphi^{*}G_k(Z)^{-1}\varphi=\|P_Z k_\alpha\|^2$, the squared
+norm of the orthogonal projection of $k_\alpha$ onto
+$\operatorname{span}\{k_{z_i}\}$. Since $\alpha\notin Z$, $k_\alpha$ is not in
+that span (a nontrivial rational identity
+$\frac{1}{w+\bar\alpha}=\sum c_i\frac{1}{w+\bar z_i}$ is impossible for
+distinct poles), so the projection is strictly norm-decreasing:
+\[
+\frac{\re\alpha}{\pi}\,\varphi^{*}G_k(Z)^{-1}\varphi
+=4\pi\,(\re\alpha)\,\|P_Z k_\alpha\|^{2}
+<4\pi\,(\re\alpha)\,\|k_\alpha\|^{2}
+=4\pi\,(\re\alpha)\,k(\alpha,\alpha)=1 .
+\]
+Hence $G_{K_S}(Z)-G_{K_B}(Z)\succeq G_k(Z)-G_{K_B}(Z)\succ0$ --- for the
+first inequality, $K_S(z_i,z_j)-k(z_i,z_j)=0$ on the mesh, so they are equal
+there --- and $G_{K_\Theta}(Z)\succ0$.
+
+\emph{The ghost is real.} $\sq(K_\Theta)\ge1$: the diagonal
+$K_\Theta(z,z)=(1-|\Theta(z)|^2)/(4\pi\re z)$ tends to $-\infty$ as
+$z\to\alpha$, so some one-point Gram is negative. $\sq(K_\Theta)\le1$: by
+\eqref{eq:gram-split} every Gram of $K_\Theta$ is congruent to
+(PSD matrix) minus (rank-one PSD matrix), so its negative index is at most
+$1$ (eigenvalue interlacing under rank-one perturbation). Finally the winding
+form: $\Theta$ is meromorphic near $\overline{B(\alpha,r)}$ and the argument
+principle applied to $\Theta$ on a small circle around $\alpha$ returns
+zero-count minus pole-count $=-1\neq0$, detecting the ghost unconditionally.
+\end{proof}
+
+\begin{remark}[interpretation, and honesty about its reach]
+Prop.~\ref{prop:mesh-blind} proves strict weakness of the Gram form
+\emph{within the generalized-Schur kernel class} in which Lemma~23.3
+operates: mesh positivity does not imply band ghost-freeness, while the
+winding form counts ghosts exactly. It does \emph{not} exhibit such a
+configuration for the actual $R_a$ built from $\xi$ --- whether $R_a$ itself
+could fool a given mesh is precisely the content of lemma L2
+(\S\ref{sec:l2}), which remains open. The structural moral stands and is the
+sharp form of the module's slogan: \emph{Turing's method certifies an
+integer; the Gram gate certifies an inequality.} The integer is robust
+(winding numbers do not degrade with the faintness of the pole's trace); the
+inequality is only as strong as the sampled subspace. This is also why the
+audited barrier certificate proves Polymath hypothesis~(iii) in winding form
+(883 prisms, each with certified winding zero \cite{BarrierCert}), not in
+Gram form; and why the Gram form, run to equivalent certified coverage, is
+exponentially costlier than Turing's linear sweep at the same height.
+\end{remark}
+
+\section{Part 3: L1, the tail-leakage bound (\textsc{conditional}, with the
+gap named)}\label{sec:l1}
+
+L1 asks: can \emph{unverified} zeros above the verified height $T$ ---
+hypothetical ghosts $\lambda_j=a+\sigma_j+i\gamma_j$ with $|\gamma_j|>T$,
+$\sigma_j>0$ --- leak enough negativity into a low-window Gram to corrupt a
+certificate run in a window of height $T_0\ll T$? We prove an explicit
+unconditional bound on the leakage, \emph{conditional on one named framework
+hypothesis}.
+
+\begin{hypothesis}[Krein--Langer factorization, {(KL-F)}]\label{hyp:klf}
+For the given $a\in(0,\tfrac12)$, the function $R_a$ admits the factorization
+\[
+R_a\;=\;\frac{S}{B_{P_a}},\qquad
+B_{P_a}(w)=\prod_{\alpha\in P_a}b_{\alpha}(w)^{\mu(\alpha)}
+\ \ (\text{suitably phase-normalized if infinite}),
+\]
+where $S$ is a \emph{Schur} function on $\CP$ ($|S|\le1$). This is the
+factorization underlying Standing Input~\ref{si:kl}; it is what ``$R_a$ is a
+generalized Schur function of index $\#P_a$'' means.
+\end{hypothesis}
+
+\begin{remark}[what is unconditional about (KL-F)]\label{rem:blaschke-conv}
+The Blaschke product converges unconditionally: the half-plane Blaschke
+condition is $\sum_{\alpha\in P_a}\mu(\alpha)\,\re\alpha/(1+|\alpha|^2)<\infty$,
+and since $\re\alpha\le\tfrac12$ and $|\alpha|\ge|\gamma|-O(1)$, it follows
+from $\sum_\rho\gamma_\rho^{-2}<\infty$ (Standing Input~\ref{si:rvm}).
+What is \emph{not} verified here is that the pole-cleared remainder
+$S=R_aB_{P_a}$ satisfies $|S|\le1$ throughout $\CP$: $R_a$ has unimodular
+boundary values on $i\R$ (by $X(-w)=X(w)$ and $X(\bar w)=\overline{X(w)}$,
+$|X(iy-a)|=|X(a+iy)|=|X(iy+a)|$), and $S$ is pole-free with unimodular
+boundary modulus, but concluding $|S|\le1$ in the interior requires a
+bounded-type/mean-type argument that is nontrivial because $\xi$ is
+\emph{not} of exponential type (growth $e^{c|w|\log|w|}$ defeats the
+Cartwright-class machinery). See \S\ref{sec:l1-gap}. Under RH-to-height-$T$
+for the band, $S$ carries no band poles; (KL-F) is exactly the statement that
+no interior growth or singular factor survives the cancellation in the ratio.
+\end{remark}
+
+\subsection{The leakage theorem}
+
+Fix a window: $0<x_{\min}\le\re z\le x_{\max}$, $|\im z|\le T_0$, and a mesh
+$Z=\{z_1,\dots,z_N\}$ of distinct points in it. Assume the verified band is
+clean --- no ghosts with $|\gamma_j|\le T$ --- so that under (KL-F),
+$R_a=S/B$ with $B=B_{>T}$ collecting only poles with $|\gamma_j|>T$. Define
+the \emph{tail sum}
+\[
+\tau(T)\;=\;\sum_{\alpha_j:\,|\gamma_j|>T}\mu_j\,
+\frac{\sigma_j}{(|\gamma_j|-T_0)^{2}},
+\qquad \sigma_j=\re\alpha_j,\ \gamma_j=\im\alpha_j .
+\]
+
+\begin{lemma}[unconditional tail estimate]\label{lem:tail-sum}
+For $T\ge\max(2T_0,2)$,
+\[
+\tau(T)\;\le\;\frac{16\,(1+\log T)}{T}.
+\]
+\end{lemma}
+
+\begin{proof}
+$\sigma_j\le\tfrac12$ and each ghost is a zeta zero, so with multiplicity the
+sum is dominated by
+$\tfrac12\sum_{\text{zeros},\,|\gamma|>T}(|\gamma|-T_0)^{-2}
+=\sum_{\text{zeros},\,\gamma>T}(\gamma-T_0)^{-2}$ (conjugate symmetry pairs
+the two half-bands). By partial summation against $N(t)$ and Standing
+Input~\ref{si:rvm} ($N(t)\le t\log t$ for $t\ge2$),
+\[
+\sum_{\gamma>T}(\gamma-T_0)^{-2}
+\le 2\int_T^{\infty}\frac{N(t)}{(t-T_0)^{3}}\,dt
+\le 2\int_T^{\infty}\frac{t\log t}{(t/2)^{3}}\,dt
+=16\int_T^{\infty}\frac{\log t}{t^{2}}\,dt
+=\frac{16(1+\log T)}{T},
+\]
+using $t-T_0\ge t/2$ for $t\ge T\ge2T_0$.
+\end{proof}
+
+\begin{theorem}[L1: tail-leakage bound]\label{thm:l1}
+Assume (KL-F) and that no ghosts have $|\gamma|\le T$, with
+$T\ge\max\bigl(2T_0,\,2,\,T_0+2\sqrt{x_{\max}}\bigr)$. Then
+\[
+\lambda_{\min}\bigl(G_{K_{R_a}}(Z)\bigr)\;\ge\;-\,\varepsilon(N,T),
+\qquad
+\varepsilon(N,T)\;=\;\frac{N}{\pi}\,e^{8x_{\max}\tau(T)}\,\tau(T)
+\;\le\;\frac{N}{\pi}\,e^{128 x_{\max}(1+\log T)/T}\cdot\frac{16(1+\log T)}{T}.
+\]
+Consequently: \emph{(i)} a certified eigenvalue below $-\varepsilon(N,T)$ is a
+genuine band-ghost witness --- it cannot be an artifact of unverified zeros
+above $T$; \emph{(ii)} conversely, if the band is clean, no low-window Gram
+can be pushed below $-\varepsilon(N,T)$ by any configuration of unverified
+zeros consistent with the zero-counting bounds. Window positivity, read with
+the tolerance $\varepsilon(N,T)\to0$ as $T\to\infty$, cannot be spoofed by
+tails.
+\end{theorem}
+
+\begin{proof}
+Write $\Theta=R_a=S/B$, $B=B_{>T}$. The pointwise identity
+\eqref{eq:gram-split} holds verbatim for any (finite or convergent infinite)
+Blaschke product $B$:
+\[
+G_{K_\Theta}(Z)=D\bigl[G_{K_S}(Z)-G_{K_B}(Z)\bigr]D^{*},
+\qquad D=\operatorname{diag}\bigl(1/B(z_i)\bigr).
+\]
+Under (KL-F), $S$ is Schur, so $K_S$ is a positive kernel and
+$G_{K_S}(Z)\succeq0$. Hence
+\[
+\lambda_{\min}\bigl(G_{K_\Theta}(Z)\bigr)\;\ge\;-\,\bigl\|D\,G_{K_B}(Z)\,D^{*}\bigr\|_2
+\;\ge\;-\,\|D\|^2\,\bigl\|G_{K_B}(Z)\bigr\|_2 .
+\]
+
+\emph{Bounding $G_{K_B}$.} Write $B(z)\overline{B(w)}=\prod_j u_j(z,w)$ with
+$u_j=b_{\alpha_j}(z)\overline{b_{\alpha_j}(w)}$ (per-factor phase
+normalizations cancel in the product $B(z)\overline{B(w)}$). Since
+$|u_j|\le1$ on the window, the telescoping inequality
+$|1-\prod_j u_j|\le\sum_j|1-u_j|$ holds (for infinite products, by passage to
+the limit of partial products). By the exact identity \eqref{eq:two-point},
+$|1-u_j|=2\sigma_j|z+\bar w|/|(z+\bar\alpha_j)(\bar w+\alpha_j)|$, and
+$|z+\bar\alpha_j|\ge|\im z-\gamma_j|\ge|\gamma_j|-T_0$ on the window, so
+\[
+\bigl|K_B(z,w)\bigr|
+=\frac{|1-B(z)\overline{B(w)}|}{2\pi|z+\bar w|}
+\;\le\;\frac{1}{\pi}\sum_j\frac{\sigma_j\mu_j}{(|\gamma_j|-T_0)^{2}}
+=\frac{\tau(T)}{\pi}
+\quad\text{for all }z,w\in Z,
+\]
+whence $\|G_{K_B}(Z)\|_2\le N\max_{i,j}|K_B(z_i,z_j)|\le N\tau(T)/\pi$.
+
+\emph{Bounding $D$.} By \eqref{eq:two-point} at $w=z$,
+$|b_{\alpha_j}(z)|^2=1-4\sigma_j\re z/|z+\bar\alpha_j|^2
+\ge1-u$ with $u=4\sigma_j x_{\max}/(|\gamma_j|-T_0)^{2}$. The hypothesis
+$T\ge T_0+2\sqrt{x_{\max}}$ gives $u\le 2x_{\max}/(T-T_0)^2\le\tfrac12$, and
+$(1-u)^{-1}\le e^{2u}$ for $0\le u\le\tfrac12$. Multiplying over $j$,
+\[
+|B(z_i)|^{-2}\le\exp\Bigl(\sum_j 8\sigma_j\mu_j x_{\max}/(|\gamma_j|-T_0)^2\Bigr)
+=e^{8x_{\max}\tau(T)},
+\]
+so $\|D\|^2\le e^{8x_{\max}\tau(T)}$. Combining the three displays and
+Lemma~\ref{lem:tail-sum} proves the bound. Claims (i) and (ii) are its two
+contrapositive readings; note for (i) that a certified
+$\lambda_{\min}<-\varepsilon$ contradicts the display unless the band-clean
+hypothesis fails, i.e.\ a ghost with $|\gamma|\le T$ exists.
+\end{proof}
+
+\begin{remark}[shape of the constants; matching the module]\label{rem:l1-shape}
+The per-ghost leakage is exactly the module's heuristic: by
+\eqref{eq:two-point}, one far ghost contributes to the window kernel a
+rank-one term of size $\sigma_j/(\pi|z+\bar\alpha_j|^2)\sim\sigma_j/\gamma_j^2$
+--- the ``Blaschke $\gamma^{-2}$ decay of each ghost's rank-one negative
+direction'' --- and the $N(T)\sim\frac{T}{2\pi}\log\frac{T}{2\pi}$ counting
+integrates it to $O(\log T/T)$. At the audited heights
+($T=X/2\approx3\times10^{12}$) the tolerance is
+$\varepsilon\approx 10^{-10}N$: utterly negligible against the certified
+margins of \cite{BarrierCert} (minimum prism margin $0.5198\dots$).
+\end{remark}
+
+\subsection{The gap, precisely}\label{sec:l1-gap}
+
+What separates Theorem~\ref{thm:l1} from an \emph{unconditional} L1 is
+exactly Hypothesis~\ref{hyp:klf}: the verification that the pole-cleared
+remainder $S=R_aB_{P_a}$ is Schur. We record the state of a proof route
+without claiming it:
+\begin{itemize}
+\item Group the Hadamard product of $X$ into symmetric zero packets
+$\{\lambda,-\lambda,\bar\lambda,-\bar\lambda\}$. For an on-line packet
+($\lambda=i\gamma$) the induced factor of $R_a$ is
+\[
+\frac{(w-a)^2+\gamma^2}{(w+a)^2+\gamma^2}
+=b_{a+i\gamma}(w)\,b_{a-i\gamma}(w),
+\]
+a product of two Blaschke factors --- Schur outright. For an off-critical
+packet with displacement $\delta\le a$, the paper's \S15 threshold identity
+$|Q_{\delta,\gamma}(w+a)|^2-|Q_{\delta,\gamma}(w-a)|^2
+=8ax(x^2+Y^2+a^2-\delta^2)\ge0$ shows the packet factor is Schur. For a
+ghost packet ($\delta>a$) one must check that (packet factor)$\times$(its
+Blaschke correction $b_{\alpha}b_{\bar\alpha'}\cdots$) is Schur.
+\item The remaining work is bookkeeping of genus-one convergence factors
+$e^{\pm2a/\rho}$ across packets and the passage to the locally uniform limit
+(limits of Schur functions are Schur). None of this looks conceptually
+blocked, but it has \emph{not} been carried out rigorously here, and the
+growth of $\xi$ (order 1, maximal type) means no off-the-shelf
+bounded-type theorem closes it for free.
+\end{itemize}
+\textbf{Grade: \textsc{conditional}.} Given (KL-F), L1 is proven with
+explicit constants (Theorem~\ref{thm:l1}). Without (KL-F), the leakage bound
+on $G_{K_B}$ and $D$ still holds verbatim (it is kernel algebra plus zero
+counting), but the interpretation ``everything else is positive'' does not
+follow. The module's assessment ``plausibly provable, NOT done'' stands, now
+with the missing step named exactly.
+
+\section{Part 4: L2, mesh detection (\textsc{open}; partial results proven)}
+\label{sec:l2}
+
+L2 asks for an explicit mesh density $\delta(T,a)$ at which every ghost with
+$|\im\lambda|\le T$ is \emph{forced} to produce a certified negative
+eigenvalue of the band Gram --- the ingredient that would upgrade
+sampled-subspace positivity to region zero-freeness and close the
+$\Leftarrow$ direction of the module's conjecture. \textbf{We do not close
+L2.} We prove the detection mechanism and a conditional explicit density,
+and we isolate the single missing hypothesis.
+
+\subsection{The detection mechanism (\textsc{proven}, unconditional)}
+
+\begin{proposition}[modulus witness]\label{prop:modulus-witness}
+If a mesh $Z$ contains a point $\hat z$ with $|R_a(\hat z)|>1$, then
+\[
+K_{R_a}(\hat z,\hat z)=\frac{1-|R_a(\hat z)|^2}{4\pi\,\re\hat z}<0,
+\]
+so $G_{K_{R_a}}(Z)$ has a negative diagonal entry, hence
+$\lambda_{\min}(G_{K_{R_a}}(Z))<0$: the Lemma~23.3 gate cannot pass, and the
+sign of the diagonal entry is certifiable by interval arithmetic (it is one
+$\xi$-ratio evaluation). No factorization theory is used.
+\end{proposition}
+
+\begin{proof}
+Immediate from the kernel formula and the Rayleigh quotient at the
+coordinate vector $e_{\hat z}$. The de Branges form of the Gram used in the
+repository (kernel
+$K_a(w,z)=[E_a(z)\overline{E_a(w)}-E_a^{\#}(z)\overline{E_a^{\#}(w)}]/(2\pi i(\bar w-z))$
+in the upper-half-plane variable) is diagonally congruent to
+$G_{K_{R_a}}$: under $u=-iz$ one has $2\pi i(\bar w-z)=2\pi(u+\bar v)$ and
+$K_a=E_a(z)\overline{E_a(w)}\,K_{\Theta_a}(u,v)$ with
+$\Theta_a(u)=R_a(u)$, so the two Grams are related by
+$\operatorname{diag}(E_a(z_i))$-congruence and share their inertia at every
+mesh avoiding zeros of $E_a$ (Prop.~\ref{prop:sylvester}).
+\end{proof}
+
+\subsection{Every uncancelled ghost has a detection disk
+(\textsc{proven}, with ineffective radius)}
+
+\begin{proposition}[detection radius]\label{prop:detection-radius}
+Let $\lambda_0$ be a zero of $X$ with $\re\lambda_0>a$, of multiplicity
+$m_0$, and suppose it is fully uncancelled at level $a$:
+$v_0:=|X(\lambda_0-2a)|>0$. Put $\alpha_0=\lambda_0-a$ and, for a fixed
+scale $r\in(0,1]$,
+\[
+M_1=\sup_{|\zeta-(\lambda_0-2a)|\le r}|X'(\zeta)|,\qquad
+M_2=r^{-m_0}\sup_{|\zeta-\lambda_0|=r}|X(\zeta)| .
+\]
+Then $|R_a(z)|>1$ for every $z$ with
+$0<|z-\alpha_0|\le\rho(\alpha_0):=\min\Bigl(r,\dfrac{v_0}{2(M_1+M_2)}\Bigr)$.
+\end{proposition}
+
+\begin{proof}
+Write $h=z-\alpha_0$, $|h|\le\rho$. Numerator:
+$|X(z-a)|=|X(\lambda_0-2a+h)|\ge v_0-M_1|h|$ by the mean value inequality
+along the segment. Denominator: $g(h)=X(\lambda_0+h)/h^{m_0}$ is holomorphic
+on $|h|\le r$, so by the maximum principle
+$|X(z+a)|\le M_2|h|^{m_0}\le M_2|h|$ (using $|h|\le r\le1$, $m_0\ge1$).
+The quotient $(v_0-M_1|h|)/(M_2|h|)$ is decreasing in $|h|$, so it suffices
+to check $|h|=\rho$. With $\rho\le v_0/(2(M_1+M_2))$,
+\[
+v_0-M_1\rho\;\ge\;v_0\Bigl(1-\tfrac{M_1}{2(M_1+M_2)}\Bigr)\;\ge\;\frac{v_0}{2},
+\qquad
+M_2\rho\;\le\;\frac{v_0M_2}{2(M_1+M_2)},
+\]
+whence
+\[
+|R_a(z)|\;\ge\;\frac{v_0-M_1\rho}{M_2\rho}
+\;\ge\;\frac{v_0/2}{v_0M_2/(2(M_1+M_2))}
+\;=\;\frac{M_1+M_2}{M_2}\;>\;1,
+\]
+the final strictness because $M_1=\sup|X'|>0$ on a nondegenerate disk.
+\end{proof}
+
+The upper constants are effective: on the compact strip
+$|\re\zeta|\le\tfrac32$, $|\im\zeta|\le T+2$, explicit classical bounds give
+$|X|,|X'|\le\mathcal{B}(T)$ with $\mathcal{B}$ an elementary explicit
+function (bound $\zeta$ by convexity, $\Gamma$ by Stirling, and get $X'$ from
+$X$ by a Cauchy integral on a unit circle). \emph{The lower constant $v_0$ is
+the problem.}
+
+\subsection{A conditional explicit density, and the open core}
+
+\begin{hypothesis}[effective zero-repulsion, {(ZR)} --- \textsc{not proven}]
+\label{hyp:zr}
+There is an effectively computable $\eta(T)>0$ and a finite, effectively
+specifiable set of levels $A\subset(0,\tfrac12)$ such that every hypothetical
+zero $\lambda_0$ of $X$ with $0<\re\lambda_0\le\tfrac12$, $|\im\lambda_0|\le T$
+satisfies $|X(\lambda_0-2a)|\ge\eta(T)$ for at least one $a\in A$ with
+$a<\re\lambda_0$.
+\end{hypothesis}
+
+\begin{theorem}[L2, conditional form]\label{thm:l2-conditional}
+Assume (ZR). Set
+$\rho_0(T,a)=\min\bigl(1,\eta(T)/(4\mathcal{B}(T))\bigr)$ and let $Z$ be the
+square lattice of spacing $\rho_0$ in the rectangle
+$\{0<\re w\le\tfrac12,\ |\im w|\le T\}$, offset so no lattice point is a pole
+(any generic offset works). Then for every ghost configuration: some level
+$a\in A$ and some mesh point $\hat z\in Z$ satisfy $|R_a(\hat z)|>1$, hence
+the certificate family $\{(a,Z):a\in A\}$ certifies a negative diagonal ---
+every band ghost is detected. In particular $\delta(T,a)=\rho_0(T,a)$ is an
+explicit sufficient mesh density, \emph{given} (ZR).
+\end{theorem}
+
+\begin{proof}
+Given a ghost $\lambda_0$, pick $a\in A$ as in (ZR); then
+Prop.~\ref{prop:detection-radius} with $r=1$, $M_1,M_2\le\mathcal{B}(T)$
+(the disks $|\zeta-\lambda_0|\le1$, $|\zeta-(\lambda_0-2a)|\le1$ lie in the
+bounding strip) gives $|R_a|>1$ on the punctured disk of radius
+$\eta(T)/(4\mathcal{B}(T))\ge\rho_0$ about $\alpha_0=\lambda_0-a$. A square
+lattice of spacing $\rho_0$ has a point within $\rho_0/\sqrt2<\rho_0$ of
+$\alpha_0$; $\re\alpha_0>0$ and the lattice may be taken with first column at
+$\re=\rho_0/2$, which still leaves a lattice point within $\rho_0/\sqrt2$ of
+any point of the open strip. That point lies in the punctured disk (the
+offset avoids exact coincidence with $\alpha_0$), so
+Prop.~\ref{prop:modulus-witness} applies.
+\end{proof}
+
+\textbf{The open core.} (ZR) is genuinely open, and it is the \emph{only}
+missing piece:
+\begin{itemize}
+\item $v_0=|X(\lambda_0-2a)|$ has no known unconditional positive lower
+bound. Its failure mode is a second zero (or near-vanishing) of $X$ at the
+horizontally translated point $\lambda_0-2a$ --- a \emph{zero-alignment /
+zero-clustering} configuration. Ruling such configurations out effectively
+is a zero-repulsion statement about hypothetical off-critical zeros, i.e.\
+exactly the territory (adjacent to Montgomery pair-correlation) where the
+program's other unconditional walls stand. We see no route to (ZR) from
+current explicit-theory inputs and therefore mark L2 \textsc{open}.
+\item The quantifier structure matters: for a \emph{single} level $a$,
+cancellation can be exact ($v_0=0$) and detection genuinely impossible at
+that level (Remark~\ref{rem:quantifier}); the finite level set $A$ in (ZR)
+is forced. For each fixed ghost the bad levels are finitely many, so
+\emph{some} finite $A$ works for any \emph{fixed} finite configuration ---
+but (ZR) demands $A$ and $\eta$ \emph{uniform over all hypothetical
+configurations}, which is the open content.
+\end{itemize}
+
+\subsection{Adversarial self-check of the partial results}
+\label{sec:self-check}
+
+Because a plausible-looking L2 argument is a classic error site, we attack
+our own partial claims. Attacks on Theorem~\ref{thm:l2-conditional} and its
+supporting propositions:
+
+\begin{enumerate}
+\item \emph{``The diagonal argument smuggles in Krein--Langer.''} No:
+Prop.~\ref{prop:modulus-witness} is one line of algebra from the definition
+of the kernel; it needs neither (KL-F) nor Standing Input~\ref{si:kl}. The
+congruence to the repository's de Branges Gram is Sylvester again. Checked.
+\item \emph{``The mesh point could land on the pole or on a zero of $E_a$.''}
+Both are finite sets; a generic lattice offset avoids them, and interval
+arithmetic detects the degenerate case (unbounded enclosure) fail-closed.
+Checked.
+\item \emph{``Faint ghosts ($\re\lambda_0\downarrow a$) escape.''} This
+killed the naive $\lambda_{\min}$-margin route: the ghost's negative square
+has strength $\propto\re\alpha_0$, which vanishes as the ghost approaches
+level $a$, so no \emph{margin-based} density $\delta(T,a)$ uniform in the
+ghost can exist. The modulus-witness route is immune: the pole is a pole
+regardless of $\re\alpha_0$, and the detection radius
+$\rho=v_0/2(M_1+M_2)$ of Prop.~\ref{prop:detection-radius} does \emph{not}
+degenerate as $\re\lambda_0\downarrow a$ (the evaluation point
+$\lambda_0-2a$ moves left across the strip; nothing there vanishes with the
+margin). What the faint-ghost family \emph{does} show is that the mesh must
+extend to within $O(\rho_0)$ of the imaginary axis, which
+Theorem~\ref{thm:l2-conditional}'s lattice does. Checked --- but note this
+immunity is exactly what shifts the entire burden onto $v_0$, i.e.\ onto
+(ZR).
+\item \emph{``Multiplicities / partial cancellation.''}
+Prop.~\ref{prop:detection-radius} handles $m_0\ge2$ (the denominator bound
+only improves). Partial cancellation $0<m(\lambda_0-2a)<m_0$ degrades $v_0$
+to $0$ while a pole persists; detection then needs the same statement one
+derivative down, with $v_0$ replaced by the leading Taylor coefficient of
+$X$ at $\lambda_0-2a$ --- the same ineffectivity, folded into (ZR). Not a
+new gap, but (ZR) must be read as covering derivative lower bounds in the
+degenerate cases. Flagged.
+\item \emph{``Could the frozen approximation $G^{\mathrm{fr}}$ pass anyway?''} No:
+Lemma~23.3's gate is sound (Theorem~\ref{thm:no-beating}(a)); a negative
+true diagonal forces $\lambda_{\min}(G^{\mathrm{fr}})\le\|E\|_2$ for any honest
+error bound. Checked.
+\item \emph{``Is (ZR) really the only gap --- what about the window between
+$|R_a|>1$ near the pole and the mesh?''} The lattice geometry argument is
+elementary and complete given $\rho_0>0$; the level set $A$ is finite so the
+certificate family is finite; $\mathcal{B}(T)$ is effective. We find no
+second gap. But we \emph{cannot} exclude that (ZR) itself is false --- e.g.\
+if hypothetical zero configurations with long horizontal alignment chains
+were consistent with all known constraints, no finite $A$ with uniform
+$\eta$ would exist. L2 therefore remains \textsc{open} in both directions:
+we neither prove (ZR) nor prove it necessary.
+\item \emph{``Does Prop.~\ref{prop:mesh-blind} contradict
+Theorem~\ref{thm:l2-conditional}?''} No: the mesh-blind ghost of
+Prop.~\ref{prop:mesh-blind} is blind to a \emph{fixed} mesh; the
+$\Theta$ constructed there has $|\Theta|\le|c|\cdot|1/b_\alpha|$, and its
+$|\Theta|>1$ detection disk shrinks with $c$ --- the counterexample works
+precisely by making the detection radius smaller than the given mesh's
+density. This is the class-level demonstration that no
+configuration-independent $\delta(T,a)$ exists, consistent with (and
+explaining) the need for the configuration-dependent input (ZR). Checked.
+\end{enumerate}
+
+\textbf{Verdict: L2 is \textsc{not closed}.} The proven content is the
+detection mechanism (unconditional) and the explicit density
+$\delta=\rho_0(T,a)$ conditional on (ZR). The obstruction is precisely an
+effective lower bound on $|X|$ at horizontally translated images of
+hypothetical zeros --- an effective zero-repulsion statement that current
+technology does not supply.
+
+\section{Consequences and honest scope}\label{sec:scope}
+
+\begin{itemize}
+\item \textbf{No new bound.} Fed the same verified zeros (Standing
+Input~\ref{si:pt}) and the same $H_t$ flow certificates (Standing
+Input~\ref{si:polymath}), the frozen-rung certificate reproduces exactly
+$\Lambda\le0.2$ (Polymath row) and $\Lambda\le893927/5000000=0.1787854$
+(unreviewed candidate row of \cite{ProofNote}); by
+Theorem~\ref{thm:no-beating} it provably cannot do better at data height
+$\le\TPT$. Platt--Trudgian $\Lambda\le0.2$ remains the accepted state of the
+art. This document proves no statement about the truth of RH.
+\item \textbf{Why record it.} Theorem~\ref{thm:no-beating} is the
+operator-frame explanation of the obstruction seam: inertia preservation is
+\emph{why} the barrier/positivity-tightening class (SOS, Carleman, Putinar,
+Schur/Blaschke freezing) cannot beat the verified height --- the
+operator-side echo of the PT-floor sensitivity audit. The only
+$\Lambda$-moving lever on this side is more verified height, which enters
+inverse-logarithmically.
+\item \textbf{The slogan, at its proven strength.} ``The Turing method is
+the efficient (winding-form) special case of the frozen-rung index
+certificate'' is Theorem~\ref{thm:winding-identity} plus
+Prop.~\ref{prop:mesh-blind}: the winding form computes the exact integer the
+Gram form can only bound from one side, at a per-height cost comparable to
+Turing's sweep, whereas Gram coverage of the same band is exponentially
+costlier.
+\item \textbf{What would change the picture.} An unconditional (KL-F) proof
+upgrades L1 from \textsc{conditional} to \textsc{proven} (the constants are
+already explicit). A proof of (ZR) --- or any effective zero-repulsion for
+hypothetical off-critical zeros --- closes L2 and with it the full
+equivalence conjecture. Neither would improve $\Lambda$; both would only
+certify that the frozen-rung certificate and Platt--Trudgian have
+\emph{identical} content, rather than the proven one-sided bound.
+\end{itemize}
+
+\begin{thebibliography}{99}
+
+\bibitem{Polymath15} D.~H.~J. Polymath, \emph{Effective approximation of heat
+flow evolution of the Riemann $\xi$ function, and a new upper bound for the
+de Bruijn--Newman constant}, Res.\ Math.\ Sci.\ 6 (2019), arXiv:1904.12438v2.
+Theorem~1.2 is the pipeline of Standing Input~\ref{si:polymath}.
+
+\bibitem{PlattTrudgian} D. Platt and T. Trudgian, \emph{The Riemann
+hypothesis is true up to $3\cdot10^{12}$}, Bull.\ London Math.\ Soc.\ 53
+(2021), 792--797. Source of $\TPT=3\,000\,175\,332\,800$.
+
+\bibitem{Turing} A.~M. Turing, \emph{Some calculations of the Riemann
+zeta-function}, Proc.\ London Math.\ Soc.\ (3) 3 (1953), 99--117.
+
+\bibitem{Booker} A.~R. Booker, \emph{Turing and the Riemann hypothesis},
+Notices Amer.\ Math.\ Soc.\ 53 (2006), 1208--1211. Modern statement of the
+Turing-method count used in Standing Input~\ref{si:pt}.
+
+\bibitem{Trudgian} T. Trudgian, \emph{An improved upper bound for the
+argument of the Riemann zeta-function on the critical line II}, J. Number
+Theory 134 (2014), 280--292. Explicit $N(T)$ bounds for Standing
+Input~\ref{si:rvm}.
+
+\bibitem{KreinLanger} M.~G. Krein and H. Langer, \emph{\"Uber die
+$Q$-Funktion eines $\pi$-hermiteschen Operators im Raume $\Pi_\kappa$},
+Acta Sci.\ Math.\ (Szeged) 34 (1973), 191--230; and \emph{\"Uber einige
+Fortsetzungsprobleme...}, Math.\ Nachr.\ 77 (1977), 187--236. Generalized
+Schur classes $\mathcal{S}_\kappa$; negative squares count half-plane poles.
+
+\bibitem{deBranges} L. de Branges, \emph{Hilbert Spaces of Entire
+Functions}, Prentice--Hall, 1968. Structure pairs $(E,E^{\#})$ and the
+reproducing kernel used in paper \S15/\S23.
+
+\bibitem{Sylvester} J.~J. Sylvester, \emph{A demonstration of the theorem
+that every homogeneous quadratic polynomial is reducible by real orthogonal
+substitutions to the form of a sum of positive and negative squares},
+Philos.\ Mag.\ (4) 4 (1852), 138--142.
+
+\bibitem{Lagarias} J.~C. Lagarias, \emph{The Riemann hypothesis: arithmetic
+and geometry}, in: Surveys in Noncommutative Geometry, Clay Math.\ Proc.\ 6
+(2006). Context for positivity reformulations (cf.\ repository audit
+\texttt{imp-1232}).
+
+\bibitem{ProofNote} \emph{Proof note for the $0.1787854$ candidate},
+repository \texttt{dbn-lambda-audit-review/PROOF\_NOTE.md} (2026).
+Unreviewed computer-assisted candidate; source of the exact row
+$(X,t_0,y_0^2)$ and the $T_{\mathrm{PT}}$ surplus computation.
+
+\bibitem{BarrierCert} \emph{Closed barrier certificate}, repository
+\texttt{dbn-lambda-audit-review/BARRIER\_CERTIFICATE.md} (2026). The
+883-prism winding-form certificate of Polymath hypothesis~(iii); \S6.3 is
+the winding form referenced throughout.
+
+\bibitem{PaperV52} J. Gomila, \emph{Twin-Ladder Deformations of $\xi$},
+consolidated drafts v52/v70 (repository \texttt{research-inputs/}), \S15
+(shift-bridge positivity; corrected threshold theorem), \S17 (Blaschke
+ghosts, Krein--Langer identity \S17.4), \S23 (freezing bridge; Propositions
+23.1--23.4, Lemma 23.3, Conjecture 23.5).
+
+\bibitem{Module} Repository module
+\texttt{src/data/frozen-rung-pt-equivalence-2026-07-31.js} --- the
+proposition this document proves, with its build-time honesty tripwires.
+
+\end{thebibliography}
+
+\end{document}

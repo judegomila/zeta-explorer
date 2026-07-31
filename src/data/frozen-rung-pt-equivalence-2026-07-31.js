@@ -122,6 +122,7 @@ export const FROZEN_RUNG_PT_EQUIVALENCE = Object.freeze({
   setup: SETUP,
   proposition: PROPOSITION,
   whyItMatters: WHY_IT_MATTERS,
+  paperPdf: '/frozen-rung-pt-equivalence.pdf',
 });
 
 /** Build-time invariants (honesty tripwires). */

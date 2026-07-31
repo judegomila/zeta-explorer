@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { FROZEN_RUNG_PT_EQUIVALENCE } from '../data/frozen-rung-pt-equivalence-2026-07-31.js';
 
-const { setup, proposition, whyItMatters } = FROZEN_RUNG_PT_EQUIVALENCE;
+const { setup, proposition, whyItMatters, paperPdf } = FROZEN_RUNG_PT_EQUIVALENCE;
 
 function Part({ tag, color, status, children }) {
   return (
@@ -35,6 +35,17 @@ export default function FrozenRungPTEquivalencePage() {
           'it reproduces exactly Λ ≤ 0.1787854 / 0.2. Platt–Trudgian Λ ≤ 0.2 remains the accepted SOTA. No QED.'
         }
       />
+
+      {paperPdf && (
+        <div style={{ border: '1px solid #a855f755', background: 'rgba(168,85,247,0.06)', borderRadius: 8, padding: '10px 14px', margin: '14px 0', maxWidth: 640 }}>
+          <div style={{ fontSize: 12, color: '#64748b', marginBottom: 3 }}>Full rigorous write-up (13pp, math paper)</div>
+          <a href={paperPdf} target="_blank" rel="noreferrer" style={{ color: '#c084fc', fontFamily: 'ui-monospace, monospace', fontSize: 13 }}>{paperPdf}</a>
+          <div style={{ fontSize: 11.5, color: '#94a3b8', marginTop: 4, lineHeight: 1.5 }}>
+            Proves the inertia half + winding-form identity rigorously; L1 conditional (gap named); L2 left OPEN with a
+            7-attack adversarial self-check. No new bound, not RH.
+          </div>
+        </div>
+      )}
 
       <h2>Setup</h2>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 6, maxWidth: 860 }}>

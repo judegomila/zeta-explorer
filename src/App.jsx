@@ -25,6 +25,7 @@ const VerifiedHeightLeverPage = lazy(() => import('./pages/VerifiedHeightLeverPa
 const MollifiedBarrierCertificatePage = lazy(() => import('./pages/MollifiedBarrierCertificatePage.jsx'));
 const FormalizationStatusPage = lazy(() => import('./pages/FormalizationStatusPage.jsx'));
 const FormalizationReviewPage = lazy(() => import('./pages/FormalizationReviewPage.jsx'));
+const FrozenRungPTEquivalencePage = lazy(() => import('./pages/FrozenRungPTEquivalencePage.jsx'));
 const ZeroDensityScopingPage = lazy(() => import('./pages/ZeroDensityScopingPage.jsx'));
 const GuthMaynardScopingPage = lazy(() => import('./pages/GuthMaynardScopingPage.jsx'));
 const ObstructionSeamPage = lazy(() => import('./pages/ObstructionSeamPage.jsx'));
@@ -1531,6 +1532,7 @@ function AppShell() {
           <Route path="/mollified-barrier-certificate" element={<MollifiedBarrierCertificatePage />} />
           <Route path="/formalization-status" element={<FormalizationStatusPage />} />
           <Route path="/formalization-review" element={<FormalizationReviewPage />} />
+          <Route path="/frozen-rung-pt-equivalence" element={<FrozenRungPTEquivalencePage />} />
           <Route path="/zero-density-scoping" element={<ZeroDensityScopingPage />} />
           <Route path="/guth-maynard-scoping" element={<GuthMaynardScopingPage />} />
           <Route path="/obstruction-seam" element={<ObstructionSeamPage />} />

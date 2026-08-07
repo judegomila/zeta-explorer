@@ -224,6 +224,19 @@ equation (5.2), or determinant convergence.
   `notes/OUTER_OUTER_SPECTRAL_THEOREM.md`; this does not upgrade any of these
   scalar pairings to a signed operator floor or residual-action estimate.
 
+## Compact absolute-sampling dependency lock
+
+`COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json` pins the complete dependency
+chain for `notes/COMPACT_ABSOLUTE_SAMPLING_THEOREM.md`: HSW v1 for the local
+zero count, Egidi--Seelmann v2 for the explicit defect lower bound, the CCM
+and KRD prolate conventions, Slepian's fixed-index `d_4/d_8` ratio, and the
+MTY/PT inputs already used by the admitted physical-outer theorem.  It also
+hashes the relevant repository source locks and theorem notes.  The producer
+and independent verifier require the exact 17-path/hash inventory.  This new
+theorem proves absolute sampling for the actual complete remainder; it does
+not prove growing-window Bessel constants, the reciprocal defect sum, a
+shifted sector floor, equation (5.2), or RH.
+
 ## Finite-compression candidate input, not yet source-locked
 
 - H. L. Montgomery and R. C. Vaughan, *Hilbert's Inequality*, J. London

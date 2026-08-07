@@ -126,12 +126,19 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   pole--archimedean--prime distribution and a locked, gauge-controlled
   positive prolate leakage model.  Do not use positivity of the spectral
   tail pairing or Weil-form Cauchy--Schwarz.
-- [ ] Prove the absolute-sampling window estimates isolated by the graph-dual
-  theorem: a complete remainder bound `||R||_Z^2<=epsilon_lambda`, uniform
-  source-window Bessel bounds `||v||_Z^2<=beta_m d_m||v||^2`, and the
-  reciprocal sum `sum beta_m/d_m=O(1/d_8)`.  These would upgrade the scalar
-  cancellation to the required action scale; the exact counterexample shows
-  that scalar polarization alone cannot do so.
+- [x] Prove the complete-remainder side of the graph-dual absolute-sampling
+  theorem.  The compact-BV estimate gives
+  `||R||_Z^2<=d_4(4*C_spec*D_S(lambda)+2*B_P(lambda))=O(lambda^7*d_4)`
+  on the locked exponential schedule, without a zero list, global zero
+  reality, or Weil positivity.
+- [ ] Prove the remaining absolute-sampling window estimates: uniform
+  source-window Bessel bounds `||v||_Z^2<=beta_m d_m||v||^2` and the
+  reciprocal sum `sum beta_m/d_m=O(1/d_8)`.  Together with the complete
+  remainder bound these would upgrade the scalar cancellation to the required
+  action scale.  The direct compact-BV insertion is proved insufficient
+  already at label `8`, where it gives `beta_8/d_8=B_abs/d_8^2`; the estimate
+  must be defect-relative.  The exact counterexample also shows that scalar
+  polarization alone cannot do so.
 - [ ] Obtain an asymptotic formula with a rigorous remainder for
   `r_(lambda,N)`.
 - [ ] Control the residual in the shifted even-complement resolvent, not only

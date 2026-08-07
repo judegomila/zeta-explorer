@@ -159,8 +159,13 @@ even complement, the exact radical identity gives
 Thus the missing input is a weak bilinear estimate on the `D`-graph unit
 ball, not another diagonal value of the indefinite form.  Ordinary sequence
 Cauchy--Schwarz in the positive absolute zero-sampling seminorm reduces this to
-window Bessel estimates and a reciprocal defect sum, as recorded in
-`notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md`.  Its exact five-dimensional
+the complete-remainder sampling bound, window Bessel estimates, and a
+reciprocal defect sum, as recorded in
+`notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md`.  The first of those inputs is now
+proved: `notes/COMPACT_ABSOLUTE_SAMPLING_THEOREM.md` gives
+`||R||_Z^2=O(lambda^7*d_4)` on the locked exponential schedule, with every
+finite constant displayed and independently replayed.  The growing-window
+Bessel estimates and reciprocal sum remain open.  The exact five-dimensional
 two-sided-radical model has all four scalar P/O pairings equal to zero while
 the residual action remains nonzero.  This proves that the scalar quadratic
 closure above cannot by itself be promoted to the required vector estimate.

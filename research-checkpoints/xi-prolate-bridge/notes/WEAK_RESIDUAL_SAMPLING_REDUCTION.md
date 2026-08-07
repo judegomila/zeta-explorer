@@ -9,10 +9,12 @@ scalar quadratic cancellations cannot imply that theorem.
 
 Everything below is finite-dimensional linear algebra or ordinary
 Cauchy--Schwarz on an absolutely summable sequence.  No reality of a zeta
-zero, positivity of the Weil form, or zero table is used.  The required
-window sampling estimates, left-preconditioned sector comparisons, and odd
-sector floor are not proved here.  Equation (5.2) of `DIRECT_RH_ATTACK.md`
-therefore remains open, and the repository state remains `P0_INVALIDATED`.
+zero, positivity of the Weil form, or zero table is used.  The separate
+compact-BV theorem now proves the complete-remainder hypothesis (3.4), but
+the required growing-window Bessel estimates, reciprocal defect sum,
+left-preconditioned sector comparisons, and odd sector floor are not proved.
+Equation (5.2) of `DIRECT_RH_ATTACK.md` therefore remains open, and the
+repository state remains `P0_INVALIDATED`.
 
 ## 2. Exact graph-dual identity
 
@@ -184,14 +186,23 @@ and the growing source windows satisfy
 
 then the square of the right side of (3.8) is `O(lambda^(-1))`.
 This would give the desired `O(lambda^(-1/2))` weighted action.
-Equations (4.1)--(4.3) are a route, not a completed theorem: the current
-repository still lacks
+`notes/COMPACT_ABSOLUTE_SAMPLING_THEOREM.md` now proves, on the locked
+half-integer exponential schedule, the explicit complete-remainder bound
 
-1. an absolute zero-sampling bound for the compact projection remainder;
-2. the window Bessel constants `beta_m` through the growing transition
+\[
+ \|R\|_{\mathfrak Z}^2
+ \le d_4\left(4C_{\rm spec}D_S(\lambda)+2B_P(\lambda)\right)
+ =O(\lambda^7d_4),                                         \tag{4.4}
+\]
+
+with `B_P(lambda)->0`.  Thus hypothesis (3.4) is closed for the actual
+remainder.  Equations (4.1)--(4.4) still do not complete the route: the
+repository lacks
+
+1. the window Bessel constants `beta_m` through the growing transition
    range, including physical lift and Gram conditioning;
-3. the reciprocal-window sum (4.3); and
-4. the left-preconditioned comparisons in both parity sectors.
+2. the reciprocal-window sum (4.3); and
+3. the left-preconditioned comparisons in both parity sectors.
 
 A natural proof of (3.5) would construct, for every window vector, a
 uniformly conditioned two-sided radical lift
@@ -203,6 +214,138 @@ uniformly conditioned two-sided radical lift
 At every zero parameter, radicality gives `F_v=-F_(R_v)`.  A
 defect-relative absolute-sampling estimate for `R_v` would then prove (3.5)
 without invoking Weil positivity.
+
+### 4.1 Why direct compact-BV sampling loses one defect
+
+The new compact-BV theorem cannot itself prove (3.5).  This failure is
+quantitative already in the first fixed window.  Put `L=2log(lambda)`, and
+let `v` be a real unit vector in the trigonometric space with modes
+`|r|<=N`.  Parseval and Bernstein give
+
+\[
+ \|v'\|_2\le {2\pi N\over L},
+ \qquad
+ \operatorname {TV}_{[-L/2,L/2]}(v)
+ \le {2\pi N\over\sqrt L}.                                 \tag{4.5}
+\]
+
+Cauchy--Schwarz in the orthonormal Fourier basis gives either endpoint trace
+at most `sqrt((2N+1)/L)`.  Hence the real-line variation of the zero extension
+satisfies
+
+\[
+ V_N^0={2\pi N+2\sqrt{2N+1}\over\sqrt L}.                 \tag{4.6}
+\]
+
+Insert `E=1`, `V=V_N^0` into equation (2.17) of
+`notes/COMPACT_ABSOLUTE_SAMPLING_THEOREM.md`.  With
+
+\[
+ H_N=\max\left\{1,
+       \left(V_N^0+{3\over4}\sqrt L\right)^2\right\},     \tag{4.7}
+\]
+
+every normalized vector in every physical window obeys the completely
+explicit absolute bound
+
+\[
+\begin{aligned}
+ \|v\|_{\mathfrak Z}^2\le B_{\rm abs}(\lambda,N)
+ :={}&192\sqrt e\,\lambda(1+\log\lambda)^2\\
+ &\times\left[Z_{\rm finite}+{C_Z\over\pi}
+ \left((\pi+1)\log(H_N+2)+1\right)\right].                \tag{4.8}
+\end{aligned}
+\]
+
+On the locked exponential schedule this is only
+`O(lambda^3(log lambda)^2)`.  To force (3.5) from (4.8), one must take
+`beta_m=B_abs/d_m`, so its reciprocal contribution is
+
+\[
+ {\beta_m\over d_m}={B_{\rm abs}\over d_m^2}.              \tag{4.9}
+\]
+
+For the first target `m=8`, (4.9) already exceeds the desired
+`O(d_8^(-1))` scale by the factor `B_abs/d_8`, which tends to infinity by
+the pinned fixed-index asymptotic.  Thus neither regrouping the growing
+windows nor improving their count can repair the direct insertion.
+
+The first missing inequality is genuinely defect-relative,
+
+\[
+ \sup_{v\in\mathcal K_m,\|v\|=1}\|v\|_{\mathfrak Z}^2
+ \le C_m d_m,                                              \tag{4.10}
+\]
+
+followed by a growing-index reciprocal ladder such as
+`sum_(m=8,12,...) C_m/d_m=O(1/d_8)`.  Current KRD upper bounds and the very
+weak all-index Logvinenko--Sereda lower bound prove neither statement.
+
+### 4.2 The sharper global sampling-Gram target
+
+There is a window-free form of the same missing estimate.  Let `G_+` be the
+positive sampling Gram on `mathcal K`, defined by
+
+\[
+ \langle v,G_+v\rangle=\|v\|_{\mathfrak Z}^2,
+ \qquad c=ab.
+\]
+
+The exact leakage identity and ordinary sequence Cauchy--Schwarz give the
+Loewner inequality
+
+\[
+ \boxed{cc^*\le\epsilon_\lambda G_+.}                     \tag{4.11}
+\]
+
+The same sequence inequality and radical identity give
+`|a^2q|=|W_Z(R,R)|<=epsilon_lambda`.  Hence
+`U_Z=epsilon_lambda/a^2` is a rigorous upper bound for both `q` and the
+two-vector Ritz value `u`.  In normalization-free variables the shifted
+parity operators are
+
+\[
+ \widehat B_+=a^2A-\epsilon_\lambda I,
+ \qquad
+ \widehat B_-=a^2Q_- -\epsilon_\lambda I.                 \tag{4.12}
+\]
+
+Because `epsilon_lambda=O(lambda^7d_4)` and
+`d_4/d_8=O(lambda^(-8))`, the scalar shift in (4.12) is
+`O(lambda^(-1)d_8)`.  Thus the complete-remainder theorem makes the shift
+penalty negligible relative to a `d_8` comparison floor.  It supplies no
+lower bound for the unshifted signed operators `A` or `Q_-`, so both parity
+comparisons remain separate obligations.
+
+For the even action, let `D_+>0` and assume the left-preconditioned comparison
+
+\[
+ \rho=\|D_+^{-1}(A-U_ZI-D_+)\|<1.
+\]
+
+Define the exact positive alignment constant
+
+\[
+ \Gamma_+(D_+)
+ =\|D_+^{-1}G_+D_+^{-1}\|
+ =\sup_{v\ne0}{\|v\|_{\mathfrak Z}^2\over\|D_+v\|^2}.     \tag{4.13}
+\]
+
+Equations (2.5) and (4.11) give
+
+\[
+ \boxed{
+ a\tau\le {\sqrt{\epsilon_\lambda\Gamma_+(D_+)}\over1-\rho}.}
+                                                                  \tag{4.14}
+\]
+
+Consequently the smallest sufficient global sampling theorem is the Loewner
+comparison `G_+<=Gamma D_+^2` with `Gamma=O(1/d_8)`.  The windowwise
+hypotheses imply such a bound after a Cauchy--Schwarz sum, but a direct global
+comparison can retain cross-window orientation and be sharper.  In contrast,
+the generic compact-BV estimate gives only `G_+<=B_abs I`; when the smallest
+scale in `D_+` is `d_8`, this yields
+`Gamma_+(D_+)<=B_abs/d_8^2`, again one full defect factor too weak.
 
 ## 5. Exact obstruction to a scalar-to-action inference
 

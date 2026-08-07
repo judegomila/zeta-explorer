@@ -108,6 +108,13 @@ schedule; no artifact asserts the complete residual--gap bridge, equation
   factorization/rational replay at `lambda=5/2`.  It records qualitative
   parity-map injectivity and explicitly keeps uniform physical conditioning
   false.  Provenance hashes are serialized.
+- `compact_absolute_sampling/`: arbitrary-precision point evaluations of the
+  explicit compact-BV zero-sampling theorem at the first locked exponential
+  schedule point, repeated at 80 and 160 digits and independently replayed
+  at 120 and 220 digits.  The producer and verifier reconstruct the exact
+  17-entry source dependency set and all 18 displayed values separately, but
+  share `mpmath` point arithmetic.  The artifacts prove no window Bessel
+  bound, reciprocal defect sum, shifted sector floor, equation (5.2), or RH.
 
 The replay script regenerates the binding pilots at doubled precision and the
 selected delicate schedule replay. File hashes are recorded in

@@ -97,6 +97,11 @@ region required by RH.
   `sup |W_Z(v,R)|/||Dv||`; a uniform bilinear/Bessel or absolute-sampling
   theorem on explicit source windows is one sufficient route to controlling
   it, not a consequence of the scalar identities.
+- The proved complete-remainder estimate
+  `||R||_Z^2=O(lambda^7*d_4)` supplies only one factor in that graph-dual
+  Cauchy--Schwarz argument.  It does not supply uniform Bessel bounds for the
+  growing complementary windows or the reciprocal defect sum, and therefore
+  does not by itself bound the shifted residual action.
 - The pole cannot be assigned the same sign in the two parity sectors.  With
   the locked Fourier sign it is `2 epsilon |p_epsilon><p_epsilon|`: positive
   in the even sector and negative in the odd sector.  Dropping inversion

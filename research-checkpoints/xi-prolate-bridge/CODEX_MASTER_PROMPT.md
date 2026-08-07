@@ -12,6 +12,7 @@ For work beyond the finite P0 replay, also read `P1_SOURCE_LOCK.json`,
 `PROLATE_DEFECT_SOURCE_LOCK.json`,
 `DEFECT_RELATIVE_PROJECTION_SOURCE_LOCK.json`,
 `ZERO_SAMPLING_SOURCE_LOCK.json`,
+`COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json`,
 `notes/CHEBYSHEV_ERROR_REWRITE.md`, `notes/GROWING_WINDOW_THEOREM.md`,
 `notes/PROLATE_TAIL_ENVELOPE.md`,
 `notes/NEAR_SIGNED_HANKEL_REDUCTION.md`,
@@ -22,6 +23,7 @@ For work beyond the finite P0 replay, also read `P1_SOURCE_LOCK.json`,
 `notes/OUTER_OUTER_ENDPOINT_OBSTRUCTION.md`,
 `notes/OUTER_OUTER_WEIGHTED_TRANSLATION_THEOREM.md`,
 `notes/OUTER_OUTER_SPECTRAL_THEOREM.md`,
+`notes/COMPACT_ABSOLUTE_SAMPLING_THEOREM.md`,
 `notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md`,
 `notes/PHASE_VOLUME_SCALE_AUDIT.md`, and
 `notes/DETERMINANT_LIMIT_AUDIT.md` completely before using their conclusions.
@@ -167,10 +169,12 @@ decomposition; it is not the asymptotic proof.
    locked schedule.  Do not promote this quadratic-energy theorem to control
    of `(Q-q)kappa`, either signed sector floor, the shifted resolvent, equation
    (5.2), or determinant convergence.  Use the graph-dual identity in
-   `notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md`: the next residual target is a
-   uniform absolute zero-sampling/Bessel estimate on the `||Dv||<=1` test
-   ball, including the compact projection remainder and reciprocal
-   growing-window defect sum.  Its exact radical counterexample proves that
+   `notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md`.  The source-pinned compact-BV
+   theorem now proves the actual complete-remainder input
+   `||R||_Z^2=O(lambda^7*d_4)` on the locked exponential schedule.  The next
+   residual target is the uniform growing-window Bessel estimate on the
+   `||Dv||<=1` test ball and its reciprocal defect sum.  The exact radical
+   counterexample proves that
    scalar polarization cannot by itself supply this input.  The continuous physical
    parity maps are qualitatively injective on the half-integer schedule by
    `notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md`; the remaining quantitative

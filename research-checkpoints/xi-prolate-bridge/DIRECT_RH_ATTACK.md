@@ -865,10 +865,14 @@ imply
 \]
 
 Thus the projected-state norm cancels from the quantity entering (5.2).
-The physical-outer sampling theorem already has the promising scale
-`O(lambda^7 d_4)`; a reciprocal window sum of scale `O(1/d_8)` would make
-(6.8) `O(lambda^(-1/2))`.  Absolute compact-remainder sampling, uniform
-window Bessel constants, and the reciprocal sum are not proved.  The exact
+The compact-BV absolute-sampling theorem now proves the complete-remainder
+bound `epsilon_lambda=O(lambda^7 d_4)` on the locked exponential schedule;
+a reciprocal window sum of scale `O(1/d_8)` would make (6.8)
+`O(lambda^(-1/2))`.  Uniform growing-window Bessel constants and the
+reciprocal sum are not proved.  A direct insertion of normalized windows into
+the compact-BV theorem gives `beta_m/d_m=B_abs/d_m^2`; label `8` alone misses
+the target by `B_abs/d_8`, so the missing estimate must be defect-relative.
+The exact
 five-dimensional radical model in
 `notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md` has every scalar P/O pairing
 equal to zero but nonzero weighted action, proving that (6.6)--(6.7) cannot

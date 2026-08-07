@@ -110,6 +110,30 @@ enough; the displayed sampling theorem is one explicit sufficient route, and
 any alternative source-specific argument must control the same graph-dual
 action by other means.
 
+The remainder side of that criterion is now closed.
+`notes/COMPACT_ABSOLUTE_SAMPLING_THEOREM.md` proves an explicit absolute
+zero-sampling theorem for every real compact BV profile on the locked
+logarithmic interval.  Applied to the actual projection tail, it gives
+`||P_lambda||_Z^2=o(d_4)` and `o(d_8)` on the locked exponential schedule;
+combined with the physical-outer estimate it gives
+
+`||R_lambda||_Z^2 <= d_4(4 C_spec D_S(lambda)+2 B_P(lambda)) = O(lambda^7 d_4)`.
+
+The source lock, producer, and independent replay reconstruct every finite
+constant without a zero list or global zero-reality assumption.  This closes
+only hypothesis (3.4) of the weak-residual reduction.  Uniform Bessel bounds
+for growing complementary windows, the reciprocal defect sum, both shifted
+sector comparisons, and equation (5.2) remain open.  Directly applying the
+same BV theorem to a normalized window gives only
+`beta_m/d_m=B_abs/d_m^2`; the `m=8` term alone loses
+`B_abs/d_8 -> infinity`.  The next estimate must therefore be genuinely
+defect-relative, not another absolute compactness bound.  Equivalently, if
+`G_+` is the positive zero-sampling Gram on the even complement, the sharp
+global target is `G_+ <= Gamma D_+^2` with `Gamma=O(1/d_8)`.  This retains
+cross-window orientation and can be stronger than a windowwise reciprocal
+sum.  The complete-remainder theorem also makes the scalar Rayleigh-shift
+penalty `O(lambda^(-1)d_8)`, but it supplies no signed parity floor.
+
 For the signed floors, `notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md` rewrites
 the complete real-axis form using the exact multiplier `m_lambda`, retains
 the opposite rank-one pole signs in the two parity sectors, and confines the
@@ -147,9 +171,13 @@ Start with:
     dependencies used in the outer--outer sampling theorem.
 13. `notes/OUTER_OUTER_SPECTRAL_THEOREM.md` -- the admitted absolute
     outer--outer bound and locked-schedule Ritz-energy corollary.
-14. `notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md` -- exact graph-dual residual
+14. `COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json` -- exact dependency and
+    formula contract for compact-BV and complete-remainder sampling.
+15. `notes/COMPACT_ABSOLUTE_SAMPLING_THEOREM.md` -- the complete-remainder
+    absolute-sampling bound on the locked exponential schedule.
+16. `notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md` -- exact graph-dual residual
     target, absolute-sampling window lemma, and scalar/action obstruction.
-15. `notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md` -- qualitative parity-map
+17. `notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md` -- qualitative parity-map
     injectivity and the exact normalized Gram/minor target.
 
 `notes/DETERMINANT_LIMIT_AUDIT.md` reproduces the complete finite

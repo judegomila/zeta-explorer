@@ -353,4 +353,18 @@ python3 verifier/outer_outer_spectral_theorem_replay.py \
   artifacts/outer_outer_spectral_theorem/lambda2p5_producer_dps160.json \
   --output artifacts/outer_outer_spectral_theorem/lambda2p5_replay_dps160.json >/dev/null
 
+mkdir -p artifacts/compact_absolute_sampling
+python3 src/compact_absolute_sampling.py --j 2 --dps 80 \
+  --output artifacts/compact_absolute_sampling/lambda2p5_j2_producer_dps80.json >/dev/null
+python3 verifier/compact_absolute_sampling_replay.py \
+  artifacts/compact_absolute_sampling/lambda2p5_j2_producer_dps80.json \
+  --dps 120 \
+  --output artifacts/compact_absolute_sampling/lambda2p5_j2_replay_dps120.json >/dev/null
+python3 src/compact_absolute_sampling.py --j 2 --dps 160 \
+  --output artifacts/compact_absolute_sampling/lambda2p5_j2_producer_dps160.json >/dev/null
+python3 verifier/compact_absolute_sampling_replay.py \
+  artifacts/compact_absolute_sampling/lambda2p5_j2_producer_dps160.json \
+  --dps 220 \
+  --output artifacts/compact_absolute_sampling/lambda2p5_j2_replay_dps220.json >/dev/null
+
 python3 src/write_artifact_manifest.py

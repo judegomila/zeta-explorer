@@ -6,7 +6,7 @@ must be read with their own status and claim-discipline files.
 
 ## Xi prolate–Weil bridge
 
-`xi-prolate-bridge/` is the 2026-08-06 proof-item-zero checkpoint for a direct
+`xi-prolate-bridge/` is the 2026-08-07 proof-item-zero checkpoint for a direct
 analytic Riemann-hypothesis research program. It is not part of the
 de Bruijn–Newman upper-bound campaign.
 
@@ -15,6 +15,13 @@ verifier paths, normalization and residual audits, adversarial tests, vendored
 source bytes, and replayable artifacts. Its formal state is `P0_INVALIDATED`:
 the repository contains no proof of the Riemann hypothesis, and its numerical
 diagnostics are not theorem claims.
+
+The current checkpoint adds a source-pinned compact-BV absolute-sampling
+theorem.  On the locked exponential schedule it proves projection sampling
+`o(d_4)`, `o(d_8)`, and complete-remainder sampling `O(lambda^7*d_4)`.  It
+does not prove the growing-window defect-relative Bessel bound, reciprocal
+defect sum, signed sector floors, equation (5.2), determinant convergence, or
+RH.
 
 Start with:
 

@@ -1,6 +1,6 @@
 {
   "artifact_name": "xi-prolate-bridge",
-  "artifact_version": "0.15.0-weak-dual-conditioning",
+  "artifact_version": "0.16.0-compact-absolute-sampling",
   "updated_date": "2026-08-07",
   "terminal_state": "P0_INVALIDATED",
   "entry_prompt": "CODEX_MASTER_PROMPT.md",
@@ -13,6 +13,7 @@
   "prolate_defect_source_lock": "PROLATE_DEFECT_SOURCE_LOCK.json",
   "defect_relative_projection_source_lock": "DEFECT_RELATIVE_PROJECTION_SOURCE_LOCK.json",
   "zero_sampling_source_lock": "ZERO_SAMPLING_SOURCE_LOCK.json",
+  "compact_absolute_sampling_source_lock": "COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json",
   "signed_rewrite_document": "notes/CHEBYSHEV_ERROR_REWRITE.md",
   "growing_window_document": "notes/GROWING_WINDOW_THEOREM.md",
   "prolate_tail_document": "notes/PROLATE_TAIL_ENVELOPE.md",
@@ -29,6 +30,7 @@
   "parity_multiplier_schur_document": "notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md",
   "phase_volume_scale_audit_document": "notes/PHASE_VOLUME_SCALE_AUDIT.md",
   "weak_residual_sampling_document": "notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md",
+  "compact_absolute_sampling_document": "notes/COMPACT_ABSOLUTE_SAMPLING_THEOREM.md",
   "physical_map_conditioning_document": "notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md",
   "compressed_multiplier_trace_candidate_document": "notes/COMPRESSED_MULTIPLIER_TRACE_CANDIDATE.md",
   "claim_status": {
@@ -67,6 +69,9 @@
     "locked_schedule_quadratic_ritz_energy_o_d8_proved": true,
     "weak_residual_graph_duality_proved": true,
     "scalar_to_action_counterexample_independently_replayed": true,
+    "compact_BV_absolute_sampling_theorem_proved": true,
+    "compact_projection_absolute_sampling_o_d4_proved": true,
+    "complete_remainder_absolute_sampling_O_lambda7_d4_proved": true,
     "absolute_sampling_window_bound_proved": false,
     "parity_multiplier_schur_reduction_written": true,
     "odd_pole_rank_one_dangerous_count_proved": true,
@@ -117,10 +122,10 @@
     "gmp": "6.3.0",
     "mpfr": "4.2.2",
     "test_command": "python3 -m unittest discover -s tests -v",
-    "tests_passed": 304,
-    "tests_total": 304
+    "tests_passed": 314,
+    "tests_total": 314
   },
   "replay": "./replay.sh",
   "artifact_hash_manifest": "artifacts/ARTIFACT_MANIFEST.sha256",
-  "manifest_note": "This manifest intentionally omits a self-hash. Current hashes for generated artifacts are in the artifact hash manifest; binding source hashes are in P0_SOURCE_LOCK.json, P1_SOURCE_LOCK.json, P2_SOURCE_LOCK.json, P3_SOURCE_LOCK.json, PROLATE_DEFECT_SOURCE_LOCK.json, DEFECT_RELATIVE_PROJECTION_SOURCE_LOCK.json, and ZERO_SAMPLING_SOURCE_LOCK.json."
+  "manifest_note": "This manifest intentionally omits a self-hash. Current hashes for generated artifacts are in the artifact hash manifest; binding source hashes are in P0_SOURCE_LOCK.json, P1_SOURCE_LOCK.json, P2_SOURCE_LOCK.json, P3_SOURCE_LOCK.json, PROLATE_DEFECT_SOURCE_LOCK.json, DEFECT_RELATIVE_PROJECTION_SOURCE_LOCK.json, ZERO_SAMPLING_SOURCE_LOCK.json, and COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json."
 }

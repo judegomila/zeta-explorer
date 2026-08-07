@@ -1,0 +1,74 @@
+{
+  "schema": "xi-prolate-compact-absolute-sampling-artifact-v1",
+  "artifact_version": "0.16.0-compact-absolute-sampling",
+  "claim_class": "COMPACT_BV_ABSOLUTE_ZERO_SAMPLING_AND_PROJECTION_REMAINDER",
+  "terminal_state": "P0_INVALIDATED",
+  "inputs": {
+    "j": 2,
+    "lambda_exact_fraction": "5/2",
+    "precision_decimal_digits": 80,
+    "schedule_K": 2400,
+    "schedule_exponent": 60000
+  },
+  "source_lock": {
+    "path": "COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json",
+    "sha256": "48c1bb3a206b4b7d4b448775a7ed6041a248b345a09fe42ab925c5cd233f0cf4",
+    "schema": "xi-prolate-compact-absolute-sampling-source-lock-v1"
+  },
+  "formula_contract": {
+    "T0": 30610046000,
+    "U": 61220092002,
+    "M(t)": "t/(2*pi)*log(t/(2*pi*e))",
+    "R(t)": "0.103787*log(t)+0.257297*log(log(t))+9.367419",
+    "Z_finite": "1+M(U)-1/8+R(U)",
+    "C_Z": "1+1/pi+2*(0.103787+0.257297)+2*9.367419",
+    "generic_bound": "sampling(f)<=192*sqrt(e)*lambda*(1+log(lambda))^2*E^2*(Z_finite+(C_Z/pi)*((pi+1)*log(H+2)+1))",
+    "generic_H": "H=max(1,(V+(3/4)*sqrt(2*log(lambda))*E)^2/E^2)",
+    "combined_source_coefficient": "A_lambda=(sqrt(3)/2^(11/4))*(1+2*sqrt(2)*lambda)",
+    "single_mode_variation": "V_star=4*lambda*(2*pi*lambda^2+1/2)+16*sqrt(2)*pi*lambda^2",
+    "projection_real_variation": "V_P<=3*A_lambda*V_star*(1+sqrt(2*N))",
+    "defect_lower": "d_lower=6*96^(-5-(320*pi/log(2))*lambda^2)",
+    "projection_H": "H_P=max(1,W_P^2/(d_lower*(A_lambda*R_proj)^2))",
+    "projection_W": "W_P=3*A_lambda*V_star*(1+sqrt(2*N))+(3/4)*sqrt(2*log(lambda))*A_lambda*R_proj",
+    "projection_substitution": "x*log(2+max(1,a/x)) is increasing in x and a; x=norm(P)^2<=d_4*(A_lambda*R_proj)^2; d_4>=d_lower",
+    "projection_relative_bound": "sampling(P)/d_4<=192*sqrt(e)*lambda*(1+log(lambda))^2*(A_lambda*R_proj)^2*(Z_finite+(C_Z/pi)*((pi+1)*(log(3)+log(H_P))+1))",
+    "outer_absolute_sampling": "sampling(O)<=2*C_spec*D_S(lambda)*d_4"
+  },
+  "provenance_sha256": {
+    "notes/COMPACT_ABSOLUTE_SAMPLING_THEOREM.md": "2feb3d62a71e435706c4b330d13bcb096015e52204af6ec9bd2828308d44383d",
+    "src/compact_absolute_sampling.py": "5a2ef4753c7690703b8d2a9a7444bd801f55bc50365abfb05484692153d40e91",
+    "verifier/compact_absolute_sampling_replay.py": "0044cc273b5b875bb72a6c7b6658253510b5991da1c08210c1ec1e22f7809217"
+  },
+  "values": {
+    "log_N": "41588.830833596718565033927287490594084530008061615315247240800569603617318181683",
+    "source_coefficient_A_lambda": "2.0780650368908525455427370099916918939375485599378575486895097424447909260887001",
+    "variation_star": "841.98737551456077950941852191600723038610834385945724993040763473412053009572352",
+    "projection_real_variation_upper": "5.8948246016353743954752523215441226944106002413099622964598055948795151511957911e+9034",
+    "defect_decay_A": "3309.9631706287772511641597592243275272016822821302318775933540369633295141109604",
+    "schedule_decay": "3327.1064666877374852027141829992475267624006449292252197792640455682893854545346",
+    "exponent_margin": "17.143296058960234038554423774919999560718362798993342185910008604959871343574238",
+    "relative_projection_bulk": "1.3100287280110274682066574857607667276007043870350719494794398157090780688694438e-40",
+    "relative_projection_jump": "2.4108862669710608505198194732916591103303767771131769279267432262715164136452614e-9029",
+    "relative_projection_total": "1.3100287280110274682066574857607667276007043870350719494794398157090780688694438e-40",
+    "defect_lower": "1.3568793928575243198460776730477834069411417793078429441012954791737846022716959e-17978",
+    "normalized_projection_l2_upper": "2.7223248970023124311985942265478490418176176360578821419737092280022145023447757e-40",
+    "log_H_projection": "83184.429059049819684307040861067387501239113801006456558519467781136194856465474",
+    "log_weight_upper": "83185.527671338487793998436106304310026943761291564279307971202475469832350758693",
+    "Z_finite": "214355242606.39060281135564743310267558095378381976952916625761487289747599183409",
+    "C_Z": "20.775315886183790671537767526745028724068919291480912897495334688117793595268453",
+    "projection_sampling_over_d4_upper": "4.6166814819411287489323210168317030742120292729873584080982886486196919486369062e-65",
+    "negative_log10_relative_sampling_upper": "64.335670087633645002258502605860130310619550204433915704696835345885607784302414"
+  },
+  "claims": {
+    "compact_BV_absolute_sampling_theorem": true,
+    "projection_absolute_sampling_o_d4_on_locked_schedule": true,
+    "complete_remainder_absolute_sampling_O_lambda7_d4": true,
+    "uniform_window_Bessel_bound": false,
+    "reciprocal_defect_sum": false,
+    "equation_5_2_proved": false,
+    "locally_uniform_determinant_convergence": false,
+    "riemann_hypothesis_proof": false
+  },
+  "claim_scope": "analytic compact-BV theorem plus arbitrary-precision point evaluation; not an interval enclosure or residual-action proof",
+  "shared_library_limitation": "producer and independent verifier both evaluate transcendental point values with mpmath, while reconstructing formulas separately"
+}

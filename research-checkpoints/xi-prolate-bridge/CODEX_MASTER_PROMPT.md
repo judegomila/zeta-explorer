@@ -174,10 +174,12 @@ decomposition; it is not the asymptotic proof.
    `||R||_Z^2=O(lambda^7*d_4)`.  The hybrid complete-series theorem in
    `notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md` now sharpens this to
    `||R||_Z^2=o(d_6)` on the locked exponential schedule, closing only the
-   common normalization-free scalar-shift scale obstruction.  It does not
-   make `U_Z=||R||_Z^2/a^2` small without separate control of `a`.  The next
-   residual target is the uniform growing-window Bessel estimate on the
-   `||Dv||<=1` test ball and its reciprocal defect sum.  The exact radical
+   common normalization-free scalar-shift scale obstruction.  The projected-
+   state norm theorem now proves `a->||E(h)(exp(.))||_2>0`, so together they
+   give `U_Z=||R||_Z^2/a^2=o(d_6)`.  The next residual target is the uniform
+   growing-window Bessel estimate on the `||Dv||<=1` test ball and its
+   reciprocal defect sum; the relaxed sufficient scale is
+   `O(lambda^4*polylog(lambda)/d_8)`.  The exact radical
    counterexample proves that
    scalar polarization cannot by itself supply this input.  The continuous physical
    parity maps are qualitatively injective on the half-integer schedule by

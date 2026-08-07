@@ -70,6 +70,21 @@ finite-lambda inversion parity. The required state is
 `widehat{Jk}(z)=widehat{k}(-z)` and Xi is even, evenization preserves the
 closed-substrip limit and its scalar.
 
+The same normalization is now visible in the projected-state norm.  The
+locked source comparison, periodic Fourier tail, and an explicit bound on
+both omitted limiting-state tails prove
+
+`||P_N k_lambda^+|| -> ||E(h)(exp(.))||_2 > 0`
+
+whenever `log(lambda)/(N+1)->0`.  The source-sensitive positive lower bound
+and independent interval replay are in
+`notes/PROJECTED_STATE_NORM_LOWER_BOUND.md`.  Unit-normalizing `h_lambda`
+would instead multiply this limit by `2^(17/4)/sqrt(33)`, so positivity of a
+wrongly rescaled limit is not accepted.  Combined with the hybrid
+`epsilon_lambda=o(d_6)` theorem, this proves the normalized scalar bound
+`U_Z=epsilon_lambda/||P_N k_lambda^+||^2=o(d_6)`.  It is not a signed sector
+floor or a residual-action estimate.
+
 ## Logarithmic projection audit
 
 Put `u=exp(t)/lambda`, `0<=t<=L`.  If

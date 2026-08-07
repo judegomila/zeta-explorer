@@ -177,8 +177,9 @@ hard-endpoint term survives.
 This is a method obstruction, not a lower bound for the signed Rayleigh
 quotient.  The later hybrid complete-series theorem does prove the
 normalization-free estimate `epsilon_lambda=o(d_6)` by keeping the sampled
-series together before the endpoint split; it does not make the normalized
-bound `epsilon_lambda/a^2` small without separate control of `a`.  The hard
-endpoint still does not cancel, and absolute endpoint/translation control
-plus the zero-integral identity alone still do not provide a signed floor or
-residual-action estimate.
+series together before the endpoint split.  It does not by itself make the
+normalized bound `epsilon_lambda/a^2` small, but the later projected-state
+norm theorem supplies the separate lower control of `a` and closes that
+scalar shift.  The hard endpoint still does not cancel, and absolute
+endpoint/translation control plus the zero-integral identity alone still do
+not provide a signed floor or residual-action estimate.

@@ -423,4 +423,18 @@ python3 verifier/hybrid_outer_sampling_odd_shift_replay.py \
   artifacts/hybrid_outer_sampling_odd_shift/lambda5over2_producer_dps160.json \
   --output artifacts/hybrid_outer_sampling_odd_shift/lambda5over2_verifier_dps160.json >/dev/null
 
+mkdir -p artifacts/projected_state_norm_lower_bound
+python3 src/projected_state_norm_lower_bound.py \
+  --lambda-decimal 4 --N 4096 --delta-upper-decimal 0.00001 --dps 80 \
+  --output artifacts/projected_state_norm_lower_bound/lambda4_N4096_producer_dps80.json >/dev/null
+python3 verifier/projected_state_norm_lower_bound_replay.py \
+  artifacts/projected_state_norm_lower_bound/lambda4_N4096_producer_dps80.json \
+  --output artifacts/projected_state_norm_lower_bound/lambda4_N4096_verifier_dps80.json >/dev/null
+python3 src/projected_state_norm_lower_bound.py \
+  --lambda-decimal 4 --N 4096 --delta-upper-decimal 0.00001 --dps 160 \
+  --output artifacts/projected_state_norm_lower_bound/lambda4_N4096_producer_dps160.json >/dev/null
+python3 verifier/projected_state_norm_lower_bound_replay.py \
+  artifacts/projected_state_norm_lower_bound/lambda4_N4096_producer_dps160.json \
+  --output artifacts/projected_state_norm_lower_bound/lambda4_N4096_verifier_dps160.json >/dev/null
+
 python3 src/write_artifact_manifest.py

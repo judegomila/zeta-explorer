@@ -1,0 +1,87 @@
+{
+  "schema": "xi-prolate-projected-state-norm-source-lock-v1",
+  "claim_class": "PROJECTED_STATE_NORM_LOWER_BOUND_AND_NORMALIZED_ODD_SHIFT",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-07",
+  "dependencies": [
+    {
+      "path": "requirements.txt",
+      "sha256": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "role": "exact mpmath 1.4.1 runtime pin for interval producer and verifier"
+    },
+    {
+      "path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "role": "pinned source-normalized h_lambda to h comparison and arithmetic-transform convention"
+    },
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "finite source normalization, Fourier sign, logarithmic interval, inversion, and zero-extension conventions"
+    },
+    {
+      "path": "notes/PROJECTION_RATE_THEOREM.md",
+      "sha256": "28f10f5c51001d6eeb33af2f071e876b572aca2c713db37f3e1b924d836ef2aa",
+      "role": "finite source-comparison bound, explicit K derivative bound, and periodic Fourier projection tail"
+    },
+    {
+      "path": "notes/EXACT_RADICAL_LEAKAGE_IDENTITY.md",
+      "sha256": "76dd6586357a2448ef689380a106eea5e9aedb95f68e731f10f1d6626040fddc",
+      "role": "state-invisible origin correction and exact preservation of the finite projected state"
+    },
+    {
+      "path": "HYBRID_OUTER_SAMPLING_SOURCE_LOCK.json",
+      "sha256": "65df5f6f47aa0718f1768d1dfafa5f5ec659e4c2681419ef130cd15572b6a9f9",
+      "role": "source lock for the complete-remainder epsilon_lambda=o(d6) theorem"
+    },
+    {
+      "path": "notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md",
+      "sha256": "113be74d52f48d66903c1babf1525ec6d130243321acfa31562abd8640868a3a",
+      "role": "repository proof of complete-remainder absolute sampling at the first odd defect scale"
+    }
+  ],
+  "locked_conventions": {
+    "source_domain": "[-lambda,lambda] with Lebesgue dx and zero extension",
+    "source_normalization": "a4=sqrt(3)/2^(11/4), h_lambda tends to h=(pi/2)*x^2*(2*pi*x^2-3)*exp(-pi*x^2)",
+    "arithmetic_transform": "E(f)(u)=u^(1/2)*sum_(m>=1) f(m*u)",
+    "finite_state": "k_lambda^+=(E(h_lambda)+J*E(h_lambda))/2 on [lambda^(-1),lambda]",
+    "log_coordinate": "s=log(u), I_lambda=[-log(lambda),log(lambda)]",
+    "inversion": "Jg(s)=g(-s)",
+    "projector": "orthogonal P_N onto L^(-1/2)*exp(+2*pi*i*n*(s+log(lambda))/L), abs(n)<=N",
+    "projected_norm": "a_(lambda,N)=norm(P_N*k_lambda^+)_2",
+    "invisible_bump": "supported in abs(x)<1/(2*lambda), hence exactly invisible to every arithmetic sample in the finite window",
+    "locked_schedule": "lambda_j=j+1/2; N_j=2^(2400*(2*j+1)^2); j>=2"
+  },
+  "locked_formulas": {
+    "safe_derivative_constant": "C_star=3003/500 and norm(K')_2<C_star",
+    "positive_point": "H_star=h(1)=(pi/2)*(2*pi-3)*exp(-pi)",
+    "limiting_norm_lower": "K_star=H_star^2/(2*sqrt(2)*C_star)<=norm(E(h)(exp(.)))_2",
+    "comparison_error": "A(lambda,delta_bar)=delta_bar*sqrt(lambda^3-lambda)+R_h(lambda)",
+    "projection_error": "F(lambda,N)=C_star*log(lambda)/(pi*(N+1))",
+    "elementary_gamma_majorant": "G_(1/2)(x)=exp(-x)/sqrt(x); G_(r+1)(x)=r*G_r(x)+x^r*exp(-x)",
+    "tail_constant": "S4_bar=1+exp(pi)*G_(5/2)(pi)/(2*pi^(5/2))",
+    "limiting_tail": "T_bar(lambda)=pi^2*S4_bar*sqrt(G_(9/2)(2*pi*lambda^2)/(2*pi)^(9/2))",
+    "finite_lower": "a_(lambda,N)>=K_star-sqrt((A(lambda,delta_bar)+F(lambda,N))^2+T_bar(lambda)^2)",
+    "norm_limit": "a_(lambda,N(lambda))->norm(E(h)(exp(.)))_2 when delta_lambda=O(lambda^(-2)) and log(lambda)/(N+1)->0",
+    "unit_norm_rejection": "unit-normalizing h_lambda changes the limiting scalar by 2^(17/4)/sqrt(33), which is not 1",
+    "normalized_shift": "epsilon_lambda=o(d6) and liminf a_(lambda,N)>0 imply U_Z=epsilon_lambda/a_(lambda,N)^2=o(d6)"
+  },
+  "claim_boundary": {
+    "proved": [
+      "an explicit positive lower bound for the norm of the locked limiting arithmetic state",
+      "a finite projected-state norm lower formula conditional on an admitted upper enclosure for delta_lambda",
+      "convergence of the projected-state norm to the fixed source-normalized limiting norm",
+      "smallness U_Z=o(d6) of the normalized common Ritz upper shift on the locked schedule",
+      "rejection of unit normalization through its wrong limiting scalar"
+    ],
+    "not_proved": [
+      "an effective numerical constant or threshold in delta_lambda=O(lambda^(-2))",
+      "a signed odd-sector floor or omega>U_Z",
+      "a signed even-complement comparison",
+      "a graph-dual residual-action bound",
+      "equation (5.2) of DIRECT_RH_ATTACK.md",
+      "locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ]
+  }
+}

@@ -171,12 +171,13 @@ exact blockwise-minimum series satisfies
 `B_hyb(lambda)=O(lambda^3*polylog(lambda))`,
 
 and proves `||R||_Z^2=o(d_6)` on the locked schedule.  Thus the common
-normalization-free shift obstruction is closed.  This does not make the
-normalized Ritz bound `epsilon_lambda/a^2` small without separate control of
-`a`, and proves neither a signed odd floor nor a residual-action estimate or
-equation (5.2).  See
+normalization-free shift obstruction is closed.  The separate projected-state
+norm theorem supplies the lower control of `a`, so the normalized Ritz bound
+`epsilon_lambda/a^2` is also `o(d_6)`.  Neither result proves a signed odd
+floor, a residual-action estimate, or equation (5.2).  See
 `notes/PARITY_SHIFT_SCALE_AUDIT.md` and
-`notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md`.
+`notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md`, together with
+`notes/PROJECTED_STATE_NORM_LOWER_BOUND.md`.
 
 The residual obstruction has now been sharpened to an equality.  If
 `p=a*kappa`, `R=K-p`, and `D>0` is any source-defined preconditioner on the

@@ -163,6 +163,14 @@ schedule; no artifact asserts the complete residual--gap bridge, equation
   with the qualitative pinned `delta_lambda=O(lambda^-2)` and the hybrid
   theorem, this proves `U_Z=o(d_6)`; it proves no signed floor, residual
   action, equation (5.2), determinant convergence, or RH.
+- `leading_prolate_oscillation/`: exact-rational `lambda=5/2` and `7/2`
+  packet/min--max certificates.  The clean-room replay binds the exact
+  producer bytes, re-hashes every locked dependency, derives the scaled
+  cosine moments by an independent expression tree, and reconstructs all
+  `p^2` packet and target counts.  No binary64 or transcendental arithmetic
+  is used; both paths share Python's standard-library `Fraction`.  These are
+  differential-eigenvalue upper bounds only, not concentration-defect lower
+  bounds, signed floors, equation (5.2), determinant convergence, or RH.
 - `physical_map_conditioning/`: exact half-integer breakpoint arithmetic,
   finite Möbius data, endpoint-jet leading coefficients, and an independent
   factorization/rational replay at `lambda=5/2`.  It records qualitative

@@ -106,6 +106,18 @@ axis/sign oracles; it does not computationally verify the all-`c` Sturm
 homotopy.  The resulting exponential non-collision bound is not a
 growing-window conditioning theorem or a signed Weil floor.
 
+`notes/LEADING_PROLATE_OSCILLATION_THEOREM.md` also introduces no new
+external theorem.  It applies the min--max definition directly to disjoint
+zero-extended sine packets of length `pi/c`.  The packet quotient is exactly
+`c^2-1`, so on `lambda=p/2` every differential-prolate label
+`n<4*lambda^2=p^2` satisfies `mu_n<c^2`.  The lock pins the repository
+parameter, target-family, and tail-estimate conventions; the producer and
+clean-room replay derive the scaled cosine moments and exact rational packet
+certificate without a prolate eigenvalue table or transcendental arithmetic.
+They share Python's standard-library `Fraction`.  This component supplies no
+concentration-defect lower bound, growing-family sampling Gram, signed floor,
+equation (5.2), or RH conclusion.
+
 ## Exact global radical input
 
 - A. Connes and C. Consani, *BC-system, absolute cyclotomy and the

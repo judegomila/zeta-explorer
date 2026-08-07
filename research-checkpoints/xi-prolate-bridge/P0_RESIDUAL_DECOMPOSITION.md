@@ -149,6 +149,14 @@ phase volume `Phi_lambda(U,g)`.  The target
 `Phi_lambda=O(lambda^2/log(lambda))` is neither proved nor disproved: fixed
 moments and quantitative equidistribution hit a rigorous length barrier, and
 only an explicit `exp(O(lambda))` upper bound is currently available.
+The separate finite-compression theorem now proves an
+`O(lambda^2 log lambda)` trace and `O(lambda^2)` dangerous-rank scale on a
+polynomial `N asymptotic lambda^2` schedule by a self-contained dyadic
+logarithmic-Hilbert argument.  This does not bound the global phase volume,
+does not persist with the same scale on the locked exponential schedule, and
+does not prove that the physical prolate range captures the dangerous
+directions.  The signed low Schur comparison and quotient-relative coupling
+therefore remain open.
 
 The original common Rayleigh-shift upper bound had a parity-scale limitation.
 Although the compact-BV baseline `O(lambda^7*d_4)=o(d_8)`, the exact

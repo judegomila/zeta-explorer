@@ -743,6 +743,35 @@ moment method is blocked by the support/time-length condition
 `T >> (lambda^2)^k`.  Hence the desired polynomial phase-volume bound is
 neither proved nor disproved, and the finite Schur floors remain open.
 
+The finite compression now has a separate admitted theorem which bypasses
+that global phase-volume barrier.  `notes/COMPRESSED_MULTIPLIER_TRACE_THEOREM.md`
+derives the discrete logarithmic-Hilbert bound directly from the elementary
+Fourier multiplier `i(theta-pi)` and exact dyadic blocks.  If
+`x=lambda^2`, `N asymptotic x`, `U=o(log x)`, and
+`g=kappa log x`, then its explicit source trace satisfies
+
+\[
+ \operatorname {tr}(P_NT_vP_N)=O(x\log x),
+ \qquad \dim\mathcal L_{N,\epsilon}=O(x),                 \tag{6.0b1}
+\]
+
+with the odd pole adding at most one direction.  Equation (6.0b1) is a
+polynomial scale theorem, not a favorable finite rank fraction.  It does not
+remain `O(x)` after replacing the polynomial compression by the separate
+locked exponential schedule, and it gives no capture angle between the
+dangerous space and the physical prolate range.  The same note proves the
+exact conditional physical floor
+
+\[
+ P_{K^\perp}(Q-U)P_{K^\perp}
+ \succeq\{\delta-[r-g+\delta]_+s^2\}P_{K^\perp},           \tag{6.0b2}
+\]
+
+where `Pi_> = 1_(g-delta,infinity)(R)` and
+`s=||Pi_> P_(K^perp)||`.  The phase-sensitive bound on `s`, the signed
+low comparison against `Delta_L`, and the quotient-relative cross action
+remain open.
+
 The positive additive model now has an exact growing-window theorem.
 `notes/GROWING_WINDOW_THEOREM.md` proves that its source Gram remains full
 rank for any number of the prescribed plus and minus target modes, including
@@ -1226,11 +1255,10 @@ quotient positive-sampling/action route.
 
 Finally, the odd pole in the multiplier reduction is rank one and can be
 placed explicitly in the dangerous space.  It costs at most one dimension,
-not the older pole trace-norm penalty.  A finite-compression
-Montgomery--Vaughan route to an `O(lambda^2)` dangerous rank is recorded in
-`notes/COMPRESSED_MULTIPLIER_TRACE_CANDIDATE.md`, but its primary external
-source bytes are not yet vendored and hashed.  It is not used as an admitted
-theorem and would still leave the finite Schur sign open.
+not the older pole trace-norm penalty.  The admitted finite-compression
+theorem now gives an `O(lambda^2)` dangerous-rank scale on the polynomial
+schedule without Montgomery--Vaughan.  It still leaves physical capture,
+the quotient-relative coupling, and the finite signed Schur sign open.
 
 ## 7. What would and would not count as completion
 

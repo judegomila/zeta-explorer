@@ -1,8 +1,15 @@
 # Candidate finite-compression multiplier trace bound
 
+> Historical candidate.  The Montgomery--Vaughan route in this file remains
+> non-admitted, but it is no longer needed: the self-contained dyadic
+> logarithmic-Hilbert proof in
+> `notes/COMPRESSED_MULTIPLIER_TRACE_THEOREM.md` establishes the same
+> polynomial finite-compression scale with explicit constants and no new
+> external source.
+
 ## 1. Admission status
 
-This note records a schedule-sensitive alternative to the global
+This note records the earlier schedule-sensitive alternative to the global
 phase-volume estimate in
 `notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md`.  It reduces the finite
 compressed dangerous rank to polynomial scale under an explicit growth
@@ -14,10 +21,10 @@ J. London Math. Soc. (2) 8 (1974), 73--82, Theorem 2 (1.7) and Corollary 2
 (1.8)--(1.9), DOI `10.1112/jlms/s2-8.1.73`.  An author-hosted scan is at
 `https://personal.science.psu.edu/rcv4/personal/Publications/s2-8-1-73.pdf`.
 The constant `3*pi/2` was checked against the primary scan, but the PDF bytes
-have not been vendored or SHA-256 pinned.  Consequently none of the results
-below supports a true component flag, a status promotion, or an admitted
-component claim.  The status files mention the result only as a non-admitted
-candidate pending that source lock.
+have not been vendored or SHA-256 pinned.  Consequently the
+Montgomery--Vaughan derivation below supports no component flag or admitted
+claim.  The separate self-contained successor theorem, not this candidate,
+is the admitted component.
 
 No zero table, reality assumption, or Weil positivity enters the candidate.
 Even after source admission it would not prove the finite Schur complement,

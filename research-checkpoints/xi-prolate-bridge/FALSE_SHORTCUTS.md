@@ -176,6 +176,13 @@ region required by RH.
   fixed polynomial time permits only bounded `k` and cannot yield the needed
   logarithmic-threshold saving.  The polynomial phase-volume target remains
   neither proved nor disproved.
+- The admitted finite-compression theorem does not turn its
+  `O(lambda^2)` dangerous-rank scale into physical capture.  Its explicit
+  constants can exceed the ambient dimension; even a nonvacuous rank no
+  larger than `dim K_low` gives only a dimension possibility, not a bound on
+  `||Pi_dangerous P_(K_low^perp)||`.  It also uses `N` comparable to
+  `lambda^2`; inserting the separate exponential projection schedule changes
+  the scale.
 - Measuring both parity sectors from the trial Rayleigh quotient `q` can
   discard the actual Ritz lowering `q-u`.  The old signed gap must still be
   reported, but the valid sector theorem uses the separate comparisons

@@ -87,6 +87,23 @@ schedule; no artifact asserts the complete residual--gap bridge, equation
   `mpmath.iv`.  The fixed-index limits are qualitative and non-effective;
   the artifacts prove the low positive action only, not a physical-high or
   shifted signed floor, equation (5.2), determinant convergence, or RH.
+- `compressed_multiplier_trace/`: exact half-integer inputs `p=5,7` at 80
+  and 160 decimal digits on `N=ceil(lambda^2)`.  The producer enumerates
+  inclusive prime powers by a sieve/power path; the clean-room replay factors
+  every integer independently and imports neither producer nor project
+  helpers.  Raw outward dyadics, expanded by the locked vanishing exact-dyadic
+  serialization guard, record the exact arithmetic sums, the
+  self-contained dyadic logarithmic-Hilbert constant, the finite mean-square
+  bound, the two central archimedean branches, the tail, trace, and dangerous
+  rank ratios.  Exact rational regressions distinguish the inclusive rank
+  projector from the strict capture projector and saturate both the capture
+  floor and quotient-gluing factor.  The finite pilot rank bounds are
+  explicitly marked ambient-dimension-vacuous; only the asymptotic
+  `O(lambda^2)` scale on the displayed polynomial schedule is proved.  Replay
+  requires every submitted interval to enclose its independent
+  reconstruction; overlap alone is rejected.  Both paths share pinned
+  `mpmath.iv` 1.4.1.  No physical capture, signed floor,
+  equation (5.2), determinant convergence, or RH conclusion is claimed.
 - `prufer_same_parity_gap/`: outward intervals at 80 and 160 decimal digits
   for the elementary same-parity differential prolate non-collision bound at
   `lambda=2`, `n=0`, `r=2`, together with exact `c=0` Legendre center and

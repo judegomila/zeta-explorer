@@ -112,6 +112,25 @@ region required by RH.
   eigenvalues are not physical floors.  This theorem removes the smallest
   singular value; it does not prove the required exterior Gram estimate or a
   signed sector comparison.
+- Applying the compact-BV theorem to the entire physical vector does give an
+  honest full-cross-term fallback, but not the needed scale.  The exact
+  additive-even arithmetic estimate and all-index floor yield
+  `C_ext<=B_abs*lambda^2/(2*d_LS)` and then
+  `C_ext*||W D_ext^(-1/2)||^2<=B_abs*lambda^4/(4*d_LS^2)`.
+  This pays two inverse Logvinenko--Sereda defects and is exponentially huge;
+  it must not be relabeled as the target `O(1/d_8)` comparison.  Dropping one
+  of the two defect factors, discarding Gram cross terms, adding an
+  unneeded parity factor two, or ordinarily inverting `ker(D_ext)` is invalid.
+- The bound `epsilon_lambda=O(lambda^(-1)*d_8)` is an even-scale statement,
+  not an odd one.  Since `d_8/d_6~(32*pi^2/7)*lambda^4`, the same argument
+  gives only `epsilon_lambda/d_6=O(lambda^3)`.  It cannot be called
+  `o(d_6)`, and evenness of the residual does not remove the scalar shift
+  from the odd spectral comparison.
+- The zero-integral `0/4` normalization cancels the origin datum, not the hard
+  endpoint.  In fact `(a_0*e_0)/(a_4*e_4)=O(lambda^(-4))`, so replacing
+  `|a_0|=O(lambda)` by its qualitative bounded limit improves the absolute
+  outer loss only to `O(lambda^5*d_4)=O(lambda*d_6)`.  This must not be
+  promoted to the one-sided `o(d_6)` shift estimate.
 - A shifted comparison on only the low compression `P_KBP_K` does not
   control `P_KB^(-1)c` when low/high couplings are present.  The complete
   operator must dominate, or be left-close to, the low/high quotient
@@ -151,6 +170,12 @@ region required by RH.
   source window grown through the Shannon index succeeds pointwise.  A proof
   must control a growing family, including its Gram conditioning and every
   coupling term.
+- Non-collision of the differential prolate eigenvalues is not growing-window
+  conditioning.  The proved same-parity bound is only
+  `(16*r*pi/(225*K^2))*exp(-2*pi*K)` with `K=O(c)` in the transition range.
+  Products of many such worst-case gaps can lose `exp(-O(c^3))`, so this
+  theorem cannot be promoted to a polynomial Gram determinant, a physical
+  singular-value bound, or a signed Weil-sector floor.
 - Full rank of the growing additive source Gram does not imply full rank or
   uniform conditioning after the arithmetic transform, evenization, and
   Fourier projection.  Nor does the explicit trailing bound

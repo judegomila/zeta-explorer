@@ -57,6 +57,17 @@ schedule; no artifact asserts the complete residual--gap bridge, equation
   endpoints for the pinned KRD transition scale, and the inclusive `n_*`
   half-defect check.  It concerns only the positive prolate model and carries
   explicit false fields for a signed Weil comparison.
+- `prufer_same_parity_gap/`: outward intervals at 80 and 160 decimal digits
+  for the elementary same-parity differential prolate non-collision bound at
+  `lambda=2`, `n=0`, `r=2`, together with exact `c=0` Legendre center and
+  phase-derivative oracles.  The verifier imports no producer module and
+  rebuilds `c^2`, `K^2`, and the exponential bound through a different
+  expression tree.  Binary endpoints are serialized as exact signed dyadics;
+  decimal strings are display-only, and the replay checks higher-precision
+  interval containment rather than rounded-decimal overlap.  Both paths share
+  `mpmath.iv`.  The qualitative all-`c` Sturm homotopy is proof-only, not a
+  replay claim.  No numerical Sturm solve, growing-window conditioning claim,
+  or signed Weil-sector claim is present.
 - `prolate_tail/`: the explicit corrected-state far-frequency envelope and
   far-prime pairing bound at 80 and 160 decimal digits, with independent
   formula reconstruction at higher precision.  The producer and verifier
@@ -112,6 +123,17 @@ schedule; no artifact asserts the complete residual--gap bridge, equation
   replay is recorded at 80 and 160 decimal digits.  The source
   exterior sampling estimate and both shifted signed comparisons remain
   explicitly false in the artifact.
+- `full_exterior_sampling_fallback/`: the source-explicit unconditional
+  full-`Y` Gram fallback at `lambda=5/2`, `N=24`, repeated at 80 and 160
+  decimal digits.  Every closed-form quantity is stored with exact dyadic
+  endpoints of an outward `mpmath.iv` interval; decimal strings are
+  display-only.  The verifier imports no producer code, re-hashes the
+  ten-entry source/dependency lock, and independently rebuilds the intervals
+  through a logarithmic expression tree.  The artifacts retain all sampling
+  cross terms, quotient source kernels, and record the explicit bound
+  `B_abs*lambda^4/(4*d_LS^2)`.  This bound is exponentially enormous and
+  explicitly does not close the `O(1/d_8)` alignment target, either signed
+  sector, equation (5.2), determinant convergence, or RH.
 - `physical_map_conditioning/`: exact half-integer breakpoint arithmetic,
   finite Möbius data, endpoint-jet leading coefficients, and an independent
   factorization/rational replay at `lambda=5/2`.  It records qualitative

@@ -96,6 +96,16 @@
   comparison.  Exact conventions and the effective/non-effective boundary
   are recorded in `notes/PROLATE_DEFECT_SOURCE_AUDIT.md`.
 
+`notes/PRUFER_SAME_PARITY_GAP_THEOREM.md` introduces no external
+quantitative gap estimate.  Its qualitative input is the standard
+one-dimensional Sturm package (simplicity, oscillation, continuous
+dependence on the bounded even potential, and the variational principle),
+and its explicit constants come from the repository's half-line Volterra
+argument.  The replay checks the locked formula and exact `c=0` Legendre
+axis/sign oracles; it does not computationally verify the all-`c` Sturm
+homotopy.  The resulting exponential non-collision bound is not a
+growing-window conditioning theorem or a signed Weil floor.
+
 ## Exact global radical input
 
 - A. Connes and C. Consani, *BC-system, absolute cyclotomy and the
@@ -236,6 +246,24 @@ and independent verifier require the exact 17-path/hash inventory.  This new
 theorem proves absolute sampling for the actual complete remainder; it does
 not prove growing-window Bessel constants, the reciprocal defect sum, a
 shifted sector floor, equation (5.2), or RH.
+
+`FULL_EXTERIOR_SAMPLING_SOURCE_LOCK.json` introduces no new external theorem.
+It hashes the compact-sampling, defect-floor, radical, arithmetic-map, and
+quotient dependencies above and locks the repository derivation in
+`notes/FULL_EXTERIOR_SAMPLING_FALLBACK.md`.  That derivation proves the exact
+additive-even arithmetic bound `lambda^2/2` and the full-cross-term fallback
+`C_ext<=B_abs*lambda^2/(2*d_LS)`.  The resulting quotient alignment bound
+`B_abs*lambda^4/(4*d_LS^2)` is exponentially too large for the required
+`O(1/d_8)` scale and supplies no signed floor or RH conclusion.
+
+The parity-shift and hard-endpoint normalization audits introduce no new
+external source.  `notes/PARITY_SHIFT_SCALE_AUDIT.md` and
+`notes/OUTER_NORMALIZATION_CANCELLATION_AUDIT.md` combine the already pinned
+Slepian fixed-index formula with the locked CCM `0/4` normalization.  Their
+conclusions are scale obstructions: the current common shift is not shown to
+be `o(d_6)`, and the source coefficients do not cancel the hard endpoint.
+They are not finite enclosures, signed-sector theorems, equation (5.2), or an
+RH conclusion.
 
 ## Finite-compression candidate input, not yet source-locked
 

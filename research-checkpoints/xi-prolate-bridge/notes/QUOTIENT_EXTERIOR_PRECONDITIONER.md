@@ -341,8 +341,9 @@ and
 on the chosen schedule. Equations (3.3)--(3.4) then give the exact global
 alignment target without any lower physical Gram determinant.
 
-The current compact-BV theorem does not prove (6.5). Inserted generically,
-it gives only
+The compact-BV theorem does not prove (6.5)--(6.6) at the required scale.
+Its strongest unconditional full-cross-term insertion is now quantified in
+`notes/FULL_EXTERIOR_SAMPLING_FALLBACK.md`; it gives only
 
 \[
  C_{\rm ext}\leq B_{\rm abs}
@@ -350,7 +351,15 @@ it gives only
 \]
 
 which squares the inverse-defect factor in (3.4) and reproduces the loss
-already isolated in the weak-residual note. The corrected invisible bump
+already isolated in the weak-residual note.  With the pinned all-index floor,
+this becomes
+
+\[
+ C_{\rm ext}\|W_+(D_+^{\rm ext})^{-1/2}\|^2
+ \le {B_{\rm abs}\lambda^4\over4d_{\rm LS}^2},             \tag{6.8}
+\]
+
+which is exponentially too large for (6.6). The corrected invisible bump
 also changes the global exterior synthesis and must remain inside \(Y_+\);
 the uncorrected additive Gram in (6.1) cannot simply be declared equal to a
 corrected remainder norm.

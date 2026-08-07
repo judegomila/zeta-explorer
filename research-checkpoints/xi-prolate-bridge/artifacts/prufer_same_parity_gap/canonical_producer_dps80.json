@@ -1,0 +1,232 @@
+{
+  "artifact_version": "0.18.1-prufer-same-parity-gap",
+  "terminal_state": "P0_INVALIDATED",
+  "construction": "elementary_half_line_prufer_gap_v1",
+  "precision_decimal_digits": 80,
+  "provenance_sha256": {
+    "notes/PRUFER_SAME_PARITY_GAP_THEOREM.md": "145818f1211b0bd40cb52457bfccaa2c0e3e34081790c211d9d5806c739497fd",
+    "src/prufer_same_parity_gap.py": "08165b67e8e50a93f9222d0dbd51029655210072565a3ed27a4ce1e85ad0d109",
+    "verifier/prufer_same_parity_gap_replay.py": "d57a4bf7e94344e52d4cceeae5497388d434393375f60a482e46857274d8b77c"
+  },
+  "locked_formulas": {
+    "operator": "-d/dx((1-x^2)*dy/dx)+c^2*x^2*y=mu*y",
+    "half_line_equation": "u''=sech(t)^2*(c^2*tanh(t)^2-nu)*u; x=tanh(t)",
+    "endpoint_normalization": "u(infinity,nu)=1; u'(infinity,nu)=0",
+    "phase": "continuous_lift_arg(u(0,nu)+i*u'(0,nu))",
+    "phase_target": "phi(mu_m)=m*pi/2",
+    "same_parity_index": "j=n+2*r",
+    "K_squared": "max(1,2*c^2+j*(j+1))",
+    "gap": "(16*r*pi/(225*K^2))*exp(-2*pi*K)",
+    "project_bandwidth": "c=2*pi*lambda^2",
+    "differential_eigenvalue_symbol": "mu"
+  },
+  "exact_input": {
+    "lambda_rational_text": "2",
+    "n_integer": 0,
+    "r_integer": 2,
+    "j_integer": 4,
+    "c_exact_formula": "8*pi",
+    "K_squared_exact_formula": "128*pi^2+20"
+  },
+  "proof_constants_exact": {
+    "volterra_tail_operator_norm_upper": "1/4",
+    "u_T_lower": "2/3",
+    "u_T_upper": "4/3",
+    "absolute_u_prime_T_upper": "2/3",
+    "energy_T_lower": "16/45",
+    "energy_T_upper": "7/3",
+    "center_Cauchy_lower_coefficient": "64/225",
+    "numerator_upper_coefficient": "4",
+    "phase_derivative_upper_coefficient": "225/16",
+    "step_four_gap_prefactor_in_units_of_pi": "32/225"
+  },
+  "outward_intervals": {
+    "pi": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "745004189474337432125921162808790758714149636768547696555565365489538855866747433",
+        "binary_exponent": -267
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "372502094737168716062960581404395379357074818384273848277782682744769427933373717",
+        "binary_exponent": -266
+      },
+      "decimal_display_only": [
+        "3.1415926535897932384626433832795028841971693993751058209749445923078164062862089975563651689",
+        "3.1415926535897932384626433832795028841971693993751058209749445923078164062862090017732443461"
+      ]
+    },
+    "c": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "745004189474337432125921162808790758714149636768547696555565365489538855866747433",
+        "binary_exponent": -264
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "372502094737168716062960581404395379357074818384273848277782682744769427933373717",
+        "binary_exponent": -263
+      },
+      "decimal_display_only": [
+        "25.132741228718345907701147066236023073577355195000846567799556738462531250289671980450921351",
+        "25.132741228718345907701147066236023073577355195000846567799556738462531250289672014185954769"
+      ]
+    },
+    "c_squared": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "18285153816767162831156143333681854989966491687916232313403440013511484004274033",
+        "binary_exponent": -254
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "585124922136549210596996586677819359678927734013319434028910080432367488136769059",
+        "binary_exponent": -259
+      },
+      "decimal_display_only": [
+        "631.65468166971895160540742399207367266007676206341060009045436007808286863482913424140476039",
+        "631.65468166971895160540742399207367266007676206341060009045436007808286863482913747996796855"
+      ]
+    },
+    "K_squared": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "18574634039860453319715070796203574759599666649580333723502083973531266828373873",
+        "binary_exponent": -253
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "594388289275534506230882265478514392307189332786570679152066687153000538507963939",
+        "binary_exponent": -258
+      },
+      "decimal_display_only": [
+        "1283.3093633394379032108148479841473453201535241268212001809087201561657372696582684828095208",
+        "1283.3093633394379032108148479841473453201535241268212001809087201561657372696582749599359371"
+      ]
+    },
+    "K": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "530951119849690895030796837766323678888472948418030265228195710186979900337782733",
+        "binary_exponent": -263
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "530951119849690895030796837766323678888472948418030265228195710186979900337782735",
+        "binary_exponent": -263
+      },
+      "decimal_display_only": [
+        "35.823307543266268076151886516155822268698604003574804453645158844183075282382608280043722181",
+        "35.823307543266268076151886516155822268698604003574804453645158844183075282382608414983855855"
+      ]
+    },
+    "gap_lower_bound": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "204138960242623609693691765922523438579026431397999123855188537399126947305340979",
+        "binary_exponent": -603
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "408277920485247219387383531845046877158052862795998247710377074798253894610682513",
+        "binary_exponent": -604
+      },
+      "decimal_display_only": [
+        "6.1494816941268314192488841202025790492902567779141927877811377926604232711433606455165836556e-102",
+        "6.1494816941268314192488841202025790492902567779141927877811377926604232711433690049261157313e-102"
+      ]
+    },
+    "log10_gap_lower_bound": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 1,
+        "mantissa_decimal_text": "750044917933524154469537667928791582716088986870538354174714202197267781190807237",
+        "binary_exponent": -262
+      },
+      "upper_exact_dyadic": {
+        "sign": 1,
+        "mantissa_decimal_text": "750044917933524154469537667928791582716088986870538354174714202197267781190807229",
+        "binary_exponent": -262
+      },
+      "decimal_display_only": [
+        "-101.21116148696710303843675981374327007352013082169969148116964759527054113775003281839735424",
+        "-101.21116148696710303843675981374327007352013082169969148116964759527054113775003173887628485"
+      ]
+    }
+  },
+  "c0_legendre_oracles": [
+    {
+      "m": 0,
+      "mu_m_at_c0": "0",
+      "P_m_at_zero": "1",
+      "P_m_prime_at_zero": "0",
+      "half_line_L2_norm_squared": "1",
+      "phase_derivative_at_mu_m": "1",
+      "lifted_phase_in_units_of_pi": "0"
+    },
+    {
+      "m": 1,
+      "mu_m_at_c0": "2",
+      "P_m_at_zero": "0",
+      "P_m_prime_at_zero": "1",
+      "half_line_L2_norm_squared": "1/3",
+      "phase_derivative_at_mu_m": "1/3",
+      "lifted_phase_in_units_of_pi": "1/2"
+    },
+    {
+      "m": 2,
+      "mu_m_at_c0": "6",
+      "P_m_at_zero": "-1/2",
+      "P_m_prime_at_zero": "0",
+      "half_line_L2_norm_squared": "1/5",
+      "phase_derivative_at_mu_m": "4/5",
+      "lifted_phase_in_units_of_pi": "1"
+    },
+    {
+      "m": 3,
+      "mu_m_at_c0": "12",
+      "P_m_at_zero": "0",
+      "P_m_prime_at_zero": "-3/2",
+      "half_line_L2_norm_squared": "1/7",
+      "phase_derivative_at_mu_m": "4/63",
+      "lifted_phase_in_units_of_pi": "3/2"
+    },
+    {
+      "m": 4,
+      "mu_m_at_c0": "20",
+      "P_m_at_zero": "3/8",
+      "P_m_prime_at_zero": "0",
+      "half_line_L2_norm_squared": "1/9",
+      "phase_derivative_at_mu_m": "64/81",
+      "lifted_phase_in_units_of_pi": "2"
+    }
+  ],
+  "c0_same_parity_gap_oracle": {
+    "n_integer": 0,
+    "r_integer": 2,
+    "j_integer": 4,
+    "mu_j_minus_mu_n_exact": "20"
+  },
+  "theorem_flags": {
+    "standard_sturm_qualitative_input_used": true,
+    "elementary_quantitative_gap_proved": true,
+    "same_parity_only": true,
+    "numerical_sturm_solver_used": false,
+    "cached_prolate_eigenvalues_read": false,
+    "external_gap_theorem_source_used": false,
+    "growing_window_conditioning_proved": false,
+    "signed_weil_sector_floor_proved": false,
+    "equation_5_2_proved": false,
+    "local_uniform_determinant_convergence_proved": false,
+    "status_promoted": false
+  },
+  "shared_library_limitation": "producer and independent replay both use mpmath.iv for transcendental outward intervals",
+  "claim_scope": "standard qualitative Sturm input plus an elementary quantitative non-collision bound and exact c=0 Legendre oracles; no numerical eigensolve"
+}

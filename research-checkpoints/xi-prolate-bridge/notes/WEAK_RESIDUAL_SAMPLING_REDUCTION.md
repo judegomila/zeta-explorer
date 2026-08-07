@@ -317,6 +317,25 @@ penalty negligible relative to a `d_8` comparison floor.  It supplies no
 lower bound for the unshifted signed operators `A` or `Q_-`, so both parity
 comparisons remain separate obligations.
 
+The word "both" must not be read as a common defect scale.  The pinned
+fixed-index constants give
+
+\[
+ {d_8\over d_6}\sim {32\pi^2\over7}\lambda^4.
+\]
+
+Therefore the same available estimate implies only
+
+\[
+ \epsilon_\lambda=O(\lambda^3d_6),
+\]
+
+not `epsilon_lambda=o(d_6)`.  This upper bound does not prove that the shift
+is large; it proves that the present argument does not make it negligible at
+the natural first-odd scale.  A bound `O(lambda^p*d_4)` would imply
+`o(d_6)` only for `p<4`, whereas the current exponent is seven.  See
+`notes/PARITY_SHIFT_SCALE_AUDIT.md`.
+
 For the even action, let `D_+>0` and assume the left-preconditioned comparison
 
 \[

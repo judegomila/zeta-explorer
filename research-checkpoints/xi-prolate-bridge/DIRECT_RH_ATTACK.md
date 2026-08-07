@@ -756,6 +756,32 @@ The pinned Slepian fixed-index asymptotic supplies that eventual scale, and the
 physical arithmetic map still lacks a uniform restricted-conditioning
 theorem.
 
+There is now an elementary quantitative non-collision bound for the
+*differential* prolate eigenvalues.  If `j=n+2r` and
+
+\[
+ K^2=\max\{1,2c^2+j(j+1)\},
+\]
+
+then the half-line Volterra estimate and the continuous phase normalization
+`phi(mu_m)=m*pi/2` prove
+
+\[
+ \mu_j(c)-\mu_n(c)
+ \ge {16r\pi\over225K^2}e^{-2\pi K}.                 \tag{6.1a}
+\]
+
+This statement is derived in
+`notes/PRUFER_SAME_PARITY_GAP_THEOREM.md` from standard qualitative
+one-dimensional Sturm theory and an elementary quantitative half-line
+estimate, without a numerical Sturm solve or an external quantitative gap
+estimate.  Its locked formula and exact `c=0` Legendre oracles are
+independently replayed; the all-`c` Sturm homotopy is proof-only.  It is not
+the missing growing-window estimate: for `j=O(c)` the
+bound is only `exp(-O(c))`, and a product of `O(c^2)` such worst-case factors
+can lose `exp(-O(c^3))`.  In particular, (6.1a) gives no useful normalized
+physical Gram determinant and no signed comparison in (5.5).
+
 The finite Schur criterion has now been sharpened in a way that matters for
 the pilot.  If a deterministic low/high split of either shifted sector is
 
@@ -918,6 +944,88 @@ shifted signed operator must also be left-close to, or dominate, the same
 quotient preconditioner; a low compression alone does not control the full
 inverse when low/high couplings are present.  See
 `notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md`.
+
+The generic loss is now quantified without an unspecified constant.  On the
+additive-even source space,
+
+\[
+ \|A_\lambda f\|_{L^2(du/u)}^2
+ \le {\lambda^2\over2}\|f\|_{L^2(dx)}^2.                   \tag{6.8e}
+\]
+
+Let
+
+\[
+ d_{\rm LS}=6\,96^{-5-(320\pi/\log2)\lambda^2}
+\]
+
+be the pinned all-index defect floor, and let
+`B_abs(lambda,N)` be the explicit compact-window sampling constant in
+equation (4.3) of `notes/FULL_EXTERIOR_SAMPLING_FALLBACK.md`.  Applying the
+absolute theorem to the whole physical vector, rather than to individual
+columns, preserves every cross term and proves
+
+\[
+ Y^*Z^*ZY\preceq
+ {B_{\rm abs}\lambda^2\over2d_{\rm LS}}D_{\rm ext},
+ \qquad
+ \|WD_{\rm ext}^{-1/2}\|^2
+ \le {\lambda^2\over2d_{\rm LS}}.                          \tag{6.8f}
+\]
+
+Hence the present unconditional alignment fallback is only
+
+\[
+ C_{\rm ext}\|WD_{\rm ext}^{-1/2}\|^2
+ \le {B_{\rm abs}\lambda^4\over4d_{\rm LS}^2}.             \tag{6.8g}
+\]
+
+Source kernels are removed before inversion and physical kernels are handled
+on `ran(W)`.  Paired zero sampling gives the same `B_abs` on the
+complexification of either fixed real parity sector, with no extra factor
+two.  Equations (6.8e)--(6.8g) are unconditional and source-explicit, but
+their two inverse all-index defects are exponentially too costly.  They do
+not establish the `O(d_8^(-1))` target in (6.8d).
+
+There is a separate parity-scale warning.  The fixed-index source constants
+give
+
+\[
+ {d_8\over d_6}\sim {32\pi^2\over7}\lambda^4,
+ \qquad
+ {d_4\over d_6}\sim {15\over128\pi^2}\lambda^{-4}.       \tag{6.8h}
+\]
+
+Thus the complete-remainder estimate
+`epsilon_lambda=O(lambda^7*d_4)` is `o(d_8)` but yields only
+
+\[
+ {\epsilon_\lambda\over d_6}=O(\lambda^3),                \tag{6.8i}
+\]
+
+which does not prove odd-sector shift smallness.  The same scalar
+`epsilon_lambda I` occurs in both normalization-free shifted blocks; evenness
+of the forcing removes odd forcing, not the odd spectral comparison.
+
+The source-normalized `0/4` cancellation does not repair this loss.  Its
+coefficient satisfies `a_(0,lambda)/a_4->sqrt(3)/2^(3/2)`, but the pinned
+endpoint formulas give
+
+\[
+ {a_{0,\lambda}e_0\over a_4e_4}
+ \sim {3\over256\pi^2}\lambda^{-4}.                       \tag{6.8j}
+\]
+
+Hence the cancellation is at the origin, not at the hard endpoint.  Using
+the qualitative boundedness of `a_(0,lambda)` would improve the existing
+absolute outer bound only from `O(lambda^7*d_4)` to
+`O(lambda^5*d_4)=O(lambda*d_6)`, and the pinned convergence has no effective
+threshold.  The exact second endpoint term already has unweighted scale
+`Theta(d_6)`.  This does not rule out a smaller signed Rayleigh shift, but it
+shows that such a result must use a new signed Mellin/full-remainder
+cancellation or prove the complete shifted odd Schur complement directly.
+See `notes/PARITY_SHIFT_SCALE_AUDIT.md` and
+`notes/OUTER_NORMALIZATION_CANCELLATION_AUDIT.md`.
 
 There is also a qualitative advance on physical conditioning.  On every
 locked half-integer `lambda`, the unmatched arithmetic breakpoint

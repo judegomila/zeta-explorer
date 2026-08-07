@@ -454,7 +454,7 @@ the stronger fail-closed form (4.14).  Let `T_j` be any rigorously proved
 upper bound from (4.15) and put
 
 \[
-d_j=D(T_j).
+d_j^{\rm ch}=D(T_j).
 \]
 
 The old scalar quantity
@@ -478,7 +478,7 @@ Therefore it is enough to prove, for every fixed `eta<1/2`,
 
 \[
 \sqrt{\log\lambda_j}\,\lambda_j^\eta
-\left(e_j+\|P_{N_j}k^+_{\lambda_j}\|d_j\right)
+\left(e_j+\|P_{N_j}k^+_{\lambda_j}\|d_j^{\rm ch}\right)
 \longrightarrow0.                                  \tag{5.2}
 \]
 
@@ -498,10 +498,10 @@ the required unbounded-sequence shifted-resolvent bounds have not been proved.
 
 Here `xi_(lambda_j,N_j)` is the unit vector with phase aligned to the projected
 prolate state, not the source's boundary-normalized representative.  If
-`d_j=delta_(N_j)(xi_(lambda_j,N_j))`, then exactly
+`beta_j=delta_(N_j)(xi_(lambda_j,N_j))`, then exactly
 
 \[
- F_j(z)=4i\|P_{N_j}k^+_{\lambda_j}\|d_j\lambda_j^{iz}
+ F_j(z)=4i\|P_{N_j}k^+_{\lambda_j}\|\beta_j\lambda_j^{iz}
  \det_{\rm reg}(D_{\log}^{(\lambda_j,N_j)}-z).     \tag{5.2a}
 \]
 
@@ -509,7 +509,7 @@ Thus `F_j` is an explicitly rescaled and dephased regularized determinant and
 has the same real zeros.  Replacing the eigenvector by any nonzero scalar
 multiple leaves `F_j` unchanged only when that scalar is reciprocally
 compensated; uncontrolled rescaling is not harmless.  This removes any need
-for a uniform lower bound on `|d_j|` in this zero-set formulation.
+for a uniform lower bound on `|beta_j|` in this zero-set formulation.
 
 A convenient stronger target is
 
@@ -762,6 +762,23 @@ qualitative lower scale and still lack a bound with an explicit threshold.
 The pinned Slepian fixed-index asymptotic supplies that eventual scale, and the
 physical arithmetic map still lacks a uniform restricted-conditioning
 theorem.
+
+A separate exact min--max argument now verifies the differential oscillation
+premise throughout the unbuffered leading family.  On the locked schedule
+`lambda=p/2`, the `p^2` disjoint sine packets of length `pi/c=2/p^2` tile
+`[-1,1]` and their complete span has Rayleigh quotient `c^2-1`.  Therefore
+
+\[
+ \mu_n(c)\le c^2-1<c^2,
+ \qquad 0\le n<4\lambda^2.                         \tag{6.0c}
+\]
+
+`notes/LEADING_PROLATE_OSCILLATION_THEOREM.md` and its exact clean-room
+replay derive the packet identity and index range without numerical prolate
+data.  Equation (6.0c) closes the oscillatory hypothesis used by existing
+modewise tail estimates for the leading labels only.  It gives no lower
+bound for `d_n`, no estimate for the logarithmic transition buffer, no
+growing-family sampling Gram, and no signed comparison in (5.5).
 
 There is now an elementary quantitative non-collision bound for the
 *differential* prolate eigenvalues.  If `j=n+2r` and

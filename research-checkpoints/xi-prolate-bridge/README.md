@@ -281,6 +281,10 @@ Start with:
     `notes/PROJECTED_STATE_NORM_LOWER_BOUND.md` -- the explicit positive
     limiting-state norm bound, finite projected-norm lower formula, and
     normalized-shift corollary `U_Z=o(d_6)`.
+25. `LEADING_PROLATE_OSCILLATION_SOURCE_LOCK.json` and
+    `notes/LEADING_PROLATE_OSCILLATION_THEOREM.md` -- the exact sine-packet
+    min--max proof of `mu_n<c^2` for every leading label below
+    `4*lambda^2` on the locked schedule.
 
 `notes/DETERMINANT_LIMIT_AUDIT.md` reproduces the complete finite
 self-adjointness/determinant theorem from the pinned CCM source and separates
@@ -308,6 +312,16 @@ beyond `4*lambda^2` after which every positive concentration defect is at
 least `1/2`.  This removes a source-coordinate rank and high-window-floor
 obstruction.  It does not bound the physical arithmetic map, the fixed
 leading defects, or the signed Weil form.
+
+`notes/LEADING_PROLATE_OSCILLATION_THEOREM.md` removes a separate
+differential-equation premise for the complete unbuffered leading family.  A
+`p^2`-dimensional span of disjoint sine packets on the locked schedule
+`lambda=p/2` has the exact Rayleigh quotient `c^2-1`.  Min--max therefore
+gives `mu_n(c)<=c^2-1<c^2` for every `0<=n<4*lambda^2`.  The exact-rational
+producer and clean-room replay reconstruct the packet tiling, scaled cosine
+moments, form difference, and index range without numerical prolate data.
+This is not a lower bound for `d_n`, a transition-buffer sampling theorem, a
+signed Weil comparison, or equation (5.2).
 
 `notes/PRUFER_SAME_PARITY_GAP_THEOREM.md` supplies a separate,
 non-collision bound for the differential prolate eigenvalues.  It uses the
@@ -506,6 +520,10 @@ with Arb balls. These are finite diagnostics, not an asymptotic proof.
 - Growing positive-prolate source Grams and explicit buffered high-sector
   floor: **yes; exact source-coordinate algebra from a pinned nonasymptotic
   eigenvalue bound, without physical-map conditioning or a signed comparison**.
+- Leading differential-prolate oscillation hypothesis: **yes, by an exact
+  sine-packet min--max certificate for every `n<4*lambda^2` on the locked
+  half-integer schedule; this gives no concentration-defect lower bound,
+  transition-buffer Gram estimate, or signed Weil floor**.
 - Fixed-index prolate defect asymptotic: **yes, qualitatively from a vendored
   and hashed Slepian source, including the eventual `d_4/d_8` scale; no
   effective threshold, growing-index uniformity, or signed Weil floor**.

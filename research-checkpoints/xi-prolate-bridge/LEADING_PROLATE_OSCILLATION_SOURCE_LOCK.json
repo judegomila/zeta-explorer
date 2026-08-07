@@ -1,0 +1,77 @@
+{
+  "schema": "xi-prolate-leading-oscillation-source-lock-v1",
+  "claim_class": "EXACT_GROWING_INDEX_DIFFERENTIAL_PROLATE_UPPER_BOUND",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-07",
+  "dependencies": [
+    {
+      "path": "PROLATE_DEFECT_SOURCE_LOCK.json",
+      "sha256": "0844df654ee968b1c371ec96618d10d219da9fde702d62faa4f0c6be139b036d",
+      "role": "pinned prolate parameter conversion c=2*pi*lambda^2 and concentration-label convention"
+    },
+    {
+      "path": "notes/PROLATE_DEFECT_SOURCE_AUDIT.md",
+      "sha256": "b8256ce059d2632d55cb1b0477b5af7f5ebb09d0fc81a7d8b8e696885b49772d",
+      "role": "independently audited prolate scaling and label dictionary"
+    },
+    {
+      "path": "notes/PROLATE_TAIL_ENVELOPE.md",
+      "sha256": "309337a98721d0e0cffb40391a227ad29fbc0de315c6f532109c9376370ed59d",
+      "role": "differential operator convention and tail estimates conditional on mu_n<c^2"
+    },
+    {
+      "path": "notes/OUTER_OUTER_ENDPOINT_OBSTRUCTION.md",
+      "sha256": "b16d33c89dd1517875180a0a5b03f0c0e2b601b0e0e608090016174a464e1e11",
+      "role": "modewise complete sampled-tail bounds using the oscillatory hypothesis"
+    },
+    {
+      "path": "notes/GROWING_WINDOW_THEOREM.md",
+      "sha256": "dad6b0a878b7eba21cbc7aa8049cf3bf89a38df766cc157a87c416e79a721ac7",
+      "role": "locked leading plus/minus target families and transition index convention"
+    },
+    {
+      "path": "notes/EXACT_RADICAL_LEAKAGE_IDENTITY.md",
+      "sha256": "76dd6586357a2448ef689380a106eea5e9aedb95f68e731f10f1d6626040fddc",
+      "role": "zero-integral and invisible-correction conventions for the later growing-family lift"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "role": "runtime inventory pin; the exact certificate itself uses rational arithmetic only"
+    }
+  ],
+  "locked_conventions": {
+    "differential_form": "q_c[y]=integral_(−1)^1 (1-x^2)|y'|^2+c^2*x^2*|y|^2",
+    "eigenvalue_indexing": "mu_0(c)<=mu_1(c)<=... variational eigenvalues indexed from zero and counted with multiplicity",
+    "source_parameter": "c=2*pi*lambda^2",
+    "locked_schedule": "lambda=p/2 with odd integer p>=5",
+    "transition_count": "2*c/pi=4*lambda^2=p^2",
+    "trial_domain": "natural Legendre form domain V with piecewise sine packets in H_0^1(-1,1) subset V"
+  },
+  "locked_formulas": {
+    "packet_length": "ell=pi/c=2/p^2",
+    "packet_count": "r=floor(2*c/pi)=p^2 on the locked schedule",
+    "packet_norm_squared": "||phi_j||_2^2=ell/2=1/p^2",
+    "unit_cosine_moments": "for J_k=integral_0^1 u^k*cos(2*pi*u)du: pi*J_0=0, pi^2*J_1=0, pi^2*J_2=1/2",
+    "scaled_second_cosine_moment": "integral_0^ell t^2*cos(2*pi*t/ell)dt=ell^3/(2*pi^2)",
+    "packet_form_difference": "q_c[phi_j]-c^2*||phi_j||_2^2=-ell/2=-1/p^2",
+    "trial_space_identity": "q_c[y]=(c^2-1)||y||_2^2 on the p^2-dimensional packet span",
+    "minmax_result": "mu_n(c)<=c^2-1<c^2 for every 0<=n<p^2=4*lambda^2"
+  },
+  "claim_boundary": {
+    "proved": [
+      "an exact growing-index differential prolate bound through every label below 4*lambda^2",
+      "the oscillatory hypothesis required by the existing modewise physical-tail estimates",
+      "an exact rational packet certificate on every locked half-integer schedule point"
+    ],
+    "not_proved": [
+      "a lower bound for a concentration defect d_n",
+      "a Landau median or concentration-eigenvalue threshold",
+      "the growing-family hybrid zero-sampling Gram bound",
+      "a signed Weil-sector floor or finite Schur/leverage sign",
+      "equation (5.2) of DIRECT_RH_ATTACK.md",
+      "locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ]
+  }
+}

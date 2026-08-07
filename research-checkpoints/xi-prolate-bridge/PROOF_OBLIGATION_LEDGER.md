@@ -246,6 +246,13 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   `n_*=ceil(4*lambda^2)+6+ceil((2/pi^2)*log(200*lambda^2+25)*log(20))`
   gives `1-chi_n^2>=1/2` for all `n>=n_*`.  This is a positive additive
   source-coordinate theorem only.
+- [x] Prove the exact leading differential-prolate oscillation hypothesis.
+  Disjoint sine packets of length `pi/c` give an exact `p^2`-dimensional
+  Rayleigh quotient `c^2-1` on `lambda=p/2`, hence
+  `mu_n(c)<=c^2-1<c^2` for every `0<=n<4*lambda^2`.  The independent exact
+  replay reconstructs the scaled cosine moments, packet tiling, minus sign,
+  and index range.  This proves no lower bound for `d_n`, no buffered-window
+  sampling theorem, and no signed Weil floor.
 - [x] Prove the same-parity differential-eigenvalue bound
   `mu_(n+2r)(c)-mu_n(c)>=(16*r*pi/(225*K^2))*exp(-2*pi*K)`, with
   `K^2=max(1,2*c^2+(n+2r)(n+2r+1))`, from standard qualitative Sturm theory,

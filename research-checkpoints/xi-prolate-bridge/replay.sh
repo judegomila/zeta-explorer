@@ -437,4 +437,16 @@ python3 verifier/projected_state_norm_lower_bound_replay.py \
   artifacts/projected_state_norm_lower_bound/lambda4_N4096_producer_dps160.json \
   --output artifacts/projected_state_norm_lower_bound/lambda4_N4096_verifier_dps160.json >/dev/null
 
+mkdir -p artifacts/leading_prolate_oscillation
+python3 src/leading_prolate_oscillation.py --lambda-numerator 5 \
+  --output artifacts/leading_prolate_oscillation/lambda5over2_producer.json >/dev/null
+python3 verifier/leading_prolate_oscillation_replay.py \
+  artifacts/leading_prolate_oscillation/lambda5over2_producer.json \
+  --output artifacts/leading_prolate_oscillation/lambda5over2_verifier.json >/dev/null
+python3 src/leading_prolate_oscillation.py --lambda-numerator 7 \
+  --output artifacts/leading_prolate_oscillation/lambda7over2_producer.json >/dev/null
+python3 verifier/leading_prolate_oscillation_replay.py \
+  artifacts/leading_prolate_oscillation/lambda7over2_producer.json \
+  --output artifacts/leading_prolate_oscillation/lambda7over2_verifier.json >/dev/null
+
 python3 src/write_artifact_manifest.py

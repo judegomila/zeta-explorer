@@ -71,9 +71,22 @@ schedule; no artifact asserts the complete residual--gap bridge, equation
   independent replay reconstructs the origin correction, exact q-linearity, hybrid
   positive series, one-loss compact-projection exponent, complete Minkowski
   constant, and the rejection of a full-metric block shortcut.  The admitted
-  output is the within-block source-coordinate Loewner bound only; physical
-  synthesis, block quotient/cross-block/high-complement assembly, and both
-  signed comparisons remain open.  Both paths share `mpmath.iv`.
+  output is the within-block source-coordinate Loewner bound only.  The
+  successor `block_quotient_action/` artifacts close the low physical
+  synthesis and cross-block quotient action; the physical high complement
+  and both signed comparisons remain open.  Both paths share `mpmath.iv`.
+- `block_quotient_action/`: exact half-integer inputs `p=5,7` at 80 and 160
+  decimal digits.  The producer serializes outward intervals for the finite
+  KRD ground-state reserve, rest-column norm, and the product `d_12*M_rest`;
+  it does not invent a finite value of `d_12`.  The clean-room replay imports
+  no producer or transition helper and reconstructs the formulas through a
+  different expression tree.  Exact-rational regressions check a saturating
+  two-block action, a nontrivial Moore--Penrose range action, the change
+  `Gamma=1` to `Gamma=4` under an invalid full-metric substitution, and the
+  physical-complement/Fourier-high counterexample.  Both interval paths share
+  `mpmath.iv`.  The fixed-index limits are qualitative and non-effective;
+  the artifacts prove the low positive action only, not a physical-high or
+  shifted signed floor, equation (5.2), determinant convergence, or RH.
 - `prufer_same_parity_gap/`: outward intervals at 80 and 160 decimal digits
   for the elementary same-parity differential prolate non-collision bound at
   `lambda=2`, `n=0`, `r=2`, together with exact `c=0` Legendre center and

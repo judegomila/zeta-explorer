@@ -185,19 +185,22 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   contradict the complete-series hybrid bound.  The endpoint cancellation
   remains false, and a signed odd floor or direct shifted odd Schur theorem
   remains required.
-- [ ] Complete the positive graph-action assembly.  The original uniform
-  window-Bessel/reciprocal-sum route remains an unproved sufficient
-  alternative, but the sharper source-coordinate theorem now supplies the
-  defect-relative constants for the singleton `8` block and the remaining
-  transition block.  What remains is to define a genuinely block-diagonal
-  quotient source metric, prove the corresponding physical synthesis
-  factors, retain cross-block sampling orientation, and combine the result
-  with the high complement so that
-  `C_ext||W D_ext^(-1/2)||^2=O(lambda^4*polylog(lambda)/d_8)`.
-  A full exterior source Gram cannot be replaced by its diagonal block
-  compressions.  The direct compact-BV fallback pays `d_LS^(-2)` and is still
-  exponentially too large; scalar polarization is still ruled out by the
-  exact radical counterexample.
+- [x] Complete the low split-block positive graph action.  With the deliberately
+  block-diagonal metric `D_8 direct-sum D_rest`, the quotient theorem retains
+  cross-block sampling orientation and the finite synthesis estimates give
+  `Gamma_low=O(lambda^3*polylog(lambda)/d_8)`.  The exact replay checks both a
+  nontrivial range model and the counterexample in which switching to the full
+  exterior metric changes `Gamma` from `1` to `4`.  The fixed-index inputs are
+  qualitative and have no effective threshold.
+- [ ] Complete the physical-high and signed graph-action assembly.  The
+  conditional extension is
+  `Gamma<=Gamma_low+B_H/g^2`, but no usable signed comparison metric `g` is
+  proved on `K_low^perp`.  Fourier-high coercivity cannot be transferred to
+  that physical complement: an exact three-dimensional counterexample has
+  positive physical-low and Fourier-high compressions while the physical
+  complement contains a negative direction.  The direct compact-BV fallback
+  pays `d_LS^(-2)`, and scalar polarization is still ruled out by the exact
+  radical counterexample.
 - [ ] Obtain an asymptotic formula with a rigorous remainder for
   `r_(lambda,N)`.
 - [ ] Control the residual in the shifted even-complement resolvent, not only
@@ -265,6 +268,13 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   all-index defect-floor loss in the exponentially small projection term.
   It does not identify a full cross-block exterior Gram with a block-diagonal
   quotient metric or prove a signed comparison.
+- [x] Assemble the two plus blocks with an explicitly chosen block-diagonal
+  quotient metric and bound the physical synthesis factors.  The retained
+  squared-sum action gives
+  `Gamma_low=O(lambda^3*polylog(lambda)/d_8)`, stronger than the relaxed low
+  positive target.  Exact-rational replay rejects both a full-metric
+  substitution and identification of the physical complement with the
+  Fourier-high subspace.  No physical-high or shifted signed floor follows.
 - [x] Prove the same-parity differential-eigenvalue bound
   `mu_(n+2r)(c)-mu_n(c)>=(16*r*pi/(225*K^2))*exp(-2*pi*K)`, with
   `K^2=max(1,2*c^2+(n+2r)(n+2r+1))`, from standard qualitative Sturm theory,

@@ -1,6 +1,6 @@
 {
   "artifact_name": "xi-prolate-bridge",
-  "artifact_version": "0.23.0-growing-transition-sampling",
+  "artifact_version": "0.24.0-block-quotient-action",
   "updated_date": "2026-08-07",
   "terminal_state": "P0_INVALIDATED",
   "entry_prompt": "CODEX_MASTER_PROMPT.md",
@@ -20,6 +20,7 @@
   "leading_prolate_oscillation_source_lock": "LEADING_PROLATE_OSCILLATION_SOURCE_LOCK.json",
   "transition_prolate_outer_source_lock": "TRANSITION_PROLATE_OUTER_SOURCE_LOCK.json",
   "growing_transition_sampling_source_lock": "GROWING_TRANSITION_SAMPLING_SOURCE_LOCK.json",
+  "block_quotient_action_source_lock": "BLOCK_QUOTIENT_ACTION_SOURCE_LOCK.json",
   "signed_rewrite_document": "notes/CHEBYSHEV_ERROR_REWRITE.md",
   "growing_window_document": "notes/GROWING_WINDOW_THEOREM.md",
   "prolate_tail_document": "notes/PROLATE_TAIL_ENVELOPE.md",
@@ -38,6 +39,7 @@
   "leading_prolate_oscillation_document": "notes/LEADING_PROLATE_OSCILLATION_THEOREM.md",
   "transition_prolate_outer_document": "notes/TRANSITION_PROLATE_OUTER_THEOREM.md",
   "growing_transition_sampling_document": "notes/GROWING_TRANSITION_SAMPLING_THEOREM.md",
+  "block_quotient_action_document": "notes/BLOCK_QUOTIENT_ACTION_THEOREM.md",
   "parity_multiplier_schur_document": "notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md",
   "phase_volume_scale_audit_document": "notes/PHASE_VOLUME_SCALE_AUDIT.md",
   "weak_residual_sampling_document": "notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md",
@@ -107,6 +109,11 @@
     "growing_transition_remainder_loewner_bound_proved": true,
     "growing_transition_compact_projection_bound_proved": true,
     "growing_transition_sampling_independent_replay_written": true,
+    "block_quotient_action_source_locked": true,
+    "block_quotient_action_independent_replay_written": true,
+    "low_split_block_physical_synthesis_bounds_proved": true,
+    "low_split_block_action_target_scale_proved": true,
+    "physical_high_complement_action_scale_proved": false,
     "normalization_free_shift_epsilon_o_d6_proved": true,
     "projected_state_norm_source_locked": true,
     "projected_state_norm_lower_bound_proved": true,
@@ -163,10 +170,10 @@
     "gmp": "6.3.0",
     "mpfr": "4.2.2",
     "test_command": "python3 -m unittest discover -s tests -v",
-    "tests_passed": 445,
-    "tests_total": 445
+    "tests_passed": 455,
+    "tests_total": 455
   },
   "replay": "./replay.sh",
   "artifact_hash_manifest": "artifacts/ARTIFACT_MANIFEST.sha256",
-  "manifest_note": "This manifest intentionally omits a self-hash. Current hashes for generated artifacts are in the artifact hash manifest; binding source hashes are in P0_SOURCE_LOCK.json, P1_SOURCE_LOCK.json, P2_SOURCE_LOCK.json, P3_SOURCE_LOCK.json, PROLATE_DEFECT_SOURCE_LOCK.json, DEFECT_RELATIVE_PROJECTION_SOURCE_LOCK.json, ZERO_SAMPLING_SOURCE_LOCK.json, COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json, FULL_EXTERIOR_SAMPLING_SOURCE_LOCK.json, HYBRID_OUTER_SAMPLING_SOURCE_LOCK.json, PROJECTED_STATE_NORM_SOURCE_LOCK.json, LEADING_PROLATE_OSCILLATION_SOURCE_LOCK.json, TRANSITION_PROLATE_OUTER_SOURCE_LOCK.json, and GROWING_TRANSITION_SAMPLING_SOURCE_LOCK.json."
+  "manifest_note": "This manifest intentionally omits a self-hash. Current hashes for generated artifacts are in the artifact hash manifest; binding source hashes are in P0_SOURCE_LOCK.json, P1_SOURCE_LOCK.json, P2_SOURCE_LOCK.json, P3_SOURCE_LOCK.json, PROLATE_DEFECT_SOURCE_LOCK.json, DEFECT_RELATIVE_PROJECTION_SOURCE_LOCK.json, ZERO_SAMPLING_SOURCE_LOCK.json, COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json, FULL_EXTERIOR_SAMPLING_SOURCE_LOCK.json, HYBRID_OUTER_SAMPLING_SOURCE_LOCK.json, PROJECTED_STATE_NORM_SOURCE_LOCK.json, LEADING_PROLATE_OSCILLATION_SOURCE_LOCK.json, TRANSITION_PROLATE_OUTER_SOURCE_LOCK.json, GROWING_TRANSITION_SAMPLING_SOURCE_LOCK.json, and BLOCK_QUOTIENT_ACTION_SOURCE_LOCK.json."
 }

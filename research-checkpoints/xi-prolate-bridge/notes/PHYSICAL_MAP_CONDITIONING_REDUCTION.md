@@ -13,6 +13,14 @@ non-effective in `lambda`: no prescribed Fourier bandwidth, uniform smallest
 singular value, signed Weil comparison, shifted-sector floor, or resolvent
 rate follows.  The repository state remains `P0_INVALIDATED`.
 
+The later `notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md` shows that a lower
+physical singular value is not intrinsic to the positive zero-sampling
+action.  Minimum-source-energy descent works directly on the physical range
+and needs only a largest singular-value bound.  The determinant/minor target
+below remains relevant to proof routes and implementations that explicitly
+orthonormalize the physical source columns; it is no longer a mandatory
+input to every residual-action route.
+
 ## 2. Arithmetic map and exact Möbius inversion
 
 For a source function supported in `[-lambda,lambda]`, write on

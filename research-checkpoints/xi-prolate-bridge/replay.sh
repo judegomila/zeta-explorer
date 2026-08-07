@@ -23,6 +23,18 @@ python3 verifier/weak_residual_duality_replay.py \
   artifacts/weak_residual_duality/counterexample_producer_dps80.json \
   --output artifacts/weak_residual_duality/counterexample_verifier.json
 
+mkdir -p artifacts/quotient_exterior_preconditioner
+python3 src/quotient_exterior_preconditioner.py --dps 80 \
+  --output artifacts/quotient_exterior_preconditioner/canonical_producer_dps80.json
+python3 verifier/quotient_exterior_preconditioner_replay.py \
+  --artifact artifacts/quotient_exterior_preconditioner/canonical_producer_dps80.json \
+  --output artifacts/quotient_exterior_preconditioner/canonical_verifier_dps80.json
+python3 src/quotient_exterior_preconditioner.py --dps 160 \
+  --output artifacts/quotient_exterior_preconditioner/canonical_producer_dps160.json
+python3 verifier/quotient_exterior_preconditioner_replay.py \
+  --artifact artifacts/quotient_exterior_preconditioner/canonical_producer_dps160.json \
+  --output artifacts/quotient_exterior_preconditioner/canonical_verifier_dps160.json
+
 mkdir -p artifacts/physical_map_conditioning
 python3 src/physical_map_conditioning.py --lambda 5/2 --dps 80 \
   --output artifacts/physical_map_conditioning/lambda5over2_producer_dps80.json

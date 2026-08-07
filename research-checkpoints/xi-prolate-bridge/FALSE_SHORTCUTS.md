@@ -102,6 +102,20 @@ region required by RH.
   Cauchy--Schwarz argument.  It does not supply uniform Bessel bounds for the
   growing complementary windows or the reciprocal defect sum, and therefore
   does not by itself bound the shifted residual action.
+- Modewise diagonal sample estimates do not imply a source Gram inequality.
+  For `W=D=I_r` and `S=[1,...,1]`, every source column has sample norm one,
+  while `W^*S^*SW` has top eigenvalue `r`.  Every coherent cross term must
+  be retained in `Y^*Z^*ZY<=C_ext D_ext`.
+- A source kernel is not an obstruction to positive-sampling descent, but it
+  must not be inverted.  The valid quotient preconditioner is
+  `(W D_ext^(-1)W^*)^dagger` restricted to `ran(W)`.  Its zero ambient
+  eigenvalues are not physical floors.  This theorem removes the smallest
+  singular value; it does not prove the required exterior Gram estimate or a
+  signed sector comparison.
+- A shifted comparison on only the low compression `P_KBP_K` does not
+  control `P_KB^(-1)c` when low/high couplings are present.  The complete
+  operator must dominate, or be left-close to, the low/high quotient
+  preconditioner with the cross couplings included.
 - The pole cannot be assigned the same sign in the two parity sectors.  With
   the locked Fourier sign it is `2 epsilon |p_epsilon><p_epsilon|`: positive
   in the even sector and negative in the odd sector.  Dropping inversion

@@ -3,7 +3,7 @@
   "terminal_state": "P0_INVALIDATED",
   "precision_decimal_digits": 80,
   "provenance_sha256": {
-    "notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md": "4a034231156569afec33f0d4a73c462cf328cba7405f613a1c57286a5838c5e0",
+    "notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md": "3d6428991a0e66e1c2752c8eec76375576e6f94f68a65891cd3215495e6d4e61",
     "src/physical_map_conditioning.py": "a47f5ed65504132bfb42efb8808256b3a98156b6d2913e5fdbab3e7b657c3c83",
     "verifier/physical_map_conditioning_replay.py": "db0e39d763d7970019bac6faafd911dfd502d7ff4a6742e27b90ea789daa3b31"
   },

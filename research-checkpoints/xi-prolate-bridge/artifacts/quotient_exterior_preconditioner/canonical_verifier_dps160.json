@@ -1,0 +1,17 @@
+{
+  "artifact_version": "0.16.0-quotient-exterior-preconditioner-replay",
+  "terminal_state": "P0_INVALIDATED",
+  "producer_canonical_json_sha256": "561b5d4c118149e2e4f9baf9f801b8ed9d48e0563f55ab5603fb804b42de912a",
+  "independent_arithmetic": "fractions.Fraction plus decimal.Decimal",
+  "source_kernel_dimension": 1,
+  "quotient_identity_pass": true,
+  "sampling_descent_pass": true,
+  "alignment_bound_pass": true,
+  "left_close_action_pass": true,
+  "dominating_action_pass": true,
+  "block_cross_term_pass": true,
+  "defect_relative_exterior_sampling_proved": false,
+  "shifted_signed_sector_comparison_proved": false,
+  "equation_5_2_proved": false,
+  "claim_scope": "independent exact finite-linear-algebra replay"
+}

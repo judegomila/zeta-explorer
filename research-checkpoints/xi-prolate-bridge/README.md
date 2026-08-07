@@ -134,6 +134,34 @@ cross-window orientation and can be stronger than a windowwise reciprocal
 sum.  The complete-remainder theorem also makes the scalar Rayleigh-shift
 penalty `O(lambda^(-1)d_8)`, but it supplies no signed parity floor.
 
+`notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md` now removes the lower physical
+Gram determinant from this positive-sampling route.  If `D_ext` is the
+positive source exterior-defect form, `W` is physical synthesis, and
+
+`W^* G_+ W <= C_ext D_ext`,
+
+then the minimum-source-energy quotient on `K=ran(W)` is
+
+`Delta_K=(W D_ext^(-1) W^*)^dagger|_K`.
+
+It satisfies
+
+`G_+ <= C_ext Delta_K`
+
+and
+
+`||Delta_K^(-1) G_+ Delta_K^(-1)||
+ <= C_ext ||W D_ext^(-1/2)||^2`.
+
+Only the largest singular value occurs; source kernels are removed by the
+quotient instead of being inverted.  The theorem is independently replayed
+on a rank-deficient exact rational model.  It does not prove the displayed
+source Gram inequality or either signed comparison.  The new smallest
+positive-sampling target is the full, cross-term-preserving exterior estimate
+`Y^* Z^* Z Y <= C_ext D_ext` together with
+`C_ext ||W D_ext^(-1/2)||^2=O(1/d_8)`.  A generic compact-BV insertion still
+squares the bad inverse-defect factor and remains insufficient.
+
 For the signed floors, `notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md` rewrites
 the complete real-axis form using the exact multiplier `m_lambda`, retains
 the opposite rank-one pole signs in the two parity sectors, and confines the
@@ -177,8 +205,12 @@ Start with:
     absolute-sampling bound on the locked exponential schedule.
 16. `notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md` -- exact graph-dual residual
     target, absolute-sampling window lemma, and scalar/action obstruction.
-17. `notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md` -- qualitative parity-map
-    injectivity and the exact normalized Gram/minor target.
+17. `notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md` -- minimum-energy descent of
+    a source defect form to the physical range, eliminating the smallest
+    singular-value loss from the positive-sampling action.
+18. `notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md` -- qualitative parity-map
+    injectivity and the normalized Gram/minor target for routes that
+    explicitly orthonormalize physical source columns.
 
 `notes/DETERMINANT_LIMIT_AUDIT.md` reproduces the complete finite
 self-adjointness/determinant theorem from the pinned CCM source and separates
@@ -209,7 +241,10 @@ finite-dimensional analytic source family, and hence their finite Fourier
 maps are eventually injective at each fixed `lambda`.  The theorem is
 non-effective.  Uniform conditioning is reduced to an explicit normalized
 physical Gram determinant or row-minor lower bound; no such bound is yet
-proved through the growing transition window.
+proved through the growing transition window.  The quotient theorem above
+shows that this lower determinant is not intrinsically needed for the
+positive-sampling/action estimate.  It remains relevant to implementations
+and proof routes that first orthonormalize the growing physical columns.
 
 The next analytic program is isolated in
 `notes/PRECONDITIONED_RESOLVENT_PROGRAM.md`: it proves finite sufficient

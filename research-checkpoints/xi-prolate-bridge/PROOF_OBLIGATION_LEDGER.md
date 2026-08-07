@@ -185,23 +185,19 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   contradict the complete-series hybrid bound.  The endpoint cancellation
   remains false, and a signed odd floor or direct shifted odd Schur theorem
   remains required.
-- [ ] Prove the remaining absolute-sampling window estimates: uniform
-  source-window Bessel bounds `||v||_Z^2<=beta_m d_m||v||^2` and the
-  reciprocal sum.  The stronger convenient target `O(1/d_8)` would make the
-  graph-dual action `o(lambda^(-2))`.  Using the explicit hybrid rate, the
-  relaxed target `O(lambda^4*polylog(lambda)/d_8)` already gives
-  `O(lambda^(-1/2)*polylog(lambda))` and reaches (5.2).  The direct compact-BV
-  insertion is proved insufficient
-  already at label `8`, where it gives `beta_8/d_8=B_abs/d_8^2`; the estimate
-  must be defect-relative.  The exact counterexample also shows that scalar
-  polarization alone cannot do so.  A strictly sharper alternative is the
-  full source-coordinate quotient target
-  `Y^*Z^*ZY<=C_ext D_ext` with
-  `C_ext||W D_ext^(-1/2)||^2=O(lambda^4*polylog(lambda)/d_8)`; this avoids
-  the reciprocal-window sum but still requires a defect-relative constant at
-  the displayed scale.  The earlier `O(1/d_8)` target is stronger.
-  The unconditional full-cross-term fallback above pays `d_LS^(-2)` and is
-  not that estimate.
+- [ ] Complete the positive graph-action assembly.  The original uniform
+  window-Bessel/reciprocal-sum route remains an unproved sufficient
+  alternative, but the sharper source-coordinate theorem now supplies the
+  defect-relative constants for the singleton `8` block and the remaining
+  transition block.  What remains is to define a genuinely block-diagonal
+  quotient source metric, prove the corresponding physical synthesis
+  factors, retain cross-block sampling orientation, and combine the result
+  with the high complement so that
+  `C_ext||W D_ext^(-1/2)||^2=O(lambda^4*polylog(lambda)/d_8)`.
+  A full exterior source Gram cannot be replaced by its diagonal block
+  compressions.  The direct compact-BV fallback pays `d_LS^(-2)` and is still
+  exponentially too large; scalar polarization is still ruled out by the
+  exact radical counterexample.
 - [ ] Obtain an asymptotic formula with a rigorous remainder for
   `r_(lambda,N)`.
 - [ ] Control the residual in the shifted even-complement resolvent, not only
@@ -251,8 +247,24 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   Rayleigh quotient `c^2-1` on `lambda=p/2`, hence
   `mu_n(c)<=c^2-1<c^2` for every `0<=n<4*lambda^2`.  The independent exact
   replay reconstructs the scaled cosine moments, packet tiling, minus sign,
-  and index range.  This proves no lower bound for `d_n`, no buffered-window
-  sampling theorem, and no signed Weil floor.
+  and index range.  This proves no lower bound for `d_n` and no signed Weil
+  floor.
+- [x] Extend the defect-relative endpoint and complete sampled-tail estimates
+  through the deterministic KRD transition buffer.  For every locked odd
+  `p>=5`, `n<n_*` implies `mu_n(c)<3c^2`; a Liouville--Pruefer argument gives
+  `|h_n(lambda)|^2<=2592*pi^2*lambda*d_n`, and the explicit complete-series
+  norm and translation constants are polynomial.  The independent 80/160
+  digit replay reconstructs the threshold, finite constants, intervals, and
+  even-label domain without a prolate eigenvalue table or zeta-zero list.
+- [x] Lift the transition estimates to the growing corrected source blocks,
+  including the invisible origin correction, arbitrary plus-anchor
+  deflation, both reflected tails, compact projection remainder, and every
+  within-block zero-sampling cross term.  The locked Loewner theorem gives
+  `C_8=O(lambda*polylog(lambda))` and
+  `C_rest=O(lambda^3*polylog(lambda))` on the exponential schedule, with one
+  all-index defect-floor loss in the exponentially small projection term.
+  It does not identify a full cross-block exterior Gram with a block-diagonal
+  quotient metric or prove a signed comparison.
 - [x] Prove the same-parity differential-eigenvalue bound
   `mu_(n+2r)(c)-mu_n(c)>=(16*r*pi/(225*K^2))*exp(-2*pi*K)`, with
   `K^2=max(1,2*c^2+(n+2r)(n+2r+1))`, from standard qualitative Sturm theory,

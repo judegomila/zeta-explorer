@@ -190,16 +190,33 @@ ball, not another diagonal value of the indefinite form.  Ordinary sequence
 Cauchy--Schwarz in the positive absolute zero-sampling seminorm reduces this to
 the complete-remainder sampling bound, window Bessel estimates, and a
 reciprocal defect sum, as recorded in
-`notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md`.  The first of those inputs is now
+`notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md`.  The first of those inputs is
 proved at the sharper odd scale:
 `notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md` gives
 `||R||_Z^2=o(d_6)` on the locked exponential schedule through an exact
 convergent series, with its finite constants and tail switch independently
-interval-replayed.  The growing-window
-Bessel estimates and reciprocal sum remain open.  The exact five-dimensional
-two-sided-radical model has all four scalar P/O pairings equal to zero while
-the residual action remains nonzero.  This proves that the scalar quadratic
-closure above cannot by itself be promoted to the required vector estimate.
+interval-replayed.
+
+The original windowwise Bessel/reciprocal-sum formulation remains open, but
+the sharper source-coordinate alternative is now proved on each split plus
+block.  `notes/TRANSITION_PROLATE_OUTER_THEOREM.md` covers every even
+mode below the deterministic KRD transition index without assuming
+`mu_n<c^2`.  `notes/GROWING_TRANSITION_SAMPLING_THEOREM.md` then proves, with
+the complete correction and projection remainder included,
+
+`Y_8^* Z^* Z Y_8 \preceq C_8 D_8`,
+
+`Y_rest^* Z^* Z Y_rest \preceq C_rest D_rest`,
+
+where `C_8=O(lambda*polylog(lambda))` and
+`C_rest=O(lambda^3*polylog(lambda))`.  All within-block cross terms are
+retained.  The remaining positive-action work is to justify the blockwise
+quotient metric, control the physical synthesis factors, and combine the
+result with the high complement; the two shifted signed comparisons remain
+separate.  The exact five-dimensional two-sided-radical model has all four
+scalar P/O pairings equal to zero while the residual action remains nonzero,
+so the scalar quadratic closure above still cannot by itself be promoted to
+the required vector estimate or equation (5.2).
 
 ## Deterministic schedule diagnostics
 

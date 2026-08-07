@@ -776,9 +776,51 @@ premise throughout the unbuffered leading family.  On the locked schedule
 `notes/LEADING_PROLATE_OSCILLATION_THEOREM.md` and its exact clean-room
 replay derive the packet identity and index range without numerical prolate
 data.  Equation (6.0c) closes the oscillatory hypothesis used by existing
-modewise tail estimates for the leading labels only.  It gives no lower
-bound for `d_n`, no estimate for the logarithmic transition buffer, no
-growing-family sampling Gram, and no signed comparison in (5.5).
+modewise tail estimates for the leading labels only.
+
+The logarithmic transition buffer is now handled without extending the
+invalid hard-endpoint monotonicity argument.  For every locked `p>=5`, the
+Legendre min--max bound gives
+
+\[
+ n<n_*\quad\Longrightarrow\quad \mu_n(c)<3c^2.             \tag{6.0d}
+\]
+
+Starting at `2*lambda`, a Liouville--Pruefer estimate and the exact exterior
+leakage norm then give the explicit endpoint estimate
+
+\[
+ |h_{n,\lambda}(\lambda)|^2
+ \le2592\pi^2\lambda d_n,                                  \tag{6.0e}
+\]
+
+the complete even-label sampled-series bound, and polynomial weighted norm
+and translation constants for every even `n<n_*`.  These statements and their
+80/160-digit independent interval replay are locked in
+`notes/TRANSITION_PROLATE_OUTER_THEOREM.md`.
+
+`notes/GROWING_TRANSITION_SAMPLING_THEOREM.md` lifts those modewise bounds to
+zero-integral corrected combinations.  It retains the invisible origin
+correction, arbitrary plus-anchor deflation, both reflected tails, the compact
+projection remainder, and every within-block zero-sampling cross term.  If
+`D_block` is the exact source exterior-defect form, the resulting Loewner
+constants satisfy
+
+\[
+ Y_8^*Z^*ZY_8\preceq C_8D_8,
+ \qquad C_8=O(\lambda\operatorname {polylog}\lambda),       \tag{6.0f}
+\]
+
+\[
+ Y_{\rm rest}^*Z^*ZY_{\rm rest}\preceq C_{\rm rest}D_{\rm rest},
+ \qquad C_{\rm rest}=O(\lambda^3\operatorname {polylog}\lambda).
+                                                                    \tag{6.0g}
+\]
+
+This closes the transition sampling/projection input for the split source
+blocks.  It gives no lower bound for `d_n`, does not replace a full
+cross-block source metric by its diagonal compressions, and proves neither a
+physical quotient-action bound nor a signed comparison in (5.5).
 
 There is now an elementary quantitative non-collision bound for the
 *differential* prolate eigenvalues.  If `j=n+2r` and
@@ -800,11 +842,12 @@ This statement is derived in
 one-dimensional Sturm theory and an elementary quantitative half-line
 estimate, without a numerical Sturm solve or an external quantitative gap
 estimate.  Its locked formula and exact `c=0` Legendre oracles are
-independently replayed; the all-`c` Sturm homotopy is proof-only.  It is not
-the missing growing-window estimate: for `j=O(c)` the
-bound is only `exp(-O(c))`, and a product of `O(c^2)` such worst-case factors
-can lose `exp(-O(c^3))`.  In particular, (6.1a) gives no useful normalized
-physical Gram determinant and no signed comparison in (5.5).
+independently replayed; the all-`c` Sturm homotopy is proof-only.  The new
+source-coordinate sampling theorem above does not need this eigenvalue-gap
+product.  For `j=O(c)`, however, (6.1a) is still only `exp(-O(c))`, and a
+product of `O(c^2)` such worst-case factors can lose `exp(-O(c^3))`.
+Consequently it gives no useful normalized physical Gram determinant and no
+signed comparison in (5.5).
 
 The finite Schur criterion has now been sharpened in a way that matters for
 the pilot.  If a deterministic low/high split of either shifted sector is
@@ -930,13 +973,25 @@ weight exponent `eta<1/2` in (5.2).  The explicit stronger information
 `epsilon_lambda=O(lambda^3*polylog(lambda)*d_4)+o(d_4)` shows that the relaxed
 scale `O(lambda^4*polylog(lambda)/d_8)` already yields
 `O(lambda^(-1/2)*polylog(lambda))` action and is sufficient for (5.2).
-Uniform growing-window Bessel constants and even this relaxed reciprocal sum
-are not proved.  A direct insertion of normalized
-windows into the compact-BV theorem gives
+The original windowwise Bessel constants and reciprocal sum are not proved.
+A direct insertion of normalized windows into the compact-BV theorem gives
 `beta_m/d_m=B_abs/d_m^2`; label `8` alone misses the target by
-`B_abs/d_8`, so the missing action estimate must be defect-relative.  The exact
-five-dimensional radical model in
-`notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md` has every scalar P/O pairing
+`B_abs/d_8`.  The source-coordinate alternative in
+`notes/GROWING_TRANSITION_SAMPLING_THEOREM.md` now supplies the needed
+defect-relative Loewner constants on the two split plus blocks:
+
+\[
+ C_8=O(\lambda\operatorname {polylog}\lambda),\qquad
+ C_{\rm rest}=O(\lambda^3\operatorname {polylog}\lambda). \tag{6.8a0}
+\]
+
+This is stronger than applying the absolute theorem window by window and
+retains all sampling cross terms within each block.  It is not yet the global
+alignment in (6.8d): the blockwise physical synthesis factors, a legitimately
+block-diagonal quotient metric, and the high complement must still be
+assembled without replacing a full source Gram by its block compressions.
+The exact five-dimensional radical model in
+`notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md` also has every scalar P/O pairing
 equal to zero but nonzero weighted action, proving that (6.6)--(6.7) cannot
 be replaced by scalar polarization.
 
@@ -977,10 +1032,13 @@ where exact radicality gives `ZW=-ZY`.  The earlier `O(d_8^(-1))` target is
 a stronger sufficient condition.  A generic compact-BV bound still
 loses one defect by making `C_ext` itself proportional to
 `||W D_ext^(-1/2)||^2`.  Equations (6.8a)--(6.8d) are therefore an exact
-conditioning reduction, not the missing exterior estimate.  The full
-shifted signed operator must also be left-close to, or dominate, the same
-quotient preconditioner; a low compression alone does not control the full
-inverse when low/high couplings are present.  See
+conditioning reduction.  The growing-transition sampling theorem supplies
+the low split-block Loewner `C_ext` factors, but the physical synthesis
+factors, a legitimate
+block quotient with cross-block orientation, and the high complement remain
+to be assembled.  The full shifted signed operator must also be left-close
+to, or dominate, the same quotient preconditioner; a low compression alone
+does not control the full inverse when low/high couplings are present.  See
 `notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md`.
 
 The generic loss is now quantified without an unspecified constant.  On the

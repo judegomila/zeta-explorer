@@ -1,0 +1,92 @@
+{
+  "schema": "xi-prolate-transition-outer-source-lock-v1",
+  "claim_class": "TRANSITION_PROLATE_MODEWISE_OUTER_BOUND",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-07",
+  "dependencies": [
+    {
+      "path": "P2_SOURCE_LOCK.json",
+      "sha256": "8b731d499903041ef68e7722ebd085d22673c022655431dcca27c9cac6f4730a",
+      "role": "pinned KRD/BBK source dictionary and exact prolate parameter conversion"
+    },
+    {
+      "path": "vendor/KRD-PSWF-2006.00427v2.pdf",
+      "sha256": "7c56255db5bd6454e3fc926952052fe466ffd49c4961ad8206638dcac1dd39a0",
+      "role": "Karnik--Romberg--Davenport arXiv:2006.00427v2, Corollary 3"
+    },
+    {
+      "path": "vendor/BBK-DPSWF-1905.08354v1.pdf",
+      "sha256": "928759f7eebeeb59883ae2de305ebe8062f412c2ad0d275bb9ad4320c897ff6b",
+      "role": "Boulsane--Bourguiba--Karoui arXiv:1905.08354v1, Proposition 1 source comparison"
+    },
+    {
+      "path": "notes/GROWING_WINDOW_THEOREM.md",
+      "sha256": "dad6b0a878b7eba21cbc7aa8049cf3bf89a38df766cc157a87c416e79a721ac7",
+      "role": "transition threshold, strict low-window convention, and label families"
+    },
+    {
+      "path": "notes/PROLATE_TAIL_ENVELOPE.md",
+      "sha256": "309337a98721d0e0cffb40391a227ad29fbc0de315c6f532109c9376370ed59d",
+      "role": "exterior prolate ODE, Fourier phase, leakage identity, and hard-endpoint convention"
+    },
+    {
+      "path": "notes/OUTER_OUTER_WEIGHTED_TRANSLATION_THEOREM.md",
+      "sha256": "34bb4e43faf04f34e11126946b1069480375d5ba18baf9c97e9746b246594a0f",
+      "role": "complete sampled-series decomposition and weighted translation architecture"
+    },
+    {
+      "path": "notes/OUTER_OUTER_SPECTRAL_THEOREM.md",
+      "sha256": "02407eafa8fd5db4c5d8b5bbb2f62d5215f6ef5bf1cb5104fa53caddb52800e4",
+      "role": "pinned dyadic zero-sampling mechanism used only by the successor growing-family lift"
+    },
+    {
+      "path": "src/transition_window_bound.py",
+      "sha256": "0d7782f56b65aaf89d48f5dc827888d286c61723879ada8f7264866029966040",
+      "role": "producer-side outward KRD threshold assembly from exact textual parameters"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "role": "arbitrary-precision interval runtime pin"
+    }
+  ],
+  "locked_conventions": {
+    "fourier_transform": "H_n(t)=integral_R h_n(x)*exp(+2*pi*i*x*t)dx",
+    "source_parameter": "c=2*pi*lambda^2 and k=2*pi*lambda",
+    "locked_schedule": "lambda=p/2 with odd integer p>=5",
+    "defect": "d_n=1-chi_n^2 and integral_lambda^infinity H_n(t)^2dt=d_n/2",
+    "hard_endpoint_phase": "H_n(t)=(h_n(lambda)/(pi*t))*sin(k*t)+o(t^(-1)) for even n",
+    "inversion": "both reflected logarithmic tails are retained",
+    "low_mode_condition": "d_n<1/2; KRD then forces n<n_star",
+    "even_label_domain": "complete harmonic sampled-series bound is asserted only for even prolate labels"
+  },
+  "locked_formulas": {
+    "beta": "beta=(2/pi^2)*log(200*lambda^2+25)",
+    "buffer": "b=6+ceil(beta*log(20))",
+    "transition_index": "n_star=4*lambda^2+b with n_star itself excluded from the low window",
+    "differential_bound": "n<n_star implies mu_n(c)<3*c^2; d_n<1/2 implies n<n_star",
+    "liouville_frequency": "Omega^2=k^2+(c^2-mu_n)/(t^2-lambda^2)+lambda^2/(t^2-lambda^2)^2",
+    "endpoint_bound": "abs(h_n(lambda))^2<=2592*pi^2*lambda*d_n",
+    "far_remainder": "R_n=H_n-(h_n(lambda)/(pi*t))*sin(k*t); abs(R_n)<=18*A*K/t^2 and abs(R_n')<=24*A*k*K/t^2",
+    "sampled_series": "abs(sum_(m>=2) H_n(m*u))<=28*A*u^(-1)*(1+log(2+K/u)) for even n",
+    "weighted_norm": "norm(e^(y*.)*O_n)^2<=1062724*lambda*L_lambda^2*epsilon^(-1)*d_n",
+    "near_constant": "C_near=1119744*pi^2*lambda^5+290304*pi^2*lambda^3+320*c^4*lambda",
+    "translation_constant": "D_tr=6*(82944*pi^2*lambda+C_near+10^9*K^2/lambda)",
+    "weighted_translation": "norm(tau_h(e^(y*.)*O_n)-e^(y*.)*O_n)^2<=D_tr*epsilon^(-1)*h^epsilon*d_n"
+  },
+  "claim_boundary": {
+    "proved": [
+      "every deterministic index n<n_star satisfies the uniform differential eigenvalue bound mu_n<3*c^2",
+      "every even KRD-low mode has an explicit defect-relative endpoint and complete sampled-tail bound",
+      "every even KRD-low mode has an explicit polynomial weighted translation modulus"
+    ],
+    "not_proved": [
+      "the corrected growing-family source Gram or its compact projection remainder",
+      "the blockwise quotient action estimate",
+      "a shifted signed Weil-sector floor",
+      "equation (5.2) of DIRECT_RH_ATTACK.md",
+      "locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ]
+  }
+}

@@ -449,4 +449,32 @@ python3 verifier/leading_prolate_oscillation_replay.py \
   artifacts/leading_prolate_oscillation/lambda7over2_producer.json \
   --output artifacts/leading_prolate_oscillation/lambda7over2_verifier.json >/dev/null
 
+mkdir -p artifacts/transition_prolate_outer
+for P0_TRANSITION_P in 5 7; do
+  for P0_TRANSITION_DPS in 80 160; do
+    python3 src/transition_prolate_outer.py \
+      --lambda-numerator "$P0_TRANSITION_P" --dps "$P0_TRANSITION_DPS" \
+      --output "artifacts/transition_prolate_outer/p${P0_TRANSITION_P}_d${P0_TRANSITION_DPS}_producer.json" >/dev/null
+    python3 verifier/transition_prolate_outer_replay.py \
+      "artifacts/transition_prolate_outer/p${P0_TRANSITION_P}_d${P0_TRANSITION_DPS}_producer.json" \
+      --output "artifacts/transition_prolate_outer/p${P0_TRANSITION_P}_d${P0_TRANSITION_DPS}_replay.json" >/dev/null
+  done
+done
+
+mkdir -p artifacts/growing_transition_sampling
+for P0_GROWING_DPS in 80 160; do
+  python3 src/growing_transition_sampling.py \
+    --lambda-numerator 5 --modal-rows 8 --dps "$P0_GROWING_DPS" \
+    --output "artifacts/growing_transition_sampling/p5_q8_d${P0_GROWING_DPS}_producer.json" >/dev/null
+  python3 verifier/growing_transition_sampling_replay.py \
+    "artifacts/growing_transition_sampling/p5_q8_d${P0_GROWING_DPS}_producer.json" \
+    --output "artifacts/growing_transition_sampling/p5_q8_d${P0_GROWING_DPS}_replay.json" >/dev/null
+  python3 src/growing_transition_sampling.py \
+    --lambda-numerator 7 --modal-rows 14 --dps "$P0_GROWING_DPS" \
+    --output "artifacts/growing_transition_sampling/p7_q14_d${P0_GROWING_DPS}_producer.json" >/dev/null
+  python3 verifier/growing_transition_sampling_replay.py \
+    "artifacts/growing_transition_sampling/p7_q14_d${P0_GROWING_DPS}_producer.json" \
+    --output "artifacts/growing_transition_sampling/p7_q14_d${P0_GROWING_DPS}_replay.json" >/dev/null
+done
+
 python3 src/write_artifact_manifest.py

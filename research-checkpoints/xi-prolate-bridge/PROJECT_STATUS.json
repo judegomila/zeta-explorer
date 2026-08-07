@@ -1,5 +1,5 @@
 {
-  "artifact_version": "0.22.0-leading-prolate-oscillation",
+  "artifact_version": "0.23.0-growing-transition-sampling",
   "overall_status": "P0_INVALIDATED",
   "status_reason": "Two exact inconsistencies were found in the pinned source: the Section 7 formulas yield Xi/4, and printed (4.14) double-counts c(L). Explicit repairs preserve the intended zero argument but must be acknowledged.",
   "rh_proved": false,
@@ -95,7 +95,12 @@
   "leading_prolate_oscillation_source_locked": true,
   "leading_prolate_oscillation_exact_replay_written": true,
   "leading_prolate_oscillation_all_shannon_labels_proved": true,
-  "transition_buffer_oscillation_and_sampling_proved": false,
+  "transition_buffer_oscillation_and_sampling_proved": true,
+  "transition_prolate_outer_source_locked": true,
+  "transition_prolate_outer_independent_replay_written": true,
+  "growing_transition_remainder_loewner_bound_proved": true,
+  "growing_transition_compact_projection_bound_proved": true,
+  "growing_transition_sampling_independent_replay_written": true,
   "physical_transform_restricted_conditioning_proved": false,
   "physical_transform_qualitative_injectivity_proved": true,
   "refined_schedule_doubled_precision_written": true,
@@ -107,7 +112,7 @@
   "fixed_index_prolate_asymptotic_effective_threshold": false,
   "fixed_index_d4_d8_ratio_proved_eventually": true,
   "anisotropic_Schur_interval_enclosed": false,
-  "diagnostic_tests_passed": 425,
-  "diagnostic_tests_total": 425,
-  "smallest_claim": "Within the documented P0 source errata, the exact finite source formulas, finite determinant theorem, scale-free determinant normalization, global E-radical reduction, and finite anisotropic Schur/resolvent theorems remain valid. On the locked exponential schedule, the source-locked hybrid theorem gives epsilon_lambda=o(d_6), and the independently replayed projected-state theorem proves ||P_N k_lambda^+|| tends to a fixed positive source-normalized limit. Therefore the normalized common Ritz upper shift U_Z=epsilon_lambda/a^2 is o(d_6). Separately, an exact sine-packet min--max theorem proves mu_n(c)<=c^2-1<c^2 for every 0<=n<4*lambda^2 on the locked half-integer schedule. This closes only the leading differential oscillation premise: the transition-buffer sampling theorem, relaxed target-scale positive-sampling alignment, both signed parity comparisons, unbounded sector floors, vector-specific shifted-resolvent decay, equation (5.2), and locally uniform characteristic convergence remain unproved. The formal status is P0_INVALIDATED."
+  "diagnostic_tests_passed": 445,
+  "diagnostic_tests_total": 445,
+  "smallest_claim": "Within the documented P0 source errata, the exact finite source formulas, finite determinant theorem, scale-free determinant normalization, global E-radical reduction, and finite anisotropic Schur/resolvent theorems remain valid. On the locked exponential schedule, the hybrid and projected-state theorems give the normalized common Ritz upper shift U_Z=o(d_6). The exact sine-packet theorem covers every leading label, and the source-locked transition theorem proves mu_n(c)<3*c^2 plus explicit defect-relative endpoint, complete-series, weighted-norm, and translation bounds for every even n<n_star. Its growing corrected-source lift retains arbitrary anchor deflation, the compact projection, both reflected tails, and every within-block sampling cross term, with C_8=O(lambda*polylog(lambda)) and C_rest=O(lambda^3*polylog(lambda)). This closes only the split-block sampling/projection input: physical synthesis, a legitimate block-diagonal quotient and cross-block/high-complement assembly, both signed parity comparisons, unbounded sector floors, vector-specific shifted-resolvent decay, equation (5.2), and locally uniform characteristic convergence remain unproved. The formal status is P0_INVALIDATED."
 }

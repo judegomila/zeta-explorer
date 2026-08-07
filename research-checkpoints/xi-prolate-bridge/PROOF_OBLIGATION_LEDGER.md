@@ -114,6 +114,11 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
 - [x] Derive the exact finite-`N` spectral-tail identity
   `QW(p_N,p_N)=W_Z(K-p_N,K-p_N)`, retaining all physical-tail/projection
   cross terms, and the corresponding weak residual functional.
+- [x] Convert the weak residual functional into the exact graph-dual identity
+  `||D^(-1)b||=a^(-1) sup_v |W_Z(v,R)|/||Dv||`, prove the
+  normalization cancellation in `a*D(tau)`, and give an exact two-sided
+  radical counterexample in which all four scalar P/O pairings vanish while
+  the weighted residual action stays nonzero.
 - [x] Derive the exact Poisson time/frequency tail decomposition and its
   positive `L2` leakage Gram, while proving that this Gram is not the Weil
   pairing and depends on the representative modulo `ker(C_lambda E)`.
@@ -121,9 +126,12 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   pole--archimedean--prime distribution and a locked, gauge-controlled
   positive prolate leakage model.  Do not use positivity of the spectral
   tail pairing or Weil-form Cauchy--Schwarz.
-- [ ] Upgrade the now-controlled scalar quadratic energy to an action or weak
-  residual estimate at the required scale.  Small `q_lambda(p,p)` for an
-  indefinite form does not control `(Q-q)kappa`.
+- [ ] Prove the absolute-sampling window estimates isolated by the graph-dual
+  theorem: a complete remainder bound `||R||_Z^2<=epsilon_lambda`, uniform
+  source-window Bessel bounds `||v||_Z^2<=beta_m d_m||v||^2`, and the
+  reciprocal sum `sum beta_m/d_m=O(1/d_8)`.  These would upgrade the scalar
+  cancellation to the required action scale; the exact counterexample shows
+  that scalar polarization alone cannot do so.
 - [ ] Obtain an asymptotic formula with a rigorous remainder for
   `r_(lambda,N)`.
 - [ ] Control the residual in the shifted even-complement resolvent, not only
@@ -204,20 +212,36 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   signs in the two parity sectors, and reduce each shifted sector to an
   explicit phase-volume dangerous space plus an exact finite Schur
   complement.  This is a reduction, not a positive floor.
+- [x] Sharpen the odd dangerous-space count by isolating the negative pole as
+  one explicit span.  This gives a one-dimension alternative to the older
+  pole-norm trace penalty; the better finite bound may be used, while the
+  multiplier/Schur sign remains open.
 - [x] Audit the phase-volume scale: prove the fixed-lambda Cesaro/Haar
   identities and the finite-orbit moment-length obstruction, and retain the
   exact source-locked finite upper bound.  That bound is only
   `exp(O(lambda))`; the desired polynomial phase-volume estimate is neither
   proved nor disproved.
+- [ ] Source-lock the Montgomery--Vaughan 1974 weighted Hilbert inequality
+  before admitting the candidate finite-compression trace bound in
+  `notes/COMPRESSED_MULTIPLIER_TRACE_CANDIDATE.md`.  The checked candidate
+  gives an `O(lambda^2)` dangerous rank under explicit shift growth, but its
+  primary PDF bytes are not yet vendored or hashed and it proves no Schur
+  sign.
 - [ ] Establish either criterion for the exact combined Weil form relative to
   explicit source-normalized prolate windows growing through the Shannon
   transition index, including all coupling, forcing-orientation, and
   Galerkin errors.
-- [ ] Make the correct-scale leading-defect lower bound effective and prove a
-  uniform restricted-conditioning bound for the physical
-  arithmetic/evenization/projection map on the growing source family.  The
-  qualitative fixed-index limit and source Gram rank theorem alone do not
-  imply either statement.
+- [x] Prove qualitative injectivity of both continuous parity arithmetic maps
+  on every finite-dimensional analytic source space along the locked
+  half-integer schedule, using the unmatched `u=lambda/2` arithmetic
+  breakpoint.  Prove eventual Fourier injectivity at each fixed `lambda` and
+  the exact pre-parity Möbius bound `||f||<=2lambda||E(f)||` on the visible
+  interval.
+- [ ] Make the correct-scale leading-defect lower bound effective and prove
+  the normalized physical Gram determinant/minor inequality from
+  `notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md` uniformly on the growing
+  source family.  Qualitative injectivity gives no explicit bandwidth or
+  smallest singular scale.
 - [ ] Prove uniform strict bounds `alpha_L-U>0` and `omega_L-U>0` along an
   unbounded schedule.
 - [ ] Prefer a low-energy prolate comparison or Schur complement over an

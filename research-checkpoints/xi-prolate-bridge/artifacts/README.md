@@ -95,6 +95,19 @@ schedule; no artifact asserts the complete residual--gap bridge, equation
   digits.  It does not assert a modewise radical, an arbitrary outer
   multiplier theorem, an `O--O` estimate, or a sector floor.  Both paths
   share `mpmath.iv`.
+- `weak_residual_duality/`: exact integer/rational reconstruction of the
+  five-dimensional two-sided-radical obstruction.  The producer evaluates
+  the weighted action at arbitrary precision; the verifier imports no
+  producer code and reconstructs all radical and scalar-pairing identities
+  with `fractions.Fraction`, using `decimal.Decimal` only for the displayed
+  square-root values.  Provenance hashes are serialized.  This is an
+  obstruction to a scalar-to-action inference, not an RH counterexample or
+  an asymptotic residual estimate.
+- `physical_map_conditioning/`: exact half-integer breakpoint arithmetic,
+  finite Möbius data, endpoint-jet leading coefficients, and an independent
+  factorization/rational replay at `lambda=5/2`.  It records qualitative
+  parity-map injectivity and explicitly keeps uniform physical conditioning
+  false.  Provenance hashes are serialized.
 
 The replay script regenerates the binding pilots at doubled precision and the
 selected delicate schedule replay. File hashes are recorded in

@@ -166,11 +166,24 @@ decomposition; it is not the asymptotic proof.
    give the unnormalized scalar Ritz energy `q_lambda(p,p)=o(d_8)` on the
    locked schedule.  Do not promote this quadratic-energy theorem to control
    of `(Q-q)kappa`, either signed sector floor, the shifted resolvent, equation
-   (5.2), or determinant convergence.  The exact parity-multiplier/Schur
-   reduction confines the unresolved sign to a phase-volume dangerous space,
+   (5.2), or determinant convergence.  Use the graph-dual identity in
+   `notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md`: the next residual target is a
+   uniform absolute zero-sampling/Bessel estimate on the `||Dv||<=1` test
+   ball, including the compact projection remainder and reciprocal
+   growing-window defect sum.  Its exact radical counterexample proves that
+   scalar polarization cannot by itself supply this input.  The continuous physical
+   parity maps are qualitatively injective on the half-integer schedule by
+   `notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md`; the remaining quantitative
+   target is its normalized Gram determinant/row-minor lower bound, not bare
+   finite rank.  The exact parity-multiplier/Schur reduction confines the
+   unresolved sign to a phase-volume dangerous space,
    but `notes/PHASE_VOLUME_SCALE_AUDIT.md` proves a finite-orbit
    moment-length obstruction and retains only an `exp(O(lambda))` global
-   upper bound; its polynomial target is neither proved nor disproved.  Do not
+   upper bound; its polynomial target is neither proved nor disproved.  The
+   odd pole has a one-dimensional dangerous-span alternative.  The finite
+   compressed-trace polynomial route remains a candidate because its 1974
+   Montgomery--Vaughan source bytes are not yet vendored and hash-locked; do
+   not cite it as an admitted theorem.  Do not
    treat CG/GMRES convergence for `HX=C` as a sign proof: every resulting
    lower model still
    satisfies `S_0<=S`.  The four passing `N=3*ceil(lambda^2)` points and their

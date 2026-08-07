@@ -1,0 +1,12 @@
+{
+  "artifact_version": "0.15.0-physical-conditioning-replay",
+  "terminal_state": "P0_INVALIDATED",
+  "lambda_exact": "5/2",
+  "replay_precision_decimal_digits": 80,
+  "mobius_inversion_inputs_replayed": true,
+  "unmatched_breakpoint_replayed": true,
+  "endpoint_jet_coefficients_replayed": true,
+  "uniform_physical_conditioning_proved": false,
+  "independence": "Mobius values are reconstructed by trial factorization and schedule arithmetic by fractions.Fraction; no producer module is imported",
+  "claim_scope": "independent_exact_reduction_replay_not_uniform_conditioning"
+}

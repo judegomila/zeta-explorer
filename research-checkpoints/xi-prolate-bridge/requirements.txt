@@ -1,2 +1,2 @@
-numpy==2.3.5
+numpy==2.4.6
 mpmath==1.4.1

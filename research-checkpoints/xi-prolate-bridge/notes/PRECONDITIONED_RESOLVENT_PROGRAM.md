@@ -515,6 +515,42 @@ the sign obligation: either (4.3), a Schur argument, or another complete
 argument must still prove positivity of every even-complement and odd-sector
 direction.
 
+### 4.1 Exact weak-residual dual and sampling-window criterion
+
+The residual numerator in (4.3) now has an exact cancellation-preserving
+dual form.  With `p=a*kappa`, global radical remainder `R=K-p`, and `D_+`
+from (4.1),
+
+\[
+ \|D_+^{-1}b\|
+ =\frac1a\sup_{v\ne0}
+       \frac{|\mathcal W_Z(v,R)|}{\|D_+v\|}.                 \tag{4.3a}
+\]
+
+If `K=direct-sum K_m` and ordinary absolute zero-sampling estimates give
+
+\[
+ \|R\|_{\mathfrak Z}^2\le\epsilon_\lambda,
+ \qquad
+ \sup_{v\in K_m,\|v\|=1}\|v\|_{\mathfrak Z}^2
+ \le\beta_m d_m,
+\]
+
+then sequence Cauchy--Schwarz, not Weil positivity, gives
+
+\[
+ \|D_+^{-1}b\|^2
+ \le\frac{\epsilon_\lambda}{a^2}
+       \sum_m\frac{\beta_m}{d_m}.                            \tag{4.3b}
+\]
+
+The factor `a` cancels after multiplication by the projected norm in the
+determinant bridge.  The complete theorem, exact scalar/action obstruction,
+and remaining absolute compact-remainder/window estimates are in
+`notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md`.  In particular, the admitted
+scalar result `q_lambda(p,p)=o(d_8)` cannot imply (4.3a): an exact
+two-sided-radical model has every scalar P/O pairing zero and nonzero action.
+
 For reference, if one had independently proved positive leakage scales
 `epsilon_g` for the comparison state and `d_m` for the other windows, together
 with

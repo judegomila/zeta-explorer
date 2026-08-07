@@ -87,7 +87,16 @@ region required by RH.
   `|W_Z(O,O)|/d_8 -> 0` and `q_lambda(p,p)=o(d_8)` are scalar quadratic-energy
   statements for an indefinite form.  They do not imply a bound on
   `(Q-q)kappa`, either parity floor, the shifted resolvent, equation (5.2), or
-  locally uniform determinant convergence.
+  locally uniform determinant convergence.  The five-dimensional exact
+  model in `notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md` makes this logical gap
+  sharp: every P/O scalar pairing and the total remainder quadratic value can
+  vanish while the residual column and weighted action remain nonzero.
+- Polarizing only among the already-controlled scalar remainder pieces does
+  not recover their pairing against an arbitrary complementary test vector.
+  The exact missing quantity is the graph dual
+  `sup |W_Z(v,R)|/||Dv||`; a uniform bilinear/Bessel or absolute-sampling
+  theorem on explicit source windows is one sufficient route to controlling
+  it, not a consequence of the scalar identities.
 - The pole cannot be assigned the same sign in the two parity sectors.  With
   the locked Fourier sign it is `2 epsilon |p_epsilon><p_epsilon|`: positive
   in the even sector and negative in the odd sector.  Dropping inversion
@@ -127,7 +136,16 @@ region required by RH.
   uniform conditioning after the arithmetic transform, evenization, and
   Fourier projection.  Nor does the explicit trailing bound
   `chi_n^2<=1/2` provide a lower bound for the exponentially small leading
-  defects; the leading KRD inequality has the opposite direction.
+  defects; the leading KRD inequality has the opposite direction.  The
+  continuous parity maps are now known to be qualitatively injective on the
+  locked half-integer analytic source spaces, but qualitative injectivity and
+  eventual fixed-`lambda` Fourier rank still do not supply a uniform smallest
+  singular value or an explicit `N(lambda)`.
+- A positive physical Gram determinant at each fixed `lambda` is not a
+  conditioning theorem.  For a normalized `r`-dimensional Gram, the needed
+  finite inequality is `det Rhat>=gamma*U^(r-1)` with
+  `U>=||Rhat||`, or an equivalent normalized row-minor lower bound; bare
+  nonvanishing may decay arbitrarily faster than the prolate defect scale.
 - Convergence of an auxiliary CG or GMRES solve for `HX=C` cannot establish
   the missing Schur sign.  For every choice of the approximate map,
   `S_0=S-E^*(g^(-1)I-H^(-1))E<=S`; Krylov convergence only shrinks the

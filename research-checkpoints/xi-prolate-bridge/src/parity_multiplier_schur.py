@@ -236,6 +236,44 @@ def dangerous_dimension_bound(
     )
 
 
+def dangerous_dimension_bound_rank_one_pole(
+    lambda_text: str,
+    phase_volume: ExactInput,
+    g: ExactInput,
+    delta: ExactInput,
+    parity: int,
+) -> DangerousDimensionBound:
+    """Evaluate the rank-one-pole dangerous-rank alternative (5.4)/(5.8).
+
+    In the odd sector the negative pole is isolated as one explicit span,
+    rather than charged by its trace.  The returned ``trace_upper`` is the
+    multiplier trace only; ``real_dimension_upper`` adds exactly one for the
+    odd pole.  As elsewhere in this module, point arithmetic is not an
+    outward-rounded certificate.
+    """
+
+    _, lam = parse_lambda(lambda_text)
+    phi = _mp_exact(phase_volume, "phase_volume")
+    gap = _mp_exact(g, "g") - _mp_exact(delta, "delta")
+    if parity not in (-1, 1):
+        raise ValueError("parity must be +1 or -1")
+    if phi < 0:
+        raise ValueError("phase-volume upper bound must be nonnegative")
+    if gap <= 0 or _mp_exact(delta, "delta") <= 0:
+        raise ValueError("require 0 < delta < g")
+
+    length = 2 * mp.log(lam)
+    trace = length * phi / (2 * mp.pi)
+    real_bound = trace / gap + (1 if parity == -1 else 0)
+    return DangerousDimensionBound(
+        parity=parity,
+        trace_upper=+trace,
+        real_dimension_upper=+real_bound,
+        integer_dimension_upper_diagnostic=int(mp.floor(real_bound)),
+        outward_certified=False,
+    )
+
+
 def schur_floor(
     sigma: ExactInput,
     delta: ExactInput,
@@ -256,6 +294,7 @@ __all__ = [
     "absolute_phase_volume_bound",
     "complete_multiplier",
     "dangerous_dimension_bound",
+    "dangerous_dimension_bound_rank_one_pole",
     "fks_linear_chebyshev_constant",
     "multiplier_absolute_lower",
     "parse_lambda",

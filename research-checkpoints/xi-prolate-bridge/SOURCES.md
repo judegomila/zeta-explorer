@@ -224,6 +224,21 @@ equation (5.2), or determinant convergence.
   `notes/OUTER_OUTER_SPECTRAL_THEOREM.md`; this does not upgrade any of these
   scalar pairings to a signed operator floor or residual-action estimate.
 
+## Finite-compression candidate input, not yet source-locked
+
+- H. L. Montgomery and R. C. Vaughan, *Hilbert's Inequality*, J. London
+  Math. Soc. (2) 8 (1974), 73--82, DOI
+  <https://doi.org/10.1112/jlms/s2-8.1.73>.  Theorem 2 (1.7) on p. 74 gives
+  the real-line weighted Hilbert inequality with the original valid constant
+  `3*pi/2`; Corollary 2 (1.8)--(1.9), pp. 74--75, gives the almost-periodic
+  mean-square consequence.  An author-hosted scan is available at
+  <https://personal.science.psu.edu/rcv4/personal/Publications/s2-8-1-73.pdf>.
+  The theorem location and constant have been checked, but the bytes are not
+  vendored or SHA-256 pinned in this repository.  Therefore
+  `notes/COMPRESSED_MULTIPLIER_TRACE_CANDIDATE.md` remains a non-admitted
+  candidate and no formal component claim depends on it.  The constant is
+  not described as optimal or best known.
+
 ## Independent computational context, not theorem input
 
 - A. Groskin, *High-Precision Approximation of Riemann Zeros via the

@@ -1,5 +1,5 @@
 {
-  "artifact_version": "0.14.0-outer-outer-closed",
+  "artifact_version": "0.15.0-weak-dual-conditioning",
   "overall_status": "P0_INVALIDATED",
   "status_reason": "Two exact inconsistencies were found in the pinned source: the Section 7 formulas yield Xi/4, and printed (4.14) double-counts c(L). Explicit repairs preserve the intended zero argument but must be acknowledged.",
   "rh_proved": false,
@@ -37,7 +37,12 @@
   "outer_outer_defect_relative_bound_proved": true,
   "outer_outer_ratio_to_d8_proved": true,
   "locked_schedule_quadratic_ritz_energy_o_d8_proved": true,
+  "weak_residual_graph_duality_proved": true,
+  "scalar_to_action_counterexample_independently_replayed": true,
+  "absolute_sampling_window_bound_proved": false,
   "parity_multiplier_schur_reduction_written": true,
+  "odd_pole_rank_one_dangerous_count_proved": true,
+  "compressed_multiplier_trace_source_locked": false,
   "phase_volume_polynomial_bound_proved": false,
   "finite_residual_gap_dataset_written": true,
   "uniform_residual_bound_proved": false,
@@ -69,6 +74,7 @@
   "additive_growing_window_theorem_written": true,
   "KRD_transition_source_locked": true,
   "physical_transform_restricted_conditioning_proved": false,
+  "physical_transform_qualitative_injectivity_proved": true,
   "refined_schedule_doubled_precision_written": true,
   "Shannon_transition_window_point_pilot_written": true,
   "lambda2p75_larger_bandwidth_followup_written": true,
@@ -78,7 +84,7 @@
   "fixed_index_prolate_asymptotic_effective_threshold": false,
   "fixed_index_d4_d8_ratio_proved_eventually": true,
   "anisotropic_Schur_interval_enclosed": false,
-  "diagnostic_tests_passed": 283,
-  "diagnostic_tests_total": 283,
-  "smallest_claim": "Within the documented P0 source errata, the exact finite source formulas, finite determinant theorem, scale-free determinant normalization, global E-radical reduction, and finite anisotropic Schur/resolvent theorems remain valid. On the locked exponential schedule, ordinary and logarithmically weighted Fourier projection tails are defect-relative; the compact P--P pairing and both mixed O--P/P--O orientations are controlled. Exact MTY--HSW--Platt--Trudgian source locks plus the degree-seven weighted physical-tail modulus now prove the precise quadratic bound abs(W_Z(O,O))<=C_spec*D_S(lambda)*d_4 and abs(W_Z(O,O))/d_8->0, so the unnormalized quadratic Ritz energy is o(d_8). This does not control the residual vector. The parity multiplier/Schur reduction isolates a finite dangerous space, but the O(lambda^2/log(lambda)) phase-volume target is neither proved nor disproved and only an explicit exp(O(lambda)) upper bound is known. No unbounded signed-sector floors, shifted-residual or shifted-resolvent bound, equation (5.2), or locally uniform characteristic convergence have been proved."
+  "diagnostic_tests_passed": 304,
+  "diagnostic_tests_total": 304,
+  "smallest_claim": "Within the documented P0 source errata, the exact finite source formulas, finite determinant theorem, scale-free determinant normalization, global E-radical reduction, and finite anisotropic Schur/resolvent theorems remain valid. On the locked exponential schedule, the projection-containing pairings and outer--outer quadratic term yield unnormalized Ritz energy o(d_8). Exact graph-dual residual duality now identifies the missing action as a weak absolute-sampling problem, and an independently replayed two-sided-radical counterexample proves scalar cancellation alone cannot solve it. Both continuous parity arithmetic maps are qualitatively injective on finite analytic source spaces along the half-integer schedule, but no uniform physical Gram scale follows. The odd pole costs at most one additional dangerous direction. The admitted global phase-volume bound remains exponential; a polynomial finite-compression candidate is not source-locked. No unbounded signed-sector floors, absolute-sampling window bound, shifted-residual or shifted-resolvent rate, equation (5.2), or locally uniform characteristic convergence has been proved."
 }

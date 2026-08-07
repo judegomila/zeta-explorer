@@ -398,6 +398,44 @@ This replaces the exponential scalar cutoff in
 The conclusion is uniform in the outer Fourier cutoff `N`; only the
 phase-volume controls its dimension.
 
+### 5.1 The odd pole costs at most one additional dimension
+
+The trace estimate (5.5) is valid but pays for the magnitude of the odd pole
+representer.  Its operator is rank one, independently of its norm, so there
+is a complementary rank-based bound.  Put
+
+\[
+ T_{N,-}=P_{X_{N,-}}T_vP_{X_{N,-}},
+ \qquad
+ \mathcal L^{\sharp}_{N,-}
+ =\operatorname {Ran}1_{[g-\delta,\infty)}(T_{N,-})
+  +\operatorname {span}\{P_{X_{N,-}}p_-\}.       \tag{5.7}
+\]
+
+Positivity of `T_v`, the trace bound (4.7), and rank-one dimension counting
+give
+
+\[
+\boxed{
+ \dim\mathcal L^{\sharp}_{N,-}
+ \leq\frac{L\Phi_\lambda(U,g)}{2\pi(g-\delta)}+1.}          \tag{5.8}
+\]
+
+On the orthogonal complement of (5.7), the pole term vanishes exactly and
+`T_(N,-)<=(g-delta)I`.  Equation (4.5) therefore gives the same high floor
+
+\[
+ P_{(\mathcal L^{\sharp}_{N,-})^\perp}B_{N,-}
+ P_{(\mathcal L^{\sharp}_{N,-})^\perp}\succeq\delta I.     \tag{5.9}
+\]
+
+Equivalently, rank-one eigenvalue interlacing gives (5.8) directly.  The odd
+pole thus costs at most one unresolved direction in this construction.  One
+may take the better of (5.5) and (5.8); the rank bound improves the old
+`2(sinh(ell)-ell)/(g-delta)` contribution whenever that quantity exceeds
+one.  The one-direction pole surcharge is independent of the pole norm; the
+multiplier trace term in (5.8) still depends on the phase-volume estimate.
+
 ## 6. Exact Schur complement and a quantitative floor
 
 Decompose `X_(N,epsilon)=L_(N,epsilon) direct-sum H_(N,epsilon)` and write
@@ -458,8 +496,8 @@ the source symbol.  A sufficient form is
 
 for an explicit schedule and explicit constants, together with
 `0<delta_lambda<g_lambda`.  Equation (5.4) would then give an
-`O(lambda^2)` dangerous even space; the odd pole adds only the explicit term
-in (5.5).  A bound `Phi=O(lambda^2)` would already give the substantially
+`O(lambda^2)` dangerous even space; by (5.8) the odd pole adds at most one
+additional direction.  A bound `Phi=O(lambda^2)` would already give the substantially
 smaller `O(lambda^2 log lambda)` window.  These asymptotic descriptions are
 targets only; a valid finite theorem must replace them by displayed
 constants and thresholds.
@@ -484,6 +522,17 @@ derived from \(n_*(\lambda)\) in notes/GROWING_WINDOW_THEOREM.md, provided
 the right side is positive.  Formula (4.12) is a finite checkable upper bound
 for the left side, but it is too large to prove (7.2)--(7.3) on an unbounded
 schedule.
+
+Using the sharper odd space (5.7), the odd finite-rank condition can instead
+be written
+
+\[
+ \Phi_\lambda(U,g)
+ \leq\frac{2\pi(g-\delta)(d_\lambda-1)}{L},                 \tag{7.3a}
+\]
+
+provided `d_lambda>=1`.  This removes the pole-norm term but does not supply
+the missing bound for `Phi_lambda` itself.
 
 Second, on that source-defined dangerous space one must prove, by exact
 arithmetic/integral estimates rather than sampled eigenvalue agreement,
@@ -515,7 +564,7 @@ phase-volume theorem.
 
 ## 8. Status
 
-Equations (2.5), (3.2), (4.3), (4.7), (4.12), (5.4)--(5.6), and
+Equations (2.5), (3.2), (4.3), (4.7), (4.12), (5.4)--(5.9), and
 (6.2)--(6.3) are exact deductions from the pinned formulas.  They provide a
 rigorous phase-sensitive Schur reduction and a precise missing lemma.  They
 do not verify (7.1) or (7.4), or establish an unbounded-schedule signed-sector

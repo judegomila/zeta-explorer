@@ -834,6 +834,72 @@ resolvent-weighted residual estimate described above.  See
 `notes/EXACT_RADICAL_LEAKAGE_IDENTITY.md` and
 `notes/OUTER_OUTER_SPECTRAL_THEOREM.md`.
 
+The missing residual action now has an exact dual form.  If
+`p=a*kappa`, `R=K-p`, and `D>0` is a source-defined preconditioner on the
+even complement, then
+
+\[
+ \|D^{-1}b\|
+ =\frac1a\sup_{v\ne0}\frac{|\mathcal W_Z(v,R)|}{\|Dv\|}.     \tag{6.6}
+\]
+
+If the left-preconditioned defect is at most `rho_0<1`, equation (6.6)
+feeds directly into the shifted-resolvent theorem.  More concretely, for
+orthogonal prolate windows with `D=sum d_m P_m`, the ordinary positive
+zero-sampling hypotheses
+
+\[
+ \|R\|_{\mathfrak Z}^2\le\epsilon_\lambda,
+ \qquad
+ \sup_{v\in\mathcal K_m,\|v\|=1}\|v\|_{\mathfrak Z}^2
+ \le\beta_m d_m                                             \tag{6.7}
+\]
+
+imply
+
+\[
+ aD_{\rm chord}(\tau)
+ \le\frac1{1-\rho_0}
+ \left(\epsilon_\lambda\sum_m\frac{\beta_m}{d_m}\right)^{1/2}.
+                                                                    \tag{6.8}
+\]
+
+Thus the projected-state norm cancels from the quantity entering (5.2).
+The physical-outer sampling theorem already has the promising scale
+`O(lambda^7 d_4)`; a reciprocal window sum of scale `O(1/d_8)` would make
+(6.8) `O(lambda^(-1/2))`.  Absolute compact-remainder sampling, uniform
+window Bessel constants, and the reciprocal sum are not proved.  The exact
+five-dimensional radical model in
+`notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md` has every scalar P/O pairing
+equal to zero but nonzero weighted action, proving that (6.6)--(6.7) cannot
+be replaced by scalar polarization.
+
+There is also a qualitative advance on physical conditioning.  On every
+locked half-integer `lambda`, the unmatched arithmetic breakpoint
+`u=lambda/2` proves that both continuous parity maps `S_+ E` and `S_- E`
+are injective on each finite-dimensional analytic prolate source space.
+Finite Fourier projection is therefore injective for all sufficiently large
+`N` at each fixed `lambda`.  This is non-effective.  The uniform obligation
+is the normalized physical Gram inequality
+
+\[
+ U\ge\|\widehat R\|,
+ \qquad \det\widehat R\ge\gamma U^{r-1},                    \tag{6.9}
+\]
+
+which would give `widehat R>=gamma I`; an equivalent lower bound for one
+normalized full row minor suffices.  No current source estimate controls
+`gamma` through the growing transition family.  See
+`notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md`.
+
+Finally, the odd pole in the multiplier reduction is rank one and can be
+placed explicitly in the dangerous space.  It costs at most one dimension,
+not the older pole trace-norm penalty.  A finite-compression
+Montgomery--Vaughan route to an `O(lambda^2)` dangerous rank is recorded in
+`notes/COMPRESSED_MULTIPLIER_TRACE_CANDIDATE.md`, but its primary external
+source bytes are not yet vendored and hashed.  It is not used as an admitted
+theorem and would still leave the finite Schur sign open.
+
 ## 7. What would and would not count as completion
 
 Completion requires analytic inequalities uniform along an unbounded

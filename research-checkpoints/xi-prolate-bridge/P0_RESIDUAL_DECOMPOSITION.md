@@ -150,6 +150,21 @@ phase volume `Phi_lambda(U,g)`.  The target
 moments and quantitative equidistribution hit a rigorous length barrier, and
 only an explicit `exp(O(lambda))` upper bound is currently available.
 
+The residual obstruction has now been sharpened to an equality.  If
+`p=a*kappa`, `R=K-p`, and `D>0` is any source-defined preconditioner on the
+even complement, the exact radical identity gives
+
+`||D^(-1)b|| = a^(-1) sup_(v!=0) |W_Z(v,R)|/||Dv||`.
+
+Thus the missing input is a weak bilinear estimate on the `D`-graph unit
+ball, not another diagonal value of the indefinite form.  Ordinary sequence
+Cauchy--Schwarz in the positive absolute zero-sampling seminorm reduces this to
+window Bessel estimates and a reciprocal defect sum, as recorded in
+`notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md`.  Its exact five-dimensional
+two-sided-radical model has all four scalar P/O pairings equal to zero while
+the residual action remains nonzero.  This proves that the scalar quadratic
+closure above cannot by itself be promoted to the required vector estimate.
+
 ## Deterministic schedule diagnostics
 
 The admitted schedule rows preserve every stage of the estimate.  A missing

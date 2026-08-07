@@ -95,6 +95,21 @@ not control `(Q-q)kappa`, prove either signed sector floor, establish the
 shifted-resolvent decay in equation (5.2), or give locally uniform
 determinant convergence.
 
+`notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md` now identifies the missing
+operator action exactly.  For any positive source-defined preconditioner
+`D`, the weighted numerator is the graph dual
+
+`||D^(-1)b||=||p||^(-1) sup_v |W_Z(v,R)|/||Dv||`.
+
+An ordinary absolute zero-sampling/Bessel estimate on growing prolate windows
+would therefore feed the existing resolvent theorem directly, and the factor
+`||p||` cancels in the determinant-bridge error.  The same note contains an
+exact two-sided-radical counterexample where every known scalar P/O pairing
+vanishes but the weighted action is nonzero.  Thus scalar polarization is not
+enough; the displayed sampling theorem is one explicit sufficient route, and
+any alternative source-specific argument must control the same graph-dual
+action by other means.
+
 For the signed floors, `notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md` rewrites
 the complete real-axis form using the exact multiplier `m_lambda`, retains
 the opposite rank-one pole signs in the two parity sectors, and confines the
@@ -104,7 +119,12 @@ fixed-lambda Haar law nor the usual fixed-moment/equidistribution argument
 controls the needed finite orbit: the moment length and time scale are
 incompatible.  The only source-locked global phase-volume upper bound remains
 exponential in `lambda`; the desired polynomial bound is neither proved nor
-disproved.
+disproved.  The odd pole count has been sharpened: because it is rank one, it
+costs at most one dangerous direction rather than its older trace-norm
+penalty.  `notes/COMPRESSED_MULTIPLIER_TRACE_CANDIDATE.md` also records a
+finite-compression route with polynomial dangerous-rank scale, but its sole
+external Montgomery--Vaughan input has not yet been vendored and hashed, so
+that candidate is not an admitted component theorem.
 
 Start with:
 
@@ -127,6 +147,10 @@ Start with:
     dependencies used in the outer--outer sampling theorem.
 13. `notes/OUTER_OUTER_SPECTRAL_THEOREM.md` -- the admitted absolute
     outer--outer bound and locked-schedule Ritz-energy corollary.
+14. `notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md` -- exact graph-dual residual
+    target, absolute-sampling window lemma, and scalar/action obstruction.
+15. `notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md` -- qualitative parity-map
+    injectivity and the exact normalized Gram/minor target.
 
 `notes/DETERMINANT_LIMIT_AUDIT.md` reproduces the complete finite
 self-adjointness/determinant theorem from the pinned CCM source and separates
@@ -149,6 +173,15 @@ beyond `4*lambda^2` after which every positive concentration defect is at
 least `1/2`.  This removes a source-coordinate rank and high-window-floor
 obstruction.  It does not bound the physical arithmetic map, the fixed
 leading defects, or the signed Weil form.
+
+`notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md` removes the qualitative rank
+question on the locked half-integer schedule.  An unmatched arithmetic
+breakpoint proves that both continuous parity maps are injective on every
+finite-dimensional analytic source family, and hence their finite Fourier
+maps are eventually injective at each fixed `lambda`.  The theorem is
+non-effective.  Uniform conditioning is reduced to an explicit normalized
+physical Gram determinant or row-minor lower bound; no such bound is yet
+proved through the growing transition window.
 
 The next analytic program is isolated in
 `notes/PRECONDITIONED_RESOLVENT_PROGRAM.md`: it proves finite sufficient

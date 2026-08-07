@@ -179,8 +179,11 @@ congruence preserves the anisotropic lower model
  S^*G_\pm S\succeq S^*D_TS.                       \tag{2.11}
 \]
 
-Dimension counting does not prove that `R` is nonsingular or uniformly
-conditioned.
+Dimension counting alone does not prove that `R` is nonsingular or uniformly
+conditioned.  `notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md` now proves
+qualitative nonsingularity for every fixed finite analytic source family on
+the locked half-integer schedule, using an unmatched arithmetic breakpoint.
+That theorem is non-effective and supplies no uniform lower scale for `R`.
 
 ## 3. Pinned transition-window bound
 
@@ -281,8 +284,10 @@ For the KRD-buffered window `t<n_*`, the exact counts are
 \]
 
 They fit the plus and minus dimensions of `N=3m`.  This is only an absence of
-a dimension obstruction; the physical map still needs a uniform restricted
-conditioning theorem.
+a dimension obstruction.  Qualitative continuous-map injectivity is now
+known at each fixed half-integer `lambda`, but the displayed bandwidth and
+the growing physical family still need a uniform restricted-conditioning
+theorem.
 
 The independent differential-prolate Galerkin basis has a separate indexing
 requirement
@@ -301,7 +306,8 @@ constraint, not a convergence theorem.
 The following are still missing:
 
 1. a lower bound of the correct scale for the fixed leading defects;
-2. uniform conditioning of the physical arithmetic-transform map on the
+2. the normalized physical Gram determinant/minor lower bound needed for
+   uniform conditioning of the arithmetic/parity/projection map on the
    growing source family;
 3. a comparison of the complete shifted signed Weil form with (2.8),
    including invisible-bump cross terms;

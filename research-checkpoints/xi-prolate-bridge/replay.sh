@@ -16,6 +16,20 @@ test "$(shasum -a 256 vendor/PT-RH-VERIFY-2004.09765v1.pdf | awk '{print $1}')" 
 
 python3 -m unittest discover -s tests -v
 
+mkdir -p artifacts/weak_residual_duality
+python3 src/weak_residual_duality.py --dps 80 \
+  --output artifacts/weak_residual_duality/counterexample_producer_dps80.json
+python3 verifier/weak_residual_duality_replay.py \
+  artifacts/weak_residual_duality/counterexample_producer_dps80.json \
+  --output artifacts/weak_residual_duality/counterexample_verifier.json
+
+mkdir -p artifacts/physical_map_conditioning
+python3 src/physical_map_conditioning.py --lambda 5/2 --dps 80 \
+  --output artifacts/physical_map_conditioning/lambda5over2_producer_dps80.json
+python3 verifier/physical_map_conditioning_replay.py \
+  artifacts/physical_map_conditioning/lambda5over2_producer_dps80.json \
+  --output artifacts/physical_map_conditioning/lambda5over2_verifier.json
+
 P0_FLINT_PREFIX="$(brew --prefix flint)"
 P0_GMP_PREFIX="$(brew --prefix gmp)"
 P0_MPFR_PREFIX="$(brew --prefix mpfr)"

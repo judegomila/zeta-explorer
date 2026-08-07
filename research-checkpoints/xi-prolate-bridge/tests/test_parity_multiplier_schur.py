@@ -14,6 +14,7 @@ from parity_multiplier_schur import (  # noqa: E402
     absolute_phase_volume_bound,
     complete_multiplier,
     dangerous_dimension_bound,
+    dangerous_dimension_bound_rank_one_pole,
     fks_linear_chebyshev_constant,
     multiplier_absolute_lower,
     pole_operator_coefficient,
@@ -147,6 +148,49 @@ class ParityMultiplierSchurTests(unittest.TestCase):
             plus.integer_dimension_upper_diagnostic,
         )
         self.assertFalse(plus.outward_certified)
+
+    def test_rank_one_odd_pole_adds_one_to_the_upper_bound(self) -> None:
+        plus = dangerous_dimension_bound_rank_one_pole("10", "10", "3", "1", 1)
+        minus = dangerous_dimension_bound_rank_one_pole("10", "10", "3", "1", -1)
+        self.assertEqual(minus.trace_upper, plus.trace_upper)
+        self.assertLess(
+            abs((minus.real_dimension_upper - plus.real_dimension_upper) - 1),
+            mp.mpf("1e-75"),
+        )
+        old_minus = dangerous_dimension_bound("10", "10", "3", "1", -1)
+        self.assertLess(minus.real_dimension_upper, old_minus.real_dimension_upper)
+        self.assertFalse(minus.outward_certified)
+
+        # The rank alternative is not uniformly smaller: when the pole norm
+        # is small, the original trace surcharge can win.
+        rank_alternative = dangerous_dimension_bound_rank_one_pole(
+            "2", "10", "10", "1", -1
+        )
+        trace_alternative = dangerous_dimension_bound("2", "10", "10", "1", -1)
+        self.assertGreater(
+            rank_alternative.real_dimension_upper,
+            trace_alternative.real_dimension_upper,
+        )
+
+        # Direct finite-dimensional regression for the underlying rank
+        # argument.  The multiplier-dangerous span is e_0, and adjoining the
+        # pole p=(0,1,1) leaves w=(0,1,-1) in the complement.  The pole
+        # vanishes there and the multiplier Rayleigh value stays below 2.
+        multiplier = mp.diag([3, 1, 0])
+        pole = mp.matrix([0, 1, 1])
+        complement = mp.matrix([0, 1, -1])
+        self.assertEqual((pole.T * complement)[0], 0)
+        self.assertLess(
+            (complement.T * multiplier * complement)[0]
+            / (complement.T * complement)[0],
+            2,
+        )
+
+    def test_rank_one_dimension_bound_fails_closed_on_invalid_floor(self) -> None:
+        with self.assertRaises(ValueError):
+            dangerous_dimension_bound_rank_one_pole("2", "10", "1", "1", -1)
+        with self.assertRaises(TypeError):
+            dangerous_dimension_bound_rank_one_pole("2", 10.0, "2", "1", -1)
 
     def test_dimension_bound_fails_closed_on_invalid_floor(self) -> None:
         with self.assertRaises(ValueError):

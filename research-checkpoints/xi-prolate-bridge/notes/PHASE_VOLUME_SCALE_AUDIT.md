@@ -367,8 +367,13 @@ trace is
 \]
 
 Unlike the full trace, (7.2) suppresses frequencies far beyond the selected
-Fourier band.  No estimate strong enough for the locked diagonal or an exact
-Schur floor is proved here; (7.2) is only a more schedule-sensitive target.
+Fourier band.  `notes/COMPRESSED_MULTIPLIER_TRACE_CANDIDATE.md` now derives
+an explicit `O(lambda^2 log lambda)` trace and `O(lambda^2)` dangerous-rank
+candidate on a polynomial finite schedule under a displayed shift-growth
+hypothesis.  Its Montgomery--Vaughan input has been checked but its primary
+PDF bytes are not yet vendored or hash-locked, so it is not an admitted
+component theorem.  Even after source admission, that estimate would leave
+an `O(lambda^2)` Schur complement and would not prove an exact sector floor.
 Alternatively one must prove the finite dangerous-space Schur complement
 directly without the global phase-volume trace.
 

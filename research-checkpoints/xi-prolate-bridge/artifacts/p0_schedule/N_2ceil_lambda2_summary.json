@@ -1,0 +1,112 @@
+{
+  "analytic_uniform_claim": false,
+  "claim_class": "EXPLORATORY_DIAGNOSTIC",
+  "legacy_fit_warning": "the requested legacy r/Delta fit is retained, but the global complement gap and scalar r/Gamma discard the residual spectral weighting; the operative finite eigenvector diagnostic is the resolvent-weighted chordal bound",
+  "legacy_full_complement_ratio_power_fit": {
+    "local_slope_max": "-20.894506539452528671",
+    "local_slope_min": "-62.097894855794841362",
+    "model": "legacy_r_over_Delta approximately C*lambda^(-p)",
+    "ordinary_least_squares_standard_error_only": "11.64258592691476224",
+    "p": "-38.04410068963484548"
+  },
+  "operative_resolvent_weighted_chordal_power_fit": {
+    "local_slope_max": "8.493788438054799883",
+    "local_slope_min": "-7.9381729205745905631",
+    "model": "resolvent_weighted_chordal_distance_bound approximately C*lambda^(-p)",
+    "ordinary_least_squares_standard_error_only": "4.6430774235551677265",
+    "p": "1.6545094392399644079"
+  },
+  "operative_resolvent_weighted_tau_power_fit": {
+    "local_slope_max": "8.4938677306925587374",
+    "local_slope_min": "-7.9381989979009395242",
+    "model": "resolvent_weighted_tau approximately C*lambda^(-p)",
+    "ordinary_least_squares_standard_error_only": "4.6431071972925073155",
+    "p": "1.654544874996192183"
+  },
+  "projection_error_power_fit": {
+    "local_slope_max": "39.953791126153973323",
+    "local_slope_min": "24.280857712808579407",
+    "model": "projection_error approximately C*lambda^(-p)",
+    "ordinary_least_squares_standard_error_only": "1.8416605055228814081",
+    "p": "31.95703783209124893"
+  },
+  "resolvent_weighted_passing_points": 3,
+  "rows": [
+    {
+      "N": 6,
+      "even_complement_floor_minus_ritz_upper_Gamma": "0.285622214034645861153073630423",
+      "even_gap_from_q_Delta_even": "0.285610687675744902899666415551",
+      "lambda": "1.5",
+      "legacy_full_complement_Delta": "0.0155836789401023384731918888223",
+      "legacy_r_over_Delta": "0.281688787126819124649207584643",
+      "odd_floor_minus_ritz_upper": "0.0155952052990032967265991036942",
+      "projection_error": "0.0005105860296195402737884012301",
+      "resolvent_weighted_bound_diagnostic_pass": true,
+      "resolvent_weighted_chordal_distance_bound": "0.0078288437521801742737450447748",
+      "resolvent_weighted_tau": "0.0078290236959849436283804165863",
+      "scalar_r_over_Gamma": "0.015369069364747334600214012353",
+      "sector_refined_bridge_diagnostic_pass": true,
+      "source": "artifacts/p0_schedule/raw/lambda1p5_N6_dps30.json"
+    },
+    {
+      "N": 8,
+      "even_complement_floor_minus_ritz_upper_Gamma": "0.000000360624012113121505068811883512",
+      "even_gap_from_q_Delta_even": "0.000000360624000075981070996023712618",
+      "lambda": "2.0",
+      "legacy_full_complement_Delta": "0.00000000132162556798178845481210449183",
+      "legacy_r_over_Delta": "114.895444313775669157175913197",
+      "odd_floor_minus_ritz_upper": "0.00000000132163760512222252759982643982",
+      "projection_error": "0.000000139810280501905951411715943114",
+      "resolvent_weighted_bound_diagnostic_pass": true,
+      "resolvent_weighted_chordal_distance_bound": "0.000679977322474353347001710113449",
+      "resolvent_weighted_tau": "0.000679977440374583012591377029228",
+      "scalar_r_over_Gamma": "0.42107222966085073402298345045",
+      "sector_refined_bridge_diagnostic_pass": true,
+      "source": "artifacts/p0_schedule/raw/lambda2_N8_dps30.json"
+    },
+    {
+      "N": 14,
+      "even_complement_floor_minus_ritz_upper_Gamma": "2.621670269588378800466533012456291317939e-16",
+      "even_gap_from_q_Delta_even": "2.621634308483393814695780313983742594207e-16",
+      "lambda": "2.5",
+      "legacy_full_complement_Delta": "5.160059459712406479430889124892297798717e-19",
+      "legacy_r_over_Delta": "119732102.0574509042756798169173102097959",
+      "odd_floor_minus_ritz_upper": "5.196020564697392250183387110873951043767e-19",
+      "projection_error": "0.0000000000187765885313561818080616444870398436478",
+      "resolvent_weighted_bound_diagnostic_pass": true,
+      "resolvent_weighted_chordal_distance_bound": "0.003997448432769803707847194767464824630467",
+      "resolvent_weighted_tau": "0.003997472387054299901101589527627908404642",
+      "scalar_r_over_Gamma": "235660.7438470146680202811985850836158495",
+      "sector_refined_bridge_diagnostic_pass": true,
+      "source": "artifacts/p0_schedule/raw/lambda2p5_N14_dps40.json"
+    },
+    {
+      "N": 18,
+      "even_complement_floor_minus_ritz_upper_Gamma": "-2.89283973901831240250442902264669540638319457e-24",
+      "even_gap_from_q_Delta_even": "-3.37511680620008438680544234036410677711834182e-24",
+      "lambda": "3.0",
+      "legacy_full_complement_Delta": "-3.62899799102997777779889389235221694653269031e-24",
+      "legacy_r_over_Delta": null,
+      "odd_floor_minus_ritz_upper": "-3.14672092384820579349765202854041281827947626e-24",
+      "projection_error": "0.00000000000022440272193766377310564647652472039099675062",
+      "resolvent_weighted_bound_diagnostic_pass": false,
+      "resolvent_weighted_chordal_distance_bound": null,
+      "resolvent_weighted_tau": null,
+      "scalar_r_over_Gamma": null,
+      "sector_refined_bridge_diagnostic_pass": false,
+      "source": "artifacts/p0_schedule/raw/lambda3_N18_dps45.json"
+    }
+  ],
+  "scalar_r_over_Gamma_power_fit": {
+    "local_slope_max": "-11.507312050204879128",
+    "local_slope_min": "-59.31204078666275592",
+    "model": "scalar_r_over_Gamma approximately C*lambda^(-p)",
+    "ordinary_least_squares_standard_error_only": "13.507885753325590272",
+    "p": "-31.404503271360944439"
+  },
+  "schedule": "N=2*ceil(lambda^2)",
+  "sector_refined_passing_points": 3,
+  "target_reference": "DIRECT_RH_ATTACK.md equation (5.2)",
+  "terminal_state": "P0_INVALIDATED",
+  "uncertainty_warning": "OLS standard error excludes discretization and asymptotic model error; the local-slope range is reported; no extrapolation is authorized"
+}

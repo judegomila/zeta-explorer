@@ -1,0 +1,65 @@
+{
+  "lock_version": 2,
+  "lock_status": "PINNED_ADDITIVE_TRANSITION_WINDOW_ONLY",
+  "lock_note": "This lock supplies nonasymptotic eigenvalue bounds for the positive sinc-kernel concentration operator. It is not a signed Weil comparison and carries no RH conclusion.",
+  "retrieved_date": "2026-08-06",
+  "binding_sources": [
+    {
+      "id": "KRD-PSWF-v2",
+      "authors": [
+        "Santhosh Karnik",
+        "Justin Romberg",
+        "Mark A. Davenport"
+      ],
+      "title": "Improved bounds for the eigenvalues of prolate spheroidal wave functions and discrete prolate spheroidal sequences",
+      "version": "arXiv:2006.00427v2",
+      "version_date": "2020-09-28",
+      "url": "https://arxiv.org/abs/2006.00427v2",
+      "vendored_path": "vendor/KRD-PSWF-2006.00427v2.pdf",
+      "vendored_sha256": "7c56255db5bd6454e3fc926952052fe466ffd49c4961ad8206638dcac1dd39a0",
+      "locked_result": "Corollary 3 and its Section 6.2 proof",
+      "validation_status": "PDF_BYTES_HASHED_COROLLARY_AND_DPSS_TO_PSWF_LIMIT_PROOF_INDEPENDENTLY_READ"
+    },
+    {
+      "id": "BBK-DPSWF-v1",
+      "authors": [
+        "Mourad Boulsane",
+        "NourElHouda Bourguiba",
+        "Abderrazek Karoui"
+      ],
+      "title": "Discrete Prolate Spheroidal Wave Functions: Further spectral analysis and some related applications",
+      "version": "arXiv:1905.08354v1",
+      "version_date": "2019-05-20",
+      "url": "https://arxiv.org/abs/1905.08354v1",
+      "vendored_path": "vendor/BBK-DPSWF-1905.08354v1.pdf",
+      "vendored_sha256": "928759f7eebeeb59883ae2de305ebe8062f412c2ad0d275bb9ad4320c897ff6b",
+      "locked_result": "Proposition 1, equations (32) and (37), the l2 DPSS-to-PSWF eigenvalue comparison used as KRD Lemma 3",
+      "validation_status": "PDF_BYTES_HASHED_PROPOSITION_AND_KRD_PARAMETER_SPECIALIZATION_INDEPENDENTLY_READ"
+    }
+  ],
+  "dependency_map": {
+    "KRD_Section_6_2_Lemma_3": "BBK-DPSWF-v1 Proposition 1 (32)/(37)",
+    "source_chain_status": "TRANSITIVE_DPSS_TO_PSWF_INPUT_PINNED"
+  },
+  "convention_map": {
+    "repo_concentration_eigenvalue": "chi_n(lambda)^2 = Lambda_n(c)",
+    "source_parameter": "c = 2*pi*lambda^2",
+    "source_shannon_index": "S = 2*c/pi = 4*lambda^2",
+    "source_log_factor": "L_c = log(100*c/pi + 25) = log(200*lambda^2 + 25)",
+    "source_transition_scale": "beta_c = (2/pi^2)*L_c"
+  },
+  "locked_formulas": {
+    "leading_side": "1-Lambda_n(c) <= 10*exp(-(floor(S)-n-7)/beta_c) for 0<=n<=floor(S)-1",
+    "trailing_side": "Lambda_n(c) <= 10*exp(-(n-ceil(S)-6)/beta_c) for n>=ceil(S)",
+    "exponent_parenthesization": "The denominator is (2/pi^2)*log(100*c/pi+25); the reciprocal placement must not be reversed.",
+    "derived_half_floor_threshold": "n_star=ceil(S)+6+ceil(beta_c*log(20)); for every n>=n_star, 1-Lambda_n(c)>=1/2"
+  },
+  "not_locked_or_claimed": [
+    "no lower bound of the correct exponential scale for the fixed leading defects",
+    "no arithmetic-transform conditioning estimate",
+    "no comparison between the positive concentration Gram and the signed Weil form",
+    "no shifted-resolvent or equation (5.2) estimate",
+    "no use of zeta zeros or global Weil positivity"
+  ],
+  "terminal_state": "P0_INVALIDATED"
+}

@@ -1,0 +1,100 @@
+{
+  "analytic_uniform_claim": false,
+  "claim_class": "EXPLORATORY_DIAGNOSTIC",
+  "legacy_fit_warning": "the requested legacy r/Delta fit is retained, but the global complement gap and scalar r/Gamma discard the residual spectral weighting; the operative finite eigenvector diagnostic is the resolvent-weighted chordal bound",
+  "legacy_full_complement_ratio_power_fit": {
+    "fit_rejected": "fewer than three points",
+    "two_point_log_slope_not_an_exponent_estimate": "-21.798297716677737412"
+  },
+  "operative_resolvent_weighted_chordal_power_fit": {
+    "fit_rejected": "fewer than three points",
+    "two_point_log_slope_not_an_exponent_estimate": "-3.0341329244411525679"
+  },
+  "operative_resolvent_weighted_tau_power_fit": {
+    "fit_rejected": "fewer than three points",
+    "two_point_log_slope_not_an_exponent_estimate": "-3.0351651180482268622"
+  },
+  "projection_error_power_fit": {
+    "local_slope_max": "14.051001193171382297",
+    "local_slope_min": "9.4029717583762000288",
+    "model": "projection_error approximately C*lambda^(-p)",
+    "ordinary_least_squares_standard_error_only": "0.52774210533604892781",
+    "p": "12.236685064624309049"
+  },
+  "resolvent_weighted_passing_points": 2,
+  "rows": [
+    {
+      "N": 3,
+      "even_complement_floor_minus_ritz_upper_Gamma": "0.32463139592926768218679655858821659",
+      "even_gap_from_q_Delta_even": "0.3245848125220284055512768427769549",
+      "lambda": "1.5",
+      "legacy_full_complement_Delta": "0.015730490815842107179470445684290633",
+      "legacy_r_over_Delta": "0.44752041215697594292690075640324004",
+      "odd_floor_minus_ritz_upper": "0.015777074223081383814990161495552332",
+      "projection_error": "0.0010628213838794613361174013858011649",
+      "resolvent_weighted_bound_diagnostic_pass": true,
+      "resolvent_weighted_chordal_distance_bound": "0.012936455051178888992335981414366278",
+      "resolvent_weighted_tau": "0.012937266968761826944598140870674064",
+      "scalar_r_over_Gamma": "0.021685258485815195630384086994876831",
+      "sector_refined_bridge_diagnostic_pass": true,
+      "source": "artifacts/p0_schedule/raw/lambda1p5_N3_dps35.json"
+    },
+    {
+      "N": 4,
+      "even_complement_floor_minus_ritz_upper_Gamma": "0.000026164749820316776391767412959206873",
+      "even_gap_from_q_Delta_even": "0.000026147917758238370472636605876934761",
+      "lambda": "2.0",
+      "legacy_full_complement_Delta": "0.00000022346509307537462553925162219589087",
+      "legacy_r_over_Delta": "236.73617478128001045599285001510689",
+      "odd_floor_minus_ritz_upper": "0.00000024029715515378054467005870446741931",
+      "projection_error": "0.000033186058341512675191195436420352645",
+      "resolvent_weighted_bound_diagnostic_pass": true,
+      "resolvent_weighted_chordal_distance_bound": "0.030966777819186931079253853519185727",
+      "resolvent_weighted_tau": "0.030977918684557082122243539273450533",
+      "scalar_r_over_Gamma": "2.0218909676227282725095273884386949",
+      "sector_refined_bridge_diagnostic_pass": true,
+      "source": "artifacts/p0_schedule/raw/lambda2_N4_dps35.json"
+    },
+    {
+      "N": 7,
+      "even_complement_floor_minus_ritz_upper_Gamma": "-2.25101735278024451951402753103e-11",
+      "even_gap_from_q_Delta_even": "-3.54859603290777609861582272494e-11",
+      "lambda": "2.5",
+      "legacy_full_complement_Delta": "-4.30636732977251362530215447166e-11",
+      "legacy_r_over_Delta": null,
+      "odd_floor_minus_ritz_upper": "-3.00878864964498204621657296669e-11",
+      "projection_error": "0.00000144302203867247008341272907152",
+      "resolvent_weighted_bound_diagnostic_pass": false,
+      "resolvent_weighted_chordal_distance_bound": null,
+      "resolvent_weighted_tau": null,
+      "scalar_r_over_Gamma": null,
+      "sector_refined_bridge_diagnostic_pass": false,
+      "source": "artifacts/p0_schedule/raw/lambda2p5_N7_dps30.json"
+    },
+    {
+      "N": 9,
+      "even_complement_floor_minus_ritz_upper_Gamma": "-9.3524110141670440686693353788964944e-13",
+      "even_gap_from_q_Delta_even": "-2.2877634389723186174919017500771488e-12",
+      "lambda": "3.0",
+      "legacy_full_complement_Delta": "-2.287845295647485211545823936196338e-12",
+      "legacy_r_over_Delta": null,
+      "odd_floor_minus_ritz_upper": "-9.3532295809187100092085631477212594e-13",
+      "projection_error": "0.00000025985671475142536484409864389230512",
+      "resolvent_weighted_bound_diagnostic_pass": false,
+      "resolvent_weighted_chordal_distance_bound": null,
+      "resolvent_weighted_tau": null,
+      "scalar_r_over_Gamma": null,
+      "sector_refined_bridge_diagnostic_pass": false,
+      "source": "artifacts/p0_schedule/raw/lambda3_N9_dps35.json"
+    }
+  ],
+  "scalar_r_over_Gamma_power_fit": {
+    "fit_rejected": "fewer than three points",
+    "two_point_log_slope_not_an_exponent_estimate": "-15.764471310970417761"
+  },
+  "schedule": "N=1*ceil(lambda^2)",
+  "sector_refined_passing_points": 2,
+  "target_reference": "DIRECT_RH_ATTACK.md equation (5.2)",
+  "terminal_state": "P0_INVALIDATED",
+  "uncertainty_warning": "OLS standard error excludes discretization and asymptotic model error; the local-slope range is reported; no extrapolation is authorized"
+}

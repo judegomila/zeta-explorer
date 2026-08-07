@@ -1,0 +1,121 @@
+{
+  "schema": "xi-prolate-zero-sampling-source-lock-v1",
+  "lock_status": "PINNED_EXTERNAL_THEOREM_STATEMENTS_WITH_DISCLOSED_UNREPLAYED_COMPUTER_ASSISTANCE",
+  "claim_class": "CONDITIONAL_ZERO_SAMPLING_INPUTS_ONLY",
+  "terminal_state": "P0_INVALIDATED",
+  "retrieved_date": "2026-08-06",
+  "binding_inputs": {
+    "vinogradov_korobov_zero_free_region": {
+      "id": "MTY-ZFR-2212.06867v1",
+      "authors": "Michael J. Mossinghoff, Timothy S. Trudgian, and Andrew Yang",
+      "title": "Explicit zero-free regions for the Riemann zeta-function",
+      "arxiv_id": "2212.06867",
+      "version": "v1",
+      "version_date_utc": "2022-12-13T19:16:54Z",
+      "arxiv_pdf_url": "https://arxiv.org/pdf/2212.06867v1",
+      "version_of_record_doi": "10.1007/s40993-023-00498-y",
+      "vendored_path": "vendor/MTY-ZFR-2212.06867v1.pdf",
+      "vendored_sha256": "127c32eb86d0aea264cc5b1ba96cc83243ef6b763451591e1560edaca1767300",
+      "pdf_pages": 27,
+      "binding_location": "Theorem 1.1, printed page 2, equation (1.5); the all-height range split is the first paragraph of Section 5 on printed page 11",
+      "locked_constant": "55.241",
+      "locked_height_range": "abs(t)>=3",
+      "validation_status": "EXACT_V1_PDF_BYTES_HASHED_AND_RELEVANT_PAGES_TEXTUALLY_AND_VISUALLY_CHECKED"
+    },
+    "global_zero_count": {
+      "id": "HSW-ZC-2107.06506v1",
+      "authors": "Elchin Hasanalizade, Quanli Shen, and Peng-Jie Wong",
+      "title": "Counting zeros of the Riemann zeta function",
+      "arxiv_id": "2107.06506",
+      "version": "v1",
+      "version_date_utc": "2021-07-14T06:30:04Z",
+      "arxiv_pdf_url": "https://arxiv.org/pdf/2107.06506v1",
+      "version_of_record_doi": "10.1016/j.jnt.2021.06.032",
+      "vendored_path": "vendor/HSW-ZC-2107.06506v1.pdf",
+      "vendored_sha256": "3fc4c89f49249924e61cb0d289d81559faed53fcbb838628ea32dc7ec6f89fbf",
+      "pdf_pages": 16,
+      "binding_location": "Theorem 1.1, printed page 2, equation (1.4), specialized with T0=30610046000 and the first row of Table 2 on printed page 15",
+      "locked_height_range": "T>=30610046000",
+      "zeros_counted_with_multiplicity": true,
+      "validation_status": "EXACT_V1_PDF_BYTES_HASHED_AND_RELEVANT_PAGES_TEXTUALLY_AND_VISUALLY_CHECKED"
+    },
+    "finite_height_line_verification": {
+      "id": "PT-RH-VERIFY-2004.09765v1",
+      "authors": "Dave Platt and Tim Trudgian",
+      "title": "The Riemann hypothesis is true up to 3*10^12",
+      "arxiv_id": "2004.09765",
+      "version": "v1",
+      "version_date_utc": "2020-04-21T05:50:50Z",
+      "arxiv_pdf_url": "https://arxiv.org/pdf/2004.09765v1",
+      "version_of_record_doi": "10.1112/blms.12460",
+      "vendored_path": "vendor/PT-RH-VERIFY-2004.09765v1.pdf",
+      "vendored_sha256": "3362f66af9fa9373977eee70e2282ec33989d5d8b97e0852df9e32cc25b52885",
+      "pdf_pages": 8,
+      "binding_location": "Theorem 1 and the Turing-method/Arb description in Section 2, printed pages 2--3",
+      "exact_verified_height": "3000175332800",
+      "validation_status": "EXACT_V1_PDF_BYTES_HASHED_AND_RELEVANT_PAGES_TEXTUALLY_AND_VISUALLY_CHECKED_BUT_COMPUTATION_NOT_REPLAYED"
+    }
+  },
+  "locked_source_formulas": {
+    "zero_free_region": "zeta(sigma+i*t)!=0 when abs(t)>=3 and sigma>=1-1/(55.241*(log(abs(t)))^(2/3)*(log(log(abs(t))))^(1/3))",
+    "zero_count_main": "M(T)=T/(2*pi)*log(T/(2*pi*e))",
+    "zero_count_error": "R(T)=0.103787*log(T)+0.257297*log(log(T))+9.367419",
+    "zero_count_theorem": "abs(N(T)-M(T)+1/8)<=R(T) for T>=T0=30610046000",
+    "zero_parameter": "s_rho=gamma+i*(1/2-beta) for rho=beta+i*gamma",
+    "functional_equation_reflection": "rho implies 1-conjugate(rho), so neither beta nor 1-beta is replaced by an assumed value",
+    "block_margin": "delta(T)=1/(55.241*(log(2*T))^(2/3)*(log(log(2*T)))^(1/3)) for T>=3",
+    "disk_radius": "r(T)=delta(T)/4",
+    "disk_vertical_margin": "epsilon(y)>=3*delta(T)/4",
+    "local_overlap": "Z(T)=Z_finite for 3<=T<T0+1 and Z(T)=1+log(2*T+1)/pi+2*R(2*T+1) for T>=T0+1, where U=2*(T0+1) and Z_finite=1+M(U)-1/8+R(U)",
+    "dyadic_schedule": "T_j=3*2^j for integer j>=0",
+    "dyadic_term": "Z(T_j)*(4/3)^q*delta(T_j)^(-(q+2))*(2*T_j)^(-3*delta(T_j)/4)"
+  },
+  "independently_derived_sampling_constants": {
+    "frequency_step": "h=1/(2*T)",
+    "frequency_filter_lower_bound": "abs(exp(i*h*x)-1)^2>=1/10 on x in [T-r(T),2*T+r(T)]",
+    "submean_disk_factor": "1/(pi*r(T)^2)=16/(pi*delta(T)^2)",
+    "plancherel_filter_factor": "20*pi",
+    "positive_height_block_factor": "320",
+    "negative_height_and_polarization_slack": "4",
+    "global_dyadic_prefactor": "1280",
+    "dyadic_stretched_exponential": "exp(-(3/(4*55.241))*(log(2*T))^(1/3)/(log(log(2*T)))^(1/3))",
+    "finite_lower_block_overlap": "Z_finite=1+M(61220092002)-1/8+R(61220092002)",
+    "low_block_disk_radius": "1/4"
+  },
+  "finite_computation_dependencies": {
+    "mty_low_range": "MTY Theorem 1.1 uses Platt--Trudgian's rigorous line verification for 3<=abs(t)<=3*10^12; it also contains numerical optimization of its high-range constants and imports HSW Corollary 1.2 as equation (3.8).",
+    "platt_trudgian_method": "The pinned paper reports an Arb ball-arithmetic computation and a Turing-method count through exact height 3000175332800. This computation is not replayed in this repository.",
+    "hsw_low_range": "HSW Corollary 1.2 uses the asserted bound abs(S(T))<=2.5167 through 30610046000, obtained from a Platt-computed zero database made available through LMFDB. The sampling-overlap derivation does not use that corollary directly: finitely many lower dyadic blocks use the total count supplied by analytic Theorem 1.1 at U=61220092002. However MTY's published zero-free-region proof imports Corollary 1.2 as equation (3.8), so the external zero-free input retains this disclosed indirect database dependency. No database or decimal zero list is vendored or read.",
+    "source_statement_vs_replay": "The three binding statements are treated only as published external theorems. Exact PDF bytes and formula locations are checked; their large finite computations are not independently reproduced."
+  },
+  "diagnostic_cross_checks": {
+    "delta_at_T_3_open_interval": [
+      "0.014",
+      "0.015"
+    ],
+    "Z_finite_open_interval": [
+      "214355242606",
+      "214355242607"
+    ],
+    "Z_high_at_threshold_open_interval": [
+      "34.44",
+      "34.46"
+    ]
+  },
+  "admission_boundary": {
+    "source_bytes_and_formula_locations_pinned": true,
+    "two_sided_margin_uses_functional_equation_not_zero_reality": true,
+    "local_count_includes_multiplicity": true,
+    "decimal_zero_list_read": false,
+    "hsw_database_corollary_used_for_sampling_overlap": false,
+    "hsw_database_dependency_indirect_via_mty": true,
+    "zeros_assumed_real_or_on_critical_line_globally": false,
+    "finite_computations_independently_replayed": false,
+    "weighted_translation_lemma_S_proved": false,
+    "outer_outer_bound_proved": false,
+    "sector_floor_proved": false,
+    "equation_5_2_proved": false,
+    "locally_uniform_determinant_convergence_proved": false,
+    "status_promoted": false
+  }
+}

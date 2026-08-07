@@ -1,0 +1,46 @@
+{
+  "arithmetic_library_limitation": "Producer and verifier are independent code paths but both use mpmath.iv 1.4.1.",
+  "claim_class": "DEFECT_RELATIVE_FOURIER_PROJECTION_ONLY",
+  "independent_checks": {
+    "bulk_expression_decreasing_for_lambda_at_least_2": true,
+    "jump_expression_decreasing_for_lambda_at_least_2": true,
+    "lambda2_uniform_guard_below_one": true,
+    "lambda2_uniform_log_weighted_guard_below_one": true,
+    "log_weighted_relative_bound_below_one": true,
+    "positive_exponent_margin": true,
+    "relative_bound_below_one": true
+  },
+  "interval_overlap": {
+    "LS_theorem_exponent": true,
+    "angular_frequency_energy": true,
+    "bulk_log_derivative_guard_at_lambda2": true,
+    "bulk_projection_over_sqrt_defect": true,
+    "defect_lower_bound": true,
+    "endpoint_jump_projection_over_sqrt_defect": true,
+    "inverse_sqrt_N_decay": true,
+    "jump_log_derivative_guard_at_lambda2": true,
+    "lambda2_uniform_log_weighted_guard": true,
+    "lambda2_uniform_relative_guard": true,
+    "log_weighted_projection_over_sqrt_defect": true,
+    "positive_exponent_margin": true,
+    "sqrt_defect_decay_A": true,
+    "sqrt_defect_lower_bound": true,
+    "sqrt_log_3N_plus_1_weight_factor": true,
+    "total_projection_over_sqrt_defect": true
+  },
+  "reconstructed_inputs": {
+    "K": 2400,
+    "j": 2,
+    "lambda_exact_fraction": "5/2",
+    "power_of_two_exponent": 60000,
+    "replay_interval_decimal_digits": 200
+  },
+  "replay_agrees": true,
+  "schema": "xi-prolate-defect-relative-projection-replay-v1",
+  "scope": "ordinary and log-weighted Fourier projection tails only; no signed O-P/P-P form, sector-floor, full residual-gap, or determinant claim",
+  "source_hashes": {
+    "gzip_sha256": "8cad2763fb84f09e44c7309ebecffa295e8b193ba9e506749451b305b50adf5c",
+    "uncompressed_tex_sha256": "b459dd2a485b061edb1dc94e5313830acf6e12b2af07098e3f8642993e676907"
+  },
+  "terminal_state": "P0_INVALIDATED"
+}

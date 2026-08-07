@@ -150,22 +150,33 @@ phase volume `Phi_lambda(U,g)`.  The target
 moments and quantitative equidistribution hit a rigorous length barrier, and
 only an explicit `exp(O(lambda))` upper bound is currently available.
 
-The common Rayleigh-shift upper bound also has a parity-scale limitation.
-Although `O(lambda^7*d_4)=o(d_8)`, the exact fixed-index ratios
+The original common Rayleigh-shift upper bound had a parity-scale limitation.
+Although the compact-BV baseline `O(lambda^7*d_4)=o(d_8)`, the exact
+fixed-index ratios
 
 `d_8/d_6 ~ (32*pi^2/7)*lambda^4`,
 
 `d_4/d_6 ~ (15/(128*pi^2))*lambda^(-4)`
 
-show that the same estimate gives only `O(lambda^3*d_6)`, not `o(d_6)`.
-Consequently the even `d_8` scalar scale cannot be transferred to the odd
-sector.  The source-normalized `0/4` combination does not repair this at the
-hard endpoint: its `h_0` endpoint contribution is smaller than its `h_4`
-endpoint contribution by order `lambda^(-4)`.  These are exact asymptotic
-audits with no effective finite threshold; they prove neither a signed
-odd-floor bound nor equation (5.2).  See
+show why that baseline alone gave only `O(lambda^3*d_6)`.  The
+source-normalized `0/4` combination still does not cancel the hard endpoint:
+its `h_0` endpoint contribution is smaller than its `h_4` contribution by
+order `lambda^(-4)`.
+
+The source-locked hybrid theorem now bypasses that endpointwise estimate.  It
+uses a degree-three complete-series weighted `L2` bound through a finite
+dyadic range and the existing weighted-translation estimate afterward.  Its
+exact blockwise-minimum series satisfies
+
+`B_hyb(lambda)=O(lambda^3*polylog(lambda))`,
+
+and proves `||R||_Z^2=o(d_6)` on the locked schedule.  Thus the common
+normalization-free shift obstruction is closed.  This does not make the
+normalized Ritz bound `epsilon_lambda/a^2` small without separate control of
+`a`, and proves neither a signed odd floor nor a residual-action estimate or
+equation (5.2).  See
 `notes/PARITY_SHIFT_SCALE_AUDIT.md` and
-`notes/OUTER_NORMALIZATION_CANCELLATION_AUDIT.md`.
+`notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md`.
 
 The residual obstruction has now been sharpened to an equality.  If
 `p=a*kappa`, `R=K-p`, and `D>0` is any source-defined preconditioner on the
@@ -179,9 +190,11 @@ Cauchy--Schwarz in the positive absolute zero-sampling seminorm reduces this to
 the complete-remainder sampling bound, window Bessel estimates, and a
 reciprocal defect sum, as recorded in
 `notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md`.  The first of those inputs is now
-proved: `notes/COMPACT_ABSOLUTE_SAMPLING_THEOREM.md` gives
-`||R||_Z^2=O(lambda^7*d_4)` on the locked exponential schedule, with every
-finite constant displayed and independently replayed.  The growing-window
+proved at the sharper odd scale:
+`notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md` gives
+`||R||_Z^2=o(d_6)` on the locked exponential schedule through an exact
+convergent series, with its finite constants and tail switch independently
+interval-replayed.  The growing-window
 Bessel estimates and reciprocal sum remain open.  The exact five-dimensional
 two-sided-radical model has all four scalar P/O pairings equal to zero while
 the residual action remains nonzero.  This proves that the scalar quadratic

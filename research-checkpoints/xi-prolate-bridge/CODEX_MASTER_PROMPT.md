@@ -170,8 +170,12 @@ decomposition; it is not the asymptotic proof.
    of `(Q-q)kappa`, either signed sector floor, the shifted resolvent, equation
    (5.2), or determinant convergence.  Use the graph-dual identity in
    `notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md`.  The source-pinned compact-BV
-   theorem now proves the actual complete-remainder input
-   `||R||_Z^2=O(lambda^7*d_4)` on the locked exponential schedule.  The next
+   theorem gives the older actual complete-remainder baseline
+   `||R||_Z^2=O(lambda^7*d_4)`.  The hybrid complete-series theorem in
+   `notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md` now sharpens this to
+   `||R||_Z^2=o(d_6)` on the locked exponential schedule, closing only the
+   common normalization-free scalar-shift scale obstruction.  It does not
+   make `U_Z=||R||_Z^2/a^2` small without separate control of `a`.  The next
    residual target is the uniform growing-window Bessel estimate on the
    `||Dv||<=1` test ball and its reciprocal defect sum.  The exact radical
    counterexample proves that

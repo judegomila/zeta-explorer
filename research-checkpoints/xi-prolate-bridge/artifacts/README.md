@@ -134,6 +134,23 @@ schedule; no artifact asserts the complete residual--gap bridge, equation
   `B_abs*lambda^4/(4*d_LS^2)`.  This bound is exponentially enormous and
   explicitly does not close the `O(1/d_8)` alignment target, either signed
   sector, equation (5.2), determinant convergence, or RH.
+- `hybrid_outer_sampling_odd_shift/`: outward intervals at 80 and 160
+  decimal digits for the complete-series weighted `L2` constant, hybrid
+  dyadic switch, stable exact-integer ceilings, polynomial-absorption
+  margin, and stretched-exponential tail certificate at `lambda=5/2`.
+  Exact dyadic endpoints are serialized and the verifier imports no producer
+  module, although both formula assemblies share pinned `mpmath.iv` 1.4.1.
+  Each verifier artifact binds the exact producer-file SHA-256, input,
+  declared and replay precision, complete source/runtime hash inventories,
+  and independently reconstructed raw dyadic intervals.  A precision-scaled
+  width check rejects widened intervals and false precision promotion.  The
+  artifacts do not numerically truncate the exact infinite blockwise-minimum
+  series.
+  The admitted theorem proves complete-remainder sampling `o(d_6)` and hence
+  a small common normalization-free shift on the locked schedule.  It does
+  not make the normalized bound `epsilon_lambda/a^2` small without separate
+  control of `a`, and proves no signed sector floor, Schur sign, residual
+  action, equation (5.2), or RH.
 - `physical_map_conditioning/`: exact half-integer breakpoint arithmetic,
   finite Möbius data, endpoint-jet leading coefficients, and an independent
   factorization/rational replay at `lambda=5/2`.  It records qualitative

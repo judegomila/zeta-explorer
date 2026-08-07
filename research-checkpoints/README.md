@@ -16,12 +16,16 @@ source bytes, and replayable artifacts. Its formal state is `P0_INVALIDATED`:
 the repository contains no proof of the Riemann hypothesis, and its numerical
 diagnostics are not theorem claims.
 
-The current checkpoint adds a source-pinned compact-BV absolute-sampling
-theorem.  On the locked exponential schedule it proves projection sampling
-`o(d_4)`, `o(d_8)`, and complete-remainder sampling `O(lambda^7*d_4)`.  It
-does not prove the growing-window defect-relative Bessel bound, reciprocal
-defect sum, signed sector floors, equation (5.2), determinant convergence, or
-RH.
+The current checkpoint retains the source-pinned compact-BV baseline and adds
+a source-pinned complete-series hybrid sampling theorem.  On the locked
+exponential schedule it proves projection sampling `o(d_4)`, `o(d_8)`, and
+complete-remainder sampling `o(d_6)`, so the common normalization-free shift
+`epsilon_lambda I` is negligible at the first odd defect scale.  This does not
+make the normalized Ritz bound `epsilon_lambda/a^2` small without separate
+control of `a`.  It does not prove the growing-window
+defect-relative Bessel bound, reciprocal defect sum, either signed sector
+floor, a shifted Schur sign, residual-action decay, equation (5.2), determinant
+convergence, or RH.  The formal state remains `P0_INVALIDATED`.
 
 Start with:
 

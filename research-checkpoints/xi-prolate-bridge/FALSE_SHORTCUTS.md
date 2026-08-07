@@ -97,11 +97,11 @@ region required by RH.
   `sup |W_Z(v,R)|/||Dv||`; a uniform bilinear/Bessel or absolute-sampling
   theorem on explicit source windows is one sufficient route to controlling
   it, not a consequence of the scalar identities.
-- The proved complete-remainder estimate
-  `||R||_Z^2=O(lambda^7*d_4)` supplies only one factor in that graph-dual
-  Cauchy--Schwarz argument.  It does not supply uniform Bessel bounds for the
-  growing complementary windows or the reciprocal defect sum, and therefore
-  does not by itself bound the shifted residual action.
+- The earlier `||R||_Z^2=O(lambda^7*d_4)` bound and the sharper
+  `||R||_Z^2=o(d_6)` hybrid theorem supply only the remainder factor in the
+  graph-dual Cauchy--Schwarz argument.  Neither supplies uniform Bessel bounds
+  for the growing complementary windows or the reciprocal defect sum, and
+  therefore neither by itself bounds the shifted residual action.
 - Modewise diagonal sample estimates do not imply a source Gram inequality.
   For `W=D=I_r` and `S=[1,...,1]`, every source column has sample norm one,
   while `W^*S^*SW` has top eigenvalue `r`.  Every coherent cross term must
@@ -121,16 +121,27 @@ region required by RH.
   it must not be relabeled as the target `O(1/d_8)` comparison.  Dropping one
   of the two defect factors, discarding Gram cross terms, adding an
   unneeded parity factor two, or ordinarily inverting `ker(D_ext)` is invalid.
-- The bound `epsilon_lambda=O(lambda^(-1)*d_8)` is an even-scale statement,
-  not an odd one.  Since `d_8/d_6~(32*pi^2/7)*lambda^4`, the same argument
-  gives only `epsilon_lambda/d_6=O(lambda^3)`.  It cannot be called
-  `o(d_6)`, and evenness of the residual does not remove the scalar shift
-  from the odd spectral comparison.
+- The earlier bound `epsilon_lambda=O(lambda^(-1)*d_8)` is, by itself, an
+  even-scale statement, not an odd one.  Since
+  `d_8/d_6~(32*pi^2/7)*lambda^4`, that argument gives only
+  `epsilon_lambda/d_6=O(lambda^3)` and cannot be relabeled `o(d_6)`.  The
+  later hybrid theorem reaches `o(d_6)` by a different complete-series
+  argument.  Evenness alone never removes the scalar shift from the odd
+  spectral comparison; the hybrid estimate controls it quantitatively by a
+  separate argument.
 - The zero-integral `0/4` normalization cancels the origin datum, not the hard
   endpoint.  In fact `(a_0*e_0)/(a_4*e_4)=O(lambda^(-4))`, so replacing
   `|a_0|=O(lambda)` by its qualitative bounded limit improves the absolute
   outer loss only to `O(lambda^5*d_4)=O(lambda*d_6)`.  This must not be
-  promoted to the one-sided `o(d_6)` shift estimate.
+  promoted by itself to the `o(d_6)` shift estimate; the valid hybrid proof
+  retains the complete sampled series before this endpoint split.
+- Conversely, the hybrid conclusion `epsilon_lambda=o(d_6)` is an absolute
+  sequence-norm and common normalization-free shift statement.  It does not
+  imply `U_Z=epsilon_lambda/a^2=o(d_6)` without separate control of `a`, and
+  is not an unshifted or shifted odd-sector floor, a positive odd Schur
+  complement, a graph-dual residual-action bound, or equation (5.2).
+  Replacing its blockwise minimum of two proved estimates by either branch
+  alone also discards the mechanism that gives the odd-scale result.
 - A shifted comparison on only the low compression `P_KBP_K` does not
   control `P_KB^(-1)c` when low/high couplings are present.  The complete
   operator must dominate, or be left-close to, the low/high quotient

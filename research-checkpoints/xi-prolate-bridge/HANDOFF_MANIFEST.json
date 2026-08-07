@@ -1,6 +1,6 @@
 {
   "artifact_name": "xi-prolate-bridge",
-  "artifact_version": "0.19.1-full-exterior-sampling-fallback",
+  "artifact_version": "0.20.0-hybrid-outer-sampling-odd-shift",
   "updated_date": "2026-08-07",
   "terminal_state": "P0_INVALIDATED",
   "entry_prompt": "CODEX_MASTER_PROMPT.md",
@@ -15,6 +15,7 @@
   "zero_sampling_source_lock": "ZERO_SAMPLING_SOURCE_LOCK.json",
   "compact_absolute_sampling_source_lock": "COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json",
   "full_exterior_sampling_source_lock": "FULL_EXTERIOR_SAMPLING_SOURCE_LOCK.json",
+  "hybrid_outer_sampling_source_lock": "HYBRID_OUTER_SAMPLING_SOURCE_LOCK.json",
   "signed_rewrite_document": "notes/CHEBYSHEV_ERROR_REWRITE.md",
   "growing_window_document": "notes/GROWING_WINDOW_THEOREM.md",
   "prolate_tail_document": "notes/PROLATE_TAIL_ENVELOPE.md",
@@ -28,6 +29,7 @@
   "zero_sampling_source_audit_document": "notes/ZERO_SAMPLING_SOURCE_AUDIT.md",
   "outer_outer_weighted_translation_document": "notes/OUTER_OUTER_WEIGHTED_TRANSLATION_THEOREM.md",
   "outer_outer_spectral_theorem_document": "notes/OUTER_OUTER_SPECTRAL_THEOREM.md",
+  "hybrid_outer_sampling_document": "notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md",
   "parity_multiplier_schur_document": "notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md",
   "phase_volume_scale_audit_document": "notes/PHASE_VOLUME_SCALE_AUDIT.md",
   "weak_residual_sampling_document": "notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md",
@@ -68,6 +70,9 @@
     "physical_outer_tail_L2_defect_relative_bound_proved": true,
     "zero_sampling_source_locked": true,
     "outer_outer_weighted_translation_bound_proved": true,
+    "complete_outer_weighted_L2_bound_proved": true,
+    "hybrid_outer_sampling_series_proved": true,
+    "hybrid_outer_sampling_independent_replay_written": true,
     "outer_outer_exact_correlation_reduction_written": true,
     "outer_outer_h1_route_invalidated": true,
     "outer_outer_defect_relative_bound_proved": true,
@@ -78,13 +83,14 @@
     "compact_BV_absolute_sampling_theorem_proved": true,
     "compact_projection_absolute_sampling_o_d4_proved": true,
     "complete_remainder_absolute_sampling_O_lambda7_d4_proved": true,
+    "complete_remainder_absolute_sampling_o_d6_proved": true,
     "absolute_sampling_window_bound_proved": false,
     "quotient_exterior_preconditioner_proved": true,
     "source_exterior_sampling_gram_comparison_proved": true,
     "source_exterior_sampling_target_scale_proved": false,
     "elementary_same_parity_differential_gap_proved": true,
     "same_parity_gap_growing_window_conditioning_proved": false,
-    "rayleigh_shift_odd_d6_smallness_proved": false,
+    "normalization_free_shift_epsilon_o_d6_proved": true,
     "source_0_4_hard_endpoint_cancellation_proved": false,
     "parity_multiplier_schur_reduction_written": true,
     "odd_pole_rank_one_dangerous_count_proved": true,
@@ -135,10 +141,10 @@
     "gmp": "6.3.0",
     "mpfr": "4.2.2",
     "test_command": "python3 -m unittest discover -s tests -v",
-    "tests_passed": 386,
-    "tests_total": 386
+    "tests_passed": 402,
+    "tests_total": 402
   },
   "replay": "./replay.sh",
   "artifact_hash_manifest": "artifacts/ARTIFACT_MANIFEST.sha256",
-  "manifest_note": "This manifest intentionally omits a self-hash. Current hashes for generated artifacts are in the artifact hash manifest; binding source hashes are in P0_SOURCE_LOCK.json, P1_SOURCE_LOCK.json, P2_SOURCE_LOCK.json, P3_SOURCE_LOCK.json, PROLATE_DEFECT_SOURCE_LOCK.json, DEFECT_RELATIVE_PROJECTION_SOURCE_LOCK.json, ZERO_SAMPLING_SOURCE_LOCK.json, COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json, and FULL_EXTERIOR_SAMPLING_SOURCE_LOCK.json."
+  "manifest_note": "This manifest intentionally omits a self-hash. Current hashes for generated artifacts are in the artifact hash manifest; binding source hashes are in P0_SOURCE_LOCK.json, P1_SOURCE_LOCK.json, P2_SOURCE_LOCK.json, P3_SOURCE_LOCK.json, PROLATE_DEFECT_SOURCE_LOCK.json, DEFECT_RELATIVE_PROJECTION_SOURCE_LOCK.json, ZERO_SAMPLING_SOURCE_LOCK.json, COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json, FULL_EXTERIOR_SAMPLING_SOURCE_LOCK.json, and HYBRID_OUTER_SAMPLING_SOURCE_LOCK.json."
 }

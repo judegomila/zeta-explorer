@@ -310,12 +310,16 @@ parity operators are
  \widehat B_-=a^2Q_- -\epsilon_\lambda I.                 \tag{4.12}
 \]
 
-Because `epsilon_lambda=O(lambda^7d_4)` and
-`d_4/d_8=O(lambda^(-8))`, the scalar shift in (4.12) is
-`O(lambda^(-1)d_8)`.  Thus the complete-remainder theorem makes the shift
-penalty negligible relative to a `d_8` comparison floor.  It supplies no
-lower bound for the unshifted signed operators `A` or `Q_-`, so both parity
-comparisons remain separate obligations.
+The historical compact-BV estimate
+`epsilon_lambda=O(lambda^7d_4)`, together with
+`d_4/d_8=O(lambda^(-8))`, made the normalization-free scalar shift in
+(4.12) `O(lambda^(-1)d_8)`.  The later hybrid complete-series theorem proves
+the sharper statement `epsilon_lambda=o(d_6)`.  Thus the normalization-free
+shift `epsilon_lambda I` in (4.12) is also negligible at the first fixed odd
+scale.  This does not make the normalized bound
+`U_Z=epsilon_lambda/a^2` small without separate lower control of `a`.  It
+also supplies no lower bound for the unshifted signed operators `A` or
+`Q_-`, so both parity comparisons remain separate obligations.
 
 The word "both" must not be read as a common defect scale.  The pinned
 fixed-index constants give
@@ -324,17 +328,17 @@ fixed-index constants give
  {d_8\over d_6}\sim {32\pi^2\over7}\lambda^4.
 \]
 
-Therefore the same available estimate implies only
+Therefore the older compact-BV estimate implied only
 
 \[
  \epsilon_\lambda=O(\lambda^3d_6),
 \]
 
-not `epsilon_lambda=o(d_6)`.  This upper bound does not prove that the shift
-is large; it proves that the present argument does not make it negligible at
-the natural first-odd scale.  A bound `O(lambda^p*d_4)` would imply
-`o(d_6)` only for `p<4`, whereas the current exponent is seven.  See
-`notes/PARITY_SHIFT_SCALE_AUDIT.md`.
+not `epsilon_lambda=o(d_6)`.  This upper bound did not prove that the shift
+was large; it only exposed the loss in that historical route.  The hybrid
+theorem supplies the missing `o(d_6)` normalization-free estimate by a
+different complete-series argument.  See
+`notes/PARITY_SHIFT_SCALE_AUDIT.md` for the updated scale audit.
 
 For the even action, let `D_+>0` and assume the left-preconditioned comparison
 

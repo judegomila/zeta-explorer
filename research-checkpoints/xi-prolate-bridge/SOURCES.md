@@ -207,6 +207,19 @@ pairings, `q_lambda(p,p)=o(d_8)` on the locked schedule.  These are quadratic
 energy statements, not signed sector floors, residual-action bounds,
 equation (5.2), or determinant convergence.
 
+The same pinned zero-free, zero-count, and finite-height inputs are reused in
+`notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md`.  That repository proof
+combines a complete-series weighted `L2` estimate with the admitted
+translation theorem by taking the better proved bound on each dyadic block.
+It introduces no new external theorem and reads no zero list.  Its stronger
+conclusion `||R_lambda||_Z^2=o(d_6)` controls the common normalization-free
+shift `epsilon_lambda I` only; it does not make
+`U_Z=epsilon_lambda/a^2` small without separate control of `a`, and it is not
+a signed sector floor, residual-action estimate, equation (5.2), or
+determinant convergence.  The hybrid lock also pins `requirements.txt`; both
+paths require `mpmath==1.4.1`, re-hash every dependency declared by the lock,
+and serialize the shared-library limitation.
+
 ## Defect-relative projection input
 
 - M. Egidi and A. Seelmann, *An abstract Logvinenko--Sereda type theorem for
@@ -256,14 +269,29 @@ additive-even arithmetic bound `lambda^2/2` and the full-cross-term fallback
 `B_abs*lambda^4/(4*d_LS^2)` is exponentially too large for the required
 `O(1/d_8)` scale and supplies no signed floor or RH conclusion.
 
-The parity-shift and hard-endpoint normalization audits introduce no new
-external source.  `notes/PARITY_SHIFT_SCALE_AUDIT.md` and
+## Hybrid complete-series sampling dependency lock
+
+`HYBRID_OUTER_SAMPLING_SOURCE_LOCK.json` introduces no new external theorem.
+It hashes the existing radical, zero-sampling, fixed-index prolate-defect,
+compact projection-sampling, endpoint, and weighted-translation dependencies,
+together with `notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md`.  The theorem
+proves a complete-series weighted `L2` bound, an exact convergent blockwise
+minimum series, `B_hyb(lambda)=O(lambda^3*polylog(lambda))`, and hence
+`||R_lambda||_Z^2=o(d_6)` on the locked schedule.  Its producer and verifier
+reconstruct the constants and explicit summation threshold independently but
+share `mpmath.iv` interval arithmetic.  No effective fixed-index asymptotic
+threshold is claimed.
+
+The parity-shift and hard-endpoint normalization audits likewise introduce no
+new external source.  `notes/PARITY_SHIFT_SCALE_AUDIT.md` and
 `notes/OUTER_NORMALIZATION_CANCELLATION_AUDIT.md` combine the already pinned
-Slepian fixed-index formula with the locked CCM `0/4` normalization.  Their
-conclusions are scale obstructions: the current common shift is not shown to
-be `o(d_6)`, and the source coefficients do not cancel the hard endpoint.
-They are not finite enclosures, signed-sector theorems, equation (5.2), or an
-RH conclusion.
+Slepian fixed-index formula with the locked CCM `0/4` normalization.  They
+prove that the earlier `O(lambda^7*d_4)` estimate and coefficient-only
+endpoint sharpening do not establish `o(d_6)`, and that the source
+coefficients do not cancel the hard endpoint.  The hybrid theorem bypasses
+those endpointwise arguments by retaining the complete sampled series; it
+does not invalidate the audits or prove a signed sector theorem, equation
+(5.2), or an RH conclusion.
 
 ## Finite-compression candidate input, not yet source-locked
 

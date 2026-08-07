@@ -547,10 +547,13 @@ then sequence Cauchy--Schwarz, not Weil positivity, gives
 The factor `a` cancels after multiplication by the projected norm in the
 determinant bridge.  The complete theorem and exact scalar/action obstruction
 are in `notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md`.  The separate
-`notes/COMPACT_ABSOLUTE_SAMPLING_THEOREM.md` now supplies
-`epsilon_lambda=O(lambda^7*d_4)` for the actual complete remainder on the
-locked exponential schedule.  The growing-window Bessel constants and
-reciprocal sum remain open.  In particular, the admitted
+`notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md` now supplies
+`epsilon_lambda=o(d_6)` for the actual complete remainder on the locked
+exponential schedule.  This closes the common normalization-free scalar-shift
+scale obstruction, but it does not make
+`U_Z=epsilon_lambda/a^2` small without separate control of `a`.  The
+growing-window Bessel constants and reciprocal sum remain open.  In
+particular, the admitted
 scalar result `q_lambda(p,p)=o(d_8)` cannot imply (4.3a): an exact
 two-sided-radical model has every scalar P/O pairing zero and nonzero action.
 

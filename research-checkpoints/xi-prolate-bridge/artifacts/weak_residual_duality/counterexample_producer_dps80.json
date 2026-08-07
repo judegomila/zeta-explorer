@@ -4,7 +4,7 @@
   "construction": "canonical_5d_two_sided_radical_obstruction_v1",
   "precision_decimal_digits": 80,
   "provenance_sha256": {
-    "notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md": "5b6f9fcb1d42d58d507d750f1b4b5e39634bdfdb5a1f291d69aa588cc34f8f23",
+    "notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md": "ccb6b0182216c1d62fa578055760289622585576bab0741f8b06dc9dd07a5842",
     "src/weak_residual_duality.py": "7db2958617449faa3df37be10f4b5e023758bc6694528c1e2ca357d22e1f2c4c",
     "verifier/weak_residual_duality_replay.py": "e206aa6e1e0c1f904259ca1da89813f4f9de2c7790e4cb23f62b11cc8f0d91a8"
   },

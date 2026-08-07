@@ -103,6 +103,15 @@ schedule; no artifact asserts the complete residual--gap bridge, equation
   square-root values.  Provenance hashes are serialized.  This is an
   obstruction to a scalar-to-action inference, not an RH counterexample or
   an asymptotic residual estimate.
+- `quotient_exterior_preconditioner/`: a rank-deficient exact rational
+  regression for minimum-source-energy descent to the physical range.  The
+  producer evaluates the quotient, sampling Loewner descent, alignment, two
+  action bounds, and a low/high cross-term model at arbitrary precision.  The
+  verifier imports no producer code and reconstructs the matrices and
+  inequalities with `fractions.Fraction` and `decimal.Decimal`; the complete
+  replay is recorded at 80 and 160 decimal digits.  The source
+  exterior sampling estimate and both shifted signed comparisons remain
+  explicitly false in the artifact.
 - `physical_map_conditioning/`: exact half-integer breakpoint arithmetic,
   finite Möbius data, endpoint-jet leading coefficients, and an independent
   factorization/rational replay at `lambda=5/2`.  It records qualitative

@@ -878,6 +878,47 @@ five-dimensional radical model in
 equal to zero but nonzero weighted action, proving that (6.6)--(6.7) cannot
 be replaced by scalar polarization.
 
+The positive-sampling route no longer requires a lower physical Gram
+determinant.  Let `D_ext>0` be the source exterior-concentration form, let
+`W` synthesize the corresponding physical low space
+`K=ran(W)`, and define the minimum-energy quotient
+
+\[
+ \Delta_K=(W D_{\rm ext}^{-1}W^*)^\dagger\big|_K.             \tag{6.8a}
+\]
+
+For any positive sampling Gram `G_K`, the source-coordinate estimate
+
+\[
+ W^*G_KW\preceq C_{\rm ext}D_{\rm ext}                       \tag{6.8b}
+\]
+
+descends exactly to
+
+\[
+ G_K\preceq C_{\rm ext}\Delta_K,\qquad
+ \|\Delta_K^{-1}G_K\Delta_K^{-1}\|
+ \le C_{\rm ext}\|W D_{\rm ext}^{-1/2}\|^2.                  \tag{6.8c}
+\]
+
+This is valid even when `W` has a source kernel: the Moore--Penrose inverse
+acts only on `K`.  Thus the missing positive alignment has the smaller
+source-coordinate target
+
+\[
+ Y^*Z^*ZY\preceq C_{\rm ext}D_{\rm ext},\qquad
+ C_{\rm ext}\|W D_{\rm ext}^{-1/2}\|^2=O(d_8^{-1}),          \tag{6.8d}
+\]
+
+where exact radicality gives `ZW=-ZY`.  A generic compact-BV bound still
+loses one defect by making `C_ext` itself proportional to
+`||W D_ext^(-1/2)||^2`.  Equations (6.8a)--(6.8d) are therefore an exact
+conditioning reduction, not the missing exterior estimate.  The full
+shifted signed operator must also be left-close to, or dominate, the same
+quotient preconditioner; a low compression alone does not control the full
+inverse when low/high couplings are present.  See
+`notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md`.
+
 There is also a qualitative advance on physical conditioning.  On every
 locked half-integer `lambda`, the unmatched arithmetic breakpoint
 `u=lambda/2` proves that both continuous parity maps `S_+ E` and `S_- E`
@@ -894,7 +935,10 @@ is the normalized physical Gram inequality
 which would give `widehat R>=gamma I`; an equivalent lower bound for one
 normalized full row minor suffices.  No current source estimate controls
 `gamma` through the growing transition family.  See
-`notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md`.
+`notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md`.  This lower determinant
+remains necessary for routes that explicitly orthonormalize the physical
+source columns, but (6.8a)--(6.8d) show that it is not intrinsic to the
+quotient positive-sampling/action route.
 
 Finally, the odd pole in the multiplier reduction is rank one and can be
 placed explicitly in the dangerous space.  It costs at most one dimension,

@@ -131,6 +131,17 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   `||R||_Z^2<=d_4(4*C_spec*D_S(lambda)+2*B_P(lambda))=O(lambda^7*d_4)`
   on the locked exponential schedule, without a zero list, global zero
   reality, or Weil positivity.
+- [x] Prove the quotient exterior-preconditioner theorem.  For a possibly
+  rank-deficient physical synthesis `W` and positive source defect form
+  `D_ext`, the minimum-energy quotient
+  `Delta=(W*D_ext^(-1)*W^*)^dagger` on `ran(W)` converts
+  `W^*G_ZW<=C_ext D_ext` into
+  `G_Z<=C_ext Delta` and
+  `||Delta^(-1)G_ZDelta^(-1)||
+  <=C_ext||W D_ext^(-1/2)||^2`.  This removes the smallest physical
+  singular value from the positive-sampling action, retains all Gram cross
+  terms, and is independently replayed on an exact rank-deficient model.
+  It proves neither the source exterior estimate nor a signed comparison.
 - [ ] Prove the remaining absolute-sampling window estimates: uniform
   source-window Bessel bounds `||v||_Z^2<=beta_m d_m||v||^2` and the
   reciprocal sum `sum beta_m/d_m=O(1/d_8)`.  Together with the complete
@@ -138,7 +149,11 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   action scale.  The direct compact-BV insertion is proved insufficient
   already at label `8`, where it gives `beta_8/d_8=B_abs/d_8^2`; the estimate
   must be defect-relative.  The exact counterexample also shows that scalar
-  polarization alone cannot do so.
+  polarization alone cannot do so.  A strictly sharper alternative is the
+  full source-coordinate quotient target
+  `Y^*Z^*ZY<=C_ext D_ext` with
+  `C_ext||W D_ext^(-1/2)||^2=O(1/d_8)`; this avoids the reciprocal-window
+  sum but still requires the complete cross-term Gram inequality.
 - [ ] Obtain an asymptotic formula with a rigorous remainder for
   `r_(lambda,N)`.
 - [ ] Control the residual in the shifted even-complement resolvent, not only
@@ -244,11 +259,13 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   breakpoint.  Prove eventual Fourier injectivity at each fixed `lambda` and
   the exact pre-parity Möbius bound `||f||<=2lambda||E(f)||` on the visible
   interval.
-- [ ] Make the correct-scale leading-defect lower bound effective and prove
-  the normalized physical Gram determinant/minor inequality from
-  `notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md` uniformly on the growing
-  source family.  Qualitative injectivity gives no explicit bandwidth or
-  smallest singular scale.
+- [ ] For any route that explicitly orthonormalizes the growing physical
+  source columns, make the correct-scale leading-defect lower bound effective
+  and prove the normalized physical Gram determinant/minor inequality from
+  `notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md`.  The quotient
+  exterior-preconditioner route bypasses this lower determinant on the
+  positive-sampling side, but still needs a full shifted signed comparison
+  on the quotient physical range.
 - [ ] Prove uniform strict bounds `alpha_L-U>0` and `omega_L-U>0` along an
   unbounded schedule.
 - [ ] Prefer a low-energy prolate comparison or Schur complement over an

@@ -347,6 +347,83 @@ the generic compact-BV estimate gives only `G_+<=B_abs I`; when the smallest
 scale in `D_+` is `d_8`, this yields
 `Gamma_+(D_+)<=B_abs/d_8^2`, again one full defect factor too weak.
 
+### 4.3 Quotient preconditioning removes the lower Gram determinant
+
+The global comparison can be formulated before physical
+orthonormalization.  Let \(X\) be a source-coordinate window space,
+\(D_{\rm ext}>0\) its positive exterior concentration form, and
+\(W:X\to\mathcal K_L\) the physical synthesis.  Source injectivity is not
+required.  On the actual range \(K=\operatorname {ran}W\), define
+
+\[
+ \Delta_K=(W D_{\rm ext}^{-1}W^*)^\dagger\big|_K.            \tag{4.15}
+\]
+
+The minimum-energy quotient theorem in
+`notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md` proves
+
+\[
+ \langle v,\Delta_Kv\rangle
+ =\inf_{Wx=v}\langle x,D_{\rm ext}x\rangle,\qquad
+ \lambda_{\min}(\Delta_K)
+ ={1\over\|W D_{\rm ext}^{-1/2}\|^2}.                        \tag{4.16}
+\]
+
+Suppose the complete source-coordinate sampling Gram, including every
+cross term, satisfies
+
+\[
+ W^*G_+W\preceq C_{\rm ext}D_{\rm ext}.                      \tag{4.17}
+\]
+
+Taking the infimum over all preimages gives
+
+\[
+ G_+\preceq C_{\rm ext}\Delta_K,\qquad
+ \Gamma_+(\Delta_K)
+ \le C_{\rm ext}\|W D_{\rm ext}^{-1/2}\|^2.                  \tag{4.18}
+\]
+
+Thus the positive-sampling action does not require a lower bound for the
+smallest singular value of \(W\), an endpoint-jet determinant, or a
+normalized physical Gram minor.  The exact sufficient scale is
+
+\[
+ C_{\rm ext}\|W D_{\rm ext}^{-1/2}\|^2=O(d_8^{-1}).          \tag{4.19}
+\]
+
+For the radical family, if \(Y\) synthesizes the corrected complete
+remainder and \(Z\) is the two-evaluation sampling map, exact radicality
+gives \(ZW=-ZY\).  Hence (4.17) is exactly
+
+\[
+ Y^*Z^*ZY\preceq C_{\rm ext}D_{\rm ext}.                    \tag{4.20}
+\]
+
+Neither (4.19) nor (4.20) is proved.  The generic compact-BV estimate gives
+only
+\[
+ C_{\rm ext}\le B_{\rm abs}
+ \|W D_{\rm ext}^{-1/2}\|^2,
+\]
+which squares the inverse-defect factor in (4.18).  Modewise diagonal bounds
+also do not imply (4.20), because the source sampling Gram can have coherent
+off-diagonal terms.
+
+On an orthogonal high complement with metric \(gI\) and sampling norm
+\(B_H\), all low/high sampling cross terms are retained by
+
+\[
+ \Gamma_+(\Delta_K\oplus gI)
+ \le C_{\rm ext}\|W D_{\rm ext}^{-1/2}\|^2+{B_H\over g^2}.
+                                                                    \tag{4.21}
+\]
+
+The full shifted signed operator must still dominate, or be left-close to,
+this complete quotient preconditioner.  A comparison only on its low
+compression does not control the full inverse in the presence of low/high
+coupling.
+
 ## 5. Exact obstruction to a scalar-to-action inference
 
 The need for new bilinear information is logical, not merely technical.

@@ -1,0 +1,66 @@
+{
+  "arithmetic": {
+    "library": "mpmath.iv 1.4.1",
+    "shared_library_limitation_acknowledged": true
+  },
+  "checks": {
+    "all_interval_pairs_overlap": true,
+    "both_inversion_reflected_tails_preserved": true,
+    "even_label_harmonic_domain_preserved": true,
+    "independent_formula_reconstruction": true,
+    "mu_upper_strictly_below_3c_squared": true,
+    "producer_booleans_trusted": false,
+    "strict_low_window_endpoint_preserved": true
+  },
+  "interval_overlap": {
+    "C_near": true,
+    "D_tr": true,
+    "L_lambda": true,
+    "beta": true,
+    "beta_log20": true,
+    "endpoint_square_coefficient": true,
+    "margin_below_3c_squared": true,
+    "mu_upper_over_c_squared": true,
+    "weighted_norm_coefficient": true
+  },
+  "producer_binding": {
+    "exact_bytes_required": true,
+    "sha256": "0bb67d9735f07e5fbc8f1ffeefdaad3be6cf19582da92666696b663065bc7410"
+  },
+  "reconstructed_exact_certificate": {
+    "buffer_ceil": 5,
+    "buffer_with_plus_six": 11,
+    "endpoint_constant_integer": 2592,
+    "exact_index_margin": {
+      "denominator": "2",
+      "numerator": "29"
+    },
+    "far_remainder_constants": {
+      "derivative": 24,
+      "value": 18
+    },
+    "far_translation_integer": 1000000000,
+    "lambda": {
+      "denominator": "2",
+      "numerator": "7"
+    },
+    "lambda_squared": {
+      "denominator": "4",
+      "numerator": "49"
+    },
+    "max_low_index": 59,
+    "n_star": 60,
+    "n_star_is_excluded": true,
+    "sampled_series_constant": 28,
+    "shannon_index": 49,
+    "six_lambda_squared": {
+      "denominator": "2",
+      "numerator": "147"
+    },
+    "translation_collection_factor": 6,
+    "weighted_norm_integer": 1062724
+  },
+  "schema": "xi-prolate-transition-outer-replay-v1",
+  "status": "TRANSITION_PROLATE_OUTER_COMPONENT_REPLAY_PASS",
+  "terminal_state": "P0_INVALIDATED"
+}

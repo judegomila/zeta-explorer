@@ -57,6 +57,23 @@ schedule; no artifact asserts the complete residual--gap bridge, equation
   endpoints for the pinned KRD transition scale, and the inclusive `n_*`
   half-defect check.  It concerns only the positive prolate model and carries
   explicit false fields for a signed Weil comparison.
+- `transition_prolate_outer/`: `p=5` and `p=7` transition-mode certificates
+  at 80 and 160 decimal digits.  The producer and clean-room replay bind the
+  exact source bytes and independently reconstruct the strict `n<n_*`
+  domain, `mu_n<3*c^2`, endpoint/Volterra constants, complete even-label
+  sampled-series bound, and weighted norm/translation constants.  Raw
+  outward-interval dyadics are retained; both formula paths share
+  `mpmath.iv`.  These artifacts prove no quotient action, signed sector
+  floor, equation (5.2), determinant convergence, or RH.
+- `growing_transition_sampling/`: rest-block pilots at 80 and 160 decimal
+  digits (`p=5,q=8` and `p=7,q=14`); the singleton `q<=3` case follows from
+  the replayed exact q-linearity and serialized singleton row bound.  The
+  independent replay reconstructs the origin correction, exact q-linearity, hybrid
+  positive series, one-loss compact-projection exponent, complete Minkowski
+  constant, and the rejection of a full-metric block shortcut.  The admitted
+  output is the within-block source-coordinate Loewner bound only; physical
+  synthesis, block quotient/cross-block/high-complement assembly, and both
+  signed comparisons remain open.  Both paths share `mpmath.iv`.
 - `prufer_same_parity_gap/`: outward intervals at 80 and 160 decimal digits
   for the elementary same-parity differential prolate non-collision bound at
   `lambda=2`, `n=0`, `r=2`, together with exact `c=0` Legendre center and

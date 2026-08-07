@@ -146,16 +146,34 @@ locked schedule.  This still does not control the graph-dual residual
 action, prove an even or odd signed sector floor, prove the shifted odd Schur
 complement positive, or establish equation (5.2).
 
-Uniform Bessel bounds for growing complementary windows and the reciprocal
-defect sum therefore remain open.  Directly applying the same BV theorem to a
-normalized window gives only `beta_m/d_m=B_abs/d_m^2`; the `m=8` term alone
-loses `B_abs/d_8 -> infinity`.  The next action estimate must be genuinely
-defect-relative, not another absolute compactness bound.  Equivalently, if
-`G_+` is the positive zero-sampling Gram on the even complement, the relaxed
-sufficient global target is `G_+ <= Gamma D_+^2` with
-`Gamma=O(lambda^4*polylog(lambda)/d_8)`.  This retains cross-window
-orientation and can be weaker than a windowwise reciprocal sum; the earlier
-`O(1/d_8)` target remains a stronger sufficient condition.
+The original windowwise Bessel/reciprocal-sum route is still not proved, but
+its sharper source-coordinate alternative is now closed on each prescribed
+split plus block.  `notes/TRANSITION_PROLATE_OUTER_THEOREM.md` replaces the
+invalid endpoint monotonicity in the logarithmic KRD buffer by a uniform
+Liouville--Pruefer estimate and proves explicit defect-relative endpoint,
+complete-series, weighted-norm, and translation bounds for every even
+`n<n_*`.  `notes/GROWING_TRANSITION_SAMPLING_THEOREM.md` then keeps the
+zero-integral correction, arbitrary anchor deflation, compact projection,
+both reflected tails, and every within-block zero-sampling cross term inside
+one Loewner inequality.  On the locked exponential schedule its admitted
+constants have the scales
+
+`C_8=O(lambda*polylog(lambda))`,
+
+`C_rest=O(lambda^3*polylog(lambda))`.
+
+The producer and clean-room replay reconstruct the finite constants at 80
+and 160 decimal digits without a zero list, global zero-reality assumption,
+or Weil positivity.  The two formula trees share `mpmath.iv`, which is
+recorded as a library limitation.
+
+This closes the defect-relative sampling/projection side of the split source
+blocks; it does not identify their block-diagonal quotient metric with a full
+cross-block exterior Gram.  The physical synthesis factors, the high
+complement, and both shifted signed comparisons must still be combined before
+one can infer the relaxed global target
+`G_+ <= Gamma D_+^2` with
+`Gamma=O(lambda^4*polylog(lambda)/d_8)`.  Thus equation (5.2) remains open.
 
 `notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md` now removes the lower physical
 Gram determinant from this positive-sampling route.  If `D_ext` is the
@@ -285,6 +303,14 @@ Start with:
     `notes/LEADING_PROLATE_OSCILLATION_THEOREM.md` -- the exact sine-packet
     min--max proof of `mu_n<c^2` for every leading label below
     `4*lambda^2` on the locked schedule.
+26. `TRANSITION_PROLATE_OUTER_SOURCE_LOCK.json` and
+    `notes/TRANSITION_PROLATE_OUTER_THEOREM.md` -- the explicit buffered
+    endpoint, complete even-label series, weighted norm, and translation
+    theorem.
+27. `GROWING_TRANSITION_SAMPLING_SOURCE_LOCK.json` and
+    `notes/GROWING_TRANSITION_SAMPLING_THEOREM.md` -- the corrected
+    growing-family sampling/projection Loewner theorem with all within-block
+    cross terms retained.
 
 `notes/DETERMINANT_LIMIT_AUDIT.md` reproduces the complete finite
 self-adjointness/determinant theorem from the pinned CCM source and separates
@@ -320,8 +346,10 @@ differential-equation premise for the complete unbuffered leading family.  A
 gives `mu_n(c)<=c^2-1<c^2` for every `0<=n<4*lambda^2`.  The exact-rational
 producer and clean-room replay reconstruct the packet tiling, scaled cosine
 moments, form difference, and index range without numerical prolate data.
-This is not a lower bound for `d_n`, a transition-buffer sampling theorem, a
-signed Weil comparison, or equation (5.2).
+This is not a lower bound for `d_n`, a signed Weil comparison, or equation
+(5.2).  The separate transition and growing-family theorems listed above now
+close the split-block sampling/projection successor, but not its quotient
+action or signed use.
 
 `notes/PRUFER_SAME_PARITY_GAP_THEOREM.md` supplies a separate,
 non-collision bound for the differential prolate eigenvalues.  It uses the
@@ -522,8 +550,13 @@ with Arb balls. These are finite diagnostics, not an asymptotic proof.
   eigenvalue bound, without physical-map conditioning or a signed comparison**.
 - Leading differential-prolate oscillation hypothesis: **yes, by an exact
   sine-packet min--max certificate for every `n<4*lambda^2` on the locked
-  half-integer schedule; this gives no concentration-defect lower bound,
-  transition-buffer Gram estimate, or signed Weil floor**.
+  half-integer schedule; this gives no concentration-defect lower bound or
+  signed Weil floor**.
+- Transition and growing corrected-source sampling/projection: **yes for the
+  split plus blocks, with explicit `C_8=O(lambda*polylog(lambda))` and
+  `C_rest=O(lambda^3*polylog(lambda))` and every within-block cross term
+  retained; no for the physical synthesis/block-quotient/high-complement
+  assembly, either signed comparison, or equation (5.2)**.
 - Fixed-index prolate defect asymptotic: **yes, qualitatively from a vendored
   and hashed Slepian source, including the eventual `d_4/d_8` scale; no
   effective threshold, growing-index uniformity, or signed Weil floor**.

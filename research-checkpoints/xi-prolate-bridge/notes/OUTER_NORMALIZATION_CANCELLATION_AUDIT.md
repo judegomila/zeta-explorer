@@ -175,7 +175,10 @@ why further use of the `0/4` normalization cannot remove the loss: the next
 hard-endpoint term survives.
 
 This is a method obstruction, not a lower bound for the signed Rayleigh
-quotient.  A smaller one-sided shift may still follow from a new signed
-Mellin or complete-remainder cancellation which keeps the pole,
-archimedean, and prime pieces combined.  Absolute endpoint/translation
-control and the zero-integral identity alone do not provide it.
+quotient.  The later hybrid complete-series theorem does prove the
+normalization-free estimate `epsilon_lambda=o(d_6)` by keeping the sampled
+series together before the endpoint split; it does not make the normalized
+bound `epsilon_lambda/a^2` small without separate control of `a`.  The hard
+endpoint still does not cancel, and absolute endpoint/translation control
+plus the zero-integral identity alone still do not provide a signed floor or
+residual-action estimate.

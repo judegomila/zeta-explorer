@@ -1,5 +1,5 @@
 {
-  "artifact_version": "0.19.1-full-exterior-sampling-fallback",
+  "artifact_version": "0.20.0-hybrid-outer-sampling-odd-shift",
   "overall_status": "P0_INVALIDATED",
   "status_reason": "Two exact inconsistencies were found in the pinned source: the Section 7 formulas yield Xi/4, and printed (4.14) double-counts c(L). Explicit repairs preserve the intended zero argument but must be acknowledged.",
   "rh_proved": false,
@@ -32,6 +32,9 @@
   "physical_outer_tail_L2_defect_relative_bound_proved": true,
   "zero_sampling_source_locked": true,
   "outer_outer_weighted_translation_bound_proved": true,
+  "complete_outer_weighted_L2_bound_proved": true,
+  "hybrid_outer_sampling_series_proved": true,
+  "hybrid_outer_sampling_independent_replay_written": true,
   "outer_outer_exact_correlation_reduction_written": true,
   "outer_outer_h1_route_invalidated": true,
   "outer_outer_defect_relative_bound_proved": true,
@@ -42,13 +45,14 @@
   "compact_BV_absolute_sampling_theorem_proved": true,
   "compact_projection_absolute_sampling_o_d4_proved": true,
   "complete_remainder_absolute_sampling_O_lambda7_d4_proved": true,
+  "complete_remainder_absolute_sampling_o_d6_proved": true,
   "absolute_sampling_window_bound_proved": false,
   "quotient_exterior_preconditioner_proved": true,
   "source_exterior_sampling_gram_comparison_proved": true,
   "source_exterior_sampling_target_scale_proved": false,
   "elementary_same_parity_differential_gap_proved": true,
   "same_parity_gap_growing_window_conditioning_proved": false,
-  "rayleigh_shift_odd_d6_smallness_proved": false,
+  "normalization_free_shift_epsilon_o_d6_proved": true,
   "source_0_4_hard_endpoint_cancellation_proved": false,
   "parity_multiplier_schur_reduction_written": true,
   "odd_pole_rank_one_dangerous_count_proved": true,
@@ -94,7 +98,7 @@
   "fixed_index_prolate_asymptotic_effective_threshold": false,
   "fixed_index_d4_d8_ratio_proved_eventually": true,
   "anisotropic_Schur_interval_enclosed": false,
-  "diagnostic_tests_passed": 386,
-  "diagnostic_tests_total": 386,
-  "smallest_claim": "Within the documented P0 source errata, the exact finite source formulas, finite determinant theorem, scale-free determinant normalization, global E-radical reduction, and finite anisotropic Schur/resolvent theorems remain valid. On the locked exponential schedule, compact-BV sampling gives complete-remainder absolute sampling O(lambda^7*d_4). The quotient theorem removes the smallest physical singular-value requirement, and the source-locked full-Y fallback retains every Gram cross term, but its alignment bound B_abs*lambda^4/(4*d_LS^2) is exponentially too large for the required O(1/d_8) scale. A standard-Sturm-based elementary prolate gap proves only exponentially weak non-collision. The common shift is not shown to be o(d_6), and the source 0/4 coefficients do not cancel the hard endpoint. Both shifted parity comparisons, unbounded signed-sector floors, shifted-resolvent decay, equation (5.2), and locally uniform characteristic convergence remain unproved. The formal status is P0_INVALIDATED."
+  "diagnostic_tests_passed": 402,
+  "diagnostic_tests_total": 402,
+  "smallest_claim": "Within the documented P0 source errata, the exact finite source formulas, finite determinant theorem, scale-free determinant normalization, global E-radical reduction, and finite anisotropic Schur/resolvent theorems remain valid. On the locked exponential schedule, the source-locked hybrid complete-series theorem improves complete-remainder absolute sampling to epsilon_lambda=o(d_6), so the common normalization-free scalar shift is negligible at the first fixed odd defect scale. This does not make U_Z=epsilon_lambda/a^2 small without separate control of a or control the residual action. The quotient theorem removes the smallest physical singular-value requirement, but the unconditional full-Y alignment fallback remains exponentially too large for the required target scale. The source 0/4 coefficients still do not cancel the hard endpoint; the hybrid proof bypasses that endpointwise route. Both signed parity comparisons, unbounded sector floors, vector-specific shifted-resolvent decay, equation (5.2), and locally uniform characteristic convergence remain unproved. The formal status is P0_INVALIDATED."
 }

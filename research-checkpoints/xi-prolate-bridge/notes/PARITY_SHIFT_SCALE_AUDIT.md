@@ -1,10 +1,12 @@
 # Rayleigh-shift scale audit for the first even and odd prolate windows
 
 Status: exact asymptotic bookkeeping from the pinned fixed-index prolate
-source.  This note corrects a possible cross-parity inference.  It proves no
-signed Weil-sector floor, no shifted-resolvent estimate, no instance of
-equation (5.2), and no Riemann-hypothesis conclusion.  The project terminal
-state remains `P0_INVALIDATED`.
+source.  This note corrects a possible cross-parity inference and records
+which part of the original scale obstruction was subsequently discharged by
+the hybrid complete-series theorem.  It proves no signed Weil-sector floor,
+no shifted-resolvent estimate, no instance of equation (5.2), and no
+Riemann-hypothesis conclusion.  The project terminal state remains
+`P0_INVALIDATED`.
 
 ## 1. Pinned input and exact ratios
 
@@ -74,9 +76,9 @@ forcing vector is inversion even.  Evenness removes odd forcing; it does not
 remove the scalar shift needed to place the entire odd spectrum above the
 Ritz value.
 
-## 3. What the present complete-remainder theorem actually implies
+## 3. Historical compact-BV baseline and the hybrid update
 
-The admitted bound is
+Before the hybrid complete-series theorem, the admitted compact-BV bound was
 
 \[
  \epsilon_\lambda=O(\lambda^7d_4).                       \tag{3.1}
@@ -88,8 +90,9 @@ Together with the pinned `d_4/d_8=O(lambda^{-8})`, it yields
  \epsilon_\lambda=O(\lambda^{-1}d_8)=o(d_8).              \tag{3.2}
 \]
 
-Therefore the scalar shift is asymptotically negligible relative to a
-hypothetical positive even comparison floor of order `d_8`.
+Therefore that historical bound made the normalization-free scalar shift
+asymptotically negligible relative to a hypothetical positive even
+comparison floor of order `d_8`.
 
 For the odd scale, however, (1.3) and (3.1) give only
 
@@ -97,10 +100,10 @@ For the odd scale, however, (1.3) and (3.1) give only
  {\epsilon_\lambda\over d_6}=O(\lambda^3).                \tag{3.3}
 \]
 
-Equation (3.3) is not a lower bound and does not prove that the shift is
-large.  It says precisely that the available upper estimate fails to prove
-`epsilon_lambda=o(d_6)`.  Consequently (3.2) must not be reused as an odd
-shift-smallness statement.
+Equation (3.3) is not a lower bound and did not prove that the shift was
+large.  It says precisely that the older upper estimate failed to prove
+`epsilon_lambda=o(d_6)`.  Consequently (3.2) must not be reused by itself as
+an odd shift-smallness statement.
 
 More generally, a bound
 
@@ -109,24 +112,38 @@ More generally, a bound
 \]
 
 would imply `o(d_6)` from the pinned fixed-index limits when `p<4`.
-The borderline `p=4` gives only `O(d_6)`, and the present exponent is `p=7`.
+The borderline `p=4` gives only `O(d_6)`, and the historical compact-BV
+exponent was `p=7`.
 
-## 4. Honest remaining alternatives
+`notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md` now proves
 
-At least one genuinely new odd-sector input is required:
+\[
+ \epsilon_\lambda=o(d_6)                                  \tag{3.4}
+\]
 
-1. sharpen the common Ritz/residual upper bound to
-   `epsilon_lambda=o(d_6)` (an exponent below four when measured against
-   `d_4` would suffice);
-2. prove the complete shifted odd Schur complement directly, retaining
+by retaining the complete sampled series and switching blockwise between
+two proved estimates.  Thus the common normalization-free shift
+`epsilon_lambda I` in (2.1) is negligible at the fixed odd scale.  Equation
+(3.4) does **not** imply `U_Z=epsilon_lambda/a^2=o(d_6)` without separate
+lower control of `a`, and it supplies no signed odd-sector floor.
+
+## 4. Honest remaining alternatives after the hybrid update
+
+The first alternative in the original audit--proving
+`epsilon_lambda=o(d_6)`--is now discharged for the normalization-free
+blocks.  At least one genuinely new signed odd-sector input is still
+required:
+
+1. prove the complete shifted odd Schur complement directly, retaining
    `epsilon_lambda I` rather than treating it as a negligible perturbation;
-3. prove an odd unshifted comparison floor on a larger scale, with all
+2. prove an odd unshifted comparison floor on a larger scale, with all
    low/high couplings and the negative rank-one pole included.
 
-The third option is not supplied by the natural fixed-index `d_6` scale.
+The second option is not supplied by the natural fixed-index `d_6` scale.
 Moreover, the odd pole is negative and must be placed in the low dangerous
 space or handled by its exact rank-one leverage condition, as established in
 `notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md`.  A positive sampling Gram or an
 even-sector estimate alone cannot decide that Schur sign.
 
-This scale audit narrows the proof obligation; it does not close it.
+The hybrid update closes the normalization-free scalar scale obstruction;
+this scale audit still does not close the signed odd-sector obligation.

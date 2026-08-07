@@ -409,4 +409,18 @@ python3 verifier/full_exterior_sampling_fallback_replay.py \
   --dps 200 \
   --output artifacts/full_exterior_sampling_fallback/lambda5over2_N24_verifier_dps160.json >/dev/null
 
+mkdir -p artifacts/hybrid_outer_sampling_odd_shift
+python3 src/hybrid_outer_sampling_odd_shift.py \
+  --lambda-decimal 2.5 --dps 80 \
+  --output artifacts/hybrid_outer_sampling_odd_shift/lambda5over2_producer_dps80.json >/dev/null
+python3 verifier/hybrid_outer_sampling_odd_shift_replay.py \
+  artifacts/hybrid_outer_sampling_odd_shift/lambda5over2_producer_dps80.json \
+  --output artifacts/hybrid_outer_sampling_odd_shift/lambda5over2_verifier_dps80.json >/dev/null
+python3 src/hybrid_outer_sampling_odd_shift.py \
+  --lambda-decimal 2.5 --dps 160 \
+  --output artifacts/hybrid_outer_sampling_odd_shift/lambda5over2_producer_dps160.json >/dev/null
+python3 verifier/hybrid_outer_sampling_odd_shift_replay.py \
+  artifacts/hybrid_outer_sampling_odd_shift/lambda5over2_producer_dps160.json \
+  --output artifacts/hybrid_outer_sampling_odd_shift/lambda5over2_verifier_dps160.json >/dev/null
+
 python3 src/write_artifact_manifest.py

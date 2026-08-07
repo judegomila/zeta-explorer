@@ -1,0 +1,121 @@
+{
+  "schema": "xi-prolate-hybrid-outer-sampling-source-lock-v1",
+  "claim_class": "HYBRID_COMPLETE_REMAINDER_SAMPLING_AT_ODD_DEFECT_SCALE",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-07",
+  "dependencies": [
+    {
+      "path": "requirements.txt",
+      "sha256": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "role": "exact mpmath 1.4.1 runtime pin for interval producer and verifier replay"
+    },
+    {
+      "path": "P1_SOURCE_LOCK.json",
+      "sha256": "63b83879c52382c6c524b3137b25ea9f1882a24c5518374d487469ecf0e077d2",
+      "role": "pinned corrected two-sided radical, inversion, physical measure, and source-normalized 0/4 state"
+    },
+    {
+      "path": "ZERO_SAMPLING_SOURCE_LOCK.json",
+      "sha256": "f4cad4acb30dbfcdc5b30faafe92934e8958ad1cd11cbf6abea932f902e8c101",
+      "role": "pinned MTY zero-free region, HSW zero count, PT low-height input, and paired zero-sampling convention"
+    },
+    {
+      "path": "PROLATE_DEFECT_SOURCE_LOCK.json",
+      "sha256": "0844df654ee968b1c371ec96618d10d219da9fde702d62faa4f0c6be139b036d",
+      "role": "pinned fixed-index prolate defect convention and qualitative d6/d4 ratio"
+    },
+    {
+      "path": "COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json",
+      "sha256": "48c1bb3a206b4b7d4b448775a7ed6041a248b345a09fe42ab925c5cd233f0cf4",
+      "role": "pinned compact projection absolute-sampling estimate on the locked exponential schedule"
+    },
+    {
+      "path": "notes/EXACT_RADICAL_LEAKAGE_IDENTITY.md",
+      "sha256": "76dd6586357a2448ef689380a106eea5e9aedb95f68e731f10f1d6626040fddc",
+      "role": "exact corrected state, invisible bump, and complete remainder decomposition"
+    },
+    {
+      "path": "notes/PROLATE_TAIL_ENVELOPE.md",
+      "sha256": "309337a98721d0e0cffb40391a227ad29fbc0de315c6f532109c9376370ed59d",
+      "role": "one-sided leakage identity and explicit endpoint envelope for labels 0 and 4"
+    },
+    {
+      "path": "notes/OUTER_OUTER_ENDPOINT_OBSTRUCTION.md",
+      "sha256": "b16d33c89dd1517875180a0a5b03f0c0e2b601b0e0e608090016174a464e1e11",
+      "role": "complete sampled exterior-series bound before endpoint splitting"
+    },
+    {
+      "path": "notes/OUTER_OUTER_WEIGHTED_TRANSLATION_THEOREM.md",
+      "sha256": "34bb4e43faf04f34e11126946b1069480375d5ba18baf9c97e9746b246594a0f",
+      "role": "degree-seven weighted translation theorem used only after the hybrid dyadic switch"
+    },
+    {
+      "path": "notes/OUTER_OUTER_SPECTRAL_THEOREM.md",
+      "sha256": "02407eafa8fd5db4c5d8b5bbb2f62d5215f6ef5bf1cb5104fa53caddb52800e4",
+      "role": "submean, Plancherel, reflection, polarization, and dyadic filter constants"
+    },
+    {
+      "path": "notes/COMPACT_ABSOLUTE_SAMPLING_THEOREM.md",
+      "sha256": "2feb3d62a71e435706c4b330d13bcb096015e52204af6ec9bd2828308d44383d",
+      "role": "projection sampling o(d4) and ordinary sequence-norm combination"
+    },
+    {
+      "path": "notes/PARITY_SHIFT_SCALE_AUDIT.md",
+      "sha256": "dee08d1833047dea48a962d7b37738cc5eba0b48e9078ac90b103904b64091b0",
+      "role": "normalization-free parity blocks, the historical compact-BV loss, and the hybrid odd-scale update"
+    },
+    {
+      "path": "notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md",
+      "sha256": "113be74d52f48d66903c1babf1525ec6d130243321acfa31562abd8640868a3a",
+      "role": "repository proof of the hybrid complete-series estimate and epsilon_lambda=o(d6)"
+    }
+  ],
+  "locked_conventions": {
+    "source_domain": "[-lambda,lambda] with Lebesgue dx and zero extension",
+    "corrected_state": "tilde_h_lambda=a4*h_4-a0_lambda*h_0-A_lambda*psi(2*lambda*x)",
+    "source_scalar": "a4=sqrt(3)/2^(11/4); abs(a0_lambda)^2<=8*a4^2*lambda^2",
+    "physical_state": "O_lambda=(1-C_lambda)*(1+J)/2*E(tilde_h_lambda)",
+    "inversion": "Jg(t)=g(-t) in centered logarithmic coordinates",
+    "angular_transform": "F(z)=integral_R O_lambda(t)*exp(-i*z*t) dt",
+    "zero_parameter": "s_rho=gamma+i*(1/2-beta)",
+    "paired_sampling": "sum_rho(abs(F(s_rho))^2+abs(F(conjugate(s_rho)))^2)",
+    "locked_schedule": "lambda_j=j+1/2; N_j=2^(2400*(2*j+1)^2); j>=2",
+    "claim_scale": "d_n=1-chi_n(lambda)^2 with fixed-index d6/d4~(128*pi^2/15)*lambda^4"
+  },
+  "locked_formulas": {
+    "complete_series_scale": "L_lambda=1+log(2+2*pi*lambda^2)",
+    "weighted_margin": "epsilon(y)=1/2-abs(y)",
+    "weighted_constant": "C_L2=a4^2*(502299+C2^2/192)",
+    "bump_constant": "C2=40*3^(-1/4)*exp(-(1+sqrt(3))/2)/(1-1/sqrt(3))^2",
+    "weighted_norm": "norm(exp(y*t)*O_lambda)^2<=C_L2*lambda^3*L_lambda^2*epsilon(y)^(-1)*d4",
+    "dyadic_height": "T_j=3*2^j",
+    "zero_margin": "delta_j=1/(55.241*log(2*T_j)^(2/3)*log(log(2*T_j))^(1/3))",
+    "translation_exponent": "phi_j=(3/4)*delta_j*log(2*T_j)",
+    "hybrid_series": "B_hyb=256*Z_finite*E_lambda+sum_(j>=0) Z_j*delta_j^(-3)*min((512/3)*E_lambda,(5120/3)*D_S(lambda)*exp(-phi_j))",
+    "degree_three_coefficient": "E_lambda=C_L2*lambda^3*L_lambda^2",
+    "tail_coordinate": "a=3/(4*55.241); x(L)=(L/log(L))^(1/3)",
+    "tail_threshold": "M_lambda=max(100000,ceil((18/a)*log(lambda)))",
+    "tail_bin_constant": "68688=1296*53 with log(2)>842/1215>9/13",
+    "tail_bound": "sum_(x(log(2*T_j))>=M) Z_j*delta_j^(-3)*exp(-phi_j)<=Z_star*55.241^3*exp(-a*M/2)/(1-exp(-a/2))",
+    "outer_sampling": "norm(O_lambda)_mathfrakZ^2<=B_hyb(lambda)*d4",
+    "complete_remainder": "epsilon_lambda=norm(O_lambda+P_lambda)_mathfrakZ^2=o(d6)"
+  },
+  "claim_boundary": {
+    "proved": [
+      "a complete-series weighted L2 bound with coefficient O(lambda^3*log(lambda)^2)",
+      "an exact convergent blockwise-minimum sampling series",
+      "B_hyb(lambda)=O(lambda^3*polylog(lambda)) as a qualitative asymptotic reading of displayed finite majorants",
+      "complete-remainder absolute sampling epsilon_lambda=o(d6) on the locked schedule",
+      "the common normalization-free scalar shift is asymptotically negligible at the fixed odd d6 scale"
+    ],
+    "not_proved": [
+      "an unshifted or shifted odd-sector Weil floor",
+      "positivity of the finite odd Schur complement",
+      "an even-complement signed comparison",
+      "smallness of the normalized Ritz bound U_Z=epsilon_lambda/a^2 without separate lower control of a",
+      "shifted-resolvent decay or equation (5.2)",
+      "locally uniform characteristic-function convergence",
+      "the Riemann hypothesis"
+    ]
+  }
+}

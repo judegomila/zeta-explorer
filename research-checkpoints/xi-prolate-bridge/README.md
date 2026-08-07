@@ -110,29 +110,47 @@ enough; the displayed sampling theorem is one explicit sufficient route, and
 any alternative source-specific argument must control the same graph-dual
 action by other means.
 
-The remainder side of that criterion is now closed.
+The first remainder-side estimate in that criterion is now closed.
 `notes/COMPACT_ABSOLUTE_SAMPLING_THEOREM.md` proves an explicit absolute
 zero-sampling theorem for every real compact BV profile on the locked
 logarithmic interval.  Applied to the actual projection tail, it gives
 `||P_lambda||_Z^2=o(d_4)` and `o(d_8)` on the locked exponential schedule;
-combined with the physical-outer estimate it gives
+combined with the earlier physical-outer estimate it gives the valid baseline
 
 `||R_lambda||_Z^2 <= d_4(4 C_spec D_S(lambda)+2 B_P(lambda)) = O(lambda^7 d_4)`.
 
-The source lock, producer, and independent replay reconstruct every finite
-constant without a zero list or global zero-reality assumption.  This closes
-only hypothesis (3.4) of the weak-residual reduction.  Uniform Bessel bounds
-for growing complementary windows, the reciprocal defect sum, both shifted
-sector comparisons, and equation (5.2) remain open.  Directly applying the
-same BV theorem to a normalized window gives only
-`beta_m/d_m=B_abs/d_m^2`; the `m=8` term alone loses
-`B_abs/d_8 -> infinity`.  The next estimate must therefore be genuinely
+A sharper complete-series estimate now reaches the first odd defect scale.
+`notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md` retains the complete
+sampled exterior series in a weighted `L2` bound and takes, on each dyadic
+height block, the better of that bound and the admitted weighted-translation
+bound.  It proves an exact convergent positive series `B_hyb(lambda)` with
+
+`B_hyb(lambda)=O(lambda^3 polylog(lambda))`
+
+and hence, after the compact projection contribution is restored,
+
+`epsilon_lambda:=||R_lambda||_Z^2=o(d_6)`.
+
+`HYBRID_OUTER_SAMPLING_SOURCE_LOCK.json`, the producer, and the independent
+replay reconstruct the finite constants and explicit summation threshold
+without a zero list, global zero-reality assumption, or Weil positivity.
+The final fixed-index comparison is qualitative; no effective asymptotic
+threshold is claimed.
+This proves that the common normalization-free scalar shift is
+`o(d_6)`.  It does not make `U_Z=epsilon_lambda/a^2` small without separate
+control of `a`, control the graph-dual residual action, prove an even or odd
+signed sector floor, prove the shifted odd Schur complement positive, or
+establish equation (5.2).
+
+Uniform Bessel bounds for growing complementary windows and the reciprocal
+defect sum therefore remain open.  Directly applying the same BV theorem to a
+normalized window gives only `beta_m/d_m=B_abs/d_m^2`; the `m=8` term alone
+loses `B_abs/d_8 -> infinity`.  The next action estimate must be genuinely
 defect-relative, not another absolute compactness bound.  Equivalently, if
 `G_+` is the positive zero-sampling Gram on the even complement, the sharp
 global target is `G_+ <= Gamma D_+^2` with `Gamma=O(1/d_8)`.  This retains
 cross-window orientation and can be stronger than a windowwise reciprocal
-sum.  The complete-remainder theorem also makes the scalar Rayleigh-shift
-penalty `O(lambda^(-1)d_8)`, but it supplies no signed parity floor.
+sum.
 
 `notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md` now removes the lower physical
 Gram determinant from this positive-sampling route.  If `D_ext` is the
@@ -243,10 +261,15 @@ Start with:
     scales.
 21. `notes/OUTER_NORMALIZATION_CANCELLATION_AUDIT.md` -- proof that the
     source `0/4` normalization cancels at the origin but not at the hard
-    endpoint, isolating the surviving odd-scale obstruction.
+    endpoint, isolating the obstruction to the endpointwise absolute route.
 22. `notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md` -- qualitative parity-map
     injectivity and the normalized Gram/minor target for routes that
     explicitly orthonormalize physical source columns.
+23. `HYBRID_OUTER_SAMPLING_SOURCE_LOCK.json` and
+    `notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md` -- the pinned
+    complete-series weighted `L2` and hybrid sampling theorem proving the
+    common normalization-free shift `epsilon_lambda` is `o(d_6)` on the
+    locked schedule.
 
 `notes/DETERMINANT_LIMIT_AUDIT.md` reproduces the complete finite
 self-adjointness/determinant theorem from the pinned CCM source and separates
@@ -290,16 +313,24 @@ exponentially small lower bound; multiplying many such bounds can lose
 `exp(-O(c^3))`.  It therefore proves neither growing-window conditioning nor
 a signed Weil-sector floor.
 
-The two scale audits prevent an invalid transfer from the even comparison to
-the odd sector.  The current complete-remainder bound is
-`epsilon_lambda=O(lambda^7*d_4)=o(d_8)`, but the exact pinned ratios give only
+The two scale audits prevent an invalid transfer from the earlier even-scale
+estimate to the odd sector.  The baseline
+`epsilon_lambda=O(lambda^7*d_4)=o(d_8)` gives only
 `epsilon_lambda/d_6=O(lambda^3)`, not `o(1)`.  Moreover, the zero-integral
 `0/4` relation cancels the origin datum, while
 `a_4 e_4-a_0 e_0~a_4 e_4` at the hard endpoint.  Even the qualitative use of
-`a_0=O(1)` would improve the absolute outer estimate only to
-`O(lambda^5*d_4)=O(lambda*d_6)`, with no effective threshold.  A successful
-odd route therefore needs a new one-sided signed cancellation or a direct
-shifted Schur proof.
+`a_0=O(1)` improves that endpointwise absolute estimate only to
+`O(lambda^5*d_4)=O(lambda*d_6)`, with no effective threshold.
+
+The hybrid theorem bypasses, rather than contradicts, those audits: it keeps
+the complete sampled exterior series together in the weighted `L2` estimate
+and switches dyadically to the translation bound only where advantageous.
+This proves `epsilon_lambda=o(d_6)` and removes the common
+normalization-free scalar-shift obstruction.  It does not by itself prove
+that the normalized Ritz bound `U_Z=epsilon_lambda/a^2` is `o(d_6)` without
+separate control of `a`.  The endpoint cancellation itself remains false,
+and an odd sector floor or positive shifted Schur complement is still
+unproved.
 
 `notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md` removes the qualitative rank
 question on the locked half-integer schedule.  An unmatched arithmetic
@@ -421,6 +452,12 @@ with Arb balls. These are finite diagnostics, not an asymptotic proof.
 - Complete locked-schedule remainder quadratic energy:
   **yes, `q_lambda(p,p)=o(d_8)` after all four P/O pairings are combined; this
   is not a residual-action estimate, signed sector floor, or equation (5.2)**.
+- Complete locked-schedule absolute remainder at the first odd defect scale:
+  **yes, `epsilon_lambda=||R_lambda||_Z^2=o(d_6)`, so the common
+  normalization-free shift is odd-scale negligible; this does not make
+  `U_Z=epsilon_lambda/a^2` small without separate control of `a`, and it is
+  not a graph-dual residual action bound, either signed sector floor, a
+  shifted Schur theorem, or equation (5.2)**.
 - Full-`Y` exterior sampling Gram:
   **yes with the unconditional explicit fallback
   `C_ext<=B_abs*lambda^2/(2*d_LS)`; no at the required scale, because the

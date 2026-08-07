@@ -691,6 +691,12 @@ rate is already supplied by (5.4), while the stronger locked exponential
 schedule above controls all four P/O quadratic remainder correlations and
 gives (5.7).  That scalar energy cancellation does not control the action of
 the signed form on the trial vector.
+The complete-series hybrid sampling theorem below separately proves that the
+common normalization-free scalar upper shift is `o(d_6)` on the locked
+schedule.  This removes one normalization-free scalar obstruction but does
+not make `U_Z=epsilon_lambda/a^2` small without separate control of `a`, or
+prove either sector floor, a shifted Schur sign, or the required residual
+action.
 Finite pilot values of `tau`, even when independently replayed at doubled
 precision, establish none of these uniform assertions.
 The finite left-preconditioned and Schur-complement criteria in
@@ -891,14 +897,22 @@ imply
 \]
 
 Thus the projected-state norm cancels from the quantity entering (5.2).
-The compact-BV absolute-sampling theorem now proves the complete-remainder
-bound `epsilon_lambda=O(lambda^7 d_4)` on the locked exponential schedule;
-a reciprocal window sum of scale `O(1/d_8)` would make (6.8)
-`O(lambda^(-1/2))`.  Uniform growing-window Bessel constants and the
-reciprocal sum are not proved.  A direct insertion of normalized windows into
-the compact-BV theorem gives `beta_m/d_m=B_abs/d_m^2`; label `8` alone misses
-the target by `B_abs/d_8`, so the missing estimate must be defect-relative.
-The exact
+The compact-BV absolute-sampling theorem first gave the valid baseline
+`epsilon_lambda=O(lambda^7 d_4)` on the locked exponential schedule.  The
+complete-series hybrid theorem in
+`notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md` now improves this to
+
+\[
+ \epsilon_\lambda=\|R_\lambda\|_{\mathfrak Z}^2=o(d_6).
+\]
+
+Consequently a reciprocal window sum of scale `O(1/d_8)` would make the
+right side of (6.8) `o(lambda^(-2))`, which is strong enough for every fixed
+weight exponent `eta<1/2` in (5.2).  Uniform growing-window Bessel constants
+and the reciprocal sum are not proved.  A direct insertion of normalized
+windows into the compact-BV theorem gives
+`beta_m/d_m=B_abs/d_m^2`; label `8` alone misses the target by
+`B_abs/d_8`, so the missing action estimate must be defect-relative.  The exact
 five-dimensional radical model in
 `notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md` has every scalar P/O pairing
 equal to zero but nonzero weighted action, proving that (6.6)--(6.7) cannot
@@ -987,8 +1001,8 @@ two.  Equations (6.8e)--(6.8g) are unconditional and source-explicit, but
 their two inverse all-index defects are exponentially too costly.  They do
 not establish the `O(d_8^(-1))` target in (6.8d).
 
-There is a separate parity-scale warning.  The fixed-index source constants
-give
+There is a separate parity-scale warning for the earlier endpointwise
+absolute estimate.  The fixed-index source constants give
 
 \[
  {d_8\over d_6}\sim {32\pi^2\over7}\lambda^4,
@@ -996,16 +1010,18 @@ give
  {d_4\over d_6}\sim {15\over128\pi^2}\lambda^{-4}.       \tag{6.8h}
 \]
 
-Thus the complete-remainder estimate
-`epsilon_lambda=O(lambda^7*d_4)` is `o(d_8)` but yields only
+Thus the baseline estimate `epsilon_lambda=O(lambda^7*d_4)` is `o(d_8)` but
+yields only
 
 \[
  {\epsilon_\lambda\over d_6}=O(\lambda^3),                \tag{6.8i}
 \]
 
-which does not prove odd-sector shift smallness.  The same scalar
-`epsilon_lambda I` occurs in both normalization-free shifted blocks; evenness
-of the forcing removes odd forcing, not the odd spectral comparison.
+which by itself does not prove odd-sector shift smallness.  This remains a
+valid audit of that baseline, not the best current remainder estimate.  The
+same scalar `epsilon_lambda I` occurs in both normalization-free shifted
+blocks; evenness of the forcing removes odd forcing, not the odd spectral
+comparison.
 
 The source-normalized `0/4` cancellation does not repair this loss.  Its
 coefficient satisfies `a_(0,lambda)/a_4->sqrt(3)/2^(3/2)`, but the pinned
@@ -1017,15 +1033,35 @@ endpoint formulas give
 \]
 
 Hence the cancellation is at the origin, not at the hard endpoint.  Using
-the qualitative boundedness of `a_(0,lambda)` would improve the existing
+the qualitative boundedness of `a_(0,lambda)` improves that endpointwise
 absolute outer bound only from `O(lambda^7*d_4)` to
 `O(lambda^5*d_4)=O(lambda*d_6)`, and the pinned convergence has no effective
 threshold.  The exact second endpoint term already has unweighted scale
-`Theta(d_6)`.  This does not rule out a smaller signed Rayleigh shift, but it
-shows that such a result must use a new signed Mellin/full-remainder
-cancellation or prove the complete shifted odd Schur complement directly.
+`Theta(d_6)`.  Thus coefficient sharpening or a separate estimate of that
+endpoint cannot prove the desired limit.
+
+The hybrid theorem bypasses this loss by retaining the complete sampled
+exterior series before the endpoint split.  It proves an exact convergent
+blockwise-minimum bound with
+
+\[
+ B_{\rm hyb}(\lambda)=O(\lambda^3\operatorname {polylog}\lambda),
+ \qquad
+ \epsilon_\lambda
+ \leq2B_{\rm hyb}(\lambda)d_4+2\|P_\lambda\|_{\mathfrak Z}^2
+ =o(d_6).                                                   \tag{6.8k}
+\]
+
+Therefore the common normalization-free shift `epsilon_lambda I` is now
+negligible at the fixed odd `d_6` scale even though the hard endpoint does
+not cancel.  This does not make the normalized Ritz upper bound
+`U_Z=epsilon_lambda/a^2` small without separate control of `a`.  Equation
+(6.8k) does not control the graph-dual residual action, establish the
+unshifted odd floor, prove the shifted odd Schur complement positive, or
+supply (5.2).
 See `notes/PARITY_SHIFT_SCALE_AUDIT.md` and
-`notes/OUTER_NORMALIZATION_CANCELLATION_AUDIT.md`.
+`notes/OUTER_NORMALIZATION_CANCELLATION_AUDIT.md`, together with
+`notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md` for the sharper result.
 
 There is also a qualitative advance on physical conditioning.  On every
 locked half-integer `lambda`, the unmatched arithmetic breakpoint

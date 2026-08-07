@@ -126,11 +126,21 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   pole--archimedean--prime distribution and a locked, gauge-controlled
   positive prolate leakage model.  Do not use positivity of the spectral
   tail pairing or Weil-form Cauchy--Schwarz.
-- [x] Prove the complete-remainder side of the graph-dual absolute-sampling
-  theorem.  The compact-BV estimate gives
+- [x] Prove the first complete-remainder side of the graph-dual
+  absolute-sampling theorem.  The compact-BV estimate gives the valid baseline
   `||R||_Z^2<=d_4(4*C_spec*D_S(lambda)+2*B_P(lambda))=O(lambda^7*d_4)`
   on the locked exponential schedule, without a zero list, global zero
-  reality, or Weil positivity.
+  reality, or Weil positivity.  This bound is retained even though the hybrid
+  theorem below is sharper at the odd defect scale.
+- [x] Prove the complete sampled exterior-series weighted `L2` bound and
+  combine it blockwise with the admitted weighted-translation estimate.  The
+  exact convergent minimum series satisfies
+  `B_hyb(lambda)=O(lambda^3*polylog(lambda))`; together with projection
+  sampling it gives `epsilon_lambda=||R||_Z^2=o(d_6)` on the locked schedule.
+  Hence the common normalization-free scalar shift is `o(d_6)`.  This does
+  not make `U_Z=epsilon_lambda/a^2` small without separate control of `a`,
+  and proves no graph-dual residual action, signed sector floor, shifted odd
+  Schur sign, or instance of equation (5.2).
 - [x] Prove the quotient exterior-preconditioner theorem.  For a possibly
   rank-deficient physical synthesis `W` and positive source defect form
   `D_ext`, the minimum-energy quotient
@@ -153,22 +163,27 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   two-defect-loss bound is exponentially too large and does not close the
   required `O(1/d_8)` scale.
 - [x] Audit the common Rayleigh shift against the distinct fixed-index parity
-  scales.  Exact source constants give
+  scales for the earlier compact-BV baseline.  Exact source constants give
   `d_8/d_6~(32*pi^2/7)*lambda^4`; hence
   `epsilon_lambda=O(lambda^7*d_4)=o(d_8)` gives only
-  `epsilon_lambda/d_6=O(lambda^3)`, not odd-sector smallness.
+  `epsilon_lambda/d_6=O(lambda^3)`, not odd-sector smallness.  This remains a
+  valid audit of that argument; the complete-series hybrid theorem above
+  bypasses it.
 - [x] Audit whether the source-normalized `0/4` cancellation removes that
   loss.  It cancels the origin datum, but
   `(a_0*e_0)/(a_4*e_4)~(3/(256*pi^2))*lambda^(-4)`, so the label-4 hard
   endpoint survives.  Qualitative boundedness of `a_0` improves the absolute
   estimate only to `O(lambda^5*d_4)=O(lambda*d_6)` and has no effective
-  threshold.  A new signed cancellation or direct shifted odd Schur theorem
+  threshold.  This disproves the coefficient-only shortcut; it does not
+  contradict the complete-series hybrid bound.  The endpoint cancellation
+  remains false, and a signed odd floor or direct shifted odd Schur theorem
   remains required.
 - [ ] Prove the remaining absolute-sampling window estimates: uniform
   source-window Bessel bounds `||v||_Z^2<=beta_m d_m||v||^2` and the
   reciprocal sum `sum beta_m/d_m=O(1/d_8)`.  Together with the complete
-  remainder bound these would upgrade the scalar cancellation to the required
-  action scale.  The direct compact-BV insertion is proved insufficient
+  remainder bound `epsilon_lambda=o(d_6)`, these would make the right side of
+  the graph-dual estimate `o(lambda^(-2))` and hence reach the required action
+  scale in (5.2).  The direct compact-BV insertion is proved insufficient
   already at label `8`, where it gives `beta_8/d_8=B_abs/d_8^2`; the estimate
   must be defect-relative.  The exact counterexample also shows that scalar
   polarization alone cannot do so.  A strictly sharper alternative is the

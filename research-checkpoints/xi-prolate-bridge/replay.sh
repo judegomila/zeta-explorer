@@ -489,4 +489,16 @@ for P0_BLOCK_ACTION_P in 5 7; do
   done
 done
 
+mkdir -p artifacts/compressed_multiplier_trace
+for P0_COMPRESSED_P in 5 7; do
+  for P0_COMPRESSED_DPS in 80 160; do
+    python3 src/compressed_multiplier_trace.py \
+      --lambda-numerator "$P0_COMPRESSED_P" --dps "$P0_COMPRESSED_DPS" \
+      --output "artifacts/compressed_multiplier_trace/p${P0_COMPRESSED_P}_d${P0_COMPRESSED_DPS}_producer.json" >/dev/null
+    python3 verifier/compressed_multiplier_trace_replay.py \
+      "artifacts/compressed_multiplier_trace/p${P0_COMPRESSED_P}_d${P0_COMPRESSED_DPS}_producer.json" \
+      --output "artifacts/compressed_multiplier_trace/p${P0_COMPRESSED_P}_d${P0_COMPRESSED_DPS}_replay.json" >/dev/null
+  done
+done
+
 python3 src/write_artifact_manifest.py

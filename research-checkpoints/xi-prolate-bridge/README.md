@@ -254,9 +254,14 @@ exponential in `lambda`; the desired polynomial bound is neither proved nor
 disproved.  The odd pole count has been sharpened: because it is rank one, it
 costs at most one dangerous direction rather than its older trace-norm
 penalty.  `notes/COMPRESSED_MULTIPLIER_TRACE_CANDIDATE.md` also records a
-finite-compression route with polynomial dangerous-rank scale, but its sole
-external Montgomery--Vaughan input has not yet been vendored and hashed, so
-that candidate is not an admitted component theorem.
+historical Montgomery--Vaughan route.  The admitted successor
+`notes/COMPRESSED_MULTIPLIER_TRACE_THEOREM.md` replaces that external input
+by a self-contained dyadic logarithmic-Hilbert proof.  It gives an explicit
+`O(lambda^2 log lambda)` compressed trace and `O(lambda^2)` dangerous-rank
+scale when `N` is comparable to `lambda^2` and the displayed shift schedule
+holds.  Its finite constants can be order-vacuous, it does not apply with the
+same scale after silently substituting the separate exponential projection
+schedule, and it proves neither physical capture nor the signed Schur sign.
 
 Start with:
 
@@ -270,57 +275,59 @@ Start with:
 8. `P3_SOURCE_LOCK.json` -- the explicit combined-kernel moment input.
 9. `PROLATE_DEFECT_SOURCE_LOCK.json` -- Slepian's qualitative fixed-index
    defect asymptotic and its non-effective boundary.
-10. `DEFECT_RELATIVE_PROJECTION_SOURCE_LOCK.json` -- exact source bytes and
+10. `COMPRESSED_MULTIPLIER_TRACE_SOURCE_LOCK.json` -- the self-contained
+    finite-compression trace/rank theorem and exact capture/gluing reduction.
+11. `DEFECT_RELATIVE_PROJECTION_SOURCE_LOCK.json` -- exact source bytes and
     theorem substitutions for the defect-relative projection schedule.
-11. `notes/OUTER_PROJECTION_RADICAL_REDUCTION.md` -- the source-core theorem
+12. `notes/OUTER_PROJECTION_RADICAL_REDUCTION.md` -- the source-core theorem
     for both mixed projection orientations of the corrected combined state.
-12. `ZERO_SAMPLING_SOURCE_LOCK.json` -- exact MTY v1, HSW v1, and PT v1
+13. `ZERO_SAMPLING_SOURCE_LOCK.json` -- exact MTY v1, HSW v1, and PT v1
     source bytes, constants, height ranges, and disclosed external-computation
     dependencies used in the outer--outer sampling theorem.
-13. `notes/OUTER_OUTER_SPECTRAL_THEOREM.md` -- the admitted absolute
+14. `notes/OUTER_OUTER_SPECTRAL_THEOREM.md` -- the admitted absolute
     outer--outer bound and locked-schedule Ritz-energy corollary.
-14. `COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json` -- exact dependency and
+15. `COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json` -- exact dependency and
     formula contract for compact-BV and complete-remainder sampling.
-15. `notes/COMPACT_ABSOLUTE_SAMPLING_THEOREM.md` -- the complete-remainder
+16. `notes/COMPACT_ABSOLUTE_SAMPLING_THEOREM.md` -- the complete-remainder
     absolute-sampling bound on the locked exponential schedule.
-16. `notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md` -- exact graph-dual residual
+17. `notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md` -- exact graph-dual residual
     target, absolute-sampling window lemma, and scalar/action obstruction.
-17. `notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md` -- minimum-energy descent of
+18. `notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md` -- minimum-energy descent of
     a source defect form to the physical range, eliminating the smallest
     singular-value loss from the positive-sampling action.
-18. `FULL_EXTERIOR_SAMPLING_SOURCE_LOCK.json` and
+19. `FULL_EXTERIOR_SAMPLING_SOURCE_LOCK.json` and
     `notes/FULL_EXTERIOR_SAMPLING_FALLBACK.md` -- the explicit unconditional
     full-`Y` Gram fallback and its quantified two-defect loss.
-19. `notes/PRUFER_SAME_PARITY_GAP_THEOREM.md` -- elementary explicit
+20. `notes/PRUFER_SAME_PARITY_GAP_THEOREM.md` -- elementary explicit
     same-parity differential-eigenvalue non-collision bound and its severe
     exponential conditioning limitation.
-20. `notes/PARITY_SHIFT_SCALE_AUDIT.md` -- exact fixed-index comparison of
+21. `notes/PARITY_SHIFT_SCALE_AUDIT.md` -- exact fixed-index comparison of
     the common Rayleigh shift with the distinct even `d_8` and odd `d_6`
     scales.
-21. `notes/OUTER_NORMALIZATION_CANCELLATION_AUDIT.md` -- proof that the
+22. `notes/OUTER_NORMALIZATION_CANCELLATION_AUDIT.md` -- proof that the
     source `0/4` normalization cancels at the origin but not at the hard
     endpoint, isolating the obstruction to the endpointwise absolute route.
-22. `notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md` -- qualitative parity-map
+23. `notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md` -- qualitative parity-map
     injectivity and the normalized Gram/minor target for routes that
     explicitly orthonormalize physical source columns.
-23. `HYBRID_OUTER_SAMPLING_SOURCE_LOCK.json` and
+24. `HYBRID_OUTER_SAMPLING_SOURCE_LOCK.json` and
     `notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md` -- the pinned
     complete-series weighted `L2` and hybrid sampling theorem proving the
     common normalization-free shift `epsilon_lambda` is `o(d_6)` on the
     locked schedule.
-24. `PROJECTED_STATE_NORM_SOURCE_LOCK.json` and
+25. `PROJECTED_STATE_NORM_SOURCE_LOCK.json` and
     `notes/PROJECTED_STATE_NORM_LOWER_BOUND.md` -- the explicit positive
     limiting-state norm bound, finite projected-norm lower formula, and
     normalized-shift corollary `U_Z=o(d_6)`.
-25. `LEADING_PROLATE_OSCILLATION_SOURCE_LOCK.json` and
+26. `LEADING_PROLATE_OSCILLATION_SOURCE_LOCK.json` and
     `notes/LEADING_PROLATE_OSCILLATION_THEOREM.md` -- the exact sine-packet
     min--max proof of `mu_n<c^2` for every leading label below
     `4*lambda^2` on the locked schedule.
-26. `TRANSITION_PROLATE_OUTER_SOURCE_LOCK.json` and
+27. `TRANSITION_PROLATE_OUTER_SOURCE_LOCK.json` and
     `notes/TRANSITION_PROLATE_OUTER_THEOREM.md` -- the explicit buffered
     endpoint, complete even-label series, weighted norm, and translation
     theorem.
-27. `GROWING_TRANSITION_SAMPLING_SOURCE_LOCK.json` and
+28. `GROWING_TRANSITION_SAMPLING_SOURCE_LOCK.json` and
     `notes/GROWING_TRANSITION_SAMPLING_THEOREM.md` -- the corrected
     growing-family sampling/projection Loewner theorem with all within-block
     cross terms retained.

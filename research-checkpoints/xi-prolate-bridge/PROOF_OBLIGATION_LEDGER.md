@@ -328,12 +328,20 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   exact source-locked finite upper bound.  That bound is only
   `exp(O(lambda))`; the desired polynomial phase-volume estimate is neither
   proved nor disproved.
-- [ ] Source-lock the Montgomery--Vaughan 1974 weighted Hilbert inequality
-  before admitting the candidate finite-compression trace bound in
-  `notes/COMPRESSED_MULTIPLIER_TRACE_CANDIDATE.md`.  The checked candidate
-  gives an `O(lambda^2)` dangerous rank under explicit shift growth, but its
-  primary PDF bytes are not yet vendored or hashed and it proves no Schur
-  sign.
+- [x] Replace the unpinned Montgomery--Vaughan candidate by a self-contained
+  dyadic logarithmic-Hilbert theorem.  The discrete Fourier multiplier,
+  inclusive prime-power sums, pinned FKS Chebyshev constants, and exact
+  finite Fourier density give an explicit `O(lambda^2 log lambda)` trace and
+  `O(lambda^2)` dangerous-rank scale when `N` is comparable to `lambda^2`,
+  `U=o(log(lambda^2))`, and `g=kappa log(lambda^2)`.  Independent 80/160
+  digit replay reconstructs the arithmetic sums and interval constants.  The
+  finite bound may be ambient-dimension-vacuous and neither captures the
+  dangerous space nor signs its Schur complement.
+- [ ] Prove the phase-sensitive physical capture estimate
+  `||Pi_dangerous P_(K_low^perp)||` at the threshold in equation (6.4) of
+  `notes/COMPRESSED_MULTIPLIER_TRACE_THEOREM.md`, together with the signed
+  low comparison against the same `Delta_L` and the quotient-relative cross
+  action.  A rank bound alone does not supply any of these three inputs.
 - [ ] Establish either criterion for the exact combined Weil form relative to
   explicit source-normalized prolate windows growing through the Shannon
   transition index, including all coupling, forcing-orientation, and

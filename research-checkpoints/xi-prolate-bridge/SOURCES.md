@@ -321,7 +321,7 @@ those endpointwise arguments by retaining the complete sampled series; it
 does not invalidate the audits or prove a signed sector theorem, equation
 (5.2), or an RH conclusion.
 
-## Finite-compression candidate input, not yet source-locked
+## Historical finite-compression candidate input, not theorem input
 
 - H. L. Montgomery and R. C. Vaughan, *Hilbert's Inequality*, J. London
   Math. Soc. (2) 8 (1974), 73--82, DOI
@@ -334,7 +334,10 @@ does not invalidate the audits or prove a signed sector theorem, equation
   vendored or SHA-256 pinned in this repository.  Therefore
   `notes/COMPRESSED_MULTIPLIER_TRACE_CANDIDATE.md` remains a non-admitted
   candidate and no formal component claim depends on it.  The constant is
-  not described as optimal or best known.
+  not described as optimal or best known.  The admitted successor
+  `notes/COMPRESSED_MULTIPLIER_TRACE_THEOREM.md` instead proves its finite
+  mean-square estimate from the discrete Hilbert-transform multiplier and
+  exact dyadic bookkeeping, so it introduces no new external source.
 
 ## Independent computational context, not theorem input
 

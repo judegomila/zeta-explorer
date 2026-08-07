@@ -1,0 +1,384 @@
+{
+  "arithmetic": {
+    "independence_limitation": "producer and verifier use independent formula assemblies but share mpmath.iv interval arithmetic for the new fields",
+    "library": "mpmath.iv",
+    "shared_library_with_replay": true
+  },
+  "claim_scope": {
+    "not_proved": [
+      "signed even-sector floor",
+      "signed odd-sector floor",
+      "shifted-resolvent decay on an unbounded schedule",
+      "weighted equation (5.2) of DIRECT_RH_ATTACK.md",
+      "locally uniform determinant convergence"
+    ],
+    "proved": [
+      "absolute source-locked outer--outer spectral bound",
+      "qualitative outer--outer ratio to d8 tends to zero",
+      "unnormalized locked-schedule Ritz energy is o(d8)"
+    ]
+  },
+  "input": {
+    "dyadic_indices": [
+      0,
+      34,
+      64
+    ],
+    "interval_decimal_digits": 80,
+    "lambda_decimal": "2.5"
+  },
+  "intervals": {
+    "C2": {
+      "decimal": [
+        "43.407141714206773881884407396337958041742370736987690290232637565832995847519512",
+        "43.407141714206773881884407396337958041742370736987690290232637565832995847519513"
+      ],
+      "dyadic": {
+        "lower": [
+          0,
+          "321677032122128707299927653255774659775065069830958120530156296934030471856179781",
+          -262,
+          268
+        ],
+        "upper": [
+          0,
+          "643354064244257414599855306511549319550130139661916241060312593868060943712359575",
+          -263,
+          269
+        ]
+      }
+    },
+    "C_D": {
+      "decimal": [
+        "3516690134.8071985361796090773528595942872240100553070731133077452891414055948223",
+        "3516690134.8071985361796090773528595942872240100553070731133077452891414055948224"
+      ],
+      "dyadic": {
+        "lower": [
+          0,
+          "388340852651199964540508588653932012816348209804203990484646195158387270142028681",
+          -236,
+          268
+        ],
+        "upper": [
+          0,
+          "388340852651199964540508588653932012816348209804203990484646195158387270142028691",
+          -236,
+          268
+        ]
+      }
+    },
+    "C_b": {
+      "decimal": [
+        "303679419160.26063837221750232178291984895449818060499582568838858411586067985836",
+        "303679419160.26063837221750232178291984895449818060499582568838858411586067985836"
+      ],
+      "dyadic": {
+        "lower": [
+          0,
+          "261989790223101150133800244059749365746133431118614014566634215694802547441755525",
+          -229,
+          268
+        ],
+        "upper": [
+          0,
+          "261989790223101150133800244059749365746133431118614014566634215694802547441755529",
+          -229,
+          268
+        ]
+      }
+    },
+    "C_low": {
+      "decimal": [
+        "27437471053617.997159853522871437142474362084328930499733280974703730876926954763",
+        "27437471053617.997159853522871437142474362084328930499733280974703730876926954763"
+      ],
+      "dyadic": {
+        "lower": [
+          0,
+          "46232047267939417239169227208455661536702338154134285804591501786868207087093459",
+          -220,
+          265
+        ],
+        "upper": [
+          0,
+          "739712756287030675826707635335290584587237410466148572873464028589891313393495349",
+          -224,
+          269
+        ]
+      }
+    },
+    "D_S": {
+      "decimal": [
+        "1011946173671.6972808118721852160597291032767494739453959783155618303603196274617",
+        "1011946173671.6972808118721852160597291032767494739453959783155618303603196274617"
+      ],
+      "dyadic": {
+        "lower": [
+          0,
+          "436512237955457881949967562255174179256290983987809188206223765155041693448711375",
+          -228,
+          268
+        ],
+        "upper": [
+          0,
+          "436512237955457881949967562255174179256290983987809188206223765155041693448711387",
+          -228,
+          268
+        ]
+      }
+    },
+    "D_S_over_lambda7": {
+      "decimal": [
+        "1657972610.9437088248821713882579922601628086263381121367708722165028623476776333",
+        "1657972610.9437088248821713882579922601628086263381121367708722165028623476776333"
+      ],
+      "dyadic": {
+        "lower": [
+          0,
+          "366173005141105763218855349247425216150275659860800805866023432616970398999740783",
+          -237,
+          268
+        ],
+        "upper": [
+          0,
+          "732346010282211526437710698494850432300551319721601611732046865233940797999481587",
+          -238,
+          269
+        ]
+      }
+    },
+    "Z_finite": {
+      "decimal": [
+        "214355242606.39060281135564743310267558095378381976952916625761487289747599183409",
+        "214355242606.39060281135564743310267558095378381976952916625761487289747599183409"
+      ],
+      "dyadic": {
+        "lower": [
+          0,
+          "46232047267939417239169227208455661536702338154134285804591501786868207087093459",
+          -227,
+          265
+        ],
+        "upper": [
+          0,
+          "739712756287030675826707635335290584587237410466148572873464028589891313393495349",
+          -231,
+          269
+        ]
+      }
+    },
+    "a4": {
+      "decimal": [
+        "0.25747089298838971947878465690012634751283659301942550982465018082790688125296873",
+        "0.25747089298838971947878465690012634751283659301942550982465018082790688125296873"
+      ],
+      "dyadic": {
+        "lower": [
+          0,
+          "488457709435668252604604313789975143695229810001012376292904522588056461056438793",
+          -270,
+          269
+        ],
+        "upper": [
+          0,
+          "488457709435668252604604313789975143695229810001012376292904522588056461056438795",
+          -270,
+          269
+        ]
+      }
+    },
+    "high_term_j0": {
+      "decimal": [
+        "88442527797063726.569723310223902650942812024481786274266052064902673088990010358",
+        "88442527797063726.569723310223902650942812024481786274266052064902673088990010362"
+      ],
+      "dyadic": {
+        "lower": [
+          0,
+          "291065165102151615203514740543608558401920492341552751526422976136888887933166519",
+          -211,
+          268
+        ],
+        "upper": [
+          0,
+          "582130330204303230407029481087217116803840984683105503052845952273777775866333065",
+          -212,
+          269
+        ]
+      }
+    },
+    "high_term_j34": {
+      "decimal": [
+        "15799588901.542180652658117076509134383435630294183354439968001811271550743593856",
+        "15799588901.542180652658117076509134383435630294183354439968001811271550743593857"
+      ],
+      "dyadic": {
+        "lower": [
+          0,
+          "218089509964022963852540750187106290923583198021399823850567043308110066029131087",
+          -233,
+          267
+        ],
+        "upper": [
+          0,
+          "218089509964022963852540750187106290923583198021399823850567043308110066029131101",
+          -233,
+          267
+        ]
+      }
+    },
+    "high_term_j64": {
+      "decimal": [
+        "81767742645.495761385954581869789041925761491809824401243273849383218357307304823",
+        "81767742645.495761385954581869789041925761491809824401243273849383218357307304827"
+      ],
+      "dyadic": {
+        "lower": [
+          0,
+          "282170109544430680409906732107895703407959222789538232261421207996546950551058155",
+          -231,
+          268
+        ],
+        "upper": [
+          0,
+          "564340219088861360819813464215791406815918445579076464522842415993093901102116337",
+          -232,
+          269
+        ]
+      }
+    },
+    "lambda": {
+      "decimal": [
+        "2.5",
+        "2.5"
+      ],
+      "dyadic": {
+        "lower": [
+          0,
+          "5",
+          -1,
+          3
+        ],
+        "upper": [
+          0,
+          "5",
+          -1,
+          3
+        ]
+      }
+    },
+    "lambda8_d4_over_d8_limit": {
+      "decimal": [
+        "0.00026316604900924199093287164136900949338181620962695741831241301869073109886058389",
+        "0.00026316604900924199093287164136900949338181620962695741831241301869073109886058389"
+      ],
+      "dyadic": {
+        "lower": [
+          0,
+          "127811124225051516006459392792007463306250041011138875429017455809420569699974209",
+          -278,
+          267
+        ],
+        "upper": [
+          0,
+          "511244496900206064025837571168029853225000164044555501716069823237682278799896841",
+          -280,
+          269
+        ]
+      }
+    },
+    "majorant_slack": {
+      "decimal": [
+        "1858717523.8634897112974376890948673341244153837171949363424355287862790579171889",
+        "1858717523.8634897112974376890948673341244153837171949363424355287862790579171891"
+      ],
+      "dyadic": {
+        "lower": [
+          0,
+          "821017400322588331724323656120877618964841519495214350206537915399608282568633137",
+          -238,
+          269
+        ],
+        "upper": [
+          0,
+          "410508700161294165862161828060438809482420759747607175103268957699804141284316599",
+          -237,
+          268
+        ]
+      }
+    }
+  },
+  "locked_formulas": {
+    "angular_log_fourier": "F(z)=integral_R O(t)*exp(-i*z*t) dt",
+    "degree_seven_majorant": "D_S(lambda)<=C_D*lambda^7; C_D=36864*pi^2*a4^2*(2+128*pi+16384*sqrt(2*pi))+a4^2*C_b/8 for lambda>=2",
+    "gamma_zero": "eta(sigma)>0 and 1-2^(1-sigma)<0 imply zeta(sigma)<0 for 0<sigma<1",
+    "high_series": "S_high=sum_(j>=0) Z(T_j)*(4/3)*delta(T_j)^(-3)*(2*T_j)^(-3*delta(T_j)/4), T_j=3*2^j",
+    "low_block": "C_low=128*Z_finite",
+    "physical_constant": "D_S=36864*pi^2*a4^2*lambda^3*(32+256*pi*lambda^3+16384*sqrt(2*pi)*lambda^4)+8*a4^2*lambda*C_b",
+    "qualitative_conclusion": "abs(W_Z(O,O))/d8->0",
+    "radical_bv_bypass": "F_O(s_rho)=-F_X(s_rho) at both evaluations; compact BV X gives absolute convergence and W_Z(O,O)=q_lambda(X,X) termwise",
+    "reflected_state": "O=(1-C)*(1+J)/2*E(tilde_h); both inversion-reflected tails included",
+    "ritz_corollary": "q_lambda(p,p)=o(d8) on the locked exponential schedule",
+    "sawtooth_with_phase": "||Delta[1_(s>=0)*exp(-delta*s)*P(A*exp(s))]||_2^2<=128*delta^(-1)*A^delta*h^delta",
+    "slepian_limit": "c=2*pi*lambda^2; c^4*d4/d8->105/256",
+    "spectral_bound": "abs(W_Z(O,O))<=C_spec*D_S(lambda)*d4",
+    "spectral_constant": "C_spec=128*Z_finite+1280*S_high",
+    "zero_parameter": "s_rho=gamma+i*(1/2-beta)"
+  },
+  "producer_pass_boolean_trusted_by_replay": false,
+  "schema": "xi-prolate-outer-outer-spectral-theorem-v1",
+  "series": {
+    "all_terms_positive": true,
+    "definition": "S_high=sum_(j>=0) Z(T_j)*(4/3)*delta(T_j)^(-3)*(2*T_j)^(-3*delta(T_j)/4), T_j=3*2^j",
+    "exact_infinite_series_used_in_theorem": true,
+    "numeric_sum_claimed": false,
+    "stored_terms_are_cross_checks_only": [
+      0,
+      34,
+      64
+    ]
+  },
+  "source_admissions": {
+    "both_reflected_tails_retained": true,
+    "compact_bv_radical_bypass_used": true,
+    "explicit_distribution_extended_to_arbitrary_noncompact_outer": false,
+    "gamma_zero_handled_without_PT_extension": true,
+    "global_zeros_assumed_real_or_on_critical_line": false,
+    "hsw_rounded_corollary_substituted": false,
+    "hsw_sampling_input": "HSW Theorem 1.1 with R(T)=0.103787*log(T)+0.257297*loglog(T)+9.367419 for T>=30610046000",
+    "locally_uniform_determinant_convergence_proved": false,
+    "low_height_input": "PT Theorem 1 through exact height 3000175332800; published computer-assisted result not replayed",
+    "mty_indirect_finite_database_dependency_disclosed": true,
+    "outer_outer_spectral_bound_proved": true,
+    "sawtooth_phase_factor_retained": true,
+    "shifted_resolvent_schedule_proved": false,
+    "signed_sector_floor_proved": false,
+    "status_promoted": false,
+    "zero_list_read": false
+  },
+  "source_hashes": {
+    "PROLATE_DEFECT_SOURCE_LOCK.json": "0844df654ee968b1c371ec96618d10d219da9fde702d62faa4f0c6be139b036d",
+    "ZERO_SAMPLING_SOURCE_LOCK.json": "f4cad4acb30dbfcdc5b30faafe92934e8958ad1cd11cbf6abea932f902e8c101",
+    "notes/COMPACT_PROJECTION_WEIL_BOUND.md": "61cce2214563cfb1099ea4d22c1d4831c705eba33df48fbddbddbe395ec91d93",
+    "notes/EXACT_RADICAL_LEAKAGE_IDENTITY.md": "76dd6586357a2448ef689380a106eea5e9aedb95f68e731f10f1d6626040fddc",
+    "notes/OUTER_OUTER_SPECTRAL_THEOREM.md": "02407eafa8fd5db4c5d8b5bbb2f62d5215f6ef5bf1cb5104fa53caddb52800e4",
+    "notes/OUTER_OUTER_WEIGHTED_TRANSLATION_THEOREM.md": "34bb4e43faf04f34e11126946b1069480375d5ba18baf9c97e9746b246594a0f",
+    "notes/OUTER_PROJECTION_RADICAL_REDUCTION.md": "3d8b4f79d4d9249d36abe8a898a50565528d34711fc8b151f2f72c1c13bb2edd",
+    "src/outer_outer_weighted_translation.py": "b35a0a716bd73eb2dc54ece1df493eafc76c623bf2a8b28a23b7021d81d9d5f2"
+  },
+  "status": "ANALYTIC_UNIFORM_OUTER_OUTER_SPECTRAL_COMPONENT",
+  "terminal_state": "P0_INVALIDATED",
+  "theorem": {
+    "D_S_polynomial_degree": 7,
+    "analytic_branch_first_index": 34,
+    "finite_branch_last_index": 33,
+    "high_block_prefactor": "1280",
+    "high_series_evaluated_by_truncation": false,
+    "low_block_coefficient": "128*Z_finite",
+    "note": "notes/OUTER_OUTER_SPECTRAL_THEOREM.md",
+    "slepian_threshold_effective": false,
+    "translation_exponent_q": 1,
+    "valid_lambda_minimum": "2"
+  }
+}

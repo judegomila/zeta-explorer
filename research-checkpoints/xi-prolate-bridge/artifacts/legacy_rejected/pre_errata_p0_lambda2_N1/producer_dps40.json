@@ -1,0 +1,157 @@
+{
+  "analytic_uniform_claim": false,
+  "boundary": {
+    "delta_kappa_abs": "0.2295940873681756840227057363802067822653",
+    "delta_norm": "1.471068510074716102458853029739653791645",
+    "delta_vector_convention": "L^(-1/2) sum_{|n|<=N} V_n",
+    "generic_reserve": null,
+    "generic_reserve_diagnostic_pass": false,
+    "source_simple_even_hypotheses_diagnostic_pass": false
+  },
+  "claim_class": "DIAGNOSTIC",
+  "inputs": {
+    "L": "1.386294361119890618834464242916353136151",
+    "N": 1,
+    "lambda": "2",
+    "modes": [
+      -1,
+      0,
+      1
+    ],
+    "precision_decimal_digits": 40,
+    "prolate_even_legendre_basis_size": 30
+  },
+  "limitations": [
+    "no interval/ball enclosure in this producer",
+    "finite Galerkin truncation only",
+    "no unbounded-sequence estimate",
+    "no locally uniform determinant convergence"
+  ],
+  "matrix_checks": {
+    "hermitian_defect_max_abs": "0.0",
+    "independent_assembly_max_abs_disagreement": "9.183549615799121156005754197048794357958e-41",
+    "inversion_commutator_max_abs": "0.0",
+    "matrix_decimal_hash": "c8bcfb8c77108303a866eb501e68127b215725fa0664edd858602afc9d3e0b25"
+  },
+  "normalizations": {
+    "Fourier_mode_sign": "U_n uses exp(+2*pi*i*n*x/L)",
+    "arithmetic_transform": "E(h)(u)=u^(1/2) sum_{m>=1}h(mu)",
+    "domain": "[-lambda,lambda] with Lebesgue measure; zero extension",
+    "evenization": "k_plus=(k+Jk)/2",
+    "h_a0_lambda": "0.152229451819815087157312297755080490661",
+    "h_a4": "0.2574708929883897194787846569001263475128",
+    "h_zero_integral_defect": "0.0",
+    "prolate_eigenfunctions": "L2 unit norm, sign positive at zero, source Hermite limit"
+  },
+  "projection": {
+    "coefficients_modes_minusN_to_N": [
+      "-0.06848151567359416282719852388291435193044",
+      "0.09943956508988338204897514819077195649594",
+      "-0.06848151567359416282719852388291435193044"
+    ],
+    "inversion_even_defect": "0.0",
+    "kappa": [
+      "-0.4933542139493664524703319968164737608418",
+      "0.7163820483211493094714313711567049520618",
+      "-0.4933542139493664524703319968164737608418"
+    ],
+    "projected_norm": "0.1388080079936694423318425769310999226212",
+    "projection_error": "0.0278189443029063284126839779919038762396",
+    "state_norm": "0.1415682052768163204124438096811757701156"
+  },
+  "prolate_checks": {
+    "comparison_sample_x": [
+      "0.0",
+      "0.25",
+      "0.5",
+      "0.75",
+      "1.0",
+      "1.25",
+      "1.5",
+      "1.75",
+      "2.0"
+    ],
+    "h0_eigenvalue": "24.37487884721660577857230020887883142732",
+    "h4_eigenvalue": "214.847016309905830653800280277677628485",
+    "larger_basis_sample_max_abs_defect": "8.67943838234103176645615961247845192094e-23"
+  },
+  "residual_decomposition": {
+    "blocks": {
+      "archimedean_signed": {
+        "operator_action_norm": "1.730274664385667244382558755156556140157",
+        "rayleigh": "-1.424799680579470467615466952804297516244",
+        "separate_residual_norm": "0.9817312689507105363139166088769793009102",
+        "signed_residual_vector": [
+          "-0.4973044213857491820627605100504153996868",
+          "-0.6849619765913599737845908068687986270342",
+          "-0.4973044213857491820627605100504153996868"
+        ]
+      },
+      "pole": {
+        "operator_action_norm": "2.033103610525878678969196188380088606178",
+        "rayleigh": "1.432151412416974685327349449880810482729",
+        "separate_residual_norm": "1.443070553730976893240410603610413578047",
+        "signed_residual_vector": [
+          "0.7309998055873544023684472876467848374238",
+          "1.006842187985748044346235854171530883963",
+          "0.7309998055873544023684472876467848374238"
+        ]
+      },
+      "prime_signed": {
+        "operator_action_norm": "0.4967665008944615127187596975729571842232",
+        "rayleigh": "-0.001327204257963484724933910890464838175111",
+        "separate_residual_norm": "0.4967647279545767775504168900878670346731",
+        "signed_residual_vector": [
+          "-0.2516404472522746230594539367016981638202",
+          "-0.3465968343091654100847092100347762561822",
+          "-0.2516404472522746230594539367016981638202"
+        ]
+      }
+    },
+    "combined_reassembly_defect": "2.350723946424575189026023787117488758106e-41",
+    "identity": "(Q-q)kappa=sum_B (B-q_B I)kappa for B=P,-A,-R",
+    "sum_block_rayleigh_minus_q_defect": "1.919218376739269460337140037273869133401e-41"
+  },
+  "residual_gap": {
+    "Delta": "-0.002684961699834274916191182351635831645317",
+    "combined_residual_vector_before_norm": [
+      "-0.01794506305066940275376715910532872608324",
+      "-0.02471662291477733952306416273204399925386",
+      "-0.01794506305066940275376715910532872608324"
+    ],
+    "complement_floor": "0.003339565879706458070757403834412296664115",
+    "full_ground_eigenvalue": "0.00003567861244879587862149671761364459329784",
+    "full_second_eigenvalue": "0.003339565879706458070757403834412296664115",
+    "ground_comparison_overlap_abs": "0.9860093808150765170780705865489548629274",
+    "inversion_even_sector_floor": "0.2095854653898703559863767343085014086462",
+    "inversion_even_sector_gap": "0.2035609378103296229994281481224532803368",
+    "inversion_odd_sector_floor": "0.003339565879706458070757403834412296664115",
+    "inversion_odd_sector_gap": "-0.002684961699834274916191182351635831645318",
+    "q": "0.006024527579540732986948586186048128309433",
+    "r": "0.03542544317431042062392289535443275753651",
+    "r_over_Delta": null
+  },
+  "runtime": {
+    "mpmath": "1.4.1",
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "python": "3.14.6"
+  },
+  "source_enumeration": {
+    "prime_power_cutoff": "lambda^2",
+    "terms": [
+      {
+        "Lambda": "0.6931471805599453094172321214581765680755",
+        "n": 2
+      },
+      {
+        "Lambda": "1.098612288668109691395245236922525704647",
+        "n": 3
+      },
+      {
+        "Lambda": "0.6931471805599453094172321214581765680755",
+        "n": 4
+      }
+    ]
+  },
+  "terminal_state": "P0_UNRESOLVED"
+}

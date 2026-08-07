@@ -1,0 +1,947 @@
+{
+  "terminal_state": "P0_INVALIDATED",
+  "claim_class": "FINITE_NONCERTIFIED_PROLATE_WINDOW_DIAGNOSTIC_ONLY",
+  "analytic_uniform_claim": false,
+  "source_pins": {
+    "finite_weil_matrix": {
+      "id": "CCM-ZST-v1",
+      "version": "arXiv:2511.22755v1",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b"
+    },
+    "prolate_window_limit": {
+      "id": "CCM-PROLATE-2023",
+      "version": "arXiv:2310.18423v2",
+      "equation": "(29)",
+      "sha256": "8bc197642ee9ca4f2393b6cbfd3db292be6a315ce76ad61bfb845d9fedb47f2e"
+    }
+  },
+  "inputs": {
+    "lambda": "2",
+    "N": 8,
+    "precision_decimal_digits": 30,
+    "prolate_even_legendre_basis_size": 30,
+    "even_complement_target_labels": [
+      8,
+      12
+    ],
+    "odd_target_labels": [
+      6,
+      10
+    ],
+    "modes": [
+      -8,
+      -7,
+      -6,
+      -5,
+      -4,
+      -3,
+      -2,
+      -1,
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "prime_power_terms": [
+      {
+        "n": 2,
+        "Lambda": "0.693147180559945309417232121458"
+      },
+      {
+        "n": 3,
+        "Lambda": "1.09861228866810969139524523692"
+      },
+      {
+        "n": 4,
+        "Lambda": "0.693147180559945309417232121458"
+      }
+    ]
+  },
+  "normalizations": {
+    "prolate_modes": "L2([-lambda,lambda],dx) unit norm; sign matches locked normalized Hermite h_n(0)",
+    "plus_window": "h_(4ell,lambda) - [integral h_(4ell,lambda)/integral h_(0,lambda)] h_(0,lambda)",
+    "minus_window": "-h_(4ell+2,lambda) + [integral h_(4ell+2,lambda)/integral h_(2,lambda)] h_(2,lambda)",
+    "minus_meaning": "Fourier-sign-minus family; every input function is spatially even",
+    "arithmetic_transform": "E(f)(u)=sqrt(u) sum_(m>=1) f(m*u)",
+    "logarithmic_domain": "u=exp(t)/lambda, 0<=t<=2log(lambda)",
+    "inversion": "Jk(t)=k(2log(lambda)-t), applied explicitly",
+    "plus_projection": "(E(f)+J E(f))/2, cosine Fourier coordinates",
+    "minus_projection": "(E(f)-J E(f))/2, sine coordinates with a global phase i",
+    "Fourier_mode_sign": "U_n(t)=exp(+2*pi*i*n*t/L)/sqrt(L)",
+    "Gram_orthonormalization": "symmetric G^(-1/2) using G=W^T W",
+    "even_complement_deflation": "ordinary L2 deflation (I-kappa kappa^T) before Gram"
+  },
+  "codimension_two_invisible_correction": {
+    "primary_status": "EXACT_STATE_PRESERVING_CORRECTION_IDENTITY",
+    "phi_definition": "phi(x)=exp(1-1/(1-x^2)) for |x|<1 and 0 otherwise",
+    "psi_definition": "psi(x)=2phi(2x)-phi(x)",
+    "psi_even": true,
+    "psi_value_at_zero": "1.0",
+    "psi_integral_exact_identity": "2*(1/2)*integral(phi)-integral(phi)=0",
+    "psi_integral_quadrature_audit": "1.41256193892550217668082988462e-30",
+    "scale_a": "0.25",
+    "scale_choice": "a=1/(2lambda)",
+    "support": "supp(psi_a) subset (-a,a)",
+    "source_h_value_at_zero_amplitude": "2.28200992464984469447435648224e-14",
+    "corrected_function": "f_tilde=h_lambda-h_lambda(0)*psi_a",
+    "corrected_value_at_zero_defect": "0.0",
+    "corrected_integral_defect": "0.0",
+    "correction_L2_norm_quadrature": "9.09867928472063879861169566436e-15",
+    "arithmetic_invisibility_proof": "for u in [1/lambda,lambda] and m>=1, m*u>=1/lambda=2a>a",
+    "arithmetic_sample_u": [
+      "0.5",
+      "1.0",
+      "2.0"
+    ],
+    "arithmetic_bump_transform_samples": [
+      "0.0",
+      "0.0",
+      "0.0"
+    ],
+    "maximum_possible_supported_terms_on_source_interval": 0,
+    "consequence": "E(f_tilde)=E(h_lambda) pointwise on [1/lambda,lambda], so J-evenization and P_N are unchanged exactly",
+    "domain_caveat": "this corrector supplies f(0)=integral(f)=0 without changing E on the source interval; the BV Mellin lemma applies, but the individual noncompact pole/archimedean/prime tail distributions still require separate regularization bounds"
+  },
+  "optional_prolate_h2_codimension_two_crosscheck": {
+    "recurrence_assembly": {
+      "definition": {
+        "g_lambda": "h_(2,lambda) - [I_2/I_0] h_(0,lambda)",
+        "c_lambda": "h_lambda(0)/g_lambda(0)",
+        "f_lambda": "h_lambda-c_lambda*g_lambda",
+        "I_n": "integral_R h_(n,lambda)(x) dx"
+      },
+      "a4": "0.2574708929883897194787846569",
+      "a0_lambda": "0.152229451819815087157312297755",
+      "h_integral_defect": "0.0",
+      "g_integral_defect": "0.0",
+      "f_integral_defect": "0.0",
+      "h_value_at_zero": "2.28200992464984469447435648224e-14",
+      "g_value_at_zero": "-1.64810015521657634135341573449",
+      "f_value_at_zero_defect": "-2.50638621130394619309309234629e-32",
+      "correction_scalar_c": "-1.38463061084413675250930862193e-14",
+      "correction_scalar_chi_formula": "-1.3846306108441367527708909604e-14",
+      "correction_scalar_formula_defect": "2.61582338464298853776528144669e-33",
+      "inferred_compressed_Fourier_eigenvalues": {
+        "0": "0.999999999999999999997418105724",
+        "2": "0.999999999999999952570716699011",
+        "4": "0.999999999999873455967053693263"
+      },
+      "chi_identity": "I_n=(-1)^(n/2)*chi_n*h_(n,lambda)(0)",
+      "chi_formula": "c_lambda=a4*[h_(4,lambda)(0)/h_(2,lambda)(0)]*(chi_0-chi_4)/(chi_0+chi_2)",
+      "h_L2_norm": "0.299107115825752686761995012772",
+      "g_L2_norm": "1.21815307075078106288576817263",
+      "f_L2_norm": "0.299107115825757588863374647398",
+      "correction_L2_norm": "1.68669203045531491828277593484e-14",
+      "correction_relative_to_h_L2": "5.63909028308745168475799601416e-14",
+      "normalization_discipline": "the locked P0 h_lambda is retained as h; f is a separately serialized correction"
+    },
+    "quadrature_assembly": {
+      "definition": {
+        "g_lambda": "h_(2,lambda) - [I_2/I_0] h_(0,lambda)",
+        "c_lambda": "h_lambda(0)/g_lambda(0)",
+        "f_lambda": "h_lambda-c_lambda*g_lambda",
+        "I_n": "integral_R h_(n,lambda)(x) dx"
+      },
+      "a4": "0.2574708929883897194787846569",
+      "a0_lambda": "0.152229451819815087157312297755",
+      "h_integral_defect": "0.0",
+      "g_integral_defect": "0.0",
+      "f_integral_defect": "0.0",
+      "h_value_at_zero": "2.28200992464984477046579649234e-14",
+      "g_value_at_zero": "-1.64810015521657634135341573449",
+      "f_value_at_zero_defect": "7.822312570381562156438431672e-33",
+      "correction_scalar_c": "-1.38463061084413679861781711856e-14",
+      "correction_scalar_chi_formula": "-1.38463061084413679808693635653e-14",
+      "correction_scalar_formula_defect": "-5.30880762037357339356604820683e-33",
+      "inferred_compressed_Fourier_eigenvalues": {
+        "0": "0.999999999999999999997418105725",
+        "2": "0.99999999999999995257071669901",
+        "4": "0.99999999999987345596705369326"
+      },
+      "chi_identity": "I_n=(-1)^(n/2)*chi_n*h_(n,lambda)(0)",
+      "chi_formula": "c_lambda=a4*[h_(4,lambda)(0)/h_(2,lambda)(0)]*(chi_0-chi_4)/(chi_0+chi_2)",
+      "h_L2_norm": "0.299107115825752686761995012772",
+      "g_L2_norm": "1.21815307075078106288576817263",
+      "f_L2_norm": "0.299107115825757588863374647398",
+      "correction_L2_norm": "1.68669203045531497444999714775e-14",
+      "correction_relative_to_h_L2": "5.6390902830874518725409615175e-14",
+      "normalization_discipline": "the locked P0 h_lambda is retained as h; f is a separately serialized correction"
+    },
+    "recurrence_quadrature_mode_coefficient_disagreement_max_abs": "1.03537993810257799460289374193e-30",
+    "role": "optional prolate cross-check; the invisible bump is primary because it leaves E(h_lambda) unchanged exactly"
+  },
+  "anchor": {
+    "window": {
+      "family": "plus",
+      "target_label": 4,
+      "base_label": 0,
+      "target_coefficient": "1.0",
+      "finite_integral_ratio_base_coefficient": "-0.591249170160293248685042958767",
+      "source_limit_base_coefficient": "-0.612372435695794524549321018677",
+      "zero_integral_defect": "0.0",
+      "finite_value_at_zero": "8.86317633097558976066726630295e-14",
+      "target_prolate_eigenvalue": "214.847016309905830653800280278",
+      "base_prolate_eigenvalue": "24.3748788472166057785723002089",
+      "target_compressed_Fourier_eigenvalue_chi": "0.999999999999873455967053693263",
+      "base_compressed_Fourier_eigenvalue_chi": "0.999999999999999999997418105724",
+      "target_additive_concentration_defect_1_minus_chi_squared": "2.53088065892597460862144740516e-13",
+      "base_additive_concentration_defect_1_minus_chi_squared": "5.16378855168882626600147652469e-21",
+      "sector_coordinates": [
+        "0.386216724589388137032180143959",
+        "-0.376149269375658269853772049966",
+        "0.107990744514035845406855224084",
+        "-0.00299407488577664577608766642441",
+        "-0.00177797516071467264792354796596",
+        "-0.000124170030361416473214940018013",
+        "-0.0000344718918467198211693909473631",
+        "-0.00000214387225781153456688895048691",
+        "-0.00000136711110551812130980848428032"
+      ],
+      "scalar_fourier_coefficients": [
+        "0.386216724589388137032180143959",
+        "-0.265977699113893313959545485009",
+        "0.0763609877512587020115524841409",
+        "-0.0021171306551130039375189707034",
+        "-0.00125721829292258670021948190839",
+        "-0.0000878014704886970807440888820689",
+        "-0.0000243753084851448442414029221791",
+        "-0.00000151594661149625037458946550298",
+        "-0.000000966693533347301288861488092441"
+      ],
+      "projected_norm": "0.549841590276835355278629881814",
+      "continuous_norm": "0.549841590277103490801058067196",
+      "projection_error_direct": "0.00000054301392627014540017398735742",
+      "Gauss_Legendre_degree": 5,
+      "Gauss_Legendre_nodes_per_piece": 48,
+      "lower_degree_coefficient_disagreement_max_abs": "1.59071581903556124271954418175e-30"
+    },
+    "kappa_sector_coordinates": [
+      "0.702414534329669314153105030956",
+      "-0.684104796776602285378787846741",
+      "0.196403375851696571507129038669",
+      "-0.00544534087403097845074261395874",
+      "-0.00323361344822877825620535304228",
+      "-0.000225828734233980182075991791954",
+      "-0.0000626942240388979003637477279097",
+      "-0.00000389907256148472404401633105295",
+      "-0.00000248637267477312046735604377756"
+    ],
+    "source_combination_divided_by_a4_coefficient_defect_max_abs": "9.86076131526264756764660706603e-32",
+    "q": "2.93822846754703408847757200786e-12",
+    "combined_residual_norm": "0.00000015184875684971371539842947946",
+    "residual_direction_rayleigh_c": "1.91557497257153540477427038019",
+    "two_dimensional_ritz_shift_u": "2.92619132711296130021802945654e-12"
+  },
+  "even_windows": [
+    {
+      "family": "plus",
+      "target_label": 8,
+      "base_label": 0,
+      "target_coefficient": "1.0",
+      "finite_integral_ratio_base_coefficient": "-0.480906021550298777261729376953",
+      "source_limit_base_coefficient": "-0.522912516583797217486357516116",
+      "zero_integral_defect": "0.0",
+      "finite_value_at_zero": "0.0000000267865217619580050511507039805",
+      "target_prolate_eigenvalue": "386.293571437307966927983963115",
+      "base_prolate_eigenvalue": "24.3748788472166057785723002089",
+      "target_compressed_Fourier_eigenvalue_chi": "0.999999952980402668502557944963",
+      "base_compressed_Fourier_eigenvalue_chi": "0.999999999999999999997418105724",
+      "target_additive_concentration_defect_1_minus_chi_squared": "0.0000000940391924521523508939130028991",
+      "base_additive_concentration_defect_1_minus_chi_squared": "5.16378855168882626600147652469e-21",
+      "sector_coordinates": [
+        "0.399805685853248728854761808963",
+        "0.246709494141036163576035422807",
+        "-0.632878448004825235777516936776",
+        "0.0449392840456074227126200485177",
+        "0.0515006846454998125038860248906",
+        "0.00613200542925145113944691109435",
+        "0.0027486905809936275549968382965",
+        "0.000278569837898991005098619867446",
+        "0.000316046218883220476885759269177"
+      ],
+      "scalar_fourier_coefficients": [
+        "0.399805685853248728854761808963",
+        "0.174449956290229487009034769476",
+        "-0.447512642251029752660154678904",
+        "0.0317768724903174340510814770132",
+        "0.036416483348582823781292963901",
+        "0.0043359826212964272872324826125",
+        "0.00194361774920418518515499459574",
+        "0.000196978621412413846396040965086",
+        "0.000223478424540693086052886311681"
+      ],
+      "projected_norm": "0.79117790978720918983964392158",
+      "continuous_norm": "0.791177951301536547621329332041",
+      "projection_error_direct": "0.000256301461591116786717899305012",
+      "Gauss_Legendre_degree": 5,
+      "Gauss_Legendre_nodes_per_piece": 48,
+      "lower_degree_coefficient_disagreement_max_abs": "2.75160500049520967179887152624e-28"
+    },
+    {
+      "family": "plus",
+      "target_label": 12,
+      "base_label": 0,
+      "target_coefficient": "1.0",
+      "finite_integral_ratio_base_coefficient": "-0.401120249699273807411465115163",
+      "source_limit_base_coefficient": "-0.474958879799083238489648256439",
+      "zero_integral_defect": "0.0",
+      "finite_value_at_zero": "0.000468057804103028236791428300662",
+      "target_prolate_eigenvalue": "533.483113643479054613392196627",
+      "base_prolate_eigenvalue": "24.3748788472166057785723002089",
+      "target_compressed_Fourier_eigenvalue_chi": "0.999015943260540151819271700528",
+      "base_compressed_Fourier_eigenvalue_chi": "0.999999999999999999997418105724",
+      "target_additive_concentration_defect_1_minus_chi_squared": "0.00196714511125322001393306233778",
+      "base_additive_concentration_defect_1_minus_chi_squared": "5.16378855168882626600147652469e-21",
+      "sector_coordinates": [
+        "0.368707500556824086559178634862",
+        "0.27883788901536334957083700993",
+        "0.553292018608890383686171268255",
+        "-0.172136950293345193440592294853",
+        "-0.435941983386229917772231608751",
+        "-0.0971589793719859598730653394777",
+        "-0.0774524856334386342979000102362",
+        "-0.0142843428926181100572034007639",
+        "-0.026681376342133167267471691449"
+      ],
+      "scalar_fourier_coefficients": [
+        "0.368707500556824086559178634862",
+        "0.197168162174505355565385716143",
+        "0.391236538334739833532417891431",
+        "-0.121719204845196047390734277895",
+        "-0.30825753265631641466491259715",
+        "-0.0687017731670951607381950856869",
+        "-0.0547671778111581081130342123294",
+        "-0.0101005557241641292691635272",
+        "-0.0188665821429126832840686722611"
+      ],
+      "projected_norm": "0.869401565910429692893626372008",
+      "continuous_norm": "0.870045548286851270877282233922",
+      "projection_error_direct": "0.0334689899199306720707281554331",
+      "Gauss_Legendre_degree": 5,
+      "Gauss_Legendre_nodes_per_piece": 48,
+      "lower_degree_coefficient_disagreement_max_abs": "1.0643798208331832371838694354e-27"
+    }
+  ],
+  "odd_windows": [
+    {
+      "family": "minus",
+      "target_label": 6,
+      "base_label": 2,
+      "target_coefficient": "-1.0",
+      "finite_integral_ratio_base_coefficient": "0.759038955957418377625443584614",
+      "source_limit_base_coefficient": "0.790569415042094832999723386108",
+      "zero_integral_defect": "0.0",
+      "finite_value_at_zero": "7.22284606848424138119676583007e-11",
+      "target_prolate_eigenvalue": "303.179088826788160351938262298",
+      "base_prolate_eigenvalue": "121.790268404997090966407776504",
+      "target_compressed_Fourier_eigenvalue_chi": "0.999999999884524229838321519764",
+      "base_compressed_Fourier_eigenvalue_chi": "0.999999999999999952570716699011",
+      "target_additive_concentration_defect_1_minus_chi_squared": "2.3095154031002230697761030068e-10",
+      "base_additive_concentration_defect_1_minus_chi_squared": "9.48585666019771032472162331021e-17",
+      "sector_coordinates": [
+        "0.58217592840248376647734718259",
+        "-0.337296049875141678256049147318",
+        "0.0142478902488594712672432090724",
+        "0.0115473074859240449919305400697",
+        "0.00104202889374029435772928024529",
+        "0.00036395844866706695141532652644",
+        "0.0000284226207637590870635061220925",
+        "0.0000236708480708326288914637365031"
+      ],
+      "scalar_fourier_coefficients": [
+        "0.41166054681697024672779923644",
+        "-0.238504324134148627124964015518",
+        "0.0100747798125702183030020009783",
+        "0.00816517942774307588973764371283",
+        "0.000736825696956078503767816242365",
+        "0.000257357487122619000310388066493",
+        "0.0000200978278811476190534378504802",
+        "0.0000167378171873222583132928506305"
+      ],
+      "projected_norm": "0.673078746668997233718374450172",
+      "continuous_norm": "0.673078746819891533279821582527",
+      "projection_error_direct": "0.0000142522802413999423575792869511",
+      "Gauss_Legendre_degree": 5,
+      "Gauss_Legendre_nodes_per_piece": 48,
+      "lower_degree_coefficient_disagreement_max_abs": "4.10618856758052813668726305238e-29"
+    },
+    {
+      "family": "minus",
+      "target_label": 10,
+      "base_label": 2,
+      "target_coefficient": "-1.0",
+      "finite_integral_ratio_base_coefficient": "0.633715882690284012372265994573",
+      "source_limit_base_coefficient": "0.701560760020114009796952887309",
+      "zero_integral_defect": "0.0",
+      "finite_value_at_zero": "0.00000498161068168993701662973110163",
+      "target_prolate_eigenvalue": "463.471394959361301746941035426",
+      "base_prolate_eigenvalue": "121.790268404997090966407776504",
+      "target_compressed_Fourier_eigenvalue_chi": "0.999990460679408412686200640745",
+      "base_compressed_Fourier_eigenvalue_chi": "0.999999999999999952570716699011",
+      "target_additive_concentration_defect_1_minus_chi_squared": "0.0000190785501845372785169799892465",
+      "base_additive_concentration_defect_1_minus_chi_squared": "9.48585666019771032472162331021e-17",
+      "sector_coordinates": [
+        "0.235547045941545075137119706196",
+        "0.799083865440815389182933245208",
+        "-0.103874561293981737327017256455",
+        "-0.172293952026252508510445984059",
+        "-0.0275468651856382973891906590254",
+        "-0.0162153554529973812412496295158",
+        "-0.00220747401468156230892518386419",
+        "-0.00339206011210176331337178329189"
+      ],
+      "scalar_fourier_coefficients": [
+        "0.166556913473725770546939036937",
+        "0.565037619989959232747047688861",
+        "-0.0734504066837521632117107780037",
+        "-0.121830221835192849005731812419",
+        "-0.0194785751731964634025759414396",
+        "-0.0114659878001647094679662036063",
+        "-0.0015609198450744250769330529425",
+        "-0.00239854870745955741747365049376"
+      ],
+      "projected_norm": "0.857630871526799494819436262485",
+      "continuous_norm": "0.857637437102025270075956620768",
+      "projection_error_direct": "0.00335584908967772842216635582108",
+      "Gauss_Legendre_degree": 5,
+      "Gauss_Legendre_nodes_per_piece": 48,
+      "lower_degree_coefficient_disagreement_max_abs": "6.81137480455611664995577939825e-28"
+    }
+  ],
+  "even_Gram_audit": {
+    "raw_gram": [
+      [
+        "0.625802257707950213916837254192",
+        "-0.16270213003748051182589604236"
+      ],
+      [
+        "-0.16270213003748051182589604236",
+        "0.723720087269450133625559875275"
+      ]
+    ],
+    "gram_eigenvalues": [
+      "0.504852495678944648248698219249",
+      "0.844669849298455699293698910218"
+    ],
+    "gram_condition_number": "1.67310225566481923960234098476",
+    "inverse_square_root": [
+      [
+        "1.29374233582404505415759802946",
+        "0.152893639226872343931333778946"
+      ],
+      [
+        "0.152893639226872343931333778946",
+        "1.20172747834550079309673769457"
+      ]
+    ],
+    "orthonormality_defect_max_abs": "1.97215226305252951352932141321e-31"
+  },
+  "odd_Gram_audit": {
+    "raw_gram": [
+      [
+        "0.453034999217508154744822082883",
+        "-0.135902285149849018336861921089"
+      ],
+      [
+        "-0.135902285149849018336861921089",
+        "0.73553071179581766044622392679"
+      ]
+    ],
+    "gram_eigenvalues": [
+      "0.398271661909887453224812877301",
+      "0.790294049103438361966233132372"
+    ],
+    "gram_condition_number": "1.98430901489107076085928058597",
+    "inverse_square_root": [
+      [
+        "1.52035012100746440419392876477",
+        "0.159359658870863623820472657452"
+      ],
+      [
+        "0.159359658870863623820472657452",
+        "1.18909431953714634186186304644"
+      ]
+    ],
+    "orthonormality_defect_max_abs": "3.94430452610505902705864282641e-31"
+  },
+  "shifted_even_window_decomposition": {
+    "low_block": [
+      [
+        "0.000116308676359237711960163310476",
+        "0.000888032058914728532609229636064"
+      ],
+      [
+        "0.000888032058914728532609229636064",
+        "0.00680177764091704100625395966825"
+      ]
+    ],
+    "high_block": [
+      [
+        "1.04924271263398317352286869253",
+        "0.436801068409232577655472363622",
+        "0.320116576114585139188423234898",
+        "-0.0726631933271673604843851248826",
+        "-0.282926703500049740513099042437",
+        "0.0451947030217060912036489970196"
+      ],
+      [
+        "0.436801068409232577655472363622",
+        "1.50772833667187378088246958859",
+        "-0.0476963389308956354195118155127",
+        "0.0183401793153823174936424023497",
+        "0.166694147739943147678293950654",
+        "-0.160051780589311267723466003023"
+      ],
+      [
+        "0.320116576114585139188423234898",
+        "-0.0476963389308956354195118155127",
+        "1.34631723521291589965869176772",
+        "-0.13775740528285527428138683127",
+        "-0.368482170259501668035722765713",
+        "0.286098399776489753223095092"
+      ],
+      [
+        "-0.0726631933271673604843851248826",
+        "0.0183401793153823174936424023497",
+        "-0.13775740528285527428138683127",
+        "1.60681311504499829227681731183",
+        "-0.0342021870387295941509082059846",
+        "-0.31682158196373850010515645088"
+      ],
+      [
+        "-0.282926703500049740513099042437",
+        "0.166694147739943147678293950654",
+        "-0.368482170259501668035722765713",
+        "-0.0342021870387295941509082059846",
+        "1.25521823834966535984068274742",
+        "-0.208170269533093084587767391469"
+      ],
+      [
+        "0.0451947030217060912036489970196",
+        "-0.160051780589311267723466003023",
+        "0.286098399776489753223095092",
+        "-0.31682158196373850010515645088",
+        "-0.208170269533093084587767391469",
+        "2.12631065049214250342702379407"
+      ]
+    ],
+    "low_high_coupling": [
+      [
+        "0.00282226838049622456275888904401",
+        "0.021463480654546820745745806612"
+      ],
+      [
+        "-0.000178922851836143611796850118173",
+        "-0.00137166593982446167710380966978"
+      ],
+      [
+        "0.00159195232250199161438221760555",
+        "0.012029490043811647236341217432"
+      ],
+      [
+        "0.000387580564519700125015937598696",
+        "0.0031179091514208585925689267738"
+      ],
+      [
+        "0.0005982629658982065024849645311",
+        "0.00484616997651315475885821095977"
+      ],
+      [
+        "0.000978029288620309126732544565692",
+        "0.0075243926000682589874308179912"
+      ]
+    ],
+    "low_floor_a": "0.000000362086802123930514621583657403",
+    "high_floor_G": "0.592989985055045907901248357907",
+    "coupling_operator_norm_c": "0.0266287131053192706416564247069",
+    "schur_scalar_a_minus_c2_over_G": "-0.00119542263050567211640427044499",
+    "matrix_schur_lower_model_low_minus_CtC_over_G": [
+      [
+        "0.0000960786501232604859698775867607",
+        "0.000733833331379589063035316680095"
+      ],
+      [
+        "0.000733833331379589063035316680095",
+        "0.00562621933055912249807317565616"
+      ]
+    ],
+    "matrix_schur_lower_floor": "0.000000357955575357621668068712961983",
+    "exact_point_schur_complement": [
+      [
+        "0.000103370624098584994436957710167",
+        "0.000789025490371176240523829223213"
+      ],
+      [
+        "0.000789025490371176240523829223213",
+        "0.00604405758484130036432066550763"
+      ]
+    ],
+    "exact_point_schur_floor": "0.000000360624012462779180739582039757",
+    "forcing_resolvent_decomposition": {
+      "low_forcing": [
+        "-1.3550171216780270798324852949e-10",
+        "-0.00000000296134076028475021539883340445"
+      ],
+      "high_forcing": [
+        "0.0000000974462856012651543241758484751",
+        "-0.00000000769285350038213138758739903957",
+        "0.0000000750162275684855857450933473805",
+        "-0.0000000441846424157702599350447916761",
+        "-0.0000000751271335458363439916958462835",
+        "0.0000000164467402757824899336868172025"
+      ],
+      "effective_low_forcing_after_high_elimination": [
+        "-3.90245799980169795809164341073e-10",
+        "-0.00000000488338490477662386689433034751"
+      ],
+      "low_solution": [
+        "0.000674152131593917973451402442298",
+        "-0.0000888156000476849346572794910824"
+      ],
+      "high_solution": [
+        "0.000000101096016405338943658856314179",
+        "-0.0000000336535072341888065696880630652",
+        "0.0000000243751892004048657578673310541",
+        "-0.0000000103999518704828898093959419017",
+        "-0.00000000379598941220279781530458610782",
+        "0.00000000205779066101305900735406005743"
+      ],
+      "low_solution_norm": "0.000679977431496409025049401529031",
+      "high_solution_norm": "0.000000109881372250605616610015903793",
+      "full_solution_norm": "0.000679977440374583012591480180031",
+      "direct_compressed_complement_solve_norm": "0.000679977440374583012591480180035",
+      "block_vs_direct_solution_defect": "3.73575565082102344161523403691e-33",
+      "anisotropic_matrix_Schur_bound": {
+        "D": [
+          [
+            "0.0000960786501232604859698775867607",
+            "0.000733833331379589063035316680095"
+          ],
+          [
+            "0.000733833331379589063035316680095",
+            "0.00562621933055912249807317565616"
+          ]
+        ],
+        "d": "0.000000357955575357621668068712961983",
+        "high_particular_z0": [
+          "0.0000000865649469902910108007892733354",
+          "-0.0000000262937719804168345709773955269",
+          "0.0000000245488982709108670171584477514",
+          "-0.0000000230019902194333012528954403676",
+          "-0.0000000312424763713691654110092908674",
+          "-0.00000000587335814964098245719120669384"
+        ],
+        "high_residual_e": [
+          "0.0",
+          "0.0",
+          "0.0",
+          "0.0",
+          "0.0",
+          "0.0"
+        ],
+        "F": "0.000000414024700283228644402012055824",
+        "Theta": "0.596224818987981478545382629518",
+        "Z": "0.000000101622739180411766348141543201",
+        "T": "0.000692008997075357516769028041373",
+        "choice": "X=0; D=low-C^T*C/G; z0=high^(-1)*y_high",
+        "claim_scope": "finite arbitrary-precision point bound; not an interval enclosure"
+      }
+    },
+    "basis_definition": "prolate_windows_then_twice_reorthogonalized_coordinate_vectors"
+  },
+  "shifted_odd_window_decomposition": {
+    "low_block": [
+      [
+        "0.00000106707068271694318665400616307",
+        "0.00000787579953556663074981493836166"
+      ],
+      [
+        "0.00000787579953556663074981493836166",
+        "0.0000582041919190156577318839432402"
+      ]
+    ],
+    "high_block": [
+      [
+        "0.336152372689735894027028717548",
+        "0.398638709853464540239832651987",
+        "-0.233908804736422669150861600114",
+        "-0.0820247686420380849552656368815",
+        "-0.00402911245542367089701670382996",
+        "0.0930669164540280854164770663833"
+      ],
+      [
+        "0.398638709853464540239832651987",
+        "1.26163292630855605603045816687",
+        "-0.127805021166869276802204792399",
+        "0.0191568088848600744038864949919",
+        "-0.0973948367731572514450227749116",
+        "0.0580097976611344459870191115375"
+      ],
+      [
+        "-0.233908804736422669150861600114",
+        "-0.127805021166869276802204792399",
+        "1.23206661982268474973890151152",
+        "-0.120362253718278367626029411162",
+        "0.310218937417077645301440694986",
+        "-0.153202009269578259923757708799"
+      ],
+      [
+        "-0.0820247686420380849552656368816",
+        "0.0191568088848600744038864949919",
+        "-0.120362253718278367626029411162",
+        "1.54517060651955840522839312723",
+        "0.197572822688274361457509566544",
+        "-0.270892872741002917991359974409"
+      ],
+      [
+        "-0.00402911245542367089701670382995",
+        "-0.0973948367731572514450227749116",
+        "0.310218937417077645301440694986",
+        "0.197572822688274361457509566544",
+        "1.35973582027360496348343743942",
+        "-0.367983735814661691362861574482"
+      ],
+      [
+        "0.0930669164540280854164770663833",
+        "0.0580097976611344459870191115375",
+        "-0.153202009269578259923757708799",
+        "-0.270892872741002917991359974409",
+        "-0.367983735814661691362861574481",
+        "2.0573534245775982460888504964"
+      ]
+    ],
+    "low_high_coupling": [
+      [
+        "0.0000902958039787679131811751288111",
+        "0.000682296890659054920477397205424"
+      ],
+      [
+        "0.00000787000804319297081731177825802",
+        "0.0000613786417391763990335859920561"
+      ],
+      [
+        "0.0000515031417369663601424670542332",
+        "0.000383810445053003371018522111933"
+      ],
+      [
+        "0.00000969208084058122289237816722535",
+        "0.0000728935520619033883773364572294"
+      ],
+      [
+        "0.00000301149769739897061421278447328",
+        "0.0000316558158050262224875330107931"
+      ],
+      [
+        "-0.000036791212750565175908509212022",
+        "-0.000272280108390454107769416737297"
+      ]
+    ],
+    "low_floor_a": "0.00000000134585111560222480252880092675",
+    "high_floor_G": "0.141780330761960764478752730125",
+    "coupling_operator_norm_c": "0.000842247633030499690063937488898",
+    "schur_scalar_a_minus_c2_over_G": "-0.00000500203558785480309384363484331",
+    "matrix_schur_lower_model_low_minus_CtC_over_G": [
+      [
+        "0.000000980144367406668789279044295223",
+        "0.00000722212369094597413206841682753"
+      ],
+      [
+        "0.00000722212369094597413206841682753",
+        "0.000053287721089232797403008915736"
+      ]
+    ],
+    "matrix_schur_lower_floor": "0.00000000130078383718587625301547687486",
+    "exact_point_schur_complement": [
+      [
+        "0.00000100454179613218249462317562082",
+        "0.00000740521567163110610695680950878"
+      ],
+      [
+        "0.00000740521567163110610695680950878",
+        "0.0000546625230471698032989422585736"
+      ]
+    ],
+    "exact_point_schur_floor": "0.00000000132163760533988113890336013491",
+    "forcing_resolvent_decomposition": null,
+    "basis_definition": "prolate_windows_then_twice_reorthogonalized_coordinate_vectors"
+  },
+  "even_additive_concentration_model": {
+    "raw_source_window_Gram": [
+      [
+        "0.0000000940391925862857403396099196287",
+        "-1.89968100269768846203785194739e-15"
+      ],
+      [
+        "-1.89968100269768846203785194739e-15",
+        "0.00196714511128012475371059655883"
+      ]
+    ],
+    "orthonormal_low_basis_model": [
+      [
+        "0.0000461422985849483520081310116467",
+        "0.000361454934612038938631927025807"
+      ],
+      [
+        "0.000361454934612038938631927025807",
+        "0.00284085271026175319051306481977"
+      ]
+    ],
+    "orthonormal_low_basis_model_eigenvalues": [
+      "0.000000150269334345122435937779348185",
+      "0.00288684473951235642008525805207"
+    ],
+    "construction": "C^T diag(1-chi_n^2) C, followed by the same source-state Gram congruence; assembled before Q",
+    "Weil_eigenvectors_used": false,
+    "point_relative_audit": {
+      "operator": "D^(-1/2) S D^(-1/2)",
+      "S": "exact point low Schur complement after deterministic high elimination",
+      "relative_operator": [
+        [
+          "3.06356478515801668311229528946",
+          "0.842590353805003832991216859061"
+        ],
+        [
+          "0.842590353805003832991216859061",
+          "1.89976459740951396547293944601"
+        ]
+      ],
+      "relative_eigenvalues": [
+        "1.45766946493937260301655202054",
+        "3.50565991762815804556868271492"
+      ],
+      "center_scalar": "2.48166469128376532429261736773",
+      "relative_radius_about_center": "0.412624328315152002515513414408",
+      "claim_scope": "finite arbitrary-precision point comparison only; not an interval or uniform estimate",
+      "model_inverse_effective_forcing": [
+        "0.00151333868218604430492884125365",
+        "-0.00019426812144349157195798325822"
+      ],
+      "model_inverse_effective_forcing_norm": "0.00152575688430685981302562458672",
+      "center_scaled_model_solution": [
+        "0.000609807879163237840636179580673",
+        "-0.0000782813738398303352917600863209"
+      ],
+      "center_scaled_model_solution_norm": "0.000614811859823651545132862953353",
+      "center_scaled_model_solution_defect_from_exact_low_solution": "0.0000652008645852287519565709565289"
+    },
+    "point_relative_audit_matrix_Schur_lower_model": {
+      "operator": "D^(-1/2) S_0 D^(-1/2)",
+      "S_0": "low-C^T*C/G matrix lower model",
+      "relative_operator": [
+        [
+          "2.96288530009850123282041564097",
+          "0.739329037203326661756113099869"
+        ],
+        [
+          "0.739329037203326661756113099869",
+          "1.77802790220287727498196380886"
+        ]
+      ],
+      "relative_eigenvalues": [
+        "1.42305004185895877615200244368",
+        "3.31786316044241973165037700615"
+      ],
+      "center_scalar": "2.37045660115068925390118972491",
+      "relative_radius_about_center": "0.399672602667280012121389690785",
+      "claim_scope": "finite arbitrary-precision point comparison only; not an interval or uniform estimate"
+    }
+  },
+  "odd_additive_concentration_model": {
+    "raw_source_window_Gram": [
+      [
+        "2.30951594961849832500412165448e-10",
+        "4.56283973953462987610907159727e-17"
+      ],
+      [
+        "4.56283973953462987610907159727e-17",
+        "0.0000190785501845753733208160614944"
+      ]
+    ],
+    "orthonormal_low_basis_model": [
+      [
+        "0.000000485043174347348585125342244014",
+        "0.00000361532035538733429987256927458"
+      ],
+      [
+        "0.00000361532035538733429987256927458",
+        "0.0000269760322438572242835427710519"
+      ]
+    ],
+    "orthonormal_low_basis_model_eigenvalues": [
+      "5.09786978423227919885094301671e-10",
+      "0.0000274605656312261496407482282016"
+    ],
+    "construction": "C^T diag(1-chi_n^2) C, followed by the same source-state Gram congruence; assembled before Q",
+    "Weil_eigenvectors_used": false,
+    "point_relative_audit": {
+      "operator": "D^(-1/2) S D^(-1/2)",
+      "S": "exact point low Schur complement after deterministic high elimination",
+      "relative_operator": [
+        [
+          "2.97760455908417265567558618818",
+          "0.543801299366454793752025220853"
+        ],
+        [
+          "0.543801299366454793752025220853",
+          "1.86427588044172949121486957672"
+        ]
+      ],
+      "relative_eigenvalues": [
+        "1.64274034835164281566465839699",
+        "3.19914009117425933122579736791"
+      ],
+      "center_scalar": "2.42094021976295107344522788245",
+      "relative_radius_about_center": "0.321445306686468500521944468215",
+      "claim_scope": "finite arbitrary-precision point comparison only; not an interval or uniform estimate"
+    },
+    "point_relative_audit_matrix_Schur_lower_model": {
+      "operator": "D^(-1/2) S_0 D^(-1/2)",
+      "S_0": "low-C^T*C/G matrix lower model",
+      "relative_operator": [
+        [
+          "2.95132242322084997566546720792",
+          "0.550300171565398861286418820161"
+        ],
+        [
+          "0.550300171565398861286418820161",
+          "1.81113825023011953563586115948"
+        ]
+      ],
+      "relative_eigenvalues": [
+        "1.58886977113078884500181805218",
+        "3.17359090232018066629951031522"
+      ],
+      "center_scalar": "2.3812303367254847556506641837",
+      "relative_radius_about_center": "0.332752591538162303205538024224",
+      "claim_scope": "finite arbitrary-precision point comparison only; not an interval or uniform estimate"
+    }
+  },
+  "anchor_to_even_window_couplings": [
+    "-1.3550171216780270798324852949e-10",
+    "-0.00000000296134076028475021539883340445"
+  ],
+  "combined_residual_squared_fraction_in_selected_even_windows": "0.000381120768434069763898241040024",
+  "assembly_discipline": {
+    "prolate_low_basis_fixed_before_Weil_assembly": true,
+    "Weil_eigenvectors_used_to_define_basis": false,
+    "Weil_matrix_path": "source closed pole/archimedean/prime formulas via blocks_split",
+    "high_basis": "twice-reorthogonalized canonical coordinate vectors after fixed prolate windows"
+  },
+  "limitations": [
+    "All values are arbitrary-precision point diagnostics, not intervals or balls.",
+    "The finite integral-ratio deformation is explicit and has the source equation (29) as its fixed-index limit, but it is not asserted by the source as an asymptotic uniform in growing labels.",
+    "The selected windows do not control all fixed or transition prolate indices on an unbounded schedule.",
+    "The additive concentration-defect Gram is a positive comparison model, not an identity with the signed Weil Schur complement.",
+    "The displayed relative spectra use the point high-block inverse and therefore do not certify a Schur complement.",
+    "A positive low block or Schur scalar at finitely many points would not prove an asymptotic coercivity estimate.",
+    "The prolate Galerkin eigenfunctions are not infinite-dimensional enclosures.",
+    "The recurrence/quadrature prolate cross-check covers labels 0,2,4; the higher pilot windows use the recurrence assembly only.",
+    "The prolate and Weil computations share mpmath in this diagnostic.",
+    "No Weil positivity, zeta-zero list, RH conclusion, or determinant-convergence claim is used."
+  ]
+}

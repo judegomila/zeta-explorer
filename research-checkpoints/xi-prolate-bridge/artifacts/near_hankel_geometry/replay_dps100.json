@@ -1,0 +1,73 @@
+{
+  "terminal_state": "P0_INVALIDATED",
+  "claim_class": "EXACT_NEAR_HANKEL_GEOMETRY_POINT_REPLAY",
+  "signed_lower_bound_claim": false,
+  "equation_5_2_claim": false,
+  "inputs": {
+    "L_exact_decimal": "2",
+    "X_exact_decimal": "1.25",
+    "sample_x_exact_decimals": [
+      "0.125",
+      "0.375",
+      "0.75",
+      "1.125"
+    ],
+    "precision_decimal_digits": 100,
+    "arithmetic_library": "mpmath 1.4.1",
+    "coordinate": "centered logarithmic t in [-L/2,L/2]",
+    "measure": "Lebesgue dt with zero extension"
+  },
+  "profile_contract": {
+    "finite_profiles": "deterministic analytic even and odd profiles on the closed window",
+    "outer_profile": "deterministic analytic exponentially decaying right-boundary profile, parity-reflected on the left",
+    "projection_profile": "deterministic analytic even profile on the closed window",
+    "signed_kernel": "exp(-2*x/5)*(cos(11*x/5)-1/4)",
+    "signed_kernel_is_arithmetic_delta_star": false
+  },
+  "formulas_replayed": {
+    "source_correlation": "integral_R(conj(v(t))*R(t+x)+conj(v(t+x))*R(t))dt",
+    "boundary_hankel": "(1+eps_v*eps_R)*integral_0^x conj(A(s))*B(x-s)ds",
+    "equation_3_5": "2*a(0)*integral_0^X delta(t)b(t)dt+2*integral_0^X(a'(s)-a(s))*H_delta_X(b)(s)ds",
+    "equation_3_10": "2*integral_x^L conj(A(s))*C(s-x)ds",
+    "equation_3_11": "2*integral_0^(L-x) a(y+x)c(y)dy",
+    "equation_3_13_boundary": "-2*a(L)*integral_0^X delta(x)c(L-x)dx",
+    "equation_3_13_bulk": "2*integral_0^L(a'(s)-a(s))*T_delta_X(c)(s)ds"
+  },
+  "defects": {
+    "source_vs_boundary_hankel_same_parity": {
+      "even_even": "0.0",
+      "odd_odd": "0.0"
+    },
+    "opposite_parity_direct_correlation": {
+      "even_odd": "0.0",
+      "odd_even": "0.0"
+    },
+    "direct_signed_integral_vs_equation_3_5": "1.785917798878554659712161794227095249143609366910622908148634130043175993604278430742887534156518796e-102",
+    "direct_projection_correlation_vs_equation_3_10": "0.0",
+    "weighted_projection_correlation_vs_equation_3_11": "2.857468478205687455539458870763352398629774987056996653037814608069081589766845489188620054650430074e-101",
+    "direct_projection_signed_integral_vs_equation_3_13": "7.143671195514218638848647176908380996574437467642491632594536520172703974417113722971550136626075185e-102"
+  },
+  "projection_boundary_sign_regression": {
+    "required_sign": "minus",
+    "correct_sign_integer": -1,
+    "correct_formula_defect": "7.143671195514218638848647176908380996574437467642491632594536520172703974417113722971550136626075185e-102",
+    "boundary_term_magnitude": "0.6396964940345220944655865291768178176213868982268038148473080346802680605695232619614075514873310671",
+    "wrong_plus_sign_defect": "1.279392988069044188931173058353635635242773796453607629694616069360536121139046523922815102974662134",
+    "plus_sign_rejected_by_public_contract": true
+  },
+  "direct_values": {
+    "outer_signed_integral": "(0.2640773347546623950639772422323959004679215430589472737462657904264720335555491266422614376326134433 + 0.2387544185071551143985639924640095718466933553133740757827264041664319435588108627407950634489986078j)",
+    "equation_3_5_value": "(0.2640773347546623950639772422323959004679215430589472737462657904264720335555491266422614376326134433 + 0.2387544185071551143985639924640095718466933553133740757827264041664319435588108627407950634489986078j)",
+    "projection_signed_integral": "(0.4696151751135354356982834275625803804998702230978842456159042435869189453443061859673462218011597709 - 0.1498685076874519549199428850724950564095970164170801668160886739029136313955441551776033956892602344j)",
+    "equation_3_13_value": "(0.4696151751135354356982834275625803804998702230978842456159042435869189453443061859673462218011597709 - 0.1498685076874519549199428850724950564095970164170801668160886739029136313955441551776033956892602344j)"
+  },
+  "tolerance": "1.0e-50",
+  "producer_modules_imported": false,
+  "replay_agrees": true,
+  "limitations": [
+    "point-valued mpmath quadrature without interval or ball enclosures",
+    "both paths share mpmath transcendental arithmetic and deterministic toy-profile evaluators",
+    "the smooth signed toy kernel isolates geometry and is not the arithmetic Chebyshev kernel delta_star",
+    "finite-window identity regression only; no norm estimate, signed sector floor, equation (5.2), determinant convergence, or RH claim"
+  ]
+}

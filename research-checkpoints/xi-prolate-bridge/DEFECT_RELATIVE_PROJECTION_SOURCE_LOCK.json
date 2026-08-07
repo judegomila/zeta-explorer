@@ -1,0 +1,102 @@
+{
+  "schema": "xi-prolate-defect-relative-projection-source-lock-v1",
+  "claim_class": "DEFECT_RELATIVE_FOURIER_PROJECTION_ONLY",
+  "terminal_state": "P0_INVALIDATED",
+  "external_source": {
+    "authors": "Michela Egidi and Albrecht Seelmann",
+    "title": "An abstract Logvinenko-Sereda type theorem for spectral subspaces",
+    "arxiv_id": "2010.11901",
+    "version": "v2",
+    "version_date": "2021-03-30",
+    "source_url": "https://export.arxiv.org/e-print/2010.11901v2",
+    "vendored_source": "vendor/EGIDI-SEELMANN-LS-2010.11901v2.tex.gz",
+    "vendored_source_media_type": "application/gzip",
+    "gzip_original_filename": "Egidi_Seelmann__Logvinenko-Sereda__2021.tex",
+    "gzip_sha256": "8cad2763fb84f09e44c7309ebecffa295e8b193ba9e506749451b305b50adf5c",
+    "uncompressed_tex_sha256": "b459dd2a485b061edb1dc94e5313830acf6e12b2af07098e3f8642993e676907",
+    "binding_location": "Theorem 1.2 (TeX label thm:LS), equations (1.4)--(1.6), and the pure-Laplacian specialization immediately following equation (1.7)",
+    "license_notice_in_source": "CC-BY-NC-ND 4.0 manuscript notice"
+  },
+  "existing_pinned_dependencies": [
+    {
+      "path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "role": "additive Fourier and source prolate-state conventions"
+    },
+    {
+      "path": "vendor/CCM-PROLATE-2310.18423v2.pdf",
+      "sha256": "8bc197642ee9ca4f2393b6cbfd3db292be6a315ce76ad61bfb845d9fedb47f2e",
+      "role": "finite Fourier/prolate eigenfunction normalization"
+    },
+    {
+      "path": "vendor/KRD-PSWF-2006.00427v2.pdf",
+      "sha256": "7c56255db5bd6454e3fc926952052fe466ffd49c4961ad8206638dcac1dd39a0",
+      "role": "chi_n at least 1/sqrt(2) for labels 0 and 4 when lambda at least 2"
+    }
+  ],
+  "locked_project_conventions": {
+    "additive_fourier_transform": "F_plus(f)(xi)=integral_R f(x)*exp(+2*pi*i*x*xi) dx",
+    "source_interval": "[-lambda,lambda]",
+    "source_measure": "Lebesgue dx",
+    "zero_extension": "h_n is zero outside [-lambda,lambda]",
+    "prolate_parameter": "c=2*pi*lambda^2",
+    "concentration": "Lambda_n(c)=chi_n(lambda)^2",
+    "defect": "d_n(lambda)=1-chi_n(lambda)^2",
+    "mode_labels": [
+      0,
+      4
+    ],
+    "log_interval": "[-log(lambda),log(lambda)]",
+    "log_interval_length": "L=2*log(lambda)",
+    "log_fourier_basis": "L^(-1/2)*exp(+2*pi*i*m*(t+log(lambda))/L)",
+    "inversion_evenization": "K_n(t)=(E(h_n)(exp(t))+E(h_n)(exp(-t)))/2",
+    "source_combination": "a4=sqrt(3)/2^(11/4); a0_lambda=a4*integral(h4)/integral(h0)",
+    "projector": "P_N keeps all integer modes |m|<=N"
+  },
+  "locked_logvinenko_sereda_insertion": {
+    "ambient_domain": "Omega=R",
+    "observation_set": "omega=R\\[-lambda,lambda]",
+    "dimension": "d=1",
+    "thickness": "gamma=1/2; rho=4*lambda",
+    "covering": "Q_j=(4*lambda*j,4*lambda*(j+1)); kappa=1; l_1=4*lambda; eta=1",
+    "unit_ball_volume": "tau_1=2",
+    "angular_frequency_energy": "E=(2*pi*lambda)^2",
+    "pure_laplacian_h": "h(E)=exp(10*l_1*sqrt(E))=exp(80*pi*lambda^2)",
+    "theorem_base": "24*d*tau_d*l_1/(gamma*eta*rho)=96",
+    "theorem_exponent": "5+320*pi*lambda^2/log(2)",
+    "defect_lower_bound": "d_n>=6*96^(-5-(320*pi/log(2))*lambda^2)",
+    "sqrt_defect_lower_bound": "sqrt(d_n)>=sqrt(6)*96^(-5/2)*exp(-(160*pi*log(96)/log(2))*lambda^2)"
+  },
+  "locked_bv_projection_bound": {
+    "dilation_generator": "D=1/2+x*d/dx",
+    "endpoint_bound": "abs(h_n(lambda))<=16*pi*sqrt(lambda*d_n)",
+    "variation_bound": "TV_circle(K_n)<=4*lambda*(2*pi*lambda^2+1/2)+32*pi*lambda^2*sqrt(d_n)",
+    "periodic_bv_tail": "norm((I-P_N)K_n)_2<=sqrt(2*log(lambda))*TV_circle(K_n)/(pi*sqrt(2*N))",
+    "log_weighted_tail": "sum_(abs(m)>N) log(2+abs(m))*abs(c_m)^2 <= (L*TV_circle(K_n)^2/(2*pi^2*N))*(log(3*N)+1)"
+  },
+  "locked_diagonal_schedule": {
+    "index_domain": "j is an integer and j>=2",
+    "lambda": "lambda_j=j+1/2",
+    "K": 2400,
+    "N": "N_j=2^(2400*(2*j+1)^2)",
+    "N_equivalent": "N_j=exp(9600*log(2)*lambda_j^2)",
+    "inverse_sqrt_N": "N_j^(-1/2)=exp(-4800*log(2)*lambda_j^2)",
+    "sqrt_defect_exponent": "A=160*pi*log(96)/log(2)",
+    "exponent_margin": "M=4800*log(2)-160*pi*log(96)/log(2)",
+    "positive_margin_decimal_diagnostic": "17.143296058960234038554423774919999560718362798993342185910008604959871343574238",
+    "unsafe_integer_K_ceiling": 2387,
+    "first_positive_margin_integer_K": 2388,
+    "exact_safety_condition": "K>80*pi*log(96)/log(2)^2"
+  },
+  "claim_boundary": {
+    "proved": "defect-relative ordinary L2 and logarithmically weighted Fourier projection tails for each normalized prolate label 0 and 4, and hence for their exact source combination with explicit coefficient control",
+    "not_proved": [
+      "O-P or P-P signed-distribution correlation bounds",
+      "high Fourier block coercivity",
+      "a shifted even or odd sector floor",
+      "residual-gap scaling for the full Weil form",
+      "locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ]
+  }
+}

@@ -986,10 +986,10 @@ defect-relative Loewner constants on the two split plus blocks:
 \]
 
 This is stronger than applying the absolute theorem window by window and
-retains all sampling cross terms within each block.  It is not yet the global
-alignment in (6.8d): the blockwise physical synthesis factors, a legitimately
-block-diagonal quotient metric, and the high complement must still be
-assembled without replacing a full source Gram by its block compressions.
+retains all sampling cross terms within each block.  The low physical action
+is assembled below with a deliberately block-diagonal quotient metric.  The
+high physical complement and shifted signed comparison remain open; a full
+source Gram still cannot be replaced by its block compressions.
 The exact five-dimensional radical model in
 `notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md` also has every scalar P/O pairing
 equal to zero but nonzero weighted action, proving that (6.6)--(6.7) cannot
@@ -1032,13 +1032,69 @@ where exact radicality gives `ZW=-ZY`.  The earlier `O(d_8^(-1))` target is
 a stronger sufficient condition.  A generic compact-BV bound still
 loses one defect by making `C_ext` itself proportional to
 `||W D_ext^(-1/2)||^2`.  Equations (6.8a)--(6.8d) are therefore an exact
-conditioning reduction.  The growing-transition sampling theorem supplies
-the low split-block Loewner `C_ext` factors, but the physical synthesis
-factors, a legitimate
-block quotient with cross-block orientation, and the high complement remain
-to be assembled.  The full shifted signed operator must also be left-close
-to, or dominate, the same quotient preconditioner; a low compression alone
-does not control the full inverse when low/high couplings are present.  See
+conditioning reduction.
+
+The low split-block part is now closed.  Define
+
+\[
+ D_{\rm bd}=D_8\oplus D_R,
+ \quad A_i=W_iD_i^{-1/2},
+ \quad R_L=A_8A_8^*+A_RA_R^*,
+ \quad \Delta_L=R_L^\dagger|_{K_L}.                       \tag{6.8d1}
+\]
+
+The within-block Loewner estimates and the complete row-operator triangle
+inequality give, with the mixed sampling term retained,
+
+\[
+ \Gamma_L
+ \leq\left(\sqrt{C_8M_8}+\sqrt{C_RM_R}\right)^2,
+ \quad M_i=\|W_iD_i^{-1/2}\|^2.                           \tag{6.8d2}
+\]
+
+Anchor deflation is a contraction on the raw physical columns while the
+post-deflation metrics satisfy `D_8>=d_8` and `D_R>=d_12 I`.  Hence
+
+\[
+ M_8\leq{\lambda^2(1+\rho_8^2)\over2d_8},
+ \qquad
+ M_R\leq{3\lambda^4(5+32\pi\lambda^2)\over4d_{12}}.
+                                                                  \tag{6.8d3}
+\]
+
+The pinned, qualitative fixed-index limits
+
+\[
+ \rho_8\to-\frac{\sqrt{70}}{16},
+ \qquad
+ {d_{12}\over d_8}\sim{8192\pi^4\over1485}\lambda^8
+                                                                  \tag{6.8d4}
+\]
+
+therefore prove
+
+\[
+ \boxed{\Gamma_L
+ =O\!\left({\lambda^3\operatorname{polylog}\lambda\over d_8}\right).}
+                                                                  \tag{6.8d5}
+\]
+
+This is a qualitative low-range theorem, not a finite use of either limit in
+(6.8d4).  If `K=K_L direct-sum K_H` and a positive comparison `gI` were
+available on the physical complement, the exact extension would be
+
+\[
+ \Gamma\leq\Gamma_L+{B_H\over g^2}.                       \tag{6.8d6}
+\]
+
+No adequate `g` is proved.  In particular, Fourier-high coercivity does not
+apply to `K_H=K_L^perp` without a geometric comparison.  The model
+`Q=diag(1,-1,1)`, `K_L=span(e_1)`, `F_high=span(e_3)` has positive low and
+Fourier-high compressions but a negative direction in `K_L^perp`.  Likewise,
+the exact model `W=[1,1]`, `D_bd=2I`,
+`D_full=[[2,-1],[-1,2]]` changes the quotient action from `1` to `4`, so the
+full shifted signed operator must be compared with the same block metric.
+See `notes/BLOCK_QUOTIENT_ACTION_THEOREM.md` and
 `notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md`.
 
 The generic loss is now quantified without an unspecified constant.  On the

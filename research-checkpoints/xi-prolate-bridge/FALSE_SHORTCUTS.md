@@ -150,6 +150,17 @@ region required by RH.
   control `P_KB^(-1)c` when low/high couplings are present.  The complete
   operator must dominate, or be left-close to, the low/high quotient
   preconditioner with the cross couplings included.
+- A quotient built from the diagonal block metrics is not the quotient of the
+  full exterior Gram.  For `W=[1,1]`, `D_block=2I`, and
+  `D_full=[[2,-1],[-1,2]]`, the two actions are respectively `1` and `4`.
+  Any signed comparison must use the same explicitly chosen block metric all
+  the way through.
+- Fourier-high coercivity is not coercivity on the orthogonal complement of
+  the physical low range.  With `Q=diag(1,-1,1)`, physical low
+  `span(e1)`, and Fourier high `span(e3)`, both displayed compressions have
+  floor `+1`, while the physical complement contains `e2` with form `-1`.
+  A geometric or full signed comparison is required before transferring a
+  floor between these decompositions.
 - The pole cannot be assigned the same sign in the two parity sectors.  With
   the locked Fourier sign it is `2 epsilon |p_epsilon><p_epsilon|`: positive
   in the even sector and negative in the odd sector.  Dropping inversion

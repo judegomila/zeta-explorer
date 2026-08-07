@@ -477,4 +477,16 @@ for P0_GROWING_DPS in 80 160; do
     --output "artifacts/growing_transition_sampling/p7_q14_d${P0_GROWING_DPS}_replay.json" >/dev/null
 done
 
+mkdir -p artifacts/block_quotient_action
+for P0_BLOCK_ACTION_P in 5 7; do
+  for P0_BLOCK_ACTION_DPS in 80 160; do
+    python3 src/block_quotient_action.py \
+      --lambda-numerator "$P0_BLOCK_ACTION_P" --dps "$P0_BLOCK_ACTION_DPS" \
+      --output "artifacts/block_quotient_action/p${P0_BLOCK_ACTION_P}_d${P0_BLOCK_ACTION_DPS}_producer.json" >/dev/null
+    python3 verifier/block_quotient_action_replay.py \
+      "artifacts/block_quotient_action/p${P0_BLOCK_ACTION_P}_d${P0_BLOCK_ACTION_DPS}_producer.json" \
+      --output "artifacts/block_quotient_action/p${P0_BLOCK_ACTION_P}_d${P0_BLOCK_ACTION_DPS}_replay.json" >/dev/null
+  done
+done
+
 python3 src/write_artifact_manifest.py

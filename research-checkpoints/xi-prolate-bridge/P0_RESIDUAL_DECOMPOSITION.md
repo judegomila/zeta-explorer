@@ -210,10 +210,14 @@ the complete correction and projection remainder included,
 
 where `C_8=O(lambda*polylog(lambda))` and
 `C_rest=O(lambda^3*polylog(lambda))`.  All within-block cross terms are
-retained.  The remaining positive-action work is to justify the blockwise
-quotient metric, control the physical synthesis factors, and combine the
-result with the high complement; the two shifted signed comparisons remain
-separate.  The exact five-dimensional two-sided-radical model has all four
+retained.  `notes/BLOCK_QUOTIENT_ACTION_THEOREM.md` now chooses the legitimate
+metric `D_8 direct-sum D_rest`, proves the finite synthesis factors, and keeps
+the cross-block row-operator term.  Its low physical action satisfies
+`Gamma_low=O(lambda^3*polylog(lambda)/d_8)`.  The remaining positive-action
+work is the physical-complement term `B_H/g^2`; no usable `g` follows from
+the Fourier-high theorem because the physical and Fourier complements need
+not agree.  The two shifted signed comparisons remain separate.  The exact
+five-dimensional two-sided-radical model has all four
 scalar P/O pairings equal to zero while the residual action remains nonzero,
 so the scalar quadratic closure above still cannot by itself be promoted to
 the required vector estimate or equation (5.2).

@@ -167,13 +167,26 @@ and 160 decimal digits without a zero list, global zero-reality assumption,
 or Weil positivity.  The two formula trees share `mpmath.iv`, which is
 recorded as a library limitation.
 
-This closes the defect-relative sampling/projection side of the split source
-blocks; it does not identify their block-diagonal quotient metric with a full
-cross-block exterior Gram.  The physical synthesis factors, the high
-complement, and both shifted signed comparisons must still be combined before
-one can infer the relaxed global target
-`G_+ <= Gamma D_+^2` with
-`Gamma=O(lambda^4*polylog(lambda)/d_8)`.  Thus equation (5.2) remains open.
+`notes/BLOCK_QUOTIENT_ACTION_THEOREM.md` now closes the corresponding low
+physical action without identifying the block metric with a full cross-block
+exterior Gram.  It deliberately sets `D_bd=D_8 direct-sum D_rest`, forms the
+minimum-energy quotient on the actual range, and retains the cross-block
+sampling orientation.  The finite synthesis estimates are
+
+`M_8 <= lambda^2(1+rho_8^2)/(2d_8)`,
+
+`M_rest <= 3lambda^4(5+32pi lambda^2)/(4d_12)`.
+
+The pinned qualitative fixed-index limits then give
+
+`Gamma_low=O(lambda^3*polylog(lambda)/d_8)`,
+
+which is stronger than the relaxed positive target on this low range.  The
+producer and clean-room replay reconstruct exact quotient counterexamples and
+the finite product `d_12 M_rest` at 80 and 160 digits; the fixed-index limits
+remain explicitly non-effective.  The physical high complement and both
+shifted signed comparisons are still open, so neither the global action nor
+equation (5.2) follows.
 
 `notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md` now removes the lower physical
 Gram determinant from this positive-sampling route.  If `D_ext` is the
@@ -347,9 +360,10 @@ gives `mu_n(c)<=c^2-1<c^2` for every `0<=n<4*lambda^2`.  The exact-rational
 producer and clean-room replay reconstruct the packet tiling, scaled cosine
 moments, form difference, and index range without numerical prolate data.
 This is not a lower bound for `d_n`, a signed Weil comparison, or equation
-(5.2).  The separate transition and growing-family theorems listed above now
-close the split-block sampling/projection successor, but not its quotient
-action or signed use.
+(5.2).  The separate transition, growing-family, and block-action theorems
+listed above now close the split-block sampling/projection successor and its
+low positive quotient action, but not the physical high complement or signed
+use.
 
 `notes/PRUFER_SAME_PARITY_GAP_THEOREM.md` supplies a separate,
 non-collision bound for the differential prolate eigenvalues.  It uses the
@@ -555,8 +569,11 @@ with Arb balls. These are finite diagnostics, not an asymptotic proof.
 - Transition and growing corrected-source sampling/projection: **yes for the
   split plus blocks, with explicit `C_8=O(lambda*polylog(lambda))` and
   `C_rest=O(lambda^3*polylog(lambda))` and every within-block cross term
-  retained; no for the physical synthesis/block-quotient/high-complement
-  assembly, either signed comparison, or equation (5.2)**.
+  retained**.
+- Split-block quotient action: **yes on the low physical range, including
+  finite synthesis factors, cross-block orientation, and
+  `Gamma_low=O(lambda^3*polylog(lambda)/d_8)`; no for a usable physical-high
+  metric, either signed comparison, the global action, or equation (5.2)**.
 - Fixed-index prolate defect asymptotic: **yes, qualitatively from a vendored
   and hashed Slepian source, including the eventual `d_4/d_8` scale; no
   effective threshold, growing-index uniformity, or signed Weil floor**.

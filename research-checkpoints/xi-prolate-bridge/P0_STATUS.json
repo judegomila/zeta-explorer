@@ -1,9 +1,9 @@
 {
-  "artifact_version": "0.23.0-growing-transition-sampling",
+  "artifact_version": "0.24.0-block-quotient-action",
   "terminal_state": "P0_INVALIDATED",
   "terminal_reason": "The pinned CCM-ZST-v1 formulas (3.5), (7.1), and (7.2) imply transform Xi/4, contradicting the Xi normalization asserted in Lemmas 7.1 and 7.3. Printed (4.14) also double-counts c(L) relative to the defining (3.15)/(4.4).",
   "repair_scope": "Both discrepancies are explicitly repairable: retain the locked prolate state, multiply only the final characteristic function by 4, and remove the duplicated c(L) in the independent archimedean verifier. No zero set or normalized residual-gap quantity changes.",
-  "claim_class": "SOURCE_LOCKED_GROWING_TRANSITION_REMAINDER_LOEWNER_COMPONENT_WITH_OPEN_QUOTIENT_ACTION_AND_SIGNED_FLOORS",
+  "claim_class": "SOURCE_LOCKED_LOW_SPLIT_BLOCK_QUOTIENT_ACTION_COMPONENT_WITH_OPEN_PHYSICAL_HIGH_AND_SIGNED_FLOORS",
   "rh_proof_claim": false,
   "new_lambda_bound_claim": false,
   "analytic_uniform_claim": false,
@@ -54,6 +54,11 @@
     "growing_transition_remainder_loewner_bound_proved": true,
     "growing_transition_compact_projection_bound_proved": true,
     "growing_transition_sampling_independent_replay_written": true,
+    "block_quotient_action_source_locked": true,
+    "block_quotient_action_independent_replay_written": true,
+    "low_split_block_physical_synthesis_bounds_proved": true,
+    "low_split_block_action_target_scale_proved": true,
+    "physical_high_complement_action_scale_proved": false,
     "normalization_free_shift_epsilon_o_d6_proved": true,
     "projected_state_norm_source_locked": true,
     "projected_state_norm_lower_bound_proved": true,
@@ -97,6 +102,8 @@
     "independent 80- and 160-digit outward-interval replay of the transition threshold and finite constants at p=5 and p=7, with strict source hashes, even-label and endpoint-domain enforcement, and the shared mpmath.iv limitation disclosed",
     "growing corrected-source Loewner theorem retaining the origin correction, arbitrary plus-anchor deflation, both reflected tails, compact projection, and every within-block sampling cross term, with C_8=O(lambda*polylog(lambda)) and C_rest=O(lambda^3*polylog(lambda))",
     "independent 80- and 160-digit replay of the growing transition constants, exact q-linearity, one-loss projection exponent, full-metric-shortcut rejection, and exact positive hybrid series, with the shared mpmath.iv limitation disclosed",
+    "split-block quotient action theorem with the deliberately block-diagonal metric D_8 direct-sum D_rest, exact cross-block row-operator orientation, finite physical synthesis bounds, and qualitative Gamma_low=O(lambda^3*polylog(lambda)/d_8)",
+    "independent exact-rational and 80/160-digit replay of the low quotient action, d_12*M_rest product, nontrivial Moore--Penrose range model, full-metric substitution counterexample, and physical-complement/Fourier-high counterexample",
     "source Cauchy matrix form and rank-two commutator independently reconstructed, giving the conditional finite boundary nonvanishing theorem",
     "complete finite quotient-metric self-adjointness and regularized-determinant theorem reproduced from the pinned source, with spectral-cut phase, boundary normalization, arbitrary-rescaling compensation, and the scale-free unit-vector comparison audited",
     "two deterministic candidate bandwidth schedules sampled without cost optimization",
@@ -130,7 +137,7 @@
     "independent 80- and 160-digit outward-interval replay of the hybrid constants, exact-dyadic endpoints, stable summation-threshold ceilings, polynomial absorption margin, and stretched-exponential tail certificate, with the shared mpmath.iv limitation disclosed",
     "projected-state norm lower theorem proved from the locked source comparison, periodic Fourier tail, and explicit two-sided limiting-state tail: ||P_N*k_lambda^+|| tends to ||E(h)(exp(.))||_2>0 whenever log(lambda)/(N+1)->0, so the hybrid estimate also gives U_Z=epsilon_lambda/a^2=o(d_6)",
     "independent 80- and 160-digit outward-interval replay of the positive limiting norm lower bound, elementary half-integer gamma majorants, finite lower-margin formula, and unit-normalization rejection factor; the finite delta input is not promoted to an effective source enclosure",
-    "the explicit hybrid rate relaxes the sufficient graph-alignment target from O(1/d_8) to O(lambda^4*polylog(lambda)/d_8); the split-block defect-relative source Grams are now proved, while their quotient-action and high-complement assembly remains open",
+    "the explicit hybrid rate relaxes the sufficient graph-alignment target from O(1/d_8) to O(lambda^4*polylog(lambda)/d_8); the split-block source Grams, physical synthesis factors, and low quotient action are now proved at the stronger O(lambda^3*polylog(lambda)/d_8) scale, while the physical high complement remains open",
     "direct compact-BV insertion into normalized growing windows proved quantitatively insufficient: the label-8 term loses B_abs/d_8; the successor split-block transition theorem now supplies the defect-relative source-coordinate alternative without reviving that shortcut",
     "complete-remainder sampling converted into the sharp positive-Gram inequality (a*b)(a*b)^*<=epsilon_lambda*G_+; the hybrid theorem now makes the common normalization-free shift epsilon_lambda*I negligible at d_6, while the remaining even action is still exactly one open global alignment constant ||D_+^(-1)G_+D_+^(-1)||",
     "minimum-source-energy quotient preconditioner proved and independently replayed on a rank-deficient exact model: W^*G_ZW<=C*D descends to G_Z<=C*Delta on ran(W), with alignment bounded by C*||W*D^(-1/2)||^2 and no smallest physical singular value",
@@ -144,7 +151,7 @@
     "exact parity multiplier and finite-dangerous-space Schur reduction derived with the minus-prime sign, inclusive lambda-squared cutoff, signed rank-one pole terms, and an explicit phase-volume obstruction; no signed floor is inferred",
     "odd negative pole isolated as one explicit dangerous span, giving a one-dimension rank alternative to the pole-norm trace penalty",
     "qualitative injectivity of both continuous parity arithmetic maps proved on finite-dimensional analytic source spaces along the half-integer schedule, together with exact pre-parity Mobius conditioning and a normalized Gram determinant/minor target",
-    "expanded fail-closed, finite-linear-algebra, source-lock, source-commutator, anisotropic-Schur, projection-rate, relative-projection, signed-rewrite, transition-window, leading-prolate-oscillation, transition-prolate-outer, growing-transition-sampling, far-tail, high-coercivity, compact-projection, outer-projection, outer-spectral, hybrid-odd-scale sampling, weak-residual, physical-conditioning, parity-multiplier, Hankel-moment, outer-obstruction, geometry, independent-replay, and replay-tolerance test suite"
+    "expanded fail-closed, finite-linear-algebra, source-lock, source-commutator, anisotropic-Schur, projection-rate, relative-projection, signed-rewrite, transition-window, leading-prolate-oscillation, transition-prolate-outer, growing-transition-sampling, block-quotient-action, far-tail, high-coercivity, compact-projection, outer-projection, outer-spectral, hybrid-odd-scale sampling, weak-residual, physical-conditioning, parity-multiplier, Hankel-moment, outer-obstruction, geometry, independent-replay, and replay-tolerance test suite"
   ],
   "principal_finite_finding": {
     "lambda": "2",
@@ -194,12 +201,12 @@
     "larger N=24 and N=32 repair the lambda=2.75 finite sector sign but give nonmonotone tau values, so no analytic N(lambda) rule or weighted rate follows",
     "the four passing N=3*ceil(lambda^2) points do not prove that this multiplier works on an unbounded schedule or provide certified analytic upper bounds T_j",
     "no analytic uniform upper bounds T_j for the weighted shifted resolvent action are proved",
-    "the hybrid and projected-state norm theorems together prove U_Z=||R||_Z^2/a^2=o(d_6), closing the normalized scalar-shift scale obstruction; the split-block defect-relative sampling constants are now proved, but their quotient-action/high-complement assembly and the signed action remain open",
+    "the hybrid and projected-state norm theorems together prove U_Z=||R||_Z^2/a^2=o(d_6), closing the normalized scalar-shift scale obstruction; the split-block defect-relative sampling constants and low quotient action are now proved, but the physical-high and signed action remain open",
     "the O(lambda^2/log(lambda)) global phase-volume target is neither proved nor disproved: fixed moments and quantitative equidistribution hit a rigorous length barrier, and only an explicit exp(O(lambda)) upper bound is currently admitted; a polynomial finite-compression candidate exists but its Montgomery--Vaughan primary PDF is not yet vendored or hash-locked and it still proves no Schur sign",
-    "the fixed two-window matrix comparison already fails at lambda=2.25; the exact growing additive source Gram, KRD high floor, transition-mode theorem, and split-block corrected-remainder Loewner bounds remove the source-rank, trailing-window, and sampling/projection obstructions; a normalized physical Gram lower determinant remains absent for orthonormal-column routes but is no longer intrinsic to quotient positive sampling, while the physical synthesis factors, legitimate block-diagonal quotient assembly, high complement, and signed comparisons remain unproved",
+    "the fixed two-window matrix comparison already fails at lambda=2.25; the exact growing additive source Gram, KRD high floor, transition-mode theorem, split-block corrected-remainder Loewner bounds, and low quotient action remove the source-rank, trailing-window, sampling/projection, and low-synthesis obstructions; a normalized physical Gram lower determinant remains absent for orthonormal-column routes but is no longer intrinsic to quotient positive sampling, while the physical high complement and signed comparisons remain unproved",
     "the vendored Slepian fixed-index defect asymptotic has no explicit remainder threshold or growing-index defect uniformity; the pinned KRD leading inequality is an upper bound on the leading defects and cannot be reversed into the missing effective lower bound or signed sector floor",
-    "the exact sine-packet theorem covers every leading label and the transition theorem now supplies the buffered endpoint, complete-series, weighted-norm, and translation bounds; neither theorem supplies a signed Weil-sector floor or a physical quotient-action estimate",
-    "the locked exponential schedule now gives defect-relative transition-block projection and sampling Loewner bounds in addition to complete quadratic Ritz energy o(d_8) and complete-remainder absolute sampling o(d_6); the physical synthesis/block-quotient/high-complement assembly, both shifted parity comparisons, and a vector-specific shifted-action estimate are still needed for a uniform shifted-residual or shifted-resolvent bound",
+    "the exact sine-packet theorem covers every leading label and the transition theorem supplies the buffered endpoint, complete-series, weighted-norm, and translation bounds; the successor split-block theorem supplies the low physical quotient action, but none supplies a signed Weil-sector floor or physical-high comparison",
+    "the locked exponential schedule now gives defect-relative transition-block projection and sampling Loewner bounds, a low split-block quotient action, complete quadratic Ritz energy o(d_8), and complete-remainder absolute sampling o(d_6); the physical-high assembly, both shifted parity comparisons, and a vector-specific shifted-action estimate are still needed for a uniform shifted-residual or shifted-resolvent bound",
     "no locally uniform characteristic-function convergence has been proved"
   ],
   "shared_library_limitations": [
@@ -214,6 +221,7 @@
     "the leading-prolate oscillation producer and clean-room verifier use independent algebraic expression trees but share Python standard-library fractions.Fraction; all pi factors cancel symbolically and no transcendental arithmetic library is used",
     "the transition-prolate outer producer and clean-room verifier use independent formula assemblies but share source-pinned mpmath.iv 1.4.1 for transcendental outward intervals",
     "the growing-transition sampling producer and clean-room verifier use independent formula assemblies but share source-pinned mpmath.iv 1.4.1 for transcendental outward intervals",
+    "the block-quotient-action producer and clean-room verifier reconstruct exact rational models separately but share source-pinned mpmath.iv 1.4.1 for the finite transcendental outward intervals",
     "the parity-multiplier producer and diagnostic entrywise replay use separate assemblies but share mpmath for transcendental evaluation",
     "both rigorous matrix paths use the FLINT/Arb code family, though their formulas and enumeration paths are independent"
   ]

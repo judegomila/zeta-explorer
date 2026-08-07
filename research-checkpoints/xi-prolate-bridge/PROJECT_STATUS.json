@@ -1,5 +1,5 @@
 {
-  "artifact_version": "0.23.0-growing-transition-sampling",
+  "artifact_version": "0.24.0-block-quotient-action",
   "overall_status": "P0_INVALIDATED",
   "status_reason": "Two exact inconsistencies were found in the pinned source: the Section 7 formulas yield Xi/4, and printed (4.14) double-counts c(L). Explicit repairs preserve the intended zero argument but must be acknowledged.",
   "rh_proved": false,
@@ -101,6 +101,11 @@
   "growing_transition_remainder_loewner_bound_proved": true,
   "growing_transition_compact_projection_bound_proved": true,
   "growing_transition_sampling_independent_replay_written": true,
+  "block_quotient_action_source_locked": true,
+  "block_quotient_action_independent_replay_written": true,
+  "low_split_block_physical_synthesis_bounds_proved": true,
+  "low_split_block_action_target_scale_proved": true,
+  "physical_high_complement_action_scale_proved": false,
   "physical_transform_restricted_conditioning_proved": false,
   "physical_transform_qualitative_injectivity_proved": true,
   "refined_schedule_doubled_precision_written": true,
@@ -112,7 +117,7 @@
   "fixed_index_prolate_asymptotic_effective_threshold": false,
   "fixed_index_d4_d8_ratio_proved_eventually": true,
   "anisotropic_Schur_interval_enclosed": false,
-  "diagnostic_tests_passed": 445,
-  "diagnostic_tests_total": 445,
-  "smallest_claim": "Within the documented P0 source errata, the exact finite source formulas, finite determinant theorem, scale-free determinant normalization, global E-radical reduction, and finite anisotropic Schur/resolvent theorems remain valid. On the locked exponential schedule, the hybrid and projected-state theorems give the normalized common Ritz upper shift U_Z=o(d_6). The exact sine-packet theorem covers every leading label, and the source-locked transition theorem proves mu_n(c)<3*c^2 plus explicit defect-relative endpoint, complete-series, weighted-norm, and translation bounds for every even n<n_star. Its growing corrected-source lift retains arbitrary anchor deflation, the compact projection, both reflected tails, and every within-block sampling cross term, with C_8=O(lambda*polylog(lambda)) and C_rest=O(lambda^3*polylog(lambda)). This closes only the split-block sampling/projection input: physical synthesis, a legitimate block-diagonal quotient and cross-block/high-complement assembly, both signed parity comparisons, unbounded sector floors, vector-specific shifted-resolvent decay, equation (5.2), and locally uniform characteristic convergence remain unproved. The formal status is P0_INVALIDATED."
+  "diagnostic_tests_passed": 455,
+  "diagnostic_tests_total": 455,
+  "smallest_claim": "Within the documented P0 source errata, the exact finite source formulas, finite determinant theorem, scale-free determinant normalization, global E-radical reduction, and finite anisotropic Schur/resolvent theorems remain valid. On the locked exponential schedule, the hybrid and projected-state theorems give the normalized common Ritz upper shift U_Z=o(d_6). The exact sine-packet theorem covers every leading label, and the source-locked transition theorem proves mu_n(c)<3*c^2 plus explicit defect-relative endpoint, complete-series, weighted-norm, and translation bounds for every even n<n_star. Its growing corrected-source lift retains arbitrary anchor deflation, the compact projection, both reflected tails, and every within-block sampling cross term, with C_8=O(lambda*polylog(lambda)) and C_rest=O(lambda^3*polylog(lambda)). The deliberately block-diagonal low quotient retains cross-block orientation and has Gamma_low=O(lambda^3*polylog(lambda)/d_8). The physical high complement, both signed parity comparisons, unbounded sector floors, vector-specific shifted-resolvent decay, equation (5.2), and locally uniform characteristic convergence remain unproved. The formal status is P0_INVALIDATED."
 }

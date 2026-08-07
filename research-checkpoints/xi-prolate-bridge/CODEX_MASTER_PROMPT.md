@@ -180,11 +180,14 @@ decomposition; it is not the asymptotic proof.
    sampling theorems now supply the defect-relative within-block Loewner
    constants `C_8=O(lambda*polylog(lambda))` and
    `C_rest=O(lambda^3*polylog(lambda))`, including the compact projection and
-   every within-block sampling cross term.  The next residual target is to
-   combine these with explicit physical synthesis factors, a legitimate
-   block-diagonal quotient metric, cross-block orientation, and the high
-   complement at the relaxed sufficient scale
-   `O(lambda^4*polylog(lambda)/d_8)`.  The older uniform growing-window
+   every within-block sampling cross term.  The split-block quotient theorem
+   now combines these with finite physical synthesis factors and cross-block
+   orientation to prove the low action
+   `O(lambda^3*polylog(lambda)/d_8)`.  The next residual target is the physical
+   complement and the full shifted signed comparison.  Do not transfer the
+   Fourier-high floor to `K_low^perp`; the exact three-dimensional
+   counterexample in `notes/BLOCK_QUOTIENT_ACTION_THEOREM.md` forbids that
+   shortcut.  The older uniform growing-window
    Bessel/reciprocal-sum route remains an unproved sufficient alternative.
    The exact radical counterexample proves that
    scalar polarization cannot by itself supply this input.  The continuous physical

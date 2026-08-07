@@ -550,9 +550,9 @@ are in `notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md`.  The separate
 `notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md` now supplies
 `epsilon_lambda=o(d_6)` for the actual complete remainder on the locked
 exponential schedule.  This closes the common normalization-free scalar-shift
-scale obstruction, but it does not make
-`U_Z=epsilon_lambda/a^2` small without separate control of `a`.  The
-growing-window Bessel constants and reciprocal sum remain open.  In
+scale obstruction.  The separate projected-state norm theorem supplies the
+required lower control of `a`, so `U_Z=epsilon_lambda/a^2=o(d_6)` on that
+schedule.  The growing-window Bessel constants and reciprocal sum remain open.  In
 particular, the admitted
 scalar result `q_lambda(p,p)=o(d_8)` cannot imply (4.3a): an exact
 two-sided-radical model has every scalar P/O pairing zero and nonzero action.

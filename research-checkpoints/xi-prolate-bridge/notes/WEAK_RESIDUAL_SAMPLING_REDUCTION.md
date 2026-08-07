@@ -204,6 +204,38 @@ repository lacks
 2. the reciprocal-window sum (4.3); and
 3. the left-preconditioned comparisons in both parity sectors.
 
+The later hybrid theorem sharpens the sufficient scale in (4.3).  Its
+displayed finite majorants give
+
+\[
+ \epsilon_\lambda
+ =O(\lambda^3\operatorname {polylog}(\lambda)d_4)+o(d_4).
+                                                               \tag{4.4a}
+\]
+
+Since `d_4/d_8=Theta(lambda^(-8))`, it is enough to prove the relaxed
+reciprocal-window estimate
+
+\[
+ \boxed{
+ \sum_m{\beta_m\over d_m}
+ =O\!\left({\lambda^4\operatorname {polylog}(\lambda)\over d_8}
+       \right).}                                             \tag{4.4b}
+\]
+
+Indeed, (3.8), (4.2), and (4.4a)--(4.4b) then give
+
+\[
+ aD_{\rm chord}(\tau)
+ =O(\lambda^{-1/2}\operatorname {polylog}(\lambda)),         \tag{4.4c}
+\]
+
+which satisfies equation (5.2) for every fixed `eta<1/2`.  The original
+`O(d_8^(-1))` target remains a convenient stronger condition, but is no
+longer the smallest sufficient asymptotic scale.  The corresponding weaker
+global target, which may retain cross-window orientation, is
+`Gamma_+(D_+)=O(lambda^4*polylog(lambda)/d_8)`.
+
 A natural proof of (3.5) would construct, for every window vector, a
 uniformly conditioned two-sided radical lift
 
@@ -265,10 +297,11 @@ On the locked exponential schedule this is only
  {\beta_m\over d_m}={B_{\rm abs}\over d_m^2}.              \tag{4.9}
 \]
 
-For the first target `m=8`, (4.9) already exceeds the desired
+For the first target `m=8`, (4.9) already exceeds the earlier stronger
 `O(d_8^(-1))` scale by the factor `B_abs/d_8`, which tends to infinity by
-the pinned fixed-index asymptotic.  Thus neither regrouping the growing
-windows nor improving their count can repair the direct insertion.
+the pinned fixed-index asymptotic.  It also exceeds the relaxed target by an
+exponential factor, so neither regrouping the growing windows nor improving
+their count can repair the direct insertion.
 
 The first missing inequality is genuinely defect-relative,
 
@@ -277,9 +310,10 @@ The first missing inequality is genuinely defect-relative,
  \le C_m d_m,                                              \tag{4.10}
 \]
 
-followed by a growing-index reciprocal ladder such as
-`sum_(m=8,12,...) C_m/d_m=O(1/d_8)`.  Current KRD upper bounds and the very
-weak all-index Logvinenko--Sereda lower bound prove neither statement.
+followed by a growing-index reciprocal ladder.  The earlier
+`sum_(m=8,12,...) C_m/d_m=O(1/d_8)` target is stronger than the relaxed
+target (4.4b).  Current KRD upper bounds and the very weak all-index
+Logvinenko--Sereda lower bound prove neither statement.
 
 ### 4.2 The sharper global sampling-Gram target
 
@@ -316,10 +350,12 @@ The historical compact-BV estimate
 (4.12) `O(lambda^(-1)d_8)`.  The later hybrid complete-series theorem proves
 the sharper statement `epsilon_lambda=o(d_6)`.  Thus the normalization-free
 shift `epsilon_lambda I` in (4.12) is also negligible at the first fixed odd
-scale.  This does not make the normalized bound
-`U_Z=epsilon_lambda/a^2` small without separate lower control of `a`.  It
-also supplies no lower bound for the unshifted signed operators `A` or
-`Q_-`, so both parity comparisons remain separate obligations.
+scale.  The separate theorem in
+`notes/PROJECTED_STATE_NORM_LOWER_BOUND.md` proves
+`a->||E(h)(exp(.))||_2>0`; together they give the normalized bound
+`U_Z=epsilon_lambda/a^2=o(d_6)`.  This supplies no lower bound for the
+unshifted signed operators `A` or `Q_-`, so both parity comparisons remain
+separate obligations.
 
 The word "both" must not be read as a common defect scale.  The pinned
 fixed-index constants give
@@ -340,10 +376,11 @@ theorem supplies the missing `o(d_6)` normalization-free estimate by a
 different complete-series argument.  See
 `notes/PARITY_SHIFT_SCALE_AUDIT.md` for the updated scale audit.
 
-For the even action, let `D_+>0` and assume the left-preconditioned comparison
+For the even action, let `D_+>0` and assume the standing uniform
+left-preconditioned comparison
 
 \[
- \rho=\|D_+^{-1}(A-U_ZI-D_+)\|<1.
+ \rho=\|D_+^{-1}(A-U_ZI-D_+)\|\le\rho_0<1.
 \]
 
 Define the exact positive alignment constant
@@ -362,12 +399,13 @@ Equations (2.5) and (4.11) give
                                                                   \tag{4.14}
 \]
 
-Consequently the smallest sufficient global sampling theorem is the Loewner
-comparison `G_+<=Gamma D_+^2` with `Gamma=O(1/d_8)`.  The windowwise
-hypotheses imply such a bound after a Cauchy--Schwarz sum, but a direct global
-comparison can retain cross-window orientation and be sharper.  In contrast,
-the generic compact-BV estimate gives only `G_+<=B_abs I`; when the smallest
-scale in `D_+` is `d_8`, this yields
+Together with the hybrid estimate (4.4a), the relaxed sufficient global
+sampling theorem is the Loewner comparison `G_+<=Gamma D_+^2` with
+`Gamma=O(lambda^4*polylog(lambda)/d_8)`.  The older `O(1/d_8)` target is a
+stronger convenient condition.  Windowwise hypotheses imply a global bound
+after a Cauchy--Schwarz sum, but a direct comparison can retain cross-window
+orientation and be sharper.  In contrast, the generic compact-BV estimate
+gives only `G_+<=B_abs I`; when the smallest scale in `D_+` is `d_8`, this yields
 `Gamma_+(D_+)<=B_abs/d_8^2`, again one full defect factor too weak.
 
 ### 4.3 Quotient preconditioning removes the lower Gram determinant
@@ -409,11 +447,14 @@ Taking the infimum over all preimages gives
 
 Thus the positive-sampling action does not require a lower bound for the
 smallest singular value of \(W\), an endpoint-jet determinant, or a
-normalized physical Gram minor.  The exact sufficient scale is
+normalized physical Gram minor.  With (4.4a), the relaxed sufficient scale is
 
 \[
- C_{\rm ext}\|W D_{\rm ext}^{-1/2}\|^2=O(d_8^{-1}).          \tag{4.19}
+ C_{\rm ext}\|W D_{\rm ext}^{-1/2}\|^2
+ =O(\lambda^4\operatorname {polylog}(\lambda)d_8^{-1}).      \tag{4.19}
 \]
+
+The previous `O(d_8^(-1))` scale remains a stronger sufficient target.
 
 For the radical family, if \(Y\) synthesizes the corrected complete
 remainder and \(Z\) is the two-evaluation sampling map, exact radicality

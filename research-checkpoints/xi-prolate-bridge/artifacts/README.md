@@ -132,8 +132,9 @@ schedule; no artifact asserts the complete residual--gap bridge, equation
   through a logarithmic expression tree.  The artifacts retain all sampling
   cross terms, quotient source kernels, and record the explicit bound
   `B_abs*lambda^4/(4*d_LS^2)`.  This bound is exponentially enormous and
-  explicitly does not close the `O(1/d_8)` alignment target, either signed
-  sector, equation (5.2), determinant convergence, or RH.
+  explicitly does not close even the relaxed
+  `O(lambda^4*polylog(lambda)/d_8)` alignment target, either signed sector,
+  equation (5.2), determinant convergence, or RH.
 - `hybrid_outer_sampling_odd_shift/`: outward intervals at 80 and 160
   decimal digits for the complete-series weighted `L2` constant, hybrid
   dyadic switch, stable exact-integer ceilings, polynomial-absorption
@@ -151,6 +152,17 @@ schedule; no artifact asserts the complete residual--gap bridge, equation
   not make the normalized bound `epsilon_lambda/a^2` small without separate
   control of `a`, and proves no signed sector floor, Schur sign, residual
   action, equation (5.2), or RH.
+- `projected_state_norm_lower_bound/`: outward intervals at 80 and 160
+  decimal digits for the explicit positive limiting-state norm lower bound,
+  source-comparison error, periodic Fourier tail, elementary half-integer
+  incomplete-gamma majorants, both inversion-reflected limiting tails, and
+  the unit-normalization rejection factor.  The supplied finite
+  `delta_upper` is deliberately recorded as a diagnostic input rather than
+  promoted to an effective source enclosure.  Producer and verifier use
+  independent formula trees but share pinned `mpmath.iv` 1.4.1.  Combined
+  with the qualitative pinned `delta_lambda=O(lambda^-2)` and the hybrid
+  theorem, this proves `U_Z=o(d_6)`; it proves no signed floor, residual
+  action, equation (5.2), determinant convergence, or RH.
 - `physical_map_conditioning/`: exact half-integer breakpoint arithmetic,
   finite Möbius data, endpoint-jet leading coefficients, and an independent
   factorization/rational replay at `lambda=5/2`.  It records qualitative

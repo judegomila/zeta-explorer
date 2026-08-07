@@ -693,10 +693,11 @@ gives (5.7).  That scalar energy cancellation does not control the action of
 the signed form on the trial vector.
 The complete-series hybrid sampling theorem below separately proves that the
 common normalization-free scalar upper shift is `o(d_6)` on the locked
-schedule.  This removes one normalization-free scalar obstruction but does
-not make `U_Z=epsilon_lambda/a^2` small without separate control of `a`, or
-prove either sector floor, a shifted Schur sign, or the required residual
-action.
+schedule.  The separate projected-state norm theorem proves
+`a=||P_Nk_lambda^+|| -> ||E(h)(exp(.))||_2>0`, so together these results give
+`U_Z=epsilon_lambda/a^2=o(d_6)`.  This removes the scalar shift obstruction
+but proves neither sector floor, a shifted Schur sign, nor the required
+residual action.
 Finite pilot values of `tau`, even when independently replayed at doubled
 precision, establish none of these uniform assertions.
 The finite left-preconditioned and Schur-complement criteria in
@@ -908,8 +909,12 @@ complete-series hybrid theorem in
 
 Consequently a reciprocal window sum of scale `O(1/d_8)` would make the
 right side of (6.8) `o(lambda^(-2))`, which is strong enough for every fixed
-weight exponent `eta<1/2` in (5.2).  Uniform growing-window Bessel constants
-and the reciprocal sum are not proved.  A direct insertion of normalized
+weight exponent `eta<1/2` in (5.2).  The explicit stronger information
+`epsilon_lambda=O(lambda^3*polylog(lambda)*d_4)+o(d_4)` shows that the relaxed
+scale `O(lambda^4*polylog(lambda)/d_8)` already yields
+`O(lambda^(-1/2)*polylog(lambda))` action and is sufficient for (5.2).
+Uniform growing-window Bessel constants and even this relaxed reciprocal sum
+are not proved.  A direct insertion of normalized
 windows into the compact-BV theorem gives
 `beta_m/d_m=B_abs/d_m^2`; label `8` alone misses the target by
 `B_abs/d_8`, so the missing action estimate must be defect-relative.  The exact
@@ -947,10 +952,12 @@ source-coordinate target
 
 \[
  Y^*Z^*ZY\preceq C_{\rm ext}D_{\rm ext},\qquad
- C_{\rm ext}\|W D_{\rm ext}^{-1/2}\|^2=O(d_8^{-1}),          \tag{6.8d}
+ C_{\rm ext}\|W D_{\rm ext}^{-1/2}\|^2
+ =O(\lambda^4\operatorname {polylog}(\lambda)d_8^{-1}).      \tag{6.8d}
 \]
 
-where exact radicality gives `ZW=-ZY`.  A generic compact-BV bound still
+where exact radicality gives `ZW=-ZY`.  The earlier `O(d_8^(-1))` target is
+a stronger sufficient condition.  A generic compact-BV bound still
 loses one defect by making `C_ext` itself proportional to
 `||W D_ext^(-1/2)||^2`.  Equations (6.8a)--(6.8d) are therefore an exact
 conditioning reduction, not the missing exterior estimate.  The full
@@ -999,7 +1006,7 @@ on `ran(W)`.  Paired zero sampling gives the same `B_abs` on the
 complexification of either fixed real parity sector, with no extra factor
 two.  Equations (6.8e)--(6.8g) are unconditional and source-explicit, but
 their two inverse all-index defects are exponentially too costly.  They do
-not establish the `O(d_8^(-1))` target in (6.8d).
+not establish the relaxed target in (6.8d).
 
 There is a separate parity-scale warning for the earlier endpointwise
 absolute estimate.  The fixed-index source constants give
@@ -1054,14 +1061,16 @@ blockwise-minimum bound with
 
 Therefore the common normalization-free shift `epsilon_lambda I` is now
 negligible at the fixed odd `d_6` scale even though the hard endpoint does
-not cancel.  This does not make the normalized Ritz upper bound
-`U_Z=epsilon_lambda/a^2` small without separate control of `a`.  Equation
-(6.8k) does not control the graph-dual residual action, establish the
+not cancel.  By `notes/PROJECTED_STATE_NORM_LOWER_BOUND.md`, the required
+separate norm control holds and the normalized Ritz upper bound satisfies
+`U_Z=epsilon_lambda/a^2=o(d_6)`.  Equation (6.8k) and that norm theorem do
+not control the graph-dual residual action, establish the
 unshifted odd floor, prove the shifted odd Schur complement positive, or
 supply (5.2).
 See `notes/PARITY_SHIFT_SCALE_AUDIT.md` and
 `notes/OUTER_NORMALIZATION_CANCELLATION_AUDIT.md`, together with
-`notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md` for the sharper result.
+`notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md` and
+`notes/PROJECTED_STATE_NORM_LOWER_BOUND.md` for the sharper result.
 
 There is also a qualitative advance on physical conditioning.  On every
 locked half-integer `lambda`, the unmatched arithmetic breakpoint

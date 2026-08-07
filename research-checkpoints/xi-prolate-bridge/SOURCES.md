@@ -213,9 +213,9 @@ combines a complete-series weighted `L2` estimate with the admitted
 translation theorem by taking the better proved bound on each dyadic block.
 It introduces no new external theorem and reads no zero list.  Its stronger
 conclusion `||R_lambda||_Z^2=o(d_6)` controls the common normalization-free
-shift `epsilon_lambda I` only; it does not make
-`U_Z=epsilon_lambda/a^2` small without separate control of `a`, and it is not
-a signed sector floor, residual-action estimate, equation (5.2), or
+shift `epsilon_lambda I` only.  The separate projected-state norm theorem
+now supplies the required control of `a` and proves `U_Z=o(d_6)`, but neither
+result is a signed sector floor, residual-action estimate, equation (5.2), or
 determinant convergence.  The hybrid lock also pins `requirements.txt`; both
 paths require `mpmath==1.4.1`, re-hash every dependency declared by the lock,
 and serialize the shared-library limitation.
@@ -266,8 +266,9 @@ quotient dependencies above and locks the repository derivation in
 `notes/FULL_EXTERIOR_SAMPLING_FALLBACK.md`.  That derivation proves the exact
 additive-even arithmetic bound `lambda^2/2` and the full-cross-term fallback
 `C_ext<=B_abs*lambda^2/(2*d_LS)`.  The resulting quotient alignment bound
-`B_abs*lambda^4/(4*d_LS^2)` is exponentially too large for the required
-`O(1/d_8)` scale and supplies no signed floor or RH conclusion.
+`B_abs*lambda^4/(4*d_LS^2)` is exponentially too large even for the relaxed
+`O(lambda^4*polylog(lambda)/d_8)` scale and supplies no signed floor or RH
+conclusion.
 
 ## Hybrid complete-series sampling dependency lock
 
@@ -281,6 +282,21 @@ minimum series, `B_hyb(lambda)=O(lambda^3*polylog(lambda))`, and hence
 reconstruct the constants and explicit summation threshold independently but
 share `mpmath.iv` interval arithmetic.  No effective fixed-index asymptotic
 threshold is claimed.
+
+## Projected-state normalization dependency lock
+
+`PROJECTED_STATE_NORM_SOURCE_LOCK.json` introduces no new external theorem.
+It pins the existing CCM state normalization, projection-rate theorem,
+state-invisible radical correction, and hybrid odd-scale theorem.  The
+repository proof in `notes/PROJECTED_STATE_NORM_LOWER_BOUND.md` gives an
+explicit positive lower bound for `||E(h)(exp(.))||_2`, bounds both omitted
+logarithmic tails by elementary half-integer incomplete-gamma majorants, and
+proves `||P_N k_lambda^+|| -> ||E(h)(exp(.))||_2>0`.  Its producer and
+verifier use independent formula assemblies with shared pinned `mpmath.iv`.
+Combined with `epsilon_lambda=o(d_6)`, this proves the normalized scalar shift
+`U_Z=o(d_6)`.  It proves no signed floor, residual action, equation (5.2),
+determinant limit, or RH conclusion.  The source convergence threshold
+remains qualitative.
 
 The parity-shift and hard-endpoint normalization audits likewise introduce no
 new external source.  `notes/PARITY_SHIFT_SCALE_AUDIT.md` and

@@ -118,7 +118,9 @@ region required by RH.
   `C_ext<=B_abs*lambda^2/(2*d_LS)` and then
   `C_ext*||W D_ext^(-1/2)||^2<=B_abs*lambda^4/(4*d_LS^2)`.
   This pays two inverse Logvinenko--Sereda defects and is exponentially huge;
-  it must not be relabeled as the target `O(1/d_8)` comparison.  Dropping one
+  it must not be relabeled as the relaxed
+  `O(lambda^4*polylog(lambda)/d_8)` comparison (nor as the earlier stronger
+  `O(1/d_8)` target).  Dropping one
   of the two defect factors, discarding Gram cross terms, adding an
   unneeded parity factor two, or ordinarily inverting `ker(D_ext)` is invalid.
 - The earlier bound `epsilon_lambda=O(lambda^(-1)*d_8)` is, by itself, an
@@ -137,9 +139,11 @@ region required by RH.
   retains the complete sampled series before this endpoint split.
 - Conversely, the hybrid conclusion `epsilon_lambda=o(d_6)` is an absolute
   sequence-norm and common normalization-free shift statement.  It does not
-  imply `U_Z=epsilon_lambda/a^2=o(d_6)` without separate control of `a`, and
-  is not an unshifted or shifted odd-sector floor, a positive odd Schur
-  complement, a graph-dual residual-action bound, or equation (5.2).
+  imply `U_Z=epsilon_lambda/a^2=o(d_6)` *by itself*.  The separate
+  projected-state norm theorem supplies the required lower control of `a`
+  and now proves that normalized shift estimate.  Neither scalar result is
+  an unshifted or shifted odd-sector floor, a positive odd Schur complement,
+  a graph-dual residual-action bound, or equation (5.2).
   Replacing its blockwise minimum of two proved estimates by either branch
   alone also discards the mechanism that gives the odd-scale result.
 - A shifted comparison on only the low compression `P_KBP_K` does not

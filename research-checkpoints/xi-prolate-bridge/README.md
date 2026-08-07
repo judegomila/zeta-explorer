@@ -137,20 +137,25 @@ without a zero list, global zero-reality assumption, or Weil positivity.
 The final fixed-index comparison is qualitative; no effective asymptotic
 threshold is claimed.
 This proves that the common normalization-free scalar shift is
-`o(d_6)`.  It does not make `U_Z=epsilon_lambda/a^2` small without separate
-control of `a`, control the graph-dual residual action, prove an even or odd
-signed sector floor, prove the shifted odd Schur complement positive, or
-establish equation (5.2).
+`o(d_6)`.  The separate
+`notes/PROJECTED_STATE_NORM_LOWER_BOUND.md` supplies the missing
+normalization control: `||P_N k_lambda^+||` converges to the strictly
+positive norm of the fixed source-normalized limiting state.  Hence the
+normalized upper shift `U_Z=epsilon_lambda/a^2` is also `o(d_6)` on the
+locked schedule.  This still does not control the graph-dual residual
+action, prove an even or odd signed sector floor, prove the shifted odd Schur
+complement positive, or establish equation (5.2).
 
 Uniform Bessel bounds for growing complementary windows and the reciprocal
 defect sum therefore remain open.  Directly applying the same BV theorem to a
 normalized window gives only `beta_m/d_m=B_abs/d_m^2`; the `m=8` term alone
 loses `B_abs/d_8 -> infinity`.  The next action estimate must be genuinely
 defect-relative, not another absolute compactness bound.  Equivalently, if
-`G_+` is the positive zero-sampling Gram on the even complement, the sharp
-global target is `G_+ <= Gamma D_+^2` with `Gamma=O(1/d_8)`.  This retains
-cross-window orientation and can be stronger than a windowwise reciprocal
-sum.
+`G_+` is the positive zero-sampling Gram on the even complement, the relaxed
+sufficient global target is `G_+ <= Gamma D_+^2` with
+`Gamma=O(lambda^4*polylog(lambda)/d_8)`.  This retains cross-window
+orientation and can be weaker than a windowwise reciprocal sum; the earlier
+`O(1/d_8)` target remains a stronger sufficient condition.
 
 `notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md` now removes the lower physical
 Gram determinant from this positive-sampling route.  If `D_ext` is the
@@ -175,10 +180,11 @@ Only the largest singular value occurs; source kernels are removed by the
 quotient instead of being inverted.  The theorem is independently replayed
 on a rank-deficient exact rational model.  By itself it does not prove the
 displayed source Gram inequality or either signed comparison.  The new
-smallest positive-sampling target is the full, cross-term-preserving exterior estimate
-`Y^* Z^* Z Y <= C_ext D_ext` together with
-`C_ext ||W D_ext^(-1/2)||^2=O(1/d_8)`.  A generic compact-BV insertion still
-squares the bad inverse-defect factor and remains insufficient.
+relaxed positive-sampling target is the full, cross-term-preserving exterior
+estimate `Y^* Z^* Z Y <= C_ext D_ext` together with
+`C_ext ||W D_ext^(-1/2)||^2=O(lambda^4*polylog(lambda)/d_8)`.  A generic
+compact-BV insertion still squares the bad inverse-defect factor and remains
+insufficient.
 
 `notes/FULL_EXTERIOR_SAMPLING_FALLBACK.md` now makes that generic insertion
 fully source-explicit.  For additive-even sources, the exact arithmetic-map
@@ -201,8 +207,9 @@ Source and physical kernels are quotiented correctly, and paired sampling
 introduces no extra factor two on a fixed complexified parity sector.  The
 80/160-digit producer and independent replay store exact dyadic endpoints of
 outward intervals.  The bound is unconditional but exponentially enormous:
-it pays two inverse all-index defects and does not close the `O(1/d_8)`
-target, either signed sector, or equation (5.2).
+it pays two inverse all-index defects and does not close even the relaxed
+`O(lambda^4*polylog(lambda)/d_8)` target, either signed sector, or equation
+(5.2).
 
 For the signed floors, `notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md` rewrites
 the complete real-axis form using the exact multiplier `m_lambda`, retains
@@ -270,6 +277,10 @@ Start with:
     complete-series weighted `L2` and hybrid sampling theorem proving the
     common normalization-free shift `epsilon_lambda` is `o(d_6)` on the
     locked schedule.
+24. `PROJECTED_STATE_NORM_SOURCE_LOCK.json` and
+    `notes/PROJECTED_STATE_NORM_LOWER_BOUND.md` -- the explicit positive
+    limiting-state norm bound, finite projected-norm lower formula, and
+    normalized-shift corollary `U_Z=o(d_6)`.
 
 `notes/DETERMINANT_LIMIT_AUDIT.md` reproduces the complete finite
 self-adjointness/determinant theorem from the pinned CCM source and separates
@@ -284,6 +295,11 @@ abbreviated source display and gives an explicit bound `C_K<6.006` for the
 limiting logarithmic derivative.  The asymptotic step uses the pinned
 Lemma 7.2 estimate `delta_lambda=O(lambda^(-2))`; extracting an effective
 numerical constant from its Meixner--Schaefke input remains separate.
+Combined with an explicit two-tail bound for the limiting arithmetic state,
+`notes/PROJECTED_STATE_NORM_LOWER_BOUND.md` upgrades the earlier upper norm
+bound to
+`||P_N k_lambda^+|| -> ||E(h)(exp(.))||_2>0`.  The theorem also rejects unit
+normalization because it changes this limit by `2^(17/4)/sqrt(33)`.
 
 `notes/GROWING_WINDOW_THEOREM.md` proves exact all-window source Gram and
 determinant formulas, including the actual plus-anchor deflation.  The pinned
@@ -328,9 +344,10 @@ and switches dyadically to the translation bound only where advantageous.
 This proves `epsilon_lambda=o(d_6)` and removes the common
 normalization-free scalar-shift obstruction.  It does not by itself prove
 that the normalized Ritz bound `U_Z=epsilon_lambda/a^2` is `o(d_6)` without
-separate control of `a`.  The endpoint cancellation itself remains false,
-and an odd sector floor or positive shifted Schur complement is still
-unproved.
+separate control of `a`; the projected-state norm theorem now supplies that
+separate control and proves `U_Z=o(d_6)`.  The endpoint cancellation itself
+remains false, and an odd sector floor or positive shifted Schur complement
+is still unproved.
 
 `notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md` removes the qualitative rank
 question on the locked half-integer schedule.  An unmatched arithmetic
@@ -454,10 +471,12 @@ with Arb balls. These are finite diagnostics, not an asymptotic proof.
   is not a residual-action estimate, signed sector floor, or equation (5.2)**.
 - Complete locked-schedule absolute remainder at the first odd defect scale:
   **yes, `epsilon_lambda=||R_lambda||_Z^2=o(d_6)`, so the common
-  normalization-free shift is odd-scale negligible; this does not make
-  `U_Z=epsilon_lambda/a^2` small without separate control of `a`, and it is
-  not a graph-dual residual action bound, either signed sector floor, a
-  shifted Schur theorem, or equation (5.2)**.
+  normalization-free shift is odd-scale negligible**.
+- Projected-state lower normalization and normalized odd-scale shift:
+  **yes, `||P_N k_lambda^+||` tends to the nonzero fixed source-normalized
+  limit, so `U_Z=epsilon_lambda/a^2=o(d_6)`; this is not a graph-dual
+  residual action bound, either signed sector floor, a shifted Schur theorem,
+  or equation (5.2)**.
 - Full-`Y` exterior sampling Gram:
   **yes with the unconditional explicit fallback
   `C_ext<=B_abs*lambda^2/(2*d_LS)`; no at the required scale, because the

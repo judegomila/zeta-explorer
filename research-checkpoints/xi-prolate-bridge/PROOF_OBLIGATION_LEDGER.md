@@ -137,10 +137,17 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   exact convergent minimum series satisfies
   `B_hyb(lambda)=O(lambda^3*polylog(lambda))`; together with projection
   sampling it gives `epsilon_lambda=||R||_Z^2=o(d_6)` on the locked schedule.
-  Hence the common normalization-free scalar shift is `o(d_6)`.  This does
-  not make `U_Z=epsilon_lambda/a^2` small without separate control of `a`,
-  and proves no graph-dual residual action, signed sector floor, shifted odd
-  Schur sign, or instance of equation (5.2).
+  Hence the common normalization-free scalar shift is `o(d_6)`.  This
+  component alone proves no graph-dual residual action, signed sector floor,
+  shifted odd Schur sign, or instance of equation (5.2).
+- [x] Prove the missing projected-state norm lower bound.  The locked source
+  comparison, periodic Fourier tail, and an explicit two-sided Gaussian tail
+  give `||P_N k_lambda^+|| -> ||E(h)(exp(.))||_2>0` whenever
+  `log(lambda)/(N+1)->0`.  Thus on the locked schedule the hybrid estimate
+  also gives the normalized bound `U_Z=epsilon_lambda/a^2=o(d_6)`.  The
+  threshold is qualitative because the pinned `delta_lambda=O(lambda^-2)`
+  has no effective constant; the result supplies no signed floor or residual
+  action.
 - [x] Prove the quotient exterior-preconditioner theorem.  For a possibly
   rank-deficient physical synthesis `W` and positive source defect form
   `D_ext`, the minimum-energy quotient
@@ -160,8 +167,8 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   `C_ext||W D_ext^(-1/2)||^2<=B_abs*lambda^4/(4*d_LS^2)`, with every Gram
   cross term retained and source kernels quotiented.  Exact-dyadic outward
   interval artifacts and an independent formula replay are included.  The
-  two-defect-loss bound is exponentially too large and does not close the
-  required `O(1/d_8)` scale.
+  two-defect-loss bound is exponentially too large and does not close even
+  the relaxed `O(lambda^4*polylog(lambda)/d_8)` scale.
 - [x] Audit the common Rayleigh shift against the distinct fixed-index parity
   scales for the earlier compact-BV baseline.  Exact source constants give
   `d_8/d_6~(32*pi^2/7)*lambda^4`; hence
@@ -180,17 +187,19 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   remains required.
 - [ ] Prove the remaining absolute-sampling window estimates: uniform
   source-window Bessel bounds `||v||_Z^2<=beta_m d_m||v||^2` and the
-  reciprocal sum `sum beta_m/d_m=O(1/d_8)`.  Together with the complete
-  remainder bound `epsilon_lambda=o(d_6)`, these would make the right side of
-  the graph-dual estimate `o(lambda^(-2))` and hence reach the required action
-  scale in (5.2).  The direct compact-BV insertion is proved insufficient
+  reciprocal sum.  The stronger convenient target `O(1/d_8)` would make the
+  graph-dual action `o(lambda^(-2))`.  Using the explicit hybrid rate, the
+  relaxed target `O(lambda^4*polylog(lambda)/d_8)` already gives
+  `O(lambda^(-1/2)*polylog(lambda))` and reaches (5.2).  The direct compact-BV
+  insertion is proved insufficient
   already at label `8`, where it gives `beta_8/d_8=B_abs/d_8^2`; the estimate
   must be defect-relative.  The exact counterexample also shows that scalar
   polarization alone cannot do so.  A strictly sharper alternative is the
   full source-coordinate quotient target
   `Y^*Z^*ZY<=C_ext D_ext` with
-  `C_ext||W D_ext^(-1/2)||^2=O(1/d_8)`; this avoids the reciprocal-window
-  sum but still requires a defect-relative constant at the displayed scale.
+  `C_ext||W D_ext^(-1/2)||^2=O(lambda^4*polylog(lambda)/d_8)`; this avoids
+  the reciprocal-window sum but still requires a defect-relative constant at
+  the displayed scale.  The earlier `O(1/d_8)` target is stronger.
   The unconditional full-cross-term fallback above pays `d_LS^(-2)` and is
   not that estimate.
 - [ ] Obtain an asymptotic formula with a rigorous remainder for

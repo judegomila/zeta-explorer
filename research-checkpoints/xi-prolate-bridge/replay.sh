@@ -249,6 +249,20 @@ mkdir -p artifacts/transition_window
 python3 src/transition_window_bound.py --lambda 2 --dps 80 \
   --output artifacts/transition_window/lambda2_dps80.json >/dev/null
 
+mkdir -p artifacts/prufer_same_parity_gap
+python3 src/prufer_same_parity_gap.py --dps 80 \
+  --output artifacts/prufer_same_parity_gap/canonical_producer_dps80.json >/dev/null
+python3 verifier/prufer_same_parity_gap_replay.py \
+  --artifact artifacts/prufer_same_parity_gap/canonical_producer_dps80.json \
+  --dps 80 \
+  --output artifacts/prufer_same_parity_gap/canonical_verifier_dps80.json >/dev/null
+python3 src/prufer_same_parity_gap.py --dps 160 \
+  --output artifacts/prufer_same_parity_gap/canonical_producer_dps160.json >/dev/null
+python3 verifier/prufer_same_parity_gap_replay.py \
+  --artifact artifacts/prufer_same_parity_gap/canonical_producer_dps160.json \
+  --dps 160 \
+  --output artifacts/prufer_same_parity_gap/canonical_verifier_dps160.json >/dev/null
+
 mkdir -p artifacts/prolate_tail
 python3 src/prolate_tail_envelope.py --lambda 2 --N 12 --dps 80 \
   --output artifacts/prolate_tail/lambda2_N12_producer_dps80.json >/dev/null
@@ -378,5 +392,21 @@ python3 verifier/compact_absolute_sampling_replay.py \
   artifacts/compact_absolute_sampling/lambda2p5_j2_producer_dps160.json \
   --dps 220 \
   --output artifacts/compact_absolute_sampling/lambda2p5_j2_replay_dps220.json >/dev/null
+
+mkdir -p artifacts/full_exterior_sampling_fallback
+python3 src/full_exterior_sampling_fallback.py \
+  --lambda-numerator 5 --lambda-denominator 2 --N 24 --dps 80 \
+  --output artifacts/full_exterior_sampling_fallback/lambda5over2_N24_producer_dps80.json >/dev/null
+python3 verifier/full_exterior_sampling_fallback_replay.py \
+  artifacts/full_exterior_sampling_fallback/lambda5over2_N24_producer_dps80.json \
+  --dps 120 \
+  --output artifacts/full_exterior_sampling_fallback/lambda5over2_N24_verifier_dps80.json >/dev/null
+python3 src/full_exterior_sampling_fallback.py \
+  --lambda-numerator 5 --lambda-denominator 2 --N 24 --dps 160 \
+  --output artifacts/full_exterior_sampling_fallback/lambda5over2_N24_producer_dps160.json >/dev/null
+python3 verifier/full_exterior_sampling_fallback_replay.py \
+  artifacts/full_exterior_sampling_fallback/lambda5over2_N24_producer_dps160.json \
+  --dps 200 \
+  --output artifacts/full_exterior_sampling_fallback/lambda5over2_N24_verifier_dps160.json >/dev/null
 
 python3 src/write_artifact_manifest.py

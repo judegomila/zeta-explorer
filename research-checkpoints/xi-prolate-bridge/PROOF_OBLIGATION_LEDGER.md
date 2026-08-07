@@ -142,6 +142,28 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   singular value from the positive-sampling action, retains all Gram cross
   terms, and is independently replayed on an exact rank-deficient model.
   It proves neither the source exterior estimate nor a signed comparison.
+- [x] Quantify the strongest unconditional full-`Y` exterior-sampling
+  fallback.  The exact additive-even arithmetic bound
+  `||A_lambda f||^2<=(lambda^2/2)||f||^2`, the all-index floor
+  `d_LS=6*96^(-5-(320*pi/log(2))*lambda^2)`, and the compact-window constant
+  give `C_ext<=B_abs*lambda^2/(2*d_LS)` and
+  `C_ext||W D_ext^(-1/2)||^2<=B_abs*lambda^4/(4*d_LS^2)`, with every Gram
+  cross term retained and source kernels quotiented.  Exact-dyadic outward
+  interval artifacts and an independent formula replay are included.  The
+  two-defect-loss bound is exponentially too large and does not close the
+  required `O(1/d_8)` scale.
+- [x] Audit the common Rayleigh shift against the distinct fixed-index parity
+  scales.  Exact source constants give
+  `d_8/d_6~(32*pi^2/7)*lambda^4`; hence
+  `epsilon_lambda=O(lambda^7*d_4)=o(d_8)` gives only
+  `epsilon_lambda/d_6=O(lambda^3)`, not odd-sector smallness.
+- [x] Audit whether the source-normalized `0/4` cancellation removes that
+  loss.  It cancels the origin datum, but
+  `(a_0*e_0)/(a_4*e_4)~(3/(256*pi^2))*lambda^(-4)`, so the label-4 hard
+  endpoint survives.  Qualitative boundedness of `a_0` improves the absolute
+  estimate only to `O(lambda^5*d_4)=O(lambda*d_6)` and has no effective
+  threshold.  A new signed cancellation or direct shifted odd Schur theorem
+  remains required.
 - [ ] Prove the remaining absolute-sampling window estimates: uniform
   source-window Bessel bounds `||v||_Z^2<=beta_m d_m||v||^2` and the
   reciprocal sum `sum beta_m/d_m=O(1/d_8)`.  Together with the complete
@@ -153,7 +175,9 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   full source-coordinate quotient target
   `Y^*Z^*ZY<=C_ext D_ext` with
   `C_ext||W D_ext^(-1/2)||^2=O(1/d_8)`; this avoids the reciprocal-window
-  sum but still requires the complete cross-term Gram inequality.
+  sum but still requires a defect-relative constant at the displayed scale.
+  The unconditional full-cross-term fallback above pays `d_LS^(-2)` and is
+  not that estimate.
 - [ ] Obtain an asymptotic formula with a rigorous remainder for
   `r_(lambda,N)`.
 - [ ] Control the residual in the shifted even-complement resolvent, not only
@@ -198,6 +222,14 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   `n_*=ceil(4*lambda^2)+6+ceil((2/pi^2)*log(200*lambda^2+25)*log(20))`
   gives `1-chi_n^2>=1/2` for all `n>=n_*`.  This is a positive additive
   source-coordinate theorem only.
+- [x] Prove the same-parity differential-eigenvalue bound
+  `mu_(n+2r)(c)-mu_n(c)>=(16*r*pi/(225*K^2))*exp(-2*pi*K)`, with
+  `K^2=max(1,2*c^2+(n+2r)(n+2r+1))`, from standard qualitative Sturm theory,
+  the endpoint-normalized half-line Volterra equation, and lifted phase
+  `phi(mu_m)=m*pi/2`.  The independent replay reconstructs the locked
+  transcendental formula and exact `c=0` Legendre oracles without a numerical
+  Sturm solve; the all-`c` homotopy is proof-only.  The exponentially small bound is
+  not a growing-window conditioning estimate or a signed Weil-sector floor.
 - [x] Stress the deterministic `N=2*ceil(lambda^2)` schedule at intermediate
   points and enlarge the `(2.25,12)` low basis through the source prolate
   Shannon window.  The enlarged point `X=0` lower models are positive in both

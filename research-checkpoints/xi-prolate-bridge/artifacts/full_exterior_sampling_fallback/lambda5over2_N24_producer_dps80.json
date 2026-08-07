@@ -1,0 +1,429 @@
+{
+  "schema": "xi-prolate-full-exterior-sampling-fallback-artifact-v1",
+  "artifact_version": "0.19.1-full-exterior-sampling-fallback",
+  "claim_class": "UNCONDITIONAL_FULL_Y_EXTERIOR_SAMPLING_FALLBACK",
+  "terminal_state": "P0_INVALIDATED",
+  "construction": "source_explicit_full_Y_two_defect_fallback_v1",
+  "precision_decimal_digits": 80,
+  "interval_outward_guard_bits": 32,
+  "exact_inputs": {
+    "lambda_numerator": 5,
+    "lambda_denominator": 2,
+    "fourier_cutoff_N": 24
+  },
+  "source_lock": {
+    "path": "FULL_EXTERIOR_SAMPLING_SOURCE_LOCK.json",
+    "sha256": "a3ff2144995cf3195409c3e6f59dae7fff8e2ced4aae01a18f2c9166720bfa27",
+    "schema": "xi-prolate-full-exterior-sampling-source-lock-v1"
+  },
+  "provenance_sha256": {
+    "notes/FULL_EXTERIOR_SAMPLING_FALLBACK.md": "7dd2d8b6d32da5e1d98a6c96702a8079b53075eb756d1204219a4581c6296413",
+    "src/full_exterior_sampling_fallback.py": "04ac45096ad6069b7e44c01573b10548cca625960d195ad6e118a26a11ab6ac8",
+    "verifier/full_exterior_sampling_fallback_replay.py": "186debcbdac72457bf90e0b1f201a3d4bab2123b07722aa3d10c2c47e5bf247e"
+  },
+  "formula_contract": {
+    "even_arithmetic_norm": "norm(A_lambda*f)^2_{L2(I_lambda,du/u)} <= (lambda^2/2)*norm(f)^2_{L2(-lambda,lambda,dx)}",
+    "general_arithmetic_norm": "without additive evenness the safe constant is lambda^2, not lambda^2/2",
+    "all_index_floor": "d_LS=6*96^(-5-(320*pi/log(2))*lambda^2)",
+    "source_floor": "D_ext >= d_LS*B",
+    "physical_pullback": "W^*W <= (lambda^2/2)*B <= (lambda^2/(2*d_LS))*D_ext",
+    "normalized_synthesis": "M=norm(W*D_ext^(-1/2))^2 <= lambda^2/(2*d_LS)",
+    "log_interval_length": "L=2*log(lambda)",
+    "unit_window_variation": "V_N^0=(2*pi*N+2*sqrt(2*N+1))/sqrt(L)",
+    "unit_window_height": "H_N=max(1,(V_N^0+(3/4)*sqrt(L))^2)",
+    "zero_count_main": "M_0(t)=t/(2*pi)*log(t/(2*pi*e))",
+    "zero_count_error": "R_0(t)=0.103787*log(t)+0.257297*log(log(t))+9.367419",
+    "finite_overlap": "Z_finite=1+M_0(61220092002)-1/8+R_0(61220092002)",
+    "log_overlap": "C_Z=1+1/pi+2*(0.103787+0.257297)+2*9.367419",
+    "absolute_window_bound": "B_abs=192*sqrt(e)*lambda*(1+log(lambda))^2*(Z_finite+(C_Z/pi)*((pi+1)*log(H_N+2)+1))",
+    "full_gram": "Y^*Z^*Z*Y=W^*Z^*Z*W <= B_abs*W^*W",
+    "exterior_constant": "C_ext <= B_abs*lambda^2/(2*d_LS)=(lambda^2*B_abs/12)*96^(5+(320*pi/log(2))*lambda^2)",
+    "alignment_product": "C_ext*M <= B_abs*lambda^4/(4*d_LS^2)",
+    "fixed_parity_complexification": "paired sampling gives the same B_abs to the complexification of either fixed real parity sector; no extra factor 2"
+  },
+  "values": {
+    "lambda": "2.5",
+    "log_lambda": "0.91629073187415506518352721176801107145010121990826246779196788198078536573796305",
+    "log_interval_length_L": "1.8325814637483101303670544235360221429002024398165249355839357639615707314759261",
+    "unit_window_variation_V_N_zero": "121.73520750532772999701244165149500884338168431632442309284685355559753033157819",
+    "unit_window_height_H_N": "15067.686244497024421026594427683204585173150756337924651598188643437044680246508",
+    "Z_finite": "214355242606.39060281135564743310267558095378381976952916625761487289747599183409",
+    "C_Z": "20.775315886183790671537767526745028724068919291480912897495334688117793595268453",
+    "B_abs": "622938807160362.79700455443808561553975871931398058295410775914845907059846729632",
+    "defect_exponent_E": "9069.7202836543876192553658914333336203437229354475911683720330958812019074426102",
+    "d_LS": "1.3568793928575243198460776730477834069411417793078429441012954791737846022716959e-17978",
+    "even_arithmetic_norm_squared_factor": "3.125",
+    "general_arithmetic_norm_squared_factor": "6.25",
+    "normalized_synthesis_M_upper": "2.3030786792471633484920473809651573580912236450122843850559606038799832479697127e+17978",
+    "C_ext_upper": "1.4346770852466917331693914426169124998618395512363576309261798185792458070898594e+17993",
+    "C_ext_expanded_upper": "1.4346770852466917331693914426169124998618395512363576309261798185792458070898594e+17993",
+    "alignment_product_upper": "3.3041742066361207783423653639164930496045114911523711706348607092421382403369524e+35971",
+    "alignment_product_expanded_upper": "3.3041742066361207783423653639164930496045114911523711706348607092421382403369524e+35971",
+    "negative_log10_d_LS": "17977.867458753183489525734098446078807110101145804543700769335161730672625319827",
+    "log10_C_ext_upper": "17993.156754161783037110647032862104400249293454717539694006712313362280713065124",
+    "log10_alignment_product_upper": "35971.519062936646620660312436834560742225553651114772852069495337787317797438579"
+  },
+  "outward_intervals": {
+    "lambda": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "17254365866976409468586889655692563631127772430425966387906310559498239",
+        "binary_exponent": -232
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "17254365866976409468586889655692563631127772430425966387906310559498241",
+        "binary_exponent": -232
+      },
+      "decimal_display_only": [
+        "2.4999999999999999999999999999999999999999999999999999999999999999999998551091347387726021199",
+        "2.5000000000000000000000000000000000000000000000000000000000000000000001448908652612273978801"
+      ]
+    },
+    "log_lambda": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "869164795432943046637860053012991560596954236660445829724209220917703080351256873",
+        "binary_exponent": -269
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "434582397716471523318930026506495780298477118330222914862104610458851574535366805",
+        "binary_exponent": -268
+      },
+      "decimal_display_only": [
+        "0.91629073187415506518352721176801107145010121990826246779196788198078532951524673330607107336",
+        "0.91629073187415506518352721176801107145010121990826246779196788198078540196067936497398980775"
+      ]
+    },
+    "log_interval_length_L": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "869164795432943046637860053012991560596954236660445829724209220917703080351256873",
+        "binary_exponent": -268
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "434582397716471523318930026506495780298477118330222914862104610458851574535366805",
+        "binary_exponent": -267
+      },
+      "decimal_display_only": [
+        "1.8325814637483101303670544235360221429002024398165249355839357639615706590304934666121421467",
+        "1.8325814637483101303670544235360221429002024398165249355839357639615708039213587299479796155"
+      ]
+    },
+    "unit_window_variation_V_N_zero": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "225535584172481804483925683871428074806312728690910724354908142744795085363975569",
+        "binary_exponent": -260
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "902142336689927217935702735485712299225250914763642897419632570979180410175379019",
+        "binary_exponent": -262
+      },
+      "decimal_display_only": [
+        "121.73520750532772999701244165149500884338168431632442309284685355559752569507049904089712974",
+        "121.73520750532772999701244165149500884338168431632442309284685355559753496808587670403152979"
+      ]
+    },
+    "unit_window_height_H_N": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "872359435111340592687396561070384602877510732006348628167462425540956631758792419",
+        "binary_exponent": -255
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "218089858777835148171849140267596150719377683001587157041865606385239175119567293",
+        "binary_exponent": -253
+      },
+      "decimal_display_only": [
+        "15067.686244497024421026594427683204585173150756337924651598188643437044086773523916151197051",
+        "15067.686244497024421026594427683204585173150756337924651598188643437045273719492429755771358"
+      ]
+    },
+    "Z_finite": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "46232047267939417239169227208455661536702338154134285804591501786868204939609811",
+        "binary_exponent": -227
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "739712756287030675826707635335290584587237410466148572873464028589891347753233717",
+        "binary_exponent": -231
+      },
+      "decimal_display_only": [
+        "214355242606.39060281135564743310267558095378381976952916625761487289746603500964117799796079",
+        "214355242606.39060281135564743310267558095378381976952916625761487289748594865853178256007626"
+      ]
+    },
+    "C_Z": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "307919005571382564432394525560514325809336342859365229536151317090338562920823481",
+        "binary_exponent": -263
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "153959502785691282216197262780257162904668171429682614768075658545169298640280925",
+        "binary_exponent": -262
+      },
+      "decimal_display_only": [
+        "20.775315886183790671537767526745028724068919291480912897495334688117792436141530945787713457",
+        "20.775315886183790671537767526745028724068919291480912897495334688117794754395375192896146376"
+      ]
+    },
+    "B_abs": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "262412453405340907775226365097786761746739484023802708531749906755426424185004527",
+        "binary_exponent": -218
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "524824906810681815550452730195573523493478968047605417063499813510852917089485799",
+        "binary_exponent": -219
+      },
+      "decimal_display_only": [
+        "622938807160362.79700455443808561553975871931398058295410775914845907055768414338794322547678",
+        "622938807160362.79700455443808561553975871931398058295410775914845907063925044924860729577464"
+      ]
+    },
+    "defect_exponent_E": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "262550465110601401930541440046492582090099432995381593200098253236204010204875933",
+        "binary_exponent": -254
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "262550465110601401930541440046492582090099432995381593200098253236204044564614303",
+        "binary_exponent": -254
+      },
+      "decimal_display_only": [
+        "9069.7202836543876192553658914333336203437229354475911683720330958812013139696260557536306408",
+        "9069.7202836543876192553658914333336203437229354475911683720330958812025009155943448178225157"
+      ]
+    },
+    "d_LS": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "208891677605319229569416572795545736523582621907942496747393771935366100590856067",
+        "binary_exponent": -59988
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "835566710421276918277666291182182946094330487631769986989575087741464471083164501",
+        "binary_exponent": -59990
+      },
+      "decimal_display_only": [
+        "1.3568793928575243198460776730477834069411417793078429441012954791737845464745953852959202627e-17978",
+        "1.3568793928575243198460776730477834069411417793078429441012954791737846580687963530053276396e-17978"
+      ]
+    },
+    "even_arithmetic_norm_squared_factor": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "21567957333720511835733612069615704538909715538032457984882888199372799",
+        "binary_exponent": -232
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "21567957333720511835733612069615704538909715538032457984882888199372801",
+        "binary_exponent": -232
+      },
+      "decimal_display_only": [
+        "3.1249999999999999999999999999999999999999999999999999999999999999999998551091347387726021199",
+        "3.1250000000000000000000000000000000000000000000000000000000000000000001448908652612273978801"
+      ]
+    },
+    "general_arithmetic_norm_squared_factor": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "21567957333720511835733612069615704538909715538032457984882888199372799",
+        "binary_exponent": -231
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "21567957333720511835733612069615704538909715538032457984882888199372801",
+        "binary_exponent": -231
+      },
+      "decimal_display_only": [
+        "6.2499999999999999999999999999999999999999999999999999999999999999999997102182694775452042397",
+        "6.2500000000000000000000000000000000000000000000000000000000000000000002897817305224547957603"
+      ]
+    },
+    "normalized_synthesis_M_upper": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "210322907683504315665510251343171745811413008396478071087377457498049214490467851",
+        "binary_exponent": 59456
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "841291630734017262662041005372686983245652033585912284349509829992196926681613443",
+        "binary_exponent": 59454
+      },
+      "decimal_display_only": [
+        "2.3030786792471633484920473809651573580912236450122843850559606038799831539078161034251055561e+17978",
+        "2.3030786792471633484920473809651573580912236450122843850559606038799833420316092704863020745e+17978"
+      ]
+    },
+    "C_ext_upper": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "930941021912170766443365810265993677055081471743419480581792625469065239723823383",
+        "binary_exponent": 59503
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "465470510956085383221682905132996838527540735871709740290896312734532654221796855",
+        "binary_exponent": 59504
+      },
+      "decimal_display_only": [
+        "1.4346770852466917331693914426169124998618395512363576309261798185792457541376972840205966317e+17993",
+        "1.4346770852466917331693914426169124998618395512363576309261798185792458600420214796128192982e+17993"
+      ]
+    },
+    "C_ext_expanded_upper": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "930941021912170766443365810265993677055081471743419480581792625469065239723823383",
+        "binary_exponent": 59503
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "930941021912170766443365810265993677055081471743419480581792625469065308443593711",
+        "binary_exponent": 59503
+      },
+      "decimal_display_only": [
+        "1.4346770852466917331693914426169124998618395512363576309261798185792457541376972840205966317e+17993",
+        "1.4346770852466917331693914426169124998618395512363576309261798185792458600420214811539234622e+17993"
+      ]
+    },
+    "alignment_product_upper": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "51603590492294220347048077001076789568390811018791076751990445852077750379482309",
+        "binary_exponent": 119230
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "412828723938353762776384616008614316547126488150328614015923566816622037395857221",
+        "binary_exponent": 119227
+      },
+      "decimal_display_only": [
+        "3.3041742066361207783423653639164930496045114911523711706348607092421381028326861347360959464e+35971",
+        "3.3041742066361207783423653639164930496045114911523711706348607092421383778412187857936291532e+35971"
+      ]
+    },
+    "alignment_product_expanded_upper": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "825657447876707525552769232017228633094252976300657228031847133633244006071716945",
+        "binary_exponent": 119226
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "103207180984588440694096154002153579136781622037582153503980891704155509348964305",
+        "binary_exponent": 119229
+      },
+      "decimal_display_only": [
+        "3.3041742066361207783423653639164930496045114911523711706348607092421381028326861387379664741e+35971",
+        "3.3041742066361207783423653639164930496045114911523711706348607092421383778412187777898880978e+35971"
+      ]
+    },
+    "negative_log10_d_LS": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "130105927067536972424563896765524721761436659983536552749274499083391654992166393",
+        "binary_exponent": -252
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "520423708270147889698255587062098887045746639934146210997097996333566688688142315",
+        "binary_exponent": -254
+      },
+      "decimal_display_only": [
+        "17977.867458753183489525734098446078807110101145804543700769335161730671438373858719566927402",
+        "17977.867458753183489525734098446078807110101145804543700769335161730673812265795401329333813"
+      ]
+    },
+    "log10_C_ext_upper": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "260433151567364975798676279829428680440335090655388192064585875246817932135701247",
+        "binary_exponent": -253
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "130216575783682487899338139914714340220167545327694096032292937623408983247719809",
+        "binary_exponent": -252
+      },
+      "decimal_display_only": [
+        "17993.15675416178303711064703286210440024929345471753969400671231336227952611915548416920868",
+        "17993.15675416178303711064703286210440024929345471753969400671231336228190001109213138694087"
+      ]
+    },
+    "log10_alignment_product_upper": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "260326084083586302155226900017208607214461956720448555853451886296490253769694177",
+        "binary_exponent": -252
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "65081521020896575538806725004302151803615489180112138963362971574122572032358137",
+        "binary_exponent": -250
+      },
+      "decimal_display_only": [
+        "35971.519062936646620660312436834560742225553651114772852069495337787315423546642114823774323",
+        "35971.519062936646620660312436834560742225553651114772852069495337787320171330515409259238704"
+      ]
+    }
+  },
+  "theorem_flags": {
+    "even_arithmetic_norm_lambda_squared_over_two_proved": true,
+    "full_cross_term_gram_retained": true,
+    "state_invisible_bump_retained_inside_Y": true,
+    "ordinary_inverse_on_source_kernel_used": false,
+    "moore_penrose_positive_quotient_used": true,
+    "fixed_parity_extra_factor_two_used": false,
+    "real_zeta_zero_list_used": false,
+    "global_zero_reality_assumed": false,
+    "global_weil_positivity_assumed": false,
+    "target_scale_C_ext_M_O_inverse_d8_proved": false,
+    "shifted_signed_sector_comparison_proved": false,
+    "equation_5_2_proved": false,
+    "locally_uniform_determinant_convergence_proved": false,
+    "riemann_hypothesis_proved": false,
+    "status_promoted": false,
+    "outward_interval_artifact": true
+  },
+  "interpretation": "unconditional full-cross-term exterior sampling fallback; the alignment bound pays d_LS^(-2), is exponentially enormous, and does not close the O(1/d_8) target",
+  "claim_scope": "analytic source-pinned inequalities plus outward interval evaluation of closed-form constants; not an asymptotic proof",
+  "arithmetic_library_limitation": "producer and independent verifier both use mpmath.iv for outward transcendental intervals while assembling formulas separately"
+}

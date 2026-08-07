@@ -47,6 +47,23 @@ arbitrary-precision Galerkin implementation and an independently assembled
 quadrature verifier are now present.  They remain finite truncations without
 an enclosure of the infinite-dimensional prolate eigenfunctions.
 
+The same source normalization has now been audited at the two relevant
+boundary locations.  If `v_n=h_(n,lambda)(0)`,
+`e_n=h_(n,lambda)(lambda)`, and
+`d_n=1-|chi_(n,lambda)|^2`, then the pinned fixed-index asymptotics give
+
+`a0/a4 -> sqrt(3)/2^(3/2)`,
+
+`h_lambda(0) ~ (3/32)*d_4`, but
+
+`(a0*e_0)/(a4*e_4) ~ (3/(256*pi^2))*lambda^(-4)`.
+
+Thus the normalization cancels the integral/origin contribution, not the
+hard endpoint: `h_lambda(lambda) ~ a4*e_4`.  The fixed-index limits do not
+come with an effective threshold, so this is neither a finite regression nor
+an odd-sector shift theorem.  See
+`notes/OUTER_NORMALIZATION_CANCELLATION_AUDIT.md`.
+
 For `k=E(h)`, `E(h)(u)=u^(1/2) sum_{m>=1}h(mu)`. The source does not assert
 finite-lambda inversion parity. The required state is
 `k_lambda^+=(k_lambda+J k_lambda)/2`. Since

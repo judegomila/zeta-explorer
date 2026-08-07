@@ -1,6 +1,6 @@
 {
   "artifact_name": "xi-prolate-bridge",
-  "artifact_version": "0.16.0-compact-absolute-sampling",
+  "artifact_version": "0.19.1-full-exterior-sampling-fallback",
   "updated_date": "2026-08-07",
   "terminal_state": "P0_INVALIDATED",
   "entry_prompt": "CODEX_MASTER_PROMPT.md",
@@ -14,6 +14,7 @@
   "defect_relative_projection_source_lock": "DEFECT_RELATIVE_PROJECTION_SOURCE_LOCK.json",
   "zero_sampling_source_lock": "ZERO_SAMPLING_SOURCE_LOCK.json",
   "compact_absolute_sampling_source_lock": "COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json",
+  "full_exterior_sampling_source_lock": "FULL_EXTERIOR_SAMPLING_SOURCE_LOCK.json",
   "signed_rewrite_document": "notes/CHEBYSHEV_ERROR_REWRITE.md",
   "growing_window_document": "notes/GROWING_WINDOW_THEOREM.md",
   "prolate_tail_document": "notes/PROLATE_TAIL_ENVELOPE.md",
@@ -31,6 +32,11 @@
   "phase_volume_scale_audit_document": "notes/PHASE_VOLUME_SCALE_AUDIT.md",
   "weak_residual_sampling_document": "notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md",
   "compact_absolute_sampling_document": "notes/COMPACT_ABSOLUTE_SAMPLING_THEOREM.md",
+  "quotient_exterior_preconditioner_document": "notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md",
+  "full_exterior_sampling_document": "notes/FULL_EXTERIOR_SAMPLING_FALLBACK.md",
+  "prufer_same_parity_gap_document": "notes/PRUFER_SAME_PARITY_GAP_THEOREM.md",
+  "parity_shift_scale_audit_document": "notes/PARITY_SHIFT_SCALE_AUDIT.md",
+  "outer_normalization_cancellation_audit_document": "notes/OUTER_NORMALIZATION_CANCELLATION_AUDIT.md",
   "physical_map_conditioning_document": "notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md",
   "compressed_multiplier_trace_candidate_document": "notes/COMPRESSED_MULTIPLIER_TRACE_CANDIDATE.md",
   "claim_status": {
@@ -73,6 +79,13 @@
     "compact_projection_absolute_sampling_o_d4_proved": true,
     "complete_remainder_absolute_sampling_O_lambda7_d4_proved": true,
     "absolute_sampling_window_bound_proved": false,
+    "quotient_exterior_preconditioner_proved": true,
+    "source_exterior_sampling_gram_comparison_proved": true,
+    "source_exterior_sampling_target_scale_proved": false,
+    "elementary_same_parity_differential_gap_proved": true,
+    "same_parity_gap_growing_window_conditioning_proved": false,
+    "rayleigh_shift_odd_d6_smallness_proved": false,
+    "source_0_4_hard_endpoint_cancellation_proved": false,
     "parity_multiplier_schur_reduction_written": true,
     "odd_pole_rank_one_dangerous_count_proved": true,
     "compressed_multiplier_trace_source_locked": false,
@@ -122,10 +135,10 @@
     "gmp": "6.3.0",
     "mpfr": "4.2.2",
     "test_command": "python3 -m unittest discover -s tests -v",
-    "tests_passed": 314,
-    "tests_total": 314
+    "tests_passed": 386,
+    "tests_total": 386
   },
   "replay": "./replay.sh",
   "artifact_hash_manifest": "artifacts/ARTIFACT_MANIFEST.sha256",
-  "manifest_note": "This manifest intentionally omits a self-hash. Current hashes for generated artifacts are in the artifact hash manifest; binding source hashes are in P0_SOURCE_LOCK.json, P1_SOURCE_LOCK.json, P2_SOURCE_LOCK.json, P3_SOURCE_LOCK.json, PROLATE_DEFECT_SOURCE_LOCK.json, DEFECT_RELATIVE_PROJECTION_SOURCE_LOCK.json, ZERO_SAMPLING_SOURCE_LOCK.json, and COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json."
+  "manifest_note": "This manifest intentionally omits a self-hash. Current hashes for generated artifacts are in the artifact hash manifest; binding source hashes are in P0_SOURCE_LOCK.json, P1_SOURCE_LOCK.json, P2_SOURCE_LOCK.json, P3_SOURCE_LOCK.json, PROLATE_DEFECT_SOURCE_LOCK.json, DEFECT_RELATIVE_PROJECTION_SOURCE_LOCK.json, ZERO_SAMPLING_SOURCE_LOCK.json, COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json, and FULL_EXTERIOR_SAMPLING_SOURCE_LOCK.json."
 }

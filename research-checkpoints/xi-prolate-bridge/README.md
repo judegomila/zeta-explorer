@@ -155,12 +155,36 @@ and
 
 Only the largest singular value occurs; source kernels are removed by the
 quotient instead of being inverted.  The theorem is independently replayed
-on a rank-deficient exact rational model.  It does not prove the displayed
-source Gram inequality or either signed comparison.  The new smallest
-positive-sampling target is the full, cross-term-preserving exterior estimate
+on a rank-deficient exact rational model.  By itself it does not prove the
+displayed source Gram inequality or either signed comparison.  The new
+smallest positive-sampling target is the full, cross-term-preserving exterior estimate
 `Y^* Z^* Z Y <= C_ext D_ext` together with
 `C_ext ||W D_ext^(-1/2)||^2=O(1/d_8)`.  A generic compact-BV insertion still
 squares the bad inverse-defect factor and remains insufficient.
+
+`notes/FULL_EXTERIOR_SAMPLING_FALLBACK.md` now makes that generic insertion
+fully source-explicit.  For additive-even sources, the exact arithmetic-map
+bound is
+
+`||A_lambda f||^2 <= (lambda^2/2)||f||^2`.
+
+With the all-index floor
+`d_LS=6*96^(-5-(320*pi/log(2))*lambda^2)`, it proves the complete,
+cross-term-preserving Gram estimate with
+
+`C_ext <= B_abs lambda^2/(2 d_LS)`
+
+and the quotient alignment fallback
+
+`C_ext ||W D_ext^(-1/2)||^2
+ <= B_abs lambda^4/(4 d_LS^2)`.
+
+Source and physical kernels are quotiented correctly, and paired sampling
+introduces no extra factor two on a fixed complexified parity sector.  The
+80/160-digit producer and independent replay store exact dyadic endpoints of
+outward intervals.  The bound is unconditional but exponentially enormous:
+it pays two inverse all-index defects and does not close the `O(1/d_8)`
+target, either signed sector, or equation (5.2).
 
 For the signed floors, `notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md` rewrites
 the complete real-axis form using the exact multiplier `m_lambda`, retains
@@ -208,7 +232,19 @@ Start with:
 17. `notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md` -- minimum-energy descent of
     a source defect form to the physical range, eliminating the smallest
     singular-value loss from the positive-sampling action.
-18. `notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md` -- qualitative parity-map
+18. `FULL_EXTERIOR_SAMPLING_SOURCE_LOCK.json` and
+    `notes/FULL_EXTERIOR_SAMPLING_FALLBACK.md` -- the explicit unconditional
+    full-`Y` Gram fallback and its quantified two-defect loss.
+19. `notes/PRUFER_SAME_PARITY_GAP_THEOREM.md` -- elementary explicit
+    same-parity differential-eigenvalue non-collision bound and its severe
+    exponential conditioning limitation.
+20. `notes/PARITY_SHIFT_SCALE_AUDIT.md` -- exact fixed-index comparison of
+    the common Rayleigh shift with the distinct even `d_8` and odd `d_6`
+    scales.
+21. `notes/OUTER_NORMALIZATION_CANCELLATION_AUDIT.md` -- proof that the
+    source `0/4` normalization cancels at the origin but not at the hard
+    endpoint, isolating the surviving odd-scale obstruction.
+22. `notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md` -- qualitative parity-map
     injectivity and the normalized Gram/minor target for routes that
     explicitly orthonormalize physical source columns.
 
@@ -233,6 +269,37 @@ beyond `4*lambda^2` after which every positive concentration defect is at
 least `1/2`.  This removes a source-coordinate rank and high-window-floor
 obstruction.  It does not bound the physical arithmetic map, the fixed
 leading defects, or the signed Weil form.
+
+`notes/PRUFER_SAME_PARITY_GAP_THEOREM.md` supplies a separate,
+non-collision bound for the differential prolate eigenvalues.  It uses the
+standard qualitative one-dimensional Sturm package and derives all
+quantitative constants by an elementary half-line argument.
+For `j=n+2r` and
+
+`K^2=max(1,2c^2+j(j+1))`,
+
+the half-line Volterra estimate and lifted phase
+`phi(mu_m)=m*pi/2` give
+
+`mu_j(c)-mu_n(c) >= (16 r pi/(225 K^2)) exp(-2 pi K)`.
+
+The producer and independent replay use no numerical Sturm solve and check
+the locked formula plus the exact `c=0` Legendre phase oracles; the all-`c`
+Sturm homotopy is proof-only.  On `c=2*pi*lambda^2` this is only an
+exponentially small lower bound; multiplying many such bounds can lose
+`exp(-O(c^3))`.  It therefore proves neither growing-window conditioning nor
+a signed Weil-sector floor.
+
+The two scale audits prevent an invalid transfer from the even comparison to
+the odd sector.  The current complete-remainder bound is
+`epsilon_lambda=O(lambda^7*d_4)=o(d_8)`, but the exact pinned ratios give only
+`epsilon_lambda/d_6=O(lambda^3)`, not `o(1)`.  Moreover, the zero-integral
+`0/4` relation cancels the origin datum, while
+`a_4 e_4-a_0 e_0~a_4 e_4` at the hard endpoint.  Even the qualitative use of
+`a_0=O(1)` would improve the absolute outer estimate only to
+`O(lambda^5*d_4)=O(lambda*d_6)`, with no effective threshold.  A successful
+odd route therefore needs a new one-sided signed cancellation or a direct
+shifted Schur proof.
 
 `notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md` removes the qualitative rank
 question on the locked half-integer schedule.  An unmatched arithmetic
@@ -354,6 +421,11 @@ with Arb balls. These are finite diagnostics, not an asymptotic proof.
 - Complete locked-schedule remainder quadratic energy:
   **yes, `q_lambda(p,p)=o(d_8)` after all four P/O pairings are combined; this
   is not a residual-action estimate, signed sector floor, or equation (5.2)**.
+- Full-`Y` exterior sampling Gram:
+  **yes with the unconditional explicit fallback
+  `C_ext<=B_abs*lambda^2/(2*d_LS)`; no at the required scale, because the
+  resulting alignment bound is `B_abs*lambda^4/(4*d_LS^2)` and is
+  exponentially too large**.
 - Phase-sensitive parity multiplier/Schur reduction:
   **yes as an exact reduction; the required polynomial phase-volume bound and
   positive finite Schur floors are not proved, and the only locked global

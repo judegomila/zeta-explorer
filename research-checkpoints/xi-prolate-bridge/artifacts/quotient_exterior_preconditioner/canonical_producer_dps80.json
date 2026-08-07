@@ -4,7 +4,7 @@
   "construction": "rank_deficient_exact_quotient_model_v1",
   "precision_decimal_digits": 80,
   "provenance_sha256": {
-    "notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md": "624cc9ce45aa9de02e4ddee2f045c74988dc74bb6ed46dd4623857b9d76fcbe3",
+    "notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md": "33f064c07a134986afa23efb91f7514e27828543b09cc358ebfff01e79c6f16e",
     "src/quotient_exterior_preconditioner.py": "7b4dcf2cf2b2aacb13f97998d15fc367a2784ad6a96dd961af2f718167d6ba6d",
     "verifier/quotient_exterior_preconditioner_replay.py": "e879dc09c0f3d566f9717bb2f24af257c175caf1d85c49a8747bb4c59646826f"
   },

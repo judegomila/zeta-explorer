@@ -105,6 +105,55 @@ def repo_ratio_limit_pi_minus_four() -> Fraction:
     return fixed_label_ratio(4, 8) / 2**4
 
 
+def repo_d8_over_d6_limit_pi_squared() -> Fraction:
+    """Return the rational multiplying ``pi^2`` in the ``d_8/d_6`` limit.
+
+    From the admitted fixed-index equivalence and ``c=2*pi*lambda^2``,
+
+        lambda^(-4) * d_8/d_6 -> (32/7) * pi^2.
+
+    Only the exact rational is returned.  This remains a qualitative limit;
+    it does not manufacture an effective finite-``lambda`` threshold.
+    """
+
+    return 2**2 * fixed_label_ratio(8, 6)
+
+
+def repo_d4_over_d6_limit_pi_minus_two() -> Fraction:
+    """Return the rational multiplying ``pi^-2`` in the ``d_4/d_6`` limit.
+
+    The repository normalization gives
+
+        lambda^4 * d_4/d_6 -> (15/128) * pi^(-2).
+
+    As above, this is exact asymptotic algebra, not a finite formula bound.
+    """
+
+    return fixed_label_ratio(4, 6) / 2**2
+
+
+def repo_d0_over_d4_limit_pi_minus_four() -> Fraction:
+    """Return the rational in ``lambda^8*d_0/d_4`` before ``pi^-4``.
+
+    The qualitative fixed-index source formula gives
+
+        lambda^8 * d_0/d_4 -> (3/8192) * pi^(-4).
+    """
+
+    return fixed_label_ratio(0, 4) / 2**4
+
+
+def repo_d6_over_d4_limit_pi_squared() -> Fraction:
+    """Return the rational in ``lambda^-4*d_6/d_4`` before ``pi^2``.
+
+    In repository variables,
+
+        lambda^(-4) * d_6/d_4 -> (128/15) * pi^2.
+    """
+
+    return 2**2 * fixed_label_ratio(6, 4)
+
+
 def _require_equal(actual: Any, expected: Any, name: str) -> None:
     if actual != expected:
         raise SourceLockError(f"locked {name} differs from the admitted value")

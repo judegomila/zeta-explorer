@@ -150,6 +150,23 @@ phase volume `Phi_lambda(U,g)`.  The target
 moments and quantitative equidistribution hit a rigorous length barrier, and
 only an explicit `exp(O(lambda))` upper bound is currently available.
 
+The common Rayleigh-shift upper bound also has a parity-scale limitation.
+Although `O(lambda^7*d_4)=o(d_8)`, the exact fixed-index ratios
+
+`d_8/d_6 ~ (32*pi^2/7)*lambda^4`,
+
+`d_4/d_6 ~ (15/(128*pi^2))*lambda^(-4)`
+
+show that the same estimate gives only `O(lambda^3*d_6)`, not `o(d_6)`.
+Consequently the even `d_8` scalar scale cannot be transferred to the odd
+sector.  The source-normalized `0/4` combination does not repair this at the
+hard endpoint: its `h_0` endpoint contribution is smaller than its `h_4`
+endpoint contribution by order `lambda^(-4)`.  These are exact asymptotic
+audits with no effective finite threshold; they prove neither a signed
+odd-floor bound nor equation (5.2).  See
+`notes/PARITY_SHIFT_SCALE_AUDIT.md` and
+`notes/OUTER_NORMALIZATION_CANCELLATION_AUDIT.md`.
+
 The residual obstruction has now been sharpened to an equality.  If
 `p=a*kappa`, `R=K-p`, and `D>0` is any source-defined preconditioner on the
 even complement, the exact radical identity gives

@@ -1,0 +1,232 @@
+{
+  "artifact_version": "0.18.1-prufer-same-parity-gap",
+  "terminal_state": "P0_INVALIDATED",
+  "construction": "elementary_half_line_prufer_gap_v1",
+  "precision_decimal_digits": 160,
+  "provenance_sha256": {
+    "notes/PRUFER_SAME_PARITY_GAP_THEOREM.md": "145818f1211b0bd40cb52457bfccaa2c0e3e34081790c211d9d5806c739497fd",
+    "src/prufer_same_parity_gap.py": "08165b67e8e50a93f9222d0dbd51029655210072565a3ed27a4ce1e85ad0d109",
+    "verifier/prufer_same_parity_gap_replay.py": "d57a4bf7e94344e52d4cceeae5497388d434393375f60a482e46857274d8b77c"
+  },
+  "locked_formulas": {
+    "operator": "-d/dx((1-x^2)*dy/dx)+c^2*x^2*y=mu*y",
+    "half_line_equation": "u''=sech(t)^2*(c^2*tanh(t)^2-nu)*u; x=tanh(t)",
+    "endpoint_normalization": "u(infinity,nu)=1; u'(infinity,nu)=0",
+    "phase": "continuous_lift_arg(u(0,nu)+i*u'(0,nu))",
+    "phase_target": "phi(mu_m)=m*pi/2",
+    "same_parity_index": "j=n+2*r",
+    "K_squared": "max(1,2*c^2+j*(j+1))",
+    "gap": "(16*r*pi/(225*K^2))*exp(-2*pi*K)",
+    "project_bandwidth": "c=2*pi*lambda^2",
+    "differential_eigenvalue_symbol": "mu"
+  },
+  "exact_input": {
+    "lambda_rational_text": "2",
+    "n_integer": 0,
+    "r_integer": 2,
+    "j_integer": 4,
+    "c_exact_formula": "8*pi",
+    "K_squared_exact_formula": "128*pi^2+20"
+  },
+  "proof_constants_exact": {
+    "volterra_tail_operator_norm_upper": "1/4",
+    "u_T_lower": "2/3",
+    "u_T_upper": "4/3",
+    "absolute_u_prime_T_upper": "2/3",
+    "energy_T_lower": "16/45",
+    "energy_T_upper": "7/3",
+    "center_Cauchy_lower_coefficient": "64/225",
+    "numerator_upper_coefficient": "4",
+    "phase_derivative_upper_coefficient": "225/16",
+    "step_four_gap_prefactor_in_units_of_pi": "32/225"
+  },
+  "outward_intervals": {
+    "pi": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "44167982893970894324442670284993344941856912638989308637316052510943536251955942700921793148090031901448623931435341300710551497343604266413435151139557971927405",
+        "binary_exponent": -532
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "88335965787941788648885340569986689883713825277978617274632105021887072503911885401843586296180063802897247862870682601421102994687208532826870302279115943854811",
+        "binary_exponent": -533
+      },
+      "decimal_display_only": [
+        "3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067982148086513282306647093844609550582231725359408128481117450258097518279",
+        "3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067982148086513282306647093844609550582231725359408128481117450293661658271"
+      ]
+    },
+    "c": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "44167982893970894324442670284993344941856912638989308637316052510943536251955942700921793148090031901448623931435341300710551497343604266413435151139557971927405",
+        "binary_exponent": -529
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "88335965787941788648885340569986689883713825277978617274632105021887072503911885401843586296180063802897247862870682601421102994687208532826870302279115943854811",
+        "binary_exponent": -530
+      },
+      "decimal_display_only": [
+        "25.13274122871834590770114706623602307357735519500084656779955673846253125028967198902427860273693654385718469210625845317675075687640465785380287526502784893960206478014623",
+        "25.13274122871834590770114706623602307357735519500084656779955673846253125028967198902427860273693654385718469210625845317675075687640465785380287526502784893960234929326617"
+      ]
+    },
+    "c_squared": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "34689452645894654318226555191775819284454189762594601578492669387647870422325843703679166933878280896002577324267512349728855652466264284475949187032978086997299",
+        "binary_exponent": -524
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "8672363161473663579556638797943954821113547440648650394623167346911967605581460925919791733469570224000644331066878087432213913116566071118987296758244521749325",
+        "binary_exponent": -522
+      },
+      "decimal_display_only": [
+        "631.6546816697189516054074239920736726600767620634106000904543600780828686348291355521134978379873428367376584815374812209774302798099229905670795313910526503033731484538485",
+        "631.6546816697189516054074239920736726600767620634106000904543600780828686348291355521134978379873428367376584815374812209774302798099229905670795313910526503033913572935243"
+      ]
+    },
+    "K_squared": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "35238636458705103095425107255702330741835744586606066011244226464382713876997656187848971705131197260400761029178830818371825411506241615980955109296267291569459",
+        "binary_exponent": -523
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "8809659114676275773856276813925582685458936146651516502811056616095678469249414046962242926282799315100190257294707704592956352876560403995238777324066822892365",
+        "binary_exponent": -521
+      },
+      "decimal_display_only": [
+        "1283.309363339437903210814847984147345320153524126821200180908720156165737269658271104226995675974685673475316963074962441954860559619845981134159062782105300606746296907697",
+        "1283.309363339437903210814847984147345320153524126821200180908720156165737269658271104226995675974685673475316963074962441954860559619845981134159062782105300606782714587049"
+      ]
+    },
+    "K": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "7869432249636911930689125009997991007099975629340016641922655099033103367826370721112924177466280510691901198724697494852462266902716421293063720959787145903499",
+        "binary_exponent": -526
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "31477728998547647722756500039991964028399902517360066567690620396132413471305482884451696709865122042767604794898789979409849067610865685172254883839148583613997",
+        "binary_exponent": -528
+      },
+      "decimal_display_only": [
+        "35.82330754326626807615188651615582226869860400357480445364515884418307528238260832199315347396304559680380691830174100521486172472820699193026233449279004331317427392360368",
+        "35.82330754326626807615188651615582226869860400357480445364515884418307528238260832199315347396304559680380691830174100521486172472820699193026233449279004331317541197608342"
+      ]
+    },
+    "gap_lower_bound": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "6051245235514064893352005641358722128423786939079501769819284538331226603128398218562760154174109662821795208175277320854855187213270644881833701484386417429535",
+        "binary_exponent": -867
+      },
+      "upper_exact_dyadic": {
+        "sign": 0,
+        "mantissa_decimal_text": "96819923768225038293632090261739554054780591025272028317108552613299625650054371497004162466785754605148723330804437133677682995412330318109339223750182678873671",
+        "binary_exponent": -871
+      },
+      "decimal_display_only": [
+        "6.149481694126831419248884120202579049290256777914192787781137792660423271143365907638925732108074626560898884987363272344952214409497323252246096582728777347095205623298212e-102",
+        "6.14948169412683141924888412020257904929025677791419278778113779266042327114336590763892573210807462656089888498736327234495221440949732325224609658272877734716577037790936e-102"
+      ]
+    },
+    "log10_gap_lower_bound": {
+      "endpoint_format": "signed_mantissa_times_2_power_v1",
+      "lower_exact_dyadic": {
+        "sign": 1,
+        "mantissa_decimal_text": "44466825251509315224962525902248609348157806191108680165782419006932773001914409550608471187398320348464355229258361202616769594177302782809372856947835396446663",
+        "binary_exponent": -527
+      },
+      "upper_exact_dyadic": {
+        "sign": 1,
+        "mantissa_decimal_text": "88933650503018630449925051804497218696315612382217360331564838013865546003828819101216942374796640696928710458516722405233539188354605565618745713895670792893319",
+        "binary_exponent": -528
+      },
+      "decimal_display_only": [
+        "-101.2111614869671030384367598137432700735201308216996914811696475952705411377500321368963524780636265652804631744473178873949380610780882420422418529286365788631931305228084",
+        "-101.2111614869671030384367598137432700735201308216996914811696475952705411377500321368963524780636265652804631744473178873949380610780882420422418529286365788631851641554503"
+      ]
+    }
+  },
+  "c0_legendre_oracles": [
+    {
+      "m": 0,
+      "mu_m_at_c0": "0",
+      "P_m_at_zero": "1",
+      "P_m_prime_at_zero": "0",
+      "half_line_L2_norm_squared": "1",
+      "phase_derivative_at_mu_m": "1",
+      "lifted_phase_in_units_of_pi": "0"
+    },
+    {
+      "m": 1,
+      "mu_m_at_c0": "2",
+      "P_m_at_zero": "0",
+      "P_m_prime_at_zero": "1",
+      "half_line_L2_norm_squared": "1/3",
+      "phase_derivative_at_mu_m": "1/3",
+      "lifted_phase_in_units_of_pi": "1/2"
+    },
+    {
+      "m": 2,
+      "mu_m_at_c0": "6",
+      "P_m_at_zero": "-1/2",
+      "P_m_prime_at_zero": "0",
+      "half_line_L2_norm_squared": "1/5",
+      "phase_derivative_at_mu_m": "4/5",
+      "lifted_phase_in_units_of_pi": "1"
+    },
+    {
+      "m": 3,
+      "mu_m_at_c0": "12",
+      "P_m_at_zero": "0",
+      "P_m_prime_at_zero": "-3/2",
+      "half_line_L2_norm_squared": "1/7",
+      "phase_derivative_at_mu_m": "4/63",
+      "lifted_phase_in_units_of_pi": "3/2"
+    },
+    {
+      "m": 4,
+      "mu_m_at_c0": "20",
+      "P_m_at_zero": "3/8",
+      "P_m_prime_at_zero": "0",
+      "half_line_L2_norm_squared": "1/9",
+      "phase_derivative_at_mu_m": "64/81",
+      "lifted_phase_in_units_of_pi": "2"
+    }
+  ],
+  "c0_same_parity_gap_oracle": {
+    "n_integer": 0,
+    "r_integer": 2,
+    "j_integer": 4,
+    "mu_j_minus_mu_n_exact": "20"
+  },
+  "theorem_flags": {
+    "standard_sturm_qualitative_input_used": true,
+    "elementary_quantitative_gap_proved": true,
+    "same_parity_only": true,
+    "numerical_sturm_solver_used": false,
+    "cached_prolate_eigenvalues_read": false,
+    "external_gap_theorem_source_used": false,
+    "growing_window_conditioning_proved": false,
+    "signed_weil_sector_floor_proved": false,
+    "equation_5_2_proved": false,
+    "local_uniform_determinant_convergence_proved": false,
+    "status_promoted": false
+  },
+  "shared_library_limitation": "producer and independent replay both use mpmath.iv for transcendental outward intervals",
+  "claim_scope": "standard qualitative Sturm input plus an elementary quantitative non-collision bound and exact c=0 Legendre oracles; no numerical eigensolve"
+}

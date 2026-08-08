@@ -86,7 +86,7 @@
     "fourier_sign": "fhat(t)=integral f(y)*exp(-i*t*y) dy",
     "prime_endpoint": "every prime power n<=lambda^2 is included",
     "prime_sign": "m_lambda=2*theta_prime-2*sum Lambda(n)/sqrt(n)*cos(t*log(n))",
-    "inversion": "Jf(x)=x^(-1)f(x^(-1)); reflection is retained before forming the inversion-even state",
+    "inversion": "multiplicatively Jf(u)=f(u^(-1)); in the additive logarithmic coordinate Jf(x)=f(-x), and reflection is retained before forming the inversion-even state",
     "matched_schedule": "lambda=p/2 for odd p>=5 and N=ceil(lambda^2)=(p^2+3)/4",
     "matched_even_count_scope": "the even ambient-complement dimension and count comparison require the unproved finite hypothesis P_(E_N^+)p_4!=0 at N=ceil(lambda^2)",
     "strict_capture_projector": "Pi_>=1_(g-delta,infinity)(mathscr_R), distinct from the inclusive rank projector",

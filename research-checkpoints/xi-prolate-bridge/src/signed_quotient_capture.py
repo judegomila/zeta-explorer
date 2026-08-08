@@ -34,7 +34,7 @@ SERIALIZATION_GUARD_OFFSET_BITS = 16
 # Finalized after the note and lock pass independent review.
 PINNED_HASHES = {
     NOTE: "9700501a367ea7ae2b843ee61b45bec3970fc35db1715613099b08439be0415c",
-    LOCK: "8aa465f27dde5678e5732316e259d0386125e60b4d9d981357daadf34545943c",
+    LOCK: "02f9474e23a1b81762edef7ee3fa911997281fd046342a194a0845b40508d6b9",
 }
 
 _SHA256 = re.compile(r"^[0-9a-f]{64}$")
@@ -44,7 +44,7 @@ LOCKED_CONVENTIONS = {
     "fourier_sign": "fhat(t)=integral f(y)*exp(-i*t*y) dy",
     "prime_endpoint": "every prime power n<=lambda^2 is included",
     "prime_sign": "m_lambda=2*theta_prime-2*sum Lambda(n)/sqrt(n)*cos(t*log(n))",
-    "inversion": "Jf(x)=x^(-1)f(x^(-1)); reflection is retained before forming the inversion-even state",
+    "inversion": "multiplicatively Jf(u)=f(u^(-1)); in the additive logarithmic coordinate Jf(x)=f(-x), and reflection is retained before forming the inversion-even state",
     "matched_schedule": "lambda=p/2 for odd p>=5 and N=ceil(lambda^2)=(p^2+3)/4",
     "matched_even_count_scope": "the even ambient-complement dimension and count comparison require the unproved finite hypothesis P_(E_N^+)p_4!=0 at N=ceil(lambda^2)",
     "strict_capture_projector": "Pi_>=1_(g-delta,infinity)(mathscr_R), distinct from the inclusive rank projector",

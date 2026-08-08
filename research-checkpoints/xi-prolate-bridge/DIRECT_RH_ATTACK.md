@@ -1278,12 +1278,38 @@ majorant of the exact negative multiplier gives a phase-sensitive,
 source-reconstructible capture score.  Exact countermodels prove that rank,
 conditioning, positive sampling, and positive low/high diagonal blocks do
 not supply the missing orientation or strict reserve.  The matched
-`N=ceil(lambda^2)` target counts have no dimension obstruction, conditional
-on a nonzero projected anchor, but a full-row co-frame theorem is not proved.
-Thus the remaining source estimates are the signed source-coordinate lower
-bound, a positive physical-high floor on the same schedule, and the strict
-quotient-relative cross inequality; none follows from the existing absolute
-sampling theorem.
+`N=ceil(lambda^2)` target counts have no dimension obstruction once the
+projected anchor is nonzero.
+
+`notes/PHYSICAL_LEVERAGE_SHORTED_SCHUR.md` removes that anchor caveat
+eventually: the projected-state norm theorem and the exact identity
+`P_N k_lambda^+=a_4 p_4` give `||p_4||->a_infty/a_4>0` on the matched
+quadratic schedule.  The threshold is non-effective and does not certify the
+finite `p=5,7` artifacts.  The same note replaces the raw-cross target by a
+sharper exact reduction.  Write the shifted parity form as
+
+`B=g I+C-R`, with `C,R>=0`, and short `C` to the physical low range `K`:
+
+`C_/K=C_KK-C_KH C_HH^dagger C_HK`.
+
+Then `B` is bounded below by the block matrix with low block
+`gI-R_KK+C_/K`, high block `gI-R_HH`, and cross `-R_KH`.  Positivity of `R`
+automatically gives
+
+`||R_HK Delta^(-1/2)||^2 <= rho beta`,
+
+where `rho>=||R_HH||` and
+`beta=||Delta^(-1/2)R_KKDelta^(-1/2)||=||A^*RA||`.  Thus
+`rho beta<(g-rho)mu` is a sufficient scalar gluing reserve; the exact
+anisotropic Schur complement is sharper.  The physical high trace is the
+leverage deficit
+
+`tr(T_v)-tr((W^*W)^dagger W^*T_vW)`.
+
+Neither a leverage deficit below `g` nor the signed shorted low comparison is
+proved on an unbounded schedule.  Those two analytic estimates, rather than
+a raw cross estimate for the whole form, are the next signed-sector targets.
+A quantitative co-frame determinant also remains open.
 
 ## 7. What would and would not count as completion
 

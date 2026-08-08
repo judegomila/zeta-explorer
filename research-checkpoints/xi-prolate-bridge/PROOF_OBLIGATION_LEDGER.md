@@ -346,11 +346,21 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   positive diagonal blocks do not imply the missing capture/sign/reserve.
   This is a reduction and obstruction theorem, not any one of those missing
   estimates.
-- [ ] Prove the phase-sensitive physical capture estimate
-  `||Pi_dangerous P_(K_low^perp)||` at the threshold in equation (6.4) of
-  `notes/COMPRESSED_MULTIPLIER_TRACE_THEOREM.md`, together with the signed
-  low comparison against the same `Delta_L` and the quotient-relative cross
-  action.  A rank bound alone does not supply any of these three inputs.
+- [x] Prove eventual nonvanishing of the matched quadratic comparison anchor
+  from the source-normalized projected-state norm limit.  Derive the exact
+  physical leverage deficit, short the positive multiplier to the physical
+  range, and use positivity of the negative operator to obtain an automatic
+  quotient-relative cross estimate and scalar/anisotropic Schur criteria.
+  Exact rational producer and clean-room replay models test the theorem and
+  reject capture-to-raw-cross inference.  This supplies no effective finite
+  anchor threshold and proves none of the required prolate--Weil reserves.
+- [ ] Prove, on one common unbounded schedule, both (i) a signed lower bound
+  for `gI-R_KK+C_/K` against the quotient metric and (ii) the physical
+  leverage deficit `tr(P_H R P_H)<g`, including the odd-pole leakage.  Then
+  close either the scalar reserve `rho*beta<(g-rho)*mu` or the exact
+  anisotropic shorted Schur complement from
+  `notes/PHYSICAL_LEVERAGE_SHORTED_SCHUR.md`.  The total trace/rank theorem
+  does not supply these phase-sensitive estimates.
 - [ ] Establish either criterion for the exact combined Weil form relative to
   explicit source-normalized prolate windows growing through the Shannon
   transition index, including all coupling, forcing-orientation, and

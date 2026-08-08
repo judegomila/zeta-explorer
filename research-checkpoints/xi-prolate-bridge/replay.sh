@@ -513,4 +513,16 @@ for P0_SIGNED_CAPTURE_P in 5 7; do
   done
 done
 
+mkdir -p artifacts/physical_leverage_shorted_schur
+for P0_SHORTED_SCHUR_P in 5 7; do
+  for P0_SHORTED_SCHUR_DPS in 80 160; do
+    python3 src/physical_leverage_shorted_schur.py \
+      --lambda-numerator "$P0_SHORTED_SCHUR_P" --dps "$P0_SHORTED_SCHUR_DPS" \
+      --output "artifacts/physical_leverage_shorted_schur/p${P0_SHORTED_SCHUR_P}_d${P0_SHORTED_SCHUR_DPS}_producer.json" >/dev/null
+    python3 verifier/physical_leverage_shorted_schur_replay.py \
+      "artifacts/physical_leverage_shorted_schur/p${P0_SHORTED_SCHUR_P}_d${P0_SHORTED_SCHUR_DPS}_producer.json" \
+      --output "artifacts/physical_leverage_shorted_schur/p${P0_SHORTED_SCHUR_P}_d${P0_SHORTED_SCHUR_DPS}_replay.json" >/dev/null
+  done
+done
+
 python3 src/write_artifact_manifest.py

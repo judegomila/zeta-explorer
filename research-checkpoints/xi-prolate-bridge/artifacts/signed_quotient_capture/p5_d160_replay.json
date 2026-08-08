@@ -44,9 +44,9 @@
     "lambda_numerator": 5
   },
   "producer_binding": {
-    "byte_count": 32563,
+    "byte_count": 32630,
     "byte_source": "exact artifact file bytes",
-    "sha256": "229f941837d322d3e56cd38f0ce5602e077763b96fbd1139a9fe2abf1702ccd5"
+    "sha256": "a4e14a874ea49583057ff274e40c2625364f042a5f65187c7cd278d037cf85ee"
   },
   "reconstructed_exact_schedule": {
     "N": 7,
@@ -77,7 +77,7 @@
     "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
     "P2_SOURCE_LOCK.json": "8b731d499903041ef68e7722ebd085d22673c022655431dcca27c9cac6f4730a",
     "PROLATE_DEFECT_SOURCE_LOCK.json": "0844df654ee968b1c371ec96618d10d219da9fde702d62faa4f0c6be139b036d",
-    "SIGNED_QUOTIENT_CAPTURE_SOURCE_LOCK.json": "8aa465f27dde5678e5732316e259d0386125e60b4d9d981357daadf34545943c",
+    "SIGNED_QUOTIENT_CAPTURE_SOURCE_LOCK.json": "02f9474e23a1b81762edef7ee3fa911997281fd046342a194a0845b40508d6b9",
     "notes/BLOCK_QUOTIENT_ACTION_THEOREM.md": "31c4239b2dec0114be7b8e9b42e52ebc6361130461d1225e05c81ff5b26369d4",
     "notes/COMPRESSED_MULTIPLIER_TRACE_THEOREM.md": "ec2881e0f233c2c57101e960e3b43cd0abfbf9ee25f342f08a01f35827883d7f",
     "notes/GROWING_WINDOW_THEOREM.md": "dad6b0a878b7eba21cbc7aa8049cf3bf89a38df766cc157a87c416e79a721ac7",

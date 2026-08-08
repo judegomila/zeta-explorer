@@ -386,3 +386,18 @@ The producer and clean-room replay reconstruct all rational countermodels and
 the transition ceiling independently at 80 and 160 digits.  This source lock
 does not admit a co-frame theorem, physical capture estimate, signed lower
 bound, strict cross reserve, equation (5.2), or determinant convergence.
+
+## Physical leverage and shorted-Schur source lock
+
+`PHYSICAL_LEVERAGE_SHORTED_SCHUR_SOURCE_LOCK.json` pins only repository
+prerequisites: the exact parity multiplier split, compressed negative
+multiplier, quotient metric, growing-window anchor, signed-capture reduction,
+and source-normalized projected-state norm theorem.  It admits no new
+external theorem.  `notes/PHYSICAL_LEVERAGE_SHORTED_SCHUR.md` combines those
+inputs to prove eventual matched-anchor nonvanishing, the exact physical
+leverage deficit, the positive-part Krein-short lower matrix, the automatic
+negative cross estimate, and scalar or anisotropic Schur sufficiency.  The
+producer and clean-room replay reconstruct exact rational theorem-regression
+models independently.  This lock does not admit an effective finite anchor
+threshold, a leverage deficit below `g`, a signed shorted low floor, a
+co-frame bound, equation (5.2), or determinant convergence.

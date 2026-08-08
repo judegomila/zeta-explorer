@@ -1196,7 +1196,7 @@
   "locked_conventions": {
     "fourier_sign": "fhat(t)=integral f(y)*exp(-i*t*y) dy",
     "interval_serialization": "nondegenerate intervals are expanded by exact dyadic 2^(s-ceil(dps*3321928094887363/10^15)+16), s=max(0,floor(log2(max endpoint magnitude))), and replay requires enclosure of its independent interval",
-    "inversion": "Jf(x)=x^(-1)f(x^(-1)); reflection is retained before forming the inversion-even state",
+    "inversion": "multiplicatively Jf(u)=f(u^(-1)); in the additive logarithmic coordinate Jf(x)=f(-x), and reflection is retained before forming the inversion-even state",
     "matched_even_count_scope": "the even ambient-complement dimension and count comparison require the unproved finite hypothesis P_(E_N^+)p_4!=0 at N=ceil(lambda^2)",
     "matched_schedule": "lambda=p/2 for odd p>=5 and N=ceil(lambda^2)=(p^2+3)/4",
     "prime_endpoint": "every prime power n<=lambda^2 is included",
@@ -1253,7 +1253,7 @@
     "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
     "P2_SOURCE_LOCK.json": "8b731d499903041ef68e7722ebd085d22673c022655431dcca27c9cac6f4730a",
     "PROLATE_DEFECT_SOURCE_LOCK.json": "0844df654ee968b1c371ec96618d10d219da9fde702d62faa4f0c6be139b036d",
-    "SIGNED_QUOTIENT_CAPTURE_SOURCE_LOCK.json": "8aa465f27dde5678e5732316e259d0386125e60b4d9d981357daadf34545943c",
+    "SIGNED_QUOTIENT_CAPTURE_SOURCE_LOCK.json": "02f9474e23a1b81762edef7ee3fa911997281fd046342a194a0845b40508d6b9",
     "notes/BLOCK_QUOTIENT_ACTION_THEOREM.md": "31c4239b2dec0114be7b8e9b42e52ebc6361130461d1225e05c81ff5b26369d4",
     "notes/COMPRESSED_MULTIPLIER_TRACE_THEOREM.md": "ec2881e0f233c2c57101e960e3b43cd0abfbf9ee25f342f08a01f35827883d7f",
     "notes/GROWING_WINDOW_THEOREM.md": "dad6b0a878b7eba21cbc7aa8049cf3bf89a38df766cc157a87c416e79a721ac7",

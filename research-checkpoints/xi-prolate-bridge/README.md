@@ -262,18 +262,24 @@ scale when `N` is comparable to `lambda^2` and the displayed shift schedule
 holds.  Its finite constants can be order-vacuous, it does not apply with the
 same scale after silently substituting the separate exponential projection
 schedule, and it proves neither physical capture nor the signed Schur sign.
-`notes/SIGNED_QUOTIENT_CAPTURE_REDUCTION.md` now identifies the exact next
-objects without an inverse smallest Gram: the signed low condition is a
-source-coordinate compression, and the quotient-relative cross norm is
+`notes/SIGNED_QUOTIENT_CAPTURE_REDUCTION.md` identifies the signed low and
+physical-capture objects without an inverse smallest Gram: the signed low
+condition is a source-coordinate compression, and the quotient-relative cross norm is
 exactly `||P_H Q W D^(-1/2)||`.  The known scalar shift erodes a hypothetical
 uniform source floor by only `o(lambda^(-2))`.  Phase-sensitive trace
 majorants give a reconstructible capture observable, while exact rational
 countermodels show that rank, physical conditioning, positive sampling, and
-positive diagonal blocks do not imply capture or strict gluing.  At matched
-bandwidth the buffered target counts meet both parity dimensions conditional
-on the still-unproved projected-anchor nonvanishing; the needed co-frame,
-signed source floor, physical high floor, and strict cross reserve also remain
-unproved.
+positive diagonal blocks do not imply capture or strict gluing.
+`notes/PHYSICAL_LEVERAGE_SHORTED_SCHUR.md` is the exact successor.  The
+projected-state norm theorem makes the matched quadratic anchor nonzero
+eventually, although with no effective finite threshold.  The physical high
+trace is an exact leverage deficit, and shorting the positive multiplier
+absorbs its cross block before gluing.  Positivity of the negative operator
+then supplies an automatic quotient-relative cross bound.  The remaining
+analytic estimates are a signed shorted low floor and a leverage deficit
+smaller than `g` on the same unbounded schedule; neither is proved.  A
+quantitative co-frame determinant and the final determinant limit also remain
+open.
 
 Start with:
 
@@ -347,6 +353,11 @@ Start with:
     `notes/SIGNED_QUOTIENT_CAPTURE_REDUCTION.md` -- exact source-coordinate
     signed-low/cross identities, phase-sensitive capture observables,
     matched-bandwidth counts, and independently replayed countermodels.
+30. `PHYSICAL_LEVERAGE_SHORTED_SCHUR_SOURCE_LOCK.json` and
+    `notes/PHYSICAL_LEVERAGE_SHORTED_SCHUR.md` -- eventual matched-anchor
+    nonvanishing, exact physical leverage, the positive-part Krein short,
+    automatic negative cross control, and independently replayed exact
+    theorem-regression models.
 
 `notes/DETERMINANT_LIMIT_AUDIT.md` reproduces the complete finite
 self-adjointness/determinant theorem from the pinned CCM source and separates

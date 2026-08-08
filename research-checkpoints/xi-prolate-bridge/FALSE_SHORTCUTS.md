@@ -193,7 +193,11 @@ region required by RH.
   does not remove the low--high cross.  The exact model with low block
   `diag(3,2)`, high block `11`, and cross squared norm `36` has full
   determinant `-6`.  The strict quotient-relative cross reserve is a separate
-  hypothesis.
+  hypothesis if one works with the raw form.  The valid successor in
+  `notes/PHYSICAL_LEVERAGE_SHORTED_SCHUR.md` first takes the Krein short of
+  the positive part.  That absorbs its cross, after which positivity of the
+  negative part gives an automatic cross estimate.  This does not prove the
+  remaining signed shorted low floor or physical leverage reserve.
 - Positive sampling cannot choose the sign of the paired Weil form or create
   a strict reserve.  The swap model has `S^*S=2` but `S^*JS=-2`, while the
   rank-one Gram from `S=[1,1]` reaches the gluing threshold at equality.

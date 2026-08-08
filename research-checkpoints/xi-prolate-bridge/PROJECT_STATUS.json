@@ -1,5 +1,5 @@
 {
-  "artifact_version": "0.25.0-compressed-multiplier-trace",
+  "artifact_version": "0.26.0-signed-quotient-capture",
   "overall_status": "P0_INVALIDATED",
   "status_reason": "Two exact inconsistencies were found in the pinned source: the Section 7 formulas yield Xi/4, and printed (4.14) double-counts c(L). Explicit repairs preserve the intended zero argument but must be acknowledged.",
   "rh_proved": false,
@@ -64,6 +64,15 @@
   "compressed_multiplier_trace_source_locked": true,
   "compressed_multiplier_trace_independent_replay_written": true,
   "compressed_multiplier_polynomial_rank_scale_proved": true,
+  "signed_quotient_capture_source_locked": true,
+  "signed_quotient_capture_independent_replay_written": true,
+  "source_coordinate_signed_low_equivalence_proved": true,
+  "quotient_relative_cross_identity_proved": true,
+  "phase_sensitive_capture_reduction_proved": true,
+  "matched_bandwidth_target_count_formulas_proved": true,
+  "matched_bandwidth_projected_anchor_nonzero_proved": false,
+  "physical_coframe_proved": false,
+  "strict_quotient_cross_reserve_proved": false,
   "physical_dangerous_space_capture_proved": false,
   "phase_volume_polynomial_bound_proved": false,
   "finite_residual_gap_dataset_written": true,
@@ -120,7 +129,7 @@
   "fixed_index_prolate_asymptotic_effective_threshold": false,
   "fixed_index_d4_d8_ratio_proved_eventually": true,
   "anisotropic_Schur_interval_enclosed": false,
-  "diagnostic_tests_passed": 466,
-  "diagnostic_tests_total": 466,
-  "smallest_claim": "Within the documented P0 source errata, the exact finite source formulas, finite determinant theorem, scale-free determinant normalization, global E-radical reduction, and finite anisotropic Schur/resolvent theorems remain valid. On the locked exponential schedule, the hybrid and projected-state theorems give the normalized common Ritz upper shift U_Z=o(d_6). The exact sine-packet theorem covers every leading label, and the source-locked transition theorem proves mu_n(c)<3*c^2 plus explicit defect-relative endpoint, complete-series, weighted-norm, and translation bounds for every even n<n_star. Its growing corrected-source lift retains arbitrary anchor deflation, the compact projection, both reflected tails, and every within-block sampling cross term, with C_8=O(lambda*polylog(lambda)) and C_rest=O(lambda^3*polylog(lambda)). The deliberately block-diagonal low quotient retains cross-block orientation and has Gamma_low=O(lambda^3*polylog(lambda)/d_8). The self-contained finite-compression multiplier theorem gives an O(lambda^2) dangerous-rank scale on N asymptotic lambda^2 but its finite pilots are order-vacuous and it proves no physical capture. The physical high complement, both signed parity comparisons, unbounded sector floors, vector-specific shifted-resolvent decay, equation (5.2), and locally uniform characteristic convergence remain unproved. The formal status is P0_INVALIDATED."
+  "diagnostic_tests_passed": 477,
+  "diagnostic_tests_total": 477,
+  "smallest_claim": "Within the documented P0 source errata, the exact finite source formulas, finite determinant theorem, scale-free determinant normalization, global E-radical reduction, and finite anisotropic Schur/resolvent theorems remain valid. On the locked exponential schedule, the hybrid and projected-state theorems give the normalized common Ritz upper shift U_Z=o(d_6). The exact sine-packet theorem covers every leading label, and the source-locked transition theorem proves mu_n(c)<3*c^2 plus explicit defect-relative endpoint, complete-series, weighted-norm, and translation bounds for every even n<n_star. Its growing corrected-source lift retains arbitrary anchor deflation, the compact projection, both reflected tails, and every within-block sampling cross term, with C_8=O(lambda*polylog(lambda)) and C_rest=O(lambda^3*polylog(lambda)). The deliberately block-diagonal low quotient retains cross-block orientation and has Gamma_low=O(lambda^3*polylog(lambda)/d_8). The self-contained finite-compression multiplier theorem gives an O(lambda^2) dangerous-rank scale on N asymptotic lambda^2 but its finite pilots are order-vacuous. The signed-quotient successor proves the exact source-coordinate low/cross identities, negligible known shift erosion, phase-sensitive capture reductions, and matched-bandwidth target-count formulas. Its even no-dimension-obstruction statement is conditional on unproved projected-anchor nonvanishing, and it proves no co-frame, capture estimate, signed source floor, physical-high floor, or strict cross reserve. Both signed parity comparisons, unbounded sector floors, vector-specific shifted-resolvent decay, equation (5.2), and locally uniform characteristic convergence remain unproved. The formal status is P0_INVALIDATED."
 }

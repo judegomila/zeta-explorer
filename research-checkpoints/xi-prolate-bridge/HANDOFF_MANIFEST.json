@@ -1,6 +1,6 @@
 {
   "artifact_name": "xi-prolate-bridge",
-  "artifact_version": "0.25.0-compressed-multiplier-trace",
+  "artifact_version": "0.26.0-signed-quotient-capture",
   "updated_date": "2026-08-07",
   "terminal_state": "P0_INVALIDATED",
   "entry_prompt": "CODEX_MASTER_PROMPT.md",
@@ -22,6 +22,7 @@
   "growing_transition_sampling_source_lock": "GROWING_TRANSITION_SAMPLING_SOURCE_LOCK.json",
   "block_quotient_action_source_lock": "BLOCK_QUOTIENT_ACTION_SOURCE_LOCK.json",
   "compressed_multiplier_trace_source_lock": "COMPRESSED_MULTIPLIER_TRACE_SOURCE_LOCK.json",
+  "signed_quotient_capture_source_lock": "SIGNED_QUOTIENT_CAPTURE_SOURCE_LOCK.json",
   "signed_rewrite_document": "notes/CHEBYSHEV_ERROR_REWRITE.md",
   "growing_window_document": "notes/GROWING_WINDOW_THEOREM.md",
   "prolate_tail_document": "notes/PROLATE_TAIL_ENVELOPE.md",
@@ -42,6 +43,7 @@
   "growing_transition_sampling_document": "notes/GROWING_TRANSITION_SAMPLING_THEOREM.md",
   "block_quotient_action_document": "notes/BLOCK_QUOTIENT_ACTION_THEOREM.md",
   "compressed_multiplier_trace_document": "notes/COMPRESSED_MULTIPLIER_TRACE_THEOREM.md",
+  "signed_quotient_capture_document": "notes/SIGNED_QUOTIENT_CAPTURE_REDUCTION.md",
   "parity_multiplier_schur_document": "notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md",
   "phase_volume_scale_audit_document": "notes/PHASE_VOLUME_SCALE_AUDIT.md",
   "weak_residual_sampling_document": "notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md",
@@ -128,6 +130,15 @@
     "compressed_multiplier_trace_source_locked": true,
     "compressed_multiplier_trace_independent_replay_written": true,
     "compressed_multiplier_polynomial_rank_scale_proved": true,
+    "signed_quotient_capture_source_locked": true,
+    "signed_quotient_capture_independent_replay_written": true,
+    "source_coordinate_signed_low_equivalence_proved": true,
+    "quotient_relative_cross_identity_proved": true,
+    "phase_sensitive_capture_reduction_proved": true,
+    "matched_bandwidth_target_count_formulas_proved": true,
+    "matched_bandwidth_projected_anchor_nonzero_proved": false,
+    "physical_coframe_proved": false,
+    "strict_quotient_cross_reserve_proved": false,
     "physical_dangerous_space_capture_proved": false,
     "phase_volume_polynomial_bound_proved": false,
     "sector_refined_finite_theorem_written": true,
@@ -175,10 +186,10 @@
     "gmp": "6.3.0",
     "mpfr": "4.2.2",
     "test_command": "python3 -m unittest discover -s tests -v",
-    "tests_passed": 466,
-    "tests_total": 466
+    "tests_passed": 477,
+    "tests_total": 477
   },
   "replay": "./replay.sh",
   "artifact_hash_manifest": "artifacts/ARTIFACT_MANIFEST.sha256",
-  "manifest_note": "This manifest intentionally omits a self-hash. Current hashes for generated artifacts are in the artifact hash manifest; binding source hashes are in P0_SOURCE_LOCK.json, P1_SOURCE_LOCK.json, P2_SOURCE_LOCK.json, P3_SOURCE_LOCK.json, PROLATE_DEFECT_SOURCE_LOCK.json, DEFECT_RELATIVE_PROJECTION_SOURCE_LOCK.json, ZERO_SAMPLING_SOURCE_LOCK.json, COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json, FULL_EXTERIOR_SAMPLING_SOURCE_LOCK.json, HYBRID_OUTER_SAMPLING_SOURCE_LOCK.json, PROJECTED_STATE_NORM_SOURCE_LOCK.json, LEADING_PROLATE_OSCILLATION_SOURCE_LOCK.json, TRANSITION_PROLATE_OUTER_SOURCE_LOCK.json, GROWING_TRANSITION_SAMPLING_SOURCE_LOCK.json, BLOCK_QUOTIENT_ACTION_SOURCE_LOCK.json, and COMPRESSED_MULTIPLIER_TRACE_SOURCE_LOCK.json."
+  "manifest_note": "This manifest intentionally omits a self-hash. Current hashes for generated artifacts are in the artifact hash manifest; binding source hashes are in P0_SOURCE_LOCK.json, P1_SOURCE_LOCK.json, P2_SOURCE_LOCK.json, P3_SOURCE_LOCK.json, PROLATE_DEFECT_SOURCE_LOCK.json, DEFECT_RELATIVE_PROJECTION_SOURCE_LOCK.json, ZERO_SAMPLING_SOURCE_LOCK.json, COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json, FULL_EXTERIOR_SAMPLING_SOURCE_LOCK.json, HYBRID_OUTER_SAMPLING_SOURCE_LOCK.json, PROJECTED_STATE_NORM_SOURCE_LOCK.json, LEADING_PROLATE_OSCILLATION_SOURCE_LOCK.json, TRANSITION_PROLATE_OUTER_SOURCE_LOCK.json, GROWING_TRANSITION_SAMPLING_SOURCE_LOCK.json, BLOCK_QUOTIENT_ACTION_SOURCE_LOCK.json, COMPRESSED_MULTIPLIER_TRACE_SOURCE_LOCK.json, and SIGNED_QUOTIENT_CAPTURE_SOURCE_LOCK.json."
 }

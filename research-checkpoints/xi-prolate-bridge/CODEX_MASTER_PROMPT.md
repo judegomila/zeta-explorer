@@ -11,6 +11,7 @@ For work beyond the finite P0 replay, also read `P1_SOURCE_LOCK.json`,
 `P2_SOURCE_LOCK.json`, `P3_SOURCE_LOCK.json`,
 `PROLATE_DEFECT_SOURCE_LOCK.json`,
 `COMPRESSED_MULTIPLIER_TRACE_SOURCE_LOCK.json`,
+`SIGNED_QUOTIENT_CAPTURE_SOURCE_LOCK.json`,
 `DEFECT_RELATIVE_PROJECTION_SOURCE_LOCK.json`,
 `ZERO_SAMPLING_SOURCE_LOCK.json`,
 `COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json`,
@@ -27,7 +28,8 @@ For work beyond the finite P0 replay, also read `P1_SOURCE_LOCK.json`,
 `notes/COMPACT_ABSOLUTE_SAMPLING_THEOREM.md`,
 `notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md`,
 `notes/PHASE_VOLUME_SCALE_AUDIT.md`,
-`notes/COMPRESSED_MULTIPLIER_TRACE_THEOREM.md`, and
+`notes/COMPRESSED_MULTIPLIER_TRACE_THEOREM.md`,
+`notes/SIGNED_QUOTIENT_CAPTURE_REDUCTION.md`, and
 `notes/DETERMINANT_LIMIT_AUDIT.md` completely before using their conclusions.
 
 ## Claim discipline
@@ -207,7 +209,16 @@ decomposition; it is not the asymptotic proof.
    turn rank into physical capture, and do not transfer that scale to the
    separate exponential projection schedule.  The next exact inputs are the
    dangerous-space capture angle, the signed low comparison against the same
-   quotient metric, and the quotient-relative cross action.  Do not
+   quotient metric, and the quotient-relative cross action.  Use
+   `notes/SIGNED_QUOTIENT_CAPTURE_REDUCTION.md`: work with the exact
+   source-coordinate compression `P_0A^*QA P_0`, the cross
+   `P_HQWD^(-1/2)`, and multiplier-weighted capture traces or moments.  The
+   scalar shift cancels from the cross and has already negligible quotient
+   erosion.  A matched-bandwidth full-row co-frame is an admissible
+   alternative only after proving the projected anchor is nonzero and the
+   quantitative row lower bound.  Rank, positive sampling, conditioning, and
+   positive diagonal blocks have exact counterexamples and are not substitutes.
+   Do not
    treat CG/GMRES convergence for `HX=C` as a sign proof: every resulting
    lower model still
    satisfies `S_0<=S`.  The four passing `N=3*ceil(lambda^2)` points and their

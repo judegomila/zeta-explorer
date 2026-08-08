@@ -230,6 +230,20 @@ scalar P/O pairings equal to zero while the residual action remains nonzero,
 so the scalar quadratic closure above still cannot by itself be promoted to
 the required vector estimate or equation (5.2).
 
+The next signed layer is now exact in source coordinates.  For
+`A=W_LD_L^(-1/2)` and `Delta_L=(AA^*)^dagger` on the physical low range,
+`notes/SIGNED_QUOTIENT_CAPTURE_REDUCTION.md` proves that the physical
+comparison is equivalent to a lower bound for `P_0A^*QA P_0`; the
+quotient-relative cross is exactly `P_HQW_LD_L^(-1/2)`, with the scalar shift
+cancelled.  The known shift erodes any uniform unshifted source floor by only
+`o(lambda^(-2))`.  A multiplier-weighted trace majorant gives an exact
+phase-sensitive capture observable, and the odd projected pole may be placed
+inside the low range for high/cross estimates.  Exact countermodels show why
+the current absolute sampling bounds cannot by themselves furnish the sign,
+capture, or strict reserve.  The matched-bandwidth target counts fill the
+ambient comparison dimensions if a full-row co-frame and nonzero projected
+anchor are proved; neither is currently known.
+
 ## Deterministic schedule diagnostics
 
 The admitted schedule rows preserve every stage of the estimate.  A missing

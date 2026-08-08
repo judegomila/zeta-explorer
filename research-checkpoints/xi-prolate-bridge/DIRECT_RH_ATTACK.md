@@ -1260,6 +1260,31 @@ theorem now gives an `O(lambda^2)` dangerous-rank scale on the polynomial
 schedule without Montgomery--Vaughan.  It still leaves physical capture,
 the quotient-relative coupling, and the finite signed Schur sign open.
 
+The exact successor reduction is recorded in
+`notes/SIGNED_QUOTIENT_CAPTURE_REDUCTION.md`.  With
+`A=W_LD_L^(-1/2)`, `Delta_L=(AA^*)^dagger` on `K=ran A`, and
+`P_0=1_(ker A)^perp`, it proves
+
+`P_K B P_K >= mu Delta_L` if and only if
+`P_0 A^* B A P_0 >= mu P_0`,
+
+and the exact cross identity
+
+`||P_H B P_K Delta_L^(-1/2)||=||P_H Q W_L D_L^(-1/2)||`.
+
+The scalar shift cancels from the cross and erodes a hypothetical unshifted
+source floor by at most `U_Z ||A||^2=o(lambda^(-2))`.  A nonnegative spectral
+majorant of the exact negative multiplier gives a phase-sensitive,
+source-reconstructible capture score.  Exact countermodels prove that rank,
+conditioning, positive sampling, and positive low/high diagonal blocks do
+not supply the missing orientation or strict reserve.  The matched
+`N=ceil(lambda^2)` target counts have no dimension obstruction, conditional
+on a nonzero projected anchor, but a full-row co-frame theorem is not proved.
+Thus the remaining source estimates are the signed source-coordinate lower
+bound, a positive physical-high floor on the same schedule, and the strict
+quotient-relative cross inequality; none follows from the existing absolute
+sampling theorem.
+
 ## 7. What would and would not count as completion
 
 Completion requires analytic inequalities uniform along an unbounded

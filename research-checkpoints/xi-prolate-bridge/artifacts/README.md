@@ -104,6 +104,20 @@ schedule; no artifact asserts the complete residual--gap bridge, equation
   reconstruction; overlap alone is rejected.  Both paths share pinned
   `mpmath.iv` 1.4.1.  No physical capture, signed floor,
   equation (5.2), determinant convergence, or RH conclusion is claimed.
+- `signed_quotient_capture/`: exact half-integer inputs `p=5,7` at 80 and
+  160 decimal digits on `N=ceil(lambda^2)`.  The producer and clean-room
+  replay independently reconstruct the noninjective quotient equivalence,
+  quotient-relative cross identity, scalar-shift cancellation and sharp
+  erosion model, two capture/cross countermodels, signed-sampling failures,
+  and a rational ridge-majorant leakage identity.  The transition ceiling and
+  buffered parity counts are enclosed with raw guarded dyadics; replay uses a
+  different logarithmic expression tree, requires enclosure rather than
+  overlap, and trusts no producer boolean or cached matrix.  Both paths share
+  pinned `mpmath.iv` 1.4.1.  The artifacts prove exact reductions and show,
+  conditional on the explicitly unproved projected-anchor nonvanishing, that
+  there is no target-count dimension obstruction.  They prove no co-frame,
+  physical capture, signed lower comparison, strict cross reserve, sector
+  floor, equation (5.2), determinant convergence, or RH conclusion.
 - `prufer_same_parity_gap/`: outward intervals at 80 and 160 decimal digits
   for the elementary same-parity differential prolate non-collision bound at
   `lambda=2`, `n=0`, `r=2`, together with exact `c=0` Legendre center and

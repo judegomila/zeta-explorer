@@ -5,7 +5,8 @@
   "inputs": {
     "lambda": "2",
     "lambda_exact": "2",
-    "interval_decimal_digits": 80
+    "interval_decimal_digits": 80,
+    "arithmetic_library": "mpmath.iv 1.4.1"
   },
   "locked_formulas": {
     "beta": "(2/pi^2)*log(200*lambda^2+25)",

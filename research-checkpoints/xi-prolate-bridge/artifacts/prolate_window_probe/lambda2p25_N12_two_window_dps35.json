@@ -1034,6 +1034,27 @@
       ],
       "center_scaled_model_solution_norm": "0.000031114156087711965250510666386824049",
       "center_scaled_model_solution_defect_from_exact_low_solution": "0.00011526412628535559201687457651246003"
+    },
+    "point_relative_audit_matrix_Schur_lower_model": {
+      "operator": "D^(-1/2) S_0 D^(-1/2)",
+      "S_0": "low-C^T*C/G matrix lower model",
+      "relative_operator": [
+        [
+          "-29.949008979932140978622028527157239",
+          "7.3743386223999510916665605529867661"
+        ],
+        [
+          "7.3743386223999510916665605529867661",
+          "-5.9272335894781507221880455992728684"
+        ]
+      ],
+      "relative_eigenvalues": [
+        "-32.03217298551761475377864118221232",
+        "-3.8440695838926769470314329442177874"
+      ],
+      "center_scalar": "-17.938121284705145850405037063215054",
+      "relative_radius_about_center": null,
+      "claim_scope": "finite arbitrary-precision point comparison only; not an interval or uniform estimate"
     }
   },
   "odd_additive_concentration_model": {
@@ -1082,6 +1103,27 @@
       ],
       "center_scalar": "2.7708258406353679401884320855253997",
       "relative_radius_about_center": "0.25025509530744034030382832022236307",
+      "claim_scope": "finite arbitrary-precision point comparison only; not an interval or uniform estimate"
+    },
+    "point_relative_audit_matrix_Schur_lower_model": {
+      "operator": "D^(-1/2) S_0 D^(-1/2)",
+      "S_0": "low-C^T*C/G matrix lower model",
+      "relative_operator": [
+        [
+          "-2596.7904119858931777175925209088338",
+          "2089.339771983736713490936526525673"
+        ],
+        [
+          "2089.339771983736713490936526525673",
+          "-1684.5083352778959136186520844546769"
+        ]
+      ],
+      "relative_eigenvalues": [
+        "-4279.2015309719293487808461923597658",
+        "-2.0972162918597425553984130037449953"
+      ],
+      "center_scalar": "-2140.6493736318945456681223026817554",
+      "relative_radius_about_center": null,
       "claim_scope": "finite arbitrary-precision point comparison only; not an interval or uniform estimate"
     }
   },

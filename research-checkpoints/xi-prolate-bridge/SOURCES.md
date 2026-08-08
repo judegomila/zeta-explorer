@@ -372,3 +372,17 @@ does not invalidate the audits or prove a signed sector theorem, equation
 The recent 2026 preprints are exploratory sources, not established consensus.
 The core proof route should be rebuilt from exact formulas and independently
 checked.
+
+## Signed quotient and capture source lock
+
+`SIGNED_QUOTIENT_CAPTURE_SOURCE_LOCK.json` pins the local prerequisite locks
+and theorem bytes for the quotient metric, block action, compressed
+multiplier, growing transition counts, parity multiplier, exact Fourier/prime
+conventions, and the shared `mpmath.iv` runtime.  No new external theorem is
+admitted.  `notes/SIGNED_QUOTIENT_CAPTURE_REDUCTION.md` derives the exact
+source-coordinate signed-low equivalence, cross/shift identities,
+phase-sensitive capture observables, and matched-bandwidth count alternative.
+The producer and clean-room replay reconstruct all rational countermodels and
+the transition ceiling independently at 80 and 160 digits.  This source lock
+does not admit a co-frame theorem, physical capture estimate, signed lower
+bound, strict cross reserve, equation (5.2), or determinant convergence.

@@ -281,6 +281,20 @@ smaller than `g` on the same unbounded schedule; neither is proved.  A
 quantitative co-frame determinant and the final determinant limit also remain
 open.
 
+`notes/LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR.md` optimizes that leverage route.
+The best scalar trace floor is exactly the lower-one trimmed mean of
+`m_lambda-U`, and it is also a direct high-space multiplier floor.  Separating
+the archimedean term from the prime polynomial gives the explicit sufficient
+target `ell_b>2*sqrt(M_H)+c_-`.  Feature factorization supplies the exact
+singular positive short, the oriented negative round-trip resolvent, and a
+Neumann tail bound.  An explicit Möbius right inverse plus an invisible
+central-hole correction proves that some finite all-even prolate prefix spans
+every fixed finite parity space.  That prefix is non-effective and mixes the
+two residue classes modulo four, so it does not prove either prescribed
+buffered coframe, a common unbounded margin, a signed low floor, or equation
+(5.2) of `DIRECT_RH_ATTACK.md`.  Exact-rational producer and clean-room replay
+artifacts include the strict and adversarial boundaries.
+
 Start with:
 
 1. `DIRECT_RH_ATTACK.md` -- theorem and proof reduction.
@@ -358,6 +372,11 @@ Start with:
     nonvanishing, exact physical leverage, the positive-part Krein short,
     automatic negative cross control, and independently replayed exact
     theorem-regression models.
+31. `LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR_SOURCE_LOCK.json` and
+    `notes/LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR.md` -- exterior-volume
+    leverage, optimized stop-loss/trimmed-mean high floors, feature-space
+    Schur round trips, and the non-effective all-even coframe theorem with
+    independently replayed exact rational countermodels.
 
 `notes/DETERMINANT_LIMIT_AUDIT.md` reproduces the complete finite
 self-adjointness/determinant theorem from the pinned CCM source and separates

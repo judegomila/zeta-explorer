@@ -218,6 +218,20 @@ decomposition; it is not the asymptotic proof.
    alternative only after proving the projected anchor is nonzero and the
    quantitative row lower bound.  Rank, positive sampling, conditioning, and
    positive diagonal blocks have exact counterexamples and are not substitutes.
+   The optimized successor
+   `notes/LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR.md` identifies the best
+   trace-leverage floor with the lower-one trimmed mean and reduces the high
+   target to `ell_b>2*sqrt(M_H)+c_-`, or to the higher-moment norm condition
+   `A_(2k,H)^(1/(2k))+2*P_(2k,H)^(1/(2k))+c_-<g`.  The final surcharge may
+   be set to zero only if the odd pole has already been absorbed into a
+   separately certified block.
+   It also gives the exact oriented feature resolvent and Neumann tail.  Use
+   those formulas rather than treating the trace condition as necessary.
+   Its explicit Möbius right inverse proves only that some non-effective
+   all-even prolate prefix spans each fixed finite parity space; it mixes the
+   two residue classes modulo four and does not prove either prescribed
+   buffered coframe.  The remaining quantitative coframe object is the
+   normalized adjoint-source tail `L_F`, not a raw determinant magnitude.
    Do not
    treat CG/GMRES convergence for `HX=C` as a sign proof: every resulting
    lower model still

@@ -198,6 +198,25 @@ region required by RH.
   the positive part.  That absorbs its cross, after which positivity of the
   negative part gives an automatic cross estimate.  This does not prove the
   remaining signed shorted low floor or physical leverage reserve.
+- Failure of the trace test `V_H<g` is not failure of the high inverse.
+  `R_HH=diag(9/16,9/16)` at `g=1` has trace `9/8>1` but operator norm
+  `9/16<1`.  Use the lower-one trimmed mean to optimize the trace route, or a
+  higher-moment/norm bound when trace loses the high-rank factor.
+- The lower-one trimmed mean is not the ordinary mean: its selector has both
+  unit mass and the capacity constraint `0<=alpha<=1`.  Dropping the capacity
+  or accepting `ell_H=c_-` destroys the stop-loss duality and strict odd-pole
+  reserve.
+- Full positive shorting is sufficient, not necessary.  The exact matrix
+  `gI+C-R=[[8,9],[9,11]]` is positive with determinant seven for
+  `g=2`, `C=[[9,9],[9,9]]`, and `R=diag(3,0)`, while `C_/K=0` makes the
+  fully shorted low scalar `-1`.  Failure of the fully shorted test is not
+  failure of the original matrix; retain an oriented/full Schur test or the
+  valid positive interpolation when needed.
+- Equal diagonal leverage data do not determine the negative round-trip
+  load.  With the same `V_H=rho=1/4` and `R_KK=1`, aligned and orthogonal
+  feature vectors give effective loads `4/3` and `1`.  Prime moments can
+  certify the high inverse and its Neumann tail, but not the oriented first
+  coefficients by themselves.
 - Positive sampling cannot choose the sign of the paired Weil form or create
   a strict reserve.  The swap model has `S^*S=2` but `S^*JS=-2`, while the
   rank-one Gram from `S=[1,1]` reaches the gluing threshold at equality.

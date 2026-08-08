@@ -262,6 +262,18 @@ scale when `N` is comparable to `lambda^2` and the displayed shift schedule
 holds.  Its finite constants can be order-vacuous, it does not apply with the
 same scale after silently substituting the separate exponential projection
 schedule, and it proves neither physical capture nor the signed Schur sign.
+`notes/SIGNED_QUOTIENT_CAPTURE_REDUCTION.md` now identifies the exact next
+objects without an inverse smallest Gram: the signed low condition is a
+source-coordinate compression, and the quotient-relative cross norm is
+exactly `||P_H Q W D^(-1/2)||`.  The known scalar shift erodes a hypothetical
+uniform source floor by only `o(lambda^(-2))`.  Phase-sensitive trace
+majorants give a reconstructible capture observable, while exact rational
+countermodels show that rank, physical conditioning, positive sampling, and
+positive diagonal blocks do not imply capture or strict gluing.  At matched
+bandwidth the buffered target counts meet both parity dimensions conditional
+on the still-unproved projected-anchor nonvanishing; the needed co-frame,
+signed source floor, physical high floor, and strict cross reserve also remain
+unproved.
 
 Start with:
 
@@ -331,6 +343,10 @@ Start with:
     `notes/GROWING_TRANSITION_SAMPLING_THEOREM.md` -- the corrected
     growing-family sampling/projection Loewner theorem with all within-block
     cross terms retained.
+29. `SIGNED_QUOTIENT_CAPTURE_SOURCE_LOCK.json` and
+    `notes/SIGNED_QUOTIENT_CAPTURE_REDUCTION.md` -- exact source-coordinate
+    signed-low/cross identities, phase-sensitive capture observables,
+    matched-bandwidth counts, and independently replayed countermodels.
 
 `notes/DETERMINANT_LIMIT_AUDIT.md` reproduces the complete finite
 self-adjointness/determinant theorem from the pinned CCM source and separates

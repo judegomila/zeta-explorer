@@ -337,6 +337,15 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   digit replay reconstructs the arithmetic sums and interval constants.  The
   finite bound may be ambient-dimension-vacuous and neither captures the
   dangerous space nor signs its Schur complement.
+- [x] Put the signed low comparison and quotient-relative cross action in
+  exact source coordinates.  Prove scalar-shift cancellation in the cross,
+  quantify the `o(lambda^(-2))` quotient erosion, derive phase-sensitive
+  trace-majorant and moment capture criteria, and compute the exact
+  matched-bandwidth target counts.  Independently replay exact rational
+  countermodels showing that rank, conditioning, positive sampling, and
+  positive diagonal blocks do not imply the missing capture/sign/reserve.
+  This is a reduction and obstruction theorem, not any one of those missing
+  estimates.
 - [ ] Prove the phase-sensitive physical capture estimate
   `||Pi_dangerous P_(K_low^perp)||` at the threshold in equation (6.4) of
   `notes/COMPRESSED_MULTIPLIER_TRACE_THEOREM.md`, together with the signed

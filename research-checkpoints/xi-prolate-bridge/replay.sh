@@ -501,4 +501,16 @@ for P0_COMPRESSED_P in 5 7; do
   done
 done
 
+mkdir -p artifacts/signed_quotient_capture
+for P0_SIGNED_CAPTURE_P in 5 7; do
+  for P0_SIGNED_CAPTURE_DPS in 80 160; do
+    python3 src/signed_quotient_capture.py \
+      --lambda-numerator "$P0_SIGNED_CAPTURE_P" --dps "$P0_SIGNED_CAPTURE_DPS" \
+      --output "artifacts/signed_quotient_capture/p${P0_SIGNED_CAPTURE_P}_d${P0_SIGNED_CAPTURE_DPS}_producer.json" >/dev/null
+    python3 verifier/signed_quotient_capture_replay.py \
+      "artifacts/signed_quotient_capture/p${P0_SIGNED_CAPTURE_P}_d${P0_SIGNED_CAPTURE_DPS}_producer.json" \
+      --output "artifacts/signed_quotient_capture/p${P0_SIGNED_CAPTURE_P}_d${P0_SIGNED_CAPTURE_DPS}_replay.json" >/dev/null
+  done
+done
+
 python3 src/write_artifact_manifest.py

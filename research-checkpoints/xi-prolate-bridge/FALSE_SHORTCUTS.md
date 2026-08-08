@@ -183,6 +183,23 @@ region required by RH.
   `||Pi_dangerous P_(K_low^perp)||`.  It also uses `N` comparable to
   `lambda^2`; inserting the separate exponential projection schedule changes
   the scale.
+- Even dangerous rank strictly below the physical-range dimension, an
+  isometric physical synthesis, and an exactly positive low compression do
+  not imply capture.  The exact three-dimensional model in
+  `notes/SIGNED_QUOTIENT_CAPTURE_REDUCTION.md` has dangerous rank one below
+  dimension two but capture angle squared `16/25`; a continuous family with
+  the same low block reaches angle one.
+- Exact dangerous-space capture plus positive low and high diagonal blocks
+  does not remove the low--high cross.  The exact model with low block
+  `diag(3,2)`, high block `11`, and cross squared norm `36` has full
+  determinant `-6`.  The strict quotient-relative cross reserve is a separate
+  hypothesis.
+- Positive sampling cannot choose the sign of the paired Weil form or create
+  a strict reserve.  The swap model has `S^*S=2` but `S^*JS=-2`, while the
+  rank-one Gram from `S=[1,1]` reaches the gluing threshold at equality.
+  Absolute sampling bounds may still be combined with additional sharp
+  information, but they do not by themselves imply the signed low or cross
+  inequalities.
 - Measuring both parity sectors from the trial Rayleigh quotient `q` can
   discard the actual Ritz lowering `q-u`.  The old signed gap must still be
   reported, but the valid sector theorem uses the separate comparisons

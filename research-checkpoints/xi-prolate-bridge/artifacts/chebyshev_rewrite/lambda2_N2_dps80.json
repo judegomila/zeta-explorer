@@ -6,6 +6,7 @@
     "lambda": "2",
     "N": 2,
     "precision_decimal_digits": 80,
+    "arithmetic_library": "mpmath 1.4.1",
     "origin_cutoff": "1.0e-35",
     "lambda_squared_exact": "4",
     "prime_power_cutoff_inclusive": "4"

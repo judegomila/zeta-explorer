@@ -824,6 +824,27 @@
       ],
       "center_scaled_model_solution_norm": "0.00425869229233924063376387778878",
       "center_scaled_model_solution_defect_from_exact_low_solution": "0.0010240693294743638657459558308"
+    },
+    "point_relative_audit_matrix_Schur_lower_model": {
+      "operator": "D^(-1/2) S_0 D^(-1/2)",
+      "S_0": "low-C^T*C/G matrix lower model",
+      "relative_operator": [
+        [
+          "1.1908597577952897404058395278",
+          "0.146940098056003767336020147699"
+        ],
+        [
+          "0.146940098056003767336020147699",
+          "0.514252586799894453710163123452"
+        ]
+      ],
+      "relative_eigenvalues": [
+        "0.483719205092153182482862834986",
+        "1.22139313950303101163313981626"
+      ],
+      "center_scalar": "0.852556172297592097058001325624",
+      "relative_radius_about_center": "0.432624827771105719986950595801",
+      "claim_scope": "finite arbitrary-precision point comparison only; not an interval or uniform estimate"
     }
   },
   "odd_additive_concentration_model": {
@@ -872,6 +893,27 @@
       ],
       "center_scalar": "1.30018393737221013720154364827",
       "relative_radius_about_center": "0.516985088857301239616816797973",
+      "claim_scope": "finite arbitrary-precision point comparison only; not an interval or uniform estimate"
+    },
+    "point_relative_audit_matrix_Schur_lower_model": {
+      "operator": "D^(-1/2) S_0 D^(-1/2)",
+      "S_0": "low-C^T*C/G matrix lower model",
+      "relative_operator": [
+        [
+          "1.70549722334259881910324983031",
+          "0.524236026136888291102224018486"
+        ],
+        [
+          "0.524236026136888291102224018486",
+          "0.873639720276472593882382271804"
+        ]
+      ],
+      "relative_eigenvalues": [
+        "0.62037482461042430862681715382",
+        "1.95876211900864710435881494829"
+      ],
+      "center_scalar": "1.28956847180953570649281605106",
+      "relative_radius_about_center": "0.518928356134585089792748121788",
       "claim_scope": "finite arbitrary-precision point comparison only; not an interval or uniform estimate"
     }
   },

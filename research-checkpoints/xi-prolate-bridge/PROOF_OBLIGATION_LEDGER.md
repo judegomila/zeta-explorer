@@ -354,13 +354,27 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   Exact rational producer and clean-room replay models test the theorem and
   reject capture-to-raw-cross inference.  This supplies no effective finite
   anchor threshold and proves none of the required prolate--Weil reserves.
+- [x] Optimize the trace-leverage comparison by lower-one stop-loss duality,
+  identify the same trimmed mean as a direct high-space multiplier floor,
+  and separate it into a central archimedean trimmed mean minus twice the
+  square root of the exact prime second moment.  Factor the singular positive
+  short and exact negative Schur round trips in feature space, including a
+  Neumann tail.
+  Prove an explicit Möbius right inverse with an invisible central-hole
+  zero-integral correction and hence eventual full row span by some finite
+  all-even prolate prefix at each fixed physical space.  Exact-rational
+  producer/replay models reject equality, trace-as-necessity, lost
+  orientation, and over-shorting.  The prefix is non-effective and mixes
+  both residue classes modulo four.
 - [ ] Prove, on one common unbounded schedule, both (i) a signed lower bound
   for `gI-R_KK+C_/K` against the quotient metric and (ii) the physical
-  leverage deficit `tr(P_H R P_H)<g`, including the odd-pole leakage.  Then
-  close either the scalar reserve `rho*beta<(g-rho)*mu` or the exact
-  anisotropic shorted Schur complement from
-  `notes/PHYSICAL_LEVERAGE_SHORTED_SCHUR.md`.  The total trace/rank theorem
-  does not supply these phase-sensitive estimates.
+  high-space margin.  For (ii), it is enough to prove the sharpened target
+  `ell_b>2*sqrt(M_H)+c_-`, or a higher-moment bound
+  `A_(2k,H)^(1/(2k))+2*P_(2k,H)^(1/(2k))+c_-<g`, from
+  `notes/LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR.md`.  Then close the exact
+  oriented feature-Schur condition or a certified Neumann truncation.  The
+  total trace/rank theorem and diagonal moments alone do not determine the
+  required orientation.
 - [ ] Establish either criterion for the exact combined Weil form relative to
   explicit source-normalized prolate windows growing through the Shannon
   transition index, including all coupling, forcing-orientation, and
@@ -377,7 +391,10 @@ checked item supplies the complete unbounded-sequence bridge needed for RH.
   `notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md`.  The quotient
   exterior-preconditioner route bypasses this lower determinant on the
   positive-sampling side, but still needs a full shifted signed comparison
-  on the quotient physical range.
+  on the quotient physical range.  The all-even coframe theorem proves only
+  fixed-space eventual span; the prescribed separate `0 mod 4` and `2 mod 4`
+  buffered coframes still require a quantitative normalized adjoint-source
+  tail bound.
 - [ ] Prove uniform strict bounds `alpha_L-U>0` and `omega_L-U>0` along an
   unbounded schedule.
 - [ ] Prefer a low-energy prolate comparison or Schur complement over an

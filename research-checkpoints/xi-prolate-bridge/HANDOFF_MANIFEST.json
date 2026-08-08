@@ -1,6 +1,6 @@
 {
   "artifact_name": "xi-prolate-bridge",
-  "artifact_version": "0.27.0-physical-leverage-shorted-schur",
+  "artifact_version": "0.28.0-leverage-trimmed-mean-feature-schur",
   "updated_date": "2026-08-07",
   "terminal_state": "P0_INVALIDATED",
   "entry_prompt": "CODEX_MASTER_PROMPT.md",
@@ -24,6 +24,7 @@
   "compressed_multiplier_trace_source_lock": "COMPRESSED_MULTIPLIER_TRACE_SOURCE_LOCK.json",
   "signed_quotient_capture_source_lock": "SIGNED_QUOTIENT_CAPTURE_SOURCE_LOCK.json",
   "physical_leverage_shorted_schur_source_lock": "PHYSICAL_LEVERAGE_SHORTED_SCHUR_SOURCE_LOCK.json",
+  "leverage_trimmed_mean_feature_schur_source_lock": "LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR_SOURCE_LOCK.json",
   "signed_rewrite_document": "notes/CHEBYSHEV_ERROR_REWRITE.md",
   "growing_window_document": "notes/GROWING_WINDOW_THEOREM.md",
   "prolate_tail_document": "notes/PROLATE_TAIL_ENVELOPE.md",
@@ -46,6 +47,7 @@
   "compressed_multiplier_trace_document": "notes/COMPRESSED_MULTIPLIER_TRACE_THEOREM.md",
   "signed_quotient_capture_document": "notes/SIGNED_QUOTIENT_CAPTURE_REDUCTION.md",
   "physical_leverage_shorted_schur_document": "notes/PHYSICAL_LEVERAGE_SHORTED_SCHUR.md",
+  "leverage_trimmed_mean_feature_schur_document": "notes/LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR.md",
   "parity_multiplier_schur_document": "notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md",
   "phase_volume_scale_audit_document": "notes/PHASE_VOLUME_SCALE_AUDIT.md",
   "weak_residual_sampling_document": "notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md",
@@ -146,6 +148,17 @@
     "physical_leverage_trace_identity_proved": true,
     "positive_part_krein_short_reduction_proved": true,
     "automatic_negative_cross_bound_proved": true,
+    "leverage_trimmed_mean_feature_schur_source_locked": true,
+    "leverage_trimmed_mean_feature_schur_independent_replay_written": true,
+    "exterior_volume_leverage_identity_proved": true,
+    "optimized_trace_leverage_trimmed_mean_duality_proved": true,
+    "trimmed_mean_direct_high_floor_reduction_proved": true,
+    "archimedean_prime_second_moment_floor_reduction_proved": true,
+    "feature_negative_round_trip_and_neumann_tail_proved": true,
+    "all_even_arithmetic_right_inverse_proved": true,
+    "all_even_fixed_space_coframe_eventual_non_effective_proved": true,
+    "prescribed_residue_class_buffered_coframes_proved": false,
+    "trimmed_mean_margin_unbounded_schedule_proved": false,
     "physical_leverage_deficit_below_g_proved": false,
     "signed_shorted_low_floor_proved": false,
     "physical_coframe_proved": false,
@@ -197,10 +210,10 @@
     "gmp": "6.3.0",
     "mpfr": "4.2.2",
     "test_command": "python3 -m unittest discover -s tests -v",
-    "tests_passed": 493,
-    "tests_total": 493
+    "tests_passed": 511,
+    "tests_total": 511
   },
   "replay": "./replay.sh",
   "artifact_hash_manifest": "artifacts/ARTIFACT_MANIFEST.sha256",
-  "manifest_note": "This manifest intentionally omits a self-hash. Current hashes for generated artifacts are in the artifact hash manifest; binding source hashes are in P0_SOURCE_LOCK.json, P1_SOURCE_LOCK.json, P2_SOURCE_LOCK.json, P3_SOURCE_LOCK.json, PROLATE_DEFECT_SOURCE_LOCK.json, DEFECT_RELATIVE_PROJECTION_SOURCE_LOCK.json, ZERO_SAMPLING_SOURCE_LOCK.json, COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json, FULL_EXTERIOR_SAMPLING_SOURCE_LOCK.json, HYBRID_OUTER_SAMPLING_SOURCE_LOCK.json, PROJECTED_STATE_NORM_SOURCE_LOCK.json, LEADING_PROLATE_OSCILLATION_SOURCE_LOCK.json, TRANSITION_PROLATE_OUTER_SOURCE_LOCK.json, GROWING_TRANSITION_SAMPLING_SOURCE_LOCK.json, BLOCK_QUOTIENT_ACTION_SOURCE_LOCK.json, COMPRESSED_MULTIPLIER_TRACE_SOURCE_LOCK.json, SIGNED_QUOTIENT_CAPTURE_SOURCE_LOCK.json, and PHYSICAL_LEVERAGE_SHORTED_SCHUR_SOURCE_LOCK.json."
+  "manifest_note": "This manifest intentionally omits a self-hash. Current hashes for generated artifacts are in the artifact hash manifest; binding source hashes are in P0_SOURCE_LOCK.json, P1_SOURCE_LOCK.json, P2_SOURCE_LOCK.json, P3_SOURCE_LOCK.json, PROLATE_DEFECT_SOURCE_LOCK.json, DEFECT_RELATIVE_PROJECTION_SOURCE_LOCK.json, ZERO_SAMPLING_SOURCE_LOCK.json, COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json, FULL_EXTERIOR_SAMPLING_SOURCE_LOCK.json, HYBRID_OUTER_SAMPLING_SOURCE_LOCK.json, PROJECTED_STATE_NORM_SOURCE_LOCK.json, LEADING_PROLATE_OSCILLATION_SOURCE_LOCK.json, TRANSITION_PROLATE_OUTER_SOURCE_LOCK.json, GROWING_TRANSITION_SAMPLING_SOURCE_LOCK.json, BLOCK_QUOTIENT_ACTION_SOURCE_LOCK.json, COMPRESSED_MULTIPLIER_TRACE_SOURCE_LOCK.json, SIGNED_QUOTIENT_CAPTURE_SOURCE_LOCK.json, PHYSICAL_LEVERAGE_SHORTED_SCHUR_SOURCE_LOCK.json, and LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR_SOURCE_LOCK.json."
 }

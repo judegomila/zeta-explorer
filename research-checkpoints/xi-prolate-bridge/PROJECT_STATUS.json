@@ -1,5 +1,5 @@
 {
-  "artifact_version": "0.27.0-physical-leverage-shorted-schur",
+  "artifact_version": "0.28.0-leverage-trimmed-mean-feature-schur",
   "overall_status": "P0_INVALIDATED",
   "status_reason": "Two exact inconsistencies were found in the pinned source: the Section 7 formulas yield Xi/4, and printed (4.14) double-counts c(L). Explicit repairs preserve the intended zero argument but must be acknowledged.",
   "rh_proved": false,
@@ -78,6 +78,17 @@
   "physical_leverage_trace_identity_proved": true,
   "positive_part_krein_short_reduction_proved": true,
   "automatic_negative_cross_bound_proved": true,
+  "leverage_trimmed_mean_feature_schur_source_locked": true,
+  "leverage_trimmed_mean_feature_schur_independent_replay_written": true,
+  "exterior_volume_leverage_identity_proved": true,
+  "optimized_trace_leverage_trimmed_mean_duality_proved": true,
+  "trimmed_mean_direct_high_floor_reduction_proved": true,
+  "archimedean_prime_second_moment_floor_reduction_proved": true,
+  "feature_negative_round_trip_and_neumann_tail_proved": true,
+  "all_even_arithmetic_right_inverse_proved": true,
+  "all_even_fixed_space_coframe_eventual_non_effective_proved": true,
+  "prescribed_residue_class_buffered_coframes_proved": false,
+  "trimmed_mean_margin_unbounded_schedule_proved": false,
   "physical_leverage_deficit_below_g_proved": false,
   "signed_shorted_low_floor_proved": false,
   "physical_coframe_proved": false,
@@ -138,7 +149,7 @@
   "fixed_index_prolate_asymptotic_effective_threshold": false,
   "fixed_index_d4_d8_ratio_proved_eventually": true,
   "anisotropic_Schur_interval_enclosed": false,
-  "diagnostic_tests_passed": 493,
-  "diagnostic_tests_total": 493,
-  "smallest_claim": "Within the documented P0 source errata, the exact finite source formulas, finite determinant theorem, scale-free determinant normalization, global E-radical reduction, and finite anisotropic Schur/resolvent theorems remain valid. On the locked exponential schedule, the hybrid and projected-state theorems give the normalized common Ritz upper shift U_Z=o(d_6). The exact sine-packet theorem covers every leading label, and the source-locked transition theorem proves mu_n(c)<3*c^2 plus explicit defect-relative endpoint, complete-series, weighted-norm, and translation bounds for every even n<n_star. Its growing corrected-source lift retains arbitrary anchor deflation, the compact projection, both reflected tails, and every within-block sampling cross term, with C_8=O(lambda*polylog(lambda)) and C_rest=O(lambda^3*polylog(lambda)). The deliberately block-diagonal low quotient retains cross-block orientation and has Gamma_low=O(lambda^3*polylog(lambda)/d_8). The self-contained finite-compression multiplier theorem gives an O(lambda^2) dangerous-rank scale on N asymptotic lambda^2 but its finite pilots are order-vacuous. The signed-quotient reduction gives exact source-coordinate low/cross identities and phase-sensitive capture targets. The successor proves eventual matched-anchor nonvanishing, the exact physical leverage deficit, positive-part Krein short, and automatic negative cross estimate. It proves no effective finite anchor threshold, leverage deficit below g, signed shorted low floor, co-frame, sector floor, equation (5.2), or locally uniform characteristic convergence. The formal status is P0_INVALIDATED."
+  "diagnostic_tests_passed": 511,
+  "diagnostic_tests_total": 511,
+  "smallest_claim": "Within the documented P0 source errata, the exact finite source formulas, finite determinant theorem, scale-free determinant normalization, global E-radical reduction, and finite anisotropic Schur/resolvent theorems remain valid. On the locked exponential schedule, the hybrid and projected-state theorems give the normalized common Ritz upper shift U_Z=o(d_6). The exact sine-packet theorem covers every leading label, and the source-locked transition theorem proves mu_n(c)<3*c^2 plus explicit defect-relative endpoint, complete-series, weighted-norm, and translation bounds for every even n<n_star. Its growing corrected-source lift retains arbitrary anchor deflation, the compact projection, both reflected tails, and every within-block sampling cross term, with C_8=O(lambda*polylog(lambda)) and C_rest=O(lambda^3*polylog(lambda)). The deliberately block-diagonal low quotient retains cross-block orientation and has Gamma_low=O(lambda^3*polylog(lambda)/d_8). The self-contained finite-compression multiplier theorem gives an O(lambda^2) dangerous-rank scale on N asymptotic lambda^2 but its finite pilots are order-vacuous. The signed-quotient and shorted-Schur reductions give exact source low/cross identities, physical leverage, and automatic negative cross control. The new optimized checkpoint identifies the best trace floor with a lower-one trimmed mean, bounds it below by ell_b-2*sqrt(M_H), factors the oriented feature Schur load, and proves non-effective fixed-space span by some all-even prolate prefix. It proves no positive trimmed-mean margin on an unbounded schedule, prescribed residue-class coframe, signed shorted low floor, oriented reserve, sector floor, equation (5.2), or locally uniform characteristic convergence. The formal status is P0_INVALIDATED."
 }

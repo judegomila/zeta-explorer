@@ -118,6 +118,21 @@ schedule; no artifact asserts the complete residual--gap bridge, equation
   there is no target-count dimension obstruction.  They prove no co-frame,
   physical capture, signed lower comparison, strict cross reserve, sector
   floor, equation (5.2), determinant convergence, or RH conclusion.
+- `leverage_trimmed_mean_feature_schur/`: exact-rational `p=5,7` theorem
+  regressions at the 80 and 160 digit metadata labels.  The producer computes
+  exterior volumes from column-Gram determinants, physical complements from
+  a range projector, trimmed means by capacity-constrained lower-tail fill,
+  and negative Schur loads from physical blocks.  The clean-room replay binds
+  the exact producer bytes and instead uses double minors, a nullspace
+  projector, stop-loss breakpoint duality, and a feature resolvent.  It also
+  rebuilds singular positive shorting, a non-unit-`g` Neumann tail, strict
+  odd-pole equality rejection, trace/norm and orientation countermodels,
+  over-shorting, a normalized coframe tail, and finite Möbius convolution.
+  The right-inverse oracle also reconstructs a zero-integral central-hole
+  correction and verifies that it lies in the physical sampling kernel.
+  Both paths share Python `fractions.Fraction`.  These are algebraic theorem
+  regressions, not physical pilots, an unbounded-schedule estimate, equation
+  (5.2), determinant convergence, or RH.
 - `prufer_same_parity_gap/`: outward intervals at 80 and 160 decimal digits
   for the elementary same-parity differential prolate non-collision bound at
   `lambda=2`, `n=0`, `r=2`, together with exact `c=0` Legendre center and

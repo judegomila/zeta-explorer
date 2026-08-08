@@ -401,3 +401,23 @@ producer and clean-room replay reconstruct exact rational theorem-regression
 models independently.  This lock does not admit an effective finite anchor
 threshold, a leverage deficit below `g`, a signed shorted low floor, a
 co-frame bound, equation (5.2), or determinant convergence.
+
+## Trimmed-mean leverage and feature-Schur source lock
+
+`LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR_SOURCE_LOCK.json` adds no newly fetched
+external source.  It pins the P0 conventions; the existing
+parity-multiplier, finite-compression, physical-leverage, and arithmetic-map
+derivations; the pinned prolate concentration/label convention; and the
+one-dimensional Sturm input.  The note also proves the sinc--Sturm
+commutation identity directly, so those two prolate eigenfunction
+descriptions are not silently identified.
+`notes/LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR.md` proves the exterior-volume
+leverage identity, lower-one stop-loss duality, the direct trimmed-mean high
+floor and its exact prime-second-moment reduction, the feature-space positive
+short and negative round-trip resolvent, and a non-effective all-even
+fixed-space coframe theorem from an explicit Möbius right inverse.  Producer
+and clean-room replay use independent exact-rational formula trees.  The lock
+does not admit a positive margin on an unbounded schedule, the prescribed
+separate residue-class coframes, a signed low floor, an oriented Schur
+reserve, equation (5.2) of `DIRECT_RH_ATTACK.md`, determinant convergence, or
+RH.

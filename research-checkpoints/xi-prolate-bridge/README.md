@@ -11287,3 +11287,84 @@ exclusions remain `5/58`.  Expanded canonical/frontier/replay suites were
 not rerun.
 
 Checkpoint 1.73 proves exact transverse-gap, normalization, bridge-energy, mixed-resolvent, actual-source-adjoint, Xi-ideal, finite-window, tail, and translation-frame reductions. The exact countermodels are structural and are not the actual Weil source. No actual transverse floor, individual odd bridge-energy estimate, mixed-resolvent phase lower bound, sampled Xi minimum-modulus estimate, controlled high-complexity common-divisor frame, bottom-projector floor, parity order, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.74 paired-Floquet Xi floor and Pair-C barrier
+
+Put `L=2 log(lambda)` and let `N=O(lambda^2)`.  There is an unconditional
+choice `theta in [1/(2L),3/(2L)]` for which the two grids
+`t_(n,+/-theta)=(2*pi*n+/-theta)/L`, simultaneously for `|n|<=N`, are
+polynomially separated from every complex zero of `Xi`, with multiplicity.
+A local logarithmic-derivative factorization, rather than a global Hadamard
+product estimate, then gives
+
+\[
+ \min_{\substack{|n|\leq N\\ \varepsilon\in\{-1,1\}}}
+ |\Xi(t_{n,\varepsilon\theta})|
+ \geq \exp\left\{-{\pi^2N\over2L}-CL^2\right\}
+ =\exp\{-o(\lambda^2)\}.
+\]
+
+This statement is unconditional and uses neither RH nor zero simplicity.
+Folding the paired grids repairs reflection parity.  After normalizing the
+zero-index cosine row and omitting the near-zero zero-index sine row, the shifted
+cosine and sine Grams satisfy
+
+\[
+ \|G_\theta^\pm-I\|\leq C|\theta|=O(L^{-1}),
+\]
+
+so the parity repair has a uniform Riesz condition number.
+
+The common-Xi floor solves only the ideal diagonal factor.  Complete-circle
+Floquet translation diagonalizes that factor but wraps the locked anchor
+across the finite-window seam, producing order-one error for some shifts.
+For actual global translations, a probability measure `nu` with unsafe mass
+`epsilon_S=nu{|tau|>S}` obeys the exact upper obstruction
+
+\[
+ c_N^\theta(p;\nu)
+ \leq \|p\|^2{(2\pi S/L)^{2N}\over\binom{2N}{N}}
+      +\varepsilon_S\|p\|^2.
+\]
+
+Retaining a fixed Gaussian residual forces `epsilon_S` to be exponentially
+small, while the safe term is
+`exp(-Theta(lambda^2 log log lambda))` at quadratic inventory.  Weighting
+boundary-unsafe shifts therefore does not repair the translation route.
+
+For a nontranslation finite actual source prefix, let
+
+\[
+ c_{\theta,m}=\lambda_{\min}
+   (W_{\theta,m}G_m^\dagger W_{\theta,m}^*).
+\]
+
+If a new dangerous-space theorem literally embeds the complete bottom space
+in the selected parity Floquet band, the frozen full-source upper bound gives
+
+\[
+ \gamma_m\geq{2c_{\theta,m}\over\lambda^2};
+\]
+
+a graph embedding divides the right side by the squared graph-lift norm.
+Thus an `exp(-o(lambda^2))` finite-prefix floor and an
+`exp(-c lambda^2)` defect would close Pair C.  The ideal polynomial-Xi matrix
+is algebraically full rank, but its frozen inverse majorant is much larger
+than `exp(o(lambda^2))` at quadratic inventory, and the frozen moving-label
+Gevrey series is no longer perturbative there.  The full-source row floor
+does not imply this finite-prefix principal angle.
+
+Divided differences and logarithmic-derivative compensation also do not
+escape the actual-source divisor.  Holomorphy at every zeta zero forces the
+cancellation that restores the common divisor; without it, the Mellin factor
+is meromorphic and the profile carries a global bulk residual.
+
+The focused module passes `14/14`.  With `PYTHONPATH=src` and
+`PYTHONDONTWRITEBYTECODE=1`, the exact six-module deduplicated
+target/direct-dependency closure passes `92/92` under `python3 -B`.
+Projected canonical/raw discovery is `407/4499` and `412/4557`;
+frontier/replay is `265/2977` and `277/3105`; support remains `12/128` and
+exclusions remain `5/58`.  Expanded canonical/frontier/replay suites were
+not rerun.
+
+Checkpoint 1.74 proves an unconditional paired-Floquet sampled-Xi minimum-modulus bound of exp(-o(lambda^2)) on a quadratic mode band and exact parity Riesz conditioning. It also records the complete-circle seam and boundary-safe weighted-translation obstructions, the insufficiency of the frozen moving-label inverse majorant at quadratic inventory, and divisor/source-escape barriers. The sampled bound conditions only the common Xi factor. It does not prove an actual residual-safe finite transition-prefix floor, dangerous-space embedding, bottom-projector capture, Pair-C stopping condition, parity order, determinant convergence, an unconditional zero theorem, RH proof or converse, or a de Bruijn--Newman bound. The formal state remains P0_INVALIDATED.

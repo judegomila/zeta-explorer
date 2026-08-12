@@ -7322,3 +7322,55 @@ canonical/raw discovery is `406/4485` and `411/4543`; frontier/replay is
 `5/58`.  Expanded suites were not rerun.
 
 Checkpoint 1.73 proves exact transverse-gap, normalization, bridge-energy, mixed-resolvent, actual-source-adjoint, Xi-ideal, finite-window, tail, and translation-frame reductions. The exact countermodels are structural and are not the actual Weil source. No actual transverse floor, individual odd bridge-energy estimate, mixed-resolvent phase lower bound, sampled Xi minimum-modulus estimate, controlled high-complexity common-divisor frame, bottom-projector floor, parity order, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.74 paired-Floquet Xi and Pair-C source disclosure
+
+Checkpoint 1.74 admits exactly this frozen theorem/barrier pair:
+
+| Target | SHA-256 |
+|---|---|
+| `notes/CUTOFF_FREE_ACTUAL_RADICAL_FLOQUET_XI_MINIMUM_MODULUS_PAIR_C_BARRIER.md` | `ec6a126ddbf0b7e510a304b87838feffef9fd1a23e62989f1d0753cf8b02fff4` |
+| `tests/test_cutoff_free_actual_radical_floquet_xi_minimum_modulus_pair_c_barrier.py` | `0cd2dc46e0d164f9dd835f00f6bd61b70b1d0789a5457716d9ca149d47324c1e` |
+
+Its exact direct dependencies are:
+
+| Dependency | SHA-256 |
+|---|---|
+| `notes/CUTOFF_FREE_ACTUAL_RADICAL_XI_IDEAL_TRANSLATION_FRAME_BARRIER.md` | `e961040eda5cdf2645d8c0a50d54dbbd269a666c55d3470e7fc9853b58e0da9e` |
+| `tests/test_cutoff_free_actual_radical_xi_ideal_translation_frame_barrier.py` | `04dda3387b76d45a0fd9a3a054ffce662c78a6487d49c0995a6e3a9315c2b642` |
+| `notes/MOVING_LABEL_CARRIER_COFRAME_DEFECT_RIGHT_INVERSE_THEOREM.md` | `caaa4df57d43f74ef56fed6df907da6db0daa7b0f89da23cce30bc2ac9369acd` |
+| `tests/test_moving_label_carrier_coframe_defect_right_inverse_theorem.py` | `31f8ffad0dc5a1f2b6a00a47b55238d64d9bc6550813d5b77b15c00da1757913` |
+| `notes/FULL_SOURCE_COFRAME_RANK_THEOREM.md` | `3f8b381d9e51e0fa0cf89928851e89dd163ec9982249af8050a90520c0389f81` |
+| `tests/test_full_source_coframe_rank.py` | `dc322485178710618f9ace19cd2019200bf0dafeabcbe17cce4e47d41377d66a` |
+| `notes/GROWING_TRANSITION_SAMPLING_THEOREM.md` | `551e58d07510d531c8ee5cfe4c81a33ac3443f62760627196599e2bfac231e72` |
+| `tests/test_growing_transition_sampling.py` | `ba9ee58e36bc79a602d70a791010a93eb75a5613b0509a0cdc7b11b810a403ac` |
+| `notes/CUTOFF_FREE_WEIGHTED_RADICAL_COFRAME_REDUCTION_BARRIER.md` | `c84bc4ed8632aeedb8208e699350e0895a4437912b8ba735f10315b5cf1b7d8c` |
+| `tests/test_cutoff_free_weighted_radical_coframe_reduction_barrier.py` | `d6d83b1a045b96da8ad7a49753a05f5981e9744b04ecb95470fbd5332bb87c11` |
+
+The declared `FROZEN` set has exactly 10 unique paths, five complete
+note/test pairs.  Adding the two target paths gives 12 unique repository
+paths, six complete note/test pairs.  Every dependency and target hash was
+rechecked.
+
+The pair is an internal derivation using already-frozen local inputs.  All
+external, vendored, and source-lock provenance is inherited transitively
+through those frozen dependencies; no vendor byte or source-lock JSON is a
+direct checkpoint-1.74 dependency.  No new external paper, source-lock JSON,
+vendored source, artifact, zero table, numerical ground, numerical ordinate,
+cached matrix, source sample, serialized numerical artifact, or external
+computation is admitted.
+
+The same four immutable rejected or superseded raw modules contribute 48
+tests, and the checkpoint-1.18 WKB draft contributes 10.  None is a
+checkpoint-1.74 dependency, no new exclusion is added, and exactly the
+cutoff-free actual-radical Floquet Xi minimum-modulus Pair-C barrier pair is
+newly admitted.  No later overlay is admitted.
+
+The focused module passes `14/14`, and the exact six-module deduplicated
+target/direct-dependency closure passes `92/92` under
+`PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3 -B`.  Projected
+canonical/raw discovery is `407/4499` and `412/4557`; frontier/replay is
+`265/2977` and `277/3105`; support remains `12/128` and exclusions remain
+`5/58`.  Expanded suites were not rerun.
+
+Checkpoint 1.74 proves an unconditional paired-Floquet sampled-Xi minimum-modulus bound of exp(-o(lambda^2)) on a quadratic mode band and exact parity Riesz conditioning. It also records the complete-circle seam and boundary-safe weighted-translation obstructions, the insufficiency of the frozen moving-label inverse majorant at quadratic inventory, and divisor/source-escape barriers. The sampled bound conditions only the common Xi factor. It does not prove an actual residual-safe finite transition-prefix floor, dangerous-space embedding, bottom-projector capture, Pair-C stopping condition, parity order, determinant convergence, an unconditional zero theorem, RH proof or converse, or a de Bruijn--Newman bound. The formal state remains P0_INVALIDATED.

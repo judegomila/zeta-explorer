@@ -7247,6 +7247,65 @@ canonical/raw discovery is `406/4485` and `411/4543`; frontier/replay is
 
 Checkpoint 1.73 proves exact transverse-gap, normalization, bridge-energy, mixed-resolvent, actual-source-adjoint, Xi-ideal, finite-window, tail, and translation-frame reductions. The exact countermodels are structural and are not the actual Weil source. No actual transverse floor, individual odd bridge-energy estimate, mixed-resolvent phase lower bound, sampled Xi minimum-modulus estimate, controlled high-complexity common-divisor frame, bottom-projector floor, parity order, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.
 
+## Checkpoint 1.74 Floquet Xi floor and Pair-C obligations
+
+Checkpoint 1.74 closes these exact obligations:
+
+1. a shift in `[1/(2L),3/(2L)]` simultaneously separates both signed
+   Floquet grids through `N=O(lambda^2)` from every complex Xi zero, including
+   multiplicity and off-line zeros;
+2. local zero counting and a local logarithmic-derivative factorization give
+
+   \[
+    \min_{\substack{|n|\leq N\\ \varepsilon\in\{-1,1\}}}
+    |\Xi((2\pi n+\varepsilon\theta)/L)|
+    \geq\exp\left\{-{\pi^2N\over2L}-CL^2\right\}
+    =\exp\{-o(\lambda^2)\};
+   \]
+
+3. the paired shifted cosine and sine systems have normalized Grams within
+   `O(L^(-1))` of the identity, including the separately normalized zero-index
+   cosine row;
+4. the complete Floquet circle has the ideal common-Xi frame floor but an
+   order-one actual finite-window seam;
+5. boundary-safe and positively weighted unsafe translations retain the
+   binomial frame upper obstruction while a fixed Gaussian residual forces
+   exponentially small unsafe mass;
+6. a finite-prefix band floor plus a stable dangerous-space embedding implies
+
+   \[
+    \gamma_m\geq{2c_{\theta,m}\over\lambda^2}
+   \]
+
+   up to the squared graph-lift loss, giving the exact Pair-C reduction; and
+7. divided differences and logarithmic-derivative compensation either retain
+   the actual-source common divisor or leave the holomorphic source class and
+   incur global bulk residual.
+
+The ideal polynomial-Xi square matrix is algebraically nonsingular, but its
+frozen inverse majorant is too large at quadratic inventory.  The frozen
+moving-label Gevrey series is also nonperturbative there, and the full-source
+row floor is not a finite transition-prefix principal-angle theorem.
+
+The following obligations remain open:
+
+1. prove `c_(theta,m)>=exp(-o(lambda^2))` for an actual finite transition
+   prefix with a residual-safe defect;
+2. prove that the complete bottom dangerous space lies in, or is a uniformly
+   controlled graph over, the selected parity Floquet band;
+3. obtain the resulting bottom-projector capture and close Pair C;
+4. prove any needed parity order or spectral isolation; and
+5. finish determinant convergence and every unconditional zero consequence.
+
+The focused module passes `14/14`; the exact six-module deduplicated
+target/direct-dependency closure passes `92/92` under
+`PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3 -B`.  Projected
+canonical/raw discovery is `407/4499` and `412/4557`; frontier/replay is
+`265/2977` and `277/3105`; support remains `12/128` and exclusions remain
+`5/58`.  Expanded suites were not rerun.
+
+Checkpoint 1.74 proves an unconditional paired-Floquet sampled-Xi minimum-modulus bound of exp(-o(lambda^2)) on a quadratic mode band and exact parity Riesz conditioning. It also records the complete-circle seam and boundary-safe weighted-translation obstructions, the insufficiency of the frozen moving-label inverse majorant at quadratic inventory, and divisor/source-escape barriers. The sampled bound conditions only the common Xi factor. It does not prove an actual residual-safe finite transition-prefix floor, dangerous-space embedding, bottom-projector capture, Pair-C stopping condition, parity order, determinant convergence, an unconditional zero theorem, RH proof or converse, or a de Bruijn--Newman bound. The formal state remains P0_INVALIDATED.
+
 ## Computation policy
 
 High-precision numerics may identify the scale of the residual and gap.

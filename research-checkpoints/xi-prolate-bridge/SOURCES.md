@@ -7193,3 +7193,72 @@ canonical/raw discovery is `400/4422` and `405/4480`; frontier/replay is
 `5/58`.  Expanded suites were not rerun.
 
 Checkpoint 1.71 proves the exact full-bottom vectorwise, operator-norm, and Hilbert--Schmidt projector identities and replaces the all-bottom smallest-eigenvalue coframe demand by a strictly weaker largest defect-weighted one-direction capture criterion. It isolates the exact mixed-bridge contrast and proves that odd-pole Birman--Schwinger data do not force that contrast. Separately, it proves fixed positive ground mass inside an exp(O(lambda log lambda)) physical Fourier band, the normalized full-source isometry and prefix rank kernel, and structural cofactor, analytic source-Cauchy, and parity-complete models showing that qualitative cyclicity and analyticity provide no required capture rate. The structural models are not the actual Weil source. No actual lower bound for the largest weighted capture, actual bridge contrast, prolate-prefix overlap, exp(-o(lambda^2)) ground weight, or quantitative ground cofactor is proved. No parity order, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.72 pole-row, Schatten, and filter source disclosure
+
+Checkpoint 1.72 admits exactly these three frozen pairs:
+
+| Target | SHA-256 |
+|---|---|
+| `notes/ACTUAL_MIXED_BRIDGE_POLE_ROW_RESOLVENT_CANCELLATION_REDUCTION.md` | `610aa2b58734ab191e561bbaa7529f0558e1f979fa67461273e69f6d6253cde2` |
+| `tests/test_actual_mixed_bridge_pole_row_resolvent_cancellation_reduction.py` | `678e6da6c989c536ba6131fdfd38fe5927c60d464b29e8d358d94af0a9c0f2a4` |
+| `notes/ACTUAL_DIRICHLET_MOMENT_SCHATTEN_DANGEROUS_SPACE_BARRIER.md` | `9c0414bf028330e1758b25d06aaaf4a4ebc68f58e462c5e22a13db6434031f13` |
+| `tests/test_actual_dirichlet_moment_schatten_dangerous_space_barrier.py` | `7de39a9fbcd7d4ada84ca0a79a8d6f66e1f9ea5166ce15d76e68d3ed94f13983` |
+| `notes/CUTOFF_FREE_COMMUTING_FILTER_GROUND_CAPTURE_BARRIER.md` | `07d71f9219d41e9ae5e63e43e6b5ad16b86308fa7ace596b7a3af841170c69ac` |
+| `tests/test_cutoff_free_commuting_filter_ground_capture_barrier.py` | `f0776dc15a1bdfd20a9fb819b16c54e532af12b3e628539578249c5ba2040355` |
+
+Their exact deduplicated direct dependencies are:
+
+| Dependency | SHA-256 |
+|---|---|
+| `notes/FIXED_EVEN_PREFIX_ARITHMETIC_SYNTHESIS_THEOREM.md` | `1ef5e05f1a17ecf74e8337d16e799f81e02470ae71dc15d2b7f4fb96d42df0f4` |
+| `notes/FIXED_LABEL_SIX_ODD_ARITHMETIC_SYNTHESIS_GAIN.md` | `d90633671d5448c2586af1cbec11e02ef884e715b3f01ba3872815f6d17de771` |
+| `notes/MIXED_BRIDGE_XI_OVER_S_BOUNDARY_OBSTRUCTION_THEOREM.md` | `4c4bb0344735a0d605e1052ac06b383144f2cdbb85d2c088bf0b6683e67f06a2` |
+| `notes/ODD_POLE_HARMONIC_CHEBYSHEV_OBSTRUCTION.md` | `703c19f9cbadd73e6b60672a6f836fc2bd0bf7d43eaa5f60ac5806dd1cdc0d18` |
+| `notes/POSITIVITY_IMPROVING_SOURCE_GROUND_OBSTRUCTION.md` | `5cd474c382c25dd3fd02d0e77bc3287dd69dda9ff23ab47c10aacfbf8491bf31` |
+| `notes/HIGH_FOURIER_COERCIVITY.md` | `5d928d68bd317d637a3631c91c1da4d2043c79986e3c5767b886b354b525a821` |
+| `tests/test_high_fourier_coercivity.py` | `64eea186ca9ec09dde5510b9b6a99fa56a50c073865d5fe822367202806a5bae` |
+| `notes/ACTUAL_CENTERED_REMAINDER_LONG_BLOCK_HERMITE_MOMENT_BARRIER.md` | `1997f8b14c5f90977f744788d069f6e771da078c06562dac2d78c671c01a95c1` |
+| `tests/test_actual_centered_remainder_long_block_hermite_moment_barrier.py` | `cbbc300b9a050ac161d9f8feae996947b522043ae50663799dfc194ed4d3dd2d` |
+| `notes/ACTUAL_PHASE_VOLUME_LONG_BLOCK_THRESHOLD_NEGATIVE_INDEX_BARRIER.md` | `964b58396b1913013b017be6393cef768891d253e553a22979c3189a5c603f56` |
+| `tests/test_actual_phase_volume_long_block_threshold_negative_index_barrier.py` | `149a7034c83a952b4069574cf5892583540f66b5fcea385afb2a90ecd66a979c` |
+| `notes/CUTOFF_FREE_CYCLICITY_EFFECTIVE_DIMENSION_CAPTURE_BARRIER.md` | `e27463c41c6a45fcb6a3a332b8e5ab173178f35a4abb9fd5eff07dfbbc27eccd` |
+| `tests/test_cutoff_free_cyclicity_effective_dimension_capture_barrier.py` | `1bc88d49195b54c185be767a217d952145839962bf894e06dfe38ce9bfbed515` |
+| `notes/CUTOFF_FREE_ONE_DIRECTION_WEIGHTED_GROUND_CAPTURE_THEOREM.md` | `770087b56766e0102a915a31e08aba5389065d78dd59a55135adb5f5b6eea948` |
+| `tests/test_cutoff_free_one_direction_weighted_ground_capture_theorem.py` | `a9cd2abbf8c3de284e1b375beffc7f186a7f4bebc3ecd7fba111195f435b86fc` |
+| `notes/COMMON_RADICAL_LEAKAGE_GRAM_ORIENTATION_OBSTRUCTION.md` | `e589c3bce1174a94666364dea523f23e0828a2906338f36e81f05c8d25378816` |
+| `tests/test_common_radical_leakage_gram_orientation.py` | `d897e662d05665930d3b651d0460dd14f84f8e143ed010c9e248c948a5ace417` |
+| `notes/LOCKED_ROTATED_HIGH_GRAPH_SCHUR_REDUCTION.md` | `ac50057befa429894ba1498869a602324489f34aa5795e2d39cfc62bd549df73` |
+| `notes/ODD_RADICAL_PARITY_SCHUR_REDUCTION.md` | `3186182c5c3c6ef235e6a48bbe5a7e049f21db4094a8edbfaeb0160663a43c2e` |
+| `notes/EVEN_KRYLOV_RITZ_ESCAPE_AUDIT.md` | `a9b903914caf9b6e05ebdece3b45071082835c8bd72641a62a6e4a04d8aa75a8` |
+| `tests/test_even_krylov_ritz_escape.py` | `8425c05383710e0e362b945aa46eb07b08e4c18e2a3eaea0ecea3d52239af319` |
+
+The exact dependency union has 21 paths: seven complete note/test pairs
+and seven unpaired notes.  The Dirichlet and commuting-filter pairs share
+the cutoff-free cyclicity pair.  Adding the six targets gives 27 unique
+repository paths, ten complete note/test pairs plus seven unpaired notes.
+All dependency and target hashes were rechecked.
+
+The Dirichlet pair substantively inherits the already-disclosed
+Montgomery--Vaughan mean-value theorem from H. L. Montgomery and R. C.
+Vaughan, *Hilbert's Inequality*, Journal of the London Mathematical
+Society (2) 8 (1974), 73--82, DOI
+https://doi.org/10.1112/jlms/s2-8.1.73, through the frozen long-block pair.
+That source remains external, unvendored, unhashed, non-byte-bound, and not
+independently certified.  All remaining external, vendored, and
+source-lock provenance is inherited transitively through frozen internal
+dependencies; no vendor byte or source-lock JSON is a direct checkpoint-
+1.72 dependency.
+
+No new external paper, source-lock JSON, vendored source, artifact, zero
+table, numerical ground, numerical ordinate, cached matrix, source sample,
+serialized numerical artifact, or external computation is admitted.
+
+The three focused modules pass `29/29`, and the exact ten-module
+deduplicated target/direct-dependency closure passes `98/98` under
+`PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3 -B`.  Projected
+canonical/raw discovery is `403/4451` and `408/4509`; frontier/replay is
+`261/2929` and `273/3057`; support remains `12/128` and exclusions remain
+`5/58`.  Expanded suites were not rerun.
+
+Checkpoint 1.72 proves the actual fixed-label mixed-bridge pole-row asymptotic and eventual positivity, the strict positivity of the limiting odd bridge profile, and the exact pole-axis Feshbach overlap formula. It also proves that the literal nonpole odd resolvent has no generic inverse-positivity sign theorem. The eventual threshold is qualitative, and the actual transverse resolvent response may cancel the explicit subexponential pole row while the normalizer remains uncontrolled. Separately, it proves the centered all-p Schatten exceptional-rank bound and exact dangerous-space floor, including the same-shell coordinate threshold and exact fixed-s=2 half-scale; the admitted moment hierarchy cannot reduce the dangerous space to O(lambda^2), and dimension gives no source angle. Finally, it proves exact bottom-row and bottom-atom identities for bounded commuting filters, shows that the certified envelope cannot improve the anchor statistic, and constructs a source-realizable low-Fourier family with large unweighted capture but no small defect-relative residual. The random-phase paragraph and logarithmic source-Cauchy example are heuristic or structural only, not actual arithmetic or Weil conclusions. No actual transverse-cancellation lower bound, bottom-projector floor, O(lambda^2) dangerous-space bound, source-angle bound, filtered one-direction pass, parity order, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.

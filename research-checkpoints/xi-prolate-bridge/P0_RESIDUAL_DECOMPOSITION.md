@@ -6988,3 +6988,77 @@ canonical/raw discovery is `400/4422` and `405/4480`; frontier/replay is
 `5/58`.  Expanded suites were not rerun.
 
 Checkpoint 1.71 proves the exact full-bottom vectorwise, operator-norm, and Hilbert--Schmidt projector identities and replaces the all-bottom smallest-eigenvalue coframe demand by a strictly weaker largest defect-weighted one-direction capture criterion. It isolates the exact mixed-bridge contrast and proves that odd-pole Birman--Schwinger data do not force that contrast. Separately, it proves fixed positive ground mass inside an exp(O(lambda log lambda)) physical Fourier band, the normalized full-source isometry and prefix rank kernel, and structural cofactor, analytic source-Cauchy, and parity-complete models showing that qualitative cyclicity and analyticity provide no required capture rate. The structural models are not the actual Weil source. No actual lower bound for the largest weighted capture, actual bridge contrast, prolate-prefix overlap, exp(-o(lambda^2)) ground weight, or quantitative ground cofactor is proved. No parity order, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.72 pole-row cancellation, dangerous space, and filter residual
+
+The actual raw mixed bridge now has an explicit positive pole row with
+
+\[
+ {\beta_\lambda\over\sqrt{M_\lambda}}
+ =2^{-3/4}{\log\lambda\over\sqrt\lambda}\{1+o(1)\}.
+\]
+
+For the nonexceptional pole-created odd branch, its bottom overlap is
+exactly
+
+\[
+ |\langle g_\mu,w_\lambda\rangle|^2
+ ={\left|\beta_\lambda/\sqrt{M_\lambda}
+ -\langle B_\mu^{-1}r_\lambda,w_\lambda^\perp\rangle\right|^2
+ \over1+\|B_\mu^{-1}r_\lambda\|^2}.
+\]
+
+Hence the residual is no longer an unspecified abstract orientation.  It
+is the source-specific transverse response
+`<B_mu^(-1)r_lambda,w_lambda^perp>` together with the normalization
+`1+||B_mu^(-1)r_lambda||^2`.  The required remaining estimates are
+
+\[
+ \left|{\beta_\lambda\over\sqrt{M_\lambda}}
+ -\langle B_\mu^{-1}r_\lambda,w_\lambda^\perp\rangle\right|
+ \geq e^{-o(\lambda^2)},
+ \qquad
+ \|B_\mu^{-1}r_\lambda\|\leq e^{o(\lambda^2)}.
+\]
+
+Neither follows from positivity of the limiting bridge: the actual
+nonpole odd resolvent has no generic inverse-positive sign rule.
+
+For a finite source-Cauchy block, centered Schatten control gives
+
+\[
+ \dim U_{q,\tau,G}
+ \leq |E_{q,\tau,G}|
+ +\left({2\pi\over\tau}\right)^p
+  \sum_{n\in I}|b_n-c|^p,
+\]
+
+and `Q_I-qI` has floor `G` on `U_(q,tau,G)^perp`.  The coordinate
+exception uses the same complete-diagonal shell threshold.  The admitted
+Dirichlet moments do not make this dimension `O(lambda^2)`, and even such
+a dimension bound would still leave the normalized source-angle estimate
+open.
+
+For every bounded commuting-filter family,
+
+\[
+ \Lambda_\Phi
+ =\rho\|\boldsymbol\phi(\mu)\Delta^{-1/2}\|^2,
+ \qquad
+ \mathcal R_\Phi^2\geq|\mu-q|^2\Lambda_\Phi.
+\]
+
+The certified upper envelope cannot improve `r/sqrt(rho)`.  Literal
+Krylov growth lacks the required higher graph estimates, while the
+source-realizable low-Fourier family exchanges the missing capture for a
+missing small residual.  Thus the one-direction stopping condition
+`mathcal C_Phi^2/Lambda_Phi -> 0` remains unproved.
+
+The three focused modules pass `29/29`; the exact ten-module deduplicated
+target/direct closure passes `98/98` under
+`PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3 -B`.  Projected
+canonical/raw discovery is `403/4451` and `408/4509`; frontier/replay is
+`261/2929` and `273/3057`; support remains `12/128` and exclusions remain
+`5/58`.  Expanded suites were not rerun.
+
+Checkpoint 1.72 proves the actual fixed-label mixed-bridge pole-row asymptotic and eventual positivity, the strict positivity of the limiting odd bridge profile, and the exact pole-axis Feshbach overlap formula. It also proves that the literal nonpole odd resolvent has no generic inverse-positivity sign theorem. The eventual threshold is qualitative, and the actual transverse resolvent response may cancel the explicit subexponential pole row while the normalizer remains uncontrolled. Separately, it proves the centered all-p Schatten exceptional-rank bound and exact dangerous-space floor, including the same-shell coordinate threshold and exact fixed-s=2 half-scale; the admitted moment hierarchy cannot reduce the dangerous space to O(lambda^2), and dimension gives no source angle. Finally, it proves exact bottom-row and bottom-atom identities for bounded commuting filters, shows that the certified envelope cannot improve the anchor statistic, and constructs a source-realizable low-Fourier family with large unweighted capture but no small defect-relative residual. The random-phase paragraph and logarithmic source-Cauchy example are heuristic or structural only, not actual arithmetic or Weil conclusions. No actual transverse-cancellation lower bound, bottom-projector floor, O(lambda^2) dangerous-space bound, source-angle bound, filtered one-direction pass, parity order, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.

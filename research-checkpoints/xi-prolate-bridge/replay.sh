@@ -478,6 +478,11 @@ required = {
     "actual_mixed_bridge_transverse_kappa_log_squared_reserve_proved": False,
     "checkpoint175_focused_tests_passed": True,
     "checkpoint175_full_suite_recount_completed": False,
+    "actual_mixed_bridge_compact_side_odd_carrier_all_odd_halfgrid_transfer_proved": True,
+    "actual_mixed_bridge_compact_physical_odd_self_all_odd_halfgrid_rh_equivalence_proved": True,
+    "actual_mixed_bridge_continuous_physical_odd_self_transfer_proved": False,
+    "checkpoint176_focused_tests_passed": True,
+    "checkpoint176_full_suite_recount_completed": False,
 }
 
 project = json.loads(Path("PROJECT_STATUS.json").read_text(encoding="utf-8"))
@@ -1777,7 +1782,8 @@ PYTHONPATH=src python3 -B -m unittest \
   tests.test_actual_mixed_bridge_resolvent_mixed_measure_barrier \
   tests.test_cutoff_free_actual_radical_xi_ideal_translation_frame_barrier \
   tests.test_cutoff_free_actual_radical_floquet_xi_minimum_modulus_pair_c_barrier \
-  tests.test_actual_mixed_bridge_individual_odd_finite_part_rh_barrier -v
+  tests.test_actual_mixed_bridge_individual_odd_finite_part_rh_barrier \
+  tests.test_actual_mixed_bridge_compact_side_odd_carrier_transfer_theorem -v
 python3 src/write_artifact_manifest.py
 python3 -m unittest tests.test_weighted_pnt_discrepancy_normal_form_source_lock -v
 python3 -m unittest tests.test_boundary_discrepancy_convolution tests.test_boundary_discrepancy_convolution_source_lock -v

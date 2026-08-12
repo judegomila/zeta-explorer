@@ -6513,3 +6513,135 @@ support remains `12/128` and exclusions remain `5/58`.  The expanded suites
 were not rerun.
 
 Checkpoint 1.64 admits three theorem/barrier results. First, every finite family of cutoff-free domain anchors with real targets satisfies the multiplicity- and parity-safe full-bottom inequality (|mu|-q_*)_+^2 sum_j rho_j<=sum_j r_j^2, while a bottom frame P K K^* P>=c_lambda P gives (|mu|-q_*)_+<=||E||/sqrt(c_lambda). The locked label-4 anchor has r_(lambda,infinity)<=C lambda^8 L exp(-2 pi lambda^2), so q_*->0 and (sum_j r_j^2)/(sum_j rho_j)->0 imply RH through the pinned monotone CCM route. This is conditional and proves no actual correlation. Rank-one load derivatives, the bottom resolvent residue, paired translates, and the translation average identify exact formulations, but no uniform frame rate follows; current phase-volume/coercivity bounds, the separate compressed-trace schedule, the Shannon scale, full-source coframes, the source-Cauchy countermodel, and finite threshold jumps do not close capture. Second, the exact split D_lambda=M_lambda+R_lambda removes the continuous PNT density before absolute values and gives a one-way phase-volume bound by an explicit polynomial main term plus a centered remainder statistic. On both bounded-gap and logarithmic retained schedules the main and low-time terms are o(lambda^2/log lambda), reducing the missing input to the high-time positive mass of the centered Chebyshev-error Mellin transform. The pinned FKS bound controls only a much shorter harmless window, and admitted mean-square or higher-moment methods do not prove the required remainder bound or any converse. Third, the weighted coframe Lambda_F=lambda_min^+(T_F Delta_F^dagger T_F^*) and residual constant C_F give |mu_lambda|<=C_F/sqrt(Lambda_F) by the exact minimum-defect right inverse, with no source-dimension loss. For a hard leading prefix, Lambda_F>=gamma_m/(8 lambda^4 d_m), so 8 C_F^2 lambda^4 d_m/gamma_m->0 implies RH conditionally; KRD reduces polynomial residual and capture losses to a prefix O((log lambda)^2) below the Shannon edge. The finite-section residual is polynomial, but the uniform cutoff-free graph transfer and actual normalized capture are unproved, and an exact orientation family shows that the full row floor and defect spectrum alone do not control them. The actual multi-anchor correlation/frame, centered high-time remainder bound, polynomial phase volume, dangerous-projector capture, weighted radical coframe rate, uniform graph transfer, parity order, determinant convergence, unconditional zero theorem, RH proof or converse, and de Bruijn--Newman bound remain unproved. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.65 uniform graph, mixed residual, and bridge innovation
+
+The phase-separated residual obligation from checkpoint 1.64 is now closed:
+
+\[
+ \sup_{m\leq4\lambda^2-1}
+ {\|Q_\lambda\mathcal K_mf
+ -P_NQ_\lambda P_N\mathcal K_mf\|\over D_m(f)^{1/2}}
+ \leq\operatorname {poly}(\lambda,L)e^{-M_{2400}\lambda^2},
+\]
+
+and `C_(F_m)=poly(lambda,L)`.  The ground-adjoint identity instead gives
+
+\[
+ |\mu_\lambda|^2\|P_{F_m}A_{\lambda,0}^*g\|^2
+ \leq\mathcal C_{F_m}^2d_m,
+\]
+
+which is an upper evacuation estimate and cannot replace the missing
+capture floor.
+
+The proposed centered high-time upper residual target is not merely
+unproved near `alpha=1`.  For fixed
+`1-1/(8 sqrt(2))<alpha<1`, the fourth-moment argument gives
+
+\[
+ \mathfrak R_{\lambda,\alpha},
+ \mathfrak R^{\rm hi}_{\lambda,\alpha}
+ \gg_{A,\alpha}\lambda^4\log(\lambda^2).
+\]
+
+This disproves the target `O(lambda^2/log(lambda^2))` in that range, but
+the checkpoint-1.64 phase-volume comparison is only an upper bound and
+does not transfer this result into a phase-volume lower bound.
+
+For the dense ordinary mixed prefix, the cutoff-free graph tail remains
+exponentially small, while the bridge forces
+
+\[
+ \mathcal C^{\rm mod}_{\mathfrak F_M}
+ \geq c\lambda^{-9/2}e^{2\pi\lambda^2}.
+\]
+
+The bump-aware two-row metric makes the scalar normalized-angle ratio
+bounded away from zero even at `gamma_M=1`.  Its exact remaining condition
+is therefore the weighted ratio
+
+\[
+ { (\mathcal C^{\rm aug}_{\mathfrak F_M})^2
+   \over\Lambda_M^{\rm aug}}\longrightarrow0,
+\]
+
+which is not proved.
+
+Finally, defect-orthogonalizing the bridge gives the exact bottom update
+
+\[
+ S_M=S_F+s_b^{-1}w_bw_b^*,
+ \qquad
+ \theta_b=1-s_b^{-1}w_b^*S_M^{-1}w_b
+ ={\det S_F\over\det S_M}.
+\]
+
+Thus `theta_b>0` exactly characterizes finite-dimensional bridge
+elimination, while `||w_b|| ||ell_bB_M||<1` yields a quantitative bulk
+right inverse.  If the phase-bulk nullity is one, the sole new bridge
+orientation is the corrected adjoint coefficient; nullity at least two
+cannot be repaired by one bridge.  Neither the ground equation, parity,
+the coherent beta diagonal, nor the remote coercivity theorem bounds that
+actual scalar below.
+
+The five focused modules pass `61/61`, and with `PYTHONPATH=src` the exact
+19-module closure passes `254/254` under `python3 -B`.  Projected
+canonical/raw discovery is `388/4261` and `393/4319`; frontier/replay is
+`246/2739` and `258/2867`; support remains `12/128` and exclusions remain
+`5/58`.  Expanded suites were not rerun.
+
+Checkpoint 1.65 admits five theorem/barrier results. First, the phase-separated cutoff-free graph tail is uniformly exponentially small before the Shannon edge and the exact residual constant is polynomial, but the normalized bottom-capture lower bound remains unproved. Second, the exact full-source adjoint and rank-one zero-integral coefficient Gram give only an upper ground-evacuation estimate, while an exact-arithmetic-map coercive-well countermodel excludes capture from the frozen orientation-free inputs. Third, for every fixed alpha with 1-1/(8 sqrt(2))<alpha<1, the full and high-time centered remainder statistics are Omega(lambda^4 log(lambda^2)), so the proposed O(lambda^2/log(lambda^2)) sufficient upper target is false there; the one-way phase-volume split gives no phase-volume lower bound. Fourth, the dense mixed source is genuinely dense and has an exponentially small graph tail, but its bridge makes the modal-defect residual exponentially large, and the bump-aware scalar normalized-angle route cannot vanish even at perfect capture; only the exact augmented weighted stopping line remains. Fifth, the augmented bottom Gram is the phase-bulk Gram plus one rank-one bridge innovation, with exact determinant-ratio and kappa elimination criteria and a codimension-one corrected-adjoint scalar, but no actual leverage lower bound is proved. The actual normalized capture, augmented weighted decay, bridge leverage, centered phase-volume lower bound, parity ordering, determinant convergence, unconditional zero theorem, RH proof or converse, and de Bruijn--Newman bound remain unproved. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.66 half-alpha centered-remainder obstruction
+
+The centered-remainder upper-bound route now fails throughout every fixed
+`alpha>1/2`.  On `I_x=[Ax^2,2Ax^2]`, four-phase polarization between the
+disjoint prime and semiprime supports proves
+
+\[
+ \mathbb E_x(P_x^2\overline {P_x})=O_A(L^2),
+ \qquad
+ \mathbb E_xY_x^3=o(L^3).
+\]
+
+The frozen second and fourth moments then put `Z_x=Y_x/sigma_x` under the
+compact moment lemma
+
+\[
+ \mathbb EZ_x\to0,\qquad \mathbb EZ_x^2=1,\qquad
+ \mathbb EZ_x^3\to0,\qquad \sup_x\mathbb EZ_x^4<\infty
+ \Longrightarrow
+ \liminf_x\mathbb E(Z_x-c)_+>0
+\]
+
+for every fixed `0<c<1`.  Since the normalized split threshold tends to
+`2(1-alpha)`, this yields
+
+\[
+ \mathfrak R_{\lambda,\alpha},\quad
+ \mathfrak R^{\rm hi}_{\lambda,\alpha}
+ \gg_{A,\alpha}\lambda^4\log(\lambda^2)
+ \qquad(1/2<\alpha<1).
+\]
+
+The symmetric `+/-1` endpoint model prevents the same moment data from
+crossing `alpha=1/2`.  More importantly, the frozen residual decomposition
+still has only the one-way form
+
+\[
+ \Phi_\lambda(U,g)
+ \leq\mathfrak M_{\lambda,\alpha}(C)
+      +\mathfrak R_{\lambda,\alpha}.
+\]
+
+Thus a lower bound for the centered remainder cannot be reversed into a
+lower bound for the actual phase volume.
+
+The focused module passes `14/14`, and the exact three-module closure passes
+`37/37` under `PYTHONPATH=src python3 -B`.  Projected canonical/raw
+discovery is `389/4275` and `394/4333`; frontier/replay is `247/2753` and
+`259/2881`; support remains `12/128` and exclusions remain `5/58`.
+Expanded suites were not rerun.
+
+Checkpoint 1.66 proves, by prime/semiprime support disjointness and four-phase Montgomery--Vaughan polarization, that the normalized prime third moment vanishes. Together with the frozen second- and fourth-moment estimates, a compact moment lemma forces positive excess above every fixed normalized level c<1. Therefore, for every fixed A>0 and 1/2<alpha<1, both the full and high-time centered-remainder statistics are Omega_(A,alpha)(lambda^4 log(lambda^2)), so the proposed O(lambda^2/log(lambda^2)) sufficient upper target is false throughout that range. The symmetric two-point endpoint model shows that the stated moment data do not cross alpha=1/2; nothing is proved for 0<alpha<=1/2. The frozen phase-volume comparison is one-way, so no actual phase-volume lower bound follows. Polynomial phase volume, parity ordering, determinant convergence, an unconditional zero theorem, RH proof or converse, and a de Bruijn--Newman bound remain unproved. The formal state remains P0_INVALIDATED.

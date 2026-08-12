@@ -16,7 +16,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 NOTE = ROOT / "notes" / "CUTOFF_FREE_DENSE_MIXED_PREFIX_BRIDGE_RESIDUAL_BARRIER.md"
-NOTE_HASH = "628605d196387655c39218e7f0466db669e1981737476cb60a2ffe2c892f7ad2"
+NOTE_HASH = "909380b93eb72cffd3841a592f96aa0cd1d72285f799210bf4244cdf82c2ed0f"
 
 FROZEN = {
     "notes/CUTOFF_FREE_WEIGHTED_RADICAL_COFRAME_REDUCTION_BARRIER.md":
@@ -316,12 +316,15 @@ class CutoffFreeDenseMixedPrefixBridgeResidualBarrierTests(unittest.TestCase):
     def test_note_contract_and_hygiene(self) -> None:
         text = NOTE.read_text(encoding="ascii")
         required = (
+            r"L=2\log\lambda",
+            "logarithmic length of\n`[lambda^(-1),lambda]`",
             r"F_M^{\rm mix}=\operatorname {span}(c_2,c_4,\ldots,c_{2M})",
             r"\mathfrak F_M^{\rm mix}=F_M^{\rm mix}\oplus F_M^{\rm mix}",
             r"c_{4j+2}=-m_j+a_jb",
             r"d_0\beta u",
             r"d_2a^*",
             r"q_M^{\rm mix}=2(M+1)\leq S+1",
+            r"\sum_{\substack{0\leq n\leq2M\\ n\ \mathrm{even}}}",
             r"A_{\lambda,M}^{\rm mix}",
             r"M_{2400}=4800\log2",
             r"{3413981\over70000000}>0",
@@ -351,6 +354,7 @@ class CutoffFreeDenseMixedPrefixBridgeResidualBarrierTests(unittest.TestCase):
         self.assertIsNone(re.search(r"[ \t]+$", text, flags=re.MULTILINE))
         self.assertNotIn("TO_BE_FROZEN", text)
         self.assertNotIn("P0_VERIFIED", text)
+        self.assertNotIn(r"L=4\log(2\lambda)", text)
         tags = re.findall(r"\\tag\{([^}]+)\}", text)
         self.assertEqual(len(tags), len(set(tags)))
 
@@ -358,6 +362,7 @@ class CutoffFreeDenseMixedPrefixBridgeResidualBarrierTests(unittest.TestCase):
             payload = path.read_bytes()
             self.assertTrue(payload.endswith(b"\n"))
             self.assertTrue(all(byte < 128 for byte in payload))
+            self.assertNotIn(b"\r", payload)
             self.assertFalse(
                 any(line.endswith((b" ", b"\t")) for line in payload.splitlines())
             )

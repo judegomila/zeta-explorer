@@ -6,8 +6,12 @@ Work in the frozen odd-half-integer regime
 
 \[
  \lambda={p\over2},\qquad p\geq5\text{ odd},\qquad
- L=4\log(2\lambda),\qquad S=4\lambda^2,              \tag{0.1}
+ L=2\log\lambda,\qquad S=4\lambda^2.                 \tag{0.1}
 \]
+
+Here `L` is exactly the logarithmic length of
+`[lambda^(-1),lambda]`; no doubled or `p=2 lambda` interval convention is
+used.
 
 and use the locked Fourier cutoff
 
@@ -350,7 +354,7 @@ raw modal basis.  Define
 
 \[
  D_M^{\rm mod}(f)
- =\sum_{\sigma\in\{+,-\}}\sum_{0\leq n\leq2M\atop n\ {m even}}
+ =\sum_{\sigma\in\{+,-\}}\sum_{\substack{0\leq n\leq2M\\ n\ \mathrm{even}}}
        d_n|\alpha_{\sigma,n}|^2.                      \tag{4.1}
 \]
 

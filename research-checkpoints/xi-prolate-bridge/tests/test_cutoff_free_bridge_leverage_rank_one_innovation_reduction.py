@@ -24,7 +24,7 @@ NOTE = (
     / "notes"
     / "CUTOFF_FREE_BRIDGE_LEVERAGE_RANK_ONE_INNOVATION_REDUCTION.md"
 )
-NOTE_HASH = "5eede99e42b57fd63101a1f06c1751163a0403512cde5790f8b3abbae93d2408"
+NOTE_HASH = "808c314d6b0cf1926ddf8b0a5b83c324ccbbc252d18efea283781fefd1751097"
 
 FROZEN = {
     "notes/CUTOFF_FREE_FULL_SOURCE_ADJOINT_PROLATE_CAPTURE_BARRIER.md":
@@ -56,6 +56,7 @@ FROZEN = {
 
 Matrix = tuple[tuple[F, ...], ...]
 Vector = tuple[F, ...]
+Gaussian = tuple[F, F]
 
 
 def sha256(path: Path) -> str:
@@ -180,6 +181,25 @@ def column(vector: Vector) -> Matrix:
     return tuple((value,) for value in vector)
 
 
+def gaussian_add(left: Gaussian, right: Gaussian) -> Gaussian:
+    return (left[0] + right[0], left[1] + right[1])
+
+
+def gaussian_multiply(left: Gaussian, right: Gaussian) -> Gaussian:
+    return (
+        left[0] * right[0] - left[1] * right[1],
+        left[0] * right[1] + left[1] * right[0],
+    )
+
+
+def gaussian_conjugate(value: Gaussian) -> Gaussian:
+    return (value[0], -value[1])
+
+
+def gaussian_norm_squared(value: Gaussian) -> F:
+    return value[0] * value[0] + value[1] * value[1]
+
+
 class CutoffFreeBridgeLeverageRankOneInnovationReductionTests(unittest.TestCase):
     def test_frozen_dependency_hashes(self) -> None:
         self.assertEqual(len(FROZEN), 12)
@@ -230,6 +250,47 @@ class CutoffFreeBridgeLeverageRankOneInnovationReductionTests(unittest.TestCase)
             (F(-3, 7), F(-2, 7), F(6, 7)),
         )
         self.assertEqual(inverse(defect), expected_inverse)
+
+    def test_linear_first_complex_cross_term_matches_completion_of_square(self) -> None:
+        # Delta=[[1,i],[-i,2]], f=1, z=i in the repository's convention
+        # where the inner product is linear in its first argument.
+        one = (F(1), F(0))
+        imaginary_unit = (F(0), F(1))
+        f_value = one
+        z_value = imaginary_unit
+        cross_column = imaginary_unit
+
+        inner_f_c = gaussian_multiply(f_value, gaussian_conjugate(cross_column))
+        correct_cross = F(2) * gaussian_multiply(
+            gaussian_conjugate(z_value), inner_f_c
+        )[0]
+        incorrect_cross = F(2) * gaussian_multiply(z_value, inner_f_c)[0]
+        direct = (
+            gaussian_norm_squared(f_value)
+            + correct_cross
+            + F(2) * gaussian_norm_squared(z_value)
+        )
+
+        f_prime = gaussian_add(
+            f_value, gaussian_multiply(z_value, cross_column)
+        )
+        schur = F(2) - gaussian_norm_squared(cross_column)
+        completed = (
+            gaussian_norm_squared(f_prime)
+            + schur * gaussian_norm_squared(z_value)
+        )
+
+        self.assertEqual(inner_f_c, (F(0), F(-1)))
+        self.assertEqual(correct_cross, F(-2))
+        self.assertEqual(incorrect_cross, F(2))
+        self.assertEqual(direct, F(1))
+        self.assertEqual(completed, F(1))
+        self.assertEqual(
+            gaussian_norm_squared(f_value)
+            + incorrect_cross
+            + F(2) * gaussian_norm_squared(z_value),
+            F(5),
+        )
 
     def test_explicit_schur_scalar_and_endpoint_shear_invariance(self) -> None:
         d_four = diagonal((F(2), F(5)))
@@ -434,6 +495,8 @@ class CutoffFreeBridgeLeverageRankOneInnovationReductionTests(unittest.TestCase)
         source = NOTE.read_text(encoding="ascii")
         required = (
             r"S_M=S_F+|v_b\rangle\langle v_b|",
+            r"2\operatorname {Re}\{\overline z\langle f,c\rangle\}",
+            r"b'=b-C_Fq,\qquad t_b'=t_b-T_Fq",
             r"{d_0\beta^2\over1+d_0U}",
             r"r_b=s_b^{-1}w_b^*S_M^{-1}",
             r"{\det S_F\over\det S_M}",
@@ -467,6 +530,7 @@ class CutoffFreeBridgeLeverageRankOneInnovationReductionTests(unittest.TestCase)
         self.assertNotIn("\t", source)
         self.assertIsNone(re.search(r"[ \t]+$", source, flags=re.MULTILINE))
         self.assertNotIn("TO_BE_FROZEN", source)
+        self.assertIsNone(re.search(r"(?<!\\)qquad", source))
         tags = re.findall(r"\\tag\{([^}]+)\}", source)
         self.assertEqual(len(tags), len(set(tags)))
 

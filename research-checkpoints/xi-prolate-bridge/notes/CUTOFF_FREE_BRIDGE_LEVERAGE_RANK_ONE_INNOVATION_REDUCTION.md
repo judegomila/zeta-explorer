@@ -170,7 +170,7 @@ For `(f,z) in F direct-sum C`, the source defect is
 \[
  \langle(f,z),\Delta_M(f,z)\rangle
  =\langle f,\Delta_Ff\rangle
- +2\operatorname {Re}\{z\langle f,c\rangle\}
+ +2\operatorname {Re}\{\overline z\langle f,c\rangle\}
  +d|z|^2.                                               \tag{2.1}
 \]
 
@@ -218,20 +218,20 @@ The innovation is invariant under every triangular bridge shear by a bulk
 vector.  If
 
 \[
- b'=b-C_Fq,qquad t_b'=t_b-T_Fq,                       \tag{2.7}
+ b'=b-C_Fq,\qquad t_b'=t_b-T_Fq,                      \tag{2.7}
 \]
 
 then
 
 \[
- c'=c-\Delta_Fq,qquad
+ c'=c-\Delta_Fq,\qquad
  d'=d-q^*c-c^*q+q^*\Delta_Fq.                         \tag{2.8}
 \]
 
 Substitution gives
 
 \[
- s_b'=s_b,qquad w_b'=w_b.                             \tag{2.9}
+ s_b'=s_b,\qquad w_b'=w_b.                            \tag{2.9}
 \]
 
 In particular the endpoint-null bridge `b^#=b-gamma m_1` has exactly the

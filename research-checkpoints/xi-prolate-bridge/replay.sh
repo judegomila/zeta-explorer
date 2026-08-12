@@ -281,10 +281,45 @@ required = {
     "cutoff_free_weighted_radical_krd_shannon_stopping_line_proved": True,
     "cutoff_free_weighted_radical_explicit_right_inverse_approximation_criterion_proved": True,
     "cutoff_free_weighted_radical_orientation_countermodel_proved": True,
-    "cutoff_free_weighted_radical_uniform_graph_tail_transfer_proved": False,
+    "cutoff_free_weighted_radical_uniform_graph_tail_transfer_proved": True,
     "cutoff_free_actual_weighted_radical_coframe_capture_rate_proved": False,
     "checkpoint164_focused_tests_passed": True,
     "checkpoint164_full_suite_recount_completed": False,
+    "cutoff_free_uniform_radical_locked_m2400_margin_proved": True,
+    "cutoff_free_uniform_radical_polynomial_residual_constant_proved": True,
+    "cutoff_free_uniform_radical_actual_normalized_capture_lower_bound_proved": False,
+    "cutoff_free_full_source_even_zero_integral_adjoint_formula_proved": True,
+    "cutoff_free_full_source_prolate_rank_one_capture_formula_proved": True,
+    "cutoff_free_full_source_ground_residual_evacuation_bound_proved": True,
+    "cutoff_free_full_source_exact_arithmetic_coercivity_countermodel_proved": True,
+    "cutoff_free_full_source_actual_near_shannon_capture_lower_bound_proved": False,
+    "actual_centered_remainder_prime_fourth_moment_lower_bound_proved": True,
+    "actual_centered_remainder_high_time_near_one_upper_target_obstruction_proved": True,
+    "actual_centered_remainder_actual_phase_volume_lower_bound_proved": False,
+    "actual_centered_remainder_all_alpha_upper_target_obstruction_proved": False,
+    "cutoff_free_dense_mixed_prefix_density_proved": True,
+    "cutoff_free_dense_mixed_exact_bridge_cross_grams_proved": True,
+    "cutoff_free_dense_mixed_uniform_graph_tail_transfer_proved": True,
+    "cutoff_free_dense_mixed_modal_defect_residual_exponential_lower_bound_proved": True,
+    "cutoff_free_dense_mixed_two_row_bump_aware_metric_proved": True,
+    "cutoff_free_dense_mixed_scalar_normalized_angle_stopping_line_obstructed": True,
+    "cutoff_free_dense_mixed_augmented_weighted_stopping_line_reduction_proved": True,
+    "cutoff_free_dense_mixed_actual_augmented_weighted_decay_proved": False,
+    "cutoff_free_bridge_rank_one_innovation_decomposition_proved": True,
+    "cutoff_free_bridge_explicit_schur_scalar_shear_invariance_proved": True,
+    "cutoff_free_bridge_minimum_defect_theta_elimination_criterion_proved": True,
+    "cutoff_free_bridge_kappa_quantitative_bulk_floor_proved": True,
+    "cutoff_free_bridge_codimension_one_floor_nullity_two_obstruction_proved": True,
+    "cutoff_free_bridge_actual_leverage_scalar_lower_bound_proved": False,
+    "cutoff_free_bridge_actual_phase_bulk_elimination_proved": False,
+    "checkpoint165_focused_tests_passed": True,
+    "checkpoint165_full_suite_recount_completed": False,
+    "actual_centered_remainder_normalized_prime_third_moment_vanishing_proved": True,
+    "actual_centered_remainder_below_unit_normalized_positive_excess_proved": True,
+    "actual_centered_remainder_fixed_alpha_above_half_upper_target_obstruction_proved": True,
+    "actual_centered_remainder_alpha_at_or_below_half_upper_target_obstruction_proved": False,
+    "checkpoint166_focused_tests_passed": True,
+    "checkpoint166_full_suite_recount_completed": False,
 }
 
 project = json.loads(Path("PROJECT_STATUS.json").read_text(encoding="utf-8"))
@@ -1306,7 +1341,7 @@ done
 
 python3 verifier/live_prolate_krylov_schur_audit.py >/dev/null
 
-python3 -m unittest \
+PYTHONPATH=src python3 -B -m unittest \
   tests.test_q_shift_sector_weil_core_gate \
   tests.test_secant_bulk_positive_determinant_response \
   tests.test_secant_graph_signed_leakage_gate \
@@ -1559,7 +1594,13 @@ python3 -m unittest \
   tests.test_cutoff_free_prolate_ground_alignment_rh_dichotomy \
   tests.test_cutoff_free_multi_anchor_ground_frame_barrier \
   tests.test_actual_phase_volume_centered_pnt_remainder_reduction_barrier \
-  tests.test_cutoff_free_weighted_radical_coframe_reduction_barrier -v
+  tests.test_cutoff_free_weighted_radical_coframe_reduction_barrier \
+  tests.test_cutoff_free_uniform_radical_graph_transfer_theorem \
+  tests.test_cutoff_free_full_source_adjoint_prolate_capture_barrier \
+  tests.test_actual_centered_remainder_prime_fourth_moment_lower_barrier \
+  tests.test_cutoff_free_dense_mixed_prefix_bridge_residual_barrier \
+  tests.test_cutoff_free_bridge_leverage_rank_one_innovation_reduction \
+  tests.test_actual_centered_remainder_prime_third_moment_half_alpha_barrier -v
 python3 src/write_artifact_manifest.py
 python3 -m unittest tests.test_weighted_pnt_discrepancy_normal_form_source_lock -v
 python3 -m unittest tests.test_boundary_discrepancy_convolution tests.test_boundary_discrepancy_convolution_source_lock -v

@@ -347,6 +347,29 @@ required = {
     "cutoff_free_multiplier_dangerous_actual_bridge_gate_proved": False,
     "checkpoint168_focused_tests_passed": True,
     "checkpoint168_full_suite_recount_completed": False,
+    "actual_centered_remainder_fractional_block_gaussian_moment_ceiling_floor_two_s_proved": True,
+    "actual_centered_remainder_fractional_block_macroscopic_ui_index_floor_s_proved": True,
+    "actual_centered_remainder_fractional_odd_shelf_subtarget_lower_bound_proved": True,
+    "actual_centered_remainder_fractional_odd_shelf_moment_support_nonimplication_proved": True,
+    "actual_centered_remainder_real_exponent_hierarchy_k4_required_scale_optimality_proved": True,
+    "actual_centered_remainder_fractional_odd_shelf_required_upper_target_obstruction_proved": False,
+    "actual_centered_remainder_shifted_mixed_moment_kernel_formula_proved": True,
+    "actual_centered_remainder_first_missing_odd_fixed_shift_reduction_proved": True,
+    "actual_centered_remainder_top_even_growing_shift_band_reduction_proved": True,
+    "actual_centered_remainder_odd_moment_without_top_ui_nonimplication_proved": True,
+    "actual_centered_remainder_first_missing_odd_shifted_correlation_bound_proved": False,
+    "actual_centered_remainder_next_even_top_moment_ui_bound_proved": False,
+    "cutoff_free_actual_dangerous_multiplier_support_envelope_proved": True,
+    "cutoff_free_actual_dangerous_projector_paley_wiener_regularity_proved": True,
+    "cutoff_free_literal_adjoint_breakpoint_endpoint_jet_jump_formula_proved": True,
+    "cutoff_free_actual_dangerous_adjoint_bv_prolate_capture_sufficient_condition_proved": True,
+    "cutoff_free_actual_dangerous_safe_piece_cancellation_obstruction_proved": True,
+    "cutoff_free_actual_dangerous_buffered_commutator_bound_proved": True,
+    "cutoff_free_actual_dangerous_fixed_lambda_qualitative_prefix_capture_proved": True,
+    "cutoff_free_actual_dangerous_near_shannon_prefix_capture_proved": False,
+    "cutoff_free_actual_dangerous_direct_bottom_gram_bridge_gate_proved": False,
+    "checkpoint169_focused_tests_passed": True,
+    "checkpoint169_full_suite_recount_completed": False,
 }
 
 project = json.loads(Path("PROJECT_STATUS.json").read_text(encoding="utf-8"))
@@ -1630,7 +1653,10 @@ PYTHONPATH=src python3 -B -m unittest \
   tests.test_actual_centered_remainder_prime_third_moment_half_alpha_barrier \
   tests.test_cutoff_free_bridge_mixed_adjoint_tail_prefactor_reduction \
   tests.test_actual_centered_remainder_long_block_hermite_moment_barrier \
-  tests.test_cutoff_free_multiplier_dangerous_prolate_cross_angle_barrier -v
+  tests.test_cutoff_free_multiplier_dangerous_prolate_cross_angle_barrier \
+  tests.test_actual_centered_remainder_fractional_block_odd_moment_ui_barrier \
+  tests.test_actual_centered_remainder_shifted_correlation_top_moment_ui_barrier \
+  tests.test_cutoff_free_actual_dangerous_adjoint_regularity_barrier -v
 python3 src/write_artifact_manifest.py
 python3 -m unittest tests.test_weighted_pnt_discrepancy_normal_form_source_lock -v
 python3 -m unittest tests.test_boundary_discrepancy_convolution tests.test_boundary_discrepancy_convolution_source_lock -v

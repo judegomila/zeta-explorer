@@ -7008,3 +7008,64 @@ python3 -B`.  Projected canonical/raw discovery is `392/4322` and
 `12/128` and exclusions remain `5/58`.  Expanded suites were not rerun.
 
 Checkpoint 1.68 proves Gaussian prime moments through degree 2k on translated x^k blocks and a Hermite-localized centered-remainder lower bound whenever k(1-alpha)<rho_k. The optimal integer member is k=4, giving Omega(lambda^8 log(lambda^2)) for every fixed alpha>1-sqrt(3+sqrt(6))/4, including alpha=1/2 and a nonempty range below; the method proves nothing at or below that threshold, and the phase-volume comparison remains one-way. Separately, it gives the exact normalized prolate capture Gram, multiplicity obstruction, actual multiplier physical-angle bound, and cross-angle stopping line. The synthetic critical-edge model proves structural nonimplication only and is not the actual full von-Mangoldt Weil symbol. No frozen input proves the actual source-prefix cross-angle, bottom-space dimension bound, missed-line bridge gate, or phase-bulk premise. Actual phase volume, bottom-projector capture, determinant convergence, an unconditional zero theorem, RH proof or converse, and a de Bruijn--Newman bound remain unproved. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.69 fractional odd-moment, shifted top-moment, and actual-adjoint source disclosure
+
+Checkpoint 1.69 admits exactly these three frozen pairs:
+
+| Target | SHA-256 |
+|---|---|
+| `notes/ACTUAL_CENTERED_REMAINDER_FRACTIONAL_BLOCK_ODD_MOMENT_UI_BARRIER.md` | `c5510f3491d2d6ff173581bd6be540edc1b8b5c4bbb0afb56b636bfd68b51f19` |
+| `tests/test_actual_centered_remainder_fractional_block_odd_moment_ui_barrier.py` | `71e1480ae0e4265ec4e45c3eb181a2682ee070bc8382eba815c3543a9f626871` |
+| `notes/ACTUAL_CENTERED_REMAINDER_SHIFTED_CORRELATION_TOP_MOMENT_UI_BARRIER.md` | `8ab0f30e32fe715a4f839228f5d05dc581292c99c2a04f42804f0ff4d2d878d9` |
+| `tests/test_actual_centered_remainder_shifted_correlation_top_moment_ui_barrier.py` | `ecaf4f1eaaab4a3a146c277eb0897e79d5323bfe9b79709bbc5cac5d423bd787` |
+| `notes/CUTOFF_FREE_ACTUAL_DANGEROUS_ADJOINT_REGULARITY_BARRIER.md` | `76bed7bff24f2bdced30c357d3a61b7cbcc16964085901070f723035aeb92337` |
+| `tests/test_cutoff_free_actual_dangerous_adjoint_regularity_barrier.py` | `034fe9fa18d0ae587ac3d9c5c3f9e0179a5cbf80dd96ef5aab21e5034f8223ec` |
+
+Their exact deduplicated direct dependencies are:
+
+| Dependency | SHA-256 |
+|---|---|
+| `notes/ACTUAL_CENTERED_REMAINDER_LONG_BLOCK_HERMITE_MOMENT_BARRIER.md` | `1997f8b14c5f90977f744788d069f6e771da078c06562dac2d78c671c01a95c1` |
+| `tests/test_actual_centered_remainder_long_block_hermite_moment_barrier.py` | `cbbc300b9a050ac161d9f8feae996947b522043ae50663799dfc194ed4d3dd2d` |
+| `notes/CUTOFF_FREE_MULTIPLIER_DANGEROUS_PROLATE_CROSS_ANGLE_BARRIER.md` | `bfabbf6b7c4879d027e4ea1be8e1103b22468519b2bd68aa0d121642000120ed` |
+| `tests/test_cutoff_free_multiplier_dangerous_prolate_cross_angle_barrier.py` | `dd91d397332f3096f531e0c8742e1752891d53c1c257a9a78d82dcef67dc002a` |
+| `notes/CUTOFF_FREE_FULL_SOURCE_ADJOINT_PROLATE_CAPTURE_BARRIER.md` | `157bffc55aeec592c263d5973effe1b9506e02dd97311652ecb2fdee0c3ff0e9` |
+| `tests/test_cutoff_free_full_source_adjoint_prolate_capture_barrier.py` | `d7f70dffbd10021ce7d6e8887d10589a482b2dc64c9ebbe8c48cc35568c233ae` |
+| `notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md` | `c6e4a757604bfc9c1299a272054f1174970781e6cd0a92ed0dfb196f9804fa81` |
+| `tests/test_parity_multiplier_schur.py` | `94ee818e2747e703d521cfa2a980765569cccfdf442b700b1a6b33ac4ceababb` |
+| `notes/CUTOFF_FREE_BRIDGE_MIXED_ADJOINT_TAIL_PREFACTOR_REDUCTION.md` | `53dd9fefd8cc05a29cd3e0a043e6f86f8bbdc7545d2c203d29bc59cbbe1a04f8` |
+| `tests/test_cutoff_free_bridge_mixed_adjoint_tail_prefactor_reduction.py` | `e532a958742feda3efe00adc37e1ea2879a3676f23b63a47c238e348aaf5b17c` |
+
+Pairs A and B share the checkpoint-1.68 long-block pair.  Pair C freezes
+four distinct existing pairs.  The deduplicated union has ten paths,
+exactly five complete pairs.  Adding the six targets gives 16 paths,
+exactly eight complete pairs.
+
+Pairs A and B substantively inherit H. L. Montgomery and R. C. Vaughan,
+*Hilbert's Inequality*, *Journal of the London Mathematical Society* (2)
+**8** (1974), 73--82, DOI
+<https://doi.org/10.1112/jlms/s2-8.1.73>, Corollary 2, equations
+(1.8)--(1.9), through the frozen long-block pair.  The paper remains
+external, unvendored, unhashed, non-byte-bound, and not independently
+certified.  Existing P3/FKS provenance is transitive only; no lock or
+vendored PDF is a direct checkpoint-1.69 dependency.
+
+Pair C uses only frozen internal theorem/barrier pairs.  Its KRD/BBK
+transition, Slepian fixed-index, complete-multiplier, full-source, bridge,
+and all other source-lock provenance is inherited transitively.  It adds no
+independent external result, source lock, or vendor byte.
+
+No new external paper, source-lock JSON, vendored source, artifact, zero
+table, numerical ground, numerical ordinate, cached matrix, source sample,
+serialized numerical artifact, or external computation is admitted.  All
+ten dependency and six target hashes were rechecked exactly.
+
+The three focused modules pass `39/39`, and the exact eight-module
+deduplicated target/direct-dependency closure passes `113/113` under
+`PYTHONPATH=src python3 -B`.  Projected canonical/raw discovery is
+`395/4361` and `400/4419`; frontier/replay is `253/2839` and `265/2967`;
+support remains `12/128` and exclusions remain `5/58`.  Expanded suites
+were not rerun.
+
+Checkpoint 1.69 proves that a fixed real block exponent s controls Gaussian moments only through floor(2s), while macroscopic Hermite uniform integrability reduces the usable index to floor(s); the fractional odd shelf yields an explicit lower bound x^(s-r)L^(2r+1), but for fixed s<r+1 it is o(x/L), so the checkpoint-1.68 k=4 threshold remains optimal at the required scale. It identifies the first missing odd fixed-shift almost-prime correlation and the next even growing-shift top moment, quantifies the Montgomery--Vaughan deficits, and gives a positive Jacobi/remote-atom countermodel showing that odd-moment control alone cannot move the Hermite threshold without next-even-moment uniform integrability. Separately, it proves an actual-symbol support envelope and Paley--Wiener regularity theorem for positive dangerous spectral subspaces, exact arithmetic-adjoint breakpoint/endpoint-jet jumps, an explicit BV-to-prolate sufficient condition, a sharp buffered commutator bound, and fixed-lambda qualitative prefix capture. The available constants do not reach the near-Shannon prefix, and the safe component can cancel the regular dangerous component after the literal adjoint. No required-scale centered-remainder obstruction at or below the checkpoint-1.68 threshold, actual phase-volume lower bound, actual bottom Gram/cross-angle or bridge gate, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.

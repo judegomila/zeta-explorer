@@ -7237,3 +7237,61 @@ canonical/raw discovery is `407/4499` and `412/4557`; frontier/replay is
 `5/58`.  Expanded suites were not rerun.
 
 Checkpoint 1.74 proves an unconditional paired-Floquet sampled-Xi minimum-modulus bound of exp(-o(lambda^2)) on a quadratic mode band and exact parity Riesz conditioning. It also records the complete-circle seam and boundary-safe weighted-translation obstructions, the insufficiency of the frozen moving-label inverse majorant at quadratic inventory, and divisor/source-escape barriers. The sampled bound conditions only the common Xi factor. It does not prove an actual residual-safe finite transition-prefix floor, dangerous-space embedding, bottom-projector capture, Pair-C stopping condition, parity order, determinant convergence, an unconditional zero theorem, RH proof or converse, or a de Bruijn--Newman bound. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.75 individual odd finite-part residual
+
+The coherent beta diagonal hides an exact same-tail residual.  With the
+paired-slot odd sign retained,
+
+\[
+ {\mathfrak b}_{\lambda,+}
+ ={A_\lambda^2C_\xi\over8\lambda}
+  +{A_\lambda^2\over8}{\cal S}_\lambda,
+ \qquad
+ {\mathfrak b}_{\lambda,-}
+ ={A_\lambda^2C_\xi\over8\lambda}
+  -{A_\lambda^2\over8}{\cal S}_\lambda.
+\]
+
+Their sum is the frozen coherent term
+`A_lambda^2*C_xi/(4*lambda)`, while their difference is
+`A_lambda^2*S_lambda/4`.  The latter is not a lower-order remainder that can
+be discarded paritywise.  Indeed
+
+\[
+ G(a)=e^a{\cal S}_{e^a}
+     =\sum_\rho{e^{(1-2\rho)a}\over\rho^2}
+\]
+
+is bounded on the continuous family, or on the complete all-odd natural
+halfgrid, if and only if RH holds.  Multiplicity cannot cancel the Laplace
+pole: at `sigma=1-2*rho` its residue is `m(rho)/rho^2`.  The all-odd mesh
+transfer uses
+
+\[
+ |G(a+h)-G(a)|\leq Ce^ah\log^2(2/h)
+\]
+
+and `h=O(e^(-a))`, giving polynomial continuous growth from bounded samples.
+
+This carrier obstruction does not identify the physical odd quadratic form.
+The physical corrected row is `O_(b,modal)+O_bump`; its beta representative
+has the same image only after applying the zero-evaluation map.  The missing
+ordered common finite part must therefore be constructed before splitting
+the pole, Archimedean, prime, beta-self, and cross distributions.  Until that
+is done, the residual chain remains
+
+1. paritywise ordered physical finite-part identification;
+2. an individual physical odd `O(lambda^(-1))` self estimate;
+3. the live lower-shift gate `mu>=-O(lambda^(-1))`; and
+4. the transverse reserve `kappa*log^2(lambda)` with the required constant
+   margin.
+
+The focused module passes `12/12`; the exact six-module deduplicated
+target/direct closure passes `73/73` under
+`PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3 -B`.  Projected
+canonical/raw discovery is `408/4511` and `413/4569`; frontier/replay is
+`266/2989` and `278/3117`; support remains `12/128` and exclusions remain
+`5/58`.  Expanded suites were not rerun.
+
+Checkpoint 1.75 proves the exact individual even/odd beta-carrier split and shows that the surviving same-tail zero sum is bounded at the lambda^(-1) carrier scale on either the continuous family or the complete all-odd natural halfgrid iff RH. This is an RH-equivalence barrier, not a proof that the bound holds. The identities are spectral carrier identities only. It does not prove the paritywise ordered physical finite-part identification, an individual physical odd self bound, live-shift control, the kappa log^2(lambda) reserve, bridge-energy relative smallness, bottom-projector capture, Pair-C closure, parity order, determinant convergence, any new zero theorem, RH, or a de Bruijn--Newman bound. The formal state remains P0_INVALIDATED.

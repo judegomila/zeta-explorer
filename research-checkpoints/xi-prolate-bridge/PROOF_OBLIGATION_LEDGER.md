@@ -7306,6 +7306,51 @@ canonical/raw discovery is `407/4499` and `412/4557`; frontier/replay is
 
 Checkpoint 1.74 proves an unconditional paired-Floquet sampled-Xi minimum-modulus bound of exp(-o(lambda^2)) on a quadratic mode band and exact parity Riesz conditioning. It also records the complete-circle seam and boundary-safe weighted-translation obstructions, the insufficiency of the frozen moving-label inverse majorant at quadratic inventory, and divisor/source-escape barriers. The sampled bound conditions only the common Xi factor. It does not prove an actual residual-safe finite transition-prefix floor, dangerous-space embedding, bottom-projector capture, Pair-C stopping condition, parity order, determinant convergence, an unconditional zero theorem, RH proof or converse, or a de Bruijn--Newman bound. The formal state remains P0_INVALIDATED.
 
+## Checkpoint 1.75 individual beta-carrier obligations
+
+Checkpoint 1.75 closes these exact carrier-level obligations:
+
+1. the paired-slot reflection sign splits the coherent beta diagonal as
+
+   \[
+    {\mathfrak b}_{\lambda,\pm}
+    ={A_\lambda^2C_\xi\over8\lambda}
+      \mathbin{\pm}{A_\lambda^2\over8}{\cal S}_\lambda;
+   \]
+
+2. the coherent sum cancels the same-tail carrier exactly, while the
+   individual parity difference retains it;
+3. boundedness of `lambda*S_lambda` on the continuous family is equivalent
+   to RH by normally convergent Landau--Laplace continuation with nonzero
+   multiplicity-safe residues; and
+4. the same equivalence holds on the complete natural halfgrid
+   `lambda_p=p/2` for every sufficiently large odd positive integer `p`, by
+   the exact logarithmic mesh and zero-counting increment bound.
+
+These are spectral carrier identities.  They do not identify the physical
+corrected exterior row with its beta representative before zero evaluation.
+The following obligations remain open:
+
+1. construct the ordered paritywise physical finite part before separating
+   pole, Archimedean, prime, beta-self, and cross terms;
+2. prove `q_(lambda,-)^phys-b_(lambda,-)=o(lambda^(-1))` and hence any
+   individual physical odd self estimate;
+3. control the live shift at least at `mu>=-O(lambda^(-1))` if an energy
+   upper bound is sought;
+4. prove the quantitative `kappa*log^2(lambda)` reserve needed to beat the
+   sharp cancellation threshold; and
+5. obtain bottom capture, Pair-C closure, any needed parity order, determinant
+   convergence, and every unconditional zero consequence.
+
+The focused module passes `12/12`; the exact six-module deduplicated
+target/direct-dependency closure passes `73/73` under
+`PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3 -B`.  Projected
+canonical/raw discovery is `408/4511` and `413/4569`; frontier/replay is
+`266/2989` and `278/3117`; support remains `12/128` and exclusions remain
+`5/58`.  Expanded suites were not rerun.
+
+Checkpoint 1.75 proves the exact individual even/odd beta-carrier split and shows that the surviving same-tail zero sum is bounded at the lambda^(-1) carrier scale on either the continuous family or the complete all-odd natural halfgrid iff RH. This is an RH-equivalence barrier, not a proof that the bound holds. The identities are spectral carrier identities only. It does not prove the paritywise ordered physical finite-part identification, an individual physical odd self bound, live-shift control, the kappa log^2(lambda) reserve, bridge-energy relative smallness, bottom-projector capture, Pair-C closure, parity order, determinant convergence, any new zero theorem, RH, or a de Bruijn--Newman bound. The formal state remains P0_INVALIDATED.
+
 ## Computation policy
 
 High-precision numerics may identify the scale of the residual and gap.

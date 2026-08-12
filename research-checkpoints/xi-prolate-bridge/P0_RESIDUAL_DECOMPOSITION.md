@@ -6705,3 +6705,79 @@ passes `129/129`, and the optional high-Fourier-expanded check passes
 `12/128` and exclusions remain `5/58`.  Expanded suites were not rerun.
 
 Checkpoint 1.67 computes the exact ordinary-source bridge innovation and defect-orthogonal representative, proves a uniformly bounded representative norm and an exponentially favorable one-sided source/defect prefactor, and reduces codimension-one bridge repair to one scalar combined-phase adjoint-tail excess above the constant-tail threshold. A polynomial strict reserve together with a polynomial phase-bulk gap would give a polynomial augmented bottom floor. No frozen input proves the reserve, the codimension-one phase-bulk premise, or even nonvanishing of the actual missed-line scalar. The literal-adjoint diagonal-well model proves only structural nonimplication and is not the actual Weil operator or a counterexample to actual nonvanishing. Actual bridge leverage, bottom-projector capture, cutoff-free determinant convergence, an unconditional zero theorem, RH proof or converse, and a de Bruijn--Newman bound remain unproved. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.68 long-block Hermite and multiplier-dangerous cross-angle residual
+
+The centered-remainder branch now has a complete integer long-block
+moment theorem.  On `I_(x,k)=[A x^k,2A x^k]`, the prime polynomial has
+Gaussian moments through degree `2k`.  If `rho_k` is the largest zero of
+`He_k`, the Hermite localizer gives the exact sufficient range
+
+\[
+ k(1-\alpha)<\rho_k
+ \quad\Longrightarrow\quad
+ \mathfrak R_{\lambda,\alpha},
+ \mathfrak R^{\rm hi}_{\lambda,\alpha}
+ \gg_{A,\alpha,k}x^k\log x.
+\]
+
+The optimal integer member is `k=4`, so the residual upper target is
+disproved for every fixed
+
+\[
+ \alpha>1-{\sqrt{3+\sqrt6}\over4}.
+\]
+
+This includes `alpha=1/2` and part of the range below it.  The residual is
+not closed for the whole `alpha<=1/2` regime: the method proves nothing at
+or below the displayed threshold.  On the original `x^2` block, moments
+through degree four stop at normalized level one, and the frozen
+Montgomery--Vaughan input does not control the fifth mixed moment.  The
+comparison with phase volume is still one-way, so this larger remainder
+does not give a phase-volume lower bound.
+
+The multiplier-dangerous branch has the exact normalized residual
+
+\[
+ \mathfrak q_E(Y)
+ =\lambda_{\min}\!\left(
+ R_Y^{-1/2}P_YAP_EA^*P_YR_Y^{-1/2}\right),
+ \qquad
+ R_Y=P_YAA^*P_Y\big|_Y.
+\]
+
+The full-source floor makes `R_Y` invertible.  Rank gives the necessary
+condition `dim Y<=dim E`; no frozen multiplicity theorem proves it for the
+actual complete bottom space.  The actual multiplier comparison gives a
+physical angle to `Pi_t`, but after projection to `E` the residual is
+
+\[
+ \Delta_E
+ =s_{\min}\!\left(P_EA^*\Pi_tP_YR_Y^{-1/2}\right)
+ -\left\|P_EA^*(I-\Pi_t)P_YR_Y^{-1/2}\right\|.
+\]
+
+Only
+
+\[
+ \mathfrak q_E(Y)^{1/2}\geq[\Delta_E]_+
+\]
+
+is proved.  The exact one-line bridge residual remains
+
+\[
+ \mathfrak q_E(e_0)-\delta_E>0.
+\]
+
+No frozen estimate makes either residual positive.  The critical-edge
+model forces zero capture while retaining the literal source map and the
+prolate geometry, but changes the full arithmetic multiplier and is only a
+structural nonimplication model.
+
+The focused checkpoint modules pass `30/30`, and the exact ten-module
+deduplicated target/direct closure passes `149/149`.  Projected
+canonical/raw discovery is `392/4322` and `397/4380`; frontier/replay is
+`250/2800` and `262/2928`; support remains `12/128` and exclusions remain
+`5/58`.  Expanded suites were not rerun.
+
+Checkpoint 1.68 proves Gaussian prime moments through degree 2k on translated x^k blocks and a Hermite-localized centered-remainder lower bound whenever k(1-alpha)<rho_k. The optimal integer member is k=4, giving Omega(lambda^8 log(lambda^2)) for every fixed alpha>1-sqrt(3+sqrt(6))/4, including alpha=1/2 and a nonempty range below; the method proves nothing at or below that threshold, and the phase-volume comparison remains one-way. Separately, it gives the exact normalized prolate capture Gram, multiplicity obstruction, actual multiplier physical-angle bound, and cross-angle stopping line. The synthetic critical-edge model proves structural nonimplication only and is not the actual full von-Mangoldt Weil symbol. No frozen input proves the actual source-prefix cross-angle, bottom-space dimension bound, missed-line bridge gate, or phase-bulk premise. Actual phase volume, bottom-projector capture, determinant convergence, an unconditional zero theorem, RH proof or converse, and a de Bruijn--Newman bound remain unproved. The formal state remains P0_INVALIDATED.

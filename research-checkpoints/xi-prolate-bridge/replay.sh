@@ -487,6 +487,26 @@ required = {
     "actual_mixed_bridge_continuous_compact_physical_odd_self_rh_equivalence_proved": True,
     "checkpoint177_focused_tests_passed": True,
     "checkpoint177_full_suite_recount_completed": False,
+    "actual_mixed_bridge_gap_plus_pole_overlap_max_floor_proved": True,
+    "actual_mixed_bridge_matching_metric_raw_innovation_weighted_splice_proved": True,
+    "actual_mixed_bridge_fixed_odd_common_core_kappa_ceiling_proved": True,
+    "actual_mixed_bridge_energy_over_kappa_rh_conditional_implication_proved": True,
+    "actual_mixed_bridge_energy_over_kappa_premise_proved": False,
+    "actual_mixed_bridge_weighted_residual_gate_proved": False,
+    "actual_mixed_bridge_odd_ground_full_bottom_parity_identification_proved": False,
+    "actual_mixed_bridge_one_sided_physical_odd_self_rh_equivalences_proved": True,
+    "actual_mixed_bridge_physical_odd_self_upper_one_over_lambda_proved": False,
+    "actual_mixed_bridge_physical_odd_self_lower_one_over_lambda_proved": False,
+    "actual_mixed_bridge_sectoral_mu_lower_minus_o_one_rh_equivalence_proved": True,
+    "actual_mixed_bridge_sectoral_shifted_energy_o_one_rh_equivalence_proved": True,
+    "actual_mixed_bridge_global_mu_lower_minus_o_one_rh_equivalence_proved": True,
+    "actual_mixed_bridge_global_shifted_energy_o_one_rh_equivalence_proved": True,
+    "actual_mixed_bridge_sectoral_mu_lower_minus_o_one_proved": False,
+    "actual_mixed_bridge_sectoral_shifted_energy_o_one_proved": False,
+    "actual_mixed_bridge_global_mu_lower_minus_o_one_proved": False,
+    "actual_mixed_bridge_global_shifted_energy_o_one_proved": False,
+    "checkpoint178_focused_tests_passed": True,
+    "checkpoint178_full_suite_recount_completed": False,
 }
 
 project = json.loads(Path("PROJECT_STATUS.json").read_text(encoding="utf-8"))
@@ -1788,7 +1808,8 @@ PYTHONPATH=src python3 -B -m unittest \
   tests.test_cutoff_free_actual_radical_floquet_xi_minimum_modulus_pair_c_barrier \
   tests.test_actual_mixed_bridge_individual_odd_finite_part_rh_barrier \
   tests.test_actual_mixed_bridge_compact_side_odd_carrier_transfer_theorem \
-  tests.test_actual_mixed_bridge_continuous_compact_side_odd_carrier_transfer_theorem -v
+  tests.test_actual_mixed_bridge_continuous_compact_side_odd_carrier_transfer_theorem \
+  tests.test_actual_mixed_bridge_odd_energy_capture_circularity_barrier -v
 python3 src/write_artifact_manifest.py
 python3 -m unittest tests.test_weighted_pnt_discrepancy_normal_form_source_lock -v
 python3 -m unittest tests.test_boundary_discrepancy_convolution tests.test_boundary_discrepancy_convolution_source_lock -v

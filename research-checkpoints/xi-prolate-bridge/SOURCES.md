@@ -7534,3 +7534,55 @@ canonical/raw discovery is `410/4539` and `415/4597`; frontier/replay is
 `5/58`.  Expanded suites were not rerun.
 
 Checkpoint 1.77 proves for every sufficiently large real lambda that the compact physical odd self equals the checkpoint-1.75 odd beta carrier plus o(lambda^(-N)) for every fixed N, by deriving all-real fixed-label modal sampling for n in {0,2,6} without the growing corrected-combination, KRD, or compact-projection steps and then using the checkpoint-1.76 gauge equality only after zero evaluation. Consequently the continuous compact physical odd O(lambda^(-1)) condition is equivalent to RH; this is not an unconditional bound. It does not prove the literal noncompact ordered physical finite-part identity, shifted-energy control, live-shift control, the kappa log^2(lambda) reserve, bridge overlap, bottom-projector capture, Pair-C closure, parity order, determinant convergence, any new zero theorem, RH, or a de Bruijn--Newman bound. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.78 odd energy capture source disclosure
+
+Checkpoint 1.78 admits exactly this frozen theorem/barrier pair:
+
+| Target | SHA-256 |
+|---|---|
+| `notes/ACTUAL_MIXED_BRIDGE_ODD_ENERGY_CAPTURE_CIRCULARITY_BARRIER.md` | `cd2c4e98f4cfd0120d07ce783b534bf8c6892d614b33b3c9e19f4fc0f1491f96` |
+| `tests/test_actual_mixed_bridge_odd_energy_capture_circularity_barrier.py` | `dafb38f65c3e4378a5d10364242eddf03869889fb3b0ca47d1817419774c5f03` |
+
+Its exact direct dependencies are:
+
+| Dependency | SHA-256 |
+|---|---|
+| `notes/ACTUAL_MIXED_BRIDGE_CONTINUOUS_COMPACT_SIDE_ODD_CARRIER_TRANSFER_THEOREM.md` | `d60381270462b8148a94269cc62c43b6c65178e89243588c8dcf37047534f3de` |
+| `tests/test_actual_mixed_bridge_continuous_compact_side_odd_carrier_transfer_theorem.py` | `f26d9ca46dbafba81ccf8893a2c235a8fd75a81fef0387abfc11f7f58bdc7afa` |
+| `notes/ACTUAL_MIXED_BRIDGE_TRANSVERSE_GAP_ENERGY_BARRIER.md` | `d9fea23ec9427a2bfcf8f22ec6465cafbdd5623f4adc311e83114fd8b8591677` |
+| `tests/test_actual_mixed_bridge_transverse_gap_energy_barrier.py` | `822711c839de663d5152ea61cc438a194780d80444f02cbac07b365947a608f1` |
+| `notes/CUTOFF_FREE_ONE_DIRECTION_WEIGHTED_GROUND_CAPTURE_THEOREM.md` | `770087b56766e0102a915a31e08aba5389065d78dd59a55135adb5f5b6eea948` |
+| `tests/test_cutoff_free_one_direction_weighted_ground_capture_theorem.py` | `a9cd2abbf8c3de284e1b375beffc7f186a7f4bebc3ecd7fba111195f435b86fc` |
+| `notes/CUTOFF_FREE_PROLATE_GROUND_ALIGNMENT_RH_DICHOTOMY.md` | `37f381b6ed75017633f4c845f90ff7d2660699bc0ae7a4340ec789b0e8dccea7` |
+| `tests/test_cutoff_free_prolate_ground_alignment_rh_dichotomy.py` | `b17c3c603d459547c09fd0abb92b595986356e29e1d53f7e8c6f3ace4a8baf80` |
+| `notes/ODD_FAVORABLE_LOCKED_SUBSEQUENCE.md` | `6d0067d6c9a520e26a62185baf118de5a29d479b082ea9bd2ae7b2e4ad731f72` |
+
+The declared `FROZEN` set has exactly 9 unique paths: four complete
+note/test pairs and the unpaired `ODD_FAVORABLE_LOCKED_SUBSEQUENCE` note.
+Adding the two target paths gives 11 unique repository paths, five complete
+note/test pairs plus that one additional byte.  Every dependency and target
+hash was rechecked.
+
+The pair is an internal derivation using already-frozen local inputs.  All
+external, vendored, and source-lock provenance is inherited transitively
+through frozen internal dependencies; no vendor byte or source-lock JSON is
+a direct checkpoint-1.78 dependency.  No new external paper, source-lock
+JSON, vendored source, artifact, zero table, numerical ground, numerical
+ordinate, cached matrix, source sample, serialized numerical artifact, or
+external computation is admitted.
+
+The same four immutable rejected or superseded raw modules contribute 48
+tests, and the checkpoint-1.18 WKB draft contributes 10 tests.  None is a
+checkpoint-1.78 dependency, no new exclusion is added, and exactly the
+actual mixed-bridge odd energy capture and circularity barrier pair is newly
+admitted.  No later overlay is admitted.
+
+The focused module passes `15/15`, and the exact five-module deduplicated
+target/direct-dependency closure passes `60/60` under
+`PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3 -B`.  Projected
+canonical/raw discovery is `411/4554` and `416/4612`; frontier/replay is
+`269/3032` and `281/3160`; support remains `12/128` and exclusions remain
+`5/58`.  Expanded suites were not rerun.
+
+Checkpoint 1.78 proves an exact max overlap floor, the legal matching-metric raw/innovation weighted splice, and the common-core ceiling kappa_lambda <= C_V-mu_-(lambda). Consequently E_lambda/kappa_lambda -> 0 on the complete family or any cofinal schedule would force mu_-(lambda) -> 0, full-real q_lambda >= 0, and RH. The energy-ratio premise is not proved and is itself RH-strength. The one-sided physical odd self bounds and the sectoral/global lower-shift and shifted-energy o(1) statements are RH-equivalence barriers, not established estimates. No residual gate, odd/full-bottom parity identification, unconditional physical one-over-lambda bound, literal noncompact ordered finite part, transverse lower reserve, new zero theorem, RH, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.

@@ -1,0 +1,2528 @@
+{
+  "arithmetic_libraries": {
+    "independence_limitation": "producer and verifier share Python integer/Fraction arithmetic and the pinned mpmath.iv transcendental runtime",
+    "independent_formula_trees_required": true,
+    "libraries": [
+      "Python fractions.Fraction",
+      "mpmath.iv 1.4.1"
+    ],
+    "precision_mode": "exact reduced rationals plus outward arbitrary-precision intervals",
+    "raw_interval_or_ball_output_applicable": true,
+    "serialization_guard": "every nondegenerate interval is enlarged to a precision-scaled dyadic enclosure",
+    "shared_library_with_verifier": true
+  },
+  "certificate": {
+    "breakpoint_intervals": {
+      "breakpoint_index_m": 2,
+      "breakpoint_is_interior": true,
+      "breakpoint_y_m": {
+        "decimal": [
+          "0.444444444444444444444444444444444444444444444444444444444444444444444444443891729422647335",
+          "0.444444444444444444444444444444444444444444444444444444444444444444444444444997159524809321"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "210793065562687616202198557598038075807552825417983889024719228487294301779816903",
+            -268,
+            267
+          ],
+          "upper": [
+            0,
+            "843172262250750464808794230392152303230211301671935556098876913949177207121364765",
+            -270,
+            269
+          ]
+        }
+      },
+      "fixture_dimension": 3,
+      "full_matched_dimension_claimed": false,
+      "odd_basis_global_sign": "positive imaginary-part convention in equation (7.11)",
+      "odd_derivative_orders": [
+        1,
+        3,
+        5
+      ],
+      "odd_determinant_direct": {
+        "decimal": [
+          "520853824.62458319297449919831915783663120477152474534926917677696639071368498970424266146",
+          "520853824.624583192974499198319157836631204771524745349269176776966390713685286645619455612"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "230067262804135042955510483786150149139084569678905434223806476964479174113753961",
+            -238,
+            267
+          ],
+          "upper": [
+            0,
+            "460134525608270085911020967572300298278169139357810868447612953928958348227770247",
+            -239,
+            268
+          ]
+        }
+      },
+      "odd_determinant_excludes_zero": true,
+      "odd_determinant_vandermonde": {
+        "decimal": [
+          "520853824.62458319297449919831915783663120477152474534926917677696639071368498978121593363",
+          "520853824.624583192974499198319157836631204771524745349269176776966390713685286572042063097"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "230067262804135042955510483786150149139084569678905434223806476964479174113753995",
+            -238,
+            267
+          ],
+          "upper": [
+            0,
+            "230067262804135042955510483786150149139084569678905434223806476964479174113885091",
+            -238,
+            267
+          ]
+        }
+      },
+      "odd_formula_overlap": true,
+      "odd_jump_matrix": [
+        [
+          {
+            "decimal": [
+              "-4.06446487657281485118139132873974963907050238460344307726864190394592566661068915177838843",
+              "-4.06446487657281485118139132873974963907050238460344307726864190394592566660626739974314666"
+            ],
+            "dyadic": {
+              "lower": [
+                1,
+                "481928068802618094765580157036833484846621014872992563501287112601830289286500993",
+                -266,
+                269
+              ],
+              "upper": [
+                1,
+                "481928068802618094765580157036833484846621014872992563501287112601830289285976701",
+                -266,
+                269
+              ]
+            }
+          },
+          {
+            "decimal": [
+              "-8.12892975314562970236278265747949927814100476920688615453728380789185133322137830355677687",
+              "-8.12892975314562970236278265747949927814100476920688615453728380789185133321253479948629332"
+            ],
+            "dyadic": {
+              "lower": [
+                1,
+                "481928068802618094765580157036833484846621014872992563501287112601830289286500993",
+                -265,
+                269
+              ],
+              "upper": [
+                1,
+                "481928068802618094765580157036833484846621014872992563501287112601830289285976701",
+                -265,
+                269
+              ]
+            }
+          },
+          {
+            "decimal": [
+              "-12.1933946297184445535441739862192489172115071538103292318059257118377769998298566214863362",
+              "-12.1933946297184445535441739862192489172115071538103292318059257118377769998210130330782691"
+            ],
+            "dyadic": {
+              "lower": [
+                1,
+                "722892103203927142148370235555250227269931522309488845251930668902745433929620419",
+                -265,
+                269
+              ],
+              "upper": [
+                1,
+                "361446051601963571074185117777625113634965761154744422625965334451372716964548061",
+                -264,
+                268
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "decimal": [
+              "-28.5447429399646841374667529476734172795096894762675965704091084828282173153452406684184609",
+              "-28.5447429399646841374667529476734172795096894762675965704091084828282173153275519397907895"
+            ],
+            "dyadic": {
+              "lower": [
+                1,
+                "846145387970724392027826086307612325577823593511812830232653888004768413623555755",
+                -264,
+                269
+              ],
+              "upper": [
+                1,
+                "211536346992681098006956521576903081394455898377953207558163472001192103405757853",
+                -262,
+                267
+              ]
+            }
+          },
+          {
+            "decimal": [
+              "481.526250079203220751915855678814559662829916300754332400928369673429841185754360830682506",
+              "481.526250079203220751915855678814559662829916300754332400928369673429841186037366454951347"
+            ],
+            "dyadic": {
+              "lower": [
+                0,
+                "223027722077125336207071970861800210622079283736457409576471690797698563387451097",
+                -258,
+                267
+              ],
+              "upper": [
+                0,
+                "892110888308501344828287883447200842488317134945829638305886763190794253550328705",
+                -260,
+                269
+              ]
+            }
+          },
+          {
+            "decimal": [
+              "2068.82871501663630369499718745362532504886811258435531245575902110786045131913344228636139",
+              "2068.82871501663630369499718745362532504886811258435531245575902110786045132139742682733223"
+            ],
+            "dyadic": {
+              "lower": [
+                0,
+                "479107998371857093977730898219991527712042301594470007833906424095583392931931027",
+                -257,
+                269
+              ],
+              "upper": [
+                0,
+                "239553999185928546988865449109995763856021150797235003916953212047791696466227665",
+                -256,
+                268
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "decimal": [
+              "13152.3887566608937977609117774092863584461015173875253500737163346274618739723361859422581",
+              "13152.3887566608937977609117774092863584461015173875253500737163346274618739813924177358724"
+            ],
+            "dyadic": {
+              "lower": [
+                0,
+                "761471286297576208956196989755345108327684954737983151479085330782819614987635361",
+                -255,
+                269
+              ],
+              "upper": [
+                0,
+                "761471286297576208956196989755345108327684954737983151479085330782819614988159681",
+                -255,
+                269
+              ]
+            }
+          },
+          {
+            "decimal": [
+              "123612.110325824426078140691751346581953819621046868968048625944375485590920480500014308806",
+              "123612.110325824426078140691751346581953819621046868968048625944375485590920552950974087295"
+            ],
+            "dyadic": {
+              "lower": [
+                0,
+                "894581531853802292101084643651791540223542373358728026632325014704399724405338219",
+                -252,
+                269
+              ],
+              "upper": [
+                0,
+                "894581531853802292101084643651791540223542373358728026632325014704399724405862547",
+                -252,
+                269
+              ]
+            }
+          },
+          {
+            "decimal": [
+              "190765.131212588780906095955521537759573691875488364923535378060835841640598444978572462352",
+              "190765.131212588780906095955521537759573691875488364923535378060835841640598589900942466469"
+            ],
+            "dyadic": {
+              "lower": [
+                0,
+                "345142079636506456217656931900642349259598420047079091210954039319318934637337331",
+                -250,
+                268
+              ],
+              "upper": [
+                0,
+                "86285519909126614054414232975160587314899605011769772802738509829829733659399883",
+                -248,
+                266
+              ]
+            }
+          }
+        ]
+      ],
+      "odd_rows_n": [
+        1,
+        2,
+        3
+      ],
+      "plus_derivative_orders": [
+        0,
+        2,
+        4
+      ],
+      "plus_determinant_direct": {
+        "decimal": [
+          "-59137.5040953716934360992076938084418137109410822027672349175028297053366594223191544794255",
+          "-59137.5040953716934360992076938084418137109410822027672349175028297053366593860893219612292"
+        ],
+        "dyadic": {
+          "lower": [
+            1,
+            "855956893935428886649121690963049346494178094548297485122229898418065640161312131",
+            -253,
+            269
+          ],
+          "upper": [
+            1,
+            "213989223483857221662280422740762336623544523637074371280557474604516410040196935",
+            -251,
+            267
+          ]
+        }
+      },
+      "plus_determinant_excludes_zero": true,
+      "plus_determinant_vandermonde": {
+        "decimal": [
+          "-59137.504095371693436099207693808441813710941082202767234917502829705336659422317358156366",
+          "-59137.5040953716934360992076938084418137109410822027672349175028297053366593860908419268949"
+        ],
+        "dyadic": {
+          "lower": [
+            1,
+            "855956893935428886649121690963049346494178094548297485122229898418065640161312105",
+            -253,
+            269
+          ],
+          "upper": [
+            1,
+            "427978446967714443324560845481524673247089047274148742561114949209032820080393881",
+            -252,
+            268
+          ]
+        }
+      },
+      "plus_formula_overlap": true,
+      "plus_jump_matrix": [
+        [
+          {
+            "decimal": [
+              "0.611541833528306150395088571525062710168063981235038956797760620555121142915232897617468575",
+              "0.611541833528306150395088571525062710168063981235038956797760620555121142916338329300960252"
+            ],
+            "dyadic": {
+              "lower": [
+                0,
+                "290044750070831476986216031213063266923292266531653738267844059292089849693406577",
+                -268,
+                268
+              ],
+              "upper": [
+                0,
+                "145022375035415738493108015606531633461646133265826869133922029646044924846965433",
+                -267,
+                267
+              ]
+            }
+          },
+          {
+            "decimal": [
+              "0.864850754934240099001263500904468820224996680883336339755902280100695291510682152682257196",
+              "0.86485075493424009900126350090446882022499668088333633975590228010069529151178758858262805"
+            ],
+            "dyadic": {
+              "lower": [
+                0,
+                "820370438490569191105496154714836344687884463544220632506362331226950601600050215",
+                -269,
+                269
+              ],
+              "upper": [
+                0,
+                "820370438490569191105496154714836344687884463544220632506362331226950601601098797",
+                -269,
+                269
+              ]
+            }
+          },
+          {
+            "decimal": [
+              "0.864850754934240099001263500904468820224996680883336339755902280100695291510682152682257196",
+              "0.86485075493424009900126350090446882022499668088333633975590228010069529151178758858262805"
+            ],
+            "dyadic": {
+              "lower": [
+                0,
+                "820370438490569191105496154714836344687884463544220632506362331226950601600050215",
+                -269,
+                269
+              ],
+              "upper": [
+                0,
+                "820370438490569191105496154714836344687884463544220632506362331226950601601098797",
+                -269,
+                269
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "decimal": [
+              "2.32194789917778741478135192000922247766936792875178853909149735617022558950726806531788916",
+              "2.32194789917778741478135192000922247766936792875178853909149735617022558950947893711863087"
+            ],
+            "dyadic": {
+              "lower": [
+                0,
+                "137657957553148533022754874189012448949921915560921598435715051578081706006890517",
+                -265,
+                267
+              ],
+              "upper": [
+                0,
+                "550631830212594132091019496756049795799687662243686393742860206312326824028086359",
+                -267,
+                269
+              ]
+            }
+          },
+          {
+            "decimal": [
+              "-15.8176865818813689270964954022397908076333415863769851395947692092707959118532357125264943",
+              "-15.8176865818813689270964954022397908076333415863769851395947692092707959118443919554432601"
+            ],
+            "dyadic": {
+              "lower": [
+                1,
+                "937760243823158506630526673111147794589362971348221099211914182194730997887384357",
+                -265,
+                269
+              ],
+              "upper": [
+                1,
+                "468880121911579253315263336555573897294681485674110549605957091097365498943430025",
+                -264,
+                268
+              ]
+            }
+          },
+          {
+            "decimal": [
+              "-73.1219369579483043360722486739491283859087191636946935534111512463551659523007895076222237",
+              "-73.1219369579483043360722486739491283859087191636946935534111512463551659522300405304774196"
+            ],
+            "dyadic": {
+              "lower": [
+                1,
+                "541884278364170188412419915753219856190856751045660456966447586637459125477858751",
+                -262,
+                269
+              ],
+              "upper": [
+                1,
+                "135471069591042547103104978938304964047714187761415114241611896659364781369333613",
+                -260,
+                267
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "decimal": [
+              "102.855035846391051889142698331658526940510282468926882942568671949102961660218358372495732",
+              "102.855035846391051889142698331658526940510282468926882942568671949102961660289106405059601"
+            ],
+            "dyadic": {
+              "lower": [
+                0,
+                "23819598978465337592743534443716448533510048255323042698074473341300148713964001",
+                -257,
+                264
+              ],
+              "upper": [
+                0,
+                "190556791827722700741948275549731588268080386042584341584595786730401189711843081",
+                -260,
+                267
+              ]
+            }
+          },
+          {
+            "decimal": [
+              "-1511.7298217275125038163834736278497203594498669869243978062851191779449350255981123134634",
+              "-1511.72982172751250381638347362784972035944986698692439780628511917794493502446611140680943"
+            ],
+            "dyadic": {
+              "lower": [
+                1,
+                "350092708840368462782491997426405749104522738994993276629335557186563718197210365",
+                -257,
+                268
+              ],
+              "upper": [
+                1,
+                "700185417680736925564983994852811498209045477989986553258671114373127436393896423",
+                -258,
+                269
+              ]
+            }
+          },
+          {
+            "decimal": [
+              "-1420.72393994511424171451755434752949131964326840667468461931168294261055985992894529255195",
+              "-1420.72393994511424171451755434752949131964326840667468461931168294261055985879675007210549"
+            ],
+            "dyadic": {
+              "lower": [
+                1,
+                "329017186471432247133470777194094116046388777392202510286631764984489290691020879",
+                -257,
+                268
+              ],
+              "upper": [
+                1,
+                "658034372942864494266941554388188232092777554784405020573263529968978581381517361",
+                -258,
+                269
+              ]
+            }
+          }
+        ]
+      ],
+      "plus_rows_n": [
+        0,
+        1,
+        2
+      ],
+      "prolate_moment_minor_inferred": false,
+      "raw_value_jump_independent_of_n": {
+        "decimal": [
+          "0.611541833528306150395088571525062710168063981235038956797760620555121142915232897617468575",
+          "0.611541833528306150395088571525062710168063981235038956797760620555121142916338329300960252"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "290044750070831476986216031213063266923292266531653738267844059292089849693406577",
+            -268,
+            268
+          ],
+          "upper": [
+            0,
+            "145022375035415738493108015606531633461646133265826869133922029646044924846965433",
+            -267,
+            267
+          ]
+        }
+      }
+    },
+    "checks": {
+      "below_threshold_counterexample_reconstructed": true,
+      "breakpoint_determinants_exclude_zero": true,
+      "directional_reserve_strict": true,
+      "finite_breakpoint_not_promoted_to_coframe": true,
+      "matched_schedule_reconstructed": true,
+      "moment_threshold_boundary_rejected": true,
+      "neumann_identity_exact": true,
+      "parity_projection_idempotence_exact": true,
+      "positive_pole_centered_obstruction_reconstructed": true,
+      "positive_pole_projection_interval_positive": true,
+      "rank_one_equality_rejected": true
+    },
+    "moment_threshold_sharpness": {
+      "L": {
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "M": {
+        "denominator": "1",
+        "numerator": "2"
+      },
+      "below_threshold_counterexample": {
+        "A": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "-1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "2"
+            }
+          ]
+        ],
+        "actual_minimum": {
+          "denominator": "1",
+          "numerator": "-1"
+        },
+        "deficits_M_minus_A": [
+          {
+            "denominator": "1",
+            "numerator": "3"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        "order": 1,
+        "source_moment_cap": {
+          "denominator": "1",
+          "numerator": "4"
+        },
+        "source_moment_hypothesis": true,
+        "strict_target_power_test": false,
+        "trace_deficit_power": {
+          "denominator": "1",
+          "numerator": "3"
+        }
+      },
+      "boundary_equality_rejected": {
+        "A": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "2"
+            }
+          ]
+        ],
+        "actual_minimum": {
+          "denominator": "1",
+          "numerator": "0"
+        },
+        "deficits_M_minus_A": [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        "order": 2,
+        "source_moment_cap": {
+          "denominator": "1",
+          "numerator": "4"
+        },
+        "source_moment_hypothesis": true,
+        "strict_target_power_test": false,
+        "trace_deficit_power": {
+          "denominator": "1",
+          "numerator": "4"
+        }
+      },
+      "dimension_d": 4,
+      "exact_identity_d_equals_ratio_power": {
+        "holds": true,
+        "power": 2
+      },
+      "least_integer_strict_order": 3,
+      "mu": {
+        "denominator": "1",
+        "numerator": "0"
+      },
+      "nu": {
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "r_star": 2,
+      "strict_order_pass_model": {
+        "A": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "2"
+            }
+          ]
+        ],
+        "actual_minimum": {
+          "denominator": "1",
+          "numerator": "1"
+        },
+        "deficits_M_minus_A": [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        "order": 3,
+        "source_moment_cap": {
+          "denominator": "1",
+          "numerator": "4"
+        },
+        "source_moment_hypothesis": true,
+        "strict_target_power_test": true,
+        "trace_deficit_power": {
+          "denominator": "1",
+          "numerator": "1"
+        }
+      },
+      "threshold_ratio": {
+        "denominator": "1",
+        "numerator": "2"
+      }
+    },
+    "parity_projection_idempotence": {
+      "declared_jump_jet_matrix_preserved_by_smooth_projection": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ]
+      ],
+      "even_parity_action": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "3"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ]
+      ],
+      "even_projected_tail": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ]
+      ],
+      "even_projection_squared": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ]
+      ],
+      "even_seed": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "3"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ]
+      ],
+      "even_tail_h_equals_I_minus_P_q": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "3"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ]
+      ],
+      "finite_even_projection": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ]
+      ],
+      "finite_odd_projection": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ]
+      ],
+      "function_level_scope": "finite exact algebra replay of P*(I-P)=0 and parity preservation; no prolate source is inferred",
+      "odd_parity_action": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "-3"
+          }
+        ]
+      ],
+      "odd_projected_tail": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ]
+      ],
+      "odd_projection_squared": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ]
+      ],
+      "odd_seed": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "3"
+          }
+        ]
+      ],
+      "odd_tail_h_equals_I_minus_P_q": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "3"
+          }
+        ]
+      ],
+      "parity_operator_J": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          }
+        ]
+      ]
+    },
+    "positive_pole_centered_obstruction": {
+      "A_plus": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "7"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ]
+      ],
+      "actual_minimum": {
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "alpha_times_L": {
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "centered_diagonal": [
+        {
+          "denominator": "1",
+          "numerator": "4"
+        },
+        {
+          "denominator": "1",
+          "numerator": "-2"
+        },
+        {
+          "denominator": "1",
+          "numerator": "-2"
+        }
+      ],
+      "dimension_d": 3,
+      "mean": {
+        "denominator": "1",
+        "numerator": "3"
+      },
+      "moments_k_1_through_4": [
+        {
+          "C_2k": {
+            "denominator": "1",
+            "numerator": "24"
+          },
+          "centered_lower_bound": {
+            "denominator": "1",
+            "numerator": "-1"
+          },
+          "complete_sign_denominator": {
+            "denominator": "2",
+            "numerator": "3"
+          },
+          "degree": 2,
+          "exact_radius": {
+            "denominator": "1",
+            "numerator": "4"
+          },
+          "k": 1,
+          "matches_order_independent_formula": true,
+          "radius_power": {
+            "denominator": "1",
+            "numerator": "16"
+          }
+        },
+        {
+          "C_2k": {
+            "denominator": "1",
+            "numerator": "288"
+          },
+          "centered_lower_bound": {
+            "denominator": "1",
+            "numerator": "-1"
+          },
+          "complete_sign_denominator": {
+            "denominator": "8",
+            "numerator": "9"
+          },
+          "degree": 4,
+          "exact_radius": {
+            "denominator": "1",
+            "numerator": "4"
+          },
+          "k": 2,
+          "matches_order_independent_formula": true,
+          "radius_power": {
+            "denominator": "1",
+            "numerator": "256"
+          }
+        },
+        {
+          "C_2k": {
+            "denominator": "1",
+            "numerator": "4224"
+          },
+          "centered_lower_bound": {
+            "denominator": "1",
+            "numerator": "-1"
+          },
+          "complete_sign_denominator": {
+            "denominator": "32",
+            "numerator": "33"
+          },
+          "degree": 6,
+          "exact_radius": {
+            "denominator": "1",
+            "numerator": "4"
+          },
+          "k": 3,
+          "matches_order_independent_formula": true,
+          "radius_power": {
+            "denominator": "1",
+            "numerator": "4096"
+          }
+        },
+        {
+          "C_2k": {
+            "denominator": "1",
+            "numerator": "66048"
+          },
+          "centered_lower_bound": {
+            "denominator": "1",
+            "numerator": "-1"
+          },
+          "complete_sign_denominator": {
+            "denominator": "128",
+            "numerator": "129"
+          },
+          "degree": 8,
+          "exact_radius": {
+            "denominator": "1",
+            "numerator": "4"
+          },
+          "k": 4,
+          "matches_order_independent_formula": true,
+          "radius_power": {
+            "denominator": "1",
+            "numerator": "65536"
+          }
+        }
+      ],
+      "one_sided_deficit_moment_formula": "trace((7*I-A_plus)^r)=2*6^r",
+      "one_sided_exact_upper_endpoint": {
+        "denominator": "1",
+        "numerator": "7"
+      },
+      "order_independent_centered_bound": {
+        "denominator": "1",
+        "numerator": "-1"
+      },
+      "positive_matrix_has_negative_centered_bound_at_every_tested_order": true,
+      "positive_pole_width_P": {
+        "denominator": "1",
+        "numerator": "6"
+      },
+      "unit_pole_direction": [
+        {
+          "denominator": "1",
+          "numerator": "1"
+        },
+        {
+          "denominator": "1",
+          "numerator": "0"
+        },
+        {
+          "denominator": "1",
+          "numerator": "0"
+        }
+      ]
+    },
+    "positive_pole_intervals": {
+      "L": {
+        "decimal": [
+          "3.00815479355254814674651670477374968243896196257048729869741731556318992893394100497860492",
+          "3.00815479355254814674651670477374968243896196257048729869741731556318992893615186834558828"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "713360441947539726409576592226289175358755204290217298825577886296677753050289879",
+            -267,
+            269
+          ],
+          "upper": [
+            0,
+            "89170055243442465801197074028286146919844400536277162353197235787084719131351771",
+            -264,
+            266
+          ]
+        }
+      },
+      "ambient_norm_squared": {
+        "decimal": [
+          "3.64296628566516296226214724127576373010836987017413253823759754667048385335530667401368359",
+          "3.64296628566516296226214724127576373010836987017413253823759754667048385335751754159754612"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "431950517491993469845664287666711853795650794153566191189259793347945395091664537",
+            -266,
+            268
+          ],
+          "upper": [
+            0,
+            "215975258745996734922832143833355926897825397076783095594629896673972697545963341",
+            -265,
+            267
+          ]
+        }
+      },
+      "ell": {
+        "decimal": [
+          "1.50407739677627407337325835238687484121948098128524364934870865778159496446697050248930246",
+          "1.50407739677627407337325835238687484121948098128524364934870865778159496446807593417279414"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "713360441947539726409576592226289175358755204290217298825577886296677753050289879",
+            -268,
+            269
+          ],
+          "upper": [
+            0,
+            "89170055243442465801197074028286146919844400536277162353197235787084719131351771",
+            -265,
+            266
+          ]
+        }
+      },
+      "matched_projection_norm_squared": {
+        "decimal": [
+          "3.64296548931442478759890013252250161959250014750117012345905093461623784108674719155629045",
+          "3.64296548931442478759890013252250161959250014750117012345905093461623784108895822781532007"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "863900846135621906376550134405896393009608692986093076433737402925508483728271757",
+            -267,
+            269
+          ],
+          "upper": [
+            0,
+            "863900846135621906376550134405896393009608692986093076433737402925508483728796087",
+            -267,
+            269
+          ]
+        }
+      },
+      "physical_high_angle_inferred": false,
+      "projection_lower_bound": {
+        "decimal": [
+          "3.64296543001643680178282157267067806074857178479635460362621683132202770383731195464790659",
+          "3.6429654300164368017828215726706780607485717847963546036262168313220277038395228264486483"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "107987604009195831686657499907976193019058609613587644115870924443290594209381473",
+            -264,
+            266
+          ],
+          "upper": [
+            0,
+            "863900832073566653493259999263809544152468876908701152926967395546324753675576075",
+            -267,
+            269
+          ]
+        }
+      },
+      "projection_lower_bound_strictly_positive": true,
+      "projection_tail_upper": {
+        "decimal": [
+          "0.000000855648726160479325668605085669359798085377777934611380715348456149517442002389366700316043",
+          "0.000000855648726160479325668605085669359798085377777934611380715348456149518547431964436886110243"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "425533993724040851910441543482084074898374642849706781580773694712595131856282553",
+            -288,
+            268
+          ],
+          "upper": [
+            0,
+            "212766996862020425955220771741042037449187321424853390790386847356297840806048225",
+            -287,
+            267
+          ]
+        }
+      },
+      "selected_coefficients_n_0_1_N": {
+        "0": {
+          "decimal": [
+            "1.90257459319917469011805333363352843163397683050901008781525526394926577795966918883255976",
+            "1.9025745931991746901180533336335284316339768305090100878152552639492657779607746268413702"
+          ],
+          "dyadic": {
+            "lower": [
+              0,
+              "902361444664809039512672097107307941539131495876256074611070406686501754602262765",
+              -268,
+              269
+            ],
+            "upper": [
+              0,
+              "902361444664809039512672097107307941539131495876256074611070406686501754602787057",
+              -268,
+              269
+            ]
+          }
+        },
+        "1": {
+          "decimal": [
+            "0.103115198894034804414744602167914055333054037633795638999383103281871216907450193957125509",
+            "0.103115198894034804414744602167914055333054037633795638999383103281871216908555625377062238"
+          ],
+          "dyadic": {
+            "lower": [
+              0,
+              "48905929982204667223109034937082577712139196598207253446242702523411958164161355",
+              -268,
+              265
+            ],
+            "upper": [
+              0,
+              "391247439857637337784872279496660621697113572785658027569941620187295665317485151",
+              -271,
+              268
+            ]
+          }
+        },
+        "21": {
+          "decimal": [
+            "0.000247187956815198362275534487985210223294003720940501383578973314181984681074857984075418988",
+            "0.000247187956815198362275534487985210223294003720940501383578973314181984682180287565304577007"
+          ],
+          "dyadic": {
+            "lower": [
+              0,
+              "480204354237722759036401980781107072477026547217172489892671792957782684358437205",
+              -280,
+              269
+            ],
+            "upper": [
+              0,
+              "480204354237722759036401980781107072477026547217172489892671792957782686505920865",
+              -280,
+              269
+            ]
+          }
+        }
+      },
+      "sinh_ell_exact": {
+        "denominator": "36",
+        "numerator": "77"
+      },
+      "sinh_half_squared_exact": {
+        "denominator": "72",
+        "numerator": "49"
+      }
+    },
+    "rank_one_neumann_algebra": {
+      "directional_neumann": {
+        "A_minus": [
+          [
+            {
+              "denominator": "8",
+              "numerator": "7"
+            },
+            {
+              "denominator": "8",
+              "numerator": "-1"
+            }
+          ],
+          [
+            {
+              "denominator": "8",
+              "numerator": "-1"
+            },
+            {
+              "denominator": "8",
+              "numerator": "11"
+            }
+          ]
+        ],
+        "A_minus_minus_delta_a_L_I": [
+          [
+            {
+              "denominator": "8",
+              "numerator": "1"
+            },
+            {
+              "denominator": "8",
+              "numerator": "-1"
+            }
+          ],
+          [
+            {
+              "denominator": "8",
+              "numerator": "-1"
+            },
+            {
+              "denominator": "8",
+              "numerator": "5"
+            }
+          ]
+        ],
+        "L": {
+          "denominator": "1",
+          "numerator": "1"
+        },
+        "M": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "2",
+              "numerator": "3"
+            }
+          ]
+        ],
+        "R": [
+          [
+            {
+              "denominator": "2",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "4",
+              "numerator": "1"
+            }
+          ]
+        ],
+        "a": {
+          "denominator": "1",
+          "numerator": "1"
+        },
+        "c": {
+          "denominator": "1",
+          "numerator": "2"
+        },
+        "delta": {
+          "denominator": "4",
+          "numerator": "3"
+        },
+        "directional_load_upper": {
+          "denominator": "256",
+          "numerator": "57"
+        },
+        "directional_moments_p_Rj_p": [
+          {
+            "denominator": "8",
+            "numerator": "1"
+          },
+          {
+            "denominator": "64",
+            "numerator": "3"
+          },
+          {
+            "denominator": "256",
+            "numerator": "5"
+          }
+        ],
+        "finite_geometric_sum": [
+          [
+            {
+              "denominator": "4",
+              "numerator": "7"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "16",
+              "numerator": "21"
+            }
+          ]
+        ],
+        "floor_reserve_principal_minors": [
+          {
+            "denominator": "8",
+            "numerator": "1"
+          },
+          {
+            "denominator": "8",
+            "numerator": "5"
+          },
+          {
+            "denominator": "16",
+            "numerator": "1"
+          }
+        ],
+        "inverse_direct": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "3",
+              "numerator": "2"
+            }
+          ]
+        ],
+        "inverse_from_finite_Neumann_identity": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "3",
+              "numerator": "2"
+            }
+          ]
+        ],
+        "one_minus_delta": {
+          "denominator": "4",
+          "numerator": "1"
+        },
+        "order_s": 3,
+        "p": [
+          {
+            "denominator": "4",
+            "numerator": "1"
+          },
+          {
+            "denominator": "4",
+            "numerator": "1"
+          }
+        ],
+        "powers_R_0_through_s": [
+          [
+            [
+              {
+                "denominator": "1",
+                "numerator": "1"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "1"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "denominator": "2",
+                "numerator": "1"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "4",
+                "numerator": "1"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "denominator": "4",
+                "numerator": "1"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "16",
+                "numerator": "1"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "denominator": "8",
+                "numerator": "1"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "64",
+                "numerator": "1"
+              }
+            ]
+          ]
+        ],
+        "remainder_upper": {
+          "denominator": "32",
+          "numerator": "1"
+        },
+        "rho": {
+          "denominator": "2",
+          "numerator": "1"
+        },
+        "true_rank_one_load": {
+          "denominator": "24",
+          "numerator": "5"
+        },
+        "truncated_directional_sum": {
+          "denominator": "256",
+          "numerator": "49"
+        }
+      },
+      "rank_one_equality_rejection": {
+        "A_minus": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "3"
+            }
+          ]
+        ],
+        "A_minus_determinant": {
+          "denominator": "1",
+          "numerator": "0"
+        },
+        "M": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "3"
+            }
+          ]
+        ],
+        "load_2_p_M_inverse_p": {
+          "denominator": "1",
+          "numerator": "1"
+        },
+        "p": [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        "strict_pass": false
+      },
+      "rank_one_strict_pass": {
+        "A_minus": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "2"
+            }
+          ]
+        ],
+        "A_minus_minus_delta_M": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "1"
+            }
+          ]
+        ],
+        "M": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "4"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "2"
+            }
+          ]
+        ],
+        "delta": {
+          "denominator": "2",
+          "numerator": "1"
+        },
+        "load_2_p_M_inverse_p": {
+          "denominator": "2",
+          "numerator": "1"
+        },
+        "p": [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        "reserve_principal_minors": [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ]
+      }
+    },
+    "schedule": {
+      "N": 21,
+      "N_rule": "ceil(lambda^2)",
+      "arithmetic_indices": {
+        "count": 20,
+        "first": 1,
+        "last": 20
+      },
+      "floor_lambda_squared": 20,
+      "full_matched_breakpoint_determinant_computed": false,
+      "lambda": {
+        "denominator": "2",
+        "numerator": "9"
+      },
+      "prime_endpoint_rule": "all prime powers n<=lambda^2; distinct from the arithmetic index inventory"
+    }
+  },
+  "claim_boundary": {
+    "claim_class": "MATCHED_BREAKPOINT_DIRECTIONAL_MOMENT_AUDIT",
+    "not_proved": [
+      "an O(L) physical spectral-width bound for either matched high multiplier",
+      "the physical source trace inequality at logarithmically growing order",
+      "the strict physical directional reserve for the odd rank-one criterion",
+      "a nonzero normalized physical prolate minor or matched coframe floor",
+      "a positive complete signed floor in either inversion sector",
+      "equation (5.2) of DIRECT_RH_ATTACK.md",
+      "locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ],
+    "proved": [
+      "the sharp strict one-sided moment-order conversion and exact boundary/below-boundary regression models",
+      "the exact positive-pole centered-moment obstruction at every tested order",
+      "the exact odd rank-one criterion and a rational finite Neumann/directional-moment regression",
+      "the exact matched positive-pole Fourier projection formula and outward lower interval",
+      "the exact centered arithmetic-row derivative-jump formula and small nonzero parity confluent determinants",
+      "the parity-projection idempotence countermodel at the finite algebra level"
+    ],
+    "source_admissions": {
+      "absolute_prime_values_substituted_for_signed_sum": false,
+      "api_key_read": false,
+      "binary64_parameters_used": false,
+      "cached_physical_matrix_read": false,
+      "cached_prolate_eigenvectors_read": false,
+      "cached_weil_matrix_read": false,
+      "determinant_limit_claimed": false,
+      "environment_secret_read": false,
+      "equation_5_2_claimed": false,
+      "finite_breakpoint_fixture_promoted_to_matched_coframe": false,
+      "finite_fourier_residue_declared_inversion_parity": false,
+      "global_weil_positivity_assumed": false,
+      "inversion_reflection_dropped": false,
+      "lambda_squared_mixed_with_lambda": false,
+      "moment_conversion_promoted_to_physical_source_estimate": false,
+      "nonpositive_floor_reported_as_pass": false,
+      "odd_negative_pole_omitted": false,
+      "physical_coframe_claimed": false,
+      "positive_pole_centered_obstruction_ignored": false,
+      "prime_block_sign_changed": false,
+      "prime_power_endpoint_omitted": false,
+      "real_axis_eigenvalue_agreement_substituted_for_determinant_convergence": false,
+      "rh_proved": false,
+      "secret_serialized": false,
+      "signed_sector_floor_claimed": false,
+      "source_gram_replaced_by_identity": false,
+      "unit_source_normalization_substituted": false,
+      "zeros_assumed_real": false,
+      "zeta_zero_table_read": false
+    }
+  },
+  "inputs": {
+    "dps": 80,
+    "lambda_denominator": 2,
+    "lambda_numerator": 9
+  },
+  "schema": "xi-prolate-matched-breakpoint-directional-moment-v1",
+  "source_conventions": {
+    "locked_conventions": {
+      "arithmetic": "finite fixtures use exact reduced rationals; logarithms, pi, square roots, pole projections, and breakpoint determinants use outward mpmath.iv intervals; binary64 JSON numbers are forbidden",
+      "artifact_scope": "exact finite-dimensional regressions and outward source-formula intervals, not a physical prolate-Weil matrix, matched coframe, or asymptotic theorem",
+      "centered_modes": "phi_n(x)=(-1)^n*L^(-1/2)*exp(i*omega_n*x), omega_n=2*pi*n/L, L=2*log(lambda)",
+      "fourier_sign": "fhat(t)=integral f(x)*exp(-i*t*x)dx with Plancherel measure dt/(2*pi)",
+      "inversion": "J is reflection in logarithmic coordinates; Fourier residue classes are not substituted for inversion parity",
+      "matched_schedule": "lambda=p/2 for odd p>=5 and N=ceil(lambda^2)=(p^2+3)/4; floor(lambda^2)=N-1",
+      "physical_interval": "I_lambda=[-log(lambda),log(lambda)] with Lebesgue measure in logarithmic coordinates, equivalently du/u on [lambda^(-1),lambda]",
+      "pole_signs": "p_plus(x)=cosh(x/2) is positive rank one and p_minus(x)=sinh(x/2) is negative rank one in the complete signed high operator",
+      "prime_endpoint": "every prime power n<=lambda^2 is retained; this cutoff is distinct from the arithmetic index a<=floor(lambda^2)",
+      "prime_sign": "m_lambda=2*theta_prime-2*sum_(n<=lambda^2) Lambda(n)/sqrt(n)*cos(t*log(n))",
+      "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension; every prolate source retains its zero-Lebesgue-integral source normalization and full source Gram",
+      "strictness": "equality at a target floor, rank-one load one, zero determinant, or nonpositive reserve is rejected"
+    },
+    "locked_formulas": {
+      "arithmetic_row": "K_n(y)=(-1)^n*L^(-1/2)*y^(-1/2-i*omega_n)*sum_(a<=lambda*y)a^(-1/2+i*omega_n)",
+      "breakpoint_jump": "[K_n^(r)]_(m/lambda)=sqrt(lambda/L)*(-lambda)^r*m^(-r-1)*(1/2+i*omega_n)_r",
+      "directional_bound": "2*<p,M^(-1)*p><=(2/(c*L))*sum_(j=0)^(s-1)<p,R^j*p>+(2*norm(p)^2/(a*L))*(1-a/c)^s",
+      "moment_floor": "if A<=M*I and trace((M*I-A)^r)<=d*(M-nu*L)^r then lambda_min(A)>=M-d^(1/r)*(M-nu*L)",
+      "moment_threshold": "a strict floor mu*L requires r>log(d)/log((M-mu*L)/(M-nu*L)); equality is rejected",
+      "neumann_identity": "for R=I-M/(c*L), M^(-1)=(c*L)^(-1)*sum_(j=0)^(s-1)R^j+R^s*M^(-1)",
+      "odd_rank_one": "M-2*|p><p|>0 iff 2*<p,M^(-1)*p><1; load<=1-delta implies M-2*|p><p|>=delta*M",
+      "parity_projection": "h_j=(I-P_(N,s))*q_j retains every interior jump of q_j and obeys P_(N,s)*h_j=0 by idempotence",
+      "positive_pole_centered": "for A_plus=alpha*L*I+P*|u><u| the sharp centered-moment bound equals alpha*L-P*(d-2)/d at every order",
+      "positive_pole_coefficient": "<phi_n,p_plus>=sinh(ell/2)/(sqrt(L)*(omega_n^2+1/4))",
+      "positive_pole_lower": "norm(P_N*p_plus)^2>=sinh(ell)+ell-L^3*sinh(ell/2)^2/(24*pi^4*N^3)",
+      "positive_pole_projection": "norm(P_N*p_plus)^2=sinh(ell/2)^2/L*(16+2*sum_(n=1)^N(omega_n^2+1/4)^(-2))"
+    }
+  },
+  "source_lock": {
+    "dependency_hashes": {
+      "DIRECT_RH_ATTACK.md": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "FULL_SOURCE_COFRAME_RANK_SOURCE_LOCK.json": "155f1c0205788d689b8e819fc10e9313c2e947c7f851a5ee2f0b25bf3f091e5b",
+      "MATCHED_HIGH_MOMENT_COFRAME_SOURCE_LOCK.json": "83b5ad8e7a45bbe7f4d01ba27b1ec3aae2d3846917c4942b101cd1027e66aa1d",
+      "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "PHYSICAL_SOFT_SHORT_SIGNED_SCHUR_SOURCE_LOCK.json": "394674ae851c1973d6bcfa1f3d3104b5c85a6c572a2abb846cec53852b73cbd2",
+      "notes/FULL_SOURCE_COFRAME_RANK_THEOREM.md": "3f8b381d9e51e0fa0cf89928851e89dd163ec9982249af8050a90520c0389f81",
+      "notes/GROWING_WINDOW_THEOREM.md": "dad6b0a878b7eba21cbc7aa8049cf3bf89a38df766cc157a87c416e79a721ac7",
+      "notes/MATCHED_BREAKPOINT_DIRECTIONAL_MOMENT_AUDIT.md": "b3b90baffde24e6ee81303c6f0d07095a5499d38b956ae58b3309e01d8ee0858",
+      "notes/MATCHED_HIGH_MOMENT_COFRAME_REDUCTION.md": "b946c4cb13c17eee30dd2747863028d4264ba9f6dbc210662d0b68fecdec5ca2",
+      "notes/PHYSICAL_SOFT_SHORT_SIGNED_SCHUR.md": "cf847b2f73d18244158ee0238714f677c74358068a658c637a40477b3e0a38ca",
+      "requirements.txt": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa"
+    },
+    "path": "MATCHED_BREAKPOINT_DIRECTIONAL_MOMENT_SOURCE_LOCK.json",
+    "schema": "xi-prolate-matched-breakpoint-directional-moment-source-lock-v1",
+    "sha256": "f60bf05e24d4503218ed34c05c5aa0236c1d331c472e068a2788882e2cafa750"
+  },
+  "terminal_state": "P0_INVALIDATED"
+}

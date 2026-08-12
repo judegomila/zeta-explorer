@@ -30,8 +30,8 @@ LOCK = "LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR_SOURCE_LOCK.json"
 LOCK_SCHEMA = "xi-prolate-leverage-trimmed-mean-feature-schur-source-lock-v1"
 
 PINNED_HASHES = {
-    NOTE: "54ab7936df2eda0c29934ced1b33c56912f29bb6fac428d799bf9d2a1c9c2a47",
-    LOCK: "1d6d2121eaee1c540e904501ee87fe072e0ebcd65dc5b72f4cd1122be46fc632",
+    NOTE: "c9f10ffb6b6ceeafe8ea63566d10c3af7eb6265c509c8d63e259bc407cc7f79a",
+    LOCK: "e387fc1c539283dead8110eeac6d5c6798839a8bcfc0a17c65af87587cd3458c",
 }
 _SHA256 = re.compile(r"^[0-9a-f]{64}$")
 _INTEGER_TEXT = re.compile(r"^(?:0|-[1-9][0-9]*|[1-9][0-9]*)$")

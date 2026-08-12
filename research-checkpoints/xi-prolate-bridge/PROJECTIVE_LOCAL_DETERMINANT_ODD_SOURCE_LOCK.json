@@ -1,0 +1,210 @@
+{
+  "schema": "xi-prolate-projective-local-determinant-odd-source-lock-v1",
+  "claim_class": "PROJECTIVE_LOCAL_RESOLVENT_DETERMINANT_ODD_REDUCTION",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-08",
+  "checkpoint_version": "0.44.0-projective-low-resolvent-determinant-odd",
+  "external_sources": [
+    {
+      "id": "CCM-ZST-v1",
+      "version": "arXiv:2511.22755v1",
+      "vendored_path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "use": "finite source Cauchy matrix, inversion, commutator, simple-even determinant theorem, Fourier-Mellin convention, and exact pole/archimedean/minus-prime form"
+    },
+    {
+      "id": "SLEPIAN-PSWF-IV-1964",
+      "version": "Bell System Technical Journal 43 (1964), 3009--3057",
+      "vendored_path": "vendor/SLEPIAN-PSWF-IV-1964.pdf",
+      "sha256": "86efb6b69f405a046914f19c07161329b3f455a93a58467cc8107cfa4a135351",
+      "use": "qualitative fixed-index prolate approximation entering the already-locked projection rate"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "EXPLICIT_MIXED_COST_QUOTIENT_ODD_SOURCE_LOCK.json",
+      "sha256": "ce0fc75ce3a9ce982a1be9fc534a51fd3cd112ff5fafba67ad520d43e4b799a3",
+      "role": "preceding checkpoint source lock and claim boundary"
+    },
+    {
+      "path": "DIRECT_RH_ATTACK.md",
+      "sha256": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "role": "finite residual-Ritz theorem, equation (5.2), and locally uniform limit target"
+    },
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "primary finite source formulas and mandatory conventions"
+    },
+    {
+      "path": "P0_NORMALIZATION_AUDIT.md",
+      "sha256": "37d139735c2f760b928845f1815ba3050f8cc8447eaf535de02eef77b46862df",
+      "role": "source-normalized prolate state and factor-four limit correction"
+    },
+    {
+      "path": "notes/DETERMINANT_LIMIT_AUDIT.md",
+      "sha256": "1a77a7b6e7b9573c0f9f6656481af24962280959d867177fa232e8f2cfa006b0",
+      "role": "finite all-real-zero determinant factorization and scale-free normalization"
+    },
+    {
+      "path": "notes/SOURCE_BOUNDARY_COMMUTATOR_PROOF.md",
+      "sha256": "d72a5e1e11e096abc25319c1bf2c2af474d11cd766b25cf83f0b6cd00d3956f0",
+      "role": "exact Cauchy commutator and boundary nonvanishing, including the exceptional central-mode branch"
+    },
+    {
+      "path": "notes/PROJECTED_STATE_NORM_LOWER_BOUND.md",
+      "sha256": "3847cbcb6e5bfc458af7bf957ff67afb0b943155d62f4239129b40332d270fbf",
+      "role": "nonzero projected-state limiting norm and Fourier tail"
+    },
+    {
+      "path": "notes/PROJECTION_RATE_THEOREM.md",
+      "sha256": "28f10f5c51001d6eeb33af2f071e876b572aca2c713db37f3e1b924d836ef2aa",
+      "role": "all-cutoff projection inequality and qualitative prolate transfer rate"
+    },
+    {
+      "path": "notes/HIGH_FOURIER_COERCIVITY.md",
+      "sha256": "5d928d68bd317d637a3631c91c1da4d2043c79986e3c5767b886b354b525a821",
+      "role": "source-triangle high-Fourier lower bound and its explicit constants"
+    },
+    {
+      "path": "notes/EXACT_RADICAL_LEAKAGE_IDENTITY.md",
+      "sha256": "76dd6586357a2448ef689380a106eea5e9aedb95f68e731f10f1d6626040fddc",
+      "role": "global radical remainder and signed spectral-tail pairing"
+    },
+    {
+      "path": "notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md",
+      "sha256": "b0254889d35ae41a92ee926dd116b473ee427e2762f8853903f4e80e307860ed",
+      "role": "exact weak residual identity used by the quotient graph reconstruction"
+    },
+    {
+      "path": "notes/ODD_KRYLOV_TRANSVERSE_CRITICAL_LOAD.md",
+      "sha256": "c5134b4fb80bf2fcb654a1b31a7422aa089973a664cda90707d30ce7e469ddcc",
+      "role": "odd pole axis, transverse residual, third-moment gate, and inverse load"
+    },
+    {
+      "path": "notes/ODD_JUMP_FINITE_KRYLOV_ATTACK.md",
+      "sha256": "383ae4291cf5168f389c81d8f9a0fd6386c8adb952cdaa2368cf7e24f8283aa7",
+      "role": "prime-power jump nonvanishing and fixed-parameter graph transfer"
+    },
+    {
+      "path": "notes/ODD_NU_TRANSVERSE_SIGN_ATTACK.md",
+      "sha256": "828a53666436f8e6f7a71310cceacee2f79d6faf6803615b205459cb03e574fc",
+      "role": "unprojected odd third-moment and conditional transverse-load transfer"
+    },
+    {
+      "path": "notes/PROJECTIVE_LOW_MODE_DETERMINANT_BRIDGE.md",
+      "sha256": "8ad5b2695ebea66f94c1dc58c7eb08a1d0c06d30f73c5536915be566f9e2b949",
+      "role": "compact Fourier split, projective determinant bridge, and localized forced-resolvent criterion"
+    },
+    {
+      "path": "notes/VECTOR_SPECIFIC_EQUATION_52_ATTACK.md",
+      "sha256": "79b9af2baddd0b2ae794e77bccf749c6fa0458afbf4637ca8b84931d8206788f",
+      "role": "Feshbach correction, low leverage, Mellin graph, quotient inverse, and lambda-scale coercivity audit"
+    },
+    {
+      "path": "notes/LOCALLY_UNIFORM_DETERMINANT_ATTACK.md",
+      "sha256": "025c1b49003f5d080c51c3378735fa2eab8530b7318b865855656179ddc87c8d",
+      "role": "paired Fredholm determinant, trace-moment equivalence, explicit tail, and finite-structure countermodel"
+    },
+    {
+      "path": "notes/UNPROJECTED_ODD_NU_SIGN_ATTACK.md",
+      "sha256": "1e33d2fc1943dfa5367eb789b432cdd93f6897062e001104bc6832a62b441ef1",
+      "role": "Paley-Wiener residual projection and exact two-sided odd sign regions"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "role": "pinned arbitrary-precision runtime for the existing independently replayed finite diagnostics"
+    },
+    {
+      "path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "role": "vendored primary finite-Weil source"
+    },
+    {
+      "path": "vendor/SLEPIAN-PSWF-IV-1964.pdf",
+      "sha256": "86efb6b69f405a046914f19c07161329b3f455a93a58467cc8107cfa4a135351",
+      "role": "vendored primary qualitative fixed-index prolate source"
+    }
+  ],
+  "locked_conventions": {
+    "physical_interval": "[-log(lambda),log(lambda)] with L=2*log(lambda), Lebesgue measure, and zero extension",
+    "source_interval": "[-lambda,lambda] with Lebesgue measure, zero extension, and the source-limit normalization",
+    "fourier_transform": "hat(f)(z)=integral f(x)*exp(-i*z*x) dx",
+    "frequency_measure": "dt/(2*pi)",
+    "centered_modes": "phi_n(x)=(-1)^n*L^(-1/2)*exp(2*pi*i*n*x/L)",
+    "inversion": "Jf(x)=f(-x)",
+    "prime_power_endpoint": "inclusive n<=lambda^2",
+    "prime_block_sign": "minus, retained inside m_lambda before positive and negative parts are formed",
+    "complete_nonpole_multiplier": "m_lambda(t)=Re(digamma(1/4+i*t/2))-log(pi)-2*sum_(1<n<=lambda^2)Lambda(n)/sqrt(n)*cos(t*log(n))",
+    "odd_pole": "Q_odd=A_lambda-2*|p><p| with p(x)=sinh(x/2)",
+    "determinant_normalization": "nonzero scalar rescaling is allowed only when carried explicitly; it preserves the finite zero set but not an uncontrolled limiting amplitude",
+    "source_normalization": "4*hat(k_lambda^+) tends to Xi; unit-normalizing h_lambda is rejected"
+  },
+  "locked_formulas": {
+    "centered_mode_transform": "hat(phi_n)(z)=2*sin(z*L/2)/(sqrt(L)*(z-2*pi*n/L)), with removable values by continuity",
+    "compact_low_high_bound": "sup_K |hat(f)|<=sqrt(L)*lambda^eta*||P_M f||+(2*sqrt(2)/pi)*lambda^eta*sqrt(L/M)*||(I-P_M)f|| when 2*pi*(M+1)/L>=2*sqrt(B^2+eta^2)",
+    "projective_bridge": "for d=s*xi-kappa, weighted projection error plus a*sqrt(L)*lambda^eta*||P_M d|| and a*lambda^eta*sqrt(L/M)*||(I-P_M)d|| tending to zero imply locally uniform convergence of 4*a*s*hat(xi) to Xi",
+    "lambda_scale_projective_target": "M=ceil(lambda), inf_s ||P_M(s*xi-kappa)||=O(lambda^(-1/2)), and ||P_M xi||>=c0 are sufficient together with the proved projection rate",
+    "feshbach_ground_line": "xi/<kappa,xi>=kappa-(A-mu*I)^(-1)b and q-mu=<b,(A-mu*I)^(-1)b>",
+    "localized_resolvent_target": "Lambda_M(U)=sup_(s<=U)||P_M(A-s*I)^(-1)b||; Lambda_M(U)=O(lambda^(-1/2)) and ||(A-U*I)^(-1)b||=lambda^o(1) suffice at M=ceil(lambda)",
+    "low_leverage_bound": "Lambda_M(U)^2<=Theta_M(U)*E_U, E_U=<b,(A-U*I)^(-1)b>, Theta_M(U)=||(P_M|K)*(A-U*I)^(-1)*(P_M|K)^*||",
+    "mellin_graph_bound": "sup_K |a*hat(z_mu)|<=sqrt(a^2*E_U*L_K(U)), L_K(U)=sup_(z in K)<g_z,(A-U*I)^(-1)g_z>",
+    "quotient_inverse": "for onto W:X->K and B=A-U*I>0, W*(W^*B*W)^dagger*W^*=B^(-1)",
+    "lambda_scale_coercivity_obstruction": "the existing source-triangle bound satisfies g_(lambda,ceil(lambda))<0 and its nonnegative-floor cutoff is at least ceil(2*exp(1/(2*pi))*lambda^(16*(lambda-1)))-1",
+    "paired_fredholm_determinant": "f(z)/f(i*sigma)=det(I-(z^2+sigma^2)*K), K=diag_(rho>=0)(rho^2+sigma^2)^(-1)",
+    "trace_moment_equivalence": "local uniform convergence of Xi(i*sigma)*f_j/f_j(i*sigma) to Xi is equivalent to tr(K_j^m)->tau_m(sigma) for every m>=1, where tau_m=-(m-1)!^(-1)*d^m/dt^m log(Psi_sigma)(0)",
+    "fourier_lattice_tail": "T_m(L,N)<=((L/(2*pi))^(2*m))*N^(1-2*m)/(2*m-1), so N/L^2->infinity kills every tail moment",
+    "normal_family_countermodel": "for the diagonal Cauchy matrix with simple kernel V_0, tr(K)=L*coth(sigma*L/2)/(4*sigma)-1/(2*sigma^2), which diverges like L/(4*sigma)",
+    "odd_residual_projection": "hat(R)=Pi_lambda((m_lambda-tau)*hat(p)), with Pi_lambda the sinc Paley-Wiener projection",
+    "odd_nu_decomposition": "mu*nu_(lambda,beta)=P_(lambda,beta)-N_(lambda,beta), and both P and N are strictly positive for locked lambda>=5/2 and beta>=0",
+    "odd_sign_regions": "m_lambda(t)-beta<=-(delta_Gamma+Sigma_lambda+beta) on |t|<=min(1/4,pi/(3*L)), while m_lambda(t)-beta>=1 beyond the displayed finite threshold T_(lambda,beta)"
+  },
+  "claim_boundary": {
+    "checkpoint_version": "0.44.0-projective-low-resolvent-determinant-odd",
+    "formal_status": "P0_INVALIDATED",
+    "proved": [
+      "outer-cutoff-uniform compact Fourier split and projective low-mode determinant criterion",
+      "exact coefficient-normalized ground-line correction and vector-specific low leverage and Mellin graph reductions",
+      "off-axis paired Fredholm determinant and all-trace-moment equivalence",
+      "explicit Fourier-lattice trace tail and diagonal finite-structure non-normality countermodel",
+      "exact Paley-Wiener odd residual formula and strictly nonzero positive and negative source energies"
+    ],
+    "not_proved": [
+      "simple-even global finite Weil ground state on one unbounded schedule",
+      "strict shifted even and odd sector signs at the lambda-scale projective cutoff",
+      "lambda-scale low-resolvent, low-leverage, or compact Mellin graph decay",
+      "subpolynomial complete cyclic forced solve",
+      "uniform first paired-resolvent trace or any finite quotient trace-moment limit",
+      "positive unprojected odd third moment, transverse floor, or reciprocal-load margin",
+      "equation (5.2), locally uniform determinant convergence, or an RH conclusion"
+    ]
+  },
+  "source_admissions": {
+    "api_key_read": false,
+    "binary64_parameters_used": false,
+    "cached_matrix_or_eigenvector_read": false,
+    "decimal_zero_list_read": false,
+    "determinant_limit_claimed": false,
+    "environment_secret_read": false,
+    "equation_5_2_claimed": false,
+    "finite_real_zero_family_promoted_to_normal_family": false,
+    "fourier_sign_changed": false,
+    "global_weil_positivity_assumed": false,
+    "high_fourier_bound_promoted_to_lambda_scale_sign": false,
+    "inversion_reflection_dropped": false,
+    "lambda_squared_mixed_with_lambda": false,
+    "locally_uniform_characteristic_convergence_proved": false,
+    "nonpositive_gap_or_schur_margin_reported_as_pass": false,
+    "odd_positive_tail_promoted_to_nu_sign": false,
+    "prime_block_sign_changed": false,
+    "prime_jump_promoted_to_odd_floor": false,
+    "prime_power_endpoint_omitted": false,
+    "projective_low_mode_target_proved_for_actual_weil_ground_line": false,
+    "real_axis_eigenvalue_agreement_substituted_for_determinant_convergence": false,
+    "riemann_hypothesis_assumed_or_claimed": false,
+    "secret_serialized": false,
+    "source_normalization_changed": false,
+    "unit_source_normalization_substituted": false
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "arithmetic_libraries": {
+    "independence_limitation": "producer and verifier share Python integer/Fraction arithmetic and the pinned mpmath.iv transcendental runtime",
+    "independent_formula_trees_required": true,
+    "libraries": [
+      "Python fractions.Fraction",
+      "mpmath.iv 1.4.1"
+    ],
+    "precision_mode": "exact reduced rationals plus outward arbitrary-precision intervals",
+    "raw_interval_or_ball_output_applicable": true,
+    "serialization_guard": "every nondegenerate interval is enlarged to a precision-scaled dyadic enclosure",
+    "shared_library_with_verifier": true
+  },
+  "checks": {
+    "all_exact_rational_models_reconstructed": true,
+    "all_interval_probes_independently_enclosed": true,
+    "api_key_or_environment_secret_read": false,
+    "binary64_parameters_used": false,
+    "determinant_limit_claimed": false,
+    "digamma_special_value_rebuilt_without_digamma_call": true,
+    "equation_5_2_claimed": false,
+    "formula_tree_independent": true,
+    "physical_exterior_defect_claimed": false,
+    "physical_feature_angle_claimed": false,
+    "physical_odd_reserve_claimed": false,
+    "prime_powers_independently_detected": true,
+    "producer_booleans_trusted": false,
+    "producer_bytes_bound": true,
+    "producer_module_imported": false,
+    "rh_proved": false,
+    "signed_sector_floor_claimed": false,
+    "source_lock_and_dependencies_rehashed": true
+  },
+  "inputs": {
+    "dps_text": "80",
+    "lambda_denominator_text": "2",
+    "lambda_numerator_text": "9",
+    "r_exact_integer": 12,
+    "r_rule": "3*bit_length(lambda_numerator)"
+  },
+  "producer_binding": {
+    "byte_length": 73812,
+    "sha256": "bff4640efb303dd54d5b2d3e6c216e5b3633fe235ff720d8eb281f4b5d76c38a"
+  },
+  "reconstructed": {
+    "dyadic_layer_count": 5,
+    "exact_fixture_groups": 6,
+    "optimal_remainder_orders": [
+      1,
+      2,
+      4
+    ],
+    "prime_power_count": 12,
+    "source_dependency_count": 10,
+    "transcendental_interval_count": 14
+  },
+  "schema": "xi-prolate-intrinsic-feature-dyadic-defect-replay-v1",
+  "source_lock": {
+    "dependency_hashes": {
+      "DIRECT_RH_ATTACK.md": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "FULL_SOURCE_COFRAME_RANK_SOURCE_LOCK.json": "155f1c0205788d689b8e819fc10e9313c2e947c7f851a5ee2f0b25bf3f091e5b",
+      "LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR_SOURCE_LOCK.json": "e387fc1c539283dead8110eeac6d5c6798839a8bcfc0a17c65af87587cd3458c",
+      "LOG_FEATURE_CAPTURE_ALIGNMENT_SOURCE_LOCK.json": "4800fc596cad791ddec7af4251604dbfe4f45b911708f48f08fc5fa658e2d40f",
+      "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "PHYSICAL_DEFECT_ADJOINT_TAIL_SOURCE_LOCK.json": "dd98654cae596acb1da19079c0cb50a37126ee90f5b79b4371c32dfc928d5377",
+      "notes/INTRINSIC_FEATURE_DYADIC_DEFECT_REDUCTION.md": "cb18d87cc2e63e938a011c5dab2db04d24b6cb7ca682d9615480dc5d91500b2b",
+      "notes/LOG_FEATURE_CAPTURE_ALIGNMENT_REDUCTION.md": "23bc09a92376b57177053a09358419a628e17c56d4d6e08896c836fed876ad40",
+      "notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md": "c6e4a757604bfc9c1299a272054f1174970781e6cd0a92ed0dfb196f9804fa81",
+      "requirements.txt": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa"
+    },
+    "path": "INTRINSIC_FEATURE_DYADIC_DEFECT_SOURCE_LOCK.json",
+    "schema": "xi-prolate-intrinsic-feature-dyadic-defect-source-lock-v1",
+    "sha256": "6c9c8e43093d3156f11a42b11a967d7deaebc707e0868716748e54014048038a"
+  },
+  "terminal_state": "P0_INVALIDATED"
+}

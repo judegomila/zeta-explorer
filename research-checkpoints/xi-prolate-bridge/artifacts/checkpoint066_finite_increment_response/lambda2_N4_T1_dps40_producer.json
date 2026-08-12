@@ -1,0 +1,431 @@
+{
+  "analytic_uniform_claim": false,
+  "checkpoint_version": "0.66.0-finite-increment-response-point",
+  "claim_class": "FINITE_POINT_DIAGNOSTIC",
+  "dependency_sha256": {
+    "DIRECT_RH_ATTACK.md": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+    "P0_NORMALIZATION_AUDIT.md": "37d139735c2f760b928845f1815ba3050f8cc8447eaf535de02eef77b46862df",
+    "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+    "notes/ANCHOR_COMPLEMENT_PARITY_PULLBACK_REDUCTION.md": "c517c727879384185de93995ba7b07229783f0aca9fdea696f571868818f8718",
+    "notes/COMPACT_ABSOLUTE_SAMPLING_THEOREM.md": "2feb3d62a71e435706c4b330d13bcb096015e52204af6ec9bd2828308d44383d",
+    "notes/DIRECT_SOFT_TRACE_RECIPROCAL_RESERVE.md": "99e3fd5f04e8cdd144bb006da819f4cea53d2d5db7aa6ee46c0e8eb81ebd18a4",
+    "notes/PROLATE_COMPLETE_LEAKAGE_HIGHER_RITZ_NO_GO.md": "492fa18ddf78f5a0abc54274b45795ecb791290632e747b7c822802f9e0aa598",
+    "notes/PROLATE_ENDPOINT_SCHUR_SINGULAR_ASYMPTOTICS.md": "b6328de0744d867416ffa510be3bfa7cd5028c4e489f20a55639238f98bbd221",
+    "notes/PROLATE_SECANT_RADICAL_BLOCK_REDUCTION.md": "419bc795572c1fa72b89d246dc2ae8cb036b8a700b8437bea5de723dd3d28ffe",
+    "notes/Q_SHIFT_SECTOR_WEIL_CORE_GATE.md": "78e0b9a7c3512bcd2b5fe34d48594734b6323fc57ca55db5e4090d6d6a277fb3",
+    "notes/RAYLEIGH_SELF_REGULARIZED_OBSERVABLE.md": "96cb3e7302c95ed5357cff66a2c3df261b326e3e489700b1191c56fa3b6e14f3",
+    "notes/RELATIVE_ODD_GAP_ENDPOINT_SCHUR_GATE.md": "81bc4055b644a409c10d9d06f145040e822452dc5fc9a0fc4888c63fb535f3ab",
+    "notes/RITZ_MOMENT_SELF_REGULARIZED_TRANSFER.md": "3efbbf5cd0888d2a645b11c73b625007bf38bf010881d5e0c9d8ecbc964fb1a6",
+    "notes/SECANT_BULK_POSITIVE_DETERMINANT_RESPONSE.md": "dfc9ab77d4e8308784aa83af5a474a2ae22b6760d84b43035b0c20e72e8ec5ea",
+    "notes/SECANT_GRAPH_SIGNED_LEAKAGE_GATE.md": "a2210c74b2911c6646972a4c9f47d679665264ed0781475d3bcd6745686efa16",
+    "notes/SECANT_SHORTED_RECIPROCAL_FESHBACH.md": "40060cf7c6c46ed7a36e6febcb6edc2c9a58f296bd8ec324755553920b8dd03e",
+    "notes/TIME_BAND_CAUCHY_DETERMINANT_RESPONSE.md": "622f918c3488a00a4b1a65e71262d4b10d1537fcac8f2b65cdc2c62d2b49854a",
+    "notes/TRANSVERSE_XI_RADICAL_MOMENT_ANGLE_OBSTRUCTION.md": "e5a0888f54ae4ae97d00462b7cfd00cbc9d98638ff9d36aea0fdb7a1c861e77f",
+    "src/checkpoint064_reciprocal_secant.py": "2b4f495fbc4e32d67fbdcc699d3bcdae32ad5871f228f00f8c48f5875eece814",
+    "src/checkpoint066_finite_increment_response.py": "cff567c918171aeefb653d12e84d04087f30c227effad5130d1add773786f5cc",
+    "src/prolate_state.py": "06a1c34853d7ade7888599c8bde8e2cd20c088c7a3b61d4548b7fe9c7d11c6eb",
+    "src/weil_matrix.py": "9a6f7b4d8ef7a7f5d12445f61cce2cb23ec44625f63981e829d7286c4e856902",
+    "vendor/CCM-PROLATE-2310.18423v2.pdf": "8bc197642ee9ca4f2393b6cbfd3db292be6a315ce76ad61bfb845d9fedb47f2e",
+    "vendor/CCM-ZST-2511.22755v1.pdf": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+    "verifier/checkpoint064_reciprocal_secant_replay.py": "46d2da9f8f846dfa6df8d0b43033c3c85a2f9e850aa6b0a7436a741e2ceaad2a",
+    "verifier/checkpoint066_finite_increment_response_replay.py": "a506a15cf509321cfe5a567b9b0eff5c0035bdbae1982de2d6087dfeb19e274c",
+    "verifier/independent_replay.py": "c2e538757f94ecd5be3e6d94d355d6acc6beeb587c44efc04257b3b4b96aaeed",
+    "verifier/residual_ridged_fixed_window_replay.py": "fb2a377d010d133d5ce4fa041c0cc869cd42420a10b075470d52745a9e0842cd"
+  },
+  "finite_increment_response": {
+    "homotopy_increment_s_equals_theta_r": "0.00005290227133180689272132321872731416045517",
+    "raw_q": {
+      "A_eigenvalues": [
+        "0.00007905018909004526319395982460324245957014",
+        "0.04434128570384337711272165660307749906608",
+        "0.6666438054659648376054367616481861842296",
+        "1.810988695812726049510526550509566488867"
+      ],
+      "B_U_eigenvalues": [
+        "0.00002614791775823837047263660587592829908734",
+        "0.04428838343251157022000033338435018490566",
+        "0.6665909031946330307127154384294588700692",
+        "1.810935793541394242617805227290839174707"
+      ],
+      "F_over_log1p_theta_upper_bound": "0.1094209031903143245514797078334516746986",
+      "F_over_theta_lower_bound": "0.07584479054068909887007648015005013558243",
+      "U": "0.00000007993566123634199414616071069925773593585",
+      "X_eigenvalues": [
+        "1.601692647863645267875872435614346578144e-21",
+        "8.239922309339710785734658064845380692227e-15",
+        "0.00000005926089522329617297880686915452479000105",
+        "0.07879505802458150075678204459442702571032"
+      ],
+      "X_maximum_eigenvalue": "0.07879505802458150075678204459442702571032",
+      "X_trace": "0.07879511728548496397686605575994556016105",
+      "determinant_ratio": "1.078795121954951290950942166822766552123",
+      "label": "raw_q",
+      "log_increment_F": "0.07584479054068909887007648015005013558243",
+      "logdet_A": "-12.37289314459101933813962231679780174413",
+      "logdet_A_plus_rK": "-12.29704835405033023926954583664775160855",
+      "nested_secant": {
+        "C": [
+          [
+            "0.4164805542259033693054154475426506998647",
+            "0.5045459404389864030821032170695566912396",
+            "0.3610195304407039580998627713186392151319"
+          ],
+          [
+            "0.5045459404389864030821032170695566912396",
+            "1.565891841634486213335349381233729569487",
+            "0.140778610438807074812264700220193196472"
+          ],
+          [
+            "0.3610195304407039580998627713186392151319",
+            "0.140778610438807074812264700220193196472",
+            "0.5392629587776740148646062699161349803678"
+          ]
+        ],
+        "C_plus": [
+          [
+            "0.416484504085604764067905515604995076563",
+            "0.504545704862484445285038731691949350901",
+            "0.3610193394478238016873696032304535933567"
+          ],
+          [
+            "0.504545704862484445285038731691949350901",
+            "1.565891855852592850190786246214526126031",
+            "0.1407786219329431647659971072401676467851"
+          ],
+          [
+            "0.3610193394478238016873696032304535933567",
+            "0.1407786219329431647659971072401676467851",
+            "0.5392629680761766802675067888802635029528"
+          ]
+        ],
+        "D": "0.0004174825335607119865078298929181649032258",
+        "D_plus": "0.0004242939584342106675317547494280653910187",
+        "F_minus_G_plus_J": "-5.142787784847507847363222350347324840457e-39",
+        "G_bulk_increment": "0.00006668932151110841025155854070062087419738",
+        "G_over_log1p_theta_upper_bound": "0.00009621235342432577485724511243312138540359",
+        "G_over_theta_lower_bound": "0.00006668932151110841025155854070062087419738",
+        "G_plus_J": "0.07584479054068909887007648015005013558758",
+        "H_bulk": "0.0000666915452814480668603573669131245847055",
+        "H_bulk_minus_lower_bound": "0.000000002223770339656608798826212503710508129516",
+        "H_graph": "0.07872842574020351591000569839303243556859",
+        "H_graph_minus_lower_bound": "0.000005245501086122267008826653866505009413916",
+        "H_graph_plus_H_bulk": "0.07879511728548496397686605575994556015329",
+        "J_graph_increment": "0.07577810121917799045982492160934951471338",
+        "K_F": [
+          [
+            "0.07466332922873869098079224707991541237537",
+            "-0.004453050805328264898858879828460233558529",
+            "-0.003610296407851588455926544199332040705459"
+          ],
+          [
+            "-0.004453050805328264898858879828460233558529",
+            "0.0002687617427175940732579928007886898031649",
+            "0.0002172711265620652660525621872074415903294"
+          ],
+          [
+            "-0.003610296407851588455926544199332040705459",
+            "0.0002172711265620652660525621872074415903294",
+            "0.0001757675508312680118478062610756023705172"
+          ]
+        ],
+        "bulk_upper_bound_minus_H_bulk": "0.00002952080814287770799688774551999680069808",
+        "delta_plus": "0.00008556432055976850853360812698702608889948",
+        "delta_plus_determinant_residual": "-2.446667118711130605832831852424193565215e-42",
+        "det_A_over_det_C": "0.00007931999805622209521319150806988538691143",
+        "det_A_plus_rK_over_det_C_plus": "0.00008556432055976850853360812698702608890193",
+        "exp_J_minus_one_over_theta_lower_bound": "0.07872318023911739364299687173916593055917",
+        "g_F": [
+          "0.009355583682116776656839196866602990616375",
+          "0.00184121053577938533024948008858248698905",
+          "0.008934981322585067186528509111033122502288"
+        ],
+        "g_plus_F": [
+          "0.009360767872148772622905228508851647019091",
+          "0.001840900243944509355965227790690620036976",
+          "0.008934729971191068411844775827278222087404"
+        ],
+        "graph_upper_bound_minus_H_graph": "0.06722779672952603582082351878805704467775",
+        "graph_vector_v": [
+          "0.5385659927259663828943381016350661616682",
+          "-0.8419426895547977696312995093569931722457",
+          "0.05052121750642508907856765694932805245192",
+          "0.04398038503265782494331089679406138222379"
+        ],
+        "k00": "0.1287548663227884660492377012301904130082",
+        "k_F0": [
+          "0.09799560399742289330636621468433915910494",
+          "-0.005865378311071018713370176847693927946776",
+          "-0.004751240120150616273037151487238437359296"
+        ],
+        "one_plus_theta_times_one_minus_exp_minus_J_over_theta_upper_bound": "0.1459562224697295517308292171810894802463",
+        "short_delta": "0.00007931999805622209521319150806988538690875",
+        "short_delta_determinant_residual": "-2.675078768396075788393399774500449894614e-42",
+        "soft_split_residual": "3.699248579614083490653567862498717477315e-39",
+        "tilted_capture": "0.1180429198874073665747221365346272886628"
+      },
+      "odd_gap_at_U": "0.0000002234650930753746255392516216663915266537",
+      "q_minus_U": "0.0",
+      "soft_minus_X_trace": "-1.145647814570940364211717836081837096155e-38",
+      "soft_minus_lower_bound": "0.002950326744795865106789575609895424567159",
+      "soft_trace_S": "0.07879511728548496397686605575994556014959",
+      "upper_bound_minus_soft": "0.03062578590482936057461365207350611454906"
+    },
+    "ridge_r": "0.00005290227133180689272132321872731416045517",
+    "shift_order": [
+      "raw_q",
+      "two_dimensional_ritz_u"
+    ],
+    "theta": "1.0",
+    "two_dimensional_ritz_u": {
+      "A_eigenvalues": [
+        "0.00007906702115212366911309063168551455236313",
+        "0.04434130253590545551864078741015977115898",
+        "0.6666438222980269160113558924552684563224",
+        "1.81098871264478812791644568131664876096"
+      ],
+      "B_U_eigenvalues": [
+        "0.00002616474982031677639176741295820039192713",
+        "0.04428840026457364862591946419143245699842",
+        "0.6665909200266951091186345692365411421619",
+        "1.8109358103734563210237243580979214468"
+      ],
+      "F_over_log1p_theta_upper_bound": "0.1093984927221337050506515365615341508987",
+      "F_over_theta_lower_bound": "0.07582925678785467409588484354697896381233",
+      "U": "0.00000006310359915793607501535362842716494126555",
+      "X_eigenvalues": [
+        "1.601692608970779261303189197286947049638e-21",
+        "8.239922119456302358938015390429082778387e-15",
+        "0.00000005926086102801529398187969998076917570733",
+        "0.07877830041898262608551813338077240497743"
+      ],
+      "X_maximum_eigenvalue": "0.07877830041898262608551813338077240497743",
+      "X_trace": "0.07877835967985189402453326417180210302329",
+      "determinant_ratio": "1.078778364348322456304814782651961489888",
+      "label": "two_dimensional_ritz_u",
+      "log_increment_F": "0.07582925678785467409588484354697896381233",
+      "logdet_A": "-12.37267982430914409017649473622883686397",
+      "logdet_A_plus_rK": "-12.29685056752128941608060989268185790015",
+      "nested_secant": {
+        "C": [
+          [
+            "0.4164805710579654477113345783497329719575",
+            "0.5045459404389864030821032170695566912396",
+            "0.3610195304407039580998627713186392151319"
+          ],
+          [
+            "0.5045459404389864030821032170695566912396",
+            "1.565891858466548291741268512040811841579",
+            "0.140778610438807074812264700220193196472"
+          ],
+          [
+            "0.3610195304407039580998627713186392151319",
+            "0.140778610438807074812264700220193196472",
+            "0.5392629756097360932705254007232172524605"
+          ]
+        ],
+        "C_plus": [
+          [
+            "0.4164845209176668424738246464120773486558",
+            "0.504545704862484445285038731691949350901",
+            "0.3610193394478238016873696032304535933567"
+          ],
+          [
+            "0.504545704862484445285038731691949350901",
+            "1.565891872684654928596705377021608398124",
+            "0.1407786219329431647659971072401676467851"
+          ],
+          [
+            "0.3610193394478238016873696032304535933567",
+            "0.1407786219329431647659971072401676467851",
+            "0.5392629849082387586734259196873457750456"
+          ]
+        ],
+        "D": "0.0004174993656227903924269607000004369960204",
+        "D_plus": "0.0004243107904962890734508855565103374838134",
+        "F_minus_G_plus_J": "-1.836709923159824231201150839409758871592e-38",
+        "G_bulk_increment": "0.0000666892965638410394482362875923067926946",
+        "G_over_log1p_theta_upper_bound": "0.00009621231743302685526824347608374114990999",
+        "G_over_theta_lower_bound": "0.0000666892965638410394482362875923067926946",
+        "G_plus_J": "0.0758292567878546740958848435469789638307",
+        "H_bulk": "0.0000666915203325169292093875232482172702641",
+        "H_bulk_minus_lower_bound": "0.000000002223768675889761151235655910477569499794",
+        "H_graph": "0.07871166815951937709532387664855388574357",
+        "H_graph_minus_lower_bound": "0.000005244382603887914363073102859635038956277",
+        "H_graph_plus_H_bulk": "0.07877835967985189402453326417180210301383",
+        "J_graph_increment": "0.075762567491290833056436607259386657038",
+        "K_F": [
+          [
+            "0.07466332922873869098079224707991541237537",
+            "-0.004453050805328264898858879828460233558529",
+            "-0.003610296407851588455926544199332040705459"
+          ],
+          [
+            "-0.004453050805328264898858879828460233558529",
+            "0.0002687617427175940732579928007886898031649",
+            "0.0002172711265620652660525621872074415903294"
+          ],
+          [
+            "-0.003610296407851588455926544199332040705459",
+            "0.0002172711265620652660525621872074415903294",
+            "0.0001757675508312680118478062610756023705172"
+          ]
+        ],
+        "bulk_upper_bound_minus_H_bulk": "0.0000295207971005099260588559528355238796459",
+        "delta_plus": "0.00008558121015995994438187211030156567730981",
+        "delta_plus_determinant_residual": "-1.139255651496076278660992151214701814731e-42",
+        "det_A_over_det_C": "0.00007933688747334165789094039239735275296027",
+        "det_A_plus_rK_over_det_C_plus": "0.00008558121015995994438187211030156567731095",
+        "exp_J_minus_one_over_theta_lower_bound": "0.07870642377691548918096080354569425070461",
+        "g_F": [
+          "0.009355583682116776656839196866602990616375",
+          "0.00184121053577938533024948008858248698905",
+          "0.008934981322585067186528509111033122502288"
+        ],
+        "g_plus_F": [
+          "0.009360767872148772622905228508851647019091",
+          "0.001840900243944509355965227790690620036976",
+          "0.008934729971191068411844775827278222087404"
+        ],
+        "graph_upper_bound_minus_H_graph": "0.06721575387499065927169210408523647210777",
+        "graph_vector_v": [
+          "0.5385660074946372341364941065373204422907",
+          "-0.8419426795135240211610101675169598161739",
+          "0.05052121300741431071525860071563294367085",
+          "0.0439803742881199452477022768660337603287"
+        ],
+        "k00": "0.1287548663227884660492377012301904130082",
+        "k_F0": [
+          "0.09799560399742289330636621468433915910494",
+          "-0.005865378311071018713370176847693927946776",
+          "-0.004751240120150616273037151487238437359296"
+        ],
+        "one_plus_theta_times_one_minus_exp_minus_J_over_theta_upper_bound": "0.1459274220345100363670159807337903578513",
+        "short_delta": "0.00007933688747334165789094039239735275295776",
+        "short_delta_determinant_residual": "-2.513929444998721825237170872422109539517e-42",
+        "soft_split_residual": "2.766544321759485248246733451860949300335e-39",
+        "tilted_capture": "0.1180429233452632438780823631533263629724"
+      },
+      "odd_gap_at_U": "0.000000240297155153780544670058703938484321324",
+      "q_minus_U": "0.0000000168320620784059191308070822720927946703",
+      "soft_minus_X_trace": "-1.222847028528751726429391207300778523727e-38",
+      "soft_minus_lower_bound": "0.002949102891997219928648420624823139198733",
+      "soft_trace_S": "0.07877835967985189402453326417180210301107",
+      "upper_bound_minus_soft": "0.03062013304228181102611827238973204788763"
+    }
+  },
+  "inputs": {
+    "L": "1.386294361119890618834464242916353136151",
+    "N": 4,
+    "T": "1",
+    "lambda": "2",
+    "precision_decimal_digits": 40
+  },
+  "limitations": [
+    "finite arbitrary-precision point diagnostic, not an interval or ball enclosure",
+    "producer and verifier share mpmath transcendental arithmetic and linear algebra",
+    "the source-normalized prolate state remains a fixed 30-mode Galerkin truncation without a tail enclosure",
+    "the finite determinant and Schur identities do not control any unbounded diagonal schedule",
+    "for the Ritz shift U<q, F/G/J require the explicit A_R((q-U)/r) multiplier supplied by checkpoint 0.67; this fixed-window response alone does not prove DIRECT_RH_ATTACK equation (5.2)",
+    "this checkpoint does not numerically replay the actual-source Cauchy factors det O_s, m_s, sigma_s, and delta_s; it checks only the even-block F/G/J factorization",
+    "no locally uniform determinant convergence is inferred from real-axis finite determinant agreement",
+    "no asymptotic theorem or Riemann-hypothesis proof is claimed"
+  ],
+  "locked_conventions": {
+    "centered_modes": "V_n(x)=(-1)^n*L^(-1/2)*exp(+2*pi*i*n*x/L)",
+    "fourier_transform": "hat(f)(t)=integral f(x)*exp(-i*t*x) dx",
+    "inversion": "reflection J*V_n=V_-n is retained",
+    "limiting_state": "K_infinity(x)=E(h)(exp(x)), h=source-normalized Hermite 0/4 limit",
+    "parameter_ingestion": "exact text without binary64",
+    "physical_interval": "[-L/2,L/2], L=2*log(lambda), Lebesgue measure and zero extension",
+    "prime_block_sign": "Q=pole-archimedean-prime; source equation (3.19) minus sign retained",
+    "prime_inventory": "every prime power 1<n<=lambda^2, endpoint inclusive",
+    "source_normalization": "h_lambda=a4*h4-a0(lambda)*h0 with source-limit a4; unit normalization rejected",
+    "source_point": "lambda=2, N=4, T=1 only; 40 or 80 decimal digits"
+  },
+  "locked_formulas": {
+    "bulk_bounds": "G_U/theta<=H_bulk<=G_U/log(1+theta)",
+    "finite_increment": "F_U=log det(A_U+rK_T)-log det(A_U)=log det(I+X_U)",
+    "fixed_homotopy": "X_U=r*A_U^(-1/2)*K_T*A_U^(-1/2), 0<=X_U<=theta*I with theta=1",
+    "graph_bounds": "(exp(J_U)-1)/theta<=H_graph<=(1+theta)*(1-exp(-J_U))/theta",
+    "increment_bounds": "F_U/theta<=S_U<=F_U/log(1+theta), theta=1",
+    "increment_split": "F_U=G_U+J_U; G_U=log det(C+rK_F)-log det(C); J_U=log(delta_plus/delta)",
+    "nested_block": "A_U=[[D,g*],[g,C]] in span{omega} plus F; delta=D-g*C^(-1)g",
+    "ritz_shift": "w=b/r; c_R=q+<w,B_q w>; u=(q+c_R-sqrt((c_R-q)^2+4r^2))/2 <= q",
+    "shifted_complement": "B_U=B_q+(q-U)I>0; A_U=B_U+rI",
+    "soft_split": "S_U=H_graph+H_bulk; H_graph=r*<v,K_T v>/delta; H_bulk=r*tr(C^(-1)K_F)",
+    "soft_trace": "S_U=r*tr(A_U^(-1)K_T)=tr(X_U)"
+  },
+  "normalization_regression": {
+    "source_limiting_Xi_transform_scalar": "0.25",
+    "unit_normalization_limiting_scalar_difference": "0.5780575481020466834657394148331802862343",
+    "unit_normalized_limiting_Xi_transform_scalar": "0.8280575481020466834657394148331802862343",
+    "unit_normalized_replacement_allowed": false
+  },
+  "provenance": {
+    "asymptotic_claim_made": false,
+    "binary64_parameter_used": false,
+    "cached_eigensystem_read": false,
+    "cached_matrix_read": false,
+    "global_weil_positivity_assumed": false,
+    "ground_transfer_scope": "only U=q has coefficient one; at certified Ritz U<q the extra q-U term requires the explicit A_R((q-U)/r) multiplier from checkpoint 0.67, which is not serialized here",
+    "producer_increment_path": "fresh determinant and Schur calculations; no cached matrix or spectrum",
+    "producer_limiting_state_path": "checkpoint-0.64 direct x-quadrature arithmetic sum",
+    "producer_prolate_path": "checkpoint-0.64 normalized Legendre recurrence",
+    "producer_source_path": "checkpoint-0.64 live distributional source assembly",
+    "producer_time_band_path": "checkpoint-0.64 direct evaluation-vector quadrature",
+    "source_cauchy_factor_replay": "not included: det O_s, m_s, sigma_s, and delta_s are not numerically replayed",
+    "zeta_zero_table_read": false
+  },
+  "ritz_geometry": {
+    "c_R": "0.1662690739370694011867353496712059066139",
+    "q": "0.00000007993566123634199414616071069925773593585",
+    "q_minus_u": "0.0000000168320620784059191308070822720927946703",
+    "residual_direction_complement_energy": "0.1662689940014081648447412035104952073562",
+    "residual_direction_norm_defect": "5.739718509874450722503596373155496473724e-41",
+    "residual_direction_w": [
+      "0.4748690075697505707505050362439583208394",
+      "0.2695292763531953414243960609365469175948",
+      "-0.155648918907559925183852179703186192706",
+      "-0.8231809089629999820089465488361694267067"
+    ],
+    "residual_r": "0.00005290227133180689272132321872731416045517",
+    "ritz_characteristic_residual": "1.470262135756702620994416337014923321507e-43",
+    "two_dimensional_compression": [
+      [
+        "0.00000007993566123634199414616071069925773593585",
+        "0.00005290227133180689272132321872731416045517"
+      ],
+      [
+        "0.00005290227133180689272132321872731416045517",
+        "0.1662690739370694011867353496712059066139"
+      ]
+    ],
+    "two_dimensional_ritz_u": "0.00000006310359915793607501535362842716494126555"
+  },
+  "runtime": {
+    "mpmath": "1.4.1",
+    "python": "3.14.6"
+  },
+  "schema": "xi-prolate-checkpoint066-finite-increment-response-v1",
+  "section_sha256": {
+    "finite_increment_response": "7279d458a8fdf759e0ad629da73d075804bfa1a619351a0bac744e3fa4e1c0e9",
+    "normalization_regression": "1e0ebec369765905552391a298e9410ebcaa59aae64a126ab36bd3277cdb8aa1",
+    "ritz_geometry": "bd9544951f816428202e84f9ce3afcabe5fd2f969b53a4e1c32a7c3ccc66f41b",
+    "source_guard": "fef14368dcfda4cd87b426b8ac636448a45d89b63d85d56d974854ccb8aacb31"
+  },
+  "source_guard": {
+    "K_T_maximum_eigenvalue": "0.2038101607149504451316475191938207575508",
+    "K_T_minimum_eigenvalue": "2.098704980669767856266109803128849597562e-17",
+    "base_checkpoint_version": "0.64.0-reciprocal-secant-point",
+    "even_gap_at_q": "0.00002614791775823837047263660587592829912995",
+    "odd_gap_at_q": "0.0000002234650930753746255392516216663915266537",
+    "prime_power_inventory": [
+      2,
+      3,
+      4
+    ],
+    "source_hermitian_defect": "0.0",
+    "source_inversion_commutator_defect": "0.0"
+  },
+  "terminal_state": "P0_INVALIDATED"
+}

@@ -176,6 +176,18 @@ class CompressedMultiplierTraceTests(unittest.TestCase):
 
     def test_fourier_sign_prime_sign_and_endpoint_mutations_are_rejected(self) -> None:
         payload = producer.produce(5, 50)
+        payload["locked_conventions"]["source_interval"] = (
+            "[-log(lambda),log(lambda)] with Lebesgue measure and zero extension"
+        )
+        self._reject(payload, "locked_conventions")
+
+        payload = producer.produce(5, 50)
+        payload["locked_conventions"]["physical_interval"] = (
+            "[-lambda,lambda] with Lebesgue measure and zero extension"
+        )
+        self._reject(payload, "locked_conventions")
+
+        payload = producer.produce(5, 50)
         payload["locked_conventions"]["fourier_sign"] = (
             "fhat(t)=integral f(y)*exp(+i*t*y) dy"
         )

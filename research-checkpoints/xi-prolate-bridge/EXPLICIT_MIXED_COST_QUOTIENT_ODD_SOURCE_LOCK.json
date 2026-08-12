@@ -1,0 +1,209 @@
+{
+  "schema": "xi-prolate-explicit-mixed-cost-quotient-odd-source-lock-v1",
+  "claim_class": "EXPLICIT_MIXED_COST_QUOTIENT_ODD_SIGN_AUDIT",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-08",
+  "checkpoint_version": "0.43.0-explicit-mixed-cost-quotient-odd",
+  "external_sources": [
+    {
+      "id": "CCM-ZST-v1",
+      "version": "arXiv:2511.22755v1",
+      "vendored_path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "use": "finite Weil convention, source equation (3.19), pole and archimedean terms, inclusive prime-power block, and inversion convention"
+    },
+    {
+      "id": "SLEPIAN-PSWF-IV-1964",
+      "version": "Bell System Technical Journal 43 (1964), 3009--3057",
+      "vendored_path": "vendor/SLEPIAN-PSWF-IV-1964.pdf",
+      "sha256": "86efb6b69f405a046914f19c07161329b3f455a93a58467cc8107cfa4a135351",
+      "use": "qualitative fixed-index concentration-defect asymptotic and fixed-parameter high-label defect limit"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "EFFECTIVE_MIXED_ENDPOINT_JUMP_SOURCE_LOCK.json",
+      "sha256": "24ea8f8085e9e198201006f54e0499495174053e38f6c26185cd2b2f60725fcc",
+      "role": "preceding effective mixed-prefix, endpoint-jet, and finite odd-jump source lock"
+    },
+    {
+      "path": "DIRECT_RH_ATTACK.md",
+      "sha256": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "role": "equation (5.2), common-schedule target, and claim boundary"
+    },
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "primary source versions and Fourier, Mellin, pole, archimedean, prime, and inversion formulas"
+    },
+    {
+      "path": "P0_MATRIX_FORMULAS.md",
+      "sha256": "73aa4d0a746bf1a553372d4c7bdc1c671cd69c9cc36682091d94731e1dac74dd",
+      "role": "finite Weil matrix convention and source minus-prime sign"
+    },
+    {
+      "path": "P0_NORMALIZATION_AUDIT.md",
+      "sha256": "37d139735c2f760b928845f1815ba3050f8cc8447eaf535de02eef77b46862df",
+      "role": "source-normalized prolate state and rejection of unit normalization"
+    },
+    {
+      "path": "PROLATE_DEFECT_SOURCE_LOCK.json",
+      "sha256": "0844df654ee968b1c371ec96618d10d219da9fde702d62faa4f0c6be139b036d",
+      "role": "qualitative fixed-index prolate defect asymptotic and its non-effective boundary"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "role": "pinned arbitrary-precision runtime"
+    },
+    {
+      "path": "notes/EXPLICIT_MIXED_PREFIX_COST_ATTACK.md",
+      "sha256": "c3b1bcc9318c417246c52cd5d3b9bbfaa2d04cd0070e0c8cdc54862f7fcf02f8",
+      "role": "elementary ground-integral lower bound, full Fourier Mobius variation, and explicit lambda-only terminal count"
+    },
+    {
+      "path": "notes/EFFECTIVE_MIXED_SIGNED_QUOTIENT_ATTACK.md",
+      "sha256": "e2e9485d8ee03717af790cb7740fbb2228cc96f04009698cdc51a7fd943634ea",
+      "role": "whole-target quotient equivalence, prefix defect degeneration, high-tail capture, and bridge countermodel"
+    },
+    {
+      "path": "notes/QUANTITATIVE_HIGH_TAIL_BREAKPOINT_COFRAME_ATTACK.md",
+      "sha256": "d7ac69603f2cbb1fbd3b045f00b3ccdbb212c2bf76a4603dc9f252af2caf0a0a",
+      "role": "explicit high-tail defect cutoff and dimension-dependent right-inverse conditioning obstruction"
+    },
+    {
+      "path": "notes/ODD_NU_TRANSVERSE_SIGN_ATTACK.md",
+      "sha256": "828a53666436f8e6f7a71310cceacee2f79d6faf6803615b205459cb03e574fc",
+      "role": "unprojected third-moment form, fixed-parameter Galerkin transfer, vanishing jump energy, and sign/load countermodels"
+    },
+    {
+      "path": "notes/EFFECTIVE_MIXED_PREFIX_SCHEDULE_ATTACK.md",
+      "sha256": "a33e7a072057f1444afb9d00911465f599fec508d0a6488e655638947cc515ba",
+      "role": "strict mixed trace stop, Mobius right inverse, invariant row floor, and source-BV majorant"
+    },
+    {
+      "path": "notes/MIXED_PREFIX_COUPLED_SIGNED_AUDIT.md",
+      "sha256": "544ce5d2ba527ba9200a64860d977c7191107c88798963591ed960bfa81e527c",
+      "role": "complete residue-plus-bridge Gram and coupled signed inertia preservation"
+    },
+    {
+      "path": "notes/HIGH_FOURIER_COERCIVITY.md",
+      "sha256": "5d928d68bd317d637a3631c91c1da4d2043c79986e3c5767b886b354b525a821",
+      "role": "complete high-Fourier coercivity, low-high coupling, semibounded form, and compact resolvent"
+    },
+    {
+      "path": "notes/ODD_KRYLOV_TRANSVERSE_CRITICAL_LOAD.md",
+      "sha256": "c5134b4fb80bf2fcb654a1b31a7422aa089973a664cda90707d30ce7e469ddcc",
+      "role": "odd third-moment gate, transverse Schur load, critical-load identity, and exact prime jump"
+    },
+    {
+      "path": "notes/ODD_JUMP_FINITE_KRYLOV_ATTACK.md",
+      "sha256": "383ae4291cf5168f389c81d8f9a0fd6386c8adb952cdaa2368cf7e24f8283aa7",
+      "role": "fixed-parameter graph convergence and localized dyadic jump-band law"
+    },
+    {
+      "path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "role": "vendored primary finite-Weil source"
+    },
+    {
+      "path": "vendor/SLEPIAN-PSWF-IV-1964.pdf",
+      "sha256": "86efb6b69f405a046914f19c07161329b3f455a93a58467cc8107cfa4a135351",
+      "role": "vendored primary prolate-defect source"
+    }
+  ],
+  "locked_conventions": {
+    "physical_interval": "[-log(lambda),log(lambda)] with L=2*log(lambda), Lebesgue measure, and zero extension",
+    "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension",
+    "fourier_transform": "hat(f)(t)=integral f(x)*exp(-i*t*x) dx",
+    "frequency_measure": "dnu(t)=dt/(2*pi)",
+    "finite_fourier_basis": "phi_k(x)=(-1)^k*L^(-1/2)*exp(2*pi*i*k*x/L), with P_N=sum_(|k|<=N)|phi_k><phi_k|",
+    "inversion": "Jf(x)=f(-x)",
+    "source_normalization": "the source-limit normalization is retained; unit normalization is rejected",
+    "prolate_parameter": "c=2*pi*lambda^2",
+    "locked_parameter_grid": "lambda=p/2 with odd integers p>=5",
+    "target_schedule": "N=ceil(lambda^2), d=2*N+1, retaining N+1 even and N odd dimensions",
+    "complete_nonpole_multiplier": "m_lambda(t)=2*theta'(t)-2*sum_(1<n<=lambda^2)Lambda(n)/sqrt(n)*cos(t*log(n))",
+    "prime_power_endpoint": "inclusive n<=lambda^2",
+    "prime_block_sign": "minus, as in source equation (3.19), before any norm or absolute value",
+    "mixed_bridge": "the residue-plus-bridge source Gram and every signed, physical-Gram, and source-metric cross term are retained",
+    "odd_pole": "p(x)=sinh(x/2), Q_lambda=A_lambda-2*|p><p|, and mu=||p||^2=(lambda-lambda^(-1)-2*log(lambda))/2"
+  },
+  "locked_formulas": {
+    "ground_prolate_integral": "for the positive unit ground state y_0 on [-1,1], I_0>=sqrt(lambda)/(sqrt(3)/2+4*pi*lambda^2/sqrt(5))",
+    "rational_ground_endpoint": "r_lambda=ceil(sqrt(lambda)), C_lambda=1+(44/7)*lambda^2, iota_lambda=lambda/(r_lambda*C_lambda)<=I_0, and kappa_lambda<=Gamma_lambda=4+(132/7)*lambda^2",
+    "fourier_mobius_variation": "for omega_k=2*pi*k/L and a_k=sqrt(omega_k^2+1/4), V_k<=lambda^2*(8*a_k+10+4*L)/sqrt(L); hence V_(lambda,X_N)<=lambda^2*sqrt(d/L)*B_(lambda,N), B_(lambda,N)=16*pi*N/L+4*L+14",
+    "explicit_smoothing_radius": "delta=1/(4*sqrt(d)*lambda) and rho=L/(64*Gamma_lambda^2*lambda^6*d^2*B_(lambda,N)^2)",
+    "explicit_terminal_count": "M(lambda,N)=ceil(16*sqrt(2)*Gamma_lambda^2*lambda^6*d^2*B_(lambda,N)^2/L+16*sqrt(2)*pi*Gamma_lambda*lambda^5*sqrt(d))",
+    "lambda_only_terminal_count": "for N=ceil(lambda^2), M<=Mhat=ceil(400*sqrt(2)*(160/7)^2*(32*pi+18)^2*lambda^18/L^3+(2560*sqrt(10)*pi/7)*lambda^8)",
+    "mixed_trace_and_floor": "the displayed M gives tr(B^*(I-P_F)B)<=1/(16*lambda^2)<1/(8*lambda^2) and T*P_F*T^*>=9/(128*lambda^4)I; this is unsigned",
+    "normalized_quotient": "for A=W*D^(-1/2), A_0=A restricted to (ker A)^perp, G=A_0^*A_0, and U=A_0*G^(-1/2), U is unitary and G^(-1/2)*A_0^*B*A_0*G^(-1/2)=U^*B*U",
+    "quotient_determinant": "det(A_0^*(B-zI)A_0)/det(G)=det(B-zI); whole-target capture preserves spectrum and inertia",
+    "physical_pencil": "B_N(tau)>=delta*I iff P_0*D^(-1/2)*(W^*QW-(tau+delta)*W^*W)*D^(-1/2)*P_0>=0",
+    "source_metric_pencil": "a source-metric comparison instead subtracts tau*W^*W+mu*D, including the nonzero residue-plus-bridge cross block; it is not the physical pencil",
+    "prefix_defect_comparison": "D_M=I+v*v^*, H_M=diag(d_2,...,d_(2M))+d_0*v*v^*, and d_0<=lambda_min(D_M^(-1/2)*H_M*D_M^(-1/2))<=(d_2+d_0*|I_2/I_0|^2)/(1+|I_2/I_0|^2)<=d_2",
+    "high_tail_capture": "for every fixed locked lambda, finite N, and finite R, T_N applied to the closed span of corrected even modes c_n with n>R is all of X_N",
+    "adjoint_breakpoint_jets": "at y_m=m/lambda, [K_k^(r)]_(y_m)=sqrt(lambda/L)*(-lambda)^r*m^(-r-1)*(1/2+i*omega_k)_r; the orders r=0,...,2N form a nonzero Vandermonde at the distinct Fourier nodes",
+    "high_tail_defect_metric": "for each locked lambda, an explicit R_0(lambda) can be chosen so that every finite high-only segment satisfies (1/4)*D_(R,M)<=H_(R,M)<=D_(R,M); no advance spanning terminal M(lambda,N,R) is supplied",
+    "explicit_high_tail_defect_cutoff": "R_0(lambda)=max(n_star-1,R_eta), R_eta=max(0,ceil((-3+sqrt(1+4*A_lambda))/2)), A_lambda=2*c^2*m_lambda^2/3, makes H_(R,M)>=(1/4)*D_(R,M) for all M>R>=R_0(lambda)",
+    "high_tail_conditioning_obstruction": "for d=2*N+1 the normalized binomial Fourier direction cancels every arithmetic-breakpoint jump through order 2*N-1, forcing the source-whitened high-tail coframe floor to be at most an explicit O(R^(-2*d+1)) quantity and every high-tail right inverse to grow at least on the R^(d-1/2) scale at fixed lambda,N",
+    "odd_residual": "tau=<p,A_lambda*p>/mu, R=A_lambda*p-tau*p, b=R/sqrt(mu), and R is nonzero by the inclusive prime-power jump",
+    "unprojected_odd_nu": "nu_(lambda,beta)^infinity=mu^(-1)*c_(lambda,beta)[R,R]=mu^(-1)*integral_(R)(m_lambda(t)-beta)*|hat(R)(t)|^2*dt/(2*pi)",
+    "odd_spectral_measure": "for the probability spectral measure omega_p of A_lambda generated by p/sqrt(mu), nu_(lambda,beta)^infinity=integral(x-tau)^2*(x-beta)d omega_p(x)",
+    "finite_odd_nu_transfer": "at fixed lambda and beta, r_N tends to R in H^delta for some 0<delta<1/2 and nu_(beta,N)=mu_N^(-1)*c_(lambda,beta)[r_N,r_N] tends to nu_(lambda,beta)^infinity",
+    "conditional_transverse_transfer": "the conforming spaces G_N=P_N*H_minus intersect p^perp are nested and form-dense; their floors decrease to the unprojected transverse floor, and if that floor is positive then the finite inverse loads converge to the unprojected load",
+    "jump_log_energy": "for the localized jump profile, (K/log K)*sum_(K<|k|<=2K)log(|k|+2)*|F_k|^2 tends to L*J_(lambda,n)^2/(4*pi^2), so the jump-guaranteed positive logarithmic energy is asymptotic to a constant times log(K)/K and tends to zero",
+    "odd_sign_obstruction": "the same 1/k jump tail and positive logarithmic high operator permit either sign of nu; complete cyclic data can miss a negative reducing direction; fixed b and nu can have inverse loads on opposite sides of one pole surplus"
+  },
+  "claim_boundary": {
+    "checkpoint_version": "0.43.0-explicit-mixed-cost-quotient-odd",
+    "formal_status": "P0_INVALIDATED",
+    "mixed_cost_result": "an explicit a priori full-target terminal bound of order lambda^18/(log lambda)^3 with displayed constants; not a transition-scale or signed theorem",
+    "quotient_result": "whole-target capture is exactly unitarily equivalent to the complete physical signed operator; the high-only defect metric has an explicit lambda-dependent cutoff, but an exact worst Fourier direction forces dimension-dependent right-inverse blowup and no advance terminal label or sign follows",
+    "odd_result": "fixed-parameter nu, transverse floors, and inverse loads transfer from exact unprojected quantities; the jump supplies no sign, floor, load margin, or uniform cutoff",
+    "equation_5_2_proved": false,
+    "signed_even_floor_proved": false,
+    "signed_odd_floor_proved": false,
+    "signed_mixed_floor_proved": false,
+    "locally_uniform_determinant_convergence_proved": false,
+    "numerical_diagnostics_are_theorems": false,
+    "new_lambda_bound_claimed": false,
+    "asymptotic_rh_conclusion_claimed": false
+  },
+  "source_admissions": {
+    "explicit_lambda18_mixed_prefix_bound_proved": true,
+    "whole_target_quotient_inertia_identity_proved": true,
+    "fixed_lambda_high_tail_capture_proved": true,
+    "explicit_high_tail_defect_cutoff_proved": true,
+    "high_tail_right_inverse_conditioning_obstruction_proved": true,
+    "fixed_lambda_odd_nu_convergence_proved": true,
+    "conditional_fixed_lambda_transverse_load_convergence_proved": true,
+    "actual_odd_nu_positive_on_unbounded_schedule_proved": false,
+    "actual_odd_transverse_floor_proved": false,
+    "actual_odd_inverse_load_margin_proved": false,
+    "api_key_read": false,
+    "binary64_parameters_used": false,
+    "cached_matrix_or_eigenvector_read": false,
+    "advance_high_tail_spanning_terminal_proved": false,
+    "common_unbounded_odd_cutoff_proved": false,
+    "decimal_zero_list_read": false,
+    "determinant_limit_claimed": false,
+    "environment_secret_read": false,
+    "equation_5_2_claimed": false,
+    "fourier_sign_changed": false,
+    "global_weil_positivity_assumed": false,
+    "inversion_reflection_dropped": false,
+    "lambda_squared_mixed_with_lambda": false,
+    "mixed_prefix_signed_floor_proved": false,
+    "nonpositive_complementary_or_schur_gap_reported_as_pass": false,
+    "prime_block_sign_changed": false,
+    "prime_power_endpoint_omitted": false,
+    "real_axis_eigenvalue_agreement_substituted_for_determinant_convergence": false,
+    "riemann_hypothesis_assumed_or_claimed": false,
+    "secret_serialized": false,
+    "source_metric_substituted_for_physical_shift": false,
+    "transition_scale_mixed_prefix_cost_proved": false,
+    "unit_source_normalization_substituted": false,
+    "zero_reality_assumed": false
+  }
+}

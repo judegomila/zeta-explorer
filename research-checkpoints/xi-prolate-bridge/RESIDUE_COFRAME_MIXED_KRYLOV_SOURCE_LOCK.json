@@ -1,0 +1,223 @@
+{
+  "schema": "xi-prolate-residue-coframe-mixed-krylov-source-lock-v1",
+  "claim_class": "PRESCRIBED_RESIDUE_MIXED_CAPTURE_ODD_KRYLOV_AUDIT",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-08",
+  "external_sources": [
+    {
+      "id": "CCM-ZST-v1",
+      "version": "arXiv:2511.22755v1",
+      "vendored_path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "use": "finite Weil convention, source equation (3.19), pole term, archimedean term, and inversion convention"
+    },
+    {
+      "id": "FKS-PNT-v3",
+      "version": "arXiv:2204.02588v3",
+      "vendored_path": "vendor/FKS-PNT-2204.02588v3.pdf",
+      "sha256": "15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4",
+      "use": "pinned unconditional prime-number-theorem input; no zero ordinate table"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "COVARIANCE_ANNULAR_ODD_SUBSEQUENCE_SOURCE_LOCK.json",
+      "sha256": "eb20eecf970af6c9dd95c28bbb602e1cb8ee439a95bfd736cccd6c17a21730c8",
+      "role": "preceding exact covariance, annular, and favorable-subsequence source lock"
+    },
+    {
+      "path": "DIRECT_RH_ATTACK.md",
+      "sha256": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "role": "equation (5.2), common-schedule target, and claim boundary"
+    },
+    {
+      "path": "P0_MATRIX_FORMULAS.md",
+      "sha256": "73aa4d0a746bf1a553372d4c7bdc1c671cd69c9cc36682091d94731e1dac74dd",
+      "role": "finite Weil matrix conventions and source prime-block sign"
+    },
+    {
+      "path": "P0_NORMALIZATION_AUDIT.md",
+      "sha256": "37d139735c2f760b928845f1815ba3050f8cc8447eaf535de02eef77b46862df",
+      "role": "source-normalized prolate state and rejection of unit normalization"
+    },
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "primary source versions and Fourier, Mellin, pole, archimedean, prime, and inversion formulas"
+    },
+    {
+      "path": "notes/ANNULAR_GRAY_MASS_OBSTRUCTION.md",
+      "sha256": "85e26feefbb18482eacd9761ecca4d3743c26ff480a53983bcc5651e3ae80b5a",
+      "role": "closed annular projector and necessary physical-angle scale"
+    },
+    {
+      "path": "notes/COVARIANCE_TANGENT_GRAPH_SPILL.md",
+      "sha256": "b29362b8234fa642be7f8c59b187f451e8610c88e80121311317ea1c05a1d195",
+      "role": "relative source-metric spill theorem and existing BV fallback"
+    },
+    {
+      "path": "notes/FULL_SOURCE_COFRAME_RANK_THEOREM.md",
+      "sha256": "3f8b381d9e51e0fa0cf89928851e89dd163ec9982249af8050a90520c0389f81",
+      "role": "explicit Mobius right inverse, full-source floor, mixed-prefix density, and rank obstruction"
+    },
+    {
+      "path": "notes/GROWING_TRANSITION_SAMPLING_THEOREM.md",
+      "sha256": "551e58d07510d531c8ee5cfe4c81a33ac3443f62760627196599e2bfac231e72",
+      "role": "one-residue transition inventory, defect metric, and periodic-BV constant"
+    },
+    {
+      "path": "notes/GROWING_WINDOW_THEOREM.md",
+      "sha256": "dad6b0a878b7eba21cbc7aa8049cf3bf89a38df766cc157a87c416e79a721ac7",
+      "role": "locked half-integer parameter grid and growing source-family conventions"
+    },
+    {
+      "path": "notes/MATCHED_BREAKPOINT_DIRECTIONAL_MOMENT_AUDIT.md",
+      "sha256": "b3b90baffde24e6ee81303c6f0d07095a5499d38b956ae58b3309e01d8ee0858",
+      "role": "exact prescribed determinants, arithmetic breakpoint jets, and projection countermodel"
+    },
+    {
+      "path": "notes/MATCHED_HIGH_MOMENT_COFRAME_REDUCTION.md",
+      "sha256": "b946c4cb13c17eee30dd2747863028d4264ba9f6dbc210662d0b68fecdec5ca2",
+      "role": "source-whitened coframe criterion and matched finite countermodels"
+    },
+    {
+      "path": "notes/MIXED_PREFIX_COUPLED_SIGNED_AUDIT.md",
+      "sha256": "544ce5d2ba527ba9200a64860d977c7191107c88798963591ed960bfa81e527c",
+      "role": "bridge Gram, simultaneous mixed coframe, annular capture, inertia theorem, and signed countermodel"
+    },
+    {
+      "path": "notes/ODD_FAVORABLE_LOCKED_SUBSEQUENCE.md",
+      "sha256": "90904571557ac15882989e6d0832458ffa3475f2075ab53b2f7db09e6fe00b28",
+      "role": "favorable locked pole-axis subsequence and qualitative finite projection"
+    },
+    {
+      "path": "notes/ODD_KRYLOV_TRANSVERSE_CRITICAL_LOAD.md",
+      "sha256": "c5134b4fb80bf2fcb654a1b31a7422aa089973a664cda90707d30ce7e469ddcc",
+      "role": "combined residual, Krylov inverse-load enclosure, critical load, prime jumps, and orientation countermodels"
+    },
+    {
+      "path": "notes/ODD_POLE_HARMONIC_CHEBYSHEV_OBSTRUCTION.md",
+      "sha256": "703c19f9cbadd73e6b60672a6f836fc2bd0bf7d43eaa5f60ac5806dd1cdc0d18",
+      "role": "exact odd pole decomposition, pole-prime identity, and harmonic short"
+    },
+    {
+      "path": "notes/PRESCRIBED_RESIDUE_COFRAME_AUDIT.md",
+      "sha256": "5c5c50013431500cab6bdfbb359dd1d4bd76c76648b309093e44effde19ef307",
+      "role": "one-residue criteria, analytic-intersection theorem, angle necessity, BV no-go, and endpoint-jet target"
+    },
+    {
+      "path": "notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md",
+      "sha256": "3d6428991a0e66e1c2752c8eec76375576e6f94f68a65891cd3215495e6d4e61",
+      "role": "physical arithmetic-map conditioning and exact finite source-coordinate conventions"
+    },
+    {
+      "path": "notes/PHYSICAL_SOFT_SHORT_SIGNED_SCHUR.md",
+      "sha256": "cf847b2f73d18244158ee0238714f677c74358068a658c637a40477b3e0a38ca",
+      "role": "complete coupled signed physical short and open common-schedule margin"
+    },
+    {
+      "path": "notes/SIGNED_QUOTIENT_CAPTURE_REDUCTION.md",
+      "sha256": "9700501a367ea7ae2b843ee61b45bec3970fc35db1715613099b08439be0415c",
+      "role": "source-quotient signed equivalence and inertia under onto capture"
+    },
+    {
+      "path": "notes/SOFT_DEFECT_PROLATE_ANGLE_REDUCTION.md",
+      "sha256": "3bcccfda9d606c21fc61efb9c2fbc3dd95926a82586e3c156fc965c32748777b",
+      "role": "actual prescribed source inventories and normalized adjoint-tail criterion"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "role": "pinned arbitrary-precision runtime"
+    },
+    {
+      "path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "role": "vendored primary finite-Weil source"
+    },
+    {
+      "path": "vendor/FKS-PNT-2204.02588v3.pdf",
+      "sha256": "15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4",
+      "role": "vendored primary prime-number-theorem source"
+    }
+  ],
+  "locked_conventions": {
+    "physical_interval": "[-log(lambda),log(lambda)] with L=2*log(lambda), Lebesgue measure, and zero extension",
+    "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension",
+    "fourier_transform": "hat(f)(t)=integral f(x)*exp(-i*t*x) dx",
+    "frequency_measure": "dnu(t)=dt/(2*pi)",
+    "inversion": "Jf(x)=f(-x)",
+    "source_normalization": "source-limit normalization is retained; unit normalization is rejected",
+    "arithmetic_transform": "A_lambda f(u)=sqrt(u)*sum_(m<=lambda/u) f(m*u)",
+    "complete_nonpole_multiplier": "T has multiplier 2*theta'(t)-2*sum_(1<n<=lambda^2) Lambda(n)/sqrt(n)*cos(t*log(n))",
+    "prime_power_endpoint": "inclusive n<=lambda^2",
+    "prime_block_sign": "minus, as in source equation (3.19)",
+    "locked_parameter_grid": "lambda=p/2 with odd integers p>=5",
+    "plus_source_family": "c_(4j)=h_(4j)-(I_(4j)/I_0)*h_0",
+    "minus_source_family": "c^-_(4j+2)=-h_(4j+2)+(I_(4j+2)/I_2)*h_2",
+    "mixed_bridge": "c_(4j+2)=-c^-_(4j+2)+(I_(4j+2)/I_2)*c_2",
+    "minus_family_precondition": "I_2 is nonzero before defining c^-_(4j+2) or the mixed bridge"
+  },
+  "locked_formulas": {
+    "full_source_floor": "T*T^* >= 1/(2*lambda^2*M_mu(lambda)^2) I >= 1/(8*lambda^4) I",
+    "finite_relative_coframe": "T*P_F*T^*=R^(1/2)*(I-Z*(I-P_F)*Z^*)*R^(1/2)",
+    "analytic_intersection": "for finite analytic F, ran(S_sigma*A_lambda*F) intersects every finite log-analytic feature space only at zero",
+    "principal_angle_necessity": "(epsilon+zeta)/gamma >= (a_(lambda,sigma)-tau_M)_+^2",
+    "bv_certificate_floor": "epsilon_BV/gamma >= L*q*V_star(lambda)^2/(pi^2*M*lambda^2)",
+    "bv_constant": "V_star(lambda)=368*pi^3*lambda^7+108*pi*lambda^2",
+    "mixed_source_gram": "D_sep=[[I+u*u^*,beta*u,0],[beta*u^*,1+beta^2,a^*],[0,a,I+a*a^*]]",
+    "simultaneous_mixed_floor": "some non-effective mixed prefix gives T_oplus*P_F*T_oplus^* >= 1/(16*lambda^4) I",
+    "annular_rank": "rank(1_[sigma0,1](C_ann)) <= (b0-delta)/(pi*sigma0)",
+    "mixed_annular_angle": "||P_H*F_sigma0|| <= (lambda/sqrt(2))*||(I-P_F)*B_X*F_sigma0||",
+    "coupled_inertia": "on the source quotient, A^*B_oplus*A and B_oplus have identical inertia when A is onto",
+    "combined_residual": "b=(Q-alpha*I)e and ||b||^2=<e,Q^2 e>-alpha^2 after assembling the complete signed Q",
+    "three_moment_test": "nu=m3-(2*alpha+beta)*m2+alpha^3+beta*alpha^2 and positivity requires nu>0 and (alpha-beta)*nu>||b||^4",
+    "krylov_load": "chi=chi_k+<rho_k,C_beta^(-1)rho_k> and chi_k<=chi<=chi_k+||rho_k||^2/kappa",
+    "critical_load": "for the complete unprojected form, L_beta=2*mu/(2*mu+s_beta); every successful favorable schedule with beta=o(lambda) has L_beta tending to one from below; a finite projection additionally requires mu_(lambda,N)~lambda/2 and scalar-form error o(lambda^2)",
+    "prime_action": "T_prime p=(exp(-x/2)/2)*(psi_C(lambda*exp(x))+A_C(lambda*exp(-x)))-(exp(x/2)/2)*(A_C(lambda*exp(x))+psi_C(lambda*exp(-x))), where A_C(Y)=sum_(1<n<=Y) Lambda(n)/n",
+    "locked_prime_jump": "for the complete unprojected pole, the jump at x_n=log(n/lambda) is Lambda(n)*sinh(log(lambda)/2)/sqrt(n)>0; finite Fourier compression smooths the jumps"
+  },
+  "claim_boundary": {
+    "checkpoint_version": "0.41.0-residue-coframe-mixed-krylov",
+    "formal_status": "P0_INVALIDATED",
+    "prescribed_result": "exact one-residue criteria, an analytic-intersection obstruction, and rejection of the current BV certificate; not a prescribed coframe theorem",
+    "mixed_result": "non-effective simultaneous whole-target capture and a coupled reformulation; not a signed lower bound or matched schedule",
+    "odd_result": "exact Krylov and prime-jump obstructions plus a conditional inverse-load enclosure; not the transverse floor or harmonic short",
+    "equation_5_2_proved": false,
+    "signed_even_floor_proved": false,
+    "signed_odd_floor_proved": false,
+    "locally_uniform_determinant_convergence_proved": false,
+    "numerical_diagnostics_are_theorems": false,
+    "new_lambda_bound_claimed": false,
+    "asymptotic_rh_conclusion_claimed": false
+  },
+  "source_admissions": {
+    "actual_prescribed_plus_coframe_proved": false,
+    "actual_prescribed_minus_coframe_proved": false,
+    "actual_prescribed_annular_capture_proved": false,
+    "actual_odd_transverse_floor_proved": false,
+    "actual_odd_harmonic_short_proved": false,
+    "api_key_read": false,
+    "binary64_parameters_used": false,
+    "cached_matrix_or_eigenvector_read": false,
+    "decimal_zero_list_read": false,
+    "determinant_limit_claimed": false,
+    "environment_secret_read": false,
+    "equation_5_2_claimed": false,
+    "fixed_inverse_load_margin_claimed": false,
+    "fourier_sign_changed": false,
+    "global_weil_positivity_assumed": false,
+    "inversion_reflection_dropped": false,
+    "lambda_squared_mixed_with_lambda": false,
+    "mixed_prefix_effective_schedule_proved": false,
+    "mixed_prefix_signed_floor_proved": false,
+    "nonpositive_schur_gap_reported_as_pass": false,
+    "prime_block_sign_changed": false,
+    "prime_power_endpoint_omitted": false,
+    "real_axis_eigenvalue_agreement_substituted_for_determinant_convergence": false,
+    "riemann_hypothesis_assumed_or_claimed": false,
+    "secret_serialized": false,
+    "unit_source_normalization_substituted": false,
+    "zero_reality_assumed": false
+  }
+}

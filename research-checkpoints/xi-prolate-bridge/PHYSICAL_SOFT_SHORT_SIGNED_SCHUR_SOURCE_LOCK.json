@@ -1,0 +1,91 @@
+{
+  "schema": "xi-prolate-physical-soft-short-signed-schur-source-lock-v1",
+  "claim_class": "PHYSICAL_SOFT_SHORT_SIGNED_SCHUR_REDUCTION",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-07",
+  "external_sources": [],
+  "dependencies": [
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "locked P0 interval, Fourier sign, inversion, prime endpoint, and claim boundary"
+    },
+    {
+      "path": "DIRECT_RH_ATTACK.md",
+      "sha256": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "role": "direct bridge target, especially equation (5.2), and terminal claim boundary"
+    },
+    {
+      "path": "notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md",
+      "sha256": "c6e4a757604bfc9c1299a272054f1174970781e6cd0a92ed0dfb196f9804fa81",
+      "role": "exact multiplier, inclusive prime-power block, and parity pole signs"
+    },
+    {
+      "path": "notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md",
+      "sha256": "33f064c07a134986afa23efb91f7514e27828543b09cc358ebfff01e79c6f16e",
+      "role": "Moore--Penrose quotient metric and declared block-diagonal source scaling"
+    },
+    {
+      "path": "notes/SIGNED_QUOTIENT_CAPTURE_REDUCTION.md",
+      "sha256": "9700501a367ea7ae2b843ee61b45bec3970fc35db1715613099b08439be0415c",
+      "role": "actual finite comparison spaces, anchor deflation, and strict signed quotient boundary"
+    },
+    {
+      "path": "notes/PHYSICAL_LEVERAGE_SHORTED_SCHUR.md",
+      "sha256": "39147b7fcd5c71304c6977272b72a3f07a789b7c4fb34d2e2ebf51e3b60589f3",
+      "role": "hard positive short, physical split, and over-shorting countermodel"
+    },
+    {
+      "path": "notes/LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR.md",
+      "sha256": "c9f10ffb6b6ceeafe8ea63566d10c3af7eb6265c509c8d63e259bc407cc7f79a",
+      "role": "feature factorization, source quotient metric, and all-even coframe boundary"
+    },
+    {
+      "path": "notes/LOCALIZED_MOMENT_SOURCE_WHITENED_SCHUR.md",
+      "sha256": "39695c4823f19f1a03b9e9434a88763564cc0e2e086a12b65412d2551b5f4982",
+      "role": "complete signature-feature identity and source-whitened contraction criterion"
+    }
+  ],
+  "locked_conventions": {
+    "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension; the physical logarithmic interval is [-log(lambda),log(lambda)]",
+    "fourier_sign": "fhat(t)=integral f(y)*exp(-i*t*y) dy and Plancherel measure is dt/(2*pi)",
+    "prime_endpoint": "every prime power n<=lambda^2 is included",
+    "prime_sign": "m_lambda=2*theta_prime-2*sum Lambda(n)/sqrt(n)*cos(t*log(n))",
+    "inversion": "multiplicatively Jf(u)=f(u^(-1)); in the additive logarithmic coordinate Jf(y)=f(-y)",
+    "source_normalization": "all prolate combinations use the source zero-Lebesgue-integral normalization, never unit normalization",
+    "strictness": "equality in zeta<1, theta_soft<1, or a positive source floor is a rejection",
+    "finite_parity": "Fourier residue class is not identified with inversion parity at finite lambda; the actual projected pole representer is used",
+    "artifact_scope": "p and dps label exact rational theorem-regression models, not physical prolate--Weil pilot matrices or an asymptotic schedule",
+    "arithmetic": "all matrices, factorizations, contractions, and reserves are exact reduced rationals; binary64 JSON numbers are forbidden"
+  },
+  "locked_formulas": {
+    "parity_features": "X_plus=(sqrt(a)*Fourier,sqrt(2)*pole_plus), Y_plus=sqrt(v)*Fourier; X_minus=sqrt(a)*Fourier, Y_minus=(sqrt(v)*Fourier,sqrt(2)*pole_minus)",
+    "signed_operator": "B_epsilon=g*I+X_epsilon^*X_epsilon-Y_epsilon^*Y_epsilon",
+    "high_data": "A0=g*I_H+X_H^*X_H, Z=Y_H*A0^(-1)*Y_H^*, W=I-Z, D_B=A0-Y_H^*Y_H",
+    "feature_ldl": "M_H=[[I,0],[E,I]]*diag(P,-W)*[[I,E^*],[0,I]], P=I+X_H*X_H^*/g, E=Y_H*A0^(-1)*X_H^*",
+    "soft_short": "Psoft=g*I_K+X_K^*X_K-X_K^*X_H*A0^(-1)*X_H^*X_K",
+    "residual_feature": "Ytilde=Y_K-Y_H*A0^(-1)*X_H^*X_K",
+    "exact_schur": "S_B=Psoft-Ytilde^*W^(-1)*Ytilde when D_B>0 equivalently W>0",
+    "source_metric": "Delta=(A*A^*)^dagger on K and G=A^*Psoft*A; the scalar base is g*A^*A, never g*I unless A is an isometry",
+    "soft_contraction": "A^*S_B*A=G-N^*N, N=W^(-1/2)*Ytilde*A, and theta_soft=norm(N*G^(-1/2))^2<1",
+    "scalar_schedule_test": "if norm(Z)<=1-delta and norm(Ytilde*Psoft^(-1/2))^2<=(1-tau)*delta then D_B>=delta*g*I and S_B>=tau*Psoft",
+    "full_gap": "with G>=alpha*I and chi=norm(D_B^(-1/2)*B_HK*Delta^(-1/2)), B>=min(tau*alpha,1)/(1+chi)^2*(Delta direct_sum D_B)"
+  },
+  "claim_boundary": {
+    "proved": [
+      "the actual even and odd multiplier/pole feature assignments for the finite signed operators",
+      "the non-spectral feature LDL factorization and high-block equivalence",
+      "the exact g-soft positive short and residual negative-feature Schur identity for the original operator",
+      "the source-whitened exact and scalarized contraction criteria",
+      "the full finite-sector gap consequence and exact rational rejection models"
+    ],
+    "not_proved": [
+      "a strict physical high ratio on a common unbounded schedule",
+      "a residual negative-feature or source coframe reserve on a common unbounded schedule",
+      "a positive signed floor in either parity sector",
+      "equation (5.2) of DIRECT_RH_ATTACK.md",
+      "locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ]
+  }
+}

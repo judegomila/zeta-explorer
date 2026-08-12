@@ -1,0 +1,38 @@
+{
+  "checks": {
+    "claim_boundary_rechecked": true,
+    "coframe_necessity_rebuilt": true,
+    "full_signed_schur_rebuilt_in_physical_and_feature_spaces": true,
+    "matrix_variance_rebuilt_from_trace_invariants": true,
+    "shorted_load_rebuilt_from_feature_resolvent": true,
+    "source_metric_g_A_star_A_rebuilt": true,
+    "strict_json_and_canonical_rationals": true,
+    "upper_one_rebuilt_from_stop_gain_breakpoints": true,
+    "variance_rebuilt_from_pairwise_differences": true
+  },
+  "input": {
+    "dps": 160,
+    "lambda_numerator": 7
+  },
+  "producer_binding": {
+    "byte_length": 42412,
+    "byte_source": "exact artifact file bytes",
+    "sha256": "80cd34c642e07d9d563eb4eec544b1a9a35d1425f3538eb1f1d813fa3de4afa9"
+  },
+  "producer_pass_boolean_trusted": false,
+  "result": "LOCALIZED_MOMENT_SOURCE_WHITENED_SCHUR_COMPONENT_REPLAY_PASS",
+  "schema": "xi-prolate-localized-moment-source-whitened-schur-replay-v1",
+  "shared_arithmetic_limitation": "producer and replay share Python integer and Fraction arithmetic",
+  "source_hashes": {
+    "DIRECT_RH_ATTACK.md": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+    "LOCALIZED_MOMENT_SOURCE_WHITENED_SCHUR_SOURCE_LOCK.json": "fd8b2296e653910fd72ea6d1311e3f1512bfd697f5ea91d3d763f71013f51941",
+    "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+    "notes/LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR.md": "c9f10ffb6b6ceeafe8ea63566d10c3af7eb6265c509c8d63e259bc407cc7f79a",
+    "notes/LOCALIZED_MOMENT_SOURCE_WHITENED_SCHUR.md": "39695c4823f19f1a03b9e9434a88763564cc0e2e086a12b65412d2551b5f4982",
+    "notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md": "c6e4a757604bfc9c1299a272054f1174970781e6cd0a92ed0dfb196f9804fa81",
+    "notes/PHYSICAL_LEVERAGE_SHORTED_SCHUR.md": "39147b7fcd5c71304c6977272b72a3f07a789b7c4fb34d2e2ebf51e3b60589f3",
+    "notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md": "33f064c07a134986afa23efb91f7514e27828543b09cc358ebfff01e79c6f16e",
+    "notes/SIGNED_QUOTIENT_CAPTURE_REDUCTION.md": "9700501a367ea7ae2b843ee61b45bec3970fc35db1715613099b08439be0415c"
+  },
+  "terminal_state": "P0_INVALIDATED"
+}

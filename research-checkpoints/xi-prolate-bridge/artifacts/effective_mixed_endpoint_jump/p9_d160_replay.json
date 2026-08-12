@@ -1,0 +1,57 @@
+{
+  "arithmetic_limitation": "producer and verifier share Python integer/Fraction arithmetic and pinned mpmath.iv 1.4.1",
+  "producer_binding": {
+    "canonical_bytes": 60363,
+    "sha256": "8a246c13d8bb5f87ac366fd773ea2123e2bb0a9cd89c7002943ae09a7f146403"
+  },
+  "reconstructed": {
+    "claim_boundary_retained": true,
+    "dependency_count": 18,
+    "dps": "160",
+    "dyadic_band_lower_reconstructed": true,
+    "endpoint_recurrence_reconstructed_with_P_minus_one_zero": true,
+    "endpoint_vandermonde_determinants_reconstructed": true,
+    "external_source_count": 2,
+    "high_label_rho_strictly_below_half": true,
+    "inclusive_prime_power_inventory_reconstructed": true,
+    "interval_count": 25,
+    "lambda_numerator": "9",
+    "mixed_bridge_gram_reconstructed_from_raw_columns": true,
+    "odd_jump_and_common_fourier_phase_reconstructed": true,
+    "prime_power_count": 12,
+    "residual_trace_invariant_by_two_paths": true,
+    "trace_stop_constants_reconstructed": true
+  },
+  "schema": "xi-prolate-effective-mixed-endpoint-jump-replay-v1",
+  "source_lock": {
+    "checkpoint_version": "0.42.0-effective-mixed-endpoint-jump",
+    "dependency_hashes": {
+      "DIRECT_RH_ATTACK.md": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "P0_MATRIX_FORMULAS.md": "73aa4d0a746bf1a553372d4c7bdc1c671cd69c9cc36682091d94731e1dac74dd",
+      "P0_NORMALIZATION_AUDIT.md": "37d139735c2f760b928845f1815ba3050f8cc8447eaf535de02eef77b46862df",
+      "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "RESIDUE_COFRAME_MIXED_KRYLOV_SOURCE_LOCK.json": "07820d02ae10c1911d35796a5ad018ffcdae4363f22f2b000074e430c7086375",
+      "notes/AUGMENTED_ENDPOINT_JET_COFRAME_ATTACK.md": "521a21decb0eb3175d73430f4d23b31917a128cc8f705caea9ccc70e088ba7ac",
+      "notes/EFFECTIVE_MIXED_PREFIX_SCHEDULE_ATTACK.md": "a33e7a072057f1444afb9d00911465f599fec508d0a6488e655638947cc515ba",
+      "notes/FULL_SOURCE_COFRAME_RANK_THEOREM.md": "3f8b381d9e51e0fa0cf89928851e89dd163ec9982249af8050a90520c0389f81",
+      "notes/LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR.md": "c9f10ffb6b6ceeafe8ea63566d10c3af7eb6265c509c8d63e259bc407cc7f79a",
+      "notes/MIXED_PREFIX_COUPLED_SIGNED_AUDIT.md": "544ce5d2ba527ba9200a64860d977c7191107c88798963591ed960bfa81e527c",
+      "notes/ODD_FAVORABLE_LOCKED_SUBSEQUENCE.md": "90904571557ac15882989e6d0832458ffa3475f2075ab53b2f7db09e6fe00b28",
+      "notes/ODD_JUMP_FINITE_KRYLOV_ATTACK.md": "383ae4291cf5168f389c81d8f9a0fd6386c8adb952cdaa2368cf7e24f8283aa7",
+      "notes/ODD_KRYLOV_TRANSVERSE_CRITICAL_LOAD.md": "c5134b4fb80bf2fcb654a1b31a7422aa089973a664cda90707d30ce7e469ddcc",
+      "notes/ODD_POLE_HARMONIC_CHEBYSHEV_OBSTRUCTION.md": "703c19f9cbadd73e6b60672a6f836fc2bd0bf7d43eaa5f60ac5806dd1cdc0d18",
+      "notes/PRESCRIBED_RESIDUE_COFRAME_AUDIT.md": "5c5c50013431500cab6bdfbb359dd1d4bd76c76648b309093e44effde19ef307",
+      "requirements.txt": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "vendor/CCM-ZST-2511.22755v1.pdf": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "vendor/FKS-PNT-2204.02588v3.pdf": "15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4"
+    },
+    "external_source_hashes": {
+      "vendor/CCM-ZST-2511.22755v1.pdf": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "vendor/FKS-PNT-2204.02588v3.pdf": "15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4"
+    },
+    "path": "EFFECTIVE_MIXED_ENDPOINT_JUMP_SOURCE_LOCK.json",
+    "schema": "xi-prolate-effective-mixed-endpoint-jump-source-lock-v1",
+    "sha256": "24ea8f8085e9e198201006f54e0499495174053e38f6c26185cd2b2f60725fcc"
+  },
+  "terminal_state": "P0_INVALIDATED"
+}

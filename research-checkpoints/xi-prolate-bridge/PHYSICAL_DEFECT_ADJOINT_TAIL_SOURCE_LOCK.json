@@ -1,0 +1,178 @@
+{
+  "schema": "xi-prolate-physical-defect-adjoint-tail-source-lock-v1",
+  "claim_class": "PHYSICAL_DEFECT_ADJOINT_TAIL_REDUCTION",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-08",
+  "external_sources": [],
+  "dependencies": [
+    {
+      "path": "DIRECT_RH_ATTACK.md",
+      "sha256": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "role": "equation (5.2) target and direct-attack claim boundary"
+    },
+    {
+      "path": "FULL_SOURCE_COFRAME_RANK_SOURCE_LOCK.json",
+      "sha256": "155f1c0205788d689b8e819fc10e9313c2e947c7f851a5ee2f0b25bf3f091e5b",
+      "role": "full-source right inverse and normalized row-frame source lock"
+    },
+    {
+      "path": "MATCHED_BREAKPOINT_DIRECTIONAL_MOMENT_SOURCE_LOCK.json",
+      "sha256": "f60bf05e24d4503218ed34c05c5aa0236c1d331c472e068a2788882e2cafa750",
+      "role": "directional odd-moment and breakpoint source lock"
+    },
+    {
+      "path": "MATCHED_HIGH_MOMENT_COFRAME_SOURCE_LOCK.json",
+      "sha256": "83b5ad8e7a45bbe7f4d01ba27b1ec3aae2d3846917c4942b101cd1027e66aa1d",
+      "role": "source-whitened coframe and adjoint-tail source lock"
+    },
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "base Fourier, inversion, prime-sign, endpoint, and normalization lock"
+    },
+    {
+      "path": "PHYSICAL_LEVERAGE_SHORTED_SCHUR_SOURCE_LOCK.json",
+      "sha256": "61c9adb35ca643de78dfb71407272dc68ba086952ed7b89001bba490ab2fb097",
+      "role": "physical leverage and hard-positive-short source lock"
+    },
+    {
+      "path": "PHYSICAL_SOFT_SHORT_SIGNED_SCHUR_SOURCE_LOCK.json",
+      "sha256": "394674ae851c1973d6bcfa1f3d3104b5c85a6c572a2abb846cec53852b73cbd2",
+      "role": "complete signed soft-short and odd-pole source lock"
+    },
+    {
+      "path": "SOFT_DEFECT_PROLATE_ANGLE_SOURCE_LOCK.json",
+      "sha256": "e714bbc772881ac4e1c59446c492018d21852f8e9fe539c408a706892256d6e1",
+      "role": "cap-dependent leverage excess, central obstruction, and prolate-angle source lock"
+    },
+    {
+      "path": "notes/FULL_SOURCE_COFRAME_RANK_THEOREM.md",
+      "sha256": "3f8b381d9e51e0fa0cf89928851e89dd163ec9982249af8050a90520c0389f81",
+      "role": "full-source right-inverse theorem and coordinate-invariant frame identity"
+    },
+    {
+      "path": "notes/MATCHED_BREAKPOINT_DIRECTIONAL_MOMENT_AUDIT.md",
+      "sha256": "b3b90baffde24e6ee81303c6f0d07095a5499d38b956ae58b3309e01d8ee0858",
+      "role": "odd directional resolvent and Neumann-moment reduction"
+    },
+    {
+      "path": "notes/MATCHED_HIGH_MOMENT_COFRAME_REDUCTION.md",
+      "sha256": "b946c4cb13c17eee30dd2747863028d4264ba9f6dbc210662d0b68fecdec5ca2",
+      "role": "normalized adjoint-tail and source-Gram identities"
+    },
+    {
+      "path": "notes/PHYSICAL_DEFECT_ADJOINT_TAIL_REDUCTION.md",
+      "sha256": "d773afb7c38119d775f772ba91af02cf76372eaf3bfb89ccf461017fee2c8669",
+      "role": "cap-free defect, exact coframe-loss, and shifted odd-floor reduction"
+    },
+    {
+      "path": "notes/PHYSICAL_LEVERAGE_SHORTED_SCHUR.md",
+      "sha256": "39147b7fcd5c71304c6977272b72a3f07a789b7c4fb34d2e2ebf51e3b60589f3",
+      "role": "physical leverage identity and shorted-Schur limitation"
+    },
+    {
+      "path": "notes/PHYSICAL_SOFT_SHORT_SIGNED_SCHUR.md",
+      "sha256": "cf847b2f73d18244158ee0238714f677c74358068a658c637a40477b3e0a38ca",
+      "role": "signed soft-short and odd negative-pole factorization"
+    },
+    {
+      "path": "notes/SOFT_DEFECT_PROLATE_ANGLE_REDUCTION.md",
+      "sha256": "3bcccfda9d606c21fc61efb9c2fbc3dd95926a82586e3c156fc965c32748777b",
+      "role": "preceding leverage-excess, central-band, odd-cap, and prolate-angle reduction"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "role": "pinned arbitrary-precision interval runtime"
+    }
+  ],
+  "locked_conventions": {
+    "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension; the zero-Lebesgue-integral source correction and actual source Gram C^*C are retained",
+    "physical_interval": "I_lambda=[-log(lambda),log(lambda)] with Lebesgue measure in logarithmic coordinates, equivalently du/u on [lambda^(-1),lambda]",
+    "fourier_sign": "fhat(t)=integral f(x)*exp(-i*t*x)dx with Plancherel measure dt/(2*pi)",
+    "inversion": "J is reflection in logarithmic coordinates; Fourier residue classes are not substituted for inversion parity",
+    "prime_endpoint": "every prime power n<=lambda^2 is retained; the cutoff is inclusive and is not confused with lambda",
+    "prime_sign": "m_lambda=2*theta_prime-2*sum_(n<=lambda^2) Lambda(n)/sqrt(n)*cos(t*log(n))",
+    "pole_signs": "the inversion-even pole is +2|p_plus><p_plus| and the inversion-odd pole is -2|p_minus><p_minus|",
+    "source_gram": "every source synthesis C uses C^*C; it is never replaced by the identity unless orthonormality is proved",
+    "strictness": "equality at a target floor, rank-one load one, exact coframe-loss norm one, zero determinant, or nonpositive reserve is rejected",
+    "input_text": "lambda numerator and decimal precision are canonical positive integer text; binary64 inputs and JSON numbers are rejected",
+    "input_limits": "the finite oracle admits 3<=lambda_numerator<=999999 and 50<=dps<=1000, with length and range checked before integer conversion or interval initialization",
+    "runtime_version": "the interval runtime must report mpmath==1.4.1 exactly; a mismatch is rejected before any interval probe",
+    "artifact_scope": "exact finite-dimensional reductions and outward interval probes, not a physical prolate-Weil matrix, growing-schedule estimate, signed sector floor, or asymptotic theorem",
+    "arithmetic": "finite fixtures use exact reduced rationals; logarithms and derived formula probes use outward mpmath.iv intervals; binary64 JSON numbers are forbidden"
+  },
+  "locked_formulas": {
+    "cap_cancellation": "for L>0 and 0<=nu<=c, (((c*L-w)_+)-(c-nu)*L)_+=(nu*L-w)_+ pointwise",
+    "cap_free_even_floor": "E_H(nu)=integral (nu*L-w)_+*kappa_H*dnu and P_H*(Q_plus-U*I)*P_H>=(nu*L-E_H(nu))*I; E_H(nu)<(nu-mu)*L gives a strict mu*L floor",
+    "weighted_capture": "for D_nu=T_((nu*L-w)_+), E_H=trace(P_H*D_nu*P_H)=||P_H*sqrt(D_nu)||_HS^2=inf_Y||(I-W*Y)*sqrt(D_nu)||_HS^2",
+    "source_tail_competitor": "if T @ B_X=I, F=ran(C), and W=T @ C, then E_H<=||T @ (I-P_F) @ B_X @ sqrt(D_nu)||_HS^2",
+    "central_trace_necessity": "if d_nu>=(A_lambda_nu_delta)*1_(|t|<=delta/L) with A_lambda_nu_delta>0, then E_H>=A_lambda_nu_delta*trace(P_H*T_1band*P_H), forcing trace<(nu-mu)*L/A_lambda_nu_delta",
+    "exact_coframe_loss": "with e=(I-P_E)1, s=||P_E*1||^2, F=E intersect 1^perp, and A=(I-P_E)Z^*, Z @ Z^*=I, Z^*X subset 1^perp: Z @ (I-P_F) @ Z^*=A^*A+(A^*e)(A^*e)^*/s",
+    "coframe_scalar_sufficient": "rho=||A||^2 and beta_E=||A^*e||^2/s; rho+beta_E<1 is sufficient and no stronger than Theta=(2*lambda/s)*rho<1",
+    "full_source_tail_reduction": "epsilon_E=||(I-P_E)T^*|| gives Theta<=4*lambda^3*M_mu(lambda)^2*epsilon_E^2/s<=16*lambda^5*epsilon_E^2/s",
+    "shifted_odd_floor": "for c>a>beta>=0, 0<=R<=(c-a)*L*I, q=(c-beta)*L, h=(a-beta)*L, M_beta=q*I-R: c*L*I-R-2|p><p|>beta*L*I iff 2<p,M_beta^(-1)p><1",
+    "shifted_chord": "with mu0=||p||^2, rho1=<p,Rp>, chi_beta=<p,((c-a)*L*I-R)*R*(q*I-R)^(-1)p>, the load is 2*(h*mu0+rho1-chi_beta)/(h*q)",
+    "moment_hierarchy": "U_k=2*(sum_(j=0)^(k-1) rho_j/q^(j+1)+rho_k/(h*q^k)) decreases non-strictly to the shifted odd load with the explicit positive remainder",
+    "load_one_boundary": "2*<p,M_beta^(-1)p>=1 is singular and never passes the strict shifted odd floor; the required odd pole is subtracted, never added",
+    "aligned_positive_excess": "for A_plus>=0, S=M_beta^(-1/2)*A_plus*M_beta^(-1/2), z=M_beta^(-1/2)*p, the compensated load is 2||z||^2-2<z,S*(I+S)^(-1)z>",
+    "shifted_one_direction": "for e_p=p/||p|| and M_beta_actual=M-beta*L*I, strict floor is equivalent to C_beta>0 and alpha_beta-2||p||^2-<b,C_beta^(-1)b>>0",
+    "shifted_transverse_block": "every block in the one-direction Schur complement is formed from M-beta*L*I; retaining an unshifted transverse block is rejected"
+  },
+  "claim_boundary": {
+    "proved": [
+      "the exact cancellation of the auxiliary even cap from the leverage-excess symbol",
+      "the exact weighted Hilbert-Schmidt distance and full-source competitor identities",
+      "the necessary central-band trace-capture scale conditional on the pinned central lower bound",
+      "the exact rank-one correction to normalized coframe loss and its sharper scalar sufficient condition",
+      "the floor-shifted odd rank-one, chord-correction, moment-hierarchy, aligned-excess, and one-direction Schur identities",
+      "exact rational regression oracles and outward interval formula probes independently reconstructed at 80 and 160 decimal digits"
+    ],
+    "not_proved": [
+      "the cap-free physical weighted-capture estimate on an unbounded common schedule",
+      "the required O(log(lambda)/lambda) central-band trace capture",
+      "a normalized prolate adjoint-tail or exact coframe-loss bound below one",
+      "a strict shifted odd directional reserve for the actual physical multiplier and pole",
+      "a positive complete signed floor in either inversion sector",
+      "equation (5.2) of DIRECT_RH_ATTACK.md",
+      "locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ]
+  },
+  "source_admissions": {
+    "absolute_prime_values_substituted_for_signed_sum": false,
+    "api_key_read": false,
+    "binary64_parameters_used": false,
+    "cached_physical_matrix_read": false,
+    "cached_prolate_eigenvectors_read": false,
+    "cached_weil_matrix_read": false,
+    "central_trace_estimate_claimed": false,
+    "determinant_limit_claimed": false,
+    "environment_secret_read": false,
+    "equation_5_2_claimed": false,
+    "equality_boundary_reported_as_pass": false,
+    "exact_coframe_claimed": false,
+    "global_weil_positivity_assumed": false,
+    "inversion_reflection_dropped": false,
+    "input_cap_bypassed": false,
+    "lambda_squared_mixed_with_lambda": false,
+    "nonpositive_floor_reported_as_pass": false,
+    "odd_chord_correction_omitted": false,
+    "odd_negative_pole_omitted": false,
+    "physical_weighted_capture_claimed": false,
+    "prime_block_sign_changed": false,
+    "prime_power_endpoint_omitted": false,
+    "positive_odd_pole_substituted": false,
+    "real_axis_eigenvalue_agreement_substituted_for_determinant_convergence": false,
+    "rh_proved": false,
+    "runtime_version_mismatch_accepted": false,
+    "secret_serialized": false,
+    "signed_sector_floor_claimed": false,
+    "source_gram_replaced_by_identity": false,
+    "unit_source_normalization_substituted": false,
+    "unshifted_transverse_block_substituted": false,
+    "weighted_one_state_promoted_to_trace": false,
+    "zeros_assumed_real": false,
+    "zeta_zero_table_read": false
+  }
+}

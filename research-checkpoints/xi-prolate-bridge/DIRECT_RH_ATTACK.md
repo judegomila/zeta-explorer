@@ -700,6 +700,36 @@ but proves neither sector floor, a shifted Schur sign, nor the required
 residual action.
 Finite pilot values of `tau`, even when independently replayed at doubled
 precision, establish none of these uniform assertions.
+
+There is now a finite Ritz-moment repair of the residual-ridge comparison.
+Let `u<=U<=q`, put `d=q-U`, `B=A-UI>0`, and retain the mandatory two-vector
+Ritz condition.  If `z=(A-mu I)^(-1)b` is the coefficient-normalized ground
+correction, `notes/RITZ_MOMENT_SELF_REGULARIZED_TRANSFER.md` proves
+
+\[
+ \boxed{
+ zz^*\preceq A_{\rm R}(d/r)\,r(B+rI)^{-1},}         \tag{6.0r}
+\]
+
+where
+
+\[
+ A_{\rm R}(x)=
+ \begin{cases}
+  1+x+\tfrac12x(1+x)^2,&0\leq x\leq1,\\
+  1+x+2x^2,&x\geq1.
+ \end{cases}                                       \tag{6.0s}
+\]
+
+Thus the lower Ritz shift does not require discarding `d=q-U`, and the
+positive residual-ridged determinant response is a valid localized ground
+observable after the factor `A_R` is retained.  Taking the observation to be
+the identity gives a sufficient full-`L2` condition for (5.2); taking a
+fixed time band gives only the weaker transform-observable route.  No
+current source estimate proves the required `A_R`-weighted response decay
+on an unbounded schedule.  In particular, (6.0r) repairs a finite transfer
+gap but does not prove (5.2).
+
 The finite left-preconditioned and Schur-complement criteria in
 `notes/PRECONDITIONED_RESOLVENT_PROGRAM.md` give one noncircular sufficient
 route: compare both shifted parity blocks with explicit positive prolate

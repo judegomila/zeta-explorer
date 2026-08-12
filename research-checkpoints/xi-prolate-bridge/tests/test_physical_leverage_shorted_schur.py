@@ -290,6 +290,8 @@ class PhysicalLeverageShortedSchurTests(unittest.TestCase):
                 self._reject(payload, "certificate reconstruction")
 
         convention_mutations = {
+            "source_interval": "[-log(lambda),log(lambda)] with Lebesgue measure and zero extension",
+            "physical_interval": "[-lambda,lambda] with Lebesgue measure and zero extension",
             "fourier_sign": "fhat(t)=integral f(y)*exp(+i*t*y) dy",
             "prime_endpoint": "prime powers n<lambda^2 only",
             "inversion": "reflection dropped",

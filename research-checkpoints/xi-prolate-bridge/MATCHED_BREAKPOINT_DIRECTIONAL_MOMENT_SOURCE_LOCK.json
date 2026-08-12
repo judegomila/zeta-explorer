@@ -1,0 +1,143 @@
+{
+  "schema": "xi-prolate-matched-breakpoint-directional-moment-source-lock-v1",
+  "claim_class": "MATCHED_BREAKPOINT_DIRECTIONAL_MOMENT_AUDIT",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-08",
+  "external_sources": [],
+  "dependencies": [
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "base source, normalization, Fourier, and prime-sign lock"
+    },
+    {
+      "path": "DIRECT_RH_ATTACK.md",
+      "sha256": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "role": "equation (5.2) target and direct-attack claim boundary"
+    },
+    {
+      "path": "MATCHED_HIGH_MOMENT_COFRAME_SOURCE_LOCK.json",
+      "sha256": "83b5ad8e7a45bbe7f4d01ba27b1ec3aae2d3846917c4942b101cd1027e66aa1d",
+      "role": "matched coframe and complete-sign moment source lock"
+    },
+    {
+      "path": "notes/MATCHED_HIGH_MOMENT_COFRAME_REDUCTION.md",
+      "sha256": "b946c4cb13c17eee30dd2747863028d4264ba9f6dbc210662d0b68fecdec5ca2",
+      "role": "source-Gram coframe identities and complete signed moment reconstruction"
+    },
+    {
+      "path": "FULL_SOURCE_COFRAME_RANK_SOURCE_LOCK.json",
+      "sha256": "155f1c0205788d689b8e819fc10e9313c2e947c7f851a5ee2f0b25bf3f091e5b",
+      "role": "full-source arithmetic right-inverse source lock"
+    },
+    {
+      "path": "notes/FULL_SOURCE_COFRAME_RANK_THEOREM.md",
+      "sha256": "3f8b381d9e51e0fa0cf89928851e89dd163ec9982249af8050a90520c0389f81",
+      "role": "full-source floor and finite-inventory limitation"
+    },
+    {
+      "path": "PHYSICAL_SOFT_SHORT_SIGNED_SCHUR_SOURCE_LOCK.json",
+      "sha256": "394674ae851c1973d6bcfa1f3d3104b5c85a6c572a2abb846cec53852b73cbd2",
+      "role": "signed physical high-compression and pole source lock"
+    },
+    {
+      "path": "notes/PHYSICAL_SOFT_SHORT_SIGNED_SCHUR.md",
+      "sha256": "cf847b2f73d18244158ee0238714f677c74358068a658c637a40477b3e0a38ca",
+      "role": "complete signed high operator and strict pole-axis obligations"
+    },
+    {
+      "path": "notes/GROWING_WINDOW_THEOREM.md",
+      "sha256": "dad6b0a878b7eba21cbc7aa8049cf3bf89a38df766cc157a87c416e79a721ac7",
+      "role": "source-normalized parity-separated prolate columns and source Grams"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "role": "pinned arbitrary-precision arithmetic runtime"
+    },
+    {
+      "path": "notes/MATCHED_BREAKPOINT_DIRECTIONAL_MOMENT_AUDIT.md",
+      "sha256": "b3b90baffde24e6ee81303c6f0d07095a5499d38b956ae58b3309e01d8ee0858",
+      "role": "sharp moment-width, directional Neumann, pole-projection, and breakpoint audit"
+    }
+  ],
+  "locked_conventions": {
+    "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension; every prolate source retains its zero-Lebesgue-integral source normalization and full source Gram",
+    "physical_interval": "I_lambda=[-log(lambda),log(lambda)] with Lebesgue measure in logarithmic coordinates, equivalently du/u on [lambda^(-1),lambda]",
+    "fourier_sign": "fhat(t)=integral f(x)*exp(-i*t*x)dx with Plancherel measure dt/(2*pi)",
+    "centered_modes": "phi_n(x)=(-1)^n*L^(-1/2)*exp(i*omega_n*x), omega_n=2*pi*n/L, L=2*log(lambda)",
+    "matched_schedule": "lambda=p/2 for odd p>=5 and N=ceil(lambda^2)=(p^2+3)/4; floor(lambda^2)=N-1",
+    "prime_endpoint": "every prime power n<=lambda^2 is retained; this cutoff is distinct from the arithmetic index a<=floor(lambda^2)",
+    "prime_sign": "m_lambda=2*theta_prime-2*sum_(n<=lambda^2) Lambda(n)/sqrt(n)*cos(t*log(n))",
+    "inversion": "J is reflection in logarithmic coordinates; Fourier residue classes are not substituted for inversion parity",
+    "pole_signs": "p_plus(x)=cosh(x/2) is positive rank one and p_minus(x)=sinh(x/2) is negative rank one in the complete signed high operator",
+    "strictness": "equality at a target floor, rank-one load one, zero determinant, or nonpositive reserve is rejected",
+    "artifact_scope": "exact finite-dimensional regressions and outward source-formula intervals, not a physical prolate-Weil matrix, matched coframe, or asymptotic theorem",
+    "arithmetic": "finite fixtures use exact reduced rationals; logarithms, pi, square roots, pole projections, and breakpoint determinants use outward mpmath.iv intervals; binary64 JSON numbers are forbidden"
+  },
+  "locked_formulas": {
+    "moment_floor": "if A<=M*I and trace((M*I-A)^r)<=d*(M-nu*L)^r then lambda_min(A)>=M-d^(1/r)*(M-nu*L)",
+    "moment_threshold": "a strict floor mu*L requires r>log(d)/log((M-mu*L)/(M-nu*L)); equality is rejected",
+    "positive_pole_centered": "for A_plus=alpha*L*I+P*|u><u| the sharp centered-moment bound equals alpha*L-P*(d-2)/d at every order",
+    "positive_pole_coefficient": "<phi_n,p_plus>=sinh(ell/2)/(sqrt(L)*(omega_n^2+1/4))",
+    "positive_pole_projection": "norm(P_N*p_plus)^2=sinh(ell/2)^2/L*(16+2*sum_(n=1)^N(omega_n^2+1/4)^(-2))",
+    "positive_pole_lower": "norm(P_N*p_plus)^2>=sinh(ell)+ell-L^3*sinh(ell/2)^2/(24*pi^4*N^3)",
+    "odd_rank_one": "M-2*|p><p|>0 iff 2*<p,M^(-1)*p><1; load<=1-delta implies M-2*|p><p|>=delta*M",
+    "neumann_identity": "for R=I-M/(c*L), M^(-1)=(c*L)^(-1)*sum_(j=0)^(s-1)R^j+R^s*M^(-1)",
+    "directional_bound": "2*<p,M^(-1)*p><=(2/(c*L))*sum_(j=0)^(s-1)<p,R^j*p>+(2*norm(p)^2/(a*L))*(1-a/c)^s",
+    "arithmetic_row": "K_n(y)=(-1)^n*L^(-1/2)*y^(-1/2-i*omega_n)*sum_(a<=lambda*y)a^(-1/2+i*omega_n)",
+    "breakpoint_jump": "[K_n^(r)]_(m/lambda)=sqrt(lambda/L)*(-lambda)^r*m^(-r-1)*(1/2+i*omega_n)_r",
+    "parity_projection": "h_j=(I-P_(N,s))*q_j retains every interior jump of q_j and obeys P_(N,s)*h_j=0 by idempotence"
+  },
+  "claim_boundary": {
+    "proved": [
+      "the sharp strict one-sided moment-order conversion and exact boundary/below-boundary regression models",
+      "the exact positive-pole centered-moment obstruction at every tested order",
+      "the exact odd rank-one criterion and a rational finite Neumann/directional-moment regression",
+      "the exact matched positive-pole Fourier projection formula and outward lower interval",
+      "the exact centered arithmetic-row derivative-jump formula and small nonzero parity confluent determinants",
+      "the parity-projection idempotence countermodel at the finite algebra level"
+    ],
+    "not_proved": [
+      "an O(L) physical spectral-width bound for either matched high multiplier",
+      "the physical source trace inequality at logarithmically growing order",
+      "the strict physical directional reserve for the odd rank-one criterion",
+      "a nonzero normalized physical prolate minor or matched coframe floor",
+      "a positive complete signed floor in either inversion sector",
+      "equation (5.2) of DIRECT_RH_ATTACK.md",
+      "locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ]
+  },
+  "source_admissions": {
+    "absolute_prime_values_substituted_for_signed_sum": false,
+    "api_key_read": false,
+    "binary64_parameters_used": false,
+    "cached_physical_matrix_read": false,
+    "cached_prolate_eigenvectors_read": false,
+    "cached_weil_matrix_read": false,
+    "determinant_limit_claimed": false,
+    "environment_secret_read": false,
+    "equation_5_2_claimed": false,
+    "finite_breakpoint_fixture_promoted_to_matched_coframe": false,
+    "finite_fourier_residue_declared_inversion_parity": false,
+    "global_weil_positivity_assumed": false,
+    "inversion_reflection_dropped": false,
+    "lambda_squared_mixed_with_lambda": false,
+    "moment_conversion_promoted_to_physical_source_estimate": false,
+    "nonpositive_floor_reported_as_pass": false,
+    "odd_negative_pole_omitted": false,
+    "physical_coframe_claimed": false,
+    "positive_pole_centered_obstruction_ignored": false,
+    "prime_block_sign_changed": false,
+    "prime_power_endpoint_omitted": false,
+    "real_axis_eigenvalue_agreement_substituted_for_determinant_convergence": false,
+    "rh_proved": false,
+    "secret_serialized": false,
+    "signed_sector_floor_claimed": false,
+    "source_gram_replaced_by_identity": false,
+    "unit_source_normalization_substituted": false,
+    "zeros_assumed_real": false,
+    "zeta_zero_table_read": false
+  }
+}

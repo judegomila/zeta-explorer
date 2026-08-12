@@ -7351,6 +7351,53 @@ canonical/raw discovery is `408/4511` and `413/4569`; frontier/replay is
 
 Checkpoint 1.75 proves the exact individual even/odd beta-carrier split and shows that the surviving same-tail zero sum is bounded at the lambda^(-1) carrier scale on either the continuous family or the complete all-odd natural halfgrid iff RH. This is an RH-equivalence barrier, not a proof that the bound holds. The identities are spectral carrier identities only. It does not prove the paritywise ordered physical finite-part identification, an individual physical odd self bound, live-shift control, the kappa log^2(lambda) reserve, bridge-energy relative smallness, bottom-projector capture, Pair-C closure, parity order, determinant convergence, any new zero theorem, RH, or a de Bruijn--Newman bound. The formal state remains P0_INVALIDATED.
 
+## Checkpoint 1.76 compact-side odd carrier obligations
+
+Checkpoint 1.76 closes these exact compact-side obligations:
+
+1. symmetric normalized Fejer means converge to the compact physical odd row
+   in the logarithmic form norm and give its absolutely convergent paired-zero
+   representation;
+2. orbitwise realification supplies the correct factor `1/2`, a positive
+   two-slot sequence norm, and ordinary sequence-space Cauchy--Schwarz;
+3. corrected-radical polarization identifies the compact physical odd self
+   with the signed spectral pairing without asserting equality of the
+   physical and beta rows before zero evaluation;
+4. the raw modal row, its endpoint-null shear, and all modal--carrier cross
+   terms are `o(lambda_p^(-1))` on the complete all-odd natural halfgrid; and
+5. consequently
+
+   \[
+    q^{\rm phys}_{\lambda_p,-}
+    ={\mathfrak b}_{\lambda_p,-}+o(\lambda_p^{-1}),
+    \qquad
+    q^{\rm phys}_{\lambda_p,-}=O(\lambda_p^{-1})
+    \Longleftrightarrow {\rm RH}.
+   \]
+
+The last line is an equivalence on every sufficiently large odd halfgrid
+point, not an unconditional estimate.  The following obligations remain
+open:
+
+1. extend the modal sampling transfer to every sufficiently large real
+   `lambda`, if a continuous physical equivalence is sought;
+2. prove the literal ordered noncompact physical finite-part identity, whose
+   gauge-null quotient condition is not supplied by zero evaluation;
+3. prove any unconditional individual physical odd self bound;
+4. control the live shift and the quantitative
+   `kappa*log^2(lambda)` reserve needed for the shifted energy; and
+5. obtain bridge overlap, bottom capture, Pair-C closure, any needed parity
+   order, determinant convergence, and every unconditional zero consequence.
+
+The focused module passes `14/14`; the exact seven-module deduplicated
+target/direct-dependency closure passes `80/80` under
+`PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3 -B`.  Projected
+canonical/raw discovery is `409/4525` and `414/4583`; frontier/replay is
+`267/3003` and `279/3131`; support remains `12/128` and exclusions remain
+`5/58`.  Expanded suites were not rerun.
+
+Checkpoint 1.76 proves on the complete all-odd natural halfgrid that the compact physical odd self equals the checkpoint-1.75 odd beta carrier plus o(lambda^(-1)), using compact-BV Fejer passage, orbit-realified paired-slot normalization, corrected-radical polarization, and positive absolute modal/cross sampling. Consequently the physical odd O(lambda^(-1)) bound on that complete halfgrid is equivalent to RH; this is not an unconditional bound and no continuous physical transfer is proved. It does not prove the literal noncompact ordered physical finite-part identity, live-shift control, the kappa log^2(lambda) reserve, shifted-energy smallness, bridge overlap, bottom-projector capture, Pair-C closure, parity order, determinant convergence, any new zero theorem, RH, or a de Bruijn--Newman bound. The formal state remains P0_INVALIDATED.
+
 ## Computation policy
 
 High-precision numerics may identify the scale of the residual and gap.

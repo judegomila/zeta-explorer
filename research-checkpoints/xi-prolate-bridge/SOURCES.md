@@ -7482,3 +7482,55 @@ canonical/raw discovery is `409/4525` and `414/4583`; frontier/replay is
 `5/58`.  Expanded suites were not rerun.
 
 Checkpoint 1.76 proves on the complete all-odd natural halfgrid that the compact physical odd self equals the checkpoint-1.75 odd beta carrier plus o(lambda^(-1)), using compact-BV Fejer passage, orbit-realified paired-slot normalization, corrected-radical polarization, and positive absolute modal/cross sampling. Consequently the physical odd O(lambda^(-1)) bound on that complete halfgrid is equivalent to RH; this is not an unconditional bound and no continuous physical transfer is proved. It does not prove the literal noncompact ordered physical finite-part identity, live-shift control, the kappa log^2(lambda) reserve, shifted-energy smallness, bridge overlap, bottom-projector capture, Pair-C closure, parity order, determinant convergence, any new zero theorem, RH, or a de Bruijn--Newman bound. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.77 continuous compact-side odd carrier source disclosure
+
+Checkpoint 1.77 admits exactly this frozen theorem/barrier pair:
+
+| Target | SHA-256 |
+|---|---|
+| `notes/ACTUAL_MIXED_BRIDGE_CONTINUOUS_COMPACT_SIDE_ODD_CARRIER_TRANSFER_THEOREM.md` | `d60381270462b8148a94269cc62c43b6c65178e89243588c8dcf37047534f3de` |
+| `tests/test_actual_mixed_bridge_continuous_compact_side_odd_carrier_transfer_theorem.py` | `f26d9ca46dbafba81ccf8893a2c235a8fd75a81fef0387abfc11f7f58bdc7afa` |
+
+Its exact direct dependencies are:
+
+| Dependency | SHA-256 |
+|---|---|
+| `notes/ACTUAL_MIXED_BRIDGE_COMPACT_SIDE_ODD_CARRIER_TRANSFER_THEOREM.md` | `3320efd69a729f9709419bc539e765f94c73af20d2136f14068ee4da069c37c1` |
+| `tests/test_actual_mixed_bridge_compact_side_odd_carrier_transfer_theorem.py` | `d3b0f08b9aefb7377b80cdefb5e76a35d07e004a56f90d2acc1580bf1c8199a3` |
+| `notes/TRANSITION_PROLATE_OUTER_THEOREM.md` | `215f27adc0453f601ced419bd39910cb821c31b2e77678b63874987510f4f9c6` |
+| `tests/test_transition_prolate_outer.py` | `bc03f010254e0b56c800b1fc4dfb38cd7ea17a0ebc1133064f751d6eab08b433` |
+| `notes/GROWING_TRANSITION_SAMPLING_THEOREM.md` | `551e58d07510d531c8ee5cfe4c81a33ac3443f62760627196599e2bfac231e72` |
+| `tests/test_growing_transition_sampling.py` | `ba9ee58e36bc79a602d70a791010a93eb75a5613b0509a0cdc7b11b810a403ac` |
+| `notes/GROWING_MIXED_BRIDGE_GAUGE_POLE_DOMAIN_BARRIER.md` | `335e8973a51fdc998398620c6d30ba51eaa2ee45fb3444e838aa1e34ef33c1cb` |
+| `tests/test_growing_mixed_bridge_gauge_pole_domain_barrier.py` | `0ef8d77b05498533c8c58428a99beb9c1a13cc9699b2b5abb9c05b63de9f80bc` |
+| `notes/COMPACT_ABSOLUTE_SAMPLING_THEOREM.md` | `2feb3d62a71e435706c4b330d13bcb096015e52204af6ec9bd2828308d44383d` |
+| `tests/test_compact_absolute_sampling.py` | `883c0e4edd8b6573bcf11740031a6a0ea93340d45e36ac1057e3793b729bc605` |
+
+The declared `FROZEN` set has exactly 10 unique paths, five complete
+note/test pairs.  Adding the two target paths gives 12 unique repository
+paths, six complete note/test pairs.  Every dependency and target hash was
+rechecked.
+
+The pair is an internal derivation using already-frozen local inputs.  All
+external, vendored, and source-lock provenance is inherited transitively
+through frozen internal dependencies; no vendor byte or source-lock JSON is
+a direct checkpoint-1.77 dependency.  No new external paper, source-lock
+JSON, vendored source, artifact, zero table, numerical ground, numerical
+ordinate, cached matrix, source sample, serialized numerical artifact, or
+external computation is admitted.
+
+The same four immutable rejected or superseded raw modules contribute 48
+tests, and the checkpoint-1.18 WKB draft contributes 10 tests.  None is a
+checkpoint-1.77 dependency, no new exclusion is added, and exactly the
+actual mixed-bridge continuous compact-side odd carrier transfer pair is
+newly admitted.  No later overlay is admitted.
+
+The focused module passes `14/14`, and the exact six-module deduplicated
+target/direct-dependency closure passes `69/69` under
+`PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3 -B`.  Projected
+canonical/raw discovery is `410/4539` and `415/4597`; frontier/replay is
+`268/3017` and `280/3145`; support remains `12/128` and exclusions remain
+`5/58`.  Expanded suites were not rerun.
+
+Checkpoint 1.77 proves for every sufficiently large real lambda that the compact physical odd self equals the checkpoint-1.75 odd beta carrier plus o(lambda^(-N)) for every fixed N, by deriving all-real fixed-label modal sampling for n in {0,2,6} without the growing corrected-combination, KRD, or compact-projection steps and then using the checkpoint-1.76 gauge equality only after zero evaluation. Consequently the continuous compact physical odd O(lambda^(-1)) condition is equivalent to RH; this is not an unconditional bound. It does not prove the literal noncompact ordered physical finite-part identity, shifted-energy control, live-shift control, the kappa log^2(lambda) reserve, bridge overlap, bottom-projector capture, Pair-C closure, parity order, determinant convergence, any new zero theorem, RH, or a de Bruijn--Newman bound. The formal state remains P0_INVALIDATED.

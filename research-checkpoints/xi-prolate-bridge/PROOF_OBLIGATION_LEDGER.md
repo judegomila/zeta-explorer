@@ -7398,6 +7398,52 @@ canonical/raw discovery is `409/4525` and `414/4583`; frontier/replay is
 
 Checkpoint 1.76 proves on the complete all-odd natural halfgrid that the compact physical odd self equals the checkpoint-1.75 odd beta carrier plus o(lambda^(-1)), using compact-BV Fejer passage, orbit-realified paired-slot normalization, corrected-radical polarization, and positive absolute modal/cross sampling. Consequently the physical odd O(lambda^(-1)) bound on that complete halfgrid is equivalent to RH; this is not an unconditional bound and no continuous physical transfer is proved. It does not prove the literal noncompact ordered physical finite-part identity, live-shift control, the kappa log^2(lambda) reserve, shifted-energy smallness, bridge overlap, bottom-projector capture, Pair-C closure, parity order, determinant convergence, any new zero theorem, RH, or a de Bruijn--Newman bound. The formal state remains P0_INVALIDATED.
 
+## Checkpoint 1.77 continuous compact-side odd carrier obligations
+
+Checkpoint 1.77 closes these exact obligations:
+
+1. for every real `lambda>=2`, the fixed labels `0`, `2`, and `6` satisfy
+   `0<=mu_n(c)<3c^2` directly by min--max, without KRD;
+2. the transition endpoint, complete outer, weighted-norm, and translation
+   estimates therefore hold for those pure modal rows on the full real
+   family;
+3. the dyadic positive zero sampler applies separately to each pure modal
+   row, and sequence-space Minkowski/Cauchy combines the mixed residue
+   classes while retaining all sampling cross terms;
+4. the raw bridge and endpoint shear have positive sampling norm bounded by
+   a fixed polynomial times `sqrt(d_2)` for every sufficiently large real
+   parameter; and
+5. the checkpoint-1.76 compact-side identity consequently gives
+
+   \[
+    q^{\rm phys}_{\lambda,-}
+    ={\mathfrak b}_{\lambda,-}+o(\lambda^{-N})
+    \quad\text{for every fixed }N>0,
+   \]
+
+   and the continuous compact physical odd `O(lambda^(-1))` condition is
+   equivalent to RH.
+
+The corrected-combination `q<=3` theorem is not applied to the mixed-residue
+bridge.  No all-real KRD window or compact projection is asserted.  The
+following obligations remain open:
+
+1. prove an unconditional compact physical odd `O(lambda^(-1))` bound;
+2. identify the literal ordered noncompact physical finite part;
+3. prove shifted-energy control and the live-shift lower bound;
+4. prove the quantitative `kappa*log^2(lambda)` reserve; and
+5. obtain bridge overlap, bottom capture, Pair-C closure, any needed parity
+   order, determinant convergence, and every unconditional zero consequence.
+
+The focused module passes `14/14`; the exact six-module deduplicated
+target/direct-dependency closure passes `69/69` under
+`PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3 -B`.  Projected
+canonical/raw discovery is `410/4539` and `415/4597`; frontier/replay is
+`268/3017` and `280/3145`; support remains `12/128` and exclusions remain
+`5/58`.  Expanded suites were not rerun.
+
+Checkpoint 1.77 proves for every sufficiently large real lambda that the compact physical odd self equals the checkpoint-1.75 odd beta carrier plus o(lambda^(-N)) for every fixed N, by deriving all-real fixed-label modal sampling for n in {0,2,6} without the growing corrected-combination, KRD, or compact-projection steps and then using the checkpoint-1.76 gauge equality only after zero evaluation. Consequently the continuous compact physical odd O(lambda^(-1)) condition is equivalent to RH; this is not an unconditional bound. It does not prove the literal noncompact ordered physical finite-part identity, shifted-energy control, live-shift control, the kappa log^2(lambda) reserve, bridge overlap, bottom-projector capture, Pair-C closure, parity order, determinant convergence, any new zero theorem, RH, or a de Bruijn--Newman bound. The formal state remains P0_INVALIDATED.
+
 ## Computation policy
 
 High-precision numerics may identify the scale of the residual and gap.

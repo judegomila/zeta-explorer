@@ -7444,6 +7444,62 @@ canonical/raw discovery is `410/4539` and `415/4597`; frontier/replay is
 
 Checkpoint 1.77 proves for every sufficiently large real lambda that the compact physical odd self equals the checkpoint-1.75 odd beta carrier plus o(lambda^(-N)) for every fixed N, by deriving all-real fixed-label modal sampling for n in {0,2,6} without the growing corrected-combination, KRD, or compact-projection steps and then using the checkpoint-1.76 gauge equality only after zero evaluation. Consequently the continuous compact physical odd O(lambda^(-1)) condition is equivalent to RH; this is not an unconditional bound. It does not prove the literal noncompact ordered physical finite-part identity, shifted-energy control, live-shift control, the kappa log^2(lambda) reserve, bridge overlap, bottom-projector capture, Pair-C closure, parity order, determinant convergence, any new zero theorem, RH, or a de Bruijn--Newman bound. The formal state remains P0_INVALIDATED.
 
+## Checkpoint 1.78 odd energy capture obligations
+
+Checkpoint 1.78 closes these exact algebraic and conditional obligations:
+
+1. the odd spectral-gap floor and pole-row Schur floor combine into the
+   exact maximum
+
+   \[
+    |\langle g,w_\lambda\rangle|^2
+    \geq\max\left\{
+    \left[n_\lambda-{E_\lambda\over\kappa}\right]_+,
+    \left[x_\lambda-{1\over2}
+          \sqrt{{E_\lambda\over\kappa}}\right]_+^2
+    \right\};
+   \]
+
+2. the weighted bottom-projector splice is valid for the raw bridge with
+   `d_b`, or for the Schur innovation with `s_b`, but never after mixing
+   those source coordinates or defect metrics;
+3. a fixed two-dimensional odd compact common core supplies a finite,
+   `lambda`-independent constant `C_V` with
+   `kappa_lambda<=C_V-mu_-(lambda)`;
+4. consequently, on the full family or any cofinal schedule,
+
+   \[
+    {E_\lambda\over\kappa_\lambda}\longrightarrow0
+    \quad\Longrightarrow\quad
+    \mu_-(\lambda)\longrightarrow0
+    \quad\Longrightarrow\quad {\rm RH};
+   \]
+
+5. each one-sided physical odd self `O(lambda^(-1))` condition and each
+   sectoral/global lower-shift or shifted-energy absolute condition is
+   identified as an RH-equivalence barrier.
+
+The following obligations remain open:
+
+1. prove the actual premise `E_lambda/kappa_lambda->0` or any usable lower
+   bound for `kappa_lambda`;
+2. prove the matching residual limit `C_M^2*d_b->0`;
+3. identify the odd ground with the complete bottom when the standalone
+   weighted splice is used;
+4. prove either one-sided physical-self bound or any sectoral/global
+   lower-shift or shifted-energy absolute estimate; and
+5. identify the literal ordered noncompact physical finite part and obtain
+   every unconditional zero consequence.
+
+The focused module passes `15/15`; the exact five-module deduplicated
+target/direct-dependency closure passes `60/60` under
+`PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3 -B`.  Projected
+canonical/raw discovery is `411/4554` and `416/4612`; frontier/replay is
+`269/3032` and `281/3160`; support remains `12/128` and exclusions remain
+`5/58`.  Expanded suites were not rerun.
+
+Checkpoint 1.78 proves an exact max overlap floor, the legal matching-metric raw/innovation weighted splice, and the common-core ceiling kappa_lambda <= C_V-mu_-(lambda). Consequently E_lambda/kappa_lambda -> 0 on the complete family or any cofinal schedule would force mu_-(lambda) -> 0, full-real q_lambda >= 0, and RH. The energy-ratio premise is not proved and is itself RH-strength. The one-sided physical odd self bounds and the sectoral/global lower-shift and shifted-energy o(1) statements are RH-equivalence barriers, not established estimates. No residual gate, odd/full-bottom parity identification, unconditional physical one-over-lambda bound, literal noncompact ordered finite part, transverse lower reserve, new zero theorem, RH, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.
+
 ## Computation policy
 
 High-precision numerics may identify the scale of the residual and gap.

@@ -11556,3 +11556,76 @@ exclusions remain `5/58`.  Expanded canonical/frontier/replay suites were
 not rerun.
 
 Checkpoint 1.77 proves for every sufficiently large real lambda that the compact physical odd self equals the checkpoint-1.75 odd beta carrier plus o(lambda^(-N)) for every fixed N, by deriving all-real fixed-label modal sampling for n in {0,2,6} without the growing corrected-combination, KRD, or compact-projection steps and then using the checkpoint-1.76 gauge equality only after zero evaluation. Consequently the continuous compact physical odd O(lambda^(-1)) condition is equivalent to RH; this is not an unconditional bound. It does not prove the literal noncompact ordered physical finite-part identity, shifted-energy control, live-shift control, the kappa log^2(lambda) reserve, bridge overlap, bottom-projector capture, Pair-C closure, parity order, determinant convergence, any new zero theorem, RH, or a de Bruijn--Newman bound. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.78 odd energy capture and circularity barrier
+
+Let `mu_-` be the simple odd bottom, `g` its normalized ground, `gamma`
+the odd spectral gap, and `kappa` the transverse pole-kernel floor.  For the
+raw odd bridge, checkpoint 1.78 combines the ordinary gap estimate with the
+pole-row Schur estimate to give
+
+\[
+ |\langle g,w_\lambda\rangle|^2
+ \geq\max\left\{
+ \left[n_\lambda-{E_\lambda\over\kappa}\right]_+,
+ \left[x_\lambda-{1\over2}
+       \sqrt{{E_\lambda\over\kappa}}\right]_+^2
+ \right\}.
+\]
+
+The weighted continuation is legal only in one metric at a time.  The raw
+bridge `w_lambda=K_M b` is paired with its raw defect `d_b`; after Schur
+orthogonalization, the innovation `w_b` is paired with its Schur defect
+`s_b`.  If the odd ground belongs to the complete bottom eigenspace, the
+raw version gives
+
+\[
+ \Lambda_M^{\max}
+ \geq{|\langle g,w_\lambda\rangle|^2\over d_b},
+ \qquad
+ |\mu_{\rm full}|
+ \leq {\cal C}_M\sqrt{{d_b\over R_\lambda}}.
+\]
+
+The actual domain exhaustion adds a decisive circularity constraint.  Fix
+a two-dimensional odd compact common-core space `V`.  A unit vector in
+`V cap p_lambda^perp` is always available, and the common-core form is
+independent of `lambda`.  Thus, for one fixed finite constant `C_V`,
+
+\[
+ \kappa_\lambda\leq C_V-\mu_-(\lambda).
+\]
+
+With `epsilon_lambda=E_lambda/kappa_lambda`, the identity
+`E_lambda=q_lambda-mu_-*n_lambda` yields
+
+\[
+ \mu_-(\lambda)(n_\lambda-\epsilon_\lambda)
+ \geq q_\lambda-\epsilon_\lambda C_V.
+\]
+
+Since checkpoint 1.77 gives `q_lambda->0` and
+`n_lambda->n_infinity>0`, the unproved premise
+`epsilon_lambda->0` forces `mu_-(lambda)->0`.  Odd-domain nesting then
+makes `mu_-` nonnegative on the complete real family, so `q_lambda>=0`;
+the one-sided Landau theorem forces RH.  The same argument works from any
+cofinal schedule.  The rational three-dimensional saturation model does
+not contradict this implication because its whole pole-orthogonal energy
+grows and it has no fixed common-core ceiling.
+
+The upper and lower one-sided `O(lambda^(-1))` conditions for the physical
+odd self are separately RH-equivalent.  So are each of the sectoral and
+global lower-shift `-o(1)` conditions and shifted-energy `o(1)` conditions.
+None of those estimates is proved.  In particular, checkpoint 1.78 proves
+neither `E_lambda/kappa_lambda->0`, the residual gate
+`C_M^2*d_b->0`, nor the odd/full-bottom parity identification.
+
+The focused module passes `15/15`.  With `PYTHONPATH=src` and
+`PYTHONDONTWRITEBYTECODE=1`, the exact five-module deduplicated
+target/direct-dependency closure passes `60/60` under `python3 -B`.
+Projected canonical/raw discovery is `411/4554` and `416/4612`;
+frontier/replay is `269/3032` and `281/3160`; support remains `12/128` and
+exclusions remain `5/58`.  Expanded canonical/frontier/replay suites were
+not rerun.
+
+Checkpoint 1.78 proves an exact max overlap floor, the legal matching-metric raw/innovation weighted splice, and the common-core ceiling kappa_lambda <= C_V-mu_-(lambda). Consequently E_lambda/kappa_lambda -> 0 on the complete family or any cofinal schedule would force mu_-(lambda) -> 0, full-real q_lambda >= 0, and RH. The energy-ratio premise is not proved and is itself RH-strength. The one-sided physical odd self bounds and the sectoral/global lower-shift and shifted-energy o(1) statements are RH-equivalence barriers, not established estimates. No residual gate, odd/full-bottom parity identification, unconditional physical one-over-lambda bound, literal noncompact ordered finite part, transverse lower reserve, new zero theorem, RH, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.

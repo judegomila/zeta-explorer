@@ -7065,6 +7065,59 @@ admitted.
 
 Checkpoint 1.70 proves exact endpoint-jet jump profiles, finite-profile prolate coefficient/Gram formulas, sharpened dangerous derivative/trace bounds, and a finite-jet observability certificate, but the certified Taylor order can exceed the near-Shannon row count and the bottom-normalized Gram retains signed remainder/safe cancellation. It proves that the top-even growing near band contains a positive Omega(x) core and therefore any O(L^(2r)) top-moment bound requires global complementary cancellation; it does not prove that cancellation or the next-even UI bound. It also proves a two-sided full-prime-power phase-volume sandwich, identifies the true normalized threshold s-kappa, a conditional Hermite lower bound, and a sub-x/L odd-shelf lower bound; the standard kappa<=1 schedule misses the macroscopic Hermite condition, and phase-volume lower bounds do not reverse the one-sided negative-index inequality. No actual near-Shannon cross-angle/bridge gate, next-even top-moment UI, required-scale phase-volume obstruction or upper target, negative-index lower bound, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.
 
+## Checkpoint 1.71 one-direction capture and cyclicity-rate obligations
+
+Checkpoint 1.71 admits two strict-PASS theorem/barrier pairs.  The first
+closes these finite-dimensional and schedule-level reductions:
+
+1. for the complete bottom projector,
+   `P_lambda Q_lambda B_F=mu_lambda P_lambda B_F`;
+2. the exact vectorwise ratio, operator-norm largest-capture, and
+   Hilbert--Schmidt trace inequalities;
+3. the fact that a largest captured singular direction is sufficient and
+   is strictly weaker than an onto smallest-eigenvalue coframe;
+4. the physical-adjoint supremum formula for `Lambda_F^max`;
+5. the exact bridge contribution through
+   `beta_2-(I_2/I_0)beta_0`; and
+6. the Birman--Schwinger nonimplication from odd-pole overlap to bridge
+   contrast, including a positive-base exact countermodel.
+
+The second pair closes these localization and nonimplication obligations:
+
+1. a bottom eigenvector has fixed positive mass below an explicit
+   `exp(O(lambda log lambda))` physical Fourier cutoff;
+2. the literal full-source normalized adjoint is an isometry;
+3. every smaller prolate prefix has an exact rank kernel;
+4. the cyclic spectral-weight/cofactor identity is exact but qualitative;
+5. analytic source-Cauchy cyclicity does not imply a capture rate; and
+6. a parity-complete source-Cauchy model can saturate the residual-weighted
+   projection inequality at exponentially small ground weight.
+
+The following obligations remain open:
+
+1. prove for an actual pre-Shannon family that
+   `C_F^2/Lambda_F^max -> 0`, or construct one actual source vector whose
+   residual-to-bottom-projection ratio tends to zero;
+2. prove a quantitative lower bound for the actual missed-line bridge
+   contrast, equivalently the resolvent-transformed pole/bridge angle;
+3. convert the `exp(O(lambda log lambda))` physical localization into an
+   actual `O(lambda^2)` prolate-prefix capture estimate;
+4. prove an actual ground overlap or cofactor/Christoffel/Krylov weight at
+   `exp(-o(lambda^2))` scale;
+5. control signed cancellation between low- and high-physical pieces after
+   source-prefix projection; and
+6. finish determinant convergence and every unconditional zero
+   consequence.
+
+The two focused modules pass `20/20`; the exact ten-module deduplicated
+target/direct-dependency closure passes `127/127` under
+`PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3 -B`.  Projected
+canonical/raw discovery is `400/4422` and `405/4480`; frontier/replay is
+`258/2900` and `270/3028`; support remains `12/128` and exclusions remain
+`5/58`.  Expanded suites were not rerun.
+
+Checkpoint 1.71 proves the exact full-bottom vectorwise, operator-norm, and Hilbert--Schmidt projector identities and replaces the all-bottom smallest-eigenvalue coframe demand by a strictly weaker largest defect-weighted one-direction capture criterion. It isolates the exact mixed-bridge contrast and proves that odd-pole Birman--Schwinger data do not force that contrast. Separately, it proves fixed positive ground mass inside an exp(O(lambda log lambda)) physical Fourier band, the normalized full-source isometry and prefix rank kernel, and structural cofactor, analytic source-Cauchy, and parity-complete models showing that qualitative cyclicity and analyticity provide no required capture rate. The structural models are not the actual Weil source. No actual lower bound for the largest weighted capture, actual bridge contrast, prolate-prefix overlap, exp(-o(lambda^2)) ground weight, or quantitative ground cofactor is proved. No parity order, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.
+
 ## Computation policy
 
 High-precision numerics may identify the scale of the residual and gap.

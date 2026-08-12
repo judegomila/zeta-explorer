@@ -392,6 +392,28 @@ required = {
     "actual_phase_volume_lower_bound_to_negative_index_reverse_implication_proved": False,
     "checkpoint170_focused_tests_passed": True,
     "checkpoint170_full_suite_recount_completed": False,
+    "cutoff_free_one_direction_full_bottom_projector_ratio_identity_proved": True,
+    "cutoff_free_one_direction_weighted_largest_capture_bound_proved": True,
+    "cutoff_free_one_direction_hilbert_schmidt_trace_capture_bound_proved": True,
+    "cutoff_free_one_direction_largest_capture_strictly_weaker_than_full_coframe_proved": True,
+    "cutoff_free_one_direction_actual_adjoint_supremum_formula_proved": True,
+    "cutoff_free_one_direction_bridge_contrast_stopping_line_proved": True,
+    "cutoff_free_odd_pole_birman_schwinger_bridge_contrast_nonimplication_proved": True,
+    "cutoff_free_one_direction_actual_weighted_ground_capture_rate_proved": False,
+    "cutoff_free_actual_missed_line_bridge_contrast_lower_bound_proved": False,
+    "cutoff_free_ground_high_fourier_localization_bound_proved": True,
+    "cutoff_free_ground_effective_dimension_exp_O_lambda_log_lambda_proved": True,
+    "cutoff_free_normalized_full_source_isometry_proved": True,
+    "cutoff_free_prolate_prefix_rank_kernel_proved": True,
+    "cutoff_free_full_source_floor_prefix_capture_nonimplication_proved": True,
+    "cutoff_free_source_cauchy_cofactor_weight_formula_proved": True,
+    "cutoff_free_source_cauchy_cyclicity_analytic_rate_nonimplication_proved": True,
+    "cutoff_free_parity_complete_residual_weight_saturation_nonimplication_proved": True,
+    "cutoff_free_actual_low_band_to_prolate_prefix_capture_rate_proved": False,
+    "cutoff_free_actual_ground_overlap_exp_minus_o_lambda_squared_proved": False,
+    "cutoff_free_actual_quantitative_ground_cofactor_rate_proved": False,
+    "checkpoint171_focused_tests_passed": True,
+    "checkpoint171_full_suite_recount_completed": False,
 }
 
 project = json.loads(Path("PROJECT_STATUS.json").read_text(encoding="utf-8"))
@@ -1681,7 +1703,9 @@ PYTHONPATH=src python3 -B -m unittest \
   tests.test_cutoff_free_actual_dangerous_adjoint_regularity_barrier \
   tests.test_cutoff_free_actual_dangerous_endpoint_jet_profile_observability_barrier \
   tests.test_actual_centered_remainder_top_even_near_band_global_cancellation_barrier \
-  tests.test_actual_phase_volume_long_block_threshold_negative_index_barrier -v
+  tests.test_actual_phase_volume_long_block_threshold_negative_index_barrier \
+  tests.test_cutoff_free_one_direction_weighted_ground_capture_theorem \
+  tests.test_cutoff_free_cyclicity_effective_dimension_capture_barrier -v
 python3 src/write_artifact_manifest.py
 python3 -m unittest tests.test_weighted_pnt_discrepancy_normal_form_source_lock -v
 python3 -m unittest tests.test_boundary_discrepancy_convolution tests.test_boundary_discrepancy_convolution_source_lock -v

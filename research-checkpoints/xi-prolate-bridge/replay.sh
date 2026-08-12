@@ -453,11 +453,22 @@ required = {
     "actual_mixed_bridge_individual_odd_bridge_energy_relative_smallness_proved": False,
     "actual_mixed_bridge_mixed_resolvent_lower_bound_proved": False,
     "actual_mixed_bridge_generalized_harmonic_row_phase_bound_proved": False,
-    "cutoff_free_actual_radical_sampled_xi_minimum_modulus_proved": False,
     "cutoff_free_actual_radical_high_complexity_frame_pass_proved": False,
     "cutoff_free_actual_radical_translation_one_direction_pass_proved": False,
     "checkpoint173_focused_tests_passed": True,
     "checkpoint173_full_suite_recount_completed": False,
+    "cutoff_free_actual_radical_paired_floquet_zero_separation_proved": True,
+    "cutoff_free_actual_radical_sampled_xi_minimum_modulus_proved": True,
+    "cutoff_free_actual_radical_floquet_parity_riesz_conditioning_proved": True,
+    "cutoff_free_actual_radical_complete_circle_seam_obstruction_proved": True,
+    "cutoff_free_actual_radical_weighted_boundary_safe_translation_obstruction_proved": True,
+    "cutoff_free_actual_radical_pair_c_band_floor_reduction_proved": True,
+    "cutoff_free_actual_radical_divided_difference_log_derivative_source_escape_obstruction_proved": True,
+    "cutoff_free_actual_radical_quadratic_transition_prefix_floor_proved": False,
+    "cutoff_free_actual_radical_dangerous_floquet_graph_embedding_proved": False,
+    "cutoff_free_actual_radical_pair_c_stopping_condition_proved": False,
+    "checkpoint174_focused_tests_passed": True,
+    "checkpoint174_full_suite_recount_completed": False,
 }
 
 project = json.loads(Path("PROJECT_STATUS.json").read_text(encoding="utf-8"))
@@ -1755,7 +1766,8 @@ PYTHONPATH=src python3 -B -m unittest \
   tests.test_cutoff_free_commuting_filter_ground_capture_barrier \
   tests.test_actual_mixed_bridge_transverse_gap_energy_barrier \
   tests.test_actual_mixed_bridge_resolvent_mixed_measure_barrier \
-  tests.test_cutoff_free_actual_radical_xi_ideal_translation_frame_barrier -v
+  tests.test_cutoff_free_actual_radical_xi_ideal_translation_frame_barrier \
+  tests.test_cutoff_free_actual_radical_floquet_xi_minimum_modulus_pair_c_barrier -v
 python3 src/write_artifact_manifest.py
 python3 -m unittest tests.test_weighted_pnt_discrepancy_normal_form_source_lock -v
 python3 -m unittest tests.test_boundary_discrepancy_convolution tests.test_boundary_discrepancy_convolution_source_lock -v

@@ -11197,3 +11197,93 @@ exclusions remain `5/58`.  Expanded canonical/frontier/replay suites were
 not rerun.
 
 Checkpoint 1.72 proves the actual fixed-label mixed-bridge pole-row asymptotic and eventual positivity, the strict positivity of the limiting odd bridge profile, and the exact pole-axis Feshbach overlap formula. It also proves that the literal nonpole odd resolvent has no generic inverse-positivity sign theorem. The eventual threshold is qualitative, and the actual transverse resolvent response may cancel the explicit subexponential pole row while the normalizer remains uncontrolled. Separately, it proves the centered all-p Schatten exceptional-rank bound and exact dangerous-space floor, including the same-shell coordinate threshold and exact fixed-s=2 half-scale; the admitted moment hierarchy cannot reduce the dangerous space to O(lambda^2), and dimension gives no source angle. Finally, it proves exact bottom-row and bottom-atom identities for bounded commuting filters, shows that the certified envelope cannot improve the anchor statistic, and constructs a source-realizable low-Fourier family with large unweighted capture but no small defect-relative residual. The random-phase paragraph and logarithmic source-Cauchy example are heuristic or structural only, not actual arithmetic or Weil conclusions. No actual transverse-cancellation lower bound, bottom-projector floor, O(lambda^2) dangerous-space bound, source-angle bound, filtered one-direction pass, parity order, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.73 transverse-gap, mixed-resolvent, and Xi-ideal barriers
+
+The first new pair keeps the actual odd complete-source sign and studies the
+nonexceptional pole-created branch.  If `kappa` is the pole-transverse floor,
+`gamma` the loaded odd gap, and `alpha` the pole visibility of the normalized
+ground, then
+
+\[
+ \max\{a_1-\mu,\gamma\alpha^2\}\leq\kappa\leq\gamma,
+ \qquad
+ 1+\|B_\mu^{-1}r\|^2=\alpha^{-2}=4M F'(\mu).
+\]
+
+For the raw bridge, with
+`x=beta_lambda/sqrt(M)` and
+`E=<w_lambda,(Q_--mu)w_lambda>`, it also proves
+
+\[
+ |\langle g,w_\lambda\rangle|
+ \geq\left[x-{1\over2}\sqrt{E\over\kappa}\right]_+.
+\]
+
+Thus exact cancellation costs `E>=4*kappa*x^2`, and
+`E=o(kappa*log^2(lambda)/lambda)` would force the desired overlap without a
+separate normalization estimate.  No frozen theorem proves either that energy
+bound or an `exp(-o(lambda^2))` lower bound for `kappa`; the coherent beta
+diagonal is a two-parity signed quantity, not the individual odd energy.
+
+The second pair rewrites the same overlap through the signed mixed spectral
+measure.  Below the pole-free spectrum,
+
+\[
+ m(z)=\langle p,(H-zI)^{-1}p\rangle,
+ \qquad
+ F(z)=\langle w,(H-zI)^{-1}p\rangle,
+ \qquad
+ |\langle w,g_\mu\rangle|^2={|F(\mu)|^2\over m'(\mu)}.
+\]
+
+Exact cyclic simple-spectrum counterpairs have the same positive pole row,
+the same two complete diagonal measures, the same pole-load branch and load
+derivatives, a polynomial gap, and a bounded denominator, while one has
+`F(0)=0` and the other has `F(0)>0`.  The literal arithmetic source retains
+more structure: its full-even adjoint has the required factor `1/2`, its
+zero-integral projection subtracts the exact constant, and the unresolved
+quantity is the generalized harmonic row of `(H-mu)^(-1)p`.  No sign or
+anti-cancellation theorem for that row is proved.
+
+The third pair proves that every admitted actual source radical has transform
+
+\[
+ \widehat{\mathcal E(f)}(z)=\Xi(z)A_f(z)
+\]
+
+on the open critical strip.  Source dilation, the dilation generator,
+inversion symmetrization, admissible source logarithmic moments, and finite
+mixing preserve this principal ideal.  Coordinate multiplication can
+differentiate `Xi`, but it is not an actual-source operation unless the
+source restores every removed divisor; it also leaves a global bulk residual
+which truncation cannot remove.  Finite-window coefficients retain the exact
+form
+
+\[
+ (p_a)_n=L^{-1/2}\Xi(\omega_n)A_a(\omega_n)+e_{a,n}.
+\]
+
+For the locked anchor, complete-period translation loses the uniform
+`exp(-c*lambda^2)` outer scale, while every translation measure supported in
+a fixed boundary-safe interval has the binomial frame upper bound
+
+\[
+ c_{N,S}(p)\leq
+ \|p\|^2{(2\pi S/L)^{2N}\over\binom{2N}{N}}.
+\]
+
+At `N` comparable to `lambda^2` this is
+`exp(-Theta(lambda^2 log log lambda))`.  A high-complexity common-`Xi`
+family is not ruled out, but would require new sampled minimum-modulus,
+cofactor-conditioning, and moving-order residual estimates.
+
+The three focused modules pass `34/34`.  With `PYTHONPATH=src` and
+`PYTHONDONTWRITEBYTECODE=1`, the exact eleven-module deduplicated
+target/direct-dependency closure passes `125/125` under `python3 -B`.
+Projected canonical/raw discovery is `406/4485` and `411/4543`;
+frontier/replay is `264/2963` and `276/3091`; support remains `12/128` and
+exclusions remain `5/58`.  Expanded canonical/frontier/replay suites were
+not rerun.
+
+Checkpoint 1.73 proves exact transverse-gap, normalization, bridge-energy, mixed-resolvent, actual-source-adjoint, Xi-ideal, finite-window, tail, and translation-frame reductions. The exact countermodels are structural and are not the actual Weil source. No actual transverse floor, individual odd bridge-energy estimate, mixed-resolvent phase lower bound, sampled Xi minimum-modulus estimate, controlled high-complexity common-divisor frame, bottom-projector floor, parity order, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.

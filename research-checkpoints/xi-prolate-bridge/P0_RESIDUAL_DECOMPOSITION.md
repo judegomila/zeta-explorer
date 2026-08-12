@@ -6645,3 +6645,63 @@ discovery is `389/4275` and `394/4333`; frontier/replay is `247/2753` and
 Expanded suites were not rerun.
 
 Checkpoint 1.66 proves, by prime/semiprime support disjointness and four-phase Montgomery--Vaughan polarization, that the normalized prime third moment vanishes. Together with the frozen second- and fourth-moment estimates, a compact moment lemma forces positive excess above every fixed normalized level c<1. Therefore, for every fixed A>0 and 1/2<alpha<1, both the full and high-time centered-remainder statistics are Omega_(A,alpha)(lambda^4 log(lambda^2)), so the proposed O(lambda^2/log(lambda^2)) sufficient upper target is false throughout that range. The symmetric two-point endpoint model shows that the stated moment data do not cross alpha=1/2; nothing is proved for 0<alpha<=1/2. The frozen phase-volume comparison is one-way, so no actual phase-volume lower bound follows. Polynomial phase volume, parity ordering, determinant convergence, an unconditional zero theorem, RH proof or converse, and a de Bruijn--Newman bound remain unproved. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.67 bridge prefactor and mixed-adjoint-tail residual
+
+On a unit codimension-one phase-bulk missed line, the exact bridge
+orientation is now
+
+\[
+ a_b^2={\varrho_b\over s_b}\|P_MA_{\lambda,0}^*e_0\|^2,
+ \qquad
+ {\varrho_b\over s_b}\gg{1\over\lambda d_2}.
+\]
+
+The bridge quotient has an explicit defect-orthogonal representative with
+ordinary norm bounded independently of prefix dimension.  Thus neither its
+ordinary-source size nor the exterior-defect normalization is the remaining
+residual obstruction.
+
+Put `E=E_+ direct-sum E_-`.  The combined-phase tail parameter obeys the
+exact threshold identity
+
+\[
+ \Theta_{\rm mix}(e_0)
+ ={1-\mathfrak q_E(e_0)\over1-\delta_E},
+ \qquad
+ \Theta_{\rm mix}(e_0)<1
+ \Longleftrightarrow
+ \mathfrak q_E(e_0)>\delta_E.
+\]
+
+A strict reserve `Theta_mix<=1-eta` gives
+
+\[
+ a_b^2\gtrsim{\eta e^{4\pi\lambda^2}\over\lambda^{10}},
+ \qquad
+ \omega_b\gtrsim{\eta\over\lambda^7},
+\]
+
+and a codimension-one phase-bulk gap `alpha` then yields
+
+\[
+ S_M\succeq{1\over2}\min\{a_b^2,\alpha\omega_b\}I_X.
+\]
+
+This isolates the residual to a polynomial strict reserve for one actual
+mixed-adjoint tail, conditional on the separate codimension-one bulk
+premise.  No frozen input proves either premise or even nonvanishing of the
+actual missed-line scalar.  At an allowed near-Shannon prefix, the frozen
+literal-adjoint diagonal-well construction satisfies
+`mathfrak q_E<delta_E` and hence `Theta_mix>1`; this is a synthetic
+orientation countermodel, not the actual Weil operator.  On the genuinely
+singular branch `theta_b=0` and `kappa_b>=1`, so `kappa_b<1` cannot close
+this residual.
+
+The focused module passes `17/17`; the exact eight-module direct closure
+passes `129/129`, and the optional high-Fourier-expanded check passes
+`138/138`.  Projected canonical/raw discovery is `390/4292` and
+`395/4350`; frontier/replay is `248/2770` and `260/2898`; support remains
+`12/128` and exclusions remain `5/58`.  Expanded suites were not rerun.
+
+Checkpoint 1.67 computes the exact ordinary-source bridge innovation and defect-orthogonal representative, proves a uniformly bounded representative norm and an exponentially favorable one-sided source/defect prefactor, and reduces codimension-one bridge repair to one scalar combined-phase adjoint-tail excess above the constant-tail threshold. A polynomial strict reserve together with a polynomial phase-bulk gap would give a polynomial augmented bottom floor. No frozen input proves the reserve, the codimension-one phase-bulk premise, or even nonvanishing of the actual missed-line scalar. The literal-adjoint diagonal-well model proves only structural nonimplication and is not the actual Weil operator or a counterexample to actual nonvanishing. Actual bridge leverage, bottom-projector capture, cutoff-free determinant convergence, an unconditional zero theorem, RH proof or converse, and a de Bruijn--Newman bound remain unproved. The formal state remains P0_INVALIDATED.

@@ -6884,3 +6884,62 @@ discovery is `389/4275` and `394/4333`; frontier/replay is `247/2753` and
 Expanded suites were not rerun.
 
 Checkpoint 1.66 proves, by prime/semiprime support disjointness and four-phase Montgomery--Vaughan polarization, that the normalized prime third moment vanishes. Together with the frozen second- and fourth-moment estimates, a compact moment lemma forces positive excess above every fixed normalized level c<1. Therefore, for every fixed A>0 and 1/2<alpha<1, both the full and high-time centered-remainder statistics are Omega_(A,alpha)(lambda^4 log(lambda^2)), so the proposed O(lambda^2/log(lambda^2)) sufficient upper target is false throughout that range. The symmetric two-point endpoint model shows that the stated moment data do not cross alpha=1/2; nothing is proved for 0<alpha<=1/2. The frozen phase-volume comparison is one-way, so no actual phase-volume lower bound follows. Polynomial phase volume, parity ordering, determinant convergence, an unconditional zero theorem, RH proof or converse, and a de Bruijn--Newman bound remain unproved. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.67 bridge mixed-adjoint-tail source disclosure
+
+Checkpoint 1.67 admits exactly this frozen pair:
+
+| Target | SHA-256 |
+|---|---|
+| `notes/CUTOFF_FREE_BRIDGE_MIXED_ADJOINT_TAIL_PREFACTOR_REDUCTION.md` | `53dd9fefd8cc05a29cd3e0a043e6f86f8bbdc7545d2c203d29bc59cbbe1a04f8` |
+| `tests/test_cutoff_free_bridge_mixed_adjoint_tail_prefactor_reduction.py` | `e532a958742feda3efe00adc37e1ea2879a3676f23b63a47c238e348aaf5b17c` |
+
+Its exact direct dependencies are:
+
+| Dependency | SHA-256 |
+|---|---|
+| `notes/CUTOFF_FREE_BRIDGE_LEVERAGE_RANK_ONE_INNOVATION_REDUCTION.md` | `808c314d6b0cf1926ddf8b0a5b83c324ccbbc252d18efea283781fefd1751097` |
+| `tests/test_cutoff_free_bridge_leverage_rank_one_innovation_reduction.py` | `2c79244dd68e9fd56ddb67f7278f4572cb72bae9803b82047ccf9ad58196faba` |
+| `notes/CUTOFF_FREE_FULL_SOURCE_ADJOINT_PROLATE_CAPTURE_BARRIER.md` | `157bffc55aeec592c263d5973effe1b9506e02dd97311652ecb2fdee0c3ff0e9` |
+| `tests/test_cutoff_free_full_source_adjoint_prolate_capture_barrier.py` | `d7f70dffbd10021ce7d6e8887d10589a482b2dc64c9ebbe8c48cc35568c233ae` |
+| `notes/SOFT_DEFECT_PROLATE_ANGLE_REDUCTION.md` | `3bcccfda9d606c21fc61efb9c2fbc3dd95926a82586e3c156fc965c32748777b` |
+| `tests/test_soft_defect_prolate_angle.py` | `f440a59456cc4cc604afc419bc1aebc9589a0a6010b179a4784c7f5c62ca2088` |
+| `notes/GROWING_MIXED_BRIDGE_GAUGE_POLE_DOMAIN_BARRIER.md` | `335e8973a51fdc998398620c6d30ba51eaa2ee45fb3444e838aa1e34ef33c1cb` |
+| `tests/test_growing_mixed_bridge_gauge_pole_domain_barrier.py` | `0ef8d77b05498533c8c58428a99beb9c1a13cc9699b2b5abb9c05b63de9f80bc` |
+| `notes/EFFECTIVE_MIXED_SIGNED_QUOTIENT_ATTACK.md` | `e2e9485d8ee03717af790cb7740fbb2228cc96f04009698cdc51a7fd943634ea` |
+| `tests/test_effective_mixed_signed_quotient.py` | `6c84905b66e7a16b7443560fe512d4e3d864293f368efa649aa61a2425c884e1` |
+| `notes/FULL_SOURCE_COFRAME_RANK_THEOREM.md` | `3f8b381d9e51e0fa0cf89928851e89dd163ec9982249af8050a90520c0389f81` |
+| `tests/test_full_source_coframe_rank.py` | `dc322485178710618f9ace19cd2019200bf0dafeabcbe17cce4e47d41377d66a` |
+| `notes/GROWING_WINDOW_THEOREM.md` | `dad6b0a878b7eba21cbc7aa8049cf3bf89a38df766cc157a87c416e79a721ac7` |
+| `P2_SOURCE_LOCK.json` | `8b731d499903041ef68e7722ebd085d22673c022655431dcca27c9cac6f4730a` |
+| `notes/PROLATE_DEFECT_SOURCE_AUDIT.md` | `b8256ce059d2632d55cb1b0477b5af7f5ebb09d0fc81a7d8b8e696885b49772d` |
+| `PROLATE_DEFECT_SOURCE_LOCK.json` | `0844df654ee968b1c371ec96618d10d219da9fde702d62faa4f0c6be139b036d` |
+| `tests/test_prolate_defect_source_lock.py` | `7caa8d088522d68dc4dedfad8d00d8e5c7e15070065c743d9e2a41f9e7faa519` |
+
+Thus the declared direct union has 17 unique paths: seven complete
+note/test pairs, the unpaired growing-window note, and the existing P2 and
+prolate-defect source locks.  Adding the target pair gives 19 paths: eight
+complete pairs plus those three extra bytes.
+
+No new external paper, source-lock JSON, vendored source, artifact, zero
+table, numerical ordinate, cached matrix, source sample, serialized
+numerical artifact, or external computation is added.  The transition
+estimate uses the already-disclosed Karnik--Romberg--Davenport v2 result and
+its Boulsane--Bourguiba--Karoui v1 DPSS-to-PSWF input only through the
+existing `P2_SOURCE_LOCK.json`.  The fixed-label defect asymptotics use the
+already-disclosed Slepian 1964 source only through the existing
+`PROLATE_DEFECT_SOURCE_LOCK.json` and its frozen audit/verifier.  Their
+vendored PDFs are unchanged and are not new checkpoint-1.67 direct bytes.
+All remaining external and source-lock provenance is inherited transitively
+through frozen internal dependencies; checkpoint 1.67 adds no independent
+source input.
+
+The focused module passes `17/17`, and the exact eight-module
+target/direct-dependency closure passes `129/129` under `PYTHONPATH=src
+python3 -B`.  Adding the inherited high-Fourier coercivity verifier gives
+an optional nine-module check passing `138/138`.  Projected canonical/raw
+discovery is `390/4292` and `395/4350`; frontier/replay is `248/2770` and
+`260/2898`; support remains `12/128` and exclusions remain `5/58`.
+Expanded suites were not rerun.
+
+Checkpoint 1.67 computes the exact ordinary-source bridge innovation and defect-orthogonal representative, proves a uniformly bounded representative norm and an exponentially favorable one-sided source/defect prefactor, and reduces codimension-one bridge repair to one scalar combined-phase adjoint-tail excess above the constant-tail threshold. A polynomial strict reserve together with a polynomial phase-bulk gap would give a polynomial augmented bottom floor. No frozen input proves the reserve, the codimension-one phase-bulk premise, or even nonvanishing of the actual missed-line scalar. The literal-adjoint diagonal-well model proves only structural nonimplication and is not the actual Weil operator or a counterexample to actual nonvanishing. Actual bridge leverage, bottom-projector capture, cutoff-free determinant convergence, an unconditional zero theorem, RH proof or converse, and a de Bruijn--Newman bound remain unproved. The formal state remains P0_INVALIDATED.

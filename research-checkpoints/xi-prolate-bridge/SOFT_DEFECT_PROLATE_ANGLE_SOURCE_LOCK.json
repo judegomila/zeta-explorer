@@ -1,0 +1,182 @@
+{
+  "schema": "xi-prolate-soft-defect-prolate-angle-source-lock-v1",
+  "claim_class": "SOFT_DEFECT_PROLATE_ANGLE_REDUCTION",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-08",
+  "external_sources": [],
+  "dependencies": [
+    {
+      "path": "DIRECT_RH_ATTACK.md",
+      "sha256": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "role": "equation (5.2) target and direct-attack claim boundary"
+    },
+    {
+      "path": "FULL_SOURCE_COFRAME_RANK_SOURCE_LOCK.json",
+      "sha256": "155f1c0205788d689b8e819fc10e9313c2e947c7f851a5ee2f0b25bf3f091e5b",
+      "role": "full-source coframe and finite-inventory source lock"
+    },
+    {
+      "path": "MATCHED_BREAKPOINT_DIRECTIONAL_MOMENT_SOURCE_LOCK.json",
+      "sha256": "f60bf05e24d4503218ed34c05c5aa0236c1d331c472e068a2788882e2cafa750",
+      "role": "matched breakpoint, moment-width, and directional-reserve source lock"
+    },
+    {
+      "path": "MATCHED_HIGH_MOMENT_COFRAME_SOURCE_LOCK.json",
+      "sha256": "83b5ad8e7a45bbe7f4d01ba27b1ec3aae2d3846917c4942b101cd1027e66aa1d",
+      "role": "matched coframe and complete-sign moment source lock"
+    },
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "base P0 source, Fourier, inversion, prime-sign, normalization, and claim lock"
+    },
+    {
+      "path": "P3_SOURCE_LOCK.json",
+      "sha256": "42976166b046f99b111861d86ac4c85f730ceb0de56b072205735cc84bea65b3",
+      "role": "pinned FKS Chebyshev/PNT estimate"
+    },
+    {
+      "path": "PHYSICAL_LEVERAGE_SHORTED_SCHUR_SOURCE_LOCK.json",
+      "sha256": "61c9adb35ca643de78dfb71407272dc68ba086952ed7b89001bba490ab2fb097",
+      "role": "physical leverage and hard-positive-short source lock"
+    },
+    {
+      "path": "PHYSICAL_SOFT_SHORT_SIGNED_SCHUR_SOURCE_LOCK.json",
+      "sha256": "394674ae851c1973d6bcfa1f3d3104b5c85a6c572a2abb846cec53852b73cbd2",
+      "role": "complete signed soft-short and pole-sign source lock"
+    },
+    {
+      "path": "PROJECTED_STATE_NORM_SOURCE_LOCK.json",
+      "sha256": "6c765b4d70969a7868f01641fdbc592907e8c32ae7d315a3ef39306f9389b213",
+      "role": "projected source-state normalization source lock"
+    },
+    {
+      "path": "notes/FULL_SOURCE_COFRAME_RANK_THEOREM.md",
+      "sha256": "3f8b381d9e51e0fa0cf89928851e89dd163ec9982249af8050a90520c0389f81",
+      "role": "full-source right-inverse theorem and finite-inventory limitation"
+    },
+    {
+      "path": "notes/MATCHED_BREAKPOINT_DIRECTIONAL_MOMENT_AUDIT.md",
+      "sha256": "b3b90baffde24e6ee81303c6f0d07095a5499d38b956ae58b3309e01d8ee0858",
+      "role": "sharp moment threshold, pole projection, breakpoint, and Neumann audit"
+    },
+    {
+      "path": "notes/MATCHED_HIGH_MOMENT_COFRAME_REDUCTION.md",
+      "sha256": "b946c4cb13c17eee30dd2747863028d4264ba9f6dbc210662d0b68fecdec5ca2",
+      "role": "source-Gram coframe identities and complete signed moment reduction"
+    },
+    {
+      "path": "notes/PHYSICAL_LEVERAGE_SHORTED_SCHUR.md",
+      "sha256": "39147b7fcd5c71304c6977272b72a3f07a789b7c4fb34d2e2ebf51e3b60589f3",
+      "role": "physical leverage identity and over-shorting limitation"
+    },
+    {
+      "path": "notes/PHYSICAL_SOFT_SHORT_SIGNED_SCHUR.md",
+      "sha256": "cf847b2f73d18244158ee0238714f677c74358068a658c637a40477b3e0a38ca",
+      "role": "signed high-compression and source-whitened Schur reduction"
+    },
+    {
+      "path": "notes/PROJECTED_STATE_NORM_LOWER_BOUND.md",
+      "sha256": "3847cbcb6e5bfc458af7bf957ff67afb0b943155d62f4239129b40332d270fbf",
+      "role": "nonvanishing projected norm and limiting scalar theorem"
+    },
+    {
+      "path": "notes/PROJECTION_RATE_THEOREM.md",
+      "sha256": "28f10f5c51001d6eeb33af2f071e876b572aca2c713db37f3e1b924d836ef2aa",
+      "role": "all-N projection error theorem and fixed-index source asymptotics"
+    },
+    {
+      "path": "notes/SOFT_DEFECT_PROLATE_ANGLE_REDUCTION.md",
+      "sha256": "3bcccfda9d606c21fc61efb9c2fbc3dd95926a82586e3c156fc965c32748777b",
+      "role": "soft-defect, leverage-excess, odd reserve, determinant, and principal-angle reduction"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "role": "pinned arbitrary-precision arithmetic runtime"
+    }
+  ],
+  "locked_conventions": {
+    "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension; the zero-Lebesgue-integral source normalization and full source Gram C^*C are retained",
+    "physical_interval": "I_lambda=[-log(lambda),log(lambda)] with Lebesgue measure in logarithmic coordinates, equivalently du/u on [lambda^(-1),lambda]",
+    "fourier_sign": "fhat(t)=integral f(x)*exp(-i*t*x)dx with Plancherel measure dt/(2*pi)",
+    "centered_modes": "phi_n(x)=(-1)^n*L^(-1/2)*exp(i*omega_n*x), omega_n=2*pi*n/L, L=2*log(lambda)",
+    "inversion": "J is reflection in logarithmic coordinates; Fourier residue classes are not substituted for inversion parity",
+    "prime_endpoint": "every prime power n<=lambda^2 is retained; the cutoff is inclusive and is not confused with lambda",
+    "prime_sign": "m_lambda=2*theta_prime-2*sum_(n<=lambda^2) Lambda(n)/sqrt(n)*cos(t*log(n))",
+    "source_gram": "every source synthesis C uses B=C^*C; B is never replaced by the identity unless that identity is proved for the displayed columns",
+    "strictness": "equality at a target floor, rank-one load one, normalized tail one, zero determinant, or nonpositive reserve is rejected",
+    "input_text": "lambda numerator and decimal precision are canonical positive integer text; binary64 inputs and JSON numbers are rejected",
+    "artifact_scope": "exact finite-dimensional reductions and outward formula intervals, not a physical prolate-Weil matrix, matched coframe, signed floor, or asymptotic theorem",
+    "arithmetic": "finite fixtures use exact reduced rationals; logarithms, pi, square roots, exponential, Euler's constant, zeta(3), band energies, and central formulas use outward mpmath.iv intervals; binary64 JSON numbers are forbidden"
+  },
+  "locked_formulas": {
+    "ideal_clip": "for d>=1, r>0, L>0, 0<=mu<nu, and M>nu*L, D_M=(M*I-A)_+ and lambda_min(A)>=M-trace(D_M^r)^(1/r), with no hypothesis A<=M*I",
+    "clip_threshold": "under the ideal-clip domains, trace(D_M^r)<=d*(M-nu*L)^r gives a strict floor mu*L when r>log(d)/log((M-mu*L)/(M-nu*L)); equality is rejected",
+    "soft_blocks": "for w=m-U, a=(w-g)_+, v=(g-w)_+, B_plus=g*I+T_a-T_v+2*|p_plus><p_plus| and B_minus=g*I+T_a-T_v-2*|p_minus><p_minus|",
+    "soft_trace": "for r>=1 on the even high space, trace(D_g(B_plus)^r)<=trace(R_H^r)<=integral v^r*kappa_H*dnu, R_H=P_H*T_v*P_H",
+    "leverage_excess": "for tau=(c-nu)*L and E_tau=integral (v-tau)_+*kappa_H*dnu, the even soft block is >mu*L if E_tau<(nu-mu)*L",
+    "scalar_excess": "for r>1, tau>0, and x>=0, (x-tau)_+<=((r-1)^(r-1)/(r^r*tau^(r-1)))*x^r; equality occurs at x=r*tau/(r-1)",
+    "odd_cap": "for M0=c*L*I-R and 0<=R<=(c-a)*L*I, 2*<p,M0^(-1)p>=2*(a*L*mu0+rho1-chi)/(a*c*L^2), chi=<p,(((c-a)*L*I-R)*R*(c*L*I-R)^(-1))p>",
+    "odd_reserve": "if 0<delta<=1, rho1+a*L*mu0<=(1-delta)*a*c*L^2/2, and M>=M0, then M-2*|p><p|>=delta*a*L*I; load one is not strict",
+    "odd_one_direction_schur": "with e=p/sqrt(mu0), alpha=<e,Me>, b=P_(e_perp)Me, C=P_(e_perp)MP_(e_perp), positivity is equivalent to C>0 and alpha-2*mu0-<b,C^(-1)b>>0",
+    "central_outlier": "for lambda^2>2, 0<delta<pi/2, and U+g>=-C_B*L, epsilon_L=9.22022*L^(3/2)*exp(-0.8476836*sqrt(L)); V_L=[2*cos(delta)*(1-epsilon_L)*lambda-C_B*L-C_theta]_+",
+    "central_archimedean": "C_theta=digamma(1/4)-log(pi)+delta^2*zeta(3,1/4)/(4*L^2), with zeta(3,1/4)=pi^3+28*zeta(3)",
+    "band_energy": "b_epsilon(delta)=(2*pi)^(-1)*integral_(-delta)^delta |Fhat_epsilon(s)|^2 ds, Fhat_plus=2*sin(s/2)/s and Fhat_minus=4*sqrt(2)*pi*i*sin(s/2)/(s^2-4*pi^2)",
+    "principal_tail": "for F=E intersect 1^perp and s=||P_E*1||^2, ||(I-P_F)z||^2<=(2*lambda/s)*||(I-P_E)z||^2 for z perpendicular to 1",
+    "angle_floor": "Theta=(2*lambda/s)*||(I-P_E)Z^*||^2<1 implies |D|^2/(det(B)*det(R))=det(Z*P_F*Z^*)>=(1-Theta)^dim(X)",
+    "augmented_determinants": "D_plus=I0^(-1)*det([integral; physical rows]) and D_minus=(-1)^N*I2^(-1)*det([integral; physical rows]) after the exact zero-integral column operations",
+    "projection_schedule": "N(lambda)=ceil(sqrt(lambda)) and e_projection<=delta_lambda*sqrt(lambda^3-lambda)+R_h+6006*log(lambda)/(1000*pi*(N+1))"
+  },
+  "claim_boundary": {
+    "proved": [
+      "the sharp clipped-defect floor and strict moment-order conversion, including positive-outlier invariance",
+      "the exact source-soft trace reduction, leverage-excess criterion, and sharp scalar excess-to-moment constant",
+      "the exact capped odd rank-one identity, sufficient reserve, and load-one equality rejection",
+      "the exact source- and target-whitened principal-angle fixture with its mandatory nonidentity source Gram",
+      "the exact augmented determinant column-operation identities in the even and odd sign conventions",
+      "outward interval evaluations of the square-root projection coefficient and central-outlier formulas, including a fixed formula-scale probe"
+    ],
+    "not_proved": [
+      "the required source-soft moment or leverage-excess estimate on an unbounded physical schedule",
+      "a strict capped odd directional reserve for the actual physical multiplier",
+      "a normalized tail Theta<1 for the prescribed matched prolate source family",
+      "a nonzero actual prolate moment determinant on every matched schedule",
+      "a positive complete signed floor in either inversion sector",
+      "equation (5.2) of DIRECT_RH_ATTACK.md",
+      "locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ]
+  },
+  "source_admissions": {
+    "absolute_prime_values_substituted_for_signed_sum": false,
+    "api_key_read": false,
+    "binary64_parameters_used": false,
+    "cached_physical_matrix_read": false,
+    "cached_prolate_eigenvectors_read": false,
+    "cached_weil_matrix_read": false,
+    "central_probe_promoted_to_schedule_certificate": false,
+    "determinant_limit_claimed": false,
+    "environment_secret_read": false,
+    "equation_5_2_claimed": false,
+    "equality_boundary_reported_as_pass": false,
+    "finite_angle_fixture_promoted_to_matched_coframe": false,
+    "global_weil_positivity_assumed": false,
+    "inversion_reflection_dropped": false,
+    "lambda_squared_mixed_with_lambda": false,
+    "nonpositive_floor_reported_as_pass": false,
+    "odd_negative_pole_omitted": false,
+    "physical_coframe_claimed": false,
+    "prime_block_sign_changed": false,
+    "prime_power_endpoint_omitted": false,
+    "real_axis_eigenvalue_agreement_substituted_for_determinant_convergence": false,
+    "rh_proved": false,
+    "secret_serialized": false,
+    "signed_sector_floor_claimed": false,
+    "source_gram_replaced_by_identity": false,
+    "sqrt_schedule_projection_promoted_to_residual_gap_limit": false,
+    "unit_source_normalization_substituted": false,
+    "zeros_assumed_real": false,
+    "zeta_zero_table_read": false
+  }
+}

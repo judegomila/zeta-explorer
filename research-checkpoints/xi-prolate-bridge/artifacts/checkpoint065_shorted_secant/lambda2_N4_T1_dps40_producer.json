@@ -1,0 +1,216 @@
+{
+  "analytic_uniform_claim": false,
+  "checkpoint_version": "0.65.0-shorted-secant-point",
+  "claim_class": "FINITE_POINT_DIAGNOSTIC",
+  "dependency_sha256": {
+    "P0_NORMALIZATION_AUDIT.md": "37d139735c2f760b928845f1815ba3050f8cc8447eaf535de02eef77b46862df",
+    "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+    "notes/DIRECT_SOFT_TRACE_RECIPROCAL_RESERVE.md": "99e3fd5f04e8cdd144bb006da819f4cea53d2d5db7aa6ee46c0e8eb81ebd18a4",
+    "notes/POLYNOMIAL_XI_RADICAL_TOWER_COVARIANCE_FLOOR_OBSTRUCTION.md": "6281a93e4320e6c25fa09fdf942b94147a9b6aa1706b6c34dd079074d2f0ee98",
+    "notes/PROLATE_SECANT_RADICAL_BLOCK_REDUCTION.md": "419bc795572c1fa72b89d246dc2ae8cb036b8a700b8437bea5de723dd3d28ffe",
+    "notes/SECANT_SHORTED_RECIPROCAL_FESHBACH.md": "40060cf7c6c46ed7a36e6febcb6edc2c9a58f296bd8ec324755553920b8dd03e",
+    "notes/TIME_BAND_CAUCHY_DETERMINANT_RESPONSE.md": "622f918c3488a00a4b1a65e71262d4b10d1537fcac8f2b65cdc2c62d2b49854a",
+    "notes/TRANSVERSE_XI_RADICAL_MOMENT_ANGLE_OBSTRUCTION.md": "e5a0888f54ae4ae97d00462b7cfd00cbc9d98638ff9d36aea0fdb7a1c861e77f",
+    "src/checkpoint064_reciprocal_secant.py": "2b4f495fbc4e32d67fbdcc699d3bcdae32ad5871f228f00f8c48f5875eece814",
+    "src/checkpoint065_shorted_secant.py": "a1e414f2ea4bfcac3ee59d25fa21c3cea1de8ba9f352cddcbf5fcfa13098c0a6",
+    "src/prolate_state.py": "06a1c34853d7ade7888599c8bde8e2cd20c088c7a3b61d4548b7fe9c7d11c6eb",
+    "src/weil_matrix.py": "9a6f7b4d8ef7a7f5d12445f61cce2cb23ec44625f63981e829d7286c4e856902",
+    "vendor/CCM-PROLATE-2310.18423v2.pdf": "8bc197642ee9ca4f2393b6cbfd3db292be6a315ce76ad61bfb845d9fedb47f2e",
+    "vendor/CCM-ZST-2511.22755v1.pdf": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+    "verifier/checkpoint064_reciprocal_secant_replay.py": "46d2da9f8f846dfa6df8d0b43033c3c85a2f9e850aa6b0a7436a741e2ceaad2a",
+    "verifier/checkpoint065_shorted_secant_replay.py": "493760b94748e32a0eac53b604b34a0de52531beb0055e62c2649533b4cfdb99",
+    "verifier/independent_replay.py": "c2e538757f94ecd5be3e6d94d355d6acc6beeb587c44efc04257b3b4b96aaeed",
+    "verifier/residual_ridged_fixed_window_replay.py": "fb2a377d010d133d5ce4fa041c0cc869cd42420a10b075470d52745a9e0842cd"
+  },
+  "inputs": {
+    "L": "1.386294361119890618834464242916353136151",
+    "N": 4,
+    "T": "1",
+    "lambda": "2",
+    "precision_decimal_digits": 40
+  },
+  "limitations": [
+    "finite arbitrary-precision point diagnostic, not an interval or ball enclosure",
+    "producer and verifier share mpmath transcendental arithmetic and linear algebra",
+    "the source-normalized prolate state remains a fixed 30-mode Galerkin truncation without a tail enclosure",
+    "the graph-shorted identities are exact finite-dimensional algebra but no unbounded schedule is proved",
+    "no locally uniform determinant convergence is inferred"
+  ],
+  "locked_conventions": {
+    "centered_modes": "V_n(x)=(-1)^n*L^(-1/2)*exp(+2*pi*i*n*x/L)",
+    "fourier_transform": "hat(f)(t)=integral f(x)*exp(-i*t*x) dx",
+    "inversion": "reflection J*V_n=V_-n is retained",
+    "limiting_state": "K_infinity(x)=E(h)(exp(x)), h=source-normalized Hermite 0/4 limit",
+    "parameter_ingestion": "exact text without binary64",
+    "physical_interval": "[-L/2,L/2], L=2*log(lambda), Lebesgue measure and zero extension",
+    "prime_block_sign": "Q=pole-archimedean-prime; source equation (3.19) minus sign retained",
+    "prime_inventory": "every prime power 1<n<=lambda^2, endpoint inclusive",
+    "source_normalization": "h_lambda=a4*h4-a0(lambda)*h0 with source-limit a4; unit normalization rejected",
+    "source_point": "lambda=2, N=4, T=1 only; 40 or 80 decimal digits"
+  },
+  "locked_formulas": {
+    "graph_load": "a0_F=alpha*b_F+beta*g",
+    "graph_vector": "v_r=omega-U(C+rI)^(-1)g",
+    "inverse_split": "(B+rI)^(-1)=delta_r^(-1)|v_r><v_r|+U(C+rI)^(-1)U*",
+    "regularized_block": "B+rI=[[epsilon+r,g*],[g,C+rI]] in span{omega} plus F",
+    "reserve_envelope": "a^(-1)(1-sqrt((1-a)x))_+^2+x <= R <= a^(-1)(1+sqrt((1-a)x))^2+x",
+    "shorted_energy": "delta_r=epsilon+r-g*(C+rI)^(-1)g",
+    "shorted_minimum": "delta_0=min_{<omega,x>=1}<x,Bx>=det(B)/det(C)=1/<omega,B^(-1)omega>",
+    "soft_split": "S=r*<v_r,K_T v_r>/delta_r+r*tr((C+rI)^(-1)K_F)",
+    "unregularized_split": "H0=<v_0,K_T v_0>/delta_0+tr(C^(-1)K_F)"
+  },
+  "normalization_regression": {
+    "source_limiting_Xi_transform_scalar": "0.25",
+    "unit_normalization_limiting_scalar_difference": "0.5780575481020466834657394148331802862343",
+    "unit_normalized_limiting_Xi_transform_scalar": "0.8280575481020466834657394148331802862343",
+    "unit_normalized_replacement_allowed": false
+  },
+  "provenance": {
+    "asymptotic_claim_made": false,
+    "binary64_parameter_used": false,
+    "cached_eigensystem_read": false,
+    "cached_matrix_read": false,
+    "global_weil_positivity_assumed": false,
+    "producer_limiting_state_path": "checkpoint-0.64 direct x-quadrature arithmetic sum",
+    "producer_source_path": "checkpoint-0.64 live source assembly, then graph-shorted Feshbach algebra",
+    "producer_time_band_path": "checkpoint-0.64 direct evaluation-vector quadrature",
+    "zeta_zero_table_read": false
+  },
+  "runtime": {
+    "mpmath": "1.4.1",
+    "python": "3.14.6"
+  },
+  "schema": "xi-prolate-checkpoint065-shorted-secant-v1",
+  "section_sha256": {
+    "normalization_regression": "1e0ebec369765905552391a298e9410ebcaa59aae64a126ab36bd3277cdb8aa1",
+    "shorted_reciprocal": "eae0a059edd3f1bb49ea00d0439534c2268f0389d97b26333887aa1ae768766c",
+    "source_guard": "b11a2c2effe4bbfc97069a3cb8662365ad8f685991a3bffcfd8700390b945fbb"
+  },
+  "shorted_reciprocal": {
+    "graph_load": {
+      "a0_F_direct": [
+        "0.0001135467062580216288243653203755043754476",
+        "0.00002032557581513116323920331430793098054554",
+        "0.00009848343190235645780014183492520930491783"
+      ],
+      "alpha_bF_plus_beta_g": [
+        "0.0001135467062580216288243653203755043754457",
+        "0.00002032557581513116323920331430793098055621",
+        "0.00009848343190235645780014183492520930491658"
+      ],
+      "b_F": [
+        "0.00002790662211226616211447717190705164104327",
+        "-0.000008852003766677762094219402387712216111508",
+        "-0.00004403588798977725660240035019511071523558"
+      ],
+      "identity_residual": [
+        "1.852516569837408167761170509109269125553e-42",
+        "-1.06698368319852383822810079795652439026e-41",
+        "1.245754334784762376051195599544735440708e-42"
+      ],
+      "identity_residual_norm": "1.090087792452268363220168393453217057307e-41"
+    },
+    "regularized": {
+      "C_F": [
+        [
+          "0.4164276519545715624126941243239233857043",
+          "0.5045459404389864030821032170695566912396",
+          "0.3610195304407039580998627713186392151319"
+        ],
+        [
+          "0.5045459404389864030821032170695566912396",
+          "1.565838939363154406442628058015002255326",
+          "0.140778610438807074812264700220193196472"
+        ],
+        [
+          "0.3610195304407039580998627713186392151319",
+          "0.140778610438807074812264700220193196472",
+          "0.5392100565063422079718849466974076662073"
+        ]
+      ],
+      "K_F": [
+        [
+          "0.07466332922873869098079224707991541237537",
+          "-0.004453050805328264898858879828460233558529",
+          "-0.003610296407851588455926544199332040705459"
+        ],
+        [
+          "-0.004453050805328264898858879828460233558529",
+          "0.0002687617427175940732579928007886898031649",
+          "0.0002172711265620652660525621872074415903294"
+        ],
+        [
+          "-0.003610296407851588455926544199332040705459",
+          "0.0002172711265620652660525621872074415903294",
+          "0.0001757675508312680118478062610756023705172"
+        ]
+      ],
+      "deflated_bulk_soft_contribution": "0.0000666915452814480668603573669131245847055",
+      "delta_over_epsilon_plus_r": "0.1899959679263732899903546547062520249492",
+      "delta_r": "0.00007931999805622209521319150806988538690875",
+      "g_F": [
+        "0.009355583682116776656839196866602990616375",
+        "0.00184121053577938533024948008858248698905",
+        "0.008934981322585067186528509111033122502288"
+      ],
+      "g_norm": "0.01306716853434969332314199476327665721677",
+      "normalized_deflated_bulk_reserve": "0.004087625688937032534289880767627793062246",
+      "normalized_rank_one_reserve": "4.8253842994210483404347232674338491382",
+      "rank_one_soft_contribution": "0.07872842574020351591000569839303243556859",
+      "reserve_envelope_lower": "4.679073840161858266754071303969097341659",
+      "reserve_envelope_upper": "5.890493889591630834838049879705008394709",
+      "reserve_identity_residual": "-2.873532674783545009714200488256567754605e-37",
+      "reserve_sum": "4.829471925109985372969013148201476931263",
+      "schur_fraction": "0.8100040320736267100096453452937479750508",
+      "soft_sum": "0.07879511728548496397686605575994556015329",
+      "soft_trace_identity_residual": "-4.708004107724518205133574925080795982572e-39",
+      "tilted_capture": "0.1180429198874073665747221365346272886628",
+      "v_minus_omega_norm": "0.05837369871461455982136485852887034565575",
+      "v_norm": "1.001702295445919697286238205673666116884",
+      "v_r": [
+        "0.5385659927259663828943381016350661616682",
+        "-0.8419426895547977696312995093569931722457",
+        "0.05052121750642508907856765694932805245192",
+        "0.04398038503265782494331089679406138222379"
+      ],
+      "y_r": [
+        "0.05418616190994719872073712676864510547047",
+        "-0.01486054812803338537272750506155866936181",
+        "-0.01582759199714171013728359683135110974386"
+      ]
+    },
+    "unregularized": {
+      "Bv_minus_delta_omega_norm": "4.252620307709453572083948210315562089846e-42",
+      "H0_identity_residual": "-8.030037009337210424436033033072604674315e-34",
+      "H0_sum": "4499.903600047651300907529958070916441201",
+      "deflated_bulk_H0_contribution": "1.262139614178300030487059234302770743944",
+      "delta0_over_minimum_B_eigenvalue": "1.003416918121454612477395110462873208183",
+      "delta_0": "0.00002623726305226480002741286557783933074369",
+      "det_B_over_det_C": "0.00002623726305226480002741286557783933074732",
+      "determinant_identity_residual": "-3.632866268762088256369768944679107570344e-42",
+      "inverse_omega_B_inverse_omega": "0.00002623726305226480002741286557783933074754",
+      "inverse_rayleigh_identity_residual": "-3.84726493380378526822109957092246473843e-42",
+      "rank_one_H0_contribution": "4498.641460433473000877042898836613670457",
+      "v0_energy_minus_delta": "3.848666232268110085292023300505754654561e-42",
+      "v_0": [
+        "0.5385195204697717672139780754877624795168",
+        "-0.8419742861670953659909940704214289540416",
+        "0.0505353742070522730090334555039134424128",
+        "0.04401419622635225065482053911366342334231"
+      ]
+    }
+  },
+  "source_guard": {
+    "base_checkpoint_version": "0.64.0-reciprocal-secant-point",
+    "even_gap_at_q": "0.00002614791775823837047263660587592829912995",
+    "odd_gap_at_q": "0.0000002234650930753746255392516216663915266537",
+    "prime_power_inventory": [
+      2,
+      3,
+      4
+    ],
+    "source_hermitian_defect": "0.0",
+    "source_inversion_commutator_defect": "0.0"
+  },
+  "terminal_state": "P0_INVALIDATED"
+}

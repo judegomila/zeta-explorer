@@ -213,6 +213,8 @@ class SignedQuotientCaptureTests(unittest.TestCase):
 
     def test_mandatory_convention_and_claim_failures_are_rejected(self) -> None:
         convention_mutations = {
+            "source_interval": "[-log(lambda),log(lambda)] with Lebesgue measure and zero extension",
+            "physical_interval": "[-lambda,lambda] with Lebesgue measure and zero extension",
             "fourier_sign": "fhat(t)=integral f(y)*exp(+i*t*y) dy",
             "prime_endpoint": "prime powers n<lambda^2 only",
             "prime_sign": "m_lambda=2*theta_prime+2*sum Lambda(n)/sqrt(n)*cos(t*log(n))",

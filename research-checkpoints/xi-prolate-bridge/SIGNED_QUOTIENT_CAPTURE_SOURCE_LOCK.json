@@ -2,7 +2,7 @@
   "schema": "xi-prolate-signed-quotient-capture-source-lock-v1",
   "claim_class": "SIGNED_QUOTIENT_AND_PHYSICAL_CAPTURE_REDUCTION",
   "terminal_state": "P0_INVALIDATED",
-  "updated_date": "2026-08-07",
+  "updated_date": "2026-08-08",
   "external_sources": [],
   "dependencies": [
     {
@@ -32,7 +32,7 @@
     },
     {
       "path": "COMPRESSED_MULTIPLIER_TRACE_SOURCE_LOCK.json",
-      "sha256": "adfaf5fd4de59a3da398a2f6f629d238c125dcdecd1706033389f3b545bf589b",
+      "sha256": "5beedcf1f36206ec0f10331f139a4156ac43d0335f1bd90bbe64eba6016464da",
       "role": "source lock for the dangerous-rank, capture, and gluing theorem"
     },
     {
@@ -82,7 +82,8 @@
     }
   ],
   "locked_conventions": {
-    "source_interval": "[-log(lambda),log(lambda)] with Lebesgue measure and zero extension",
+    "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension",
+    "physical_interval": "I_lambda=[-log(lambda),log(lambda)] with Lebesgue measure in logarithmic coordinates, equivalently du/u on [lambda^(-1),lambda]",
     "fourier_sign": "fhat(t)=integral f(y)*exp(-i*t*y) dy",
     "prime_endpoint": "every prime power n<=lambda^2 is included",
     "prime_sign": "m_lambda=2*theta_prime-2*sum Lambda(n)/sqrt(n)*cos(t*log(n))",

@@ -1,0 +1,20 @@
+{
+  "checks": {
+    "cached_producer_matrix_trusted": false,
+    "even_and_odd_restrictions_replayed": true,
+    "inclusive_prime_power_inventory_reconstructed": true,
+    "independent_formula_tree_reconstructed": true,
+    "normal_form_source_agreement": true,
+    "producer_booleans_trusted": false
+  },
+  "independent_combined_residual_max_abs": "3.6897692801306831285220009179445066526984864838289776425272170587878505018394159e-81",
+  "input": {
+    "N": 2,
+    "lambda_decimal": "2",
+    "precision_decimal_digits": 80
+  },
+  "schema": "xi-prolate-pnt-discrepancy-normal-form-replay-v1",
+  "shared_arithmetic_library_limitation": "producer and verifier share mpmath transcendental arithmetic; these are point diagnostics rather than interval or ball enclosures",
+  "status": "PNT_DISCREPANCY_NORMAL_FORM_REPLAY_PASS",
+  "terminal_state": "P0_INVALIDATED"
+}

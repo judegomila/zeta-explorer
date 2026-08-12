@@ -1,0 +1,49 @@
+{
+  "arithmetic": {
+    "independence_limitation": "producer and replay share Python integer/Fraction arithmetic and the pinned mpmath.iv transcendental runtime",
+    "independent_formula_trees": true,
+    "library": "Python fractions.Fraction and mpmath.iv 1.4.1",
+    "precision_mode": "exact rational arithmetic plus outward arbitrary-precision intervals",
+    "raw_interval_or_ball_output_applicable": true,
+    "serialization_guard": "exact dyadic expansion of every nondegenerate transition interval",
+    "shared_library_with_verifier": true
+  },
+  "checks": {
+    "left_null_and_gram_traps_rebuilt": true,
+    "plus_anchor_not_promoted": true,
+    "rational_frames_rebuilt_by_independent_matrix_path": true,
+    "schedule_and_symbolic_nullities_rebuilt": true,
+    "sharp_psd_equality_and_gamma_boundaries_rebuilt": true,
+    "singular_gram_pseudoinverse_rebuilt_from_null_projector": true,
+    "source_coordinate_invariance_rebuilt": true,
+    "transition_ceiling_rebuilt_from_factored_logs": true
+  },
+  "input": {
+    "dps": 160,
+    "lambda_numerator": 5
+  },
+  "producer_binding": {
+    "bytes": 63683,
+    "sha256": "8937d7106fac2ba86830ad91756196524350cf876f4c14de40e1c0b18de26509"
+  },
+  "producer_pass_boolean_trusted": false,
+  "result": "FULL_SOURCE_COFRAME_RANK_COMPONENT_REPLAY_PASS",
+  "schema": "xi-prolate-full-source-coframe-rank-replay-v1",
+  "source_hashes": {
+    "DIRECT_RH_ATTACK.md": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+    "FULL_SOURCE_COFRAME_RANK_SOURCE_LOCK.json": "155f1c0205788d689b8e819fc10e9313c2e947c7f851a5ee2f0b25bf3f091e5b",
+    "GROWING_TRANSITION_SAMPLING_SOURCE_LOCK.json": "585d13e3860106840e0bd550eaa30ff16eee78a182b926ccf4656e69be59bc6b",
+    "LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR_SOURCE_LOCK.json": "e387fc1c539283dead8110eeac6d5c6798839a8bcfc0a17c65af87587cd3458c",
+    "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+    "PROLATE_DEFECT_SOURCE_LOCK.json": "0844df654ee968b1c371ec96618d10d219da9fde702d62faa4f0c6be139b036d",
+    "SIGNED_QUOTIENT_CAPTURE_SOURCE_LOCK.json": "78284b94c9331a4b27f537c572c3c292f7cd411951f84e2e1605b924e2bde600",
+    "notes/FULL_SOURCE_COFRAME_RANK_THEOREM.md": "3f8b381d9e51e0fa0cf89928851e89dd163ec9982249af8050a90520c0389f81",
+    "notes/GROWING_WINDOW_THEOREM.md": "dad6b0a878b7eba21cbc7aa8049cf3bf89a38df766cc157a87c416e79a721ac7",
+    "notes/LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR.md": "c9f10ffb6b6ceeafe8ea63566d10c3af7eb6265c509c8d63e259bc407cc7f79a",
+    "notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md": "3d6428991a0e66e1c2752c8eec76375576e6f94f68a65891cd3215495e6d4e61",
+    "notes/PRUFER_SAME_PARITY_GAP_THEOREM.md": "145818f1211b0bd40cb52457bfccaa2c0e3e34081790c211d9d5806c739497fd",
+    "notes/SIGNED_QUOTIENT_CAPTURE_REDUCTION.md": "9700501a367ea7ae2b843ee61b45bec3970fc35db1715613099b08439be0415c"
+  },
+  "status": "FULL_SOURCE_COFRAME_RANK_COMPONENT",
+  "terminal_state": "P0_INVALIDATED"
+}

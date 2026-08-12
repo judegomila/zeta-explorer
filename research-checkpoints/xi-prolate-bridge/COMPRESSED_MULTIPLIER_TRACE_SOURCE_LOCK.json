@@ -2,7 +2,7 @@
   "schema": "xi-prolate-compressed-multiplier-trace-source-lock-v1",
   "claim_class": "FINITE_COMPRESSION_DANGEROUS_RANK_AND_CAPTURE_REDUCTION",
   "terminal_state": "P0_INVALIDATED",
-  "updated_date": "2026-08-07",
+  "updated_date": "2026-08-08",
   "external_sources": [],
   "dependencies": [
     {
@@ -37,7 +37,8 @@
     }
   ],
   "locked_conventions": {
-    "source_interval": "[-log(lambda),log(lambda)] with Lebesgue measure and zero extension",
+    "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension",
+    "physical_interval": "I_lambda=[-log(lambda),log(lambda)] with Lebesgue measure in logarithmic coordinates, equivalently du/u on [lambda^(-1),lambda]",
     "fourier_sign": "fhat(t)=integral f(y)*exp(-i*t*y) dy",
     "prime_endpoint": "every prime power n<=lambda^2 is included",
     "prime_sign": "m_lambda=2*theta_prime-2*sum Lambda(n)/sqrt(n)*cos(t*log(n))",

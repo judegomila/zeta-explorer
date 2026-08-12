@@ -1,0 +1,198 @@
+{
+  "schema": "xi-prolate-covariance-annular-odd-subsequence-source-lock-v1",
+  "claim_class": "COVARIANCE_ANNULAR_ODD_FAVORABLE_SUBSEQUENCE_REDUCTION",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-08",
+  "external_sources": [
+    {
+      "id": "CCM-ZST-v1",
+      "version": "arXiv:2511.22755v1",
+      "vendored_path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "use": "finite Weil convention, source equation (3.19), and inversion convention"
+    },
+    {
+      "id": "FKS-PNT-v3",
+      "version": "arXiv:2204.02588v3",
+      "vendored_path": "vendor/FKS-PNT-2204.02588v3.pdf",
+      "sha256": "15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4",
+      "use": "pinned unconditional prime-number-theorem error estimate"
+    },
+    {
+      "id": "HSW-ZC-v1",
+      "version": "arXiv:2107.06506v1",
+      "vendored_path": "vendor/HSW-ZC-2107.06506v1.pdf",
+      "sha256": "3fc4c89f49249924e61cb0d289d81559faed53fcbb838628ea32dc7ec6f89fbf",
+      "use": "global zero-count existence only; no zero ordinate table"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "DIRECT_RH_ATTACK.md",
+      "sha256": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "role": "equation (5.2), common-schedule target, and claim boundary"
+    },
+    {
+      "path": "INTRINSIC_FEATURE_DYADIC_DEFECT_SOURCE_LOCK.json",
+      "sha256": "6c9c8e43093d3156f11a42b11a967d7deaebc707e0868716748e54014048038a",
+      "role": "exact hard exterior cut, layer cake, and spectral endpoint conventions"
+    },
+    {
+      "path": "MELLIN_PROJECTION_SOFT_SYMBOL_GRAPH_SPILL_SOURCE_LOCK.json",
+      "sha256": "150b5a8f63c60bfd13c2813d40c2ec3bd99df138b172a2006feb2d66f8dace7c",
+      "role": "Mellin schedule, soft transition identity, covariance target, and odd obstruction"
+    },
+    {
+      "path": "P0_MATRIX_FORMULAS.md",
+      "sha256": "73aa4d0a746bf1a553372d4c7bdc1c671cd69c9cc36682091d94731e1dac74dd",
+      "role": "finite Weil matrix conventions and source prime-block sign"
+    },
+    {
+      "path": "P0_NORMALIZATION_AUDIT.md",
+      "sha256": "37d139735c2f760b928845f1815ba3050f8cc8447eaf535de02eef77b46862df",
+      "role": "source-normalized h_lambda and unit-normalization rejection"
+    },
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "primary finite source lock and Fourier/Mellin conventions"
+    },
+    {
+      "path": "ZERO_SAMPLING_SOURCE_LOCK.json",
+      "sha256": "f4cad4acb30dbfcdc5b30faafe92934e8958ad1cd11cbf6abea932f902e8c101",
+      "role": "global zero-count existence without a decimal zero table"
+    },
+    {
+      "path": "notes/ANNULAR_GRAY_MASS_OBSTRUCTION.md",
+      "sha256": "85e26feefbb18482eacd9761ecca4d3743c26ff480a53983bcc5651e3ae80b5a",
+      "role": "annular PNT profile, gray-mass obstruction, necessary angle, and hard-cut layer lower bound"
+    },
+    {
+      "path": "notes/COVARIANCE_TANGENT_GRAPH_SPILL.md",
+      "sha256": "b29362b8234fa642be7f8c59b187f451e8610c88e80121311317ea1c05a1d195",
+      "role": "minimum tangent spill, relative source ratio, and sharpened central Fourier tail"
+    },
+    {
+      "path": "notes/INTRINSIC_FEATURE_DYADIC_DEFECT_REDUCTION.md",
+      "sha256": "cb18d87cc2e63e938a011c5dab2db04d24b6cb7ca682d9615480dc5d91500b2b",
+      "role": "hard exterior summand and closed-converse projector definition"
+    },
+    {
+      "path": "notes/MELLIN_PROJECTION_SOFT_SYMBOL_REDUCTION.md",
+      "sha256": "97bdb89e2d98811d98c0aa9d4b007bd644066b14e05b78ca7a763d6b48dceea1",
+      "role": "complete gray/difference identity, one-projector theorem, and graph-spill setup"
+    },
+    {
+      "path": "notes/ODD_FAVORABLE_LOCKED_SUBSEQUENCE.md",
+      "sha256": "90904571557ac15882989e6d0832458ffa3475f2075ab53b2f7db09e6fe00b28",
+      "role": "one-sided Mellin theorem, locked favorable subsequence, finite projection, and remaining Schur target"
+    },
+    {
+      "path": "notes/ODD_POLE_HARMONIC_CHEBYSHEV_OBSTRUCTION.md",
+      "sha256": "703c19f9cbadd73e6b60672a6f836fc2bd0bf7d43eaa5f60ac5806dd1cdc0d18",
+      "role": "exact pole-prime identity, archimedean scale, and first-Riesz formula"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "role": "pinned arbitrary-precision runtime"
+    },
+    {
+      "path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "role": "vendored primary finite-Weil source"
+    },
+    {
+      "path": "vendor/FKS-PNT-2204.02588v3.pdf",
+      "sha256": "15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4",
+      "role": "vendored primary prime-number-theorem source"
+    },
+    {
+      "path": "vendor/HSW-ZC-2107.06506v1.pdf",
+      "sha256": "3fc4c89f49249924e61cb0d289d81559faed53fcbb838628ea32dc7ec6f89fbf",
+      "role": "vendored primary global zero-count source"
+    }
+  ],
+  "locked_conventions": {
+    "physical_interval": "I_lambda=[-log(lambda),log(lambda)] with L=2*log(lambda), Lebesgue measure, and zero extension",
+    "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension",
+    "fourier_transform": "hat(f)(t)=integral f(x)*exp(-i*t*x) dx",
+    "frequency_measure": "dnu(t)=dt/(2*pi)",
+    "inversion": "Jf(x)=f(-x)",
+    "source_normalization": "h_lambda=a_4*h_(4,lambda)-a_(0,lambda)*h_(0,lambda), with fixed source a_4 and h_lambda tending to h; unit norm is rejected",
+    "arithmetic_transform": "k_lambda=E(h_lambda), k_lambda^+=(k_lambda+J*k_lambda)/2",
+    "source_transform_scalar": "the limiting transform is Xi/4",
+    "complete_multiplier": "m_lambda(t)=2*theta'(t)-2*sum_(1<n<=lambda^2) Lambda(n)/sqrt(n)*cos(t*log(n))",
+    "prime_power_endpoint": "inclusive n<=lambda^2",
+    "prime_block_sign": "minus, as in source equation (3.19)",
+    "uncut_defect": "d_all(t)=(U_lambda+nu*L-m_lambda(t))_+",
+    "hard_exterior_defect": "d_ext(t)=1_(abs(t)>delta/L)*d_all(t)",
+    "hard_layer_threshold": "open height set {d>s}",
+    "upper_spectral_endpoint": "1_(sigma,1]",
+    "converse_spectral_endpoint": "1_[sigma,1]",
+    "locked_parameter_grid": "lambda=p/2 with odd integers p>=5"
+  },
+  "locked_formulas": {
+    "covariance_operator": "U*D*U^*=P_V*T_B*P_V and tr(D*G)=tr(T_B*P_V)<=delta/pi",
+    "central_fourier_tail": "H_(M,N)<=delta^3/(6*pi^3*(M-delta/(2*pi)))",
+    "minimum_graph_spill": "Gamma_min^2=tr(D*U_M^*(R_M^dagger-P_ran(R_M))*U_M), provided ran(U_M) is contained in ran(R_M)",
+    "source_metric_spill": "E^*E<=epsilon*H and B*H^(-1)*B^*>=gamma imply Gamma^2<=(epsilon/gamma)*delta/pi",
+    "central_rate_target": "epsilon_lambda/gamma_lambda=o(1/lambda); M=ceil(lambda*L) makes every non-graph central term o(lambda^(-1/2))",
+    "annular_prime_profile": "S_lambda(z/L)=2*lambda*cos(z)+o(lambda), uniformly for z in compact sets",
+    "annular_defect_profile": "d_all(z/L)=4*lambda*cos(z)+o(lambda) for abs(z)<pi/2; d_ext agrees when abs(z)>delta",
+    "gray_mass": "A_lambda*chi_X>=c*lambda in each inversion parity for a fixed annulus delta<a<b<pi/2",
+    "one_projector_cost": "an O(L) operator budget requires Omega(lambda/L) top soft directions; on N_star=O(L^2) the theorem eventually requires the full target",
+    "annular_angle": "an O(L) exterior budget requires squared angle O(L/lambda) to a fixed closed annular concentration projector",
+    "hard_cut_layer": "only for d_ext, the two reflected cutoff jumps force the full-interval layer average to be Omega(lambda)",
+    "odd_complete_form": "G_lambda=P_lambda+A_lambda with the negative odd pole, complete minus-prime block, and archimedean block combined",
+    "first_riesz": "F(X)=integral_1^X (psi(t)-t)/t dt=sum_(n<=X) Lambda(n)*log(X/n)-X+1",
+    "odd_asymptotic": "G_lambda/lambda=c0+F(lambda^2)/(2*lambda)+o(1), c0=1+EulerGamma/2-log(2*sqrt(pi))>0",
+    "one_sided_limsup": "unconditionally limsup F(X)/sqrt(X)>=0; if a zero lies right of 1/2 then the limsup is positive infinity",
+    "locked_odd_subsequence": "limsup over locked lambda of G_lambda/lambda>=c0; infinitely many locked lambda have G_lambda>(c0/2)*lambda",
+    "finite_odd_projection": "a non-effective source-selectable diagonal N_j transfers the pole-axis Rayleigh lower bound alpha_j>=3*c0/4",
+    "remaining_odd_schur": "for beta=c0/4, still require C_beta>0 and <b,C_beta^(-1)b><c0/2"
+  },
+  "claim_boundary": {
+    "checkpoint_version": "0.40.0-covariance-annular-odd-subsequence",
+    "formal_status": "P0_INVALIDATED",
+    "central_result": "exact tangent/spill characterization and a sufficient relative source ratio, not the actual prescribed-family rate",
+    "exterior_result": "a no-go theorem for the present global gray/BV route and a necessary annular angle, not actual multi-column misalignment",
+    "odd_result": "an unconditional favorable locked subsequence and qualitative pole-axis finite projection, not the transverse harmonic short",
+    "equation_5_2_proved": false,
+    "signed_even_floor_proved": false,
+    "signed_odd_floor_proved": false,
+    "locally_uniform_determinant_convergence_proved": false,
+    "numerical_diagnostics_are_theorems": false,
+    "new_lambda_bound_claimed": false,
+    "asymptotic_rh_conclusion_claimed": false
+  },
+  "source_admissions": {
+    "actual_central_source_ratio_proved": false,
+    "actual_exterior_alignment_proved": false,
+    "actual_odd_transverse_schur_proved": false,
+    "api_key_read": false,
+    "binary64_parameters_used": false,
+    "cached_matrix_or_eigenvector_read": false,
+    "decimal_zero_list_read": false,
+    "determinant_limit_claimed": false,
+    "environment_secret_read": false,
+    "equation_5_2_claimed": false,
+    "exterior_hard_cut_dropped": false,
+    "favorable_subsequence_promoted_to_full_schedule": false,
+    "fourier_sign_changed": false,
+    "global_weil_positivity_assumed": false,
+    "gray_mass_dropped": false,
+    "inversion_reflection_dropped": false,
+    "lambda_squared_mixed_with_lambda": false,
+    "nonpositive_complementary_gap_reported_as_pass": false,
+    "open_projector_substituted_for_closed_converse": false,
+    "prime_block_sign_changed": false,
+    "prime_power_endpoint_omitted": false,
+    "real_axis_eigenvalue_agreement_substituted_for_determinant_convergence": false,
+    "riemann_hypothesis_assumed_or_claimed": false,
+    "row_rank_promoted_to_spill_rate": false,
+    "secret_serialized": false,
+    "unit_source_normalization_substituted": false,
+    "zero_reality_assumed": false
+  }
+}

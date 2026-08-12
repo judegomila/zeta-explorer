@@ -34,13 +34,14 @@ SERIALIZATION_GUARD_OFFSET_BITS = 16
 # Finalized after the note and lock pass independent review.
 PINNED_HASHES = {
     NOTE: "9700501a367ea7ae2b843ee61b45bec3970fc35db1715613099b08439be0415c",
-    LOCK: "02f9474e23a1b81762edef7ee3fa911997281fd046342a194a0845b40508d6b9",
+    LOCK: "78284b94c9331a4b27f537c572c3c292f7cd411951f84e2e1605b924e2bde600",
 }
 
 _SHA256 = re.compile(r"^[0-9a-f]{64}$")
 
 LOCKED_CONVENTIONS = {
-    "source_interval": "[-log(lambda),log(lambda)] with Lebesgue measure and zero extension",
+    "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension",
+    "physical_interval": "I_lambda=[-log(lambda),log(lambda)] with Lebesgue measure in logarithmic coordinates, equivalently du/u on [lambda^(-1),lambda]",
     "fourier_sign": "fhat(t)=integral f(y)*exp(-i*t*y) dy",
     "prime_endpoint": "every prime power n<=lambda^2 is included",
     "prime_sign": "m_lambda=2*theta_prime-2*sum Lambda(n)/sqrt(n)*cos(t*log(n))",
@@ -156,7 +157,7 @@ def _verified_source_hashes() -> dict[str, str]:
         "schema": LOCK_SCHEMA,
         "claim_class": "SIGNED_QUOTIENT_AND_PHYSICAL_CAPTURE_REDUCTION",
         "terminal_state": TERMINAL_STATE,
-        "updated_date": "2026-08-07",
+        "updated_date": "2026-08-08",
         "external_sources": [],
         "locked_conventions": LOCKED_CONVENTIONS,
         "locked_formulas": LOCKED_FORMULAS,

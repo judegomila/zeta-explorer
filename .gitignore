@@ -10,6 +10,11 @@ scripts/.rate-limit-backoff-state*
 scripts/.env
 scripts/queue-index.json
 
+# Local credentials — keep real values out of version control.
+.env
+.env.*
+!.env.example
+
 # imp-1278 ssr-pool supervisor: local-only runtime state
 scripts/.ssr-pool.pid
 scripts/.vite-ssr-pool.sock

@@ -36,7 +36,7 @@ LOCK_SCHEMA = "xi-prolate-physical-leverage-shorted-schur-source-lock-v1"
 # Frozen component-note and source-lock bytes.
 PINNED_HASHES = {
     NOTE: "39147b7fcd5c71304c6977272b72a3f07a789b7c4fb34d2e2ebf51e3b60589f3",
-    LOCK: "9e7fb299f23fc9bd31ce722d2bba75b58791c0438dc2fbf2c854e39da5365db8",
+    LOCK: "61c9adb35ca643de78dfb71407272dc68ba086952ed7b89001bba490ab2fb097",
 }
 
 _SHA256 = re.compile(r"^[0-9a-f]{64}$")
@@ -45,7 +45,8 @@ _POSITIVE_TEXT = re.compile(r"^[1-9][0-9]*$")
 
 
 LOCKED_CONVENTIONS = {
-    "source_interval": "[-log(lambda),log(lambda)] with Lebesgue measure and zero extension",
+    "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension; the zero-Lebesgue-integral source normalization and full source Gram C^*C are retained",
+    "physical_interval": "I_lambda=[-log(lambda),log(lambda)] with Lebesgue measure in logarithmic coordinates, equivalently du/u on [lambda^(-1),lambda]",
     "fourier_sign": "fhat(t)=integral f(y)*exp(-i*t*y) dy",
     "prime_endpoint": "every prime power n<=lambda^2 is included",
     "prime_sign": "m_lambda=2*theta_prime-2*sum Lambda(n)/sqrt(n)*cos(t*log(n))",
@@ -805,7 +806,7 @@ def _source_hashes() -> dict[str, str]:
         "schema": LOCK_SCHEMA,
         "claim_class": "PHYSICAL_LEVERAGE_AND_SHORTED_POSITIVE_SCHUR_REDUCTION",
         "terminal_state": TERMINAL_STATE,
-        "updated_date": "2026-08-07",
+        "updated_date": "2026-08-08",
         "external_sources": [],
         "locked_conventions": LOCKED_CONVENTIONS,
         "locked_formulas": LOCKED_FORMULAS,

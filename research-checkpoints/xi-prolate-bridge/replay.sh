@@ -13,6 +13,300 @@ test "$(gzip -dc vendor/EGIDI-SEELMANN-LS-2010.11901v2.tex.gz | shasum -a 256 | 
 test "$(shasum -a 256 vendor/MTY-ZFR-2212.06867v1.pdf | awk '{print $1}')" = "127c32eb86d0aea264cc5b1ba96cc83243ef6b763451591e1560edaca1767300"
 test "$(shasum -a 256 vendor/HSW-ZC-2107.06506v1.pdf | awk '{print $1}')" = "3fc4c89f49249924e61cb0d289d81559faed53fcbb838628ea32dc7ec6f89fbf"
 test "$(shasum -a 256 vendor/PT-RH-VERIFY-2004.09765v1.pdf | awk '{print $1}')" = "3362f66af9fa9373977eee70e2282ec33989d5d8b97e0852df9e32cc25b52885"
+test "$(shasum -a 256 vendor/BK-PSWF-1405.3676v2.pdf | awk '{print $1}')" = "9fe8dc39e4440200a29ff94bb640b693c06a176d28b7e38a468dce98afa7d7b8"
+
+python3 -B - <<'PY'
+import json
+from pathlib import Path
+
+required = {
+    "actual_prolate_complex_sector_relative_mellin_factorization_proved": True,
+    "actual_prolate_subturning_birkhoff_connection_theorem_proved": True,
+    "actual_prolate_uniform_minimal_green_function_and_t_derivative_bound_proved": True,
+    "subturning_factorization_unconditional_proved": True,
+    "subturning_first_cherry_global_positive_support_wiener_uniform_closure_invalidated": True,
+    "subturning_first_cherry_c_two_thirds_tv_lower_bound_proved": True,
+    "subturning_first_cherry_band_local_closure_invalidated": False,
+    "subturning_thirteen_order_weighted_c1_residual_bound_proved": True,
+    "subturning_polynomial_green_loss_newton_correction_proved": True,
+    "subturning_label04_factorization_one_t_derivative_proved": True,
+    "adaptive_gonek_dyadic_shifted_zero_moment_selection_proved_under_rh": True,
+    "adaptive_gonek_compact_physical_singleton_pw1_proved_under_rh": True,
+    "literal_ceiling_compact_physical_pw1_proved": False,
+    "adaptive_gonek_singleton_endpoint_frame_ny_proved": True,
+    "adaptive_gonek_finite_gate_intersection_proved": False,
+    "checkpoint147_focused_tests_passed": True,
+    "checkpoint147_full_suite_recount_completed": False,
+    "adaptive_gonek_same_ordinate_singleton_pw1_ny_proved_under_rh": True,
+    "adaptive_gonek_singleton_endpoint_frame_C_E_O_L_proved_under_rh": True,
+    "adaptive_gonek_adjacent_ideal_quotient_Omega_L_proved_under_rh": True,
+    "adaptive_gonek_weighted_dyadic_formula_6_8_proved": False,
+    "adaptive_gonek_literal_locked_origin_selection_proved": False,
+    "checkpoint148_focused_tests_passed": True,
+    "checkpoint148_full_suite_recount_completed": False,
+    "adaptive_prolate_actual_endpoint_common_mode_defect_bound_proved_under_rh": True,
+    "adaptive_prolate_far_endpoint_and_row_value_tail_bound_proved_under_rh": True,
+    "adaptive_prolate_complete_exterior_selected_row_bound_proved_under_rh": True,
+    "adaptive_prolate_cancellation_safe_newton_multiplier_transfer_proved_under_rh": True,
+    "adaptive_prolate_actual_adjacent_quotient_Omega_L_proved_under_rh": True,
+    "adaptive_prolate_eta_pr_squared_O_L_inverse_proved_under_rh": True,
+    "adaptive_prolate_differentiated_far_endpoint_tail_bound_proved": False,
+    "adaptive_prolate_finite_gate_intersection_proved": False,
+    "adaptive_prolate_literal_ceiling_transfer_proved": False,
+    "adaptive_prolate_reserve_saturation_gate_proved": False,
+    "checkpoint149_focused_tests_passed": True,
+    "checkpoint149_full_suite_recount_completed": False,
+    "rh_actual_odd_ground_endpoint_zero_even_primitive_identity_proved": True,
+    "rh_actual_odd_ground_primitive_rayleigh_christoffel_criterion_proved": True,
+    "rh_actual_odd_ground_christoffel_criterion_implies_simple_even_boundary_proved": True,
+    "positive_integer_evaluation_gram_simple_even_parity_nonimplication_proved": True,
+    "rh_actual_odd_ground_christoffel_mean_orientation_proved": False,
+    "adaptive_prolate_larger_row_absolute_relative_selection_proved_under_rh": True,
+    "adaptive_prolate_q_r_selected_carrier_lower_scale_proved_under_rh": True,
+    "adaptive_prolate_spectral_cluster_upper_bound_extended_to_O_L_schedule_proved_under_rh": True,
+    "adaptive_prolate_derivative_saturation_exponential_divergence_proved_under_rh": True,
+    "adaptive_prolate_bottom_cluster_sampling_energy_nonconcentration_proved_under_rh": True,
+    "adaptive_prolate_derivative_sufficient_reserve_criterion_invalidated_under_rh": True,
+    "adaptive_prolate_true_ground_inverse_fourth_moment_orientation_reduction_proved_under_rh": True,
+    "adaptive_prolate_bottom_cluster_hilbert_angle_bound_proved": False,
+    "adaptive_prolate_actual_even_reserve_orientation_proved": False,
+    "checkpoint150_focused_tests_passed": True,
+    "checkpoint150_full_suite_recount_completed": False,
+    "rh_actual_odd_ground_boundary_functional_identity_proved": True,
+    "rh_actual_odd_ground_christoffel_derivative_identity_proved": True,
+    "rh_actual_odd_ground_source_commutator_scalar_reduction_proved": True,
+    "rh_actual_even_ground_squared_commutator_scalar_identity_proved": True,
+    "rh_actual_even_ground_second_christoffel_scalar_identity_proved": True,
+    "rh_actual_even_ground_low_row_logarithmic_response_identity_proved": True,
+    "rh_actual_even_ground_low_row_concavity_reduction_proved": True,
+    "positive_N2_integer_evaluation_odd_christoffel_sign_nonimplication_proved": True,
+    "positive_N2_source_cauchy_even_theta_orientation_nonimplication_proved": True,
+    "rh_actual_ground_scalar_sign_orientation_proved": False,
+    "rh_actual_even_ground_theta_upper_bound_proved": False,
+    "rh_actual_even_ground_relative_row_deletion_stability_proved": False,
+    "checkpoint151_focused_tests_passed": True,
+    "checkpoint151_full_suite_recount_completed": False,
+    "critical_near_nyquist_lerch_symbol_asymptotic_proved": True,
+    "critical_two_branch_r_o_l_gain_collapse_proved": True,
+    "critical_fixed_zero_moving_offset_log_gain_loss_proved": True,
+    "critical_finite_mode_endpoint_nonzero_row_nullspace_proved": True,
+    "critical_fixed_grid_first_poisson_alias_survival_proved": True,
+    "critical_fixed_grid_first_poisson_alias_elimination_proved": False,
+    "critical_actual_zero_energy_covariance_gap_proved": False,
+    "critical_prime_power_divisor_shifted_convolution_gate_proved": False,
+    "critical_density_prolate_transport_T_j_proved": True,
+    "critical_density_prolate_normalized_defect_O_c_inverse2_proved": True,
+    "critical_density_prolate_forward_minimal_green_O_sqrt_c_proved": True,
+    "critical_density_prolate_critical_line_connection_proved": True,
+    "critical_density_prolate_positive_leading_source_multiplier_proved": True,
+    "critical_density_prolate_relative_connection_error_O_c_inverse_half_proved": True,
+    "critical_density_prolate_operator_relative_stokes_transfer_proved": False,
+    "critical_density_prolate_supercritical_abel_tail_t_ge_c_proved": True,
+    "checkpoint152_focused_tests_passed": True,
+    "checkpoint152_full_suite_recount_completed": False,
+    "adaptive_critical_exact_carrier_tangent_same_zero_covariance_proved_under_rh": True,
+    "adaptive_critical_same_ordinate_log_L_squared_gain_proved_under_rh": True,
+    "adaptive_critical_same_ordinate_absolute_row_floor_proved_under_rh": True,
+    "supercritical_full_source_abel_tail_from_0p9c_exp_2c_over5_proved": True,
+    "supercritical_full_source_abel_tail_from_c_exp_c_over2_proved": True,
+    "supercritical_full_source_arbitrary_real_lambda_periodization_proved": True,
+    "supercritical_full_source_carrier_safe_sampled_row_proved": True,
+    "adaptive_critical_actual_one_cutoff_scalar_transfer_proved_under_rh": True,
+    "adaptive_critical_actual_quotient_Omega_log_L_squared_proved_under_rh": True,
+    "adaptive_critical_eta_pr_squared_O_log_L_inverse2_proved_under_rh": True,
+    "adaptive_critical_literal_ceiling_transfer_proved": False,
+    "adaptive_critical_finite_gate_synchronization_proved": False,
+    "checkpoint153_focused_tests_passed": True,
+    "checkpoint153_full_suite_recount_completed": False,
+    "adaptive_critical_varying_density_odd_halfgrid_literal_ceiling_proved_under_rh": True,
+    "adaptive_critical_odd_halfgrid_tangent_filter_stability_proved_under_rh": True,
+    "adaptive_critical_odd_halfgrid_actual_scalar_transfer_proved_under_rh": True,
+    "adaptive_critical_prescribed_fixed_density_literal_ceiling_proved_under_rh": False,
+    "adaptive_critical_old_gevrey_literal_ceiling_transfer_proved_under_rh": False,
+    "critical_actual_low_zero_row_nullity_lower_bound_proved_under_rh": True,
+    "critical_low_zero_nullspace_wrong_minimax_direction_barrier_proved_under_rh": True,
+    "positive_N2_paired_real_evaluation_odd_ground_nonimplication_proved": True,
+    "critical_true_odd_ground_row_deletion_parity_sufficient_criterion_proved_under_rh": True,
+    "critical_true_even_ground_row_deletion_reserve_sufficient_criterion_proved_under_rh": True,
+    "positive_source_cauchy_scalar_quotient_uniform_reserve_nonimplication_proved": True,
+    "critical_actual_primitive_determinant_Delta_N_positive_proved_under_rh": False,
+    "critical_actual_shifted_sector_margin_Sigma_N_positive_proved_under_rh": False,
+    "critical_actual_true_ground_reserve_proved_under_rh": False,
+    "critical_actual_zeta_finite_gate_failure_proved_under_rh": False,
+    "checkpoint154_focused_tests_passed": True,
+    "checkpoint154_full_suite_recount_completed": False,
+    "critical_odd_ground_mixed_cofactor_bordered_determinant_equivalence_proved_under_rh": True,
+    "critical_odd_ground_christoffel_geronimus_derivative_equivalence_proved_under_rh": True,
+    "critical_odd_ground_origin_atom_constant_one_identity_proved_under_rh": True,
+    "critical_odd_ground_mixed_vandermonde_alternating_expansion_proved_under_rh": True,
+    "positive_growing_evaluation_gram_odd_ground_cofactor_sign_nonimplication_proved": True,
+    "critical_actual_odd_ground_mixed_vandermonde_cofactor_sign_proved_under_rh": False,
+    "critical_ground_negative_sobolev_support_sufficient_criteria_proved_under_rh": True,
+    "positive_source_cauchy_negative_sobolev_ground_control_nonimplication_proved": True,
+    "positive_integer_evaluation_gram_negative_sobolev_ground_control_nonimplication_proved": True,
+    "hsw_count_negative_sobolev_ground_control_nonimplication_proved": True,
+    "critical_actual_ground_negative_sobolev_lower_bound_proved_under_rh": False,
+    "checkpoint155_focused_tests_passed": True,
+    "checkpoint155_full_suite_recount_completed": False,
+    "unconditional_natural_halfgrid_cross_root_cofinal_schedule_proved": True,
+    "unconditional_natural_halfgrid_hsw_phase_good_subsequence_proved": True,
+    "natural_halfgrid_hsw_certified_rounding_scale_N_o_lambda_L_proved": True,
+    "natural_halfgrid_cross_root_projective_schedule_rates_proved": True,
+    "natural_halfgrid_gate_restricted_alignment_average_sufficiency_proved": True,
+    "unconditional_critical_halfgrid_hsw_phase_good_schedule_proved": False,
+    "unconditional_gevrey_halfgrid_hsw_phase_good_schedule_proved": False,
+    "natural_halfgrid_actual_gate_restricted_alignment_average_bound_proved": False,
+    "cross_root_even_simple_line_complement_reduction_proved": True,
+    "cross_root_even_multiplicity_safe_canonical_projector_reduction_proved": True,
+    "cross_root_projective_alignment_signed_response_equivalence_proved": True,
+    "cross_root_global_parity_odd_shift_simple_boundary_true_reserve_not_required_proved": True,
+    "positive_padded_source_cauchy_projective_alignment_nonimplication_proved": True,
+    "checkpoint153_155_scalar_inputs_cross_root_projective_alignment_proved": False,
+    "checkpoint156_focused_tests_passed": True,
+    "checkpoint156_full_suite_recount_completed": False,
+    "first_zero_support_gap_exact_carrier_hypergeometric_statistics_proved": True,
+    "first_zero_support_gap_count_root_location_free_weight_alignment_nonimplication_proved": True,
+    "first_zero_support_gap_actual_zeta_mixed_cofactor_negative_proved_under_rh": False,
+    "natural_crossroot_codimension_two_projector_gram_identity_proved": True,
+    "natural_crossroot_multiplicity_safe_weighted_cofactor_equivalence_proved": True,
+    "natural_crossroot_simple_complete_source_inverse_response_equivalence_proved": True,
+    "natural_crossroot_weighted_projector_average_selection_sufficiency_proved": True,
+    "natural_crossroot_actual_arithmetic_weighted_projector_average_bound_proved": False,
+    "natural_crossroot_finite_good_set_nonempty_proved": False,
+    "natural_crossroot_dyadic_total_visibility_positive_proved": False,
+    "checkpoint157_focused_tests_passed": True,
+    "checkpoint157_full_suite_recount_completed": False,
+    "natural_halfgrid_hsw_even_shell_covariance_factorization_proved_under_rh": True,
+    "natural_halfgrid_hsw_frozen_shell_even_complement_floor_zero_proved_under_rh": True,
+    "natural_halfgrid_hsw_phase_scalar_to_complete_even_frame_nonimplication_proved": True,
+    "natural_halfgrid_complete_signed_source_covariance_to_alignment_reduction_proved": True,
+    "natural_halfgrid_actual_complete_signed_projected_covariance_gate_proved": False,
+    "natural_halfgrid_actual_complete_signed_relative_schur_average_bound_proved": False,
+    "natural_outer_shell_actual_even_source_polylog_prefix_mean_square_bound_proved": True,
+    "natural_outer_shell_simple_ground_adaptive_inverse_response_identity_proved": True,
+    "natural_outer_shell_raw_prefix_to_weighted_inverse_spread_nonimplication_proved": True,
+    "natural_outer_shell_actual_gate_weighted_inverse_spread_bound_proved": False,
+    "checkpoint158_focused_tests_passed": True,
+    "checkpoint158_full_suite_recount_completed": False,
+    "natural_gevrey_odd_halfgrid_adjacent_projection_error_exponential_class_proved": True,
+    "natural_gevrey_complete_sampled_remainder_shift_rayleigh_residual_exponential_class_proved": True,
+    "natural_gevrey_temple_davis_kahan_relative_gap_alignment_reduction_proved": True,
+    "natural_gevrey_absolute_data_to_projective_orientation_nonimplication_proved": True,
+    "natural_gevrey_actual_relative_gap_and_canonical_projector_orientation_proved": False,
+    "natural_adjugate_scale_free_null_projector_identity_proved": True,
+    "natural_adjugate_positive_second_plucker_bordered_determinant_identity_proved": True,
+    "natural_adjugate_source_displacement_two_inverse_christoffel_generator_reduction_proved": True,
+    "natural_adjugate_inverse_christoffel_positivity_uniform_bound_nonimplication_proved": True,
+    "natural_adjugate_simple_branch_anchor_weight_automatic_nonvanishing_proved": True,
+    "natural_adjugate_actual_gate_weighted_normalized_plucker_covariance_bound_proved": False,
+    "checkpoint159_focused_tests_passed": True,
+    "checkpoint159_full_suite_recount_completed": False,
+    "natural_centered_gate_simple_ground_axis_root_eta_free_normalization_proved": True,
+    "natural_centered_gate_affine_source_exact_ritz_ratio_r_zero_closure_proved": True,
+    "natural_centered_gate_anchor_cofactor_count_characterization_proved": True,
+    "natural_centered_gate_cubic_moment_determinant_threshold_reduction_proved": True,
+    "natural_centered_gate_source_cauchy_nonemptiness_eta_visibility_nonimplications_proved": True,
+    "natural_centered_gate_actual_cofinal_good_set_and_eta_free_covariance_proved": False,
+    "natural_complete_source_centered_scalar_cancellation_signed_gate_reduction_proved": True,
+    "natural_complete_source_rank_deficit_kappa_deflated_coframe_upper_obstruction_proved_under_rh": True,
+    "natural_complete_source_one_sided_anchor_bound_gate_failure_nonimplication_proved": True,
+    "natural_complete_source_off_rh_zero_gram_loewner_nonimplication_proved": True,
+    "natural_complete_source_actual_centered_gate_proved": False,
+    "checkpoint160_focused_tests_passed": True,
+    "checkpoint160_full_suite_recount_completed": False,
+    "halfgrid_gevrey_roundable_schedule_actual_projection_scalar_residual_R_over_L_class_proved": True,
+    "halfgrid_gevrey_general_kappa_deflated_coframe_exponent_and_optimizer_proved_under_rh": True,
+    "halfgrid_gevrey_roundable_uniform_coframe_exponent_mismatch_proved_under_rh": True,
+    "halfgrid_gevrey_bridge_ratio_near_quadratic_rounding_escape_nonimplication_proved": True,
+    "halfgrid_gevrey_one_sided_q_and_off_rh_positive_gram_nonimplications_proved": True,
+    "halfgrid_gevrey_actual_centered_gate_or_gate_failure_proved": False,
+    "natural_multiple_ground_axis_rooted_cone_selector_closure_nonselection_proved": True,
+    "natural_multiple_ground_coordinate_shell_qualitative_visible_selection_proved": True,
+    "natural_multiple_ground_shell_average_low_projective_tail_transfer_reduction_proved": True,
+    "natural_multiple_ground_adjacent_cutoff_rank_obstruction_trace_nonnecessity_proved": True,
+    "natural_multiple_ground_actual_low_visibility_quantitative_selector_rate_proved": False,
+    "checkpoint161_focused_tests_passed": True,
+    "checkpoint161_full_suite_recount_completed": False,
+    "natural_projected_anchor_raw_secular_coefficient_recurrence_proved": True,
+    "natural_projected_anchor_shifted_routh_hurwitz_collar_criterion_proved": True,
+    "natural_projected_anchor_relative_endpoint_moment_rouche_reduction_proved": True,
+    "natural_projected_anchor_checkerboard_flat_jet_prescribed_collar_nonimplication_proved": True,
+    "natural_projected_anchor_high_shell_endpoint_jet_stability_nonimplication_proved": True,
+    "natural_projected_anchor_actual_shrinking_collar_routh_margin_proved": False,
+    "natural_direct_bottom_projector_eta_free_overlap_alignment_reduction_proved": True,
+    "natural_direct_bottom_projector_global_adjugate_gram_ratio_proved": True,
+    "natural_direct_bottom_projector_multiple_coordinate_selector_reduction_proved": True,
+    "natural_direct_bottom_projector_analytic_perron_trace_sufficiency_nonimplications_proved": True,
+    "natural_direct_bottom_projector_actual_anchor_diagonal_source_cauchy_nonimplication_proved": True,
+    "natural_direct_bottom_projector_actual_relative_cofactor_orientation_rate_proved": False,
+    "checkpoint162_focused_tests_passed": True,
+    "checkpoint162_full_suite_recount_completed": False,
+    "jensen_unshifted_classical_xi_limit_proved": True,
+    "jensen_wedge_shift_to_degree_ratio_zero_proved": True,
+    "jensen_wedge_origin_diagonal_exponential_gaussian_limit_proved": True,
+    "jensen_wedge_centered_nonzero_entire_limit_excluded": True,
+    "jensen_wedge_almost_total_derivative_prefix_loss_proved": True,
+    "jensen_reverse_integration_hyperbolicity_shortcut_invalidated": True,
+    "jensen_inverse_shift_multiplier_hyperbolicity_proved": False,
+    "jensen_wedge_unshifted_hyperbolicity_transfer_proved": False,
+    "cutoff_free_prolate_anchor_graph_domain_scalar_residual_transfer_proved": True,
+    "cutoff_free_prolate_domain_exhaustion_norm_resolvent_oscillator_obstruction_proved": True,
+    "cutoff_free_prolate_full_ground_projector_residual_inequality_proved": True,
+    "cutoff_free_prolate_nonvanishing_full_ground_overlap_implies_rh_proved": True,
+    "cutoff_free_prolate_rh_false_forces_halfgrid_overlap_zero_proved": True,
+    "cutoff_free_prolate_even_bottom_parity_ordering_nonimplication_proved": True,
+    "cutoff_free_prolate_relative_alignment_spectral_isolation_reduction_proved": True,
+    "cutoff_free_prolate_actual_full_ground_overlap_or_isolation_proved": False,
+    "checkpoint163_focused_tests_passed": True,
+    "checkpoint163_full_suite_recount_completed": False,
+    "cutoff_free_multi_anchor_bottom_projector_inequality_proved": True,
+    "cutoff_free_multi_anchor_operator_frame_reduction_proved": True,
+    "cutoff_free_label4_explicit_residual_envelope_proved": True,
+    "cutoff_free_multi_anchor_residual_weighted_correlation_implies_rh_proved": True,
+    "cutoff_free_multi_anchor_rank_one_load_resolvent_residue_identities_proved": True,
+    "cutoff_free_multi_anchor_paired_translate_translation_frame_obstruction_proved": True,
+    "cutoff_free_multi_anchor_phase_volume_shannon_capture_mismatch_proved": True,
+    "cutoff_free_actual_multi_anchor_ground_frame_or_phase_volume_capture_proved": False,
+    "actual_phase_volume_centered_pnt_stieltjes_split_proved": True,
+    "actual_phase_volume_continuous_pnt_main_polynomial_bound_proved": True,
+    "actual_phase_volume_bounded_logarithmic_remainder_sufficiency_proved": True,
+    "actual_phase_volume_high_time_centered_remainder_reduction_proved": True,
+    "actual_phase_volume_pinned_pnt_short_time_control_proved": True,
+    "actual_phase_volume_mean_square_higher_moment_nonclosure_proved": True,
+    "actual_phase_volume_centered_remainder_reverse_equivalence_proved": False,
+    "actual_phase_volume_centered_high_time_remainder_bound_proved": False,
+    "cutoff_free_weighted_radical_coframe_minimum_defect_right_inverse_proved": True,
+    "cutoff_free_weighted_radical_operator_synthesis_no_dimension_loss_proved": True,
+    "cutoff_free_weighted_radical_principal_angle_hard_prefix_floor_proved": True,
+    "cutoff_free_weighted_radical_krd_shannon_stopping_line_proved": True,
+    "cutoff_free_weighted_radical_explicit_right_inverse_approximation_criterion_proved": True,
+    "cutoff_free_weighted_radical_orientation_countermodel_proved": True,
+    "cutoff_free_weighted_radical_uniform_graph_tail_transfer_proved": False,
+    "cutoff_free_actual_weighted_radical_coframe_capture_rate_proved": False,
+    "checkpoint164_focused_tests_passed": True,
+    "checkpoint164_full_suite_recount_completed": False,
+}
+
+project = json.loads(Path("PROJECT_STATUS.json").read_text(encoding="utf-8"))
+p0 = json.loads(Path("P0_STATUS.json").read_text(encoding="utf-8"))["component_claims"]
+handoff = json.loads(Path("HANDOFF_MANIFEST.json").read_text(encoding="utf-8"))["claim_status"]
+surfaces = (
+    ("PROJECT_STATUS.json", project),
+    ("P0_STATUS.json:component_claims", p0),
+    ("HANDOFF_MANIFEST.json:claim_status", handoff),
+)
+
+for key, expected in required.items():
+    values = []
+    for name, claims in surfaces:
+        if key not in claims:
+            raise AssertionError(f"missing required claim key {key!r} in {name}")
+        values.append(claims[key])
+    if values != [expected, expected, expected]:
+        raise AssertionError(
+            f"claim mismatch for {key!r}: expected {expected!r}, got {values!r}"
+        )
+PY
 
 python3 -m unittest discover -s tests -v
 
@@ -62,6 +356,41 @@ clang -O2 -std=c11 -Wall -Wextra -Werror \
   -o "$P0_BUILD_DIR/p0_matrix_arb_replay"
 clang -O2 -std=c11 -Wall -Wextra -Werror \
   -I"$P0_FLINT_PREFIX/include" -I"$P0_GMP_PREFIX/include" \
+  -I"$P0_MPFR_PREFIX/include" src/p0_prolate_state_arb.c \
+  -L"$P0_FLINT_PREFIX/lib" -L"$P0_GMP_PREFIX/lib" -L"$P0_MPFR_PREFIX/lib" \
+  -Wl,-rpath,"$P0_FLINT_PREFIX/lib" -Wl,-rpath,"$P0_GMP_PREFIX/lib" \
+  -Wl,-rpath,"$P0_MPFR_PREFIX/lib" -lflint -lmpfr -lgmp -lm \
+  -o "$P0_BUILD_DIR/p0_prolate_state_arb"
+clang -O2 -std=c11 -Wall -Wextra -Werror \
+  -I"$P0_FLINT_PREFIX/include" -I"$P0_GMP_PREFIX/include" \
+  -I"$P0_MPFR_PREFIX/include" verifier/p0_prolate_state_arb_replay.c \
+  -L"$P0_FLINT_PREFIX/lib" -L"$P0_GMP_PREFIX/lib" -L"$P0_MPFR_PREFIX/lib" \
+  -Wl,-rpath,"$P0_FLINT_PREFIX/lib" -Wl,-rpath,"$P0_GMP_PREFIX/lib" \
+  -Wl,-rpath,"$P0_MPFR_PREFIX/lib" -lflint -lmpfr -lgmp -lm \
+  -o "$P0_BUILD_DIR/p0_prolate_state_arb_replay"
+clang -O2 -std=c11 -Wall -Wextra -Werror \
+  -I"$P0_FLINT_PREFIX/include" -I"$P0_GMP_PREFIX/include" \
+  -I"$P0_MPFR_PREFIX/include" src/variable_lambda_prolate_state_ball.c \
+  -L"$P0_FLINT_PREFIX/lib" -L"$P0_GMP_PREFIX/lib" -L"$P0_MPFR_PREFIX/lib" \
+  -Wl,-rpath,"$P0_FLINT_PREFIX/lib" -Wl,-rpath,"$P0_GMP_PREFIX/lib" \
+  -Wl,-rpath,"$P0_MPFR_PREFIX/lib" -lflint -lmpfr -lgmp -lm \
+  -o "$P0_BUILD_DIR/variable_lambda_prolate_state_ball"
+clang -O2 -std=c11 -Wall -Wextra -Werror \
+  -I"$P0_FLINT_PREFIX/include" -I"$P0_GMP_PREFIX/include" \
+  -I"$P0_MPFR_PREFIX/include" verifier/variable_lambda_prolate_state_ball_replay.c \
+  -L"$P0_FLINT_PREFIX/lib" -L"$P0_GMP_PREFIX/lib" -L"$P0_MPFR_PREFIX/lib" \
+  -Wl,-rpath,"$P0_FLINT_PREFIX/lib" -Wl,-rpath,"$P0_GMP_PREFIX/lib" \
+  -Wl,-rpath,"$P0_MPFR_PREFIX/lib" -lflint -lmpfr -lgmp -lm \
+  -o "$P0_BUILD_DIR/variable_lambda_prolate_state_ball_replay"
+clang -O2 -std=c11 -Wall -Wextra -Werror \
+  -I"$P0_FLINT_PREFIX/include" -I"$P0_GMP_PREFIX/include" \
+  -I"$P0_MPFR_PREFIX/include" verifier/p0_n4_raw_gap_arb.c \
+  -L"$P0_FLINT_PREFIX/lib" -L"$P0_GMP_PREFIX/lib" -L"$P0_MPFR_PREFIX/lib" \
+  -Wl,-rpath,"$P0_FLINT_PREFIX/lib" -Wl,-rpath,"$P0_GMP_PREFIX/lib" \
+  -Wl,-rpath,"$P0_MPFR_PREFIX/lib" -lflint -lmpfr -lgmp -lm \
+  -o "$P0_BUILD_DIR/p0_n4_raw_gap_arb"
+clang -O2 -std=c11 -Wall -Wextra -Werror \
+  -I"$P0_FLINT_PREFIX/include" -I"$P0_GMP_PREFIX/include" \
   -I"$P0_MPFR_PREFIX/include" verifier/projection_constant_arb.c \
   -L"$P0_FLINT_PREFIX/lib" -L"$P0_GMP_PREFIX/lib" -L"$P0_MPFR_PREFIX/lib" \
   -Wl,-rpath,"$P0_FLINT_PREFIX/lib" -Wl,-rpath,"$P0_GMP_PREFIX/lib" \
@@ -80,6 +409,60 @@ for P0_BITS in 256 512; do
     --producer "artifacts/p0_ball_pilots/lambda2_N2/producer_${P0_BITS}bits.txt" \
     --output "artifacts/p0_ball_pilots/lambda2_N2/verifier_${P0_BITS}bits.txt" >/dev/null
 done
+
+mkdir -p artifacts/p0_ball_pilots/lambda2_N4
+for P0_BITS in 256 512; do
+  "$P0_BUILD_DIR/p0_matrix_arb" --lambda 2 --N 4 --prec "$P0_BITS" \
+    --output "artifacts/p0_ball_pilots/lambda2_N4/producer_${P0_BITS}bits.txt" >/dev/null
+  "$P0_BUILD_DIR/p0_matrix_arb_replay" --lambda 2 --N 4 --prec "$P0_BITS" \
+    --producer "artifacts/p0_ball_pilots/lambda2_N4/producer_${P0_BITS}bits.txt" \
+    --output "artifacts/p0_ball_pilots/lambda2_N4/verifier_${P0_BITS}bits.txt" >/dev/null
+  python3 verifier/even_total_positivity_ball_audit.py \
+    --producer "artifacts/p0_ball_pilots/lambda2_N4/producer_${P0_BITS}bits.txt" \
+    --verifier "artifacts/p0_ball_pilots/lambda2_N4/verifier_${P0_BITS}bits.txt" \
+    --lambda 2 --N 4 --prec "$P0_BITS" \
+    --output "artifacts/p0_ball_pilots/lambda2_N4/even_minor_audit_${P0_BITS}bits.json" >/dev/null
+done
+
+shasum -a 256 -c artifacts/p0_prolate_state_ball/INPUTS.sha256
+for P0_STATE_N in 3 4; do
+  mkdir -p "artifacts/p0_prolate_state_ball/lambda2_N${P0_STATE_N}"
+  for P0_BITS in 256 512; do
+    "$P0_BUILD_DIR/p0_prolate_state_arb" \
+      --lambda 2 --N "$P0_STATE_N" --basis-size 40 --prec "$P0_BITS" \
+      --output "artifacts/p0_prolate_state_ball/lambda2_N${P0_STATE_N}/producer_${P0_BITS}bits.txt"
+    "$P0_BUILD_DIR/p0_prolate_state_arb_replay" \
+      --lambda 2 --N "$P0_STATE_N" --basis-size 40 --prec "$P0_BITS" \
+      --producer "artifacts/p0_prolate_state_ball/lambda2_N${P0_STATE_N}/producer_${P0_BITS}bits.txt" \
+      --output "artifacts/p0_prolate_state_ball/lambda2_N${P0_STATE_N}/verifier_${P0_BITS}bits.txt"
+  done
+done
+"$P0_BUILD_DIR/p0_n4_raw_gap_arb" --prec 512 \
+  --weil artifacts/p0_ball_pilots/lambda2_N4/producer_256bits.txt \
+  --weil artifacts/p0_ball_pilots/lambda2_N4/verifier_256bits.txt \
+  --weil artifacts/p0_ball_pilots/lambda2_N4/producer_512bits.txt \
+  --weil artifacts/p0_ball_pilots/lambda2_N4/verifier_512bits.txt \
+  --state artifacts/p0_prolate_state_ball/lambda2_N4/producer_256bits.txt \
+  --state artifacts/p0_prolate_state_ball/lambda2_N4/verifier_256bits.txt \
+  --state artifacts/p0_prolate_state_ball/lambda2_N4/producer_512bits.txt \
+  --state artifacts/p0_prolate_state_ball/lambda2_N4/verifier_512bits.txt \
+  --output artifacts/p0_prolate_state_ball/lambda2_N4/raw_odd_gap_512bits.txt
+shasum -a 256 -c artifacts/p0_prolate_state_ball/OUTPUTS.sha256
+
+shasum -a 256 -c artifacts/variable_lambda_prolate_state_ball/INPUTS.sha256
+mkdir -p artifacts/variable_lambda_prolate_state_ball/lambda5over2_N3
+for P0_VARIABLE_BITS in 256 512; do
+  "$P0_BUILD_DIR/variable_lambda_prolate_state_ball" \
+    --lambda 5/2 --N 3 --basis-size 79 --tail-terminal 85 \
+    --prec "$P0_VARIABLE_BITS" \
+    --output "artifacts/variable_lambda_prolate_state_ball/lambda5over2_N3/producer_${P0_VARIABLE_BITS}bits.txt"
+  "$P0_BUILD_DIR/variable_lambda_prolate_state_ball_replay" \
+    --producer "artifacts/variable_lambda_prolate_state_ball/lambda5over2_N3/producer_${P0_VARIABLE_BITS}bits.txt" \
+    --lambda 5/2 --N 3 --basis-size 79 --tail-terminal 85 \
+    --prec "$P0_VARIABLE_BITS" \
+    --output "artifacts/variable_lambda_prolate_state_ball/lambda5over2_N3/verifier_${P0_VARIABLE_BITS}bits.txt"
+done
+shasum -a 256 -c artifacts/variable_lambda_prolate_state_ball/OUTPUTS.sha256
 
 mkdir -p artifacts/p0_pilots/lambda2_N2
 python3 src/p0_diagnostic.py --lambda 2 --N 2 --dps 40 --prolate-basis-size 30 \
@@ -537,4 +920,681 @@ for P0_TRIMMED_SCHUR_P in 5 7; do
   done
 done
 
+mkdir -p artifacts/localized_moment_source_whitened_schur
+for P0_LOCALIZED_SCHUR_P in 5 7; do
+  for P0_LOCALIZED_SCHUR_DPS in 80 160; do
+    python3 src/localized_moment_source_whitened_schur.py \
+      --lambda-numerator "$P0_LOCALIZED_SCHUR_P" --dps "$P0_LOCALIZED_SCHUR_DPS" \
+      --output "artifacts/localized_moment_source_whitened_schur/p${P0_LOCALIZED_SCHUR_P}_d${P0_LOCALIZED_SCHUR_DPS}_producer.json" >/dev/null
+    python3 verifier/localized_moment_source_whitened_schur_replay.py \
+      "artifacts/localized_moment_source_whitened_schur/p${P0_LOCALIZED_SCHUR_P}_d${P0_LOCALIZED_SCHUR_DPS}_producer.json" \
+      --output "artifacts/localized_moment_source_whitened_schur/p${P0_LOCALIZED_SCHUR_P}_d${P0_LOCALIZED_SCHUR_DPS}_replay.json" >/dev/null
+  done
+done
+
+mkdir -p artifacts/physical_soft_short_signed_schur
+for P0_SOFT_SCHUR_P in 5 7; do
+  for P0_SOFT_SCHUR_DPS in 80 160; do
+    python3 src/physical_soft_short_signed_schur.py \
+      --lambda-numerator "$P0_SOFT_SCHUR_P" --dps "$P0_SOFT_SCHUR_DPS" \
+      --output "artifacts/physical_soft_short_signed_schur/p${P0_SOFT_SCHUR_P}_d${P0_SOFT_SCHUR_DPS}_producer.json" >/dev/null
+    python3 verifier/physical_soft_short_signed_schur_replay.py \
+      --artifact "artifacts/physical_soft_short_signed_schur/p${P0_SOFT_SCHUR_P}_d${P0_SOFT_SCHUR_DPS}_producer.json" \
+      --output "artifacts/physical_soft_short_signed_schur/p${P0_SOFT_SCHUR_P}_d${P0_SOFT_SCHUR_DPS}_replay.json" >/dev/null
+  done
+done
+
+mkdir -p artifacts/full_source_coframe_rank
+for P0_COFRAME_P in 5 9; do
+  for P0_COFRAME_DPS in 80 160; do
+    python3 src/full_source_coframe_rank.py \
+      --lambda-numerator "$P0_COFRAME_P" --dps "$P0_COFRAME_DPS" \
+      --output "artifacts/full_source_coframe_rank/p${P0_COFRAME_P}_d${P0_COFRAME_DPS}_producer.json" >/dev/null
+    python3 verifier/full_source_coframe_rank_replay.py \
+      --artifact "artifacts/full_source_coframe_rank/p${P0_COFRAME_P}_d${P0_COFRAME_DPS}_producer.json" \
+      --output "artifacts/full_source_coframe_rank/p${P0_COFRAME_P}_d${P0_COFRAME_DPS}_replay.json" >/dev/null
+  done
+done
+
+mkdir -p artifacts/matched_high_moment_coframe
+for P0_MATCHED_MOMENT_P in 5 9; do
+  for P0_MATCHED_MOMENT_DPS in 80 160; do
+    python3 src/matched_high_moment_coframe.py \
+      --lambda-numerator "$P0_MATCHED_MOMENT_P" --dps "$P0_MATCHED_MOMENT_DPS" \
+      --output "artifacts/matched_high_moment_coframe/p${P0_MATCHED_MOMENT_P}_d${P0_MATCHED_MOMENT_DPS}_producer.json" >/dev/null
+    python3 verifier/matched_high_moment_coframe_replay.py \
+      "artifacts/matched_high_moment_coframe/p${P0_MATCHED_MOMENT_P}_d${P0_MATCHED_MOMENT_DPS}_producer.json" \
+      --output "artifacts/matched_high_moment_coframe/p${P0_MATCHED_MOMENT_P}_d${P0_MATCHED_MOMENT_DPS}_replay.json" >/dev/null
+  done
+done
+
+mkdir -p artifacts/matched_breakpoint_directional_moment
+for P0_BREAKPOINT_MOMENT_P in 5 9; do
+  for P0_BREAKPOINT_MOMENT_DPS in 80 160; do
+    python3 src/matched_breakpoint_directional_moment.py \
+      --lambda-numerator "$P0_BREAKPOINT_MOMENT_P" --dps "$P0_BREAKPOINT_MOMENT_DPS" \
+      --output "artifacts/matched_breakpoint_directional_moment/p${P0_BREAKPOINT_MOMENT_P}_d${P0_BREAKPOINT_MOMENT_DPS}_producer.json" >/dev/null
+    python3 verifier/matched_breakpoint_directional_moment_replay.py \
+      "artifacts/matched_breakpoint_directional_moment/p${P0_BREAKPOINT_MOMENT_P}_d${P0_BREAKPOINT_MOMENT_DPS}_producer.json" \
+      --output "artifacts/matched_breakpoint_directional_moment/p${P0_BREAKPOINT_MOMENT_P}_d${P0_BREAKPOINT_MOMENT_DPS}_replay.json" >/dev/null
+  done
+done
+
+mkdir -p artifacts/soft_defect_prolate_angle
+for P0_SOFT_ANGLE_P in 5 9; do
+  for P0_SOFT_ANGLE_DPS in 80 160; do
+    python3 src/soft_defect_prolate_angle.py \
+      --lambda-numerator "$P0_SOFT_ANGLE_P" --dps "$P0_SOFT_ANGLE_DPS" \
+      --output "artifacts/soft_defect_prolate_angle/p${P0_SOFT_ANGLE_P}_d${P0_SOFT_ANGLE_DPS}_producer.json" >/dev/null
+    python3 verifier/soft_defect_prolate_angle_replay.py \
+      --input "artifacts/soft_defect_prolate_angle/p${P0_SOFT_ANGLE_P}_d${P0_SOFT_ANGLE_DPS}_producer.json" \
+      --output "artifacts/soft_defect_prolate_angle/p${P0_SOFT_ANGLE_P}_d${P0_SOFT_ANGLE_DPS}_replay.json" >/dev/null
+  done
+done
+
+mkdir -p artifacts/physical_defect_adjoint_tail
+for P0_DEFECT_TAIL_P in 5 9; do
+  for P0_DEFECT_TAIL_DPS in 80 160; do
+    python3 src/physical_defect_adjoint_tail.py \
+      --lambda-numerator "$P0_DEFECT_TAIL_P" --dps "$P0_DEFECT_TAIL_DPS" \
+      --output "artifacts/physical_defect_adjoint_tail/p${P0_DEFECT_TAIL_P}_d${P0_DEFECT_TAIL_DPS}_producer.json" >/dev/null
+    python3 verifier/physical_defect_adjoint_tail_replay.py \
+      --input "artifacts/physical_defect_adjoint_tail/p${P0_DEFECT_TAIL_P}_d${P0_DEFECT_TAIL_DPS}_producer.json" \
+      --output "artifacts/physical_defect_adjoint_tail/p${P0_DEFECT_TAIL_P}_d${P0_DEFECT_TAIL_DPS}_replay.json" >/dev/null
+  done
+done
+
+mkdir -p artifacts/log_feature_capture_alignment
+for P0_LOG_FEATURE_P in 5 9; do
+  for P0_LOG_FEATURE_DPS in 80 160; do
+    python3 src/log_feature_capture_alignment.py \
+      --lambda-numerator "$P0_LOG_FEATURE_P" --dps "$P0_LOG_FEATURE_DPS" \
+      --output "artifacts/log_feature_capture_alignment/p${P0_LOG_FEATURE_P}_d${P0_LOG_FEATURE_DPS}_producer.json" >/dev/null
+    python3 verifier/log_feature_capture_alignment_replay.py \
+      --input "artifacts/log_feature_capture_alignment/p${P0_LOG_FEATURE_P}_d${P0_LOG_FEATURE_DPS}_producer.json" \
+      --output "artifacts/log_feature_capture_alignment/p${P0_LOG_FEATURE_P}_d${P0_LOG_FEATURE_DPS}_replay.json" >/dev/null
+  done
+done
+
+mkdir -p artifacts/intrinsic_feature_dyadic_defect
+for P0_INTRINSIC_FEATURE_P in 5 9; do
+  for P0_INTRINSIC_FEATURE_DPS in 80 160; do
+    python3 src/intrinsic_feature_dyadic_defect.py \
+      --lambda-numerator "$P0_INTRINSIC_FEATURE_P" --dps "$P0_INTRINSIC_FEATURE_DPS" \
+      --output "artifacts/intrinsic_feature_dyadic_defect/p${P0_INTRINSIC_FEATURE_P}_d${P0_INTRINSIC_FEATURE_DPS}_producer.json" >/dev/null
+    python3 verifier/intrinsic_feature_dyadic_defect_replay.py \
+      --input "artifacts/intrinsic_feature_dyadic_defect/p${P0_INTRINSIC_FEATURE_P}_d${P0_INTRINSIC_FEATURE_DPS}_producer.json" \
+      --output "artifacts/intrinsic_feature_dyadic_defect/p${P0_INTRINSIC_FEATURE_P}_d${P0_INTRINSIC_FEATURE_DPS}_replay.json" >/dev/null
+  done
+done
+
+mkdir -p artifacts/weighted_spectral_alignment_chebyshev_edge
+for P0_WEIGHTED_EDGE_P in 5 9; do
+  for P0_WEIGHTED_EDGE_DPS in 80 160; do
+    python3 src/weighted_spectral_alignment_chebyshev_edge.py \
+      --lambda-numerator "$P0_WEIGHTED_EDGE_P" --dps "$P0_WEIGHTED_EDGE_DPS" \
+      --output "artifacts/weighted_spectral_alignment_chebyshev_edge/p${P0_WEIGHTED_EDGE_P}_d${P0_WEIGHTED_EDGE_DPS}_producer.json" >/dev/null
+    python3 verifier/weighted_spectral_alignment_chebyshev_edge_replay.py \
+      --input "artifacts/weighted_spectral_alignment_chebyshev_edge/p${P0_WEIGHTED_EDGE_P}_d${P0_WEIGHTED_EDGE_DPS}_producer.json" \
+      --output "artifacts/weighted_spectral_alignment_chebyshev_edge/p${P0_WEIGHTED_EDGE_P}_d${P0_WEIGHTED_EDGE_DPS}_replay.json" >/dev/null
+  done
+done
+
+mkdir -p artifacts/mellin_projection_soft_symbol_graph_spill
+for P0_GRAPH_SPILL_P in 5 9; do
+  for P0_GRAPH_SPILL_DPS in 80 160; do
+    python3 src/mellin_projection_soft_symbol_graph_spill.py \
+      --lambda-numerator "$P0_GRAPH_SPILL_P" --dps "$P0_GRAPH_SPILL_DPS" \
+      --output "artifacts/mellin_projection_soft_symbol_graph_spill/p${P0_GRAPH_SPILL_P}_d${P0_GRAPH_SPILL_DPS}_producer.json" >/dev/null
+    python3 verifier/mellin_projection_soft_symbol_graph_spill_replay.py \
+      --input "artifacts/mellin_projection_soft_symbol_graph_spill/p${P0_GRAPH_SPILL_P}_d${P0_GRAPH_SPILL_DPS}_producer.json" \
+      --output "artifacts/mellin_projection_soft_symbol_graph_spill/p${P0_GRAPH_SPILL_P}_d${P0_GRAPH_SPILL_DPS}_replay.json" >/dev/null
+  done
+done
+
+mkdir -p artifacts/covariance_annular_odd_subsequence
+for P0_COVARIANCE_ANNULAR_P in 5 9; do
+  for P0_COVARIANCE_ANNULAR_DPS in 80 160; do
+    python3 src/covariance_annular_odd_subsequence.py \
+      --lambda-numerator "$P0_COVARIANCE_ANNULAR_P" \
+      --dps "$P0_COVARIANCE_ANNULAR_DPS" \
+      --output "artifacts/covariance_annular_odd_subsequence/p${P0_COVARIANCE_ANNULAR_P}_d${P0_COVARIANCE_ANNULAR_DPS}_producer.json" >/dev/null
+    python3 verifier/covariance_annular_odd_subsequence_replay.py \
+      --input "artifacts/covariance_annular_odd_subsequence/p${P0_COVARIANCE_ANNULAR_P}_d${P0_COVARIANCE_ANNULAR_DPS}_producer.json" \
+      --output "artifacts/covariance_annular_odd_subsequence/p${P0_COVARIANCE_ANNULAR_P}_d${P0_COVARIANCE_ANNULAR_DPS}_replay.json" >/dev/null
+  done
+done
+
+mkdir -p artifacts/residue_coframe_mixed_krylov
+for P0_RESIDUE_KRYLOV_P in 5 9; do
+  for P0_RESIDUE_KRYLOV_DPS in 80 160; do
+    python3 src/residue_coframe_mixed_krylov.py \
+      --lambda-numerator "$P0_RESIDUE_KRYLOV_P" \
+      --dps "$P0_RESIDUE_KRYLOV_DPS" \
+      --output "artifacts/residue_coframe_mixed_krylov/p${P0_RESIDUE_KRYLOV_P}_d${P0_RESIDUE_KRYLOV_DPS}_producer.json" >/dev/null
+    python3 verifier/residue_coframe_mixed_krylov_replay.py \
+      --input "artifacts/residue_coframe_mixed_krylov/p${P0_RESIDUE_KRYLOV_P}_d${P0_RESIDUE_KRYLOV_DPS}_producer.json" \
+      --output "artifacts/residue_coframe_mixed_krylov/p${P0_RESIDUE_KRYLOV_P}_d${P0_RESIDUE_KRYLOV_DPS}_replay.json" >/dev/null
+  done
+done
+
+mkdir -p artifacts/effective_mixed_endpoint_jump
+for P0_EFFECTIVE_MIXED_JUMP_P in 5 9; do
+  for P0_EFFECTIVE_MIXED_JUMP_DPS in 80 160; do
+    python3 src/effective_mixed_endpoint_jump.py \
+      --lambda-numerator "$P0_EFFECTIVE_MIXED_JUMP_P" \
+      --dps "$P0_EFFECTIVE_MIXED_JUMP_DPS" \
+      --output "artifacts/effective_mixed_endpoint_jump/p${P0_EFFECTIVE_MIXED_JUMP_P}_d${P0_EFFECTIVE_MIXED_JUMP_DPS}_producer.json" >/dev/null
+    python3 verifier/effective_mixed_endpoint_jump_replay.py \
+      --input "artifacts/effective_mixed_endpoint_jump/p${P0_EFFECTIVE_MIXED_JUMP_P}_d${P0_EFFECTIVE_MIXED_JUMP_DPS}_producer.json" \
+      --output "artifacts/effective_mixed_endpoint_jump/p${P0_EFFECTIVE_MIXED_JUMP_P}_d${P0_EFFECTIVE_MIXED_JUMP_DPS}_replay.json" >/dev/null
+  done
+done
+
+mkdir -p artifacts/explicit_mixed_prefix_cost
+for P0_EXPLICIT_MIXED_LAMBDA in 5/2 9/2; do
+  case "$P0_EXPLICIT_MIXED_LAMBDA" in
+    5/2) P0_EXPLICIT_MIXED_TAG="lambda5_2" ;;
+    9/2) P0_EXPLICIT_MIXED_TAG="lambda9_2" ;;
+  esac
+  for P0_EXPLICIT_MIXED_DPS in 80 160; do
+    python3 src/explicit_mixed_prefix_cost.py \
+      --lambda "$P0_EXPLICIT_MIXED_LAMBDA" \
+      --dps "$P0_EXPLICIT_MIXED_DPS" \
+      --output "artifacts/explicit_mixed_prefix_cost/${P0_EXPLICIT_MIXED_TAG}_d${P0_EXPLICIT_MIXED_DPS}_producer.json" >/dev/null
+    python3 verifier/explicit_mixed_prefix_cost_replay.py \
+      --input "artifacts/explicit_mixed_prefix_cost/${P0_EXPLICIT_MIXED_TAG}_d${P0_EXPLICIT_MIXED_DPS}_producer.json" \
+      --output "artifacts/explicit_mixed_prefix_cost/${P0_EXPLICIT_MIXED_TAG}_d${P0_EXPLICIT_MIXED_DPS}_replay.json" >/dev/null
+  done
+done
+
+mkdir -p artifacts/effective_mixed_signed_quotient
+for P0_EFFECTIVE_QUOTIENT_P in 5 9; do
+  for P0_EFFECTIVE_QUOTIENT_DPS in 80 160; do
+    python3 src/effective_mixed_signed_quotient.py \
+      --lambda-numerator "$P0_EFFECTIVE_QUOTIENT_P" \
+      --dps "$P0_EFFECTIVE_QUOTIENT_DPS" \
+      --output "artifacts/effective_mixed_signed_quotient/p${P0_EFFECTIVE_QUOTIENT_P}_d${P0_EFFECTIVE_QUOTIENT_DPS}_producer.json" >/dev/null
+    python3 verifier/effective_mixed_signed_quotient_replay.py \
+      --input "artifacts/effective_mixed_signed_quotient/p${P0_EFFECTIVE_QUOTIENT_P}_d${P0_EFFECTIVE_QUOTIENT_DPS}_producer.json" \
+      --output "artifacts/effective_mixed_signed_quotient/p${P0_EFFECTIVE_QUOTIENT_P}_d${P0_EFFECTIVE_QUOTIENT_DPS}_replay.json" >/dev/null
+  done
+done
+
+mkdir -p artifacts/odd_nu_transverse_sign
+for P0_ODD_NU_P in 5 9; do
+  for P0_ODD_NU_DPS in 80 160; do
+    python3 src/odd_nu_transverse_sign.py \
+      --lambda-numerator "$P0_ODD_NU_P" \
+      --dps "$P0_ODD_NU_DPS" \
+      --output "artifacts/odd_nu_transverse_sign/p${P0_ODD_NU_P}_d${P0_ODD_NU_DPS}_producer.json" >/dev/null
+    python3 verifier/odd_nu_transverse_sign_replay.py \
+      --input "artifacts/odd_nu_transverse_sign/p${P0_ODD_NU_P}_d${P0_ODD_NU_DPS}_producer.json" \
+      --output "artifacts/odd_nu_transverse_sign/p${P0_ODD_NU_P}_d${P0_ODD_NU_DPS}_replay.json" >/dev/null
+  done
+done
+
+mkdir -p artifacts/pnt_discrepancy_normal_form
+for P0_PNT_NORMAL_DPS in 80 160; do
+  python3 src/pnt_discrepancy_normal_form.py \
+    --lambda 2 --N 2 --dps "$P0_PNT_NORMAL_DPS" \
+    --output "artifacts/pnt_discrepancy_normal_form/lambda2_N2_dps${P0_PNT_NORMAL_DPS}_producer.json" >/dev/null
+  python3 verifier/pnt_discrepancy_normal_form_replay.py \
+    "artifacts/pnt_discrepancy_normal_form/lambda2_N2_dps${P0_PNT_NORMAL_DPS}_producer.json" \
+    --output "artifacts/pnt_discrepancy_normal_form/lambda2_N2_dps${P0_PNT_NORMAL_DPS}_replay.json" >/dev/null
+done
+
+mkdir -p artifacts/boundary_discrepancy_convolution
+for P0_BOUNDARY_DPS in 80 160; do
+  python3 src/boundary_discrepancy_convolution.py \
+    --lambda 2 --N 2 --dps "$P0_BOUNDARY_DPS" --reserve-bound-B 2 \
+    --output "artifacts/boundary_discrepancy_convolution/lambda2_N2_dps${P0_BOUNDARY_DPS}_producer.json" >/dev/null
+  python3 verifier/boundary_discrepancy_convolution_replay.py \
+    "artifacts/boundary_discrepancy_convolution/lambda2_N2_dps${P0_BOUNDARY_DPS}_producer.json" \
+    --output "artifacts/boundary_discrepancy_convolution/lambda2_N2_dps${P0_BOUNDARY_DPS}_replay.json" >/dev/null
+done
+
+mkdir -p artifacts/residual_ridged_fixed_window
+for P0_RIDGED_WINDOW_DPS in 40 80; do
+  python3 src/residual_ridged_fixed_window_pilot.py \
+    --lambda 2 --N 4 --T 1 --dps "$P0_RIDGED_WINDOW_DPS" \
+    --prolate-basis-size 30 \
+    --output "artifacts/residual_ridged_fixed_window/lambda2_N4_T1_dps${P0_RIDGED_WINDOW_DPS}_producer.json" >/dev/null
+  python3 verifier/residual_ridged_fixed_window_replay.py \
+    "artifacts/residual_ridged_fixed_window/lambda2_N4_T1_dps${P0_RIDGED_WINDOW_DPS}_producer.json" \
+    --output "artifacts/residual_ridged_fixed_window/lambda2_N4_T1_dps${P0_RIDGED_WINDOW_DPS}_replay.json" >/dev/null
+done
+
+mkdir -p artifacts/checkpoint063_moment_angle_constrained_ground
+for P0_CHECKPOINT063_DPS in 40 80; do
+  python3 src/checkpoint063_moment_angle_constrained_ground.py \
+    --lambda 2 --N 4 --dps "$P0_CHECKPOINT063_DPS" \
+    --prolate-basis-size 30 \
+    --output "artifacts/checkpoint063_moment_angle_constrained_ground/lambda2_N4_dps${P0_CHECKPOINT063_DPS}_producer.json" >/dev/null
+  python3 verifier/checkpoint063_moment_angle_constrained_ground_replay.py \
+    "artifacts/checkpoint063_moment_angle_constrained_ground/lambda2_N4_dps${P0_CHECKPOINT063_DPS}_producer.json" \
+    --output "artifacts/checkpoint063_moment_angle_constrained_ground/lambda2_N4_dps${P0_CHECKPOINT063_DPS}_replay.json" >/dev/null
+done
+(
+  cd artifacts/checkpoint063_moment_angle_constrained_ground
+  shasum -a 256 README.md \
+    lambda2_N4_dps40_producer.json lambda2_N4_dps40_replay.json \
+    lambda2_N4_dps80_producer.json lambda2_N4_dps80_replay.json \
+    > SHA256SUMS
+)
+
+mkdir -p artifacts/checkpoint064_reciprocal_secant
+for P0_CHECKPOINT064_DPS in 40 80; do
+  python3 src/checkpoint064_reciprocal_secant.py \
+    --lambda 2 --N 4 --T 1 --dps "$P0_CHECKPOINT064_DPS" \
+    --prolate-basis-size 30 --arithmetic-sum-cutoff 32 \
+    --output "artifacts/checkpoint064_reciprocal_secant/lambda2_N4_T1_dps${P0_CHECKPOINT064_DPS}_producer.json" >/dev/null
+  python3 verifier/checkpoint064_reciprocal_secant_replay.py \
+    "artifacts/checkpoint064_reciprocal_secant/lambda2_N4_T1_dps${P0_CHECKPOINT064_DPS}_producer.json" \
+    --output "artifacts/checkpoint064_reciprocal_secant/lambda2_N4_T1_dps${P0_CHECKPOINT064_DPS}_replay.json" >/dev/null
+done
+(
+  cd artifacts/checkpoint064_reciprocal_secant
+  shasum -a 256 README.md \
+    lambda2_N4_T1_dps40_producer.json lambda2_N4_T1_dps40_replay.json \
+    lambda2_N4_T1_dps80_producer.json lambda2_N4_T1_dps80_replay.json \
+    > SHA256SUMS
+)
+
+mkdir -p artifacts/checkpoint065_shorted_secant
+for P0_CHECKPOINT065_DPS in 40 80; do
+  python3 src/checkpoint065_shorted_secant.py \
+    --lambda 2 --N 4 --T 1 --dps "$P0_CHECKPOINT065_DPS" \
+    --output "artifacts/checkpoint065_shorted_secant/lambda2_N4_T1_dps${P0_CHECKPOINT065_DPS}_producer.json" >/dev/null
+  python3 verifier/checkpoint065_shorted_secant_replay.py \
+    "artifacts/checkpoint065_shorted_secant/lambda2_N4_T1_dps${P0_CHECKPOINT065_DPS}_producer.json" \
+    --output "artifacts/checkpoint065_shorted_secant/lambda2_N4_T1_dps${P0_CHECKPOINT065_DPS}_replay.json" >/dev/null
+done
+(
+  cd artifacts/checkpoint065_shorted_secant
+  shasum -a 256 README.md \
+    lambda2_N4_T1_dps40_producer.json lambda2_N4_T1_dps40_replay.json \
+    lambda2_N4_T1_dps80_producer.json lambda2_N4_T1_dps80_replay.json \
+    > SHA256SUMS
+)
+
+mkdir -p artifacts/checkpoint066_finite_increment_response
+for P0_CHECKPOINT066_DPS in 40 80; do
+  python3 src/checkpoint066_finite_increment_response.py \
+    --lambda 2 --N 4 --T 1 --dps "$P0_CHECKPOINT066_DPS" \
+    --output "artifacts/checkpoint066_finite_increment_response/lambda2_N4_T1_dps${P0_CHECKPOINT066_DPS}_producer.json" >/dev/null
+  python3 verifier/checkpoint066_finite_increment_response_replay.py \
+    "artifacts/checkpoint066_finite_increment_response/lambda2_N4_T1_dps${P0_CHECKPOINT066_DPS}_producer.json" \
+    --output "artifacts/checkpoint066_finite_increment_response/lambda2_N4_T1_dps${P0_CHECKPOINT066_DPS}_replay.json" >/dev/null
+done
+(
+  cd artifacts/checkpoint066_finite_increment_response
+  shasum -a 256 README.md \
+    lambda2_N4_T1_dps40_producer.json lambda2_N4_T1_dps40_replay.json \
+    lambda2_N4_T1_dps80_producer.json lambda2_N4_T1_dps80_replay.json \
+    > SHA256SUMS
+)
+
+mkdir -p artifacts/checkpoint067_ritz_moment_transfer
+for P0_CHECKPOINT067_DPS in 40 80; do
+  python3 src/checkpoint067_ritz_moment_transfer.py \
+    --lambda 2 --N 4 --T 1 --dps "$P0_CHECKPOINT067_DPS" \
+    --output "artifacts/checkpoint067_ritz_moment_transfer/lambda2_N4_T1_dps${P0_CHECKPOINT067_DPS}_producer.json" >/dev/null
+  python3 verifier/checkpoint067_ritz_moment_transfer_replay.py \
+    "artifacts/checkpoint067_ritz_moment_transfer/lambda2_N4_T1_dps${P0_CHECKPOINT067_DPS}_producer.json" \
+    --output "artifacts/checkpoint067_ritz_moment_transfer/lambda2_N4_T1_dps${P0_CHECKPOINT067_DPS}_replay.json" >/dev/null
+done
+(
+  cd artifacts/checkpoint067_ritz_moment_transfer
+  shasum -a 256 README.md \
+    lambda2_N4_T1_dps40_producer.json lambda2_N4_T1_dps40_replay.json \
+    lambda2_N4_T1_dps80_producer.json lambda2_N4_T1_dps80_replay.json \
+    > SHA256SUMS
+)
+
+mkdir -p artifacts/checkpoint068_ritz_projective_low_mode
+for P0_CHECKPOINT068_DPS in 40 80; do
+  python3 src/checkpoint068_ritz_projective_low_mode.py \
+    --lambda 2 --N 4 --M 2 --theta 1 --dps "$P0_CHECKPOINT068_DPS" \
+    --output "artifacts/checkpoint068_ritz_projective_low_mode/lambda2_N4_M2_theta1_dps${P0_CHECKPOINT068_DPS}_producer.json" >/dev/null
+  python3 verifier/checkpoint068_ritz_projective_low_mode_replay.py \
+    "artifacts/checkpoint068_ritz_projective_low_mode/lambda2_N4_M2_theta1_dps${P0_CHECKPOINT068_DPS}_producer.json" \
+    --output "artifacts/checkpoint068_ritz_projective_low_mode/lambda2_N4_M2_theta1_dps${P0_CHECKPOINT068_DPS}_replay.json" >/dev/null
+done
+(
+  cd artifacts/checkpoint068_ritz_projective_low_mode
+  shasum -a 256 README.md \
+    lambda2_N4_M2_theta1_dps40_producer.json lambda2_N4_M2_theta1_dps40_replay.json \
+    lambda2_N4_M2_theta1_dps80_producer.json lambda2_N4_M2_theta1_dps80_replay.json \
+    > SHA256SUMS
+)
+
+mkdir -p artifacts/checkpoint069_ground_projective_response
+for P0_CHECKPOINT069_DPS in 40 80; do
+  python3 src/checkpoint069_ground_projective_response.py \
+    --lambda 2 --N 4 --M 2 --dps "$P0_CHECKPOINT069_DPS" \
+    --output "artifacts/checkpoint069_ground_projective_response/lambda2_N4_M2_dps${P0_CHECKPOINT069_DPS}_producer.json" >/dev/null
+  python3 verifier/checkpoint069_ground_projective_response_replay.py \
+    "artifacts/checkpoint069_ground_projective_response/lambda2_N4_M2_dps${P0_CHECKPOINT069_DPS}_producer.json" \
+    --output "artifacts/checkpoint069_ground_projective_response/lambda2_N4_M2_dps${P0_CHECKPOINT069_DPS}_replay.json" >/dev/null
+done
+(
+  cd artifacts/checkpoint069_ground_projective_response
+  shasum -a 256 README.md \
+    lambda2_N4_M2_dps40_producer.json lambda2_N4_M2_dps40_replay.json \
+    lambda2_N4_M2_dps80_producer.json lambda2_N4_M2_dps80_replay.json \
+    > SHA256SUMS
+)
+
+mkdir -p artifacts/checkpoint070_natural_cutoff_ground_alignment
+for P0_CHECKPOINT070_DPS in 40 80; do
+  python3 src/checkpoint070_natural_cutoff_ground_alignment.py \
+    --lambda 2 --N 8 --M 2 --basis-size 60 \
+    --dps "$P0_CHECKPOINT070_DPS" \
+    --output "artifacts/checkpoint070_natural_cutoff_ground_alignment/lambda2_N8_M2_dps${P0_CHECKPOINT070_DPS}_producer.json" >/dev/null
+  python3 verifier/checkpoint070_natural_cutoff_ground_alignment_replay.py \
+    "artifacts/checkpoint070_natural_cutoff_ground_alignment/lambda2_N8_M2_dps${P0_CHECKPOINT070_DPS}_producer.json" \
+    --output "artifacts/checkpoint070_natural_cutoff_ground_alignment/lambda2_N8_M2_dps${P0_CHECKPOINT070_DPS}_replay.json" >/dev/null
+done
+(
+  cd artifacts/checkpoint070_natural_cutoff_ground_alignment
+  shasum -a 256 README.md \
+    lambda2_N8_M2_dps40_producer.json lambda2_N8_M2_dps40_replay.json \
+    lambda2_N8_M2_dps80_producer.json lambda2_N8_M2_dps80_replay.json \
+    > SHA256SUMS
+)
+
+python3 verifier/live_prolate_krylov_schur_audit.py >/dev/null
+
+python3 -m unittest \
+  tests.test_q_shift_sector_weil_core_gate \
+  tests.test_secant_bulk_positive_determinant_response \
+  tests.test_secant_graph_signed_leakage_gate \
+  tests.test_checkpoint066_finite_increment_response \
+  tests.test_ritz_moment_self_regularized_transfer \
+  tests.test_checkpoint067_ritz_moment_transfer \
+  tests.test_ritz_projective_low_mode_determinant_gate \
+  tests.test_checkpoint068_ritz_projective_low_mode \
+  tests.test_source_compatible_ground_projective_response \
+  tests.test_checkpoint069_ground_projective_response \
+  tests.test_natural_cutoff_signed_ground_alignment \
+  tests.test_checkpoint070_natural_cutoff_ground_alignment \
+  tests.test_even_sector_cross_root_limit_bridge \
+  tests.test_fixed_lambda_galerkin_alignment_no_go \
+  tests.test_even_odd_multiplicity_krylov_simplicity \
+  tests.test_prolate_anchor_strip_root_no_go \
+  tests.test_canonical_boundary_ground_cross_root \
+  tests.test_harmonic_alignment_source_metric_no_go \
+  tests.test_canonical_ground_mixed_projector_overlap \
+  tests.test_screened_near_null_forcing_response \
+  tests.test_source_cauchy_selector_cone_projective_tradeoff \
+  tests.test_parity_collision_projector_orientation \
+  tests.test_screened_feedback_origin_collapse \
+  tests.test_spectral_cluster_diagonal_selector_bridge \
+  tests.test_diagonal_anchor_forcing_signed_laplacian_strip_gate \
+  tests.test_natural_cutoff_negative_real_root_exclusion \
+  tests.test_anchored_weil_dirichlet_contractive_routing \
+  tests.test_natural_cutoff_strip_winding_index \
+  tests.test_natural_cutoff_shrinking_collar_escape_reduction \
+  tests.test_actual_source_anchored_routing_vertex_obstruction \
+  tests.test_verified_height_shrinking_collar_partial_theorem \
+  tests.test_anchored_central_degree_screw_barrier \
+  tests.test_anchored_vertex_one_resonant_screw_moment_barrier \
+  tests.test_screw_margin_collective_routing_rank_one_barrier \
+  tests.test_full_source_cauchy_anchor_forcing_feasibility \
+  tests.test_centered_zero_gram_simultaneous_vertex_subsequence \
+  tests.test_adaptive_outer_cutoff_hyperbolicity_barrier \
+  tests.test_moving_tail_phase_weighted_xi_gram_barrier \
+  tests.test_lp_fourier_cardinal_infinite_nonhyperbolic_subsequence \
+  tests.test_finite_gram_defect_transverse_frame_barrier \
+  tests.test_attained_right_edge_vector_selection_theorem \
+  tests.test_actual_zero_feature_deflated_frame_barrier \
+  tests.test_lp_fourier_cardinal_all_sections_nonhyperbolic \
+  tests.test_prime_side_signed_riesz_history_barrier \
+  tests.test_global_rms_counterconfiguration_and_a3_fejer_boundary \
+  tests.test_actual_zero_fourth_moment_history_reduction \
+  tests.test_global_fourth_moment_diagonal_counterconfiguration \
+  tests.test_nonattained_high_edge_record_filter_theorem \
+  tests.test_individual_filtered_degree_landau_theorem \
+  tests.test_growing_positive_degree_prefix_laplacian_no_go \
+  tests.test_first_laplacian_minor_turan_barrier \
+  tests.test_fixed_prefix_laplacian_covariance_schur_barrier \
+  tests.test_unique_attained_edge_first_minor_obstruction \
+  tests.test_fixed_prefix_edge_sign_synchronization \
+  tests.test_finite_attained_edge_antipodal_turan_obstruction \
+  tests.test_countable_attained_edge_antipodal_nonflatness_theorem \
+  tests.test_finite_edge_phase_synchronization_criteria \
+  tests.test_two_frequency_phase_transversality_theorem \
+  tests.test_short_gap_two_frequency_phase_theorem \
+  tests.test_generic_finite_phase_transversality_resultant \
+  tests.test_common_root_lift_bound_two_frequency_theorem \
+  tests.test_one_four_phase_transversality_theorem \
+  tests.test_one_even_family_phase_synchronization_theorem \
+  tests.test_adaptive_all_even_prefix_bridge_obstruction \
+  tests.test_anisotropic_schur_identical_marginals_no_go \
+  tests.test_low_block_forcing_rate_full_metric_barrier \
+  tests.test_transported_signed_kernel_left_reserve_barrier \
+  tests.test_one_sided_loewner_action_transfer_barrier \
+  tests.test_fixed_label_eight_arithmetic_synthesis_gain \
+  tests.test_fixed_label_six_odd_arithmetic_synthesis_gain \
+  tests.test_growing_rest_signed_radical_tail_schur_reduction \
+  tests.test_fixed_even_prefix_arithmetic_synthesis_theorem \
+  tests.test_restricted_forcing_action_transfer_theorem \
+  tests.test_fixed_even_prefix_diagonal_covariance_collapse_and_signed_tail_dichotomy \
+  tests.test_fixed_even_endpoint_null_volterra_pnt_correlation_barrier \
+  tests.test_fixed_even_endpoint_null_bernoulli_prime_quadrature_bound \
+  tests.test_real_window_to_zero_tail_carrier_transfer_barrier \
+  tests.test_fixed_endpoint_bernoulli_matrix_quadrature_and_jet_growth_theorem \
+  tests.test_moving_label_carrier_coframe_defect_right_inverse_theorem \
+  tests.test_fixed_even_endpoint_null_complete_volterra_caustic_quadrature_theorem \
+  tests.test_fixed_even_endpoint_null_archimedean_floor_theorem \
+  tests.test_fixed_even_8_12_plane_archimedean_arithmetic_floor_theorem \
+  tests.test_reciprocal_chi4_von_mangoldt_dyadic_cancellation_theorem \
+  tests.test_growing_transition_equality_conductor_garding_theorem \
+  tests.test_growing_transition_subcritical_lg_action_bv_theorem \
+  tests.test_growing_transition_weber_edge_reciprocal_channel_theorem \
+  tests.test_growing_transition_edge_edge_higher_alias_theorem \
+  tests.test_growing_transition_complete_central_form_reduction \
+  tests.test_outer_outer_spectral_theorem_erratum \
+  tests.test_growing_transition_complete_central_plemelj_cauchy_floor_theorem \
+  tests.test_growing_transition_both_miss_reciprocal_core_theorem \
+  tests.test_growing_transition_post_plemelj_regular_action_reduction_theorem \
+  tests.test_growing_transition_finite_fejer_post_core_quantifier_theorem \
+  tests.test_growing_transition_edge_carleman_scattering_obstruction \
+  tests.test_growing_transition_finite_fejer_xi_wronskian_assembly_gate \
+  tests.test_growing_transition_locked_carrier_flat_scalar_sum_theorem \
+  tests.test_growing_transition_direct_source_upper_form_theorem \
+  tests.test_growing_transition_ordered_direct_profile_continuation_two_jet_shear_reduction_theorem \
+  tests.test_growing_transition_higher_sampler_affine_carleman_scalar_gate_theorem \
+  tests.test_growing_transition_complete_flat_weber_zero_residue_obstruction_theorem \
+  tests.test_growing_transition_continuous_m11_unconditional_narrow_schedule \
+  tests.test_growing_transition_curved_two_endpoint_fio_shell_theorem \
+  tests.test_growing_transition_polylog_base_continuous_prime_shell_corollary \
+  tests.test_bonami_karoui_pswf_action_source_lock \
+  tests.test_growing_transition_absolute_sampling_forced_cancellation_barrier \
+  tests.test_growing_transition_two_cluster_modal_placement_leakage_normalization_theorem \
+  tests.test_growing_transition_local_cross_vs_equality_representative_cancellation_barrier \
+  tests.test_growing_transition_continuous_odd_laplace_common_representative_barrier \
+  tests.test_growing_transition_ordered_prime_resonance_and_nonresonant_frame_gate_theorem \
+  tests.test_growing_transition_odd_laplace_zeta_hurwitz_feature_angle_reduction_theorem \
+  tests.test_growing_transition_global_radical_sector_mixing_feature_geometry_barrier \
+  tests.test_growing_transition_eta_null_renormalized_source_krein_intertwiner_theorem \
+  tests.test_growing_transition_hadamard_pick_carrier_rh_equivalence_theorem \
+  tests.test_growing_transition_odd_laplace_middle_band_alias_frame_obstruction_theorem \
+  tests.test_growing_transition_one_sided_odd_laplace_row_and_forward_alias_theorem \
+  tests.test_growing_transition_odd_laplace_euler_resolvent_mixed_edge_alias_reduction_theorem \
+  tests.test_growing_transition_euler_resolvent_curved_hard_alias_completion_theorem \
+  tests.test_growing_transition_complete_odd_laplace_tail_theorem \
+  tests.test_growing_transition_forced_ordered_nonresonant_prime_frame_theorem \
+  tests.test_growing_transition_ordered_nonresonant_prime_dyadic_localization_theorem \
+  tests.test_growing_transition_ordered_prime_hard_tail_pnt_gram_reduction \
+  tests.test_growing_transition_ordered_prime_far_annulus_dilation_large_sieve_theorem \
+  tests.test_growing_transition_ordered_prime_near_band_fold_large_sieve_theorem \
+  tests.test_growing_transition_ordered_prime_all_outward_hard_tail_divisor_regrouping_theorem \
+  tests.test_growing_transition_ordered_prime_edge_union_moving_divisor_reduction_theorem \
+  tests.test_growing_transition_ordered_prime_moving_divisor_density_discrepancy_volterra_theorem \
+  tests.test_growing_transition_mixed_weber_ordinary_endpoint_obstruction_theorem \
+  tests.test_growing_transition_discrepancy_zero_orbit_bernoulli_tail_barrier \
+  tests.test_cyclic_mellin_graph_product_transition_packet_noncapture_barrier \
+  tests.test_structured_full_block_exterior_metric_quotient_bridge_theorem \
+  tests.test_lower_ritz_half_power_one_inverse_source_angle_reduction \
+  tests.test_growing_transition_endpoint_null_collective_dilation_frame_reduction \
+  tests.test_first_transverse_relative_leakage_endpoint_hierarchy_barrier \
+  tests.test_growing_rest_transition_capture_fixed_plane_nonimplication_barrier \
+  tests.test_anchor_label12_signed_cross_correlation_barrier \
+  tests.test_fixed_4_12_complete_nonarchimedean_cross_theorem \
+  tests.test_fixed_label_4_12_weighted_archimedean_cross_limit_theorem \
+  tests.test_anchor_label12_complete_weighted_cross_asymptotic_theorem \
+  tests.test_fixed_to_growing_toeplitz_operator_norm_gate \
+  tests.test_generic_fixed_inversion_even_complete_weighted_pair_theorem \
+  tests.test_fixed_prefix_complete_signed_toeplitz_schur_theorem \
+  tests.test_growing_low_prefix_endpoint_null_weighted_tail_frame_theorem \
+  tests.test_growing_low_prefix_complete_profile_fio_reduction \
+  tests.test_growing_low_prefix_signed_complement_assembly_gate \
+  tests.test_growing_low_prefix_phase_absorbed_jost_bv_theorem \
+  tests.test_growing_low_prefix_outer_toeplitz_centered_multiplier_theorem \
+  tests.test_growing_low_prefix_endpoint_factored_fractional_frame_theorem \
+  tests.test_growing_low_prefix_endpoint_compressed_same_side_prime_remainder_theorem \
+  tests.test_growing_low_prefix_endpoint_compressed_reflected_stieltjes_theorem \
+  tests.test_growing_low_prefix_outer_non_equality_remainder_theorem \
+  tests.test_growing_low_prefix_outer_floor_assembly_theorem \
+  tests.test_growing_odd_low_prefix_outer_floor_transfer_theorem \
+  tests.test_growing_low_prefix_physical_coframe_half_power_schur_barrier \
+  tests.test_growing_low_prefix_half_power_far_cross_theorem \
+  tests.test_growing_mixed_bridge_gauge_pole_domain_barrier \
+  tests.test_mixed_bridge_xi_over_s_boundary_obstruction_theorem \
+  tests.test_growing_transition_near_wiener_hopf_retained_complement_reduction \
+  tests.test_growing_mixed_bridge_radical_quotient_graph_core_barrier \
+  tests.test_codimension_two_compact_state_quotient_graph_core_barrier_theorem \
+  tests.test_growing_mixed_bridge_coherent_beta_row_floor_theorem \
+  tests.test_growing_mixed_bridge_retained_complement_two_stage_schur_barrier \
+  tests.test_growing_retained_negative_index_capture_barrier \
+  tests.test_growing_mixed_bridge_actual_multiplier_dangerous_feshbach_reduction \
+  tests.test_growing_multiplier_deficit_geometry_boundary_alias_barrier \
+  tests.test_growing_signed_discrepancy_feshbach_passivity_scale_barrier \
+  tests.test_growing_signed_discrepancy_centered_zero_krein_factorization_barrier \
+  tests.test_fixed_source_block_shift_asymptotic_theorem \
+  tests.test_growing_fixed_capture_multiplier_danger_nested_feshbach_barrier \
+  tests.test_lower_ritz_residual_inverse_spread_determinant_split_theorem \
+  tests.test_off_line_quartet_constrained_feature_detection_barrier \
+  tests.test_growing_actual_symbol_boundary_gauge_phase_angle_barrier \
+  tests.test_growing_lower_ritz_actual_remainder_fks_resolution_barrier \
+  tests.test_lower_ritz_actual_schedule_label12_mellin_row_barrier \
+  tests.test_lower_ritz_actual_label16_residual_capture_action_barrier \
+  tests.test_lower_ritz_post_far_retained_inverse_row_theorem \
+  tests.test_growing_anchor_row_full_metric_toeplitz_inverse_energy_barrier \
+  tests.test_fixed_anchor_bv_cauchy_far_row_theorem \
+  tests.test_lower_ritz_actual_multiplier_safe_returned_row_reduction_barrier \
+  tests.test_lower_ritz_actual_multiplier_forcing_adapted_safe_elimination_theorem \
+  tests.test_lower_ritz_post_far_captured_response_anchor_row_barrier \
+  tests.test_lower_ritz_ground_ridge_forcing_adapted_dangerous_response_barrier \
+  tests.test_lower_ritz_dangerous_response_arithmetic_krein_rh_gate_theorem \
+  tests.test_capture_free_actual_ground_parity_response_barrier \
+  tests.test_source_quotient_pick_herglotz_interlacing_barrier \
+  tests.test_actual_ground_fixed_mode_residue_sign_barrier \
+  tests.test_source_compatible_mixed_cofactor_deformation_barrier \
+  tests.test_normalized_source_quotient_response_barrier \
+  tests.test_opposite_boundary_twisted_weyl_source_quotient_barrier \
+  tests.test_global_twisted_mass_strict_ritz_source_cauchy_barrier \
+  tests.test_actual_source_row_paired_gram_exclusion_selector_moment_gate \
+  tests.test_actual_global_twisted_cone_moving_grid_target_incompatibility \
+  tests.test_strict_odd_selector_shell_localization_theorem \
+  tests.test_q0_free_selector_secant_root_parity_theorem \
+  tests.test_rh_conditional_fixed_zero_selector_capture_theorem \
+  tests.test_shifted_zero_selector_gaussian_quadrature_barrier \
+  tests.test_rh_odd_zero_gram_gevrey_relative_floor_barrier \
+  tests.test_rh_zero_gaussian_square_free_limit_theorem \
+  tests.test_rh_even_zero_gram_gevrey_relative_reserve_barrier \
+  tests.test_local_uvarov_christoffel_saturation_barrier \
+  tests.test_central_prolate_normalization_feedback_barrier \
+  tests.test_rh_even_derivative_relative_leakage_comparison_barrier \
+  tests.test_rh_even_quotient_endpoint_flat_floor_obstruction \
+  tests.test_rh_even_endpoint_flat_ground_shift_ratio_barrier \
+  tests.test_actual_endpoint_rational_variance_far_tail_barrier \
+  tests.test_hsw_continuous_l_phase_shell_theorem \
+  tests.test_rh_even_spectral_cluster_ground_primitive_evaluation_barrier \
+  tests.test_ideal_stokes_alternating_cauchy_filter_reduction \
+  tests.test_lp_cardinal_tail_finite_annihilator_barrier \
+  tests.test_complex_mellin_action_phase_weighted_stokes_interface_reduction \
+  tests.test_joint_hardy_cauchy_phase_energy_nonconcentration_barrier \
+  tests.test_exact_prolate_mellin_recurrence_birkhoff_connection_barrier \
+  tests.test_adaptive_exact_carrier_gevrey_schedule_finite_gate_barrier \
+  tests.test_adjacent_cutoff_phase_alias_aggregate_reduction_barrier \
+  tests.test_subturning_minimal_riccati_euler_closure_barrier \
+  tests.test_fixed_grid_phase_alias_prime_divisor_shifted_convolution_barrier \
+  tests.test_finite_gate_microplateau_source_cauchy_synchronization_barrier \
+  tests.test_subturning_laplace_volterra_turning_resonance_barrier \
+  tests.test_subturning_first_cherry_global_wiener_closure_barrier \
+  tests.test_subturning_finite_order_newton_closure_theorem \
+  tests.test_adaptive_gonek_exact_carrier_pw1_theorem \
+  tests.test_adaptive_gonek_endpoint_filter_selection_theorem \
+  tests.test_adaptive_prolate_stokes_endpoint_row_transfer_theorem \
+  tests.test_rh_actual_odd_ground_primitive_christoffel_parity_barrier \
+  tests.test_adaptive_prolate_saturation_divergence_orientation_barrier \
+  tests.test_rh_actual_ground_christoffel_commutator_response_barrier \
+  tests.test_critical_near_nyquist_two_branch_block_covariance_barrier \
+  tests.test_critical_density_prolate_mellin_transport_connection_theorem \
+  tests.test_adaptive_critical_exact_carrier_short_endpoint_covariance_theorem \
+  tests.test_supercritical_full_source_adaptive_abel_tail_theorem \
+  tests.test_critical_arithmetic_to_actual_scalar_transfer_theorem \
+  tests.test_adaptive_critical_odd_halfgrid_literal_ceiling_transfer_theorem \
+  tests.test_critical_scalar_floor_to_true_ground_row_deletion_barrier \
+  tests.test_critical_odd_ground_mixed_vandermonde_cofactor_target \
+  tests.test_critical_ground_negative_sobolev_no_escape_barrier \
+  tests.test_unconditional_natural_halfgrid_crossroot_schedule_theorem \
+  tests.test_crossroot_even_sector_projective_alignment_reduction_barrier \
+  tests.test_first_zero_support_gap_geronimus_alignment_barrier \
+  tests.test_natural_crossroot_weighted_projector_average_target \
+  tests.test_unconditional_natural_halfgrid_hsw_scalar_to_even_frame_barrier \
+  tests.test_natural_outer_shell_large_sieve_inverse_spread_barrier \
+  tests.test_natural_gevrey_quasimode_temple_orientation_barrier \
+  tests.test_natural_adjugate_plucker_inverse_christoffel_covariance_reduction_barrier \
+  tests.test_natural_centered_gate_anchor_cofactor_nonemptiness_reduction_barrier \
+  tests.test_natural_complete_source_kappa_deflated_coframe_obstruction \
+  tests.test_halfgrid_gevrey_coframe_exponent_mismatch_barrier \
+  tests.test_natural_multiple_ground_coordinate_shell_selector_projective_barrier \
+  tests.test_natural_projected_anchor_shrinking_collar_coefficient_barrier \
+  tests.test_natural_direct_bottom_projector_adjugate_alignment_barrier \
+  tests.test_jensen_hyperbolicity_wedge_diagonal_limit_barrier \
+  tests.test_cutoff_free_prolate_ground_alignment_rh_dichotomy \
+  tests.test_cutoff_free_multi_anchor_ground_frame_barrier \
+  tests.test_actual_phase_volume_centered_pnt_remainder_reduction_barrier \
+  tests.test_cutoff_free_weighted_radical_coframe_reduction_barrier -v
 python3 src/write_artifact_manifest.py
+python3 -m unittest tests.test_weighted_pnt_discrepancy_normal_form_source_lock -v
+python3 -m unittest tests.test_boundary_discrepancy_convolution tests.test_boundary_discrepancy_convolution_source_lock -v
+python3 -m unittest \
+  tests.test_direct_soft_trace_reciprocal_reserve \
+  tests.test_prolate_secant_radical_block_reduction \
+  tests.test_checkpoint064_reciprocal_secant -v
+python3 -m unittest \
+  tests.test_secant_shorted_reciprocal_feshbach \
+  tests.test_time_band_cauchy_determinant_response \
+  tests.test_polynomial_xi_radical_tower_covariance_floor_obstruction \
+  tests.test_checkpoint065_shorted_secant -v
+python3 -m unittest \
+  tests.test_first_prolate_correction \
+  tests.test_all_order_prolate_flatness \
+  tests.test_gevrey_prolate_remainder \
+  tests.test_signed_shift_odd_floor_obstruction \
+  tests.test_odd_zero_gram_lower_frame_audit \
+  tests.test_anti_carrier_log_schedule \
+  tests.test_relative_odd_gap_endpoint_schur \
+  tests.test_boundary_weyl_evaluation_gram_sign_obstruction \
+  tests.test_derivative_radical_odd_split \
+  tests.test_zero_side_derivative_frame_source_limit \
+  tests.test_higher_derivative_boundary_krylov \
+  tests.test_tail_discrepancy_transverse_schur \
+  tests.test_ritz_shifted_tail_discrepancy_schur \
+  tests.test_even_krylov_ritz_escape \
+  tests.test_tail_discrepancy_actual_source_schur_obstruction \
+  tests.test_prolate_endpoint_schur_singular_asymptotics \
+  tests.test_prolate_complete_leakage_higher_ritz_no_go \
+  tests.test_common_radical_leakage_gram_orientation \
+  tests.test_live_prolate_krylov_schur_audit \
+  tests.test_positive_xi_kernel_fejer_ground_transfer \
+  tests.test_unbounded_relative_orientation_instability \
+  tests.test_positive_trial_ground_cone_angle_transfer \
+  tests.test_p0_prolate_state_ball \
+  tests.test_unadmitted_suzuki_shifted_metric \
+  tests.test_unadmitted_suzuki_operator_weyl_transfer -v

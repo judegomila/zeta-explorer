@@ -1,0 +1,146 @@
+{
+  "schema": "xi-prolate-weighted-spectral-alignment-chebyshev-edge-source-lock-v1",
+  "claim_class": "WEIGHTED_SPECTRAL_ALIGNMENT_CHEBYSHEV_EDGE_REDUCTION",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-08",
+  "external_sources": [],
+  "dependencies": [
+    {
+      "path": "DIRECT_RH_ATTACK.md",
+      "sha256": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "role": "equation (5.2) target and direct-attack claim boundary"
+    },
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "base Fourier, inversion, prime-sign, endpoint, and source-normalization lock"
+    },
+    {
+      "path": "LOG_FEATURE_CAPTURE_ALIGNMENT_SOURCE_LOCK.json",
+      "sha256": "4800fc596cad791ddec7af4251604dbfe4f45b911708f48f08fc5fa658e2d40f",
+      "role": "factorial central-band feature-tail formula and physical polynomial conventions"
+    },
+    {
+      "path": "INTRINSIC_FEATURE_DYADIC_DEFECT_SOURCE_LOCK.json",
+      "sha256": "6c9c8e43093d3156f11a42b11a967d7deaebc707e0868716748e54014048038a",
+      "role": "intrinsic cross-Gram, exact combined-symbol layer cake, and odd-reserve claim boundary"
+    },
+    {
+      "path": "MATCHED_BREAKPOINT_DIRECTIONAL_MOMENT_SOURCE_LOCK.json",
+      "sha256": "f60bf05e24d4503218ed34c05c5aa0236c1d331c472e068a2788882e2cafa750",
+      "role": "matched physical parity space and directional-moment conventions"
+    },
+    {
+      "path": "notes/WEIGHTED_SPECTRAL_ALIGNMENT_CHEBYSHEV_EDGE_REDUCTION.md",
+      "sha256": "799727a0d026413fe26d4e78db00a645e329bfb0d24d28d547cc8e0fb15b6735",
+      "role": "weighted central, exterior k-width, and Chebyshev-edge theorems proved in this checkpoint"
+    },
+    {
+      "path": "notes/INTRINSIC_FEATURE_DYADIC_DEFECT_REDUCTION.md",
+      "sha256": "cb18d87cc2e63e938a011c5dab2db04d24b6cb7ca682d9615480dc5d91500b2b",
+      "role": "preceding quotient, exterior-level, and sharp odd-reserve reduction"
+    },
+    {
+      "path": "notes/LOG_FEATURE_CAPTURE_ALIGNMENT_REDUCTION.md",
+      "sha256": "23bc09a92376b57177053a09358419a628e17c56d4d6e08896c836fed876ad40",
+      "role": "preceding central polynomial and pole Taylor approximation theorem"
+    },
+    {
+      "path": "notes/MATCHED_BREAKPOINT_DIRECTIONAL_MOMENT_AUDIT.md",
+      "sha256": "b3b90baffde24e6ee81303c6f0d07095a5499d38b956ae58b3309e01d8ee0858",
+      "role": "preceding odd directional Neumann-moment reduction and finite-projection warning"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "role": "pinned arbitrary-precision interval runtime"
+    }
+  ],
+  "locked_conventions": {
+    "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension; the source-normalized zero-integral prolate columns and their actual Gram are retained",
+    "physical_interval": "[-log(lambda),log(lambda)] with L=2*log(lambda), logarithmic Lebesgue measure, and zero extension",
+    "fourier_sign": "fhat(t)=integral f(x)*exp(-i*t*x)dx with Plancherel measure dt/(2*pi); e_t(x)=exp(i*t*x)",
+    "inversion": "J is physical reflection x->-x; additive-Fourier residue classes are not substituted for inversion parity",
+    "prime_endpoint": "every prime power n<=lambda^2 is retained at the inclusive endpoint, and lambda is never confused with lambda^2",
+    "prime_sign": "m_lambda(t)=2*theta_prime(t)-2*sum_(1<n<=lambda^2) Lambda(n)/sqrt(n)*cos(t*log(n))",
+    "central_weight": "central capture is charged by the compressed Fourier covariance T_B, not by an unweighted worst principal angle",
+    "exterior_levels": "level sets are formed from the complete combined archimedean-minus-prime symbol before any spectral tail or interval-component estimate",
+    "spectral_endpoint": "the effective-rank count uses the open threshold eta>sigma; eta=sigma remains in the low spectral tail",
+    "odd_direction": "the exact odd pole vector is retained separately from the economical central polynomial feature space",
+    "strictness": "a finite regression, rank count, nonpositive margin, equality at load one, or a big-O label without a proved constant is not a pass",
+    "input_text": "lambda numerator and decimal precision are canonical positive integer text; binary64 inputs and JSON floating-point numbers are rejected",
+    "input_limits": "producer and verifier admit only lambda_numerator in {5,9} and dps in {80,160}; exact text membership is checked before integer conversion or interval initialization",
+    "runtime_version": "the interval runtime must report mpmath==1.4.1 exactly; a mismatch is rejected before any interval probe",
+    "artifact_scope": "exact weighted-central, exterior k-width/effective-tail, and odd edge/Chebyshev regressions plus outward interval formula probes; no physical alignment or asymptotic signed floor is certified",
+    "arithmetic": "finite fixtures use exact reduced rationals; pi, logarithms, exponentials, square roots, factorial tails, interval-union constants, and Chebyshev remainders use outward mpmath.iv intervals"
+  },
+  "locked_formulas": {
+    "weighted_central_cross_gram": "G=U^*U, C=U^*T_B U, A=W^*W, S=G-U^*W A^dagger W^*U, and rho_B=tr(G^dagger C G^dagger S)=||P_H P_V T_B^(1/2)||_HS^2",
+    "weighted_central_bound": "sqrt(tr(P_H T_B P_H))<=sqrt(rho_B)+sqrt(tau_V), where tau_V=||(I-P_V)T_B^(1/2)||_HS^2",
+    "canonical_central_decomposition": "tr(P_H T_B P_H)=sum_j theta_j||P_H u_j||^2 and Tail_r(T_B)<=tau_r",
+    "factorial_tail": "tau_r<=delta/(pi*(2*r+1)^2)*(e*delta/(2*r))^(2*r)",
+    "economical_central_order": "r_L=ceil(c*L/log(L)), c>1/4, gives tau_r=lambda^(-4*c+o(1))=o(lambda^-1); this is not an odd-pole approximation",
+    "direct_odd_pole": "mu_p=||p_N||^2-(W^*p_N)^*(W^*W)^dagger*(W^*p_N)",
+    "legendre_fourier": "<phi_n,q_k>=sqrt(2*k+1)*(-1)^n*(-i)^k*j_k(pi*n)",
+    "legendre_conditioning": "||(I-P_N)P_(Pi_r)||^2<=2*r^2/(pi^2*N)*exp(r*(r-1)/(pi*N))",
+    "interval_transition_trace": "chi_Omega=tr(A_Omega-A_Omega^2)=integral_Omega integral_Omega^c |hat(1_I)(t-u)|^2 dt du/(2*pi)^2",
+    "interval_component_bound": "b(y)=8*y-y^2 for 0<=y<=2 and b(y)=12+8*log(y/2) for y>=2; chi_Omega<=sum_a b(L*ell_a)/(4*pi^2)",
+    "effective_rank_tail": "r_sigma=#{eta_j>sigma}<=p_Omega+chi_Omega/sigma and sum_(eta_j<=sigma)eta_j<=chi_Omega/(1-sigma)",
+    "spectral_k_width_trace": "Tail_k(C)+(gamma_k-gamma_(k+1))*a_k^2<=tr(P_H C P_H)<=Tail_k(C)+(gamma_1-gamma_d)*a_k^2",
+    "spectral_k_width_norm": "max(gamma_(k+1),gamma_k*alpha_k^2)<=||P_H C P_H||<=gamma_(k+1)+(gamma_1-gamma_(k+1))*alpha_k^2",
+    "odd_edge_identity": "with Y=(q-h)I-R, 2*mu_p/h-load=(2/h)<p,Y(hI+Y)^(-1)p>",
+    "sharp_first_moment": "load<=U_1=2*mu_p/h-2*d_1/(h*q), d_1=<p,Yp>; U_1<1 iff d_1>q*(mu_p-h/2), but this is not an iff test for the true load",
+    "chebyshev_resolvent": "varrho=(sqrt(q)-sqrt(h))/(sqrt(q)+sqrt(h)); load=2/sqrt(q*h)*(mu_p+2*sum_(n>=1)varrho^n*Theta_n)",
+    "chebyshev_tail": "absolute truncation error after k is at most 2*mu_p/h*(1+sqrt(h/q))*varrho^(k+1), with varrho<(q-h)/q",
+    "claim_separation": "effective spectral tails do not prove physical alignment, target Fourier conditioning does not prove arithmetic-prolate capture, and a finite Chebyshev upper bound is not an actual odd reserve until its physical moments and shifted base are proved"
+  },
+  "claim_boundary": {
+    "proved": [
+      "the exact covariance-weighted central cross-Gram identity and canonical central spectral decomposition",
+      "the explicit logarithmic-over-logarithmic central feature order and Legendre--Fourier target-conditioning bound",
+      "the interval-union transition trace, open-threshold effective-rank/tail theorem, and exact exterior spectral k-width bounds",
+      "the direct odd-pole cross-Gram, exact nonlinear edge deficit, sharp first-moment certificate, and faster Chebyshev resolvent remainder",
+      "exact rational weighted-versus-uniform, spectral-width, open-endpoint, first-moment, orientation, and endpoint-sharpness regressions plus outward interval probes"
+    ],
+    "not_proved": [
+      "the actual covariance-weighted central capture rate for the prescribed arithmetic prolate range on an unbounded schedule",
+      "a useful uniform component-count/phase-volume bound and the actual physical alignment of the exterior combined-symbol levels",
+      "the actual positive shifted odd base, directional moments, edge deficit, or strict odd reserve on an unbounded schedule",
+      "strict even and odd signed sector floors for the finite Weil matrices",
+      "the residual-action estimate required by equation (5.2) of DIRECT_RH_ATTACK.md",
+      "locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ]
+  },
+  "source_admissions": {
+    "actual_exterior_alignment_claimed": false,
+    "actual_odd_reserve_claimed": false,
+    "actual_weighted_central_capture_claimed": false,
+    "api_key_read": false,
+    "binary64_parameters_used": false,
+    "cached_matrix_read": false,
+    "central_factorial_tail_promoted_to_capture": false,
+    "chebyshev_truncation_promoted_to_actual_load": false,
+    "determinant_limit_claimed": false,
+    "environment_secret_read": false,
+    "equation_5_2_claimed": false,
+    "first_moment_bound_promoted_to_strict_pass": false,
+    "global_weil_positivity_assumed": false,
+    "input_cap_bypassed": false,
+    "inversion_reflection_dropped": false,
+    "k_width_bound_promoted_to_capture": false,
+    "lambda_squared_mixed_with_lambda": false,
+    "prime_block_sign_changed": false,
+    "prime_power_endpoint_omitted": false,
+    "rank_only_capture_claimed": false,
+    "rh_proved": false,
+    "runtime_version_mismatch_accepted": false,
+    "secret_serialized": false,
+    "spectral_endpoint_dropped": false,
+    "transition_defect_bound_promoted_to_alignment": false,
+    "uniform_feature_angle_inferred_from_weighted_capture": false,
+    "unit_source_normalization_substituted": false,
+    "zeros_assumed_real": false,
+    "zeta_zero_table_read": false
+  }
+}

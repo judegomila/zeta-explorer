@@ -1,0 +1,30 @@
+{
+  "checkpoint_version": "0.52.0-boundary-discrepancy-convolution-reduction",
+  "checks": {
+    "boundary_convolution_replayed_by_Fubini_tail_path": true,
+    "completed_xi_Laplace_identity_replayed": true,
+    "even_ground_independently_diagonalized": true,
+    "prime_powers_independently_factored_including_endpoint": true,
+    "producer_matrices_and_booleans_trusted": false,
+    "signed_residual_preserved_before_absolute_value": true,
+    "source_matrix_reassembled_from_source_parameters": true,
+    "strict_canonical_JSON_replayed": true,
+    "weak_A1_pairing_replayed": true
+  },
+  "independent_ground_residual_norm": "3.2744604140147046315842900061304905516618308509415407605992477133896565192925548e-82",
+  "independent_signed_identity_residual": "8.4337583545844185794788592410160152061679691058948060400622104200865154327758077e-81",
+  "input": {
+    "N": 2,
+    "lambda_decimal": "2",
+    "lambda_rational": {
+      "denominator": "1",
+      "numerator": "2"
+    },
+    "precision_decimal_digits": 80,
+    "reserve_bound_B_decimal": "2"
+  },
+  "schema": "xi-prolate-boundary-discrepancy-convolution-replay-v1",
+  "shared_arithmetic_and_eigensolver_limitation": "producer and verifier share mpmath transcendental arithmetic and eigsy; these are point diagnostics rather than interval or ball enclosures",
+  "status": "BOUNDARY_DISCREPANCY_CONVOLUTION_REPLAY_PASS",
+  "terminal_state": "P0_INVALIDATED"
+}

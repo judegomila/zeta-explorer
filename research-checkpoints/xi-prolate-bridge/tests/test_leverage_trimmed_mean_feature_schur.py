@@ -217,6 +217,9 @@ class LeverageTrimmedMeanFeatureSchurTests(unittest.TestCase):
         visit(producer.produce(5, 80))
 
     def test_source_hash_hook_rejects_unfinalized_pin(self) -> None:
+        note = (ROOT / producer.NOTE).read_text(encoding="utf-8")
+        self.assertIn("\\tfrac12", note)
+        self.assertNotIn("\t", note)
         with mock.patch.object(
             producer,
             "PINNED_HASHES",

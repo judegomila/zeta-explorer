@@ -259,6 +259,339 @@ schedule; no artifact asserts the complete residual--gap bridge, equation
   17-entry source dependency set and all 18 displayed values separately, but
   share `mpmath` point arithmetic.  The artifacts prove no window Bessel
   bound, reciprocal defect sum, shifted sector floor, equation (5.2), or RH.
+- `soft_defect_prolate_angle/`: exact-rational regression certificates and
+  outward `mpmath.iv` formula intervals at `lambda=5/2,9/2`, repeated at 80
+  and 160 decimal digits.  The clean-room replay binds the exact producer
+  bytes, re-hashes the 18-entry source lock, and independently reconstructs
+  clipped-defect, leverage-excess, capped odd-pole, source-Gram principal-angle,
+  augmented-determinant, square-root projection, and central-band formulas.
+  Producer and verifier share Python `Fraction` and pinned `mpmath.iv` 1.4.1.
+  These finite reductions prove no physical leverage-excess estimate, actual
+  odd reserve, matched prolate coframe, signed sector floor, equation (5.2),
+  determinant convergence, or RH.
+- `physical_defect_adjoint_tail/`: exact-rational regression
+  certificates and seven outward `mpmath.iv` formula intervals at
+  `lambda=5/2,9/2`, repeated at 80 and 160 decimal digits.  The
+  clean-room replay binds the exact canonical producer bytes, re-hashes the
+  16-entry source lock, and independently reconstructs the cap-free weighted
+  capture, exact central-band domination oracle, source-tail competitor,
+  exact coframe rank-one correction, nonzero shifted chord correction,
+  monotone moment hierarchy, aligned positive excess, load-one/sign guards,
+  and shifted one-direction Schur fixtures.  Canonical inputs are range
+  checked before interval initialization.  Producer and verifier share
+  Python `Fraction` and pinned
+  `mpmath.iv 1.4.1`.  These finite reductions prove no physical
+  capture estimate, growing-family coframe reserve, actual odd reserve,
+  signed sector floor, equation (5.2), determinant convergence, or RH.
+- `log_feature_capture_alignment/`: exact-rational orientation, source-tail,
+  shifted-moment, pole-axis, spectral-endpoint, and central-versus-exterior
+  regressions plus eleven outward `mpmath.iv` formula intervals at
+  `lambda=5/2,9/2`, each repeated at 80 and 160 decimal digits.  The
+  clean-room verifier imports no producer module, re-hashes the six-entry
+  source lock, reconstructs every rational fixture through a separate
+  formula tree, encloses all transcendental quantities independently, and
+  binds the exact canonical producer bytes.  Both paths share Python
+  `Fraction` and pinned `mpmath.iv 1.4.1`.  The conditional angle and
+  source-tail budgets are formula probes only: the artifacts prove no actual
+  prolate feature angle, targeted source-tail rate, exterior weighted
+  capture, shifted odd reserve, signed sector floor, equation (5.2),
+  determinant convergence, or RH.
+- `intrinsic_feature_dyadic_defect/`: exact-rational gauge, minimum-tail,
+  corrected sparse-residue, physical cross-Gram, noncommuting dyadic-layer,
+  spectral-endpoint, odd-directional, and aligned-versus-oblique regressions,
+  plus outward `mpmath.iv` combined-symbol and optimal-remainder formula
+  intervals at `lambda=5/2,9/2`, each repeated at 80 and 160 decimal digits.
+  The clean-room verifier imports no producer module, re-hashes the ten-entry
+  source lock, reconstructs the rational fixtures through separate formula
+  trees, and binds the exact producer bytes.  Both paths share Python
+  `Fraction` and pinned `mpmath.iv 1.4.1`.  These artifacts prove no actual
+  feature-angle rate, exterior-layer effective-rank alignment, odd
+  directional edge deficit, signed sector floor, equation (5.2), determinant
+  convergence, or RH.
+- `weighted_spectral_alignment_chebyshev_edge/`: exact-rational
+  covariance-weighted central, exterior spectral `k`-width, open-threshold,
+  sharp first-moment, and equal-moment opposite-outcome regressions, plus 27
+  outward `mpmath.iv` enclosures at `lambda=5/2,9/2`, each repeated at 80
+  and 160 decimal digits.  The clean-room verifier imports no producer code,
+  re-hashes the ten-entry source lock, independently enumerates the inclusive
+  prime powers, reconstructs every exact model, and checks the factorial,
+  Legendre-conditioning, interval-union, and Chebyshev-tail formulas.  Both
+  paths share Python `Fraction` and pinned `mpmath.iv 1.4.1`.  These artifacts
+  prove no actual weighted central capture, exterior alignment, odd reserve,
+  signed sector floor, equation (5.2), determinant convergence, or RH.
+- `mellin_projection_soft_symbol_graph_spill/`: exact-rational
+  soft-symbol, effective-tail, graph-spill, odd harmonic-short,
+  edge-localization, and equal-moment opposite-load regressions, together
+  with outward `mpmath.iv` probes of the logarithmic-squared Mellin cutoff,
+  central graph constants, matched pole mass, exact inclusive
+  pole--minus-prime cancellation, and the first-Riesz center at
+  `lambda=5/2,9/2`, repeated at 80 and 160 decimal digits.  The clean-room
+  verifier imports no producer code, re-hashes all 18 dependencies and four
+  vendored sources, rebuilds the prime-power inventory and formulas through
+  a separate expression tree, and binds the producer bytes.  Both paths
+  disclose their shared Python `Fraction` and pinned `mpmath.iv 1.4.1`
+  limitation.  No zero list or zero-series value is serialized.  These
+  artifacts prove no actual central graph-spill rate, exterior alignment,
+  odd reserve, signed sector floor, equation (5.2), determinant convergence,
+  or RH.
+- `covariance_annular_odd_subsequence/`: exact-rational minimum-tangent,
+  relative-shell, gray-mass, and closed-endpoint regressions plus 35 outward
+  `mpmath.iv` formula intervals at `lambda=5/2,9/2`, each repeated at 80 and
+  160 decimal digits.  The clean-room verifier imports no producer code,
+  re-hashes 17 dependencies and three vendored primary sources, independently
+  enumerates every prime power through `n<=lambda^2`, reconstructs the
+  central Fourier tail and annular constants, and checks two differently
+  assembled pole--prime identities.  No zero ordinate, API key, or environment
+  secret is read or serialized.  Both paths disclose their shared Python
+  `Fraction` and pinned `mpmath.iv 1.4.1` limitation.  The artifacts prove no
+  prescribed-family central source ratio, exterior physical alignment,
+  transverse odd Schur margin, signed sector floor, equation (5.2),
+  determinant convergence, or RH.
+- `residue_coframe_mixed_krylov/`: exact-rational coupled mixed-frame,
+  opposite-orientation odd-Krylov, and delayed-coframe regressions plus
+  outward interval reconstructions at `lambda=5/2,9/2`, each repeated at 80
+  and 160 decimal digits.  The clean-room verifier imports no producer code,
+  re-hashes all 24 dependencies and both primary source files, factors every
+  candidate integer independently for the inclusive prime-power inventory,
+  and reconstructs the exact moments, positive-`nu` gate, inverse loads,
+  Schur gaps, annular rank bound, BV certificate ratio, and two independently
+  assembled prime-action formulas.  Every locked prime-power jump is
+  positive and collision-free in the unprojected fixture.  No zero ordinate,
+  API key, or environment secret is read or serialized.  Both paths disclose
+  their shared Python `Fraction` and pinned `mpmath.iv 1.4.1` limitation.
+  These artifacts prove no prescribed residue-family coframe rate, effective
+  mixed schedule, signed floor, finite-compression jump bound, equation
+  (5.2), determinant convergence, or RH.
+- `effective_mixed_endpoint_jump/`: exact-rational trace-stop/Neumann-floor,
+  residue-plus-bridge coordinate, endpoint-recurrence, and Vandermonde
+  fixtures plus outward high-label and odd-jump band intervals at
+  `lambda=5/2,9/2`, each repeated at 80 and 160 decimal digits.  The
+  clean-room verifier imports no producer module, re-hashes all 18
+  dependencies and both primary source files, factors the inclusive
+  prime-power inventory independently, retains the common `(-1)^k` Fourier
+  phase, and reconstructs every exact and interval formula.  No API key,
+  environment secret, zero ordinate, cached matrix, or binary64 parameter is
+  read.  Both paths disclose their shared Python `Fraction` and pinned
+  `mpmath.iv 1.4.1` limitation.  The rational residual trace and variation
+  data are theorem regressions, not an executed actual-prolate stopping run.
+  These artifacts prove no useful asymptotic prefix cost, prescribed residue
+  coframe, positive odd moment gate, transverse or signed floor, equation
+  (5.2), determinant convergence, or RH.
+- `explicit_mixed_prefix_cost/`: exact rational target dimensions, rational
+  ground-integral endpoint, and 15 outward interval reconstructions of the
+  complete unsigned terminal-count formula at `lambda=5/2,9/2`, each at 80
+  and 160 digits.  The independent verifier rebuilds `N=ceil(lambda^2)`,
+  both inversion-sector dimensions, `Gamma`, `B`, `rho`, `R`, `M`, and the
+  simpler degree-18 majorant without importing producer code.  The resulting
+  labels are a priori upper bounds, not executed prolate trace stops or
+  signed comparisons.
+- `effective_mixed_signed_quotient/`: exact-rational normalized-quotient,
+  characteristic-polynomial, physical-versus-source-pencil, defect-metric,
+  high-tail, and bridge-collapse fixtures, together with outward
+  Vandermonde-node checks at `lambda=5/2,9/2` and doubled precision.  The
+  artifacts verify identities and countermodels; they do not assign a sign
+  to the physical Weil matrix.
+- `odd_nu_transverse_sign/`: exact-rational third-moment, conforming-floor,
+  jump-compatible sign, invisible-direction, and inverse-load fixtures plus
+  outward logarithmic-tail sums at `lambda=5/2,9/2` and 80/160 digits.  The
+  replay distinguishes a positive `nu` gate from a transverse floor and an
+  inverse-load pass.  No actual unbounded odd sign or uniform cutoff is
+  claimed.
+- `pnt_discrepancy_normal_form/`: direct source and independently assembled
+  weighted-PNT-discrepancy normal forms at `lambda=2,N=2`, repeated at 80 and
+  160 decimal digits.  The producer preserves the pole, archimedean, prime,
+  continuous-main, tail, signed-discrepancy, and combined residual matrices
+  before absolute values.  The clean-room verifier factors candidate
+  integers independently, uses a distinct translation kernel, integrates the
+  pole directly, and reconstructs the unsplit archimedean distribution.
+  Both paths share `mpmath` and are point-valued.
+- `p0_ball_pilots/lambda2_N4/`: two independently assembled raw finite Weil
+  matrices at 256 and 512 bits, plus exact-decimal interval replays of the
+  natural-even minors.  The replays recompute entrywise overlap without
+  trusting printed booleans and enclose an all-off-diagonal order-two minor
+  strictly below zero while a principal order-two minor is strictly above
+  zero.  The checkpoint-0.54 exact-decimal replay also reconstructs a declared
+  rational even state and certifies failure of its odd Schur gate at both the
+  raw Rayleigh shift and the mandatory two-vector Ritz shift.  That state is
+  not the projected prolate state.  Both matrix paths share FLINT/Arb; these
+  are finite route obstructions, not asymptotic matrix theorems.
+- `boundary_discrepancy_convolution/`: source-parameter reconstructions of the
+  checkpoint-0.52 weak boundary identity at `lambda=2,N=2`, repeated at 80
+  and 160 decimal digits.  The producer uses the split source formulas and a
+  direct prime-breakpoint integral of the combined signed function
+  `F=D-H_0`.  The clean-room verifier factors `{2,3,4}`, assembles the unsplit
+  archimedean source matrix, independently diagonalizes the even block, and
+  evaluates the same convolution by atom tails and a Fubini interchange.
+  Signed residuals are retained before absolute values.  Both paths share
+  `mpmath` and `eigsy`; these finite point diagnostics prove no uniform
+  one-sided localization, complementary gap, equation (5.2), or determinant
+  convergence.
+- `live_prolate_krylov_schur_audit/`: a compact hash-pinned replay summary for
+  the actual projected-prolate `lambda=2,N=3,4` states.  The verifier ignores
+  cached eigenvalues, residual-gap fields, and pass booleans, reconstructs the
+  state from decimal Fourier coefficients, replays the Krylov bases and both
+  shifted solves, and at `N=4` uses the midpoint of the four-way intersection
+  of the existing producer/verifier 256/512-bit Arb matrix balls.  The
+  `N=3` three-vector shift changes the point Schur short from negative to
+  positive before cyclic closure; the `N=4` raw `q` gate is already positive.
+  The state producer and replay both use `mpmath`; this historical replay
+  does not consume the later checkpoint-0.56 state balls, so its
+  higher-Krylov, inverse-load, and weighted-solve values remain point
+  diagnostics.  The directory has its own `SHA256SUMS`; it contains no
+  secret, zero table, or asymptotic claim.
+- `p0_prolate_state_ball/`: source-oriented `lambda=2` infinite-Jacobi state
+  enclosures and projected coefficient balls for `N=3,4`, produced and
+  independently replayed at 256/512 bits.  A downstream verifier intersects
+  all four state and all four Weil-matrix outputs, encloses raw `q` and the
+  residual, and proves only a positive `N=4` odd-floor-minus-`q` margin by
+  interval LDL.  Unit normalization is rejected.  Both state paths share
+  FLINT/Arb; no full complementary minimum, projection-error rate, schedule,
+  or asymptotic result is claimed.
+- `variable_lambda_prolate_state_ball/`: exact-parameter
+  `lambda=5/2,N=3,M=79,K=85` infinite-Jacobi source-state and projection-error
+  balls at 256/512 bits.  The producer uses recurrence/real-antiderivative
+  formulas and the replay uses differential-form/complex-antiderivative
+  formulas; both certify the continued-fraction width against a lower
+  endpoint of `c^2`, retain all arithmetic indices through
+  `floor(lambda^2)=6`, reject unit normalization, and share FLINT/Arb 3.6.0.
+  The serialized allocation guard `floor(lambda^2)<=10000` makes this a
+  finite variable-input implementation, not an unbounded schedule or a
+  shifted-Weil/determinant result.
+- `residual_ridged_fixed_window/`: actual-source point diagnostics at exact
+  `lambda=2,N=4,T=1`, repeated at 40 and 80 decimal digits.  The producer
+  rebuilds the complete pole-minus-archimedean-minus-prime Weil matrix, the
+  source-normalized evenized projected prolate state, and `K_T` by direct
+  evaluation-vector quadrature.  The standalone replay imports no producer
+  code, rebuilds the matrix and state through independent formula paths, and
+  assembles `K_T` from closed Si/Ci antiderivatives.  It reconstructs both
+  raw-`q` sector gaps, the residual ridge, complete rank-one physical Schur
+  splice, structural defects, and every serialized derived scalar.  Strict
+  parsing rejects binary64 parameters, omitted prime powers, convention or
+  normalization changes, nonpositive gaps, stale hashes, and unchecked
+  diagnostic promotion.  Both paths share `mpmath`; the values are neither
+  interval enclosures nor evidence of an unbounded soft-trace rate.
+- `checkpoint063_moment_angle_constrained_ground/`: actual-source point
+  diagnostics at exact `lambda=2,N=4`, repeated at 40 and 80 decimal digits.
+  The producer rebuilds the pole-minus-archimedean-minus-prime matrix, the
+  source-normalized prolate state, projected physical moments, projected
+  hyperbolic pole vectors, regularized moment floors, sampled principal-angle
+  profile, constrained ground, and labelled load reserve.  The standalone
+  replay imports no producer code and uses separate source/state formula
+  trees, closed moment and pole-vector formulas, and an analytic removable
+  limit after a transformed archimedean quadrature.  Both paths hash the two
+  vendored CCM PDFs and share `mpmath` transcendental arithmetic and `eigsy`.
+  The constrained-ground trial is an existential identity check, not a
+  constructive asymptotic trial.  These files do not compute the
+  covariance-weighted `Theta` profile, direct `Phi` profile, transverse Xi
+  radical energy, or `r/epsilon`; they are neither interval enclosures nor
+  evidence of an unbounded rate or load orientation.
+- `checkpoint064_reciprocal_secant/`: source-pinned point diagnostics at exact
+  `lambda=2,N=4,T=1`, repeated at 40 and 80 decimal digits.  The producer
+  reconstructs the combined Weil matrix, fixed 30-mode source-normalized
+  prolate Galerkin anchor, direct-quadrature `K_T`, projected limiting anchor,
+  secant geometry, reciprocal trace, crowding reserve, and spectral-tail
+  profile.  The standalone replay imports no producer code and uses the
+  independent source/prolate formula trees, closed Si/Ci time-band formulas,
+  and incomplete-gamma segment integrals.  Both paths validate immutable
+  hashes for the source lock, normalization audit, and vendored PDFs and
+  reject binary64/nonfinite inputs, normalization replacement, omitted prime
+  powers, convention changes, cached pass booleans, and nonpositive gaps.
+  The fixed prolate truncation has no tail enclosure, the Gaussian-tail
+  expressions are nondirected point values, and both paths share `mpmath`;
+  these files prove no unbounded reciprocal reserve, asymptotic ratio,
+  equation (5.2), or determinant limit.
+- `checkpoint065_shorted_secant/`: source-pinned graph-shorted point
+  diagnostics at exact `lambda=2,N=4,T=1`, repeated at 40 and 80 decimal
+  digits.  The producer rebuilds checkpoint-0.64 source objects live and
+  evaluates the regularized and unregularized one-step Feshbach splits,
+  shorted determinant identities, graph-load vector identity, and sharp
+  reserve envelope.  The standalone replay imports no checkpoint-0.65
+  producer code and reconstructs the source matrix, prolate state,
+  fixed-window operator, and limiting state through the independent
+  source/differential-prolate/Si-Ci/incomplete-gamma paths before performing
+  fresh Schur solves.  Both paths share `mpmath` and the same unenclosed
+  30-mode prolate truncation.  The artifacts are point diagnostics, not an
+  interval enclosure, unbounded shorted-energy or deflated-bulk estimate,
+  equation (5.2), or determinant limit.
+- `checkpoint066_finite_increment_response/`: source-pinned even-block
+  finite-increment diagnostics at exact `lambda=2,N=4,T=1`, repeated at 40
+  and 80 decimal digits.  The producer rebuilds the checkpoint-0.64 live
+  source objects and computes fresh direct determinants; the standalone
+  replay imports no checkpoint-0.66 producer, rebuilds through the
+  independent source/differential-prolate/Si-Ci/incomplete-gamma path, and
+  computes log determinants from fresh symmetric eigenvalues.  It verifies
+  `F=G+J`, the graph/bulk trace split, the sharp positive-increment bounds,
+  exact normalization rejection, both finite shifted-sector gaps, and direct
+  theorem dependency hashes.  The raw-`q` row has coefficient one.  For the
+  Ritz-`u` row, checkpoint 0.67 supplies the mandatory
+  `A_R((q-u)/r)` multiplier which repairs localized ground transfer while
+  retaining the extra `q-u` term.  The artifacts do not replay the
+  separate source factors `det O_s,m_s,sigma_s,delta_s`, provide no interval
+  enclosure or prolate-tail bound, and prove no unbounded response rate,
+  equation (5.2), or determinant limit.
+- `checkpoint067_ritz_moment_transfer/`: source-pinned Ritz-moment transfer
+  diagnostics at exact `lambda=2,N=4,T=1`, repeated at 40 and 80 decimal
+  digits.  The producer rebuilds the checkpoint-0.64 live source objects;
+  the standalone replay imports no checkpoint-0.67 producer and reconstructs
+  the source matrix, differential-form prolate state, closed-Si/Ci time-band
+  operator, and limiting state through the independent checkpoint-0.64 path.
+  Both paths recompute the exact two-vector Ritz moment, the explicit
+  `A_R((q-u)/r)` multiplier, the finite true-ground diagnostic, the
+  residual-ridged Loewner gate, fixed-window and identity log-determinant
+  observations, and the disjoint-endpoint unrestricted spectral envelope.
+  They reject coefficient one, non-Ritz lower shifts, binary64 inputs,
+  normalization replacement, missing prime powers, nonpositive sector
+  signs, and repaired-hash numeric tampering.  Both use the same unenclosed
+  30-mode prolate space and share `mpmath`; the outputs are point values, not
+  interval or ball enclosures, and prove no unbounded weighted response,
+  equation (5.2), locally uniform determinant convergence, or RH.
+- `checkpoint068_ritz_projective_low_mode/`: source-pinned projective
+  low-mode determinant diagnostics at exact `lambda=2,N=4,M=2,theta=1`,
+  repeated at 40 and 80 decimal digits.  The producer rebuilds the complete
+  checkpoint-0.64 source matrix and source-normalized prolate state live; the
+  standalone replay imports no checkpoint-0.68 producer and reconstructs the
+  source, state, lower two-vector Ritz shift, full ambient centered Fourier
+  projector, parity blocks, ground graph, and determinant factors through
+  the independent checkpoint-0.64 path.  Both paths check the squared
+  low-mode identity, the `A_R(d/r)` trace/log-determinant transfer, positive
+  shifted even and odd sectors, and the full `Q+t Pi_M` source-Cauchy
+  factorization at `t=0,theta*r`, including odd, anchor, and cross terms.
+  They also serialize the exact three-term compact-transform error split,
+  but do not infer an asymptotic rate from this finite point.  The fixed
+  30-mode prolate tail is unenclosed and both paths share `mpmath`; the files
+  are not interval or ball enclosures and prove no equation (5.2), locally
+  uniform determinant convergence, or RH.
+- `checkpoint069_ground_projective_response/`: source-pinned singular
+  ground-projective response diagnostics at exact `lambda=2,N=4,M=2`,
+  repeated at 40 and 80 decimal digits.  The producer rebuilds the complete
+  checkpoint-0.64 source and source-normalized prolate state live.  The
+  standalone replay imports no checkpoint-0.69 producer, rebuilds the source
+  through the independent path, locates the ground by determinant/inertia
+  bisection, and reconstructs the ground and adjugate from direct minors.
+  Both paths check the combined mixed-minor formula for `E_M`, the corrected
+  high-cross sign in the singular unbordered response, the odd source
+  cofactor normalization, two positive bordered gauges, the finite-secant
+  bounds with the full spectral cap retained, and the exact even/odd
+  Ritz-shifted Schur gates.  The fixed 30-mode prolate tail is unenclosed,
+  literal cofactors can be ill-conditioned outside this small pilot, and
+  both paths share `mpmath`; the files are point diagnostics and prove no
+  unbounded response rate, schedule-wide sign, equation (5.2), locally
+  uniform convergence, or RH.
+- `checkpoint070_natural_cutoff_ground_alignment/`: source-pinned natural-
+  cutoff alignment diagnostics at exact `lambda=2,N=8,M=2`, repeated at 40
+  and 80 decimal digits with a 60-dimensional even Legendre prolate
+  truncation.  The producer rebuilds direct and split finite Weil matrices,
+  the complete weighted-PNT-discrepancy normal form, the source-normalized
+  anchor, exact-`u` Ritz geometry, true finite ground, common-inverse signed
+  response, and literal adjugate.  The standalone replay imports no
+  checkpoint-0.70 producer and independently reconstructs the source,
+  differential-prolate state, prime-power discrepancy operator, ground by
+  inertia/direct-minor methods, and cofactors.  Both paths retain
+  `A_tail-T_D` before the common solve and serialize the much larger separate
+  response norms and their signed cross term.  The fixed prolate truncation
+  is unenclosed and both paths share `mpmath`; the files are finite point
+  diagnostics and prove no unbounded alignment rate, schedule-wide sign,
+  equation (5.2), locally uniform convergence, or RH.
 
 The replay script regenerates the binding pilots at doubled precision and the
 selected delicate schedule replay. File hashes are recorded in

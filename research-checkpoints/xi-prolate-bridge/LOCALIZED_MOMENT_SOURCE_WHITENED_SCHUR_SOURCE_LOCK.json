@@ -1,0 +1,90 @@
+{
+  "schema": "xi-prolate-localized-moment-source-whitened-schur-source-lock-v1",
+  "claim_class": "LOCALIZED_MOMENT_SOURCE_WHITENED_SIGNED_SCHUR_REDUCTION",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-07",
+  "external_sources": [],
+  "dependencies": [
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "locked P0 source interval, Fourier sign, inversion, prime endpoint, and claim boundary"
+    },
+    {
+      "path": "DIRECT_RH_ATTACK.md",
+      "sha256": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "role": "direct bridge target, especially equation (5.2), and terminal claim boundary"
+    },
+    {
+      "path": "notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md",
+      "sha256": "c6e4a757604bfc9c1299a272054f1174970781e6cd0a92ed0dfb196f9804fa81",
+      "role": "exact multiplier minus sign, inclusive prime-power block, parity pole signs, and Schur target"
+    },
+    {
+      "path": "notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md",
+      "sha256": "33f064c07a134986afa23efb91f7514e27828543b09cc358ebfff01e79c6f16e",
+      "role": "Moore--Penrose quotient metric and exact source-coordinate isometry"
+    },
+    {
+      "path": "notes/SIGNED_QUOTIENT_CAPTURE_REDUCTION.md",
+      "sha256": "9700501a367ea7ae2b843ee61b45bec3970fc35db1715613099b08439be0415c",
+      "role": "signed quotient pullback and strict source-coordinate floor boundary"
+    },
+    {
+      "path": "notes/PHYSICAL_LEVERAGE_SHORTED_SCHUR.md",
+      "sha256": "39147b7fcd5c71304c6977272b72a3f07a789b7c4fb34d2e2ebf51e3b60589f3",
+      "role": "physical leverage measure, total prime second moment, positive short, and scalar Schur reserve"
+    },
+    {
+      "path": "notes/LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR.md",
+      "sha256": "c9f10ffb6b6ceeafe8ea63566d10c3af7eb6265c509c8d63e259bc407cc7f79a",
+      "role": "lower-one stop-loss theorem, feature-space round trip, and sufficient-short versus original-sign distinction"
+    }
+  ],
+  "locked_conventions": {
+    "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension; the physical logarithmic interval is [-log(lambda),log(lambda)]",
+    "fourier_sign": "fhat(t)=integral f(y)*exp(-i*t*y) dy and Plancherel measure is dt/(2*pi)",
+    "prime_endpoint": "every prime power n<=lambda^2 is included and translations at magnitude 2*log(lambda) vanish by zero extension",
+    "prime_sign": "m_lambda=2*theta_prime-2*sum Lambda(n)/sqrt(n)*cos(t*log(n))",
+    "inversion": "multiplicatively Jf(u)=f(u^(-1)); in the additive logarithmic coordinate Jf(y)=f(-y)",
+    "source_normalization": "all prolate combinations use the source zero-Lebesgue-integral normalization, never unit normalization",
+    "strictness": "equality in a high margin, theta=1, rho=g, or a zero quotient-relative floor is a rejection",
+    "finite_parity": "Fourier residue class is not identified with inversion parity at finite lambda; (I+J)/2 and (I-J)/2 remain explicit",
+    "artifact_scope": "p and dps label exact rational theorem-regression models, not physical prolate-Weil pilot matrices or an asymptotic schedule",
+    "arithmetic": "all component matrices, selector weights, moments, contractions, and reserves are exact reduced rationals; binary64 JSON numbers are forbidden"
+  },
+  "locked_formulas": {
+    "upper_one_dual": "sup_(0<=alpha<=1,int alpha=1) int alpha*x*dmu = inf_a(a+int(x-a)_+*dmu)",
+    "localized_prime_energy": "Mtop_H=sup_alpha int alpha*S_lambda^2*dmu_H and abs(ell_H(w)-ell_H(b))<=2*sqrt(Mtop_H)",
+    "lower_one_variance": "ell_mu(w)>=m-sigma*sqrt(d-1), m=d^(-1)int w*dmu, sigma^2=d^(-1)int(w-m)^2*dmu",
+    "stop_loss_witness": "for d>1 and sigma>0, eta=d*sigma/(2*sqrt(d-1)), g=m+(2-d)*sigma/(2*sqrt(d-1)), and V(g)<=eta",
+    "matrix_variance": "lambda_min(A)>=tr(A)/n-sqrt((n-1)/n*tr((A-tr(A)I/n)^2))",
+    "trace_square": "tr((P_H*T_w*P_H)^2)=double_integral w(s)w(t)|K_H(s,t)|^2 ds dt/(2*pi)^2",
+    "source_metric": "on X0=(ker A)^perp, Delta=(AA*)^dagger on K=ran(A) and <Ax,Delta Ax>=||x||^2",
+    "positive_source": "G_plus=g*A* A+(Q_X*X_K*A)*(Q_X*X_K*A), never g*I unless A is an isometry",
+    "shorted_contraction": "A*S_sh*A=G_plus-N*N with N=(I-Y_H*Y_H*/g)^(-1/2)*Y_K*A; theta=||N*G_plus^(-1/2)||^2<1",
+    "full_signed_feature": "for B=gI+F*J*F and M_H=J+F_H*F_H*/g, S_B=gI+F_K*M_H^(-1)*F_K",
+    "full_signed_contraction": "if M_H^(-1)=L_plus-L_minus, G=g*A*A+(sqrt(L_plus)*F_K*A)*(sqrt(L_plus)*F_K*A), N=sqrt(L_minus)*F_K*A, then B>0 iff B_HH>0 and ||N*G^(-1/2)||^2<1",
+    "coframe_necessity": "gI-R_KK+C_/K>=mu*Delta implies A*A>=mu/(g+||C_/K||)*I"
+  },
+  "claim_boundary": {
+    "proved": [
+      "the upper-one stop-gain dual and localized prime-energy sharpening of the trimmed-mean comparison",
+      "the sharp lower-one mean--variance floor with explicit strict stop-loss witnesses and edge cases",
+      "the Hermitian trace--variance minimum-eigenvalue floor and its projection-kernel trace-square reconstruction",
+      "the exact source-whitened positive-shorted contraction criterion with the g*A*A source metric retained",
+      "the exact complete signature-feature Schur identity and contraction criterion for the original signed operator",
+      "the quantitative physical coframe necessity and exact rational separation models"
+    ],
+    "not_proved": [
+      "a localized prime-energy or covariance margin on a common unbounded schedule",
+      "the prescribed separate 0 mod 4 even and 2 mod 4 odd growing prolate coframes",
+      "a growing-label physical coframe constant",
+      "a source-whitened contraction reserve for the physical prolate--Weil operator",
+      "a positive signed floor in either parity sector",
+      "equation (5.2) of DIRECT_RH_ATTACK.md",
+      "locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ]
+  }
+}

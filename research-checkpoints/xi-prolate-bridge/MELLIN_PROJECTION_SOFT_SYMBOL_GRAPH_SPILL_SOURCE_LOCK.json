@@ -1,0 +1,220 @@
+{
+  "schema": "xi-prolate-mellin-projection-soft-symbol-graph-spill-source-lock-v1",
+  "claim_class": "MELLIN_PROJECTION_SOFT_SYMBOL_GRAPH_SPILL_ODD_HARMONIC_OBSTRUCTION_REDUCTION",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-08",
+  "external_sources": [
+    {
+      "id": "CCM-ZST-v1",
+      "version": "arXiv:2511.22755v1",
+      "vendored_path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "use": "source-normalized h, arithmetic transform, finite Weil convention, and printed factor-four erratum"
+    },
+    {
+      "id": "CCM-PROLATE-2023",
+      "version": "arXiv:2310.18423v2",
+      "vendored_path": "vendor/CCM-PROLATE-2310.18423v2.pdf",
+      "sha256": "8bc197642ee9ca4f2393b6cbfd3db292be6a315ce76ad61bfb845d9fedb47f2e",
+      "use": "fixed-index source-normalized prolate comparison"
+    },
+    {
+      "id": "FKS-PNT-v3",
+      "version": "arXiv:2204.02588v3",
+      "vendored_path": "vendor/FKS-PNT-2204.02588v3.pdf",
+      "sha256": "15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4",
+      "use": "published unconditional Chebyshev-function error bound"
+    },
+    {
+      "id": "HSW-ZC-v1",
+      "version": "arXiv:2107.06506v1",
+      "vendored_path": "vendor/HSW-ZC-2107.06506v1.pdf",
+      "sha256": "3fc4c89f49249924e61cb0d289d81559faed53fcbb838628ea32dc7ec6f89fbf",
+      "use": "global zero-count growth and local nontrivial-zero existence; no decimal zero list is read"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "DIRECT_RH_ATTACK.md",
+      "sha256": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "role": "equation (5.2) target and direct-attack claim boundary"
+    },
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "base source versions, factor-four erratum, Fourier sign, inversion, endpoint, and normalization lock"
+    },
+    {
+      "path": "P0_MATRIX_FORMULAS.md",
+      "sha256": "73aa4d0a746bf1a553372d4c7bdc1c671cd69c9cc36682091d94731e1dac74dd",
+      "role": "finite pole, archimedean, and inclusive minus-prime block convention"
+    },
+    {
+      "path": "P0_NORMALIZATION_AUDIT.md",
+      "sha256": "37d139735c2f760b928845f1815ba3050f8cc8447eaf535de02eef77b46862df",
+      "role": "source-normalized h limit and mandatory unit-normalization rejection"
+    },
+    {
+      "path": "PROJECTED_STATE_NORM_SOURCE_LOCK.json",
+      "sha256": "6c765b4d70969a7868f01641fdbc592907e8c32ae7d315a3ef39306f9389b213",
+      "role": "projected-state norm limit and inherited finite comparison"
+    },
+    {
+      "path": "notes/PROJECTED_STATE_NORM_LOWER_BOUND.md",
+      "sha256": "3847cbcb6e5bfc458af7bf957ff67afb0b943155d62f4239129b40332d270fbf",
+      "role": "normalization-sensitive projected-state norm theorem"
+    },
+    {
+      "path": "notes/PROJECTION_RATE_THEOREM.md",
+      "sha256": "28f10f5c51001d6eeb33af2f071e876b572aca2c713db37f3e1b924d836ef2aa",
+      "role": "exact finite source-comparison and omitted Gaussian-tail formulas"
+    },
+    {
+      "path": "WEIGHTED_SPECTRAL_ALIGNMENT_CHEBYSHEV_EDGE_SOURCE_LOCK.json",
+      "sha256": "6250e0d229ddb014bd072587a7788cd3284f9320235bb1b0902fb46c2033c680",
+      "role": "preceding covariance-weighted, exterior-tail, and odd-edge source lock"
+    },
+    {
+      "path": "notes/WEIGHTED_SPECTRAL_ALIGNMENT_CHEBYSHEV_EDGE_REDUCTION.md",
+      "sha256": "799727a0d026413fe26d4e78db00a645e329bfb0d24d28d547cc8e0fb15b6735",
+      "role": "preceding covariance-weighted capture and Legendre conditioning theorems"
+    },
+    {
+      "path": "P3_SOURCE_LOCK.json",
+      "sha256": "42976166b046f99b111861d86ac4c85f730ceb0de56b072205735cc84bea65b3",
+      "role": "FKS v3 Chebyshev-function bound and exact decimal constants"
+    },
+    {
+      "path": "ZERO_SAMPLING_SOURCE_LOCK.json",
+      "sha256": "f4cad4acb30dbfcdc5b30faafe92934e8958ad1cd11cbf6abea932f902e8c101",
+      "role": "pinned zero-count growth and existence input used only in the Riesz obstruction"
+    },
+    {
+      "path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "role": "binding source PDF bytes"
+    },
+    {
+      "path": "vendor/CCM-PROLATE-2310.18423v2.pdf",
+      "sha256": "8bc197642ee9ca4f2393b6cbfd3db292be6a315ce76ad61bfb845d9fedb47f2e",
+      "role": "binding fixed-index prolate source PDF bytes"
+    },
+    {
+      "path": "vendor/FKS-PNT-2204.02588v3.pdf",
+      "sha256": "15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4",
+      "role": "binding FKS v3 source PDF bytes"
+    },
+    {
+      "path": "vendor/HSW-ZC-2107.06506v1.pdf",
+      "sha256": "3fc4c89f49249924e61cb0d289d81559faed53fcbb838628ea32dc7ec6f89fbf",
+      "role": "binding HSW zero-count source PDF bytes"
+    },
+    {
+      "path": "notes/MELLIN_PROJECTION_SOFT_SYMBOL_REDUCTION.md",
+      "sha256": "97bdb89e2d98811d98c0aa9d4b007bd644066b14e05b78ca7a763d6b48dceea1",
+      "role": "Mellin projection, complete soft-symbol, exterior layer, and graph-spill theorems"
+    },
+    {
+      "path": "notes/ODD_POLE_HARMONIC_CHEBYSHEV_OBSTRUCTION.md",
+      "sha256": "703c19f9cbadd73e6b60672a6f836fc2bd0bf7d43eaa5f60ac5806dd1cdc0d18",
+      "role": "odd harmonic-short, edge localization, pole-prime, and first-Riesz obstruction theorems"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "role": "pinned arbitrary-precision interval runtime"
+    }
+  ],
+  "locked_conventions": {
+    "source_domain": "[-lambda,lambda] with Lebesgue measure and zero extension; the fixed source-normalized h_lambda is never unit-normalized",
+    "physical_domain": "I_lambda=[-log(lambda),log(lambda)] with L=2*log(lambda), logarithmic Lebesgue measure, and zero extension",
+    "fourier": "fhat(t)=integral f(s)*exp(-i*t*s)ds with Plancherel measure dt/(2*pi)",
+    "periodic_basis": "phi_n(s)=(-1)^n*L^(-1/2)*exp(2*pi*i*n*s/L), abs(n)<=N",
+    "inversion": "J is physical reflection s->-s; inversion parity is not replaced by positive-frequency selection",
+    "limiting_state": "h(x)=(pi/2)*x^2*(2*pi*x^2-3)*exp(-pi*x^2), E(h)(u)=sqrt(u)*sum_(m>=1)h(m*u), K(s)=E(h)(exp(s))",
+    "limiting_transform": "the source-normalized full transform is Khat(t)=Xi(t)/4, not Xi(t)",
+    "prime_block": "-2*sum_(1<n<=lambda^2) Lambda(n)/sqrt(n)*cos(t*log(n)); the endpoint is inclusive and the minus sign is immutable",
+    "combined_exterior": "soft and hard exterior levels are formed from the complete combined nonnegative defect before blockwise absolute values",
+    "projected_cross_gram": "finite projected pole/source cross Grams are assembled through the exact Fourier parity projector and are not replaced by the unprojected floor-integral formula",
+    "input_text": "lambda numerator and precision are canonical positive integer text; binary64 parameters and JSON floating-point values are rejected",
+    "input_limits": "producer and verifier admit only lambda_numerator in {5,9} and dps in {80,160}",
+    "runtime": "mpmath==1.4.1 with outward mpmath.iv enclosures is required",
+    "claim_boundary": "all finite pilots are diagnostics or exact algebraic regressions; no signed floor or asymptotic residual-gap conclusion is inferred"
+  },
+  "locked_formulas": {
+    "xi_transform": "integral_R K(s)*exp(-i*t*s)ds=Xi(t)/4",
+    "xi_envelope": "abs(Xi(t))<=C_Xi*(t^2+1/4)^(13/8)*exp(-pi*abs(t)/4), C_Xi=2^(1/4)*pi^(-1/4)*Gamma(1/4)*exp(1/4)/(sqrt(2)-1)",
+    "tail_constant": "B_lambda=2*C_sum*(B1*lambda^(13/2)*exp(-pi*lambda^2)+B2*Gamma(17/4,pi*lambda^2)/(2*pi^(17/4)))",
+    "projection_tail": "E_(K,N)^2<=X_(L,N)+B_lambda^2*L^3/(12*pi^4*N^3), with X_(L,N) exactly as equation (4.5) of the Mellin note",
+    "projection_schedule": "N_star(lambda)=ceil((L^2+26*L)/(2*pi^2)); for every fixed eta<1/2, sqrt(log(lambda))*lambda^eta*norm((I-P_Nstar)f_lambda)->0",
+    "soft_transition": "chi_X=integral a*(1-a)*R_X(t,t)dnu+(1/2)*double_integral abs(a(t)-a(u))^2*abs(R_X(t,u))^2dnu(t)dnu(u)",
+    "layer_average": "integral_0^A tr(C_(X,s)-C_(X,s)^2)ds=(1/2)*double_integral abs(d(t)-d(u))*abs(R_X(t,u))^2dnu(t)dnu(u)",
+    "effective_tail": "r_sigma<=p_X+chi_X/sigma and sum_(gamma_j<=sigma)gamma_j<=chi_X/(1-sigma), with the threshold endpoint retained in the low tail",
+    "bv_layer": "J<=V/pi^2*(2*z-z^2/2) for z<=1 and J<=V/pi^2*(3/2+log(z)) for z>=1, z=L*M/V",
+    "graph_spill": "sqrt(rho_B)<=sqrt(B_(r,M))*sqrt(delta/pi)/(1-B_(r,N))+Gamma, Gamma=norm((P_N-P_M)*W*Y*D^(1/2))_HS",
+    "graph_bv": "Gamma^2<=L/(2*pi^2*M)*sum_a TV_per(g_a)^2",
+    "anchor_obstruction": "the distinguished normalized anchor has constant-direction overlap O(L^(-1/2)) while the constant direction has fixed central energy beta_delta>0",
+    "odd_harmonic_short": "s_A=2*mu*(mathcal_L_A^(-1)-1), so positivity after pole augmentation is equivalent to the original load mathcal_L_A<1",
+    "odd_moment_remainder": "L_A<=L_0<=U_K and U_K-L_0=2/(h*q^(K+1))*<p,Y*(bI-Y)^(K+1)*(hI+Y)^(-1)p>",
+    "odd_edge_localization": "L_A<=2*mu/(h+tau)+2*tau*m_tau/(h*(h+tau)), with m_tau bounded by exact power or squared-Chebyshev filters",
+    "finite_moment_obstruction": "for every fixed k there are positive spectral measures with equal moments through k and exact loads 1 plus-or-minus epsilon*Delta_n/S_n",
+    "matched_pole_mass": "norm(P_N*p_-)^2>=B_(lambda,N) from equation (6.3) of the odd note, forcing an uncompensated missed-pole fraction O(log(lambda)/lambda)",
+    "pole_prime_identity": "P_lambda=-2*mu_lambda^2-lambda*A(X)+psi_C(X)/lambda+(B0(X)+B1(X))/2, X=lambda^2, with combined cancellation retained before absolute values",
+    "first_riesz": "F(X)=integral_1^X(psi_C(t)-t)dt/t=-sum_rho (X^rho-1)/rho^2-log(2*pi)*log(X)+pi^2/24-Li_2(X^(-2))/4",
+    "riesz_obstruction": "unconditionally F(X) is not o(sqrt(X)); conditional on RH the normalized pole-plus-archimedean expression has a nonconstant absolutely convergent almost-periodic zero term around c0=1+gamma_E/2-log(2*sqrt(pi))"
+  },
+  "claim_boundary": {
+    "proved": [
+      "the exact Xi/4 Mellin transform, explicit Xi envelope, two-integration tail, and logarithmic-squared projection schedule",
+      "the complete soft-symbol transition identity, layer-average identity, one-projector effective tail, and component-free BV layer bound",
+      "the covariance-weighted central graph-spill reduction and its periodic-BV sufficient condition",
+      "the exact failure of the distinguished comparison anchor to capture fixed constant-band energy",
+      "the exact odd harmonic-short equivalence, monotone edge-moment hierarchy, edge-localization filters, and fixed-moment countermodels",
+      "the matched projected-pole capture necessity and exact unprojected pole-prime cancellation",
+      "the exact first-Riesz formula and the proof that its proposed little-oh square-root route is impossible"
+    ],
+    "not_proved": [
+      "an effective finite constant or threshold for the admitted fixed-index prolate comparison delta_lambda=O(lambda^(-2))",
+      "the actual central low-mode graph equation with graph spill o(lambda^(-1/2)) for the source family",
+      "the actual complete exterior soft transition and top-projector physical alignment on an unbounded schedule",
+      "the actual odd pole capture, retained-excess harmonic short, or edge localization margin on an unbounded schedule",
+      "either strict signed sector floor for the finite Weil matrices on an unbounded schedule",
+      "the residual-action estimate in equation (5.2) of DIRECT_RH_ATTACK.md",
+      "locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ]
+  },
+  "source_admissions": {
+    "actual_central_graph_spill_rate_claimed": false,
+    "actual_exterior_alignment_claimed": false,
+    "actual_odd_reserve_claimed": false,
+    "api_key_read": false,
+    "binary64_parameters_used": false,
+    "cached_matrix_or_eigenvector_read": false,
+    "combined_block_cancellation_discarded": false,
+    "component_geometry_promoted_to_alignment": false,
+    "decimal_zero_list_read": false,
+    "determinant_limit_claimed": false,
+    "effective_delta_constant_claimed": false,
+    "environment_secret_read": false,
+    "equation_5_2_claimed": false,
+    "fixed_moments_promoted_to_exact_sign": false,
+    "global_weil_positivity_assumed": false,
+    "graph_equation_without_spill_promoted": false,
+    "gray_mass_dropped": false,
+    "input_cap_bypassed": false,
+    "inversion_reflection_dropped": false,
+    "lambda_squared_mixed_with_lambda": false,
+    "layer_average_promoted_to_soft_transition": false,
+    "mellin_projection_promoted_to_signed_floor": false,
+    "nonpositive_complementary_gap_reported_as_pass": false,
+    "prime_block_sign_changed": false,
+    "prime_power_endpoint_omitted": false,
+    "real_axis_eigenvalue_agreement_substituted_for_determinant_convergence": false,
+    "riemann_hypothesis_assumed_or_claimed": false,
+    "secret_serialized": false,
+    "smoothed_chebyshev_little_oh_assumed": false,
+    "unit_source_normalization_substituted": false,
+    "zeros_assumed_on_critical_line": false
+  }
+}

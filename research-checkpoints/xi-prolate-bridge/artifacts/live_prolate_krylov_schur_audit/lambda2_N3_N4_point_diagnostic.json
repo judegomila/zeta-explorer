@@ -1,0 +1,141 @@
+{
+  "claim_class": "POINT_DIAGNOSTIC",
+  "formal_state": "P0_INVALIDATED",
+  "input_hashes": {
+    "lambda2_N3_dps35": "6d4cff4da4d081e8454449add7f5ee9e50fa46399c03c717dab91ef314c77d83",
+    "lambda2_N4_dps35": "1e9a4dae2ef07c13f6eb0800522913ba61c8bbdd43b43e68eebe5d94bc470ee3",
+    "lambda2_N4_producer_256bits": "e47acba7e059ec955fe9f658c168ef3ecc1f1232852fda87cb39fab25ddff8bb",
+    "lambda2_N4_producer_512bits": "ac9924d834873af7b40be0fee3a10375977a873155cd673df8edb03d72a96e5c",
+    "lambda2_N4_verifier_256bits": "69a18f3ea551252f0e0433d6210a66f73d8fa49ab21d8659faebd9ad2182cdbc",
+    "lambda2_N4_verifier_512bits": "509b75876b3cb6025e18ec678498df27aa40fa9c31f6b14ebf10e6b20b0fc485",
+    "vendored_CCM_ZST_v1": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b"
+  },
+  "input_precision": {
+    "projected_prolate_coefficients_decimal_digits": 35,
+    "N4_matrix_ball_bits": [
+      256,
+      512
+    ],
+    "replay_decimal_digits": 100
+  },
+  "limitations": [
+    "projected prolate coefficients have no interval enclosure",
+    "state-dependent gate values are point diagnostics",
+    "the point-state producer and numerical replay both use mpmath",
+    "fixed lambda=2 data imply no asymptotic estimate",
+    "no locally uniform determinant convergence is tested"
+  ],
+  "pilots": [
+    {
+      "N": 3,
+      "endpoint_Dkappa_norm": "0.789031004937510665708217859339",
+      "full_even_krylov_dimension": 4,
+      "krylov_pivots": [
+        "1.0",
+        "0.00127781092729656233520744914332",
+        "0.763002653858395827806230592969",
+        "0.00650003829093273867743026938388"
+      ],
+      "minimal_passing_dimension_among_q_u_U3": 3,
+      "projected_state_interval_enclosure": false,
+      "shifts": [
+        {
+          "even_weighted_solve_tau": "0.0597777272945789158713416765594",
+          "krylov_dimension": 1,
+          "label": "q",
+          "odd_floor_margin": "-0.00000218725650278619891617266888",
+          "odd_transverse_solve_norm": "0.0846775414146675690333680058632",
+          "point_gate_pass": false,
+          "schur_short": "-0.00000220293621378677033027557956",
+          "shifted_transverse_floor": "0.00967585128492104763242044280198",
+          "upper_shift": "0.00000554060250681526693679661827"
+        },
+        {
+          "even_weighted_solve_tau": "0.0593930607641951423818683882222",
+          "krylov_dimension": 2,
+          "label": "u",
+          "odd_floor_margin": "-0.000000379675906761804081041521789",
+          "odd_transverse_solve_norm": "0.0846617286842718579444813868756",
+          "point_gate_pass": false,
+          "schur_short": "-0.000000382397168204594719179981227",
+          "shifted_transverse_floor": "0.00967765886551707202725557394908",
+          "upper_shift": "0.00000373302191079087210166547118"
+        },
+        {
+          "even_weighted_solve_tau": "0.0588184553377130824225833606215",
+          "krylov_dimension": 3,
+          "label": "U3",
+          "odd_floor_margin": "0.00000236484330210761237662823681",
+          "odd_transverse_solve_norm": "0.0846377308980630905136456565275",
+          "point_gate_pass": true,
+          "schur_short": "0.00000238178810331272976806352835",
+          "shifted_transverse_floor": "0.00968040338472594144371324370768",
+          "upper_shift": "0.000000988502701921455643995712577"
+        }
+      ]
+    },
+    {
+      "N": 4,
+      "endpoint_Dkappa_norm": "0.789132889383001519818180245418",
+      "full_even_krylov_dimension": 5,
+      "krylov_pivots": [
+        "1.0",
+        "0.0000529022713318068927213232187273",
+        "0.302824223905198097234407297776",
+        "0.602764387773987587349771249065",
+        "0.00448106426600399392126134662010"
+      ],
+      "matrix_ball_four_way_intersection": true,
+      "matrix_ball_maximum_intersection_width": "1.76599999999999418837120269823e-95",
+      "minimal_passing_dimension_among_q_u_U3": 1,
+      "projected_state_interval_enclosure": false,
+      "raw_block_matrix_vs_ball_midpoint_max_abs": "8.20064443135779894936918504807e-33",
+      "shifts": [
+        {
+          "even_weighted_solve_tau": "0.0309978352827088053071697624751",
+          "krylov_dimension": 1,
+          "label": "q",
+          "odd_floor_margin": "0.000000223465093075374625539251622",
+          "odd_transverse_solve_norm": "0.0377377537097679790981929618368",
+          "point_gate_pass": true,
+          "schur_short": "0.000000223783399617901391154508757",
+          "shifted_transverse_floor": "0.00115607309539884565995885328840",
+          "upper_shift": "0.0000000799356612363419941461607107"
+        },
+        {
+          "even_weighted_solve_tau": "0.0309779186845570821222435392583",
+          "krylov_dimension": 2,
+          "label": "u",
+          "odd_floor_margin": "0.000000240297155153780544670058704",
+          "odd_transverse_solve_norm": "0.0377372054120374244239491353644",
+          "point_gate_pass": true,
+          "schur_short": "0.000000240639432528177251672514329",
+          "shifted_transverse_floor": "0.00115608992746092406587798409549",
+          "upper_shift": "0.0000000631035991579360750153536284"
+        },
+        {
+          "even_weighted_solve_tau": "0.0309577175006385080518286156044",
+          "krylov_dimension": 3,
+          "label": "U3",
+          "odd_floor_margin": "0.000000257391893717692233248939752",
+          "odd_transverse_solve_norm": "0.0377366485740829176738092014766",
+          "point_gate_pass": true,
+          "schur_short": "0.000000257758515293171385852389901",
+          "shifted_transverse_floor": "0.00115610702219948797756656297653",
+          "upper_shift": "0.0000000460088605940243864364725807"
+        }
+      ]
+    }
+  ],
+  "source_checks": {
+    "cached_spectral_values_trusted": false,
+    "inclusive_prime_powers": [
+      2,
+      3,
+      4
+    ],
+    "inversion_reflection_checked": true,
+    "prime_block_sign": "minus",
+    "source_cauchy_formula_checked": true
+  }
+}

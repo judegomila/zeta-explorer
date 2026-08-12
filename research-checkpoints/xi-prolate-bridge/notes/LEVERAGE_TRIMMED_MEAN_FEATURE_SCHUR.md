@@ -281,7 +281,7 @@ Expanding the cosines gives the exact phase-sensitive formula
 Let `c_0=psi(1/4)-log pi` and
 
 \[
- u_g(t)=\left[g+U-c_0-	frac12\log(1+4t^2)\right]_+,
+ u_g(t)=\left[g+U-c_0-\tfrac12\log(1+4t^2)\right]_+,
  \qquad A_{p,H}=\int u_g(t)^p d\mu_H(t).                       \tag{4.8}
 \]
 

@@ -36,13 +36,14 @@ SERIALIZATION_GUARD_OFFSET_BITS = 16
 # closed on any later mutation.
 PINNED_HASHES = {
     NOTE: "ec2881e0f233c2c57101e960e3b43cd0abfbf9ee25f342f08a01f35827883d7f",
-    LOCK: "adfaf5fd4de59a3da398a2f6f629d238c125dcdecd1706033389f3b545bf589b",
+    LOCK: "5beedcf1f36206ec0f10331f139a4156ac43d0335f1bd90bbe64eba6016464da",
 }
 
 _SHA256 = re.compile(r"^[0-9a-f]{64}$")
 
 LOCKED_CONVENTIONS = {
-    "source_interval": "[-log(lambda),log(lambda)] with Lebesgue measure and zero extension",
+    "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension",
+    "physical_interval": "I_lambda=[-log(lambda),log(lambda)] with Lebesgue measure in logarithmic coordinates, equivalently du/u on [lambda^(-1),lambda]",
     "fourier_sign": "fhat(t)=integral f(y)*exp(-i*t*y) dy",
     "prime_endpoint": "every prime power n<=lambda^2 is included",
     "prime_sign": "m_lambda=2*theta_prime-2*sum Lambda(n)/sqrt(n)*cos(t*log(n))",
@@ -178,7 +179,7 @@ def _verified_source_hashes() -> dict[str, str]:
         "schema": LOCK_SCHEMA,
         "claim_class": "FINITE_COMPRESSION_DANGEROUS_RANK_AND_CAPTURE_REDUCTION",
         "terminal_state": TERMINAL_STATE,
-        "updated_date": "2026-08-07",
+        "updated_date": "2026-08-08",
         "external_sources": [],
         "locked_conventions": LOCKED_CONVENTIONS,
         "locked_formulas": LOCKED_FORMULAS,

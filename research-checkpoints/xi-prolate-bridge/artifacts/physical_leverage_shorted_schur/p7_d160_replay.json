@@ -46,9 +46,9 @@
     "precision_label_decimal_digits": 160
   },
   "producer_binding": {
-    "byte_count": 47024,
+    "byte_count": 47258,
     "byte_source": "exact artifact file bytes",
-    "sha256": "4d80546f5ae0bbc16749b64fd9004c12e09e2f3e352f29203543dfedf99eaf0a"
+    "sha256": "069890c4121f2b359975db015c8b88015258303830df3295b62e5a431e88b217"
   },
   "reconstructed_certificate": {
     "exact_regressions": {
@@ -1920,11 +1920,11 @@
   "result": "PHYSICAL_LEVERAGE_SHORTED_SCHUR_COMPONENT_REPLAY_PASS",
   "schema": "xi-prolate-physical-leverage-shorted-schur-replay-v1",
   "source_hashes": {
-    "COMPRESSED_MULTIPLIER_TRACE_SOURCE_LOCK.json": "adfaf5fd4de59a3da398a2f6f629d238c125dcdecd1706033389f3b545bf589b",
+    "COMPRESSED_MULTIPLIER_TRACE_SOURCE_LOCK.json": "5beedcf1f36206ec0f10331f139a4156ac43d0335f1bd90bbe64eba6016464da",
     "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
-    "PHYSICAL_LEVERAGE_SHORTED_SCHUR_SOURCE_LOCK.json": "9e7fb299f23fc9bd31ce722d2bba75b58791c0438dc2fbf2c854e39da5365db8",
+    "PHYSICAL_LEVERAGE_SHORTED_SCHUR_SOURCE_LOCK.json": "61c9adb35ca643de78dfb71407272dc68ba086952ed7b89001bba490ab2fb097",
     "PROJECTED_STATE_NORM_SOURCE_LOCK.json": "6c765b4d70969a7868f01641fdbc592907e8c32ae7d315a3ef39306f9389b213",
-    "SIGNED_QUOTIENT_CAPTURE_SOURCE_LOCK.json": "02f9474e23a1b81762edef7ee3fa911997281fd046342a194a0845b40508d6b9",
+    "SIGNED_QUOTIENT_CAPTURE_SOURCE_LOCK.json": "78284b94c9331a4b27f537c572c3c292f7cd411951f84e2e1605b924e2bde600",
     "notes/COMPRESSED_MULTIPLIER_TRACE_THEOREM.md": "ec2881e0f233c2c57101e960e3b43cd0abfbf9ee25f342f08a01f35827883d7f",
     "notes/GROWING_WINDOW_THEOREM.md": "dad6b0a878b7eba21cbc7aa8049cf3bf89a38df766cc157a87c416e79a721ac7",
     "notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md": "c6e4a757604bfc9c1299a272054f1174970781e6cd0a92ed0dfb196f9804fa81",

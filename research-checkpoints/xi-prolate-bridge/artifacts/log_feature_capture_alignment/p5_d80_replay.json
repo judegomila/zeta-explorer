@@ -1,0 +1,64 @@
+{
+  "arithmetic_libraries": {
+    "independence_limitation": "producer and verifier share Python integer/Fraction arithmetic and the pinned mpmath.iv transcendental runtime",
+    "independent_formula_trees_required": true,
+    "libraries": [
+      "Python fractions.Fraction",
+      "mpmath.iv 1.4.1"
+    ],
+    "precision_mode": "exact reduced rationals plus outward arbitrary-precision intervals",
+    "raw_interval_or_ball_output_applicable": true,
+    "serialization_guard": "every nondegenerate interval is enlarged to a precision-scaled dyadic enclosure",
+    "shared_library_with_verifier": true
+  },
+  "checks": {
+    "all_exact_rational_models_reconstructed": true,
+    "all_interval_probes_independently_enclosed": true,
+    "api_key_or_environment_secret_read": false,
+    "determinant_limit_claimed": false,
+    "equation_5_2_claimed": false,
+    "formula_tree_independent": true,
+    "integrated_taylor_factors_retained": true,
+    "physical_central_capture_claimed": false,
+    "physical_odd_pole_capture_claimed": false,
+    "physical_source_tail_scale_claimed": false,
+    "producer_booleans_trusted": false,
+    "producer_bytes_bound": true,
+    "producer_module_imported": false,
+    "rh_proved": false,
+    "signed_sector_floor_claimed": false,
+    "source_lock_and_dependencies_rehashed": true
+  },
+  "inputs": {
+    "dps_text": "80",
+    "lambda_denominator_text": "2",
+    "lambda_numerator_text": "5",
+    "r_exact_integer": 9,
+    "r_rule": "3*bit_length(lambda_numerator)"
+  },
+  "producer_binding": {
+    "byte_length": 48036,
+    "sha256": "20e5c0e7760dc49b3bca4879eec5fb32bda46bec7a81e8755c519b168786cca1"
+  },
+  "reconstructed": {
+    "exact_fixture_groups": 7,
+    "integrated_taylor_factor_checked": "1/(2*r+1)",
+    "source_dependency_count": 6,
+    "transcendental_interval_count": 11
+  },
+  "schema": "xi-prolate-log-feature-capture-alignment-replay-v1",
+  "source_lock": {
+    "dependency_hashes": {
+      "DIRECT_RH_ATTACK.md": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "PHYSICAL_DEFECT_ADJOINT_TAIL_SOURCE_LOCK.json": "dd98654cae596acb1da19079c0cb50a37126ee90f5b79b4371c32dfc928d5377",
+      "notes/LOG_FEATURE_CAPTURE_ALIGNMENT_REDUCTION.md": "23bc09a92376b57177053a09358419a628e17c56d4d6e08896c836fed876ad40",
+      "notes/PHYSICAL_DEFECT_ADJOINT_TAIL_REDUCTION.md": "d773afb7c38119d775f772ba91af02cf76372eaf3bfb89ccf461017fee2c8669",
+      "requirements.txt": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa"
+    },
+    "path": "LOG_FEATURE_CAPTURE_ALIGNMENT_SOURCE_LOCK.json",
+    "schema": "xi-prolate-log-feature-capture-alignment-source-lock-v1",
+    "sha256": "4800fc596cad791ddec7af4251604dbfe4f45b911708f48f08fc5fa658e2d40f"
+  },
+  "terminal_state": "P0_INVALIDATED"
+}

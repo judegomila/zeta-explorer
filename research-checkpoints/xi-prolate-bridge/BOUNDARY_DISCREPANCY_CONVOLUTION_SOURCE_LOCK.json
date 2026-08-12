@@ -1,0 +1,194 @@
+{
+  "schema": "xi-prolate-boundary-discrepancy-convolution-source-lock-v1",
+  "checkpoint_version": "0.52.0-boundary-discrepancy-convolution-reduction",
+  "claim_class": "SOURCE_LOCKED_EXACT_FINITE_BOUNDARY_DISCREPANCY_WEAK_IDENTITY_ONE_SIDED_WINDOW_EQUIVALENCE_AND_SAFE_HALF_PLANE_TRANSFORM_REDUCTION",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-08",
+  "dependencies": [
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "root finite-source lock, source equations, corrected archimedean convention, and normalization audit"
+    },
+    {
+      "path": "WEIGHTED_PNT_DISCREPANCY_NORMAL_FORM_SOURCE_LOCK.json",
+      "sha256": "cead6976bc5ae8a86e8e7c7f979321c3cf5af82af3f4c8d6447ad7f58d98824b",
+      "role": "checkpoint-0.51 exact cancellation normal form and open critical ground-moment gate"
+    },
+    {
+      "path": "DIRECT_RH_ATTACK.md",
+      "sha256": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "role": "direct analytic program and equation (5.2) target, which remains open"
+    },
+    {
+      "path": "notes/BOUNDARY_DISCREPANCY_CONVOLUTION_REDUCTION.md",
+      "sha256": "98aa166d597823abec0bcbbb05397a28db8b5ffa3e618ff875f215d9e484852a",
+      "role": "complete checkpoint-0.52 finite derivation, safe transform identity, exclusions, and claim boundary"
+    },
+    {
+      "path": "src/weil_matrix.py",
+      "sha256": "9a6f7b4d8ef7a7f5d12445f61cce2cb23ec44625f63981e829d7286c4e856902",
+      "role": "producer dependency for the exact closed-form source block assembly used by blocks_split"
+    },
+    {
+      "path": "src/boundary_discrepancy_convolution.py",
+      "sha256": "b5f2264d5eb592de57145ee143efc1766f31bc4ee67ea6dbf2db574cf8ded9a4",
+      "role": "source-normalized deterministic point-arithmetic producer"
+    },
+    {
+      "path": "verifier/boundary_discrepancy_convolution_replay.py",
+      "sha256": "127f0509ac6a02153c89e4a5ba78757483524df28cceb16de0d93e720ff537eb",
+      "role": "independent source assembly, factor-by-integer prime inventory, Fubini replay, and strict artifact validator"
+    }
+  ],
+  "external_sources": [
+    {
+      "id": "CCM-ZST-v1",
+      "version": "arXiv:2511.22755v1",
+      "vendored_path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "role": "finite Weil distribution, pole term, archimedean term, multiplier, Fourier convention, inversion, and the minus-prime sign in equation (3.19)"
+    }
+  ],
+  "locked_conventions": {
+    "physical_interval": "a=log(lambda), L=2*a, I=[-a,a]",
+    "measure": "Lebesgue measure on I",
+    "zero_extension": "every function on I is extended by zero to the real line before translation",
+    "fourier_transform": "hat(f)(t)=integral_I f(x)*exp(-i*t*x) dx",
+    "centered_basis": "V_n(x)=(-1)^n*L^(-1/2)*exp(+2*pi*i*n*x/L), -N<=n<=N",
+    "inversion": "J*f(x)=f(-x), equivalently J*V_n=V_-n; both reflected boundary terms are retained",
+    "complete_source_operator": "Q_lambda=C_I^*m_lambda(D)C_I+P before parity compression or ground shifting",
+    "prime_block_sign": "m_lambda contains -2*sum Lambda(n)/sqrt(n)*cos(t*log(n)), preserving the minus sign in source equation (3.19)",
+    "prime_power_endpoint": "the right-continuous inventory includes every prime power 1<n<=lambda^2",
+    "lambda_scale": "a=log(lambda), L=2*log(lambda), and exp(L)=lambda^2; lambda is never substituted for lambda^2",
+    "ground_state": "x is the real inversion-even lowest eigenvector of the finite compressed complete source matrix; no global Weil positivity or pointwise nonnegativity of x is assumed",
+    "weak_test": "the compressed eigen-equation is tested against 1_I in E_N; no pointwise uncompressed eigen-equation is asserted",
+    "parameter_ingestion": "decimal source parameters are parsed from text and never through binary64",
+    "completed_xi": "xi(z)=(1/2)*z*(z-1)*pi^(-z/2)*Gamma(z/2)*zeta(z), not the critical-line Xi function",
+    "ordinary_laplace_domain": "the ordinary-Laplace derivation and numerical samples are restricted to Re(s)>1/2",
+    "secret_boundary": "API keys and environment secrets are neither read nor serialized"
+  },
+  "locked_formulas": {
+    "complete_multiplier": "m_lambda(t)=Re psi(1/4+i*t/2)-log(pi)-2*sum_(1<n<=lambda^2) Lambda(n)/sqrt(n)*cos(t*log(n))",
+    "weighted_sum": "W(exp(t))=sum_(1<n<=exp(t)) Lambda(n)/sqrt(n), with the inclusive right-continuous endpoint convention",
+    "weighted_discrepancy": "D(t)=W(exp(t))-2*(exp(t/2)-1)",
+    "signed_discrepancy_measure": "dD(t)=sum_(n>=2) Lambda(n)/sqrt(n)*delta_log(n)(dt)-exp(t/2)dt",
+    "archimedean_density": "rho(t)=exp(-t/2)/(1-exp(-2*t))",
+    "archimedean_tail": "H0(t)=integral_t^infinity rho(u)du=(1/2)*log((1+exp(-t/2))/(1-exp(-t/2)))+atan(exp(-t/2))",
+    "signed_boundary_discrepancy": "F(t)=D(t)-H0(t)",
+    "boundary_source_identity": "A1(y)=H0(a-y)+H0(a+y)+2*W(lambda^2)-W(lambda*exp(-y))-W(lambda*exp(y)) for almost every y in I",
+    "boundary_cancellation_identity": "A1(y)=4*lambda+2*D(L)-4*sqrt(lambda)*cosh(y/2)-F(a-y)-F(a+y) for almost every y in I",
+    "finite_moments": "X=integral_I x(y)dy and h=integral_I cosh(y/2)*x(y)dy",
+    "signed_boundary_quotient": "C_lambda(x)=X^(-1)*integral_I (F(a-y)+F(a+y))*x(y)dy=2*X^(-1)*integral_0^L F(t)*x(a-t)dt for even x and X!=0",
+    "source_independent_scalar": "c_star=psi(1/4)-log(pi)+4",
+    "scalar_cancellation": "m_lambda(0)+4*lambda+2*D(L)=c_star",
+    "weak_compressed_identity": "C_lambda(x)+epsilon-c_star=-4*h/(sqrt(lambda)*X), obtained by weakly testing the finite compressed equation against 1_I",
+    "one_sided_window": "h/X<=B iff c_star-epsilon-4*B/sqrt(lambda)<=C_lambda(x)<c_star-epsilon, assuming X!=0, h/X>0, and B>=0",
+    "laplace_D": "L(D)(s)=s^(-1)*(-zeta'/zeta(s+1/2)-2*s/(s-1/2)+2), Re(s)>1/2",
+    "laplace_H0": "L(H0)(s)=(psi(1/4+s/2)-psi(1/4))/(2*s), Re(s)>0",
+    "completed_xi_laplace": "L(F-c_star/2)(s)=s^(-1)*(-xi'/xi(1/2+s)+1/(1/2+s)-2), Re(s)>1/2"
+  },
+  "proof_claims": {
+    "exact_finite_boundary_identity_proved": true,
+    "exact_weak_compressed_ground_identity_proved": true,
+    "finite_one_sided_window_equivalence_proved": true,
+    "ordinary_laplace_transform_identity_in_Re_s_gt_one_half_proved": true,
+    "uniform_one_sided_boundary_localization_proved": false,
+    "uniform_critical_ground_moment_bound_proved": false,
+    "uniform_mixed_reserve_proved": false,
+    "uniform_complementary_gap_proved": false,
+    "inversion_even_sector_gap_proved": false,
+    "inversion_odd_sector_gap_proved": false,
+    "equation_5_2_proved": false,
+    "locally_uniform_determinant_convergence_proved": false,
+    "transform_bound_at_or_left_of_Re_s_one_half_proved": false,
+    "ground_pointwise_nonnegativity_proved": false,
+    "global_weil_positivity_assumed_or_proved": false,
+    "asymptotic_localization_theorem_proved": false,
+    "riemann_hypothesis_proved": false,
+    "new_lambda_bound_claimed": false
+  },
+  "implementation_contract": {
+    "locked_pilot": "lambda=2, N=2, B=2 at 80 and 160 decimal digits",
+    "locked_reserve_bound": "both producer and verifier require B to be the canonical exact decimal string '2'; no alternate B is accepted",
+    "producer_path": "split source blocks plus direct breakpoint-split integration of D, H0, and F",
+    "verifier_path": "unsplit source quadrature plus independently factored prime powers and a Fubini tail evaluation of the boundary convolution",
+    "verifier_trust": "the verifier reconstructs formulas and transcendental values from source parameters and does not trust producer matrices, booleans, or cached values",
+    "inclusive_endpoint_witness": "the lambda=2 inventory contains the endpoint prime power n=4=lambda^2",
+    "laplace_samples": "s=1 and s=1.5, both strictly inside Re(s)>1/2",
+    "replay_numeric_tolerance": "every serialized numeric field is replayed with abs(submitted-expected)<=10^(-(dps-6))*max(1,abs(expected)), retaining full requested precision except six guard digits",
+    "signed_residual_policy": "combined signed residuals are serialized before absolute values are used for pass/fail comparisons",
+    "diagnostic_scope": "the two precision runs are finite point diagnostics and are not extrapolated to an asymptotic theorem"
+  },
+  "arithmetic_limitations": {
+    "mode": "arbitrary-precision point arithmetic, not interval or ball arithmetic",
+    "shared_library": "producer and verifier share mpmath transcendental arithmetic",
+    "shared_eigensolver": "producer and verifier share mpmath eigsy",
+    "independent_formula_trees": true,
+    "cached_matrices_or_zero_tables_used": false,
+    "uniform_window_ball_enclosure": false,
+    "asymptotic_estimate": false
+  },
+  "artifacts": [
+    {
+      "path": "artifacts/boundary_discrepancy_convolution/lambda2_N2_dps80_producer.json",
+      "sha256": "6287e76ecdac29b58575171eef8ceac2d2380ef57532b2e60a080fa109c56d98",
+      "role": "80-decimal producer with source blocks, signed convolution decomposition, weak residual, reserve window, and safe-half-plane transform samples"
+    },
+    {
+      "path": "artifacts/boundary_discrepancy_convolution/lambda2_N2_dps80_replay.json",
+      "sha256": "40888a3b5cc7fdd1e13c547d44920cb37ef97fd06455343e62ec772496379a1c",
+      "role": "80-decimal independent source and Fubini replay"
+    },
+    {
+      "path": "artifacts/boundary_discrepancy_convolution/lambda2_N2_dps160_producer.json",
+      "sha256": "a1b1ed081735bd79e2371de18f4f5510f071370655acef8a7e6a43dc8b900fb3",
+      "role": "doubled-precision producer diagnostic"
+    },
+    {
+      "path": "artifacts/boundary_discrepancy_convolution/lambda2_N2_dps160_replay.json",
+      "sha256": "93d89f2fd526fa587da05d63aa76537f0d87a71691ffc0b3ba7619b0bd74f20f",
+      "role": "doubled-precision independent replay diagnostic"
+    }
+  ],
+  "open_obligations": [
+    "prove the strict one-sided window with width O(lambda^(-1/2)) uniformly on one explicit unbounded schedule",
+    "prove X!=0 and h/X>0 on that same schedule without assuming pointwise positivity of the finite ground",
+    "prove a uniform finite bound h/X<=B from the signed arithmetic convolution rather than absolute values",
+    "prove the complementary inversion-even and inversion-odd sector gaps required by equation (5.2)",
+    "couple the source-normalized prolate residual to those independently proved gaps",
+    "prove locally uniform determinant convergence",
+    "replace point diagnostics by independently checked interval or ball enclosures where finite certification is required"
+  ],
+  "rejected_mutations": [
+    "absolute_value_substituted_for_signed_boundary_convolution",
+    "asymptotic_localization_promoted_from_finite_identity",
+    "binary64_parameter_used",
+    "boundary_reflection_term_omitted",
+    "cached_matrix_or_eigenpair_read",
+    "completed_xi_confused_with_critical_line_Xi",
+    "endpoint_prime_power_omitted",
+    "F_equals_D_plus_H0_substituted",
+    "fourier_sign_changed",
+    "global_weil_positivity_assumed",
+    "ground_quotient_treated_as_a_positive_probability_expectation",
+    "inversion_reflection_dropped",
+    "lambda_mixed_with_lambda_squared",
+    "laplace_meromorphic_continuation_substituted_for_a_uniform_bound",
+    "locked_reserve_bound_B_changed_from_exact_string_2",
+    "nonpositive_complementary_gap_reported_as_a_pass",
+    "ordinary_laplace_sample_taken_at_or_left_of_Re_s_one_half",
+    "prime_block_sign_changed",
+    "prime_power_n_le_lambda_squared_omitted",
+    "producer_boolean_trusted",
+    "real_zeta_zero_list_assumed_or_read",
+    "real_axis_eigenvalue_agreement_substituted_for_locally_uniform_determinant_convergence",
+    "replay_tolerance_relaxed_beyond_10_to_minus_dps_minus_6",
+    "reserve_window_upper_bound_made_nonstrict",
+    "source_normalization_changed",
+    "unit_norm_substituted_for_source_normalization",
+    "weak_compressed_identity_promoted_to_a_pointwise_uncompressed_equation",
+    "wrong_4_over_sqrt_lambda_reserve_scale_substituted",
+    "zeta_zero_list_assumed_or_read"
+  ]
+}

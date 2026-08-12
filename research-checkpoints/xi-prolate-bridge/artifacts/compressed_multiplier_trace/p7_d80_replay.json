@@ -39,9 +39,9 @@
     "lambda_numerator": 7
   },
   "producer_binding": {
-    "byte_count": 32194,
+    "byte_count": 32340,
     "byte_source": "exact artifact file bytes",
-    "sha256": "7e666cf415985e9b362abf67e9c478656d7561ab3f412e93ec20582f5bd9221e"
+    "sha256": "81897c72203df735e229804854da959407db5262fdc280b3c9c511271c7b506f"
   },
   "reconstructed_exact": {
     "H_bound_operation": "interval_lattice_min_of_two_source_upper_bounds",
@@ -124,7 +124,7 @@
   "result": "COMPRESSED_MULTIPLIER_TRACE_COMPONENT_REPLAY_PASS",
   "schema": "xi-prolate-compressed-multiplier-trace-replay-v1",
   "source_hashes": {
-    "COMPRESSED_MULTIPLIER_TRACE_SOURCE_LOCK.json": "adfaf5fd4de59a3da398a2f6f629d238c125dcdecd1706033389f3b545bf589b",
+    "COMPRESSED_MULTIPLIER_TRACE_SOURCE_LOCK.json": "5beedcf1f36206ec0f10331f139a4156ac43d0335f1bd90bbe64eba6016464da",
     "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
     "P3_SOURCE_LOCK.json": "42976166b046f99b111861d86ac4c85f730ceb0de56b072205735cc84bea65b3",
     "notes/COMPRESSED_MULTIPLIER_TRACE_THEOREM.md": "ec2881e0f233c2c57101e960e3b43cd0abfbf9ee25f342f08a01f35827883d7f",

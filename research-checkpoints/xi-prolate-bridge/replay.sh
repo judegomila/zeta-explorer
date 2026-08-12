@@ -370,6 +370,28 @@ required = {
     "cutoff_free_actual_dangerous_direct_bottom_gram_bridge_gate_proved": False,
     "checkpoint169_focused_tests_passed": True,
     "checkpoint169_full_suite_recount_completed": False,
+    "cutoff_free_actual_dangerous_endpoint_jet_jump_profile_formula_proved": True,
+    "cutoff_free_actual_dangerous_endpoint_jet_additive_prolate_gram_proved": True,
+    "cutoff_free_actual_dangerous_sharpened_derivative_trace_bound_proved": True,
+    "cutoff_free_actual_dangerous_finite_jet_observability_certificate_proved": True,
+    "cutoff_free_actual_dangerous_profile_prefix_rank_obstruction_proved": True,
+    "cutoff_free_actual_dangerous_bottom_normalized_profile_safe_cancellation_identity_proved": True,
+    "cutoff_free_actual_dangerous_zero_jet_residual_bv_bound_proved": True,
+    "cutoff_free_actual_dangerous_near_shannon_endpoint_observability_rate_proved": False,
+    "cutoff_free_actual_dangerous_near_shannon_profile_singular_value_rate_proved": False,
+    "cutoff_free_actual_dangerous_safe_cross_reserve_proved": False,
+    "actual_centered_remainder_top_even_near_band_positive_core_lower_bound_proved": True,
+    "actual_centered_remainder_top_even_complementary_global_cancellation_necessity_proved": True,
+    "actual_centered_remainder_top_even_signed_global_cancellation_proved": False,
+    "actual_phase_volume_full_prime_power_digamma_two_sided_sandwich_proved": True,
+    "actual_phase_volume_long_block_normalized_threshold_s_minus_kappa_proved": True,
+    "actual_phase_volume_long_block_hermite_conditional_lower_bound_proved": True,
+    "actual_phase_volume_fractional_odd_shelf_subtarget_lower_bound_proved": True,
+    "actual_phase_volume_lower_bound_to_negative_index_nonimplication_proved": True,
+    "actual_phase_volume_standard_schedule_macroscopic_hermite_transfer_proved": False,
+    "actual_phase_volume_lower_bound_to_negative_index_reverse_implication_proved": False,
+    "checkpoint170_focused_tests_passed": True,
+    "checkpoint170_full_suite_recount_completed": False,
 }
 
 project = json.loads(Path("PROJECT_STATUS.json").read_text(encoding="utf-8"))
@@ -1656,7 +1678,10 @@ PYTHONPATH=src python3 -B -m unittest \
   tests.test_cutoff_free_multiplier_dangerous_prolate_cross_angle_barrier \
   tests.test_actual_centered_remainder_fractional_block_odd_moment_ui_barrier \
   tests.test_actual_centered_remainder_shifted_correlation_top_moment_ui_barrier \
-  tests.test_cutoff_free_actual_dangerous_adjoint_regularity_barrier -v
+  tests.test_cutoff_free_actual_dangerous_adjoint_regularity_barrier \
+  tests.test_cutoff_free_actual_dangerous_endpoint_jet_profile_observability_barrier \
+  tests.test_actual_centered_remainder_top_even_near_band_global_cancellation_barrier \
+  tests.test_actual_phase_volume_long_block_threshold_negative_index_barrier -v
 python3 src/write_artifact_manifest.py
 python3 -m unittest tests.test_weighted_pnt_discrepancy_normal_form_source_lock -v
 python3 -m unittest tests.test_boundary_discrepancy_convolution tests.test_boundary_discrepancy_convolution_source_lock -v

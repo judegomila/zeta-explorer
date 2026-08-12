@@ -6978,6 +6978,93 @@ transitive only.
 
 Checkpoint 1.69 proves that a fixed real block exponent s controls Gaussian moments only through floor(2s), while macroscopic Hermite uniform integrability reduces the usable index to floor(s); the fractional odd shelf yields an explicit lower bound x^(s-r)L^(2r+1), but for fixed s<r+1 it is o(x/L), so the checkpoint-1.68 k=4 threshold remains optimal at the required scale. It identifies the first missing odd fixed-shift almost-prime correlation and the next even growing-shift top moment, quantifies the Montgomery--Vaughan deficits, and gives a positive Jacobi/remote-atom countermodel showing that odd-moment control alone cannot move the Hermite threshold without next-even-moment uniform integrability. Separately, it proves an actual-symbol support envelope and Paley--Wiener regularity theorem for positive dangerous spectral subspaces, exact arithmetic-adjoint breakpoint/endpoint-jet jumps, an explicit BV-to-prolate sufficient condition, a sharp buffered commutator bound, and fixed-lambda qualitative prefix capture. The available constants do not reach the near-Shannon prefix, and the safe component can cancel the regular dangerous component after the literal adjoint. No required-scale centered-remainder obstruction at or below the checkpoint-1.68 threshold, actual phase-volume lower bound, actual bottom Gram/cross-angle or bridge gate, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.
 
+## Checkpoint 1.70 endpoint-jet, top-even cancellation, and phase-threshold disclosure
+
+Checkpoint 1.70 admits exactly three independently audited strict-PASS
+theorem/barrier pairs:
+
+| Target | SHA-256 |
+|---|---|
+| `notes/CUTOFF_FREE_ACTUAL_DANGEROUS_ENDPOINT_JET_PROFILE_OBSERVABILITY_BARRIER.md` | `e7583ff8784410db5b5488250737845936a43420cb787ddd714d71242c880a5d` |
+| `tests/test_cutoff_free_actual_dangerous_endpoint_jet_profile_observability_barrier.py` | `2c248744839039c052e3dbfcdc9857230147f9cf315e9abb34d212742e19435a` |
+| `notes/ACTUAL_CENTERED_REMAINDER_TOP_EVEN_NEAR_BAND_GLOBAL_CANCELLATION_BARRIER.md` | `e3c660f12f8d147f6d1caff14805d22325cee679a1a6b38ff5f9ec78d99b812f` |
+| `tests/test_actual_centered_remainder_top_even_near_band_global_cancellation_barrier.py` | `41311bb75b9fc0c2e832dcf334ed318ee6fde3aaf1b5f1a6a0c015db0138cae7` |
+| `notes/ACTUAL_PHASE_VOLUME_LONG_BLOCK_THRESHOLD_NEGATIVE_INDEX_BARRIER.md` | `964b58396b1913013b017be6393cef768891d253e553a22979c3189a5c603f56` |
+| `tests/test_actual_phase_volume_long_block_threshold_negative_index_barrier.py` | `149a7034c83a952b4069574cf5892583540f66b5fcea385afb2a90ecd66a979c` |
+
+The exact deduplicated direct-dependency union is:
+
+| Dependency | SHA-256 |
+|---|---|
+| `notes/CUTOFF_FREE_ACTUAL_DANGEROUS_ADJOINT_REGULARITY_BARRIER.md` | `76bed7bff24f2bdced30c357d3a61b7cbcc16964085901070f723035aeb92337` |
+| `tests/test_cutoff_free_actual_dangerous_adjoint_regularity_barrier.py` | `034fe9fa18d0ae587ac3d9c5c3f9e0179a5cbf80dd96ef5aab21e5034f8223ec` |
+| `notes/ACTUAL_CENTERED_REMAINDER_SHIFTED_CORRELATION_TOP_MOMENT_UI_BARRIER.md` | `8ab0f30e32fe715a4f839228f5d05dc581292c99c2a04f42804f0ff4d2d878d9` |
+| `tests/test_actual_centered_remainder_shifted_correlation_top_moment_ui_barrier.py` | `ecaf4f1eaaab4a3a146c277eb0897e79d5323bfe9b79709bbc5cac5d423bd787` |
+| `notes/ACTUAL_PHASE_VOLUME_CENTERED_PNT_REMAINDER_REDUCTION_BARRIER.md` | `2b2a40a4ec087c77145b45fc54d8a5782a85ecd122b2d599d2c2d8a067b714f1` |
+| `tests/test_actual_phase_volume_centered_pnt_remainder_reduction_barrier.py` | `7fbcdf15dde20d3d2a00303f74d5441ee143af74ae269992fe79b1fb0c97456f` |
+| `notes/ACTUAL_CENTERED_REMAINDER_LONG_BLOCK_HERMITE_MOMENT_BARRIER.md` | `1997f8b14c5f90977f744788d069f6e771da078c06562dac2d78c671c01a95c1` |
+| `tests/test_actual_centered_remainder_long_block_hermite_moment_barrier.py` | `cbbc300b9a050ac161d9f8feae996947b522043ae50663799dfc194ed4d3dd2d` |
+| `notes/ACTUAL_CENTERED_REMAINDER_FRACTIONAL_BLOCK_ODD_MOMENT_UI_BARRIER.md` | `c5510f3491d2d6ff173581bd6be540edc1b8b5c4bbb0afb56b636bfd68b51f19` |
+| `tests/test_actual_centered_remainder_fractional_block_odd_moment_ui_barrier.py` | `71e1480ae0e4265ec4e45c3eb181a2682ee070bc8382eba815c3543a9f626871` |
+| `notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md` | `c6e4a757604bfc9c1299a272054f1174970781e6cd0a92ed0dfb196f9804fa81` |
+| `tests/test_parity_multiplier_schur.py` | `94ee818e2747e703d521cfa2a980765569cccfdf442b700b1a6b33ac4ceababb` |
+
+Pair A has one direct dependency pair.  Pair B has one, shared with pair
+C's five direct dependency pairs.  The deduplicated dependency union has
+12 paths, six complete pairs.  Adding the six target paths gives 18 paths,
+nine complete pairs.  Every hash was rechecked exactly.
+
+The newly proved items are:
+
+1. the exact all-order endpoint-jet arithmetic jump profiles and their
+   additive-prolate coefficient and Gram matrices;
+2. a sharpened dangerous-range derivative/trace bound, finite-jet
+   observability certificate, and the exact profile-prefix rank stopping
+   line;
+3. the bottom-normalized profile/remainder/safe factorization, its signed
+   cancellation identity, and the zero-jet residual BV bound;
+4. an `Omega_(A,r)(x)` positive top-even near-band core and the consequent
+   necessity of complete complementary signed cancellation for a
+   polylogarithmic top-moment bound;
+5. the full-prime-power digamma two-sided phase-volume sandwich and the
+   true normalized long-block threshold `s-kappa`;
+6. the conditional Hermite phase-volume lower bound, the strict
+   sub-`x/L` fractional odd-shelf lower bound, and the nonimplication from
+   phase-volume lower mass to a negative-index lower bound.
+
+The newly sharpened open obligations are:
+
+1. an actual low-order endpoint-observability window inside the
+   near-Shannon prefix, with a quantitative profile singular value;
+2. a bottom-space dimension bound and a signed Taylor-remainder/safe-cross
+   reserve after normalization;
+3. the complete signed global cancellation needed for the next-even
+   top-moment uniform-integrability estimate;
+4. any required-scale phase-volume obstruction or proof of the desired
+   phase-volume upper target on the standard schedule;
+5. a source-specific signed-compression or Feshbach lower bound converting
+   phase information into actual negative index;
+6. the actual bridge gate, determinant convergence, and all unconditional
+   zero consequences.
+
+The three focused modules pass `41/41`; the exact nine-module deduplicated
+target/direct-dependency closure passes `121/121` under `PYTHONPATH=src
+python3 -B`.  Projected canonical/raw discovery is `398/4402` and
+`403/4460`; frontier/replay is `256/2880` and `268/3008`; support remains
+`12/128` and exclusions remain `5/58`.  Expanded suites were not rerun.
+
+Pairs B and C inherit Montgomery--Vaughan through frozen
+shifted-correlation, long-block, and fractional-block pairs.  The primary
+paper remains external, unvendored, unhashed, non-byte-bound, and not
+independently certified.  P3/FKS, KRD/BBK/Slepian, complete-symbol,
+full-source, bridge, parity, digamma, and all source-lock provenance is
+transitive only.  No new external paper, source-lock JSON, vendored source,
+artifact, zero table, numerical ground, numerical ordinate, cached matrix,
+source sample, serialized numerical artifact, or external computation is
+admitted.
+
+Checkpoint 1.70 proves exact endpoint-jet jump profiles, finite-profile prolate coefficient/Gram formulas, sharpened dangerous derivative/trace bounds, and a finite-jet observability certificate, but the certified Taylor order can exceed the near-Shannon row count and the bottom-normalized Gram retains signed remainder/safe cancellation. It proves that the top-even growing near band contains a positive Omega(x) core and therefore any O(L^(2r)) top-moment bound requires global complementary cancellation; it does not prove that cancellation or the next-even UI bound. It also proves a two-sided full-prime-power phase-volume sandwich, identifies the true normalized threshold s-kappa, a conditional Hermite lower bound, and a sub-x/L odd-shelf lower bound; the standard kappa<=1 schedule misses the macroscopic Hermite condition, and phase-volume lower bounds do not reverse the one-sided negative-index inequality. No actual near-Shannon cross-angle/bridge gate, next-even top-moment UI, required-scale phase-volume obstruction or upper target, negative-index lower bound, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.
+
 ## Computation policy
 
 High-precision numerics may identify the scale of the residual and gap.

@@ -6943,3 +6943,68 @@ discovery is `390/4292` and `395/4350`; frontier/replay is `248/2770` and
 Expanded suites were not rerun.
 
 Checkpoint 1.67 computes the exact ordinary-source bridge innovation and defect-orthogonal representative, proves a uniformly bounded representative norm and an exponentially favorable one-sided source/defect prefactor, and reduces codimension-one bridge repair to one scalar combined-phase adjoint-tail excess above the constant-tail threshold. A polynomial strict reserve together with a polynomial phase-bulk gap would give a polynomial augmented bottom floor. No frozen input proves the reserve, the codimension-one phase-bulk premise, or even nonvanishing of the actual missed-line scalar. The literal-adjoint diagonal-well model proves only structural nonimplication and is not the actual Weil operator or a counterexample to actual nonvanishing. Actual bridge leverage, bottom-projector capture, cutoff-free determinant convergence, an unconditional zero theorem, RH proof or converse, and a de Bruijn--Newman bound remain unproved. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.68 long-block Hermite and multiplier-dangerous cross-angle source disclosure
+
+Checkpoint 1.68 admits exactly these two frozen pairs:
+
+| Target | SHA-256 |
+|---|---|
+| `notes/ACTUAL_CENTERED_REMAINDER_LONG_BLOCK_HERMITE_MOMENT_BARRIER.md` | `1997f8b14c5f90977f744788d069f6e771da078c06562dac2d78c671c01a95c1` |
+| `tests/test_actual_centered_remainder_long_block_hermite_moment_barrier.py` | `cbbc300b9a050ac161d9f8feae996947b522043ae50663799dfc194ed4d3dd2d` |
+| `notes/CUTOFF_FREE_MULTIPLIER_DANGEROUS_PROLATE_CROSS_ANGLE_BARRIER.md` | `bfabbf6b7c4879d027e4ea1be8e1103b22468519b2bd68aa0d121642000120ed` |
+| `tests/test_cutoff_free_multiplier_dangerous_prolate_cross_angle_barrier.py` | `dd91d397332f3096f531e0c8742e1752891d53c1c257a9a78d82dcef67dc002a` |
+
+Their exact deduplicated direct dependencies are:
+
+| Dependency | SHA-256 |
+|---|---|
+| `notes/ACTUAL_PHASE_VOLUME_CENTERED_PNT_REMAINDER_REDUCTION_BARRIER.md` | `2b2a40a4ec087c77145b45fc54d8a5782a85ecd122b2d599d2c2d8a067b714f1` |
+| `tests/test_actual_phase_volume_centered_pnt_remainder_reduction_barrier.py` | `7fbcdf15dde20d3d2a00303f74d5441ee143af74ae269992fe79b1fb0c97456f` |
+| `notes/ACTUAL_CENTERED_REMAINDER_PRIME_FOURTH_MOMENT_LOWER_BARRIER.md` | `920b6434cc89c663ae95f6f7803780cd164e99b8e5cdc82c2de1a3655171035a` |
+| `tests/test_actual_centered_remainder_prime_fourth_moment_lower_barrier.py` | `de1e282b5106d0dc3ecb95a19773433baff029f1ff7cb5c45229e86374696fe7` |
+| `notes/ACTUAL_CENTERED_REMAINDER_PRIME_THIRD_MOMENT_HALF_ALPHA_BARRIER.md` | `0d9a8326abe3752e2cdaf13333c7e768816a1d0d3773df998842b1333d313287` |
+| `tests/test_actual_centered_remainder_prime_third_moment_half_alpha_barrier.py` | `acf9f91fd1dd8b76adee84eeaa22ba42dfb05b6c70282aaa04eb88dc509499d9` |
+| `notes/CUTOFF_FREE_BRIDGE_MIXED_ADJOINT_TAIL_PREFACTOR_REDUCTION.md` | `53dd9fefd8cc05a29cd3e0a043e6f86f8bbdc7545d2c203d29bc59cbbe1a04f8` |
+| `tests/test_cutoff_free_bridge_mixed_adjoint_tail_prefactor_reduction.py` | `e532a958742feda3efe00adc37e1ea2879a3676f23b63a47c238e348aaf5b17c` |
+| `notes/CUTOFF_FREE_FULL_SOURCE_ADJOINT_PROLATE_CAPTURE_BARRIER.md` | `157bffc55aeec592c263d5973effe1b9506e02dd97311652ecb2fdee0c3ff0e9` |
+| `tests/test_cutoff_free_full_source_adjoint_prolate_capture_barrier.py` | `d7f70dffbd10021ce7d6e8887d10589a482b2dc64c9ebbe8c48cc35568c233ae` |
+| `notes/FULL_SOURCE_COFRAME_RANK_THEOREM.md` | `3f8b381d9e51e0fa0cf89928851e89dd163ec9982249af8050a90520c0389f81` |
+| `tests/test_full_source_coframe_rank.py` | `dc322485178710618f9ace19cd2019200bf0dafeabcbe17cce4e47d41377d66a` |
+| `notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md` | `c6e4a757604bfc9c1299a272054f1174970781e6cd0a92ed0dfb196f9804fa81` |
+| `tests/test_parity_multiplier_schur.py` | `94ee818e2747e703d521cfa2a980765569cccfdf442b700b1a6b33ac4ceababb` |
+| `notes/GROWING_MULTIPLIER_DEFICIT_GEOMETRY_BOUNDARY_ALIAS_BARRIER.md` | `2e5b38892f73848b4d081de5fef45f10819bd4e7f6a8be5a4edb8f85dae11141` |
+| `tests/test_growing_multiplier_deficit_geometry_boundary_alias_barrier.py` | `6dc9991b36db57e6a22155b30e0ab9bf913812d17c0f81d3f356c602da73d9d0` |
+
+The two dependency sets are disjoint.  Their union has 16 paths, exactly
+eight complete note/test pairs.  Adding the four targets gives 20 paths,
+exactly ten complete pairs.
+
+Pair A substantively inherits H. L. Montgomery and R. C. Vaughan,
+*Hilbert's Inequality*, *Journal of the London Mathematical Society* (2)
+**8** (1974), 73--82, DOI
+<https://doi.org/10.1112/jlms/s2-8.1.73>, Corollary 2, equations
+(1.8)--(1.9), through its frozen internal dependencies.  The primary
+source remains external, unvendored, unhashed, non-byte-bound, and not
+independently certified.  The existing P3/FKS lineage is transitive only;
+neither its source lock nor its vendored PDF is a direct checkpoint-1.68
+dependency.
+
+Pair B uses only frozen internal theorem/barrier pairs.  The already
+disclosed KRD/BBK transition and Slepian fixed-index source lineages, and
+all associated source locks and vendored PDFs, are inherited transitively
+through those pairs.  No lock, vendor byte, or external paper is a new
+direct checkpoint-1.68 input.
+
+No new external paper, source-lock JSON, vendored source, artifact, zero
+table, numerical ground, numerical ordinate, cached matrix, source sample,
+serialized numerical artifact, or external computation is admitted.  All
+16 dependency and four target hashes were rechecked exactly.
+
+The two focused modules pass `30/30`, and the exact ten-module deduplicated
+target/direct-dependency closure passes `149/149` under `PYTHONPATH=src
+python3 -B`.  Projected canonical/raw discovery is `392/4322` and
+`397/4380`; frontier/replay is `250/2800` and `262/2928`; support remains
+`12/128` and exclusions remain `5/58`.  Expanded suites were not rerun.
+
+Checkpoint 1.68 proves Gaussian prime moments through degree 2k on translated x^k blocks and a Hermite-localized centered-remainder lower bound whenever k(1-alpha)<rho_k. The optimal integer member is k=4, giving Omega(lambda^8 log(lambda^2)) for every fixed alpha>1-sqrt(3+sqrt(6))/4, including alpha=1/2 and a nonempty range below; the method proves nothing at or below that threshold, and the phase-volume comparison remains one-way. Separately, it gives the exact normalized prolate capture Gram, multiplicity obstruction, actual multiplier physical-angle bound, and cross-angle stopping line. The synthetic critical-edge model proves structural nonimplication only and is not the actual full von-Mangoldt Weil symbol. No frozen input proves the actual source-prefix cross-angle, bottom-space dimension bound, missed-line bridge gate, or phase-bulk premise. Actual phase volume, bottom-projector capture, determinant convergence, an unconditional zero theorem, RH proof or converse, and a de Bruijn--Newman bound remain unproved. The formal state remains P0_INVALIDATED.

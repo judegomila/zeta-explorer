@@ -10645,3 +10645,114 @@ fixed-index lineage is inherited through `PROLATE_DEFECT_SOURCE_LOCK.json`.
 All other provenance is inherited through frozen internal dependencies.
 
 Checkpoint 1.67 computes the exact ordinary-source bridge innovation and defect-orthogonal representative, proves a uniformly bounded representative norm and an exponentially favorable one-sided source/defect prefactor, and reduces codimension-one bridge repair to one scalar combined-phase adjoint-tail excess above the constant-tail threshold. A polynomial strict reserve together with a polynomial phase-bulk gap would give a polynomial augmented bottom floor. No frozen input proves the reserve, the codimension-one phase-bulk premise, or even nonvanishing of the actual missed-line scalar. The literal-adjoint diagonal-well model proves only structural nonimplication and is not the actual Weil operator or a counterexample to actual nonvanishing. Actual bridge leverage, bottom-projector capture, cutoff-free determinant convergence, an unconditional zero theorem, RH proof or converse, and a de Bruijn--Newman bound remain unproved. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.68 long-block Hermite and multiplier-dangerous prolate cross-angle barriers
+
+Checkpoint 1.68 admits two independently audited strict-PASS pairs:
+
+| Target | SHA-256 |
+|---|---|
+| `notes/ACTUAL_CENTERED_REMAINDER_LONG_BLOCK_HERMITE_MOMENT_BARRIER.md` | `1997f8b14c5f90977f744788d069f6e771da078c06562dac2d78c671c01a95c1` |
+| `tests/test_actual_centered_remainder_long_block_hermite_moment_barrier.py` | `cbbc300b9a050ac161d9f8feae996947b522043ae50663799dfc194ed4d3dd2d` |
+| `notes/CUTOFF_FREE_MULTIPLIER_DANGEROUS_PROLATE_CROSS_ANGLE_BARRIER.md` | `bfabbf6b7c4879d027e4ea1be8e1103b22468519b2bd68aa0d121642000120ed` |
+| `tests/test_cutoff_free_multiplier_dangerous_prolate_cross_angle_barrier.py` | `dd91d397332f3096f531e0c8742e1752891d53c1c257a9a78d82dcef67dc002a` |
+
+For `x=lambda^2`, an integer `k>=2`, and the translated block
+`I_(x,k)=[A x^k,2A x^k]`, the frozen Montgomery--Vaughan mean-value
+theorem controls the normalized real prime polynomial through degree
+`2k`.  If `rho_k` is the largest zero of the probabilists' Hermite
+polynomial `He_k`, Hermite localization gives
+
+\[
+ k(1-\alpha)<\rho_k
+ \quad\Longrightarrow\quad
+ \mathfrak R_{\lambda,\alpha},
+ \mathfrak R^{\rm hi}_{\lambda,\alpha}
+ \gg_{A,\alpha,k}x^k\log x.
+\]
+
+Among this integer translated-block hierarchy, `k=4` is optimal and
+
+\[
+ \rho_4=\sqrt{3+\sqrt6}.
+\]
+
+Consequently
+
+\[
+ \alpha>1-{\sqrt{3+\sqrt6}\over4}
+ \quad\Longrightarrow\quad
+ \mathfrak R_{\lambda,\alpha},
+ \mathfrak R^{\rm hi}_{\lambda,\alpha}
+ \gg_{A,\alpha}\lambda^8\log(\lambda^2).
+\]
+
+This includes `alpha=1/2` and a nonempty fixed interval below it, but it
+does not prove the whole `alpha<=1/2` regime and proves nothing at or below
+`1-sqrt(3+sqrt(6))/4`.  On the original `x^2` block, even the exact first
+four Gaussian moments admit a three-atom level-one nonimplication model;
+the fifth mixed moment is not controlled by the frozen theorem.
+
+For a bottom space `Y`, the second pair normalizes the full-source
+additive-prolate capture by
+
+\[
+ R_Y=P_YAA^*P_Y\big|_Y,
+ \qquad
+ J_Y=A^*P_YR_Y^{-1/2},
+ \qquad
+ J_Y^*J_Y=I_Y,
+\]
+
+and identifies the exact Gram
+
+\[
+ \mathfrak q_E(Y)=s_{\min}(P_EJ_Y)^2.
+\]
+
+Thus `dim Y>dim E` forces zero capture.  The actual multiplier comparison
+does prove a physical dangerous-space angle: for
+`Pi_t=1_[t,infinity)(mathcal V)`,
+
+\[
+ \|\Pi_t y\|^2\geq
+ {g+\kappa-t\over\|\mathcal V\|-t}\|y\|^2.
+\]
+
+It does not survive projection to the additive-prolate prefix without a
+new cross-angle input.  With the exact dangerous and safe pieces `D_E`
+and `S_E`, the available stopping line is only
+
+\[
+ \mathfrak q_E(Y)^{1/2}
+ \geq[\Delta_E]_+,
+ \qquad
+ \Delta_E=s_{\min}(D_E)-\|S_E\|.
+\]
+
+The checkpoint-1.67 one-line bridge gate remains the sharper exact
+condition `mathfrak q_E(e_0)>delta_E`.  A synthetic critical-edge symbol
+keeps the literal source map, prolate prefix, parity, pole, and full-source
+normalization while forcing zero capture by rank or a missed line.  It is
+not the actual full von-Mangoldt Weil symbol and proves structural
+nonimplication only.
+
+The two focused modules pass `30/30`.  With `PYTHONPATH=src`, the exact
+ten-module deduplicated target/direct-dependency closure passes `149/149`
+under `python3 -B`.  Projected canonical/raw discovery is `392/4322` and
+`397/4380`; frontier/replay is `250/2800` and `262/2928`; support remains
+`12/128` and exclusions remain `5/58`.  Expanded canonical/frontier/replay
+suites were not rerun.
+
+The two direct dependency sets are disjoint and contain 16 paths, exactly
+eight complete note/test pairs.  Adding the four targets gives 20 paths,
+or ten complete pairs.  Pair A inherits the already-disclosed
+Montgomery--Vaughan 1974 mean-value theorem through frozen internal pairs;
+that primary source remains external, unvendored, unhashed, and
+non-byte-bound.  Pair B adds no independent external input.  All KRD,
+BBK, Slepian, P3/FKS, and source-lock lineage is transitive only.  No new
+external paper, source-lock JSON, vendored byte, artifact, zero table,
+numerical ordinate, cached matrix, source sample, serialized numerical
+artifact, or external computation is added.
+
+Checkpoint 1.68 proves Gaussian prime moments through degree 2k on translated x^k blocks and a Hermite-localized centered-remainder lower bound whenever k(1-alpha)<rho_k. The optimal integer member is k=4, giving Omega(lambda^8 log(lambda^2)) for every fixed alpha>1-sqrt(3+sqrt(6))/4, including alpha=1/2 and a nonempty range below; the method proves nothing at or below that threshold, and the phase-volume comparison remains one-way. Separately, it gives the exact normalized prolate capture Gram, multiplicity obstruction, actual multiplier physical-angle bound, and cross-angle stopping line. The synthetic critical-edge model proves structural nonimplication only and is not the actual full von-Mangoldt Weil symbol. No frozen input proves the actual source-prefix cross-angle, bottom-space dimension bound, missed-line bridge gate, or phase-bulk premise. Actual phase volume, bottom-projector capture, determinant convergence, an unconditional zero theorem, RH proof or converse, and a de Bruijn--Newman bound remain unproved. The formal state remains P0_INVALIDATED.

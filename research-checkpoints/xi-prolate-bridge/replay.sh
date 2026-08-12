@@ -331,6 +331,22 @@ required = {
     "cutoff_free_bridge_actual_missed_line_nonvanishing_proved": False,
     "checkpoint167_focused_tests_passed": True,
     "checkpoint167_full_suite_recount_completed": False,
+    "actual_centered_remainder_long_block_gaussian_moments_through_degree_two_k_proved": True,
+    "actual_centered_remainder_long_block_hermite_positive_excess_below_rho_k_proved": True,
+    "actual_centered_remainder_fixed_alpha_above_k4_hermite_threshold_upper_target_obstruction_proved": True,
+    "actual_centered_remainder_integer_long_block_k4_threshold_optimality_proved": True,
+    "actual_centered_remainder_original_x2_first_four_gaussian_moment_level_one_nonimplication_proved": True,
+    "actual_centered_remainder_alpha_at_or_below_k4_hermite_threshold_upper_target_obstruction_proved": False,
+    "cutoff_free_multiplier_dangerous_normalized_prolate_capture_gram_formula_proved": True,
+    "cutoff_free_multiplier_dangerous_complete_bottom_multiplicity_obstruction_proved": True,
+    "cutoff_free_actual_multiplier_physical_dangerous_angle_bound_proved": True,
+    "cutoff_free_multiplier_dangerous_prolate_cross_angle_triangle_reduction_proved": True,
+    "cutoff_free_multiplier_dangerous_literal_edge_cross_angle_nonimplication_proved": True,
+    "cutoff_free_actual_multiplier_dangerous_prolate_cross_angle_lower_bound_proved": False,
+    "cutoff_free_actual_complete_bottom_multiplicity_safe_bound_proved": False,
+    "cutoff_free_multiplier_dangerous_actual_bridge_gate_proved": False,
+    "checkpoint168_focused_tests_passed": True,
+    "checkpoint168_full_suite_recount_completed": False,
 }
 
 project = json.loads(Path("PROJECT_STATUS.json").read_text(encoding="utf-8"))
@@ -1612,7 +1628,9 @@ PYTHONPATH=src python3 -B -m unittest \
   tests.test_cutoff_free_dense_mixed_prefix_bridge_residual_barrier \
   tests.test_cutoff_free_bridge_leverage_rank_one_innovation_reduction \
   tests.test_actual_centered_remainder_prime_third_moment_half_alpha_barrier \
-  tests.test_cutoff_free_bridge_mixed_adjoint_tail_prefactor_reduction -v
+  tests.test_cutoff_free_bridge_mixed_adjoint_tail_prefactor_reduction \
+  tests.test_actual_centered_remainder_long_block_hermite_moment_barrier \
+  tests.test_cutoff_free_multiplier_dangerous_prolate_cross_angle_barrier -v
 python3 src/write_artifact_manifest.py
 python3 -m unittest tests.test_weighted_pnt_discrepancy_normal_form_source_lock -v
 python3 -m unittest tests.test_boundary_discrepancy_convolution tests.test_boundary_discrepancy_convolution_source_lock -v

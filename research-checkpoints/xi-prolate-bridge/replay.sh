@@ -320,6 +320,17 @@ required = {
     "actual_centered_remainder_alpha_at_or_below_half_upper_target_obstruction_proved": False,
     "checkpoint166_focused_tests_passed": True,
     "checkpoint166_full_suite_recount_completed": False,
+    "cutoff_free_bridge_ordinary_source_innovation_formula_proved": True,
+    "cutoff_free_bridge_defect_orthogonal_representative_uniform_norm_proved": True,
+    "cutoff_free_bridge_source_defect_prefactor_favorable_lower_bound_proved": True,
+    "cutoff_free_bridge_mixed_adjoint_tail_threshold_equivalence_proved": True,
+    "cutoff_free_bridge_mixed_adjoint_tail_polynomial_reserve_sufficient_floor_proved": True,
+    "cutoff_free_bridge_codimension_one_kappa_branch_separation_proved": True,
+    "cutoff_free_bridge_literal_adjoint_tail_gate_nonimplication_proved": True,
+    "cutoff_free_bridge_actual_mixed_adjoint_tail_polynomial_reserve_proved": False,
+    "cutoff_free_bridge_actual_missed_line_nonvanishing_proved": False,
+    "checkpoint167_focused_tests_passed": True,
+    "checkpoint167_full_suite_recount_completed": False,
 }
 
 project = json.loads(Path("PROJECT_STATUS.json").read_text(encoding="utf-8"))
@@ -1600,7 +1611,8 @@ PYTHONPATH=src python3 -B -m unittest \
   tests.test_actual_centered_remainder_prime_fourth_moment_lower_barrier \
   tests.test_cutoff_free_dense_mixed_prefix_bridge_residual_barrier \
   tests.test_cutoff_free_bridge_leverage_rank_one_innovation_reduction \
-  tests.test_actual_centered_remainder_prime_third_moment_half_alpha_barrier -v
+  tests.test_actual_centered_remainder_prime_third_moment_half_alpha_barrier \
+  tests.test_cutoff_free_bridge_mixed_adjoint_tail_prefactor_reduction -v
 python3 src/write_artifact_manifest.py
 python3 -m unittest tests.test_weighted_pnt_discrepancy_normal_form_source_lock -v
 python3 -m unittest tests.test_boundary_discrepancy_convolution tests.test_boundary_discrepancy_convolution_source_lock -v

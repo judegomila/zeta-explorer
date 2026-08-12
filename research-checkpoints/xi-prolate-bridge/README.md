@@ -10549,3 +10549,99 @@ computation is added.  Montgomery--Vaughan Corollary 2, equations
 the fourth-moment pair; the P3/FKS lineage is transitive only.
 
 Checkpoint 1.66 proves, by prime/semiprime support disjointness and four-phase Montgomery--Vaughan polarization, that the normalized prime third moment vanishes. Together with the frozen second- and fourth-moment estimates, a compact moment lemma forces positive excess above every fixed normalized level c<1. Therefore, for every fixed A>0 and 1/2<alpha<1, both the full and high-time centered-remainder statistics are Omega_(A,alpha)(lambda^4 log(lambda^2)), so the proposed O(lambda^2/log(lambda^2)) sufficient upper target is false throughout that range. The symmetric two-point endpoint model shows that the stated moment data do not cross alpha=1/2; nothing is proved for 0<alpha<=1/2. The frozen phase-volume comparison is one-way, so no actual phase-volume lower bound follows. Polynomial phase volume, parity ordering, determinant convergence, an unconditional zero theorem, RH proof or converse, and a de Bruijn--Newman bound remain unproved. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.67 bridge mixed-adjoint-tail prefactor reduction
+
+Checkpoint 1.67 admits the strict-PASS pair
+`notes/CUTOFF_FREE_BRIDGE_MIXED_ADJOINT_TAIL_PREFACTOR_REDUCTION.md`,
+SHA-256
+`53dd9fefd8cc05a29cd3e0a043e6f86f8bbdc7545d2c203d29bc59cbbe1a04f8`,
+and
+`tests/test_cutoff_free_bridge_mixed_adjoint_tail_prefactor_reduction.py`,
+SHA-256
+`e532a958742feda3efe00adc37e1ea2879a3676f23b63a47c238e348aaf5b17c`.
+
+For the actual omitted bridge `b=h_2-(I_2/I_0)h_0`, its ordinary-source
+innovation against the phase-separated zero-integral prefix is exactly
+
+\[
+ b_\perp=I_2\left({q_-\over s_-}-{q_+\over s_+}\right),
+ \qquad
+ \varrho_b=\|b_\perp\|^2
+ =I_2^2\left({1\over s_-}+{1\over s_+}\right).
+\]
+
+The defect-orthogonal representative of the same quotient has uniformly
+bounded ordinary norm.  On a unit codimension-one missed line, with
+`z_0=A_(lambda,0)^*e_0`, the bridge orientation is therefore
+
+\[
+ a_b^2={\varrho_b\over s_b}\|P_Mz_0\|^2,
+ \qquad
+ {\varrho_b\over s_b}\gg{1\over\lambda d_2}
+ \asymp {e^{4\pi\lambda^2}\over\lambda^6}.
+\]
+
+Thus the source/defect prefactor is favorable rather than the remaining
+loss.  The exact scalar gate is the combined-phase adjoint-tail threshold
+
+\[
+ \Theta_{\rm mix}(e_0)<1
+ \quad\Longleftrightarrow\quad
+ \mathfrak q_E(e_0)>\delta_E,
+ \qquad
+ \delta_E=1-{\|P_E1\|^2\over2\lambda}.
+\]
+
+If `Theta_mix<=1-eta`, the full-source row floor gives
+
+\[
+ a_b^2\gtrsim {\eta e^{4\pi\lambda^2}\over\lambda^{10}},
+ \qquad
+ \omega_b\gtrsim{\eta\over\lambda^7}.
+\]
+
+Together with a codimension-one phase-bulk gap `alpha`, this yields
+
+\[
+ S_M\succeq{1\over2}\min\{a_b^2,\alpha\omega_b\}I_X.
+\]
+
+Hence polynomial `alpha` and polynomial strict tail reserve `eta` would
+give a polynomial augmented bottom floor.  This is a one-vector condition
+on the unique missed line, not the earlier separate-phase operator-norm
+tail condition.
+
+No frozen input proves the strict reserve or even nonvanishing of the exact
+actual missed-line scalar.  At an allowed near-Shannon prefix, the constant
+tail has `delta_E>=1/(16*pi^2*lambda^2)`, while the frozen literal-adjoint
+diagonal-well construction has `mathfrak q_E<delta_E` eventually.  It
+therefore forces `Theta_mix>1` in that synthetic model, proving a structural
+nonimplication only.  The model is not the actual Weil operator and is not
+a counterexample to actual bridge nonvanishing.  On the genuinely singular
+codimension-one branch, `theta_b=0` and `kappa_b>=1`; the old sufficient
+condition `kappa_b<1` belongs only to the alternative already-onto branch.
+
+The focused module passes `17/17`.  With `PYTHONPATH=src`, the exact
+eight-module target/direct-dependency closure passes `129/129` under
+`python3 -B`; adding the inherited high-Fourier coercivity verifier gives
+an optional nine-module check passing `138/138`.  Projected canonical/raw
+discovery is `390/4292` and `395/4350`; frontier/replay is `248/2770` and
+`260/2898`; support remains `12/128` and exclusions remain `5/58`.
+Expanded canonical/frontier/replay suites were not rerun.
+
+The declared direct dependency union has 17 paths: seven complete note/test
+pairs, the unpaired `notes/GROWING_WINDOW_THEOREM.md`, and the existing
+`P2_SOURCE_LOCK.json` and `PROLATE_DEFECT_SOURCE_LOCK.json`.  Adding the
+target pair gives 19 paths: eight complete pairs plus those three extra
+bytes.  All 17 dependency digests were rechecked exactly.
+
+No new external paper, source-lock JSON, vendored source, artifact, zero
+table, numerical ordinate, cached matrix, source sample, serialized
+numerical artifact, or external computation is added.  The already-pinned
+Karnik--Romberg--Davenport/Boulsane--Bourguiba--Karoui transition lineage is
+inherited through `P2_SOURCE_LOCK.json`, and the already-pinned Slepian
+fixed-index lineage is inherited through `PROLATE_DEFECT_SOURCE_LOCK.json`.
+All other provenance is inherited through frozen internal dependencies.
+
+Checkpoint 1.67 computes the exact ordinary-source bridge innovation and defect-orthogonal representative, proves a uniformly bounded representative norm and an exponentially favorable one-sided source/defect prefactor, and reduces codimension-one bridge repair to one scalar combined-phase adjoint-tail excess above the constant-tail threshold. A polynomial strict reserve together with a polynomial phase-bulk gap would give a polynomial augmented bottom floor. No frozen input proves the reserve, the codimension-one phase-bulk premise, or even nonvanishing of the actual missed-line scalar. The literal-adjoint diagonal-well model proves only structural nonimplication and is not the actual Weil operator or a counterexample to actual nonvanishing. Actual bridge leverage, bottom-projector capture, cutoff-free determinant convergence, an unconditional zero theorem, RH proof or converse, and a de Bruijn--Newman bound remain unproved. The formal state remains P0_INVALIDATED.

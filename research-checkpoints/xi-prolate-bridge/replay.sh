@@ -469,6 +469,15 @@ required = {
     "cutoff_free_actual_radical_pair_c_stopping_condition_proved": False,
     "checkpoint174_focused_tests_passed": True,
     "checkpoint174_full_suite_recount_completed": False,
+    "actual_mixed_bridge_individual_beta_carrier_parity_split_proved": True,
+    "actual_mixed_bridge_same_tail_carrier_continuous_rh_equivalence_proved": True,
+    "actual_mixed_bridge_same_tail_carrier_all_odd_halfgrid_rh_equivalence_proved": True,
+    "actual_mixed_bridge_paritywise_physical_finite_part_identification_proved": False,
+    "actual_mixed_bridge_individual_physical_odd_self_one_over_lambda_proved": False,
+    "actual_mixed_bridge_live_shift_mu_lower_one_over_lambda_proved": False,
+    "actual_mixed_bridge_transverse_kappa_log_squared_reserve_proved": False,
+    "checkpoint175_focused_tests_passed": True,
+    "checkpoint175_full_suite_recount_completed": False,
 }
 
 project = json.loads(Path("PROJECT_STATUS.json").read_text(encoding="utf-8"))
@@ -1767,7 +1776,8 @@ PYTHONPATH=src python3 -B -m unittest \
   tests.test_actual_mixed_bridge_transverse_gap_energy_barrier \
   tests.test_actual_mixed_bridge_resolvent_mixed_measure_barrier \
   tests.test_cutoff_free_actual_radical_xi_ideal_translation_frame_barrier \
-  tests.test_cutoff_free_actual_radical_floquet_xi_minimum_modulus_pair_c_barrier -v
+  tests.test_cutoff_free_actual_radical_floquet_xi_minimum_modulus_pair_c_barrier \
+  tests.test_actual_mixed_bridge_individual_odd_finite_part_rh_barrier -v
 python3 src/write_artifact_manifest.py
 python3 -m unittest tests.test_weighted_pnt_discrepancy_normal_form_source_lock -v
 python3 -m unittest tests.test_boundary_discrepancy_convolution tests.test_boundary_discrepancy_convolution_source_lock -v

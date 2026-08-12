@@ -7374,3 +7374,55 @@ canonical/raw discovery is `407/4499` and `412/4557`; frontier/replay is
 `5/58`.  Expanded suites were not rerun.
 
 Checkpoint 1.74 proves an unconditional paired-Floquet sampled-Xi minimum-modulus bound of exp(-o(lambda^2)) on a quadratic mode band and exact parity Riesz conditioning. It also records the complete-circle seam and boundary-safe weighted-translation obstructions, the insufficiency of the frozen moving-label inverse majorant at quadratic inventory, and divisor/source-escape barriers. The sampled bound conditions only the common Xi factor. It does not prove an actual residual-safe finite transition-prefix floor, dangerous-space embedding, bottom-projector capture, Pair-C stopping condition, parity order, determinant convergence, an unconditional zero theorem, RH proof or converse, or a de Bruijn--Newman bound. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.75 individual beta-carrier source disclosure
+
+Checkpoint 1.75 admits exactly this frozen theorem/barrier pair:
+
+| Target | SHA-256 |
+|---|---|
+| `notes/ACTUAL_MIXED_BRIDGE_INDIVIDUAL_ODD_FINITE_PART_RH_BARRIER.md` | `e107730d3a51bc727f030ff6bb2711fde01eab3c9a3eafb11dcd2fafd68ecfbc` |
+| `tests/test_actual_mixed_bridge_individual_odd_finite_part_rh_barrier.py` | `2c5a14ccb10ffff51d53955aa679a87dbc006196e5db92e9afb0ea35f19c2770` |
+
+Its exact direct dependencies are:
+
+| Dependency | SHA-256 |
+|---|---|
+| `notes/ACTUAL_MIXED_BRIDGE_POLE_ROW_RESOLVENT_CANCELLATION_REDUCTION.md` | `610aa2b58734ab191e561bbaa7529f0558e1f979fa67461273e69f6d6253cde2` |
+| `tests/test_actual_mixed_bridge_pole_row_resolvent_cancellation_reduction.py` | `678e6da6c989c536ba6131fdfd38fe5927c60d464b29e8d358d94af0a9c0f2a4` |
+| `notes/MIXED_BRIDGE_XI_OVER_S_BOUNDARY_OBSTRUCTION_THEOREM.md` | `4c4bb0344735a0d605e1052ac06b383144f2cdbb85d2c088bf0b6683e67f06a2` |
+| `tests/test_mixed_bridge_xi_over_s_boundary_obstruction_theorem.py` | `1bc81194a9fa2fd4eac92491a08c60bc58f3640ac16e4e5e17864da8a2970c67` |
+| `notes/GROWING_MIXED_BRIDGE_COHERENT_BETA_ROW_FLOOR_THEOREM.md` | `43a7a2a9c32dd01a223926b17c7e344d6c256980ad9b4762dc2dc5808face1e2` |
+| `tests/test_growing_mixed_bridge_coherent_beta_row_floor_theorem.py` | `95a3548414eb0d33805cede160312bbc6091c278984fb5ec4144f1127152ab4a` |
+| `notes/ACTUAL_MIXED_BRIDGE_TRANSVERSE_GAP_ENERGY_BARRIER.md` | `d9fea23ec9427a2bfcf8f22ec6465cafbdd5623f4adc311e83114fd8b8591677` |
+| `tests/test_actual_mixed_bridge_transverse_gap_energy_barrier.py` | `822711c839de663d5152ea61cc438a194780d80444f02cbac07b365947a608f1` |
+| `notes/UNCONDITIONAL_NATURAL_HALFGRID_CROSSROOT_SCHEDULE_THEOREM.md` | `d1b73fc246fcc70886ba78dc074adac585372a2abfc9fbba678c03c4d47e30a5` |
+| `tests/test_unconditional_natural_halfgrid_crossroot_schedule_theorem.py` | `00627aa69143c39a468dd06808fe6859beb16aff197127e66a93ff042377f1b9` |
+
+The declared `FROZEN` set has exactly 10 unique paths, five complete
+note/test pairs.  Adding the two target paths gives 12 unique repository
+paths, six complete note/test pairs.  Every dependency and target hash was
+rechecked.
+
+The pair is an internal derivation using already-frozen local inputs.  All
+external, vendored, and source-lock provenance is inherited transitively
+through frozen internal dependencies; no vendor byte or source-lock JSON is
+a direct checkpoint-1.75 dependency.  No new external paper, source-lock
+JSON, vendored source, artifact, zero table, numerical ground, numerical
+ordinate, cached matrix, source sample, serialized numerical artifact, or
+external computation is admitted.
+
+The same four immutable rejected or superseded raw modules contribute 48
+tests, and the checkpoint-1.18 WKB draft contributes 10.  None is a
+checkpoint-1.75 dependency, no new exclusion is added, and exactly the
+actual mixed-bridge individual odd finite-part RH barrier pair is newly
+admitted.  No later overlay is admitted.
+
+The focused module passes `12/12`, and the exact six-module deduplicated
+target/direct-dependency closure passes `73/73` under
+`PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3 -B`.  Projected
+canonical/raw discovery is `408/4511` and `413/4569`; frontier/replay is
+`266/2989` and `278/3117`; support remains `12/128` and exclusions remain
+`5/58`.  Expanded suites were not rerun.
+
+Checkpoint 1.75 proves the exact individual even/odd beta-carrier split and shows that the surviving same-tail zero sum is bounded at the lambda^(-1) carrier scale on either the continuous family or the complete all-odd natural halfgrid iff RH. This is an RH-equivalence barrier, not a proof that the bound holds. The identities are spectral carrier identities only. It does not prove the paritywise ordered physical finite-part identification, an individual physical odd self bound, live-shift control, the kappa log^2(lambda) reserve, bridge-energy relative smallness, bottom-projector capture, Pair-C closure, parity order, determinant convergence, any new zero theorem, RH, or a de Bruijn--Newman bound. The formal state remains P0_INVALIDATED.

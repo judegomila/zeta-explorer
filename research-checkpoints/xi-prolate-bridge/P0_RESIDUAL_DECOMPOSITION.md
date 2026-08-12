@@ -6843,3 +6843,61 @@ support remains `12/128` and exclusions remain `5/58`.  Expanded suites
 were not rerun.
 
 Checkpoint 1.69 proves that a fixed real block exponent s controls Gaussian moments only through floor(2s), while macroscopic Hermite uniform integrability reduces the usable index to floor(s); the fractional odd shelf yields an explicit lower bound x^(s-r)L^(2r+1), but for fixed s<r+1 it is o(x/L), so the checkpoint-1.68 k=4 threshold remains optimal at the required scale. It identifies the first missing odd fixed-shift almost-prime correlation and the next even growing-shift top moment, quantifies the Montgomery--Vaughan deficits, and gives a positive Jacobi/remote-atom countermodel showing that odd-moment control alone cannot move the Hermite threshold without next-even-moment uniform integrability. Separately, it proves an actual-symbol support envelope and Paley--Wiener regularity theorem for positive dangerous spectral subspaces, exact arithmetic-adjoint breakpoint/endpoint-jet jumps, an explicit BV-to-prolate sufficient condition, a sharp buffered commutator bound, and fixed-lambda qualitative prefix capture. The available constants do not reach the near-Shannon prefix, and the safe component can cancel the regular dangerous component after the literal adjoint. No required-scale centered-remainder obstruction at or below the checkpoint-1.68 threshold, actual phase-volume lower bound, actual bottom Gram/cross-angle or bridge gate, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.70 endpoint-profile and actual phase-threshold residual
+
+The literal arithmetic adjoint now has an exact all-order endpoint-jet
+profile decomposition.  Its derivative jumps at every positive breakpoint
+are one universal arithmetic profile per endpoint functional:
+
+\[
+ \Delta(A_{\lambda,0}^*y)^{(k)}(n/\lambda)
+ ={\lambda^{k+1/2}\over2n^{k+1}}
+ \prod_{\ell=0}^{k-1}(D-\ell-1/2)y(-L/2).
+\]
+
+The corresponding Taylor profiles have exact additive-prolate coefficient
+and Gram matrices.  The actual dangerous range also obeys a sharpened
+derivative bound and an explicit finite-jet observability estimate.  This
+does not close the residual: the certified Taylor order may exceed the
+`O(lambda^2)` near-Shannon row count, making the profile singular value
+zero by rank, while the bottom-normalized map retains the signed Taylor
+remainder and safe spectral component.  The required residual remains an
+actual low-order, low-dimensional window with a quantitative profile
+singular value and a safe-cross reserve.
+
+For the next even centered-remainder moment, the top product shell contains
+a positive off-diagonal core of order `x` over shifts of width `asymp x`.
+Therefore local positivity is not a route to the desired polylogarithmic
+uniform-integrability bound.  The exact residual is a complete signed
+cancellation by the complementary kernel to additive accuracy
+`O(L^(2r))`.  At `k=4`, this is the distinction between the positive
+`Omega_A(x)` core and the desired tenth-moment scale `O_A(L^10)`.  No
+admitted fixed-shift, divisor-switching, sieve, dispersion, or large-sieve
+input supplies that global cancellation.
+
+The actual phase-volume residual is also sharper.  For the full inclusive
+prime-power polynomial one has the two-sided sandwich
+
+\[
+ \int[C-h-q+2\operatorname {Re}D_\lambda]_+
+ \leq\Phi_\lambda(U,g)
+ \leq\int[C-h+2\operatorname {Re}D_\lambda]_+,
+ \qquad 0\leq q<4.
+\]
+
+On a block `[Ax^s,2Ax^s]`, the true normalized threshold is `s-kappa`
+when `C/L` tends to `kappa`.  The macroscopic Hermite argument would give a
+lower bound only under `s-kappa<rho_floor(s)`, which fails throughout the
+standard `kappa<=1` schedule.  A fractional odd-shelf lower bound survives,
+but it is `o(x/L)`.  Neither lower bound reverses the one-sided retained
+negative-index comparison; a source-specific signed compression or
+Feshbach lower bound remains missing.
+
+The three focused modules pass `41/41`; the exact nine-module deduplicated
+target/direct closure passes `121/121`.  Projected canonical/raw discovery
+is `398/4402` and `403/4460`; frontier/replay is `256/2880` and `268/3008`;
+support remains `12/128` and exclusions remain `5/58`.  Expanded suites
+were not rerun.
+
+Checkpoint 1.70 proves exact endpoint-jet jump profiles, finite-profile prolate coefficient/Gram formulas, sharpened dangerous derivative/trace bounds, and a finite-jet observability certificate, but the certified Taylor order can exceed the near-Shannon row count and the bottom-normalized Gram retains signed remainder/safe cancellation. It proves that the top-even growing near band contains a positive Omega(x) core and therefore any O(L^(2r)) top-moment bound requires global complementary cancellation; it does not prove that cancellation or the next-even UI bound. It also proves a two-sided full-prime-power phase-volume sandwich, identifies the true normalized threshold s-kappa, a conditional Hermite lower bound, and a sub-x/L odd-shelf lower bound; the standard kappa<=1 schedule misses the macroscopic Hermite condition, and phase-volume lower bounds do not reverse the one-sided negative-index inequality. No actual near-Shannon cross-angle/bridge gate, next-even top-moment UI, required-scale phase-volume obstruction or upper target, negative-index lower bound, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.

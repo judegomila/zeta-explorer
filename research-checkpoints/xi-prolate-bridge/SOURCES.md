@@ -6748,3 +6748,139 @@ including the unchanged 12-module, 128-test support block.  The expanded
 canonical/frontier/replay suites were not rerun.
 
 Checkpoint 1.64 admits three theorem/barrier results. First, every finite family of cutoff-free domain anchors with real targets satisfies the multiplicity- and parity-safe full-bottom inequality (|mu|-q_*)_+^2 sum_j rho_j<=sum_j r_j^2, while a bottom frame P K K^* P>=c_lambda P gives (|mu|-q_*)_+<=||E||/sqrt(c_lambda). The locked label-4 anchor has r_(lambda,infinity)<=C lambda^8 L exp(-2 pi lambda^2), so q_*->0 and (sum_j r_j^2)/(sum_j rho_j)->0 imply RH through the pinned monotone CCM route. This is conditional and proves no actual correlation. Rank-one load derivatives, the bottom resolvent residue, paired translates, and the translation average identify exact formulations, but no uniform frame rate follows; current phase-volume/coercivity bounds, the separate compressed-trace schedule, the Shannon scale, full-source coframes, the source-Cauchy countermodel, and finite threshold jumps do not close capture. Second, the exact split D_lambda=M_lambda+R_lambda removes the continuous PNT density before absolute values and gives a one-way phase-volume bound by an explicit polynomial main term plus a centered remainder statistic. On both bounded-gap and logarithmic retained schedules the main and low-time terms are o(lambda^2/log lambda), reducing the missing input to the high-time positive mass of the centered Chebyshev-error Mellin transform. The pinned FKS bound controls only a much shorter harmless window, and admitted mean-square or higher-moment methods do not prove the required remainder bound or any converse. Third, the weighted coframe Lambda_F=lambda_min^+(T_F Delta_F^dagger T_F^*) and residual constant C_F give |mu_lambda|<=C_F/sqrt(Lambda_F) by the exact minimum-defect right inverse, with no source-dimension loss. For a hard leading prefix, Lambda_F>=gamma_m/(8 lambda^4 d_m), so 8 C_F^2 lambda^4 d_m/gamma_m->0 implies RH conditionally; KRD reduces polynomial residual and capture losses to a prefix O((log lambda)^2) below the Shannon edge. The finite-section residual is polynomial, but the uniform cutoff-free graph transfer and actual normalized capture are unproved, and an exact orientation family shows that the full row floor and defect spectrum alone do not control them. The actual multi-anchor correlation/frame, centered high-time remainder bound, polynomial phase volume, dangerous-projector capture, weighted radical coframe rate, uniform graph transfer, parity order, determinant convergence, unconditional zero theorem, RH proof or converse, and de Bruijn--Newman bound remain unproved. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.65 graph-to-bridge source disclosure
+
+Checkpoint 1.65 admits exactly five new frozen pairs, in dependency order:
+
+| Target | SHA-256 |
+|---|---|
+| `notes/CUTOFF_FREE_UNIFORM_RADICAL_GRAPH_TRANSFER_THEOREM.md` | `aa69ac86e6b5d5256ba3b243b9fc07d9c5ad49bed7a70e3d570d0c57325bce18` |
+| `tests/test_cutoff_free_uniform_radical_graph_transfer_theorem.py` | `b2708c8f72ce8bad831b2aea44c49ef3a8ec5f9c38551c288a1c982d097ee727` |
+| `notes/CUTOFF_FREE_FULL_SOURCE_ADJOINT_PROLATE_CAPTURE_BARRIER.md` | `157bffc55aeec592c263d5973effe1b9506e02dd97311652ecb2fdee0c3ff0e9` |
+| `tests/test_cutoff_free_full_source_adjoint_prolate_capture_barrier.py` | `d7f70dffbd10021ce7d6e8887d10589a482b2dc64c9ebbe8c48cc35568c233ae` |
+| `notes/ACTUAL_CENTERED_REMAINDER_PRIME_FOURTH_MOMENT_LOWER_BARRIER.md` | `920b6434cc89c663ae95f6f7803780cd164e99b8e5cdc82c2de1a3655171035a` |
+| `tests/test_actual_centered_remainder_prime_fourth_moment_lower_barrier.py` | `de1e282b5106d0dc3ecb95a19773433baff029f1ff7cb5c45229e86374696fe7` |
+| `notes/CUTOFF_FREE_DENSE_MIXED_PREFIX_BRIDGE_RESIDUAL_BARRIER.md` | `909380b93eb72cffd3841a592f96aa0cd1d72285f799210bf4244cdf82c2ed0f` |
+| `tests/test_cutoff_free_dense_mixed_prefix_bridge_residual_barrier.py` | `59813cca879d08d482bf2268e6c27cd8693d3e635eb59ec461aae50ca51265f2` |
+| `notes/CUTOFF_FREE_BRIDGE_LEVERAGE_RANK_ONE_INNOVATION_REDUCTION.md` | `808c314d6b0cf1926ddf8b0a5b83c324ccbbc252d18efea283781fefd1751097` |
+| `tests/test_cutoff_free_bridge_leverage_rank_one_innovation_reduction.py` | `2c79244dd68e9fd56ddb67f7278f4572cb72bae9803b82047ccf9ad58196faba` |
+
+The exact 37-path direct-dependency union is:
+
+| Dependency | SHA-256 |
+|---|---|
+| `P3_SOURCE_LOCK.json` | `42976166b046f99b111861d86ac4c85f730ceb0de56b072205735cc84bea65b3` |
+| `vendor/FKS-PNT-2204.02588v3.pdf` | `15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4` |
+| `notes/ACTUAL_PHASE_VOLUME_CENTERED_PNT_REMAINDER_REDUCTION_BARRIER.md` | `2b2a40a4ec087c77145b45fc54d8a5782a85ecd122b2d599d2c2d8a067b714f1` |
+| `tests/test_actual_phase_volume_centered_pnt_remainder_reduction_barrier.py` | `7fbcdf15dde20d3d2a00303f74d5441ee143af74ae269992fe79b1fb0c97456f` |
+| `notes/CUTOFF_FREE_FULL_SOURCE_ADJOINT_PROLATE_CAPTURE_BARRIER.md` | `157bffc55aeec592c263d5973effe1b9506e02dd97311652ecb2fdee0c3ff0e9` |
+| `tests/test_cutoff_free_full_source_adjoint_prolate_capture_barrier.py` | `d7f70dffbd10021ce7d6e8887d10589a482b2dc64c9ebbe8c48cc35568c233ae` |
+| `notes/CUTOFF_FREE_PROLATE_GROUND_ALIGNMENT_RH_DICHOTOMY.md` | `37f381b6ed75017633f4c845f90ff7d2660699bc0ae7a4340ec789b0e8dccea7` |
+| `tests/test_cutoff_free_prolate_ground_alignment_rh_dichotomy.py` | `b17c3c603d459547c09fd0abb92b595986356e29e1d53f7e8c6f3ace4a8baf80` |
+| `notes/CUTOFF_FREE_UNIFORM_RADICAL_GRAPH_TRANSFER_THEOREM.md` | `aa69ac86e6b5d5256ba3b243b9fc07d9c5ad49bed7a70e3d570d0c57325bce18` |
+| `tests/test_cutoff_free_uniform_radical_graph_transfer_theorem.py` | `b2708c8f72ce8bad831b2aea44c49ef3a8ec5f9c38551c288a1c982d097ee727` |
+| `notes/CUTOFF_FREE_WEIGHTED_RADICAL_COFRAME_REDUCTION_BARRIER.md` | `c84bc4ed8632aeedb8208e699350e0895a4437912b8ba735f10315b5cf1b7d8c` |
+| `tests/test_cutoff_free_weighted_radical_coframe_reduction_barrier.py` | `d6d83b1a045b96da8ad7a49753a05f5981e9744b04ecb95470fbd5332bb87c11` |
+| `notes/DEFECT_RELATIVE_PROJECTION_THEOREM.md` | `3c3e0ac08089d84b414a05b8c8791fb49b588ca41fb21d39e6406e277875638f` |
+| `tests/test_defect_relative_projection.py` | `21b33670a9d017d363f53776ba05ca93ce3588eb049ba9dcb7e61f202bc01999` |
+| `notes/EFFECTIVE_MIXED_PREFIX_SCHEDULE_ATTACK.md` | `a33e7a072057f1444afb9d00911465f599fec508d0a6488e655638947cc515ba` |
+| `notes/EXACT_RADICAL_LEAKAGE_IDENTITY.md` | `76dd6586357a2448ef689380a106eea5e9aedb95f68e731f10f1d6626040fddc` |
+| `notes/FIXED_SOURCE_BLOCK_SHIFT_ASYMPTOTIC_THEOREM.md` | `04bfad2525191ca42d84a38427655c9c2ee1eff5ec0df2d8699ce0ec2b9abf83` |
+| `tests/test_fixed_source_block_shift_asymptotic_theorem.py` | `433c695bdb4cdb589cee0212274f0d8b6dda38bb2844421b4367dd702f0545e5` |
+| `notes/FULL_EXTERIOR_SAMPLING_FALLBACK.md` | `7dd2d8b6d32da5e1d98a6c96702a8079b53075eb756d1204219a4581c6296413` |
+| `tests/test_full_exterior_sampling_fallback.py` | `62eb6f6bda3ab3cbcd24bfd095585c9dd154f6d08c3729ff0700f6d970b217ef` |
+| `notes/FULL_SOURCE_COFRAME_RANK_THEOREM.md` | `3f8b381d9e51e0fa0cf89928851e89dd163ec9982249af8050a90520c0389f81` |
+| `tests/test_full_source_coframe_rank.py` | `dc322485178710618f9ace19cd2019200bf0dafeabcbe17cce4e47d41377d66a` |
+| `notes/GROWING_MIXED_BRIDGE_COHERENT_BETA_ROW_FLOOR_THEOREM.md` | `43a7a2a9c32dd01a223926b17c7e344d6c256980ad9b4762dc2dc5808face1e2` |
+| `tests/test_growing_mixed_bridge_coherent_beta_row_floor_theorem.py` | `95a3548414eb0d33805cede160312bbc6091c278984fb5ec4144f1127152ab4a` |
+| `notes/GROWING_MIXED_BRIDGE_GAUGE_POLE_DOMAIN_BARRIER.md` | `335e8973a51fdc998398620c6d30ba51eaa2ee45fb3444e838aa1e34ef33c1cb` |
+| `tests/test_growing_mixed_bridge_gauge_pole_domain_barrier.py` | `0ef8d77b05498533c8c58428a99beb9c1a13cc9699b2b5abb9c05b63de9f80bc` |
+| `notes/GROWING_MIXED_BRIDGE_RADICAL_QUOTIENT_GRAPH_CORE_BARRIER.md` | `96c477b3118eefced3ef2f2840ada259c18d1f2ec76daa86d2712ad6a666f768` |
+| `tests/test_growing_mixed_bridge_radical_quotient_graph_core_barrier.py` | `9c73374d532f20fdf0f772c1d081dc5c4e2e6bb93b164f6671e19e936afb1b86` |
+| `notes/GROWING_TRANSITION_SAMPLING_THEOREM.md` | `551e58d07510d531c8ee5cfe4c81a33ac3443f62760627196599e2bfac231e72` |
+| `tests/test_growing_transition_sampling.py` | `ba9ee58e36bc79a602d70a791010a93eb75a5613b0509a0cdc7b11b810a403ac` |
+| `notes/GROWING_WINDOW_THEOREM.md` | `dad6b0a878b7eba21cbc7aa8049cf3bf89a38df766cc157a87c416e79a721ac7` |
+| `notes/HIGH_FOURIER_COERCIVITY.md` | `5d928d68bd317d637a3631c91c1da4d2043c79986e3c5767b886b354b525a821` |
+| `tests/test_high_fourier_coercivity.py` | `64eea186ca9ec09dde5510b9b6a99fa56a50c073865d5fe822367202806a5bae` |
+| `notes/NATURAL_OUTER_SHELL_LARGE_SIEVE_INVERSE_SPREAD_BARRIER.md` | `79be0448f5e144819ee9eb2e249021c3c5ffe44949a58b75002e2a117c1b85da` |
+| `tests/test_natural_outer_shell_large_sieve_inverse_spread_barrier.py` | `e65c890a6f97def68b48825ccb8c3148926c744cd77f27754fb7790534dbabf8` |
+| `notes/SOFT_DEFECT_PROLATE_ANGLE_REDUCTION.md` | `3bcccfda9d606c21fc61efb9c2fbc3dd95926a82586e3c156fc965c32748777b` |
+| `tests/test_soft_defect_prolate_angle.py` | `f440a59456cc4cc604afc419bc1aebc9589a0a6010b179a4784c7f5c62ca2088` |
+
+It consists of sixteen complete
+note/test pairs plus five extra bytes: `P3_SOURCE_LOCK.json`, the
+already-vendored `vendor/FKS-PNT-2204.02588v3.pdf`, and the unpaired
+`EFFECTIVE_MIXED_PREFIX_SCHEDULE_ATTACK`, `EXACT_RADICAL_LEAKAGE_IDENTITY`,
+and `GROWING_WINDOW_THEOREM` notes.  Adding all ten target bytes yields 43
+unique paths, nineteen complete note/test pairs plus those same five extra
+bytes.  The graph and adjoint targets are already members of the dependency
+union because the later targets freeze them directly.
+
+The only substantive external primary input used at this checkpoint is
+the already-disclosed H. L. Montgomery and R. C. Vaughan,
+*Hilbert's Inequality*, *Journal of the London Mathematical Society* (2)
+**8** (1974), 73--82, DOI
+<https://doi.org/10.1112/jlms/s2-8.1.73>.  Corollary 2, equations
+(1.8)--(1.9), supplies the translated weighted mean-value estimate used by
+the centered fourth-moment pair.  The author-hosted primary PDF
+<https://personal.science.psu.edu/rcv4/personal/Publications/s2-8-1-73.pdf>
+is external and unvendored.  No observed digest, local source lock,
+independent certification, or local source byte is claimed.
+
+All other inputs are already frozen internal bytes or the existing P3/FKS
+pins.  No new vendored byte, source-lock JSON, artifact, zero table,
+numerical ground, numerical ordinate, cached matrix, source sample,
+serialized numerical artifact, or external computation is admitted.
+
+The five focused modules pass `61/61`.  With `PYTHONPATH=src`, the exact
+19-module closure passes `254/254` under `python3 -B`.  Projected
+canonical/raw discovery is `388/4261` and `393/4319`; frontier/replay is
+`246/2739` and `258/2867`; support remains `12/128` and exclusions remain
+`5/58`.  Expanded suites were not rerun.
+
+Checkpoint 1.65 admits five theorem/barrier results. First, the phase-separated cutoff-free graph tail is uniformly exponentially small before the Shannon edge and the exact residual constant is polynomial, but the normalized bottom-capture lower bound remains unproved. Second, the exact full-source adjoint and rank-one zero-integral coefficient Gram give only an upper ground-evacuation estimate, while an exact-arithmetic-map coercive-well countermodel excludes capture from the frozen orientation-free inputs. Third, for every fixed alpha with 1-1/(8 sqrt(2))<alpha<1, the full and high-time centered remainder statistics are Omega(lambda^4 log(lambda^2)), so the proposed O(lambda^2/log(lambda^2)) sufficient upper target is false there; the one-way phase-volume split gives no phase-volume lower bound. Fourth, the dense mixed source is genuinely dense and has an exponentially small graph tail, but its bridge makes the modal-defect residual exponentially large, and the bump-aware scalar normalized-angle route cannot vanish even at perfect capture; only the exact augmented weighted stopping line remains. Fifth, the augmented bottom Gram is the phase-bulk Gram plus one rank-one bridge innovation, with exact determinant-ratio and kappa elimination criteria and a codimension-one corrected-adjoint scalar, but no actual leverage lower bound is proved. The actual normalized capture, augmented weighted decay, bridge leverage, centered phase-volume lower bound, parity ordering, determinant convergence, unconditional zero theorem, RH proof or converse, and de Bruijn--Newman bound remain unproved. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.66 centered third-moment source disclosure
+
+Checkpoint 1.66 admits exactly this frozen pair:
+
+| Target | SHA-256 |
+|---|---|
+| `notes/ACTUAL_CENTERED_REMAINDER_PRIME_THIRD_MOMENT_HALF_ALPHA_BARRIER.md` | `0d9a8326abe3752e2cdaf13333c7e768816a1d0d3773df998842b1333d313287` |
+| `tests/test_actual_centered_remainder_prime_third_moment_half_alpha_barrier.py` | `acf9f91fd1dd8b76adee84eeaa22ba42dfb05b6c70282aaa04eb88dc509499d9` |
+
+Its exact local direct dependencies are:
+
+| Dependency | SHA-256 |
+|---|---|
+| `notes/ACTUAL_PHASE_VOLUME_CENTERED_PNT_REMAINDER_REDUCTION_BARRIER.md` | `2b2a40a4ec087c77145b45fc54d8a5782a85ecd122b2d599d2c2d8a067b714f1` |
+| `tests/test_actual_phase_volume_centered_pnt_remainder_reduction_barrier.py` | `7fbcdf15dde20d3d2a00303f74d5441ee143af74ae269992fe79b1fb0c97456f` |
+| `notes/ACTUAL_CENTERED_REMAINDER_PRIME_FOURTH_MOMENT_LOWER_BARRIER.md` | `920b6434cc89c663ae95f6f7803780cd164e99b8e5cdc82c2de1a3655171035a` |
+| `tests/test_actual_centered_remainder_prime_fourth_moment_lower_barrier.py` | `de1e282b5106d0dc3ecb95a19773433baff029f1ff7cb5c45229e86374696fe7` |
+
+Thus the direct union has four paths, or two complete note/test pairs.
+Adding the target gives six paths, or three complete pairs.
+
+The proof substantively uses the already-disclosed H. L. Montgomery and
+R. C. Vaughan, *Hilbert's Inequality*, *Journal of the London Mathematical
+Society* (2) **8** (1974), 73--82, DOI
+<https://doi.org/10.1112/jlms/s2-8.1.73>, Corollary 2, equations
+(1.8)--(1.9), through four-phase polarization of `P_x^2` against `P_x`.
+The author-hosted PDF remains external, unvendored, unhashed,
+non-byte-bound, and not independently certified.  The existing P3/FKS PNT
+lineage is inherited transitively through the frozen phase/fourth-moment
+pairs; neither the lock nor the vendored PDF is a new checkpoint-1.66
+direct dependency or byte.
+
+No new external paper, source-lock JSON, vendored source, artifact, zero
+table, numerical ordinate, cached matrix, source sample, serialized
+numerical artifact, or external computation is added.
+
+The focused module passes `14/14`, and the exact three-module closure passes
+`37/37` under `PYTHONPATH=src python3 -B`.  Projected canonical/raw
+discovery is `389/4275` and `394/4333`; frontier/replay is `247/2753` and
+`259/2881`; support remains `12/128` and exclusions remain `5/58`.
+Expanded suites were not rerun.
+
+Checkpoint 1.66 proves, by prime/semiprime support disjointness and four-phase Montgomery--Vaughan polarization, that the normalized prime third moment vanishes. Together with the frozen second- and fourth-moment estimates, a compact moment lemma forces positive excess above every fixed normalized level c<1. Therefore, for every fixed A>0 and 1/2<alpha<1, both the full and high-time centered-remainder statistics are Omega_(A,alpha)(lambda^4 log(lambda^2)), so the proposed O(lambda^2/log(lambda^2)) sufficient upper target is false throughout that range. The symmetric two-point endpoint model shows that the stated moment data do not cross alpha=1/2; nothing is proved for 0<alpha<=1/2. The frozen phase-volume comparison is one-way, so no actual phase-volume lower bound follows. Polynomial phase volume, parity ordering, determinant convergence, an unconditional zero theorem, RH proof or converse, and a de Bruijn--Newman bound remain unproved. The formal state remains P0_INVALIDATED.

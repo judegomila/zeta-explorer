@@ -7118,6 +7118,71 @@ canonical/raw discovery is `400/4422` and `405/4480`; frontier/replay is
 
 Checkpoint 1.71 proves the exact full-bottom vectorwise, operator-norm, and Hilbert--Schmidt projector identities and replaces the all-bottom smallest-eigenvalue coframe demand by a strictly weaker largest defect-weighted one-direction capture criterion. It isolates the exact mixed-bridge contrast and proves that odd-pole Birman--Schwinger data do not force that contrast. Separately, it proves fixed positive ground mass inside an exp(O(lambda log lambda)) physical Fourier band, the normalized full-source isometry and prefix rank kernel, and structural cofactor, analytic source-Cauchy, and parity-complete models showing that qualitative cyclicity and analyticity provide no required capture rate. The structural models are not the actual Weil source. No actual lower bound for the largest weighted capture, actual bridge contrast, prolate-prefix overlap, exp(-o(lambda^2)) ground weight, or quantitative ground cofactor is proved. No parity order, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.
 
+## Checkpoint 1.72 pole-row, Schatten, and filter obligations
+
+Checkpoint 1.72 admits three strict-PASS theorem/barrier pairs.  The
+mixed-bridge pair closes these obligations:
+
+1. the actual fixed-label bridge pole row is expanded through a positive
+   logarithmic leading term and is eventually positive;
+2. the limiting odd bridge profile is strictly positive on the positive
+   half-line;
+3. the loaded-ground overlap is reduced exactly to a transverse Feshbach
+   response and its normalizer; and
+4. the actual reflected-prime sign supplies a counterexample to generic
+   inverse positivity of the nonpole odd resolvent.
+
+The Dirichlet--Schatten pair closes these obligations:
+
+1. every centered scalar `p`-moment gives an exact Schatten exceptional-
+   rank bound for the source commutator;
+2. adjoining the complete-diagonal coordinate exception gives an exact
+   quadratic-form floor off the dangerous space;
+3. the coordinate exception uses the same shell threshold, and fixed
+   `s=2` has exact normalized scale `1/2`; and
+4. even optimistic moments through the coefficient-length ceiling cannot
+   certify an `O(lambda^2)` dangerous space in the required range.
+
+The commuting-filter pair closes these obligations:
+
+1. the filtered bottom row and positive residual atom are exact for every
+   bounded finite filter family and Hermitian positive source metric;
+2. the only upper envelope certified from the original radical anchor
+   pays a factor at least one and cannot improve its stopping statistic;
+3. bounded filters preserve zero bottom capture, while nonconstant
+   polynomials require unavailable growing graph estimates; and
+4. the low-Fourier Mobius family is source-realizable and has large
+   unweighted capture, but its residual is the original Weil action.
+
+The following obligations remain open:
+
+1. bound the actual transverse cancellation away from the explicit pole
+   row at `exp(-o(lambda^2))` scale and control the Feshbach normalizer;
+2. prove an actual `O(lambda^2)` dangerous-space theorem from complete
+   diagonal and commutator arithmetic, rather than from conditional
+   lattice moments;
+3. prove an actual dangerous-space or bottom source angle with the leading
+   prolate range;
+4. construct a noncommuting source family with both large bottom capture
+   and a small defect-relative residual, or directly prove the filtered
+   one-direction pass;
+5. prove any needed parity order or spectral-gap input; and
+6. finish determinant convergence and every unconditional zero
+   consequence.
+
+The random-phase paragraph in the Dirichlet note is heuristic only.  The
+logarithmic source-Cauchy filter example is structural and is not the
+actual Weil operator.
+
+The three focused modules pass `29/29`; the exact ten-module deduplicated
+target/direct-dependency closure passes `98/98` under
+`PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3 -B`.  Projected
+canonical/raw discovery is `403/4451` and `408/4509`; frontier/replay is
+`261/2929` and `273/3057`; support remains `12/128` and exclusions remain
+`5/58`.  Expanded suites were not rerun.
+
+Checkpoint 1.72 proves the actual fixed-label mixed-bridge pole-row asymptotic and eventual positivity, the strict positivity of the limiting odd bridge profile, and the exact pole-axis Feshbach overlap formula. It also proves that the literal nonpole odd resolvent has no generic inverse-positivity sign theorem. The eventual threshold is qualitative, and the actual transverse resolvent response may cancel the explicit subexponential pole row while the normalizer remains uncontrolled. Separately, it proves the centered all-p Schatten exceptional-rank bound and exact dangerous-space floor, including the same-shell coordinate threshold and exact fixed-s=2 half-scale; the admitted moment hierarchy cannot reduce the dangerous space to O(lambda^2), and dimension gives no source angle. Finally, it proves exact bottom-row and bottom-atom identities for bounded commuting filters, shows that the certified envelope cannot improve the anchor statistic, and constructs a source-realizable low-Fourier family with large unweighted capture but no small defect-relative residual. The random-phase paragraph and logarithmic source-Cauchy example are heuristic or structural only, not actual arithmetic or Weil conclusions. No actual transverse-cancellation lower bound, bottom-projector floor, O(lambda^2) dangerous-space bound, source-angle bound, filtered one-direction pass, parity order, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.
+
 ## Computation policy
 
 High-precision numerics may identify the scale of the residual and gap.

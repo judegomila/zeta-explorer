@@ -11103,3 +11103,97 @@ ordinate, cached matrix, source sample, serialized numerical artifact, or
 external computation is admitted.
 
 Checkpoint 1.71 proves the exact full-bottom vectorwise, operator-norm, and Hilbert--Schmidt projector identities and replaces the all-bottom smallest-eigenvalue coframe demand by a strictly weaker largest defect-weighted one-direction capture criterion. It isolates the exact mixed-bridge contrast and proves that odd-pole Birman--Schwinger data do not force that contrast. Separately, it proves fixed positive ground mass inside an exp(O(lambda log lambda)) physical Fourier band, the normalized full-source isometry and prefix rank kernel, and structural cofactor, analytic source-Cauchy, and parity-complete models showing that qualitative cyclicity and analyticity provide no required capture rate. The structural models are not the actual Weil source. No actual lower bound for the largest weighted capture, actual bridge contrast, prolate-prefix overlap, exp(-o(lambda^2)) ground weight, or quantitative ground cofactor is proved. No parity order, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.72 pole-row, Schatten, and commuting-filter barriers
+
+Checkpoint 1.72 admits exactly three independently audited strict-PASS
+pairs.  The first computes the actual finite-source mixed-bridge pole row.
+With
+
+\[
+ M_\lambda={\lambda-\lambda^{-1}\over2}-\log\lambda,
+ \qquad \beta_\lambda=\langle p_\lambda,w_\lambda\rangle,
+\]
+
+it proves
+
+\[
+ \beta_\lambda
+ =2^{-5/4}\log\lambda
+ -{2^{3/4}\over8}\{4+\gamma_E-\log(4\pi)\}
+ +O(\lambda^{-1}),
+\]
+
+and therefore eventual positivity, with a qualitative starting threshold.
+The limiting odd bridge is strictly positive on the positive half-line.
+For the pole-created branch, however, the exact normalized overlap is
+
+\[
+ |\langle g_\mu,w_\lambda\rangle|^2
+ ={\left|\beta_\lambda/\sqrt{M_\lambda}
+ -\langle B_\mu^{-1}r_\lambda,w_\lambda^\perp\rangle\right|^2
+ \over1+\|B_\mu^{-1}r_\lambda\|^2}.
+\]
+
+The explicit pole term is of order
+`log(lambda)/sqrt(lambda)`, but no frozen estimate prevents the actual
+transverse resolvent term from cancelling it or controls the normalizer at
+the required scale.  Reflected prime atoms also give an exact sign
+counterexample to generic inverse positivity of the literal nonpole odd
+resolvent.  Thus profile positivity alone cannot close the overlap.
+
+The second pair proves an all-`p` conversion from centered scalar source
+moments to an operator dangerous-space bound.  For
+`K_I=D_bH_I-H_ID_b`,
+
+\[
+ \operatorname {rank}{\bf1}_{(\tau,\infty)}(|K_I|)
+ \leq\left({2\pi\over\tau}\right)^p
+       \sum_{n\in I}|b_n-c|^p.
+\]
+
+After adjoining the coordinate indices whose complete diagonal lies below
+the same shell threshold, the orthogonal complement has quadratic-form
+floor `G`.  The same-shell threshold and the exact normalized `s=2`
+half-scale are frozen explicitly.  Even under the optimistic admitted
+moment hierarchy, the largest available saving is only `O(s log s)`,
+whereas reducing `x^s` directions to `O(x)` requires `(s-1)log x`.
+This is a method obstruction, not a lower bound for the actual dangerous
+dimension, and dimension alone gives no angle with the prolate source
+range.
+
+The third pair audits bounded commuting spectral filters.  For a radical
+anchor `kappa`, bounded filters `Phi`, and source metric `Delta`, it proves
+
+\[
+ \Lambda_\Phi
+ =\|P B_\Phi\|^2
+ =\|P\kappa\|^2
+  \|\boldsymbol\phi(\mu)\Delta^{-1/2}\|^2,
+ \qquad
+ \|(Q-qI)B_\Phi\|^2
+ \geq|\mu-q|^2\Lambda_\Phi.
+\]
+
+The upper estimate inherited from the original anchor pays the factor
+
+\[
+ {M_{\Phi,\Delta}
+  \over\|\boldsymbol\phi(\mu)\Delta^{-1/2}\|}\geq1,
+\]
+
+so it cannot improve the certified residual-to-capture statistic.  A
+source-realizable low-Fourier Mobius family has large unweighted bottom
+capture, but its residual is the original Weil action rather than a small
+prolate defect.  The logarithmic source-Cauchy example is structural, not
+the actual Weil operator.
+
+The three focused modules pass `29/29`.  With `PYTHONPATH=src` and
+`PYTHONDONTWRITEBYTECODE=1`, the exact ten-module deduplicated
+target/direct-dependency closure passes `98/98` under `python3 -B`.
+Projected canonical/raw discovery is `403/4451` and `408/4509`;
+frontier/replay is `261/2929` and `273/3057`; support remains `12/128` and
+exclusions remain `5/58`.  Expanded canonical/frontier/replay suites were
+not rerun.
+
+Checkpoint 1.72 proves the actual fixed-label mixed-bridge pole-row asymptotic and eventual positivity, the strict positivity of the limiting odd bridge profile, and the exact pole-axis Feshbach overlap formula. It also proves that the literal nonpole odd resolvent has no generic inverse-positivity sign theorem. The eventual threshold is qualitative, and the actual transverse resolvent response may cancel the explicit subexponential pole row while the normalizer remains uncontrolled. Separately, it proves the centered all-p Schatten exceptional-rank bound and exact dangerous-space floor, including the same-shell coordinate threshold and exact fixed-s=2 half-scale; the admitted moment hierarchy cannot reduce the dangerous space to O(lambda^2), and dimension gives no source angle. Finally, it proves exact bottom-row and bottom-atom identities for bounded commuting filters, shows that the certified envelope cannot improve the anchor statistic, and constructs a source-realizable low-Fourier family with large unweighted capture but no small defect-relative residual. The random-phase paragraph and logarithmic source-Cauchy example are heuristic or structural only, not actual arithmetic or Weil conclusions. No actual transverse-cancellation lower bound, bottom-projector floor, O(lambda^2) dangerous-space bound, source-angle bound, filtered one-direction pass, parity order, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.

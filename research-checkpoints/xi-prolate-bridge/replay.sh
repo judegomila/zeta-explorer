@@ -414,6 +414,26 @@ required = {
     "cutoff_free_actual_quantitative_ground_cofactor_rate_proved": False,
     "checkpoint171_focused_tests_passed": True,
     "checkpoint171_full_suite_recount_completed": False,
+    "actual_mixed_bridge_fixed_label_pole_row_asymptotic_proved": True,
+    "actual_mixed_bridge_limiting_profile_strict_positivity_proved": True,
+    "actual_mixed_bridge_exact_pole_axis_feshbach_overlap_identity_proved": True,
+    "actual_mixed_bridge_nonpole_resolvent_inverse_positivity_nonimplication_proved": True,
+    "actual_mixed_bridge_transverse_resolvent_cancellation_lower_bound_proved": False,
+    "actual_mixed_bridge_bottom_projector_floor_proved": False,
+    "actual_dirichlet_centered_schatten_exceptional_rank_bound_proved": True,
+    "actual_dirichlet_exceptional_space_quadratic_floor_proved": True,
+    "actual_dirichlet_same_shell_coordinate_exception_threshold_proved": True,
+    "actual_dirichlet_fixed_s_two_normalized_half_scale_proved": True,
+    "actual_dirichlet_moment_length_dangerous_space_method_obstruction_proved": True,
+    "actual_dirichlet_O_lambda_squared_dangerous_space_bound_proved": False,
+    "actual_dirichlet_dangerous_space_source_angle_proved": False,
+    "cutoff_free_commuting_filter_bottom_row_residual_atom_identity_proved": True,
+    "cutoff_free_commuting_filter_certified_envelope_no_improvement_proved": True,
+    "cutoff_free_low_fourier_mobius_unweighted_capture_proved": True,
+    "cutoff_free_commuting_filter_one_direction_pass_proved": False,
+    "cutoff_free_low_fourier_mobius_defect_relative_residual_proved": False,
+    "checkpoint172_focused_tests_passed": True,
+    "checkpoint172_full_suite_recount_completed": False,
 }
 
 project = json.loads(Path("PROJECT_STATUS.json").read_text(encoding="utf-8"))
@@ -1705,7 +1725,10 @@ PYTHONPATH=src python3 -B -m unittest \
   tests.test_actual_centered_remainder_top_even_near_band_global_cancellation_barrier \
   tests.test_actual_phase_volume_long_block_threshold_negative_index_barrier \
   tests.test_cutoff_free_one_direction_weighted_ground_capture_theorem \
-  tests.test_cutoff_free_cyclicity_effective_dimension_capture_barrier -v
+  tests.test_cutoff_free_cyclicity_effective_dimension_capture_barrier \
+  tests.test_actual_mixed_bridge_pole_row_resolvent_cancellation_reduction \
+  tests.test_actual_dirichlet_moment_schatten_dangerous_space_barrier \
+  tests.test_cutoff_free_commuting_filter_ground_capture_barrier -v
 python3 src/write_artifact_manifest.py
 python3 -m unittest tests.test_weighted_pnt_discrepancy_normal_form_source_lock -v
 python3 -m unittest tests.test_boundary_discrepancy_convolution tests.test_boundary_discrepancy_convolution_source_lock -v

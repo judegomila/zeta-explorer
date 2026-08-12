@@ -434,6 +434,30 @@ required = {
     "cutoff_free_low_fourier_mobius_defect_relative_residual_proved": False,
     "checkpoint172_focused_tests_passed": True,
     "checkpoint172_full_suite_recount_completed": False,
+    "actual_mixed_bridge_transverse_gap_sandwich_proved": True,
+    "actual_mixed_bridge_birman_schwinger_normalization_identity_proved": True,
+    "actual_mixed_bridge_denominator_free_energy_alternative_proved": True,
+    "actual_mixed_bridge_exact_cancellation_energy_threshold_proved": True,
+    "actual_mixed_bridge_mixed_resolvent_overlap_identity_proved": True,
+    "actual_mixed_bridge_diagonal_spectral_measure_phase_nonimplication_proved": True,
+    "actual_mixed_bridge_literal_even_source_adjoint_formula_proved": True,
+    "actual_mixed_bridge_generalized_harmonic_row_source_formula_proved": True,
+    "cutoff_free_actual_radical_xi_principal_ideal_proved": True,
+    "cutoff_free_actual_radical_xi_ideal_operation_preservation_proved": True,
+    "cutoff_free_actual_radical_coordinate_divisor_break_obstruction_proved": True,
+    "cutoff_free_actual_radical_divisor_break_bulk_residual_identity_proved": True,
+    "cutoff_free_actual_radical_finite_window_xi_tail_factorization_proved": True,
+    "cutoff_free_actual_radical_translation_tail_dichotomy_proved": True,
+    "cutoff_free_actual_radical_boundary_safe_translation_frame_upper_bound_proved": True,
+    "actual_mixed_bridge_transverse_floor_exp_minus_o_lambda_squared_proved": False,
+    "actual_mixed_bridge_individual_odd_bridge_energy_relative_smallness_proved": False,
+    "actual_mixed_bridge_mixed_resolvent_lower_bound_proved": False,
+    "actual_mixed_bridge_generalized_harmonic_row_phase_bound_proved": False,
+    "cutoff_free_actual_radical_sampled_xi_minimum_modulus_proved": False,
+    "cutoff_free_actual_radical_high_complexity_frame_pass_proved": False,
+    "cutoff_free_actual_radical_translation_one_direction_pass_proved": False,
+    "checkpoint173_focused_tests_passed": True,
+    "checkpoint173_full_suite_recount_completed": False,
 }
 
 project = json.loads(Path("PROJECT_STATUS.json").read_text(encoding="utf-8"))
@@ -1728,7 +1752,10 @@ PYTHONPATH=src python3 -B -m unittest \
   tests.test_cutoff_free_cyclicity_effective_dimension_capture_barrier \
   tests.test_actual_mixed_bridge_pole_row_resolvent_cancellation_reduction \
   tests.test_actual_dirichlet_moment_schatten_dangerous_space_barrier \
-  tests.test_cutoff_free_commuting_filter_ground_capture_barrier -v
+  tests.test_cutoff_free_commuting_filter_ground_capture_barrier \
+  tests.test_actual_mixed_bridge_transverse_gap_energy_barrier \
+  tests.test_actual_mixed_bridge_resolvent_mixed_measure_barrier \
+  tests.test_cutoff_free_actual_radical_xi_ideal_translation_frame_barrier -v
 python3 src/write_artifact_manifest.py
 python3 -m unittest tests.test_weighted_pnt_discrepancy_normal_form_source_lock -v
 python3 -m unittest tests.test_boundary_discrepancy_convolution tests.test_boundary_discrepancy_convolution_source_lock -v

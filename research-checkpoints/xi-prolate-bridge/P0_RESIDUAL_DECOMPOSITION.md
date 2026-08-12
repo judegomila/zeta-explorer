@@ -7062,3 +7062,104 @@ canonical/raw discovery is `403/4451` and `408/4509`; frontier/replay is
 `5/58`.  Expanded suites were not rerun.
 
 Checkpoint 1.72 proves the actual fixed-label mixed-bridge pole-row asymptotic and eventual positivity, the strict positivity of the limiting odd bridge profile, and the exact pole-axis Feshbach overlap formula. It also proves that the literal nonpole odd resolvent has no generic inverse-positivity sign theorem. The eventual threshold is qualitative, and the actual transverse resolvent response may cancel the explicit subexponential pole row while the normalizer remains uncontrolled. Separately, it proves the centered all-p Schatten exceptional-rank bound and exact dangerous-space floor, including the same-shell coordinate threshold and exact fixed-s=2 half-scale; the admitted moment hierarchy cannot reduce the dangerous space to O(lambda^2), and dimension gives no source angle. Finally, it proves exact bottom-row and bottom-atom identities for bounded commuting filters, shows that the certified envelope cannot improve the anchor statistic, and constructs a source-realizable low-Fourier family with large unweighted capture but no small defect-relative residual. The random-phase paragraph and logarithmic source-Cauchy example are heuristic or structural only, not actual arithmetic or Weil conclusions. No actual transverse-cancellation lower bound, bottom-projector floor, O(lambda^2) dangerous-space bound, source-angle bound, filtered one-direction pass, parity order, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.73 transverse-energy and common-divisor residual
+
+On the nonexceptional odd pole-created branch, let `kappa` be the floor of
+the compression of `H_--mu` to the pole-transverse space.  The exact Schur
+factor and nonzero-spectrum comparison give
+
+\[
+ \max\{a_1-\mu,\gamma\alpha^2\}\leq\kappa\leq\gamma,
+ \qquad
+ 1+\|B_\mu^{-1}r\|^2=\alpha^{-2}=4M F'(\mu).
+\]
+
+For `x=beta_lambda/sqrt(M)` and
+`E=<w_lambda,(Q_--mu)w_lambda>`, completing the transverse energy square
+gives the denominator-free bound
+
+\[
+ |\langle g,w_\lambda\rangle|
+ \geq\left[x-{1\over2}\sqrt{E\over\kappa}\right]_+,
+ \qquad
+ \langle g,w_\lambda\rangle=0\Longrightarrow E\geq4\kappa x^2.
+\]
+
+Because `4*kappa*x^2` is asymptotic to
+`sqrt(2)*kappa*log^2(lambda)/lambda`, the direct estimate
+
+\[
+ E=o\!\left(\kappa{\log^2\lambda\over\lambda}\right)
+\]
+
+would close the bridge-overlap subproblem by itself.  A
+subquadratic-exponential lower floor for `kappa` together with normalization
+control addresses only the denominator and must still be paired with a
+phase or anti-cancellation bound for the mixed numerator.  None of these
+inputs is frozen.  The exact spectral dichotomy also shows that the direct
+energy condition would itself force capture and cannot be inferred from a
+fixed noncapture branch.
+
+The overlap can equivalently be written through the mixed spectral measure:
+
+\[
+ F_\lambda(z)=\langle w_\lambda,(H_--zI)^{-1}p_\lambda\rangle,
+ \qquad
+ |\langle w_\lambda,g_\mu\rangle|^2
+ ={ |F_\lambda(\mu)|^2\over m_\lambda'(\mu)}.
+\]
+
+The total mass encoded by the large-`z` asymptotic of `F_lambda` is the
+positive pole row, but exact counterpairs show that it and both diagonal
+spectral measures do not control the mixed phase.  For the literal source,
+the unresolved scalar is exactly
+
+\[
+ F_\lambda(\mu)=
+ \int_{1/\lambda}^{\lambda}b_\lambda(v){1\over\sqrt v}
+ \sum_{1\leq n\leq\lambda v}
+ {((H_--\mu I)^{-1}p_\lambda)(\log(v/n))\over\sqrt n}\,dv.
+\]
+
+A signed Green-row comparison, one-phase theorem, or controlled source
+commutator for this generalized harmonic row is still missing.
+
+Every admitted actual radical also carries the same analytic divisor:
+
+\[
+ \widehat{\mathcal E(f)}(z)=\Xi(z)A_f(z).
+\]
+
+The admitted source operations preserve this divisor.  Coordinate
+multiplication breaks it only by leaving the actual source class and adds a
+global Weil bulk functional to the finite residual.  On a finite window,
+
+\[
+ (p_a)_n=L^{-1/2}\Xi(\omega_n)A_a(\omega_n)+e_{a,n},
+\]
+
+so a subquadratic-exponential cofactor family with exponential tails still
+requires a sampled `Xi` minimum-modulus theorem.  For the locked translated
+anchor, complete-period translation loses the uniform exponential outer
+scale, whereas a fixed boundary-safe range obeys
+
+\[
+ c_{N,S}(p)\leq
+ \|p\|^2{(2\pi S/L)^{2N}\over\binom{2N}{N}}
+ =\exp\{-\Theta(\lambda^2\log\log\lambda)\}
+\]
+
+when `N` is comparable to `lambda^2`.  Thus neither route supplies the
+required one-direction residual-to-capture ratio.  A high-complexity
+common-divisor family remains a logical possibility and needs new uniform
+conditioning and leakage estimates.
+
+The three focused modules pass `34/34`; the exact eleven-module
+deduplicated target/direct closure passes `125/125` under
+`PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3 -B`.  Projected
+canonical/raw discovery is `406/4485` and `411/4543`; frontier/replay is
+`264/2963` and `276/3091`; support remains `12/128` and exclusions remain
+`5/58`.  Expanded suites were not rerun.
+
+Checkpoint 1.73 proves exact transverse-gap, normalization, bridge-energy, mixed-resolvent, actual-source-adjoint, Xi-ideal, finite-window, tail, and translation-frame reductions. The exact countermodels are structural and are not the actual Weil source. No actual transverse floor, individual odd bridge-energy estimate, mixed-resolvent phase lower bound, sampled Xi minimum-modulus estimate, controlled high-complexity common-divisor frame, bottom-projector floor, parity order, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.

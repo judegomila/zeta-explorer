@@ -7262,3 +7262,63 @@ canonical/raw discovery is `403/4451` and `408/4509`; frontier/replay is
 `5/58`.  Expanded suites were not rerun.
 
 Checkpoint 1.72 proves the actual fixed-label mixed-bridge pole-row asymptotic and eventual positivity, the strict positivity of the limiting odd bridge profile, and the exact pole-axis Feshbach overlap formula. It also proves that the literal nonpole odd resolvent has no generic inverse-positivity sign theorem. The eventual threshold is qualitative, and the actual transverse resolvent response may cancel the explicit subexponential pole row while the normalizer remains uncontrolled. Separately, it proves the centered all-p Schatten exceptional-rank bound and exact dangerous-space floor, including the same-shell coordinate threshold and exact fixed-s=2 half-scale; the admitted moment hierarchy cannot reduce the dangerous space to O(lambda^2), and dimension gives no source angle. Finally, it proves exact bottom-row and bottom-atom identities for bounded commuting filters, shows that the certified envelope cannot improve the anchor statistic, and constructs a source-realizable low-Fourier family with large unweighted capture but no small defect-relative residual. The random-phase paragraph and logarithmic source-Cauchy example are heuristic or structural only, not actual arithmetic or Weil conclusions. No actual transverse-cancellation lower bound, bottom-projector floor, O(lambda^2) dangerous-space bound, source-angle bound, filtered one-direction pass, parity order, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.
+
+## Checkpoint 1.73 transverse-gap, mixed-resolvent, and Xi-ideal source disclosure
+
+Checkpoint 1.73 admits exactly these three frozen pairs:
+
+| Target | SHA-256 |
+|---|---|
+| `notes/ACTUAL_MIXED_BRIDGE_TRANSVERSE_GAP_ENERGY_BARRIER.md` | `d9fea23ec9427a2bfcf8f22ec6465cafbdd5623f4adc311e83114fd8b8591677` |
+| `tests/test_actual_mixed_bridge_transverse_gap_energy_barrier.py` | `822711c839de663d5152ea61cc438a194780d80444f02cbac07b365947a608f1` |
+| `notes/ACTUAL_MIXED_BRIDGE_RESOLVENT_MIXED_MEASURE_BARRIER.md` | `e330dd6257420df3590f97c43ef71a4ef332307d303d9d7351ff9c8b37b72d93` |
+| `tests/test_actual_mixed_bridge_resolvent_mixed_measure_barrier.py` | `c463b6afe4d3ac327c1be20fa3d6550862a7060584afd1f9413dc8df705c3a21` |
+| `notes/CUTOFF_FREE_ACTUAL_RADICAL_XI_IDEAL_TRANSLATION_FRAME_BARRIER.md` | `e961040eda5cdf2645d8c0a50d54dbbd269a666c55d3470e7fc9853b58e0da9e` |
+| `tests/test_cutoff_free_actual_radical_xi_ideal_translation_frame_barrier.py` | `04dda3387b76d45a0fd9a3a054ffce662c78a6487d49c0995a6e3a9315c2b642` |
+
+Their exact deduplicated direct dependencies are:
+
+| Dependency | SHA-256 |
+|---|---|
+| `notes/ACTUAL_MIXED_BRIDGE_POLE_ROW_RESOLVENT_CANCELLATION_REDUCTION.md` | `610aa2b58734ab191e561bbaa7529f0558e1f979fa67461273e69f6d6253cde2` |
+| `tests/test_actual_mixed_bridge_pole_row_resolvent_cancellation_reduction.py` | `678e6da6c989c536ba6131fdfd38fe5927c60d464b29e8d358d94af0a9c0f2a4` |
+| `notes/MIXED_BRIDGE_XI_OVER_S_BOUNDARY_OBSTRUCTION_THEOREM.md` | `4c4bb0344735a0d605e1052ac06b383144f2cdbb85d2c088bf0b6683e67f06a2` |
+| `tests/test_mixed_bridge_xi_over_s_boundary_obstruction_theorem.py` | `1bc81194a9fa2fd4eac92491a08c60bc58f3640ac16e4e5e17864da8a2970c67` |
+| `notes/GROWING_MIXED_BRIDGE_COHERENT_BETA_ROW_FLOOR_THEOREM.md` | `43a7a2a9c32dd01a223926b17c7e344d6c256980ad9b4762dc2dc5808face1e2` |
+| `tests/test_growing_mixed_bridge_coherent_beta_row_floor_theorem.py` | `95a3548414eb0d33805cede160312bbc6091c278984fb5ec4144f1127152ab4a` |
+| `notes/HIGH_FOURIER_COERCIVITY.md` | `5d928d68bd317d637a3631c91c1da4d2043c79986e3c5767b886b354b525a821` |
+| `tests/test_high_fourier_coercivity.py` | `64eea186ca9ec09dde5510b9b6a99fa56a50c073865d5fe822367202806a5bae` |
+| `notes/GROWING_MIXED_BRIDGE_ACTUAL_MULTIPLIER_DANGEROUS_FESHBACH_REDUCTION.md` | `cc2a62d6be1c62985ab9d5e2893c74c9ae773280f6bff4015f998364ccbd924e` |
+| `tests/test_growing_mixed_bridge_actual_multiplier_dangerous_feshbach_reduction.py` | `1bbe3d751efedb86ab412921a5f99d243b1ebffef33afe325e2930a5d5670a0c` |
+| `notes/ODD_POLE_HARMONIC_CHEBYSHEV_OBSTRUCTION.md` | `703c19f9cbadd73e6b60672a6f836fc2bd0bf7d43eaa5f60ac5806dd1cdc0d18` |
+| `notes/ODD_KRYLOV_TRANSVERSE_CRITICAL_LOAD.md` | `c5134b4fb80bf2fcb654a1b31a7422aa089973a664cda90707d30ce7e469ddcc` |
+| `notes/CUTOFF_FREE_FULL_SOURCE_ADJOINT_PROLATE_CAPTURE_BARRIER.md` | `157bffc55aeec592c263d5973effe1b9506e02dd97311652ecb2fdee0c3ff0e9` |
+| `tests/test_cutoff_free_full_source_adjoint_prolate_capture_barrier.py` | `d7f70dffbd10021ce7d6e8887d10589a482b2dc64c9ebbe8c48cc35568c233ae` |
+| `notes/EXACT_RADICAL_LEAKAGE_IDENTITY.md` | `76dd6586357a2448ef689380a106eea5e9aedb95f68e731f10f1d6626040fddc` |
+| `notes/PROJECTED_STATE_NORM_LOWER_BOUND.md` | `3847cbcb6e5bfc458af7bf957ff67afb0b943155d62f4239129b40332d270fbf` |
+| `tests/test_projected_state_norm_lower_bound.py` | `d740587d2af62c5ef1b1255dc8184d8bea0833c70740b6697407678f90e1d079` |
+| `notes/CUTOFF_FREE_MULTI_ANCHOR_GROUND_FRAME_BARRIER.md` | `2e07843d54f00bce9e53afadc0b434efbaf8f97da95dadda54225de6cfecb34d` |
+| `tests/test_cutoff_free_multi_anchor_ground_frame_barrier.py` | `0fdc307a051d50ff4ece21ae8b01f89b745a14788f093ec4127f5da6026bde9f` |
+
+The exact dependency union has 19 paths: eight complete note/test pairs and
+three unpaired notes.  The transverse-gap and mixed-resolvent pairs share
+only the pole-row pair.  Adding the six targets gives 25 unique repository
+paths, eleven complete note/test pairs plus three unpaired notes.  Every
+dependency and target hash was rechecked.
+
+All three pairs are internal derivations using already-frozen local inputs.
+All external, vendored, and source-lock provenance is inherited transitively
+through those frozen inputs; no vendor byte or source-lock JSON is a direct
+checkpoint-1.73 dependency.  No new external paper, source-lock JSON,
+vendored source, artifact, zero table, numerical ground, numerical ordinate,
+cached matrix, source sample, serialized numerical artifact, or external
+computation is admitted.
+
+The three focused modules pass `34/34`, and the exact eleven-module
+deduplicated target/direct-dependency closure passes `125/125` under
+`PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3 -B`.  Projected
+canonical/raw discovery is `406/4485` and `411/4543`; frontier/replay is
+`264/2963` and `276/3091`; support remains `12/128` and exclusions remain
+`5/58`.  Expanded suites were not rerun.
+
+Checkpoint 1.73 proves exact transverse-gap, normalization, bridge-energy, mixed-resolvent, actual-source-adjoint, Xi-ideal, finite-window, tail, and translation-frame reductions. The exact countermodels are structural and are not the actual Weil source. No actual transverse floor, individual odd bridge-energy estimate, mixed-resolvent phase lower bound, sampled Xi minimum-modulus estimate, controlled high-complexity common-divisor frame, bottom-projector floor, parity order, determinant convergence, unconditional zero theorem, RH proof or converse, or de Bruijn--Newman bound is proved. The formal state remains P0_INVALIDATED.

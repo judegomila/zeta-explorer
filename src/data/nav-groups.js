@@ -84,6 +84,7 @@ export const NAV_GROUPS = [
       { to: '/guth-maynard-scoping', label: 'α=1/2 Large-Value Bottleneck (RH-adjacent)' },
       { to: '/obstruction-seam', label: 'The RH Obstruction Seam (why every route splits)' },
       { to: '/frozen-rung-pt-equivalence', label: 'Freezing Rungs = PT in Operator Language' },
+      { to: '/flow-blindness-no-go', label: 'Flow-Blindness No-Go (soft ⇏ RH)' },
       { to: '/subhalf-strip-pcc-criterion', label: 'Seam-Escape Criterion (minimal PCC lemma)' },
       { to: '/formalization-status', label: 'Lean Formalization Status' },
       { to: '/formalization-review', label: 'Formalization Review Dashboard (shareable)' },

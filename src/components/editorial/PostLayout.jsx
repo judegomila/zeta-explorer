@@ -14,7 +14,7 @@ export function EditorialHeader({ ticker }) {
   return (
     <header className="ed-head">
       <div className="ed-headbar">
-        <Link className="ed-brand" to="/">math<i>explorer</i></Link>
+        <Link className="ed-brand" to="/">zeta<i>explorer</i></Link>
         <nav className="ed-headnav">
           <Link to="/">Atlas</Link>
           <Link to="/route-map">Walls</Link>

@@ -1,7 +1,11 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
-import PageHeader from '../components/PageHeader.jsx';
+import PostLayout, { Figure, Pull, InlineMath, BlockMath } from '../components/editorial/PostLayout.jsx';
+
+/* Editorial (warm post reading-view) presentation of Theorem B — the minimal-gap
+   sharp Θ-trap threshold Θ_b = (√73 − 5)/8. All mathematical text, numbers,
+   thresholds, TeX identities, table cells and caveats are preserved verbatim from
+   the prior inline page (sg1c-theta-trap-theorems.js); this file only restyles it. */
 
 // THEOREM B (sg1c-theta-trap-theorems.js): minimal-gap Theta-trap, SHARP threshold.
 //   If g is the minimal gap then mu_j = g^2 T_j <= 1/2, sum mu_j = 2 Theta; the
@@ -37,11 +41,13 @@ const MEASURED_RATE = [
 
 // The Theta trap ladder (what is proven at each level, and by which route).
 const LADDER = [
-  { theta: 0.25, label: 'Θ_A = 1/4', color: '#ef4444', kind: 'Theorem A', note: 'unconditional — EVERY adjacent pair, no hypothesis' },
-  { theta: THETA_B, label: 'Θ_b = (√73−5)/8', color: '#f59e0b', kind: 'Theorem B', note: 'minimal-gap, static — SHARP (this page)' },
-  { theta: 0.5, label: 'Θ = 1/2', color: '#10b981', kind: 'Lemma R1-T', note: 'dynamic excursion cap on the symmetric tie family' },
-  { theta: 0.5073, label: 'Θ ≈ 0.5073', color: '#8b5cf6', kind: 'dressed tie', note: 'asymmetric/dressed tie max (band ceiling)' },
+  { theta: 0.25, label: 'Θ_A = 1/4', color: 'var(--terra-dk)', kind: 'Theorem A', note: 'unconditional — EVERY adjacent pair, no hypothesis' },
+  { theta: THETA_B, label: 'Θ_b = (√73−5)/8', color: 'var(--brass)', kind: 'Theorem B', note: 'minimal-gap, static — SHARP (this page)' },
+  { theta: 0.5, label: 'Θ = 1/2', color: 'var(--green)', kind: 'Lemma R1-T', note: 'dynamic excursion cap on the symmetric tie family' },
+  { theta: 0.5073, label: 'Θ ≈ 0.5073', color: 'var(--blue)', kind: 'dressed tie', note: 'asymmetric/dressed tie max (band ceiling)' },
 ];
+
+const HAIR = '#d5c9b2';
 
 function BoundaryPolyChart() {
   const svgW = 580, svgH = 260;
@@ -65,38 +71,38 @@ function BoundaryPolyChart() {
   return (
     <svg viewBox={`0 0 ${svgW} ${svgH}`} width="100%" style={{ maxWidth: 620 }}>
       {/* zero line */}
-      <line x1={padL} y1={y0} x2={padL + cW} y2={y0} stroke="#475569" strokeDasharray="3 3" />
-      <text x={padL + cW} y={y0 - 4} fill="#64748b" fontSize={9} textAnchor="end">Q = 0 (sign boundary)</text>
+      <line x1={padL} y1={y0} x2={padL + cW} y2={y0} stroke={HAIR} strokeDasharray="3 3" />
+      <text x={padL + cW} y={y0 - 4} fill="var(--faint)" fontSize={9} textAnchor="end">Q = 0 (sign boundary)</text>
 
       {/* trap-holds shading Theta in [1/4, Theta_b] */}
       <rect x={xScale(0.25)} y={padT} width={xScale(THETA_B) - xScale(0.25)} height={cH}
-        fill="rgba(16,185,129,0.08)" />
-      <text x={(xScale(0.25) + xScale(THETA_B)) / 2} y={padT + 12} fill="#10b981" fontSize={9} textAnchor="middle">
+        fill="rgba(76,122,74,0.10)" />
+      <text x={(xScale(0.25) + xScale(THETA_B)) / 2} y={padT + 12} fill="var(--green)" fontSize={9} textAnchor="middle">
         trap holds (Q ≤ 0)
       </text>
       <rect x={xScale(THETA_B)} y={padT} width={xScale(xMax) - xScale(THETA_B)} height={cH}
-        fill="rgba(239,68,68,0.07)" />
-      <text x={(xScale(THETA_B) + xScale(xMax)) / 2} y={padT + 12} fill="#ef4444" fontSize={9} textAnchor="middle">
+        fill="rgba(194,58,28,0.08)" />
+      <text x={(xScale(THETA_B) + xScale(xMax)) / 2} y={padT + 12} fill="var(--terra-dk)" fontSize={9} textAnchor="middle">
         static crossing (Q &gt; 0)
       </text>
 
       {/* Q curve */}
-      <path d={negPath} fill="none" stroke="#f59e0b" strokeWidth={2} />
+      <path d={negPath} fill="none" stroke="var(--brass)" strokeWidth={2} />
 
       {/* Theta_b marker */}
-      <line x1={xScale(THETA_B)} y1={padT} x2={xScale(THETA_B)} y2={padT + cH} stroke="#f59e0b" strokeWidth={1.4} strokeDasharray="4 3" />
-      <circle cx={xScale(THETA_B)} cy={y0} r={4} fill="#f59e0b" />
-      <text x={xScale(THETA_B)} y={padT + cH + 22} fill="#f59e0b" fontSize={9} textAnchor="middle">Θ_b = 0.443</text>
+      <line x1={xScale(THETA_B)} y1={padT} x2={xScale(THETA_B)} y2={padT + cH} stroke="var(--brass)" strokeWidth={1.4} strokeDasharray="4 3" />
+      <circle cx={xScale(THETA_B)} cy={y0} r={4} fill="var(--brass)" />
+      <text x={xScale(THETA_B)} y={padT + cH + 22} fill="var(--brass)" fontSize={9} textAnchor="middle">Θ_b = 0.443</text>
 
       {/* axes */}
       {xTicks.map((v) => (
         <g key={v}>
-          <text x={xScale(v)} y={svgH - 22} fill="#475569" fontSize={8} textAnchor="middle">{v}</text>
-          <line x1={xScale(v)} y1={padT + cH} x2={xScale(v)} y2={padT + cH + 3} stroke="#334155" />
+          <text x={xScale(v)} y={svgH - 22} fill="var(--faint)" fontSize={8} textAnchor="middle">{v}</text>
+          <line x1={xScale(v)} y1={padT + cH} x2={xScale(v)} y2={padT + cH + 3} stroke={HAIR} />
         </g>
       ))}
-      <text x={padL + cW / 2} y={svgH - 6} fill="#94a3b8" fontSize={9} textAnchor="middle">Θ (trap level)</text>
-      <text x={14} y={padT + cH / 2} fill="#94a3b8" fontSize={9} textAnchor="middle"
+      <text x={padL + cW / 2} y={svgH - 6} fill="var(--faint)" fontSize={9} textAnchor="middle">Θ (trap level)</text>
+      <text x={14} y={padT + cH / 2} fill="var(--faint)" fontSize={9} textAnchor="middle"
         transform={`rotate(-90, 14, ${padT + cH / 2})`}>
         Q(Θ) = r(2r²+7r−3), r = 2Θ−½
       </text>
@@ -113,11 +119,11 @@ function TrapLadder() {
   const axisY = padT + 24;
   return (
     <svg viewBox={`0 0 ${svgW} ${svgH}`} width="100%" style={{ maxWidth: 620 }}>
-      <line x1={padL} y1={axisY} x2={padL + cW} y2={axisY} stroke="#475569" strokeWidth={1.5} />
+      <line x1={padL} y1={axisY} x2={padL + cW} y2={axisY} stroke="var(--faint)" strokeWidth={1.5} />
       {[0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55].map((v) => (
         <g key={v}>
-          <line x1={xScale(v)} y1={axisY - 3} x2={xScale(v)} y2={axisY + 3} stroke="#334155" />
-          <text x={xScale(v)} y={axisY + 16} fill="#475569" fontSize={8} textAnchor="middle">{v.toFixed(2)}</text>
+          <line x1={xScale(v)} y1={axisY - 3} x2={xScale(v)} y2={axisY + 3} stroke={HAIR} />
+          <text x={xScale(v)} y={axisY + 16} fill="var(--faint)" fontSize={8} textAnchor="middle">{v.toFixed(2)}</text>
         </g>
       ))}
       {LADDER.map((m, i) => {
@@ -132,36 +138,48 @@ function TrapLadder() {
           </g>
         );
       })}
-      <text x={padL} y={16} fill="#94a3b8" fontSize={10} fontWeight={700}>The Θ-trap ladder</text>
+      <text x={padL} y={16} fill="var(--faint)" fontSize={10} fontWeight={700}>The Θ-trap ladder</text>
     </svg>
   );
 }
 
 export default function TheoremBThresholdPage() {
   return (
-    <div className="page">
-      <PageHeader title="Theorem B: The Minimal-Gap Sharp Threshold Θ_b = (√73 − 5)/8">
-        <p>
-          For the attractive Calogero–Moser flow{' '}
-          <InlineMath tex={"\\dot x_k = -2\\sum_{j\\neq k}\\tfrac{1}{x_k-x_j}"} />, a colliding pair with gap{' '}
-          <InlineMath tex={"g"} /> carries the environment functional{' '}
-          <InlineMath tex={"\\Theta = \\tfrac{1}{2}g^2\\!\\sum_j T_j"} /> (with{' '}
-          <InlineMath tex={"T_j = \\tfrac{1}{(x_k-x_j)(x_{k+1}-x_j)}"} />). A level{' '}
-          <InlineMath tex={"\\Theta^\\ast"} /> is a <strong>trap</strong> if{' '}
-          <InlineMath tex={"\\Theta(s_0)\\le\\Theta^\\ast"} /> forces{' '}
-          <InlineMath tex={"\\Theta(s)\\le\\Theta^\\ast"} /> up to collision. Theorem&nbsp;A gives the
-          unconditional trap at <InlineMath tex={"1/4"} />. <strong style={{ color: '#f59e0b' }}>Theorem&nbsp;B</strong>{' '}
-          adds the single hypothesis that <InlineMath tex={"g"} /> is the <em>minimal</em> gap and pushes the
-          static trap up to a <strong>closed-form, provably sharp</strong> ceiling.
-        </p>
-      </PageHeader>
+    <PostLayout
+      grade="RESULT"
+      meta={['minimal-gap Θ-trap · sharp threshold', 'closed-form constant']}
+      title="Theorem B: The Minimal-Gap Sharp Threshold Θ_b = (√73 − 5)/8"
+      dek="The minimal-gap hypothesis pushes the static Θ-trap up to a closed-form, provably sharp ceiling Θ_b = (√73 − 5)/8 = 0.443000…, where the exact sign boundary lands on the closed form."
+      byline={['sg1c Θ-trap theorems · mathexplorer', 'static route, sharp endpoint']}
+      ticker={<span>sharpens one internal step · does not move Λ ≤ 0.2 SOTA</span>}
+      footer={<>
+        Related: <Link to="/theta-static-obstruction">Theorem R1-T2 (static-route obstruction)</Link>
+        {' · '}<Link to="/theta-seizing-margin">Lemma R1-T3 (seizing margin)</Link>
+        {' · '}<Link to="/theta-basin-closure">Lemma R1-T4 (dynamical basin closure)</Link>
+        {' · '}<Link to="/spectral-attack">Spectral Attack overview</Link>
+        <br /><br />← <Link to="/">the atlas</Link>
+      </>}
+    >
+      <p className="lead">
+        For the attractive Calogero–Moser flow{' '}
+        <InlineMath tex={"\\dot x_k = -2\\sum_{j\\neq k}\\tfrac{1}{x_k-x_j}"} />, a colliding pair with gap{' '}
+        <InlineMath tex={"g"} /> carries the environment functional{' '}
+        <InlineMath tex={"\\Theta = \\tfrac{1}{2}g^2\\!\\sum_j T_j"} /> (with{' '}
+        <InlineMath tex={"T_j = \\tfrac{1}{(x_k-x_j)(x_{k+1}-x_j)}"} />). A level{' '}
+        <InlineMath tex={"\\Theta^\\ast"} /> is a <strong>trap</strong> if{' '}
+        <InlineMath tex={"\\Theta(s_0)\\le\\Theta^\\ast"} /> forces{' '}
+        <InlineMath tex={"\\Theta(s)\\le\\Theta^\\ast"} /> up to collision. Theorem&nbsp;A gives the
+        unconditional trap at <InlineMath tex={"1/4"} />. <strong style={{ color: 'var(--brass)' }}>Theorem&nbsp;B</strong>{' '}
+        adds the single hypothesis that <InlineMath tex={"g"} /> is the <em>minimal</em> gap and pushes the
+        static trap up to a <strong>closed-form, provably sharp</strong> ceiling.
+      </p>
 
       <BlockMath tex={"\\boxed{\\;\\Theta^\\ast \\;\\le\\; \\Theta_b \\;:=\\; \\frac{\\sqrt{73}-5}{8} \\;=\\; 0.443000\\ldots\\;}"} />
 
       {/* Statement / proof spine */}
-      <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #f59e0b' }}>
-        <h3 style={{ color: '#f59e0b', fontSize: 16, marginBottom: 10 }}>Statement &amp; proof spine</h3>
-        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+      <div className="ed-thm" style={{ borderLeftColor: 'var(--brass)' }}>
+        <div className="tlab" style={{ color: 'var(--brass)' }}>Statement &amp; proof spine</div>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.8 }}>
           The minimal-gap hypothesis pins each environment weight to{' '}
           <InlineMath tex={"\\mu_j := g^2 T_j \\le \\tfrac12"} /> (no neighbour is closer than <InlineMath tex={"g"} />),
           while <InlineMath tex={"\\sum_j \\mu_j = 2\\Theta"} />. The boundary sign condition{' '}
@@ -172,139 +190,129 @@ export default function TheoremBThresholdPage() {
           <InlineMath tex={"r"} />, where <InlineMath tex={"\\Theta = \\tfrac14 + \\tfrac{r}{2}"} />:
         </p>
         <BlockMath tex={"r\\,(2r^2 + 7r - 3) \\;\\le\\; 0 \\qquad\\Longleftrightarrow\\qquad 0 \\le r \\le r_b = \\frac{\\sqrt{73}-7}{4}"} />
-        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.8 }}>
           and <InlineMath tex={"\\Theta_b = \\tfrac14 + \\tfrac{r_b}{2} = \\tfrac{2 + (\\sqrt{73}-7)}{8} = \\tfrac{\\sqrt{73}-5}{8}"} />.
           The root <InlineMath tex={"r_b"} /> is where <InlineMath tex={"2r^2+7r-3"} /> changes sign — no
           approximation enters.
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 8 }}>
           {[
-            { label: 'Θ_b', val: THETA_B.toFixed(6), note: '(√73−5)/8', color: '#f59e0b' },
-            { label: 'r_b', val: R_B.toFixed(6), note: '(√73−7)/4', color: '#8b5cf6' },
-            { label: 'Theorem A floor', val: '0.250000', note: '1/4, unconditional', color: '#ef4444' },
-            { label: 'gain over 1/4', val: (THETA_B - 0.25).toFixed(6), note: '+77% headroom', color: '#10b981' },
+            { label: 'Θ_b', val: THETA_B.toFixed(6), note: '(√73−5)/8', color: 'var(--brass)' },
+            { label: 'r_b', val: R_B.toFixed(6), note: '(√73−7)/4', color: 'var(--blue)' },
+            { label: 'Theorem A floor', val: '0.250000', note: '1/4, unconditional', color: 'var(--terra-dk)' },
+            { label: 'gain over 1/4', val: (THETA_B - 0.25).toFixed(6), note: '+77% headroom', color: 'var(--green)' },
           ].map(({ label, val, note, color }) => (
-            <div key={label} style={{ flex: '1 1 130px', padding: '8px 12px', background: 'rgba(30,41,59,0.5)', borderRadius: 6, borderTop: `2px solid ${color}` }}>
+            <div key={label} style={{ flex: '1 1 130px', padding: '8px 12px', background: 'var(--paper2)', borderRadius: 6, borderTop: `2px solid ${color}` }}>
               <div style={{ color, fontSize: 11, fontWeight: 700 }}>{label}</div>
-              <div style={{ color: '#e2e8f0', fontSize: 13, fontFamily: 'monospace' }}>{val}</div>
-              <div style={{ color: '#64748b', fontSize: 10 }}>{note}</div>
+              <div style={{ color: 'var(--ink)', fontSize: 13, fontFamily: 'monospace' }}>{val}</div>
+              <div style={{ color: 'var(--faint)', fontSize: 10 }}>{note}</div>
             </div>
           ))}
         </div>
       </div>
 
       {/* Boundary polynomial chart */}
-      <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #f59e0b' }}>
-        <h3 style={{ color: '#f59e0b', fontSize: 16, marginBottom: 10 }}>
-          The exact sign boundary crosses zero at Θ_b
-        </h3>
-        <p style={{ color: '#94a3b8', fontSize: 12, marginBottom: 14, lineHeight: 1.7 }}>
-          On the Schur-maximal profile the boundary quantity is{' '}
-          <InlineMath tex={"Q(\\Theta) = r(2r^2+7r-3)"} />, <InlineMath tex={"r = 2\\Theta-\\tfrac12"} />.
-          It is <strong style={{ color: '#10b981' }}>negative</strong> (trap holds) throughout{' '}
-          <InlineMath tex={"[\\tfrac14, \\Theta_b]"} /> and turns <strong style={{ color: '#ef4444' }}>positive</strong>{' '}
-          exactly at <InlineMath tex={"\\Theta_b"} /> — the sign flip <em>lands on the closed form</em>, which is
-          what "sharp" means: no static bound reaches higher.
-        </p>
+      <h2>The exact sign boundary crosses zero at Θ_b</h2>
+      <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.7 }}>
+        On the Schur-maximal profile the boundary quantity is{' '}
+        <InlineMath tex={"Q(\\Theta) = r(2r^2+7r-3)"} />, <InlineMath tex={"r = 2\\Theta-\\tfrac12"} />.
+        It is <strong style={{ color: 'var(--green)' }}>negative</strong> (trap holds) throughout{' '}
+        <InlineMath tex={"[\\tfrac14, \\Theta_b]"} /> and turns <strong style={{ color: 'var(--terra-dk)' }}>positive</strong>{' '}
+        exactly at <InlineMath tex={"\\Theta_b"} /> — the sign flip <em>lands on the closed form</em>, which is
+        what "sharp" means: no static bound reaches higher.
+      </p>
+      <Figure caption="The exact sign boundary Q(Θ) = r(2r²+7r−3), r = 2Θ−½, on the Schur-maximal (capped-greedy) profile: negative (trap holds) on [1/4, Θ_b], crossing zero exactly at Θ_b = 0.443.">
         <BoundaryPolyChart />
-      </div>
+      </Figure>
 
       {/* Measured rate — sharpness cross-check */}
-      <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #10b981' }}>
-        <h3 style={{ color: '#10b981', fontSize: 16, marginBottom: 10 }}>
-          Sharpness cross-check: dΘ/ds on the extremal profile
-        </h3>
-        <p style={{ color: '#94a3b8', fontSize: 12, marginBottom: 12, lineHeight: 1.7 }}>
-          The capped-greedy extremizer is the explicit 4-configuration{' '}
-          <InlineMath tex={"\\{-1, 0, 1, 1{+}d_2\\}"} /> with <InlineMath tex={"d_1 = g"} /> saturating the{' '}
-          <InlineMath tex={"\\mu = 1/2"} /> cap and <InlineMath tex={"d_2 = 1.1854\\,g"} /> opposite. Sweeping the
-          trap level through <InlineMath tex={"\\Theta_b"} />, the measured rate flips sign precisely on the
-          threshold (values from the data-module tabulation):
-        </p>
-        <div style={{ overflowX: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
-            <thead>
-              <tr style={{ borderBottom: '1px solid #334155' }}>
-                {['Θ level', 'measured dΘ/ds', 'verdict'].map((h) => (
-                  <th key={h} style={{ color: '#64748b', fontWeight: 600, padding: '6px 10px', textAlign: 'left' }}>{h}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {MEASURED_RATE.map((row) => {
-                const isThresh = Math.abs(row.theta - THETA_B) < 1e-6;
-                const rateColor = row.rate < -1e-9 ? '#10b981' : row.rate > 1e-9 ? '#ef4444' : '#f59e0b';
-                return (
-                  <tr key={row.theta} style={{ borderBottom: '1px solid #1e293b', background: isThresh ? 'rgba(245,158,11,0.08)' : 'transparent' }}>
-                    <td style={{ padding: '7px 10px', color: '#e2e8f0', fontFamily: 'monospace' }}>
-                      {row.theta.toFixed(6)}{isThresh ? ' = Θ_b' : ''}
-                    </td>
-                    <td style={{ padding: '7px 10px', color: rateColor, fontFamily: 'monospace' }}>
-                      {row.rate === 0 ? '0.0000 (exact)' : (row.rate > 0 ? '+' : '') + row.rate.toFixed(4)}
-                    </td>
-                    <td style={{ padding: '7px 10px', color: '#94a3b8', fontSize: 11 }}>{row.note}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-        <p style={{ color: '#64748b', fontSize: 11, marginTop: 10, lineHeight: 1.7 }}>
-          Strictly negative below, exactly 0 at <InlineMath tex={"\\Theta_b = 0.443000"} />, strictly positive
-          above (headline <InlineMath tex={"+0.034"} /> at 0.448, reproduced to 3 digits). The sign flip on the
-          threshold certifies both directions: the trap holds up to <InlineMath tex={"\\Theta_b"} />, and some
-          minimal-gap configuration crosses at every higher level.
-        </p>
+      <h2>Sharpness cross-check: dΘ/ds on the extremal profile</h2>
+      <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.7 }}>
+        The capped-greedy extremizer is the explicit 4-configuration{' '}
+        <InlineMath tex={"\\{-1, 0, 1, 1{+}d_2\\}"} /> with <InlineMath tex={"d_1 = g"} /> saturating the{' '}
+        <InlineMath tex={"\\mu = 1/2"} /> cap and <InlineMath tex={"d_2 = 1.1854\\,g"} /> opposite. Sweeping the
+        trap level through <InlineMath tex={"\\Theta_b"} />, the measured rate flips sign precisely on the
+        threshold (values from the data-module tabulation):
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
+          <thead>
+            <tr style={{ borderBottom: `1px solid ${HAIR}`, background: 'var(--paper2)' }}>
+              {['Θ level', 'measured dΘ/ds', 'verdict'].map((h) => (
+                <th key={h} style={{ color: 'var(--faint)', fontWeight: 600, padding: '6px 10px', textAlign: 'left', border: '1px solid var(--hairline)' }}>{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {MEASURED_RATE.map((row) => {
+              const isThresh = Math.abs(row.theta - THETA_B) < 1e-6;
+              const rateColor = row.rate < -1e-9 ? 'var(--green)' : row.rate > 1e-9 ? 'var(--terra-dk)' : 'var(--brass)';
+              return (
+                <tr key={row.theta} style={{ borderBottom: `1px solid ${HAIR}`, background: isThresh ? 'rgba(140,106,29,0.10)' : 'transparent' }}>
+                  <td style={{ padding: '7px 10px', color: 'var(--ink)', fontFamily: 'monospace', border: '1px solid var(--hairline)' }}>
+                    {row.theta.toFixed(6)}{isThresh ? ' = Θ_b' : ''}
+                  </td>
+                  <td style={{ padding: '7px 10px', color: rateColor, fontFamily: 'monospace', border: '1px solid var(--hairline)' }}>
+                    {row.rate === 0 ? '0.0000 (exact)' : (row.rate > 0 ? '+' : '') + row.rate.toFixed(4)}
+                  </td>
+                  <td style={{ padding: '7px 10px', color: 'var(--ink-soft)', fontSize: 11, border: '1px solid var(--hairline)' }}>{row.note}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
+      <p style={{ color: 'var(--faint)', fontSize: 12, marginTop: 10, lineHeight: 1.7 }}>
+        Strictly negative below, exactly 0 at <InlineMath tex={"\\Theta_b = 0.443000"} />, strictly positive
+        above (headline <InlineMath tex={"+0.034"} /> at 0.448, reproduced to 3 digits). The sign flip on the
+        threshold certifies both directions: the trap holds up to <InlineMath tex={"\\Theta_b"} />, and some
+        minimal-gap configuration crosses at every higher level.
+      </p>
 
       {/* Where it sits — the ladder */}
-      <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #8b5cf6' }}>
-        <h3 style={{ color: '#8b5cf6', fontSize: 16, marginBottom: 10 }}>Where Θ_b sits in the trap ladder</h3>
+      <h2>Where Θ_b sits in the trap ladder</h2>
+      <Figure caption="The Θ-trap ladder: Θ_A = 1/4 (Theorem A), Θ_b = (√73−5)/8 (Theorem B, this page), Θ = 1/2 (Lemma R1-T), Θ ≈ 0.5073 (dressed tie band ceiling).">
         <TrapLadder />
-        <div style={{ marginTop: 6 }}>
-          {LADDER.map((m) => (
-            <div key={m.label} style={{ display: 'flex', gap: 10, alignItems: 'baseline', padding: '4px 0', borderBottom: '1px solid #1e293b' }}>
-              <span style={{ color: m.color, fontFamily: 'monospace', fontSize: 12, minWidth: 130, fontWeight: 700 }}>{m.label}</span>
-              <span style={{ color: '#e2e8f0', fontSize: 12, minWidth: 90 }}>{m.kind}</span>
-              <span style={{ color: '#94a3b8', fontSize: 12 }}>{m.note}</span>
-            </div>
-          ))}
-        </div>
+      </Figure>
+      <div style={{ marginTop: 6 }}>
+        {LADDER.map((m) => (
+          <div key={m.label} style={{ display: 'flex', gap: 10, alignItems: 'baseline', padding: '4px 0', borderBottom: `1px solid ${HAIR}` }}>
+            <span style={{ color: m.color, fontFamily: 'monospace', fontSize: 12, minWidth: 130, fontWeight: 700 }}>{m.label}</span>
+            <span style={{ color: 'var(--ink)', fontSize: 12, minWidth: 90 }}>{m.kind}</span>
+            <span style={{ color: 'var(--ink-soft)', fontSize: 12 }}>{m.note}</span>
+          </div>
+        ))}
       </div>
 
+      <Pull>the sign flip lands on the closed form Θ_b = 0.443 — that is what "sharp" means for the static route</Pull>
+
       {/* Honest status */}
-      <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #ef4444' }}>
-        <h3 style={{ color: '#ef4444', fontSize: 16, marginBottom: 8 }}>Honest status — what Θ_b does and does not buy</h3>
-        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
-          <strong style={{ color: '#e2e8f0' }}>What it closes:</strong> the sharp static minimal-gap trap in exact
+      <div className="ed-thm" style={{ borderLeftColor: 'var(--terra-dk)' }}>
+        <div className="tlab" style={{ color: 'var(--terra-dk)' }}>Honest status — what Θ_b does and does not buy</div>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.8 }}>
+          <strong style={{ color: 'var(--ink)' }}>What it closes:</strong> the sharp static minimal-gap trap in exact
           closed form. Because the sign flip lands on <InlineMath tex={"\\Theta_b"} />, it also proves the
           <em> limit of the static route</em>: no configuration-only inequality can push the ceiling above
           0.443. That is a genuine, self-certifying endpoint.
         </p>
-        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
-          <strong style={{ color: '#e2e8f0' }}>What it does not do:</strong> it is <em>not</em> an absolute
+        <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.8 }}>
+          <strong style={{ color: 'var(--ink)' }}>What it does not do:</strong> it is <em>not</em> an absolute
           excursion cap. The optimistic SG1c (some absolute <InlineMath tex={"\\Theta^\\ast < 1"} />) is
           refuted on the band <InlineMath tex={"(0.443, 0.5073)"} />: explicit minimal-gap families rise above
           0.443 before minimality switches. Those crossings are <strong>dynamically re-trapped</strong> by the
-          seizing mechanism (<Link to="/theta-seizing-margin" style={{ color: '#8b5cf6' }}>Lemma R1-T3</Link>) —
+          seizing mechanism (<Link to="/theta-seizing-margin">Lemma R1-T3</Link>) —
           the rising pair sheds minimality to a lower-Θ competitor — capping the real excursion at{' '}
           <InlineMath tex={"1/2"} /> on the symmetric family. Θ_b marks exactly where the argument must hand
           off from static to dynamic.
         </p>
-        <p style={{ color: '#64748b', fontSize: 12, lineHeight: 1.8, marginTop: 8 }}>
+        <p style={{ color: 'var(--faint)', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
           Context: the measured real-zero configurations sit at <InlineMath tex={"\\Theta(0) = 0.167 / 0.088 / 0.046"} />,
           far below even the unconditional <InlineMath tex={"1/4"} /> of Theorem&nbsp;A — so on the actual data the
           collision bound applies unconditionally; Theorem&nbsp;B and the excursion band are about the adversarial
           worst case, not the tested rows. This does not move the rigorous SOTA (Platt–Trudgian{' '}
           <InlineMath tex={"\\Lambda \\le 0.2"} />); it sharpens one internal step of the finite-N program.
         </p>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginTop: 14, fontSize: 13 }}>
-          <Link to="/theta-static-obstruction" style={{ color: '#38bdf8' }}>→ Theorem R1-T2 (static-route obstruction)</Link>
-          <Link to="/theta-seizing-margin" style={{ color: '#38bdf8' }}>→ Lemma R1-T3 (seizing margin)</Link>
-          <Link to="/theta-basin-closure" style={{ color: '#38bdf8' }}>→ Lemma R1-T4 (dynamical basin closure)</Link>
-          <Link to="/spectral-attack" style={{ color: '#38bdf8' }}>→ Spectral Attack overview</Link>
-        </div>
       </div>
-    </div>
+    </PostLayout>
   );
 }

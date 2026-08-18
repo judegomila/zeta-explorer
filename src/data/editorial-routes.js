@@ -11,6 +11,10 @@ export const EDITORIAL_ROUTES = new Set([
   '/pt-floor-audit',
   '/newman-lambda-01787854-candidate',
   '/what-we-know',
+  '/shift-bridge-positivity',
+  '/theorem-b-threshold',
+  '/route-map',
+  '/lambda-bounds',
 ]);
 
 export function isEditorialRoute(pathname) {

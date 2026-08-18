@@ -175,7 +175,7 @@ export default function HomePageEditorial() {
         </div>
       </section></div>
 
-      <div className="ed-foot">mathexplorer · a live record of one attack on the Riemann Hypothesis · Jude Gomila · <Link to="/classic">classic view</Link></div>
+      <div className="ed-foot">zetaexplorer · a live record of one attack on the Riemann Hypothesis · Jude Gomila · <Link to="/classic">classic view</Link></div>
     </div>
   );
 }

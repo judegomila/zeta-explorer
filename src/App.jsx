@@ -1,12 +1,17 @@
 import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
 import { HashRouter, Routes, Route, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { MathModalProvider } from './components/KaTeXMath.jsx';
-import HomePage from './pages/HomePage.jsx';
+import HomePageEditorial from './pages/HomePageEditorial.jsx';
 import RouteErrorBoundary from './components/RouteErrorBoundary.jsx';
 import { NAV_GROUPS } from './data/nav-groups.js';
 import './styles/app.css';
+import './styles/editorial.css';
+import { isEditorialRoute } from './data/editorial-routes.js';
 
-// Lazy-load all pages except HomePage for code-splitting
+// Lazy-load all pages except the editorial landing for code-splitting
+const HomePage = lazy(() => import('./pages/HomePage.jsx')); // legacy dark home, now /classic
+const LambdaCandidate01758354Page = lazy(() => import('./pages/LambdaCandidate01758354Page.jsx'));
+const AutonomousFleetPage = lazy(() => import('./pages/AutonomousFleetPage.jsx'));
 const PapersDownloadPage = lazy(() => import('./pages/PapersDownloadPage.jsx'));
 const OscillatorsPage = lazy(() => import('./pages/OscillatorsPage.jsx'));
 const HamiltonianPage = lazy(() => import('./pages/HamiltonianPage.jsx'));
@@ -1502,6 +1507,8 @@ function NavBar({ onShowShortcuts, onShowPalette }) {
 
 function AppShell() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const editorial = isEditorialRoute(location.pathname);
   const { showHelp, setShowHelp, showPalette, setShowPalette } = useKeyboardShortcuts(navigate);
 
   return (
@@ -1509,14 +1516,18 @@ function AppShell() {
       <ScrollToTop />
       <DocumentTitle />
       <a className="skip-link" href="#main-content">Skip to content</a>
-      <NavBar onShowShortcuts={() => setShowHelp(true)} onShowPalette={() => setShowPalette(true)} />
+      {/* Editorial routes render their own cream in-page header (EditorialHeader). */}
+      {!editorial && <NavBar onShowShortcuts={() => setShowHelp(true)} onShowPalette={() => setShowPalette(true)} />}
       <KeyboardShortcutOverlay show={showHelp} onClose={() => setShowHelp(false)} />
       <CommandPalette show={showPalette} onClose={() => setShowPalette(false)} navigate={navigate} />
-      <main id="main-content" className="app-content">
+      <main id="main-content" className={editorial ? 'app-content ed-active' : 'app-content'}>
         <RouteErrorBoundary>
         <Suspense fallback={<PageLoader />}>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePageEditorial />} />
+          <Route path="/classic" element={<HomePage />} />
+          <Route path="/lambda-01758354-candidate" element={<LambdaCandidate01758354Page />} />
+          <Route path="/autonomous-fleet" element={<AutonomousFleetPage />} />
           <Route path="/oscillators" element={<OscillatorsPage />} />
           <Route path="/hamiltonian" element={<HamiltonianPage />} />
           <Route path="/zeta" element={<ZetaPage />} />

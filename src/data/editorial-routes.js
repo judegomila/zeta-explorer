@@ -5,8 +5,8 @@
 export const EDITORIAL_ROUTES = new Set([
   '/',
   '/lambda-01758354-candidate',
-  '/collapse-chain',
   '/autonomous-fleet',
+  '/flow-blindness-no-go',
 ]);
 
 export function isEditorialRoute(pathname) {

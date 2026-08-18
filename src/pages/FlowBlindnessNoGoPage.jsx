@@ -1,81 +1,58 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PageHeader from '../components/PageHeader.jsx';
+import PostLayout, { TheoremBox, Pull } from '../components/editorial/PostLayout.jsx';
 import { FLOW_BLINDNESS_NO_GO as D } from '../data/flow-blindness-no-go.js';
 
-const card = {
-  background: '#0b1220',
-  border: '1px solid #1e293b',
-  borderRadius: 10,
-  padding: '16px 18px',
-  margin: '14px 0',
-};
-const label = { color: '#7dd3fc', fontWeight: 600, fontSize: 13, letterSpacing: 0.3 };
-const mono = {
-  fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
-  background: '#0f172a',
-  border: '1px solid #1e293b',
-  borderRadius: 6,
-  padding: '10px 12px',
-  display: 'block',
-  color: '#e2e8f0',
-  fontSize: 14,
-  overflowX: 'auto',
-};
+/* Editorial (post reading-view) presentation of the flow-blindness no-go.
+   All text is sourced verbatim from src/data/flow-blindness-no-go.js — this file
+   only restyles it; it makes no mathematical claim of its own. */
 
 export default function FlowBlindnessNoGoPage() {
   return (
-    <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 16px 60px', color: '#cbd5e1' }}>
-      <PageHeader title="Flow-Blindness: Soft Hypotheses Cannot Prove RH" />
-
-      <div style={{ ...card, borderColor: '#3b3b1e', background: '#141405' }}>
-        <span style={{ ...label, color: '#fbbf24' }}>{D.status}</span>
-        <p style={{ marginTop: 8 }}>{D.oneLine}</p>
-        <a href={D.paperPdf} target="_blank" rel="noreferrer"
-           style={{ color: '#7dd3fc', fontWeight: 600 }}>
-          → Read the rigorous note (PDF)
-        </a>
+    <PostLayout
+      grade="NO-GO"
+      meta={[D.status]}
+      title={D.title}
+      dek={D.oneLine}
+      byline={['SL2 · mathexplorer', 'unconditional']}
+      ticker={<span>no-go · rests on Rodgers–Tao Λ ≥ 0</span>}
+      footer={<>
+        <a href={D.paperPdf} target="_blank" rel="noreferrer">Read the rigorous note (PDF)</a>
+        {' · '}Related: <Link to="/frozen-rung-pt-equivalence">Freezing rungs = Platt–Trudgian</Link>
+        {' · '}<Link to="/route-map">The wall map</Link><br /><br />← <Link to="/">the atlas</Link>
+      </>}
+    >
+      <h2>{D.dictionary.heading}</h2>
+      <p className="lead">The program's sole global frontier is a positivity statement about a shifted profile. The first thing to pin down is what that statement actually is.</p>
+      <div className="ed-thm" style={{ borderLeftColor: 'var(--brass)' }}>
+        <div className="tlab">Dictionary identity (†)</div>
+        <p className="ed-mono" style={{ fontSize: 15 }}>{D.dictionary.identity}</p>
       </div>
+      <p><strong>Verified.</strong> {D.dictionary.verified}</p>
+      <p>{D.dictionary.consequence}</p>
+      <p style={{ fontSize: 15, color: 'var(--faint)' }}>{D.dictionary.factorTwo}</p>
 
-      <div style={card}>
-        <span style={label}>{D.dictionary.heading}</span>
-        <code style={{ ...mono, marginTop: 8 }}>{D.dictionary.identity}</code>
-        <p style={{ marginTop: 10 }}><b>Verified.</b> {D.dictionary.verified}</p>
-        <p><b>Consequence.</b> {D.dictionary.consequence}</p>
-        <p style={{ color: '#94a3b8', fontSize: 14 }}>{D.dictionary.factorTwo}</p>
-      </div>
+      <h2>{D.theorem.heading}</h2>
+      <TheoremBox label="Theorem (flow-blindness)">
+        <p>{D.theorem.statement}</p>
+      </TheoremBox>
+      <p><strong>Corollary.</strong> {D.theorem.corollary}</p>
+      <p><strong>What a proof must add.</strong> {D.theorem.mustAdd}</p>
 
-      <div style={{ ...card, borderColor: '#1e3a5f' }}>
-        <span style={{ ...label, color: '#93c5fd' }}>{D.theorem.heading}</span>
-        <p style={{ marginTop: 8 }}><b>Theorem.</b> {D.theorem.statement}</p>
-        <p><b>Corollary (no soft proof).</b> {D.theorem.corollary}</p>
-        <p><b>What a proof must add.</b> {D.theorem.mustAdd}</p>
-      </div>
+      <Pull>{D.ties[1]}</Pull>
 
-      <div style={card}>
-        <span style={label}>Where it sits</span>
-        <ul style={{ marginTop: 8, lineHeight: 1.6 }}>
-          {D.ties.map((t, i) => <li key={i}>{t}</li>)}
-        </ul>
-      </div>
+      <h2>Where it sits</h2>
+      <ul style={{ paddingLeft: 20 }}>
+        {D.ties.map((t, i) => <li key={i} style={{ marginBottom: 10 }}>{t}</li>)}
+      </ul>
 
-      <div style={{ ...card, background: '#0a1a0a', borderColor: '#1e3a1e' }}>
-        <span style={{ ...label, color: '#86efac' }}>Honest scope</span>
-        <p style={{ marginTop: 8 }}>{D.scope}</p>
-      </div>
+      <h2>Scope</h2>
+      <p>{D.scope}</p>
 
-      <div style={card}>
-        <span style={label}>References</span>
-        <ol style={{ marginTop: 8, lineHeight: 1.6, color: '#94a3b8', fontSize: 14 }}>
-          {D.references.map((r, i) => <li key={i}>{r}</li>)}
-        </ol>
-        <p style={{ marginTop: 10 }}>
-          Related: <Link to="/frozen-rung-pt-equivalence" style={{ color: '#7dd3fc' }}>
-          Freezing Rungs = Platt–Trudgian</Link>{' · '}
-          <Link to="/open-frontier" style={{ color: '#7dd3fc' }}>Open Frontier (T-series)</Link>{' · '}
-          <Link to="/pt-floor-audit" style={{ color: '#7dd3fc' }}>What Binds the Λ≤0.2 Floor?</Link>
-        </p>
-      </div>
-    </div>
+      <h2>References</h2>
+      <ol className="ed-mono" style={{ paddingLeft: 20, fontSize: 13, color: 'var(--ink-soft)' }}>
+        {D.references.map((r, i) => <li key={i} style={{ marginBottom: 6 }}>{r}</li>)}
+      </ol>
+    </PostLayout>
   );
 }

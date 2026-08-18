@@ -18,7 +18,7 @@ const FINDINGS = [
   { to: '/lambda-bounds', grade: 'VERIFIED', date: '2026',
     title: 'RH-free F_mb enclosure', desc: 'imp-3725 — a rigorous enclosure assuming no RH.' },
   { to: '/route-map', grade: 'MAP', date: '2026',
-    title: 'The wall map · 272 routes', desc: 'Every closure route and exactly where it splits.' },
+    title: 'The wall map · 38 routes', desc: 'Every closure route across 5 clusters, and exactly where it splits.' },
   { to: '/what-we-know', grade: 'NO-GO', date: '2026',
     title: 'Negative results', desc: 'Theorems ruling out route families — the breach point, located.' },
   { to: '/pt-floor-audit', grade: 'AUDIT', date: '2026',
@@ -85,7 +85,7 @@ export default function HomePageEditorial() {
       <div className="ed-full"><div className="ed-kpis">
         <div className="ed-kpi"><b style={{ color: 'var(--brass-dk)' }}>0.1758354</b><span>Λ candidate</span></div>
         <div className="ed-kpi"><b>3.0×10¹²</b><span>verified height</span></div>
-        <div className="ed-kpi"><b>272</b><span>routes mapped</span></div>
+        <div className="ed-kpi"><b>38</b><span>routes mapped</span></div>
         <div className="ed-kpi"><b style={{ color: 'var(--terra-dk)' }}>2</b><span>no-go theorems</span></div>
         <div className="ed-kpi"><b style={{ color: 'var(--green)' }}>12</b><span>interactive simulators</span></div>
       </div></div>
@@ -170,7 +170,7 @@ export default function HomePageEditorial() {
         <div className="ed-cta">
           <div><div className="ed-lbl">go deeper</div>
             <div style={{ fontFamily: 'var(--ed-display)', fontWeight: 500, fontSize: 20, marginTop: 2 }}>The full research console</div>
-            <div style={{ color: 'var(--ink-soft)', fontSize: 14 }}>Rigor dashboard · engine room · route map · the 272-route ledger.</div></div>
+            <div style={{ color: 'var(--ink-soft)', fontSize: 14 }}>Rigor dashboard · engine room · route map · the full closure ledger.</div></div>
           <Link className="ed-btn" to="/classic">Enter console →</Link>
         </div>
       </section></div>

@@ -52,7 +52,7 @@ export default function HomePageEditorial() {
       <div className="ed-hero"><div className="ed-full"><div className="ed-herogrid">
         <div>
           <div className="ed-lbl">Riemann Hypothesis · de Bruijn–Newman constant Λ</div>
-          <h1>An attack on the Riemann Hypothesis by bounding <em className="ed-terra">Λ</em>.</h1>
+          <h1>Exploring the <em className="ed-terra">Riemann Hypothesis</em>.</h1>
           <div className="ed-stand">RH ⇔ Λ = 0. This is a live record of the attack: the twin-ladder model,
             the interactive simulators, every barrier bound, and the theorems that show where the route ends.</div>
           <div style={{ marginTop: 22 }}>

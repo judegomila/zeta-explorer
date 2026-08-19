@@ -111,6 +111,14 @@ function htmlResponse(body, status) {
 }
 
 export default async function middleware(request) {
+  // Preview deployments are public (no login gate); production stays protected.
+  // VERCEL_ENV is 'production' only on the production deployment; every branch
+  // preview is 'preview'. Scoping the bypass this way means merging to main
+  // never opens the live site — only preview URLs are public.
+  if (process.env.VERCEL_ENV !== 'production') {
+    return next();
+  }
+
   const expectedPass = process.env.BASIC_AUTH_PASSWORD;
   const expectedUser = process.env.BASIC_AUTH_USER || 'admin';
 

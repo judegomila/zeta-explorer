@@ -11,12 +11,10 @@ import { EDITORIAL_ROUTES } from '../data/editorial-routes.js';
 
 export default function DirectoryPage() {
   const total = NAV_GROUPS.reduce((n, g) => n + g.items.length, 0);
-  const converted = NAV_GROUPS.reduce(
-    (n, g) => n + g.items.filter((it) => EDITORIAL_ROUTES.has(it.to)).length, 0);
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>{converted}/{total} sections in the new design</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ padding: '32px 34px 70px' }}>
         <div className="ed-lbl">directory</div>
         <h1 className="ed-h1" style={{ fontSize: 'clamp(28px,4vw,40px)', marginTop: 8 }}>Directory</h1>

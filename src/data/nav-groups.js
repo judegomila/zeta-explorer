@@ -35,7 +35,7 @@ export const NAV_GROUPS = [
     ],
   },
   {
-    label: 'Twin-Ladder v70',
+    label: 'Twin-Ladder Program (§15–27)',
     items: [
       { to: '/shift-bridge-positivity', label: 'Shift-Bridge (§15)' },
       { to: '/closure-routes', label: 'Four Closure Routes (§16)' },

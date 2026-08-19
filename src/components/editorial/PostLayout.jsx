@@ -1,6 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../KaTeXMath.jsx';
+import { NAV_GROUPS } from '../../data/nav-groups.js';
+
+// Drop the version/parenthetical suffix for the compact top-bar button label.
+const shortLabel = (s) => s.replace(/\s*\(.*\)\s*$/, '');
+
+function NavDropdown({ label, items }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="ed-ddwrap" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+      <button type="button" className="ed-ddbtn" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
+        {shortLabel(label)} <span className="ed-ddcaret">▾</span>
+      </button>
+      {open && (
+        <div className="ed-ddpanel">
+          {items.map((it) => (
+            <Link key={it.to} to={it.to} onClick={() => setOpen(false)}>{it.label}</Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 /* ---------------------------------------------------------------------------
    Editorial design-system primitives. Everything renders inside .ed-root so the
@@ -18,9 +40,7 @@ export function EditorialHeader({ ticker }) {
         <nav className="ed-headnav">
           <Link to="/">Atlas</Link>
           <Link to="/directory">Directory</Link>
-          <Link to="/explorations">Simulators</Link>
-          <Link to="/route-map">Walls</Link>
-          <Link to="/lambda-bounds">Results</Link>
+          {NAV_GROUPS.map((g) => <NavDropdown key={g.label} label={g.label} items={g.items} />)}
         </nav>
         {ticker && (
           <div className="ed-tick"><span className="ed-pulse" />{ticker}</div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader, GradeChip, InlineMath } from '../components/editorial/PostLayout.jsx';
+import WireframeAnim from '../components/editorial/WireframeAnim.jsx';
 import { NAV_GROUPS } from '../data/nav-groups.js';
 
 /* Battle-station front page — full-width cockpit, editorial (warm) theme,
@@ -70,15 +71,9 @@ export default function HomePageEditorial() {
           </div>
         </div>
         <div className="ed-viz">
-          <div className="ed-vizhead"><span className="ed-lbl">twin-ladder shear · a-dial</span><span className="ed-badge">interactive</span></div>
-          <svg width="100%" height="200" viewBox="0 0 320 200" fill="none" stroke="#8c6a1d" strokeWidth="1.2">
-            <rect width="320" height="200" fill="#fdfaf3" />
-            <path d="M50 16 V184 M92 16 V184 M228 16 V184 M270 16 V184" opacity=".6" />
-            <g opacity=".42"><path d="M50 38 H92 M50 62 H92 M50 86 H92 M50 110 H92 M50 134 H92 M50 158 H92 M228 38 H270 M228 62 H270 M228 86 H270 M228 110 H270 M228 134 H270 M228 158 H270" /></g>
-            <path d="M92 38 C160 38 160 158 228 158 M92 158 C160 158 160 38 228 38" stroke="#d9502e" strokeWidth="1.5" opacity=".85" />
-            <circle cx="160" cy="98" r="3.5" fill="#d9502e" stroke="none" />
-          </svg>
-          <div className="ed-mono" style={{ fontSize: 11, color: 'var(--faint)', marginTop: 4 }}>shear vs positive core · drag a → strip closes to the line</div>
+          <div className="ed-vizhead"><span className="ed-lbl">twin-ladder shear</span><span className="ed-badge">animation</span></div>
+          <WireframeAnim kind="twinladder" />
+          <div className="ed-mono" style={{ fontSize: 11, color: 'var(--faint)', marginTop: 4 }}>the antisymmetric shear between two rung-stacks, against the positive core</div>
         </div>
       </div></div></div>
 
@@ -96,15 +91,21 @@ export default function HomePageEditorial() {
         <div className="ed-shead"><div><div className="ed-lbl">the model</div><h2>The twin ladder</h2></div>
           <p>Euler product → prime oscillators → the shear kernel. Three steps.</p></div>
         <div className="ed-steps">
-          <div className="ed-step"><span className="num">STEP 1</span><h3>Prime oscillator</h3>
+          <div className="ed-step"><span className="num">STEP 1</span>
+            <div className="ed-stepfig"><WireframeAnim kind="oscillator" /></div>
+            <h3>Prime oscillator</h3>
             <div className="eq"><InlineMath tex="H_p(s) = 1/(1 - p^{-s})" /></div>
             <p>Each prime is an LC resonator with impedance log p; the Euler product is a ladder network.</p>
             <Link to="/oscillators">/oscillators →</Link></div>
-          <div className="ed-step"><span className="num">STEP 2</span><h3>Twin-ladder shear</h3>
+          <div className="ed-step"><span className="num">STEP 2</span>
+            <div className="ed-stepfig"><WireframeAnim kind="twinladder" /></div>
+            <h3>Twin-ladder shear</h3>
             <div className="eq"><InlineMath tex="K_a = K_0 + D_{a,R} + K^{S}" /></div>
             <p>Couple two rung-stacks; the antisymmetric shear is the de Branges Wronskian of ξ. Positivity ⇔ a zero-free strip.</p>
             <Link to="/twin-ladder">/twin-ladder →</Link></div>
-          <div className="ed-step"><span className="num">STEP 3</span><h3>The a-dial</h3>
+          <div className="ed-step"><span className="num">STEP 3</span>
+            <div className="ed-stepfig"><WireframeAnim kind="wave" /></div>
+            <h3>The a-dial</h3>
             <div className="eq"><InlineMath tex="T3(a)\ \forall a>0 \iff \mathrm{RH}" /></div>
             <p>Shrink the shift a→0 and the strip closes to the line. E_a = A_a − iB_a = Ξ(z+ia), verified.</p>
             <Link to="/shift-bridge-positivity">/shift-bridge-positivity →</Link></div>
@@ -171,7 +172,7 @@ export default function HomePageEditorial() {
         <div className="ed-cta">
           <div><div className="ed-lbl">directory</div>
             <div style={{ fontFamily: 'var(--ed-display)', fontWeight: 500, fontSize: 20, marginTop: 2 }}>{NAV_GROUPS.length} sections</div>
-            <div style={{ color: 'var(--ink-soft)', fontSize: 14 }}>Simulators, analyses, the twin-ladder v70 series, proof tools, and references.</div></div>
+            <div style={{ color: 'var(--ink-soft)', fontSize: 14 }}>Simulators, analyses, the twin-ladder program, proof tools, and references.</div></div>
           <div style={{ display: 'flex', gap: 10 }}>
             <Link className="ed-btn" to="/directory">Browse the directory →</Link>
             <Link className="ed-btn" to="/classic" style={{ background: 'transparent', color: 'var(--ink)', border: '1px solid var(--hairline)' }}>Classic console</Link>

@@ -125,7 +125,37 @@ function Lattice() {
   );
 }
 
-const KINDS = { wave: Wave, oscillator: Oscillator, spectrum: Spectrum, lattice: Lattice };
+// Twin ladder: two rung-stacks with an antisymmetric shear that oscillates.
+function TwinLadder() {
+  const shearA = 'M105 50 C160 50 160 110 215 110 M105 110 C160 110 160 50 215 50';
+  const shearB = 'M105 42 C160 64 160 96 215 118 M105 118 C160 96 160 64 215 42';
+  return (
+    <Frame>
+      {/* rails */}
+      {[70, 105, 215, 250].map((x) => (
+        <line key={x} x1={x} y1="24" x2={x} y2="136" stroke={x === 105 || x === 215 ? BRASS : HAIR} strokeWidth="1.1" />
+      ))}
+      {/* rungs */}
+      <g opacity="0.42">
+        {Array.from({ length: 6 }, (_, i) => 34 + i * 20).map((y) => (
+          <g key={y}>
+            <line x1="70" y1={y} x2="105" y2={y} stroke={HAIR} strokeWidth="0.8" />
+            <line x1="215" y1={y} x2="250" y2={y} stroke={HAIR} strokeWidth="0.8" />
+          </g>
+        ))}
+      </g>
+      {/* oscillating shear */}
+      <path fill="none" stroke={TERRA} strokeWidth="1.5" opacity="0.85">
+        <animate attributeName="d" values={`${shearA};${shearB};${shearA}`} dur="4s" repeatCount="indefinite" />
+      </path>
+      <circle r="3.5" fill={BRASS}>
+        <animateMotion path="M160 80 C160 50 160 110 160 80" dur="4s" repeatCount="indefinite" />
+      </circle>
+    </Frame>
+  );
+}
+
+const KINDS = { wave: Wave, oscillator: Oscillator, spectrum: Spectrum, lattice: Lattice, twinladder: TwinLadder };
 
 export default function WireframeAnim({ kind = 'wave' }) {
   const C = KINDS[kind] || Wave;

@@ -16,7 +16,6 @@ export const EDITORIAL_ROUTES = new Set([
   '/theorem-b-threshold',
   '/route-map',
   '/lambda-bounds',
-  '/waves',
 ]);
 
 export function isEditorialRoute(pathname) {

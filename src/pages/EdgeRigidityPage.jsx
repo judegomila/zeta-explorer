@@ -15,14 +15,16 @@
 //
 // Data source: src/data/edge-rigidity-empirical-2026-05.js
 //
+// Editorial (warm) re-theme: full-width shell, identical structure/data/geometry.
+//
 // @see imp-1128
 // @see imp-1108 (sibling bulk measurement)
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { scaleLinear } from 'd3-scale';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { EDGE_RIGIDITY_EMPIRICAL } from '../data/edge-rigidity-empirical-2026-05.js';
-import RelatedLinks from '../components/RelatedLinks.jsx';
 
 // OLS log-log refit on a subset of rows (for the interactive slider).
 function olsLogLog(rows) {
@@ -57,47 +59,51 @@ const M = { top: 30, right: 30, bottom: 60, left: 80 };
 const IW = W - M.left - M.right;
 const IH = H - M.top - M.bottom;
 
+const MONO = 'var(--ed-mono, var(--font-mono))';
+
 const labelStyle = {
-  fontFamily: 'var(--font-mono)',
+  fontFamily: MONO,
   fontSize: 11,
-  fill: 'var(--text-secondary)',
+  fill: 'var(--ink-soft)',
 };
 
 const tickStyle = {
-  fontFamily: 'var(--font-mono)',
+  fontFamily: MONO,
   fontSize: 9,
-  fill: '#94a3b8',
+  fill: 'var(--faint)',
 };
 
 function compatibilityTone(compatible) {
-  return compatible ? '#22c55e' : '#ef4444';
+  return compatible ? 'var(--green)' : 'var(--terra-dk)';
 }
+
+// Editorial card: warm paper background + hairline border, colored left rule.
+function cardBaseLeft(color) {
+  return {
+    background: 'var(--paper2)',
+    border: '1px solid var(--hairline)',
+    borderLeft: `3px solid ${color}`,
+    borderRadius: 8,
+    padding: '16px 18px',
+  };
+}
+
+const cardLabel = {
+  fontSize: 10,
+  textTransform: 'uppercase',
+  letterSpacing: 0.5,
+  color: 'var(--faint)',
+  marginBottom: 6,
+};
 
 function SummaryCard({ label, value, tone, hint }) {
   return (
-    <div
-      style={{
-        background: 'var(--bg-panel)',
-        border: '1px solid var(--border)',
-        borderLeft: '3px solid ' + tone,
-        borderRadius: 6,
-        padding: '10px 12px',
-      }}
-    >
-      <div
-        style={{
-          fontSize: 10,
-          color: 'var(--text-secondary)',
-          textTransform: 'uppercase',
-          letterSpacing: '0.05em',
-        }}
-      >
-        {label}
-      </div>
-      <div style={{ fontSize: 18, fontFamily: 'var(--font-mono)', color: tone, marginTop: 4 }}>
+    <div className="card" style={cardBaseLeft(tone)}>
+      <div style={cardLabel}>{label}</div>
+      <div style={{ fontSize: 18, fontFamily: MONO, color: tone, marginTop: 2 }}>
         {value}
       </div>
-      {hint ? <div style={{ fontSize: 10, color: '#64748b', marginTop: 4 }}>{hint}</div> : null}
+      {hint ? <div style={{ fontSize: 10, color: 'var(--faint)', marginTop: 4 }}>{hint}</div> : null}
     </div>
   );
 }
@@ -146,20 +152,12 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
   for (let v = Math.ceil(minLogPsi); v <= Math.floor(maxLogPsi); v += 1) yTicks.push(v);
 
   return (
-    <div
-      style={{
-        marginTop: 12,
-        background: 'var(--bg-panel)',
-        border: '1px solid var(--border)',
-        borderRadius: 8,
-        padding: 12,
-      }}
-    >
+    <div className="card" style={{ marginTop: 12, ...cardBaseLeft(color), padding: 12 }}>
       <div
         style={{
           fontSize: 12,
-          fontFamily: 'var(--font-mono)',
-          color: 'var(--text-secondary)',
+          fontFamily: MONO,
+          color: 'var(--ink-soft)',
           marginBottom: 8,
         }}
       >
@@ -174,7 +172,7 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
               x2={x(t)}
               y1={0}
               y2={IH}
-              stroke="#1e293b"
+              stroke="var(--hair2)"
               strokeDasharray="2,4"
             />
           ))}
@@ -185,7 +183,7 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
               x2={IW}
               y1={y(t)}
               y2={y(t)}
-              stroke="#1e293b"
+              stroke="var(--hair2)"
               strokeDasharray="2,4"
             />
           ))}
@@ -196,7 +194,7 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
             x2={x(fitX2)}
             y1={y(targetY1)}
             y2={y(targetY2)}
-            stroke="#22c55e"
+            stroke="var(--green)"
             strokeWidth={1.5}
             strokeDasharray="6,4"
           />
@@ -207,7 +205,7 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
             x2={x(fitX2)}
             y1={y(twY1)}
             y2={y(twY2)}
-            stroke="#f97316"
+            stroke="var(--terra)"
             strokeWidth={1.5}
             strokeDasharray="4,2"
           />
@@ -218,7 +216,7 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
             x2={x(fitX2)}
             y1={y(bulkY1)}
             y2={y(bulkY2)}
-            stroke="#facc15"
+            stroke="var(--brass-dk)"
             strokeWidth={1.5}
             strokeDasharray="3,3"
           />
@@ -240,7 +238,7 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
                 cy={y(logPsis[i])}
                 r={5}
                 fill={color}
-                stroke="white"
+                stroke="var(--paper)"
                 strokeWidth={1.2}
               >
                 <title>
@@ -259,10 +257,10 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
             </g>
           ))}
 
-          <line x1={0} x2={IW} y1={IH} y2={IH} stroke="#475569" />
+          <line x1={0} x2={IW} y1={IH} y2={IH} stroke="var(--ink-soft)" />
           {xTicks.map((t) => (
             <g key={'xt-' + t} transform={'translate(' + x(t) + ',' + IH + ')'}>
-              <line y1={0} y2={5} stroke="#475569" />
+              <line y1={0} y2={5} stroke="var(--ink-soft)" />
               <text y={18} textAnchor="middle" style={tickStyle}>
                 {'10^' + t}
               </text>
@@ -277,10 +275,10 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
             N (zero count)
           </text>
 
-          <line x1={0} x2={0} y1={0} y2={IH} stroke="#475569" />
+          <line x1={0} x2={0} y1={0} y2={IH} stroke="var(--ink-soft)" />
           {yTicks.map((t) => (
             <g key={'yt-' + t} transform={'translate(0,' + y(t) + ')'}>
-              <line x1={-5} x2={0} stroke="#475569" />
+              <line x1={-5} x2={0} stroke="var(--ink-soft)" />
               <text x={-8} y={3} textAnchor="end" style={tickStyle}>
                 {'10^' + t}
               </text>
@@ -301,15 +299,16 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
               width={256}
               height={92}
               rx={6}
-              fill="rgba(15,23,42,0.7)"
-              stroke="rgba(148,163,184,0.35)"
+              fill="var(--paper)"
+              fillOpacity={0.92}
+              stroke="var(--hairline)"
             />
-            <circle cx={6} cy={8} r={4} fill={color} stroke="white" strokeWidth={1.2} />
-            <text x={20} y={12} style={{ ...labelStyle, fontSize: 10, fill: '#cbd5e1' }}>
+            <circle cx={6} cy={8} r={4} fill={color} stroke="var(--paper)" strokeWidth={1.2} />
+            <text x={20} y={12} style={{ ...labelStyle, fontSize: 10, fill: 'var(--ink-soft)' }}>
               edge (slope = {edgeFit.slope.toFixed(3)}, R^2 = {edgeFit.R2.toFixed(3)})
             </text>
-            <line x1={0} x2={14} y1={24} y2={24} stroke="#facc15" strokeWidth={1.5} strokeDasharray="3,3" />
-            <text x={20} y={28} style={{ ...labelStyle, fontSize: 10, fill: '#cbd5e1' }}>
+            <line x1={0} x2={14} y1={24} y2={24} stroke="var(--brass-dk)" strokeWidth={1.5} strokeDasharray="3,3" />
+            <text x={20} y={28} style={{ ...labelStyle, fontSize: 10, fill: 'var(--ink-soft)' }}>
               bulk reference (slope = {bulkFit.slope.toFixed(3)})
             </text>
             <line
@@ -317,11 +316,11 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
               x2={14}
               y1={40}
               y2={40}
-              stroke="#22c55e"
+              stroke="var(--green)"
               strokeWidth={1.5}
               strokeDasharray="6,4"
             />
-            <text x={20} y={44} style={{ ...labelStyle, fontSize: 10, fill: '#cbd5e1' }}>
+            <text x={20} y={44} style={{ ...labelStyle, fontSize: 10, fill: 'var(--ink-soft)' }}>
               ESY target slope = -1
             </text>
             <line
@@ -329,14 +328,14 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
               x2={14}
               y1={56}
               y2={56}
-              stroke="#f97316"
+              stroke="var(--terra)"
               strokeWidth={1.5}
               strokeDasharray="4,2"
             />
-            <text x={20} y={60} style={{ ...labelStyle, fontSize: 10, fill: '#cbd5e1' }}>
+            <text x={20} y={60} style={{ ...labelStyle, fontSize: 10, fill: 'var(--ink-soft)' }}>
               Tracy-Widom target slope = -2/3
             </text>
-            <text x={0} y={80} style={{ ...labelStyle, fontSize: 9, fill: '#94a3b8' }}>
+            <text x={0} y={80} style={{ ...labelStyle, fontSize: 9, fill: 'var(--faint)' }}>
               bulk overlay anchored at smallest-N edge point
             </text>
           </g>
@@ -367,338 +366,307 @@ export default function EdgeRigidityPage() {
   const activeMicroFit = olsLogLog(microRows) || D.fittedSlopeEdgeMicro;
 
   return (
-    <div className="page">
-      <div className="page-header">
-        <h1>Edge Rigidity Empirical Measurement (imp-1128)</h1>
-        <p className="page-subtitle">
-          Re-measures the ESY-style local-law fluctuation quantity{' '}
-          <code>psi_N</code> at the SPECTRAL EDGE (small-ordinate region near{' '}
-          <code>gamma_1 = 14.1347</code>), in contrast to the imp-1108 bulk
-          measurement which sampled the midpoint window{' '}
-          <code>[x_{'{N/4}'}, x_{'{3N/4}'}]</code>. Tests whether the edge
-          regime exhibits ESY-compatible rigidity (slope approximately{' '}
-          <code>-1</code>) that the bulk did not.
-        </p>
-        <div style={{ marginTop: 10, fontSize: 12, fontFamily: 'var(--font-mono)' }}>
-          <Link to="/explorations" style={{ color: '#a855f7' }}>
-            &larr; back to Explorations
-          </Link>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>analysis · edge rigidity</span>} />
+      <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
+        <div style={{ marginBottom: 24 }}>
+          <h1 className="ed-h1" style={{ marginBottom: 10 }}>Edge Rigidity Empirical Measurement</h1>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
+            Re-measures the ESY-style local-law fluctuation quantity{' '}
+            <code>psi_N</code> at the SPECTRAL EDGE (the small-ordinate region near{' '}
+            <code>gamma_1 = 14.1347</code>), in contrast to the imp-1108 bulk
+            measurement, which sampled the midpoint window{' '}
+            <code>[x_{'{N/4}'}, x_{'{3N/4}'}]</code>. The question: does the edge
+            regime show ESY-compatible rigidity (slope approximately{' '}
+            <code>-1</code>) that the bulk did not?
+          </p>
+          <div style={{ marginTop: 10, display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+            <Link
+              to="/explorations"
+              style={{
+                color: 'var(--brass)',
+                fontFamily: MONO,
+                fontSize: 12,
+                textDecoration: 'none',
+                padding: '4px 10px',
+                border: '1px solid var(--brass)',
+                borderRadius: 6,
+              }}
+            >
+              &larr; back to Explorations
+            </Link>
+            <span style={{
+              color: 'var(--faint)',
+              fontFamily: MONO,
+              fontSize: 11,
+              padding: '4px 10px',
+              border: '1px solid var(--hairline)',
+              borderRadius: 6,
+            }}>
+              imp-1128 · sibling of imp-1108 (bulk measurement)
+            </span>
+          </div>
         </div>
-      </div>
 
-      {/* Verdict banner. */}
-      <div
-        style={{
-          marginTop: 16,
-          padding: 14,
-          background: 'rgba(15, 23, 42, 0.5)',
-          border: '2px solid ' + tone,
-          borderRadius: 8,
-        }}
-      >
-        <div
-          style={{
-            fontSize: 11,
-            color: '#94a3b8',
-            textTransform: 'uppercase',
-            letterSpacing: '0.05em',
-          }}
-        >
-          Edge compatibility verdict (slope &lt; {D.edgeESYSlopeThreshold})
-        </div>
-        <div
-          style={{
-            fontSize: 22,
-            fontFamily: 'var(--font-mono)',
-            color: tone,
-            marginTop: 6,
-            fontWeight: 'bold',
-          }}
-        >
-          {compat ? 'EDGE-ESY-COMPATIBLE' : 'EDGE-ESY-INCOMPATIBLE'}
-        </div>
-        <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 6 }}>
-          Edge slope (macro) = {D.fittedSlopeEdge.slope.toFixed(4)} | bulk
-          slope (macro, imp-1108) = {D.fittedSlopeBulk.slope.toFixed(4)} |
-          difference ={' '}
-          {D.bulkComparison.slopeDifferenceMacro.toFixed(4)} | edge beats bulk
-          slope: <strong>{edgeBeatsBulk ? 'YES' : 'NO'}</strong>
-        </div>
-        <div
-          style={{
-            marginTop: 10,
-            fontSize: 13,
-            color: 'var(--text-primary)',
-            lineHeight: 1.5,
-          }}
-        >
-          <strong>Implication for rho_min chain:</strong>{' '}
-          {D.implicationForRhoMinChain}
-        </div>
-      </div>
-
-      {/* Interactive sample-size control. */}
-      <div
-        style={{
-          marginTop: 16,
-          background: 'var(--bg-panel)',
-          border: '1px solid var(--border)',
-          borderRadius: 8,
-          padding: '12px 16px',
-          display: 'flex',
-          alignItems: 'center',
-          gap: 16,
-          flexWrap: 'wrap',
-        }}
-      >
-        <div style={{ fontSize: 11, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.05em', minWidth: 120 }}>
-          Sample size (N values)
-        </div>
-        <input
-          type="range"
-          min={2}
-          max={5}
-          step={1}
-          value={numPoints}
-          onChange={(e) => setNumPoints(Number(e.target.value))}
-          style={{ flex: 1, minWidth: 140, maxWidth: 260, accentColor: '#a855f7', cursor: 'pointer' }}
-        />
-        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: '#cbd5e1', minWidth: 200 }}>
-          N &isin; &#123;{ALL_N_LABELS.slice(0, numPoints).join(', ')}&#125;
-        </div>
-        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: '#a855f7' }}>
-          live edge slope: <strong>{activeMacroFit.slope.toFixed(4)}</strong>
-          <span style={{ color: '#94a3b8', marginLeft: 8 }}>
-            R&sup2; = {activeMacroFit.R2.toFixed(3)}
-          </span>
-        </div>
-        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#64748b' }}>
-          TW target = -0.667 | ESY target = -1.000
-        </div>
-      </div>
-
-      {/* Numeric summary cards. */}
-      <div
-        className="card-grid"
-        style={{
-          marginTop: 16,
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          gap: 12,
-        }}
-      >
-        <SummaryCard
-          label="edge slope (macro)"
-          value={D.fittedSlopeEdge.slope.toFixed(4)}
-          tone={tone}
-          hint={'ESY target = -1.0; threshold = ' + D.edgeESYSlopeThreshold}
-        />
-        <SummaryCard
-          label="edge R^2 (macro)"
-          value={D.fittedSlopeEdge.R2.toFixed(4)}
-          tone={D.fittedSlopeEdge.R2 >= 0.85 ? '#22c55e' : '#facc15'}
-          hint="OLS fit quality"
-        />
-        <SummaryCard
-          label="bulk slope (imp-1108)"
-          value={D.fittedSlopeBulk.slope.toFixed(4)}
-          tone="#facc15"
-          hint="lifted from esy-rigidity-empirical-2026-05.js"
-        />
-        <SummaryCard
-          label="edge slope (micro)"
-          value={D.fittedSlopeEdgeMicro.slope.toFixed(4)}
-          tone="#94a3b8"
-          hint={'eta = c/N (bounded-not-decay expected)'}
-        />
-        <SummaryCard
-          label="slope diff (macro)"
-          value={D.bulkComparison.slopeDifferenceMacro.toFixed(4)}
-          tone={D.bulkComparison.slopeDifferenceMacro < 0 ? '#22c55e' : '#facc15'}
-          hint="edge_slope - bulk_slope (negative = edge steeper)"
-        />
-        <SummaryCard
-          label="edge window cap"
-          value={D.sampleSizeCap}
-          tone="#94a3b8"
-          hint="M_EDGE_MAX (matches imp-1108 M_BULK_MAX)"
-        />
-      </div>
-
-      {/* Scatter plots (rows filtered by numPoints slider; fits recomputed live). */}
-      <LogLogScatterEdgeVsBulk
-        title="Macroscopic scale (eta = c) -- well-posed ESY regime; ESY predicts slope = -1"
-        edgeRows={macroRows}
-        edgeFit={activeMacroFit}
-        bulkFit={D.fittedSlopeBulk}
-        color="#a855f7"
-      />
-      <LogLogScatterEdgeVsBulk
-        title="Microscopic scale (eta = c/N) -- bounded-not-decay expected at corrected ESY scale"
-        edgeRows={microRows}
-        edgeFit={activeMicroFit}
-        bulkFit={D.fittedSlopeBulkMicro}
-        color="#3b82f6"
-      />
-
-      {/* Data table. */}
-      <div
-        style={{
-          marginTop: 16,
-          background: 'var(--bg-panel)',
-          border: '1px solid var(--border)',
-          borderRadius: 8,
-          padding: 12,
-        }}
-      >
-        <div
-          style={{
-            fontSize: 12,
-            fontFamily: 'var(--font-mono)',
-            color: 'var(--text-secondary)',
-            marginBottom: 8,
-          }}
-        >
-          per-N edge measurements (representative point = midpoint of x_0 and x_1)
-        </div>
-        <table style={{ width: '100%', fontSize: 12, fontFamily: 'var(--font-mono)', borderCollapse: 'collapse' }}>
-          <thead>
-            <tr style={{ color: '#94a3b8', textAlign: 'right' }}>
-              <th style={{ textAlign: 'left', padding: '6px 8px' }}>N</th>
-              <th style={{ padding: '6px 8px' }}>eta_micro</th>
-              <th style={{ padding: '6px 8px' }}>psi_micro</th>
-              <th style={{ padding: '6px 8px' }}>psi_macro</th>
-              <th style={{ padding: '6px 8px' }}>M (sampleSize)</th>
-              <th style={{ padding: '6px 8px' }}>windowEnd</th>
-              <th style={{ padding: '6px 8px' }}>E_repr (midpoint x_0, x_1)</th>
-            </tr>
-          </thead>
-          <tbody>
-            {D.measuredPsiNEdge.map((r, i) => {
-              const rMacro = D.measuredPsiNEdgeMacro[i];
-              return (
-                <tr key={r.N} style={{ borderTop: '1px solid #1e293b', color: '#cbd5e1', textAlign: 'right' }}>
-                  <td style={{ textAlign: 'left', padding: '6px 8px' }}>{r.N}</td>
-                  <td style={{ padding: '6px 8px' }}>{r.eta.toExponential(2)}</td>
-                  <td style={{ padding: '6px 8px' }}>{r.psiRMS.toFixed(6)}</td>
-                  <td style={{ padding: '6px 8px' }}>{rMacro.psiRMS.toFixed(6)}</td>
-                  <td style={{ padding: '6px 8px' }}>{r.sampleSize}</td>
-                  <td style={{ padding: '6px 8px' }}>{r.edgeWindowEnd}</td>
-                  <td style={{ padding: '6px 8px' }}>{r.E_representative.toFixed(4)}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-
-      {/* Method + interpretation. */}
-      <div
-        style={{
-          marginTop: 16,
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: 12,
-        }}
-      >
-        <div style={{ background: 'var(--bg-panel)', border: '1px solid var(--border)', borderRadius: 8, padding: 12 }}>
+        {/* Verdict banner. */}
+        <div className="card" style={{ ...cardBaseLeft(tone), marginBottom: 24 }}>
+          <div style={cardLabel}>
+            Edge compatibility verdict (slope &lt; {D.edgeESYSlopeThreshold})
+          </div>
           <div
             style={{
-              fontSize: 11,
-              color: '#94a3b8',
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em',
+              fontSize: 22,
+              fontFamily: MONO,
+              color: tone,
+              marginTop: 4,
+              fontWeight: 700,
             }}
           >
-            Method
+            {compat ? 'EDGE-ESY-COMPATIBLE' : 'EDGE-ESY-INCOMPATIBLE'}
           </div>
+          <div style={{ fontSize: 12, color: 'var(--ink-soft)', marginTop: 8, lineHeight: 1.6 }}>
+            Edge slope (macro) = <code>{D.fittedSlopeEdge.slope.toFixed(4)}</code> | bulk
+            slope (macro, imp-1108) = <code>{D.fittedSlopeBulk.slope.toFixed(4)}</code> |
+            difference = <code>{D.bulkComparison.slopeDifferenceMacro.toFixed(4)}</code> | edge beats bulk
+            slope: <strong style={{ color: edgeBeatsBulk ? 'var(--green)' : 'var(--terra-dk)' }}>{edgeBeatsBulk ? 'YES' : 'NO'}</strong>
+          </div>
+          <div
+            style={{
+              marginTop: 10,
+              fontSize: 13,
+              color: 'var(--ink)',
+              lineHeight: 1.55,
+              padding: '8px 12px',
+              background: 'var(--paper)',
+              borderRadius: 6,
+              border: '1px solid var(--hairline)',
+            }}
+          >
+            <strong style={{ color: 'var(--brass-dk)' }}>Implication for rho_min chain:</strong>{' '}
+            {D.implicationForRhoMinChain}
+          </div>
+        </div>
+
+        {/* Interactive sample-size control. */}
+        <div
+          className="card"
+          style={{
+            ...cardBaseLeft('var(--brass)'),
+            marginBottom: 24,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 16,
+            flexWrap: 'wrap',
+          }}
+        >
+          <div style={{ ...cardLabel, marginBottom: 0, minWidth: 120 }}>
+            Sample size (N values)
+          </div>
+          <input
+            type="range"
+            min={2}
+            max={5}
+            step={1}
+            value={numPoints}
+            onChange={(e) => setNumPoints(Number(e.target.value))}
+            style={{ flex: 1, minWidth: 140, maxWidth: 260, accentColor: 'var(--brass)', cursor: 'pointer' }}
+          />
+          <div style={{ fontFamily: MONO, fontSize: 12, color: 'var(--ink-soft)', minWidth: 200 }}>
+            N &isin; &#123;{ALL_N_LABELS.slice(0, numPoints).join(', ')}&#125;
+          </div>
+          <div style={{ fontFamily: MONO, fontSize: 12, color: 'var(--brass-dk)' }}>
+            live edge slope: <strong>{activeMacroFit.slope.toFixed(4)}</strong>
+            <span style={{ color: 'var(--faint)', marginLeft: 8 }}>
+              R&sup2; = {activeMacroFit.R2.toFixed(3)}
+            </span>
+          </div>
+          <div style={{ fontFamily: MONO, fontSize: 11, color: 'var(--faint)' }}>
+            TW target = -0.667 | ESY target = -1.000
+          </div>
+        </div>
+
+        {/* Numeric summary cards. */}
+        <div className="card-grid" style={{ marginBottom: 24 }}>
+          <SummaryCard
+            label="edge slope (macro)"
+            value={D.fittedSlopeEdge.slope.toFixed(4)}
+            tone={tone}
+            hint={'ESY target = -1.0; threshold = ' + D.edgeESYSlopeThreshold}
+          />
+          <SummaryCard
+            label="edge R^2 (macro)"
+            value={D.fittedSlopeEdge.R2.toFixed(4)}
+            tone={D.fittedSlopeEdge.R2 >= 0.85 ? 'var(--green)' : 'var(--brass-dk)'}
+            hint="OLS fit quality"
+          />
+          <SummaryCard
+            label="bulk slope (imp-1108)"
+            value={D.fittedSlopeBulk.slope.toFixed(4)}
+            tone="var(--brass-dk)"
+            hint="lifted from esy-rigidity-empirical-2026-05.js"
+          />
+          <SummaryCard
+            label="edge slope (micro)"
+            value={D.fittedSlopeEdgeMicro.slope.toFixed(4)}
+            tone="var(--faint)"
+            hint={'eta = c/N (bounded-not-decay expected)'}
+          />
+          <SummaryCard
+            label="slope diff (macro)"
+            value={D.bulkComparison.slopeDifferenceMacro.toFixed(4)}
+            tone={D.bulkComparison.slopeDifferenceMacro < 0 ? 'var(--green)' : 'var(--brass-dk)'}
+            hint="edge_slope - bulk_slope (negative = edge steeper)"
+          />
+          <SummaryCard
+            label="edge window cap"
+            value={D.sampleSizeCap}
+            tone="var(--faint)"
+            hint="M_EDGE_MAX (matches imp-1108 M_BULK_MAX)"
+          />
+        </div>
+
+        {/* Scatter plots (rows filtered by numPoints slider; fits recomputed live). */}
+        <LogLogScatterEdgeVsBulk
+          title="Macroscopic scale (eta = c) -- well-posed ESY regime; ESY predicts slope = -1"
+          edgeRows={macroRows}
+          edgeFit={activeMacroFit}
+          bulkFit={D.fittedSlopeBulk}
+          color="var(--blue)"
+        />
+        <LogLogScatterEdgeVsBulk
+          title="Microscopic scale (eta = c/N) -- bounded-not-decay expected at corrected ESY scale"
+          edgeRows={microRows}
+          edgeFit={activeMicroFit}
+          bulkFit={D.fittedSlopeBulkMicro}
+          color="var(--brass)"
+        />
+
+        {/* Data table. */}
+        <div className="card" style={{ ...cardBaseLeft('var(--hairline)'), marginTop: 24 }}>
           <div
             style={{
               fontSize: 12,
-              color: 'var(--text-primary)',
-              marginTop: 6,
-              lineHeight: 1.6,
-              fontFamily: 'var(--font-mono)',
+              fontFamily: MONO,
+              color: 'var(--ink-soft)',
+              marginBottom: 8,
             }}
           >
-            {D.operationalDefinition}
+            per-N edge measurements (representative point = midpoint of x_0 and x_1)
           </div>
-          <div style={{ marginTop: 8, fontSize: 11, color: '#94a3b8' }}>
-            <strong>Edge window:</strong> {D.edgeWindowDefinition}
-          </div>
+          <table style={{ width: '100%', fontSize: 12, fontFamily: MONO, borderCollapse: 'collapse' }}>
+            <thead>
+              <tr style={{ color: 'var(--faint)', textAlign: 'right' }}>
+                <th style={{ textAlign: 'left', padding: '6px 8px' }}>N</th>
+                <th style={{ padding: '6px 8px' }}>eta_micro</th>
+                <th style={{ padding: '6px 8px' }}>psi_micro</th>
+                <th style={{ padding: '6px 8px' }}>psi_macro</th>
+                <th style={{ padding: '6px 8px' }}>M (sampleSize)</th>
+                <th style={{ padding: '6px 8px' }}>windowEnd</th>
+                <th style={{ padding: '6px 8px' }}>E_repr (midpoint x_0, x_1)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {D.measuredPsiNEdge.map((r, i) => {
+                const rMacro = D.measuredPsiNEdgeMacro[i];
+                return (
+                  <tr key={r.N} style={{ borderTop: '1px solid var(--hairline)', color: 'var(--ink-soft)', textAlign: 'right' }}>
+                    <td style={{ textAlign: 'left', padding: '6px 8px' }}>{r.N}</td>
+                    <td style={{ padding: '6px 8px' }}>{r.eta.toExponential(2)}</td>
+                    <td style={{ padding: '6px 8px' }}>{r.psiRMS.toFixed(6)}</td>
+                    <td style={{ padding: '6px 8px' }}>{rMacro.psiRMS.toFixed(6)}</td>
+                    <td style={{ padding: '6px 8px' }}>{r.sampleSize}</td>
+                    <td style={{ padding: '6px 8px' }}>{r.edgeWindowEnd}</td>
+                    <td style={{ padding: '6px 8px' }}>{r.E_representative.toFixed(4)}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </div>
 
-        <div style={{ background: 'var(--bg-panel)', border: '1px solid var(--border)', borderRadius: 8, padding: 12 }}>
-          <div
-            style={{
-              fontSize: 11,
-              color: '#94a3b8',
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-            }}
-          >
-            Interpretation
-          </div>
-          <div style={{ fontSize: 12, color: 'var(--text-primary)', marginTop: 6, lineHeight: 1.6 }}>
-            The bulk imp-1108 measurement falsified ESY rigidity in the
-            midpoint window. imp-1128 tests whether the EDGE regime (near
-            gamma_1) is different. Result: edge slope ={' '}
-            <code>{D.fittedSlopeEdge.slope.toFixed(4)}</code>, bulk slope ={' '}
-            <code>{D.fittedSlopeBulk.slope.toFixed(4)}</code>. Edge {edgeBeatsBulk ? 'beats' : 'does not beat'}{' '}
-            bulk; verdict = <strong>{compat ? 'EDGE-ESY-COMPATIBLE' : 'EDGE-ESY-INCOMPATIBLE'}</strong>.
-          </div>
-        </div>
-      </div>
-
-      {/* Honest scope panel. */}
-      <div
-        style={{
-          marginTop: 16,
-          background: 'rgba(250, 204, 21, 0.06)',
-          border: '1px solid rgba(250, 204, 21, 0.4)',
-          borderRadius: 8,
-          padding: 12,
-        }}
-      >
+        {/* Method + interpretation. */}
         <div
           style={{
-            fontSize: 11,
-            color: '#facc15',
-            textTransform: 'uppercase',
-            letterSpacing: '0.05em',
-            marginBottom: 8,
+            marginTop: 16,
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: 12,
           }}
         >
-          Honest scope
+          <div className="card" style={cardBaseLeft('var(--blue)')}>
+            <div style={cardLabel}>Method</div>
+            <div
+              style={{
+                fontSize: 12,
+                color: 'var(--ink)',
+                marginTop: 6,
+                lineHeight: 1.6,
+                fontFamily: MONO,
+              }}
+            >
+              {D.operationalDefinition}
+            </div>
+            <div style={{ marginTop: 8, fontSize: 11, color: 'var(--faint)', lineHeight: 1.5 }}>
+              <strong style={{ color: 'var(--ink-soft)' }}>Edge window:</strong> {D.edgeWindowDefinition}
+            </div>
+          </div>
+
+          <div className="card" style={cardBaseLeft('var(--green)')}>
+            <div style={cardLabel}>Interpretation</div>
+            <div style={{ fontSize: 12, color: 'var(--ink)', marginTop: 6, lineHeight: 1.6 }}>
+              The bulk imp-1108 measurement falsified ESY rigidity in the
+              midpoint window. imp-1128 tests whether the EDGE regime (near
+              gamma_1) is different. Result: edge slope ={' '}
+              <code>{D.fittedSlopeEdge.slope.toFixed(4)}</code>, bulk slope ={' '}
+              <code>{D.fittedSlopeBulk.slope.toFixed(4)}</code>. Edge {edgeBeatsBulk ? 'beats' : 'does not beat'}{' '}
+              bulk; verdict = <strong style={{ color: tone }}>{compat ? 'EDGE-ESY-COMPATIBLE' : 'EDGE-ESY-INCOMPATIBLE'}</strong>.
+            </div>
+          </div>
         </div>
-        <ul
-          style={{
-            margin: 0,
-            paddingLeft: 18,
-            fontSize: 12,
-            color: 'var(--text-primary)',
-            lineHeight: 1.6,
-          }}
-        >
-          {D.honestScope.map((s, i) => (
-            <li key={i} style={{ marginBottom: 4 }}>
-              {s}
-            </li>
-          ))}
-        </ul>
-      </div>
 
-      {/* Parallel tickets footer. */}
-      <div style={{ marginTop: 16, fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)' }}>
-        parallel-agent batch: {D.parallelTickets.join(' | ')}
-      </div>
+        {/* Honest scope panel. */}
+        <div className="card" style={{ ...cardBaseLeft('var(--brass-dk)'), marginTop: 16 }}>
+          <div style={{ ...cardLabel, color: 'var(--brass-dk)', marginBottom: 8 }}>
+            Honest scope
+          </div>
+          <ul
+            style={{
+              margin: 0,
+              paddingLeft: 18,
+              fontSize: 12,
+              color: 'var(--ink)',
+              lineHeight: 1.6,
+            }}
+          >
+            {D.honestScope.map((s, i) => (
+              <li key={i} style={{ marginBottom: 4 }}>
+                {s}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      <RelatedLinks links={[
-        { to: '/statistics', label: 'Zero Statistics' },
-        { to: '/pair-correlation', label: 'Pair Correlation' },
-        { to: '/gue-comparison', label: 'GUE Comparison' },
-        { to: '/gram-points', label: 'Gram Points' },
-      ]} />
+        {/* Parallel tickets footer. */}
+        <div style={{ marginTop: 16, fontSize: 11, color: 'var(--faint)', fontFamily: MONO }}>
+          parallel-agent batch: {D.parallelTickets.join(' | ')}
+        </div>
+
+        {/* Related pages. */}
+        <div className="card" style={{ ...cardBaseLeft('var(--brass)'), marginTop: 24 }}>
+          <div style={cardLabel}>Related pages</div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center' }}>
+            <Link to="/statistics" style={{ color: 'var(--blue)', fontSize: 13 }}>Zero Statistics</Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/pair-correlation" style={{ color: 'var(--brass)', fontSize: 13 }}>Pair Correlation</Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/gue-comparison" style={{ color: 'var(--green)', fontSize: 13 }}>GUE Comparison</Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/gram-points" style={{ color: 'var(--brass-dk)', fontSize: 13 }}>Gram Points</Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/" style={{ color: 'var(--terra-dk)', fontSize: 13 }}>&larr; the atlas</Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

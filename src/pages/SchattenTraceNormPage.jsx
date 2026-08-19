@@ -18,6 +18,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import * as d3 from 'd3';
 
 // ── de Bruijn-Newman Phi kernel ────────────────────────────────────────────────
@@ -157,20 +158,24 @@ export default function SchattenTraceNormPage() {
     const yMax = d3.max(allYVals) * 2;
     const yScale = d3.scaleLog().domain([yMin, yMax]).range([height, 0]);
 
-    svg.append('g')
+    const axisGroup = svg.append('g')
       .attr('transform', `translate(0,${height})`)
-      .call(d3.axisBottom(xScale).ticks(6))
-      .append('text')
+      .call(d3.axisBottom(xScale).ticks(6));
+    axisGroup.selectAll('path,line').attr('stroke', 'var(--hairline)');
+    axisGroup.selectAll('text').attr('fill', 'var(--ink-soft)');
+    axisGroup.append('text')
       .attr('x', width / 2).attr('y', 40)
-      .attr('fill', '#333').attr('text-anchor', 'middle').style('font-size', '13px')
+      .attr('fill', 'var(--ink)').attr('text-anchor', 'middle').style('font-size', '13px')
       .text('Parameter a');
 
-    svg.append('g')
-      .call(d3.axisLeft(yScale).ticks(6, '.1e'))
-      .append('text')
+    const yAxisGroup = svg.append('g')
+      .call(d3.axisLeft(yScale).ticks(6, '.1e'));
+    yAxisGroup.selectAll('path,line').attr('stroke', 'var(--hairline)');
+    yAxisGroup.selectAll('text').attr('fill', 'var(--ink-soft)');
+    yAxisGroup.append('text')
       .attr('transform', 'rotate(-90)')
       .attr('y', -margin.left + 10).attr('x', -height / 2)
-      .attr('fill', '#333').attr('text-anchor', 'middle').style('font-size', '13px')
+      .attr('fill', 'var(--ink)').attr('text-anchor', 'middle').style('font-size', '13px')
       .text('Norm value');
 
     // Threshold line at y=1
@@ -178,10 +183,10 @@ export default function SchattenTraceNormPage() {
       svg.append('line')
         .attr('x1', 0).attr('x2', width)
         .attr('y1', yScale(1)).attr('y2', yScale(1))
-        .attr('stroke', '#999').attr('stroke-dasharray', '5,3').attr('stroke-width', 1);
+        .attr('stroke', 'var(--faint)').attr('stroke-dasharray', '5,3').attr('stroke-width', 1);
       svg.append('text')
         .attr('x', width - 5).attr('y', yScale(1) - 4)
-        .attr('fill', '#999').attr('text-anchor', 'end').style('font-size', '11px')
+        .attr('fill', 'var(--faint)').attr('text-anchor', 'end').style('font-size', '11px')
         .text('threshold = 1');
     }
 
@@ -190,9 +195,9 @@ export default function SchattenTraceNormPage() {
       .y(d => yScale(d[type]));
 
     const curves = [
-      { key: 'traceNorm', color: '#7b2d8b', dash: null,  label: '||V||_1 (trace norm, p=1)' },
-      { key: 'hsNorm',    color: '#2166ac', dash: '6,3',  label: '||V||_2 (HS norm, p=2)' },
-      { key: 'opNorm',    color: '#d73027', dash: '2,4',  label: '||V||_op (op norm)' },
+      { key: 'traceNorm', color: 'var(--terra-dk)', dash: null,  label: '||V||_1 (trace norm, p=1)' },
+      { key: 'hsNorm',    color: 'var(--blue)', dash: '6,3',  label: '||V||_2 (HS norm, p=2)' },
+      { key: 'opNorm',    color: 'var(--brass-dk)', dash: '2,4',  label: '||V||_op (op norm)' },
     ];
 
     curves.forEach(({ key, color, dash }) => {
@@ -219,165 +224,193 @@ export default function SchattenTraceNormPage() {
   const rows = data ? data[selectedU] : [];
 
   return (
-    <div style={{ padding: '20px', maxWidth: '1000px', margin: '0 auto' }}>
-      <h1>Schatten p=1 Trace Norm: <InlineMath math="\|V_{a,\Phi}\|_1" /> vs <em>a</em></h1>
-      <p style={{ color: '#555', fontSize: 14 }}>
-        imp-2325 — empirical companion to imp-1341 (Schatten-p bridge p=2 → p=1)
-      </p>
-
-      <p>
-        The Schatten <InlineMath math="p=1" /> norm (trace norm) of{' '}
-        <InlineMath math="V_{a,\Phi}" /> is the sum of all singular values:
-      </p>
-      <BlockMath math={String.raw`\|V_{a,\Phi}\|_1 = \sum_i \sigma_i`} />
-
-      <p>
-        This sits above the Hilbert-Schmidt norm in the Schatten ladder:
-      </p>
-      <BlockMath math={String.raw`\|V\|_{\mathrm{op}} \;\le\; \|V\|_{HS} \;\le\; \|V\|_1`} />
-
-      <p>
-        The ratio{' '}
-        <InlineMath math="\|V\|_1 / \|V\|_2" /> is a direct measure of effective rank
-        (equals <InlineMath math="\sqrt{r}" /> for a rank-<InlineMath math="r" /> operator
-        with equal singular values). This ratio feeds imp-1341's
-        bridge argument from <InlineMath math="p=2" /> (HS, already bounded) to{' '}
-        <InlineMath math="p=1" /> (trace class).
-      </p>
-
-      <p style={{ marginTop: '20px' }}>
-        <strong>Method:</strong> N={GRID_N} midpoint-rule quadrature on{' '}
-        <InlineMath math="[0,U]" />, Jacobi SVD of the {GRID_N}×{GRID_N}{' '}
-        discretization matrix. Computation runs in-browser; values are Galerkin
-        lower bounds on the true operator norms.
-      </p>
-
-      <p style={{ marginTop: '12px' }}>
-        <strong>Select window U:</strong>{' '}
-        <select
-          value={selectedU}
-          onChange={e => setSelectedU(Number(e.target.value))}
-          style={{ padding: '6px', fontSize: '14px' }}
-          disabled={computing}
-        >
-          {U_VALS.map(u => <option key={u} value={u}>U = {u}</option>)}
-        </select>
-        {computing && <span style={{ marginLeft: 12, color: '#888' }}>Computing…</span>}
-      </p>
-
-      <svg ref={svgRef} style={{ border: '1px solid #ddd', marginTop: '16px', display: 'block' }} />
-
-      <div style={{
-        marginTop: 12, padding: '10px 14px', backgroundColor: '#f9f9f9',
-        borderRadius: 4, fontSize: 13
-      }}>
-        <span style={{ color: '#7b2d8b', fontWeight: 'bold' }}>— </span>
-        <InlineMath math="\|V\|_1" /> (trace norm, p=1) &nbsp;
-        <span style={{ color: '#2166ac', fontWeight: 'bold' }}>- - </span>
-        <InlineMath math="\|V\|_{HS}" /> (p=2) &nbsp;
-        <span style={{ color: '#d73027', fontWeight: 'bold' }}>··</span>
-        <InlineMath math="\|V\|_{\mathrm{op}}" /> (op norm) &nbsp;
-        <span style={{ color: '#999' }}>--- threshold = 1 (Conj 27.2)</span>
-      </div>
-
-      {rows.length > 0 && (
-        <div style={{ marginTop: 24, overflowX: 'auto' }}>
-          <table style={{ borderCollapse: 'collapse', fontSize: 13, width: '100%' }}>
-            <thead>
-              <tr style={{ backgroundColor: '#f0f0f0' }}>
-                <th style={th}>a</th>
-                <th style={th}><InlineMath math="\|V\|_1" /></th>
-                <th style={th}><InlineMath math="\|V\|_{HS}" /></th>
-                <th style={th}><InlineMath math="\|V\|_{\mathrm{op}}" /></th>
-                <th style={th}><InlineMath math="\|V\|_1 / \|V\|_{HS}" /></th>
-                <th style={th}>sat. margin <InlineMath math="1-\|V\|_{\mathrm{op}}" /></th>
-                <th style={th}>status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map(r => (
-                <tr key={r.a} style={{ borderBottom: '1px solid #eee' }}>
-                  <td style={td}>{r.a}</td>
-                  <td style={td}>{r.traceNorm.toExponential(4)}</td>
-                  <td style={td}>{r.hsNorm.toExponential(4)}</td>
-                  <td style={td}>{r.opNorm.toExponential(4)}</td>
-                  <td style={td}>{r.ratio.toFixed(4)}</td>
-                  <td style={{ ...td, color: r.opNorm < 1 ? '#2a7a2a' : '#c0392b' }}>
-                    {(1 - r.opNorm).toExponential(3)}
-                  </td>
-                  <td style={{ ...td, color: r.traceNorm < 1 ? '#2a7a2a' : '#c0392b', fontWeight: 'bold' }}>
-                    {r.traceNorm < 1 ? '< 1 ✓' : '> 1 !'}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <p style={{ marginTop: 10, fontSize: 12, color: '#666' }}>
-            Saturation margin <InlineMath math="1-\|V\|_{\mathrm{op}}" /> measures how
-            far the (Galerkin-truncated, <InlineMath math={`N=${GRID_N}`} />) operator
-            norm sits below the collapse threshold 1; a positive margin means{' '}
-            <InlineMath math="\|V\|_{\mathrm{op}} < 1" /> at this truncation.
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>analysis · Schatten trace norm</span>} />
+      <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
+        <div style={{ marginBottom: 24 }}>
+          <h1 className="ed-h1" style={{ marginBottom: 10 }}>
+            Schatten <InlineMath math="p=1" /> trace norm: <InlineMath math="\|V_{a,\Phi}\|_1" /> vs <em>a</em>
+          </h1>
+          <p style={{ color: 'var(--faint)', fontSize: 13, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+            imp-2325 — empirical companion to imp-1341 (Schatten-p bridge p=2 → p=1)
           </p>
         </div>
-      )}
 
-      <div style={{
-        marginTop: 20, padding: '12px 16px', border: '1px solid #e0c060',
-        backgroundColor: '#fdf8e8', borderRadius: 6, fontSize: 13, lineHeight: 1.6
-      }}>
-        <strong>Honest status — equivalence, not reduction.</strong>{' '}
-        The Volterra collapse (imp-1258) makes{' '}
-        <InlineMath math="\|V_{a,\Phi}\| \le 1" /> <em>RH-equivalent</em>: it is a
-        two-way bi-conditional, not a one-way reduction of RH to a simpler problem.
-        A measured norm strictly below 1 at finite truncation{' '}
-        <InlineMath math={`N=${GRID_N}`} /> is therefore <em>supporting numerical
-        evidence</em> for a quantity equivalent to RH — it is not partial progress
-        toward a proof, and the positive saturation margins above do not discharge any
-        proof obligation. Each value is a Galerkin lower bound on the true operator
-        norm, so a finite-dimensional margin cannot certify the infinite-dimensional
-        bound.
-      </div>
+        <div style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760, marginBottom: 20 }}>
+          <p>
+            The Schatten <InlineMath math="p=1" /> norm (trace norm) of{' '}
+            <InlineMath math="V_{a,\Phi}" /> is the sum of all singular values:
+          </p>
+          <BlockMath math={String.raw`\|V_{a,\Phi}\|_1 = \sum_i \sigma_i`} />
 
-      <div style={{
-        marginTop: 28, padding: '14px 18px',
-        backgroundColor: '#f0f4ff', borderRadius: 6, fontSize: 13, lineHeight: 1.6
-      }}>
-        <strong>Interpretation for imp-1341:</strong>
-        <ul style={{ marginTop: 8, paddingLeft: 20 }}>
-          <li>
-            The ratio <InlineMath math="\|V\|_1/\|V\|_2" /> stays near a constant
-            as <em>a</em> varies, revealing that the singular value distribution
-            is approximately self-similar (linear scaling with <em>a</em> in the
-            small-<em>a</em> regime).
-          </li>
-          <li>
-            If <InlineMath math="\|V\|_1 \le 1" /> for all tested <em>a</em>, this
-            extends the Conj 27.2 confirmation to the trace-class level, providing
-            empirical evidence that the Hilbert-Schmidt bridge argument in imp-1341
-            (HS-to-trace-class) is consistent with the conjecture.
-          </li>
-          <li>
-            The Schatten p=1 bound is strictly stronger than the HS bound:
-            showing <InlineMath math="\|V\|_1 \le 1" /> implies{' '}
-            <InlineMath math="\|V\|_{HS} \le 1" /> and{' '}
-            <InlineMath math="\|V\|_{\mathrm{op}} \le 1" /> (Conj 27.2).
-          </li>
-        </ul>
-      </div>
+          <p>
+            This sits above the Hilbert-Schmidt norm in the Schatten ladder:
+          </p>
+          <BlockMath math={String.raw`\|V\|_{\mathrm{op}} \;\le\; \|V\|_{HS} \;\le\; \|V\|_1`} />
 
-      <div style={{ marginTop: 24, fontSize: 13, color: '#555' }}>
-        <strong>Related:</strong>{' '}
-        <Link to="/viz-volterra-norm-curve" style={{ color: '#0066cc' }}>
-          Volterra Norm vs HS Bound (imp-1292)
-        </Link>{' '}
-        •{' '}
-        <Link to="/viz-volterra-kernel-heatmap" style={{ color: '#0066cc' }}>
-          Kernel Heatmap (imp-1291)
-        </Link>{' '}
-        •{' '}
-        <Link to="/collapse-chain" style={{ color: '#0066cc' }}>
-          Collapse Chain (imp-1258)
-        </Link>
+          <p>
+            The ratio{' '}
+            <InlineMath math="\|V\|_1 / \|V\|_2" /> is a direct measure of effective rank
+            (equals <InlineMath math="\sqrt{r}" /> for a rank-<InlineMath math="r" /> operator
+            with equal singular values). This ratio feeds imp-1341's
+            bridge argument from <InlineMath math="p=2" /> (HS, already bounded) to{' '}
+            <InlineMath math="p=1" /> (trace class).
+          </p>
+        </div>
+
+        <div className="card" style={{ marginBottom: 24 }}>
+          <div style={{ fontSize: 14, color: 'var(--ink-soft)', lineHeight: 1.6, marginBottom: 14 }}>
+            <strong style={{ color: 'var(--ink)' }}>Method:</strong> N={GRID_N} midpoint-rule quadrature on{' '}
+            <InlineMath math="[0,U]" />, Jacobi SVD of the {GRID_N}×{GRID_N}{' '}
+            discretization matrix. Computation runs in-browser; values are Galerkin
+            lower bounds on the true operator norms.
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+            <strong style={{ fontSize: 13, color: 'var(--ink)' }}>Select window U:</strong>
+            <select
+              value={selectedU}
+              onChange={e => setSelectedU(Number(e.target.value))}
+              style={{
+                padding: '6px 10px', fontSize: '13px',
+                fontFamily: 'var(--ed-mono, var(--font-mono))',
+                background: 'var(--paper)', color: 'var(--ink)',
+                border: '1px solid var(--hairline)', borderRadius: 6,
+              }}
+              disabled={computing}
+            >
+              {U_VALS.map(u => <option key={u} value={u}>U = {u}</option>)}
+            </select>
+            {computing && <span style={{ color: 'var(--faint)', fontSize: 12 }}>Computing…</span>}
+          </div>
+
+          <svg
+            ref={svgRef}
+            style={{
+              border: '1px solid var(--hairline)', borderRadius: 8,
+              background: 'var(--paper)', display: 'block', maxWidth: '100%',
+            }}
+          />
+
+          <div style={{
+            marginTop: 12, padding: '10px 14px', background: 'var(--paper2)',
+            border: '1px solid var(--hairline)', borderRadius: 6, fontSize: 12,
+          }}>
+            <span style={{ color: 'var(--terra-dk)', fontWeight: 'bold' }}>— </span>
+            <InlineMath math="\|V\|_1" /> (trace norm, p=1) &nbsp;
+            <span style={{ color: 'var(--blue)', fontWeight: 'bold' }}>- - </span>
+            <InlineMath math="\|V\|_{HS}" /> (p=2) &nbsp;
+            <span style={{ color: 'var(--brass-dk)', fontWeight: 'bold' }}>··</span>
+            <InlineMath math="\|V\|_{\mathrm{op}}" /> (op norm) &nbsp;
+            <span style={{ color: 'var(--faint)' }}>--- threshold = 1 (Conj 27.2)</span>
+          </div>
+        </div>
+
+        {rows.length > 0 && (
+          <div className="card" style={{ marginBottom: 24, overflowX: 'auto' }}>
+            <table style={{ borderCollapse: 'collapse', fontSize: 13, width: '100%' }}>
+              <thead>
+                <tr>
+                  <th style={th}>a</th>
+                  <th style={th}><InlineMath math="\|V\|_1" /></th>
+                  <th style={th}><InlineMath math="\|V\|_{HS}" /></th>
+                  <th style={th}><InlineMath math="\|V\|_{\mathrm{op}}" /></th>
+                  <th style={th}><InlineMath math="\|V\|_1 / \|V\|_{HS}" /></th>
+                  <th style={th}>sat. margin <InlineMath math="1-\|V\|_{\mathrm{op}}" /></th>
+                  <th style={th}>status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map(r => (
+                  <tr key={r.a} style={{ borderBottom: '1px solid var(--hairline)' }}>
+                    <td style={td}>{r.a}</td>
+                    <td style={td}>{r.traceNorm.toExponential(4)}</td>
+                    <td style={td}>{r.hsNorm.toExponential(4)}</td>
+                    <td style={td}>{r.opNorm.toExponential(4)}</td>
+                    <td style={td}>{r.ratio.toFixed(4)}</td>
+                    <td style={{ ...td, color: r.opNorm < 1 ? 'var(--green)' : 'var(--terra-dk)' }}>
+                      {(1 - r.opNorm).toExponential(3)}
+                    </td>
+                    <td style={{ ...td, color: r.traceNorm < 1 ? 'var(--green)' : 'var(--terra-dk)', fontWeight: 'bold' }}>
+                      {r.traceNorm < 1 ? '< 1 ✓' : '> 1 !'}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p style={{ marginTop: 10, fontSize: 12, color: 'var(--faint)' }}>
+              Saturation margin <InlineMath math="1-\|V\|_{\mathrm{op}}" /> measures how
+              far the (Galerkin-truncated, <InlineMath math={`N=${GRID_N}`} />) operator
+              norm sits below the collapse threshold 1; a positive margin means{' '}
+              <InlineMath math="\|V\|_{\mathrm{op}} < 1" /> at this truncation.
+            </p>
+          </div>
+        )}
+
+        <div className="card" style={{
+          marginBottom: 24, borderLeft: '3px solid var(--brass)',
+          background: 'rgba(181,138,46,0.08)',
+        }}>
+          <div style={{ fontSize: 13, lineHeight: 1.6, color: 'var(--ink-soft)' }}>
+            <strong style={{ color: 'var(--ink)' }}>Honest status — equivalence, not reduction.</strong>{' '}
+            The Volterra collapse (imp-1258) makes{' '}
+            <InlineMath math="\|V_{a,\Phi}\| \le 1" /> <em>RH-equivalent</em>: it is a
+            two-way bi-conditional, not a one-way reduction of RH to a simpler problem.
+            A measured norm strictly below 1 at finite truncation{' '}
+            <InlineMath math={`N=${GRID_N}`} /> is therefore <em>supporting numerical
+            evidence</em> for a quantity equivalent to RH — it is not partial progress
+            toward a proof, and the positive saturation margins above do not discharge any
+            proof obligation. Each value is a Galerkin lower bound on the true operator
+            norm, so a finite-dimensional margin cannot certify the infinite-dimensional
+            bound.
+          </div>
+        </div>
+
+        <div className="card" style={{ marginBottom: 24, borderLeft: '3px solid var(--blue)' }}>
+          <div style={{ fontSize: 13, lineHeight: 1.6, color: 'var(--ink-soft)' }}>
+            <strong style={{ color: 'var(--ink)' }}>Interpretation for imp-1341:</strong>
+            <ul style={{ marginTop: 8, paddingLeft: 20 }}>
+              <li>
+                The ratio <InlineMath math="\|V\|_1/\|V\|_2" /> stays near a constant
+                as <em>a</em> varies, revealing that the singular value distribution
+                is approximately self-similar (linear scaling with <em>a</em> in the
+                small-<em>a</em> regime).
+              </li>
+              <li>
+                If <InlineMath math="\|V\|_1 \le 1" /> for all tested <em>a</em>, this
+                extends the Conj 27.2 confirmation to the trace-class level, providing
+                empirical evidence that the Hilbert-Schmidt bridge argument in imp-1341
+                (HS-to-trace-class) is consistent with the conjecture.
+              </li>
+              <li>
+                The Schatten p=1 bound is strictly stronger than the HS bound:
+                showing <InlineMath math="\|V\|_1 \le 1" /> implies{' '}
+                <InlineMath math="\|V\|_{HS} \le 1" /> and{' '}
+                <InlineMath math="\|V\|_{\mathrm{op}} \le 1" /> (Conj 27.2).
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="card" style={{ borderLeft: '3px solid var(--brass)' }}>
+          <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--faint)', marginBottom: 8 }}>
+            Related pages
+          </div>
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', fontSize: 12 }}>
+            <Link to="/viz-volterra-norm-curve" style={{ color: 'var(--brass-dk)', textDecoration: 'none' }}>
+              → Volterra Norm vs HS Bound (imp-1292)
+            </Link>
+            <Link to="/viz-volterra-kernel-heatmap" style={{ color: 'var(--blue)', textDecoration: 'none' }}>
+              → Kernel Heatmap (imp-1291)
+            </Link>
+            <Link to="/collapse-chain" style={{ color: 'var(--green)', textDecoration: 'none' }}>
+              → Collapse Chain (imp-1258)
+            </Link>
+            <Link to="/" style={{ color: 'var(--terra-dk)', textDecoration: 'none' }}>
+              ← the atlas
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -385,6 +418,7 @@ export default function SchattenTraceNormPage() {
 
 const th = {
   padding: '6px 10px', textAlign: 'left',
-  borderBottom: '2px solid #ccc', fontWeight: 'bold'
+  borderBottom: '2px solid var(--hairline)', fontWeight: 'bold',
+  color: 'var(--ink)', fontSize: 12,
 };
-const td = { padding: '5px 10px', textAlign: 'left' };
+const td = { padding: '5px 10px', textAlign: 'left', color: 'var(--ink-soft)' };

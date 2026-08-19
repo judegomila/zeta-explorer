@@ -24,6 +24,24 @@ export const EDITORIAL_ROUTES = new Set([
   '/waves',
   '/modes',
   '/simulator',
+  // Analysis group
+  '/fourier',
+  '/control',
+  '/statistics',
+  '/supercritical',
+  '/info-theory',
+  '/pascal',
+  '/odd-zeta',
+  '/twin-ladder',
+  '/mills-theorem',
+  '/gilbreath',
+  '/calabi-yau',
+  '/gram-points',
+  '/schatten-trace-norm',
+  '/pair-correlation',
+  '/edge-rigidity',
+  '/esy-rigidity-empirical',
+  '/voronin-universality',
 ]);
 
 export function isEditorialRoute(pathname) {

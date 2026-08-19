@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader, GradeChip, InlineMath } from '../components/editorial/PostLayout.jsx';
 import WireframeAnim from '../components/editorial/WireframeAnim.jsx';
+
+// The real interactive twin-ladder explorer, lazy-loaded so the landing stays light.
+const TwinLadderViz = lazy(() => import('../components/TwinLadderViz.jsx'));
 
 /* Battle-station front page — full-width cockpit, editorial (warm) theme,
    functional language, real project content. Rendered under .ed-root so the
@@ -106,6 +109,15 @@ export default function HomePageEditorial() {
             <p>Shrink the shift a→0 and the strip closes to the line. E_a = A_a − iB_a = Ξ(z+ia), verified.</p>
             <Link to="/shift-bridge-positivity">/shift-bridge-positivity →</Link></div>
         </div>
+      </section></div>
+
+      {/* interactive twin-ladder explorer */}
+      <div className="ed-full"><section className="ed-sec">
+        <div className="ed-shead"><div><div className="ed-lbl">interactive</div><h2>The twin ladder, live</h2></div>
+          <p>Drag the shift a and watch the shear against the positive core.</p></div>
+        <Suspense fallback={<div className="ed-mono" style={{ color: 'var(--faint)', padding: '40px 0' }}>Loading the explorer…</div>}>
+          <TwinLadderViz />
+        </Suspense>
       </section></div>
 
       {/* findings atlas */}

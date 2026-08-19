@@ -4,6 +4,7 @@
 // editorial style. Everything NOT listed keeps the legacy dark app untouched.
 export const EDITORIAL_ROUTES = new Set([
   '/',
+  '/directory',
   '/lambda-01758354-candidate',
   '/autonomous-fleet',
   '/flow-blindness-no-go',

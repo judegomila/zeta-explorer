@@ -17,8 +17,9 @@ export function EditorialHeader({ ticker }) {
         <Link className="ed-brand" to="/">zeta<i>explorer</i></Link>
         <nav className="ed-headnav">
           <Link to="/">Atlas</Link>
-          <Link to="/route-map">Walls</Link>
+          <Link to="/directory">Directory</Link>
           <Link to="/explorations">Simulators</Link>
+          <Link to="/route-map">Walls</Link>
           <Link to="/lambda-bounds">Results</Link>
         </nav>
         {ticker && (

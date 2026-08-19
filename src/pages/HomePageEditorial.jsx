@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader, GradeChip, InlineMath } from '../components/editorial/PostLayout.jsx';
+import { NAV_GROUPS } from '../data/nav-groups.js';
 
 /* Battle-station front page — full-width cockpit, editorial (warm) theme,
    functional language, real project content. Rendered under .ed-root so the
@@ -169,9 +170,12 @@ export default function HomePageEditorial() {
       <div className="ed-full"><section className="ed-sec" style={{ borderBottom: 'none' }}>
         <div className="ed-cta">
           <div><div className="ed-lbl">go deeper</div>
-            <div style={{ fontFamily: 'var(--ed-display)', fontWeight: 500, fontSize: 20, marginTop: 2 }}>The full research console</div>
-            <div style={{ color: 'var(--ink-soft)', fontSize: 14 }}>Rigor dashboard · engine room · route map · the full closure ledger.</div></div>
-          <Link className="ed-btn" to="/classic">Enter console →</Link>
+            <div style={{ fontFamily: 'var(--ed-display)', fontWeight: 500, fontSize: 20, marginTop: 2 }}>The full program — {NAV_GROUPS.length} sections</div>
+            <div style={{ color: 'var(--ink-soft)', fontSize: 14 }}>Simulators · analyses · the twin-ladder v70 series · proof tools · references — all organized in the directory.</div></div>
+          <div style={{ display: 'flex', gap: 10 }}>
+            <Link className="ed-btn" to="/directory">Browse the directory →</Link>
+            <Link className="ed-btn" to="/classic" style={{ background: 'transparent', color: 'var(--ink)', border: '1px solid var(--hairline)' }}>Classic console</Link>
+          </div>
         </div>
       </section></div>
 

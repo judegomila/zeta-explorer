@@ -16,6 +16,14 @@ export const EDITORIAL_ROUTES = new Set([
   '/theorem-b-threshold',
   '/route-map',
   '/lambda-bounds',
+  // Model group
+  '/full-story',
+  '/oscillators',
+  '/hamiltonian',
+  '/zeta',
+  '/waves',
+  '/modes',
+  '/simulator',
 ]);
 
 export function isEditorialRoute(pathname) {

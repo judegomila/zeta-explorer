@@ -1,62 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
-import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
+import PostLayout, { Pull, InlineMath, BlockMath } from '../components/editorial/PostLayout.jsx';
 import { LAMBDA_BOUNDS } from '../data/lambda-roadmap.js';
 import { NEWMAN_LAMBDA_01787854_CANDIDATE } from '../data/newman-lambda-01787854-candidate.js';
 
-const COLORS = {
-  established: {
-    fg: '#86efac',
-    bg: 'rgba(34,197,94,0.10)',
-    border: 'rgba(34,197,94,0.35)',
-  },
-  publicClaim: {
-    fg: '#facc15',
-    bg: 'rgba(234,179,8,0.10)',
-    border: 'rgba(234,179,8,0.35)',
-  },
-  repository: {
-    fg: '#67e8f9',
-    bg: 'rgba(34,211,238,0.10)',
-    border: 'rgba(34,211,238,0.35)',
-  },
-  open: {
-    fg: '#fca5a5',
-    bg: 'rgba(239,68,68,0.09)',
-    border: 'rgba(239,68,68,0.35)',
-  },
-  model: {
-    fg: '#a5b4fc',
-    bg: 'rgba(99,102,241,0.10)',
-    border: 'rgba(99,102,241,0.35)',
-  },
+/* Editorial (post reading-view) presentation of the Twin-Ladder / Λ program
+   narrative. All claims, numbers, bounds, dates, and honesty caveats are
+   preserved verbatim from the prior dark-app page; this file only restyles the
+   presentation into the warm editorial theme. No new claim is introduced. */
+
+// Warm-theme accent per evidence tone (mirrors the old dark palette semantics).
+const TONE = {
+  established: 'var(--green)', // peer-reviewed
+  publicClaim: 'var(--brass)', // public, unrefereed
+  repository: 'var(--blue)', // unreviewed candidate
+  open: 'var(--terra-dk)', // open / superseded
+  model: 'var(--faint)', // structural model
 };
 
-const SECTIONS = [
-  ['status', 'Current status'],
-  ['lambda', 'RH and Λ'],
-  ['model', 'Twin-ladder model'],
-  ['v70', 'v70 corrections'],
-  ['candidate', '0.1787854 candidate'],
-  ['obligations', 'Claimed interfaces'],
-  ['bottom-line', 'Bottom line'],
-];
-
 function Badge({ tone = 'model', children }) {
-  const color = COLORS[tone] || COLORS.model;
   return (
     <span
       style={{
         display: 'inline-block',
-        padding: '3px 9px',
-        borderRadius: 999,
-        color: color.fg,
-        background: color.bg,
-        border: `1px solid ${color.border}`,
-        fontFamily: 'var(--font-mono)',
+        fontFamily: 'var(--ed-mono)',
         fontSize: 11,
         fontWeight: 700,
+        letterSpacing: 0.4,
+        color: TONE[tone],
+        border: `1px solid ${TONE[tone]}`,
+        borderRadius: 4,
+        padding: '2px 8px',
       }}
     >
       {children}
@@ -65,16 +39,17 @@ function Badge({ tone = 'model', children }) {
 }
 
 function Card({ tone = 'model', children, style = {} }) {
-  const color = COLORS[tone] || COLORS.model;
   return (
     <div
       style={{
-        padding: '18px 20px',
-        borderRadius: 12,
-        color: '#cbd5e1',
-        background: color.bg,
-        border: `1px solid ${color.border}`,
-        lineHeight: 1.7,
+        background: 'var(--paper2)',
+        border: '1px solid var(--hair2)',
+        borderLeft: `3px solid ${TONE[tone]}`,
+        borderRadius: 8,
+        padding: '16px 18px',
+        lineHeight: 1.65,
+        fontSize: 15,
+        color: 'var(--ink-soft)',
         ...style,
       }}
     >
@@ -83,49 +58,22 @@ function Card({ tone = 'model', children, style = {} }) {
   );
 }
 
-function Section({ id, number, title, children }) {
-  return (
-    <section id={id} style={{ marginTop: 52, scrollMarginTop: 76 }}>
-      <div style={{ borderBottom: '1px solid #1e293b', paddingBottom: 10, marginBottom: 20 }}>
-        <div style={{ color: '#64748b', fontFamily: 'var(--font-mono)', fontSize: 11 }}>
-          § {number}
-        </div>
-        <h2
-          style={{
-            color: '#e2e8f0',
-            fontFamily: 'var(--font-mono)',
-            fontSize: 24,
-            margin: '4px 0 0',
-          }}
-        >
-          {title}
-        </h2>
-      </div>
-      {children}
-    </section>
-  );
-}
-
-function Paragraph({ children }) {
-  return <p style={{ color: '#cbd5e1', fontSize: 15, lineHeight: 1.75 }}>{children}</p>;
-}
-
 function StatusCard({ tone, label, value, detail, href, route }) {
   const body = (
     <Card tone={tone} style={{ height: '100%', boxSizing: 'border-box' }}>
       <Badge tone={tone}>{label}</Badge>
       <div
         style={{
-          color: COLORS[tone].fg,
-          fontFamily: 'var(--font-mono)',
-          fontSize: 21,
+          color: TONE[tone],
+          fontFamily: 'var(--ed-mono)',
+          fontSize: 20,
           fontWeight: 800,
           marginTop: 12,
         }}
       >
         {value}
       </div>
-      <div style={{ color: '#94a3b8', fontSize: 13, marginTop: 8 }}>{detail}</div>
+      <div style={{ color: 'var(--faint)', fontSize: 13, marginTop: 8 }}>{detail}</div>
     </Card>
   );
 
@@ -146,57 +94,38 @@ function StatusCard({ tone, label, value, detail, href, route }) {
   return body;
 }
 
-function Contents() {
+function Grid({ min = 220, children, style = {} }) {
   return (
-    <aside
-      className="full-story-contents"
+    <div
       style={{
-        position: 'sticky',
-        top: 16,
-        width: 210,
-        flexShrink: 0,
-        alignSelf: 'flex-start',
-        padding: 16,
-        border: '1px solid #1e293b',
-        borderRadius: 10,
-        background: 'rgba(15,23,42,0.78)',
+        display: 'grid',
+        gridTemplateColumns: `repeat(auto-fit, minmax(${min}px, 1fr))`,
+        gap: 14,
+        margin: '18px 0',
+        ...style,
       }}
     >
+      {children}
+    </div>
+  );
+}
+
+function SectionHead({ number, title }) {
+  return (
+    <>
       <div
         style={{
-          color: '#64748b',
-          fontFamily: 'var(--font-mono)',
-          fontSize: 10,
-          letterSpacing: 0.6,
-          marginBottom: 10,
-          textTransform: 'uppercase',
+          color: 'var(--faint)',
+          fontFamily: 'var(--ed-mono)',
+          fontSize: 11,
+          letterSpacing: '.12em',
+          marginTop: 44,
         }}
       >
-        Contents
+        § {number}
       </div>
-      <ol style={{ listStyle: 'none', margin: 0, padding: 0 }}>
-        {SECTIONS.map(([id, label], index) => (
-          <li key={id} style={{ marginTop: index === 0 ? 0 : 8 }}>
-            <a
-              href={`#${id}`}
-              onClick={(event) => {
-                event.preventDefault();
-                document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }}
-              style={{
-                color: '#94a3b8',
-                fontFamily: 'var(--font-mono)',
-                fontSize: 12,
-                textDecoration: 'none',
-              }}
-            >
-              <span style={{ color: '#475569' }}>{String(index + 1).padStart(2, '0')}.</span>{' '}
-              {label}
-            </a>
-          </li>
-        ))}
-      </ol>
-    </aside>
+      <h2 style={{ margin: '4px 0 12px' }}>{title}</h2>
+    </>
   );
 }
 
@@ -208,14 +137,14 @@ function CurrentStatus() {
   );
 
   return (
-    <Section id="status" number={1} title="Three evidence grades, kept separate">
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-          gap: 14,
-        }}
-      >
+    <>
+      <SectionHead number={1} title="Three evidence grades, kept separate" />
+      <p className="lead">
+        These rows are intentionally not collapsed into a single &ldquo;best known&rdquo; number. A public
+        package, an unreviewed private-review candidate, and a peer-reviewed theorem have different
+        evidentiary status, so they are graded and displayed apart.
+      </p>
+      <Grid min={220}>
         <StatusCard
           tone="established"
           label="peer reviewed"
@@ -236,129 +165,116 @@ function CurrentStatus() {
           detail="A candidate for an unconditional proof. The bound is not established, has not been peer reviewed, and is not RH."
           route={candidateEntry?.route}
         />
+      </Grid>
+      <div className="ed-thm" style={{ borderLeftColor: 'var(--terra-dk)' }}>
+        <div className="tlab" style={{ color: 'var(--terra-dk)' }}>Superseded program claim</div>
+        <p style={{ fontSize: 15 }}>
+          <strong style={{ color: 'var(--terra-dk)' }}>
+            <InlineMath tex="\Lambda\le 3.06\times10^{-5}" /> is not a rigorous bound.
+          </strong>{' '}
+          The July 2026 audit found that the current surrogate error{' '}
+          <InlineMath tex="E(N)" /> floors at its fixed-strip truncation term instead of tending to
+          zero. The required <InlineMath tex="C_H" /> / G6a shock modulus is RH-equivalent and open;
+          the truncation constant is uncertified; and the collision-time leg still uses a proxy with
+          an invalidated quantitative rate. The unconditional content that survives is an inert
+          proxy limit, not a bound on <InlineMath tex="\Lambda" />. It therefore does not displace the
+          peer-reviewed <InlineMath tex="\Lambda\le0.2" /> benchmark.
+        </p>
       </div>
-      <Paragraph>
-        These rows are intentionally not collapsed into a single “best known” number. A public
-        package, an unreviewed private-review candidate, and a peer-reviewed theorem have different
-        evidentiary status.
-      </Paragraph>
-      <Card tone="open">
-        <strong style={{ color: '#f87171' }}>
-          Superseded program claim: <InlineMath tex="\Lambda\le 3.06\times10^{-5}" /> is not a
-          rigorous bound.
-        </strong>{' '}
-        The July 2026 audit found that the current surrogate error{' '}
-        <InlineMath tex="E(N)" /> floors at its fixed-strip truncation term instead of tending to
-        zero. The required <InlineMath tex="C_H" /> / G6a shock modulus is RH-equivalent and open;
-        the truncation constant is uncertified; and the collision-time leg still uses a proxy with
-        an invalidated quantitative rate. The unconditional content that survives is an inert
-        proxy limit, not a bound on <InlineMath tex="\Lambda" />. It therefore does not displace the
-        peer-reviewed <InlineMath tex="\Lambda\le0.2" /> benchmark.
-      </Card>
-    </Section>
+    </>
   );
 }
 
 function LambdaContext() {
   return (
-    <Section id="lambda" number={2} title="RH and the de Bruijn–Newman constant">
-      <Paragraph>
-        With the completed zeta function
-        <InlineMath tex="\;\xi(s)=\tfrac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\;" />,
-        the Riemann Hypothesis says that every non-trivial zero has real part
-        <InlineMath tex="\;1/2" />. The de Bruijn–Newman deformation is
-      </Paragraph>
+    <>
+      <SectionHead number={2} title="RH and the de Bruijn–Newman constant" />
+      <p>
+        With the completed zeta function{' '}
+        <InlineMath tex="\xi(s)=\tfrac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)" />, the Riemann
+        Hypothesis says that every non-trivial zero has real part <InlineMath tex="1/2" />. The
+        de Bruijn–Newman deformation is
+      </p>
       <BlockMath tex="H_t(z)=\int_0^\infty e^{t u^2}\Phi(u)\cos(zu)\,du,\qquad \Lambda:=\inf\{t:H_t\text{ has only real zeros}\}." />
-      <Paragraph>
-        The classical bridge is
-        <InlineMath tex="\;\mathrm{RH}\Longleftrightarrow\Lambda\le0" />. Rodgers–Tao proved
-        <InlineMath tex="\;\Lambda\ge0" />, hence
-        <InlineMath tex="\;\mathrm{RH}\Longleftrightarrow\Lambda=0" />. A finite computation or
-        a model collision time is not automatically a bound on <InlineMath tex="\Lambda" />; a
-        valid result also needs the full approximation, height, endpoint, and heat-flow criterion
-        weld.
-      </Paragraph>
-    </Section>
+      <p>
+        The classical bridge is <InlineMath tex="\mathrm{RH}\Longleftrightarrow\Lambda\le0" />.
+        Rodgers–Tao proved <InlineMath tex="\Lambda\ge0" />, hence{' '}
+        <InlineMath tex="\mathrm{RH}\Longleftrightarrow\Lambda=0" />. A finite computation or a model
+        collision time is not automatically a bound on <InlineMath tex="\Lambda" />; a valid result
+        also needs the full approximation, height, endpoint, and heat-flow criterion weld.
+      </p>
+    </>
   );
 }
 
 function TwinLadderModel() {
   return (
-    <Section id="model" number={3} title="What the twin-ladder model contributes">
-      <Paragraph>
-        The arithmetic ladder comes from the exact prime-power expansion
-      </Paragraph>
+    <>
+      <SectionHead number={3} title="What the twin-ladder model contributes" />
+      <p>The arithmetic ladder comes from the exact prime-power expansion</p>
       <BlockMath tex="\log\zeta(s)=\sum_p\sum_{m\ge1}\frac{p^{-ms}}{m},\qquad -\frac{\zeta'}{\zeta}(s)=\sum_p\sum_{m\ge1}(\log p)\,p^{-ms}." />
-      <Paragraph>
-        Thus the natural delays are <InlineMath tex="\;m\log p" />. Their integer relations are
+      <p>
+        Thus the natural delays are <InlineMath tex="m\log p" />. Their integer relations are
         governed by unique factorization: the prime logarithms are linearly independent over the
-        rationals, while prime-power rungs deliberately contain integer multiples. The “twin”
-        construction couples this arithmetic ladder to the completed kernel through explicit
-        bridges. It is a useful coordinate system and research program, not by itself a physical
-        network realization or a proof of RH.
-      </Paragraph>
+        rationals, while prime-power rungs deliberately contain integer multiples. The
+        &ldquo;twin&rdquo; construction couples this arithmetic ladder to the completed kernel
+        through explicit bridges. It is a useful coordinate system and research program, not by
+        itself a physical network realization or a proof of RH.
+      </p>
 
       <Card tone="model">
-        <strong style={{ color: '#e2e8f0' }}>Corrected transfer-function reading.</strong>{' '}
-        For <InlineMath tex="S_{21}(s)=\zeta(2s)/\zeta(s)" />, a generic zero of
+        <strong style={{ color: 'var(--ink)' }}>Corrected transfer-function reading.</strong>{' '}
+        For <InlineMath tex="S_{21}(s)=\zeta(2s)/\zeta(s)" />, a generic zero of{' '}
         <InlineMath tex="\zeta(s)" /> is a pole of <InlineMath tex="S_{21}" />. A transmission zero
         comes from an uncancelled zero of <InlineMath tex="\zeta(2s)" />. The functional-equation
         factor can be placed in the formal two-channel matrix
         <BlockMath tex="S_\chi(s)=\frac12\begin{pmatrix}1+\chi(s)&1-\chi(s)\\[2pt]1-\chi(s)&1+\chi(s)\end{pmatrix}." />
-        This matrix is unitary wherever <InlineMath tex="|\chi|=1" />, because its eigenvalues are
+        This matrix is unitary wherever <InlineMath tex="|\chi|=1" />, because its eigenvalues are{' '}
         <InlineMath tex="1" /> and <InlineMath tex="\chi" />. That boundary identity still does not
         establish a causal passive realization or identify scattering zeros with zeta zeros.
       </Card>
-    </Section>
+    </>
   );
 }
 
 function V70Corrections() {
   return (
-    <Section id="v70" number={4} title="v70 shift-bridge corrections">
-      <Paragraph>
+    <>
+      <SectionHead number={4} title="v70 shift-bridge corrections" />
+      <p>
         Center the completed function and measure the furthest horizontal zero displacement by
-      </Paragraph>
+      </p>
       <BlockMath tex="X(w):=\xi\!\left(\tfrac12+w\right),\qquad \Delta:=\sup_{X(\lambda)=0}|\Re\lambda|." />
-      <Paragraph>
-        The corrected fixed-shift statement in the v70 draft is a strict interior threshold:
-      </Paragraph>
+      <p>The corrected fixed-shift statement in the v70 draft is a strict interior threshold:</p>
       <BlockMath tex="\bigl[\,|X(w-a)|<|X(w+a)|\ \text{for every }\Re w>0\,\bigr]\Longleftrightarrow a\ge\Delta." />
-      <Paragraph>
+      <p>
         The endpoint <InlineMath tex="a=\Delta" /> belongs to this strict interior statement.
         However, it must not be conflated with an exact fixed-<InlineMath tex="a" /> criterion for
         positive semidefiniteness of the whole kernel. Common shifted zeros can create zero rows,
         which semidefiniteness permits. The safe all-shifts statement is
-      </Paragraph>
+      </p>
       <BlockMath tex="\bigl[\,K_a\succeq0\ \text{for every }a>0\,\bigr]\Longleftrightarrow\Delta=0\Longleftrightarrow\mathrm{RH}." />
 
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: 14,
-          marginTop: 18,
-        }}
-      >
+      <Grid min={260}>
         <Card tone="model">
-          <strong style={{ color: '#e2e8f0' }}>Common-zero correction</strong>
+          <strong style={{ color: 'var(--ink)' }}>Common-zero correction</strong>
           <BlockMath tex="\operatorname{ord}^{\rm pole}_{\lambda-a}R_a=\bigl[m(\lambda)-m(\lambda-2a)\bigr]_+,\qquad R_a(w)=\frac{X(w-a)}{X(w+a)}." />
           Negative-index counts must use residual, uncancelled pole order rather than counting every
           shifted denominator zero.
         </Card>
         <Card tone="model">
-          <strong style={{ color: '#e2e8f0' }}>Half-plane Blaschke correction</strong>
+          <strong style={{ color: 'var(--ink)' }}>Half-plane Blaschke correction</strong>
           <BlockMath tex="B_\alpha(w)=\frac{w-\alpha}{w+\overline{\alpha}},\qquad \Re\alpha>0." />
           This is the right-half-plane factor with a zero at <InlineMath tex="\alpha" /> and unit
           boundary modulus. A right-half-plane pole contributes the inverse factor, subject to the
           residual-order caveat above.
         </Card>
-      </div>
-      <Paragraph>
+      </Grid>
+      <p>
         These are structural reductions. The v70 paper explicitly remains a research-program
         draft; proving the all-shifts positivity target non-circularly is still RH-hard.
-      </Paragraph>
-    </Section>
+      </p>
+    </>
   );
 }
 
@@ -369,7 +285,8 @@ function RepositoryCandidateEvidence() {
   const tail = candidate.tailEvidence;
 
   return (
-    <Section id="candidate" number={5} title="What the standalone 0.1787854 candidate claims">
+    <>
+      <SectionHead number={5} title="What the standalone 0.1787854 candidate claims" />
       <Card tone="repository">
         <Badge tone="repository">unreviewed candidate · computer-assisted · bound not established · not RH</Badge>
         <BlockMath tex={target.identityTex} />
@@ -378,183 +295,144 @@ function RepositoryCandidateEvidence() {
         <code>{candidate.identity.releaseCommit.slice(0, 12)}</code>, and a SHA-256 seal.
       </Card>
 
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-          gap: 14,
-          marginTop: 14,
-        }}
-      >
+      <Grid min={220}>
         <Card tone="model">
-          <strong style={{ color: '#e2e8f0' }}>Finite range</strong>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 19, marginTop: 8 }}>
+          <strong style={{ color: 'var(--ink)' }}>Finite range</strong>
+          <div style={{ fontFamily: 'var(--ed-mono)', fontSize: 19, marginTop: 8, color: 'var(--ink)' }}>
             {finite.firstN.toLocaleString()}–{finite.lastN.toLocaleString()}
           </div>
           {finite.rowCount.toLocaleString()} contiguous rows; no stored gaps, duplicates, nonpositive
           rows, or UNCERT rows.
         </Card>
         <Card tone="model">
-          <strong style={{ color: '#e2e8f0' }}>Finite margin</strong>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 19, marginTop: 8 }}>
+          <strong style={{ color: 'var(--ink)' }}>Finite margin</strong>
+          <div style={{ fontFamily: 'var(--ed-mono)', fontSize: 19, marginTop: 8, color: 'var(--ink)' }}>
             ≥ {finite.finiteMarginLowerBoundLiteral}
           </div>
           Direct-Dini ratio {finite.dini.worstCertifiedRatioLiteral} &lt; 1 at 180 and 256 bits.
         </Card>
         <Card tone="model">
-          <strong style={{ color: '#e2e8f0' }}>Tail gate</strong>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 19, marginTop: 8 }}>
+          <strong style={{ color: 'var(--ink)' }}>Tail gate</strong>
+          <div style={{ fontFamily: 'var(--ed-mono)', fontSize: 19, marginTop: 8, color: 'var(--ink)' }}>
             {tail.checksPassed}/{tail.checksTotal}
           </div>
           Conservative slack &gt; {tail.slackLowerBound}; contraction upper bound{' '}
           {tail.contractionUpperBoundLiteral} &lt; 1.
         </Card>
-      </div>
+      </Grid>
 
-      <Paragraph>
+      <p>
         The standalone v3 assembly presents these numerical certificates together with claimed compact-slab
         and final-time-half-strip closures, the Platt–Trudgian verified height, and an exact Polymath
         criterion weld. Together they form an unreviewed computer-assisted candidate for an unconditional
         proof. The bound is not established and has not been peer reviewed. It is not RH.
-      </Paragraph>
-      <Link
-        to="/newman-lambda-01787854-candidate"
-        style={{ color: '#fbbf24', fontFamily: 'var(--font-mono)', fontSize: 13 }}
-      >
-        Open the candidate package and replay record →
-      </Link>
-    </Section>
+      </p>
+      <p>
+        <Link
+          to="/newman-lambda-01787854-candidate"
+          className="ed-mono"
+          style={{ color: 'var(--brass)', fontSize: 13 }}
+        >
+          Open the candidate package and replay record →
+        </Link>
+      </p>
+    </>
   );
 }
 
 function CandidateInterfaces() {
   return (
-    <Section id="obligations" number={6} title="The candidate's eight supplied interfaces">
-      <Paragraph>
+    <>
+      <SectionHead number={6} title="The candidate's eight supplied interfaces" />
+      <p>
         These are claims and artifacts supplied by the candidate package, not independently established
         theorems. Their mathematics and source-to-proof correspondence remain external-review obligations.
-      </Paragraph>
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: 12,
-        }}
-      >
+      </p>
+      <Grid min={280}>
         {NEWMAN_LAMBDA_01787854_CANDIDATE.closedAuditItems.map((item, index) => (
           <Card key={item.title} tone="repository">
             <div style={{ display: 'flex', gap: 10, alignItems: 'baseline' }}>
-              <span style={{ color: '#22d3ee', fontFamily: 'var(--font-mono)', fontWeight: 800 }}>
+              <span style={{ color: 'var(--blue)', fontFamily: 'var(--ed-mono)', fontWeight: 800 }}>
                 {String(index + 1).padStart(2, '0')}
               </span>
-              <strong style={{ color: '#e2e8f0' }}>{item.title}</strong>
+              <strong style={{ color: 'var(--ink)' }}>{item.title}</strong>
             </div>
-            <div style={{ color: '#94a3b8', fontSize: 13, marginTop: 8 }}>
+            <div style={{ color: 'var(--faint)', fontSize: 13, marginTop: 8 }}>
               {item.detail}
             </div>
           </Card>
         ))}
-      </div>
-    </Section>
+      </Grid>
+    </>
   );
 }
 
 function BottomLine() {
   return (
-    <Section id="bottom-line" number={7} title="Bottom line">
-      <Card tone="open">
-        <div style={{ color: '#e2e8f0', fontSize: 21, fontWeight: 800 }}>
+    <>
+      <SectionHead number={7} title="Bottom line" />
+      <div className="ed-thm" style={{ borderLeftColor: 'var(--terra-dk)' }}>
+        <div className="tlab" style={{ color: 'var(--terra-dk)' }}>No QED</div>
+        <p style={{ fontSize: 19, fontWeight: 800, color: 'var(--ink)', margin: '0 0 12px' }}>
           No current Twin Ladder Explorer result proves RH or <InlineMath tex="\Lambda=0" />.
-        </div>
-        <Paragraph>
+        </p>
+        <p style={{ fontSize: 15 }}>
           The defensible outputs are: a corrected v70 structural model, clearer zero/pole and
           positivity bookkeeping, a reproducible public <InlineMath tex="0.1875" /> package with
           an explicitly noted local repair, and an <InlineMath tex="0.1787854" /> unreviewed
           computer-assisted candidate for an unconditional proof in the standalone private review repository. Its bound
           is not established, has not been peer reviewed, and is not RH. The global Twin Ladder residual inequality remains exactly
           equivalent to RH, so no current result proves <InlineMath tex="\Lambda=0" />.
-        </Paragraph>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
-          <Link to="/lambda-bounds" style={{ color: '#a5b4fc' }}>
-            Bounds and evidence ledger
-          </Link>
-          <Link to="/twin-ladder" style={{ color: '#a5b4fc' }}>
-            Twin-ladder v70
-          </Link>
-          <Link to="/shift-bridge-positivity" style={{ color: '#a5b4fc' }}>
-            Shift-bridge threshold
-          </Link>
-        </div>
-      </Card>
-    </Section>
+        </p>
+      </div>
+    </>
   );
 }
 
 export default function FullStoryPage() {
   return (
-    <div className="page" style={{ maxWidth: 1320, margin: '0 auto', padding: '24px 20px 80px' }}>
-      <style>{`
-        @media (max-width: 800px) {
-          .full-story-layout {
-            display: block !important;
-          }
-          .full-story-contents {
-            position: static !important;
-            width: auto !important;
-            margin-top: 20px;
-          }
-          .full-story-contents ol {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px 14px;
-          }
-          .full-story-contents li {
-            margin-top: 0 !important;
-          }
-        }
-      `}</style>
-      <HonestCeilingBanner />
-      <div
-        style={{
-          padding: '30px 34px',
-          border: '1px solid rgba(99,102,241,0.35)',
-          borderRadius: 14,
-          background: 'linear-gradient(135deg, rgba(99,102,241,0.14), rgba(15,23,42,0.42))',
-          marginTop: 18,
-        }}
-      >
-        <div
-          style={{
-            color: '#a5b4fc',
-            fontFamily: 'var(--font-mono)',
-            fontSize: 11,
-            letterSpacing: 0.8,
-            textTransform: 'uppercase',
-          }}
-        >
-          Evidence-graded research narrative
-        </div>
-        <h1 style={{ color: '#e2e8f0', fontSize: 39, margin: '10px 0 12px' }}>
-          The Twin-Ladder / Λ Program
-        </h1>
-        <p style={{ color: '#cbd5e1', fontSize: 16, lineHeight: 1.75, margin: 0, maxWidth: 900 }}>
-          A corrected account of what is classical, what v70 derives inside a research draft,
-          what the certificate packages compute, and which logical welds remain open.
+    <PostLayout
+      grade="MAP"
+      meta={['evidence-graded research narrative', 'Twin-Ladder / Λ program']}
+      title="The Twin-Ladder / Λ Program"
+      dek="A corrected account of what is classical, what v70 derives inside a research draft, what the certificate packages compute, and which logical welds remain open."
+      byline={['twin-ladder · mathexplorer', 'no new bound · not RH']}
+      ticker={<span>Platt–Trudgian Λ ≤ 0.2 remains SOTA · candidates unverified · no QED</span>}
+      footer={<>
+        Related: <Link to="/lambda-bounds">Bounds and evidence ledger</Link>
+        {' · '}<Link to="/twin-ladder">Twin-ladder v70</Link>
+        {' · '}<Link to="/shift-bridge-positivity">Shift-bridge threshold</Link>
+        {' · '}<Link to="/state-of-program">State of the Program</Link>
+        <br /><br />← <Link to="/">the atlas</Link>
+      </>}
+    >
+      <div className="ed-thm" style={{ borderLeftColor: 'var(--green)' }}>
+        <div className="tlab" style={{ color: 'var(--green)' }}>Honest ceiling · RIGOROUS-SOTA</div>
+        <p style={{ fontSize: 15 }}>
+          <strong style={{ color: 'var(--ink)' }}>
+            Peer-reviewed benchmark: Platt-Trudgian Λ ≤ 0.2 — this program did NOT produce it.
+          </strong>{' '}
+          A public unrefereed package claims Λ ≤ 0.1875 and is listed in the Optimization Problems
+          ledger; a local audit repaired an omitted finite sweep. The standalone private review
+          repository presents Λ ≤ 0.1787854 as an unreviewed computer-assisted candidate for an
+          unconditional proof; the bound is not established, has not been peer reviewed, and is not
+          RH. Platt-Trudgian Λ ≤ 0.2 therefore remains the peer-reviewed benchmark, with Rodgers-Tao
+          Λ ≥ 0 on the lower side.{' '}
+          <Link to="/state-of-program" style={{ color: 'var(--green)', fontWeight: 600 }}>
+            See the State of the Program
+          </Link>{' '}
+          for the one canonical honest summary.
         </p>
       </div>
 
-      <div className="full-story-layout" style={{ display: 'flex', gap: 32, alignItems: 'flex-start' }}>
-        <Contents />
-        <main style={{ flex: 1, minWidth: 0, maxWidth: 920 }}>
-          <CurrentStatus />
-          <LambdaContext />
-          <TwinLadderModel />
-          <V70Corrections />
-          <RepositoryCandidateEvidence />
-          <CandidateInterfaces />
-          <BottomLine />
-        </main>
-      </div>
-    </div>
+      <CurrentStatus />
+      <LambdaContext />
+      <TwinLadderModel />
+      <V70Corrections />
+      <Pull>a public package, an unreviewed private-review candidate, and a peer-reviewed theorem have different evidentiary status</Pull>
+      <RepositoryCandidateEvidence />
+      <CandidateInterfaces />
+      <BottomLine />
+    </PostLayout>
   );
 }

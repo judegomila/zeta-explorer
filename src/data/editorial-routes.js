@@ -42,6 +42,22 @@ export const EDITORIAL_ROUTES = new Set([
   '/edge-rigidity',
   '/esy-rigidity-empirical',
   '/voronin-universality',
+  // Twin-Ladder Program group (§15–27); ClosureRoutesPage deferred (8.7k lines)
+  '/blaschke-ghosts',
+  '/three-attacks',
+  '/freezing-bridge',
+  '/kyp-bounded-real',
+  '/twin-ladder-paper-roadmap',
+  '/rigorous-numerics-stages',
+  '/paper-audit-dashboard',
+  '/pcc-route-exhaustion',
+  '/ht-corridor-certificates',
+  '/ht-window-census',
+  '/collapse-chain',
+  '/hidden-square-program',
+  '/section26-conditioning-artifact',
+  '/excess-fraction-phi',
+  '/reciprocal-program',
 ]);
 
 export function isEditorialRoute(pathname) {

@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PageHeader from '../components/PageHeader.jsx';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { IMP3106_EXCESS_FRACTION_INTEGRABILITY } from '../data/imp-3106-excess-fraction-integrability.js';
+
+// Excess fraction φ(s) = G(s)/F(s): onset pole + tail decay (imp-3106).
+// Editorial (warm) re-theme: full-width shell, identical structure/data/claims.
 
 const D = IMP3106_EXCESS_FRACTION_INTEGRABILITY;
 const S0 = Math.asinh(1);
@@ -22,6 +25,17 @@ const S_END = 8.0;
 const LOG_Y_MIN = -4.5;
 const LOG_Y_MAX = 2.4;
 const LOG_Y_RANGE = LOG_Y_MAX - LOG_Y_MIN;
+
+// Editorial card: warm paper background + hairline border, colored left rule.
+function cardBaseLeft(color) {
+  return {
+    background: 'var(--paper2)',
+    border: '1px solid var(--hairline)',
+    borderLeft: `3px solid ${color}`,
+    borderRadius: 8,
+    padding: '0.9rem',
+  };
+}
 
 function PhiChart() {
   const svgW = 560;
@@ -108,15 +122,15 @@ function PhiChart() {
       </defs>
 
       {/* Chart background */}
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="var(--paper2)" rx={2} />
 
       {/* Onset window shading [s0, s0+1] */}
       <rect x={padL} y={padT} width={xOnsetEnd - padL} height={cH}
-        fill="rgba(239,68,68,0.10)" />
+        fill="rgba(194,58,28,0.08)" />
 
       {/* Regular + tail region shading [s0+1, 8] */}
       <rect x={xOnsetEnd} y={padT} width={xChartEnd - xOnsetEnd} height={cH}
-        fill="rgba(16,185,129,0.05)" />
+        fill="rgba(76,122,74,0.06)" />
 
       {/* Y-axis gridlines */}
       {yGridVals.map(ly => {
@@ -125,8 +139,8 @@ function PhiChart() {
         return (
           <g key={ly}>
             <line x1={padL} y1={y} x2={padL + cW} y2={y}
-              stroke="#1e293b" strokeWidth={0.8} />
-            <text x={padL - 4} y={y + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+              stroke="var(--hair2)" strokeWidth={0.8} />
+            <text x={padL - 4} y={y + 3.5} textAnchor="end" fill="var(--faint)" fontSize={9}>
               {ly >= 0 ? '10^' + ly : '10^(' + ly + ')'}
             </text>
           </g>
@@ -135,75 +149,75 @@ function PhiChart() {
 
       {/* Vertical divider at s0+1 */}
       <line x1={xOnsetEnd} y1={padT} x2={xOnsetEnd} y2={padT + cH}
-        stroke="#475569" strokeWidth={1} strokeDasharray="4 3" />
+        stroke="var(--faint)" strokeWidth={1} strokeDasharray="4 3" />
 
       {/* Region labels inside chart */}
       <text x={padL + (xOnsetEnd - padL) / 2} y={padT + 14}
-        textAnchor="middle" fill="#ef4444" fontSize={9} fontWeight="700">
+        textAnchor="middle" fill="var(--terra-dk)" fontSize={9} fontWeight="700">
         ONSET WINDOW
       </text>
       <text x={padL + (xOnsetEnd - padL) / 2} y={padT + 25}
-        textAnchor="middle" fill="#f97316" fontSize={8.5}>
+        textAnchor="middle" fill="var(--brass-dk)" fontSize={8.5}>
         [s₀, s₀+1]
       </text>
       <text x={xOnsetEnd + 8} y={padT + 14}
-        fill="#10b981" fontSize={9} fontWeight="700">
+        fill="var(--green)" fontSize={9} fontWeight="700">
         REGULAR + TAIL
       </text>
-      <text x={xOnsetEnd + 8} y={padT + 25} fill="#10b981" fontSize={8.5}>
+      <text x={xOnsetEnd + 8} y={padT + 25} fill="var(--green)" fontSize={8.5}>
         mass = {REG_MASS.toFixed(4)} (finite)
       </text>
 
       {/* Onset pole approximation */}
-      <path d={onsetPath} fill="none" stroke="#f97316" strokeWidth={1.7}
+      <path d={onsetPath} fill="none" stroke="var(--brass-dk)" strokeWidth={1.7}
         strokeDasharray="6 3" clipPath="url(#phi3106-clip)" />
 
       {/* Tail approximation */}
-      <path d={tailPath} fill="none" stroke="#22d3ee" strokeWidth={1.7}
+      <path d={tailPath} fill="none" stroke="var(--blue)" strokeWidth={1.7}
         strokeDasharray="6 3" clipPath="url(#phi3106-clip)" />
 
       {/* Actual phi(s) curve */}
-      <path d={phiPath} fill="none" stroke="#a78bfa" strokeWidth={2.2}
+      <path d={phiPath} fill="none" stroke="var(--ink)" strokeWidth={2.2}
         clipPath="url(#phi3106-clip)" />
 
       {/* Divergence upward arrow at left edge of onset window */}
       <line x1={padL + 10} y1={padT + 44} x2={padL + 10} y2={padT + 6}
-        stroke="#ef4444" strokeWidth={1.5} />
+        stroke="var(--terra-dk)" strokeWidth={1.5} />
       <polygon
         points={
           (padL + 10 - 4) + ',' + (padT + 10) + ' ' +
           (padL + 10 + 4) + ',' + (padT + 10) + ' ' +
           (padL + 10) + ',' + (padT + 2)
         }
-        fill="#ef4444"
+        fill="var(--terra-dk)"
       />
-      <text x={padL + 17} y={padT + 42} fill="#ef4444" fontSize={9.5} fontWeight="700">
+      <text x={padL + 17} y={padT + 42} fill="var(--terra-dk)" fontSize={9.5} fontWeight="700">
         DIVERGES as s→s₀+
       </text>
 
       {/* Chart border */}
       <rect x={padL} y={padT} width={cW} height={cH}
-        fill="none" stroke="#334155" strokeWidth={1} />
+        fill="none" stroke="var(--hairline)" strokeWidth={1} />
 
       {/* Legend */}
       <g transform={'translate(' + (padL + cW - 168) + ',' + (padT + cH - 68) + ')'}>
-        <rect x={0} y={0} width={162} height={62} fill="rgba(10,15,26,0.92)" rx={4}
-          stroke="#334155" strokeWidth={0.8} />
-        <line x1={8} y1={13} x2={24} y2={13} stroke="#a78bfa" strokeWidth={2.2} />
-        <text x={30} y={17} fill="#a78bfa" fontSize={9.5}>
+        <rect x={0} y={0} width={162} height={62} fill="var(--paper)" rx={4}
+          stroke="var(--hairline)" strokeWidth={0.8} />
+        <line x1={8} y1={13} x2={24} y2={13} stroke="var(--ink)" strokeWidth={2.2} />
+        <text x={30} y={17} fill="var(--ink)" fontSize={9.5}>
           φ(s) = G(s)/F(s)
         </text>
-        <line x1={8} y1={28} x2={24} y2={28} stroke="#f97316" strokeWidth={1.7}
+        <line x1={8} y1={28} x2={24} y2={28} stroke="var(--brass-dk)" strokeWidth={1.7}
           strokeDasharray="5 3" />
-        <text x={30} y={32} fill="#f97316" fontSize={9.5}>
+        <text x={30} y={32} fill="var(--brass-dk)" fontSize={9.5}>
           C/(s-s₀)^2  C={C_POLE.toFixed(5)}
         </text>
-        <line x1={8} y1={43} x2={24} y2={43} stroke="#22d3ee" strokeWidth={1.7}
+        <line x1={8} y1={43} x2={24} y2={43} stroke="var(--blue)" strokeWidth={1.7}
           strokeDasharray="5 3" />
-        <text x={30} y={47} fill="#22d3ee" fontSize={9.5}>
+        <text x={30} y={47} fill="var(--blue)" fontSize={9.5}>
           K e^(-s)  K={K_TAIL.toFixed(5)}
         </text>
-        <text x={8} y={59} fill="#64748b" fontSize={8.5}>
+        <text x={8} y={59} fill="var(--faint)" fontSize={8.5}>
           s₀ = arcsinh(1) ≈ {S0.toFixed(5)}
         </text>
       </g>
@@ -214,15 +228,15 @@ function PhiChart() {
         return (
           <g key={s}>
             <line x1={x} y1={padT + cH} x2={x} y2={padT + cH + 5}
-              stroke="#334155" strokeWidth={1} />
-            <text x={x} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+              stroke="var(--hairline)" strokeWidth={1} />
+            <text x={x} y={padT + cH + 16} textAnchor="middle" fill="var(--faint)" fontSize={9.5}>
               {label}
             </text>
           </g>
         );
       })}
       <text x={padL + cW / 2} y={padT + cH + 33} textAnchor="middle"
-        fill="#64748b" fontSize={10}>
+        fill="var(--faint)" fontSize={10}>
         s = a · U  (product of shear weight and half-window)
       </text>
 
@@ -231,7 +245,7 @@ function PhiChart() {
         x={11}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill="var(--faint)"
         fontSize={10}
         transform={'rotate(-90,11,' + (padT + cH / 2) + ')'}
       >
@@ -247,127 +261,138 @@ export default function ExcessFractionPhiPage() {
   const overrunFactor = Math.round(D.whereDivergenceDominates.onsetToRegularRatioAtFinestEps);
 
   return (
-    <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
-      <PageHeader title="φ(s) = G(s)/F(s): Onset Pole and Tail Decay (imp-3106)" />
-
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 680 }}>
-        The imp-3064 excess fraction &phi;(s) = G(s)/F(s), where F = a&middot;D<sub>raw</sub> and G = a&middot;E,
-        depends only on s = a&middot;U. It governs the area-weighted mean price of the forced even
-        cosh-completion over the overflow range (s<sub>0</sub>, &infin;), s<sub>0</sub> = arcsinh(1)
-        &asymp; {S0.toFixed(5)}.
-        The integral DIVERGES at the onset (non-integrable inverse-square pole) but CONVERGES
-        in the tail (exponential K e<sup>-s</sup> decay, finite regular mass).
-      </p>
-
-      <PhiChart />
-
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '1.25rem' }}>
-        <div style={{
-          background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.22)',
-          borderRadius: 6, padding: '0.9rem',
-        }}>
-          <p style={{ color: '#ef4444', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.35rem' }}>
-            ONSET: NON-INTEGRABLE (DIVERGENT MEAN PRICE)
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>twin-ladder · excess-fraction φ(s)</span>} />
+      <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
+        <div style={{ marginBottom: 20 }}>
+          <h1 className="ed-h1" style={{ marginBottom: 10 }}>
+            φ(s) = G(s)/F(s): onset pole and tail decay <span style={{ color: 'var(--faint)', fontSize: '0.55em', fontWeight: 400 }}>(imp-3106)</span>
+          </h1>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: '48rem' }}>
+            The imp-3064 excess fraction &phi;(s) = G(s)/F(s), where F = a&middot;D<sub>raw</sub> and G = a&middot;E,
+            depends only on s = a&middot;U. It governs the area-weighted mean price of the forced even
+            cosh-completion over the overflow range (s<sub>0</sub>, &infin;), s<sub>0</sub> = arcsinh(1)
+            &asymp; {S0.toFixed(5)}.
+            The integral <strong style={{ color: 'var(--terra-dk)' }}>DIVERGES</strong> at the onset (non-integrable inverse-square pole) but <strong style={{ color: 'var(--green)' }}>CONVERGES</strong>{' '}
+            in the tail (exponential K e<sup>-s</sup> decay, finite regular mass).
           </p>
-          <p style={{ color: '#94a3b8', fontSize: '0.8rem', margin: 0 }}>
-            As s &rarr; s<sub>0</sub>+, &phi; ~ C/(s&minus;s<sub>0</sub>)<sup>2</sup> with
-            C = sqrt(2)&middot;(1&minus;arcsinh(1)) = {C_POLE.toFixed(5)}.
-            The integral from s<sub>0</sub>+&epsilon; diverges as C/&epsilon; &rarr; +&infin;.
-            The decade-growth factor is ~10&times; per decade (the 1/&epsilon; power law, not the
-            1/&epsilon;<sup>2</sup> of the integrand itself), confirming the pole is exactly
-            inverse-square.
-          </p>
-          <table style={{ width: '100%', marginTop: '0.6rem', borderCollapse: 'collapse', fontSize: '0.75rem' }}>
-            <thead>
-              <tr>
-                {['eps', 'I(eps)', 'eps·I(eps)', 'ratio to C'].map(h => (
-                  <th key={h} style={{ color: '#64748b', textAlign: 'right', paddingBottom: 3, fontWeight: 600 }}>{h}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {onsetRungs.map(r => (
-                <tr key={r.eps}>
-                  <td style={{ color: '#94a3b8', textAlign: 'right', paddingRight: 6 }}>
-                    1e{Math.round(Math.log10(r.eps))}
-                  </td>
-                  <td style={{ color: '#f97316', textAlign: 'right', paddingRight: 6 }}>
-                    {r.mass.toFixed(1)}
-                  </td>
-                  <td style={{ color: '#fbbf24', textAlign: 'right', paddingRight: 6 }}>
-                    {r.epsTimesMass.toFixed(5)}
-                  </td>
-                  <td style={{ color: '#a78bfa', textAlign: 'right' }}>
-                    {r.ratioToPrincipal.toFixed(4)}
-                  </td>
+        </div>
+
+        <div style={{ background: 'var(--paper)', border: '1px solid var(--hairline)', borderRadius: 10, padding: '18px 20px', marginBottom: 24 }}>
+          <PhiChart />
+        </div>
+
+        <div className="card-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: 24 }}>
+          <div className="card" style={cardBaseLeft('var(--terra-dk)')}>
+            <p style={{ color: 'var(--terra-dk)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.35rem' }}>
+              ONSET: NON-INTEGRABLE (DIVERGENT MEAN PRICE)
+            </p>
+            <p style={{ color: 'var(--ink-soft)', fontSize: '0.8rem', margin: 0 }}>
+              As s &rarr; s<sub>0</sub>+, &phi; ~ C/(s&minus;s<sub>0</sub>)<sup>2</sup> with
+              C = sqrt(2)&middot;(1&minus;arcsinh(1)) = {C_POLE.toFixed(5)}.
+              The integral from s<sub>0</sub>+&epsilon; diverges as C/&epsilon; &rarr; +&infin;.
+              The decade-growth factor is ~10&times; per decade (the 1/&epsilon; power law, not the
+              1/&epsilon;<sup>2</sup> of the integrand itself), confirming the pole is exactly
+              inverse-square.
+            </p>
+            <table style={{ width: '100%', marginTop: '0.6rem', borderCollapse: 'collapse', fontSize: '0.75rem' }}>
+              <thead>
+                <tr>
+                  {['eps', 'I(eps)', 'eps·I(eps)', 'ratio to C'].map(h => (
+                    <th key={h} style={{ color: 'var(--faint)', textAlign: 'right', paddingBottom: 3, fontWeight: 600 }}>{h}</th>
+                  ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {onsetRungs.map(r => (
+                  <tr key={r.eps}>
+                    <td style={{ color: 'var(--ink-soft)', textAlign: 'right', paddingRight: 6 }}>
+                      1e{Math.round(Math.log10(r.eps))}
+                    </td>
+                    <td style={{ color: 'var(--brass-dk)', textAlign: 'right', paddingRight: 6 }}>
+                      {r.mass.toFixed(1)}
+                    </td>
+                    <td style={{ color: 'var(--brass)', textAlign: 'right', paddingRight: 6 }}>
+                      {r.epsTimesMass.toFixed(5)}
+                    </td>
+                    <td style={{ color: 'var(--terra)', textAlign: 'right' }}>
+                      {r.ratioToPrincipal.toFixed(4)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="card" style={cardBaseLeft('var(--green)')}>
+            <p style={{ color: 'var(--green)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.35rem' }}>
+              TAIL: CONVERGENT, REGULAR MASS = {REG_MASS.toFixed(4)}
+            </p>
+            <p style={{ color: 'var(--ink-soft)', fontSize: '0.8rem', margin: 0 }}>
+              As s &rarr; +&infin;, &phi; ~ K e<sup>&minus;s</sup> with
+              K = 2&middot;(sqrt(2)&minus;arcsinh(1)) = {K_TAIL.toFixed(5)}.
+              The regular mass &int;<sub>s<sub>0</sub>+1</sub><sup>&infin;</sup> &phi; ds = {REG_MASS.toFixed(4)} is a fixed finite number.
+              At &epsilon;=10<sup>&minus;4</sup> the divergent onset mass overruns the regular mass
+              by ~{overrunFactor.toLocaleString()}&times;.
+            </p>
+            <table style={{ width: '100%', marginTop: '0.6rem', borderCollapse: 'collapse', fontSize: '0.75rem' }}>
+              <thead>
+                <tr>
+                  {['S', 'tail mass', 'K·e^(-S)', 'ratio'].map(h => (
+                    <th key={h} style={{ color: 'var(--faint)', textAlign: 'right', paddingBottom: 3, fontWeight: 600 }}>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {tailRungs.filter(r => r.S <= 10).map(r => (
+                  <tr key={r.S}>
+                    <td style={{ color: 'var(--ink-soft)', textAlign: 'right', paddingRight: 6 }}>{r.S}</td>
+                    <td style={{ color: 'var(--blue)', textAlign: 'right', paddingRight: 6 }}>
+                      {r.mass.toExponential(4)}
+                    </td>
+                    <td style={{ color: 'var(--green)', textAlign: 'right', paddingRight: 6 }}>
+                      {r.predicted.toExponential(4)}
+                    </td>
+                    <td style={{ color: 'var(--terra)', textAlign: 'right' }}>
+                      {r.ratio.toFixed(5)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <div style={{
-          background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.22)',
-          borderRadius: 6, padding: '0.9rem',
+          marginTop: '1rem', padding: '0.75rem 1rem',
+          background: 'var(--paper2)', borderLeft: '3px solid var(--hairline)',
+          border: '1px solid var(--hairline)',
+          borderRadius: 8, fontSize: '0.8rem', color: 'var(--faint)',
+          marginBottom: 24,
         }}>
-          <p style={{ color: '#10b981', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.35rem' }}>
-            TAIL: CONVERGENT, REGULAR MASS = {REG_MASS.toFixed(4)}
-          </p>
-          <p style={{ color: '#94a3b8', fontSize: '0.8rem', margin: 0 }}>
-            As s &rarr; +&infin;, &phi; ~ K e<sup>&minus;s</sup> with
-            K = 2&middot;(sqrt(2)&minus;arcsinh(1)) = {K_TAIL.toFixed(5)}.
-            The regular mass &int;<sub>s<sub>0</sub>+1</sub><sup>&infin;</sup> &phi; ds = {REG_MASS.toFixed(4)} is a fixed finite number.
-            At &epsilon;=10<sup>&minus;4</sup> the divergent onset mass overruns the regular mass
-            by ~{overrunFactor.toLocaleString()}&times;.
-          </p>
-          <table style={{ width: '100%', marginTop: '0.6rem', borderCollapse: 'collapse', fontSize: '0.75rem' }}>
-            <thead>
-              <tr>
-                {['S', 'tail mass', 'K·e^(-S)', 'ratio'].map(h => (
-                  <th key={h} style={{ color: '#64748b', textAlign: 'right', paddingBottom: 3, fontWeight: 600 }}>{h}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {tailRungs.filter(r => r.S <= 10).map(r => (
-                <tr key={r.S}>
-                  <td style={{ color: '#94a3b8', textAlign: 'right', paddingRight: 6 }}>{r.S}</td>
-                  <td style={{ color: '#22d3ee', textAlign: 'right', paddingRight: 6 }}>
-                    {r.mass.toExponential(4)}
-                  </td>
-                  <td style={{ color: '#10b981', textAlign: 'right', paddingRight: 6 }}>
-                    {r.predicted.toExponential(4)}
-                  </td>
-                  <td style={{ color: '#a78bfa', textAlign: 'right' }}>
-                    {r.ratio.toFixed(5)}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <strong style={{ color: 'var(--ink-soft)' }}>Honest status:</strong> This is a{' '}
+          <em>divergence characterisation</em> of the degree-0 scalar ratio, not a proof.
+          The area-weighted mean price of the forced even cosh-completion has no finite value.
+          The off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone obstruction
+          and is untouched here. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
         </div>
-      </div>
 
-      <div style={{
-        marginTop: '1rem', padding: '0.75rem 1rem',
-        background: 'rgba(148,163,184,0.04)', borderLeft: '3px solid #334155',
-        borderRadius: '0 4px 4px 0', fontSize: '0.8rem', color: '#64748b',
-      }}>
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> This is a{' '}
-        <em>divergence characterisation</em> of the degree-0 scalar ratio, not a proof.
-        The area-weighted mean price of the forced even cosh-completion has no finite value.
-        The off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone obstruction
-        and is untouched here. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
-      </div>
-
-      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>
-        <strong>Related:</strong>{' '}
-        <Link to="/hidden-square-program" style={{ color: '#7c3aed' }}>
-          Hidden-Square Program (&sect;25&ndash;27)
-        </Link>,{' '}
-        <Link to="/section26-conditioning-artifact" style={{ color: '#7c3aed' }}>
-          Section-26 Conditioning Artifact
-        </Link>
+        <div className="card" style={cardBaseLeft('var(--brass)')}>
+          <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--faint)', marginBottom: 6 }}>
+            Related
+          </div>
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}>
+            <Link to="/hidden-square-program" style={{ fontSize: 12, color: 'var(--brass-dk)', textDecoration: 'none' }}>
+              → Hidden-Square Program (&sect;25&ndash;27)
+            </Link>
+            <Link to="/section26-conditioning-artifact" style={{ fontSize: 12, color: 'var(--brass-dk)', textDecoration: 'none' }}>
+              → Section-26 Conditioning Artifact
+            </Link>
+            <Link to="/" style={{ fontSize: 12, color: 'var(--terra-dk)', textDecoration: 'none', marginLeft: 'auto' }}>
+              ← the atlas
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

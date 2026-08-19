@@ -5,21 +5,25 @@
 //
 // Pure rendering. All structural facts + tripwires live in
 // src/data/paper-audit-dashboard.js.
+//
+// Editorial (warm) re-theme: full-width dashboard, identical structure/data.
 
 import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { PAPER_AUDIT_DASHBOARD } from '../data/paper-audit-dashboard.js';
 
 const D = PAPER_AUDIT_DASHBOARD;
-const mono = 'var(--font-mono)';
+const mono = 'var(--ed-mono, var(--font-mono))';
 
 // Color theme per verdict status -- consistent across chips + row badges.
+// Warm-palette mapping of the original dark-theme hues (kept 1:1 by role).
 const STATUS_COLORS = {
-  'SUBSUMED-BY-RH':         { fg: '#fca5a5', bg: 'rgba(239,68,68,0.10)',  border: 'rgba(239,68,68,0.45)' },
-  'SUBSUMED-BY-LITERATURE': { fg: '#fdba74', bg: 'rgba(249,115,22,0.10)', border: 'rgba(249,115,22,0.45)' },
-  'PARTIALLY-RELATED':      { fg: '#fcd34d', bg: 'rgba(245,158,11,0.10)', border: 'rgba(245,158,11,0.45)' },
-  'INDEPENDENT-NOVEL':      { fg: '#86efac', bg: 'rgba(16,185,129,0.10)', border: 'rgba(16,185,129,0.45)' },
-  UNAUDITED:                { fg: '#94a3b8', bg: 'rgba(100,116,139,0.10)',border: 'rgba(100,116,139,0.45)' },
+  'SUBSUMED-BY-RH':         { fg: 'var(--terra-dk)', bg: 'rgba(194,58,28,0.10)', border: 'rgba(194,58,28,0.45)' },
+  'SUBSUMED-BY-LITERATURE': { fg: 'var(--terra)',    bg: 'rgba(217,80,46,0.10)', border: 'rgba(217,80,46,0.45)' },
+  'PARTIALLY-RELATED':      { fg: 'var(--brass-dk)', bg: 'rgba(181,138,46,0.12)', border: 'rgba(181,138,46,0.45)' },
+  'INDEPENDENT-NOVEL':      { fg: 'var(--green)',    bg: 'rgba(76,122,74,0.10)', border: 'rgba(76,122,74,0.45)' },
+  UNAUDITED:                { fg: 'var(--faint)',    bg: 'rgba(135,123,103,0.10)', border: 'rgba(135,123,103,0.45)' },
 };
 
 const STATUS_LABELS = {
@@ -61,9 +65,9 @@ function StatusChip({ status, count, active, onClick }) {
       style={{
         padding: '8px 14px',
         borderRadius: 6,
-        background: active ? c.bg : 'rgba(15,23,42,0.55)',
-        border: `1px solid ${active ? c.border : 'rgba(100,116,139,0.25)'}`,
-        color: active ? c.fg : '#cbd5e1',
+        background: active ? c.bg : 'var(--paper2)',
+        border: `1px solid ${active ? c.border : 'var(--hairline)'}`,
+        color: active ? c.fg : 'var(--ink-soft)',
         fontFamily: mono,
         fontSize: 12,
         cursor: 'pointer',
@@ -79,7 +83,7 @@ function StatusChip({ status, count, active, onClick }) {
         style={{
           padding: '1px 7px',
           borderRadius: 10,
-          background: 'rgba(0,0,0,0.30)',
+          background: 'rgba(28,24,20,0.08)',
           color: c.fg,
           fontWeight: 700,
         }}
@@ -100,9 +104,9 @@ function HeaderRow({ label, sortKey, sortBy, sortDir, onSort, width }) {
         textAlign: 'left',
         fontFamily: mono,
         fontSize: 11,
-        color: active ? '#e2e8f0' : '#94a3b8',
-        background: 'rgba(15,23,42,0.85)',
-        borderBottom: '1px solid rgba(100,116,139,0.30)',
+        color: active ? 'var(--ink)' : 'var(--faint)',
+        background: 'var(--paper2)',
+        borderBottom: '1px solid var(--hairline)',
         cursor: 'pointer',
         letterSpacing: 0.4,
         userSelect: 'none',
@@ -112,7 +116,7 @@ function HeaderRow({ label, sortKey, sortBy, sortDir, onSort, width }) {
     >
       {label}
       {active && (
-        <span style={{ marginLeft: 6, color: '#64748b' }}>
+        <span style={{ marginLeft: 6, color: 'var(--faint)' }}>
           {sortDir === 'asc' ? '▲' : '▼'}
         </span>
       )}
@@ -128,31 +132,31 @@ function ConjectureRow({ entry, expanded, onToggle }) {
         onClick={onToggle}
         style={{
           cursor: 'pointer',
-          background: expanded ? 'rgba(30,41,59,0.55)' : 'transparent',
-          borderBottom: '1px solid rgba(51,65,85,0.35)',
+          background: expanded ? 'var(--paper3)' : 'transparent',
+          borderBottom: '1px solid var(--hair2)',
         }}
       >
-        <td style={{ padding: '10px 12px', fontFamily: mono, color: '#e2e8f0', fontSize: 13 }}>
-          <span style={{ color: '#64748b', marginRight: 8 }}>
+        <td style={{ padding: '10px 12px', fontFamily: mono, color: 'var(--ink)', fontSize: 13 }}>
+          <span style={{ color: 'var(--faint)', marginRight: 8 }}>
             {expanded ? '▼' : '▶'}
           </span>
           {entry.id}
         </td>
-        <td style={{ padding: '10px 12px', color: '#cbd5e1', fontSize: 13 }}>
+        <td style={{ padding: '10px 12px', color: 'var(--ink-soft)', fontSize: 13 }}>
           {entry.shortName}
         </td>
-        <td style={{ padding: '10px 12px', fontFamily: mono, color: '#94a3b8', fontSize: 12 }}>
+        <td style={{ padding: '10px 12px', fontFamily: mono, color: 'var(--faint)', fontSize: 12 }}>
           {entry.paperSection}
         </td>
         <td style={{ padding: '10px 12px' }}>
           <StatusBadge status={entry.auditStatus} />
         </td>
-        <td style={{ padding: '10px 12px', fontFamily: mono, color: '#94a3b8', fontSize: 12 }}>
-          {entry.auditTicket || <span style={{ color: '#475569' }}>—</span>}
+        <td style={{ padding: '10px 12px', fontFamily: mono, color: 'var(--faint)', fontSize: 12 }}>
+          {entry.auditTicket || <span style={{ color: 'var(--hairline)' }}>—</span>}
         </td>
       </tr>
       {expanded && (
-        <tr style={{ background: 'rgba(15,23,42,0.55)' }}>
+        <tr style={{ background: 'var(--paper2)' }}>
           <td colSpan={5} style={{ padding: '14px 18px 18px 36px', borderBottom: `1px solid ${c.border}` }}>
             <div style={{ display: 'grid', gap: 12 }}>
               <div>
@@ -167,27 +171,27 @@ function ConjectureRow({ entry, expanded, onToggle }) {
                 >
                   STATEMENT (paraphrased, paper page {entry.paperPage})
                 </div>
-                <div style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.6 }}>
+                <div style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6 }}>
                   {entry.statement}
                 </div>
               </div>
 
               <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', fontFamily: mono, fontSize: 12 }}>
                 <div>
-                  <span style={{ color: '#64748b' }}>Audit ticket: </span>
-                  <span style={{ color: '#cbd5e1' }}>
+                  <span style={{ color: 'var(--faint)' }}>Audit ticket: </span>
+                  <span style={{ color: 'var(--ink-soft)' }}>
                     {entry.auditTicket || 'none (UNAUDITED)'}
                   </span>
                 </div>
                 <div>
-                  <span style={{ color: '#64748b' }}>Audit date: </span>
-                  <span style={{ color: '#cbd5e1' }}>
+                  <span style={{ color: 'var(--faint)' }}>Audit date: </span>
+                  <span style={{ color: 'var(--ink-soft)' }}>
                     {entry.auditDate || '—'}
                   </span>
                 </div>
                 <div>
-                  <span style={{ color: '#64748b' }}>Paper section: </span>
-                  <span style={{ color: '#cbd5e1' }}>{entry.paperSection}</span>
+                  <span style={{ color: 'var(--faint)' }}>Paper section: </span>
+                  <span style={{ color: 'var(--ink-soft)' }}>{entry.paperSection}</span>
                 </div>
               </div>
 
@@ -203,7 +207,7 @@ function ConjectureRow({ entry, expanded, onToggle }) {
                 >
                   RECOMMENDATION FOR PAPER
                 </div>
-                <div style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.6 }}>
+                <div style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6 }}>
                   {entry.recommendationForPaper}
                 </div>
               </div>
@@ -282,355 +286,334 @@ export default function PaperAuditDashboardPage() {
   }, [filter, sortBy, sortDir]);
 
   return (
-    <div
-      style={{
-        maxWidth: 1100,
-        margin: '0 auto',
-        padding: '32px 24px 48px',
-        color: '#e2e8f0',
-        background: 'transparent',
-      }}
-    >
-      <header style={{ marginBottom: 24 }}>
-        <h1
-          style={{
-            fontFamily: mono,
-            fontSize: 28,
-            color: '#f8fafc',
-            letterSpacing: 0.5,
-            margin: '0 0 8px 0',
-          }}
-        >
-          Paper Audit Dashboard · {D.currentReviewVersion} Review
-        </h1>
-        <div style={{ color: '#94a3b8', fontSize: 14, lineHeight: 1.6 }}>
-          Current review source:{' '}
-          <code style={{ color: '#cbd5e1', fontFamily: mono }}>
-            {D.currentReviewPaper}
-          </code>{' '}
-          · correction audit <code style={{ color: '#cbd5e1', fontFamily: mono }}>
-            {D.currentCorrectionAudit}
-          </code>
-        </div>
-        <div style={{ color: '#64748b', fontSize: 13, marginTop: 4 }}>
-          Historic verdict ledger preserved from{' '}
-          <code style={{ color: '#94a3b8', fontFamily: mono }}>
-            {D.historicalAuditPaper}
-          </code>{' '}
-          Sections {D.paperSectionsCovered.join(', ')}.
-        </div>
-        <div style={{ color: '#64748b', fontSize: 13, marginTop: 6, fontFamily: mono }}>
-          {D.auditedCount} of {D.totalCount} audited
-          {' · '}
-          <span style={{ color: STATUS_COLORS.UNAUDITED.fg }}>
-            {D.statusCounts['UNAUDITED'] || 0} unaudited
-          </span>
-          {' · '}
-          {D.completedAuditTickets.length} audit tickets shipped
-          {maxAuditDate && (
-            <>
-              {' · '}
-              <span title="Most recent auditDate across all conjecture entries">
-                data as of {maxAuditDate}
-              </span>
-            </>
-          )}
-        </div>
-      </header>
-
-      {/* ── v70 correction overlay; historic rows below remain v52 records ── */}
-      <section
-        style={{
-          marginBottom: 20,
-          padding: '14px 18px',
-          background: 'rgba(14,165,233,0.07)',
-          border: '1px solid rgba(14,165,233,0.30)',
-          borderRadius: 8,
-        }}
-      >
-        <div style={{ color: '#7dd3fc', fontFamily: mono, fontSize: 12, fontWeight: 700 }}>
-          v70 correction overlay
-        </div>
-        <p style={{ margin: '8px 0 0', color: '#cbd5e1', fontSize: 13, lineHeight: 1.6 }}>
-          {D.currentReview.scope}
-        </p>
-        <ul
-          style={{
-            margin: '10px 0 0',
-            paddingLeft: 20,
-            color: '#94a3b8',
-            fontSize: 13,
-            lineHeight: 1.65,
-          }}
-        >
-          {D.currentReview.corrections.map((correction) => (
-            <li key={correction.id} style={{ marginBottom: 7 }}>
-              <strong style={{ color: '#bae6fd' }}>{correction.affects}:</strong>{' '}
-              {correction.correctedStatement}
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      {/* ── RH-EQUIVALENT re-characterization banner (imp-3213) ────────── */}
-      <section
-        style={{
-          marginBottom: 20,
-          padding: '14px 18px',
-          background: 'rgba(245,158,11,0.08)',
-          border: '1px solid rgba(245,158,11,0.35)',
-          borderRadius: 8,
-          display: 'grid',
-          gap: 10,
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, flexWrap: 'wrap' }}>
-          <span
-            style={{
-              fontFamily: mono,
-              fontSize: 11,
-              letterSpacing: 0.5,
-              color: '#fbbf24',
-              fontWeight: 700,
-            }}
-          >
-            HONEST STATUS — §15-27 PROGRAM TARGET IS RH-EQUIVALENT
-          </span>
-          <span style={{ fontFamily: mono, fontSize: 11, color: '#64748b' }}>
-            (imp-3190 re-characterization)
-          </span>
-        </div>
-        <div style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.6 }}>
-          The entire §15-27 program collapses (imp-1258 two-way collapse) to a
-          single claim: <strong>Conjecture 27.2 (Volterra-norm ‖V<sub>a,Φ</sub>‖ ≤ 1)</strong>.
-          That conjecture is <strong>RH-EQUIVALENT</strong> — closing it would{' '}
-          <em>be</em> proving RH, not a sub-step. The §15-27 collapse is a
-          reformulation, NOT a reduction to an easier object.
-        </div>
-        <div style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.6 }}>
-          <span
-            style={{
-              color: '#86efac',
-              fontFamily: mono,
-              fontSize: 11,
-              fontWeight: 700,
-            }}
-          >
-            GENUINELY OPEN &amp; ATTACKABLE (
-            {D.openGapRecharacterization.genuinelyOpenAndAttackableCount}):
-          </span>{' '}
-          {D.openGapRecharacterization.genuinelyOpenAndAttackable.join('; ')}.
-          This is the only deterministic-forward residual — RH-hard on the real-zero
-          basin, and the same target the C_H frontier converged on.
-        </div>
-        <div style={{ color: '#64748b', fontSize: 12, fontFamily: mono, lineHeight: 1.5 }}>
-          RH-equivalent items: {D.openGapRecharacterization.rhEquivalent.items.join(' · ')}
-          <span style={{ marginLeft: 12, color: '#475569' }}>
-            PT Lambda ≤ 0.2 remains the peer-reviewed benchmark · public 0.1875 package unrefereed · no QED
-          </span>
-        </div>
-      </section>
-
-      {/* ── Status summary chips ───────────────────────────────────── */}
-      <section style={{ marginBottom: 20 }}>
-        <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center' }}>
-          {D.verdictVocabulary.map((status) => (
-            <StatusChip
-              key={status}
-              status={status}
-              count={D.statusCounts[status]}
-              active={filter === status}
-              onClick={() => setFilter((f) => (f === status ? null : status))}
-            />
-          ))}
-          {filter && (
-            <button
-              onClick={() => setFilter(null)}
-              style={{
-                padding: '8px 12px',
-                borderRadius: 6,
-                background: 'transparent',
-                border: '1px solid rgba(100,116,139,0.30)',
-                color: '#94a3b8',
-                fontFamily: mono,
-                fontSize: 12,
-                cursor: 'pointer',
-              }}
-            >
-              Clear filter
-            </button>
-          )}
-        </div>
-      </section>
-
-      {/* ── Conjecture table ───────────────────────────────────────── */}
-      <section style={{ marginBottom: 32 }}>
-        <div
-          style={{
-            border: '1px solid rgba(100,116,139,0.25)',
-            borderRadius: 8,
-            overflow: 'hidden',
-            background: 'rgba(15,23,42,0.55)',
-          }}
-        >
-          <div style={{ overflowX: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 530 }}>
-            <thead>
-              <tr>
-                <HeaderRow label="ID" sortKey="id" sortBy={sortBy} sortDir={sortDir} onSort={onSort} width={90} />
-                <HeaderRow label="Conjecture" sortKey="shortName" sortBy={sortBy} sortDir={sortDir} onSort={onSort} />
-                <HeaderRow label="Section" sortKey="paperSection" sortBy={sortBy} sortDir={sortDir} onSort={onSort} width={100} />
-                <HeaderRow label="Verdict" sortKey="auditStatus" sortBy={sortBy} sortDir={sortDir} onSort={onSort} width={220} />
-                <HeaderRow label="Audit" sortKey="auditTicket" sortBy={sortBy} sortDir={sortDir} onSort={onSort} width={120} />
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((entry) => (
-                <ConjectureRow
-                  key={entry.id}
-                  entry={entry}
-                  expanded={expandedId === entry.id}
-                  onToggle={() =>
-                    setExpandedId((x) => (x === entry.id ? null : entry.id))
-                  }
-                />
-              ))}
-              {rows.length === 0 && (
-                <tr>
-                  <td
-                    colSpan={5}
-                    style={{
-                      padding: '20px',
-                      textAlign: 'center',
-                      color: '#64748b',
-                      fontFamily: mono,
-                      fontSize: 13,
-                    }}
-                  >
-                    No conjectures match the active filter.
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>twin-ladder · v70 review + v52 audit</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <header style={{ marginBottom: 24 }}>
+          <h1 className="ed-h1" style={{ marginBottom: 8 }}>
+            Paper Audit Dashboard · {D.currentReviewVersion} Review
+          </h1>
+          <div style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6 }}>
+            Current review source:{' '}
+            <code style={{ color: 'var(--ink)', fontFamily: mono }}>
+              {D.currentReviewPaper}
+            </code>{' '}
+            · correction audit <code style={{ color: 'var(--ink)', fontFamily: mono }}>
+              {D.currentCorrectionAudit}
+            </code>
           </div>
-        </div>
-        <div style={{ color: '#64748b', fontSize: 12, marginTop: 8, fontFamily: mono }}>
-          Click a row to expand statement + audit + recommendation. Click a column header to sort.
-        </div>
-      </section>
+          <div style={{ color: 'var(--faint)', fontSize: 13, marginTop: 4 }}>
+            Historic verdict ledger preserved from{' '}
+            <code style={{ color: 'var(--faint)', fontFamily: mono }}>
+              {D.historicalAuditPaper}
+            </code>{' '}
+            Sections {D.paperSectionsCovered.join(', ')}.
+          </div>
+          <div style={{ color: 'var(--faint)', fontSize: 13, marginTop: 6, fontFamily: mono }}>
+            {D.auditedCount} of {D.totalCount} audited
+            {' · '}
+            <span style={{ color: STATUS_COLORS.UNAUDITED.fg }}>
+              {D.statusCounts['UNAUDITED'] || 0} unaudited
+            </span>
+            {' · '}
+            {D.completedAuditTickets.length} audit tickets shipped
+            {maxAuditDate && (
+              <>
+                {' · '}
+                <span title="Most recent auditDate across all conjecture entries">
+                  data as of {maxAuditDate}
+                </span>
+              </>
+            )}
+          </div>
+        </header>
 
-      {/* ── Completed audit tickets ────────────────────────────────── */}
-      <section style={{ marginBottom: 32 }}>
-        <h2
+        {/* ── v70 correction overlay; historic rows below remain v52 records ── */}
+        <section
+          className="card"
           style={{
-            fontFamily: mono,
-            fontSize: 16,
-            color: '#e2e8f0',
-            letterSpacing: 0.4,
-            margin: '0 0 12px 0',
+            marginBottom: 20,
+            padding: '14px 18px',
+            background: 'rgba(63,107,134,0.08)',
+            border: '1px solid rgba(63,107,134,0.35)',
+            borderRadius: 8,
           }}
         >
-          Completed audit tickets
-        </h2>
-        <div style={{ display: 'grid', gap: 10 }}>
-          {D.completedAuditTickets.map((t) => (
-            <div
-              key={t.ticket}
+          <div style={{ color: 'var(--blue)', fontFamily: mono, fontSize: 12, fontWeight: 700 }}>
+            v70 correction overlay
+          </div>
+          <p style={{ margin: '8px 0 0', color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6 }}>
+            {D.currentReview.scope}
+          </p>
+          <ul
+            style={{
+              margin: '10px 0 0',
+              paddingLeft: 20,
+              color: 'var(--faint)',
+              fontSize: 13,
+              lineHeight: 1.65,
+            }}
+          >
+            {D.currentReview.corrections.map((correction) => (
+              <li key={correction.id} style={{ marginBottom: 7 }}>
+                <strong style={{ color: 'var(--blue)' }}>{correction.affects}:</strong>{' '}
+                {correction.correctedStatement}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* ── RH-EQUIVALENT re-characterization banner (imp-3213) ────────── */}
+        <section
+          className="card"
+          style={{
+            marginBottom: 20,
+            padding: '14px 18px',
+            background: 'rgba(181,138,46,0.10)',
+            border: '1px solid rgba(181,138,46,0.40)',
+            borderRadius: 8,
+            display: 'grid',
+            gap: 10,
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, flexWrap: 'wrap' }}>
+            <span
               style={{
-                padding: '12px 16px',
-                background: 'rgba(15,23,42,0.55)',
-                border: '1px solid rgba(100,116,139,0.25)',
-                borderRadius: 6,
+                fontFamily: mono,
+                fontSize: 11,
+                letterSpacing: 0.5,
+                color: 'var(--brass-dk)',
+                fontWeight: 700,
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
-                <span style={{ fontFamily: mono, color: '#fbbf24', fontSize: 13 }}>
-                  {t.ticket}
-                </span>
-                <span style={{ color: '#cbd5e1', fontSize: 13 }}>{t.title}</span>
-                <span style={{ marginLeft: 'auto', color: '#64748b', fontFamily: mono, fontSize: 11 }}>
-                  {t.auditDate}
-                </span>
-              </div>
-              <div style={{ color: '#94a3b8', fontSize: 12, marginTop: 6, lineHeight: 1.6 }}>
-                <span style={{ color: '#64748b', fontFamily: mono }}>Verdict: </span>
-                {t.verdict}
-              </div>
-              <div style={{ color: '#64748b', fontSize: 12, marginTop: 4, fontFamily: mono }}>
-                Covers: {t.coversConjectures.join(', ')}
-              </div>
+              HONEST STATUS — §15-27 PROGRAM TARGET IS RH-EQUIVALENT
+            </span>
+            <span style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>
+              (imp-3190 re-characterization)
+            </span>
+          </div>
+          <div style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6 }}>
+            The entire §15-27 program collapses (imp-1258 two-way collapse) to a
+            single claim: <strong>Conjecture 27.2 (Volterra-norm ‖V<sub>a,Φ</sub>‖ ≤ 1)</strong>.
+            That conjecture is <strong>RH-EQUIVALENT</strong> — closing it would{' '}
+            <em>be</em> proving RH, not a sub-step. The §15-27 collapse is a
+            reformulation, NOT a reduction to an easier object.
+          </div>
+          <div style={{ color: 'var(--faint)', fontSize: 13, lineHeight: 1.6 }}>
+            <span
+              style={{
+                color: 'var(--green)',
+                fontFamily: mono,
+                fontSize: 11,
+                fontWeight: 700,
+              }}
+            >
+              GENUINELY OPEN &amp; ATTACKABLE (
+              {D.openGapRecharacterization.genuinelyOpenAndAttackableCount}):
+            </span>{' '}
+            {D.openGapRecharacterization.genuinelyOpenAndAttackable.join('; ')}.
+            This is the only deterministic-forward residual — RH-hard on the real-zero
+            basin, and the same target the C_H frontier converged on.
+          </div>
+          <div style={{ color: 'var(--faint)', fontSize: 12, fontFamily: mono, lineHeight: 1.5 }}>
+            RH-equivalent items: {D.openGapRecharacterization.rhEquivalent.items.join(' · ')}
+            <span style={{ marginLeft: 12, color: 'var(--hairline)' }}>
+              PT Lambda ≤ 0.2 remains the peer-reviewed benchmark · public 0.1875 package unrefereed · no QED
+            </span>
+          </div>
+        </section>
+
+        {/* ── Status summary chips ───────────────────────────────────── */}
+        <section style={{ marginBottom: 20 }}>
+          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center' }}>
+            {D.verdictVocabulary.map((status) => (
+              <StatusChip
+                key={status}
+                status={status}
+                count={D.statusCounts[status]}
+                active={filter === status}
+                onClick={() => setFilter((f) => (f === status ? null : status))}
+              />
+            ))}
+            {filter && (
+              <button
+                onClick={() => setFilter(null)}
+                style={{
+                  padding: '8px 12px',
+                  borderRadius: 6,
+                  background: 'transparent',
+                  border: '1px solid var(--hairline)',
+                  color: 'var(--faint)',
+                  fontFamily: mono,
+                  fontSize: 12,
+                  cursor: 'pointer',
+                }}
+              >
+                Clear filter
+              </button>
+            )}
+          </div>
+        </section>
+
+        {/* ── Conjecture table ───────────────────────────────────────── */}
+        <section style={{ marginBottom: 32 }}>
+          <div
+            className="card"
+            style={{
+              border: '1px solid var(--hairline)',
+              borderRadius: 8,
+              overflow: 'hidden',
+              background: 'var(--paper2)',
+              padding: 0,
+            }}
+          >
+            <div style={{ overflowX: 'auto' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 530 }}>
+              <thead>
+                <tr>
+                  <HeaderRow label="ID" sortKey="id" sortBy={sortBy} sortDir={sortDir} onSort={onSort} width={90} />
+                  <HeaderRow label="Conjecture" sortKey="shortName" sortBy={sortBy} sortDir={sortDir} onSort={onSort} />
+                  <HeaderRow label="Section" sortKey="paperSection" sortBy={sortBy} sortDir={sortDir} onSort={onSort} width={100} />
+                  <HeaderRow label="Verdict" sortKey="auditStatus" sortBy={sortBy} sortDir={sortDir} onSort={onSort} width={220} />
+                  <HeaderRow label="Audit" sortKey="auditTicket" sortBy={sortBy} sortDir={sortDir} onSort={onSort} width={120} />
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map((entry) => (
+                  <ConjectureRow
+                    key={entry.id}
+                    entry={entry}
+                    expanded={expandedId === entry.id}
+                    onToggle={() =>
+                      setExpandedId((x) => (x === entry.id ? null : entry.id))
+                    }
+                  />
+                ))}
+                {rows.length === 0 && (
+                  <tr>
+                    <td
+                      colSpan={5}
+                      style={{
+                        padding: '20px',
+                        textAlign: 'center',
+                        color: 'var(--faint)',
+                        fontFamily: mono,
+                        fontSize: 13,
+                      }}
+                    >
+                      No conjectures match the active filter.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
             </div>
-          ))}
-        </div>
-      </section>
+          </div>
+          <div style={{ color: 'var(--faint)', fontSize: 12, marginTop: 8, fontFamily: mono }}>
+            Click a row to expand statement + audit + recommendation. Click a column header to sort.
+          </div>
+        </section>
 
-      {/* ── Honest scope ───────────────────────────────────────────── */}
-      <section style={{ marginBottom: 32 }}>
-        <h2
+        {/* ── Completed audit tickets ────────────────────────────────── */}
+        <section style={{ marginBottom: 32 }}>
+          <h2 className="ed-h2" style={{ marginBottom: 12 }}>
+            Completed audit tickets
+          </h2>
+          <div style={{ display: 'grid', gap: 10 }}>
+            {D.completedAuditTickets.map((t) => (
+              <div
+                key={t.ticket}
+                className="card"
+                style={{
+                  padding: '12px 16px',
+                  background: 'var(--paper2)',
+                  border: '1px solid var(--hairline)',
+                  borderRadius: 6,
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
+                  <span style={{ fontFamily: mono, color: 'var(--brass-dk)', fontSize: 13 }}>
+                    {t.ticket}
+                  </span>
+                  <span style={{ color: 'var(--ink-soft)', fontSize: 13 }}>{t.title}</span>
+                  <span style={{ marginLeft: 'auto', color: 'var(--faint)', fontFamily: mono, fontSize: 11 }}>
+                    {t.auditDate}
+                  </span>
+                </div>
+                <div style={{ color: 'var(--faint)', fontSize: 12, marginTop: 6, lineHeight: 1.6 }}>
+                  <span style={{ color: 'var(--faint)', fontFamily: mono }}>Verdict: </span>
+                  {t.verdict}
+                </div>
+                <div style={{ color: 'var(--faint)', fontSize: 12, marginTop: 4, fontFamily: mono }}>
+                  Covers: {t.coversConjectures.join(', ')}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Honest scope ───────────────────────────────────────────── */}
+        <section style={{ marginBottom: 32 }}>
+          <h2 className="ed-h2" style={{ marginBottom: 12 }}>
+            Honest scope
+          </h2>
+          <ul
+            style={{
+              margin: 0,
+              paddingLeft: 18,
+              color: 'var(--faint)',
+              fontSize: 13,
+              lineHeight: 1.7,
+              display: 'grid',
+              gap: 6,
+            }}
+          >
+            {D.honestScope.map((line, i) => (
+              <li key={i}>{line}</li>
+            ))}
+          </ul>
+        </section>
+
+        {/* ── Related pages ──────────────────────────────────────────── */}
+        <section
           style={{
+            marginTop: 32,
+            paddingTop: 20,
+            borderTop: '1px solid var(--hairline)',
+            color: 'var(--faint)',
+            fontSize: 12,
             fontFamily: mono,
-            fontSize: 16,
-            color: '#e2e8f0',
-            letterSpacing: 0.4,
-            margin: '0 0 12px 0',
           }}
         >
-          Honest scope
-        </h2>
-        <ul
-          style={{
-            margin: 0,
-            paddingLeft: 18,
-            color: '#94a3b8',
-            fontSize: 13,
-            lineHeight: 1.7,
-            display: 'grid',
-            gap: 6,
-          }}
-        >
-          {D.honestScope.map((line, i) => (
-            <li key={i}>{line}</li>
-          ))}
-        </ul>
-      </section>
-
-      {/* ── Related pages ──────────────────────────────────────────── */}
-      <section
-        style={{
-          marginTop: 32,
-          paddingTop: 20,
-          borderTop: '1px solid rgba(100,116,139,0.25)',
-          color: '#64748b',
-          fontSize: 12,
-          fontFamily: mono,
-        }}
-      >
-        <div style={{ marginBottom: 6 }}>Related pages</div>
-        <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-          <Link to="/shift-bridge-positivity" style={{ color: '#7dd3fc' }}>
-            Shift-Bridge (§15)
-          </Link>
-          <Link to="/closure-routes" style={{ color: '#7dd3fc' }}>
-            Four Closure Routes (§16)
-          </Link>
-          <Link to="/blaschke-ghosts" style={{ color: '#7dd3fc' }}>
-            Blaschke Ghosts (§17)
-          </Link>
-          <Link to="/three-attacks" style={{ color: '#7dd3fc' }}>
-            Three Attacks (§18)
-          </Link>
-          <Link to="/kyp-bounded-real" style={{ color: '#7dd3fc' }}>
-            KYP / Bounded-Real
-          </Link>
-          <Link to="/volterra-bound" style={{ color: '#7dd3fc' }}>
-            Volterra Norm Bound (§15-27 collapse)
-          </Link>
-          <Link to="/improvement-queue" style={{ color: '#7dd3fc' }}>
-            Improvement Queue
-          </Link>
-        </div>
-      </section>
+          <div style={{ marginBottom: 6 }}>Related pages</div>
+          <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
+            <Link to="/shift-bridge-positivity" style={{ color: 'var(--brass-dk)' }}>
+              Shift-Bridge (§15)
+            </Link>
+            <Link to="/closure-routes" style={{ color: 'var(--brass-dk)' }}>
+              Four Closure Routes (§16)
+            </Link>
+            <Link to="/blaschke-ghosts" style={{ color: 'var(--brass-dk)' }}>
+              Blaschke Ghosts (§17)
+            </Link>
+            <Link to="/three-attacks" style={{ color: 'var(--brass-dk)' }}>
+              Three Attacks (§18)
+            </Link>
+            <Link to="/kyp-bounded-real" style={{ color: 'var(--brass-dk)' }}>
+              KYP / Bounded-Real
+            </Link>
+            <Link to="/volterra-bound" style={{ color: 'var(--brass-dk)' }}>
+              Volterra Norm Bound (§15-27 collapse)
+            </Link>
+            <Link to="/improvement-queue" style={{ color: 'var(--brass-dk)' }}>
+              Improvement Queue
+            </Link>
+            <Link to="/" style={{ color: 'var(--brass)', marginLeft: 'auto' }}>
+              ← the atlas
+            </Link>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

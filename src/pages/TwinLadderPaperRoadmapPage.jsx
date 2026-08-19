@@ -12,6 +12,8 @@
 //
 // All structural facts come from src/data/twin-ladder-paper-roadmap.js (imp-1217).
 // Tripwires live in that data module; this file is presentation-only.
+//
+// Editorial (warm) re-theme: full-width shell, identical structure/data.
 
 import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -23,25 +25,26 @@ import {
 } from '../data/twin-ladder-paper-roadmap.js';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import FreshnessStamp from '../components/FreshnessStamp.jsx';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
 const R = PAPER_ROADMAP;
-const mono = 'var(--font-mono, monospace)';
+const mono = 'var(--ed-mono, var(--font-mono))';
 
 // ── Coverage status -> color theme ──────────────────────────────────────
 const COVERAGE_THEME = {
-  'has-page':    { fg: '#10b981', bg: 'rgba(16,185,129,0.10)', border: '#10b981', label: 'live'     },
-  'planned':     { fg: '#fbbf24', bg: 'rgba(251,191,36,0.10)', border: '#fbbf24', label: 'planned'  },
-  'not-covered': { fg: '#64748b', bg: 'rgba(100,116,139,0.10)', border: '#64748b', label: 'not yet' },
+  'has-page':    { fg: 'var(--green)',    bg: 'rgba(76,122,74,0.12)',   border: 'var(--green)',    label: 'live'     },
+  'planned':     { fg: 'var(--brass-dk)', bg: 'rgba(181,138,46,0.14)',  border: 'var(--brass-dk)', label: 'planned'  },
+  'not-covered': { fg: 'var(--faint)',    bg: 'rgba(120,113,108,0.10)', border: 'var(--faint)',    label: 'not yet' },
 };
 
 const AUDIT_THEME = {
-  'audited-subsumed':    { fg: '#a855f7', bg: 'rgba(168,85,247,0.12)' },
-  'audited-partial':     { fg: '#06b6d4', bg: 'rgba(6,182,212,0.12)' },
-  'audited-independent': { fg: '#10b981', bg: 'rgba(16,185,129,0.12)' },
-  'literature-audited':  { fg: '#06b6d4', bg: 'rgba(6,182,212,0.12)' },
-  'numerical-pilot':     { fg: '#fbbf24', bg: 'rgba(251,191,36,0.12)' },
-  'reference-only':      { fg: '#94a3b8', bg: 'rgba(148,163,184,0.10)' },
-  'unaudited':           { fg: '#64748b', bg: 'rgba(100,116,139,0.06)' },
+  'audited-subsumed':    { fg: '#8b5fbf', bg: 'rgba(139,95,191,0.14)' },
+  'audited-partial':     { fg: 'var(--blue)', bg: 'rgba(63,107,134,0.14)' },
+  'audited-independent': { fg: 'var(--green)', bg: 'rgba(76,122,74,0.14)' },
+  'literature-audited':  { fg: 'var(--blue)', bg: 'rgba(63,107,134,0.14)' },
+  'numerical-pilot':     { fg: 'var(--brass-dk)', bg: 'rgba(181,138,46,0.14)' },
+  'reference-only':      { fg: 'var(--ink-soft)', bg: 'rgba(120,113,108,0.10)' },
+  'unaudited':           { fg: 'var(--faint)', bg: 'rgba(120,113,108,0.06)' },
 };
 
 function classifyCoverage(status) {
@@ -194,11 +197,11 @@ function RoadmapTable({ entries }) {
           textAlign: 'left',
           fontFamily: mono,
           fontSize: 12,
-          color: active ? '#06b6d4' : '#94a3b8',
+          color: active ? 'var(--blue)' : 'var(--faint)',
           cursor: 'pointer',
           userSelect: 'none',
-          borderBottom: '1px solid #334155',
-          background: 'rgba(15,23,42,0.6)',
+          borderBottom: '1px solid var(--hairline)',
+          background: 'var(--paper)',
         }}
         onClick={() => {
           if (active) setSortDir((d) => (d === 'asc' ? 'desc' : 'asc'));
@@ -215,7 +218,7 @@ function RoadmapTable({ entries }) {
     <div style={{ marginTop: 16 }}>
       {/* ── Filter chips ── */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginBottom: 12, alignItems: 'center' }}>
-        <span style={{ fontFamily: mono, fontSize: 12, color: '#94a3b8' }}>coverage:</span>
+        <span style={{ fontFamily: mono, fontSize: 12, color: 'var(--faint)' }}>coverage:</span>
         {['all', 'has-page', 'planned', 'not-covered'].map((opt) => {
           const active = coverFilter === opt;
           return (
@@ -224,9 +227,9 @@ function RoadmapTable({ entries }) {
               onClick={() => setCoverFilter(opt)}
               style={{
                 fontFamily: mono, fontSize: 11, padding: '3px 9px',
-                background: active ? '#06b6d4' : 'rgba(15,23,42,0.6)',
-                color:      active ? '#0f172a' : '#cbd5e1',
-                border: `1px solid ${active ? '#06b6d4' : '#334155'}`,
+                background: active ? 'var(--blue)' : 'var(--paper)',
+                color:      active ? 'var(--paper)' : 'var(--ink-soft)',
+                border: `1px solid ${active ? 'var(--blue)' : 'var(--hairline)'}`,
                 borderRadius: 4, cursor: 'pointer',
               }}
             >
@@ -234,14 +237,14 @@ function RoadmapTable({ entries }) {
             </button>
           );
         })}
-        <span style={{ fontFamily: mono, fontSize: 12, color: '#94a3b8', marginLeft: 12 }}>audit:</span>
+        <span style={{ fontFamily: mono, fontSize: 12, color: 'var(--faint)', marginLeft: 12 }}>audit:</span>
         <select
           value={auditFilter}
           onChange={(e) => setAuditFilter(e.target.value)}
           style={{
             fontFamily: mono, fontSize: 11, padding: '3px 8px',
-            background: 'rgba(15,23,42,0.6)', color: '#cbd5e1',
-            border: '1px solid #334155', borderRadius: 4,
+            background: 'var(--paper)', color: 'var(--ink-soft)',
+            border: '1px solid var(--hairline)', borderRadius: 4,
           }}
         >
           <option value="all">all</option>
@@ -249,7 +252,7 @@ function RoadmapTable({ entries }) {
             <option key={s} value={s}>{s}</option>
           ))}
         </select>
-        <span style={{ fontFamily: mono, fontSize: 12, color: '#64748b', marginLeft: 'auto' }}>
+        <span style={{ fontFamily: mono, fontSize: 12, color: 'var(--faint)', marginLeft: 'auto' }}>
           showing {sorted.length} of {entries.length}
         </span>
       </div>
@@ -269,17 +272,17 @@ function RoadmapTable({ entries }) {
             {sorted.map((e) => {
               const route = e.appRoute;
               return (
-                <tr key={e.id} style={{ borderBottom: '1px solid #1e293b' }}>
-                  <td style={{ padding: '10px 8px', fontFamily: mono, color: '#cbd5e1', whiteSpace: 'nowrap' }}>
+                <tr key={e.id} style={{ borderBottom: '1px solid var(--hairline)' }}>
+                  <td style={{ padding: '10px 8px', fontFamily: mono, color: 'var(--ink-soft)', whiteSpace: 'nowrap' }}>
                     {e.sectionNumber}
                   </td>
-                  <td style={{ padding: '10px 8px', color: '#e2e8f0', lineHeight: 1.45 }}>
+                  <td style={{ padding: '10px 8px', color: 'var(--ink)', lineHeight: 1.45 }}>
                     <div style={{ fontWeight: 600 }}>{e.title}</div>
-                    <div style={{ color: '#64748b', fontSize: 12, marginTop: 4, fontFamily: mono }}>
+                    <div style={{ color: 'var(--faint)', fontSize: 12, marginTop: 4, fontFamily: mono }}>
                       {e.summary}
                     </div>
                   </td>
-                  <td style={{ padding: '10px 8px', fontFamily: mono, color: '#94a3b8', whiteSpace: 'nowrap' }}>
+                  <td style={{ padding: '10px 8px', fontFamily: mono, color: 'var(--faint)', whiteSpace: 'nowrap' }}>
                     {e.paperPageRange}
                   </td>
                   <td style={{ padding: '10px 8px', whiteSpace: 'nowrap' }}>
@@ -289,7 +292,7 @@ function RoadmapTable({ entries }) {
                         <Link
                           to={route}
                           style={{
-                            color: '#06b6d4',
+                            color: 'var(--blue)',
                             fontFamily: mono,
                             fontSize: 12,
                             textDecoration: 'none',
@@ -321,163 +324,172 @@ export default function TwinLadderPaperRoadmapPage() {
   const total = entries.length;
 
   return (
-    <div className="page">
-      <HonestCeilingBanner variant="ESTIMATE" />
-      <div className="page-header">
-        <h1>Twin-Ladder Paper Roadmap (v52) <FreshnessStamp date={R.generatedAt.slice(0, 10)} note="roadmap index" /></h1>
-        <p className="page-subtitle" style={{ fontFamily: mono, color: 'var(--text-secondary)' }}>
-          {R.paperTitle} — {R.paperSubtitle}
-        </p>
-        <p style={{ fontFamily: mono, fontSize: 12, color: '#64748b', marginTop: 4 }}>
-          {R.paperVersion} · {R.paperDate} · {R.paperTotalPages} pages · {R.paperMainSectionCount} main sections + 42 appendix entries
-        </p>
-      </div>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>twin-ladder · v52 paper roadmap</span>} />
+      <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
+        <HonestCeilingBanner variant="ESTIMATE" />
 
-      {/* ─── Summary tiles ─── */}
-      <div className="card" style={{ marginTop: 12 }}>
-        <h3 style={{ color: '#06b6d4', marginBottom: 12 }}>Coverage summary</h3>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-          <StatTile
-            label="total entries"
-            value={total}
-            fg="#cbd5e1" bg="rgba(15,23,42,0.5)" border="#334155"
-          />
-          <StatTile
-            label="live app pages"
-            value={coverage['has-page']}
-            fg={COVERAGE_THEME['has-page'].fg}
-            bg={COVERAGE_THEME['has-page'].bg}
-            border={COVERAGE_THEME['has-page'].border}
-          />
-          <StatTile
-            label="planned"
-            value={coverage['planned']}
-            fg={COVERAGE_THEME['planned'].fg}
-            bg={COVERAGE_THEME['planned'].bg}
-            border={COVERAGE_THEME['planned'].border}
-          />
-          <StatTile
-            label="not covered"
-            value={coverage['not-covered']}
-            fg={COVERAGE_THEME['not-covered'].fg}
-            bg={COVERAGE_THEME['not-covered'].bg}
-            border={COVERAGE_THEME['not-covered'].border}
-          />
+        <div style={{ marginBottom: 24 }}>
+          <h1 className="ed-h1" style={{ marginBottom: 10 }}>
+            Twin-Ladder Paper Roadmap (v52){' '}
+            <FreshnessStamp date={R.generatedAt.slice(0, 10)} note="roadmap index" />
+          </h1>
+          <p style={{ fontFamily: mono, color: 'var(--ink-soft)', fontSize: 14 }}>
+            {R.paperTitle} — {R.paperSubtitle}
+          </p>
+          <p style={{ fontFamily: mono, fontSize: 12, color: 'var(--faint)', marginTop: 4 }}>
+            {R.paperVersion} · {R.paperDate} · {R.paperTotalPages} pages · {R.paperMainSectionCount} main sections + 42 appendix entries
+          </p>
         </div>
 
-        {/* ─── Audit breakdown ─── */}
-        <h3 style={{ color: '#a855f7', marginTop: 24, marginBottom: 12, fontSize: 16 }}>
-          Audit-status breakdown
-        </h3>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-          {Object.entries(audit)
-            .sort((a, b) => b[1] - a[1])
-            .map(([k, v]) => {
-              const t = AUDIT_THEME[k] || AUDIT_THEME.unaudited;
-              return (
-                <div
-                  key={k}
-                  style={{
-                    padding: '6px 12px',
-                    background: t.bg,
-                    border: `1px solid ${t.fg}`,
-                    borderRadius: 6,
-                    color: t.fg,
-                    fontFamily: mono,
-                    fontSize: 12,
-                  }}
-                >
-                  <span style={{ fontWeight: 700 }}>{v}</span>
-                  <span style={{ marginLeft: 6, opacity: 0.85 }}>{k}</span>
-                </div>
-              );
-            })}
+        {/* ─── Summary tiles ─── */}
+        <div className="card" style={{ marginTop: 12 }}>
+          <h3 style={{ color: 'var(--blue)', marginBottom: 12 }}>Coverage summary</h3>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+            <StatTile
+              label="total entries"
+              value={total}
+              fg="var(--ink-soft)" bg="var(--paper)" border="var(--hairline)"
+            />
+            <StatTile
+              label="live app pages"
+              value={coverage['has-page']}
+              fg={COVERAGE_THEME['has-page'].fg}
+              bg={COVERAGE_THEME['has-page'].bg}
+              border={COVERAGE_THEME['has-page'].border}
+            />
+            <StatTile
+              label="planned"
+              value={coverage['planned']}
+              fg={COVERAGE_THEME['planned'].fg}
+              bg={COVERAGE_THEME['planned'].bg}
+              border={COVERAGE_THEME['planned'].border}
+            />
+            <StatTile
+              label="not covered"
+              value={coverage['not-covered']}
+              fg={COVERAGE_THEME['not-covered'].fg}
+              bg={COVERAGE_THEME['not-covered'].bg}
+              border={COVERAGE_THEME['not-covered'].border}
+            />
+          </div>
+
+          {/* ─── Audit breakdown ─── */}
+          <h3 style={{ color: '#8b5fbf', marginTop: 24, marginBottom: 12, fontSize: 16 }}>
+            Audit-status breakdown
+          </h3>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+            {Object.entries(audit)
+              .sort((a, b) => b[1] - a[1])
+              .map(([k, v]) => {
+                const t = AUDIT_THEME[k] || AUDIT_THEME.unaudited;
+                return (
+                  <div
+                    key={k}
+                    style={{
+                      padding: '6px 12px',
+                      background: t.bg,
+                      border: `1px solid ${t.fg}`,
+                      borderRadius: 6,
+                      color: t.fg,
+                      fontFamily: mono,
+                      fontSize: 12,
+                    }}
+                  >
+                    <span style={{ fontWeight: 700 }}>{v}</span>
+                    <span style={{ marginLeft: 6, opacity: 0.85 }}>{k}</span>
+                  </div>
+                );
+              })}
+          </div>
+          <p style={{ marginTop: 14, color: 'var(--faint)', fontSize: 12, lineHeight: 1.6 }}>
+            Audit lineage cites tickets <code style={{ color: 'var(--blue)' }}>imp-1163</code> (§4.5),{' '}
+            <code style={{ color: 'var(--blue)' }}>imp-1202</code> (§15.4),{' '}
+            <code style={{ color: 'var(--blue)' }}>imp-1209</code> (§17), and{' '}
+            <code style={{ color: 'var(--blue)' }}>imp-1210</code> (§22). All other entries are{' '}
+            <em>unaudited</em> or <em>reference-only</em>.
+          </p>
         </div>
-        <p style={{ marginTop: 14, color: '#94a3b8', fontSize: 12, lineHeight: 1.6 }}>
-          Audit lineage cites tickets <code style={{ color: '#06b6d4' }}>imp-1163</code> (§4.5),{' '}
-          <code style={{ color: '#06b6d4' }}>imp-1202</code> (§15.4),{' '}
-          <code style={{ color: '#06b6d4' }}>imp-1209</code> (§17), and{' '}
-          <code style={{ color: '#06b6d4' }}>imp-1210</code> (§22). All other entries are{' '}
-          <em>unaudited</em> or <em>reference-only</em>.
-        </p>
-      </div>
 
-      {/* ─── Intro text ─── */}
-      <div className="card" style={{ marginTop: 16 }}>
-        <h3 style={{ color: '#06b6d4', marginBottom: 8 }}>How to read this page</h3>
-        <p style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.75 }}>
-          The user paper (<code style={{ color: '#a78bfa' }}>{R.paperSourcePath}</code>) runs to{' '}
-          {R.paperTotalPages} pages across {R.paperMainSectionCount} numbered sections and three
-          appendix runs. The table below indexes every entry and links to the app page that covers
-          it, when one exists.
-        </p>
-        <ul style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.85, marginTop: 10 }}>
-          <li>
-            <strong style={{ color: COVERAGE_THEME['has-page'].fg }}>live</strong> — a dedicated
-            app page renders this section today.
-          </li>
-          <li>
-            <strong style={{ color: COVERAGE_THEME['planned'].fg }}>imp-NNNN</strong> — coverage is
-            scheduled in a pending engine ticket; the badge names the ticket id.
-          </li>
-          <li>
-            <strong style={{ color: COVERAGE_THEME['not-covered'].fg }}>not yet</strong> — no app
-            page and no open ticket; entry is on the navigation backbone only.
-          </li>
-        </ul>
-        <p style={{ marginTop: 10, color: '#94a3b8', fontSize: 12, lineHeight: 1.7 }}>
-          <em>
-            Many appendix entries carry a "see PDF page X-Y" summary; the appendix detail is too
-            dense for a faithful one-liner from the TOC alone, and we deliberately do not
-            paraphrase.
-          </em>
-        </p>
-      </div>
+        {/* ─── Intro text ─── */}
+        <div className="card" style={{ marginTop: 16 }}>
+          <h3 style={{ color: 'var(--blue)', marginBottom: 8 }}>How to read this page</h3>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.75 }}>
+            The user paper (<code style={{ color: '#8b5fbf' }}>{R.paperSourcePath}</code>) runs to{' '}
+            {R.paperTotalPages} pages across {R.paperMainSectionCount} numbered sections and three
+            appendix runs. The table below indexes every entry and links to the app page that covers
+            it, when one exists.
+          </p>
+          <ul style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.85, marginTop: 10 }}>
+            <li>
+              <strong style={{ color: COVERAGE_THEME['has-page'].fg }}>live</strong> — a dedicated
+              app page renders this section today.
+            </li>
+            <li>
+              <strong style={{ color: COVERAGE_THEME['planned'].fg }}>imp-NNNN</strong> — coverage is
+              scheduled in a pending engine ticket; the badge names the ticket id.
+            </li>
+            <li>
+              <strong style={{ color: COVERAGE_THEME['not-covered'].fg }}>not yet</strong> — no app
+              page and no open ticket; entry is on the navigation backbone only.
+            </li>
+          </ul>
+          <p style={{ marginTop: 10, color: 'var(--faint)', fontSize: 12, lineHeight: 1.7 }}>
+            <em>
+              Many appendix entries carry a "see PDF page X-Y" summary; the appendix detail is too
+              dense for a faithful one-liner from the TOC alone, and we deliberately do not
+              paraphrase.
+            </em>
+          </p>
+        </div>
 
-      {/* ─── Master table ─── */}
-      <div className="card" style={{ marginTop: 16 }}>
-        <h3 style={{ color: '#06b6d4', marginBottom: 4 }}>All entries</h3>
-        <p style={{ color: '#64748b', fontSize: 12, fontFamily: mono }}>
-          click a column header to sort; filter chips above the table.
-        </p>
-        <RoadmapTable entries={entries} />
-      </div>
+        {/* ─── Master table ─── */}
+        <div className="card" style={{ marginTop: 16 }}>
+          <h3 style={{ color: 'var(--blue)', marginBottom: 4 }}>All entries</h3>
+          <p style={{ color: 'var(--faint)', fontSize: 12, fontFamily: mono }}>
+            click a column header to sort; filter chips above the table.
+          </p>
+          <RoadmapTable entries={entries} />
+        </div>
 
-      {/* ─── Related pages ─── */}
-      <div className="card" style={{ marginTop: 24, background: 'rgba(59,130,246,0.04)' }}>
-        <h3 style={{ color: '#64748b', fontSize: 13, marginBottom: 10 }}>Related pages</h3>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-          <Link to="/shift-bridge-positivity" style={{ color: '#06b6d4', fontSize: 13 }}>
-            Shift-Bridge (§15)
-          </Link>
-          <span style={{ color: '#334155' }}>|</span>
-          <Link to="/closure-routes" style={{ color: '#06b6d4', fontSize: 13 }}>
-            Four Closure Routes (§16)
-          </Link>
-          <span style={{ color: '#334155' }}>|</span>
-          <Link to="/blaschke-ghosts" style={{ color: '#a78bfa', fontSize: 13 }}>
-            Blaschke Ghosts (§17)
-          </Link>
-          <span style={{ color: '#334155' }}>|</span>
-          <Link to="/three-attacks" style={{ color: '#fbbf24', fontSize: 13 }}>
-            Three Attacks (§18)
-          </Link>
-          <span style={{ color: '#334155' }}>|</span>
-          <Link to="/kyp-bounded-real" style={{ color: '#10b981', fontSize: 13 }}>
-            KYP / Bounded-Real (M-O)
-          </Link>
-          <span style={{ color: '#334155' }}>|</span>
-          <Link to="/twin-ladder" style={{ color: '#a855f7', fontSize: 13 }}>
-            Twin Ladder
-          </Link>
-          <span style={{ color: '#334155' }}>|</span>
-          <Link to="/paper" style={{ color: '#f59e0b', fontSize: 13 }}>
-            Paper
-          </Link>
-          <span style={{ color: '#334155' }}>|</span>
-          <Link to="/papers" style={{ color: '#3b82f6', fontSize: 13 }}>
-            Papers
-          </Link>
+        {/* ─── Related pages ─── */}
+        <div className="card" style={{ marginTop: 24, background: 'var(--paper2)' }}>
+          <h3 style={{ color: 'var(--faint)', fontSize: 13, marginBottom: 10 }}>Related pages</h3>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+            <Link to="/shift-bridge-positivity" style={{ color: 'var(--blue)', fontSize: 13 }}>
+              Shift-Bridge (§15)
+            </Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/closure-routes" style={{ color: 'var(--blue)', fontSize: 13 }}>
+              Four Closure Routes (§16)
+            </Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/blaschke-ghosts" style={{ color: '#8b5fbf', fontSize: 13 }}>
+              Blaschke Ghosts (§17)
+            </Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/three-attacks" style={{ color: 'var(--brass-dk)', fontSize: 13 }}>
+              Three Attacks (§18)
+            </Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/kyp-bounded-real" style={{ color: 'var(--green)', fontSize: 13 }}>
+              KYP / Bounded-Real (M-O)
+            </Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/twin-ladder" style={{ color: '#8b5fbf', fontSize: 13 }}>
+              Twin Ladder
+            </Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/paper" style={{ color: 'var(--brass)', fontSize: 13 }}>
+              Paper
+            </Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/papers" style={{ color: 'var(--blue)', fontSize: 13 }}>
+              Papers
+            </Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/">← the atlas</Link>
+          </div>
         </div>
       </div>
     </div>

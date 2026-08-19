@@ -8,32 +8,41 @@
 // 3. Family section headers explaining each family's approach
 // 4. Card grid: each route with family, verdict, structural reason
 // 5. Link to decision document + related pages
+//
+// Editorial (warm) re-theme: full-width essay shell, identical structure/data/claims.
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
-const mono = 'var(--font-mono)';
+const mono = 'var(--ed-mono, var(--font-mono))';
+
+// Warm accent per family: fg/border use the CSS var, bg is the matching rgba
+// (editorial.css defines the vars as hex, so alpha-blended fills are spelled
+// out here rather than composed via rgba(var(...))).
+const FAMILY_ACCENT = {
+  'moment-method': { fg: 'var(--brass-dk)', border: 'var(--brass-dk)', bg: 'rgba(181,138,46,0.08)', bgSoft: 'rgba(181,138,46,0.05)' },
+  'new-input': { fg: 'var(--blue)', border: 'var(--blue)', bg: 'rgba(63,107,134,0.08)', bgSoft: 'rgba(63,107,134,0.05)' },
+  'rh-equivalent': { fg: 'var(--brass)', border: 'var(--brass)', bg: 'rgba(140,106,29,0.08)', bgSoft: 'rgba(140,106,29,0.05)' },
+  'sieve': { fg: 'var(--green)', border: 'var(--green)', bg: 'rgba(76,122,74,0.08)', bgSoft: 'rgba(76,122,74,0.05)' },
+};
 
 const FAMILIES = {
   'moment-method': {
     name: 'Family 1: Classical Moment-Method Toolkit',
     desc: 'Standard analytic NT arsenal: explicit formulas, second/fourth moments, family-averaging amplifiers.',
-    color: { fg: '#fbbf24', bg: 'rgba(251,191,36,0.05)', border: '#fbbf24' },
   },
   'new-input': {
     name: 'Family 2: New-Input / Geometric-Quantum Approaches',
     desc: 'Non-classical routes: adelic geometry, quantum chaos, entropy bounds. Attempt to bypass Cauchy-Schwarz layer.',
-    color: { fg: '#0ea5e9', bg: 'rgba(14,165,233,0.05)', border: '#0ea5e9' },
   },
   'rh-equivalent': {
     name: 'Family 3: Classical RH-Equivalent Reformulations',
     desc: 'Ancient-to-modern RH reformulations (combinatorial, functional-analytic) never directly attacked.',
-    color: { fg: '#a78bfa', bg: 'rgba(167,139,250,0.05)', border: '#a78bfa' },
   },
   'sieve': {
     name: 'Family 4: Contemporary Breakthrough Sieves',
     desc: 'Recent (2024) prime-gap & zero-gap sieve methods. Orthogonal to classical moment approaches.',
-    color: { fg: '#10b981', bg: 'rgba(16,185,129,0.05)', border: '#10b981' },
   },
 };
 
@@ -48,7 +57,6 @@ const PCC_ROUTES = [
     reason: 'Sarnak 1995 AQC shows trace approach reduces to PCC itself',
     structural: 'Circular: same Cauchy-Schwarz bottleneck',
     provenanceRef: 'imp-1297-selberg-trace-pcc-route.js',
-    color: { fg: '#fbbf24', bg: 'rgba(251,191,36,0.10)', border: '#fbbf24' },
   },
   {
     id: 'imp-1302',
@@ -59,7 +67,6 @@ const PCC_ROUTES = [
     reason: 'Second moment gives 2-point in diagonal region only; support > 1 requires off-diagonal',
     structural: 'Incomplete coverage: off-diagonal = new problem',
     provenanceRef: 'imp-1302-goldston-gonek-pcc-attack.js',
-    color: { fg: '#f97316', bg: 'rgba(249,115,22,0.10)', border: '#f97316' },
   },
   {
     id: 'imp-1303',
@@ -70,7 +77,6 @@ const PCC_ROUTES = [
     reason: 'Fourth moment gains nothing over second moment at support > 1; Cauchy-Schwarz error is structural',
     structural: 'Intrinsic slack: Cauchy-Schwarz ≤ PCC at support > 1',
     provenanceRef: 'imp-1303-heath-brown-pcc-route.js',
-    color: { fg: '#eab308', bg: 'rgba(234,179,8,0.10)', border: '#eab308' },
   },
   {
     id: 'imp-1304',
@@ -81,7 +87,6 @@ const PCC_ROUTES = [
     reason: 'Family-averaging (amplifier) closes PCC for families but single-ζ reduction is Sarnak 1995 = circular',
     structural: 'Circular: family result → single-ζ transfer is PCC',
     provenanceRef: 'imp-1304-iwaniec-sarnak-no-pcc.js',
-    color: { fg: '#84cc16', bg: 'rgba(132,204,22,0.10)', border: '#84cc16' },
   },
   {
     id: 'imp-1305',
@@ -92,7 +97,6 @@ const PCC_ROUTES = [
     reason: 'Absolutization strategy lands on same arithmetic Cauchy-Schwarz step as all five routes',
     structural: 'Convergence: all 5 routes → single Cauchy-Schwarz bottleneck',
     provenanceRef: 'imp-1305-goldston-yildirim-mean-square.js',
-    color: { fg: '#06b6d4', bg: 'rgba(6,182,212,0.10)', border: '#06b6d4' },
   },
 
   // ---- Family 2: New-Input / Geometric-Quantum Approaches ----
@@ -105,7 +109,6 @@ const PCC_ROUTES = [
     reason: 'Adelic Lefschetz trace maps to arithmetic Cauchy-Schwarz step; Connes hypothesis required',
     structural: 'Geometric repackaging without structural bypass: Cauchy-Schwarz intrinsic',
     provenanceRef: 'imp-1307-connes-bost-adelic-attack.js',
-    color: { fg: '#0ea5e9', bg: 'rgba(14,165,233,0.10)', border: '#0ea5e9' },
   },
   {
     id: 'imp-1308',
@@ -116,7 +119,6 @@ const PCC_ROUTES = [
     reason: 'Quantum corrections (Sierra-Townsend) address spectrum but miss semi-classical gap at support > 1',
     structural: 'Spectral approach hits same (log T)^{1/2} Plancherel barrier as moment methods',
     provenanceRef: 'imp-1308-berry-keating-quantum-attack.js',
-    color: { fg: '#06b6d4', bg: 'rgba(6,182,212,0.10)', border: '#06b6d4' },
   },
   {
     id: 'imp-1309',
@@ -127,7 +129,6 @@ const PCC_ROUTES = [
     reason: 'Entropy-entropy transfer requires auxiliary hypotheses; zero-gap entropy ≠ 2-point bound at support > 1',
     structural: 'Orthogonal method, same intrinsic Plancherel gap: (log T)^{1/2}',
     provenanceRef: 'imp-1309-tao-entropy-pcc-attack.js',
-    color: { fg: '#10b981', bg: 'rgba(16,185,129,0.10)', border: '#10b981' },
   },
 
   // ---- Family 3: Classical RH-Equivalent Reformulations ----
@@ -140,7 +141,6 @@ const PCC_ROUTES = [
     reason: 'Elementary number theory on σ(n) does not connect to spectral zeta methods or Plancherel',
     structural: 'Orthogonal but unproductive: combinatorics-to-spectrum gap remains open',
     provenanceRef: 'imp-1311-robin-lagarias-combinatorial-attack.js',
-    color: { fg: '#a78bfa', bg: 'rgba(167,139,250,0.10)', border: '#a78bfa' },
   },
   {
     id: 'imp-1312',
@@ -151,7 +151,6 @@ const PCC_ROUTES = [
     reason: 'Bercovici-Foias quantitative version requires auxiliary moment bounds; circular with PCC at critical step',
     structural: 'Functional-analytic repackaging; inner product closure = same Cauchy-Schwarz layer',
     provenanceRef: 'imp-1312-beurling-nyman-attack.js',
-    color: { fg: '#ec4899', bg: 'rgba(236,72,153,0.10)', border: '#ec4899' },
   },
 
   // ---- Family 4: Contemporary Breakthrough Sieves ----
@@ -164,38 +163,45 @@ const PCC_ROUTES = [
     reason: 'Sieve-theory does not directly target PCC 2-point at support > 1; auxiliary analytic step remains',
     structural: 'Genuine breakthrough but stops short: Plancherel barrier (log T)^{1/2} intrinsic to zero-gap sieve also',
     provenanceRef: 'imp-1318-maynard-sieve-pcc.js',
-    color: { fg: '#10b981', bg: 'rgba(16,185,129,0.10)', border: '#10b981' },
   },
 ];
 
+function cardBaseLeft(color) {
+  return {
+    background: 'var(--paper2)',
+    border: '1px solid var(--hairline)',
+    borderLeft: `3px solid ${color}`,
+    borderRadius: 8,
+  };
+}
 
 function AggregateVerdictSection() {
   return (
     <div
       className="card"
       style={{
+        ...cardBaseLeft('var(--terra-dk)'),
         marginBottom: 32,
-        borderLeft: '4px solid #ef4444',
-        background: 'rgba(239,68,68,0.08)',
+        background: 'rgba(194,58,28,0.06)',
         padding: '20px 24px',
       }}
     >
-      <h2 style={{ margin: '0 0 12px 0', color: '#f87171', fontSize: 24 }}>
-        Aggregate Verdict: <span style={{ fontFamily: mono }}>pcc-genuinely-open-pending-new-input</span>
+      <h2 style={{ margin: '0 0 12px 0', color: 'var(--terra-dk)', fontSize: 22 }}>
+        Aggregate verdict: <span style={{ fontFamily: mono }}>pcc-genuinely-open-pending-new-input</span>
       </h2>
-      <p style={{ margin: '12px 0 0 0', color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
-        All eleven candidate routes across four orthogonal NT families—classical moment methods, geometric-quantum
-        new input, classical RH equivalences, and contemporary sieves—converge on the <strong>same negative
-        classification pattern</strong>. None bypass Montgomery PCC for single-ζ 2-point statistics in the support
-        &gt; 1 regime needed by the §15-27 ESY-closure.
+      <p style={{ margin: '12px 0 0 0', color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.8 }}>
+        All eleven candidate routes across four orthogonal NT families — classical moment methods, geometric-quantum
+        new input, classical RH equivalences, and contemporary sieves — converge on the <strong>same negative
+        classification pattern</strong>. None bypass Montgomery's pair-correlation conjecture (PCC) for single-ζ
+        2-point statistics in the support &gt; 1 regime needed by the §15-27 ESY-closure.
       </p>
-      <p style={{ margin: '12px 0 0 0', color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
-        <strong style={{ color: '#fca5a5' }}>Structural barrier:</strong> The off-diagonal sum at support &gt; 1
+      <p style={{ margin: '12px 0 0 0', color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.8 }}>
+        <strong style={{ color: 'var(--terra-dk)' }}>Structural barrier:</strong> the off-diagonal sum at support &gt; 1
         collapses to a <em>single-zeta arithmetic Cauchy-Schwarz step</em> whose error bound is intrinsically
-        <span style={{ fontFamily: mono }}> (log T)^{"{1/2}"}</span> Plancherel slack vs PCC. Every family
+        <span style={{ fontFamily: mono }}> (log T)^{'{1/2}'}</span> Plancherel slack vs PCC. Every family
         hits this same bottleneck at the critical step.
       </p>
-      <p style={{ margin: '12px 0 0 0', color: '#cbd5e1', fontSize: 13, fontStyle: 'italic' }}>
+      <p style={{ margin: '12px 0 0 0', color: 'var(--faint)', fontSize: 13, fontStyle: 'italic' }}>
         Source: thinking/decisions/2026-05-28-pcc-moment-methods-exhausted.md + Wave-19 exhaustion audit
       </p>
     </div>
@@ -204,20 +210,22 @@ function AggregateVerdictSection() {
 
 function FamilySectionHeader({ familyKey }) {
   const fam = FAMILIES[familyKey];
+  const accent = FAMILY_ACCENT[familyKey];
   return (
     <div style={{ marginBottom: 24, marginTop: 32 }}>
       <div
         style={{
-          borderLeft: `3px solid ${fam.color.border}`,
-          background: fam.color.bg,
+          borderLeft: `3px solid ${accent.border}`,
+          background: accent.bgSoft,
           padding: '12px 14px',
           marginBottom: 12,
+          borderRadius: '0 8px 8px 0',
         }}
       >
-        <h2 style={{ margin: '0 0 6px 0', color: fam.color.fg, fontSize: 16, fontWeight: 600 }}>
+        <h2 className="ed-h2" style={{ margin: '0 0 6px 0', color: accent.fg, fontSize: 16, fontWeight: 600, fontFamily: mono }}>
           {fam.name}
         </h2>
-        <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.6 }}>
+        <p style={{ margin: 0, color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6 }}>
           {fam.desc}
         </p>
       </div>
@@ -226,58 +234,65 @@ function FamilySectionHeader({ familyKey }) {
 }
 
 function RouteCard({ route }) {
-  const col = route.color;
+  const accent = FAMILY_ACCENT[route.family];
   return (
     <div
       className="card"
       style={{
-        borderLeft: `4px solid ${col.border}`,
-        background: col.bg,
+        ...cardBaseLeft(accent.border),
+        background: accent.bg,
         padding: '16px 18px',
       }}
     >
       <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, flexWrap: 'wrap', marginBottom: 8 }}>
-        <h3 style={{ color: col.fg, margin: 0, fontSize: 16, fontWeight: 600 }}>
+        <h3 style={{ color: accent.fg, margin: 0, fontSize: 16, fontWeight: 600 }}>
           {route.name}
         </h3>
-        <span style={{ fontFamily: mono, fontSize: 11, color: '#94a3b8' }}>
+        <span style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>
           {route.id}
         </span>
       </div>
 
-      <p style={{ margin: '8px 0 0 0', color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.65 }}>
-        <strong style={{ color: col.fg }}>Route.</strong> {route.route}
+      <p style={{ margin: '8px 0 0 0', color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.65 }}>
+        <strong style={{ color: accent.fg }}>Route.</strong> {route.route}
       </p>
 
-      <p style={{ margin: '8px 0 0 0', color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.65 }}>
-        <strong style={{ color: col.fg }}>Verdict.</strong> {route.verdict}
+      <p style={{ margin: '8px 0 0 0', color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.65 }}>
+        <strong style={{ color: accent.fg }}>Verdict.</strong> {route.verdict}
       </p>
 
-      <p style={{ margin: '8px 0 0 0', color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.65 }}>
-        <strong style={{ color: col.fg }}>Reason.</strong> {route.reason}
+      <p style={{ margin: '8px 0 0 0', color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.65 }}>
+        <strong style={{ color: accent.fg }}>Reason.</strong> {route.reason}
       </p>
 
       <div
         style={{
           marginTop: 10,
           padding: '8px 10px',
-          borderLeft: '2px solid #64748b',
-          background: 'rgba(15,23,42,0.5)',
+          borderLeft: '2px solid var(--hairline)',
+          background: 'var(--paper)',
+          borderRadius: '0 6px 6px 0',
         }}
       >
-        <p style={{ margin: 0, color: '#cbd5e1', fontSize: 12, lineHeight: 1.6, fontStyle: 'italic' }}>
+        <p style={{ margin: 0, color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.6, fontStyle: 'italic' }}>
           {route.structural}
         </p>
       </div>
       {route.provenanceRef && (
-        <p style={{ margin: '8px 0 0 0', color: '#475569', fontSize: 11, lineHeight: 1.5 }}>
-          <span style={{ color: '#64748b' }}>Provenance:</span>{' '}
-          <span style={{ fontFamily: mono, color: '#64748b' }}>{route.provenanceRef}</span>
+        <p style={{ margin: '8px 0 0 0', color: 'var(--faint)', fontSize: 11, lineHeight: 1.5 }}>
+          <span>Provenance:</span>{' '}
+          <span style={{ fontFamily: mono }}>{route.provenanceRef}</span>
         </p>
       )}
     </div>
   );
 }
+
+const RELATED_LINKS = [
+  { to: '/paper-audit-dashboard', label: 'Paper Audit Dashboard' },
+  { to: '/closure-routes', label: 'Four Closure Routes (§16)' },
+  { to: '/collapse-chain', label: 'Collapse Chain: ‖V‖ ≤ 1' },
+];
 
 export default function PCCRouteExhaustionPage() {
   const routesByFamily = {
@@ -288,70 +303,68 @@ export default function PCCRouteExhaustionPage() {
   };
 
   return (
-    <div className="page-container">
-      <div className="page-header">
-        <h1 style={{ margin: '0 0 8px 0' }}>PCC Route Exhaustion: 11-Route Audit (4 Families)</h1>
-        <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: 14 }}>
-          Complete census of analytic NT, geometric-quantum, RH-equivalent, and sieve approaches to Montgomery
-          PCC. All converge to the same (log T)^{"1/2"} Plancherel barrier at support &gt; 1.
-        </p>
-      </div>
-
-      <AggregateVerdictSection />
-
-      {Object.keys(routesByFamily).map(familyKey => (
-        <div key={familyKey}>
-          <FamilySectionHeader familyKey={familyKey} />
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 16, marginBottom: 8 }}>
-            {routesByFamily[familyKey].map(route => (
-              <RouteCard key={route.id} route={route} />
-            ))}
-          </div>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>twin-ladder · PCC route exhaustion</span>} />
+      <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
+        <div style={{ marginBottom: 24 }}>
+          <h1 className="ed-h1" style={{ marginBottom: 10 }}>PCC Route Exhaustion: 11-Route Audit (4 Families)</h1>
+          <p style={{ margin: 0, color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
+            A complete census of the analytic-number-theory, geometric-quantum, RH-equivalent, and sieve approaches
+            to Montgomery's pair-correlation conjecture (PCC). All eleven routes converge on the same
+            <span style={{ fontFamily: mono }}> (log T)^{'1/2'}</span> Plancherel barrier at support &gt; 1.
+          </p>
         </div>
-      ))}
 
-      <div style={{ marginTop: 40, marginBottom: 40 }}>
-        <h2 style={{ margin: '0 0 16px 0', color: '#60a5fa', fontSize: 16 }}>Related</h2>
-        <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', fontSize: 13 }}>
-          <Link
-            to="/paper-audit-dashboard"
-            style={{
-              color: '#60a5fa',
-              textDecoration: 'none',
-              padding: '6px 10px',
-              borderRadius: 4,
-              border: '1px solid #334155',
-              background: 'rgba(96,165,250,0.05)',
-            }}
-          >
-            Paper Audit Dashboard
-          </Link>
-          <Link
-            to="/closure-routes"
-            style={{
-              color: '#60a5fa',
-              textDecoration: 'none',
-              padding: '6px 10px',
-              borderRadius: 4,
-              border: '1px solid #334155',
-              background: 'rgba(96,165,250,0.05)',
-            }}
-          >
-            Four Closure Routes (§16)
-          </Link>
-          <Link
-            to="/collapse-chain"
-            style={{
-              color: '#60a5fa',
-              textDecoration: 'none',
-              padding: '6px 10px',
-              borderRadius: 4,
-              border: '1px solid #334155',
-              background: 'rgba(96,165,250,0.05)',
-            }}
-          >
-            Collapse Chain: ‖V‖ ≤ 1
-          </Link>
+        <AggregateVerdictSection />
+
+        {Object.keys(routesByFamily).map(familyKey => (
+          <div key={familyKey}>
+            <FamilySectionHeader familyKey={familyKey} />
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 16, marginBottom: 8 }}>
+              {routesByFamily[familyKey].map(route => (
+                <RouteCard key={route.id} route={route} />
+              ))}
+            </div>
+          </div>
+        ))}
+
+        <div style={{ marginTop: 40, marginBottom: 40 }}>
+          <h2 className="ed-h2" style={{ margin: '0 0 16px 0' }}>Related</h2>
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', fontSize: 13 }}>
+            {RELATED_LINKS.map(l => (
+              <Link
+                key={l.to}
+                to={l.to}
+                style={{
+                  color: 'var(--brass-dk)',
+                  textDecoration: 'none',
+                  padding: '6px 10px',
+                  borderRadius: 6,
+                  border: '1px solid var(--hairline)',
+                  background: 'var(--paper2)',
+                  fontFamily: mono,
+                  fontSize: 12,
+                }}
+              >
+                {l.label}
+              </Link>
+            ))}
+            <Link
+              to="/"
+              style={{
+                color: 'var(--terra-dk)',
+                textDecoration: 'none',
+                padding: '6px 10px',
+                borderRadius: 6,
+                border: '1px solid var(--hairline)',
+                background: 'var(--paper2)',
+                fontFamily: mono,
+                fontSize: 12,
+              }}
+            >
+              ← the atlas
+            </Link>
+          </div>
         </div>
       </div>
     </div>

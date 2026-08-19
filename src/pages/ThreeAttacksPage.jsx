@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
-const mono = 'var(--font-mono)';
+// Three Closure Attempts: Corrected Audit — editorial (warm) re-theme.
+// Structure, data, and every claim/number/caveat are unchanged from the
+// original dark build; only presentation (layout, color tokens, copy
+// framing) has been ported to the warm editorial shell.
+
+const mono = 'var(--ed-mono, var(--font-mono))';
 
 const ATTACKS = [
   {
     id: 'kernel-passivity',
     label: 'I. Kernel / passivity',
-    color: '#06b6d4',
+    color: 'var(--blue)',
     status: 'rejected',
     statusLabel: 'REJECTED AS STATED',
     headline: 'The original prime-wise kernel is automatically positive and therefore cannot detect RH.',
@@ -44,7 +50,7 @@ const ATTACKS = [
   {
     id: 'prime-delay',
     label: 'II. Prime-delay domination',
-    color: '#10b981',
+    color: 'var(--green)',
     status: 'numerical',
     statusLabel: 'FINITE MODEL',
     headline: 'Finite prime-phase experiments are useful diagnostics, but no uniform domination theorem is known.',
@@ -79,7 +85,7 @@ const ATTACKS = [
   {
     id: 'weil-pontryagin',
     label: 'III. Weil / Pontryagin',
-    color: '#a855f7',
+    color: 'var(--brass)',
     status: 'open',
     statusLabel: 'RH-EQUIVALENT TARGET',
     headline: 'Weil positivity is a legitimate RH criterion, but self-duality alone does not prove its sign.',
@@ -89,7 +95,7 @@ const ATTACKS = [
       'class and with the completion, sign convention, convergence, and archimedean contribution intact.',
       'Pontryagin self-duality of the adele group supplies a Fourier transform and an identity; it does ' +
       'not turn each local prime contribution positive and does not imply a de Bruijn-Newman bound. ' +
-      'The earlier chain “local positivity ⇔ Λ ≤ 0” skipped the load-bearing Weil criterion.',
+      'The earlier chain "local positivity ⇔ Λ ≤ 0" skipped the load-bearing Weil criterion.',
       'This remains a valuable target: derive the exact completed Weil form from a twin-ladder operator ' +
       'without dropping terms, and prove its positivity on the full test class. Doing so would be an ' +
       'RH-strength achievement, not a short consequence of duality.',
@@ -114,9 +120,9 @@ const ATTACKS = [
 ];
 
 const STATUS_STYLE = {
-  rejected: { color: '#ef4444', bg: 'rgba(239,68,68,0.10)', border: 'rgba(239,68,68,0.35)' },
-  numerical: { color: '#3b82f6', bg: 'rgba(59,130,246,0.10)', border: 'rgba(59,130,246,0.35)' },
-  open: { color: '#f59e0b', bg: 'rgba(245,158,11,0.10)', border: 'rgba(245,158,11,0.35)' },
+  rejected: { color: 'var(--terra-dk)', bg: 'rgba(194,58,28,0.10)', border: 'rgba(194,58,28,0.40)' },
+  numerical: { color: 'var(--blue)', bg: 'rgba(63,107,134,0.10)', border: 'rgba(63,107,134,0.40)' },
+  open: { color: 'var(--brass-dk)', bg: 'rgba(181,138,46,0.12)', border: 'rgba(181,138,46,0.40)' },
 };
 
 function StatusChip({ status, label }) {
@@ -166,7 +172,7 @@ function AttackCard({ attack, open, onToggle }) {
           <span style={{ marginLeft: 12 }}>
             <StatusChip status={attack.status} label={attack.statusLabel} />
           </span>
-          <span style={{ display: 'block', marginTop: 7, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.6 }}>
+          <span style={{ display: 'block', marginTop: 7, color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6 }}>
             {attack.headline}
           </span>
         </span>
@@ -178,12 +184,12 @@ function AttackCard({ attack, open, onToggle }) {
       {open && (
         <div style={{ marginTop: 16 }}>
           {attack.summary.map((paragraph) => (
-            <p key={paragraph} style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75, margin: '10px 0 0' }}>
+            <p key={paragraph} style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, margin: '10px 0 0' }}>
               {paragraph}
             </p>
           ))}
 
-          <div style={{ marginTop: 16, borderTop: '1px solid var(--border, #1e293b)', paddingTop: 14 }}>
+          <div style={{ marginTop: 16, borderTop: '1px solid var(--hairline)', paddingTop: 14 }}>
             {attack.formulas.map((formula) => (
               <div key={formula.label} style={{ marginBottom: 12 }}>
                 <div style={{ color: attack.color, fontSize: 11, fontFamily: mono }}>{formula.label}</div>
@@ -195,13 +201,13 @@ function AttackCard({ attack, open, onToggle }) {
           <div style={{
             marginTop: 12,
             padding: '10px 12px',
-            borderLeft: '3px solid #f59e0b',
-            background: 'rgba(245,158,11,0.06)',
-            color: '#cbd5e1',
+            borderLeft: '3px solid var(--brass-dk)',
+            background: 'rgba(181,138,46,0.08)',
+            color: 'var(--ink-soft)',
             fontSize: 12.5,
             lineHeight: 1.65,
           }}>
-            <strong style={{ color: '#fbbf24' }}>Open obligation:</strong> {attack.openGap}
+            <strong style={{ color: 'var(--brass-dk)' }}>Open obligation:</strong> {attack.openGap}
           </div>
         </div>
       )}
@@ -213,48 +219,81 @@ export default function ThreeAttacksPage() {
   const [openId, setOpenId] = useState('kernel-passivity');
 
   return (
-    <div className="page">
-      <div className="page-header">
-        <h1>Three Closure Attempts: Corrected Audit</h1>
-        <p>
-          These are research programs around the twin-ladder model, not three proofs of RH.
-          The v70 review separates identities, finite experiments, rejected implications, and
-          genuinely RH-equivalent targets.
-        </p>
-      </div>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>twin-ladder · three attacks</span>} />
+      <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
+        <div style={{ marginBottom: 24 }}>
+          <h1 className="ed-h1" style={{ marginBottom: 10 }}>Three Closure Attempts: Corrected Audit</h1>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
+            These are research programs around the twin-ladder model, not three proofs of RH.
+            The v70 review separates identities, finite experiments, rejected implications, and
+            genuinely RH-equivalent targets.
+          </p>
+        </div>
 
-      <div className="card" style={{ borderLeft: '3px solid #ef4444', marginBottom: 20 }}>
-        <strong style={{ color: '#fca5a5' }}>Bottom line:</strong>
-        <span style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.7 }}>
-          {' '}the unsigned kernel is PSD by construction, finite prime-delay plots do not control
-          the infinite critical-line object, and adelic self-duality does not prove Weil positivity.
-          No attack on this page currently proves <InlineMath tex="\Lambda\le0" /> or RH.
-        </span>
-      </div>
+        <div className="card" style={{ borderLeft: '3px solid var(--terra-dk)', marginBottom: 20 }}>
+          <strong style={{ color: 'var(--terra-dk)' }}>Bottom line:</strong>
+          <span style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7 }}>
+            {' '}the unsigned kernel is PSD by construction, finite prime-delay plots do not control
+            the infinite critical-line object, and adelic self-duality does not prove Weil positivity.
+            No attack on this page currently proves <InlineMath tex="\Lambda\le0" /> or RH.
+          </span>
+        </div>
 
-      <div style={{ display: 'grid', gap: 14 }}>
-        {ATTACKS.map((attack) => (
-          <AttackCard
-            key={attack.id}
-            attack={attack}
-            open={openId === attack.id}
-            onToggle={() => setOpenId(openId === attack.id ? null : attack.id)}
-          />
-        ))}
-      </div>
+        <h2 className="ed-h2" style={{ marginTop: 8, marginBottom: 12 }}>The three attacks</h2>
+        <div style={{ display: 'grid', gap: 14 }}>
+          {ATTACKS.map((attack) => (
+            <AttackCard
+              key={attack.id}
+              attack={attack}
+              open={openId === attack.id}
+              onToggle={() => setOpenId(openId === attack.id ? null : attack.id)}
+            />
+          ))}
+        </div>
 
-      <div className="card" style={{ marginTop: 24 }}>
-        <h3 style={{ color: '#94a3b8', marginTop: 0 }}>Where the standalone review candidate lives</h3>
-        <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
-          The standalone private review repository presents <InlineMath tex="\Lambda\le0.1787854" /> as an unreviewed
-          computer-assisted candidate for an unconditional proof. Its package claims compact-slab and
-          final-time-half-strip closures, a material replay, corrected error bounds, and an exact criterion
-          weld. The bound is not established, has not been peer reviewed, and is not RH.
-        </p>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-          <Link to="/newman-lambda-01787854-candidate">Open the candidate package →</Link>
-          <Link to="/proof-overview">Read the evidence-graded proof overview →</Link>
-          <Link to="/closure-routes">Inspect the corrected closure routes →</Link>
+        <div className="card" style={{ marginTop: 24, borderLeft: '3px solid var(--blue)' }}>
+          <h3 style={{ color: 'var(--faint)', marginTop: 0 }}>Where the standalone review candidate lives</h3>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75 }}>
+            The standalone private review repository presents <InlineMath tex="\Lambda\le0.1787854" /> as an unreviewed
+            computer-assisted candidate for an unconditional proof. Its package claims compact-slab and
+            final-time-half-strip closures, a material replay, corrected error bounds, and an exact criterion
+            weld. The bound is not established, has not been peer reviewed, and is not RH.
+          </p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+            <Link to="/newman-lambda-01787854-candidate" style={{ fontSize: 12, color: 'var(--brass)', textDecoration: 'none' }}>
+              → Open the candidate package
+            </Link>
+            <Link to="/proof-overview" style={{ fontSize: 12, color: 'var(--brass-dk)', textDecoration: 'none' }}>
+              → Read the evidence-graded proof overview
+            </Link>
+            <Link to="/closure-routes" style={{ fontSize: 12, color: 'var(--blue)', textDecoration: 'none' }}>
+              → Inspect the corrected closure routes
+            </Link>
+          </div>
+        </div>
+
+        <div className="card" style={{ marginTop: 24, borderLeft: '3px solid var(--brass)' }}>
+          <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--faint)', marginBottom: 6 }}>
+            Related pages
+          </div>
+          <div style={{ display: 'flex', gap: 12, marginTop: 8, flexWrap: 'wrap' }}>
+            <Link to="/lambda-bounds" style={{ fontSize: 12, color: 'var(--brass-dk)', textDecoration: 'none' }}>
+              → Λ Bounds &amp; RH Roadmap
+            </Link>
+            <Link to="/closure-routes" style={{ fontSize: 12, color: 'var(--brass)', textDecoration: 'none' }}>
+              → Closure routes
+            </Link>
+            <Link to="/proof-overview" style={{ fontSize: 12, color: 'var(--blue)', textDecoration: 'none' }}>
+              → Proof overview
+            </Link>
+            <Link to="/flow-blindness-no-go" style={{ fontSize: 12, color: 'var(--green)', textDecoration: 'none' }}>
+              → Flow-blindness no-go
+            </Link>
+          </div>
+          <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid var(--hairline)' }}>
+            <Link to="/">← the atlas</Link>
+          </div>
         </div>
       </div>
     </div>

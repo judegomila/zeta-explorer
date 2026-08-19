@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { BLASCHKE_GHOSTS_SECTION } from '../data/blaschke-ghosts-section.js';
 import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
 /**
  * BlaschkeGhostsPage — renders §17 "Attack on the Wall: Inverse Blaschke
@@ -12,14 +13,16 @@ import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx
  * Includes an interactive demo: move a hypothetical off-critical zero
  * around in the right half-plane and inspect the candidate negative-square
  * witness, with the fixed-shift common-factor caveat stated explicitly.
+ *
+ * Editorial (warm) re-theme: full-width shell, identical structure/data.
  */
 
 const S = BLASCHKE_GHOSTS_SECTION;
 
-function Card({ children, accent = '#1e293b' }) {
+function Card({ children, accent = 'var(--hairline)' }) {
   return (
     <div style={{
-      background: 'rgba(15,23,42,0.7)',
+      background: 'var(--paper2)',
       border: `1px solid ${accent}`,
       borderRadius: 10,
       padding: '20px 24px',
@@ -40,11 +43,11 @@ function GhostInteractiveDemo() {
   const negativeSquareWeight = ghostPresentUnderNoCancellation ? 2 * (delta - a) : 0;
 
   return (
-    <Card accent="#7c3aed">
-      <h3 style={{ color: '#a78bfa', fontSize: 18, margin: '0 0 12px 0' }}>
+    <Card accent="var(--brass)">
+      <h3 style={{ color: 'var(--brass-dk)', fontSize: 18, margin: '0 0 12px 0' }}>
         Interactive: Candidate ghost negative-square witness
       </h3>
-      <p style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.6, margin: '0 0 16px 0' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6, margin: '0 0 16px 0' }}>
         Place a hypothetical off-critical zero <InlineMath math="\rho = 1/2 + \delta + i\gamma" /> and
         choose a bridge thickness <InlineMath math="a > 0" />. The condition <InlineMath math="\delta > a" />{' '}
         places a denominator zero in the right half-plane. It becomes a ghost pole only if its multiplicity
@@ -52,7 +55,7 @@ function GhostInteractiveDemo() {
       </p>
 
       <div style={{ display: 'grid', gap: 12, gridTemplateColumns: '1fr', marginBottom: 16 }}>
-        <label style={{ color: '#94a3b8', fontSize: 13, fontFamily: 'var(--font-mono, monospace)' }}>
+        <label style={{ color: 'var(--faint)', fontSize: 13, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
           δ (horizontal displacement): {delta.toFixed(3)}
           <input
             type="range" min="0" max="0.5" step="0.005"
@@ -60,7 +63,7 @@ function GhostInteractiveDemo() {
             style={{ width: '100%', marginTop: 6 }}
           />
         </label>
-        <label style={{ color: '#94a3b8', fontSize: 13, fontFamily: 'var(--font-mono, monospace)' }}>
+        <label style={{ color: 'var(--faint)', fontSize: 13, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
           γ (imaginary part): {gamma.toFixed(2)}
           <input
             type="range" min="0" max="50" step="0.5"
@@ -68,7 +71,7 @@ function GhostInteractiveDemo() {
             style={{ width: '100%', marginTop: 6 }}
           />
         </label>
-        <label style={{ color: '#94a3b8', fontSize: 13, fontFamily: 'var(--font-mono, monospace)' }}>
+        <label style={{ color: 'var(--faint)', fontSize: 13, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
           a (bridge thickness): {a.toFixed(3)}
           <input
             type="range" min="0.001" max="0.5" step="0.001"
@@ -80,20 +83,20 @@ function GhostInteractiveDemo() {
 
       <div style={{
         padding: 12,
-        background: ghostPresentUnderNoCancellation ? 'rgba(239,68,68,0.10)' : 'rgba(16,185,129,0.10)',
-        border: `1px solid ${ghostPresentUnderNoCancellation ? 'rgba(239,68,68,0.4)' : 'rgba(16,185,129,0.4)'}`,
+        background: ghostPresentUnderNoCancellation ? 'rgba(194,58,28,0.10)' : 'rgba(76,122,74,0.10)',
+        border: `1px solid ${ghostPresentUnderNoCancellation ? 'rgba(194,58,28,0.4)' : 'rgba(76,122,74,0.4)'}`,
         borderRadius: 6,
       }}>
         <div style={{
-          color: ghostPresentUnderNoCancellation ? '#fca5a5' : '#86efac',
-          fontWeight: 700, fontSize: 13, fontFamily: 'var(--font-mono, monospace)',
+          color: ghostPresentUnderNoCancellation ? 'var(--terra-dk)' : 'var(--green)',
+          fontWeight: 700, fontSize: 13, fontFamily: 'var(--ed-mono, var(--font-mono))',
           letterSpacing: 0.5,
         }}>
           {ghostPresentUnderNoCancellation
             ? 'CANDIDATE GHOST — CHECK COMMON-FACTOR CANCELLATION'
             : 'NO RIGHT-HALF-PLANE DENOMINATOR ZERO FROM THIS λ'}
         </div>
-        <div style={{ color: '#cbd5e1', fontSize: 13, marginTop: 8, lineHeight: 1.6 }}>
+        <div style={{ color: 'var(--ink-soft)', fontSize: 13, marginTop: 8, lineHeight: 1.6 }}>
           {ghostPresentUnderNoCancellation ? (
             <>
               Candidate pole location for <InlineMath math="R_a" />:{' '}
@@ -113,184 +116,190 @@ function GhostInteractiveDemo() {
 function FourRouteDecomposition() {
   // Tiny SVG showing 4 routes converging to a "ghost-absence" shared bottleneck.
   return (
-    <svg width="100%" viewBox="0 0 600 240" style={{ background: 'rgba(15,23,42,0.5)', borderRadius: 8 }}>
+    <svg width="100%" viewBox="0 0 600 240" style={{ background: 'var(--paper)', borderRadius: 8 }}>
       {/* Routes */}
       {[
-        { x: 80, y: 40,  label: 'Route A', sub: 'Schur', color: '#3b82f6' },
-        { x: 80, y: 100, label: 'Route B', sub: 'de Branges', color: '#8b5cf6' },
-        { x: 80, y: 160, label: 'Route C', sub: 'Hidden-square', color: '#ec4899' },
-        { x: 80, y: 220, label: 'Route D', sub: 'Weil / TL', color: '#f59e0b' },
+        { x: 80, y: 40,  label: 'Route A', sub: 'Schur', color: 'var(--blue)' },
+        { x: 80, y: 100, label: 'Route B', sub: 'de Branges', color: 'var(--brass)' },
+        { x: 80, y: 160, label: 'Route C', sub: 'Hidden-square', color: 'var(--terra-dk)' },
+        { x: 80, y: 220, label: 'Route D', sub: 'Weil / TL', color: 'var(--green)' },
       ].map((r) => (
         <g key={r.label}>
-          <rect x={r.x - 50} y={r.y - 16} width="100" height="32" rx="6" fill={r.color} fillOpacity="0.2" stroke={r.color} strokeWidth="1.5" />
+          <rect x={r.x - 50} y={r.y - 16} width="100" height="32" rx="6" fill={r.color} fillOpacity="0.14" stroke={r.color} strokeWidth="1.5" />
           <text x={r.x} y={r.y - 2} fill={r.color} textAnchor="middle" fontSize="13" fontWeight="700">{r.label}</text>
-          <text x={r.x} y={r.y + 12} fill="#cbd5e1" textAnchor="middle" fontSize="10">{r.sub}</text>
-          <line x1={r.x + 50} y1={r.y} x2={400} y2={130} stroke={r.color} strokeOpacity="0.6" strokeWidth="1" />
+          <text x={r.x} y={r.y + 12} fill="var(--ink-soft)" textAnchor="middle" fontSize="10">{r.sub}</text>
+          <line x1={r.x + 50} y1={r.y} x2={400} y2={130} stroke="#d5c9b2" strokeWidth="1" />
         </g>
       ))}
       {/* Shared bottleneck */}
-      <rect x="400" y="110" width="160" height="40" rx="8" fill="#dc2626" fillOpacity="0.15" stroke="#dc2626" strokeWidth="2" />
-      <text x="480" y="128" fill="#fca5a5" textAnchor="middle" fontSize="13" fontWeight="700">Ghost-absence</text>
-      <text x="480" y="142" fill="#cbd5e1" textAnchor="middle" fontSize="10">B⁺_a ≡ 1 for every a &gt; 0 ⇔ RH</text>
+      <rect x="400" y="110" width="160" height="40" rx="8" fill="var(--terra-dk)" fillOpacity="0.14" stroke="var(--terra-dk)" strokeWidth="2" />
+      <text x="480" y="128" fill="var(--terra-dk)" textAnchor="middle" fontSize="13" fontWeight="700">Ghost-absence</text>
+      <text x="480" y="142" fill="var(--ink-soft)" textAnchor="middle" fontSize="10">B⁺_a ≡ 1 for every a &gt; 0 ⇔ RH</text>
     </svg>
   );
 }
 
 export default function BlaschkeGhostsPage() {
   return (
-    <main style={{ maxWidth: 960, margin: '0 auto', padding: '32px 24px' }}>
-      <header style={{ borderBottom: '1px solid #1e293b', paddingBottom: 18, marginBottom: 24 }}>
-        <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono, monospace)', textTransform: 'uppercase', letterSpacing: 1 }}>
-          /blaschke-ghosts · paper {S.paperSection} · pp. {S.paperPageRange}
-        </div>
-        <h1 style={{ fontSize: 26, fontWeight: 700, color: '#e2e8f0', margin: '8px 0 4px 0' }}>
-          {S.title}
-        </h1>
-        <p style={{ color: '#94a3b8', fontSize: 14, margin: '8px 0 0 0', lineHeight: 1.6 }}>
-          {S.oneLine}
-        </p>
-      </header>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>twin-ladder · Blaschke ghosts</span>} />
+      <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
+        <header style={{ borderBottom: '1px solid var(--hairline)', paddingBottom: 18, marginBottom: 24 }}>
+          <div style={{ fontSize: 11, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))', textTransform: 'uppercase', letterSpacing: 1 }}>
+            /blaschke-ghosts · paper {S.paperSection} · pp. {S.paperPageRange}
+          </div>
+          <h1 className="ed-h1" style={{ margin: '8px 0 4px 0' }}>
+            {S.title}
+          </h1>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, margin: '8px 0 0 0', lineHeight: 1.6 }}>
+            {S.oneLine}
+          </p>
+        </header>
 
-      <DownstreamVerdictCallout />
+        <DownstreamVerdictCallout />
 
-      {/* Shifted scattering ratio */}
-      <Card>
-        <h3 style={{ color: '#60a5fa', fontSize: 18, margin: '0 0 12px 0' }}>§17.1 The shifted scattering ratio</h3>
-        <BlockMath math="R_a(w) := \frac{X(w-a)}{X(w+a)}, \quad \mathfrak{R}w > 0,\ a > 0,\quad X(w) := \xi(\tfrac{1}{2} + w)" />
-        <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>
-          On the boundary <InlineMath math="\mathfrak{R}w = 0" /> the functional equation gives <InlineMath math="|R_a(it)|=1" />.
-          If <InlineMath math="X(\lambda)=0" /> with <InlineMath math="\lambda=\delta+i\gamma" /> and{' '}
-          <InlineMath math="\delta>a" />, the denominator vanishes at <InlineMath math="\alpha=(\delta-a)+i\gamma" />.
-          This is a pole of the reduced ratio only when its multiplicity exceeds that of the possible
-          numerator zero <InlineMath math="X(\lambda-2a)=0" />.
-        </p>
-      </Card>
+        {/* Shifted scattering ratio */}
+        <Card>
+          <h3 style={{ color: 'var(--blue)', fontSize: 18, margin: '0 0 12px 0' }}>§17.1 The shifted scattering ratio</h3>
+          <BlockMath math="R_a(w) := \frac{X(w-a)}{X(w+a)}, \quad \mathfrak{R}w > 0,\ a > 0,\quad X(w) := \xi(\tfrac{1}{2} + w)" />
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6 }}>
+            On the boundary <InlineMath math="\mathfrak{R}w = 0" /> the functional equation gives <InlineMath math="|R_a(it)|=1" />.
+            If <InlineMath math="X(\lambda)=0" /> with <InlineMath math="\lambda=\delta+i\gamma" /> and{' '}
+            <InlineMath math="\delta>a" />, the denominator vanishes at <InlineMath math="\alpha=(\delta-a)+i\gamma" />.
+            This is a pole of the reduced ratio only when its multiplicity exceeds that of the possible
+            numerator zero <InlineMath math="X(\lambda-2a)=0" />.
+          </p>
+        </Card>
 
-      {/* Blaschke ghost factor + pole-clearing */}
-      <Card>
-        <h3 style={{ color: '#60a5fa', fontSize: 18, margin: '0 0 12px 0' }}>§17.2 Right-half-plane Blaschke ghosts</h3>
-        <BlockMath math="b_\alpha(w) := \frac{w-\alpha}{w+\bar{\alpha}} \quad (\mathfrak{R}\alpha > 0)" />
-        <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>
-          <InlineMath math="|b_\alpha(it)|=1" /> on the boundary; <InlineMath math="b_\alpha" /> has a zero at <InlineMath math="w=\alpha" />,
-          so multiplying <InlineMath math="R_a" /> by <InlineMath math="b_\alpha" /> removes the pole there.
-          The ghost Blaschke product runs over the residual poles after common-factor cancellation:
-        </p>
-        <BlockMath math="B_a^+(w) := \prod_{\alpha \in P_a} b_\alpha(w), \qquad P_a := \{\alpha\in\mathbb{C}_+ : \operatorname{ord}_\alpha X(w+a) > \operatorname{ord}_\alpha X(w-a)\}" />
-        <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6, marginTop: 12 }}>
-          <strong style={{ color: '#fbbf24' }}>Proposition 17.1 (pole-clearing decomposition):</strong>
-          <InlineMath math=" R_a = \widetilde{R}_a / B_a^+" />, where <InlineMath math="\widetilde{R}_a" /> is pole-free in the right half-plane.
-          This identity requires a finite residual-pole set or a convergent Blaschke product.
-          The condition <InlineMath math="B_a^+ \equiv 1" /> removes residual right-half-plane poles,
-          but Schur membership additionally requires analytic bounded-type contractivity. A nontrivial
-          inverse-Blaschke factor supplies a local negative-square witness only inside a valid coprime
-          generalized-Schur factorization.
-        </p>
-      </Card>
+        {/* Blaschke ghost factor + pole-clearing */}
+        <Card>
+          <h3 style={{ color: 'var(--blue)', fontSize: 18, margin: '0 0 12px 0' }}>§17.2 Right-half-plane Blaschke ghosts</h3>
+          <BlockMath math="b_\alpha(w) := \frac{w-\alpha}{w+\bar{\alpha}} \quad (\mathfrak{R}\alpha > 0)" />
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6 }}>
+            <InlineMath math="|b_\alpha(it)|=1" /> on the boundary; <InlineMath math="b_\alpha" /> has a zero at <InlineMath math="w=\alpha" />,
+            so multiplying <InlineMath math="R_a" /> by <InlineMath math="b_\alpha" /> removes the pole there.
+            The ghost Blaschke product runs over the residual poles after common-factor cancellation:
+          </p>
+          <BlockMath math="B_a^+(w) := \prod_{\alpha \in P_a} b_\alpha(w), \qquad P_a := \{\alpha\in\mathbb{C}_+ : \operatorname{ord}_\alpha X(w+a) > \operatorname{ord}_\alpha X(w-a)\}" />
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6, marginTop: 12 }}>
+            <strong style={{ color: 'var(--brass-dk)' }}>Proposition 17.1 (pole-clearing decomposition):</strong>
+            <InlineMath math=" R_a = \widetilde{R}_a / B_a^+" />, where <InlineMath math="\widetilde{R}_a" /> is pole-free in the right half-plane.
+            This identity requires a finite residual-pole set or a convergent Blaschke product.
+            The condition <InlineMath math="B_a^+ \equiv 1" /> removes residual right-half-plane poles,
+            but Schur membership additionally requires analytic bounded-type contractivity. A nontrivial
+            inverse-Blaschke factor supplies a local negative-square witness only inside a valid coprime
+            generalized-Schur factorization.
+          </p>
+        </Card>
 
-      {/* The headline §17.3 result */}
-      <Card accent="#fbbf24">
-        <h3 style={{ color: '#fbbf24', fontSize: 18, margin: '0 0 12px 0' }}>
-          §17.3 One ghost = one negative square
-        </h3>
-        <BlockMath math="K_S(z,w) = \frac{1 - S(z)\overline{S(w)}}{z+\bar{w}}" />
-        <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>
-          For a single inverse Blaschke factor <InlineMath math="S(w) = 1/b_\alpha(w) = (w+\bar{\alpha})/(w-\alpha)" />:
-        </p>
-        <BlockMath math="K_S(z,w) = -\frac{2\,\mathfrak{R}\alpha}{(z-\alpha)(\bar{w}-\bar{\alpha})} = -k_\alpha(z)\,\overline{k_\alpha(w)},\quad k_\alpha(z) = \frac{\sqrt{2\,\mathfrak{R}\alpha}}{z-\alpha}" />
-        <p style={{ color: '#fbbf24', fontSize: 15, fontWeight: 700, lineHeight: 1.6, marginTop: 12 }}>
-          The kernel of ONE isolated inverse Blaschke factor has EXACTLY ONE rank-one negative square.
-          Extending that local calculation to the full bridge requires the factorization hypotheses stated below.
-        </p>
-      </Card>
+        {/* The headline §17.3 result */}
+        <Card accent="var(--brass-dk)">
+          <h3 style={{ color: 'var(--brass-dk)', fontSize: 18, margin: '0 0 12px 0' }}>
+            §17.3 One ghost = one negative square
+          </h3>
+          <BlockMath math="K_S(z,w) = \frac{1 - S(z)\overline{S(w)}}{z+\bar{w}}" />
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6 }}>
+            For a single inverse Blaschke factor <InlineMath math="S(w) = 1/b_\alpha(w) = (w+\bar{\alpha})/(w-\alpha)" />:
+          </p>
+          <BlockMath math="K_S(z,w) = -\frac{2\,\mathfrak{R}\alpha}{(z-\alpha)(\bar{w}-\bar{\alpha})} = -k_\alpha(z)\,\overline{k_\alpha(w)},\quad k_\alpha(z) = \frac{\sqrt{2\,\mathfrak{R}\alpha}}{z-\alpha}" />
+          <p style={{ color: 'var(--brass-dk)', fontSize: 15, fontWeight: 700, lineHeight: 1.6, marginTop: 12 }}>
+            The kernel of ONE isolated inverse Blaschke factor has EXACTLY ONE rank-one negative square.
+            Extending that local calculation to the full bridge requires the factorization hypotheses stated below.
+          </p>
+        </Card>
 
-      {/* Interactive demo */}
-      <GhostInteractiveDemo />
+        {/* Interactive demo */}
+        <GhostInteractiveDemo />
 
-      {/* Generalized Schur */}
-      <Card>
-        <h3 style={{ color: '#60a5fa', fontSize: 18, margin: '0 0 12px 0' }}>§17.4 Negative-index identity (Krein-Langer)</h3>
-        <BlockMath math="\mathrm{ind}_-\!\bigl(K_{R_a}\bigr) = \sum_{\alpha\in P_a}\operatorname{mult}(\alpha),\qquad P_a=\{\text{residual poles of }R_a\text{ in }\mathbb{C}_+\}" />
-        <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>
-          This is the Krein-Langer identity only after one proves that the reduced quotient has a
-          coprime generalized-Schur factorization with finite negative index (or a rigorously controlled
-          finite-window analogue). It is not automatic for the analytically continued zeta quotient.
-          Under a no-common-zero hypothesis the pole count then equals the number of off-critical denominator
-          zeros beyond the shift. Without that hypothesis, the fixed-<InlineMath math="a" /> statement retains
-          the cancellation caveat. Requiring an empty residual pole set for every <InlineMath math="a>0" />
-          is the cancellation-aware RH-strength statement; it still does not establish Schur contractivity.
-        </p>
-      </Card>
+        {/* Generalized Schur */}
+        <Card>
+          <h3 style={{ color: 'var(--blue)', fontSize: 18, margin: '0 0 12px 0' }}>§17.4 Negative-index identity (Krein-Langer)</h3>
+          <BlockMath math="\mathrm{ind}_-\!\bigl(K_{R_a}\bigr) = \sum_{\alpha\in P_a}\operatorname{mult}(\alpha),\qquad P_a=\{\text{residual poles of }R_a\text{ in }\mathbb{C}_+\}" />
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6 }}>
+            This is the Krein-Langer identity only after one proves that the reduced quotient has a
+            coprime generalized-Schur factorization with finite negative index (or a rigorously controlled
+            finite-window analogue). It is not automatic for the analytically continued zeta quotient.
+            Under a no-common-zero hypothesis the pole count then equals the number of off-critical denominator
+            zeros beyond the shift. Without that hypothesis, the fixed-<InlineMath math="a" /> statement retains
+            the cancellation caveat. Requiring an empty residual pole set for every <InlineMath math="a>0" />
+            is the cancellation-aware RH-strength statement; it still does not establish Schur contractivity.
+          </p>
+        </Card>
 
-      {/* Four-route consequences */}
-      <Card>
-        <h3 style={{ color: '#60a5fa', fontSize: 18, margin: '0 0 12px 0' }}>§17.5 Consequences for the four closure routes</h3>
-        <FourRouteDecomposition />
-        <div style={{ display: 'grid', gap: 12, marginTop: 16 }}>
-          {S.fourRouteConsequences.map((r) => (
-            <div key={r.route} style={{ padding: 10, background: 'rgba(15,23,42,0.5)', borderRadius: 6 }}>
-              <div style={{ fontSize: 13, color: '#a78bfa', fontWeight: 700, fontFamily: 'var(--font-mono, monospace)' }}>
-                Route {r.route}: {r.name}
+        {/* Four-route consequences */}
+        <Card>
+          <h3 style={{ color: 'var(--blue)', fontSize: 18, margin: '0 0 12px 0' }}>§17.5 Consequences for the four closure routes</h3>
+          <FourRouteDecomposition />
+          <div style={{ display: 'grid', gap: 12, marginTop: 16 }}>
+            {S.fourRouteConsequences.map((r) => (
+              <div key={r.route} style={{ padding: 10, background: 'var(--paper)', border: '1px solid var(--hairline)', borderRadius: 6 }}>
+                <div style={{ fontSize: 13, color: 'var(--brass-dk)', fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+                  Route {r.route}: {r.name}
+                </div>
+                <div style={{ marginTop: 6 }}>
+                  <BlockMath math={r.consequence.replace(/⇔/g, '\\iff').replace(/⪰/g, '\\succeq').replace(/∅/g, '\\emptyset').replace(/Σ/g, '\\sum').replace(/‖/g, '\\|').replace(/⟨/g, '\\langle').replace(/⟩/g, '\\rangle')} />
+                </div>
+                <div style={{ color: 'var(--faint)', fontSize: 12, marginTop: 6, fontStyle: 'italic' }}>{r.reading}</div>
               </div>
-              <div style={{ marginTop: 6 }}>
-                <BlockMath math={r.consequence.replace(/⇔/g, '\\iff').replace(/⪰/g, '\\succeq').replace(/∅/g, '\\emptyset').replace(/Σ/g, '\\sum').replace(/‖/g, '\\|').replace(/⟨/g, '\\langle').replace(/⟩/g, '\\rangle')} />
+            ))}
+          </div>
+        </Card>
+
+        {/* Conjecture 17.3 */}
+        <Card accent="var(--terra-dk)">
+          <h3 style={{ color: 'var(--terra-dk)', fontSize: 18, margin: '0 0 12px 0' }}>§17.6 The sharpened wall</h3>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6 }}>
+            <strong style={{ color: 'var(--terra-dk)' }}>Conjecture 17.3 (Ghost-absence theorem).</strong>{' '}
+            For every <InlineMath math="a > 0" />, the right-half-plane ghost Blaschke product <InlineMath math="B_a^+(w)" /> is identically 1.
+          </p>
+          <ul style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7, marginTop: 10, paddingLeft: 22 }}>
+            {S.sharpenedWall.equivalentReformulations.map((r, i) => <li key={i}>{r}</li>)}
+          </ul>
+        </Card>
+
+        {/* Three attempted closures */}
+        <Card>
+          <h3 style={{ color: 'var(--blue)', fontSize: 18, margin: '0 0 12px 0' }}>§17.7 Attempted non-circular closures</h3>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6, marginBottom: 12 }}>
+            Three programs aim to prove ghost-absence without assuming RH:
+          </p>
+          <div style={{ display: 'grid', gap: 10 }}>
+            {S.attemptedClosures.map((a) => (
+              <div key={a.id} style={{ padding: 10, background: 'var(--paper)', border: '1px solid var(--hairline)', borderRadius: 6, borderLeft: '3px solid var(--brass)' }}>
+                <div style={{ fontSize: 13, color: 'var(--brass-dk)', fontWeight: 700 }}>{a.name} <span style={{ color: 'var(--faint)', fontWeight: 400 }}>({a.paperSection})</span></div>
+                <div style={{ color: 'var(--ink-soft)', fontSize: 13, marginTop: 4 }}>{a.description}</div>
+                <div style={{ color: 'var(--terra-dk)', fontSize: 11, marginTop: 6, fontFamily: 'var(--ed-mono, var(--font-mono))', textTransform: 'uppercase' }}>
+                  status: {a.status}
+                </div>
               </div>
-              <div style={{ color: '#94a3b8', fontSize: 12, marginTop: 6, fontStyle: 'italic' }}>{r.reading}</div>
-            </div>
-          ))}
-        </div>
-      </Card>
+            ))}
+          </div>
+          <div style={{ marginTop: 12 }}>
+            <Link to="/three-attacks" style={{ color: 'var(--blue)', textDecoration: 'none', fontSize: 13 }}>
+              → See the dedicated /three-attacks page for §18 detail
+            </Link>
+          </div>
+        </Card>
 
-      {/* Conjecture 17.3 */}
-      <Card accent="#dc2626">
-        <h3 style={{ color: '#fca5a5', fontSize: 18, margin: '0 0 12px 0' }}>§17.6 The sharpened wall</h3>
-        <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>
-          <strong style={{ color: '#fca5a5' }}>Conjecture 17.3 (Ghost-absence theorem).</strong>{' '}
-          For every <InlineMath math="a > 0" />, the right-half-plane ghost Blaschke product <InlineMath math="B_a^+(w)" /> is identically 1.
-        </p>
-        <ul style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.7, marginTop: 10, paddingLeft: 22 }}>
-          {S.sharpenedWall.equivalentReformulations.map((r, i) => <li key={i}>{r}</li>)}
-        </ul>
-      </Card>
-
-      {/* Three attempted closures */}
-      <Card>
-        <h3 style={{ color: '#60a5fa', fontSize: 18, margin: '0 0 12px 0' }}>§17.7 Attempted non-circular closures</h3>
-        <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6, marginBottom: 12 }}>
-          Three programs aim to prove ghost-absence without assuming RH:
-        </p>
-        <div style={{ display: 'grid', gap: 10 }}>
-          {S.attemptedClosures.map((a) => (
-            <div key={a.id} style={{ padding: 10, background: 'rgba(15,23,42,0.5)', borderRadius: 6, borderLeft: '3px solid #f59e0b' }}>
-              <div style={{ fontSize: 13, color: '#fbbf24', fontWeight: 700 }}>{a.name} <span style={{ color: '#94a3b8', fontWeight: 400 }}>({a.paperSection})</span></div>
-              <div style={{ color: '#cbd5e1', fontSize: 13, marginTop: 4 }}>{a.description}</div>
-              <div style={{ color: '#fca5a5', fontSize: 11, marginTop: 6, fontFamily: 'var(--font-mono, monospace)', textTransform: 'uppercase' }}>
-                status: {a.status}
-              </div>
-            </div>
-          ))}
-        </div>
-        <div style={{ marginTop: 12 }}>
-          <Link to="/three-attacks" style={{ color: '#60a5fa', textDecoration: 'none', fontSize: 13 }}>
-            → See the dedicated /three-attacks page for §18 detail
-          </Link>
-        </div>
-      </Card>
-
-      {/* Related */}
-      <footer style={{ marginTop: 32, padding: '16px 0', borderTop: '1px solid #1e293b' }}>
-        <div style={{ fontSize: 12, color: '#64748b', fontFamily: 'var(--font-mono, monospace)' }}>
-          Related pages:
-        </div>
-        <div style={{ marginTop: 8, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-          <Link to="/shift-bridge-positivity" style={{ color: '#60a5fa', fontSize: 13 }}>/shift-bridge-positivity</Link>
-          <Link to="/closure-routes" style={{ color: '#60a5fa', fontSize: 13 }}>/closure-routes</Link>
-          <Link to="/three-attacks" style={{ color: '#60a5fa', fontSize: 13 }}>/three-attacks</Link>
-          <Link to="/reciprocal-program" style={{ color: '#60a5fa', fontSize: 13 }}>/reciprocal-program</Link>
-        </div>
-        <div style={{ marginTop: 12, fontSize: 11, color: '#475569', fontFamily: 'var(--font-mono, monospace)' }}>
-          Source: {S.paperSourcePath} {S.paperSection} (pp. {S.paperPageRange})
-        </div>
-      </footer>
-    </main>
+        {/* Related */}
+        <footer style={{ marginTop: 32, padding: '16px 0', borderTop: '1px solid var(--hairline)' }}>
+          <div style={{ fontSize: 12, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+            Related pages:
+          </div>
+          <div style={{ marginTop: 8, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+            <Link to="/shift-bridge-positivity" style={{ color: 'var(--blue)', fontSize: 13 }}>/shift-bridge-positivity</Link>
+            <Link to="/closure-routes" style={{ color: 'var(--blue)', fontSize: 13 }}>/closure-routes</Link>
+            <Link to="/three-attacks" style={{ color: 'var(--blue)', fontSize: 13 }}>/three-attacks</Link>
+            <Link to="/reciprocal-program" style={{ color: 'var(--blue)', fontSize: 13 }}>/reciprocal-program</Link>
+          </div>
+          <div style={{ marginTop: 12, fontSize: 11, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+            Source: {S.paperSourcePath} {S.paperSection} (pp. {S.paperPageRange})
+          </div>
+          <div style={{ marginTop: 12 }}>
+            <Link to="/">← the atlas</Link>
+          </div>
+        </footer>
+      </div>
+    </div>
   );
 }

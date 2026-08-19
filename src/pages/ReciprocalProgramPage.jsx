@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { RECIPROCAL_PROGRAM_SECTION } from '../data/reciprocal-program-section.js';
 import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx';
 
@@ -8,16 +9,18 @@ import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx
  * ReciprocalProgramPage — renders the audited Apps B–G record. The corrected
  * Schoenberg variable is 1/X(is), while finite Möbius, Schur-lift, and SOC
  * computations are compact diagnostics rather than a global proof target.
+ * Editorial (warm) re-theme: full-width shell, identical structure/data.
  */
 const S = RECIPROCAL_PROGRAM_SECTION;
 
-function Card({ children, accent = '#1e293b' }) {
+function Card({ children, accent = 'var(--hairline)' }) {
   return (
-    <div style={{
-      background: 'rgba(15,23,42,0.7)',
-      border: `1px solid ${accent}`,
-      borderRadius: 10,
-      padding: '20px 24px',
+    <div className="card" style={{
+      background: 'var(--paper2)',
+      border: '1px solid var(--hairline)',
+      borderLeft: `3px solid ${accent}`,
+      borderRadius: 8,
+      padding: '18px 22px',
       margin: '16px 0',
     }}>{children}</div>
   );
@@ -27,45 +30,45 @@ function Claim({ id, color, children }) {
   return (
     <div style={{
       padding: 12,
-      background: `${color}1a`,
-      border: `1px solid ${color}66`,
+      background: 'var(--paper)',
+      border: '1px solid var(--hairline)',
       borderLeft: `3px solid ${color}`,
       borderRadius: 6,
       marginTop: 10,
     }}>
-      <div style={{ color, fontSize: 11, fontWeight: 700, fontFamily: 'var(--font-mono, monospace)', marginBottom: 6, letterSpacing: 0.5 }}>
+      <div style={{ color, fontSize: 11, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6, letterSpacing: 0.5 }}>
         {id}
       </div>
-      <div style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.6 }}>{children}</div>
+      <div style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6 }}>{children}</div>
     </div>
   );
 }
 
 function ChainDiagram() {
   const steps = [
-    { id: 'a-fail',     label: 'Kernel audit',          sub: 'negative PF₅ minor; no PF-∞ route',     color: '#64748b' },
-    { id: 'b2-imposs',  label: 'App B.2 — direct PF-∞', sub: 'IMPOSSIBLE',                            color: '#dc2626' },
-    { id: 'b3-recip',   label: 'App B.3 — reciprocal',  sub: 'rotation: 1/X(is), not 1/X(s)',         color: '#f59e0b' },
-    { id: 'c-closure',  label: 'App C — Möbius ladders', sub: 'global closure claim RETRACTED',        color: '#eab308' },
-    { id: 'd-nb',       label: 'App D — Nyman–Beurling', sub: 'RH-equivalent Hilbert criterion',       color: '#a855f7' },
-    { id: 'e-schur',    label: 'App E — Schur lift',     sub: 'conditional local template',            color: '#ec4899' },
-    { id: 'f-nfl',      label: 'App F — no-free-lunch',  sub: 'unrestricted fitting gives no shortcut', color: '#dc2626' },
-    { id: 'g-soc',      label: 'App G — restricted SOC', sub: 'COMPACT DIAGNOSTICS ONLY',              color: '#10b981' },
+    { id: 'a-fail',     label: 'Kernel audit',          sub: 'negative PF₅ minor; no PF-∞ route',     color: 'var(--faint)' },
+    { id: 'b2-imposs',  label: 'App B.2 — direct PF-∞', sub: 'IMPOSSIBLE',                            color: 'var(--terra-dk)' },
+    { id: 'b3-recip',   label: 'App B.3 — reciprocal',  sub: 'rotation: 1/X(is), not 1/X(s)',         color: 'var(--brass-dk)' },
+    { id: 'c-closure',  label: 'App C — Möbius ladders', sub: 'global closure claim RETRACTED',        color: 'var(--brass)' },
+    { id: 'd-nb',       label: 'App D — Nyman–Beurling', sub: 'RH-equivalent Hilbert criterion',       color: 'var(--blue)' },
+    { id: 'e-schur',    label: 'App E — Schur lift',     sub: 'conditional local template',            color: 'var(--terra)' },
+    { id: 'f-nfl',      label: 'App F — no-free-lunch',  sub: 'unrestricted fitting gives no shortcut', color: 'var(--terra-dk)' },
+    { id: 'g-soc',      label: 'App G — restricted SOC', sub: 'COMPACT DIAGNOSTICS ONLY',              color: 'var(--green)' },
   ];
 
   return (
-    <svg width="100%" viewBox="0 0 700 560" style={{ background: 'rgba(15,23,42,0.5)', borderRadius: 8 }}>
+    <svg width="100%" viewBox="0 0 700 560" style={{ background: 'var(--paper)', borderRadius: 8 }}>
       {steps.map((step, i) => {
         const y = 40 + i * 65;
         return (
           <g key={step.id}>
-            <rect x="100" y={y - 22} width="500" height="44" rx="6" fill={step.color} fillOpacity="0.15" stroke={step.color} strokeWidth="1.5" />
+            <rect x="100" y={y - 22} width="500" height="44" rx="6" fill={step.color} fillOpacity="0.14" stroke={step.color} strokeWidth="1.5" />
             <text x="350" y={y - 4} fill={step.color} textAnchor="middle" fontSize="14" fontWeight="700">{step.label}</text>
-            <text x="350" y={y + 14} fill="#cbd5e1" textAnchor="middle" fontSize="11" fontFamily="monospace">{step.sub}</text>
+            <text x="350" y={y + 14} fill="var(--ink-soft)" textAnchor="middle" fontSize="11" fontFamily="monospace">{step.sub}</text>
             {i < steps.length - 1 && (
               <g>
-                <line x1="350" y1={y + 22} x2="350" y2={y + 43} stroke="#475569" strokeWidth="1.5" />
-                <polygon points={`345,${y + 38} 350,${y + 45} 355,${y + 38}`} fill="#475569" />
+                <line x1="350" y1={y + 22} x2="350" y2={y + 43} stroke="var(--hairline)" strokeWidth="1.5" />
+                <polygon points={`345,${y + 38} 350,${y + 45} 355,${y + 38}`} fill="var(--faint)" />
               </g>
             )}
           </g>
@@ -77,117 +80,124 @@ function ChainDiagram() {
 
 export default function ReciprocalProgramPage() {
   return (
-    <main style={{ maxWidth: 960, margin: '0 auto', padding: '32px 24px' }}>
-      <header style={{ borderBottom: '1px solid #1e293b', paddingBottom: 18, marginBottom: 24 }}>
-        <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono, monospace)', textTransform: 'uppercase', letterSpacing: 1 }}>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>twin-ladder · reciprocal program</span>} />
+      <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
+        <div style={{
+          fontSize: 11, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))',
+          textTransform: 'uppercase', letterSpacing: 1, marginBottom: 8,
+        }}>
           /reciprocal-program · paper {S.paperSections} · pp. {S.paperPageRange}
         </div>
-        <h1 style={{ fontSize: 26, fontWeight: 700, color: '#e2e8f0', margin: '8px 0 4px 0' }}>{S.title}</h1>
-        <p style={{ color: '#94a3b8', fontSize: 14, margin: '8px 0 0 0', lineHeight: 1.6 }}>{S.oneLine}</p>
-      </header>
-
-      <DownstreamVerdictCallout />
-
-      {/* Synthesis diagram up top */}
-      <Card accent="#7c3aed">
-        <h3 style={{ color: '#a78bfa', fontSize: 18, margin: '0 0 12px 0' }}>The corrected target chain</h3>
-        <ChainDiagram />
-        <p style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.6, marginTop: 12 }}>
-          The direct PF-<InlineMath math="\infty" /> route is excluded, and the
-          reciprocal variable must be rotated to <InlineMath math="1/X(is)" />.
-          The finite restricted programs that survive the local no-go tests are
-          useful experiments, but universal exhaustion remains RH-equivalent.
-          They are not a replacement for the exact global Twin Ladder residual.
+        <h1 className="ed-h1" style={{ marginBottom: 6 }}>{S.title}</h1>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 15, margin: '8px 0 20px 0', lineHeight: 1.6, maxWidth: 760 }}>
+          {S.oneLine}
         </p>
-      </Card>
 
-      {/* App B */}
-      <Card accent="#f59e0b">
-        <h3 style={{ color: '#fbbf24', fontSize: 18, margin: '0 0 12px 0' }}>{S.reciprocalTotalPositivity.sectionId} — {S.reciprocalTotalPositivity.title}</h3>
-        <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>{S.reciprocalTotalPositivity.whyDirectFails}</p>
-        <BlockMath math="\text{PF}_\infty\text{ kernel} \;\Longleftrightarrow\; \frac{1}{g(s)} = e^{a s^2 + b s}\prod_k (1 + \delta_k s)\,e^{-\delta_k s},\quad \delta_k > 0" />
-        <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>{S.reciprocalTotalPositivity.correctReciprocalObject}</p>
-        <Claim id="Claim B.2 — direct PF-∞ impossibility" color="#dc2626">{S.reciprocalTotalPositivity.keyClaimB2}</Claim>
-        <Claim id="Claim B.3 — reciprocal Schoenberg object" color="#f59e0b">{S.reciprocalTotalPositivity.keyClaimB3}</Claim>
-        <p style={{ color: '#94a3b8', fontSize: 13, fontStyle: 'italic', marginTop: 10 }}>{S.reciprocalTotalPositivity.verdict}</p>
-      </Card>
+        <DownstreamVerdictCallout />
 
-      {/* App C */}
-      <Card accent="#eab308">
-        <h3 style={{ color: '#facc15', fontSize: 18, margin: '0 0 12px 0' }}>{S.reciprocalMobiusLadders.sectionId} — {S.reciprocalMobiusLadders.title}</h3>
-        <BlockMath math="\frac{1}{\zeta(s)} = \sum_{n\ge 1} \frac{\mu(n)}{n^{s}},\qquad M_X(s) = \sum_{n \le X} \frac{\mu(n)}{n^{s}}" />
-        <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>{S.reciprocalMobiusLadders.mobiusBridge}</p>
-        <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>{S.reciprocalMobiusLadders.safeRegionTails}</p>
-        <Claim id="Claim C — global closure retracted" color="#eab308">{S.reciprocalMobiusLadders.keyClaimC}</Claim>
-        <p style={{ color: '#94a3b8', fontSize: 13, fontStyle: 'italic', marginTop: 10 }}>{S.reciprocalMobiusLadders.verdict}</p>
-      </Card>
+        {/* Synthesis diagram up top */}
+        <Card accent="var(--brass)">
+          <h2 className="ed-h2" style={{ marginTop: 0, marginBottom: 12 }}>The corrected target chain</h2>
+          <ChainDiagram />
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6, marginTop: 12 }}>
+            The direct PF-<InlineMath math="\infty" /> route is excluded, and the
+            reciprocal variable must be rotated to <InlineMath math="1/X(is)" />.
+            The finite restricted programs that survive the local no-go tests are
+            useful experiments, but universal exhaustion remains RH-equivalent.
+            They are not a replacement for the exact global Twin Ladder residual.
+          </p>
+        </Card>
 
-      {/* App D */}
-      <Card accent="#a855f7">
-        <h3 style={{ color: '#c084fc', fontSize: 18, margin: '0 0 12px 0' }}>{S.reciprocalMollifierNymanBeurling.sectionId} — {S.reciprocalMollifierNymanBeurling.title}</h3>
-        <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>{S.reciprocalMollifierNymanBeurling.exactFiniteDefect}</p>
-        <BlockMath math="d_X^2 = \inf_{c_1,\dots,c_X} \left\| \mathbf{1}_{(0,1]}(x) - \sum_{n \le X} c_n\,\rho\!\left(\tfrac{1}{nx}\right) \right\|_{L^2(0,\infty)}^2,\qquad \text{RH} \iff d_X \to 0" />
-        <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>{S.reciprocalMollifierNymanBeurling.nymanBeurlingFit}</p>
-        <Claim id="Claim D — Nyman–Beurling Hilbert closure" color="#a855f7">{S.reciprocalMollifierNymanBeurling.keyClaimD}</Claim>
-        <p style={{ color: '#94a3b8', fontSize: 13, fontStyle: 'italic', marginTop: 10 }}>{S.reciprocalMollifierNymanBeurling.verdict}</p>
-      </Card>
+        {/* App B */}
+        <Card accent="var(--brass-dk)">
+          <h2 className="ed-h2" style={{ marginTop: 0, marginBottom: 12 }}>{S.reciprocalTotalPositivity.sectionId} — {S.reciprocalTotalPositivity.title}</h2>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6 }}>{S.reciprocalTotalPositivity.whyDirectFails}</p>
+          <BlockMath math="\text{PF}_\infty\text{ kernel} \;\Longleftrightarrow\; \frac{1}{g(s)} = e^{a s^2 + b s}\prod_k (1 + \delta_k s)\,e^{-\delta_k s},\quad \delta_k > 0" />
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6 }}>{S.reciprocalTotalPositivity.correctReciprocalObject}</p>
+          <Claim id="Claim B.2 — direct PF-∞ impossibility" color="var(--terra-dk)">{S.reciprocalTotalPositivity.keyClaimB2}</Claim>
+          <Claim id="Claim B.3 — reciprocal Schoenberg object" color="var(--brass-dk)">{S.reciprocalTotalPositivity.keyClaimB3}</Claim>
+          <p style={{ color: 'var(--faint)', fontSize: 13, fontStyle: 'italic', marginTop: 10 }}>{S.reciprocalTotalPositivity.verdict}</p>
+        </Card>
 
-      {/* App E */}
-      <Card accent="#ec4899">
-        <h3 style={{ color: '#f472b6', fontSize: 18, margin: '0 0 12px 0' }}>{S.reciprocalSchurLifts.sectionId} — {S.reciprocalSchurLifts.title}</h3>
-        <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>{S.reciprocalSchurLifts.reciprocalModelDefect}</p>
-        <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>{S.reciprocalSchurLifts.nonCircularResidualMargin}</p>
-        <BlockMath math="\|R\|_{\mathcal{S}} = \mathrm{dist}\big(\text{recip. object},\ \mathcal{S}\big) + \underbrace{m_{\mathrm{nc}}}_{\text{non-circular margin}},\qquad m_{\mathrm{nc}} \ge 0 \Rightarrow \text{no-ghost}" />
-        <Claim id="Claim E — two-step no-ghost certificate" color="#ec4899">{S.reciprocalSchurLifts.keyClaimE}</Claim>
-        <p style={{ color: '#94a3b8', fontSize: 13, fontStyle: 'italic', marginTop: 10 }}>{S.reciprocalSchurLifts.verdict}</p>
-      </Card>
+        {/* App C */}
+        <Card accent="var(--brass)">
+          <h2 className="ed-h2" style={{ marginTop: 0, marginBottom: 12 }}>{S.reciprocalMobiusLadders.sectionId} — {S.reciprocalMobiusLadders.title}</h2>
+          <BlockMath math="\frac{1}{\zeta(s)} = \sum_{n\ge 1} \frac{\mu(n)}{n^{s}},\qquad M_X(s) = \sum_{n \le X} \frac{\mu(n)}{n^{s}}" />
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6 }}>{S.reciprocalMobiusLadders.mobiusBridge}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6 }}>{S.reciprocalMobiusLadders.safeRegionTails}</p>
+          <Claim id="Claim C — global closure retracted" color="var(--brass)">{S.reciprocalMobiusLadders.keyClaimC}</Claim>
+          <p style={{ color: 'var(--faint)', fontSize: 13, fontStyle: 'italic', marginTop: 10 }}>{S.reciprocalMobiusLadders.verdict}</p>
+        </Card>
 
-      {/* App F */}
-      <Card accent="#dc2626">
-        <h3 style={{ color: '#fca5a5', fontSize: 18, margin: '0 0 12px 0' }}>{S.hardyCoronaExtremals.sectionId} — {S.hardyCoronaExtremals.title}</h3>
-        <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>{S.hardyCoronaExtremals.extremalGeometry}</p>
-        <Claim id="Claim F — no-free-lunch (unrestricted lift impossible)" color="#dc2626">{S.hardyCoronaExtremals.noFreeLunchTheorem}</Claim>
-        <p style={{ color: '#94a3b8', fontSize: 13, fontStyle: 'italic', marginTop: 10 }}>{S.hardyCoronaExtremals.verdict}</p>
-      </Card>
+        {/* App D */}
+        <Card accent="var(--blue)">
+          <h2 className="ed-h2" style={{ marginTop: 0, marginBottom: 12 }}>{S.reciprocalMollifierNymanBeurling.sectionId} — {S.reciprocalMollifierNymanBeurling.title}</h2>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6 }}>{S.reciprocalMollifierNymanBeurling.exactFiniteDefect}</p>
+          <BlockMath math="d_X^2 = \inf_{c_1,\dots,c_X} \left\| \mathbf{1}_{(0,1]}(x) - \sum_{n \le X} c_n\,\rho\!\left(\tfrac{1}{nx}\right) \right\|_{L^2(0,\infty)}^2,\qquad \text{RH} \iff d_X \to 0" />
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6 }}>{S.reciprocalMollifierNymanBeurling.nymanBeurlingFit}</p>
+          <Claim id="Claim D — Nyman–Beurling Hilbert closure" color="var(--blue)">{S.reciprocalMollifierNymanBeurling.keyClaimD}</Claim>
+          <p style={{ color: 'var(--faint)', fontSize: 13, fontStyle: 'italic', marginTop: 10 }}>{S.reciprocalMollifierNymanBeurling.verdict}</p>
+        </Card>
 
-      {/* App G */}
-      <Card accent="#10b981">
-        <h3 style={{ color: '#86efac', fontSize: 18, margin: '0 0 12px 0' }}>{S.restrictedPassiveLifts.sectionId} — {S.restrictedPassiveLifts.title}</h3>
-        <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>{S.restrictedPassiveLifts.secondOrderConeCertificate}</p>
-        <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>{S.restrictedPassiveLifts.constrainedExtremalNumber}</p>
-        <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6 }}>{S.restrictedPassiveLifts.dualObstruction}</p>
-        <Claim id="Claim G — finite restricted-lift diagnostic" color="#10b981">{S.restrictedPassiveLifts.keyClaimG}</Claim>
-        <div style={{ marginTop: 14, padding: 12, background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: 6 }}>
-          <div style={{ color: '#86efac', fontSize: 11, fontWeight: 700, fontFamily: 'var(--font-mono, monospace)', marginBottom: 6 }}>COMPACT DIAGNOSTIC</div>
-          <p style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.6, margin: 0 }}>{S.restrictedPassiveLifts.verdict}</p>
-        </div>
-      </Card>
+        {/* App E */}
+        <Card accent="var(--terra)">
+          <h2 className="ed-h2" style={{ marginTop: 0, marginBottom: 12 }}>{S.reciprocalSchurLifts.sectionId} — {S.reciprocalSchurLifts.title}</h2>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6 }}>{S.reciprocalSchurLifts.reciprocalModelDefect}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6 }}>{S.reciprocalSchurLifts.nonCircularResidualMargin}</p>
+          <BlockMath math="\|R\|_{\mathcal{S}} = \mathrm{dist}\big(\text{recip. object},\ \mathcal{S}\big) + \underbrace{m_{\mathrm{nc}}}_{\text{non-circular margin}},\qquad m_{\mathrm{nc}} \ge 0 \Rightarrow \text{no-ghost}" />
+          <Claim id="Claim E — two-step no-ghost certificate" color="var(--terra)">{S.reciprocalSchurLifts.keyClaimE}</Claim>
+          <p style={{ color: 'var(--faint)', fontSize: 13, fontStyle: 'italic', marginTop: 10 }}>{S.reciprocalSchurLifts.verdict}</p>
+        </Card>
 
-      {/* Implications */}
-      <Card accent="#7c3aed">
-        <h3 style={{ color: '#a78bfa', fontSize: 18, margin: '0 0 12px 0' }}>Implications for the wider proof program</h3>
-        <div style={{ display: 'grid', gap: 12 }}>
-          {Object.entries(S.implicationsForRH).map(([k, v]) => (
-            <div key={k} style={{ padding: 10, background: 'rgba(15,23,42,0.5)', borderRadius: 6 }}>
-              <div style={{ color: '#a78bfa', fontSize: 11, fontWeight: 700, fontFamily: 'var(--font-mono, monospace)' }}>{k}</div>
-              <div style={{ color: '#cbd5e1', fontSize: 13, marginTop: 4, lineHeight: 1.6 }}>{v}</div>
-            </div>
-          ))}
-        </div>
-      </Card>
+        {/* App F */}
+        <Card accent="var(--terra-dk)">
+          <h2 className="ed-h2" style={{ marginTop: 0, marginBottom: 12 }}>{S.hardyCoronaExtremals.sectionId} — {S.hardyCoronaExtremals.title}</h2>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6 }}>{S.hardyCoronaExtremals.extremalGeometry}</p>
+          <Claim id="Claim F — no-free-lunch (unrestricted lift impossible)" color="var(--terra-dk)">{S.hardyCoronaExtremals.noFreeLunchTheorem}</Claim>
+          <p style={{ color: 'var(--faint)', fontSize: 13, fontStyle: 'italic', marginTop: 10 }}>{S.hardyCoronaExtremals.verdict}</p>
+        </Card>
 
-      <footer style={{ marginTop: 32, padding: '16px 0', borderTop: '1px solid #1e293b' }}>
-        <div style={{ fontSize: 12, color: '#64748b', fontFamily: 'var(--font-mono, monospace)' }}>Related pages:</div>
-        <div style={{ marginTop: 8, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-          <Link to="/hidden-square-program" style={{ color: '#60a5fa', fontSize: 13 }}>/hidden-square-program (§25–27)</Link>
-          <Link to="/closure-routes" style={{ color: '#60a5fa', fontSize: 13 }}>/closure-routes (§16 four routes)</Link>
-          <Link to="/kyp-bounded-real" style={{ color: '#60a5fa', fontSize: 13 }}>/kyp-bounded-real (Apps M–O)</Link>
-          <Link to="/twin-ladder-paper-roadmap" style={{ color: '#60a5fa', fontSize: 13 }}>/twin-ladder-paper-roadmap</Link>
-        </div>
-        <div style={{ marginTop: 12, fontSize: 11, color: '#475569', fontFamily: 'var(--font-mono, monospace)' }}>
-          Source: {S.paperSourcePath} {S.paperSections} (pp. {S.paperPageRange})
-        </div>
-      </footer>
-    </main>
+        {/* App G */}
+        <Card accent="var(--green)">
+          <h2 className="ed-h2" style={{ marginTop: 0, marginBottom: 12 }}>{S.restrictedPassiveLifts.sectionId} — {S.restrictedPassiveLifts.title}</h2>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6 }}>{S.restrictedPassiveLifts.secondOrderConeCertificate}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6 }}>{S.restrictedPassiveLifts.constrainedExtremalNumber}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6 }}>{S.restrictedPassiveLifts.dualObstruction}</p>
+          <Claim id="Claim G — finite restricted-lift diagnostic" color="var(--green)">{S.restrictedPassiveLifts.keyClaimG}</Claim>
+          <div style={{ marginTop: 14, padding: 12, background: 'var(--paper)', border: '1px solid var(--hairline)', borderLeft: '3px solid var(--green)', borderRadius: 6 }}>
+            <div style={{ color: 'var(--green)', fontSize: 11, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6 }}>COMPACT DIAGNOSTIC</div>
+            <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6, margin: 0 }}>{S.restrictedPassiveLifts.verdict}</p>
+          </div>
+        </Card>
+
+        {/* Implications */}
+        <Card accent="var(--brass)">
+          <h2 className="ed-h2" style={{ marginTop: 0, marginBottom: 12 }}>Implications for the wider proof program</h2>
+          <div style={{ display: 'grid', gap: 12 }}>
+            {Object.entries(S.implicationsForRH).map(([k, v]) => (
+              <div key={k} style={{ padding: 10, background: 'var(--paper)', border: '1px solid var(--hairline)', borderRadius: 6 }}>
+                <div style={{ color: 'var(--brass)', fontSize: 11, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>{k}</div>
+                <div style={{ color: 'var(--ink-soft)', fontSize: 13, marginTop: 4, lineHeight: 1.6 }}>{v}</div>
+              </div>
+            ))}
+          </div>
+        </Card>
+
+        <footer style={{ marginTop: 32, padding: '16px 0', borderTop: '1px solid var(--hairline)' }}>
+          <div style={{ fontSize: 12, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>Related pages:</div>
+          <div style={{ marginTop: 8, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+            <Link to="/hidden-square-program" style={{ color: 'var(--brass-dk)', fontSize: 13 }}>/hidden-square-program (§25–27)</Link>
+            <Link to="/closure-routes" style={{ color: 'var(--brass-dk)', fontSize: 13 }}>/closure-routes (§16 four routes)</Link>
+            <Link to="/kyp-bounded-real" style={{ color: 'var(--brass-dk)', fontSize: 13 }}>/kyp-bounded-real (Apps M–O)</Link>
+            <Link to="/twin-ladder-paper-roadmap" style={{ color: 'var(--brass-dk)', fontSize: 13 }}>/twin-ladder-paper-roadmap</Link>
+            <Link to="/" style={{ color: 'var(--brass)', fontSize: 13 }}>← the atlas</Link>
+          </div>
+          <div style={{ marginTop: 12, fontSize: 11, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+            Source: {S.paperSourcePath} {S.paperSections} (pp. {S.paperPageRange})
+          </div>
+        </footer>
+      </div>
+    </div>
   );
 }

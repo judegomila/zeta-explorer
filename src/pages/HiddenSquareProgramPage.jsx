@@ -81,11 +81,11 @@ function ChainDiagram() {
           <g key={step.id}>
             <rect x="100" y={y - 22} width="500" height="44" rx="6" fill={step.color} fillOpacity="0.14" stroke={step.color} strokeWidth="1.5" />
             <text x="350" y={y - 4} fill={step.color} textAnchor="middle" fontSize="14" fontWeight="700">{step.label}</text>
-            <text x="350" y={y + 14} fill="var(--ink-soft)" textAnchor="middle" fontSize="11" fontFamily="monospace">{step.sub}</text>
+            <text x="350" y={y + 14} fill="#4a4238" textAnchor="middle" fontSize="11" fontFamily="monospace">{step.sub}</text>
             {i < steps.length - 1 && (
               <g>
-                <line x1="350" y1={y + 22} x2="350" y2={y + 43} stroke="var(--faint)" strokeWidth="1.5" />
-                <polygon points={`345,${y + 38} 350,${y + 45} 355,${y + 38}`} fill="var(--faint)" />
+                <line x1="350" y1={y + 22} x2="350" y2={y + 43} stroke="#877b67" strokeWidth="1.5" />
+                <polygon points={`345,${y + 38} 350,${y + 45} 355,${y + 38}`} fill="#877b67" />
               </g>
             )}
           </g>
@@ -109,7 +109,7 @@ export default function HiddenSquareProgramPage() {
         </header>
 
         {/* Synthesis diagram up top */}
-        <Card accent="var(--blue)">
+        <Card accent="#3f6b86">
           <h3 style={{ color: 'var(--blue)', fontSize: 18, margin: '0 0 12px 0' }}>The chain of reductions</h3>
           <ChainDiagram />
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6, marginTop: 12 }}>
@@ -188,7 +188,7 @@ export default function HiddenSquareProgramPage() {
         </Card>
 
         {/* §27 Endpoint-Hankel */}
-        <Card accent="var(--green)">
+        <Card accent="#4c7a4a">
           <h3 style={{ color: 'var(--green)', fontSize: 18, margin: '0 0 12px 0' }}>{S.endpointHankel.sectionId} {S.endpointHankel.title}</h3>
           <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6 }}>
             The shear measure density is exact:
@@ -240,7 +240,7 @@ export default function HiddenSquareProgramPage() {
         </Card>
 
         {/* Implications */}
-        <Card accent="var(--terra-dk)">
+        <Card accent="#c23a1c">
           <h3 style={{ color: 'var(--terra-dk)', fontSize: 18, margin: '0 0 12px 0' }}>Implications for the wider proof program</h3>
           <div style={{ display: 'grid', gap: 12 }}>
             {Object.entries(S.implicationsForRH).map(([k, v]) => (

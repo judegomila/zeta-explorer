@@ -149,10 +149,10 @@ function LogLogScatter({ title, rows, fit, color }) {
         <g transform={'translate(' + M.left + ',' + M.top + ')'}>
           {/* Background grid. */}
           {xTicks.map((t) => (
-            <line key={'xg-' + t} x1={x(t)} x2={x(t)} y1={0} y2={IH} stroke="var(--hairline)" strokeDasharray="2,4" />
+            <line key={'xg-' + t} x1={x(t)} x2={x(t)} y1={0} y2={IH} stroke="#d5c9b2" strokeDasharray="2,4" />
           ))}
           {yTicks.map((t) => (
-            <line key={'yg-' + t} x1={0} x2={IW} y1={y(t)} y2={y(t)} stroke="var(--hairline)" strokeDasharray="2,4" />
+            <line key={'yg-' + t} x1={0} x2={IW} y1={y(t)} y2={y(t)} stroke="#d5c9b2" strokeDasharray="2,4" />
           ))}
 
           {/* ESY target slope = -1 reference line. */}
@@ -161,7 +161,7 @@ function LogLogScatter({ title, rows, fit, color }) {
             x2={x(fitX2)}
             y1={y(targetY1)}
             y2={y(targetY2)}
-            stroke="var(--green)"
+            stroke="#4c7a4a"
             strokeWidth={1.5}
             strokeDasharray="6,4"
           />
@@ -184,7 +184,7 @@ function LogLogScatter({ title, rows, fit, color }) {
                 cy={y(logPsis[i])}
                 r={5}
                 fill={color}
-                stroke="var(--paper)"
+                stroke="#fdfaf3"
                 strokeWidth={1.2}
               >
                 <title>
@@ -195,10 +195,10 @@ function LogLogScatter({ title, rows, fit, color }) {
           ))}
 
           {/* x axis. */}
-          <line x1={0} x2={IW} y1={IH} y2={IH} stroke="var(--ink-soft)" />
+          <line x1={0} x2={IW} y1={IH} y2={IH} stroke="#4a4238" />
           {xTicks.map((t) => (
             <g key={'xt-' + t} transform={'translate(' + x(t) + ',' + IH + ')'}>
-              <line y1={0} y2={5} stroke="var(--ink-soft)" />
+              <line y1={0} y2={5} stroke="#4a4238" />
               <text y={18} textAnchor="middle" style={tickStyle}>
                 {'10^' + t}
               </text>
@@ -209,10 +209,10 @@ function LogLogScatter({ title, rows, fit, color }) {
           </text>
 
           {/* y axis. */}
-          <line x1={0} x2={0} y1={0} y2={IH} stroke="var(--ink-soft)" />
+          <line x1={0} x2={0} y1={0} y2={IH} stroke="#4a4238" />
           {yTicks.map((t) => (
             <g key={'yt-' + t} transform={'translate(0,' + y(t) + ')'}>
-              <line x1={-5} x2={0} stroke="var(--ink-soft)" />
+              <line x1={-5} x2={0} stroke="#4a4238" />
               <text x={-8} y={3} textAnchor="end" style={tickStyle}>
                 {'10^' + t}
               </text>
@@ -228,8 +228,8 @@ function LogLogScatter({ title, rows, fit, color }) {
 
           {/* Legend. */}
           <g transform={'translate(' + (IW - 230) + ',6)'}>
-            <rect x={-6} y={-4} width={236} height={56} rx={6} fill="var(--paper)" stroke="var(--hairline)" />
-            <circle cx={6} cy={8} r={4} fill={color} stroke="var(--paper)" strokeWidth={1.2} />
+            <rect x={-6} y={-4} width={236} height={56} rx={6} fill="#fdfaf3" stroke="#d5c9b2" />
+            <circle cx={6} cy={8} r={4} fill={color} stroke="#fdfaf3" strokeWidth={1.2} />
             <text x={20} y={12} style={{ ...labelStyle, fontSize: 10, fill: 'var(--ink-soft)' }}>
               measured (slope = {fit.slope.toFixed(3)})
             </text>
@@ -237,7 +237,7 @@ function LogLogScatter({ title, rows, fit, color }) {
             <text x={20} y={28} style={{ ...labelStyle, fontSize: 10, fill: 'var(--ink-soft)' }}>
               OLS fit (R^2 = {fit.R2.toFixed(3)})
             </text>
-            <line x1={0} x2={14} y1={40} y2={40} stroke="var(--green)" strokeWidth={1.5} strokeDasharray="6,4" />
+            <line x1={0} x2={14} y1={40} y2={40} stroke="#4c7a4a" strokeWidth={1.5} strokeDasharray="6,4" />
             <text x={20} y={44} style={{ ...labelStyle, fontSize: 10, fill: 'var(--ink-soft)' }}>
               ESY target slope = -1
             </text>
@@ -384,13 +384,13 @@ export default function EsyRigidityEmpiricalPage() {
           <SummaryCard
             label="N values measured"
             value={D.measuredPsiN.length}
-            tone="var(--blue)"
+            tone="#3f6b86"
             hint="datapoints used for the OLS fit"
           />
           <SummaryCard
             label="c parameter"
             value={D.cParam.toFixed(1)}
-            tone="var(--brass)"
+            tone="#8c6a1d"
             hint="eta = c / N (micro) and eta = c (macro)"
           />
         </div>
@@ -400,7 +400,7 @@ export default function EsyRigidityEmpiricalPage() {
           title={'(A) macroscopic scale eta = c -- well-posed ESY local-law regime where polylog(N)/N is predicted'}
           rows={D.measuredPsiNMacro}
           fit={D.fittedRate}
-          color="var(--blue)"
+          color="#3f6b86"
         />
 
         {/* Microscopic scatter (ticket-literal). */}
@@ -408,7 +408,7 @@ export default function EsyRigidityEmpiricalPage() {
           title={'(B) microscopic scale eta = c/N -- ticket-literal operational definition; ESY local law predicts BOUNDED (slope approximately 0)'}
           rows={D.measuredPsiN}
           fit={D.fittedRateMicro}
-          color="var(--brass-dk)"
+          color="#b58a2e"
         />
 
         {/* Per-N data table. */}

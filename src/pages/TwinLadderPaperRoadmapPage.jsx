@@ -349,7 +349,7 @@ export default function TwinLadderPaperRoadmapPage() {
             <StatTile
               label="total entries"
               value={total}
-              fg="var(--ink-soft)" bg="var(--paper)" border="var(--hairline)"
+              fg="#4a4238" bg="#fdfaf3" border="#d5c9b2"
             />
             <StatTile
               label="live app pages"

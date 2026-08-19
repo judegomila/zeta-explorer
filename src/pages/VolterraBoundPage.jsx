@@ -11,9 +11,14 @@
 //
 // Static content only (no heavy data import); KaTeX for the math, internal Links
 // to the existing viz pages that carry the actual numerics.
+//
+// Editorial (warm) re-theme: full-width shell, identical structure/data/content.
+// The RH-EQUIVALENT (not a reduction) framing carried by HonestCeilingBanner is
+// preserved verbatim, as is every claim/number/caveat in the body copy below.
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import RelatedLinks from '../components/RelatedLinks.jsx';
@@ -62,84 +67,101 @@ const THREADS = [
   },
 ];
 
+// Editorial card: warm paper background + hairline border, colored left rule.
+function cardBaseLeft(color) {
+  return {
+    background: 'var(--paper2)',
+    border: '1px solid var(--hairline)',
+    borderLeft: `3px solid ${color}`,
+    borderRadius: 8,
+    padding: '14px 16px',
+  };
+}
+
 export default function VolterraBoundPage() {
   return (
-    <div style={{ padding: '20px', maxWidth: '1000px', margin: '0 auto' }}>
-      <HonestCeilingBanner variant="RH-EQUIVALENT" />
-      <h1>The Volterra Norm Bound: One Statement for §15-27</h1>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>attack · Volterra norm bound</span>} />
+      <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
+        <HonestCeilingBanner variant="RH-EQUIVALENT" />
 
-      <p>
-        The §15-27 program collapses (imp-1258) to a single inequality on the operator
-        norm of the Volterra operator <InlineMath math="V_{a,\Phi}" /> on{' '}
-        <InlineMath math="L^2([0,\infty))" />:
-      </p>
+        <h1 className="ed-h1" style={{ marginBottom: 10 }}>
+          The Volterra Norm Bound: One Statement for §15-27
+        </h1>
 
-      <BlockMath math={String.raw`\|V_{a,\Phi}\| \le 1.`} />
-
-      <p>
-        Seven or more paper conjectures across §15-27 reduce, two-ways, to this one
-        statement. The empirical evidence (60+ measured rows) clears the threshold by a
-        wide margin — roughly a factor of <InlineMath math="5000\times" /> from
-        saturation in the controllable regime — while the Hilbert-Schmidt bound
-        (imp-1267) supplies an <em>analytical</em> proof that{' '}
-        <InlineMath math="\|V_{a,\Phi}\| \le 1" /> for <InlineMath math="a \lesssim 2" />.
-        The open frontier is <InlineMath math="a \gtrsim 2.3" />, where the bound
-        diverges as <InlineMath math="J_a \sim e^{4a}" /> and rigorous control is lost.
-      </p>
-
-      <div
-        style={{
-          marginTop: 28,
-          display: 'grid',
-          gap: 14,
-          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-        }}
-      >
-        {THREADS.map((t) => (
-          <Link
-            key={t.id}
-            to={t.to}
-            style={{
-              display: 'block',
-              padding: '14px 16px',
-              border: '1px solid #ccc',
-              borderRadius: 6,
-              textDecoration: 'none',
-              color: 'inherit',
-              background: '#fafafa',
-            }}
-          >
-            <div style={{ fontWeight: 600, color: '#0066cc' }}>{t.title}</div>
-            <div style={{ fontSize: 12, color: '#888', margin: '2px 0 8px' }}>
-              {t.id}
-            </div>
-            <div style={{ fontSize: 13, color: '#444', lineHeight: 1.5 }}>
-              {t.blurb}
-            </div>
-          </Link>
-        ))}
-      </div>
-
-      <div style={{ marginTop: 30, fontSize: 13, color: '#555' }}>
-        <p>
-          <strong>References:</strong>{' '}
-          <Link to="/paper-audit-dashboard" style={{ color: '#0066cc' }}>
-            Paper Audit Dashboard
-          </Link>{' '}
-          (imp-1265) •{' '}
-          <Link to="/viz-volterra-norm-curve" style={{ color: '#0066cc' }}>
-            Op-norm vs HS bound curve
-          </Link>{' '}
-          (imp-1292)
+        <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: 760 }}>
+          The §15-27 program collapses (imp-1258) to a single inequality on the operator
+          norm of the Volterra operator <InlineMath math="V_{a,\Phi}" /> on{' '}
+          <InlineMath math="L^2([0,\infty))" />:
         </p>
-      </div>
 
-      <RelatedLinks links={[
-        { to: '/collapse-chain', label: 'Collapse Chain', color: '#8b5cf6' },
-        { to: '/paper-audit-dashboard', label: 'Paper Audit Dashboard' },
-        { to: '/twin-ladder', label: 'Twin-Ladder Roadmap' },
-        { to: '/viz-volterra-norm-curve', label: 'Volterra Norm Curve', color: '#22c55e' },
-      ]} />
+        <BlockMath math={String.raw`\|V_{a,\Phi}\| \le 1.`} />
+
+        <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: 760 }}>
+          Seven or more paper conjectures across §15-27 reduce, two-ways, to this one
+          statement. The empirical evidence (60+ measured rows) clears the threshold by a
+          wide margin — roughly a factor of <InlineMath math="5000\times" /> from
+          saturation in the controllable regime — while the Hilbert-Schmidt bound
+          (imp-1267) supplies an <em>analytical</em> proof that{' '}
+          <InlineMath math="\|V_{a,\Phi}\| \le 1" /> for <InlineMath math="a \lesssim 2" />.
+          The open frontier is <InlineMath math="a \gtrsim 2.3" />, where the bound
+          diverges as <InlineMath math="J_a \sim e^{4a}" /> and rigorous control is lost.
+        </p>
+
+        <h2 className="ed-h2" style={{ marginTop: 24, marginBottom: 12 }}>Supporting threads</h2>
+        <div className="card-grid" style={{ marginBottom: 24 }}>
+          {THREADS.map((t) => (
+            <Link
+              key={t.id}
+              to={t.to}
+              className="card"
+              style={{ ...cardBaseLeft('var(--brass)'), display: 'block', textDecoration: 'none', color: 'inherit' }}
+            >
+              <div style={{ fontWeight: 600, color: 'var(--brass-dk)', fontSize: 15 }}>{t.title}</div>
+              <div
+                style={{
+                  fontSize: 11,
+                  fontFamily: 'var(--ed-mono, var(--font-mono))',
+                  color: 'var(--faint)',
+                  margin: '2px 0 8px',
+                }}
+              >
+                {t.id}
+              </div>
+              <div style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.5 }}>
+                {t.blurb}
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <div className="card" style={{ ...cardBaseLeft('var(--hairline)'), marginBottom: 24 }}>
+          <p style={{ margin: 0, fontSize: 13, color: 'var(--ink-soft)' }}>
+            <strong style={{ color: 'var(--ink)' }}>References:</strong>{' '}
+            <Link to="/paper-audit-dashboard" style={{ color: 'var(--brass-dk)' }}>
+              Paper Audit Dashboard
+            </Link>{' '}
+            (imp-1265) •{' '}
+            <Link to="/viz-volterra-norm-curve" style={{ color: 'var(--brass-dk)' }}>
+              Op-norm vs HS bound curve
+            </Link>{' '}
+            (imp-1292)
+          </p>
+        </div>
+
+        <div style={{ marginTop: 12, fontSize: 13, color: 'var(--ink-soft)', borderTop: '1px solid var(--hairline)', paddingTop: 20 }}>
+          <p style={{ margin: '12px 0 0 0' }}>
+            <Link to="/">← the atlas</Link>
+          </p>
+        </div>
+
+        <RelatedLinks links={[
+          { to: '/collapse-chain', label: 'Collapse Chain', color: 'var(--brass)' },
+          { to: '/paper-audit-dashboard', label: 'Paper Audit Dashboard', color: 'var(--blue)' },
+          { to: '/twin-ladder', label: 'Twin-Ladder Roadmap', color: 'var(--brass-dk)' },
+          { to: '/viz-volterra-norm-curve', label: 'Volterra Norm Curve', color: 'var(--green)' },
+        ]} />
+      </div>
     </div>
   );
 }

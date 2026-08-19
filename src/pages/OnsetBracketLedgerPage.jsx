@@ -1,27 +1,44 @@
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import PageHeader from '../components/PageHeader.jsx';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { SG1C_ASYM_ONSET_BRACKET_LEDGER } from '../data/sg1c-asym-onset-bracket-ledger-2026-06-30.js';
 import { SG1C_CGLO_LOWER_BOUND } from '../data/sg1c-cglo-lower-bound-2026-07-02.js';
 
+// sg1c Asymmetric Onset Bracket Ledger — imp-3198.
+// Editorial (warm) re-theme: full-width dashboard, identical structure/data.
+
+const chip = (bg, fg, border) => ({
+  display: 'inline-block',
+  padding: '2px 7px',
+  borderRadius: 4,
+  fontSize: 11,
+  fontWeight: 600,
+  whiteSpace: 'nowrap',
+  background: bg,
+  color: fg,
+  border: `1px solid ${border}`,
+});
+
 const STATUS_COLOR = {
-  'closed-form-exact':       { bg: '#052e16', border: '#166534', text: '#86efac', badge: 'exact' },
-  'certified-numerical-inf': { bg: '#082f49', border: '#0369a1', text: '#7dd3fc', badge: 'certified' },
-  'random-scan':             { bg: '#2d2206', border: '#854d0e', text: '#fde68a', badge: 'random scan' },
-  'selector-artifact':       { bg: '#3b0000', border: '#991b1b', text: '#fca5a5', badge: 'ARTIFACT' },
+  'closed-form-exact':       { style: chip('rgba(76,122,74,0.14)', 'var(--green)', 'rgba(76,122,74,0.40)'), badge: 'exact' },
+  'certified-numerical-inf': { style: chip('rgba(63,107,134,0.14)', 'var(--blue)', 'rgba(63,107,134,0.40)'), badge: 'certified' },
+  'random-scan':             { style: chip('rgba(181,138,46,0.16)', 'var(--brass-dk)', 'rgba(181,138,46,0.45)'), badge: 'random scan' },
+  'selector-artifact':       { style: chip('rgba(194,58,28,0.14)', 'var(--terra-dk)', 'rgba(194,58,28,0.40)'), badge: 'ARTIFACT' },
 };
+
+function cardBaseLeft(color) {
+  return {
+    background: 'var(--paper2)',
+    border: '1px solid var(--hairline)',
+    borderLeft: `3px solid ${color}`,
+    borderRadius: 8,
+    padding: '16px 20px',
+  };
+}
 
 function StatusBadge({ status }) {
   const s = STATUS_COLOR[status] || STATUS_COLOR['random-scan'];
-  return (
-    <span style={{
-      display: 'inline-block', padding: '2px 7px', borderRadius: 4,
-      background: s.bg, border: `1px solid ${s.border}`, color: s.text,
-      fontSize: 11, fontWeight: 600, whiteSpace: 'nowrap',
-    }}>
-      {s.badge}
-    </span>
-  );
+  return <span style={s.style}>{s.badge}</span>;
 }
 
 function SortHeader({ label, col, sortCol, dir, onSort }) {
@@ -31,10 +48,10 @@ function SortHeader({ label, col, sortCol, dir, onSort }) {
       onClick={() => onSort(col)}
       style={{
         cursor: 'pointer', padding: '8px 10px', textAlign: 'left',
-        background: active ? '#1e3a5f' : '#0f172a',
-        color: active ? '#93c5fd' : '#94a3b8',
+        background: active ? 'var(--paper3)' : 'var(--paper2)',
+        color: active ? 'var(--brass-dk)' : 'var(--faint)',
         fontWeight: 600, fontSize: 12, userSelect: 'none',
-        borderBottom: '1px solid #1e293b', whiteSpace: 'nowrap',
+        borderBottom: '1px solid var(--hairline)', whiteSpace: 'nowrap',
       }}
     >
       {label} {active ? (dir === 'asc' ? '▲' : '▼') : ''}
@@ -74,181 +91,182 @@ export default function OnsetBracketLedgerPage() {
   }, [ledger.rows, sortCol, sortDir]);
 
   const cellStyle = {
-    padding: '8px 10px', borderBottom: '1px solid #1e293b',
-    verticalAlign: 'top', fontSize: 13, color: '#cbd5e1',
+    padding: '8px 10px', borderBottom: '1px solid var(--hairline)',
+    verticalAlign: 'top', fontSize: 13, color: 'var(--ink-soft)',
     lineHeight: '1.5',
   };
 
   return (
-    <div style={{ maxWidth: 1100, margin: '0 auto', padding: '24px 16px', fontFamily: 'sans-serif' }}>
-      <PageHeader
-        title="sg1c Asymmetric Onset Bracket Ledger"
-        subtitle="imp-3198 — auditable chain of worsening-onset values bounding the open global constant c_glob"
-      />
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>attack · onset bracket ledger</span>} />
+      <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
+        <h1 className="ed-h1" style={{ marginBottom: 10 }}>sg1c Asymmetric Onset Bracket Ledger</h1>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760, marginBottom: 24 }}>
+          imp-3198 — auditable chain of worsening-onset values bounding the open global constant c_glob
+        </p>
 
-      {/* Open bracket summary */}
-      <div style={{
-        background: '#0c1628', border: '1px solid #1e3a5f', borderRadius: 8,
-        padding: '16px 20px', marginBottom: 24,
-      }}>
-        <div style={{ color: '#93c5fd', fontWeight: 700, fontSize: 15, marginBottom: 10 }}>
-          Open Bracket: c_glob ∈ ({lo.toFixed(10)}, {hi.toFixed(10)})
-        </div>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 24 }}>
-          <div style={{ color: '#94a3b8', fontSize: 13 }}>
-            <span style={{ color: '#7dd3fc', fontWeight: 600 }}>Tightest ceiling (lower end):</span>{' '}
-            {lo.toFixed(7)} — certified-numerical-inf (Config B structured tune, imp-3172)
+        {/* Open bracket summary */}
+        <div className="card" style={{ ...cardBaseLeft('var(--blue)'), marginBottom: 24 }}>
+          <div style={{ color: 'var(--blue)', fontWeight: 700, fontSize: 15, marginBottom: 10 }}>
+            Open Bracket: c_glob ∈ ({lo.toFixed(10)}, {hi.toFixed(10)})
           </div>
-          <div style={{ color: '#94a3b8', fontSize: 13 }}>
-            <span style={{ color: '#7dd3fc', fontWeight: 600 }}>Class-specific upper end:</span>{' '}
-            {hi.toFixed(16)} — c_asym closed-form transcendental root (imp-3170)
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 24 }}>
+            <div style={{ color: 'var(--ink-soft)', fontSize: 13 }}>
+              <span style={{ color: 'var(--blue)', fontWeight: 600 }}>Tightest ceiling (lower end):</span>{' '}
+              {lo.toFixed(7)} — certified-numerical-inf (Config B structured tune, imp-3172)
+            </div>
+            <div style={{ color: 'var(--ink-soft)', fontSize: 13 }}>
+              <span style={{ color: 'var(--blue)', fontWeight: 600 }}>Class-specific upper end:</span>{' '}
+              {hi.toFixed(16)} — c_asym closed-form transcendental root (imp-3170)
+            </div>
+          </div>
+          <div style={{ marginTop: 10, color: 'var(--ink-soft)', fontSize: 13 }}>
+            <span style={{ color: 'var(--green)', fontWeight: 600 }}>Basin margin:</span>{' '}
+            {lo.toFixed(7)} − 0.72 = {ledger.basinMargin.toFixed(7)} &gt; 0.18 — basin-conditional C_Lip holds independent of c_glob.{' '}
+            PT Λ ≤ 0.2 remains SOTA.
+          </div>
+          <div style={{ marginTop: 8, color: 'var(--terra-dk)', fontSize: 12 }}>
+            {ledger.globalConstantStatus}
           </div>
         </div>
-        <div style={{ marginTop: 10, color: '#94a3b8', fontSize: 13 }}>
-          <span style={{ color: '#86efac', fontWeight: 600 }}>Basin margin:</span>{' '}
-          {lo.toFixed(7)} − 0.72 = {ledger.basinMargin.toFixed(7)} &gt; 0.18 — basin-conditional C_Lip holds independent of c_glob.{' '}
-          PT Λ ≤ 0.2 remains SOTA.
-        </div>
-        <div style={{ marginTop: 8, color: '#f87171', fontSize: 12 }}>
-          {ledger.globalConstantStatus}
-        </div>
-      </div>
 
-      {/* Proven lower bound (imp-3236) — the first rigorous nontrivial lower bound on c_glob */}
-      <div style={{
-        background: '#052e16', border: '1px solid #166534', borderRadius: 8,
-        padding: '16px 20px', marginBottom: 24,
-      }}>
-        <div style={{ color: '#86efac', fontWeight: 700, fontSize: 15, marginBottom: 10 }}>
-          Proven Lower Bound (imp-3236): c_glob ≥ {SG1C_CGLO_LOWER_BOUND.cLo.toFixed(10)}
+        {/* Proven lower bound (imp-3236) — the first rigorous nontrivial lower bound on c_glob */}
+        <div className="card" style={{ ...cardBaseLeft('var(--green)'), marginBottom: 24 }}>
+          <div style={{ color: 'var(--green)', fontWeight: 700, fontSize: 15, marginBottom: 10 }}>
+            Proven Lower Bound (imp-3236): c_glob ≥ {SG1C_CGLO_LOWER_BOUND.cLo.toFixed(10)}
+          </div>
+          <div style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: '1.6', marginBottom: 8 }}>
+            First rigorous nontrivial lower bound. Exact force-difference rate{' '}
+            drho/ds = −2[2/ρ + (1−ρ)/(1+ρ) − 2ρ + Σ Tₘ]; right particles destabilise, left stabilise,
+            |Tₘ| decreasing in |yₘ|, so the densest one-sided right half-lattice (yₖ = 1+kρ) is the worst
+            admissible config. The telescoping majorant S_dest ≤ (1+ρ)/(2+ρ) makes the rate strictly
+            negative — isolation self-improves — for all ρ &lt; c_lo = {SG1C_CGLO_LOWER_BOUND.cLo.toFixed(7)}
+            {' '}(the root of f(ρ) = 2/ρ + (1−ρ)/(1+ρ) − 2ρ − (1+ρ)/(2+ρ)).
+          </div>
+          <div style={{ color: 'var(--green)', fontSize: 13 }}>
+            The open interval collapses to c_glob ∈ ({SG1C_CGLO_LOWER_BOUND.cLo.toFixed(7)},{' '}
+            {SG1C_CGLO_LOWER_BOUND.locatedCeiling.toFixed(7)}] — proven lower bound to tightest located
+            ceiling c_half. Exceeds the Theorem-C basin reference 0.72 by{' '}
+            {SG1C_CGLO_LOWER_BOUND.exceedsBasinBy.toFixed(4)}.
+          </div>
+          <div style={{ marginTop: 8, color: 'var(--faint)', fontSize: 12 }}>
+            HONEST: does NOT close c_glob — the gap ({SG1C_CGLO_LOWER_BOUND.cLo.toFixed(5)},{' '}
+            {SG1C_CGLO_LOWER_BOUND.locatedCeiling.toFixed(5)}] stays OPEN. Basin-conditional C_Lip
+            unaffected; PT Λ ≤ 0.2 remains the rigorous SOTA. No QED for c_glob itself.
+          </div>
         </div>
-        <div style={{ color: '#94a3b8', fontSize: 13, lineHeight: '1.6', marginBottom: 8 }}>
-          First rigorous nontrivial lower bound. Exact force-difference rate{' '}
-          drho/ds = −2[2/ρ + (1−ρ)/(1+ρ) − 2ρ + Σ Tₘ]; right particles destabilise, left stabilise,
-          |Tₘ| decreasing in |yₘ|, so the densest one-sided right half-lattice (yₖ = 1+kρ) is the worst
-          admissible config. The telescoping majorant S_dest ≤ (1+ρ)/(2+ρ) makes the rate strictly
-          negative — isolation self-improves — for all ρ &lt; c_lo = {SG1C_CGLO_LOWER_BOUND.cLo.toFixed(7)}
-          {' '}(the root of f(ρ) = 2/ρ + (1−ρ)/(1+ρ) − 2ρ − (1+ρ)/(2+ρ)).
-        </div>
-        <div style={{ color: '#86efac', fontSize: 13 }}>
-          The open interval collapses to c_glob ∈ ({SG1C_CGLO_LOWER_BOUND.cLo.toFixed(7)},{' '}
-          {SG1C_CGLO_LOWER_BOUND.locatedCeiling.toFixed(7)}] — proven lower bound to tightest located
-          ceiling c_half. Exceeds the Theorem-C basin reference 0.72 by{' '}
-          {SG1C_CGLO_LOWER_BOUND.exceedsBasinBy.toFixed(4)}.
-        </div>
-        <div style={{ marginTop: 8, color: '#64748b', fontSize: 12 }}>
-          HONEST: does NOT close c_glob — the gap ({SG1C_CGLO_LOWER_BOUND.cLo.toFixed(5)},{' '}
-          {SG1C_CGLO_LOWER_BOUND.locatedCeiling.toFixed(5)}] stays OPEN. Basin-conditional C_Lip
-          unaffected; PT Λ ≤ 0.2 remains the rigorous SOTA. No QED for c_glob itself.
-        </div>
-      </div>
 
-      {/* Sortable table */}
-      <div style={{ marginBottom: 8, color: '#64748b', fontSize: 12 }}>
-        Click column headers to sort. All rows are UPPER bounds on c_glob; none is a proven lower bound.
-      </div>
-      <div style={{ overflowX: 'auto', borderRadius: 8, border: '1px solid #1e293b', marginBottom: 32 }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', tableLayout: 'auto' }}>
-          <thead>
-            <tr>
-              <SortHeader label="Onset value" col="value" sortCol={sortCol} dir={sortDir} onSort={handleSort} />
-              <SortHeader label="Config class" col="configClass" sortCol={sortCol} dir={sortDir} onSort={handleSort} />
-              <SortHeader label="Derivation" col="derivation" sortCol={sortCol} dir={sortDir} onSort={handleSort} />
-              <SortHeader label="Rigor status" col="status" sortCol={sortCol} dir={sortDir} onSort={handleSort} />
-              <SortHeader label="Bounds c_glob?" col="boundsGlobal" sortCol={sortCol} dir={sortDir} onSort={handleSort} />
-              <SortHeader label="Ticket" col="ticket" sortCol={sortCol} dir={sortDir} onSort={handleSort} />
-            </tr>
-          </thead>
-          <tbody>
-            {sortedRows.map((row, i) => (
-              <tr key={row.ticket + i} style={{ background: i % 2 === 0 ? '#0a1628' : '#0d1f38' }}>
-                <td style={{ ...cellStyle, fontFamily: 'monospace', color: '#f0abfc', fontWeight: 700, whiteSpace: 'nowrap' }}>
-                  {typeof row.value === 'number' ? row.value.toFixed(10) : String(row.value)}
-                </td>
-                <td style={{ ...cellStyle, maxWidth: 260 }}>{row.configClass}</td>
-                <td style={{ ...cellStyle, maxWidth: 320, color: '#94a3b8', fontSize: 12 }}>{row.derivation}</td>
-                <td style={{ ...cellStyle, whiteSpace: 'nowrap' }}>
-                  <StatusBadge status={row.status} />
-                </td>
-                <td style={{ ...cellStyle, color: '#a3e635', fontSize: 12, maxWidth: 220 }}>{row.boundsGlobal}</td>
-                <td style={{ ...cellStyle, color: '#64748b', fontSize: 12, whiteSpace: 'nowrap' }}>{row.ticket}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      {/* Selector artifacts — imp-3304 audit: confirmed NO page in src/pages renders these as valid c_glob bounds */}
-      <div style={{
-        background: '#1a0000', border: '1px solid #7f1d1d', borderRadius: 8,
-        padding: '16px 20px', marginBottom: 24,
-      }}>
-        <div style={{ color: '#f87171', fontWeight: 700, fontSize: 14, marginBottom: 10 }}>
-          Selector Artifacts — NOT valid c_glob bounds
+        {/* Sortable table */}
+        <h2 className="ed-h2" style={{ marginTop: 8, marginBottom: 12 }}>Ledger of worsening-onset values</h2>
+        <div style={{ marginBottom: 8, color: 'var(--faint)', fontSize: 12 }}>
+          Click column headers to sort. All rows are UPPER bounds on c_glob; none is a proven lower bound.
         </div>
-        <div style={{ color: '#fca5a5', fontSize: 12, marginBottom: 12 }}>
-          These values look like worsening-onset roots but are minimal-gap selector index discontinuities (ties/flips).
-          They do NOT correspond to smooth drho/ds zeros and must not be cited as bounds on c_glob.
-        </div>
-        <div style={{ overflowX: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+        <div style={{ overflowX: 'auto', borderRadius: 8, border: '1px solid var(--hairline)', marginBottom: 32 }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', tableLayout: 'auto' }}>
             <thead>
               <tr>
-                {['Value', 'What it is', 'Ticket'].map(h => (
-                  <th key={h} style={{
-                    padding: '6px 10px', textAlign: 'left', background: '#300000',
-                    color: '#f87171', fontWeight: 600, fontSize: 12, borderBottom: '1px solid #7f1d1d',
-                  }}>{h}</th>
-                ))}
+                <SortHeader label="Onset value" col="value" sortCol={sortCol} dir={sortDir} onSort={handleSort} />
+                <SortHeader label="Config class" col="configClass" sortCol={sortCol} dir={sortDir} onSort={handleSort} />
+                <SortHeader label="Derivation" col="derivation" sortCol={sortCol} dir={sortDir} onSort={handleSort} />
+                <SortHeader label="Rigor status" col="status" sortCol={sortCol} dir={sortDir} onSort={handleSort} />
+                <SortHeader label="Bounds c_glob?" col="boundsGlobal" sortCol={sortCol} dir={sortDir} onSort={handleSort} />
+                <SortHeader label="Ticket" col="ticket" sortCol={sortCol} dir={sortDir} onSort={handleSort} />
               </tr>
             </thead>
             <tbody>
-              {ledger.selectorArtifacts.map((a, i) => (
-                <tr key={i} style={{ background: i % 2 === 0 ? '#1a0000' : '#200000' }}>
-                  <td style={{ ...cellStyle, fontFamily: 'monospace', color: '#fca5a5', fontWeight: 700, whiteSpace: 'nowrap' }}>
-                    {a.value.toFixed(7)}
+              {sortedRows.map((row, i) => (
+                <tr key={row.ticket + i} style={{ background: i % 2 === 0 ? 'var(--paper)' : 'var(--paper2)' }}>
+                  <td style={{ ...cellStyle, fontFamily: 'var(--ed-mono, var(--font-mono))', color: 'var(--terra-dk)', fontWeight: 700, whiteSpace: 'nowrap' }}>
+                    {typeof row.value === 'number' ? row.value.toFixed(10) : String(row.value)}
                   </td>
-                  <td style={{ ...cellStyle, color: '#fca5a5', fontSize: 12, maxWidth: 500 }}>{a.whatItIs}</td>
-                  <td style={{ ...cellStyle, color: '#f87171', fontSize: 12, whiteSpace: 'nowrap' }}>{a.ticket}</td>
+                  <td style={{ ...cellStyle, maxWidth: 260 }}>{row.configClass}</td>
+                  <td style={{ ...cellStyle, maxWidth: 320, color: 'var(--faint)', fontSize: 12 }}>{row.derivation}</td>
+                  <td style={{ ...cellStyle, whiteSpace: 'nowrap' }}>
+                    <StatusBadge status={row.status} />
+                  </td>
+                  <td style={{ ...cellStyle, color: 'var(--green)', fontSize: 12, maxWidth: 220 }}>{row.boundsGlobal}</td>
+                  <td style={{ ...cellStyle, color: 'var(--faint)', fontSize: 12, whiteSpace: 'nowrap' }}>{row.ticket}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-      </div>
 
-      {/* Status legend */}
-      <div style={{
-        background: '#0a1628', border: '1px solid #1e293b', borderRadius: 8,
-        padding: '14px 18px', marginBottom: 24,
-      }}>
-        <div style={{ color: '#94a3b8', fontWeight: 700, fontSize: 13, marginBottom: 10 }}>Rigor Status Legend</div>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
-          {Object.entries(STATUS_COLOR).map(([k, s]) => (
-            <div key={k} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <StatusBadge status={k} />
-              <span style={{ color: '#64748b', fontSize: 12 }}>{k.replace(/-/g, ' ')}</span>
-            </div>
-          ))}
+        {/* Selector artifacts — imp-3304 audit: confirmed NO page in src/pages renders these as valid c_glob bounds */}
+        <div className="card" style={{ ...cardBaseLeft('var(--terra-dk)'), marginBottom: 24 }}>
+          <div style={{ color: 'var(--terra-dk)', fontWeight: 700, fontSize: 14, marginBottom: 10 }}>
+            Selector Artifacts — NOT valid c_glob bounds
+          </div>
+          <div style={{ color: 'var(--ink-soft)', fontSize: 12, marginBottom: 12 }}>
+            These values look like worsening-onset roots but are minimal-gap selector index discontinuities (ties/flips).
+            They do NOT correspond to smooth drho/ds zeros and must not be cited as bounds on c_glob.
+          </div>
+          <div style={{ overflowX: 'auto' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+              <thead>
+                <tr>
+                  {['Value', 'What it is', 'Ticket'].map(h => (
+                    <th key={h} style={{
+                      padding: '6px 10px', textAlign: 'left', background: 'var(--paper3)',
+                      color: 'var(--terra-dk)', fontWeight: 600, fontSize: 12, borderBottom: '1px solid var(--hairline)',
+                    }}>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {ledger.selectorArtifacts.map((a, i) => (
+                  <tr key={i} style={{ background: i % 2 === 0 ? 'var(--paper)' : 'var(--paper2)' }}>
+                    <td style={{ ...cellStyle, fontFamily: 'var(--ed-mono, var(--font-mono))', color: 'var(--terra-dk)', fontWeight: 700, whiteSpace: 'nowrap' }}>
+                      {a.value.toFixed(7)}
+                    </td>
+                    <td style={{ ...cellStyle, color: 'var(--ink-soft)', fontSize: 12, maxWidth: 500 }}>{a.whatItIs}</td>
+                    <td style={{ ...cellStyle, color: 'var(--terra-dk)', fontSize: 12, whiteSpace: 'nowrap' }}>{a.ticket}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
 
-      {/* Verdict */}
-      <div style={{
-        background: '#0a1628', border: '1px solid #1e293b', borderRadius: 8,
-        padding: '14px 18px', marginBottom: 24,
-      }}>
-        <div style={{ color: '#94a3b8', fontWeight: 700, fontSize: 13, marginBottom: 8 }}>Full Verdict</div>
-        <div style={{ color: '#64748b', fontSize: 12, lineHeight: '1.7' }}>{ledger.verdict}</div>
-      </div>
+        {/* Status legend */}
+        <div className="card" style={{ ...cardBaseLeft('var(--hairline)'), marginBottom: 24 }}>
+          <div style={{ color: 'var(--ink-soft)', fontWeight: 700, fontSize: 13, marginBottom: 10 }}>Rigor Status Legend</div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
+            {Object.entries(STATUS_COLOR).map(([k, s]) => (
+              <div key={k} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <StatusBadge status={k} />
+                <span style={{ color: 'var(--faint)', fontSize: 12 }}>{k.replace(/-/g, ' ')}</span>
+              </div>
+            ))}
+          </div>
+        </div>
 
-      <div style={{ color: '#334155', fontSize: 12 }}>
-        Cross-links:{' '}
-        <Link to="/spectral-attack" style={{ color: '#475569' }}>Spectral Attack</Link>
-        {' · '}
-        <Link to="/theta-static-obstruction" style={{ color: '#475569' }}>Theta Static Obstruction</Link>
-        {' · '}
-        <Link to="/theta-basin-closure" style={{ color: '#475569' }}>Theta Basin Closure</Link>
+        {/* Verdict */}
+        <div className="card" style={{ ...cardBaseLeft('var(--brass-dk)'), marginBottom: 24 }}>
+          <div style={{ color: 'var(--ink-soft)', fontWeight: 700, fontSize: 13, marginBottom: 8 }}>Full Verdict</div>
+          <div style={{ color: 'var(--faint)', fontSize: 12, lineHeight: '1.7' }}>{ledger.verdict}</div>
+        </div>
+
+        {/* Cross links */}
+        <div className="card" style={cardBaseLeft('var(--brass)')}>
+          <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--faint)', marginBottom: 6 }}>
+            Related pages
+          </div>
+          <div style={{ display: 'flex', gap: 12, marginTop: 8, flexWrap: 'wrap' }}>
+            <Link to="/spectral-attack" style={{ fontSize: 12, color: 'var(--brass-dk)', textDecoration: 'none' }}>
+              → Spectral Attack
+            </Link>
+            <Link to="/theta-static-obstruction" style={{ fontSize: 12, color: 'var(--brass)', textDecoration: 'none' }}>
+              → Theta Static Obstruction
+            </Link>
+            <Link to="/theta-basin-closure" style={{ fontSize: 12, color: 'var(--blue)', textDecoration: 'none' }}>
+              → Theta Basin Closure
+            </Link>
+            <Link to="/" style={{ fontSize: 12, color: 'var(--terra-dk)', textDecoration: 'none' }}>
+              ← the atlas
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

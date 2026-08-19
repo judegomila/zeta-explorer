@@ -58,6 +58,24 @@ export const EDITORIAL_ROUTES = new Set([
   '/section26-conditioning-artifact',
   '/excess-fraction-phi',
   '/reciprocal-program',
+  // Attack group (OpenFrontierPage deferred, 4.7k lines)
+  '/route-b-limsup',
+  '/lambda-timeline',
+  '/rh-dag',
+  '/volterra-bound',
+  '/berry-keating-xp',
+  '/connes-adelic',
+  '/rh-attack',
+  '/spectral-attack',
+  '/theta-seizing-margin',
+  '/theta-static-obstruction',
+  '/theta-basin-closure',
+  '/onset-bracket-ledger',
+  '/gap-closing',
+  '/twistor',
+  '/zx-calculus',
+  '/cross-attack',
+  '/break-it',
 ]);
 
 export function isEditorialRoute(pathname) {

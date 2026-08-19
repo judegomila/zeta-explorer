@@ -5,7 +5,7 @@
 // discretization of the adele class space at the first 5 primes and tested
 // at heat time t = 0.02 (the order-of-magnitude imp-440 finite-N Lambda).
 //
-// Layout (single column):
+// Layout (single column, editorial warm re-theme -- identical structure/data):
 //   - Banner: headline verdict (positivity holds / fails) and the truncated
 //     trace value at t = 0.02 with the prime set.
 //   - Survey: 5 paragraphs from the data file (adelic class space, trace
@@ -28,63 +28,64 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import { CONNES_ADELIC_LAMBDA } from '../data/connes-adelic-lambda-2026-05.js';
 import RelatedLinks from '../components/RelatedLinks.jsx';
 
-// ── Style helpers (matching the rest of the explorer pages). ──────────
+// ── Style helpers (editorial warm palette). ────────────────────────────
 
 const panelStyle = {
-  background: 'var(--bg-panel, #0b1220)',
-  border: '1px solid var(--border, #1e293b)',
+  background: 'var(--paper2)',
+  border: '1px solid var(--hairline)',
   borderRadius: 8,
   padding: 16,
 };
 
 const h2Style = {
   fontSize: 16,
-  color: 'var(--text-primary, #e2e8f0)',
+  color: 'var(--ink)',
   marginTop: 0,
   marginBottom: 12,
-  fontFamily: 'var(--font-mono, monospace)',
+  fontFamily: 'var(--ed-mono, var(--font-mono))',
 };
 
 const h3Style = {
   fontSize: 14,
-  color: 'var(--text-primary, #e2e8f0)',
+  color: 'var(--ink)',
   marginTop: 12,
   marginBottom: 6,
-  fontFamily: 'var(--font-mono, monospace)',
+  fontFamily: 'var(--ed-mono, var(--font-mono))',
 };
 
 const tableStyle = {
   width: '100%',
   borderCollapse: 'collapse',
-  fontFamily: 'var(--font-mono, monospace)',
+  fontFamily: 'var(--ed-mono, var(--font-mono))',
   fontSize: 12,
 };
 
 const thStyle = {
   padding: '6px 10px',
-  borderBottom: '1px solid #1e293b',
+  borderBottom: '1px solid var(--hairline)',
   textAlign: 'right',
-  color: 'var(--text-secondary, #94a3b8)',
+  color: 'var(--faint)',
   fontWeight: 600,
 };
 
 const tdStyle = {
   padding: '5px 10px',
-  borderBottom: '1px solid #0f172a',
+  borderBottom: '1px solid var(--hair2)',
   textAlign: 'right',
-  color: 'var(--text-primary, #e2e8f0)',
+  color: 'var(--ink)',
 };
 
 const PRIME_COLOURS = {
-  2: '#60a5fa',
-  3: '#a855f7',
-  5: '#f97316',
-  7: '#22c55e',
-  11: '#facc15',
+  2: 'var(--blue)',
+  3: 'var(--brass)',
+  5: 'var(--terra-dk)',
+  7: 'var(--green)',
+  11: 'var(--brass-dk)',
 };
 
 // ── Sweep plot: traceTotal vs t. ──────────────────────────────────────
@@ -116,16 +117,16 @@ function HeatFlowSweep() {
   return (
     <svg width={SW_W} height={SW_H} role="img" aria-label="truncated trace vs heat time">
       <g transform={'translate(' + SW_PAD.left + ',' + SW_PAD.top + ')'}>
-        <rect x={0} y={0} width={SW_IW} height={SW_IH} fill="rgba(15, 23, 42, 0.55)" stroke="#1e293b" />
+        <rect x={0} y={0} width={SW_IW} height={SW_IH} fill="#fdfaf3" stroke="#d5c9b2" />
 
         {/* Horizontal grid lines and y-axis ticks. */}
         {[0, 0.25, 0.5, 0.75, 1.0].map((frac) => {
           const yv = yMin + frac * (yMax - yMin);
           return (
             <g key={'yt-' + frac}>
-              <line x1={0} y1={y(yv)} x2={SW_IW} y2={y(yv)} stroke="#1e293b" strokeWidth={1} />
-              <text x={-6} y={y(yv) + 3} fontSize={10} fill="#94a3b8" textAnchor="end"
-                    fontFamily="var(--font-mono, monospace)">{yv.toFixed(2)}</text>
+              <line x1={0} y1={y(yv)} x2={SW_IW} y2={y(yv)} stroke="#e3d8c2" strokeWidth={1} />
+              <text x={-6} y={y(yv) + 3} fontSize={10} fill="#877b67" textAnchor="end"
+                    fontFamily="var(--ed-mono, monospace)">{yv.toFixed(2)}</text>
             </g>
           );
         })}
@@ -133,38 +134,38 @@ function HeatFlowSweep() {
         {/* x-axis ticks. */}
         {[0, 0.05, 0.10, 0.15, 0.20].map((tv) => (
           <g key={'xt-' + tv}>
-            <line x1={x(tv)} y1={SW_IH} x2={x(tv)} y2={SW_IH + 4} stroke="#64748b" />
-            <text x={x(tv)} y={SW_IH + 16} fontSize={10} fill="#94a3b8" textAnchor="middle"
-                  fontFamily="var(--font-mono, monospace)">{tv.toFixed(2)}</text>
+            <line x1={x(tv)} y1={SW_IH} x2={x(tv)} y2={SW_IH + 4} stroke="#877b67" />
+            <text x={x(tv)} y={SW_IH + 16} fontSize={10} fill="#877b67" textAnchor="middle"
+                  fontFamily="var(--ed-mono, monospace)">{tv.toFixed(2)}</text>
           </g>
         ))}
 
         {/* x-axis label. */}
-        <text x={SW_IW / 2} y={SW_IH + 34} fontSize={11} fill="#cbd5e1"
-              textAnchor="middle" fontFamily="var(--font-mono, monospace)">heat time t</text>
+        <text x={SW_IW / 2} y={SW_IH + 34} fontSize={11} fill="#4a4238"
+              textAnchor="middle" fontFamily="var(--ed-mono, monospace)">heat time t</text>
 
         {/* y-axis label. */}
-        <text x={-46} y={SW_IH / 2} fontSize={11} fill="#cbd5e1" textAnchor="middle"
+        <text x={-46} y={SW_IH / 2} fontSize={11} fill="#4a4238" textAnchor="middle"
               transform={'rotate(-90,-46,' + (SW_IH / 2) + ')'}
-              fontFamily="var(--font-mono, monospace)">Tr_p,k(t)</text>
+              fontFamily="var(--ed-mono, monospace)">Tr_p,k(t)</text>
 
         {/* Zero baseline. */}
-        <line x1={0} y1={y(0)} x2={SW_IW} y2={y(0)} stroke="#ef4444" strokeWidth={1} strokeDasharray="3,3" />
-        <text x={SW_IW - 6} y={y(0) - 4} fontSize={10} fill="#ef4444" textAnchor="end"
-              fontFamily="var(--font-mono, monospace)">positivity floor</text>
+        <line x1={0} y1={y(0)} x2={SW_IW} y2={y(0)} stroke="#c23a1c" strokeWidth={1} strokeDasharray="3,3" />
+        <text x={SW_IW - 6} y={y(0) - 4} fontSize={10} fill="#c23a1c" textAnchor="end"
+              fontFamily="var(--ed-mono, monospace)">positivity floor</text>
 
         {/* Vertical guide at t = 0.02 (imp-440 regime). */}
-        <line x1={x(tHeat)} y1={0} x2={x(tHeat)} y2={SW_IH} stroke="#22c55e" strokeWidth={1} strokeDasharray="4,3" />
-        <text x={x(tHeat) + 4} y={12} fontSize={10} fill="#22c55e"
-              fontFamily="var(--font-mono, monospace)">t = 0.02</text>
+        <line x1={x(tHeat)} y1={0} x2={x(tHeat)} y2={SW_IH} stroke="#4c7a4a" strokeWidth={1} strokeDasharray="4,3" />
+        <text x={x(tHeat) + 4} y={12} fontSize={10} fill="#4c7a4a"
+              fontFamily="var(--ed-mono, monospace)">t = 0.02</text>
 
         {/* Trace polyline. */}
-        <polyline points={polyline} fill="none" stroke="#a855f7" strokeWidth={2} />
+        <polyline points={polyline} fill="none" stroke="#b58a2e" strokeWidth={2} />
 
         {/* Marker at (tHeat, tHeatTrace). */}
-        <circle cx={x(tHeat)} cy={y(tHeatTrace)} r={4} fill="#22c55e" stroke="#052e16" strokeWidth={1} />
-        <text x={x(tHeat) + 10} y={y(tHeatTrace) - 8} fontSize={11} fill="#22c55e"
-              fontFamily="var(--font-mono, monospace)">{tHeatTrace.toFixed(4)}</text>
+        <circle cx={x(tHeat)} cy={y(tHeatTrace)} r={4} fill="#4c7a4a" stroke="#fdfaf3" strokeWidth={1} />
+        <text x={x(tHeat) + 10} y={y(tHeatTrace) - 8} fontSize={11} fill="#4c7a4a"
+              fontFamily="var(--ed-mono, monospace)">{tHeatTrace.toFixed(4)}</text>
       </g>
     </svg>
   );
@@ -186,7 +187,7 @@ function ContributionsTable() {
           {headers.map((h) => (
             <th key={h} style={thStyle}>{h}</th>
           ))}
-          <th style={{ ...thStyle, color: '#22c55e' }}>per-prime sum</th>
+          <th style={{ ...thStyle, color: 'var(--green)' }}>per-prime sum</th>
         </tr>
       </thead>
       <tbody>
@@ -198,13 +199,13 @@ function ContributionsTable() {
             {r.terms.map((v, i) => (
               <td key={'tk-' + r.prime + '-' + i} style={tdStyle}>{v.toFixed(6)}</td>
             ))}
-            <td style={{ ...tdStyle, color: '#22c55e', fontWeight: 700 }}>{r.perPrimeSum.toFixed(6)}</td>
+            <td style={{ ...tdStyle, color: 'var(--green)', fontWeight: 700 }}>{r.perPrimeSum.toFixed(6)}</td>
           </tr>
         ))}
         <tr>
           <td style={{ ...tdStyle, fontWeight: 700, textAlign: 'left' }}>total</td>
           <td style={tdStyle} colSpan={kMax}></td>
-          <td style={{ ...tdStyle, color: '#22c55e', fontWeight: 700 }}>
+          <td style={{ ...tdStyle, color: 'var(--green)', fontWeight: 700 }}>
             {CONNES_ADELIC_LAMBDA.truncatedTraceAtT0p02.toFixed(6)}
           </td>
         </tr>
@@ -217,7 +218,7 @@ function ContributionsTable() {
 
 function VerdictBanner() {
   const passed = CONNES_ADELIC_LAMBDA.positivityHolds === true;
-  const colour = passed ? '#22c55e' : '#ef4444';
+  const colour = passed ? 'var(--green)' : 'var(--terra-dk)';
   const tHeat  = CONNES_ADELIC_LAMBDA.tHeat;
   const trace  = CONNES_ADELIC_LAMBDA.truncatedTraceAtT0p02;
   const primesStr = '{' + CONNES_ADELIC_LAMBDA.primesUsed.join(', ') + '}';
@@ -229,7 +230,7 @@ function VerdictBanner() {
       paddingLeft: 20,
     }}>
       <div style={{
-        fontFamily: 'var(--font-mono, monospace)',
+        fontFamily: 'var(--ed-mono, var(--font-mono))',
         fontSize: 12,
         color: colour,
         letterSpacing: 1,
@@ -238,7 +239,7 @@ function VerdictBanner() {
       }}>
         {passed ? 'POSITIVITY HOLDS' : 'POSITIVITY FAILS'} -- imp-1109 consistency check
       </div>
-      <div style={{ color: 'var(--text-primary, #e2e8f0)', fontSize: 14, lineHeight: 1.6 }}>
+      <div style={{ color: 'var(--ink)', fontSize: 14, lineHeight: 1.6 }}>
         At heat time <strong style={{ color: colour }}>t = {tHeat}</strong> over the
         first 5 primes <strong>{primesStr}</strong> with K_MAX = {CONNES_ADELIC_LAMBDA.kMax}
         ({CONNES_ADELIC_LAMBDA.numberOfTerms} prime-side terms total, Selberg-style
@@ -247,7 +248,7 @@ function VerdictBanner() {
           Tr_p,k(t) = {trace.toFixed(6)}
         </span>.
       </div>
-      <div style={{ marginTop: 10, color: 'var(--text-secondary, #94a3b8)', fontSize: 12, lineHeight: 1.6 }}>
+      <div style={{ marginTop: 10, color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.6 }}>
         This is a necessary-but-not-sufficient consistency probe. It does NOT prove
         RH or the imp-440 finite-N Lambda bound; it confirms the prime-side
         transcription is sign-correct in the Selberg normalization. The deep
@@ -262,136 +263,129 @@ function VerdictBanner() {
 
 export default function ConnesAdelicPage() {
   return (
-    <div style={{
-      maxWidth: 1100,
-      margin: '0 auto',
-      padding: 24,
-      color: 'var(--text-primary, #e2e8f0)',
-      fontFamily: 'var(--font-sans, system-ui, sans-serif)',
-    }}>
-      <div style={{ marginBottom: 16 }}>
-        <Link to="/" style={{ color: '#60a5fa', fontSize: 12, fontFamily: 'var(--font-mono, monospace)' }}>
-          &larr; home
-        </Link>
-      </div>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>attack · Connes adelic</span>} />
+      <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
 
-      <h1 style={{
-        fontSize: 24,
-        margin: '0 0 8px 0',
-        color: 'var(--text-primary, #e2e8f0)',
-        fontFamily: 'var(--font-mono, monospace)',
-      }}>
-        Connes Adelic Spectral Interpretation
-      </h1>
-      <div style={{
-        color: 'var(--text-secondary, #94a3b8)',
-        fontSize: 13,
-        marginBottom: 20,
-        fontFamily: 'var(--font-mono, monospace)',
-      }}>
-        Weil-positivity RH-equivalent route: survey + small numerical check of the
-        Connes 1999 adelic spectral framework at the imp-440 finite-N Lambda regime
-        (t = 0.02).
-      </div>
-
-      <VerdictBanner />
-
-      <div style={{ marginTop: 20, ...panelStyle }}>
-        <h2 style={h2Style}>Survey</h2>
-        {CONNES_ADELIC_LAMBDA.surveyParagraphs.map((p, i) => (
-          <div key={'sv-' + i} style={{ marginTop: i === 0 ? 0 : 14 }}>
-            <h3 style={h3Style}>{p.heading}</h3>
-            <p style={{ color: 'var(--text-secondary, #cbd5e1)', fontSize: 13, lineHeight: 1.7, margin: 0 }}>
-              {p.text}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      <div style={{ marginTop: 20, ...panelStyle }}>
-        <h2 style={h2Style}>The math</h2>
-        <div style={{ color: 'var(--text-secondary, #cbd5e1)', fontSize: 13, lineHeight: 1.6 }}>
-          <p style={{ marginTop: 0 }}>
-            <strong>Weil-Connes explicit formula on the adele class space.</strong> For
-            an admissible test function <InlineMath tex="h" /> on the spectrum with
-            Fourier transform <InlineMath tex="g" />:
-          </p>
-          <BlockMath tex={'\\sum_{\\gamma}\\, h(\\gamma)\\;=\\;h(i/2) \\,+\\, h(-i/2)\\,+\\,W_\\infty(h)\\,+\\,\\sum_{p}\\, W_p(h)'} />
-          <p>
-            <strong>Local finite-place term.</strong> At prime <InlineMath tex="p" />:
-          </p>
-          <BlockMath tex={'W_p(h)\\;=\\;\\log p\\,\\sum_{k\\geq 1} p^{-k/2}\\,\\bigl[\\,g(k\\log p)\\,+\\,g(-k\\log p)\\,\\bigr]'} />
-          <p>
-            <strong>Heat flow.</strong> The de Bruijn-Newman heat flow at time
-            <InlineMath tex="t" /> deforms the test function by a Gaussian damping
-            in the Fourier variable:
-          </p>
-          <BlockMath tex={'g_t(u)\\;=\\;g(u)\\,\\exp\\!\\bigl(-t\\,u^2\\bigr)'} />
-          <p>
-            <strong>Conjectural Lambda reformulation.</strong>
-          </p>
-          <BlockMath tex={'\\Lambda \\;=\\; -\\,\\inf\\bigl\\{\\,t\\;:\\;\\sum_{\\gamma}\\,h_t(\\gamma)\\;\\geq\\;0\\;\\text{for every admissible positive }h\\,\\bigr\\}'} />
-          <p>
-            <strong>Truncated prime-side trace</strong> over primes
-            <InlineMath tex="\\,\\{2,3,5,7,11\\}" /> at <InlineMath tex="K_{\\max}=5" />
-            with <InlineMath tex="a_p(k)=1" />:
-          </p>
-          <BlockMath tex={'\\mathrm{Tr}_{p,K}(t)\\;=\\;\\sum_{p\\in P}\\,\\log p\\,\\sum_{k=1}^{K}\\,p^{-k/2}\\,\\exp\\!\\bigl(-t\\,(k\\log p)^2\\bigr)'} />
-        </div>
-      </div>
-
-      <div style={{ marginTop: 20, ...panelStyle }}>
-        <h2 style={h2Style}>Per-prime contributions at t = 0.02</h2>
-        <div style={{ color: 'var(--text-secondary, #94a3b8)', fontSize: 12, marginBottom: 10 }}>
-          Each cell is the prime-power term log(p) * p^(-k/2) * exp(-t * (k * log p)^2) at t = 0.02.
-          Per-prime sums and the total are highlighted green. Every entry is positive by construction.
-        </div>
-        <div style={{ overflowX: 'auto' }}>
-          <ContributionsTable />
-        </div>
-      </div>
-
-      <div style={{ marginTop: 20, ...panelStyle }}>
-        <h2 style={h2Style}>Heat-flow sweep: Tr_p,K(t) for t in [0, 0.2]</h2>
-        <div style={{ color: 'var(--text-secondary, #94a3b8)', fontSize: 12, marginBottom: 10 }}>
-          21-point sweep step 0.01. Purple curve is the truncated prime-side trace;
-          green dashed guide marks the imp-440 finite-N Lambda regime at t = 0.02
-          (consistency-check value {CONNES_ADELIC_LAMBDA.truncatedTraceAtT0p02.toFixed(4)});
-          red dashed line is the positivity floor. The sweep is monotone non-increasing
-          because every term is damped by the heat flow.
-        </div>
-        <HeatFlowSweep />
-      </div>
-
-      <div style={{ marginTop: 20, ...panelStyle }}>
-        <h2 style={h2Style}>Honest scope</h2>
-        <p style={{ color: 'var(--text-secondary, #cbd5e1)', fontSize: 13, lineHeight: 1.7, margin: 0 }}>
-          {CONNES_ADELIC_LAMBDA.honestScope}
-        </p>
-      </div>
-
-      <div style={{ marginTop: 20, ...panelStyle }}>
-        <h2 style={h2Style}>References</h2>
-        <ul style={{
-          color: 'var(--text-secondary, #94a3b8)',
-          fontSize: 12,
-          lineHeight: 1.7,
-          paddingLeft: 20,
-          fontFamily: 'var(--font-mono, monospace)',
-          margin: 0,
+        <h1 className="ed-h1" style={{ marginBottom: 8 }}>
+          Connes Adelic Spectral Interpretation
+        </h1>
+        <div style={{
+          color: 'var(--ink-soft)',
+          fontSize: 13,
+          marginBottom: 20,
+          fontFamily: 'var(--ed-mono, var(--font-mono))',
         }}>
-          {CONNES_ADELIC_LAMBDA.citations.map((c, i) => (
-            <li key={'ref-' + i}>{c}</li>
-          ))}
-        </ul>
-      </div>
+          Weil-positivity RH-equivalent route: survey + small numerical check of the
+          Connes 1999 adelic spectral framework at the imp-440 finite-N Lambda regime
+          (t = 0.02).
+        </div>
 
-      <RelatedLinks links={[
-        { to: '/spectral-attack', label: 'Spectral Attack', color: '#f97316' },
-        { to: '/rh-equivalents', label: 'RH Equivalents' },
-        { to: '/route-map', label: 'Route Map' },
-        { to: '/state-of-program', label: 'State of Program' },
-      ]} />
+        <VerdictBanner />
+
+        <div style={{ marginTop: 20, ...panelStyle }}>
+          <h2 style={h2Style}>Survey</h2>
+          {CONNES_ADELIC_LAMBDA.surveyParagraphs.map((p, i) => (
+            <div key={'sv-' + i} style={{ marginTop: i === 0 ? 0 : 14 }}>
+              <h3 style={h3Style}>{p.heading}</h3>
+              <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7, margin: 0 }}>
+                {p.text}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ marginTop: 20, ...panelStyle }}>
+          <h2 style={h2Style}>The math</h2>
+          <div style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6 }}>
+            <p style={{ marginTop: 0 }}>
+              <strong>Weil-Connes explicit formula on the adele class space.</strong> For
+              an admissible test function <InlineMath tex="h" /> on the spectrum with
+              Fourier transform <InlineMath tex="g" />:
+            </p>
+            <BlockMath tex={'\\sum_{\\gamma}\\, h(\\gamma)\\;=\\;h(i/2) \\,+\\, h(-i/2)\\,+\\,W_\\infty(h)\\,+\\,\\sum_{p}\\, W_p(h)'} />
+            <p>
+              <strong>Local finite-place term.</strong> At prime <InlineMath tex="p" />:
+            </p>
+            <BlockMath tex={'W_p(h)\\;=\\;\\log p\\,\\sum_{k\\geq 1} p^{-k/2}\\,\\bigl[\\,g(k\\log p)\\,+\\,g(-k\\log p)\\,\\bigr]'} />
+            <p>
+              <strong>Heat flow.</strong> The de Bruijn-Newman heat flow at time
+              <InlineMath tex="t" /> deforms the test function by a Gaussian damping
+              in the Fourier variable:
+            </p>
+            <BlockMath tex={'g_t(u)\\;=\\;g(u)\\,\\exp\\!\\bigl(-t\\,u^2\\bigr)'} />
+            <p>
+              <strong>Conjectural Lambda reformulation.</strong>
+            </p>
+            <BlockMath tex={'\\Lambda \\;=\\; -\\,\\inf\\bigl\\{\\,t\\;:\\;\\sum_{\\gamma}\\,h_t(\\gamma)\\;\\geq\\;0\\;\\text{for every admissible positive }h\\,\\bigr\\}'} />
+            <p>
+              <strong>Truncated prime-side trace</strong> over primes
+              <InlineMath tex="\\,\\{2,3,5,7,11\\}" /> at <InlineMath tex="K_{\\max}=5" />
+              with <InlineMath tex="a_p(k)=1" />:
+            </p>
+            <BlockMath tex={'\\mathrm{Tr}_{p,K}(t)\\;=\\;\\sum_{p\\in P}\\,\\log p\\,\\sum_{k=1}^{K}\\,p^{-k/2}\\,\\exp\\!\\bigl(-t\\,(k\\log p)^2\\bigr)'} />
+          </div>
+        </div>
+
+        <div style={{ marginTop: 20, ...panelStyle }}>
+          <h2 style={h2Style}>Per-prime contributions at t = 0.02</h2>
+          <div style={{ color: 'var(--faint)', fontSize: 12, marginBottom: 10 }}>
+            Each cell is the prime-power term log(p) * p^(-k/2) * exp(-t * (k * log p)^2) at t = 0.02.
+            Per-prime sums and the total are highlighted green. Every entry is positive by construction.
+          </div>
+          <div style={{ overflowX: 'auto' }}>
+            <ContributionsTable />
+          </div>
+        </div>
+
+        <div style={{ marginTop: 20, ...panelStyle }}>
+          <h2 style={h2Style}>Heat-flow sweep: Tr_p,K(t) for t in [0, 0.2]</h2>
+          <div style={{ color: 'var(--faint)', fontSize: 12, marginBottom: 10 }}>
+            21-point sweep step 0.01. Brass curve is the truncated prime-side trace;
+            green dashed guide marks the imp-440 finite-N Lambda regime at t = 0.02
+            (consistency-check value {CONNES_ADELIC_LAMBDA.truncatedTraceAtT0p02.toFixed(4)});
+            terracotta dashed line is the positivity floor. The sweep is monotone non-increasing
+            because every term is damped by the heat flow.
+          </div>
+          <HeatFlowSweep />
+        </div>
+
+        <div style={{ marginTop: 20, ...panelStyle }}>
+          <h2 style={h2Style}>Honest scope</h2>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7, margin: 0 }}>
+            {CONNES_ADELIC_LAMBDA.honestScope}
+          </p>
+        </div>
+
+        <div style={{ marginTop: 20, ...panelStyle }}>
+          <h2 style={h2Style}>References</h2>
+          <ul style={{
+            color: 'var(--faint)',
+            fontSize: 12,
+            lineHeight: 1.7,
+            paddingLeft: 20,
+            fontFamily: 'var(--ed-mono, var(--font-mono))',
+            margin: 0,
+          }}>
+            {CONNES_ADELIC_LAMBDA.citations.map((c, i) => (
+              <li key={'ref-' + i}>{c}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div style={{ marginTop: 30, fontSize: 13, color: 'var(--ink-soft)', borderTop: '1px solid var(--hairline)', paddingTop: 20 }}>
+          <p style={{ margin: 0 }}>
+            <Link to="/">&larr; the atlas</Link>
+          </p>
+        </div>
+
+        <RelatedLinks links={[
+          { to: '/spectral-attack', label: 'Spectral Attack', color: 'var(--terra-dk)' },
+          { to: '/rh-equivalents', label: 'RH Equivalents', color: 'var(--blue)' },
+          { to: '/route-map', label: 'Route Map', color: 'var(--brass)' },
+          { to: '/state-of-program', label: 'State of Program', color: 'var(--brass-dk)' },
+        ]} />
+      </div>
     </div>
   );
 }

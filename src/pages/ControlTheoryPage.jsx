@@ -63,18 +63,18 @@ export default function ControlTheoryPage() {
               gap: 14,
             }}
           >
-            <Panel color="var(--blue)" title="Functional-equation factor">
+            <Panel color="#3f6b86" title="Functional-equation factor">
               <BlockMath tex="|\chi(\tfrac12+it)|=1\qquad(t\in\mathbb R)." />
               This is a linewise boundary-modulus identity. Isolated off-line points may also have
               unit modulus. The identity alone does not construct a causal passive two-port.
             </Panel>
-            <Panel color="var(--brass)" title="Algebraic Euler embedding">
+            <Panel color="#8c6a1d" title="Algebraic Euler embedding">
               <BlockMath tex="S_{21}^{(A)}(s)=\frac{\zeta(2s)}{\zeta(s)}." />
               This exact Euler-product ratio comes from the separate symmetric algebraic matrices.
               Generic zeta zeros are poles, while uncancelled <InlineMath tex="\zeta(2s)" /> zeros are
               transmission zeros. No physical realization is supplied by the identity.
             </Panel>
-            <Panel color="var(--brass-dk)" title="Physical LC proxy">
+            <Panel color="#b58a2e" title="Physical LC proxy">
               A physical series/shunt or undamped LC cascade has its own ABCD transmission function.
               It is not <InlineMath tex="\zeta(2s)/\zeta(s)" />. Circuit language is an analogy until
               an exact realization theorem proves otherwise.
@@ -105,7 +105,7 @@ export default function ControlTheoryPage() {
         <section style={{ marginTop: 34 }}>
           <h2 className="ed-h2" style={{ marginBottom: 12 }}>Why generic losslessness is insufficient</h2>
           <div style={{ display: 'grid', gap: 14 }}>
-            <Panel color="var(--terra-dk)" title="Counterexample pattern">
+            <Panel color="#c23a1c" title="Counterexample pattern">
               A reciprocal matrix
               <BlockMath tex="S(s)=\begin{pmatrix}0&h(s)\\h(s)&0\end{pmatrix},\qquad h(s)=\frac{s-a}{s+a},\quad a>0," />
               is unitary on the imaginary axis wherever defined, yet
@@ -114,7 +114,7 @@ export default function ControlTheoryPage() {
               that boundary. Any Darlington invocation must state the full synthesis class, stability,
               minimality, normalization, and divisor-identification hypotheses.
             </Panel>
-            <Panel color="var(--brass-dk)" title="Davenport–Heilbronn warning">
+            <Panel color="#b58a2e" title="Davenport–Heilbronn warning">
               Functional-equation symmetry and a unit-modulus boundary factor also occur for
               Davenport–Heilbronn-type functions with off-line zeros. A valid zeta argument must use
               additional arithmetic structure—most notably the Euler product—without silently replacing

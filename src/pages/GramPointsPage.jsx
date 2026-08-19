@@ -134,9 +134,9 @@ export default function GramPointsPage() {
           gap: 12,
         }}>
           <Stat label="Gram points" value={String(D.totalComputed)} />
-          <Stat label="Violations" value={String(D.totalViolations)} accent="var(--terra-dk)" />
+          <Stat label="Violations" value={String(D.totalViolations)} accent="#c23a1c" />
           <Stat label="Violation rate" value={D.violationRate + '%'} accent={D.violationRate > 15 && D.violationRate < 40 ? 'var(--brass-dk)' : 'var(--terra-dk)'} />
-          <Stat label="1st exception" value={D.firstException ? 'n=' + D.firstException.n : '?'} accent="var(--blue)" />
+          <Stat label="1st exception" value={D.firstException ? 'n=' + D.firstException.n : '?'} accent="#3f6b86" />
           <Stat label="Spacing ratio" value={String(D.spacing.ratio)} accent={D.spacing.ratio > 0.7 && D.spacing.ratio < 1.5 ? 'var(--green)' : 'var(--terra-dk)'} />
           <Stat label="1-zero intervals" value={IA.gramLawIntervalPct + '%'} accent={IA.gramLawIntervalPct > 50 ? 'var(--green)' : 'var(--terra-dk)'} />
         </div>
@@ -204,12 +204,12 @@ export default function GramPointsPage() {
                 const h = IH - yP2(b.rate);
                 return (
                   <g key={i}>
-                    <rect x={x} y={yP2(b.rate)} width={barW} height={h} fill="var(--brass)" fillOpacity={0.8} />
+                    <rect x={x} y={yP2(b.rate)} width={barW} height={h} fill="#8c6a1d" fillOpacity={0.8} />
                     <text x={x + barW / 2} y={IH + 16} textAnchor="middle" style={TF}>{b.range.split('-')[0]}</text>
                   </g>
                 );
               })}
-              <line x1={0} x2={IW} y1={yP2(D.violationRate)} y2={yP2(D.violationRate)} stroke="var(--brass-dk)" strokeDasharray="4,3" strokeWidth={1.5} />
+              <line x1={0} x2={IW} y1={yP2(D.violationRate)} y2={yP2(D.violationRate)} stroke="#b58a2e" strokeDasharray="4,3" strokeWidth={1.5} />
               <text x={IW + 4} y={yP2(D.violationRate) + 3} style={{ ...TF, fill: 'var(--brass-dk)' }}>avg</text>
               <text x={IW / 2} y={IH + 36} textAnchor="middle" style={{ ...LF, fontSize: 11 }}>block start n</text>
             </g>
@@ -233,12 +233,12 @@ export default function GramPointsPage() {
                     key={i}
                     x1={xP3(i - 1)} y1={yP3(prev.gSp)}
                     x2={xP3(i)} y2={yP3(s.gSp)}
-                    stroke="var(--blue)" strokeWidth={1.5}
+                    stroke="#3f6b86" strokeWidth={1.5}
                   />
                 );
               })}
               {spacings.map((s, i) => (
-                <circle key={i} cx={xP3(i)} cy={yP3(s.gSp)} r={2} fill="var(--blue)" />
+                <circle key={i} cx={xP3(i)} cy={yP3(s.gSp)} r={2} fill="#3f6b86" />
               ))}
               <text x={IW / 2} y={IH + 36} textAnchor="middle" style={{ ...LF, fontSize: 11 }}>index</text>
             </g>
@@ -255,10 +255,10 @@ export default function GramPointsPage() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: 12 }}>
             <MiniStat label="Total intervals" value={IA.totalIntervals} />
-            <MiniStat label="0 zeros (empty)" value={IA.empty} color="var(--terra-dk)" />
-            <MiniStat label="1 zero (normal)" value={IA.single} color="var(--green)" />
-            <MiniStat label="2+ zeros" value={IA.double} color="var(--brass-dk)" />
-            <MiniStat label="Zeros checked" value={IA.zerosChecked} color="var(--blue)" />
+            <MiniStat label="0 zeros (empty)" value={IA.empty} color="#c23a1c" />
+            <MiniStat label="1 zero (normal)" value={IA.single} color="#4c7a4a" />
+            <MiniStat label="2+ zeros" value={IA.double} color="#b58a2e" />
+            <MiniStat label="Zeros checked" value={IA.zerosChecked} color="#3f6b86" />
           </div>
         </div>
 

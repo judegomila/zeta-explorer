@@ -62,17 +62,17 @@ function ConditioningArtifactChart() {
       <rect x={padL} y={p2Top} width={cW} height={p2H} fill="rgba(76,122,74,0.05)" rx={2} />
 
       {/* panel labels */}
-      <text x={padL + 7} y={p1Top + 15} fill="var(--terra-dk)" fontSize={11} fontWeight="700">
+      <text x={padL + 7} y={p1Top + 15} fill="#c23a1c" fontSize={11} fontWeight="700">
         RAW monomial basis: &nbsp;&parallel;R&parallel; DIVERGES
       </text>
-      <text x={padL + 7} y={p2Top + 15} fill="var(--green)" fontSize={11} fontWeight="700">
+      <text x={padL + 7} y={p2Top + 15} fill="#4c7a4a" fontSize={11} fontWeight="700">
         Basis-invariant &parallel;R_orth&parallel; CONVERGES to tanh(aU)
       </text>
 
       {/* shared vertical gridlines */}
       {degs.map((deg) => (
         <line key={deg} x1={xScale(deg)} y1={p1Top} x2={xScale(deg)} y2={p2Top + p2H}
-          stroke="var(--hair2)" strokeWidth={1} />
+          stroke="#e3d8c2" strokeWidth={1} />
       ))}
 
       {/* raw y-axis gridlines and labels */}
@@ -81,8 +81,8 @@ function ConditioningArtifactChart() {
         if (y < p1Top - 1 || y > p1Top + p1H + 1) return null;
         return (
           <g key={v}>
-            <line x1={padL} y1={y} x2={padL + cW} y2={y} stroke="var(--hair2)" strokeWidth={1} />
-            <text x={padL - 5} y={y + 3.5} textAnchor="end" fill="var(--faint)" fontSize={10}>{v}</text>
+            <line x1={padL} y1={y} x2={padL + cW} y2={y} stroke="#e3d8c2" strokeWidth={1} />
+            <text x={padL - 5} y={y + 3.5} textAnchor="end" fill="#877b67" fontSize={10}>{v}</text>
           </g>
         );
       })}
@@ -93,36 +93,36 @@ function ConditioningArtifactChart() {
         if (y < p2Top - 1 || y > p2Top + p2H + 1) return null;
         return (
           <g key={v}>
-            <line x1={padL} y1={y} x2={padL + cW} y2={y} stroke="var(--hair2)" strokeWidth={1} />
-            <text x={padL - 5} y={y + 3.5} textAnchor="end" fill="var(--faint)" fontSize={10}>{v.toFixed(2)}</text>
+            <line x1={padL} y1={y} x2={padL + cW} y2={y} stroke="#e3d8c2" strokeWidth={1} />
+            <text x={padL - 5} y={y + 3.5} textAnchor="end" fill="#877b67" fontSize={10}>{v.toFixed(2)}</text>
           </g>
         );
       })}
 
       {/* analytic ceiling tanh(aU) */}
       <line x1={padL} y1={ceilY} x2={padL + cW} y2={ceilY}
-        stroke="var(--blue)" strokeWidth={1.5} strokeDasharray="5 3" />
-      <text x={padL + cW - 4} y={ceilY - 4} textAnchor="end" fill="var(--blue)" fontSize={9.5}>
+        stroke="#3f6b86" strokeWidth={1.5} strokeDasharray="5 3" />
+      <text x={padL + cW - 4} y={ceilY - 4} textAnchor="end" fill="#3f6b86" fontSize={9.5}>
         tanh(aU)={TANH_CEILING.toFixed(5)}
       </text>
 
       {/* raw diverging path and dots */}
-      <path d={rawPath} fill="none" stroke="var(--terra-dk)" strokeWidth={2.5} />
+      <path d={rawPath} fill="none" stroke="#c23a1c" strokeWidth={2.5} />
       {rawSweep.map((r) => (
-        <circle key={r.degree} cx={xScale(r.degree)} cy={rawY(r.operatorNorm)} r={3.5} fill="var(--terra-dk)" />
+        <circle key={r.degree} cx={xScale(r.degree)} cy={rawY(r.operatorNorm)} r={3.5} fill="#c23a1c" />
       ))}
       {/* raw value labels at start and end */}
-      <text x={xScale(2) + 5} y={rawY(rawSweep[0].operatorNorm) - 5} fill="var(--terra-dk)" fontSize={9.5}>
+      <text x={xScale(2) + 5} y={rawY(rawSweep[0].operatorNorm) - 5} fill="#c23a1c" fontSize={9.5}>
         {rawSweep[0].operatorNorm.toFixed(2)}
       </text>
-      <text x={xScale(12) - 4} y={rawY(rawSweep[rawSweep.length - 1].operatorNorm) - 5} textAnchor="end" fill="var(--terra-dk)" fontSize={9.5}>
+      <text x={xScale(12) - 4} y={rawY(rawSweep[rawSweep.length - 1].operatorNorm) - 5} textAnchor="end" fill="#c23a1c" fontSize={9.5}>
         {rawSweep[rawSweep.length - 1].operatorNorm.toFixed(2)}
       </text>
 
       {/* orthogonalized converging path and dots (valid) */}
-      <path d={orthPath} fill="none" stroke="var(--green)" strokeWidth={2.5} />
+      <path d={orthPath} fill="none" stroke="#4c7a4a" strokeWidth={2.5} />
       {validOrth.map((r) => (
-        <circle key={r.degree} cx={xScale(r.degree)} cy={orthY(r.operatorNormGS)} r={3.5} fill="var(--green)" />
+        <circle key={r.degree} cx={xScale(r.degree)} cy={orthY(r.operatorNormGS)} r={3.5} fill="#4c7a4a" />
       ))}
 
       {/* ill-conditioned ghost dots */}
@@ -130,8 +130,8 @@ function ConditioningArtifactChart() {
         const cy = Math.min(orthY(Math.max(r.operatorNormGS, yMinOrth)), p2Top + p2H);
         return (
           <g key={r.degree}>
-            <circle cx={xScale(r.degree)} cy={cy} r={4} fill="none" stroke="var(--faint)" strokeWidth={1.5} strokeDasharray="2 1.5" />
-            <text x={xScale(r.degree)} y={p2Top + p2H - 4} textAnchor="middle" fill="var(--faint)" fontSize={8.5}>
+            <circle cx={xScale(r.degree)} cy={cy} r={4} fill="none" stroke="#877b67" strokeWidth={1.5} strokeDasharray="2 1.5" />
+            <text x={xScale(r.degree)} y={p2Top + p2H - 4} textAnchor="middle" fill="#877b67" fontSize={8.5}>
               ill-cond.
             </text>
           </g>
@@ -141,11 +141,11 @@ function ConditioningArtifactChart() {
       {/* orth value labels at start and end (valid range) */}
       {validOrth.length > 0 && (
         <>
-          <text x={xScale(validOrth[0].degree) + 5} y={orthY(validOrth[0].operatorNormGS) - 5} fill="var(--green)" fontSize={9.5}>
+          <text x={xScale(validOrth[0].degree) + 5} y={orthY(validOrth[0].operatorNormGS) - 5} fill="#4c7a4a" fontSize={9.5}>
             {validOrth[0].operatorNormGS.toFixed(5)}
           </text>
           <text x={xScale(validOrth[validOrth.length - 1].degree) - 4}
-            y={orthY(validOrth[validOrth.length - 1].operatorNormGS) - 5} textAnchor="end" fill="var(--green)" fontSize={9.5}>
+            y={orthY(validOrth[validOrth.length - 1].operatorNormGS) - 5} textAnchor="end" fill="#4c7a4a" fontSize={9.5}>
             {validOrth[validOrth.length - 1].operatorNormGS.toFixed(5)}
           </text>
         </>
@@ -153,17 +153,17 @@ function ConditioningArtifactChart() {
 
       {/* x-axis tick labels */}
       {degs.map((deg) => (
-        <text key={deg} x={xScale(deg)} y={p2Top + p2H + 14} textAnchor="middle" fill="var(--faint)" fontSize={10}>
+        <text key={deg} x={xScale(deg)} y={p2Top + p2H + 14} textAnchor="middle" fill="#877b67" fontSize={10}>
           {deg}
         </text>
       ))}
-      <text x={padL + cW / 2} y={p2Top + p2H + 27} textAnchor="middle" fill="var(--faint)" fontSize={10}>
+      <text x={padL + cW / 2} y={p2Top + p2H + 27} textAnchor="middle" fill="#877b67" fontSize={10}>
         Truncation degree DEG
       </text>
 
       {/* panel borders */}
-      <rect x={padL} y={p1Top} width={cW} height={p1H} fill="none" stroke="var(--hairline)" strokeWidth={1} />
-      <rect x={padL} y={p2Top} width={cW} height={p2H} fill="none" stroke="var(--hairline)" strokeWidth={1} />
+      <rect x={padL} y={p1Top} width={cW} height={p1H} fill="none" stroke="#d5c9b2" strokeWidth={1} />
+      <rect x={padL} y={p2Top} width={cW} height={p2H} fill="none" stroke="#d5c9b2" strokeWidth={1} />
     </svg>
   );
 }

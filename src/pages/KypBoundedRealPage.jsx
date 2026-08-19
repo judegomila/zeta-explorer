@@ -57,21 +57,21 @@ function ParallelDelayDiagram() {
       aria-label="Parallel-delay realization of the prime-delay system: input feeds delay lines at tau_p = log p for each prime p"
     >
       {/* Input node */}
-      <circle cx={inputX} cy={inputY} r={18} fill="rgba(63,107,134,0.12)" stroke="var(--blue)" strokeWidth="2" />
-      <text x={inputX} y={inputY + 5} textAnchor="middle" fontFamily={mono} fontSize="13" fill="var(--blue)">u</text>
+      <circle cx={inputX} cy={inputY} r={18} fill="rgba(63,107,134,0.12)" stroke="#3f6b86" strokeWidth="2" />
+      <text x={inputX} y={inputY + 5} textAnchor="middle" fontFamily={mono} fontSize="13" fill="#3f6b86">u</text>
 
       {/* Summing junction */}
-      <circle cx={summingX} cy={inputY} r={18} fill="rgba(194,58,28,0.10)" stroke="var(--terra-dk)" strokeWidth="2" />
-      <text x={summingX} y={inputY - 4} textAnchor="middle" fontFamily={mono} fontSize="16" fontWeight="700" fill="var(--terra-dk)">+</text>
-      <text x={summingX} y={inputY + 12} textAnchor="middle" fontFamily={mono} fontSize="10" fill="var(--faint)">sum</text>
+      <circle cx={summingX} cy={inputY} r={18} fill="rgba(194,58,28,0.10)" stroke="#c23a1c" strokeWidth="2" />
+      <text x={summingX} y={inputY - 4} textAnchor="middle" fontFamily={mono} fontSize="16" fontWeight="700" fill="#c23a1c">+</text>
+      <text x={summingX} y={inputY + 12} textAnchor="middle" fontFamily={mono} fontSize="10" fill="#877b67">sum</text>
 
       {/* Output arrow */}
-      <line x1={summingX + 18} y1={inputY} x2={outputX - 10} y2={inputY} stroke="var(--ink-soft)" strokeWidth="1.5" markerEnd="url(#arr)" />
-      <text x={outputX + 4} y={inputY + 5} fontFamily={mono} fontSize="13" fill="var(--brass)">y</text>
+      <line x1={summingX + 18} y1={inputY} x2={outputX - 10} y2={inputY} stroke="#4a4238" strokeWidth="1.5" markerEnd="url(#arr)" />
+      <text x={outputX + 4} y={inputY + 5} fontFamily={mono} fontSize="13" fill="#8c6a1d">y</text>
 
       <defs>
         <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-          <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--ink-soft)" />
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#4a4238" />
         </marker>
       </defs>
 
@@ -85,34 +85,34 @@ function ParallelDelayDiagram() {
         return (
           <g key={p}>
             {/* Fan-out from input */}
-            <line x1={inputX + 18} y1={inputY} x2={inputX + 50} y2={inputY} stroke="var(--ink-soft)" strokeWidth="1" />
-            <line x1={inputX + 50} y1={inputY} x2={inputX + 50} y2={laneY} stroke="var(--ink-soft)" strokeWidth="1" />
-            <line x1={inputX + 50} y1={laneY} x2={delayX - 4} y2={laneY} stroke="var(--ink-soft)" strokeWidth="1" markerEnd="url(#arr)" />
+            <line x1={inputX + 18} y1={inputY} x2={inputX + 50} y2={inputY} stroke="#4a4238" strokeWidth="1" />
+            <line x1={inputX + 50} y1={inputY} x2={inputX + 50} y2={laneY} stroke="#4a4238" strokeWidth="1" />
+            <line x1={inputX + 50} y1={laneY} x2={delayX - 4} y2={laneY} stroke="#4a4238" strokeWidth="1" markerEnd="url(#arr)" />
 
             {/* Delay block */}
             <rect
               x={delayX} y={laneY - delayH2 / 2}
               width={delayW} height={delayH2}
               rx="5" ry="5"
-              fill="var(--paper2)" stroke={hue} strokeWidth="1.5"
+              fill="#f6f1e7" stroke={hue} strokeWidth="1.5"
             />
             <text x={delayX + delayW / 2} y={laneY - 2} textAnchor="middle" fontFamily={mono} fontSize="11" fill={hue}>
               {`e^{-${p === 2 ? '\\log 2' : p === 3 ? '\\log 3' : `\\log ${p}`} z}`}
             </text>
-            <text x={delayX + delayW / 2} y={laneY + 12} textAnchor="middle" fontFamily={mono} fontSize="10" fill="var(--faint)">
+            <text x={delayX + delayW / 2} y={laneY + 12} textAnchor="middle" fontFamily={mono} fontSize="10" fill="#877b67">
               {`p=${p}, tau=${Math.log(p).toFixed(3)}`}
             </text>
 
             {/* Fan-in to summing junction */}
-            <line x1={delayX + delayW + 4} y1={laneY} x2={summingX - 20} y2={laneY} stroke="var(--ink-soft)" strokeWidth="1" markerEnd="url(#arr)" />
-            <line x1={summingX - 20} y1={laneY} x2={summingX - 20} y2={inputY} stroke="var(--ink-soft)" strokeWidth="1" />
-            <line x1={summingX - 20} y1={inputY} x2={summingX - 18} y2={inputY} stroke="var(--ink-soft)" strokeWidth="1" />
+            <line x1={delayX + delayW + 4} y1={laneY} x2={summingX - 20} y2={laneY} stroke="#4a4238" strokeWidth="1" markerEnd="url(#arr)" />
+            <line x1={summingX - 20} y1={laneY} x2={summingX - 20} y2={inputY} stroke="#4a4238" strokeWidth="1" />
+            <line x1={summingX - 20} y1={inputY} x2={summingX - 18} y2={inputY} stroke="#4a4238" strokeWidth="1" />
           </g>
         );
       })}
 
       {/* Label */}
-      <text x={W / 2} y={H - 8} textAnchor="middle" fontFamily={mono} fontSize="11" fill="var(--faint)">
+      <text x={W / 2} y={H - 8} textAnchor="middle" fontFamily={mono} fontSize="11" fill="#877b67">
         Parallel prime-delay realization of Sigma_a (first 8 primes shown)
       </text>
     </svg>

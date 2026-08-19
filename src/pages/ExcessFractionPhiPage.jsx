@@ -122,7 +122,7 @@ function PhiChart() {
       </defs>
 
       {/* Chart background */}
-      <rect x={padL} y={padT} width={cW} height={cH} fill="var(--paper2)" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="#f6f1e7" rx={2} />
 
       {/* Onset window shading [s0, s0+1] */}
       <rect x={padL} y={padT} width={xOnsetEnd - padL} height={cH}
@@ -139,8 +139,8 @@ function PhiChart() {
         return (
           <g key={ly}>
             <line x1={padL} y1={y} x2={padL + cW} y2={y}
-              stroke="var(--hair2)" strokeWidth={0.8} />
-            <text x={padL - 4} y={y + 3.5} textAnchor="end" fill="var(--faint)" fontSize={9}>
+              stroke="#e3d8c2" strokeWidth={0.8} />
+            <text x={padL - 4} y={y + 3.5} textAnchor="end" fill="#877b67" fontSize={9}>
               {ly >= 0 ? '10^' + ly : '10^(' + ly + ')'}
             </text>
           </g>
@@ -149,75 +149,75 @@ function PhiChart() {
 
       {/* Vertical divider at s0+1 */}
       <line x1={xOnsetEnd} y1={padT} x2={xOnsetEnd} y2={padT + cH}
-        stroke="var(--faint)" strokeWidth={1} strokeDasharray="4 3" />
+        stroke="#877b67" strokeWidth={1} strokeDasharray="4 3" />
 
       {/* Region labels inside chart */}
       <text x={padL + (xOnsetEnd - padL) / 2} y={padT + 14}
-        textAnchor="middle" fill="var(--terra-dk)" fontSize={9} fontWeight="700">
+        textAnchor="middle" fill="#c23a1c" fontSize={9} fontWeight="700">
         ONSET WINDOW
       </text>
       <text x={padL + (xOnsetEnd - padL) / 2} y={padT + 25}
-        textAnchor="middle" fill="var(--brass-dk)" fontSize={8.5}>
+        textAnchor="middle" fill="#b58a2e" fontSize={8.5}>
         [s₀, s₀+1]
       </text>
       <text x={xOnsetEnd + 8} y={padT + 14}
-        fill="var(--green)" fontSize={9} fontWeight="700">
+        fill="#4c7a4a" fontSize={9} fontWeight="700">
         REGULAR + TAIL
       </text>
-      <text x={xOnsetEnd + 8} y={padT + 25} fill="var(--green)" fontSize={8.5}>
+      <text x={xOnsetEnd + 8} y={padT + 25} fill="#4c7a4a" fontSize={8.5}>
         mass = {REG_MASS.toFixed(4)} (finite)
       </text>
 
       {/* Onset pole approximation */}
-      <path d={onsetPath} fill="none" stroke="var(--brass-dk)" strokeWidth={1.7}
+      <path d={onsetPath} fill="none" stroke="#b58a2e" strokeWidth={1.7}
         strokeDasharray="6 3" clipPath="url(#phi3106-clip)" />
 
       {/* Tail approximation */}
-      <path d={tailPath} fill="none" stroke="var(--blue)" strokeWidth={1.7}
+      <path d={tailPath} fill="none" stroke="#3f6b86" strokeWidth={1.7}
         strokeDasharray="6 3" clipPath="url(#phi3106-clip)" />
 
       {/* Actual phi(s) curve */}
-      <path d={phiPath} fill="none" stroke="var(--ink)" strokeWidth={2.2}
+      <path d={phiPath} fill="none" stroke="#1c1814" strokeWidth={2.2}
         clipPath="url(#phi3106-clip)" />
 
       {/* Divergence upward arrow at left edge of onset window */}
       <line x1={padL + 10} y1={padT + 44} x2={padL + 10} y2={padT + 6}
-        stroke="var(--terra-dk)" strokeWidth={1.5} />
+        stroke="#c23a1c" strokeWidth={1.5} />
       <polygon
         points={
           (padL + 10 - 4) + ',' + (padT + 10) + ' ' +
           (padL + 10 + 4) + ',' + (padT + 10) + ' ' +
           (padL + 10) + ',' + (padT + 2)
         }
-        fill="var(--terra-dk)"
+        fill="#c23a1c"
       />
-      <text x={padL + 17} y={padT + 42} fill="var(--terra-dk)" fontSize={9.5} fontWeight="700">
+      <text x={padL + 17} y={padT + 42} fill="#c23a1c" fontSize={9.5} fontWeight="700">
         DIVERGES as s→s₀+
       </text>
 
       {/* Chart border */}
       <rect x={padL} y={padT} width={cW} height={cH}
-        fill="none" stroke="var(--hairline)" strokeWidth={1} />
+        fill="none" stroke="#d5c9b2" strokeWidth={1} />
 
       {/* Legend */}
       <g transform={'translate(' + (padL + cW - 168) + ',' + (padT + cH - 68) + ')'}>
-        <rect x={0} y={0} width={162} height={62} fill="var(--paper)" rx={4}
-          stroke="var(--hairline)" strokeWidth={0.8} />
-        <line x1={8} y1={13} x2={24} y2={13} stroke="var(--ink)" strokeWidth={2.2} />
-        <text x={30} y={17} fill="var(--ink)" fontSize={9.5}>
+        <rect x={0} y={0} width={162} height={62} fill="#fdfaf3" rx={4}
+          stroke="#d5c9b2" strokeWidth={0.8} />
+        <line x1={8} y1={13} x2={24} y2={13} stroke="#1c1814" strokeWidth={2.2} />
+        <text x={30} y={17} fill="#1c1814" fontSize={9.5}>
           φ(s) = G(s)/F(s)
         </text>
-        <line x1={8} y1={28} x2={24} y2={28} stroke="var(--brass-dk)" strokeWidth={1.7}
+        <line x1={8} y1={28} x2={24} y2={28} stroke="#b58a2e" strokeWidth={1.7}
           strokeDasharray="5 3" />
-        <text x={30} y={32} fill="var(--brass-dk)" fontSize={9.5}>
+        <text x={30} y={32} fill="#b58a2e" fontSize={9.5}>
           C/(s-s₀)^2  C={C_POLE.toFixed(5)}
         </text>
-        <line x1={8} y1={43} x2={24} y2={43} stroke="var(--blue)" strokeWidth={1.7}
+        <line x1={8} y1={43} x2={24} y2={43} stroke="#3f6b86" strokeWidth={1.7}
           strokeDasharray="5 3" />
-        <text x={30} y={47} fill="var(--blue)" fontSize={9.5}>
+        <text x={30} y={47} fill="#3f6b86" fontSize={9.5}>
           K e^(-s)  K={K_TAIL.toFixed(5)}
         </text>
-        <text x={8} y={59} fill="var(--faint)" fontSize={8.5}>
+        <text x={8} y={59} fill="#877b67" fontSize={8.5}>
           s₀ = arcsinh(1) ≈ {S0.toFixed(5)}
         </text>
       </g>
@@ -228,15 +228,15 @@ function PhiChart() {
         return (
           <g key={s}>
             <line x1={x} y1={padT + cH} x2={x} y2={padT + cH + 5}
-              stroke="var(--hairline)" strokeWidth={1} />
-            <text x={x} y={padT + cH + 16} textAnchor="middle" fill="var(--faint)" fontSize={9.5}>
+              stroke="#d5c9b2" strokeWidth={1} />
+            <text x={x} y={padT + cH + 16} textAnchor="middle" fill="#877b67" fontSize={9.5}>
               {label}
             </text>
           </g>
         );
       })}
       <text x={padL + cW / 2} y={padT + cH + 33} textAnchor="middle"
-        fill="var(--faint)" fontSize={10}>
+        fill="#877b67" fontSize={10}>
         s = a · U  (product of shear weight and half-window)
       </text>
 
@@ -245,7 +245,7 @@ function PhiChart() {
         x={11}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="var(--faint)"
+        fill="#877b67"
         fontSize={10}
         transform={'rotate(-90,11,' + (padT + cH / 2) + ')'}
       >

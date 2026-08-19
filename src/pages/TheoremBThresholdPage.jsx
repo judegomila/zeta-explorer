@@ -72,37 +72,37 @@ function BoundaryPolyChart() {
     <svg viewBox={`0 0 ${svgW} ${svgH}`} width="100%" style={{ maxWidth: 620 }}>
       {/* zero line */}
       <line x1={padL} y1={y0} x2={padL + cW} y2={y0} stroke={HAIR} strokeDasharray="3 3" />
-      <text x={padL + cW} y={y0 - 4} fill="var(--faint)" fontSize={9} textAnchor="end">Q = 0 (sign boundary)</text>
+      <text x={padL + cW} y={y0 - 4} fill="#877b67" fontSize={9} textAnchor="end">Q = 0 (sign boundary)</text>
 
       {/* trap-holds shading Theta in [1/4, Theta_b] */}
       <rect x={xScale(0.25)} y={padT} width={xScale(THETA_B) - xScale(0.25)} height={cH}
         fill="rgba(76,122,74,0.10)" />
-      <text x={(xScale(0.25) + xScale(THETA_B)) / 2} y={padT + 12} fill="var(--green)" fontSize={9} textAnchor="middle">
+      <text x={(xScale(0.25) + xScale(THETA_B)) / 2} y={padT + 12} fill="#4c7a4a" fontSize={9} textAnchor="middle">
         trap holds (Q ≤ 0)
       </text>
       <rect x={xScale(THETA_B)} y={padT} width={xScale(xMax) - xScale(THETA_B)} height={cH}
         fill="rgba(194,58,28,0.08)" />
-      <text x={(xScale(THETA_B) + xScale(xMax)) / 2} y={padT + 12} fill="var(--terra-dk)" fontSize={9} textAnchor="middle">
+      <text x={(xScale(THETA_B) + xScale(xMax)) / 2} y={padT + 12} fill="#c23a1c" fontSize={9} textAnchor="middle">
         static crossing (Q &gt; 0)
       </text>
 
       {/* Q curve */}
-      <path d={negPath} fill="none" stroke="var(--brass)" strokeWidth={2} />
+      <path d={negPath} fill="none" stroke="#8c6a1d" strokeWidth={2} />
 
       {/* Theta_b marker */}
-      <line x1={xScale(THETA_B)} y1={padT} x2={xScale(THETA_B)} y2={padT + cH} stroke="var(--brass)" strokeWidth={1.4} strokeDasharray="4 3" />
-      <circle cx={xScale(THETA_B)} cy={y0} r={4} fill="var(--brass)" />
-      <text x={xScale(THETA_B)} y={padT + cH + 22} fill="var(--brass)" fontSize={9} textAnchor="middle">Θ_b = 0.443</text>
+      <line x1={xScale(THETA_B)} y1={padT} x2={xScale(THETA_B)} y2={padT + cH} stroke="#8c6a1d" strokeWidth={1.4} strokeDasharray="4 3" />
+      <circle cx={xScale(THETA_B)} cy={y0} r={4} fill="#8c6a1d" />
+      <text x={xScale(THETA_B)} y={padT + cH + 22} fill="#8c6a1d" fontSize={9} textAnchor="middle">Θ_b = 0.443</text>
 
       {/* axes */}
       {xTicks.map((v) => (
         <g key={v}>
-          <text x={xScale(v)} y={svgH - 22} fill="var(--faint)" fontSize={8} textAnchor="middle">{v}</text>
+          <text x={xScale(v)} y={svgH - 22} fill="#877b67" fontSize={8} textAnchor="middle">{v}</text>
           <line x1={xScale(v)} y1={padT + cH} x2={xScale(v)} y2={padT + cH + 3} stroke={HAIR} />
         </g>
       ))}
-      <text x={padL + cW / 2} y={svgH - 6} fill="var(--faint)" fontSize={9} textAnchor="middle">Θ (trap level)</text>
-      <text x={14} y={padT + cH / 2} fill="var(--faint)" fontSize={9} textAnchor="middle"
+      <text x={padL + cW / 2} y={svgH - 6} fill="#877b67" fontSize={9} textAnchor="middle">Θ (trap level)</text>
+      <text x={14} y={padT + cH / 2} fill="#877b67" fontSize={9} textAnchor="middle"
         transform={`rotate(-90, 14, ${padT + cH / 2})`}>
         Q(Θ) = r(2r²+7r−3), r = 2Θ−½
       </text>
@@ -119,11 +119,11 @@ function TrapLadder() {
   const axisY = padT + 24;
   return (
     <svg viewBox={`0 0 ${svgW} ${svgH}`} width="100%" style={{ maxWidth: 620 }}>
-      <line x1={padL} y1={axisY} x2={padL + cW} y2={axisY} stroke="var(--faint)" strokeWidth={1.5} />
+      <line x1={padL} y1={axisY} x2={padL + cW} y2={axisY} stroke="#877b67" strokeWidth={1.5} />
       {[0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55].map((v) => (
         <g key={v}>
           <line x1={xScale(v)} y1={axisY - 3} x2={xScale(v)} y2={axisY + 3} stroke={HAIR} />
-          <text x={xScale(v)} y={axisY + 16} fill="var(--faint)" fontSize={8} textAnchor="middle">{v.toFixed(2)}</text>
+          <text x={xScale(v)} y={axisY + 16} fill="#877b67" fontSize={8} textAnchor="middle">{v.toFixed(2)}</text>
         </g>
       ))}
       {LADDER.map((m, i) => {
@@ -138,7 +138,7 @@ function TrapLadder() {
           </g>
         );
       })}
-      <text x={padL} y={16} fill="var(--faint)" fontSize={10} fontWeight={700}>The Θ-trap ladder</text>
+      <text x={padL} y={16} fill="#877b67" fontSize={10} fontWeight={700}>The Θ-trap ladder</text>
     </svg>
   );
 }

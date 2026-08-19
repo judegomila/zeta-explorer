@@ -43,7 +43,7 @@ function GhostInteractiveDemo() {
   const negativeSquareWeight = ghostPresentUnderNoCancellation ? 2 * (delta - a) : 0;
 
   return (
-    <Card accent="var(--brass)">
+    <Card accent="#8c6a1d">
       <h3 style={{ color: 'var(--brass-dk)', fontSize: 18, margin: '0 0 12px 0' }}>
         Interactive: Candidate ghost negative-square witness
       </h3>
@@ -127,14 +127,14 @@ function FourRouteDecomposition() {
         <g key={r.label}>
           <rect x={r.x - 50} y={r.y - 16} width="100" height="32" rx="6" fill={r.color} fillOpacity="0.14" stroke={r.color} strokeWidth="1.5" />
           <text x={r.x} y={r.y - 2} fill={r.color} textAnchor="middle" fontSize="13" fontWeight="700">{r.label}</text>
-          <text x={r.x} y={r.y + 12} fill="var(--ink-soft)" textAnchor="middle" fontSize="10">{r.sub}</text>
+          <text x={r.x} y={r.y + 12} fill="#4a4238" textAnchor="middle" fontSize="10">{r.sub}</text>
           <line x1={r.x + 50} y1={r.y} x2={400} y2={130} stroke="#d5c9b2" strokeWidth="1" />
         </g>
       ))}
       {/* Shared bottleneck */}
-      <rect x="400" y="110" width="160" height="40" rx="8" fill="var(--terra-dk)" fillOpacity="0.14" stroke="var(--terra-dk)" strokeWidth="2" />
-      <text x="480" y="128" fill="var(--terra-dk)" textAnchor="middle" fontSize="13" fontWeight="700">Ghost-absence</text>
-      <text x="480" y="142" fill="var(--ink-soft)" textAnchor="middle" fontSize="10">B⁺_a ≡ 1 for every a &gt; 0 ⇔ RH</text>
+      <rect x="400" y="110" width="160" height="40" rx="8" fill="#c23a1c" fillOpacity="0.14" stroke="#c23a1c" strokeWidth="2" />
+      <text x="480" y="128" fill="#c23a1c" textAnchor="middle" fontSize="13" fontWeight="700">Ghost-absence</text>
+      <text x="480" y="142" fill="#4a4238" textAnchor="middle" fontSize="10">B⁺_a ≡ 1 for every a &gt; 0 ⇔ RH</text>
     </svg>
   );
 }
@@ -193,7 +193,7 @@ export default function BlaschkeGhostsPage() {
         </Card>
 
         {/* The headline §17.3 result */}
-        <Card accent="var(--brass-dk)">
+        <Card accent="#b58a2e">
           <h3 style={{ color: 'var(--brass-dk)', fontSize: 18, margin: '0 0 12px 0' }}>
             §17.3 One ghost = one negative square
           </h3>
@@ -246,7 +246,7 @@ export default function BlaschkeGhostsPage() {
         </Card>
 
         {/* Conjecture 17.3 */}
-        <Card accent="var(--terra-dk)">
+        <Card accent="#c23a1c">
           <h3 style={{ color: 'var(--terra-dk)', fontSize: 18, margin: '0 0 12px 0' }}>§17.6 The sharpened wall</h3>
           <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6 }}>
             <strong style={{ color: 'var(--terra-dk)' }}>Conjecture 17.3 (Ghost-absence theorem).</strong>{' '}

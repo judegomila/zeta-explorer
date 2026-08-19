@@ -213,9 +213,9 @@ export default function PairCorrelationPage() {
 
                 {/* alpha = 1 vertical guide: Montgomery proved regime boundary. */}
                 <line x1={xTop(1)} y1={0} x2={xTop(1)} y2={IH_TOP}
-                      stroke="var(--brass-dk)" strokeWidth={1} strokeDasharray="4,4" opacity={0.65} />
+                      stroke="#b58a2e" strokeWidth={1} strokeDasharray="4,4" opacity={0.65} />
                 <line x1={xTop(-1)} y1={0} x2={xTop(-1)} y2={IH_TOP}
-                      stroke="var(--brass-dk)" strokeWidth={1} strokeDasharray="4,4" opacity={0.65} />
+                      stroke="#b58a2e" strokeWidth={1} strokeDasharray="4,4" opacity={0.65} />
                 <text x={xTop(1) + 4} y={14} style={{ ...tickStyle, fill: 'var(--brass-dk)' }}>
                   alpha = 1 (Montgomery proved)
                 </text>

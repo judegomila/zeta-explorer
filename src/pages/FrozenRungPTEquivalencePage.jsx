@@ -68,14 +68,14 @@ export default function FrozenRungPTEquivalencePage() {
 
       <h2>The proposition</h2>
 
-      <Part tag="A · inertia half" status={proposition.provenInertiaHalf.status} accent="var(--brass)">
+      <Part tag="A · inertia half" status={proposition.provenInertiaHalf.status} accent="#8c6a1d">
         {proposition.provenInertiaHalf.statement}
         <div style={{ fontSize: 13, color: 'var(--faint)', marginTop: 6 }}>
           cites: {proposition.provenInertiaHalf.cites.join(' · ')}
         </div>
       </Part>
 
-      <Part tag="B · winding-form identity" status={proposition.windingFormIdentity.status} accent="var(--ink-soft)">
+      <Part tag="B · winding-form identity" status={proposition.windingFormIdentity.status} accent="#4a4238">
         {proposition.windingFormIdentity.statement}
       </Part>
 
@@ -93,7 +93,7 @@ export default function FrozenRungPTEquivalencePage() {
         </div>
       </Part>
 
-      <Part tag="D · consequence" status={proposition.consequence.status} accent="var(--brass)">
+      <Part tag="D · consequence" status={proposition.consequence.status} accent="#8c6a1d">
         {proposition.consequence.statement}
         <div style={{ fontSize: 14, color: 'var(--ink-soft)', marginTop: 8 }}>
           {proposition.consequence.ptRemainsSOTA}

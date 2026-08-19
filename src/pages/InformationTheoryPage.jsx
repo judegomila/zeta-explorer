@@ -52,27 +52,27 @@ function KLDivergenceSlider() {
   return (
     <div style={{ marginTop: 16, padding: 12, background: "rgba(194,58,28,0.05)", borderRadius: 8, border: "1px solid rgba(194,58,28,0.25)" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
-        <span style={{ color: "var(--ink-soft)", fontSize: 12 }}>σ =</span>
+        <span style={{ color: "#4a4238", fontSize: 12 }}>σ =</span>
         <input
           type="range" min="0.01" max="0.99" step="0.01"
           value={sigma}
           onChange={e => setSigma(parseFloat(e.target.value))}
           style={{ flex: 1 }}
         />
-        <span style={{ color: "var(--terra-dk)", fontSize: 13, fontWeight: 600, minWidth: 36 }}>{sigma.toFixed(2)}</span>
+        <span style={{ color: "#c23a1c", fontSize: 13, fontWeight: 600, minWidth: 36 }}>{sigma.toFixed(2)}</span>
       </div>
       <svg width="100%" viewBox={"0 0 " + W + " " + H} style={{ display: "block", marginBottom: 6 }}>
-        <line x1="0" y1={H - 3} x2={W} y2={H - 3} stroke="var(--hairline)" strokeWidth="1" />
-        <line x1="0" y1="0" x2="0" y2={H - 3} stroke="var(--hairline)" strokeWidth="1" />
-        <line x1={toX(0.5)} y1="0" x2={toX(0.5)} y2={H - 3} stroke="var(--green)" strokeWidth="1" strokeDasharray="4,3" />
-        <path d={pathD} fill="none" stroke="var(--terra-dk)" strokeWidth="1.5" />
-        <circle cx={cx} cy={cy} r="4" fill="var(--terra-dk)" />
-        <text x={toX(0.5) + 3} y="12" fill="var(--green)" fontSize="9">σ=1/2 (zero)</text>
+        <line x1="0" y1={H - 3} x2={W} y2={H - 3} stroke="#d5c9b2" strokeWidth="1" />
+        <line x1="0" y1="0" x2="0" y2={H - 3} stroke="#d5c9b2" strokeWidth="1" />
+        <line x1={toX(0.5)} y1="0" x2={toX(0.5)} y2={H - 3} stroke="#4c7a4a" strokeWidth="1" strokeDasharray="4,3" />
+        <path d={pathD} fill="none" stroke="#c23a1c" strokeWidth="1.5" />
+        <circle cx={cx} cy={cy} r="4" fill="#c23a1c" />
+        <text x={toX(0.5) + 3} y="12" fill="#4c7a4a" fontSize="9">σ=1/2 (zero)</text>
       </svg>
-      <div style={{ color: "var(--terra-dk)", fontSize: 13, textAlign: "center" }}>
+      <div style={{ color: "#c23a1c", fontSize: 13, textAlign: "center" }}>
         D<sub>KL</sub>(P<sub>{sigma.toFixed(2)}</sub> &#x2016; P<sub>1/2</sub>) = <strong>{currentKL.toFixed(4)}</strong> bits
       </div>
-      <p style={{ fontSize: 11, color: "var(--faint)", marginTop: 8, lineHeight: 1.6 }}>
+      <p style={{ fontSize: 11, color: "#877b67", marginTop: 8, lineHeight: 1.6 }}>
         Model divergence computed over the first 20 primes with weights p<sup>-σ</sup>. This is a divergence on the
         model prime-oscillator weight distribution, not a metric on the actual Riemann zeros. Zero at σ=1/2 by symmetry.
       </p>

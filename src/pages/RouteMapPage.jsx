@@ -80,28 +80,28 @@ function CShockDecayViz() {
       {/* x labels */}
       {xTicks.map((t, i) => (
         <text key={`x${i}`} x={xOf(t)} y={H - padB + 16} textAnchor="middle" fontSize="10"
-          fill="var(--ink-soft)" fontFamily="var(--font-mono, monospace)">
+          fill="#4a4238" fontFamily="var(--font-mono, monospace)">
           {t >= 1e4 ? `${(t / 1000).toFixed(0)}k` : t}
         </text>
       ))}
-      <text x={padL + plotW / 2} y={H - 6} textAnchor="middle" fontSize="11" fill="var(--ink)">
+      <text x={padL + plotW / 2} y={H - 6} textAnchor="middle" fontSize="11" fill="#1c1814">
         assembly level N (log scale)
       </text>
       {/* margin band */}
       <polygon points={bandPts} fill="rgba(181,138,46,0.14)" stroke="none" />
       {/* cap line */}
-      <line x1={padL} y1={yOf(cap)} x2={W - padR} y2={yOf(cap)} stroke="var(--terra-dk)" strokeWidth="1.6" strokeDasharray="6 4" />
-      <text x={W - padR} y={yOf(cap) - 5} textAnchor="end" fontSize="10.5" fill="var(--terra-dk)">
+      <line x1={padL} y1={yOf(cap)} x2={W - padR} y2={yOf(cap)} stroke="#c23a1c" strokeWidth="1.6" strokeDasharray="6 4" />
+      <text x={W - padR} y={yOf(cap) - 5} textAnchor="end" fontSize="10.5" fill="#c23a1c">
         imp-2786 cap C_shock &lt; 1/3
       </text>
       {/* C_shock(N) curve */}
-      <polyline points={curve} fill="none" stroke="var(--brass-dk)" strokeWidth="2" />
+      <polyline points={curve} fill="none" stroke="#b58a2e" strokeWidth="2" />
       {rows.map((r, i) => (
-        <circle key={`p${i}`} cx={xOf(r.N)} cy={yOf(r.C_shock)} r="2.6" fill="var(--brass-dk)" />
+        <circle key={`p${i}`} cx={xOf(r.N)} cy={yOf(r.C_shock)} r="2.6" fill="#b58a2e" />
       ))}
       {/* worst-case marker */}
-      <circle cx={xOf(worst.N)} cy={yOf(worst.C_shock)} r="5.5" fill="none" stroke="var(--brass-dk)" strokeWidth="2" />
-      <text x={xOf(worst.N) + 10} y={yOf(worst.C_shock) - 8} fontSize="10.5" fill="var(--brass-dk)"
+      <circle cx={xOf(worst.N)} cy={yOf(worst.C_shock)} r="5.5" fill="none" stroke="#b58a2e" strokeWidth="2" />
+      <text x={xOf(worst.N) + 10} y={yOf(worst.C_shock) - 8} fontSize="10.5" fill="#b58a2e"
         fontFamily="var(--font-mono, monospace)">
         worst N={worst.N}: C_shock={worst.C_shock.toFixed(4)} (margin {worst.margin_to_cap.toFixed(4)})
       </text>

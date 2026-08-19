@@ -172,7 +172,7 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
               x2={x(t)}
               y1={0}
               y2={IH}
-              stroke="var(--hair2)"
+              stroke="#e3d8c2"
               strokeDasharray="2,4"
             />
           ))}
@@ -183,7 +183,7 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
               x2={IW}
               y1={y(t)}
               y2={y(t)}
-              stroke="var(--hair2)"
+              stroke="#e3d8c2"
               strokeDasharray="2,4"
             />
           ))}
@@ -194,7 +194,7 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
             x2={x(fitX2)}
             y1={y(targetY1)}
             y2={y(targetY2)}
-            stroke="var(--green)"
+            stroke="#4c7a4a"
             strokeWidth={1.5}
             strokeDasharray="6,4"
           />
@@ -205,7 +205,7 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
             x2={x(fitX2)}
             y1={y(twY1)}
             y2={y(twY2)}
-            stroke="var(--terra)"
+            stroke="#d9502e"
             strokeWidth={1.5}
             strokeDasharray="4,2"
           />
@@ -216,7 +216,7 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
             x2={x(fitX2)}
             y1={y(bulkY1)}
             y2={y(bulkY2)}
-            stroke="var(--brass-dk)"
+            stroke="#b58a2e"
             strokeWidth={1.5}
             strokeDasharray="3,3"
           />
@@ -238,7 +238,7 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
                 cy={y(logPsis[i])}
                 r={5}
                 fill={color}
-                stroke="var(--paper)"
+                stroke="#fdfaf3"
                 strokeWidth={1.2}
               >
                 <title>
@@ -257,10 +257,10 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
             </g>
           ))}
 
-          <line x1={0} x2={IW} y1={IH} y2={IH} stroke="var(--ink-soft)" />
+          <line x1={0} x2={IW} y1={IH} y2={IH} stroke="#4a4238" />
           {xTicks.map((t) => (
             <g key={'xt-' + t} transform={'translate(' + x(t) + ',' + IH + ')'}>
-              <line y1={0} y2={5} stroke="var(--ink-soft)" />
+              <line y1={0} y2={5} stroke="#4a4238" />
               <text y={18} textAnchor="middle" style={tickStyle}>
                 {'10^' + t}
               </text>
@@ -275,10 +275,10 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
             N (zero count)
           </text>
 
-          <line x1={0} x2={0} y1={0} y2={IH} stroke="var(--ink-soft)" />
+          <line x1={0} x2={0} y1={0} y2={IH} stroke="#4a4238" />
           {yTicks.map((t) => (
             <g key={'yt-' + t} transform={'translate(0,' + y(t) + ')'}>
-              <line x1={-5} x2={0} stroke="var(--ink-soft)" />
+              <line x1={-5} x2={0} stroke="#4a4238" />
               <text x={-8} y={3} textAnchor="end" style={tickStyle}>
                 {'10^' + t}
               </text>
@@ -299,15 +299,15 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
               width={256}
               height={92}
               rx={6}
-              fill="var(--paper)"
+              fill="#fdfaf3"
               fillOpacity={0.92}
-              stroke="var(--hairline)"
+              stroke="#d5c9b2"
             />
-            <circle cx={6} cy={8} r={4} fill={color} stroke="var(--paper)" strokeWidth={1.2} />
+            <circle cx={6} cy={8} r={4} fill={color} stroke="#fdfaf3" strokeWidth={1.2} />
             <text x={20} y={12} style={{ ...labelStyle, fontSize: 10, fill: 'var(--ink-soft)' }}>
               edge (slope = {edgeFit.slope.toFixed(3)}, R^2 = {edgeFit.R2.toFixed(3)})
             </text>
-            <line x1={0} x2={14} y1={24} y2={24} stroke="var(--brass-dk)" strokeWidth={1.5} strokeDasharray="3,3" />
+            <line x1={0} x2={14} y1={24} y2={24} stroke="#b58a2e" strokeWidth={1.5} strokeDasharray="3,3" />
             <text x={20} y={28} style={{ ...labelStyle, fontSize: 10, fill: 'var(--ink-soft)' }}>
               bulk reference (slope = {bulkFit.slope.toFixed(3)})
             </text>
@@ -316,7 +316,7 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
               x2={14}
               y1={40}
               y2={40}
-              stroke="var(--green)"
+              stroke="#4c7a4a"
               strokeWidth={1.5}
               strokeDasharray="6,4"
             />
@@ -328,7 +328,7 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
               x2={14}
               y1={56}
               y2={56}
-              stroke="var(--terra)"
+              stroke="#d9502e"
               strokeWidth={1.5}
               strokeDasharray="4,2"
             />
@@ -502,13 +502,13 @@ export default function EdgeRigidityPage() {
           <SummaryCard
             label="bulk slope (imp-1108)"
             value={D.fittedSlopeBulk.slope.toFixed(4)}
-            tone="var(--brass-dk)"
+            tone="#b58a2e"
             hint="lifted from esy-rigidity-empirical-2026-05.js"
           />
           <SummaryCard
             label="edge slope (micro)"
             value={D.fittedSlopeEdgeMicro.slope.toFixed(4)}
-            tone="var(--faint)"
+            tone="#877b67"
             hint={'eta = c/N (bounded-not-decay expected)'}
           />
           <SummaryCard
@@ -520,7 +520,7 @@ export default function EdgeRigidityPage() {
           <SummaryCard
             label="edge window cap"
             value={D.sampleSizeCap}
-            tone="var(--faint)"
+            tone="#877b67"
             hint="M_EDGE_MAX (matches imp-1108 M_BULK_MAX)"
           />
         </div>
@@ -531,14 +531,14 @@ export default function EdgeRigidityPage() {
           edgeRows={macroRows}
           edgeFit={activeMacroFit}
           bulkFit={D.fittedSlopeBulk}
-          color="var(--blue)"
+          color="#3f6b86"
         />
         <LogLogScatterEdgeVsBulk
           title="Microscopic scale (eta = c/N) -- bounded-not-decay expected at corrected ESY scale"
           edgeRows={microRows}
           edgeFit={activeMicroFit}
           bulkFit={D.fittedSlopeBulkMicro}
-          color="var(--brass)"
+          color="#8c6a1d"
         />
 
         {/* Data table. */}

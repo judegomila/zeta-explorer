@@ -1,11 +1,28 @@
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
-import PageHeader from '../components/PageHeader.jsx';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { liCoefficients } from '../math/rh-attack.js';
 import { ZETA_ZEROS, zetaCriticalStrip, cAbs } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
 import { directLadder, dualLadder } from '../math/oscillators.js';
+
+// Try to Break the Proof — editorial (warm) re-theme.
+// Same interactive challenges/math as before (see src/math/rh-attack.js,
+// zeta.js, primes.js, oscillators.js); only the chrome is re-themed to the
+// warm editorial palette (src/styles/editorial.css). Every claim, number and
+// caveat below is kept verbatim — this page exists to be attacked, so it has
+// to stay honest.
+
+// Warm-palette hex equivalents of editorial.css's --blue/--green/--brass/
+// --brass-dk/--terra-dk. Kept as literal hex (not var(...)) because the
+// Challenge number-badge below does `color + '20'` to derive a translucent
+// fill, which only works on a hex string.
+const HUE_BLUE = '#3f6b86';
+const HUE_GREEN = '#4c7a4a';
+const HUE_BRASS = '#8c6a1d';
+const HUE_BRASS_DK = '#b58a2e';
+const HUE_TERRA_DK = '#c23a1c';
 
 function Challenge({ number, title, color, claim, test, children }) {
   const [expanded, setExpanded] = useState(false);
@@ -21,13 +38,13 @@ function Challenge({ number, title, color, claim, test, children }) {
           display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, fontWeight: 700 }}>{number}</span>
         <div>
           <h3 style={{ color, fontSize: 14, margin: 0 }}>{title}</h3>
-          <p style={{ color: '#94a3b8', fontSize: 12, margin: 0 }}>Claim: {claim}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 12, margin: 0 }}>Claim: {claim}</p>
         </div>
-        <span style={{ marginLeft: 'auto', color: '#475569' }}>{expanded ? '▼' : '▶'}</span>
+        <span style={{ marginLeft: 'auto', color: 'var(--faint)' }}>{expanded ? '▼' : '▶'}</span>
       </div>
       {expanded && (
-        <div style={{ marginTop: 16, borderTop: '1px solid #1e293b', paddingTop: 12 }}>
-          <div style={{ color: '#f59e0b', fontSize: 13, fontWeight: 600, marginBottom: 8 }}>
+        <div style={{ marginTop: 16, borderTop: '1px solid var(--hairline)', paddingTop: 12 }}>
+          <div style={{ color: 'var(--brass-dk)', fontSize: 13, fontWeight: 600, marginBottom: 8 }}>
             Can you break this?
           </div>
           {children}
@@ -61,7 +78,7 @@ function UnitarityChallenge() {
 
   return (
     <div>
-      <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7 }}>
         Try to find a (numPrimes, t) combination where the unitarity deficit exceeds 0.01.
         If you can, our Mertens bound is wrong.
       </p>
@@ -82,12 +99,12 @@ function UnitarityChallenge() {
         </div>
       </div>
       <div style={{ padding: '10px 14px', borderRadius: 6,
-        background: result.deficit < 0.01 ? 'rgba(16,185,129,0.08)' : 'rgba(239,68,68,0.08)',
-        border: `1px solid ${result.deficit < 0.01 ? 'rgba(16,185,129,0.2)' : 'rgba(239,68,68,0.2)'}` }}>
-        <strong style={{ color: result.deficit < 0.01 ? '#10b981' : '#ef4444', fontFamily: 'var(--font-mono)' }}>
+        background: result.deficit < 0.01 ? 'rgba(76,122,74,0.08)' : 'rgba(194,58,28,0.08)',
+        border: `1px solid ${result.deficit < 0.01 ? 'rgba(76,122,74,0.25)' : 'rgba(194,58,28,0.25)'}` }}>
+        <strong style={{ color: result.deficit < 0.01 ? 'var(--green)' : 'var(--terra-dk)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
           δ = {result.deficit?.toExponential(4) || 'NaN'} {result.deficit < 0.01 ? '✓ PASSES' : '✗ FAILED'}
         </strong>
-        <div style={{ color: '#64748b', fontSize: 12, marginTop: 4 }}>
+        <div style={{ color: 'var(--faint)', fontSize: 12, marginTop: 4 }}>
           |S₁₁| = {result.S11mag?.toFixed(4)} | |S₂₁| = {result.S21mag?.toFixed(4)}
         </div>
       </div>
@@ -104,7 +121,7 @@ function LiChallenge() {
 
   return (
     <div>
-      <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7 }}>
         Try to find an n where <InlineMath tex="\lambda_n \leq 0" />. If RH is true, you can't.
         Increase n or decrease the number of zeros to make the computation less accurate.
       </p>
@@ -125,12 +142,12 @@ function LiChallenge() {
         </div>
       </div>
       <div style={{ padding: '10px 14px', borderRadius: 6,
-        background: firstNegative ? 'rgba(239,68,68,0.08)' : 'rgba(16,185,129,0.08)',
-        border: `1px solid ${firstNegative ? 'rgba(239,68,68,0.2)' : 'rgba(16,185,129,0.2)'}` }}>
-        <strong style={{ color: firstNegative ? '#ef4444' : '#10b981' }}>
+        background: firstNegative ? 'rgba(194,58,28,0.08)' : 'rgba(76,122,74,0.08)',
+        border: `1px solid ${firstNegative ? 'rgba(194,58,28,0.25)' : 'rgba(76,122,74,0.25)'}` }}>
+        <strong style={{ color: firstNegative ? 'var(--terra-dk)' : 'var(--green)' }}>
           {firstNegative ? `✗ λ_${firstNegative.n} = ${firstNegative.lambda.toExponential(4)} < 0` : `✓ All ${maxN} Li coefficients positive`}
         </strong>
-        <div style={{ color: '#64748b', fontSize: 11, marginTop: 4, fontFamily: 'var(--font-mono)' }}>
+        <div style={{ color: 'var(--faint)', fontSize: 11, marginTop: 4, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
           {data.slice(0, 8).map(d => `λ_${d.n}=${d.lambda.toFixed(2)}`).join(' | ')}
         </div>
       </div>
@@ -173,7 +190,7 @@ function ConvexityChallenge() {
 
   return (
     <div>
-      <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7 }}>
         Try to find a σ where H(σ,t) {"<"} H(½,t). If you can, the energy landscape argument fails.
       </p>
       <div style={{ display: 'flex', gap: 16, marginBottom: 12, flexWrap: 'wrap' }}>
@@ -193,9 +210,9 @@ function ConvexityChallenge() {
         </div>
       </div>
       <div style={{ padding: '10px 14px', borderRadius: 6,
-        background: isMinimum ? 'rgba(16,185,129,0.08)' : 'rgba(239,68,68,0.08)',
-        border: `1px solid ${isMinimum ? 'rgba(16,185,129,0.2)' : 'rgba(239,68,68,0.2)'}` }}>
-        <strong style={{ color: isMinimum ? '#10b981' : '#ef4444', fontFamily: 'var(--font-mono)' }}>
+        background: isMinimum ? 'rgba(76,122,74,0.08)' : 'rgba(194,58,28,0.08)',
+        border: `1px solid ${isMinimum ? 'rgba(76,122,74,0.25)' : 'rgba(194,58,28,0.25)'}` }}>
+        <strong style={{ color: isMinimum ? 'var(--green)' : 'var(--terra-dk)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
           H({sigma.toFixed(2)}, {t.toFixed(1)}) = {h.toFixed(2)} | H(½, {t.toFixed(1)}) = {hHalf.toFixed(2)}
           {isMinimum ? ' ✓ σ=½ is minimum' : ' ✗ FOUND LOWER ENERGY'}
         </strong>
@@ -206,80 +223,89 @@ function ConvexityChallenge() {
 
 export default function BreakItPage() {
   return (
-    <div className="page">
-      <PageHeader title="Try to Break the Proof">
-        <p>
-          The best way to strengthen a proof is to attack it. Each challenge below presents a
-          Twin-Ladder Bridge claim with interactive controls. Your goal: find parameters that make it FAIL.
-          If you succeed, you've found a genuine flaw. If you can't — that's evidence it's correct.
-        </p>
-      </PageHeader>
-
-      <div className="card" style={{ marginBottom: 24, borderLeft: '3px solid #f59e0b', background: 'rgba(245,158,11,0.04)' }}>
-        <p style={{ color: '#fbbf24', fontSize: 13, fontWeight: 600, margin: 0 }}>
-          Rules: Drag sliders to extreme values. Use very few primes. Try large t.
-          Try σ far from ½. If any metric turns red — you've found something worth investigating.
-        </p>
-      </div>
-
-      <Challenge number={1} title="S-Matrix Unitarity" color="#3b82f6"
-        claim="|S₁₁|² + |S₂₁|² = 1 on σ = ½ (deficit < 0.01)">
-        <UnitarityChallenge />
-      </Challenge>
-
-      <Challenge number={2} title="Li Coefficient Positivity" color="#10b981"
-        claim="λ_n > 0 for all n (RH equivalent)">
-        <LiChallenge />
-      </Challenge>
-
-      <Challenge number={3} title="Hamiltonian Convexity" color="#8b5cf6"
-        claim="H(σ,t) is minimized at σ = ½ for all t">
-        <ConvexityChallenge />
-      </Challenge>
-
-      <Challenge number={4} title="Bridge Unitarity" color="#f59e0b"
-        claim="|χ(½+it)| = 1 exactly — the bridge is lossless">
-        <div style={{ color: '#94a3b8', fontSize: 13 }}>
-          <p>This is a mathematical identity: <InlineMath tex="|\chi(\tfrac{1}{2}+it)| = 1" /> for all real t.
-          It follows from the functional equation and cannot be broken computationally — it's PROVEN.
-          The only "attack" is to question whether the bridge interpretation is physically meaningful.</p>
-          <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(16,185,129,0.08)',
-            border: '1px solid rgba(16,185,129,0.2)', marginTop: 8 }}>
-            <strong style={{ color: '#10b981' }}>✓ UNBREAKABLE — mathematical identity</strong>
-          </div>
-        </div>
-      </Challenge>
-
-      <Challenge number={5} title="The Axiom" color="#ef4444"
-        claim="J-contractivity persists in the N→∞ limit">
-        <div style={{ color: '#94a3b8', fontSize: 13 }}>
-          <p>This is the remaining gap. The argument: S_N → S_∞ in operator norm (O(1/log P) via Mertens),
-          and J-contractivity is closed in operator norm. Therefore S_∞ is J-contractive.</p>
-          <p style={{ color: '#f59e0b', fontWeight: 600, marginTop: 8 }}>
-            To break this, you'd need to show: either (a) the operator norm convergence fails,
-            or (b) J-contractivity is NOT closed in the relevant topology. Both seem unlikely but
-            this is where a mathematician should focus their scrutiny.
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>attack · break it</span>} />
+      <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
+        <div style={{ marginBottom: 24 }}>
+          <h1 className="ed-h1" style={{ marginBottom: 10 }}>Try to Break the Proof</h1>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
+            The best way to strengthen a proof is to attack it. Each challenge below presents a
+            Twin-Ladder Bridge claim with interactive controls. Your goal: find parameters that make it FAIL.
+            If you succeed, you've found a genuine flaw. If you can't — that's evidence it's correct.
           </p>
-          <BlockMath tex="\|S_N - S_\infty\|_{\text{op}} = O(1/\log P_N) \to 0 \implies S_\infty^* J S_\infty \leq J" />
         </div>
-      </Challenge>
 
-      <div className="card" style={{ marginTop: 24 }}>
-        <h3 style={{ fontSize: 14, marginBottom: 12 }}>Related Pages</h3>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-          {[
-            ['/proof-overview', 'Proof Overview'],
-            ['/gap-closing', 'Gap Closing'],
-            ['/rh-attack', 'RH Attack'],
-            ['/proof-planner', 'Proof Planner'],
-            ['/proof-checker', 'Proof Checker'],
-          ].map(([to, label]) => (
-            <Link key={to} to={to} style={{
-              padding: '6px 14px', borderRadius: 6, fontSize: 13,
-              background: 'rgba(59,130,246,0.1)', color: '#93c5fd',
-              textDecoration: 'none', border: '1px solid rgba(59,130,246,0.2)',
-            }}>{label}</Link>
-          ))}
+        <div className="card" style={{ marginBottom: 24, borderLeft: '3px solid var(--brass-dk)', background: 'rgba(181,138,46,0.06)' }}>
+          <p style={{ color: 'var(--brass-dk)', fontSize: 13, fontWeight: 600, margin: 0 }}>
+            Rules: Drag sliders to extreme values. Use very few primes. Try large t.
+            Try σ far from ½. If any metric turns red — you've found something worth investigating.
+          </p>
+        </div>
+
+        <Challenge number={1} title="S-Matrix Unitarity" color={HUE_BLUE}
+          claim="|S₁₁|² + |S₂₁|² = 1 on σ = ½ (deficit < 0.01)">
+          <UnitarityChallenge />
+        </Challenge>
+
+        <Challenge number={2} title="Li Coefficient Positivity" color={HUE_GREEN}
+          claim="λ_n > 0 for all n (RH equivalent)">
+          <LiChallenge />
+        </Challenge>
+
+        <Challenge number={3} title="Hamiltonian Convexity" color={HUE_BRASS}
+          claim="H(σ,t) is minimized at σ = ½ for all t">
+          <ConvexityChallenge />
+        </Challenge>
+
+        <Challenge number={4} title="Bridge Unitarity" color={HUE_BRASS_DK}
+          claim="|χ(½+it)| = 1 exactly — the bridge is lossless">
+          <div style={{ color: 'var(--ink-soft)', fontSize: 13 }}>
+            <p>This is a mathematical identity: <InlineMath tex="|\chi(\tfrac{1}{2}+it)| = 1" /> for all real t.
+            It follows from the functional equation and cannot be broken computationally — it's PROVEN.
+            The only "attack" is to question whether the bridge interpretation is physically meaningful.</p>
+            <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(76,122,74,0.08)',
+              border: '1px solid rgba(76,122,74,0.25)', marginTop: 8 }}>
+              <strong style={{ color: 'var(--green)' }}>✓ UNBREAKABLE — mathematical identity</strong>
+            </div>
+          </div>
+        </Challenge>
+
+        <Challenge number={5} title="The Axiom" color={HUE_TERRA_DK}
+          claim="J-contractivity persists in the N→∞ limit">
+          <div style={{ color: 'var(--ink-soft)', fontSize: 13 }}>
+            <p>This is the remaining gap. The argument: S_N → S_∞ in operator norm (O(1/log P) via Mertens),
+            and J-contractivity is closed in operator norm. Therefore S_∞ is J-contractive.</p>
+            <p style={{ color: 'var(--brass-dk)', fontWeight: 600, marginTop: 8 }}>
+              To break this, you'd need to show: either (a) the operator norm convergence fails,
+              or (b) J-contractivity is NOT closed in the relevant topology. Both seem unlikely but
+              this is where a mathematician should focus their scrutiny.
+            </p>
+            <BlockMath tex="\|S_N - S_\infty\|_{\text{op}} = O(1/\log P_N) \to 0 \implies S_\infty^* J S_\infty \leq J" />
+          </div>
+        </Challenge>
+
+        <div className="card" style={{ marginTop: 24 }}>
+          <h3 style={{ fontSize: 14, marginBottom: 12 }}>Related Pages</h3>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+            {[
+              ['/proof-overview', 'Proof Overview'],
+              ['/gap-closing', 'Gap Closing'],
+              ['/rh-attack', 'RH Attack'],
+              ['/proof-planner', 'Proof Planner'],
+              ['/proof-checker', 'Proof Checker'],
+            ].map(([to, label]) => (
+              <Link key={to} to={to} style={{
+                padding: '6px 14px', borderRadius: 6, fontSize: 13,
+                background: 'var(--paper)', color: 'var(--brass-dk)',
+                textDecoration: 'none', border: '1px solid var(--hairline)',
+              }}>{label}</Link>
+            ))}
+          </div>
+          <div style={{ marginTop: 16, paddingTop: 12, borderTop: '1px solid var(--hairline)' }}>
+            <Link to="/" style={{ fontSize: 12, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+              ← the atlas
+            </Link>
+          </div>
         </div>
       </div>
     </div>

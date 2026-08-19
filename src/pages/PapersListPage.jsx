@@ -6,7 +6,7 @@ import PaperRenderer from '../components/PaperRenderer.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
 // Papers — editorial (warm) re-theme: full-width reader, identical
-// data-driven list + honest standing disclaimer, no wireframes.
+// data-driven list + standing disclaimer, no wireframes.
 
 export default function PapersListPage() {
   const [papers, setPapers] = useState([]);
@@ -51,7 +51,7 @@ export default function PapersListPage() {
           </p>
         </div>
 
-        {/* Honest standing disclaimer — prevents withdrawn-claim re-leak when screenshotted out of context (imp-2807) */}
+        {/* standing disclaimer — prevents withdrawn-claim re-leak when screenshotted out of context (imp-2807) */}
         <div
           className="card"
           style={{

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 /**
- * EquivalenceVsReductionCallout (imp-2966) — a prominent honest callout listing
+ * EquivalenceVsReductionCallout (imp-2966) — a prominent callout listing
  * the RH-equivalent statements that the collapse machinery touches, plus the
  * load-bearing warning that an EQUIVALENCE is not a REDUCTION.
  *

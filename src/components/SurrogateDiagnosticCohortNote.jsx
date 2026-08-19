@@ -1,7 +1,7 @@
 import React from 'react';
 
 /**
- * SurrogateDiagnosticCohortNote — shared honest-status boilerplate for the
+ * SurrogateDiagnosticCohortNote — shared status boilerplate for the
  * imp-34082..imp-34087 surrogate-diagnostic cohort (endpoint-drop serial
  * dependence, KPSS bandwidth sweep, apex cubic tilt, trough/peak ratio,
  * asymmetric-trim share, F4 digit-loss). Each of these modules re-fits the

@@ -167,7 +167,7 @@ export default function Imp34938LandmarkReconciliationAxisViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {D.honesty}
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> {D.clarity}
       </div>
     </div>
   );

@@ -87,7 +87,7 @@ export default function Imp35561PeakHeightMapSensitivityViz() {
           color: '#94a3b8',
         }}
       >
-        <strong style={{ color: '#d97706' }}>Honest-status sharpening (imp-35574):</strong>{' '}
+        <strong style={{ color: '#d97706' }}>Status sharpening (imp-35574):</strong>{' '}
         "Quoted to one significant figure" does NOT mean height-map-insensitive. imp-35574 forms
         the imp-35458 crossover damping factor for the peak LOCATION itself and finds it below 1
         (~0.55) -- a ~24 percent raw height-map gap maps to a ~44 percent N_max shift, mild

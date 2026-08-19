@@ -1172,7 +1172,7 @@ function VizCard({ entry }) {
         <span>{entry.ticket} · step {entry.pedagogicalStep}/6</span>
         <span style={{ color: accent }}>view &rarr;</span>
       </div>
-      {/* imp-2728: honest mathematical ceiling for this panel -- keeps a
+      {/* imp-2728: mathematical ceiling for this panel -- keeps a
           reader from inferring an unearned Lambda / RH claim from any card. */}
       {entry.honestCeiling ? (
         <div style={{

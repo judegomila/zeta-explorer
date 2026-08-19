@@ -10,7 +10,7 @@ export default function ObstructionSeamPage() {
     <div className="page">
       <h1>The RH Obstruction Seam</h1>
       <p style={{ color: '#94a3b8', fontSize: 15, lineHeight: 1.7, maxWidth: 820 }}>
-        The sharpest honest result of the whole attack: a deep, adversarially-verified assault on the two
+        The sharpest result of the whole attack: a deep, adversarially-verified assault on the two
         load-bearing walls (C_H shock modulus + Montgomery pair-correlation) — 16 novel angles, each killed
         by ≥2 skeptics at ≥0.82 confidence — reveals not just that the walls stand, but the precise
         <em> structural reason</em> they must.
@@ -80,7 +80,7 @@ export default function ObstructionSeamPage() {
         </>
       )}
 
-      <h2>Honest conclusion</h2>
+      <h2>conclusion</h2>
       <p style={{ color: '#e2e8f0', fontSize: 14, lineHeight: 1.75, maxWidth: 860 }}>{conclusion}</p>
 
       <p style={{ marginTop: 24 }}>

@@ -8,7 +8,7 @@
 //   (2) log-log scatter: edge psi_N vs N with bulk fit overlaid for visual
 //       comparison; ESY target slope = -1 reference line; OLS edge fit.
 //   (3) per-N data table including windowEnd / sampleSize
-//   (4) honest-scope panel
+//   (4)-scope panel
 //
 // Pure SVG + React + d3-scale, matching the imp-1108 page idiom. No
 // external chart library; no canvas; no animation.
@@ -132,7 +132,7 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, hig
   const edgeY2Log10 = edgeY2Ln * Math.log10(Math.E);
 
   // Bulk fit anchored at the smallest-N edge point (so the visual slope
-  // comparison is honest -- the constant is irrelevant, only the slope
+  // comparison is -- the constant is irrelevant, only the slope
   // difference is being shown).
   const bulkAnchor = logPsis[0];
   const bulkY1 = bulkAnchor;

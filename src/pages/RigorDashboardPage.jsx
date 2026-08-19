@@ -441,7 +441,7 @@ function HonestSOTABanner() {
       background: 'var(--paper2)', padding: '14px 18px', marginBottom: 24,
     }}>
       <div style={{ fontSize: 11, color: 'var(--faint)', fontFamily: MONO, marginBottom: 12, letterSpacing: 0.5 }}>
-        HONEST RIGOR HIERARCHY &mdash; WHAT IS PROVED vs ESTIMATED vs REFUTED
+        RIGOR HIERARCHY &mdash; WHAT IS PROVED vs ESTIMATED vs REFUTED
       </div>
       <div style={{
         display: 'grid',
@@ -960,7 +960,7 @@ export default function RigorDashboardPage() {
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Rigor Dashboard</h1>
           <FreshnessStamp />
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
-            Interactive proof-chain visualization with honest rigor-level coloring.
+            Interactive proof-chain visualization with rigor-level coloring.
             Every step is either unconditionally proved (green), conditional on a named
             hypothesis (yellow), analytic+numeric (orange), or still open (red).
             Click any step to expand the full claim.

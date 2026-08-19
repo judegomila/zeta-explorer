@@ -395,7 +395,7 @@ export default function PairCorrelationPage() {
 
         <div style={panel('var(--blue)')}>
           <h3 style={{ marginTop: 0, color: 'var(--blue)', fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 14 }}>
-            Honest finite-N caveat
+            finite-N caveat
           </h3>
           <ul style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.55 }}>
             {pcm.honestScopeNotes.map((note, i) => (

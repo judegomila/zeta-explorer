@@ -245,7 +245,7 @@ export default function RhDagPage() {
   const critSet = new Set(critPath);
   const frontierSet = new Set(frontier.map((n) => n.id));
 
-  // Load-bearing honest-framing caveat (imp-2969), carried verbatim on the
+  // Load-bearing-framing caveat (imp-2969), carried verbatim on the
   // capstone nodes so it stays attached to the DAG rather than a page-only
   // paraphrase. imp-375 states the WITHDRAWN-overclaim / C_H-undischarged
   // framing; imp-356 (the page's default critical-path target) restates it

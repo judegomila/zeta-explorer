@@ -77,7 +77,7 @@ export default function RHRigorPage() {
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: 760 }}>
             A systematic self-criticism of the Twin-Ladder Bridge model's claims about the Riemann Hypothesis.
             Each entry identifies a specific mathematical issue, explains why it matters, and proposes
-            a corrected formulation. The goal is intellectual honesty: the Twin-Ladder Bridge model is a beautiful
+            a corrected formulation. The goal is intellectual clarity: the Twin-Ladder Bridge model is a beautiful
             analogy, but analogies are not proofs.
           </p>
         </div>

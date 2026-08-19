@@ -10,7 +10,7 @@ const LEVEL_COLORS = {
 };
 
 /**
- * Shared inline badge for page-level honest-status labeling.
+ * Shared inline badge for page-level status labeling.
  * level: "rigorous" | "conditional" | "estimate" | "dead-end" | "refuted" | "rh_equiv"
  * children: optional custom label text (overrides default)
  */
@@ -29,7 +29,7 @@ export function StatusBadge({ level, children }) {
 }
 
 /**
- * Honest callout block — a bordered paragraph for anti-overclaim disclosures.
+ * callout block — a bordered paragraph for anti-overclaim disclosures.
  * level: same as StatusBadge
  * title: bold header (optional)
  * children: callout body text

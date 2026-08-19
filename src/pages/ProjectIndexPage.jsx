@@ -183,7 +183,7 @@ export default function ProjectIndexPage() {
 
         {/* Withdrawn Claims */}
         <div className="card" style={{ marginBottom: 24, background: 'var(--paper2)', border: '1px solid var(--hairline)', borderLeft: '3px solid var(--terra-dk)', borderRadius: 8, padding: '16px 18px' }}>
-          <h3 style={{ color: 'var(--terra-dk)', fontSize: 15, marginBottom: 12 }}>Withdrawn Claims (Honest Self-Correction)</h3>
+          <h3 style={{ color: 'var(--terra-dk)', fontSize: 15, marginBottom: 12 }}>Withdrawn Claims (Self-Correction)</h3>
           {withdrawn.map(w => (
             <div key={w.id} style={{
               marginBottom: 10, padding: '10px 14px', borderRadius: 6,

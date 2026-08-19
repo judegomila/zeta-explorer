@@ -197,7 +197,7 @@ export default function Imp3627FlowGapNextorderViz() {
         leading-law residual at every floor, i.e. it closes ~94-95% of the ~0.01-0.03pp gap left by
         the leading law. imp-3599's closed identity gap = 1-(L<sub>half</sub>/L<sub>x</sub>)/(1+&eta;)<sup>2</sup>
         {' '}reproduces the root-solved gap to ~{IMP3627_EXACT_IDENTITY_FLOOR.toExponential(0)} at every
-        floor -- the honest ~5% tail left by the next-order truncation (the named sub-gap
+        floor -- the ~5% tail left by the next-order truncation (the named sub-gap
         imp-3599-nextorder-residual-tail) comes from the neglected O(eps<sup>3</sup>) term and slope
         curvature, not from the exact identity itself.
       </div>

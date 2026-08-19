@@ -7,7 +7,7 @@ import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 // Wave Simulator — Finite Model.
 // Editorial (warm) re-theme: full-width dashboard. The real WaveSimViz is kept
 // EXACTLY as-is (multi-colored output preserved). No wireframe hero.
-// Every InlineMath/BlockMath tex, every claim, number, and honesty caveat is
+// Every InlineMath/BlockMath tex, every claim, number, and clarity caveat is
 // preserved verbatim from the original page.
 
 const cardLabel = {

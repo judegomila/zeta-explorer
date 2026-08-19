@@ -121,7 +121,7 @@ export default function RouteMapPage() {
             The complete map of every route the project has tried —{' '}
             <strong>{FULL_ROUTE_MAP.totalRoutes} routes</strong> across 5 clusters, classified by
             status and genuine remaining opportunity (full-route-map workflow, {FULL_ROUTE_MAP.date}).
-            The honest one-line truth: <strong>there is no shortcut below RH anywhere in the map</strong> —
+            The one-line truth: <strong>there is no shortcut below RH anywhere in the map</strong> —
             the inherited Dyson/collision routes seeking to drive Λ to zero funnel into the{' '}
             <strong style={{ color: 'var(--brass)' }}>C_H Hölder-½ shock modulus</strong> (RH-hard at the
             modulus). Platt–Trudgian Λ ≤ 0.2 remains the peer-reviewed benchmark;
@@ -227,7 +227,7 @@ export default function RouteMapPage() {
                 Asymmetric R&rarr;&infin; class (imp-{SG1C_ASYM_ISOLATION_CLOSED_FORM.ticket.replace('imp-', '')}):
                 transcendental closed form <em>c</em><sub>asym</sub> = {SG1C_ASYM_ISOLATION_CLOSED_FORM.cAsym.toFixed(7)},
                 unique root of &psi;(g+1)+&gamma;+2g&minus;2/g&minus;1/(g+1)=0
-                (digamma lattice tail irreducible; honest: BASIN-CONDITIONAL, not proven global infimum).
+                (digamma lattice tail irreducible;: BASIN-CONDITIONAL, not proven global infimum).
                 Theorem C holds at <em>c</em> = {SG1C_ASYM_ISOLATION_CLOSED_FORM.basinIsolationRatio}; margin{' '}
                 &asymp; {SG1C_ASYM_ISOLATION_CLOSED_FORM.preservedBasinMargin.toFixed(4)}.
                 <strong style={{ color: 'var(--green)' }}> NOT RH-hard — a concrete analytic gap.</strong>

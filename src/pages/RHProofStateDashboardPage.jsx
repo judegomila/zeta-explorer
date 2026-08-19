@@ -209,7 +209,7 @@ export default function RHProofStateDashboardPage() {
           </p>
         </div>
 
-        {/* Honest Frontier Status — at-a-glance card surfaced as #1 per imp-2993 */}
+        {/* Frontier Status — at-a-glance card surfaced as #1 per imp-2993 */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
@@ -449,7 +449,7 @@ export default function RHProofStateDashboardPage() {
               </div>
             </div>
 
-            {/* imp-35687 honest-status banner: imp-35653 Part D necessary-not-sufficient */}
+            {/* imp-35687 status banner: imp-35653 Part D necessary-not-sufficient */}
             <div style={{ padding: '8px 12px', borderRadius: 6, background: AMBER_A(0.06), border: `1px solid ${AMBER_A(0.28)}`, fontSize: 11.5, color: INK_SOFT, lineHeight: 1.6 }}>
               <strong style={{ color: AMBER }}>S_barrier caveat:</strong> E_trunc becomes{' '}
               <em>vestigial / read as EXACTLY ZERO above T_PT</em> only after the non-finite argument-
@@ -494,7 +494,7 @@ export default function RHProofStateDashboardPage() {
               </div>
             </div>
 
-            {/* imp-35741 honest-status banner: imp-35681 Part D corrects a scout misattribution */}
+            {/* imp-35741 status banner: imp-35681 Part D corrects a scout misattribution */}
             <div style={{ padding: '8px 12px', borderRadius: 6, background: AMBER_A(0.06), border: `1px solid ${AMBER_A(0.28)}`, fontSize: 11.5, color: INK_SOFT, lineHeight: 1.6 }}>
               <strong style={{ color: AMBER }}>Barrier-base provenance correction:</strong>{' '}
               {IMP35681_W1_W2_W4_EXISTING_INFRA_INVENTORY.barrierBaseProvenance.correction} A prior scout
@@ -504,7 +504,7 @@ export default function RHProofStateDashboardPage() {
               No bound is asserted here; PT Λ≤0.2 remains the peer-reviewed benchmark.
             </div>
 
-            {/* imp-35749: imp-35711 PROMINENT-level post-port parity-no-beat honest-status banner */}
+            {/* imp-35749: imp-35711 PROMINENT-level post-port parity-no-beat status banner */}
             <div style={{ padding: '10px 12px', borderRadius: 6, background: RED_A(0.08), border: `1px solid ${RED_A(0.35)}`, fontSize: 11.5, color: INK, lineHeight: 1.6 }}>
               <strong style={{ color: RED }}>{IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER.headline}:</strong>{' '}
               The imp-35654 post-port far-tail bridge becomes asymptotically unconditional (residual

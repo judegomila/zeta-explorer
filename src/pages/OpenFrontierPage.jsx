@@ -2676,20 +2676,20 @@ const DYSON_LANE_RESIDUALS = [
       'traced the fold-catastrophe exponent instead to Whitham, Linear and ' +
       'Nonlinear Waves (1974). The nonexistent lemma is not a live closure ' +
       'route; G6a_shock_lipschitz remains OPEN (PARTIAL).',
-      'Honest-status note (imp-33766): H4 (the strip-height fold-reading derivative m_prime) ' +
+      'Status note (imp-33766): H4 (the strip-height fold-reading derivative m_prime) ' +
       'is NOT independently dischargeable -- the Holder-modulus back-conversion couples it to ' +
       'H3 (the curvature coefficient m_double_prime) through the same quadratic fold expansion, ' +
       'and H3 dominates H4 a fortiori. H4 and H3 therefore collapse into ONE coupled ' +
       'strip-height-uniformity object, load-bearing at the H3 rung; this is scoping only and ' +
       'discharges nothing, so G6a_shock_lipschitz stays OPEN (PARTIAL) exactly as above.',
-      'Honest-status note (imp-33794): the measured finite-band C_ren(N) window (the renormalized ' +
+      'Status note (imp-33794): the measured finite-band C_ren(N) window (the renormalized ' +
       'fold-reading amplitude across the eps = y_N^sharp ladder) is CONSISTENT-WITH the H4 ' +
       'finite-window minimal-input requirement but does NOT DISCHARGE H4 -- the uniform bound needs ' +
       'the ANALYTIC tracking of C_ren through the fold-modulus back-conversion, not an empirical ' +
       'band checked on a finite ladder, and it says nothing about the coupled H3 curvature rung ' +
       '(imp-33786) that dominates and jointly governs discharge. Measurement only; ' +
       'G6a_shock_lipschitz stays OPEN (PARTIAL) exactly as above.',
-      'Honest-status note (imp-35101, sharpening imp-3671): the direct-flow V0(gamma) route carries two ' +
+      'Status note (imp-35101, sharpening imp-3671): the direct-flow V0(gamma) route carries two ' +
       'INDEPENDENT obstructions, not one -- S1 (V0 is a strip-sup density scalar, the wrong TYPE of object for the ' +
       'required two-point spatial modulus |tau_c(x) - tau_c(x_prime)| <= C_Lip|x - x_prime|^{1/2}) and S2, now sharpened ' +
       'from merely Gronwall-vacuous to the wrong MONOTONE DIRECTION: tau_c is set by the nearest pair -- the ' +

@@ -224,7 +224,7 @@ export default function BlogPage() {
           </p>
         </Section>
 
-        {/* ── Honest Assessment ─────────────────────────────────── */}
+        {/* ── Assessment ─────────────────────────────────── */}
         <Section title="Is It Really Proved?" color="var(--terra-dk)">
           <p>
             This is a personal investigation by Jude Gomila, not a peer-reviewed publication.

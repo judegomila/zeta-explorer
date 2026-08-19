@@ -159,7 +159,7 @@ export default function WikiPage() {
         <div className="card" style={{ marginTop: 24, borderLeft: '3px solid var(--brass-dk)' }}>
           <h3 style={{ color: 'var(--brass-dk)', fontSize: 14, marginBottom: 8 }}>State of the Program</h3>
           <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
-            The project maintains a precise distinction between honest-ceiling estimates and
+            The project maintains a precise distinction between-ceiling estimates and
             unconditional results. Key concepts:{' '}
             <Link to="/concepts#pcc-free" style={{ color: 'var(--blue)' }}>PCC-free</Link>,{' '}
             <Link to="/concepts#rh-equivalence" style={{ color: 'var(--blue)' }}>RH-equivalent</Link>, and{' '}

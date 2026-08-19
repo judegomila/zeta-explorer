@@ -1,7 +1,7 @@
 import React from 'react';
 
 /**
- * CrossoverMapClusterCaveatBanner -- shared honest-status boilerplate for the
+ * CrossoverMapClusterCaveatBanner -- shared status boilerplate for the
  * imp-34727/imp-34731/imp-34733/imp-34750 crossover-map derivation cluster
  * (seed-band second-order enclosure, g'' closed-form bound, closed-form vs
  * Picard cross-tab, post-peak per-decade bound extension). Each of these

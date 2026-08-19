@@ -181,7 +181,7 @@ export default function Imp33243RecoveryRateFitViz() {
         the identical ladder past n = {IMP33243_TAIL_HI_N} and found P_r CROSSES 1 at
         n ~ {IMP33243_PR_CROSSING_N}, immediately above where this fit stopped -- the
         climb here was the leading edge of a crossing, not an asymptote. This page
-        presents the imp-33211 n=624..1424 measurement honestly, with that later
+        presents the imp-33211 n=624..1424 measurement with that later
         correction noted rather than hidden.
       </div>
 

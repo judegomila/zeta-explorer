@@ -111,7 +111,7 @@ export default function Imp34696RightWideningBanachCertificateViz() {
         g(N) = K log T0(N) arbitrarily far to the RIGHT, holding the left endpoint a = 1e9 fixed.
         Sweeping the right endpoint b from 1e10 to 1e300 (imp-34676 literals reused verbatim): L is
         INVARIANT (the sup of g_prime is always attained at the fixed left endpoint), the self-map
-        margin m(b) = b &minus; g(b) grows without bound, and the only honest cost is the a-priori
+        margin m(b) = b &minus; g(b) grows without bound, and the only cost is the a-priori
         Picard bound from the far seed N_0 = b, which degrades linearly in b.
       </p>
 

@@ -68,7 +68,7 @@ function downloadPosterSVG(panels) {
  * One field, many views: the log-phase theta = t log n of zeta. Primes generate
  * it; folding mod 2pi makes caustics, crystals and spirals; zeros are the phase
  * vortices of V_t = H_t'/H_t. This page ties the project's visualization panels
- * into the single poster they came from. HONEST framing: these are exact,
+ * into the single poster they came from. framing: these are exact,
  * exploratory visualizations of real structure -- per the route map the
  * twin-ladder geometry is a DEAD END as a rigorous Lambda route, so this is
  * pedagogy + exploration, not a proof path. No false QED.

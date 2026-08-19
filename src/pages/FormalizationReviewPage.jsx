@@ -69,7 +69,7 @@ export default function FormalizationReviewPage() {
             <div key={u.name} style={{ border: `1px solid ${col}55`, background: `${proved ? 'rgba(16,185,129,0.06)' : 'rgba(245,158,11,0.06)'}`, borderRadius: 8, padding: '10px 14px' }}>
               <div style={{ fontSize: 13.5, fontWeight: 600, color: col }}>
                 {proved ? '✓ ' : '○ '}{u.name}
-                <span style={{ fontSize: 11, color: '#64748b', marginLeft: 8, fontWeight: 400 }}>{proved ? 'proved, sorry-free' : 'statement + honest sorry'}</span>
+                <span style={{ fontSize: 11, color: '#64748b', marginLeft: 8, fontWeight: 400 }}>{proved ? 'proved, sorry-free' : 'statement + sorry'}</span>
               </div>
               <div style={{ fontSize: 12.5, color: '#cbd5e1', marginTop: 3 }}>{u.desc}</div>
             </div>

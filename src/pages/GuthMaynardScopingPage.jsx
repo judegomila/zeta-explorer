@@ -56,7 +56,7 @@ export default function GuthMaynardScopingPage() {
         {lever.obstruction.map((o, i) => <li key={i} style={{ marginBottom: 4 }}>{o}</li>)}
       </ul>
 
-      <h2>Feasibility (honest)</h2>
+      <h2>Feasibility</h2>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8, maxWidth: 840 }}>
         <div style={{ border: '1px solid #f8717155', background: 'rgba(248,113,113,0.06)', borderRadius: 8, padding: '10px 14px' }}>
           <strong style={{ color: '#f87171' }}>Core (α=1/2):</strong> <span style={{ color: '#cbd5e1' }}>{feasibility.core}</span>

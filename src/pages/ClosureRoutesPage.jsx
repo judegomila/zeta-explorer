@@ -2247,7 +2247,7 @@ function BasisConditioningCorrectionPanel() {
   return (
     <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #06b6d4', background: 'rgba(6,182,212,0.04)' }}>
       <h3 style={{ color: '#06b6d4', marginTop: 0 }}>
-        Honest correction: raw-basis gap was largely a conditioning artifact (imp-3086)
+        correction: raw-basis gap was largely a conditioning artifact (imp-3086)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
         imp-3066 normalized by only the diagonal of the passive cosh Gram P, dropping its
@@ -2376,7 +2376,7 @@ function Section26GapExplainerPanel() {
         </div>
       </div>
 
-      {/* Open Conjecture 26.3 -- honest-status obstruction banner */}
+      {/* Open Conjecture 26.3 -- status obstruction banner */}
       <div style={{ marginTop: 12, padding: '10px 12px', borderRadius: 6, background: 'rgba(168,85,247,0.10)', border: '2px solid rgba(168,85,247,0.55)' }}>
         <div style={{ fontSize: 11, fontWeight: 700, color: '#c084fc', letterSpacing: '0.06em', marginBottom: 6 }}>
           OPEN OBSTRUCTION — CONJECTURE 26.3: pointwise mu&#x1D40F;&#x207B;&#x1D40F; &#x2265; &#x03BD;
@@ -2395,7 +2395,7 @@ function Section26GapExplainerPanel() {
         </div>
       </div>
 
-      {/* Honest-status banner */}
+      {/* Status banner */}
       <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
         <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
           ASSESSMENT ONLY — NO RH VERDICT
@@ -2779,7 +2779,7 @@ function PhiProfileLogLogViz() {
         <strong style={{ color: "#10b981" }}>Green</strong>: phi=1 at s*&asymp;1.489 (unique scale
         where the forced cosh-completion costs as much as the entire kinked cover; transcendental, no closed form).{" "}
         <strong style={{ color: "#f97316" }}>Orange</strong>: envelope handoff s_c1&asymp;1.915
-        (onset envelope drops below decay envelope); honest gap: exact phi&asymp;0.378 vs common
+        (onset envelope drops below decay envelope); gap: exact phi&asymp;0.378 vs common
         envelope value&asymp;0.157 -- the orange segment shows this gap since neither asymptotic is exact here.{" "}
         <strong style={{ color: "#a855f7" }}>Purple</strong>: algebraic re-crossing s_c2&asymp;4.318
         (pole envelope tail rises back above exponential; comparison artifact, NOT a regime boundary). (imp-3105)
@@ -2815,7 +2815,7 @@ function PhiProfileLogLogViz() {
           <circle cx={pxFn(lx_star)} cy={pyFn(ly_star)} r={4} fill="#10b981" stroke="#e2e8f0" strokeWidth="1" />
           <text x={pxFn(lx_star) - 38} y={pyFn(ly_star) - 8} fontSize="9" fill="#10b981" fontFamily={mono}>s*~1.489</text>
           <text x={pxFn(lx_star) - 28} y={pyFn(ly_star) + 2} fontSize="9" fill="#10b981" fontFamily={mono}>phi=1</text>
-          {/* imp-3105 landmark: envelope handoff s_c1~1.915 with honest env gap */}
+          {/* imp-3105 landmark: envelope handoff s_c1~1.915 with env gap */}
           <line x1={pxFn(lx_c1)} y1={MT} x2={pxFn(lx_c1)} y2={H - MB} stroke="#f97316" strokeWidth="1" strokeDasharray="3 3" opacity="0.7" />
           <line x1={pxFn(lx_c1)} y1={pyFn(ly_c1)} x2={pxFn(lx_c1)} y2={pyFn(ly_env1)} stroke="#f97316" strokeWidth="2.5" opacity="0.6" />
           <circle cx={pxFn(lx_c1)} cy={pyFn(ly_c1)} r={4} fill="#f97316" stroke="#e2e8f0" strokeWidth="1" />
@@ -5592,7 +5592,7 @@ function BridgeSignMagnitudeDecompositionViz() {
             (Phi-only, FREE)
           </text>
 
-          {/* mismatch sliver (essentially invisible — honest) */}
+          {/* mismatch sliver (essentially invisible —) */}
           {mismatchH > 0 && (
             <rect x={p1x} y={MT} width={barW} height={mismatchH} fill="#ef4444" fillOpacity="0.8" />
           )}
@@ -7759,7 +7759,7 @@ export default function ClosureRoutesPage() {
             RH-hard content.
           </p>
         </div>
-        {/* imp-3168 honest-status banner: imp-3144 quantitative evidence for NOT SUFFICIENT */}
+        {/* imp-3168 status banner: imp-3144 quantitative evidence for NOT SUFFICIENT */}
         <div
           style={{
             margin: '10px 0 8px',
@@ -8038,7 +8038,7 @@ export default function ClosureRoutesPage() {
           }}
         >
           <div style={{ color: '#f87171', fontWeight: 700, fontSize: 11, letterSpacing: '0.05em', marginBottom: 5 }}>
-            HONEST-STATUS CORRECTION (imp-3216): the ~1.254 length above is a double-precision underflow artifact
+            STATUS CORRECTION (imp-3216): the ~1.254 length above is a double-precision underflow artifact
           </div>
           Resolving the overflow interval to N&thinsp;=&thinsp;51200 shows the upper endpoint <span style={{ fontFamily: mono }}>&tau;<sub>2</sub>&thinsp;&asymp;&thinsp;1.366</span> above is{' '}
           <strong style={{ color: '#e2e8f0' }}>not a genuine nu/mu down-crossing</strong> &mdash; it is the IEEE-754{' '}
@@ -8258,7 +8258,7 @@ export default function ClosureRoutesPage() {
       </h2>
       <RawBasisOpGapDegreeSweepViz />
 
-      {/* ─── imp-3086: basis-conditioning honest correction ─── */}
+      {/* ─── imp-3086: basis-conditioning correction ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
         Orthogonalized basis: gap largely a conditioning artifact, residual survives (imp-3086)
       </h2>
@@ -8288,7 +8288,7 @@ export default function ClosureRoutesPage() {
       </h2>
       <PhiProfileLogLogViz />
 
-      {/* ─── imp-3139: honest-status -- phi integral UNBOUNDED, no finite mean ─── */}
+      {/* ─── imp-3139: status -- phi integral UNBOUNDED, no finite mean ─── */}
       <div style={{
         marginTop: 12,
         padding: '10px 14px',

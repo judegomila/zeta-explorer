@@ -12,7 +12,7 @@ export default function VerifiedHeightLeverPage() {
       <p style={{ color: '#94a3b8', fontSize: 15, lineHeight: 1.7, maxWidth: 820 }}>
         The <Link to="/pt-floor-audit" style={{ color: '#38bdf8' }}>sensitivity audit</Link> showed the rigorous
         Λ ≤ 0.2 floor is bound by the <strong>verified RH height X</strong>, not by any analytic barrier slack.
-        So the only honest move below 0.2 is to extend that height — a computation. Here is exactly what that
+        So the only move below 0.2 is to extend that height — a computation. Here is exactly what that
         buys, and why it can never reach RH.
       </p>
 
@@ -81,7 +81,7 @@ export default function VerifiedHeightLeverPage() {
       </ul>
       <p style={{ color: '#e2e8f0', fontSize: 14, fontWeight: 600, maxWidth: 840 }}>{meta.verdict}</p>
 
-      <h2>Uncertainties (honest)</h2>
+      <h2>Uncertainties</h2>
       <ul style={{ color: '#94a3b8', fontSize: 12.5, lineHeight: 1.6, maxWidth: 840 }}>
         {uncertainties.map((u, i) => <li key={i} style={{ marginBottom: 4 }}>{u}</li>)}
       </ul>

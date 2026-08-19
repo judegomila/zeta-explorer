@@ -49,7 +49,7 @@ export default function RouteBLimsupPage() {
             <strong style={{ color: 'var(--ink)' }}>No false pessimism:</strong> the statement is very likely <em>true</em> and is{' '}
             <strong>not</strong> RH in disguise — the missing piece is a concrete, plausibly-attackable PDE/ODE lemma
             (a candidate RvM-only rescue: the exact heat-polynomial representation + an edge-gap comparison{' '}
-            <InlineMath tex={"t_c(N)\\le(\\text{min edge gap})^2/4"} />). Honest label:{' '}
+            <InlineMath tex={"t_c(N)\\le(\\text{min edge gap})^2/4"} />). label:{' '}
             <em>"limsup |t_c(N)| = 0, unconditional MODULO the finite-N validity of the collision formula (G5-residual)."</em>{' '}
             Platt–Trudgian <InlineMath tex={"\\Lambda\\le 0.2"} /> is unaffected either way.
           </p>
@@ -128,7 +128,7 @@ export default function RouteBLimsupPage() {
             <strong style={{ color: 'var(--terra-dk)' }}>PARTIAL</strong>: the rigorous, GUE-free, PCC-free content is the
             Koksma–Hlawka/Trudgian discrepancy bound and the <strong>imp-322 min-gap monotonicity lemma</strong>,
             but the composition into <InlineMath tex={"\\limsup|t_c(N)|=0"} /> rests on an admitted finite-N
-            collision-formula surrogate (the G5-residual) plus a normalization repair. The honest label is{' '}
+            collision-formula surrogate (the G5-residual) plus a normalization repair. The label is{' '}
             <em>"unconditional modulo the finite-N validity of the collision formula."</em> The route-map "RIGOROUS-SOTA"
             tag and the imp-341/344 "UNCONDITIONALLY" wording should be regraded <strong>CLOSED-MODULO</strong>, and the
             stale <code>G6_PER_N_BOUND</code> / "C_H = 1/8 RIGOROUS" block in <code>dyson-burgers-shock.js</code>{' '}

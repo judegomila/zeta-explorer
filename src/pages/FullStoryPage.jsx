@@ -5,7 +5,7 @@ import { LAMBDA_BOUNDS } from '../data/lambda-roadmap.js';
 import { NEWMAN_LAMBDA_01787854_CANDIDATE } from '../data/newman-lambda-01787854-candidate.js';
 
 /* Editorial (post reading-view) presentation of the Twin-Ladder / Λ program
-   narrative. All claims, numbers, bounds, dates, and honesty caveats are
+   narrative. All claims, numbers, bounds, dates, and clarity caveats are
    preserved verbatim from the prior dark-app page; this file only restyles the
    presentation into the warm editorial theme. No new claim is introduced. */
 

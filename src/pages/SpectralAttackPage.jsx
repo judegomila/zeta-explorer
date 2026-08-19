@@ -1071,7 +1071,7 @@ function R1T4BasinClosureSection() {
 
       <div style={{ background: "rgba(181,138,46,0.07)", border: "1px solid rgba(181,138,46,0.25)", borderRadius: 8, padding: "10px 14px" }}>
         <div style={{ color: "#b58a2e", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
-          Honest Residual
+          Residual
         </div>
         <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.7 }}>
           {SG1C_THEOREMS.lemmaR1T4}
@@ -1339,7 +1339,7 @@ function ConditioningCollapseBars() {
   );
 }
 
-// imp-33829: honest-status banner for the imp-33787 G7 Perron-lower-bound feasibility verdict --
+// imp-33829: status banner for the imp-33787 G7 Perron-lower-bound feasibility verdict --
 // the off-diagonal endpoint-Hankel obstruction surfaced just above (imp-3086) has NO uniform
 // positive floor over the admissible s = a*U half-line, so a K_a >= 0 argument cannot draw its
 // positivity from the kernel alone.
@@ -1868,7 +1868,7 @@ function AsymIsolationOnsetLadderViz() {
   );
 }
 
-// imp-3248: honest-status banner — c_glob is an INFIMUM, every onset is an upper bound, only basin 0.72 is load-bearing
+// imp-3248: status banner — c_glob is an INFIMUM, every onset is an upper bound, only basin 0.72 is load-bearing
 function CglobInfimumHonestBanner() {
   const ledger = SG1C_ASYM_ONSET_BRACKET_LEDGER;
   return (
@@ -2680,7 +2680,7 @@ export default function SpectralAttackPage() {
         <SpectralAttackViz />
       </div>
 
-      {/* ─── Theta-Trap Honest-Status Banner (imp-3245) ─── */}
+      {/* ─── Theta-Trap-Status Banner (imp-3245) ─── */}
       <HonestCeilingBanner
         variant="REFUTED"
         title="SG1c optimistic form is REFUTED on the band (0.443, 0.5073)"
@@ -2726,7 +2726,7 @@ export default function SpectralAttackPage() {
       {/* ─── Asymmetric Isolation Onset Ladder vs 0.72 Basin (imp-3205) ─── */}
       <AsymIsolationOnsetLadderViz />
 
-      {/* ─── c_glob infimum honest-status banner (imp-3248) ─── */}
+      {/* ─── c_glob infimum status banner (imp-3248) ─── */}
       <CglobInfimumHonestBanner />
 
       {/* ─── Minimal-Gap Selector Discontinuity Viz (imp-3203 surfaces imp-3173) ─── */}
@@ -2747,7 +2747,7 @@ export default function SpectralAttackPage() {
       {/* ─── Conditioning Collapse before/after bars (imp-3116 surfaces imp-3086) ─── */}
       <ConditioningCollapseBars />
 
-      {/* ─── G7 Perron-lower-bound honest-status banner (imp-33829 surfaces imp-33787) ─── */}
+      {/* ─── G7 Perron-lower-bound status banner (imp-33829 surfaces imp-33787) ─── */}
       <G7PerronFloorHonestBanner />
 
       {/* ─── Isolation-Ratio rho Landmarks Number Line (imp-3099) ─── */}

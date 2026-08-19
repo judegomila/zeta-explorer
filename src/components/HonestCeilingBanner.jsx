@@ -20,7 +20,7 @@ import { Link } from 'react-router-dom';
  */
 
 // Preset variants mirror the StateOfProgramPage TRUTHS badges/wording so this
-// banner cannot drift from the canonical honest-status page.
+// banner cannot drift from the canonical status page.
 const VARIANTS = {
   'RIGOROUS-SOTA': {
     color: '#34d399',

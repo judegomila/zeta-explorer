@@ -424,7 +424,7 @@ export default function LambdaBoundsPage() {
 
         {/* ── The 5-step chain ─────────────────────────────────────────── */}
         <h2 className="ed-h2" style={{ marginTop: 24, marginBottom: 12 }}>The 5-step chain to RH</h2>
-        {/* Honest-status note (imp-3077): make the per-step grading explicit so
+        {/* Status note (imp-3077): make the per-step grading explicit so
             readers see that the chain is NOT a closed unconditional proof. */}
         <div
           className="card"

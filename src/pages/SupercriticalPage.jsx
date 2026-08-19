@@ -7,7 +7,7 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
 // Supercritical Phase Explorer — Bost-Connes / primon-gas thermodynamic lens
 // on zeta beyond the critical strip. Editorial (warm) re-theme: identical
-// content, math, and honesty flags; SupercriticalViz kept exactly as-is.
+// content, math, and clarity flags; SupercriticalViz kept exactly as-is.
 
 export default function SupercriticalPage() {
   const [numSigma, setNumSigma] = React.useState(1.5);
@@ -42,7 +42,7 @@ export default function SupercriticalPage() {
           variant="ESTIMATE"
           title="Scope: this page shows a finite-prime ESTIMATE and quotes cited Λ bounds — it produces neither"
           body={
-            'Two honesty flags for this page. (a) The numeric thermodynamic panel uses a partial Euler product ' +
+            'Two clarity flags for this page. (a) The numeric thermodynamic panel uses a partial Euler product ' +
             'truncated at primes ≤ 199; that finite-N sum is an ESTIMATE of the primon-gas quantities (and only ' +
             'genuinely convergent for σ > 1), never a rigorous bound on ζ. (b) The de Bruijn-Newman bound ' +
             'Λ ≤ 0.2 (Platt-Trudgian/Polymath15) and Λ ≥ 0 (Rodgers-Tao) shown below are CITED state-of-the-art ' +

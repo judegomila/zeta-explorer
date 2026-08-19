@@ -7,7 +7,7 @@ import FreshnessBanner from '../components/FreshnessBanner.jsx';
 // module. The full module (which transitively imports 10^6 Odlyzko zeros)
 // is still used by daily-health-check.sh for drift detection.
 import { EMPIRICAL_M_SWEEP_EXTENDED_SUMMARY as EMPIRICAL_M_SWEEP_EXTENDED } from '../data/empirical-m-sweep-extended-summary.js';
-// imp-2956: honest top-line status, sourced from the same canonical data module
+// imp-2956: top-line status, sourced from the same canonical data module
 // as /state-of-program so the two surfaces cannot drift. Light, no heavy imports.
 import {
   STATE_OF_PROGRAM_SUMMARY_DATE,
@@ -354,7 +354,7 @@ export default function DashboardPage() {
 
         <FreshnessBanner date={STATE_OF_PROGRAM_SUMMARY_DATE} note="status reconciliation; metrics computed live on load" />
 
-        {/* imp-2956: honest "state of the program" summary, sourced from the
+        {/* imp-2956: "state of the program" summary, sourced from the
             canonical STATE_OF_PROGRAM_TRUTHS data module (same facts as
             /state-of-program) so the top-line status cannot drift. */}
         <div
@@ -362,7 +362,7 @@ export default function DashboardPage() {
           style={{ marginBottom: 24, borderLeft: '3px solid #877b67' }}
         >
           <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap', marginBottom: 10 }}>
-            <strong style={{ color: '#1c1814', fontSize: 15 }}>Honest state of the program</strong>
+            <strong style={{ color: '#1c1814', fontSize: 15 }}>state of the program</strong>
             <Link to="/state-of-program" style={{ fontSize: 12.5 }}>Full state of the program →</Link>
           </div>
           <p style={{ fontSize: 12.5, color: '#4a4238', lineHeight: 1.55, margin: '0 0 12px' }}>

@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 /**
- * VizCeilingNote — shared honest-ceiling guardrail note for exploratory
+ * VizCeilingNote — shared-ceiling guardrail note for exploratory
  * visualization pages. Renders the standard anti-overclaim line: this picture
  * is an exact, exploratory visualization that re-derives only `claim`, does NOT
  * beat Platt-Trudgian Lambda <= 0.2, and is no false QED.
  *
  * Props:
- *   claim        what the picture honestly re-derives (e.g. "Λ ≥ 0"). Default "Λ ≥ 0".
+ *   claim        what the picture re-derives (e.g. "Λ ≥ 0"). Default "Λ ≥ 0".
  *   ceiling      optional extra ceiling phrase appended in parentheses
  *                (e.g. "twin-ladder geometry is a dead end as a rigorous Λ route").
  *   routeMapLink whether to append a link to the route map. Default true.

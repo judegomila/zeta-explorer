@@ -11,7 +11,7 @@ export default function FormalizationStatusPage() {
       <h1>Lean Formalization — Machine-Checked Rigor Pilot</h1>
       <p style={{ color: '#94a3b8', fontSize: 15, lineHeight: 1.7, maxWidth: 800 }}>
         A Lean 4 scaffold of the de Bruijn–Newman lower-bound chain. The <em>definitional</em> layer
-        (RH ⇔ Λ = 0) is machine-checked; the deep analytic theorems are honest <code>sorry</code>-stubs
+        (RH ⇔ Λ = 0) is machine-checked; the deep analytic theorems are <code>sorry</code>-stubs
         with their missing ingredients named. It proves nothing new — it hardens what's known and maps
         exactly what a full formalization would require.
       </p>
@@ -50,7 +50,7 @@ export default function FormalizationStatusPage() {
         </div>
       )}
 
-      <h2>○ Stated but not proved (honest <code>sorry</code>-stubs)</h2>
+      <h2>○ Stated but not proved (<code>sorry</code>-stubs)</h2>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
         {stubbed.map((t) => (
           <div key={t.name} style={{ border: '1px solid #f59e0b55', background: 'rgba(245,158,11,0.06)', borderRadius: 8, padding: '10px 14px' }}>

@@ -22,7 +22,7 @@ export default function StatisticsPage() {
         <div className="card" style={{ marginTop: 24, borderColor: 'var(--brass)', background: 'rgba(181,138,46,0.06)' }}>
           <h3 style={{ color: 'var(--brass-dk)' }}>Proven vs. Conditional vs. Conjectural — read this first</h3>
           <p style={{ marginTop: 8, color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.7 }}>
-            This page blends results of very different logical status. To keep the framing honest:
+            This page blends results of very different logical status. To keep the framing:
           </p>
           <ul style={{ marginTop: 8, color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.8, paddingLeft: 20 }}>
             <li>

@@ -5,10 +5,10 @@ import { FULL_ROUTE_MAP } from '../data/full-route-map-2026-06-19.js';
 import { CH_WALL_FRONTIER } from '../data/ch-wall-frontier-verdict-2026-06-26.js';
 
 /*
- * What We Know — the consolidated, honest artifact of everything this project has
+ * What We Know — the consolidated, artifact of everything this project has
  * established about zeta, RH, and the primes. Reads the verdict modules; authored
- * connective prose. The discipline is calibrated honesty: no RH proof, no beat of
- * the Lambda record -- but a rigorously honest MAP of where the walls are and why.
+ * connective prose. The discipline is calibrated clarity: no RH proof, no beat of
+ * the Lambda record -- but a rigorously MAP of where the walls are and why.
  *
  * Editorial (warm) restyle of the legacy dark page. Every claim, count, and status
  * label is preserved verbatim.
@@ -29,10 +29,10 @@ export default function WhatWeKnowPage() {
   return (
     <PostLayout
       grade="NO-GO"
-      meta={[`${ROUTE_COUNT} mapped routes`, 'calibrated honesty']}
+      meta={[`${ROUTE_COUNT} mapped routes`, 'calibrated clarity']}
       title="What We Know"
       dek={
-        <>The consolidated, honest state of what this project has actually figured out about
+        <>The consolidated, state of what this project has actually figured out about
         ζ, the Riemann Hypothesis, and the primes — where the walls are and why.</>
       }
       byline={['mathexplorer', 'no RH proof · no beat of the Λ record']}
@@ -46,7 +46,7 @@ export default function WhatWeKnowPage() {
       </>}
     >
       <p className="lead">
-        The discipline throughout is calibrated honesty — so the headline first:{' '}
+        The discipline throughout is calibrated clarity — so the headline first:{' '}
         <strong>RH is not proved. The standalone repository presents
         Λ ≤ 0.1787854 as a computer-assisted candidate for an unconditional proof.
         The bound is not established, has been reviewed by Dan Romik, and is not RH. Λ ≤ 0.2
@@ -133,7 +133,7 @@ export default function WhatWeKnowPage() {
       <ul style={{ paddingLeft: 20, lineHeight: 1.75 }}>
         <li><strong>Caustics = multiplicative resonances.</strong> In the log-phase field θ = t·log n, bright bands form where log(p_i/p_j) ≈ 2πk/t — the same oscillatory structure as the explicit formula's x^ρ kernel.</li>
         <li><strong>Prime rigidity is demonstrable.</strong> Real primes produce coherent caustics; randomize the logs and they dissolve into noise — a vivid face of "the primes are arithmetic, not random." <Link to="/prime-rigidity">(see it)</Link></li>
-        <li><strong>Zeros are phase vortices</strong> of V_t = H_t′/H_t; winding ±1 = the argument principle; vortex-exclusion ⟺ RH. The winding-as-order-parameter re-derives Λ ≥ 0 cleanly but, honestly, does not go past it. <Link to="/vortex-field">(see it)</Link></li>
+        <li><strong>Zeros are phase vortices</strong> of V_t = H_t′/H_t; winding ±1 = the argument principle; vortex-exclusion ⟺ RH. The winding-as-order-parameter re-derives Λ ≥ 0 cleanly but, does not go past it. <Link to="/vortex-field">(see it)</Link></li>
       </ul>
 
       <h2>One-sentence version</h2>

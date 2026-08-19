@@ -140,7 +140,7 @@ export default function Imp33323MinNodeLatticeJitterBandViz() {
         (ringed, 0.76 ULP) is a genuine lattice coincidence -- its immediate neighbours 169p and
         173p bounce to ~2.1 and ~2.3 ULP, both failing the bar. What is robust is the shaded band:
         every scanned panel count of either grade, resolved or not, stays inside [~0.7,~5] ULP,
-        which is why the honest budget rule is stated as a band ceiling, not the fragile single hit.
+        which is why the budget rule is stated as a band ceiling, not the fragile single hit.
       </div>
 
       <div

@@ -42,7 +42,7 @@ export default function FormalProofPage() {
           </p>
         </div>
 
-        {/* ── Honesty Statement ── */}
+        {/* ── clarity Statement ── */}
         <div className="card" style={{ marginBottom: 24, borderLeft: '3px solid #c23a1c' }}>
           <h3 style={{ color: '#c23a1c', fontSize: 14, marginBottom: 8 }}>Status</h3>
           <p style={{ color: '#4a4238', fontSize: 13, lineHeight: 1.8 }}>

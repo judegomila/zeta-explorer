@@ -9,7 +9,7 @@
 //       eta=c) with fitted OLS slope line and the ESY slope=-1 target
 //       reference line
 //   (3) per-N data table
-//   (4) honest-scope panel
+//   (4)-scope panel
 //
 // Pure SVG + React + d3-scale, matching the imp-1099 / imp-1098 page
 // idiom. No external chart library; no canvas; no animation.
@@ -120,7 +120,7 @@ function LogLogScatter({ title, rows, fit, color }) {
   const fitY2Log10 = fitY2Ln * Math.log10(Math.E);
 
   // ESY target line (slope = -1) anchored at the smallest-N empirical
-  // point so the visual comparison is honest.
+  // point so the visual comparison is.
   const target0Log10 = logPsis[0] - (-1) * (logNs[0] - fitX1);
   const targetY1 = target0Log10;
   const targetY2 = target0Log10 + (-1) * (fitX2 - fitX1);
@@ -329,7 +329,7 @@ export default function EsyRigidityEmpiricalPage() {
           </div>
         </div>
 
-        {/* Honest-status caveat. What this measurement is and is NOT. */}
+        {/* Status caveat. What this measurement is and is NOT. */}
         <div className="card" style={{ ...cardBaseLeft('var(--brass-dk)'), background: 'rgba(181,138,46,0.06)', marginBottom: 16 }}>
           <div style={{ fontSize: 11, color: 'var(--brass-dk)', textTransform: 'uppercase', letterSpacing: 0.5, fontWeight: 700 }}>
             Status — what this verdict is and is NOT

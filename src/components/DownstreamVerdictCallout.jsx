@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 /**
- * DownstreamVerdictCallout — a shared honest "downstream verdict" banner for the
+ * DownstreamVerdictCallout — a shared "downstream verdict" banner for the
  * §17 / Apps B–G program pages (/blaschke-ghosts, /reciprocal-program).
  *
  * These no-ghost / restricted-lift constructions feed a chain whose TERMINAL

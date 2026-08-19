@@ -188,7 +188,7 @@ export default function Imp3614SigmaCrossoverFloorInvarianceViz() {
         identical, stay within a tight ratio band ~0.996 across the whole
         half-to-double window -- the shaded region marks that band, and the
         green dot is the baseline f=1.0x node, which reproduces the imp-3556
-        reading exactly. The bottom chart shows the honest refinement: the gap
+        reading exactly. The bottom chart shows the refinement: the gap
         1-N_half/N_x is NOT a fixed 0.40% -- it grows monotonically with the
         floor from {IMP3614_GAP_BAND.min}% to {IMP3614_GAP_BAND.max}%, closely
         tracking the structural law 2 E_flow(N_x)/E_trunc (dashed) within the

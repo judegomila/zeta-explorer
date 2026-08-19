@@ -42,7 +42,7 @@ export default function AutonomousFleetPage() {
       <Pull>The fleet produces candidates and no-gos at scale. It does not produce proofs. Every bound on this site is either rigorous-and-cited or explicitly labelled computer-assisted and unrefereed.</Pull>
 
       <h2>What it is for</h2>
-      <p>The value is coverage: mapping every route, ruling out whole families of approaches with theorems, and pushing computer-assisted bounds as far as interval arithmetic allows. Where that leaves the mathematics is recorded honestly across the atlas — the frontier is a verified-height problem, and the fleet cannot manufacture height it has not verified. See <Link to="/route-map">the wall map</Link> for the full route inventory.</p>
+      <p>The value is coverage: mapping every route, ruling out whole families of approaches with theorems, and pushing computer-assisted bounds as far as interval arithmetic allows. Where that leaves the mathematics is recorded across the atlas — the frontier is a verified-height problem, and the fleet cannot manufacture height it has not verified. See <Link to="/route-map">the wall map</Link> for the full route inventory.</p>
     </PostLayout>
   );
 }

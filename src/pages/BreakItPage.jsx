@@ -12,7 +12,7 @@ import { directLadder, dualLadder } from '../math/oscillators.js';
 // zeta.js, primes.js, oscillators.js); only the chrome is re-themed to the
 // warm editorial palette (src/styles/editorial.css). Every claim, number and
 // caveat below is kept verbatim — this page exists to be attacked, so it has
-// to stay honest.
+// to stay.
 
 // Warm-palette hex equivalents of editorial.css's --blue/--green/--brass/
 // --brass-dk/--terra-dk. Kept as literal hex (not var(...)) because the

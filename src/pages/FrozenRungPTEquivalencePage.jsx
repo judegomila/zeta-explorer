@@ -5,7 +5,7 @@ import { FROZEN_RUNG_PT_EQUIVALENCE } from '../data/frozen-rung-pt-equivalence-2
 
 /* Editorial (post reading-view) presentation of the frozen-rung ⟺ Platt–Trudgian
    proposition. All mathematical text is sourced verbatim from
-   src/data/frozen-rung-pt-equivalence-2026-07-31.js (and the honesty banner strings
+   src/data/frozen-rung-pt-equivalence-2026-07-31.js (and the clarity banner strings
    preserved from the prior page); this file only restyles it. */
 
 const { setup, proposition, whyItMatters, paperPdf } = FROZEN_RUNG_PT_EQUIVALENCE;

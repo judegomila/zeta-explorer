@@ -98,7 +98,7 @@ export default function Imp34875IntervalCeilMarginViz() {
       <MarginChart />
 
       <p style={{ color: '#64748b', fontSize: '0.78rem', marginTop: '0.75rem' }}>
-        In both the {BANDS[0].offByOne}-of-31 and {BANDS[1].offByOne}-of-61 off-by-one cohorts, the honest
+        In both the {BANDS[0].offByOne}-of-31 and {BANDS[1].offByOne}-of-61 off-by-one cohorts, the
         numerical interval (blue) sits two decades below the nearest integer boundary (amber): zero of the{' '}
         {D.summary.total_off_by_one_seeds} off-by-one seeds across either band have a straddling
         (ceil(x_lo) &ne; ceil(x_hi)) interval &mdash; every one is a true one-off. The margin is wide enough

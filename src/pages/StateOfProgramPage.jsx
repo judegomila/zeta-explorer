@@ -9,7 +9,7 @@ import {
 } from '../data/state-of-program-truths.js';
 import { CAUGHT_OVERCLAIMS, OVERCLAIM_COUNT } from '../data/overclaim-ledger.js';
 
-// The honest, single canonical top-of-funnel summary. Facts are sourced from
+// The, single canonical top-of-funnel summary. Facts are sourced from
 // the shared STATE_OF_PROGRAM_TRUTHS data module, reconciled against the route
 // map and the fixed-height certificate packages, so this page and DashboardPage
 // cannot drift.
@@ -26,7 +26,7 @@ export default function StateOfProgramPage() {
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>State of the Program</h1>
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55 }}>
-            One honest, plain-language summary of where this RH / de&nbsp;Bruijn-Newman Λ attack actually stands.
+            One, plain-language summary of where this RH / de&nbsp;Bruijn-Newman Λ attack actually stands.
             The truth is otherwise scattered across the route map, dashboards and withdrawn-claims notes — this page
             exists so a reader cannot over-read any single partial page. The summary was reconciled on{' '}
             <strong>{STATE_OF_PROGRAM_SUMMARY_DATE}</strong> against the{' '}

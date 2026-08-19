@@ -20,7 +20,7 @@
 // theorem the primes' log-density is asymptotically scale-invariant, so the
 // three panels look APPROXIMATELY self-similar -- a renormalization-like
 // picture of the prime spiral. This is a visual/empirical observation, not
-// a theorem, and makes no Lambda or RH claim (see honest-scope card below).
+// a theorem, and makes no Lambda or RH claim (see-scope card below).
 //
 // Primes are generated on the fly with a bounded segmented sieve (base
 // primes up to sqrt(1e7) ~ 3163, then strided sampling capped per panel)

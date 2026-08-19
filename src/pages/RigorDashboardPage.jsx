@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import {
   HEADLINE as LEGACY_HEADLINE,
   PROOF_CHAIN,
@@ -19,33 +20,76 @@ import { CH_LIP_BASIN_CONDITIONAL, CH_LIP_DIVERGENCE_DECOMPOSITION } from '../da
 import { IMP3110_SECTION26_GRAM_VS_MONOMIAL_GAP } from '../data/imp-3110-section26-gram-vs-monomial-gap.js';
 import { NEWMAN_LAMBDA_01787854_CANDIDATE } from '../data/newman-lambda-01787854-candidate.js';
 
+// Editorial (warm) re-theme: same structure/data/logic as the original dark
+// dashboard, just re-skinned. Every claim/number/status/caveat kept verbatim.
+
+// Color mapping — dark-theme hex accents to warm editorial equivalents.
+const GREEN = 'var(--green)';    // was #10b981 / #86efac
+const RED = 'var(--terra-dk)';   // was #ef4444
+const RED_LIGHT = 'var(--terra)'; // was #fca5a5 / #f87171
+const AMBER = 'var(--brass-dk)'; // was #f59e0b / #fbbf24 / #fcd34d
+const ORANGE = 'var(--brass)';   // was #f97316 (distinct analytical+numeric tier)
+const BLUE = 'var(--blue)';      // was #06b6d4 / #22d3ee / #67e8f9
+const PURPLE = 'var(--terra)';   // was #a78bfa (editorial palette has no purple)
+const ROSE = 'var(--terra)';     // was #f43f5e (editorial palette has no rose)
+
+// rgba() literals matching the vars above — CSS custom properties can't be fed
+// into rgba() directly, so translucent backgrounds/borders use the resolved RGB.
+const GREEN_A = (a) => `rgba(76,122,74,${a})`;
+const RED_A = (a) => `rgba(194,58,28,${a})`;
+const AMBER_A = (a) => `rgba(181,138,46,${a})`;
+const ORANGE_A = (a) => `rgba(140,106,29,${a})`;
+const BLUE_A = (a) => `rgba(63,107,134,${a})`;
+const PURPLE_A = (a) => `rgba(217,80,46,${a})`;
+const ROSE_A = PURPLE_A;
+
+// Literal hex twins of GREEN/RED/AMBER/ORANGE — needed anywhere the code
+// appends an alpha-hex suffix (e.g. `${color}40`), which only works with a
+// real hex string, not a CSS var() reference.
+const GREEN_HEX = '#4c7a4a';
+const RED_HEX = '#c23a1c';
+const AMBER_HEX = '#b58a2e';
+const ORANGE_HEX = '#8c6a1d';
+
+const MONO = 'var(--ed-mono, var(--font-mono))';
+
+const pillLink = {
+  color: 'var(--brass-dk)',
+  fontFamily: MONO,
+  fontSize: 12,
+  textDecoration: 'none',
+  padding: '4px 10px',
+  border: '1px solid var(--hairline)',
+  borderRadius: 6,
+};
+
 // ── Assertion freshness stamp (imp-2999) ─────────────────────────────────────
 function FreshnessStamp() {
   const { timestamp, passed, failed } = ASSERTION_FRESHNESS;
   const ok = failed === 0;
-  const color = ok ? '#10b981' : '#ef4444';
+  const color = ok ? GREEN_HEX : RED_HEX;
   const label = ok ? 'PASS' : 'FAIL';
   // Format: "2026-06-26 02:08 UTC"
   const dt = timestamp.replace('T', ' ').replace('Z', '').slice(0, 16) + ' UTC';
   return (
     <div style={{
       display: 'inline-flex', alignItems: 'center', gap: 8,
-      background: ok ? 'rgba(16,185,129,0.07)' : 'rgba(239,68,68,0.07)',
+      background: ok ? GREEN_A(0.07) : RED_A(0.07),
       border: `1px solid ${color}40`,
       borderRadius: 6, padding: '4px 10px',
       marginBottom: 20,
     }}>
       <span style={{
-        fontSize: 10, fontWeight: 700, fontFamily: 'var(--font-mono)',
+        fontSize: 10, fontWeight: 700, fontFamily: MONO,
         color, background: `${color}20`, borderRadius: 3,
         padding: '1px 5px',
       }}>
         {label}
       </span>
-      <span style={{ fontSize: 12, color: '#94a3b8', fontFamily: 'var(--font-mono)' }}>
+      <span style={{ fontSize: 12, color: 'var(--faint)', fontFamily: MONO }}>
         Assertions last verified: {dt}
       </span>
-      <span style={{ fontSize: 11, color: '#475569', fontFamily: 'var(--font-mono)' }}>
+      <span style={{ fontSize: 11, color: 'var(--faint)', fontFamily: MONO }}>
         ({passed} passed)
       </span>
     </div>
@@ -84,27 +128,27 @@ function rigorColor(status) {
 
 const COLOR_META = {
   green: {
-    border: '#10b981',
-    bg: 'rgba(16,185,129,0.08)',
-    badge: '#10b981',
+    border: GREEN_HEX,
+    bg: GREEN_A(0.08),
+    badge: GREEN_HEX,
     label: 'Unconditional',
   },
   yellow: {
-    border: '#f59e0b',
-    bg: 'rgba(245,158,11,0.07)',
-    badge: '#f59e0b',
+    border: AMBER_HEX,
+    bg: AMBER_A(0.07),
+    badge: AMBER_HEX,
     label: 'Conditional',
   },
   orange: {
-    border: '#f97316',
-    bg: 'rgba(249,115,22,0.07)',
-    badge: '#f97316',
+    border: ORANGE_HEX,
+    bg: ORANGE_A(0.07),
+    badge: ORANGE_HEX,
     label: 'Analytical + Numerical',
   },
   red: {
-    border: '#ef4444',
-    bg: 'rgba(239,68,68,0.07)',
-    badge: '#ef4444',
+    border: RED_HEX,
+    bg: RED_A(0.07),
+    badge: RED_HEX,
     label: 'Open / Unresolved',
   },
 };
@@ -129,7 +173,7 @@ function Legend() {
             width: 12, height: 12, borderRadius: '50%',
             background: meta.badge, flexShrink: 0,
           }} />
-          <span style={{ fontSize: 13, color: '#cbd5e1', fontFamily: 'var(--font-mono)' }}>
+          <span style={{ fontSize: 13, color: 'var(--ink-soft)', fontFamily: MONO }}>
             {meta.label}
           </span>
         </div>
@@ -167,14 +211,14 @@ function StepCard({ step, expanded, onToggle }) {
           width: 32, height: 32, borderRadius: '50%',
           background: meta.badge,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontSize: 13, fontWeight: 700, color: '#0f172a',
-          flexShrink: 0, fontFamily: 'var(--font-mono)',
+          fontSize: 13, fontWeight: 700, color: 'var(--paper)',
+          flexShrink: 0, fontFamily: MONO,
         }}>
           {step.step}
         </div>
         {/* Ticket tag */}
         <span style={{
-          fontSize: 11, fontFamily: 'var(--font-mono)', color: meta.badge,
+          fontSize: 11, fontFamily: MONO, color: meta.badge,
           background: `${meta.badge}20`, borderRadius: 4,
           padding: '2px 6px', flexShrink: 0,
         }}>
@@ -182,7 +226,7 @@ function StepCard({ step, expanded, onToggle }) {
         </span>
         {/* Status badge */}
         <span style={{
-          fontSize: 11, fontFamily: 'var(--font-mono)',
+          fontSize: 11, fontFamily: MONO,
           color: meta.badge,
           marginLeft: 'auto', flexShrink: 0,
           padding: '2px 8px',
@@ -196,13 +240,13 @@ function StepCard({ step, expanded, onToggle }) {
           width="14" height="14" viewBox="0 0 14 14" fill="none"
           style={{ transform: expanded ? 'rotate(180deg)' : 'none', transition: '0.15s', flexShrink: 0 }}
         >
-          <path d="M2 4l5 5 5-5" stroke="#64748b" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M2 4l5 5 5-5" stroke="#877b67" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
       </div>
       {/* Status line (always visible) */}
       <div style={{
         padding: '0 16px 8px 60px',
-        fontSize: 12, color: '#94a3b8', fontFamily: 'var(--font-mono)',
+        fontSize: 12, color: 'var(--faint)', fontFamily: MONO,
       }}>
         {step.status}
       </div>
@@ -211,7 +255,7 @@ function StepCard({ step, expanded, onToggle }) {
         <div style={{
           padding: '10px 16px 14px 60px',
           borderTop: `1px solid ${meta.border}40`,
-          fontSize: 13, color: '#cbd5e1', lineHeight: 1.6,
+          fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.6,
         }}>
           {step.claim}
         </div>
@@ -223,12 +267,12 @@ function StepCard({ step, expanded, onToggle }) {
 function RouteCard({ route }) {
   const isOpen = route.status.toLowerCase().includes('open') || route.status.toLowerCase().includes('partial');
   const isConditional = route.status.toLowerCase().includes('conditional') || route.status.toLowerCase().includes('modulo');
-  const borderColor = isOpen ? '#ef4444' : isConditional ? '#f59e0b' : '#10b981';
+  const borderColor = isOpen ? 'var(--terra-dk)' : isConditional ? 'var(--brass-dk)' : 'var(--green)';
   const bgColor = isOpen
-    ? 'rgba(239,68,68,0.07)'
+    ? RED_A(0.07)
     : isConditional
-    ? 'rgba(245,158,11,0.07)'
-    : 'rgba(16,185,129,0.08)';
+    ? AMBER_A(0.07)
+    : GREEN_A(0.08);
 
   return (
     <div style={{
@@ -236,20 +280,20 @@ function RouteCard({ route }) {
       borderRadius: 8, background: bgColor,
       padding: '14px 16px', marginBottom: 10,
     }}>
-      <div style={{ fontWeight: 700, fontSize: 14, color: '#f1f5f9', marginBottom: 6 }}>
+      <div style={{ fontWeight: 700, fontSize: 14, color: 'var(--ink)', marginBottom: 6 }}>
         {route.name}
       </div>
       <div style={{
-        fontSize: 11, fontFamily: 'var(--font-mono)', color: borderColor,
+        fontSize: 11, fontFamily: MONO, color: borderColor,
         marginBottom: 8,
       }}>
         {route.status}
       </div>
-      <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6, marginBottom: 6 }}>
+      <div style={{ fontSize: 12, color: 'var(--ink-soft)', lineHeight: 1.6, marginBottom: 6 }}>
         {route.summary}
       </div>
-      <div style={{ fontSize: 12, color: '#64748b' }}>
-        <span style={{ color: '#475569' }}>Closes if: </span>
+      <div style={{ fontSize: 12, color: 'var(--ink-soft)' }}>
+        <span style={{ color: 'var(--faint)' }}>Closes if: </span>
         {route.closesIf}
       </div>
     </div>
@@ -270,30 +314,30 @@ function ConditionBadge({ cond, color }) {
           background: meta.badge, flexShrink: 0,
         }} />
         <span style={{
-          fontSize: 12, fontWeight: 700, fontFamily: 'var(--font-mono)',
+          fontSize: 12, fontWeight: 700, fontFamily: MONO,
           color: meta.badge,
         }}>
           {cond.id}
         </span>
         {cond.ticket && (
           <span style={{
-            fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)',
+            fontSize: 11, color: 'var(--faint)', fontFamily: MONO,
             marginLeft: 'auto',
           }}>
             {cond.ticket}
           </span>
         )}
       </div>
-      <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.5, marginLeft: 17 }}>
+      <div style={{ fontSize: 12, color: 'var(--ink-soft)', lineHeight: 1.5, marginLeft: 17 }}>
         {cond.description}
       </div>
       {cond.condition && (
-        <div style={{ fontSize: 11, color: '#64748b', marginLeft: 17, marginTop: 4 }}>
+        <div style={{ fontSize: 11, color: 'var(--faint)', marginLeft: 17, marginTop: 4 }}>
           Requires: {cond.condition}
         </div>
       )}
       {cond.wouldClose && (
-        <div style={{ fontSize: 11, color: '#64748b', marginLeft: 17, marginTop: 4 }}>
+        <div style={{ fontSize: 11, color: 'var(--faint)', marginLeft: 17, marginTop: 4 }}>
           Would close: {cond.wouldClose}
         </div>
       )}
@@ -305,10 +349,10 @@ function ConditionBadge({ cond, color }) {
 function TransparencyLedger() {
   return (
     <div style={{ marginBottom: 32 }}>
-      <h2 style={{ fontSize: 16, color: '#e2e8f0', marginBottom: 8 }}>
+      <h2 className="ed-h2" style={{ fontSize: 16, color: 'var(--ink)', marginBottom: 8 }}>
         Corrections Log
       </h2>
-      <p style={{ fontSize: 12, color: '#64748b', marginBottom: 16, lineHeight: 1.6 }}>
+      <p style={{ fontSize: 12, color: 'var(--faint)', marginBottom: 16, lineHeight: 1.6 }}>
         Internal record of claims that overreached the evidence during development and were later
         corrected. Format: claim made &rarr; how caught &rarr; correction &rarr; current honest status.
       </p>
@@ -316,37 +360,37 @@ function TransparencyLedger() {
         <div
           key={entry.id}
           style={{
-            border: '1px solid rgba(239,68,68,0.25)',
+            border: `1px solid ${RED_A(0.25)}`,
             borderRadius: 8,
-            background: 'rgba(239,68,68,0.04)',
+            background: RED_A(0.04),
             padding: '14px 16px',
             marginBottom: 10,
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
             <span style={{
-              fontSize: 11, fontFamily: 'var(--font-mono)',
-              color: '#ef4444',
-              background: 'rgba(239,68,68,0.12)',
-              border: '1px solid rgba(239,68,68,0.3)',
+              fontSize: 11, fontFamily: MONO,
+              color: RED,
+              background: RED_A(0.12),
+              border: `1px solid ${RED_A(0.3)}`,
               borderRadius: 4, padding: '2px 7px',
               flexShrink: 0,
             }}>
               {'OVERCLAIM #' + (i + 1)}
             </span>
-            <span style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)' }}>
+            <span style={{ fontSize: 11, color: 'var(--faint)', fontFamily: MONO }}>
               {entry.id}
             </span>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '90px 1fr', gap: '6px 12px', fontSize: 12 }}>
-            <span style={{ color: '#475569', fontFamily: 'var(--font-mono)', paddingTop: 2, fontWeight: 600 }}>CLAIM</span>
-            <span style={{ color: '#cbd5e1', lineHeight: 1.5 }}>{entry.claim}</span>
-            <span style={{ color: '#475569', fontFamily: 'var(--font-mono)', paddingTop: 2, fontWeight: 600 }}>CAUGHT BY</span>
-            <span style={{ color: '#94a3b8', lineHeight: 1.5 }}>{entry.caughtBy}</span>
-            <span style={{ color: '#475569', fontFamily: 'var(--font-mono)', paddingTop: 2, fontWeight: 600 }}>CORRECTION</span>
-            <span style={{ color: '#94a3b8', lineHeight: 1.5 }}>{entry.correction}</span>
-            <span style={{ color: '#475569', fontFamily: 'var(--font-mono)', paddingTop: 2, fontWeight: 600 }}>STATUS</span>
-            <span style={{ color: '#fbbf24', lineHeight: 1.5, fontWeight: 600 }}>{entry.status}</span>
+            <span style={{ color: 'var(--faint)', fontFamily: MONO, paddingTop: 2, fontWeight: 600 }}>CLAIM</span>
+            <span style={{ color: 'var(--ink-soft)', lineHeight: 1.5 }}>{entry.claim}</span>
+            <span style={{ color: 'var(--faint)', fontFamily: MONO, paddingTop: 2, fontWeight: 600 }}>CAUGHT BY</span>
+            <span style={{ color: 'var(--ink-soft)', lineHeight: 1.5 }}>{entry.caughtBy}</span>
+            <span style={{ color: 'var(--faint)', fontFamily: MONO, paddingTop: 2, fontWeight: 600 }}>CORRECTION</span>
+            <span style={{ color: 'var(--ink-soft)', lineHeight: 1.5 }}>{entry.correction}</span>
+            <span style={{ color: 'var(--faint)', fontFamily: MONO, paddingTop: 2, fontWeight: 600 }}>STATUS</span>
+            <span style={{ color: AMBER, lineHeight: 1.5, fontWeight: 600 }}>{entry.status}</span>
           </div>
         </div>
       ))}
@@ -359,8 +403,8 @@ const SOTA_TIERS = [
   {
     key: 'rigorous',
     label: 'BOUND EVIDENCE GRADES',
-    color: '#10b981',
-    bg: 'rgba(16,185,129,0.08)',
+    color: GREEN,
+    bg: GREEN_A(0.08),
     items: [
       'Rodgers–Tao (2020): Λ ≥ 0 — unconditional.',
       'Platt–Trudgian (2021): Λ ≤ 0.2 — peer-reviewed upper-bound benchmark.',
@@ -371,8 +415,8 @@ const SOTA_TIERS = [
   {
     key: 'estimate',
     label: 'ESTIMATE — NOT RIGOROUS',
-    color: '#f59e0b',
-    bg: 'rgba(245,158,11,0.08)',
+    color: AMBER,
+    bg: AMBER_A(0.08),
     items: [
       'Finite-N* = 1e4 self-consistent estimate Λ ≈ 0.013.',
       'Gated by the undischargeable constant C_H (imp-2640 NEGATIVE); a heuristic target, NOT a proof.',
@@ -381,8 +425,8 @@ const SOTA_TIERS = [
   {
     key: 'refuted',
     label: 'REFUTED / DEAD ROUTES',
-    color: '#ef4444',
-    bg: 'rgba(239,68,68,0.07)',
+    color: RED,
+    bg: RED_A(0.07),
     items: [
       CAUGHT_OVERCLAIMS.length + ' claims overreached the evidence and were corrected (see Corrections Log below).',
       'No legacy Dyson/Volterra overclaim beats its stated benchmark; the thin-strip framing is structurally dead (imp-2630). The separate Λ ≤ 0.1787854 package uses a different fixed-height route, but remains an unreviewed computer-assisted candidate whose bound is not established.',
@@ -393,10 +437,10 @@ const SOTA_TIERS = [
 function HonestSOTABanner() {
   return (
     <div style={{
-      border: '1px solid #334155', borderRadius: 10,
-      background: 'rgba(15,23,42,0.6)', padding: '14px 18px', marginBottom: 24,
+      border: '1px solid var(--hairline)', borderRadius: 10,
+      background: 'var(--paper2)', padding: '14px 18px', marginBottom: 24,
     }}>
-      <div style={{ fontSize: 11, color: '#94a3b8', fontFamily: 'var(--font-mono)', marginBottom: 12, letterSpacing: 0.5 }}>
+      <div style={{ fontSize: 11, color: 'var(--faint)', fontFamily: MONO, marginBottom: 12, letterSpacing: 0.5 }}>
         HONEST RIGOR HIERARCHY &mdash; WHAT IS PROVED vs ESTIMATED vs REFUTED
       </div>
       <div style={{
@@ -410,14 +454,14 @@ function HonestSOTABanner() {
             background: tier.bg, padding: '10px 13px',
           }}>
             <div style={{
-              fontSize: 12, fontWeight: 700, fontFamily: 'var(--font-mono)',
+              fontSize: 12, fontWeight: 700, fontFamily: MONO,
               color: tier.color, marginBottom: 8,
             }}>
               {tier.label}
             </div>
             {tier.items.map((text, i) => (
               <div key={i} style={{
-                fontSize: 12, color: '#cbd5e1', lineHeight: 1.5,
+                fontSize: 12, color: 'var(--ink-soft)', lineHeight: 1.5,
                 marginBottom: i < tier.items.length - 1 ? 6 : 0,
               }}>
                 {text}
@@ -434,13 +478,13 @@ function EstimatorTriptych() {
   const t = LAMBDA_ESTIMATOR_TRIPTYCH_IMP2991;
   return (
     <div style={{
-      border: '1px solid #334155', borderRadius: 10,
-      background: 'rgba(15,23,42,0.6)', padding: '14px 18px', marginBottom: 24,
+      border: '1px solid var(--hairline)', borderRadius: 10,
+      background: 'var(--paper2)', padding: '14px 18px', marginBottom: 24,
     }}>
-      <div style={{ fontSize: 11, color: '#94a3b8', fontFamily: 'var(--font-mono)', marginBottom: 6, letterSpacing: 0.5 }}>
+      <div style={{ fontSize: 11, color: 'var(--faint)', fontFamily: MONO, marginBottom: 6, letterSpacing: 0.5 }}>
         LAMBDA CROSS-VALIDATION &mdash; THREE INDEPENDENT ESTIMATORS (imp-2991)
       </div>
-      <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6, marginBottom: 12 }}>
+      <div style={{ fontSize: 12, color: 'var(--ink-soft)', lineHeight: 1.6, marginBottom: 12 }}>
         {t.subtitle}
       </div>
       <div style={{
@@ -450,50 +494,50 @@ function EstimatorTriptych() {
       }}>
         {t.estimators.map(e => (
           <div key={e.key} style={{
-            border: '1px solid #f59e0b', borderRadius: 8,
-            background: 'rgba(245,158,11,0.07)', padding: '11px 13px',
+            border: `1px solid ${AMBER}`, borderRadius: 8,
+            background: AMBER_A(0.07), padding: '11px 13px',
           }}>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 6 }}>
-              <span style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9' }}>{e.label}</span>
-              <span style={{ fontSize: 10, color: '#64748b', fontFamily: 'var(--font-mono)', marginLeft: 'auto' }}>
+              <span style={{ fontSize: 13, fontWeight: 700, color: 'var(--ink)' }}>{e.label}</span>
+              <span style={{ fontSize: 10, color: 'var(--faint)', fontFamily: MONO, marginLeft: 'auto' }}>
                 {e.ticket}
               </span>
             </div>
-            <div style={{ fontSize: 20, fontWeight: 700, color: '#fbbf24', fontFamily: 'var(--font-mono)', marginBottom: 4 }}>
+            <div style={{ fontSize: 20, fontWeight: 700, color: AMBER, fontFamily: MONO, marginBottom: 4 }}>
               {'Λ ' + e.representativeLambda}
             </div>
-            <div style={{ fontSize: 11, color: '#94a3b8', marginBottom: 6 }}>
+            <div style={{ fontSize: 11, color: 'var(--ink-soft)', marginBottom: 6 }}>
               {e.scope}
             </div>
             <span style={{
-              display: 'inline-block', fontSize: 10, fontFamily: 'var(--font-mono)',
-              color: '#f59e0b', border: '1px solid #f59e0b80', borderRadius: 4,
+              display: 'inline-block', fontSize: 10, fontFamily: MONO,
+              color: AMBER, border: `1px solid ${AMBER_A(0.5)}`, borderRadius: 4,
               padding: '1px 6px', marginBottom: 8,
             }}>
               {e.status + ' · ' + e.kind}
             </span>
             {e.key === 'kernel-hack' && (
               <span style={{
-                display: 'inline-block', fontSize: 10, fontFamily: 'var(--font-mono)',
-                color: '#f87171', border: '1px solid #f8717180', borderRadius: 4,
+                display: 'inline-block', fontSize: 10, fontFamily: MONO,
+                color: RED_LIGHT, border: `1px solid ${PURPLE_A(0.5)}`, borderRadius: 4,
                 padding: '1px 6px', marginBottom: 8, marginLeft: 6,
               }}>
                 DIFFERENT SCALE — scope-matched only
               </span>
             )}
-            <div style={{ fontSize: 11, color: '#cbd5e1', lineHeight: 1.5 }}>
+            <div style={{ fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.5 }}>
               {e.honestLimit}
             </div>
-            <div style={{ fontSize: 10, color: '#475569', fontFamily: 'var(--font-mono)', marginTop: 6 }}>
+            <div style={{ fontSize: 10, color: 'var(--faint)', fontFamily: MONO, marginTop: 6 }}>
               {e.ownerModule}
             </div>
           </div>
         ))}
       </div>
-      <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6, marginTop: 12 }}>
+      <div style={{ fontSize: 12, color: 'var(--ink-soft)', lineHeight: 1.6, marginTop: 12 }}>
         {t.crossValidation}
       </div>
-      <div style={{ fontSize: 11, color: '#f59e0b', lineHeight: 1.6, marginTop: 8, fontFamily: 'var(--font-mono)' }}>
+      <div style={{ fontSize: 11, color: AMBER, lineHeight: 1.6, marginTop: 8, fontFamily: MONO }}>
         {t.honestCeiling}
       </div>
     </div>
@@ -504,9 +548,9 @@ function CHWallCallout() {
   const opp = RANKED_OPPORTUNITIES[0];
   return (
     <div style={{
-      border: '2px solid #ef4444',
+      border: `2px solid ${RED}`,
       borderRadius: 10,
-      background: 'rgba(239,68,68,0.06)',
+      background: RED_A(0.06),
       padding: '14px 18px',
       marginBottom: 24,
     }}>
@@ -514,30 +558,30 @@ function CHWallCallout() {
         display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10,
       }}>
         <span style={{
-          fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700,
-          color: '#ef4444', background: 'rgba(239,68,68,0.14)',
-          border: '1px solid rgba(239,68,68,0.4)',
+          fontSize: 11, fontFamily: MONO, fontWeight: 700,
+          color: RED, background: RED_A(0.14),
+          border: `1px solid ${RED_A(0.4)}`,
           borderRadius: 4, padding: '2px 8px', flexShrink: 0,
         }}>
           {'#' + opp.rank + ' OPPORTUNITY — LOAD-BEARING WALL'}
         </span>
         <Link to="/route-map" style={{
-          fontSize: 11, fontFamily: 'var(--font-mono)', color: '#94a3b8',
+          fontSize: 11, fontFamily: MONO, color: 'var(--faint)',
           textDecoration: 'none', marginLeft: 'auto',
         }}>
           Route Map →
         </Link>
         <Link to="/rh-dag" style={{
-          fontSize: 11, fontFamily: 'var(--font-mono)', color: '#94a3b8',
+          fontSize: 11, fontFamily: MONO, color: 'var(--faint)',
           textDecoration: 'none',
         }}>
           DAG →
         </Link>
       </div>
-      <div style={{ fontSize: 15, fontWeight: 700, color: '#f1f5f9', marginBottom: 8 }}>
+      <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--ink)', marginBottom: 8 }}>
         {opp.target}
       </div>
-      <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.65 }}>
+      <div style={{ fontSize: 12, color: 'var(--ink-soft)', lineHeight: 1.65 }}>
         {opp.why}
       </div>
     </div>
@@ -547,20 +591,20 @@ function CHWallCallout() {
 function CHWallFrontierPanel() {
   const v = CH_WALL_FRONTIER;
   const rows = [
-    { label: 'VERDICT', value: v.verdict, color: '#ef4444' },
-    { label: 'LIPSCHITZ ROUTE', value: v.lipschitzRouteClosed, color: '#f97316' },
-    { label: 'NORM-MISMATCH', value: v.sharpestDiagnosis, color: '#f59e0b' },
-    { label: 'h=g² RECON', value: v.reconditioning, color: '#a78bfa' },
-    { label: 'C_THETA STATUS', value: v.cThetaStatus, color: '#f59e0b' },
-    { label: 'DETERMINISTIC RESIDUAL', value: v.residual, color: '#10b981' },
-    { label: 'FORECLOSED', value: v.foreclosed, color: '#ef4444' },
-    { label: 'SOTA', value: v.sota, color: '#94a3b8' },
+    { label: 'VERDICT', value: v.verdict, color: RED },
+    { label: 'LIPSCHITZ ROUTE', value: v.lipschitzRouteClosed, color: ORANGE },
+    { label: 'NORM-MISMATCH', value: v.sharpestDiagnosis, color: AMBER },
+    { label: 'h=g² RECON', value: v.reconditioning, color: PURPLE },
+    { label: 'C_THETA STATUS', value: v.cThetaStatus, color: AMBER },
+    { label: 'DETERMINISTIC RESIDUAL', value: v.residual, color: GREEN },
+    { label: 'FORECLOSED', value: v.foreclosed, color: RED },
+    { label: 'SOTA', value: v.sota, color: 'var(--faint)' },
   ];
   return (
     <div style={{
-      border: '1px solid rgba(239,68,68,0.4)',
+      border: `1px solid ${RED_A(0.4)}`,
       borderRadius: 10,
-      background: 'rgba(15,23,42,0.7)',
+      background: 'var(--paper2)',
       padding: '14px 18px',
       marginBottom: 24,
     }}>
@@ -568,16 +612,16 @@ function CHWallFrontierPanel() {
         display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12,
       }}>
         <span style={{
-          fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700,
-          color: '#ef4444', background: 'rgba(239,68,68,0.14)',
-          border: '1px solid rgba(239,68,68,0.4)',
+          fontSize: 11, fontFamily: MONO, fontWeight: 700,
+          color: RED, background: RED_A(0.14),
+          border: `1px solid ${RED_A(0.4)}`,
           borderRadius: 4, padding: '2px 8px',
         }}>
           C_H FRONTIER VERDICT &mdash; {v.date}
         </span>
         <span style={{
-          fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700,
-          color: '#ef4444', marginLeft: 'auto',
+          fontSize: 11, fontFamily: MONO, fontWeight: 700,
+          color: RED, marginLeft: 'auto',
         }}>
           {v.verdict}
         </span>
@@ -586,7 +630,7 @@ function CHWallFrontierPanel() {
         {rows.map(({ label, value, color }) => (
           <React.Fragment key={label}>
             <span style={{
-              fontSize: 11, fontFamily: 'var(--font-mono)', color: '#475569',
+              fontSize: 11, fontFamily: MONO, color: 'var(--faint)',
               fontWeight: 600, paddingTop: 2, letterSpacing: 0.3,
             }}>
               {label}
@@ -599,15 +643,15 @@ function CHWallFrontierPanel() {
       </div>
       {/* imp-3019 — wire the C_H frontier verdict to its two other appearances so the story is traceable */}
       <div style={{
-        marginTop: 12, paddingTop: 10, borderTop: '1px solid rgba(148,163,184,0.15)',
+        marginTop: 12, paddingTop: 10, borderTop: '1px solid var(--hairline)',
         display: 'flex', flexWrap: 'wrap', gap: 10, alignItems: 'center',
-        fontSize: 11, fontFamily: 'var(--font-mono)', color: '#475569',
+        fontSize: 11, fontFamily: MONO, color: 'var(--faint)',
       }}>
         <span>SAME VERDICT APPEARS IN:</span>
-        <Link to="/route-map" style={{ color: '#94a3b8', textDecoration: 'none' }}>
+        <Link to="/route-map" style={{ color: 'var(--faint)', textDecoration: 'none' }}>
           Route Map (Frontier Assault) →
         </Link>
-        <Link to="/what-we-know" style={{ color: '#94a3b8', textDecoration: 'none' }}>
+        <Link to="/what-we-know" style={{ color: 'var(--faint)', textDecoration: 'none' }}>
           What We Know (C_H Wall) →
         </Link>
       </div>
@@ -619,72 +663,72 @@ function CHLipThreeProofsPanel() {
   const t = CH_LIP_THREE_PROOFS;
   return (
     <div style={{
-      border: '1px solid rgba(239,68,68,0.4)',
+      border: `1px solid ${RED_A(0.4)}`,
       borderRadius: 10,
-      background: 'rgba(15,23,42,0.7)',
+      background: 'var(--paper2)',
       padding: '14px 18px',
       marginBottom: 24,
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
         <span style={{
-          fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700,
-          color: '#ef4444', background: 'rgba(239,68,68,0.14)',
-          border: '1px solid rgba(239,68,68,0.4)',
+          fontSize: 11, fontFamily: MONO, fontWeight: 700,
+          color: RED, background: RED_A(0.14),
+          border: `1px solid ${RED_A(0.4)}`,
           borderRadius: 4, padding: '2px 8px',
         }}>
           C_H LIPSCHITZ ROUTE &mdash; CLOSED THREE WAYS &mdash; imp-3010
         </span>
         <span style={{
-          fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700,
-          color: '#ef4444', marginLeft: 'auto',
+          fontSize: 11, fontFamily: MONO, fontWeight: 700,
+          color: RED, marginLeft: 'auto',
         }}>
           {t.verdict}
         </span>
       </div>
-      <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6, marginBottom: 12 }}>
+      <div style={{ fontSize: 12, color: 'var(--ink-soft)', lineHeight: 1.6, marginBottom: 12 }}>
         {t.claim}
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12, marginBottom: 12 }}>
         {t.proofs.map((p) => (
           <div key={p.key} style={{
-            border: '1px solid rgba(239,68,68,0.35)',
-            borderRadius: 7, background: 'rgba(239,68,68,0.05)',
+            border: `1px solid ${RED_A(0.35)}`,
+            borderRadius: 7, background: RED_A(0.05),
             padding: '10px 12px',
           }}>
-            <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700, color: '#fca5a5', marginBottom: 6 }}>
+            <div style={{ fontSize: 11, fontFamily: MONO, fontWeight: 700, color: RED_LIGHT, marginBottom: 6 }}>
               {p.n}. {p.name}
             </div>
-            <div style={{ fontSize: 10, fontFamily: 'var(--font-mono)', color: '#f59e0b', marginBottom: 6, letterSpacing: 0.2 }}>
+            <div style={{ fontSize: 10, fontFamily: MONO, color: AMBER, marginBottom: 6, letterSpacing: 0.2 }}>
               {p.rigor.toUpperCase()}
             </div>
-            <div style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.5, marginBottom: 6 }}>
+            <div style={{ fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.5, marginBottom: 6 }}>
               {p.mechanism}
             </div>
-            <div style={{ fontSize: 11, color: '#cbd5e1', lineHeight: 1.5, marginBottom: 6 }}>
+            <div style={{ fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.5, marginBottom: 6 }}>
               &rarr; {p.result}
             </div>
-            <div style={{ fontSize: 10, color: '#64748b', lineHeight: 1.5, marginBottom: 4 }}>
+            <div style={{ fontSize: 10, color: 'var(--faint)', lineHeight: 1.5, marginBottom: 4 }}>
               {p.witness}
             </div>
-            <div style={{ fontSize: 10, color: '#64748b', lineHeight: 1.5 }}>
+            <div style={{ fontSize: 10, color: 'var(--faint)', lineHeight: 1.5 }}>
               Escape: {p.escape}
             </div>
           </div>
         ))}
       </div>
       <div style={{
-        border: '1px solid rgba(16,185,129,0.3)',
-        borderRadius: 6, background: 'rgba(16,185,129,0.06)',
-        padding: '8px 12px', fontSize: 11, color: '#86efac', lineHeight: 1.6,
+        border: `1px solid ${GREEN_A(0.3)}`,
+        borderRadius: 6, background: GREEN_A(0.06),
+        padding: '8px 12px', fontSize: 11, color: GREEN, lineHeight: 1.6,
         marginBottom: 8,
       }}>
         DETERMINISTIC RESIDUAL: {t.deterministicResidual}
       </div>
       <div style={{
-        border: '1px solid rgba(239,68,68,0.3)',
-        borderRadius: 6, background: 'rgba(239,68,68,0.06)',
-        padding: '8px 12px', fontSize: 11, color: '#fca5a5', lineHeight: 1.6,
-        fontFamily: 'var(--font-mono)',
+        border: `1px solid ${RED_A(0.3)}`,
+        borderRadius: 6, background: RED_A(0.06),
+        padding: '8px 12px', fontSize: 11, color: RED_LIGHT, lineHeight: 1.6,
+        fontFamily: MONO,
       }}>
         HONEST: {t.honest}
       </div>
@@ -698,80 +742,80 @@ function CLipDivergenceDecompositionPanel() {
   const nc = d.linearNChannel;
   return (
     <div style={{
-      border: '1px solid rgba(239,68,68,0.45)',
+      border: `1px solid ${RED_A(0.45)}`,
       borderRadius: 10,
-      background: 'rgba(15,23,42,0.7)',
+      background: 'var(--paper2)',
       padding: '14px 18px',
       marginBottom: 24,
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
         <span style={{
-          fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700,
-          color: '#ef4444', background: 'rgba(239,68,68,0.12)',
-          border: '1px solid rgba(239,68,68,0.4)',
+          fontSize: 11, fontFamily: MONO, fontWeight: 700,
+          color: RED, background: RED_A(0.12),
+          border: `1px solid ${RED_A(0.4)}`,
           borderRadius: 4, padding: '2px 8px',
         }}>
           C_Lip DIVERGENCE SCOPE &mdash; imp-3063 &mdash; {d.date}
         </span>
         <span style={{
-          fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700,
-          color: '#94a3b8', marginLeft: 'auto',
+          fontSize: 11, fontFamily: MONO, fontWeight: 700,
+          color: 'var(--faint)', marginLeft: 'auto',
         }}>
           O(N) SURVIVES
         </span>
       </div>
-      <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6, marginBottom: 12 }}>
-        Formula: <span style={{ fontFamily: 'var(--font-mono)', color: '#cbd5e1' }}>{d.formula}</span>
+      <div style={{ fontSize: 12, color: 'var(--ink-soft)', lineHeight: 1.6, marginBottom: 12 }}>
+        Formula: <span style={{ fontFamily: MONO, color: 'var(--ink)' }}>{d.formula}</span>
         <br />
         The basin reconditioning decomposes the two independent divergence sources and removes exactly one.
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 12 }}>
         <div style={{
-          border: '1px solid rgba(16,185,129,0.4)',
-          borderRadius: 7, background: 'rgba(16,185,129,0.06)',
+          border: `1px solid ${GREEN_A(0.4)}`,
+          borderRadius: 7, background: GREEN_A(0.06),
           padding: '10px 12px',
         }}>
-          <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700, color: '#10b981', marginBottom: 6 }}>
+          <div style={{ fontSize: 11, fontFamily: MONO, fontWeight: 700, color: GREEN, marginBottom: 6 }}>
             THETA CHANNEL &mdash; REMOVED
           </div>
-          <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: '#cbd5e1', marginBottom: 4 }}>
+          <div style={{ fontSize: 11, fontFamily: MONO, color: 'var(--ink)', marginBottom: 4 }}>
             {tc.factor}
           </div>
-          <div style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.5, marginBottom: 6 }}>
+          <div style={{ fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.5, marginBottom: 6 }}>
             {tc.mechanism}
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '90px 1fr', gap: '3px 8px', fontSize: 11 }}>
-            <span style={{ color: '#475569', fontFamily: 'var(--font-mono)' }}>ON-BASIN</span>
-            <span style={{ color: '#10b981', fontFamily: 'var(--font-mono)' }}>
+            <span style={{ color: 'var(--faint)', fontFamily: MONO }}>ON-BASIN</span>
+            <span style={{ color: GREEN, fontFamily: MONO }}>
               {tc.basinNominal.toFixed(1)} (Theta=0) &ndash; {tc.basinCeiling.toFixed(4)} (Theta=1/4 trap)
             </span>
-            <span style={{ color: '#475569', fontFamily: 'var(--font-mono)' }}>OFF-BASIN</span>
-            <span style={{ color: '#ef4444', fontFamily: 'var(--font-mono)' }}>
+            <span style={{ color: 'var(--faint)', fontFamily: MONO }}>OFF-BASIN</span>
+            <span style={{ color: RED, fontFamily: MONO }}>
               {tc.offBasinBlowup[0]} &ndash; {tc.offBasinBlowup[1]} (dTheta/W_1 ~ 1/g0)
             </span>
           </div>
         </div>
         <div style={{
-          border: '1px solid rgba(239,68,68,0.4)',
-          borderRadius: 7, background: 'rgba(239,68,68,0.06)',
+          border: `1px solid ${RED_A(0.4)}`,
+          borderRadius: 7, background: RED_A(0.06),
           padding: '10px 12px',
         }}>
-          <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700, color: '#ef4444', marginBottom: 6 }}>
+          <div style={{ fontSize: 11, fontFamily: MONO, fontWeight: 700, color: RED, marginBottom: 6 }}>
             LINEAR-N CHANNEL &mdash; UNTOUCHED
           </div>
-          <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: '#cbd5e1', marginBottom: 4 }}>
+          <div style={{ fontSize: 11, fontFamily: MONO, color: 'var(--ink)', marginBottom: 4 }}>
             {nc.factor} &nbsp; (at N*=1e4: value = {nc.valueAtNAst.toExponential(0)})
           </div>
-          <div style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.5 }}>
+          <div style={{ fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.5 }}>
             {nc.mechanism}
           </div>
         </div>
       </div>
       <div style={{
-        border: '1px solid rgba(239,68,68,0.3)',
-        borderRadius: 6, background: 'rgba(239,68,68,0.06)',
-        padding: '8px 12px', fontSize: 11, color: '#fca5a5', lineHeight: 1.6,
-        fontFamily: 'var(--font-mono)',
+        border: `1px solid ${RED_A(0.3)}`,
+        borderRadius: 6, background: RED_A(0.06),
+        padding: '8px 12px', fontSize: 11, color: RED_LIGHT, lineHeight: 1.6,
+        fontFamily: MONO,
       }}>
         HONEST: {d.honest}
       </div>
@@ -782,34 +826,34 @@ function CLipDivergenceDecompositionPanel() {
 function BasinConditionalLipschitzPanel() {
   const v = CH_LIP_BASIN_CONDITIONAL;
   const rows = [
-    { label: 'STATUS', value: v.status, color: '#a78bfa' },
-    { label: 'c* CLOSED FORM', value: `sqrt(2+sqrt(3))-1 ≈ ${v.cStarClosedForm.toFixed(5)} (imp-3005, exact)`, color: '#10b981' },
-    { label: 'BASIN SEPARATION', value: `basin rho=0.72 < asym bracket inf 0.927 (margin ${v.basinSafetyMargin.toFixed(3)}); d(rho)/ds<0 certified independent of open global constant`, color: '#10b981' },
-    { label: 'GAP CHANNEL', value: `g_min/4 ≈ ${v.gapChannelNominal.toExponential(2)} (nominal) – g_min/3 ≈ ${v.gapChannelTrappedCeiling.toExponential(3)} (Theta=1/4 ceiling); dominant on basin`, color: '#f59e0b' },
-    { label: 'C_THETA', value: v.cThetaStatus, color: '#94a3b8' },
-    { label: 'GLOBAL CONSTANT', value: v.globalConstantStatus, color: '#f97316' },
-    { label: 'HONEST CAVEAT', value: v.honest, color: '#ef4444' },
+    { label: 'STATUS', value: v.status, color: PURPLE },
+    { label: 'c* CLOSED FORM', value: `sqrt(2+sqrt(3))-1 ≈ ${v.cStarClosedForm.toFixed(5)} (imp-3005, exact)`, color: GREEN },
+    { label: 'BASIN SEPARATION', value: `basin rho=0.72 < asym bracket inf 0.927 (margin ${v.basinSafetyMargin.toFixed(3)}); d(rho)/ds<0 certified independent of open global constant`, color: GREEN },
+    { label: 'GAP CHANNEL', value: `g_min/4 ≈ ${v.gapChannelNominal.toExponential(2)} (nominal) – g_min/3 ≈ ${v.gapChannelTrappedCeiling.toExponential(3)} (Theta=1/4 ceiling); dominant on basin`, color: AMBER },
+    { label: 'C_THETA', value: v.cThetaStatus, color: 'var(--faint)' },
+    { label: 'GLOBAL CONSTANT', value: v.globalConstantStatus, color: ORANGE },
+    { label: 'HONEST CAVEAT', value: v.honest, color: RED },
   ];
   return (
     <div style={{
-      border: '1px solid rgba(167,139,250,0.4)',
+      border: `1px solid ${PURPLE_A(0.4)}`,
       borderRadius: 10,
-      background: 'rgba(15,23,42,0.7)',
+      background: 'var(--paper2)',
       padding: '14px 18px',
       marginBottom: 24,
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
         <span style={{
-          fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700,
-          color: '#a78bfa', background: 'rgba(167,139,250,0.14)',
-          border: '1px solid rgba(167,139,250,0.4)',
+          fontSize: 11, fontFamily: MONO, fontWeight: 700,
+          color: PURPLE, background: PURPLE_A(0.14),
+          border: `1px solid ${PURPLE_A(0.4)}`,
           borderRadius: 4, padding: '2px 8px',
         }}>
           BASIN-CONDITIONAL LIPSCHITZ &mdash; imp-3006 &mdash; {v.date}
         </span>
         <span style={{
-          fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700,
-          color: '#a78bfa', marginLeft: 'auto',
+          fontSize: 11, fontFamily: MONO, fontWeight: 700,
+          color: PURPLE, marginLeft: 'auto',
         }}>
           C_Lip FINITE ON BASIN
         </span>
@@ -818,7 +862,7 @@ function BasinConditionalLipschitzPanel() {
         {rows.map(({ label, value, color }) => (
           <React.Fragment key={label}>
             <span style={{
-              fontSize: 11, fontFamily: 'var(--font-mono)', color: '#475569',
+              fontSize: 11, fontFamily: MONO, color: 'var(--faint)',
               fontWeight: 600, paddingTop: 2, letterSpacing: 0.3,
             }}>
               {label}
@@ -844,13 +888,12 @@ function Section26GramGapNotice() {
     { key: 'D3', label: 'D3 Endpoint', toy: D.D3_endpointStructure.toy, genuine: D.D3_endpointStructure.genuine },
     { key: 'D4', label: 'D4 De-homog', toy: D.D4_deHomogenization.toy, genuine: D.D4_deHomogenization.genuine },
   ];
-  const mono = 'var(--font-mono)';
   return (
-    <div style={{ marginTop: 24, marginBottom: 8, padding: '14px 18px', borderRadius: 8, borderLeft: '4px solid #f43f5e', background: 'rgba(244,63,94,0.05)' }}>
-      <div style={{ fontSize: 11, fontWeight: 700, color: '#f43f5e', letterSpacing: '0.06em', marginBottom: 6, fontFamily: mono }}>
+    <div style={{ marginTop: 24, marginBottom: 8, padding: '14px 18px', borderRadius: 8, borderLeft: `4px solid ${ROSE}`, background: ROSE_A(0.05) }}>
+      <div style={{ fontSize: 11, fontWeight: 700, color: ROSE, letterSpacing: '0.06em', marginBottom: 6, fontFamily: MONO }}>
         RIGOR GAP — MONOMIAL TOY vs. GENUINE §26 GRAM (imp-3110)
       </div>
-      <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7, margin: '0 0 10px' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7, margin: '0 0 10px' }}>
         Operator measurements in imp-3066/3084/3085/3086 carry the caveat
         &ldquo;representative monomial truncation — NOT the actual §26 Gram.&rdquo; Four concrete axes
         separate the toy from the genuine object; none carry an RH verdict until the genuine §26 Gram
@@ -859,38 +902,38 @@ function Section26GramGapNotice() {
       <div style={{ overflowX: 'auto', marginBottom: 10 }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid #334155', color: '#94a3b8', textAlign: 'left' }}>
-              <th style={{ padding: '6px 8px', fontFamily: mono, width: '9%' }}>Axis</th>
-              <th style={{ padding: '6px 8px', color: '#f59e0b', width: '38%' }}>Toy (imp-3066 et seq.)</th>
-              <th style={{ padding: '6px 8px', color: '#06b6d4', width: '53%' }}>Genuine §26 object</th>
+            <tr style={{ borderBottom: '1px solid var(--hairline)', color: 'var(--faint)', textAlign: 'left' }}>
+              <th style={{ padding: '6px 8px', fontFamily: MONO, width: '9%' }}>Axis</th>
+              <th style={{ padding: '6px 8px', color: AMBER, width: '38%' }}>Toy (imp-3066 et seq.)</th>
+              <th style={{ padding: '6px 8px', color: BLUE, width: '53%' }}>Genuine §26 object</th>
             </tr>
           </thead>
           <tbody>
             {diffRows.map((row) => (
-              <tr key={row.key} style={{ borderBottom: '1px solid #1e293b' }}>
-                <td style={{ padding: '7px 8px', color: '#f43f5e', fontFamily: mono, fontWeight: 700, verticalAlign: 'top' }}>{row.label}</td>
-                <td style={{ padding: '7px 8px', color: '#fcd34d', lineHeight: 1.55, verticalAlign: 'top' }}>{row.toy}</td>
-                <td style={{ padding: '7px 8px', color: '#67e8f9', lineHeight: 1.55, verticalAlign: 'top' }}>{row.genuine}</td>
+              <tr key={row.key} style={{ borderBottom: '1px solid var(--hairline)' }}>
+                <td style={{ padding: '7px 8px', color: ROSE, fontFamily: MONO, fontWeight: 700, verticalAlign: 'top' }}>{row.label}</td>
+                <td style={{ padding: '7px 8px', color: AMBER, lineHeight: 1.55, verticalAlign: 'top' }}>{row.toy}</td>
+                <td style={{ padding: '7px 8px', color: BLUE, lineHeight: 1.55, verticalAlign: 'top' }}>{row.genuine}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 10 }}>
-        <div style={{ padding: '8px 10px', borderRadius: 5, background: 'rgba(16,185,129,0.07)', border: '1px solid rgba(16,185,129,0.3)' }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#10b981', marginBottom: 5 }}>SURVIVES THE SWAP (structural)</div>
+        <div style={{ padding: '8px 10px', borderRadius: 5, background: GREEN_A(0.07), border: `1px solid ${GREEN_A(0.3)}` }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: GREEN, marginBottom: 5 }}>SURVIVES THE SWAP (structural)</div>
           {S.survives.map((s, i) => (
-            <p key={i} style={{ margin: i > 0 ? '5px 0 0' : 0, color: '#cbd5e1', fontSize: 12, lineHeight: 1.55 }}>{s}</p>
+            <p key={i} style={{ margin: i > 0 ? '5px 0 0' : 0, color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.55 }}>{s}</p>
           ))}
         </div>
-        <div style={{ padding: '8px 10px', borderRadius: 5, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.3)' }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#f87171', marginBottom: 5 }}>TRUNCATION ARTIFACTS (do not carry over)</div>
+        <div style={{ padding: '8px 10px', borderRadius: 5, background: RED_A(0.07), border: `1px solid ${RED_A(0.3)}` }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: RED_LIGHT, marginBottom: 5 }}>TRUNCATION ARTIFACTS (do not carry over)</div>
           {S.artifacts.map((a, i) => (
-            <p key={i} style={{ margin: i > 0 ? '5px 0 0' : 0, color: '#cbd5e1', fontSize: 12, lineHeight: 1.55 }}>{a}</p>
+            <p key={i} style={{ margin: i > 0 ? '5px 0 0' : 0, color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.55 }}>{a}</p>
           ))}
         </div>
       </div>
-      <p style={{ margin: 0, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+      <p style={{ margin: 0, color: 'var(--faint)', fontSize: 11, fontFamily: MONO }}>
         {M.honestCaveat.sota}. Source: imp-3110-section26-gram-vs-monomial-gap.js
       </p>
     </div>
@@ -909,185 +952,184 @@ export default function RigorDashboardPage() {
   const redCount = PROOF_CHAIN.filter(s => rigorColor(s.status) === 'red').length;
 
   return (
-    <div className="page">
-      <HonestCeilingBanner variant="PROOF-CANDIDATE" />
-      <div className="page-header">
-        <h1>Rigor Dashboard</h1>
-        <FreshnessStamp />
-        <p>
-          Interactive proof-chain visualization with honest rigor-level coloring.
-          Every step is either unconditionally proved (green), conditional on a named
-          hypothesis (yellow), analytic+numeric (orange), or still open (red).
-          Click any step to expand the full claim.
-        </p>
-      </div>
-
-      {/* Shared evidence-grade tier panel for the 0.1787854 candidate package */}
-      <ProofTierSummary />
-
-      {/* Honest SOTA banner (imp-2670) */}
-      <HonestSOTABanner />
-
-      {/* Three Lambda cross-validation estimators side by side (imp-2991) */}
-      <EstimatorTriptych />
-
-      {/* Current candidate; the older chain panels below retain their dated snapshot. */}
-      <div style={{
-        background: 'rgba(34,211,238,0.06)', border: '1px solid #22d3ee66',
-        borderRadius: 10, padding: '14px 18px', marginBottom: 24,
-      }}>
-        <div style={{ fontSize: 11, color: '#67e8f9', fontFamily: 'var(--font-mono)', marginBottom: 6 }}>
-          CURRENT PRIVATE-REVIEW CANDIDATE
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>proof · rigor dashboard</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <HonestCeilingBanner variant="PROOF-CANDIDATE" />
+        <div style={{ marginBottom: 24 }}>
+          <h1 className="ed-h1" style={{ marginBottom: 10 }}>Rigor Dashboard</h1>
+          <FreshnessStamp />
+          <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
+            Interactive proof-chain visualization with honest rigor-level coloring.
+            Every step is either unconditionally proved (green), conditional on a named
+            hypothesis (yellow), analytic+numeric (orange), or still open (red).
+            Click any step to expand the full claim.
+          </p>
         </div>
-        <div style={{ fontSize: 22, fontWeight: 700, color: '#f8fafc', marginBottom: 4 }}>
-          Λ ≤ {NEWMAN_LAMBDA_01787854_CANDIDATE.exactTarget.decimal}
-        </div>
-        <div style={{ fontSize: 13, color: '#94a3b8', marginBottom: 6 }}>
-          {NEWMAN_LAMBDA_01787854_CANDIDATE.finiteEvidence.rowCount.toLocaleString()}-row material replay
-          &nbsp;|&nbsp; candidate commit {NEWMAN_LAMBDA_01787854_CANDIDATE.identity.packageCommit.slice(0, 12)}
-        </div>
-        <div style={{ fontSize: 12, color: '#f59e0b', fontFamily: 'var(--font-mono)' }}>
-          UNREVIEWED COMPUTER-ASSISTED CANDIDATE FOR AN UNCONDITIONAL PROOF · BOUND NOT ESTABLISHED · NOT PEER REVIEWED · NOT RH
-        </div>
-        <div style={{ fontSize: 12, color: '#64748b', marginTop: 4 }}>
-          The package supplies claimed compact-slab, final-time-half-strip, finite/tail,
-          and exact-criterion interfaces for review. A seal and green replay do not by
-          themselves establish the bound. RH remains open and requires Λ ≤ 0.
-        </div>
-      </div>
 
-      {/* E(N) constant-discharge tracker */}
-      <ConstantDischargeTracker />
+        {/* Shared evidence-grade tier panel for the 0.1787854 candidate package */}
+        <ProofTierSummary />
 
-      {/* C_H Wall — #1 named opportunity (imp-2980) */}
-      <CHWallCallout />
+        {/* Honest SOTA banner (imp-2670) */}
+        <HonestSOTABanner />
 
-      {/* C_H frontier verdict panel — RH-HARD-CONFIRMED + norm-mismatch diagnosis (imp-3009) */}
-      <CHWallFrontierPanel />
+        {/* Three Lambda cross-validation estimators side by side (imp-2991) */}
+        <EstimatorTriptych />
 
-      {/* C_H Lipschitz route closed three ways, side by side — impossibility / norm-mismatch / refuted surrogates (imp-3010) */}
-      <CHLipThreeProofsPanel />
-
-      {/* Basin-conditional Lipschitz verdict — C_Lip finite on isolated-pair basin (imp-3006/imp-3051) */}
-      <BasinConditionalLipschitzPanel />
-
-      {/* C_Lip divergence scope decomposition — basin removes Theta channel only, O(N) survives (imp-3063) */}
-      <CLipDivergenceDecompositionPanel />
-
-      {/* Summary counts */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
-        gap: 10, marginBottom: 24,
-      }}>
-        {[
-          { label: 'Unconditional', count: greenCount, color: '#10b981' },
-          { label: 'Conditional', count: yellowCount, color: '#f59e0b' },
-          { label: 'Analytic+Num', count: orangeCount, color: '#f97316' },
-          { label: 'Open', count: redCount, color: '#ef4444' },
-        ].map(({ label, count, color }) => (
-          <div
-            key={label}
-            className="card"
-            style={{ textAlign: 'center', padding: '12px 8px' }}
-          >
-            <div style={{ fontSize: 28, fontWeight: 700, color, fontFamily: 'var(--font-mono)' }}>
-              {count}
-            </div>
-            <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 2 }}>{label}</div>
+        {/* Current candidate; the older chain panels below retain their dated snapshot. */}
+        <div style={{
+          background: BLUE_A(0.06), border: `1px solid ${BLUE_A(0.4)}`,
+          borderRadius: 10, padding: '14px 18px', marginBottom: 24,
+        }}>
+          <div style={{ fontSize: 11, color: BLUE, fontFamily: MONO, marginBottom: 6 }}>
+            CURRENT PRIVATE-REVIEW CANDIDATE
           </div>
-        ))}
-      </div>
-
-      {/* Legend */}
-      <Legend />
-
-      {/* Proof chain */}
-      <h2 style={{ fontSize: 16, color: '#e2e8f0', marginBottom: 14 }}>
-        Proof Chain ({PROOF_CHAIN.length} steps)
-      </h2>
-      <div style={{ marginBottom: 32 }}>
-        {PROOF_CHAIN.map(step => (
-          <StepCard
-            key={step.step}
-            step={step}
-            expanded={expandedStep === step.step}
-            onToggle={() => toggleStep(step.step)}
-          />
-        ))}
-      </div>
-
-      {/* §26 Gram rigor gap explainer (imp-3110) */}
-      <Section26GramGapNotice />
-
-      {/* Route status */}
-      <h2 style={{ fontSize: 16, color: '#e2e8f0', marginBottom: 14 }}>
-        Route Status
-      </h2>
-      <div style={{ marginBottom: 32 }}>
-        {Object.values(ROUTE_STATUS).map(route => (
-          <RouteCard key={route.name} route={route} />
-        ))}
-      </div>
-
-      {/* Conditions */}
-      <h2 style={{ fontSize: 16, color: '#e2e8f0', marginBottom: 14 }}>
-        Proof Conditions
-      </h2>
-      <div style={{ marginBottom: 16 }}>
-        <div style={{ fontSize: 12, color: '#64748b', marginBottom: 8, fontFamily: 'var(--font-mono)' }}>
-          ESTABLISHED UNCONDITIONALLY
+          <div style={{ fontSize: 22, fontWeight: 700, color: 'var(--ink)', marginBottom: 4 }}>
+            Λ ≤ {NEWMAN_LAMBDA_01787854_CANDIDATE.exactTarget.decimal}
+          </div>
+          <div style={{ fontSize: 13, color: 'var(--ink-soft)', marginBottom: 6 }}>
+            {NEWMAN_LAMBDA_01787854_CANDIDATE.finiteEvidence.rowCount.toLocaleString()}-row material replay
+            &nbsp;|&nbsp; candidate commit {NEWMAN_LAMBDA_01787854_CANDIDATE.identity.packageCommit.slice(0, 12)}
+          </div>
+          <div style={{ fontSize: 12, color: AMBER, fontFamily: MONO }}>
+            UNREVIEWED COMPUTER-ASSISTED CANDIDATE FOR AN UNCONDITIONAL PROOF · BOUND NOT ESTABLISHED · NOT PEER REVIEWED · NOT RH
+          </div>
+          <div style={{ fontSize: 12, color: 'var(--faint)', marginTop: 4 }}>
+            The package supplies claimed compact-slab, final-time-half-strip, finite/tail,
+            and exact-criterion interfaces for review. A seal and green replay do not by
+            themselves establish the bound. RH remains open and requires Λ ≤ 0.
+          </div>
         </div>
-        {CONDITIONS.established.map(c => (
-          <ConditionBadge key={c.id} cond={c} color="green" />
-        ))}
-      </div>
-      <div style={{ marginBottom: 16 }}>
-        <div style={{ fontSize: 12, color: '#64748b', marginBottom: 8, fontFamily: 'var(--font-mono)' }}>
-          ESTABLISHED CONDITIONAL
+
+        {/* E(N) constant-discharge tracker */}
+        <ConstantDischargeTracker />
+
+        {/* C_H Wall — #1 named opportunity (imp-2980) */}
+        <CHWallCallout />
+
+        {/* C_H frontier verdict panel — RH-HARD-CONFIRMED + norm-mismatch diagnosis (imp-3009) */}
+        <CHWallFrontierPanel />
+
+        {/* C_H Lipschitz route closed three ways, side by side — impossibility / norm-mismatch / refuted surrogates (imp-3010) */}
+        <CHLipThreeProofsPanel />
+
+        {/* Basin-conditional Lipschitz verdict — C_Lip finite on isolated-pair basin (imp-3006/imp-3051) */}
+        <BasinConditionalLipschitzPanel />
+
+        {/* C_Lip divergence scope decomposition — basin removes Theta channel only, O(N) survives (imp-3063) */}
+        <CLipDivergenceDecompositionPanel />
+
+        {/* Summary counts */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
+          gap: 10, marginBottom: 24,
+        }}>
+          {[
+            { label: 'Unconditional', count: greenCount, color: GREEN },
+            { label: 'Conditional', count: yellowCount, color: AMBER },
+            { label: 'Analytic+Num', count: orangeCount, color: ORANGE },
+            { label: 'Open', count: redCount, color: RED },
+          ].map(({ label, count, color }) => (
+            <div
+              key={label}
+              className="card"
+              style={{ textAlign: 'center', padding: '12px 8px' }}
+            >
+              <div style={{ fontSize: 28, fontWeight: 700, color, fontFamily: MONO }}>
+                {count}
+              </div>
+              <div style={{ fontSize: 11, color: 'var(--ink-soft)', marginTop: 2 }}>{label}</div>
+            </div>
+          ))}
         </div>
-        {CONDITIONS.establishedConditional.map(c => (
-          <ConditionBadge key={c.id} cond={c} color="yellow" />
-        ))}
-      </div>
-      <div style={{ marginBottom: 32 }}>
-        <div style={{ fontSize: 12, color: '#64748b', marginBottom: 8, fontFamily: 'var(--font-mono)' }}>
-          OPEN CONDITIONS
+
+        {/* Legend */}
+        <Legend />
+
+        {/* Proof chain */}
+        <h2 className="ed-h2" style={{ fontSize: 16, color: 'var(--ink)', marginBottom: 14 }}>
+          Proof Chain ({PROOF_CHAIN.length} steps)
+        </h2>
+        <div style={{ marginBottom: 32 }}>
+          {PROOF_CHAIN.map(step => (
+            <StepCard
+              key={step.step}
+              step={step}
+              expanded={expandedStep === step.step}
+              onToggle={() => toggleStep(step.step)}
+            />
+          ))}
         </div>
-        {CONDITIONS.open.map(c => (
-          <ConditionBadge key={c.id} cond={c} color="red" />
-        ))}
-      </div>
 
-      {/* Transparency ledger */}
-      <TransparencyLedger />
+        {/* §26 Gram rigor gap explainer (imp-3110) */}
+        <Section26GramGapNotice />
 
-      {/* Links */}
-      <div style={{
-        display: 'flex', flexWrap: 'wrap', gap: 10,
-        borderTop: '1px solid #1e293b', paddingTop: 20,
-      }}>
-        <Link to="/rigor" className="button-secondary" style={{ fontSize: 13 }}>
-          RH Rigor Check
-        </Link>
-        <Link to="/rh-dag" className="button-secondary" style={{ fontSize: 13 }}>
-          Dependency DAG
-        </Link>
-        <Link to="/route-map" className="button-secondary" style={{ fontSize: 13 }}>
-          Route Map
-        </Link>
-        <Link to="/proof-overview" className="button-secondary" style={{ fontSize: 13 }}>
-          Proof Overview
-        </Link>
-        <Link to="/lambda-bounds" className="button-secondary" style={{ fontSize: 13 }}>
-          Lambda Bounds
-        </Link>
-      </div>
+        {/* Route status */}
+        <h2 className="ed-h2" style={{ fontSize: 16, color: 'var(--ink)', marginBottom: 14 }}>
+          Route Status
+        </h2>
+        <div style={{ marginBottom: 32 }}>
+          {Object.values(ROUTE_STATUS).map(route => (
+            <RouteCard key={route.name} route={route} />
+          ))}
+        </div>
 
-      {/* Data provenance footer */}
-      <div style={{ fontSize: 11, color: '#475569', textAlign: 'center', marginTop: 24, paddingTop: 12, borderTop: '1px solid #1e293b' }}>
-        Legacy chain panels retain <code style={{ color: '#64748b' }}>proof-chain-snapshot-2026-06-23.js</code>
-        {' '}· snapshot date {LEGACY_HEADLINE.snapshotDate}. Current Λ status is sourced from the candidate registry.
+        {/* Conditions */}
+        <h2 className="ed-h2" style={{ fontSize: 16, color: 'var(--ink)', marginBottom: 14 }}>
+          Proof Conditions
+        </h2>
+        <div style={{ marginBottom: 16 }}>
+          <div style={{ fontSize: 12, color: 'var(--faint)', marginBottom: 8, fontFamily: MONO }}>
+            ESTABLISHED UNCONDITIONALLY
+          </div>
+          {CONDITIONS.established.map(c => (
+            <ConditionBadge key={c.id} cond={c} color="green" />
+          ))}
+        </div>
+        <div style={{ marginBottom: 16 }}>
+          <div style={{ fontSize: 12, color: 'var(--faint)', marginBottom: 8, fontFamily: MONO }}>
+            ESTABLISHED CONDITIONAL
+          </div>
+          {CONDITIONS.establishedConditional.map(c => (
+            <ConditionBadge key={c.id} cond={c} color="yellow" />
+          ))}
+        </div>
+        <div style={{ marginBottom: 32 }}>
+          <div style={{ fontSize: 12, color: 'var(--faint)', marginBottom: 8, fontFamily: MONO }}>
+            OPEN CONDITIONS
+          </div>
+          {CONDITIONS.open.map(c => (
+            <ConditionBadge key={c.id} cond={c} color="red" />
+          ))}
+        </div>
+
+        {/* Transparency ledger */}
+        <TransparencyLedger />
+
+        {/* Related pages + provenance footer */}
+        <footer style={{ marginTop: 8, borderTop: '1px solid var(--hairline)', paddingTop: 20 }}>
+          <div style={{ fontSize: 12, color: 'var(--faint)', fontFamily: MONO, marginBottom: 10 }}>
+            Related pages:
+          </div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+            <Link to="/rigor" style={pillLink}>RH Rigor Check</Link>
+            <Link to="/rh-dag" style={pillLink}>Dependency DAG</Link>
+            <Link to="/route-map" style={pillLink}>Route Map</Link>
+            <Link to="/proof-overview" style={pillLink}>Proof Overview</Link>
+            <Link to="/lambda-bounds" style={pillLink}>Lambda Bounds</Link>
+          </div>
+
+          {/* Data provenance footer */}
+          <div style={{ fontSize: 11, color: 'var(--faint)', textAlign: 'center', marginTop: 24, paddingTop: 12, borderTop: '1px solid var(--hairline)' }}>
+            Legacy chain panels retain <code style={{ color: 'var(--faint)' }}>proof-chain-snapshot-2026-06-23.js</code>
+            {' '}· snapshot date {LEGACY_HEADLINE.snapshotDate}. Current Λ status is sourced from the candidate registry.
+          </div>
+
+          <div style={{ marginTop: 12 }}>
+            <Link to="/">← the atlas</Link>
+          </div>
+        </footer>
       </div>
     </div>
   );

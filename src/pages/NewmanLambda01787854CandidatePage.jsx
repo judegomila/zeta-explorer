@@ -77,7 +77,6 @@ export default function NewmanLambda01787854CandidatePage() {
         'bound is therefore not an established theorem.'
       }
       byline={['de Bruijn–Newman · mathexplorer', 'computer-assisted · unreviewed']}
-      ticker={<span>candidate · bound not established</span>}
       footer={<>
         <a href={refereePaper.publicPath} target="_blank" rel="noreferrer">Read the v3 referee PDF ({refereePaper.pages} pages)</a>
         {' · '}<a href={refereePaper.releaseAssetUrl} target="_blank" rel="noreferrer">Immutable release PDF</a>

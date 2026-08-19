@@ -76,6 +76,25 @@ export const EDITORIAL_ROUTES = new Set([
   '/zx-calculus',
   '/cross-attack',
   '/break-it',
+  // Proof Tools group
+  '/formal-proof',
+  '/proof-checker',
+  '/proof-planner',
+  '/proof-overview',
+  '/proof-explorer',
+  '/dyson-verifier',
+  '/rigor',
+  '/rigor-dashboard',
+  '/rh-proof-state',
+  '/reasoning',
+  // Progress group
+  '/engine-room',
+  '/meta-acceleration',
+  '/research-journal',
+  '/improvement-queue',
+  '/improvements',
+  '/dashboard',
+  '/health',
 ]);
 
 export function isEditorialRoute(pathname) {

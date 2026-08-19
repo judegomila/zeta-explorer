@@ -44,7 +44,7 @@ const SIMS = [
 export default function HomePageEditorial() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>engine live · Λ ≤ <b>&nbsp;0.1758354</b> candidate</span>} />
+      <EditorialHeader ticker={<span><b>engine live</b></span>} />
 
       {/* hero */}
       <div className="ed-hero"><div className="ed-full"><div className="ed-herogrid">

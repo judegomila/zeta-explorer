@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { useAsyncMetric } from '../hooks/useAsyncMetric.js';
 import FreshnessBanner from '../components/FreshnessBanner.jsx';
 import {
@@ -16,16 +17,18 @@ import { NEWMAN_LAMBDA_01787854_CANDIDATE } from '../data/newman-lambda-01787854
  * Shows all 6 dashboard metrics (live rh-attack.js computations),
  * proof chain step statuses, route statuses, conditions, and Lean
  * sorry/axiom counts — all in one auto-refreshable view.
+ *
+ * Editorial (warm) re-theme: full-width dashboard, identical structure/data.
  */
 
-// ── Shared style constants ──────────────────────────────────────────────────
+// ── Shared style constants (literal warm hexes — status green/warn/fail) ────
 
 const STATUS_COLORS = {
-  green:  { border: '#10b981', bg: 'rgba(16,185,129,0.08)',  badge: '#10b981', label: 'PASS'  },
-  red:    { border: '#ef4444', bg: 'rgba(239,68,68,0.08)',   badge: '#ef4444', label: 'FAIL'  },
-  yellow: { border: '#f59e0b', bg: 'rgba(245,158,11,0.08)',  badge: '#f59e0b', label: 'COND'  },
-  orange: { border: '#f97316', bg: 'rgba(249,115,22,0.07)',  badge: '#f97316', label: 'ANLYT' },
-  gray:   { border: '#475569', bg: 'rgba(71,85,105,0.08)',   badge: '#475569', label: '...'   },
+  green:  { border: '#4c7a4a', bg: 'rgba(76,122,74,0.08)',   badge: '#4c7a4a', label: 'PASS'  },
+  red:    { border: '#c23a1c', bg: 'rgba(194,58,28,0.08)',   badge: '#c23a1c', label: 'FAIL'  },
+  yellow: { border: '#b58a2e', bg: 'rgba(181,138,46,0.08)',  badge: '#b58a2e', label: 'COND'  },
+  orange: { border: '#d9502e', bg: 'rgba(217,80,46,0.07)',   badge: '#d9502e', label: 'ANLYT' },
+  gray:   { border: '#877b67', bg: 'rgba(135,123,103,0.08)', badge: '#877b67', label: '...'   },
 };
 
 // ── Async metric hook ───────────────────────────────────────────────────────
@@ -130,7 +133,7 @@ function Spinner() {
   return (
     <div style={{
       display: 'inline-block', width: 16, height: 16,
-      border: '2px solid #334155', borderTop: '2px solid #38bdf8',
+      border: '2px solid #d5c9b2', borderTop: '2px solid #b58a2e',
       borderRadius: '50%', animation: 'health-spin 0.8s linear infinite',
     }} />
   );
@@ -140,9 +143,9 @@ function StatusBadge({ color }) {
   const meta = STATUS_COLORS[color] || STATUS_COLORS.gray;
   return (
     <span style={{
-      background: meta.badge, color: '#000',
+      background: meta.badge, color: '#fdfaf3',
       fontSize: 9, fontWeight: 700, padding: '1px 6px',
-      borderRadius: 3, fontFamily: 'var(--font-mono)',
+      borderRadius: 3, fontFamily: 'var(--ed-mono, var(--font-mono))',
       letterSpacing: 0.4, flexShrink: 0,
     }}>
       {meta.label}
@@ -157,17 +160,17 @@ function MetricRow({ label, detail, loading, error, status, value }) {
       display: 'flex', alignItems: 'center', gap: 10,
       padding: '9px 12px',
       background: loading ? 'transparent' : meta.bg,
-      border: `1px solid ${loading ? '#1e293b' : meta.border}`,
+      border: `1px solid ${loading ? '#d5c9b2' : meta.border}`,
       borderRadius: 7, transition: 'all 0.3s',
     }}>
       <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ fontSize: 13, color: '#e2e8f0', fontWeight: 600 }}>{label}</div>
-        <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)', marginTop: 1 }}>
+        <div style={{ fontSize: 13, color: '#1c1814', fontWeight: 600 }}>{label}</div>
+        <div style={{ fontSize: 11, color: '#877b67', fontFamily: 'var(--ed-mono, var(--font-mono))', marginTop: 1 }}>
           {detail}
         </div>
       </div>
-      <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, fontWeight: 700, color: meta.border, flexShrink: 0 }}>
-        {loading ? <Spinner /> : error ? <span style={{ color: '#ef4444' }}>ERR</span> : value}
+      <div style={{ fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 13, fontWeight: 700, color: meta.border, flexShrink: 0 }}>
+        {loading ? <Spinner /> : error ? <span style={{ color: '#c23a1c' }}>ERR</span> : value}
       </div>
       {!loading && !error && <StatusBadge color={status} />}
     </div>
@@ -177,11 +180,11 @@ function MetricRow({ label, detail, loading, error, status, value }) {
 function SectionHeader({ title }) {
   return (
     <h2 style={{
-      fontSize: 13, fontWeight: 700, color: '#94a3b8',
+      fontSize: 13, fontWeight: 700, color: '#4a4238',
       textTransform: 'uppercase', letterSpacing: 1.2,
-      borderBottom: '1px solid #1e293b', paddingBottom: 8,
+      borderBottom: '1px solid #d5c9b2', paddingBottom: 8,
       margin: '24px 0 12px',
-      fontFamily: 'var(--font-mono)',
+      fontFamily: 'var(--ed-mono, var(--font-mono))',
     }}>
       {title}
     </h2>
@@ -218,23 +221,23 @@ function ProofStepRow({ step }) {
           width: 26, height: 26, borderRadius: '50%',
           background: meta.badge, display: 'flex', alignItems: 'center',
           justifyContent: 'center', fontSize: 11, fontWeight: 700,
-          color: '#0f172a', flexShrink: 0, fontFamily: 'var(--font-mono)',
+          color: '#fdfaf3', flexShrink: 0, fontFamily: 'var(--ed-mono, var(--font-mono))',
         }}>
           {step.step}
         </div>
         <span style={{
-          fontSize: 10, fontFamily: 'var(--font-mono)', color: meta.badge,
+          fontSize: 10, fontFamily: 'var(--ed-mono, var(--font-mono))', color: meta.badge,
           background: `${meta.badge}20`, borderRadius: 3, padding: '1px 5px',
           flexShrink: 0,
         }}>
           {step.ticket}
         </span>
         <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontSize: 12, color: '#94a3b8', fontFamily: 'var(--font-mono)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+          <div style={{ fontSize: 12, color: '#4a4238', fontFamily: 'var(--ed-mono, var(--font-mono))', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
             {step.status}
           </div>
         </div>
-        <span style={{ fontSize: 10, color: '#475569', flexShrink: 0, userSelect: 'none' }}>
+        <span style={{ fontSize: 10, color: '#877b67', flexShrink: 0, userSelect: 'none' }}>
           {expanded ? '▲' : '▼'}
         </span>
         <StatusBadge color={color} />
@@ -243,8 +246,8 @@ function ProofStepRow({ step }) {
         <div style={{
           marginTop: 8, paddingTop: 8,
           borderTop: `1px solid ${meta.border}`,
-          fontSize: 11, color: '#94a3b8',
-          fontFamily: 'var(--font-mono)', lineHeight: 1.6,
+          fontSize: 11, color: '#4a4238',
+          fontFamily: 'var(--ed-mono, var(--font-mono))', lineHeight: 1.6,
           whiteSpace: 'pre-wrap', wordBreak: 'break-word',
         }}>
           {step.claim}
@@ -264,13 +267,13 @@ function ConditionRow({ cond, color }) {
       borderRadius: 7, marginBottom: 5,
     }}>
       <span style={{
-        fontSize: 10, fontFamily: 'var(--font-mono)', color: meta.badge,
+        fontSize: 10, fontFamily: 'var(--ed-mono, var(--font-mono))', color: meta.badge,
         background: `${meta.badge}20`, borderRadius: 3, padding: '1px 5px',
         flexShrink: 0,
       }}>
         {cond.id}
       </span>
-      <div style={{ flex: 1, fontSize: 12, color: '#e2e8f0' }}>
+      <div style={{ flex: 1, fontSize: 12, color: '#1c1814' }}>
         {cond.description}
       </div>
       <StatusBadge color={color} />
@@ -291,10 +294,10 @@ function LeanRow({ file }) {
       borderRadius: 7, marginBottom: 5,
     }}>
       <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ fontSize: 12, color: '#e2e8f0', fontFamily: 'var(--font-mono)' }}>{shortName}</div>
-        <div style={{ fontSize: 10, color: '#64748b', fontFamily: 'var(--font-mono)', marginTop: 2 }}>{file.ticket}</div>
+        <div style={{ fontSize: 12, color: '#1c1814', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>{shortName}</div>
+        <div style={{ fontSize: 10, color: '#877b67', fontFamily: 'var(--ed-mono, var(--font-mono))', marginTop: 2 }}>{file.ticket}</div>
       </div>
-      <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: '#94a3b8', flexShrink: 0 }}>
+      <div style={{ fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12, color: '#4a4238', flexShrink: 0 }}>
         axioms: {file.axiomCount} &nbsp;|&nbsp; sorrys: {file.sorryCount}
       </div>
       <StatusBadge color={color} />
@@ -367,159 +370,171 @@ export default function HealthPage() {
   const overallMeta = STATUS_COLORS[overallColor];
 
   return (
-    <div className="page">
-      <style>{`
-        @keyframes health-spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-      `}</style>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>progress · health check</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <style>{`
+          @keyframes health-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+        `}</style>
 
-      {/* Header */}
-      <div className="page-header">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 12 }}>
-          <div>
-            <h1 style={{ marginBottom: 6 }}>Project Health</h1>
-            <p style={{ margin: 0, color: '#94a3b8' }}>
-              Live metrics, proof chain status, conditions, and Lean sorry counts in one view.
-            </p>
-          </div>
-          {/* Overall status chip */}
-          <div style={{
-            display: 'flex', alignItems: 'center', gap: 8,
-            background: overallMeta.bg, border: `2px solid ${overallMeta.border}`,
-            borderRadius: 10, padding: '10px 18px',
-          }}>
+        {/* Header */}
+        <div style={{ marginBottom: 20 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 12 }}>
+            <div>
+              <h1 className="ed-h1" style={{ marginBottom: 6 }}>Project Health</h1>
+              <p style={{ margin: 0, color: 'var(--ink-soft)', fontSize: 14 }}>
+                Live metrics, proof chain status, conditions, and Lean sorry counts in one view.
+              </p>
+            </div>
+            {/* Overall status chip */}
             <div style={{
-              width: 10, height: 10, borderRadius: '50%',
-              background: overallMeta.badge,
-            }} />
-            <span style={{
-              fontFamily: 'var(--font-mono)', fontSize: 14, fontWeight: 700,
-              color: overallMeta.badge,
+              display: 'flex', alignItems: 'center', gap: 8,
+              background: overallMeta.bg, border: `2px solid ${overallMeta.border}`,
+              borderRadius: 10, padding: '10px 18px',
             }}>
-              {anyLoading ? 'CHECKING...' : anyRed ? 'DEGRADED' : anyYellow ? 'CONDITIONAL' : 'HEALTHY'}
+              <div style={{
+                width: 10, height: 10, borderRadius: '50%',
+                background: overallMeta.badge,
+              }} />
+              <span style={{
+                fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 14, fontWeight: 700,
+                color: overallMeta.badge,
+              }}>
+                {anyLoading ? 'CHECKING...' : anyRed ? 'DEGRADED' : anyYellow ? 'CONDITIONAL' : 'HEALTHY'}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <FreshnessBanner date="2026-04-12" note="proof-chain snapshot; live metrics recompute on load" />
+
+        {/* Toolbar */}
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20, marginTop: 16, flexWrap: 'wrap',
+        }}>
+          <button
+            onClick={handleRefresh}
+            disabled={!allDone}
+            style={{
+              background: allDone ? '#3f6b86' : '#d5c9b2',
+              color: allDone ? '#fdfaf3' : '#877b67',
+              border: 'none', borderRadius: 6,
+              padding: '7px 16px', fontSize: 12, fontWeight: 600,
+              cursor: allDone ? 'pointer' : 'not-allowed',
+              fontFamily: 'var(--ed-mono, var(--font-mono))',
+            }}
+          >
+            Refresh Now
+          </button>
+          <button
+            aria-pressed={autoRefresh}
+            onClick={() => setAutoRefresh(a => !a)}
+            style={{
+              background: autoRefresh ? 'rgba(76,122,74,0.12)' : '#f6f1e7',
+              color: autoRefresh ? '#4c7a4a' : '#4a4238',
+              border: `1px solid ${autoRefresh ? '#4c7a4a' : '#d5c9b2'}`,
+              borderRadius: 6, padding: '7px 16px', fontSize: 12, fontWeight: 600,
+              cursor: 'pointer', fontFamily: 'var(--ed-mono, var(--font-mono))',
+            }}
+          >
+            Auto-Refresh {autoRefresh ? `(${countdown}s)` : 'Off'}
+          </button>
+          <div style={{ color: '#877b67', fontSize: 11, fontFamily: 'var(--ed-mono, var(--font-mono))', marginLeft: 'auto' }}>
+            {lastChecked
+              ? `Last checked: ${new Date(lastChecked).toLocaleTimeString()}`
+              : anyLoading ? 'Computing...' : ''}
+          </div>
+        </div>
+
+        {/* Current candidate status; legacy chain rows below retain their dated snapshot. */}
+        <div className="card" style={{
+          background: 'rgba(63,107,134,0.06)', border: '1px solid #3f6b86',
+          borderRadius: 8, padding: '12px 16px', marginBottom: 20,
+          display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center',
+        }}>
+          <div>
+            <span style={{ fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 16, fontWeight: 700, color: '#3f6b86' }}>
+              Λ ≤ {NEWMAN_LAMBDA_01787854_CANDIDATE.exactTarget.decimal}
+            </span>
+            <span style={{ color: '#877b67', fontSize: 12, marginLeft: 10 }}>
+              (unreviewed computer-assisted candidate for an unconditional proof)
             </span>
           </div>
-        </div>
-      </div>
-
-      <FreshnessBanner date="2026-04-12" note="proof-chain snapshot; live metrics recompute on load" />
-
-      {/* Toolbar */}
-      <div style={{
-        display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20, flexWrap: 'wrap',
-      }}>
-        <button
-          onClick={handleRefresh}
-          disabled={!allDone}
-          style={{
-            background: allDone ? '#3b82f6' : '#334155',
-            color: allDone ? '#fff' : '#64748b',
-            border: 'none', borderRadius: 6,
-            padding: '7px 16px', fontSize: 12, fontWeight: 600,
-            cursor: allDone ? 'pointer' : 'not-allowed',
-            fontFamily: 'var(--font-mono)',
-          }}
-        >
-          Refresh Now
-        </button>
-        <button
-          aria-pressed={autoRefresh}
-          onClick={() => setAutoRefresh(a => !a)}
-          style={{
-            background: autoRefresh ? 'rgba(16,185,129,0.12)' : '#1e293b',
-            color: autoRefresh ? '#10b981' : '#94a3b8',
-            border: `1px solid ${autoRefresh ? '#10b981' : '#334155'}`,
-            borderRadius: 6, padding: '7px 16px', fontSize: 12, fontWeight: 600,
-            cursor: 'pointer', fontFamily: 'var(--font-mono)',
-          }}
-        >
-          Auto-Refresh {autoRefresh ? `(${countdown}s)` : 'Off'}
-        </button>
-        <div style={{ color: '#475569', fontSize: 11, fontFamily: 'var(--font-mono)', marginLeft: 'auto' }}>
-          {lastChecked
-            ? `Last checked: ${new Date(lastChecked).toLocaleTimeString()}`
-            : anyLoading ? 'Computing...' : ''}
-        </div>
-      </div>
-
-      {/* Current candidate status; legacy chain rows below retain their dated snapshot. */}
-      <div style={{
-        background: 'rgba(59,130,246,0.06)', border: '1px solid #1e40af',
-        borderRadius: 8, padding: '12px 16px', marginBottom: 4,
-        display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center',
-      }}>
-        <div>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 16, fontWeight: 700, color: '#60a5fa' }}>
-            Λ ≤ {NEWMAN_LAMBDA_01787854_CANDIDATE.exactTarget.decimal}
-          </span>
-          <span style={{ color: '#64748b', fontSize: 12, marginLeft: 10 }}>
-            (unreviewed computer-assisted candidate for an unconditional proof)
-          </span>
-        </div>
-        <div style={{ color: '#94a3b8', fontSize: 11, fontFamily: 'var(--font-mono)' }}>
-          BOUND NOT ESTABLISHED · NOT PEER REVIEWED · NOT RH
-        </div>
-      </div>
-
-      {/* Live Metrics */}
-      <SectionHeader title="Live Metrics" />
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-        <MetricRow label="S7 Unitarity Deficit" loading={unitarity.loading} error={unitarity.error} status={unitarity.value?.status} value={unitarity.value?.value} detail={unitarity.value?.detail || 'infiniteProductUnitarityBound(100, 6)'} />
-        <MetricRow label="Li Coefficients" loading={liCoeffs.loading} error={liCoeffs.error} status={liCoeffs.value?.status} value={liCoeffs.value?.value} detail={liCoeffs.value?.detail || 'liCoefficients(5, 50)'} />
-        <MetricRow label="Potapov J-Contractivity" loading={potapov.loading} error={potapov.error} status={potapov.value?.status} value={potapov.value?.value} detail={potapov.value?.detail || 'potapovFactorization(60, 15)'} />
-        <MetricRow label="GUE Spacing" loading={gue.loading} error={gue.error} status={gue.value?.status} value={gue.value?.value} detail={gue.value?.detail || 'montgomeryOdlyzko(100, 30)'} />
-        <MetricRow label="Weil Positivity" loading={weil.loading} error={weil.error} status={weil.value?.status} value={weil.value?.value} detail={weil.value?.detail || 'weilPositivityTest([0.5..10], 80, 50)'} />
-        <MetricRow label="Proof Completeness" loading={proof.loading} error={proof.error} status={proof.value?.status} value={proof.value?.value} detail={proof.value?.detail || 'assembleCompleteProof(30, 50)'} />
-      </div>
-
-      {/* Proof Chain */}
-      <SectionHeader title={`Proof Chain (${PROOF_CHAIN.length} steps — G:${chainCounts.green || 0} Y:${chainCounts.yellow || 0} O:${chainCounts.orange || 0} R:${chainCounts.red || 0})`} />
-      {PROOF_CHAIN.map(step => <ProofStepRow key={step.step} step={step} />)}
-
-      {/* Route Status */}
-      <SectionHeader title="Proof Routes" />
-      {Object.values(ROUTE_STATUS).map(route => {
-        const isOpen = route.status.toLowerCase().includes('open') || route.status.toLowerCase().includes('partial');
-        const isCond = route.status.toLowerCase().includes('conditional') || route.status.toLowerCase().includes('modulo');
-        const color = isOpen ? 'red' : isCond ? 'yellow' : 'green';
-        const meta = STATUS_COLORS[color];
-        return (
-          <div key={route.name} style={{
-            background: meta.bg, border: `1px solid ${meta.border}`,
-            borderRadius: 7, padding: '9px 12px', marginBottom: 6,
-            display: 'flex', alignItems: 'center', gap: 10,
-          }}>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ fontSize: 13, fontWeight: 600, color: '#e2e8f0' }}>{route.name}</div>
-              <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)', marginTop: 2 }}>{route.status}</div>
-            </div>
-            <StatusBadge color={color} />
+          <div style={{ color: '#4a4238', fontSize: 11, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+            BOUND NOT ESTABLISHED · NOT PEER REVIEWED · NOT RH
           </div>
-        );
-      })}
+        </div>
 
-      {/* Conditions */}
-      <SectionHeader title={`Conditions (${CONDITIONS.established.length} established, ${CONDITIONS.establishedConditional.length} conditional, ${CONDITIONS.open.length} open)`} />
-      {CONDITIONS.established.map(c => <ConditionRow key={c.id} cond={c} color="green" />)}
-      {CONDITIONS.establishedConditional.map(c => <ConditionRow key={c.id} cond={c} color="yellow" />)}
-      {CONDITIONS.open.map(c => <ConditionRow key={c.id} cond={c} color="red" />)}
+        {/* Live Metrics */}
+        <SectionHeader title="Live Metrics" />
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+          <MetricRow label="S7 Unitarity Deficit" loading={unitarity.loading} error={unitarity.error} status={unitarity.value?.status} value={unitarity.value?.value} detail={unitarity.value?.detail || 'infiniteProductUnitarityBound(100, 6)'} />
+          <MetricRow label="Li Coefficients" loading={liCoeffs.loading} error={liCoeffs.error} status={liCoeffs.value?.status} value={liCoeffs.value?.value} detail={liCoeffs.value?.detail || 'liCoefficients(5, 50)'} />
+          <MetricRow label="Potapov J-Contractivity" loading={potapov.loading} error={potapov.error} status={potapov.value?.status} value={potapov.value?.value} detail={potapov.value?.detail || 'potapovFactorization(60, 15)'} />
+          <MetricRow label="GUE Spacing" loading={gue.loading} error={gue.error} status={gue.value?.status} value={gue.value?.value} detail={gue.value?.detail || 'montgomeryOdlyzko(100, 30)'} />
+          <MetricRow label="Weil Positivity" loading={weil.loading} error={weil.error} status={weil.value?.status} value={weil.value?.value} detail={weil.value?.detail || 'weilPositivityTest([0.5..10], 80, 50)'} />
+          <MetricRow label="Proof Completeness" loading={proof.loading} error={proof.error} status={proof.value?.status} value={proof.value?.value} detail={proof.value?.detail || 'assembleCompleteProof(30, 50)'} />
+        </div>
 
-      {/* Lean Status */}
-      <SectionHeader title={`Lean 4 Formalization (total sorrys: ${totalSorrys}, axioms: ${totalAxioms})`} />
-      {LEAN_STATUS.files.map(f => <LeanRow key={f.file} file={f} />)}
+        {/* Proof Chain */}
+        <SectionHeader title={`Proof Chain (${PROOF_CHAIN.length} steps — G:${chainCounts.green || 0} Y:${chainCounts.yellow || 0} O:${chainCounts.orange || 0} R:${chainCounts.red || 0})`} />
+        {PROOF_CHAIN.map(step => <ProofStepRow key={step.step} step={step} />)}
 
-      {/* Footer links */}
-      <div style={{
-        marginTop: 24, paddingTop: 16, borderTop: '1px solid #1e293b',
-        display: 'flex', gap: 16, flexWrap: 'wrap',
-        fontSize: 12, color: '#475569', fontFamily: 'var(--font-mono)',
-      }}>
-        <Link to="/dashboard" style={{ color: '#38bdf8' }}>Full Dashboard</Link>
-        <Link to="/rigor-dashboard" style={{ color: '#38bdf8' }}>Rigor Dashboard</Link>
-        <Link to="/proof-explorer" style={{ color: '#38bdf8' }}>Proof Explorer</Link>
-        <Link to="/break-it" style={{ color: '#38bdf8' }}>Break It</Link>
+        {/* Route Status */}
+        <SectionHeader title="Proof Routes" />
+        {Object.values(ROUTE_STATUS).map(route => {
+          const isOpen = route.status.toLowerCase().includes('open') || route.status.toLowerCase().includes('partial');
+          const isCond = route.status.toLowerCase().includes('conditional') || route.status.toLowerCase().includes('modulo');
+          const color = isOpen ? 'red' : isCond ? 'yellow' : 'green';
+          const meta = STATUS_COLORS[color];
+          return (
+            <div key={route.name} style={{
+              background: meta.bg, border: `1px solid ${meta.border}`,
+              borderRadius: 7, padding: '9px 12px', marginBottom: 6,
+              display: 'flex', alignItems: 'center', gap: 10,
+            }}>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontSize: 13, fontWeight: 600, color: '#1c1814' }}>{route.name}</div>
+                <div style={{ fontSize: 11, color: '#877b67', fontFamily: 'var(--ed-mono, var(--font-mono))', marginTop: 2 }}>{route.status}</div>
+              </div>
+              <StatusBadge color={color} />
+            </div>
+          );
+        })}
+
+        {/* Conditions */}
+        <SectionHeader title={`Conditions (${CONDITIONS.established.length} established, ${CONDITIONS.establishedConditional.length} conditional, ${CONDITIONS.open.length} open)`} />
+        {CONDITIONS.established.map(c => <ConditionRow key={c.id} cond={c} color="green" />)}
+        {CONDITIONS.establishedConditional.map(c => <ConditionRow key={c.id} cond={c} color="yellow" />)}
+        {CONDITIONS.open.map(c => <ConditionRow key={c.id} cond={c} color="red" />)}
+
+        {/* Lean Status */}
+        <SectionHeader title={`Lean 4 Formalization (total sorrys: ${totalSorrys}, axioms: ${totalAxioms})`} />
+        {LEAN_STATUS.files.map(f => <LeanRow key={f.file} file={f} />)}
+
+        {/* Footer links */}
+        <div className="card" style={{
+          marginTop: 28, borderRadius: 8, border: '1px solid var(--hairline)',
+          borderLeft: '3px solid var(--brass)', background: 'var(--paper2)',
+          padding: '16px 18px',
+        }}>
+          <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--faint)', marginBottom: 8 }}>
+            Related pages
+          </div>
+          <div style={{
+            display: 'flex', gap: 16, flexWrap: 'wrap',
+            fontSize: 12, fontFamily: 'var(--ed-mono, var(--font-mono))',
+          }}>
+            <Link to="/dashboard" style={{ color: 'var(--brass)', textDecoration: 'none' }}>Full Dashboard</Link>
+            <Link to="/rigor-dashboard" style={{ color: 'var(--brass)', textDecoration: 'none' }}>Rigor Dashboard</Link>
+            <Link to="/proof-explorer" style={{ color: 'var(--brass)', textDecoration: 'none' }}>Proof Explorer</Link>
+            <Link to="/break-it" style={{ color: 'var(--brass)', textDecoration: 'none' }}>Break It</Link>
+            <Link to="/" style={{ color: 'var(--faint)', textDecoration: 'none', marginLeft: 'auto' }}>← the atlas</Link>
+          </div>
+        </div>
       </div>
     </div>
   );

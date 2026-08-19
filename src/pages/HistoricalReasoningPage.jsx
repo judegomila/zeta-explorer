@@ -1,6 +1,34 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+
+// Editorial (warm) re-theme. Structure/content/data unchanged; dark-theme
+// hexes and dark accent-* CSS vars (unmapped by .ed-root on purpose) are
+// swapped for literal warm-palette hexes so nothing vivid leaks through:
+//   #ef4444 / #f87171               -> RED    (#c23a1c, ed --terra-dk)
+//   #8b5cf6 / #a78bfa               -> PURPLE (#d9502e, ed --terra)
+//   #f59e0b / #fbbf24 / #fb923c /
+//   #f97316                         -> ORANGE (#b58a2e, ed --brass-dk)
+//   #10b981 / #6ee7b7               -> GREEN  (#4c7a4a, ed --green)
+//   #3b82f6 / #60a5fa / #06b6d4     -> BLUE   (#3f6b86, ed --blue; cyan folds into blue)
+//   #64748b / #475569               -> FAINT  (#877b67, ed --faint)
+//   #94a3b8 / #cbd5e1               -> INK_SOFT (#4a4238, ed --ink-soft)
+//   #e2e8f0                         -> INK    (#1c1814, ed --ink)
+// .card / .stat-grid / .stat-box / .filter-bar / .filter-btn / .tag base
+// class are left as-is (they resolve through --bg-card/--border/--text-*
+// tokens that .ed-root already remaps); only the tag-COLOR modifier classes
+// (which key off the un-remapped --accent-* vars) are replaced with inline
+// warm-hex styling on the base "tag" class.
+
+const RED = '#c23a1c';
+const PURPLE = '#d9502e';
+const ORANGE = '#b58a2e';
+const GREEN = '#4c7a4a';
+const BLUE = '#3f6b86';
+const FAINT = '#877b67';
+const INK = '#1c1814';
+const INK_SOFT = '#4a4238';
 
 /* ─── Reasoning entries: our evolving proof strategy log ─── */
 const reasoningEntries = [
@@ -418,18 +446,18 @@ This single inequality, combined with ∑ 1/p = ∞, gives geometric convergence
 
 /* ─── Category configuration ─── */
 const categoryConfig = {
-  'meta-strategy':    { label: 'Meta-Strategy',     color: '#ef4444', cls: 'tag-red' },
-  'novel-connection': { label: 'Novel Connection',  color: '#8b5cf6', cls: 'tag-purple' },
-  'key-observation':  { label: 'Key Observation',   color: '#f59e0b', cls: 'tag-orange' },
-  'proof-strategy':   { label: 'Proof Strategy',    color: '#10b981', cls: 'tag-green' },
-  'gap-analysis':     { label: 'Gap Analysis',      color: '#3b82f6', cls: 'tag-blue' },
+  'meta-strategy':    { label: 'Meta-Strategy',     color: RED },
+  'novel-connection': { label: 'Novel Connection',  color: PURPLE },
+  'key-observation':  { label: 'Key Observation',   color: ORANGE },
+  'proof-strategy':   { label: 'Proof Strategy',    color: GREEN },
+  'gap-analysis':     { label: 'Gap Analysis',      color: BLUE },
 };
 
 const statusConfig = {
-  'active':      { label: 'Active',      color: '#10b981' },
-  'speculative': { label: 'Speculative', color: '#f59e0b' },
-  'superseded':  { label: 'Superseded',  color: '#64748b' },
-  'confirmed':   { label: 'Confirmed',   color: '#3b82f6' },
+  'active':      { label: 'Active',      color: GREEN },
+  'speculative': { label: 'Speculative', color: ORANGE },
+  'superseded':  { label: 'Superseded',  color: FAINT },
+  'confirmed':   { label: 'Confirmed',   color: BLUE },
 };
 
 export default function HistoricalReasoningPage() {
@@ -451,373 +479,379 @@ export default function HistoricalReasoningPage() {
   });
 
   return (
-    <div className="page">
-      <div className="page-header">
-        <h1>Historical Reasoning</h1>
-        <p>
-          A dated log of how the Twin-Ladder research strategy evolved. Superseded arguments are
-          retained for provenance, not as current claims; the evidence-grade badge and audit note
-          on each entry control how its historical prose should be read.
-        </p>
-      </div>
-
-      {/* Current State Summary */}
-      <div className="card" style={{ borderLeft: '3px solid #ef4444', marginBottom: 24 }}>
-        <h3 style={{ color: '#ef4444', fontSize: 16, marginTop: 0 }}>Current State of the Attack</h3>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16, marginBottom: 16 }}>
-          <div style={{ padding: 12, background: 'rgba(239,68,68,0.05)', borderRadius: 8, border: '1px solid rgba(239,68,68,0.15)' }}>
-            <div style={{ fontSize: 11, fontWeight: 700, color: '#f87171', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 6 }}>
-              Current Load-Bearing Target
-            </div>
-            <div style={{ fontSize: 13, color: '#e2e8f0', lineHeight: 1.7 }}>
-              <strong>All-shifts bridge positivity:</strong>{' '}
-              <InlineMath tex={"K_a\\succeq0\\ \\forall a>0"} /> is an RH-equivalent target,
-              not a completed reduction below RH. Separately, the standalone private review package presents
-              <InlineMath tex="\Lambda\le0.1787854" /> as an unreviewed computer-assisted
-              candidate for an unconditional proof. The bound is not established, has not been
-              peer reviewed, and is not RH.
-            </div>
-          </div>
-          <div style={{ padding: 12, background: 'rgba(139,92,246,0.05)', borderRadius: 8, border: '1px solid rgba(139,92,246,0.15)' }}>
-            <div style={{ fontSize: 11, fontWeight: 700, color: '#a78bfa', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 6 }}>
-              July 2026 Realization Audit
-            </div>
-            <div style={{ fontSize: 13, color: '#e2e8f0', lineHeight: 1.7 }}>
-              <strong>The physical and algebraic cascades are different.</strong> The exact
-              algebraic ratio is <InlineMath tex={"S_{21}^{(A)}=\\zeta(2s)/\\zeta(s)"} />;
-              generic zeta zeros are its poles. No functor identifies the scalar bridge,
-              Connes&apos; operators, and a passive LC scattering realization.
-            </div>
-          </div>
-          <div style={{ padding: 12, background: 'rgba(16,185,129,0.05)', borderRadius: 8, border: '1px solid rgba(16,185,129,0.15)' }}>
-            <div style={{ fontSize: 11, fontWeight: 700, color: '#6ee7b7', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 6 }}>
-              What Convergence Would—and Would Not—Do
-            </div>
-            <div style={{ fontSize: 13, color: '#e2e8f0', lineHeight: 1.7 }}>
-              A proved contraction bound for a precisely defined physical model could establish
-              convergence of that model. It would still need a causal passive realization and a
-              pole-confinement/divisor theorem before implying anything about RH.
-            </div>
-          </div>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>proof · reasoning</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <div style={{ marginBottom: 24 }}>
+          <h1 className="ed-h1" style={{ marginBottom: 10 }}>Historical Reasoning</h1>
+          <p style={{ color: INK_SOFT, fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
+            A dated log of how the Twin-Ladder research strategy evolved. Superseded arguments are
+            retained for provenance, not as current claims; the evidence-grade badge and audit note
+            on each entry control how its historical prose should be read.
+          </p>
         </div>
 
-        {/* The proof chain */}
-        <div style={{ marginTop: 8 }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 8 }}>
-            Corrected Logical Boundary
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', fontSize: 12, fontFamily: 'var(--font-mono)' }}>
-            <span style={{ padding: '4px 10px', background: 'rgba(59,130,246,0.1)', border: '1px solid rgba(59,130,246,0.3)', borderRadius: 6, color: '#60a5fa' }}>
-              Euler Product (Re s &gt; 1)
-            </span>
-            <span style={{ color: '#475569' }}>{'\u2192'}</span>
-            <span style={{ padding: '4px 10px', background: 'rgba(59,130,246,0.1)', border: '1px solid rgba(59,130,246,0.3)', borderRadius: 6, color: '#60a5fa' }}>
-              Algebraic Ratio
-            </span>
-            <span style={{ color: '#475569' }}>{'\u2192'}</span>
-            <span style={{ padding: '4px 10px', background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.3)', borderRadius: 6, color: '#a78bfa' }}>
-              ζ(2s)/ζ(s)
-            </span>
-            <span style={{ color: '#475569' }}>{'\u2192'}</span>
-            <span style={{ padding: '4px 10px', background: 'rgba(249,115,22,0.1)', border: '1px solid rgba(249,115,22,0.3)', borderRadius: 6, color: '#fb923c' }}>
-              ζ zero = generic pole
-            </span>
-            <span style={{ color: '#475569' }}>{'\u2192'}</span>
-            <span style={{ padding: '4px 10px', background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.3)', borderRadius: 6, color: '#6ee7b7' }}>
-              Darlington inference unavailable
-            </span>
-            <span style={{ color: '#475569' }}>{'\u2192'}</span>
-            <span style={{ padding: '4px 10px', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: 6, color: '#f87171' }}>
-              RH remains open
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* External Frontier */}
-      <div className="card" style={{ borderLeft: '3px solid #06b6d4', marginBottom: 24 }}>
-        <h3 style={{ color: '#06b6d4', fontSize: 16, marginTop: 0 }}>External Research Frontier (2024-2026)</h3>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 12 }}>
-          {[
-            { title: 'Connes Zeta Spectral Triples', date: 'Nov 2025', desc: 'Self-adjoint operators from rank-one perturbations. Spectra match zeta zeros. Convergence unproven.', color: '#8b5cf6', link: 'arXiv:2511.22755' },
-            { title: 'Connes Letter to Riemann', date: 'Feb 2026', desc: '5 primes encode 50 zeros to accuracy 10⁻⁵⁵. Weil form extremization with small primes.', color: '#a78bfa', link: 'arXiv:2602.04022' },
-            { title: 'Guth-Maynard Zero Density', date: 'May 2024', desc: 'Improved Ingham bound from 0.6 to 0.52, breaking 84-year record. Dirichlet polynomial large values.', color: '#3b82f6', link: 'arXiv:2405.20552' },
-            { title: 'Yao Hilbert-Pólya Hamiltonian', date: '2024', desc: 'Candidate H with eigenvalues = zeta zeros. Similarity transform to self-adjoint. Spectrum preservation unproven.', color: '#10b981', link: 'JPhysA 57 235204' },
-            { title: 'de Bruijn-Newman Bounds', date: '2020–2021', desc: 'Rodgers–Tao proved Λ ≥ 0; Platt–Trudgian supplies the peer-reviewed Λ ≤ 0.2 benchmark. Later public package claims are separately graded.', color: '#f59e0b', link: 'arXiv:1801.05914' },
-            { title: 'Platt Zero Verification', date: '2021', desc: 'All 12.4 trillion zeros verified on critical line up to height 3×10¹².', color: '#ef4444', link: '' },
-          ].map((item, i) => (
-            <div key={i} style={{ padding: 10, background: `${item.color}08`, borderRadius: 8, border: `1px solid ${item.color}25` }}>
-              <div style={{ fontSize: 12, fontWeight: 700, color: item.color, marginBottom: 4 }}>{item.title}</div>
-              <div style={{ fontSize: 10, color: '#64748b', marginBottom: 4, fontFamily: 'var(--font-mono)' }}>{item.date} {item.link && `· ${item.link}`}</div>
-              <div style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.6 }}>{item.desc}</div>
+        {/* Current State Summary */}
+        <div className="card" style={{ borderLeft: `3px solid ${RED}`, marginBottom: 24 }}>
+          <h3 style={{ color: RED, fontSize: 16, marginTop: 0 }}>Current State of the Attack</h3>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16, marginBottom: 16 }}>
+            <div style={{ padding: 12, background: 'rgba(194,58,28,0.05)', borderRadius: 8, border: '1px solid rgba(194,58,28,0.15)' }}>
+              <div style={{ fontSize: 11, fontWeight: 700, color: RED, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 6 }}>
+                Current Load-Bearing Target
+              </div>
+              <div style={{ fontSize: 13, color: INK, lineHeight: 1.7 }}>
+                <strong>All-shifts bridge positivity:</strong>{' '}
+                <InlineMath tex={"K_a\\succeq0\\ \\forall a>0"} /> is an RH-equivalent target,
+                not a completed reduction below RH. Separately, the standalone private review package presents
+                <InlineMath tex="\Lambda\le0.1787854" /> as an unreviewed computer-assisted
+                candidate for an unconditional proof. The bound is not established, has not been
+                peer reviewed, and is not RH.
+              </div>
             </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Stats */}
-      <div className="stat-grid" style={{ marginBottom: 20 }}>
-        <div className="stat-box">
-          <div className="stat-value" style={{ color: 'var(--accent-blue)' }}>{reasoningEntries.length}</div>
-          <div className="stat-label">Reasoning Entries</div>
-        </div>
-        <div className="stat-box">
-          <div className="stat-value" style={{ color: 'var(--accent-green)' }}>
-            {reasoningEntries.filter(e => e.status === 'active' || e.status === 'confirmed').length}
+            <div style={{ padding: 12, background: 'rgba(217,80,46,0.05)', borderRadius: 8, border: '1px solid rgba(217,80,46,0.15)' }}>
+              <div style={{ fontSize: 11, fontWeight: 700, color: PURPLE, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 6 }}>
+                July 2026 Realization Audit
+              </div>
+              <div style={{ fontSize: 13, color: INK, lineHeight: 1.7 }}>
+                <strong>The physical and algebraic cascades are different.</strong> The exact
+                algebraic ratio is <InlineMath tex={"S_{21}^{(A)}=\\zeta(2s)/\\zeta(s)"} />;
+                generic zeta zeros are its poles. No functor identifies the scalar bridge,
+                Connes&apos; operators, and a passive LC scattering realization.
+              </div>
+            </div>
+            <div style={{ padding: 12, background: 'rgba(76,122,74,0.05)', borderRadius: 8, border: '1px solid rgba(76,122,74,0.15)' }}>
+              <div style={{ fontSize: 11, fontWeight: 700, color: GREEN, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 6 }}>
+                What Convergence Would—and Would Not—Do
+              </div>
+              <div style={{ fontSize: 13, color: INK, lineHeight: 1.7 }}>
+                A proved contraction bound for a precisely defined physical model could establish
+                convergence of that model. It would still need a causal passive realization and a
+                pole-confinement/divisor theorem before implying anything about RH.
+              </div>
+            </div>
           </div>
-          <div className="stat-label">Current / Confirmed</div>
-        </div>
-        <div className="stat-box">
-          <div className="stat-value" style={{ color: 'var(--accent-purple)' }}>
-            {new Set(reasoningEntries.flatMap(e => e.relatedGaps || [])).size}
-          </div>
-          <div className="stat-label">Gaps Addressed</div>
-        </div>
-        <div className="stat-box">
-          <div className="stat-value" style={{ color: 'var(--accent-cyan)' }}>
-            {Math.max(...reasoningEntries.map(e => e.epoch))}
-          </div>
-          <div className="stat-label">Current Epoch</div>
-        </div>
-      </div>
 
-      {/* Filter bar */}
-      <div className="filter-bar">
-        <button
-          className={`filter-btn ${selectedCategory === 'all' ? 'active' : ''}`}
-          onClick={() => setSelectedCategory('all')}
-          aria-pressed={selectedCategory === 'all'}
-        >
-          All ({reasoningEntries.length})
-        </button>
-        {Object.entries(categoryConfig).map(([key, cfg]) => (
-          counts[key] ? (
-            <button
-              key={key}
-              className={`filter-btn ${selectedCategory === key ? 'active' : ''}`}
-              onClick={() => setSelectedCategory(key)}
-              aria-pressed={selectedCategory === key}
-            >
-              {cfg.label} ({counts[key]})
-            </button>
-          ) : null
-        ))}
-      </div>
+          {/* The proof chain */}
+          <div style={{ marginTop: 8 }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: FAINT, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 8 }}>
+              Corrected Logical Boundary
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', fontSize: 12, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+              <span style={{ padding: '4px 10px', background: 'rgba(63,107,134,0.1)', border: '1px solid rgba(63,107,134,0.3)', borderRadius: 6, color: BLUE }}>
+                Euler Product (Re s &gt; 1)
+              </span>
+              <span style={{ color: FAINT }}>{'→'}</span>
+              <span style={{ padding: '4px 10px', background: 'rgba(63,107,134,0.1)', border: '1px solid rgba(63,107,134,0.3)', borderRadius: 6, color: BLUE }}>
+                Algebraic Ratio
+              </span>
+              <span style={{ color: FAINT }}>{'→'}</span>
+              <span style={{ padding: '4px 10px', background: 'rgba(217,80,46,0.1)', border: '1px solid rgba(217,80,46,0.3)', borderRadius: 6, color: PURPLE }}>
+                ζ(2s)/ζ(s)
+              </span>
+              <span style={{ color: FAINT }}>{'→'}</span>
+              <span style={{ padding: '4px 10px', background: 'rgba(181,138,46,0.1)', border: '1px solid rgba(181,138,46,0.3)', borderRadius: 6, color: ORANGE }}>
+                ζ zero = generic pole
+              </span>
+              <span style={{ color: FAINT }}>{'→'}</span>
+              <span style={{ padding: '4px 10px', background: 'rgba(76,122,74,0.1)', border: '1px solid rgba(76,122,74,0.3)', borderRadius: 6, color: GREEN }}>
+                Darlington inference unavailable
+              </span>
+              <span style={{ color: FAINT }}>{'→'}</span>
+              <span style={{ padding: '4px 10px', background: 'rgba(194,58,28,0.1)', border: '1px solid rgba(194,58,28,0.3)', borderRadius: 6, color: RED }}>
+                RH remains open
+              </span>
+            </div>
+          </div>
+        </div>
 
-      {/* Gap filter bar */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16, flexWrap: 'wrap' }}>
-        <span style={{ fontSize: 10, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-          Gap:
-        </span>
-        <button
-          className={`filter-btn ${selectedGap === 'all' ? 'active' : ''}`}
-          onClick={() => setSelectedGap('all')}
-          style={{ fontSize: 11 }}
-          aria-pressed={selectedGap === 'all'}
-        >
-          All Gaps
-        </button>
-        {allGaps.map(gap => (
+        {/* External Frontier */}
+        <div className="card" style={{ borderLeft: `3px solid ${BLUE}`, marginBottom: 24 }}>
+          <h3 style={{ color: BLUE, fontSize: 16, marginTop: 0 }}>External Research Frontier (2024-2026)</h3>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 12 }}>
+            {[
+              { title: 'Connes Zeta Spectral Triples', date: 'Nov 2025', desc: 'Self-adjoint operators from rank-one perturbations. Spectra match zeta zeros. Convergence unproven.', color: PURPLE, link: 'arXiv:2511.22755' },
+              { title: 'Connes Letter to Riemann', date: 'Feb 2026', desc: '5 primes encode 50 zeros to accuracy 10⁻⁵⁵. Weil form extremization with small primes.', color: PURPLE, link: 'arXiv:2602.04022' },
+              { title: 'Guth-Maynard Zero Density', date: 'May 2024', desc: 'Improved Ingham bound from 0.6 to 0.52, breaking 84-year record. Dirichlet polynomial large values.', color: BLUE, link: 'arXiv:2405.20552' },
+              { title: 'Yao Hilbert-Pólya Hamiltonian', date: '2024', desc: 'Candidate H with eigenvalues = zeta zeros. Similarity transform to self-adjoint. Spectrum preservation unproven.', color: GREEN, link: 'JPhysA 57 235204' },
+              { title: 'de Bruijn-Newman Bounds', date: '2020–2021', desc: 'Rodgers–Tao proved Λ ≥ 0; Platt–Trudgian supplies the peer-reviewed Λ ≤ 0.2 benchmark. Later public package claims are separately graded.', color: ORANGE, link: 'arXiv:1801.05914' },
+              { title: 'Platt Zero Verification', date: '2021', desc: 'All 12.4 trillion zeros verified on critical line up to height 3×10¹².', color: RED, link: '' },
+            ].map((item, i) => (
+              <div key={i} style={{ padding: 10, background: `${item.color}08`, borderRadius: 8, border: `1px solid ${item.color}25` }}>
+                <div style={{ fontSize: 12, fontWeight: 700, color: item.color, marginBottom: 4 }}>{item.title}</div>
+                <div style={{ fontSize: 10, color: FAINT, marginBottom: 4, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>{item.date} {item.link && `· ${item.link}`}</div>
+                <div style={{ fontSize: 11, color: INK_SOFT, lineHeight: 1.6 }}>{item.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Stats */}
+        <div className="stat-grid" style={{ marginBottom: 20 }}>
+          <div className="stat-box">
+            <div className="stat-value" style={{ color: BLUE }}>{reasoningEntries.length}</div>
+            <div className="stat-label">Reasoning Entries</div>
+          </div>
+          <div className="stat-box">
+            <div className="stat-value" style={{ color: GREEN }}>
+              {reasoningEntries.filter(e => e.status === 'active' || e.status === 'confirmed').length}
+            </div>
+            <div className="stat-label">Current / Confirmed</div>
+          </div>
+          <div className="stat-box">
+            <div className="stat-value" style={{ color: PURPLE }}>
+              {new Set(reasoningEntries.flatMap(e => e.relatedGaps || [])).size}
+            </div>
+            <div className="stat-label">Gaps Addressed</div>
+          </div>
+          <div className="stat-box">
+            <div className="stat-value" style={{ color: BLUE }}>
+              {Math.max(...reasoningEntries.map(e => e.epoch))}
+            </div>
+            <div className="stat-label">Current Epoch</div>
+          </div>
+        </div>
+
+        {/* Filter bar */}
+        <div className="filter-bar">
           <button
-            key={gap}
-            className={`filter-btn ${selectedGap === gap ? 'active' : ''}`}
-            onClick={() => setSelectedGap(gap)}
-            style={{
-              fontSize: 11,
-              color: selectedGap === gap ? undefined : '#f97316',
-              borderColor: selectedGap === gap ? undefined : 'rgba(249,115,22,0.3)',
-              background: selectedGap === gap ? undefined : 'rgba(249,115,22,0.08)',
-            }}
-            aria-pressed={selectedGap === gap}
+            className={`filter-btn ${selectedCategory === 'all' ? 'active' : ''}`}
+            onClick={() => setSelectedCategory('all')}
+            aria-pressed={selectedCategory === 'all'}
           >
-            GAP {gap} ({reasoningEntries.filter(e => (e.relatedGaps || []).includes(gap)).length})
+            All ({reasoningEntries.length})
           </button>
-        ))}
-      </div>
-
-      {/* Entries */}
-      {filtered.map(entry => {
-        const isExpanded = expandedId === entry.id;
-        const cfg = categoryConfig[entry.category] || categoryConfig['key-observation'];
-        const stCfg = statusConfig[entry.status] || statusConfig['active'];
-
-        return (
-          <div
-            key={entry.id}
-            className="card"
-            style={{
-              borderLeft: `3px solid ${cfg.color}`,
-              marginBottom: 12,
-              cursor: 'pointer',
-            }}
-            onClick={() => setExpandedId(isExpanded ? null : entry.id)}
-          >
-            {/* Header */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8, flexWrap: 'wrap' }}>
-              <span style={{
-                fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700,
-                color: '#64748b', minWidth: 36,
-              }}>
-                {entry.id}
-              </span>
-              <span className={`tag ${cfg.cls}`}>{cfg.label}</span>
-              <span style={{
-                fontSize: 10, fontWeight: 600, color: stCfg.color,
-                padding: '1px 8px', borderRadius: 10,
-                background: stCfg.color + '15', border: `1px solid ${stCfg.color}30`,
-              }}>
-                {stCfg.label}
-              </span>
-              {entry.relatedGaps && entry.relatedGaps.map(g => (
-                <span key={g} style={{
-                  fontSize: 9, fontWeight: 700, color: '#f97316',
-                  padding: '1px 6px', borderRadius: 4,
-                  background: 'rgba(249,115,22,0.1)', border: '1px solid rgba(249,115,22,0.2)',
-                  fontFamily: 'var(--font-mono)',
-                }}>
-                  GAP {g}
-                </span>
-              ))}
-              <span style={{ fontSize: 11, color: '#475569', fontFamily: 'var(--font-mono)', marginLeft: 'auto' }}>
-                {entry.date}
-              </span>
-            </div>
-
-            {/* Title */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <span style={{
-                display: 'inline-block', fontSize: 12, color: '#64748b',
-                transition: 'transform 0.2s ease',
-                transform: isExpanded ? 'rotate(90deg)' : 'rotate(0deg)',
-              }}>{'\u25B6'}</span>
-              <h3 style={{ margin: 0, fontSize: 15, fontWeight: 600, color: '#e2e8f0' }}>
-                {entry.title}
-              </h3>
-            </div>
-
-            {/* Expanded content */}
-            {isExpanded && (
-              <div style={{ marginTop: 16 }}>
-                {entry.auditNote && (
-                  <div style={{
-                    marginBottom: 14,
-                    padding: '10px 12px',
-                    borderRadius: 7,
-                    border: `1px solid ${stCfg.color}45`,
-                    background: `${stCfg.color}0d`,
-                    color: '#cbd5e1',
-                    fontSize: 12,
-                    lineHeight: 1.65,
-                  }}>
-                    <strong style={{ color: stCfg.color }}>Current audit:</strong>{' '}
-                    {entry.auditNote}
-                  </div>
-                )}
-                <div style={{
-                  whiteSpace: 'pre-wrap', fontSize: 13, color: '#94a3b8',
-                  lineHeight: 1.8, fontFamily: 'inherit',
-                }}>
-                  {entry.content.split('\n\n').map((para, i) => {
-                    // Handle bold markers
-                    const parts = para.split(/(\*\*[^*]+\*\*)/g);
-                    return (
-                      <p key={i} style={{ marginBottom: 12 }}>
-                        {parts.map((part, j) => {
-                          if (part.startsWith('**') && part.endsWith('**')) {
-                            return <strong key={j} style={{ color: '#e2e8f0' }}>{part.slice(2, -2)}</strong>;
-                          }
-                          return <span key={j}>{part}</span>;
-                        })}
-                      </p>
-                    );
-                  })}
-                </div>
-
-                {/* Implications */}
-                {entry.implications && entry.implications.length > 0 && (
-                  <div style={{
-                    marginTop: 16, padding: '12px 16px',
-                    background: `${stCfg.color}0d`, borderRadius: 8,
-                    border: `1px solid ${stCfg.color}30`,
-                  }}>
-                    <h4 style={{
-                      fontSize: 11, fontWeight: 700, color: stCfg.color,
-                      textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 8, marginTop: 0,
-                    }}>
-                      {entry.status === 'confirmed'
-                        ? 'Confirmed takeaway'
-                        : 'Recorded implications (historical)'}
-                    </h4>
-                    <ul style={{ margin: 0, paddingLeft: 18, fontSize: 12, color: '#94a3b8', lineHeight: 1.8 }}>
-                      {entry.implications.map((imp, i) => (
-                        <li key={i}>{imp}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-            )}
-
-            {/* Collapsed preview */}
-            {!isExpanded && (
-              <p style={{ marginTop: 8, fontSize: 12, color: '#64748b', lineHeight: 1.6 }}>
-                {(entry.auditNote || entry.content).slice(0, 220).replace(/\*\*/g, '')}
-                {(entry.auditNote || entry.content).length > 220 ? '…' : ''}
-              </p>
-            )}
-          </div>
-        );
-      })}
-
-      {/* Corrected relationship map */}
-      <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #8b5cf6' }}>
-        <h3 style={{ color: '#8b5cf6', fontSize: 16, marginTop: 0 }}>Corrected Relationship Map</h3>
-        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 16 }}>
-          The March log conflated established RH criteria, RH-equivalent bridge formulations,
-          and physical analogies. They now carry different evidence grades:
-        </p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12 }}>
-          {[
-            { framework: 'Number Theory', grade: 'Definition of RH', condition: 'All nontrivial zeros on σ = ½', math: '\\zeta(\\rho)=0\\Rightarrow\\Re\\rho=\\tfrac12' },
-            { framework: 'Weil Criterion', grade: 'Established equivalent', condition: 'Positivity on the full admissible class', math: 'W[f*\\tilde f]\\ge0\\quad\\forall f' },
-            { framework: 'v70 Shift Bridge', grade: 'RH-equivalent and open', condition: 'Positive for every shift', math: 'K_a\\succeq0\\quad\\forall a>0' },
-            { framework: 'Circuit Theory', grade: 'Analogy; insufficient', condition: 'Boundary losslessness alone', math: 'S^\\dagger S=I\\;\\not\\Rightarrow\\;\\mathrm{RH}' },
-            { framework: 'Spectral Theory', grade: 'Open identification target', condition: 'Self-adjoint operator plus exact divisor map', math: '\\operatorname{Spec}(A)\\stackrel{?}{=}\\{\\gamma_\\rho\\}' },
-          ].map((item, i) => (
-            <div key={i} style={{ padding: 10, background: 'rgba(139,92,246,0.05)', borderRadius: 8, border: '1px solid rgba(139,92,246,0.15)' }}>
-              <div style={{ fontSize: 10, fontWeight: 700, color: '#8b5cf6', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 4 }}>
-                {item.framework}
-              </div>
-              <div style={{ fontSize: 10, color: '#fbbf24', marginBottom: 5 }}>{item.grade}</div>
-              <div style={{ fontSize: 12, color: '#e2e8f0', fontWeight: 600, marginBottom: 6 }}>{item.condition}</div>
-              <BlockMath tex={item.math} />
-            </div>
+          {Object.entries(categoryConfig).map(([key, cfg]) => (
+            counts[key] ? (
+              <button
+                key={key}
+                className={`filter-btn ${selectedCategory === key ? 'active' : ''}`}
+                onClick={() => setSelectedCategory(key)}
+                aria-pressed={selectedCategory === key}
+              >
+                {cfg.label} ({counts[key]})
+              </button>
+            ) : null
           ))}
         </div>
-      </div>
 
-      {/* Related Pages */}
-      <div className="card" style={{ marginTop: 24 }}>
-        <h3 style={{ fontSize: 14, fontWeight: 600, marginBottom: 12, color: 'var(--accent-cyan)' }}>
-          Related Pages
-        </h3>
-        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {[
-            { to: '/gap-closing', label: 'Gap Closing', color: '#f97316' },
-            { to: '/formal-proof', label: 'Formal Proof', color: '#ef4444' },
-            { to: '/rh-attack', label: 'RH Attack', color: '#3b82f6' },
-            { to: '/spectral-attack', label: 'Spectral Attack', color: '#8b5cf6' },
-            { to: '/rigor', label: 'Rigor', color: '#10b981' },
-            { to: '/explorations', label: 'Explorations', color: '#06b6d4' },
-          ].map(({ to, label, color }) => (
-            <Link key={to} to={to} style={{
-              padding: '6px 14px', borderRadius: 6,
-              background: color + '15', color, fontSize: 12,
-              fontWeight: 600, textDecoration: 'none', border: `1px solid ${color}30`,
-            }}>
-              {label}
-            </Link>
+        {/* Gap filter bar */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16, flexWrap: 'wrap' }}>
+          <span style={{ fontSize: 10, fontWeight: 700, color: FAINT, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+            Gap:
+          </span>
+          <button
+            className={`filter-btn ${selectedGap === 'all' ? 'active' : ''}`}
+            onClick={() => setSelectedGap('all')}
+            style={{ fontSize: 11 }}
+            aria-pressed={selectedGap === 'all'}
+          >
+            All Gaps
+          </button>
+          {allGaps.map(gap => (
+            <button
+              key={gap}
+              className={`filter-btn ${selectedGap === gap ? 'active' : ''}`}
+              onClick={() => setSelectedGap(gap)}
+              style={{
+                fontSize: 11,
+                color: selectedGap === gap ? undefined : ORANGE,
+                borderColor: selectedGap === gap ? undefined : 'rgba(181,138,46,0.3)',
+                background: selectedGap === gap ? undefined : 'rgba(181,138,46,0.08)',
+              }}
+              aria-pressed={selectedGap === gap}
+            >
+              GAP {gap} ({reasoningEntries.filter(e => (e.relatedGaps || []).includes(gap)).length})
+            </button>
           ))}
+        </div>
+
+        {/* Entries */}
+        {filtered.map(entry => {
+          const isExpanded = expandedId === entry.id;
+          const cfg = categoryConfig[entry.category] || categoryConfig['key-observation'];
+          const stCfg = statusConfig[entry.status] || statusConfig['active'];
+
+          return (
+            <div
+              key={entry.id}
+              className="card"
+              style={{
+                borderLeft: `3px solid ${cfg.color}`,
+                marginBottom: 12,
+                cursor: 'pointer',
+              }}
+              onClick={() => setExpandedId(isExpanded ? null : entry.id)}
+            >
+              {/* Header */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8, flexWrap: 'wrap' }}>
+                <span style={{
+                  fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12, fontWeight: 700,
+                  color: FAINT, minWidth: 36,
+                }}>
+                  {entry.id}
+                </span>
+                <span className="tag" style={{ color: cfg.color, borderColor: `${cfg.color}4d`, background: `${cfg.color}1a` }}>{cfg.label}</span>
+                <span style={{
+                  fontSize: 10, fontWeight: 600, color: stCfg.color,
+                  padding: '1px 8px', borderRadius: 10,
+                  background: stCfg.color + '15', border: `1px solid ${stCfg.color}30`,
+                }}>
+                  {stCfg.label}
+                </span>
+                {entry.relatedGaps && entry.relatedGaps.map(g => (
+                  <span key={g} style={{
+                    fontSize: 9, fontWeight: 700, color: ORANGE,
+                    padding: '1px 6px', borderRadius: 4,
+                    background: 'rgba(181,138,46,0.1)', border: '1px solid rgba(181,138,46,0.2)',
+                    fontFamily: 'var(--ed-mono, var(--font-mono))',
+                  }}>
+                    GAP {g}
+                  </span>
+                ))}
+                <span style={{ fontSize: 11, color: FAINT, fontFamily: 'var(--ed-mono, var(--font-mono))', marginLeft: 'auto' }}>
+                  {entry.date}
+                </span>
+              </div>
+
+              {/* Title */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span style={{
+                  display: 'inline-block', fontSize: 12, color: FAINT,
+                  transition: 'transform 0.2s ease',
+                  transform: isExpanded ? 'rotate(90deg)' : 'rotate(0deg)',
+                }}>{'▶'}</span>
+                <h3 style={{ margin: 0, fontSize: 15, fontWeight: 600, color: INK }}>
+                  {entry.title}
+                </h3>
+              </div>
+
+              {/* Expanded content */}
+              {isExpanded && (
+                <div style={{ marginTop: 16 }}>
+                  {entry.auditNote && (
+                    <div style={{
+                      marginBottom: 14,
+                      padding: '10px 12px',
+                      borderRadius: 7,
+                      border: `1px solid ${stCfg.color}45`,
+                      background: `${stCfg.color}0d`,
+                      color: INK_SOFT,
+                      fontSize: 12,
+                      lineHeight: 1.65,
+                    }}>
+                      <strong style={{ color: stCfg.color }}>Current audit:</strong>{' '}
+                      {entry.auditNote}
+                    </div>
+                  )}
+                  <div style={{
+                    whiteSpace: 'pre-wrap', fontSize: 13, color: INK_SOFT,
+                    lineHeight: 1.8, fontFamily: 'inherit',
+                  }}>
+                    {entry.content.split('\n\n').map((para, i) => {
+                      // Handle bold markers
+                      const parts = para.split(/(\*\*[^*]+\*\*)/g);
+                      return (
+                        <p key={i} style={{ marginBottom: 12 }}>
+                          {parts.map((part, j) => {
+                            if (part.startsWith('**') && part.endsWith('**')) {
+                              return <strong key={j} style={{ color: INK }}>{part.slice(2, -2)}</strong>;
+                            }
+                            return <span key={j}>{part}</span>;
+                          })}
+                        </p>
+                      );
+                    })}
+                  </div>
+
+                  {/* Implications */}
+                  {entry.implications && entry.implications.length > 0 && (
+                    <div style={{
+                      marginTop: 16, padding: '12px 16px',
+                      background: `${stCfg.color}0d`, borderRadius: 8,
+                      border: `1px solid ${stCfg.color}30`,
+                    }}>
+                      <h4 style={{
+                        fontSize: 11, fontWeight: 700, color: stCfg.color,
+                        textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 8, marginTop: 0,
+                      }}>
+                        {entry.status === 'confirmed'
+                          ? 'Confirmed takeaway'
+                          : 'Recorded implications (historical)'}
+                      </h4>
+                      <ul style={{ margin: 0, paddingLeft: 18, fontSize: 12, color: INK_SOFT, lineHeight: 1.8 }}>
+                        {entry.implications.map((imp, i) => (
+                          <li key={i}>{imp}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Collapsed preview */}
+              {!isExpanded && (
+                <p style={{ marginTop: 8, fontSize: 12, color: FAINT, lineHeight: 1.6 }}>
+                  {(entry.auditNote || entry.content).slice(0, 220).replace(/\*\*/g, '')}
+                  {(entry.auditNote || entry.content).length > 220 ? '…' : ''}
+                </p>
+              )}
+            </div>
+          );
+        })}
+
+        {/* Corrected relationship map */}
+        <div className="card" style={{ marginTop: 24, borderLeft: `3px solid ${PURPLE}` }}>
+          <h3 style={{ color: PURPLE, fontSize: 16, marginTop: 0 }}>Corrected Relationship Map</h3>
+          <p style={{ color: INK_SOFT, fontSize: 13, lineHeight: 1.8, marginBottom: 16 }}>
+            The March log conflated established RH criteria, RH-equivalent bridge formulations,
+            and physical analogies. They now carry different evidence grades:
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12 }}>
+            {[
+              { framework: 'Number Theory', grade: 'Definition of RH', condition: 'All nontrivial zeros on σ = ½', math: '\\zeta(\\rho)=0\\Rightarrow\\Re\\rho=\\tfrac12' },
+              { framework: 'Weil Criterion', grade: 'Established equivalent', condition: 'Positivity on the full admissible class', math: 'W[f*\\tilde f]\\ge0\\quad\\forall f' },
+              { framework: 'v70 Shift Bridge', grade: 'RH-equivalent and open', condition: 'Positive for every shift', math: 'K_a\\succeq0\\quad\\forall a>0' },
+              { framework: 'Circuit Theory', grade: 'Analogy; insufficient', condition: 'Boundary losslessness alone', math: 'S^\\dagger S=I\\;\\not\\Rightarrow\\;\\mathrm{RH}' },
+              { framework: 'Spectral Theory', grade: 'Open identification target', condition: 'Self-adjoint operator plus exact divisor map', math: '\\operatorname{Spec}(A)\\stackrel{?}{=}\\{\\gamma_\\rho\\}' },
+            ].map((item, i) => (
+              <div key={i} style={{ padding: 10, background: 'rgba(217,80,46,0.05)', borderRadius: 8, border: '1px solid rgba(217,80,46,0.15)' }}>
+                <div style={{ fontSize: 10, fontWeight: 700, color: PURPLE, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 4 }}>
+                  {item.framework}
+                </div>
+                <div style={{ fontSize: 10, color: ORANGE, marginBottom: 5 }}>{item.grade}</div>
+                <div style={{ fontSize: 12, color: INK, fontWeight: 600, marginBottom: 6 }}>{item.condition}</div>
+                <BlockMath tex={item.math} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Related Pages */}
+        <div className="card" style={{ marginTop: 24 }}>
+          <h3 style={{ fontSize: 14, fontWeight: 600, marginBottom: 12, color: BLUE }}>
+            Related Pages
+          </h3>
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+            {[
+              { to: '/gap-closing', label: 'Gap Closing', color: ORANGE },
+              { to: '/formal-proof', label: 'Formal Proof', color: RED },
+              { to: '/rh-attack', label: 'RH Attack', color: BLUE },
+              { to: '/spectral-attack', label: 'Spectral Attack', color: PURPLE },
+              { to: '/rigor', label: 'Rigor', color: GREEN },
+              { to: '/explorations', label: 'Explorations', color: BLUE },
+            ].map(({ to, label, color }) => (
+              <Link key={to} to={to} style={{
+                padding: '6px 14px', borderRadius: 6,
+                background: color + '15', color, fontSize: 12,
+                fontWeight: 600, textDecoration: 'none', border: `1px solid ${color}30`,
+              }}>
+                {label}
+              </Link>
+            ))}
+          </div>
+          <p style={{ marginTop: 16, fontSize: 12 }}>
+            <Link to="/">← the atlas</Link>
+          </p>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { InlineMath } from '../components/KaTeXMath.jsx';
 import { IMP2633_L_COND_CONSTANT_DISCHARGE } from '../data/imp-2633-l-cond-constant-discharge.js';
 import { TC_PART_VS_MF_LINCHPIN } from '../data/tc-part-vs-mf-linchpin-finding.js';
@@ -16,20 +17,46 @@ import { IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER } from '../data/i
 import ProofTierSummary from '../components/ProofTierSummary.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 
+// Editorial (warm) re-theme: same structure/data/logic/claims as the original
+// dark dashboard, just re-skinned. Every proven/open/withdrawn classification,
+// caveat, and number below is unchanged; only the color system moved to the
+// warm editorial palette.
+
+// Color mapping — dark-theme hex accents to warm editorial vars.
+const RED = 'var(--terra-dk)';    // was #ef4444
+const BLUE = 'var(--blue)';       // was #3b82f6 / #38bdf8
+const GREEN = 'var(--green)';     // was #10b981
+const TERRA = 'var(--terra)';     // was #8b5cf6 (purple, Path A)
+const AMBER = 'var(--brass-dk)';  // was #f59e0b / #fbbf24
+const BRASS = 'var(--brass)';     // was #22d3ee (private-review accent) / #ec4899 (Path E)
+const FAINT = 'var(--faint)';     // was #64748b / #94a3b8 / #475569 (labels, captions)
+const INK_SOFT = 'var(--ink-soft)'; // was #94a3b8 (body/description text)
+const INK = 'var(--ink)';         // was #e2e8f0 / #f8fafc (headings, emphasized text)
+
+// rgba() literals matching the vars above — CSS custom properties can't be fed
+// into rgba() directly, so translucent backgrounds/glows use the resolved RGB.
+const RED_A = (a) => `rgba(194,58,28,${a})`;
+const BLUE_A = (a) => `rgba(63,107,134,${a})`;
+const GREEN_A = (a) => `rgba(76,122,74,${a})`;
+const TERRA_A = (a) => `rgba(217,80,46,${a})`;
+const AMBER_A = (a) => `rgba(181,138,46,${a})`;
+const BRASS_A = (a) => `rgba(140,106,29,${a})`;
+const FAINT_A = (a) => `rgba(135,123,103,${a})`;
+
 // Status Badge
 function StatusBadge({ status, label }) {
   const colors = {
-    active:      { bg: 'rgba(16,185,129,0.15)', border: 'rgba(16,185,129,0.3)', text: '#10b981' },
-    conditional: { bg: 'rgba(245,158,11,0.15)', border: 'rgba(245,158,11,0.3)', text: '#f59e0b' },
-    blocked:     { bg: 'rgba(239,68,68,0.15)', border: 'rgba(239,68,68,0.3)', text: '#ef4444' },
-    research:    { bg: 'rgba(59,130,246,0.15)', border: 'rgba(59,130,246,0.3)', text: '#3b82f6' },
+    active:      { bg: GREEN_A(0.15), border: GREEN_A(0.3), text: GREEN },
+    conditional: { bg: AMBER_A(0.15), border: AMBER_A(0.3), text: AMBER },
+    blocked:     { bg: RED_A(0.15), border: RED_A(0.3), text: RED },
+    research:    { bg: BLUE_A(0.15), border: BLUE_A(0.3), text: BLUE },
   };
   const c = colors[status] || colors.research;
   return (
     <span style={{
       display: 'inline-block', padding: '2px 10px', borderRadius: 4,
       background: c.bg, border: `1px solid ${c.border}`, color: c.text,
-      fontSize: 11, fontWeight: 700, fontFamily: 'var(--font-mono)',
+      fontSize: 11, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))',
       letterSpacing: '0.03em', verticalAlign: 'middle', marginLeft: 8,
     }}>
       {label}
@@ -41,17 +68,17 @@ function StatusBadge({ status, label }) {
 function PathCard({ path, title, status, statusLabel, description, progress, blockedBy, links }) {
   const [expanded, setExpanded] = useState(false);
   const pathColors = {
-    A: '#8b5cf6', // Hilbert-Pólya (purple)
-    B: '#3b82f6', // Darlington (blue)
-    C: '#10b981', // Weil Positivity (green)
-    D: '#f59e0b', // Nyman-Beurling (amber)
-    E: '#ec4899', // Li Criterion (pink)
+    A: '#d9502e', // Hilbert-Pólya (terra) — was purple #8b5cf6
+    B: '#3f6b86', // Darlington (blue)
+    C: '#4c7a4a', // Weil Positivity (green)
+    D: '#b58a2e', // Nyman-Beurling (brass-dk) — was amber #f59e0b
+    E: '#8c6a1d', // Li Criterion (brass) — was pink #ec4899
   };
-  const color = pathColors[path] || '#64748b';
+  const color = pathColors[path] || '#877b67';
 
   return (
     <div style={{
-      marginBottom: 16, borderRadius: 8, background: 'rgba(15,23,42,0.5)',
+      marginBottom: 16, borderRadius: 8, background: 'var(--paper2)',
       border: `1px solid ${color}44`, overflow: 'hidden',
     }}>
       <button
@@ -68,38 +95,38 @@ function PathCard({ path, title, status, statusLabel, description, progress, blo
             flexShrink: 0, width: 32, height: 32, borderRadius: '50%',
             background: `${color}22`, color, display: 'flex',
             alignItems: 'center', justifyContent: 'center',
-            fontSize: 14, fontWeight: 700, fontFamily: 'var(--font-mono)',
+            fontSize: 14, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))',
           }}>
             {path}
           </span>
           <div style={{ minWidth: 0 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 4, flexWrap: 'wrap' }}>
-              <span style={{ color: '#e2e8f0', fontSize: 14, fontWeight: 600 }}>{title}</span>
+              <span style={{ color: INK, fontSize: 14, fontWeight: 600 }}>{title}</span>
               <StatusBadge status={status} label={statusLabel} />
             </div>
             {blockedBy && blockedBy.length > 0 && (
-              <div style={{ color: '#94a3b8', fontSize: 12, marginTop: 2 }}>
+              <div style={{ color: FAINT, fontSize: 12, marginTop: 2 }}>
                 Blocked by: {blockedBy.join(', ')}
               </div>
             )}
           </div>
         </div>
         <span style={{
-          flexShrink: 0, color: '#475569', fontSize: 12, fontFamily: 'var(--font-mono)',
+          flexShrink: 0, color: FAINT, fontSize: 12, fontFamily: 'var(--ed-mono, var(--font-mono))',
           userSelect: 'none',
         }}>{expanded ? '▲' : '▼'}</span>
       </button>
 
       {expanded && (
         <div style={{ padding: '12px 16px 16px 60px' }}>
-          <div style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.6, marginBottom: 12 }}>
+          <div style={{ color: INK_SOFT, fontSize: 13, lineHeight: 1.6, marginBottom: 12 }}>
             {description}
           </div>
           {progress && (
             <div style={{ marginBottom: 12 }}>
-              <div style={{ fontSize: 11, color: '#64748b', marginBottom: 4 }}>Progress</div>
+              <div style={{ fontSize: 11, color: FAINT, marginBottom: 4 }}>Progress</div>
               <div style={{
-                height: 6, background: 'rgba(148,163,184,0.1)', borderRadius: 3,
+                height: 6, background: 'var(--paper3)', borderRadius: 3,
                 overflow: 'hidden', marginBottom: 4,
               }}>
                 <div style={{
@@ -107,7 +134,7 @@ function PathCard({ path, title, status, statusLabel, description, progress, blo
                   transition: 'width 0.3s ease',
                 }} />
               </div>
-              <div style={{ fontSize: 11, color: '#64748b' }}>{progress}% complete</div>
+              <div style={{ fontSize: 11, color: FAINT }}>{progress}% complete</div>
             </div>
           )}
           {links && links.length > 0 && (
@@ -117,9 +144,9 @@ function PathCard({ path, title, status, statusLabel, description, progress, blo
                   key={i}
                   to={link.to}
                   style={{
-                    fontSize: 12, color: '#38bdf8', textDecoration: 'none',
-                    padding: '4px 8px', background: 'rgba(56,189,248,0.1)',
-                    borderRadius: 4, border: '1px solid #38bdf844',
+                    fontSize: 12, color: BLUE, textDecoration: 'none',
+                    padding: '4px 8px', background: BLUE_A(0.1),
+                    borderRadius: 4, border: `1px solid ${BLUE_A(0.27)}`,
                   }}
                 >
                   {link.label} →
@@ -136,16 +163,16 @@ function PathCard({ path, title, status, statusLabel, description, progress, blo
 // Constant Status Badge
 function ConstantBadge({ status }) {
   const colors = {
-    'RIGOROUSLY-PINNED': { bg: '#10b98122', border: '#10b98144', text: '#10b981' },
-    'ORDER-UNITY-PLACEHOLDER': { bg: '#f59e0b22', border: '#f59e0b44', text: '#f59e0b' },
-    'PROJECTED-NOT-RIGOROUS': { bg: '#ef444422', border: '#ef444444', text: '#ef4444' },
+    'RIGOROUSLY-PINNED': { bg: GREEN_A(0.13), border: GREEN_A(0.27), text: GREEN },
+    'ORDER-UNITY-PLACEHOLDER': { bg: AMBER_A(0.13), border: AMBER_A(0.27), text: AMBER },
+    'PROJECTED-NOT-RIGOROUS': { bg: RED_A(0.13), border: RED_A(0.27), text: RED },
   };
   const style = colors[status] || colors['ORDER-UNITY-PLACEHOLDER'];
   return (
     <span style={{
       display: 'inline-block', padding: '2px 8px', borderRadius: 3,
       background: style.bg, border: `1px solid ${style.border}`, color: style.text,
-      fontSize: 10, fontWeight: 700, fontFamily: 'var(--font-mono)',
+      fontSize: 10, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))',
     }}>
       {status.replace('-', ' ').substring(0, 20)}
     </span>
@@ -153,10 +180,10 @@ function ConstantBadge({ status }) {
 }
 
 // Section wrapper
-function Section({ title, children, borderColor = '#334155' }) {
+function Section({ title, children, borderColor = 'var(--hairline)' }) {
   return (
     <div className="card" style={{ marginBottom: 24, borderLeft: `3px solid ${borderColor}` }}>
-      <h2 style={{ color: '#f8fafc', fontSize: 18, marginBottom: 16, fontFamily: 'var(--font-mono)' }}>
+      <h2 style={{ color: INK, fontSize: 18, marginBottom: 16, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
         {title}
       </h2>
       {children}
@@ -168,558 +195,573 @@ export default function RHProofStateDashboardPage() {
   const dashboardDate = ['2026-07-28', SECTION26_VERDICT.date, MAXFANOUT_STATUS.date, STRATEGIC_REFRAME.date, SECTION27_REFUTATION.date]
     .filter(Boolean).sort().pop() || '2026-06-18';
   return (
-    <div className="page">
-      <HonestCeilingBanner variant="PROOF-CANDIDATE" />
-      <div className="page-header">
-        <h1>RH Proof State Dashboard</h1>
-        <p>
-          Current status of all attack vectors and proof strategies. This is a single-page summary
-          of the Riemann Hypothesis proof landscape through {dashboardDate}, tracking the new
-          subsidiary Newman theorem separately from the still-open RH frontier.
-        </p>
-      </div>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>proof · RH proof state</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <HonestCeilingBanner variant="PROOF-CANDIDATE" />
 
-      {/* Honest Frontier Status — at-a-glance card surfaced as #1 per imp-2993 */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-        gap: 12,
-        marginBottom: 24,
-        padding: 16,
-        background: 'rgba(15,23,42,0.6)',
-        borderRadius: 8,
-        border: '1px solid #334155',
-      }}>
-        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
-          <div>
-            <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>PEER-REVIEWED BENCHMARK</div>
-            <div style={{ fontSize: 20, fontWeight: 700, color: '#10b981', fontFamily: 'var(--font-mono)' }}>&#923; &le; 0.2</div>
-            <div style={{ fontSize: 11, color: '#94a3b8' }}>Platt&#8211;Trudgian 2021 &#8212; unconditional</div>
+        <div style={{ marginTop: 16, marginBottom: 24 }}>
+          <h1 className="ed-h1">RH Proof State Dashboard</h1>
+          <p style={{ color: INK_SOFT, fontSize: 15, lineHeight: 1.6, maxWidth: 760, marginTop: 10 }}>
+            Current status of all attack vectors and proof strategies. This is a single-page summary
+            of the Riemann Hypothesis proof landscape through {dashboardDate}, tracking the new
+            subsidiary Newman theorem separately from the still-open RH frontier.
+          </p>
+        </div>
+
+        {/* Honest Frontier Status — at-a-glance card surfaced as #1 per imp-2993 */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+          gap: 12,
+          marginBottom: 24,
+          padding: 16,
+          background: 'var(--paper2)',
+          borderRadius: 8,
+          border: '1px solid var(--hairline)',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+            <div>
+              <div style={{ fontSize: 11, color: FAINT, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 2 }}>PEER-REVIEWED BENCHMARK</div>
+              <div style={{ fontSize: 20, fontWeight: 700, color: GREEN, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>&#923; &le; 0.2</div>
+              <div style={{ fontSize: 11, color: INK_SOFT }}>Platt&#8211;Trudgian 2021 &#8212; unconditional</div>
+            </div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+            <div>
+              <div style={{ fontSize: 11, color: FAINT, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 2 }}>PUBLIC PREPRINT CLAIM</div>
+              <div style={{ fontSize: 20, fontWeight: 700, color: BLUE, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>&#923; &le; 0.1875</div>
+              <div style={{ fontSize: 11, color: INK_SOFT }}>Listed; locally repaired; unrefereed</div>
+            </div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+            <div>
+              <div style={{ fontSize: 11, color: FAINT, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 2 }}>STANDALONE PRIVATE-REVIEW CANDIDATE</div>
+              <div style={{ fontSize: 20, fontWeight: 700, color: BRASS, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>&#923; &le; 0.1787854</div>
+              <div style={{ fontSize: 11, color: INK_SOFT }}>Unreviewed computer-assisted candidate for an unconditional proof; bound not established; not peer reviewed; not RH</div>
+            </div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+            <div>
+              <div style={{ fontSize: 11, color: FAINT, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 2 }}>OLDER DYSON BLOCKER</div>
+              <div style={{ fontSize: 16, fontWeight: 700, color: RED, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>C_H wall</div>
+              <div style={{ fontSize: 11, color: INK_SOFT }}>Rigorous upper-bound pending (imp-2642) &#8212; gates E_coll</div>
+            </div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+            <div>
+              <div style={{ fontSize: 11, color: FAINT, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 2 }}>&#167;15&#8211;27 STATUS</div>
+              <div style={{ fontSize: 16, fontWeight: 700, color: BLUE, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>RH-equivalent</div>
+              <div style={{ fontSize: 11, color: INK_SOFT }}>Not a reduction &#8212; &#167;27 LINK B refuted</div>
+            </div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+            <div>
+              <div style={{ fontSize: 11, color: FAINT, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 2 }}>OVERCLAIMS</div>
+              <div style={{ fontSize: 20, fontWeight: 700, color: AMBER, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>{CAUGHT_OVERCLAIMS.length} caught</div>
+              <div style={{ fontSize: 11, color: INK_SOFT }}>Self-corrected &#8212; verification is the asset</div>
+            </div>
           </div>
         </div>
-        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
-          <div>
-            <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>PUBLIC PREPRINT CLAIM</div>
-            <div style={{ fontSize: 20, fontWeight: 700, color: '#38bdf8', fontFamily: 'var(--font-mono)' }}>&#923; &le; 0.1875</div>
-            <div style={{ fontSize: 11, color: '#94a3b8' }}>Listed; locally repaired; unrefereed</div>
+
+        <ProofTierSummary />
+
+        {/* Headline metrics */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16, marginBottom: 24 }}>
+          <div className="card" style={{ borderLeft: `4px solid ${GREEN}` }}>
+            <div style={{ fontSize: 12, color: FAINT, marginBottom: 4 }}>PROOF PATHS</div>
+            <div style={{ fontSize: 24, fontWeight: 700, color: GREEN, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>5</div>
+            <div style={{ fontSize: 12, color: INK_SOFT, marginTop: 4 }}>Active attack vectors</div>
+          </div>
+          <div className="card" style={{ borderLeft: `4px solid ${BLUE}` }}>
+            <div style={{ fontSize: 12, color: FAINT, marginBottom: 4 }}>CRITICAL DEPENDENCY</div>
+            <div style={{ fontSize: 14, fontWeight: 700, color: BLUE, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>Montgomery PCC</div>
+            <div style={{ fontSize: 12, color: INK_SOFT, marginTop: 4 }}>Required for unconditional proof</div>
+          </div>
+          <div className="card" style={{ borderLeft: `4px solid ${AMBER}` }}>
+            <div style={{ fontSize: 12, color: FAINT, marginBottom: 4 }}>MAIN BOTTLENECK</div>
+            <div style={{ fontSize: 14, fontWeight: 700, color: AMBER, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>‖V_{'{a,Φ}'}‖ ≤ 1</div>
+            <div style={{ fontSize: 12, color: INK_SOFT, marginTop: 4 }}>§15-27 collapse target</div>
           </div>
         </div>
-        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
-          <div>
-            <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>STANDALONE PRIVATE-REVIEW CANDIDATE</div>
-            <div style={{ fontSize: 20, fontWeight: 700, color: '#22d3ee', fontFamily: 'var(--font-mono)' }}>&#923; &le; 0.1787854</div>
-            <div style={{ fontSize: 11, color: '#94a3b8' }}>Unreviewed computer-assisted candidate for an unconditional proof; bound not established; not peer reviewed; not RH</div>
-          </div>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
-          <div>
-            <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>OLDER DYSON BLOCKER</div>
-            <div style={{ fontSize: 16, fontWeight: 700, color: '#ef4444', fontFamily: 'var(--font-mono)' }}>C_H wall</div>
-            <div style={{ fontSize: 11, color: '#94a3b8' }}>Rigorous upper-bound pending (imp-2642) &#8212; gates E_coll</div>
-          </div>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
-          <div>
-            <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>&#167;15&#8211;27 STATUS</div>
-            <div style={{ fontSize: 16, fontWeight: 700, color: '#3b82f6', fontFamily: 'var(--font-mono)' }}>RH-equivalent</div>
-            <div style={{ fontSize: 11, color: '#94a3b8' }}>Not a reduction &#8212; &#167;27 LINK B refuted</div>
-          </div>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
-          <div>
-            <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>OVERCLAIMS</div>
-            <div style={{ fontSize: 20, fontWeight: 700, color: '#f59e0b', fontFamily: 'var(--font-mono)' }}>{CAUGHT_OVERCLAIMS.length} caught</div>
-            <div style={{ fontSize: 11, color: '#94a3b8' }}>Self-corrected &#8212; verification is the asset</div>
-          </div>
-        </div>
-      </div>
 
-      <ProofTierSummary />
+        {/* Proof Paths Section */}
+        <Section title="Five Attack Paths" borderColor={TERRA}>
+          <p style={{ color: INK_SOFT, fontSize: 13, marginBottom: 16, lineHeight: 1.6 }}>
+            Five fundamentally different strategies for proving RH, each with distinct proof gaps,
+            progress, and dependencies. Click each to expand details and see related pages.
+          </p>
 
-      {/* Headline metrics */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16, marginBottom: 24 }}>
-        <div className="card" style={{ borderLeft: '4px solid #10b981' }}>
-          <div style={{ fontSize: 12, color: '#64748b', marginBottom: 4 }}>PROOF PATHS</div>
-          <div style={{ fontSize: 24, fontWeight: 700, color: '#10b981', fontFamily: 'var(--font-mono)' }}>5</div>
-          <div style={{ fontSize: 12, color: '#94a3b8', marginTop: 4 }}>Active attack vectors</div>
-        </div>
-        <div className="card" style={{ borderLeft: '4px solid #3b82f6' }}>
-          <div style={{ fontSize: 12, color: '#64748b', marginBottom: 4 }}>CRITICAL DEPENDENCY</div>
-          <div style={{ fontSize: 14, fontWeight: 700, color: '#3b82f6', fontFamily: 'var(--font-mono)' }}>Montgomery PCC</div>
-          <div style={{ fontSize: 12, color: '#94a3b8', marginTop: 4 }}>Required for unconditional proof</div>
-        </div>
-        <div className="card" style={{ borderLeft: '4px solid #f59e0b' }}>
-          <div style={{ fontSize: 12, color: '#64748b', marginBottom: 4 }}>MAIN BOTTLENECK</div>
-          <div style={{ fontSize: 14, fontWeight: 700, color: '#f59e0b', fontFamily: 'var(--font-mono)' }}>‖V_{'{a,Φ}'}‖ ≤ 1</div>
-          <div style={{ fontSize: 12, color: '#94a3b8', marginTop: 4 }}>§15-27 collapse target</div>
-        </div>
-      </div>
+          <PathCard
+            path="A"
+            title="Hilbert-Pólya"
+            status="research"
+            statusLabel="FOUNDATIONAL"
+            description="The Twin-Ladder Bridge framework connects zeta zeros to resonances of a Hamiltonian operator. Physical intuition is strong but the rigorous connection between zeta zeros and Hamiltonian eigenvalues remains unproven. This framework motivates all downstream work."
+            progress={35}
+            blockedBy={['S5']}
+            links={[{ label: 'Twin-Ladder Bridge Framework', to: '/zeta' }]}
+          />
 
-      {/* Proof Paths Section */}
-      <Section title="Five Attack Paths" borderColor="#8b5cf6">
-        <p style={{ color: '#94a3b8', fontSize: 13, marginBottom: 16, lineHeight: 1.6 }}>
-          Five fundamentally different strategies for proving RH, each with distinct proof gaps,
-          progress, and dependencies. Click each to expand details and see related pages.
-        </p>
+          <PathCard
+            path="B"
+            title="Darlington Synthesis"
+            status="conditional"
+            statusLabel="ZERO/POLE MISMATCH"
+            description="Classical network synthesis constrains transmission zeros. For the exact cascade S₂₁(s)=ζ(2s)/ζ(s), non-trivial zeta zeros are generic poles, so losslessness and convergence would still not supply RH without a new pole-confinement bridge."
+            progress={15}
+            blockedBy={['S4', 'S7']}
+            links={[{ label: 'Attack Strategies', to: '/rh-attack' }]}
+          />
 
-        <PathCard
-          path="A"
-          title="Hilbert-Pólya"
-          status="research"
-          statusLabel="FOUNDATIONAL"
-          description="The Twin-Ladder Bridge framework connects zeta zeros to resonances of a Hamiltonian operator. Physical intuition is strong but the rigorous connection between zeta zeros and Hamiltonian eigenvalues remains unproven. This framework motivates all downstream work."
-          progress={35}
-          blockedBy={['S5']}
-          links={[{ label: 'Twin-Ladder Bridge Framework', to: '/zeta' }]}
-        />
+          <PathCard
+            path="C"
+            title="Weil Positivity"
+            status="active"
+            statusLabel="IN DEVELOPMENT"
+            description="The de Branges-Romanov formalism reduces RH to positivity of a kernel operator on L². The §15-27 hidden-square program studies ‖V_{'{a,Φ}'}‖ ≤ 1, but the §27 LINK B biconditional (overclaim #6, REFUTED) is FALSE as a Φ-uniform equivalence — so this is information-preservingly RH-equivalent, NOT a shortcut. The ~5000× margin is a homogeneity artifact (imp-1240 measured the scale-miscalibrated bare operator), NOT evidence for Conj 27.2."
+            progress={45}
+            blockedBy={['S4']}
+            links={[{ label: 'Hidden Square Program', to: '/hidden-square-program' }, { label: 'Closure Routes', to: '/closure-routes' }]}
+          />
 
-        <PathCard
-          path="B"
-          title="Darlington Synthesis"
-          status="conditional"
-          statusLabel="ZERO/POLE MISMATCH"
-          description="Classical network synthesis constrains transmission zeros. For the exact cascade S₂₁(s)=ζ(2s)/ζ(s), non-trivial zeta zeros are generic poles, so losslessness and convergence would still not supply RH without a new pole-confinement bridge."
-          progress={15}
-          blockedBy={['S4', 'S7']}
-          links={[{ label: 'Attack Strategies', to: '/rh-attack' }]}
-        />
+          <PathCard
+            path="D"
+            title="Nyman-Beurling"
+            status="research"
+            statusLabel="NOVEL ANGLE"
+            description="Density criterion reformulation (1955): complete span of Dirichlet approximants in L² is equivalent to RH. Recently rediscovered as a parallel approach. Strong theoretical foundation but computationally unexplored in this context."
+            progress={20}
+            blockedBy={[]}
+            links={[{ label: 'RH Equivalents', to: '/rh-equivalents' }]}
+          />
 
-        <PathCard
-          path="C"
-          title="Weil Positivity"
-          status="active"
-          statusLabel="IN DEVELOPMENT"
-          description="The de Branges-Romanov formalism reduces RH to positivity of a kernel operator on L². The §15-27 hidden-square program studies ‖V_{'{a,Φ}'}‖ ≤ 1, but the §27 LINK B biconditional (overclaim #6, REFUTED) is FALSE as a Φ-uniform equivalence — so this is information-preservingly RH-equivalent, NOT a shortcut. The ~5000× margin is a homogeneity artifact (imp-1240 measured the scale-miscalibrated bare operator), NOT evidence for Conj 27.2."
-          progress={45}
-          blockedBy={['S4']}
-          links={[{ label: 'Hidden Square Program', to: '/hidden-square-program' }, { label: 'Closure Routes', to: '/closure-routes' }]}
-        />
+          <PathCard
+            path="E"
+            title="Li Criterion"
+            status="conditional"
+            statusLabel="CONDITIONAL"
+            description="Positivity of the logarithmic derivative coefficients λ_n > 0 ∀n ⟺ RH. Computationally elegant and widely studied, but depends on numerical verification of coefficients to a given height. Not a path to unconditional proof without density results."
+            progress={40}
+            blockedBy={[]}
+            links={[{ label: 'Statistics Dashboard', to: '/statistics' }]}
+          />
+        </Section>
 
-        <PathCard
-          path="D"
-          title="Nyman-Beurling"
-          status="research"
-          statusLabel="NOVEL ANGLE"
-          description="Density criterion reformulation (1955): complete span of Dirichlet approximants in L² is equivalent to RH. Recently rediscovered as a parallel approach. Strong theoretical foundation but computationally unexplored in this context."
-          progress={20}
-          blockedBy={[]}
-          links={[{ label: 'RH Equivalents', to: '/rh-equivalents' }]}
-        />
+        {/* PCC Route Exhaustion */}
+        <Section title="Montgomery Pair Correlation Conjecture (PCC) Routes" borderColor={BLUE}>
+          <p style={{ color: INK_SOFT, fontSize: 13, marginBottom: 16, lineHeight: 1.6 }}>
+            Five distinct analytical routes toward proving Montgomery PCC at 2-point, which is
+            required for paths B and (conditionally) C. The 2026-05-28 exhaustion audit found all
+            five equi-difficult to Montgomery PCC itself: they converge on the same arithmetic
+            Cauchy-Schwarz bottleneck — a shared wall, not a shortcut. All five are classified
+            DEAD-END (see /pcc-route-exhaustion).
+          </p>
 
-        <PathCard
-          path="E"
-          title="Li Criterion"
-          status="conditional"
-          statusLabel="CONDITIONAL"
-          description="Positivity of the logarithmic derivative coefficients λ_n > 0 ∀n ⟺ RH. Computationally elegant and widely studied, but depends on numerical verification of coefficients to a given height. Not a path to unconditional proof without density results."
-          progress={40}
-          blockedBy={[]}
-          links={[{ label: 'Statistics Dashboard', to: '/statistics' }]}
-        />
-      </Section>
-
-      {/* PCC Route Exhaustion */}
-      <Section title="Montgomery Pair Correlation Conjecture (PCC) Routes" borderColor="#3b82f6">
-        <p style={{ color: '#94a3b8', fontSize: 13, marginBottom: 16, lineHeight: 1.6 }}>
-          Five distinct analytical routes toward proving Montgomery PCC at 2-point, which is
-          required for paths B and (conditionally) C. The 2026-05-28 exhaustion audit found all
-          five equi-difficult to Montgomery PCC itself: they converge on the same arithmetic
-          Cauchy-Schwarz bottleneck — a shared wall, not a shortcut. All five are classified
-          DEAD-END (see /pcc-route-exhaustion).
-        </p>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12 }}>
-          {[
-            { name: 'Hilbert-Schmidt Sufficient Condition', status: 'blocked', id: 'imp-1267' },
-            { name: 'Mellin Diagonalization Route', status: 'blocked', id: 'imp-1266' },
-            { name: 'Koksma-Hlawka 2nd Moment', status: 'blocked', id: 'imp-1315' },
-            { name: 'GUE-free Deep Regime', status: 'blocked', id: 'imp-1185' },
-            { name: 'Bui-Soundararajan Density Attack', status: 'blocked', id: 'imp-1261' },
-          ].map((route) => (
-            <div key={route.id} style={{
-              padding: 12, borderRadius: 8, background: 'rgba(15,23,42,0.5)',
-              border: `1px solid #${route.status === 'active' ? '10b98144' : '64748b44'}`,
-            }}>
-              <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 4 }}>
-                {route.status === 'active' && '✓ '}
-                {route.status === 'blocked' && '✗ '}
-                {route.status === 'research' && '◇ '}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12 }}>
+            {[
+              { name: 'Hilbert-Schmidt Sufficient Condition', status: 'blocked', id: 'imp-1267' },
+              { name: 'Mellin Diagonalization Route', status: 'blocked', id: 'imp-1266' },
+              { name: 'Koksma-Hlawka 2nd Moment', status: 'blocked', id: 'imp-1315' },
+              { name: 'GUE-free Deep Regime', status: 'blocked', id: 'imp-1185' },
+              { name: 'Bui-Soundararajan Density Attack', status: 'blocked', id: 'imp-1261' },
+            ].map((route) => (
+              <div key={route.id} style={{
+                padding: 12, borderRadius: 8, background: 'var(--paper2)',
+                border: `1px solid ${route.status === 'active' ? GREEN_A(0.27) : FAINT_A(0.27)}`,
+              }}>
+                <div style={{ fontSize: 12, color: INK_SOFT, marginBottom: 4 }}>
+                  {route.status === 'active' && '✓ '}
+                  {route.status === 'blocked' && '✗ '}
+                  {route.status === 'research' && '◇ '}
+                </div>
+                <div style={{ fontSize: 13, color: INK, marginBottom: 4 }}>{route.name}</div>
+                <div style={{ fontSize: 11, color: FAINT, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>{route.id}</div>
               </div>
-              <div style={{ fontSize: 13, color: '#e2e8f0', marginBottom: 4 }}>{route.name}</div>
-              <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)' }}>{route.id}</div>
-            </div>
-          ))}
-        </div>
-      </Section>
+            ))}
+          </div>
+        </Section>
 
-      {/* E(N) Breakdown and Constants */}
-      <Section title="E(N) / Lambda-Bound Status at N* = 10⁴" borderColor="#38bdf8">
-        {/* Two-level headline: rigorous SOTA vs numerical estimate */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: 16, marginBottom: 16 }}>
-          <div style={{ padding: 12, background: 'rgba(16,185,129,0.08)', borderRadius: 8, border: '1px solid rgba(16,185,129,0.3)' }}>
-            <div style={{ fontSize: 11, color: '#64748b', marginBottom: 4, fontFamily: 'var(--font-mono)' }}>PEER-REVIEWED BENCHMARK</div>
-            <div style={{ fontSize: 20, fontWeight: 700, color: '#10b981', fontFamily: 'var(--font-mono)' }}>Λ ≤ 0.2</div>
-            <div style={{ fontSize: 12, color: '#94a3b8', marginTop: 4 }}>Platt–Trudgian 2021 — unconditional</div>
-          </div>
-          <div style={{ padding: 12, background: 'rgba(56,189,248,0.08)', borderRadius: 8, border: '1px solid rgba(56,189,248,0.3)' }}>
-            <div style={{ fontSize: 11, color: '#64748b', marginBottom: 4, fontFamily: 'var(--font-mono)' }}>PUBLIC PREPRINT CLAIM</div>
-            <div style={{ fontSize: 20, fontWeight: 700, color: '#38bdf8', fontFamily: 'var(--font-mono)' }}>Λ ≤ 0.1875</div>
-            <div style={{ fontSize: 12, color: '#94a3b8', marginTop: 4 }}>Listed; locally repaired; unrefereed</div>
-          </div>
-          <div style={{ padding: 12, background: 'rgba(245,158,11,0.08)', borderRadius: 8, border: '1px solid rgba(245,158,11,0.3)' }}>
-            <div style={{ fontSize: 11, color: '#64748b', marginBottom: 4, fontFamily: 'var(--font-mono)' }}>NUMERICAL ONLY (rigor gated)</div>
-            <div style={{ fontSize: 20, fontWeight: 700, color: '#f59e0b', fontFamily: 'var(--font-mono)' }}>
-              Λ ≤ E(N) ≈ {(IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE.recomputed.E_coll_rigorous + IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_flow.value + 3.1e-5).toFixed(4)}
+        {/* E(N) Breakdown and Constants */}
+        <Section title="E(N) / Lambda-Bound Status at N* = 10⁴" borderColor={BLUE}>
+          {/* Two-level headline: rigorous SOTA vs numerical estimate */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: 16, marginBottom: 16 }}>
+            <div style={{ padding: 12, background: GREEN_A(0.08), borderRadius: 8, border: `1px solid ${GREEN_A(0.3)}` }}>
+              <div style={{ fontSize: 11, color: FAINT, marginBottom: 4, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>PEER-REVIEWED BENCHMARK</div>
+              <div style={{ fontSize: 20, fontWeight: 700, color: GREEN, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>Λ ≤ 0.2</div>
+              <div style={{ fontSize: 12, color: INK_SOFT, marginTop: 4 }}>Platt–Trudgian 2021 — unconditional</div>
             </div>
-            <div style={{ fontSize: 12, color: '#94a3b8', marginTop: 4 }}>C_H = 1/8 PENDING rigorous upper-bound (imp-2642)</div>
-          </div>
-        </div>
-
-        {/* Linchpin resolved info box */}
-        <div style={{ padding: 12, background: 'rgba(59,130,246,0.08)', borderRadius: 8, border: '1px solid rgba(59,130,246,0.25)', marginBottom: 16 }}>
-          <div style={{ fontSize: 11, color: '#3b82f6', fontWeight: 700, marginBottom: 6, fontFamily: 'var(--font-mono)' }}>
-            t_c LINCHPIN RESOLVED 2026-06-17 — Picture A + NEGATIVE on rigorous beat
-          </div>
-          <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6 }}>
-            Bridge consumes t_c^part (first truncated-flow collision). A1 gives t_c^part ≤{' '}
-            {TC_PART_VS_MF_LINCHPIN.computedAtN1e4.tcPartUpperBound_g2over6.toExponential(2)}{' '}
-            (Theta(0) = {TC_PART_VS_MF_LINCHPIN.computedAtN1e4.theta0} ≪ 1/4, unconditional). Sign
-            algebra: Λ ≤ −t_c + E(N), t_c ≥ 0 ⟹{' '}
-            <strong style={{ color: '#e2e8f0' }}>Λ ≤ E(N)</strong>. The A1 bound enters the{' '}
-            <em>lower</em> face only — no rigorous beat over Platt–Trudgian.
-          </div>
-        </div>
-
-        {/* E(N) = E_trunc + E_flow + E_coll sub-term breakdown */}
-        <div style={{ fontSize: 11, color: '#64748b', marginBottom: 8, fontFamily: 'var(--font-mono)' }}>
-          E(N) = E_trunc + E_flow + E_coll at N* = 10⁴
-        </div>
-        {/* imp-3189: econn-metric-rearchitecture grounded correction */}
-        <div style={{ fontSize: 11, color: '#94a3b8', marginBottom: 10, padding: '6px 10px', borderRadius: 5, background: 'rgba(99,102,241,0.07)', border: '1px solid rgba(99,102,241,0.22)', lineHeight: 1.55 }}>
-          <strong style={{ color: '#a5b4fc' }}>Metric note (econn-rearch, 2026-06-30):</strong>{' '}
-          The bracket |&#x39B;+t_c| &le; E_trunc + E_flow + E_coll is a{' '}
-          <em>scalar additive triangle inequality over collision times</em>, NOT a global W_1-metric
-          statement. E_trunc (height-tail zero-density + Gaussian kernel) and E_flow (per-particle
-          RvM drift-tail + Gronwall) are derived against height and measure control respectively &mdash;{' '}
-          <strong style={{ color: '#e2e8f0' }}>only E_coll uses W_1</strong>. The chain already
-          mixes global-in-height and global-in-measure control; the bracket forces no single metric.
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 4 }}>
-          {/* E_trunc */}
-          <div style={{ display: 'flex', gap: 12, padding: '9px 12px', borderRadius: 6, background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.2)', alignItems: 'flex-start' }}>
-            <div style={{ flexShrink: 0, width: 80 }}>
-              <div style={{ fontSize: 13, fontWeight: 700, color: '#e2e8f0', fontFamily: 'var(--font-mono)' }}>E_trunc</div>
-              <div style={{ fontSize: 11, color: '#10b981', fontFamily: 'var(--font-mono)' }}>3.1×10⁻⁵</div>
+            <div style={{ padding: 12, background: BLUE_A(0.08), borderRadius: 8, border: `1px solid ${BLUE_A(0.3)}` }}>
+              <div style={{ fontSize: 11, color: FAINT, marginBottom: 4, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>PUBLIC PREPRINT CLAIM</div>
+              <div style={{ fontSize: 20, fontWeight: 700, color: BLUE, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>Λ ≤ 0.1875</div>
+              <div style={{ fontSize: 12, color: INK_SOFT, marginTop: 4 }}>Listed; locally repaired; unrefereed</div>
             </div>
-            <div style={{ flexShrink: 0 }}>
-              <ConstantBadge status="RIGOROUSLY-PINNED" />
-            </div>
-            <div style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.5 }}>
-              PT 2021 + Ingham optimal σ=0.75 at T_PT=3×10¹² (imp-447/459) — unconditional, &lt;1% of E(N)
+            <div style={{ padding: 12, background: AMBER_A(0.08), borderRadius: 8, border: `1px solid ${AMBER_A(0.3)}` }}>
+              <div style={{ fontSize: 11, color: FAINT, marginBottom: 4, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>NUMERICAL ONLY (rigor gated)</div>
+              <div style={{ fontSize: 20, fontWeight: 700, color: AMBER, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+                Λ ≤ E(N) ≈ {(IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE.recomputed.E_coll_rigorous + IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_flow.value + 3.1e-5).toFixed(4)}
+              </div>
+              <div style={{ fontSize: 12, color: INK_SOFT, marginTop: 4 }}>C_H = 1/8 PENDING rigorous upper-bound (imp-2642)</div>
             </div>
           </div>
 
-          {/* imp-35687 honest-status banner: imp-35653 Part D necessary-not-sufficient */}
-          <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.28)', fontSize: 11.5, color: '#94a3b8', lineHeight: 1.6 }}>
-            <strong style={{ color: '#fbbf24' }}>S_barrier caveat:</strong> E_trunc becomes{' '}
-            <em>vestigial / read as EXACTLY ZERO above T_PT</em> only after the non-finite argument-
-            principle tail lemma (imp-35653 Part D, work-item W3) is discharged. Platt&ndash;Trudgian
-            verified-to-T_PT N_off(T_PT)=0 is the necessary floor this stands on, <strong>not</strong>{' '}
-            a substitute for that semi-infinite-tail lemma. No bound is asserted here; PT Λ≤0.2 remains
-            the peer-reviewed benchmark.
+          {/* Linchpin resolved info box */}
+          <div style={{ padding: 12, background: BLUE_A(0.08), borderRadius: 8, border: `1px solid ${BLUE_A(0.25)}`, marginBottom: 16 }}>
+            <div style={{ fontSize: 11, color: BLUE, fontWeight: 700, marginBottom: 6, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+              t_c LINCHPIN RESOLVED 2026-06-17 — Picture A + NEGATIVE on rigorous beat
+            </div>
+            <div style={{ fontSize: 12, color: INK_SOFT, lineHeight: 1.6 }}>
+              Bridge consumes t_c^part (first truncated-flow collision). A1 gives t_c^part ≤{' '}
+              {TC_PART_VS_MF_LINCHPIN.computedAtN1e4.tcPartUpperBound_g2over6.toExponential(2)}{' '}
+              (Theta(0) = {TC_PART_VS_MF_LINCHPIN.computedAtN1e4.theta0} ≪ 1/4, unconditional). Sign
+              algebra: Λ ≤ −t_c + E(N), t_c ≥ 0 ⟹{' '}
+              <strong style={{ color: INK }}>Λ ≤ E(N)</strong>. The A1 bound enters the{' '}
+              <em>lower</em> face only — no rigorous beat over Platt–Trudgian.
+            </div>
           </div>
 
-          {/* imp-35690: imp-35653 S_barrier porting work-list W1..W4 status table */}
-          <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(15,23,42,0.5)', border: '1px solid rgba(148,163,184,0.2)' }}>
-            <div style={{ fontSize: 11, fontWeight: 700, color: '#e2e8f0', fontFamily: 'var(--font-mono)', marginBottom: 6 }}>
-              S_barrier porting work-items (imp-35653)
+          {/* E(N) = E_trunc + E_flow + E_coll sub-term breakdown */}
+          <div style={{ fontSize: 11, color: FAINT, marginBottom: 8, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+            E(N) = E_trunc + E_flow + E_coll at N* = 10⁴
+          </div>
+          {/* imp-3189: econn-metric-rearchitecture grounded correction */}
+          <div style={{ fontSize: 11, color: INK_SOFT, marginBottom: 10, padding: '6px 10px', borderRadius: 5, background: BLUE_A(0.07), border: `1px solid ${BLUE_A(0.22)}`, lineHeight: 1.55 }}>
+            <strong style={{ color: BLUE }}>Metric note (econn-rearch, 2026-06-30):</strong>{' '}
+            The bracket |&#x39B;+t_c| &le; E_trunc + E_flow + E_coll is a{' '}
+            <em>scalar additive triangle inequality over collision times</em>, NOT a global W_1-metric
+            statement. E_trunc (height-tail zero-density + Gaussian kernel) and E_flow (per-particle
+            RvM drift-tail + Gronwall) are derived against height and measure control respectively &mdash;{' '}
+            <strong style={{ color: INK }}>only E_coll uses W_1</strong>. The chain already
+            mixes global-in-height and global-in-measure control; the bracket forces no single metric.
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 4 }}>
+            {/* E_trunc */}
+            <div style={{ display: 'flex', gap: 12, padding: '9px 12px', borderRadius: 6, background: GREEN_A(0.06), border: `1px solid ${GREEN_A(0.2)}`, alignItems: 'flex-start' }}>
+              <div style={{ flexShrink: 0, width: 80 }}>
+                <div style={{ fontSize: 13, fontWeight: 700, color: INK, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>E_trunc</div>
+                <div style={{ fontSize: 11, color: GREEN, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>3.1×10⁻⁵</div>
+              </div>
+              <div style={{ flexShrink: 0 }}>
+                <ConstantBadge status="RIGOROUSLY-PINNED" />
+              </div>
+              <div style={{ color: INK_SOFT, fontSize: 12, lineHeight: 1.5 }}>
+                PT 2021 + Ingham optimal σ=0.75 at T_PT=3×10¹² (imp-447/459) — unconditional, &lt;1% of E(N)
+              </div>
             </div>
-            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 11.5 }}>
-              <tbody>
-                {['W1', 'W2', 'W3', 'W4'].map((w) => {
-                  const isFinite_ = w !== 'W3';
-                  return (
-                    <tr key={w} style={{ borderTop: '1px solid rgba(148,163,184,0.12)' }}>
-                      <td style={{ padding: '5px 8px 5px 0', fontFamily: 'var(--font-mono)', color: '#e2e8f0', fontWeight: 700, verticalAlign: 'top', whiteSpace: 'nowrap' }}>
-                        {w}
-                      </td>
-                      <td style={{ padding: '5px 8px', color: '#94a3b8', lineHeight: 1.5 }}>
-                        {IMP35653_SBARRIER_FINITE_CHECK_PORTING_SCOPE.portWorkItems[w]}
-                      </td>
-                      <td style={{ padding: '5px 0 5px 8px', verticalAlign: 'top', whiteSpace: 'nowrap' }}>
-                        <ConstantBadge status={isFinite_ ? 'RIGOROUSLY-PINNED' : 'ORDER-UNITY-PLACEHOLDER'} />
-                        <span style={{ marginLeft: 6, fontSize: 10.5, color: isFinite_ ? '#10b981' : '#f59e0b', fontFamily: 'var(--font-mono)' }}>
-                          {isFinite_ ? 'FINITE / MECHANICAL' : 'NON-FINITE / BREAKTHROUGH-TIER'}
-                        </span>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-            <div style={{ marginTop: 8 }}>
-              <Link to="/viz-imp35710-winding-mesh-cost-delta-ladder" style={{ color: '#38bdf8', fontSize: 12, textDecoration: 'none' }}>
-                Winding-Barrier Mesh-Cost Delta-Ladder chart (imp-35710) →
+
+            {/* imp-35687 honest-status banner: imp-35653 Part D necessary-not-sufficient */}
+            <div style={{ padding: '8px 12px', borderRadius: 6, background: AMBER_A(0.06), border: `1px solid ${AMBER_A(0.28)}`, fontSize: 11.5, color: INK_SOFT, lineHeight: 1.6 }}>
+              <strong style={{ color: AMBER }}>S_barrier caveat:</strong> E_trunc becomes{' '}
+              <em>vestigial / read as EXACTLY ZERO above T_PT</em> only after the non-finite argument-
+              principle tail lemma (imp-35653 Part D, work-item W3) is discharged. Platt&ndash;Trudgian
+              verified-to-T_PT N_off(T_PT)=0 is the necessary floor this stands on, <strong>not</strong>{' '}
+              a substitute for that semi-infinite-tail lemma. No bound is asserted here; PT Λ≤0.2 remains
+              the peer-reviewed benchmark.
+            </div>
+
+            {/* imp-35690: imp-35653 S_barrier porting work-list W1..W4 status table */}
+            <div style={{ padding: '8px 12px', borderRadius: 6, background: 'var(--paper2)', border: '1px solid var(--hairline)' }}>
+              <div style={{ fontSize: 11, fontWeight: 700, color: INK, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6 }}>
+                S_barrier porting work-items (imp-35653)
+              </div>
+              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 11.5 }}>
+                <tbody>
+                  {['W1', 'W2', 'W3', 'W4'].map((w) => {
+                    const isFinite_ = w !== 'W3';
+                    return (
+                      <tr key={w} style={{ borderTop: '1px solid var(--hairline)' }}>
+                        <td style={{ padding: '5px 8px 5px 0', fontFamily: 'var(--ed-mono, var(--font-mono))', color: INK, fontWeight: 700, verticalAlign: 'top', whiteSpace: 'nowrap' }}>
+                          {w}
+                        </td>
+                        <td style={{ padding: '5px 8px', color: INK_SOFT, lineHeight: 1.5 }}>
+                          {IMP35653_SBARRIER_FINITE_CHECK_PORTING_SCOPE.portWorkItems[w]}
+                        </td>
+                        <td style={{ padding: '5px 0 5px 8px', verticalAlign: 'top', whiteSpace: 'nowrap' }}>
+                          <ConstantBadge status={isFinite_ ? 'RIGOROUSLY-PINNED' : 'ORDER-UNITY-PLACEHOLDER'} />
+                          <span style={{ marginLeft: 6, fontSize: 10.5, color: isFinite_ ? GREEN : AMBER, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+                            {isFinite_ ? 'FINITE / MECHANICAL' : 'NON-FINITE / BREAKTHROUGH-TIER'}
+                          </span>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+              <div style={{ marginTop: 8 }}>
+                <Link to="/viz-imp35710-winding-mesh-cost-delta-ladder" style={{ color: BLUE, fontSize: 12, textDecoration: 'none' }}>
+                  Winding-Barrier Mesh-Cost Delta-Ladder chart (imp-35710) →
+                </Link>
+              </div>
+            </div>
+
+            {/* imp-35741 honest-status banner: imp-35681 Part D corrects a scout misattribution */}
+            <div style={{ padding: '8px 12px', borderRadius: 6, background: AMBER_A(0.06), border: `1px solid ${AMBER_A(0.28)}`, fontSize: 11.5, color: INK_SOFT, lineHeight: 1.6 }}>
+              <strong style={{ color: AMBER }}>Barrier-base provenance correction:</strong>{' '}
+              {IMP35681_W1_W2_W4_EXISTING_INFRA_INVENTORY.barrierBaseProvenance.correction} A prior scout
+              note misattributed this base to repo <strong>imp-341</strong>, but canonical imp-341 is the
+              Close G5_burgers Koksma&ndash;Hlawka result (S7 uniformity of the finite-N empirical Stieltjes
+              transform) &mdash; a different thread with no bearing on off-line zero verification to T_PT.
+              No bound is asserted here; PT Λ≤0.2 remains the peer-reviewed benchmark.
+            </div>
+
+            {/* imp-35749: imp-35711 PROMINENT-level post-port parity-no-beat honest-status banner */}
+            <div style={{ padding: '10px 12px', borderRadius: 6, background: RED_A(0.08), border: `1px solid ${RED_A(0.35)}`, fontSize: 11.5, color: INK, lineHeight: 1.6 }}>
+              <strong style={{ color: RED }}>{IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER.headline}:</strong>{' '}
+              The imp-35654 post-port far-tail bridge becomes asymptotically unconditional (residual
+              GUE-conditional share σ&nbsp;&rarr;&nbsp;0) but is <strong>still only parity-with-PT</strong> — the
+              ported machinery IS PT&apos;s own Λ&nbsp;&le;&nbsp;0.2 barrier theorem (imp-35419 C2), so it matches
+              0.2 and does not beat it. σ is nonzero at every finite N, and C_mb stays GUE-conditional per
+              imp-486, untouched by the port. Documentation only — no bound changes; PT Λ&nbsp;&le;&nbsp;0.2
+              remains SOTA.
+            </div>
+
+            {/* E_flow */}
+            <div style={{ display: 'flex', gap: 12, padding: '9px 12px', borderRadius: 6, background: AMBER_A(0.06), border: `1px solid ${AMBER_A(0.2)}`, alignItems: 'flex-start' }}>
+              <div style={{ flexShrink: 0, width: 80 }}>
+                <div style={{ fontSize: 13, fontWeight: 700, color: INK, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>E_flow</div>
+                <div style={{ fontSize: 11, color: AMBER, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+                  {(IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_flow.value * 1e3).toFixed(2)}×10⁻³
+                </div>
+              </div>
+              <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', gap: 3 }}>
+                <ConstantBadge status="RIGOROUSLY-PINNED" />
+                <ConstantBadge status="ORDER-UNITY-PLACEHOLDER" />
+              </div>
+              <div style={{ color: INK_SOFT, fontSize: 12, lineHeight: 1.5 }}>
+                C_F = {IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_flow.C_F.toFixed(4)} RIGOROUS (imp-398).
+                C_G = 2/y_star² ≤ {IMP2644_EFLOW_GRONWALL_CG_DISCHARGE.cG.gronwallExplicit} explicit (Gronwall Lemma B); E_flow ≤ 1.3×10⁻³ for all C_G ≤ {IMP2644_EFLOW_GRONWALL_CG_DISCHARGE.cG.C_G_max_A1} on the A1 |t_c| bound — discharged imp-2644
+              </div>
+            </div>
+
+            {/* E_coll — PARTIAL, not RIGOROUSLY-PINNED: C_H pending (imp-2642) */}
+            <div style={{ display: 'flex', gap: 12, padding: '9px 12px', borderRadius: 6, background: AMBER_A(0.06), border: `1px solid ${AMBER_A(0.2)}`, alignItems: 'flex-start' }}>
+              <div style={{ flexShrink: 0, width: 80 }}>
+                <div style={{ fontSize: 13, fontWeight: 700, color: INK, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>E_coll</div>
+                <div style={{ fontSize: 11, color: AMBER, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+                  {IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE.recomputed.E_coll_rigorous.toFixed(4)}
+                </div>
+              </div>
+              <div style={{ flexShrink: 0 }}>
+                <ConstantBadge status="ORDER-UNITY-PLACEHOLDER" />
+              </div>
+              <div style={{ color: INK_SOFT, fontSize: 12, lineHeight: 1.5 }}>
+                C_Selberg discharged → {IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE.C_Selberg.rigorousExplicit} (Trudgian 2014, imp-2641; E-T bridge O(1) residual).
+                C_H = 1/8 PENDING rigorous upper-bound verification (imp-2642). Dominant sub-term ~90% of E(N).
+              </div>
+            </div>
+
+            {/* E(N) total */}
+            <div style={{ display: 'flex', gap: 12, padding: '9px 12px', borderRadius: 6, background: FAINT_A(0.06), border: `1px solid ${FAINT_A(0.2)}`, alignItems: 'center' }}>
+              <div style={{ flexShrink: 0, width: 80 }}>
+                <div style={{ fontSize: 13, fontWeight: 700, color: INK, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>E(N)</div>
+                <div style={{ fontSize: 11, color: INK_SOFT, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+                  ≈ {(IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE.recomputed.E_coll_rigorous + IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_flow.value + 3.1e-5).toFixed(4)}
+                </div>
+              </div>
+              <div style={{ color: INK_SOFT, fontSize: 12 }}>
+                <strong style={{ color: INK }}>
+                  {(0.2 / (IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE.recomputed.E_coll_rigorous + IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_flow.value + 3.1e-5)).toFixed(0)}×
+                </strong>{' '}
+                below Platt–Trudgian 0.2 — not yet rigorous (C_H + E-T bridge constant pending).
+                Peer-reviewed benchmark: <strong style={{ color: GREEN }}>Λ ≤ 0.2</strong>;
+                public unrefereed package claim: <strong style={{ color: BLUE }}>Λ ≤ 0.1875</strong>.
+                This is the older Dyson lane; the separate standalone private-review candidate{' '}
+                <strong style={{ color: BRASS }}>Λ ≤ 0.1787854</strong> uses the fixed-height
+                barrier route and does not discharge C_H. It is an unreviewed computer-assisted
+                candidate for an unconditional proof; the bound is not established, has not been
+                peer reviewed, and is not RH.
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        {/* V-norm Collapse */}
+        <Section title="§15-27 Hidden Square Program" borderColor={AMBER}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+            <div>
+              <h3 style={{ color: AMBER, fontSize: 14, marginBottom: 8 }}>The Collapse</h3>
+              <p style={{ color: INK_SOFT, fontSize: 13, lineHeight: 1.6, marginBottom: 12 }}>
+                7+ named paper conjectures (16.4, 16.6, 17.3, 18.1, 25.2/25.3, 26.3/26.4, 27.2)
+                all reduce to a single statement:
+              </p>
+              <div style={{
+                padding: 12, background: AMBER_A(0.1), borderRadius: 8,
+                border: `1px solid ${AMBER_A(0.27)}`, marginBottom: 12,
+              }}>
+                <div style={{ fontSize: 12, color: AMBER, fontFamily: 'var(--ed-mono, var(--font-mono))', lineHeight: 1.8 }}>
+                  ‖V_{'{a,Φ}'}‖_{'{L²}'}([0,∞)) ≤ 1<br />
+                  for every a &gt; 0
+                </div>
+              </div>
+              <p style={{ color: FAINT, fontSize: 12, lineHeight: 1.6 }}>
+                The §27 LINK B biconditional that would make this bound sufficient is{' '}
+                <strong style={{ color: RED }}>REFUTED</strong> (overclaim #6): {SECTION27_REFUTATION.collapseConsequence}.
+                The surviving target is RH-EQUIVALENT, not a reduction — {SECTION26_VERDICT.verdict}.
+              </p>
+            </div>
+
+            <div>
+              <h3 style={{ color: GREEN, fontSize: 14, marginBottom: 8 }}>Empirical Support</h3>
+              <div style={{
+                padding: 12, background: GREEN_A(0.1), borderRadius: 8,
+                border: `1px solid ${GREEN_A(0.27)}`, marginBottom: 12,
+              }}>
+                <div style={{ fontSize: 13, color: GREEN, fontWeight: 700, marginBottom: 4 }}>
+                  ‖V‖ ≤ 1.86×10⁻⁴
+                </div>
+                <div style={{ fontSize: 11, color: INK_SOFT }}>
+                  60+ grid points, U ≤ 100, N ≤ 10100
+                </div>
+              </div>
+              <div style={{ color: INK_SOFT, fontSize: 12, lineHeight: 1.6 }}>
+                <strong>Distance to saturation:</strong> ~5000× — but this is a{' '}
+                <strong style={{ color: AMBER }}>homogeneity artifact, NOT evidence for Conj 27.2</strong>:{' '}
+                {SECTION26_VERDICT.fiveThousandXArtifact}. The bare V is degree-2 homogeneous, so the
+                margin scales with the (arbitrary) Φ normalization; it does not indicate proximity to an
+                unconditional proof. {SECTION26_VERDICT.sota}.
+              </div>
+            </div>
+          </div>
+
+          <div style={{ marginTop: 16 }}>
+            <Link to="/hidden-square-program" style={{
+              display: 'inline-block', padding: '8px 12px', background: AMBER_A(0.15),
+              border: `1px solid ${AMBER_A(0.27)}`, borderRadius: 4, color: AMBER,
+              fontSize: 12, fontWeight: 600, textDecoration: 'none',
+            }}>
+              Full Hidden Square Program →
+            </Link>
+          </div>
+        </Section>
+
+        {/* Transparency Ledger + Honest Gap-Map */}
+        <Section title="Corrections Log: claims since corrected" borderColor={RED}>
+          <p style={{ color: INK_SOFT, fontSize: 13, marginBottom: 16, lineHeight: 1.6 }}>
+            Internal record of claims that overreached the evidence during development and have since
+            been corrected. Peer-reviewed benchmark: <strong style={{ color: GREEN }}>Λ ≤ 0.2 (Platt–Trudgian 2021)</strong>;
+            strongest located public preprint claim: <strong style={{ color: BLUE }}>Λ ≤ 0.1875</strong>.
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 24 }}>
+            {CAUGHT_OVERCLAIMS.map((oc) => (
+              <div key={oc.n} style={{
+                display: 'flex', gap: 12, padding: '10px 14px', borderRadius: 6,
+                background: RED_A(0.05), border: `1px solid ${RED_A(0.18)}`,
+              }}>
+                <div style={{
+                  flexShrink: 0, width: 22, height: 22, borderRadius: '50%',
+                  background: RED_A(0.18), color: RED,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontSize: 11, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))', marginTop: 1,
+                }}>{oc.n}</div>
+                <div style={{ minWidth: 0 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', marginBottom: 3 }}>
+                    <span style={{ fontSize: 13, color: INK, fontWeight: 600 }}>{oc.claim}</span>
+                    <span style={{
+                      padding: '1px 7px', borderRadius: 3,
+                      background: RED_A(0.18), color: RED,
+                      fontSize: 10, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))',
+                    }}>{oc.badge}</span>
+                  </div>
+                  <div style={{ fontSize: 12, color: INK_SOFT, lineHeight: 1.5 }}>{oc.correction}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <h3 style={{ color: INK, fontSize: 14, marginBottom: 10, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>Honest Gap-Map</h3>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12 }}>
+            <div style={{ padding: 12, borderRadius: 8, background: GREEN_A(0.08), border: `1px solid ${GREEN_A(0.28)}` }}>
+              <div style={{ fontSize: 10, color: GREEN, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6 }}>PEER-REVIEWED BENCHMARK</div>
+              <div style={{ fontSize: 18, fontWeight: 700, color: GREEN, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6 }}>Λ ≤ 0.2</div>
+              <div style={{ fontSize: 12, color: INK_SOFT, lineHeight: 1.5 }}>Platt–Trudgian 2021; {MAXFANOUT_STATUS.rigorousSOTA}</div>
+            </div>
+            <div style={{ padding: 12, borderRadius: 8, background: BLUE_A(0.08), border: `1px solid ${BLUE_A(0.28)}` }}>
+              <div style={{ fontSize: 10, color: BLUE, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6 }}>PUBLIC, UNREFEREED PACKAGE</div>
+              <div style={{ fontSize: 18, fontWeight: 700, color: BLUE, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6 }}>Λ ≤ 0.1875</div>
+              <div style={{ fontSize: 12, color: INK_SOFT, lineHeight: 1.5 }}>Optimization Problems ledger entry; omitted finite tile repaired locally; not peer review.</div>
+            </div>
+            <div style={{ padding: 12, borderRadius: 8, background: AMBER_A(0.08), border: `1px solid ${AMBER_A(0.28)}` }}>
+              <div style={{ fontSize: 10, color: AMBER, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6 }}>NUMERICAL ESTIMATE — NOT RIGOROUS</div>
+              <div style={{ fontSize: 16, fontWeight: 700, color: AMBER, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6 }}>Λ ≤ E(N) ≈ 0.013</div>
+              <div style={{ fontSize: 12, color: INK_SOFT, lineHeight: 1.5 }}>{MAXFANOUT_STATUS.finiteNbeat}</div>
+            </div>
+            <div style={{ padding: 12, borderRadius: 8, background: BLUE_A(0.08), border: `1px solid ${BLUE_A(0.28)}` }}>
+              <div style={{ fontSize: 10, color: BLUE, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6 }}>VOLTERRA: PCC-FREE — COLLAPSE REFUTED</div>
+              <div style={{ fontSize: 12, color: INK_SOFT, lineHeight: 1.5, marginBottom: 6 }}>
+                <strong style={{ color: BLUE }}>PCC-free:</strong> {STRATEGIC_REFRAME.honestGuard}
+              </div>
+              <div style={{ fontSize: 12, color: INK_SOFT, lineHeight: 1.5 }}>
+                <strong style={{ color: RED }}>Real gap:</strong> {SECTION27_REFUTATION.rigorStatus}
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        {/* Recommended Reading */}
+        <Section title="Navigate the Proof Landscape" borderColor="#d5c9b2">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12 }}>
+            <div style={{ padding: 12, background: 'var(--paper2)', borderRadius: 8 }}>
+              <div style={{ fontSize: 12, color: FAINT, marginBottom: 4 }}>PROOF FRAMEWORKS</div>
+              <Link to="/proof-overview" style={{ color: BLUE, fontSize: 13, textDecoration: 'none' }}>
+                Proof Overview →
+              </Link>
+            </div>
+            <div style={{ padding: 12, background: 'var(--paper2)', borderRadius: 8 }}>
+              <div style={{ fontSize: 12, color: FAINT, marginBottom: 4 }}>ATTACK STRATEGIES</div>
+              <Link to="/rh-attack" style={{ color: BLUE, fontSize: 13, textDecoration: 'none' }}>
+                RH Attack Strategies →
+              </Link>
+            </div>
+            <div style={{ padding: 12, background: 'var(--paper2)', borderRadius: 8 }}>
+              <div style={{ fontSize: 12, color: FAINT, marginBottom: 4 }}>VISUALIZATIONS</div>
+              <Link to="/visualizations" style={{ color: BLUE, fontSize: 13, textDecoration: 'none' }}>
+                Viz Index →
+              </Link>
+            </div>
+            <div style={{ padding: 12, background: 'var(--paper2)', borderRadius: 8 }}>
+              <div style={{ fontSize: 12, color: FAINT, marginBottom: 4 }}>HISTORIC PAPER ROADMAP</div>
+              <Link to="/papers" style={{ color: BLUE, fontSize: 13, textDecoration: 'none' }}>
+                Historic v52 Paper Details →
+              </Link>
+            </div>
+            <div style={{ padding: 12, background: 'var(--paper2)', borderRadius: 8 }}>
+              <div style={{ fontSize: 12, color: FAINT, marginBottom: 4 }}>PCC EXHAUSTION</div>
+              <Link to="/pcc-route-exhaustion" style={{ color: BLUE, fontSize: 13, textDecoration: 'none' }}>
+                5 Routes Summary →
+              </Link>
+            </div>
+            <div style={{ padding: 12, background: 'var(--paper2)', borderRadius: 8 }}>
+              <div style={{ fontSize: 12, color: FAINT, marginBottom: 4 }}>IMPROVEMENTS LOG</div>
+              <Link to="/improvements" style={{ color: BLUE, fontSize: 13, textDecoration: 'none' }}>
+                All Sessions →
               </Link>
             </div>
           </div>
+        </Section>
 
-          {/* imp-35741 honest-status banner: imp-35681 Part D corrects a scout misattribution */}
-          <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.28)', fontSize: 11.5, color: '#94a3b8', lineHeight: 1.6 }}>
-            <strong style={{ color: '#fbbf24' }}>Barrier-base provenance correction:</strong>{' '}
-            {IMP35681_W1_W2_W4_EXISTING_INFRA_INVENTORY.barrierBaseProvenance.correction} A prior scout
-            note misattributed this base to repo <strong>imp-341</strong>, but canonical imp-341 is the
-            Close G5_burgers Koksma&ndash;Hlawka result (S7 uniformity of the finite-N empirical Stieltjes
-            transform) &mdash; a different thread with no bearing on off-line zero verification to T_PT.
-            No bound is asserted here; PT Λ≤0.2 remains the peer-reviewed benchmark.
-          </div>
-
-          {/* imp-35749: imp-35711 PROMINENT-level post-port parity-no-beat honest-status banner */}
-          <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.35)', fontSize: 11.5, color: '#e2e8f0', lineHeight: 1.6 }}>
-            <strong style={{ color: '#f87171' }}>{IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER.headline}:</strong>{' '}
-            The imp-35654 post-port far-tail bridge becomes asymptotically unconditional (residual
-            GUE-conditional share σ&nbsp;&rarr;&nbsp;0) but is <strong>still only parity-with-PT</strong> — the
-            ported machinery IS PT&apos;s own Λ&nbsp;&le;&nbsp;0.2 barrier theorem (imp-35419 C2), so it matches
-            0.2 and does not beat it. σ is nonzero at every finite N, and C_mb stays GUE-conditional per
-            imp-486, untouched by the port. Documentation only — no bound changes; PT Λ&nbsp;&le;&nbsp;0.2
-            remains SOTA.
-          </div>
-
-          {/* E_flow */}
-          <div style={{ display: 'flex', gap: 12, padding: '9px 12px', borderRadius: 6, background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.2)', alignItems: 'flex-start' }}>
-            <div style={{ flexShrink: 0, width: 80 }}>
-              <div style={{ fontSize: 13, fontWeight: 700, color: '#e2e8f0', fontFamily: 'var(--font-mono)' }}>E_flow</div>
-              <div style={{ fontSize: 11, color: '#f59e0b', fontFamily: 'var(--font-mono)' }}>
-                {(IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_flow.value * 1e3).toFixed(2)}×10⁻³
-              </div>
-            </div>
-            <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', gap: 3 }}>
-              <ConstantBadge status="RIGOROUSLY-PINNED" />
-              <ConstantBadge status="ORDER-UNITY-PLACEHOLDER" />
-            </div>
-            <div style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.5 }}>
-              C_F = {IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_flow.C_F.toFixed(4)} RIGOROUS (imp-398).
-              C_G = 2/y_star² ≤ {IMP2644_EFLOW_GRONWALL_CG_DISCHARGE.cG.gronwallExplicit} explicit (Gronwall Lemma B); E_flow ≤ 1.3×10⁻³ for all C_G ≤ {IMP2644_EFLOW_GRONWALL_CG_DISCHARGE.cG.C_G_max_A1} on the A1 |t_c| bound — discharged imp-2644
-            </div>
-          </div>
-
-          {/* E_coll — PARTIAL, not RIGOROUSLY-PINNED: C_H pending (imp-2642) */}
-          <div style={{ display: 'flex', gap: 12, padding: '9px 12px', borderRadius: 6, background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.2)', alignItems: 'flex-start' }}>
-            <div style={{ flexShrink: 0, width: 80 }}>
-              <div style={{ fontSize: 13, fontWeight: 700, color: '#e2e8f0', fontFamily: 'var(--font-mono)' }}>E_coll</div>
-              <div style={{ fontSize: 11, color: '#f59e0b', fontFamily: 'var(--font-mono)' }}>
-                {IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE.recomputed.E_coll_rigorous.toFixed(4)}
-              </div>
-            </div>
-            <div style={{ flexShrink: 0 }}>
-              <ConstantBadge status="ORDER-UNITY-PLACEHOLDER" />
-            </div>
-            <div style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.5 }}>
-              C_Selberg discharged → {IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE.C_Selberg.rigorousExplicit} (Trudgian 2014, imp-2641; E-T bridge O(1) residual).
-              C_H = 1/8 PENDING rigorous upper-bound verification (imp-2642). Dominant sub-term ~90% of E(N).
-            </div>
-          </div>
-
-          {/* E(N) total */}
-          <div style={{ display: 'flex', gap: 12, padding: '9px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.2)', alignItems: 'center' }}>
-            <div style={{ flexShrink: 0, width: 80 }}>
-              <div style={{ fontSize: 13, fontWeight: 700, color: '#e2e8f0', fontFamily: 'var(--font-mono)' }}>E(N)</div>
-              <div style={{ fontSize: 11, color: '#94a3b8', fontFamily: 'var(--font-mono)' }}>
-                ≈ {(IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE.recomputed.E_coll_rigorous + IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_flow.value + 3.1e-5).toFixed(4)}
-              </div>
-            </div>
-            <div style={{ color: '#94a3b8', fontSize: 12 }}>
-              <strong style={{ color: '#e2e8f0' }}>
-                {(0.2 / (IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE.recomputed.E_coll_rigorous + IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_flow.value + 3.1e-5)).toFixed(0)}×
-              </strong>{' '}
-              below Platt–Trudgian 0.2 — not yet rigorous (C_H + E-T bridge constant pending).
-              Peer-reviewed benchmark: <strong style={{ color: '#10b981' }}>Λ ≤ 0.2</strong>;
-              public unrefereed package claim: <strong style={{ color: '#38bdf8' }}>Λ ≤ 0.1875</strong>.
-              This is the older Dyson lane; the separate standalone private-review candidate{' '}
-              <strong style={{ color: '#22d3ee' }}>Λ ≤ 0.1787854</strong> uses the fixed-height
-              barrier route and does not discharge C_H. It is an unreviewed computer-assisted
-              candidate for an unconditional proof; the bound is not established, has not been
-              peer reviewed, and is not RH.
-            </div>
+        {/* Footer note — related links + atlas */}
+        <div style={{
+          marginTop: 32, padding: 16, background: 'var(--paper2)', borderRadius: 8,
+          border: '1px solid var(--hairline)',
+        }}>
+          <p style={{ color: INK_SOFT, fontSize: 12, lineHeight: 1.6, margin: '0 0 12px' }}>
+            This dashboard reflects the state as of <strong>{dashboardDate}</strong>. The five proof paths
+            represent the full landscape of approaches being pursued. Updates to this dashboard are
+            logged via the improvements engine. For the latest session activity, see the{' '}
+            <Link to="/improvements" style={{ color: BLUE, textDecoration: 'none' }}>improvements log</Link>.
+          </p>
+          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center' }}>
+            <Link to="/proof-overview" style={{ color: BLUE, fontSize: 12, textDecoration: 'none' }}>Proof Overview</Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/rh-attack" style={{ color: BLUE, fontSize: 12, textDecoration: 'none' }}>RH Attack Strategies</Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/hidden-square-program" style={{ color: AMBER, fontSize: 12, textDecoration: 'none' }}>Hidden Square Program</Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/pcc-route-exhaustion" style={{ color: FAINT, fontSize: 12, textDecoration: 'none' }}>PCC Route Exhaustion</Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/" style={{ color: INK_SOFT, fontSize: 12, textDecoration: 'none' }}>← the atlas</Link>
           </div>
         </div>
-      </Section>
-
-      {/* V-norm Collapse */}
-      <Section title="§15-27 Hidden Square Program" borderColor="#f59e0b">
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-          <div>
-            <h3 style={{ color: '#f59e0b', fontSize: 14, marginBottom: 8 }}>The Collapse</h3>
-            <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.6, marginBottom: 12 }}>
-              7+ named paper conjectures (16.4, 16.6, 17.3, 18.1, 25.2/25.3, 26.3/26.4, 27.2)
-              all reduce to a single statement:
-            </p>
-            <div style={{
-              padding: 12, background: 'rgba(245,158,11,0.1)', borderRadius: 8,
-              border: '1px solid #f59e0b44', marginBottom: 12,
-            }}>
-              <div style={{ fontSize: 12, color: '#f59e0b', fontFamily: 'var(--font-mono)', lineHeight: 1.8 }}>
-                ‖V_{'{a,Φ}'}‖_{'{L²}'}([0,∞)) ≤ 1<br />
-                for every a &gt; 0
-              </div>
-            </div>
-            <p style={{ color: '#64748b', fontSize: 12, lineHeight: 1.6 }}>
-              The §27 LINK B biconditional that would make this bound sufficient is{' '}
-              <strong style={{ color: '#ef4444' }}>REFUTED</strong> (overclaim #6): {SECTION27_REFUTATION.collapseConsequence}.
-              The surviving target is RH-EQUIVALENT, not a reduction — {SECTION26_VERDICT.verdict}.
-            </p>
-          </div>
-
-          <div>
-            <h3 style={{ color: '#10b981', fontSize: 14, marginBottom: 8 }}>Empirical Support</h3>
-            <div style={{
-              padding: 12, background: 'rgba(16,185,129,0.1)', borderRadius: 8,
-              border: '1px solid #10b98144', marginBottom: 12,
-            }}>
-              <div style={{ fontSize: 13, color: '#10b981', fontWeight: 700, marginBottom: 4 }}>
-                ‖V‖ ≤ 1.86×10⁻⁴
-              </div>
-              <div style={{ fontSize: 11, color: '#94a3b8' }}>
-                60+ grid points, U ≤ 100, N ≤ 10100
-              </div>
-            </div>
-            <div style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.6 }}>
-              <strong>Distance to saturation:</strong> ~5000× — but this is a{' '}
-              <strong style={{ color: '#f59e0b' }}>homogeneity artifact, NOT evidence for Conj 27.2</strong>:{' '}
-              {SECTION26_VERDICT.fiveThousandXArtifact}. The bare V is degree-2 homogeneous, so the
-              margin scales with the (arbitrary) Φ normalization; it does not indicate proximity to an
-              unconditional proof. {SECTION26_VERDICT.sota}.
-            </div>
-          </div>
-        </div>
-
-        <div style={{ marginTop: 16 }}>
-          <Link to="/hidden-square-program" style={{
-            display: 'inline-block', padding: '8px 12px', background: 'rgba(245,158,11,0.15)',
-            border: '1px solid #f59e0b44', borderRadius: 4, color: '#f59e0b',
-            fontSize: 12, fontWeight: 600, textDecoration: 'none',
-          }}>
-            Full Hidden Square Program →
-          </Link>
-        </div>
-      </Section>
-
-      {/* Transparency Ledger + Honest Gap-Map */}
-      <Section title="Corrections Log: claims since corrected" borderColor="#ef4444">
-        <p style={{ color: '#94a3b8', fontSize: 13, marginBottom: 16, lineHeight: 1.6 }}>
-          Internal record of claims that overreached the evidence during development and have since
-          been corrected. Peer-reviewed benchmark: <strong style={{ color: '#10b981' }}>Λ ≤ 0.2 (Platt–Trudgian 2021)</strong>;
-          strongest located public preprint claim: <strong style={{ color: '#38bdf8' }}>Λ ≤ 0.1875</strong>.
-        </p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 24 }}>
-          {CAUGHT_OVERCLAIMS.map((oc) => (
-            <div key={oc.n} style={{
-              display: 'flex', gap: 12, padding: '10px 14px', borderRadius: 6,
-              background: 'rgba(239,68,68,0.05)', border: '1px solid rgba(239,68,68,0.18)',
-            }}>
-              <div style={{
-                flexShrink: 0, width: 22, height: 22, borderRadius: '50%',
-                background: 'rgba(239,68,68,0.18)', color: '#ef4444',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: 11, fontWeight: 700, fontFamily: 'var(--font-mono)', marginTop: 1,
-              }}>{oc.n}</div>
-              <div style={{ minWidth: 0 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', marginBottom: 3 }}>
-                  <span style={{ fontSize: 13, color: '#e2e8f0', fontWeight: 600 }}>{oc.claim}</span>
-                  <span style={{
-                    padding: '1px 7px', borderRadius: 3,
-                    background: 'rgba(239,68,68,0.18)', color: '#ef4444',
-                    fontSize: 10, fontWeight: 700, fontFamily: 'var(--font-mono)',
-                  }}>{oc.badge}</span>
-                </div>
-                <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.5 }}>{oc.correction}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <h3 style={{ color: '#e2e8f0', fontSize: 14, marginBottom: 10, fontFamily: 'var(--font-mono)' }}>Honest Gap-Map</h3>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12 }}>
-          <div style={{ padding: 12, borderRadius: 8, background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.28)' }}>
-            <div style={{ fontSize: 10, color: '#10b981', fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: 6 }}>PEER-REVIEWED BENCHMARK</div>
-            <div style={{ fontSize: 18, fontWeight: 700, color: '#10b981', fontFamily: 'var(--font-mono)', marginBottom: 6 }}>Λ ≤ 0.2</div>
-            <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.5 }}>Platt–Trudgian 2021; {MAXFANOUT_STATUS.rigorousSOTA}</div>
-          </div>
-          <div style={{ padding: 12, borderRadius: 8, background: 'rgba(56,189,248,0.08)', border: '1px solid rgba(56,189,248,0.28)' }}>
-            <div style={{ fontSize: 10, color: '#38bdf8', fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: 6 }}>PUBLIC, UNREFEREED PACKAGE</div>
-            <div style={{ fontSize: 18, fontWeight: 700, color: '#38bdf8', fontFamily: 'var(--font-mono)', marginBottom: 6 }}>Λ ≤ 0.1875</div>
-            <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.5 }}>Optimization Problems ledger entry; omitted finite tile repaired locally; not peer review.</div>
-          </div>
-          <div style={{ padding: 12, borderRadius: 8, background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.28)' }}>
-            <div style={{ fontSize: 10, color: '#f59e0b', fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: 6 }}>NUMERICAL ESTIMATE — NOT RIGOROUS</div>
-            <div style={{ fontSize: 16, fontWeight: 700, color: '#f59e0b', fontFamily: 'var(--font-mono)', marginBottom: 6 }}>Λ ≤ E(N) ≈ 0.013</div>
-            <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.5 }}>{MAXFANOUT_STATUS.finiteNbeat}</div>
-          </div>
-          <div style={{ padding: 12, borderRadius: 8, background: 'rgba(59,130,246,0.08)', border: '1px solid rgba(59,130,246,0.28)' }}>
-            <div style={{ fontSize: 10, color: '#3b82f6', fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: 6 }}>VOLTERRA: PCC-FREE — COLLAPSE REFUTED</div>
-            <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.5, marginBottom: 6 }}>
-              <strong style={{ color: '#3b82f6' }}>PCC-free:</strong> {STRATEGIC_REFRAME.honestGuard}
-            </div>
-            <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.5 }}>
-              <strong style={{ color: '#ef4444' }}>Real gap:</strong> {SECTION27_REFUTATION.rigorStatus}
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* Recommended Reading */}
-      <Section title="Navigate the Proof Landscape" borderColor="#64748b">
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12 }}>
-          <div style={{ padding: 12, background: 'rgba(15,23,42,0.5)', borderRadius: 8 }}>
-            <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 4 }}>PROOF FRAMEWORKS</div>
-            <Link to="/proof-overview" style={{ color: '#38bdf8', fontSize: 13, textDecoration: 'none' }}>
-              Proof Overview →
-            </Link>
-          </div>
-          <div style={{ padding: 12, background: 'rgba(15,23,42,0.5)', borderRadius: 8 }}>
-            <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 4 }}>ATTACK STRATEGIES</div>
-            <Link to="/rh-attack" style={{ color: '#38bdf8', fontSize: 13, textDecoration: 'none' }}>
-              RH Attack Strategies →
-            </Link>
-          </div>
-          <div style={{ padding: 12, background: 'rgba(15,23,42,0.5)', borderRadius: 8 }}>
-            <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 4 }}>VISUALIZATIONS</div>
-            <Link to="/visualizations" style={{ color: '#38bdf8', fontSize: 13, textDecoration: 'none' }}>
-              Viz Index →
-            </Link>
-          </div>
-          <div style={{ padding: 12, background: 'rgba(15,23,42,0.5)', borderRadius: 8 }}>
-            <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 4 }}>HISTORIC PAPER ROADMAP</div>
-            <Link to="/papers" style={{ color: '#38bdf8', fontSize: 13, textDecoration: 'none' }}>
-              Historic v52 Paper Details →
-            </Link>
-          </div>
-          <div style={{ padding: 12, background: 'rgba(15,23,42,0.5)', borderRadius: 8 }}>
-            <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 4 }}>PCC EXHAUSTION</div>
-            <Link to="/pcc-route-exhaustion" style={{ color: '#38bdf8', fontSize: 13, textDecoration: 'none' }}>
-              5 Routes Summary →
-            </Link>
-          </div>
-          <div style={{ padding: 12, background: 'rgba(15,23,42,0.5)', borderRadius: 8 }}>
-            <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 4 }}>IMPROVEMENTS LOG</div>
-            <Link to="/improvements" style={{ color: '#38bdf8', fontSize: 13, textDecoration: 'none' }}>
-              All Sessions →
-            </Link>
-          </div>
-        </div>
-      </Section>
-
-      {/* Footer note */}
-      <div style={{
-        marginTop: 32, padding: 16, background: 'rgba(30,41,59,0.6)', borderRadius: 8,
-        border: '1px solid #334155',
-      }}>
-        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.6, margin: 0 }}>
-          This dashboard reflects the state as of <strong>{dashboardDate}</strong>. The five proof paths
-          represent the full landscape of approaches being pursued. Updates to this dashboard are
-          logged via the improvements engine. For the latest session activity, see the{' '}
-          <Link to="/improvements" style={{ color: '#38bdf8', textDecoration: 'none' }}>improvements log</Link>.
-        </p>
       </div>
     </div>
   );

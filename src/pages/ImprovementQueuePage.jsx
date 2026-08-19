@@ -1,44 +1,47 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+
 const initialQueue = [];
 
 /* ─── Config ─── */
 
 const CATEGORY_CONFIG = {
-  'proof-gap':    { label: 'Proof-Gap',     color: '#ef4444', icon: '\u2205' },
-  'proof':        { label: 'Proof',         color: '#a855f7', icon: '\u22a2' },
-  'verification': { label: 'Verification',  color: '#14b8a6', icon: '\u2713' },
-  'visualization':{ label: 'Visualization', color: '#8b5cf6', icon: '\u25ce' },
-  'accuracy':     { label: 'Accuracy',      color: '#f59e0b', icon: '\u25c9' },
-  'ux':           { label: 'UX',            color: '#3b82f6', icon: '\u2726' },
-  'performance':  { label: 'Performance',   color: '#10b981', icon: '\u26a1' },
-  'content':      { label: 'Content',       color: '#06b6d4', icon: '\u270e' },
-  'meta':         { label: 'Meta',          color: '#ec4899', icon: '\u2699' },
+  'proof-gap':    { label: 'Proof-Gap',     color: '#c23a1c', icon: '∅' },
+  'proof':        { label: 'Proof',         color: '#8c6a1d', icon: '⊢' },
+  'verification': { label: 'Verification',  color: '#4c7a4a', icon: '✓' },
+  'visualization':{ label: 'Visualization', color: '#3f6b86', icon: '◎' },
+  'accuracy':     { label: 'Accuracy',      color: '#c23a1c', icon: '◉' },
+  'ux':           { label: 'UX',            color: '#8c6a1d', icon: '✦' },
+  'performance':  { label: 'Performance',   color: '#4c7a4a', icon: '⚡' },
+  'content':      { label: 'Content',       color: '#3f6b86', icon: '✎' },
+  'meta':         { label: 'Meta',          color: '#c23a1c', icon: '⚙' },
 };
 
 const PRIORITY_CONFIG = {
-  critical: { label: 'Critical', color: '#ef4444', bg: 'rgba(239,68,68,0.15)' },
-  high:     { label: 'High',     color: '#f59e0b', bg: 'rgba(245,158,11,0.15)' },
-  medium:   { label: 'Medium',   color: '#3b82f6', bg: 'rgba(59,130,246,0.15)' },
-  low:      { label: 'Low',      color: '#64748b', bg: 'rgba(100,116,139,0.15)' },
+  critical: { label: 'Critical', color: '#c23a1c', bg: 'rgba(194,58,28,0.15)' },
+  high:     { label: 'High',     color: '#8c6a1d', bg: 'rgba(140,106,29,0.15)' },
+  medium:   { label: 'Medium',   color: '#3f6b86', bg: 'rgba(63,107,134,0.15)' },
+  low:      { label: 'Low',      color: '#877b67', bg: 'rgba(135,123,103,0.15)' },
 };
 
 const STATUS_CONFIG = {
-  pending:              { label: 'Pending',            color: '#64748b', dot: '#64748b' },
-  'in-progress':        { label: 'In Progress',        color: '#f59e0b', dot: '#f59e0b' },
-  completed:            { label: 'Completed',          color: '#10b981', dot: '#10b981' },
-  partial:              { label: 'Partial',            color: '#f97316', dot: '#f97316' },
-  conditional:          { label: 'Conditional',        color: '#eab308', dot: '#eab308' },
-  'conditional-closed': { label: 'Conditional-closed', color: '#84cc16', dot: '#84cc16' },
-  blocked:              { label: 'Blocked',            color: '#ef4444', dot: '#ef4444' },
-  superseded:           { label: 'Superseded',         color: '#a78bfa', dot: '#a78bfa' },
-  done:                 { label: 'Done',               color: '#10b981', dot: '#10b981' },
+  pending:              { label: 'Pending',            color: '#877b67', dot: '#877b67' },
+  'in-progress':        { label: 'In Progress',        color: '#8c6a1d', dot: '#8c6a1d' },
+  completed:            { label: 'Completed',          color: '#4c7a4a', dot: '#4c7a4a' },
+  partial:              { label: 'Partial',            color: '#8c6a1d', dot: '#8c6a1d' },
+  conditional:          { label: 'Conditional',        color: '#8c6a1d', dot: '#8c6a1d' },
+  'conditional-closed': { label: 'Conditional-closed', color: '#4c7a4a', dot: '#4c7a4a' },
+  blocked:              { label: 'Blocked',            color: '#c23a1c', dot: '#c23a1c' },
+  superseded:           { label: 'Superseded',         color: '#3f6b86', dot: '#3f6b86' },
+  done:                 { label: 'Done',               color: '#4c7a4a', dot: '#4c7a4a' },
 };
 
 /* ─── Shared style helpers ─── */
 
 const cardStyle = {
-  background: 'rgba(15,23,42,0.6)',
-  border: '1px solid #1e293b',
+  background: '#f6f1e7',
+  border: '1px solid #d5c9b2',
   borderRadius: 12,
   padding: '16px 20px',
   marginBottom: 12,
@@ -59,9 +62,9 @@ const badgeStyle = (bg, color) => ({
 const filterBtnStyle = (active) => ({
   padding: '6px 14px',
   borderRadius: 8,
-  border: active ? '1px solid rgba(99,102,241,0.5)' : '1px solid #1e293b',
-  background: active ? 'rgba(99,102,241,0.15)' : 'rgba(15,23,42,0.4)',
-  color: active ? '#a5b4fc' : '#94a3b8',
+  border: active ? '1px solid #8c6a1d' : '1px solid #d5c9b2',
+  background: active ? 'rgba(140,106,29,0.15)' : '#fdfaf3',
+  color: active ? '#8c6a1d' : '#877b67',
   cursor: 'pointer',
   fontSize: 12,
   fontFamily: 'var(--font-mono)',
@@ -80,38 +83,38 @@ function ProgressSummary({ items }) {
   const pct = total > 0 ? Math.round((completed / total) * 100) : 0;
 
   return (
-    <div style={{ ...cardStyle, background: 'linear-gradient(135deg, rgba(15,23,42,0.8), rgba(30,41,59,0.6))' }}>
+    <div style={{ ...cardStyle, background: 'linear-gradient(135deg, #f6f1e7, #efe7d6)' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
         <div>
-          <div style={{ fontSize: 20, fontWeight: 700, color: '#e2e8f0', marginBottom: 4 }}>
+          <div style={{ fontSize: 20, fontWeight: 700, color: '#1c1814', marginBottom: 4 }}>
             Progress: {pct}%
           </div>
-          <div style={{ fontSize: 13, color: '#94a3b8', fontFamily: 'var(--font-mono)' }}>
+          <div style={{ fontSize: 13, color: '#4a4238', fontFamily: 'var(--font-mono)' }}>
             {total} total improvements tracked
           </div>
         </div>
         <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
           {[
-            { label: 'Pending', value: pending, color: '#64748b' },
-            { label: 'In Progress', value: inProgress, color: '#f59e0b' },
-            { label: 'Completed', value: completed, color: '#10b981' },
-            { label: 'Blocked', value: blocked, color: '#ef4444' },
+            { label: 'Pending', value: pending, color: '#877b67' },
+            { label: 'In Progress', value: inProgress, color: '#8c6a1d' },
+            { label: 'Completed', value: completed, color: '#4c7a4a' },
+            { label: 'Blocked', value: blocked, color: '#c23a1c' },
           ].map(s => (
             <div key={s.label} style={{ textAlign: 'center' }}>
               <div style={{ fontSize: 22, fontWeight: 700, color: s.color, fontFamily: 'var(--font-mono)' }}>{s.value}</div>
-              <div style={{ fontSize: 11, color: '#64748b' }}>{s.label}</div>
+              <div style={{ fontSize: 11, color: '#877b67' }}>{s.label}</div>
             </div>
           ))}
         </div>
       </div>
       {/* Progress bar */}
-      <div style={{ marginTop: 16, height: 8, borderRadius: 4, background: '#1e293b', overflow: 'hidden' }}>
+      <div style={{ marginTop: 16, height: 8, borderRadius: 4, background: '#d5c9b2', overflow: 'hidden' }}>
         <div style={{
           display: 'flex', height: '100%',
         }}>
-          <div style={{ width: `${(completed/total)*100}%`, background: '#10b981', transition: 'width 0.3s' }} />
-          <div style={{ width: `${(inProgress/total)*100}%`, background: '#f59e0b', transition: 'width 0.3s' }} />
-          <div style={{ width: `${(blocked/total)*100}%`, background: '#ef4444', transition: 'width 0.3s' }} />
+          <div style={{ width: `${(completed/total)*100}%`, background: '#4c7a4a', transition: 'width 0.3s' }} />
+          <div style={{ width: `${(inProgress/total)*100}%`, background: '#8c6a1d', transition: 'width 0.3s' }} />
+          <div style={{ width: `${(blocked/total)*100}%`, background: '#c23a1c', transition: 'width 0.3s' }} />
         </div>
       </div>
     </div>
@@ -126,11 +129,11 @@ function QueueCard({ item }) {
   return (
     <div style={{
       ...cardStyle,
-      borderLeft: `3px solid ${cat.color || '#334155'}`,
+      borderLeft: `3px solid ${cat.color || '#d5c9b2'}`,
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8, flexWrap: 'wrap' }}>
         <span style={badgeStyle(pri.bg, pri.color)}>{pri.label}</span>
-        <span style={badgeStyle('rgba(30,41,59,0.8)', cat.color)}>{cat.icon} {cat.label}</span>
+        <span style={badgeStyle('#efe7d6', cat.color)}>{cat.icon} {cat.label}</span>
         <span style={{
           display: 'inline-flex', alignItems: 'center', gap: 4,
           fontSize: 11, color: sta.color, fontFamily: 'var(--font-mono)',
@@ -139,16 +142,16 @@ function QueueCard({ item }) {
           {sta.label}
         </span>
         {item.proofSection && (
-          <span style={badgeStyle('rgba(99,102,241,0.15)', '#a5b4fc')}>{item.proofSection}</span>
+          <span style={badgeStyle('rgba(140,106,29,0.15)', '#8c6a1d')}>{item.proofSection}</span>
         )}
-        <span style={{ fontSize: 11, color: '#475569', fontFamily: 'var(--font-mono)', marginLeft: 'auto' }}>{item.id}</span>
+        <span style={{ fontSize: 11, color: '#877b67', fontFamily: 'var(--font-mono)', marginLeft: 'auto' }}>{item.id}</span>
       </div>
-      <div style={{ fontSize: 15, fontWeight: 600, color: '#e2e8f0', marginBottom: 6 }}>{item.title}</div>
-      <div style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.6, marginBottom: 8 }}>{item.description}</div>
-      <div style={{ fontSize: 12, color: '#6366f1', fontStyle: 'italic', lineHeight: 1.5 }}>
+      <div style={{ fontSize: 15, fontWeight: 600, color: '#1c1814', marginBottom: 6 }}>{item.title}</div>
+      <div style={{ fontSize: 13, color: '#4a4238', lineHeight: 1.6, marginBottom: 8 }}>{item.description}</div>
+      <div style={{ fontSize: 12, color: '#8c6a1d', fontStyle: 'italic', lineHeight: 1.5 }}>
         Rationale: {item.rationale}
       </div>
-      <div style={{ marginTop: 8, fontSize: 11, color: '#475569', fontFamily: 'var(--font-mono)' }}>
+      <div style={{ marginTop: 8, fontSize: 11, color: '#877b67', fontFamily: 'var(--font-mono)' }}>
         Complexity: {item.estimatedComplexity}
         {item.completedAt && <span style={{ marginLeft: 16 }}>Completed: {item.completedAt}</span>}
       </div>
@@ -167,11 +170,11 @@ function NextSteps({ items }) {
 
   return (
     <div style={{ marginBottom: 32 }}>
-      <h2 style={{ color: '#e2e8f0', fontSize: 18, marginBottom: 12, borderBottom: '1px solid #1e293b', paddingBottom: 8 }}>
+      <h2 className="ed-h2" style={{ marginBottom: 12, borderBottom: '1px solid #d5c9b2', paddingBottom: 8 }}>
         Next Steps — Top 5 Priority
       </h2>
       {top5.length === 0 ? (
-        <div style={{ color: '#475569', textAlign: 'center', padding: '32px 0', fontFamily: 'var(--font-mono)', fontSize: 13 }}>
+        <div style={{ color: '#877b67', textAlign: 'center', padding: '32px 0', fontFamily: 'var(--font-mono)', fontSize: 13 }}>
           No pending items match the current filters.
         </div>
       ) : (
@@ -199,19 +202,19 @@ function ProofImpact({ items }) {
 
   return (
     <div style={{ marginBottom: 32 }}>
-      <h2 style={{ color: '#e2e8f0', fontSize: 18, marginBottom: 12, borderBottom: '1px solid #1e293b', paddingBottom: 8 }}>
+      <h2 className="ed-h2" style={{ marginBottom: 12, borderBottom: '1px solid #d5c9b2', paddingBottom: 8 }}>
         Proof Impact — Section Breakdown
       </h2>
       {sections.map(s => (
         <div key={s} style={{ marginBottom: 24 }}>
-          <h3 style={{ color: '#a5b4fc', fontSize: 15, marginBottom: 8, fontFamily: 'var(--font-mono)' }}>
+          <h3 style={{ color: '#8c6a1d', fontSize: 15, marginBottom: 8, fontFamily: 'var(--font-mono)' }}>
             {sectionLabels[s]} ({grouped[s].length} items)
           </h3>
           {grouped[s].map(item => (
             <div key={item.id} style={{
               ...cardStyle,
               padding: '10px 16px',
-              borderLeft: `3px solid ${PRIORITY_CONFIG[item.priority]?.color || '#334155'}`,
+              borderLeft: `3px solid ${PRIORITY_CONFIG[item.priority]?.color || '#d5c9b2'}`,
               display: 'flex',
               alignItems: 'center',
               gap: 12,
@@ -227,8 +230,8 @@ function ProofImpact({ items }) {
                 <span style={{ width: 6, height: 6, borderRadius: '50%', background: STATUS_CONFIG[item.status]?.dot, display: 'inline-block' }} />
                 {STATUS_CONFIG[item.status]?.label}
               </span>
-              <span style={{ color: '#e2e8f0', fontSize: 13, fontWeight: 500 }}>{item.title}</span>
-              <span style={{ fontSize: 11, color: '#475569', fontFamily: 'var(--font-mono)', marginLeft: 'auto' }}>{item.id}</span>
+              <span style={{ color: '#1c1814', fontSize: 13, fontWeight: 500 }}>{item.title}</span>
+              <span style={{ fontSize: 11, color: '#877b67', fontFamily: 'var(--font-mono)', marginLeft: 'auto' }}>{item.id}</span>
             </div>
           ))}
         </div>
@@ -241,61 +244,61 @@ function AcceleratingSection() {
   const strategies = [
     {
       title: 'Parallel Agents',
-      color: '#8b5cf6',
+      color: '#c23a1c',
       content: 'Launch 4+ agents simultaneously working on independent proof paths: S5 spectral, S7 circuit/scattering, S6 energy landscape, and CY geometric lift. Each agent works in isolation using separate worktrees. Results are merged periodically via a coordinator agent that checks cross-section consistency.',
       code: '// Launch from separate terminals:\n// Agent 1: S5 spectral realization\n// Agent 2: S7 scattering matrix\n// Agent 3: S6 energy landscape\n// Agent 4: CY geometric lift\n// Coordinator merges every 30 min',
     },
     {
       title: 'Cron-based Continuous Improvement',
-      color: '#10b981',
+      color: '#4c7a4a',
       content: 'Use the /loop command to schedule recurring improvement sweeps. Chunk work into phases: (1) generate improvement ideas and rank by priority, (2) implement the top-priority item, (3) verify with build + adversarial D-H checks, (4) commit and update the queue. Each cycle takes 5-10 minutes.',
       code: '// Phase 1: Identify highest-priority queued item\n// Phase 2: Implement the change\n// Phase 3: npm run build && verify\n// Phase 4: git commit && mark completed',
     },
     {
       title: 'Worktree Isolation',
-      color: '#f59e0b',
+      color: '#8c6a1d',
       content: 'Use isolation: "worktree" for experimental changes that might break the build. Test radical new approaches (e.g., completely rewriting the Hamiltonian) in parallel without blocking main development. Merge only if the experiment succeeds.',
       code: '// Create isolated worktree for experiments:\n// git worktree add ../mathexplorer-exp feature/radical-hamiltonian\n// Work freely without affecting main branch\n// Merge back only on success',
     },
     {
       title: 'Specialized Agent Types',
-      color: '#3b82f6',
+      color: '#3f6b86',
       content: 'Match agent type to task: use subagent_type: "Explore" for open-ended mathematical research and literature review. Use "Plan" for architecture decisions and proof strategy. Use "general-purpose" for implementation. This specialization improves quality and reduces wasted context.',
       code: '// Explore agent: "What are all known approaches to S5?"\n// Plan agent: "Design the Connes trace formula module"\n// Implement agent: "Build the trace formula computation"',
     },
     {
       title: 'Background Processing',
-      color: '#ec4899',
+      color: '#c23a1c',
       content: 'Launch long-running computations with run_in_background: true while continuing interactive work. Compute 10000 zeta zeros, run eigenvalue decomposition for N=500, or verify Tracy-Widom statistics — all without blocking the session.',
       code: '// Start heavy computation in background:\n// run_in_background: true\n// Command: "Compute first 10000 zeta zeros"\n// Continue working on other improvements\n// Get notified when computation completes',
     },
     {
       title: 'Automated Testing Pipeline',
-      color: '#06b6d4',
+      color: '#4c7a4a',
       content: 'After each improvement, automatically run: (1) npm run build to verify no breakage, (2) adversarial D-H function checks against new numerical results, (3) cross-validation against known zero heights, (4) GUE pair correlation consistency check. Any failure triggers immediate investigation.',
       code: '// After every change:\n// 1. npm run build\n// 2. Verify D-H(s) consistency\n// 3. Check against Odlyzko zero tables\n// 4. GUE pair correlation test\n// 5. Li coefficient positivity check',
     },
     {
       title: 'Memory System for Mathematical Discovery',
-      color: '#a78bfa',
+      color: '#8c6a1d',
       content: 'Persist mathematical discoveries across sessions using Claude Code\'s memory system. Store which proof approaches worked vs failed, track the evolving state of each proof section, and build a cumulative knowledge base. Memory types include: user preferences (notation style, preferred proof techniques), project state (current status of S5/S6/S7 gaps, open conjectures), and feedback on approaches (what converged, what diverged, error magnitudes). Example: "Remember that the Mertens bound approach for S7 was successful with O(1/log P) convergence rate." This eliminates redundant re-derivation and ensures each session starts from the frontier, not from scratch.',
       code: '// Memory categories for RH proof work:\n//\n// DISCOVERIES (persist across all sessions):\n// "S5: Berry-Keating spectrum matches zeros to 10^-6 for N<50"\n// "S5: Connes trace formula arithmetic side converges for P<200"\n// "S5: Selberg geodesic-prime isomorphism confirmed for genus 2"\n//\n// FAILED APPROACHES (avoid repeating):\n// "FAILED: Direct Selberg comparison — wrong genus assumption"\n// "FAILED: Naive Euler product in critical strip — diverges"\n//\n// PROOF STATE TRACKING:\n// "S5 status: 3/4 sub-lemmas proved, spectral gap bound open"\n// "S6 status: GUE confirmed, Tracy-Widom edge test passed N=1000"\n// "S7 status: Mertens bound approach successful, unitarity proved"\n//\n// PREFERENCES:\n// "User prefers Connes NCG notation over Deninger for S5"\n// "Display math with full derivation steps, not just results"',
     },
     {
       title: 'Multi-Session Proof Coordination',
-      color: '#ef4444',
+      color: '#3f6b86',
       content: 'Open multiple Claude Code sessions simultaneously, each specialized for a different proof avenue. Session 1: S5 spectral theory — Connes trace formula, Berry-Keating operator, Selberg comparison. Session 2: S7 circuit theory — Darlington synthesis, Mertens bounds, unitarity convergence. Session 3: S6 statistical mechanics — GUE pair correlation, Tracy-Widom edge statistics, Weil positivity. Session 4: New approaches — Calabi-Yau geometry, information theory, Langlands connections. Merge protocol: each session commits to its own feature branch, with periodic merges to main after build verification. Conflict resolution: if two sessions modify the same math module, the session with the higher-priority proof section (S5 > S7 > S6) takes precedence, and the other rebases.',
       code: '// === MULTI-SESSION LAUNCH PROTOCOL ===\n//\n// Terminal 1 — S5 Spectral Realization:\n// claude "Focus on S5: Connes trace, Berry-Keating, Selberg.\n//         Branch: feature/s5-spectral"\n//\n// Terminal 2 — S7 Circuit / Scattering:\n// claude "Focus on S7: Darlington unitarity, Mertens bounds.\n//         Branch: feature/s7-scattering"\n//\n// Terminal 3 — S6 Energy Landscape:\n// claude "Focus on S6: GUE, Tracy-Widom, Weil positivity.\n//         Branch: feature/s6-energy"\n//\n// Terminal 4 — New Approaches:\n// claude "Explore CY geometry, info theory, Langlands.\n//         Branch: feature/new-approaches"\n//\n// === MERGE PROTOCOL (every 30 min) ===\n// 1. Each session: git commit && git push\n// 2. Coordinator: git merge feature/* into main\n// 3. Run npm run build to verify no conflicts\n// 4. Cross-validate: check all numerical results agree\n// 5. Priority on conflict: S5 > S7 > S6 > new',
     },
     {
       title: 'Formal Verification with Lean4',
-      color: '#22d3ee',
+      color: '#c23a1c',
       content: 'Integrate the Lean4 theorem prover to formally verify key proof steps. Priority targets: (1) S1 Euler product convergence identity, (2) S3 functional equation symmetry, (3) S4 eta regularization bounds. Mathlib already provides NumberTheory.ZetaFunction, NumberTheory.ArithmeticFunction, and Analysis.SpecificLimits.Basic for foundational lemmas. Roadmap: start by formalizing the basic algebraic identities (Euler product finite truncation), then ladder composition (twin oscillator coupling commutativity), then bridge unitarity (Darlington S-matrix is unitary in the N-limit). Each formalized lemma becomes a bulletproof building block; lemmas that resist formalization reveal the true proof gaps.',
       code: '-- Lean4: Euler product identity (pseudocode)\nimport Mathlib.NumberTheory.ZetaFunction\nimport Mathlib.Analysis.SpecificLimits.Basic\n\ntheorem euler_product_truncated (N : Nat) (s : Complex)\n    (hs : s.re > 1) :\n    ∏ p in (Finset.filter Nat.Prime (Finset.range N)),\n      (1 - p ^ (-s))⁻¹ =\n    ∑ n in smoothNumbers N,\n      n ^ (-s) := by\n  induction N with\n  | zero => simp\n  | succ n ih => sorry -- extend via sieve\n\n-- Next: ladder_composition_commutes\n-- Then: darlington_unitarity_limit',
     },
     {
       title: 'Continuous Improvement Pipeline',
-      color: '#fb923c',
+      color: '#4c7a4a',
       content: 'A queue-driven approach (this very system) ensures systematic progress. The pipeline: (1) Maintain a ranked priority queue of improvements targeting proof gaps, accuracy, visualization, and meta-workflow. (2) Automated build verification after each change — every commit must pass npm run build before merge. (3) Cross-validation: every numerical claim is checked against the de Bruijn-Newman constant Lambda, Odlyzko zero tables, GUE pair correlation predictions, and Li coefficient positivity bounds. Any inconsistency with the Dirichlet-Hardy counterexample function triggers immediate investigation. (4) Progress tracking via the improvement log (IMPROVEMENTS.md) provides a complete audit trail of every change, enabling rollback and trend analysis.',
       code: '// Continuous pipeline cycle:\n// 1. Pick highest-priority queued item\n//    from IMPROVEMENT_QUEUE\n// 2. Implement the change\n// 3. npm run build  (must pass)\n// 4. Cross-validate:\n//    - D-H function consistency\n//    - Odlyzko zero table match\n//    - GUE pair correlation check\n//    - Li coefficient positivity\n// 5. git commit with audit trail\n// 6. Mark item completed, update log\n// 7. Repeat (via /loop or next session)',
     },
@@ -303,21 +306,21 @@ function AcceleratingSection() {
 
   return (
     <div style={{ marginBottom: 32 }}>
-      <h2 style={{
-        color: '#e2e8f0', fontSize: 20, marginBottom: 4,
-        borderBottom: '1px solid #1e293b', paddingBottom: 8,
+      <h2 className="ed-h2" style={{
+        marginBottom: 4,
+        borderBottom: '1px solid #d5c9b2', paddingBottom: 8,
       }}>
         Meta: Accelerating with Claude Code
       </h2>
-      <p style={{ color: '#94a3b8', fontSize: 14, lineHeight: 1.7, marginBottom: 20 }}>
+      <p style={{ color: '#4a4238', fontSize: 14, lineHeight: 1.7, marginBottom: 20 }}>
         Practical strategies for maximizing throughput on the RH proof using Claude Code&apos;s
         agent capabilities. Each strategy is designed to multiply effective work rate.
       </p>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(380px, 1fr))', gap: 16 }}>
         {strategies.map((s, i) => (
           <div key={i} style={{
-            background: 'rgba(15,23,42,0.7)',
-            border: '1px solid #1e293b',
+            background: '#f6f1e7',
+            border: '1px solid #d5c9b2',
             borderTop: `3px solid ${s.color}`,
             borderRadius: 12,
             padding: '20px',
@@ -325,16 +328,16 @@ function AcceleratingSection() {
             <div style={{ fontSize: 16, fontWeight: 700, color: s.color, marginBottom: 8 }}>
               {s.title}
             </div>
-            <div style={{ fontSize: 13, color: '#cbd5e1', lineHeight: 1.7, marginBottom: 12 }}>
+            <div style={{ fontSize: 13, color: '#4a4238', lineHeight: 1.7, marginBottom: 12 }}>
               {s.content}
             </div>
             <pre style={{
-              background: 'rgba(0,0,0,0.3)',
-              border: '1px solid #1e293b',
+              background: '#fdfaf3',
+              border: '1px solid #d5c9b2',
               borderRadius: 8,
               padding: '10px 14px',
               fontSize: 11,
-              color: '#64748b',
+              color: '#877b67',
               fontFamily: 'var(--font-mono)',
               lineHeight: 1.5,
               overflow: 'auto',
@@ -388,152 +391,184 @@ export default function ImprovementQueuePage() {
 
   if (loading) {
     return (
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '40vh', color: '#64748b' }}>
-        <div style={{ textAlign: 'center' }}>
-          <div style={{ fontSize: 24, marginBottom: 8, fontFamily: 'var(--font-mono)' }}>Loading...</div>
+      <div className="ed-root">
+        <EditorialHeader ticker={<span>progress · improvement queue</span>} />
+        <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '40vh', color: '#877b67' }}>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: 24, marginBottom: 8, fontFamily: 'var(--font-mono)' }}>Loading...</div>
+            </div>
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="page">
-      <div className="page-header">
-        <h1>Improvement Queue &mdash; Road to RH</h1>
-        <p style={{ color: '#94a3b8', maxWidth: 700, lineHeight: 1.7 }}>
-          A prioritized queue of concrete improvements targeting proof gaps, visualizations,
-          accuracy, and workflow acceleration. Each item is ranked by its impact on proving
-          the Riemann Hypothesis through the Twin-Ladder Bridge framework.
-        </p>
-      </div>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>progress · improvement queue</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <div style={{ marginBottom: 24 }}>
+          <h1 className="ed-h1" style={{ marginBottom: 10 }}>Improvement Queue &mdash; Road to RH</h1>
+          <p style={{ color: '#4a4238', maxWidth: 700, lineHeight: 1.7 }}>
+            A prioritized queue of concrete improvements targeting proof gaps, visualizations,
+            accuracy, and workflow acceleration. Each item is ranked by its impact on proving
+            the Riemann Hypothesis through the Twin-Ladder Bridge framework.
+          </p>
+        </div>
 
-      {/* View tabs: Queue vs Accelerating */}
-      <div style={{ display: 'flex', gap: 8, marginBottom: 24 }}>
-        {VIEW_TABS.map(tab => (
-          <button
-            key={tab}
-            onClick={() => setViewTab(tab)}
-            style={{
-              padding: '8px 20px',
-              borderRadius: 8,
-              border: viewTab === tab ? '1px solid rgba(99,102,241,0.5)' : '1px solid #1e293b',
-              background: viewTab === tab ? 'rgba(99,102,241,0.2)' : 'rgba(15,23,42,0.4)',
-              color: viewTab === tab ? '#c7d2fe' : '#94a3b8',
-              cursor: 'pointer',
-              fontSize: 14,
-              fontWeight: viewTab === tab ? 700 : 400,
-              fontFamily: 'var(--font-mono)',
-              transition: 'all 0.15s',
-            }}
-          >
-            {tab === 'queue' ? 'Improvement Queue' : 'Accelerating with Claude Code'}
-          </button>
-        ))}
-      </div>
+        {/* View tabs: Queue vs Accelerating */}
+        <div style={{ display: 'flex', gap: 8, marginBottom: 24 }}>
+          {VIEW_TABS.map(tab => (
+            <button
+              key={tab}
+              onClick={() => setViewTab(tab)}
+              style={{
+                padding: '8px 20px',
+                borderRadius: 8,
+                border: viewTab === tab ? '1px solid #8c6a1d' : '1px solid #d5c9b2',
+                background: viewTab === tab ? 'rgba(140,106,29,0.15)' : '#fdfaf3',
+                color: viewTab === tab ? '#8c6a1d' : '#4a4238',
+                cursor: 'pointer',
+                fontSize: 14,
+                fontWeight: viewTab === tab ? 700 : 400,
+                fontFamily: 'var(--font-mono)',
+                transition: 'all 0.15s',
+              }}
+            >
+              {tab === 'queue' ? 'Improvement Queue' : 'Accelerating with Claude Code'}
+            </button>
+          ))}
+        </div>
 
-      {viewTab === 'accelerating' ? (
-        <AcceleratingSection />
-      ) : (
-        <>
-          {/* Progress Summary */}
-          <ProgressSummary items={IMPROVEMENT_QUEUE} />
+        {viewTab === 'accelerating' ? (
+          <AcceleratingSection />
+        ) : (
+          <>
+            {/* Progress Summary */}
+            <ProgressSummary items={IMPROVEMENT_QUEUE} />
 
-          {/* Filters */}
-          <div style={{ marginTop: 20, marginBottom: 8 }}>
-            <div style={{ fontSize: 11, color: '#475569', fontFamily: 'var(--font-mono)', marginBottom: 6, textTransform: 'uppercase' }}>Category</div>
-            <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 12 }}>
-              {CATEGORY_TABS.map(tab => {
-                const n = tab === 'all' ? IMPROVEMENT_QUEUE.length : IMPROVEMENT_QUEUE.filter(i => i.category === tab).length;
-                return (
-                  <button key={tab} onClick={() => setCatFilter(tab)} style={filterBtnStyle(catFilter === tab)} aria-pressed={catFilter === tab}>
-                    {tab === 'all' ? 'All' : (CATEGORY_CONFIG[tab]?.label || tab)} <span style={{ opacity: 0.6 }}>({n})</span>
-                  </button>
-                );
-              })}
+            {/* Filters */}
+            <div style={{ marginTop: 20, marginBottom: 8 }}>
+              <div style={{ fontSize: 11, color: '#877b67', fontFamily: 'var(--font-mono)', marginBottom: 6, textTransform: 'uppercase' }}>Category</div>
+              <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 12 }}>
+                {CATEGORY_TABS.map(tab => {
+                  const n = tab === 'all' ? IMPROVEMENT_QUEUE.length : IMPROVEMENT_QUEUE.filter(i => i.category === tab).length;
+                  return (
+                    <button key={tab} onClick={() => setCatFilter(tab)} style={filterBtnStyle(catFilter === tab)} aria-pressed={catFilter === tab}>
+                      {tab === 'all' ? 'All' : (CATEGORY_CONFIG[tab]?.label || tab)} <span style={{ opacity: 0.6 }}>({n})</span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div style={{ fontSize: 11, color: '#877b67', fontFamily: 'var(--font-mono)', marginBottom: 6, textTransform: 'uppercase' }}>Priority</div>
+              <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 12 }}>
+                {PRIORITY_FILTERS.map(f => {
+                  const n = f === 'all' ? IMPROVEMENT_QUEUE.length : IMPROVEMENT_QUEUE.filter(i => i.priority === f).length;
+                  return (
+                    <button key={f} onClick={() => setPriFilter(f)} style={filterBtnStyle(priFilter === f)} aria-pressed={priFilter === f}>
+                      {f === 'all' ? 'All' : (PRIORITY_CONFIG[f]?.label || f)} <span style={{ opacity: 0.6 }}>({n})</span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div style={{ fontSize: 11, color: '#877b67', fontFamily: 'var(--font-mono)', marginBottom: 6, textTransform: 'uppercase' }}>Status</div>
+              <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 20 }}>
+                {STATUS_FILTERS.map(f => {
+                  const n = f === 'all' ? IMPROVEMENT_QUEUE.length : IMPROVEMENT_QUEUE.filter(i => i.status === f).length;
+                  return (
+                    <button key={f} onClick={() => setStaFilter(f)} style={filterBtnStyle(staFilter === f)} aria-pressed={staFilter === f} disabled={n === 0 && f !== 'all'}>
+                      {f === 'all' ? 'All' : (STATUS_CONFIG[f]?.label || f)} <span style={{ opacity: 0.6 }}>({n})</span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
 
-            <div style={{ fontSize: 11, color: '#475569', fontFamily: 'var(--font-mono)', marginBottom: 6, textTransform: 'uppercase' }}>Priority</div>
-            <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 12 }}>
-              {PRIORITY_FILTERS.map(f => {
-                const n = f === 'all' ? IMPROVEMENT_QUEUE.length : IMPROVEMENT_QUEUE.filter(i => i.priority === f).length;
-                return (
-                  <button key={f} onClick={() => setPriFilter(f)} style={filterBtnStyle(priFilter === f)} aria-pressed={priFilter === f}>
-                    {f === 'all' ? 'All' : (PRIORITY_CONFIG[f]?.label || f)} <span style={{ opacity: 0.6 }}>({n})</span>
-                  </button>
-                );
-              })}
-            </div>
+            {/* Active filter indicator — shows clearly when any filter is active */}
+            {(catFilter !== 'all' || priFilter !== 'all' || staFilter !== 'all') && (
+              <div style={{
+                padding: '10px 14px',
+                marginBottom: 20,
+                background: 'rgba(140,106,29,0.08)',
+                border: '1px solid rgba(140,106,29,0.30)',
+                borderRadius: 8,
+                fontSize: 13,
+                color: '#4a4238',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 12,
+                flexWrap: 'wrap',
+              }}>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#8c6a1d', textTransform: 'uppercase' }}>Active filters:</span>
+                {catFilter !== 'all' && <span>category=<b>{CATEGORY_CONFIG[catFilter]?.label || catFilter}</b></span>}
+                {priFilter !== 'all' && <span>priority=<b>{PRIORITY_CONFIG[priFilter]?.label || priFilter}</b></span>}
+                {staFilter !== 'all' && <span>status=<b>{STATUS_CONFIG[staFilter]?.label || staFilter}</b></span>}
+                <button
+                  onClick={() => { setCatFilter('all'); setPriFilter('all'); setStaFilter('all'); }}
+                  style={{
+                    marginLeft: 'auto',
+                    padding: '3px 10px',
+                    fontSize: 11,
+                    borderRadius: 6,
+                    border: '1px solid #8c6a1d',
+                    background: 'transparent',
+                    color: '#8c6a1d',
+                    cursor: 'pointer',
+                    fontFamily: 'var(--font-mono)',
+                  }}
+                >
+                  clear
+                </button>
+              </div>
+            )}
 
-            <div style={{ fontSize: 11, color: '#475569', fontFamily: 'var(--font-mono)', marginBottom: 6, textTransform: 'uppercase' }}>Status</div>
-            <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 20 }}>
-              {STATUS_FILTERS.map(f => {
-                const n = f === 'all' ? IMPROVEMENT_QUEUE.length : IMPROVEMENT_QUEUE.filter(i => i.status === f).length;
-                return (
-                  <button key={f} onClick={() => setStaFilter(f)} style={filterBtnStyle(staFilter === f)} aria-pressed={staFilter === f} disabled={n === 0 && f !== 'all'}>
-                    {f === 'all' ? 'All' : (STATUS_CONFIG[f]?.label || f)} <span style={{ opacity: 0.6 }}>({n})</span>
-                  </button>
-                );
-              })}
-            </div>
+            {/* Next Steps — respects filter so status button visibly affects every section */}
+            <NextSteps items={filtered} />
+
+            {/* Proof Impact — respects filter */}
+            <ProofImpact items={filtered} />
+
+            {/* Full Queue */}
+            <h2 className="ed-h2" style={{ marginBottom: 12, borderBottom: '1px solid #d5c9b2', paddingBottom: 8 }}>
+              Full Queue ({filtered.length} items)
+            </h2>
+            {filtered.length === 0 ? (
+              <div style={{ color: '#877b67', textAlign: 'center', padding: 40, fontFamily: 'var(--font-mono)' }}>
+                No items match current filters.
+              </div>
+            ) : (
+              filtered.map(item => <QueueCard key={item.id} item={item} />)
+            )}
+          </>
+        )}
+
+        {/* ── Related pages ──────────────────────────────────────────── */}
+        <div className="card" style={{ marginTop: 32, borderLeft: '3px solid #8c6a1d' }}>
+          <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: '#877b67', marginBottom: 6 }}>
+            Related pages
           </div>
-
-          {/* Active filter indicator — shows clearly when any filter is active */}
-          {(catFilter !== 'all' || priFilter !== 'all' || staFilter !== 'all') && (
-            <div style={{
-              padding: '10px 14px',
-              marginBottom: 20,
-              background: 'rgba(99,102,241,0.08)',
-              border: '1px solid rgba(99,102,241,0.25)',
-              borderRadius: 8,
-              fontSize: 13,
-              color: '#c7d2fe',
-              display: 'flex',
-              alignItems: 'center',
-              gap: 12,
-              flexWrap: 'wrap',
-            }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#6366f1', textTransform: 'uppercase' }}>Active filters:</span>
-              {catFilter !== 'all' && <span>category=<b>{CATEGORY_CONFIG[catFilter]?.label || catFilter}</b></span>}
-              {priFilter !== 'all' && <span>priority=<b>{PRIORITY_CONFIG[priFilter]?.label || priFilter}</b></span>}
-              {staFilter !== 'all' && <span>status=<b>{STATUS_CONFIG[staFilter]?.label || staFilter}</b></span>}
-              <button
-                onClick={() => { setCatFilter('all'); setPriFilter('all'); setStaFilter('all'); }}
-                style={{
-                  marginLeft: 'auto',
-                  padding: '3px 10px',
-                  fontSize: 11,
-                  borderRadius: 6,
-                  border: '1px solid rgba(99,102,241,0.4)',
-                  background: 'transparent',
-                  color: '#c7d2fe',
-                  cursor: 'pointer',
-                  fontFamily: 'var(--font-mono)',
-                }}
-              >
-                clear
-              </button>
-            </div>
-          )}
-
-          {/* Next Steps — respects filter so status button visibly affects every section */}
-          <NextSteps items={filtered} />
-
-          {/* Proof Impact — respects filter */}
-          <ProofImpact items={filtered} />
-
-          {/* Full Queue */}
-          <h2 style={{ color: '#e2e8f0', fontSize: 18, marginBottom: 12, borderBottom: '1px solid #1e293b', paddingBottom: 8 }}>
-            Full Queue ({filtered.length} items)
-          </h2>
-          {filtered.length === 0 ? (
-            <div style={{ color: '#475569', textAlign: 'center', padding: 40, fontFamily: 'var(--font-mono)' }}>
-              No items match current filters.
-            </div>
-          ) : (
-            filtered.map(item => <QueueCard key={item.id} item={item} />)
-          )}
-        </>
-      )}
+          <div style={{ display: 'flex', gap: 12, marginTop: 8, flexWrap: 'wrap' }}>
+            <Link to="/lambda-bounds" style={{ fontSize: 12, color: '#8c6a1d', textDecoration: 'none' }}>
+              → Λ Bounds &amp; RH Roadmap
+            </Link>
+            <Link to="/meta-acceleration" style={{ fontSize: 12, color: '#3f6b86', textDecoration: 'none' }}>
+              → Meta Acceleration
+            </Link>
+            <Link to="/improvements" style={{ fontSize: 12, color: '#4c7a4a', textDecoration: 'none' }}>
+              → Per-commit improvements log
+            </Link>
+            <Link to="/research-journal" style={{ fontSize: 12, color: '#c23a1c', textDecoration: 'none' }}>
+              → Research Journal
+            </Link>
+          </div>
+          <div style={{ marginTop: 14 }}>
+            <Link to="/">← the atlas</Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

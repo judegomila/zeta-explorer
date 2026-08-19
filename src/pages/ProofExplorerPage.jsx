@@ -1,5 +1,7 @@
 import React, { useState, useMemo, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
 /**
  * Interactive Proof Explorer (imp-091)
@@ -10,6 +12,8 @@ import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
  * - A live computation verifying the step
  * - Confidence level
  * - Gap assessment (if any)
+ *
+ * Editorial (warm) re-theme: full-width layout, identical structure/data/logic.
  */
 
 // ── Lazy computation runners ─────────────────────────────────────────────────
@@ -46,7 +50,7 @@ const PROOF_STEPS = [
     confidence: 1.0,
     status: 'proven',
     gap: null,
-    color: '#10b981',
+    color: '#4c7a4a',
     computeLabel: 'Verify det(T_p) = 1 for first 20 primes',
     compute: async () => {
       const { getPrimes } = await import('../math/primes.js');
@@ -71,7 +75,7 @@ const PROOF_STEPS = [
     confidence: 1.0,
     status: 'proven',
     gap: null,
-    color: '#10b981',
+    color: '#4c7a4a',
     computeLabel: 'Verify det(S_N) = 1 for N = 10, 50, 100, 200',
     compute: async () => {
       const { getPrimes } = await import('../math/primes.js');
@@ -103,7 +107,7 @@ const PROOF_STEPS = [
     status: 'refuted',
     gap:
       'Here T_p has entries cos(log p), sin(log p)/log p, and −log p·sin(log p); it does not approach the identity. The former 200-step tail-sum test used the vacuous condition tailSum < 1e6 and has been removed.',
-    color: '#ef4444',
+    color: '#c23a1c',
   },
   {
     id: 'S4',
@@ -115,7 +119,7 @@ const PROOF_STEPS = [
     confidence: 0.75,
     status: 'conditional',
     gap: 'The closure theorem is exact, but it cannot be applied to the displayed physical factors because the S3 convergence premise is refuted.',
-    color: '#10b981',
+    color: '#4c7a4a',
     computeLabel: 'Verify det continuity (Lipschitz bound)',
     compute: async () => {
       const { sl2rClosureProof } = await import('../math/sl2r-closure.js');
@@ -137,7 +141,7 @@ const PROOF_STEPS = [
     confidence: 0.45,
     status: 'model-only',
     gap: 'The bound has not been shown to equal the unitarity deficit of a realizable analytic continuation of the cascade.',
-    color: '#10b981',
+    color: '#4c7a4a',
     computeLabel: 'Compute δ(P) at P = 100, 10⁴, 10⁶, 10⁸',
     compute: async () => {
       const gamma1 = 14.134725141734693;
@@ -159,7 +163,7 @@ const PROOF_STEPS = [
     confidence: 0.6,
     status: 'conditional',
     gap: 'Both convergence and identification of the model deficit with the cascade deficit are required premises.',
-    color: '#10b981',
+    color: '#4c7a4a',
     computeLabel: 'Verify orthogonality SᵀS ≈ I for cascade',
     compute: async () => {
       const { inheritedUnitarityProof } = await import('../math/inherited-unitarity.js');
@@ -183,7 +187,7 @@ const PROOF_STEPS = [
     confidence: 0.55,
     status: 'conditional',
     gap: 'A matrix in SO(2) is not by itself a proved causal, analytic, physically realizable two-port transfer function.',
-    color: '#10b981',
+    color: '#4c7a4a',
     computeLabel: null,
     compute: null,
   },
@@ -197,7 +201,7 @@ const PROOF_STEPS = [
     confidence: 1.0,
     status: 'proven',
     gap: 'Common numerator/denominator zeros require residual multiplicity. No realization theorem identifies this algebraic embedding with the physical proxy.',
-    color: '#10b981',
+    color: '#4c7a4a',
     computeLabel: null,
     compute: null,
   },
@@ -211,7 +215,7 @@ const PROOF_STEPS = [
     confidence: 1.0,
     status: 'blocked',
     gap: 'A valid pole-confinement or reciprocal-transfer theorem is missing, in addition to infinite-network realizability.',
-    color: '#ef4444',
+    color: '#c23a1c',
     computeLabel: null,
     compute: null,
   },
@@ -225,7 +229,7 @@ const PROOF_STEPS = [
     confidence: 0.3,
     status: 'conditional',
     gap: 'Finite numerical resolvent diagnostics do not verify the Trotter-Kato hypotheses, construct Lax-Phillips incoming/outgoing spaces, or identify/constrain the ζ divisor.',
-    color: '#8b5cf6',
+    color: '#8b5fbf',
     computeLabel: null,
     compute: null,
   },
@@ -242,7 +246,7 @@ function ProofStepCard({ step }) {
       marginBottom: 12,
       borderRadius: 8,
       border: `1px solid ${step.color}30`,
-      background: expanded ? `${step.color}08` : 'rgba(15,23,42,0.5)',
+      background: expanded ? `${step.color}10` : 'var(--paper2)',
       cursor: 'pointer',
       transition: 'all 0.2s',
     }}>
@@ -263,26 +267,26 @@ function ProofStepCard({ step }) {
           fontSize: 11, fontWeight: 700, flexShrink: 0,
         }}>{step.id}</span>
         <div style={{ flex: 1 }}>
-          <div style={{ color: '#e2e8f0', fontSize: 14, fontWeight: 600 }}>
+          <div style={{ color: 'var(--ink)', fontSize: 14, fontWeight: 600 }}>
             {step.title}
           </div>
-          <div style={{ color: '#94a3b8', fontSize: 12, marginTop: 2 }}>
+          <div style={{ color: 'var(--ink-soft)', fontSize: 12, marginTop: 2 }}>
             {step.claim}
           </div>
         </div>
         <span style={{
           fontSize: 10, padding: '2px 8px', borderRadius: 4, fontWeight: 600,
           background: step.status === 'proven' || step.status === 'proven (classical)'
-            ? 'rgba(16,185,129,0.15)' : step.status === 'numerical'
-              ? 'rgba(245,158,11,0.15)' : step.status === 'refuted'
-                ? 'rgba(239,68,68,0.15)' : 'rgba(59,130,246,0.15)',
+            ? 'rgba(76,122,74,0.15)' : step.status === 'numerical'
+              ? 'rgba(181,138,46,0.15)' : step.status === 'refuted'
+                ? 'rgba(194,58,28,0.15)' : 'rgba(63,107,134,0.15)',
           color: step.status === 'proven' || step.status === 'proven (classical)'
-            ? '#10b981' : step.status === 'numerical' ? '#f59e0b'
-              : step.status === 'refuted' ? '#ef4444' : '#3b82f6',
+            ? 'var(--green)' : step.status === 'numerical' ? 'var(--brass-dk)'
+              : step.status === 'refuted' ? 'var(--terra-dk)' : 'var(--blue)',
         }}>
           {step.status.toUpperCase()}
         </span>
-        <span style={{ color: '#475569', fontSize: 18 }}>{expanded ? '▾' : '▸'}</span>
+        <span style={{ color: 'var(--faint)', fontSize: 18 }}>{expanded ? '▾' : '▸'}</span>
       </div>
 
       {/* Expanded details */}
@@ -294,22 +298,22 @@ function ProofStepCard({ step }) {
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 12 }}>
             <div>
-              <div style={{ color: '#64748b', fontSize: 11, marginBottom: 4 }}>THEOREM</div>
-              <div style={{ color: '#cbd5e1' }}>{step.theorem}</div>
+              <div style={{ color: 'var(--faint)', fontSize: 11, marginBottom: 4 }}>THEOREM</div>
+              <div style={{ color: 'var(--ink-soft)' }}>{step.theorem}</div>
             </div>
             <div>
-              <div style={{ color: '#64748b', fontSize: 11, marginBottom: 4 }}>REFERENCE</div>
-              <div style={{ color: '#cbd5e1', fontFamily: 'var(--font-mono)', fontSize: 11 }}>{step.reference}</div>
+              <div style={{ color: 'var(--faint)', fontSize: 11, marginBottom: 4 }}>REFERENCE</div>
+              <div style={{ color: 'var(--ink-soft)', fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 11 }}>{step.reference}</div>
             </div>
           </div>
 
           {step.gap && (
             <div style={{
               padding: '8px 12px', borderRadius: 6, marginBottom: 12,
-              background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.2)',
+              background: 'rgba(181,138,46,0.08)', border: '1px solid rgba(181,138,46,0.30)',
             }}>
-              <div style={{ color: '#f59e0b', fontSize: 11, fontWeight: 600, marginBottom: 4 }}>GAP</div>
-              <div style={{ color: '#fbbf24', fontSize: 12, lineHeight: 1.6 }}>{step.gap}</div>
+              <div style={{ color: 'var(--brass-dk)', fontSize: 11, fontWeight: 600, marginBottom: 4 }}>GAP</div>
+              <div style={{ color: 'var(--brass-dk)', fontSize: 12, lineHeight: 1.6 }}>{step.gap}</div>
             </div>
           )}
 
@@ -317,48 +321,48 @@ function ProofStepCard({ step }) {
           {step.compute && (
             <div style={{
               padding: '8px 12px', borderRadius: 6,
-              background: 'rgba(59,130,246,0.06)', border: '1px solid rgba(59,130,246,0.15)',
+              background: 'rgba(63,107,134,0.06)', border: '1px solid rgba(63,107,134,0.15)',
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-                <div style={{ color: '#3b82f6', fontSize: 11, fontWeight: 600 }}>LIVE VERIFICATION</div>
+                <div style={{ color: 'var(--blue)', fontSize: 11, fontWeight: 600 }}>LIVE VERIFICATION</div>
                 <button onClick={(e) => { e.stopPropagation(); computation.run(); }}
                   disabled={computation.loading}
                   style={{
                     padding: '2px 10px', borderRadius: 4, fontSize: 10, cursor: 'pointer',
-                    background: 'rgba(59,130,246,0.2)', color: '#93c5fd',
-                    border: '1px solid rgba(59,130,246,0.3)',
+                    background: 'rgba(63,107,134,0.16)', color: 'var(--blue)',
+                    border: '1px solid rgba(63,107,134,0.35)',
                   }}>
                   {computation.loading ? 'Running...' : 'Run'}
                 </button>
               </div>
-              <div style={{ color: '#64748b', fontSize: 11, marginBottom: 4 }}>{step.computeLabel}</div>
+              <div style={{ color: 'var(--faint)', fontSize: 11, marginBottom: 4 }}>{step.computeLabel}</div>
               {computation.result && (
                 <pre style={{
-                  color: '#a7f3d0', fontSize: 10, lineHeight: 1.5,
+                  color: 'var(--green)', fontSize: 10, lineHeight: 1.5,
                   whiteSpace: 'pre-wrap', margin: 0,
-                  fontFamily: 'var(--font-mono)',
+                  fontFamily: 'var(--ed-mono, var(--font-mono))',
                 }}>
                   {JSON.stringify(computation.result, null, 2)}
                 </pre>
               )}
               {computation.error && (
-                <div style={{ color: '#fca5a5', fontSize: 11 }}>Error: {computation.error}</div>
+                <div style={{ color: 'var(--terra-dk)', fontSize: 11 }}>Error: {computation.error}</div>
               )}
             </div>
           )}
 
           {/* Confidence bar */}
           <div style={{ marginTop: 12 }}>
-            <div style={{ color: '#64748b', fontSize: 11, marginBottom: 4 }}>
+            <div style={{ color: 'var(--faint)', fontSize: 11, marginBottom: 4 }}>
               INTERNAL EVIDENCE SCORE: {(step.confidence * 100).toFixed(0)}%
             </div>
             <div style={{
-              height: 4, borderRadius: 2, background: 'rgba(255,255,255,0.05)',
+              height: 4, borderRadius: 2, background: 'var(--hair2)',
               overflow: 'hidden',
             }}>
               <div style={{
                 height: '100%', width: `${step.confidence * 100}%`,
-                background: step.confidence >= 0.95 ? '#10b981' : step.confidence >= 0.8 ? '#f59e0b' : '#ef4444',
+                background: step.confidence >= 0.95 ? 'var(--green)' : step.confidence >= 0.8 ? 'var(--brass-dk)' : 'var(--terra-dk)',
                 borderRadius: 2,
               }} />
             </div>
@@ -379,67 +383,87 @@ export default function ProofExplorerPage() {
   const avgConfidence = mainSteps.reduce((s, step) => s + step.confidence, 0) / mainSteps.length;
 
   return (
-    <div className="page">
-      <div className="page-header">
-        <h1>Interactive Proof Explorer</h1>
-        <p>
-          Click any step to expand: see the claim, theorem, reference, live computation, and gap assessment.
-          {provenCount}/{mainSteps.length} entries are finite or classical identities; the chain is blocked
-          and does not prove RH. The displayed {(avgConfidence * 100).toFixed(0)}% is an internal evidence
-          score, not a mathematical confidence level.
-        </p>
-      </div>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>proof · explorer</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <div style={{ marginBottom: 24 }}>
+          <h1 className="ed-h1" style={{ marginBottom: 10 }}>Interactive Proof Explorer</h1>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
+            Click any step to expand: see the claim, theorem, reference, live computation, and gap assessment.
+            {' '}{provenCount}/{mainSteps.length} entries are finite or classical identities; the chain is blocked
+            and does not prove RH. The displayed {(avgConfidence * 100).toFixed(0)}% is an internal evidence
+            score, not a mathematical confidence level.
+          </p>
+        </div>
 
-      {/* Summary bar */}
-      <div style={{
-        display: 'flex', gap: 16, marginBottom: 24, flexWrap: 'wrap',
-      }}>
-        {[
-          { label: 'Steps', value: `${provenCount}/${mainSteps.length}`, color: '#10b981' },
-          { label: 'Evidence score', value: `${(avgConfidence * 100).toFixed(0)}%`, color: '#3b82f6' },
-          { label: 'Gaps', value: mainSteps.filter(s => s.gap).length, color: '#f59e0b' },
-          { label: 'Theorems', value: new Set(mainSteps.map(s => s.theorem)).size, color: '#8b5cf6' },
-        ].map(m => (
-          <div key={m.label} style={{
-            padding: '8px 16px', borderRadius: 8, background: `${m.color}10`,
-            border: `1px solid ${m.color}20`, textAlign: 'center', minWidth: 80,
-          }}>
-            <div style={{ color: m.color, fontSize: 20, fontWeight: 700 }}>{m.value}</div>
-            <div style={{ color: '#64748b', fontSize: 10 }}>{m.label}</div>
+        {/* Summary bar */}
+        <div style={{
+          display: 'flex', gap: 16, marginBottom: 24, flexWrap: 'wrap',
+        }}>
+          {[
+            { label: 'Steps', value: `${provenCount}/${mainSteps.length}`, color: '#4c7a4a' },
+            { label: 'Evidence score', value: `${(avgConfidence * 100).toFixed(0)}%`, color: '#3f6b86' },
+            { label: 'Gaps', value: mainSteps.filter(s => s.gap).length, color: '#b58a2e' },
+            { label: 'Theorems', value: new Set(mainSteps.map(s => s.theorem)).size, color: '#8b5fbf' },
+          ].map(m => (
+            <div key={m.label} style={{
+              padding: '8px 16px', borderRadius: 8, background: `${m.color}10`,
+              border: `1px solid ${m.color}30`, textAlign: 'center', minWidth: 80,
+            }}>
+              <div style={{ color: m.color, fontSize: 20, fontWeight: 700 }}>{m.value}</div>
+              <div style={{ color: 'var(--faint)', fontSize: 10 }}>{m.label}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="card" style={{ borderLeft: '3px solid var(--terra-dk)', marginBottom: 24 }}>
+          <strong style={{ color: 'var(--terra-dk)' }}>Legacy proof downloads withdrawn.</strong>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 12.5, lineHeight: 1.7, marginBottom: 0 }}>
+            The former LaTeX and JSON generators asserted that the Darlington chain proved RH.
+            They depended on the refuted physical-cascade convergence claim and confused poles of
+            <InlineMath tex="S_{21}(s)=\zeta(2s)/\zeta(s)" /> with transmission zeros.
+            Passing finite computations below verifies only their named finite identities.
+          </p>
+        </div>
+
+        {/* Main proof chain */}
+        <div className="card" style={{ borderLeft: '3px solid var(--green)', marginBottom: 24 }}>
+          <h3 style={{ color: 'var(--green)', fontSize: 14, marginBottom: 16 }}>
+            Audited Chain: Finite Identities → Conditional Limit → Zero/Pole Obstruction
+          </h3>
+          {mainSteps.map(step => <ProofStepCard key={step.id} step={step} />)}
+        </div>
+
+        {/* Alternative path */}
+        <div className="card" style={{ borderLeft: '3px solid #8b5fbf' }}>
+          <h3 style={{ color: '#8b5fbf', fontSize: 14, marginBottom: 16 }}>
+            Alternative Path (bypasses Step S3)
+          </h3>
+          <ProofStepCard step={altStep} />
+          <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, marginTop: 12 }}>
+            Trotter–Kato could bypass the refuted matrix-product limit only after its
+            generator, domain, and resolvent hypotheses are proved. A further theorem must then
+            identify the operator scattering divisor with the algebraic zeta ratio; contraction
+            alone does not confine zeta zeros.
+          </p>
+        </div>
+
+        {/* Related pages */}
+        <footer style={{ marginTop: 32, padding: '16px 0', borderTop: '1px solid var(--hairline)' }}>
+          <div style={{ fontSize: 12, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+            Related pages:
           </div>
-        ))}
-      </div>
-
-      <div className="card" style={{ borderLeft: '3px solid #ef4444', marginBottom: 24 }}>
-        <strong style={{ color: '#fca5a5' }}>Legacy proof downloads withdrawn.</strong>
-        <p style={{ color: '#94a3b8', fontSize: 12.5, lineHeight: 1.7, marginBottom: 0 }}>
-          The former LaTeX and JSON generators asserted that the Darlington chain proved RH.
-          They depended on the refuted physical-cascade convergence claim and confused poles of
-          <InlineMath tex="S_{21}(s)=\zeta(2s)/\zeta(s)" /> with transmission zeros.
-          Passing finite computations below verifies only their named finite identities.
-        </p>
-      </div>
-
-      {/* Main proof chain */}
-      <div className="card" style={{ borderLeft: '3px solid #10b981', marginBottom: 24 }}>
-        <h3 style={{ color: '#10b981', fontSize: 14, marginBottom: 16 }}>
-          Audited Chain: Finite Identities → Conditional Limit → Zero/Pole Obstruction
-        </h3>
-        {mainSteps.map(step => <ProofStepCard key={step.id} step={step} />)}
-      </div>
-
-      {/* Alternative path */}
-      <div className="card" style={{ borderLeft: '3px solid #8b5cf6' }}>
-        <h3 style={{ color: '#8b5cf6', fontSize: 14, marginBottom: 16 }}>
-          Alternative Path (bypasses Step S3)
-        </h3>
-        <ProofStepCard step={altStep} />
-        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginTop: 12 }}>
-          Trotter–Kato could bypass the refuted matrix-product limit only after its
-          generator, domain, and resolvent hypotheses are proved. A further theorem must then
-          identify the operator scattering divisor with the algebraic zeta ratio; contraction
-          alone does not confine zeta zeros.
-        </p>
+          <div style={{ marginTop: 8, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+            <Link to="/formal-proof" style={{ color: 'var(--blue)', fontSize: 13 }}>/formal-proof</Link>
+            <Link to="/proof-checker" style={{ color: 'var(--blue)', fontSize: 13 }}>/proof-checker</Link>
+            <Link to="/proof-overview" style={{ color: 'var(--blue)', fontSize: 13 }}>/proof-overview</Link>
+            <Link to="/rh-attack" style={{ color: 'var(--blue)', fontSize: 13 }}>/rh-attack</Link>
+            <Link to="/lambda-bounds" style={{ color: 'var(--blue)', fontSize: 13 }}>/lambda-bounds</Link>
+          </div>
+          <div style={{ marginTop: 12 }}>
+            <Link to="/">← the atlas</Link>
+          </div>
+        </footer>
       </div>
     </div>
   );

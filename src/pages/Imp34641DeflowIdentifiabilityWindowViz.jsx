@@ -162,7 +162,7 @@ export default function Imp34641DeflowIdentifiabilityWindowViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement only, isRigorous false. The
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement only, isRigorous false. The
         inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the analytic E_flow slope
         is a surrogate property, not the true residual; changes no bound; establishes no operator
         positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a&gt;=0 untouched; NO QED;

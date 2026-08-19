@@ -189,7 +189,7 @@ export default function Imp34418WideningResidualPrepoleReversalViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> {honestScope}
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> {honestScope}
       </div>
     </div>
   );

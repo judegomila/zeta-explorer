@@ -75,9 +75,9 @@ export default function ZetaPage() {
 
         <BlockMath tex={"Z(t) = e^{i\\theta(t)} \\zeta(1/2 + it), \\quad Z(t) \\in \\mathbb{R}"} />
 
-        {/* ── Honest status caveat ──────────────────────────────────────── */}
+        {/* ── Status caveat ──────────────────────────────────────── */}
         <div style={{ ...cardLeft('var(--terra-dk)'), marginTop: 16, marginBottom: 8, background: TINT.terra }}>
-          <h3 style={h3('var(--terra-dk)')}>Honest status: verified computation, not a proof</h3>
+          <h3 style={h3('var(--terra-dk)')}>Status: verified computation, not a proof</h3>
           <p style={{ ...body, margin: 0 }}>
             This page plots <InlineMath tex={"|\\zeta|"} /> and the Hardy <InlineMath tex={"Z(t)"} /> function on and off
             the critical line over a <strong>finite t-window</strong> built from a table of known zeros. Every zero shown

@@ -106,7 +106,7 @@ export default function Imp36211RouteReadinessComparisonViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation of the imp-36045 baked
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation of the imp-36045 baked
         readiness scores as a bar chart with each route's source tickets and residual blocker. Route C
         (density squeeze) wins because it produces a per-N bound by construction and its residual
         G3a_max_gap is not proven irreducible; Route A's residual C_mb is proven IRREDUCIBLE (imp-486);

@@ -161,7 +161,7 @@ export default function Imp3863GapStructureFunctionViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/visualization only
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization only
         -- no proof, no reduction below RH. S_2(r) is a purely equal-time statistic: it clears
         REQ-i (a genuine two-point profile) but attaches no backward-flow depth s(y) and so fails
         REQ-ii, confirming the imp-3714 K3 near-miss classification empirically. imp-3066 off-diagonal

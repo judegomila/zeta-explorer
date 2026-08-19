@@ -138,7 +138,7 @@ export default function Imp34014EndpointPeakModelSelectionFitViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement / model-selection
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement / model-selection
         only, no proof, no fresh derivation. {MS.finding.R2_strength_positive_not_decisive}{' '}
         The component model is the inherited imp-3220/imp-3406 extrapolation; both forms are
         descriptive, not derived; the imp-33843 log-linear-vs-power-law verdict is untouched;

@@ -212,7 +212,7 @@ export default function Imp3563QuadratureStraddleViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/visualization
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization
         only -- no proof, no reduction below RH. The trapezoid Richardson extrapolant
         ({IMP3563_TRAPEZOID_RICHARDSON_LIMIT.toFixed(9)}) and the Gauss-Legendre limit agree to
         {' '}{IMP3563_CROSS_SCHEME_SPREAD.toExponential(1)}, and both agree with the imp-3523

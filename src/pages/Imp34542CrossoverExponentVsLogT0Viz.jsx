@@ -210,7 +210,7 @@ export default function Imp34542CrossoverExponentVsLogT0Viz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation only, reproducing
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only, reproducing
         the imp-34486/imp-34513/imp-34526 closed form and its tabulated landmarks. The inherited
         component model (imp-3220/imp-3406 extrapolation) is NOT a rigorous asymptotic; the
         &minus;2 asymptote and C_C = (1/8)sqrt(3&nbsp;pi) (imp-2714) ansatz are UNTOUCHED; the

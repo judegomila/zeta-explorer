@@ -228,7 +228,7 @@ export default function Imp33219AWeightTwoRouteReproductionViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> reproduction/cross-check
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> reproduction/cross-check
         only -- no proof, no reduction below RH. Route (2) still relies on the imp-3844 analytic
         collapse (the n=1-tail approximation and the t = e<sup>4s</sup>-1 substitution) and does
         NOT bound the O(e<sup>-4 tau</sup>) Watson tail (sg-3844-watson-tail); this establishes no

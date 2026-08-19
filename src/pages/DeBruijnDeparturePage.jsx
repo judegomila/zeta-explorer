@@ -16,7 +16,7 @@ export default function DeBruijnDeparturePage() {
 
       <HonestCeilingBanner
         variant="ESTIMATE"
-        title="Honest scope: this is an EXACT flow on a polynomial PROXY — it illustrates a mechanism and proves nothing about Λ"
+        title="Scope: this is an EXACT flow on a polynomial PROXY — it illustrates a mechanism and proves nothing about Λ"
         body={
           'The animation runs the genuine de Bruijn flow, but on a finite-degree real-rooted polynomial, ' +
           'not on ξ. Three caveats: (a) the proxy’s zeros are not the zeros of ξ; (b) there is no ' +

@@ -217,7 +217,7 @@ export default function Imp3543XiStarRobustnessViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/visualization
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization
         only -- no proof, no reduction below RH. The co-refined scan certifies the imp-3483
         global-maximizer count is range- and grid-robust (peak &sim;
         {IMP3543_PEAK_SLOPE.toExponential(3)}, far-tail max ratio &lt; 1%); the coarse-grid

@@ -175,7 +175,7 @@ export default function Imp33950PerronNormCurveViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> structural diagnostic only, not
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> structural diagnostic only, not
         a proof and not a reduction below RH; the decoupled probe is diagnostic (not an admissible
         imp-3066 modification); imp-3066 / imp-33765 / imp-33789 are untouched; positivity was not
         attempted; {honestCaveat.sota}

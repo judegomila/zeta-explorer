@@ -174,7 +174,7 @@ export default function Imp35206HorizonFrontMismatchViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
         imp-35195 T_minus/t_c literals verbatim (no new computation). T_minus uses the imp-2563
         certified window AS-IS; beta(N) is the RvM density MODEL, not a certified sup over the true
         backward flow; t_c(N) is an empirical OLS fit. Confirms the imp-35167 M5 mismatch is real but

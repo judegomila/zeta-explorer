@@ -155,7 +155,7 @@ export default function Imp35934KappaSweepLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation only of the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only of the
         already-derived imp-35854 exact-BigInt-referenced kappa-sweep measurement (no new
         derivation, no heavy data-module import, no re-running the summation schemes at page load);
         measurement only; certifies no W1 bound; evaluates no true H&#8320;; instantiates no

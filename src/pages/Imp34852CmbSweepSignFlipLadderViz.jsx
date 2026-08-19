@@ -108,7 +108,7 @@ export default function Imp34852CmbSweepSignFlipLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page presenting the imp-34824
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page presenting the imp-34824
         literals verbatim (no new computation). Component model is the inherited imp-3220/imp-3406 surrogate
         crossover map, NOT a rigorous asymptotic; sub-gap imp-34714a REMAINS OPEN (no machine certificate).
         C_mb is treated as a free knob -- this does NOT discharge the GUE conditional (imp-486). The

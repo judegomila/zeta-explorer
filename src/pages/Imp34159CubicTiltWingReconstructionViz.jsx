@@ -168,7 +168,7 @@ export default function Imp34159CubicTiltWingReconstructionViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> at |t|={ODD.probeOffset} the odd part of
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> at |t|={ODD.probeOffset} the odd part of
         the quadratic residual ({ODD.oddResidAtProbe.toExponential(3)}) is reproduced by the fitted cubic term
         ({ODD.cubicTermAtProbe.toExponential(3)}) to within ~6% (ratio {ODD.ratio}), and including the cubic
         collapses the imp-34008 wing split from {RECON.quadraticSplit.splitPct}% to{' '}

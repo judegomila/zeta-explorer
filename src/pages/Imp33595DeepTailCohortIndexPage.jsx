@@ -76,7 +76,7 @@ export default function Imp33595DeepTailCohortIndexPage() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> this is a navigation aid over
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> this is a navigation aid over
         already-published measurements. It changes no bound and patches no literal. RH-equivalent,
         NO QED. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
       </div>

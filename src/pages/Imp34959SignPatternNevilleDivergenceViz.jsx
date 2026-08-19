@@ -168,7 +168,7 @@ export default function Imp34959SignPatternNevilleDivergenceViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
         imp-34932 extended-order sign-pattern and Neville-window literals verbatim (sign sequence
         reconstructed from the exported run-length encoding, no new computation). Measurement on the
         INHERITED imp-3220/imp-3406 surrogate crossover map, NOT a rigorous asymptotic; C_mb

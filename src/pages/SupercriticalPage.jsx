@@ -40,7 +40,7 @@ export default function SupercriticalPage() {
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <HonestCeilingBanner
           variant="ESTIMATE"
-          title="Honest scope: this page shows a finite-prime ESTIMATE and quotes cited Λ bounds — it produces neither"
+          title="Scope: this page shows a finite-prime ESTIMATE and quotes cited Λ bounds — it produces neither"
           body={
             'Two honesty flags for this page. (a) The numeric thermodynamic panel uses a partial Euler product ' +
             'truncated at primes ≤ 199; that finite-N sum is an ESTIMATE of the primon-gas quantities (and only ' +

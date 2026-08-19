@@ -332,7 +332,7 @@ export default function EsyRigidityEmpiricalPage() {
         {/* Honest-status caveat. What this measurement is and is NOT. */}
         <div className="card" style={{ ...cardBaseLeft('var(--brass-dk)'), background: 'rgba(181,138,46,0.06)', marginBottom: 16 }}>
           <div style={{ fontSize: 11, color: 'var(--brass-dk)', textTransform: 'uppercase', letterSpacing: 0.5, fontWeight: 700 }}>
-            Honest status — what this verdict is and is NOT
+            Status — what this verdict is and is NOT
           </div>
           <p style={{ fontSize: 12, color: 'var(--ink-soft)', lineHeight: 1.55, marginTop: 8, marginBottom: 0 }}>
             This page reports an <strong>empirical measurement</strong> of the
@@ -491,9 +491,9 @@ export default function EsyRigidityEmpiricalPage() {
           </div>
         </div>
 
-        {/* Honest scope. */}
+        {/* Scope. */}
         <div className="card" style={{ ...cardBaseLeft('var(--brass-dk)'), marginBottom: 24 }}>
-          <h3 style={{ marginTop: 0, color: 'var(--brass-dk)', fontSize: 14 }}>Honest scope</h3>
+          <h3 style={{ marginTop: 0, color: 'var(--brass-dk)', fontSize: 14 }}>Scope</h3>
           <ul style={{ margin: 0, paddingLeft: 18, fontSize: 12, lineHeight: 1.55, color: 'var(--ink-soft)' }}>
             {D.honestScope.map((line, i) => (
               <li key={'scope-' + i} style={{ marginBottom: 6 }}>

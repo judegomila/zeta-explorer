@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import {
   PAPERS_RELEASE_MANIFEST,
 } from '../data/papers-release-manifest.js';
@@ -12,14 +14,15 @@ import {
  * be mistaken for an accepted result.
  *
  * Route: /papers-download
+ * Editorial (warm) re-theme: identical structure/data/logic, warm styling.
  */
 
 const STATUS_PALETTE = {
-  ready:                { fg: '#10b981', bg: 'rgba(16,185,129,0.10)', border: 'rgba(16,185,129,0.35)', label: 'READY' },
-  draft:                { fg: '#f59e0b', bg: 'rgba(245,158,11,0.10)', border: 'rgba(245,158,11,0.35)', label: 'DRAFT' },
-  withdrawn:            { fg: '#ef4444', bg: 'rgba(239,68,68,0.10)', border: 'rgba(239,68,68,0.35)', label: 'SUPERSEDED — NEVER PUBLISHED' },
-  planned:              { fg: '#3b82f6', bg: 'rgba(59,130,246,0.10)', border: 'rgba(59,130,246,0.35)', label: 'PLANNED' },
-  'research-grade-open':{ fg: '#ef4444', bg: 'rgba(239,68,68,0.10)',  border: 'rgba(239,68,68,0.35)',  label: 'RESEARCH OPEN' },
+  ready:                { fg: 'var(--green)',    bg: 'rgba(76,122,74,0.10)',  border: 'rgba(76,122,74,0.40)',  label: 'READY' },
+  draft:                { fg: 'var(--brass-dk)', bg: 'rgba(181,138,46,0.12)', border: 'rgba(181,138,46,0.45)', label: 'DRAFT' },
+  withdrawn:            { fg: 'var(--terra-dk)', bg: 'rgba(194,58,28,0.10)',  border: 'rgba(194,58,28,0.40)',  label: 'SUPERSEDED — NEVER PUBLISHED' },
+  planned:              { fg: 'var(--blue)',     bg: 'rgba(63,107,134,0.10)', border: 'rgba(63,107,134,0.40)', label: 'PLANNED' },
+  'research-grade-open':{ fg: 'var(--terra-dk)', bg: 'rgba(194,58,28,0.10)',  border: 'rgba(194,58,28,0.40)',  label: 'RESEARCH OPEN' },
 };
 
 function StatusChip({ status }) {
@@ -30,7 +33,7 @@ function StatusChip({ status }) {
       padding: '2px 12px',
       fontSize: 11,
       fontWeight: 700,
-      fontFamily: 'var(--font-mono, monospace)',
+      fontFamily: 'var(--ed-mono, var(--font-mono))',
       color: c.fg,
       background: c.bg,
       border: `1px solid ${c.border}`,
@@ -51,10 +54,11 @@ function PaperRow({ paper }) {
   const isReady = paper.status === 'ready';
   const hasPdf = Boolean(paper.pdfPath);
   return (
-    <article style={{
-      background: 'rgba(15,23,42,0.7)',
-      border: '1px solid #1e293b',
-      borderRadius: 10,
+    <article className="card" style={{
+      background: 'var(--paper2)',
+      border: '1px solid var(--hairline)',
+      borderLeft: `3px solid ${(STATUS_PALETTE[paper.status] || STATUS_PALETTE.draft).fg}`,
+      borderRadius: 8,
       padding: '20px 24px',
       margin: '16px 0',
     }}>
@@ -66,20 +70,20 @@ function PaperRow({ paper }) {
         marginBottom: 10,
       }}>
         <div>
-          <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono, monospace)' }}>
+          <div style={{ fontSize: 11, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
             Release order {paper.releaseOrder} · {paper.id}
           </div>
-          <h2 style={{ fontSize: 18, fontWeight: 700, color: '#e2e8f0', margin: '6px 0 4px 0' }}>
+          <h2 style={{ fontSize: 18, fontWeight: 700, color: 'var(--ink)', margin: '6px 0 4px 0' }}>
             {paper.title}
           </h2>
-          <div style={{ fontSize: 13, color: '#94a3b8' }}>
+          <div style={{ fontSize: 13, color: 'var(--ink-soft)' }}>
             {(paper.authors || []).join(', ')}
           </div>
         </div>
         <StatusChip status={paper.status} />
       </header>
 
-      <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.6, margin: '12px 0' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6, margin: '12px 0' }}>
         {paper.abstractSummary}
       </p>
 
@@ -99,17 +103,17 @@ function PaperRow({ paper }) {
               padding: '10px 16px',
               fontSize: 14,
               fontWeight: 700,
-              color: '#fbbf24',
-              background: 'rgba(251,191,36,0.12)',
-              border: '1px solid rgba(251,191,36,0.45)',
+              color: 'var(--brass-dk)',
+              background: 'rgba(181,138,46,0.12)',
+              border: '1px solid rgba(181,138,46,0.45)',
               borderRadius: 8,
               textDecoration: 'none',
-              fontFamily: 'var(--font-mono, monospace)',
+              fontFamily: 'var(--ed-mono, var(--font-mono))',
             }}
           >
             ↓ {isReady ? 'Download PDF' : 'Download referee PDF'} ({formatBytes(paper.fileSizeBytes)}, {paper.pageCount} pages)
           </a>
-          <span style={{ fontSize: 12, color: '#64748b', fontFamily: 'var(--font-mono, monospace)' }}>
+          <span style={{ fontSize: 12, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
             built {paper.builtAt}
           </span>
           {paper.provenancePath && (
@@ -117,7 +121,7 @@ function PaperRow({ paper }) {
               href={paper.provenancePath}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#7dd3fc', fontSize: 12, textDecoration: 'none' }}
+              style={{ color: 'var(--blue)', fontSize: 12, textDecoration: 'none' }}
             >
               Provenance sidecar ↗
             </a>
@@ -126,12 +130,12 @@ function PaperRow({ paper }) {
       )}
 
       {paper.releaseUrl && (
-        <div style={{ marginTop: 10, fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono, monospace)', overflowWrap: 'anywhere' }}>
+        <div style={{ marginTop: 10, fontSize: 11, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))', overflowWrap: 'anywhere' }}>
           <a
             href={paper.releaseUrl}
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: '#7dd3fc', textDecoration: 'none' }}
+            style={{ color: 'var(--blue)', textDecoration: 'none' }}
           >
             immutable {paper.releaseTag} ↗
           </a>
@@ -142,16 +146,16 @@ function PaperRow({ paper }) {
 
       {!isReady && (
         <div style={{ marginTop: 14 }}>
-          <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 6, fontFamily: 'var(--font-mono, monospace)' }}>
+          <div style={{ fontSize: 12, color: 'var(--ink-soft)', marginBottom: 6, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
             {paper.status === 'draft' ? 'Review required' : 'Blockers'} ({(paper.blockers || []).length}):
           </div>
-          <ul style={{ margin: '4px 0 0 0', paddingLeft: 22, color: '#cbd5e1', fontSize: 13 }}>
+          <ul style={{ margin: '4px 0 0 0', paddingLeft: 22, color: 'var(--ink-soft)', fontSize: 13 }}>
             {(paper.blockers || []).map((b, i) => (
               <li key={i} style={{ marginBottom: 4 }}>{b}</li>
             ))}
           </ul>
           {paper.estimatedTime && (
-            <div style={{ marginTop: 10, fontSize: 12, color: '#64748b', fontFamily: 'var(--font-mono, monospace)' }}>
+            <div style={{ marginTop: 10, fontSize: 12, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
               Estimated time: {paper.estimatedTime}
             </div>
           )}
@@ -160,10 +164,10 @@ function PaperRow({ paper }) {
 
       {paper.sectionsIncluded && paper.sectionsIncluded.length > 0 && (
         <details style={{ marginTop: 14 }}>
-          <summary style={{ cursor: 'pointer', fontSize: 12, color: '#64748b', fontFamily: 'var(--font-mono, monospace)' }}>
+          <summary style={{ cursor: 'pointer', fontSize: 12, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
             Sections ({paper.sectionsIncluded.length})
           </summary>
-          <ul style={{ margin: '6px 0 0 0', paddingLeft: 22, color: '#94a3b8', fontSize: 12 }}>
+          <ul style={{ margin: '6px 0 0 0', paddingLeft: 22, color: 'var(--ink-soft)', fontSize: 12 }}>
             {paper.sectionsIncluded.map((s, i) => (
               <li key={i} style={{ marginBottom: 2 }}>{s}</li>
             ))}
@@ -173,19 +177,19 @@ function PaperRow({ paper }) {
 
       {paper.bibtexSuggestion && (
         <details style={{ marginTop: 8 }}>
-          <summary style={{ cursor: 'pointer', fontSize: 12, color: '#64748b', fontFamily: 'var(--font-mono, monospace)' }}>
+          <summary style={{ cursor: 'pointer', fontSize: 12, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
             BibTeX
           </summary>
           <pre style={{
             margin: '8px 0 0 0',
             padding: 10,
-            background: 'rgba(15,23,42,0.95)',
-            border: '1px solid #1e293b',
+            background: 'var(--paper)',
+            border: '1px solid var(--hairline)',
             borderRadius: 6,
             fontSize: 11,
-            color: '#cbd5e1',
+            color: 'var(--ink-soft)',
             overflowX: 'auto',
-            fontFamily: 'var(--font-mono, monospace)',
+            fontFamily: 'var(--ed-mono, var(--font-mono))',
           }}>{paper.bibtexSuggestion}</pre>
         </details>
       )}
@@ -203,38 +207,57 @@ export default function PapersDownloadPage() {
   const plannedCount = sorted.filter((p) => p.status === 'planned' || p.status === 'research-grade-open').length;
 
   return (
-    <main style={{ maxWidth: 920, margin: '0 auto', padding: '32px 24px' }}>
-      <header style={{ borderBottom: '1px solid #1e293b', paddingBottom: 18, marginBottom: 24 }}>
-        <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono, monospace)', textTransform: 'uppercase', letterSpacing: 1 }}>
-          /papers-download
-        </div>
-        <h1 style={{ fontSize: 26, fontWeight: 700, color: '#e2e8f0', margin: '8px 0 4px 0' }}>
-          Papers — release-ordered downloads
-        </h1>
-        <p style={{ color: '#94a3b8', fontSize: 14, margin: '8px 0 0 0' }}>
-          {readyCount} ready, {draftCount} referee draft, {withdrawnCount} superseded (never published),{' '}
-          {plannedCount} planned / research-grade-open. Downloadability records
-          artifact availability, not mathematical acceptance; draft and superseded
-          status labels remain controlling.
-        </p>
-      </header>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>reference · papers download</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <header style={{ borderBottom: '1px solid var(--hairline)', paddingBottom: 18, marginBottom: 24 }}>
+          <div style={{ fontSize: 11, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))', textTransform: 'uppercase', letterSpacing: 1 }}>
+            /papers-download
+          </div>
+          <h1 className="ed-h1" style={{ margin: '8px 0 4px 0' }}>
+            Papers — release-ordered downloads
+          </h1>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, margin: '8px 0 0 0' }}>
+            {readyCount} ready, {draftCount} referee draft, {withdrawnCount} superseded (never published),{' '}
+            {plannedCount} planned / research-grade-open. Downloadability records
+            artifact availability, not mathematical acceptance; draft and superseded
+            status labels remain controlling.
+          </p>
+        </header>
 
-      {sorted.map((paper) => (
-        <PaperRow key={paper.id} paper={paper} />
-      ))}
+        {sorted.map((paper) => (
+          <PaperRow key={paper.id} paper={paper} />
+        ))}
 
-      <footer style={{
-        marginTop: 32,
-        padding: '16px 0',
-        borderTop: '1px solid #1e293b',
-        fontSize: 12,
-        color: '#64748b',
-        fontFamily: 'var(--font-mono, monospace)',
-      }}>
-        Source: <code>src/data/papers-release-manifest.js</code>. Each entry
-        lists status, blockers, related tickets. Build-time tripwires guard
-        the ready papers (PAPERS_RELEASE_MANIFEST_ASSERTIONS).
-      </footer>
-    </main>
+        <footer style={{
+          marginTop: 32,
+          padding: '16px 0',
+          borderTop: '1px solid var(--hairline)',
+          fontSize: 12,
+          color: 'var(--faint)',
+          fontFamily: 'var(--ed-mono, var(--font-mono))',
+        }}>
+          <div style={{ marginBottom: 12 }}>
+            Source: <code>src/data/papers-release-manifest.js</code>. Each entry
+            lists status, blockers, related tickets. Build-time tripwires guard
+            the ready papers (PAPERS_RELEASE_MANIFEST_ASSERTIONS).
+          </div>
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+            <Link to="/improvement-queue" style={{ color: 'var(--brass)', textDecoration: 'none' }}>
+              → Live improvement queue
+            </Link>
+            <Link to="/lambda-bounds" style={{ color: 'var(--blue)', textDecoration: 'none' }}>
+              → Λ Bounds &amp; RH Roadmap
+            </Link>
+            <Link to="/research-journal" style={{ color: 'var(--green)', textDecoration: 'none' }}>
+              → Research Journal
+            </Link>
+            <Link to="/" style={{ color: 'var(--terra-dk)', textDecoration: 'none' }}>
+              ← the atlas
+            </Link>
+          </div>
+        </footer>
+      </div>
+    </div>
   );
 }

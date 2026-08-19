@@ -217,7 +217,7 @@ export default function Imp34825WindingCountLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the imp-34813
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-34813
         tGrid/exactCount/minGapLadder literals verbatim (no new computation). Negative t is the EXACT
         de Bruijn flow at negative time, equal to Gaussian convolution of H_0 with width
         sqrt(2&nbsp;tau) at t&nbsp;=&nbsp;-4&nbsp;tau_repo &mdash; the imp-2673/2696 "smoothing artifact"

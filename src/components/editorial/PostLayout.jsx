@@ -52,6 +52,7 @@ export function EditorialHeader({ ticker }) {
           {NAV_GROUPS.map((g) => <NavDropdown key={g.label} label={g.label} items={g.items} />)}
         </nav>
         <div style={{ marginLeft: 'auto', display: 'flex', gap: 16, alignItems: 'center' }}>
+          <a className="ed-headnav" style={{ color: 'var(--ink-soft)' }} href="https://github.com/judegomila/mathexplorer" target="_blank" rel="noreferrer">GitHub ↗</a>
           <button type="button" className="ed-search" onClick={openPalette} aria-label="Search pages">
             Search <kbd>⌘K</kbd>
           </button>

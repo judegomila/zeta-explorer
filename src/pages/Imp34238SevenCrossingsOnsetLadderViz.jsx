@@ -211,7 +211,7 @@ export default function Imp34238SevenCrossingsOnsetLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation/re-expression
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation/re-expression
         only, on the model cusp rho(x) = |x|^-alpha. Adds the imp-34167 family (iii) branch to the
         imp-34185 chart and shows the full onset ladder alpha = 1, 3, 5; does not re-derive the
         m_prime &rarr; C_ren map off-axis/off-exponent. H4 (imp-33766) is NOT discharged;

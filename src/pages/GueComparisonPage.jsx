@@ -433,7 +433,7 @@ export default function GueComparisonPage() {
             tail.
           </p>
           <p style={{ fontSize: 13, lineHeight: 1.55, marginBottom: 0 }}>
-            <strong>Honest scope:</strong> this is pure exploration. GUE
+            <strong>Scope:</strong> this is pure exploration. GUE
             universality of the Riemann zeros remains a conjecture; no rigorous
             proof exists. The visual agreement shown here is the well-known
             numerical signature first measured by Odlyzko and consistent with

@@ -186,7 +186,7 @@ export default function Imp33613BandCrossingCrossSolverNodeBudgetViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> accuracy/rule-design
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy/rule-design
         cross-solver measurement only, of an already-verified sweep (imp-33577). It changes no
         bound and patches no literal (imp-33213/imp-33316/imp-33557/imp-33577 intact). Both ladders
         are jittery near the arithmetic floor (imp-33249/imp-33277/imp-33295/imp-33557

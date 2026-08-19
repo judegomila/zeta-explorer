@@ -146,7 +146,7 @@ export default function Imp36204KbnKahanTwoEpisodeSeparationViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation-only consumer of
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation-only consumer of
         the baked imp-36186 viz-data (itself reusing the recorded imp-36062/imp-36076 per-rung
         literals verbatim, per imp-36112's reconciliation); no new derivation, no bound changed.
         The W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A) and the certified

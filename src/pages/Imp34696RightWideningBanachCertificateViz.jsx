@@ -160,7 +160,7 @@ export default function Imp34696RightWideningBanachCertificateViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> visualization of an existing
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> visualization of an existing
         measurement, isRigorous false. Endpoint evaluations g(b), g_prime(a) are IEEE-754 double
         precision, not interval-arithmetic enclosures (imp-34676a sub-gap open: g(N) &lt; N above
         N_cross is sampled, not proved). Certifies a property of the inherited imp-3220/imp-3406

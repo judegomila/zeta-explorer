@@ -202,7 +202,7 @@ export default function Imp34656RoundoffPrefactorAmplitudeViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, recomputing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, recomputing the
         imp-34606/imp-34633 q-derivative sweep independently over the published roundoff-dominated
         windows; the predicted-amplitude lines and ratio annotations are the imp-34633 baked values.
         This is a conditioning diagnostic on the finite-difference measurement, not a rehabilitation

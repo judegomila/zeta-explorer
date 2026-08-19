@@ -247,7 +247,7 @@ export default function Imp33609GradedMappedCcAbscissaArtifactViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> accuracy/rule-design
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy/rule-design
         cross-solver measurement only, of an already-verified table (imp-33580). It changes no
         bound and patches no literal (imp-33213/imp-33316/imp-33539/imp-33560 intact); the imp-33316
         &lt; 64 ULP band is known to fail at deeper rungs n &ge; 510 (imp-33537/imp-33557), but the

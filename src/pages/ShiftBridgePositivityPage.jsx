@@ -90,7 +90,7 @@ export default function ShiftBridgePositivityPage() {
         <br /><br />← <Link to="/">the atlas</Link>
       </>}
     >
-      {/* Honest verdict (imp-2987): the finite-N* "beat" infrastructure invoked on
+      {/* Verdict (imp-2987): the finite-N* "beat" infrastructure invoked on
           this page is an ESTIMATE gated on the undischargeable C_H, never an
           unconditional finite-N rigorous beat. */}
       <HonestCeilingBanner variant="ESTIMATE" />

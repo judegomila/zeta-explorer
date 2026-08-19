@@ -116,7 +116,7 @@ export default function Imp35344FloorSensitivityCurveViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page reusing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page reusing the
         imp-35243 baked demonstration_D1_floor_sensitivity literals verbatim (the per-k points are
         arithmetic extensions of the same linear slope, not new computation). The true
         infinite-precision continuum has no machine-epsilon floor and hence no counterpart to this

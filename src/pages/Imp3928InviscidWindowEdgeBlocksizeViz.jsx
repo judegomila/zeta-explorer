@@ -183,7 +183,7 @@ export default function Imp3928InviscidWindowEdgeBlocksizeViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> this is a scale-sizing MEASUREMENT, NOT a
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> this is a scale-sizing MEASUREMENT, NOT a
         certificate -- it does not widen the window to the microscopic y &rarr; 0 continuum and does not
         certify vanishing viscosity. H2 stays UNWRITTEN as a certificate, the G6a K4 caustic-regularity route
         stays WHOLLY NEW, and G6a_shock_lipschitz stays OPEN. Scoping/measurement only; no positivity, no

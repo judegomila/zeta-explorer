@@ -188,7 +188,7 @@ export default function Imp34575NearPoleResolvabilityFloorsViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement only -- a
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement only -- a
         precision-budget read of the inherited surrogate resid_exp near the inherited pole
         k* ~ {kStar.toFixed(5)}, reusing the imp-34310 linear near-pole model. The component model
         is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb

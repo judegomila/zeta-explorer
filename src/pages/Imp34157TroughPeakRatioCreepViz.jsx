@@ -187,7 +187,7 @@ export default function Imp34157TroughPeakRatioCreepViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> {FINDING.R1_ratio_keeps_creeping_no_limit_visible}{' '}
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> {FINDING.R1_ratio_keeps_creeping_no_limit_visible}{' '}
         {FINDING.R2_mechanism_peak_decelerates_trough_near_steady} On an extended inherited ladder.{' '}
         {LIMIT_FIT_FINDING.R2_extrapolated_limits_non_physical}{' '}
         <SurrogateDiagnosticCohortNote />

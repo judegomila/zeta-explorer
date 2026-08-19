@@ -139,7 +139,7 @@ export default function Imp35081SurplusConversionResidualWaterfallViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering
         the imp-34954 baked residual literals (imported verbatim, no new computation);
         establishes no new numerical claim. Conditional-share diagnostic on the inherited
         imp-3220/imp-3406 extrapolation, NOT an RH bound. Far-tail exponent stays 1/2

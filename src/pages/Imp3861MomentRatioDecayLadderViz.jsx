@@ -231,7 +231,7 @@ export default function Imp3861MomentRatioDecayLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/visualization
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization
         only -- no proof, no reduction below RH. This pins the large-n decay order of a
         subleading moment-ratio correction that feeds the imp-3713/imp-3731 exact-saddle-ratio
         crossing model; mass-feasibility is necessary-but-not-sufficient and the operator-level

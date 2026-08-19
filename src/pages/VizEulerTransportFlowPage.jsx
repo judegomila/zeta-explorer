@@ -15,7 +15,7 @@ import {
  * straddles the critical strip. Zeros of zeta appear as SINKS of -v;
  * the first five known zeros are marked as red dots on sigma = 1/2.
  *
- * Honest scope: inside the critical strip the truncated prime sum is a
+ * Scope: inside the critical strip the truncated prime sum is a
  * numerical proxy (does not converge absolutely). Streamlines there are
  * qualitative, not quantitative.
  */
@@ -444,7 +444,7 @@ export default function VizEulerTransportFlowPage() {
       </Card>
 
       <Card accent="#fbbf24">
-        <h3 style={{ color: '#fbbf24', fontSize: 17, margin: '0 0 10px 0' }}>Honest scope</h3>
+        <h3 style={{ color: '#fbbf24', fontSize: 17, margin: '0 0 10px 0' }}>Scope</h3>
         <ul
           style={{
             color: '#cbd5e1',

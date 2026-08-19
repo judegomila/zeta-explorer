@@ -4,7 +4,7 @@
 // t = 2*pi*k / log(p_i/p_j) where adjacent prime rays are in phase mod 2pi.
 // A "fold mod 2pi" toggle shows how the flat strip wraps onto the phase cylinder.
 //
-// Honest ceiling: exploratory geometric re-parameterization. Re-derives only
+// Ceiling: exploratory geometric re-parameterization. Re-derives only
 // the resonance condition. Does NOT beat Platt-Trudgian Lambda <= 0.2.
 
 import React, { useRef, useEffect, useState } from 'react';

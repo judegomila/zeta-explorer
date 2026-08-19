@@ -139,7 +139,7 @@ export default function Imp36268PanelCountRatioViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement only, reusing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement only, reusing the
         imp-36141 tabulation verbatim. {panelCountRatioFloor.toFixed(4)} is a frequency-floor{' '}
         <em>lower bound</em> on the true panel-count ratio &mdash; the main-term-sharpness and
         uniform-fold+disk-sup axes are same-signed (imp-36054) and push the true ratio higher, but

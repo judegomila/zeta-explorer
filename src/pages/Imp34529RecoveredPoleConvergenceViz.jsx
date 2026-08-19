@@ -216,7 +216,7 @@ export default function Imp34529RecoveredPoleConvergenceViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> cross-validation / measurement
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> cross-validation / measurement
         only -- reuses the imp-34247 metric, imp-34188 y(k) surrogate, imp-34023 pole, and imp-34512
         invLeakRoot estimator verbatim; the component model is the inherited imp-3220/imp-3406
         extrapolation, NOT a rigorous asymptotic; the residExp simple-zero structure is a

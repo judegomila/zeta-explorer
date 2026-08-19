@@ -150,7 +150,7 @@ export default function Imp34259UnifiedEndpointDistanceFamilyViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation/re-expression
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation/re-expression
         only, on the model cusp rho(x) = |x|^-alpha. k=1..3 recover the imp-34103/imp-34104/imp-34167
         per-family measurements; k=4 is a new instance of the imp-34173 closed form, not separately
         measured elsewhere. Does not re-derive the m_prime &rarr; C_ren map off-axis/off-exponent.

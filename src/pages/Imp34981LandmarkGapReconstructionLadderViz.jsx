@@ -161,7 +161,7 @@ export default function Imp34981LandmarkGapReconstructionLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
         imp-34954 literals verbatim (no new computation). The surplus closed form r/(2(2+r)) itself
         is exact; the ladder shown here is entirely a sigma-to-N CONVERSION diagnostic on the
         inherited imp-3220/imp-3406 surrogate crossover map. C_mb GUE-conditional per imp-486 and

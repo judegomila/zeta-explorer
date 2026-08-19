@@ -44,7 +44,7 @@ export default function FormalProofPage() {
 
         {/* ── Honesty Statement ── */}
         <div className="card" style={{ marginBottom: 24, borderLeft: '3px solid #c23a1c' }}>
-          <h3 style={{ color: '#c23a1c', fontSize: 14, marginBottom: 8 }}>Intellectual Honesty Statement</h3>
+          <h3 style={{ color: '#c23a1c', fontSize: 14, marginBottom: 8 }}>Status</h3>
           <p style={{ color: '#4a4238', fontSize: 13, lineHeight: 1.8 }}>
             This is <strong style={{ color: '#c23a1c' }}>NOT</strong> a complete proof of the Riemann Hypothesis.
             It is a <em>framework for identifying exactly where the gaps lie</em>. The Twin-Ladder Bridge model

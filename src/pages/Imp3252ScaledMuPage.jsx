@@ -196,7 +196,7 @@ export default function Imp3252ScaledMuPage() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> assessment only — no proof, no
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> assessment only — no proof, no
         reduction below RH. The two curves measure different things: the top panel is a genuine
         finite-N-resolution convergence (the continuum operator norm), while the bottom panel is a
         floating-point residual around an identity that holds exactly at every N by construction (the

@@ -205,7 +205,7 @@ export default function Imp34639StencilTailSpreadCrosscheckViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, reusing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, reusing the
         imp-34611 measurement literals verbatim (dp sweep rows, plateau, tail spreads, Richardson
         node). The 4th-order stencil being ~2x flatter than the 2nd-order one on the large-dp tail
         is exactly what lower truncation error predicts, confirming the plateau is a genuine

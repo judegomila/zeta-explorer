@@ -113,7 +113,7 @@ export default function Imp34832NCrossThreeWayLandmarkComparisonViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page presenting the imp-34800
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page presenting the imp-34800
         literals verbatim (no new computation). The Krawczyk enclosure is the imp-34774 double-precision
         SURROGATE; sub-gap imp-34714a REMAINS OPEN (no machine certificate). The C_C&nbsp;=&nbsp;(1/8)&radic;(3&pi;)
         ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional share per imp-486 is UNTOUCHED;

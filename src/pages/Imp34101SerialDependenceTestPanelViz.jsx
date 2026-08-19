@@ -317,7 +317,7 @@ export default function Imp34101SerialDependenceTestPanelViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement only, unifying imp-33886 /
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement only, unifying imp-33886 /
         imp-33963 / imp-33964 / imp-34024 / imp-34025 / imp-34026 into one panel; no new statistic is computed
         here. Every test flags non-white residuals, but the DF/KPSS bracket reads that as low-power/
         inconclusive rather than a confirmed unit root, and the AR(2) pseudo-period exceeding the 21-rung

@@ -138,7 +138,7 @@ export default function Imp34244KpssL0FlipShiftRankingViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation of the imp-34155
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation of the imp-34155
         sensitivity measurement only; no new computation. The l=0 un-HAC borderline being dissected
         is FRAGILE and endpoint-driven; the HAC-corrected (l&ge;1) non-rejection eta_mu &#126;0.149 is
         UNCHANGED and remains the primary reading. C_mb GUE-conditional per imp-486 UNTOUCHED;

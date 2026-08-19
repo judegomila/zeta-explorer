@@ -166,7 +166,7 @@ export default function Imp34877CrossoverDerivativeLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page recomputing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page recomputing the
         imp-34842/imp-34822/imp-34793/imp-34768/imp-34731 closed forms verbatim on the same band and
         constants (no new computation). Measurement/derivation on the INHERITED imp-3220/imp-3406
         surrogate crossover map; the C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz

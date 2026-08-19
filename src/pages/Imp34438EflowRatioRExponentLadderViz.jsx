@@ -210,7 +210,7 @@ export default function Imp34438EflowRatioRExponentLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Derivation/measurement only within the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Derivation/measurement only within the
         inherited imp-34174/imp-33743 extrapolation component model, which is NOT a rigorous asymptotic. E_flow
         is the benign mesoscopic-Gronwall term (imp-2845) and its vanishing here does NOT touch the divergent
         C_Lip collision-Gronwall; the C_mb GUE-conditional per imp-486 is UNTOUCHED (E_coll untouched); the C_C

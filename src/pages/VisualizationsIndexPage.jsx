@@ -1216,7 +1216,7 @@ export default function VisualizationsIndexPage() {
         ))}
       </div>
 
-      {/* Honest scope */}
+      {/* Scope */}
       <div
         className="card"
         style={{ marginTop: 28, padding: 14, borderLeft: '3px solid #06b6d4' }}
@@ -1231,7 +1231,7 @@ export default function VisualizationsIndexPage() {
             marginBottom: 8,
           }}
         >
-          honest scope
+          scope
         </div>
         <ul
           style={{

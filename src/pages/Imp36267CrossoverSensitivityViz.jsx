@@ -175,7 +175,7 @@ export default function Imp36267CrossoverSensitivityViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation only, reusing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only, reusing the
         imp-36139 sensitivity sweep and the imp-35968 crossover bisector unchanged (only E_trunc is
         varied). The imp-35968 quote N_cross &asymp; 3.28e9 is a floor-sensitivity readout of the
         specific imp-2631 value, not an intrinsic landmark. C_C = (1/8) sqrt(3&nbsp;pi)

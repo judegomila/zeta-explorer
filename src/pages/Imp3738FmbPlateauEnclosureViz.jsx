@@ -207,7 +207,7 @@ export default function Imp3738FmbPlateauEnclosureViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> rigorous real-analysis enclosure
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> rigorous real-analysis enclosure
         given the Odlyzko zero table as input (no RH, no GUE, no local law); discharges the
         cond-fmb-nonregression-above-1e4 hypothesis and retires the maxSmoothScaleRatio = 2.15 heuristic
         slack. It does NOT touch cond-CH or the other conditional legs of bound-imp-1088-finite-1e6, and

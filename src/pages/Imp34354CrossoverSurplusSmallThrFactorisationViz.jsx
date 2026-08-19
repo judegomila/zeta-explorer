@@ -267,7 +267,7 @@ export default function Imp34354CrossoverSurplusSmallThrFactorisationViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, baked literals
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked literals
         reproducing the imp-34248 measurement; no new derivation, no bound changed. Derivation/measurement
         only within the inherited imp-34174/imp-33743 extrapolation component model, which is NOT a rigorous
         asymptotic; E_flow is the benign mesoscopic-Gronwall term (imp-2845) and its vanishing here does NOT

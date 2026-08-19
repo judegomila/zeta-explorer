@@ -117,7 +117,7 @@ export default function Imp35580Req4HeightGapViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Presentation only of the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Presentation only of the
         imp-35538 REQ-4 requirements-scoping figures (no fresh derivation, no heavy data-module
         import); the needed log-height is a scoping estimate under the natural O(1/log T0) GUE
         local-law rate, which itself does NOT yet rigorously exist (imp-35538 REQ 2); this page

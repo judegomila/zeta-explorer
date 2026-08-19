@@ -134,7 +134,7 @@ export default function Imp3589CoshOverestimationFactorViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/certification
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/certification
         only -- no proof, no reduction below RH. F_n(a) = cosh(a T_A)/S_n(a) with the
         residual-shape factor S_n(a) &ge; 1 staying within 0.045% of 1 across the ladder, so the
         over-estimation is dominated by the cosh(a T_A) inflation constant, not the residual

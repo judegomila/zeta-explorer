@@ -148,7 +148,7 @@ export default function Imp33217FifthPairSpreadUlpFloorLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement only --
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement only --
         adds one resolved nonzero rung to a still-floor-level three-nonzero-point sample.
         Rules out a coherent power law but does NOT pin a resolved growth exponent, does
         NOT re-certify the pairing (imp-3668), does NOT establish the fifth-pair amplitude

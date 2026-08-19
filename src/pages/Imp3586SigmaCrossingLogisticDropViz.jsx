@@ -215,7 +215,7 @@ export default function Imp3586SigmaCrossingLogisticDropViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/visualization
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization
         only -- no proof, no reduction below RH. The crossings are certified roots on the exact
         imp-3220/imp-3406/imp-3463 sub-terms, and the drop profile is a central-difference
         reading of the same sigma(N), not a fresh derivation. The imp-3066 K_a &ge; 0

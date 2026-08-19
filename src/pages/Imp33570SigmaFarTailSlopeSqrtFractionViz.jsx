@@ -167,7 +167,7 @@ export default function Imp33570SigmaFarTailSlopeSqrtFractionViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/visualization only
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization only
         &mdash; the underlying component model is the inherited imp-3220/imp-3406 extrapolation,
         NOT a rigorous asymptotic. C_C is GUE-conditional per imp-486; changes no bound; imp-3066
         K_a &ge; 0 remains untouched; no positivity, no bridge closure, no RH claim. No RH verdict,

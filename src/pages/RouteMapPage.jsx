@@ -293,7 +293,7 @@ export default function RouteMapPage() {
           </div>
           <div style={{ padding: '9px 11px', borderRadius: 6, background: 'rgba(194,58,28,0.06)', border: '1px solid rgba(194,58,28,0.3)' }}>
             <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--terra-dk)', marginBottom: 5, letterSpacing: '0.04em' }}>
-              HONEST SCOPE — NOT A BOUND
+              SCOPE — NOT A BOUND
             </div>
             <div style={{ fontSize: 12, color: 'var(--ink)', lineHeight: 1.6 }}>
               {C_SHOCK_CROSS_VALIDATION_IMP3026.surrogateStillRefuted} {C_SHOCK_CROSS_VALIDATION_IMP3026.honestNote}
@@ -324,7 +324,7 @@ export default function RouteMapPage() {
           </div>
           <div style={{ padding: '9px 11px', borderRadius: 6, background: 'rgba(194,58,28,0.06)', border: '1px solid rgba(194,58,28,0.3)' }}>
             <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--terra-dk)', marginBottom: 5, letterSpacing: '0.04em' }}>
-              HONEST SCOPE — NOT A NEW BOUND
+              SCOPE — NOT A NEW BOUND
             </div>
             <div style={{ fontSize: 12, color: 'var(--ink)', lineHeight: 1.6 }}>
               {C_SHOCK_N_DEPENDENCE_IMP3070.honestNote} This viz certifies the uniformity of an
@@ -418,7 +418,7 @@ export default function RouteMapPage() {
           </div>
           <div style={{ padding: '9px 11px', borderRadius: 6, background: 'rgba(194,58,28,0.06)', border: '1px solid rgba(194,58,28,0.28)' }}>
             <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--terra-dk)', marginBottom: 4, letterSpacing: '0.05em' }}>
-              HONEST SCOPE — REPRESENTATIVE TRUNCATION, NO RH VERDICT
+              SCOPE — REPRESENTATIVE TRUNCATION, NO RH VERDICT
             </div>
             <div style={{ fontSize: 12, color: 'var(--ink)', lineHeight: 1.6 }}>
               {IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION.honestCaveat.opNormCarriesNoRHVerdict}{' '}

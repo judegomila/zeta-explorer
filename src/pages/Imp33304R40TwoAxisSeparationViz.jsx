@@ -149,7 +149,7 @@ export default function Imp33304R40TwoAxisSeparationViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/visualization
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization
         only -- no proof, no reduction below RH. This chart tabulates the inner-vs-outer
         sensitivity axes of a single moment-ratio diagnostic (R_40) used inside a mass-feasibility
         check; mass-feasibility is necessary-but-not-sufficient and the operator-level K_a &ge; 0

@@ -158,7 +158,7 @@ export default function Imp34378TroughPeakRatioCeilingViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, baked
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked
         literals reproducing the imp-34288 measurement; no new derivation, no bound changed.
         Descriptive OLS surrogate/fit, NOT a rigorous asymptotic; C_mb GUE-conditional per
         imp-486 UNTOUCHED; imp-3066 K_a&ge;0 untouched; NO QED; Platt-Trudgian Lambda&le;0.2

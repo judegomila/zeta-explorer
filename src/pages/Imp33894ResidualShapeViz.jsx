@@ -149,7 +149,7 @@ export default function Imp33894ResidualShapeViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/visualization only
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization only
         -- the curvature shown here is real (a coherent low-frequency structure, not scatter) but
         stays small (&sim;12% multiplicative, within &sim;0.12 ln-ratio units) and does NOT overturn
         the imp-33843 log-linear-over-power-law form selection (R^2 &sim;0.99715 unchanged). The

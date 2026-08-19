@@ -236,7 +236,7 @@ export default function Imp34535DriftResidualVsStepSizeViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement / finite-difference
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement / finite-difference
         diagnostic only, reproducing the imp-34513 cross-check. The component model is the inherited
         imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the -2 asymptote and C_C =
         (1/8)sqrt(3 pi) (imp-2714) ansatz are UNTOUCHED; the C_mb GUE-conditional share per imp-486 is

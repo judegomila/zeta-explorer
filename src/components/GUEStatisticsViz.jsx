@@ -425,7 +425,7 @@ export default function GUEStatisticsViz() {
             <div style={{ marginTop: 4, fontSize: 11, color: '#94a3b8' }}>
               <InlineMath tex={"D = \\sup_s |F_{\\text{emp}}(s) - F_{\\text{GUE}}(s)|"} /> against the closed-form
               surmise CDF <InlineMath tex={"F_{\\text{GUE}}(s) = \\operatorname{erf}(2s/\\sqrt{\\pi}) - \\tfrac{4}{\\pi} s\\,e^{-4s^2/\\pi}"} />.
-              <strong> Honest scope:</strong> a small, shrinking <InlineMath tex={"D"} /> is strong NUMERICAL evidence
+              <strong> Scope:</strong> a small, shrinking <InlineMath tex={"D"} /> is strong NUMERICAL evidence
               the gaps track the Wigner surmise &mdash; it is not a proof of GUE universality for the zeta zeros.
             </div>
           </div>

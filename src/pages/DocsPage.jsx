@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import SystemArchitectureDiagram from '../components/SystemArchitectureDiagram.jsx';
-import PageHeader from '../components/PageHeader.jsx';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import TableOfContents from '../components/TableOfContents.jsx';
 
 const TOC = [
@@ -30,13 +31,16 @@ function Fn({ name, params, desc }) {
 
 export default function DocsPage() {
   return (
-    <div className="page">
-      <PageHeader title="Documentation">
-        <p>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>reference · docs</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+      <div style={{ marginBottom: 24 }}>
+        <h1 className="ed-h1" style={{ marginBottom: 10 }}>Documentation</h1>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
           Complete technical reference for the Twin-Ladder Bridge app: mathematical model,
           architecture, algorithms, and every module and component documented.
         </p>
-      </PageHeader>
+      </div>
 
       <TableOfContents sections={TOC} />
 
@@ -83,7 +87,7 @@ export default function DocsPage() {
             { color: '#f59e0b', label: 'Analysis' },
             { color: '#ef4444', label: 'Computation' },
           ].map(l => (
-            <div key={l.label} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 11, color: '#94a3b8' }}>
+            <div key={l.label} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 11, color: 'var(--ink-soft)' }}>
               <span style={{ width: 10, height: 10, borderRadius: '50%', background: l.color, flexShrink: 0 }} />
               {l.label}
             </div>
@@ -224,8 +228,8 @@ export default function DocsPage() {
             { route: '/paper-upload', name: 'Paper Upload', desc: 'LaTeX paper upload and parsing tool with live preview' },
             { route: '/twin-ladder', name: 'Twin Ladder', desc: 'TwinLadderViz — 5-tab (anatomy, pressure/temperature, freezing, collapse, phase diagram)' },
             { route: '/calabi-yau', name: 'Calabi-Yau', desc: 'CalabiYauViz — Calabi-Yau manifold attack on RH via Weil conjecture cohomological machinery' },
-            { route: '/vortex-field', name: 'Vortex Field', desc: 'Domain-colored phase portrait of V(s) = xi\'(s)/xi(s): zeros appear as phase vortices with winding ±1 (argument principle). Interactive off-axis vortex slider shows what an RH violation would look like. Honest ceiling: exact exploratory visualization, not a new rigorous Lambda bound.' },
-            { route: '/visual-geometries', name: 'Visual Geometries', desc: 'Master gallery of 13 visualization panels — log-phase interference spiral, prime caustic geometry, phase crystal, hyperbolic prime spiral, vortex/defect map, near-zero rings, twin-ladder tomography, and more. Honest framing: exploratory pedagogy; twin-ladder geometry is a dead-end as a rigorous proof route.' },
+            { route: '/vortex-field', name: 'Vortex Field', desc: 'Domain-colored phase portrait of V(s) = xi\'(s)/xi(s): zeros appear as phase vortices with winding ±1 (argument principle). Interactive off-axis vortex slider shows what an RH violation would look like. Ceiling: exact exploratory visualization, not a new rigorous Lambda bound.' },
+            { route: '/visual-geometries', name: 'Visual Geometries', desc: 'Master gallery of 13 visualization panels — log-phase interference spiral, prime caustic geometry, phase crystal, hyperbolic prime spiral, vortex/defect map, near-zero rings, twin-ladder tomography, and more. Framing: exploratory pedagogy; twin-ladder geometry is a dead-end as a rigorous proof route.' },
             { route: '/mills-theorem', name: 'Mills Theorem', desc: 'Mills constant A ≈ 1.3064 where the floor of A^(3^n) is prime for all n ≥ 1. Live primality recurrence table with precomputed continuation.' },
             { route: '/gilbreath', name: 'Gilbreath Observation', desc: 'Gilbreath conjecture: iterated differences of the prime sequence always begin with 1. Difference triangle with Croft-generalization toggle and depth-of-verification readout.' },
             { route: '/berry-keating-xp', name: 'Berry-Keating XP', desc: 'Berry-Keating xp operator as conjectured quantum Hamiltonian for RH — spectral analysis with honest non-match banner.' },
@@ -250,7 +254,7 @@ export default function DocsPage() {
             { route: '/lambda-timeline', name: 'Lambda Timeline', desc: 'Peer-reviewed bound history plus separately graded public claims and the private review candidate, with the RH target Λ ≤ 0.' },
             { route: '/newman-lambda-01787854-candidate', name: '0.1787854 Candidate Package', desc: 'Unreviewed computer-assisted candidate for an unconditional proof, with claimed zero-free regions, replay evidence, provenance, and clear notice that the bound is not established, not peer reviewed, and not RH.' },
             { route: '/rigor-dashboard', name: 'Rigor Dashboard', desc: 'Dashboard tracking which Twin-Ladder Bridge claims have rigorous status vs numerical estimates — per-module certification ledger.' },
-            { route: '/rh-proof-state', name: 'RH Proof State', desc: 'Live dashboard of the RH proof attempt: honest assessment per step, unresolved gaps, and finite-beat counts.' },
+            { route: '/rh-proof-state', name: 'RH Proof State', desc: 'Live dashboard of the RH proof attempt: assessment per step, unresolved gaps, and finite-beat counts.' },
             { route: '/route-map', name: 'Route Map', desc: 'Full interactive map of proof routes — DAG with status (rigorous, RH-equivalent, estimate, refuted) and open gaps highlighted.' },
             { route: '/twin-ladder-paper-roadmap', name: 'Twin Ladder Roadmap', desc: 'Roadmap toward a rigorous twin-ladder paper — certified lemmas, open gaps, and next publication milestones.' },
             { route: '/paper-audit-dashboard', name: 'Paper Audit', desc: 'Dashboard auditing paper claims — each assertion cross-checked against source code and literature with overclaim flags.' },
@@ -535,9 +539,9 @@ export default function DocsPage() {
               ['ThermoBar', 'Waves', 'SVG', 'Thermodynamic state indicator bar'],
               ['VortexFieldPage', 'Vortex Field', 'Canvas', 'Domain-colored phase portrait of V(s)=xi\'(s)/xi(s): zeros appear as phase vortices with winding ±1; off-axis slider makes an RH violation geometrically visible. Illustrative — not a new Λ bound.'],
               ['VizCausticResonancePage', 'Caustic Resonance', 'Canvas', 'Resonance-condition overlay: at each height t plots the coherent-prime count and tick-marks every t satisfying log(p_i/p_j)=2πk/t (prime beat frequencies). Illustrative caustic explorer.'],
-              ['VizWindingDysonFlowPage', 'Winding Dyson Flow', 'Canvas', 'Animated winding-number / domain-color readout of the de Bruijn-Newman zero flow; central zero can be shifted off-axis to show topological change. Honest ceiling: re-derives Λ ≥ 0 only.'],
+              ['VizWindingDysonFlowPage', 'Winding Dyson Flow', 'Canvas', 'Animated winding-number / domain-color readout of the de Bruijn-Newman zero flow; central zero can be shifted off-axis to show topological change. Ceiling: re-derives Λ ≥ 0 only.'],
               ['VizPrimeDensityOnCausticPage', 'Prime Density on Caustic', 'Canvas', 'Heatmap of which primes (by index) satisfy the caustic phase condition at each imaginary height t; per-column coherent-fraction profile vs PNT baseline. Exploratory illustration.'],
-              ['VisualGeometriesPage', 'Visual Geometries', 'Canvas+SVG', 'Master gallery of 13 visualization panels: log-phase spiral, prime caustic, phase crystal, hyperbolic prime spiral, vortex/defect map, near-zero rings, twin-ladder tomography, and more. Honest framing: pedagogical; twin-ladder geometry is a dead-end as a rigorous proof route.'],
+              ['VisualGeometriesPage', 'Visual Geometries', 'Canvas+SVG', 'Master gallery of 13 visualization panels: log-phase spiral, prime caustic, phase crystal, hyperbolic prime spiral, vortex/defect map, near-zero rings, twin-ladder tomography, and more. Framing: pedagogical; twin-ladder geometry is a dead-end as a rigorous proof route.'],
             ].map(([name, page, renderer, purpose]) => (
               <tr key={name}>
                 <td style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent-blue)', fontSize: 12 }}>{name}</td>
@@ -795,7 +799,7 @@ export default function DocsPage() {
 
         <div className="card" style={{ marginTop: 16, borderColor: 'var(--accent-orange)' }}>
           <p style={{ color: 'var(--accent-orange)', fontSize: 13, fontWeight: 600, marginBottom: 4 }}>
-            Honest ceiling
+            Ceiling
           </p>
           <p style={{ fontSize: 13, marginBottom: 8 }}>
             The vortex / winding-number picture re-derives <InlineMath tex={"\\Lambda \\geq 0"} /> (Rodgers–Tao) and makes RH geometrically visible,
@@ -815,6 +819,24 @@ export default function DocsPage() {
           the Concepts glossary (search &quot;phase-vortex-rh&quot;) for the mathematical definition and intuition behind the phase-winding picture.
         </p>
       </section>
+
+      {/* Footer: related links */}
+      <footer style={{ marginTop: 32, padding: '16px 0', borderTop: '1px solid var(--hairline)' }}>
+        <div style={{ fontSize: 12, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+          Related pages:
+        </div>
+        <div style={{ marginTop: 8, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+          <Link to="/lambda-bounds" style={{ color: 'var(--blue)', fontSize: 13 }}>/lambda-bounds</Link>
+          <Link to="/route-map" style={{ color: 'var(--blue)', fontSize: 13 }}>/route-map</Link>
+          <Link to="/vortex-field" style={{ color: 'var(--blue)', fontSize: 13 }}>/vortex-field</Link>
+          <Link to="/visualizations" style={{ color: 'var(--blue)', fontSize: 13 }}>/visualizations</Link>
+          <Link to="/rigor-dashboard" style={{ color: 'var(--blue)', fontSize: 13 }}>/rigor-dashboard</Link>
+        </div>
+        <div style={{ marginTop: 12 }}>
+          <Link to="/">&larr; the atlas</Link>
+        </div>
+      </footer>
+      </div>
     </div>
   );
 }

@@ -624,10 +624,10 @@ export default function EdgeRigidityPage() {
           </div>
         </div>
 
-        {/* Honest scope panel. */}
+        {/* Scope panel. */}
         <div className="card" style={{ ...cardBaseLeft('var(--brass-dk)'), marginTop: 16 }}>
           <div style={{ ...cardLabel, color: 'var(--brass-dk)', marginBottom: 8 }}>
-            Honest scope
+            Scope
           </div>
           <ul
             style={{

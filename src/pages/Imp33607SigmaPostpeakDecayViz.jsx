@@ -184,7 +184,7 @@ export default function Imp33607SigmaPostpeakDecayViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/visualization only -- no
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization only -- no
         proof, no reduction below RH. sigma(N) is the inherited imp-3220/imp-3406 extrapolation model, NOT
         a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is untouched; changes no bound;
         establishes no operator positivity; imp-3066 K_a &ge; 0 remains untouched. No RH verdict, NO QED.

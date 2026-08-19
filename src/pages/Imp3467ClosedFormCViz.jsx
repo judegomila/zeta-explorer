@@ -125,7 +125,7 @@ export default function Imp3467ClosedFormCViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> certification/measurement only — no
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> certification/measurement only — no
         proof, no reduction below RH. The closed-form C is assembled directly (no Richardson extrapolation)
         from two fixed Phi-shape spectral quantities and is U-independent by construction; the direct-numerator
         route is the extrapolated cross-check that converges to the same number. The imp-3470 obstruction

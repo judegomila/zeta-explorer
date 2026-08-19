@@ -207,7 +207,7 @@ export default function Imp34099AggregateShareWindowSensitivityViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> {FINDING.R1_headline_is_endpoint_contingent}{' '}
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> {FINDING.R1_headline_is_endpoint_contingent}{' '}
         {FINDING.R2_drift_is_non_monotone_bumps_up_at_first_shrink} Endpoint-sensitivity diagnostic only,
         reusing the inherited imp-3220/imp-3406 component model verbatim; no fresh derivation, no bound
         changed, no operator positivity established; imp-3066 K_a&gt;=0 untouched; C_mb GUE-conditional

@@ -386,7 +386,7 @@ export default function PaperAuditDashboardPage() {
                 fontWeight: 700,
               }}
             >
-              HONEST STATUS — §15-27 PROGRAM TARGET IS RH-EQUIVALENT
+              STATUS — §15-27 PROGRAM TARGET IS RH-EQUIVALENT
             </span>
             <span style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>
               (imp-3190 re-characterization)
@@ -552,10 +552,10 @@ export default function PaperAuditDashboardPage() {
           </div>
         </section>
 
-        {/* ── Honest scope ───────────────────────────────────────────── */}
+        {/* ── Scope ───────────────────────────────────────────── */}
         <section style={{ marginBottom: 32 }}>
           <h2 className="ed-h2" style={{ marginBottom: 12 }}>
-            Honest scope
+            Scope
           </h2>
           <ul
             style={{

@@ -122,7 +122,7 @@ export default function Imp35582ReentryBandDataUnreachabilityViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Presentation only of the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Presentation only of the
         imp-35537 Part D / imp-35243 D2 data-unreachability figures (no fresh derivation, no
         heavy data-module import); the reentry band is a diagnostic of a surrogate
         iterate-COUNT, not a Lambda lever, so even a perfect R1t closure would move no bound;

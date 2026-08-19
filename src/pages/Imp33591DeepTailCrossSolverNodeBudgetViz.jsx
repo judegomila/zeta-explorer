@@ -239,7 +239,7 @@ export default function Imp33591DeepTailCrossSolverNodeBudgetViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong>
+        <strong style={{ color: '#94a3b8' }}>Status:</strong>
         accuracy/rule-design cross-solver measurement only, of an
         already-verified table (imp-33560). It changes no bound and patches no
         literal (imp-33213/imp-33316/imp-33539/imp-33560 intact); the

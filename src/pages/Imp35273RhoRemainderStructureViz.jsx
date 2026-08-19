@@ -160,7 +160,7 @@ export default function Imp35273RhoRemainderStructureViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the imp-35244
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-35244
         measurement literals verbatim (no new computation) on the imp-35193 clean window N&nbsp;=&nbsp;1e3..1e6.
         Pinning the eps^(5/2) slot empty and the eps^(7/2) coefficient sharpens the remainder SHAPE but is not a
         certified uniform modulus of convergence on the TRUE RvM cusp jet; does NOT discharge O3 or

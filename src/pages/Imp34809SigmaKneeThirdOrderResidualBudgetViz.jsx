@@ -168,7 +168,7 @@ export default function Imp34809SigmaKneeThirdOrderResidualBudgetViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
         imp-34770 residualBudget table (imported literals, no new computation); establishes no new
         numerical claim. Conditional-share diagnostic on the inherited imp-3220/imp-3406
         extrapolation, NOT an RH bound. C_mb GUE-conditional per imp-486 untouched; imp-3066

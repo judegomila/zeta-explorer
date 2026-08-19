@@ -231,7 +231,7 @@ export default function Imp34986CrossoverNumeratorPolynomialLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page reconstructing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page reconstructing the
         imp-34957/imp-34922/imp-34905/imp-34880 P_n coefficient tables from the same operator
         recurrence (no new computation beyond re-deriving the verbatim table for the plot); leading
         (n-1)! and constant (2n-3)!! match through n=12 (leadingOK={String(allLeadingMatch)},

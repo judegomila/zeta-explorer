@@ -194,7 +194,7 @@ export default function Imp34914EflowKneeInflectionCrossingViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page resampling the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page resampling the
         imp-34886/34837/34858/34820/34749 closed forms verbatim across a dense s grid (no new computation).
         Measurement/derivation on the INHERITED imp-3220/imp-3406 surrogate crossover map; the C_mb
         GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; changes no

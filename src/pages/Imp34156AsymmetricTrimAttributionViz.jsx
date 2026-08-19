@@ -209,7 +209,7 @@ export default function Imp34156AsymmetricTrimAttributionViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> {FINDING.R1_share_drop_is_head_dominated}{' '}
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> {FINDING.R1_share_drop_is_head_dominated}{' '}
         {FINDING.R3_F4_unity_crossing_is_tail_only} Directional attribution only, reusing the inherited
         imp-3220/imp-3406 component model verbatim. <SurrogateDiagnosticCohortNote />
       </div>

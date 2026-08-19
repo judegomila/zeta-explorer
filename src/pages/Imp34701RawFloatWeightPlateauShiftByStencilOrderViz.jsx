@@ -149,7 +149,7 @@ export default function Imp34701RawFloatWeightPlateauShiftByStencilOrderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/cross-validation only,
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/cross-validation only,
         isRigorous false on both source modules; the inherited imp-3220/imp-3406 sigma&nbsp;-&gt;&nbsp;1
         deep-tail surrogate (least trustworthy there) is carried as-is and NOT rigorous. Neither module
         changes a bound; the C_mb GUE-conditional share per imp-486 is untouched, imp-3066 K_a&gt;=0

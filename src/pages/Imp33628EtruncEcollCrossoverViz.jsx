@@ -180,7 +180,7 @@ export default function Imp33628EtruncEcollCrossoverViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/visualization only
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization only
         -- the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
         asymptotic. The E_trunc route is GUE-conditional-free but the C_mb GUE-conditional share
         per imp-486 is untouched; changes no bound; establishes no operator positivity; imp-3066

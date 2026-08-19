@@ -171,7 +171,7 @@ export default function Imp34911ForwardBreachBandUniformityViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
         imp-34889 bandTable/measured literals verbatim (no new computation). Feasibility/measurement on
         the INHERITED imp-3220/imp-3406 surrogate crossover map; does NOT instantiate the imp-34687a
         directed-rounding layer; imp-34714a REMAINS OPEN. C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb

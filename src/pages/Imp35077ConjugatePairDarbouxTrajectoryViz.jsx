@@ -173,7 +173,7 @@ export default function Imp35077ConjugatePairDarbouxTrajectoryViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the imp-34947
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-34947
         per-window {'{k, theta_k, R_k}'} literals verbatim (baked via IMP34947_RECURRENCE_WINDOWS, no
         recomputation on this page). Measurement only on the inherited imp-3220/imp-3406 extrapolation
         surrogate; C_mb GUE-conditional per imp-486 untouched; changes no bound; establishes no operator

@@ -191,7 +191,7 @@ export default function Imp3903SminDminSlackViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> this corrects an imp-3854
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> this corrects an imp-3854
         CHARACTERIZATION (the residual mechanism), not its inequality &mdash; LEMMA 3854 stays a
         valid (loose) over-bound and the certified K_paper enclosure is untouched. Measurement only;
         the imp-3870-sub-concavity-fit sub-gap stays open; no new Lambda bound; imp-3066 K_a &ge; 0

@@ -172,7 +172,7 @@ export default function Imp3635FlowFactorBandViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong>{' '}
+        <strong style={{ color: '#94a3b8' }}>Status:</strong>{' '}
         measurement/certification only -- confirms the imp-3580
         floor-invariance and ~0.996 band are Gronwall-insensitive, not a
         frozen-constant artifact. It does not establish a bridge closure or

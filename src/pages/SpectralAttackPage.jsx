@@ -816,7 +816,7 @@ function DrhoSelfIsolationPlot() {
         ))}
       </div>
       <p style={{ color: 'var(--faint)', fontSize: 12, marginTop: 8, lineHeight: 1.7 }}>
-        Honest residual: the single-neighbour sign law (cyan) is closed in exact form; the multi-body
+        Residual: the single-neighbour sign law (cyan) is closed in exact form; the multi-body
         constant remains open between ~0.902 and 0.943. The Theorem-C basin cap 0.72 has a safety margin
         &ge;0.18 below all known worsening onsets, so basin-conditional self-isolation is unaffected.
       </p>
@@ -1186,7 +1186,7 @@ function ShellOnsetLadderSection() {
 
       <div style={{ background: "rgba(181,138,46,0.07)", border: "1px solid rgba(181,138,46,0.25)", borderRadius: 8, padding: "10px 14px" }}>
         <div style={{ color: "#b58a2e", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
-          Honest residual: global multi-body constant stays OPEN
+          Residual: global multi-body constant stays OPEN
         </div>
         <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.7 }}>
           {cc.agreement}
@@ -1325,7 +1325,7 @@ function ConditioningCollapseBars() {
 
       <div style={{ background: 'rgba(181,138,46,0.07)', border: '1px solid rgba(181,138,46,0.25)', borderRadius: 8, padding: '10px 14px', marginTop: 12 }}>
         <div style={{ color: 'var(--brass-dk)', fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
-          Honest scope: diagnostic on the representative truncation &mdash; no RH verdict
+          Scope: diagnostic on the representative truncation &mdash; no RH verdict
         </div>
         <div style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7 }}>
           Structural diagnostic on the same representative degree-{IMP3086_ORTHOGONALIZED_BASIS_CONDITIONING.construction.degree}{' '}
@@ -1421,7 +1421,7 @@ function CThetaFlatInvariantPanel() {
 
       <div style={{ background: "rgba(181,138,46,0.07)", border: "1px solid rgba(181,138,46,0.25)", borderRadius: 8, padding: "10px 14px" }}>
         <div style={{ color: "#b58a2e", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
-          Honest scope: scale-law signature only &mdash; does NOT close the off-basin divergence
+          Scope: scale-law signature only &mdash; does NOT close the off-basin divergence
         </div>
         <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.7 }}>
           {inv.honest}
@@ -1532,7 +1532,7 @@ function CThetaSensitivityLogLogPlot() {
 
       <div style={{ background: 'rgba(181,138,46,0.07)', border: '1px solid rgba(181,138,46,0.25)', borderRadius: 8, padding: '10px 14px', marginTop: 12 }}>
         <div style={{ color: 'var(--brass-dk)', fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
-          Honest scope: g&#x2080;-space visualization only &mdash; does NOT close the off-basin divergence
+          Scope: g&#x2080;-space visualization only &mdash; does NOT close the off-basin divergence
         </div>
         <div style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7 }}>
           The two lines separate exactly at &rho;* = 2/3 (where &#x398; hits the Theorem-A trap 1/4): below it
@@ -1710,7 +1710,7 @@ function AsymIsolationClosedFormPanel() {
 
       <div style={{ background: "rgba(194,58,28,0.07)", border: "1px solid rgba(194,58,28,0.25)", borderRadius: 8, padding: "10px 14px" }}>
         <div style={{ color: "#c23a1c", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
-          Honest status
+          Status
         </div>
         <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.7 }}>
           {d.honest}
@@ -2029,7 +2029,7 @@ function MinGapSelectorDiscontinuityViz() {
       </div>
 
       <div style={{ background: "rgba(194,58,28,0.07)", border: "1px solid rgba(194,58,28,0.25)", borderRadius: 8, padding: "10px 14px", marginTop: 12 }}>
-        <div style={{ color: "#c23a1c", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>Honest status</div>
+        <div style={{ color: "#c23a1c", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>Status</div>
         <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.7 }}>{d.honest}</div>
       </div>
     </div>
@@ -2092,7 +2092,7 @@ function IndependentIntegratorCrossValidationPanel() {
         </table>
       </div>
       <div style={{ background: "rgba(194,58,28,0.07)", border: "1px solid rgba(194,58,28,0.25)", borderRadius: 8, padding: "10px 14px", marginTop: 12 }}>
-        <div style={{ color: "#c23a1c", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>Honest status</div>
+        <div style={{ color: "#c23a1c", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>Status</div>
         <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.7 }}>{d.honest}</div>
       </div>
     </div>
@@ -2235,7 +2235,7 @@ function ConfigABDrhoViz() {
       </div>
 
       <div style={{ background: "rgba(181,138,46,0.07)", border: "1px solid rgba(181,138,46,0.25)", borderRadius: 8, padding: "10px 14px", marginTop: 14 }}>
-        <div style={{ color: "#b58a2e", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>Honest status</div>
+        <div style={{ color: "#b58a2e", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>Status</div>
         <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.7 }}>
           Config-A&apos;s naive onset is a SELECTOR ARTIFACT (flat -0.59 branch, no zero crossing); reading
           off the PINNED left-branch restores the genuine onset at c_asym = 0.9027902.

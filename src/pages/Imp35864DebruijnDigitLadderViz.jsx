@@ -215,7 +215,7 @@ export default function Imp35864DebruijnDigitLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation only of the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only of the
         already-derived imp-35811 BigInt measurement (no new derivation, no heavy data-module import,
         no ~520-digit recomputation at page load); measures ONLY the exp(-&pi;x/8) underflow-driven
         mantissa-digit requirement off the imp-35781-measured accumulator scale K; evaluates no true

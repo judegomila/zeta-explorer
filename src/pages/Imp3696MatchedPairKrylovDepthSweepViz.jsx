@@ -238,7 +238,7 @@ export default function Imp3696MatchedPairKrylovDepthSweepViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/fit only --
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/fit only --
         this visualizes the imp-3663 matched-pair anchor triple and fit discrimination; it does
         NOT construct the missing magnitude and does NOT attempt the imp-3066 K_a &ge; 0
         positivity. RH-equivalent, necessary-but-not-sufficient. Platt-Trudgian &Lambda; &le; 0.2

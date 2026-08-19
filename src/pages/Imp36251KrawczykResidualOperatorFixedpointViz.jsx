@@ -127,7 +127,7 @@ export default function Imp36251KrawczykResidualOperatorFixedpointViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> {IMP36251_FINDING.fCrossesZeroAtCenter}.{' '}
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP36251_FINDING.fCrossesZeroAtCenter}.{' '}
         {IMP36251_FINDING.fPrimeStaysFarFromZero}. {IMP36251_FINDING.illustrativeOnly}. The imp-36154
         R1-R6 requirements (certified value, certified derivative enclosure, machine (H1)/(H2) tests,
         directed-rounding layer, seed + assembly) are untouched; imp-34687a stays UNIMPLEMENTED and

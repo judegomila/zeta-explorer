@@ -179,7 +179,7 @@ export default function Imp34854D2LocatorConvergenceViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page presenting the imp-34820
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page presenting the imp-34820
         literals verbatim (no new computation). Component model is the inherited imp-3220/imp-3406 surrogate
         crossover map, NOT a rigorous asymptotic; the imp-34796/imp-34820 E_flow-reinstatement sub-gap REMAINS
         OPEN. The C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator

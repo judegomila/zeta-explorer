@@ -244,7 +244,7 @@ export default function Imp3541CoshCancellationMarginViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/visualization
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization
         only &mdash; no proof, no reduction below RH. This certifies floating-point
         cancellation-safety of a degree-2 integrand term across k; it establishes no operator
         positivity. Mass-feasibility is necessary-but-not-sufficient and the degree-2 face carries

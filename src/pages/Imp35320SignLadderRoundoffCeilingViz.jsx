@@ -129,7 +129,7 @@ export default function Imp35320SignLadderRoundoffCeilingViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page reusing the imp-35113
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page reusing the imp-35113
         resolvedTable / firstUnresolvedN / firstUnresolvedSignFlips / representativeMagnitudesAtCross
         literals verbatim (no new computation). This is a numerical-differentiation reach limit, not a
         sign change: the analytic ladder holds for ALL n by the imp-34880 coefficient-positivity

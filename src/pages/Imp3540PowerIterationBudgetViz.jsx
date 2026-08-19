@@ -191,7 +191,7 @@ export default function Imp3540PowerIterationBudgetViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/visualization
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization
         only -- no proof, no reduction below RH. The budget ladder and fixed-budget gap curve are
         two views of the same skew-Toeplitz top-singular-gap shrinkage imp-3505 diagnosed
         (later fit in closed form by imp-3530); they do not construct the missing K_a &ge; 0

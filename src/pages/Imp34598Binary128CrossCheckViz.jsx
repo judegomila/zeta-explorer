@@ -133,7 +133,7 @@ export default function Imp34598Binary128CrossCheckViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, reusing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, reusing the
         imp-34569 three-way native/dd/bf node table verbatim, no new computation. Independent
         extended-precision cross-validation of an inherited widened pipeline, NOT an RH bound; the
         component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous

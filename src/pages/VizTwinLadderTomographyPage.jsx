@@ -615,7 +615,7 @@ export default function VizTwinLadderTomographyPage() {
           marginTop: 12, fontFamily: 'var(--font-mono)', fontSize: 10,
           color: '#94a3b8', lineHeight: 1.6,
         }}>
-          Honest scope: this page is a visualization scaffold, not a proof.
+          Scope: this page is a visualization scaffold, not a proof.
           The interference-minimum reading is a qualitative consequence of the
           functional equation and is not a new result.
           The zeta evaluator is {VIZ_TWIN_LADDER_TOMOGRAPHY.zetaEvaluator}.

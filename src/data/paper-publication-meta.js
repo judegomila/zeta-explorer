@@ -14,7 +14,7 @@
 // the paper" link or footer line.
 
 export const PAPER_TITLE =
-  '[WITHDRAWN] May 2026 finite-height manuscript — the claimed unconditional beat depends on undischarged C_H';
+  '[SUPERSEDED — never published] May 2026 internal finite-height draft — the claimed unconditional beat depends on undischarged C_H';
 
 export const PAPER_AUTHORS = Object.freeze(['Jude Gomila']);
 

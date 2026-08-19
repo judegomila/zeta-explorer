@@ -209,7 +209,7 @@ export default function Imp3904TwoSolverCrossingViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> second-solver CONFIRMATION
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> second-solver CONFIRMATION
         only, at the RH-equivalent scale class; both solvers share the finite NPHI=10 kernel
         truncation, so this removes the Simpson-order worry, not the kernel-truncation floor.
         Mass-feasibility is necessary-but-not-sufficient; operator positivity (imp-3066 off-diagonal

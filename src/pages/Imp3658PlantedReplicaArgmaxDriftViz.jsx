@@ -227,7 +227,7 @@ export default function Imp3658PlantedReplicaArgmaxDriftViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong>{' '}
+        <strong style={{ color: '#94a3b8' }}>Status:</strong>{' '}
         measurement/certification only on a SYNTHETIC planted feature -- it
         confirms the imp-3601 asserted drift law and the imp-3558
         discriminator, not a new bound on |P1|. No positivity, no bridge

@@ -165,7 +165,7 @@ export default function Imp36287KbnFloorHeadroomDivergenceViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation only, baking the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only, baking the
         imp-36083 measured ladder and the imp-36135 extrapolation + crossing solve unchanged. N_cross
         &lt; 1 is an algebraic artifact of solving C&radic;N = floor, not a physical event; it certifies
         no W1 bound, instantiates no directed-rounding interval, evaluates no true H_0, verifies no

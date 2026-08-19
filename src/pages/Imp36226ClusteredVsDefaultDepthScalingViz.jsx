@@ -109,7 +109,7 @@ export default function Imp36226ClusteredVsDefaultDepthScalingViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> {IMP36226_FINDING.clusteredSqrtConsistent}.{' '}
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP36226_FINDING.clusteredSqrtConsistent}.{' '}
         {IMP36226_FINDING.clusteredLinearInconsistent}. {IMP36226_FINDING.defaultStaysHigherAndSubLinear}.{' '}
         {IMP36226_FINDING.clusteredOrderFlattensRelativeToDefault}. Both fits are descriptive log-log
         slopes over a fixed floor-scatter dataset, not certified growth laws; neither certifies a W1

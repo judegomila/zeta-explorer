@@ -196,7 +196,7 @@ export default function Imp35329ExponentDriftClosingComparisonViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only consolidation of
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only consolidation of
         three already-certified conditional-share diagnostics on the inherited imp-3220/imp-3406
         component model; establishes no new numerical claim, no re-derivation, no operator
         positivity. C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; no RH verdict,

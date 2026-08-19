@@ -154,7 +154,7 @@ export default function Imp34655LocalScalingOrderClimbViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, reusing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, reusing the
         imp-34630 measurement literals verbatim (order rows, predicted exponents, flat-tail
         spreads). Distinct from the imp-34611/imp-34639 spread viz &mdash; this plots the fitted
         local scaling ORDER, not the raw drift spread. q1,q2,q3 are inherited central differences,

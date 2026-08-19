@@ -149,7 +149,7 @@ export default function Imp34142WindowAnchorCentroidViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement
         only, confirming that a fixed-span OLS window reads the pointwise
         exponent at its centroid rather than its start. The inherited
         imp-3220/imp-3406 component model is NOT a rigorous asymptotic;

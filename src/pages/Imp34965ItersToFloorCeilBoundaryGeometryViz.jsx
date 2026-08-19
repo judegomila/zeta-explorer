@@ -201,7 +201,7 @@ export default function Imp34965ItersToFloorCeilBoundaryGeometryViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page resampling the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page resampling the
         imp-34926 fixed-point map and ceil-boundary geometry on the same [1e3,1e18] 10^0.05 grid (no
         new math; aggregate counts and bounds baked from imp-34926). MEASUREMENT / ASSESSMENT ONLY on
         the inherited imp-3220/imp-3406 surrogate map, IEEE-754 double precision, no interval

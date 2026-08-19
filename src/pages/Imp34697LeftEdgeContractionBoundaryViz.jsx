@@ -140,7 +140,7 @@ export default function Imp34697LeftEdgeContractionBoundaryViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> visualization of an existing
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> visualization of an existing
         derivation, isRigorous false. N_star is a double-precision root of the Riemann-von Mangoldt
         asymptotic (Lambert W by Halley iteration), not an interval-arithmetic enclosure (imp-34675a
         sub-gap open). Locates a boundary of a property of the inherited imp-3220/imp-3406 surrogate

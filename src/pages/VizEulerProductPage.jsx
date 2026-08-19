@@ -284,7 +284,7 @@ export default function VizEulerProductPage() {
         those dips&thinsp;&mdash;&thinsp;perturbed &ldquo;fake primes&rdquo; do not
         create the same resonance pattern.
         <br /><br />
-        <strong style={{ color: '#94a3b8' }}>Honest scope:</strong> this is
+        <strong style={{ color: '#94a3b8' }}>Scope:</strong> this is
         pedagogical visualization. The truncated product is not &zeta;(s). Per the{' '}
         <Link to="/route-map" style={{ color: '#64748b' }}>route map</Link> the
         arithmetic rigidity of prime logarithms does not yet give a rigorous

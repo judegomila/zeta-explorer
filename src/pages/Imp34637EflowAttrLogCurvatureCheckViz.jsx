@@ -214,7 +214,7 @@ export default function Imp34637EflowAttrLogCurvatureCheckViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, reusing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, reusing the
         imp-34612 closed-form/observed literals verbatim (log-curvature nodes, residual, share,
         floor margin). Both curves being strictly negative at every node confirms the log&sup3;(N)/N
         structure faithfully predicts concavity of ln eflow_attr, E_flow-driven; the stable ~

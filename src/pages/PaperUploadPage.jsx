@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { parseLatex } from '../math/latex-parser.js';
 import { savePaper, exportPaperAsModule, generateId } from '../data/papers.js';
 import PaperRenderer from '../components/PaperRenderer.jsx';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
 // ── PDF.js CDN loader ──────────────────────────────────────────────────────────
 
@@ -99,16 +100,25 @@ function extractClaims(text) {
 }
 
 // ── Shared styles ────────────────────────────────────────────────────────────
+// Editorial (warm) re-theme: full-width page, identical structure/state/logic
+// (recipe: LambdaBoundsPage.jsx). Dark-hex -> editorial var mapping (consistent
+// with other editorial ports, e.g. LambdaBoundsPage.jsx / MetaAccelerationPage.jsx):
+//   #6366f1 / #a5b4fc indigo -> var(--brass)    #8b5cf6 violet -> var(--brass)
+//   #f59e0b / #fbbf24 amber -> var(--brass-dk)  #ef4444 / #f87171 red -> var(--terra-dk)
+//   #10b981 / #34d399 green -> var(--green)     #3b82f6 blue -> var(--blue)
+//   #94a3b8 / #64748b slate -> var(--faint)     #cbd5e1 slate -> var(--ink-soft)
+//   #e2e8f0 light text -> var(--ink)            #0f1629/#0d1220/#0a0e1a dark
+//   surfaces -> var(--paper2) / var(--paper3) / var(--paper)
 
 const cardStyle = {
-  background: '#0f1629',
-  border: '1px solid rgba(99,102,241,0.25)',
+  background: 'var(--paper2)',
+  border: '1px solid rgba(140,106,29,0.25)',
   borderRadius: 12,
   padding: 20,
   marginBottom: 20,
 };
 
-const labelStyle = { color: '#94a3b8', fontWeight: 600, fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.05em' };
+const labelStyle = { color: 'var(--faint)', fontWeight: 600, fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.05em' };
 
 // ── Component ────────────────────────────────────────────────────────────────
 
@@ -293,9 +303,9 @@ export default function PaperUploadPage() {
   // ── Render ───────────────────────────────────────────────────────────────
 
   const tabBtnStyle = (active) => ({
-    background: active ? 'rgba(99,102,241,0.2)' : 'transparent',
-    border: `1px solid ${active ? '#6366f1' : 'rgba(148,163,184,0.2)'}`,
-    color: active ? '#a5b4fc' : '#94a3b8',
+    background: active ? 'rgba(140,106,29,0.2)' : 'transparent',
+    border: `1px solid ${active ? 'var(--brass)' : 'var(--hairline)'}`,
+    color: active ? 'var(--brass)' : 'var(--faint)',
     padding: '10px 28px',
     borderRadius: 8,
     fontSize: 14,
@@ -305,403 +315,427 @@ export default function PaperUploadPage() {
   });
 
   return (
-    <div className="page" style={{ maxWidth: 1400 }}>
-      <div className="page-header">
-        <h1>Upload Paper</h1>
-        <p>Upload a PDF or paste LaTeX to preview, extract claims, and save in the app.</p>
-      </div>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>reference · upload</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <div style={{ marginBottom: 24 }}>
+          <h1 className="ed-h1" style={{ marginBottom: 10 }}>Upload Paper</h1>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
+            Upload a PDF or paste LaTeX to preview, extract claims, and save in the app.
+          </p>
+        </div>
 
-      {/* Tab switcher */}
-      <div role="tablist" aria-label="Upload method" style={{ display: 'flex', gap: 10, marginBottom: 24 }}>
-        <button
-          role="tab"
-          aria-selected={activeTab === 'pdf'}
-          aria-controls="panel-pdf"
-          id="tab-pdf"
-          style={tabBtnStyle(activeTab === 'pdf')}
-          onClick={() => setActiveTab('pdf')}
-        >
-          PDF Upload
-        </button>
-        <button
-          role="tab"
-          aria-selected={activeTab === 'latex'}
-          aria-controls="panel-latex"
-          id="tab-latex"
-          style={tabBtnStyle(activeTab === 'latex')}
-          onClick={() => setActiveTab('latex')}
-        >
-          LaTeX Input
-        </button>
-      </div>
-
-      {/* ═══════════ PDF Tab ═══════════ */}
-      {activeTab === 'pdf' && (
-        <div id="panel-pdf" role="tabpanel" aria-labelledby="tab-pdf">
-          {/* Drop zone */}
-          <div
-            onDrop={pdfLoading ? undefined : handleDrop}
-            onDragOver={pdfLoading ? undefined : handleDragOver}
-            onDragLeave={pdfLoading ? undefined : handleDragLeave}
-            onClick={pdfLoading ? undefined : () => fileInputRef.current?.click()}
-            aria-busy={pdfLoading}
-            aria-label={pdfLoading ? 'Processing PDF, please wait' : 'PDF upload drop zone'}
-            style={{
-              ...cardStyle,
-              border: dragOver ? '2px dashed #6366f1' : '2px dashed rgba(99,102,241,0.3)',
-              background: dragOver ? 'rgba(99,102,241,0.08)' : '#0d1220',
-              textAlign: 'center',
-              padding: '48px 20px',
-              cursor: pdfLoading ? 'not-allowed' : 'pointer',
-              opacity: pdfLoading ? 0.7 : 1,
-              pointerEvents: pdfLoading ? 'none' : 'auto',
-              transition: 'all 0.2s',
-            }}
+        {/* Tab switcher */}
+        <div role="tablist" aria-label="Upload method" style={{ display: 'flex', gap: 10, marginBottom: 24 }}>
+          <button
+            role="tab"
+            aria-selected={activeTab === 'pdf'}
+            aria-controls="panel-pdf"
+            id="tab-pdf"
+            style={tabBtnStyle(activeTab === 'pdf')}
+            onClick={() => setActiveTab('pdf')}
           >
-            <input
-              ref={fileInputRef}
-              type="file"
-              accept=".pdf"
-              onChange={handleFileInput}
-              style={{ display: 'none' }}
-            />
-            <div style={{ fontSize: 40, marginBottom: 12, opacity: 0.6 }}>
-              {pdfLoading ? '\u23F3' : '\uD83D\uDCC4'}
+            PDF Upload
+          </button>
+          <button
+            role="tab"
+            aria-selected={activeTab === 'latex'}
+            aria-controls="panel-latex"
+            id="tab-latex"
+            style={tabBtnStyle(activeTab === 'latex')}
+            onClick={() => setActiveTab('latex')}
+          >
+            LaTeX Input
+          </button>
+        </div>
+
+        {/* ═══════════ PDF Tab ═══════════ */}
+        {activeTab === 'pdf' && (
+          <div id="panel-pdf" role="tabpanel" aria-labelledby="tab-pdf">
+            {/* Drop zone */}
+            <div
+              onDrop={pdfLoading ? undefined : handleDrop}
+              onDragOver={pdfLoading ? undefined : handleDragOver}
+              onDragLeave={pdfLoading ? undefined : handleDragLeave}
+              onClick={pdfLoading ? undefined : () => fileInputRef.current?.click()}
+              aria-busy={pdfLoading}
+              aria-label={pdfLoading ? 'Processing PDF, please wait' : 'PDF upload drop zone'}
+              style={{
+                ...cardStyle,
+                border: dragOver ? '2px dashed var(--brass)' : '2px dashed rgba(140,106,29,0.3)',
+                background: dragOver ? 'rgba(140,106,29,0.08)' : 'var(--paper3)',
+                textAlign: 'center',
+                padding: '48px 20px',
+                cursor: pdfLoading ? 'not-allowed' : 'pointer',
+                opacity: pdfLoading ? 0.7 : 1,
+                pointerEvents: pdfLoading ? 'none' : 'auto',
+                transition: 'all 0.2s',
+              }}
+            >
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept=".pdf"
+                onChange={handleFileInput}
+                style={{ display: 'none' }}
+              />
+              <div style={{ fontSize: 40, marginBottom: 12, opacity: 0.6 }}>
+                {pdfLoading ? '⏳' : '📄'}
+              </div>
+              <div style={{ color: 'var(--ink)', fontSize: 16, fontWeight: 600, marginBottom: 6 }}>
+                {pdfLoading ? 'Processing PDF...' : 'Drag & drop a PDF here, or click to browse'}
+              </div>
+              <div style={{ color: 'var(--faint)', fontSize: 13 }}>
+                Accepts .pdf files. Text will be extracted from all pages.
+              </div>
+              {pdfFileName && !pdfLoading && (
+                <div style={{ color: 'var(--brass)', fontSize: 13, marginTop: 10 }}>
+                  Loaded: {pdfFileName}
+                </div>
+              )}
             </div>
-            <div style={{ color: '#e2e8f0', fontSize: 16, fontWeight: 600, marginBottom: 6 }}>
-              {pdfLoading ? 'Processing PDF...' : 'Drag & drop a PDF here, or click to browse'}
-            </div>
-            <div style={{ color: '#64748b', fontSize: 13 }}>
-              Accepts .pdf files. Text will be extracted from all pages.
-            </div>
-            {pdfFileName && !pdfLoading && (
-              <div style={{ color: '#6366f1', fontSize: 13, marginTop: 10 }}>
-                Loaded: {pdfFileName}
+
+            {pdfError && (
+              <div style={{ ...cardStyle, borderColor: 'var(--terra-dk)', color: 'var(--terra-dk)', fontSize: 13 }}>
+                {pdfError}
               </div>
             )}
-          </div>
 
-          {pdfError && (
-            <div style={{ ...cardStyle, borderColor: '#ef4444', color: '#f87171', fontSize: 13 }}>
-              {pdfError}
-            </div>
-          )}
-
-          {pdfText && (
-            <>
-              {/* PDF stats bar */}
-              <div style={{
-                display: 'flex', gap: 24, flexWrap: 'wrap',
-                padding: '10px 18px',
-                background: 'rgba(99,102,241,0.07)',
-                border: '1px solid rgba(99,102,241,0.2)',
-                borderRadius: 8,
-                marginBottom: 16,
-                fontSize: 13,
-                alignItems: 'center',
-              }}>
-                {pdfPageCount != null && (
-                  <span><strong style={{ color: '#a5b4fc' }}>{pdfPageCount}</strong>{' '}
-                    <span style={{ color: '#64748b' }}>page{pdfPageCount !== 1 ? 's' : ''}</span></span>
-                )}
-                <span><strong style={{ color: '#a5b4fc' }}>{pdfText.split(/\s+/).filter(Boolean).length.toLocaleString()}</strong>{' '}
-                  <span style={{ color: '#64748b' }}>words</span></span>
-                <span><strong style={{ color: '#a5b4fc' }}>{pdfText.length.toLocaleString()}</strong>{' '}
-                  <span style={{ color: '#64748b' }}>chars</span></span>
-                {pdfClaims.filter(c => c.label !== 'Equations').length > 0 && (
-                  <span><strong style={{ color: '#fbbf24' }}>{pdfClaims.filter(c => c.label !== 'Equations').length}</strong>{' '}
-                    <span style={{ color: '#64748b' }}>claim{pdfClaims.filter(c => c.label !== 'Equations').length !== 1 ? 's' : ''}</span></span>
-                )}
-                {(() => { const eqCount = (pdfText.match(/\$[^$]+\$/g) || []).length; return eqCount > 0 ? (
-                  <span><strong style={{ color: '#34d399' }}>{eqCount}</strong>{' '}
-                    <span style={{ color: '#64748b' }}>inline equation{eqCount !== 1 ? 's' : ''}</span></span>
-                ) : null; })()}
-              </div>
-
-              {/* Detected metadata */}
-              {pdfMeta && (
-                <div style={{ ...cardStyle, borderColor: 'rgba(16,185,129,0.3)' }}>
-                  <div style={{ ...labelStyle, marginBottom: 14, color: '#10b981' }}>Detected Metadata</div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                    <div>
-                      <label style={labelStyle}>Title</label>
-                      <input
-                        type="text"
-                        value={pdfMeta.title}
-                        onChange={(e) => updateMeta('title', e.target.value)}
-                        style={{
-                          display: 'block', width: '100%', marginTop: 4,
-                          background: '#0a0e1a', border: '1px solid rgba(148,163,184,0.2)',
-                          borderRadius: 6, padding: '8px 12px', color: '#e2e8f0', fontSize: 14,
-                          outline: 'none',
-                        }}
-                      />
-                    </div>
-                    <div>
-                      <label style={labelStyle}>Authors (comma-separated)</label>
-                      <input
-                        type="text"
-                        value={(pdfMeta.authors || []).join(', ')}
-                        onChange={(e) => updateMeta('authors', e.target.value.split(',').map(s => s.trim()).filter(Boolean))}
-                        style={{
-                          display: 'block', width: '100%', marginTop: 4,
-                          background: '#0a0e1a', border: '1px solid rgba(148,163,184,0.2)',
-                          borderRadius: 6, padding: '8px 12px', color: '#e2e8f0', fontSize: 14,
-                          outline: 'none',
-                        }}
-                      />
-                    </div>
-                    <div>
-                      <label style={labelStyle}>Abstract</label>
-                      <textarea
-                        value={pdfMeta.abstract}
-                        onChange={(e) => updateMeta('abstract', e.target.value)}
-                        rows={4}
-                        style={{
-                          display: 'block', width: '100%', marginTop: 4,
-                          background: '#0a0e1a', border: '1px solid rgba(148,163,184,0.2)',
-                          borderRadius: 6, padding: '8px 12px', color: '#e2e8f0', fontSize: 13,
-                          outline: 'none', resize: 'vertical', lineHeight: 1.6,
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Key claims */}
-              {pdfClaims.length > 0 && (
-                <div style={{ ...cardStyle, borderColor: 'rgba(245,158,11,0.35)' }}>
-                  <div style={{ ...labelStyle, marginBottom: 14, color: '#f59e0b' }}>
-                    Key Claims ({pdfClaims.length})
-                  </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                    {pdfClaims.map((claim, i) => (
-                      <div key={i} style={{
-                        background: '#0a0e1a',
-                        border: '1px solid rgba(245,158,11,0.15)',
-                        borderRadius: 8,
-                        padding: '10px 14px',
-                        fontSize: 13,
-                        lineHeight: 1.5,
-                      }}>
-                        <span style={{
-                          display: 'inline-block',
-                          background: 'rgba(245,158,11,0.15)',
-                          color: '#fbbf24',
-                          padding: '2px 8px',
-                          borderRadius: 4,
-                          fontSize: 11,
-                          fontWeight: 700,
-                          marginRight: 10,
-                          textTransform: 'uppercase',
-                        }}>
-                          {claim.label}
-                        </span>
-                        <span style={{ color: '#cbd5e1' }}>{claim.text}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Extracted text preview */}
-              <div style={cardStyle}>
-                <div style={{ ...labelStyle, marginBottom: 10 }}>Extracted Text Preview</div>
+            {pdfText && (
+              <>
+                {/* PDF stats bar */}
                 <div style={{
-                  background: '#0a0e1a',
-                  border: '1px solid rgba(148,163,184,0.12)',
+                  display: 'flex', gap: 24, flexWrap: 'wrap',
+                  padding: '10px 18px',
+                  background: 'rgba(140,106,29,0.07)',
+                  border: '1px solid rgba(140,106,29,0.2)',
                   borderRadius: 8,
-                  padding: 16,
-                  maxHeight: 400,
-                  overflowY: 'auto',
+                  marginBottom: 16,
                   fontSize: 13,
-                  color: '#94a3b8',
-                  lineHeight: 1.7,
-                  whiteSpace: 'pre-wrap',
-                  wordBreak: 'break-word',
-                  fontFamily: 'ui-monospace, monospace',
+                  alignItems: 'center',
                 }}>
-                  {pdfText.slice(0, 8000)}
-                  {pdfText.length > 8000 && (
-                    <span style={{ color: '#6366f1' }}>{'\n\n... [truncated — '}{pdfText.length.toLocaleString()} characters total{']'}</span>
+                  {pdfPageCount != null && (
+                    <span><strong style={{ color: 'var(--brass)' }}>{pdfPageCount}</strong>{' '}
+                      <span style={{ color: 'var(--faint)' }}>page{pdfPageCount !== 1 ? 's' : ''}</span></span>
                   )}
+                  <span><strong style={{ color: 'var(--brass)' }}>{pdfText.split(/\s+/).filter(Boolean).length.toLocaleString()}</strong>{' '}
+                    <span style={{ color: 'var(--faint)' }}>words</span></span>
+                  <span><strong style={{ color: 'var(--brass)' }}>{pdfText.length.toLocaleString()}</strong>{' '}
+                    <span style={{ color: 'var(--faint)' }}>chars</span></span>
+                  {pdfClaims.filter(c => c.label !== 'Equations').length > 0 && (
+                    <span><strong style={{ color: 'var(--brass-dk)' }}>{pdfClaims.filter(c => c.label !== 'Equations').length}</strong>{' '}
+                      <span style={{ color: 'var(--faint)' }}>claim{pdfClaims.filter(c => c.label !== 'Equations').length !== 1 ? 's' : ''}</span></span>
+                  )}
+                  {(() => { const eqCount = (pdfText.match(/\$[^$]+\$/g) || []).length; return eqCount > 0 ? (
+                    <span><strong style={{ color: 'var(--green)' }}>{eqCount}</strong>{' '}
+                      <span style={{ color: 'var(--faint)' }}>inline equation{eqCount !== 1 ? 's' : ''}</span></span>
+                  ) : null; })()}
                 </div>
-              </div>
 
-              {/* PDF action buttons */}
-              <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 24 }}>
-                <button
-                  onClick={handleSavePdf}
-                  style={{
-                    background: pdfSaved ? 'rgba(16,185,129,0.15)' : 'rgba(59,130,246,0.15)',
-                    border: `1px solid ${pdfSaved ? '#10b981' : 'rgba(59,130,246,0.3)'}`,
-                    color: pdfSaved ? '#34d399' : '#3b82f6',
-                    padding: '8px 20px',
+                {/* Detected metadata */}
+                {pdfMeta && (
+                  <div style={{ ...cardStyle, borderColor: 'rgba(76,122,74,0.3)' }}>
+                    <div style={{ ...labelStyle, marginBottom: 14, color: 'var(--green)' }}>Detected Metadata</div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                      <div>
+                        <label style={labelStyle}>Title</label>
+                        <input
+                          type="text"
+                          value={pdfMeta.title}
+                          onChange={(e) => updateMeta('title', e.target.value)}
+                          style={{
+                            display: 'block', width: '100%', marginTop: 4,
+                            background: 'var(--paper)', border: '1px solid var(--hairline)',
+                            borderRadius: 6, padding: '8px 12px', color: 'var(--ink)', fontSize: 14,
+                            outline: 'none',
+                          }}
+                        />
+                      </div>
+                      <div>
+                        <label style={labelStyle}>Authors (comma-separated)</label>
+                        <input
+                          type="text"
+                          value={(pdfMeta.authors || []).join(', ')}
+                          onChange={(e) => updateMeta('authors', e.target.value.split(',').map(s => s.trim()).filter(Boolean))}
+                          style={{
+                            display: 'block', width: '100%', marginTop: 4,
+                            background: 'var(--paper)', border: '1px solid var(--hairline)',
+                            borderRadius: 6, padding: '8px 12px', color: 'var(--ink)', fontSize: 14,
+                            outline: 'none',
+                          }}
+                        />
+                      </div>
+                      <div>
+                        <label style={labelStyle}>Abstract</label>
+                        <textarea
+                          value={pdfMeta.abstract}
+                          onChange={(e) => updateMeta('abstract', e.target.value)}
+                          rows={4}
+                          style={{
+                            display: 'block', width: '100%', marginTop: 4,
+                            background: 'var(--paper)', border: '1px solid var(--hairline)',
+                            borderRadius: 6, padding: '8px 12px', color: 'var(--ink)', fontSize: 13,
+                            outline: 'none', resize: 'vertical', lineHeight: 1.6,
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Key claims */}
+                {pdfClaims.length > 0 && (
+                  <div style={{ ...cardStyle, borderColor: 'rgba(181,138,46,0.35)' }}>
+                    <div style={{ ...labelStyle, marginBottom: 14, color: 'var(--brass-dk)' }}>
+                      Key Claims ({pdfClaims.length})
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                      {pdfClaims.map((claim, i) => (
+                        <div key={i} style={{
+                          background: 'var(--paper)',
+                          border: '1px solid rgba(181,138,46,0.15)',
+                          borderRadius: 8,
+                          padding: '10px 14px',
+                          fontSize: 13,
+                          lineHeight: 1.5,
+                        }}>
+                          <span style={{
+                            display: 'inline-block',
+                            background: 'rgba(181,138,46,0.15)',
+                            color: 'var(--brass-dk)',
+                            padding: '2px 8px',
+                            borderRadius: 4,
+                            fontSize: 11,
+                            fontWeight: 700,
+                            marginRight: 10,
+                            textTransform: 'uppercase',
+                          }}>
+                            {claim.label}
+                          </span>
+                          <span style={{ color: 'var(--ink-soft)' }}>{claim.text}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Extracted text preview */}
+                <div style={cardStyle}>
+                  <div style={{ ...labelStyle, marginBottom: 10 }}>Extracted Text Preview</div>
+                  <div style={{
+                    background: 'var(--paper)',
+                    border: '1px solid var(--hairline)',
                     borderRadius: 8,
+                    padding: 16,
+                    maxHeight: 400,
+                    overflowY: 'auto',
                     fontSize: 13,
-                    fontWeight: 600,
-                    cursor: 'pointer',
-                    transition: 'all 0.2s',
-                  }}
-                >
-                  {pdfSaved ? 'Saved!' : 'Save PDF Paper'}
-                </button>
-                <button
-                  onClick={handleClearPdf}
-                  style={{
-                    background: 'transparent',
-                    border: '1px solid rgba(148,163,184,0.2)',
-                    color: '#94a3b8',
-                    padding: '8px 20px',
-                    borderRadius: 8,
-                    fontSize: 13,
-                    fontWeight: 500,
-                    cursor: 'pointer',
-                    transition: 'all 0.2s',
-                  }}
-                >
-                  Clear PDF
-                </button>
-                <Link
-                  to="/papers"
-                  style={{
-                    color: 'var(--accent-cyan)',
-                    fontSize: 13,
-                    textDecoration: 'none',
-                    padding: '8px 12px',
-                    display: 'flex',
-                    alignItems: 'center',
-                  }}
-                >
-                  View Saved Papers &rarr;
-                </Link>
-              </div>
-            </>
-          )}
-        </div>
-      )}
-
-      {/* ═══════════ LaTeX Tab ═══════════ */}
-      {activeTab === 'latex' && (
-        <div id="panel-latex" role="tabpanel" aria-labelledby="tab-latex">
-          {/* Metadata bar */}
-          {parsed.metadata && parsed.metadata.title && (
-            <div style={{
-              background: 'var(--bg-card)',
-              border: '1px solid var(--border)',
-              borderRadius: 10,
-              padding: '12px 18px',
-              marginBottom: 20,
-              display: 'flex',
-              gap: 24,
-              flexWrap: 'wrap',
-              alignItems: 'center',
-              fontSize: 13,
-            }}>
-              <div><strong style={{ color: '#94a3b8' }}>Title:</strong>{' '}
-                <span style={{ color: '#e2e8f0' }}>{parsed.metadata.title}</span>
-              </div>
-              {parsed.metadata.authors.length > 0 && (
-                <div><strong style={{ color: '#94a3b8' }}>Authors:</strong>{' '}
-                  <span style={{ color: '#e2e8f0' }}>{parsed.metadata.authors.join(', ')}</span>
+                    color: 'var(--faint)',
+                    lineHeight: 1.7,
+                    whiteSpace: 'pre-wrap',
+                    wordBreak: 'break-word',
+                    fontFamily: 'var(--ed-mono, var(--font-mono))',
+                  }}>
+                    {pdfText.slice(0, 8000)}
+                    {pdfText.length > 8000 && (
+                      <span style={{ color: 'var(--brass)' }}>{'\n\n... [truncated — '}{pdfText.length.toLocaleString()} characters total{']'}</span>
+                    )}
+                  </div>
                 </div>
-              )}
-              {parsed.metadata.date && (
-                <div><strong style={{ color: '#94a3b8' }}>Date:</strong>{' '}
-                  <span style={{ color: '#e2e8f0' }}>{parsed.metadata.date}</span>
+
+                {/* PDF action buttons */}
+                <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 24 }}>
+                  <button
+                    onClick={handleSavePdf}
+                    style={{
+                      background: pdfSaved ? 'rgba(76,122,74,0.15)' : 'rgba(63,107,134,0.15)',
+                      border: `1px solid ${pdfSaved ? 'var(--green)' : 'rgba(63,107,134,0.3)'}`,
+                      color: pdfSaved ? 'var(--green)' : 'var(--blue)',
+                      padding: '8px 20px',
+                      borderRadius: 8,
+                      fontSize: 13,
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                      transition: 'all 0.2s',
+                    }}
+                  >
+                    {pdfSaved ? 'Saved!' : 'Save PDF Paper'}
+                  </button>
+                  <button
+                    onClick={handleClearPdf}
+                    style={{
+                      background: 'transparent',
+                      border: '1px solid var(--hairline)',
+                      color: 'var(--faint)',
+                      padding: '8px 20px',
+                      borderRadius: 8,
+                      fontSize: 13,
+                      fontWeight: 500,
+                      cursor: 'pointer',
+                      transition: 'all 0.2s',
+                    }}
+                  >
+                    Clear PDF
+                  </button>
+                  <Link
+                    to="/papers"
+                    style={{
+                      color: 'var(--brass-dk)',
+                      fontSize: 13,
+                      textDecoration: 'none',
+                      padding: '8px 12px',
+                      display: 'flex',
+                      alignItems: 'center',
+                    }}
+                  >
+                    View Saved Papers &rarr;
+                  </Link>
                 </div>
-              )}
-            </div>
-          )}
+              </>
+            )}
+          </div>
+        )}
 
-          {/* Two-column layout */}
-          <div className="paper-upload-grid">
-            {/* Left: Editor */}
-            <div>
-              <textarea
-                className="latex-textarea"
-                value={rawLatex}
-                onChange={handleChange}
-                placeholder={'Paste your LaTeX here...\n\n\\documentclass{article}\n\\title{My Paper}\n\\author{Author Name}\n\\begin{document}\n\\maketitle\n\\section{Introduction}\n...'}
-                spellCheck={false}
-              />
+        {/* ═══════════ LaTeX Tab ═══════════ */}
+        {activeTab === 'latex' && (
+          <div id="panel-latex" role="tabpanel" aria-labelledby="tab-latex">
+            {/* Metadata bar */}
+            {parsed.metadata && parsed.metadata.title && (
+              <div style={{
+                background: 'var(--paper2)',
+                border: '1px solid var(--hairline)',
+                borderRadius: 10,
+                padding: '12px 18px',
+                marginBottom: 20,
+                display: 'flex',
+                gap: 24,
+                flexWrap: 'wrap',
+                alignItems: 'center',
+                fontSize: 13,
+              }}>
+                <div><strong style={{ color: 'var(--faint)' }}>Title:</strong>{' '}
+                  <span style={{ color: 'var(--ink)' }}>{parsed.metadata.title}</span>
+                </div>
+                {parsed.metadata.authors.length > 0 && (
+                  <div><strong style={{ color: 'var(--faint)' }}>Authors:</strong>{' '}
+                    <span style={{ color: 'var(--ink)' }}>{parsed.metadata.authors.join(', ')}</span>
+                  </div>
+                )}
+                {parsed.metadata.date && (
+                  <div><strong style={{ color: 'var(--faint)' }}>Date:</strong>{' '}
+                    <span style={{ color: 'var(--ink)' }}>{parsed.metadata.date}</span>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Two-column layout */}
+            <div className="paper-upload-grid">
+              {/* Left: Editor */}
+              <div>
+                <textarea
+                  className="latex-textarea"
+                  value={rawLatex}
+                  onChange={handleChange}
+                  placeholder={'Paste your LaTeX here...\n\n\\documentclass{article}\n\\title{My Paper}\n\\author{Author Name}\n\\begin{document}\n\\maketitle\n\\section{Introduction}\n...'}
+                  spellCheck={false}
+                />
+              </div>
+
+              {/* Right: Preview */}
+              <div className="paper-preview-panel">
+                <PaperRenderer metadata={parsed.metadata} nodes={parsed.nodes} />
+              </div>
             </div>
 
-            {/* Right: Preview */}
-            <div className="paper-preview-panel">
-              <PaperRenderer metadata={parsed.metadata} nodes={parsed.nodes} />
+            {/* Action buttons */}
+            <div className="paper-actions">
+              <button
+                onClick={handleSave}
+                disabled={!parsed.nodes.length}
+                style={{
+                  background: saved ? 'rgba(76,122,74,0.15)' : 'rgba(63,107,134,0.15)',
+                  border: `1px solid ${saved ? 'var(--green)' : 'rgba(63,107,134,0.3)'}`,
+                  color: saved ? 'var(--green)' : 'var(--blue)',
+                  padding: '8px 20px',
+                  borderRadius: 8,
+                  fontSize: 13,
+                  fontWeight: 600,
+                  cursor: parsed.nodes.length ? 'pointer' : 'not-allowed',
+                  opacity: parsed.nodes.length ? 1 : 0.4,
+                  transition: 'all 0.2s',
+                }}
+              >
+                {saved ? 'Saved!' : 'Save to Browser'}
+              </button>
+              <button
+                onClick={handleExport}
+                disabled={!parsed.nodes.length}
+                style={{
+                  background: 'rgba(140,106,29,0.15)',
+                  border: '1px solid rgba(140,106,29,0.3)',
+                  color: 'var(--brass)',
+                  padding: '8px 20px',
+                  borderRadius: 8,
+                  fontSize: 13,
+                  fontWeight: 600,
+                  cursor: parsed.nodes.length ? 'pointer' : 'not-allowed',
+                  opacity: parsed.nodes.length ? 1 : 0.4,
+                  transition: 'all 0.2s',
+                }}
+              >
+                Export .js File
+              </button>
+              <button
+                onClick={handleClear}
+                style={{
+                  background: 'transparent',
+                  border: '1px solid var(--hairline)',
+                  color: 'var(--ink-soft)',
+                  padding: '8px 20px',
+                  borderRadius: 8,
+                  fontSize: 13,
+                  fontWeight: 500,
+                  cursor: 'pointer',
+                  transition: 'all 0.2s',
+                }}
+              >
+                Clear
+              </button>
+              <Link
+                to="/papers"
+                style={{
+                  color: 'var(--brass-dk)',
+                  fontSize: 13,
+                  textDecoration: 'none',
+                  padding: '8px 12px',
+                }}
+              >
+                View Saved Papers &rarr;
+              </Link>
             </div>
           </div>
+        )}
 
-          {/* Action buttons */}
-          <div className="paper-actions">
-            <button
-              onClick={handleSave}
-              disabled={!parsed.nodes.length}
-              style={{
-                background: saved ? 'rgba(16,185,129,0.15)' : 'rgba(59,130,246,0.15)',
-                border: `1px solid ${saved ? '#10b981' : 'rgba(59,130,246,0.3)'}`,
-                color: saved ? '#34d399' : '#3b82f6',
-                padding: '8px 20px',
-                borderRadius: 8,
-                fontSize: 13,
-                fontWeight: 600,
-                cursor: parsed.nodes.length ? 'pointer' : 'not-allowed',
-                opacity: parsed.nodes.length ? 1 : 0.4,
-                transition: 'all 0.2s',
-              }}
-            >
-              {saved ? 'Saved!' : 'Save to Browser'}
-            </button>
-            <button
-              onClick={handleExport}
-              disabled={!parsed.nodes.length}
-              style={{
-                background: 'rgba(139,92,246,0.15)',
-                border: '1px solid rgba(139,92,246,0.3)',
-                color: '#8b5cf6',
-                padding: '8px 20px',
-                borderRadius: 8,
-                fontSize: 13,
-                fontWeight: 600,
-                cursor: parsed.nodes.length ? 'pointer' : 'not-allowed',
-                opacity: parsed.nodes.length ? 1 : 0.4,
-                transition: 'all 0.2s',
-              }}
-            >
-              Export .js File
-            </button>
-            <button
-              onClick={handleClear}
-              style={{
-                background: 'transparent',
-                border: '1px solid var(--border)',
-                color: 'var(--text-secondary)',
-                padding: '8px 20px',
-                borderRadius: 8,
-                fontSize: 13,
-                fontWeight: 500,
-                cursor: 'pointer',
-                transition: 'all 0.2s',
-              }}
-            >
-              Clear
-            </button>
-            <Link
-              to="/papers"
-              style={{
-                color: 'var(--accent-cyan)',
-                fontSize: 13,
-                textDecoration: 'none',
-                padding: '8px 12px',
-              }}
-            >
-              View Saved Papers &rarr;
+        {/* ── Related pages ─────────────────────────────────────────────── */}
+        <div className="card" style={{ background: 'var(--paper2)', border: '1px solid var(--hairline)', borderRadius: 8, padding: '16px 18px', marginTop: 24 }}>
+          <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--faint)', marginBottom: 6 }}>Related pages</div>
+          <div style={{ display: 'flex', gap: 12, marginTop: 8, flexWrap: 'wrap' }}>
+            <Link to="/papers" style={{ fontSize: 12, color: 'var(--brass-dk)', textDecoration: 'none' }}>
+              → Saved Papers
+            </Link>
+            <Link to="/literature" style={{ fontSize: 12, color: 'var(--blue)', textDecoration: 'none' }}>
+              → Literature
             </Link>
           </div>
         </div>
-      )}
+
+        <footer style={{ marginTop: 32, padding: '16px 0', borderTop: '1px solid var(--hairline)' }}>
+          <div>
+            <Link to="/">← the atlas</Link>
+          </div>
+        </footer>
+      </div>
     </div>
   );
 }

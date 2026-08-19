@@ -148,7 +148,7 @@ export default function Imp34221EflowEtruncRatioDecayOnsetViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> {data.honestScope}
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> {data.honestScope}
       </div>
 
       <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
@@ -194,7 +194,7 @@ export default function Imp34221EflowEtruncRatioDecayOnsetViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status (imp-34213):</strong> {IMP34213_EFLOW_ONSET_CLOSED_FORM.verdict}
+        <strong style={{ color: '#94a3b8' }}>Status (imp-34213):</strong> {IMP34213_EFLOW_ONSET_CLOSED_FORM.verdict}
       </div>
     </div>
   );

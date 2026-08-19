@@ -211,7 +211,7 @@ export default function Imp34439ThirdDiffPoleOrderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Measurement / power-law-fit only
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Measurement / power-law-fit only
         (frontier-direction, NOT rigorous). The pole is a resid_exp surrogate artifact, not a physical
         singularity; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a
         rigorous asymptotic; the fixed step h = 0.25 is not small versus x near the pole, so the

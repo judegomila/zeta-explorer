@@ -243,7 +243,7 @@ export default function Imp34570EflowAttrPowerLawFitViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement only -- an OLS
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement only -- an OLS
         power-law fit and analytic-slope cross-check of the inherited surrogate numerator
         eflow_attr, reusing the imp-34406 baked rungs and the verbatim imp-34169 parts()
         machinery. Descriptive surrogate, NOT a rigorous asymptotic; the component model is the

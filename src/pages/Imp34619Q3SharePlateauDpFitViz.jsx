@@ -195,7 +195,7 @@ export default function Imp34619Q3SharePlateauDpFitViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, reusing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, reusing the
         imp-34593 fit literals verbatim (structural floor, roundoff exponent/coefficient, dp*, dp
         sweep rows). The dp=2e-3 point sitting BELOW the fitted curve and the structural floor is
         the roundoff-DIP the imp-34587 Richardson extrapolation was contaminated by, not a second

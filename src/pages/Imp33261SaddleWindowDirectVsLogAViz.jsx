@@ -279,7 +279,7 @@ export default function Imp33261SaddleWindowDirectVsLogAViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation only; measures nothing new
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only; measures nothing new
         beyond what imp-33234 already established. Cross-validation/consistency only, RH-equivalent,
         necessary-but-not-sufficient. Operator positivity (imp-3066 off-diagonal endpoint-Hankel K_a &ge; 0) is
         UNTOUCHED. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA. NO QED; imp-33234 assertions left

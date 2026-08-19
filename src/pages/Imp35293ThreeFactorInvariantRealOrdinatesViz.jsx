@@ -164,7 +164,7 @@ export default function Imp35293ThreeFactorInvariantRealOrdinatesViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page reusing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page reusing the
         imp-35238 baked nearFrontTable/invariantTrajectory literals verbatim (no new computation).
         Measurement only; beta itself still diverges ~1/g_min toward the front, so M2/M5 stay OPEN;
         C_mb GUE-conditional (imp-486) untouched; changes no bound; establishes no operator

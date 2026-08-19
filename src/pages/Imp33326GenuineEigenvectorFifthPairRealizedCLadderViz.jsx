@@ -187,7 +187,7 @@ export default function Imp33326GenuineEigenvectorFifthPairRealizedCLadderViz() 
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement / cross-check
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement / cross-check
         only. The rungs N in {'{'}160..400{'}'} are the small-N regime where the genuine fifth
         pair is not yet degenerate (sigma_4 = 0.83..0.97, a real gap); the exactly-degenerate
         premise is imposed to isolate the backward error of the actual eigenvector orientation.

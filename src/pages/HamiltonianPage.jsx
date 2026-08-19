@@ -201,7 +201,7 @@ export default function HamiltonianPage() {
                 padding: '10px 14px',
               })}
             >
-              <span style={{ color: MISMATCH, fontWeight: 700, fontSize: 12 }}>Honest note: </span>
+              <span style={{ color: MISMATCH, fontWeight: 700, fontSize: 12 }}>Note: </span>
               <span style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.6 }}>
                 The explicit formula is a proven identity — it holds unconditionally. The zeros used here
                 are tabulated values with <InlineMath tex={"\\sigma = 1/2"} /> as an <strong style={{ color: 'var(--ink)' }}>input assumption</strong>, not

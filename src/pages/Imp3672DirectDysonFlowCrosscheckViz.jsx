@@ -192,7 +192,7 @@ export default function Imp3672DirectDysonFlowCrosscheckViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> visualization only -- this charts the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> visualization only -- this charts the
         imp-3642 measurement/derivation result (frontier-direction, not rigorous). RH-equivalent,
         necessary-but-not-sufficient. The imp-3066 K_a &ge; 0 sign-positivity obstruction remains untouched;
         Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.

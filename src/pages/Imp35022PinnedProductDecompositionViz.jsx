@@ -114,7 +114,7 @@ export default function Imp35022PinnedProductDecompositionViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Since P/r0 = g* to machine
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Since P/r0 = g* to machine
         precision at every sampled window (max relative difference {MAX_REL_DIFF}), the {MAX_OVER_MIN}x
         swing visible in P is entirely a property of r0 -- the fixed-window assumption is a pure
         magnitude bound on the window-variable factor, not on g* itself. Viz-only page rendering

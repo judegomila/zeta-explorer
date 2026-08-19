@@ -157,7 +157,7 @@ export default function Imp35207TwoWindowIncompatibilityViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
         imp-35168 rows and derived y_prop_min literal verbatim (no new computation beyond
         recovering the N-independent y_prop_min from already-exported per-row values). Confirms
         the imp-35168 verdict that no fixed mesoscopic strip serves both the propagation lemma

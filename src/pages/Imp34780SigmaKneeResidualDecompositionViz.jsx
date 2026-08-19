@@ -193,7 +193,7 @@ export default function Imp34780SigmaKneeResidualDecompositionViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page presenting the imp-34710
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page presenting the imp-34710
         and imp-34756 literals verbatim (no new computation). This is a conditional-share diagnostic on the
         INHERITED imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic, and NOT an RH bound. The C_mb
         GUE-conditional share per imp-486 is UNTOUCHED; far-tail exponent stays 1/2 (imp-3463); no operator

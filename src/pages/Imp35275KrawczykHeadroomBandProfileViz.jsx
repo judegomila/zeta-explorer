@@ -157,7 +157,7 @@ export default function Imp35275KrawczykHeadroomBandProfileViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the imp-35241
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-35241
         measurement literals verbatim (no new computation). Measurement only on the inherited imp-3220/imp-3406
         surrogate; the imp-34714a machine certificate REMAINS OPEN and F(m)&nbsp;=&nbsp;0 stays a
         double-precision artifact; C_C&nbsp;1/8 ansatz (imp-2642/2643) and C_mb GUE-conditional per imp-486

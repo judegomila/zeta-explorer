@@ -223,7 +223,7 @@ export default function Imp35252RealVsUnitBackgroundFieldSupContrastViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
         imp-35194 and imp-35218 measured fraction tables verbatim (no new computation). MEASUREMENT
         ONLY, frontier-diagnostic probe of the imp-35167 M2 background-field-sup obstruction under the
         M3 initial-gap regime; does NOT certify N-uniformity over the full trajectory (the sup diverges

@@ -146,7 +146,7 @@ export default function Imp35386KempBracketingLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation only over the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only over the
         inherited imp-35264 numbers -- adds a chart, no new measurement. Changes no bound, does
         NOT discharge O3 / H3 / H4 / G6a, imp-3066 off-diagonal endpoint-Hankel K_a &ge; 0
         UNTOUCHED, C_mb remains GUE-conditional (imp-486). RH-equivalent, NO QED.

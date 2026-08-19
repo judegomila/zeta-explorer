@@ -100,7 +100,7 @@ export default function Imp35001PlusOneImpossibilityMarginBandViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> {D.verdict}
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> {D.verdict}
       </div>
     </div>
   );

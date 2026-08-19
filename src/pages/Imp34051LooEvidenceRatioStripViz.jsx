@@ -120,7 +120,7 @@ export default function Imp34051LooEvidenceRatioStripViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> leave-one-out sensitivity measurement
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> leave-one-out sensitivity measurement
         only, no proof, no fresh derivation. {IMP33985_LOO_MODEL_SELECTION_SENSITIVITY.finding.R3_low_boundary_rung_most_influential}{' '}
         Both forms are descriptive, not derived; the imp-33843 log-linear-vs-power-law FORM verdict is
         UNTOUCHED; C_mb GUE-conditional per imp-486 untouched; NO QED; Platt-Trudgian Lambda&lt;=0.2 remains

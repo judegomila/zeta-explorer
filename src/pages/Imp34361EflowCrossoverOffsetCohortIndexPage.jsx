@@ -139,7 +139,7 @@ export default function Imp34361EflowCrossoverOffsetCohortIndexPage() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> this is a navigation aid over
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> this is a navigation aid over
         already-published measurements. The offset and its E_flow attribution are real, reproducible
         readings under the inherited imp-3220/imp-3406 conditional-share extrapolation -- not a
         derived mathematical bound. It changes no bound and patches no literal. C_mb GUE-conditional

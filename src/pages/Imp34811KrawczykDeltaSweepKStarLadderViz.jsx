@@ -148,7 +148,7 @@ export default function Imp34811KrawczykDeltaSweepKStarLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the imp-34776
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-34776
         table (imported literals, no new computation); establishes no new numerical claim. Double-precision
         surrogate for the imp-34687a directed-rounding layer; does NOT close the imp-34714a machine
         certificate, which REMAINS OPEN. Inherited imp-3220/imp-3406 surrogate crossover map; C_C&nbsp;=

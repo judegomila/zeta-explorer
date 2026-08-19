@@ -187,7 +187,7 @@ export default function Imp34016SigmaExponentVsLogT0Viz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement /
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement /
         re-expression of the imp-33816 curve on a different axis, no proof, no
         fresh derivation. The inherited imp-3220/imp-3406/imp-33582 component
         model is NOT a rigorous asymptotic; changes no bound; imp-3066 K_a&gt;=0

@@ -161,7 +161,7 @@ export default function Imp34599FullLadderThroughPoleViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, joining the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, joining the
         imp-34406 and imp-34572 baked rung tables verbatim (the local log-slope column is a
         plain central-difference recomputation from those published values, no new measurement).
         Import-light, no zeros bundle in the chain. A finite-difference recovery of an inherited

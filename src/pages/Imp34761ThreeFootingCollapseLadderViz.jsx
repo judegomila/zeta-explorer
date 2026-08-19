@@ -198,7 +198,7 @@ export default function Imp34761ThreeFootingCollapseLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, plotting the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, plotting the
         already-certified imp-34689/imp-34712/imp-34730 three-footing cross-validation against the
         imp-34606/imp-34633 1/dp&#7509; prediction; establishes no new numerical claim. q1..q4 are inherited
         central differences, NOT fresh analytic closed forms, so the sigma&nbsp;-&gt;&nbsp;1 deep-tail regime

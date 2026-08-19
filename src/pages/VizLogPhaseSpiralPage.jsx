@@ -598,7 +598,7 @@ export default function VizLogPhaseSpiralPage() {
         <span>{V.colorScaleNote}</span>
       </div>
 
-      {/* Honest scope */}
+      {/* Scope */}
       <div
         className="card"
         style={{ marginTop: 24, padding: 14, borderLeft: '3px solid #06b6d4' }}
@@ -613,7 +613,7 @@ export default function VizLogPhaseSpiralPage() {
             marginBottom: 8,
           }}
         >
-          honest scope &amp; method
+          scope &amp; method
         </div>
         <ul
           style={{

@@ -196,7 +196,7 @@ export default function Imp33243RecoveryRateFitViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/fit only
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/fit only
         -- no proof, no reduction below RH. This fits the decay rate of a moment-ratio
         convergence diagnostic; mass-feasibility is necessary-but-not-sufficient and the
         operator-level K_a &ge; 0 sign-positivity residual (imp-3066) remains untouched.

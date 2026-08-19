@@ -19,7 +19,7 @@ import VizCeilingNote from '../components/VizCeilingNote.jsx';
  * closest pair until it COLLIDES and leaves the line: an OFF-AXIS VORTEX, i.e.
  * an off-axis zero -- an RH violation. "Vortex exclusion" is exactly RH.
  *
- * HONEST CEILING (per the project's route map + supercritical-winding-experiment):
+ * CEILING (per the project's route map + supercritical-winding-experiment):
  * the winding / vortex-exclusion picture re-derives Lambda >= 0 (Rodgers-Tao) and
  * makes RH visible, but it is NOT a new rigorous Lambda bound and does not beat
  * Platt-Trudgian Lambda <= 0.2. This is an exact, exploratory visualization.
@@ -540,7 +540,7 @@ export default function VortexFieldPage() {
       </div>
 
       <div className="card" style={{ marginTop: 20 }}>
-        <h3 style={{ marginTop: 0 }}>What you're looking at — and the honest ceiling</h3>
+        <h3 style={{ marginTop: 0 }}>What you're looking at — and the ceiling</h3>
         <ul style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.7 }}>
           <li><strong>Vortices = zeros.</strong> Each colored singularity where all hues meet is a zero ρ of ξ; the phase winds +1 around it (the argument principle).</li>
           <li><strong>Vortex exclusion ⟺ RH.</strong> Under RH every vortex lies on the dashed line Re s = ½. An off-axis vortex (red) is an off-axis zero — exactly an RH violation.</li>

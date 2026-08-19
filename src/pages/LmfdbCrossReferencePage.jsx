@@ -1,4 +1,6 @@
 import React, { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import lmfdbCrossReference, { assertIntegrity, DATA_AS_OF, lmfdbUrl } from '../data/lmfdb-l-function-cross-reference.js';
 
 const SORT_KEYS = [
@@ -10,14 +12,14 @@ const SORT_KEYS = [
 ];
 
 const DEGREE_COLORS = {
-  1: { bg: 'rgba(99,102,241,0.12)', border: 'rgba(99,102,241,0.4)', text: '#a5b4fc' },
-  2: { bg: 'rgba(34,197,94,0.12)', border: 'rgba(34,197,94,0.4)', text: '#86efac' },
-  3: { bg: 'rgba(234,179,8,0.12)', border: 'rgba(234,179,8,0.4)', text: '#facc15' },
-  4: { bg: 'rgba(239,68,68,0.12)', border: 'rgba(239,68,68,0.4)', text: '#fca5a5' },
+  1: { bg: 'rgba(63,107,134,0.12)', border: 'rgba(63,107,134,0.4)', text: 'var(--blue)' },
+  2: { bg: 'rgba(76,122,74,0.12)', border: 'rgba(76,122,74,0.4)', text: 'var(--green)' },
+  3: { bg: 'rgba(181,138,46,0.14)', border: 'rgba(181,138,46,0.42)', text: 'var(--brass-dk)' },
+  4: { bg: 'rgba(194,58,28,0.12)', border: 'rgba(194,58,28,0.4)', text: 'var(--terra-dk)' },
 };
 
 function degreeColor(d) {
-  return DEGREE_COLORS[d] || { bg: 'rgba(148,163,184,0.12)', border: 'rgba(148,163,184,0.4)', text: '#94a3b8' };
+  return DEGREE_COLORS[d] || { bg: 'rgba(135,123,103,0.12)', border: 'rgba(135,123,103,0.4)', text: 'var(--faint)' };
 }
 
 function DegreeBadge({ degree }) {
@@ -25,7 +27,7 @@ function DegreeBadge({ degree }) {
   return (
     <span style={{
       display: 'inline-block', padding: '2px 10px', borderRadius: 10,
-      fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700,
+      fontSize: 11, fontFamily: 'var(--ed-mono, var(--font-mono))', fontWeight: 700,
       background: c.bg, color: c.text, border: `1px solid ${c.border}`,
     }}>
       d={degree}
@@ -38,10 +40,10 @@ function SignBadge({ sign }) {
   return (
     <span style={{
       display: 'inline-block', padding: '2px 8px', borderRadius: 6,
-      fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700,
-      background: isPos ? 'rgba(34,197,94,0.12)' : 'rgba(239,68,68,0.12)',
-      color: isPos ? '#86efac' : '#fca5a5',
-      border: `1px solid ${isPos ? 'rgba(34,197,94,0.4)' : 'rgba(239,68,68,0.4)'}`,
+      fontSize: 11, fontFamily: 'var(--ed-mono, var(--font-mono))', fontWeight: 700,
+      background: isPos ? 'rgba(76,122,74,0.14)' : 'rgba(194,58,28,0.14)',
+      color: isPos ? 'var(--green)' : 'var(--terra-dk)',
+      border: `1px solid ${isPos ? 'rgba(76,122,74,0.40)' : 'rgba(194,58,28,0.40)'}`,
     }}>
       {isPos ? '+1' : '-1'}
     </span>
@@ -53,10 +55,10 @@ function ZerosList({ zeros }) {
     <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
       {zeros.map((z, i) => (
         <span key={i} style={{
-          fontFamily: 'var(--font-mono)', fontSize: 12,
+          fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12,
           padding: '2px 8px', borderRadius: 4,
-          background: 'var(--bg-primary)', border: '1px solid var(--border)',
-          color: z === 0 ? '#f87171' : 'var(--text-secondary)',
+          background: 'var(--paper)', border: '1px solid var(--hairline)',
+          color: z === 0 ? 'var(--terra-dk)' : 'var(--ink-soft)',
           fontWeight: z === 0 ? 700 : 400,
         }}>
           {z.toFixed(6)}
@@ -70,17 +72,17 @@ function DetailCard({ entry, onClose }) {
   return (
     <div style={{
       marginTop: 8, padding: 20, borderRadius: 10,
-      background: 'var(--bg-secondary)', border: '1px solid var(--border)',
+      background: 'var(--paper2)', border: '1px solid var(--hairline)',
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
         <div>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: '#a855f7', marginBottom: 4 }}>
+          <div style={{ fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 13, color: 'var(--brass-dk)', marginBottom: 4 }}>
             {entry.label}
           </div>
-          <div style={{ fontSize: 16, fontWeight: 600, color: 'var(--text-primary)' }}>
+          <div style={{ fontSize: 16, fontWeight: 600, color: 'var(--ink)' }}>
             {entry.name}
           </div>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--text-muted)', marginTop: 2 }}>
+          <div style={{ fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 13, color: 'var(--faint)', marginTop: 2 }}>
             {entry.lFunction}
           </div>
         </div>
@@ -90,17 +92,17 @@ function DetailCard({ entry, onClose }) {
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              border: '1px solid rgba(6,182,212,0.4)', borderRadius: 6,
-              color: '#67e8f9', textDecoration: 'none', padding: '4px 10px',
-              fontFamily: 'var(--font-mono)', fontSize: 11,
+              border: '1px solid rgba(63,107,134,0.4)', borderRadius: 6,
+              color: 'var(--blue)', textDecoration: 'none', padding: '4px 10px',
+              fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 11,
             }}
           >
             View on LMFDB &#8599;
           </a>
           <button onClick={onClose} style={{
-            background: 'none', border: '1px solid var(--border)', borderRadius: 6,
-            color: 'var(--text-muted)', cursor: 'pointer', padding: '4px 10px',
-            fontFamily: 'var(--font-mono)', fontSize: 11,
+            background: 'none', border: '1px solid var(--hairline)', borderRadius: 6,
+            color: 'var(--faint)', cursor: 'pointer', padding: '4px 10px',
+            fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 11,
           }}>
             close
           </button>
@@ -110,33 +112,33 @@ function DetailCard({ entry, onClose }) {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 12, marginBottom: 16 }}>
         {[
           ['Degree', <DegreeBadge key="d" degree={entry.degree} />],
-          ['Weight', <span key="w" style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-primary)' }}>{entry.weight}</span>],
-          ['Conductor', <span key="c" style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-primary)' }}>{entry.conductor}</span>],
+          ['Weight', <span key="w" style={{ fontFamily: 'var(--ed-mono, var(--font-mono))', color: 'var(--ink)' }}>{entry.weight}</span>],
+          ['Conductor', <span key="c" style={{ fontFamily: 'var(--ed-mono, var(--font-mono))', color: 'var(--ink)' }}>{entry.conductor}</span>],
           ['Sign of FE', <SignBadge key="s" sign={entry.signOfFunctionalEquation} />],
-          ['Gamma shifts', <span key="g" style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--text-secondary)' }}>[{entry.gammaShifts.join(', ')}]</span>],
+          ['Gamma shifts', <span key="g" style={{ fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12, color: 'var(--ink-soft)' }}>[{entry.gammaShifts.join(', ')}]</span>],
         ].map(([label, val]) => (
-          <div key={label} style={{ padding: 10, borderRadius: 8, background: 'var(--bg-primary)', border: '1px solid var(--border)' }}>
-            <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--text-muted)', marginBottom: 4 }}>{label}</div>
+          <div key={label} style={{ padding: 10, borderRadius: 8, background: 'var(--paper)', border: '1px solid var(--hairline)' }}>
+            <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--faint)', marginBottom: 4 }}>{label}</div>
             {val}
           </div>
         ))}
       </div>
 
       <div style={{ marginBottom: 16 }}>
-        <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--text-muted)', marginBottom: 6 }}>
+        <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--faint)', marginBottom: 6 }}>
           First 5 nontrivial zeros (Im)
         </div>
         <ZerosList zeros={entry.firstFiveZeros} />
       </div>
 
-      <div style={{ padding: 12, borderRadius: 8, background: 'rgba(168,85,247,0.06)', border: '1px solid rgba(168,85,247,0.2)', marginBottom: 12 }}>
-        <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: '#c084fc', marginBottom: 4 }}>GRH Note</div>
-        <div style={{ fontSize: 13, lineHeight: 1.5, color: 'var(--text-secondary)' }}>{entry.grhNote}</div>
+      <div style={{ padding: 12, borderRadius: 8, background: 'rgba(140,106,29,0.06)', border: '1px solid rgba(140,106,29,0.25)', marginBottom: 12 }}>
+        <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--brass-dk)', marginBottom: 4 }}>GRH Note</div>
+        <div style={{ fontSize: 13, lineHeight: 1.5, color: 'var(--ink-soft)' }}>{entry.grhNote}</div>
       </div>
 
-      <div style={{ padding: 12, borderRadius: 8, background: 'rgba(6,182,212,0.06)', border: '1px solid rgba(6,182,212,0.2)' }}>
-        <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: '#67e8f9', marginBottom: 4 }}>Twin-Ladder Bridge Connection</div>
-        <div style={{ fontSize: 13, lineHeight: 1.5, color: 'var(--text-secondary)' }}>{entry.zpoConnection}</div>
+      <div style={{ padding: 12, borderRadius: 8, background: 'rgba(63,107,134,0.06)', border: '1px solid rgba(63,107,134,0.22)' }}>
+        <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--blue)', marginBottom: 4 }}>Twin-Ladder Bridge Connection</div>
+        <div style={{ fontSize: 13, lineHeight: 1.5, color: 'var(--ink-soft)' }}>{entry.zpoConnection}</div>
       </div>
     </div>
   );
@@ -154,23 +156,23 @@ function IntegrityPanel() {
   return (
     <div style={{
       padding: 12, borderRadius: 8, marginBottom: 24,
-      background: result.ok ? 'rgba(34,197,94,0.08)' : 'rgba(239,68,68,0.08)',
-      border: `1px solid ${result.ok ? 'rgba(34,197,94,0.3)' : 'rgba(239,68,68,0.3)'}`,
+      background: result.ok ? 'rgba(76,122,74,0.10)' : 'rgba(194,58,28,0.10)',
+      border: `1px solid ${result.ok ? 'rgba(76,122,74,0.35)' : 'rgba(194,58,28,0.35)'}`,
       display: 'flex', alignItems: 'center', gap: 10,
     }}>
       <span style={{ fontSize: 14 }}>{result.ok ? '✓' : '✗'}</span>
-      <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: result.ok ? '#86efac' : '#fca5a5' }}>
+      <span style={{ fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12, color: result.ok ? 'var(--green)' : 'var(--terra-dk)' }}>
         {result.ok
           ? `Integrity OK: ${result.checked} entries, ${result.assertions} assertions passed`
           : `Integrity FAILED: ${result.error}`}
       </span>
-      <span style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--text-muted)' }}>
+      <span style={{ marginLeft: 'auto', fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 11, color: 'var(--faint)' }}>
         Data verified as of {DATA_AS_OF} &middot;{' '}
         <a
           href="https://www.lmfdb.org/L"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ color: '#67e8f9', textDecoration: 'none' }}
+          style={{ color: 'var(--blue)', textDecoration: 'none' }}
         >
           LMFDB L-functions &#8599;
         </a>
@@ -221,143 +223,169 @@ export default function LmfdbCrossReferencePage() {
   }
 
   return (
-    <div className="page">
-      <div className="page-header">
-        <h1>LMFDB L-function Cross-Reference</h1>
-        <p style={{ color: 'var(--text-secondary)', maxWidth: 720 }}>
-          {lmfdbCrossReference.length} curated L-functions from the LMFDB, spanning degrees 1-4
-          plus the Ramanujan Delta function. Each entry carries the Bober-Sutherland label,
-          first five nontrivial zeros, GRH status, and its connection to the Twin-Ladder Bridge ladder-network model.
-        </p>
-      </div>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>reference · LMFDB cross-reference</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <div style={{ marginBottom: 24 }}>
+          <h1 className="ed-h1" style={{ marginBottom: 10 }}>LMFDB L-function Cross-Reference</h1>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 720 }}>
+            {lmfdbCrossReference.length} curated L-functions from the LMFDB, spanning degrees 1-4
+            plus the Ramanujan Delta function. Each entry carries the Bober-Sutherland label,
+            first five nontrivial zeros, GRH status, and its connection to the Twin-Ladder Bridge ladder-network model.
+          </p>
+        </div>
 
-      <IntegrityPanel />
+        <IntegrityPanel />
 
-      {/* Degree filter chips */}
-      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 20 }}>
-        <button
-          onClick={() => setFilterDegree(null)}
-          style={{
-            padding: '4px 14px', borderRadius: 8, cursor: 'pointer',
-            fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 600,
-            background: filterDegree === null ? 'rgba(168,85,247,0.2)' : 'var(--bg-secondary)',
-            color: filterDegree === null ? '#c084fc' : 'var(--text-muted)',
-            border: `1px solid ${filterDegree === null ? 'rgba(168,85,247,0.4)' : 'var(--border)'}`,
-          }}
-        >
-          All ({lmfdbCrossReference.length})
-        </button>
-        {degrees.map(d => {
-          const count = lmfdbCrossReference.filter(e => e.degree === d).length;
-          const c = degreeColor(d);
-          const active = filterDegree === d;
-          return (
-            <button
-              key={d}
-              onClick={() => setFilterDegree(active ? null : d)}
-              style={{
-                padding: '4px 14px', borderRadius: 8, cursor: 'pointer',
-                fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 600,
-                background: active ? c.bg : 'var(--bg-secondary)',
-                color: active ? c.text : 'var(--text-muted)',
-                border: `1px solid ${active ? c.border : 'var(--border)'}`,
-              }}
-            >
-              Degree {d} ({count})
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Sort controls */}
-      <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 16 }}>
-        <span style={{ fontSize: 11, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', alignSelf: 'center' }}>
-          Sort by:
-        </span>
-        {SORT_KEYS.map(({ key, label }) => (
+        {/* Degree filter chips */}
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 20 }}>
           <button
-            key={key}
-            onClick={() => handleSort(key)}
+            onClick={() => setFilterDegree(null)}
             style={{
-              padding: '3px 10px', borderRadius: 6, cursor: 'pointer',
-              fontFamily: 'var(--font-mono)', fontSize: 11,
-              background: sortKey === key ? 'rgba(99,102,241,0.15)' : 'var(--bg-secondary)',
-              color: sortKey === key ? '#a5b4fc' : 'var(--text-muted)',
-              border: `1px solid ${sortKey === key ? 'rgba(99,102,241,0.35)' : 'var(--border)'}`,
+              padding: '4px 14px', borderRadius: 8, cursor: 'pointer',
+              fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12, fontWeight: 600,
+              background: filterDegree === null ? 'rgba(140,106,29,0.18)' : 'var(--paper2)',
+              color: filterDegree === null ? 'var(--brass-dk)' : 'var(--faint)',
+              border: `1px solid ${filterDegree === null ? 'rgba(140,106,29,0.4)' : 'var(--hairline)'}`,
             }}
           >
-            {label} {sortKey === key ? (sortAsc ? '↑' : '↓') : ''}
+            All ({lmfdbCrossReference.length})
           </button>
-        ))}
-      </div>
-
-      {/* L-function list */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-        {sorted.map(entry => {
-          const isExpanded = expandedLabel === entry.label;
-          return (
-            <div key={entry.label}>
-              <div
-                onClick={() => setExpandedLabel(isExpanded ? null : entry.label)}
+          {degrees.map(d => {
+            const count = lmfdbCrossReference.filter(e => e.degree === d).length;
+            const c = degreeColor(d);
+            const active = filterDegree === d;
+            return (
+              <button
+                key={d}
+                onClick={() => setFilterDegree(active ? null : d)}
                 style={{
-                  padding: '12px 16px', borderRadius: 10, cursor: 'pointer',
-                  background: isExpanded ? 'var(--bg-secondary)' : 'var(--bg-primary)',
-                  border: `1px solid ${isExpanded ? 'rgba(168,85,247,0.3)' : 'var(--border)'}`,
-                  display: 'grid',
-                  gridTemplateColumns: '60px 1fr auto',
-                  alignItems: 'center', gap: 16,
-                  transition: 'background 0.15s, border-color 0.15s',
+                  padding: '4px 14px', borderRadius: 8, cursor: 'pointer',
+                  fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12, fontWeight: 600,
+                  background: active ? c.bg : 'var(--paper2)',
+                  color: active ? c.text : 'var(--faint)',
+                  border: `1px solid ${active ? c.border : 'var(--hairline)'}`,
                 }}
               >
-                <DegreeBadge degree={entry.degree} />
-                <div>
-                  <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text-primary)', marginBottom: 2 }}>
-                    {entry.name}
-                  </div>
-                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--text-muted)' }}>
-                    {entry.label}
-                  </div>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                  <div style={{ textAlign: 'right' }}>
-                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--text-secondary)' }}>
-                      N={entry.conductor}
-                    </div>
-                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--text-muted)' }}>
-                      w={entry.weight}
-                    </div>
-                  </div>
-                  <SignBadge sign={entry.signOfFunctionalEquation} />
-                  <span style={{
-                    fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--text-muted)',
-                    minWidth: 80, textAlign: 'right',
-                  }}>
-                    z1={entry.firstFiveZeros[0].toFixed(2)}
-                  </span>
-                  <span style={{ color: 'var(--text-muted)', fontSize: 14, transform: isExpanded ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>
-                    &#9662;
-                  </span>
-                </div>
-              </div>
-              {isExpanded && (
-                <DetailCard entry={entry} onClose={() => setExpandedLabel(null)} />
-              )}
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Tripwires */}
-      <div style={{ marginTop: 32, padding: 16, borderRadius: 8, background: 'var(--bg-secondary)', border: '1px solid var(--border)' }}>
-        <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 1, color: 'var(--text-muted)', marginBottom: 8 }}>
-          Tripwires
+                Degree {d} ({count})
+              </button>
+            );
+          })}
         </div>
-        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--text-secondary)', lineHeight: 1.8 }}>
-          <div data-tripwire="lmfdb-count">1. Entry count: {lmfdbCrossReference.length} (expected 16)</div>
-          <div data-tripwire="lmfdb-degrees">2. Degree range: {Math.min(...lmfdbCrossReference.map(e => e.degree))}-{Math.max(...lmfdbCrossReference.map(e => e.degree))} (expected 1-4)</div>
-          <div data-tripwire="lmfdb-zeta-first-zero">3. Zeta first zero: {lmfdbCrossReference[0]?.firstFiveZeros[0]} (expected 14.134725)</div>
-          <div data-tripwire="lmfdb-integrity">4. assertIntegrity() runs {(() => { try { const r = assertIntegrity(); return `OK (${r.assertions} checks)`; } catch { return 'FAILED'; } })()}</div>
-          <div data-tripwire="lmfdb-sign-values">5. Signs present: {[...new Set(lmfdbCrossReference.map(e => e.signOfFunctionalEquation))].sort().join(', ')} (expected -1, 1)</div>
+
+        {/* Sort controls */}
+        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 16 }}>
+          <span style={{ fontSize: 11, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))', alignSelf: 'center' }}>
+            Sort by:
+          </span>
+          {SORT_KEYS.map(({ key, label }) => (
+            <button
+              key={key}
+              onClick={() => handleSort(key)}
+              style={{
+                padding: '3px 10px', borderRadius: 6, cursor: 'pointer',
+                fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 11,
+                background: sortKey === key ? 'rgba(63,107,134,0.15)' : 'var(--paper2)',
+                color: sortKey === key ? 'var(--blue)' : 'var(--faint)',
+                border: `1px solid ${sortKey === key ? 'rgba(63,107,134,0.35)' : 'var(--hairline)'}`,
+              }}
+            >
+              {label} {sortKey === key ? (sortAsc ? '↑' : '↓') : ''}
+            </button>
+          ))}
+        </div>
+
+        {/* L-function list */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          {sorted.map(entry => {
+            const isExpanded = expandedLabel === entry.label;
+            return (
+              <div key={entry.label}>
+                <div
+                  onClick={() => setExpandedLabel(isExpanded ? null : entry.label)}
+                  style={{
+                    padding: '12px 16px', borderRadius: 10, cursor: 'pointer',
+                    background: isExpanded ? 'var(--paper2)' : 'var(--paper)',
+                    border: `1px solid ${isExpanded ? 'rgba(140,106,29,0.35)' : 'var(--hairline)'}`,
+                    display: 'grid',
+                    gridTemplateColumns: '60px 1fr auto',
+                    alignItems: 'center', gap: 16,
+                    transition: 'background 0.15s, border-color 0.15s',
+                  }}
+                >
+                  <DegreeBadge degree={entry.degree} />
+                  <div>
+                    <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--ink)', marginBottom: 2 }}>
+                      {entry.name}
+                    </div>
+                    <div style={{ fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 11, color: 'var(--faint)' }}>
+                      {entry.label}
+                    </div>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                    <div style={{ textAlign: 'right' }}>
+                      <div style={{ fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12, color: 'var(--ink-soft)' }}>
+                        N={entry.conductor}
+                      </div>
+                      <div style={{ fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 11, color: 'var(--faint)' }}>
+                        w={entry.weight}
+                      </div>
+                    </div>
+                    <SignBadge sign={entry.signOfFunctionalEquation} />
+                    <span style={{
+                      fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12, color: 'var(--faint)',
+                      minWidth: 80, textAlign: 'right',
+                    }}>
+                      z1={entry.firstFiveZeros[0].toFixed(2)}
+                    </span>
+                    <span style={{ color: 'var(--faint)', fontSize: 14, transform: isExpanded ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>
+                      &#9662;
+                    </span>
+                  </div>
+                </div>
+                {isExpanded && (
+                  <DetailCard entry={entry} onClose={() => setExpandedLabel(null)} />
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Tripwires */}
+        <div style={{ marginTop: 32, padding: 16, borderRadius: 8, background: 'var(--paper2)', border: '1px solid var(--hairline)' }}>
+          <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 1, color: 'var(--faint)', marginBottom: 8 }}>
+            Tripwires
+          </div>
+          <div style={{ fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.8 }}>
+            <div data-tripwire="lmfdb-count">1. Entry count: {lmfdbCrossReference.length} (expected 16)</div>
+            <div data-tripwire="lmfdb-degrees">2. Degree range: {Math.min(...lmfdbCrossReference.map(e => e.degree))}-{Math.max(...lmfdbCrossReference.map(e => e.degree))} (expected 1-4)</div>
+            <div data-tripwire="lmfdb-zeta-first-zero">3. Zeta first zero: {lmfdbCrossReference[0]?.firstFiveZeros[0]} (expected 14.134725)</div>
+            <div data-tripwire="lmfdb-integrity">4. assertIntegrity() runs {(() => { try { const r = assertIntegrity(); return `OK (${r.assertions} checks)`; } catch { return 'FAILED'; } })()}</div>
+            <div data-tripwire="lmfdb-sign-values">5. Signs present: {[...new Set(lmfdbCrossReference.map(e => e.signOfFunctionalEquation))].sort().join(', ')} (expected -1, 1)</div>
+          </div>
+        </div>
+
+        {/* Related pages */}
+        <div style={{ marginTop: 24, padding: 16, borderRadius: 8, background: 'var(--paper2)', border: '1px solid var(--hairline)' }}>
+          <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--faint)', marginBottom: 10 }}>
+            Related pages
+          </div>
+          <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
+            <Link to="/lambda-bounds" style={{ fontSize: 12, color: 'var(--brass-dk)', textDecoration: 'none' }}>
+              → Λ Bounds &amp; RH Roadmap
+            </Link>
+            <Link to="/twin-ladder-paper-roadmap" style={{ fontSize: 12, color: 'var(--brass)', textDecoration: 'none' }}>
+              → Twin-Ladder Paper Roadmap
+            </Link>
+            <Link to="/research-journal" style={{ fontSize: 12, color: 'var(--green)', textDecoration: 'none' }}>
+              → Research Journal
+            </Link>
+          </div>
+          <div style={{ marginTop: 14 }}>
+            <Link to="/" style={{ fontSize: 13, color: 'var(--terra-dk)', textDecoration: 'none' }}>
+              ← the atlas
+            </Link>
+          </div>
         </div>
       </div>
     </div>

@@ -384,7 +384,7 @@ export default function CollapseChainPage() {
         </div>
 
         <div style={{ marginTop: '20px', padding: '20px', backgroundColor: 'var(--paper2)', borderRadius: '8px', border: '1px solid var(--hairline)' }}>
-          <h3 style={{ fontSize: '14px', marginTop: '0', color: 'var(--ink)' }}>Honest Scope &amp; Risk</h3>
+          <h3 style={{ fontSize: '14px', marginTop: '0', color: 'var(--ink)' }}>Scope &amp; Risk</h3>
           <ul style={{ fontSize: '13px', color: 'var(--ink-soft)', margin: '8px 0' }}>
             <li>
               <strong>§27 construct identity is load-bearing.</strong> If §25-26-27 has a gap in the identity

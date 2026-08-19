@@ -209,7 +209,7 @@ export default function Imp34551DeepRungArgmaxJitterViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> extended-precision measurement/
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> extended-precision measurement/
         cross-check only -- answers SUB-GAP-imp-34533-deep-rung-argmax-noise-dominated by observing the
         deep-rung argmax jitter in double-double (106-bit) arithmetic that native double cannot resolve.
         The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;

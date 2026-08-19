@@ -170,7 +170,7 @@ export default function Imp3374OverflowDegreeViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation only -- this
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only -- this
         visualizes the imp-3253 reconciliation of two already-established overflow fractions. It
         establishes NO operator positivity and does not itself re-derive the degree-0 ~64% (that
         gap is a named imp-3253 sub-gap). RH-equivalent, necessary-but-not-sufficient. The

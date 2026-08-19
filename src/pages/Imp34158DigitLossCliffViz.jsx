@@ -198,7 +198,7 @@ export default function Imp34158DigitLossCliffViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> {FINDING.A_cancellation_is_reciprocal_residual}{' '}
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> {FINDING.A_cancellation_is_reciprocal_residual}{' '}
         {FINDING.C_retained_accuracy_floor_holds_to_the_crossing} This is a floating-point significance-loss
         diagnostic. <SurrogateDiagnosticCohortNote />
       </div>

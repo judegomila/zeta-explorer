@@ -370,7 +370,7 @@ export default function ExcessFractionPhiPage() {
           borderRadius: 8, fontSize: '0.8rem', color: 'var(--faint)',
           marginBottom: 24,
         }}>
-          <strong style={{ color: 'var(--ink-soft)' }}>Honest status:</strong> This is a{' '}
+          <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> This is a{' '}
           <em>divergence characterisation</em> of the degree-0 scalar ratio, not a proof.
           The area-weighted mean price of the forced even cosh-completion has no finite value.
           The off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone obstruction

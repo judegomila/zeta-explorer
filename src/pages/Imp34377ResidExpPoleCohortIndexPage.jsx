@@ -245,7 +245,7 @@ export default function Imp34377ResidExpPoleCohortIndexPage() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest sub-gap (SUB-GAP-imp-34287-asymptotic-class-undecidable):</strong>{' '}
+        <strong style={{ color: '#94a3b8' }}>Sub-gap (SUB-GAP-imp-34287-asymptotic-class-undecidable):</strong>{' '}
         the surrogate domain terminates at k* ~ {IMP34169_FIXED_BAND_PEAK_EXTENDED_DECADE_SURROGATE_ZERO.surrogateZero.continuousZeroKStar} before any pole-free window
         can separate a genuine super-log signature from pole contamination -- the whole re-acceleration
         branch sits inside the pole's influence radius. Whether the TRUE fixed-band-peak growth is
@@ -263,7 +263,7 @@ export default function Imp34377ResidExpPoleCohortIndexPage() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> this is a navigation aid over
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> this is a navigation aid over
         already-published measurements. k* ~ 21.28 is a real, reproducible surrogate boundary attached
         to one specific inherited extrapolation, not a derived mathematical ceiling. It changes no
         bound and patches no literal. C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a&ge;0

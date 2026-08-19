@@ -192,7 +192,7 @@ export default function Imp34352EflowGronwallCrossoverOffsetViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, baked
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked
         literals reproducing the imp-34270 measurement; no new derivation, no bound changed.
         Derivation/measurement only, conditional-share diagnostic, NOT a rigorous asymptotic;
         C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED;

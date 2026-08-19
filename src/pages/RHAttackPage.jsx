@@ -55,7 +55,7 @@ export default function RHAttackPage() {
         </div>
 
         <div className="card" style={{ marginBottom: 24, borderLeft: `3px solid ${RED}` }}>
-          <h3 style={{ color: RED, fontSize: 14, marginBottom: 8 }}>Intellectual Honesty Statement</h3>
+          <h3 style={{ color: RED, fontSize: 14, marginBottom: 8 }}>Status</h3>
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8 }}>
             The Twin-Ladder Bridge model provides a beautiful physical framework for understanding the zeta function,
             but <strong>analogies are not proofs</strong>. The gap between "the model is consistent with RH"

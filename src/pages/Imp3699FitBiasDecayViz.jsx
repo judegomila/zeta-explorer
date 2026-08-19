@@ -227,7 +227,7 @@ export default function Imp3699FitBiasDecayViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement only -- this
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement only -- this
         visualizes the imp-3670 observable decay-rate readout used inside a mass-feasibility
         diagnostic. It establishes NO operator positivity. RH-equivalent, necessary-but-not-sufficient.
         The imp-3066 K_a &ge; 0 sign-positivity obstruction remains untouched; Platt-Trudgian

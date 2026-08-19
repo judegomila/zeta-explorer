@@ -239,7 +239,7 @@ export default function Imp33221ModelFidelityCrossingGapViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/characterization
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/characterization
         only -- no proof, no reduction below RH. This localizes and quantifies a model-fidelity gap
         between the imp-3665 super-exponential surrogate A(tau) and the real Phi-autocorrelation
         A(tau); it establishes no operator positivity, mass-feasibility is

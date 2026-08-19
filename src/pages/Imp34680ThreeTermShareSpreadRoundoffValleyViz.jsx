@@ -224,7 +224,7 @@ export default function Imp34680ThreeTermShareSpreadRoundoffValleyViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, reusing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, reusing the
         imp-34651 exported literals verbatim (per-channel full-tail/flat-tail spreads, collapse
         factors, dp-at-max-deviation). q1..q4 are inherited central differences, NOT fresh
         analytic closed forms, so the sigma&nbsp;-&gt;&nbsp;1 deep-tail regime (imp-3220/imp-3406

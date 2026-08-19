@@ -162,7 +162,7 @@ export default function Imp3256CrossvalPage() {
         background: 'rgba(148,163,184,0.04)', borderLeft: '3px solid #334155',
         borderRadius: '0 4px 4px 0', fontSize: '0.8rem', color: '#64748b',
       }}>
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Both windows converge together to
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Both windows converge together to
         ~{finest.hs_U5.toExponential(3)} (finest row) as h&rarr;0. imp-1267&apos;s frozen value at N=1000 is
         reproduced exactly, and both values round to the same 1.90&times;10<sup>-4</sup> headline at 3
         significant figures — the "~0.08% apart" gap is significant-figure rounding of{' '}

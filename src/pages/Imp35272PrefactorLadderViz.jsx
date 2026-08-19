@@ -144,7 +144,7 @@ export default function Imp35272PrefactorLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the imp-35240
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-35240
         measurement literals verbatim (no new computation). A finer eps ladder discriminating a prefactor
         to &sim;3e-7 is MEASUREMENT ONLY on the inherited imp-3220/imp-3406/imp-33646 model-cusp surrogate;
         does NOT certify a uniform modulus, does NOT discharge O3 or G6a_shock_lipschitz (both stay OPEN);

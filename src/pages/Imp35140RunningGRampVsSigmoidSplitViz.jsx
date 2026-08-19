@@ -226,7 +226,7 @@ export default function Imp35140RunningGRampVsSigmoidSplitViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
         imp-35028 ladder/decayExponent/maxRelRunningGGap literals verbatim (no new computation).
         Measurement on the inherited imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic; C_mb
         GUE-conditional per imp-486 untouched; establishes no operator positivity; imp-3066

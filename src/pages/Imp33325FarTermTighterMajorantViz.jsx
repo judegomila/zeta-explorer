@@ -235,7 +235,7 @@ export default function Imp33325FarTermTighterMajorantViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation
         of an already-verified feasibility assessment (imp-33290). The over-charge
         is removable by a provable tighter bound, but N-uniform certification is
         NOT achieved -- it relocates to the open imp-33250 residual dg2. imp-3066

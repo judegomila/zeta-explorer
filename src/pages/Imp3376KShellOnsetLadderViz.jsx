@@ -197,7 +197,7 @@ export default function Imp3376KShellOnsetLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> the ladder was originally
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> the ladder was originally
         eyeballed as shrinking "~1/K"; the exact telescoping analysis (imp-3370) DERIVES that
         1-onset(K) instead decays CUBICALLY as A/K&sup3; with A = 6/(3+&pi;&sup2;) &asymp;{' '}
         {IMP3376_LEADING_COEF_A.toFixed(5)}, matching the tabulated K=1..40 onsets to ratio &rarr; 1.

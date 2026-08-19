@@ -234,7 +234,7 @@ export default function Imp34269FixedBandPeakSharedGridCrossRecomputeViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, baked
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked
         literals reproducing the imp-34269 measurement; no new derivation, no bound changed.
         Verification/cross-recompute only -- neither imp-34196 nor imp-34109 is strengthened or
         overturned, this only certifies they measure the same thing. Descriptive OLS surrogate,

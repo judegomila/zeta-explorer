@@ -151,7 +151,7 @@ export default function Imp34758DpStarProbeBandRatioViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page presenting the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page presenting the
         imp-34735 exact-model edge-ratio ladder (imported literals, no new computation); establishes no
         new numerical claim. q1..q3 are inherited central differences on the imp-3220/imp-3406 component
         model, not fresh closed forms, so the ratio ladder is a property of that inherited model, not an

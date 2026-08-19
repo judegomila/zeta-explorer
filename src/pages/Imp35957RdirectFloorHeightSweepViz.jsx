@@ -106,7 +106,7 @@ export default function Imp35957RdirectFloorHeightSweepViz() {
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#fbbf24' }}>Honest status -- TWIN cliffs, not one:</strong> imp-35972/imp-36021
+        <strong style={{ color: '#fbbf24' }}>Status -- TWIN cliffs, not one:</strong> imp-35972/imp-36021
         resolved this NaN cliff into TWO distinct, sub-decade-adjacent IEEE-754 boundaries: cliff B (a
         {' → '}0 via the T{'·'}u denominator overflow, plotted here at log10 N {'≈'} 307.4559, and cliff A
         (the effectiveHeightForN Newton-seed numerator 2{'π'}N overflow) {'≈'}6.2e-4 decade above it at
@@ -161,7 +161,7 @@ export default function Imp35957RdirectFloorHeightSweepViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/diagnostic only, double
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/diagnostic only, double
         precision; instantiates no interval, ports no operator, changes no bound. imp-34714a REMAINS
         OPEN. C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED. NO QED.
         Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.

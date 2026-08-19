@@ -220,7 +220,7 @@ export default function Imp3881EpsSignChangeViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/visualization
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization
         only -- no proof, no reduction below RH. This pins the CONVERGED shape of a moment-ratio
         correction diagnostic; mass-feasibility is necessary-but-not-sufficient and the
         operator-level K_a &ge; 0 sign-positivity residual (imp-3066) remains untouched. The

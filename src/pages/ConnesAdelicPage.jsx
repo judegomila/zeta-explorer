@@ -19,7 +19,7 @@
 //     and the per-prime row sum.
 //   - Heat-flow sweep chart: traceTotal vs t across [0, 0.2] step 0.01 with
 //     a guide line at t = 0.02 (the imp-440 regime) and a guide at zero.
-//   - Honest scope + citations.
+//   - Scope + citations.
 //
 // Data source: src/data/connes-adelic-lambda-2026-05.js (CONNES_ADELIC_LAMBDA).
 // All computation happens at import / build time. Pure inline SVG -- no
@@ -351,7 +351,7 @@ export default function ConnesAdelicPage() {
         </div>
 
         <div style={{ marginTop: 20, ...panelStyle }}>
-          <h2 style={h2Style}>Honest scope</h2>
+          <h2 style={h2Style}>Scope</h2>
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7, margin: 0 }}>
             {CONNES_ADELIC_LAMBDA.honestScope}
           </p>

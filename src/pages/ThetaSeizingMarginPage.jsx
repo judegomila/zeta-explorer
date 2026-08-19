@@ -216,7 +216,7 @@ export default function ThetaSeizingMarginPage() {
         </div>
 
         <div className="card" style={{ background: 'var(--paper2)', border: '1px solid var(--hairline)', borderLeft: '3px solid var(--terra-dk)', borderRadius: 8, padding: '16px 18px', marginTop: 24 }}>
-          <h3 style={{ color: 'var(--terra-dk)', fontSize: 16, marginBottom: 8 }}>Honest Status</h3>
+          <h3 style={{ color: 'var(--terra-dk)', fontSize: 16, marginBottom: 8 }}>Status</h3>
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8 }}>
             <strong style={{ color: 'var(--ink)' }}>What this closes:</strong> the static asymmetric 4-particle tie in
             exact closed form. The seizing competitor always carries strictly lower Theta; the excursion peak on the

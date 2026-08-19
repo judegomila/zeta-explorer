@@ -176,7 +176,7 @@ export default function Imp33931FartailFloorSensitivityScatterViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation only of the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only of the
         already-established imp-33708 floor-sensitivity measurement (isRigorous: false). The
         far-tail landmark N-values are ROBUST qualitatively (they always exist and stay ordered) but
         FRAGILE quantitatively (~2.1 decades of movement across the 10x floor sweep). Changes no

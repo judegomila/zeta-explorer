@@ -159,7 +159,7 @@ export default function Imp35549HeightMapDivergenceViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, computing both
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, computing both
         height maps live from their existing formulas (no fresh derivation, no heavy data-module
         import); pure diagnostic re-plot measuring how far apart two already-existing height-map
         conventions land, does NOT establish which map (if either) is more accurate; measurement

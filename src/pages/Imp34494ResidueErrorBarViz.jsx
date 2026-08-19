@@ -179,7 +179,7 @@ export default function Imp34494ResidueErrorBarViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, the ladder and
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, the ladder and
         error band reused verbatim from imp-34449; the two outliers independently re-derived here
         by the same Newton divided-difference method on the same imp-34237 rows (not copied from
         the imp-34449 doc-comment). Surrogate finite-difference re-read, NOT a rigorous asymptotic;

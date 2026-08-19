@@ -206,7 +206,7 @@ export default function Imp3677SkewToeplitzKrylovDepthVsNLawViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/fit only --
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/fit only --
         this visualizes the imp-3645 two-point fits and the pair-index confound; it does NOT
         construct the missing magnitude and does NOT attempt the imp-3066 K_a &ge; 0
         positivity. The matched-pair sweep needed to discriminate log vs sqrt vs linear for a

@@ -160,7 +160,7 @@ export default function Imp36192I2TruncationBlowupViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> {data.verdict}
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> {data.verdict}
       </div>
 
       <div

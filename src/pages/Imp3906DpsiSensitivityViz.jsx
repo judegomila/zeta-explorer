@@ -242,7 +242,7 @@ export default function Imp3906DpsiSensitivityViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> this presents an imp-3874
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> this presents an imp-3874
         VERIFICATION of an existing lemma (imp-3854), not a new bound &mdash; LEMMA-3854 is
         CONFIRMED at every sampled point and stays a valid (loose) over-bound. Only 3 of the 10
         imp-3725 plateaus are verified here (imp-3874-sub-all-plateaus stays open); no new Lambda

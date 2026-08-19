@@ -188,7 +188,7 @@ export default function Imp34515SurplusAmplitudeRelDefConvergenceViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, baked literals
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked literals
         reproducing the imp-34473/imp-34507 measurements; no new derivation, no bound changed.
         Component model is the inherited imp-34329/imp-34248/imp-34174/imp-33743 extrapolation,
         NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8 ansatz

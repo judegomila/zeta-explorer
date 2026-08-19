@@ -49,7 +49,7 @@ export default function CalabiYauPage() {
               marginRight: 8,
             }}
           >
-            HONEST STATUS · NO-REALIZATION
+            STATUS · NO-REALIZATION
           </span>
           <strong style={{ color: 'var(--ink)', fontSize: 13 }}>
             All five strategies below are speculative — none is an active route to RH.

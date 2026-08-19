@@ -219,7 +219,7 @@ export default function Imp3884ThetabarElasticityViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> visualization of an existing
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> visualization of an existing
         derivation on the imp-3725 true-flow lemma; the (H/Dmin)<sup>2</sup> magnitude is an empirical
         smin &asymp; Dmin refinement confirmed to a factor of ~1.6, not a QED-grade equality. Tunes the
         F_mb factor only; does not close cond-CH or any conditional leg; Platt-Trudgian &Lambda; &le; 0.2

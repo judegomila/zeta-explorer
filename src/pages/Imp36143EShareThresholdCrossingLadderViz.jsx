@@ -175,7 +175,7 @@ export default function Imp36143EShareThresholdCrossingLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation-only consumer of
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation-only consumer of
         the baked imp-36097, imp-36046, imp-36138, and imp-36155 viz-data literals (all reusing the
         recorded imp-35971 / imp-35889 shares); no new derivation, no bound changed. C_C GUE-conditional
         (imp-2642 / imp-2643 / imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian

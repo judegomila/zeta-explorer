@@ -116,7 +116,7 @@ export default function Imp35123BootstrapExponentDistributionViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page plotting the imp-34994
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page plotting the imp-34994
         bootstrap resampling distribution (4000 seeded-LCG draws over the reused imp-34925 21-point C_mb grid);
         it changes no bound and does NOT discharge the GUE conditional (C_mb GUE-conditional per imp-486). The
         C_C 1/8 ansatz (imp-2642/imp-2643) is untouched, establishes no operator positivity, imp-3066 K_a &ge; 0

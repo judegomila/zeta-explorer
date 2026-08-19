@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 /**
  * HonestCeilingBanner — a compact, dismissable top-of-page callout that surfaces
- * the canonical honest ceiling ABOVE THE FOLD on pages most prone to over-reading.
+ * the canonical ceiling ABOVE THE FOLD on pages most prone to over-reading.
  *
  * Distinct from the inline VizCeilingNote (which is a footnote-style guardrail for
  * exploratory visualizations): this is a banner placed at the very top of a page so
@@ -104,7 +104,7 @@ export default function HonestCeilingBanner({ variant = 'RIGOROUS-SOTA', title, 
       <button
         type="button"
         onClick={() => setDismissed(true)}
-        aria-label="Dismiss honest-ceiling banner"
+        aria-label="Dismiss ceiling banner"
         title="Dismiss"
         style={{
           position: 'absolute',
@@ -134,7 +134,7 @@ export default function HonestCeilingBanner({ variant = 'RIGOROUS-SOTA', title, 
           marginRight: 8,
         }}
       >
-        HONEST CEILING · {badge}
+        CEILING · {badge}
       </span>
       <strong style={{ color: '#e2e8f0' }}>{headline}</strong>
       <div style={{ marginTop: 6 }}>
@@ -142,7 +142,7 @@ export default function HonestCeilingBanner({ variant = 'RIGOROUS-SOTA', title, 
         <Link to="/state-of-program" style={{ color: v.color, fontWeight: 600 }}>
           See the State of the Program
         </Link>{' '}
-        for the one canonical honest summary.
+        for the canonical summary.
       </div>
     </div>
   );

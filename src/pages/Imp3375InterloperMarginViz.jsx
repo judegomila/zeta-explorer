@@ -172,7 +172,7 @@ export default function Imp3375InterloperMarginViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation only, measure-only
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only, measure-only
         -- this visualizes an independent re-integration of the imp-3277 finding on three isolated-
         pair models tuned to measured Theta(0) values; it establishes no theorem and no
         unconditional claim beyond the tested rows. RH-equivalent, necessary-but-not-sufficient.

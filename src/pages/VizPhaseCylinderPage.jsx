@@ -5,7 +5,7 @@
 // cylinder toggle wraps the rectangle back onto the cylinder surface, turning
 // the diagonal rays into parallel helices.
 //
-// Honest ceiling: geometric re-parameterization, descriptive/exploratory,
+// Ceiling: geometric re-parameterization, descriptive/exploratory,
 // NO claim about Lambda or a new bound on RH.
 
 import React, { useRef, useEffect, useState } from 'react';
@@ -338,7 +338,7 @@ export default function VizPhaseCylinderPage() {
       <div className="card" style={{ marginTop: 10, padding: 12 }}>
         <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)',
                       letterSpacing: 0.5, marginBottom: 6 }}>
-          Honest ceiling
+          Ceiling
         </div>
         <div style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.7 }}>
           This is a geometric re-parameterization of the log-phase field. It is purely

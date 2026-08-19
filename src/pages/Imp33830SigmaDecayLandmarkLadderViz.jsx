@@ -162,7 +162,7 @@ export default function Imp33830SigmaDecayLandmarkLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> reference/visualization only
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> reference/visualization only
         -- imp-33828 changes no value and derives nothing new, and this page adds no new
         derivation either. It simply gives the six-landmark N-ordered cross-reference a visual
         surface. No bound changes; establishes no operator positivity; imp-3066 K_a &ge; 0

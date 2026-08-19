@@ -136,7 +136,7 @@ export default function Imp34980RMarginDyadicWallSweepViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
         imp-34953 R_margin(N) = N&middot;FP_LO/K sweep verbatim (published K/FP_LO held fixed,
         reused via imp-34930), no new computation. Verification/measurement only on the inherited
         imp-3220/imp-3406 surrogate crossover map; does NOT instantiate the imp-34687a

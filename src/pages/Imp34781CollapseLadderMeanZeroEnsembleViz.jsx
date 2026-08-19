@@ -172,7 +172,7 @@ export default function Imp34781CollapseLadderMeanZeroEnsembleViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page presenting the imp-34751
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page presenting the imp-34751
         per-footing literals verbatim (no new computation). A CI containing 0 is failure to reject, NOT
         acceptance; this is a cross-check on the INHERITED imp-3220/imp-3406 surrogate, not a rehabilitation
         of it. The -2 asymptote and C_C&nbsp;=&nbsp;(1/8)&radic;(3&pi;) (imp-2714) ansatz are UNTOUCHED; the

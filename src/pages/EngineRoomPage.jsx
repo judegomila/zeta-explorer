@@ -173,7 +173,7 @@ export default function EngineRoomPage() {
           </>
         )}
 
-        {/* ── Honest framing ──────────────────────────────────────────── */}
+        {/* ── Framing ──────────────────────────────────────────── */}
         <div
           className="card"
           style={{ background: 'var(--paper2)', border: '1px solid var(--hairline)', borderLeft: '3px solid var(--terra-dk)', borderRadius: 8, padding: '16px 18px', marginTop: 24 }}

@@ -170,7 +170,7 @@ export default function Imp33851HumpEnvelopeSymmetryVsKViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement only -- reuses the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement only -- reuses the
         imp-33809 per-k hump amplitudes verbatim; the component model is the inherited
         imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
         imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066

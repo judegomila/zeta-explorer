@@ -40,7 +40,7 @@ export default function DownstreamVerdictCallout() {
         REDUCTION</strong>: it is provably impossible to revive by any scalar normalization.
         The surviving open sub-problem (<InlineCode>{'||R|| <= 1 <=> K_a >= 0'}</InlineCode>) is a
         faithful restatement of positivity — <strong style={{ color: '#e2e8f0' }}>RH-equivalent,
-        not a shortcut</strong>. See the full chain and its honest status on{' '}
+        not a shortcut</strong>. See the full chain and its status on{' '}
         <Link to="/collapse-chain" style={{ color: '#60a5fa' }}>/collapse-chain</Link>.
       </p>
     </div>

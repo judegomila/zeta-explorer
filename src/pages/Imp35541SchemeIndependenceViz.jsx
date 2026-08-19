@@ -175,7 +175,7 @@ export default function Imp35541SchemeIndependenceViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, baked literals
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked literals
         reproducing the imp-35477 measurements verbatim; no new derivation, no bound changed.
         Measurement only on the inherited imp-3220/imp-3406 surrogate; does NOT advance the R2
         ladder past N=1000 (imp-35221/imp-35324/imp-35412); does NOT change the imp-35412 slack

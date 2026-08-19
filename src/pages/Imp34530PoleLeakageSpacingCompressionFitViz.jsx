@@ -232,7 +232,7 @@ export default function Imp34530PoleLeakageSpacingCompressionFitViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement / fit + threshold
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement / fit + threshold
         extrapolation only -- reuses the imp-34247 metric, imp-34188 y(k) surrogate, and imp-34023 pole
         verbatim; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
         asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no

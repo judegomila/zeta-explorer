@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { FULL_ROUTE_MAP } from '../data/full-route-map-2026-06-19.js';
 import RelatedLinks from '../components/RelatedLinks.jsx';
 import {
@@ -13,126 +14,134 @@ import { CAUGHT_OVERCLAIMS, OVERCLAIM_COUNT } from '../data/overclaim-ledger.js'
 // map and the fixed-height certificate packages, so this page and DashboardPage
 // cannot drift.
 // No heavy zeros-bundle import.
+// Editorial (warm) re-theme: full-width dashboard, identical structure/data.
 
 const TRUTHS = STATE_OF_PROGRAM_TRUTHS;
 
 export default function StateOfProgramPage() {
   return (
-    <div className="page">
-      <div className="page-header">
-        <h1>State of the Program</h1>
-        <p>
-          One honest, plain-language summary of where this RH / de&nbsp;Bruijn-Newman Λ attack actually stands.
-          The truth is otherwise scattered across the route map, dashboards and withdrawn-claims notes — this page
-          exists so a reader cannot over-read any single partial page. The summary was reconciled on{' '}
-          <strong>{STATE_OF_PROGRAM_SUMMARY_DATE}</strong> against the{' '}
-          <strong>full route map ({FULL_ROUTE_MAP.date}, {FULL_ROUTE_MAP.totalRoutes} routes)</strong>,
-          the public fixed-height package, and the standalone private candidate package. The one-line truth:{' '}
-          <strong>Λ ≤ 0.1787854 is an unreviewed computer-assisted candidate for an unconditional proof; the bound is not established, has not been peer reviewed, and is not RH.</strong>
-        </p>
-      </div>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>reference · state of the program</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <div style={{ marginBottom: 24 }}>
+          <h1 className="ed-h1" style={{ marginBottom: 10 }}>State of the Program</h1>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55 }}>
+            One honest, plain-language summary of where this RH / de&nbsp;Bruijn-Newman Λ attack actually stands.
+            The truth is otherwise scattered across the route map, dashboards and withdrawn-claims notes — this page
+            exists so a reader cannot over-read any single partial page. The summary was reconciled on{' '}
+            <strong>{STATE_OF_PROGRAM_SUMMARY_DATE}</strong> against the{' '}
+            <strong>full route map ({FULL_ROUTE_MAP.date}, {FULL_ROUTE_MAP.totalRoutes} routes)</strong>,
+            the public fixed-height package, and the standalone private candidate package. The one-line truth:{' '}
+            <strong>Λ ≤ 0.1787854 is an unreviewed computer-assisted candidate for an unconditional proof; the bound is not established, has not been peer reviewed, and is not RH.</strong>
+          </p>
+        </div>
 
-      {TRUTHS.map((t, i) => (
-        <div className="card" key={i} style={{ marginBottom: 16, borderLeft: `3px solid ${t.color}` }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8, flexWrap: 'wrap' }}>
+        {TRUTHS.map((t, i) => (
+          <div className="card" key={i} style={{ marginBottom: 16, borderLeft: `3px solid ${t.color}` }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8, flexWrap: 'wrap' }}>
+              <span
+                style={{
+                  fontFamily: 'var(--ed-mono, var(--font-mono))',
+                  fontSize: 11,
+                  fontWeight: 700,
+                  letterSpacing: 0.5,
+                  color: t.color,
+                  border: `1px solid ${t.color}`,
+                  borderRadius: 4,
+                  padding: '2px 7px',
+                }}
+              >
+                {t.badge}
+              </span>
+              <strong style={{ color: 'var(--ink)', fontSize: 14.5 }}>{t.title}</strong>
+            </div>
+            <div style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.6 }}>{t.body}</div>
+          </div>
+        ))}
+
+        <div className="card" style={{ marginTop: 8 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10, flexWrap: 'wrap' }}>
             <span
               style={{
-                fontFamily: 'var(--font-mono, monospace)',
+                fontFamily: 'var(--ed-mono, var(--font-mono))',
                 fontSize: 11,
                 fontWeight: 700,
                 letterSpacing: 0.5,
-                color: t.color,
-                border: `1px solid ${t.color}`,
+                color: 'var(--terra-dk)',
+                border: '1px solid var(--terra-dk)',
                 borderRadius: 4,
                 padding: '2px 7px',
               }}
             >
-              {t.badge}
+              CORRECTIONS LOG
             </span>
-            <strong style={{ color: '#e2e8f0', fontSize: 14.5 }}>{t.title}</strong>
+            <strong style={{ color: 'var(--ink)', fontSize: 14.5 }}>
+              {OVERCLAIM_COUNT} claims overreached the evidence and were corrected
+            </strong>
           </div>
-          <div style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.6 }}>{t.body}</div>
+          <p style={{ fontSize: 12.5, color: 'var(--ink-soft)', lineHeight: 1.6, marginTop: 0 }}>
+            Bound directly to the canonical <code>overclaim-ledger.js</code> registry (not duplicated prose), so
+            this record cannot drift from the source of truth.
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            {CAUGHT_OVERCLAIMS.map((o) => (
+              <div
+                key={o.id}
+                style={{
+                  borderLeft: '2px solid var(--terra-dk)',
+                  paddingLeft: 10,
+                  fontSize: 12.5,
+                  color: 'var(--ink-soft)',
+                  lineHeight: 1.55,
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', marginBottom: 2 }}>
+                  <span style={{ fontFamily: 'var(--ed-mono, var(--font-mono))', color: 'var(--ink)' }}>
+                    #{o.n} · {o.id}
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: 'var(--ed-mono, var(--font-mono))',
+                      fontSize: 10.5,
+                      fontWeight: 700,
+                      color: 'var(--terra-dk)',
+                      border: '1px solid var(--terra-dk)',
+                      borderRadius: 3,
+                      padding: '1px 5px',
+                    }}
+                  >
+                    {o.status}
+                  </span>
+                </div>
+                <div style={{ color: 'var(--ink)' }}>{o.claim}</div>
+                <div style={{ fontSize: 11.5, marginTop: 2 }}>
+                  <em>Caught by:</em> {o.caughtBy}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
 
-      <div className="card" style={{ marginTop: 8 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10, flexWrap: 'wrap' }}>
-          <span
-            style={{
-              fontFamily: 'var(--font-mono, monospace)',
-              fontSize: 11,
-              fontWeight: 700,
-              letterSpacing: 0.5,
-              color: '#ef4444',
-              border: '1px solid #ef4444',
-              borderRadius: 4,
-              padding: '2px 7px',
-            }}
-          >
-            CORRECTIONS LOG
-          </span>
-          <strong style={{ color: '#e2e8f0', fontSize: 14.5 }}>
-            {OVERCLAIM_COUNT} claims overreached the evidence and were corrected
-          </strong>
+        <div className="card" style={{ marginTop: 8 }}>
+          <p style={{ fontSize: 13, color: 'var(--ink-soft)', margin: 0 }}>
+            For the full route-by-route classification ({FULL_ROUTE_MAP.totalRoutes} routes across 5 clusters,
+            with status badges and ranked genuine opportunities), see the{' '}
+            <Link to="/route-map">Route Map</Link>.
+          </p>
         </div>
-        <p style={{ fontSize: 12.5, color: '#94a3b8', lineHeight: 1.6, marginTop: 0 }}>
-          Bound directly to the canonical <code>overclaim-ledger.js</code> registry (not duplicated prose), so
-          this record cannot drift from the source of truth.
-        </p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-          {CAUGHT_OVERCLAIMS.map((o) => (
-            <div
-              key={o.id}
-              style={{
-                borderLeft: '2px solid #ef4444',
-                paddingLeft: 10,
-                fontSize: 12.5,
-                color: '#94a3b8',
-                lineHeight: 1.55,
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', marginBottom: 2 }}>
-                <span style={{ fontFamily: 'var(--font-mono, monospace)', color: '#cbd5e1' }}>
-                  #{o.n} · {o.id}
-                </span>
-                <span
-                  style={{
-                    fontFamily: 'var(--font-mono, monospace)',
-                    fontSize: 10.5,
-                    fontWeight: 700,
-                    color: '#ef4444',
-                    border: '1px solid #ef4444',
-                    borderRadius: 3,
-                    padding: '1px 5px',
-                  }}
-                >
-                  {o.status}
-                </span>
-              </div>
-              <div style={{ color: '#cbd5e1' }}>{o.claim}</div>
-              <div style={{ fontSize: 11.5, marginTop: 2 }}>
-                <em>Caught by:</em> {o.caughtBy}
-              </div>
-            </div>
-          ))}
+
+        <RelatedLinks links={[
+          { to: '/route-map', label: 'Route Map' },
+          { to: '/rh-dag', label: 'Proof DAG' },
+          { to: '/lambda-bounds', label: 'Lambda Bounds' },
+          { to: '/rigor-dashboard', label: 'Rigor Dashboard' },
+          { to: '/research-journal', label: 'Research Journal', color: '#22c55e' },
+        ]} />
+
+        <div className="card" style={{ marginTop: 16 }}>
+          <Link to="/">← the atlas</Link>
         </div>
       </div>
-
-      <div className="card" style={{ marginTop: 8 }}>
-        <p style={{ fontSize: 13, color: '#94a3b8', margin: 0 }}>
-          For the full route-by-route classification ({FULL_ROUTE_MAP.totalRoutes} routes across 5 clusters,
-          with status badges and ranked genuine opportunities), see the{' '}
-          <Link to="/route-map">Route Map</Link>.
-        </p>
-      </div>
-
-      <RelatedLinks links={[
-        { to: '/route-map', label: 'Route Map' },
-        { to: '/rh-dag', label: 'Proof DAG' },
-        { to: '/lambda-bounds', label: 'Lambda Bounds' },
-        { to: '/rigor-dashboard', label: 'Rigor Dashboard' },
-        { to: '/research-journal', label: 'Research Journal', color: '#22c55e' },
-      ]} />
     </div>
   );
 }

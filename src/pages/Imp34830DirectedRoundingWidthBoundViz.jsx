@@ -205,7 +205,7 @@ export default function Imp34830DirectedRoundingWidthBoundViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the imp-34799
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-34799
         width-bound table (imported literals, no new computation); establishes no new numerical claim. The
         bound is a derivation/assessment that ASSUMES a well-behaved n_op-operation directed-rounding
         evaluation (standard &gamma;(n) IA propagation) rather than instantiating one; it does NOT close the

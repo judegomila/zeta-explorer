@@ -95,6 +95,23 @@ export const EDITORIAL_ROUTES = new Set([
   '/improvements',
   '/dashboard',
   '/health',
+  // Reference group
+  '/concepts',
+  '/history',
+  '/explorations',
+  '/literature',
+  '/lmfdb-cross-reference',
+  '/paper',
+  '/papers',
+  '/papers-download',
+  '/paper-upload',
+  '/blog',
+  '/wiki',
+  '/index',
+  '/docs',
+  '/selberg-trace',
+  '/rh-equivalents',
+  '/state-of-program',
 ]);
 
 export function isEditorialRoute(pathname) {

@@ -76,7 +76,7 @@ export default function Imp35314FidelityCertificateDiagramViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page reusing the imp-35243
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page reusing the imp-35243
         fidelity_certificate_requirements literals verbatim (no new computation). A certificate needs all
         four of R1&ndash;R4 discharged together; none are discharged here. The reentry band remains NOT
         established as a feature of the true collapse dynamic (imp-35243); changes no bound; establishes

@@ -152,7 +152,7 @@ export default function Imp33284R40InnerQuadratureLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/visualization
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization
         only -- no proof, no reduction below RH. This ladder tabulates the inner-quadrature
         sensitivity of a single moment-ratio diagnostic (R_40) used inside a mass-feasibility
         check; mass-feasibility is necessary-but-not-sufficient and the operator-level K_a &ge; 0

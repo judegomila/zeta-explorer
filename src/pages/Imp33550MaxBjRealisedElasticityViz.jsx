@@ -167,7 +167,7 @@ export default function Imp33550MaxBjRealisedElasticityViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> fit-only feasibility, NOT
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> fit-only feasibility, NOT
         certification. sup_{'{'}N,j{'}'} B_j (the imp-33250 dg2 residual) is neither certified
         bounded nor demonstrated unbounded -- the obstruction stays OPEN both ways. Changes no
         bound; imp-3910 C &le; 54.56 stands; imp-3066 K_a &ge; 0 UNTOUCHED. RH-equivalent, NO QED.

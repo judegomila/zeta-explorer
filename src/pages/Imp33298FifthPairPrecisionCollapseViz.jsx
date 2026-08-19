@@ -133,7 +133,7 @@ export default function Imp33298FifthPairPrecisionCollapseViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation of the imp-33272
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation of the imp-33272
         cross-check only -- the rotation used to build the test matrix is a fixed deterministic
         surrogate, not the actual Gram eigenvectors, so this confirms the mechanism and order of
         magnitude, not the exact per-rung realized constant. Adds no new Lambda bound, does not

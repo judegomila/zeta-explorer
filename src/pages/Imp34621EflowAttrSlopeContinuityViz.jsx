@@ -235,7 +235,7 @@ export default function Imp34621EflowAttrSlopeContinuityViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, reusing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, reusing the
         imp-34570/imp-34572/imp-34589 fit literals verbatim (rungs, power-law amplitude/exponent,
         per-k slopes and SEs, analytic E_flow slope). The near/far difference is resolved at
         ~5.1 combined-sigma but is fully explained by the two overlapping OLS windows having

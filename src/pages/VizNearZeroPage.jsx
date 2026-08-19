@@ -14,7 +14,7 @@ import VizCeilingNote from '../components/VizCeilingNote.jsx';
  *   Phase winding: arg H increments by 2pi per circuit -> one vortex.
  *
  * Panel 7 of the Visual Geometries gallery (/visual-geometries).
- * HONEST CEILING: exact exploratory visualization, not a rigorous Lambda bound.
+ * CEILING: exact exploratory visualization, not a rigorous Lambda bound.
  */
 
 const GAMMAS = [

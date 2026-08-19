@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
-import PageHeader from '../components/PageHeader.jsx';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
 const CATEGORIES = [
   { id: 'foundations', label: 'Foundations', color: '#3b82f6' },
@@ -693,12 +693,12 @@ const CONCEPTS = [
     symbol: 'C_H',
     definition: "The principal unresolved constant barrier in the Twin-Ladder Bridge program. C_H = C_shock * C_Lip / 4 enters the Gronwall backward-flow integral, which diverges at the eigenvalue collision time t_c, making the C_H discharge RH-equivalent and unconditionally undischargeable by the current route. imp-2640 confirmed the Gronwall discharge fails; imp-2632 showed the OLS-fitted t_c is not rigorous. See /state-of-program for full C_H-pending status.",
     formula: 'C_H = \\frac{C_{\\mathrm{shock}} \\cdot C_{\\mathrm{Lip}}}{4}',
-    intuition: "C_H is the #1 named wall in the route map. Every integral certificate bounding the backward Gronwall flow must ultimately pin C_H to an explicit value — and no unconditional bound exists yet. Until C_H is certified, every beat estimate is an honest ceiling only.",
+    intuition: "C_H is the #1 named wall in the route map. Every integral certificate bounding the backward Gronwall flow must ultimately pin C_H to an explicit value — and no unconditional bound exists yet. Until C_H is certified, every beat estimate is an ceiling only.",
   },
   {
     id: 'honest-ceiling',
     category: 'proof',
-    term: 'Honest Ceiling',
+    term: 'Ceiling',
     definition: "Project-standard label for a constant or estimate that is numerically consistent with being an upper bound across all tested N, but is NOT a rigorous unconditional upper bound. Honest-ceiling results are reported with explicit disclaimers. The canonical example is the finite-N* beat: empirically below threshold but blocked by C_H. See /state-of-program.",
     intuition: "A ceiling you can measure but not yet prove. The value never exceeds the threshold in experiments, but an undischarged constant (like C_H) means the ceiling could in principle be higher. Honest-ceiling is the opposite of a certified interval-arithmetic bound.",
   },
@@ -749,7 +749,7 @@ const CONCEPTS = [
     category: 'proof',
     term: 'E_flow Gronwall Offset: 95.7% Leading Term, Robust to the A1-Trap Constant',
     symbol: '\\text{relOffset} \\approx 2r + \\delta L,\\; r = E_{\\text{flow}}/E_{\\text{trunc}}',
-    definition: "imp-34270 makes the E_flow attribution above explicit at the halving landmark (thr = 1/2): dividing the crossover balance (E_flow dropped) by the halving balance (E_flow restored) gives relOffset = 1 - [L(N_half)/L(N_cross)]/(1+r)^2, which expands to relOffset ~ 2r + deltaL. The doubling (2r, not r) comes from E_coll ~ N^{-1/2}: a fractional bump to the collision target produces a DOUBLED fractional shift in the crossover N. Plugging in the measured r = E_flow/E_trunc ~ 1.91e-3, the leading term 2r = 3.811454e-3 alone accounts for 95.74% of the full measured offset (3.981092e-3); the remaining ~4.3% is deltaL, the log T0 drift between the two landmarks -- and the exact division form reproduces the measured offset to <1e-6 relative, an identity of the two defining equations rather than a fit. imp-34348 then asks whether that 95.7% split is a fragile artifact of one hard-coded constant: E_flow carries a Gronwall trapezoid factor GRONWALL = exp(TC_A1_TRAP) with TC_A1_TRAP = 2.37e-4 (the imp-2762-certified A1-trap upper bound). Sweeping TC_A1_TRAP across its ENTIRE honest uncertainty band [0, 4.74e-4] -- from no amplification at all to double the certified worst case -- moves the leading-2r share only from 95.73884% to 95.73897%, a swing of about 1.3 parts per million.",
+    definition: "imp-34270 makes the E_flow attribution above explicit at the halving landmark (thr = 1/2): dividing the crossover balance (E_flow dropped) by the halving balance (E_flow restored) gives relOffset = 1 - [L(N_half)/L(N_cross)]/(1+r)^2, which expands to relOffset ~ 2r + deltaL. The doubling (2r, not r) comes from E_coll ~ N^{-1/2}: a fractional bump to the collision target produces a DOUBLED fractional shift in the crossover N. Plugging in the measured r = E_flow/E_trunc ~ 1.91e-3, the leading term 2r = 3.811454e-3 alone accounts for 95.74% of the full measured offset (3.981092e-3); the remaining ~4.3% is deltaL, the log T0 drift between the two landmarks -- and the exact division form reproduces the measured offset to <1e-6 relative, an identity of the two defining equations rather than a fit. imp-34348 then asks whether that 95.7% split is a fragile artifact of one hard-coded constant: E_flow carries a Gronwall trapezoid factor GRONWALL = exp(TC_A1_TRAP) with TC_A1_TRAP = 2.37e-4 (the imp-2762-certified A1-trap upper bound). Sweeping TC_A1_TRAP across its ENTIRE uncertainty band [0, 4.74e-4] -- from no amplification at all to double the certified worst case -- moves the leading-2r share only from 95.73884% to 95.73897%, a swing of about 1.3 parts per million.",
     formula: '\\text{leading: } 2r = 3.811454\\times 10^{-3}\\ (95.74\\%) \\quad \\delta L = 1.811946\\times 10^{-4}\\ (4.26\\%) \\quad \\Delta(\\text{share}) \\approx 1.34\\times 10^{-6}\\ \\text{across the full } t_c \\text{ band}',
     intuition: "Two separate questions, two separate modules. First: does the ~0.4% gap between the closed-form crossover and the halving landmark actually decompose the way imp-33723 guessed? imp-34270 forms the explicit two-term split and checks it lands -- 95.7% leading Gronwall term, 4.3% log-T0 drift, no free parameter, reproduced to machine precision. Second, and more important for trusting the number: does that 95.7%/4.3% split depend sensitively on the one hard-coded constant feeding E_flow? If the A1-trap constant TC_A1_TRAP were miscalibrated, would the headline 95.7% figure swing wildly? imp-34348 answers no -- walking the constant across its ENTIRE certified uncertainty band (from zero amplification up to double the certified ceiling) moves the leading share by under two parts per million, six-figure invariance. The reason is structural, not coincidental: E_flow enters both numerator and denominator of the share (2r / (2r + deltaL)) roughly linearly, so its overall size mostly cancels out of the ratio -- only the SPLIT depends on the constant, and that split is protected by the fact that GRONWALL never strays far from 1. Together the two results say: the 95.7% attribution is a real, formed identity (not just a named guess), and it is not a lever anyone could move by tweaking an uncertain input constant.",
   },
@@ -796,7 +796,7 @@ const CONCEPTS = [
     symbol: '\\text{third\\_diff}(x) \\sim K x^{-p(x)},\\; p(x) \\downarrow \\;(x = k^*-k_{\\text{end}} \\to 0)',
     definition: "The fixed-band (k<=10) peak's third differences grow steadily as kEnd approaches the surrogate resid_exp zero k*~21.28095 (imp-34268 F3), reaching +0.057428 at the last computable rung kEnd=21.25. imp-34253 already read the peak itself as diverging LOGARITHMICALLY (peak ~ A - B ln x, weak coefficient B~0.085), rather than a genuine pole. imp-34346 confirms this at the level of the third differences: a log-log power-law fit of third_diff against the pole gap x=k*-kEnd gives an effective order p~0.937 over the pole-dominated tail, but the LOCAL order measured from just the last pair of nodes drops further to ~0.671 -- the effective order keeps DECREASING as x shrinks. A true integer-order pole would hold its order steady or rising; only a sub-power, logarithmic-family divergence produces an order that keeps falling toward the pole.",
     formula: 'p_{\\text{tail}} \\approx 0.937 \\;(R^2\\approx 0.95) \\;\\to\\; p_{\\text{local}} \\approx 0.671 \\;\\text{(decreasing as } x\\to 0\\text{)}',
-    intuition: "A simple pole like 1/x has a constant order 1 no matter how closely you zoom in -- the exponent in a log-log plot stays flat. A logarithm like -ln(x) is sneakier: differenced discretely, it still LOOKS like a power law locally, but the effective exponent you read off keeps sliding down the closer you get to zero, because ln(x) grows far slower than any x^(-p) with p>0. That is exactly the signature imp-34346 finds -- the fitted order drops from ~0.937 on the wider tail to ~0.671 on the last pair of nodes, consistent with imp-34253's independent reading that the underlying peak itself is a weak logarithmic divergence (B~0.085), not a genuine pole. The honest caveat: with a fixed step h=0.25 much larger than the remaining gap x~0.031 at kEnd=21.25, the discrete third difference smears the singularity across a wide stencil, so this is an EFFECTIVE order from finite differences, not a rigorous continuous exponent -- the finer sub-pole windows needed to sharpen it are themselves undefined (resid_exp loses digits past kEnd>=21.5, per imp-34253/imp-34346's shared SUB-GAP-imp-34346-continuous-order-blocked). None of this changes any RH bound: the pole itself is a surrogate-model artifact of the inherited imp-3220/imp-3406 extrapolation, not a physical singularity; C_mb remains GUE-conditional per imp-486, Platt-Trudgian Lambda<=0.2 remains the SOTA unconditional bound, and there is no QED.",
+    intuition: "A simple pole like 1/x has a constant order 1 no matter how closely you zoom in -- the exponent in a log-log plot stays flat. A logarithm like -ln(x) is sneakier: differenced discretely, it still LOOKS like a power law locally, but the effective exponent you read off keeps sliding down the closer you get to zero, because ln(x) grows far slower than any x^(-p) with p>0. That is exactly the signature imp-34346 finds -- the fitted order drops from ~0.937 on the wider tail to ~0.671 on the last pair of nodes, consistent with imp-34253's independent reading that the underlying peak itself is a weak logarithmic divergence (B~0.085), not a genuine pole. The caveat: with a fixed step h=0.25 much larger than the remaining gap x~0.031 at kEnd=21.25, the discrete third difference smears the singularity across a wide stencil, so this is an EFFECTIVE order from finite differences, not a rigorous continuous exponent -- the finer sub-pole windows needed to sharpen it are themselves undefined (resid_exp loses digits past kEnd>=21.5, per imp-34253/imp-34346's shared SUB-GAP-imp-34346-continuous-order-blocked). None of this changes any RH bound: the pole itself is a surrogate-model artifact of the inherited imp-3220/imp-3406 extrapolation, not a physical singularity; C_mb remains GUE-conditional per imp-486, Platt-Trudgian Lambda<=0.2 remains the SOTA unconditional bound, and there is no QED.",
   },
   {
     id: 'coefficient-vs-exponent-residue-reconciliation',
@@ -997,7 +997,7 @@ function linkifyVizRefs(text) {
   return parts.map((part, i) => {
     const route = VIZ_REF_ROUTES[part];
     return route ? (
-      <Link key={i} to={route} style={{ color: '#22d3ee', textDecoration: 'underline' }}>
+      <Link key={i} to={route} style={{ color: 'var(--brass)', textDecoration: 'underline' }}>
         {part}
       </Link>
     ) : (
@@ -1020,13 +1020,16 @@ export default function ConceptsPage() {
   });
 
   return (
-    <div className="page">
-      <PageHeader title="Key Concepts & Definitions">
-        <p>
-          A reference guide to the mathematical ideas behind the Riemann Hypothesis and the
-          Twin-Ladder Bridge model. Start with Foundations and work your way through.
-        </p>
-      </PageHeader>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>reference · concepts</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <div style={{ marginBottom: 24 }}>
+          <h1 className="ed-h1" style={{ marginBottom: 10 }}>Key Concepts &amp; Definitions</h1>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
+            A reference guide to the mathematical ideas behind the Riemann Hypothesis and the
+            Twin-Ladder Bridge model. Start with Foundations and work your way through.
+          </p>
+        </div>
 
       <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 16, flexWrap: 'wrap' }}>
         <input
@@ -1035,8 +1038,8 @@ export default function ConceptsPage() {
           value={search}
           onChange={e => setSearch(e.target.value)}
           style={{
-            padding: '8px 12px', borderRadius: 6, border: '1px solid #334155',
-            background: '#0f172a', color: '#e2e8f0', fontSize: 14, width: 220,
+            padding: '8px 12px', borderRadius: 6, border: '1px solid var(--hairline)',
+            background: 'var(--paper2)', color: 'var(--ink)', fontSize: 14, width: 220,
             outline: 'none',
           }}
         />
@@ -1065,8 +1068,8 @@ export default function ConceptsPage() {
       </div>
 
       {/* ─── Quick Notation Reference ─── */}
-      <div className="card" style={{ marginBottom: 20, borderLeft: '3px solid #06b6d4' }}>
-        <h3 style={{ color: '#06b6d4', fontSize: 14, marginBottom: 12 }}>Quick Notation Reference</h3>
+      <div className="card" style={{ marginBottom: 20, borderLeft: '3px solid var(--blue)' }}>
+        <h3 style={{ color: 'var(--blue)', fontSize: 14, marginBottom: 12 }}>Quick Notation Reference</h3>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, fontSize: 12 }}>
           {[
             { sym: 's = \\sigma + it', meaning: 'Complex variable (real part σ, imaginary part t)' },
@@ -1082,9 +1085,9 @@ export default function ConceptsPage() {
             { sym: 'S^\\dagger S = I', meaning: 'Scattering matrix unitarity (lossless)' },
             { sym: '\\lambda_n', meaning: 'Li coefficients (RH ⟺ all ≥ 0)' },
           ].map(({ sym, meaning }, i) => (
-            <div key={i} style={{ padding: '6px 8px', background: 'rgba(6,182,212,0.04)', borderRadius: 4, display: 'flex', alignItems: 'baseline', gap: 8 }}>
+            <div key={i} style={{ padding: '6px 8px', background: 'rgba(63,107,134,0.06)', borderRadius: 4, display: 'flex', alignItems: 'baseline', gap: 8 }}>
               <span style={{ flexShrink: 0 }}><InlineMath tex={sym} /></span>
-              <span style={{ color: '#94a3b8', fontSize: 11 }}>{meaning}</span>
+              <span style={{ color: 'var(--faint)', fontSize: 11 }}>{meaning}</span>
             </div>
           ))}
         </div>
@@ -1102,9 +1105,9 @@ export default function ConceptsPage() {
                 }}>
                   {cat?.label}
                 </span>
-                <h3 style={{ margin: 0, color: '#e2e8f0', fontSize: 17 }}>
+                <h3 style={{ margin: 0, color: 'var(--ink)', fontSize: 17 }}>
                   {concept.headwordRoute ? (
-                    <Link to={concept.headwordRoute} style={{ color: '#e2e8f0', textDecoration: 'underline' }}>
+                    <Link to={concept.headwordRoute} style={{ color: 'var(--ink)', textDecoration: 'underline' }}>
                       {concept.term}
                     </Link>
                   ) : (
@@ -1117,7 +1120,7 @@ export default function ConceptsPage() {
                   </span>
                 )}
               </div>
-              <p style={{ margin: '0 0 8px', color: '#94a3b8', fontSize: 14, lineHeight: 1.7 }}>
+              <p style={{ margin: '0 0 8px', color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.7 }}>
                 {linkifyVizRefs(concept.definition)}
               </p>
               {concept.formula && (
@@ -1127,11 +1130,11 @@ export default function ConceptsPage() {
               )}
               {concept.intuition && (
                 <div style={{
-                  padding: '8px 12px', background: 'rgba(6,182,212,0.05)',
-                  borderLeft: '2px solid #06b6d4', borderRadius: '0 6px 6px 0',
-                  fontSize: 13, color: '#67e8f9', lineHeight: 1.6, marginTop: 8,
+                  padding: '8px 12px', background: 'rgba(63,107,134,0.07)',
+                  borderLeft: '2px solid var(--blue)', borderRadius: '0 6px 6px 0',
+                  fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.6, marginTop: 8,
                 }}>
-                  <strong style={{ color: '#22d3ee' }}>Intuition:</strong> {linkifyVizRefs(concept.intuition)}
+                  <strong style={{ color: 'var(--blue)' }}>Intuition:</strong> {linkifyVizRefs(concept.intuition)}
                 </div>
               )}
             </div>
@@ -1140,19 +1143,19 @@ export default function ConceptsPage() {
       </div>
 
       {/* ─── Deep Dive: Connes' Noncommutative Geometry ─── */}
-      <div className="card" style={{ marginTop: 32, borderLeft: '3px solid #f43f5e' }}>
-        <h3 style={{ color: '#f43f5e', fontSize: 18, marginBottom: 16 }}>
+      <div className="card" style={{ marginTop: 32, borderLeft: '3px solid var(--terra-dk)' }}>
+        <h3 style={{ color: 'var(--terra-dk)', fontSize: 18, marginBottom: 16 }}>
           Deep Dive: Connes' Noncommutative Geometry Approach to RH
         </h3>
-        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 16 }}>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8, marginBottom: 16 }}>
           Alain Connes' approach is the most developed spectral framework for the Riemann Hypothesis.
           It provides the theoretical foundation for our Twin-Ladder Bridge operator construction (S5).
         </p>
 
         <div style={{ display: 'grid', gap: 16 }}>
-          <div style={{ padding: '12px 16px', borderRadius: 8, background: 'rgba(244,63,94,0.05)', border: '1px solid rgba(244,63,94,0.15)' }}>
-            <h4 style={{ color: '#fb7185', fontSize: 14, marginBottom: 8 }}>1. The Adele Class Space</h4>
-            <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          <div style={{ padding: '12px 16px', borderRadius: 8, background: 'rgba(194,58,28,0.06)', border: '1px solid rgba(194,58,28,0.20)' }}>
+            <h4 style={{ color: 'var(--terra-dk)', fontSize: 14, marginBottom: 8 }}>1. The Adele Class Space</h4>
+            <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8 }}>
               The starting point is the <strong>adele ring</strong> <InlineMath tex="\mathbb{A}_\mathbb{Q} = \mathbb{R} \times \prod'_p \mathbb{Q}_p" />,
               which packages all completions of ℚ (real and p-adic) into one object. The quotient{' '}
               <InlineMath tex="\mathbb{A}_\mathbb{Q} / \mathbb{Q}^*" /> is the <strong>adele class space</strong>.
@@ -1162,9 +1165,9 @@ export default function ConceptsPage() {
             </p>
           </div>
 
-          <div style={{ padding: '12px 16px', borderRadius: 8, background: 'rgba(59,130,246,0.05)', border: '1px solid rgba(59,130,246,0.15)' }}>
-            <h4 style={{ color: '#60a5fa', fontSize: 14, marginBottom: 8 }}>2. The Weil Proof for Function Fields</h4>
-            <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          <div style={{ padding: '12px 16px', borderRadius: 8, background: 'rgba(63,107,134,0.06)', border: '1px solid rgba(63,107,134,0.20)' }}>
+            <h4 style={{ color: 'var(--blue)', fontSize: 14, marginBottom: 8 }}>2. The Weil Proof for Function Fields</h4>
+            <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8 }}>
               For function fields over finite fields <InlineMath tex="\mathbb{F}_q" />, RH was proved by Weil (1948)
               using the <strong>Frobenius endomorphism</strong> acting on étale cohomology. The eigenvalues of Frobenius
               have absolute value <InlineMath tex="q^{1/2}" /> — this IS the Riemann Hypothesis in that setting.
@@ -1172,9 +1175,9 @@ export default function ConceptsPage() {
             </p>
           </div>
 
-          <div style={{ padding: '12px 16px', borderRadius: 8, background: 'rgba(16,185,129,0.05)', border: '1px solid rgba(16,185,129,0.15)' }}>
-            <h4 style={{ color: '#6ee7b7', fontSize: 14, marginBottom: 8 }}>3. The Spectral Realization</h4>
-            <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          <div style={{ padding: '12px 16px', borderRadius: 8, background: 'rgba(76,122,74,0.06)', border: '1px solid rgba(76,122,74,0.20)' }}>
+            <h4 style={{ color: 'var(--green)', fontSize: 14, marginBottom: 8 }}>3. The Spectral Realization</h4>
+            <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8 }}>
               On <InlineMath tex="L^2(\mathbb{A}_\mathbb{Q}/\mathbb{Q}^*)" />, the scaling action{' '}
               <InlineMath tex="f(x) \mapsto f(\lambda x)" /> generates a one-parameter group whose infinitesimal
               generator <InlineMath tex="\Theta" /> has spectrum related to the zeros of ζ(s). Connes proved that the
@@ -1183,9 +1186,9 @@ export default function ConceptsPage() {
             </p>
           </div>
 
-          <div style={{ padding: '12px 16px', borderRadius: 8, background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.15)' }}>
-            <h4 style={{ color: '#fbbf24', fontSize: 14, marginBottom: 8 }}>4. Connection to ZPO</h4>
-            <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          <div style={{ padding: '12px 16px', borderRadius: 8, background: 'rgba(181,138,46,0.06)', border: '1px solid rgba(181,138,46,0.20)' }}>
+            <h4 style={{ color: 'var(--brass-dk)', fontSize: 14, marginBottom: 8 }}>4. Connection to ZPO</h4>
+            <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8 }}>
               Our Twin-Ladder Bridge coupling matrix <InlineMath tex="M_{jk} = \gamma_j\delta_{jk} + \sum_p \frac{\log p}{p}\cos((\gamma_j-\gamma_k)\log p)" /> is
               a <strong>finite-dimensional approximation</strong> to Connes' operator Θ. The diagonal terms are
               the zeros themselves; the off-diagonal coupling via primes mirrors the action of Frobenius
@@ -1195,9 +1198,9 @@ export default function ConceptsPage() {
             <BlockMath tex="\text{ZPO: } \det(sI - M_N) \;\xrightarrow{N\to\infty}\; \xi(s) = \det_\infty(s - \Theta)" />
           </div>
 
-          <div style={{ padding: '12px 16px', borderRadius: 8, background: 'rgba(139,92,246,0.05)', border: '1px solid rgba(139,92,246,0.15)' }}>
-            <h4 style={{ color: '#a78bfa', fontSize: 14, marginBottom: 8 }}>5. The 2026 Breakthrough</h4>
-            <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          <div style={{ padding: '12px 16px', borderRadius: 8, background: 'rgba(140,106,29,0.06)', border: '1px solid rgba(140,106,29,0.20)' }}>
+            <h4 style={{ color: 'var(--brass)', fontSize: 14, marginBottom: 8 }}>5. The 2026 Breakthrough</h4>
+            <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8 }}>
               Connes (2026) showed that extremizing the <strong>Weil quadratic form</strong> — using only
               data from primes {"<"} 13 — approximates the first 50 zeta zeros with accuracy up to{' '}
               <InlineMath tex="10^{-55}" />. The approximating values provably lie exactly on{' '}
@@ -1209,17 +1212,32 @@ export default function ConceptsPage() {
         </div>
       </div>
 
-      <div className="card" style={{ marginTop: 24, background: 'rgba(6,182,212,0.04)' }}>
-        <h3 style={{ color: '#64748b', fontSize: 13, marginBottom: 10 }}>Related Pages</h3>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-          <Link to="/literature" style={{ color: '#06b6d4', fontSize: 13 }}>Literature</Link>
-          <span style={{ color: '#334155' }}>|</span>
-          <Link to="/paper" style={{ color: '#06b6d4', fontSize: 13 }}>Paper</Link>
-          <span style={{ color: '#334155' }}>|</span>
-          <Link to="/history" style={{ color: '#06b6d4', fontSize: 13 }}>History</Link>
-          <span style={{ color: '#334155' }}>|</span>
-          <Link to="/docs" style={{ color: '#06b6d4', fontSize: 13 }}>Documentation</Link>
+      <div className="card" style={{ marginTop: 24, background: 'rgba(63,107,134,0.05)' }}>
+        <h3 style={{ color: 'var(--faint)', fontSize: 13, marginBottom: 10 }}>Related Pages</h3>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center' }}>
+          <Link to="/literature" style={{ color: 'var(--blue)', fontSize: 13 }}>Literature</Link>
+          <span style={{ color: 'var(--hairline)' }}>|</span>
+          <Link to="/paper" style={{ color: 'var(--blue)', fontSize: 13 }}>Paper</Link>
+          <span style={{ color: 'var(--hairline)' }}>|</span>
+          <Link to="/history" style={{ color: 'var(--blue)', fontSize: 13 }}>History</Link>
+          <span style={{ color: 'var(--hairline)' }}>|</span>
+          <Link to="/docs" style={{ color: 'var(--blue)', fontSize: 13 }}>Documentation</Link>
         </div>
+      </div>
+
+      <div style={{ marginTop: 24 }}>
+        <Link
+          to="/"
+          style={{
+            color: 'var(--brass-dk)',
+            fontFamily: 'var(--ed-mono, var(--font-mono))',
+            fontSize: 12,
+            textDecoration: 'none',
+          }}
+        >
+          ← the atlas
+        </Link>
+      </div>
       </div>
     </div>
   );

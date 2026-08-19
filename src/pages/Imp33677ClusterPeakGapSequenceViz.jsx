@@ -140,7 +140,7 @@ export default function Imp33677ClusterPeakGapSequenceViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> accuracy/rule-design measurement only. The
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy/rule-design measurement only. The
         floorUlp(n) band-clearing lattice is jitter-driven (latticeJitterCaveat), so the exact gap values may
         shift under a different platform libm; the robust reading is the qualitative irregular-spacing verdict,
         not the exact numbers. It changes no bound and patches no literal. Mass-feasibility is

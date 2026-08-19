@@ -170,7 +170,7 @@ export default function Imp33630GradeVsNodeBudgetViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> accuracy/rule-design measurement
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy/rule-design measurement
         only, of an already-verified sweep (imp-33600). It changes no bound and patches no literal
         (imp-33213/imp-33316/imp-33539/imp-33557 intact). Mass-feasibility is necessary-but-not-sufficient;
         the operator-level positivity (imp-3066 K_a &ge; 0) is UNTOUCHED. RH-equivalent, NO QED.

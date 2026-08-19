@@ -143,7 +143,7 @@ export default function Imp34961BreachStepDoublingViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
         imp-34930 independently-recomputed breach-step literals verbatim (R_seed, R_margin, the
         nStar(R) = floor(log2 R) + 1 law, and the 4-step doubling gap), no new computation.
         Verification/measurement only on the inherited imp-3220/imp-3406 surrogate crossover map;

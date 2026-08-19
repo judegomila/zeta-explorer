@@ -186,7 +186,7 @@ export default function Imp33266ToolkitStatusMapViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> literature-anchored scoping /
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> literature-anchored scoping /
         derivation only -- no tool is fully present, H2 stays UNWRITTEN as a certificate (imp-3872
         empirically probes it but does not certify it, see the companion imp-3900 viz), the K4 route
         stays WHOLLY NEW, and G6a_shock_lipschitz stays OPEN. No estimate shipped, no positivity, no

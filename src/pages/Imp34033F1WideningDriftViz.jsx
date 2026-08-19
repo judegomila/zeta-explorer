@@ -144,7 +144,7 @@ export default function Imp34033F1WideningDriftViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> accuracy / window-stability
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy / window-stability
         cross-check only, on the inherited imp-3220/imp-3406 component model. F4 supplies ~
         {(DRIFT.F4_drift_log_share * 100).toFixed(1)}% of the ln(attenuation) drift vs F2 ~
         {(DRIFT.F2_drift_log_share * 100).toFixed(1)}% and F3 ~

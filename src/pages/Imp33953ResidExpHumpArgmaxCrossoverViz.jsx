@@ -139,7 +139,7 @@ export default function Imp33953ResidExpHumpArgmaxCrossoverViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/visualization only.
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization only.
         The discrete-grid hump argmax (k={GRID_ARGMAX.k.toFixed(2)}) and the continuum argmax
         (k*&sim;{K_STAR}) are two readings of the SAME resid_exp(k) surrogate, not two features; the
         crossover k_cross&sim;{K_CROSS} is a distinct pointwise quantity. The component model is the

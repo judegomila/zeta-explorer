@@ -191,7 +191,7 @@ export default function Imp33731SigmaRampCurvatureViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/fit only -- the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/fit only -- the
         component model is the inherited imp-3220/imp-3406 extrapolation, not a rigorous
         asymptotic, and the C_mb GUE-conditional per imp-486 is untouched. This page adds no new
         derivation; it gives the imp-33701 curvature finding a visual surface. No bound changes;

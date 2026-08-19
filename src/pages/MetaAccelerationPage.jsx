@@ -481,7 +481,7 @@ git log --oneline -10                    # engine commits`}
         <h2 className="ed-h2" style={{ marginTop: 24, marginBottom: 12 }}>Genuine remaining opportunities</h2>
         <div className="card" style={{ marginBottom: 24, borderLeftWidth: 3, borderLeftColor: 'var(--brass)' }}>
           <div style={{ fontSize: 11, color: 'var(--brass)', marginBottom: 10 }}>
-            Ranked by actionability. None of these routes bypasses RH — the honest ceiling is Platt-Trudgian
+            Ranked by actionability. None of these routes bypasses RH — the ceiling is Platt-Trudgian
             Lambda &le; 0.2. All entries below are NON-refuted and NOT RH-reformulations.
           </div>
           <div style={{ display: 'grid', gap: 10 }}>

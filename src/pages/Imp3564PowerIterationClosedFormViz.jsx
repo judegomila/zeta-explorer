@@ -234,7 +234,7 @@ export default function Imp3564PowerIterationClosedFormViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/visualization
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization
         only -- no proof, no reduction below RH. The closed-form predictor reproduces the
         imp-3505 ladder within a factor of {IMP3564_MAX_FIT_RATIO_DEV.toFixed(2)} at every measured
         rung, with the prefactor C a single least-squares fit (not derived from first principles)

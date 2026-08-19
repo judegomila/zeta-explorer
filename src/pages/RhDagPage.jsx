@@ -270,10 +270,10 @@ export default function RhDagPage() {
           </p>
         </div>
 
-        {/* ── Honest framing (imp-2969) — verbatim from the capstone nodes ── */}
+        {/* ── Framing (imp-2969) — verbatim from the capstone nodes ── */}
         {(capstoneParent || capstone) && (
           <div className="card" style={{ ...cardBaseLeft('var(--terra-dk)'), marginBottom: 24 }}>
-            <div style={cardLabel}>Honest framing — imp-356 capstone caveat (imp-2969)</div>
+            <div style={cardLabel}>Framing — imp-356 capstone caveat (imp-2969)</div>
             {capstoneParent && (
               <div style={{ fontSize: 12, color: 'var(--ink-soft)', lineHeight: 1.6, marginBottom: capstone ? 10 : 0 }}>
                 <strong style={{ color: 'var(--terra-dk)' }}>{capstoneParent.id} claim:</strong> {capstoneParent.claim}

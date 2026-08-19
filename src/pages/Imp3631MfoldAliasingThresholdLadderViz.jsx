@@ -185,7 +185,7 @@ export default function Imp3631MfoldAliasingThresholdLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong>{' '}
+        <strong style={{ color: '#94a3b8' }}>Status:</strong>{' '}
         derivation/certification only -- confirms that no higher-order fold
         raises the imp-3582 replica-free floor N_replica &asymp; 764. It does
         NOT give xi* or the sup a closed form (the imp-3470 stationarity

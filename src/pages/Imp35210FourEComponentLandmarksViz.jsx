@@ -141,7 +141,7 @@ export default function Imp35210FourEComponentLandmarksViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, every landmark
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, every landmark
         (L1-L4) reused verbatim from imp-35153 / imp-35154 / imp-33723 -- all inherited from the
         imp-3220/imp-3406 single-rate log-law SURROGATE, no recomputation. Reader-facing diagnostic,
         NOT a rigorous asymptotic. The L3 landmark is the sigma(N) = E_coll/E(N) = 1/2 crossover

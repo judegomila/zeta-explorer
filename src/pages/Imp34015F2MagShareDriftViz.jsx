@@ -99,7 +99,7 @@ export default function Imp34015F2MagShareDriftViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement / cross-check only, no
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement / cross-check only, no
         proof, no fresh derivation. The imp-33922 "92% is F2" headline (aggregate |ln| share{' '}
         {ND.aggregate_mag_share_F2}) is a net figure over the whole 5-decade window, not a per-rung
         property -- locally F2 carries anywhere from {ND.mag_share_F2_min} to {ND.mag_share_F2_max}.

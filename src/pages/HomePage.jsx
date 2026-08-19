@@ -1162,7 +1162,7 @@ export default function HomePage() {
             body: 'The ‖V‖≤1 collapse was a false theorem the project caught itself; the LINK-B cone-vs-sublevel no-go; scalar-domination impossibility (imp-3066); the Darlington poles-vs-zeros correction; sup-norm re-architecture proven futile (the wall is metric-invariant).' },
           { color: '#8b5cf6', to: '/shift-bridge-positivity', title: 'The a-dial geometry',
             body: 'The twin-ladder shift parameter a is simultaneously the positivity-threshold index (sharp at Δ) and the de Bruijn–Newman heat-flow coordinate — giving RH a margin structure with an integer-valued failure observable (ghost count).' },
-          { color: '#06b6d4', to: '/lambda-bounds', title: 'Honest status grades & the breach point',
+          { color: '#06b6d4', to: '/lambda-bounds', title: 'Status grades & the breach point',
             body: 'PT Λ ≤ 0.2 is the peer-reviewed benchmark; 0.1875 is a public unrefereed package; 0.1787854 is an unreviewed computer-assisted candidate for an unconditional proof, not an established bound and not RH. The older Dyson route still hits the N-uniform C_Lip / multi-body isolation wall.' },
         ].map(({ color, to, title, body }) => (
           <Link key={title} to={to} style={{ textDecoration: 'none' }}>

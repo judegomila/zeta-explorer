@@ -145,7 +145,7 @@ export default function Imp36288RouteBSlopeConvergenceViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation only, baking the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only, baking the
         imp-36082 r_B(N) rate formula and the imp-36151 slope-convergence witness unchanged across a
         wider ladder. r_B(N) bounds a shock-time DEVIATION, not |t_c(N)| absolutely (imp-36082
         CONSUMABLE-MODULO-ANCHOR); per imp-36151, Route-B owning the only pinned per-N exponent does

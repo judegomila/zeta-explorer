@@ -167,7 +167,7 @@ export default function Imp34475FourLocatorClusterAxisViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, every
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, every
         locator value and gap reused verbatim from imp-34441 (which itself reuses imp-33723 /
         imp-33721 / imp-3444 verbatim) -- no recomputation. Reader-facing diagnostic, NOT a
         rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no

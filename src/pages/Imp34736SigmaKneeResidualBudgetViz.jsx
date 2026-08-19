@@ -149,7 +149,7 @@ export default function Imp34736SigmaKneeResidualBudgetViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page presenting the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page presenting the
         imp-34710 residual-budget measurement (imported literals, no new computation); establishes no
         new numerical claim. Measurement/derivation on the inherited imp-3220/imp-3406 extrapolation;
         far-tail exponent stays 1/2 (imp-3463); imp-3066 K_a&nbsp;&ge;&nbsp;0 untouched; C_mb

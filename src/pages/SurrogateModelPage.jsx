@@ -91,7 +91,7 @@ export default function SurrogateModelPage() {
 
       <div className="card" style={{ marginTop: 8, borderColor: 'var(--accent-orange)' }}>
         <p style={{ color: 'var(--accent-orange)', fontSize: 13, fontWeight: 600 }}>
-          Honest scope: this page is a navigational aid summarizing already-shipped verdicts
+          Scope: this page is a navigational aid summarizing already-shipped verdicts
           (imp-2640, imp-33723, imp-33582, imp-33721, and the <Link to="/route-map">Route Map</Link>'s
           C_H wall entry). It introduces no new derivation, discharges no wall, and changes no
           bound. NO QED.

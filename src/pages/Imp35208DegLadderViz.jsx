@@ -192,7 +192,7 @@ export default function Imp35208DegLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
         imp-35148 ||R||(DEG) ladder and forward-difference literals verbatim (no new computation).
         Confirms the discrete truncation-size DEG axis does NOT act as a softening lever on the
         imp-3066 exponential-shear metric-pair family; this is scoped to that family, not other

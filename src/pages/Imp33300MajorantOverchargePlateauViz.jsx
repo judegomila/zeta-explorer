@@ -182,7 +182,7 @@ export default function Imp33300MajorantOverchargePlateauViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation of the imp-33273
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation of the imp-33273
         exact reframing only -- a finite 10-plateau [1e4, 1e6] measurement, not a certified
         N-uniform statement. Adds no new Lambda bound, does not tighten imp-3910's certified
         C &le; 54.56, and does not touch imp-3066's K_a &ge; 0 positivity. RH-equivalent, NO QED.

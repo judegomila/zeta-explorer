@@ -248,7 +248,7 @@ export default function Imp33324GradedVsUniformNodeBudgetViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> accuracy/rule-design
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy/rule-design
         measurement only, of an already-verified table (imp-33295). Mass-feasibility is
         necessary-but-not-sufficient; the operator-level positivity (imp-3066 K_a &ge; 0) is
         UNTOUCHED; the NPHI=10 truncation is inherited upstream. RH-equivalent, NO QED.

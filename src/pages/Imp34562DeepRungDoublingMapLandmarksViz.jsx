@@ -99,7 +99,7 @@ export default function Imp34562DeepRungDoublingMapLandmarksViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation only, reusing every
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only, reusing every
         literal verbatim from the imp-34524/imp-34368/imp-34551 source modules -- no re-derivation. The
         component model is the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; the
         surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486 and the

@@ -137,7 +137,7 @@ export default function Imp34499BridgeSlopeThreeRungViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, the three-rung
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, the three-rung
         table is reused verbatim from imp-34454. Measurement only within the inherited
         imp-3220/imp-3406 component model, NOT a rigorous asymptotic; C_mb GUE-conditional per
         imp-486 UNTOUCHED; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda&le;0.2

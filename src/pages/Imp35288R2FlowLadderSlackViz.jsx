@@ -214,7 +214,7 @@ export default function Imp35288R2FlowLadderSlackViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page reusing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page reusing the
         imp-35150/imp-35190/imp-35221/imp-35235 baked t_c literals verbatim (no new computation).
         Measurement/certification only; C_mb stays GUE-conditional (imp-486); changes no bound;
         establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda &le; 0.2

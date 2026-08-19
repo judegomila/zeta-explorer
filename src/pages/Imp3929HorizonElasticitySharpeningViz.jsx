@@ -254,7 +254,7 @@ export default function Imp3929HorizonElasticitySharpeningViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> 8/Dmin&sup2; is a sharp PROXY, not
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> 8/Dmin&sup2; is a sharp PROXY, not
         a certified upper bound &mdash; it is exceeded by the realised elasticity by ~4.4%-4.5% on
         plateaus 0 and 9 (green bar sits fractionally below blue there). The certified rigorous object
         is the weighted path-local majorant, whose collapse to an explicit C/Dmin&sup2; constant is a

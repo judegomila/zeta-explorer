@@ -173,7 +173,7 @@ export default function Imp34782DpStarFullTailEdgeRatioViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page stitching the imp-34735
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page stitching the imp-34735
         (1e13..1e100) and imp-34754 (1e100..1e300) exact-model edge-ratio ladders together (imported
         literals, no new computation); establishes no new numerical claim. q1..q3 are inherited central
         differences on the imp-3220/imp-3406 component model, not fresh closed forms, so the ratio ladder is

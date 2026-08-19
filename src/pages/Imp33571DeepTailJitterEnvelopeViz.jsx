@@ -171,7 +171,7 @@ export default function Imp33571DeepTailJitterEnvelopeViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> accuracy/rule-design
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy/rule-design
         measurement only. This corrects the imp-33316 constant-&lt;64-ULP-band reading as a
         coarse-grid artifact &mdash; the plateau band is a depth-growing jitter envelope, not a
         fixed constant &mdash; but does NOT overturn the imp-33316 plateau-holds/uniform-fails

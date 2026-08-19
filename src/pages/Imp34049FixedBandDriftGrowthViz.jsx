@@ -113,7 +113,7 @@ export default function Imp34049FixedBandDriftGrowthViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement / residual-growth fit
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement / residual-growth fit
         only, no proof, no fresh derivation. {IMP33987_FIXED_BAND_CONVEX_DRIFT_EXPONENT.finding.F2_growth_exponent_strongly_super_linear}{' '}
         The component model is the inherited imp-3220/imp-3406 extrapolation; the OLS surrogate and the
         growth-exponent classification are descriptive, not derived; C_mb GUE-conditional per imp-486

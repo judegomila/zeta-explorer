@@ -109,7 +109,7 @@ export default function Imp34498EnMonotoneDescentViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, the ladder and
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, the ladder and
         landmarks are reused verbatim from imp-34434. Measurement only within the inherited
         imp-3220/imp-3406 component model, NOT a rigorous asymptotic; C_mb GUE-conditional per
         imp-486 UNTOUCHED; E(N) are bridge CONSTANTS not the headline inequality (imp-2564);

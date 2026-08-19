@@ -164,7 +164,7 @@ export default function Imp33832SaturationCurvatureHumpVsKViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/attribution only
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/attribution only
         -- imp-33809 changes no value and derives nothing new, and this page adds no new
         derivation either. It gives the k = 6..13 hump ladder a visual surface confirming the
         global argmax sits at the k = {humpArgmaxK} crossover decade, an interior maximum rather

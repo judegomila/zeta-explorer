@@ -17,7 +17,7 @@ import React from 'react';
 // past −½ collides them at 0 and splits them into a conjugate pair ±i√|1+2t| —
 // a real→complex "zero departure" in negative de Bruijn time.
 //
-// HONEST SCOPE: this is a proxy. Its zeros are NOT the zeros of ξ, there is no
+// SCOPE: this is a proxy. Its zeros are NOT the zeros of ξ, there is no
 // degree-uniform control, and at finite degree there is no ill-posedness. It
 // illustrates the departure mechanism; it proves NOTHING about Λ.
 

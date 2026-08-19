@@ -105,7 +105,7 @@ export default function Imp34120EndpointPeakSaturatingTournamentViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement / model-selection
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement / model-selection
         only, no proof, no fresh derivation. {REC.note} The component model is the inherited
         imp-3220/imp-3406 extrapolation; the imp-33843 log-linear-vs-power-law FORM verdict is
         untouched; imp-3066 K_a&gt;=0 untouched; C_mb GUE-conditional per imp-486 untouched; NO QED;

@@ -232,7 +232,7 @@ export default function Imp34456CouplingRatioDriftLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, baked literals
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked literals
         reproducing the imp-34372/imp-34447 measurements; no new derivation, no bound changed.
         Component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
         asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8 ansatz untouched; imp-3066

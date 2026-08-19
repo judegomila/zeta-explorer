@@ -166,7 +166,7 @@ export default function Imp34783PicardItersToFloorViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the imp-34755
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-34755
         seed-range table (imported literals, no new computation); establishes no new numerical claim. Two
         inherited routes on the imp-3220/imp-3406 surrogate map, IEEE-754 double precision, no interval
         enclosure (compare the imp-34693a sub-gap). C_C&nbsp;=&nbsp;(1/8)&radic;(3&pi;) (imp-2642/imp-2643)

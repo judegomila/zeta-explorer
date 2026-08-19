@@ -162,7 +162,7 @@ export default function Imp34674SharedStencilPlateauCrossvalidationViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement only, isRigorous false.
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement only, isRigorous false.
         Re-aggregates an already-certified decomposition through a single coefficient-table code path; it
         changes no bound. The C_mb GUE-conditional per imp-486 is untouched; imp-3066 K_a&gt;=0 untouched;
         no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda&lt;=0.2 remains SOTA.

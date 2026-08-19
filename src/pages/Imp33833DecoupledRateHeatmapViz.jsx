@@ -211,7 +211,7 @@ export default function Imp33833DecoupledRateHeatmapViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> {IMP33822_CAVEAT_BANNER}
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP33822_CAVEAT_BANNER}
       </div>
     </div>
   );

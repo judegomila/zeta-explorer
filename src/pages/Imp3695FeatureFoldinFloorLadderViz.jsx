@@ -236,7 +236,7 @@ export default function Imp3695FeatureFoldinFloorLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/certification
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/certification
         only -- this MAPS the feature-specific fold-in floor line across planted synthetic
         sources and confirms the generic imp-3582 764 is its xi_true = xi_max endpoint. It
         does NOT give xi* or the sup a closed form (the imp-3470 stationarity equation stays

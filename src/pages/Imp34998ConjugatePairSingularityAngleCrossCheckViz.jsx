@@ -154,7 +154,7 @@ export default function Imp34998ConjugatePairSingularityAngleCrossCheckViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering imp-34947
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering imp-34947
         literals verbatim (no new computation beyond re-deriving the same delta ladder for the plot).
         The sign-cycle read quantizes theta to the 360/P grid ({THETA_SIGN_CYCLE.toFixed(1)}&deg; for
         P=9); the continuous recurrence read resolves the true angle just below at

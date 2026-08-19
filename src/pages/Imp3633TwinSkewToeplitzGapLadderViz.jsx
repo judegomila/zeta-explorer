@@ -180,7 +180,7 @@ export default function Imp3633TwinSkewToeplitzGapLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement only -- two
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement only -- two
         section-gap exponents and one amplitude ratio read off a converged Krylov reference
         spectrum, corroborating an EMPIRICAL a_j &prop; (j&sup2;-1) ordering, not deriving it. Does
         NOT construct the missing magnitude and does NOT attempt the imp-3066 K_a &ge; 0

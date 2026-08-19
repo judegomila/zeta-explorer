@@ -232,7 +232,7 @@ export default function Imp33267AWeightDualPathTau25To30Viz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> accuracy/convergence
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy/convergence
         reconciliation only, RH-equivalent, necessary-but-not-sufficient. It reconciles two
         quadratures for a fixed autocorrelation weight used inside a mass-feasibility diagnostic;
         it establishes NO operator positivity. The operator-level K_a &ge; 0 sign-positivity

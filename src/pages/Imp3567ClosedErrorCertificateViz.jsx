@@ -126,7 +126,7 @@ export default function Imp3567ClosedErrorCertificateViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> derivation/certification
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> derivation/certification
         only &mdash; no proof, no reduction below RH. This certifies an explicit closed constant
         for the small-a moment-tail error of the A-weighted masses; it establishes no operator
         positivity. Mass-feasibility is necessary-but-not-sufficient, and the degree-2 face

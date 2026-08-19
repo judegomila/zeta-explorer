@@ -75,7 +75,7 @@ export default function VerifiedHeightLeverPage() {
       <p style={{ color: '#64748b', fontSize: 12.5, lineHeight: 1.6, maxWidth: 840 }}>{costEstimate.caveat}</p>
       <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.6, maxWidth: 840 }}>{meta.midFlight}</p>
 
-      <h2>Honest verdict</h2>
+      <h2>Verdict</h2>
       <ul style={{ color: '#cbd5e1', lineHeight: 1.7, maxWidth: 840 }}>
         {honestVerdict.map((v, i) => <li key={i} style={{ marginBottom: 4 }}>{v}</li>)}
       </ul>

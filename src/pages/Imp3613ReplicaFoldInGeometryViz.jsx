@@ -232,7 +232,7 @@ export default function Imp3613ReplicaFoldInGeometryViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong>{' '}
+        <strong style={{ color: '#94a3b8' }}>Status:</strong>{' '}
         derivation/certification only -- this supplies the analytic aliasing
         floor for the imp-3558 argmax-drift-0 discriminator; it does NOT give
         xi* or the sup a closed form (the imp-3470 stationarity equation stays

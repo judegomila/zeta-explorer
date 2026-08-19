@@ -166,7 +166,7 @@ export default function Imp34353CrossoverSurplusFamilyDecayViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, baked
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked
         literals reproducing the imp-34174 measurement (via the imp-34260 viz-data module); no
         new derivation, no bound changed. Derivation/measurement only within the inherited
         imp-33743/imp-33848 extrapolation component model, which is NOT a rigorous asymptotic;

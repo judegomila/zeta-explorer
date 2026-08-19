@@ -158,7 +158,7 @@ export default function Imp34597DriftShareRegimeSplitViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, reusing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, reusing the
         imp-34573 regime-partitioned q2/q3 share table verbatim. The ~98%/~2% split does NOT break
         down as sigma&nbsp;-&gt;&nbsp;1 in either regime, and most of the raw operating-step deep-tail
         scatter is finite-difference conditioning (imp-34566 F3): at the better-conditioned step the

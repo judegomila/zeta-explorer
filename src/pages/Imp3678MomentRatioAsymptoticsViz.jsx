@@ -216,7 +216,7 @@ export default function Imp3678MomentRatioAsymptoticsViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/derivation
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/derivation
         only -- this visualizes the imp-3646 large-n asymptotics of a fixed-weight Taylor
         remainder coefficient family. It establishes NO operator positivity. RH-equivalent,
         necessary-but-not-sufficient. The imp-3066 K_a &ge; 0 sign-positivity obstruction

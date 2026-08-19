@@ -117,7 +117,7 @@ export default function Imp33999ResidualCurvatureContrastViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/reconciliation only,
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/reconciliation only,
         no proof, no fresh derivation. {IMP33940_INTERIOR_RESIDUAL_BOUNDARY_STABILITY.finding.R3_interior_not_boundary_stable_imp33917_refined}{' '}
         The component model is the inherited imp-3220/imp-3406 extrapolation; the OLS surrogate is
         descriptive, not derived; C_mb GUE-conditional per imp-486 untouched; NO QED; Platt-Trudgian

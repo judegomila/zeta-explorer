@@ -139,7 +139,7 @@ export default function Imp35772CollisionScalePrefactorPropagationViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation only of
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only of
         the already-derived imp-35724 propagation measurement (no new derivation, no
         heavy data-module import); C_mb GUE-conditional (imp-486) UNTOUCHED; changes no
         bound, establishes no operator positivity, no RH verdict. NO QED.

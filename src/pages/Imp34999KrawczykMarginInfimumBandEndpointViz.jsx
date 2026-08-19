@@ -172,7 +172,7 @@ export default function Imp34999KrawczykMarginInfimumBandEndpointViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page resampling the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page resampling the
         imp-34949 closed-form exact margin m(N) and its &delta; &rarr; 0 limit m&#8320;(N) on a dense
         grid (no new math; band bounds and infimum baked from imp-34949). Derivation/measurement only
         on the inherited imp-3220/imp-3406 surrogate crossover map; the headroom rests on the

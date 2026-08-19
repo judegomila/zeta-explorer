@@ -160,7 +160,7 @@ export default function Imp34963EflowCrossingStrengthPowerLawViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
         imp-34925 grid and fit literals verbatim (no new computation). Measurement only on the
         inherited imp-3220/imp-3406 surrogate; this SWEEPS C_mb as a free knob and does NOT discharge
         the GUE conditional (C_mb GUE-conditional per imp-486); the power-law origin argument is a

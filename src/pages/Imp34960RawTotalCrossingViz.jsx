@@ -127,7 +127,7 @@ export default function Imp34960RawTotalCrossingViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
         imp-34931 raw-total resummation-deviation crossing literals verbatim (fine grid, bisected
         5%/25% crossings, radius cross-checks), no new computation. Measurement on the INHERITED
         imp-3220/imp-3406 surrogate crossover map, NOT a rigorous asymptotic; C_mb GUE-conditional

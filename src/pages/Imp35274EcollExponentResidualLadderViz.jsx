@@ -184,7 +184,7 @@ export default function Imp35274EcollExponentResidualLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the imp-35242
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-35242
         measurement literals verbatim (no new computation) on the inherited imp-3220/imp-3406 component
         model. Locating the residual&lt;{D.tolerance} landmark is measurement only, not a certified uniform
         modulus of convergence on the true RvM cusp jet; the C_mb GUE-conditional share per imp-486 is

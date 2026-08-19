@@ -165,7 +165,7 @@ export default function Imp35936ReqHeightMultipleSigmaViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation only of the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only of the
         already-derived imp-35853 measurement (no new derivation, no heavy data-module import, no
         re-running the bisection sweep at page load); measurement only; the ~
         {IMP35936_PT_ANCHOR.multiple.toFixed(2)}x figure is the multiple AT the PT-verified height, not

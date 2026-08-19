@@ -121,7 +121,7 @@ export default function Imp34983SigmaKneeCrossingCmbSensitivityViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
         imp-34955 C_mb sweep verbatim (no new computation). The range-level coincidence -- the 25%
         crossing landing inside [{R_DS_LO}, {R_DS_HI}] -- is ROBUST to the GUE-conditional C_mb knob
         (imp-486), but the tight point-level landing on R&nbsp;~&nbsp;{R_DS} is C_mb-specific. Measurement

@@ -634,7 +634,7 @@ export default function RHProofStateDashboardPage() {
           </div>
         </Section>
 
-        {/* Transparency Ledger + Honest Gap-Map */}
+        {/* Transparency Ledger + Gap-Map */}
         <Section title="Corrections Log: claims since corrected" borderColor={RED}>
           <p style={{ color: INK_SOFT, fontSize: 13, marginBottom: 16, lineHeight: 1.6 }}>
             Internal record of claims that overreached the evidence during development and have since
@@ -668,7 +668,7 @@ export default function RHProofStateDashboardPage() {
             ))}
           </div>
 
-          <h3 style={{ color: INK, fontSize: 14, marginBottom: 10, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>Honest Gap-Map</h3>
+          <h3 style={{ color: INK, fontSize: 14, marginBottom: 10, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>Gap-Map</h3>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12 }}>
             <div style={{ padding: 12, borderRadius: 8, background: GREEN_A(0.08), border: `1px solid ${GREEN_A(0.28)}` }}>
               <div style={{ fontSize: 10, color: GREEN, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6 }}>PEER-REVIEWED BENCHMARK</div>

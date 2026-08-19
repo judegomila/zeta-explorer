@@ -136,12 +136,12 @@ export default function Imp3655FlowGapResidualLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> derivation/measurement only &mdash;
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> derivation/measurement only &mdash;
         no proof, no bridge closure, no RH claim, NO QED. Each added expansion order (leading &rarr;
         O(eps<sup>2</sup>) &rarr; O(eps<sup>3</sup>)) shrinks the residual geometrically, with the
         O(eps<sup>3</sup>) truncation beating the imp-3599 crude model by &ge;{' '}
         {IMP3655_MIN_SHRINK_VS_IMP3599.toExponential(2)}&times; at the worst floor &mdash; but per the
-        imp-3617 honest sub-gap imp-3617-fourthorder-fd-floor, it does NOT reach the ~1e-13 exact-identity
+        imp-3617 sub-gap imp-3617-fourthorder-fd-floor, it does NOT reach the ~1e-13 exact-identity
         floor; a plateau survives from the neglected O(eps<sup>4</sup>) term and the finite-difference
         curvature evaluation. The imp-3066 off-diagonal endpoint-Hankel K<sub>a</sub> &ge; 0 positivity
         obstruction remains untouched. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.

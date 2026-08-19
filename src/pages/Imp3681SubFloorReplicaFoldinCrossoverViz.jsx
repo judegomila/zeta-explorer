@@ -191,7 +191,7 @@ export default function Imp3681SubFloorReplicaFoldinCrossoverViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/certification only
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/certification only
         -- this MEASURES the sub-floor fold-in crossover of a SYNTHETIC planted feature and shows
         the imp-3582 generic floor 764 is a conservative worst-case bound (the mid-band feature
         floor is lower, ~{IMP3681_N_FOLD_EXACT.toFixed(2)}). It does NOT give xi* or the sup a closed

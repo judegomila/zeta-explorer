@@ -152,7 +152,7 @@ export default function Imp35710WindingMeshCostDeltaLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation only of an
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only of an
         already-measured cost curve (imp-35675); adds no new Lambda bound and does not discharge
         the non-finite argument-principle tail lemma (imp-35653 Part D, work-item W3). NO QED.
         Platt-Trudgian &Lambda; &le; 0.2 remains SOTA.

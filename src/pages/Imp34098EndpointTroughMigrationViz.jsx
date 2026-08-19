@@ -166,7 +166,7 @@ export default function Imp34098EndpointTroughMigrationViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/migration-contrast only,
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/migration-contrast only,
         no proof, no fresh derivation -- reuses the imp-33877 base/ext115/ext12 fits verbatim.{' '}
         {IMP34022_ARGMIN_ARGMAX_MIGRATION_SYMMETRY.finding.R2_asymmetric_absolute_magnitude_near_symmetric_relative_amplification}{' '}
         The component model is the inherited imp-3220/imp-3406 extrapolation; the OLS surrogate is

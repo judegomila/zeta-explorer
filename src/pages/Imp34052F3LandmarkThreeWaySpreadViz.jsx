@@ -96,7 +96,7 @@ export default function Imp34052F3LandmarkThreeWaySpreadViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement / cross-check only, not a
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement / cross-check only, not a
         rigorous asymptotic. The E1-&gt;E2 spread ({m1.e2_vs_e1_decades.toFixed(2)} decades at 1%,{' '}
         {m2.e2_vs_e1_decades.toFixed(2)} at 0.1%) is the restored RvM sub-leading terms; the E2-&gt;E3
         offset ({m1.e3_vs_e2_decades.toFixed(2)} / {m2.e3_vs_e2_decades.toFixed(2)} decades) is the

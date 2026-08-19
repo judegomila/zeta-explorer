@@ -138,7 +138,7 @@ export default function Imp34497CrossoverEnAssemblyViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, the three-term
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, the three-term
         assembly and the L_pt comparison are reused verbatim from imp-34453. Measurement only within
         the inherited imp-3220/imp-3406 component model, NOT a rigorous asymptotic; C_mb
         GUE-conditional per imp-486 UNTOUCHED; changes no bound; no RH verdict, NO QED.

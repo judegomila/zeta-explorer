@@ -171,7 +171,7 @@ export default function Imp34671TruncationSweetSpotPlateauViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, reusing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, reusing the
         imp-34648/imp-34630 measurement literals verbatim (climb points, plateau range, valley
         boundary, Richardson-node dp); no zeros bundle imported. Measurement only &mdash; this
         re-aggregates the already-certified imp-34611/imp-34630 decomposition through a finer local

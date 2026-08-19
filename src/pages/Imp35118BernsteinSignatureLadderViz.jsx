@@ -165,7 +165,7 @@ export default function Imp35118BernsteinSignatureLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page plotting pure sign
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page plotting pure sign
         arithmetic ((-1)^(n+1) vs (-1)^n vs (-1)^(n-1)) against the imp-35012 classification
         (completeMonotonicityOfGRefuted={String(A.completeMonotonicityOfGRefuted)},
         bernsteinSignatureMatchesInheritedSign={String(A.bernsteinSignatureMatchesInheritedSign)}). This

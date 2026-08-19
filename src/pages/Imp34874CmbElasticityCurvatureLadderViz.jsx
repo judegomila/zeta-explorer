@@ -118,7 +118,7 @@ export default function Imp34874CmbElasticityCurvatureLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the imp-34844
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-34844
         curveGrid/slopeSpan/curvatureSpan literals verbatim (no new computation). Second-order diagnostic of
         an imp-34824 landmark on the inherited imp-3220/imp-3406 surrogate crossover map; treats C_mb as a
         free knob; does NOT tighten or discharge the GUE conditional (imp-486); the C_C&nbsp;1/8 ansatz

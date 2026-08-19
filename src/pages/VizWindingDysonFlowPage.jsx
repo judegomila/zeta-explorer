@@ -11,7 +11,7 @@ import VizCeilingNote from '../components/VizCeilingNote.jsx';
  * form off-axis conjugate pairs. The winding number W is topologically conserved
  * until a zero exits the contour boundary.
  *
- * HONEST CEILING: re-derives Lambda >= 0 (Rodgers-Tao 2020) only. Does NOT
+ * CEILING: re-derives Lambda >= 0 (Rodgers-Tao 2020) only. Does NOT
  * produce a new upper bound and does not beat Platt-Trudgian Lambda <= 0.2.
  * Route-map id: route-map-supercritical-winding-is-the-original-thread.
  */
@@ -436,7 +436,7 @@ export default function VizWindingDysonFlowPage() {
           both members of the pair remain inside.
           The forward heat-flow (τ: negative → 0) collapses any such pair back onto the critical line, re-deriving
           Rodgers–Tao Λ ≥ 0 visually. <span style={{ color: '#94a3b8' }}>
-            Honest ceiling: this is Λ ≥ 0 only — no new upper bound.
+            Ceiling: this is Λ ≥ 0 only — no new upper bound.
           </span>
         </div>
       </div>

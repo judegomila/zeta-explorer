@@ -243,7 +243,7 @@ export default function Imp33547TiltClosureOffsetFractionViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/fit only, at the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/fit only, at the
         RH-equivalent scale class. This is a closure extrapolation of a fixed-weight moment-ratio
         drift decomposition; it establishes no operator positivity. Mass-feasibility is
         necessary-but-not-sufficient, and the operator-level K_a &ge; 0 sign-positivity (imp-3066)

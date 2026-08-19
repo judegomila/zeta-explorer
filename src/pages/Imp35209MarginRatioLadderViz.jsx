@@ -202,7 +202,7 @@ export default function Imp35209MarginRatioLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
         imp-35076 nine-rung margin-ratio ladder verbatim (no new computation) with the imp-35152 G-a
         between-rung gap shown schematically as shaded bands. Verification only, on the inherited
         model-cusp surrogate; does not discharge H3, H4, or gap G-a; establishes no operator

@@ -164,7 +164,7 @@ export default function Imp35865SummationSchemeLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status (measurement only):</strong> presentation
+        <strong style={{ color: '#94a3b8' }}>Status (measurement only):</strong> presentation
         only of the already-derived imp-35812 exact-BigInt-referenced measurement (no new derivation,
         no heavy data-module import, no re-running the summation schemes at page load). All three
         schemes -- naive, pairwise, Kahan-Babuska -- certify NO W1 bound and, together with their

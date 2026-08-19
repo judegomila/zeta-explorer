@@ -171,7 +171,7 @@ export default function Imp34623DeflowResidualOneOverLogNViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, reusing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, reusing the
         imp-34590 OLS fit literals verbatim (slope, intercept, intercept SE, R&sup2;, per-rung
         residual table). Both intercepts landing within one SE of zero is the imp-34590 finding
         that the observed pInf gap to the analytic E_flow slope is a finite-rung 1/log(N)

@@ -167,7 +167,7 @@ export default function Imp34596DeflowObservedExponentViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, reusing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, reusing the
         imp-34448 directly-observed local exponent samples and the imp-34571 observed-only OLS
         refit verbatim. The residual of {M.residualVsAnalytic.toExponential(1)} against the analytic
         E_flow log-slope magnitude is the same order as the 1/log(N) finite-rung correction

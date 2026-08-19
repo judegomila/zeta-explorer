@@ -260,7 +260,7 @@ export default function Section26ConditioningArtifactPage() {
         </div>
 
         <div className="card" style={{ ...cardBaseLeft('var(--brass-dk)'), marginBottom: 14 }}>
-          <div style={cardLabel}>Honest status: bounded, cell-localized deficit (imp-3303)</div>
+          <div style={cardLabel}>Status: bounded, cell-localized deficit (imp-3303)</div>
           <h3 style={{ color: 'var(--brass-dk)', fontSize: 15, marginBottom: 8 }}>The residual gap vanishes at both limits</h3>
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75 }}>
             The basis-invariant scalar-core gap is <strong style={{ color: 'var(--brass-dk)' }}>tanh(s)&minus;tanh(s/2)</strong>, s=aU.

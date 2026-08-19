@@ -233,7 +233,7 @@ export default function Imp34514CouplingRatio1overLogT0FitViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, baked literals
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked literals
         reproducing the imp-34487 measurement; no new derivation, no bound changed. Component
         model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb
         GUE-conditional per imp-486 UNTOUCHED; C_C 1/8 ansatz untouched; imp-3066 K_a&ge;0

@@ -173,7 +173,7 @@ export default function Imp34763CmbElasticitySigmaPeakViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page presenting the imp-34734
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page presenting the imp-34734
         C_mb-leverage measurement (imported literals, no new computation) for the INHERITED imp-3220/imp-3406
         surrogate crossover map. This does NOT discharge the GUE conditional on C_mb (imp-486) &mdash; C_mb is
         treated as a free knob to quantify leverage, not tightened. Even the GUE saturation C_mb&nbsp;=&nbsp;1

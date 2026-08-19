@@ -213,7 +213,7 @@ export default function Imp34767FarTailTwoStencilCrossvalidationViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page presenting the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page presenting the
         imp-34728 two-stencil cross-validation (imported literals, no new computation). q1..q3 remain
         inherited central differences, not fresh analytic closed forms, so the far-tail ladder is a
         property of the inherited imp-3220/imp-3406 component model, not an independent physical claim.

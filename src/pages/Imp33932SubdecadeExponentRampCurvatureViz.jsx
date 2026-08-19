@@ -221,7 +221,7 @@ export default function Imp33932SubdecadeExponentRampCurvatureViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation only of the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only of the
         already-established imp-33721 sub-decade curvature measurement (isRigorous: false).
         Conditional-share curvature diagnostic, not an RH bound. imp-3066 K_a&nbsp;&ge;&nbsp;0
         untouched; RH-EQUIVALENT; NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains the

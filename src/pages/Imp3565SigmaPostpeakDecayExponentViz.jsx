@@ -242,7 +242,7 @@ export default function Imp3565SigmaPostpeakDecayExponentViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/visualization only --
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization only --
         no proof, no reduction below RH. p(N) is a local central-difference exponent on the exact
         imp-3220/imp-3406/imp-3463 sub-terms, not a derived closed form; it quantifies the roadmap's
         qualitative "monotone decay toward 0" claim but does not construct the missing imp-3066

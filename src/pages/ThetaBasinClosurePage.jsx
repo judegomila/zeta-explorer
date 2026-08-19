@@ -316,7 +316,7 @@ export default function ThetaBasinClosurePage() {
         </div>
 
         <div className="card" style={{ ...cardBaseLeft('var(--terra-dk)'), padding: '16px 18px' }}>
-          <h3 style={{ color: 'var(--terra-dk)', fontSize: 16, marginBottom: 8 }}>Honest Status</h3>
+          <h3 style={{ color: 'var(--terra-dk)', fontSize: 16, marginBottom: 8 }}>Status</h3>
           <div style={{ background: 'rgba(194,58,28,0.10)', border: '1px solid rgba(194,58,28,0.45)', borderRadius: 6, padding: '8px 12px', marginBottom: 12 }}>
             <span style={{ color: 'var(--terra-dk)', fontWeight: 700, fontSize: 12, letterSpacing: '0.04em' }}>BASIN CONDITIONAL: NOT UNCONDITIONAL</span>
             <span style={{ color: 'var(--ink-soft)', fontSize: 12 }}> &mdash; the cap holds on the isolated-pair basin (

@@ -144,7 +144,7 @@ export default function Imp35837KrawczykCancellationRatioViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, baked literals
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked literals
         reproducing the imp-35766 measurement verbatim; no new derivation, no heavy data-module
         import. Measurement only on the inherited imp-3220/imp-3406 surrogate; the imp-34714a machine
         certificate REMAINS OPEN and F(m)&nbsp;=&nbsp;0 stays a double-precision artifact; C_C&nbsp;1/8

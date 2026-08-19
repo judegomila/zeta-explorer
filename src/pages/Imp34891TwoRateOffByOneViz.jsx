@@ -90,7 +90,7 @@ export default function Imp34891TwoRateOffByOneViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
         imp-34862 two-rate off-by-one counts verbatim (no new computation). Measurement on the INHERITED
         imp-3220/imp-3406 surrogate crossover map; the C_mb GUE-conditional per imp-486 and the C_C 1/8
         ansatz (imp-2642/imp-2643) are UNTOUCHED; changes no bound; establishes no operator positivity; no

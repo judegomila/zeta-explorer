@@ -143,7 +143,7 @@ export default function Imp33573R40CrossSolverNodeBudgetViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> accuracy/rule-design
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy/rule-design
         cross-solver measurement only, of an already-verified sweep (imp-33308/imp-33536). It
         changes no bound and patches no literal (imp-3685/imp-3849/imp-33292/imp-33308 intact). The
         exact node counts are jittery arithmetic-floor lattice properties (imp-33249/imp-33277/

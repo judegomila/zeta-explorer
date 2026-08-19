@@ -152,7 +152,7 @@ export default function Imp33286RealisedVsCertifiedTailWeightRatioViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/visualization
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization
         only -- no proof, no reduction below RH. Both ratios are bounded O(1) on this finite
         10-plateau sample of N in [1e4,1e6]; the N-to-infinity sup of R_maj remains
         uncertified (imp-3917-sub-all-plateaus residual). imp-3910's certified C&le;54.56 (3

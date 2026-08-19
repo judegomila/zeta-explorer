@@ -9,7 +9,7 @@
 //   Panel B: scatter plot of computed eigenvalues of the symmetrized
 //            H_sym = (xp + px)/2 in the truncated Hermite basis at N = 50,
 //            100, 200, against the first 30 Odlyzko zero ordinates, with a
-//            y = x reference line. Honest scope: the truncated naive
+//            y = x reference line. Scope: the truncated naive
 //            spectrum does NOT match the zeros -- the page exposes the gap.
 //   Panel C: per-N RMS residual on the first 15 eigenvalues.
 //
@@ -458,7 +458,7 @@ export default function BerryKeatingXpPage() {
           fontSize: 12,
           lineHeight: 1.55,
         }}>
-          <strong>Honest scope -- this page exhibits a GAP, not a success.</strong>{' '}
+          <strong>Scope -- this page exhibits a GAP, not a success.</strong>{' '}
           Berry-Keating is a <em>conjecture</em>. The eigenvalues of the truncated
           symmetrized H = (xp + px)/2 on the Hermite basis do NOT reproduce the
           Riemann zero ordinates, and the per-N RMS residual does NOT shrink toward

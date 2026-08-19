@@ -224,7 +224,7 @@ export default function Imp34534PoleLeakageSinglePoleFitViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement / threshold-location +
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement / threshold-location +
         fit only. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
         asymptotic; the residExp simple-zero structure is a numerical/structural observation, not a
         derivation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no

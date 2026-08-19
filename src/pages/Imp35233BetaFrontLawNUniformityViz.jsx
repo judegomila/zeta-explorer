@@ -188,7 +188,7 @@ export default function Imp35233BetaFrontLawNUniformityViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
         imp-35194 measured fraction table verbatim (no new computation). MEASUREMENT ONLY,
         frontier-diagnostic probe of the imp-35167 M2 background-field-sup obstruction; does NOT
         certify N-uniformity over the full trajectory (the sup diverges as g_min&nbsp;&rarr;&nbsp;0);

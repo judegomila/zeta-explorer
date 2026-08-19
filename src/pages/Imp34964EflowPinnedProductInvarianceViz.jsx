@@ -168,7 +168,7 @@ export default function Imp34964EflowPinnedProductInvarianceViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
         imp-34924 ladder and deviation literals verbatim (no new computation). Measurement/derivation
         only on the inherited imp-3220/imp-3406 surrogate; the C_mb GUE-conditional per imp-486 is
         UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a&nbsp;&ge;&nbsp;0

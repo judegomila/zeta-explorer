@@ -240,7 +240,7 @@ export default function Imp34717Q3TrustBoundaryViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, plotting the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, plotting the
         already-derived imp-34691 closed-form floor F_rel(dp,N) = C(N)/dp&sup3; and its crossover
         dp*(N); establishes no new numerical claim. q1..q3 are inherited central differences, NOT fresh
         analytic closed forms, so the sigma&nbsp;-&gt;&nbsp;1 deep-tail regime (imp-3220/imp-3406

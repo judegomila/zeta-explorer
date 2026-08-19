@@ -248,7 +248,7 @@ export default function CShockNumericalCoincidencePage() {
         background: 'rgba(148,163,184,0.04)', borderLeft: '3px solid #334155',
         borderRadius: '0 4px 4px 0', fontSize: '0.8rem', color: '#64748b',
       }}>
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Pure cross-validation of two
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Pure cross-validation of two
         degree-0 scalars. Neither quantity is an operator step; neither proves nor weakens RH.
         The off-diagonal endpoint-Hankel step (imp-3066) remains the lone obstruction and is
         untouched here. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.

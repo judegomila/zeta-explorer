@@ -13,7 +13,7 @@
 // True primes deviate from the exponential (level repulsion / rigidity); the
 // random set hugs e^{-s}; the perturbed product interpolates between them.
 //
-// Honest ceiling: descriptive/exploratory spacing histogram. NO claim about
+// Ceiling: descriptive/exploratory spacing histogram. NO claim about
 // Lambda, NO proof of RH, does NOT beat Platt-Trudgian Lambda <= 0.2.
 
 import React, { useRef, useEffect, useState, useMemo } from 'react';
@@ -325,7 +325,7 @@ export default function AngularSpacingStatsPage() {
       <div className="card" style={{ marginTop: 10, padding: 12 }}>
         <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)',
                       letterSpacing: 0.5, marginBottom: 6 }}>
-          Honest ceiling
+          Ceiling
         </div>
         <div style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.7 }}>
           This is a descriptive spacing histogram of the log-phase field. It is

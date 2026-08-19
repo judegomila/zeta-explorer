@@ -164,7 +164,7 @@ export default function Imp35404KrawczykHeadroomCancellationViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, baked literals
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked literals
         reproducing the imp-35266 measurement verbatim; no new derivation, no bound changed.
         Measurement only on the inherited imp-3220/imp-3406 surrogate, reproducing the
         imp-35241/imp-35176/imp-34996 machinery; the imp-34714a machine certificate REMAINS OPEN and

@@ -183,7 +183,7 @@ export default function Imp35308ReentryBandViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page reusing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page reusing the
         imp-35243 baked demonstration_D1_floor_sensitivity / demonstration_D2_extrapolation_gap
         literals verbatim (no new computation). The reentry band is a SURROGATE feature
         ~15&ndash;25 decades above any verified datum, not established as a feature of the true

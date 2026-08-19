@@ -214,7 +214,7 @@ export default function Imp3698FifthPairAdjacentPairingViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> pairing-structure
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> pairing-structure
         cross-check only -- this certifies the lambda_9=lambda_10 adjacent-pairing degeneracy
         against an independent dense full-spectrum solver. It does NOT establish the
         fifth-pair amplitude LAW (a distinct pending ticket) and does NOT construct the

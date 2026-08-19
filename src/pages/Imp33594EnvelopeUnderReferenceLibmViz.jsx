@@ -183,7 +183,7 @@ export default function Imp33594EnvelopeUnderReferenceLibmViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong>{' '}
+        <strong style={{ color: '#94a3b8' }}>Status:</strong>{' '}
         accuracy measurement only, of an already-verified table (imp-33559).
         The double-double libm is a reference-precision surrogate, not a
         platform survey; it changes no bound and patches no literal. Mass-

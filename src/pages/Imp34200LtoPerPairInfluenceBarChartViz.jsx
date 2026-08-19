@@ -118,7 +118,7 @@ export default function Imp34200LtoPerPairInfluenceBarChartViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation of the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation of the
         already-established imp-34110 measurement (a per-pair influence ranking of an
         inherited imp-34042 leave-two-out sensitivity), no new computation on the
         underlying component model. Both the log and linear growth forms are descriptive,

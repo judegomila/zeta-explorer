@@ -151,7 +151,7 @@ export default function GilbreathObservationPage() {
           <p style={{ marginTop: 16, padding: '10px 12px', borderRadius: 6,
                       background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.30)',
                       color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7 }}>
-            <strong style={{ color: 'var(--terra-dk)' }}>Honest status.</strong> Lemmas A and B are proved here;
+            <strong style={{ color: 'var(--terra-dk)' }}>Status.</strong> Lemmas A and B are proved here;
             the certificate above verifies the leading 1 by exact computation over the displayed range
             and shows where the structural lock engages. None of this closes the conjecture — the
             uniform-contraction core remains open, and no finite computation can reach the infinite

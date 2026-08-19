@@ -22,7 +22,7 @@ export default function VizCeilingNote({
 }) {
   const body = (
     <>
-      <strong>Honest ceiling:</strong> this is an exact, exploratory visualization — it
+      <strong>Ceiling:</strong> this is an exact, exploratory visualization — it
       re-derives only <strong>{claim}</strong>
       {ceiling ? <> ({ceiling})</> : null} and does <em>not</em> beat Platt–Trudgian
       {' '}Λ ≤ 0.2 or prove RH — no false QED.

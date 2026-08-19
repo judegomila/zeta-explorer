@@ -158,7 +158,7 @@ export default function Imp33895LogSaturationReconciliationViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> {findings.R2_residual_is_qSigma_vanishing}{' '}
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> {findings.R2_residual_is_qSigma_vanishing}{' '}
         Max deviation of the exact identity gap_ecoll = g is {diagnostics.max_I1_deviation_gapEcoll_minus_g}
         (machine precision). Measurement/derivation only -- the component model is the inherited
         imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional share

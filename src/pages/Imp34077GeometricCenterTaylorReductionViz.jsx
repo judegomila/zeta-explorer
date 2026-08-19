@@ -181,7 +181,7 @@ export default function Imp34077GeometricCenterTaylorReductionViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/fit only, no proof, no
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/fit only, no proof, no
         fresh derivation. The component model is the inherited imp-3220/imp-3406 extrapolation; L1..L4 are
         finite-difference measurements; the per-order ratio ramping ~c/log T0 is a fit, not a derived law;
         C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a&gt;=0 untouched; NO QED; Platt-Trudgian

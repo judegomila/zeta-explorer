@@ -540,7 +540,7 @@ function OffDiagHankelObstructionPanel() {
       </div>
       <div style={{ padding: '10px 14px', borderRadius: 6, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.3)', fontSize: 12, color: '#cbd5e1', lineHeight: 1.65 }}>
         <div style={{ fontSize: 11, fontWeight: 700, color: '#f87171', letterSpacing: '0.06em', marginBottom: 5 }}>
-          HONEST CAVEAT — REPRESENTATIVE TRUNCATION ONLY, NO RH VERDICT
+          CAVEAT — REPRESENTATIVE TRUNCATION ONLY, NO RH VERDICT
         </div>
         This is a <strong>diagnostic measurement on a representative degree-{deg} monomial-moment
         truncation</strong> chosen to exhibit the off-diagonal obstruction — NOT the actual section-26
@@ -623,7 +623,7 @@ function AnalyticCeilingConcentratingFamilyPanel() {
         </svg>
       </div>
       <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
-        <strong style={{ color: '#f87171' }}>Honest scope (imp-3288):</strong>{' '}
+        <strong style={{ color: '#f87171' }}>Scope (imp-3288):</strong>{' '}
         Rigorous NEGATIVE result about the SCALAR cosh passive core ONLY, proved over the full
         L2([0,U]) span (not merely this trial family). Does NOT touch the operator-positivity
         residual K<sub>a</sub>&thinsp;&ge;&thinsp;0, makes NO claim the cover holds or fails, carries NO RH verdict.
@@ -711,7 +711,7 @@ function ConditionalShareUShapePanel() {
         </svg>
       </div>
       <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
-        <strong style={{ color: '#f87171' }}>Honest scope (imp-3220):</strong>{' '}
+        <strong style={{ color: '#f87171' }}>Scope (imp-3220):</strong>{' '}
         ASSESSMENT ONLY: E<sub>coll</sub> is the sole GUE-conditional sub-term (C<sub>H</sub> = 1/8 ansatz, the
         C<sub>mb</sub>&thinsp;&le;&thinsp;1 conditional of imp-486); E<sub>flow</sub> and E<sub>trunc</sub> are already
         unconditionally rigorous. No positivity, no bridge closure, no RH claim, NO QED. Platt&ndash;Trudgian
@@ -846,7 +846,7 @@ function SigmaNShapeExtrapolationPanel() {
         </svg>
       </div>
       <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
-        <strong style={{ color: '#f87171' }}>Honest scope (imp-3406):</strong>{' '}
+        <strong style={{ color: '#f87171' }}>Scope (imp-3406):</strong>{' '}
         ASSESSMENT/extrapolation only, reusing the identical imp-3220 sub-term formulas &mdash; no re-derivation.
         No positivity, no bridge closure, no RH claim, NO QED. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2
         remains the rigorous SOTA.
@@ -971,7 +971,7 @@ function NmaxEtruncSensitivityPanel() {
         </svg>
       </div>
       <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(167,139,250,0.07)', border: '1px solid rgba(167,139,250,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
-        <strong style={{ color: '#c4b5fd' }}>Honest scope (imp-3443):</strong>{' '}
+        <strong style={{ color: '#c4b5fd' }}>Scope (imp-3443):</strong>{' '}
         Measurement/extrapolation only, reusing the identical imp-3406/imp-3220 sub-term formulas &mdash; no
         re-derivation. &sigma;<sub>max</sub> at the baseline &asymp;{grid.find((r) => Math.abs(r.E_trunc - base.E_trunc) < 1e-12)?.sigma_max ?? base.N_max}.
         No positivity, no bridge closure, no RH claim, NO QED. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2
@@ -1124,7 +1124,7 @@ function GKFamilyHandoverPanel() {
         </svg>
       </div>
       <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(56,189,248,0.07)', border: '1px solid rgba(56,189,248,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
-        <strong style={{ color: '#38bdf8' }}>Honest scope (imp-3520):</strong>{' '}
+        <strong style={{ color: '#38bdf8' }}>Scope (imp-3520):</strong>{' '}
         UX/visualization only, reusing the identical imp-3486/imp-3465/imp-3406 sub-term formulas &mdash; no
         re-derivation, frontier-direction. RH-EQUIVALENT, necessary-but-not-sufficient; operator positivity
         (imp-3066) untouched, no RH claim, NO QED. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains
@@ -1228,7 +1228,7 @@ function CInfThirdExtrapolationLadderPanel() {
         </svg>
       </div>
       <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(52,211,153,0.07)', border: '1px solid rgba(52,211,153,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
-        <strong style={{ color: '#34d399' }}>Honest scope (imp-3445):</strong>{' '}
+        <strong style={{ color: '#34d399' }}>Scope (imp-3445):</strong>{' '}
         The Wynn top-triple estimate lands {m.gapAboveBand > 0 ? `${m.gapAboveBand.toExponential(2)} above` : 'inside'} the
         imp-3407 band top, so the three-route min-max span ({m.threeRouteSpan.toExponential(2)}) did NOT tighten versus
         the prior two-route spread ({m.priorSpread.toExponential(2)}). Certification only &mdash; no closed form, no
@@ -1328,7 +1328,7 @@ function Degree0VsDegree2KLadderPanel() {
         </svg>
       </div>
       <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(56,189,248,0.07)', border: '1px solid rgba(56,189,248,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
-        <strong style={{ color: '#38bdf8' }}>Honest scope (imp-3469):</strong>{' '}
+        <strong style={{ color: '#38bdf8' }}>Scope (imp-3469):</strong>{' '}
         Numerical scaling-law characterization only &mdash; the degree-0 law does not extend to the
         degree-2 (absolute) mass, which instead scales as a&sup2; (U-independent, fixed by the second
         genuine-Phi autocorrelation moment M<sub>2</sub>). RH-EQUIVALENT, necessary-but-not-sufficient;
@@ -1405,7 +1405,7 @@ function AutocorrWeightSupportPanel() {
         </svg>
       </div>
       <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(56,189,248,0.07)', border: '1px solid rgba(56,189,248,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
-        <strong style={{ color: '#38bdf8' }}>Honest scope (imp-3469):</strong>{' '}
+        <strong style={{ color: '#38bdf8' }}>Scope (imp-3469):</strong>{' '}
         Numerical characterization of the fixed A(&tau;) weight and its support only &mdash;
         establishes NO operator positivity. RH-EQUIVALENT, necessary-but-not-sufficient; operator
         positivity (imp-3066) untouched, no RH verdict. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2
@@ -1537,7 +1537,7 @@ function MomentLadderResidualPanel() {
         </svg>
       </div>
       <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(56,189,248,0.07)', border: '1px solid rgba(56,189,248,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
-        <strong style={{ color: '#38bdf8' }}>Honest scope (imp-3481):</strong>{' '}
+        <strong style={{ color: '#38bdf8' }}>Scope (imp-3481):</strong>{' '}
         Moment/Taylor characterization only &mdash; establishes NO operator positivity. Mass-feasibility
         is necessary-but-not-sufficient and the degree-2 face carries no feasibility comparison at all
         (imp-3469: D<sub>2</sub>=0). The operator-level K<sub>a</sub>&nbsp;&ge;&nbsp;0 sign-positivity
@@ -1623,7 +1623,7 @@ function Degree2DeficitAThresholdPanel() {
         </svg>
       </div>
       <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(56,189,248,0.07)', border: '1px solid rgba(56,189,248,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
-        <strong style={{ color: '#38bdf8' }}>Honest scope (imp-3487):</strong>{' '}
+        <strong style={{ color: '#38bdf8' }}>Scope (imp-3487):</strong>{' '}
         Threshold-location assessment only &mdash; establishes NO operator positivity. Even where
         B<sub>2</sub>/D<sub>2</sub> is defined (a&gt;aStar) it is enormous, so no physically meaningful
         degree-2 feasibility ratio emerges within the small-a construction band; the imp-3469
@@ -1743,7 +1743,7 @@ function CaptureConstantIndependentNormConvergencePanel() {
         </svg>
       </div>
       <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(244,114,182,0.07)', border: '1px solid rgba(244,114,182,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
-        <strong style={{ color: '#f472b6' }}>Honest scope (imp-3485):</strong>{' '}
+        <strong style={{ color: '#f472b6' }}>Scope (imp-3485):</strong>{' '}
         Cross-validation only &mdash; an independent Krylov/Jacobi operator-norm recomputation confirms the
         imp-3467 assembled C is not a power-iteration artifact. Does NOT construct the missing magnitude and
         does NOT attempt the imp-3066 K<sub>a</sub>&nbsp;&ge;&nbsp;0 positivity; RH-EQUIVALENT, no RH verdict,
@@ -1860,7 +1860,7 @@ function PSDPeakSlopeStationarityPanel() {
         </svg>
       </div>
       <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(56,189,248,0.07)', border: '1px solid rgba(56,189,248,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
-        <strong style={{ color: '#38bdf8' }}>Honest scope (imp-3470):</strong>{' '}
+        <strong style={{ color: '#38bdf8' }}>Scope (imp-3470):</strong>{' '}
         Locates the peak-slope maximizer to machine precision; does NOT give &xi;* or the sup an
         elementary closed form (P2(&xi;)=0 is transcendental). C<sub>&infin;</sub>&asymp;0.1751 stays a
         determined number. RH-EQUIVALENT, necessary-but-not-sufficient; operator positivity (imp-3066)
@@ -1926,7 +1926,7 @@ function TtildeClosedFormAndCertificationPanel() {
         </tbody>
       </table>
       <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(251,191,36,0.07)', border: '1px solid rgba(251,191,36,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
-        <strong style={{ color: '#fbbf24' }}>Honest scope (imp-3400/imp-3407):</strong>{' '}
+        <strong style={{ color: '#fbbf24' }}>Scope (imp-3400/imp-3407):</strong>{' '}
         The closed form is an exact operator identity but its VALUE stays transcendental (no elementary
         &xi;* or &Phi;hat), so C<sub>&infin;</sub>&asymp;0.1751 remains a determined number, not a closed
         constant; the certification cross-checks that number, it does not construct one. Neither module
@@ -2018,7 +2018,7 @@ function SigmaCHSaturationPanel() {
         </svg>
       </div>
       <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
-        <strong style={{ color: '#f87171' }}>Honest scope (imp-3324):</strong>{' '}
+        <strong style={{ color: '#f87171' }}>Scope (imp-3324):</strong>{' '}
         ASSESSMENT ONLY: C<sub>H</sub> is load-bearing for the absolute E<sub>coll</sub> budget (linear) but NOT for the
         conditional share &sigma;, which saturates toward 1. No positivity, no bridge closure, no RH claim, NO QED.
         Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
@@ -2096,7 +2096,7 @@ function CaptureOvershootKneePanel() {
         </svg>
       </div>
       <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
-        <strong style={{ color: '#f87171' }}>Honest scope (imp-3219):</strong>{' '}
+        <strong style={{ color: '#f87171' }}>Scope (imp-3219):</strong>{' '}
         RH-EQUIVALENT diagnostic only: locating the capture overshoot peak is a cutoff-localization
         measurement, NOT a construction of the missing operator-norm magnitude or the K<sub>a</sub>&thinsp;&ge;&thinsp;0
         positivity residual. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
@@ -2385,7 +2385,7 @@ function Section26GapExplainerPanel() {
           <p key={i} style={{ color: '#cbd5e1', fontSize: 12, lineHeight: 1.65, margin: 0 }}>{s}</p>
         ))}
         <div style={{ marginTop: 8, padding: '6px 10px', borderRadius: 4, background: 'rgba(168,85,247,0.12)', border: '1px solid rgba(168,85,247,0.4)' }}>
-          <span style={{ color: '#c084fc', fontSize: 11, fontWeight: 700 }}>HONEST STATUS: </span>
+          <span style={{ color: '#c084fc', fontSize: 11, fontWeight: 700 }}>STATUS: </span>
           <span style={{ color: '#94a3b8', fontSize: 12 }}>
             Conjecture 26.3 (&#x03BC;<sup>pass</sup>(&#x03C4;) &#x2265; &#x03BD;(&#x03C4;) pointwise) is currently unresolved and governs
             whether the genuine §26 diagonal is dominated. Toy diagonal dominance is automatic
@@ -4030,7 +4030,7 @@ function CoshMonomialConditioningViz() {
       </div>
       <div style={{ marginTop: 12, padding: "10px 14px", borderRadius: 6, background: "rgba(239,68,68,0.07)", border: "1px solid rgba(239,68,68,0.3)", fontSize: 12, color: "#cbd5e1", lineHeight: 1.65 }}>
         <div style={{ fontSize: 11, fontWeight: 700, color: "#f87171", letterSpacing: "0.06em", marginBottom: 5 }}>
-          HONEST CAVEAT &mdash; NUMERICAL-CONDITIONING DIAGNOSTIC, NO RH VERDICT
+          CAVEAT &mdash; NUMERICAL-CONDITIONING DIAGNOSTIC, NO RH VERDICT
         </div>
         This quantifies WHERE the monomial-moment orthogonalizer can be trusted &mdash; NOT whether
         the cover holds or fails. The trust boundary is setup-dependent (a=0.5, U=6, NQ=4000
@@ -7103,7 +7103,7 @@ function Imp3402DriftRateFitPanel() {
         </tbody>
       </table>
       <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(167,139,250,0.07)', border: '1px solid rgba(167,139,250,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
-        <strong style={{ color: '#a78bfa' }}>Honest scope (imp-3402):</strong>{' '}
+        <strong style={{ color: '#a78bfa' }}>Scope (imp-3402):</strong>{' '}
         Measurement only &mdash; the leftmost zero is a truncation artifact of the finite sum defining
         &Phi;<sub>NPHI</sub> (the untruncated de Bruijn&ndash;Newman &Phi; is positive on all of R); the
         imp-3197/imp-3257 [0,U] window and the binding imp-3066 operator-norm magnitude obstruction
@@ -7773,7 +7773,7 @@ export default function ClosureRoutesPage() {
           }}
         >
           <div style={{ color: '#fbbf24', fontWeight: 700, fontSize: 11, letterSpacing: '0.05em', marginBottom: 5 }}>
-            HONEST STATUS (imp-3144): NECESSARY &ne; SUFFICIENT
+            STATUS (imp-3144): NECESSARY &ne; SUFFICIENT
           </div>
           The imp-3007 degree-0 scalar overflow cover drives the residual deficit to exactly 0
           (residual-0, necessary). However, the section26-mupass operator audit (imp-3144) measured
@@ -7833,7 +7833,7 @@ export default function ClosureRoutesPage() {
             </tbody>
           </table>
           <div style={{ marginTop: 7, padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11.5, color: '#94a3b8', lineHeight: 1.65 }}>
-            <strong style={{ color: '#f87171' }}>Honest note:</strong>{' '}
+            <strong style={{ color: '#f87171' }}>Note:</strong>{' '}
             Mass-feasibility kills the impossibility option but does <strong>not</strong> close the
             operator-level K&#x2090;&thinsp;&#x2265;&thinsp;0 residual. The budget proxy &#x2016;V&#x2016;<sub>HS</sub> is
             itself the RH-equivalent quantity; the deg-0 B/D comparison is additionally circular.
@@ -7892,7 +7892,7 @@ export default function ClosureRoutesPage() {
           }}
         >
           <div style={{ color: '#f87171', fontWeight: 700, fontSize: 11, letterSpacing: '0.05em', marginBottom: 5 }}>
-            HONEST STATUS (imp-3209): NO SCALAR/DIAGONAL CORE WORKS AT OPERATOR ORDER
+            STATUS (imp-3209): NO SCALAR/DIAGONAL CORE WORKS AT OPERATOR ORDER
           </div>
           For <strong>every</strong> scalar or diagonal passive core &mu;, the contraction ratio{' '}
           <span style={{ fontFamily: mono, color: '#fbbf24' }}>&#x2016;R&#x2016;</span>{' '}
@@ -8211,7 +8211,7 @@ export default function ClosureRoutesPage() {
           }}
         >
           <div style={{ fontSize: 11, fontWeight: 700, color: '#f87171', letterSpacing: '0.06em', marginBottom: 5 }}>
-            HONEST SCOPE — SCALAR COVER ONLY
+            SCOPE — SCALAR COVER ONLY
           </div>
           This certifies the <em>degree-0 pointwise/diagonal</em> residual deficit is zero — the
           same SCALAR statement as imp-3007, now independently cross-checked by a different rule
@@ -8300,7 +8300,7 @@ export default function ClosureRoutesPage() {
         fontFamily: mono,
         lineHeight: 1.6,
       }}>
-        <strong style={{ color: '#fbbf24' }}>HONEST STATUS (imp-3106):</strong>{' '}
+        <strong style={{ color: '#fbbf24' }}>STATUS (imp-3106):</strong>{' '}
         The area-weighted MEAN price of the forced even cosh-completion is{' '}
         <strong>UNBOUNDED</strong> -- the integral{' '}
         &int;<sub>s0+&epsilon;</sub><sup>&infin;</sup> &phi;(s) ds diverges as &epsilon;&#8594;0.
@@ -8383,7 +8383,7 @@ export default function ClosureRoutesPage() {
           </tbody>
         </table>
         <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
-          <strong style={{ color: '#f87171' }}>Honest scope (imp-3126):</strong>{' '}
+          <strong style={{ color: '#f87171' }}>Scope (imp-3126):</strong>{' '}
           {REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.honestCaveat.operatorStepUntouched}{' '}
           {REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.honestCaveat.sota}.
         </div>
@@ -8471,7 +8471,7 @@ export default function ClosureRoutesPage() {
           </tbody>
         </table>
         <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
-          <strong style={{ color: '#f87171' }}>Honest scope (imp-3154):</strong>{' '}
+          <strong style={{ color: '#f87171' }}>Scope (imp-3154):</strong>{' '}
           REPRESENTATIVE / DIAGNOSTIC at the genuine Phi (NPHI=10). The absolute deficit
           (~1.19e-7) carries this module&apos;s density normalization convention; only the
           DEG-trend (FIXED, strictly positive) and the reproduced ~19.4-20% overflow fraction
@@ -8524,7 +8524,7 @@ export default function ClosureRoutesPage() {
           </tbody>
         </table>
         <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
-          <strong style={{ color: '#f87171' }}>Honest scope (imp-3102):</strong>{' '}
+          <strong style={{ color: '#f87171' }}>Scope (imp-3102):</strong>{' '}
           REPRESENTATIVE / DIAGNOSTIC on the SAME monomial-moment truncation as imp-3066/imp-3086 --
           NOT the section-26 Gram. The measured &#x2016;R<sub>orth</sub>&#x2016; and residual gaps carry
           NO RH verdict: they neither claim the cover holds nor that it fails. Only the a&middot;U
@@ -8581,7 +8581,7 @@ export default function ClosureRoutesPage() {
           </tbody>
         </table>
         <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
-          <strong style={{ color: '#f87171' }}>Honest scope (imp-3104):</strong>{' '}
+          <strong style={{ color: '#f87171' }}>Scope (imp-3104):</strong>{' '}
           REPRESENTATIVE / DIAGNOSTIC on the SAME monomial-moment truncation as imp-3084/imp-3086 --
           NOT the section-26 Gram. The measured &#x2016;R<sub>orth</sub>&#x2016; and DEG-trend carry
           NO RH verdict: a converging bounded norm neither claims the cover holds nor that it fails.
@@ -8663,7 +8663,7 @@ export default function ClosureRoutesPage() {
           </tbody>
         </table>
         <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
-          <strong style={{ color: '#f87171' }}>Honest scope (imp-3106):</strong>{' '}
+          <strong style={{ color: '#f87171' }}>Scope (imp-3106):</strong>{' '}
           DIVERGENCE CHARACTERIZATION, NOT A VALUE. Degree-0 scalar measure only (RH-equivalent).
           The integrability result for the imp-3064 scalar ratio &phi;(s) neither proves nor weakens RH;
           the off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone obstruction and

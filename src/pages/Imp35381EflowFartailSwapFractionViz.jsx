@@ -135,7 +135,7 @@ export default function Imp35381EflowFartailSwapFractionViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Measurement only.
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Measurement only.
         Viz-data only, baked literals reproducing the imp-35279 swap-fraction measurements
         verbatim; no new derivation, no bound changed. The dashed line at 0.5 marks the
         threshold above which the swap stays dominant at every rung. Component model is the

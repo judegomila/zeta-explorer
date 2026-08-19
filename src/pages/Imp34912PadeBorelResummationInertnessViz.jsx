@@ -180,7 +180,7 @@ export default function Imp34912PadeBorelResummationInertnessViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
         imp-34888 residualBudget/resummedTotals/radiusContext literals verbatim (no new computation).
         Measurement/derivation on the INHERITED imp-3220/imp-3406 extrapolation, NOT a rigorous
         asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a&ge;0 untouched; far-tail

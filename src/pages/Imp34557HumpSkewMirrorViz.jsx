@@ -233,7 +233,7 @@ export default function Imp34557HumpSkewMirrorViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> visualization/presentation only --
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> visualization/presentation only --
         reuses the imp-33809 per-k hump amplitudes and the imp-34532 head/tail extension (k = 4,5,14)
         literals verbatim, no fresh computation. The j = 4,5 rungs sit in the deep collision-dominated
         (sigma &rarr; 1) regime where the inherited imp-3220/imp-3406 component model is least

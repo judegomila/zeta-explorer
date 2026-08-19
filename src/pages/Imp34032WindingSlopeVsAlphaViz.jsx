@@ -139,7 +139,7 @@ export default function Imp34032WindingSlopeVsAlphaViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement only, on the model
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement only, on the model
         cusp rho(x) = |x|^-alpha. Max deviation from the closed form is {MAX_DEVIATION} and the max
         per-alpha fit residual is {MAX_FIT_RESIDUAL}. This re-measures a phase slope already derived
         in closed form by imp-33924; it does not re-derive the m_prime -&gt; C_ren map. H4 is NOT

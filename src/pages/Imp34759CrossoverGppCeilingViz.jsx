@@ -165,7 +165,7 @@ export default function Imp34759CrossoverGppCeilingViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page presenting the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page presenting the
         imp-34731 closed-form g'' ceiling (imported literals, no new computation) for the INHERITED
         imp-3220/imp-3406 surrogate crossover map. <CrossoverMapClusterCaveatBanner />
       </div>

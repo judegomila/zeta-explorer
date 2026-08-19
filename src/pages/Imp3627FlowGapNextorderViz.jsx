@@ -213,7 +213,7 @@ export default function Imp3627FlowGapNextorderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> derivation/measurement only &mdash;
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> derivation/measurement only &mdash;
         a conditional-share diagnostic, NOT an RH bound. No positivity, no bridge closure, NO QED. The
         imp-3066 off-diagonal endpoint-Hankel K<sub>a</sub> &ge; 0 positivity remains untouched.
         Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.

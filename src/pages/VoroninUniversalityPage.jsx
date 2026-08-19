@@ -445,7 +445,7 @@ export default function VoroninUniversalityPage() {
             </tbody>
           </table>
           <div style={{ marginTop: 12, fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 10, color: 'var(--faint)', lineHeight: 1.6 }}>
-            Honest scope: tau in [{VORONIN_UNIVERSALITY.tauGrid.min}, {VORONIN_UNIVERSALITY.tauGrid.max}] step{' '}
+            Scope: tau in [{VORONIN_UNIVERSALITY.tauGrid.min}, {VORONIN_UNIVERSALITY.tauGrid.max}] step{' '}
             {VORONIN_UNIVERSALITY.tauGrid.step} is a finite window. Voronin&apos;s theorem
             guarantees that for any epsilon &gt; 0 (no matter how small) the set of
             good tau has positive lower density -- extending the search would

@@ -206,7 +206,7 @@ export default function Imp3614SigmaCrossoverFloorInvarianceViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong>{' '}
+        <strong style={{ color: '#94a3b8' }}>Status:</strong>{' '}
         measurement/certification only -- a conditional-share diagnostic, NOT
         an RH bound. No positivity, no bridge closure, NO QED. The imp-3066
         off-diagonal endpoint-Hankel K_a &ge; 0 positivity remains untouched.

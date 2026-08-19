@@ -159,7 +159,7 @@ export default function Imp33831EflowResidRatioLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/attribution only
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/attribution only
         -- imp-33810 changes no value and derives nothing new, and this page adds no new
         derivation either. It gives the 21-rung ratio ladder a visual surface: the ratio is
         strictly below unity at every rung ({ratioTrend.all_below_unity ? 'confirmed' : 'not confirmed'})

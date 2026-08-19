@@ -170,7 +170,7 @@ export default function Imp34715CrossoverMarginMonotoneViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> visualization of an existing
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> visualization of an existing
         derivation/measurement, isRigorous false. The inputs g&prime;(N) &lt; 1 for N &gt; N_star and
         g&prime; strictly decreasing are still IEEE-754 double precision, not interval-arithmetic
         enclosures (named sub-gap imp-34686a remains open). Certifies a property of the inherited

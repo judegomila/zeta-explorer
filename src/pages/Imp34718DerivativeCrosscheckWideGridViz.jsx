@@ -259,7 +259,7 @@ export default function Imp34718DerivativeCrosscheckWideGridViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page, recomputing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page, recomputing the
         imp-34692 sweep (inline Riemann&ndash;von Mangoldt inverse-height solver, re-typed and
         independent of the source solver) purely for plotting; establishes no new numerical claim.
         Cross-validation of an inherited imp-3220/imp-3406 surrogate derivative; does not touch the

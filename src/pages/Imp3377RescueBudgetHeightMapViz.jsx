@@ -181,7 +181,7 @@ export default function Imp3377RescueBudgetHeightMapViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> this chart is a
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> this chart is a
         measure/assess-only map of the imp-3275 rescue-budget formula; it does not extend the
         imp-963 interval-RK4 sweep or the imp-452 L_pt assembly. K &le; ~1.384 is unconditional
         TODAY (imp-963 reach [100, 10^4]); K up to ~9.23 needs the imp-962 sweep extended to

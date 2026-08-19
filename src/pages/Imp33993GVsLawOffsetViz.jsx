@@ -151,7 +151,7 @@ export default function Imp33993GVsLawOffsetViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> viz-data packaging only, no
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-data packaging only, no
         proof, no fresh derivation; offset magnitude monotone decreasing:{' '}
         {String(offsetMagnitudeMonotoneDecreasing)}; ratio monotone toward one:{' '}
         {String(ratioMonotoneTowardOne)}; imp-33918/imp-33887 untouched; {honestCaveat.sota}

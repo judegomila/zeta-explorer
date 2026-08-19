@@ -156,7 +156,7 @@ export default function Imp34853FifthOrderVExpansionTermLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page presenting the imp-34821
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page presenting the imp-34821
         literals verbatim (no new computation). Component model is the inherited imp-3220/imp-3406 surrogate
         crossover map, NOT a rigorous asymptotic; sub-gap imp-34756/imp-34770/imp-34797 REMAINS OPEN (a
         Richardson/higher-precision resolution of the FD-discretization floor below the milli-dex scale is

@@ -430,7 +430,7 @@ export default function LambdaBoundsPage() {
           className="card"
           style={{ ...cardBaseLeft('var(--terra-dk)'), marginBottom: 16 }}
         >
-          <div style={cardLabel}>Honest status — the chain does not yet close</div>
+          <div style={cardLabel}>Status — the chain does not yet close</div>
           <div style={{ fontSize: 12, color: 'var(--ink-soft)', lineHeight: 1.6 }}>
             Per the grades below:{' '}
             {['rigorous', 'numerical', 'unverified'].map((v, i) => {

@@ -125,7 +125,7 @@ export default function Imp3675DenseLanczosPairSpreadCrossoverViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> dense cross-validation only --
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> dense cross-validation only --
         confirms the imp-3619 deep-rung sigma_3 and the fourth-pair lambda_7=lambda_8 degeneracy
         against an independent solver, and identifies the N=2000 Lanczos loss as a Krylov
         reorthogonalization artifact. Does NOT construct the missing magnitude and does NOT

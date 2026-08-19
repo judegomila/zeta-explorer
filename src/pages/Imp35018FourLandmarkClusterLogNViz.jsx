@@ -157,7 +157,7 @@ export default function Imp35018FourLandmarkClusterLogNViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, every locator
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, every locator
         and band value reused verbatim from imp-33723 / imp-33582 / imp-33721 / imp-34693 (all
         inherited from the imp-3220/imp-3406 surrogate crossover map) -- no recomputation.
         Reader-facing diagnostic, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486

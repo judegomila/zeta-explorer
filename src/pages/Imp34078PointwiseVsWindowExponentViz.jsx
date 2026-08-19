@@ -198,7 +198,7 @@ export default function Imp34078PointwiseVsWindowExponentViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement
         only, co-tabulating two inherited exponent estimators on a shared N
         ladder. The component model is the inherited imp-3220/imp-3406
         extrapolation, NOT a rigorous asymptotic; changes no bound; imp-3066

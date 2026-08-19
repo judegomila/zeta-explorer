@@ -212,7 +212,7 @@ export default function Imp3542DegreeDMissFactorViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> derivation/certification and
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> derivation/certification and
         visualization only &mdash; no proof, no reduction below RH. This unifies the k-scaling law
         of the absolute-measure degree-d bridge-mass integrand across d; it establishes no operator
         positivity. Mass-feasibility is necessary-but-not-sufficient and the degree-d faces carry no

@@ -44,14 +44,15 @@ const SIMS = [
 export default function HomePageEditorial() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span><b>engine live</b></span>} />
+      <EditorialHeader ticker={<Link to="/engine-room" style={{ color: 'inherit' }}><b>engine live</b> ↗</Link>} />
 
       {/* hero */}
       <div className="ed-hero"><div className="ed-full"><div className="ed-herogrid">
         <div>
           <h1>Let's solve the <em className="ed-terra">Riemann Hypothesis</em></h1>
-          <div className="ed-stand">RH ⇔ Λ = 0. These pages cover the twin-ladder model, the interactive
-            simulators, the barrier bounds on Λ, and the no-go theorems that bound the approach.</div>
+          <div className="ed-stand">An open engine room for the Riemann Hypothesis (RH ⇔ Λ = 0). It runs the twin-ladder
+            model, interactive simulators, and an autonomous fleet of AI engines pushing barrier bounds on Λ —
+            with a live ledger of results, no-go theorems, and open problems. Contributions are welcome.</div>
           <div style={{ marginTop: 22 }}>
             <div className="ed-lbl">the interval · Rodgers–Tao ≤ Λ ≤ Platt–Trudgian</div>
             <div className="ed-track">
@@ -151,14 +152,14 @@ export default function HomePageEditorial() {
         <div className="ed-cta">
           <div><div className="ed-lbl">directory</div>
             <div style={{ fontFamily: 'var(--ed-display)', fontWeight: 500, fontSize: 20, marginTop: 2 }}>Everything else</div>
-            <div style={{ color: 'var(--ink-soft)', fontSize: 14 }}>Simulators, analyses, the twin-ladder program, proof tools, and references.</div></div>
+            <div style={{ color: 'var(--ink-soft)', fontSize: 14 }}>Simulators, analyses, the Gomila twin-ladder program, proof tools, and references.</div></div>
           <div style={{ display: 'flex', gap: 10 }}>
             <Link className="ed-btn" to="/directory">Browse the directory →</Link>
           </div>
         </div>
       </section></div>
 
-      <div className="ed-foot">zetaexplorer · Riemann Hypothesis via the de Bruijn–Newman constant Λ · Jude Gomila</div>
+      <div className="ed-foot">zetaexplorer · Riemann Hypothesis via the de Bruijn–Newman constant Λ · Jude Gomila · <a href="https://github.com/judegomila/mathexplorer" target="_blank" rel="noreferrer">GitHub repo ↗</a></div>
     </div>
   );
 }

@@ -174,7 +174,7 @@ export default function Imp34810CrossoverNStencilOrderBandViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the imp-34773
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-34773
         stencil-order sweep (imported literal, no new computation); establishes no new numerical claim.
         q1..q3 are inherited central differences on the imp-3220/imp-3406 component model, not fresh
         analytic closed forms, and the crossover N is an asymptotic extrapolation hundreds of decades past

@@ -208,7 +208,7 @@ export default function Imp34622EflowAttrFpFloorSlopeDriftViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, reusing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, reusing the
         imp-34586 far-side ladder and imp-34589 analytic reference literals verbatim. eflow_attr
         is an inherited surrogate numerator, NOT a rigorous asymptotic; the component model is the
         inherited imp-3220/imp-3406 extrapolation; C_mb GUE-conditional per imp-486 UNTOUCHED;

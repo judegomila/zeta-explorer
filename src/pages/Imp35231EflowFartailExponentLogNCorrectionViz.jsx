@@ -156,7 +156,7 @@ export default function Imp35231EflowFartailExponentLogNCorrectionViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the imp-35198
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-35198
         derivation and imp-35135 measurement literals verbatim (no new computation). Derivation/measurement
         on the inherited imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic; E_flow&nbsp;&gt;&nbsp;0
         strictness (imp-33848) untouched; C_mb GUE-conditional per imp-486 untouched; E_coll far-tail

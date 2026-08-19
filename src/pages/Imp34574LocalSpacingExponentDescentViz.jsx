@@ -173,7 +173,7 @@ export default function Imp34574LocalSpacingExponentDescentViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement only -- the local exponent
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement only -- the local exponent
         {fallsTowardPole ? ' FALLS' : ' does not fall'} monotonically as the pole distance shrinks
         {nearEdgeBelowGlobal ? ', with the near-edge value below the global cubic (the imp-34530 R3 undershoot sign)' : ''}.
         Reuses the imp-34247 metric, imp-34188 y(k) surrogate, and imp-34023 pole verbatim; the component model

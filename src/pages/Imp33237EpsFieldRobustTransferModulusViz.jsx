@@ -160,7 +160,7 @@ export default function Imp33237EpsFieldRobustTransferModulusViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation
         only, of an already-certified table (imp-3933). Two named sub-gaps stay
         open -- the eps'_true certificate for the true xi backward-heat-flow
         field error, and the E(N)-chain bracket rearchitecture that routes the

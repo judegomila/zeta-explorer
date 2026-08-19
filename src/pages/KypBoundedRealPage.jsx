@@ -224,7 +224,7 @@ export default function KypBoundedRealPage() {
           {K.title} &mdash; {K.paperRef}
         </p>
 
-        {/* ─── Honest verdict banner (imp-2785) ─── */}
+        {/* ─── Verdict banner (imp-2785) ─── */}
         <div
           className="card"
           style={{
@@ -233,7 +233,7 @@ export default function KypBoundedRealPage() {
             background: 'rgba(181,138,46,0.08)',
           }}
           role="note"
-          aria-label="Honest verdict: RH-equivalent, not a reduction"
+          aria-label="Verdict: RH-equivalent, not a reduction"
         >
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, flexWrap: 'wrap' }}>
             <span

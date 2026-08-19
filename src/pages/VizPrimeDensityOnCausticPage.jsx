@@ -403,7 +403,7 @@ export default function VizPrimeDensityOnCausticPage() {
         orange difference curve isolates the excess above the PNT baseline.
         Use the mouse wheel to zoom into any interesting band; drag to pan.
         <br /><br />
-        <strong style={{ color: '#94a3b8' }}>Honest scope:</strong> this is an
+        <strong style={{ color: '#94a3b8' }}>Scope:</strong> this is an
         exploratory geometric visualization. The caustic structure is real and
         arithmetic, but per the{' '}
         <Link to="/route-map" style={{ color: '#64748b' }}>route map</Link>{' '}

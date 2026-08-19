@@ -105,7 +105,7 @@ export default function Imp33994SawtoothGapVsStepViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/reconciliation
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/reconciliation
         only, no proof, no fresh derivation. {finding.P1_gap_bounded_by_half_step}{' '}
         {finding.P2_gap_not_proportional_to_step} The sawtooth prediction reproduces the measured
         gap at every rung to less than 1e-3. imp-33878/imp-33905 untouched; C_mb GUE-conditional

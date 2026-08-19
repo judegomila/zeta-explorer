@@ -155,7 +155,7 @@ export default function Imp35296MinGapStripAdvantageViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page reusing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page reusing the
         imp-35239 baked advantageRows/realOrdinateGrowth literals verbatim (no new computation).
         Assessment only; the residual missing input is still an a-priori g_min(t)&nbsp;&gt;&nbsp;0
         whole-trajectory bound (imp-35167 M2/M5), which stays OPEN; C_mb GUE-conditional (imp-486)

@@ -247,7 +247,7 @@ export default function Imp34719SigmaExponentRampKneeViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page, recomputing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page, recomputing the
         imp-34694 exponent-ramp curve (inline Riemann&ndash;von Mangoldt inverse-height solver, re-typed
         and independent of the source solver) purely for plotting; establishes no new numerical claim.
         Measurement/derivation on the inherited imp-3220/imp-3406 extrapolation; far-tail exponent stays

@@ -171,7 +171,7 @@ export default function Imp33302SlidingStartExponentLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation of the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation of the
         imp-33274 sliding-start measurement only -- a finite six-rung OLS fit ladder, not a
         certified N-uniform statement. Adds no new Lambda bound, does not tighten imp-3910's
         certified C &le; 54.56, and does not touch imp-3066's K_a &ge; 0 positivity.

@@ -407,7 +407,7 @@ export default function FullStoryPage() {
       </>}
     >
       <div className="ed-thm" style={{ borderLeftColor: 'var(--green)' }}>
-        <div className="tlab" style={{ color: 'var(--green)' }}>Honest ceiling · RIGOROUS-SOTA</div>
+        <div className="tlab" style={{ color: 'var(--green)' }}>Ceiling · RIGOROUS-SOTA</div>
         <p style={{ fontSize: 15 }}>
           <strong style={{ color: 'var(--ink)' }}>
             Peer-reviewed benchmark: Platt-Trudgian Λ ≤ 0.2 — this program did NOT produce it.
@@ -421,7 +421,7 @@ export default function FullStoryPage() {
           <Link to="/state-of-program" style={{ color: 'var(--green)', fontWeight: 600 }}>
             See the State of the Program
           </Link>{' '}
-          for the one canonical honest summary.
+          for the one canonical summary.
         </p>
       </div>
 

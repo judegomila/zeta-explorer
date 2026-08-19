@@ -210,7 +210,7 @@ export default function Imp34203EndpointVsFixedBandPeakSaturationCrossViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation
         of two already-established measurements (imp-34108, imp-34109), no new
         computation on the underlying component model. Both peak families are
         descriptive re-selections of residuals from an inherited surrogate as

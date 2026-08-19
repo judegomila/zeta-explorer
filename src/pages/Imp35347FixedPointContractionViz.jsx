@@ -136,7 +136,7 @@ export default function Imp35347FixedPointContractionViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page baking the imp-35243
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page baking the imp-35243
         single-rate log-law literals verbatim (no new computation, no data-module import). The reentry band
         this contraction feeds remains a feature of the analytic surrogate 15&ndash;25 decades above the
         Platt&ndash;Trudgian verified-zero height (&asymp;3e12); the imp-35243 surrogate-fidelity assessment

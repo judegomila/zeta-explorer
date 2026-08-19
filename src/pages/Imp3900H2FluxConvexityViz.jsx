@@ -189,7 +189,7 @@ export default function Imp3900H2FluxConvexityViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> this is an empirical PROBE of H2, NOT
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> this is an empirical PROBE of H2, NOT
         its certificate -- it does not prove the mean-field/hydrodynamic limit of this attractive flow
         exists, and it reads m on the mesoscopic strip y_star = 4d rather than the microscopic y &rarr; 0
         continuum. H2 stays UNWRITTEN as a certificate, the G6a K4 caustic-regularity route stays WHOLLY

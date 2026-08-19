@@ -188,7 +188,7 @@ export default function Imp33246EpsCrossvalViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> provenance / cross-validation
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> provenance / cross-validation
         assembly only, at the RH-equivalent scale class; all three solvers share the finite NPHI=10
         kernel truncation, so the agreement pins the sign-change to that truncated-kernel model, not
         to a certified error bound. Mass-feasibility is necessary-but-not-sufficient; operator

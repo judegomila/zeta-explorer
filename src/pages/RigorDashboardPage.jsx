@@ -354,7 +354,7 @@ function TransparencyLedger() {
       </h2>
       <p style={{ fontSize: 12, color: 'var(--faint)', marginBottom: 16, lineHeight: 1.6 }}>
         Internal record of claims that overreached the evidence during development and were later
-        corrected. Format: claim made &rarr; how caught &rarr; correction &rarr; current honest status.
+        corrected. Format: claim made &rarr; how caught &rarr; correction &rarr; current status.
       </p>
       {CAUGHT_OVERCLAIMS.map((entry, i) => (
         <div
@@ -398,7 +398,7 @@ function TransparencyLedger() {
   );
 }
 
-// ── Honest SOTA banner (imp-2670) ────────────────────────────────────────────
+// ── SOTA banner (imp-2670) ────────────────────────────────────────────
 const SOTA_TIERS = [
   {
     key: 'rigorous',
@@ -832,7 +832,7 @@ function BasinConditionalLipschitzPanel() {
     { label: 'GAP CHANNEL', value: `g_min/4 ≈ ${v.gapChannelNominal.toExponential(2)} (nominal) – g_min/3 ≈ ${v.gapChannelTrappedCeiling.toExponential(3)} (Theta=1/4 ceiling); dominant on basin`, color: AMBER },
     { label: 'C_THETA', value: v.cThetaStatus, color: 'var(--faint)' },
     { label: 'GLOBAL CONSTANT', value: v.globalConstantStatus, color: ORANGE },
-    { label: 'HONEST CAVEAT', value: v.honest, color: RED },
+    { label: 'CAVEAT', value: v.honest, color: RED },
   ];
   return (
     <div style={{
@@ -970,7 +970,7 @@ export default function RigorDashboardPage() {
         {/* Shared evidence-grade tier panel for the 0.1787854 candidate package */}
         <ProofTierSummary />
 
-        {/* Honest SOTA banner (imp-2670) */}
+        {/* SOTA banner (imp-2670) */}
         <HonestSOTABanner />
 
         {/* Three Lambda cross-validation estimators side by side (imp-2991) */}

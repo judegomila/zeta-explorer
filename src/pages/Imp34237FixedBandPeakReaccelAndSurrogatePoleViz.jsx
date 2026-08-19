@@ -353,7 +353,7 @@ export default function Imp34237FixedBandPeakReaccelAndSurrogatePoleViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, baked
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked
         literals reproducing the imp-34169 measurement; no new derivation, no bound changed.
         Only {IMP34237_COMPUTABLE_WINDOW_COUNT} of the ticket's {IMP34237_TOTAL_WINDOW_COUNT} kEnd
         windows compute -- the surrogate resid_exp(k) hits a pole at k* &asymp;{' '}

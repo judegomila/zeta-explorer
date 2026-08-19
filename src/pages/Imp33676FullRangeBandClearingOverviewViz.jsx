@@ -224,7 +224,7 @@ export default function Imp33676FullRangeBandClearingOverviewViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation-only merge of three
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation-only merge of three
         already-verified scans (imp-33599/imp-33629, imp-33621, and imp-33638); no new computation.
         It changes no bound and patches no literal. Mass-feasibility is necessary-but-not-sufficient;
         the operator-level positivity (imp-3066 K_a &ge; 0) is UNTOUCHED. No global envelope ceiling

@@ -205,7 +205,7 @@ export default function Imp33656MergedBandClearingOverviewViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation-only merge of two
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation-only merge of two
         already-verified scans (imp-33599/imp-33629 and imp-33621); no new computation. It changes
         no bound and patches no literal. Mass-feasibility is necessary-but-not-sufficient; the
         operator-level positivity (imp-3066 K_a &ge; 0) is UNTOUCHED. RH-equivalent, NO QED.

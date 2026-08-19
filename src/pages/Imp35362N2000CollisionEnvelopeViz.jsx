@@ -141,7 +141,7 @@ export default function Imp35362N2000CollisionEnvelopeViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page baking the imp-35324
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page baking the imp-35324
         finer-grid literals verbatim (no new computation, no data-module import). The clearance is
         marginal, not full-precision (the dt/2 cross-family gap is nonzero, unlike the exact tie at
         dt); per imp-35324 the R2 ladder largest-N-robustly-certified stays at 1000, NOT advanced to

@@ -229,7 +229,7 @@ export default function Imp35121EcollEtruncEflowDecompositionViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> visualization only -- the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> visualization only -- the
         component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
         asymptotic. The C_mb GUE-conditional per imp-486 is untouched; changes no bound;
         establishes no operator positivity; imp-3066 K_a &ge; 0 remains untouched. No RH verdict,

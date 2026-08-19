@@ -286,9 +286,9 @@ export default function TheoremBThresholdPage() {
 
       <Pull>the sign flip lands on the closed form Θ_b = 0.443 — that is what "sharp" means for the static route</Pull>
 
-      {/* Honest status */}
+      {/* Status */}
       <div className="ed-thm" style={{ borderLeftColor: 'var(--terra-dk)' }}>
-        <div className="tlab" style={{ color: 'var(--terra-dk)' }}>Honest status — what Θ_b does and does not buy</div>
+        <div className="tlab" style={{ color: 'var(--terra-dk)' }}>Status — what Θ_b does and does not buy</div>
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.8 }}>
           <strong style={{ color: 'var(--ink)' }}>What it closes:</strong> the sharp static minimal-gap trap in exact
           closed form. Because the sign flip lands on <InlineMath tex={"\\Theta_b"} />, it also proves the

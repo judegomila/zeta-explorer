@@ -121,7 +121,7 @@ export default function Imp35345ExtrapolationGapViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page reusing the imp-35243 baked
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page reusing the imp-35243 baked
         demonstration_D2_extrapolation_gap literals verbatim (no re-derivation). The gap is drawn to scale on a
         log10&nbsp;N axis only to make the {D2.reentry_decades_above_verified.toFixed(1)}&ndash;
         {D2.exit_decades_above_verified.toFixed(1)}-decade extrapolation visible; it does not certify the band

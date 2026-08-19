@@ -144,7 +144,7 @@ export default function Imp34495DeflowDecayViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, the exponent
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, the exponent
         series and extrapolation table reused verbatim from imp-34448. deflow is the difference of
         two ~15-significant-figure-identical residuals: it is directly measurable only out to
         kEnd&nbsp;&asymp;&nbsp;{IMP34495_FP_FLOOR_KEND - 0.5} and underflows to bit-zero by

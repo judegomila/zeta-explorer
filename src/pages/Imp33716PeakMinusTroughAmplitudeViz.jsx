@@ -217,7 +217,7 @@ export default function Imp33716PeakMinusTroughAmplitudeViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> accuracy/rule-design measurement only. It
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy/rule-design measurement only. It
         differences two previously-measured series and changes no bound, patches no literal. Mass-feasibility
         is necessary-but-not-sufficient; the operator-level positivity (imp-3066 K_a &ge; 0) is UNTOUCHED.
         RH-equivalent, NO QED. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.

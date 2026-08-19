@@ -156,7 +156,7 @@ export default function VisualGeometriesPage() {
               <p style={{ fontSize: 12.5, color: 'var(--text-secondary)', lineHeight: 1.55, margin: 0 }}>{p.blurb}</p>
               {p.ceiling ? (
                 <p style={{ fontSize: 11, color: '#94a3b8', fontStyle: 'italic', lineHeight: 1.5, margin: '8px 0 0', paddingTop: 6, borderTop: '1px solid rgba(148,163,184,0.15)' }}>
-                  <strong style={{ fontStyle: 'normal' }}>Honest ceiling:</strong> {p.ceiling}
+                  <strong style={{ fontStyle: 'normal' }}>Ceiling:</strong> {p.ceiling}
                 </p>
               ) : null}
             </div>

@@ -157,7 +157,7 @@ export default function Imp35823RequiredHeightLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation only of
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only of
         the already-derived imp-35763/imp-35722 required-height ladder (no new
         derivation, no heavy data-module import); C_mb GUE-conditional
         (imp-486) UNTOUCHED; imp-35337a stays OPEN; changes no bound,

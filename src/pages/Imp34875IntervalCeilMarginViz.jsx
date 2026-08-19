@@ -118,7 +118,7 @@ export default function Imp34875IntervalCeilMarginViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the imp-34845
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-34845
         interval_bands/constants literals verbatim (no new computation). Interval-ceil margin diagnostic of a
         surrogate iters-to-floor count on the inherited imp-3220/imp-3406 map, IEEE-754 double precision; the
         C_C&nbsp;1/8 ansatz (imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066

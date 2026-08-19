@@ -164,7 +164,7 @@ export default function Imp33572TauUniformEnvelopeViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> accuracy measurement /
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy measurement /
         rule-design audit only. Naming and charting this envelope establishes no operator
         positivity; mass-feasibility is necessary-but-not-sufficient and the operator-level
         K_a &ge; 0 sign-positivity (imp-3066) remains untouched. The exact ULP digits are a

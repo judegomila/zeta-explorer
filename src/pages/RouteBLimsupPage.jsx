@@ -94,9 +94,9 @@ export default function RouteBLimsupPage() {
           </div>
         </div>
 
-        {/* honest scope */}
+        {/* scope */}
         <div className="card" style={{ marginTop: 24, background: 'var(--paper2)', border: '1px solid var(--hairline)', borderLeft: '3px solid var(--brass)', borderRadius: 8, padding: '16px 18px' }}>
-          <h3 style={{ color: 'var(--brass)', fontSize: 16, marginBottom: 10 }}>Honest scope — a limit statement, not a Λ bound</h3>
+          <h3 style={{ color: 'var(--brass)', fontSize: 16, marginBottom: 10 }}>Scope — a limit statement, not a Λ bound</h3>
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8 }}>
             Route B is a <strong>structural / asymptotic</strong> result: it says the collision time tends
             to zero <em>along the sequence</em>, i.e. <InlineMath tex={"a := \\limsup_N |t_c(N)| = 0"} />. It

@@ -2,6 +2,21 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import FreshnessBanner from '../components/FreshnessBanner.jsx';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+
+// Editorial (warm) re-theme: full-width shell, identical structure/data/timeline.
+// The 40+ per-person / per-era / per-result accent hexes below are KEPT literal
+// on purpose — they encode distinct visual identity across many entries and
+// collapsing them onto the 6-color warm palette would destroy that. Only the
+// generic dark-chrome colors (headings, meta text, nested-box backgrounds) are
+// remapped, per the standard set used across other editorial ports:
+//   #94a3b8 / #cbd5e1 muted body text        -> var(--ink-soft)
+//   #e2e8f0 strong text on dark box          -> var(--ink)
+//   #64748b / #334155 / #475569 slate meta   -> var(--faint) / var(--hairline)
+//   #3b82f6 blue (structural headers/links)  -> var(--blue)
+//   #8b5cf6 / #a78bfa purple (structural box) -> var(--terra)
+//   rgba(15,23,42,*) / rgba(30,41,59,*) dark nested-box bg -> var(--paper) / var(--paper2)
+//   #0f172a / #1e293b dark dot fill / border -> var(--paper) / var(--hairline)
 
 // ─── Era definitions for people grouping ───
 const PEOPLE_ERAS = [
@@ -719,7 +734,7 @@ function PersonCard({ person }) {
   return (
     <div style={{
       display: 'flex', gap: 14, padding: 16,
-      background: 'rgba(15,23,42,0.5)',
+      background: 'var(--paper2)',
       border: `1px solid ${person.color}25`,
       borderRadius: 10,
       transition: 'border-color 0.2s',
@@ -742,13 +757,13 @@ function PersonCard({ person }) {
             width: 22,
             height: 22,
             borderRadius: 4,
-            background: 'rgba(100,116,139,0.15)',
-            border: '1px solid rgba(100,116,139,0.25)',
+            background: 'rgba(135,123,103,0.15)',
+            border: '1px solid rgba(135,123,103,0.25)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             textDecoration: 'none',
-            color: '#64748b',
+            color: 'var(--faint)',
             fontSize: 11,
             fontWeight: 700,
             fontFamily: 'Georgia, serif',
@@ -756,14 +771,14 @@ function PersonCard({ person }) {
             transition: 'all 0.2s',
           }}
           onMouseEnter={e => {
-            e.currentTarget.style.background = 'rgba(100,116,139,0.3)';
-            e.currentTarget.style.color = '#e2e8f0';
-            e.currentTarget.style.borderColor = 'rgba(100,116,139,0.5)';
+            e.currentTarget.style.background = 'rgba(135,123,103,0.3)';
+            e.currentTarget.style.color = 'var(--ink)';
+            e.currentTarget.style.borderColor = 'rgba(135,123,103,0.5)';
           }}
           onMouseLeave={e => {
-            e.currentTarget.style.background = 'rgba(100,116,139,0.15)';
-            e.currentTarget.style.color = '#64748b';
-            e.currentTarget.style.borderColor = 'rgba(100,116,139,0.25)';
+            e.currentTarget.style.background = 'rgba(135,123,103,0.15)';
+            e.currentTarget.style.color = 'var(--faint)';
+            e.currentTarget.style.borderColor = 'rgba(135,123,103,0.25)';
           }}
         >
           W
@@ -792,7 +807,7 @@ function PersonCard({ person }) {
             background: person.color,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             fontSize: 18, fontWeight: 700, color: '#ffffff',
-            fontFamily: 'var(--font-mono)',
+            fontFamily: 'var(--ed-mono, var(--font-mono))',
             letterSpacing: '-0.5px',
             boxShadow: `0 0 12px ${person.color}30`,
           }}>
@@ -803,19 +818,19 @@ function PersonCard({ person }) {
 
       {/* Bio */}
       <div style={{ flex: 1, minWidth: 0 }}>
-        <h4 style={{ margin: 0, fontSize: 15, color: '#e2e8f0' }}>
+        <h4 style={{ margin: 0, fontSize: 15, color: 'var(--ink)' }}>
           {person.name}
         </h4>
         {person.years && (
           <div style={{
-            fontSize: 12, color: person.color, fontFamily: 'var(--font-mono)',
+            fontSize: 12, color: person.color, fontFamily: 'var(--ed-mono, var(--font-mono))',
             marginBottom: 6, fontWeight: 600,
           }}>
             {person.years}
           </div>
         )}
         <p style={{
-          margin: 0, fontSize: 12.5, color: '#94a3b8', lineHeight: 1.65,
+          margin: 0, fontSize: 12.5, color: 'var(--ink-soft)', lineHeight: 1.65,
         }}>
           {person.bio}
         </p>
@@ -829,7 +844,7 @@ function ResultExplainer({ title, author, color, tldr, math, explanation, whyItM
 
   return (
     <div style={{
-      background: 'rgba(15,23,42,0.5)',
+      background: 'var(--paper2)',
       border: `1px solid ${color}25`,
       borderRadius: 10,
       overflow: 'hidden',
@@ -852,11 +867,11 @@ function ResultExplainer({ title, author, color, tldr, math, explanation, whyItM
         }} />
         <div style={{ flex: 1 }}>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
-            <span style={{ fontSize: 14, fontWeight: 600, color: '#e2e8f0' }}>{title}</span>
-            <span style={{ fontSize: 11, color: color, fontFamily: 'var(--font-mono)' }}>{author}</span>
+            <span style={{ fontSize: 14, fontWeight: 600, color: 'var(--ink)' }}>{title}</span>
+            <span style={{ fontSize: 11, color: color, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>{author}</span>
           </div>
-          <p style={{ margin: '4px 0 0', fontSize: 12.5, color: '#94a3b8', lineHeight: 1.5 }}>
-            <strong style={{ color: '#e2e8f0' }}>TLDR:</strong> {tldr}
+          <p style={{ margin: '4px 0 0', fontSize: 12.5, color: 'var(--ink-soft)', lineHeight: 1.5 }}>
+            <strong style={{ color: 'var(--ink)' }}>TLDR:</strong> {tldr}
           </p>
         </div>
         <svg
@@ -882,14 +897,14 @@ function ResultExplainer({ title, author, color, tldr, math, explanation, whyItM
 
           <div style={{ marginBottom: 14 }}>
             <h4 style={{ color, fontSize: 12, marginBottom: 6 }}>How It Works</h4>
-            <p style={{ color: '#94a3b8', fontSize: 12.5, lineHeight: 1.7, margin: 0 }}>
+            <p style={{ color: 'var(--ink-soft)', fontSize: 12.5, lineHeight: 1.7, margin: 0 }}>
               {explanation}
             </p>
           </div>
 
           <div style={{ marginBottom: 14 }}>
-            <h4 style={{ color: '#3b82f6', fontSize: 12, marginBottom: 6 }}>Why It Matters</h4>
-            <p style={{ color: '#94a3b8', fontSize: 12.5, lineHeight: 1.7, margin: 0 }}>
+            <h4 style={{ color: 'var(--blue)', fontSize: 12, marginBottom: 6 }}>Why It Matters</h4>
+            <p style={{ color: 'var(--ink-soft)', fontSize: 12.5, lineHeight: 1.7, margin: 0 }}>
               {whyItMatters}
             </p>
           </div>
@@ -897,10 +912,10 @@ function ResultExplainer({ title, author, color, tldr, math, explanation, whyItM
           {zpoConnection && (
             <div style={{
               padding: '10px 14px', borderRadius: 6,
-              background: 'rgba(139,92,246,0.08)', border: '1px solid #8b5cf640',
+              background: 'rgba(217,80,46,0.08)', border: '1px solid rgba(217,80,46,0.25)',
             }}>
-              <h4 style={{ color: '#8b5cf6', fontSize: 12, marginBottom: 4 }}>Twin-Ladder Bridge Connection</h4>
-              <p style={{ color: '#a78bfa', fontSize: 12, lineHeight: 1.6, margin: 0 }}>
+              <h4 style={{ color: 'var(--terra)', fontSize: 12, marginBottom: 4 }}>Twin-Ladder Bridge Connection</h4>
+              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.6, margin: 0 }}>
                 {zpoConnection}
               </p>
             </div>
@@ -921,18 +936,21 @@ export default function HistoryPage() {
       : TIMELINE.filter(e => e.era === selectedEra);
 
   return (
-    <div className="page">
-      <FreshnessBanner date="2026-07-08" note="public timeline of the zeta function & RH, through Guth–Maynard (2024)" />
-      <div className="page-header">
-        <h1>History of the Riemann Zeta Function</h1>
-        <p>
-          A timeline of breakthroughs from Euler's product formula (1737) through the modern era.
-          Nearly three centuries of mathematics, connecting number theory, complex analysis, physics,
-          and computation in pursuit of the Riemann Hypothesis.
-        </p>
-      </div>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>reference · history</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <div style={{ marginBottom: 24 }}>
+          <h1 className="ed-h1" style={{ marginBottom: 10 }}>History of the Riemann Zeta Function</h1>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
+            A timeline of breakthroughs from Euler's product formula (1737) through the modern era.
+            Nearly three centuries of mathematics, connecting number theory, complex analysis, physics,
+            and computation in pursuit of the Riemann Hypothesis.
+          </p>
+        </div>
 
-      <div className="filter-bar">
+        <FreshnessBanner date="2026-07-08" note="public timeline of the zeta function & RH, through Guth–Maynard (2024)" />
+
+      <div className="filter-bar" style={{ marginTop: 20 }}>
         <button
           className={`filter-btn ${selectedEra === 'all' ? 'active' : ''}`}
           onClick={() => setSelectedEra('all')}
@@ -943,7 +961,7 @@ export default function HistoryPage() {
         <button
           className={`filter-btn ${selectedEra === 'milestones' ? 'active' : ''}`}
           onClick={() => setSelectedEra('milestones')}
-          style={selectedEra === 'milestones' ? { borderColor: '#f59e0b', color: '#f59e0b' } : {}}
+          style={selectedEra === 'milestones' ? { borderColor: 'var(--brass-dk)', color: 'var(--brass-dk)' } : {}}
           aria-pressed={selectedEra === 'milestones'}
         >
           Milestones ({milestones.length})
@@ -980,8 +998,8 @@ export default function HistoryPage() {
             }}>
               {/* Year */}
               <div style={{
-                width: 60, textAlign: 'right', fontFamily: 'var(--font-mono)',
-                fontSize: 14, fontWeight: 700, color: era?.color || '#94a3b8',
+                width: 60, textAlign: 'right', fontFamily: 'var(--ed-mono, var(--font-mono))',
+                fontSize: 14, fontWeight: 700, color: era?.color || 'var(--ink-soft)',
                 paddingTop: 16, flexShrink: 0,
               }}>
                 {entry.year}
@@ -990,8 +1008,8 @@ export default function HistoryPage() {
               {/* Dot */}
               <div style={{
                 width: 14, height: 14, borderRadius: '50%', flexShrink: 0,
-                background: entry.highlight ? era?.color : '#0f172a',
-                border: `2px solid ${era?.color || '#64748b'}`,
+                background: entry.highlight ? era?.color : 'var(--paper)',
+                border: `2px solid ${era?.color || 'var(--faint)'}`,
                 marginTop: 18, zIndex: 1,
                 boxShadow: entry.highlight ? `0 0 8px ${era?.color}40` : 'none',
               }} />
@@ -999,12 +1017,12 @@ export default function HistoryPage() {
               {/* Card */}
               <div style={{
                 flex: 1, padding: '12px 16px', marginBottom: 8,
-                background: entry.highlight ? 'rgba(30,41,59,0.6)' : 'rgba(15,23,42,0.4)',
-                border: `1px solid ${entry.highlight ? era?.color + '40' : '#1e293b'}`,
+                background: entry.highlight ? 'var(--paper2)' : 'var(--paper)',
+                border: `1px solid ${entry.highlight ? era?.color + '40' : 'var(--hairline)'}`,
                 borderRadius: 8,
               }}>
                 <h3 style={{
-                  margin: 0, fontSize: 15, color: '#e2e8f0',
+                  margin: 0, fontSize: 15, color: 'var(--ink)',
                   display: 'flex', alignItems: 'center', gap: 8,
                 }}>
                   {entry.title}
@@ -1018,7 +1036,7 @@ export default function HistoryPage() {
                     </span>
                   )}
                 </h3>
-                <p style={{ margin: '6px 0 0', fontSize: 13, color: '#94a3b8', lineHeight: 1.7 }}>
+                <p style={{ margin: '6px 0 0', fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.7 }}>
                   {entry.content}
                 </p>
                 {entry.math && (
@@ -1034,8 +1052,8 @@ export default function HistoryPage() {
 
       {/* People Section */}
       <div style={{ marginTop: 48 }}>
-        <h2 style={{ color: '#e2e8f0', marginBottom: 4, fontSize: 22 }}>Key Figures in the History of the Riemann Hypothesis</h2>
-        <p style={{ color: '#64748b', fontSize: 14, marginTop: 0, marginBottom: 24 }}>
+        <h2 className="ed-h2" style={{ color: 'var(--ink)', marginBottom: 4, fontSize: 22 }}>Key Figures in the History of the Riemann Hypothesis</h2>
+        <p style={{ color: 'var(--faint)', fontSize: 14, marginTop: 0, marginBottom: 24 }}>
           The mathematicians, physicists, and computer scientists whose work shaped our understanding of the zeta function and its zeros — from Euler through to the present day.
         </p>
 
@@ -1048,11 +1066,11 @@ export default function HistoryPage() {
                 color: era.color, fontSize: 16, fontWeight: 700,
                 marginBottom: 14, paddingBottom: 8,
                 borderBottom: `2px solid ${era.color}30`,
-                fontFamily: 'var(--font-mono)',
+                fontFamily: 'var(--ed-mono, var(--font-mono))',
                 letterSpacing: '0.5px',
               }}>
                 {era.label}
-                <span style={{ color: '#64748b', fontWeight: 400, fontSize: 13, marginLeft: 10 }}>
+                <span style={{ color: 'var(--faint)', fontWeight: 400, fontSize: 13, marginLeft: 10 }}>
                   ({eraPeople.length} {eraPeople.length === 1 ? 'person' : 'people'})
                 </span>
               </h3>
@@ -1068,19 +1086,19 @@ export default function HistoryPage() {
             </div>
           );
         })}
-        <p style={{ fontSize: 10.5, color: '#475569', lineHeight: 1.5, marginTop: 4 }}>
+        <p style={{ fontSize: 10.5, color: 'var(--faint)', lineHeight: 1.5, marginTop: 4 }}>
           Portrait credits: photographs from Wikimedia Commons — Public Domain for the historical
           figures (Euler through Turing) and Creative Commons (CC-BY / CC-BY-SA, several from the
           Mathematisches Forschungsinstitut Oberwolfach / Konrad Jacobs) for the modern ones; full
-          per-image attributions in <a href="/portraits/CREDITS.json" target="_blank" rel="noreferrer" style={{ color: '#64748b' }}>/portraits/CREDITS.json</a>.
+          per-image attributions in <a href="/portraits/CREDITS.json" target="_blank" rel="noreferrer" style={{ color: 'var(--faint)' }}>/portraits/CREDITS.json</a>.
           Contributors with no freely-licensed portrait are shown as initials.
         </p>
       </div>
 
       {/* ─── Key Results Explained (TLDRs) ─── */}
       <div style={{ marginTop: 48 }}>
-        <h2 style={{ color: '#e2e8f0', marginBottom: 4, fontSize: 22 }}>Key Results Explained</h2>
-        <p style={{ color: '#64748b', fontSize: 14, marginTop: 0, marginBottom: 24 }}>
+        <h2 className="ed-h2" style={{ color: 'var(--ink)', marginBottom: 4, fontSize: 22 }}>Key Results Explained</h2>
+        <p style={{ color: 'var(--faint)', fontSize: 14, marginTop: 0, marginBottom: 24 }}>
           Accessible summaries of the mathematical results that underpin the Twin-Ladder Bridge framework and the broader
           study of the Riemann zeta function.
         </p>
@@ -1209,29 +1227,30 @@ export default function HistoryPage() {
         </div>
       </div>
 
-      <div className="card" style={{ marginTop: 32, borderColor: '#64748b' }}>
-        <h3 style={{ color: '#94a3b8', marginTop: 0 }}>The Story So Far</h3>
-        <p style={{ color: '#64748b', fontSize: 14, lineHeight: 1.8 }}>
-          After nearly 170 years, the Riemann Hypothesis remains unproven. Over <strong style={{ color: '#e2e8f0' }}>10<sup>13</sup> zeros</strong> have
+      <div className="card" style={{ marginTop: 32, borderColor: 'var(--hairline)' }}>
+        <h3 style={{ color: 'var(--ink-soft)', marginTop: 0 }}>The Story So Far</h3>
+        <p style={{ color: 'var(--faint)', fontSize: 14, lineHeight: 1.8 }}>
+          After nearly 170 years, the Riemann Hypothesis remains unproven. Over <strong style={{ color: 'var(--ink)' }}>10<sup>13</sup> zeros</strong> have
           been verified computationally. The proportion known to lie on the critical line is
-          at least <strong style={{ color: '#e2e8f0' }}>40%</strong> (Conrey 1989). The de Bruijn-Newman
+          at least <strong style={{ color: 'var(--ink)' }}>40%</strong> (Conrey 1989). The de Bruijn-Newman
           constant has been shown to be exactly zero if and only if RH holds. Zero-density estimates
           continue to tighten, and connections to random matrix theory, quantum mechanics, and
           dynamical systems grow deeper each decade. The prize remains $1,000,000.
         </p>
       </div>
 
-      <div className="card" style={{ marginTop: 24, background: 'rgba(59,130,246,0.04)' }}>
-        <h3 style={{ color: '#64748b', fontSize: 13, marginBottom: 10 }}>Related Pages</h3>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-          <Link to="/paper" style={{ color: '#3b82f6', fontSize: 13 }}>Paper</Link>
-          <span style={{ color: '#334155' }}>|</span>
-          <Link to="/literature" style={{ color: '#3b82f6', fontSize: 13 }}>Literature</Link>
-          <span style={{ color: '#334155' }}>|</span>
-          <Link to="/concepts" style={{ color: '#3b82f6', fontSize: 13 }}>Concepts</Link>
-          <span style={{ color: '#334155' }}>|</span>
-          <Link to="/formal-proof" style={{ color: '#3b82f6', fontSize: 13 }}>Formal Proof</Link>
+      <div className="card" style={{ marginTop: 24, borderLeft: '3px solid var(--blue)' }}>
+        <h3 style={{ color: 'var(--blue)', fontSize: 13, marginBottom: 10 }}>Related Pages</h3>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+          <Link to="/paper" style={{ color: 'var(--brass-dk)', fontSize: 13 }}>Paper</Link>
+          <Link to="/literature" style={{ color: 'var(--brass)', fontSize: 13 }}>Literature</Link>
+          <Link to="/concepts" style={{ color: 'var(--green)', fontSize: 13 }}>Concepts</Link>
+          <Link to="/formal-proof" style={{ color: 'var(--blue)', fontSize: 13 }}>Formal Proof</Link>
         </div>
+        <p style={{ margin: '14px 0 0' }}>
+          <Link to="/">← the atlas</Link>
+        </p>
+      </div>
       </div>
     </div>
   );

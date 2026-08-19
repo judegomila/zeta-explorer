@@ -218,7 +218,7 @@ export default function Imp3860AWeightCorrectionLimitViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/visualization
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization
         only -- no proof, no reduction below RH. This settles the tau &rarr; infinity limit of a
         subleading correction to a fixed autocorrelation-weight decay rate, a quantity used inside
         a mass-feasibility diagnostic; mass-feasibility is necessary-but-not-sufficient and the

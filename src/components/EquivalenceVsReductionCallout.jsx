@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
  * toward RH: proving any RH-equivalent statement unconditionally just IS proving
  * RH, so reformulating one as another moves no difficulty. The wording reuses
  * the ConceptsPage "RH-Equivalent Statement" definition and stays in lockstep
- * with the StateOfProgramPage honest status.
+ * with the StateOfProgramPage status.
  *
  * Props:
  *   compact  when true, render with tighter top/bottom margins for dense pages.
@@ -60,7 +60,7 @@ export default function EquivalenceVsReductionCallout({ compact = false } = {}) 
       </ul>
       <p style={{ margin: '10px 0 0 0', fontSize: 12 }}>
         <Link to="/state-of-program" style={{ color: '#a78bfa' }}>
-          Canonical honest status →
+          Canonical status →
         </Link>
       </p>
     </div>

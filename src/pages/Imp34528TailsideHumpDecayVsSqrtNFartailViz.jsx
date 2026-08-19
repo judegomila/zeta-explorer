@@ -229,7 +229,7 @@ export default function Imp34528TailsideHumpDecayVsSqrtNFartailViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement / cross-check only --
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement / cross-check only --
         reuses the imp-33809/imp-33851 hump amplitudes and imp-3463 exact-sigma landmarks verbatim; the
         component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
         C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator

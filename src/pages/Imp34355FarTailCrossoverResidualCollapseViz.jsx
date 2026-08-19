@@ -266,7 +266,7 @@ export default function Imp34355FarTailCrossoverResidualCollapseViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, baked literals
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked literals
         reproducing the imp-33743/imp-33723 measurements; no new derivation, no bound changed.
         Derivation/measurement only within the inherited imp-3220/imp-3406 extrapolation component
         model, which is NOT a rigorous asymptotic; E_flow is the benign mesoscopic-Gronwall term

@@ -210,7 +210,7 @@ export default function Imp34620Q4ShareRoundoffFloorVsDpViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, reusing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, reusing the
         imp-34592 sweep literals verbatim (dp sweep rows, physical share, both thresholds). q1..q4
         are inherited central differences, NOT fresh analytic closed forms, so the sigma&nbsp;
         -&gt;&nbsp;1 deep-tail regime (imp-3220/imp-3406 component model least trustworthy) is

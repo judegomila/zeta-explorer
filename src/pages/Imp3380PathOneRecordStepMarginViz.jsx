@@ -171,7 +171,7 @@ export default function Imp3380PathOneRecordStepMarginViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> visualization only -- measurement, not
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> visualization only -- measurement, not
         proof, and no positivity claim is attempted. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous
         SOTA; PATH-1's leading-order predicates stay GUE-conditional at the analytic-bridge step
         (imp-486/imp-583).

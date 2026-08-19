@@ -134,7 +134,7 @@ export default function Imp34913SignedResidualOffsetInversionViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the imp-34887
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-34887
         per-seed residual trace and offset-inversion counts (no new computation beyond the trace field added
         to the existing sign_bands). Measurement on the INHERITED imp-3220/imp-3406 surrogate crossover map;
         IEEE-754 double precision, no interval enclosure; the C_C 1/8 ansatz (imp-2642/imp-2643) and the C_mb

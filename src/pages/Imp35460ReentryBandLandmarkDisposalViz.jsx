@@ -136,7 +136,7 @@ export default function Imp35460ReentryBandLandmarkDisposalViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, baked literals
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked literals
         reproducing the imp-35415 scoping verbatim; no new derivation, no bound changed.
         Discharges nothing: R1 stays the OPEN binding obstruction; imp-35111a / imp-35174a /
         imp-34997a / imp-35243a stay OPEN; route (ii) itself remains to be formalized (imp-35357).

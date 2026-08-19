@@ -159,7 +159,7 @@ export default function Imp35824SurplusWaterfallViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation only of
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only of
         the already-derived imp-35762 additive split (no new derivation, no
         heavy data-module import); measurement on the inherited
         imp-3220/imp-3406 surrogate; imp-34714a REMAINS OPEN; C_C 1/8

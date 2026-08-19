@@ -205,7 +205,7 @@ export default function Imp35184BernsteinIngredientsTripleViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page rendering the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
         imp-35114 measurement (isRigorous={String(DATA.isRigorous)}, changesBound=
         {String(DATA.changesBound)}) on the INHERITED imp-3220/imp-3406/imp-33723 SURROGATE crossover map
         g. The Bernstein ingredients (killing term a, drift b, L&eacute;vy measure d&mu;) are structural

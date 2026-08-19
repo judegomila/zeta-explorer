@@ -175,7 +175,7 @@ export default function Imp34118SawtoothPhaseRealignmentScheduleViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement/schedule only, no
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/schedule only, no
         fresh derivation. {finding.V2_phase_is_a_doubling_map_orbit}{' '}
         Realignments occur at exponents {realignmentLevels.join(', ')} (steps 1/1024, 1/4096,
         1/16384); freezes at {frozenLevels.join(', ')}. {finding.V4_first_descent_at_1024_corrects_imp33983}{' '}

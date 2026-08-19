@@ -110,7 +110,7 @@ export default function Imp34281M2CeilingCohortIndexPage() {
         residual bisects to zero, but the readings were shipped across separate viz pages with no
         shared landing surface. This index groups the three navigable viz pages so the cohort can
         be read as one story. The canonical cross-reference synthesizing all six modules'
-        honest status lives in the glossary (imp-34278 entry, see <Link to="/wiki">Wiki</Link>).
+        status lives in the glossary (imp-34278 entry, see <Link to="/wiki">Wiki</Link>).
       </p>
 
       <div style={{ display: 'grid', gap: '0.75rem' }}>
@@ -177,7 +177,7 @@ export default function Imp34281M2CeilingCohortIndexPage() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> this is a navigation aid over
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> this is a navigation aid over
         already-published measurements. kEnd*~21.281 is a real, reproducible, well-conditioned
         number attached to one specific inherited surrogate at one specific window width -- not a
         derived mathematical ceiling. It changes no bound and patches no literal. C_mb
@@ -344,12 +344,12 @@ export default function Imp34281M2CeilingCohortIndexPage() {
         </strong>{' '}
         imp-34285/imp-34286/imp-34287/imp-34288 form one decomposition sub-cohort of the M2-residual
         kEnd gap. Auditable in one place -- each module's reuse gate against its inherited source and
-        its honest sub-gap status (open vs closed):
+        its sub-gap status (open vs closed):
         <div style={{ overflowX: 'auto', marginTop: '0.5rem' }}>
           <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: '0.78rem' }}>
             <thead>
               <tr>
-                {['Module', 'Measures', 'Reuse gate', 'Honest sub-gap'].map((h) => (
+                {['Module', 'Measures', 'Reuse gate', 'Sub-gap'].map((h) => (
                   <th
                     key={h}
                     style={{

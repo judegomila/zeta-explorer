@@ -261,7 +261,7 @@ export default function Imp34100ApexParabolaWingFidelityViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement only; the parabola
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement only; the parabola
         tracks the true hump across a ~1.27-decade (1%) to ~1.96-decade (5%) window, and the E2
         flat-top readings are validated as honest, not extrapolation artifacts. Refines, does not
         overturn, imp-33948. The inherited imp-3220/imp-3406 component model is not a rigorous

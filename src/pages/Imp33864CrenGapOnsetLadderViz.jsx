@@ -204,7 +204,7 @@ export default function Imp33864CrenGapOnsetLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> measurement only. The fitted
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement only. The fitted
         onset exponent settles to {tailGapExponent.toFixed(5)} (fixed rate 3/2) and the fitted
         amplitude A = gap/eps^(3/2) settles to {tailAmplitude.toFixed(6)} (predicted 4/3), confirming
         the imp-33794 onset-not-drift reading on a finer ladder. This does NOT discharge H4 -- the

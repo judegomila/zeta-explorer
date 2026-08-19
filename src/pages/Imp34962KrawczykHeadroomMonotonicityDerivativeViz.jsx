@@ -222,7 +222,7 @@ export default function Imp34962KrawczykHeadroomMonotonicityDerivativeViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-only page resampling the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page resampling the
         imp-34929 closed-form d(log S)/dN and its two competing terms on a dense grid (no new math;
         band bounds and worst-case margin baked from imp-34929). Derivation/measurement only on the
         inherited imp-3220/imp-3406 surrogate crossover map; star_over_H2 rests on the gamma(n)/k eps

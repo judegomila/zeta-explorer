@@ -350,7 +350,7 @@ export default function VizZoomHierarchyPage() {
         ))}
       </div>
 
-      {/* Honest scope */}
+      {/* Scope */}
       <div
         className="card"
         style={{ marginTop: 24, padding: 14, borderLeft: '3px solid #06b6d4' }}
@@ -365,7 +365,7 @@ export default function VizZoomHierarchyPage() {
             marginBottom: 8,
           }}
         >
-          honest scope &amp; method
+          scope &amp; method
         </div>
         <ul
           style={{

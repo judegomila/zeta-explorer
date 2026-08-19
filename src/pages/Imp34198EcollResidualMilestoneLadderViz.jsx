@@ -179,7 +179,7 @@ export default function Imp34198EcollResidualMilestoneLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation
         of the already-established imp-34130 measurement (log-space direct path,
         imp-33859), no new computation on the underlying component model. The
         inherited imp-3220/imp-3406 extrapolation is NOT a rigorous asymptotic;

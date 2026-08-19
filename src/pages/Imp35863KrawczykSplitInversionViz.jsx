@@ -182,7 +182,7 @@ export default function Imp35863KrawczykSplitInversionViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> presentation only of the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only of the
         already-derived imp-35809 measurement (no new derivation, no heavy data-module import);
         measurement on the inherited imp-3220/imp-3406 surrogate; imp-34714a machine certificate
         REMAINS OPEN and F(m)=0 stays a double-precision artifact; C_C 1/8 (imp-2642/2643) and C_mb

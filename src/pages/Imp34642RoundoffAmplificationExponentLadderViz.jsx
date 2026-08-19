@@ -203,7 +203,7 @@ export default function Imp34642RoundoffAmplificationExponentLadderViz() {
           color: '#64748b',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Honest status:</strong> Viz-data only, recomputing the
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, recomputing the
         imp-34606 q-derivative sweep independently over its published roundoff-dominated windows;
         the fitted m/R&sup2; annotations are the imp-34606 baked values. q1..q4 are inherited
         central differences, NOT fresh analytic closed forms, so the sigma&nbsp;-&gt;&nbsp;1

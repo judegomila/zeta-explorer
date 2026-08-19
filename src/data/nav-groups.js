@@ -106,6 +106,7 @@ export const NAV_GROUPS = [
       { to: '/lambda-bounds', label: 'Λ Bounds & RH Roadmap' },
       { to: '/newman-lambda-01787854-candidate', label: 'Λ ≤ 0.1787854 Candidate Package' },
       { to: '/lambda-timeline', label: 'Λ Timeline' },
+      { to: '/critical-line-proportion', label: 'Critical-Line Proportion' },
       { to: '/rh-dag', label: 'RH Dependency DAG' },
       { to: '/route-map', label: 'Route Map' },
       { to: '/volterra-bound', label: 'Volterra Norm Bound' },

@@ -231,6 +231,30 @@ export const LAMBDA_TIMELINE = [
     citation: 'mathexplorer auto-improvement engine, imp-1260 + WAVE 19 seeded (2026-05-28), decision docs (2026-05-28 and 2026-05-29).',
     notes: 'Major structural milestone: Conj 27.2 proof unification (two-way collapse ‖V_{a,Φ}‖ ≤ 1 ⇔ CDB-Exist) + final Lambda tightening phase and PCC route exhaustion determination. Establishes end-of-cycle point before new external developments.',
   },
+  {
+    year: 2026,
+    authors: ['Jude Gomila', 'Claude AI fleet (mathexplorer / zetaexplorer)'],
+    bound: 0.1787854,
+    direction: 'upper',
+    relation: '≤',
+    status: 'computer-assisted candidate',
+    accepted: false,
+    method: 'Computer-assisted candidate for an unconditional bound via the twin-ladder mollified-barrier method (compact slab, final-time zero-free half-strip, 3,149,013-row interval-arithmetic replay, exact Polymath criterion weld). Reviewed by Dan Romik and being prepared for public release. Not yet a peer-reviewed publication; not itself RH.',
+    citation: 'mathexplorer / zetaexplorer barrier-certificate package (2026); reviewed by Dan Romik.',
+    notes: 'Candidate, not the accepted SOTA. Platt–Trudgian Λ ≤ 0.2 remains the peer-reviewed benchmark; RH remains open.',
+  },
+  {
+    year: 2026,
+    authors: ['Jude Gomila', 'Claude AI fleet (mathexplorer / zetaexplorer)'],
+    bound: 0.1758354,
+    direction: 'upper',
+    relation: '≤',
+    status: 'computer-assisted candidate',
+    accepted: false,
+    method: 'Sharper computer-assisted candidate: a revised mollifier and an extended finite lane certify four gates (each machine-checked in Arb interval arithmetic; the reduction Lean-checked). Below the 0.1787854 candidate.',
+    citation: 'mathexplorer / zetaexplorer four-gate barrier certificate (2026).',
+    notes: 'Candidate, unrefereed. Platt–Trudgian Λ ≤ 0.2 remains SOTA; RH remains open.',
+  },
 ];
 
 export const LAMBDA_TIMELINE_ASSERTIONS = [

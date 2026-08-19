@@ -7,6 +7,7 @@ export const EDITORIAL_ROUTES = new Set([
   '/directory',
   '/lambda-01758354-candidate',
   '/autonomous-fleet',
+  '/critical-line-proportion',
   '/flow-blindness-no-go',
   '/frozen-rung-pt-equivalence',
   '/pt-floor-audit',

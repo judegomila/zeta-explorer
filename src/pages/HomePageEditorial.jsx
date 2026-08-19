@@ -23,6 +23,8 @@ const FINDINGS = [
     title: 'RH-free F_mb enclosure', desc: 'imp-3725 — a rigorous enclosure assuming no RH.' },
   { to: '/route-map', grade: 'MAP', date: '2026',
     title: 'The wall map · 38 routes', desc: 'Every closure route across 5 clusters, and exactly where it splits.' },
+  { to: '/critical-line-proportion', grade: 'MAP', date: '2020',
+    title: 'Zeros on the line · ≥ 5/12', desc: 'The other axis: the proportion proven on the critical line (Hardy → Levinson ⅓ → 5/12 ≈ 41.7%).' },
   { to: '/what-we-know', grade: 'NO-GO', date: '2026',
     title: 'Negative results', desc: 'Theorems ruling out route families — the breach point, located.' },
   { to: '/pt-floor-audit', grade: 'AUDIT', date: '2026',

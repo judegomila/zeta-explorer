@@ -71,9 +71,9 @@ export default function HomePageEditorial() {
           </div>
         </div>
         <div className="ed-viz">
-          <div className="ed-vizhead"><span className="ed-lbl">twin-ladder shear</span><span className="ed-badge">animation</span></div>
+          <div className="ed-vizhead"><span className="ed-lbl">the twin ladder</span><span className="ed-badge">animation</span></div>
           <WireframeAnim kind="twinladder" />
-          <div className="ed-mono" style={{ fontSize: 11, color: 'var(--faint)', marginTop: 4 }}>the antisymmetric shear between two rung-stacks, against the positive core</div>
+          <div className="ed-mono" style={{ fontSize: 11, color: 'var(--faint)', marginTop: 4 }}>two coupled rung-stacks — one ladder per prime scale — and the shear between them</div>
         </div>
       </div></div></div>
 

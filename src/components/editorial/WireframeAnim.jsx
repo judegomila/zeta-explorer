@@ -131,21 +131,21 @@ function TwinLadder() {
   const shearB = 'M105 42 C160 64 160 96 215 118 M105 118 C160 96 160 64 215 42';
   return (
     <Frame>
-      {/* rails */}
+      {/* rails — both ladders in brass, the primary subject */}
       {[70, 105, 215, 250].map((x) => (
-        <line key={x} x1={x} y1="24" x2={x} y2="136" stroke={x === 105 || x === 215 ? BRASS : HAIR} strokeWidth="1.1" />
+        <line key={x} x1={x} y1="22" x2={x} y2="138" stroke={BRASS} strokeWidth="1.4" />
       ))}
-      {/* rungs */}
-      <g opacity="0.42">
-        {Array.from({ length: 6 }, (_, i) => 34 + i * 20).map((y) => (
+      {/* rungs — one ladder per prime scale */}
+      <g opacity="0.8">
+        {Array.from({ length: 7 }, (_, i) => 30 + i * 17).map((y) => (
           <g key={y}>
-            <line x1="70" y1={y} x2="105" y2={y} stroke={HAIR} strokeWidth="0.8" />
-            <line x1="215" y1={y} x2="250" y2={y} stroke={HAIR} strokeWidth="0.8" />
+            <line x1="70" y1={y} x2="105" y2={y} stroke={BRASS} strokeWidth="1" />
+            <line x1="215" y1={y} x2="250" y2={y} stroke={BRASS} strokeWidth="1" />
           </g>
         ))}
       </g>
-      {/* oscillating shear */}
-      <path fill="none" stroke={TERRA} strokeWidth="1.5" opacity="0.85">
+      {/* the shear between them — a subtle accent */}
+      <path fill="none" stroke={TERRA} strokeWidth="1.3" opacity="0.6">
         <animate attributeName="d" values={`${shearA};${shearB};${shearA}`} dur="4s" repeatCount="indefinite" />
       </path>
       <circle r="3.5" fill={BRASS}>

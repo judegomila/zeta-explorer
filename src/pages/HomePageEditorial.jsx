@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader, GradeChip, InlineMath } from '../components/editorial/PostLayout.jsx';
 import WireframeAnim from '../components/editorial/WireframeAnim.jsx';
-import { NAV_GROUPS } from '../data/nav-groups.js';
 
 /* Battle-station front page — full-width cockpit, editorial (warm) theme,
    functional language, real project content. Rendered under .ed-root so the
@@ -43,18 +42,14 @@ const SIMS = [
 ];
 
 export default function HomePageEditorial() {
-  const [a, setA] = useState(34); // a-dial position 0..100
-  const shift = (a / 100 * 0.5).toFixed(3);
-
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>engine live · Λ ≤ <b>&nbsp;0.1758354</b> candidate · 5.3M rows certified</span>} />
+      <EditorialHeader ticker={<span>engine live · Λ ≤ <b>&nbsp;0.1758354</b> candidate</span>} />
 
       {/* hero */}
       <div className="ed-hero"><div className="ed-full"><div className="ed-herogrid">
         <div>
-          <div className="ed-lbl">Riemann Hypothesis · de Bruijn–Newman constant Λ</div>
-          <h1>Exploring the <em className="ed-terra">Riemann Hypothesis</em>.</h1>
+          <h1>Let's solve the <em className="ed-terra">Riemann Hypothesis</em></h1>
           <div className="ed-stand">RH ⇔ Λ = 0. These pages cover the twin-ladder model, the interactive
             simulators, the barrier bounds on Λ, and the no-go theorems that bound the approach.</div>
           <div style={{ marginTop: 22 }}>
@@ -81,8 +76,8 @@ export default function HomePageEditorial() {
       <div className="ed-full"><div className="ed-kpis">
         <div className="ed-kpi"><b style={{ color: 'var(--brass-dk)' }}>0.1758354</b><span>Λ candidate</span></div>
         <div className="ed-kpi"><b>3.0×10¹²</b><span>verified height</span></div>
-        <div className="ed-kpi"><b>38</b><span>routes mapped</span></div>
-        <div className="ed-kpi"><b style={{ color: 'var(--terra-dk)' }}>2</b><span>no-go theorems</span></div>
+        <Link className="ed-kpi ed-kpi-link" to="/route-map"><b>38</b><span>routes mapped</span></Link>
+        <Link className="ed-kpi ed-kpi-link" to="/what-we-know"><b style={{ color: 'var(--terra-dk)' }}>2</b><span>no-go theorems</span></Link>
         <div className="ed-kpi"><b style={{ color: 'var(--green)' }}>12</b><span>interactive simulators</span></div>
       </div></div>
 
@@ -109,22 +104,6 @@ export default function HomePageEditorial() {
             <div className="eq"><InlineMath tex="T3(a)\ \forall a>0 \iff \mathrm{RH}" /></div>
             <p>Shrink the shift a→0 and the strip closes to the line. E_a = A_a − iB_a = Ξ(z+ia), verified.</p>
             <Link to="/shift-bridge-positivity">/shift-bridge-positivity →</Link></div>
-        </div>
-      </section></div>
-
-      {/* a-dial control */}
-      <div className="ed-full"><section className="ed-sec">
-        <div className="ed-shead"><div><div className="ed-lbl">control</div><h2>The a-dial geometry</h2></div>
-          <p>The shift a, the residual norm ‖R‖, and the resulting strip half-width.</p></div>
-        <div className="ed-ctl">
-          <div><div className="ed-lbl">shift a · strip half-width Re s &gt; ½ + a</div>
-            <input className="ed-slider" type="range" min="0" max="100" value={a} onChange={(e) => setA(Number(e.target.value))} />
-            <div className="ed-mono" style={{ fontSize: 12, color: 'var(--faint)' }}>a = {shift}</div></div>
-          <div className="ed-readout">
-            <span>normalized residual ‖R‖ (well-posed)</span><b>1.33</b>
-            <span>σ(a) = sup|Ξ(z−ia)/Ξ(z+ia)|</span><b style={{ color: 'var(--terra-dk)' }}>{'{1, ∞} quantized'}</b>
-            <span>result</span><b>no sub-1 margin exists (flow-blindness)</b>
-          </div>
         </div>
       </section></div>
 
@@ -171,16 +150,15 @@ export default function HomePageEditorial() {
       <div className="ed-full"><section className="ed-sec" style={{ borderBottom: 'none' }}>
         <div className="ed-cta">
           <div><div className="ed-lbl">directory</div>
-            <div style={{ fontFamily: 'var(--ed-display)', fontWeight: 500, fontSize: 20, marginTop: 2 }}>{NAV_GROUPS.length} sections</div>
+            <div style={{ fontFamily: 'var(--ed-display)', fontWeight: 500, fontSize: 20, marginTop: 2 }}>Everything else</div>
             <div style={{ color: 'var(--ink-soft)', fontSize: 14 }}>Simulators, analyses, the twin-ladder program, proof tools, and references.</div></div>
           <div style={{ display: 'flex', gap: 10 }}>
             <Link className="ed-btn" to="/directory">Browse the directory →</Link>
-            <Link className="ed-btn" to="/classic" style={{ background: 'transparent', color: 'var(--ink)', border: '1px solid var(--hairline)' }}>Classic console</Link>
           </div>
         </div>
       </section></div>
 
-      <div className="ed-foot">zetaexplorer · Riemann Hypothesis via the de Bruijn–Newman constant Λ · Jude Gomila · <Link to="/classic">classic view</Link></div>
+      <div className="ed-foot">zetaexplorer · Riemann Hypothesis via the de Bruijn–Newman constant Λ · Jude Gomila</div>
     </div>
   );
 }

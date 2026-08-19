@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../KaTeXMath.jsx';
 import { NAV_GROUPS } from '../../data/nav-groups.js';
@@ -8,13 +8,18 @@ const shortLabel = (s) => s.replace(/\s*\(.*\)\s*$/, '');
 
 function NavDropdown({ label, items }) {
   const [open, setOpen] = useState(false);
+  const timer = useRef();
+  // Hover-intent: a short close delay so moving the mouse into the panel
+  // (across any small gap) doesn't dismiss it.
+  const show = () => { clearTimeout(timer.current); setOpen(true); };
+  const hide = () => { clearTimeout(timer.current); timer.current = setTimeout(() => setOpen(false), 180); };
   return (
-    <div className="ed-ddwrap" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+    <div className="ed-ddwrap" onMouseEnter={show} onMouseLeave={hide}>
       <button type="button" className="ed-ddbtn" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
         {shortLabel(label)} <span className="ed-ddcaret">▾</span>
       </button>
       {open && (
-        <div className="ed-ddpanel">
+        <div className="ed-ddpanel" onMouseEnter={show} onMouseLeave={hide}>
           {items.map((it) => (
             <Link key={it.to} to={it.to} onClick={() => setOpen(false)}>{it.label}</Link>
           ))}
@@ -22,6 +27,10 @@ function NavDropdown({ label, items }) {
       )}
     </div>
   );
+}
+
+function openPalette() {
+  if (typeof window !== 'undefined') window.dispatchEvent(new Event('open-command-palette'));
 }
 
 /* ---------------------------------------------------------------------------
@@ -42,9 +51,12 @@ export function EditorialHeader({ ticker }) {
           <Link to="/directory">Directory</Link>
           {NAV_GROUPS.map((g) => <NavDropdown key={g.label} label={g.label} items={g.items} />)}
         </nav>
-        {ticker && (
-          <div className="ed-tick"><span className="ed-pulse" />{ticker}</div>
-        )}
+        <div style={{ marginLeft: 'auto', display: 'flex', gap: 16, alignItems: 'center' }}>
+          <button type="button" className="ed-search" onClick={openPalette} aria-label="Search pages">
+            Search <kbd>⌘K</kbd>
+          </button>
+          {ticker && <div className="ed-tick"><span className="ed-pulse" />{ticker}</div>}
+        </div>
       </div>
     </header>
   );

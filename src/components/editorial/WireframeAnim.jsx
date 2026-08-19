@@ -12,6 +12,7 @@ import React from 'react';
 const BRASS = '#8c6a1d';
 const TERRA = '#d9502e';
 const HAIR = '#d5c9b2';
+const FAINT = '#877b67';
 
 // Build a sine polyline over [0, width] with n full periods, sampled every step px.
 function sinePath(width, mid, amp, periods, phase = 0, step = 6) {
@@ -63,22 +64,32 @@ function Wave() {
   );
 }
 
-// Two coupled oscillators: pendulum bobs swinging out of phase.
+// Prime oscillator: H_p(s)=1/(1-p^{-s}) is a resonator oscillating at ω=log p.
+// A phasor rotating at that frequency generates the sinusoid to its right.
 function Oscillator() {
+  const cx = 66;
+  const cy = 80;
+  const r = 34;
+  const sine = sinePath(174, 80, 34, 1, 0); // exactly one period, local coords
   return (
     <Frame>
-      <line x1="40" y1="34" x2="280" y2="34" stroke={HAIR} strokeWidth="1" />
-      {[110, 210].map((cx, i) => (
-        <g key={cx} transform={`translate(${cx} 34)`}>
-          <g>
-            <line x1="0" y1="0" x2="0" y2="78" stroke={i ? TERRA : BRASS} strokeWidth="1.2" />
-            <circle cx="0" cy="82" r="8" fill="none" stroke={i ? TERRA : BRASS} strokeWidth="1.5" />
-            <animateTransform attributeName="transform" type="rotate"
-              values={i ? '26;0;-26;0;26' : '-26;0;26;0;-26'} dur="2.4s" repeatCount="indefinite" />
-          </g>
-        </g>
-      ))}
-      <line x1="110" y1="116" x2="210" y2="116" stroke={HAIR} strokeWidth="0.75" strokeDasharray="3 3" />
+      <line x1="112" y1="80" x2="300" y2="80" stroke={HAIR} strokeWidth="1" />
+      {/* phasor on the complex circle */}
+      <circle cx={cx} cy={cy} r={r} fill="none" stroke={HAIR} strokeWidth="1" />
+      <g>
+        <line x1={cx} y1={cy} x2={cx + r} y2={cy} stroke={BRASS} strokeWidth="1.5" />
+        <circle cx={cx + r} cy={cy} r="4" fill={TERRA} />
+        <animateTransform attributeName="transform" type="rotate"
+          from={`0 ${cx} ${cy}`} to={`-360 ${cx} ${cy}`} dur="3s" repeatCount="indefinite" />
+      </g>
+      {/* the sinusoid it generates — one cycle per rotation */}
+      <g transform="translate(120 0)">
+        <path d={sine} fill="none" stroke={BRASS} strokeWidth="1.3" opacity="0.55" />
+        <circle r="4" fill={TERRA}>
+          <animateMotion path={sine} dur="3s" repeatCount="indefinite" />
+        </circle>
+      </g>
+      <text x={cx} y="150" fontFamily="IBM Plex Mono" fontSize="9" fill={FAINT} textAnchor="middle">ω = log p</text>
     </Frame>
   );
 }

@@ -27,19 +27,19 @@ const VARIANTS = {
     title: 'Peer-reviewed benchmark: Platt-Trudgian Λ ≤ 0.2 — this program did NOT produce it',
     body:
       'A public unrefereed package claims Λ ≤ 0.1875 and is listed in the Optimization Problems ledger; a local ' +
-      'audit repaired an omitted finite sweep. The standalone private review repository presents Λ ≤ 0.1787854 as an unreviewed ' +
-      'computer-assisted candidate for an unconditional proof; the bound is not established, has not been peer reviewed, ' +
-      'and is not RH. Platt-Trudgian ' +
-      'Λ ≤ 0.2 therefore remains the peer-reviewed benchmark, with Rodgers-Tao Λ ≥ 0 on the lower side.',
+      'audit repaired an omitted finite sweep. The standalone repository presents Λ ≤ 0.1787854 as a ' +
+      'computer-assisted candidate for an unconditional proof, reviewed by Dan Romik and being prepared for public ' +
+      'release; it is not yet a peer-reviewed publication and is not itself RH. Platt-Trudgian ' +
+      'Λ ≤ 0.2 remains the peer-reviewed benchmark, with Rodgers-Tao Λ ≥ 0 on the lower side.',
   },
   'PROOF-CANDIDATE': {
     color: '#22d3ee',
-    title: 'Standalone private-review candidate: Λ ≤ 0.1787854 — unreviewed and not established',
+    title: 'Candidate: Λ ≤ 0.1787854 — reviewed by Dan Romik, being prepared for public release',
     body:
       'The package presents a computer-assisted candidate for an unconditional proof using a compact slab, a ' +
       'final-time zero-free half-strip, a fresh 3,149,013-row material replay, corrected 10.50 error bounds, and ' +
-      'an exact Polymath criterion weld. The bound is not established and has not been peer reviewed. It is not RH; ' +
-      'RH still requires Λ ≤ 0.',
+      'an exact Polymath criterion weld. It has been reviewed by Dan Romik and is being prepared for public release; ' +
+      'it is not yet a peer-reviewed publication and is not itself RH — RH still requires Λ ≤ 0.',
   },
   ESTIMATE: {
     color: '#fbbf24',
@@ -71,8 +71,8 @@ const VARIANTS = {
     body:
       'The inherited Dyson/collision routes funnel into the C_H / G6a Hölder-½ shock modulus. ' +
       'The separate fixed-height Λ ≤ 0.1787854 package does not consume C_H and does not close the older Dyson route. ' +
-      'It is an unreviewed computer-assisted candidate for an unconditional proof; the bound is not established, has ' +
-      'not been peer reviewed, and is not RH. The naive C_H Gronwall discharge is refuted.',
+      'It is a computer-assisted candidate for an unconditional proof, reviewed by Dan Romik and being prepared for ' +
+      'public release; it is not yet a peer-reviewed publication and is not itself RH. The naive C_H Gronwall discharge is refuted.',
   },
 };
 

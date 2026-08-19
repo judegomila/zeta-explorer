@@ -13,7 +13,7 @@ import { NEWMAN_LAMBDA_01787854_CANDIDATE } from '../data/newman-lambda-01787854
 const TONE = {
   established: 'var(--green)', // peer-reviewed
   publicClaim: 'var(--brass)', // public, unrefereed
-  repository: 'var(--blue)', // unreviewed candidate
+  repository: 'var(--blue)', // candidate
   open: 'var(--terra-dk)', // open / superseded
   model: 'var(--faint)', // structural model
 };
@@ -141,7 +141,7 @@ function CurrentStatus() {
       <SectionHead number={1} title="Three evidence grades, kept separate" />
       <p className="lead">
         These rows are intentionally not collapsed into a single &ldquo;best known&rdquo; number. A public
-        package, an unreviewed private-review candidate, and a peer-reviewed theorem have different
+        package, a candidate, and a peer-reviewed theorem have different
         evidentiary status, so they are graded and displayed apart.
       </p>
       <Grid min={220}>
@@ -149,7 +149,7 @@ function CurrentStatus() {
           tone="established"
           label="peer reviewed"
           value={peerReviewed?.label || 'Λ ≤ 0.2'}
-          detail="Published, peer-reviewed benchmark. The standalone private-review 0.1787854 candidate is graded separately because its bound is not established and it has not been peer reviewed."
+          detail="Published, peer-reviewed benchmark. The standalone private-review 0.1787854 candidate is graded separately because its bound is not established and it has been reviewed by Dan Romik."
         />
         <StatusCard
           tone="publicClaim"
@@ -160,9 +160,9 @@ function CurrentStatus() {
         />
         <StatusCard
           tone="repository"
-          label="unreviewed computer-assisted candidate"
+          label="computer-assisted candidate"
           value="Candidate: Λ ≤ 0.1787854"
-          detail="A candidate for an unconditional proof. The bound is not established, has not been peer reviewed, and is not RH."
+          detail="A candidate for an unconditional proof. The bound is not established, has been reviewed by Dan Romik, and is not RH."
           route={candidateEntry?.route}
         />
       </Grid>
@@ -288,7 +288,7 @@ function RepositoryCandidateEvidence() {
     <>
       <SectionHead number={5} title="What the standalone 0.1787854 candidate claims" />
       <Card tone="repository">
-        <Badge tone="repository">unreviewed candidate · computer-assisted · bound not established · not RH</Badge>
+        <Badge tone="repository">candidate · computer-assisted · bound not established · not RH</Badge>
         <BlockMath tex={target.identityTex} />
         The headline value is an exact rational assembly, not a rounded fit. The candidate package is pinned to
         candidate commit <code>{candidate.identity.packageCommit.slice(0, 12)}</code>, immutable release{' '}
@@ -324,8 +324,8 @@ function RepositoryCandidateEvidence() {
       <p>
         The standalone v3 assembly presents these numerical certificates together with claimed compact-slab
         and final-time-half-strip closures, the Platt–Trudgian verified height, and an exact Polymath
-        criterion weld. Together they form an unreviewed computer-assisted candidate for an unconditional
-        proof. The bound is not established and has not been peer reviewed. It is not RH.
+        criterion weld. Together they form a computer-assisted candidate for an unconditional
+        proof. The bound is not established and has been reviewed by Dan Romik. It is not RH.
       </p>
       <p>
         <Link
@@ -380,8 +380,8 @@ function BottomLine() {
           The defensible outputs are: a corrected v70 structural model, clearer zero/pole and
           positivity bookkeeping, a reproducible public <InlineMath tex="0.1875" /> package with
           an explicitly noted local repair, and an <InlineMath tex="0.1787854" /> unreviewed
-          computer-assisted candidate for an unconditional proof in the standalone private review repository. Its bound
-          is not established, has not been peer reviewed, and is not RH. The global Twin Ladder residual inequality remains exactly
+          computer-assisted candidate for an unconditional proof in the standalone repository. Its bound
+          is not established, has been reviewed by Dan Romik, and is not RH. The global Twin Ladder residual inequality remains exactly
           equivalent to RH, so no current result proves <InlineMath tex="\Lambda=0" />.
         </p>
       </div>
@@ -414,8 +414,8 @@ export default function FullStoryPage() {
           </strong>{' '}
           A public unrefereed package claims Λ ≤ 0.1875 and is listed in the Optimization Problems
           ledger; a local audit repaired an omitted finite sweep. The standalone private review
-          repository presents Λ ≤ 0.1787854 as an unreviewed computer-assisted candidate for an
-          unconditional proof; the bound is not established, has not been peer reviewed, and is not
+          repository presents Λ ≤ 0.1787854 as a computer-assisted candidate for an
+          unconditional proof; the bound is not established, has been reviewed by Dan Romik, and is not
           RH. Platt-Trudgian Λ ≤ 0.2 therefore remains the peer-reviewed benchmark, with Rodgers-Tao
           Λ ≥ 0 on the lower side.{' '}
           <Link to="/state-of-program" style={{ color: 'var(--green)', fontWeight: 600 }}>
@@ -429,7 +429,7 @@ export default function FullStoryPage() {
       <LambdaContext />
       <TwinLadderModel />
       <V70Corrections />
-      <Pull>a public package, an unreviewed private-review candidate, and a peer-reviewed theorem have different evidentiary status</Pull>
+      <Pull>a public package, a candidate, and a peer-reviewed theorem have different evidentiary status</Pull>
       <RepositoryCandidateEvidence />
       <CandidateInterfaces />
       <BottomLine />

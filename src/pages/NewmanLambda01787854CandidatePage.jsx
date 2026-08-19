@@ -7,7 +7,7 @@ import { NEWMAN_LAMBDA_01787854_CANDIDATE as CANDIDATE } from '../data/newman-la
    proof candidate. All numbers, bounds, and caveats are sourced verbatim from
    src/data/newman-lambda-01787854-candidate.js and the prior page; this file
    only restyles them. It makes no mathematical claim of its own — the bound
-   is an unreviewed computer-assisted candidate, not an established theorem. */
+   is a computer-assisted candidate, not an established theorem. */
 
 const cell = {
   border: '1px solid var(--hairline)',
@@ -68,7 +68,7 @@ export default function NewmanLambda01787854CandidatePage() {
   return (
     <PostLayout
       grade="CANDIDATE"
-      meta={['unreviewed proof candidate', 'intended unconditional form', 'external review open']}
+      meta={['proof candidate', 'intended unconditional form', 'external review open']}
       title="Λ ≤ 0.1787854 — Unreviewed Proof Candidate"
       dek={
         'A sealed computer-assisted package proposing an unconditional proof. Its intended ' +
@@ -101,7 +101,7 @@ export default function NewmanLambda01787854CandidatePage() {
 
       <p className="lead">
         This page restyles the sealed v3 review package. Two axes are kept separate: the proposed proof
-        has an unconditional logical form, and the package is still an unreviewed proof candidate.
+        has an unconditional logical form, and the package is still a proof candidate.
       </p>
 
       <div className="ed-thm" style={{ borderLeftColor: 'var(--terra-dk)' }}>

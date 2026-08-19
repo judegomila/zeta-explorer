@@ -236,7 +236,7 @@ export default function RHProofStateDashboardPage() {
           </div>
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
             <div>
-              <div style={{ fontSize: 11, color: FAINT, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 2 }}>STANDALONE PRIVATE-REVIEW CANDIDATE</div>
+              <div style={{ fontSize: 11, color: FAINT, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 2 }}>candidate</div>
               <div style={{ fontSize: 20, fontWeight: 700, color: BRASS, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>&#923; &le; 0.1787854</div>
               <div style={{ fontSize: 11, color: INK_SOFT }}>Unreviewed computer-assisted candidate for an unconditional proof; bound not established; not peer reviewed; not RH</div>
             </div>
@@ -565,9 +565,9 @@ export default function RHProofStateDashboardPage() {
                 below Platt–Trudgian 0.2 — not yet rigorous (C_H + E-T bridge constant pending).
                 Peer-reviewed benchmark: <strong style={{ color: GREEN }}>Λ ≤ 0.2</strong>;
                 public unrefereed package claim: <strong style={{ color: BLUE }}>Λ ≤ 0.1875</strong>.
-                This is the older Dyson lane; the separate standalone private-review candidate{' '}
+                This is the older Dyson lane; the separate candidate{' '}
                 <strong style={{ color: BRASS }}>Λ ≤ 0.1787854</strong> uses the fixed-height
-                barrier route and does not discharge C_H. It is an unreviewed computer-assisted
+                barrier route and does not discharge C_H. It is a computer-assisted
                 candidate for an unconditional proof; the bound is not established, has not been
                 peer reviewed, and is not RH.
               </div>

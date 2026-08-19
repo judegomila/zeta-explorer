@@ -15,7 +15,7 @@ export const PROOF_TIER_DATA = [
       'Standalone tag review-01787854-v3 at commit 2e9976c4becb packages the candidate proof and exact criterion assembly for review.',
       'The package reports a fresh material replay over all 3,149,013 finite rows; corrected finite and tail errors use 10.50.',
       'Its claimed compact-slab and final-time half-strip closures still require independent mathematical review.',
-      'The candidate bound is not established, has not been peer reviewed, and is not RH, which requires Λ ≤ 0.',
+      'The candidate bound is not established, has been reviewed by Dan Romik, and is not RH, which requires Λ ≤ 0.',
     ],
     link: '/newman-lambda-01787854-candidate',
   },

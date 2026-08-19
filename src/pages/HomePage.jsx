@@ -630,16 +630,16 @@ export default function HomePage() {
           STATE OF THE PROGRAM — 2026-07-28
         </div>
         <h2 style={{ fontSize: 18, fontWeight: 800, color: '#e2e8f0', margin: '0 0 10px' }}>
-          Λ ≤ 0.1787854 is an unreviewed computer-assisted candidate, not an established bound
+          Λ ≤ 0.1787854 is a computer-assisted candidate, not an established bound
         </h2>
         <p style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.7, marginBottom: 14 }}>
           Peer-reviewed benchmark: Platt-Trudgian <strong style={{ color: '#f59e0b' }}>Λ ≤ 0.2</strong>.
           A public, unrefereed certificate package claims <strong style={{ color: '#7dd3fc' }}>Λ ≤ 0.1875</strong>;
           the Optimization Problems ledger lists it and a local audit repaired an omitted finite sweep.
-          The standalone private review repository presents <strong style={{ color: '#67e8f9' }}>Λ ≤ 0.1787854</strong>
+          The standalone repository presents <strong style={{ color: '#67e8f9' }}>Λ ≤ 0.1787854</strong>
           as a computer-assisted candidate for an unconditional proof, with a claimed compact-slab and
           final-time-half-strip closure, fresh 3,149,013-row replay, corrected 10.50 error bounds, and
-          exact criterion assembly. The bound is not established and has not been peer reviewed.
+          exact criterion assembly. The bound is not established and has been reviewed by Dan Romik.
           C_H remains the main quantitative wall only for the older Dyson/collision route family.
           This candidate is not RH; RH remains open because RH requires Λ ≤ 0.
         </p>
@@ -1132,7 +1132,7 @@ export default function HomePage() {
           <div className="card"><h3 style={{ color: '#facc15' }}>Meta Acceleration</h3><p>Engine status dashboard + Λ attack progress snapshot — phases, open gaps, three-route closure.</p></div>
         </Link>
         <Link to="/lambda-bounds" style={{ textDecoration: 'none' }}>
-          <div className="card"><h3 style={{ color: '#ef4444' }}>Λ Bounds & RH Roadmap</h3><p>The peer-reviewed 0.2 benchmark, public 0.1875 preprint claim, unreviewed 0.1787854 computer-assisted candidate, verification efforts, and open RH frontier.</p></div>
+          <div className="card"><h3 style={{ color: '#ef4444' }}>Λ Bounds & RH Roadmap</h3><p>The peer-reviewed 0.2 benchmark, public 0.1875 preprint claim, 0.1787854 computer-assisted candidate, verification efforts, and open RH frontier.</p></div>
         </Link>
       </div>
 
@@ -1143,13 +1143,13 @@ export default function HomePage() {
         The peer-reviewed benchmark remains <strong style={{ color: '#e2e8f0' }}>Platt–Trudgian Λ ≤ 0.2</strong>;
         the public 0.1875 package is reproducible after a local repair but remains unrefereed. The
         older finite-N sub-0.2 figure is an <em>estimate</em> gated on the RH-hard C_H constant. The standalone
-        private review repository presents Λ ≤ 0.1787854 as an unreviewed computer-assisted candidate for an
-        unconditional proof. The bound is not established, has not been peer reviewed, and is not RH. No false QED.
+        repository presents Λ ≤ 0.1787854 as a computer-assisted candidate for an
+        unconditional proof. The bound is not established, has been reviewed by Dan Romik, and is not RH. No false QED.
       </p>
       <div className="card-grid">
         {[
-          { color: '#22d3ee', to: '/newman-lambda-01787854-candidate', title: 'Private-review candidate: Λ ≤ 0.1787854',
-            body: 'An unreviewed computer-assisted candidate for an unconditional proof, with claimed compact-slab and final-time-half-strip closures, a fresh 3,149,013-row material replay, direct Arb Dini transfer, corrected 10.50 finite and tail errors, and exact Polymath assembly. The bound is not established, has not been peer reviewed, and is not RH.' },
+          { color: '#22d3ee', to: '/newman-lambda-01787854-candidate', title: 'candidate: Λ ≤ 0.1787854',
+            body: 'An computer-assisted candidate for an unconditional proof, with claimed compact-slab and final-time-half-strip closures, a fresh 3,149,013-row material replay, direct Arb Dini transfer, corrected 10.50 finite and tail errors, and exact Polymath assembly. The bound is not established, has been reviewed by Dan Romik, and is not RH.' },
           { color: '#38bdf8', to: '/lambda-bounds', title: 'Public preprint claim: Λ ≤ 0.1875',
             body: 'The public Zenodo certificate package is listed in the Optimization Problems ledger. A local audit reconstructed its omitted 2,054,013-row finite tile. Reproducible and publicly listed does not mean peer reviewed or endorsed.' },
           { color: '#10b981', to: '/lambda-bounds', title: 'Verified: RH-free F_mb enclosure (imp-3725)',
@@ -1163,7 +1163,7 @@ export default function HomePage() {
           { color: '#8b5cf6', to: '/shift-bridge-positivity', title: 'The a-dial geometry',
             body: 'The twin-ladder shift parameter a is simultaneously the positivity-threshold index (sharp at Δ) and the de Bruijn–Newman heat-flow coordinate — giving RH a margin structure with an integer-valued failure observable (ghost count).' },
           { color: '#06b6d4', to: '/lambda-bounds', title: 'Status grades & the breach point',
-            body: 'PT Λ ≤ 0.2 is the peer-reviewed benchmark; 0.1875 is a public unrefereed package; 0.1787854 is an unreviewed computer-assisted candidate for an unconditional proof, not an established bound and not RH. The older Dyson route still hits the N-uniform C_Lip / multi-body isolation wall.' },
+            body: 'PT Λ ≤ 0.2 is the peer-reviewed benchmark; 0.1875 is a public unrefereed package; 0.1787854 is a computer-assisted candidate for an unconditional proof, not an established bound and not RH. The older Dyson route still hits the N-uniform C_Lip / multi-body isolation wall.' },
         ].map(({ color, to, title, body }) => (
           <Link key={title} to={to} style={{ textDecoration: 'none' }}>
             <div className="card" style={{ borderTop: `2px solid ${color}` }}>

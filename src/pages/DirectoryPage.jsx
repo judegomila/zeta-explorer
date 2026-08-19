@@ -19,7 +19,7 @@ export default function DirectoryPage() {
         <div className="ed-lbl">directory</div>
         <h1 className="ed-h1" style={{ fontSize: 'clamp(28px,4vw,40px)', marginTop: 8 }}>Directory</h1>
         <p style={{ color: 'var(--ink-soft)', fontSize: 17, maxWidth: '56ch', marginTop: 12 }}>
-          {NAV_GROUPS.length} sections, {total} pages. A marker
+          A marker
           <span className="ed-new" style={{ display: 'inline-block', verticalAlign: 'middle', margin: '0 4px' }} />
           indicates a page in the current design; unmarked pages open in the classic view.
         </p>

@@ -255,10 +255,10 @@ export default function ThreeAttacksPage() {
         <div className="card" style={{ marginTop: 24, borderLeft: '3px solid var(--blue)' }}>
           <h3 style={{ color: 'var(--faint)', marginTop: 0 }}>Where the standalone review candidate lives</h3>
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75 }}>
-            The standalone private review repository presents <InlineMath tex="\Lambda\le0.1787854" /> as an unreviewed
+            The standalone repository presents <InlineMath tex="\Lambda\le0.1787854" /> as a
             computer-assisted candidate for an unconditional proof. Its package claims compact-slab and
             final-time-half-strip closures, a material replay, corrected error bounds, and an exact criterion
-            weld. The bound is not established, has not been peer reviewed, and is not RH.
+            weld. The bound is not established, has been reviewed by Dan Romik, and is not RH.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
             <Link to="/newman-lambda-01787854-candidate" style={{ fontSize: 12, color: 'var(--brass)', textDecoration: 'none' }}>

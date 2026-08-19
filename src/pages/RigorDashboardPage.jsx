@@ -409,7 +409,7 @@ const SOTA_TIERS = [
       'Rodgers–Tao (2020): Λ ≥ 0 — unconditional.',
       'Platt–Trudgian (2021): Λ ≤ 0.2 — peer-reviewed upper-bound benchmark.',
       'Public 2026 package claim: Λ ≤ 0.1875 — listed and locally repaired, but unrefereed.',
-      'Standalone private review repository: Λ ≤ 0.1787854 — unreviewed computer-assisted candidate for an unconditional proof; bound not established; not peer reviewed; not RH.',
+      'standalone repository: Λ ≤ 0.1787854 — computer-assisted candidate for an unconditional proof; bound not established; not peer reviewed; not RH.',
     ],
   },
   {
@@ -429,7 +429,7 @@ const SOTA_TIERS = [
     bg: RED_A(0.07),
     items: [
       CAUGHT_OVERCLAIMS.length + ' claims overreached the evidence and were corrected (see Corrections Log below).',
-      'No legacy Dyson/Volterra overclaim beats its stated benchmark; the thin-strip framing is structurally dead (imp-2630). The separate Λ ≤ 0.1787854 package uses a different fixed-height route, but remains an unreviewed computer-assisted candidate whose bound is not established.',
+      'No legacy Dyson/Volterra overclaim beats its stated benchmark; the thin-strip framing is structurally dead (imp-2630). The separate Λ ≤ 0.1787854 package uses a different fixed-height route, but remains a computer-assisted candidate whose bound is not established.',
     ],
   },
 ];
@@ -982,7 +982,7 @@ export default function RigorDashboardPage() {
           borderRadius: 10, padding: '14px 18px', marginBottom: 24,
         }}>
           <div style={{ fontSize: 11, color: BLUE, fontFamily: MONO, marginBottom: 6 }}>
-            CURRENT PRIVATE-REVIEW CANDIDATE
+            CURRENT candidate
           </div>
           <div style={{ fontSize: 22, fontWeight: 700, color: 'var(--ink)', marginBottom: 4 }}>
             Λ ≤ {NEWMAN_LAMBDA_01787854_CANDIDATE.exactTarget.decimal}

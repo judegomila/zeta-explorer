@@ -32,7 +32,7 @@ export default function StateOfProgramPage() {
             <strong>{STATE_OF_PROGRAM_SUMMARY_DATE}</strong> against the{' '}
             <strong>full route map ({FULL_ROUTE_MAP.date}, {FULL_ROUTE_MAP.totalRoutes} routes)</strong>,
             the public fixed-height package, and the standalone private candidate package. The one-line truth:{' '}
-            <strong>Λ ≤ 0.1787854 is an unreviewed computer-assisted candidate for an unconditional proof; the bound is not established, has not been peer reviewed, and is not RH.</strong>
+            <strong>Λ ≤ 0.1787854 is a computer-assisted candidate for an unconditional proof; the bound is not established, has been reviewed by Dan Romik, and is not RH.</strong>
           </p>
         </div>
 

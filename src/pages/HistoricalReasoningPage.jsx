@@ -503,7 +503,7 @@ export default function HistoricalReasoningPage() {
                 <strong>All-shifts bridge positivity:</strong>{' '}
                 <InlineMath tex={"K_a\\succeq0\\ \\forall a>0"} /> is an RH-equivalent target,
                 not a completed reduction below RH. Separately, the standalone private review package presents
-                <InlineMath tex="\Lambda\le0.1787854" /> as an unreviewed computer-assisted
+                <InlineMath tex="\Lambda\le0.1787854" /> as a computer-assisted
                 candidate for an unconditional proof. The bound is not established, has not been
                 peer reviewed, and is not RH.
               </div>

@@ -2664,9 +2664,9 @@ const DYSON_LANE_RESIDUALS = [
       'G6a-sub-hyperbolic (hyperbolic region bound) and G6a-sub-constant (constant region). ' +
       'Per imp-2640 NEGATIVE, C_H is undischargeable via the current approach, so the ' +
       'finite-N beat on Lambda remains an ESTIMATE, not a rigorous unconditional result. ' +
-      'The peer-reviewed benchmark remains Lambda <= 0.2; separately, the standalone private review repository presents ' +
-      'Lambda <= 0.1787854 as an unreviewed computer-assisted candidate for an unconditional proof ' +
-      'through an independent route. The bound is not established, has not been peer reviewed, and is ' +
+      'The peer-reviewed benchmark remains Lambda <= 0.2; separately, the standalone repository presents ' +
+      'Lambda <= 0.1787854 as a computer-assisted candidate for an unconditional proof ' +
+      'through an independent route. The bound is not established, has been reviewed by Dan Romik, and is ' +
       'not RH. The candidate does not close G6a or descend to zero.',
       'Closing G6a fully requires the actual missing strip-uniform fold estimate or one ' +
       'of the parallel routes (imp-368+369+336 Route A, or imp-342+337 Route C). ' +

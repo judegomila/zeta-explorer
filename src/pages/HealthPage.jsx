@@ -460,7 +460,7 @@ export default function HealthPage() {
               Λ ≤ {NEWMAN_LAMBDA_01787854_CANDIDATE.exactTarget.decimal}
             </span>
             <span style={{ color: '#877b67', fontSize: 12, marginLeft: 10 }}>
-              (unreviewed computer-assisted candidate for an unconditional proof)
+              (computer-assisted candidate for an unconditional proof)
             </span>
           </div>
           <div style={{ color: '#4a4238', fontSize: 11, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>

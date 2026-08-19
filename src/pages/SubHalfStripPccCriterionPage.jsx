@@ -21,7 +21,7 @@ export default function SubHalfStripPccCriterionPage() {
         body={
           'Lemma W is OPEN and RH-adjacent — strictly stronger than the Density Hypothesis, not implied by Lindelöf. ' +
           'The reduction is rigorous GIVEN W (strip⇒Λ is de Bruijn 1950). Nothing here improves Λ≤0.2 (PT) or the ' +
-          'unreviewed 0.1787854 candidate; the lemma’s unconditional appearance in the literature is the only event ' +
+          '0.1787854 candidate; the lemma’s unconditional appearance in the literature is the only event ' +
           'this criterion certifies as a genuine crack. No false QED.'
         }
       />

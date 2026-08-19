@@ -163,7 +163,7 @@ export default function ProofOverviewPage() {
             <div className="card" style={{ borderLeft: '3px solid #b58a2e', padding: 16 }}>
               <h3 style={{ color: '#b58a2e', marginTop: 0 }}>Evidence, not proof</h3>
               <ul style={{ color: '#4a4238', fontSize: 13, lineHeight: 1.75, paddingLeft: 18 }}>
-                <li>Standalone private-review candidate <InlineMath tex="\Lambda\le0.1787854" /> (unreviewed and computer-assisted; bound not established).</li>
+                <li>candidate <InlineMath tex="\Lambda\le0.1787854" /> (and computer-assisted; bound not established).</li>
                 <li>Finite energy and curvature plots.</li>
                 <li>GUE-like numerical statistics for computed zeros.</li>
                 <li>Li coefficients checked over finite ranges.</li>
@@ -195,9 +195,9 @@ export default function ProofOverviewPage() {
             The old eight-step chain does not prove RH. Its most important self-correction is the
             separation between the exact algebraic Euler embedding and the physical LC analogy. The
             v70 shift-bridge formulation supplies a cleaner RH-equivalent target. Separately, the
-            standalone private review repository presents the positive bound <InlineMath tex="\Lambda\le0.1787854" /> as
-            an unreviewed computer-assisted candidate for an unconditional proof. The bound is not
-            established, has not been peer reviewed, and is not RH.
+            standalone repository presents the positive bound <InlineMath tex="\Lambda\le0.1787854" /> as
+            a computer-assisted candidate for an unconditional proof. The bound is not
+            established, has been reviewed by Dan Romik, and is not RH.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
             <Link to="/full-story" style={{ color: '#3f6b86' }}>Corrected full story</Link>

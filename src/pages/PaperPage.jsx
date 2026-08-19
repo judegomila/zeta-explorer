@@ -124,9 +124,9 @@ export default function PaperPage() {
         <Callout tone="brassDk" label="Standing">
           This page does not claim a proof of RH. The peer-reviewed benchmark used by the app is
           <InlineMath tex="\Lambda\le0.2" />. The public <InlineMath tex="0.1875" /> package is
-          unrefereed. The standalone private review repository presents the stronger{' '}
-          <InlineMath tex="\Lambda\le0.1787854" /> value as an unreviewed computer-assisted candidate
-          for an unconditional proof. The bound is not established, has not been peer reviewed, and is not RH.
+          unrefereed. The standalone repository presents the stronger{' '}
+          <InlineMath tex="\Lambda\le0.1787854" /> value as a computer-assisted candidate
+          for an unconditional proof. The bound is not established, has been reviewed by Dan Romik, and is not RH.
         </Callout>
 
         <Section number={1} title="Classical foundation">
@@ -260,7 +260,7 @@ export default function PaperPage() {
               color="var(--brass-dk)"
             />
             <StatusRow
-              label="private-review candidate"
+              label="candidate"
               value="Λ ≤ 0.1787854"
               status={`${candidate.finiteEvidence.rowCount.toLocaleString()} freshly replayed finite rows; corrected tail reports ${candidate.tailEvidence.checksPassed}/${candidate.tailEvidence.checksTotal} gates per precision. Unreviewed computer-assisted candidate for an unconditional proof; bound not established; not peer reviewed; not RH.`}
               color="var(--blue)"
@@ -277,9 +277,9 @@ export default function PaperPage() {
           <P>
             The twin-ladder program has produced useful coordinates, explicit algebraic
             self-corrections, a strict <InlineMath tex="PF_2" /> kernel result, a rigorous
-            <InlineMath tex="PF_5" /> obstruction, and an unreviewed computer-assisted candidate for an
+            <InlineMath tex="PF_5" /> obstruction, and a computer-assisted candidate for an
             unconditional proof of <InlineMath tex="\Lambda\le0.1787854" />. That candidate bound is not
-            established, has not been peer reviewed, and is not RH. The program has
+            established, has been reviewed by Dan Romik, and is not RH. The program has
             not supplied the non-circular all-shifts positivity theorem or the complete
             global residual inequality needed for RH; the surviving frontier is equivalent to RH.
           </P>

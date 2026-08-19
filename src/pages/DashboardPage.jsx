@@ -507,35 +507,6 @@ export default function DashboardPage() {
               ? new Date(lastVerified).toLocaleString()
               : (allDone ? new Date().toLocaleString() : 'Computing...')}
           </div>
-          <button
-            onClick={handleRecompute}
-            disabled={!allDone}
-            style={{
-              background: allDone ? '#3f6b86' : '#d5c9b2',
-              color: allDone ? '#fdfaf3' : '#877b67',
-              border: 'none',
-              borderRadius: 6,
-              padding: '8px 20px',
-              fontSize: 13,
-              fontWeight: 600,
-              cursor: allDone ? 'pointer' : 'not-allowed',
-              fontFamily: 'var(--ed-mono, var(--font-mono))',
-              transition: 'background 0.2s',
-            }}
-          >
-            Recompute All
-          </button>
-        </div>
-
-        {/* Shareable Status Card */}
-        <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #8c6a1d' }}>
-          <h3 style={{ color: '#8c6a1d', fontSize: 14, marginBottom: 12 }}>Shareable Proof Status Card</h3>
-          <p style={{ color: '#4a4238', fontSize: 12, marginBottom: 12 }}>
-            Generate a shareable image showing proof status. Click "Save as PNG" to download.
-          </p>
-          <Suspense fallback={<div style={{ color: '#877b67', fontSize: 12 }}>Loading card...</div>}>
-            <ProofStatusCard />
-          </Suspense>
         </div>
 
         {/* Navigation links */}

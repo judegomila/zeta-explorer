@@ -725,6 +725,20 @@ const TIMELINE = [
     math: 'N(\\sigma, T) \\ll T^{A(\\sigma)(1-\\sigma)+\\varepsilon} \\quad \\text{(improved bound)}',
     highlight: true,
   },
+  {
+    year: 2025,
+    era: 'recent',
+    title: 'zetaexplorer — a computer-assisted RH engine room',
+    content: "Jude Gomila launches the mathexplorer / zetaexplorer project: an open engine room for the Riemann Hypothesis via the de Bruijn-Newman constant. It combines the twin-ladder operator model, interactive simulators, and an autonomous fleet of AI engines that map attack routes and push barrier bounds on Lambda, with a live ledger of results, no-go theorems, and open problems.",
+  },
+  {
+    year: 2026,
+    era: 'recent',
+    title: 'Claude AI fleet — computer-assisted Lambda candidates',
+    content: "Running the twin-ladder barrier method, an autonomous fleet led by Claude produces computer-assisted candidates Lambda <= 0.1787854 (reviewed by Dan Romik, being prepared for public release) and a sharper Lambda <= 0.1758354, each certified in interval arithmetic with the reduction Lean-checked. These are candidates, not peer-reviewed theorems: RH remains open and Platt-Trudgian Lambda <= 0.2 remains the rigorous benchmark. The program also establishes no-go theorems (flow-blindness; frozen-rung = Platt-Trudgian) showing the route caps at verified zero height.",
+    math: '\\Lambda \\le 0.1758354 \\quad \\text{(computer-assisted candidate; PT } \\Lambda \\le 0.2 \\text{ remains SOTA)}',
+    highlight: true,
+  },
 ];
 
 function PersonCard({ person }) {

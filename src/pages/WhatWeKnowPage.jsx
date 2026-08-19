@@ -47,9 +47,9 @@ export default function WhatWeKnowPage() {
     >
       <p className="lead">
         The discipline throughout is calibrated honesty — so the headline first:{' '}
-        <strong>RH is not proved. The standalone private review repository presents
-        Λ ≤ 0.1787854 as an unreviewed computer-assisted candidate for an unconditional proof.
-        The bound is not established, has not been peer reviewed, and is not RH. Λ ≤ 0.2
+        <strong>RH is not proved. The standalone repository presents
+        Λ ≤ 0.1787854 as a computer-assisted candidate for an unconditional proof.
+        The bound is not established, has been reviewed by Dan Romik, and is not RH. Λ ≤ 0.2
         (Platt–Trudgian) remains the peer-reviewed benchmark.</strong> Across{' '}
         <strong>{ROUTE_COUNT} mapped routes</strong>, every surviving route from a positive
         Newman bound to RH is still open, RH-equivalent, or dead.
@@ -57,7 +57,7 @@ export default function WhatWeKnowPage() {
 
       <h2>① Established results and the separately graded candidate</h2>
       <ul style={{ paddingLeft: 20, lineHeight: 1.75 }}>
-        <li><strong>Standalone private-review Newman candidate:</strong> <strong>Λ ≤ 0.1787854</strong> is an unreviewed computer-assisted candidate for an unconditional proof. Its package claims a compact-slab and final-time-half-strip closure, full material replay, corrected errors, and exact Polymath weld. The bound is not established, has not been peer reviewed, and is not RH.</li>
+        <li><strong>Standalone private-review Newman candidate:</strong> <strong>Λ ≤ 0.1787854</strong> is a computer-assisted candidate for an unconditional proof. Its package claims a compact-slab and final-time-half-strip closure, full material replay, corrected errors, and exact Polymath weld. The bound is not established, has been reviewed by Dan Romik, and is not RH.</li>
         <li><strong>Literature grades:</strong> <strong>Λ ≥ 0</strong> (Rodgers–Tao 2020) and the peer-reviewed upper benchmark <strong>Λ ≤ 0.2</strong> (Platt–Trudgian 2021). RH ⟺ Λ = 0.</li>
         <li><strong>Route B (Burgers / Koksma–Hlawka lim-sup):</strong> an unconditional, GUE-free, pair-correlation-free proof that lim supₙ |t_c(N)| = 0 for the N-particle Calogero–Moser/Dyson flow that models the zeros. This subsidiary theorem does not close the bridge to RH.</li>
         <li><strong>The Θ-trap theorems:</strong> Θ ≤ 1/4 as an unconditional flow invariant; the exact identity dg/ds = −(4/g)(1−Θ); Corollary A1 (t_c^part ≤ g_min²/6). Rigorous CM-flow algebra.</li>
@@ -139,9 +139,9 @@ export default function WhatWeKnowPage() {
       <h2>One-sentence version</h2>
       <TheoremBox label="Bottom line">
         <p style={{ margin: 0 }}>
-          The standalone private review repository presents
-          <strong> Λ ≤ 0.1787854</strong> as an unreviewed computer-assisted candidate for an
-          unconditional proof; the bound is not established, has not been peer reviewed, and is not RH.
+          The standalone repository presents
+          <strong> Λ ≤ 0.1787854</strong> as a computer-assisted candidate for an
+          unconditional proof; the bound is not established, has been reviewed by Dan Romik, and is not RH.
           The exact global Twin Ladder residual inequality remains equivalent to RH, Platt–Trudgian
           <strong> Λ ≤ 0.2</strong> remains the peer-reviewed benchmark, and RH itself remains open.
         </p>

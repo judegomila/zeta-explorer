@@ -67,14 +67,14 @@ export default function PapersListPage() {
           </strong>
           <p style={{ marginTop: 8, marginBottom: 0, fontSize: 13.5, lineHeight: 1.75, color: 'var(--ink-soft)' }}>
             Nothing in this collection proves the Riemann Hypothesis. Platt &amp; Trudgian (2021),
-            &Lambda;&nbsp;&le;&nbsp;0.2, remains the peer-reviewed benchmark. The standalone private review repository
-            presents &Lambda;&nbsp;&le;&nbsp;0.1787854 as an unreviewed computer-assisted candidate for an
-            unconditional proof. The bound is not established, has not been peer reviewed, and is not RH.
+            &Lambda;&nbsp;&le;&nbsp;0.2, remains the peer-reviewed benchmark. The standalone repository
+            presents &Lambda;&nbsp;&le;&nbsp;0.1787854 as a computer-assisted candidate for an
+            unconditional proof. The bound is not established, has been reviewed by Dan Romik, and is not RH.
             The older finite-N Dyson &ldquo;beat&rdquo; remains an estimate:
             it rests on a many-body constant C_H that remains undischarged (no rigorous upper bound). The
             Volterra-operator collapse (&#8741;V&#8741;&nbsp;&le;&nbsp;1) is equivalent to RH, not a proof of it.
             Treat each saved paper according to its displayed evidence grade. The 0.1787854
-            draft has an intended unconditional logical form but remains unreviewed and unestablished.
+            draft has an intended unconditional logical form but remains reviewed by Dan Romik.
           </p>
         </div>
 

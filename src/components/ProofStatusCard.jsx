@@ -101,7 +101,7 @@ export default function ProofStatusCard() {
     ctx.font = '9px "JetBrains Mono", monospace';
     ctx.fillStyle = '#64748b';
     ctx.textAlign = 'right';
-    ctx.fillText('* unreviewed computer-assisted candidate; bound not established; not RH', w - 20, statsY + 52);
+    ctx.fillText('* computer-assisted candidate; bound not established; not RH', w - 20, statsY + 52);
 
     // Key result
     ctx.fillStyle = '#1e293b';

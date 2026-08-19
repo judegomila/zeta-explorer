@@ -11,7 +11,7 @@ const FINDINGS = [
   { to: '/flow-blindness-no-go', grade: 'NO-GO', date: '2026-08', isNew: true,
     title: 'Flow-blindness: soft ⇏ RH', desc: 'Backward heat flow stays soft yet breaks RH; a proof needs arithmetic input.' },
   { to: '/lambda-01758354-candidate', grade: 'CANDIDATE', date: '2026-08', isNew: true,
-    title: 'Λ ≤ 0.1758354', desc: 'Four gates certified in Arb, Lean-checked. Sharper than 0.1787854.' },
+    title: 'Λ ≤ 0.1758354', desc: 'Four gates certified in Arb, Lean-checked. Below the 0.1787854 candidate.' },
   { to: '/frozen-rung-pt-equivalence', grade: 'THEOREM', date: '2026-07', isNew: true,
     title: 'Freezing rungs = Platt–Trudgian', desc: 'Inertia locks the frozen-ladder route to verified height.' },
   { to: '/newman-lambda-01787854-candidate', grade: 'CANDIDATE', date: '2026',
@@ -54,8 +54,8 @@ export default function HomePageEditorial() {
         <div>
           <div className="ed-lbl">Riemann Hypothesis · de Bruijn–Newman constant Λ</div>
           <h1>Exploring the <em className="ed-terra">Riemann Hypothesis</em>.</h1>
-          <div className="ed-stand">RH ⇔ Λ = 0. This is a live record of the attack: the twin-ladder model,
-            the interactive simulators, every barrier bound, and the theorems that show where the route ends.</div>
+          <div className="ed-stand">RH ⇔ Λ = 0. These pages cover the twin-ladder model, the interactive
+            simulators, the barrier bounds on Λ, and the no-go theorems that bound the approach.</div>
           <div style={{ marginTop: 22 }}>
             <div className="ed-lbl">the interval · Rodgers–Tao ≤ Λ ≤ Platt–Trudgian</div>
             <div className="ed-track">
@@ -114,7 +114,7 @@ export default function HomePageEditorial() {
       {/* a-dial control */}
       <div className="ed-full"><section className="ed-sec">
         <div className="ed-shead"><div><div className="ed-lbl">control</div><h2>The a-dial geometry</h2></div>
-          <p>The frontier as a live inequality.</p></div>
+          <p>The shift a, the residual norm ‖R‖, and the resulting strip half-width.</p></div>
         <div className="ed-ctl">
           <div><div className="ed-lbl">shift a · strip half-width Re s &gt; ½ + a</div>
             <input className="ed-slider" type="range" min="0" max="100" value={a} onChange={(e) => setA(Number(e.target.value))} />
@@ -169,9 +169,9 @@ export default function HomePageEditorial() {
       {/* cta */}
       <div className="ed-full"><section className="ed-sec" style={{ borderBottom: 'none' }}>
         <div className="ed-cta">
-          <div><div className="ed-lbl">go deeper</div>
-            <div style={{ fontFamily: 'var(--ed-display)', fontWeight: 500, fontSize: 20, marginTop: 2 }}>The full program — {NAV_GROUPS.length} sections</div>
-            <div style={{ color: 'var(--ink-soft)', fontSize: 14 }}>Simulators · analyses · the twin-ladder v70 series · proof tools · references — all organized in the directory.</div></div>
+          <div><div className="ed-lbl">directory</div>
+            <div style={{ fontFamily: 'var(--ed-display)', fontWeight: 500, fontSize: 20, marginTop: 2 }}>{NAV_GROUPS.length} sections</div>
+            <div style={{ color: 'var(--ink-soft)', fontSize: 14 }}>Simulators, analyses, the twin-ladder v70 series, proof tools, and references.</div></div>
           <div style={{ display: 'flex', gap: 10 }}>
             <Link className="ed-btn" to="/directory">Browse the directory →</Link>
             <Link className="ed-btn" to="/classic" style={{ background: 'transparent', color: 'var(--ink)', border: '1px solid var(--hairline)' }}>Classic console</Link>
@@ -179,7 +179,7 @@ export default function HomePageEditorial() {
         </div>
       </section></div>
 
-      <div className="ed-foot">zetaexplorer · a live record of one attack on the Riemann Hypothesis · Jude Gomila · <Link to="/classic">classic view</Link></div>
+      <div className="ed-foot">zetaexplorer · Riemann Hypothesis via the de Bruijn–Newman constant Λ · Jude Gomila · <Link to="/classic">classic view</Link></div>
     </div>
   );
 }

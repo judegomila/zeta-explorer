@@ -17,7 +17,7 @@ import {
 const STATUS_PALETTE = {
   ready:                { fg: '#10b981', bg: 'rgba(16,185,129,0.10)', border: 'rgba(16,185,129,0.35)', label: 'READY' },
   draft:                { fg: '#f59e0b', bg: 'rgba(245,158,11,0.10)', border: 'rgba(245,158,11,0.35)', label: 'DRAFT' },
-  withdrawn:            { fg: '#ef4444', bg: 'rgba(239,68,68,0.10)', border: 'rgba(239,68,68,0.35)', label: 'WITHDRAWN' },
+  withdrawn:            { fg: '#ef4444', bg: 'rgba(239,68,68,0.10)', border: 'rgba(239,68,68,0.35)', label: 'SUPERSEDED — NEVER PUBLISHED' },
   planned:              { fg: '#3b82f6', bg: 'rgba(59,130,246,0.10)', border: 'rgba(59,130,246,0.35)', label: 'PLANNED' },
   'research-grade-open':{ fg: '#ef4444', bg: 'rgba(239,68,68,0.10)',  border: 'rgba(239,68,68,0.35)',  label: 'RESEARCH OPEN' },
 };
@@ -212,9 +212,9 @@ export default function PapersDownloadPage() {
           Papers — release-ordered downloads
         </h1>
         <p style={{ color: '#94a3b8', fontSize: 14, margin: '8px 0 0 0' }}>
-          {readyCount} ready, {draftCount} referee draft, {withdrawnCount} withdrawn,{' '}
+          {readyCount} ready, {draftCount} referee draft, {withdrawnCount} superseded (never published),{' '}
           {plannedCount} planned / research-grade-open. Downloadability records
-          artifact availability, not mathematical acceptance; draft and withdrawn
+          artifact availability, not mathematical acceptance; draft and superseded
           status labels remain controlling.
         </p>
       </header>

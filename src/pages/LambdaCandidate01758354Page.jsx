@@ -11,12 +11,12 @@ export default function LambdaCandidate01758354Page() {
       grade="CANDIDATE"
       meta={['2026-08-18', 'computer-assisted', 'unrefereed']}
       title={<>Λ ≤ 0.1758354 — a four-gate barrier certificate</>}
-      dek={<>A sharper mollifier and an extended finite lane certify a de Bruijn–Newman bound below the 0.1787854 candidate. Four gates, each machine-checked in interval arithmetic; the reduction is Lean-checked. This is not a refereed result and does not displace Platt–Trudgian.</>}
+      dek={<>A revised mollifier and an extended finite lane certify a de Bruijn–Newman bound of 0.1758354, below the 0.1787854 candidate. Four gates, each machine-checked in interval arithmetic; the reduction is Lean-checked. This is not a refereed result and does not displace Platt–Trudgian.</>}
       byline={['Barrier program · mathexplorer', 'candidate — not SOTA']}
       ticker={<span>candidate · Λ ≤ <b>&nbsp;0.1758354</b></span>}
       footer={<>Related: <Link to="/newman-lambda-01787854-candidate">Λ ≤ 0.1787854 package</Link> · <Link to="/lambda-bounds">the bounds ledger</Link> · <Link to="/pt-floor-audit">what binds the floor</Link><br /><br />← <Link to="/">the atlas</Link></>}
     >
-      <p className="lead">The de Bruijn–Newman constant Λ satisfies RH ⇔ Λ ≤ 0, with Rodgers–Tao giving Λ ≥ 0 and Platt–Trudgian the rigorous upper bound Λ ≤ 0.2. This note records a computer-assisted candidate <InlineMath tex="\Lambda \le 0.1758354" />, obtained by pushing the mollified-barrier method to a stronger mollifier and a longer verified lane. It improves the earlier 0.1787854 candidate. It has not been refereed.</p>
+      <p className="lead">The de Bruijn–Newman constant Λ satisfies RH ⇔ Λ ≤ 0, with Rodgers–Tao giving Λ ≥ 0 and Platt–Trudgian the rigorous upper bound Λ ≤ 0.2. This note records a computer-assisted candidate <InlineMath tex="\Lambda \le 0.1758354" />, obtained from the mollified-barrier method with a revised mollifier and a longer verified lane. It is below the earlier 0.1787854 candidate. It has not been refereed.</p>
 
       <h2>The certificate</h2>
       <p>The bound is a barrier argument: on a strip of height X, the mollified function stays away from zero, and a tail estimate controls the rest. It reduces to four independent gates, each discharged by an interval-arithmetic (Arb) computation over an explicit grid.</p>
@@ -46,7 +46,7 @@ export default function LambdaCandidate01758354Page() {
       <Pull>The reduction to the four gates is Lean-checked; the gates themselves are Arb interval computations. Neither step is a referee. Λ ≤ 0.2 remains the state of the art.</Pull>
 
       <h2>Status</h2>
-      <p>This is a candidate: the reduction is formalized, the numerics are interval-rigorous, but the pipeline has not been independently audited end to end. It is recorded here as the sharpest bound the barrier method currently reaches — one click from <Link to="/newman-lambda-01787854-candidate">the 0.1787854 package</Link> it improves, and consistent with the finding that the <Link to="/pt-floor-audit">verified height binds the floor</Link>.</p>
+      <p>This is a candidate: the reduction is formalized, the numerics are interval-rigorous, but the pipeline has not been independently audited end to end. It is the lowest value the barrier method currently reaches, below <Link to="/newman-lambda-01787854-candidate">the 0.1787854 package</Link>, and consistent with the finding that the <Link to="/pt-floor-audit">verified height binds the floor</Link>.</p>
     </PostLayout>
   );
 }

@@ -62,13 +62,13 @@ export const PAPERS_RELEASE_MANIFEST = Object.freeze([
     id: 'gomila-finite-height-beat-2026-05',
     releaseOrder: 1,
     status: 'withdrawn',
-    title: '[WITHDRAWN] May 2026 finite-height manuscript',
+    title: '[SUPERSEDED — never published] May 2026 internal finite-height draft',
     authors: ['Jude Gomila'],
     abstractSummary:
-      'Withdrawn from the release surface after audit: the claimed Λ(10⁴) ≤ 0.018 ' +
+      'An internal draft, never published: the claimed Λ(10⁴) ≤ 0.018 ' +
       'unconditional beat depends on the undischarged many-body constant C_H. It is a ' +
       'model estimate, not a theorem or a state-of-the-art improvement. The binary remains ' +
-      'in repository history for provenance but is not a current publication.',
+      'in repository history for provenance only; it was never released or published.',
     pdfPath: null,
     fileSizeBytes: PAPER_PUBLICATION_META.fileSizeBytes,
     pageCount: PAPER_PUBLICATION_META.pageCount,

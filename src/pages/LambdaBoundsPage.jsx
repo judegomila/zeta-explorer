@@ -135,7 +135,7 @@ export default function LambdaBoundsPage() {
               borderRadius: 6,
               background: 'rgba(194,58,28,0.08)',
             }}>
-              May 2026 “unconditional beat” manuscript withdrawn: C_H was not discharged
+              The internal finite-height “beat” draft was never published: C_H is undischarged, so it stays an estimate
             </span>
           </div>
         </div>

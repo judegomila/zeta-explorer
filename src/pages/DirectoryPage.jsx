@@ -18,14 +18,12 @@ export default function DirectoryPage() {
     <div className="ed-root">
       <EditorialHeader ticker={<span>{converted}/{total} sections in the new design</span>} />
       <div className="ed-full" style={{ padding: '32px 34px 70px' }}>
-        <div className="ed-lbl">the complete directory</div>
-        <h1 className="ed-h1" style={{ fontSize: 'clamp(28px,4vw,40px)', marginTop: 8 }}>
-          Every part of the program, <em className="ed-terra">organized</em>.
-        </h1>
+        <div className="ed-lbl">directory</div>
+        <h1 className="ed-h1" style={{ fontSize: 'clamp(28px,4vw,40px)', marginTop: 8 }}>Directory</h1>
         <p style={{ color: 'var(--ink-soft)', fontSize: 17, maxWidth: '56ch', marginTop: 12 }}>
-          {NAV_GROUPS.length} sections · {total} pages. Pages already rebuilt in this design are
-          marked <span className="ed-new" style={{ display: 'inline-block', verticalAlign: 'middle' }} />;
-          the rest open in the classic view and are being converted in batches.
+          {NAV_GROUPS.length} sections, {total} pages. A marker
+          <span className="ed-new" style={{ display: 'inline-block', verticalAlign: 'middle', margin: '0 4px' }} />
+          indicates a page in the current design; unmarked pages open in the classic view.
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(320px,1fr))', gap: 22, marginTop: 34 }}>

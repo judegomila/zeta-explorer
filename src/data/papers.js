@@ -45,11 +45,11 @@ const builtinPapers = [
     authors: Array.from(PAPER_AUTHORS),
     date: PAPER_BUILT_AT.slice(0, 10),
     abstract:
-      'WITHDRAWN / SUPERSEDED. This historical manuscript labeled a finite-N value as a rigorous ' +
-      'unconditional Lambda bound, but the load-bearing many-body constant C_H was never discharged. ' +
-      'Its Lambda <= 0.018 headline is therefore an estimate inside the model, not a theorem and not an ' +
-      'improvement on the peer-reviewed Platt-Trudgian Lambda <= 0.2 benchmark. The current app keeps ' +
-      'the record for provenance while disabling release promotion.',
+      'SUPERSEDED INTERNAL DRAFT — never published. This early internal draft labeled a finite-N value ' +
+      'as a rigorous unconditional Lambda bound, but the load-bearing many-body constant C_H was never ' +
+      'discharged. Its Lambda <= 0.018 headline is therefore an estimate inside the model, not a theorem ' +
+      'and not an improvement on the peer-reviewed Platt-Trudgian Lambda <= 0.2 benchmark. It was never ' +
+      'released; the current app keeps the record for provenance only.',
     source: 'builtin',
     createdAt: PAPER_BUILT_AT,
   },

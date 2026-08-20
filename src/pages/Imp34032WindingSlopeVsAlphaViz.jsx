@@ -39,7 +39,11 @@ function WindingSlopeChart() {
   const analyticPoints = xs.map((x, i) => `${xAt(x)},${yAt(analyticYs[i])}`).join(' ');
 
   // Secondary trace: log10(1-R^2), all values negative and tiny, plotted on its own strip.
-  const logResiduals = residualYs.map((r) => Math.log10(r));
+  // Several rungs have an exact 1-R^2 = 0 (a perfect fit, below double precision); log10(0) = -Inf
+  // would poison the axis scale with NaN, so floor the residual at the ~2.2e-16 machine-epsilon level
+  // (i.e. "at or below measurable precision") before taking the log.
+  const RESID_FLOOR = 2.22e-16;
+  const logResiduals = residualYs.map((r) => Math.log10(Math.max(r, RESID_FLOOR)));
   const minLog = Math.min(...logResiduals);
   const maxLog = Math.max(...logResiduals);
   const padLog = (maxLog - minLog) * 0.15 || 1;

@@ -355,22 +355,30 @@ export const IMP34368_RESIDEXP_RESOLUTION_FLOOR_MEASUREMENT_ASSERTIONS = [
       FLOOR_MEASURED_VS_PREDICTED_RATIO < 3,
   },
   {
-    // (D) The imp-34228 ~4.3e-11 offset sits far BELOW the floor => not a resolvable real feature.
+    // (D) The imp-34228 live-vs-stored offset sits BELOW the resolution floor => not a resolvable real
+    // feature. NOTE: the exact offset locates a peak on a documented near-FLAT resid_exp hump (2nd
+    // deriv ~ -0.036), so a last-ULP difference in Math.exp/log between JS engines relocates it by
+    // ~1e-8 (node measures ~4.3e-11, browser V8 ~2.2e-8) -- its magnitude is NOT engine-reproducible.
+    // The reproducible, honest claim is only that it stays below the floor (ratio > 1 => unresolvable).
     id: 'imp34368-offset-below-floor-not-a-feature',
-    description: 'the imp-34228 ~4.3e-11 offset is ~1600x below the ~7e-8 floor, deep inside evaluation noise',
+    description:
+      'the imp-34228 live-vs-stored offset sits below the ~7e-8 resolution floor (unresolvable, inside ' +
+      'evaluation noise); its exact magnitude is flat-peak/engine-dependent, only its sub-floor scale is robust',
     holds: () =>
-      OFFSET_LIVE_VS_STORED > 1e-11 &&
-      OFFSET_LIVE_VS_STORED < 1e-10 &&
-      FLOOR_TO_OFFSET_RATIO > 200,
+      OFFSET_LIVE_VS_STORED > 0 &&
+      OFFSET_LIVE_VS_STORED < FLOOR_PREDICTED &&
+      FLOOR_TO_OFFSET_RATIO > 1,
   },
   {
     // (E) An analytic/finite-difference derivative root does NOT beat the floor -- same noise band.
+    // As with (D), the derivative-root/live-peak gap is a flat-peak quantity whose exact value is not
+    // engine-reproducible; the robust claim is that it lands inside the band and stays below the floor.
     id: 'imp34368-derivative-does-not-lower-floor',
-    description: 'derivative-root lands inside the same ~9e-8 band, ~1.4e-8 (>> 4.3e-11) from the live peak',
+    description: 'derivative-root lands inside the resolution band, below the ~7e-8 floor (does not beat it)',
     holds: () =>
       DERIV_ROOT_INSIDE_BAND &&
-      DERIV_VS_LIVE_GAP > OFFSET_LIVE_VS_STORED * 50 &&
-      DERIV_VS_LIVE_GAP < 3e-7,
+      DERIV_VS_LIVE_GAP > 0 &&
+      DERIV_VS_LIVE_GAP < FLOOR_PREDICTED,
   },
   {
     // Honesty gate: measurement only, isRigorous false, resolves the named sub-gap, no QED, PT SOTA.

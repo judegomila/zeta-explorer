@@ -49,7 +49,7 @@ function recentProofImprovements(improvements, limit = 10) {
   return [...improvements]
     .reverse()
     .filter((i) =>
-      typeof i.summary === 'string' && /imp-3[0-9]{2}|proof/.test(i.summary),
+      i && typeof i.summary === 'string' && /imp-3[0-9]{2}|proof/.test(i.summary),
     )
     .slice(0, limit);
 }
@@ -789,7 +789,7 @@ git log --oneline -10                    # engine commits`}
                   <div style={{ fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 10, color: 'var(--faint)' }}>
                     #{imp.id} • {imp.timestamp}
                   </div>
-                  <div style={{ fontSize: 12, marginTop: 4 }}>{imp.summary.slice(0, 200)}</div>
+                  <div style={{ fontSize: 12, marginTop: 4 }}>{(imp.summary || imp.title || '').slice(0, 200)}</div>
                 </div>
               ))}
             </div>

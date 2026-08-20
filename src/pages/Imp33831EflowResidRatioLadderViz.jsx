@@ -3,11 +3,12 @@ import PageHeader from '../components/PageHeader.jsx';
 import { IMP33810_EFLOW_RESID_RATIO_N_LADDER } from '../data/imp-33810-eflow-resid-ratio-N-ladder.js';
 
 const { ladder, ratioTrend } = IMP33810_EFLOW_RESID_RATIO_N_LADDER;
-const {
-  imp33773_M2_head_resid_over_eflow: HEAD_ROE,
-  imp33773_M2_tail_resid_over_eflow: TAIL_ROE,
-  same_sign_positive: SAME_SIGN,
-} = ratioTrend;
+// The head/tail resid_over_eflow ratios come straight off the ladder's first/last rungs
+// (k=6 -> ~2.1x, k=11 -> ~1927x). (An earlier revision destructured imp33773_M2_* keys that
+// ratioTrend no longer carries, which rendered these undefined and crashed the page on .toFixed.)
+const HEAD_ROE = ladder[0].resid_over_eflow;
+const TAIL_ROE = ladder[ladder.length - 1].resid_over_eflow;
+const SAME_SIGN = ratioTrend.same_sign_positive;
 
 function EflowResidRatioChart() {
   const svgW = 720;

@@ -48,21 +48,26 @@ function ResidueComparisonBars() {
       {rows.map((r, i) => {
         const xCenter = padL + slot * i + slot / 2;
         const x = xCenter - barW / 2;
-        const top = yAt(r.residue);
-        const bottom = yAt(0);
+        // The residues are negative, so the bar hangs from the zero line down to yAt(residue).
+        // Use min/abs so the SVG rect y/height are valid for either sign (a raw bottom-top went
+        // negative for negative residues, which SVG rejects).
+        const yZero = yAt(0);
+        const yVal = yAt(r.residue);
+        const rectY = Math.min(yZero, yVal);
+        const rectH = Math.abs(yVal - yZero);
         const isQuadratic = i === 1;
         return (
           <g key={r.label}>
             <rect
               x={x}
-              y={top}
+              y={rectY}
               width={barW}
-              height={bottom - top}
+              height={rectH}
               fill={isQuadratic ? '#34d399' : '#f472b6'}
               stroke="#0a0f1a"
               strokeWidth={0.75}
             />
-            <text x={xCenter} y={top - 6} textAnchor="middle" fill="#94a3b8" fontSize={9} fontFamily="monospace">
+            <text x={xCenter} y={rectY - 6} textAnchor="middle" fill="#94a3b8" fontSize={9} fontFamily="monospace">
               {r.residue.toExponential(4)}
             </text>
             <text x={xCenter} y={padT + cH + 18} textAnchor="middle" fill="#cbd5e1" fontSize={9.5}>

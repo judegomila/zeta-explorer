@@ -64,10 +64,15 @@ export const IMP35772_SLOPE_CC = logLogSlope(
 const IMP35772_ASSERTIONS = [
   {
     id: 'imp35772-oshift-matches-prefactor-at-both-landmarks',
-    description: 'the C_C/std s_min ratio at both landmarks matches the baked prefactor ratio ~2.0467',
+    description:
+      'the C_C/std s_min ratio at both landmarks matches the baked prefactor ratio ~2.0467 to within ' +
+      'the 4-significant-figure rounding floor of the baked s_min literals',
+    // The s_min values are baked to 4 sig figs, so the ratio of two of them can only reproduce the
+    // exact prefactor to ~2e-4 (N_cross: 1.336e-3/6.527e-4 = 2.04688 vs 2.04665, diff 2.3e-4). A 2e-4
+    // tolerance was tighter than the input rounding and failed at import; 1e-3 matches the 4-sig-fig floor.
     holds: () =>
       IMP35772_LANDMARK_GRID.every(
-        (r) => Math.abs(r.sMinCC / r.sMinStd - IMP35772_PREFACTOR_RATIO) < 2e-4,
+        (r) => Math.abs(r.sMinCC / r.sMinStd - IMP35772_PREFACTOR_RATIO) < 1e-3,
       ),
   },
   {

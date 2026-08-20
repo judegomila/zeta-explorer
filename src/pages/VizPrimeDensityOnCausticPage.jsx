@@ -14,10 +14,17 @@
 // with an orange excess curve showing (profile - baseline) above zero.
 //
 // Zoom + pan: mouse-wheel to zoom around the cursor; drag to pan.
+//
+// Editorial (warm) re-theme: full-width ed-root/ed-full shell, identical
+// structure/data/geometry. The canvas draw()/drawProfile() painting logic
+// (colormap, grid overlay, profile chart colors) is left EXACTLY as-is --
+// only the surrounding page chrome (header, stat cards, control panels,
+// borders, links, footer) is re-skinned with the warm palette.
 
 import React, { useRef, useEffect, useState, useMemo, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { getPrimes } from '../math/primes.js';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
 const TWO_PI = 2 * Math.PI;
 const mono = 'var(--font-mono)';
@@ -285,129 +292,152 @@ export default function VizPrimeDensityOnCausticPage() {
   const isZoomed = tViewMin > T_MIN + 0.5 || tViewMax < T_MAX - 0.5;
 
   return (
-    <div className="page">
-      <div className="page-header">
-        <h1>Prime Density on Caustics (imp-2717)</h1>
-        <p className="page-subtitle">
-          Each pixel (t, k) is bright when prime p_k lies inside the caustic
-          window at height t: |t&thinsp;log&thinsp;p_k mod 2pi| &lt; eps.
-          X-axis: t in [{tViewMin.toFixed(1)}, {tViewMax.toFixed(1)}]; Y-axis: prime index
-          from p_1 = 2 (top) to p_N (bottom). Brightness encodes
-          sigma-weighted amplitude p_k^(-sigma). Lower chart: coherent fraction
-          per t-column (purple bars) vs PNT baseline (grey dashed) and excess
-          above baseline (orange curve).{' '}
-          <strong style={{ color: '#94a3b8' }}>Scroll to zoom, drag to pan.</strong>
-        </p>
-        <div style={{ marginTop: 10, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-          <Link to="/visual-geometries" style={{ color: '#64748b', fontFamily: mono, fontSize: 12 }}>
-            &larr; Visual Geometries
-          </Link>
-          <Link to="/viz-prime-caustic" style={{ color: '#f59e0b', fontFamily: mono, fontSize: 12 }}>
-            Prime Caustic (sigma x t heatmap)
-          </Link>
-          <Link to="/viz-prime-phase-crystal" style={{ color: '#22c55e', fontFamily: mono, fontSize: 12 }}>
-            Prime Phase Crystal
-          </Link>
-        </div>
-      </div>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>viz &middot; prime density caustic</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
 
-      <div style={{
-        marginTop: 14,
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(152px, 1fr))',
-        gap: 10,
-      }}>
-        <Stat label="N primes"         value={String(Math.min(nPrimes, PRIMES.length))} />
-        <Stat label="eps (rad)"        value={eps.toFixed(2)} />
-        <Stat label="sigma"            value={sigma.toFixed(2)} />
-        <Stat label="PNT baseline"     value={(pntBaseline * 100).toFixed(1) + '%'} accent="#94a3b8" />
-        <Stat label="cols > baseline"  value={String(aboveBaseline) + ' / ' + GRID_W} accent="#a855f7" />
-        <Stat label="render (ms)"      value={String(renderMs)} />
-      </div>
-
-      <div style={{ display: 'flex', gap: 16, marginTop: 14, flexWrap: 'wrap', alignItems: 'center' }}>
-        <div className="control-group">
-          <label>N primes</label>
-          <input type="range" min="50" max={PRIMES.length} step="50" value={nPrimes}
-                 onChange={e => setNPrimes(+e.target.value)} />
-          <span className="control-value">{nPrimes}</span>
-        </div>
-        <div className="control-group">
-          <label>eps (rad)</label>
-          <input type="range" min="0.05" max="0.6" step="0.05" value={eps}
-                 onChange={e => setEps(+e.target.value)} />
-          <span className="control-value">{eps.toFixed(2)}</span>
-        </div>
-        <div className="control-group">
-          <label>sigma</label>
-          <input type="range" min="0.1" max="0.9" step="0.05" value={sigma}
-                 onChange={e => setSigma(+e.target.value)} />
-          <span className="control-value">{sigma.toFixed(2)}</span>
-        </div>
-        {isZoomed && (
-          <button
-            onClick={() => { setTViewMin(T_MIN); setTViewMax(T_MAX); }}
-            style={{
-              padding: '4px 10px', fontSize: 11, cursor: 'pointer',
-              background: 'var(--bg-panel)', border: '1px solid var(--border)',
-              borderRadius: 6, color: '#94a3b8', fontFamily: mono,
+        <div style={{ marginBottom: 24 }}>
+          <h1 className="ed-h1" style={{ marginBottom: 10 }}>Prime Density on Caustics</h1>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: 760 }}>
+            Each pixel (t, k) is bright when prime p_k lies inside the caustic
+            window at height t: |t&thinsp;log&thinsp;p_k mod 2pi| &lt; eps.
+            X-axis: t in [{tViewMin.toFixed(1)}, {tViewMax.toFixed(1)}]; Y-axis: prime index
+            from p_1 = 2 (top) to p_N (bottom). Brightness encodes
+            sigma-weighted amplitude p_k^(-sigma). Lower chart: coherent fraction
+            per t-column (purple bars) vs PNT baseline (grey dashed) and excess
+            above baseline (orange curve).{' '}
+            <strong style={{ color: 'var(--brass-dk)' }}>Scroll to zoom, drag to pan.</strong>
+          </p>
+          <div style={{ marginTop: 10, display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center' }}>
+            <Link to="/visual-geometries" style={{
+              color: 'var(--brass)', fontFamily: mono, fontSize: 12, textDecoration: 'none',
+              padding: '4px 10px', border: '1px solid var(--brass)', borderRadius: 6,
             }}>
-            Reset zoom
-          </button>
-        )}
-      </div>
-
-      <div style={{ marginTop: 14, background: 'var(--bg-panel)', border: '1px solid var(--border)',
-                    borderRadius: 8, padding: 10 }}>
-        <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)',
-                      letterSpacing: 0.5, marginBottom: 6, fontFamily: mono }}>
-          Prime index (Y) vs t (X) &mdash; bright = in caustic window
-          {isZoomed && (
-            <span style={{ color: '#f97316', marginLeft: 8 }}>
-              t=[{tViewMin.toFixed(1)}, {tViewMax.toFixed(1)}]
+              &larr; Visual Geometries
+            </Link>
+            <Link to="/viz-prime-caustic" style={{
+              color: 'var(--brass-dk)', fontFamily: mono, fontSize: 12, textDecoration: 'none',
+              padding: '4px 10px', border: '1px solid var(--hairline)', borderRadius: 6,
+            }}>
+              Prime Caustic (sigma x t heatmap)
+            </Link>
+            <Link to="/viz-prime-phase-crystal" style={{
+              color: 'var(--green)', fontFamily: mono, fontSize: 12, textDecoration: 'none',
+              padding: '4px 10px', border: '1px solid var(--hairline)', borderRadius: 6,
+            }}>
+              Prime Phase Crystal
+            </Link>
+            <span style={{
+              color: 'var(--faint)', fontFamily: mono, fontSize: 11,
+              padding: '4px 10px', border: '1px solid var(--hairline)', borderRadius: 6,
+            }}>
+              imp-2717
             </span>
+          </div>
+        </div>
+
+        <div style={{
+          marginTop: 14,
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(152px, 1fr))',
+          gap: 10,
+        }}>
+          <Stat label="N primes"         value={String(Math.min(nPrimes, PRIMES.length))} />
+          <Stat label="eps (rad)"        value={eps.toFixed(2)} />
+          <Stat label="sigma"            value={sigma.toFixed(2)} />
+          <Stat label="PNT baseline"     value={(pntBaseline * 100).toFixed(1) + '%'} accent="var(--faint)" />
+          <Stat label="cols > baseline"  value={String(aboveBaseline) + ' / ' + GRID_W} accent="#a855f7" />
+          <Stat label="render (ms)"      value={String(renderMs)} />
+        </div>
+
+        <div style={{ display: 'flex', gap: 16, marginTop: 14, flexWrap: 'wrap', alignItems: 'center' }}>
+          <div className="control-group">
+            <label>N primes</label>
+            <input type="range" min="50" max={PRIMES.length} step="50" value={nPrimes}
+                   onChange={e => setNPrimes(+e.target.value)} />
+            <span className="control-value">{nPrimes}</span>
+          </div>
+          <div className="control-group">
+            <label>eps (rad)</label>
+            <input type="range" min="0.05" max="0.6" step="0.05" value={eps}
+                   onChange={e => setEps(+e.target.value)} />
+            <span className="control-value">{eps.toFixed(2)}</span>
+          </div>
+          <div className="control-group">
+            <label>sigma</label>
+            <input type="range" min="0.1" max="0.9" step="0.05" value={sigma}
+                   onChange={e => setSigma(+e.target.value)} />
+            <span className="control-value">{sigma.toFixed(2)}</span>
+          </div>
+          {isZoomed && (
+            <button
+              onClick={() => { setTViewMin(T_MIN); setTViewMax(T_MAX); }}
+              style={{
+                padding: '4px 10px', fontSize: 11, cursor: 'pointer',
+                background: 'var(--paper2)', border: '1px solid var(--hairline)',
+                borderRadius: 6, color: 'var(--ink-soft)', fontFamily: mono,
+              }}>
+              Reset zoom
+            </button>
           )}
         </div>
-        <canvas ref={canvasRef}
-                onMouseDown={handleMouseDown}
-                onMouseMove={handleMouseMove}
-                onMouseUp={handleMouseUp}
-                onMouseLeave={handleMouseUp}
-                style={{ width: '100%', maxWidth: GRID_W, height: 'auto', display: 'block',
-                         border: '1px solid #1e293b', borderRadius: 4,
-                         imageRendering: 'pixelated', cursor: 'grab' }} />
-      </div>
 
-      <div style={{ marginTop: 10, background: 'var(--bg-panel)', border: '1px solid var(--border)',
-                    borderRadius: 8, padding: 10 }}>
-        <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)',
-                      letterSpacing: 0.5, marginBottom: 6, fontFamily: mono }}>
-          Coherent prime fraction per t-column: purple bars, PNT baseline (grey dashed), excess (orange)
+        <div className="card" style={{ marginTop: 14, background: 'var(--paper2)', border: '1px solid var(--hairline)',
+                      borderRadius: 8, padding: 10 }}>
+          <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--faint)',
+                        letterSpacing: 0.5, marginBottom: 6, fontFamily: mono }}>
+            Prime index (Y) vs t (X) &mdash; bright = in caustic window
+            {isZoomed && (
+              <span style={{ color: 'var(--terra-dk)', marginLeft: 8 }}>
+                t=[{tViewMin.toFixed(1)}, {tViewMax.toFixed(1)}]
+              </span>
+            )}
+          </div>
+          <canvas ref={canvasRef}
+                  onMouseDown={handleMouseDown}
+                  onMouseMove={handleMouseMove}
+                  onMouseUp={handleMouseUp}
+                  onMouseLeave={handleMouseUp}
+                  style={{ width: '100%', maxWidth: GRID_W, height: 'auto', display: 'block',
+                           border: '1px solid var(--ink)', borderRadius: 4,
+                           imageRendering: 'pixelated', cursor: 'grab' }} />
         </div>
-        <canvas ref={profileRef}
-                style={{ width: '100%', maxWidth: GRID_W, height: 'auto', display: 'block',
-                         border: '1px solid #1e293b', borderRadius: 4,
-                         imageRendering: 'pixelated' }} />
-      </div>
 
-      <div style={{ marginTop: 12, fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.65 }}>
-        <strong style={{ color: '#cbd5e1' }}>Reading the map.</strong>{' '}
-        Vertical streaks indicate heights t where many primes align simultaneously
-        (caustic bands). Horizontal structure shows which primes (small vs large)
-        are most resonant: the top rows (small primes, large log p) have wider
-        resonance windows at any t; the bottom rows (large primes) form thinner
-        arcs because their log p values are more uniformly spread. The lower
-        profile chart compares the fraction of primes inside the caustic window
-        to the PNT baseline eps/pi; peaks above the dashed line mark genuine
-        multiplicative resonances (log(p_i/p_j) = 2pi*k/t for small k). The
-        orange difference curve isolates the excess above the PNT baseline.
-        Use the mouse wheel to zoom into any interesting band; drag to pan.
-        <br /><br />
-        <strong style={{ color: '#94a3b8' }}>Scope:</strong> this is an
-        exploratory geometric visualization. The caustic structure is real and
-        arithmetic, but per the{' '}
-        <Link to="/route-map" style={{ color: '#64748b' }}>route map</Link>{' '}
-        it does not provide a rigorous bound on Lambda beyond the known &Lambda; &ge; 0.
+        <div className="card" style={{ marginTop: 10, background: 'var(--paper2)', border: '1px solid var(--hairline)',
+                      borderRadius: 8, padding: 10 }}>
+          <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--faint)',
+                        letterSpacing: 0.5, marginBottom: 6, fontFamily: mono }}>
+            Coherent prime fraction per t-column: purple bars, PNT baseline (grey dashed), excess (orange)
+          </div>
+          <canvas ref={profileRef}
+                  style={{ width: '100%', maxWidth: GRID_W, height: 'auto', display: 'block',
+                           border: '1px solid var(--ink)', borderRadius: 4,
+                           imageRendering: 'pixelated' }} />
+        </div>
+
+        <div style={{ marginTop: 12, fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.65 }}>
+          <strong style={{ color: 'var(--ink)' }}>Reading the map.</strong>{' '}
+          Vertical streaks indicate heights t where many primes align simultaneously
+          (caustic bands). Horizontal structure shows which primes (small vs large)
+          are most resonant: the top rows (small primes, large log p) have wider
+          resonance windows at any t; the bottom rows (large primes) form thinner
+          arcs because their log p values are more uniformly spread. The lower
+          profile chart compares the fraction of primes inside the caustic window
+          to the PNT baseline eps/pi; peaks above the dashed line mark genuine
+          multiplicative resonances (log(p_i/p_j) = 2pi*k/t for small k). The
+          orange difference curve isolates the excess above the PNT baseline.
+          Use the mouse wheel to zoom into any interesting band; drag to pan.
+          <br /><br />
+          <strong style={{ color: 'var(--faint)' }}>Scope:</strong> this is an
+          exploratory geometric visualization. The caustic structure is real and
+          arithmetic, but per the{' '}
+          <Link to="/route-map" style={{ color: 'var(--faint)' }}>route map</Link>{' '}
+          it does not provide a rigorous bound on Lambda beyond the known &Lambda; &ge; 0.
+        </div>
+
+        <div style={{ marginTop: 16, fontSize: 11, color: 'var(--faint)', fontFamily: mono, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+          <Link to="/" style={{ color: 'var(--terra-dk)' }}>&larr; the atlas</Link>
+        </div>
       </div>
     </div>
   );
@@ -415,16 +445,16 @@ export default function VizPrimeDensityOnCausticPage() {
 
 function Stat({ label, value, accent }) {
   return (
-    <div style={{
-      background: 'var(--bg-panel)',
-      border: '1px solid var(--border)',
+    <div className="card" style={{
+      background: 'var(--paper2)',
+      border: '1px solid var(--hairline)',
       borderRadius: 8,
       padding: 10,
     }}>
-      <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: 0.5 }}>
+      <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--faint)', letterSpacing: 0.5 }}>
         {label}
       </div>
-      <div style={{ marginTop: 4, fontSize: 16, fontFamily: mono, color: accent || '#e2e8f0' }}>
+      <div style={{ marginTop: 4, fontSize: 16, fontFamily: mono, color: accent || 'var(--ink)' }}>
         {value}
       </div>
     </div>

@@ -113,6 +113,23 @@ export const EDITORIAL_ROUTES = new Set([
   '/selberg-trace',
   '/rh-equivalents',
   '/state-of-program',
+  // Visualizations group (wave A; vortex-field + wave B pending)
+  '/visualizations',
+  '/cayley-schur-trajectory',
+  '/viz-hyperbolic-prime-spiral',
+  '/viz-log-phase-spiral',
+  '/viz-euler-transport-flow',
+  '/hardy-z',
+  '/viz-volterra-kernel-heatmap',
+  '/viz-volterra-norm-curve',
+  '/viz-twin-ladder-tomography',
+  '/viz-prime-caustic',
+  '/viz-prime-density-caustic',
+  '/viz-caustic-resonance',
+  '/viz-prime-phase-crystal',
+  '/visual-geometries',
+  '/viz-near-zero',
+  '/viz-winding-dyson-flow',
 ]);
 
 export function isEditorialRoute(pathname) {

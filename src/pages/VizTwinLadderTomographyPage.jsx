@@ -27,6 +27,7 @@ import { Link } from 'react-router-dom';
 import { VIZ_TWIN_LADDER_TOMOGRAPHY } from '../data/viz-twin-ladder-tomography.js';
 import { zetaCriticalStrip } from '../math/zeta.js';
 import FreshnessStamp from '../components/FreshnessStamp.jsx';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
 // ---------------------------------------------------------------------------
 // Geometry / compute parameters (must match the data-module record).
@@ -104,6 +105,41 @@ function sigmaToDisplayX(sigma) {
 function tToDisplayY(t, tMax) {
   return CANVAS_DISPLAY - ((t - T_MIN) / (tMax - T_MIN)) * CANVAS_DISPLAY;
 }
+
+// ---------------------------------------------------------------------------
+// Editorial (warm) chrome styles -- literal hex, no var(). The canvas /
+// overlay drawing code above (viridis table, zero-dot colors, crosshair)
+// is left EXACTLY as-is; only the surrounding page chrome is re-themed.
+// ---------------------------------------------------------------------------
+
+const ED = {
+  subtitle: { color: '#877b67', fontSize: 14, marginBottom: 4, lineHeight: 1.6 },
+  code: { color: '#8c6a1d' },
+  panel: {
+    marginTop: 18, padding: 14,
+    background: '#f6f1e7', border: '1px solid #d5c9b2', borderRadius: 8,
+  },
+  label: { fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 11, color: '#4a4238', marginBottom: 6 },
+  btn: (sel) => ({
+    padding: '6px 14px',
+    borderRadius: 6,
+    fontFamily: 'var(--ed-mono, var(--font-mono))',
+    fontSize: 12,
+    cursor: 'pointer',
+    background: sel ? 'rgba(140,106,29,0.14)' : 'rgba(28,24,20,0.03)',
+    color: sel ? '#8c6a1d' : '#4a4238',
+    border: '1px solid ' + (sel ? '#8c6a1d' : '#d5c9b2'),
+  }),
+  checkboxLabel: {
+    display: 'flex', alignItems: 'center', gap: 8,
+    fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12, color: '#4a4238', cursor: 'pointer',
+  },
+  statusMono: { fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 11, color: '#877b67' },
+  axisLabel: { fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 10, color: '#877b67' },
+  cardTitleA: { color: '#8c6a1d' },
+  cardTitleB: { color: '#3f6b86' },
+  cardBody: { fontSize: 13, color: '#4a4238', lineHeight: 1.6 },
+};
 
 // ---------------------------------------------------------------------------
 // Component.
@@ -334,36 +370,27 @@ export default function VizTwinLadderTomographyPage() {
   const handleCanvasMouseLeave = useCallback(() => setHoverInfo(null), []);
 
   return (
-    <div className="page">
-      <div className="page-header">
-        <h1>{VIZ_TWIN_LADDER_TOMOGRAPHY.title} <FreshnessStamp date="2026-06-25" /></h1>
-        <p className="page-subtitle">
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>viz &middot; twin-ladder tomography</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <h1 className="ed-h1">{VIZ_TWIN_LADDER_TOMOGRAPHY.title} <FreshnessStamp date="2026-06-25" /></h1>
+        <p style={ED.subtitle}>
           A 2D Canvas heatmap of the twin-ladder product{' '}
-          <code style={{ color: '#a5b4fc' }}>P(sigma, t) = |zeta(sigma + i t)| * |zeta((1 - sigma) + i t)|</code>{' '}
-          over <code style={{ color: '#a5b4fc' }}>(sigma, t) in [{SIGMA_MIN}, {SIGMA_MAX}] x [{T_MIN}, {tMax}]</code>{' '}
-          at <code style={{ color: '#a5b4fc' }}>{RES}x{RES}</code> resolution. The functional equation
-          {' '}<code style={{ color: '#a5b4fc' }}>zeta(s) = chi(s) zeta(1 - s)</code>{' '}
-          with <code style={{ color: '#a5b4fc' }}>|chi(1/2 + i t)| = 1</code> makes the two factors
-          complex-conjugate partners on the critical line <code style={{ color: '#a5b4fc' }}>sigma = 1/2</code>,
-          which then collapses to <code style={{ color: '#a5b4fc' }}>P(1/2, t) = |zeta(1/2 + i t)|^2</code>{' '}
+          <code style={ED.code}>P(sigma, t) = |zeta(sigma + i t)| * |zeta((1 - sigma) + i t)|</code>{' '}
+          over <code style={ED.code}>(sigma, t) in [{SIGMA_MIN}, {SIGMA_MAX}] x [{T_MIN}, {tMax}]</code>{' '}
+          at <code style={ED.code}>{RES}x{RES}</code> resolution. The functional equation
+          {' '}<code style={ED.code}>zeta(s) = chi(s) zeta(1 - s)</code>{' '}
+          with <code style={ED.code}>|chi(1/2 + i t)| = 1</code> makes the two factors
+          complex-conjugate partners on the critical line <code style={ED.code}>sigma = 1/2</code>,
+          which then collapses to <code style={ED.code}>P(1/2, t) = |zeta(1/2 + i t)|^2</code>{' '}
           -- a horizontal interference minimum, punctuated by pinpoint nulls at every nontrivial
-          Riemann zero <code style={{ color: '#a5b4fc' }}>gamma_n</code>.
+          Riemann zero <code style={ED.code}>gamma_n</code>.
         </p>
-        <div style={{ marginTop: 10 }}>
-          <Link to="/" style={{ color: '#a855f7', fontFamily: 'var(--font-mono)', fontSize: 12 }}>
-            &larr; back to home
-          </Link>
-        </div>
-      </div>
 
       {/* Controls. */}
-      <div style={{
-        marginTop: 18, padding: 14,
-        background: 'var(--bg-panel)', border: '1px solid var(--border)', borderRadius: 8,
-        display: 'flex', flexWrap: 'wrap', gap: 24, alignItems: 'center',
-      }}>
+      <div style={{ ...ED.panel, display: 'flex', flexWrap: 'wrap', gap: 24, alignItems: 'center' }}>
         <div>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#cbd5e1', marginBottom: 6 }}>
+          <div style={ED.label}>
             t_max window
           </div>
           <div style={{ display: 'flex', gap: 6 }}>
@@ -375,15 +402,9 @@ export default function VizTwinLadderTomographyPage() {
                   onClick={() => setTMax(opt)}
                   disabled={progress > 0 && progress < 1}
                   style={{
-                    padding: '6px 14px',
-                    borderRadius: 6,
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: 12,
+                    ...ED.btn(sel),
                     cursor: (progress > 0 && progress < 1) ? 'wait' : 'pointer',
                     opacity: (progress > 0 && progress < 1) ? 0.5 : 1,
-                    background: sel ? 'rgba(168,85,247,0.18)' : 'rgba(255,255,255,0.04)',
-                    color: sel ? '#e9d5ff' : '#cbd5e1',
-                    border: '1px solid ' + (sel ? '#a855f7' : 'var(--border)'),
                   }}
                 >
                   {opt}
@@ -393,10 +414,7 @@ export default function VizTwinLadderTomographyPage() {
           </div>
         </div>
 
-        <label style={{
-          display: 'flex', alignItems: 'center', gap: 8,
-          fontFamily: 'var(--font-mono)', fontSize: 12, color: '#cbd5e1', cursor: 'pointer',
-        }}>
+        <label style={ED.checkboxLabel}>
           <input
             type="checkbox"
             checked={showZerosOverlay}
@@ -405,35 +423,31 @@ export default function VizTwinLadderTomographyPage() {
           Overlay first 25 known zeros on sigma=1/2 (red dots)
         </label>
 
-        <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11, color: '#94a3b8' }}>
+        <div style={{ marginLeft: 'auto', ...ED.statusMono }}>
           {progress < 1 ? (
             <span>computing... {Math.round(progress * 100)}%</span>
           ) : hoverInfo ? (
             <span>
-              <strong style={{ color: '#fef08a' }}>sigma</strong> = {hoverInfo.sigma.toFixed(3)}
-              {' '}&middot; <strong style={{ color: '#fef08a' }}>t</strong> = {hoverInfo.t.toFixed(3)}
-              {' '}&middot; <strong style={{ color: '#fef08a' }}>P</strong> = {hoverInfo.p.toExponential(3)}
+              <strong style={{ color: '#8c6a1d' }}>sigma</strong> = {hoverInfo.sigma.toFixed(3)}
+              {' '}&middot; <strong style={{ color: '#8c6a1d' }}>t</strong> = {hoverInfo.t.toFixed(3)}
+              {' '}&middot; <strong style={{ color: '#8c6a1d' }}>P</strong> = {hoverInfo.p.toExponential(3)}
             </span>
           ) : (
             <span>
-              compute: <strong style={{ color: '#86efac' }}>{computeMs != null ? (computeMs / 1000).toFixed(1) : '-'} s</strong>
-              {' '}&middot; min P = <strong style={{ color: '#86efac' }}>{vMin != null ? vMin.toExponential(2) : '-'}</strong>
-              {' '}&middot; max P = <strong style={{ color: '#86efac' }}>{vMax != null ? vMax.toFixed(2) : '-'}</strong>
+              compute: <strong style={{ color: '#4c7a4a' }}>{computeMs != null ? (computeMs / 1000).toFixed(1) : '-'} s</strong>
+              {' '}&middot; min P = <strong style={{ color: '#4c7a4a' }}>{vMin != null ? vMin.toExponential(2) : '-'}</strong>
+              {' '}&middot; max P = <strong style={{ color: '#4c7a4a' }}>{vMax != null ? vMax.toFixed(2) : '-'}</strong>
             </span>
           )}
         </div>
       </div>
 
       {/* Heatmap with overlay. */}
-      <div style={{
-        marginTop: 18, padding: 12,
-        background: 'var(--bg-panel)', border: '1px solid var(--border)', borderRadius: 8,
-        display: 'flex', gap: 16,
-      }}>
+      <div style={{ ...ED.panel, padding: 12, display: 'flex', gap: 16 }}>
         {/* Y-axis (t). */}
         <div style={{
           width: 44, position: 'relative', height: CANVAS_DISPLAY,
-          fontFamily: 'var(--font-mono)', fontSize: 10, color: '#94a3b8',
+          ...ED.axisLabel,
         }}>
           {tTicks.map((tv) => {
             const y = tToDisplayY(tv, tMax);
@@ -484,12 +498,12 @@ export default function VizTwinLadderTomographyPage() {
             background: 'linear-gradient(to top, '
               + '#440154, #482878, #3e4989, #31688e, #26828e, '
               + '#1f9e89, #35b779, #6ece58, #b5de2b, #fde725)',
-            border: '1px solid #334155',
+            border: '1px solid #d5c9b2',
           }} />
-          <div style={{ marginTop: 8, fontFamily: 'var(--font-mono)', fontSize: 10, color: '#94a3b8' }}>
+          <div style={{ marginTop: 8, ...ED.axisLabel }}>
             log(1 + P)
           </div>
-          <div style={{ marginTop: 4, fontFamily: 'var(--font-mono)', fontSize: 9, color: '#64748b' }}>
+          <div style={{ marginTop: 4, fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 9, color: '#877b67' }}>
             (viridis)
           </div>
         </div>
@@ -498,7 +512,7 @@ export default function VizTwinLadderTomographyPage() {
       {/* X-axis (sigma). */}
       <div style={{
         marginLeft: 60, width: CANVAS_DISPLAY, position: 'relative', height: 24,
-        fontFamily: 'var(--font-mono)', fontSize: 10, color: '#94a3b8',
+        ...ED.axisLabel,
       }}>
         {sigmaTicks.map((sv) => {
           const x = sigmaToDisplayX(sv);
@@ -506,7 +520,7 @@ export default function VizTwinLadderTomographyPage() {
             <div key={'xt-' + sv} style={{
               position: 'absolute',
               left: x - 18, top: 4, width: 36, textAlign: 'center',
-              color: Math.abs(sv - 0.5) < 1e-9 ? '#fca5a5' : '#94a3b8',
+              color: Math.abs(sv - 0.5) < 1e-9 ? '#c23a1c' : '#877b67',
               fontWeight: Math.abs(sv - 0.5) < 1e-9 ? 700 : 400,
             }}>
               {Math.abs(sv - 0.5) < 1e-9 ? 'sigma=1/2' : 'sigma=' + sv}
@@ -516,21 +530,16 @@ export default function VizTwinLadderTomographyPage() {
       </div>
 
       {/* Headline sample table. */}
-      <div style={{
-        marginTop: 18, padding: 12,
-        background: 'var(--bg-panel)', border: '1px solid var(--border)', borderRadius: 8,
-      }}>
-        <div style={{
-          fontFamily: 'var(--font-mono)', fontSize: 11, color: '#cbd5e1', marginBottom: 8,
-        }}>
+      <div style={ED.panel}>
+        <div style={{ ...ED.label, marginBottom: 8 }}>
           Headline samples (pre-computed at module load, used by build-time tripwires)
         </div>
         <table style={{
-          width: '100%', fontFamily: 'var(--font-mono)', fontSize: 11,
-          color: '#cbd5e1', borderCollapse: 'collapse',
+          width: '100%', fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 11,
+          color: '#4a4238', borderCollapse: 'collapse',
         }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+            <tr style={{ borderBottom: '1px solid #d5c9b2' }}>
               <th style={{ textAlign: 'left',  padding: '6px 8px' }}>sample</th>
               <th style={{ textAlign: 'right', padding: '6px 8px' }}>sigma</th>
               <th style={{ textAlign: 'right', padding: '6px 8px' }}>t</th>
@@ -541,15 +550,15 @@ export default function VizTwinLadderTomographyPage() {
           </thead>
           <tbody>
             {VIZ_TWIN_LADDER_TOMOGRAPHY.headlineSamples.map((r, i) => (
-              <tr key={'hs-' + i} style={{ borderBottom: '1px solid rgba(71,85,105,0.3)' }}>
-                <td style={{ padding: '6px 8px', color: '#e9d5ff' }}>{r.label}</td>
+              <tr key={'hs-' + i} style={{ borderBottom: '1px solid rgba(213,201,178,0.5)' }}>
+                <td style={{ padding: '6px 8px', color: '#8c6a1d' }}>{r.label}</td>
                 <td style={{ padding: '6px 8px', textAlign: 'right' }}>{r.sigma.toFixed(3)}</td>
                 <td style={{ padding: '6px 8px', textAlign: 'right' }}>{r.t.toFixed(4)}</td>
                 <td style={{ padding: '6px 8px', textAlign: 'right' }}>{r.absZetaSigma.toExponential(3)}</td>
                 <td style={{ padding: '6px 8px', textAlign: 'right' }}>{r.absZeta1MinusSigma.toExponential(3)}</td>
                 <td style={{
                   padding: '6px 8px', textAlign: 'right',
-                  color: r.product < 1e-6 ? '#86efac' : '#cbd5e1',
+                  color: r.product < 1e-6 ? '#4c7a4a' : '#4a4238',
                   fontWeight: r.product < 1e-6 ? 700 : 400,
                 }}>{r.product.toExponential(3)}</td>
               </tr>
@@ -561,19 +570,19 @@ export default function VizTwinLadderTomographyPage() {
       {/* Math + references panel. */}
       <div className="two-col" style={{ marginTop: 18 }}>
         <div className="card">
-          <h3 style={{ color: '#a855f7' }}>Math: why sigma = 1/2 reads as an interference minimum</h3>
-          <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+          <h3 style={ED.cardTitleA}>Math: why sigma = 1/2 reads as an interference minimum</h3>
+          <p style={ED.cardBody}>
             The completed zeta function satisfies the functional equation{' '}
-            <code style={{ color: '#a5b4fc' }}>zeta(s) = chi(s) zeta(1 - s)</code>{' '}
-            where the phase factor <code style={{ color: '#a5b4fc' }}>chi(s)</code> has
+            <code style={ED.code}>zeta(s) = chi(s) zeta(1 - s)</code>{' '}
+            where the phase factor <code style={ED.code}>chi(s)</code> has
             unit modulus exactly on the critical line:{' '}
-            <code style={{ color: '#a5b4fc' }}>|chi(1/2 + i t)| = 1</code> for real t.
+            <code style={ED.code}>|chi(1/2 + i t)| = 1</code> for real t.
             Substituting s = 1/2 + i t gives{' '}
-            <code style={{ color: '#a5b4fc' }}>|zeta(1/2 + i t)| = |zeta(1/2 - i t)|</code>,
+            <code style={ED.code}>|zeta(1/2 + i t)| = |zeta(1/2 - i t)|</code>,
             and since zeta(s_bar) = zeta(s)_bar this is the same as{' '}
-            <code style={{ color: '#a5b4fc' }}>|zeta(1/2 + i t)|</code> itself.
+            <code style={ED.code}>|zeta(1/2 + i t)|</code> itself.
             So along sigma = 1/2 the two factors COLLAPSE to a single magnitude squared:{' '}
-            <code style={{ color: '#a5b4fc' }}>P(1/2, t) = |zeta(1/2 + i t)|^2</code>.
+            <code style={ED.code}>P(1/2, t) = |zeta(1/2 + i t)|^2</code>.
             Off the critical line the two factors fluctuate INDEPENDENTLY of one
             another (there is no chi-symmetry to lock them together), and their
             product is generically larger. Hence the horizontal trough at sigma = 1/2,
@@ -581,8 +590,8 @@ export default function VizTwinLadderTomographyPage() {
           </p>
         </div>
         <div className="card">
-          <h3 style={{ color: '#06b6d4' }}>How to read the heatmap</h3>
-          <ul style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.7, paddingLeft: 20 }}>
+          <h3 style={ED.cardTitleB}>How to read the heatmap</h3>
+          <ul style={{ ...ED.cardBody, lineHeight: 1.7, paddingLeft: 20 }}>
             <li>Color = <code>log(1 + P)</code> on a viridis ramp (purple = small, yellow = large).</li>
             <li>The vertical faint-white line marks sigma = 1/2.</li>
             <li>Red dots (when toggled) mark the first 25 Riemann zeros at (1/2, gamma_n).</li>
@@ -594,32 +603,37 @@ export default function VizTwinLadderTomographyPage() {
       </div>
 
       {/* References. */}
-      <div style={{
-        marginTop: 18, padding: 12,
-        background: 'var(--bg-panel)', border: '1px solid var(--border)', borderRadius: 8,
-      }}>
-        <div style={{
-          fontFamily: 'var(--font-mono)', fontSize: 11, color: '#cbd5e1', marginBottom: 8,
-        }}>
+      <div style={ED.panel}>
+        <div style={{ ...ED.label, marginBottom: 8 }}>
           References
         </div>
         <ul style={{
           margin: 0, paddingLeft: 18,
-          fontFamily: 'var(--font-mono)', fontSize: 10, color: '#94a3b8', lineHeight: 1.7,
+          fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 10, color: '#877b67', lineHeight: 1.7,
         }}>
           {VIZ_TWIN_LADDER_TOMOGRAPHY.references.map((r) => (
             <li key={r.key}>{r.citation}</li>
           ))}
         </ul>
         <div style={{
-          marginTop: 12, fontFamily: 'var(--font-mono)', fontSize: 10,
-          color: '#94a3b8', lineHeight: 1.6,
+          marginTop: 12, fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 10,
+          color: '#877b67', lineHeight: 1.6,
         }}>
           Scope: this page is a visualization scaffold, not a proof.
           The interference-minimum reading is a qualitative consequence of the
           functional equation and is not a new result.
           The zeta evaluator is {VIZ_TWIN_LADDER_TOMOGRAPHY.zetaEvaluator}.
         </div>
+      </div>
+
+      {/* Footer. */}
+      <div className="card" style={{ ...ED.panel, marginTop: 24 }}>
+        <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'center' }}>
+          <Link to="/" style={{ fontSize: 12, color: '#4a4238', textDecoration: 'none' }}>
+            &larr; the atlas
+          </Link>
+        </div>
+      </div>
       </div>
     </div>
   );

@@ -11,6 +11,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { VISUALIZATIONS_INDEX } from '../data/visualizations-index.js';
 
 // ── Per-bucket accent colors ────────────────────────────────────────────
@@ -68,7 +69,7 @@ function PreviewTomography({ stroke }) {
   return (
     <svg viewBox="0 0 100 100" width="100%" height="100%" aria-hidden="true">
       {cells}
-      <line x1="10" y1="80" x2="80" y2="10" stroke="#f8fafc" strokeWidth="0.8" strokeDasharray="2 2" />
+      <line x1="10" y1="80" x2="80" y2="10" stroke="#1c1814" strokeWidth="0.8" strokeDasharray="2 2" />
     </svg>
   );
 }
@@ -197,7 +198,7 @@ function PreviewKernel({ stroke }) {
   return (
     <svg viewBox="0 0 100 100" width="100%" height="100%" aria-hidden="true">
       {cells}
-      <line x1="10" y1="80" x2="80" y2="10" stroke="#f8fafc" strokeWidth="0.8" />
+      <line x1="10" y1="80" x2="80" y2="10" stroke="#1c1814" strokeWidth="0.8" />
     </svg>
   );
 }
@@ -366,7 +367,7 @@ function ShapeCrossing({ stroke, seed }) {
       <polyline points={a.join(' ')} fill="none" stroke={stroke} strokeWidth="1.4" />
       <polyline points={b.join(' ')} fill="none" stroke={c2} strokeWidth="1.3" />
       <circle cx={(8 + (cross / 100) * 84).toFixed(1)} cy={cy.toFixed(1)} r="2.2"
-              fill="none" stroke="#f8fafc" strokeWidth="0.9" />
+              fill="none" stroke="#1c1814" strokeWidth="0.9" />
     </svg>
   );
 }
@@ -460,7 +461,7 @@ function ShapeStacked({ stroke, seed }) {
     const s3 = total - s1 - s2;
     const x = 10 + i * (bw + gap);
     let y = 84;
-    const segs = [[s1, stroke, 0.85], [s2, c2, 0.85], [s3, '#f8fafc', 0.55]];
+    const segs = [[s1, stroke, 0.85], [s2, c2, 0.85], [s3, '#1c1814', 0.35]];
     segs.forEach(([h, fill, op], si) => {
       y -= h;
       bars.push(
@@ -799,9 +800,9 @@ function PreviewVortexField({ stroke }) {
       <circle cx="50" cy="32" r="1.6" fill={stroke} />
       <circle cx="50" cy="68" r="1.6" fill={stroke} />
       {/* winding +1 near top, -1 near bottom */}
-      <line x1="66" y1="32" x2="72" y2="32" stroke="#f8fafc" strokeWidth="1" />
-      <line x1="69" y1="29" x2="69" y2="35" stroke="#f8fafc" strokeWidth="1" />
-      <line x1="66" y1="68" x2="72" y2="68" stroke="#f8fafc" strokeWidth="1" />
+      <line x1="66" y1="32" x2="72" y2="32" stroke="#1c1814" strokeWidth="1" />
+      <line x1="69" y1="29" x2="69" y2="35" stroke="#1c1814" strokeWidth="1" />
+      <line x1="66" y1="68" x2="72" y2="68" stroke="#1c1814" strokeWidth="1" />
       <path d="M28,26 A20,20 0 0 1 38,20" fill="none" stroke={stroke} strokeWidth="0.9" opacity="0.6" />
       <path d="M62,74 A20,20 0 0 1 72,80" fill="none" stroke={stroke} strokeWidth="0.9" opacity="0.6" />
     </svg>
@@ -937,7 +938,7 @@ function PreviewPrimeDensityCaustic({ stroke }) {
   return (
     <svg {...SVG_PROPS}>
       {cells}
-      <polyline points={prof.join(' ')} fill="none" stroke="#f8fafc" strokeWidth="0.8" opacity="0.7" />
+      <polyline points={prof.join(' ')} fill="none" stroke="#1c1814" strokeWidth="0.8" opacity="0.7" />
     </svg>
   );
 }
@@ -1092,8 +1093,8 @@ function VizCard({ entry }) {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        background: 'var(--bg-panel)',
-        border: '1px solid var(--border)',
+        background: 'var(--paper2)',
+        border: '1px solid var(--hairline)',
         borderLeft: `3px solid ${accent}`,
         borderRadius: 8,
         padding: 16,
@@ -1107,7 +1108,7 @@ function VizCard({ entry }) {
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.transform = 'translateY(0)';
-        e.currentTarget.style.borderColor = 'var(--border)';
+        e.currentTarget.style.borderColor = 'var(--hairline)';
         e.currentTarget.style.borderLeftColor = accent;
       }}
     >
@@ -1118,8 +1119,8 @@ function VizCard({ entry }) {
             width: 60,
             height: 60,
             flexShrink: 0,
-            background: '#0a0e1a',
-            border: '1px solid #1e293b',
+            background: '#f6f1e7',
+            border: '1px solid #d5c9b2',
             borderRadius: 6,
             color: accent,
           }}
@@ -1130,7 +1131,7 @@ function VizCard({ entry }) {
           <div style={{
             fontSize: 16,
             fontWeight: 600,
-            color: 'var(--text-primary)',
+            color: 'var(--ink)',
             lineHeight: 1.3,
             marginBottom: 4,
           }}>
@@ -1152,7 +1153,7 @@ function VizCard({ entry }) {
         </div>
       </div>
       <p style={{
-        color: 'var(--text-secondary)',
+        color: 'var(--ink-soft)',
         fontSize: 13,
         lineHeight: 1.55,
         margin: 0,
@@ -1167,7 +1168,7 @@ function VizCard({ entry }) {
         alignItems: 'center',
         fontSize: 11,
         fontFamily: 'var(--font-mono)',
-        color: 'var(--text-muted)',
+        color: 'var(--faint)',
       }}>
         <span>{entry.ticket} · step {entry.pedagogicalStep}/6</span>
         <span style={{ color: accent }}>view &rarr;</span>
@@ -1178,11 +1179,11 @@ function VizCard({ entry }) {
         <div style={{
           marginTop: 8,
           paddingTop: 8,
-          borderTop: '1px solid var(--border)',
+          borderTop: '1px solid var(--hairline)',
           fontSize: 11,
           lineHeight: 1.5,
           fontStyle: 'italic',
-          color: 'var(--text-muted)',
+          color: 'var(--faint)',
         }}>
           ceiling: {entry.honestCeiling}
         </div>
@@ -1195,10 +1196,14 @@ function VizCard({ entry }) {
 export default function VisualizationsIndexPage() {
   const V = VISUALIZATIONS_INDEX;
   return (
-    <div className="page">
-      <div className="page-header">
-        <h1>{V.title}</h1>
-        <p className="page-subtitle">{V.intro}</p>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>visualizations</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+      <div style={{ marginBottom: 10 }}>
+        <h1 className="ed-h1">{V.title}</h1>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760, marginTop: 10 }}>
+          {V.intro}
+        </p>
       </div>
 
       {/* Card grid: 2x3 wide, 1xN narrow. We use minmax(280px, 1fr) so
@@ -1219,12 +1224,12 @@ export default function VisualizationsIndexPage() {
       {/* Scope */}
       <div
         className="card"
-        style={{ marginTop: 28, padding: 14, borderLeft: '3px solid #06b6d4' }}
+        style={{ marginTop: 28, padding: 14, borderLeft: '3px solid var(--blue)' }}
       >
         <div
           style={{
             fontSize: 11,
-            color: '#06b6d4',
+            color: 'var(--blue)',
             fontFamily: 'var(--font-mono)',
             textTransform: 'uppercase',
             letterSpacing: 0.4,
@@ -1235,7 +1240,7 @@ export default function VisualizationsIndexPage() {
         </div>
         <ul
           style={{
-            color: 'var(--text-secondary)',
+            color: 'var(--ink-soft)',
             fontSize: 13,
             lineHeight: 1.7,
             paddingLeft: 18,
@@ -1266,12 +1271,12 @@ export default function VisualizationsIndexPage() {
       {/* Paper source */}
       <div
         className="card"
-        style={{ marginTop: 20, padding: 14, borderLeft: '3px solid #f59e0b' }}
+        style={{ marginTop: 20, padding: 14, borderLeft: '3px solid var(--brass-dk)' }}
       >
         <div
           style={{
             fontSize: 11,
-            color: '#f59e0b',
+            color: 'var(--brass-dk)',
             fontFamily: 'var(--font-mono)',
             textTransform: 'uppercase',
             letterSpacing: 0.4,
@@ -1280,8 +1285,8 @@ export default function VisualizationsIndexPage() {
         >
           paper source
         </div>
-        <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.7, margin: 0 }}>
-          <code style={{ color: '#cbd5e1' }}>{V.paperSource.path}</code>{' '}
+        <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7, margin: 0 }}>
+          <code style={{ color: 'var(--ink)' }}>{V.paperSource.path}</code>{' '}
           &mdash; {V.paperSource.note}
         </p>
       </div>
@@ -1290,14 +1295,20 @@ export default function VisualizationsIndexPage() {
       <div
         style={{
           marginTop: 20,
+          paddingTop: 20,
+          borderTop: '1px solid var(--hairline)',
           fontSize: 11,
-          color: 'var(--text-muted)',
+          color: 'var(--faint)',
           lineHeight: 1.6,
           fontFamily: 'var(--font-mono)',
         }}
       >
         source: src/data/visualizations-index.js · ticket: {V.ticketId} ·{' '}
         renderer: src/pages/VisualizationsIndexPage.jsx
+        <p style={{ margin: '12px 0 0 0', fontFamily: 'var(--ed-body, inherit)', fontSize: 13 }}>
+          <Link to="/" style={{ color: 'var(--brass)' }}>&larr; the atlas</Link>
+        </p>
+      </div>
       </div>
     </div>
   );

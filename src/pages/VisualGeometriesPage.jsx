@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath } from '../components/KaTeXMath.jsx';
 import VizCeilingNote from '../components/VizCeilingNote.jsx';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
 function escapeXml(s) {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -36,20 +37,20 @@ function downloadPosterSVG(panels) {
     const y = titleH + PAD + row * (cardH + GAP);
     const blurbLines = wrapText(p.blurb, cardW - 28).slice(0, 4);
     const textRows = blurbLines.map((ln, li) =>
-      `<text x="${x + 14}" y="${y + 46 + li * 17}" font-family="sans-serif" font-size="11" fill="#94a3b8">${escapeXml(ln)}</text>`
+      `<text x="${x + 14}" y="${y + 46 + li * 17}" font-family="sans-serif" font-size="11" fill="#4a4238">${escapeXml(ln)}</text>`
     ).join('\n  ');
     cards += `
-  <rect x="${x}" y="${y}" width="${cardW}" height="${cardH}" rx="6" fill="#1e293b"/>
+  <rect x="${x}" y="${y}" width="${cardW}" height="${cardH}" rx="6" fill="#f6f1e7" stroke="#d5c9b2"/>
   <rect x="${x}" y="${y}" width="3" height="${cardH}" rx="1" fill="${p.color}"/>
   <text x="${x + 14}" y="${y + 25}" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="${p.color}">${escapeXml(p.title)}</text>
-  <text x="${x + cardW - 8}" y="${y + 25}" font-family="monospace" font-size="10" fill="#475569" text-anchor="end">#${p.n}</text>
+  <text x="${x + cardW - 8}" y="${y + 25}" font-family="monospace" font-size="10" fill="#877b67" text-anchor="end">#${p.n}</text>
   ${textRows}`;
   });
 
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
-  <rect width="${W}" height="${H}" fill="#0f172a"/>
-  <text x="${W / 2}" y="50" text-anchor="middle" font-family="Georgia,serif" font-size="26" fill="#f1f5f9">Visual Geometries of &#950;(s)</text>
-  <text x="${W / 2}" y="74" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#94a3b8">One field, many views &#8212; log-phase &#952; = t log n</text>
+  <rect width="${W}" height="${H}" fill="#f6f1e7"/>
+  <text x="${W / 2}" y="50" text-anchor="middle" font-family="Georgia,serif" font-size="26" fill="#1c1814">Visual Geometries of &#950;(s)</text>
+  <text x="${W / 2}" y="74" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#4a4238">One field, many views &#8212; log-phase &#952; = t log n</text>
   ${cards}
 </svg>`;
 
@@ -124,54 +125,61 @@ const PANELS = [
 
 export default function VisualGeometriesPage() {
   return (
-    <div className="page">
-      <div className="page-header">
-        <h1>Visual Geometries of ζ(s)</h1>
-        <p className="page-subtitle">
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>viz · geometries</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <h1 className="ed-h1" style={{ marginBottom: 10 }}>Visual Geometries of ζ(s)</h1>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: 760 }}>
           One field, many views. Every panel below is a window onto the same
-          object — the <strong>log-phase field</strong>{' '}
+          object — the <strong style={{ color: 'var(--ink)' }}>log-phase field</strong>{' '}
           <InlineMath tex={'\\theta = t\\,\\log n'} /> of ζ. Primes generate it;
           folding <InlineMath tex={'\\bmod\\ 2\\pi'} /> produces caustics, crystals
-          and spirals; the zeros are the <strong>phase vortices</strong> of{' '}
+          and spirals; the zeros are the <strong style={{ color: 'var(--ink)' }}>phase vortices</strong> of{' '}
           <InlineMath tex={'V_t = H_t^{\\prime}/H_t'} />. From the discrete (numbers) to
           the continuous (geometry), the twin ladder makes the invisible visible.
         </p>
         <button
           onClick={() => downloadPosterSVG(PANELS)}
-          style={{ marginTop: 14, padding: '6px 14px', fontSize: 12, cursor: 'pointer', background: 'rgba(99,102,241,0.12)', color: '#818cf8', border: '1px solid rgba(99,102,241,0.28)', borderRadius: 5, letterSpacing: '0.02em' }}
+          style={{ marginTop: 14, padding: '6px 14px', fontSize: 12, cursor: 'pointer', background: 'var(--paper2)', color: 'var(--brass-dk)', border: '1px solid var(--hairline)', borderRadius: 5, letterSpacing: '0.02em' }}
         >
           Export poster SVG
         </button>
-      </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
-        {PANELS.map((p) => (
-          <Link key={`${p.n}-${p.to}`} to={p.to} style={{ textDecoration: 'none' }}>
-            <div className="card" style={{ height: '100%', borderLeft: `3px solid ${p.color}`, transition: 'transform 0.12s' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 8 }}>
-                <h3 style={{ margin: 0, color: p.color, fontSize: 15 }}>{p.title}</h3>
-                <span style={{ fontSize: 11, color: '#475569', fontFamily: 'var(--font-mono)' }}>#{p.n}</span>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16, marginTop: 24 }}>
+          {PANELS.map((p) => (
+            <Link key={`${p.n}-${p.to}`} to={p.to} style={{ textDecoration: 'none' }}>
+              <div className="card" style={{ height: '100%', borderLeft: `3px solid ${p.color}`, transition: 'transform 0.12s' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 8 }}>
+                  <h3 style={{ margin: 0, color: p.color, fontSize: 15 }}>{p.title}</h3>
+                  <span style={{ fontSize: 11, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>#{p.n}</span>
+                </div>
+                <div style={{ margin: '8px 0', fontSize: 13 }}><InlineMath tex={p.tex} /></div>
+                <p style={{ fontSize: 12.5, color: 'var(--ink-soft)', lineHeight: 1.55, margin: 0 }}>{p.blurb}</p>
+                {p.ceiling ? (
+                  <p style={{ fontSize: 11, color: 'var(--faint)', fontStyle: 'italic', lineHeight: 1.5, margin: '8px 0 0', paddingTop: 6, borderTop: '1px solid var(--hairline)' }}>
+                    <strong style={{ fontStyle: 'normal', color: 'var(--ink-soft)' }}>Ceiling:</strong> {p.ceiling}
+                  </p>
+                ) : null}
               </div>
-              <div style={{ margin: '8px 0', fontSize: 13 }}><InlineMath tex={p.tex} /></div>
-              <p style={{ fontSize: 12.5, color: 'var(--text-secondary)', lineHeight: 1.55, margin: 0 }}>{p.blurb}</p>
-              {p.ceiling ? (
-                <p style={{ fontSize: 11, color: '#94a3b8', fontStyle: 'italic', lineHeight: 1.5, margin: '8px 0 0', paddingTop: 6, borderTop: '1px solid rgba(148,163,184,0.15)' }}>
-                  <strong style={{ fontStyle: 'normal' }}>Ceiling:</strong> {p.ceiling}
-                </p>
-              ) : null}
-            </div>
-          </Link>
-        ))}
-      </div>
+            </Link>
+          ))}
+        </div>
 
-      <div className="card" style={{ marginTop: 22, background: 'rgba(59,130,246,0.04)' }}>
-        <h3 style={{ marginTop: 0 }}>What the geometries actually show — honestly</h3>
-        <ul style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.7 }}>
-          <li><strong>Caustics = multiplicative resonances.</strong> Bright bands form where <InlineMath tex={'\\log(p_i/p_j)\\approx 2\\pi k/t'} /> — the same oscillatory structure as the explicit formula's <InlineMath tex={'x^{\\rho}'} /> kernel.</li>
-          <li><strong>Vortices = zeros.</strong> <InlineMath tex={'\\tfrac1{2\\pi}\\oint V_t\\cdot dz = \\pm 1'} /> is the argument principle; off-axis vortices would be off-axis zeros (RH false).</li>
-          <li><strong>Rigidity is the real content.</strong> Real primes give coherent caustics; randomized primes wash them out — the structure is arithmetic, not random.</li>
-          <VizCeilingNote claim="Λ ≥ 0 (vortex/winding thread)" ceiling="the twin-ladder geometry is a dead end as a rigorous Λ route" />
-        </ul>
+        <div className="card" style={{ marginTop: 22, background: 'var(--paper2)', border: '1px solid var(--hairline)', borderLeft: '3px solid var(--brass)' }}>
+          <h3 style={{ marginTop: 0, color: 'var(--ink)' }}>What the geometries actually show — honestly</h3>
+          <ul style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.7 }}>
+            <li><strong style={{ color: 'var(--ink)' }}>Caustics = multiplicative resonances.</strong> Bright bands form where <InlineMath tex={'\\log(p_i/p_j)\\approx 2\\pi k/t'} /> — the same oscillatory structure as the explicit formula's <InlineMath tex={'x^{\\rho}'} /> kernel.</li>
+            <li><strong style={{ color: 'var(--ink)' }}>Vortices = zeros.</strong> <InlineMath tex={'\\tfrac1{2\\pi}\\oint V_t\\cdot dz = \\pm 1'} /> is the argument principle; off-axis vortices would be off-axis zeros (RH false).</li>
+            <li><strong style={{ color: 'var(--ink)' }}>Rigidity is the real content.</strong> Real primes give coherent caustics; randomized primes wash them out — the structure is arithmetic, not random.</li>
+            <VizCeilingNote claim="Λ ≥ 0 (vortex/winding thread)" ceiling="the twin-ladder geometry is a dead end as a rigorous Λ route" />
+          </ul>
+        </div>
+
+        <div style={{ marginTop: 24, fontSize: 13, color: 'var(--ink-soft)', borderTop: '1px solid var(--hairline)', paddingTop: 20 }}>
+          <p style={{ margin: 0 }}>
+            <Link to="/">← the atlas</Link>
+          </p>
+        </div>
       </div>
     </div>
   );

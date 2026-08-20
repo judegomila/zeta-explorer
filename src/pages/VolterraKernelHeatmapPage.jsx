@@ -10,9 +10,15 @@
 //
 // UI: slider for a in {0.001, 0.01, 0.05, 0.2, 0.5, 1, 2}; Canvas rendering
 // with viridis colormap.
+//
+// Editorial (warm) re-theme: full-width ed-root/ed-full shell, identical
+// structure/data/content. The heatmap's data colormap (viridis) is left
+// exactly as-is; only the surrounding chrome (labels, borders, panels) is
+// re-skinned with literal warm hex values.
 
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 
 // ── de Bruijn-Newman Phi kernel ─────────────────────────────────────────────
@@ -135,7 +141,7 @@ function renderHeatmap(canvas, heatmap, N, maxKernel, logScale = true) {
   ctx.putImageData(imageData, 0, 0);
 
   // Draw axes labels.
-  ctx.fillStyle = '#000';
+  ctx.fillStyle = '#1c1814';
   ctx.font = '12px monospace';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'bottom';
@@ -182,155 +188,146 @@ export default function VolterraKernelHeatmapPage() {
   }, [heatmap, maxKernel, logScale]);
 
   return (
-    <div className="page-container">
-      <h1>Volterra Kernel Heatmap</h1>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>viz &middot; Volterra kernel heatmap</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <h1 className="ed-h1" style={{ marginBottom: 10 }}>Volterra Kernel Heatmap</h1>
 
-      <p>
-        Squared magnitude <InlineMath math="|k_{a,\Phi}(x,y)|^2" /> of the Volterra operator kernel:
-      </p>
-      <BlockMath math="k_{a,\Phi}(x, y) = \Phi(x) \Phi(y) \sinh(a(x - y)) \cdot \mathbf{1}_{0 \le y \le x}" />
+        <p style={{ color: '#4a4238', fontSize: 15, lineHeight: 1.6, maxWidth: 760 }}>
+          Squared magnitude <InlineMath math="|k_{a,\Phi}(x,y)|^2" /> of the Volterra operator kernel:
+        </p>
+        <BlockMath math="k_{a,\Phi}(x, y) = \Phi(x) \Phi(y) \sinh(a(x - y)) \cdot \mathbf{1}_{0 \le y \le x}" />
 
-      <p>
-        The heatmap reveals <strong>rank-1 concentration</strong>: the kernel's energy is
-        concentrated along the diagonal (x ≈ y), with exponential decay off-diagonal. This
-        structure explains why the {' '}
-        <Link to="/lambda-bounds">Hilbert-Schmidt bound</Link> (imp-1267) is so tight
-        — the operator has an effective rank-1 structure, making the HS-norm ≈ op-norm
-        to within <strong>2.02%</strong> (imp-1267).
-      </p>
-
-      <div className="viz-controls">
-        <div>
-          <label>
-            a ={' '}
-            <select value={a} onChange={(e) => setA(parseFloat(e.target.value))}>
-              {A_PRESETS.map((val) => (
-                <option key={val} value={val}>
-                  {val}
-                </option>
-              ))}
-            </select>
-          </label>
-        </div>
-
-        <div>
-          <label>
-            <input
-              type="checkbox"
-              checked={logScale}
-              onChange={(e) => setLogScale(e.target.checked)}
-            />
-            {' '}Log scale
-          </label>
-        </div>
-
-        {renderStatus === 'rendering' && <span>Rendering...</span>}
-        {renderStatus === 'error' && <span style={{ color: 'red' }}>Render error</span>}
-      </div>
-
-      <div className="viz-canvas-container">
-        <canvas
-          ref={canvasRef}
-          width={600}
-          height={600}
-          style={{
-            border: '1px solid #ccc',
-            display: 'block',
-            marginBottom: '20px',
-          }}
-        />
-        <div style={{ fontSize: '12px', color: '#666' }}>
-          x (left → right: 0 to 4) &nbsp;&nbsp;
-          y (bottom → top: 0 to 4)
-          <br />
-          Non-zero region: y ≤ x (lower triangle)
-        </div>
-      </div>
-
-      <div className="section">
-        <h3>Why 2.02%?</h3>
-        <p>
-          <strong>Rank-1 dominance:</strong> The Volterra kernel has a dominant eigenvector
-          localized near the diagonal. When the spectrum is dominated by a single mode, the
-          Hilbert-Schmidt norm (which sums all singular values squared) differs from the
-          operator norm (the largest singular value) by at most a constant factor. In this
-          case, that factor is ~1.02, yielding a 2.02% slack.
+        <p style={{ color: '#4a4238', fontSize: 15, lineHeight: 1.6, maxWidth: 760 }}>
+          The heatmap reveals <strong>rank-1 concentration</strong>: the kernel's energy is
+          concentrated along the diagonal (x &asymp; y), with exponential decay off-diagonal. This
+          structure explains why the {' '}
+          <Link to="/lambda-bounds" style={{ color: '#8c6a1d' }}>Hilbert-Schmidt bound</Link> (imp-1267) is so tight
+          — the operator has an effective rank-1 structure, making the HS-norm &asymp; op-norm
+          to within <strong>2.02%</strong> (imp-1267).
         </p>
 
-        <p>
-          <strong>Empirical support:</strong> From <Link to="/lambda-bounds">imp-1267</Link>, the
-          HS bound is{' '}
-          <InlineMath math="\sqrt{I_0 \cdot J_a}" /> where <InlineMath math="I_0 = 1.047 \times 10^{-2}" />
-          {' '}and <InlineMath math="J_a = \int_0^\infty \Phi(x)^2 \sinh^2(ax) dx" />.
-          At a = 0.5, this gives <InlineMath math="\approx 2.94 \times 10^{-4}" />, which
-          is ~1.6x the empirical operator norm (verified on 25 grid points from imp-1240).
-        </p>
+        <div className="viz-controls" style={{
+          margin: '20px 0',
+          padding: 10,
+          background: '#f6f1e7',
+          border: '1px solid #d5c9b2',
+          borderLeft: '3px solid #8c6a1d',
+          borderRadius: 8,
+        }}>
+          <div style={{ marginBottom: 10 }}>
+            <label style={{ marginRight: 20, color: '#1c1814' }}>
+              a ={' '}
+              <select
+                value={a}
+                onChange={(e) => setA(parseFloat(e.target.value))}
+                style={{ padding: 5, fontFamily: 'monospace' }}
+              >
+                {A_PRESETS.map((val) => (
+                  <option key={val} value={val}>
+                    {val}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
 
-        <p>
-          <strong>Closure:</strong> For <InlineMath math="a \in (0, 2]" />, the HS bound
-          proves <InlineMath math="\|V_{a,\Phi}\| \le 1" /> analytically. For a {'>'} 2, the bound
-          exceeds 1, marking the boundary of what HS can guarantee (see imp-1290, imp-1296).
-        </p>
+          <div style={{ marginBottom: 10 }}>
+            <label style={{ marginRight: 20, color: '#1c1814' }}>
+              <input
+                type="checkbox"
+                checked={logScale}
+                onChange={(e) => setLogScale(e.target.checked)}
+              />
+              {' '}Log scale
+            </label>
+          </div>
+
+          {renderStatus === 'rendering' && <span style={{ color: '#4a4238' }}>Rendering...</span>}
+          {renderStatus === 'error' && <span style={{ color: '#c23a1c' }}>Render error</span>}
+        </div>
+
+        <div style={{ margin: '20px 0', textAlign: 'center' }}>
+          <canvas
+            ref={canvasRef}
+            width={600}
+            height={600}
+            style={{
+              border: '1px solid #d5c9b2',
+              display: 'block',
+              margin: '0 auto 20px',
+            }}
+          />
+          <div style={{ fontSize: 12, color: '#877b67' }}>
+            x (left → right: 0 to 4) &nbsp;&nbsp;
+            y (bottom → top: 0 to 4)
+            <br />
+            Non-zero region: y ≤ x (lower triangle)
+          </div>
+        </div>
+
+        <div className="section" style={{
+          marginTop: 30,
+          padding: 15,
+          background: '#f6f1e7',
+          border: '1px solid #d5c9b2',
+          borderLeft: '3px solid #4c7a4a',
+          borderRadius: 8,
+        }}>
+          <h3 style={{ marginTop: 0, color: '#1c1814' }}>Why 2.02%?</h3>
+          <p style={{ color: '#4a4238', lineHeight: 1.6 }}>
+            <strong>Rank-1 dominance:</strong> The Volterra kernel has a dominant eigenvector
+            localized near the diagonal. When the spectrum is dominated by a single mode, the
+            Hilbert-Schmidt norm (which sums all singular values squared) differs from the
+            operator norm (the largest singular value) by at most a constant factor. In this
+            case, that factor is ~1.02, yielding a 2.02% slack.
+          </p>
+
+          <p style={{ color: '#4a4238', lineHeight: 1.6 }}>
+            <strong>Empirical support:</strong> From <Link to="/lambda-bounds" style={{ color: '#8c6a1d' }}>imp-1267</Link>, the
+            HS bound is{' '}
+            <InlineMath math="\sqrt{I_0 \cdot J_a}" /> where <InlineMath math="I_0 = 1.047 \times 10^{-2}" />
+            {' '}and <InlineMath math="J_a = \int_0^\infty \Phi(x)^2 \sinh^2(ax) dx" />.
+            At a = 0.5, this gives <InlineMath math="\approx 2.94 \times 10^{-4}" />, which
+            is ~1.6x the empirical operator norm (verified on 25 grid points from imp-1240).
+          </p>
+
+          <p style={{ color: '#4a4238', lineHeight: 1.6 }}>
+            <strong>Closure:</strong> For <InlineMath math="a \in (0, 2]" />, the HS bound
+            proves <InlineMath math="\|V_{a,\Phi}\| \le 1" /> analytically. For a {'>'} 2, the bound
+            exceeds 1, marking the boundary of what HS can guarantee (see imp-1290, imp-1296).
+          </p>
+        </div>
+
+        <div className="section" style={{
+          marginTop: 30,
+          padding: 15,
+          background: '#f6f1e7',
+          border: '1px solid #d5c9b2',
+          borderLeft: '3px solid #3f6b86',
+          borderRadius: 8,
+        }}>
+          <h3 style={{ marginTop: 0, color: '#1c1814' }}>References</h3>
+          <ul style={{ margin: '10px 0', paddingLeft: 20, color: '#4a4238' }}>
+            <li>
+              <Link to="/lambda-bounds" style={{ color: '#8c6a1d' }}>imp-1267</Link>: Hilbert-Schmidt bound derivation + numerical
+              verification
+            </li>
+            <li>
+              <Link to="/paper-audit-dashboard" style={{ color: '#8c6a1d' }}>Paper audit dashboard</Link>: Context for §25–27
+            </li>
+            <li>
+              <Link to="/lambda-bounds" style={{ color: '#8c6a1d' }}>Lambda bounds</Link>: Full RH reduction chain
+            </li>
+          </ul>
+        </div>
+
+        <div style={{ marginTop: 12, fontSize: 13, color: '#4a4238', borderTop: '1px solid #d5c9b2', paddingTop: 20 }}>
+          <p style={{ margin: '12px 0 0 0' }}>
+            <Link to="/" style={{ color: '#8c6a1d' }}>← the atlas</Link>
+          </p>
+        </div>
       </div>
-
-      <div className="section">
-        <h3>References</h3>
-        <ul>
-          <li>
-            <Link to="/lambda-bounds">imp-1267</Link>: Hilbert-Schmidt bound derivation + numerical
-            verification
-          </li>
-          <li>
-            <Link to="/paper-audit-dashboard">Paper audit dashboard</Link>: Context for §25–27
-          </li>
-          <li>
-            <Link to="/lambda-bounds">Lambda bounds</Link>: Full RH reduction chain
-          </li>
-        </ul>
-      </div>
-
-      <style>{`
-        .viz-controls {
-          margin: 20px 0;
-          padding: 10px;
-          background: #f5f5f5;
-          border-left: 3px solid #007bff;
-        }
-
-        .viz-controls > div {
-          margin-bottom: 10px;
-        }
-
-        .viz-controls label {
-          margin-right: 20px;
-        }
-
-        .viz-controls select {
-          padding: 5px;
-          font-family: monospace;
-        }
-
-        .viz-canvas-container {
-          margin: 20px 0;
-          text-align: center;
-        }
-
-        .section {
-          margin-top: 30px;
-          padding: 15px;
-          background: #fafafa;
-          border-left: 3px solid #28a745;
-        }
-
-        .section h3 {
-          margin-top: 0;
-        }
-
-        .section ul {
-          margin: 10px 0;
-          padding-left: 20px;
-        }
-      `}</style>
     </div>
   );
 }

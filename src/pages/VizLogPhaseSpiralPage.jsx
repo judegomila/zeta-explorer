@@ -19,9 +19,17 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { VIZ_LOG_PHASE_SPIRAL } from '../data/viz-log-phase-spiral.js';
 import { zetaCriticalStrip, cAbs } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
+
+// Editorial (warm) re-theme: identical math/canvas logic, warm chrome.
+// Canvas colors are literal warm hex (canvas fill/stroke can't use CSS vars):
+// paper2 #f6f1e7, ink #1c1814, ink-soft #4a4238, faint #877b67,
+// hairline #d5c9b2, brass #8c6a1d, terra-dk #c23a1c, blue #3f6b86.
+// The viridis ramp itself is a data-encoding scale (log10|zeta| amplitude),
+// left unchanged, same treatment as the other viz pages' heatmap ramps.
 
 // ── Viridis-style color ramp ─────────────────────────────────────────────
 // Five canonical viridis stops (Smith / Matplotlib). We sample by linearly
@@ -198,7 +206,7 @@ export default function VizLogPhaseSpiralPage() {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     // Background.
-    ctx.fillStyle = '#0a0e1a';
+    ctx.fillStyle = '#f6f1e7';
     ctx.fillRect(0, 0, W, H);
 
     // Geometry — disk centred in canvas, padded.
@@ -215,10 +223,10 @@ export default function VizLogPhaseSpiralPage() {
     ctx.translate(-cx, -cy);
 
     // Radial reference circles (every integer log(t+e)).
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = '#d5c9b2';
     ctx.lineWidth = 1;
     ctx.font = '10px "JetBrains Mono", monospace';
-    ctx.fillStyle = '#475569';
+    ctx.fillStyle = '#877b67';
     ctx.textAlign = 'left';
     ctx.textBaseline = 'middle';
     for (let k = 1; k <= Math.floor(rMax); k++) {
@@ -235,7 +243,7 @@ export default function VizLogPhaseSpiralPage() {
     }
 
     // Centre cross (theta = 0 axis = positive x).
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = '#d5c9b2';
     ctx.beginPath();
     ctx.moveTo(cx - (Math.min(W, H) / 2 - padPx), cy);
     ctx.lineTo(cx + (Math.min(W, H) / 2 - padPx), cy);
@@ -295,15 +303,15 @@ export default function VizLogPhaseSpiralPage() {
         const x = cx + rG * Math.cos(thetaG);
         const y = cy - rG * Math.sin(thetaG);
         // Outer halo + inner solid dot.
-        ctx.fillStyle = 'rgba(239,68,68,0.18)';
+        ctx.fillStyle = 'rgba(194,58,28,0.18)';
         ctx.beginPath();
         ctx.arc(x, y, 7, 0, Math.PI * 2);
         ctx.fill();
-        ctx.fillStyle = '#ef4444';
+        ctx.fillStyle = '#c23a1c';
         ctx.beginPath();
         ctx.arc(x, y, 3, 0, Math.PI * 2);
         ctx.fill();
-        ctx.fillStyle = '#fca5a5';
+        ctx.fillStyle = '#c23a1c';
         ctx.fillText('γ' + (n + 1), x + 8, y);
       }
     }
@@ -328,7 +336,7 @@ export default function VizLogPhaseSpiralPage() {
         const rR = Math.log(tRes + Math.E) * scale;
         const xR = cx + rR * Math.cos(thetaR);
         const yR = cy - rR * Math.sin(thetaR);
-        ctx.fillStyle = 'rgba(20,184,166,0.55)';
+        ctx.fillStyle = 'rgba(63,107,134,0.55)';
         ctx.beginPath();
         ctx.arc(xR, yR, 2.5, 0, Math.PI * 2);
         ctx.fill();
@@ -338,7 +346,7 @@ export default function VizLogPhaseSpiralPage() {
     ctx.restore();
 
     // Footer label — drawn in screen space, outside zoom+pan transform.
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = '#877b67';
     ctx.font = '11px "JetBrains Mono", monospace';
     ctx.textAlign = 'left';
     ctx.fillText('r = log(t+e) · θ = arg ζ(½+it)', 12, H - 12);
@@ -368,44 +376,44 @@ export default function VizLogPhaseSpiralPage() {
   const handleMouseUp = () => { isDragging.current = false; };
 
   return (
-    <div className="page">
-      <div className="page-header">
-        <h1>{V.title}</h1>
-        <p className="page-subtitle">
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>viz &middot; log-phase spiral</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <h1 className="ed-h1" style={{ marginBottom: 6 }}>{V.title}</h1>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
           {V.description}
         </p>
         <div style={{ marginTop: 10, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
           <Link
             to="/explorations"
-            style={{ color: '#a855f7', fontFamily: 'var(--font-mono)', fontSize: 12 }}
+            style={{ color: 'var(--blue)', fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12 }}
           >
             &larr; back to Explorations
           </Link>
           <Link
             to="/visualizations"
-            style={{ color: '#64748b', fontFamily: 'var(--font-mono)', fontSize: 12 }}
+            style={{ color: 'var(--ink-soft)', fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12 }}
           >
             &larr; Visualizations gallery
           </Link>
           <Link
             to="/route-map"
-            style={{ color: '#64748b', fontFamily: 'var(--font-mono)', fontSize: 12 }}
+            style={{ color: 'var(--ink-soft)', fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12 }}
           >
             &larr; Route Map
           </Link>
         </div>
-      </div>
 
       {/* Formula card */}
       <div
         className="card"
-        style={{ marginTop: 18, padding: 14, borderLeft: '3px solid #a855f7' }}
+        style={{ marginTop: 18, padding: 14, background: 'var(--paper2)', border: '1px solid var(--hairline)', borderLeft: '3px solid var(--blue)' }}
       >
         <div
           style={{
             fontSize: 11,
-            color: '#a855f7',
-            fontFamily: 'var(--font-mono)',
+            color: 'var(--blue)',
+            fontFamily: 'var(--ed-mono, var(--font-mono))',
             textTransform: 'uppercase',
             letterSpacing: 0.4,
             marginBottom: 10,
@@ -418,7 +426,7 @@ export default function VizLogPhaseSpiralPage() {
           <BlockMath tex={V.mathFormula.radius} />
           <BlockMath tex={V.mathFormula.angle} />
         </div>
-        <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.7 }}>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7 }}>
           The curve color encodes <InlineMath tex={'\\log_{10} ' + V.mathFormula.amplitude} />{' '}
           via a viridis ramp (deep purple = small, yellow = large). Nontrivial
           zeros of <InlineMath tex={'\\zeta(\\tfrac{1}{2} + i t)'} /> on the
@@ -433,8 +441,8 @@ export default function VizLogPhaseSpiralPage() {
       <div
         style={{
           marginTop: 16,
-          background: 'var(--bg-panel)',
-          border: '1px solid var(--border)',
+          background: 'var(--paper2)',
+          border: '1px solid var(--hairline)',
           borderRadius: 8,
           padding: 12,
           display: 'flex',
@@ -446,8 +454,8 @@ export default function VizLogPhaseSpiralPage() {
         <label
           style={{
             fontSize: 11,
-            fontFamily: 'var(--font-mono)',
-            color: 'var(--text-secondary)',
+            fontFamily: 'var(--ed-mono, var(--font-mono))',
+            color: 'var(--ink-soft)',
           }}
         >
           t window upper bound:&nbsp;
@@ -458,11 +466,11 @@ export default function VizLogPhaseSpiralPage() {
               style={{
                 marginLeft: 4,
                 padding: '4px 10px',
-                background: tMax === preset ? '#a855f7' : '#1e293b',
-                color: tMax === preset ? '#0f172a' : '#cbd5e1',
-                border: '1px solid #334155',
+                background: tMax === preset ? 'var(--brass)' : 'var(--paper)',
+                color: tMax === preset ? 'var(--paper2)' : 'var(--ink-soft)',
+                border: '1px solid var(--hairline)',
                 borderRadius: 4,
-                fontFamily: 'var(--font-mono)',
+                fontFamily: 'var(--ed-mono, var(--font-mono))',
                 fontSize: 11,
                 cursor: 'pointer',
               }}
@@ -474,8 +482,8 @@ export default function VizLogPhaseSpiralPage() {
         <label
           style={{
             fontSize: 11,
-            fontFamily: 'var(--font-mono)',
-            color: 'var(--text-secondary)',
+            fontFamily: 'var(--ed-mono, var(--font-mono))',
+            color: 'var(--ink-soft)',
           }}
         >
           <input
@@ -489,8 +497,8 @@ export default function VizLogPhaseSpiralPage() {
         <label
           style={{
             fontSize: 11,
-            fontFamily: 'var(--font-mono)',
-            color: 'var(--text-secondary)',
+            fontFamily: 'var(--ed-mono, var(--font-mono))',
+            color: 'var(--ink-soft)',
           }}
         >
           <input
@@ -504,31 +512,31 @@ export default function VizLogPhaseSpiralPage() {
         <span
           style={{
             fontSize: 11,
-            fontFamily: 'var(--font-mono)',
+            fontFamily: 'var(--ed-mono, var(--font-mono))',
             color:
               sampleStatus === 'done'
-                ? '#86efac'
+                ? 'var(--green)'
                 : sampleStatus === 'computing'
-                  ? '#facc15'
+                  ? 'var(--brass)'
                   : sampleStatus === 'error'
-                    ? '#fca5a5'
-                    : '#64748b',
+                    ? 'var(--terra-dk)'
+                    : 'var(--faint)',
           }}
         >
           status: {sampleStatus} ({N} samples)
         </span>
-        <span style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: '#64748b' }}>
+        <span style={{ fontSize: 11, fontFamily: 'var(--ed-mono, var(--font-mono))', color: 'var(--faint)' }}>
           zoom: {view.zoom.toFixed(2)}×
         </span>
         <button
           onClick={() => setView({ zoom: 1, panX: 0, panY: 0 })}
           style={{
             padding: '4px 10px',
-            background: '#1e293b',
-            color: '#cbd5e1',
-            border: '1px solid #334155',
+            background: 'var(--paper)',
+            color: 'var(--ink-soft)',
+            border: '1px solid var(--hairline)',
             borderRadius: 4,
-            fontFamily: 'var(--font-mono)',
+            fontFamily: 'var(--ed-mono, var(--font-mono))',
             fontSize: 11,
             cursor: 'pointer',
           }}
@@ -541,8 +549,8 @@ export default function VizLogPhaseSpiralPage() {
       <div
         style={{
           marginTop: 16,
-          background: 'var(--bg-panel)',
-          border: '1px solid var(--border)',
+          background: 'var(--paper2)',
+          border: '1px solid var(--hairline)',
           borderRadius: 8,
           padding: 12,
           display: 'flex',
@@ -558,7 +566,7 @@ export default function VizLogPhaseSpiralPage() {
             height: V.canvasSize.height,
             maxWidth: '100%',
             display: 'block',
-            background: '#0a0e1a',
+            background: 'var(--paper2)',
             borderRadius: 6,
             cursor: 'grab',
             touchAction: 'none',
@@ -577,22 +585,22 @@ export default function VizLogPhaseSpiralPage() {
         style={{
           marginTop: 8,
           fontSize: 11,
-          fontFamily: 'var(--font-mono)',
-          color: 'var(--text-secondary)',
+          fontFamily: 'var(--ed-mono, var(--font-mono))',
+          color: 'var(--ink-soft)',
           display: 'flex',
           gap: 16,
           flexWrap: 'wrap',
         }}
       >
         <span>
-          <span style={{ color: '#a855f7' }}>—</span> spiral colored by log<sub>10</sub>|ζ|
+          <span style={{ color: 'var(--blue)' }}>—</span> spiral colored by log<sub>10</sub>|ζ|
         </span>
         <span>
-          <span style={{ color: '#ef4444' }}>●</span> γ<sub>n</sub> = nontrivial zero ordinate
+          <span style={{ color: 'var(--terra-dk)' }}>●</span> γ<sub>n</sub> = nontrivial zero ordinate
         </span>
         {showResonance && (
           <span>
-            <span style={{ color: '#14b8a6' }}>●</span> resonance tick t = 2πk/log(p_j/p_i)
+            <span style={{ color: 'var(--blue)' }}>●</span> resonance tick t = 2πk/log(p_j/p_i)
           </span>
         )}
         <span>{V.colorScaleNote}</span>
@@ -601,13 +609,13 @@ export default function VizLogPhaseSpiralPage() {
       {/* Scope */}
       <div
         className="card"
-        style={{ marginTop: 24, padding: 14, borderLeft: '3px solid #06b6d4' }}
+        style={{ marginTop: 24, padding: 14, background: 'var(--paper2)', border: '1px solid var(--hairline)', borderLeft: '3px solid var(--blue)' }}
       >
         <div
           style={{
             fontSize: 11,
-            color: '#06b6d4',
-            fontFamily: 'var(--font-mono)',
+            color: 'var(--blue)',
+            fontFamily: 'var(--ed-mono, var(--font-mono))',
             textTransform: 'uppercase',
             letterSpacing: 0.4,
             marginBottom: 8,
@@ -617,7 +625,7 @@ export default function VizLogPhaseSpiralPage() {
         </div>
         <ul
           style={{
-            color: 'var(--text-secondary)',
+            color: 'var(--ink-soft)',
             fontSize: 13,
             lineHeight: 1.7,
             paddingLeft: 18,
@@ -653,13 +661,13 @@ export default function VizLogPhaseSpiralPage() {
       {/* References */}
       <div
         className="card"
-        style={{ marginTop: 20, padding: 14, borderLeft: '3px solid #f59e0b' }}
+        style={{ marginTop: 20, padding: 14, background: 'var(--paper2)', border: '1px solid var(--hairline)', borderLeft: '3px solid var(--brass)' }}
       >
         <div
           style={{
             fontSize: 11,
-            color: '#f59e0b',
-            fontFamily: 'var(--font-mono)',
+            color: 'var(--brass)',
+            fontFamily: 'var(--ed-mono, var(--font-mono))',
             textTransform: 'uppercase',
             letterSpacing: 0.4,
             marginBottom: 8,
@@ -667,7 +675,7 @@ export default function VizLogPhaseSpiralPage() {
         >
           references
         </div>
-        <ul style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.7, paddingLeft: 18 }}>
+        <ul style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7, paddingLeft: 18 }}>
           {V.references.map((r, idx) => (
             <li key={'ref-' + idx}>
               <strong>{r.label}.</strong> {r.note}
@@ -678,7 +686,7 @@ export default function VizLogPhaseSpiralPage() {
                     href={r.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: '#a855f7', fontFamily: 'var(--font-mono)', fontSize: 11 }}
+                    style={{ color: 'var(--blue)', fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 11 }}
                   >
                     {r.url}
                   </a>
@@ -692,13 +700,13 @@ export default function VizLogPhaseSpiralPage() {
       {/* Sibling pages strip (post imp-1228 will activate routes) */}
       <div
         className="card"
-        style={{ marginTop: 20, padding: 14, borderLeft: '3px solid #ec4899' }}
+        style={{ marginTop: 20, padding: 14, background: 'var(--paper2)', border: '1px solid var(--hairline)', borderLeft: '3px solid var(--brass-dk)' }}
       >
         <div
           style={{
             fontSize: 11,
-            color: '#ec4899',
-            fontFamily: 'var(--font-mono)',
+            color: 'var(--brass-dk)',
+            fontFamily: 'var(--ed-mono, var(--font-mono))',
             textTransform: 'uppercase',
             letterSpacing: 0.4,
             marginBottom: 8,
@@ -706,13 +714,13 @@ export default function VizLogPhaseSpiralPage() {
         >
           sibling visualizations (WAVE 13)
         </div>
-        <div style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.7 }}>
+        <div style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7 }}>
           This page is part of the WAVE 13 visualization suite. The other
           five viz pages (
           {V.relatedSections.map((s, idx) => (
             <span key={s.ticket}>
               {idx > 0 ? ', ' : ''}
-              <code style={{ color: '#94a3b8' }}>{s.label}</code> ({s.ticket})
+              <code style={{ color: 'var(--faint)' }}>{s.label}</code> ({s.ticket})
             </span>
           ))}
           ) are pending — once imp-1228 ships, a Visualizations nav group will
@@ -725,14 +733,22 @@ export default function VizLogPhaseSpiralPage() {
         style={{
           marginTop: 20,
           fontSize: 11,
-          color: 'var(--text-muted)',
+          color: 'var(--faint)',
           lineHeight: 1.6,
-          fontFamily: 'var(--font-mono)',
+          fontFamily: 'var(--ed-mono, var(--font-mono))',
         }}
       >
         source: src/data/viz-log-phase-spiral.js · evaluator:
         src/math/zeta.js#zetaCriticalStrip · zeros:{' '}
         {V.zeroSource}
+      </div>
+
+      {/* Footer */}
+      <div style={{ marginTop: 40, paddingTop: 16, borderTop: '1px solid var(--hairline)' }}>
+        <Link to="/" style={{ color: 'var(--brass-dk)', fontSize: 13, textDecoration: 'none' }}>
+          &larr; the atlas
+        </Link>
+      </div>
       </div>
     </div>
   );

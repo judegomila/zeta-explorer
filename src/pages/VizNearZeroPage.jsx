@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import ZeroStepper from '../components/ZeroStepper.jsx';
 import VizCeilingNote from '../components/VizCeilingNote.jsx';
 
@@ -34,6 +35,24 @@ function hsl2rgb(h, s, l) {
     return l - a * Math.max(-1, Math.min(k - 3, Math.min(9 - k, 1)));
   };
   return [Math.round(f(0) * 255), Math.round(f(8) * 255), Math.round(f(4) * 255)];
+}
+
+function Card({ children, accent = '#d5c9b2' }) {
+  return (
+    <div
+      className="card"
+      style={{
+        background: '#f6f1e7',
+        border: '1px solid #d5c9b2',
+        borderLeft: `3px solid ${accent}`,
+        borderRadius: 10,
+        padding: '18px 22px',
+        margin: '16px 0',
+      }}
+    >
+      {children}
+    </div>
+  );
 }
 
 function NearZeroCanvas({ centerIdx, halfWin, showNodal }) {
@@ -139,7 +158,7 @@ function NearZeroCanvas({ centerIdx, halfWin, showNodal }) {
       ref={ref}
       width={PX}
       height={PX}
-      style={{ width: '100%', maxWidth: 540, borderRadius: 10, border: '1px solid #1e293b', display: 'block' }}
+      style={{ width: '100%', maxWidth: 540, borderRadius: 10, border: '1px solid #1c1814', display: 'block' }}
     />
   );
 }
@@ -178,132 +197,140 @@ export default function VizNearZeroPage() {
     : 'Wide: full vortex field view';
 
   return (
-    <div className="page">
-      <div className="page-header">
-        <h1>Near a Zeta Zero</h1>
-        <p className="page-subtitle">
-          Zoom in on a single zero{' '}
-          <code>ρ = ½ + iγ</code>. The amplitude{' '}
-          <strong>rings</strong> (|H| level contours) converge on ρ. The{' '}
-          <strong>nodal lines</strong> — blue (Re H = 0) and orange (Im H = 0)
-          — intersect exactly at ρ, forming a crossing. This crossing is the
-          vortex: arg H winds by 2π per circuit (argument principle, one zero =
-          one unit of winding).
-        </p>
-      </div>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>viz · near a zero</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <header style={{ borderBottom: '1px solid #d5c9b2', paddingBottom: 18, marginBottom: 24 }}>
+          <h1 className="ed-h1" style={{ fontSize: 30, margin: '8px 0 4px 0' }}>Near a Zeta Zero</h1>
+          <p style={{ color: '#4a4238', fontSize: 14, margin: '8px 0 0 0', lineHeight: 1.6 }}>
+            Zoom in on a single zero <code>ρ = ½ + iγ</code>. The amplitude{' '}
+            <strong>rings</strong> (|H| level contours) converge on ρ. The{' '}
+            <strong>nodal lines</strong> — blue (Re H = 0) and orange (Im H = 0)
+            — intersect exactly at ρ, forming a crossing. This crossing is the
+            vortex: arg H winds by 2π per circuit (argument principle, one zero =
+            one unit of winding).
+          </p>
+        </header>
 
-      <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', alignItems: 'flex-start' }}>
-        <div style={{ flex: '1 1 460px' }}>
-          <NearZeroCanvas centerIdx={centerIdx} halfWin={halfWin} showNodal={showNodal} />
-          <div style={{ fontSize: 11, color: '#64748b', marginTop: 6, fontFamily: 'var(--font-mono)' }}>
-            Re s in [½−{halfWin}, ½+{halfWin}], Im s in [{(gc - halfWin).toFixed(2)}, {(gc + halfWin).toFixed(2)}]
-            {' '}· central zero γ ≈ {gc.toFixed(4)}
-          </div>
-        </div>
-
-        <div style={{ flex: '0 1 280px', display: 'flex', flexDirection: 'column', gap: 16 }}>
-          <div className="card">
-            <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 8 }}>Animate Sweep</div>
-            <button
-              onClick={() => {
-                if (!playing && centerIdx >= GAMMAS.length - 2) setCenterIdx(1);
-                setPlaying((p) => !p);
-              }}
-              style={{
-                padding: '5px 14px', fontSize: 12, borderRadius: 6, cursor: 'pointer',
-                background: playing ? '#1e40af' : '#3b82f6', color: '#fff',
-                border: 'none', fontWeight: 600, letterSpacing: 0.3,
-              }}
-            >
-              {playing ? '⏸ Pause' : '▶ Play'}
-            </button>
-            <label style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 8, display: 'block' }}>
-              Speed (slower ← → faster)
-              <input
-                type="range" min={200} max={1500} step={100}
-                value={1700 - animSpeed}
-                onChange={(e) => setAnimSpeed(1700 - +e.target.value)}
-                style={{ width: '100%', marginTop: 4 }}
-              />
-            </label>
-          </div>
-
-          <div className="card">
-            <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 8 }}>Select Zero</div>
-            <ZeroStepper
-              gammas={GAMMAS}
-              idx={centerIdx}
-              onChange={(n) => { setPlaying(false); setCenterIdx(n); }}
-            />
-            <input
-              type="range"
-              min={0}
-              max={GAMMAS.length - 1}
-              value={centerIdx}
-              onChange={(e) => { setPlaying(false); setCenterIdx(+e.target.value); }}
-              style={{ width: '100%', marginTop: 8 }}
-            />
-          </div>
-
-          <div className="card">
-            <label style={{ fontSize: 12, color: 'var(--text-secondary)' }}>
-              Zoom half-width: ±{halfWin.toFixed(1)}
-              <input
-                type="range"
-                min={0.5}
-                max={9}
-                step={0.5}
-                value={halfWin}
-                onChange={(e) => setHalfWin(+e.target.value)}
-                style={{ width: '100%', marginTop: 6 }}
-              />
-            </label>
-            <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 4 }}>{zoomLabel}</div>
-          </div>
-
-          <div className="card" style={{ background: 'rgba(96,165,250,0.06)', borderLeft: '3px solid #60a5fa' }}>
-            <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 8 }}>Nodal Lines</div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12 }}>
-                <div style={{ width: 18, height: 3, background: '#3b82f6', borderRadius: 2, flexShrink: 0 }} />
-                <span style={{ color: 'var(--text-secondary)' }}>Re H(s) = 0</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12 }}>
-                <div style={{ width: 18, height: 3, background: '#fb923c', borderRadius: 2, flexShrink: 0 }} />
-                <span style={{ color: 'var(--text-secondary)' }}>Im H(s) = 0</span>
-              </div>
-              <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 4 }}>
-                Both nodal curves cross at every zero. Four arcs meeting at a point = winding number 1.
-              </div>
+        <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', alignItems: 'flex-start' }}>
+          <div style={{ flex: '1 1 460px' }}>
+            <NearZeroCanvas centerIdx={centerIdx} halfWin={halfWin} showNodal={showNodal} />
+            <div style={{ fontSize: 11, color: '#877b67', marginTop: 6, fontFamily: 'var(--ed-mono)' }}>
+              Re s in [½−{halfWin}, ½+{halfWin}], Im s in [{(gc - halfWin).toFixed(2)}, {(gc + halfWin).toFixed(2)}]
+              {' '}· central zero γ ≈ {gc.toFixed(4)}
             </div>
           </div>
 
-          <label style={{ fontSize: 12, color: 'var(--text-secondary)', display: 'flex', gap: 8, alignItems: 'center' }}>
-            <input type="checkbox" checked={showNodal} onChange={(e) => setShowNodal(e.target.checked)} />
-            Show nodal lines
-          </label>
-        </div>
-      </div>
+          <div style={{ flex: '0 1 280px', display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <Card>
+              <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 8, color: '#1c1814' }}>Animate Sweep</div>
+              <button
+                onClick={() => {
+                  if (!playing && centerIdx >= GAMMAS.length - 2) setCenterIdx(1);
+                  setPlaying((p) => !p);
+                }}
+                style={{
+                  padding: '5px 14px', fontSize: 12, borderRadius: 6, cursor: 'pointer',
+                  background: playing ? '#8c6a1d' : '#b58a2e', color: '#fdfaf3',
+                  border: 'none', fontWeight: 600, letterSpacing: 0.3,
+                }}
+              >
+                {playing ? '⏸ Pause' : '▶ Play'}
+              </button>
+              <label style={{ fontSize: 12, color: '#4a4238', marginTop: 8, display: 'block' }}>
+                Speed (slower ← → faster)
+                <input
+                  type="range" min={200} max={1500} step={100}
+                  value={1700 - animSpeed}
+                  onChange={(e) => setAnimSpeed(1700 - +e.target.value)}
+                  style={{ width: '100%', marginTop: 4 }}
+                />
+              </label>
+            </Card>
 
-      <div className="card" style={{ marginTop: 20 }}>
-        <h3 style={{ marginTop: 0 }}>What the rings and nodal lines show</h3>
-        <ul style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.7 }}>
-          <li><strong>Rings = amplitude level contours.</strong> The concentric bands are level sets |H(s)| = r. Near a simple zero they form ovals converging on ρ; the nearest-neighbor zeros distort them at larger scales.</li>
-          <li><strong>Nodal lines = the skeleton.</strong> Blue (Re H = 0) and orange (Im H = 0) are the curves where the real and imaginary parts vanish. They always intersect at the zeros: two arcs of each colour, four arcs total per simple zero.</li>
-          <li><strong>Winding number = 1.</strong> As any small loop encircles the yellow dot, arg H completes a full 2π rotation. This is the argument principle: each simple zero = one unit of winding.</li>
-          <li><strong>Vortex at the crossing.</strong> The four-arc intersection is the phase vortex of V = H'/H. Under RH every such vortex lies on the critical line Re s = ½ (dashed). An off-axis vortex = an off-axis zero = an RH violation.</li>
-          <VizCeilingNote claim="Λ ≥ 0" ceiling="panel 7 of the Visual Geometries gallery; vortex/winding thread re-derives Λ ≥ 0 only" />
-        </ul>
-        <div style={{ fontSize: 12, marginTop: 8 }}>
-          Related:{' '}
-          <Link to="/vortex-field" style={{ color: '#3b82f6' }}>Vortex Field (wide view)</Link>
-          {' · '}
-          <Link to="/viz-prime-caustic" style={{ color: '#3b82f6' }}>Prime Caustics</Link>
-          {' · '}
-          <Link to="/statistics" style={{ color: '#3b82f6' }}>Zero Statistics</Link>
-          {' · '}
-          <Link to="/route-map" style={{ color: '#3b82f6' }}>Route Map</Link>
+            <Card>
+              <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 8, color: '#1c1814' }}>Select Zero</div>
+              <ZeroStepper
+                gammas={GAMMAS}
+                idx={centerIdx}
+                onChange={(n) => { setPlaying(false); setCenterIdx(n); }}
+              />
+              <input
+                type="range"
+                min={0}
+                max={GAMMAS.length - 1}
+                value={centerIdx}
+                onChange={(e) => { setPlaying(false); setCenterIdx(+e.target.value); }}
+                style={{ width: '100%', marginTop: 8 }}
+              />
+            </Card>
+
+            <Card>
+              <label style={{ fontSize: 12, color: '#4a4238' }}>
+                Zoom half-width: ±{halfWin.toFixed(1)}
+                <input
+                  type="range"
+                  min={0.5}
+                  max={9}
+                  step={0.5}
+                  value={halfWin}
+                  onChange={(e) => setHalfWin(+e.target.value)}
+                  style={{ width: '100%', marginTop: 6 }}
+                />
+              </label>
+              <div style={{ fontSize: 11, color: '#877b67', marginTop: 4 }}>{zoomLabel}</div>
+            </Card>
+
+            <Card accent="#3f6b86">
+              <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 8, color: '#1c1814' }}>Nodal Lines</div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12 }}>
+                  <div style={{ width: 18, height: 3, background: '#3f6b86', borderRadius: 2, flexShrink: 0 }} />
+                  <span style={{ color: '#4a4238' }}>Re H(s) = 0</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12 }}>
+                  <div style={{ width: 18, height: 3, background: '#c23a1c', borderRadius: 2, flexShrink: 0 }} />
+                  <span style={{ color: '#4a4238' }}>Im H(s) = 0</span>
+                </div>
+                <div style={{ fontSize: 11, color: '#877b67', marginTop: 4 }}>
+                  Both nodal curves cross at every zero. Four arcs meeting at a point = winding number 1.
+                </div>
+              </div>
+            </Card>
+
+            <label style={{ fontSize: 12, color: '#4a4238', display: 'flex', gap: 8, alignItems: 'center' }}>
+              <input type="checkbox" checked={showNodal} onChange={(e) => setShowNodal(e.target.checked)} />
+              Show nodal lines
+            </label>
+          </div>
         </div>
+
+        <Card accent="#8c6a1d">
+          <h3 style={{ marginTop: 0, color: '#1c1814' }}>What the rings and nodal lines show</h3>
+          <ul style={{ fontSize: 13, color: '#4a4238', lineHeight: 1.7 }}>
+            <li><strong>Rings = amplitude level contours.</strong> The concentric bands are level sets |H(s)| = r. Near a simple zero they form ovals converging on ρ; the nearest-neighbor zeros distort them at larger scales.</li>
+            <li><strong>Nodal lines = the skeleton.</strong> Blue (Re H = 0) and orange (Im H = 0) are the curves where the real and imaginary parts vanish. They always intersect at the zeros: two arcs of each colour, four arcs total per simple zero.</li>
+            <li><strong>Winding number = 1.</strong> As any small loop encircles the yellow dot, arg H completes a full 2π rotation. This is the argument principle: each simple zero = one unit of winding.</li>
+            <li><strong>Vortex at the crossing.</strong> The four-arc intersection is the phase vortex of V = H'/H. Under RH every such vortex lies on the critical line Re s = ½ (dashed). An off-axis vortex = an off-axis zero = an RH violation.</li>
+            <VizCeilingNote claim="Λ ≥ 0" ceiling="panel 7 of the Visual Geometries gallery; vortex/winding thread re-derives Λ ≥ 0 only" />
+          </ul>
+          <div style={{ fontSize: 12, marginTop: 8, color: '#4a4238' }}>
+            Related:{' '}
+            <Link to="/vortex-field" style={{ color: '#c23a1c' }}>Vortex Field (wide view)</Link>
+            {' · '}
+            <Link to="/viz-prime-caustic" style={{ color: '#c23a1c' }}>Prime Caustics</Link>
+            {' · '}
+            <Link to="/statistics" style={{ color: '#c23a1c' }}>Zero Statistics</Link>
+            {' · '}
+            <Link to="/route-map" style={{ color: '#c23a1c' }}>Route Map</Link>
+          </div>
+        </Card>
+
+        <footer style={{ marginTop: 32, padding: '16px 0', borderTop: '1px solid #d5c9b2' }}>
+          <div style={{ marginTop: 14 }}>
+            <Link to="/" style={{ color: '#c23a1c', fontSize: 13 }}>← the atlas</Link>
+          </div>
+        </footer>
       </div>
     </div>
   );

@@ -14,6 +14,7 @@
 
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import * as d3 from 'd3';
 
@@ -90,7 +91,7 @@ export default function VolterraNormCurvePage() {
       .append('text')
       .attr('x', width / 2)
       .attr('y', 40)
-      .attr('fill', 'black')
+      .attr('fill', '#1c1814')
       .attr('text-anchor', 'middle')
       .style('font-size', '14px')
       .text('Parameter a');
@@ -102,10 +103,15 @@ export default function VolterraNormCurvePage() {
       .attr('y', 0 - margin.left)
       .attr('x', 0 - height / 2)
       .attr('dy', '1em')
-      .attr('fill', 'black')
+      .attr('fill', '#1c1814')
       .attr('text-anchor', 'middle')
       .style('font-size', '14px')
       .text('||V_{a,Φ}||');
+
+    // Force explicit warm colors on d3-generated axis chrome (domain path + tick lines/text)
+    svg.selectAll('.domain').attr('stroke', '#1c1814');
+    svg.selectAll('.tick line').attr('stroke', '#877b67');
+    svg.selectAll('.tick text').attr('fill', '#4a4238');
 
     // Horizontal line at y=1 (Conj 27.2 threshold)
     svg.append('line')
@@ -113,7 +119,7 @@ export default function VolterraNormCurvePage() {
       .attr('x2', width)
       .attr('y1', yScale(1))
       .attr('y2', yScale(1))
-      .attr('stroke', '#888')
+      .attr('stroke', '#877b67')
       .attr('stroke-dasharray', '4,4')
       .attr('stroke-width', 1.5)
       .append('title')
@@ -131,7 +137,7 @@ export default function VolterraNormCurvePage() {
     svg.append('path')
       .datum(filteredData)
       .attr('fill', 'none')
-      .attr('stroke', '#2166ac')
+      .attr('stroke', '#3f6b86')
       .attr('stroke-width', 2.5)
       .attr('d', opNormLine)
       .append('title')
@@ -145,7 +151,7 @@ export default function VolterraNormCurvePage() {
     svg.append('path')
       .datum(filteredData)
       .attr('fill', 'none')
-      .attr('stroke', '#b2182b')
+      .attr('stroke', '#c23a1c')
       .attr('stroke-width', 2.5)
       .attr('stroke-dasharray', '6,3')
       .attr('d', hsBoundLine)
@@ -161,7 +167,7 @@ export default function VolterraNormCurvePage() {
       .attr('cx', d => xScale(d.a))
       .attr('cy', d => yScale(d.op_norm))
       .attr('r', 3)
-      .attr('fill', '#2166ac');
+      .attr('fill', '#3f6b86');
 
     // Data points for HS bound
     svg.selectAll('.dot-hs')
@@ -172,73 +178,87 @@ export default function VolterraNormCurvePage() {
       .attr('cx', d => xScale(d.a))
       .attr('cy', d => yScale(d.hs_bound))
       .attr('r', 3)
-      .attr('fill', '#b2182b');
+      .attr('fill', '#c23a1c');
 
   }, [filteredData]);
 
   return (
-    <div style={{ padding: '20px', maxWidth: '1000px', margin: '0 auto' }}>
-      <h1>Volterra Operator Norm vs HS Bound</h1>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>viz · Volterra norm curve</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <h1 className="ed-h1">Volterra Operator Norm vs HS Bound</h1>
 
-      <p>
-        The Hilbert-Schmidt bound (imp-1267) provides a rigorous upper bound on the operator norm
-        of the Volterra operator <InlineMath math="V_{a,\Phi}" /> on <InlineMath math="L^2([0,\infty))" />:
-      </p>
-
-      <BlockMath
-        math={String.raw`\|V_{a,\Phi}\|_{\text{op}} \le \|V_{a,\Phi}\|_{HS} = \sqrt{I_0 \cdot J_a}`}
-      />
-
-      <p>
-        where <InlineMath math="I_0 = \int_0^\infty \Phi^2(u) du" /> and{' '}
-        <InlineMath math="J_a = \int_0^\infty \Phi^2(x) \sinh^2(ax) dx" />.
-      </p>
-
-      <p style={{ marginTop: '20px' }}>
-        <strong>Select truncation window U:</strong>{' '}
-        <select
-          value={selectedU}
-          onChange={e => setSelectedU(Number(e.target.value))}
-          style={{ padding: '8px', fontSize: '14px' }}
-        >
-          {[1, 2, 5, 10, 20].map(u => (
-            <option key={u} value={u}>U = {u}</option>
-          ))}
-        </select>
-      </p>
-
-      <svg ref={svgRef} style={{ border: '1px solid #ccc', marginTop: '20px' }} />
-
-      <div style={{
-        marginTop: '20px',
-        padding: '15px',
-        backgroundColor: '#f5f5f5',
-        borderRadius: '4px',
-        fontSize: '13px'
-      }}>
-        <p>
-          <strong style={{ color: '#2166ac' }}>●</strong> Empirical op-norm (blue solid line, from imp-1240/1248/1262 grid)
+        <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: 760 }}>
+          The Hilbert-Schmidt bound (imp-1267) provides a rigorous upper bound on the operator norm
+          of the Volterra operator <InlineMath math="V_{a,\Phi}" /> on <InlineMath math="L^2([0,\infty))" />:
         </p>
-        <p>
-          <strong style={{ color: '#b2182b' }}>- - -</strong> HS bound (red dashed line, from imp-1267)
-        </p>
-        <p style={{ color: '#888' }}>
-          - - - Conj 27.2 threshold = 1 (horizontal line)
-        </p>
-        <p style={{ marginTop: '10px', fontStyle: 'italic' }}>
-          <strong>Interpretation:</strong> The HS bound tightly tracks the empirical op-norm at small <em>a</em>,
-          providing an analytical proof that <InlineMath math="\|V_{a,\Phi}\| \le 1" /> for <InlineMath math="a \lesssim 2" />.
-          For <InlineMath math="a \gtrsim 2.3" />, the bound diverges as <InlineMath math="J_a \sim e^{4a}" />,
-          placing the critical regime beyond current rigorous control. See imp-1266 for the Mellin-route failure note.
-        </p>
-      </div>
 
-      <div style={{ marginTop: '30px', fontSize: '13px', color: '#555' }}>
-        <p>
-          <strong>References:</strong>{' '}
-          <Link to="/paper-audit-dashboard" style={{ color: '#0066cc' }}>Paper Audit Dashboard</Link> (imp-1265) •
-          <Link to="/lambda-bounds" style={{ color: '#0066cc' }}> Λ Bounds & RH Roadmap</Link> (imp-1240)
+        <BlockMath
+          math={String.raw`\|V_{a,\Phi}\|_{\text{op}} \le \|V_{a,\Phi}\|_{HS} = \sqrt{I_0 \cdot J_a}`}
+        />
+
+        <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: 760 }}>
+          where <InlineMath math="I_0 = \int_0^\infty \Phi^2(u) du" /> and{' '}
+          <InlineMath math="J_a = \int_0^\infty \Phi^2(x) \sinh^2(ax) dx" />.
         </p>
+
+        <p style={{ marginTop: 20, color: 'var(--ink)' }}>
+          <strong>Select truncation window U:</strong>{' '}
+          <select
+            value={selectedU}
+            onChange={e => setSelectedU(Number(e.target.value))}
+            style={{
+              padding: '8px',
+              fontSize: '14px',
+              background: 'var(--paper2)',
+              color: 'var(--ink)',
+              border: '1px solid var(--hairline)',
+              borderRadius: 4,
+            }}
+          >
+            {[1, 2, 5, 10, 20].map(u => (
+              <option key={u} value={u}>U = {u}</option>
+            ))}
+          </select>
+        </p>
+
+        <svg ref={svgRef} style={{ border: '1px solid #d5c9b2', marginTop: '20px', background: '#f6f1e7' }} />
+
+        <div className="card" style={{
+          marginTop: '20px',
+          padding: '15px',
+          background: 'var(--paper2)',
+          border: '1px solid var(--hairline)',
+          borderRadius: '4px',
+          fontSize: '13px',
+        }}>
+          <p style={{ color: 'var(--ink-soft)' }}>
+            <strong style={{ color: '#3f6b86' }}>●</strong> Empirical op-norm (blue solid line, from imp-1240/1248/1262 grid)
+          </p>
+          <p style={{ color: 'var(--ink-soft)' }}>
+            <strong style={{ color: '#c23a1c' }}>- - -</strong> HS bound (red dashed line, from imp-1267)
+          </p>
+          <p style={{ color: 'var(--faint)' }}>
+            - - - Conj 27.2 threshold = 1 (horizontal line)
+          </p>
+          <p style={{ marginTop: '10px', fontStyle: 'italic', color: 'var(--ink-soft)' }}>
+            <strong>Interpretation:</strong> The HS bound tightly tracks the empirical op-norm at small <em>a</em>,
+            providing an analytical proof that <InlineMath math="\|V_{a,\Phi}\| \le 1" /> for <InlineMath math="a \lesssim 2" />.
+            For <InlineMath math="a \gtrsim 2.3" />, the bound diverges as <InlineMath math="J_a \sim e^{4a}" />,
+            placing the critical regime beyond current rigorous control. See imp-1266 for the Mellin-route failure note.
+          </p>
+        </div>
+
+        <div style={{ marginTop: 30, fontSize: 13, color: 'var(--ink-soft)', borderTop: '1px solid var(--hairline)', paddingTop: 20 }}>
+          <p>
+            <strong>References:</strong>{' '}
+            <Link to="/paper-audit-dashboard" style={{ color: 'var(--brass-dk)' }}>Paper Audit Dashboard</Link> (imp-1265) •
+            <Link to="/lambda-bounds" style={{ color: 'var(--brass-dk)' }}> Λ Bounds & RH Roadmap</Link> (imp-1240)
+          </p>
+          <p style={{ margin: '12px 0 0 0' }}>
+            <Link to="/">← the atlas</Link>
+          </p>
+        </div>
       </div>
     </div>
   );

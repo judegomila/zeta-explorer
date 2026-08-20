@@ -9,15 +9,23 @@
 //
 // Renders ~300 x 300 pixels via a single putImageData call.  Pre-computed
 // 256-entry RGB colormap (viridis-like) keeps the inner loop branch-free.
+//
+// Editorial (warm) re-theme: chrome only. Canvas render logic/data colormap
+// (viridis-like) and math are untouched; the overlay chrome drawn on top of
+// the canvas (critical-line marker, axis labels, zero-height overlay, legend
+// ticks) is recolored to literal warm hex -- ctx.fillStyle/strokeStyle can't
+// resolve CSS var(), so those calls use the literal palette below. Claims/
+// caveats verbatim.
 
 import React, { useRef, useEffect, useState, useMemo, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { VIZ_PRIME_CAUSTIC } from '../data/viz-prime-caustic.js';
 import VizCeilingNote from '../components/VizCeilingNote.jsx';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
 const D = VIZ_PRIME_CAUSTIC;
 const TWO_PI = 2 * Math.PI;
-const mono = 'var(--font-mono)';
+const mono = 'var(--ed-mono)';
 
 // Imaginary parts of the first 10 nontrivial zeros of zeta(s).
 // At these t values the explicit-formula x^rho kernel e^{i*gamma*log x}
@@ -204,8 +212,10 @@ export default function VizPrimeCausticPage() {
     ctx.putImageData(imgData, 0, 0);
 
     // Critical-line marker (vertical dashed line at sigma = 1/2).
+    // Literal warm off-white (paper2 #f6f1e7) for contrast against the
+    // (unmodified) viridis-like data colormap -- ctx.strokeStyle can't read var().
     const critX = ((0.5 - sMin) / (sMax - sMin)) * W;
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.45)';
+    ctx.strokeStyle = 'rgba(246, 241, 231, 0.55)';
     ctx.setLineDash([4, 4]);
     ctx.lineWidth = 1;
     ctx.beginPath();
@@ -215,7 +225,7 @@ export default function VizPrimeCausticPage() {
 
     // Axis labels (drawn on the canvas itself for portability).
     ctx.font = '11px "JetBrains Mono", monospace';
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.75)';
+    ctx.fillStyle = 'rgba(246, 241, 231, 0.85)';
     ctx.textAlign = 'left';
     ctx.fillText('sigma = ' + sMin.toFixed(2), 4, H - 6);
     ctx.textAlign = 'right';
@@ -229,12 +239,13 @@ export default function VizPrimeCausticPage() {
     // Overlay horizontal lines at each nontrivial zero height gamma_n.
     // At t = gamma_n the explicit-formula kernel x^rho = x^{1/2}*e^{i*gamma_n*log x}
     // interferes destructively, making the caustic locally dark.
+    // Literal warm terra-dk (#c23a1c) marks the zero heights.
     if (showZeroOverlay) {
-      ctx.strokeStyle = 'rgba(251, 146, 60, 0.60)';
+      ctx.strokeStyle = 'rgba(194, 58, 28, 0.60)';
       ctx.setLineDash([3, 5]);
       ctx.lineWidth = 1;
       ctx.font = '9px "JetBrains Mono", monospace';
-      ctx.fillStyle = 'rgba(251, 146, 60, 0.85)';
+      ctx.fillStyle = 'rgba(194, 58, 28, 0.90)';
       ZERO_HEIGHTS.forEach((gamma, idx) => {
         if (gamma < tMin || gamma > tMax) return;
         const py = Math.round(((tMax - gamma) / (tMax - tMin)) * (H - 1));
@@ -253,198 +264,238 @@ export default function VizPrimeCausticPage() {
   useEffect(() => { draw(); }, [draw]);
 
   return (
-    <div className="page">
-      <div className="page-header">
-        <h1>Prime Caustic (imp-1225)</h1>
-        <p className="page-subtitle">
-          For each (sigma, t) pixel in [{D.bbox.sigmaMin}, {D.bbox.sigmaMax}] x [{D.bbox.tMin}, {D.bbox.tMax}],
-          count how many of the first N primes have phase t * log p mod 2*pi within
-          eps = {D.bbox.eps} rad of zero. Coherent superposition makes the truncated
-          main sum locally large; the critical line shows a structured caustic. Reference
-          data + tripwires live in <code>src/data/viz-prime-caustic.js</code>; the renderer
-          here computes a {D.bbox.gridW} x {D.bbox.gridH} grid into a single ImageData
-          buffer (no per-pixel fillRect).
-        </p>
-        <div style={{ marginTop: 10, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-          <Link to="/explorations" style={{ color: '#64748b', fontFamily: mono, fontSize: 12 }}>
-            &larr; Explorations
-          </Link>
-          <Link to="/viz-prime-phase-crystal" style={{ color: '#a855f7', fontFamily: mono, fontSize: 12 }}>
-            Prime Phase Crystal (imp-1227) &rarr;
-          </Link>
-          <Link to="/zeta" style={{ color: '#0891b2', fontFamily: mono, fontSize: 12 }}>
-            Zeta visualisation
-          </Link>
-        </div>
-      </div>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>viz &middot; prime caustic</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <header style={{ borderBottom: '1px solid var(--hairline)', paddingBottom: 18, marginBottom: 24 }}>
+          <div className="ed-lbl">/viz-prime-caustic &middot; visualizations</div>
+          <h1 className="ed-h1" style={{ margin: '8px 0 4px 0' }}>Prime Caustic (imp-1225)</h1>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, margin: '8px 0 0 0', lineHeight: 1.6 }}>
+            For each (sigma, t) pixel in [{D.bbox.sigmaMin}, {D.bbox.sigmaMax}] x [{D.bbox.tMin}, {D.bbox.tMax}],
+            count how many of the first N primes have phase t * log p mod 2*pi within
+            eps = {D.bbox.eps} rad of zero. Coherent superposition makes the truncated
+            main sum locally large; the critical line shows a structured caustic. Reference
+            data + tripwires live in <code>src/data/viz-prime-caustic.js</code>; the renderer
+            here computes a {D.bbox.gridW} x {D.bbox.gridH} grid into a single ImageData
+            buffer (no per-pixel fillRect).
+          </p>
+          <div style={{ marginTop: 10, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+            <Link to="/explorations" style={{ color: 'var(--ink-soft)', fontFamily: mono, fontSize: 12 }}>
+              &larr; Explorations
+            </Link>
+            <Link to="/viz-prime-phase-crystal" style={{ color: 'var(--brass-dk)', fontFamily: mono, fontSize: 12 }}>
+              Prime Phase Crystal (imp-1227) &rarr;
+            </Link>
+            <Link to="/zeta" style={{ color: 'var(--blue)', fontFamily: mono, fontSize: 12 }}>
+              Zeta visualisation
+            </Link>
+          </div>
+        </header>
 
-      <div style={{
-        marginTop: 14,
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(168px, 1fr))',
-        gap: 12,
-      }}>
-        <Stat label="N primes (active)"     value={String(logPrimes.length)} />
-        <Stat label="eps (rad)"             value={eps.toFixed(2)} />
-        <Stat label="ref-grid max count"    value={String(D.refMaxCount)} />
-        <Stat label="ref-grid mean count"   value={D.meanCount.toFixed(2)} />
-        <Stat label="random baseline"       value={D.randomBaseline.toFixed(2)} />
-        <Stat label="render time (ms)"      value={renderInfo.ms.toString()} />
-        <Stat label="max value (rendered)"  value={String(renderInfo.maxVal)} />
-        <Stat label="mode"                  value={mode} accent="#c4b5fd" />
-      </div>
+        <div style={{
+          marginTop: 14,
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(168px, 1fr))',
+          gap: 12,
+        }}>
+          <Stat label="N primes (active)"     value={String(logPrimes.length)} />
+          <Stat label="eps (rad)"             value={eps.toFixed(2)} />
+          <Stat label="ref-grid max count"    value={String(D.refMaxCount)} />
+          <Stat label="ref-grid mean count"   value={D.meanCount.toFixed(2)} />
+          <Stat label="random baseline"       value={D.randomBaseline.toFixed(2)} />
+          <Stat label="render time (ms)"      value={renderInfo.ms.toString()} />
+          <Stat label="max value (rendered)"  value={String(renderInfo.maxVal)} />
+          <Stat label="mode"                  value={mode} accent="var(--brass-dk)" />
+        </div>
 
-      <div style={{ display: 'flex', gap: 16, marginTop: 16, flexWrap: 'wrap' }}>
-        <div className="control-group">
-          <label>N primes</label>
-          <input type="range" min="50" max={D.primes.length} step="50" value={nPrimes}
-                 onChange={e => setNPrimes(+e.target.value)} />
-          <span className="control-value">{nPrimes}</span>
+        <div style={{ display: 'flex', gap: 16, marginTop: 16, flexWrap: 'wrap' }}>
+          <div className="card" style={{ padding: 10 }}>
+            <label style={{ fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--faint)', fontFamily: mono }}>
+              N primes
+            </label>
+            <div style={{ marginTop: 4 }}>
+              <input type="range" min="50" max={D.primes.length} step="50" value={nPrimes}
+                     onChange={e => setNPrimes(+e.target.value)} style={{ width: 180 }} />
+              <span style={{ marginLeft: 8, fontSize: 13, fontFamily: mono, color: 'var(--brass-dk)' }}>{nPrimes}</span>
+            </div>
+          </div>
+          <div className="card" style={{ padding: 10 }}>
+            <label style={{ fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--faint)', fontFamily: mono }}>
+              eps (rad)
+            </label>
+            <div style={{ marginTop: 4 }}>
+              <input type="range" min="0.02" max="0.5" step="0.02" value={eps}
+                     onChange={e => setEps(+e.target.value)} style={{ width: 180 }} />
+              <span style={{ marginLeft: 8, fontSize: 13, fontFamily: mono, color: 'var(--brass-dk)' }}>{eps.toFixed(2)}</span>
+            </div>
+          </div>
+          <div className="card" style={{ padding: 10 }}>
+            <label style={{ fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--faint)', fontFamily: mono }}>
+              resolution
+            </label>
+            <div style={{ marginTop: 4 }}>
+              <input type="range" min="1" max="4" step="1" value={resolution}
+                     onChange={e => setRes(+e.target.value)} style={{ width: 180 }} />
+              <span style={{ marginLeft: 8, fontSize: 13, fontFamily: mono, color: 'var(--brass-dk)' }}>
+                {resolution === 1 ? 'Full' : resolution === 2 ? 'Half' : resolution === 3 ? 'Coarse' : 'Fast'}
+              </span>
+            </div>
+          </div>
+          <div className="card" style={{ padding: 10 }}>
+            <label style={{ fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--faint)', fontFamily: mono }}>
+              mode
+            </label>
+            <div style={{ marginTop: 4 }}>
+              <select value={mode} onChange={e => setMode(e.target.value)}
+                      style={{ background: 'var(--paper)', color: 'var(--ink)', border: '1px solid var(--hairline)',
+                               borderRadius: 4, padding: '4px 8px', fontFamily: mono, fontSize: 12 }}>
+                <option value="amplitude">amplitude (sigma-weighted)</option>
+                <option value="count">count (sigma-independent)</option>
+              </select>
+            </div>
+          </div>
+          <div className="card" style={{ padding: 10 }}>
+            <label style={{ fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--faint)', fontFamily: mono }}>
+              γ_n overlay
+            </label>
+            <div style={{ marginTop: 4 }}>
+              <select value={showZeroOverlay ? 'on' : 'off'}
+                      onChange={e => setShowZeroOverlay(e.target.value === 'on')}
+                      style={{ background: 'var(--paper)', color: 'var(--ink)', border: '1px solid var(--hairline)',
+                               borderRadius: 4, padding: '4px 8px', fontFamily: mono, fontSize: 12 }}>
+                <option value="on">on (explicit-formula zeros)</option>
+                <option value="off">off</option>
+              </select>
+            </div>
+          </div>
+          <div className="card" style={{ padding: 10 }}>
+            <label style={{ fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--faint)', fontFamily: mono }}>
+              prime source
+            </label>
+            <div style={{ marginTop: 4 }}>
+              <select value={shufflePrimes ? 'shuffled' : 'real'}
+                      onChange={e => setShufflePrimes(e.target.value === 'shuffled')}
+                      style={{ background: 'var(--paper)', color: 'var(--ink)', border: '1px solid var(--hairline)',
+                               borderRadius: 4, padding: '4px 8px', fontFamily: mono, fontSize: 12 }}>
+                <option value="real">real primes</option>
+                <option value="shuffled">shuffled log-spacings</option>
+              </select>
+            </div>
+          </div>
         </div>
-        <div className="control-group">
-          <label>eps (rad)</label>
-          <input type="range" min="0.02" max="0.5" step="0.02" value={eps}
-                 onChange={e => setEps(+e.target.value)} />
-          <span className="control-value">{eps.toFixed(2)}</span>
-        </div>
-        <div className="control-group">
-          <label>resolution</label>
-          <input type="range" min="1" max="4" step="1" value={resolution}
-                 onChange={e => setRes(+e.target.value)} />
-          <span className="control-value">{resolution === 1 ? 'Full' : resolution === 2 ? 'Half' : resolution === 3 ? 'Coarse' : 'Fast'}</span>
-        </div>
-        <div className="control-group">
-          <label>mode</label>
-          <select value={mode} onChange={e => setMode(e.target.value)}
-                  style={{ background: '#0f172a', color: '#e2e8f0', border: '1px solid #334155',
-                           borderRadius: 4, padding: '4px 8px', fontFamily: mono, fontSize: 12 }}>
-            <option value="amplitude">amplitude (sigma-weighted)</option>
-            <option value="count">count (sigma-independent)</option>
-          </select>
-        </div>
-        <div className="control-group">
-          <label>γ_n overlay</label>
-          <select value={showZeroOverlay ? 'on' : 'off'}
-                  onChange={e => setShowZeroOverlay(e.target.value === 'on')}
-                  style={{ background: '#0f172a', color: '#e2e8f0', border: '1px solid #334155',
-                           borderRadius: 4, padding: '4px 8px', fontFamily: mono, fontSize: 12 }}>
-            <option value="on">on (explicit-formula zeros)</option>
-            <option value="off">off</option>
-          </select>
-        </div>
-        <div className="control-group">
-          <label>prime source</label>
-          <select value={shufflePrimes ? 'shuffled' : 'real'}
-                  onChange={e => setShufflePrimes(e.target.value === 'shuffled')}
-                  style={{ background: '#0f172a', color: '#e2e8f0', border: '1px solid #334155',
-                           borderRadius: 4, padding: '4px 8px', fontFamily: mono, fontSize: 12 }}>
-            <option value="real">real primes</option>
-            <option value="shuffled">shuffled log-spacings</option>
-          </select>
-        </div>
-      </div>
-      {shufflePrimes && (
-        <div style={{ marginTop: 8, padding: '6px 12px', background: 'rgba(234, 179, 8, 0.08)',
-                      border: '1px solid rgba(234, 179, 8, 0.35)', borderRadius: 6,
-                      fontSize: 11, color: '#fef08a', fontFamily: mono }}>
-          Structure is arithmetic, not random: shuffling the log(p) spacings erases the caustic bands.
-          The coherent pattern is a property of prime arithmetic, not of the spacing distribution alone.
-        </div>
-      )}
-
-      <div style={{ marginTop: 16, background: 'var(--bg-panel)', border: '1px solid var(--border)',
-                    borderRadius: 8, padding: 12, display: 'flex', justifyContent: 'center',
-                    position: 'relative' }}>
-        <canvas ref={canvasRef}
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-                style={{ width: '100%', maxWidth: D.bbox.gridW, height: 'auto',
-                         border: '1px solid #1e293b', borderRadius: 4,
-                         imageRendering: 'pixelated', cursor: 'crosshair' }} />
-        {hoverInfo && (
-          <div style={{
-            position: 'fixed',
-            left: hoverInfo.clientX + 14,
-            top: hoverInfo.clientY - 10,
-            background: 'rgba(15, 23, 42, 0.96)',
-            border: '1px solid #334155',
-            borderRadius: 6,
-            padding: '7px 10px',
-            fontFamily: mono,
-            fontSize: 11,
-            color: '#e2e8f0',
-            pointerEvents: 'none',
-            zIndex: 1000,
-            lineHeight: 1.7,
-            whiteSpace: 'nowrap',
-          }}>
-            <div><span style={{ color: '#94a3b8' }}>sigma:</span> {hoverInfo.sigma.toFixed(4)}</div>
-            <div><span style={{ color: '#94a3b8' }}>t:</span> {hoverInfo.t.toFixed(4)}</div>
-            <div><span style={{ color: '#94a3b8' }}>count:</span> {hoverInfo.count}</div>
-            <div><span style={{ color: '#86efac' }}>amp:</span> {hoverInfo.amp.toFixed(4)}</div>
+        {shufflePrimes && (
+          <div style={{ marginTop: 8, padding: '6px 12px', background: 'rgba(140, 106, 29, 0.08)',
+                        border: '1px solid rgba(140, 106, 29, 0.35)', borderRadius: 6,
+                        fontSize: 11, color: 'var(--brass-dk)', fontFamily: mono }}>
+            Structure is arithmetic, not random: shuffling the log(p) spacings erases the caustic bands.
+            The coherent pattern is a property of prime arithmetic, not of the spacing distribution alone.
           </div>
         )}
-        <ColormapLegend maxVal={renderInfo.maxVal} mode={mode} />
-      </div>
 
-      <div className="card" style={{ marginTop: 14, padding: 14 }}>
-        <div style={{ fontSize: 11, textTransform: 'uppercase', color: 'var(--text-muted)',
-                      letterSpacing: 0.5, marginBottom: 8 }}>
-          Critical-line cross-section (sigma = 1/2)
+        <div className="card" style={{ marginTop: 16, padding: 12, display: 'flex', justifyContent: 'center',
+                      position: 'relative' }}>
+          <canvas ref={canvasRef}
+                  onMouseMove={handleMouseMove}
+                  onMouseLeave={handleMouseLeave}
+                  style={{ width: '100%', maxWidth: D.bbox.gridW, height: 'auto',
+                           border: '1px solid var(--hairline)', borderRadius: 4,
+                           imageRendering: 'pixelated', cursor: 'crosshair' }} />
+          {hoverInfo && (
+            <div style={{
+              position: 'fixed',
+              left: hoverInfo.clientX + 14,
+              top: hoverInfo.clientY - 10,
+              background: 'var(--paper)',
+              border: '1px solid var(--hairline)',
+              borderRadius: 6,
+              padding: '7px 10px',
+              fontFamily: mono,
+              fontSize: 11,
+              color: 'var(--ink)',
+              pointerEvents: 'none',
+              zIndex: 1000,
+              lineHeight: 1.7,
+              whiteSpace: 'nowrap',
+            }}>
+              <div><span style={{ color: 'var(--faint)' }}>sigma:</span> {hoverInfo.sigma.toFixed(4)}</div>
+              <div><span style={{ color: 'var(--faint)' }}>t:</span> {hoverInfo.t.toFixed(4)}</div>
+              <div><span style={{ color: 'var(--faint)' }}>count:</span> {hoverInfo.count}</div>
+              <div><span style={{ color: 'var(--green)' }}>amp:</span> {hoverInfo.amp.toFixed(4)}</div>
+            </div>
+          )}
+          <ColormapLegend maxVal={renderInfo.maxVal} mode={mode} />
         </div>
-        <div style={{ overflowX: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 11, fontFamily: mono }}>
-            <thead>
-              <tr style={{ background: 'var(--bg-primary)' }}>
-                <th style={{ textAlign: 'right', padding: 6 }}>t</th>
-                <th style={{ textAlign: 'right', padding: 6 }}>count</th>
-                <th style={{ textAlign: 'right', padding: 6 }}>amp(sigma=0.3)</th>
-                <th style={{ textAlign: 'right', padding: 6 }}>amp(sigma=0.5)</th>
-                <th style={{ textAlign: 'right', padding: 6 }}>amp(sigma=0.7)</th>
-              </tr>
-            </thead>
-            <tbody>
-              {D.criticalLineSlice.map((r, i) => (
-                <tr key={i} style={{ borderTop: '1px solid var(--border)' }}>
-                  <td style={{ padding: 6, textAlign: 'right', color: '#a855f7' }}>{r.t.toFixed(2)}</td>
-                  <td style={{ padding: 6, textAlign: 'right' }}>{r.count}</td>
-                  <td style={{ padding: 6, textAlign: 'right', color: '#86efac' }}>{r.ampAt03.toFixed(4)}</td>
-                  <td style={{ padding: 6, textAlign: 'right', color: '#fef08a' }}>{r.ampAtHalf.toFixed(4)}</td>
-                  <td style={{ padding: 6, textAlign: 'right', color: '#fca5a5' }}>{r.ampAt07.toFixed(4)}</td>
+
+        <div className="card" style={{ marginTop: 14, padding: 14 }}>
+          <div style={{ fontSize: 11, textTransform: 'uppercase', color: 'var(--faint)',
+                        letterSpacing: 0.5, marginBottom: 8, fontFamily: mono }}>
+            Critical-line cross-section (sigma = 1/2)
+          </div>
+          <div style={{ overflowX: 'auto' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 11, fontFamily: mono }}>
+              <thead>
+                <tr style={{ background: 'var(--paper2)' }}>
+                  <th style={{ textAlign: 'right', padding: 6, color: 'var(--ink)' }}>t</th>
+                  <th style={{ textAlign: 'right', padding: 6, color: 'var(--ink)' }}>count</th>
+                  <th style={{ textAlign: 'right', padding: 6, color: 'var(--ink)' }}>amp(sigma=0.3)</th>
+                  <th style={{ textAlign: 'right', padding: 6, color: 'var(--ink)' }}>amp(sigma=0.5)</th>
+                  <th style={{ textAlign: 'right', padding: 6, color: 'var(--ink)' }}>amp(sigma=0.7)</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {D.criticalLineSlice.map((r, i) => (
+                  <tr key={i} style={{ borderTop: '1px solid var(--hairline)' }}>
+                    <td style={{ padding: 6, textAlign: 'right', color: 'var(--brass-dk)' }}>{r.t.toFixed(2)}</td>
+                    <td style={{ padding: 6, textAlign: 'right', color: 'var(--ink)' }}>{r.count}</td>
+                    <td style={{ padding: 6, textAlign: 'right', color: 'var(--green)' }}>{r.ampAt03.toFixed(4)}</td>
+                    <td style={{ padding: 6, textAlign: 'right', color: 'var(--brass)' }}>{r.ampAtHalf.toFixed(4)}</td>
+                    <td style={{ padding: 6, textAlign: 'right', color: 'var(--terra-dk)' }}>{r.ampAt07.toFixed(4)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
 
-      <div style={{ marginTop: 14, fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.6 }}>
-        <strong style={{ color: '#cbd5e1' }}>Reading the map.</strong> Bright pixels are
-        coherent: many primes simultaneously close to phase 0. The vertical dashed line
-        marks sigma = 1/2 (the critical line). Horizontal banding reflects the
-        characteristic Riemann-Siegel main-sum structure -- bands at the Gram-point
-        spacing and dips near nontrivial zeros (gamma_1 = 14.13, gamma_2 = 21.02, ...).
-        Amplitude mode multiplies each coherent prime by p^{'{-sigma}'} (the natural
-        Riemann-Siegel weight), so small sigma upweights small primes and shifts
-        contrast leftward. Count mode is sigma-independent. The render uses a single
-        putImageData of a {D.bbox.gridW} x {D.bbox.gridH} buffer -- no per-pixel
-        fillRect calls.
-      </div>
-
-      <div className="card" style={{ marginTop: 14, padding: 14, borderLeft: '3px solid rgba(251, 146, 60, 0.6)' }}>
-        <div style={{ fontSize: 11, textTransform: 'uppercase', color: 'var(--text-muted)',
-                      letterSpacing: 0.5, marginBottom: 8 }}>
-          Connection: x^ρ explicit-formula kernel
+        <div style={{ marginTop: 14, fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.6 }}>
+          <strong style={{ color: 'var(--ink)' }}>Reading the map.</strong> Bright pixels are
+          coherent: many primes simultaneously close to phase 0. The vertical dashed line
+          marks sigma = 1/2 (the critical line). Horizontal banding reflects the
+          characteristic Riemann-Siegel main-sum structure -- bands at the Gram-point
+          spacing and dips near nontrivial zeros (gamma_1 = 14.13, gamma_2 = 21.02, ...).
+          Amplitude mode multiplies each coherent prime by p^{'{-sigma}'} (the natural
+          Riemann-Siegel weight), so small sigma upweights small primes and shifts
+          contrast leftward. Count mode is sigma-independent. The render uses a single
+          putImageData of a {D.bbox.gridW} x {D.bbox.gridH} buffer -- no per-pixel
+          fillRect calls.
         </div>
-        <div style={{ fontSize: 12, lineHeight: 1.7, color: '#cbd5e1', fontFamily: mono }}>
-          {"The Riemann explicit formula writes ψ(x) = x − Σ_ρ x^ρ/ρ − log(2π) + …  where the sum runs over nontrivial zeros ρ = 1/2 + iγ_n.  Each term x^ρ = x^{1/2} · e^{iγ_n · log x} is an oscillation at frequency γ_n in log x.  In the (sigma, t) plane the same kernel appears as the Euler-product phase e^{it · log p} = p^{it}: the caustic is bright when many primes' phases align (coherent sum ≫ 1) and dark when they cancel.  The orange lines mark t = γ_n — at these heights the full Riemann zeta sum goes to zero precisely because phase alignment collapses to destructive interference, so the caustic dips.  Turning off the zero overlay and comparing the dark horizontal bands to the orange lines confirms the connection."}
-        </div>
-      </div>
 
-      <VizCeilingNote
-        as="div"
-        claim="prime-caustic intensity re-derives the Riemann-Siegel coherent-sum dips near the zero heights γ_n"
-      />
+        <div className="card" style={{ marginTop: 14, padding: 14, borderLeft: '3px solid var(--terra-dk)' }}>
+          <div style={{ fontSize: 11, textTransform: 'uppercase', color: 'var(--faint)',
+                        letterSpacing: 0.5, marginBottom: 8, fontFamily: mono }}>
+            Connection: x^ρ explicit-formula kernel
+          </div>
+          <div style={{ fontSize: 12, lineHeight: 1.7, color: 'var(--ink-soft)', fontFamily: mono }}>
+            {"The Riemann explicit formula writes ψ(x) = x − Σ_ρ x^ρ/ρ − log(2π) + …  where the sum runs over nontrivial zeros ρ = 1/2 + iγ_n.  Each term x^ρ = x^{1/2} · e^{iγ_n · log x} is an oscillation at frequency γ_n in log x.  In the (sigma, t) plane the same kernel appears as the Euler-product phase e^{it · log p} = p^{it}: the caustic is bright when many primes' phases align (coherent sum ≫ 1) and dark when they cancel.  The orange lines mark t = γ_n — at these heights the full Riemann zeta sum goes to zero precisely because phase alignment collapses to destructive interference, so the caustic dips.  Turning off the zero overlay and comparing the dark horizontal bands to the orange lines confirms the connection."}
+          </div>
+        </div>
+
+        <VizCeilingNote
+          as="div"
+          claim="prime-caustic intensity re-derives the Riemann-Siegel coherent-sum dips near the zero heights γ_n"
+        />
+
+        <footer style={{ marginTop: 32, padding: '16px 0', borderTop: '1px solid var(--hairline)' }}>
+          <div style={{ fontSize: 12, color: 'var(--faint)', fontFamily: mono }}>Sibling visualizations:</div>
+          <div style={{ marginTop: 8, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+            <Link to="/viz-prime-phase-crystal" style={{ color: 'var(--terra-dk)', fontSize: 13 }}>/viz-prime-phase-crystal</Link>
+            <Link to="/zeta" style={{ color: 'var(--terra-dk)', fontSize: 13 }}>/zeta</Link>
+          </div>
+          <div style={{ marginTop: 16 }}>
+            <Link to="/">&larr; the atlas</Link>
+          </div>
+        </footer>
+      </div>
     </div>
   );
 }
@@ -469,7 +520,8 @@ function ColormapLegend({ maxVal, mode }) {
       }
     }
     ctx.putImageData(img, 0, 0);
-    ctx.strokeStyle = 'rgba(255,255,255,0.55)';
+    // Literal warm off-white (paper2 #f6f1e7) tick marks -- ctx.strokeStyle can't read var().
+    ctx.strokeStyle = 'rgba(246, 241, 231, 0.65)';
     ctx.lineWidth = 1;
     for (let i = 0; i <= 4; i++) {
       const x = Math.round((i / 4) * (W - 1));
@@ -481,8 +533,8 @@ function ColormapLegend({ maxVal, mode }) {
   const ticks = [0, 0.25, 0.5, 0.75, 1.0];
 
   return (
-    <div style={{ marginTop: 8, fontFamily: mono, fontSize: 10, color: '#94a3b8' }}>
-      <div style={{ marginBottom: 3, textTransform: 'uppercase', letterSpacing: 0.5, fontSize: 9, color: 'var(--text-muted)' }}>
+    <div style={{ marginTop: 8, fontFamily: mono, fontSize: 10, color: 'var(--faint)' }}>
+      <div style={{ marginBottom: 3, textTransform: 'uppercase', letterSpacing: 0.5, fontSize: 9, color: 'var(--faint)' }}>
         {label} scale (sqrt-gamma mapped to hue)
       </div>
       <canvas ref={ref} width={256} height={14}
@@ -498,16 +550,11 @@ function ColormapLegend({ maxVal, mode }) {
 
 function Stat({ label, value, accent }) {
   return (
-    <div style={{
-      background: 'var(--bg-panel)',
-      border: '1px solid var(--border)',
-      borderRadius: 8,
-      padding: 10,
-    }}>
-      <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: 0.5 }}>
+    <div className="card" style={{ padding: 10 }}>
+      <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--faint)', letterSpacing: 0.5, fontFamily: mono }}>
         {label}
       </div>
-      <div style={{ marginTop: 4, fontSize: 18, fontFamily: mono, color: accent || '#e2e8f0' }}>
+      <div style={{ marginTop: 4, fontSize: 18, fontFamily: mono, color: accent || 'var(--ink)' }}>
         {value}
       </div>
     </div>

@@ -12,6 +12,7 @@ import React, { useRef, useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { getPrimes } from '../math/primes.js';
 import VizCeilingNote from '../components/VizCeilingNote.jsx';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
 const TWO_PI = 2 * Math.PI;
 const mono = 'var(--font-mono)';
@@ -172,10 +173,13 @@ export default function VizCausticResonancePage() {
   }
 
   return (
-    <div className="page">
-      <div className="page-header">
-        <h1>Caustic Resonance-Condition Overlay (imp-2724)</h1>
-        <p className="page-subtitle">
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>viz · caustic resonance</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+      <header style={{ borderBottom: '1px solid var(--hairline)', paddingBottom: 18, marginBottom: 24 }}>
+        <div className="ed-lbl">/viz-caustic-resonance · visualizations</div>
+        <h1 className="ed-h1" style={{ margin: '8px 0 4px 0' }}>Caustic Resonance-Condition Overlay (imp-2724)</h1>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 14, margin: '8px 0 0 0', lineHeight: 1.6 }}>
           The waveform shows how many of the first N primes satisfy
           |t&thinsp;log p mod 2&pi;| &lt; &epsilon; at each imaginary height t.
           Vertical lines mark the exact resonance values t&thinsp;=&thinsp;2&pi;k/log(p<sub>j</sub>/p<sub>i</sub>)
@@ -183,17 +187,17 @@ export default function VizCausticResonancePage() {
           Hover the canvas to identify which prime pair a line belongs to.
         </p>
         <div style={{ marginTop: 10, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-          <Link to="/viz-prime-caustic" style={{ color: '#64748b', fontFamily: mono, fontSize: 12 }}>
+          <Link to="/viz-prime-caustic" style={{ color: 'var(--faint)', fontFamily: mono, fontSize: 12 }}>
             &larr; Prime Caustic heatmap
           </Link>
-          <Link to="/viz-prime-density-caustic" style={{ color: '#a855f7', fontFamily: mono, fontSize: 12 }}>
+          <Link to="/viz-prime-density-caustic" style={{ color: 'var(--terra-dk)', fontFamily: mono, fontSize: 12 }}>
             Prime Density on Caustics &rarr;
           </Link>
-          <Link to="/explorations" style={{ color: '#64748b', fontFamily: mono, fontSize: 12 }}>
+          <Link to="/explorations" style={{ color: 'var(--faint)', fontFamily: mono, fontSize: 12 }}>
             Explorations
           </Link>
         </div>
-      </div>
+      </header>
 
       <div style={{
         marginTop: 14,
@@ -210,7 +214,7 @@ export default function VizCausticResonancePage() {
           <Stat
             label="hovered tick"
             value={"p" + hovered.pi + "/p" + hovered.pj + " k=" + hovered.k}
-            accent="#f0abfc"
+            accent="var(--terra-dk)"
           />
         )}
       </div>
@@ -250,8 +254,8 @@ export default function VizCausticResonancePage() {
 
       <div style={{
         marginTop: 16,
-        background: 'var(--bg-panel)',
-        border: '1px solid var(--border)',
+        background: 'var(--paper2)',
+        border: '1px solid var(--hairline)',
         borderRadius: 8,
         padding: 12,
         display: 'flex',
@@ -264,7 +268,7 @@ export default function VizCausticResonancePage() {
           onMouseLeave={() => setHovered(null)}
           style={{
             width: '100%', maxWidth: CANVAS_W, height: 'auto',
-            border: '1px solid #1e293b', borderRadius: 4,
+            border: '1px solid var(--hairline)', borderRadius: 4,
             imageRendering: 'pixelated',
           }}
         />
@@ -278,7 +282,7 @@ export default function VizCausticResonancePage() {
         });
         return (
           <div className="card" style={{ marginTop: 10, padding: 12 }}>
-            <div style={{ fontFamily: mono, fontSize: 12, color: '#f0abfc', marginBottom: 8 }}>
+            <div style={{ fontFamily: mono, fontSize: 12, color: 'var(--terra-dk)', marginBottom: 8 }}>
               Resonance: p<sub>i</sub> = {hovered.pi}, p<sub>j</sub> = {hovered.pj},
               k = {hovered.k},
               t = {hovered.t.toFixed(4)},
@@ -290,16 +294,16 @@ export default function VizCausticResonancePage() {
                 coherent primes at t ({coherentPrimes.length}):
               </span>
               {coherentPrimes.length === 0
-                ? <span style={{ fontFamily: mono, fontSize: 11, color: '#64748b' }}>none</span>
+                ? <span style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>none</span>
                 : coherentPrimes.map(p => (
                     <span key={p} style={{
-                      background: '#1e293b',
-                      border: '1px solid #334155',
+                      background: 'var(--paper2)',
+                      border: '1px solid var(--hairline)',
                       borderRadius: 4,
                       padding: '2px 6px',
                       fontFamily: mono,
                       fontSize: 11,
-                      color: '#86efac',
+                      color: 'var(--green)',
                     }}>{p}</span>
                   ))
               }
@@ -327,11 +331,11 @@ export default function VizCausticResonancePage() {
             <tbody>
               {ticks.filter(r => r.k === 1).slice(0, 20).map((r, i) => (
                 <tr key={i} style={{ borderTop: '1px solid var(--border)' }}>
-                  <td style={{ padding: 6, textAlign: 'right', color: '#a855f7' }}>{r.pi}</td>
-                  <td style={{ padding: 6, textAlign: 'right', color: '#a855f7' }}>{r.pj}</td>
-                  <td style={{ padding: 6, textAlign: 'right', color: '#fbbf24' }}>{r.k}</td>
-                  <td style={{ padding: 6, textAlign: 'right', color: '#86efac' }}>{r.t.toFixed(4)}</td>
-                  <td style={{ padding: 6, textAlign: 'right', color: '#94a3b8' }}>
+                  <td style={{ padding: 6, textAlign: 'right', color: 'var(--blue)' }}>{r.pi}</td>
+                  <td style={{ padding: 6, textAlign: 'right', color: 'var(--blue)' }}>{r.pj}</td>
+                  <td style={{ padding: 6, textAlign: 'right', color: 'var(--brass)' }}>{r.k}</td>
+                  <td style={{ padding: 6, textAlign: 'right', color: 'var(--green)' }}>{r.t.toFixed(4)}</td>
+                  <td style={{ padding: 6, textAlign: 'right', color: 'var(--faint)' }}>
                     {Math.log(r.pj / r.pi).toFixed(6)}
                   </td>
                 </tr>
@@ -342,7 +346,7 @@ export default function VizCausticResonancePage() {
       </div>
 
       <div style={{ marginTop: 14, fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.8 }}>
-        <strong style={{ color: '#cbd5e1' }}>Reading the chart.</strong>{' '}
+        <strong style={{ color: 'var(--ink)' }}>Reading the chart.</strong>{' '}
         Each spike in the waveform is a coherence event: many primes
         simultaneously have phase close to 0 at this t. The resonance-condition
         ticks (vertical lines) land exactly where two primes beat together,
@@ -354,10 +358,23 @@ export default function VizCausticResonancePage() {
         nearby resonance ticks -- the primes are not truly random at these t.
       </div>
 
+      <footer style={{ marginTop: 32, padding: '16px 0', borderTop: '1px solid var(--hairline)' }}>
+        <div style={{ fontSize: 12, color: 'var(--faint)', fontFamily: mono }}>Sibling visualizations:</div>
+        <div style={{ marginTop: 8, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+          <Link to="/viz-prime-caustic" style={{ color: 'var(--terra-dk)', fontSize: 13 }}>/viz-prime-caustic</Link>
+          <Link to="/viz-prime-density-caustic" style={{ color: 'var(--terra-dk)', fontSize: 13 }}>/viz-prime-density-caustic</Link>
+          <Link to="/explorations" style={{ color: 'var(--terra-dk)', fontSize: 13 }}>/explorations</Link>
+        </div>
+        <div style={{ marginTop: 16 }}>
+          <Link to="/" style={{ color: 'var(--ink-soft)', fontSize: 13 }}>&larr; the atlas</Link>
+        </div>
+      </footer>
+
       <VizCeilingNote
         as="div"
         claim="caustics = multiplicative resonances log(p_i/p_j) ≈ 2πk/t"
       />
+      </div>
     </div>
   );
 }
@@ -365,15 +382,15 @@ export default function VizCausticResonancePage() {
 function Stat({ label, value, accent }) {
   return (
     <div style={{
-      background: 'var(--bg-panel)',
-      border: '1px solid var(--border)',
+      background: 'var(--paper2)',
+      border: '1px solid var(--hairline)',
       borderRadius: 8,
       padding: 10,
     }}>
       <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: 0.5 }}>
         {label}
       </div>
-      <div style={{ marginTop: 4, fontSize: 16, fontFamily: mono, color: accent || '#e2e8f0' }}>
+      <div style={{ marginTop: 4, fontSize: 16, fontFamily: mono, color: accent || 'var(--ink)' }}>
         {value}
       </div>
     </div>

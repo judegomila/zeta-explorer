@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import {
   VIZ_EULER_TRANSPORT_FLOW,
@@ -91,12 +92,14 @@ function buildSeeds() {
   return seeds; // exactly 100
 }
 
-function Card({ children, accent = '#1e293b' }) {
+function Card({ children, accent = 'var(--hairline)' }) {
   return (
     <div
+      className="card"
       style={{
-        background: 'rgba(15,23,42,0.7)',
-        border: `1px solid ${accent}`,
+        background: 'var(--paper2)',
+        border: `1px solid var(--hairline)`,
+        borderLeft: `3px solid ${accent}`,
         borderRadius: 10,
         padding: '18px 22px',
         margin: '16px 0',
@@ -314,175 +317,181 @@ export default function VizEulerTransportFlowPage() {
   const choices = useMemo(() => V.vectorField.primeCountChoices, []);
 
   return (
-    <main style={{ maxWidth: 980, margin: '0 auto', padding: '32px 24px' }}>
-      <header style={{ borderBottom: '1px solid #1e293b', paddingBottom: 18, marginBottom: 24 }}>
-        <div
-          style={{
-            fontSize: 11,
-            color: '#64748b',
-            fontFamily: 'var(--font-mono, monospace)',
-            textTransform: 'uppercase',
-            letterSpacing: 1,
-          }}
-        >
-          {V.route} · {V.ticket} · viz
-        </div>
-        <h1 style={{ fontSize: 26, fontWeight: 700, color: '#e2e8f0', margin: '8px 0 4px 0' }}>
-          {V.title}
-        </h1>
-        <p style={{ color: '#94a3b8', fontSize: 14, margin: '8px 0 0 0', lineHeight: 1.6 }}>
-          {V.oneLine}
-        </p>
-      </header>
-
-      <Card>
-        <h3 style={{ color: '#60a5fa', fontSize: 17, margin: '0 0 10px 0' }}>The vector field</h3>
-        <BlockMath math="v(s) \;=\; -\frac{\zeta'(s)}{\zeta(s)} \;=\; \sum_{p} \frac{\log p}{p^{\,s} - 1}, \qquad \mathfrak{R}(s) > 1." />
-        <p style={{ color: '#cbd5e1', fontSize: 13.5, lineHeight: 1.65 }}>
-          Read <InlineMath math="v(\sigma+it) = u + iw" /> as a planar vector field on{' '}
-          <InlineMath math="(\sigma, t)" />. Streamlines below integrate the NEGATIVE flow{' '}
-          <InlineMath math="\dot{(\sigma,t)} = -v" />, for which the nontrivial zeros of{' '}
-          <InlineMath math="\zeta" /> are <strong style={{ color: '#fca5a5' }}>simple sinks</strong>{' '}
-          (residue +1 of <InlineMath math="v" /> ⇒ residue −1 of <InlineMath math="-v" />).
-        </p>
-      </Card>
-
-      <Card>
-        <div
-          style={{
-            display: 'grid',
-            gap: 14,
-            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-            alignItems: 'end',
-            marginBottom: 14,
-          }}
-        >
-          <label
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>viz · Euler transport flow</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <header style={{ borderBottom: '1px solid var(--hairline)', paddingBottom: 18, marginBottom: 24 }}>
+          <div
             style={{
-              color: '#94a3b8',
-              fontSize: 13,
-              fontFamily: 'var(--font-mono, monospace)',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 6,
+              fontSize: 11,
+              color: 'var(--faint)',
+              fontFamily: 'var(--ed-mono)',
+              textTransform: 'uppercase',
+              letterSpacing: 1,
             }}
           >
-            prime count: {primeCount}
-            <input
-              type="range"
-              min={0}
-              max={choices.length - 1}
-              step={1}
-              value={choices.indexOf(primeCount)}
-              onChange={(e) => setPrimeCount(choices[parseInt(e.target.value, 10)])}
-              style={{ width: '100%' }}
-            />
-            <span style={{ color: '#64748b', fontSize: 11 }}>
-              choices: {choices.join(' / ')}
-            </span>
-          </label>
-          <label
+            {V.route} · {V.ticket} · viz
+          </div>
+          <h1 className="ed-h1" style={{ fontSize: 30, margin: '8px 0 4px 0' }}>
+            {V.title}
+          </h1>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, margin: '8px 0 0 0', lineHeight: 1.6 }}>
+            {V.oneLine}
+          </p>
+        </header>
+
+        <Card>
+          <h3 style={{ color: 'var(--brass-dk)', fontSize: 17, margin: '0 0 10px 0' }}>The vector field</h3>
+          <BlockMath math="v(s) \;=\; -\frac{\zeta'(s)}{\zeta(s)} \;=\; \sum_{p} \frac{\log p}{p^{\,s} - 1}, \qquad \mathfrak{R}(s) > 1." />
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13.5, lineHeight: 1.65 }}>
+            Read <InlineMath math="v(\sigma+it) = u + iw" /> as a planar vector field on{' '}
+            <InlineMath math="(\sigma, t)" />. Streamlines below integrate the NEGATIVE flow{' '}
+            <InlineMath math="\dot{(\sigma,t)} = -v" />, for which the nontrivial zeros of{' '}
+            <InlineMath math="\zeta" /> are <strong style={{ color: 'var(--terra-dk)' }}>simple sinks</strong>{' '}
+            (residue +1 of <InlineMath math="v" /> ⇒ residue −1 of <InlineMath math="-v" />).
+          </p>
+        </Card>
+
+        <Card>
+          <div
             style={{
-              color: '#94a3b8',
-              fontSize: 13,
-              fontFamily: 'var(--font-mono, monospace)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: 8,
+              display: 'grid',
+              gap: 14,
+              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+              alignItems: 'end',
+              marginBottom: 14,
             }}
           >
-            <input
-              type="checkbox"
-              checked={showGrid}
-              onChange={(e) => setShowGrid(e.target.checked)}
-            />
-            grid background + critical line
-          </label>
-          <label
+            <label
+              style={{
+                color: 'var(--ink-soft)',
+                fontSize: 13,
+                fontFamily: 'var(--ed-mono)',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 6,
+              }}
+            >
+              prime count: {primeCount}
+              <input
+                type="range"
+                min={0}
+                max={choices.length - 1}
+                step={1}
+                value={choices.indexOf(primeCount)}
+                onChange={(e) => setPrimeCount(choices[parseInt(e.target.value, 10)])}
+                style={{ width: '100%' }}
+              />
+              <span style={{ color: 'var(--faint)', fontSize: 11 }}>
+                choices: {choices.join(' / ')}
+              </span>
+            </label>
+            <label
+              style={{
+                color: 'var(--ink-soft)',
+                fontSize: 13,
+                fontFamily: 'var(--ed-mono)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8,
+              }}
+            >
+              <input
+                type="checkbox"
+                checked={showGrid}
+                onChange={(e) => setShowGrid(e.target.checked)}
+              />
+              grid background + critical line
+            </label>
+            <label
+              style={{
+                color: 'var(--ink-soft)',
+                fontSize: 13,
+                fontFamily: 'var(--ed-mono)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8,
+              }}
+            >
+              <input
+                type="checkbox"
+                checked={showDensity}
+                onChange={(e) => setShowDensity(e.target.checked)}
+              />
+              streamline-density colormap
+            </label>
+          </div>
+          <FlowCanvas
+            primeCount={primeCount}
+            showGrid={showGrid}
+            showDensity={showDensity}
+          />
+          <p style={{ color: 'var(--ink-soft)', fontSize: 12, marginTop: 10, lineHeight: 1.55 }}>
+            100 seed points · RK2 step Δs = 0.05 · 200 steps each · yellow dots mark streamline
+            endpoints (accumulation toward sinks) · red dots are the first 5 known nontrivial zeros on
+            the critical line σ = 1/2.
+          </p>
+        </Card>
+
+        <Card accent="var(--blue)">
+          <h3 style={{ color: 'var(--blue)', fontSize: 17, margin: '0 0 10px 0' }}>Why zeros are sinks</h3>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13.5, lineHeight: 1.65 }}>
+            Near a simple zero <InlineMath math="\rho" /> of <InlineMath math="\zeta" /> we have{' '}
+            <InlineMath math="\zeta(s) = c(s-\rho) + O((s-\rho)^2)" />, so{' '}
+            <InlineMath math="v(s) = -\zeta'(s)/\zeta(s) = -\tfrac{1}{s-\rho} + O(1)" />.
+            In the local complex coordinate <InlineMath math="z = s - \rho" />,{' '}
+            <InlineMath math="-v(s) \approx +1/\bar{z}" /> (after the standard identification of{' '}
+            <InlineMath math="\mathbb{C}" /> with <InlineMath math="\mathbb{R}^2" />), which is a
+            radial inward flow. So <em>every nontrivial zero is a sink of <InlineMath math="-v" /></em>;
+            conversely the simple pole of <InlineMath math="\zeta" /> at{' '}
+            <InlineMath math="s=1" /> appears as a source.
+          </p>
+        </Card>
+
+        <Card accent="var(--brass)">
+          <h3 style={{ color: 'var(--brass)', fontSize: 17, margin: '0 0 10px 0' }}>Scope</h3>
+          <ul
             style={{
-              color: '#94a3b8',
+              color: 'var(--ink-soft)',
               fontSize: 13,
-              fontFamily: 'var(--font-mono, monospace)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: 8,
+              lineHeight: 1.7,
+              margin: 0,
+              paddingLeft: 22,
             }}
           >
-            <input
-              type="checkbox"
-              checked={showDensity}
-              onChange={(e) => setShowDensity(e.target.checked)}
-            />
-            streamline-density colormap
-          </label>
-        </div>
-        <FlowCanvas
-          primeCount={primeCount}
-          showGrid={showGrid}
-          showDensity={showDensity}
-        />
-        <p style={{ color: '#94a3b8', fontSize: 12, marginTop: 10, lineHeight: 1.55 }}>
-          100 seed points · RK2 step Δs = 0.05 · 200 steps each · yellow dots mark streamline
-          endpoints (accumulation toward sinks) · red dots are the first 5 known nontrivial zeros on
-          the critical line σ = 1/2.
-        </p>
-      </Card>
+            {V.caveats.map((c, i) => (
+              <li key={i} style={{ marginBottom: 6 }}>
+                {c}
+              </li>
+            ))}
+          </ul>
+        </Card>
 
-      <Card accent="#7c3aed">
-        <h3 style={{ color: '#a78bfa', fontSize: 17, margin: '0 0 10px 0' }}>Why zeros are sinks</h3>
-        <p style={{ color: '#cbd5e1', fontSize: 13.5, lineHeight: 1.65 }}>
-          Near a simple zero <InlineMath math="\rho" /> of <InlineMath math="\zeta" /> we have{' '}
-          <InlineMath math="\zeta(s) = c(s-\rho) + O((s-\rho)^2)" />, so{' '}
-          <InlineMath math="v(s) = -\zeta'(s)/\zeta(s) = -\tfrac{1}{s-\rho} + O(1)" />.
-          In the local complex coordinate <InlineMath math="z = s - \rho" />,{' '}
-          <InlineMath math="-v(s) \approx +1/\bar{z}" /> (after the standard identification of{' '}
-          <InlineMath math="\mathbb{C}" /> with <InlineMath math="\mathbb{R}^2" />), which is a
-          radial inward flow. So <em>every nontrivial zero is a sink of <InlineMath math="-v" /></em>;
-          conversely the simple pole of <InlineMath math="\zeta" /> at{' '}
-          <InlineMath math="s=1" /> appears as a source.
-        </p>
-      </Card>
-
-      <Card accent="#fbbf24">
-        <h3 style={{ color: '#fbbf24', fontSize: 17, margin: '0 0 10px 0' }}>Scope</h3>
-        <ul
-          style={{
-            color: '#cbd5e1',
-            fontSize: 13,
-            lineHeight: 1.7,
-            margin: 0,
-            paddingLeft: 22,
-          }}
-        >
-          {V.caveats.map((c, i) => (
-            <li key={i} style={{ marginBottom: 6 }}>
-              {c}
-            </li>
-          ))}
-        </ul>
-      </Card>
-
-      <footer style={{ marginTop: 32, padding: '16px 0', borderTop: '1px solid #1e293b' }}>
-        <div style={{ fontSize: 12, color: '#64748b', fontFamily: 'var(--font-mono, monospace)' }}>
-          Related visualizations:
-        </div>
-        <div style={{ marginTop: 8, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-          <Link to="/zeta" style={{ color: '#60a5fa', fontSize: 13 }}>/zeta</Link>
-          <Link to="/gram-points" style={{ color: '#60a5fa', fontSize: 13 }}>/gram-points</Link>
-          <Link to="/hardy-z" style={{ color: '#60a5fa', fontSize: 13 }}>/hardy-z</Link>
-          <Link to="/fourier" style={{ color: '#60a5fa', fontSize: 13 }}>/fourier</Link>
-        </div>
-        <div
-          style={{
-            marginTop: 10,
-            fontSize: 11,
-            color: '#475569',
-            fontFamily: 'var(--font-mono, monospace)',
-          }}
-        >
-          source: src/data/viz-euler-transport-flow.js · ticket {V.ticket}
-        </div>
-      </footer>
-    </main>
+        <footer style={{ marginTop: 32, padding: '16px 0', borderTop: '1px solid var(--hairline)' }}>
+          <div style={{ fontSize: 12, color: 'var(--faint)', fontFamily: 'var(--ed-mono)' }}>
+            Related visualizations:
+          </div>
+          <div style={{ marginTop: 8, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+            <Link to="/zeta" style={{ color: 'var(--brass-dk)', fontSize: 13 }}>/zeta</Link>
+            <Link to="/gram-points" style={{ color: 'var(--brass-dk)', fontSize: 13 }}>/gram-points</Link>
+            <Link to="/hardy-z" style={{ color: 'var(--brass-dk)', fontSize: 13 }}>/hardy-z</Link>
+            <Link to="/fourier" style={{ color: 'var(--brass-dk)', fontSize: 13 }}>/fourier</Link>
+          </div>
+          <div
+            style={{
+              marginTop: 10,
+              fontSize: 11,
+              color: 'var(--faint)',
+              fontFamily: 'var(--ed-mono)',
+            }}
+          >
+            source: src/data/viz-euler-transport-flow.js · ticket {V.ticket}
+          </div>
+          <div style={{ marginTop: 14 }}>
+            <Link to="/" style={{ color: 'var(--terra-dk)', fontSize: 13 }}>← the atlas</Link>
+          </div>
+        </footer>
+      </div>
+    </div>
   );
 }

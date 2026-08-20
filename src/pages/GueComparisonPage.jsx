@@ -16,11 +16,16 @@
 //
 // Data source: pinned browser snapshot derived offline from
 // src/data/gue-vs-zeros-comparison.js (GUE_VS_ZEROS_COMPARISON).
+//
+// Editorial (warm) re-theme: full-width ed-root/ed-full shell, identical
+// data/geometry/logic; chrome recolored to the warm palette, SVG fill/stroke
+// switched from the dark-slate literals to literal warm-palette hex (no
+// var() inside the SVG). Claims/stats/caveats kept verbatim.
 
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { scaleLinear } from 'd3-scale';
-import RelatedLinks from '../components/RelatedLinks.jsx';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
 // Browser-light snapshot of the offline first-10000-zero sweep. Keeping the
 // 50 sufficient-statistic bins here avoids importing the 16.7 MB zero corpus;
@@ -94,19 +99,30 @@ const RM = { top: 20, right: 30, bottom: 50, left: 70 };
 const RIW = RW - RM.left - RM.right;
 const RIH = RH - RM.top - RM.bottom;
 
-// ── Style helpers ───────────────────────────────────────────────────────────
+// ── Style helpers (literal warm-palette hex — no var() inside the SVG) ──────
 
 const labelStyle = {
-  fontFamily: 'var(--font-mono)',
+  fontFamily: 'IBM Plex Mono, ui-monospace, SFMono-Regular, monospace',
   fontSize: 11,
-  fill: 'var(--text-secondary)',
+  fill: '#4a4238',
 };
 
 const tickStyle = {
-  fontFamily: 'var(--font-mono)',
+  fontFamily: 'IBM Plex Mono, ui-monospace, SFMono-Regular, monospace',
   fontSize: 9,
-  fill: '#94a3b8',
+  fill: '#877b67',
 };
+
+// Editorial card: warm paper background + hairline border, colored left rule.
+function cardBaseLeft(color) {
+  return {
+    background: 'var(--paper2)',
+    border: '1px solid var(--hairline)',
+    borderLeft: `3px solid ${color}`,
+    borderRadius: 8,
+    padding: 12,
+  };
+}
 
 // ── Page component ──────────────────────────────────────────────────────────
 
@@ -154,10 +170,11 @@ export default function GueComparisonPage() {
     .join(' ');
 
   return (
-    <div className="page">
-      <div className="page-header">
-        <h1>GUE vs Riemann Zero Spacings (imp-1099)</h1>
-        <p className="page-subtitle">
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>viz &middot; GUE comparison</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <h1 className="ed-h1" style={{ marginBottom: 6 }}>GUE vs Riemann Zero Spacings (imp-1099)</h1>
+        <p style={{ fontSize: 15, color: 'var(--ink-soft)', lineHeight: 1.6, maxWidth: '58ch' }}>
           Empirical nearest-neighbor spacing distribution of the first
           {' '}{D.nZerosUsed.toLocaleString()} verified Odlyzko Riemann zeros,
           unfolded via the Riemann-von Mangoldt local density, compared to the
@@ -166,301 +183,312 @@ export default function GueComparisonPage() {
           GUE universality of the zeros is a deep and widely supported
           conjecture; this page exhibits the well-known numerical agreement.
         </p>
-        <div style={{ marginTop: 10, fontSize: 12, fontFamily: 'var(--font-mono)' }}>
-          <Link to="/statistics" style={{ color: '#a855f7' }}>
+        <div style={{ marginTop: 10, fontSize: 12, fontFamily: 'var(--ed-mono)' }}>
+          <Link to="/statistics" style={{ color: 'var(--terra-dk)' }}>
             &larr; back to Zero Statistics &amp; Spectral Criteria
           </Link>
         </div>
-      </div>
 
-      {/* Numeric summary cards. */}
-      <div
-        className="card-grid"
-        style={{
-          marginTop: 16,
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          gap: 12,
-        }}
-      >
-        <SummaryCard
-          label="KL divergence"
-          value={D.klDivergence.toExponential(3)}
-          tone="#22c55e"
-          hint="KL(empirical || GUE), bin-by-bin"
-        />
-        <SummaryCard
-          label="Hellinger distance"
-          value={D.hellingerDistance.toFixed(4)}
-          tone="#22c55e"
-          hint="symmetric, lives in [0, 1]"
-        />
-        <SummaryCard
-          label="mean unfolded spacing"
-          value={D.meanSpacingUnfolded.toFixed(4)}
-          tone="#60a5fa"
-          hint="target = 1.0000 (unfolding gauge)"
-        />
-        <SummaryCard
-          label="N zeros used"
-          value={D.nZerosUsed.toLocaleString()}
-          tone="#a855f7"
-          hint="pinned snapshot from the offline zero sweep"
-        />
-        <SummaryCard
-          label="N spacings"
-          value={D.nSpacings.toLocaleString()}
-          tone="#a855f7"
-          hint="= N_zeros - 1"
-        />
-        <SummaryCard
-          label="max |residual|"
-          value={D.residualMaxAbs.toFixed(4)}
-          tone="#facc15"
-          hint="max over bins of |pdf_emp - pdf_gue|"
-        />
-      </div>
-
-      {/* Histogram + GUE overlay. */}
-      <div
-        style={{
-          marginTop: 24,
-          overflowX: 'auto',
-          background: 'var(--bg-panel)',
-          border: '1px solid var(--border)',
-          borderRadius: 8,
-          padding: 12,
-        }}
-      >
-        <div style={{ fontSize: 12, fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)', marginBottom: 8 }}>
-          empirical histogram (bars) with GUE Wigner surmise overlay (line)
+        {/* Numeric summary cards. */}
+        <div
+          className="card-grid"
+          style={{
+            marginTop: 16,
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: 12,
+          }}
+        >
+          <SummaryCard
+            label="KL divergence"
+            value={D.klDivergence.toExponential(3)}
+            tone="var(--green)"
+            hint="KL(empirical || GUE), bin-by-bin"
+          />
+          <SummaryCard
+            label="Hellinger distance"
+            value={D.hellingerDistance.toFixed(4)}
+            tone="var(--green)"
+            hint="symmetric, lives in [0, 1]"
+          />
+          <SummaryCard
+            label="mean unfolded spacing"
+            value={D.meanSpacingUnfolded.toFixed(4)}
+            tone="var(--blue)"
+            hint="target = 1.0000 (unfolding gauge)"
+          />
+          <SummaryCard
+            label="N zeros used"
+            value={D.nZerosUsed.toLocaleString()}
+            tone="var(--brass)"
+            hint="pinned snapshot from the offline zero sweep"
+          />
+          <SummaryCard
+            label="N spacings"
+            value={D.nSpacings.toLocaleString()}
+            tone="var(--brass)"
+            hint="= N_zeros - 1"
+          />
+          <SummaryCard
+            label="max |residual|"
+            value={D.residualMaxAbs.toFixed(4)}
+            tone="var(--brass-dk)"
+            hint="max over bins of |pdf_emp - pdf_gue|"
+          />
         </div>
-        <svg width={W} height={H} role="img" aria-label="GUE vs zeros spacings histogram">
-          <g transform={'translate(' + M.left + ',' + M.top + ')'}>
-            {/* Histogram bars. */}
-            {pdfEmp.map((p, i) => {
-              const xLo = x(i * binWidth);
-              const xHi = x((i + 1) * binWidth);
-              const yTop = y(p);
-              const h = IH - yTop;
-              return (
-                <rect
-                  key={'bar-' + i}
-                  x={xLo + 0.5}
-                  y={yTop}
-                  width={Math.max(xHi - xLo - 1, 0.5)}
-                  height={Math.max(h, 0)}
-                  fill="rgba(96,165,250,0.35)"
-                  stroke="rgba(96,165,250,0.85)"
-                  strokeWidth={0.7}
-                >
-                  <title>
-                    {'bin [' + (i * binWidth).toFixed(2) + ', ' + ((i + 1) * binWidth).toFixed(2)
-                      + '): empirical pdf = ' + p.toFixed(4)
-                      + ', GUE pdf = ' + curve.binPdfGue[i].toFixed(4)
-                      + ', residual = ' + (p - curve.binPdfGue[i]).toFixed(4)}
-                  </title>
-                </rect>
-              );
-            })}
 
-            {/* GUE Wigner overlay curve. */}
-            <polyline
-              points={gueCurvePoints}
-              fill="none"
-              stroke="#ef4444"
-              strokeWidth={2}
-              strokeLinejoin="round"
-              strokeLinecap="round"
-            />
+        {/* Histogram + GUE overlay. */}
+        <div
+          style={{
+            marginTop: 24,
+            overflowX: 'auto',
+            background: 'var(--paper2)',
+            border: '1px solid var(--hairline)',
+            borderRadius: 8,
+            padding: 12,
+          }}
+        >
+          <div style={{ fontSize: 12, fontFamily: 'var(--ed-mono)', color: 'var(--faint)', marginBottom: 8 }}>
+            empirical histogram (bars) with GUE Wigner surmise overlay (line)
+          </div>
+          <svg width={W} height={H} role="img" aria-label="GUE vs zeros spacings histogram">
+            <g transform={'translate(' + M.left + ',' + M.top + ')'}>
+              {/* Histogram bars. */}
+              {pdfEmp.map((p, i) => {
+                const xLo = x(i * binWidth);
+                const xHi = x((i + 1) * binWidth);
+                const yTop = y(p);
+                const h = IH - yTop;
+                return (
+                  <rect
+                    key={'bar-' + i}
+                    x={xLo + 0.5}
+                    y={yTop}
+                    width={Math.max(xHi - xLo - 1, 0.5)}
+                    height={Math.max(h, 0)}
+                    fill="rgba(63,107,134,0.35)"
+                    stroke="rgba(63,107,134,0.9)"
+                    strokeWidth={0.7}
+                  >
+                    <title>
+                      {'bin [' + (i * binWidth).toFixed(2) + ', ' + ((i + 1) * binWidth).toFixed(2)
+                        + '): empirical pdf = ' + p.toFixed(4)
+                        + ', GUE pdf = ' + curve.binPdfGue[i].toFixed(4)
+                        + ', residual = ' + (p - curve.binPdfGue[i]).toFixed(4)}
+                    </title>
+                  </rect>
+                );
+              })}
 
-            {/* Mean-spacing reference line at s = 1. */}
-            <line x1={x(1)} x2={x(1)} y1={0} y2={IH} stroke="#facc15" strokeWidth={1} strokeDasharray="4,4" />
-            <text x={x(1) + 4} y={12} style={{ ...labelStyle, fill: '#facc15' }}>
-              mean spacing = 1
-            </text>
+              {/* GUE Wigner overlay curve. */}
+              <polyline
+                points={gueCurvePoints}
+                fill="none"
+                stroke="#d9502e"
+                strokeWidth={2}
+                strokeLinejoin="round"
+                strokeLinecap="round"
+              />
 
-            {/* x axis. */}
-            <line x1={0} x2={IW} y1={IH} y2={IH} stroke="#475569" />
-            {xTicks.map((t) => (
-              <g key={'xt-' + t} transform={'translate(' + x(t) + ',' + IH + ')'}>
-                <line y1={0} y2={5} stroke="#475569" />
-                <text y={18} textAnchor="middle" style={tickStyle}>{t.toFixed(1)}</text>
-              </g>
-            ))}
-            <text x={IW / 2} y={IH + 42} textAnchor="middle" style={{ ...labelStyle, fontSize: 11 }}>
-              unfolded spacing s
-            </text>
-
-            {/* y axis. */}
-            <line x1={0} x2={0} y1={0} y2={IH} stroke="#475569" />
-            {yTicks.map((t) => (
-              <g key={'yt-' + t.toFixed(2)} transform={'translate(0,' + y(t) + ')'}>
-                <line x1={-5} x2={0} stroke="#475569" />
-                <text x={-8} y={3} textAnchor="end" style={tickStyle}>{t.toFixed(2)}</text>
-              </g>
-            ))}
-            <text transform={'translate(-50,' + IH / 2 + ') rotate(-90)'} textAnchor="middle" style={{ ...labelStyle, fontSize: 11 }}>
-              probability density p(s)
-            </text>
-
-            {/* Legend. */}
-            <g transform={'translate(' + (IW - 230) + ',6)'}>
-              <rect x={-6} y={-4} width={236} height={42} rx={6} fill="rgba(15,23,42,0.55)" stroke="rgba(148,163,184,0.35)" />
-              <rect x={0} y={4} width={14} height={10} fill="rgba(96,165,250,0.35)" stroke="rgba(96,165,250,0.85)" strokeWidth={0.7} />
-              <text x={20} y={13} style={{ ...labelStyle, fontSize: 10, fill: '#cbd5e1' }}>
-                empirical histogram (10000 zeros)
+              {/* Mean-spacing reference line at s = 1. */}
+              <line x1={x(1)} x2={x(1)} y1={0} y2={IH} stroke="#b58a2e" strokeWidth={1} strokeDasharray="4,4" />
+              <text x={x(1) + 4} y={12} style={{ ...labelStyle, fill: '#b58a2e' }}>
+                mean spacing = 1
               </text>
-              <line x1={0} x2={14} y1={26} y2={26} stroke="#ef4444" strokeWidth={2} />
-              <text x={20} y={30} style={{ ...labelStyle, fontSize: 10, fill: '#cbd5e1' }}>
-                GUE Wigner surmise
+
+              {/* x axis. */}
+              <line x1={0} x2={IW} y1={IH} y2={IH} stroke="#4a4238" />
+              {xTicks.map((t) => (
+                <g key={'xt-' + t} transform={'translate(' + x(t) + ',' + IH + ')'}>
+                  <line y1={0} y2={5} stroke="#4a4238" />
+                  <text y={18} textAnchor="middle" style={tickStyle}>{t.toFixed(1)}</text>
+                </g>
+              ))}
+              <text x={IW / 2} y={IH + 42} textAnchor="middle" style={{ ...labelStyle, fontSize: 11 }}>
+                unfolded spacing s
+              </text>
+
+              {/* y axis. */}
+              <line x1={0} x2={0} y1={0} y2={IH} stroke="#4a4238" />
+              {yTicks.map((t) => (
+                <g key={'yt-' + t.toFixed(2)} transform={'translate(0,' + y(t) + ')'}>
+                  <line x1={-5} x2={0} stroke="#4a4238" />
+                  <text x={-8} y={3} textAnchor="end" style={tickStyle}>{t.toFixed(2)}</text>
+                </g>
+              ))}
+              <text transform={'translate(-50,' + IH / 2 + ') rotate(-90)'} textAnchor="middle" style={{ ...labelStyle, fontSize: 11 }}>
+                probability density p(s)
+              </text>
+
+              {/* Legend. */}
+              <g transform={'translate(' + (IW - 230) + ',6)'}>
+                <rect x={-6} y={-4} width={236} height={42} rx={6} fill="rgba(253,250,243,0.9)" stroke="rgba(213,201,178,0.8)" />
+                <rect x={0} y={4} width={14} height={10} fill="rgba(63,107,134,0.35)" stroke="rgba(63,107,134,0.9)" strokeWidth={0.7} />
+                <text x={20} y={13} style={{ ...labelStyle, fontSize: 10, fill: '#4a4238' }}>
+                  empirical histogram (10000 zeros)
+                </text>
+                <line x1={0} x2={14} y1={26} y2={26} stroke="#d9502e" strokeWidth={2} />
+                <text x={20} y={30} style={{ ...labelStyle, fontSize: 10, fill: '#4a4238' }}>
+                  GUE Wigner surmise
+                </text>
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        {/* Per-bin residual chart. */}
+        <div
+          style={{
+            marginTop: 24,
+            overflowX: 'auto',
+            background: 'var(--paper2)',
+            border: '1px solid var(--hairline)',
+            borderRadius: 8,
+            padding: 12,
+          }}
+        >
+          <div style={{ fontSize: 12, fontFamily: 'var(--ed-mono)', color: 'var(--faint)', marginBottom: 8 }}>
+            per-bin residual (empirical pdf - GUE pdf)
+          </div>
+          <svg width={RW} height={RH} role="img" aria-label="per-bin residuals">
+            <g transform={'translate(' + RM.left + ',' + RM.top + ')'}>
+              {/* Zero line. */}
+              <line x1={0} x2={RIW} y1={yR(0)} y2={yR(0)} stroke="#4a4238" />
+
+              {/* Residual bars. */}
+              {residuals.map((r, i) => {
+                const xLo = xR(i * binWidth);
+                const xHi = xR((i + 1) * binWidth);
+                const yTop = yR(Math.max(r, 0));
+                const yBot = yR(Math.min(r, 0));
+                const h = yBot - yTop;
+                const positive = r >= 0;
+                return (
+                  <rect
+                    key={'res-' + i}
+                    x={xLo + 0.5}
+                    y={yTop}
+                    width={Math.max(xHi - xLo - 1, 0.5)}
+                    height={Math.max(h, 0)}
+                    fill={positive ? 'rgba(76,122,74,0.55)' : 'rgba(217,80,46,0.55)'}
+                    stroke={positive ? 'rgba(76,122,74,0.95)' : 'rgba(217,80,46,0.95)'}
+                    strokeWidth={0.7}
+                  >
+                    <title>
+                      {'bin [' + (i * binWidth).toFixed(2) + ', ' + ((i + 1) * binWidth).toFixed(2)
+                        + '): residual = ' + r.toFixed(4)}
+                    </title>
+                  </rect>
+                );
+              })}
+
+              {/* x axis. */}
+              <line x1={0} x2={RIW} y1={RIH} y2={RIH} stroke="#4a4238" />
+              {xTicks.map((t) => (
+                <g key={'rxt-' + t} transform={'translate(' + xR(t) + ',' + RIH + ')'}>
+                  <line y1={0} y2={5} stroke="#4a4238" />
+                  <text y={16} textAnchor="middle" style={tickStyle}>{t.toFixed(1)}</text>
+                </g>
+              ))}
+              <text x={RIW / 2} y={RIH + 38} textAnchor="middle" style={{ ...labelStyle, fontSize: 11 }}>
+                unfolded spacing s
+              </text>
+
+              {/* y axis. */}
+              <line x1={0} x2={0} y1={0} y2={RIH} stroke="#4a4238" />
+              {[-rCap, -rCap / 2, 0, rCap / 2, rCap].map((t, i) => (
+                <g key={'ryt-' + i} transform={'translate(0,' + yR(t) + ')'}>
+                  <line x1={-5} x2={0} stroke="#4a4238" />
+                  <text x={-8} y={3} textAnchor="end" style={tickStyle}>{t.toFixed(3)}</text>
+                </g>
+              ))}
+              <text transform={'translate(-52,' + RIH / 2 + ') rotate(-90)'} textAnchor="middle" style={{ ...labelStyle, fontSize: 11 }}>
+                residual
               </text>
             </g>
-          </g>
-        </svg>
-      </div>
-
-      {/* Per-bin residual chart. */}
-      <div
-        style={{
-          marginTop: 24,
-          overflowX: 'auto',
-          background: 'var(--bg-panel)',
-          border: '1px solid var(--border)',
-          borderRadius: 8,
-          padding: 12,
-        }}
-      >
-        <div style={{ fontSize: 12, fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)', marginBottom: 8 }}>
-          per-bin residual (empirical pdf - GUE pdf)
+          </svg>
         </div>
-        <svg width={RW} height={RH} role="img" aria-label="per-bin residuals">
-          <g transform={'translate(' + RM.left + ',' + RM.top + ')'}>
-            {/* Zero line. */}
-            <line x1={0} x2={RIW} y1={yR(0)} y2={yR(0)} stroke="#475569" />
 
-            {/* Residual bars. */}
-            {residuals.map((r, i) => {
-              const xLo = xR(i * binWidth);
-              const xHi = xR((i + 1) * binWidth);
-              const yTop = yR(Math.max(r, 0));
-              const yBot = yR(Math.min(r, 0));
-              const h = yBot - yTop;
-              const positive = r >= 0;
-              return (
-                <rect
-                  key={'res-' + i}
-                  x={xLo + 0.5}
-                  y={yTop}
-                  width={Math.max(xHi - xLo - 1, 0.5)}
-                  height={Math.max(h, 0)}
-                  fill={positive ? 'rgba(34,197,94,0.55)' : 'rgba(239,68,68,0.55)'}
-                  stroke={positive ? 'rgba(34,197,94,0.95)' : 'rgba(239,68,68,0.95)'}
-                  strokeWidth={0.7}
-                >
-                  <title>
-                    {'bin [' + (i * binWidth).toFixed(2) + ', ' + ((i + 1) * binWidth).toFixed(2)
-                      + '): residual = ' + r.toFixed(4)}
-                  </title>
-                </rect>
-              );
-            })}
-
-            {/* x axis. */}
-            <line x1={0} x2={RIW} y1={RIH} y2={RIH} stroke="#475569" />
-            {xTicks.map((t) => (
-              <g key={'rxt-' + t} transform={'translate(' + xR(t) + ',' + RIH + ')'}>
-                <line y1={0} y2={5} stroke="#475569" />
-                <text y={16} textAnchor="middle" style={tickStyle}>{t.toFixed(1)}</text>
-              </g>
-            ))}
-            <text x={RIW / 2} y={RIH + 38} textAnchor="middle" style={{ ...labelStyle, fontSize: 11 }}>
-              unfolded spacing s
-            </text>
-
-            {/* y axis. */}
-            <line x1={0} x2={0} y1={0} y2={RIH} stroke="#475569" />
-            {[-rCap, -rCap / 2, 0, rCap / 2, rCap].map((t, i) => (
-              <g key={'ryt-' + i} transform={'translate(0,' + yR(t) + ')'}>
-                <line x1={-5} x2={0} stroke="#475569" />
-                <text x={-8} y={3} textAnchor="end" style={tickStyle}>{t.toFixed(3)}</text>
-              </g>
-            ))}
-            <text transform={'translate(-52,' + RIH / 2 + ') rotate(-90)'} textAnchor="middle" style={{ ...labelStyle, fontSize: 11 }}>
-              residual
-            </text>
-          </g>
-        </svg>
-      </div>
-
-      {/* Method + interpretation cards. */}
-      <div className="two-col" style={{ marginTop: 24 }}>
-        <div className="card" style={{ padding: 14 }}>
-          <h3 style={{ marginTop: 0, color: '#60a5fa' }}>Method</h3>
-          <p style={{ fontSize: 13, lineHeight: 1.55 }}>
-            For each consecutive pair of Riemann zeros
-            {' '}<code>(gamma_k, gamma_(k+1))</code>{' '}
-            we compute the <em>unfolded spacing</em>
-          </p>
-          <pre style={preStyle}>
+        {/* Method + interpretation cards. */}
+        <div className="two-col" style={{ marginTop: 24 }}>
+          <div className="card" style={{ ...cardBaseLeft('var(--blue)'), padding: 14 }}>
+            <h3 style={{ marginTop: 0, color: 'var(--blue)' }}>Method</h3>
+            <p style={{ fontSize: 13, lineHeight: 1.55 }}>
+              For each consecutive pair of Riemann zeros
+              {' '}<code>(gamma_k, gamma_(k+1))</code>{' '}
+              we compute the <em>unfolded spacing</em>
+            </p>
+            <pre style={preStyle}>
 {`s_k = (gamma_(k+1) - gamma_k) * (log(gamma_k / (2 * pi)) / (2 * pi))`}
-          </pre>
-          <p style={{ fontSize: 13, lineHeight: 1.55 }}>
-            using the Riemann-von Mangoldt smooth density
-            {' '}<code>rho(t) = (1 / (2 * pi)) * log(t / (2 * pi))</code>.
-            By construction the mean unfolded spacing tends to 1, so
-            distributions of <code>s_k</code> are directly comparable across
-            different heights.
-          </p>
-          <p style={{ fontSize: 13, lineHeight: 1.55, marginBottom: 0 }}>
-            The empirical pdf is binned with {nBins} bins over <code>[0, {sMax.toFixed(1)}]</code>
-            and the GUE Wigner surmise is evaluated at the bin centers. KL
-            divergence and Hellinger distance are computed over the bin
-            probability masses.
-          </p>
+            </pre>
+            <p style={{ fontSize: 13, lineHeight: 1.55 }}>
+              using the Riemann-von Mangoldt smooth density
+              {' '}<code>rho(t) = (1 / (2 * pi)) * log(t / (2 * pi))</code>.
+              By construction the mean unfolded spacing tends to 1, so
+              distributions of <code>s_k</code> are directly comparable across
+              different heights.
+            </p>
+            <p style={{ fontSize: 13, lineHeight: 1.55, marginBottom: 0 }}>
+              The empirical pdf is binned with {nBins} bins over <code>[0, {sMax.toFixed(1)}]</code>
+              and the GUE Wigner surmise is evaluated at the bin centers. KL
+              divergence and Hellinger distance are computed over the bin
+              probability masses.
+            </p>
+          </div>
+          <div className="card" style={{ ...cardBaseLeft('var(--terra-dk)'), padding: 14 }}>
+            <h3 style={{ marginTop: 0, color: 'var(--terra-dk)' }}>Interpretation</h3>
+            <p style={{ fontSize: 13, lineHeight: 1.55 }}>
+              The agreement is extraordinarily close. KL divergence
+              {' '}<code>{D.klDivergence.toExponential(3)}</code>{' '}
+              and Hellinger distance
+              {' '}<code>{D.hellingerDistance.toFixed(4)}</code>{' '}
+              are both well within the bounds expected of finite-sample noise at
+              <code> N = {D.nZerosUsed.toLocaleString()}</code> zeros. The
+              empirical histogram tracks the GUE Wigner curve including its
+              quadratic small-<code>s</code> level repulsion and Gaussian-decay
+              tail.
+            </p>
+            <p style={{ fontSize: 13, lineHeight: 1.55, marginBottom: 0 }}>
+              <strong>Scope:</strong> this is pure exploration. GUE
+              universality of the Riemann zeros remains a conjecture; no rigorous
+              proof exists. The visual agreement shown here is the well-known
+              numerical signature first measured by Odlyzko and consistent with
+              Montgomery&apos;s pair-correlation conjecture and the Rudnick-Sarnak
+              theorem on higher correlations under suitable test-function
+              restrictions.
+            </p>
+          </div>
         </div>
-        <div className="card" style={{ padding: 14 }}>
-          <h3 style={{ marginTop: 0, color: '#ef4444' }}>Interpretation</h3>
-          <p style={{ fontSize: 13, lineHeight: 1.55 }}>
-            The agreement is extraordinarily close. KL divergence
-            {' '}<code>{D.klDivergence.toExponential(3)}</code>{' '}
-            and Hellinger distance
-            {' '}<code>{D.hellingerDistance.toFixed(4)}</code>{' '}
-            are both well within the bounds expected of finite-sample noise at
-            <code> N = {D.nZerosUsed.toLocaleString()}</code> zeros. The
-            empirical histogram tracks the GUE Wigner curve including its
-            quadratic small-<code>s</code> level repulsion and Gaussian-decay
-            tail.
-          </p>
-          <p style={{ fontSize: 13, lineHeight: 1.55, marginBottom: 0 }}>
-            <strong>Scope:</strong> this is pure exploration. GUE
-            universality of the Riemann zeros remains a conjecture; no rigorous
-            proof exists. The visual agreement shown here is the well-known
-            numerical signature first measured by Odlyzko and consistent with
-            Montgomery&apos;s pair-correlation conjecture and the Rudnick-Sarnak
-            theorem on higher correlations under suitable test-function
-            restrictions.
-          </p>
+
+        {/* Source citation. */}
+        <div style={{ marginTop: 16, fontSize: 11, color: 'var(--faint)', lineHeight: 1.6 }}>
+          Browser data: pinned histogram snapshot derived offline from the first
+          {' '}{D.nZerosUsed.toLocaleString()} Odlyzko zeros in ZEROS_EXTENDED
+          (src/data/zeros-to-1e6.js) by GUE_VS_ZEROS_COMPARISON
+          (src/data/gue-vs-zeros-comparison.js). This page does not import the
+          raw zero corpus.
+          Build-time tripwires: GUE_VS_ZEROS_COMPARISON_ASSERTIONS (7 checks,
+          wired into scripts/run-assertions.mjs). Ticket: imp-1099.
+        </div>
+
+        {/* Related pages. */}
+        <div className="card" style={{ ...cardBaseLeft('var(--brass)'), marginTop: 24 }}>
+          <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--faint)', marginBottom: 8 }}>
+            Related pages
+          </div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center' }}>
+            <Link to="/pair-correlation" style={{ color: 'var(--brass)', fontSize: 13 }}>Pair Correlation</Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/statistics" style={{ color: 'var(--blue)', fontSize: 13 }}>Zero Statistics</Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/edge-rigidity" style={{ color: 'var(--green)', fontSize: 13 }}>Edge Rigidity</Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/angular-spacing-stats" style={{ color: 'var(--terra-dk)', fontSize: 13 }}>Angular Spacing</Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/" style={{ color: 'var(--ink-soft)', fontSize: 13 }}>&larr; the atlas</Link>
+          </div>
         </div>
       </div>
-
-      {/* Source citation. */}
-      <div style={{ marginTop: 16, fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.6 }}>
-        Browser data: pinned histogram snapshot derived offline from the first
-        {' '}{D.nZerosUsed.toLocaleString()} Odlyzko zeros in ZEROS_EXTENDED
-        (src/data/zeros-to-1e6.js) by GUE_VS_ZEROS_COMPARISON
-        (src/data/gue-vs-zeros-comparison.js). This page does not import the
-        raw zero corpus.
-        Build-time tripwires: GUE_VS_ZEROS_COMPARISON_ASSERTIONS (7 checks,
-        wired into scripts/run-assertions.mjs). Ticket: imp-1099.
-      </div>
-
-      <RelatedLinks links={[
-        { to: '/pair-correlation', label: 'Pair Correlation' },
-        { to: '/statistics', label: 'Zero Statistics' },
-        { to: '/edge-rigidity', label: 'Edge Rigidity' },
-        { to: '/angular-spacing-stats', label: 'Angular Spacing', color: '#06b6d4' },
-      ]} />
     </div>
   );
 }
@@ -469,18 +497,15 @@ export default function GueComparisonPage() {
 
 function SummaryCard({ label, value, tone, hint }) {
   return (
-    <div
-      className="card"
-      style={{ borderLeft: '3px solid ' + tone, padding: 12 }}
-    >
-      <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: 0.5, marginBottom: 4 }}>
+    <div className="card" style={cardBaseLeft(tone)}>
+      <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--faint)', letterSpacing: 0.5, marginBottom: 4 }}>
         {label}
       </div>
-      <div style={{ fontFamily: 'var(--font-mono)', fontSize: 16, fontWeight: 700, color: tone, wordBreak: 'break-all' }}>
+      <div style={{ fontFamily: 'var(--ed-mono)', fontSize: 16, fontWeight: 700, color: tone, wordBreak: 'break-all' }}>
         {value}
       </div>
       {hint ? (
-        <div style={{ fontSize: 10, color: 'var(--text-muted)', marginTop: 4, lineHeight: 1.4 }}>
+        <div style={{ fontSize: 10, color: 'var(--faint)', marginTop: 4, lineHeight: 1.4 }}>
           {hint}
         </div>
       ) : null}
@@ -489,13 +514,13 @@ function SummaryCard({ label, value, tone, hint }) {
 }
 
 const preStyle = {
-  background: 'var(--bg-primary)',
+  background: 'var(--paper)',
   padding: '8px 10px',
   borderRadius: 6,
   fontSize: 11,
-  fontFamily: 'var(--font-mono)',
-  color: '#cbd5e1',
+  fontFamily: 'var(--ed-mono)',
+  color: 'var(--ink-soft)',
   overflowX: 'auto',
-  border: '1px solid var(--border)',
+  border: '1px solid var(--hair2)',
   margin: '8px 0',
 };

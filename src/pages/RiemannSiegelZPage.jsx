@@ -18,6 +18,7 @@
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import RelatedLinks from '../components/RelatedLinks.jsx';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { scaleLinear } from 'd3-scale';
 import {
   RIEMANN_SIEGEL_Z_EXPLORER,
@@ -35,7 +36,7 @@ const IH_BOT = H_BOT - M.top - M.bottom;
 const labelStyle = {
   fontFamily: 'var(--font-mono)',
   fontSize: 10,
-  fill: 'var(--text-secondary)',
+  fill: '#94a3b8',
 };
 
 const tickStyle = {
@@ -128,10 +129,11 @@ export default function RiemannSiegelZPage() {
     : 100 * R.agreementCount / R.detectedZeros.length;
 
   return (
-    <div className="page">
-      <div className="page-header">
-        <h1>Riemann-Siegel Z(t) Explorer (imp-1097)</h1>
-        <p className="page-subtitle">
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>viz · Riemann–Siegel Z</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <h1 className="ed-h1" style={{ marginBottom: 10 }}>Riemann-Siegel Z(t) Explorer (imp-1097)</h1>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.65, maxWidth: 760 }}>
           The Hardy / Riemann-Siegel Z function Z(t) = e^{'{i theta(t)}'}
           {' '}* zeta(1/2 + i t) is REAL for real t and its sign changes
           coincide with the imaginary parts of the nontrivial zeros of zeta
@@ -141,11 +143,10 @@ export default function RiemannSiegelZPage() {
           recovers a known Odlyzko zero.
         </p>
         <div style={{ marginTop: 10 }}>
-          <Link to="/explorations" style={{ color: '#a855f7', fontFamily: 'var(--font-mono)', fontSize: 12 }}>
+          <Link to="/explorations" style={{ color: 'var(--brass)', fontFamily: 'var(--font-mono)', fontSize: 12, textDecoration: 'none' }}>
             &larr; back to Explorations
           </Link>
         </div>
-      </div>
 
       {/* Summary stat strip. */}
       <div style={{
@@ -156,17 +157,17 @@ export default function RiemannSiegelZPage() {
       }}>
         <Stat label="Detected zeros (t in [0,100])" value={R.detectedZeros.length} />
         <Stat label="Odlyzko reference zeros" value={R.knownOdlyzkoZerosUpTo100.length} />
-        <Stat label="Agreement (within 0.01)" value={R.agreementCount + ' / ' + R.detectedZeros.length} accent={matchPct >= 90 ? '#86efac' : '#fca5a5'} />
-        <Stat label="Spurious detections" value={R.spuriousZeros.length} accent={R.spuriousZeros.length === 0 ? '#86efac' : '#fca5a5'} />
-        <Stat label="Missing zeros" value={R.missingZeros.length} accent={R.missingZeros.length === 0 ? '#86efac' : '#fca5a5'} />
+        <Stat label="Agreement (within 0.01)" value={R.agreementCount + ' / ' + R.detectedZeros.length} accent={matchPct >= 90 ? 'var(--green)' : 'var(--terra-dk)'} />
+        <Stat label="Spurious detections" value={R.spuriousZeros.length} accent={R.spuriousZeros.length === 0 ? 'var(--green)' : 'var(--terra-dk)'} />
+        <Stat label="Missing zeros" value={R.missingZeros.length} accent={R.missingZeros.length === 0 ? 'var(--green)' : 'var(--terra-dk)'} />
         <Stat label="Grid samples" value={R.nPoints} />
       </div>
 
       {/* Controls. */}
       <div style={{
         marginTop: 16,
-        background: 'var(--bg-panel)',
-        border: '1px solid var(--border)',
+        background: 'var(--paper)',
+        border: '1px solid var(--hairline)',
         borderRadius: 8,
         padding: 12,
         display: 'flex',
@@ -174,7 +175,7 @@ export default function RiemannSiegelZPage() {
         flexWrap: 'wrap',
         gap: 18,
       }}>
-        <label style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)' }}>
+        <label style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: 'var(--ink-soft)' }}>
           t window upper bound:&nbsp;
           <input
             type="range"
@@ -185,9 +186,9 @@ export default function RiemannSiegelZPage() {
             onChange={(e) => setTMaxView(Number(e.target.value))}
             style={{ verticalAlign: 'middle' }}
           />
-          <span style={{ color: '#a855f7', marginLeft: 8 }}>{tMaxView}</span>
+          <span style={{ color: 'var(--terra)', marginLeft: 8 }}>{tMaxView}</span>
         </label>
-        <label style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)' }}>
+        <label style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: 'var(--ink-soft)' }}>
           <input
             type="checkbox"
             checked={showEnhanced}
@@ -199,8 +200,8 @@ export default function RiemannSiegelZPage() {
       </div>
 
       {/* Main Z(t) plot. */}
-      <div style={{ overflowX: 'auto', marginTop: 16, background: 'var(--bg-panel)', border: '1px solid var(--border)', borderRadius: 8, padding: 12 }}>
-        <div style={{ fontSize: 11, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', marginBottom: 4 }}>
+      <div style={{ overflowX: 'auto', marginTop: 16, background: 'var(--paper)', border: '1px solid var(--hairline)', borderRadius: 8, padding: 12 }}>
+        <div style={{ fontSize: 11, color: 'var(--ink-soft)', fontFamily: 'var(--font-mono)', marginBottom: 4 }}>
           Z(t) = exp(i theta(t)) * zeta(1/2 + i t) — Riemann-Siegel formula, main sum + C_0
         </div>
         <svg width={W} height={H_TOP} role="img" aria-label="Riemann-Siegel Z(t)">
@@ -270,7 +271,7 @@ export default function RiemannSiegelZPage() {
         </svg>
 
         {/* Legend. */}
-        <div style={{ marginTop: 8, fontSize: 10, fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)', display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+        <div style={{ marginTop: 8, fontSize: 10, fontFamily: 'var(--font-mono)', color: 'var(--ink-soft)', display: 'flex', gap: 16, flexWrap: 'wrap' }}>
           <span><span style={{ color: '#06b6d4' }}>—</span> Z(t) basic (C_0)</span>
           {showEnhanced && (<span><span style={{ color: '#facc15' }}>—</span> Z(t) enhanced (C_0+C_1+C_2)</span>)}
           <span><span style={{ color: '#22c55e' }}>&#9679;</span> detected sign change</span>
@@ -279,8 +280,8 @@ export default function RiemannSiegelZPage() {
       </div>
 
       {/* Theta(t) panel. */}
-      <div style={{ overflowX: 'auto', marginTop: 16, background: 'var(--bg-panel)', border: '1px solid var(--border)', borderRadius: 8, padding: 12 }}>
-        <div style={{ fontSize: 11, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', marginBottom: 4 }}>
+      <div style={{ overflowX: 'auto', marginTop: 16, background: 'var(--paper)', border: '1px solid var(--hairline)', borderRadius: 8, padding: 12 }}>
+        <div style={{ fontSize: 11, color: 'var(--ink-soft)', fontFamily: 'var(--font-mono)', marginBottom: 4 }}>
           theta(t) = (t/2) log(t / 2pi) - t/2 - pi/8 + 1/(48 t) + 7/(5760 t^3)  — Riemann-Siegel theta phase
         </div>
         <svg width={W} height={H_BOT} role="img" aria-label="theta(t)">
@@ -310,16 +311,16 @@ export default function RiemannSiegelZPage() {
 
       {/* Agreement table — first 10 zeros side by side. */}
       <div className="card" style={{ marginTop: 24, padding: 14 }}>
-        <div style={{ fontSize: 11, textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: 0.5, marginBottom: 8 }}>
+        <div style={{ fontSize: 11, textTransform: 'uppercase', color: 'var(--faint)', letterSpacing: 0.5, marginBottom: 8 }}>
           first 10 detected zeros vs Odlyzko reference
         </div>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 11, fontFamily: 'var(--font-mono)' }}>
           <thead>
-            <tr style={{ background: 'var(--bg-primary)' }}>
-              <th style={{ textAlign: 'left', padding: 6 }}>n</th>
-              <th style={{ textAlign: 'right', padding: 6 }}>detected gamma_n</th>
-              <th style={{ textAlign: 'right', padding: 6 }}>Odlyzko gamma_n</th>
-              <th style={{ textAlign: 'right', padding: 6 }}>abs error</th>
+            <tr style={{ background: 'var(--paper)' }}>
+              <th style={{ textAlign: 'left', padding: 6, color: 'var(--ink)' }}>n</th>
+              <th style={{ textAlign: 'right', padding: 6, color: 'var(--ink)' }}>detected gamma_n</th>
+              <th style={{ textAlign: 'right', padding: 6, color: 'var(--ink)' }}>Odlyzko gamma_n</th>
+              <th style={{ textAlign: 'right', padding: 6, color: 'var(--ink)' }}>abs error</th>
             </tr>
           </thead>
           <tbody>
@@ -327,11 +328,11 @@ export default function RiemannSiegelZPage() {
               const known = R.knownOdlyzkoZerosUpTo100[idx];
               const good = row.absError < 0.05;
               return (
-                <tr key={'row-' + idx} style={{ borderTop: '1px solid var(--border)' }}>
-                  <td style={{ padding: 6, color: '#a855f7' }}>{idx + 1}</td>
-                  <td style={{ padding: 6, textAlign: 'right' }}>{row.detected.toFixed(6)}</td>
-                  <td style={{ padding: 6, textAlign: 'right' }}>{known != null ? known.toFixed(6) : '—'}</td>
-                  <td style={{ padding: 6, textAlign: 'right', color: good ? '#86efac' : '#fca5a5' }}>
+                <tr key={'row-' + idx} style={{ borderTop: '1px solid var(--hairline)' }}>
+                  <td style={{ padding: 6, color: 'var(--terra)' }}>{idx + 1}</td>
+                  <td style={{ padding: 6, textAlign: 'right', color: 'var(--ink-soft)' }}>{row.detected.toFixed(6)}</td>
+                  <td style={{ padding: 6, textAlign: 'right', color: 'var(--ink-soft)' }}>{known != null ? known.toFixed(6) : '—'}</td>
+                  <td style={{ padding: 6, textAlign: 'right', color: good ? 'var(--green)' : 'var(--terra-dk)' }}>
                     {row.absError.toExponential(2)}
                   </td>
                 </tr>
@@ -342,7 +343,7 @@ export default function RiemannSiegelZPage() {
       </div>
 
       {/* Notes. */}
-      <div style={{ marginTop: 16, fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.6 }}>
+      <div style={{ marginTop: 16, fontSize: 11, color: 'var(--faint)', lineHeight: 1.6 }}>
         Notes: (1) the Riemann-Siegel main sum index N = floor(sqrt(t / 2 pi))
         equals zero for t &lt; 2 pi, where the formula is undefined; the page
         shades that region red and forces Z = 0 there. (2) Sign detection uses
@@ -363,6 +364,11 @@ export default function RiemannSiegelZPage() {
         { to: '/zeta', label: 'Zeta Landscape' },
         { to: '/statistics', label: 'Zero Statistics' },
       ]} />
+
+      <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid var(--hairline)' }}>
+        <Link to="/" style={{ color: 'var(--ink-soft)', fontSize: 13, textDecoration: 'none' }}>← the atlas</Link>
+      </div>
+      </div>
     </div>
   );
 }
@@ -370,19 +376,19 @@ export default function RiemannSiegelZPage() {
 function Stat({ label, value, accent }) {
   return (
     <div style={{
-      background: 'var(--bg-panel)',
-      border: '1px solid var(--border)',
+      background: 'var(--paper)',
+      border: '1px solid var(--hairline)',
       borderRadius: 8,
       padding: 10,
     }}>
-      <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: 0.5 }}>
+      <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--faint)', letterSpacing: 0.5 }}>
         {label}
       </div>
       <div style={{
         marginTop: 4,
         fontSize: 18,
         fontFamily: 'var(--font-mono)',
-        color: accent || '#e2e8f0',
+        color: accent || 'var(--ink)',
       }}>
         {value}
       </div>

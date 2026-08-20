@@ -29,6 +29,13 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+
+// Editorial (warm) re-theme: identical math/canvas logic, warm chrome.
+// Canvas colors are literal warm hex (canvas fill/stroke can't use CSS vars):
+// paper2 #f6f1e7, faint #877b67, hairline #d5c9b2. The per-prime radial
+// color ramp (purple->teal->yellow) is a data-encoding scale, left unchanged,
+// same treatment as the other viz pages' heatmap/spiral ramps.
 
 const LN10 = Math.log(10);
 
@@ -144,7 +151,7 @@ export default function VizZoomHierarchyPage() {
       const ctx = canvas.getContext('2d');
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      ctx.fillStyle = '#0a0e1a';
+      ctx.fillStyle = '#f6f1e7';
       ctx.fillRect(0, 0, W, H);
 
       const cx = W / 2;
@@ -153,7 +160,7 @@ export default function VizZoomHierarchyPage() {
       const rPx = Math.min(W, H) / 2 - pad;
 
       // Faint unit-disk boundary + spokes for the shared frame.
-      ctx.strokeStyle = '#1e293b';
+      ctx.strokeStyle = '#d5c9b2';
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.arc(cx, cy, rPx, 0, Math.PI * 2);
@@ -188,7 +195,7 @@ export default function VizZoomHierarchyPage() {
       }
 
       // Panel caption.
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = '#877b67';
       ctx.font = '11px "JetBrains Mono", monospace';
       ctx.textAlign = 'center';
       ctx.fillText('p ∈ ' + win.label, cx, H - 7);
@@ -196,10 +203,11 @@ export default function VizZoomHierarchyPage() {
   }, [data, phi0, canvasRefs]);
 
   return (
-    <div className="page">
-      <div className="page-header">
-        <h1>Zoom Hierarchy of the Log-Phase Prime Spiral</h1>
-        <p className="page-subtitle">
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>viz &middot; zoom hierarchy</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <h1 className="ed-h1" style={{ marginBottom: 6 }}>Zoom Hierarchy of the Log-Phase Prime Spiral</h1>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
           The same log-phase prime spiral rendered at three disjoint scales
           (p in [10&sup2;,10&sup3;], [10&#8308;,10&#8309;], [10&#8310;,10&#8311;]).
           Each window is one decade wide and the phase law winds a whole number
@@ -210,35 +218,34 @@ export default function VizZoomHierarchyPage() {
         <div style={{ marginTop: 10, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
           <Link
             to="/visual-geometries"
-            style={{ color: '#a855f7', fontFamily: 'var(--font-mono)', fontSize: 12 }}
+            style={{ color: 'var(--blue)', fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12 }}
           >
             &larr; Visual Geometries gallery
           </Link>
           <Link
             to="/visualizations"
-            style={{ color: '#64748b', fontFamily: 'var(--font-mono)', fontSize: 12 }}
+            style={{ color: 'var(--ink-soft)', fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12 }}
           >
             &larr; Visualizations index
           </Link>
           <Link
             to="/viz-hyperbolic-prime-spiral"
-            style={{ color: '#64748b', fontFamily: 'var(--font-mono)', fontSize: 12 }}
+            style={{ color: 'var(--ink-soft)', fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12 }}
           >
             &larr; Hyperbolic Prime Spiral
           </Link>
         </div>
-      </div>
 
       {/* Formula card */}
       <div
         className="card"
-        style={{ marginTop: 18, padding: 14, borderLeft: '3px solid #a855f7' }}
+        style={{ marginTop: 18, padding: 14, background: 'var(--paper2)', border: '1px solid var(--hairline)', borderLeft: '3px solid var(--blue)' }}
       >
         <div
           style={{
             fontSize: 11,
-            color: '#a855f7',
-            fontFamily: 'var(--font-mono)',
+            color: 'var(--blue)',
+            fontFamily: 'var(--ed-mono, var(--font-mono))',
             textTransform: 'uppercase',
             letterSpacing: 0.4,
             marginBottom: 10,
@@ -250,7 +257,7 @@ export default function VizZoomHierarchyPage() {
           <BlockMath tex={'r(p) = \\frac{\\log p - \\log p_{\\mathrm{lo}}}{\\log p_{\\mathrm{hi}} - \\log p_{\\mathrm{lo}}} \\in [0,1]'} />
           <BlockMath tex={'\\theta(p) = \\big(\\varphi_0\\,\\log p\\big) \\bmod 2\\pi, \\qquad \\varphi_0 = \\frac{2\\pi\\,W}{\\log 10}'} />
         </div>
-        <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.7 }}>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7 }}>
           With <InlineMath tex={'\\varphi_0 = 2\\pi W / \\log 10'} /> the angle
           advances by exactly <InlineMath tex={'2\\pi W'} /> (i.e.{' '}
           <InlineMath tex={'W'} /> whole turns) across one decade. Shifting{' '}
@@ -264,8 +271,8 @@ export default function VizZoomHierarchyPage() {
       <div
         style={{
           marginTop: 16,
-          background: 'var(--bg-panel)',
-          border: '1px solid var(--border)',
+          background: 'var(--paper2)',
+          border: '1px solid var(--hairline)',
           borderRadius: 8,
           padding: 12,
           display: 'flex',
@@ -277,8 +284,8 @@ export default function VizZoomHierarchyPage() {
         <label
           style={{
             fontSize: 11,
-            fontFamily: 'var(--font-mono)',
-            color: 'var(--text-secondary)',
+            fontFamily: 'var(--ed-mono, var(--font-mono))',
+            color: 'var(--ink-soft)',
             display: 'flex',
             alignItems: 'center',
             gap: 8,
@@ -297,15 +304,15 @@ export default function VizZoomHierarchyPage() {
         <span
           style={{
             fontSize: 11,
-            fontFamily: 'var(--font-mono)',
+            fontFamily: 'var(--ed-mono, var(--font-mono))',
             color:
               status === 'done'
-                ? '#86efac'
+                ? 'var(--green)'
                 : status === 'computing'
-                  ? '#facc15'
+                  ? 'var(--brass)'
                   : status === 'error'
-                    ? '#fca5a5'
-                    : '#64748b',
+                    ? 'var(--terra-dk)'
+                    : 'var(--faint)',
           }}
         >
           status: {status}
@@ -320,8 +327,8 @@ export default function VizZoomHierarchyPage() {
       <div
         style={{
           marginTop: 16,
-          background: 'var(--bg-panel)',
-          border: '1px solid var(--border)',
+          background: 'var(--paper2)',
+          border: '1px solid var(--hairline)',
           borderRadius: 8,
           padding: 12,
           display: 'flex',
@@ -341,7 +348,7 @@ export default function VizZoomHierarchyPage() {
               height: PANEL,
               maxWidth: '100%',
               display: 'block',
-              background: '#0a0e1a',
+              background: '#f6f1e7',
               borderRadius: 6,
             }}
             role="img"
@@ -353,13 +360,13 @@ export default function VizZoomHierarchyPage() {
       {/* Scope */}
       <div
         className="card"
-        style={{ marginTop: 24, padding: 14, borderLeft: '3px solid #06b6d4' }}
+        style={{ marginTop: 24, padding: 14, background: 'var(--paper2)', border: '1px solid var(--hairline)', borderLeft: '3px solid var(--blue)' }}
       >
         <div
           style={{
             fontSize: 11,
-            color: '#06b6d4',
-            fontFamily: 'var(--font-mono)',
+            color: 'var(--blue)',
+            fontFamily: 'var(--ed-mono, var(--font-mono))',
             textTransform: 'uppercase',
             letterSpacing: 0.4,
             marginBottom: 8,
@@ -369,7 +376,7 @@ export default function VizZoomHierarchyPage() {
         </div>
         <ul
           style={{
-            color: 'var(--text-secondary)',
+            color: 'var(--ink-soft)',
             fontSize: 13,
             lineHeight: 1.7,
             paddingLeft: 18,
@@ -407,14 +414,22 @@ export default function VizZoomHierarchyPage() {
         style={{
           marginTop: 20,
           fontSize: 11,
-          color: 'var(--text-muted)',
+          color: 'var(--faint)',
           lineHeight: 1.6,
-          fontFamily: 'var(--font-mono)',
+          fontFamily: 'var(--ed-mono, var(--font-mono))',
         }}
       >
         embedding: r = log p (window-normalized), &theta; = (&phi;&#8320; log p) mod
         2&pi; &middot; primes: in-browser segmented sieve &middot; companion:
         /viz-hyperbolic-prime-spiral
+      </div>
+
+      {/* Footer */}
+      <div style={{ marginTop: 40, paddingTop: 16, borderTop: '1px solid var(--hairline)' }}>
+        <Link to="/" style={{ color: 'var(--brass-dk)', fontSize: 13, textDecoration: 'none' }}>
+          &larr; the atlas
+        </Link>
+      </div>
       </div>
     </div>
   );

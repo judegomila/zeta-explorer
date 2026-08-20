@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import VizCeilingNote from '../components/VizCeilingNote.jsx';
 
 /*
@@ -23,6 +24,13 @@ import VizCeilingNote from '../components/VizCeilingNote.jsx';
  * the winding / vortex-exclusion picture re-derives Lambda >= 0 (Rodgers-Tao) and
  * makes RH visible, but it is NOT a new rigorous Lambda bound and does not beat
  * Platt-Trudgian Lambda <= 0.2. This is an exact, exploratory visualization.
+ *
+ * Editorial (warm) re-theme: chrome only. Canvas viz / Dyson-flow logic is
+ * untouched. The phase colormap (hsl2rgb, a continuous data encoding of
+ * arg H(s)) and the PhaseWheel legend are left as-is; chrome overlays
+ * (critical-line guide, streamlines, vortex markers, trajectory-map axes/grid)
+ * are recolored to literal warm hex -- ctx.fillStyle/strokeStyle can't read
+ * var(). Claims/caveats verbatim.
  */
 
 // First 25 nontrivial zeta zeros (imaginary parts). Light hardcode -- avoids the
@@ -192,7 +200,8 @@ function VortexCanvas({ centerIdx, tau, magContours, showStreamlines, onHoverDat
         }
         return [vx, vy];
       };
-      ctx.strokeStyle = 'rgba(255,255,255,0.42)';
+      // literal warm paper2 (#f6f1e7) for contrast against the (unmodified) phase colormap
+      ctx.strokeStyle = 'rgba(246,241,231,0.45)';
       ctx.lineWidth = 1;
       const SEED = 13, STEPS = 22, hstep = 0.5;
       for (let i = 1; i < SEED; i++) {
@@ -214,8 +223,8 @@ function VortexCanvas({ centerIdx, tau, magContours, showStreamlines, onHoverDat
       }
     }
 
-    // critical line Re s = 1/2
-    ctx.strokeStyle = 'rgba(255,255,255,0.6)';
+    // critical line Re s = 1/2 -- literal warm paper2 (#f6f1e7)
+    ctx.strokeStyle = 'rgba(246,241,231,0.65)';
     ctx.setLineDash([6, 5]);
     ctx.lineWidth = 1.5;
     const [lx] = toPx(0.5, 0);
@@ -231,8 +240,9 @@ function VortexCanvas({ centerIdx, tau, magContours, showStreamlines, onHoverDat
       ctx.beginPath();
       ctx.arc(vx, vy, central || off ? 7.5 : 5.5, 0, 2 * Math.PI);
       ctx.lineWidth = central || off ? 3 : 2;
-      ctx.strokeStyle = off ? '#ef4444' : central ? '#fde047' : '#ffffff';
-      ctx.fillStyle = 'rgba(0,0,0,0.55)';
+      // literal warm terra-dk (off-axis) / brass (central pair) / paper2 (spectator)
+      ctx.strokeStyle = off ? '#c23a1c' : central ? '#8c6a1d' : '#f6f1e7';
+      ctx.fillStyle = 'rgba(28,24,20,0.55)';
       ctx.fill(); ctx.stroke();
     });
   }, [centerIdx, tau, magContours, showStreamlines, zeros]);
@@ -265,7 +275,7 @@ function VortexCanvas({ centerIdx, tau, magContours, showStreamlines, onHoverDat
   return <canvas ref={ref} width={PX} height={PX}
     onMouseMove={handleMouseMove}
     onMouseLeave={() => onHoverData && onHoverData(null)}
-    style={{ width: '100%', maxWidth: 560, borderRadius: 10, border: '1px solid #1e293b', display: 'block', cursor: 'crosshair' }} />;
+    style={{ width: '100%', maxWidth: 560, borderRadius: 10, border: '1px solid var(--hairline)', display: 'block', cursor: 'crosshair' }} />;
 }
 
 function hsl2rgb(h, s, l) {
@@ -340,9 +350,11 @@ function VortexTrajectoryMap({ centerIdx, tau }) {
     const toX = (tv) => ML + ((tv - TAU_A) / (TAU_B - TAU_A)) * pW;
     const toY = (s) => MT + ((tMax - s) / (tMax - tMin)) * pH;
 
-    ctx.fillStyle = '#0f172a'; ctx.fillRect(0, 0, W, H);
+    // literal warm paper2 background -- ctx.fillStyle can't read var()
+    ctx.fillStyle = '#f6f1e7'; ctx.fillRect(0, 0, W, H);
 
     // Draw one path per zero (sorted index stable: Dyson repulsion prevents crossings)
+    // literal warm brass-dk (central pair) / blue (spectators)
     for (let idx = 0; idx < nZeros; idx++) {
       const isCentral = idx === centralPairIdx[0] || idx === centralPairIdx[1];
       ctx.beginPath();
@@ -352,23 +364,24 @@ function VortexTrajectoryMap({ centerIdx, tau }) {
         const x = toX(snap.tv), y = toY(z.gamma);
         if (!moved) { ctx.moveTo(x, y); moved = true; } else ctx.lineTo(x, y);
       }
-      ctx.strokeStyle = isCentral ? '#fde047' : '#3b82f6';
+      ctx.strokeStyle = isCentral ? '#b58a2e' : '#3f6b86';
       ctx.lineWidth = isCentral ? 2 : 1;
       ctx.globalAlpha = isCentral ? 0.9 : 0.45;
       ctx.stroke(); ctx.globalAlpha = 1;
     }
 
-    // tau=0 dashed reference
-    ctx.strokeStyle = 'rgba(148,163,184,0.2)'; ctx.setLineDash([3, 4]); ctx.lineWidth = 1;
+    // tau=0 dashed reference -- literal warm hairline (#d5c9b2)
+    ctx.strokeStyle = 'rgba(213,201,178,0.6)'; ctx.setLineDash([3, 4]); ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(toX(0), MT); ctx.lineTo(toX(0), MT + pH); ctx.stroke();
     ctx.setLineDash([]);
 
-    // Current tau cursor
+    // Current tau cursor -- literal warm ink (#1c1814)
     const cx = Math.max(ML, Math.min(ML + pW, toX(tau)));
-    ctx.strokeStyle = 'rgba(255,255,255,0.7)'; ctx.lineWidth = 1.5;
+    ctx.strokeStyle = 'rgba(28,24,20,0.7)'; ctx.lineWidth = 1.5;
     ctx.beginPath(); ctx.moveTo(cx, MT); ctx.lineTo(cx, MT + pH); ctx.stroke();
 
     // Dots marking current zero positions on the cursor
+    // literal warm terra-dk (off) / brass-dk (central) / blue (spectator)
     const si = Math.max(0, Math.min(TRAJ_SAMPLES, Math.round(((tau - TAU_A) / (TAU_B - TAU_A)) * TRAJ_SAMPLES)));
     const cur = snapshots[si];
     if (cur) {
@@ -377,31 +390,31 @@ function VortexTrajectoryMap({ centerIdx, tau }) {
         const isOff = z.role === 'off';
         ctx.beginPath();
         ctx.arc(cx, toY(z.gamma), isOff ? 4.5 : isCentral ? 3.5 : 2.5, 0, 2 * Math.PI);
-        ctx.fillStyle = isOff ? '#ef4444' : isCentral ? '#fde047' : '#93c5fd';
+        ctx.fillStyle = isOff ? '#c23a1c' : isCentral ? '#b58a2e' : '#3f6b86';
         ctx.fill();
       });
     }
 
-    // Axes
-    ctx.strokeStyle = '#1e293b'; ctx.lineWidth = 1;
+    // Axes -- literal warm ink-soft (#4a4238)
+    ctx.strokeStyle = '#4a4238'; ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(ML, MT); ctx.lineTo(ML, MT + pH);
     ctx.moveTo(ML, MT + pH); ctx.lineTo(ML + pW, MT + pH);
     ctx.stroke();
 
-    // X tick labels
-    ctx.fillStyle = '#475569'; ctx.font = '9px monospace'; ctx.textAlign = 'center';
+    // X tick labels -- literal warm faint (#877b67)
+    ctx.fillStyle = '#877b67'; ctx.font = '9px monospace'; ctx.textAlign = 'center';
     [-4, -2, 0, 2, 4].forEach((tv) => ctx.fillText(String(tv), toX(tv), MT + pH + 13));
-    ctx.fillStyle = '#374155'; ctx.fillText('heat-time t', ML + pW / 2, H - 3);
+    ctx.fillStyle = '#877b67'; ctx.fillText('heat-time t', ML + pW / 2, H - 3);
 
-    // Y tick labels
-    ctx.fillStyle = '#475569'; ctx.textAlign = 'right';
+    // Y tick labels -- literal warm faint (#877b67)
+    ctx.fillStyle = '#877b67'; ctx.textAlign = 'right';
     [tMin + 2, gc, tMax - 2].forEach((s) => ctx.fillText(s.toFixed(1), ML - 4, toY(s) + 3));
   }, [traj, tau, centerIdx]);
 
   return (
     <canvas ref={ref} width={TRAJ_W} height={TRAJ_H}
-      style={{ width: '100%', borderRadius: 8, border: '1px solid #1e293b', display: 'block', marginTop: 10 }} />
+      style={{ width: '100%', borderRadius: 8, border: '1px solid var(--hairline)', display: 'block', marginTop: 10 }} />
   );
 }
 
@@ -440,119 +453,133 @@ export default function VortexFieldPage() {
   }, [isPlaying]);
 
   return (
-    <div className="page">
-      <div className="page-header">
-        <h1>Prime-Log Vortex Field</h1>
-        <p className="page-subtitle">
-          The log-derivative <code>V(s) = ξ′(s)/ξ(s)</code> (the Newman-flow phase
-          gradient, analogue of <code>V_t = H_t′/H_t</code>) has a simple pole — a{' '}
-          <strong>phase vortex</strong> — at every zero ρ. The phase{' '}
-          <code>arg H(s)</code> winds once around each, so{' '}
-          <strong>zeros ⟷ vortices</strong> with winding{' '}
-          <code>(1/2π)∮V·ds = +1</code>. Under RH every vortex sits on the critical
-          line <code>Re s = ½</code>. Lower the heat-time and the real backward
-          Dyson/Calogero-Moser flow attracts the closest pair until it collides and
-          leaves the line — an <em>off-axis zero</em> (an RH violation).
-        </p>
-      </div>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>viz · vortex field</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <header style={{ borderBottom: '1px solid var(--hairline)', paddingBottom: 18, marginBottom: 24 }}>
+          <div className="ed-lbl">/vortex-field · visualizations</div>
+          <h1 className="ed-h1" style={{ margin: '8px 0 4px 0' }}>Prime-Log Vortex Field</h1>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, margin: '8px 0 0 0', lineHeight: 1.6 }}>
+            The log-derivative <code>V(s) = ξ′(s)/ξ(s)</code> (the Newman-flow phase
+            gradient, analogue of <code>V_t = H_t′/H_t</code>) has a simple pole — a{' '}
+            <strong>phase vortex</strong> — at every zero ρ. The phase{' '}
+            <code>arg H(s)</code> winds once around each, so{' '}
+            <strong>zeros ⟷ vortices</strong> with winding{' '}
+            <code>(1/2π)∮V·ds = +1</code>. Under RH every vortex sits on the critical
+            line <code>Re s = ½</code>. Lower the heat-time and the real backward
+            Dyson/Calogero-Moser flow attracts the closest pair until it collides and
+            leaves the line — an <em>off-axis zero</em> (an RH violation).
+          </p>
+        </header>
 
-      <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', alignItems: 'flex-start' }}>
-        <div style={{ flex: '1 1 480px' }}>
-          <VortexCanvas centerIdx={centerIdx} tau={tau} magContours={magContours} showStreamlines={showStreamlines} onHoverData={setHoverData} />
-          <div style={{ fontSize: 11, color: '#64748b', marginTop: 6, fontFamily: 'var(--font-mono)' }}>
-            window: Re s ∈ [½−{HALF_T}, ½+{HALF_T}], Im s ∈ [{(gc - HALF_T).toFixed(1)}, {(gc + HALF_T).toFixed(1)}] · central zero γ ≈ {gc.toFixed(4)}
+        <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', alignItems: 'flex-start' }}>
+          <div style={{ flex: '1 1 480px' }}>
+            <VortexCanvas centerIdx={centerIdx} tau={tau} magContours={magContours} showStreamlines={showStreamlines} onHoverData={setHoverData} />
+            <div style={{ fontSize: 11, color: 'var(--faint)', marginTop: 6, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+              window: Re s ∈ [½−{HALF_T}, ½+{HALF_T}], Im s ∈ [{(gc - HALF_T).toFixed(1)}, {(gc + HALF_T).toFixed(1)}] · central zero γ ≈ {gc.toFixed(4)}
+            </div>
+            <div style={{ height: 22, marginTop: 4 }}>
+              {hoverData ? (
+                <div style={{ fontSize: 11, color: 'var(--ink-soft)', fontFamily: 'var(--ed-mono, var(--font-mono))', background: 'rgba(246,241,231,0.9)', border: '1px solid var(--hairline)', padding: '3px 8px', borderRadius: 4, display: 'inline-block' }}>
+                  σ = {hoverData.sig.toFixed(4)} · Im s = {hoverData.t.toFixed(4)} · arg H = {((hoverData.phase / (2 * Math.PI)) * 360).toFixed(1)}°
+                  {' '}·{' '}
+                  <span style={{ color: hoverData.windingNum > 0 ? 'var(--brass-dk)' : 'var(--faint)' }}>
+                    W(r=2) = {hoverData.windingNum}
+                  </span>
+                </div>
+              ) : (
+                <div style={{ fontSize: 11, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>hover canvas to read σ, Im s, arg H(s), winding number W</div>
+              )}
+            </div>
+            <VortexTrajectoryMap centerIdx={centerIdx} tau={tau} />
+            <div style={{ fontSize: 11, color: 'var(--faint)', marginTop: 4, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+              Zero trajectories (τ, Im s) — curves trace each zero's Im s under Dyson heat flow; gold = central pair, dark cursor = current τ, terracotta dots = off-axis after collision
+            </div>
           </div>
-          <div style={{ height: 22, marginTop: 4 }}>
-            {hoverData ? (
-              <div style={{ fontSize: 11, color: '#94a3b8', fontFamily: 'var(--font-mono)', background: 'rgba(15,23,42,0.85)', padding: '3px 8px', borderRadius: 4, display: 'inline-block' }}>
-                σ = {hoverData.sig.toFixed(4)} · Im s = {hoverData.t.toFixed(4)} · arg H = {((hoverData.phase / (2 * Math.PI)) * 360).toFixed(1)}°
-                {' '}·{' '}
-                <span style={{ color: hoverData.windingNum > 0 ? '#fde047' : '#475569' }}>
-                  W(r=2) = {hoverData.windingNum}
-                </span>
+
+          <div style={{ flex: '0 1 280px', display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <div className="card">
+              <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--faint)', marginBottom: 8 }}>Phase arg H(s) (mod 2π)</div>
+              <PhaseWheel />
+            </div>
+
+            <div className="card">
+              <label style={{ fontSize: 12, color: 'var(--ink-soft)' }}>
+                Central zero: γ ≈ {gc.toFixed(3)}
+                <input type="range" min={1} max={GAMMAS.length - 2} value={centerIdx}
+                       onChange={(e) => setCenterIdx(+e.target.value)} style={{ width: '100%', marginTop: 6 }} />
+              </label>
+            </div>
+
+            <div className="card" style={{ borderLeft: `3px solid ${offAxis ? 'var(--terra-dk)' : 'var(--green)'}` }}>
+              <label style={{ fontSize: 12, color: 'var(--ink-soft)' }}>
+                Heat-flow t (de Bruijn–Newman): <strong style={{ color: offAxis ? 'var(--terra-dk)' : 'var(--green)' }}>{tau >= 0 ? '+' : ''}{tau.toFixed(2)}</strong>
+                <input type="range" min={-4} max={4} step={0.05} value={tau}
+                       onChange={(e) => { setIsPlaying(false); setTau(+e.target.value); }} style={{ width: '100%', marginTop: 6 }} />
+              </label>
+              <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
+                <button
+                  onClick={() => {
+                    if (tau >= 0) setTau(-4);
+                    setIsPlaying((p) => !p);
+                  }}
+                  style={{ flex: 1, padding: '5px 0', fontSize: 12, background: isPlaying ? 'var(--ink-soft)' : 'var(--blue)', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer' }}
+                >
+                  {isPlaying ? '⏸ Pause' : tau >= 0 ? '↺ Replay' : '▶ Animate'}
+                </button>
+                <button
+                  onClick={() => { setIsPlaying(false); setTau(-4); }}
+                  style={{ padding: '5px 10px', fontSize: 12, background: 'var(--paper2)', color: 'var(--ink-soft)', border: '1px solid var(--hairline)', borderRadius: 6, cursor: 'pointer' }}
+                >
+                  ↺
+                </button>
               </div>
-            ) : (
-              <div style={{ fontSize: 11, color: '#334155', fontFamily: 'var(--font-mono)' }}>hover canvas to read σ, Im s, arg H(s), winding number W</div>
-            )}
-          </div>
-          <VortexTrajectoryMap centerIdx={centerIdx} tau={tau} />
-          <div style={{ fontSize: 11, color: '#475569', marginTop: 4, fontFamily: 'var(--font-mono)' }}>
-            Zero trajectories (τ, Im s) — curves trace each zero's Im s under Dyson heat flow; yellow = central pair, white cursor = current τ, red dots = off-axis after collision
-          </div>
-        </div>
+              <div style={{ fontSize: 11, color: offAxis ? 'var(--terra-dk)' : 'var(--green)', marginTop: 6 }}>
+                {offAxis
+                  ? `Backward Dyson flow: the closest pair COLLIDED at local heat-time t_c ≈ ${flow.collisionT.toFixed(3)} and left the line as an off-axis conjugate pair (σ = ½ ± δ) — an RH violation.`
+                  : `Forward Dyson flow: every zero on Re s = ½ (min height-gap ${flow.minGapNow.toFixed(3)}). Lower t to attract the closest (gold) pair toward collision.`}
+              </div>
+              <div style={{ fontSize: 10.5, color: 'var(--faint)', marginTop: 5, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+                Λ_local ≈ {offAxis ? Math.abs(flow.collisionT).toFixed(3) : '0 (no collision yet)'} · truncated-window estimate, NOT a bound (true Λ ∈ [0, 0.2])
+              </div>
+            </div>
 
-        <div style={{ flex: '0 1 280px', display: 'flex', flexDirection: 'column', gap: 16 }}>
-          <div className="card">
-            <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: 8 }}>Phase arg H(s) (mod 2π)</div>
-            <PhaseWheel />
-          </div>
-
-          <div className="card">
-            <label style={{ fontSize: 12, color: 'var(--text-secondary)' }}>
-              Central zero: γ ≈ {gc.toFixed(3)}
-              <input type="range" min={1} max={GAMMAS.length - 2} value={centerIdx}
-                     onChange={(e) => setCenterIdx(+e.target.value)} style={{ width: '100%', marginTop: 6 }} />
+            <label style={{ fontSize: 12, color: 'var(--ink-soft)', display: 'flex', gap: 8, alignItems: 'center' }}>
+              <input type="checkbox" checked={showStreamlines} onChange={(e) => setShowStreamlines(e.target.checked)} />
+              V<sub>t</sub> flow streamlines (Newman flow)
+            </label>
+            <label style={{ fontSize: 12, color: 'var(--ink-soft)', display: 'flex', gap: 8, alignItems: 'center' }}>
+              <input type="checkbox" checked={magContours} onChange={(e) => setMagContours(e.target.checked)} />
+              |H(s)| level-contour banding
             </label>
           </div>
+        </div>
 
-          <div className="card" style={{ borderLeft: `3px solid ${offAxis ? '#ef4444' : '#22c55e'}` }}>
-            <label style={{ fontSize: 12, color: 'var(--text-secondary)' }}>
-              Heat-flow t (de Bruijn–Newman): <strong style={{ color: offAxis ? '#ef4444' : '#22c55e' }}>{tau >= 0 ? '+' : ''}{tau.toFixed(2)}</strong>
-              <input type="range" min={-4} max={4} step={0.05} value={tau}
-                     onChange={(e) => { setIsPlaying(false); setTau(+e.target.value); }} style={{ width: '100%', marginTop: 6 }} />
-            </label>
-            <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
-              <button
-                onClick={() => {
-                  if (tau >= 0) setTau(-4);
-                  setIsPlaying((p) => !p);
-                }}
-                style={{ flex: 1, padding: '5px 0', fontSize: 12, background: isPlaying ? '#475569' : '#3b82f6', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer' }}
-              >
-                {isPlaying ? '⏸ Pause' : tau >= 0 ? '↺ Replay' : '▶ Animate'}
-              </button>
-              <button
-                onClick={() => { setIsPlaying(false); setTau(-4); }}
-                style={{ padding: '5px 10px', fontSize: 12, background: '#1e293b', color: '#94a3b8', border: '1px solid #334155', borderRadius: 6, cursor: 'pointer' }}
-              >
-                ↺
-              </button>
-            </div>
-            <div style={{ fontSize: 11, color: offAxis ? '#fca5a5' : '#86efac', marginTop: 6 }}>
-              {offAxis
-                ? `Backward Dyson flow: the closest pair COLLIDED at local heat-time t_c ≈ ${flow.collisionT.toFixed(3)} and left the line as an off-axis conjugate pair (σ = ½ ± δ) — an RH violation.`
-                : `Forward Dyson flow: every zero on Re s = ½ (min height-gap ${flow.minGapNow.toFixed(3)}). Lower t to attract the closest (yellow) pair toward collision.`}
-            </div>
-            <div style={{ fontSize: 10.5, color: '#94a3b8', marginTop: 5, fontFamily: 'var(--font-mono)' }}>
-              Λ_local ≈ {offAxis ? Math.abs(flow.collisionT).toFixed(3) : '0 (no collision yet)'} · truncated-window estimate, NOT a bound (true Λ ∈ [0, 0.2])
-            </div>
+        <div className="card" style={{ marginTop: 20 }}>
+          <h3 style={{ marginTop: 0, color: 'var(--brass-dk)' }}>What you're looking at — and the ceiling</h3>
+          <ul style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.7 }}>
+            <li><strong>Vortices = zeros.</strong> Each colored singularity where all hues meet is a zero ρ of ξ; the phase winds +1 around it (the argument principle).</li>
+            <li><strong>Vortex exclusion ⟺ RH.</strong> Under RH every vortex lies on the dashed line Re s = ½. An off-axis vortex (terracotta) is an off-axis zero — exactly an RH violation.</li>
+            <li><strong>Heat flow.</strong> The de Bruijn–Newman flow <code>H_t</code> drags vortices toward the line as t increases; Λ is the time below which off-axis vortices first appear. This is the same winding order parameter as the <Link to="/route-map">route map</Link>'s supercritical-winding thread.</li>
+            <VizCeilingNote claim="Λ ≥ 0 (and makes RH visible)" />
+          </ul>
+        </div>
+
+        <footer style={{ marginTop: 32, padding: '16px 0', borderTop: '1px solid var(--hairline)' }}>
+          <div style={{ fontSize: 12, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+            Related:
           </div>
-
-          <label style={{ fontSize: 12, color: 'var(--text-secondary)', display: 'flex', gap: 8, alignItems: 'center' }}>
-            <input type="checkbox" checked={showStreamlines} onChange={(e) => setShowStreamlines(e.target.checked)} />
-            V<sub>t</sub> flow streamlines (Newman flow)
-          </label>
-          <label style={{ fontSize: 12, color: 'var(--text-secondary)', display: 'flex', gap: 8, alignItems: 'center' }}>
-            <input type="checkbox" checked={magContours} onChange={(e) => setMagContours(e.target.checked)} />
-            |H(s)| level-contour banding
-          </label>
-        </div>
-      </div>
-
-      <div className="card" style={{ marginTop: 20 }}>
-        <h3 style={{ marginTop: 0 }}>What you're looking at — and the ceiling</h3>
-        <ul style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.7 }}>
-          <li><strong>Vortices = zeros.</strong> Each colored singularity where all hues meet is a zero ρ of ξ; the phase winds +1 around it (the argument principle).</li>
-          <li><strong>Vortex exclusion ⟺ RH.</strong> Under RH every vortex lies on the dashed line Re s = ½. An off-axis vortex (red) is an off-axis zero — exactly an RH violation.</li>
-          <li><strong>Heat flow.</strong> The de Bruijn–Newman flow <code>H_t</code> drags vortices toward the line as t increases; Λ is the time below which off-axis vortices first appear. This is the same winding order parameter as the <Link to="/route-map">route map</Link>'s supercritical-winding thread.</li>
-          <VizCeilingNote claim="Λ ≥ 0 (and makes RH visible)" />
-        </ul>
-        <div style={{ fontSize: 12, marginTop: 8 }}>
-          Related: <Link to="/statistics" style={{ color: '#3b82f6' }}>Zero Statistics</Link> ·{' '}
-          <Link to="/viz-prime-caustic" style={{ color: '#3b82f6' }}>Prime Caustics</Link> ·{' '}
-          <Link to="/route-map" style={{ color: '#3b82f6' }}>Route Map</Link> ·{' '}
-          <Link to="/docs" style={{ color: '#3b82f6' }}>Docs (Vortex Field §)</Link>
-        </div>
+          <div style={{ marginTop: 8, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+            <Link to="/statistics" style={{ color: 'var(--blue)', fontSize: 13 }}>Zero Statistics</Link>
+            <Link to="/viz-prime-caustic" style={{ color: 'var(--blue)', fontSize: 13 }}>Prime Caustics</Link>
+            <Link to="/viz-winding-dyson-flow" style={{ color: 'var(--blue)', fontSize: 13 }}>Winding / Dyson-flow</Link>
+            <Link to="/route-map" style={{ color: 'var(--blue)', fontSize: 13 }}>Route Map</Link>
+            <Link to="/docs" style={{ color: 'var(--blue)', fontSize: 13 }}>Docs (Vortex Field §)</Link>
+          </div>
+          <div style={{ marginTop: 14 }}>
+            <Link to="/" style={{ color: 'var(--terra-dk)', fontSize: 13 }}>← the atlas</Link>
+          </div>
+        </footer>
       </div>
     </div>
   );

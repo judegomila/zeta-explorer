@@ -130,6 +130,25 @@ export const EDITORIAL_ROUTES = new Set([
   '/visual-geometries',
   '/viz-near-zero',
   '/viz-winding-dyson-flow',
+  // Visualizations wave B + analysis/formalization
+  '/vortex-field',
+  '/debruijn-departure',
+  '/verified-height-lever',
+  '/mollified-barrier-certificate',
+  '/zero-density-scoping',
+  '/guth-maynard-scoping',
+  '/obstruction-seam',
+  '/subhalf-strip-pcc-criterion',
+  '/formalization-status',
+  '/formalization-review',
+  '/viz-phase-cylinder',
+  '/viz-unwrapped-rays',
+  '/zoom-hierarchy',
+  '/angular-spacing-stats',
+  '/prime-rigidity',
+  '/viz-euler-product',
+  '/riemann-siegel-z',
+  '/gue-comparison',
 ]);
 
 export function isEditorialRoute(pathname) {

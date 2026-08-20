@@ -15,10 +15,15 @@
 //
 // Ceiling: descriptive/exploratory spacing histogram. NO claim about
 // Lambda, NO proof of RH, does NOT beat Platt-Trudgian Lambda <= 0.2.
+//
+// Editorial (warm) re-theme: full-width ed-root/ed-full shell, identical
+// canvas histogram logic and numbers (draw() untouched, literal viz hex
+// preserved), warm chrome (var(--paper2)/var(--hairline)/etc.) around it.
 
 import React, { useRef, useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { getPrimes } from '../math/primes.js';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
 const TWO_PI = 2 * Math.PI;
 const mono = 'var(--font-mono)';
@@ -211,130 +216,164 @@ export default function AngularSpacingStatsPage() {
   }, [densities, bins]);
 
   return (
-    <div className="page">
-      <div className="page-header">
-        <h1>Local Angular-Spacing Statistics (imp-2678)</h1>
-        <p className="page-subtitle">
-          At a fixed spectral height t, each prime p maps to a log-phase angle
-          theta = t&thinsp;&middot;&thinsp;log(p) mod 2&pi;. The sorted consecutive
-          gaps Delta<sub>k</sub> = theta<sub>k+1</sub> &minus; theta<sub>k</sub>
-          (around the circle) are the <strong>local angular spacings</strong>. We
-          histogram the normalized spacing s = Delta&thinsp;/&thinsp;&langle;Delta&rangle;
-          for three populations and overlay the exponential e<sup>&minus;s</sup>
-          (the fully-random / Poisson reference). The <strong>true primes</strong>
-          deviate from the exponential &mdash; a spacing-statistics fingerprint of
-          rigidity &mdash; while the random set hugs it.
-        </p>
-        <div style={{ marginTop: 10, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-          <Link to="/prime-rigidity" style={{ color: '#a855f7', fontFamily: mono, fontSize: 12 }}>
-            Prime Rigidity &rarr;
-          </Link>
-          <Link to="/gue-comparison" style={{ color: '#64748b', fontFamily: mono, fontSize: 12 }}>
-            GUE vs Zeros
-          </Link>
-          <Link to="/visualizations" style={{ color: '#64748b', fontFamily: mono, fontSize: 12 }}>
-            All Visualizations
-          </Link>
-        </div>
-      </div>
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>viz · angular spacing stats</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <header style={{ borderBottom: '1px solid var(--hairline)', paddingBottom: 18, marginBottom: 24 }}>
+          <div style={{ fontSize: 11, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))', textTransform: 'uppercase', letterSpacing: 1 }}>
+            /angular-spacing-stats · imp-2678 · viz
+          </div>
+          <h1 className="ed-h1" style={{ fontSize: 30, margin: '8px 0 4px 0' }}>
+            Local Angular-Spacing Statistics
+          </h1>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, margin: '8px 0 0 0', lineHeight: 1.6 }}>
+            At a fixed spectral height t, each prime p maps to a log-phase angle
+            theta = t&thinsp;&middot;&thinsp;log(p) mod 2&pi;. The sorted consecutive
+            gaps Delta<sub>k</sub> = theta<sub>k+1</sub> &minus; theta<sub>k</sub>
+            (around the circle) are the <strong>local angular spacings</strong>. We
+            histogram the normalized spacing s = Delta&thinsp;/&thinsp;&langle;Delta&rangle;
+            for three populations and overlay the exponential e<sup>&minus;s</sup>
+            (the fully-random / Poisson reference). The <strong>true primes</strong>
+            deviate from the exponential &mdash; a spacing-statistics fingerprint of
+            rigidity &mdash; while the random set hugs it.
+          </p>
+          <div style={{ marginTop: 10, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+            <Link to="/prime-rigidity" style={{ color: 'var(--terra-dk)', fontFamily: mono, fontSize: 12 }}>
+              Prime Rigidity &rarr;
+            </Link>
+            <Link to="/gue-comparison" style={{ color: 'var(--faint)', fontFamily: mono, fontSize: 12 }}>
+              GUE vs Zeros
+            </Link>
+            <Link to="/visualizations" style={{ color: 'var(--faint)', fontFamily: mono, fontSize: 12 }}>
+              All Visualizations
+            </Link>
+          </div>
+        </header>
 
-      <div style={{
-        marginTop: 14,
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-        gap: 10,
-      }}>
-        <Stat label="primes used" value={String(N)} />
-        <Stat label="spectral height t" value={t.toFixed(0)} />
-        <Stat label="perturbation eps" value={eps.toFixed(2)} accent="#f59e0b" />
-        <Stat label="bins" value={String(bins)} />
-      </div>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
+          gap: 10,
+          marginBottom: 18,
+        }}>
+          <Stat label="primes used" value={String(N)} />
+          <Stat label="spectral height t" value={t.toFixed(0)} />
+          <Stat label="perturbation eps" value={eps.toFixed(2)} accent="var(--brass-dk)" />
+          <Stat label="bins" value={String(bins)} />
+        </div>
 
-      <div style={{ display: 'flex', gap: 14, marginTop: 14, flexWrap: 'wrap', alignItems: 'flex-end' }}>
-        <div className="control-group">
-          <label>N primes</label>
-          <input type="range" min="40" max="400" step="20"
-                 value={nPrimes} onChange={e => setNPrimes(+e.target.value)} />
-          <span className="control-value">{nPrimes}</span>
-        </div>
-        <div className="control-group">
-          <label>spectral height t</label>
-          <input type="range" min="10" max="200" step="5"
-                 value={t} onChange={e => setT(+e.target.value)} />
-          <span className="control-value">{t}</span>
-        </div>
-        <div className="control-group">
-          <label>perturbation eps (rad)</label>
-          <input type="range" min="0" max="1" step="0.05"
-                 value={eps} onChange={e => setEps(+e.target.value)} />
-          <span className="control-value">{eps.toFixed(2)}</span>
-        </div>
-        <div className="control-group">
-          <label>histogram bins</label>
-          <input type="range" min="12" max="40" step="2"
-                 value={bins} onChange={e => setBins(+e.target.value)} />
-          <span className="control-value">{bins}</span>
-        </div>
-      </div>
+        <Card>
+          <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'flex-end', marginBottom: 14 }}>
+            <label style={{ color: 'var(--ink-soft)', fontSize: 13, fontFamily: mono, display: 'flex', flexDirection: 'column', gap: 6 }}>
+              N primes: {nPrimes}
+              <input type="range" min="40" max="400" step="20"
+                     value={nPrimes} onChange={e => setNPrimes(+e.target.value)} style={{ width: 160 }} />
+            </label>
+            <label style={{ color: 'var(--ink-soft)', fontSize: 13, fontFamily: mono, display: 'flex', flexDirection: 'column', gap: 6 }}>
+              spectral height t: {t}
+              <input type="range" min="10" max="200" step="5"
+                     value={t} onChange={e => setT(+e.target.value)} style={{ width: 160 }} />
+            </label>
+            <label style={{ color: 'var(--ink-soft)', fontSize: 13, fontFamily: mono, display: 'flex', flexDirection: 'column', gap: 6 }}>
+              perturbation eps (rad): {eps.toFixed(2)}
+              <input type="range" min="0" max="1" step="0.05"
+                     value={eps} onChange={e => setEps(+e.target.value)} style={{ width: 160 }} />
+            </label>
+            <label style={{ color: 'var(--ink-soft)', fontSize: 13, fontFamily: mono, display: 'flex', flexDirection: 'column', gap: 6 }}>
+              histogram bins: {bins}
+              <input type="range" min="12" max="40" step="2"
+                     value={bins} onChange={e => setBins(+e.target.value)} style={{ width: 160 }} />
+            </label>
+          </div>
 
-      <div style={{
-        marginTop: 14,
-        background: 'var(--bg-panel)',
-        border: '1px solid var(--border)',
-        borderRadius: 8,
-        padding: 12,
-        display: 'flex',
-        justifyContent: 'center',
-      }}>
-        <canvas
-          ref={canvasRef}
-          style={{
-            width: '100%', maxWidth: CANVAS_W, height: 'auto',
-            border: '1px solid #1e293b', borderRadius: 4,
-          }}
-        />
-      </div>
+          <div style={{
+            background: 'var(--paper3)',
+            border: '1px solid var(--hair2)',
+            borderRadius: 8,
+            padding: 12,
+            display: 'flex',
+            justifyContent: 'center',
+          }}>
+            <canvas
+              ref={canvasRef}
+              style={{
+                width: '100%', maxWidth: CANVAS_W, height: 'auto',
+                border: '1px solid #1e293b', borderRadius: 4,
+              }}
+            />
+          </div>
 
-      <div style={{ marginTop: 12, display: 'flex', gap: 18, flexWrap: 'wrap', alignItems: 'center' }}>
-        {SERIES.map(ser => (
-          <span key={ser.key} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: '#cbd5e1', fontFamily: mono }}>
-            <span style={{ width: 18, height: 3, background: ser.color, display: 'inline-block', borderRadius: 2 }} />
-            {ser.label} &mdash; L1 dev e^-s = {deviations[ser.key].toFixed(3)}
-          </span>
-        ))}
-        <span style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: '#94a3b8', fontFamily: mono }}>
-          <span style={{ width: 18, height: 0, borderTop: '2px dashed rgba(148,163,184,0.7)', display: 'inline-block' }} />
-          e^-s reference
-        </span>
-      </div>
+          <div style={{ marginTop: 12, display: 'flex', gap: 18, flexWrap: 'wrap', alignItems: 'center' }}>
+            {SERIES.map(ser => (
+              <span key={ser.key} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: 'var(--ink-soft)', fontFamily: mono }}>
+                <span style={{ width: 18, height: 3, background: ser.color, display: 'inline-block', borderRadius: 2 }} />
+                {ser.label} &mdash; L1 dev e^-s = {deviations[ser.key].toFixed(3)}
+              </span>
+            ))}
+            <span style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: 'var(--faint)', fontFamily: mono }}>
+              <span style={{ width: 18, height: 0, borderTop: '2px dashed #877b6799', display: 'inline-block' }} />
+              e^-s reference
+            </span>
+          </div>
 
-      <div style={{ marginTop: 14, fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.85 }}>
-        <strong style={{ color: '#cbd5e1' }}>Reading the panel.</strong>{' '}
-        The dashed curve is the exponential e<sup>&minus;s</sup> &mdash; the spacing
-        density of a fully random (Poisson) set of points on the circle. The
-        <span style={{ color: '#38bdf8' }}> random-phase</span> histogram tracks it
-        closely, as it should. The <span style={{ color: '#a855f7' }}>true-prime</span>
-        histogram is suppressed at small s (level repulsion: primes avoid clustering
-        their phases) and shows excess weight at intermediate s &mdash; the
-        rigidity fingerprint. The <span style={{ color: '#f59e0b' }}>perturbed Euler</span>
-        population, with phases jittered by eps, relaxes toward the random curve as
-        eps grows; the L1-deviation numbers above quantify how far each population
-        sits from e<sup>&minus;s</sup>.
-      </div>
+          <div style={{ marginTop: 14, fontSize: 11, color: 'var(--faint)', lineHeight: 1.85 }}>
+            <strong style={{ color: 'var(--ink-soft)' }}>Reading the panel.</strong>{' '}
+            The dashed curve is the exponential e<sup>&minus;s</sup> &mdash; the spacing
+            density of a fully random (Poisson) set of points on the circle. The
+            <span style={{ color: '#38bdf8' }}> random-phase</span> histogram tracks it
+            closely, as it should. The <span style={{ color: '#a855f7' }}>true-prime</span>
+            histogram is suppressed at small s (level repulsion: primes avoid clustering
+            their phases) and shows excess weight at intermediate s &mdash; the
+            rigidity fingerprint. The <span style={{ color: '#f59e0b' }}>perturbed Euler</span>
+            population, with phases jittered by eps, relaxes toward the random curve as
+            eps grows; the L1-deviation numbers above quantify how far each population
+            sits from e<sup>&minus;s</sup>.
+          </div>
+        </Card>
 
-      <div className="card" style={{ marginTop: 10, padding: 12 }}>
-        <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)',
-                      letterSpacing: 0.5, marginBottom: 6 }}>
-          Ceiling
-        </div>
-        <div style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.7 }}>
-          This is a descriptive spacing histogram of the log-phase field. It is
-          exploratory and pedagogical. It does NOT produce a new bound on Lambda,
-          does NOT prove RH, and does NOT beat the Platt-Trudgian Lambda &le; 0.2
-          result. The deviation of the prime spacings from the exponential is an
-          observed statistical pattern, not a theorem.
-        </div>
+        <Card accent="var(--brass)">
+          <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--faint)',
+                        letterSpacing: 0.5, marginBottom: 6 }}>
+            Ceiling
+          </div>
+          <div style={{ fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.7 }}>
+            This is a descriptive spacing histogram of the log-phase field. It is
+            exploratory and pedagogical. It does NOT produce a new bound on Lambda,
+            does NOT prove RH, and does NOT beat the Platt-Trudgian Lambda &le; 0.2
+            result. The deviation of the prime spacings from the exponential is an
+            observed statistical pattern, not a theorem.
+          </div>
+        </Card>
+
+        <footer style={{ marginTop: 32, padding: '16px 0', borderTop: '1px solid var(--hairline)' }}>
+          <div style={{ fontSize: 12, color: 'var(--faint)', fontFamily: mono }}>
+            Related pages:
+          </div>
+          <div style={{ marginTop: 8, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+            <Link to="/prime-rigidity" style={{ color: 'var(--brass-dk)', fontSize: 13 }}>/prime-rigidity</Link>
+            <Link to="/gue-comparison" style={{ color: 'var(--brass-dk)', fontSize: 13 }}>/gue-comparison</Link>
+            <Link to="/visualizations" style={{ color: 'var(--brass-dk)', fontSize: 13 }}>/visualizations</Link>
+          </div>
+          <div style={{ marginTop: 14 }}>
+            <Link to="/" style={{ color: 'var(--terra-dk)', fontSize: 13 }}>&larr; the atlas</Link>
+          </div>
+        </footer>
       </div>
+    </div>
+  );
+}
+
+function Card({ children, accent = 'var(--hairline)' }) {
+  return (
+    <div className="card" style={{
+      background: 'var(--paper2)',
+      border: '1px solid var(--hairline)',
+      borderLeft: `3px solid ${accent}`,
+      borderRadius: 10,
+      padding: '18px 22px',
+      margin: '0 0 20px 0',
+    }}>
+      {children}
     </div>
   );
 }
@@ -342,15 +381,15 @@ export default function AngularSpacingStatsPage() {
 function Stat({ label, value, accent }) {
   return (
     <div style={{
-      background: 'var(--bg-panel)',
-      border: '1px solid var(--border)',
+      background: 'var(--paper2)',
+      border: '1px solid var(--hairline)',
       borderRadius: 8,
       padding: 10,
     }}>
-      <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: 0.5 }}>
+      <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--faint)', letterSpacing: 0.5 }}>
         {label}
       </div>
-      <div style={{ marginTop: 4, fontSize: 16, fontFamily: mono, color: accent || '#e2e8f0' }}>
+      <div style={{ marginTop: 4, fontSize: 16, fontFamily: mono, color: accent || 'var(--ink)' }}>
         {value}
       </div>
     </div>

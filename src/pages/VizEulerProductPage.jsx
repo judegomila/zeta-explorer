@@ -5,12 +5,17 @@
 // a perturbed product where each log p is shifted by a small epsilon_p. The
 // true product has near-zeros near the known zeta zeros; perturbing the log p
 // values smears/destroys them -- arithmetic rigidity of primes locks the zeros.
+//
+// Editorial (warm) re-theme: full-width ed-root/ed-full shell, identical
+// curve-building logic and numbers, literal warm-palette hex on the canvas
+// in place of the dark slate palette.
 
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import ZeroStepper from '../components/ZeroStepper.jsx';
 
-const mono = 'var(--font-mono)';
+const mono = 'var(--ed-mono, var(--font-mono))';
 const T_MIN = 10;
 const T_MAX = 100;
 const N_STEPS = 720;
@@ -81,6 +86,33 @@ function drawCurve(ctx, vals, yMin, yMax, color, lineW) {
   ctx.stroke();
 }
 
+// ── Warm-palette literal hex (canvas fill/stroke can never use var()) ──────
+const S = {
+  subtitle: { color: '#877b67', fontSize: 14, marginBottom: 20, lineHeight: 1.6 },
+  card: {
+    background: '#f6f1e7',
+    border: '1px solid #d5c9b2',
+    borderRadius: 8,
+    padding: '14px 16px',
+    marginBottom: 16,
+  },
+  sectionTitle: { color: '#b58a2e', fontSize: 14, fontWeight: 600, marginBottom: 10 },
+  statCard: {
+    background: '#fdfaf3',
+    border: '1px solid #d5c9b2',
+    borderRadius: 8,
+    padding: 10,
+  },
+  statLabel: { fontSize: 10, textTransform: 'uppercase', color: '#877b67', letterSpacing: 0.5, fontFamily: mono },
+  statValue: { marginTop: 4, fontSize: 16, fontFamily: mono, color: '#1c1814' },
+  controlLabel: { color: '#877b67', fontSize: 12, fontFamily: mono },
+  button: {
+    fontFamily: mono, fontSize: 12, padding: '4px 12px',
+    background: '#b58a2e', border: '1px solid #a07a28',
+    color: '#fdfaf3', borderRadius: 4, cursor: 'pointer',
+  },
+};
+
 export default function VizEulerProductPage() {
   const canvasRef = useRef(null);
   const [nPrimes, setNPrimes] = useState(80);
@@ -107,7 +139,7 @@ export default function VizEulerProductPage() {
     cv.width = CW; cv.height = CH;
     const ctx = cv.getContext('2d');
 
-    ctx.fillStyle = '#07080f';
+    ctx.fillStyle = '#fdfaf3';
     ctx.fillRect(0, 0, CW, CH);
 
     // Compute shared y range.
@@ -121,7 +153,7 @@ export default function VizEulerProductPage() {
 
     // Zero-line.
     const zeroY = CH - ((0 - yMin) / (yMax - yMin)) * CH;
-    ctx.strokeStyle = 'rgba(148,163,184,0.2)';
+    ctx.strokeStyle = 'rgba(140,106,29,0.25)';
     ctx.lineWidth = 0.5;
     ctx.setLineDash([4, 4]);
     ctx.beginPath(); ctx.moveTo(0, zeroY); ctx.lineTo(CW, zeroY); ctx.stroke();
@@ -133,9 +165,9 @@ export default function VizEulerProductPage() {
     KNOWN_ZEROS.forEach((z, i) => {
       if (z < T_MIN || z > T_MAX) return;
       const focused = i === focusedZeroIdx;
-      ctx.strokeStyle = focused ? 'rgba(250,200,50,0.9)' : 'rgba(250,200,50,0.35)';
+      ctx.strokeStyle = focused ? 'rgba(181,138,46,0.95)' : 'rgba(181,138,46,0.4)';
       ctx.lineWidth = focused ? 2 : 1;
-      ctx.fillStyle = focused ? 'rgba(250,200,50,0.95)' : 'rgba(250,200,50,0.55)';
+      ctx.fillStyle = focused ? 'rgba(140,106,29,0.95)' : 'rgba(140,106,29,0.6)';
       const x = ((z - T_MIN) / (T_MAX - T_MIN)) * CW;
       ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, CH); ctx.stroke();
       ctx.fillText(z.toFixed(0), x + 2, 12);
@@ -143,13 +175,13 @@ export default function VizEulerProductPage() {
     ctx.setLineDash([]);
 
     // Perturbed curve (red, drawn first so true overlaps it).
-    drawCurve(ctx, pertVals, yMin, yMax, 'rgba(239,68,68,0.75)', 1.2);
+    drawCurve(ctx, pertVals, yMin, yMax, 'rgba(194,58,28,0.75)', 1.2);
     // True curve (blue).
-    drawCurve(ctx, trueVals, yMin, yMax, 'rgba(99,179,237,1)', 1.6);
+    drawCurve(ctx, trueVals, yMin, yMax, 'rgba(63,107,134,1)', 1.6);
 
     // Axis labels.
     ctx.font = '10px monospace';
-    ctx.fillStyle = 'rgba(148,163,184,0.7)';
+    ctx.fillStyle = 'rgba(135,123,103,0.9)';
     ctx.textAlign = 'left';
     ctx.fillText('t=' + T_MIN, 3, CH - 4);
     ctx.textAlign = 'right';
@@ -182,132 +214,143 @@ export default function VizEulerProductPage() {
   const pMax = ALL_PRIMES[nPrimes - 1] || 0;
 
   return (
-    <div className="page">
-      <div className="page-header">
-        <h1>True vs Perturbed Euler Product</h1>
-        <p className="page-subtitle">
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>viz · Euler product</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <h1 className="ed-h1" style={{ marginBottom: 6 }}>True vs Perturbed Euler Product</h1>
+        <p style={S.subtitle}>
           Blue: log|&Pi;<sub>p&le;P_N</sub>&thinsp;(1&minus;p<sup>&minus;s</sup>)<sup>&minus;1</sup>|
           on the critical line s=&frac12;+it.{' '}
           Red: same product with each log&thinsp;p shifted by a random &epsilon;<sub>p</sub>&thinsp;
-          &isin;&thinsp;[&minus;&epsilon;, +&epsilon;]. Yellow dashed lines mark the
+          &isin;&thinsp;[&minus;&epsilon;, +&epsilon;]. Gold dashed lines mark the
           first 10 known &zeta; zeros. The true product dips near each zero; the
           perturbed product misses them&thinsp;&mdash;&thinsp;the ARITHMETIC
           log-spectrum of primes is what locks zero positions.
         </p>
-        <div style={{ marginTop: 10, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-          <Link to="/visual-geometries" style={{ color: '#64748b', fontFamily: mono, fontSize: 12 }}>
+
+        <div style={{ marginTop: 4, marginBottom: 16, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+          <Link to="/visual-geometries" style={{ color: '#877b67', fontFamily: mono, fontSize: 12 }}>
             &larr; Visual Geometries
           </Link>
-          <Link to="/prime-rigidity" style={{ color: '#ef4444', fontFamily: mono, fontSize: 12 }}>
+          <Link to="/prime-rigidity" style={{ color: '#c23a1c', fontFamily: mono, fontSize: 12 }}>
             Prime Rigidity (caustic view)
           </Link>
-          <Link to="/viz-euler-transport-flow" style={{ color: '#eab308', fontFamily: mono, fontSize: 12 }}>
+          <Link to="/viz-euler-transport-flow" style={{ color: '#b58a2e', fontFamily: mono, fontSize: 12 }}>
             Euler Transport Flow
           </Link>
         </div>
-      </div>
 
-      <div style={{
-        marginTop: 14,
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-        gap: 10,
-      }}>
-        <Stat label="N primes" value={String(nPrimes)} />
-        <Stat label="P_N" value={String(pMax)} />
-        <Stat label="epsilon" value={epsVal.toFixed(2)} />
-        <Stat label="seed" value={String(seed)} />
-        <Stat label="render (ms)" value={String(renderMs)} />
-      </div>
+        <div style={{
+          marginTop: 14,
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
+          gap: 10,
+        }}>
+          <Stat label="N primes" value={String(nPrimes)} />
+          <Stat label="P_N" value={String(pMax)} />
+          <Stat label="epsilon" value={epsVal.toFixed(2)} />
+          <Stat label="seed" value={String(seed)} />
+          <Stat label="render (ms)" value={String(renderMs)} />
+        </div>
 
-      <div style={{ display: 'flex', gap: 16, marginTop: 14, flexWrap: 'wrap', alignItems: 'center' }}>
-        <div className="control-group" style={{ minWidth: 260 }}>
-          <label>Focus zero (← / → keys)</label>
-          <ZeroStepper gammas={KNOWN_ZEROS} idx={focusedZeroIdx} onChange={setFocusedZeroIdx} />
-        </div>
-        <div className="control-group">
-          <label>N primes</label>
-          <input type="range" min="20" max={Math.min(200, ALL_PRIMES.length)} step="10" value={nPrimes}
-                 onChange={e => setNPrimes(+e.target.value)} />
-          <span className="control-value">{nPrimes}</span>
-        </div>
-        <div className="control-group">
-          <label>epsilon</label>
-          <input type="range" min="0.05" max="1.0" step="0.05" value={epsVal}
-                 onChange={e => setEpsVal(+e.target.value)} />
-          <span className="control-value">{epsVal.toFixed(2)}</span>
-        </div>
-        <div className="control-group" style={{ alignItems: 'center', display: 'flex', flexDirection: 'column', gap: 4 }}>
-          <label>perturbation seed</label>
-          <button
-            style={{ fontFamily: mono, fontSize: 12, padding: '4px 12px',
-                     background: 'var(--bg-panel)', border: '1px solid var(--border)',
-                     color: '#e2e8f0', borderRadius: 4, cursor: 'pointer' }}
-            onClick={() => setSeed(s => (s + 1) % 9999)}>
-            reseed ({seed})
-          </button>
-        </div>
-      </div>
-
-      <div style={{ marginTop: 14, background: 'var(--bg-panel)', border: '1px solid var(--border)',
-                    borderRadius: 8, padding: 10 }}>
-        <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)',
-                      letterSpacing: 0.5, marginBottom: 6, fontFamily: mono }}>
-          log|Z(1/2 + it)| &mdash; blue = true primes, red = perturbed, yellow = known &zeta; zeros
-        </div>
-        <canvas ref={canvasRef}
-                onMouseMove={handleMouseMove}
-                onMouseLeave={() => setHoverInfo(null)}
-                style={{ width: '100%', maxWidth: CW, height: 'auto', display: 'block',
-                         border: '1px solid #1e293b', borderRadius: 4,
-                         imageRendering: 'auto', cursor: 'crosshair' }} />
-        {hoverInfo ? (
-          <div style={{ marginTop: 6, fontFamily: mono, fontSize: 11, color: '#94a3b8',
-                        display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-            <span style={{ color: '#e2e8f0' }}>t = {hoverInfo.t.toFixed(3)}</span>
-            <span style={{ color: '#63b3ed' }}>log|Z| = {hoverInfo.logZ.toFixed(4)}</span>
-            <span style={{ color: '#fac832' }}>nearest zero: {hoverInfo.nearestZero.toFixed(2)} (&Delta;={hoverInfo.dist.toFixed(2)})</span>
+        <div style={{ display: 'flex', gap: 16, marginTop: 14, flexWrap: 'wrap', alignItems: 'center' }}>
+          <div style={{ minWidth: 260, display: 'flex', flexDirection: 'column', gap: 4 }}>
+            <label style={S.controlLabel}>Focus zero (&larr; / &rarr; keys)</label>
+            <ZeroStepper gammas={KNOWN_ZEROS} idx={focusedZeroIdx} onChange={setFocusedZeroIdx} />
           </div>
-        ) : (
-          <div style={{ marginTop: 6, fontFamily: mono, fontSize: 11, color: 'var(--text-muted)' }}>
-            hover canvas to read t, log|Z|, nearest zero
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+            <label style={S.controlLabel}>N primes</label>
+            <input type="range" min="20" max={Math.min(200, ALL_PRIMES.length)} step="10" value={nPrimes}
+                   onChange={e => setNPrimes(+e.target.value)} />
+            <span style={S.controlLabel}>{nPrimes}</span>
           </div>
-        )}
-      </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+            <label style={S.controlLabel}>epsilon</label>
+            <input type="range" min="0.05" max="1.0" step="0.05" value={epsVal}
+                   onChange={e => setEpsVal(+e.target.value)} />
+            <span style={S.controlLabel}>{epsVal.toFixed(2)}</span>
+          </div>
+          <div style={{ alignItems: 'center', display: 'flex', flexDirection: 'column', gap: 4 }}>
+            <label style={S.controlLabel}>perturbation seed</label>
+            <button
+              style={S.button}
+              onClick={() => setSeed(s => (s + 1) % 9999)}>
+              reseed ({seed})
+            </button>
+          </div>
+        </div>
 
-      <div style={{ marginTop: 12, fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.7 }}>
-        <strong style={{ color: '#cbd5e1' }}>What you see.</strong>{' '}
-        The blue curve is a TRUNCATED Euler product, not the full &zeta;(s), so it only
-        approximates the zeta zeros for the primes included (convergence on the
-        critical line is very slow). The dips align with known zero heights
-        qualitatively. When you increase &epsilon; the red curve lifts away from
-        those dips&thinsp;&mdash;&thinsp;perturbed &ldquo;fake primes&rdquo; do not
-        create the same resonance pattern.
-        <br /><br />
-        <strong style={{ color: '#94a3b8' }}>Scope:</strong> this is
-        pedagogical visualization. The truncated product is not &zeta;(s). Per the{' '}
-        <Link to="/route-map" style={{ color: '#64748b' }}>route map</Link> the
-        arithmetic rigidity of prime logarithms does not yet give a rigorous
-        Lambda bound; it motivates the geometry but the proof remains open.
+        <div className="card" style={{ ...S.card, marginTop: 14 }}>
+          <div style={{ fontSize: 10, textTransform: 'uppercase', color: '#877b67',
+                        letterSpacing: 0.5, marginBottom: 6, fontFamily: mono }}>
+            log|Z(1/2 + it)| &mdash; blue = true primes, red = perturbed, gold = known &zeta; zeros
+          </div>
+          <canvas ref={canvasRef}
+                  onMouseMove={handleMouseMove}
+                  onMouseLeave={() => setHoverInfo(null)}
+                  style={{ width: '100%', maxWidth: CW, height: 'auto', display: 'block',
+                           border: '1px solid #d5c9b2', borderRadius: 4,
+                           imageRendering: 'auto', cursor: 'crosshair' }} />
+          {hoverInfo ? (
+            <div style={{ marginTop: 6, fontFamily: mono, fontSize: 11, color: '#877b67',
+                          display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+              <span style={{ color: '#1c1814' }}>t = {hoverInfo.t.toFixed(3)}</span>
+              <span style={{ color: '#3f6b86' }}>log|Z| = {hoverInfo.logZ.toFixed(4)}</span>
+              <span style={{ color: '#b58a2e' }}>nearest zero: {hoverInfo.nearestZero.toFixed(2)} (&Delta;={hoverInfo.dist.toFixed(2)})</span>
+            </div>
+          ) : (
+            <div style={{ marginTop: 6, fontFamily: mono, fontSize: 11, color: '#877b67' }}>
+              hover canvas to read t, log|Z|, nearest zero
+            </div>
+          )}
+        </div>
+
+        <div style={{ marginTop: 12, fontSize: 11, color: '#877b67', lineHeight: 1.7 }}>
+          <strong style={{ color: '#4a4238' }}>What you see.</strong>{' '}
+          The blue curve is a TRUNCATED Euler product, not the full &zeta;(s), so it only
+          approximates the zeta zeros for the primes included (convergence on the
+          critical line is very slow). The dips align with known zero heights
+          qualitatively. When you increase &epsilon; the red curve lifts away from
+          those dips&thinsp;&mdash;&thinsp;perturbed &ldquo;fake primes&rdquo; do not
+          create the same resonance pattern.
+          <br /><br />
+          <strong style={{ color: '#877b67' }}>Scope:</strong> this is
+          pedagogical visualization. The truncated product is not &zeta;(s). Per the{' '}
+          <Link to="/route-map" style={{ color: '#877b67' }}>route map</Link> the
+          arithmetic rigidity of prime logarithms does not yet give a rigorous
+          Lambda bound; it motivates the geometry but the proof remains open.
+        </div>
+
+        {/* Related pages / footer */}
+        <div className="card" style={{ ...S.card, marginTop: 24 }}>
+          <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: '#877b67', marginBottom: 8 }}>
+            Related pages
+          </div>
+          <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'center' }}>
+            <Link to="/prime-rigidity" style={{ fontSize: 12, color: '#c23a1c', textDecoration: 'none' }}>
+              &rarr; Prime Rigidity (caustic view)
+            </Link>
+            <Link to="/viz-euler-transport-flow" style={{ fontSize: 12, color: '#b58a2e', textDecoration: 'none' }}>
+              &rarr; Euler Transport Flow
+            </Link>
+            <Link to="/route-map" style={{ fontSize: 12, color: '#3f6b86', textDecoration: 'none' }}>
+              &rarr; Route map
+            </Link>
+            <Link to="/" style={{ fontSize: 12, color: '#4a4238', textDecoration: 'none' }}>
+              &larr; the atlas
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
-function Stat({ label, value, accent }) {
+function Stat({ label, value }) {
   return (
-    <div style={{
-      background: 'var(--bg-panel)',
-      border: '1px solid var(--border)',
-      borderRadius: 8,
-      padding: 10,
-    }}>
-      <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: 0.5 }}>
-        {label}
-      </div>
-      <div style={{ marginTop: 4, fontSize: 16, fontFamily: mono, color: accent || '#e2e8f0' }}>
-        {value}
-      </div>
+    <div style={S.statCard}>
+      <div style={S.statLabel}>{label}</div>
+      <div style={S.statValue}>{value}</div>
     </div>
   );
 }

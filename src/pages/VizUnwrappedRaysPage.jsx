@@ -6,16 +6,24 @@
 //
 // Ceiling: exploratory geometric re-parameterization. Re-derives only
 // the resonance condition. Does NOT beat Platt-Trudgian Lambda <= 0.2.
+//
+// Editorial (warm) re-theme: identical math/canvas logic, warm chrome.
+// The phase-field background (hslToRgb / phaseToColorUnwrapped / phaseToColorFolded)
+// is a data colormap and is left unchanged. The chrome overlays (prime guide
+// lines, caustic ticks, prime labels, axis annotations) are literal warm hex:
+// paper2 #f6f1e7 (guide lines / labels), brass #8c6a1d (caustic ticks),
+// faint #877b67 (axis text) — canvas fill/stroke can't use CSS vars.
 
 import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getPrimes } from '../math/primes.js';
 import VizCeilingNote from '../components/VizCeilingNote.jsx';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
 const TWO_PI = 2 * Math.PI;
 const CANVAS_W = 640;
 const CANVAS_H = 360;
-const mono = 'var(--font-mono)';
+const mono = 'var(--ed-mono, var(--font-mono))';
 
 const ALL_PRIMES = getPrimes(350);
 const ALL_LOG_P  = ALL_PRIMES.map(p => Math.log(p));
@@ -90,12 +98,12 @@ function drawStrip(ctx, logP, tMin, tMax, folded, showCaustics) {
   }
   ctx.putImageData(img, 0, 0);
 
-  // Prime ray vertical guide lines
+  // Prime ray vertical guide lines (chrome — warm paper tint, not a data color)
   ctx.lineWidth = 1;
   ctx.setLineDash([3, 3]);
   for (let i = 0; i < N; i++) {
     const px = (logP[i] - xMin) / xSpan * W;
-    ctx.strokeStyle = 'rgba(255,255,255,0.45)';
+    ctx.strokeStyle = 'rgba(246,241,231,0.45)';
     ctx.beginPath();
     ctx.moveTo(px, 0);
     ctx.lineTo(px, H);
@@ -105,7 +113,7 @@ function drawStrip(ctx, logP, tMin, tMax, folded, showCaustics) {
 
   // Caustic-crossing marks: t = 2*pi*k / log(p_j/p_i) for adjacent pairs
   if (showCaustics) {
-    ctx.strokeStyle = 'rgba(251,191,36,0.92)';
+    ctx.strokeStyle = 'rgba(140,106,29,0.92)';
     ctx.lineWidth = 1.5;
     for (let i = 0; i < N - 1; i++) {
       const dLogP = logP[i + 1] - logP[i];
@@ -130,13 +138,13 @@ function drawStrip(ctx, logP, tMin, tMax, folded, showCaustics) {
   const labelStep = N <= 20 ? 1 : N <= 40 ? 2 : 4;
   for (let i = 0; i < N; i += labelStep) {
     const px = (logP[i] - xMin) / xSpan * W;
-    ctx.fillStyle = 'rgba(203,213,225,0.8)';
+    ctx.fillStyle = 'rgba(246,241,231,0.85)';
     ctx.fillText(String(ALL_PRIMES[i]), px, 10);
   }
 
   // Axis annotations
   ctx.font = '10px "JetBrains Mono", monospace';
-  ctx.fillStyle = 'rgba(148,163,184,0.85)';
+  ctx.fillStyle = 'rgba(135,123,103,0.95)';
   ctx.textAlign = 'left';
   ctx.fillText('log p →', 4, H - 5);
   ctx.textAlign = 'right';
@@ -165,10 +173,11 @@ export default function VizUnwrappedRaysPage() {
   }, [N, logSlice, tMin, tMax, folded, showCaustics]);
 
   return (
-    <div className="page">
-      <div className="page-header">
-        <h1>Unwrapped Prime Phase Rays (imp-2914)</h1>
-        <p className="page-subtitle">
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>viz &middot; unwrapped rays</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <h1 className="ed-h1" style={{ marginBottom: 6 }}>Unwrapped Prime Phase Rays (imp-2914)</h1>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
           Each prime p sits at x&thinsp;=&thinsp;log&thinsp;p on the horizontal axis.
           The color at height t encodes the phase &theta;&thinsp;=&thinsp;t&thinsp;&middot;&thinsp;log&thinsp;p{' '}
           {folded ? '(mod 2π — folded)' : '(unwrapped, cycling hue darkens with each 2π wrap)'}.
@@ -176,127 +185,133 @@ export default function VizUnwrappedRaysPage() {
           rays are in phase mod 2&pi; (caustic resonance crossings).
         </p>
         <div style={{ marginTop: 10, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-          <Link to="/viz-phase-cylinder" style={{ color: '#a855f7', fontFamily: mono, fontSize: 12 }}>
+          <Link to="/viz-phase-cylinder" style={{ color: 'var(--blue)', fontFamily: mono, fontSize: 12 }}>
             Phase Cylinder &rarr;
           </Link>
-          <Link to="/viz-caustic-resonance" style={{ color: '#64748b', fontFamily: mono, fontSize: 12 }}>
+          <Link to="/viz-caustic-resonance" style={{ color: 'var(--ink-soft)', fontFamily: mono, fontSize: 12 }}>
             Caustic Resonance Overlay
           </Link>
-          <Link to="/visualizations" style={{ color: '#64748b', fontFamily: mono, fontSize: 12 }}>
+          <Link to="/visualizations" style={{ color: 'var(--ink-soft)', fontFamily: mono, fontSize: 12 }}>
             All Visualizations
           </Link>
         </div>
-      </div>
 
-      <div style={{
-        marginTop: 14,
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
-        gap: 10,
-      }}>
-        <Stat label="primes used" value={String(N)} />
-        <Stat label="t range"     value={tMin + " .. " + tMax} />
-        <Stat label="mode"        value={folded ? "folded" : "unwrapped"} accent="#818cf8" />
-        <Stat label="caustics"    value={showCaustics ? "on" : "off"} accent="#fbbf24" />
-      </div>
+        <div style={{
+          marginTop: 14,
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+          gap: 10,
+        }}>
+          <Stat label="primes used" value={String(N)} />
+          <Stat label="t range"     value={tMin + " .. " + tMax} />
+          <Stat label="mode"        value={folded ? "folded" : "unwrapped"} accent="var(--blue)" />
+          <Stat label="caustics"    value={showCaustics ? "on" : "off"} accent="var(--brass)" />
+        </div>
 
-      <div style={{ display: 'flex', gap: 14, marginTop: 14, flexWrap: 'wrap', alignItems: 'flex-end' }}>
-        <div className="control-group">
-          <label>N primes</label>
-          <input type="range" min="5" max="80" step="5"
-                 value={nPrimes} onChange={e => setNPrimes(+e.target.value)} />
-          <span className="control-value">{nPrimes}</span>
-        </div>
-        <div className="control-group">
-          <label>t-min</label>
-          <input type="range" min="0" max="50" step="1"
-                 value={tMin} onChange={e => setTMin(Math.min(+e.target.value, tMax - 5))} />
-          <span className="control-value">{tMin}</span>
-        </div>
-        <div className="control-group">
-          <label>t-max</label>
-          <input type="range" min="10" max="200" step="5"
-                 value={tMax} onChange={e => setTMax(Math.max(+e.target.value, tMin + 5))} />
-          <span className="control-value">{tMax}</span>
-        </div>
-        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {[false, true].map(f => (
+        <div style={{ display: 'flex', gap: 14, marginTop: 14, flexWrap: 'wrap', alignItems: 'flex-end' }}>
+          <div className="control-group">
+            <label>N primes</label>
+            <input type="range" min="5" max="80" step="5"
+                   value={nPrimes} onChange={e => setNPrimes(+e.target.value)} />
+            <span className="control-value">{nPrimes}</span>
+          </div>
+          <div className="control-group">
+            <label>t-min</label>
+            <input type="range" min="0" max="50" step="1"
+                   value={tMin} onChange={e => setTMin(Math.min(+e.target.value, tMax - 5))} />
+            <span className="control-value">{tMin}</span>
+          </div>
+          <div className="control-group">
+            <label>t-max</label>
+            <input type="range" min="10" max="200" step="5"
+                   value={tMax} onChange={e => setTMax(Math.max(+e.target.value, tMin + 5))} />
+            <span className="control-value">{tMax}</span>
+          </div>
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+            {[false, true].map(f => (
+              <button
+                key={String(f)}
+                onClick={() => setFolded(f)}
+                style={{
+                  padding: '6px 14px',
+                  borderRadius: 6,
+                  border: '1px solid var(--hairline)',
+                  background: folded === f ? 'var(--brass)' : 'var(--paper2)',
+                  color: folded === f ? 'var(--paper2)' : 'var(--ink-soft)',
+                  fontFamily: mono, fontSize: 12, cursor: 'pointer',
+                }}
+              >
+                {f ? 'fold mod 2π' : 'unwrapped'}
+              </button>
+            ))}
             <button
-              key={String(f)}
-              onClick={() => setFolded(f)}
+              onClick={() => setShowCaustics(c => !c)}
               style={{
                 padding: '6px 14px',
                 borderRadius: 6,
-                border: '1px solid var(--border)',
-                background: folded === f ? '#4f46e5' : 'var(--bg-panel)',
-                color: folded === f ? '#fff' : 'var(--text-muted)',
+                border: '1px solid var(--hairline)',
+                background: showCaustics ? 'var(--brass-dk)' : 'var(--paper2)',
+                color: showCaustics ? 'var(--paper2)' : 'var(--ink-soft)',
                 fontFamily: mono, fontSize: 12, cursor: 'pointer',
               }}
             >
-              {f ? 'fold mod 2π' : 'unwrapped'}
+              crossings {showCaustics ? 'on' : 'off'}
             </button>
-          ))}
-          <button
-            onClick={() => setShowCaustics(c => !c)}
+          </div>
+        </div>
+
+        <div style={{
+          marginTop: 14,
+          background: 'var(--paper2)',
+          border: '1px solid var(--hairline)',
+          borderRadius: 8,
+          padding: 12,
+          display: 'flex',
+          justifyContent: 'center',
+        }}>
+          <canvas
+            ref={canvasRef}
             style={{
-              padding: '6px 14px',
-              borderRadius: 6,
-              border: '1px solid var(--border)',
-              background: showCaustics ? '#92400e' : 'var(--bg-panel)',
-              color: showCaustics ? '#fde68a' : 'var(--text-muted)',
-              fontFamily: mono, fontSize: 12, cursor: 'pointer',
+              width: '100%', maxWidth: CANVAS_W, height: 'auto',
+              border: '1px solid var(--hairline)', borderRadius: 4,
+              imageRendering: 'pixelated',
             }}
-          >
-            crossings {showCaustics ? 'on' : 'off'}
-          </button>
+          />
+        </div>
+
+        <div style={{ marginTop: 14, fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.85 }}>
+          <strong style={{ color: 'var(--ink)' }}>Unwrapped mode.</strong>{' '}
+          The hue encodes phase &theta;&thinsp;=&thinsp;t&thinsp;&middot;&thinsp;log&thinsp;p cycling through 0&rarr;2&pi;&rarr;4&pi;&rarr;&hellip;
+          Each prime column cycles at its own rate (proportional to log&thinsp;p). Brighter primes (larger p)
+          cycle faster. The diagonal color bands show constant-phase-rate contours: &theta;&thinsp;=&thinsp;const means t&thinsp;&middot;&thinsp;x&thinsp;=&thinsp;const, a hyperbola.
+        </div>
+        <div style={{ marginTop: 6, fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.85 }}>
+          <strong style={{ color: 'var(--ink)' }}>Fold mod 2&pi; mode.</strong>{' '}
+          The phase is taken mod 2&pi; and shown with a pure cycling rainbow. This is the same modular
+          structure that wraps onto the phase cylinder: each prime column in this flat view becomes a helix
+          on the cylinder. A caustic on the cylinder (vertical alignment column) corresponds to many
+          prime columns being the same color at the same height t.
+        </div>
+        <div style={{ marginTop: 6, fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.85 }}>
+          <strong style={{ color: 'var(--brass)' }}>Yellow crossing ticks.</strong>{' '}
+          For each adjacent prime pair (p&#x2071;,&thinsp;p&#x2070;), a tick at height t&thinsp;=&thinsp;2&pi;k/log(p&#x2071;/p&#x2070;)
+          marks where those two rays share the same phase mod 2&pi; — a resonance. These are the
+          building blocks of the caustic structure seen in the cylinder and prime-caustic visualizations.
+        </div>
+
+        <ul style={{ marginTop: 10, paddingLeft: 18, fontSize: 11, lineHeight: 1.9 }}>
+          <VizCeilingNote
+            claim="the resonance condition t·log(pᴵ/p⁰)=2πk"
+            as="li"
+          />
+        </ul>
+
+        <div style={{ marginTop: 40, paddingTop: 16, borderTop: '1px solid var(--hairline)' }}>
+          <Link to="/" style={{ color: 'var(--brass-dk)', fontSize: 13, textDecoration: 'none' }}>
+            &larr; the atlas
+          </Link>
         </div>
       </div>
-
-      <div style={{
-        marginTop: 14,
-        background: 'var(--bg-panel)',
-        border: '1px solid var(--border)',
-        borderRadius: 8,
-        padding: 12,
-        display: 'flex',
-        justifyContent: 'center',
-      }}>
-        <canvas
-          ref={canvasRef}
-          style={{
-            width: '100%', maxWidth: CANVAS_W, height: 'auto',
-            border: '1px solid #1e293b', borderRadius: 4,
-            imageRendering: 'pixelated',
-          }}
-        />
-      </div>
-
-      <div style={{ marginTop: 14, fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.85 }}>
-        <strong style={{ color: '#cbd5e1' }}>Unwrapped mode.</strong>{' '}
-        The hue encodes phase &theta;&thinsp;=&thinsp;t&thinsp;&middot;&thinsp;log&thinsp;p cycling through 0&rarr;2&pi;&rarr;4&pi;&rarr;&hellip;
-        Each prime column cycles at its own rate (proportional to log&thinsp;p). Brighter primes (larger p)
-        cycle faster. The diagonal color bands show constant-phase-rate contours: &theta;&thinsp;=&thinsp;const means t&thinsp;&middot;&thinsp;x&thinsp;=&thinsp;const, a hyperbola.
-      </div>
-      <div style={{ marginTop: 6, fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.85 }}>
-        <strong style={{ color: '#cbd5e1' }}>Fold mod 2&pi; mode.</strong>{' '}
-        The phase is taken mod 2&pi; and shown with a pure cycling rainbow. This is the same modular
-        structure that wraps onto the phase cylinder: each prime column in this flat view becomes a helix
-        on the cylinder. A caustic on the cylinder (vertical alignment column) corresponds to many
-        prime columns being the same color at the same height t.
-      </div>
-      <div style={{ marginTop: 6, fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.85 }}>
-        <strong style={{ color: '#fbbf24' }}>Yellow crossing ticks.</strong>{' '}
-        For each adjacent prime pair (p&#x2071;,&thinsp;p&#x2070;), a tick at height t&thinsp;=&thinsp;2&pi;k/log(p&#x2071;/p&#x2070;)
-        marks where those two rays share the same phase mod 2&pi; — a resonance. These are the
-        building blocks of the caustic structure seen in the cylinder and prime-caustic visualizations.
-      </div>
-
-      <ul style={{ marginTop: 10, paddingLeft: 18, fontSize: 11, lineHeight: 1.9 }}>
-        <VizCeilingNote
-          claim="the resonance condition t·log(pᴵ/p⁰)=2πk"
-          as="li"
-        />
-      </ul>
     </div>
   );
 }
@@ -304,15 +319,15 @@ export default function VizUnwrappedRaysPage() {
 function Stat({ label, value, accent }) {
   return (
     <div style={{
-      background: 'var(--bg-panel)',
-      border: '1px solid var(--border)',
+      background: 'var(--paper2)',
+      border: '1px solid var(--hairline)',
       borderRadius: 8,
       padding: 10,
     }}>
-      <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: 0.5 }}>
+      <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--faint)', letterSpacing: 0.5 }}>
         {label}
       </div>
-      <div style={{ marginTop: 4, fontSize: 16, fontFamily: mono, color: accent || '#e2e8f0' }}>
+      <div style={{ marginTop: 4, fontSize: 16, fontFamily: mono, color: accent || 'var(--ink)' }}>
         {value}
       </div>
     </div>

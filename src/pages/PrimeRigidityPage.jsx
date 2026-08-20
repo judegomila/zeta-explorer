@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
 /*
  * True vs Perturbed — prime rigidity in the log-phase caustics.
@@ -10,6 +11,10 @@ import { Link } from 'react-router-dom';
  * coherent. Replace each log p by a randomly shifted value and the coherence
  * DISSOLVES into noise. The lesson: the caustic structure is ARITHMETIC, not
  * random -- primes carry hidden rigidity. (Exploratory; no Lambda claim.)
+ *
+ * Editorial (warm) re-theme: full-width ed-root/ed-full shell, identical
+ * caustic-canvas logic and numbers, literal warm-palette hex in place of the
+ * dark slate palette.
  */
 
 const TMAX = 50;
@@ -97,10 +102,11 @@ export default function PrimeRigidityPage() {
   }, [trueLogs, eps, limit]);
 
   return (
-    <div className="page">
-      <div className="page-header">
-        <h1>Prime Rigidity — True vs Perturbed</h1>
-        <p className="page-subtitle">
+    <div className="ed-root">
+      <EditorialHeader ticker={<span>viz · prime rigidity</span>} />
+      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+        <h1 className="ed-h1" style={{ marginBottom: 6 }}>Prime Rigidity — True vs Perturbed</h1>
+        <p style={{ fontSize: 14, color: '#4a4238', lineHeight: 1.7, marginBottom: 22 }}>
           Each prime traces a phase line <code>θ_p(t) = t·log p (mod 2π)</code>.
           Where many lines coincide you get a <strong>caustic</strong> — a bright
           band, a multiplicative resonance <code>log(p_i/p_j) ≈ 2πk/t</code>. The{' '}
@@ -109,66 +115,86 @@ export default function PrimeRigidityPage() {
           coherence <strong>dissolves into noise</strong>. The caustic structure is{' '}
           <strong>arithmetic, not random</strong> — primes carry hidden rigidity.
         </p>
-      </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: view === 'both' ? '1fr 1fr' : '1fr', gap: 18, marginBottom: 18 }}>
-        {(view === 'both' || view === 'real') && (
-          <div>
-            <div style={{ fontSize: 12, fontWeight: 700, color: '#22c55e', marginBottom: 6 }}>
-              TRUE PRIMES — coherent caustics
+        <div style={{ display: 'grid', gridTemplateColumns: view === 'both' ? '1fr 1fr' : '1fr', gap: 18, marginBottom: 18 }}>
+          {(view === 'both' || view === 'real') && (
+            <div>
+              <div style={{ fontSize: 12, fontWeight: 700, color: '#4c7a4a', marginBottom: 6 }}>
+                TRUE PRIMES — coherent caustics
+              </div>
+              <CausticCanvas logs={trueLogs} accent="#4c7a4a" />
+              <div style={{ fontSize: 11, color: '#877b67', marginTop: 4, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+                {trueLogs.length} integers ≤ {limit} · sharp resonance bands
+              </div>
             </div>
-            <CausticCanvas logs={trueLogs} accent="#22c55e" />
-            <div style={{ fontSize: 11, color: '#64748b', marginTop: 4, fontFamily: 'var(--font-mono)' }}>
-              {trueLogs.length} integers ≤ {limit} · sharp resonance bands
+          )}
+          {(view === 'both' || view === 'shuffled') && (
+            <div>
+              <div style={{ fontSize: 12, fontWeight: 700, color: '#c23a1c', marginBottom: 6 }}>
+                PERTURBED (log p → random, ε = {eps.toFixed(2)}) — coherence destroyed
+              </div>
+              <CausticCanvas logs={pertLogs} accent="#c23a1c" />
+              <div style={{ fontSize: 11, color: '#877b67', marginTop: 4, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+                same integers, randomized logs · washed-out noise
+              </div>
             </div>
-          </div>
-        )}
-        {(view === 'both' || view === 'shuffled') && (
-          <div>
-            <div style={{ fontSize: 12, fontWeight: 700, color: '#ef4444', marginBottom: 6 }}>
-              PERTURBED (log p → random, ε = {eps.toFixed(2)}) — coherence destroyed
-            </div>
-            <CausticCanvas logs={pertLogs} accent="#ef4444" />
-            <div style={{ fontSize: 11, color: '#64748b', marginTop: 4, fontFamily: 'var(--font-mono)' }}>
-              same integers, randomized logs · washed-out noise
-            </div>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
 
-      <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', marginBottom: 18, alignItems: 'flex-end' }}>
-        <label style={{ fontSize: 12, color: 'var(--text-secondary)', flex: '1 1 220px' }}>
-          Integer cutoff: {limit} ({trueLogs.length} integers)
-          <input type="range" min={100} max={2000} step={50} value={limit}
-                 onChange={(e) => setLimit(+e.target.value)} style={{ width: '100%', marginTop: 6 }} />
-        </label>
-        <label style={{ fontSize: 12, color: 'var(--text-secondary)', flex: '1 1 220px' }}>
-          Randomization ε: {eps.toFixed(2)} <span style={{ color: '#475569' }}>(0 = true primes · 1 = random set)</span>
-          <input type="range" min={0} max={1} step={0.05} value={eps}
-                 onChange={(e) => setEps(+e.target.value)} style={{ width: '100%', marginTop: 6 }} />
-        </label>
-        <label style={{ fontSize: 12, color: 'var(--text-secondary)', flex: '0 0 auto' }}>
-          prime source
-          <div style={{ marginTop: 6 }}>
-            <select value={view} onChange={(e) => setView(e.target.value)}
-                    style={{ background: '#0f172a', color: '#e2e8f0', border: '1px solid #334155',
-                             borderRadius: 4, padding: '4px 8px', fontFamily: 'var(--font-mono)', fontSize: 12 }}>
-              <option value="both">both (side-by-side)</option>
-              <option value="real">real primes only</option>
-              <option value="shuffled">shuffled logs only</option>
-            </select>
-          </div>
-        </label>
-      </div>
+        <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', marginBottom: 18, alignItems: 'flex-end' }}>
+          <label style={{ fontSize: 12, color: '#4a4238', flex: '1 1 220px' }}>
+            Integer cutoff: {limit} ({trueLogs.length} integers)
+            <input type="range" min={100} max={2000} step={50} value={limit}
+                   onChange={(e) => setLimit(+e.target.value)} style={{ width: '100%', marginTop: 6 }} />
+          </label>
+          <label style={{ fontSize: 12, color: '#4a4238', flex: '1 1 220px' }}>
+            Randomization ε: {eps.toFixed(2)} <span style={{ color: '#877b67' }}>(0 = true primes · 1 = random set)</span>
+            <input type="range" min={0} max={1} step={0.05} value={eps}
+                   onChange={(e) => setEps(+e.target.value)} style={{ width: '100%', marginTop: 6 }} />
+          </label>
+          <label style={{ fontSize: 12, color: '#4a4238', flex: '0 0 auto' }}>
+            prime source
+            <div style={{ marginTop: 6 }}>
+              <select value={view} onChange={(e) => setView(e.target.value)}
+                      style={{ background: '#fdfaf3', color: '#4a4238', border: '1px solid #e3d8c2',
+                               borderRadius: 4, padding: '4px 8px', fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12 }}>
+                <option value="both">both (side-by-side)</option>
+                <option value="real">real primes only</option>
+                <option value="shuffled">shuffled logs only</option>
+              </select>
+            </div>
+          </label>
+        </div>
 
-      <div className="card">
-        <h3 style={{ marginTop: 0 }}>The learning</h3>
-        <ul style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.7 }}>
-          <li>Set ε = 0 and the two panels match. Increase ε and watch the right panel's caustics dissolve — the bands are held in place by the exact values of <code>log p</code>.</li>
-          <li>The surviving caustics encode <strong>multiplicative relations among primes</strong>; random shifts have no such relations, so no caustics form.</li>
-          <li>This is the visual face of <strong>prime rigidity</strong> — the deviation from randomness that underlies the explicit formula and the rigidity of the zeros (<Link to="/statistics">GUE statistics</Link>).</li>
-          <li style={{ color: '#94a3b8' }}>Exploratory: a demonstration of arithmetic structure, not a Λ bound. See the <Link to="/visual-geometries">geometries gallery</Link> and <Link to="/vortex-field">vortex field</Link>.</li>
-        </ul>
+        <div className="card" style={{ background: '#fdfaf3', border: '1px solid #e3d8c2' }}>
+          <h3 style={{ marginTop: 0, color: '#2c2620' }}>The learning</h3>
+          <ul style={{ fontSize: 13, color: '#4a4238', lineHeight: 1.7 }}>
+            <li>Set ε = 0 and the two panels match. Increase ε and watch the right panel's caustics dissolve — the bands are held in place by the exact values of <code>log p</code>.</li>
+            <li>The surviving caustics encode <strong>multiplicative relations among primes</strong>; random shifts have no such relations, so no caustics form.</li>
+            <li>This is the visual face of <strong>prime rigidity</strong> — the deviation from randomness that underlies the explicit formula and the rigidity of the zeros (<Link to="/statistics" style={{ color: '#3f6b86' }}>GUE statistics</Link>).</li>
+            <li style={{ color: '#877b67' }}>Exploratory: a demonstration of arithmetic structure, not a Λ bound. See the <Link to="/visual-geometries" style={{ color: '#3f6b86' }}>geometries gallery</Link> and <Link to="/vortex-field" style={{ color: '#3f6b86' }}>vortex field</Link>.</li>
+          </ul>
+        </div>
+
+        <div className="card" style={{ background: '#fdfaf3', border: '1px solid #e3d8c2', marginTop: 24 }}>
+          <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: '#877b67', marginBottom: 8 }}>
+            Related pages
+          </div>
+          <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'center' }}>
+            <Link to="/statistics" style={{ fontSize: 12, color: '#b58a2e', textDecoration: 'none' }}>
+              → GUE statistics
+            </Link>
+            <Link to="/visual-geometries" style={{ fontSize: 12, color: '#3f6b86', textDecoration: 'none' }}>
+              → Geometries gallery
+            </Link>
+            <Link to="/vortex-field" style={{ fontSize: 12, color: '#c23a1c', textDecoration: 'none' }}>
+              → Vortex field
+            </Link>
+            <Link to="/" style={{ fontSize: 12, color: '#4a4238', textDecoration: 'none' }}>
+              ← the atlas
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

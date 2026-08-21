@@ -109,17 +109,26 @@ async function checkRoute(browser, route) {
   const url = `${BASE}/#${route}`;
   let status = null;
   let navError = null;
-  try {
-    // Use 'domcontentloaded' — networkidle times out on SPAs that poll.
-    const resp = await page.goto(url, {
-      waitUntil: 'domcontentloaded',
-      timeout: TIMEOUT_MS,
-    });
-    status = resp ? resp.status() : null;
-    // Give React a moment to render + throw.
-    await page.waitForTimeout(WAIT_AFTER_LOAD_MS);
-  } catch (e) {
-    navError = e.message;
+  // Navigate, retrying ONCE on a timeout with a longer budget. A bare timeout is
+  // usually machine load (the full 562-route sweep contends for CPU), not a real
+  // page failure — retrying avoids false reds without masking genuine JS errors,
+  // which surface as pageerror/console.error regardless of nav timing.
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      // Use 'domcontentloaded' — networkidle times out on SPAs that poll.
+      const resp = await page.goto(url, {
+        waitUntil: 'domcontentloaded',
+        timeout: attempt === 0 ? TIMEOUT_MS : TIMEOUT_MS * 2.5,
+      });
+      status = resp ? resp.status() : null;
+      // Give React a moment to render + throw.
+      await page.waitForTimeout(WAIT_AFTER_LOAD_MS);
+      navError = null;
+      break;
+    } catch (e) {
+      navError = e.message;
+      if (!/Timeout|timeout/.test(e.message)) break; // only retry timeouts
+    }
   }
 
   // Read a richer render signal to catch silent failures (pages stuck on

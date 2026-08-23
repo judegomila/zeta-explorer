@@ -115,6 +115,7 @@ export const EDITORIAL_ROUTES = new Set([
   '/state-of-program',
   // Visualizations group (wave A; vortex-field + wave B pending)
   '/visualizations',
+  '/animations',
   '/cayley-schur-trajectory',
   '/viz-hyperbolic-prime-spiral',
   '/viz-log-phase-spiral',

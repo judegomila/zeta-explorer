@@ -60,6 +60,7 @@ export const NAV_GROUPS = [
     label: 'Visualizations',
     items: [
       { to: '/visualizations', label: 'All Visualizations' },
+      { to: '/animations', label: 'Animations (films)' },
       { to: '/cayley-schur-trajectory', label: 'Cayley-Schur Trajectory' },
       { to: '/viz-hyperbolic-prime-spiral', label: 'Hyperbolic Prime Spiral' },
       { to: '/viz-log-phase-spiral', label: 'Log-Phase Spiral' },

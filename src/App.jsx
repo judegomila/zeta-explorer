@@ -107,6 +107,7 @@ const VizPrimeCausticPage = lazy(() => import('./pages/VizPrimeCausticPage.jsx')
 const VizPrimeDensityOnCausticPage = lazy(() => import('./pages/VizPrimeDensityOnCausticPage.jsx'));
 const VizPrimePhaseCrystalPage = lazy(() => import('./pages/VizPrimePhaseCrystalPage.jsx'));
 const VisualizationsIndexPage = lazy(() => import('./pages/VisualizationsIndexPage.jsx'));
+const AnimationsPage = lazy(() => import('./pages/AnimationsPage.jsx'));
 const VolterraKernelHeatmapPage = lazy(() => import('./pages/VolterraKernelHeatmapPage.jsx'));
 const VolterraNormCurvePage = lazy(() => import('./pages/VolterraNormCurvePage.jsx'));
 const VolterraBoundPage = lazy(() => import('./pages/VolterraBoundPage.jsx'));
@@ -1776,6 +1777,7 @@ function AppShell() {
           <Route path="/angular-spacing-stats" element={<AngularSpacingStatsPage />} />
           <Route path="/viz-prime-phase-crystal" element={<VizPrimePhaseCrystalPage />} />
           <Route path="/visualizations" element={<VisualizationsIndexPage />} />
+          <Route path="/animations" element={<AnimationsPage />} />
           <Route path="/berry-keating-xp" element={<BerryKeatingXpPage />} />
           <Route path="/connes-adelic" element={<ConnesAdelicPage />} />
           <Route path="/edge-rigidity" element={<EdgeRigidityPage />} />

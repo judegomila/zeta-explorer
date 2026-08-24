@@ -7,8 +7,8 @@ export const PROOF_TIER_DATA = [
   {
     key: 'proof-candidate',
     tier: 'UNREVIEWED CANDIDATE — Bound not established',
-    color: '#22d3ee',
-    bg: 'rgba(34,211,238,0.08)',
+    color: '#3f6b86',
+    bg: 'rgba(63,107,134,0.10)',
     headline: 'Λ ≤ 0.1787854',
     subhead: 'Computer-assisted candidate for an unconditional proof — not peer reviewed; not RH',
     bullets: [
@@ -22,8 +22,8 @@ export const PROOF_TIER_DATA = [
   {
     key: 'peer-reviewed-benchmark',
     tier: 'RIGOROUS — Peer-reviewed benchmark',
-    color: '#10b981',
-    bg: 'rgba(16,185,129,0.08)',
+    color: '#4c7a4a',
+    bg: 'rgba(76,122,74,0.10)',
     headline: 'Λ ≤ 0.2',
     subhead: 'Platt–Trudgian 2021 — unconditional upper bound',
     bullets: [
@@ -38,8 +38,8 @@ export const PROOF_TIER_DATA = [
   {
     key: 'estimate',
     tier: 'ESTIMATE — Not Rigorous',
-    color: '#f59e0b',
-    bg: 'rgba(245,158,11,0.08)',
+    color: '#b58a2e',
+    bg: 'rgba(181,138,46,0.10)',
     headline: 'Λ ≤ E(N) ≈ 0.013',
     subhead: 'Finite-N* = 10⁴ self-consistent beat — gated on C_H',
     bullets: [
@@ -52,8 +52,8 @@ export const PROOF_TIER_DATA = [
   {
     key: 'rh-equivalent',
     tier: 'RH-EQUIVALENT / REFUTED — Island 2',
-    color: '#8b5cf6',
-    bg: 'rgba(139,92,246,0.08)',
+    color: '#6d55b8',
+    bg: 'rgba(109,85,184,0.10)',
     headline: '‖V_{a,Φ}‖ ≤ 1',
     subhead: 'Volterra collapse — RH-equivalent, §27 LINK B refuted',
     bullets: [
@@ -69,11 +69,11 @@ export const PROOF_TIER_DATA = [
 export default function ProofTierSummary() {
   return (
     <div style={{
-      border: '1px solid #334155', borderRadius: 10,
-      background: 'rgba(15,23,42,0.55)', padding: '14px 18px', marginBottom: 24,
+      border: '1px solid #d5c9b2', borderRadius: 10,
+      background: '#f6f1e7', padding: '14px 18px', marginBottom: 24,
     }}>
       <div style={{
-        fontSize: 11, color: '#94a3b8', fontFamily: 'var(--font-mono)',
+        fontSize: 11, color: '#877b67', fontFamily: 'var(--font-mono)',
         marginBottom: 14, letterSpacing: 0.5,
       }}>
         EVIDENCE-GRADED THEOREMS, EQUIVALENCES, AND ESTIMATES
@@ -99,13 +99,13 @@ export default function ProofTierSummary() {
               {tier.tier}
             </div>
             <div style={{
-              fontSize: 18, fontWeight: 700, color: '#f1f5f9',
+              fontSize: 18, fontWeight: 700, color: '#1c1814',
               fontFamily: 'var(--font-mono)', marginBottom: 3,
             }}>
               {tier.headline}
             </div>
             <div style={{
-              fontSize: 11, color: '#94a3b8', marginBottom: 10,
+              fontSize: 11, color: '#877b67', marginBottom: 10,
             }}>
               {tier.subhead}
             </div>
@@ -115,7 +115,7 @@ export default function ProofTierSummary() {
             }}>
               {tier.bullets.map((b, i) => (
                 <li key={i} style={{
-                  fontSize: 12, color: '#cbd5e1', lineHeight: 1.5,
+                  fontSize: 12, color: '#4a4238', lineHeight: 1.5,
                   paddingLeft: 12, position: 'relative',
                 }}>
                   <span style={{

@@ -23,7 +23,7 @@ import { Link } from 'react-router-dom';
 // banner cannot drift from the canonical status page.
 const VARIANTS = {
   'RIGOROUS-SOTA': {
-    color: '#34d399',
+    color: '#4c7a4a',
     title: 'Peer-reviewed benchmark: Platt-Trudgian Λ ≤ 0.2 — this program did NOT produce it',
     body:
       'A public unrefereed package claims Λ ≤ 0.1875 and is listed in the Optimization Problems ledger; a local ' +
@@ -33,7 +33,7 @@ const VARIANTS = {
       'Λ ≤ 0.2 remains the peer-reviewed benchmark, with Rodgers-Tao Λ ≥ 0 on the lower side.',
   },
   'PROOF-CANDIDATE': {
-    color: '#22d3ee',
+    color: '#3f6b86',
     title: 'Candidate: Λ ≤ 0.1787854 — reviewed by Dan Romik, being prepared for public release',
     body:
       'The package presents a computer-assisted candidate for an unconditional proof using a compact slab, a ' +
@@ -42,7 +42,7 @@ const VARIANTS = {
       'it is not yet a peer-reviewed publication and is not itself RH — RH still requires Λ ≤ 0.',
   },
   ESTIMATE: {
-    color: '#fbbf24',
+    color: '#b58a2e',
     title: 'The finite-N*=1e4 "beat" is an ESTIMATE, gated on the undischargeable C_H',
     body:
       'The headline finite-N* = 1e4 beat is numerical, not a rigorous bound. It rests on a collision-energy ' +
@@ -50,7 +50,7 @@ const VARIANTS = {
       'never as an unconditional finite-N beat.',
   },
   'RH-EQUIVALENT': {
-    color: '#a78bfa',
+    color: '#6d55b8',
     title: 'The Volterra ‖V‖ ≤ 1 collapse is RH-EQUIVALENT, not a reduction',
     body:
       'The §15-27 collapse to a single statement ‖V‖ ≤ 1 is a faithful reformulation of RH — it renames RH, it ' +
@@ -58,7 +58,7 @@ const VARIANTS = {
       'Connes-Weil.',
   },
   REFUTED: {
-    color: '#f87171',
+    color: '#c23a1c',
     title: 'Exploratory / refuted route — not a shortcut below RH',
     body:
       'This page is an exploratory attempt or a faithful reformulation of RH — not a proof and not a shortcut ' +
@@ -66,7 +66,7 @@ const VARIANTS = {
       'the peer-reviewed benchmark and the public 0.1875 package remains unrefereed.',
   },
   'OPEN-HARD': {
-    color: '#22d3ee',
+    color: '#3f6b86',
     title: 'C_H / G6a is the main wall for the Dyson/collision route family',
     body:
       'The inherited Dyson/collision routes funnel into the C_H / G6a Hölder-½ shock modulus. ' +
@@ -92,11 +92,11 @@ export default function HonestCeilingBanner({ variant = 'RIGOROUS-SOTA', title, 
         position: 'relative',
         fontSize: 13,
         lineHeight: 1.6,
-        color: '#cbd5e1',
+        color: '#4a4238',
         padding: '12px 40px 12px 14px',
         borderRadius: 8,
         margin: '0 0 18px 0',
-        background: 'rgba(15,23,42,0.55)',
+        background: '#f6f1e7',
         border: `1px solid ${v.color}`,
         borderLeft: `4px solid ${v.color}`,
       }}
@@ -112,7 +112,7 @@ export default function HonestCeilingBanner({ variant = 'RIGOROUS-SOTA', title, 
           right: 8,
           background: 'transparent',
           border: 'none',
-          color: '#94a3b8',
+          color: '#877b67',
           fontSize: 16,
           lineHeight: 1,
           cursor: 'pointer',
@@ -136,7 +136,7 @@ export default function HonestCeilingBanner({ variant = 'RIGOROUS-SOTA', title, 
       >
         CEILING · {badge}
       </span>
-      <strong style={{ color: '#e2e8f0' }}>{headline}</strong>
+      <strong style={{ color: '#1c1814' }}>{headline}</strong>
       <div style={{ marginTop: 6 }}>
         {text}{' '}
         <Link to="/state-of-program" style={{ color: v.color, fontWeight: 600 }}>

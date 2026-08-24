@@ -1191,7 +1191,7 @@ function DocumentTitle() {
   const { pathname } = useLocation();
   useEffect(() => {
     const match = ALL_ROUTES.find(r => r.to === pathname);
-    document.title = match ? `${match.label} | Twin Ladder Explorer` : 'Twin Ladder Explorer';
+    document.title = match ? `${match.label} | zetaexplorer` : 'zetaexplorer — Riemann Hypothesis engine room';
   }, [pathname]);
   return null;
 }

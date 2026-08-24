@@ -22,6 +22,43 @@
 
 export const ANIMATIONS_INDEX = Object.freeze([
   Object.freeze({
+    id: 'twistor-lift',
+    title: 'The Twistor Lift',
+    grade: 'geometric reformulation (toy encoding) — the framework alone cannot prove RH',
+    accent: '#ec4899',
+    videoSrc: '/animations/twistor-lift.mp4',
+    posterSrc: '/animations/twistor-lift-poster.jpg',
+    external: false,
+    durationLabel: '≈ 3 min · 1080p60 · Manim CE',
+    description:
+      'The twin ladder lifted into Penrose twistor geometry: the direct and ' +
+      'dual ladders ζ(s), ζ(1−s) become a twistor / dual-twistor pair ' +
+      'Z^α = (σ−½, t/2π, cos(t log 2), sin(t log 2)) and its s → 1−s mirror ' +
+      'W_α, coupled by the bridge χ(s) acting as intertwiner I: Z ↦ W. The ' +
+      'symplectic pairing reduces to Z·W = 2(σ−½)cos(t log 2), so the ' +
+      'critical line becomes the incidence locus Z·W = 0; |χ| = 1 on the ' +
+      'line makes the intertwiner unitary (rank drop det M(s) = 0 exactly ' +
+      'there), and the Euler product plays the Penrose transform. Includes ' +
+      'the page’s own caveats: the spurious cos(t log 2) roots of the ' +
+      'p = 2-only toy encoding, and the Davenport–Heilbronn warning that ' +
+      'functional-equation geometry alone cannot decide RH.',
+    scenes: [
+      'Title — σ = ½ ⟷ Z·W = 0',
+      'The dictionary: twin ladder → twistor geometry',
+      'Lifting s into twistor space (building Z)',
+      'The dual twistor: the functional-equation mirror',
+      'Incidence: the critical line as a geometric locus',
+      'The intertwiner: the bridge as a twistor map',
+      'The Penrose transform: Euler product as contour integral',
+      'What it does and does not establish · closing',
+    ],
+    relatedRoutes: [
+      { to: '/twistor', label: 'Twistor Duality' },
+      { to: '/twin-ladder', label: 'Twin Ladder Explorer' },
+      { to: '/proof-checker', label: 'Proof Checker (Davenport–Heilbronn)' },
+    ],
+  }),
+  Object.freeze({
     id: 'twin-ladder-bridge',
     title: 'The Twin-Ladder Bridge',
     grade: 'RH-equivalent reformulation — not a proof, not a new bound',

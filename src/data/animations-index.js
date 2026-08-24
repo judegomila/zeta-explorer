@@ -22,6 +22,50 @@
 
 export const ANIMATIONS_INDEX = Object.freeze([
   Object.freeze({
+    id: 'twistor-lift2',
+    title: 'The Twistor Lift, Part II — the consistency-preserving construction',
+    grade: 'research architecture (paper-faithful) — no RH claim, no new Λ bound',
+    accent: '#b58cff',
+    videoSrc: '/animations/twistor-lift2.mp4',
+    posterSrc: '/animations/twistor-lift2-poster.jpg',
+    external: false,
+    durationLabel: '≈ 4½ min · 1080p60 · Manim CE',
+    description:
+      'The long-form, step-by-step construction from the paper “A ' +
+      'Consistency-Preserving Twistor Framework for the Zeta Twin Ladder” ' +
+      '(J. Gomila, 23 Aug 2026), which corrects the toy picture: the naive ' +
+      'prime-rung bridge is not canonical (only the completed reflection ' +
+      'Rξ = ξ is exact); the exact ℓ²(𝓘) prime-power ladder with trace ' +
+      'identities Tr(De^{−sA}) = −ζ′/ζ and Tr(N⁻¹e^{−sA}) = log ζ; the ' +
+      'bicomplex thickening 𝔹 = ℂe₊ ⊕ ℂe₋ with physical slice s₋ = 1 − s₊ ' +
+      '(a choice, not a consequence); the standard double fibration and ' +
+      'local Penrose class in H¹(Z_U, O(−2)); the incidence variety ' +
+      'F(1,3;T) with CP² fibers, making the intertwiner a kernel transform ' +
+      '𝓘_K, not a point map; the decisive square 𝓘_K F₊ = F₋ R as a design ' +
+      'requirement; the logical-status ledger; heat flow, Duhamel freeze–thaw ' +
+      'errors, the Rouché zero-exclusion collar; and the five open problems ' +
+      'P1–P5.',
+    scenes: [
+      'Title — an architecture, not a proof',
+      '§1 The naive picture, and two corrections',
+      '§2 The exact prime-power ladder (trace identities)',
+      '§2 Completion, and the exact reflection Rξ = ξ',
+      '§3 Bicomplex thickening (choice, not consequence)',
+      '§4.1 The standard twistor correspondence',
+      '§4.2 The local scalar Penrose class',
+      '§4.3 Dual twistors and the incidence variety',
+      '§5 The decisive square 𝓘_K F₊ = F₋ R',
+      'Table 1 — the logical status of every layer',
+      '§6 Heat flow, freeze–thaw, and the Rouché collar',
+      '§7–8 Five problems, one target',
+    ],
+    relatedRoutes: [
+      { to: '/twistor', label: 'Twistor Duality (the toy picture)' },
+      { to: '/shift-bridge-positivity', label: 'Shift-Bridge Positivity (§15)' },
+      { to: '/twin-ladder', label: 'Twin Ladder Explorer' },
+    ],
+  }),
+  Object.freeze({
     id: 'twistor-lift',
     title: 'The Twistor Lift',
     grade: 'geometric reformulation (toy encoding) — the framework alone cannot prove RH',

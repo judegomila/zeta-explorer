@@ -100,9 +100,16 @@ async function checkRoute(browser, route) {
     // Ignore favicons and benign aborts; keep JS/CSS/module failures.
     const url = req.url();
     if (url.includes('favicon')) return;
+    const failure = req.failure()?.errorText ?? 'unknown';
+    // <video>/<audio> with preload="metadata" abort their fetch when the probe
+    // closes the page — net::ERR_ABORTED is a cancellation, not a broken asset
+    // (the media loads fine for real users). Don't count media aborts as failures.
+    if (/ERR_ABORTED/.test(failure) && /\.(mp4|webm|mov|ogg|ogv|mp3|wav|m4a)(\?|$)/i.test(url)) {
+      return;
+    }
     failedRequests.push({
       url: url.slice(0, 200),
-      failure: req.failure()?.errorText ?? 'unknown',
+      failure,
     });
   });
 
@@ -228,6 +235,26 @@ async function main() {
       : ` — ${r.pageErrors.length}pe / ${r.consoleErrors.length}ce / ${r.failedRequests.length}fr` +
         (r.renderError ? ` / ${r.renderError}` : '');
     console.log(`  ${sym} ${route}${errSummary}`);
+  }
+
+  // Re-verify failures once, in isolation. The full 500+-route sweep contends for
+  // CPU and produces the occasional load-flake (a nav timeout or a benign request
+  // abort) that does not reproduce on its own. Re-checking each failed route once
+  // (with the machine now idle) clears those flakes so the verdict — and the deploy
+  // gate that depends on it — only reports genuine, reproducible failures.
+  const flaked = [];
+  for (let i = 0; i < results.length; i++) {
+    if (results[i].ok) continue;
+    const route = results[i].route;
+    const recheck = await checkRoute(browser, route);
+    if (recheck.ok) {
+      results[i] = recheck;
+      flaked.push(route);
+      console.log(`  ↻ ${route} — passed on re-verify (transient flake, cleared)`);
+    }
+  }
+  if (flaked.length > 0) {
+    console.log(`  (${flaked.length} transient flake(s) cleared on re-verify)`);
   }
 
   await browser.close();

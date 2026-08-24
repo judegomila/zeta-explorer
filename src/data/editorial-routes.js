@@ -163,7 +163,21 @@ export function isEditorialRoute(pathname) {
 // navigable with the rest of the site — and any future fleet-generated page
 // matching this pattern inherits the frame for free. A route already in
 // EDITORIAL_ROUTES (hand-ported, renders its own header) is excluded.
+// A few non-viz content pages are also plain PageHeader/dark-chrome pages that
+// were never hand-ported; they get the same auto-shell so the whole site is
+// consistent. (The 2 monster pages /closure-routes + /open-frontier are handled
+// here too — full hand-recolor of their 8.7k/4.7k lines is impractical, and the
+// shared shell gives them the cream header + scope like everything else.)
+const VIZ_LEGACY_EXTRA = new Set([
+  '/c-shock-numerical-coincidence',
+  '/surrogate-model',
+  '/closure-routes',
+  '/open-frontier',
+]);
+
 export function isVizLegacyRoute(pathname) {
   if (EDITORIAL_ROUTES.has(pathname)) return false;
-  return pathname.startsWith('/viz-') || /imp\d/i.test(pathname);
+  return (
+    pathname.startsWith('/viz-') || /imp\d/i.test(pathname) || VIZ_LEGACY_EXTRA.has(pathname)
+  );
 }

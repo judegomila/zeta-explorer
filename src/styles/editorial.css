@@ -191,3 +191,30 @@
   font-family:var(--ed-display); font-weight:560; color:var(--ink);
   font-size:30px; line-height:1.15; letter-spacing:-.01em;
 }
+
+/* Auto-ported viz pages bake a dark palette into their SVG presentation
+   attributes (fill=/stroke=). CSS fill/stroke properties OVERRIDE presentation
+   attributes, so we remap the structural dark tokens to the warm palette for the
+   whole viz corpus at once (no per-page edits) — dark chart backgrounds -> paper,
+   dark grid/axis lines -> hairline, low-contrast light-slate text -> warm ink.
+   DATA colors (cyan/pink/green/red/purple/amber) are deliberately left untouched
+   so the plots keep their meaning; only the few that are too light on cream
+   (bright yellow) are nudged darker. Split fill vs stroke so tokens used as BOTH
+   a card background and a grid line (e.g. #1e293b, #334155) map correctly. */
+.ed-viz-legacy svg [fill="#0a0f1a"], .ed-viz-legacy svg [fill="#0f172a"],
+.ed-viz-legacy svg [fill="#020617"], .ed-viz-legacy svg [fill="#111827"],
+.ed-viz-legacy svg [fill="#0b1120"], .ed-viz-legacy svg [fill="#1e293b"],
+.ed-viz-legacy svg [fill="#0f1729"], .ed-viz-legacy svg [fill="#1a2332"]{ fill:var(--paper); }
+.ed-viz-legacy svg [fill="#334155"]{ fill:var(--paper3); }
+/* light-slate axis/label text used as fill -> warm readable ink */
+.ed-viz-legacy svg [fill="#94a3b8"], .ed-viz-legacy svg [fill="#cbd5e1"],
+.ed-viz-legacy svg [fill="#e2e8f0"], .ed-viz-legacy svg [fill="#9ca3af"],
+.ed-viz-legacy svg [fill="#64748b"], .ed-viz-legacy svg [fill="#475569"]{ fill:var(--ink-soft); }
+/* dark grid / axis / border lines used as stroke -> warm hairline */
+.ed-viz-legacy svg [stroke="#334155"], .ed-viz-legacy svg [stroke="#1e293b"],
+.ed-viz-legacy svg [stroke="#0a0f1a"], .ed-viz-legacy svg [stroke="#475569"],
+.ed-viz-legacy svg [stroke="#0f172a"], .ed-viz-legacy svg [stroke="#111827"]{ stroke:var(--hairline); }
+.ed-viz-legacy svg [stroke="#94a3b8"], .ed-viz-legacy svg [stroke="#cbd5e1"]{ stroke:var(--faint); }
+/* bright yellow line/point is low-contrast on cream -> brass */
+.ed-viz-legacy svg [fill="#facc15"], .ed-viz-legacy svg [fill="#fde047"]{ fill:var(--brass-dk); }
+.ed-viz-legacy svg [stroke="#facc15"], .ed-viz-legacy svg [stroke="#fde047"]{ stroke:var(--brass-dk); }

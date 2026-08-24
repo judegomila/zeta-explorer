@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useRef, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../KaTeXMath.jsx';
 import { NAV_GROUPS } from '../../data/nav-groups.js';
 
@@ -42,21 +42,37 @@ function openPalette() {
 // Cream in-page header for editorial routes (the legacy NavBar hides itself on
 // these routes — see App.jsx NavBar). Keeps app navigation reachable via links.
 export function EditorialHeader({ ticker }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { pathname } = useLocation();
+  // Close the mobile menu whenever the route changes (SPA nav keeps the header
+  // mounted, so an open menu would otherwise stay covering the new page).
+  useEffect(() => { setMenuOpen(false); }, [pathname]);
   return (
     <header className="ed-head">
       <div className="ed-headbar">
         <Link className="ed-brand" to="/">zeta<i>explorer</i></Link>
-        <nav className="ed-headnav">
-          <Link to="/">Atlas</Link>
-          <Link to="/directory">Directory</Link>
-          {NAV_GROUPS.map((g) => <NavDropdown key={g.label} label={g.label} items={g.items} />)}
-        </nav>
-        <div style={{ marginLeft: 'auto', display: 'flex', gap: 16, alignItems: 'center' }}>
-          <a className="ed-headnav" style={{ color: 'var(--ink-soft)' }} href="https://github.com/judegomila/mathexplorer" target="_blank" rel="noreferrer">GitHub ↗</a>
-          <button type="button" className="ed-search" onClick={openPalette} aria-label="Search pages">
-            Search <kbd>⌘K</kbd>
-          </button>
-          {ticker && <div className="ed-tick"><span className="ed-pulse" />{ticker}</div>}
+        <button
+          type="button"
+          className="ed-burger"
+          aria-label="Menu"
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((o) => !o)}
+        >
+          {menuOpen ? '✕' : '☰'}
+        </button>
+        <div className={menuOpen ? 'ed-headcollapse open' : 'ed-headcollapse'}>
+          <nav className="ed-headnav">
+            <Link to="/">Atlas</Link>
+            <Link to="/directory">Directory</Link>
+            {NAV_GROUPS.map((g) => <NavDropdown key={g.label} label={g.label} items={g.items} />)}
+          </nav>
+          <div className="ed-headright">
+            <a className="ed-headnav" style={{ color: 'var(--ink-soft)' }} href="https://github.com/judegomila/mathexplorer" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <button type="button" className="ed-search" onClick={openPalette} aria-label="Search pages">
+              Search <kbd>⌘K</kbd>
+            </button>
+            {ticker && <div className="ed-tick"><span className="ed-pulse" />{ticker}</div>}
+          </div>
         </div>
       </div>
     </header>

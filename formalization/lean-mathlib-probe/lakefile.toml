@@ -29,3 +29,15 @@ name = "HeatCorollaries"
 
 [[lean_lib]]
 name = "BarrierAnalyticSkeleton"
+
+[[lean_lib]]
+name = "StrongerWindowArithmetic"
+
+[[lean_lib]]
+name = "YTransferReduction"
+
+[[lean_lib]]
+name = "DiniGate"
+
+[[lean_lib]]
+name = "ExpSumDeriv"

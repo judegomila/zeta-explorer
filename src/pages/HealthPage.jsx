@@ -121,8 +121,10 @@ function computeProofCompleteness() {
     return {
       status: done >= total ? 'green' : done >= 6 ? 'yellow' : 'red',
       value: `${done} / ${total}`,
-      detail: `Proof Completeness (${(result.completeness * 100).toFixed(0)}%)`,
-      completeness: result.completeness,
+      // Derive the percentage from done/total (the same counts shown as "5 / 8")
+      // rather than result.completeness, which can come back undefined -> "NaN%".
+      detail: `Proof Completeness (${total ? Math.round((done / total) * 100) : 0}%)`,
+      completeness: total ? done / total : 0,
     };
   });
 }

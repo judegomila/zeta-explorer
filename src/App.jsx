@@ -6,7 +6,8 @@ import RouteErrorBoundary from './components/RouteErrorBoundary.jsx';
 import { NAV_GROUPS } from './data/nav-groups.js';
 import './styles/app.css';
 import './styles/editorial.css';
-import { isEditorialRoute } from './data/editorial-routes.js';
+import { isEditorialRoute, isVizLegacyRoute } from './data/editorial-routes.js';
+import { EditorialHeader } from './components/editorial/PostLayout.jsx';
 
 // Lazy-load all pages except the editorial landing for code-splitting
 const HomePage = lazy(() => import('./pages/HomePage.jsx')); // legacy dark home, now /classic
@@ -1512,6 +1513,10 @@ function AppShell() {
   const navigate = useNavigate();
   const location = useLocation();
   const editorial = isEditorialRoute(location.pathname);
+  // Auto-ported diagnostic viz pages: AppShell provides the cream chrome + .ed-root scope
+  // (they don't render their own EditorialHeader). See isVizLegacyRoute.
+  const vizLegacy = isVizLegacyRoute(location.pathname);
+  const cream = editorial || vizLegacy;
   const { showHelp, setShowHelp, showPalette, setShowPalette } = useKeyboardShortcuts(navigate);
 
   return (
@@ -1520,10 +1525,21 @@ function AppShell() {
       <DocumentTitle />
       <a className="skip-link" href="#main-content">Skip to content</a>
       {/* Editorial routes render their own cream in-page header (EditorialHeader). */}
-      {!editorial && <NavBar onShowShortcuts={() => setShowHelp(true)} onShowPalette={() => setShowPalette(true)} />}
+      {!cream && <NavBar onShowShortcuts={() => setShowHelp(true)} onShowPalette={() => setShowPalette(true)} />}
       <KeyboardShortcutOverlay show={showHelp} onClose={() => setShowHelp(false)} />
       <CommandPalette show={showPalette} onClose={() => setShowPalette(false)} navigate={navigate} />
-      <main id="main-content" className={editorial ? 'app-content ed-active' : 'app-content'}>
+      <main
+        id="main-content"
+        className={
+          vizLegacy
+            ? 'app-content ed-active ed-root ed-viz-legacy'
+            : editorial
+              ? 'app-content ed-active'
+              : 'app-content'
+        }
+      >
+        {/* Auto-ported viz pages get the shared cream header injected here. */}
+        {vizLegacy && <EditorialHeader />}
         <RouteErrorBoundary>
         <Suspense fallback={<PageLoader />}>
         <Routes>

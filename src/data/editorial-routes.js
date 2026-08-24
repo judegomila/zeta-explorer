@@ -155,3 +155,15 @@ export const EDITORIAL_ROUTES = new Set([
 export function isEditorialRoute(pathname) {
   return EDITORIAL_ROUTES.has(pathname);
 }
+
+// The ~420 auto-generated imp-NNNN / viz-* diagnostic pages all share the same
+// dark PageHeader shell and were never hand-ported. Rather than convert each one,
+// AppShell wraps THESE routes in the editorial chrome automatically (cream
+// EditorialHeader + .ed-root .ed-viz-legacy scope) so they stay consistent and
+// navigable with the rest of the site — and any future fleet-generated page
+// matching this pattern inherits the frame for free. A route already in
+// EDITORIAL_ROUTES (hand-ported, renders its own header) is excluded.
+export function isVizLegacyRoute(pathname) {
+  if (EDITORIAL_ROUTES.has(pathname)) return false;
+  return pathname.startsWith('/viz-') || /imp\d/i.test(pathname);
+}

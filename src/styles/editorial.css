@@ -179,3 +179,15 @@
   .ed-map{ grid-template-columns:repeat(2,1fr); }
   .ed-sims{ grid-template-columns:repeat(3,1fr); }
 }
+
+/* Auto-ported diagnostic viz pages (imp-NNNN / viz-*): AppShell wraps them in
+   .ed-root.ed-viz-legacy and injects the cream EditorialHeader (they don't render
+   their own). Theme the shared PageHeader title; chart SVGs keep their own
+   hardcoded data palette (same treatment as embedded viz on the 138 hand-ported
+   editorial pages). See isVizLegacyRoute + AppShell. */
+.ed-root.ed-viz-legacy{ padding-bottom:64px; }
+.ed-root.ed-viz-legacy .page-header{ max-width:1120px; margin:0 auto; padding:26px 24px 6px; }
+.ed-root.ed-viz-legacy .page-header h1{
+  font-family:var(--ed-display); font-weight:560; color:var(--ink);
+  font-size:30px; line-height:1.15; letter-spacing:-.01em;
+}

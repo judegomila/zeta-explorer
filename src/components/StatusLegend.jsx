@@ -3,14 +3,14 @@ import React from 'react';
 // Canonical status colors for the full route map taxonomy.
 // Source: full-route-map-2026-06-19.js STATUS LEGEND header.
 export const STATUS_COLOR = {
-  'RIGOROUS-SOTA':  { bg: 'rgba(16,185,129,0.13)',  bd: 'rgba(16,185,129,0.45)',  fg: '#10b981' },
-  'UNDER-EXPLORED': { bg: 'rgba(34,211,238,0.13)',  bd: 'rgba(34,211,238,0.5)',   fg: '#22d3ee' },
-  'OPEN-HARD':      { bg: 'rgba(139,92,246,0.13)',  bd: 'rgba(139,92,246,0.45)',  fg: '#a78bfa' },
-  'CONDITIONAL':    { bg: 'rgba(245,158,11,0.13)',  bd: 'rgba(245,158,11,0.45)',  fg: '#f59e0b' },
-  'ESTIMATE':       { bg: 'rgba(59,130,246,0.13)',  bd: 'rgba(59,130,246,0.4)',   fg: '#60a5fa' },
-  'RH-EQUIVALENT':  { bg: 'rgba(148,163,184,0.12)', bd: 'rgba(148,163,184,0.35)', fg: '#94a3b8' },
-  'DEAD-END':       { bg: 'rgba(239,68,68,0.10)',   bd: 'rgba(239,68,68,0.35)',   fg: '#f87171' },
-  'REFUTED':        { bg: 'rgba(127,29,29,0.25)',   bd: 'rgba(239,68,68,0.5)',    fg: '#fca5a5' },
+  'RIGOROUS-SOTA':  { bg: 'rgba(16,185,129,0.13)',  bd: 'rgba(16,185,129,0.45)',  fg: '#4c7a4a' },
+  'UNDER-EXPLORED': { bg: 'rgba(34,211,238,0.13)',  bd: 'rgba(34,211,238,0.5)',   fg: '#3f6b86' },
+  'OPEN-HARD':      { bg: 'rgba(139,92,246,0.13)',  bd: 'rgba(139,92,246,0.45)',  fg: '#6d55b8' },
+  'CONDITIONAL':    { bg: 'rgba(245,158,11,0.13)',  bd: 'rgba(245,158,11,0.45)',  fg: '#b58a2e' },
+  'ESTIMATE':       { bg: 'rgba(59,130,246,0.13)',  bd: 'rgba(59,130,246,0.4)',   fg: '#3f6b86' },
+  'RH-EQUIVALENT':  { bg: 'rgba(148,163,184,0.12)', bd: 'rgba(148,163,184,0.35)', fg: '#877b67' },
+  'DEAD-END':       { bg: 'rgba(239,68,68,0.10)',   bd: 'rgba(239,68,68,0.35)',   fg: '#c23a1c' },
+  'REFUTED':        { bg: 'rgba(194,58,28,0.12)',   bd: 'rgba(239,68,68,0.5)',    fg: '#c23a1c' },
 };
 
 const STATUS_DESC = {
@@ -42,13 +42,13 @@ export function StatusLegend({ statuses }) {
     <div style={{
       display: 'flex', flexWrap: 'wrap', gap: 10,
       padding: '10px 14px',
-      background: 'rgba(15,23,42,0.6)',
+      background: 'transparent',
       border: '1px solid var(--border, #1e293b)',
       borderRadius: 8,
     }}>
       <span style={{
         fontFamily: 'var(--font-mono, monospace)', fontSize: 11,
-        color: '#64748b', alignSelf: 'center', marginRight: 4,
+        color: '#877b67', alignSelf: 'center', marginRight: 4,
       }}>
         STATUS LEGEND:
       </span>
@@ -58,7 +58,7 @@ export function StatusLegend({ statuses }) {
         return (
           <span key={key} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
             <StatusTag status={key} />
-            <span style={{ fontSize: 11, color: '#64748b' }}>{STATUS_DESC[key] || ''}</span>
+            <span style={{ fontSize: 11, color: '#877b67' }}>{STATUS_DESC[key] || ''}</span>
           </span>
         );
       })}

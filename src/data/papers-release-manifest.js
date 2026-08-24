@@ -79,7 +79,7 @@ export const PAPERS_RELEASE_MANIFEST = Object.freeze([
     bibtexSuggestion: null,
     blockers: Object.freeze([
       'Discharge C_H with a rigorous N-uniform theorem',
-      'Rewrite and independently review every headline claim before republication',
+      'Rewrite and independently review every headline claim before any first publication',
     ]),
     releaseChecklist: Object.freeze([
       Object.freeze({ item: 'Build passes', done: true }),
@@ -219,7 +219,7 @@ export const PAPERS_RELEASE_MANIFEST_ASSERTIONS = [
       (p) => p.id !== 'gomila-finite-height-beat-2026-05' || p.status === 'withdrawn',
     ),
     why:
-      'The May 2026 manuscript must remain withdrawn until its undischarged C_H dependency is replaced by a theorem.',
+      'The May 2026 internal draft must remain unpublished/superseded (status "withdrawn") — it was never released — until its undischarged C_H dependency is replaced by a theorem.',
   },
   {
     id: 'papers-manifest-v3-candidate-paper-is-pinned-and-not-promoted',

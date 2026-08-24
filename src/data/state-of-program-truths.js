@@ -3,13 +3,16 @@
 // so the top-line status cannot drift between the two surfaces.
 //
 // Facts mirror the full route map and the fixed-height candidate proof package
-// (status reconciliation, 2026-07-28):
+// (status reconciliation, 2026-08-24):
 //   PEER-REVIEWED = Platt-Trudgian Lambda <= 0.2 (NOT this program)
 //   PUBLIC CLAIM  = Lambda <= 0.1875 certificate package, locally repaired,
 //                   listed publicly but unrefereed
 //   PRIVATE CANDIDATE = Lambda <= 0.1787854, an unreviewed
 //                       computer-assisted candidate for an unconditional proof;
 //                       bound not established, not peer reviewed, and not RH
+//   SHARPER CANDIDATE = Lambda <= 0.1758354 (four Arb gates + Lean-checked
+//                       reduction), below 0.1787854; unrefereed, not established,
+//                       does not displace PT, not RH
 //   ESTIMATE      = finite-N* = 1e4 modeled figure, gated on the undischargeable C_H
 //   RH-EQUIVALENT = Volterra ||V|| <= 1 collapse (a rename, not a reduction)
 //   REFUTED       = the thin-strip sub-RH shortcut is a dead artifact (imp-2630)
@@ -18,7 +21,7 @@
 // Intentionally has NO imports so it stays light and never drags in the
 // 16.7MB zeros bundle through a page import.
 
-export const STATE_OF_PROGRAM_SUMMARY_DATE = '2026-07-28';
+export const STATE_OF_PROGRAM_SUMMARY_DATE = '2026-08-24';
 
 export const STATE_OF_PROGRAM_TRUTHS = [
   {
@@ -48,6 +51,17 @@ export const STATE_OF_PROGRAM_TRUTHS = [
       'a fresh replay of all 3,149,013 finite rows, corrected 10.50 finite and tail error bounds, and an exact Polymath ' +
       'criterion weld. These ingredients form an unreviewed computer-assisted candidate for an unconditional proof. ' +
       'The bound is not established and has not been peer reviewed. It is not a proof of RH, which requires Λ ≤ 0.',
+  },
+  {
+    badge: 'SHARPER CANDIDATE',
+    color: '#22d3ee',
+    title: 'A sharper computer-assisted candidate reaches Λ ≤ 0.1758354, below the 0.1787854 candidate',
+    body:
+      'A revised mollifier and an extended finite lane certify four independent gates — each machine-checked in Arb interval ' +
+      'arithmetic, with the reduction to the gates Lean-checked — for a de Bruijn–Newman bound Λ ≤ 0.1758354, below the earlier ' +
+      '0.1787854 candidate. It is the lowest value the barrier method currently reaches. Neither the Arb gates nor the Lean ' +
+      'reduction is a referee: the pipeline has not been independently audited end to end, the bound is not established, and it ' +
+      'does not displace Platt-Trudgian Λ ≤ 0.2. It is not a proof of RH, which requires Λ ≤ 0.',
   },
   {
     badge: 'ESTIMATE',

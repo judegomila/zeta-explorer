@@ -112,7 +112,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
     videoSrc: '/animations/twistor-lift.mp4',
     posterSrc: '/animations/twistor-lift-poster.jpg',
     external: false,
-    durationLabel: '2 min 27 s · 1080p60 · Manim CE',
+    durationLabel: '1 min 56 s · 1080p60 · Manim CE',
     description:
       'The twin ladder lifted into Penrose twistor geometry: the direct and ' +
       'dual ladders ζ(s), ζ(1−s) become a twistor / dual-twistor pair ' +
@@ -149,7 +149,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
     videoSrc: '/animations/twin-ladder-bridge.mp4',
     posterSrc: '/animations/twin-ladder-bridge-poster.jpg',
     external: false,
-    durationLabel: '2 min 27 s · 1080p60 · Manim CE',
+    durationLabel: '2 min 00 s · 1080p60 · Manim CE',
     description:
       'The shift-bridge positivity picture of §15, filmed: every prime ' +
       'carries a ladder of rungs (log p)·p^(−m/2)·e^(−iTm log p); recentering ' +

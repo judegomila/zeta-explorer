@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 const CATEGORIES = [
   { id: 'foundations', label: 'Foundations', color: '#3b82f6' },
@@ -1025,6 +1026,12 @@ export default function ConceptsPage() {
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Key Concepts &amp; Definitions</h1>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, maxWidth: 760 }}>
+            Prefer film? This glossary is also rendered as nine flash-card decks —
+            start with the foundations deck below; the full series is on the{' '}
+            <a href="#/animations" style={{ color: 'var(--blue)' }}>animations page</a>.
+          </p>
+          <AnimationEmbed id="concepts-foundations" />
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
             A reference guide to the mathematical ideas behind the Riemann Hypothesis and the
             Twin-Ladder Bridge model. Start with Foundations and work your way through.

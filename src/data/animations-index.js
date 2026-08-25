@@ -784,6 +784,186 @@ export const ANIMATIONS_INDEX = Object.freeze([
       { to: '/lambda-bounds', label: 'Λ bounds' },
     ],
   }),
+  Object.freeze({
+    id: 'concepts-foundations',
+    watchOrder: 24,
+    category: 'Concepts',
+    title: 'Concepts I — Foundations & Analysis',
+    grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
+    accent: '#f07ab8',
+    videoSrc: '/animations/concepts-foundations.mp4',
+    posterSrc: '/animations/concepts-foundations-poster.jpg',
+    external: false,
+    durationLabel: '1 min 12 s · 1080p60 · Manim CE',
+    description:
+      'Flash-card deck of 8 glossary concepts (complex numbers, analytic continuation, convergence, the gamma function, poles, residues, contour integrals), each card showing the term, its formula, the definition, and the intuition line — rendered verbatim from the /concepts page so the films and the glossary can never drift apart.',
+    scenes: [
+      'Title card', '8 concept cards in sequence', 'each: term · formula · definition · intuition', 'source: the explorer glossary',
+    ],
+    relatedRoutes: [
+      { to: '/concepts', label: 'The concepts glossary' },
+    ],
+  }),
+  Object.freeze({
+    id: 'concepts-zeta',
+    watchOrder: 25,
+    category: 'Concepts',
+    title: 'Concepts II — The Zeta Function',
+    grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
+    accent: '#f07ab8',
+    videoSrc: '/animations/concepts-zeta.mp4',
+    posterSrc: '/animations/concepts-zeta-poster.jpg',
+    external: false,
+    durationLabel: '1 min 37 s · 1080p60 · Manim CE',
+    description:
+      'Flash-card deck of 11 glossary concepts (zeta, the Euler product, the functional equation, the critical strip, nontrivial zeros, RH, the xi function), each card showing the term, its formula, the definition, and the intuition line — rendered verbatim from the /concepts page so the films and the glossary can never drift apart.',
+    scenes: [
+      'Title card', '11 concept cards in sequence', 'each: term · formula · definition · intuition', 'source: the explorer glossary',
+    ],
+    relatedRoutes: [
+      { to: '/concepts', label: 'The concepts glossary' },
+    ],
+  }),
+  Object.freeze({
+    id: 'concepts-primes-info',
+    watchOrder: 26,
+    category: 'Concepts',
+    title: 'Concepts III — Primes & Information',
+    grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
+    accent: '#f07ab8',
+    videoSrc: '/animations/concepts-primes-info.mp4',
+    posterSrc: '/animations/concepts-primes-info-poster.jpg',
+    external: false,
+    durationLabel: '1 min 54 s · 1080p60 · Manim CE',
+    description:
+      'Flash-card deck of 13 glossary concepts (primes, the prime number theorem, von Mangoldt, the explicit formula, and the information-theory dictionary), each card showing the term, its formula, the definition, and the intuition line — rendered verbatim from the /concepts page so the films and the glossary can never drift apart.',
+    scenes: [
+      'Title card', '13 concept cards in sequence', 'each: term · formula · definition · intuition', 'source: the explorer glossary',
+    ],
+    relatedRoutes: [
+      { to: '/concepts', label: 'The concepts glossary' },
+    ],
+  }),
+  Object.freeze({
+    id: 'concepts-physics',
+    watchOrder: 27,
+    category: 'Concepts',
+    title: 'Concepts IV — The Physics Dictionary',
+    grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
+    accent: '#f07ab8',
+    videoSrc: '/animations/concepts-physics.mp4',
+    posterSrc: '/animations/concepts-physics-poster.jpg',
+    external: false,
+    durationLabel: '1 min 12 s · 1080p60 · Manim CE',
+    description:
+      'Flash-card deck of 8 glossary concepts (oscillator stages, quality factors, impedance, transfer functions, scattering, the Hamiltonian), each card showing the term, its formula, the definition, and the intuition line — rendered verbatim from the /concepts page so the films and the glossary can never drift apart.',
+    scenes: [
+      'Title card', '8 concept cards in sequence', 'each: term · formula · definition · intuition', 'source: the explorer glossary',
+    ],
+    relatedRoutes: [
+      { to: '/concepts', label: 'The concepts glossary' },
+    ],
+  }),
+  Object.freeze({
+    id: 'concepts-rmt-quantum',
+    watchOrder: 28,
+    category: 'Concepts',
+    title: 'Concepts V — Random Matrices & Quantum',
+    grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
+    accent: '#f07ab8',
+    videoSrc: '/animations/concepts-rmt-quantum.mp4',
+    posterSrc: '/animations/concepts-rmt-quantum-poster.jpg',
+    external: false,
+    durationLabel: '2 min 10 s · 1080p60 · Manim CE',
+    description:
+      'Flash-card deck of 15 glossary concepts (GUE, eigenvalue repulsion, pair correlation, Hilbert–Pólya, Berry–Keating, quantum chaos), each card showing the term, its formula, the definition, and the intuition line — rendered verbatim from the /concepts page so the films and the glossary can never drift apart.',
+    scenes: [
+      'Title card', '15 concept cards in sequence', 'each: term · formula · definition · intuition', 'source: the explorer glossary',
+    ],
+    relatedRoutes: [
+      { to: '/concepts', label: 'The concepts glossary' },
+    ],
+  }),
+  Object.freeze({
+    id: 'concepts-thermo-geometry',
+    watchOrder: 29,
+    category: 'Concepts',
+    title: 'Concepts VI — Thermodynamics & Geometry',
+    grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
+    accent: '#f07ab8',
+    videoSrc: '/animations/concepts-thermo-geometry.mp4',
+    posterSrc: '/animations/concepts-thermo-geometry-poster.jpg',
+    external: false,
+    durationLabel: '1 min 45 s · 1080p60 · Manim CE',
+    description:
+      'Flash-card deck of 12 glossary concepts (partition functions, free energy, phase transitions, KMS states, Bost–Connes, and the geometric pictures), each card showing the term, its formula, the definition, and the intuition line — rendered verbatim from the /concepts page so the films and the glossary can never drift apart.',
+    scenes: [
+      'Title card', '12 concept cards in sequence', 'each: term · formula · definition · intuition', 'source: the explorer glossary',
+    ],
+    relatedRoutes: [
+      { to: '/concepts', label: 'The concepts glossary' },
+    ],
+  }),
+  Object.freeze({
+    id: 'concepts-proof-1',
+    watchOrder: 30,
+    category: 'Concepts',
+    title: 'Concepts VII — Proof Machinery 1',
+    grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
+    accent: '#f07ab8',
+    videoSrc: '/animations/concepts-proof-1.mp4',
+    posterSrc: '/animations/concepts-proof-1-poster.jpg',
+    external: false,
+    durationLabel: '2 min 02 s · 1080p60 · Manim CE',
+    description:
+      'Flash-card deck of 14 glossary concepts (the program-specific vocabulary of the Λ certificates, part 1), each card showing the term, its formula, the definition, and the intuition line — rendered verbatim from the /concepts page so the films and the glossary can never drift apart.',
+    scenes: [
+      'Title card', '14 concept cards in sequence', 'each: term · formula · definition · intuition', 'source: the explorer glossary',
+    ],
+    relatedRoutes: [
+      { to: '/concepts', label: 'The concepts glossary' },
+    ],
+  }),
+  Object.freeze({
+    id: 'concepts-proof-2',
+    watchOrder: 31,
+    category: 'Concepts',
+    title: 'Concepts VIII — Proof Machinery 2',
+    grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
+    accent: '#f07ab8',
+    videoSrc: '/animations/concepts-proof-2.mp4',
+    posterSrc: '/animations/concepts-proof-2-poster.jpg',
+    external: false,
+    durationLabel: '2 min 02 s · 1080p60 · Manim CE',
+    description:
+      'Flash-card deck of 14 glossary concepts (the program-specific vocabulary of the Λ certificates, part 2), each card showing the term, its formula, the definition, and the intuition line — rendered verbatim from the /concepts page so the films and the glossary can never drift apart.',
+    scenes: [
+      'Title card', '14 concept cards in sequence', 'each: term · formula · definition · intuition', 'source: the explorer glossary',
+    ],
+    relatedRoutes: [
+      { to: '/concepts', label: 'The concepts glossary' },
+    ],
+  }),
+  Object.freeze({
+    id: 'concepts-proof-3',
+    watchOrder: 32,
+    category: 'Concepts',
+    title: 'Concepts IX — Proof Machinery 3',
+    grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
+    accent: '#f07ab8',
+    videoSrc: '/animations/concepts-proof-3.mp4',
+    posterSrc: '/animations/concepts-proof-3-poster.jpg',
+    external: false,
+    durationLabel: '2 min 02 s · 1080p60 · Manim CE',
+    description:
+      'Flash-card deck of 14 glossary concepts (the program-specific vocabulary of the Λ certificates, part 3), each card showing the term, its formula, the definition, and the intuition line — rendered verbatim from the /concepts page so the films and the glossary can never drift apart.',
+    scenes: [
+      'Title card', '14 concept cards in sequence', 'each: term · formula · definition · intuition', 'source: the explorer glossary',
+    ],
+    relatedRoutes: [
+      { to: '/concepts', label: 'The concepts glossary' },
+    ],
+  }),
 ]);
 
 export default ANIMATIONS_INDEX;

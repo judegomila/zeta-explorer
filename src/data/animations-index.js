@@ -23,6 +23,7 @@
 export const ANIMATIONS_INDEX = Object.freeze([
   Object.freeze({
     id: 'four-gate-lambda',
+    watchOrder: 2,
     category: 'The Λ program',
     title: 'Λ ≤ 0.1758354 — the four-gate barrier certificate',
     grade: 'computer-assisted candidate — unrefereed, not SOTA; Λ ≤ 0.2 remains the benchmark',
@@ -63,6 +64,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'flow-blindness',
+    watchOrder: 5,
     category: 'Theorems & no-gos',
     title: 'Flow-Blindness — soft hypotheses cannot prove RH',
     grade: 'unconditional no-go theorem — rests only on Rodgers–Tao Λ ≥ 0',
@@ -100,6 +102,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'colliding-zeros',
+    watchOrder: 3,
     category: 'The Λ program',
     title: 'Zeros as Colliding Particles',
     grade: 'established mechanism (the Λ ≤ 0.2 path) — proxy visuals illustrative, prove nothing about Λ',
@@ -131,6 +134,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'obstruction-seam',
+    watchOrder: 9,
     category: 'Theorems & no-gos',
     title: 'The Obstruction Seam',
     grade: 'anatomy of the obstruction — not a proof of anything; PT Λ ≤ 0.2 stays SOTA · NO QED',
@@ -162,6 +166,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'theta-trap',
+    watchOrder: 7,
     category: 'Theorems & no-gos',
     title: 'The Θ-Trap Theorems',
     grade: 'unconditional theorems on the particle-flow model — not about Λ or RH; optimistic extension refuted',
@@ -195,6 +200,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'collapse-chain',
+    watchOrder: 8,
     category: 'Theorems & no-gos',
     title: 'The Collapse Chain and the 5000× Mirage',
     grade: 'RH-equivalent reformulation — refuted as a reduction; the 5000× margin is an artifact',
@@ -225,6 +231,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'ghost-freeze',
+    watchOrder: 6,
     category: 'Twin ladder & twistor geometry',
     title: 'The Ghost That Cannot Be Frozen',
     grade: 'kernel computation & inertia lemma are theorems; ghost absence ∀a>0 is Conjecture 17.3 — RH-equivalent',
@@ -256,6 +263,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'twistor-lift2',
+    watchOrder: 11,
     category: 'Twin ladder & twistor geometry',
     title: 'The Twistor Lift, Part II — the consistency-preserving construction',
     grade: 'research architecture (paper-faithful) — no RH claim, no new Λ bound',
@@ -301,6 +309,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'twistor-lift',
+    watchOrder: 10,
     category: 'Twin ladder & twistor geometry',
     title: 'The Twistor Lift',
     grade: 'geometric reformulation (toy encoding) — the framework alone cannot prove RH',
@@ -339,6 +348,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'twin-ladder-bridge',
+    watchOrder: 4,
     category: 'Twin ladder & twistor geometry',
     title: 'The Twin-Ladder Bridge',
     grade: 'RH-equivalent reformulation — not a proof, not a new bound',
@@ -374,6 +384,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'zetasota',
+    watchOrder: 1,
     category: 'The Λ program',
     title: 'Λ ≤ 0.1787854 — the proof steps, animated',
     grade: 'unreviewed computer-assisted candidate — not an established theorem',
@@ -412,6 +423,18 @@ export default ANIMATIONS_INDEX;
 // ── Build-time tripwires ─────────────────────────────────────────────────────
 
 export const ANIMATIONS_INDEX_ASSERTIONS = [
+  {
+    id: 'animations-index-watch-order-permutation',
+    holds: () => {
+      const ns = ANIMATIONS_INDEX.map((a) => a.watchOrder).sort((x, y) => x - y);
+      return ns.length === ANIMATIONS_INDEX.length &&
+        ns.every((n, i) => n === i + 1);
+    },
+    why:
+      'The /animations page renders in curated watch order. watchOrder must ' +
+      'be a permutation of 1..N — a duplicate or gap would silently scramble ' +
+      'or drop cards from the viewing sequence.',
+  },
   {
     id: 'animations-index-entries-complete',
     holds: () =>

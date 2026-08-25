@@ -12,9 +12,8 @@ import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { ANIMATIONS_INDEX } from '../data/animations-index.js';
 
-const CATEGORIES = [...new Set(ANIMATIONS_INDEX.map((a) => a.category || 'Films'))];
-const byCategory = (cat) =>
-  ANIMATIONS_INDEX.filter((a) => (a.category || 'Films') === cat);
+const WATCH_ORDER = [...ANIMATIONS_INDEX].sort(
+  (a, b) => (a.watchOrder ?? 99) - (b.watchOrder ?? 99));
 
 const cardStyle = (accent) => ({
   background: 'var(--paper2)',
@@ -42,9 +41,17 @@ function AnimationCard({ anim }) {
   return (
     <div id={anim.id} className="card" style={{ ...cardStyle(anim.accent), scrollMarginTop: 90 }}>
       <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
+        <span className="ed-mono" style={{ color: anim.accent, fontSize: 16, fontWeight: 700 }}>
+          {anim.watchOrder}
+        </span>
         <h2 style={{ color: 'var(--ink)', fontSize: 20, margin: 0 }}>{anim.title}</h2>
         <span className="ed-mono" style={{ color: 'var(--faint)', fontSize: 12 }}>
           {anim.durationLabel}
+        </span>
+        <span className="ed-mono" style={{ color: 'var(--faint)', fontSize: 11,
+                                           border: '1px solid var(--hairline)',
+                                           borderRadius: 4, padding: '1px 6px' }}>
+          {anim.category}
         </span>
       </div>
       <span style={badgeStyle}>{anim.grade}</span>
@@ -112,35 +119,26 @@ export default function AnimationsPage() {
           <div className="ed-mono" style={{ fontSize: 10, textTransform: 'uppercase',
                                             letterSpacing: 0.5, color: 'var(--faint)',
                                             marginBottom: 8 }}>
-            Index
+            Watch order — best first
           </div>
-          {CATEGORIES.map((cat) => (
-            <div key={cat} style={{ marginBottom: 6 }}>
-              <span style={{ color: 'var(--ink)', fontSize: 13, fontWeight: 600,
-                             marginRight: 10 }}>{cat}</span>
-              {byCategory(cat).map((anim, i) => (
-                <span key={anim.id} style={{ fontSize: 13 }}>
-                  {i > 0 && <span style={{ color: 'var(--faint)' }}> · </span>}
-                  <a href={`#/animations#${anim.id}`}
-                     onClick={(e) => { e.preventDefault(); document.getElementById(anim.id)?.scrollIntoView({ behavior: 'smooth' }); }}
-                     style={{ color: 'var(--blue)', textDecoration: 'none' }}>
-                    {anim.title}
-                  </a>
+          <ol style={{ margin: 0, paddingLeft: 20, fontSize: 13, lineHeight: 1.9 }}>
+            {WATCH_ORDER.map((anim) => (
+              <li key={anim.id}>
+                <a href={`#/animations#${anim.id}`}
+                   onClick={(e) => { e.preventDefault(); document.getElementById(anim.id)?.scrollIntoView({ behavior: 'smooth' }); }}
+                   style={{ color: 'var(--blue)', textDecoration: 'none' }}>
+                  {anim.title}
+                </a>
+                <span className="ed-mono" style={{ color: 'var(--faint)', fontSize: 11,
+                                                   marginLeft: 8 }}>
+                  {anim.durationLabel.split(' · ')[0]} · {anim.category}
                 </span>
-              ))}
-            </div>
-          ))}
-        </nav>
-        {CATEGORIES.map((cat) => (
-          <section key={cat}>
-            <h2 style={{ color: 'var(--ink)', fontSize: 17, margin: '34px 0 0',
-                         borderBottom: '1px solid var(--hairline)', paddingBottom: 6 }}>
-              {cat}
-            </h2>
-            {byCategory(cat).map((anim) => (
-              <AnimationCard key={anim.id} anim={anim} />
+              </li>
             ))}
-          </section>
+          </ol>
+        </nav>
+        {WATCH_ORDER.map((anim) => (
+          <AnimationCard key={anim.id} anim={anim} />
         ))}
         <p className="ed-mono" style={{ fontSize: 11, color: 'var(--faint)', marginTop: 28 }}>
           Rendered with Manim Community Edition · data &amp; tripwires in{' '}

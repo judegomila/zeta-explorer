@@ -107,21 +107,14 @@ export default function AnimationsPage() {
       <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '60rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1" style={{ marginBottom: 10 }}>Animations</h1>
-        <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: 760 }}>
-          Pre-rendered film walkthroughs of the project&rsquo;s mathematics, made with{' '}
-          <a href="https://github.com/3b1b/manim" target="_blank" rel="noreferrer">Manim</a>.
-          The interactive versions live under{' '}
-          <Link to="/visualizations">Visualizations</Link>; these are the fixed narratives —
-          each badge states exactly what evidentiary grade the film&rsquo;s content carries.
-        </p>
-        <nav style={{ background: 'var(--paper2)', border: '1px solid var(--hairline)',
-                      borderRadius: 8, padding: '14px 18px', marginTop: 20 }}>
+        <nav aria-label="Watch order" style={{ margin: '18px 0 6px' }}>
           <div className="ed-mono" style={{ fontSize: 10, textTransform: 'uppercase',
                                             letterSpacing: 0.5, color: 'var(--faint)',
-                                            marginBottom: 8 }}>
+                                            marginBottom: 6 }}>
             Watch order — best first
           </div>
-          <ol style={{ margin: 0, paddingLeft: 20, fontSize: 13, lineHeight: 1.9 }}>
+          <ol style={{ margin: 0, paddingLeft: 22, fontSize: 14, lineHeight: 1.85,
+                       color: 'var(--ink-soft)' }}>
             {WATCH_ORDER.map((anim) => (
               <li key={anim.id}>
                 <a href={`#/animations#${anim.id}`}
@@ -137,6 +130,13 @@ export default function AnimationsPage() {
             ))}
           </ol>
         </nav>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: 760 }}>
+          Pre-rendered film walkthroughs of the project&rsquo;s mathematics, made with{' '}
+          <a href="https://github.com/3b1b/manim" target="_blank" rel="noreferrer">Manim</a>.
+          The interactive versions live under{' '}
+          <Link to="/visualizations">Visualizations</Link>; these are the fixed narratives —
+          each badge states exactly what evidentiary grade the film&rsquo;s content carries.
+        </p>
         {WATCH_ORDER.map((anim) => (
           <AnimationCard key={anim.id} anim={anim} />
         ))}

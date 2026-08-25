@@ -29,7 +29,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
     videoSrc: '/animations/four-gate-lambda.mp4',
     posterSrc: '/animations/four-gate-lambda-poster.jpg',
     external: false,
-    durationLabel: '≈ 4 min · 1080p60 · Manim CE',
+    durationLabel: '≈ 3 min · 1080p60 · Manim CE',
     description:
       'The project’s current headline candidate, filmed from ' +
       '/lambda-01758354-candidate: a revised mollifier and an extended ' +

@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import { EditorialHeader, GradeChip, InlineMath } from '../components/editorial/PostLayout.jsx';
 import WireframeAnim from '../components/editorial/WireframeAnim.jsx';
 
-// The real interactive twin-ladder explorer, lazy-loaded so the landing stays light.
+// The real interactive explorers, lazy-loaded so the landing stays light.
 const TwinLadderViz = lazy(() => import('../components/TwinLadderViz.jsx'));
+const WaveSimViz = lazy(() => import('../components/WaveSimViz.jsx'));
 
 /* Battle-station front page — full-width cockpit, editorial (warm) theme,
    functional language, real project content. Rendered under .ed-root so the
@@ -119,6 +120,15 @@ export default function HomePageEditorial() {
           <p>Drag the shift a and watch the shear against the positive core.</p></div>
         <Suspense fallback={<div className="ed-mono" style={{ color: 'var(--faint)', padding: '40px 0' }}>Loading the explorer…</div>}>
           <TwinLadderViz />
+        </Suspense>
+      </section></div>
+
+      {/* interactive wave simulator */}
+      <div className="ed-full"><section className="ed-sec">
+        <div className="ed-shead"><div><div className="ed-lbl">interactive</div><h2>The wave model, live</h2></div>
+          <p>The finite ζ-model as a standing wave — a model diagnostic, not a realization of the continued zeta.</p></div>
+        <Suspense fallback={<div className="ed-mono" style={{ color: 'var(--faint)', padding: '40px 0' }}>Loading the simulator…</div>}>
+          <WaveSimViz />
         </Suspense>
       </section></div>
 

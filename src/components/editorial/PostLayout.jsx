@@ -62,7 +62,7 @@ export function EditorialHeader({ ticker }) {
         </button>
         <div className={menuOpen ? 'ed-headcollapse open' : 'ed-headcollapse'}>
           <nav className="ed-headnav">
-            <Link to="/">Atlas</Link>
+            <Link to="/atlas">Atlas</Link>
             <Link to="/directory">Directory</Link>
             {NAV_GROUPS.map((g) => <NavDropdown key={g.label} label={g.label} items={g.items} />)}
           </nav>

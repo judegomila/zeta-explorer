@@ -12,6 +12,10 @@ import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { ANIMATIONS_INDEX } from '../data/animations-index.js';
 
+const CATEGORIES = [...new Set(ANIMATIONS_INDEX.map((a) => a.category || 'Films'))];
+const byCategory = (cat) =>
+  ANIMATIONS_INDEX.filter((a) => (a.category || 'Films') === cat);
+
 const cardStyle = (accent) => ({
   background: 'var(--paper2)',
   border: '1px solid var(--hairline)',
@@ -36,7 +40,7 @@ const bodyText = { color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.8 };
 
 function AnimationCard({ anim }) {
   return (
-    <div className="card" style={cardStyle(anim.accent)}>
+    <div id={anim.id} className="card" style={{ ...cardStyle(anim.accent), scrollMarginTop: 90 }}>
       <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
         <h2 style={{ color: 'var(--ink)', fontSize: 20, margin: 0 }}>{anim.title}</h2>
         <span className="ed-mono" style={{ color: 'var(--faint)', fontSize: 12 }}>
@@ -93,7 +97,7 @@ function AnimationCard({ anim }) {
 export default function AnimationsPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>films · rendered walkthroughs · evidence-graded</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '60rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1" style={{ marginBottom: 10 }}>Animations</h1>
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: 760 }}>
@@ -103,8 +107,40 @@ export default function AnimationsPage() {
           <Link to="/visualizations">Visualizations</Link>; these are the fixed narratives —
           each badge states exactly what evidentiary grade the film&rsquo;s content carries.
         </p>
-        {ANIMATIONS_INDEX.map((anim) => (
-          <AnimationCard key={anim.id} anim={anim} />
+        <nav style={{ background: 'var(--paper2)', border: '1px solid var(--hairline)',
+                      borderRadius: 8, padding: '14px 18px', marginTop: 20 }}>
+          <div className="ed-mono" style={{ fontSize: 10, textTransform: 'uppercase',
+                                            letterSpacing: 0.5, color: 'var(--faint)',
+                                            marginBottom: 8 }}>
+            Index
+          </div>
+          {CATEGORIES.map((cat) => (
+            <div key={cat} style={{ marginBottom: 6 }}>
+              <span style={{ color: 'var(--ink)', fontSize: 13, fontWeight: 600,
+                             marginRight: 10 }}>{cat}</span>
+              {byCategory(cat).map((anim, i) => (
+                <span key={anim.id} style={{ fontSize: 13 }}>
+                  {i > 0 && <span style={{ color: 'var(--faint)' }}> · </span>}
+                  <a href={`#/animations#${anim.id}`}
+                     onClick={(e) => { e.preventDefault(); document.getElementById(anim.id)?.scrollIntoView({ behavior: 'smooth' }); }}
+                     style={{ color: 'var(--blue)', textDecoration: 'none' }}>
+                    {anim.title}
+                  </a>
+                </span>
+              ))}
+            </div>
+          ))}
+        </nav>
+        {CATEGORIES.map((cat) => (
+          <section key={cat}>
+            <h2 style={{ color: 'var(--ink)', fontSize: 17, margin: '34px 0 0',
+                         borderBottom: '1px solid var(--hairline)', paddingBottom: 6 }}>
+              {cat}
+            </h2>
+            {byCategory(cat).map((anim) => (
+              <AnimationCard key={anim.id} anim={anim} />
+            ))}
+          </section>
         ))}
         <p className="ed-mono" style={{ fontSize: 11, color: 'var(--faint)', marginTop: 28 }}>
           Rendered with Manim Community Edition · data &amp; tripwires in{' '}

@@ -23,6 +23,7 @@
 export const ANIMATIONS_INDEX = Object.freeze([
   Object.freeze({
     id: 'four-gate-lambda',
+    category: 'The Λ program',
     title: 'Λ ≤ 0.1758354 — the four-gate barrier certificate',
     grade: 'computer-assisted candidate — unrefereed, not SOTA; Λ ≤ 0.2 remains the benchmark',
     accent: '#f5c542',
@@ -62,6 +63,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'twistor-lift2',
+    category: 'Twin ladder & twistor geometry',
     title: 'The Twistor Lift, Part II — the consistency-preserving construction',
     grade: 'research architecture (paper-faithful) — no RH claim, no new Λ bound',
     accent: '#b58cff',
@@ -106,6 +108,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'twistor-lift',
+    category: 'Twin ladder & twistor geometry',
     title: 'The Twistor Lift',
     grade: 'geometric reformulation (toy encoding) — the framework alone cannot prove RH',
     accent: '#ec4899',
@@ -143,6 +146,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'twin-ladder-bridge',
+    category: 'Twin ladder & twistor geometry',
     title: 'The Twin-Ladder Bridge',
     grade: 'RH-equivalent reformulation — not a proof, not a new bound',
     accent: '#b58cff',
@@ -177,6 +181,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'zetasota',
+    category: 'The Λ program',
     title: 'Λ ≤ 0.1787854 — the proof steps, animated',
     grade: 'unreviewed computer-assisted candidate — not an established theorem',
     accent: '#f5c542',

@@ -26,6 +26,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { scaleLinear } from 'd3-scale';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 // Browser-light snapshot of the offline first-10000-zero sweep. Keeping the
 // 50 sufficient-statistic bins here avoids importing the 16.7 MB zero corpus;
@@ -183,6 +184,8 @@ export default function GueComparisonPage() {
           GUE universality of the zeros is a deep and widely supported
           conjecture; this page exhibits the well-known numerical agreement.
         </p>
+      <AnimationEmbed id="gue-3point" />
+
         <div style={{ marginTop: 10, fontSize: 12, fontFamily: 'var(--ed-mono)' }}>
           <Link to="/statistics" style={{ color: 'var(--terra-dk)' }}>
             &larr; back to Zero Statistics &amp; Spectral Criteria

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PostLayout, { TheoremBox, Pull } from '../components/editorial/PostLayout.jsx';
 import { FROZEN_RUNG_PT_EQUIVALENCE } from '../data/frozen-rung-pt-equivalence-2026-07-31.js';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 /* Editorial (post reading-view) presentation of the frozen-rung ⟺ Platt–Trudgian
    proposition. All mathematical text is sourced verbatim from
@@ -44,6 +45,8 @@ export default function FrozenRungPTEquivalencePage() {
           NO Λ improvement — it reproduces exactly Λ ≤ 0.1787854 / 0.2. Platt–Trudgian Λ ≤ 0.2
           remains the accepted SOTA. No QED.
         </p>
+      <AnimationEmbed id="frozen-rung-pt" />
+
       </div>
 
       {paperPdf && (

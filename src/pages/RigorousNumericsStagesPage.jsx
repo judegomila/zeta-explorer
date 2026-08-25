@@ -24,6 +24,7 @@ import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { RIGOROUS_NUMERICS_STAGES, findStage } from '../data/rigorous-numerics-stages.js';
 import { StatusTag } from '../components/StatusLegend.jsx';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 const R = RIGOROUS_NUMERICS_STAGES;
 const mono = 'var(--ed-mono, var(--font-mono))';
@@ -117,6 +118,8 @@ function StageCard({ stage }) {
         <strong style={{ color: col.fg }}>Paper description. </strong>
         {stage.paperDescription}
       </p>
+      <AnimationEmbed id="barnes-hut" />
+
 
       {/* ─── Paper bullets ─── */}
       {stage.paperBullets.length > 1 && (

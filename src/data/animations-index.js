@@ -64,7 +64,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'flow-blindness',
-    watchOrder: 5,
+    watchOrder: 6,
     category: 'Theorems & no-gos',
     title: 'Flow-Blindness — soft hypotheses cannot prove RH',
     grade: 'unconditional no-go theorem — rests only on Rodgers–Tao Λ ≥ 0',
@@ -102,7 +102,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'colliding-zeros',
-    watchOrder: 3,
+    watchOrder: 4,
     category: 'The Λ program',
     title: 'Zeros as Colliding Particles',
     grade: 'established mechanism (the Λ ≤ 0.2 path) — proxy visuals illustrative, prove nothing about Λ',
@@ -134,7 +134,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'obstruction-seam',
-    watchOrder: 9,
+    watchOrder: 16,
     category: 'Theorems & no-gos',
     title: 'The Obstruction Seam',
     grade: 'anatomy of the obstruction — not a proof of anything; PT Λ ≤ 0.2 stays SOTA · NO QED',
@@ -166,7 +166,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'theta-trap',
-    watchOrder: 7,
+    watchOrder: 10,
     category: 'Theorems & no-gos',
     title: 'The Θ-Trap Theorems',
     grade: 'unconditional theorems on the particle-flow model — not about Λ or RH; optimistic extension refuted',
@@ -200,7 +200,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'collapse-chain',
-    watchOrder: 8,
+    watchOrder: 12,
     category: 'Theorems & no-gos',
     title: 'The Collapse Chain and the 5000× Mirage',
     grade: 'RH-equivalent reformulation — refuted as a reduction; the 5000× margin is an artifact',
@@ -231,7 +231,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'ghost-freeze',
-    watchOrder: 6,
+    watchOrder: 7,
     category: 'Twin ladder & twistor geometry',
     title: 'The Ghost That Cannot Be Frozen',
     grade: 'kernel computation & inertia lemma are theorems; ghost absence ∀a>0 is Conjecture 17.3 — RH-equivalent',
@@ -262,8 +262,376 @@ export const ANIMATIONS_INDEX = Object.freeze([
     ],
   }),
   Object.freeze({
-    id: 'twistor-lift2',
+    id: 'lambda-history',
+    watchOrder: 3,
+    category: 'The Λ program',
+    title: 'Seventy-Six Years of Λ',
+    grade: 'evidence-graded history — solid rows are theorems; dashed rows are labeled claims and candidates',
+    accent: '#f5c542',
+    videoSrc: '/animations/lambda-history.mp4',
+    posterSrc: '/animations/lambda-history-poster.jpg',
+    external: false,
+    durationLabel: '44 s · 1080p60 · Manim CE',
+    description:
+      'Every bound in the timeline module, graded: the lower-bound climb (−50' +
+      ' in 1988 through −1.14541×10⁻¹¹ in 2011) to Rodgers–Tao’s floor Λ ≥ 0;' +
+      ' the upper squeeze ½ → 0.22 → 0.2 (peer-reviewed); the dashed 2026 cla' +
+      'ims (0.1965 and 0.1875 unrefereed; 0.1787854 and 0.1758354 candidates)' +
+      '; and the struck-through retraction of the 3.06×10⁻⁵ framing. The modu' +
+      'le’s own rule on screen: inspect accepted before calling anything a th' +
+      'eorem.',
+    scenes: [
+      'Title — RH ⟺ Λ = 0, graded',
+      'The climb from below (seven lower bounds)',
+      'The squeeze from above (solid vs dashed)',
+      'The retraction · the solid interval [0, 0.2]',
+    ],
+    relatedRoutes: [
+      { to: '/lambda-bounds', label: 'Λ bounds ledger' },
+      { to: '/history', label: 'History' },
+    ],
+  }),
+  Object.freeze({
+    id: 'route-b-limsup',
     watchOrder: 11,
+    category: 'The Λ program',
+    title: 'Route B: the Limsup Claim and Its Audit',
+    grade: 'PARTIAL — rigorous modulo one named gap (finite-N collision-formula validity); not unconditional as first advertised',
+    accent: '#4da6ff',
+    videoSrc: '/animations/route-b-limsup.mp4',
+    posterSrc: '/animations/route-b-limsup-poster.jpg',
+    external: false,
+    durationLabel: '58 s · 1080p60 · Manim CE',
+    description:
+      'The flagship almost-theorem, limsup |t_c(N)| = 0, built from the Koksm' +
+      'a–Hlawka bound with y_N♯ = √(2π/N) and Selberg’s |S(T)| as the only an' +
+      'alytic input — and its public downgrade: the Burgers surrogate τ_c = 1' +
+      '/(2 sup Im m) fails at pole scale, falsified at N = 2 where the exact ' +
+      't_c = g²/8 breaks it for g > 2.66. The audit table on screen: what is ' +
+      'established (the discrepancy bound; the Dyson min-gap monotonicity lem' +
+      'ma), what is open (the G5 residual), and the word that was retracted.',
+    scenes: [
+      'Title — the claim and the verdict',
+      'Koksma–Hlawka and the Selberg input',
+      'The surrogate that cracked (the N = 2 falsifier)',
+      'The audit ledger',
+      'Closing — Λ ≤ 0.2 unaffected',
+    ],
+    relatedRoutes: [
+      { to: '/route-b-limsup', label: 'Route B limsup' },
+    ],
+  }),
+  Object.freeze({
+    id: 'pt-floor',
+    watchOrder: 14,
+    category: 'The Λ program',
+    title: 'What Actually Binds Λ ≤ 0.2',
+    grade: 'diagnostic audit — verdict CONFIRM: the verified height binds; produces no bound, NO QED',
+    accent: '#3ddbd9',
+    videoSrc: '/animations/pt-floor.mp4',
+    posterSrc: '/animations/pt-floor-poster.jpg',
+    external: false,
+    durationLabel: '43 s · 1080p60 · Manim CE',
+    description:
+      'The sensitivity audit of the Λ ≤ 0.2 floor: three legs — verified heig' +
+      'ht X = 3×10¹², barrier slack (corridor margin 1.23), AFE tail (margin ' +
+      '≈ 1.047) — of which only the height is load-bearing. The margin table ' +
+      'runs 10,880 down to 0.14 with the failing cells traced to a ~170×-loos' +
+      'er engine, not an analytic wall; six barrier-tightening attacks die ag' +
+      'ainst non-binding slack; and the one real lever — Λ ≤ 0.19 needs X = 2' +
+      '×10¹³ — is a computation (mesh cost logarithmic in height), not a tric' +
+      'k.',
+    scenes: [
+      'Title — three legs, one binder',
+      'The floor and its legs',
+      'The margin table and the engine ceiling',
+      'The lever and its price',
+    ],
+    relatedRoutes: [
+      { to: '/pt-floor-audit', label: 'PT floor sensitivity audit' },
+    ],
+  }),
+  Object.freeze({
+    id: 'closure-routes',
+    watchOrder: 8,
+    category: 'Twin ladder & twistor geometry',
+    title: 'Four Roads to the Same Wall (§16)',
+    grade: 'Theorem 16.1 equivalence established; every route RH-equivalent and open — no shortcut',
+    accent: '#4da6ff',
+    videoSrc: '/animations/closure-routes.mp4',
+    posterSrc: '/animations/closure-routes-poster.jpg',
+    external: false,
+    durationLabel: '45 s · 1080p60 · Manim CE',
+    description:
+      'The four closure routes — A Schur contractivity, B de Branges positivi' +
+      'ty K_a ⪰ 0 ∀a>0, C the hidden-square factorization, D the Weil/twin-la' +
+      'dder quadratic form — drawn as four cards converging on Δ = 0 ⟺ RH, wi' +
+      'th Theorem 16.1 making them provably equivalent. Includes the 5,656-po' +
+      'int sweep (max ratio 0.99990759 at σ = 0.51, a = 0.1, zero failures, f' +
+      'alling to 0.97738 at σ = 3) and the circularity loop that explains why' +
+      ' Route A cannot bootstrap itself: the sweep supports, and can never pr' +
+      'ove.',
+    scenes: [
+      'Title — provably equivalent, all open',
+      'A, B, C, D — one bottleneck',
+      'The numerical sweep',
+      'The circularity loop',
+    ],
+    relatedRoutes: [
+      { to: '/closure-routes', label: 'Closure routes (§16)' },
+      { to: '/shift-bridge-positivity', label: 'Shift-Bridge (§15)' },
+    ],
+  }),
+  Object.freeze({
+    id: 'three-attacks',
+    watchOrder: 9,
+    category: 'Twin ladder & twistor geometry',
+    title: 'Three Attacks on Ghost Absence (§18)',
+    grade: 'corrected audit — I rejected as stated; II finite model; III RH-equivalent target; nothing proves RH',
+    accent: '#ff6b6b',
+    videoSrc: '/animations/three-attacks.mp4',
+    posterSrc: '/animations/three-attacks-poster.jpg',
+    external: false,
+    durationLabel: '59 s · 1080p60 · Manim CE',
+    description:
+      'Section 18 with the corrected audit on screen: Attack I (kernel passiv' +
+      'ity) is REJECTED AS STATED — the proposed Gram-sum is a sum of squares' +
+      ', positive whether or not RH holds, a detector that always says yes; A' +
+      'ttack II (prime-delay domination, Re X′/X > 0 on the right half-plane)' +
+      ' is a FINITE MODEL, with the retracted mis-normalized surrogate pivot ' +
+      'acknowledged; Attack III (the Krein–Langer/Pontryagin index) is the RH' +
+      '-EQUIVALENT TARGET, with index tracking that reads 0 across the grid a' +
+      'nd jumps to 1 for an injected off-line zero, exactly as it must.',
+    scenes: [
+      'Title — the corrected scoreboard',
+      'Attack I: rejected as stated',
+      'Attack II: finite model',
+      'Attack III: the index target',
+      'Closing — the wall still standing',
+    ],
+    relatedRoutes: [
+      { to: '/three-attacks', label: 'Three attacks (§18)' },
+      { to: '/blaschke-ghosts', label: 'Blaschke ghosts (§17)' },
+    ],
+  }),
+  Object.freeze({
+    id: 'frozen-rung-pt',
+    watchOrder: 13,
+    category: 'Twin ladder & twistor geometry',
+    title: 'Frozen Rungs ⟺ Platt–Trudgian',
+    grade: 'inertia half: proven theorem · full equivalence: one open lemma · a reformulation, not a new bound — NO QED',
+    accent: '#b58cff',
+    videoSrc: '/animations/frozen-rung-pt.mp4',
+    posterSrc: '/animations/frozen-rung-pt-poster.jpg',
+    external: false,
+    durationLabel: '44 s · 1080p60 · Manim CE',
+    description:
+      'The operator certificate and the classical zero count are the same obj' +
+      'ect: ind₋(K_{R_a}) counts exactly the ξ-zeros with Re λ > a, so RH ⟺ i' +
+      'ndex zero at every shift. The proven inertia half shows passive frozen' +
+      ' rungs can NEVER beat Platt–Trudgian; the winding-form identity equate' +
+      's the PT/Turing count with the certificate; lemma L1 (tail leakage) is' +
+      ' plausibly provable, L2 (mesh detection) genuinely open. The dial land' +
+      's exactly on 0.1787854 and 0.2 — no improvement, because it is the sam' +
+      'e count. The only genuine lever is verified height.',
+    scenes: [
+      'Title',
+      'The index counts off-strip zeros',
+      'One theorem half, one open lemma',
+      'The dial lands on the known rows',
+    ],
+    relatedRoutes: [
+      { to: '/frozen-rung-pt-equivalence', label: 'Frozen-rung ⟺ PT' },
+      { to: '/pt-floor-audit', label: 'What binds the floor' },
+    ],
+  }),
+  Object.freeze({
+    id: 'mollified-barrier',
+    watchOrder: 15,
+    category: 'Theorems & no-gos',
+    title: 'The Mollified Barrier and the Zero-Gain Theorem',
+    grade: 'formalization infrastructure — matches PT, provably cannot beat it; no bound, NO QED',
+    accent: '#f5c542',
+    videoSrc: '/animations/mollified-barrier.mp4',
+    posterSrc: '/animations/mollified-barrier-poster.jpg',
+    external: false,
+    durationLabel: '56 s · 1080p60 · Manim CE',
+    description:
+      'The sole survivor of a 79-agent adversarial review of 22 candidates: a' +
+      ' Dirichlet mollifier with m₂ = −0.248 rescues a failing triangle bound' +
+      ' at x₀ = 2.83×10¹³ (margin −0.1547 → +0.206) — and then the one-line z' +
+      'ero-gain theorem min|Mf|/max|M| ≤ min|f| shows the min-modulus channel' +
+      ' has exactly zero gain (1.3968/0.8338 = 1.6753 = min|f|, ratio 1.0000)' +
+      '. The Nb-scan shows the rescue dying as the band widens (+0.385 → +0.2' +
+      '06 → +0.0004 → −0.24); ball-arithmetic seals at ≥ 1.6703 and ≥ 1.6645 ' +
+      'certify it.',
+    scenes: [
+      'Title — the sole survivor',
+      'Fails, then passes',
+      'The zero-gain theorem',
+      'The scan and the seals',
+    ],
+    relatedRoutes: [
+      { to: '/mollified-barrier-certificate', label: 'Mollified barrier certificate' },
+    ],
+  }),
+  Object.freeze({
+    id: 'overclaim-ledger',
+    watchOrder: 17,
+    category: 'Theorems & no-gos',
+    title: 'The Six-Overclaim Ledger',
+    grade: 'the no-false-QED discipline — six confident claims, all refuted by the project’s own review',
+    accent: '#ff6b6b',
+    videoSrc: '/animations/overclaim-ledger.mp4',
+    posterSrc: '/animations/overclaim-ledger-poster.jpg',
+    external: false,
+    durationLabel: '43 s · 1080p60 · Manim CE',
+    description:
+      'The framing film: six struck-through overclaims with their corrections' +
+      ' — the height-mismatch Λ ≤ 0.0X, the false Wiener–Hopf bound (the norm' +
+      ' actually grows like e^{aT}), the §27 collapse identity (refuted by sc' +
+      'ale invariance), the Volterra 5000× margin (a homogeneity artifact), t' +
+      'he finite-N* beat (an ESTIMATE, C_H undischargeable), and the operator' +
+      ' collapse (RH-equivalent, not a reduction). The rule: a bound dependin' +
+      'g on an unproved constant is a conditional estimate and must be labele' +
+      'd as one. What is actually established: 0 ≤ Λ ≤ 0.2.',
+    scenes: [
+      'Title — no-false-QED',
+      'Six claims, six corrections',
+      'The one that mattered most',
+      'Closing — why the surviving claims can be trusted',
+    ],
+    relatedRoutes: [
+      { to: '/what-we-know', label: 'What we know' },
+    ],
+  }),
+  Object.freeze({
+    id: 'gue-3point',
+    watchOrder: 18,
+    category: 'Evidence, engines & gallery',
+    title: 'The 3-Point GUE Test on a Million Zeros',
+    grade: 'empirical — Pearson 0.97780; not rigorous (Rudnick–Sarnak support (−⅔, ⅔) is the open gap)',
+    accent: '#7bd88f',
+    videoSrc: '/animations/gue-3point.mp4',
+    posterSrc: '/animations/gue-3point-poster.jpg',
+    external: false,
+    durationLabel: '50 s · 1080p60 · Manim CE',
+    description:
+      'Unfold a million verified zeros to mean spacing 0.9998987588864481, wa' +
+      'tch the spacing histogram fill the Wigner surmise (KL divergence 0.008' +
+      '13, Hellinger 0.0483 on 10⁴ Odlyzko zeros), then climb to triples: the' +
+      ' sine-kernel determinant R₃(x,y) tested on a 7-point grid over the bul' +
+      'k window — the (2,3) bin hits GUE exactly, Pearson 0.97780, mean |Δ| 0' +
+      '.14684. Ends on the honest wall: Rudnick–Sarnak proves n-level GUE onl' +
+      'y for test functions with Fourier support in (−⅔, ⅔), so all of this i' +
+      's evidence, not proof.',
+    scenes: [
+      'Title',
+      'Unfolding and the Wigner surmise',
+      'The 3-level correlation table',
+      'The support-gap wall',
+    ],
+    relatedRoutes: [
+      { to: '/gue-comparison', label: 'GUE comparison' },
+    ],
+  }),
+  Object.freeze({
+    id: 'berry-keating',
+    watchOrder: 19,
+    category: 'Evidence, engines & gallery',
+    title: 'H = xp: a Failure Exhibit',
+    grade: 'documented negative result — a gap exhibit, not a Hilbert–Pólya realization',
+    accent: '#4da6ff',
+    videoSrc: '/animations/berry-keating.mp4',
+    posterSrc: '/animations/berry-keating-poster.jpg',
+    external: false,
+    durationLabel: '43 s · 1080p60 · Manim CE',
+    description:
+      'The Berry–Keating conjecture tested naively and kept on display precis' +
+      'ely because it fails: quantize H_sym = (xp+px)/2 via ladder operators,' +
+      ' truncate at N = 50/100/200, and the RMS residual against the first fi' +
+      'fteen zeros stays flat at 39.52/39.87/39.80 — no convergence, the trun' +
+      'cated spectrum (max ≈ 9.7) far below γ₁…γ₁₅ = 14.13…65.1. The page’s d' +
+      'iagnosis: the missing ingredient is prime-dependent boundary condition' +
+      's (Connes-adelic style), and N_smooth is an output of RH-adjacent asym' +
+      'ptotics, not a proof of them.',
+    scenes: [
+      'Title',
+      'The classical hyperbolas and the hope',
+      'The flat residual',
+      'What is missing — and why exhibit failure',
+    ],
+    relatedRoutes: [
+      { to: '/berry-keating-xp', label: 'Berry–Keating xp' },
+    ],
+  }),
+  Object.freeze({
+    id: 'barnes-hut',
+    watchOrder: 20,
+    category: 'Evidence, engines & gallery',
+    title: 'The 854× Rigorous Engine',
+    grade: 'measured, sound computation — 854× is vs a projected dense time; production wiring separate (imp-1136)',
+    accent: '#3ddbd9',
+    videoSrc: '/animations/barnes-hut.mp4',
+    posterSrc: '/animations/barnes-hut-poster.jpg',
+    external: false,
+    durationLabel: '45 s · 1080p60 · Manim CE',
+    description:
+      'How the program computes fast without lying: an O(N log N) Barnes–Hut ' +
+      'tree for the zero-drift sum with a proved monopole envelope carried in' +
+      ' interval arithmetic (θ = 0.1, leaves of 32). The ladder climbs 1.3× →' +
+      ' 3.3× → 9.7× → 20.6× → 39.9× → ≈854× at N = 10⁵ (dense projected ~3,47' +
+      '5 s vs 4.065 s measured); at θ = 0.01 the BH–dense midpoint difference' +
+      ' is 5.51×10⁻¹⁴ inside a 7.82×10⁻¹⁴ interval; soundness violations acro' +
+      'ss every tested configuration: zero. The refuted 10⁻⁶-at-θ=0.5 target ' +
+      'is shown struck through.',
+    scenes: [
+      'Title',
+      'The tree and the proved error box',
+      'The speedup ladder',
+      'The soundness ledger',
+    ],
+    relatedRoutes: [
+      { to: '/rigorous-numerics-stages', label: 'Rigorous numerics stages' },
+    ],
+  }),
+  Object.freeze({
+    id: 'viz-gallery',
+    watchOrder: 21,
+    category: 'Evidence, engines & gallery',
+    title: 'Four Windows onto ζ',
+    grade: 'illustrative — visual geometry of established mathematics; no analytic claim',
+    accent: '#f07ab8',
+    videoSrc: '/animations/viz-gallery.mp4',
+    posterSrc: '/animations/viz-gallery-poster.jpg',
+    external: false,
+    durationLabel: '1 min 01 s · 1080p60 · Manim CE',
+    description:
+      'A gallery interlude: the log-phase spiral r = log(t+e), θ = arg ζ(½+it' +
+      ') with π-jump cusps at every zero (γ₁ = 14.134725…); the tomography pr' +
+      'oduct P(σ,t) = |ζ(σ+it)|·|ζ((1−σ)+it)| whose interference trough at σ ' +
+      '= ½ is forced by |χ(½+it)| = 1; the Euler transport flow whose streaml' +
+      'ines sink into every zero; and the hyperbolic prime spiral in the Poin' +
+      'caré disk, colored by p mod 4 with no angular clustering, its radial l' +
+      'og-density the prime number theorem made visible. Every panel stamped:' +
+      ' illustration, not proof.',
+    scenes: [
+      'Title — four windows, one object',
+      'The log-phase spiral',
+      'Twin-ladder tomography',
+      'The Euler transport flow',
+      'The hyperbolic prime spiral · closing stamp',
+    ],
+    relatedRoutes: [
+      { to: '/viz-log-phase-spiral', label: 'Log-phase spiral' },
+      { to: '/viz-twin-ladder-tomography', label: 'Tomography' },
+      { to: '/viz-euler-transport-flow', label: 'Transport flow' },
+      { to: '/viz-hyperbolic-prime-spiral', label: 'Prime spiral' },
+    ],
+  }),
+  Object.freeze({
+    id: 'twistor-lift2',
+    watchOrder: 23,
     category: 'Twin ladder & twistor geometry',
     title: 'The Twistor Lift, Part II — the consistency-preserving construction',
     grade: 'research architecture (paper-faithful) — no RH claim, no new Λ bound',
@@ -309,7 +677,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'twistor-lift',
-    watchOrder: 10,
+    watchOrder: 22,
     category: 'Twin ladder & twistor geometry',
     title: 'The Twistor Lift',
     grade: 'geometric reformulation (toy encoding) — the framework alone cannot prove RH',
@@ -348,7 +716,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'twin-ladder-bridge',
-    watchOrder: 4,
+    watchOrder: 5,
     category: 'Twin ladder & twistor geometry',
     title: 'The Twin-Ladder Bridge',
     grade: 'RH-equivalent reformulation — not a proof, not a new bound',
@@ -451,7 +819,7 @@ export const ANIMATIONS_INDEX_ASSERTIONS = [
           typeof a.description === 'string' &&
           a.description.length >= 200 &&
           Array.isArray(a.scenes) &&
-          a.scenes.length >= 6 &&
+          a.scenes.length >= 4 &&
           Array.isArray(a.relatedRoutes) &&
           a.relatedRoutes.length >= 1 &&
           a.relatedRoutes.every(

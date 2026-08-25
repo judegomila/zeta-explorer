@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 import {
   LAMBDA_ROADMAP,
   LAMBDA_BOUNDS,
@@ -111,6 +112,8 @@ export default function LambdaBoundsPage() {
             RH ⟺ Λ = 0 (de Bruijn 1950 + Rodgers-Tao 2020). This page is the
             plan, the status, and the verification efforts of our attack.
           </p>
+      <AnimationEmbed id="lambda-history" />
+
           <div style={{ marginTop: 10, display: 'flex', flexWrap: 'wrap', gap: 8 }}>
             <Link
               to="/lambda-timeline"

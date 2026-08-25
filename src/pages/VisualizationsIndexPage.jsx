@@ -13,6 +13,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { VISUALIZATIONS_INDEX } from '../data/visualizations-index.js';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 // ── Per-bucket accent colors ────────────────────────────────────────────
 // Each math bucket gets one accent so the cards are visually distinct.
@@ -1161,6 +1162,8 @@ function VizCard({ entry }) {
       }}>
         {entry.oneLine}
       </p>
+      <AnimationEmbed id="viz-gallery" />
+
       <div style={{
         marginTop: 'auto',
         display: 'flex',

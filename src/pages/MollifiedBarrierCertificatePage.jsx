@@ -4,6 +4,7 @@ import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { InlineMath } from '../components/KaTeXMath.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { MOLLIFIER_CERTIFICATE } from '../data/mollified-barrier-certificate-2026-07-08.js';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 const { meta, provableCeiling, pilotNumbers, triangleChannelScan, triangleChannelNote, limitations } = MOLLIFIER_CERTIFICATE;
 
@@ -21,6 +22,8 @@ export default function MollifiedBarrierCertificatePage() {
           and only reframed as an RH-free tool that <em>matches</em> Platt–Trudgian. This is its built,
           interval-certified pilot. It is genuinely a cleaner barrier certificate; it is provably not a beat.
         </p>
+      <AnimationEmbed id="mollified-barrier" />
+
 
         <HonestCeilingBanner
           variant="ESTIMATE"

@@ -24,6 +24,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { BERRY_KEATING_XP } from '../data/berry-keating-xp-spectral.js';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 // ── SVG geometry shared by the panels. ────────────────────────────────
 
@@ -445,6 +446,8 @@ export default function BerryKeatingXpPage() {
             on the first {BERRY_KEATING_XP.kFit} eigenvalues against the first 30
             Odlyzko Riemann-zero ordinates.
           </p>
+      <AnimationEmbed id="berry-keating" />
+
         </div>
 
         <div style={{

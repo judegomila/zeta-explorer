@@ -111,6 +111,7 @@ import { IMP3487_DEGREE2_DEFICIT_A_THRESHOLD } from '../data/imp-3487-degree2-de
 import { IMP3400_TTILDE_SPECTRAL_SLOPE_CLOSED_FORM } from '../data/imp-3400-Ttilde-spectral-slope-closed-form.js';
 import { IMP3407_C_INF_INDEPENDENT_EXTRAPOLATION_CERTIFICATION } from '../data/imp-3407-C-inf-independent-extrapolation-certification.js';
 import { IMP3402_LEFTMOST_ZERO_DRIFT_RATE_FIT } from '../data/imp-3402-leftmost-zero-drift-rate-fit.js';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -350,6 +351,8 @@ function RouteCard({ route }) {
         <strong style={{ color: col.fg }}>Statement. </strong>
         {route.statement}
       </p>
+      <AnimationEmbed id="closure-routes" />
+
 
       <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
         <strong style={{ color: '#fbbf24' }}>Current status. </strong>

@@ -4,6 +4,7 @@ import PostLayout, { TheoremBox, Pull } from '../components/editorial/PostLayout
 import { PT_FLOOR_AUDIT } from '../data/pt-floor-sensitivity-audit-2026-07-08.js';
 import { IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER } from '../data/imp-35711-postport-parity-no-beat-honest-status-banner.js';
 import { IMP35678_FINITE_HEIGHT_BEAT_VS_PARITY_REGIME_BOUNDARY } from '../data/imp-35678-finite-height-beat-vs-parity-regime-boundary.js';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 /* Editorial (post reading-view) presentation of the PT Λ≤0.2 floor sensitivity
    audit. All text is sourced verbatim from src/data/pt-floor-sensitivity-audit-
@@ -45,6 +46,8 @@ export default function PtFloorSensitivityAuditPage() {
           constants pending a check against the arXiv:1904.12438 ancillary code — see the fidelity
           caveats at the bottom. NO QED.
         </p>
+      <AnimationEmbed id="pt-floor" />
+
       </div>
 
       <div className="ed-thm" style={{ borderLeftColor: 'var(--brass)' }}>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 // Three Closure Attempts: Corrected Audit — editorial (warm) re-theme.
 // Structure, data, and every claim/number/caveat are unchanged from the
@@ -224,6 +225,7 @@ export default function ThreeAttacksPage() {
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Three Closure Attempts: Corrected Audit</h1>
+          <AnimationEmbed id="three-attacks" />
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
             These are research programs around the twin-ladder model, not three proofs of RH.
             The twin-ladder review separates identities, finite experiments, rejected implications, and

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 // Route B (imp-341 Burgers uniformity, assembled in lambda-intercept-unconditional.js):
 // lim sup_{N->inf} |t_c(N)| = 0 UNCONDITIONALLY via the deterministic Koksma-Hlawka
@@ -23,6 +24,8 @@ export default function RouteBLimsupPage() {
           <strong>limit-superior zero</strong>. It rests only on the Riemann–von Mangoldt counting
           formula and an explicit Selberg/Trudgian bound on <InlineMath tex="|S(T)|" />.
         </p>
+      <AnimationEmbed id="route-b-limsup" />
+
 
         <BlockMath tex={"\\limsup_{N\\to\\infty}\\; |t_c(N)| \\;=\\; 0 \\qquad\\text{(unconditional \\emph{modulo one named gap} — see audit)}"} />
 

@@ -22,6 +22,45 @@
 
 export const ANIMATIONS_INDEX = Object.freeze([
   Object.freeze({
+    id: 'four-gate-lambda',
+    title: 'Λ ≤ 0.1758354 — the four-gate barrier certificate',
+    grade: 'computer-assisted candidate — unrefereed, not SOTA; Λ ≤ 0.2 remains the benchmark',
+    accent: '#f5c542',
+    videoSrc: '/animations/four-gate-lambda.mp4',
+    posterSrc: '/animations/four-gate-lambda-poster.jpg',
+    external: false,
+    durationLabel: '≈ 4 min · 1080p60 · Manim CE',
+    description:
+      'The project’s current headline candidate, filmed from ' +
+      '/lambda-01758354-candidate: a revised mollifier and an extended ' +
+      'finite lane (5.3×10⁶ windows, vs 3,149,013 in the 0.1787854 package) ' +
+      'certify four independent gates — finite lane, tail D < 1 ' +
+      '(Euler–Maclaurin, closing only after extending the verified height ' +
+      'to N* = 6×10⁶), barrier reuse (monotone in t), and the y-transfer ' +
+      'excision budget B ≈ 2.5×10⁻⁴ against an available margin of ' +
+      '1.87×10⁻³. Includes the honest hard part: naive termwise ' +
+      'monotonicity is false (double cancellations), fixed by ' +
+      'profile-sector cells that dissolve an apparent 2²⁸⁷ enumeration ' +
+      'into 20,546 explicit profiles. The reduction is Lean-checked, the ' +
+      'gates are Arb interval computations — and neither step is a referee.',
+    scenes: [
+      'Title — candidate, unrefereed, not SOTA',
+      'Where the number sits (the Λ number line)',
+      'The method: a mollified barrier, sharpened twice',
+      'The certificate: four gates, four Arb verdicts',
+      'Gates 1 & 2 — the longer lane, and the tail that would not close',
+      'Gate 4 — monotonicity is false; the excision budget',
+      'The verification stack — and what it is not',
+      'Status ledger',
+      'Closing — RH ⟺ Λ ≤ 0 still open',
+    ],
+    relatedRoutes: [
+      { to: '/lambda-01758354-candidate', label: 'The four-gate certificate' },
+      { to: '/newman-lambda-01787854-candidate', label: 'The 0.1787854 package' },
+      { to: '/lambda-bounds', label: 'Λ bounds ledger' },
+    ],
+  }),
+  Object.freeze({
     id: 'twistor-lift2',
     title: 'The Twistor Lift, Part II — the consistency-preserving construction',
     grade: 'research architecture (paper-faithful) — no RH claim, no new Λ bound',

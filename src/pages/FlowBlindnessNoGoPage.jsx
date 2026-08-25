@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PostLayout, { TheoremBox, Pull } from '../components/editorial/PostLayout.jsx';
 import { FLOW_BLINDNESS_NO_GO as D } from '../data/flow-blindness-no-go.js';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 /* Editorial (post reading-view) presentation of the flow-blindness no-go.
    All text is sourced verbatim from src/data/flow-blindness-no-go.js — this file
@@ -24,6 +25,7 @@ export default function FlowBlindnessNoGoPage() {
     >
       <h2>{D.dictionary.heading}</h2>
       <p className="lead">The program's sole global frontier is a positivity statement about a shifted profile. The first thing to pin down is what that statement actually is.</p>
+      <AnimationEmbed id="flow-blindness" />
       <div className="ed-thm" style={{ borderLeftColor: 'var(--brass)' }}>
         <div className="tlab">Dictionary identity (†)</div>
         <p className="ed-mono" style={{ fontSize: 15 }}>{D.dictionary.identity}</p>

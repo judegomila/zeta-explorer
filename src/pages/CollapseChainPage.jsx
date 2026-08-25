@@ -23,6 +23,7 @@ import { SECTION26_VERDICT } from '../data/section26-verdict-volterra-not-a-redu
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import EquivalenceVsReductionCallout from '../components/EquivalenceVsReductionCallout.jsx';
 import RelatedLinks from '../components/RelatedLinks.jsx';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 // ── Warm palette for chain-node coloring ────────────────────────────────────
 // Forward steps: blue. Reverse steps: brass. Load-bearing §27 identity: terra
@@ -293,6 +294,8 @@ export default function CollapseChainPage() {
           statement: <strong>‖V&#x200B;_{'{'}a,Φ{'}'}</strong> &le; 1 for every a &gt; 0.
           Interactive forward (7-step) and reverse (5-step) chains shown below.
         </p>
+
+        <AnimationEmbed id="collapse-chain" />
 
         <div style={{ backgroundColor: 'rgba(194,58,28,0.08)', padding: '16px', borderRadius: '8px', marginBottom: '20px', border: '2px solid var(--terra-dk)' }}>
           <p style={{ margin: '0 0 6px 0', fontSize: '15px', fontWeight: 'bold', color: 'var(--terra-dk)' }}>

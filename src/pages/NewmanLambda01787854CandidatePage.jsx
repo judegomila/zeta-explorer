@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PostLayout, { TheoremBox, Pull, InlineMath, BlockMath } from '../components/editorial/PostLayout.jsx';
 import { NEWMAN_LAMBDA_01787854_CANDIDATE as CANDIDATE } from '../data/newman-lambda-01787854-candidate.js';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 /* Editorial (post reading-view) presentation of the Λ ≤ 0.1787854 unreviewed
    proof candidate. All numbers, bounds, and caveats are sourced verbatim from
@@ -103,6 +104,8 @@ export default function NewmanLambda01787854CandidatePage() {
         This page restyles the sealed v3 review package. Two axes are kept separate: the proposed proof
         has an unconditional logical form, and the package is still a proof candidate.
       </p>
+
+      <AnimationEmbed id="zetasota" />
 
       <div className="ed-thm" style={{ borderLeftColor: 'var(--terra-dk)' }}>
         <div className="tlab">Unreviewed candidate · intended unconditional form · external review open</div>

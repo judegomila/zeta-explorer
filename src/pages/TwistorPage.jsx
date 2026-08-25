@@ -4,6 +4,7 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import TwistorViz from '../components/TwistorViz.jsx';
 import TwistorDiagram3D from '../components/TwistorDiagram3D.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 // Editorial (warm) re-theme: full-width column, identical structure/content.
 // Interactive visualizations (TwistorDiagram3D, TwistorViz) kept exactly as-is.
@@ -33,6 +34,9 @@ export default function TwistorPage() {
             <InlineMath tex={"Z^{\\alpha} W_{\\alpha} = 0"} />.
           </p>
         </div>
+
+        <AnimationEmbed id="twistor-lift2" />
+        <AnimationEmbed id="twistor-lift" />
 
         <BlockMath tex={"Z^{\\alpha} = (\\omega^A, \\pi_{A'}) \\quad \\longleftrightarrow \\quad \\text{Direct ladder } \\zeta(s)"} />
 

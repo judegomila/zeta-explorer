@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom';
 import PostLayout, { InlineMath, BlockMath } from '../components/editorial/PostLayout.jsx';
 import { SHIFT_BRIDGE_POSITIVITY } from '../data/shift-bridge-positivity-section.js';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 const S = SHIFT_BRIDGE_POSITIVITY;
 
@@ -98,6 +99,7 @@ export default function ShiftBridgePositivityPage() {
       {/* 15.1 — Purpose */}
       <SectionHead tag="15.1">Purpose of this section</SectionHead>
       <p>{S.summary}</p>
+      <AnimationEmbed id="twin-ladder-bridge" />
 
       {/* 15.2 — Centered completed function */}
       <SectionHead tag="15.2">

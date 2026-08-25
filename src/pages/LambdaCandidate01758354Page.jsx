@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PostLayout, { TheoremBox, Figure, Pull, BlockMath, InlineMath } from '../components/editorial/PostLayout.jsx';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 /* New explanation page: the Λ ≤ 0.1758354 candidate certificate. Functional
    language, post reading-view. Content is the four-gate barrier certificate. */
@@ -17,6 +18,8 @@ export default function LambdaCandidate01758354Page() {
       footer={<>Related: <Link to="/newman-lambda-01787854-candidate">Λ ≤ 0.1787854 package</Link> · <Link to="/lambda-bounds">the bounds ledger</Link> · <Link to="/pt-floor-audit">what binds the floor</Link><br /><br />← <Link to="/">the atlas</Link></>}
     >
       <p className="lead">The de Bruijn–Newman constant Λ satisfies RH ⇔ Λ ≤ 0, with Rodgers–Tao giving Λ ≥ 0 and Platt–Trudgian the rigorous upper bound Λ ≤ 0.2. This note records a computer-assisted candidate <InlineMath tex="\Lambda \le 0.1758354" />, obtained from the mollified-barrier method with a revised mollifier and a longer verified lane. It is below the earlier 0.1787854 candidate. It has not been refereed.</p>
+
+      <AnimationEmbed id="four-gate-lambda" />
 
       <h2>The certificate</h2>
       <p>The bound is a barrier argument: on a strip of height X, the mollified function stays away from zero, and a tail estimate controls the rest. It reduces to four independent gates, each discharged by an interval-arithmetic (Arb) computation over an explicit grid.</p>

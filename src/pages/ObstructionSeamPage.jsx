@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 import { RH_OBSTRUCTION_SEAM } from '../data/rh-obstruction-seam-2026-07-16.js';
 
 const { meta, bracket, principle, literatureLandsInert, caughtFabrications, outOfFramework, conclusion } = RH_OBSTRUCTION_SEAM;
@@ -28,6 +29,8 @@ export default function ObstructionSeamPage() {
           by ≥2 skeptics at ≥0.82 confidence — reveals not just that the walls stand, but the precise
           <em> structural reason</em> they must.
         </p>
+
+        <AnimationEmbed id="obstruction-seam" />
 
         <HonestCeilingBanner
           variant="OPEN-HARD"

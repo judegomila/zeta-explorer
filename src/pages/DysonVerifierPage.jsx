@@ -2,6 +2,7 @@ import React, { useState, useCallback, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { ZETA_ZEROS } from '../math/zeta.js';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 /**
  * DysonVerifierPage (imp-589)
@@ -273,6 +274,8 @@ export default function DysonVerifierPage() {
           used in the Polymath 15 / PT 2021 Lambda bound. Runs entirely in your browser (pure JavaScript).
           &nbsp;<Link to="/rh-attack" style={{ color: '#c23a1c' }}>RH Attack page</Link> has context.
         </p>
+
+        <AnimationEmbed id="colliding-zeros" />
 
         {/* Theory card */}
         <div style={S.card}>

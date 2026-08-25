@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import PostLayout, { Figure, Pull, InlineMath, BlockMath } from '../components/editorial/PostLayout.jsx';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 /* Editorial (warm post reading-view) presentation of Theorem B — the minimal-gap
    sharp Θ-trap threshold Θ_b = (√73 − 5)/8. All mathematical text, numbers,
@@ -173,6 +174,8 @@ export default function TheoremBThresholdPage() {
         adds the single hypothesis that <InlineMath tex={"g"} /> is the <em>minimal</em> gap and pushes the
         static trap up to a <strong>closed-form, provably sharp</strong> ceiling.
       </p>
+
+      <AnimationEmbed id="theta-trap" />
 
       <BlockMath tex={"\\boxed{\\;\\Theta^\\ast \\;\\le\\; \\Theta_b \\;:=\\; \\frac{\\sqrt{73}-5}{8} \\;=\\; 0.443000\\ldots\\;}"} />
 

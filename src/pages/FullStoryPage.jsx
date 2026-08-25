@@ -240,12 +240,12 @@ function TwinLadderModel() {
 function V70Corrections() {
   return (
     <>
-      <SectionHead number={4} title="v70 shift-bridge corrections" />
+      <SectionHead number={4} title="shift-bridge corrections" />
       <p>
         Center the completed function and measure the furthest horizontal zero displacement by
       </p>
       <BlockMath tex="X(w):=\xi\!\left(\tfrac12+w\right),\qquad \Delta:=\sup_{X(\lambda)=0}|\Re\lambda|." />
-      <p>The corrected fixed-shift statement in the v70 draft is a strict interior threshold:</p>
+      <p>The corrected fixed-shift statement in the twin-ladder draft is a strict interior threshold:</p>
       <BlockMath tex="\bigl[\,|X(w-a)|<|X(w+a)|\ \text{for every }\Re w>0\,\bigr]\Longleftrightarrow a\ge\Delta." />
       <p>
         The endpoint <InlineMath tex="a=\Delta" /> belongs to this strict interior statement.
@@ -271,7 +271,7 @@ function V70Corrections() {
         </Card>
       </Grid>
       <p>
-        These are structural reductions. The v70 paper explicitly remains a research-program
+        These are structural reductions. The twin-ladder paper explicitly remains a research-program
         draft; proving the all-shifts positivity target non-circularly is still RH-hard.
       </p>
     </>
@@ -377,7 +377,7 @@ function BottomLine() {
           No current Twin Ladder Explorer result proves RH or <InlineMath tex="\Lambda=0" />.
         </p>
         <p style={{ fontSize: 15 }}>
-          The defensible outputs are: a corrected v70 structural model, clearer zero/pole and
+          The defensible outputs are: a corrected twin-ladder structural model, clearer zero/pole and
           positivity bookkeeping, a reproducible public <InlineMath tex="0.1875" /> package with
           an explicitly noted local repair, and an <InlineMath tex="0.1787854" /> unreviewed
           computer-assisted candidate for an unconditional proof in the standalone repository. Its bound
@@ -395,12 +395,12 @@ export default function FullStoryPage() {
       grade="MAP"
       meta={['evidence-graded research narrative', 'Twin-Ladder / Λ program']}
       title="The Twin-Ladder / Λ Program"
-      dek="A corrected account of what is classical, what v70 derives inside a research draft, what the certificate packages compute, and which logical welds remain open."
+      dek="A corrected account of what is classical, what twin-ladder derives inside a research draft, what the certificate packages compute, and which logical welds remain open."
       byline={['twin-ladder · mathexplorer', 'no new bound · not RH']}
       ticker={<span>Platt–Trudgian Λ ≤ 0.2 remains SOTA · candidates unverified · no QED</span>}
       footer={<>
         Related: <Link to="/lambda-bounds">Bounds and evidence ledger</Link>
-        {' · '}<Link to="/twin-ladder">Twin-ladder v70</Link>
+        {' · '}<Link to="/twin-ladder">Twin-ladder</Link>
         {' · '}<Link to="/shift-bridge-positivity">Shift-bridge threshold</Link>
         {' · '}<Link to="/state-of-program">State of the Program</Link>
         <br /><br />← <Link to="/">the atlas</Link>

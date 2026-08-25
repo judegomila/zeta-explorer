@@ -21,7 +21,7 @@ function cardBaseLeft(color) {
 export default function CrossAttackPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>attack · cross-attack</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Cross-Attack Efficiency Dashboard</h1>

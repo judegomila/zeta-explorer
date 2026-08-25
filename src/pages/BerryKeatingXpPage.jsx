@@ -430,7 +430,7 @@ export default function BerryKeatingXpPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>attack · Berry–Keating xp</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 20 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Berry-Keating xp Hamiltonian -- spectral conjecture (imp-1101)</h1>

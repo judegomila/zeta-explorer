@@ -36,7 +36,7 @@ export default function ProjectIndexPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>reference · index</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Project Index</h1>
@@ -53,7 +53,7 @@ export default function ProjectIndexPage() {
             { label: 'Math Modules', value: projectStats.mathModules, color: '#d9502e' },
             { label: 'Waves', value: projectStats.wavesCompleted, color: '#4c7a4a' },
             { label: 'Self-corrections', value: projectStats.selfCorrections, color: '#b58a2e' },
-            { label: 'Withdrawn', value: projectStats.withdrawnClaims, color: '#c23a1c' },
+            { label: 'Self-corrected', value: projectStats.withdrawnClaims, color: '#c23a1c' },
             { label: 'LP Confidence', value: projectStats.bayesianConfidence, color: '#3f6b86' },
           ].map(s => (
             <div key={s.label} style={{
@@ -183,7 +183,7 @@ export default function ProjectIndexPage() {
 
         {/* Withdrawn Claims */}
         <div className="card" style={{ marginBottom: 24, background: 'var(--paper2)', border: '1px solid var(--hairline)', borderLeft: '3px solid var(--terra-dk)', borderRadius: 8, padding: '16px 18px' }}>
-          <h3 style={{ color: 'var(--terra-dk)', fontSize: 15, marginBottom: 12 }}>Withdrawn Claims (Self-Correction)</h3>
+          <h3 style={{ color: 'var(--terra-dk)', fontSize: 15, marginBottom: 12 }}>Corrected Claims (Self-Correction)</h3>
           {withdrawn.map(w => (
             <div key={w.id} style={{
               marginBottom: 10, padding: '10px 14px', borderRadius: 6,

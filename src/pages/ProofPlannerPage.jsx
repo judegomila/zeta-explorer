@@ -104,7 +104,7 @@ export default function ProofPlannerPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>proof · planner</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         {/* ── Header ── */}
         <div style={{ marginBottom: 24 }}>

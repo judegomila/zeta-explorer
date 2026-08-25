@@ -184,7 +184,7 @@ export default function VolterraNormCurvePage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>viz · Volterra norm curve</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1">Volterra Operator Norm vs HS Bound</h1>
 

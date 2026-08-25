@@ -225,7 +225,7 @@ export default function SchattenTraceNormPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>analysis · Schatten trace norm</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>

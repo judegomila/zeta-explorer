@@ -325,7 +325,7 @@ export default function TwinLadderPaperRoadmapPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>twin-ladder · v52 paper roadmap</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <HonestCeilingBanner variant="ESTIMATE" />
 

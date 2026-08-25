@@ -53,7 +53,7 @@ const tdStyle = { padding: '6px 8px' };
 export default function HtFiniteWindowPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>twin-ladder · H_t window census</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         {/* ── Header ────────────────────────────────────────────────────── */}
         <div style={{ marginBottom: 24 }}>

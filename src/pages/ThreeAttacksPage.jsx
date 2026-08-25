@@ -220,13 +220,13 @@ export default function ThreeAttacksPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>twin-ladder · three attacks</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Three Closure Attempts: Corrected Audit</h1>
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
             These are research programs around the twin-ladder model, not three proofs of RH.
-            The v70 review separates identities, finite experiments, rejected implications, and
+            The twin-ladder review separates identities, finite experiments, rejected implications, and
             genuinely RH-equivalent targets.
           </p>
         </div>

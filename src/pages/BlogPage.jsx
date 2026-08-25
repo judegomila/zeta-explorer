@@ -10,7 +10,7 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 export default function BlogPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>reference · blog</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>The Riemann Hypothesis, Explained Simply</h1>
@@ -24,7 +24,7 @@ export default function BlogPage() {
           color: 'var(--terra-dk)', background: 'rgba(194,58,28,0.08)', border: '1px solid rgba(194,58,28,0.35)',
           lineHeight: 1.7,
         }}>
-          <strong>Historical proof attempt — withdrawn.</strong> The exact cascade audit gives
+          <strong>Historical proof attempt — abandoned (an internal exploration, never published).</strong> The exact cascade audit gives
           S₂₁(s) = ζ(2s)/ζ(s), so non-trivial ζ(s) zeros are generically poles rather than
           Darlington transmission zeros. The circuit picture below is an intuition-building model,
           not a proof of RH.
@@ -136,8 +136,8 @@ export default function BlogPage() {
           </ol>
           <p>
             These observations do not establish a lossless infinite network and, independently,
-            do not identify zeta zeros with its transmission zeros. The old “QED” conclusion is
-            withdrawn.
+            do not identify zeta zeros with its transmission zeros. The old “QED” conclusion no
+            longer stands — an internal error, corrected during development.
           </p>
         </Section>
 
@@ -235,7 +235,7 @@ export default function BlogPage() {
           <p>
             The current internal audit found a decisive structural defect in the old Darlington
             conclusion: it attempted to confine zeros of S₂₁ while the relevant zeta zeros are poles
-            of S₂₁ = ζ(2s)/ζ(s). The Darlington route is therefore <strong>withdrawn as a proof</strong>
+            of S₂₁ = ζ(2s)/ζ(s). The Darlington route is therefore <strong>abandoned as a proof</strong>
             unless a new pole-confinement bridge is supplied.
           </p>
           <p>

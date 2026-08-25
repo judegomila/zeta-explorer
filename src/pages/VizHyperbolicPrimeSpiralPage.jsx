@@ -110,7 +110,7 @@ export default function VizHyperbolicPrimeSpiralPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>viz · hyperbolic prime spiral</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <header style={{ borderBottom: '1px solid var(--hairline)', paddingBottom: 18, marginBottom: 24 }}>
           <div className="ed-lbl">/viz-hyperbolic-prime-spiral · visualizations</div>

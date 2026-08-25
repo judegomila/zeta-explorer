@@ -4,7 +4,7 @@
  * forward in `twin_ladder_consolidated_v70.tex` (lines 1598-1618), titled
  * "Rigorous-numerics program". The original app mapping was made against
  * `research-inputs/twin_ladder_consolidated_v52.pdf` (page 42); that historic
- * provenance remains explicit instead of being silently relabelled v70.
+ * provenance remains explicit instead of being silently relabelled twin-ladder.
  *
  * Section 20 declares a three-stage rigorous-numerics program:
  *
@@ -65,17 +65,17 @@
 export const RIGOROUS_NUMERICS_STAGES = Object.freeze({
   ticketId: 'imp-1220',
   paperRef: 'twin_ladder_consolidated_v70.tex, §20, lines 1598-1618',
-  paperVersion: 'v70',
+  paperVersion: 'twin-ladder',
   historicalPaperRef:
     'research-inputs/twin_ladder_consolidated_v52.pdf, §20, page 42',
   correctionAuditRef:
     'twin_ladder_rh_attack_report.md, §6.7 (numerical coverage and reproducibility)',
   transferabilityCaveat:
-    'Section 20 is textually carried forward in v70, but the supplied v70 ' +
+    'Section 20 is textually carried forward in twin-ladder, but the supplied twin-ladder ' +
     'artifacts do not include the named ACB leaf files, raw JSON, coverage ' +
     'ledger, or independent verifier for its later finite-region tables. A ' +
     'summary-hash verifier does not recompute leaves or certify box coverage. ' +
-    'Those v70 tables are therefore not independently transferable certificates ' +
+    'Those twin-ladder tables are therefore not independently transferable certificates ' +
     'from the supplied material. This does not downgrade separate in-repo local ' +
     'certificates that ship their own verifier inputs; each must be judged from ' +
     'its own artifact chain.',
@@ -227,7 +227,7 @@ export const RIGOROUS_NUMERICS_STAGES = Object.freeze({
             'verner87.rs (Verner 8(7)), barnes_hut*.rs (multipole O(N log N)), ' +
             'chain.rs (long-horizon chains), parallel.rs (Rayon sweep) — ' +
             'a directed-interval ODE substrate for Stage III. It is not by ' +
-            'itself complex ball arithmetic for the v70 ACB zero-cell tables.',
+            'itself complex ball arithmetic for the twin-ladder ACB zero-cell tables.',
         }),
         Object.freeze({
           path: 'lean/LambdaAttack/',
@@ -276,7 +276,7 @@ export const RIGOROUS_NUMERICS_STAGES = Object.freeze({
           'at matched precision) is not in-tree; only the Lambda <= 0.2 ' +
           'Platt-Trudgian 2021 bound is compared to, not the Polymath15 ' +
           'interval-arithmetic runtime ledger.',
-        'The supplied v70 material does not contain the named ACB leaves, raw ' +
+        'The supplied twin-ladder material does not contain the named ACB leaves, raw ' +
           'JSON, coverage ledger, or independent verifier for its later ' +
           'finite-region tables; summary hashes alone cannot transfer those ' +
           'tables as independently checkable certificates.',
@@ -315,11 +315,11 @@ export function findStage(numeral) {
 
 export const RIGOROUS_NUMERICS_STAGES_ASSERTIONS = [
   {
-    id: 'imp1220-v70-source-preserves-v52-mapping-provenance',
+    id: 'imp1220-twin-ladder-source-preserves-v52-mapping-provenance',
     holds: () => {
       const r = RIGOROUS_NUMERICS_STAGES;
       return (
-        r.paperVersion === 'v70' &&
+        r.paperVersion === 'twin-ladder' &&
         r.paperRef.includes('twin_ladder_consolidated_v70.tex') &&
         r.paperRef.includes('lines 1598-1618') &&
         r.historicalPaperRef.includes('twin_ladder_consolidated_v52.pdf') &&
@@ -328,8 +328,8 @@ export const RIGOROUS_NUMERICS_STAGES_ASSERTIONS = [
       );
     },
     why:
-      'The §20 text is carried forward in v70, but the app-to-code mapping was ' +
-      'originally audited against v52. Both references and the v70 artifact-' +
+      'The §20 text is carried forward in twin-ladder, but the app-to-code mapping was ' +
+      'originally audited against v52. Both references and the twin-ladder artifact-' +
       'transferability caveat must remain explicit.',
   },
   {

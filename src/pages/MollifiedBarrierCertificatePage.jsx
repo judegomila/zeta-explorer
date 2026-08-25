@@ -13,7 +13,7 @@ const { meta, provableCeiling, pilotNumbers, triangleChannelScan, triangleChanne
 export default function MollifiedBarrierCertificatePage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>viz · mollified barrier certificate</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1">Mollified Barrier Certificate — the Lone Survivor</h1>
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.7, maxWidth: 820 }}>

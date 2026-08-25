@@ -5,7 +5,7 @@ import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { NEWMAN_LAMBDA_01787854_CANDIDATE } from '../data/newman-lambda-01787854-candidate.js';
 
-// The Twin-Ladder Bridge Programme — expository note + v70 review overlay.
+// The Twin-Ladder Bridge Programme — expository note + twin-ladder review overlay.
 // Editorial (warm) re-theme: full-width ed-root/ed-full shell, identical
 // structure, claims, and every InlineMath/BlockMath expression verbatim.
 
@@ -96,7 +96,7 @@ export default function PaperPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>reference · paper</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <HonestCeilingBanner />
 
@@ -110,7 +110,7 @@ export default function PaperPage() {
               textTransform: 'uppercase',
             }}
           >
-            Corrected expository note · v70 review overlay
+            Corrected expository note · twin-ladder review overlay
           </div>
           <h1 className="ed-h1" style={{ margin: '12px 0' }}>
             The Twin-Ladder Bridge Programme
@@ -198,10 +198,10 @@ export default function PaperPage() {
           </P>
         </Section>
 
-        <Section number={4} title="The v70 shift-bridge reduction">
+        <Section number={4} title="The Shift-Bridge Reduction">
           <BlockMath tex="X(w)=\xi\!\left(\tfrac12+w\right),\qquad \Delta=\sup_{X(\lambda)=0}|\Re\lambda|." />
           <P>
-            The corrected v70 draft derives the fixed-shift strict interior threshold
+            The corrected twin-ladder draft derives the fixed-shift strict interior threshold
           </P>
           <BlockMath tex="\bigl[|X(w-a)|<|X(w+a)|\ \forall\,\Re w>0\bigr]\Longleftrightarrow a\ge\Delta." />
           <P>
@@ -288,7 +288,7 @@ export default function PaperPage() {
               Corrected full story
             </Link>
             <Link to="/paper-audit-dashboard" style={{ color: 'var(--brass-dk)' }}>
-              v52 ledger + v70 correction audit
+              correction audit
             </Link>
             <Link to="/newman-lambda-01787854-candidate" style={{ color: 'var(--brass)' }}>
               0.1787854 candidate package

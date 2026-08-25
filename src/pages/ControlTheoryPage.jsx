@@ -21,7 +21,7 @@ function Panel({ color, title, children }) {
 export default function ControlTheoryPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>analysis · control theory</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1" style={{ marginBottom: 10 }}>Control Theory — Corrected Model Boundary</h1>
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: 760, marginBottom: 8 }}>
@@ -49,7 +49,7 @@ export default function ControlTheoryPage() {
             wherever the quotient is initially defined, and meromorphic continuation extends the
             identity across removable points. Thus <InlineMath tex="1+L\equiv2" />: this loop cannot
             detect zeta zeros, wind around <InlineMath tex="-1" />, or support the old Nyquist/RH
-            equivalence. The former Nyquist and Bode plots of this expression are withdrawn as proof
+            equivalence. The former Nyquist and Bode plots of this expression are no longer presented as proof
             evidence.
           </p>
         </div>
@@ -89,7 +89,7 @@ export default function ControlTheoryPage() {
           </p>
           <BlockMath tex="X(w)=\xi(\tfrac12+w),\qquad R_a(w)=\frac{X(w-a)}{X(w+a)}." />
           <p style={{ color: 'var(--ink-soft)', fontSize: 14.5, lineHeight: 1.8 }}>
-            The v70 shift theorem gives strict contractivity in the open right half-plane exactly at
+            The twin-ladder shift theorem gives strict contractivity in the open right half-plane exactly at
             shifts <InlineMath tex="a\ge\Delta" />, with the endpoint and common-zero caveats handled
             separately. Proving the all-shifts statement
           </p>
@@ -147,7 +147,7 @@ export default function ControlTheoryPage() {
             <Link to="/shift-bridge-positivity" style={{ color: 'var(--brass)' }}>Shift-bridge threshold</Link>
             <Link to="/closure-routes" style={{ color: 'var(--brass)' }}>Equivalent closure routes</Link>
             <Link to="/blaschke-ghosts" style={{ color: 'var(--brass)' }}>Residual poles and ghosts</Link>
-            <Link to="/paper-audit-dashboard" style={{ color: 'var(--brass)' }}>v70 correction audit</Link>
+            <Link to="/paper-audit-dashboard" style={{ color: 'var(--brass)' }}>twin-ladder correction audit</Link>
             <Link to="/">← the atlas</Link>
           </div>
         </div>

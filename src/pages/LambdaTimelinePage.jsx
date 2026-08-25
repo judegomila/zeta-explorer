@@ -148,7 +148,7 @@ export default function LambdaTimelinePage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>attack · Λ timeline</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 10 }}>
           <h1 className="ed-h1">de Bruijn–Newman Bound Timeline</h1>

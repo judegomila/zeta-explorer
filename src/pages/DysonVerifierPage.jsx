@@ -266,7 +266,7 @@ export default function DysonVerifierPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>proof · Dyson verifier</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
         <h1 className="ed-h1" style={{ marginBottom: 6 }}>Dyson Collision Verifier</h1>
         <p style={S.subtitle}>

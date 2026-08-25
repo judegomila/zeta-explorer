@@ -285,7 +285,7 @@ export default function CollapseChainPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>twin-ladder · collapse chain</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <HonestCeilingBanner variant="RH-EQUIVALENT" />
         <h1 className="ed-h1" style={{ marginBottom: 10 }}>{'The imp-1258 Collapse Chain: ‖V_{a,Φ}‖ ≤ 1 ⇔ CDB-Exist'}</h1>

@@ -9,7 +9,7 @@ const { meta, scales, currentState, lever, feasibility, payoffLadder, firewall, 
 export default function GuthMaynardScopingPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>viz · Guth–Maynard scoping</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1" style={{ marginBottom: 10 }}>The α=1/2 Large-Value Bottleneck (RH-Adjacent Frontier)</h1>
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.7, maxWidth: 820 }}>

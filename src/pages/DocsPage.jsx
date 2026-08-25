@@ -32,7 +32,7 @@ function Fn({ name, params, desc }) {
 export default function DocsPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>reference · docs</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
       <div style={{ marginBottom: 24 }}>
         <h1 className="ed-h1" style={{ marginBottom: 10 }}>Documentation</h1>

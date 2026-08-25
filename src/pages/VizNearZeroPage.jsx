@@ -198,7 +198,7 @@ export default function VizNearZeroPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>viz · near a zero</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <header style={{ borderBottom: '1px solid #d5c9b2', paddingBottom: 18, marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ fontSize: 30, margin: '8px 0 4px 0' }}>Near a Zeta Zero</h1>

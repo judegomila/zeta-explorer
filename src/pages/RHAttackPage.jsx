@@ -506,7 +506,7 @@ export default function RHAttackPage() {
 
         {/* Four Closure Routes */}
         <div className="card" style={{ marginTop: 32, borderLeft: `3px solid ${CYAN}` }}>
-          <h3 style={{ color: CYAN }}>The Separate v70 Shift-Bridge Closure Routes</h3>
+          <h3 style={{ color: CYAN }}>The Separate Twin-Ladder Shift-Bridge Closure Routes</h3>
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7, marginBottom: 12 }}>
             The dedicated closure-routes page studies four formulations of the corrected
             all-shifts bridge target: Schur contractivity, de Branges positivity, a hidden-square
@@ -516,7 +516,7 @@ export default function RHAttackPage() {
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7, marginBottom: 12 }}>
             The all-shifts positivity target is RH-equivalent and open. At one fixed shift,
             common shifted zeros and residual multiplicities require the endpoint, coprimality,
-            and bounded-type caveats recorded in the v70 audit.
+            and bounded-type caveats recorded in the twin-ladder audit.
           </p>
           <div style={{ marginTop: 16, padding: '14px', background: CYAN_A(0.08), borderRadius: 8, border: `1px solid ${CYAN_A(0.13)}` }}>
             <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.8, margin: 0 }}>

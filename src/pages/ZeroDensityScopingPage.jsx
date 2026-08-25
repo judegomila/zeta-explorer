@@ -11,7 +11,7 @@ const feedColor = (f) => f.startsWith('DIRECTLY') ? 'var(--green)' : f.startsWit
 export default function ZeroDensityScopingPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>viz · zero-density scoping</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1">Can Zero-Density Estimates Move Λ? — No (Λ-Inert)</h1>
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.7, maxWidth: 820 }}>

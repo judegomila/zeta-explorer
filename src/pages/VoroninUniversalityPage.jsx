@@ -178,7 +178,7 @@ export default function VoroninUniversalityPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>analysis · Voronin universality</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Voronin Universality (imp-1100)</h1>

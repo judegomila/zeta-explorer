@@ -217,7 +217,7 @@ function ConjectureCard({ conj }) {
 export default function KypBoundedRealPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>twin-ladder · KYP / bounded-real</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1" style={{ marginBottom: 10 }}>KYP Bounded-Real (Apps M&ndash;O)</h1>
         <p style={{ fontFamily: mono, color: 'var(--ink-soft)', fontSize: 14, marginBottom: 8 }}>

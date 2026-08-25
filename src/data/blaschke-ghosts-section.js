@@ -53,7 +53,7 @@ export const BLASCHKE_GHOSTS_SECTION = Object.freeze({
   paperPageRange: '22-26',
   generatedAt: '2026-05-26T17:00:00Z',
   correctionBasis:
-    'v70 audit correction: use the conjugate-reflected half-plane Blaschke factor and count poles only after common-factor cancellation',
+    'twin-ladder audit correction: use the conjugate-reflected half-plane Blaschke factor and count poles only after common-factor cancellation',
 
   title: 'Inverse Blaschke Ghosts and the Pontryagin Decomposition',
   oneLine:

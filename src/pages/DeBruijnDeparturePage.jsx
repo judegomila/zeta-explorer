@@ -8,7 +8,7 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 export default function DeBruijnDeparturePage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>viz · de Bruijn departure</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1">Zero Departure under the Exact de Bruijn Flow</h1>
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.7, maxWidth: 760 }}>

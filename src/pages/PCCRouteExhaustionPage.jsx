@@ -304,7 +304,7 @@ export default function PCCRouteExhaustionPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>twin-ladder · PCC route exhaustion</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>PCC Route Exhaustion: 11-Route Audit (4 Families)</h1>

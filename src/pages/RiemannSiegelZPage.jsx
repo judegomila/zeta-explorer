@@ -130,7 +130,7 @@ export default function RiemannSiegelZPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>viz · Riemann–Siegel Z</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1" style={{ marginBottom: 10 }}>Riemann-Siegel Z(t) Explorer (imp-1097)</h1>
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.65, maxWidth: 760 }}>

@@ -215,7 +215,7 @@ export default function VizEulerProductPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>viz · Euler product</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1" style={{ marginBottom: 6 }}>True vs Perturbed Euler Product</h1>
         <p style={S.subtitle}>

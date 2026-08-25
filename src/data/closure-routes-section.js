@@ -54,7 +54,7 @@
 export const CLOSURE_ROUTES = Object.freeze({
   ticketId: 'imp-1197',
   paperRef: 'twin_ladder_consolidated_v70.tex, §16, lines 821-1129',
-  paperVersion: 'v70',
+  paperVersion: 'twin-ladder',
   historicalPaperRef:
     'research-inputs/twin_ladder_consolidated_v52.pdf, §16, pages 16-22',
   title: 'Four Equivalent Closure Routes for the Zero-Bridge-Thickness Problem',

@@ -264,7 +264,7 @@ function VerdictBanner() {
 export default function ConnesAdelicPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>attack · Connes adelic</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
 
         <h1 className="ed-h1" style={{ marginBottom: 8 }}>

@@ -46,7 +46,7 @@ export default function RHEquivalentsPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>reference · RH equivalents</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <HonestCeilingBanner variant="RH-EQUIVALENT" />
 

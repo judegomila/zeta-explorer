@@ -373,7 +373,7 @@ export default function HealthPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>progress · health check</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <style>{`
           @keyframes health-spin {

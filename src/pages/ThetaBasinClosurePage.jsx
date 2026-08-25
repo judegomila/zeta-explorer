@@ -234,7 +234,7 @@ export default function ThetaBasinClosurePage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>attack · theta basin closure</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1" style={{ marginBottom: 10 }}>Lemma R1-T4: Dynamical Basin Closure</h1>
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.65, maxWidth: 760 }}>

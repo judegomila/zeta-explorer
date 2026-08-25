@@ -9,7 +9,7 @@ const { meta, results, unlocks, significance, verify, openQuestions } = FORMALIZ
 export default function FormalizationReviewPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>viz · formalization review</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1" style={{ marginBottom: 10 }}>Formalization — Pre-Submission Review Dashboard</h1>
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.7, maxWidth: 820 }}>

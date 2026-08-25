@@ -1,5 +1,5 @@
 // ClosureRoutesPage.jsx -- imp-1197
-// Companion page rendering §16 as carried forward in v70, while retaining
+// Companion page rendering §16 as carried forward in twin-ladder, while retaining
 // the historic v52 app-mapping provenance in the data module:
 // "Four Equivalent Closure Routes for the Zero-Bridge-Thickness Problem".
 //

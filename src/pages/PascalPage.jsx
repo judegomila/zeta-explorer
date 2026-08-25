@@ -7,7 +7,7 @@ import PascalZetaViz from '../components/PascalZetaViz.jsx';
 export default function PascalPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>analysis · pascal</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1" style={{ marginBottom: 10 }}>Pascal's Triangle &amp; the Zeta Function</h1>
         <p style={{ color: 'var(--ink-soft)', maxWidth: 720, marginBottom: 32, fontSize: 15, lineHeight: 1.55 }}>

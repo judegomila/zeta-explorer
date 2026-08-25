@@ -68,13 +68,13 @@ const VIOLET = 'var(--brass)';    // was #a855f7
 export default function TwinLadderPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>analysis · twin ladder</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
 
         {/* ── Intro ──────────────────────────────────────────────────────── */}
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>
-            Twin Ladder Explorer <FreshnessStamp date="2026-07-23" note="v70 review" />
+            Twin Ladder Explorer <FreshnessStamp date="2026-07-23" note="twin-ladder review" />
           </h1>
           <p style={sectionLead}>
             Each prime <InlineMath tex="p" /> generates a <strong>ladder</strong> of rungs{' '}

@@ -12,7 +12,7 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 export default function RouteBLimsupPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>attack · route B limsup</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1" style={{ marginBottom: 10 }}>Route B — the unconditional lim-sup theorem</h1>
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.7, marginBottom: 16 }}>

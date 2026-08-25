@@ -1,6 +1,6 @@
 // RigorousNumericsStagesPage.jsx -- imp-1220
-// Companion page rendering §20 as carried forward in v70. The data module
-// retains the historic v52 mapping provenance and the v70 transferability audit.
+// Companion page rendering §20 as carried forward in twin-ladder. The data module
+// retains the historic v52 mapping provenance and the twin-ladder transferability audit.
 // "Rigorous-numerics program" (Stage I / II / III).
 //
 // Structure:
@@ -267,7 +267,7 @@ function StageCard({ stage }) {
 export default function RigorousNumericsStagesPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>twin-ladder · rigorous numerics</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 12 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Rigorous Numerics Stages (§20)</h1>
@@ -286,7 +286,7 @@ export default function RigorousNumericsStagesPage() {
           style={{ marginTop: 12, borderLeft: '3px solid var(--brass-dk)' }}
         >
           <h3 style={{ color: 'var(--brass-dk)', marginBottom: 8 }}>
-            v70 certificate-transferability boundary
+            twin-ladder certificate-transferability boundary
           </h3>
           <p
             style={{

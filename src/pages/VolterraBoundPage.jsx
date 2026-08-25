@@ -81,7 +81,7 @@ function cardBaseLeft(color) {
 export default function VolterraBoundPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>attack · Volterra norm bound</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <HonestCeilingBanner variant="RH-EQUIVALENT" />
 

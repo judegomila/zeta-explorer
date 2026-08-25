@@ -94,7 +94,7 @@ function Bar({ i, yScale, value, fill }) {
 export default function HardyZPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>viz · Hardy Z</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1" style={{ marginBottom: 6 }}>Hardy Z(t) Asymptotic Comparison (imp-1116)</h1>
         <p style={{ color: '#877b67', fontSize: 14, marginBottom: 12, lineHeight: 1.6 }}>

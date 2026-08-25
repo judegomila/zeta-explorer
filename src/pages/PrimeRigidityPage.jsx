@@ -103,7 +103,7 @@ export default function PrimeRigidityPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>viz · prime rigidity</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1" style={{ marginBottom: 6 }}>Prime Rigidity — True vs Perturbed</h1>
         <p style={{ fontSize: 14, color: '#4a4238', lineHeight: 1.7, marginBottom: 22 }}>

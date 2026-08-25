@@ -16,7 +16,7 @@ function cardBaseLeft(color) {
 export default function CalabiYauPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>analysis · Calabi–Yau</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Calabi-Yau Manifold Attack</h1>

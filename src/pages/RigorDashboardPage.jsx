@@ -953,7 +953,7 @@ export default function RigorDashboardPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>proof · rigor dashboard</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <HonestCeilingBanner variant="PROOF-CANDIDATE" />
         <div style={{ marginBottom: 24 }}>

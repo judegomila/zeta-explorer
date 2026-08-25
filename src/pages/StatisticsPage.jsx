@@ -8,7 +8,7 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 export default function StatisticsPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>analysis · zero statistics</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Zero Statistics &amp; Spectral Criteria</h1>

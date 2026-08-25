@@ -61,7 +61,7 @@ export default function ImprovementsPage() {
   if (loading) {
     return (
       <div className="ed-root">
-        <EditorialHeader ticker={<span>progress · improvements log</span>} />
+        <EditorialHeader />
         <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '40vh', color: 'var(--faint)' }}>
             <div style={{ textAlign: 'center' }}>
@@ -89,7 +89,7 @@ export default function ImprovementsPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>progress · improvements log</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Auto-Improvements</h1>

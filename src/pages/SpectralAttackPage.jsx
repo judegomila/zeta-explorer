@@ -2371,7 +2371,7 @@ function IsolationRatioLandmarksNumberLine() {
 export default function SpectralAttackPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>attack · spectral</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
       <h1 className="ed-h1" style={{ marginBottom: 10 }}>Spectral Attack on RH</h1>
       <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760, marginBottom: 24 }}>

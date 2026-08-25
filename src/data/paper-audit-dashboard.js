@@ -1,6 +1,6 @@
 /**
  * @module data/paper-audit-dashboard
- * @fileoverview Historic v52 conjecture-audit verdicts with a v70 review overlay.
+ * @fileoverview Historic v52 conjecture-audit verdicts with a twin-ladder review overlay.
  *
  * Exports:
  *   - PAPER_AUDIT_DASHBOARD (also the default export) — frozen object holding the
@@ -11,8 +11,8 @@
  *
  * Proof-chain role: audit/bookkeeping, not a mathematical step. The individual
  * rows preserve their original twin_ladder_consolidated_v52.pdf provenance.
- * The v70 overlay records later corrections without rewriting those historic
- * audit records as if they had originally audited v70.
+ * The twin-ladder overlay records later corrections without rewriting those historic
+ * audit records as if they had originally audited twin-ladder.
  *
  * Key assertions: each conjecture carries one verdict from the controlled
  * vocabulary (SUBSUMED-BY-RH, SUBSUMED-BY-LITERATURE, PARTIALLY-RELATED,
@@ -224,7 +224,7 @@ const CONJECTURE_ENTRIES = [
     paperPage: 25,
     statement:
       'Historic v52 form: for every a > 0, the raw right-half-plane ghost ' +
-      'product B_a^+(w) is identically 1. The v70 correction replaces raw ' +
+      'product B_a^+(w) is identically 1. The twin-ladder correction replaces raw ' +
       'shifted-zero counts by residual, uncancelled pole orders; all-a residual ' +
       'ghost absence is RH-equivalent, while a fixed-a raw statement needs ' +
       'coprimality and bounded-type hypotheses.',
@@ -233,7 +233,7 @@ const CONJECTURE_ENTRIES = [
     auditDate: '2026-05-27',
     recommendationForPaper:
       'CONFIRMED SUBSUMED-BY-RH (imp-1232) as an all-shifts statement after ' +
-      'the v70 residual-pole correction. At a fixed shift, B_a^+ = 1 and the ' +
+      'the twin-ladder residual-pole correction. At a fixed shift, B_a^+ = 1 and the ' +
       'Krein-Langer index must be formulated for the reduced ratio using ' +
       '[m(lambda)-m(lambda-2a)]_+, not all raw off-critical zeros. Exact index ' +
       'equalities also require the stated finite-pole/finite-window and ' +
@@ -530,25 +530,25 @@ export const PAPER_AUDIT_DASHBOARD = Object.freeze({
   paper: 'twin_ladder_consolidated_v52.pdf',
   historicalAuditPaper: 'research-inputs/twin_ladder_consolidated_v52.pdf',
   currentReviewPaper: 'twin_ladder_consolidated_v70.tex',
-  currentReviewVersion: 'v70',
+  currentReviewVersion: 'twin-ladder',
   currentCorrectionAudit: 'twin_ladder_rh_attack_report.md',
   paperSectionsCovered: Object.freeze(['§15', '§16', '§17', '§18', '§22']),
 
   currentReview: Object.freeze({
     scope:
-      'The conjecture rows below are the historic v52 audit ledger. The v70 ' +
+      'The conjecture rows below are the historic v52 audit ledger. The twin-ladder ' +
       'review does not relabel them as newly audited; it overlays corrections ' +
       'that affect how the carried-forward claims may now be stated.',
     corrections: Object.freeze([
       Object.freeze({
-        id: 'v70-shift-endpoint',
+        id: 'twin-ladder-shift-endpoint',
         affects: '§15 strict shift threshold',
         correctedStatement:
           'For fixed a > 0, strict interior shift contractivity holds exactly ' +
           'when a >= Delta, not only when a > Delta.',
       }),
       Object.freeze({
-        id: 'v70-common-shifted-zeros',
+        id: 'twin-ladder-common-shifted-zeros',
         affects: '§15 fixed-a PSD converse',
         correctedStatement:
           'A common zero of X(w-a) and X(w+a) may cancel in the quotient and ' +
@@ -557,7 +557,7 @@ export const PAPER_AUDIT_DASHBOARD = Object.freeze({
           'coprimality hypothesis. Positivity for every a > 0 remains RH-equivalent.',
       }),
       Object.freeze({
-        id: 'v70-ghost-index',
+        id: 'twin-ladder-ghost-index',
         affects: '§17-18 inverse-Blaschke / negative-index count',
         correctedStatement:
           'Ghost counts use uncancelled pole orders ' +
@@ -565,16 +565,16 @@ export const PAPER_AUDIT_DASHBOARD = Object.freeze({
           'not the raw multiplicity of every shifted denominator zero.',
       }),
       Object.freeze({
-        id: 'v70-numerics-transferability',
-        affects: 'v70 rigorous-numerics certificate summaries',
+        id: 'twin-ladder-numerics-transferability',
+        affects: 'twin-ladder rigorous-numerics certificate summaries',
         correctedStatement:
-          'The supplied v70 source does not include the named leaf files, raw ' +
+          'The supplied twin-ladder source does not include the named leaf files, raw ' +
           'JSON, coverage ledger, or independent verifier needed to transfer ' +
           'its finite-region certificate tables. Summary hashes alone do not ' +
           'recompute ACB leaves or prove coverage.',
       }),
       Object.freeze({
-        id: 'v70-rigorous-pf2',
+        id: 'twin-ladder-rigorous-pf2',
         affects: '§28 midpoint / log-concavity route',
         correctedStatement:
           'The correction audit proves the unconditional quantitative bound ' +
@@ -585,7 +585,7 @@ export const PAPER_AUDIT_DASHBOARD = Object.freeze({
           'and does not imply shifted Hermite-Biehler positivity or RH.',
       }),
       Object.freeze({
-        id: 'v70-pf5-counterexample',
+        id: 'twin-ladder-pf5-counterexample',
         affects: '§29 raw total-positivity route',
         correctedStatement:
           'An independently reproduced negative 5-by-5 Toeplitz minor, checked ' +
@@ -594,7 +594,7 @@ export const PAPER_AUDIT_DASHBOARD = Object.freeze({
           'fail PF_infinity. Global PF_3 and PF_4 are not decided by this witness.',
       }),
       Object.freeze({
-        id: 'v70-offdiagonal-reduction',
+        id: 'twin-ladder-offdiagonal-reduction',
         affects: '§24-27 measure-domination / Volterra reduction',
         correctedStatement:
           'The proposed scalar measure-domination argument controls only one ' +
@@ -763,9 +763,9 @@ export default PAPER_AUDIT_DASHBOARD;
 
 export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
   {
-    id: 'paper-audit-v70-overlay-preserves-v52-provenance',
+    id: 'paper-audit-twin-ladder-overlay-preserves-v52-provenance',
     why:
-      'The dashboard must identify v70 as the current review source while ' +
+      'The dashboard must identify twin-ladder as the current review source while ' +
       'preserving v52 as the provenance of its historic per-conjecture ledger. ' +
       'The overlay must lock the endpoint, common-zero, uncancelled ghost-index, ' +
       'certificate-transferability, PF_2, PF_5, and off-diagonal corrections ' +
@@ -775,18 +775,18 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
       const corrections = d.currentReview?.corrections || [];
       const ids = new Set(corrections.map((c) => c.id));
       return (
-        d.currentReviewVersion === 'v70' &&
+        d.currentReviewVersion === 'twin-ladder' &&
         d.currentReviewPaper.includes('twin_ladder_consolidated_v70') &&
         d.historicalAuditPaper.includes('twin_ladder_consolidated_v52') &&
         d.currentCorrectionAudit.includes('twin_ladder_rh_attack_report') &&
         corrections.length === 7 &&
-        ids.has('v70-shift-endpoint') &&
-        ids.has('v70-common-shifted-zeros') &&
-        ids.has('v70-ghost-index') &&
-        ids.has('v70-numerics-transferability') &&
-        ids.has('v70-rigorous-pf2') &&
-        ids.has('v70-pf5-counterexample') &&
-        ids.has('v70-offdiagonal-reduction')
+        ids.has('twin-ladder-shift-endpoint') &&
+        ids.has('twin-ladder-common-shifted-zeros') &&
+        ids.has('twin-ladder-ghost-index') &&
+        ids.has('twin-ladder-numerics-transferability') &&
+        ids.has('twin-ladder-rigorous-pf2') &&
+        ids.has('twin-ladder-pf5-counterexample') &&
+        ids.has('twin-ladder-offdiagonal-reduction')
       );
     },
   },

@@ -1,9 +1,9 @@
 /**
  * @module shift-bridge-positivity-section
  * @fileoverview Structured rendering of Section 15 of the user's paper
- * "Twin-Ladder Deformations of xi", carried forward in consolidated v70
+ * "Twin-Ladder Deformations of xi", carried forward in consolidated twin-ladder
  * (`twin_ladder_consolidated_v70.tex`, lines 454-819). The original app page
- * audited the historic v52 PDF (pages 22-26); v70 provenance and the
+ * audited the historic v52 PDF (pages 22-26); twin-ladder provenance and the
  * corrections in `twin_ladder_rh_attack_report.md` now govern the claims.
  * Section title:
  *   "15 Shift-Bridge Reflection Positivity and a Godelian Witness Principle".
@@ -71,7 +71,7 @@ export const SHIFT_BRIDGE_POSITIVITY = Object.freeze({
   title: 'Shift-Bridge Reflection Positivity (§15)',
   shortName: 'shift-bridge positivity',
   paperSource: 'twin_ladder_consolidated_v70.tex',
-  paperVersion: 'v70',
+  paperVersion: 'twin-ladder',
   paperLineRange: [454, 819],
   historicalPaperSource: 'research-inputs/twin_ladder_consolidated_v52.pdf',
   historicalPaperPageRange: [22, 26],
@@ -81,7 +81,7 @@ export const SHIFT_BRIDGE_POSITIVITY = Object.freeze({
     'Shift-Bridge Reflection Positivity and a Godelian Witness Principle',
 
   summary:
-    'Section 15, carried forward in the v70 paper, sharpens the informal "twin ladder admits ' +
+    'Section 15, carried forward in the twin-ladder paper, sharpens the informal "twin ladder admits ' +
     'only globally self-consistent zero configurations" idea into a precise ' +
     'and falsifiable positivity criterion. The completed function xi is ' +
     're-centered on the critical line as X(w) := xi(1/2 + w); X is even ' +
@@ -189,7 +189,7 @@ export const SHIFT_BRIDGE_POSITIVITY = Object.freeze({
   },
 
   endpointAndCoprimalityCaveat: {
-    title: 'Endpoint and common-zero caveat (v70 audit correction)',
+    title: 'Endpoint and common-zero caveat (twin-ladder audit correction)',
     endpointLaTeX:
       '\\forall\\,\\Re w>0:\\ |X(w-a)|<|X(w+a)| \\quad\\Longleftrightarrow\\quad a\\ge\\Delta',
     poleOrderLaTeX:
@@ -307,7 +307,7 @@ export const SHIFT_BRIDGE_POSITIVITY = Object.freeze({
   },
 
   whyItMatters: [
-    'Section 15 supplies the load-bearing positivity bridge carried into v70. ' +
+    'Section 15 supplies the load-bearing positivity bridge carried into twin-ladder. ' +
     'Where the Riemann Hypothesis is classically posed as a statement about ' +
     'the locations of zeros, the shift-bridge threshold theorem recasts it as ' +
     'a one-parameter family of POSITIVITY statements: K_a >= 0 for every ' +
@@ -383,7 +383,7 @@ export const SHIFT_BRIDGE_POSITIVITY = Object.freeze({
     {
       authors: ['J. Gomila'],
       year: 2026,
-      title: 'Twin-Ladder Deformations of xi, Consolidated draft v70',
+      title: 'Twin-Ladder Deformations of xi, Consolidated draft twin-ladder',
       venue: 'twin_ladder_consolidated_v70.tex (§15, lines 454-819)',
       role: 'primary-source',
       note:
@@ -434,7 +434,7 @@ export const SHIFT_BRIDGE_POSITIVITY = Object.freeze({
       ticket: 'imp-1196',
       title: 'This ticket — ship /shift-bridge-positivity page',
       relation:
-        'Renders Section 15, carried forward and corrected in v70, as a dedicated app page so the ' +
+        'Renders Section 15, carried forward and corrected in twin-ladder, as a dedicated app page so the ' +
         'shift-bridge positivity criterion is discoverable from the app nav.',
     },
     {
@@ -466,7 +466,7 @@ export default SHIFT_BRIDGE_POSITIVITY;
 
 export const SHIFT_BRIDGE_POSITIVITY_ASSERTIONS = [
   {
-    id: 'imp1196-v70-source-and-historic-v52-provenance',
+    id: 'imp1196-twin-ladder-source-and-historic-v52-provenance',
     holds: () => {
       const lines = SHIFT_BRIDGE_POSITIVITY.paperLineRange;
       const pages = SHIFT_BRIDGE_POSITIVITY.historicalPaperPageRange;
@@ -480,14 +480,14 @@ export const SHIFT_BRIDGE_POSITIVITY_ASSERTIONS = [
         pages[0] === 22 &&
         pages[1] === 26 &&
         SHIFT_BRIDGE_POSITIVITY.paperSection === '15' &&
-        SHIFT_BRIDGE_POSITIVITY.paperVersion === 'v70' &&
+        SHIFT_BRIDGE_POSITIVITY.paperVersion === 'twin-ladder' &&
         SHIFT_BRIDGE_POSITIVITY.paperSource.includes('twin_ladder_consolidated_v70') &&
         SHIFT_BRIDGE_POSITIVITY.historicalPaperSource.includes('twin_ladder_consolidated_v52') &&
         SHIFT_BRIDGE_POSITIVITY.correctionAuditSource.includes('twin_ladder_rh_attack_report')
       );
     },
     why:
-      'The current claim source is v70 Section 15 (TeX lines 454-819), while ' +
+      'The current claim source is twin-ladder Section 15 (TeX lines 454-819), while ' +
       'the original app audit provenance remains the historic v52 PDF pages ' +
       '22-26. The independent correction report must remain named so a version ' +
       'label cannot silently erase either side of that provenance.',
@@ -519,7 +519,7 @@ export const SHIFT_BRIDGE_POSITIVITY_ASSERTIONS = [
       'name both Delta = 0 and RH so an accidental truncation is caught.',
   },
   {
-    id: 'imp1196-v70-endpoint-and-coprimality-caveat',
+    id: 'imp1196-twin-ladder-endpoint-and-coprimality-caveat',
     holds: () => {
       const t = SHIFT_BRIDGE_POSITIVITY.thresholdTheorem;
       const c = SHIFT_BRIDGE_POSITIVITY.endpointAndCoprimalityCaveat;
@@ -534,7 +534,7 @@ export const SHIFT_BRIDGE_POSITIVITY_ASSERTIONS = [
       );
     },
     why:
-      'The v70 audit corrects the strict fixed-shift endpoint to a >= Delta ' +
+      'The twin-ladder audit corrects the strict fixed-shift endpoint to a >= Delta ' +
       'and separates it from fixed-a positive semidefiniteness when common ' +
       'shifted zeros cancel. Both corrections, including the uncancelled pole ' +
       'order, are load-bearing and must remain visible.',
@@ -686,7 +686,7 @@ export const SHIFT_BRIDGE_POSITIVITY_ASSERTIONS = [
     why:
       'The reference list must include de Branges 1968 (the foundational ' +
       'Hilbert-Spaces-of-Entire-Functions text the bridge construction rests ' +
-      'on) and the primary-source pointer to the v70 paper. Without these ' +
+      'on) and the primary-source pointer to the twin-ladder paper. Without these ' +
       'the attribution chain breaks. Minimum 3 references with a ' +
       'fully-populated record per entry.',
   },

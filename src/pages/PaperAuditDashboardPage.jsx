@@ -1,6 +1,6 @@
 // PaperAuditDashboardPage.jsx -- imp-1218
 // Renders the running tracker of every named conjecture in the historic v52
-// ledger plus the current v70 correction overlay. The per-conjecture verdicts
+// ledger plus the current twin-ladder correction overlay. The per-conjecture verdicts
 // retain their original v52 provenance.
 //
 // Pure rendering. All structural facts + tripwires live in
@@ -287,7 +287,7 @@ export default function PaperAuditDashboardPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>twin-ladder · v70 review + v52 audit</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <header style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 8 }}>
@@ -328,7 +328,7 @@ export default function PaperAuditDashboardPage() {
           </div>
         </header>
 
-        {/* ── v70 correction overlay; historic rows below remain v52 records ── */}
+        {/* ── twin-ladder correction overlay; historic rows below remain v52 records ── */}
         <section
           className="card"
           style={{
@@ -340,7 +340,7 @@ export default function PaperAuditDashboardPage() {
           }}
         >
           <div style={{ color: 'var(--blue)', fontFamily: mono, fontSize: 12, fontWeight: 700 }}>
-            v70 correction overlay
+            twin-ladder correction overlay
           </div>
           <p style={{ margin: '8px 0 0', color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6 }}>
             {D.currentReview.scope}

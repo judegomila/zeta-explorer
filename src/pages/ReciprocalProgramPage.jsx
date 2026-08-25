@@ -81,7 +81,7 @@ function ChainDiagram() {
 export default function ReciprocalProgramPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>twin-ladder · reciprocal program</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <div style={{
           fontSize: 11, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))',

@@ -196,7 +196,7 @@ export default function RHProofStateDashboardPage() {
     .filter(Boolean).sort().pop() || '2026-06-18';
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>proof · RH proof state</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <HonestCeilingBanner variant="PROOF-CANDIDATE" />
 

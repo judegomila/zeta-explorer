@@ -81,7 +81,7 @@ export default function EngineRoomPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>progress · engine room</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8 }}>
           <h1 className="ed-h1" style={{ margin: 0 }}>Engine Room</h1>

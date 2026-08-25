@@ -122,7 +122,7 @@ function Step({ step }) {
 export default function ProofOverviewPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>proof · overview</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <HonestCeilingBanner />
         <h1 className="ed-h1" style={{ marginTop: 18, marginBottom: 10 }}>Proof-Attempt Overview — Audited</h1>
@@ -194,7 +194,7 @@ export default function ProofOverviewPage() {
           <p style={{ color: '#4a4238', fontSize: 14, lineHeight: 1.75 }}>
             The old eight-step chain does not prove RH. Its most important self-correction is the
             separation between the exact algebraic Euler embedding and the physical LC analogy. The
-            v70 shift-bridge formulation supplies a cleaner RH-equivalent target. Separately, the
+            twin-ladder shift-bridge formulation supplies a cleaner RH-equivalent target. Separately, the
             standalone repository presents the positive bound <InlineMath tex="\Lambda\le0.1787854" /> as
             a computer-assisted candidate for an unconditional proof. The bound is not
             established, has been reviewed by Dan Romik, and is not RH.
@@ -202,7 +202,7 @@ export default function ProofOverviewPage() {
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
             <Link to="/full-story" style={{ color: '#3f6b86' }}>Corrected full story</Link>
             <Link to="/control" style={{ color: '#3f6b86' }}>Control-theory correction</Link>
-            <Link to="/paper-audit-dashboard" style={{ color: '#3f6b86' }}>v70 audit</Link>
+            <Link to="/paper-audit-dashboard" style={{ color: '#3f6b86' }}>twin-ladder audit</Link>
             <Link to="/newman-lambda-01787854-candidate" style={{ color: '#3f6b86' }}>Candidate package</Link>
           </div>
         </div>
@@ -219,7 +219,7 @@ export default function ProofOverviewPage() {
               → Control-theory correction
             </Link>
             <Link to="/paper-audit-dashboard" style={{ fontSize: 12, color: '#8c6a1d', textDecoration: 'none' }}>
-              → v70 audit dashboard
+              → twin-ladder audit dashboard
             </Link>
             <Link to="/newman-lambda-01787854-candidate" style={{ fontSize: 12, color: '#c23a1c', textDecoration: 'none' }}>
               → Λ ≤ 0.1787854 candidate package

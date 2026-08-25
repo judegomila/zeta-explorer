@@ -1,9 +1,9 @@
 // ShiftBridgePositivityPage.jsx -- imp-1196
 // Editorial (warm post reading-view) presentation of Section 15
 // ("Shift-Bridge Reflection Positivity and a Godelian Witness Principle")
-// of the user's paper "Twin-Ladder Deformations of xi", carried forward in v70.
+// of the user's paper "Twin-Ladder Deformations of xi", carried forward in twin-ladder.
 // Historic audit provenance remains the v52 PDF pages 22-26; endpoint/common-zero
-// corrections come from the v70 audit.
+// corrections come from the twin-ladder audit.
 //
 // Restyle only. Every claim, number, TeX identity, and caveat is preserved
 // verbatim from src/data/shift-bridge-positivity-section.js and the prior page.
@@ -75,7 +75,7 @@ export default function ShiftBridgePositivityPage() {
         S.ticketId,
       ]}
       title={S.title}
-      dek="An RH-equivalent positivity criterion: recenter xi on the critical line, run a one-parameter shift a > 0, and read RH off strict de Branges kernel positivity for every bridge thickness. The a-dial / shift-bridge positivity geometry, with the corrected v70 endpoint and common-zero caveat."
+      dek="An RH-equivalent positivity criterion: recenter xi on the critical line, run a one-parameter shift a > 0, and read RH off strict de Branges kernel positivity for every bridge thickness. The a-dial / shift-bridge positivity geometry, with the corrected twin-ladder endpoint and common-zero caveat."
       byline={[
         `Historic audit provenance: ${S.historicalPaperSource}, pages ${S.historicalPaperPageRange[0]}–${S.historicalPaperPageRange[1]}`,
         'shift-bridge positivity',
@@ -167,10 +167,10 @@ export default function ShiftBridgePositivityPage() {
         </MathStack>
       </div>
 
-      {/* v70 endpoint / common-zero correction */}
+      {/* twin-ladder endpoint / common-zero correction */}
       <div className="ed-thm" style={{ borderLeftColor: 'var(--terra-dk)', marginTop: 16 }}>
         <div className="tlab" style={{ color: 'var(--terra-dk)' }}>
-          v70 audit · {S.endpointAndCoprimalityCaveat.title}
+          twin-ladder audit · {S.endpointAndCoprimalityCaveat.title}
         </div>
         <p style={{ fontSize: 14, lineHeight: 1.7 }}>{S.endpointAndCoprimalityCaveat.statement}</p>
         <MathStack>
@@ -252,7 +252,7 @@ export default function ShiftBridgePositivityPage() {
       </ul>
 
       {/* Sibling sections (16 / 17 / 18) */}
-      <h2>Continue to sibling sections carried into v70</h2>
+      <h2>Continue to sibling sections carried into twin-ladder</h2>
       <ul style={{ lineHeight: 1.7 }}>
         {S.relatedSections.map((r) => (
           <li key={r.ticket} style={{ marginBottom: 10 }}>

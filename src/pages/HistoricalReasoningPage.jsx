@@ -408,7 +408,7 @@ The fact that Λ = 0 (not Λ < 0 or Λ > 0) means the prime oscillator cascade i
     category: 'meta-strategy',
     status: 'superseded',
     auditNote:
-      'Withdrawn strategy. Convergence is not the only missing step, boundary unitarity alone does not confine transmission zeros, and the exact cascade places the relevant zeta zeros in the denominator as poles.',
+      'Abandoned strategy (never published). Convergence is not the only missing step, boundary unitarity alone does not confine transmission zeros, and the exact cascade places the relevant zeta zeros in the denominator as poles.',
     content: `After analyzing all five attack paths, the Darlington route (Gap S7) appears more tractable than the Hilbert-Pólya route (Gap S5). Here's why:
 
 **Hilbert-Pólya (S5) requires:**
@@ -480,7 +480,7 @@ export default function HistoricalReasoningPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>proof · reasoning</span>} />
+      <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Historical Reasoning</h1>
@@ -810,7 +810,7 @@ export default function HistoricalReasoningPage() {
             {[
               { framework: 'Number Theory', grade: 'Definition of RH', condition: 'All nontrivial zeros on σ = ½', math: '\\zeta(\\rho)=0\\Rightarrow\\Re\\rho=\\tfrac12' },
               { framework: 'Weil Criterion', grade: 'Established equivalent', condition: 'Positivity on the full admissible class', math: 'W[f*\\tilde f]\\ge0\\quad\\forall f' },
-              { framework: 'v70 Shift Bridge', grade: 'RH-equivalent and open', condition: 'Positive for every shift', math: 'K_a\\succeq0\\quad\\forall a>0' },
+              { framework: 'twin-ladder Shift Bridge', grade: 'RH-equivalent and open', condition: 'Positive for every shift', math: 'K_a\\succeq0\\quad\\forall a>0' },
               { framework: 'Circuit Theory', grade: 'Analogy; insufficient', condition: 'Boundary losslessness alone', math: 'S^\\dagger S=I\\;\\not\\Rightarrow\\;\\mathrm{RH}' },
               { framework: 'Spectral Theory', grade: 'Open identification target', condition: 'Self-adjoint operator plus exact divisor map', math: '\\operatorname{Spec}(A)\\stackrel{?}{=}\\{\\gamma_\\rho\\}' },
             ].map((item, i) => (

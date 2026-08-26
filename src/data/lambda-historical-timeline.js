@@ -233,7 +233,7 @@ export const LAMBDA_TIMELINE = [
   },
   {
     year: 2026,
-    authors: ['Jude Gomila', 'Claude AI fleet (mathexplorer / zetaexplorer)'],
+    authors: ['Jude Gomila', 'AI fleet — Claude, Codex, ChatGPT — with human work'],
     bound: 0.1787854,
     direction: 'upper',
     relation: '≤',
@@ -245,7 +245,7 @@ export const LAMBDA_TIMELINE = [
   },
   {
     year: 2026,
-    authors: ['Jude Gomila', 'Claude AI fleet (mathexplorer / zetaexplorer)'],
+    authors: ['Jude Gomila', 'AI fleet — Claude, Codex, ChatGPT — with human work'],
     bound: 0.1758354,
     direction: 'upper',
     relation: '≤',

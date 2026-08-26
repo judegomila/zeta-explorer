@@ -174,6 +174,7 @@ export const NAV_GROUPS = [
       { to: '/selberg-trace', label: 'Selberg Trace' },
       { to: '/rh-equivalents', label: 'RH Equivalents' },
       { to: '/state-of-program', label: 'State of the Program' },
+      { to: '/state-of-field', label: 'State of the Field' },
     ],
   },
 ];

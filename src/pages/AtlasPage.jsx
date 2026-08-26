@@ -99,7 +99,8 @@ export default function AtlasPage() {
           Every line of attack on the Riemann Hypothesis and the de Bruijn–Newman constant Λ, grouped into
           five areas. Each area is a door into that part of the app; the full route-by-route table — with
           status and the exact split point of each — lives on the{' '}
-          <Link to="/route-map">wall map</Link>.
+          <Link to="/route-map">wall map</Link>. For how the wider community is attacking RH and where this
+          program engages each line, see the <Link to="/state-of-field">state of the field</Link>.
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16, marginTop: 26 }} className="ed-atlas-grid">

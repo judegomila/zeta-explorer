@@ -5,6 +5,7 @@
 export const EDITORIAL_ROUTES = new Set([
   '/',
   '/atlas',
+  '/state-of-field',
   '/directory',
   '/lambda-01758354-candidate',
   '/autonomous-fleet',

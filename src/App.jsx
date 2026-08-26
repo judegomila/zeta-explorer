@@ -13,6 +13,7 @@ import { EditorialHeader } from './components/editorial/PostLayout.jsx';
 const HomePage = lazy(() => import('./pages/HomePage.jsx')); // legacy dark home, now /classic
 const DirectoryPage = lazy(() => import('./pages/DirectoryPage.jsx'));
 const AtlasPage = lazy(() => import('./pages/AtlasPage.jsx'));
+const StateOfFieldPage = lazy(() => import('./pages/StateOfFieldPage.jsx'));
 const LambdaCandidate01758354Page = lazy(() => import('./pages/LambdaCandidate01758354Page.jsx'));
 const AutonomousFleetPage = lazy(() => import('./pages/AutonomousFleetPage.jsx'));
 const CriticalLineProportionPage = lazy(() => import('./pages/CriticalLineProportionPage.jsx'));
@@ -1548,6 +1549,7 @@ function AppShell() {
           <Route path="/classic" element={<HomePage />} />
           <Route path="/directory" element={<DirectoryPage />} />
           <Route path="/atlas" element={<AtlasPage />} />
+          <Route path="/state-of-field" element={<StateOfFieldPage />} />
           <Route path="/lambda-01758354-candidate" element={<LambdaCandidate01758354Page />} />
           <Route path="/autonomous-fleet" element={<AutonomousFleetPage />} />
           <Route path="/critical-line-proportion" element={<CriticalLineProportionPage />} />

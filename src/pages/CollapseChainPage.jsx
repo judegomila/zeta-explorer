@@ -427,6 +427,9 @@ export default function CollapseChainPage() {
           { to: '/route-map', label: 'Route Map', color: 'var(--blue)' },
           { to: '/twin-ladder', label: 'Twin-Ladder Roadmap', color: 'var(--brass-dk)' },
           { to: '/paper-audit-dashboard', label: 'Paper Audit Dashboard', color: 'var(--terra-dk)' },
+          { to: '/hidden-square-program', label: 'Hidden Square Program', color: 'var(--green)' },
+          { to: '/section26-conditioning-artifact', label: '§26 Conditioning Artifact', color: 'var(--terra)' },
+          { to: '/permutation-architecture', label: 'Permutation Architecture', color: 'var(--blue)' },
         ]} />
       </div>
     </div>

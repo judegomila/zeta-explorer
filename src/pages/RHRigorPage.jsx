@@ -506,6 +506,10 @@ export default function RHRigorPage() {
             <Link to="/gap-closing" style={{ color: 'var(--brass-dk)', fontSize: 13 }}>Gap Closing</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/concepts" style={{ color: 'var(--terra)', fontSize: 13 }}>Concepts</Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/connes-adelic" style={{ color: 'var(--blue)', fontSize: 13 }}>Connes Adelic Trace</Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/berry-keating-xp" style={{ color: 'var(--brass-dk)', fontSize: 13 }}>Berry-Keating H = xp</Link>
           </div>
           <p style={{ marginTop: 14, fontSize: 13 }}>
             <Link to="/">← the atlas</Link>

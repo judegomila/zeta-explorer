@@ -1162,7 +1162,6 @@ function VizCard({ entry }) {
       }}>
         {entry.oneLine}
       </p>
-      <AnimationEmbed id="viz-gallery" />
 
       <div style={{
         marginTop: 'auto',
@@ -1173,7 +1172,7 @@ function VizCard({ entry }) {
         fontFamily: 'var(--font-mono)',
         color: 'var(--faint)',
       }}>
-        <span>{entry.ticket} · step {entry.pedagogicalStep}/6</span>
+        <span>{entry.ticket} · step {entry.pedagogicalStep}</span>
         <span style={{ color: accent }}>view &rarr;</span>
       </div>
       {/* imp-2728: mathematical ceiling for this panel -- keeps a
@@ -1207,6 +1206,7 @@ export default function VisualizationsIndexPage() {
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760, marginTop: 10 }}>
           {V.intro}
         </p>
+        <AnimationEmbed id="viz-gallery" />
       </div>
 
       {/* Card grid: 2x3 wide, 1xN narrow. We use minmax(280px, 1fr) so
@@ -1251,7 +1251,7 @@ export default function VisualizationsIndexPage() {
           }}
         >
           <li>
-            <strong>Index, not proof.</strong> These six visualizations are
+            <strong>Index, not proof.</strong> The visualizations in this catalog are
             geometric / interferometric aids for intuition. They visualize
             structure, they do not prove anything about RH, Λ, or the
             twin-ladder closure routes.

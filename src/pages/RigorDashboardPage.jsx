@@ -985,7 +985,9 @@ export default function RigorDashboardPage() {
             CURRENT candidate
           </div>
           <div style={{ fontSize: 22, fontWeight: 700, color: 'var(--ink)', marginBottom: 4 }}>
-            Λ ≤ {NEWMAN_LAMBDA_01787854_CANDIDATE.exactTarget.decimal}
+            <Link to="/newman-lambda-01787854-candidate" style={{ color: 'inherit', textDecoration: 'none', borderBottom: `1px solid ${BLUE_A(0.4)}` }}>
+              Λ ≤ {NEWMAN_LAMBDA_01787854_CANDIDATE.exactTarget.decimal}
+            </Link>
           </div>
           <div style={{ fontSize: 13, color: 'var(--ink-soft)', marginBottom: 6 }}>
             {NEWMAN_LAMBDA_01787854_CANDIDATE.finiteEvidence.rowCount.toLocaleString()}-row material replay

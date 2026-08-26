@@ -118,8 +118,6 @@ function StageCard({ stage }) {
         <strong style={{ color: col.fg }}>Paper description. </strong>
         {stage.paperDescription}
       </p>
-      <AnimationEmbed id="barnes-hut" />
-
 
       {/* ─── Paper bullets ─── */}
       {stage.paperBullets.length > 1 && (
@@ -466,6 +464,7 @@ export default function RigorousNumericsStagesPage() {
         <h2 className="ed-h2" style={{ marginTop: 28 }}>
           The three stages
         </h2>
+        <AnimationEmbed id="barnes-hut" />
         {R.stages.map((stage) => (
           <StageCard key={stage.stageNumber} stage={stage} />
         ))}

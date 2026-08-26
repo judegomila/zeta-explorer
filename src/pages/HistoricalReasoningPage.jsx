@@ -837,6 +837,8 @@ export default function HistoricalReasoningPage() {
               { to: '/formal-proof', label: 'Formal Proof', color: RED },
               { to: '/rh-attack', label: 'RH Attack', color: BLUE },
               { to: '/spectral-attack', label: 'Spectral Attack', color: PURPLE },
+              { to: '/connes-adelic', label: 'Connes Adelic Trace', color: PURPLE },
+              { to: '/berry-keating-xp', label: 'Berry-Keating H = xp', color: ORANGE },
               { to: '/rigor', label: 'Rigor', color: GREEN },
               { to: '/explorations', label: 'Explorations', color: BLUE },
             ].map(({ to, label, color }) => (

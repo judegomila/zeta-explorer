@@ -437,7 +437,9 @@ export default function FormalProofPage() {
             operator) but is <strong style={{ color: '#c23a1c' }}>NOT a proof</strong> —
             semiclassical quantization is an approximation, not an exact spectral result.
             Closing S5 would require constructing the exact quantum Hamiltonian and proving
-            self-adjointness on a suitable Hilbert space.
+            self-adjointness on a suitable Hilbert space. See the{' '}
+            <Link to="/berry-keating-xp" style={{ color: '#b58a2e' }}>Berry-Keating H = xp</Link>{' '}
+            page for the eigenvalue construction in detail.
           </p>
           <div style={{
             marginTop: 12, display: 'grid', gridTemplateColumns: '1fr 1fr',
@@ -509,7 +511,9 @@ export default function FormalProofPage() {
             about a specific quadratic form, bypassing the need for explicit operator construction (S5)
             or infinite network synthesis (S7). See the{' '}
             <Link to="/hamiltonian" style={{ color: '#3f6b86' }}>Hamiltonian page</Link>{' '}
-            for related spectral analysis.
+            for related spectral analysis, and the{' '}
+            <Link to="/connes-adelic" style={{ color: '#3f6b86' }}>Connes adelic trace</Link>{' '}
+            page for the small-prime Weil-form construction in detail.
           </p>
         </div>
 

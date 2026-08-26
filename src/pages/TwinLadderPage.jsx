@@ -226,6 +226,8 @@ export default function TwinLadderPage() {
             <Link to="/hamiltonian" style={{ color: GREEN, fontSize: 13, textDecoration: 'none' }}>→ Hamiltonian (energy landscape)</Link>
             <Link to="/spectral-attack" style={{ color: 'var(--brass-dk)', fontSize: 13, textDecoration: 'none' }}>→ Spectral Attack</Link>
             <Link to="/zeta" style={{ color: BLUE, fontSize: 13, textDecoration: 'none' }}>→ Zeta Function</Link>
+            <Link to="/collapse-chain" style={{ color: RED, fontSize: 13, textDecoration: 'none' }}>→ Collapse Chain</Link>
+            <Link to="/schatten-trace-norm" style={{ color: VIOLET, fontSize: 13, textDecoration: 'none' }}>→ Schatten Trace Norm</Link>
             <Link to="/" style={{ color: 'var(--ink-soft)', fontSize: 13, textDecoration: 'none' }}>← the atlas</Link>
           </div>
         </div>

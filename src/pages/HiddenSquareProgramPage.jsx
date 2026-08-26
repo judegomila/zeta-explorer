@@ -260,6 +260,8 @@ export default function HiddenSquareProgramPage() {
             <Link to="/three-attacks" style={{ color: 'var(--blue)', fontSize: 13 }}>/three-attacks (§18 attacks)</Link>
             <Link to="/freezing-bridge" style={{ color: 'var(--blue)', fontSize: 13 }}>/freezing-bridge (§23 freezing)</Link>
             <Link to="/kyp-bounded-real" style={{ color: 'var(--blue)', fontSize: 13 }}>/kyp-bounded-real (Apps M-O KYP)</Link>
+            <Link to="/collapse-chain" style={{ color: 'var(--blue)', fontSize: 13 }}>/collapse-chain (‖V‖ ≤ 1 collapse)</Link>
+            <Link to="/section26-conditioning-artifact" style={{ color: 'var(--blue)', fontSize: 13 }}>/section26-conditioning-artifact (§26)</Link>
           </div>
           <div style={{ marginTop: 12, fontSize: 11, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
             Source: {S.paperSourcePath} {S.paperSections} (pp. {S.paperPageRange})

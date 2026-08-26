@@ -521,6 +521,9 @@ export default function EsyRigidityEmpiricalPage() {
             <Link to="/improvement-queue" style={{ fontSize: 12, color: 'var(--brass)', textDecoration: 'none' }}>
               → Live improvement queue
             </Link>
+            <Link to="/edge-rigidity" style={{ fontSize: 12, color: 'var(--blue)', textDecoration: 'none' }}>
+              → Edge Rigidity
+            </Link>
             <Link to="/" style={{ fontSize: 12, color: 'var(--green)', textDecoration: 'none' }}>
               ← the atlas
             </Link>

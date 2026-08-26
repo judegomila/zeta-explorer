@@ -663,6 +663,8 @@ export default function EdgeRigidityPage() {
             <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/gram-points" style={{ color: 'var(--brass-dk)', fontSize: 13 }}>Gram Points</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/esy-rigidity-empirical" style={{ color: 'var(--blue)', fontSize: 13 }}>ESY Rigidity (empirical)</Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/" style={{ color: 'var(--terra-dk)', fontSize: 13 }}>&larr; the atlas</Link>
           </div>
         </div>

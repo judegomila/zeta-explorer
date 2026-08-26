@@ -70,19 +70,18 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
   routePath: '/visualizations',
   title: 'Visualizations',
   intro:
-    'Six geometric perspectives on the Riemann zeta-function and its ' +
-    'prime structure. The sequence walks from a single-curve log-phase ' +
+    'Geometric perspectives on the Riemann zeta-function and its prime ' +
+    'structure. The curated sequence walks from a single-curve log-phase ' +
     'spiral through 2D interferometric (twin-ladder), flow-field, and ' +
-    'caustic representations, ending with two discrete-prime pictures ' +
-    '(hyperbolic spiral and Bragg-style crystal). Together they ' +
-    'visualize the twin-ladder framing of the twin_ladder_consolidated ' +
-    'v52 paper from six complementary angles.',
+    'caustic representations to discrete-prime pictures (hyperbolic spiral ' +
+    'and Bragg-style crystal), alongside the program’s deep-tail diagnostic ' +
+    'visualizations. Together they visualize the twin-ladder framing.',
 
   paperSource: Object.freeze({
     path: 'research-inputs/twin_ladder_consolidated_v52.pdf',
     note:
       'Twin-Ladder Consolidated v52 — the canonical paper source. The ' +
-      'six visualizations together cover the geometric content of ' +
+      'curated visualizations together cover the geometric content of ' +
       '§§15-18 (shift-bridge, closure routes, ghosts, attacks) plus the ' +
       'rigorous-numerics §§20-23 supporting material.',
   }),

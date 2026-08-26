@@ -351,6 +351,14 @@ export default function FreezingBridgePage() {
               §18 Three attacks
             </Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/frozen-rung-pt-equivalence" style={{ color: 'var(--green)', fontSize: 13 }}>
+              Frozen-rung ⟺ PT
+            </Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/flow-blindness-no-go" style={{ color: 'var(--terra)', fontSize: 13 }}>
+              Flow-blindness no-go
+            </Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/literature" style={{ color: 'var(--blue)', fontSize: 13 }}>
               Literature
             </Link>

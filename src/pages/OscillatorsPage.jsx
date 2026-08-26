@@ -164,7 +164,8 @@ export default function OscillatorsPage() {
         <h2 className="ed-h2" style={{ marginTop: 8, marginBottom: 8 }}>Euler product convergence</h2>
         <p style={{ ...body, maxWidth: 760 }}>
           Watch the partial Euler product build up prime by prime. The rising line is the cumulative <InlineMath tex={"|\\zeta(s)|"} />;
-          bars show individual factor magnitudes; the second trace is the cumulative phase.
+          bars show individual factor magnitudes; the second trace is the cumulative phase. See also the{' '}
+          <Link to="/viz-euler-product" style={{ color: 'var(--brass-dk)' }}>Euler product visualizer</Link>.
         </p>
         <EulerProductViz />
 

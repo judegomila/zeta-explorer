@@ -267,7 +267,8 @@ export default function HamiltonianPage() {
             accuracy up to <InlineMath tex={"10^{-55}"} />. In Twin-Ladder Bridge terms: the Hamiltonian <InlineMath tex={"\\mathcal{H}"} /> being
             bounded below is the physical manifestation of Weil positivity. The explicit formula
             that drives the spectral decomposition above is the <em>same</em> formula that defines
-            the Weil kernel.
+            the Weil kernel. See the{' '}
+            <Link to="/connes-adelic" style={{ color: BRIDGE }}>Connes adelic</Link> page for more.
           </p>
         </div>
 
@@ -276,7 +277,8 @@ export default function HamiltonianPage() {
           <h3 style={h3Style(BRIDGE)}>Berry-Keating Semiclassical Quantization</h3>
           <p style={{ ...bodyText, marginTop: 12 }}>
             Berry and Keating (1999) proposed the simplest Hamiltonian whose spectrum is related to the
-            zeta zeros:
+            zeta zeros (see the{' '}
+            <Link to="/berry-keating-xp" style={{ color: BRIDGE }}>Berry–Keating xp</Link> page):
           </p>
           <BlockMath tex={"H = xp"} />
           <p style={{ ...bodyText, marginTop: 12 }}>

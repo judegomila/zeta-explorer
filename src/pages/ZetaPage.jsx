@@ -276,7 +276,9 @@ export default function ZetaPage() {
             Montgomery (1973) conjectured, and Odlyzko (1987) verified numerically for millions of zeros,
             that the normalized spacings <InlineMath tex={"\\delta_n = (\\gamma_{n+1}-\\gamma_n)/\\langle s\\rangle"} /> follow
             the GUE (Gaussian Unitary Ensemble) eigenvalue spacing distribution — a profound link between
-            the Riemann zeta function and quantum chaos.
+            the Riemann zeta function and quantum chaos. Explore this further in{' '}
+            <Link to="/gue-comparison" style={{ color: 'var(--blue)' }}>GUE Comparison</Link> and{' '}
+            <Link to="/pair-correlation" style={{ color: 'var(--brass)' }}>Pair Correlation</Link>.
           </p>
           <BlockMath tex={"p_{\\mathrm{GUE}}(s) = \\frac{32}{\\pi^2}\\,s^2\\,e^{-4s^2/\\pi}, \\qquad \\mathrm{mean}=1,\\; \\mathrm{std} = \\sqrt{\\tfrac{3\\pi}{8}-1}\\approx 0.422"} />
           <div style={twoCol}>

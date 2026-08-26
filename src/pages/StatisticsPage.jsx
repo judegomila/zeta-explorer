@@ -43,8 +43,10 @@ export default function StatisticsPage() {
               <strong style={{ color: 'var(--blue)' }}>OPEN:</strong> RH itself is equivalent to <InlineMath tex={"\\Lambda \\le 0"} /> (hence
               <InlineMath tex={"\\Lambda = 0"} />) and to all Li coefficients <InlineMath tex={"\\lambda_n \\ge 0"} />.
               The peer-reviewed upper-bound benchmark is Platt-Trudgian
-              <InlineMath tex={"\\Lambda\\le0.2"} />; a public unrefereed package claims
-              <InlineMath tex={"\\Lambda\\le0.1875"} />, still far from <InlineMath tex={"0"} />.
+              <InlineMath tex={"\\Lambda\\le0.2"} />. This repository's own computer-assisted
+              candidates go lower — <Link to="/newman-lambda-01787854-candidate" style={{ color: 'var(--blue)' }}><InlineMath tex={"\\Lambda\\le0.1787854"} /></Link>{' '}
+              (reviewed by Dan Romik) and a sharper <InlineMath tex={"\\Lambda\\le0.1758354"} /> — but their bounds
+              are not established, so they remain candidates, still far from <InlineMath tex={"0"} />.
             </li>
           </ul>
           <p style={{ marginTop: 8, color: 'var(--faint)', fontSize: 13, fontStyle: 'italic' }}>

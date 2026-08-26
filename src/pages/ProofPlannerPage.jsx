@@ -322,6 +322,7 @@ export default function ProofPlannerPage() {
               { to: '/gap-closing', label: 'Gap Closing', desc: 'Strategies for closing identified gaps' },
               { to: '/rh-attack', label: 'RH Attack', desc: 'Multi-angle attack on the Riemann Hypothesis' },
               { to: '/spectral-attack', label: 'Spectral Attack', desc: 'Spectral theory approach (Path A)' },
+              { to: '/connes-adelic', label: 'Connes Adelic Trace', desc: 'Weil-form / adelic framework (Path C)' },
               { to: '/twin-ladder', label: 'Twin Ladder', desc: 'Network model underlying Path B' },
               { to: '/rigor', label: 'Rigor', desc: 'Rigorous assessment of all claims' },
               { to: '/cross-attack', label: 'Cross-Attack', desc: 'Cross-cutting attack strategies' },

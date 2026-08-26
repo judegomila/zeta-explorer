@@ -42,6 +42,8 @@ export default function WhatWeKnowPage() {
         {' · '}<Link to="/rigor-dashboard">Rigor Dashboard</Link>
         {' · '}<Link to="/prime-rigidity">Prime rigidity</Link>
         {' · '}<Link to="/vortex-field">Vortex field</Link>
+        {' · '}<Link to="/obstruction-seam">Obstruction seam</Link>
+        {' · '}<Link to="/flow-blindness-no-go">Flow-blindness no-go</Link>
         <br /><br />← <Link to="/">the atlas</Link>
       </>}
     >

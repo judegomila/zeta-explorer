@@ -351,8 +351,6 @@ function RouteCard({ route }) {
         <strong style={{ color: col.fg }}>Statement. </strong>
         {route.statement}
       </p>
-      <AnimationEmbed id="closure-routes" />
-
 
       <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
         <strong style={{ color: '#fbbf24' }}>Current status. </strong>
@@ -7654,6 +7652,7 @@ export default function ClosureRoutesPage() {
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
         The four routes
       </h2>
+      <AnimationEmbed id="closure-routes" />
       {R.routes.map((route) => (
         <RouteCard key={route.letter} route={route} />
       ))}

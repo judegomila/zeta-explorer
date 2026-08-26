@@ -759,6 +759,10 @@ export default function RHProofStateDashboardPage() {
             <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/pcc-route-exhaustion" style={{ color: FAINT, fontSize: 12, textDecoration: 'none' }}>PCC Route Exhaustion</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/connes-adelic" style={{ color: BLUE, fontSize: 12, textDecoration: 'none' }}>Connes Adelic Trace</Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
+            <Link to="/berry-keating-xp" style={{ color: BLUE, fontSize: 12, textDecoration: 'none' }}>Berry-Keating H = xp</Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/" style={{ color: INK_SOFT, fontSize: 12, textDecoration: 'none' }}>← the atlas</Link>
           </div>
         </div>

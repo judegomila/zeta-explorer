@@ -380,8 +380,10 @@ function BottomLine() {
           The defensible outputs are: a corrected twin-ladder structural model, clearer zero/pole and
           positivity bookkeeping, a reproducible public <InlineMath tex="0.1875" /> package with
           an explicitly noted local repair, and an <InlineMath tex="0.1787854" /> unreviewed
-          computer-assisted candidate for an unconditional proof in the standalone repository. Its bound
-          is not established, has been reviewed by Dan Romik, and is not RH. The global Twin Ladder residual inequality remains exactly
+          computer-assisted candidate for an unconditional proof in the standalone repository (reviewed
+          by Dan Romik), alongside a sharper <Link to="/lambda-01758354-candidate"><InlineMath tex="0.1758354" /></Link>{' '}
+          candidate. Their bounds
+          are not established and neither is RH. The global Twin Ladder residual inequality remains exactly
           equivalent to RH, so no current result proves <InlineMath tex="\Lambda=0" />.
         </p>
       </div>

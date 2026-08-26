@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import WireframeAnim from '../components/editorial/WireframeAnim.jsx';
 import { FULL_ROUTE_MAP } from '../data/full-route-map-2026-06-19.js';
 
 /* The Atlas — a high-level portal into the attack surface. Every line of attack
@@ -12,7 +13,7 @@ import { FULL_ROUTE_MAP } from '../data/full-route-map-2026-06-19.js';
 // route map are descriptions, not links, so these are the real doors into each area).
 const AREAS = [
   {
-    key: 'lambdaUpper',
+    key: 'lambdaUpper', wireframe: 'wave',
     title: 'Λ Upper-Bound Routes',
     blurb: 'Every route that tries to push the de Bruijn–Newman bound Λ below the Platt–Trudgian 0.2 — the barrier method, the finite-N beat, the Burgers lim-sup, and where each one funnels into the C_H wall.',
     entryPoints: [
@@ -23,7 +24,7 @@ const AREAS = [
     ],
   },
   {
-    key: 'directRH',
+    key: 'directRH', wireframe: 'twinladder',
     title: 'Direct-RH Routes',
     blurb: 'Reformulations that attack RH itself, not via Λ — Volterra ‖V‖ ≤ 1, Beurling–Nyman, de Branges, the hidden-square program. Most are information-preserving renames of RH, not shortcuts below it.',
     entryPoints: [
@@ -34,7 +35,7 @@ const AREAS = [
     ],
   },
   {
-    key: 'machineryCrossvalLower',
+    key: 'machineryCrossvalLower', wireframe: 'oscillator',
     title: 'Machinery · Cross-Validation · Lower Bounds',
     blurb: 'The rigorous instruments — heat-discriminant t_c, the theta-trap algebra, independent integrators — plus the Rodgers–Tao Λ ≥ 0 lower side. Tools that sharpen constants without themselves closing RH.',
     entryPoints: [
@@ -44,7 +45,7 @@ const AREAS = [
     ],
   },
   {
-    key: 'literaturePCC',
+    key: 'literaturePCC', wireframe: 'spectrum',
     title: 'Literature Ports & the Montgomery-PCC Surface',
     blurb: 'Ports of the published machinery — Guth–Maynard, Goldston–Gonek, Maynard sieve, Conrey–Snaith — and where each hits the 50-year pair-correlation-conjecture wall.',
     entryPoints: [
@@ -54,7 +55,7 @@ const AREAS = [
     ],
   },
   {
-    key: 'originalIdeas',
+    key: 'originalIdeas', wireframe: 'lattice',
     title: 'Original / Novel-Angle Ideas',
     blurb: 'The project’s own angles and the classical Hilbert–Pólya family — Berry–Keating H = xp, Connes adelic / Weil positivity, Voronin universality, the supercritical-fluid thermodynamics.',
     entryPoints: [
@@ -118,6 +119,9 @@ export default function AtlasPage() {
                   flexDirection: 'column',
                 }}
               >
+                <div style={{ marginBottom: 12, borderRadius: 8, overflow: 'hidden', border: '1px solid var(--hairline)', background: 'var(--paper)' }}>
+                  <WireframeAnim kind={area.wireframe} />
+                </div>
                 <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 10 }}>
                   <h2 style={{ fontFamily: 'var(--ed-display)', fontWeight: 560, fontSize: 20, margin: 0, color: 'var(--ink)' }}>
                     {area.title}

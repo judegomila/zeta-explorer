@@ -66,43 +66,43 @@ const CONJECTURE_MAP = Object.freeze([
   Object.freeze({
     id: '15.2', shortName: 'Shift contractivity of X in RHP',
     verdict: 'SUBSUMED-BY-RH', auditTicket: 'imp-1229',
-    directRouteStatus: 'DEAD-END-RH-IN-DISGUISE',
+    directRouteStatus: 'DEAD-END-FORNOW-RH-IN-DISGUISE',
     note: 'de Branges 1968 Thm 23 (HB iff K_a PSD) applied to E_a(z)=X(a-iz).',
   }),
   Object.freeze({
     id: '15.3', shortName: 'Hermite-Biehler form of E_a',
     verdict: 'SUBSUMED-BY-RH', auditTicket: 'imp-1230',
-    directRouteStatus: 'DEAD-END-RH-IN-DISGUISE',
+    directRouteStatus: 'DEAD-END-FORNOW-RH-IN-DISGUISE',
     note: 'Literally the same statement as 22.4 (dedup flag).',
   }),
   Object.freeze({
     id: '15.4', shortName: 'Re(xi/xi) > 0 for sigma > 1/2',
     verdict: 'SUBSUMED-BY-RH', auditTicket: 'imp-1202',
-    directRouteStatus: 'DEAD-END-RH-IN-DISGUISE',
+    directRouteStatus: 'DEAD-END-FORNOW-RH-IN-DISGUISE',
     note: 'Pole-singularity argument: off-critical zero forces Re(xi/xi) to -infinity.',
   }),
   Object.freeze({
     id: '17.3', shortName: 'Ghost-absence (Blaschke product = 1)',
     verdict: 'SUBSUMED-BY-RH', auditTicket: 'imp-1232',
-    directRouteStatus: 'DEAD-END-RH-IN-DISGUISE',
+    directRouteStatus: 'DEAD-END-FORNOW-RH-IN-DISGUISE',
     note: 'B_a^+ = 1 iff P_a empty iff no X-zeros with Re > a; definitional.',
   }),
   Object.freeze({
     id: '18.2', shortName: 'Prime-delay domination (Weil form)',
     verdict: 'SUBSUMED-BY-RH', auditTicket: 'imp-1241',
-    directRouteStatus: 'DEAD-END-RH-IN-DISGUISE',
+    directRouteStatus: 'DEAD-END-FORNOW-RH-IN-DISGUISE',
     note: 'Conjecture 15.4 after the change of variable s = 1/2 + w.',
   }),
   Object.freeze({
     id: '18.4', shortName: 'Ghost absence (Weil/Pontryagin form)',
     verdict: 'SUBSUMED-BY-RH', auditTicket: 'imp-1232',
-    directRouteStatus: 'DEAD-END-RH-IN-DISGUISE',
+    directRouteStatus: 'DEAD-END-FORNOW-RH-IN-DISGUISE',
     note: 'Four-clause bundle; each clause an independent RH-equivalence (Weil 1952).',
   }),
   Object.freeze({
     id: '22.4', shortName: 'Zero bridge-thickness (HB form)',
     verdict: 'SUBSUMED-BY-RH', auditTicket: 'imp-1210',
-    directRouteStatus: 'DEAD-END-RH-IN-DISGUISE',
+    directRouteStatus: 'DEAD-END-FORNOW-RH-IN-DISGUISE',
     note: 'Lagarias 2007: E_a HB for all a>0 iff RH. Same content as 15.3.',
   }),
 
@@ -157,7 +157,7 @@ const CONJECTURE_MAP = Object.freeze([
   Object.freeze({
     id: '4.5-C1', shortName: 'Linear-statistic variance',
     verdict: 'SUBSUMED-BY-LITERATURE', auditTicket: 'imp-1259',
-    directRouteStatus: 'DEAD-END-PUBLISHED',
+    directRouteStatus: 'DEAD-END-FORNOW-PUBLISHED',
     note: 'Hughes-Rudnick 2003 + Bourgade 2010 supply the variance asymptotic.',
   }),
 ]);

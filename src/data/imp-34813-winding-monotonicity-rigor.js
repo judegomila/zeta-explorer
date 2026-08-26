@@ -258,7 +258,7 @@ export const WINDING_MONOTONICITY_RIGOR = {
     'REFINED, still no new bound: LOWER side hard-capped (Lambda > 0 iff RH false; window collisions only certify Lambda > -|t_c| < 0, weaker than Rodgers-Tao). UPPER side: winding + landing rate IS the architecture of Lambda <= t0 + Delta^2/2 (Polymath15 0.22 / Platt-Trudgian 0.2) -- re-derives the 0.2-ARCHITECTURE, not merely Lambda>=0, but cannot beat 0.2 without new verification/barrier input. does NOT beat Platt-Trudgian Lambda<=0.2; NOT a PT-beating bound; no false QED.',
   newInstrument:
     'exact H_t integral = exact-flow collision-time meter (infinite system, no N-truncation): seed for cross-validating Route A/B truncated-CM t_c(N) machinery',
-  routeMapAction: 'RANKED_OPPORTUNITIES #5 / originalIdeas winding row relabelled from UNDER-EXPLORED to closed (DEAD-END with corrected interpretation)',
+  routeMapAction: 'RANKED_OPPORTUNITIES #5 / originalIdeas winding row relabelled from UNDER-EXPLORED to closed (DEAD-END-FORNOW with corrected interpretation)',
 };
 
 export const WINDING_MONOTONICITY_RIGOR_ASSERTIONS = [

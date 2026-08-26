@@ -355,7 +355,7 @@ export default function RHProofStateDashboardPage() {
             required for paths B and (conditionally) C. The 2026-05-28 exhaustion audit found all
             five equi-difficult to Montgomery PCC itself: they converge on the same arithmetic
             Cauchy-Schwarz bottleneck — a shared wall, not a shortcut. All five are classified
-            DEAD-END (see /pcc-route-exhaustion).
+            DEAD-END-FORNOW (see /pcc-route-exhaustion).
           </p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12 }}>

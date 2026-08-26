@@ -19,7 +19,7 @@
  *
  *  - Full route map (full-route-map-2026-06-19.js) classifies 38 routes.
  *    Only routes with status RIGOROUS-SOTA / CONDITIONAL survive as active
- *    chains; everything else is DEAD-END / RH-EQUIVALENT / REFUTED.
+ *    chains; everything else is DEAD-END-FORNOW / RH-EQUIVALENT / REFUTED.
  *
  * EXPORTS (same interface as proof-chain-snapshot-2026-04-12.js):
  *   HEADLINE, PROOF_CHAIN, ROUTE_STATUS, CONDITIONS
@@ -168,10 +168,10 @@ export const ROUTE_STATUS = {
   },
   esy: {
     name: 'ESY / Selberg-trace PCC closure',
-    status: 'DEAD-END',
+    status: 'DEAD-END-FORNOW',
     summary: 'Montgomery PCC 50-year wall. All sub-routes terminate here.',
     closesIf: 'Would require a genuine breakthrough on the Montgomery PCC conjecture.',
-    imp2838: 'HONEST NEGATIVE: the closesIf names NO executable action — it names the Montgomery pair-correlation conjecture (PCC), a 50-year open wall, as the closure condition. Proving PCC is a structural breakthrough that lies entirely outside this project, not a step that can be executed here. The route stays DEAD-END; PCC stays in CONDITIONS.open as the critical structural blocker for all ESY/Selberg-trace/PCC-adjacent routes. No Lambda claim is made and the rigorous headline stays at the Platt-Trudgian Lambda <= 0.2 SOTA. Locked against a false revival by IMP_2838_ESY_PCC_DEADEND_ASSERTIONS.',
+    imp2838: 'HONEST NEGATIVE: the closesIf names NO executable action — it names the Montgomery pair-correlation conjecture (PCC), a 50-year open wall, as the closure condition. Proving PCC is a structural breakthrough that lies entirely outside this project, not a step that can be executed here. The route stays DEAD-END-FORNOW; PCC stays in CONDITIONS.open as the critical structural blocker for all ESY/Selberg-trace/PCC-adjacent routes. No Lambda claim is made and the rigorous headline stays at the Platt-Trudgian Lambda <= 0.2 SOTA. Locked against a false revival by IMP_2838_ESY_PCC_DEADEND_ASSERTIONS.',
   },
 };
 
@@ -494,16 +494,16 @@ export const IMP_2837_THETATRAP_BRACKET_CONDITIONAL_ASSERTIONS = [
 // executable action — the Montgomery pair-correlation conjecture (PCC) is a
 // 50-year open wall, and proving it is a structural breakthrough that lies
 // entirely outside this project, not a step that can be executed here. The only
-// honest move is to record that negative and lock the DEAD-END status so a
+// honest move is to record that negative and lock the DEAD-END-FORNOW status so a
 // future drift cannot silently promote an ESY/Selberg-trace/PCC-adjacent route
 // to a live Lambda claim below the Platt-Trudgian 0.2 SOTA while PCC stays open.
 // No new mathematical claim is made.
 
 export const IMP_2838_ESY_PCC_DEADEND_ASSERTIONS = [
   {
-    id: 'imp-2838/esy-stays-dead-end',
-    why: 'The ESY / Selberg-trace PCC closure route must stay DEAD-END — its closesIf names no executable action (a 50-year open conjecture).',
-    holds: () => ROUTE_STATUS.esy.status === 'DEAD-END',
+    id: 'imp-2838/esy-stays-dead-end-fornow',
+    why: 'The ESY / Selberg-trace PCC closure route must stay DEAD-END-FORNOW — its closesIf names no executable action (a 50-year open conjecture).',
+    holds: () => ROUTE_STATUS.esy.status === 'DEAD-END-FORNOW',
   },
   {
     id: 'imp-2838/closesif-still-names-pcc-breakthrough',
@@ -532,7 +532,7 @@ export const IMP_2838_ESY_PCC_DEADEND_ASSERTIONS = [
   },
   {
     id: 'imp-2838/no-false-lambda-improvement-from-esy',
-    why: 'A DEAD-END route behind the open PCC wall must not move the rigorous headline below the Platt-Trudgian 0.2 SOTA.',
+    why: 'A DEAD-END-FORNOW route behind the open PCC wall must not move the rigorous headline below the Platt-Trudgian 0.2 SOTA.',
     holds: () =>
       HEADLINE.baseline.includes('0.2') && HEADLINE.bound.includes('0.2'),
   },

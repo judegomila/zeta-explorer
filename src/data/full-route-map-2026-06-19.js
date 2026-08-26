@@ -20,7 +20,7 @@
  *   ESTIMATE       - numerical, not a rigorous bound
  *   OPEN-HARD      - genuine open problem, not a reformulation
  *   RH-EQUIVALENT  - a faithful reformulation; renames RH, no shortcut
- *   DEAD-END       - structurally closed / 50-year wall
+ *   DEAD-END-FORNOW       - structurally closed / 50-year wall
  *   REFUTED        - a caught overclaim, withdrawn
  *   UNDER-EXPLORED - genuine unexploited thread remains
  */
@@ -34,7 +34,7 @@ export const FULL_ROUTE_MAP = {
     lambdaUpper: [
       { name: 'Route A finite-N*=1e4 beat', status: 'ESTIMATE', opp: 3, note: 'gated on C_H; PT-comparable IF C_H lands' },
       { name: 'Route B Burgers lim-sup t_c->0 (imp-341)', status: 'RIGOROUS-SOTA', opp: 5, note: 'genuine rigorous crown jewel (PCC/GUE-free) but about the PARTICLE FLOW, not Lambda' },
-      { name: 'Route C density squeeze / G3a', status: 'DEAD-END', opp: 1, note: 'GUE extremal scaling R_N~N^4/3 kills it; dissolves into A/B' },
+      { name: 'Route C density squeeze / G3a', status: 'DEAD-END-FORNOW', opp: 1, note: 'GUE extremal scaling R_N~N^4/3 kills it; dissolves into A/B' },
       { name: 'Thin-strip E_trunc / kappa_T (imp-2622)', status: 'REFUTED', opp: 0, note: 'frozen-kappa height-mismatch artifact (imp-2630)' },
       { name: 'Step-4 bridge / Polymath15 G6a', status: 'OPEN-HARD', opp: 4, note: 'THE critical lever = C_H; RH-hard at the modulus' },
       { name: 'Theta-trap rigorous t_c^part bound', status: 'CONDITIONAL', opp: 6, note: 'rigorous but NEGATIVE for the headline (sign algebra; buys nothing on Lambda)' },
@@ -44,7 +44,7 @@ export const FULL_ROUTE_MAP = {
       { name: 'Normalized-R / Conj-26.3', status: 'RH-EQUIVALENT', opp: 2, note: 'least-ruled-out direct target but information-preservingly RH-equivalent' },
       { name: 'Beurling-Nyman (imp-1312)', status: 'RH-EQUIVALENT', opp: 1, note: 'strict equivalence; d_N~1/sqrt(log N) astronomically slow' },
       { name: 'de Branges / CDB-Exist (imp-1340)', status: 'RH-EQUIVALENT', opp: 1, note: 'vacuous without Hermite-Biehler positivity = RH' },
-      { name: 'ESY / Selberg-trace closure (imp-1184)', status: 'DEAD-END', opp: 2, note: 'Montgomery PCC 50-year wall' },
+      { name: 'ESY / Selberg-trace closure (imp-1184)', status: 'DEAD-END-FORNOW', opp: 2, note: 'Montgomery PCC 50-year wall' },
       { name: 'Hidden-square §15-27 program', status: 'RH-EQUIVALENT', opp: 2, note: '§25.5 symmetry missing; raw diagonal cannot dominate' },
     ],
     machineryCrossvalLower: [
@@ -55,29 +55,29 @@ export const FULL_ROUTE_MAP = {
       { name: 'Barrier extrapolation (imp-299)', status: 'ESTIMATE', opp: 2, note: 'cross-check only' },
       { name: 'Kernel-hack analytical (imp-360)', status: 'ESTIMATE', opp: 2, note: 'cross-check only' },
       { name: 'DP5 second-integrator (imp-2466)', status: 'RIGOROUS-SOTA', opp: 4, note: 'rigorous numeric cross-check instrument' },
-      { name: 'CSV / Lehmer-pair lower bound', status: 'DEAD-END', opp: 2, note: 'dominated by Rodgers-Tao' },
+      { name: 'CSV / Lehmer-pair lower bound', status: 'DEAD-END-FORNOW', opp: 2, note: 'dominated by Rodgers-Tao' },
       { name: 'Rodgers-Tao Lambda>=0 (cited)', status: 'RIGOROUS-SOTA', opp: 1, note: 'closes the lower side; sharp under RH' },
       { name: 'Krein SSF (imp-2425)', status: 'RH-EQUIVALENT', opp: 3, note: 'Conj 18.4 IS RH' },
     ],
     literaturePCC: [
-      { name: 'Guth-Maynard 2024 (imp-1332)', status: 'DEAD-END', opp: 1, note: 'E_trunc non-binding (261x below L_cond)' },
+      { name: 'Guth-Maynard 2024 (imp-1332)', status: 'DEAD-END-FORNOW', opp: 1, note: 'E_trunc non-binding (261x below L_cond)' },
       { name: 'Soundararajan-Tao 2024 (imp-1331)', status: 'REFUTED', opp: 0, note: 'PHANTOM citation; wrong object' },
       { name: 'Bui-Soundararajan port', status: 'CONDITIONAL', opp: 1, note: 'non-binding E_trunc' },
-      { name: 'Goldston-Gonek 2pt PCC (imp-1302)', status: 'DEAD-END', opp: 1, note: '50-year wall; fabricated citation flagged' },
-      { name: 'Maynard sieve PCC (imp-1318)', status: 'DEAD-END', opp: 1, note: '50-year wall' },
-      { name: 'Selberg-trace PCC (imp-1297)', status: 'DEAD-END', opp: 1, note: 'arithmetic dichotomy' },
+      { name: 'Goldston-Gonek 2pt PCC (imp-1302)', status: 'DEAD-END-FORNOW', opp: 1, note: '50-year wall; fabricated citation flagged' },
+      { name: 'Maynard sieve PCC (imp-1318)', status: 'DEAD-END-FORNOW', opp: 1, note: '50-year wall' },
+      { name: 'Selberg-trace PCC (imp-1297)', status: 'DEAD-END-FORNOW', opp: 1, note: 'arithmetic dichotomy' },
       { name: 'Conrey-Snaith moments (imp-1126)', status: 'CONDITIONAL', opp: 2, note: 'RMT-conditional' },
     ],
     originalIdeas: [
       { name: 'Zeta-as-supercritical-fluid thermodynamics', status: 'ESTIMATE', opp: 4, note: 'bulk order-parameter EMPIRICALLY killed (imp-2323, no transition in (1/2,1)); pressure families = RH-equivalent' },
-      { name: 'Topological surface tension = quantized winding', status: 'DEAD-END', opp: 1, note: 'CLOSED (was UNDER-EXPLORED): experiment run (imp-2673/2696/2859), interpretation CORRECTED by imp-34813 -- the Gaussian proxy was the EXACT flow in negative de Bruijn time (conv identity ~1e-9), the "artifact" drop was genuine zeros-leaving-the-line; monotonicity is classical (de Bruijn Thm 13 + jet lemma); ceiling refined: lower side hard-capped (Lambda>0 iff RH false), upper side = the existing Lambda<=0.2 architecture; no new bound' },
+      { name: 'Topological surface tension = quantized winding', status: 'DEAD-END-FORNOW', opp: 1, note: 'CLOSED (was UNDER-EXPLORED): experiment run (imp-2673/2696/2859), interpretation CORRECTED by imp-34813 -- the Gaussian proxy was the EXACT flow in negative de Bruijn time (conv identity ~1e-9), the "artifact" drop was genuine zeros-leaving-the-line; monotonicity is classical (de Bruijn Thm 13 + jet lemma); ceiling refined: lower side hard-capped (Lambda>0 iff RH false), upper side = the existing Lambda<=0.2 architecture; no new bound' },
       { name: 'Selberg S(T) super-critical (imp-1333)', status: 'RH-EQUIVALENT', opp: 1, note: 'circular Lambda link' },
-      { name: 'Levinson-Conrey mollifier (imp-1336)', status: 'DEAD-END', opp: 1, note: 'symmetry-locked to the line' },
+      { name: 'Levinson-Conrey mollifier (imp-1336)', status: 'DEAD-END-FORNOW', opp: 1, note: 'symmetry-locked to the line' },
       { name: 'Berry-Keating H=xp (Hilbert-Polya)', status: 'OPEN-HARD', opp: 3, note: 'genuinely open but the missing piece IS the PCC wall; heavily attacked in literature' },
       { name: 'Connes adelic / Weil-positivity', status: 'RH-EQUIVALENT', opp: 2, note: 'Weil positivity = RH across all sub-routes' },
       { name: 'Voronin universality', status: 'RH-EQUIVALENT', opp: 1, note: 'Bagchi strong-recurrence = RH; nonvanishing is where RH hides' },
-      { name: 'Twin-ladder multiplicative deformation', status: 'DEAD-END', opp: 1, note: 'does not reach Lambda; only descendant (Volterra) killed' },
-      { name: 'Prime-caustic / phase-crystal', status: 'DEAD-END', opp: 2, note: 'visualization/metaphor, sigma-independent' },
+      { name: 'Twin-ladder multiplicative deformation', status: 'DEAD-END-FORNOW', opp: 1, note: 'does not reach Lambda; only descendant (Volterra) killed' },
+      { name: 'Prime-caustic / phase-crystal', status: 'DEAD-END-FORNOW', opp: 2, note: 'visualization/metaphor, sigma-independent' },
     ],
   },
 };
@@ -147,7 +147,7 @@ export const FULL_ROUTE_MAP_ASSERTIONS = [
   {
     id: 'route-map-supercritical-winding-is-the-original-thread',
     description: 'The quantized-winding thread (formerly the one UNDER-EXPLORED original idea) is now CLOSED with the imp-34813 interpretation correction recorded',
-    holds: () => FULL_ROUTE_MAP.clusters.originalIdeas.some((r) => r.status === 'DEAD-END' && /winding/.test(r.name) && /imp-34813/.test(r.note) && /negative de Bruijn time/.test(r.note)),
+    holds: () => FULL_ROUTE_MAP.clusters.originalIdeas.some((r) => r.status === 'DEAD-END-FORNOW' && /winding/.test(r.name) && /imp-34813/.test(r.note) && /negative de Bruijn time/.test(r.note)),
   },
   {
     id: 'route-map-no-shortcut-pt-sota',

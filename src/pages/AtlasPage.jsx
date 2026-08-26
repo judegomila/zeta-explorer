@@ -73,7 +73,7 @@ const STATUS_COLOR = {
   'CONDITIONAL': '#b58a2e',
   'ESTIMATE': '#3f6b86',
   'OPEN-HARD': '#3f6b86',
-  'DEAD-END': '#877b67',
+  'DEAD-END-FORNOW': '#877b67',
   'REFUTED': '#c23a1c',
 };
 
@@ -81,7 +81,7 @@ function statusCounts(rows) {
   const counts = {};
   for (const r of rows) counts[r.status] = (counts[r.status] || 0) + 1;
   // Order by a fixed priority so the chips read consistently across cards.
-  const order = ['RIGOROUS-SOTA', 'RH-EQUIVALENT', 'OPEN-HARD', 'CONDITIONAL', 'ESTIMATE', 'DEAD-END', 'REFUTED'];
+  const order = ['RIGOROUS-SOTA', 'RH-EQUIVALENT', 'OPEN-HARD', 'CONDITIONAL', 'ESTIMATE', 'DEAD-END-FORNOW', 'REFUTED'];
   return order.filter((s) => counts[s]).map((s) => ({ status: s, n: counts[s] }));
 }
 

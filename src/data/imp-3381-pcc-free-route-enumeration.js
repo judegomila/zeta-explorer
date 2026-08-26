@@ -126,7 +126,7 @@ export const IMP3381_PCC_FREE_ROUTE_ENUMERATION = {
       rhEquiv: false,
       pccFree: false,
       isLiveTarget: false,
-      namedArtifact: 'imp-1184-direct-selberg-esy-route-audit.js + full-route-map-2026-06-19.js (directRH cluster, DEAD-END)',
+      namedArtifact: 'imp-1184-direct-selberg-esy-route-audit.js + full-route-map-2026-06-19.js (directRH cluster, DEAD-END-FORNOW)',
       note:
         'Not a rename of RH, but blocked squarely by the shared Montgomery pair-correlation-conjecture 50-year wall (v52 audit). NOT PCC-free, so not a live target for the mupass nextMove.',
     },

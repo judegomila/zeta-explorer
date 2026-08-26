@@ -46,7 +46,7 @@ export const FLAGGED_FABRICATED_CITATIONS = [
   },
   {
     label: 'Goldston-Gonek 2pt PCC',
-    verdict: 'fabricated citation flagged; 50-year wall (DEAD-END)',
+    verdict: 'fabricated citation flagged; 50-year wall (DEAD-END-FORNOW)',
     routeMapRef: 'full-route-map-2026-06-19.js:66 (imp-1302, corrected in imp-2663)',
   },
 ];

@@ -449,7 +449,7 @@ export default function RouteMapPage() {
             <div key={i} style={{ marginTop: 10, padding: '8px 10px', borderRadius: 6, background: 'rgba(181,138,46,0.06)', border: '1px solid rgba(181,138,46,0.2)' }}>
               <div style={{ fontSize: 12.5, color: 'var(--brass-dk)', fontWeight: 600, display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 6 }}>
                 <span>{x.view}</span>
-                <StatusTag status={x.severity === 'high' ? 'DEAD-END' : 'CONDITIONAL'} />
+                <StatusTag status={x.severity === 'high' ? 'DEAD-END-FORNOW' : 'CONDITIONAL'} />
                 <span style={{
                   display: 'inline-block', padding: '2px 7px', borderRadius: 4, fontSize: 10.5, fontWeight: 700,
                   fontFamily: 'var(--font-mono, monospace)', letterSpacing: '0.02em', whiteSpace: 'nowrap',

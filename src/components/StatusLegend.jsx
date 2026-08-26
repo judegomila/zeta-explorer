@@ -9,7 +9,7 @@ export const STATUS_COLOR = {
   'CONDITIONAL':    { bg: 'rgba(245,158,11,0.13)',  bd: 'rgba(245,158,11,0.45)',  fg: '#b58a2e' },
   'ESTIMATE':       { bg: 'rgba(59,130,246,0.13)',  bd: 'rgba(59,130,246,0.4)',   fg: '#3f6b86' },
   'RH-EQUIVALENT':  { bg: 'rgba(148,163,184,0.12)', bd: 'rgba(148,163,184,0.35)', fg: '#877b67' },
-  'DEAD-END':       { bg: 'rgba(239,68,68,0.10)',   bd: 'rgba(239,68,68,0.35)',   fg: '#c23a1c' },
+  'DEAD-END-FORNOW':       { bg: 'rgba(239,68,68,0.10)',   bd: 'rgba(239,68,68,0.35)',   fg: '#c23a1c' },
   'REFUTED':        { bg: 'rgba(194,58,28,0.12)',   bd: 'rgba(239,68,68,0.5)',    fg: '#c23a1c' },
 };
 
@@ -19,7 +19,7 @@ const STATUS_DESC = {
   'ESTIMATE':       'numerical only — not a rigorous bound',
   'OPEN-HARD':      'genuine open problem, not a reformulation',
   'RH-EQUIVALENT':  'faithful reformulation — renames RH, no shortcut',
-  'DEAD-END':       'structurally closed',
+  'DEAD-END-FORNOW':       'structurally closed',
   'REFUTED':        'caught overclaim, withdrawn',
   'UNDER-EXPLORED': 'genuine unexploited thread remains',
 };

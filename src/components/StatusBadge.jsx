@@ -4,14 +4,14 @@ const LEVEL_COLORS = {
   rigorous:    { bg: 'rgba(16,185,129,0.15)',  border: 'rgba(16,185,129,0.35)',  text: '#10b981',  label: 'RIGOROUS' },
   conditional: { bg: 'rgba(245,158,11,0.15)',  border: 'rgba(245,158,11,0.35)',  text: '#f59e0b',  label: 'CONDITIONAL' },
   estimate:    { bg: 'rgba(59,130,246,0.15)',   border: 'rgba(59,130,246,0.35)',  text: '#60a5fa',  label: 'ESTIMATE' },
-  'dead-end':  { bg: 'rgba(239,68,68,0.12)',    border: 'rgba(239,68,68,0.35)',   text: '#f87171',  label: 'DEAD-END' },
+  'dead-end-fornow':  { bg: 'rgba(239,68,68,0.12)',    border: 'rgba(239,68,68,0.35)',   text: '#f87171',  label: 'DEAD-END-FORNOW' },
   refuted:     { bg: 'rgba(127,29,29,0.25)',    border: 'rgba(239,68,68,0.5)',    text: '#fca5a5',  label: 'REFUTED' },
   rh_equiv:    { bg: 'rgba(148,163,184,0.12)',  border: 'rgba(148,163,184,0.35)', text: '#94a3b8',  label: 'RH-EQUIVALENT' },
 };
 
 /**
  * Shared inline badge for page-level status labeling.
- * level: "rigorous" | "conditional" | "estimate" | "dead-end" | "refuted" | "rh_equiv"
+ * level: "rigorous" | "conditional" | "estimate" | "dead-end-fornow" | "refuted" | "rh_equiv"
  * children: optional custom label text (overrides default)
  */
 export function StatusBadge({ level, children }) {

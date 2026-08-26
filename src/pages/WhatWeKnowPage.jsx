@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import PostLayout, { TheoremBox, Pull } from '../components/editorial/PostLayout.jsx';
 import { FULL_ROUTE_MAP } from '../data/full-route-map-2026-06-19.js';
 import { CH_WALL_FRONTIER } from '../data/ch-wall-frontier-verdict-2026-06-26.js';
-import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 /*
  * What We Know — the consolidated, artifact of everything this project has
@@ -55,7 +54,6 @@ export default function WhatWeKnowPage() {
         <strong>{ROUTE_COUNT} mapped routes</strong>, every surviving route from a positive
         Newman bound to RH is still open, RH-equivalent, or dead.
       </p>
-      <AnimationEmbed id="overclaim-ledger" />
 
 
       <h2>① Established results and the separately graded candidate</h2>

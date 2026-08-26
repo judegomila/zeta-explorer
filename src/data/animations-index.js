@@ -271,20 +271,19 @@ export const ANIMATIONS_INDEX = Object.freeze([
     videoSrc: '/animations/lambda-history.mp4',
     posterSrc: '/animations/lambda-history-poster.jpg',
     external: false,
-    durationLabel: '44 s · 1080p60 · Manim CE',
+    durationLabel: '39 s · 1080p60 · Manim CE',
     description:
       'Every bound in the timeline module, graded: the lower-bound climb (−50' +
       ' in 1988 through −1.14541×10⁻¹¹ in 2011) to Rodgers–Tao’s floor Λ ≥ 0;' +
       ' the upper squeeze ½ → 0.22 → 0.2 (peer-reviewed); the dashed 2026 cla' +
-      'ims (0.1965 and 0.1875 unrefereed; 0.1787854 and 0.1758354 candidates)' +
-      '; and the struck-through retraction of the 3.06×10⁻⁵ framing. The modu' +
-      'le’s own rule on screen: inspect accepted before calling anything a th' +
-      'eorem.',
+      'ims (0.1965 and 0.1875 unrefereed; 0.1787854 and 0.1758354 candidates' +
+      '). The module’s own rule on screen: inspect accepted before calling a' +
+      'nything a theorem.',
     scenes: [
       'Title — RH ⟺ Λ = 0, graded',
       'The climb from below (seven lower bounds)',
       'The squeeze from above (solid vs dashed)',
-      'The retraction · the solid interval [0, 0.2]',
+      'Closing — the solid interval [0, 0.2]',
     ],
     relatedRoutes: [
       { to: '/lambda-bounds', label: 'Λ bounds ledger' },
@@ -476,38 +475,8 @@ export const ANIMATIONS_INDEX = Object.freeze([
     ],
   }),
   Object.freeze({
-    id: 'overclaim-ledger',
-    watchOrder: 17,
-    category: 'Theorems & no-gos',
-    title: 'The Six-Overclaim Ledger',
-    grade: 'the no-false-QED discipline — six confident claims, all refuted by the project’s own review',
-    accent: '#ff6b6b',
-    videoSrc: '/animations/overclaim-ledger.mp4',
-    posterSrc: '/animations/overclaim-ledger-poster.jpg',
-    external: false,
-    durationLabel: '43 s · 1080p60 · Manim CE',
-    description:
-      'The framing film: six struck-through overclaims with their corrections' +
-      ' — the height-mismatch Λ ≤ 0.0X, the false Wiener–Hopf bound (the norm' +
-      ' actually grows like e^{aT}), the §27 collapse identity (refuted by sc' +
-      'ale invariance), the Volterra 5000× margin (a homogeneity artifact), t' +
-      'he finite-N* beat (an ESTIMATE, C_H undischargeable), and the operator' +
-      ' collapse (RH-equivalent, not a reduction). The rule: a bound dependin' +
-      'g on an unproved constant is a conditional estimate and must be labele' +
-      'd as one. What is actually established: 0 ≤ Λ ≤ 0.2.',
-    scenes: [
-      'Title — no-false-QED',
-      'Six claims, six corrections',
-      'The one that mattered most',
-      'Closing — why the surviving claims can be trusted',
-    ],
-    relatedRoutes: [
-      { to: '/what-we-know', label: 'What we know' },
-    ],
-  }),
-  Object.freeze({
     id: 'gue-3point',
-    watchOrder: 18,
+    watchOrder: 17,
     category: 'Evidence, engines & gallery',
     title: 'The 3-Point GUE Test on a Million Zeros',
     grade: 'empirical — Pearson 0.97780; not rigorous (Rudnick–Sarnak support (−⅔, ⅔) is the open gap)',
@@ -537,7 +506,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'berry-keating',
-    watchOrder: 19,
+    watchOrder: 18,
     category: 'Evidence, engines & gallery',
     title: 'H = xp: a Failure Exhibit',
     grade: 'documented negative result — a gap exhibit, not a Hilbert–Pólya realization',
@@ -567,7 +536,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'barnes-hut',
-    watchOrder: 20,
+    watchOrder: 19,
     category: 'Evidence, engines & gallery',
     title: 'The 854× Rigorous Engine',
     grade: 'measured, sound computation — 854× is vs a projected dense time; production wiring separate (imp-1136)',
@@ -597,7 +566,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'viz-gallery',
-    watchOrder: 21,
+    watchOrder: 20,
     category: 'Evidence, engines & gallery',
     title: 'Four Windows onto ζ',
     grade: 'illustrative — visual geometry of established mathematics; no analytic claim',
@@ -631,7 +600,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'twistor-lift2',
-    watchOrder: 23,
+    watchOrder: 22,
     category: 'Twin ladder & twistor geometry',
     title: 'The Twistor Lift, Part II — the consistency-preserving construction',
     grade: 'research architecture (paper-faithful) — no RH claim, no new Λ bound',
@@ -677,7 +646,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'twistor-lift',
-    watchOrder: 22,
+    watchOrder: 21,
     category: 'Twin ladder & twistor geometry',
     title: 'The Twistor Lift',
     grade: 'geometric reformulation (toy encoding) — the framework alone cannot prove RH',
@@ -786,7 +755,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-foundations',
-    watchOrder: 24,
+    watchOrder: 23,
     category: 'Concepts',
     title: 'Concepts I — Foundations & Analysis',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -806,7 +775,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-zeta',
-    watchOrder: 25,
+    watchOrder: 24,
     category: 'Concepts',
     title: 'Concepts II — The Zeta Function',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -826,7 +795,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-primes-info',
-    watchOrder: 26,
+    watchOrder: 25,
     category: 'Concepts',
     title: 'Concepts III — Primes & Information',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -846,7 +815,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-physics',
-    watchOrder: 27,
+    watchOrder: 26,
     category: 'Concepts',
     title: 'Concepts IV — The Physics Dictionary',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -866,7 +835,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-rmt-quantum',
-    watchOrder: 28,
+    watchOrder: 27,
     category: 'Concepts',
     title: 'Concepts V — Random Matrices & Quantum',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -886,7 +855,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-thermo-geometry',
-    watchOrder: 29,
+    watchOrder: 28,
     category: 'Concepts',
     title: 'Concepts VI — Thermodynamics & Geometry',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -906,7 +875,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-proof-1',
-    watchOrder: 30,
+    watchOrder: 29,
     category: 'Concepts',
     title: 'Concepts VII — Proof Machinery 1',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -926,7 +895,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-proof-2',
-    watchOrder: 31,
+    watchOrder: 30,
     category: 'Concepts',
     title: 'Concepts VIII — Proof Machinery 2',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -946,7 +915,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-proof-3',
-    watchOrder: 32,
+    watchOrder: 31,
     category: 'Concepts',
     title: 'Concepts IX — Proof Machinery 3',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',

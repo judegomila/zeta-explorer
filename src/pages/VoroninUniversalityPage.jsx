@@ -21,6 +21,7 @@ import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { VORONIN_UNIVERSALITY } from '../data/voronin-universality-numerical.js';
 import { zetaCriticalStrip } from '../math/zeta.js';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 // ---------------------------------------------------------------------------
 // Geometry.
@@ -182,6 +183,7 @@ export default function VoroninUniversalityPage() {
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Voronin Universality (imp-1100)</h1>
+          <AnimationEmbed id="voronin" />
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
             Voronin&apos;s 1975 universality theorem is a numerical witness here: for
             any nonvanishing analytic f on a compact K in the critical strip,

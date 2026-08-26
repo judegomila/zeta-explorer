@@ -4,6 +4,7 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import HamiltonianViz from '../components/HamiltonianViz.jsx';
 import ExplicitFormulaViz from '../components/ExplicitFormulaViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 // Hamiltonian & Energy Landscape — editorial (warm) re-theme.
 // Full-width dashboard. The two real viz components (HamiltonianViz,
@@ -79,6 +80,7 @@ export default function HamiltonianPage() {
         {/* ── Intro ──────────────────────────────────────────────────────── */}
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Hamiltonian &amp; Energy Landscape</h1>
+          <AnimationEmbed id="hamiltonian" />
           <p style={sectionLead}>
             The total system Hamiltonian — combining kinetic energy of oscillators, impedance mismatch
             potential, and bridge coupling energy — achieves its minimum at the critical line <InlineMath tex={"\\sigma = 1/2"} />.

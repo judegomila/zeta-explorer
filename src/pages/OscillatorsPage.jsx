@@ -4,6 +4,7 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import OscillatorChainViz from '../components/OscillatorChainViz.jsx';
 import EulerProductViz from '../components/EulerProductViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 // Prime Oscillator Chain — editorial (warm) re-theme.
 // Chrome only: the two interactive viz components (OscillatorChainViz,
@@ -61,6 +62,7 @@ export default function OscillatorsPage() {
         {/* ── Header ──────────────────────────────────────────────────── */}
         <div style={{ marginBottom: 28 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Prime Oscillator Chain</h1>
+          <AnimationEmbed id="oscillators" />
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
             The Euler product decomposes the zeta function into a cascade of oscillator stages,
             one per prime. Two ladders — direct and dual — are connected via a lossless bridge

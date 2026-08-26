@@ -13,6 +13,7 @@ import { SG1C_ASYM_ONSET_BRACKET_LEDGER } from '../data/sg1c-asym-onset-bracket-
 import { SG1C_ASYM_ONSET_INDEPENDENT_INTEGRATOR } from '../data/sg1c-asym-onset-independent-integrator-2026-06-30.js';
 import { IMP33787_G7_PERRON_LOWER_BOUND } from '../data/imp-33787-g7-perron-lower-bound.js';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 // Theorem constants from sg1c-theta-trap-theorems (Theorem A / Corollary A1 / Theorem B)
 const TRAP_A = 1 / 4;                      // unconditional trap: every pair with Theta<=1/4 stays trapped
@@ -2374,6 +2375,7 @@ export default function SpectralAttackPage() {
       <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
       <h1 className="ed-h1" style={{ marginBottom: 10 }}>Spectral Attack on RH</h1>
+          <AnimationEmbed id="spectral-attack" />
       <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760, marginBottom: 24 }}>
         A systematic multi-pronged attack combining information theory, twistor geometry,
         thermodynamic phase analysis, and ZX-calculus to build a confinement proof for zeta zeros.

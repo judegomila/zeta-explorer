@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { scaleLinear, scaleBand } from 'd3-scale';
 import { HARDY_Z_ASYMPTOTIC } from '../data/hardy-z-asymptotic-comparison.js';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 const D  = HARDY_Z_ASYMPTOTIC;
 const CT = D.correctionTable;
@@ -97,6 +98,7 @@ export default function HardyZPage() {
       <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1" style={{ marginBottom: 6 }}>Hardy Z(t) Asymptotic Comparison (imp-1116)</h1>
+          <AnimationEmbed id="gram-hardy" />
         <p style={{ color: '#877b67', fontSize: 14, marginBottom: 12, lineHeight: 1.6 }}>
           Three-panel view of Z(t) = exp(i&middot;theta(t)) &middot; zeta(1/2+it): main-sum-only
           approximation (Panel 1), C0+C1+C2 enhanced approximation (Panel 2), and

@@ -10,6 +10,7 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { InlineMath } from '../components/KaTeXMath.jsx';
 import { scaleLinear } from 'd3-scale';
 import { GRAM_POINTS_DATA } from '../data/gram-points-numerical.js';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 const D  = GRAM_POINTS_DATA;
 const SC = D.scatterSample;
@@ -86,6 +87,7 @@ export default function GramPointsPage() {
               (imp-1122)
             </span>
           </h1>
+          <AnimationEmbed id="gram-hardy" />
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 780 }}>
             Gram points <InlineMath tex="g_n" /> solve <InlineMath tex="\theta(g_n)=n\pi" />,
             where theta is the Riemann-Siegel theta function. Gram&apos;s law (1903) predicts{' '}

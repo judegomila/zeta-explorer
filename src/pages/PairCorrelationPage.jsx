@@ -17,6 +17,7 @@ import { scaleLinear } from 'd3-scale';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { PAIR_CORRELATION_MONTGOMERY } from '../data/pair-correlation-montgomery-numerical.js';
 import { IMP_2656_DIRECT_RH_CONJECTURE_MAP } from '../data/imp-2656-direct-rh-conjecture-map.js';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 // Geometry.
 const W = 920;
@@ -155,6 +156,7 @@ export default function PairCorrelationPage() {
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 20 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Pair Correlation Conjecture (imp-1098)</h1>
+          <AnimationEmbed id="pair-correlation" />
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: '48rem' }}>
             Montgomery-Dyson numerical exploration: the empirical pair correlation
             form factor F<sub>N</sub>(alpha) of the first N = {pcm.N} Odlyzko Riemann

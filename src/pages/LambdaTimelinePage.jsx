@@ -154,7 +154,11 @@ export default function LambdaTimelinePage() {
           <h1 className="ed-h1">de Bruijn–Newman Bound Timeline</h1>
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 720, marginTop: 10 }}>
             A chronological, evidence-graded ledger. Internal finite-N model values are deliberately
-            excluded from the historical bound sequence.
+            excluded from the historical bound sequence. For the project's own account of the
+            Λ ≤ 0.1787854 candidate, see the{' '}
+            <a href="https://judegomila.com/posts/riemann-lambda-0.1787854" target="_blank" rel="noreferrer" style={{ color: 'var(--terra-dk)' }}>
+              write-up on judegomila.com ↗
+            </a>.
           </p>
           <div style={{ marginTop: 10 }}>
             <Link

@@ -3,7 +3,10 @@
  * the Riemann Hypothesis: the proportion κ of nontrivial zeros PROVEN to lie on the
  * critical line Re s = 1/2. RH ⟺ κ = 100%. This is a rigorous, unconditional lower
  * bound on κ (distinct from the de Bruijn–Newman Λ bound and from verified zero
- * height X). Values are peer-reviewed literature results — not project claims.
+ * height X). The entries through 2020 are peer-reviewed literature results; the
+ * 2026 entry is an external AI-produced result (Anthropic / Claude) that is
+ * claimed unconditional and Lean-checked but is NOT yet peer-reviewed, flagged
+ * as such. None are this project's own claims.
  */
 
 export const CRITICAL_LINE_PROPORTION = Object.freeze([
@@ -63,6 +66,27 @@ export const CRITICAL_LINE_PROPORTION = Object.freeze([
     method: 'More than five-twelfths of the zeros lie on the critical line — the current unconditional record.',
     citation: 'K. Pratt, N. Robles, A. Zaharescu, D. Zeindler, Res. Math. Sci. 7 (2020), no. 2.',
     current: true,
+    note: 'The current peer-reviewed unconditional record (Levinson-mollifier lineage).',
+  },
+  {
+    year: 2026,
+    authors: ['Claude (Anthropic)'],
+    proportion: 2 / 3,
+    label: '≥ 2/3 (66.67%); optimised 0.6725',
+    method:
+      'A different lineage from the Levinson mollifier: an unconditional linear-algebraic reading ' +
+      '(Sylvester’s law of inertia + a von Neumann trace inequality on a finite compression of Weil’s ' +
+      'Hermitian form) of Montgomery’s pair-correlation second moment makes the previously RH-conditional ' +
+      '2/3 simple-zeros bound unconditional — at least 2/3 (optimised 0.6725) of the zeros are simple AND ' +
+      'on the critical line. Produced by an unreleased research Claude model; internally validated, reviewed ' +
+      'by Conrey and Goldston, with a Lean formal check — but not yet peer-reviewed.',
+    citation:
+      'CLAUDE, “More than two thirds of the zeros of the Riemann zeta function lie on the critical line” (Anthropic, Aug 2026).',
+    href: 'https://www.anthropic.com/research/riemann-zeta',
+    status: 'AI-produced · unconditional · unrefereed',
+    accepted: false,
+    aiResult: true,
+    note: 'Exceeds the 5/12 peer-reviewed record but via a separate method and pending refereeing; tracked as an external AI result, not this project’s.',
   },
 ]);
 

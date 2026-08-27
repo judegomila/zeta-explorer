@@ -11,7 +11,7 @@ const THEOREM_A_CAP = 0.25;
 const GLOBAL_FRONTIER = {
   id: 'T3',
   tag: 'twin-ladder-exact-residual',
-  color: '#ef4444',
+  color: '#c23a1c',
   badge: 'SOLE GLOBAL RH FRONTIER',
   title: 'T3: exact Twin Ladder residual inequality',
   status: 'OPEN · RH-EQUIVALENT',
@@ -686,7 +686,7 @@ const MARKOV_NORMALIZATION = {
 const LATEST_TWIN_LADDER_CHECKPOINT = [
   {
     id: 'T47',
-    color: '#38bdf8',
+    color: '#3f6b86',
     status: 'EXACT CRITERION · BOUND OPEN',
     title: 'The staged strip is one triangular prime inequality',
     formula: 'Σp≤x (x−p)log p ≤ (x²−1)/2 + Cx¹⁵ᐟ⁸',
@@ -696,7 +696,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T48',
-    color: '#22c55e',
+    color: '#4c7a4a',
     status: 'PROVED FIXED-ORDER TAIL THEOREM',
     title: 'Continuum principal minors survive clustering and separation',
     formula: '∀n ∃Lₐ,ₙ: [𝒜ₐ(tᵢ,tⱼ)] ≻ 0 for distinct tᵢ ≥ Lₐ,ₙ',
@@ -706,7 +706,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T49',
-    color: '#f59e0b',
+    color: '#b58a2e',
     status: 'PROVED RELAY · INPUT OPEN',
     title: 'Möbius deaveraging has an exact fixed-power price',
     formula: 'M(x)=O(x⁷ᐟ⁸logᴷx) ⇒ ℛ₁,₁⁄₄(x)=O(x¹ᐟ⁸logᴷx)',
@@ -716,7 +716,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T50',
-    color: '#a78bfa',
+    color: '#6d55b8',
     status: 'EXACT THETA-ALIGNED ROUTE · BOUND OPEN',
     title: 'Square scales preserve the right-hand zero obstruction',
     formula:
@@ -727,7 +727,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T51/T52',
-    color: '#f472b6',
+    color: '#c23a1c',
     status: 'EXACT JACOBI BRIDGE · CENTERED SIGN OPEN',
     title: 'The sparse target is a positive Twin Ladder heat trace',
     formula: 'ℋ(u)=Σm,p(log p)e⁻πm²pu ≤ ζ(2)/(πu) + Cu⁻⁷ᐟ⁸',
@@ -737,7 +737,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T53',
-    color: '#fb7185',
+    color: '#c23a1c',
     status: 'EXACT SYMBOL · GENERIC CONVERSE REFUTED',
     title: 'Jacobi smoothing is pole-faithful but exponentially unstable',
     formula: '|ĥ(τ)| ≍ (1+|τ|)¹³ᐟ⁸e⁻π|τ|ᐟ²',
@@ -747,7 +747,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T54',
-    color: '#fbbf24',
+    color: '#b58a2e',
     status: 'EXACT RENEWAL · LOWER ORDER',
     title: 'Prime extraction contributes only a bounded cusp correction',
     formula: 'ℋₚᶜ = ℋΛᶜ − ζ(3/2)Q∞ + Γ(3/4)π¹ᐟ⁴t¹ᐟ⁴log(1/t) + O(t¹ᐟ⁴)',
@@ -757,7 +757,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T55',
-    color: '#2dd4bf',
+    color: '#4c7a4a',
     status: 'TAIL RIGIDITY · GENERIC PROMOTION REFUTED',
     title: 'Eventual PSD is already the global fixed-thickness condition',
     formula: 'Kₐ|[L,∞) ⪰ 0 for some L  ⇔  𝒜ₐ ⪰ 0 globally',
@@ -767,7 +767,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T56',
-    color: '#ef4444',
+    color: '#c23a1c',
     status: 'SIGNED ROUTE COUNTEREXAMPLE · PSD STILL OPEN',
     title: 'Even every finite upper half-sech relative bound fails',
     formula: 'sup ⟨f,(Kₐ−H)f⟩ / ⟨f,Hf⟩ = +∞ on every tail',
@@ -777,7 +777,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T57',
-    color: '#c084fc',
+    color: '#6d55b8',
     status: 'EXACT PHASE-SPACE RELAY · NOT NARROWER',
     title: 'Center frequency returns to the completed-ξ modulus',
     formula: '∫e²ᵛᵀΣₐ(T,ω)dT = (|X(v+a+iω)|²−|X(v−a+iω)|²)/v',
@@ -787,7 +787,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T58',
-    color: '#60a5fa',
+    color: '#3f6b86',
     status: 'RIGOROUS FINITE TRANSFER · NO STRIP',
     title: 'Verified zero height reaches a huge finite triangular range',
     formula: 'x ≤ [H/(log H+2)]⁸ ≈ 8.25×10⁸⁷',
@@ -797,7 +797,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T59',
-    color: '#f97316',
+    color: '#b58a2e',
     status: 'EXACT FINITE CRITERION · RH-EQUIVALENT',
     title: 'One complete Pascal row measures the prime-square bias',
     formula: 'RH ⇔ ∏p≤N pᴺ⁻ᵖ ≤ ∏k=0ᴺ C(N,k) eventually',
@@ -807,7 +807,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T60',
-    color: '#a3e635',
+    color: '#4c7a4a',
     status: 'FIXED-MAJORANT ROUTE REFUTED',
     title: 'Fixed majorants lose the triangular scale',
     formula: 'uniform target-scale sampling ⇒ ∫(Fₓ−w)du = O(x⁻¹ᐟ⁸)',
@@ -817,7 +817,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T61',
-    color: '#06b6d4',
+    color: '#3f6b86',
     status: 'FINITE-HEIGHT SCHUR PSD · GLOBAL BRIDGE REFUTED',
     title: 'Verified height yields a conformal Schur window',
     formula:
@@ -828,7 +828,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T62',
-    color: '#e879f9',
+    color: '#6d55b8',
     status: 'FIRST RADIX LAYER · RH-EQUIVALENT',
     title: 'The first radix layer already carries the full criterion',
     formula: 'RH ⇔ Σp≤N [Cₚ(N)−(N−p)]log p ≥ 0 eventually',
@@ -838,7 +838,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T63',
-    color: '#84cc16',
+    color: '#4c7a4a',
     status: 'ADAPTIVE SELBERG · EXACT NO-GAIN THEOREM',
     title: 'Growing bandwidth reaches—but does not beat—the staged scale',
     formula: '∫(GΩ−g)=π/(2Ω), sample(GΩ−g)=O(Ω⁻¹), Ω ≍ x¹ᐟ⁸',
@@ -848,7 +848,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T64',
-    color: '#2dd4bf',
+    color: '#4c7a4a',
     status: 'ENDPOINT MODEL SPACES · FIXED-BAND ROUTE CLOSED',
     title: 'High residual poles escape every fixed detector band',
     formula: 'Uₐ*QUₐ−Q = P_{I·conj(J)·K_J} − P_{K_I}',
@@ -858,7 +858,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T65',
-    color: '#f59e0b',
+    color: '#b58a2e',
     status: 'RADICAL MELLIN KERNEL · ZERO-COMPLETE',
     title: 'The first-radix shell retains every zeta-zero obstruction',
     formula: '𝒦(s) = ((s−1)ζ(s)−1)/(s(s+1));  𝒦(1)=0, 𝒦(ρ)=−1/[ρ(ρ+1)]',
@@ -868,7 +868,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T66',
-    color: '#a78bfa',
+    color: '#6d55b8',
     status: 'FINITE RESIDUAL WITNESSES · NO UNIFORM GAIN',
     title: 'A zero-adaptive family geometrically isolates a residual direction',
     formula: 'k_X(x) ∝ e⁻⁽β⁺ⁱᴸ⁾ˣ1[0,X]  ⇒  ‖P_KI A_X‖→0, |⟨A_X,wρ⟩|→|M_S|',
@@ -878,7 +878,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T67',
-    color: '#14b8a6',
+    color: '#4c7a4a',
     status: 'PROVED COMPACT GRAPH THEOREM',
     title: 'Tail exponentials capture both theta feature graphs',
     formula: 'g∈C_c^∞  ⇒  eⱼ∈ℰ_L,  ‖T̃ₐE(eⱼ−g)‖₂+‖S̃ₐE(eⱼ−g)‖₂→0',
@@ -888,7 +888,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T68',
-    color: '#f59e0b',
+    color: '#b58a2e',
     status: 'PROVED SQUAREFREE CARRY FACTORIZATION',
     title: 'The radical quotient is one least-digit carry row',
     formula: 'Cᴿ(N,j)=G(N)/[G(j)G(N−j)],  vₚ(Cᴿ(N,j))∈{0,1},  ∏ⱼCᴿ(N,j)=ℜ_N',
@@ -898,7 +898,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T69',
-    color: '#84cc16',
+    color: '#4c7a4a',
     status: 'CRITICAL BLOCK AVERAGE · RH-EQUIVALENT',
     title: 'A √N/log N consecutive-row sign is still zero-complete',
     formula: 'W_N=⌊√N/log(2N)⌋:  RH ⇔ Σ(h=0…W_N) L⁽¹⁾(N+h) ≥ 0 eventually',
@@ -908,7 +908,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T70',
-    color: '#fb7185',
+    color: '#c23a1c',
     status: 'UNIFORM LOCAL CARRY SHORTCUTS FAIL',
     title: 'All-N and primewise block proofs break',
     formula: 'm≥2: Σ(r=0…p−1) vₚ(ℜ_{mp+r}/P_{mp+r}) = −p(m−1)(p+1)/2',
@@ -918,7 +918,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T71',
-    color: '#38bdf8',
+    color: '#3f6b86',
     status: 'POSITIVE POTENTIAL · DERIVATIVE SIGN OPEN',
     title: 'The first-radix defect is a sampled right tangent',
     formula: '𝔘(x) ≥ 0,  𝔘(x)→γ_E/2,  N³𝔘′₊(N)=L_N⁽¹⁾',
@@ -928,7 +928,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T72',
-    color: '#22d3ee',
+    color: '#3f6b86',
     status: 'EXACT BLOCK CALCULUS · SIGN STILL OPEN',
     title: 'The positive potential has affine drift and radical resets',
     formula: 'G(x)=L⁽¹⁾ₙ−𝒞ₙ(x−n);  S(N,H)=∫x³𝔘′(x)dx + ½Σ𝒞ₙ',
@@ -938,7 +938,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T73',
-    color: '#fbbf24',
+    color: '#b58a2e',
     status: 'PRIME-SQUARE TRANSPORT · LOCAL SHORTCUTS FAIL',
     title: 'Positive carry mass lives above √N',
     formula: 'p²≤M ⇒ vₚ(ℜ_M/P_M)≤0;  Δ₁=1/8,  Δₘ<0 for every fixed m≥2',
@@ -948,7 +948,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T74',
-    color: '#c084fc',
+    color: '#6d55b8',
     status: 'QUANTIFIED POINTWISE TRANSPORT BRACKET',
     title: 'Low primes impose an exact load on reset intervals',
     formula: '−Q₊θ(H) ≤ Σₚ≤H Eₚlog p ≤ −Q₋θ(H);  High≥Q₊θ(H) ⇒ block≥0',
@@ -958,7 +958,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T75',
-    color: '#2dd4bf',
+    color: '#4c7a4a',
     status: 'CRITICAL TRANSPORT · RH-EQUIVALENT',
     title: 'The sufficient transport endpoint gives no asymptotic shortcut',
     formula: 'RH ⇔ High(N,W_N) ≥ Q₊(N,W_N)θ(W_N) eventually',
@@ -968,7 +968,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T76',
-    color: '#60a5fa',
+    color: '#3f6b86',
     status: 'EXACT CENTERED CORRIDOR · ENDPOINT RH-EQUIVALENT',
     title: 'Residue centering isolates a thin modular covariance',
     formula: 'D_low=D_cent+C_cov,  |C_cov|≤E_H=3HΘ₁(H)/16;  |S−Ξ|≤E_H',
@@ -978,7 +978,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T77',
-    color: '#f97316',
+    color: '#b58a2e',
     status: 'POSITIVE RESET NORMAL FORM · SMOOTHING NO-GAIN',
     title: 'All-prime resets are positive, but the baseline is zero-complete',
     formula: 'Ξ=B̂+R⁺,  R⁺≥0;  S(N,W_N)/(W_N+1)=L_N^(1)+O(N³ᐟ²/log N)',
@@ -989,7 +989,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T78',
-    color: '#a3e635',
+    color: '#4c7a4a',
     status: 'SQUARE-ROOT SAMPLING · RH-EQUIVALENT',
     title: 'One good centered checkpoint per outer √N interval is enough',
     formula: 'RH ⇔ max_{N≤M≤N+⌊√N⌋} Ξ(M,W_M) ≥ 0 eventually',
@@ -1000,7 +1000,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T79',
-    color: '#22d3ee',
+    color: '#3f6b86',
     status: 'SQUARE-KERNEL MAJORITY · EXACT CANCELLATION',
     title: 'Most radical steps are positive, but square-kernel spikes cancel them',
     formula: 'H=⌊√N⌋: #{N<n≤N+H:D_n>0}=7H/π²+O(N¹ᐟ³)',
@@ -1011,7 +1011,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T80',
-    color: '#a78bfa',
+    color: '#6d55b8',
     status: 'POSITIVE OUTER SMOOTHING · ZERO WAVE RETAINED',
     title: 'A second averaging layer changes covariance, not the RH baseline',
     formula: '𝒜_N(ω)=L_N^(1)+o(N³ᐟ²);  zero multiplier=1+O_ρ(N⁻¹ᐟ²)',
@@ -1021,7 +1021,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T81',
-    color: '#f472b6',
+    color: '#c23a1c',
     status: 'SUBLINEAR BOOTSTRAP · GAP LOSS REMOVED',
     title: 'Every fixed N^δ checkpoint window below linear scale is sharp',
     formula: '0≤δ<1, κ<5/2: (∃C, one Ξ≥−CM^κ per late N^δ window) ⇔ Re ρ≤max{1/2,κ−3/2}',
@@ -1032,7 +1032,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T82',
-    color: '#f59e0b',
+    color: '#b58a2e',
     status: 'EXACT SQUARE-KERNEL BALLOT · WRONG-SIGN DEBT',
     title: 'The natural radical ballot sum is already the higher-radix correction',
     formula: 'H_N=(N−1)J_N−2Σm<N J_m=Σn≤N(2n−N−1)b(n)≥0;  L_N^(1)=ℓ_N−H_N',
@@ -1042,7 +1042,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T83',
-    color: '#34d399',
+    color: '#4c7a4a',
     status: 'SIGNED HAAR ATTENUATION · SUFFICIENT DRIFT OPEN',
     title: 'Mass-zero cancellation loses half a power; rebuilding the level gives it back',
     formula: 'A_r=adaptive L^(1) √N-block mean;  0≤κ≤3/2: eventually A_{r+1}−A_r≥−Cn_r^κ ⇒ Re ρ≤max{1/2,κ−1/2}',
@@ -1052,7 +1052,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T84',
-    color: '#fb923c',
+    color: '#b58a2e',
     status: 'HARMONIC COMPENSATION · RH-COMPLETE AT √N DEPTH',
     title: 'The positive top cell is discharged by the lower harmonic cells',
     formula: 'G_K^cell=M_K+Q_K;  M_K=N²K/[2(K+1)²]−N(ℋ_{K+1}−1);  K≈√N: Q_K≥−CN¹⁺σ ⇔ Re ρ≤σ',
@@ -1062,7 +1062,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T85',
-    color: '#c084fc',
+    color: '#6d55b8',
     status: 'ADAPTIVE CHANNEL SPLIT · CROSS-CORRELATION OPEN',
     title: 'The signed drift is prime error minus the repeated-prime ballot debt',
     formula: 'A_{r+1}−A_r=−Δ_rVθ−Δ_rH+Δ_rΓ;  |Δ_rH|≪N⁴ᐟ³(log N)¹ᐟ³;  RH ⇔ Δ_rVθ≤CN log²N eventually',
@@ -1072,7 +1072,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T86',
-    color: '#38bdf8',
+    color: '#3f6b86',
     status: 'PRIME-POWER RENORMALIZATION · SECOND CONDITION EXPOSED',
     title: 'Completing θ to ψ preserves the zero wave and isolates the radix noise',
     formula: 'Vθ+H=Vψ+K;  B_W ⇔ RH ∧ B_K;  Var_nat(R_H)≫√H log H (fixed H first)',
@@ -1082,7 +1082,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T87',
-    color: '#22c55e',
+    color: '#4c7a4a',
     status: 'MACRO DILATION ESCAPE · HARMONIC SIGN LADDER',
     title: 'A nonlocal secant removes the extra radix condition but remains zero-complete',
     formula: '𝔇₄F=N⁻¹ᐟ²(F(4N)−8F(N));  Re ρ≤σ ⇔ 𝔇₄Vθ≤CN^(σ+1/2)',
@@ -1092,7 +1092,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T88',
-    color: '#a3e635',
+    color: '#4c7a4a',
     status: 'POSITIVE ANNULAR COMPARATOR · STRICT REDUCTION',
     title: 'RH is equivalent to one nonnegative prime tent on (N, 4N]',
     formula: 'RH ⇔ 2Σ_{N<p≤2N}(p−N)log p + Σ_{2N<p≤4N}(4N−p)log p ≤ 3N² eventually',
@@ -1102,7 +1102,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T89',
-    color: '#e879f9',
+    color: '#6d55b8',
     status: 'DILATION SIGN BARRIER · HARMONIC ZERO RESTORATION',
     title: 'Removing the square bias necessarily restores a signed zero wave',
     formula: 'Q(3/2)=0 ⇒ ∫w(u)u⁻¹ᐟ²du=0 ⇒ w changes sign;  c_K,N(ρ)=1/[ρ(ρ+1)]+o_ρ(1)',
@@ -1112,7 +1112,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T90',
-    color: '#fbbf24',
+    color: '#b58a2e',
     status: 'ANNULAR LCM FACTORIZATION · SQUARE-ONLY STRENGTHENING',
     title: 'The positive tent splits exactly into prime-power layers',
     formula: 'RH ⇔ L₊Vψ(N)≤log Q₂,N eventually;  A_N=∏ₐQₐ,N=∏_{m=N}^{2N−1} lcm(1…2m)lcm(1…2m+1)/lcm(1…m)²',
@@ -1122,7 +1122,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T91',
-    color: '#2dd4bf',
+    color: '#4c7a4a',
     status: 'NARROWER POSITIVE ANNULUS · STRICT SUPPORT REFINEMENT',
     title: 'A zero-complete rational tent shrinks the support below factor four',
     formula: 'RH ⇔ 17Σ_{81N<p≤153N}(p−81N)log p + 9Σ_{153N<p≤289N}(289N−p)log p ≤ 127296N² eventually',
@@ -1132,7 +1132,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T92',
-    color: '#818cf8',
+    color: '#3f6b86',
     status: 'JOINT ZERO-COMPLETENESS · SHARP METHOD FLOOR',
     title: 'Two positive tents remove each other’s blind multiplier zeros',
     formula: 'c=124/123; m=61,62; support c¹⁵³=3.4517217537; T92 concave-floor b*=3.4513363850',
@@ -1142,7 +1142,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T93',
-    color: '#4ade80',
+    color: '#4c7a4a',
     status: 'VERIFIED-ZERO ANNULUS · STRICT SUPPORT REDUCTION',
     title: 'The first 1,000 zeros cut the positive support to 529/225',
     formula: 'RH ⇔ 23Σ₂₂₅N<p≤₃₄₅N(p−225N)log p + 15Σ₃₄₅N<p≤₅₂₉N(529N−p)log p ≤ 419520N² eventually',
@@ -1152,7 +1152,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T94',
-    color: '#fb7185',
+    color: '#c23a1c',
     status: 'FACTORIAL-COVER BARRIER · CROSS-FACTOR ROUTE OPEN',
     title: 'Rowwise binomial and multinomial covers overpay before the RH scale',
     formula: 'factorwise cost ≥2log2·127296N²; allowance=127296N²; unavoidable gap=49173.726993…N²',
@@ -1162,7 +1162,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T95',
-    color: '#c084fc',
+    color: '#6d55b8',
     status: 'ALL-SPLINE METHOD FLOOR · GLOBAL-AMPLITUDE CLASSIFICATION',
     title: 'Nonconcavity cannot beat the global absolute-amplitude floor',
     formula: 'finite w≥0, PL on [1,B] ⇒ Qw(3/2)/‖Qw‖₁,₃ᐟ₂ ≤ max₁<u<B (L_B(u)−u³ᐟ²)/(L_B(u)+u³ᐟ²)',
@@ -1172,7 +1172,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T96',
-    color: '#34d399',
+    color: '#4c7a4a',
     status: '50,000-ZERO ANNULUS · STRICT SUPPORT REDUCTION',
     title: 'A certified a=32/21 tent cuts support to 1024/441',
     formula: 'RH ⇔ 32Σ₄₄₁N<p≤₆₇₂N(p−441N)log p + 21Σ₆₇₂N<p≤₁₀₂₄N(1024N−p)log p ≤ 2154768N² eventually',
@@ -1182,7 +1182,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T97',
-    color: '#f59e0b',
+    color: '#b58a2e',
     status: 'EXACT CROSS-FACTOR BALLOT · TESTED LOCAL SHORTCUTS FAIL',
     title: 'The annular cofactor is an adjacent Pascal/carry mean comparison',
     formula: 'log(S_N/C_N)=2760N(mean₃₄₅N≤u<₅₂₉N log K_u − mean₂₂₅N≤u<₃₄₅N log K_u)',
@@ -1192,7 +1192,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T98',
-    color: '#38bdf8',
+    color: '#3f6b86',
     status: 'UNCONDITIONAL RECURRENCE · CERTIFIED GLOBAL AVERAGE',
     title: 'The T93 slack is negative infinitely often—but not yet eventually',
     formula: 'D(N)<0 for infinitely many integer N;  ∫₁∞D(x)x⁻³dx < −25000',
@@ -1202,7 +1202,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T99',
-    color: '#22d3ee',
+    color: '#3f6b86',
     status: 'UNCONDITIONAL DEEP RECURRENCE · EXPLICIT LONG BLOCKS',
     title: 'The prime-square pole forces super-√N runs of valid scales',
     formula: 'liminf D₂₃,₁₅(N)/N³ᐟ²≤−11081.705…;  liminf D₃₂,₂₁(N)/N³ᐟ²≤−40805.171…',
@@ -1212,7 +1212,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T100',
-    color: '#fbbf24',
+    color: '#b58a2e',
     status: 'SHARPEST EXACT CARRY BALLOT · AGGREGATE ROUTE OPEN',
     title: 'The 32/21 annulus inherits the full cross-factor bottleneck',
     formula: 'log(S*_N/C*_N)=7392N(mean₆₇₂N≤u<₁₀₂₄N log K_u − mean₄₄₁N≤u<₆₇₂N log K_u)',
@@ -1222,7 +1222,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T101',
-    color: '#2dd4bf',
+    color: '#4c7a4a',
     status: 'ALL-INTEGER RH CRITERION · LONG BLOCKS PROVED · EVENTUAL SIGN OPEN',
     title: 'Proportional carry buffering exposes the exact aggregate frontier',
     formula: 'Fᵣ,ₛ(k)=Σₕ₌ₖ^⌊rk/s⌋⁻¹qᵣ,ₛ(h);  RH ⇔ Fᵣ,ₛ(sN+d)>0 eventually for each fixed d',
@@ -1232,7 +1232,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T102',
-    color: '#fb7185',
+    color: '#c23a1c',
     status: 'EXACT BEATTY TRANSPORT · GLOBAL ALL-k SCALAR LAWS FAIL',
     title: 'The shared floor-word pattern transports block mass—not sign',
     formula: '2r=3s+1;  ΔF=(𝒯−I)q;  e(k+1)−e(k)=(1,2)^m,2',
@@ -1242,7 +1242,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T103',
-    color: '#a78bfa',
+    color: '#6d55b8',
     status: 'ZERO-STRIP THEOREM · SQUARE-ROOT LOCAL FILTERS RH-COMPLETE',
     title: 'Bounded-ℓ¹ local smoothing cannot bridge the proved blocks',
     formula: '𝒜(k)=Σⱼaₖ,ⱼF(k+j)≥0 eventually  ⇒  Re ρ≤max(1/2,δ)',
@@ -1252,7 +1252,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T104',
-    color: '#f59e0b',
+    color: '#b58a2e',
     status: 'FIXED-MODE CONDITIONING BOUND · CRITICAL COMPLEXITY REQUIRED',
     title: 'Attenuating one pole already leaves the safe local regime',
     formula: '|Mₖ(z)−1|≤C_z(Hₖ/k)‖aₖ‖₁;  |Mₖ(z)|≤η<1 ⇒ ‖aₖ‖₁≳k/Hₖ',
@@ -1262,7 +1262,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T105',
-    color: '#38bdf8',
+    color: '#3f6b86',
     status: 'FINITE MULTIPLICATIVE NOTCHES · RH-SAFE BUT SPECTRUM-INCOMPLETE',
     title: 'Known pole modes can be removed without losing the equivalence',
     formula: 'P(z)=Σaνcνᶻ;  pℓ(z)=(Rℓ+qℓᶻ)/(Rℓ+1),  qℓ=e^(π/γℓ)',
@@ -1272,7 +1272,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T106',
-    color: '#fb7185',
+    color: '#c23a1c',
     status: 'REAL PHASE-CANCELLATION BARRIER · QUADRATIC CONDITIONING',
     title: 'A real local filter needs second-order leverage to cancel one pole',
     formula: '|M(z)|≤η<|Im z|/|z|  ⇒  ‖a‖₁≳(k/H)²',
@@ -1282,7 +1282,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T107',
-    color: '#a78bfa',
+    color: '#6d55b8',
     status: 'ADAPTIVE COMPLETE-WAVE BARRIER · BOTH SIGNS SURVIVE ON RH',
     title: 'Subcritical local adaptation cannot phase-lock a square-notched spectrum',
     formula: 'ℬ_P(k)=E_P(k)+o(k³ᐟ²)=k³ᐟ²{G_P(log k)+o(1)}=Ω±(k³ᐟ²)',
@@ -1292,7 +1292,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T108',
-    color: '#2dd4bf',
+    color: '#4c7a4a',
     status: 'EXACT PRIME-JUMP ABEL FORM · COMPENSATED MEAN FRONTIER',
     title: 'The scalar carry buffer is a difference of floor-aligned prime-error means',
     formula: 'eₖ=⌊rk/s⌋, H=eₖ−k;  Fᵣ,ₛ(k)=rsH{Ē[sk,seₖ]−Ē[rk,reₖ]−βᵣ,ₛ(k)}',
@@ -1302,7 +1302,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T109',
-    color: '#22d3ee',
+    color: '#3f6b86',
     status: 'GLOBAL POSITIVE-KERNEL CUMULATIVE · TAIL FLOOR RH-EQUIVALENT',
     title: 'Critical damping turns any persistent lower floor into RH',
     formula: 'ℒ_d(X)=Σ₁≤N≤X F(sN+d)/N⁵ᐟ²;  limsup ℒ_d(X)/log X ≥ Bᵣ,ₛ unconditionally',
@@ -1312,7 +1312,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T110',
-    color: '#34d399',
+    color: '#4c7a4a',
     status: 'EXACT BUFFER IDENTITY · EVENTUAL ALL-U SIGN REFUTED BY T119',
     title: 'One terminal buffer absorbs every tested ordered drawdown',
     formula: 'Λᵣ,ₛ(k,u)=Fᵣ,ₛ(k)+Σₕ₌ₖᵘ⁻¹qᵣ,ₛ(h)=R(eₖ)+R(u)−2R(k)',
@@ -1322,7 +1322,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T111',
-    color: '#fbbf24',
+    color: '#b58a2e',
     status: 'JOINT STRICTLY-INTERIOR RH EQUIVALENCE · RIGOROUS ZERO BUDGET',
     title: 'Two interior terminal samples remove every shared spectral blind spot',
     formula: 'RH ⇔ Λ₂₃,₁₅(15N,21N)>0 and Λ₂₃,₁₅(15N,22N)>0 eventually; likewise Λ₃₂,₂₁(21N,30N)>0 and Λ₃₂,₂₁(21N,31N)>0 eventually',
@@ -1332,7 +1332,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T112',
-    color: '#fb7185',
+    color: '#c23a1c',
     status: 'SINGLE STRICT-INTERIOR RH EQUIVALENCE · ARB/TURING CERTIFIED',
     title: 'One interior ordering carries the complete zero obstruction',
     formula: 'RH ⇔ Λ₃₉,₂₅(24N,34N)−Λ₃₉,₂₅(24N,25N)>0 eventually ⇔ ∏₉₇₅N≤u<₁₃₂₆N Kᵤ²⁵ > ∏₆₂₅N≤u<₈₅₀N Kᵤ³⁹ eventually',
@@ -1342,7 +1342,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T113',
-    color: '#c084fc',
+    color: '#6d55b8',
     status: 'UNCONDITIONAL DEEP RECURRENCE · LONG POSITIVE PRODUCT BLOCKS',
     title: 'The single comparator wins deeply on infinitely many whole blocks',
     formula: 'limsup ΔN/N³ᐟ² ≥ BΔ;  BΔ=650(√39−5)(34√34−125)=59279.380606…',
@@ -1352,7 +1352,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T114',
-    color: '#60a5fa',
+    color: '#3f6b86',
     status: 'POWER-CUMULATIVE RECURRENCE · NATURAL FLOOR RH-EQUIVALENT',
     title: 'Every power weighting keeps the off-line pole to the right',
     formula: 'α≤5/2, κ=5/2−α:  limsup ℒα(X)/Gκ(X) ≥ BΔ;  RH ⇔ ℒα(X) ≥ −CX^κ on a tail',
@@ -1362,7 +1362,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T115',
-    color: '#2dd4bf',
+    color: '#4c7a4a',
     status: 'UNCONDITIONAL MOVING-HEAT EXTRACTION · POWER-GAP THEOREM',
     title: 'Every 29/25 power window contains a deep valid comparator',
     formula: 'ℋΔ(X)=ΣN≥1 ΔN N⁻⁵ᐟ² 𝒦X(N/X) → BΔ;  ∀Y≫1 ∃N∈[Y,Y²⁹ᐟ²⁵]: ΔN>(BΔ−ε)N³ᐟ²',
@@ -1372,7 +1372,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T116',
-    color: '#38bdf8',
+    color: '#3f6b86',
     status: 'VERIFIED-HEIGHT HEAT SHARPENING · NEAR-UNIT POWER GAPS',
     title: 'Every almost-unit power window contains a whole deep block',
     formula: 'H=3,000,175,332,800; θH=(2H+1)/(2H−3)=1.0000000000006666277…; liminf log Pε(X)/log X ≥ 1/(2θH)',
@@ -1382,7 +1382,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T117',
-    color: '#a78bfa',
+    color: '#6d55b8',
     status:
       'INFINITE ZERO-ADAPTIVE NOTCH · EXACT CLASSIFICATION · NO INDEPENDENT ARITHMETIC SIGN',
     title: 'The complete fixed critical-wave notch remains RH-equivalent',
@@ -1394,7 +1394,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T118',
-    color: '#f59e0b',
+    color: '#b58a2e',
     status:
       'SPARSE TERMINAL RECTANGLES · UNCONDITIONAL ENDPOINT LAYERS',
     title: 'Deep arithmetic buffers protect two growing prefix layers',
@@ -1406,7 +1406,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T119',
-    color: '#ef4444',
+    color: '#c23a1c',
     status:
       'EXPLICIT PHASE REVERSAL · EVENTUAL ALL-U POSITIVITY FALSE · RH OPEN',
     title: 'A certified 10,000-zero phase breaks the all-prefix conjecture',
@@ -1420,7 +1420,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T120',
-    color: '#f97316',
+    color: '#b58a2e',
     status: 'RECURRENT BRACKETED ISLAND · RH-CONDITIONAL ROUTE DIAGNOSTIC',
     title: 'The explicit phase forces a down-crossing and an up-crossing',
     formula:
@@ -1433,7 +1433,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T121',
-    color: '#a78bfa',
+    color: '#6d55b8',
     status: 'SELF-SIMILAR RADIX OBSTRUCTION · UNCONDITIONAL ROUTE NO-GO',
     title: 'Monotone cross-prime transport cancels before the square layer',
     formula:
@@ -1446,7 +1446,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T122',
-    color: '#06b6d4',
+    color: '#3f6b86',
     status:
       'THREE NESTED NEGATIVE INTERVALS · RH-CONDITIONAL MACROSCOPIC BLOCKS',
     title: 'One certified phase controls three width-versus-depth blocks',
@@ -1460,7 +1460,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T123',
-    color: '#f59e0b',
+    color: '#b58a2e',
     status:
       'EXACT WHOLE-BLOCK PRODUCT · UNCONDITIONAL POSITIVE LIMSUP / RH-CONDITIONAL NEGATIVE RECURRENCE',
     title: 'The deep prefix block aggregates to a sign-changing ballot',
@@ -1474,7 +1474,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T124',
-    color: '#14b8a6',
+    color: '#4c7a4a',
     status:
       'OPEN-STRIP RESPONSE RIGIDITY · PURE-MODE HOMOGENEOUS RECTIFICATION NO-GO',
     title: 'An exact fixed-symbol adaptation freezes; rectification creates Landau’s real pole',
@@ -1488,7 +1488,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T125',
-    color: '#38bdf8',
+    color: '#3f6b86',
     status:
       'FIXED L¹ BLOCK REWEIGHTING · BLIND-LATTICE ROBUSTNESS · DISCRETE LIMIT CAVEAT',
     title: 'Every fixed absolutely continuous block weight inherits the blind lattice',
@@ -1500,7 +1500,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T126',
-    color: '#f472b6',
+    color: '#c23a1c',
     status:
       'EVERY FIXED INTERIOR MEASURE · INFINITELY MANY RIGHT-HALF BLIND POINTS · RH OPEN',
     title: 'Atomic and singular fixed weights cannot remove every blind point',
@@ -1515,7 +1515,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T127',
-    color: '#a78bfa',
+    color: '#6d55b8',
     status:
       'BOUNDED MOVING MEASURE FAMILY · COMMON RIGHT-HALF ZERO RECTANGLE · RH OPEN',
     title: 'Row-dependent interior weights cannot push every blind point away',
@@ -1528,7 +1528,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T128',
-    color: '#22d3ee',
+    color: '#3f6b86',
     status:
       'ONE ROUNDED STRICT-INTERIOR PREFIX · RH-EQUIVALENT · SIGN OPEN',
     title: 'A tuned moving endpoint recovers one zero-free fixed comparator',
@@ -1542,7 +1542,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T129',
-    color: '#f59e0b',
+    color: '#b58a2e',
     status:
       'UNCONDITIONAL NEAR-UNIT POWER-WINDOW BLOCKS · EXACT BEATTY RECURRENCE · RH OPEN',
     title: 'The tuned adaptive prefix wins deeply in every near-unit power window',
@@ -1557,7 +1557,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T130',
-    color: '#34d399',
+    color: '#4c7a4a',
     status:
       'NATURAL-SCALE FLOOR / LOCAL DRIFT RH-EQUIVALENCE · EXACT CUBIC/TENT NO-GOS · RH OPEN',
     title: 'The missing bridge is a natural-scale floor, not another positive kernel',
@@ -1572,7 +1572,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T131',
-    color: '#60a5fa',
+    color: '#3f6b86',
     status:
       'LCM-COMPLETED LOCAL BALLOT · EITHER ONE-SIDED DRIFT IS RH-EQUIVALENT · RH OPEN',
     title: 'Prime-power completion isolates the zero channel in one exact row update',
@@ -1587,7 +1587,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T132',
-    color: '#f472b6',
+    color: '#c23a1c',
     status:
       'FIVE FIXED ENDPOINT BANDS · NO LETTER MULTIPLIER BLIND SPOT · RH OPEN',
     title: 'The signed row kernel collapses to five bounded-width Chebyshev-error bands',
@@ -1602,7 +1602,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T133',
-    color: '#a78bfa',
+    color: '#6d55b8',
     status:
       'NONNEGATIVE LOCAL-FILTER NO-GO · FIXED OFF-LINE MODES SURVIVE · RH OPEN',
     title: 'Positive local averaging cannot unsign or notch the completed row',
@@ -1617,7 +1617,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T134',
-    color: '#22d3ee',
+    color: '#3f6b86',
     status:
       'RARE-DEFECT CURVATURE · EITHER ONE-SIDED BOUND IS RH-EQUIVALENT · RH OPEN',
     title: 'The rare 140 step isolates one RH-complete 32/21 micro-cell',
@@ -1632,7 +1632,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T135',
-    color: '#34d399',
+    color: '#4c7a4a',
     status:
       'EXACT MICRO-CELL INTEGER COMPARATOR · EITHER ORIENTATION IS RH-EQUIVALENT · RH OPEN',
     title: 'One factorial/lcm comparison captures the universal 32/21 defect cell',
@@ -1647,7 +1647,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T136',
-    color: '#a78bfa',
+    color: '#6d55b8',
     status:
       'FIXED-DEPTH COMPOSITION COLLAPSE · SAME RH-COMPLETE ORDER · RH OPEN',
     title: 'Every finite 32/21 ladder chain is one wider annulus',
@@ -1662,7 +1662,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T137',
-    color: '#f472b6',
+    color: '#c23a1c',
     status:
       'ADJACENT-DEPTH DECONVOLUTION · ALL THREE-DEPTH SIGNS OCCUR · RH OPEN',
     title: 'Crossing neighboring depths returns the original micro-cell',
@@ -1677,7 +1677,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T138',
-    color: '#fb7185',
+    color: '#c23a1c',
     status:
       'EVERY FIXED FINITE OVERLAP IS SIGN-RECURRENT ON RH · ADAPTIVE FRONTIER OPEN',
     title: 'No fixed finite depth coupling can settle to one orientation',
@@ -1692,7 +1692,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T139',
-    color: '#38bdf8',
+    color: '#3f6b86',
     status:
       'UNIFORMLY SUMMABLE INFINITE DEPTH IS SIGN-RECURRENT ON RH · NON-SUMMABLE FRONTIER OPEN',
     title: 'Finite arithmetic cost cannot hide the infinite critical wave',
@@ -1707,7 +1707,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T140',
-    color: '#f59e0b',
+    color: '#b58a2e',
     status:
       'SUBCRITICAL ADAPTIVE PROFILE DRIFT CANNOT FIX THE SIGN · CRITICAL-COST FRONTIER OPEN',
     title: 'Slow depth adaptation cannot outrun the T139 wave',
@@ -1722,7 +1722,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T141',
-    color: '#a78bfa',
+    color: '#6d55b8',
     status:
       'EXACT ADAPTIVE DUAL COST · CRITICAL BUDGET NECESSARY · INDEPENDENT DIRECTION OPEN',
     title: 'The cheapest sign controller is exact—and circular',
@@ -1737,7 +1737,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T142',
-    color: '#22d3ee',
+    color: '#3f6b86',
     status:
       'EVERY FIXED PERIODIC CONTROLLER IS SIGN-RECURRENT ON RH · APERIODIC STATE FRONTIER OPEN',
     title: 'Residue-class control cannot escape the critical wave',
@@ -1752,7 +1752,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T143',
-    color: '#34d399',
+    color: '#4c7a4a',
     status:
       'LOW-DISCREPANCY APERIODIC CONTROL IS SIGN-RECURRENT ON RH · CRITICAL-DISCREPANCY FRONTIER OPEN',
     title: 'Balanced aperiodic state still samples the whole wave',
@@ -1767,7 +1767,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T144',
-    color: '#60a5fa',
+    color: '#3f6b86',
     status:
       'INPUT-INDEPENDENT RANDOM CONTROL IS SIGN-RECURRENT ALMOST SURELY ON RH · FEEDBACK FRONTIER OPEN',
     title: 'Random state cannot decorrelate the critical wave',
@@ -1782,7 +1782,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T145',
-    color: '#f472b6',
+    color: '#c23a1c',
     status:
       'FINITE HOMOGENEOUS MARKOV CONTROL IS SIGN-RECURRENT ON EACH ACTIVE RECURRENT CLASS · TIME-INHOMOGENEOUS FRONTIER OPEN',
     title: 'Markov dependence still cannot select one sign',
@@ -1797,7 +1797,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T146',
-    color: '#c084fc',
+    color: '#6d55b8',
     status:
       'COMMON-LAW UNIFORMLY MIXING NONHOMOGENEOUS CONTROL IS SIGN-RECURRENT · MARGINAL-DRIFT FRONTIER OPEN',
     title: 'Changing the transition kernel is not enough',
@@ -1812,7 +1812,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T147',
-    color: '#fb7185',
+    color: '#c23a1c',
     status:
       'ARBITRARY HISTORY-DEPENDENT RANDOMNESS REDUCES TO CRITICAL PREDICTABLE MARGINAL BUDGET · INDEPENDENT CORRELATION OPEN',
     title: 'Only the predictable marginal can carry the sign',
@@ -1827,7 +1827,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T148',
-    color: '#2dd4bf',
+    color: '#4c7a4a',
     status:
       'SQUAREFREE AND NONSQUAREFREE ARITHMETIC STATES ARE SIGN-RECURRENT ON RH · PRIME-CORRELATED MARGINAL FRONTIER OPEN',
     title: 'Squarefree index structure still samples the whole wave',
@@ -1842,7 +1842,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T149',
-    color: '#fbbf24',
+    color: '#b58a2e',
     status:
       'POWER-SUMMABLE DIVISOR STATES ARE SIGN-RECURRENT ON RH · HARMONIC-BORDERLINE / PRIME-CORRELATION FRONTIER OPEN',
     title: 'Summable divisor arithmetic only rescales the wave',
@@ -1857,7 +1857,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T150',
-    color: '#a3e635',
+    color: '#4c7a4a',
     status:
       'LOG-SQUARED HARMONIC DIVISOR STATES ARE SIGN-RECURRENT ON RH · BALANCED LOG-TAIL / PRIME-CORRELATION FRONTIER OPEN',
     title: 'Even power-borderline sieves rescale the wave',
@@ -1872,7 +1872,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T151',
-    color: '#38bdf8',
+    color: '#3f6b86',
     status:
       'β=3 SPARSE-PRIME SIEVE IS EXACTLY X³ᐟ²-CRITICAL · SIGNED PRIME-DILATION CORRELATION OPEN',
     title: 'The first critical arithmetic controller is explicit',
@@ -1887,7 +1887,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T152',
-    color: '#f472b6',
+    color: '#c23a1c',
     status:
       'EVERY FIXED ZERO PACKET DECORRELATES FROM THE CRITICAL SIEVE · UNIFORM HIGH-ZERO RESONANCE OPEN',
     title: 'Critical alignment must escape to infinite height',
@@ -1902,7 +1902,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T153',
-    color: '#34d399',
+    color: '#4c7a4a',
     status:
       'EVERY NATURAL-DENSITY SELECTOR PRESERVES THE FIXED-PROFILE WAVE ON RH · ZERO/NONDENSITY/INFINITE-PROFILE FRONTIER',
     title: 'The large sieve closes the critical arithmetic controller',
@@ -1917,7 +1917,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T154',
-    color: '#60a5fa',
+    color: '#3f6b86',
     status:
       'NATURAL-DENSITY SELECTORS PRESERVE EVERY UNIFORMLY SUMMABLE PROFILE ON RH · NONSUMMABLE / NONDENSITY FRONTIER',
     title: 'Natural density also survives infinite ladder depth',
@@ -1932,7 +1932,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T155',
-    color: '#c084fc',
+    color: '#6d55b8',
     status:
       'DOMINATED NATURAL-MEAN PROFILE SCHEDULES COLLAPSE TO THEIR MEAN ON RH · NONDENSITY / UNDOMINATED FRONTIER',
     title: 'A stable mean profile cannot steer the ladder',
@@ -1947,7 +1947,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T156',
-    color: '#fb7185',
+    color: '#c23a1c',
     status:
       'EVERY NONDENSITY SELECTOR HAS A MACROSCOPIC DILATION LIMIT ON RH · PHASE-LOCKED LOG-SCALE SHAPE OPEN',
     title: 'Nondensity reduces to a hydrodynamic phase lock',
@@ -1962,7 +1962,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T157',
-    color: '#fbbf24',
+    color: '#b58a2e',
     status:
       'SMOOTH LOG-PERIODIC CONTROLLERS ARE SIGN-RECURRENT OFF A COUNTABLE ZETA-RESONANCE SET · EXCEPTIONAL BIAS OPEN',
     title: 'Only zeta-resonant log periods can bias the wave',
@@ -1977,7 +1977,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T158',
-    color: '#2dd4bf',
+    color: '#4c7a4a',
     status:
       'EXACT BINARY LOG BLOCKS ARE SIGN-RECURRENT OFF THE ZETA-RESONANCE SET · EXCEPTIONAL BLOCK BIAS OPEN',
     title: 'Sharp logarithmic blocks do not evade generic recurrence',
@@ -1992,7 +1992,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T159',
-    color: '#f97316',
+    color: '#b58a2e',
     status:
       'EXACT RESONANT BIAS DERIVED · FIVE-DEPTH FIRST-ZERO CANDIDATE BREACHED AT 1,000 ZEROS · TAIL / OPTIMIZATION OPEN',
     title: 'The first resonant block almost works, then breaks',
@@ -2007,7 +2007,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T160',
-    color: '#22c55e',
+    color: '#4c7a4a',
     status:
       'EXACT RESONANT-PAIR POSITIVITY · DEPTH-9 RAYLEIGH LEAD SURVIVES 1,000-ZERO FINITE STRESS · TAIL / ROW TRANSFER OPEN',
     title: 'The resonant pair is positive; optimize everything else',
@@ -2022,7 +2022,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T161',
-    color: '#10b981',
+    color: '#4c7a4a',
     status:
       'RIGOROUS RH-CONDITIONAL COMPLETE RESPONSE · 10,000-ZERO ARB / TURING / HADAMARD CERTIFICATE · UNCONDITIONAL AGGREGATE OPEN',
     title: 'The exceptional block response is positive—including its infinite tail',
@@ -2037,7 +2037,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T162',
-    color: '#2dd4bf',
+    color: '#4c7a4a',
     status:
       'RIGOROUS TWO-PROFILE RH-CONDITIONAL RESPONSE · NO COMMON MULTIPLIER ZERO IN THE CRITICAL STRIP · FREQUENCY CONVERSE OPEN',
     title: 'Two positive profiles remove the multiplier blind spot',
@@ -2052,7 +2052,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T163',
-    color: '#38bdf8',
+    color: '#3f6b86',
     status:
       'UNCONDITIONAL ZERO EXPANSION · ISOLATED FINITE RIGHT-EDGE LANDAU REDUCTION · EXACT RESONANCE / INFINITE EDGE OPEN',
     title: 'The remaining frequency escape is now exact',
@@ -2067,7 +2067,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T164',
-    color: '#a78bfa',
+    color: '#6d55b8',
     status:
       'CONDITIONAL GLOBAL RIGHT-EDGE DICHOTOMY · JOINT COLLISION SHIELD OR ASYMPTOTIC ODD RESONANCE · BOTH EXCEPTIONS OPEN',
     title: 'Every infinite right-edge escape must shield or resonate',
@@ -2082,7 +2082,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T165',
-    color: '#fb7185',
+    color: '#c23a1c',
     status:
       'EXACT TWO-PERIOD NO-GAIN THEOREM · IRRATIONAL ODD LATTICES ASYMPTOTICALLY MEET · SAME-ZERO COUPLING OPEN',
     title: 'A second fixed period does not separate the Landau escape',
@@ -2097,7 +2097,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T166',
-    color: '#34d399',
+    color: '#4c7a4a',
     status:
       'COUNTABLE RH-POSITIVE DEPTH PROBES · EVERY FIXED COLLISION CLASS DETECTED · UNBOUNDED-MULTIPLICITY DIAGONAL SHIELD OPEN',
     title: 'Depth moments break every fixed collision shield',
@@ -2112,7 +2112,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T167',
-    color: '#fbbf24',
+    color: '#b58a2e',
     status:
       'GENERIC TWO-PROFILE COLLISION DETECTION · UNIFORM RH-POSITIVE PATH · PARAMETER / FINITE-PRODUCT / MOVING-EDGE MARGIN OPEN',
     title: 'One geometric profile generically detects every fixed collision',
@@ -2128,7 +2128,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T168',
-    color: '#22d3ee',
+    color: '#3f6b86',
     status:
       'PROVED SIX-PROFILE RH CRITERION · FINITE FOURIER SUPPORT · SIX ARITHMETIC ORDERS OPEN · FIRST-ZERO-TUNED',
     title: 'A finite-spectrum controller removes both analytic escapes',
@@ -2143,7 +2143,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T169',
-    color: '#a78bfa',
+    color: '#6d55b8',
     status:
       'PROVED THREE-DEPTH COLLISION SEPARATION · FOUR-INEQUALITY RH CRITERION · ARITHMETIC ORDERS OPEN',
     title: 'Three depths already separate every finite-spectrum collision',
@@ -2158,7 +2158,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T170',
-    color: '#34d399',
+    color: '#4c7a4a',
     status:
       'GENERIC SINGLE FINITE-PROFILE RH CRITERION · FULL-MEASURE PARAMETER SET · EXPLICIT PARAMETER OPEN',
     title: 'One generic finite profile carries the whole criterion',
@@ -2173,7 +2173,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T171',
-    color: '#f59e0b',
+    color: '#b58a2e',
     status:
       'ONE-PARAMETER FINITE-PROFILE RH CRITERION · COUNTABLE EXCEPTIONAL SET · EFFECTIVE PARAMETER OPEN',
     title: 'A cubic path leaves only countably many bad parameters',
@@ -2188,7 +2188,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T172',
-    color: '#fb7185',
+    color: '#c23a1c',
     status:
       'UNIFORM MULTIPLIER BLIND-SPOT NO-GO · ENTIRE POSITIVE CUBE · NOT A ZETA ZERO',
     title: 'Every profile in the positive cube retains a blind location',
@@ -2202,7 +2202,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T173',
-    color: '#2dd4bf',
+    color: '#4c7a4a',
     status:
       'EXACT DEPTH-12 POSITIVE ESCAPE · KNOWN BLIND BRANCH LEFT OF CRITICAL LINE · T174 TESTS GLOBAL CENSUS',
     title: 'A larger positive path escapes the known blind branch',
@@ -2217,7 +2217,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T174',
-    color: '#fb7185',
+    color: '#c23a1c',
     status:
       'RIGOROUS LOW MULTIPLIER BLIND SPOT · GLOBAL ZERO-FREE ESCAPE CLOSED · NOT A ZETA ZERO',
     title: 'The depth-12 profile is not globally multiplier-zero-free',
@@ -2232,7 +2232,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T175',
-    color: '#f59e0b',
+    color: '#b58a2e',
     status:
       'EXACT DILATION-ALIGNED NO-GAIN · TURING-CERTIFIED NONRESONANCE · RH RESPONSE Ω±',
     title: 'Endpoint periodicity removes the resonant bias',
@@ -2247,7 +2247,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T176',
-    color: '#fb7185',
+    color: '#c23a1c',
     status:
       'FINITE DERIVATIVE-LAYER NO-GO · ALL 0<a<1/2 · EXACT CONTINUUM UNTOUCHED',
     title: 'Finite derivative jets cannot repair the radial-layer tail',
@@ -2262,7 +2262,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T177',
-    color: '#fb7185',
+    color: '#c23a1c',
     status:
       'FULL INTEGER-MODULAR TOWER NO-GO · BOUNDED PSD COUPLING · ALL 0<a<1/2',
     title: 'Countably many isolated modular layers still cannot rescue the tail',
@@ -2277,7 +2277,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T178',
-    color: '#22d3ee',
+    color: '#3f6b86',
     status:
       'LOWER-EDGE DIMENSION CLASSIFIED · ATOMLESS TAIL RESCUE · GLOBAL PSD OPEN',
     title: 'Atomlessness is the mechanism behind the continuum tail rescue',
@@ -2292,7 +2292,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T179',
-    color: '#a78bfa',
+    color: '#6d55b8',
     status:
       'CANONICAL TWO-BRANCH MODEL NO-GO · INDEFINITE ON EVERY TAIL · FIXED ORDERS POSITIVE',
     title: 'The half-sech limit plus its leading negative branch is not globally PSD',
@@ -2307,7 +2307,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T180',
-    color: '#f472b6',
+    color: '#c23a1c',
     status:
       'EXACT ENDPOINT-ONLY MODEL NO-GO · EVERY TAIL INDEFINITE · 0<a<1/2',
     title: 'The full endpoint integral still needs the theta remainder',
@@ -2322,7 +2322,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T181',
-    color: '#34d399',
+    color: '#4c7a4a',
     status:
       'EXACT THETA LOCAL RESCUE · 384-BIT ARB CERTIFICATE · GLOBAL PSD OPEN',
     title: 'The theta remainder reverses the first boundary obstruction',
@@ -2337,7 +2337,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T182',
-    color: '#2dd4bf',
+    color: '#4c7a4a',
     status:
       'FIVE-LEVEL EXACT BOUNDARY JET POSITIVE · 512-BIT ARB · UNIFORMITY OPEN',
     title: 'The local theta rescue persists through order four',
@@ -2352,7 +2352,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T183',
-    color: '#fbbf24',
+    color: '#b58a2e',
     status:
       'EXACT ALL-ORDER BOUNDARY CRITERION · ONE-SIDED ENERGY · RH-EQUIVALENT SEQUENCE',
     title: 'The remaining gap is positive-half-line dominance at every derivative degree',
@@ -2367,7 +2367,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T184',
-    color: '#60a5fa',
+    color: '#3f6b86',
     status:
       'INFINITESIMAL FIVE-LEVEL JET POSITIVE · 512-BIT ARB · ALL-DEGREE GAP',
     title: 'The boundary rescue survives the zero-thickness first variation',
@@ -2382,7 +2382,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T185',
-    color: '#f59e0b',
+    color: '#b58a2e',
     status:
       'ALL-DEGREE INFINITESIMAL HIERARCHY · EXACTLY RH-EQUIVALENT · NOT A STRICT REDUCTION',
     title: 'Every infinitesimal jet level recovers the full de Branges criterion',
@@ -2397,7 +2397,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T186',
-    color: '#fb7185',
+    color: '#c23a1c',
     status:
       'NORMALIZED JET FLOOR · EXACT ZERO-MARGIN DICHOTOMY · COERCIVITY REFUTED',
     title: 'The finite jet exhaustion must approach RH at zero margin',
@@ -2412,7 +2412,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T187',
-    color: '#34d399',
+    color: '#4c7a4a',
     status:
       'TRANSLATED PARITY PACKETS POSITIVE · STRICT CONCAVITY · ZERO MARGIN FROM ABOVE',
     title: 'The canonical near-null packets cannot hide a negative direction',
@@ -2427,7 +2427,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T188',
-    color: '#c084fc',
+    color: '#6d55b8',
     status:
       'TRANSLATION MIXTURES · POSITIVE ENTRIES · LOCAL PSD IS RH-EQUIVALENT',
     title: 'Interference between translated packets already contains the full problem',
@@ -2442,7 +2442,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T189',
-    color: '#f97316',
+    color: '#b58a2e',
     status:
       'CONCAVITY-ONLY MIXTURE ROUTE REFUTED · 256-BIT ARB · MODEL CLASS ONLY',
     title: 'Positive individual packets do not control three-packet interference',
@@ -2457,7 +2457,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T190',
-    color: '#22d3ee',
+    color: '#3f6b86',
     status:
       'TWO-PACKET MATRICES POSITIVE · SHARP CONCAVITY THEOREM · THREE PACKETS FIRST UNRESTRICTED',
     title: 'Square-radius concavity controls exactly two translated packets',
@@ -2472,7 +2472,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T191',
-    color: '#a3e635',
+    color: '#4c7a4a',
     status:
       'FIVE-PACKET ORIGIN NEIGHBORHOOD POSITIVE · DIVIDED DIFFERENCES · SIX PACKETS FIRST LOCAL RISK',
     title: 'The certified infinitesimal jet protects every five-packet origin cluster',
@@ -2487,7 +2487,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T192',
-    color: '#facc15',
+    color: '#b58a2e',
     status:
       'DEGREE-SIXTEEN JETS POSITIVE · 512-BIT ARB · SEVENTEEN PACKETS LOCALLY PROTECTED',
     title: 'The rigorous finite frontier now reaches seventeen translated packets',
@@ -2502,7 +2502,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T193',
-    color: '#fb7185',
+    color: '#c23a1c',
     status:
       'CANONICAL-ROOT SHORTCUT REFUTED · EXACT −1/216 MODEL WITNESS · THETA DEFORMATIONS OPEN',
     title: 'The near-null root lattice does not inherit translated-packet positivity',
@@ -2517,7 +2517,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T194',
-    color: '#38bdf8',
+    color: '#3f6b86',
     status:
       'WHOLE-TAIL FIXED-ORDER POSITIVITY · SECH LIMIT · THREE-PACKET RISK TOUCHES LEFT INTERVAL',
     title: 'Every fixed packet count is eventually positive on the translation tail',
@@ -2532,7 +2532,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T195',
-    color: '#c084fc',
+    color: '#6d55b8',
     status:
       'STRICT THREE-PACKET REDUCTION · ALL ESCAPES POSITIVE · COMPACT INTERIOR CERTIFICATE OPEN',
     title: 'Every possible three-packet obstruction lies in one compact interval',
@@ -2547,7 +2547,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T196',
-    color: '#34d399',
+    color: '#4c7a4a',
     status:
       'RIGOROUS 0≤T≤2 COLLISION COVER · 4096 ARB BOXES · GLOBAL THREE-PACKET SIGN OPEN',
     title: 'The translated triple-collision jet is positive on its first two units',
@@ -2562,7 +2562,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T197',
-    color: '#22d3ee',
+    color: '#3f6b86',
     status:
       'RIGOROUS T≥2 TAIL JOIN · COMPLETE TRIPLE-COLLISION FACE · NONCONFLUENT INTERIOR OPEN',
     title: 'The translated triple-collision jet is positive for every translation',
@@ -2577,7 +2577,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
   },
   {
     id: 'T198',
-    color: '#a78bfa',
+    color: '#6d55b8',
     status:
       'RIGOROUS ORIGIN-SLICE INTERIOR RECTANGLE · EXPLORATORY MINIMUM INCLUDED · COMPLEMENT OPEN',
     title: 'The hardest resolved origin-slice rectangle is positive',
@@ -2596,7 +2596,7 @@ const DYSON_LANE_RESIDUALS = [
   {
     id: 'R1',
     tag: 'sg1c-r1-excursion-cap',
-    color: '#f97316',
+    color: '#b58a2e',
     badge: 'DYNAMICAL REACHABILITY',
     title: 'R1: Excursion-cap dynamical reachability',
     status: 'OPEN',
@@ -2624,7 +2624,7 @@ const DYSON_LANE_RESIDUALS = [
   {
     id: 'R2',
     tag: 'sg1c-r2-isolation-persistence',
-    color: '#a78bfa',
+    color: '#6d55b8',
     badge: 'OBSERVED RANGE · NO LOWER BOUND',
     title: 'R2: sampled asymmetric isolation onsets (' +
       C_OBSERVED_MIN.toFixed(7) + ', ' + C_ASYM.toFixed(7) + ')',
@@ -2653,7 +2653,7 @@ const DYSON_LANE_RESIDUALS = [
   {
     id: 'G6a',
     tag: 'step-4-polymath15-bridge',
-    color: '#22d3ee',
+    color: '#3f6b86',
     badge: 'PARTIAL CLOSURE',
     title: 'G6a: Step-4 Polymath15 bridge — G6a_shock_lipschitz',
     status: 'OPEN (PARTIAL)',
@@ -2716,8 +2716,8 @@ export default function OpenFrontierPage() {
         subtitle="One exact global RH-equivalent frontier, with separate subsidiary research lanes"
       />
 
-      <div className="card" style={{ marginBottom: 20, borderLeft: '3px solid #64748b' }}>
-        <p style={{ fontSize: 13, color: '#94a3b8', margin: 0, lineHeight: 1.65 }}>
+      <div className="card" style={{ marginBottom: 20, borderLeft: '3px solid #877b67' }}>
+        <p style={{ fontSize: 13, color: '#877b67', margin: 0, lineHeight: 1.65 }}>
           The canonical global frontier is the exact T3 residual below. It is the
           current full-strength Twin Ladder formulation of RH and is not yet a
           simplification of RH. The R1, R2, and G6a questions remain useful
@@ -2726,7 +2726,7 @@ export default function OpenFrontierPage() {
         </p>
       </div>
 
-      <div className="card" style={{ marginBottom: 22, borderLeft: '4px solid #38bdf8' }}>
+      <div className="card" style={{ marginBottom: 22, borderLeft: '4px solid #3f6b86' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8, flexWrap: 'wrap' }}>
           <span
             style={{
@@ -2734,20 +2734,20 @@ export default function OpenFrontierPage() {
               fontSize: 10.5,
               fontWeight: 700,
               letterSpacing: 0.45,
-              color: '#7dd3fc',
-              border: '1px solid #38bdf8',
+              color: '#3f6b86',
+              border: '1px solid #3f6b86',
               borderRadius: 4,
               padding: '2px 7px',
             }}
           >
             LATEST AUDITED CHECKPOINT
           </span>
-          <code style={{ fontSize: 11, color: '#94a3b8' }}>T47–T198 · 2026-07-29</code>
+          <code style={{ fontSize: 11, color: '#877b67' }}>T47–T198 · 2026-07-29</code>
         </div>
-        <h2 style={{ color: '#e0f2fe', fontSize: 15, margin: 0 }}>
+        <h2 style={{ color: '#3f6b86', fontSize: 15, margin: 0 }}>
           What the resumed Twin Ladder attack actually established
         </h2>
-        <p style={{ color: '#94a3b8', fontSize: 12.5, lineHeight: 1.65, margin: '8px 0 12px' }}>
+        <p style={{ color: '#877b67', fontSize: 12.5, lineHeight: 1.65, margin: '8px 0 12px' }}>
           These are proved identities, equivalences, and tail theorems together
           with explicitly labeled finite conjectural evidence. None supplies the
           missing arithmetic bound, and RH remains open.
@@ -2787,32 +2787,32 @@ export default function OpenFrontierPage() {
                   {item.status}
                 </span>
               </div>
-              <h3 style={{ color: '#e2e8f0', fontSize: 12.5, margin: '7px 0 0' }}>
+              <h3 style={{ color: '#1c1814', fontSize: 12.5, margin: '7px 0 0' }}>
                 {item.title}
               </h3>
               <code
                 style={{
                   display: 'block',
-                  color: '#cbd5e1',
+                  color: '#4a4238',
                   fontSize: 10.5,
                   lineHeight: 1.5,
                   marginTop: 8,
                   padding: '7px 8px',
                   borderRadius: 5,
-                  background: 'rgba(15,23,42,0.52)',
+                  background: '#f6f1e7',
                   overflowX: 'auto',
                 }}
               >
                 {item.formula}
               </code>
-              <p style={{ color: '#94a3b8', fontSize: 11.5, lineHeight: 1.55, margin: '8px 0 0' }}>
+              <p style={{ color: '#877b67', fontSize: 11.5, lineHeight: 1.55, margin: '8px 0 0' }}>
                 {item.detail}
               </p>
               {item.certificate && (
                 <code
                   style={{
                     display: 'block',
-                    color: '#64748b',
+                    color: '#877b67',
                     fontSize: 9.5,
                     lineHeight: 1.45,
                     marginTop: 8,
@@ -2851,17 +2851,17 @@ export default function OpenFrontierPage() {
               fontFamily: 'var(--font-mono, monospace)',
               fontSize: 10.5,
               fontWeight: 700,
-              color: '#ef4444',
-              border: '1px solid #ef4444',
+              color: '#c23a1c',
+              border: '1px solid #c23a1c',
               borderRadius: 4,
               padding: '1px 6px',
             }}
           >
             {GLOBAL_FRONTIER.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>{GLOBAL_FRONTIER.tag}</code>
+          <code style={{ fontSize: 11, color: '#877b67' }}>{GLOBAL_FRONTIER.tag}</code>
         </div>
-        <strong style={{ color: '#f8fafc', fontSize: 15, display: 'block', marginBottom: 10 }}>
+        <strong style={{ color: '#1c1814', fontSize: 15, display: 'block', marginBottom: 10 }}>
           {GLOBAL_FRONTIER.title}
         </strong>
         <div
@@ -2870,7 +2870,7 @@ export default function OpenFrontierPage() {
             padding: '10px 12px',
             borderRadius: 6,
             background: 'rgba(239,68,68,0.07)',
-            color: '#fecaca',
+            color: '#c23a1c',
             fontFamily: 'var(--font-mono, monospace)',
             fontSize: 13,
             overflowX: 'auto',
@@ -2879,7 +2879,7 @@ export default function OpenFrontierPage() {
           D<sub>a,R</sub> + K<sub>a</sub><sup>(S)</sup> ⪰ −K<sub>a,0</sub>
         </div>
         {GLOBAL_FRONTIER.body.map((para, i) => (
-          <p key={i} style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.65, marginTop: i === 0 ? 0 : 10, marginBottom: 0 }}>
+          <p key={i} style={{ fontSize: 13, color: '#877b67', lineHeight: 1.65, marginTop: i === 0 ? 0 : 10, marginBottom: 0 }}>
             {para}
           </p>
         ))}
@@ -2898,7 +2898,7 @@ export default function OpenFrontierPage() {
 
       <div
         className="card"
-        style={{ marginBottom: 22, borderLeft: '4px solid #f59e0b' }}
+        style={{ marginBottom: 22, borderLeft: '4px solid #b58a2e' }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10, flexWrap: 'wrap' }}>
           <span
@@ -2907,20 +2907,20 @@ export default function OpenFrontierPage() {
               fontSize: 10.5,
               fontWeight: 700,
               letterSpacing: 0.45,
-              color: '#fbbf24',
-              border: '1px solid #f59e0b',
+              color: '#b58a2e',
+              border: '1px solid #b58a2e',
               borderRadius: 4,
               padding: '2px 7px',
             }}
           >
             {CHANNEL_SPLIT_CERTIFICATE.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T11 · exact Riemann kernel</code>
+          <code style={{ fontSize: 11, color: '#877b67' }}>T11 · exact Riemann kernel</code>
         </div>
-        <strong style={{ color: '#fde68a', fontSize: 15, display: 'block', marginBottom: 8 }}>
+        <strong style={{ color: '#b58a2e', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {CHANNEL_SPLIT_CERTIFICATE.title}
         </strong>
-        <p style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: '#4a4238', fontSize: 13, lineHeight: 1.65, margin: 0 }}>
           On the certified block <code>{CHANNEL_SPLIT_CERTIFICATE.configuration}</code>,
           the coupled matrix K<sub>a,0</sub> + D<sub>a,R</sub> +
           K<sub>a</sub><sup>(S)</sup> is positive definite. Separate
@@ -2943,7 +2943,7 @@ export default function OpenFrontierPage() {
                 borderRadius: 5,
                 background: 'rgba(245,158,11,0.08)',
                 border: '1px solid rgba(245,158,11,0.25)',
-                color: '#fde68a',
+                color: '#b58a2e',
                 fontSize: 12,
               }}
             >
@@ -2951,7 +2951,7 @@ export default function OpenFrontierPage() {
             </code>
           ))}
         </div>
-        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: '#877b67', fontSize: 13, lineHeight: 1.65, margin: 0 }}>
           The radial witness is stronger: <code>{CHANNEL_SPLIT_CERTIFICATE.radialFullCore}</code>.
           Any PSD partition P<sub>R</sub> + P<sub>S</sub> = G<sub>0</sub> has
           P<sub>R</sub> ⪯ G<sub>0</sub>, so that same witness remains negative
@@ -2962,10 +2962,10 @@ export default function OpenFrontierPage() {
           The live target is direct radial/shear cancellation, a genuinely new
           positive resource, or a different zeta-specific mechanism.
         </p>
-        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.65, margin: '10px 0 0' }}>
+        <p style={{ color: '#877b67', fontSize: 13, lineHeight: 1.65, margin: '10px 0 0' }}>
           {CHANNEL_SPLIT_CERTIFICATE.coupledTarget}
         </p>
-        <p style={{ color: '#64748b', fontSize: 11.5, lineHeight: 1.55, margin: '10px 0 0' }}>
+        <p style={{ color: '#877b67', fontSize: 11.5, lineHeight: 1.55, margin: '10px 0 0' }}>
           Certificate method: {CHANNEL_SPLIT_CERTIFICATE.method}.
         </p>
         <div
@@ -2977,10 +2977,10 @@ export default function OpenFrontierPage() {
             border: '1px solid rgba(56,189,248,0.22)',
           }}
         >
-          <strong style={{ color: '#7dd3fc', fontSize: 13 }}>
+          <strong style={{ color: '#3f6b86', fontSize: 13 }}>
             Confluent derivative-jet refinement
           </strong>
-          <p style={{ color: '#cbd5e1', fontSize: 12.5, lineHeight: 1.65, margin: '8px 0 0' }}>
+          <p style={{ color: '#4a4238', fontSize: 12.5, lineHeight: 1.65, margin: '8px 0 0' }}>
             The obstruction survives after all evaluation points coalesce:
             <code style={{ marginLeft: 5 }}>{CHANNEL_SPLIT_CERTIFICATE.jetConfiguration}</code>.
             At order two, <code>{CHANNEL_SPLIT_CERTIFICATE.jetOrder2}</code>, while the
@@ -2993,7 +2993,7 @@ export default function OpenFrontierPage() {
               marginTop: 8,
               padding: '7px 9px',
               borderRadius: 5,
-              color: '#bae6fd',
+              color: '#3f6b86',
               background: 'rgba(14,165,233,0.08)',
               fontSize: 11.5,
               overflowX: 'auto',
@@ -3001,7 +3001,7 @@ export default function OpenFrontierPage() {
           >
             {CHANNEL_SPLIT_CERTIFICATE.jetOrder2Rescue}
           </code>
-          <p style={{ color: '#94a3b8', fontSize: 12.5, lineHeight: 1.65, margin: '9px 0 0' }}>
+          <p style={{ color: '#877b67', fontSize: 12.5, lineHeight: 1.65, margin: '9px 0 0' }}>
             Order four is stricter: under one fixed rational, basis-dependent
             Schur/LDL split, <code>{CHANNEL_SPLIT_CERTIFICATE.jetOrder4}</code>.
             Core plus shear plus N has a negative witness; restoring Q gives the
@@ -3013,7 +3013,7 @@ export default function OpenFrontierPage() {
               marginTop: 8,
               padding: '7px 9px',
               borderRadius: 5,
-              color: '#bae6fd',
+              color: '#3f6b86',
               background: 'rgba(14,165,233,0.08)',
               fontSize: 11.5,
               overflowX: 'auto',
@@ -3021,7 +3021,7 @@ export default function OpenFrontierPage() {
           >
             {CHANNEL_SPLIT_CERTIFICATE.jetOrder4Rescue}
           </code>
-          <p style={{ color: '#64748b', fontSize: 11.5, lineHeight: 1.55, margin: '9px 0 0' }}>
+          <p style={{ color: '#877b67', fontSize: 11.5, lineHeight: 1.55, margin: '9px 0 0' }}>
             This refutes discarding that positive radial component before
             estimating the negative component. It is not a universal statement
             about every radial split and does not prove T3 or RH. Certificate
@@ -3032,7 +3032,7 @@ export default function OpenFrontierPage() {
 
       <div
         className="card"
-        style={{ marginBottom: 22, borderLeft: '4px solid #a78bfa' }}
+        style={{ marginBottom: 22, borderLeft: '4px solid #6d55b8' }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10, flexWrap: 'wrap' }}>
           <span
@@ -3041,20 +3041,20 @@ export default function OpenFrontierPage() {
               fontSize: 10.5,
               fontWeight: 700,
               letterSpacing: 0.45,
-              color: '#c4b5fd',
-              border: '1px solid #8b5cf6',
+              color: '#6d55b8',
+              border: '1px solid #6d55b8',
               borderRadius: 4,
               padding: '2px 7px',
             }}
           >
             {ONE_POINT_JET_HIERARCHY.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T13–T15 · full coupled kernel</code>
+          <code style={{ fontSize: 11, color: '#877b67' }}>T13–T15 · full coupled kernel</code>
         </div>
-        <strong style={{ color: '#ddd6fe', fontSize: 15, display: 'block', marginBottom: 8 }}>
+        <strong style={{ color: '#6d55b8', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {ONE_POINT_JET_HIERARCHY.title}
         </strong>
-        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: '#877b67', fontSize: 13, lineHeight: 1.65, margin: 0 }}>
           {ONE_POINT_JET_HIERARCHY.caveat}
         </p>
         <div
@@ -3073,7 +3073,7 @@ export default function OpenFrontierPage() {
                 borderRadius: 5,
                 background: 'rgba(139,92,246,0.08)',
                 border: '1px solid rgba(167,139,250,0.25)',
-                color: '#ddd6fe',
+                color: '#6d55b8',
                 fontSize: 11.5,
                 overflowX: 'auto',
               }}
@@ -3082,10 +3082,10 @@ export default function OpenFrontierPage() {
             </code>
           ))}
         </div>
-        <p style={{ color: '#a78bfa', fontSize: 12.5, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: '#6d55b8', fontSize: 12.5, lineHeight: 1.65, margin: 0 }}>
           {ONE_POINT_JET_HIERARCHY.finiteWarning}
         </p>
-        <p style={{ color: '#64748b', fontSize: 11.5, lineHeight: 1.55, margin: '9px 0 0' }}>
+        <p style={{ color: '#877b67', fontSize: 11.5, lineHeight: 1.55, margin: '9px 0 0' }}>
           A single fixed-a hierarchy may also be weaker than strict
           Hermite–Biehler positivity when shifted zeros cancel. The exact
           RH-equivalent obligation remains the all-order hierarchy along
@@ -3096,7 +3096,7 @@ export default function OpenFrontierPage() {
 
       <div
         className="card"
-        style={{ marginBottom: 22, borderLeft: '4px solid #14b8a6' }}
+        style={{ marginBottom: 22, borderLeft: '4px solid #4c7a4a' }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10, flexWrap: 'wrap' }}>
           <span
@@ -3105,20 +3105,20 @@ export default function OpenFrontierPage() {
               fontSize: 10.5,
               fontWeight: 700,
               letterSpacing: 0.45,
-              color: '#5eead4',
-              border: '1px solid #14b8a6',
+              color: '#4c7a4a',
+              border: '1px solid #4c7a4a',
               borderRadius: 4,
               padding: '2px 7px',
             }}
           >
             {MARKOV_NORMALIZATION.status}
           </span>
-          <code style={{ fontSize: 11, color: '#64748b' }}>T18–T198 · Markov / divisor / explicit-formula frontier</code>
+          <code style={{ fontSize: 11, color: '#877b67' }}>T18–T198 · Markov / divisor / explicit-formula frontier</code>
         </div>
-        <strong style={{ color: '#99f6e4', fontSize: 15, display: 'block', marginBottom: 8 }}>
+        <strong style={{ color: '#4c7a4a', fontSize: 15, display: 'block', marginBottom: 8 }}>
           {MARKOV_NORMALIZATION.title}
         </strong>
-        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: '#877b67', fontSize: 13, lineHeight: 1.65, margin: 0 }}>
           {MARKOV_NORMALIZATION.structure}{' '}
           {MARKOV_NORMALIZATION.structureT122}{' '}
           {MARKOV_NORMALIZATION.structureT123}{' '}
@@ -3394,7 +3394,7 @@ export default function OpenFrontierPage() {
                 borderRadius: 5,
                 background: 'rgba(20,184,166,0.08)',
                 border: '1px solid rgba(45,212,191,0.25)',
-                color: '#ccfbf1',
+                color: '#4c7a4a',
                 fontSize: 11.5,
                 overflowX: 'auto',
               }}
@@ -3403,10 +3403,10 @@ export default function OpenFrontierPage() {
             </code>
           ))}
         </div>
-        <p style={{ color: '#5eead4', fontSize: 12.5, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: '#4c7a4a', fontSize: 12.5, lineHeight: 1.65, margin: 0 }}>
           {MARKOV_NORMALIZATION.routeAudit}
         </p>
-        <p style={{ color: '#64748b', fontSize: 11.5, lineHeight: 1.55, margin: '9px 0 0' }}>
+        <p style={{ color: '#877b67', fontSize: 11.5, lineHeight: 1.55, margin: '9px 0 0' }}>
           Sharpened surviving target: either prove the exact full-theta same-sign block
           𝒜<sub>aₙ</sub> is positive at infinitely many points of one explicit sequence
           a<sub>n</sub> → 0, or construct the positive half-Poisson measure directly from
@@ -4584,9 +4584,9 @@ export default function OpenFrontierPage() {
         </p>
       </div>
 
-      <div className="card" style={{ marginBottom: 18, borderLeft: '3px solid #38bdf8' }}>
-        <strong style={{ color: '#7dd3fc', fontSize: 13 }}>Separate Dyson / collision-flow lane</strong>
-        <p style={{ fontSize: 13, color: '#94a3b8', margin: '8px 0 0', lineHeight: 1.65 }}>
+      <div className="card" style={{ marginBottom: 18, borderLeft: '3px solid #3f6b86' }}>
+        <strong style={{ color: '#3f6b86', fontSize: 13 }}>Separate Dyson / collision-flow lane</strong>
+        <p style={{ fontSize: 13, color: '#877b67', margin: '8px 0 0', lineHeight: 1.65 }}>
           The three records below track internal residuals of the dynamical
           de Bruijn–Newman program. They can sharpen subsidiary flow estimates
           or eliminate proposed mechanisms. Closing them would not, by itself,
@@ -4620,21 +4620,21 @@ export default function OpenFrontierPage() {
                 fontFamily: 'var(--font-mono, monospace)',
                 fontSize: 10.5,
                 fontWeight: 700,
-                color: r.status === 'OPEN' ? '#ef4444' : '#f97316',
-                border: "1px solid " + (r.status === 'OPEN' ? '#ef4444' : '#f97316'),
+                color: r.status === 'OPEN' ? '#c23a1c' : '#b58a2e',
+                border: "1px solid " + (r.status === 'OPEN' ? '#c23a1c' : '#b58a2e'),
                 borderRadius: 4,
                 padding: '1px 6px',
               }}
             >
               {r.status}
             </span>
-            <code style={{ fontSize: 11, color: '#64748b' }}>{r.tag}</code>
+            <code style={{ fontSize: 11, color: '#877b67' }}>{r.tag}</code>
           </div>
-          <strong style={{ color: '#e2e8f0', fontSize: 14, display: 'block', marginBottom: 10 }}>
+          <strong style={{ color: '#1c1814', fontSize: 14, display: 'block', marginBottom: 10 }}>
             {r.title}
           </strong>
           {r.body.map((para, i) => (
-            <p key={i} style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.65, marginTop: i === 0 ? 0 : 10, marginBottom: 0 }}>
+            <p key={i} style={{ fontSize: 13, color: '#877b67', lineHeight: 1.65, marginTop: i === 0 ? 0 : 10, marginBottom: 0 }}>
               {para}
             </p>
           ))}
@@ -4654,9 +4654,9 @@ export default function OpenFrontierPage() {
         </div>
       ))}
 
-      <div className="card" style={{ marginTop: 8, borderLeft: '3px solid #64748b' }}>
-        <div style={{ fontSize: 12.5, color: '#94a3b8', lineHeight: 1.65 }}>
-          <strong style={{ color: '#cbd5e1' }}>Scope separation:</strong>{' '}
+      <div className="card" style={{ marginTop: 8, borderLeft: '3px solid #877b67' }}>
+        <div style={{ fontSize: 12.5, color: '#877b67', lineHeight: 1.65 }}>
+          <strong style={{ color: '#4a4238' }}>Scope separation:</strong>{' '}
           The Theorem-C Lipschitz basin (C_Lip, requiring only c &le; 0.72) does
           not depend on closing R2. The static-obstruction chain inside R1 is
           rigorous, while the 34-run excursion study remains finite empirical
@@ -4668,10 +4668,10 @@ export default function OpenFrontierPage() {
 
       <div className="card" style={{ marginTop: 10 }}>
         <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', fontSize: 12.5 }}>
-          <Link to="/state-of-program" style={{ color: '#94a3b8' }}>State of the Program</Link>
-          <Link to="/route-map" style={{ color: '#94a3b8' }}>Route Map</Link>
-          <Link to="/rh-dag" style={{ color: '#94a3b8' }}>Proof DAG</Link>
-          <Link to="/spectral-attack" style={{ color: '#94a3b8' }}>Spectral Attack</Link>
+          <Link to="/state-of-program" style={{ color: '#877b67' }}>State of the Program</Link>
+          <Link to="/route-map" style={{ color: '#877b67' }}>Route Map</Link>
+          <Link to="/rh-dag" style={{ color: '#877b67' }}>Proof DAG</Link>
+          <Link to="/spectral-attack" style={{ color: '#877b67' }}>Spectral Attack</Link>
         </div>
       </div>
     </div>
